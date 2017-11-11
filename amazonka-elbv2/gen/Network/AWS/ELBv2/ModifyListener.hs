@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyListener
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,22 +44,23 @@ module Network.AWS.ELBv2.ModifyListener
     , mlrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyListener' smart constructor.
 data ModifyListener = ModifyListener'
-    { _mlSSLPolicy      :: !(Maybe Text)
-    , _mlProtocol       :: !(Maybe ProtocolEnum)
-    , _mlDefaultActions :: !(Maybe [Action])
-    , _mlCertificates   :: !(Maybe [Certificate])
-    , _mlPort           :: !(Maybe Nat)
-    , _mlListenerARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlSSLPolicy      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlProtocol       :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
+  , _mlDefaultActions :: {-# NOUNPACK #-}!(Maybe [Action])
+  , _mlCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
+  , _mlPort           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mlListenerARN    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyListener' with the minimum fields required to make a request.
 --
@@ -80,14 +81,15 @@ modifyListener
     :: Text -- ^ 'mlListenerARN'
     -> ModifyListener
 modifyListener pListenerARN_ =
-    ModifyListener'
-    { _mlSSLPolicy = Nothing
-    , _mlProtocol = Nothing
-    , _mlDefaultActions = Nothing
-    , _mlCertificates = Nothing
-    , _mlPort = Nothing
-    , _mlListenerARN = pListenerARN_
-    }
+  ModifyListener'
+  { _mlSSLPolicy = Nothing
+  , _mlProtocol = Nothing
+  , _mlDefaultActions = Nothing
+  , _mlCertificates = Nothing
+  , _mlPort = Nothing
+  , _mlListenerARN = pListenerARN_
+  }
+
 
 -- | The security policy that defines which protocols and ciphers are supported. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
 mlSSLPolicy :: Lens' ModifyListener (Maybe Text)
@@ -124,9 +126,9 @@ instance AWSRequest ModifyListener where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ModifyListener
+instance Hashable ModifyListener where
 
-instance NFData ModifyListener
+instance NFData ModifyListener where
 
 instance ToHeaders ModifyListener where
         toHeaders = const mempty
@@ -149,9 +151,10 @@ instance ToQuery ModifyListener where
 
 -- | /See:/ 'modifyListenerResponse' smart constructor.
 data ModifyListenerResponse = ModifyListenerResponse'
-    { _mlrsListeners      :: !(Maybe [Listener])
-    , _mlrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlrsListeners      :: {-# NOUNPACK #-}!(Maybe [Listener])
+  , _mlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyListenerResponse' with the minimum fields required to make a request.
 --
@@ -164,10 +167,9 @@ modifyListenerResponse
     :: Int -- ^ 'mlrsResponseStatus'
     -> ModifyListenerResponse
 modifyListenerResponse pResponseStatus_ =
-    ModifyListenerResponse'
-    { _mlrsListeners = Nothing
-    , _mlrsResponseStatus = pResponseStatus_
-    }
+  ModifyListenerResponse'
+  {_mlrsListeners = Nothing, _mlrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the modified listeners.
 mlrsListeners :: Lens' ModifyListenerResponse [Listener]
@@ -177,4 +179,4 @@ mlrsListeners = lens _mlrsListeners (\ s a -> s{_mlrsListeners = a}) . _Default 
 mlrsResponseStatus :: Lens' ModifyListenerResponse Int
 mlrsResponseStatus = lens _mlrsResponseStatus (\ s a -> s{_mlrsResponseStatus = a});
 
-instance NFData ModifyListenerResponse
+instance NFData ModifyListenerResponse where

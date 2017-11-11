@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AddFacetToObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.CloudDirectory.AddFacetToObject
     , aftorsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addFacetToObject' smart constructor.
 data AddFacetToObject = AddFacetToObject'
-    { _aftoObjectAttributeList :: !(Maybe [AttributeKeyAndValue])
-    , _aftoDirectoryARN        :: !Text
-    , _aftoSchemaFacet         :: !SchemaFacet
-    , _aftoObjectReference     :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aftoObjectAttributeList :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
+  , _aftoDirectoryARN        :: {-# NOUNPACK #-}!Text
+  , _aftoSchemaFacet         :: {-# NOUNPACK #-}!SchemaFacet
+  , _aftoObjectReference     :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddFacetToObject' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ addFacetToObject
     -> ObjectReference -- ^ 'aftoObjectReference'
     -> AddFacetToObject
 addFacetToObject pDirectoryARN_ pSchemaFacet_ pObjectReference_ =
-    AddFacetToObject'
-    { _aftoObjectAttributeList = Nothing
-    , _aftoDirectoryARN = pDirectoryARN_
-    , _aftoSchemaFacet = pSchemaFacet_
-    , _aftoObjectReference = pObjectReference_
-    }
+  AddFacetToObject'
+  { _aftoObjectAttributeList = Nothing
+  , _aftoDirectoryARN = pDirectoryARN_
+  , _aftoSchemaFacet = pSchemaFacet_
+  , _aftoObjectReference = pObjectReference_
+  }
+
 
 -- | Attributes on the facet that you are adding to the object.
 aftoObjectAttributeList :: Lens' AddFacetToObject [AttributeKeyAndValue]
@@ -102,9 +104,9 @@ instance AWSRequest AddFacetToObject where
               (\ s h x ->
                  AddFacetToObjectResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AddFacetToObject
+instance Hashable AddFacetToObject where
 
-instance NFData AddFacetToObject
+instance NFData AddFacetToObject where
 
 instance ToHeaders AddFacetToObject where
         toHeaders AddFacetToObject'{..}
@@ -130,8 +132,9 @@ instance ToQuery AddFacetToObject where
 
 -- | /See:/ 'addFacetToObjectResponse' smart constructor.
 newtype AddFacetToObjectResponse = AddFacetToObjectResponse'
-    { _aftorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aftorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddFacetToObjectResponse' with the minimum fields required to make a request.
 --
@@ -142,12 +145,11 @@ addFacetToObjectResponse
     :: Int -- ^ 'aftorsResponseStatus'
     -> AddFacetToObjectResponse
 addFacetToObjectResponse pResponseStatus_ =
-    AddFacetToObjectResponse'
-    { _aftorsResponseStatus = pResponseStatus_
-    }
+  AddFacetToObjectResponse' {_aftorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aftorsResponseStatus :: Lens' AddFacetToObjectResponse Int
 aftorsResponseStatus = lens _aftorsResponseStatus (\ s a -> s{_aftorsResponseStatus = a});
 
-instance NFData AddFacetToObjectResponse
+instance NFData AddFacetToObjectResponse where

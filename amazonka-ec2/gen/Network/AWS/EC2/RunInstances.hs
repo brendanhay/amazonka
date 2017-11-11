@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RunInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -92,12 +92,12 @@ module Network.AWS.EC2.RunInstances
     , rOwnerId
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RunInstances.
 --
@@ -105,34 +105,35 @@ import           Network.AWS.Response
 --
 -- /See:/ 'runInstances' smart constructor.
 data RunInstances = RunInstances'
-    { _rAdditionalInfo                    :: !(Maybe Text)
-    , _rSecurityGroupIds                  :: !(Maybe [Text])
-    , _rSecurityGroups                    :: !(Maybe [Text])
-    , _rClientToken                       :: !(Maybe Text)
-    , _rDisableAPITermination             :: !(Maybe Bool)
-    , _rKeyName                           :: !(Maybe Text)
-    , _rNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
-    , _rRAMDiskId                         :: !(Maybe Text)
-    , _rSubnetId                          :: !(Maybe Text)
-    , _rKernelId                          :: !(Maybe Text)
-    , _rInstanceType                      :: !(Maybe InstanceType)
-    , _rEBSOptimized                      :: !(Maybe Bool)
-    , _rUserData                          :: !(Maybe Text)
-    , _rMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
-    , _rTagSpecifications                 :: !(Maybe [TagSpecification])
-    , _rIPv6AddressCount                  :: !(Maybe Int)
-    , _rIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
-    , _rElasticGpuSpecification           :: !(Maybe [ElasticGpuSpecification])
-    , _rPrivateIPAddress                  :: !(Maybe Text)
-    , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
-    , _rBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
-    , _rDryRun                            :: !(Maybe Bool)
-    , _rPlacement                         :: !(Maybe Placement)
-    , _rIPv6Addresses                     :: !(Maybe [InstanceIPv6Address])
-    , _rImageId                           :: !Text
-    , _rMaxCount                          :: !Int
-    , _rMinCount                          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rAdditionalInfo :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDisableAPITermination :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rKeyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rNetworkInterfaces :: {-# NOUNPACK #-}!(Maybe [InstanceNetworkInterfaceSpecification])
+  , _rRAMDiskId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rKernelId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rInstanceType :: {-# NOUNPACK #-}!(Maybe InstanceType)
+  , _rEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rUserData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rMonitoring :: {-# NOUNPACK #-}!(Maybe RunInstancesMonitoringEnabled)
+  , _rTagSpecifications :: {-# NOUNPACK #-}!(Maybe [TagSpecification])
+  , _rIPv6AddressCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rIAMInstanceProfile :: {-# NOUNPACK #-}!(Maybe IAMInstanceProfileSpecification)
+  , _rElasticGpuSpecification :: {-# NOUNPACK #-}!(Maybe [ElasticGpuSpecification])
+  , _rPrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rInstanceInitiatedShutdownBehavior :: {-# NOUNPACK #-}!(Maybe ShutdownBehavior)
+  , _rBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
+  , _rDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rPlacement :: {-# NOUNPACK #-}!(Maybe Placement)
+  , _rIPv6Addresses :: {-# NOUNPACK #-}!(Maybe [InstanceIPv6Address])
+  , _rImageId :: {-# NOUNPACK #-}!Text
+  , _rMaxCount :: {-# NOUNPACK #-}!Int
+  , _rMinCount :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunInstances' with the minimum fields required to make a request.
 --
@@ -197,35 +198,36 @@ runInstances
     -> Int -- ^ 'rMinCount'
     -> RunInstances
 runInstances pImageId_ pMaxCount_ pMinCount_ =
-    RunInstances'
-    { _rAdditionalInfo = Nothing
-    , _rSecurityGroupIds = Nothing
-    , _rSecurityGroups = Nothing
-    , _rClientToken = Nothing
-    , _rDisableAPITermination = Nothing
-    , _rKeyName = Nothing
-    , _rNetworkInterfaces = Nothing
-    , _rRAMDiskId = Nothing
-    , _rSubnetId = Nothing
-    , _rKernelId = Nothing
-    , _rInstanceType = Nothing
-    , _rEBSOptimized = Nothing
-    , _rUserData = Nothing
-    , _rMonitoring = Nothing
-    , _rTagSpecifications = Nothing
-    , _rIPv6AddressCount = Nothing
-    , _rIAMInstanceProfile = Nothing
-    , _rElasticGpuSpecification = Nothing
-    , _rPrivateIPAddress = Nothing
-    , _rInstanceInitiatedShutdownBehavior = Nothing
-    , _rBlockDeviceMappings = Nothing
-    , _rDryRun = Nothing
-    , _rPlacement = Nothing
-    , _rIPv6Addresses = Nothing
-    , _rImageId = pImageId_
-    , _rMaxCount = pMaxCount_
-    , _rMinCount = pMinCount_
-    }
+  RunInstances'
+  { _rAdditionalInfo = Nothing
+  , _rSecurityGroupIds = Nothing
+  , _rSecurityGroups = Nothing
+  , _rClientToken = Nothing
+  , _rDisableAPITermination = Nothing
+  , _rKeyName = Nothing
+  , _rNetworkInterfaces = Nothing
+  , _rRAMDiskId = Nothing
+  , _rSubnetId = Nothing
+  , _rKernelId = Nothing
+  , _rInstanceType = Nothing
+  , _rEBSOptimized = Nothing
+  , _rUserData = Nothing
+  , _rMonitoring = Nothing
+  , _rTagSpecifications = Nothing
+  , _rIPv6AddressCount = Nothing
+  , _rIAMInstanceProfile = Nothing
+  , _rElasticGpuSpecification = Nothing
+  , _rPrivateIPAddress = Nothing
+  , _rInstanceInitiatedShutdownBehavior = Nothing
+  , _rBlockDeviceMappings = Nothing
+  , _rDryRun = Nothing
+  , _rPlacement = Nothing
+  , _rIPv6Addresses = Nothing
+  , _rImageId = pImageId_
+  , _rMaxCount = pMaxCount_
+  , _rMinCount = pMinCount_
+  }
+
 
 -- | Reserved.
 rAdditionalInfo :: Lens' RunInstances (Maybe Text)
@@ -340,9 +342,9 @@ instance AWSRequest RunInstances where
         request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
-instance Hashable RunInstances
+instance Hashable RunInstances where
 
-instance NFData RunInstances
+instance NFData RunInstances where
 
 instance ToHeaders RunInstances where
         toHeaders = const mempty

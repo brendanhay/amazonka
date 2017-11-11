@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketTagging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -32,17 +32,18 @@ module Network.AWS.S3.DeleteBucketTagging
     , DeleteBucketTaggingResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketTagging' smart constructor.
 newtype DeleteBucketTagging = DeleteBucketTagging'
-    { _dbtBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbtBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketTagging' with the minimum fields required to make a request.
 --
@@ -52,10 +53,8 @@ newtype DeleteBucketTagging = DeleteBucketTagging'
 deleteBucketTagging
     :: BucketName -- ^ 'dbtBucket'
     -> DeleteBucketTagging
-deleteBucketTagging pBucket_ =
-    DeleteBucketTagging'
-    { _dbtBucket = pBucket_
-    }
+deleteBucketTagging pBucket_ = DeleteBucketTagging' {_dbtBucket = pBucket_}
+
 
 -- | Undocumented member.
 dbtBucket :: Lens' DeleteBucketTagging BucketName
@@ -67,9 +66,9 @@ instance AWSRequest DeleteBucketTagging where
         request = delete s3
         response = receiveNull DeleteBucketTaggingResponse'
 
-instance Hashable DeleteBucketTagging
+instance Hashable DeleteBucketTagging where
 
-instance NFData DeleteBucketTagging
+instance NFData DeleteBucketTagging where
 
 instance ToHeaders DeleteBucketTagging where
         toHeaders = const mempty
@@ -83,8 +82,9 @@ instance ToQuery DeleteBucketTagging where
 
 -- | /See:/ 'deleteBucketTaggingResponse' smart constructor.
 data DeleteBucketTaggingResponse =
-    DeleteBucketTaggingResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketTaggingResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketTaggingResponse' with the minimum fields required to make a request.
 --
@@ -92,4 +92,5 @@ deleteBucketTaggingResponse
     :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse'
 
-instance NFData DeleteBucketTaggingResponse
+
+instance NFData DeleteBucketTaggingResponse where

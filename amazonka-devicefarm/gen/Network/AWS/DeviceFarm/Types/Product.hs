@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DeviceFarm.Types.Product where
 
-import           Network.AWS.DeviceFarm.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DeviceFarm.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A container for account-level settings within AWS Device Farm.
 --
@@ -27,14 +27,15 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'accountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-    { _asAwsAccountNumber             :: !(Maybe Text)
-    , _asMaxJobTimeoutMinutes         :: !(Maybe Int)
-    , _asMaxSlots                     :: !(Maybe (Map Text Int))
-    , _asTrialMinutes                 :: !(Maybe TrialMinutes)
-    , _asUnmeteredDevices             :: !(Maybe (Map DevicePlatform Int))
-    , _asUnmeteredRemoteAccessDevices :: !(Maybe (Map DevicePlatform Int))
-    , _asDefaultJobTimeoutMinutes     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asAwsAccountNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asMaxJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _asMaxSlots :: {-# NOUNPACK #-}!(Maybe (Map Text Int))
+  , _asTrialMinutes :: {-# NOUNPACK #-}!(Maybe TrialMinutes)
+  , _asUnmeteredDevices :: {-# NOUNPACK #-}!(Maybe (Map DevicePlatform Int))
+  , _asUnmeteredRemoteAccessDevices :: {-# NOUNPACK #-}!(Maybe (Map DevicePlatform Int))
+  , _asDefaultJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccountSettings' with the minimum fields required to make a request.
 --
@@ -56,15 +57,16 @@ data AccountSettings = AccountSettings'
 accountSettings
     :: AccountSettings
 accountSettings =
-    AccountSettings'
-    { _asAwsAccountNumber = Nothing
-    , _asMaxJobTimeoutMinutes = Nothing
-    , _asMaxSlots = Nothing
-    , _asTrialMinutes = Nothing
-    , _asUnmeteredDevices = Nothing
-    , _asUnmeteredRemoteAccessDevices = Nothing
-    , _asDefaultJobTimeoutMinutes = Nothing
-    }
+  AccountSettings'
+  { _asAwsAccountNumber = Nothing
+  , _asMaxJobTimeoutMinutes = Nothing
+  , _asMaxSlots = Nothing
+  , _asTrialMinutes = Nothing
+  , _asUnmeteredDevices = Nothing
+  , _asUnmeteredRemoteAccessDevices = Nothing
+  , _asDefaultJobTimeoutMinutes = Nothing
+  }
+
 
 -- | The AWS account number specified in the @AccountSettings@ container.
 asAwsAccountNumber :: Lens' AccountSettings (Maybe Text)
@@ -107,9 +109,9 @@ instance FromJSON AccountSettings where
                      <*> (x .:? "unmeteredRemoteAccessDevices" .!= mempty)
                      <*> (x .:? "defaultJobTimeoutMinutes"))
 
-instance Hashable AccountSettings
+instance Hashable AccountSettings where
 
-instance NFData AccountSettings
+instance NFData AccountSettings where
 
 -- | Represents the output of a test. Examples of artifacts include logs and screenshots.
 --
@@ -117,12 +119,13 @@ instance NFData AccountSettings
 --
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
-    { _aArn       :: !(Maybe Text)
-    , _aUrl       :: !(Maybe Text)
-    , _aExtension :: !(Maybe Text)
-    , _aName      :: !(Maybe Text)
-    , _aType      :: !(Maybe ArtifactType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aArn       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aUrl       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aExtension :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aType      :: {-# NOUNPACK #-}!(Maybe ArtifactType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Artifact' with the minimum fields required to make a request.
 --
@@ -140,13 +143,14 @@ data Artifact = Artifact'
 artifact
     :: Artifact
 artifact =
-    Artifact'
-    { _aArn = Nothing
-    , _aUrl = Nothing
-    , _aExtension = Nothing
-    , _aName = Nothing
-    , _aType = Nothing
-    }
+  Artifact'
+  { _aArn = Nothing
+  , _aUrl = Nothing
+  , _aExtension = Nothing
+  , _aName = Nothing
+  , _aType = Nothing
+  }
+
 
 -- | The artifact's ARN.
 aArn :: Lens' Artifact (Maybe Text)
@@ -178,9 +182,9 @@ instance FromJSON Artifact where
                      <*> (x .:? "name")
                      <*> (x .:? "type"))
 
-instance Hashable Artifact
+instance Hashable Artifact where
 
-instance NFData Artifact
+instance NFData Artifact where
 
 -- | Represents the amount of CPU that an app is using on a physical device.
 --
@@ -190,10 +194,11 @@ instance NFData Artifact
 --
 -- /See:/ 'cpu' smart constructor.
 data CPU = CPU'
-    { _cpuFrequency    :: !(Maybe Text)
-    , _cpuClock        :: !(Maybe Double)
-    , _cpuArchitecture :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpuFrequency    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpuClock        :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cpuArchitecture :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CPU' with the minimum fields required to make a request.
 --
@@ -207,11 +212,9 @@ data CPU = CPU'
 cpu
     :: CPU
 cpu =
-    CPU'
-    { _cpuFrequency = Nothing
-    , _cpuClock = Nothing
-    , _cpuArchitecture = Nothing
-    }
+  CPU'
+  {_cpuFrequency = Nothing, _cpuClock = Nothing, _cpuArchitecture = Nothing}
+
 
 -- | The CPU's frequency.
 cpuFrequency :: Lens' CPU (Maybe Text)
@@ -233,9 +236,9 @@ instance FromJSON CPU where
                    (x .:? "frequency") <*> (x .:? "clock") <*>
                      (x .:? "architecture"))
 
-instance Hashable CPU
+instance Hashable CPU where
 
-instance NFData CPU
+instance NFData CPU where
 
 -- | Represents entity counters.
 --
@@ -243,14 +246,15 @@ instance NFData CPU
 --
 -- /See:/ 'counters' smart constructor.
 data Counters = Counters'
-    { _cPassed  :: !(Maybe Int)
-    , _cSkipped :: !(Maybe Int)
-    , _cWarned  :: !(Maybe Int)
-    , _cStopped :: !(Maybe Int)
-    , _cTotal   :: !(Maybe Int)
-    , _cFailed  :: !(Maybe Int)
-    , _cErrored :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cPassed  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cSkipped :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cWarned  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cStopped :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cTotal   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cFailed  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cErrored :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Counters' with the minimum fields required to make a request.
 --
@@ -272,15 +276,16 @@ data Counters = Counters'
 counters
     :: Counters
 counters =
-    Counters'
-    { _cPassed = Nothing
-    , _cSkipped = Nothing
-    , _cWarned = Nothing
-    , _cStopped = Nothing
-    , _cTotal = Nothing
-    , _cFailed = Nothing
-    , _cErrored = Nothing
-    }
+  Counters'
+  { _cPassed = Nothing
+  , _cSkipped = Nothing
+  , _cWarned = Nothing
+  , _cStopped = Nothing
+  , _cTotal = Nothing
+  , _cFailed = Nothing
+  , _cErrored = Nothing
+  }
+
 
 -- | The number of passed entities.
 cPassed :: Lens' Counters (Maybe Int)
@@ -322,9 +327,9 @@ instance FromJSON Counters where
                      <*> (x .:? "failed")
                      <*> (x .:? "errored"))
 
-instance Hashable Counters
+instance Hashable Counters where
 
-instance NFData Counters
+instance NFData Counters where
 
 -- | Creates the configuration settings for a remote access session, including the device model and type.
 --
@@ -332,8 +337,9 @@ instance NFData Counters
 --
 -- /See:/ 'createRemoteAccessSessionConfiguration' smart constructor.
 newtype CreateRemoteAccessSessionConfiguration = CreateRemoteAccessSessionConfiguration'
-    { _crascBillingMethod :: Maybe BillingMethod
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crascBillingMethod :: Maybe BillingMethod
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRemoteAccessSessionConfiguration' with the minimum fields required to make a request.
 --
@@ -343,22 +349,24 @@ newtype CreateRemoteAccessSessionConfiguration = CreateRemoteAccessSessionConfig
 createRemoteAccessSessionConfiguration
     :: CreateRemoteAccessSessionConfiguration
 createRemoteAccessSessionConfiguration =
-    CreateRemoteAccessSessionConfiguration'
-    { _crascBillingMethod = Nothing
-    }
+  CreateRemoteAccessSessionConfiguration' {_crascBillingMethod = Nothing}
+
 
 -- | Returns the billing method for purposes of configuring a remote access session.
 crascBillingMethod :: Lens' CreateRemoteAccessSessionConfiguration (Maybe BillingMethod)
 crascBillingMethod = lens _crascBillingMethod (\ s a -> s{_crascBillingMethod = a});
 
 instance Hashable
-         CreateRemoteAccessSessionConfiguration
+           CreateRemoteAccessSessionConfiguration
+         where
 
 instance NFData
-         CreateRemoteAccessSessionConfiguration
+           CreateRemoteAccessSessionConfiguration
+         where
 
 instance ToJSON
-         CreateRemoteAccessSessionConfiguration where
+           CreateRemoteAccessSessionConfiguration
+         where
         toJSON CreateRemoteAccessSessionConfiguration'{..}
           = object
               (catMaybes
@@ -370,24 +378,25 @@ instance ToJSON
 --
 -- /See:/ 'device' smart constructor.
 data Device = Device'
-    { _devCarrier             :: !(Maybe Text)
-    , _devImage               :: !(Maybe Text)
-    , _devManufacturer        :: !(Maybe Text)
-    , _devPlatform            :: !(Maybe DevicePlatform)
-    , _devRemoteAccessEnabled :: !(Maybe Bool)
-    , _devArn                 :: !(Maybe Text)
-    , _devFormFactor          :: !(Maybe DeviceFormFactor)
-    , _devFleetType           :: !(Maybe Text)
-    , _devResolution          :: !(Maybe Resolution)
-    , _devMemory              :: !(Maybe Integer)
-    , _devRadio               :: !(Maybe Text)
-    , _devOs                  :: !(Maybe Text)
-    , _devName                :: !(Maybe Text)
-    , _devModel               :: !(Maybe Text)
-    , _devCpu                 :: !(Maybe CPU)
-    , _devHeapSize            :: !(Maybe Integer)
-    , _devFleetName           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _devCarrier             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devImage               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devManufacturer        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devPlatform            :: {-# NOUNPACK #-}!(Maybe DevicePlatform)
+  , _devRemoteAccessEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _devArn                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devFormFactor          :: {-# NOUNPACK #-}!(Maybe DeviceFormFactor)
+  , _devFleetType           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devResolution          :: {-# NOUNPACK #-}!(Maybe Resolution)
+  , _devMemory              :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _devRadio               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devOs                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devModel               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devCpu                 :: {-# NOUNPACK #-}!(Maybe CPU)
+  , _devHeapSize            :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _devFleetName           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
 --
@@ -429,25 +438,26 @@ data Device = Device'
 device
     :: Device
 device =
-    Device'
-    { _devCarrier = Nothing
-    , _devImage = Nothing
-    , _devManufacturer = Nothing
-    , _devPlatform = Nothing
-    , _devRemoteAccessEnabled = Nothing
-    , _devArn = Nothing
-    , _devFormFactor = Nothing
-    , _devFleetType = Nothing
-    , _devResolution = Nothing
-    , _devMemory = Nothing
-    , _devRadio = Nothing
-    , _devOs = Nothing
-    , _devName = Nothing
-    , _devModel = Nothing
-    , _devCpu = Nothing
-    , _devHeapSize = Nothing
-    , _devFleetName = Nothing
-    }
+  Device'
+  { _devCarrier = Nothing
+  , _devImage = Nothing
+  , _devManufacturer = Nothing
+  , _devPlatform = Nothing
+  , _devRemoteAccessEnabled = Nothing
+  , _devArn = Nothing
+  , _devFormFactor = Nothing
+  , _devFleetType = Nothing
+  , _devResolution = Nothing
+  , _devMemory = Nothing
+  , _devRadio = Nothing
+  , _devOs = Nothing
+  , _devName = Nothing
+  , _devModel = Nothing
+  , _devCpu = Nothing
+  , _devHeapSize = Nothing
+  , _devFleetName = Nothing
+  }
+
 
 -- | The device's carrier.
 devCarrier :: Lens' Device (Maybe Text)
@@ -539,9 +549,9 @@ instance FromJSON Device where
                      <*> (x .:? "heapSize")
                      <*> (x .:? "fleetName"))
 
-instance Hashable Device
+instance Hashable Device where
 
-instance NFData Device
+instance NFData Device where
 
 -- | Represents the total (metered or unmetered) minutes used by the resource to run tests. Contains the sum of minutes consumed by all children.
 --
@@ -549,10 +559,11 @@ instance NFData Device
 --
 -- /See:/ 'deviceMinutes' smart constructor.
 data DeviceMinutes = DeviceMinutes'
-    { _dmMetered   :: !(Maybe Double)
-    , _dmTotal     :: !(Maybe Double)
-    , _dmUnmetered :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmMetered   :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dmTotal     :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dmUnmetered :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeviceMinutes' with the minimum fields required to make a request.
 --
@@ -566,11 +577,9 @@ data DeviceMinutes = DeviceMinutes'
 deviceMinutes
     :: DeviceMinutes
 deviceMinutes =
-    DeviceMinutes'
-    { _dmMetered = Nothing
-    , _dmTotal = Nothing
-    , _dmUnmetered = Nothing
-    }
+  DeviceMinutes'
+  {_dmMetered = Nothing, _dmTotal = Nothing, _dmUnmetered = Nothing}
+
 
 -- | When specified, represents only the sum of metered minutes used by the resource to run tests.
 dmMetered :: Lens' DeviceMinutes (Maybe Double)
@@ -592,9 +601,9 @@ instance FromJSON DeviceMinutes where
                    (x .:? "metered") <*> (x .:? "total") <*>
                      (x .:? "unmetered"))
 
-instance Hashable DeviceMinutes
+instance Hashable DeviceMinutes where
 
-instance NFData DeviceMinutes
+instance NFData DeviceMinutes where
 
 -- | Represents a collection of device types.
 --
@@ -602,12 +611,13 @@ instance NFData DeviceMinutes
 --
 -- /See:/ 'devicePool' smart constructor.
 data DevicePool = DevicePool'
-    { _dArn         :: !(Maybe Text)
-    , _dRules       :: !(Maybe [Rule])
-    , _dName        :: !(Maybe Text)
-    , _dType        :: !(Maybe DevicePoolType)
-    , _dDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dArn         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dRules       :: {-# NOUNPACK #-}!(Maybe [Rule])
+  , _dName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dType        :: {-# NOUNPACK #-}!(Maybe DevicePoolType)
+  , _dDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DevicePool' with the minimum fields required to make a request.
 --
@@ -625,13 +635,14 @@ data DevicePool = DevicePool'
 devicePool
     :: DevicePool
 devicePool =
-    DevicePool'
-    { _dArn = Nothing
-    , _dRules = Nothing
-    , _dName = Nothing
-    , _dType = Nothing
-    , _dDescription = Nothing
-    }
+  DevicePool'
+  { _dArn = Nothing
+  , _dRules = Nothing
+  , _dName = Nothing
+  , _dType = Nothing
+  , _dDescription = Nothing
+  }
+
 
 -- | The device pool's ARN.
 dArn :: Lens' DevicePool (Maybe Text)
@@ -663,9 +674,9 @@ instance FromJSON DevicePool where
                      <*> (x .:? "type")
                      <*> (x .:? "description"))
 
-instance Hashable DevicePool
+instance Hashable DevicePool where
 
-instance NFData DevicePool
+instance NFData DevicePool where
 
 -- | Represents a device pool compatibility result.
 --
@@ -673,10 +684,11 @@ instance NFData DevicePool
 --
 -- /See:/ 'devicePoolCompatibilityResult' smart constructor.
 data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
-    { _dpcrDevice                  :: !(Maybe Device)
-    , _dpcrCompatible              :: !(Maybe Bool)
-    , _dpcrIncompatibilityMessages :: !(Maybe [IncompatibilityMessage])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpcrDevice :: {-# NOUNPACK #-}!(Maybe Device)
+  , _dpcrCompatible :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dpcrIncompatibilityMessages :: {-# NOUNPACK #-}!(Maybe [IncompatibilityMessage])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DevicePoolCompatibilityResult' with the minimum fields required to make a request.
 --
@@ -690,11 +702,12 @@ data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
 devicePoolCompatibilityResult
     :: DevicePoolCompatibilityResult
 devicePoolCompatibilityResult =
-    DevicePoolCompatibilityResult'
-    { _dpcrDevice = Nothing
-    , _dpcrCompatible = Nothing
-    , _dpcrIncompatibilityMessages = Nothing
-    }
+  DevicePoolCompatibilityResult'
+  { _dpcrDevice = Nothing
+  , _dpcrCompatible = Nothing
+  , _dpcrIncompatibilityMessages = Nothing
+  }
+
 
 -- | The device (phone or tablet) that you wish to return information about.
 dpcrDevice :: Lens' DevicePoolCompatibilityResult (Maybe Device)
@@ -716,9 +729,9 @@ instance FromJSON DevicePoolCompatibilityResult where
                    (x .:? "device") <*> (x .:? "compatible") <*>
                      (x .:? "incompatibilityMessages" .!= mempty))
 
-instance Hashable DevicePoolCompatibilityResult
+instance Hashable DevicePoolCompatibilityResult where
 
-instance NFData DevicePoolCompatibilityResult
+instance NFData DevicePoolCompatibilityResult where
 
 -- | Represents configuration information about a test run, such as the execution timeout (in minutes).
 --
@@ -726,10 +739,11 @@ instance NFData DevicePoolCompatibilityResult
 --
 -- /See:/ 'executionConfiguration' smart constructor.
 data ExecutionConfiguration = ExecutionConfiguration'
-    { _ecAccountsCleanup    :: !(Maybe Bool)
-    , _ecAppPackagesCleanup :: !(Maybe Bool)
-    , _ecJobTimeoutMinutes  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecAccountsCleanup    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ecAppPackagesCleanup :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ecJobTimeoutMinutes  :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutionConfiguration' with the minimum fields required to make a request.
 --
@@ -743,11 +757,12 @@ data ExecutionConfiguration = ExecutionConfiguration'
 executionConfiguration
     :: ExecutionConfiguration
 executionConfiguration =
-    ExecutionConfiguration'
-    { _ecAccountsCleanup = Nothing
-    , _ecAppPackagesCleanup = Nothing
-    , _ecJobTimeoutMinutes = Nothing
-    }
+  ExecutionConfiguration'
+  { _ecAccountsCleanup = Nothing
+  , _ecAppPackagesCleanup = Nothing
+  , _ecJobTimeoutMinutes = Nothing
+  }
+
 
 -- | True if account cleanup is enabled at the beginning of the test; otherwise, false.
 ecAccountsCleanup :: Lens' ExecutionConfiguration (Maybe Bool)
@@ -761,9 +776,9 @@ ecAppPackagesCleanup = lens _ecAppPackagesCleanup (\ s a -> s{_ecAppPackagesClea
 ecJobTimeoutMinutes :: Lens' ExecutionConfiguration (Maybe Int)
 ecJobTimeoutMinutes = lens _ecJobTimeoutMinutes (\ s a -> s{_ecJobTimeoutMinutes = a});
 
-instance Hashable ExecutionConfiguration
+instance Hashable ExecutionConfiguration where
 
-instance NFData ExecutionConfiguration
+instance NFData ExecutionConfiguration where
 
 instance ToJSON ExecutionConfiguration where
         toJSON ExecutionConfiguration'{..}
@@ -779,9 +794,10 @@ instance ToJSON ExecutionConfiguration where
 --
 -- /See:/ 'incompatibilityMessage' smart constructor.
 data IncompatibilityMessage = IncompatibilityMessage'
-    { _imType    :: !(Maybe DeviceAttribute)
-    , _imMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _imType    :: {-# NOUNPACK #-}!(Maybe DeviceAttribute)
+  , _imMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IncompatibilityMessage' with the minimum fields required to make a request.
 --
@@ -793,10 +809,8 @@ data IncompatibilityMessage = IncompatibilityMessage'
 incompatibilityMessage
     :: IncompatibilityMessage
 incompatibilityMessage =
-    IncompatibilityMessage'
-    { _imType = Nothing
-    , _imMessage = Nothing
-    }
+  IncompatibilityMessage' {_imType = Nothing, _imMessage = Nothing}
+
 
 -- | The type of incompatibility. Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.     * APPIUM_VERSION: The Appium version for the test.
 imType :: Lens' IncompatibilityMessage (Maybe DeviceAttribute)
@@ -813,9 +827,9 @@ instance FromJSON IncompatibilityMessage where
                  IncompatibilityMessage' <$>
                    (x .:? "type") <*> (x .:? "message"))
 
-instance Hashable IncompatibilityMessage
+instance Hashable IncompatibilityMessage where
 
-instance NFData IncompatibilityMessage
+instance NFData IncompatibilityMessage where
 
 -- | Represents a device.
 --
@@ -823,19 +837,20 @@ instance NFData IncompatibilityMessage
 --
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-    { _jobStatus        :: !(Maybe ExecutionStatus)
-    , _jobCounters      :: !(Maybe Counters)
-    , _jobArn           :: !(Maybe Text)
-    , _jobCreated       :: !(Maybe POSIX)
-    , _jobDevice        :: !(Maybe Device)
-    , _jobStopped       :: !(Maybe POSIX)
-    , _jobResult        :: !(Maybe ExecutionResult)
-    , _jobName          :: !(Maybe Text)
-    , _jobDeviceMinutes :: !(Maybe DeviceMinutes)
-    , _jobType          :: !(Maybe TestType)
-    , _jobMessage       :: !(Maybe Text)
-    , _jobStarted       :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jobStatus        :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
+  , _jobCounters      :: {-# NOUNPACK #-}!(Maybe Counters)
+  , _jobArn           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jobCreated       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _jobDevice        :: {-# NOUNPACK #-}!(Maybe Device)
+  , _jobStopped       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _jobResult        :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
+  , _jobName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jobDeviceMinutes :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
+  , _jobType          :: {-# NOUNPACK #-}!(Maybe TestType)
+  , _jobMessage       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jobStarted       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
@@ -867,20 +882,21 @@ data Job = Job'
 job
     :: Job
 job =
-    Job'
-    { _jobStatus = Nothing
-    , _jobCounters = Nothing
-    , _jobArn = Nothing
-    , _jobCreated = Nothing
-    , _jobDevice = Nothing
-    , _jobStopped = Nothing
-    , _jobResult = Nothing
-    , _jobName = Nothing
-    , _jobDeviceMinutes = Nothing
-    , _jobType = Nothing
-    , _jobMessage = Nothing
-    , _jobStarted = Nothing
-    }
+  Job'
+  { _jobStatus = Nothing
+  , _jobCounters = Nothing
+  , _jobArn = Nothing
+  , _jobCreated = Nothing
+  , _jobDevice = Nothing
+  , _jobStopped = Nothing
+  , _jobResult = Nothing
+  , _jobName = Nothing
+  , _jobDeviceMinutes = Nothing
+  , _jobType = Nothing
+  , _jobMessage = Nothing
+  , _jobStarted = Nothing
+  }
+
 
 -- | The job's status. Allowed values include:     * PENDING: A pending status.     * PENDING_CONCURRENCY: A pending concurrency status.     * PENDING_DEVICE: A pending device status.     * PROCESSING: A processing status.     * SCHEDULING: A scheduling status.     * PREPARING: A preparing status.     * RUNNING: A running status.     * COMPLETED: A completed status.     * STOPPING: A stopping status.
 jobStatus :: Lens' Job (Maybe ExecutionStatus)
@@ -947,9 +963,9 @@ instance FromJSON Job where
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
 
-instance Hashable Job
+instance Hashable Job where
 
-instance NFData Job
+instance NFData Job where
 
 -- | Represents a latitude and longitude pair, expressed in geographic coordinate system degrees (for example 47.6204, -122.3491).
 --
@@ -959,9 +975,10 @@ instance NFData Job
 --
 -- /See:/ 'location' smart constructor.
 data Location = Location'
-    { _lLatitude  :: !Double
-    , _lLongitude :: !Double
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lLatitude  :: {-# NOUNPACK #-}!Double
+  , _lLongitude :: {-# NOUNPACK #-}!Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Location' with the minimum fields required to make a request.
 --
@@ -975,10 +992,8 @@ location
     -> Double -- ^ 'lLongitude'
     -> Location
 location pLatitude_ pLongitude_ =
-    Location'
-    { _lLatitude = pLatitude_
-    , _lLongitude = pLongitude_
-    }
+  Location' {_lLatitude = pLatitude_, _lLongitude = pLongitude_}
+
 
 -- | The latitude.
 lLatitude :: Lens' Location Double
@@ -988,9 +1003,9 @@ lLatitude = lens _lLatitude (\ s a -> s{_lLatitude = a});
 lLongitude :: Lens' Location Double
 lLongitude = lens _lLongitude (\ s a -> s{_lLongitude = a});
 
-instance Hashable Location
+instance Hashable Location where
 
-instance NFData Location
+instance NFData Location where
 
 instance ToJSON Location where
         toJSON Location'{..}
@@ -1005,9 +1020,10 @@ instance ToJSON Location where
 --
 -- /See:/ 'monetaryAmount' smart constructor.
 data MonetaryAmount = MonetaryAmount'
-    { _maAmount       :: !(Maybe Double)
-    , _maCurrencyCode :: !(Maybe CurrencyCode)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _maAmount       :: {-# NOUNPACK #-}!(Maybe Double)
+  , _maCurrencyCode :: {-# NOUNPACK #-}!(Maybe CurrencyCode)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MonetaryAmount' with the minimum fields required to make a request.
 --
@@ -1019,10 +1035,8 @@ data MonetaryAmount = MonetaryAmount'
 monetaryAmount
     :: MonetaryAmount
 monetaryAmount =
-    MonetaryAmount'
-    { _maAmount = Nothing
-    , _maCurrencyCode = Nothing
-    }
+  MonetaryAmount' {_maAmount = Nothing, _maCurrencyCode = Nothing}
+
 
 -- | The numerical amount of an offering or transaction.
 maAmount :: Lens' MonetaryAmount (Maybe Double)
@@ -1039,9 +1053,9 @@ instance FromJSON MonetaryAmount where
                  MonetaryAmount' <$>
                    (x .:? "amount") <*> (x .:? "currencyCode"))
 
-instance Hashable MonetaryAmount
+instance Hashable MonetaryAmount where
 
-instance NFData MonetaryAmount
+instance NFData MonetaryAmount where
 
 -- | An array of settings that describes characteristics of a network profile.
 --
@@ -1049,19 +1063,20 @@ instance NFData MonetaryAmount
 --
 -- /See:/ 'networkProfile' smart constructor.
 data NetworkProfile = NetworkProfile'
-    { _npUplinkJitterMs        :: !(Maybe Integer)
-    , _npArn                   :: !(Maybe Text)
-    , _npUplinkLossPercent     :: !(Maybe Nat)
-    , _npDownlinkJitterMs      :: !(Maybe Integer)
-    , _npName                  :: !(Maybe Text)
-    , _npDownlinkLossPercent   :: !(Maybe Nat)
-    , _npType                  :: !(Maybe NetworkProfileType)
-    , _npUplinkDelayMs         :: !(Maybe Integer)
-    , _npUplinkBandwidthBits   :: !(Maybe Integer)
-    , _npDescription           :: !(Maybe Text)
-    , _npDownlinkDelayMs       :: !(Maybe Integer)
-    , _npDownlinkBandwidthBits :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _npUplinkJitterMs        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _npArn                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npUplinkLossPercent     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _npDownlinkJitterMs      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _npName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npDownlinkLossPercent   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _npType                  :: {-# NOUNPACK #-}!(Maybe NetworkProfileType)
+  , _npUplinkDelayMs         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _npUplinkBandwidthBits   :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _npDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npDownlinkDelayMs       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _npDownlinkBandwidthBits :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NetworkProfile' with the minimum fields required to make a request.
 --
@@ -1093,20 +1108,21 @@ data NetworkProfile = NetworkProfile'
 networkProfile
     :: NetworkProfile
 networkProfile =
-    NetworkProfile'
-    { _npUplinkJitterMs = Nothing
-    , _npArn = Nothing
-    , _npUplinkLossPercent = Nothing
-    , _npDownlinkJitterMs = Nothing
-    , _npName = Nothing
-    , _npDownlinkLossPercent = Nothing
-    , _npType = Nothing
-    , _npUplinkDelayMs = Nothing
-    , _npUplinkBandwidthBits = Nothing
-    , _npDescription = Nothing
-    , _npDownlinkDelayMs = Nothing
-    , _npDownlinkBandwidthBits = Nothing
-    }
+  NetworkProfile'
+  { _npUplinkJitterMs = Nothing
+  , _npArn = Nothing
+  , _npUplinkLossPercent = Nothing
+  , _npDownlinkJitterMs = Nothing
+  , _npName = Nothing
+  , _npDownlinkLossPercent = Nothing
+  , _npType = Nothing
+  , _npUplinkDelayMs = Nothing
+  , _npUplinkBandwidthBits = Nothing
+  , _npDescription = Nothing
+  , _npDownlinkDelayMs = Nothing
+  , _npDownlinkBandwidthBits = Nothing
+  }
+
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 npUplinkJitterMs :: Lens' NetworkProfile (Maybe Integer)
@@ -1173,9 +1189,9 @@ instance FromJSON NetworkProfile where
                      <*> (x .:? "downlinkDelayMs")
                      <*> (x .:? "downlinkBandwidthBits"))
 
-instance Hashable NetworkProfile
+instance Hashable NetworkProfile where
 
-instance NFData NetworkProfile
+instance NFData NetworkProfile where
 
 -- | Represents the metadata of a device offering.
 --
@@ -1183,12 +1199,13 @@ instance NFData NetworkProfile
 --
 -- /See:/ 'offering' smart constructor.
 data Offering = Offering'
-    { _oPlatform         :: !(Maybe DevicePlatform)
-    , _oId               :: !(Maybe Text)
-    , _oRecurringCharges :: !(Maybe [RecurringCharge])
-    , _oType             :: !(Maybe OfferingType)
-    , _oDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oPlatform         :: {-# NOUNPACK #-}!(Maybe DevicePlatform)
+  , _oId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
+  , _oType             :: {-# NOUNPACK #-}!(Maybe OfferingType)
+  , _oDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Offering' with the minimum fields required to make a request.
 --
@@ -1206,13 +1223,14 @@ data Offering = Offering'
 offering
     :: Offering
 offering =
-    Offering'
-    { _oPlatform = Nothing
-    , _oId = Nothing
-    , _oRecurringCharges = Nothing
-    , _oType = Nothing
-    , _oDescription = Nothing
-    }
+  Offering'
+  { _oPlatform = Nothing
+  , _oId = Nothing
+  , _oRecurringCharges = Nothing
+  , _oType = Nothing
+  , _oDescription = Nothing
+  }
+
 
 -- | The platform of the device (e.g., ANDROID or IOS).
 oPlatform :: Lens' Offering (Maybe DevicePlatform)
@@ -1244,9 +1262,9 @@ instance FromJSON Offering where
                      <*> (x .:? "type")
                      <*> (x .:? "description"))
 
-instance Hashable Offering
+instance Hashable Offering where
 
-instance NFData Offering
+instance NFData Offering where
 
 -- | Represents information about an offering promotion.
 --
@@ -1254,9 +1272,10 @@ instance NFData Offering
 --
 -- /See:/ 'offeringPromotion' smart constructor.
 data OfferingPromotion = OfferingPromotion'
-    { _opId          :: !(Maybe Text)
-    , _opDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _opId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _opDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OfferingPromotion' with the minimum fields required to make a request.
 --
@@ -1268,10 +1287,8 @@ data OfferingPromotion = OfferingPromotion'
 offeringPromotion
     :: OfferingPromotion
 offeringPromotion =
-    OfferingPromotion'
-    { _opId = Nothing
-    , _opDescription = Nothing
-    }
+  OfferingPromotion' {_opId = Nothing, _opDescription = Nothing}
+
 
 -- | The ID of the offering promotion.
 opId :: Lens' OfferingPromotion (Maybe Text)
@@ -1288,9 +1305,9 @@ instance FromJSON OfferingPromotion where
                  OfferingPromotion' <$>
                    (x .:? "id") <*> (x .:? "description"))
 
-instance Hashable OfferingPromotion
+instance Hashable OfferingPromotion where
 
-instance NFData OfferingPromotion
+instance NFData OfferingPromotion where
 
 -- | The status of the offering.
 --
@@ -1298,11 +1315,12 @@ instance NFData OfferingPromotion
 --
 -- /See:/ 'offeringStatus' smart constructor.
 data OfferingStatus = OfferingStatus'
-    { _osEffectiveOn :: !(Maybe POSIX)
-    , _osOffering    :: !(Maybe Offering)
-    , _osQuantity    :: !(Maybe Int)
-    , _osType        :: !(Maybe OfferingTransactionType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _osEffectiveOn :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _osOffering    :: {-# NOUNPACK #-}!(Maybe Offering)
+  , _osQuantity    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _osType        :: {-# NOUNPACK #-}!(Maybe OfferingTransactionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OfferingStatus' with the minimum fields required to make a request.
 --
@@ -1318,12 +1336,13 @@ data OfferingStatus = OfferingStatus'
 offeringStatus
     :: OfferingStatus
 offeringStatus =
-    OfferingStatus'
-    { _osEffectiveOn = Nothing
-    , _osOffering = Nothing
-    , _osQuantity = Nothing
-    , _osType = Nothing
-    }
+  OfferingStatus'
+  { _osEffectiveOn = Nothing
+  , _osOffering = Nothing
+  , _osQuantity = Nothing
+  , _osType = Nothing
+  }
+
 
 -- | The date on which the offering is effective.
 osEffectiveOn :: Lens' OfferingStatus (Maybe UTCTime)
@@ -1350,9 +1369,9 @@ instance FromJSON OfferingStatus where
                      (x .:? "quantity")
                      <*> (x .:? "type"))
 
-instance Hashable OfferingStatus
+instance Hashable OfferingStatus where
 
-instance NFData OfferingStatus
+instance NFData OfferingStatus where
 
 -- | Represents the metadata of an offering transaction.
 --
@@ -1360,12 +1379,13 @@ instance NFData OfferingStatus
 --
 -- /See:/ 'offeringTransaction' smart constructor.
 data OfferingTransaction = OfferingTransaction'
-    { _otOfferingStatus      :: !(Maybe OfferingStatus)
-    , _otCost                :: !(Maybe MonetaryAmount)
-    , _otTransactionId       :: !(Maybe Text)
-    , _otOfferingPromotionId :: !(Maybe Text)
-    , _otCreatedOn           :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _otOfferingStatus      :: {-# NOUNPACK #-}!(Maybe OfferingStatus)
+  , _otCost                :: {-# NOUNPACK #-}!(Maybe MonetaryAmount)
+  , _otTransactionId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _otOfferingPromotionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _otCreatedOn           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OfferingTransaction' with the minimum fields required to make a request.
 --
@@ -1383,13 +1403,14 @@ data OfferingTransaction = OfferingTransaction'
 offeringTransaction
     :: OfferingTransaction
 offeringTransaction =
-    OfferingTransaction'
-    { _otOfferingStatus = Nothing
-    , _otCost = Nothing
-    , _otTransactionId = Nothing
-    , _otOfferingPromotionId = Nothing
-    , _otCreatedOn = Nothing
-    }
+  OfferingTransaction'
+  { _otOfferingStatus = Nothing
+  , _otCost = Nothing
+  , _otTransactionId = Nothing
+  , _otOfferingPromotionId = Nothing
+  , _otCreatedOn = Nothing
+  }
+
 
 -- | The status of an offering transaction.
 otOfferingStatus :: Lens' OfferingTransaction (Maybe OfferingStatus)
@@ -1421,9 +1442,9 @@ instance FromJSON OfferingTransaction where
                      <*> (x .:? "offeringPromotionId")
                      <*> (x .:? "createdOn"))
 
-instance Hashable OfferingTransaction
+instance Hashable OfferingTransaction where
 
-instance NFData OfferingTransaction
+instance NFData OfferingTransaction where
 
 -- | Represents a specific warning or failure.
 --
@@ -1431,14 +1452,15 @@ instance NFData OfferingTransaction
 --
 -- /See:/ 'problem' smart constructor.
 data Problem = Problem'
-    { _pDevice  :: !(Maybe Device)
-    , _pTest    :: !(Maybe ProblemDetail)
-    , _pResult  :: !(Maybe ExecutionResult)
-    , _pRun     :: !(Maybe ProblemDetail)
-    , _pJob     :: !(Maybe ProblemDetail)
-    , _pMessage :: !(Maybe Text)
-    , _pSuite   :: !(Maybe ProblemDetail)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pDevice  :: {-# NOUNPACK #-}!(Maybe Device)
+  , _pTest    :: {-# NOUNPACK #-}!(Maybe ProblemDetail)
+  , _pResult  :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
+  , _pRun     :: {-# NOUNPACK #-}!(Maybe ProblemDetail)
+  , _pJob     :: {-# NOUNPACK #-}!(Maybe ProblemDetail)
+  , _pMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pSuite   :: {-# NOUNPACK #-}!(Maybe ProblemDetail)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Problem' with the minimum fields required to make a request.
 --
@@ -1460,15 +1482,16 @@ data Problem = Problem'
 problem
     :: Problem
 problem =
-    Problem'
-    { _pDevice = Nothing
-    , _pTest = Nothing
-    , _pResult = Nothing
-    , _pRun = Nothing
-    , _pJob = Nothing
-    , _pMessage = Nothing
-    , _pSuite = Nothing
-    }
+  Problem'
+  { _pDevice = Nothing
+  , _pTest = Nothing
+  , _pResult = Nothing
+  , _pRun = Nothing
+  , _pJob = Nothing
+  , _pMessage = Nothing
+  , _pSuite = Nothing
+  }
+
 
 -- | Information about the associated device.
 pDevice :: Lens' Problem (Maybe Device)
@@ -1510,9 +1533,9 @@ instance FromJSON Problem where
                      <*> (x .:? "message")
                      <*> (x .:? "suite"))
 
-instance Hashable Problem
+instance Hashable Problem where
 
-instance NFData Problem
+instance NFData Problem where
 
 -- | Information about a problem detail.
 --
@@ -1520,9 +1543,10 @@ instance NFData Problem
 --
 -- /See:/ 'problemDetail' smart constructor.
 data ProblemDetail = ProblemDetail'
-    { _pdArn  :: !(Maybe Text)
-    , _pdName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdArn  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProblemDetail' with the minimum fields required to make a request.
 --
@@ -1533,11 +1557,8 @@ data ProblemDetail = ProblemDetail'
 -- * 'pdName' - The problem detail's name.
 problemDetail
     :: ProblemDetail
-problemDetail =
-    ProblemDetail'
-    { _pdArn = Nothing
-    , _pdName = Nothing
-    }
+problemDetail = ProblemDetail' {_pdArn = Nothing, _pdName = Nothing}
+
 
 -- | The problem detail's ARN.
 pdArn :: Lens' ProblemDetail (Maybe Text)
@@ -1553,9 +1574,9 @@ instance FromJSON ProblemDetail where
               (\ x ->
                  ProblemDetail' <$> (x .:? "arn") <*> (x .:? "name"))
 
-instance Hashable ProblemDetail
+instance Hashable ProblemDetail where
 
-instance NFData ProblemDetail
+instance NFData ProblemDetail where
 
 -- | Represents an operating-system neutral workspace for running and managing tests.
 --
@@ -1563,11 +1584,12 @@ instance NFData ProblemDetail
 --
 -- /See:/ 'project' smart constructor.
 data Project = Project'
-    { _pArn                      :: !(Maybe Text)
-    , _pCreated                  :: !(Maybe POSIX)
-    , _pName                     :: !(Maybe Text)
-    , _pDefaultJobTimeoutMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pArn                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pCreated                  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pDefaultJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Project' with the minimum fields required to make a request.
 --
@@ -1583,12 +1605,13 @@ data Project = Project'
 project
     :: Project
 project =
-    Project'
-    { _pArn = Nothing
-    , _pCreated = Nothing
-    , _pName = Nothing
-    , _pDefaultJobTimeoutMinutes = Nothing
-    }
+  Project'
+  { _pArn = Nothing
+  , _pCreated = Nothing
+  , _pName = Nothing
+  , _pDefaultJobTimeoutMinutes = Nothing
+  }
+
 
 -- | The project's ARN.
 pArn :: Lens' Project (Maybe Text)
@@ -1615,9 +1638,9 @@ instance FromJSON Project where
                      (x .:? "name")
                      <*> (x .:? "defaultJobTimeoutMinutes"))
 
-instance Hashable Project
+instance Hashable Project where
 
-instance NFData Project
+instance NFData Project where
 
 -- | Represents the set of radios and their states on a device. Examples of radios include Wi-Fi, GPS, Bluetooth, and NFC.
 --
@@ -1625,11 +1648,12 @@ instance NFData Project
 --
 -- /See:/ 'radios' smart constructor.
 data Radios = Radios'
-    { _rNfc       :: !(Maybe Bool)
-    , _rGps       :: !(Maybe Bool)
-    , _rBluetooth :: !(Maybe Bool)
-    , _rWifi      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rNfc       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rGps       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rBluetooth :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rWifi      :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Radios' with the minimum fields required to make a request.
 --
@@ -1645,12 +1669,9 @@ data Radios = Radios'
 radios
     :: Radios
 radios =
-    Radios'
-    { _rNfc = Nothing
-    , _rGps = Nothing
-    , _rBluetooth = Nothing
-    , _rWifi = Nothing
-    }
+  Radios'
+  {_rNfc = Nothing, _rGps = Nothing, _rBluetooth = Nothing, _rWifi = Nothing}
+
 
 -- | True if NFC is enabled at the beginning of the test; otherwise, false.
 rNfc :: Lens' Radios (Maybe Bool)
@@ -1668,9 +1689,9 @@ rBluetooth = lens _rBluetooth (\ s a -> s{_rBluetooth = a});
 rWifi :: Lens' Radios (Maybe Bool)
 rWifi = lens _rWifi (\ s a -> s{_rWifi = a});
 
-instance Hashable Radios
+instance Hashable Radios where
 
-instance NFData Radios
+instance NFData Radios where
 
 instance ToJSON Radios where
         toJSON Radios'{..}
@@ -1686,9 +1707,10 @@ instance ToJSON Radios where
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-    { _rcFrequency :: !(Maybe RecurringChargeFrequency)
-    , _rcCost      :: !(Maybe MonetaryAmount)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcFrequency :: {-# NOUNPACK #-}!(Maybe RecurringChargeFrequency)
+  , _rcCost      :: {-# NOUNPACK #-}!(Maybe MonetaryAmount)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
@@ -1699,11 +1721,8 @@ data RecurringCharge = RecurringCharge'
 -- * 'rcCost' - The cost of the recurring charge.
 recurringCharge
     :: RecurringCharge
-recurringCharge =
-    RecurringCharge'
-    { _rcFrequency = Nothing
-    , _rcCost = Nothing
-    }
+recurringCharge = RecurringCharge' {_rcFrequency = Nothing, _rcCost = Nothing}
+
 
 -- | The frequency in which charges will recur.
 rcFrequency :: Lens' RecurringCharge (Maybe RecurringChargeFrequency)
@@ -1720,9 +1739,9 @@ instance FromJSON RecurringCharge where
                  RecurringCharge' <$>
                    (x .:? "frequency") <*> (x .:? "cost"))
 
-instance Hashable RecurringCharge
+instance Hashable RecurringCharge where
 
-instance NFData RecurringCharge
+instance NFData RecurringCharge where
 
 -- | Represents information about the remote access session.
 --
@@ -1730,19 +1749,20 @@ instance NFData RecurringCharge
 --
 -- /See:/ 'remoteAccessSession' smart constructor.
 data RemoteAccessSession = RemoteAccessSession'
-    { _rasBillingMethod :: !(Maybe BillingMethod)
-    , _rasStatus        :: !(Maybe ExecutionStatus)
-    , _rasArn           :: !(Maybe Text)
-    , _rasCreated       :: !(Maybe POSIX)
-    , _rasDevice        :: !(Maybe Device)
-    , _rasStopped       :: !(Maybe POSIX)
-    , _rasResult        :: !(Maybe ExecutionResult)
-    , _rasName          :: !(Maybe Text)
-    , _rasDeviceMinutes :: !(Maybe DeviceMinutes)
-    , _rasEndpoint      :: !(Maybe Text)
-    , _rasMessage       :: !(Maybe Text)
-    , _rasStarted       :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rasBillingMethod :: {-# NOUNPACK #-}!(Maybe BillingMethod)
+  , _rasStatus        :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
+  , _rasArn           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rasCreated       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rasDevice        :: {-# NOUNPACK #-}!(Maybe Device)
+  , _rasStopped       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rasResult        :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
+  , _rasName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rasDeviceMinutes :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
+  , _rasEndpoint      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rasMessage       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rasStarted       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoteAccessSession' with the minimum fields required to make a request.
 --
@@ -1774,20 +1794,21 @@ data RemoteAccessSession = RemoteAccessSession'
 remoteAccessSession
     :: RemoteAccessSession
 remoteAccessSession =
-    RemoteAccessSession'
-    { _rasBillingMethod = Nothing
-    , _rasStatus = Nothing
-    , _rasArn = Nothing
-    , _rasCreated = Nothing
-    , _rasDevice = Nothing
-    , _rasStopped = Nothing
-    , _rasResult = Nothing
-    , _rasName = Nothing
-    , _rasDeviceMinutes = Nothing
-    , _rasEndpoint = Nothing
-    , _rasMessage = Nothing
-    , _rasStarted = Nothing
-    }
+  RemoteAccessSession'
+  { _rasBillingMethod = Nothing
+  , _rasStatus = Nothing
+  , _rasArn = Nothing
+  , _rasCreated = Nothing
+  , _rasDevice = Nothing
+  , _rasStopped = Nothing
+  , _rasResult = Nothing
+  , _rasName = Nothing
+  , _rasDeviceMinutes = Nothing
+  , _rasEndpoint = Nothing
+  , _rasMessage = Nothing
+  , _rasStarted = Nothing
+  }
+
 
 -- | The billing method of the remote access session. Possible values include @METERED@ or @UNMETERED@ . For more information about metered devices, see <http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology> ."
 rasBillingMethod :: Lens' RemoteAccessSession (Maybe BillingMethod)
@@ -1854,9 +1875,9 @@ instance FromJSON RemoteAccessSession where
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
 
-instance Hashable RemoteAccessSession
+instance Hashable RemoteAccessSession where
 
-instance NFData RemoteAccessSession
+instance NFData RemoteAccessSession where
 
 -- | Represents the screen resolution of a device in height and width, expressed in pixels.
 --
@@ -1864,9 +1885,10 @@ instance NFData RemoteAccessSession
 --
 -- /See:/ 'resolution' smart constructor.
 data Resolution = Resolution'
-    { _rHeight :: !(Maybe Int)
-    , _rWidth  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rHeight :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rWidth  :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Resolution' with the minimum fields required to make a request.
 --
@@ -1877,11 +1899,8 @@ data Resolution = Resolution'
 -- * 'rWidth' - The screen resolution's width, expressed in pixels.
 resolution
     :: Resolution
-resolution =
-    Resolution'
-    { _rHeight = Nothing
-    , _rWidth = Nothing
-    }
+resolution = Resolution' {_rHeight = Nothing, _rWidth = Nothing}
+
 
 -- | The screen resolution's height, expressed in pixels.
 rHeight :: Lens' Resolution (Maybe Int)
@@ -1897,9 +1916,9 @@ instance FromJSON Resolution where
               (\ x ->
                  Resolution' <$> (x .:? "height") <*> (x .:? "width"))
 
-instance Hashable Resolution
+instance Hashable Resolution where
 
-instance NFData Resolution
+instance NFData Resolution where
 
 -- | Represents a condition for a device pool.
 --
@@ -1907,10 +1926,11 @@ instance NFData Resolution
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-    { _rAttribute :: !(Maybe DeviceAttribute)
-    , _rOperator  :: !(Maybe RuleOperator)
-    , _rValue     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rAttribute :: {-# NOUNPACK #-}!(Maybe DeviceAttribute)
+  , _rOperator  :: {-# NOUNPACK #-}!(Maybe RuleOperator)
+  , _rValue     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Rule' with the minimum fields required to make a request.
 --
@@ -1923,12 +1943,8 @@ data Rule = Rule'
 -- * 'rValue' - The rule's value.
 rule
     :: Rule
-rule =
-    Rule'
-    { _rAttribute = Nothing
-    , _rOperator = Nothing
-    , _rValue = Nothing
-    }
+rule = Rule' {_rAttribute = Nothing, _rOperator = Nothing, _rValue = Nothing}
+
 
 -- | The rule's stringified attribute. For example, specify the value as @"\"abc\""@ . Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.     * APPIUM_VERSION: The Appium version for the test.
 rAttribute :: Lens' Rule (Maybe DeviceAttribute)
@@ -1950,9 +1966,9 @@ instance FromJSON Rule where
                    (x .:? "attribute") <*> (x .:? "operator") <*>
                      (x .:? "value"))
 
-instance Hashable Rule
+instance Hashable Rule where
 
-instance NFData Rule
+instance NFData Rule where
 
 instance ToJSON Rule where
         toJSON Rule'{..}
@@ -1968,23 +1984,24 @@ instance ToJSON Rule where
 --
 -- /See:/ 'run' smart constructor.
 data Run = Run'
-    { _runBillingMethod  :: !(Maybe BillingMethod)
-    , _runStatus         :: !(Maybe ExecutionStatus)
-    , _runCounters       :: !(Maybe Counters)
-    , _runPlatform       :: !(Maybe DevicePlatform)
-    , _runArn            :: !(Maybe Text)
-    , _runCreated        :: !(Maybe POSIX)
-    , _runStopped        :: !(Maybe POSIX)
-    , _runResult         :: !(Maybe ExecutionResult)
-    , _runCompletedJobs  :: !(Maybe Int)
-    , _runName           :: !(Maybe Text)
-    , _runNetworkProfile :: !(Maybe NetworkProfile)
-    , _runDeviceMinutes  :: !(Maybe DeviceMinutes)
-    , _runType           :: !(Maybe TestType)
-    , _runMessage        :: !(Maybe Text)
-    , _runTotalJobs      :: !(Maybe Int)
-    , _runStarted        :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _runBillingMethod  :: {-# NOUNPACK #-}!(Maybe BillingMethod)
+  , _runStatus         :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
+  , _runCounters       :: {-# NOUNPACK #-}!(Maybe Counters)
+  , _runPlatform       :: {-# NOUNPACK #-}!(Maybe DevicePlatform)
+  , _runArn            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _runCreated        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _runStopped        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _runResult         :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
+  , _runCompletedJobs  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _runName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _runNetworkProfile :: {-# NOUNPACK #-}!(Maybe NetworkProfile)
+  , _runDeviceMinutes  :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
+  , _runType           :: {-# NOUNPACK #-}!(Maybe TestType)
+  , _runMessage        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _runTotalJobs      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _runStarted        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Run' with the minimum fields required to make a request.
 --
@@ -2024,24 +2041,25 @@ data Run = Run'
 run
     :: Run
 run =
-    Run'
-    { _runBillingMethod = Nothing
-    , _runStatus = Nothing
-    , _runCounters = Nothing
-    , _runPlatform = Nothing
-    , _runArn = Nothing
-    , _runCreated = Nothing
-    , _runStopped = Nothing
-    , _runResult = Nothing
-    , _runCompletedJobs = Nothing
-    , _runName = Nothing
-    , _runNetworkProfile = Nothing
-    , _runDeviceMinutes = Nothing
-    , _runType = Nothing
-    , _runMessage = Nothing
-    , _runTotalJobs = Nothing
-    , _runStarted = Nothing
-    }
+  Run'
+  { _runBillingMethod = Nothing
+  , _runStatus = Nothing
+  , _runCounters = Nothing
+  , _runPlatform = Nothing
+  , _runArn = Nothing
+  , _runCreated = Nothing
+  , _runStopped = Nothing
+  , _runResult = Nothing
+  , _runCompletedJobs = Nothing
+  , _runName = Nothing
+  , _runNetworkProfile = Nothing
+  , _runDeviceMinutes = Nothing
+  , _runType = Nothing
+  , _runMessage = Nothing
+  , _runTotalJobs = Nothing
+  , _runStarted = Nothing
+  }
+
 
 -- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
 runBillingMethod :: Lens' Run (Maybe BillingMethod)
@@ -2128,9 +2146,9 @@ instance FromJSON Run where
                      <*> (x .:? "totalJobs")
                      <*> (x .:? "started"))
 
-instance Hashable Run
+instance Hashable Run where
 
-instance NFData Run
+instance NFData Run where
 
 -- | Represents a sample of performance data.
 --
@@ -2138,10 +2156,11 @@ instance NFData Run
 --
 -- /See:/ 'sample' smart constructor.
 data Sample = Sample'
-    { _samArn  :: !(Maybe Text)
-    , _samUrl  :: !(Maybe Text)
-    , _samType :: !(Maybe SampleType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _samArn  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _samUrl  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _samType :: {-# NOUNPACK #-}!(Maybe SampleType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Sample' with the minimum fields required to make a request.
 --
@@ -2154,12 +2173,8 @@ data Sample = Sample'
 -- * 'samType' - The sample's type. Must be one of the following values:     * CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.     * MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.     * NATIVE_AVG_DRAWTIME     * NATIVE_FPS     * NATIVE_FRAMES     * NATIVE_MAX_DRAWTIME     * NATIVE_MIN_DRAWTIME     * OPENGL_AVG_DRAWTIME     * OPENGL_FPS     * OPENGL_FRAMES     * OPENGL_MAX_DRAWTIME     * OPENGL_MIN_DRAWTIME     * RX     * RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.     * THREADS: A threads sample type. This is expressed as the total number of threads per app process.     * TX     * TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.
 sample
     :: Sample
-sample =
-    Sample'
-    { _samArn = Nothing
-    , _samUrl = Nothing
-    , _samType = Nothing
-    }
+sample = Sample' {_samArn = Nothing, _samUrl = Nothing, _samType = Nothing}
+
 
 -- | The sample's ARN.
 samArn :: Lens' Sample (Maybe Text)
@@ -2180,9 +2195,9 @@ instance FromJSON Sample where
                  Sample' <$>
                    (x .:? "arn") <*> (x .:? "url") <*> (x .:? "type"))
 
-instance Hashable Sample
+instance Hashable Sample where
 
-instance NFData Sample
+instance NFData Sample where
 
 -- | Represents the settings for a run. Includes things like location, radio states, auxiliary apps, and network profiles.
 --
@@ -2190,14 +2205,15 @@ instance NFData Sample
 --
 -- /See:/ 'scheduleRunConfiguration' smart constructor.
 data ScheduleRunConfiguration = ScheduleRunConfiguration'
-    { _srcBillingMethod       :: !(Maybe BillingMethod)
-    , _srcRadios              :: !(Maybe Radios)
-    , _srcLocation            :: !(Maybe Location)
-    , _srcLocale              :: !(Maybe Text)
-    , _srcNetworkProfileARN   :: !(Maybe Text)
-    , _srcExtraDataPackageARN :: !(Maybe Text)
-    , _srcAuxiliaryApps       :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srcBillingMethod       :: {-# NOUNPACK #-}!(Maybe BillingMethod)
+  , _srcRadios              :: {-# NOUNPACK #-}!(Maybe Radios)
+  , _srcLocation            :: {-# NOUNPACK #-}!(Maybe Location)
+  , _srcLocale              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srcNetworkProfileARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srcExtraDataPackageARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srcAuxiliaryApps       :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScheduleRunConfiguration' with the minimum fields required to make a request.
 --
@@ -2219,15 +2235,16 @@ data ScheduleRunConfiguration = ScheduleRunConfiguration'
 scheduleRunConfiguration
     :: ScheduleRunConfiguration
 scheduleRunConfiguration =
-    ScheduleRunConfiguration'
-    { _srcBillingMethod = Nothing
-    , _srcRadios = Nothing
-    , _srcLocation = Nothing
-    , _srcLocale = Nothing
-    , _srcNetworkProfileARN = Nothing
-    , _srcExtraDataPackageARN = Nothing
-    , _srcAuxiliaryApps = Nothing
-    }
+  ScheduleRunConfiguration'
+  { _srcBillingMethod = Nothing
+  , _srcRadios = Nothing
+  , _srcLocation = Nothing
+  , _srcLocale = Nothing
+  , _srcNetworkProfileARN = Nothing
+  , _srcExtraDataPackageARN = Nothing
+  , _srcAuxiliaryApps = Nothing
+  }
+
 
 -- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
 srcBillingMethod :: Lens' ScheduleRunConfiguration (Maybe BillingMethod)
@@ -2257,9 +2274,9 @@ srcExtraDataPackageARN = lens _srcExtraDataPackageARN (\ s a -> s{_srcExtraDataP
 srcAuxiliaryApps :: Lens' ScheduleRunConfiguration [Text]
 srcAuxiliaryApps = lens _srcAuxiliaryApps (\ s a -> s{_srcAuxiliaryApps = a}) . _Default . _Coerce;
 
-instance Hashable ScheduleRunConfiguration
+instance Hashable ScheduleRunConfiguration where
 
-instance NFData ScheduleRunConfiguration
+instance NFData ScheduleRunConfiguration where
 
 instance ToJSON ScheduleRunConfiguration where
         toJSON ScheduleRunConfiguration'{..}
@@ -2280,11 +2297,12 @@ instance ToJSON ScheduleRunConfiguration where
 --
 -- /See:/ 'scheduleRunTest' smart constructor.
 data ScheduleRunTest = ScheduleRunTest'
-    { _srtTestPackageARN :: !(Maybe Text)
-    , _srtParameters     :: !(Maybe (Map Text Text))
-    , _srtFilter         :: !(Maybe Text)
-    , _srtType           :: !TestType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srtTestPackageARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srtParameters     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _srtFilter         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srtType           :: {-# NOUNPACK #-}!TestType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScheduleRunTest' with the minimum fields required to make a request.
 --
@@ -2301,12 +2319,13 @@ scheduleRunTest
     :: TestType -- ^ 'srtType'
     -> ScheduleRunTest
 scheduleRunTest pType_ =
-    ScheduleRunTest'
-    { _srtTestPackageARN = Nothing
-    , _srtParameters = Nothing
-    , _srtFilter = Nothing
-    , _srtType = pType_
-    }
+  ScheduleRunTest'
+  { _srtTestPackageARN = Nothing
+  , _srtParameters = Nothing
+  , _srtFilter = Nothing
+  , _srtType = pType_
+  }
+
 
 -- | The ARN of the uploaded test that will be run.
 srtTestPackageARN :: Lens' ScheduleRunTest (Maybe Text)
@@ -2324,9 +2343,9 @@ srtFilter = lens _srtFilter (\ s a -> s{_srtFilter = a});
 srtType :: Lens' ScheduleRunTest TestType
 srtType = lens _srtType (\ s a -> s{_srtType = a});
 
-instance Hashable ScheduleRunTest
+instance Hashable ScheduleRunTest where
 
-instance NFData ScheduleRunTest
+instance NFData ScheduleRunTest where
 
 instance ToJSON ScheduleRunTest where
         toJSON ScheduleRunTest'{..}
@@ -2343,18 +2362,19 @@ instance ToJSON ScheduleRunTest where
 --
 -- /See:/ 'suite' smart constructor.
 data Suite = Suite'
-    { _sStatus        :: !(Maybe ExecutionStatus)
-    , _sCounters      :: !(Maybe Counters)
-    , _sArn           :: !(Maybe Text)
-    , _sCreated       :: !(Maybe POSIX)
-    , _sStopped       :: !(Maybe POSIX)
-    , _sResult        :: !(Maybe ExecutionResult)
-    , _sName          :: !(Maybe Text)
-    , _sDeviceMinutes :: !(Maybe DeviceMinutes)
-    , _sType          :: !(Maybe TestType)
-    , _sMessage       :: !(Maybe Text)
-    , _sStarted       :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStatus        :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
+  , _sCounters      :: {-# NOUNPACK #-}!(Maybe Counters)
+  , _sArn           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCreated       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _sStopped       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _sResult        :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
+  , _sName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sDeviceMinutes :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
+  , _sType          :: {-# NOUNPACK #-}!(Maybe TestType)
+  , _sMessage       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sStarted       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Suite' with the minimum fields required to make a request.
 --
@@ -2384,19 +2404,20 @@ data Suite = Suite'
 suite
     :: Suite
 suite =
-    Suite'
-    { _sStatus = Nothing
-    , _sCounters = Nothing
-    , _sArn = Nothing
-    , _sCreated = Nothing
-    , _sStopped = Nothing
-    , _sResult = Nothing
-    , _sName = Nothing
-    , _sDeviceMinutes = Nothing
-    , _sType = Nothing
-    , _sMessage = Nothing
-    , _sStarted = Nothing
-    }
+  Suite'
+  { _sStatus = Nothing
+  , _sCounters = Nothing
+  , _sArn = Nothing
+  , _sCreated = Nothing
+  , _sStopped = Nothing
+  , _sResult = Nothing
+  , _sName = Nothing
+  , _sDeviceMinutes = Nothing
+  , _sType = Nothing
+  , _sMessage = Nothing
+  , _sStarted = Nothing
+  }
+
 
 -- | The suite's status. Allowed values include:     * PENDING: A pending status.     * PENDING_CONCURRENCY: A pending concurrency status.     * PENDING_DEVICE: A pending device status.     * PROCESSING: A processing status.     * SCHEDULING: A scheduling status.     * PREPARING: A preparing status.     * RUNNING: A running status.     * COMPLETED: A completed status.     * STOPPING: A stopping status.
 sStatus :: Lens' Suite (Maybe ExecutionStatus)
@@ -2458,9 +2479,9 @@ instance FromJSON Suite where
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
 
-instance Hashable Suite
+instance Hashable Suite where
 
-instance NFData Suite
+instance NFData Suite where
 
 -- | Represents a condition that is evaluated.
 --
@@ -2468,18 +2489,19 @@ instance NFData Suite
 --
 -- /See:/ 'test' smart constructor.
 data Test = Test'
-    { _tStatus        :: !(Maybe ExecutionStatus)
-    , _tCounters      :: !(Maybe Counters)
-    , _tArn           :: !(Maybe Text)
-    , _tCreated       :: !(Maybe POSIX)
-    , _tStopped       :: !(Maybe POSIX)
-    , _tResult        :: !(Maybe ExecutionResult)
-    , _tName          :: !(Maybe Text)
-    , _tDeviceMinutes :: !(Maybe DeviceMinutes)
-    , _tType          :: !(Maybe TestType)
-    , _tMessage       :: !(Maybe Text)
-    , _tStarted       :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tStatus        :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
+  , _tCounters      :: {-# NOUNPACK #-}!(Maybe Counters)
+  , _tArn           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tCreated       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tStopped       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tResult        :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
+  , _tName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tDeviceMinutes :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
+  , _tType          :: {-# NOUNPACK #-}!(Maybe TestType)
+  , _tMessage       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tStarted       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Test' with the minimum fields required to make a request.
 --
@@ -2509,19 +2531,20 @@ data Test = Test'
 test
     :: Test
 test =
-    Test'
-    { _tStatus = Nothing
-    , _tCounters = Nothing
-    , _tArn = Nothing
-    , _tCreated = Nothing
-    , _tStopped = Nothing
-    , _tResult = Nothing
-    , _tName = Nothing
-    , _tDeviceMinutes = Nothing
-    , _tType = Nothing
-    , _tMessage = Nothing
-    , _tStarted = Nothing
-    }
+  Test'
+  { _tStatus = Nothing
+  , _tCounters = Nothing
+  , _tArn = Nothing
+  , _tCreated = Nothing
+  , _tStopped = Nothing
+  , _tResult = Nothing
+  , _tName = Nothing
+  , _tDeviceMinutes = Nothing
+  , _tType = Nothing
+  , _tMessage = Nothing
+  , _tStarted = Nothing
+  }
+
 
 -- | The test's status. Allowed values include:     * PENDING: A pending status.     * PENDING_CONCURRENCY: A pending concurrency status.     * PENDING_DEVICE: A pending device status.     * PROCESSING: A processing status.     * SCHEDULING: A scheduling status.     * PREPARING: A preparing status.     * RUNNING: A running status.     * COMPLETED: A completed status.     * STOPPING: A stopping status.
 tStatus :: Lens' Test (Maybe ExecutionStatus)
@@ -2583,9 +2606,9 @@ instance FromJSON Test where
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
 
-instance Hashable Test
+instance Hashable Test where
 
-instance NFData Test
+instance NFData Test where
 
 -- | Represents information about free trial device minutes for an AWS account.
 --
@@ -2593,9 +2616,10 @@ instance NFData Test
 --
 -- /See:/ 'trialMinutes' smart constructor.
 data TrialMinutes = TrialMinutes'
-    { _tmRemaining :: !(Maybe Double)
-    , _tmTotal     :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tmRemaining :: {-# NOUNPACK #-}!(Maybe Double)
+  , _tmTotal     :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrialMinutes' with the minimum fields required to make a request.
 --
@@ -2606,11 +2630,8 @@ data TrialMinutes = TrialMinutes'
 -- * 'tmTotal' - The total number of free trial minutes that the account started with.
 trialMinutes
     :: TrialMinutes
-trialMinutes =
-    TrialMinutes'
-    { _tmRemaining = Nothing
-    , _tmTotal = Nothing
-    }
+trialMinutes = TrialMinutes' {_tmRemaining = Nothing, _tmTotal = Nothing}
+
 
 -- | The number of free trial minutes remaining in the account.
 tmRemaining :: Lens' TrialMinutes (Maybe Double)
@@ -2627,9 +2648,9 @@ instance FromJSON TrialMinutes where
                  TrialMinutes' <$>
                    (x .:? "remaining") <*> (x .:? "total"))
 
-instance Hashable TrialMinutes
+instance Hashable TrialMinutes where
 
-instance NFData TrialMinutes
+instance NFData TrialMinutes where
 
 -- | A collection of one or more problems, grouped by their result.
 --
@@ -2637,9 +2658,10 @@ instance NFData TrialMinutes
 --
 -- /See:/ 'uniqueProblem' smart constructor.
 data UniqueProblem = UniqueProblem'
-    { _upProblems :: !(Maybe [Problem])
-    , _upMessage  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upProblems :: {-# NOUNPACK #-}!(Maybe [Problem])
+  , _upMessage  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UniqueProblem' with the minimum fields required to make a request.
 --
@@ -2650,11 +2672,8 @@ data UniqueProblem = UniqueProblem'
 -- * 'upMessage' - A message about the unique problems' result.
 uniqueProblem
     :: UniqueProblem
-uniqueProblem =
-    UniqueProblem'
-    { _upProblems = Nothing
-    , _upMessage = Nothing
-    }
+uniqueProblem = UniqueProblem' {_upProblems = Nothing, _upMessage = Nothing}
+
 
 -- | Information about the problems.
 upProblems :: Lens' UniqueProblem [Problem]
@@ -2671,9 +2690,9 @@ instance FromJSON UniqueProblem where
                  UniqueProblem' <$>
                    (x .:? "problems" .!= mempty) <*> (x .:? "message"))
 
-instance Hashable UniqueProblem
+instance Hashable UniqueProblem where
 
-instance NFData UniqueProblem
+instance NFData UniqueProblem where
 
 -- | An app or a set of one or more tests to upload or that have been uploaded.
 --
@@ -2681,16 +2700,17 @@ instance NFData UniqueProblem
 --
 -- /See:/ 'upload' smart constructor.
 data Upload = Upload'
-    { _uStatus      :: !(Maybe UploadStatus)
-    , _uArn         :: !(Maybe Text)
-    , _uCreated     :: !(Maybe POSIX)
-    , _uUrl         :: !(Maybe Text)
-    , _uName        :: !(Maybe Text)
-    , _uMetadata    :: !(Maybe Text)
-    , _uType        :: !(Maybe UploadType)
-    , _uMessage     :: !(Maybe Text)
-    , _uContentType :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uStatus      :: {-# NOUNPACK #-}!(Maybe UploadStatus)
+  , _uArn         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uCreated     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uUrl         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uMetadata    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uType        :: {-# NOUNPACK #-}!(Maybe UploadType)
+  , _uMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uContentType :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Upload' with the minimum fields required to make a request.
 --
@@ -2716,17 +2736,18 @@ data Upload = Upload'
 upload
     :: Upload
 upload =
-    Upload'
-    { _uStatus = Nothing
-    , _uArn = Nothing
-    , _uCreated = Nothing
-    , _uUrl = Nothing
-    , _uName = Nothing
-    , _uMetadata = Nothing
-    , _uType = Nothing
-    , _uMessage = Nothing
-    , _uContentType = Nothing
-    }
+  Upload'
+  { _uStatus = Nothing
+  , _uArn = Nothing
+  , _uCreated = Nothing
+  , _uUrl = Nothing
+  , _uName = Nothing
+  , _uMetadata = Nothing
+  , _uType = Nothing
+  , _uMessage = Nothing
+  , _uContentType = Nothing
+  }
+
 
 -- | The upload's status. Must be one of the following values:     * FAILED: A failed status.     * INITIALIZED: An initialized status.     * PROCESSING: A processing status.     * SUCCEEDED: A succeeded status.
 uStatus :: Lens' Upload (Maybe UploadStatus)
@@ -2778,6 +2799,6 @@ instance FromJSON Upload where
                      <*> (x .:? "message")
                      <*> (x .:? "contentType"))
 
-instance Hashable Upload
+instance Hashable Upload where
 
-instance NFData Upload
+instance NFData Upload where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateEmailChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.UpdateEmailChannel
     , uecrsEmailChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateEmailChannel' smart constructor.
 data UpdateEmailChannel = UpdateEmailChannel'
-    { _uecApplicationId       :: !Text
-    , _uecEmailChannelRequest :: !EmailChannelRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uecApplicationId       :: {-# NOUNPACK #-}!Text
+  , _uecEmailChannelRequest :: {-# NOUNPACK #-}!EmailChannelRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEmailChannel' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ updateEmailChannel
     -> EmailChannelRequest -- ^ 'uecEmailChannelRequest'
     -> UpdateEmailChannel
 updateEmailChannel pApplicationId_ pEmailChannelRequest_ =
-    UpdateEmailChannel'
-    { _uecApplicationId = pApplicationId_
-    , _uecEmailChannelRequest = pEmailChannelRequest_
-    }
+  UpdateEmailChannel'
+  { _uecApplicationId = pApplicationId_
+  , _uecEmailChannelRequest = pEmailChannelRequest_
+  }
+
 
 -- | Undocumented member.
 uecApplicationId :: Lens' UpdateEmailChannel Text
@@ -84,9 +86,9 @@ instance AWSRequest UpdateEmailChannel where
                  UpdateEmailChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateEmailChannel
+instance Hashable UpdateEmailChannel where
 
-instance NFData UpdateEmailChannel
+instance NFData UpdateEmailChannel where
 
 instance ToHeaders UpdateEmailChannel where
         toHeaders
@@ -113,9 +115,10 @@ instance ToQuery UpdateEmailChannel where
 
 -- | /See:/ 'updateEmailChannelResponse' smart constructor.
 data UpdateEmailChannelResponse = UpdateEmailChannelResponse'
-    { _uecrsResponseStatus       :: !Int
-    , _uecrsEmailChannelResponse :: !EmailChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uecrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  , _uecrsEmailChannelResponse :: {-# NOUNPACK #-}!EmailChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEmailChannelResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +132,11 @@ updateEmailChannelResponse
     -> EmailChannelResponse -- ^ 'uecrsEmailChannelResponse'
     -> UpdateEmailChannelResponse
 updateEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
-    UpdateEmailChannelResponse'
-    { _uecrsResponseStatus = pResponseStatus_
-    , _uecrsEmailChannelResponse = pEmailChannelResponse_
-    }
+  UpdateEmailChannelResponse'
+  { _uecrsResponseStatus = pResponseStatus_
+  , _uecrsEmailChannelResponse = pEmailChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 uecrsResponseStatus :: Lens' UpdateEmailChannelResponse Int
@@ -142,4 +146,4 @@ uecrsResponseStatus = lens _uecrsResponseStatus (\ s a -> s{_uecrsResponseStatus
 uecrsEmailChannelResponse :: Lens' UpdateEmailChannelResponse EmailChannelResponse
 uecrsEmailChannelResponse = lens _uecrsEmailChannelResponse (\ s a -> s{_uecrsEmailChannelResponse = a});
 
-instance NFData UpdateEmailChannelResponse
+instance NFData UpdateEmailChannelResponse where

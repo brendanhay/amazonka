@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,22 +43,23 @@ module Network.AWS.ECS.ListAttributes
     , larsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAttributes' smart constructor.
 data ListAttributes = ListAttributes'
-    { _laAttributeValue :: !(Maybe Text)
-    , _laCluster        :: !(Maybe Text)
-    , _laNextToken      :: !(Maybe Text)
-    , _laAttributeName  :: !(Maybe Text)
-    , _laMaxResults     :: !(Maybe Int)
-    , _laTargetType     :: !TargetType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laCluster        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _laTargetType     :: {-# NOUNPACK #-}!TargetType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttributes' with the minimum fields required to make a request.
 --
@@ -79,14 +80,15 @@ listAttributes
     :: TargetType -- ^ 'laTargetType'
     -> ListAttributes
 listAttributes pTargetType_ =
-    ListAttributes'
-    { _laAttributeValue = Nothing
-    , _laCluster = Nothing
-    , _laNextToken = Nothing
-    , _laAttributeName = Nothing
-    , _laMaxResults = Nothing
-    , _laTargetType = pTargetType_
-    }
+  ListAttributes'
+  { _laAttributeValue = Nothing
+  , _laCluster = Nothing
+  , _laNextToken = Nothing
+  , _laAttributeName = Nothing
+  , _laMaxResults = Nothing
+  , _laTargetType = pTargetType_
+  }
+
 
 -- | The value of the attribute with which to filter results. You must also specify an attribute name to use this parameter.
 laAttributeValue :: Lens' ListAttributes (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest ListAttributes where
                      (x .?> "attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAttributes
+instance Hashable ListAttributes where
 
-instance NFData ListAttributes
+instance NFData ListAttributes where
 
 instance ToHeaders ListAttributes where
         toHeaders
@@ -156,10 +158,11 @@ instance ToQuery ListAttributes where
 
 -- | /See:/ 'listAttributesResponse' smart constructor.
 data ListAttributesResponse = ListAttributesResponse'
-    { _larsNextToken      :: !(Maybe Text)
-    , _larsAttributes     :: !(Maybe [Attribute])
-    , _larsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larsAttributes     :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttributesResponse' with the minimum fields required to make a request.
 --
@@ -174,11 +177,12 @@ listAttributesResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAttributesResponse
 listAttributesResponse pResponseStatus_ =
-    ListAttributesResponse'
-    { _larsNextToken = Nothing
-    , _larsAttributes = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    }
+  ListAttributesResponse'
+  { _larsNextToken = Nothing
+  , _larsAttributes = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @nextToken@ value to include in a future @ListAttributes@ request. When the results of a @ListAttributes@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 larsNextToken :: Lens' ListAttributesResponse (Maybe Text)
@@ -192,4 +196,4 @@ larsAttributes = lens _larsAttributes (\ s a -> s{_larsAttributes = a}) . _Defau
 larsResponseStatus :: Lens' ListAttributesResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 
-instance NFData ListAttributesResponse
+instance NFData ListAttributesResponse where

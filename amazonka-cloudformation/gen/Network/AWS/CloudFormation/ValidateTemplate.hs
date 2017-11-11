@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ValidateTemplate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.CloudFormation.ValidateTemplate
     , vtrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for 'ValidateTemplate' action.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'validateTemplate' smart constructor.
 data ValidateTemplate = ValidateTemplate'
-    { _vtTemplateBody :: !(Maybe Text)
-    , _vtTemplateURL  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vtTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vtTemplateURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidateTemplate' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ data ValidateTemplate = ValidateTemplate'
 validateTemplate
     :: ValidateTemplate
 validateTemplate =
-    ValidateTemplate'
-    { _vtTemplateBody = Nothing
-    , _vtTemplateURL = Nothing
-    }
+  ValidateTemplate' {_vtTemplateBody = Nothing, _vtTemplateURL = Nothing}
+
 
 -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
 vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
@@ -101,9 +100,9 @@ instance AWSRequest ValidateTemplate where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ValidateTemplate
+instance Hashable ValidateTemplate where
 
-instance NFData ValidateTemplate
+instance NFData ValidateTemplate where
 
 instance ToHeaders ValidateTemplate where
         toHeaders = const mempty
@@ -125,13 +124,14 @@ instance ToQuery ValidateTemplate where
 --
 -- /See:/ 'validateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
-    { _vtrsDeclaredTransforms :: !(Maybe [Text])
-    , _vtrsCapabilitiesReason :: !(Maybe Text)
-    , _vtrsParameters         :: !(Maybe [TemplateParameter])
-    , _vtrsDescription        :: !(Maybe Text)
-    , _vtrsCapabilities       :: !(Maybe [Capability])
-    , _vtrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vtrsDeclaredTransforms :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _vtrsCapabilitiesReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vtrsParameters         :: {-# NOUNPACK #-}!(Maybe [TemplateParameter])
+  , _vtrsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vtrsCapabilities       :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _vtrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidateTemplateResponse' with the minimum fields required to make a request.
 --
@@ -152,14 +152,15 @@ validateTemplateResponse
     :: Int -- ^ 'vtrsResponseStatus'
     -> ValidateTemplateResponse
 validateTemplateResponse pResponseStatus_ =
-    ValidateTemplateResponse'
-    { _vtrsDeclaredTransforms = Nothing
-    , _vtrsCapabilitiesReason = Nothing
-    , _vtrsParameters = Nothing
-    , _vtrsDescription = Nothing
-    , _vtrsCapabilities = Nothing
-    , _vtrsResponseStatus = pResponseStatus_
-    }
+  ValidateTemplateResponse'
+  { _vtrsDeclaredTransforms = Nothing
+  , _vtrsCapabilitiesReason = Nothing
+  , _vtrsParameters = Nothing
+  , _vtrsDescription = Nothing
+  , _vtrsCapabilities = Nothing
+  , _vtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the transforms that are declared in the template.
 vtrsDeclaredTransforms :: Lens' ValidateTemplateResponse [Text]
@@ -185,4 +186,4 @@ vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . 
 vtrsResponseStatus :: Lens' ValidateTemplateResponse Int
 vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});
 
-instance NFData ValidateTemplateResponse
+instance NFData ValidateTemplateResponse where

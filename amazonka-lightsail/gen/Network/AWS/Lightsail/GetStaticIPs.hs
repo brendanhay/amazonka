@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetStaticIPs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Lightsail.GetStaticIPs
     , gsiprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getStaticIPs' smart constructor.
 newtype GetStaticIPs = GetStaticIPs'
-    { _gsiPageToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsiPageToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStaticIPs' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetStaticIPs = GetStaticIPs'
 -- * 'gsiPageToken' - A token used for advancing to the next page of results from your get static IPs request.
 getStaticIPs
     :: GetStaticIPs
-getStaticIPs =
-    GetStaticIPs'
-    { _gsiPageToken = Nothing
-    }
+getStaticIPs = GetStaticIPs' {_gsiPageToken = Nothing}
+
 
 -- | A token used for advancing to the next page of results from your get static IPs request.
 gsiPageToken :: Lens' GetStaticIPs (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest GetStaticIPs where
                      (x .?> "staticIps" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetStaticIPs
+instance Hashable GetStaticIPs where
 
-instance NFData GetStaticIPs
+instance NFData GetStaticIPs where
 
 instance ToHeaders GetStaticIPs where
         toHeaders
@@ -113,10 +112,11 @@ instance ToQuery GetStaticIPs where
 
 -- | /See:/ 'getStaticIPsResponse' smart constructor.
 data GetStaticIPsResponse = GetStaticIPsResponse'
-    { _gsiprsNextPageToken  :: !(Maybe Text)
-    , _gsiprsStaticIPs      :: !(Maybe [StaticIP])
-    , _gsiprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsiprsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsiprsStaticIPs      :: {-# NOUNPACK #-}!(Maybe [StaticIP])
+  , _gsiprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStaticIPsResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +131,12 @@ getStaticIPsResponse
     :: Int -- ^ 'gsiprsResponseStatus'
     -> GetStaticIPsResponse
 getStaticIPsResponse pResponseStatus_ =
-    GetStaticIPsResponse'
-    { _gsiprsNextPageToken = Nothing
-    , _gsiprsStaticIPs = Nothing
-    , _gsiprsResponseStatus = pResponseStatus_
-    }
+  GetStaticIPsResponse'
+  { _gsiprsNextPageToken = Nothing
+  , _gsiprsStaticIPs = Nothing
+  , _gsiprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token used for advancing to the next page of results from your get static IPs request.
 gsiprsNextPageToken :: Lens' GetStaticIPsResponse (Maybe Text)
@@ -149,4 +150,4 @@ gsiprsStaticIPs = lens _gsiprsStaticIPs (\ s a -> s{_gsiprsStaticIPs = a}) . _De
 gsiprsResponseStatus :: Lens' GetStaticIPsResponse Int
 gsiprsResponseStatus = lens _gsiprsResponseStatus (\ s a -> s{_gsiprsResponseStatus = a});
 
-instance NFData GetStaticIPsResponse
+instance NFData GetStaticIPsResponse where

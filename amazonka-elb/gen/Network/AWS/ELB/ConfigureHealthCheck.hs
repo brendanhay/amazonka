@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ConfigureHealthCheck
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.ELB.ConfigureHealthCheck
     , chcrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ConfigureHealthCheck.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'configureHealthCheck' smart constructor.
 data ConfigureHealthCheck = ConfigureHealthCheck'
-    { _chcLoadBalancerName :: !Text
-    , _chcHealthCheck      :: !HealthCheck
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _chcHealthCheck      :: {-# NOUNPACK #-}!HealthCheck
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigureHealthCheck' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ configureHealthCheck
     -> HealthCheck -- ^ 'chcHealthCheck'
     -> ConfigureHealthCheck
 configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
-    ConfigureHealthCheck'
-    { _chcLoadBalancerName = pLoadBalancerName_
-    , _chcHealthCheck = pHealthCheck_
-    }
+  ConfigureHealthCheck'
+  {_chcLoadBalancerName = pLoadBalancerName_, _chcHealthCheck = pHealthCheck_}
+
 
 -- | The name of the load balancer.
 chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
@@ -92,9 +92,9 @@ instance AWSRequest ConfigureHealthCheck where
                  ConfigureHealthCheckResponse' <$>
                    (x .@? "HealthCheck") <*> (pure (fromEnum s)))
 
-instance Hashable ConfigureHealthCheck
+instance Hashable ConfigureHealthCheck where
 
-instance NFData ConfigureHealthCheck
+instance NFData ConfigureHealthCheck where
 
 instance ToHeaders ConfigureHealthCheck where
         toHeaders = const mempty
@@ -116,9 +116,10 @@ instance ToQuery ConfigureHealthCheck where
 --
 -- /See:/ 'configureHealthCheckResponse' smart constructor.
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
-    { _chcrsHealthCheck    :: !(Maybe HealthCheck)
-    , _chcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcrsHealthCheck    :: {-# NOUNPACK #-}!(Maybe HealthCheck)
+  , _chcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigureHealthCheckResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ configureHealthCheckResponse
     :: Int -- ^ 'chcrsResponseStatus'
     -> ConfigureHealthCheckResponse
 configureHealthCheckResponse pResponseStatus_ =
-    ConfigureHealthCheckResponse'
-    { _chcrsHealthCheck = Nothing
-    , _chcrsResponseStatus = pResponseStatus_
-    }
+  ConfigureHealthCheckResponse'
+  {_chcrsHealthCheck = Nothing, _chcrsResponseStatus = pResponseStatus_}
+
 
 -- | The updated health check.
 chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
@@ -144,4 +144,4 @@ chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 chcrsResponseStatus :: Lens' ConfigureHealthCheckResponse Int
 chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
 
-instance NFData ConfigureHealthCheckResponse
+instance NFData ConfigureHealthCheckResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SDB.CreateDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.SDB.CreateDomain
     , CreateDomainResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'createDomain' smart constructor.
 newtype CreateDomain = CreateDomain'
-    { _cdDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype CreateDomain = CreateDomain'
 createDomain
     :: Text -- ^ 'cdDomainName'
     -> CreateDomain
-createDomain pDomainName_ =
-    CreateDomain'
-    { _cdDomainName = pDomainName_
-    }
+createDomain pDomainName_ = CreateDomain' {_cdDomainName = pDomainName_}
+
 
 -- | The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
 cdDomainName :: Lens' CreateDomain Text
@@ -72,9 +71,9 @@ instance AWSRequest CreateDomain where
         request = postQuery sdb
         response = receiveNull CreateDomainResponse'
 
-instance Hashable CreateDomain
+instance Hashable CreateDomain where
 
-instance NFData CreateDomain
+instance NFData CreateDomain where
 
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
@@ -91,8 +90,9 @@ instance ToQuery CreateDomain where
 
 -- | /See:/ 'createDomainResponse' smart constructor.
 data CreateDomainResponse =
-    CreateDomainResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateDomainResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
 --
@@ -100,4 +100,5 @@ createDomainResponse
     :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse'
 
-instance NFData CreateDomainResponse
+
+instance NFData CreateDomainResponse where

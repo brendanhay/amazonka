@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeletePolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.IoT.DeletePolicyVersion
     , DeletePolicyVersionResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeletePolicyVersion operation.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
-    { _dpvPolicyName      :: !Text
-    , _dpvPolicyVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpvPolicyName      :: {-# NOUNPACK #-}!Text
+  , _dpvPolicyVersionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicyVersion' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ deletePolicyVersion
     -> Text -- ^ 'dpvPolicyVersionId'
     -> DeletePolicyVersion
 deletePolicyVersion pPolicyName_ pPolicyVersionId_ =
-    DeletePolicyVersion'
-    { _dpvPolicyName = pPolicyName_
-    , _dpvPolicyVersionId = pPolicyVersionId_
-    }
+  DeletePolicyVersion'
+  {_dpvPolicyName = pPolicyName_, _dpvPolicyVersionId = pPolicyVersionId_}
+
 
 -- | The name of the policy.
 dpvPolicyName :: Lens' DeletePolicyVersion Text
@@ -83,9 +83,9 @@ instance AWSRequest DeletePolicyVersion where
         request = delete ioT
         response = receiveNull DeletePolicyVersionResponse'
 
-instance Hashable DeletePolicyVersion
+instance Hashable DeletePolicyVersion where
 
-instance NFData DeletePolicyVersion
+instance NFData DeletePolicyVersion where
 
 instance ToHeaders DeletePolicyVersion where
         toHeaders = const mempty
@@ -101,8 +101,9 @@ instance ToQuery DeletePolicyVersion where
 
 -- | /See:/ 'deletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse =
-    DeletePolicyVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePolicyVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,5 @@ deletePolicyVersionResponse
     :: DeletePolicyVersionResponse
 deletePolicyVersionResponse = DeletePolicyVersionResponse'
 
-instance NFData DeletePolicyVersionResponse
+
+instance NFData DeletePolicyVersionResponse where

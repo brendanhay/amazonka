@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CopySnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.EC2.CopySnapshot
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CopySnapshot.
 --
@@ -61,15 +61,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'copySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-    { _csPresignedURL      :: !(Maybe Text)
-    , _csEncrypted         :: !(Maybe Bool)
-    , _csDestinationRegion :: !(Maybe Text)
-    , _csKMSKeyId          :: !(Maybe Text)
-    , _csDescription       :: !(Maybe Text)
-    , _csDryRun            :: !(Maybe Bool)
-    , _csSourceRegion      :: !Text
-    , _csSourceSnapshotId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csPresignedURL      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csDestinationRegion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csKMSKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csSourceRegion      :: {-# NOUNPACK #-}!Text
+  , _csSourceSnapshotId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopySnapshot' with the minimum fields required to make a request.
 --
@@ -95,16 +96,17 @@ copySnapshot
     -> Text -- ^ 'csSourceSnapshotId'
     -> CopySnapshot
 copySnapshot pSourceRegion_ pSourceSnapshotId_ =
-    CopySnapshot'
-    { _csPresignedURL = Nothing
-    , _csEncrypted = Nothing
-    , _csDestinationRegion = Nothing
-    , _csKMSKeyId = Nothing
-    , _csDescription = Nothing
-    , _csDryRun = Nothing
-    , _csSourceRegion = pSourceRegion_
-    , _csSourceSnapshotId = pSourceSnapshotId_
-    }
+  CopySnapshot'
+  { _csPresignedURL = Nothing
+  , _csEncrypted = Nothing
+  , _csDestinationRegion = Nothing
+  , _csKMSKeyId = Nothing
+  , _csDescription = Nothing
+  , _csDryRun = Nothing
+  , _csSourceRegion = pSourceRegion_
+  , _csSourceSnapshotId = pSourceSnapshotId_
+  }
+
 
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This parameter is only required when copying an encrypted snapshot with the Amazon EC2 Query API; it is available as an optional parameter in all other cases. The @PresignedUrl@ should use the snapshot source endpoint, the @CopySnapshot@ action, and include the @SourceRegion@ , @SourceSnapshotId@ , and @DestinationRegion@ parameters. The @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests by Using Query Parameters (AWS Signature Version 4)> in the /Amazon Simple Storage Service API Reference/ . An invalid or improperly signed @PresignedUrl@ will cause the copy operation to fail asynchronously, and the snapshot will move to an @error@ state.
 csPresignedURL :: Lens' CopySnapshot (Maybe Text)
@@ -147,9 +149,9 @@ instance AWSRequest CopySnapshot where
                  CopySnapshotResponse' <$>
                    (x .@? "snapshotId") <*> (pure (fromEnum s)))
 
-instance Hashable CopySnapshot
+instance Hashable CopySnapshot where
 
-instance NFData CopySnapshot
+instance NFData CopySnapshot where
 
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty
@@ -177,9 +179,10 @@ instance ToQuery CopySnapshot where
 --
 -- /See:/ 'copySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-    { _csrsSnapshotId     :: !(Maybe Text)
-    , _csrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsSnapshotId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
 --
@@ -192,10 +195,9 @@ copySnapshotResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CopySnapshotResponse
 copySnapshotResponse pResponseStatus_ =
-    CopySnapshotResponse'
-    { _csrsSnapshotId = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  CopySnapshotResponse'
+  {_csrsSnapshotId = Nothing, _csrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the new snapshot.
 csrsSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
@@ -205,4 +207,4 @@ csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 csrsResponseStatus :: Lens' CopySnapshotResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CopySnapshotResponse
+instance NFData CopySnapshotResponse where

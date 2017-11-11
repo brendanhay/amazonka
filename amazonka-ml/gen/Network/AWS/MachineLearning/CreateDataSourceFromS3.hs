@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromS3
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,20 +48,21 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS3
     , cdsfsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromS3' smart constructor.
 data CreateDataSourceFromS3 = CreateDataSourceFromS3'
-    { _cdsfsDataSourceName    :: !(Maybe Text)
-    , _cdsfsComputeStatistics :: !(Maybe Bool)
-    , _cdsfsDataSourceId      :: !Text
-    , _cdsfsDataSpec          :: !S3DataSpec
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsfsDataSourceName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsfsComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdsfsDataSourceId      :: {-# NOUNPACK #-}!Text
+  , _cdsfsDataSpec          :: {-# NOUNPACK #-}!S3DataSpec
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDataSourceFromS3' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ createDataSourceFromS3
     -> S3DataSpec -- ^ 'cdsfsDataSpec'
     -> CreateDataSourceFromS3
 createDataSourceFromS3 pDataSourceId_ pDataSpec_ =
-    CreateDataSourceFromS3'
-    { _cdsfsDataSourceName = Nothing
-    , _cdsfsComputeStatistics = Nothing
-    , _cdsfsDataSourceId = pDataSourceId_
-    , _cdsfsDataSpec = pDataSpec_
-    }
+  CreateDataSourceFromS3'
+  { _cdsfsDataSourceName = Nothing
+  , _cdsfsComputeStatistics = Nothing
+  , _cdsfsDataSourceId = pDataSourceId_
+  , _cdsfsDataSpec = pDataSpec_
+  }
+
 
 -- | A user-supplied name or description of the @DataSource@ .
 cdsfsDataSourceName :: Lens' CreateDataSourceFromS3 (Maybe Text)
@@ -112,9 +114,9 @@ instance AWSRequest CreateDataSourceFromS3 where
                  CreateDataSourceFromS3Response' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDataSourceFromS3
+instance Hashable CreateDataSourceFromS3 where
 
-instance NFData CreateDataSourceFromS3
+instance NFData CreateDataSourceFromS3 where
 
 instance ToHeaders CreateDataSourceFromS3 where
         toHeaders
@@ -149,9 +151,10 @@ instance ToQuery CreateDataSourceFromS3 where
 --
 -- /See:/ 'createDataSourceFromS3Response' smart constructor.
 data CreateDataSourceFromS3Response = CreateDataSourceFromS3Response'
-    { _cdsfsrsDataSourceId   :: !(Maybe Text)
-    , _cdsfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsfsrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDataSourceFromS3Response' with the minimum fields required to make a request.
 --
@@ -164,10 +167,9 @@ createDataSourceFromS3Response
     :: Int -- ^ 'cdsfsrsResponseStatus'
     -> CreateDataSourceFromS3Response
 createDataSourceFromS3Response pResponseStatus_ =
-    CreateDataSourceFromS3Response'
-    { _cdsfsrsDataSourceId = Nothing
-    , _cdsfsrsResponseStatus = pResponseStatus_
-    }
+  CreateDataSourceFromS3Response'
+  {_cdsfsrsDataSourceId = Nothing, _cdsfsrsResponseStatus = pResponseStatus_}
+
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
 cdsfsrsDataSourceId :: Lens' CreateDataSourceFromS3Response (Maybe Text)
@@ -177,4 +179,4 @@ cdsfsrsDataSourceId = lens _cdsfsrsDataSourceId (\ s a -> s{_cdsfsrsDataSourceId
 cdsfsrsResponseStatus :: Lens' CreateDataSourceFromS3Response Int
 cdsfsrsResponseStatus = lens _cdsfsrsResponseStatus (\ s a -> s{_cdsfsrsResponseStatus = a});
 
-instance NFData CreateDataSourceFromS3Response
+instance NFData CreateDataSourceFromS3Response where

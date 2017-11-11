@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering.MeterUsage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.MarketplaceMetering.MeterUsage
     , mursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MarketplaceMetering.Types
-import           Network.AWS.MarketplaceMetering.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MarketplaceMetering.Types
+import Network.AWS.MarketplaceMetering.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'meterUsage' smart constructor.
 data MeterUsage = MeterUsage'
-    { _muProductCode    :: !Text
-    , _muTimestamp      :: !POSIX
-    , _muUsageDimension :: !Text
-    , _muUsageQuantity  :: !Nat
-    , _muDryRun         :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _muProductCode    :: {-# NOUNPACK #-}!Text
+  , _muTimestamp      :: {-# NOUNPACK #-}!POSIX
+  , _muUsageDimension :: {-# NOUNPACK #-}!Text
+  , _muUsageQuantity  :: {-# NOUNPACK #-}!Nat
+  , _muDryRun         :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MeterUsage' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ meterUsage
     -> Bool -- ^ 'muDryRun'
     -> MeterUsage
 meterUsage pProductCode_ pTimestamp_ pUsageDimension_ pUsageQuantity_ pDryRun_ =
-    MeterUsage'
-    { _muProductCode = pProductCode_
-    , _muTimestamp = _Time # pTimestamp_
-    , _muUsageDimension = pUsageDimension_
-    , _muUsageQuantity = _Nat # pUsageQuantity_
-    , _muDryRun = pDryRun_
-    }
+  MeterUsage'
+  { _muProductCode = pProductCode_
+  , _muTimestamp = _Time # pTimestamp_
+  , _muUsageDimension = pUsageDimension_
+  , _muUsageQuantity = _Nat # pUsageQuantity_
+  , _muDryRun = pDryRun_
+  }
+
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 muProductCode :: Lens' MeterUsage Text
@@ -117,9 +119,9 @@ instance AWSRequest MeterUsage where
                  MeterUsageResponse' <$>
                    (x .?> "MeteringRecordId") <*> (pure (fromEnum s)))
 
-instance Hashable MeterUsage
+instance Hashable MeterUsage where
 
-instance NFData MeterUsage
+instance NFData MeterUsage where
 
 instance ToHeaders MeterUsage where
         toHeaders
@@ -148,9 +150,10 @@ instance ToQuery MeterUsage where
 
 -- | /See:/ 'meterUsageResponse' smart constructor.
 data MeterUsageResponse = MeterUsageResponse'
-    { _mursMeteringRecordId :: !(Maybe Text)
-    , _mursResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mursMeteringRecordId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mursResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MeterUsageResponse' with the minimum fields required to make a request.
 --
@@ -163,10 +166,9 @@ meterUsageResponse
     :: Int -- ^ 'mursResponseStatus'
     -> MeterUsageResponse
 meterUsageResponse pResponseStatus_ =
-    MeterUsageResponse'
-    { _mursMeteringRecordId = Nothing
-    , _mursResponseStatus = pResponseStatus_
-    }
+  MeterUsageResponse'
+  {_mursMeteringRecordId = Nothing, _mursResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mursMeteringRecordId :: Lens' MeterUsageResponse (Maybe Text)
@@ -176,4 +178,4 @@ mursMeteringRecordId = lens _mursMeteringRecordId (\ s a -> s{_mursMeteringRecor
 mursResponseStatus :: Lens' MeterUsageResponse Int
 mursResponseStatus = lens _mursResponseStatus (\ s a -> s{_mursResponseStatus = a});
 
-instance NFData MeterUsageResponse
+instance NFData MeterUsageResponse where

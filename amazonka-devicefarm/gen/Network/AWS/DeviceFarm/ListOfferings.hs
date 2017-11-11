@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListOfferings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,13 +40,13 @@ module Network.AWS.DeviceFarm.ListOfferings
     , lorsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to list all offerings.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listOfferings' smart constructor.
 newtype ListOfferings = ListOfferings'
-    { _loNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOfferings' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ newtype ListOfferings = ListOfferings'
 -- * 'loNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listOfferings
     :: ListOfferings
-listOfferings =
-    ListOfferings'
-    { _loNextToken = Nothing
-    }
+listOfferings = ListOfferings' {_loNextToken = Nothing}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 loNextToken :: Lens' ListOfferings (Maybe Text)
@@ -91,9 +90,9 @@ instance AWSRequest ListOfferings where
                      (x .?> "offerings" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListOfferings
+instance Hashable ListOfferings where
 
-instance NFData ListOfferings
+instance NFData ListOfferings where
 
 instance ToHeaders ListOfferings where
         toHeaders
@@ -121,10 +120,11 @@ instance ToQuery ListOfferings where
 --
 -- /See:/ 'listOfferingsResponse' smart constructor.
 data ListOfferingsResponse = ListOfferingsResponse'
-    { _lorsNextToken      :: !(Maybe Text)
-    , _lorsOfferings      :: !(Maybe [Offering])
-    , _lorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lorsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lorsOfferings      :: {-# NOUNPACK #-}!(Maybe [Offering])
+  , _lorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOfferingsResponse' with the minimum fields required to make a request.
 --
@@ -139,11 +139,12 @@ listOfferingsResponse
     :: Int -- ^ 'lorsResponseStatus'
     -> ListOfferingsResponse
 listOfferingsResponse pResponseStatus_ =
-    ListOfferingsResponse'
-    { _lorsNextToken = Nothing
-    , _lorsOfferings = Nothing
-    , _lorsResponseStatus = pResponseStatus_
-    }
+  ListOfferingsResponse'
+  { _lorsNextToken = Nothing
+  , _lorsOfferings = Nothing
+  , _lorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lorsNextToken :: Lens' ListOfferingsResponse (Maybe Text)
@@ -157,4 +158,4 @@ lorsOfferings = lens _lorsOfferings (\ s a -> s{_lorsOfferings = a}) . _Default 
 lorsResponseStatus :: Lens' ListOfferingsResponse Int
 lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
 
-instance NFData ListOfferingsResponse
+instance NFData ListOfferingsResponse where

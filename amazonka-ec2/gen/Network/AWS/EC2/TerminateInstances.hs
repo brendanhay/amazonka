@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.TerminateInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.EC2.TerminateInstances
     , tirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for TerminateInstances.
 --
@@ -61,9 +61,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'terminateInstances' smart constructor.
 data TerminateInstances = TerminateInstances'
-    { _tiDryRun      :: !(Maybe Bool)
-    , _tiInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tiDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tiInstanceIds :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateInstances' with the minimum fields required to make a request.
 --
@@ -75,10 +76,8 @@ data TerminateInstances = TerminateInstances'
 terminateInstances
     :: TerminateInstances
 terminateInstances =
-    TerminateInstances'
-    { _tiDryRun = Nothing
-    , _tiInstanceIds = mempty
-    }
+  TerminateInstances' {_tiDryRun = Nothing, _tiInstanceIds = mempty}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 tiDryRun :: Lens' TerminateInstances (Maybe Bool)
@@ -100,9 +99,9 @@ instance AWSRequest TerminateInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable TerminateInstances
+instance Hashable TerminateInstances where
 
-instance NFData TerminateInstances
+instance NFData TerminateInstances where
 
 instance ToHeaders TerminateInstances where
         toHeaders = const mempty
@@ -124,9 +123,10 @@ instance ToQuery TerminateInstances where
 --
 -- /See:/ 'terminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
-    { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
-    , _tirsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tirsTerminatingInstances :: {-# NOUNPACK #-}!(Maybe [InstanceStateChange])
+  , _tirsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateInstancesResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +139,9 @@ terminateInstancesResponse
     :: Int -- ^ 'tirsResponseStatus'
     -> TerminateInstancesResponse
 terminateInstancesResponse pResponseStatus_ =
-    TerminateInstancesResponse'
-    { _tirsTerminatingInstances = Nothing
-    , _tirsResponseStatus = pResponseStatus_
-    }
+  TerminateInstancesResponse'
+  {_tirsTerminatingInstances = Nothing, _tirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more terminated instances.
 tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
@@ -152,4 +151,4 @@ tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTermi
 tirsResponseStatus :: Lens' TerminateInstancesResponse Int
 tirsResponseStatus = lens _tirsResponseStatus (\ s a -> s{_tirsResponseStatus = a});
 
-instance NFData TerminateInstancesResponse
+instance NFData TerminateInstancesResponse where

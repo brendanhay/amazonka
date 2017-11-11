@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
     , sihinersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to set whether Amazon SES includes the original email headers in the Amazon SNS notifications of a specified type. For information about notifications, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html Amazon SES Developer Guide> .
 --
@@ -55,10 +55,11 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'setIdentityHeadersInNotificationsEnabled' smart constructor.
 data SetIdentityHeadersInNotificationsEnabled = SetIdentityHeadersInNotificationsEnabled'
-    { _sihineIdentity         :: !Text
-    , _sihineNotificationType :: !NotificationType
-    , _sihineEnabled          :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sihineIdentity         :: {-# NOUNPACK #-}!Text
+  , _sihineNotificationType :: {-# NOUNPACK #-}!NotificationType
+  , _sihineEnabled          :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityHeadersInNotificationsEnabled' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ setIdentityHeadersInNotificationsEnabled
     -> Bool -- ^ 'sihineEnabled'
     -> SetIdentityHeadersInNotificationsEnabled
 setIdentityHeadersInNotificationsEnabled pIdentity_ pNotificationType_ pEnabled_ =
-    SetIdentityHeadersInNotificationsEnabled'
-    { _sihineIdentity = pIdentity_
-    , _sihineNotificationType = pNotificationType_
-    , _sihineEnabled = pEnabled_
-    }
+  SetIdentityHeadersInNotificationsEnabled'
+  { _sihineIdentity = pIdentity_
+  , _sihineNotificationType = pNotificationType_
+  , _sihineEnabled = pEnabled_
+  }
+
 
 -- | The identity for which to enable or disable headers in notifications. Examples: @user@example.com@ , @example.com@ .
 sihineIdentity :: Lens' SetIdentityHeadersInNotificationsEnabled Text
@@ -94,7 +96,8 @@ sihineEnabled :: Lens' SetIdentityHeadersInNotificationsEnabled Bool
 sihineEnabled = lens _sihineEnabled (\ s a -> s{_sihineEnabled = a});
 
 instance AWSRequest
-         SetIdentityHeadersInNotificationsEnabled where
+           SetIdentityHeadersInNotificationsEnabled
+         where
         type Rs SetIdentityHeadersInNotificationsEnabled =
              SetIdentityHeadersInNotificationsEnabledResponse
         request = postQuery ses
@@ -106,21 +109,26 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         SetIdentityHeadersInNotificationsEnabled
+           SetIdentityHeadersInNotificationsEnabled
+         where
 
 instance NFData
-         SetIdentityHeadersInNotificationsEnabled
+           SetIdentityHeadersInNotificationsEnabled
+         where
 
 instance ToHeaders
-         SetIdentityHeadersInNotificationsEnabled where
+           SetIdentityHeadersInNotificationsEnabled
+         where
         toHeaders = const mempty
 
 instance ToPath
-         SetIdentityHeadersInNotificationsEnabled where
+           SetIdentityHeadersInNotificationsEnabled
+         where
         toPath = const "/"
 
 instance ToQuery
-         SetIdentityHeadersInNotificationsEnabled where
+           SetIdentityHeadersInNotificationsEnabled
+         where
         toQuery SetIdentityHeadersInNotificationsEnabled'{..}
           = mconcat
               ["Action" =:
@@ -137,8 +145,9 @@ instance ToQuery
 --
 -- /See:/ 'setIdentityHeadersInNotificationsEnabledResponse' smart constructor.
 newtype SetIdentityHeadersInNotificationsEnabledResponse = SetIdentityHeadersInNotificationsEnabledResponse'
-    { _sihinersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sihinersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityHeadersInNotificationsEnabledResponse' with the minimum fields required to make a request.
 --
@@ -149,13 +158,14 @@ setIdentityHeadersInNotificationsEnabledResponse
     :: Int -- ^ 'sihinersResponseStatus'
     -> SetIdentityHeadersInNotificationsEnabledResponse
 setIdentityHeadersInNotificationsEnabledResponse pResponseStatus_ =
-    SetIdentityHeadersInNotificationsEnabledResponse'
-    { _sihinersResponseStatus = pResponseStatus_
-    }
+  SetIdentityHeadersInNotificationsEnabledResponse'
+  {_sihinersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 sihinersResponseStatus :: Lens' SetIdentityHeadersInNotificationsEnabledResponse Int
 sihinersResponseStatus = lens _sihinersResponseStatus (\ s a -> s{_sihinersResponseStatus = a});
 
 instance NFData
-         SetIdentityHeadersInNotificationsEnabledResponse
+           SetIdentityHeadersInNotificationsEnabledResponse
+         where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.STS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -103,15 +103,15 @@ module Network.AWS.STS
     , fuARN
     ) where
 
-import           Network.AWS.STS.AssumeRole
-import           Network.AWS.STS.AssumeRoleWithSAML
-import           Network.AWS.STS.AssumeRoleWithWebIdentity
-import           Network.AWS.STS.DecodeAuthorizationMessage
-import           Network.AWS.STS.GetCallerIdentity
-import           Network.AWS.STS.GetFederationToken
-import           Network.AWS.STS.GetSessionToken
-import           Network.AWS.STS.Types
-import           Network.AWS.STS.Waiters
+import Network.AWS.STS.AssumeRole
+import Network.AWS.STS.AssumeRoleWithSAML
+import Network.AWS.STS.AssumeRoleWithWebIdentity
+import Network.AWS.STS.DecodeAuthorizationMessage
+import Network.AWS.STS.GetCallerIdentity
+import Network.AWS.STS.GetFederationToken
+import Network.AWS.STS.GetSessionToken
+import Network.AWS.STS.Types
+import Network.AWS.STS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

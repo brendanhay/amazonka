@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetBlob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodeCommit.GetBlob
     , gbrsContent
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get blob operation.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getBlob' smart constructor.
 data GetBlob = GetBlob'
-    { _gRepositoryName :: !Text
-    , _gBlobId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gRepositoryName :: {-# NOUNPACK #-}!Text
+  , _gBlobId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBlob' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ getBlob
     -> Text -- ^ 'gBlobId'
     -> GetBlob
 getBlob pRepositoryName_ pBlobId_ =
-    GetBlob'
-    { _gRepositoryName = pRepositoryName_
-    , _gBlobId = pBlobId_
-    }
+  GetBlob' {_gRepositoryName = pRepositoryName_, _gBlobId = pBlobId_}
+
 
 -- | The name of the repository that contains the blob.
 gRepositoryName :: Lens' GetBlob Text
@@ -89,9 +88,9 @@ instance AWSRequest GetBlob where
                  GetBlobResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "content"))
 
-instance Hashable GetBlob
+instance Hashable GetBlob where
 
-instance NFData GetBlob
+instance NFData GetBlob where
 
 instance ToHeaders GetBlob where
         toHeaders
@@ -121,9 +120,10 @@ instance ToQuery GetBlob where
 --
 -- /See:/ 'getBlobResponse' smart constructor.
 data GetBlobResponse = GetBlobResponse'
-    { _gbrsResponseStatus :: !Int
-    , _gbrsContent        :: !Base64
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gbrsContent        :: {-# NOUNPACK #-}!Base64
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBlobResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +137,9 @@ getBlobResponse
     -> ByteString -- ^ 'gbrsContent'
     -> GetBlobResponse
 getBlobResponse pResponseStatus_ pContent_ =
-    GetBlobResponse'
-    { _gbrsResponseStatus = pResponseStatus_
-    , _gbrsContent = _Base64 # pContent_
-    }
+  GetBlobResponse'
+  {_gbrsResponseStatus = pResponseStatus_, _gbrsContent = _Base64 # pContent_}
+
 
 -- | -- | The response status code.
 gbrsResponseStatus :: Lens' GetBlobResponse Int
@@ -150,4 +149,4 @@ gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = 
 gbrsContent :: Lens' GetBlobResponse ByteString
 gbrsContent = lens _gbrsContent (\ s a -> s{_gbrsContent = a}) . _Base64;
 
-instance NFData GetBlobResponse
+instance NFData GetBlobResponse where

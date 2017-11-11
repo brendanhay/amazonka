@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeTargetGroupAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.ELBv2.DescribeTargetGroupAttributes
     , dtgarsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTargetGroupAttributes' smart constructor.
 newtype DescribeTargetGroupAttributes = DescribeTargetGroupAttributes'
-    { _dtgaTargetGroupARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtgaTargetGroupARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTargetGroupAttributes' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ describeTargetGroupAttributes
     :: Text -- ^ 'dtgaTargetGroupARN'
     -> DescribeTargetGroupAttributes
 describeTargetGroupAttributes pTargetGroupARN_ =
-    DescribeTargetGroupAttributes'
-    { _dtgaTargetGroupARN = pTargetGroupARN_
-    }
+  DescribeTargetGroupAttributes' {_dtgaTargetGroupARN = pTargetGroupARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dtgaTargetGroupARN :: Lens' DescribeTargetGroupAttributes Text
@@ -80,9 +80,9 @@ instance AWSRequest DescribeTargetGroupAttributes
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTargetGroupAttributes
+instance Hashable DescribeTargetGroupAttributes where
 
-instance NFData DescribeTargetGroupAttributes
+instance NFData DescribeTargetGroupAttributes where
 
 instance ToHeaders DescribeTargetGroupAttributes
          where
@@ -101,9 +101,10 @@ instance ToQuery DescribeTargetGroupAttributes where
 
 -- | /See:/ 'describeTargetGroupAttributesResponse' smart constructor.
 data DescribeTargetGroupAttributesResponse = DescribeTargetGroupAttributesResponse'
-    { _dtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
-    , _dtgarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtgarsAttributes     :: {-# NOUNPACK #-}!(Maybe [TargetGroupAttribute])
+  , _dtgarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTargetGroupAttributesResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +117,9 @@ describeTargetGroupAttributesResponse
     :: Int -- ^ 'dtgarsResponseStatus'
     -> DescribeTargetGroupAttributesResponse
 describeTargetGroupAttributesResponse pResponseStatus_ =
-    DescribeTargetGroupAttributesResponse'
-    { _dtgarsAttributes = Nothing
-    , _dtgarsResponseStatus = pResponseStatus_
-    }
+  DescribeTargetGroupAttributesResponse'
+  {_dtgarsAttributes = Nothing, _dtgarsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the target group attributes
 dtgarsAttributes :: Lens' DescribeTargetGroupAttributesResponse [TargetGroupAttribute]
@@ -130,3 +130,4 @@ dtgarsResponseStatus :: Lens' DescribeTargetGroupAttributesResponse Int
 dtgarsResponseStatus = lens _dtgarsResponseStatus (\ s a -> s{_dtgarsResponseStatus = a});
 
 instance NFData DescribeTargetGroupAttributesResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DeleteDataset
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.CognitoSync.DeleteDataset
     , drsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to delete the specific dataset.
 --
 -- /See:/ 'deleteDataset' smart constructor.
 data DeleteDataset = DeleteDataset'
-    { _delIdentityPoolId :: !Text
-    , _delIdentityId     :: !Text
-    , _delDatasetName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _delIdentityId     :: {-# NOUNPACK #-}!Text
+  , _delDatasetName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDataset' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ deleteDataset
     -> Text -- ^ 'delDatasetName'
     -> DeleteDataset
 deleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
-    DeleteDataset'
-    { _delIdentityPoolId = pIdentityPoolId_
-    , _delIdentityId = pIdentityId_
-    , _delDatasetName = pDatasetName_
-    }
+  DeleteDataset'
+  { _delIdentityPoolId = pIdentityPoolId_
+  , _delIdentityId = pIdentityId_
+  , _delDatasetName = pDatasetName_
+  }
+
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 delIdentityPoolId :: Lens' DeleteDataset Text
@@ -99,9 +101,9 @@ instance AWSRequest DeleteDataset where
                  DeleteDatasetResponse' <$>
                    (x .?> "Dataset") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteDataset
+instance Hashable DeleteDataset where
 
-instance NFData DeleteDataset
+instance NFData DeleteDataset where
 
 instance ToHeaders DeleteDataset where
         toHeaders
@@ -124,9 +126,10 @@ instance ToQuery DeleteDataset where
 --
 -- /See:/ 'deleteDatasetResponse' smart constructor.
 data DeleteDatasetResponse = DeleteDatasetResponse'
-    { _drsDataset        :: !(Maybe Dataset)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsDataset        :: {-# NOUNPACK #-}!(Maybe Dataset)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDatasetResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ deleteDatasetResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteDatasetResponse
 deleteDatasetResponse pResponseStatus_ =
-    DeleteDatasetResponse'
-    { _drsDataset = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteDatasetResponse'
+  {_drsDataset = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 drsDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
@@ -152,4 +154,4 @@ drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
 drsResponseStatus :: Lens' DeleteDatasetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteDatasetResponse
+instance NFData DeleteDatasetResponse where

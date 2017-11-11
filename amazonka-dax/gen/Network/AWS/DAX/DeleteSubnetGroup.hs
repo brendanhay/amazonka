@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DeleteSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.DAX.DeleteSubnetGroup
     , dsgrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSubnetGroup' smart constructor.
 newtype DeleteSubnetGroup = DeleteSubnetGroup'
-    { _dsgSubnetGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgSubnetGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubnetGroup' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deleteSubnetGroup
     :: Text -- ^ 'dsgSubnetGroupName'
     -> DeleteSubnetGroup
 deleteSubnetGroup pSubnetGroupName_ =
-    DeleteSubnetGroup'
-    { _dsgSubnetGroupName = pSubnetGroupName_
-    }
+  DeleteSubnetGroup' {_dsgSubnetGroupName = pSubnetGroupName_}
+
 
 -- | The name of the subnet group to delete.
 dsgSubnetGroupName :: Lens' DeleteSubnetGroup Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteSubnetGroup where
                  DeleteSubnetGroupResponse' <$>
                    (x .?> "DeletionMessage") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteSubnetGroup
+instance Hashable DeleteSubnetGroup where
 
-instance NFData DeleteSubnetGroup
+instance NFData DeleteSubnetGroup where
 
 instance ToHeaders DeleteSubnetGroup where
         toHeaders
@@ -102,9 +102,10 @@ instance ToQuery DeleteSubnetGroup where
 
 -- | /See:/ 'deleteSubnetGroupResponse' smart constructor.
 data DeleteSubnetGroupResponse = DeleteSubnetGroupResponse'
-    { _dsgrsDeletionMessage :: !(Maybe Text)
-    , _dsgrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgrsDeletionMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ deleteSubnetGroupResponse
     :: Int -- ^ 'dsgrsResponseStatus'
     -> DeleteSubnetGroupResponse
 deleteSubnetGroupResponse pResponseStatus_ =
-    DeleteSubnetGroupResponse'
-    { _dsgrsDeletionMessage = Nothing
-    , _dsgrsResponseStatus = pResponseStatus_
-    }
+  DeleteSubnetGroupResponse'
+  {_dsgrsDeletionMessage = Nothing, _dsgrsResponseStatus = pResponseStatus_}
+
 
 -- | A user-specified message for this action (i.e., a reason for deleting the subnet group).
 dsgrsDeletionMessage :: Lens' DeleteSubnetGroupResponse (Maybe Text)
@@ -130,4 +130,4 @@ dsgrsDeletionMessage = lens _dsgrsDeletionMessage (\ s a -> s{_dsgrsDeletionMess
 dsgrsResponseStatus :: Lens' DeleteSubnetGroupResponse Int
 dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a});
 
-instance NFData DeleteSubnetGroupResponse
+instance NFData DeleteSubnetGroupResponse where

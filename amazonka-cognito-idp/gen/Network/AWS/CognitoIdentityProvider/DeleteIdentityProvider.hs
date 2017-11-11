@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
     , DeleteIdentityProviderResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteIdentityProvider' smart constructor.
 data DeleteIdentityProvider = DeleteIdentityProvider'
-    { _delUserPoolId   :: !Text
-    , _delProviderName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delUserPoolId   :: {-# NOUNPACK #-}!Text
+  , _delProviderName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIdentityProvider' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ deleteIdentityProvider
     -> Text -- ^ 'delProviderName'
     -> DeleteIdentityProvider
 deleteIdentityProvider pUserPoolId_ pProviderName_ =
-    DeleteIdentityProvider'
-    { _delUserPoolId = pUserPoolId_
-    , _delProviderName = pProviderName_
-    }
+  DeleteIdentityProvider'
+  {_delUserPoolId = pUserPoolId_, _delProviderName = pProviderName_}
+
 
 -- | The user pool ID.
 delUserPoolId :: Lens' DeleteIdentityProvider Text
@@ -80,9 +80,9 @@ instance AWSRequest DeleteIdentityProvider where
         response
           = receiveNull DeleteIdentityProviderResponse'
 
-instance Hashable DeleteIdentityProvider
+instance Hashable DeleteIdentityProvider where
 
-instance NFData DeleteIdentityProvider
+instance NFData DeleteIdentityProvider where
 
 instance ToHeaders DeleteIdentityProvider where
         toHeaders
@@ -109,8 +109,9 @@ instance ToQuery DeleteIdentityProvider where
 
 -- | /See:/ 'deleteIdentityProviderResponse' smart constructor.
 data DeleteIdentityProviderResponse =
-    DeleteIdentityProviderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteIdentityProviderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIdentityProviderResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +119,5 @@ deleteIdentityProviderResponse
     :: DeleteIdentityProviderResponse
 deleteIdentityProviderResponse = DeleteIdentityProviderResponse'
 
-instance NFData DeleteIdentityProviderResponse
+
+instance NFData DeleteIdentityProviderResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering.BatchMeterUsage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.MarketplaceMetering.BatchMeterUsage
     , bmursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MarketplaceMetering.Types
-import           Network.AWS.MarketplaceMetering.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MarketplaceMetering.Types
+import Network.AWS.MarketplaceMetering.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A BatchMeterUsageRequest contains UsageRecords, which indicate quantities of usage within your application.
 --
@@ -58,9 +58,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'batchMeterUsage' smart constructor.
 data BatchMeterUsage = BatchMeterUsage'
-    { _bmuUsageRecords :: ![UsageRecord]
-    , _bmuProductCode  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bmuUsageRecords :: {-# NOUNPACK #-}![UsageRecord]
+  , _bmuProductCode  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchMeterUsage' with the minimum fields required to make a request.
 --
@@ -73,10 +74,8 @@ batchMeterUsage
     :: Text -- ^ 'bmuProductCode'
     -> BatchMeterUsage
 batchMeterUsage pProductCode_ =
-    BatchMeterUsage'
-    { _bmuUsageRecords = mempty
-    , _bmuProductCode = pProductCode_
-    }
+  BatchMeterUsage' {_bmuUsageRecords = mempty, _bmuProductCode = pProductCode_}
+
 
 -- | The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at a time.
 bmuUsageRecords :: Lens' BatchMeterUsage [UsageRecord]
@@ -97,9 +96,9 @@ instance AWSRequest BatchMeterUsage where
                      (x .?> "UnprocessedRecords" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchMeterUsage
+instance Hashable BatchMeterUsage where
 
-instance NFData BatchMeterUsage
+instance NFData BatchMeterUsage where
 
 instance ToHeaders BatchMeterUsage where
         toHeaders
@@ -130,10 +129,11 @@ instance ToQuery BatchMeterUsage where
 --
 -- /See:/ 'batchMeterUsageResponse' smart constructor.
 data BatchMeterUsageResponse = BatchMeterUsageResponse'
-    { _bmursResults            :: !(Maybe [UsageRecordResult])
-    , _bmursUnprocessedRecords :: !(Maybe [UsageRecord])
-    , _bmursResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bmursResults            :: {-# NOUNPACK #-}!(Maybe [UsageRecordResult])
+  , _bmursUnprocessedRecords :: {-# NOUNPACK #-}!(Maybe [UsageRecord])
+  , _bmursResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchMeterUsageResponse' with the minimum fields required to make a request.
 --
@@ -148,11 +148,12 @@ batchMeterUsageResponse
     :: Int -- ^ 'bmursResponseStatus'
     -> BatchMeterUsageResponse
 batchMeterUsageResponse pResponseStatus_ =
-    BatchMeterUsageResponse'
-    { _bmursResults = Nothing
-    , _bmursUnprocessedRecords = Nothing
-    , _bmursResponseStatus = pResponseStatus_
-    }
+  BatchMeterUsageResponse'
+  { _bmursResults = Nothing
+  , _bmursUnprocessedRecords = Nothing
+  , _bmursResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains all UsageRecords processed by BatchMeterUsage. These records were either honored by AWS Marketplace Metering Service or were invalid.
 bmursResults :: Lens' BatchMeterUsageResponse [UsageRecordResult]
@@ -166,4 +167,4 @@ bmursUnprocessedRecords = lens _bmursUnprocessedRecords (\ s a -> s{_bmursUnproc
 bmursResponseStatus :: Lens' BatchMeterUsageResponse Int
 bmursResponseStatus = lens _bmursResponseStatus (\ s a -> s{_bmursResponseStatus = a});
 
-instance NFData BatchMeterUsageResponse
+instance NFData BatchMeterUsageResponse where

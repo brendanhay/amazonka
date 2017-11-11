@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateLoggerDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.Greengrass.UpdateLoggerDefinition
     , uldrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateLoggerDefinition' smart constructor.
 data UpdateLoggerDefinition = UpdateLoggerDefinition'
-    { _uldName               :: !(Maybe Text)
-    , _uldLoggerDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uldName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uldLoggerDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateLoggerDefinition' with the minimum fields required to make a request.
 --
@@ -59,10 +60,9 @@ updateLoggerDefinition
     :: Text -- ^ 'uldLoggerDefinitionId'
     -> UpdateLoggerDefinition
 updateLoggerDefinition pLoggerDefinitionId_ =
-    UpdateLoggerDefinition'
-    { _uldName = Nothing
-    , _uldLoggerDefinitionId = pLoggerDefinitionId_
-    }
+  UpdateLoggerDefinition'
+  {_uldName = Nothing, _uldLoggerDefinitionId = pLoggerDefinitionId_}
+
 
 -- | name of the definition
 uldName :: Lens' UpdateLoggerDefinition (Maybe Text)
@@ -82,9 +82,9 @@ instance AWSRequest UpdateLoggerDefinition where
                  UpdateLoggerDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateLoggerDefinition
+instance Hashable UpdateLoggerDefinition where
 
-instance NFData UpdateLoggerDefinition
+instance NFData UpdateLoggerDefinition where
 
 instance ToHeaders UpdateLoggerDefinition where
         toHeaders
@@ -108,8 +108,9 @@ instance ToQuery UpdateLoggerDefinition where
 
 -- | /See:/ 'updateLoggerDefinitionResponse' smart constructor.
 newtype UpdateLoggerDefinitionResponse = UpdateLoggerDefinitionResponse'
-    { _uldrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uldrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateLoggerDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +121,11 @@ updateLoggerDefinitionResponse
     :: Int -- ^ 'uldrsResponseStatus'
     -> UpdateLoggerDefinitionResponse
 updateLoggerDefinitionResponse pResponseStatus_ =
-    UpdateLoggerDefinitionResponse'
-    { _uldrsResponseStatus = pResponseStatus_
-    }
+  UpdateLoggerDefinitionResponse' {_uldrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uldrsResponseStatus :: Lens' UpdateLoggerDefinitionResponse Int
 uldrsResponseStatus = lens _uldrsResponseStatus (\ s a -> s{_uldrsResponseStatus = a});
 
-instance NFData UpdateLoggerDefinitionResponse
+instance NFData UpdateLoggerDefinitionResponse where

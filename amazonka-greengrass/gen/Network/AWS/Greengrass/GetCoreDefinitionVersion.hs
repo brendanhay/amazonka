@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetCoreDefinitionVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Greengrass.GetCoreDefinitionVersion
     , gcdvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCoreDefinitionVersion' smart constructor.
 data GetCoreDefinitionVersion = GetCoreDefinitionVersion'
-    { _gcdvCoreDefinitionId        :: !Text
-    , _gcdvCoreDefinitionVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcdvCoreDefinitionId        :: {-# NOUNPACK #-}!Text
+  , _gcdvCoreDefinitionVersionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCoreDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ getCoreDefinitionVersion
     -> Text -- ^ 'gcdvCoreDefinitionVersionId'
     -> GetCoreDefinitionVersion
 getCoreDefinitionVersion pCoreDefinitionId_ pCoreDefinitionVersionId_ =
-    GetCoreDefinitionVersion'
-    { _gcdvCoreDefinitionId = pCoreDefinitionId_
-    , _gcdvCoreDefinitionVersionId = pCoreDefinitionVersionId_
-    }
+  GetCoreDefinitionVersion'
+  { _gcdvCoreDefinitionId = pCoreDefinitionId_
+  , _gcdvCoreDefinitionVersionId = pCoreDefinitionVersionId_
+  }
+
 
 -- | core definition Id
 gcdvCoreDefinitionId :: Lens' GetCoreDefinitionVersion Text
@@ -92,9 +94,9 @@ instance AWSRequest GetCoreDefinitionVersion where
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetCoreDefinitionVersion
+instance Hashable GetCoreDefinitionVersion where
 
-instance NFData GetCoreDefinitionVersion
+instance NFData GetCoreDefinitionVersion where
 
 instance ToHeaders GetCoreDefinitionVersion where
         toHeaders
@@ -115,13 +117,14 @@ instance ToQuery GetCoreDefinitionVersion where
 
 -- | /See:/ 'getCoreDefinitionVersionResponse' smart constructor.
 data GetCoreDefinitionVersionResponse = GetCoreDefinitionVersionResponse'
-    { _gcdvrsDefinition        :: !(Maybe CoreDefinitionVersion)
-    , _gcdvrsARN               :: !(Maybe Text)
-    , _gcdvrsCreationTimestamp :: !(Maybe Text)
-    , _gcdvrsVersion           :: !(Maybe Text)
-    , _gcdvrsId                :: !(Maybe Text)
-    , _gcdvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcdvrsDefinition        :: {-# NOUNPACK #-}!(Maybe CoreDefinitionVersion)
+  , _gcdvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCoreDefinitionVersionResponse' with the minimum fields required to make a request.
 --
@@ -142,14 +145,15 @@ getCoreDefinitionVersionResponse
     :: Int -- ^ 'gcdvrsResponseStatus'
     -> GetCoreDefinitionVersionResponse
 getCoreDefinitionVersionResponse pResponseStatus_ =
-    GetCoreDefinitionVersionResponse'
-    { _gcdvrsDefinition = Nothing
-    , _gcdvrsARN = Nothing
-    , _gcdvrsCreationTimestamp = Nothing
-    , _gcdvrsVersion = Nothing
-    , _gcdvrsId = Nothing
-    , _gcdvrsResponseStatus = pResponseStatus_
-    }
+  GetCoreDefinitionVersionResponse'
+  { _gcdvrsDefinition = Nothing
+  , _gcdvrsARN = Nothing
+  , _gcdvrsCreationTimestamp = Nothing
+  , _gcdvrsVersion = Nothing
+  , _gcdvrsId = Nothing
+  , _gcdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information on definition
 gcdvrsDefinition :: Lens' GetCoreDefinitionVersionResponse (Maybe CoreDefinitionVersion)
@@ -176,3 +180,4 @@ gcdvrsResponseStatus :: Lens' GetCoreDefinitionVersionResponse Int
 gcdvrsResponseStatus = lens _gcdvrsResponseStatus (\ s a -> s{_gcdvrsResponseStatus = a});
 
 instance NFData GetCoreDefinitionVersionResponse
+         where

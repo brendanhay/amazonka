@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -319,41 +319,41 @@ module Network.AWS.LexModels
     , ulUtterances
     ) where
 
-import           Network.AWS.LexModels.CreateBotVersion
-import           Network.AWS.LexModels.CreateIntentVersion
-import           Network.AWS.LexModels.CreateSlotTypeVersion
-import           Network.AWS.LexModels.DeleteBot
-import           Network.AWS.LexModels.DeleteBotAlias
-import           Network.AWS.LexModels.DeleteBotChannelAssociation
-import           Network.AWS.LexModels.DeleteBotVersion
-import           Network.AWS.LexModels.DeleteIntent
-import           Network.AWS.LexModels.DeleteIntentVersion
-import           Network.AWS.LexModels.DeleteSlotType
-import           Network.AWS.LexModels.DeleteSlotTypeVersion
-import           Network.AWS.LexModels.DeleteUtterances
-import           Network.AWS.LexModels.GetBot
-import           Network.AWS.LexModels.GetBotAlias
-import           Network.AWS.LexModels.GetBotAliases
-import           Network.AWS.LexModels.GetBotChannelAssociation
-import           Network.AWS.LexModels.GetBotChannelAssociations
-import           Network.AWS.LexModels.GetBots
-import           Network.AWS.LexModels.GetBotVersions
-import           Network.AWS.LexModels.GetBuiltinIntent
-import           Network.AWS.LexModels.GetBuiltinIntents
-import           Network.AWS.LexModels.GetBuiltinSlotTypes
-import           Network.AWS.LexModels.GetIntent
-import           Network.AWS.LexModels.GetIntents
-import           Network.AWS.LexModels.GetIntentVersions
-import           Network.AWS.LexModels.GetSlotType
-import           Network.AWS.LexModels.GetSlotTypes
-import           Network.AWS.LexModels.GetSlotTypeVersions
-import           Network.AWS.LexModels.GetUtterancesView
-import           Network.AWS.LexModels.PutBot
-import           Network.AWS.LexModels.PutBotAlias
-import           Network.AWS.LexModels.PutIntent
-import           Network.AWS.LexModels.PutSlotType
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Waiters
+import Network.AWS.LexModels.CreateBotVersion
+import Network.AWS.LexModels.CreateIntentVersion
+import Network.AWS.LexModels.CreateSlotTypeVersion
+import Network.AWS.LexModels.DeleteBot
+import Network.AWS.LexModels.DeleteBotAlias
+import Network.AWS.LexModels.DeleteBotChannelAssociation
+import Network.AWS.LexModels.DeleteBotVersion
+import Network.AWS.LexModels.DeleteIntent
+import Network.AWS.LexModels.DeleteIntentVersion
+import Network.AWS.LexModels.DeleteSlotType
+import Network.AWS.LexModels.DeleteSlotTypeVersion
+import Network.AWS.LexModels.DeleteUtterances
+import Network.AWS.LexModels.GetBot
+import Network.AWS.LexModels.GetBotAlias
+import Network.AWS.LexModels.GetBotAliases
+import Network.AWS.LexModels.GetBotChannelAssociation
+import Network.AWS.LexModels.GetBotChannelAssociations
+import Network.AWS.LexModels.GetBots
+import Network.AWS.LexModels.GetBotVersions
+import Network.AWS.LexModels.GetBuiltinIntent
+import Network.AWS.LexModels.GetBuiltinIntents
+import Network.AWS.LexModels.GetBuiltinSlotTypes
+import Network.AWS.LexModels.GetIntent
+import Network.AWS.LexModels.GetIntents
+import Network.AWS.LexModels.GetIntentVersions
+import Network.AWS.LexModels.GetSlotType
+import Network.AWS.LexModels.GetSlotTypes
+import Network.AWS.LexModels.GetSlotTypeVersions
+import Network.AWS.LexModels.GetUtterancesView
+import Network.AWS.LexModels.PutBot
+import Network.AWS.LexModels.PutBotAlias
+import Network.AWS.LexModels.PutIntent
+import Network.AWS.LexModels.PutSlotType
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

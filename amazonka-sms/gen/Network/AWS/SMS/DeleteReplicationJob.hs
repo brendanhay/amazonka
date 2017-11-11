@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.DeleteReplicationJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.SMS.DeleteReplicationJob
     , drjrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'deleteReplicationJob' smart constructor.
 newtype DeleteReplicationJob = DeleteReplicationJob'
-    { _drjReplicationJobId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drjReplicationJobId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReplicationJob' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ deleteReplicationJob
     :: Text -- ^ 'drjReplicationJobId'
     -> DeleteReplicationJob
 deleteReplicationJob pReplicationJobId_ =
-    DeleteReplicationJob'
-    { _drjReplicationJobId = pReplicationJobId_
-    }
+  DeleteReplicationJob' {_drjReplicationJobId = pReplicationJobId_}
+
 
 -- | Undocumented member.
 drjReplicationJobId :: Lens' DeleteReplicationJob Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteReplicationJob where
                  DeleteReplicationJobResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteReplicationJob
+instance Hashable DeleteReplicationJob where
 
-instance NFData DeleteReplicationJob
+instance NFData DeleteReplicationJob where
 
 instance ToHeaders DeleteReplicationJob where
         toHeaders
@@ -101,8 +101,9 @@ instance ToQuery DeleteReplicationJob where
 
 -- | /See:/ 'deleteReplicationJobResponse' smart constructor.
 newtype DeleteReplicationJobResponse = DeleteReplicationJobResponse'
-    { _drjrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drjrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReplicationJobResponse' with the minimum fields required to make a request.
 --
@@ -113,12 +114,11 @@ deleteReplicationJobResponse
     :: Int -- ^ 'drjrsResponseStatus'
     -> DeleteReplicationJobResponse
 deleteReplicationJobResponse pResponseStatus_ =
-    DeleteReplicationJobResponse'
-    { _drjrsResponseStatus = pResponseStatus_
-    }
+  DeleteReplicationJobResponse' {_drjrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drjrsResponseStatus :: Lens' DeleteReplicationJobResponse Int
 drjrsResponseStatus = lens _drjrsResponseStatus (\ s a -> s{_drjrsResponseStatus = a});
 
-instance NFData DeleteReplicationJobResponse
+instance NFData DeleteReplicationJobResponse where

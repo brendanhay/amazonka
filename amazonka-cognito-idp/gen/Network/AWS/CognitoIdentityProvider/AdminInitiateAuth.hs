@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
     , aiarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Initiates the authorization request, as an administrator.
 --
@@ -59,12 +59,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminInitiateAuth' smart constructor.
 data AdminInitiateAuth = AdminInitiateAuth'
-    { _aiaClientMetadata :: !(Maybe (Map Text Text))
-    , _aiaAuthParameters :: !(Maybe (Map Text Text))
-    , _aiaUserPoolId     :: !Text
-    , _aiaClientId       :: !(Sensitive Text)
-    , _aiaAuthFlow       :: !AuthFlowType
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _aiaClientMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _aiaAuthParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _aiaUserPoolId     :: {-# NOUNPACK #-}!Text
+  , _aiaClientId       :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _aiaAuthFlow       :: {-# NOUNPACK #-}!AuthFlowType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminInitiateAuth' with the minimum fields required to make a request.
 --
@@ -85,13 +86,14 @@ adminInitiateAuth
     -> AuthFlowType -- ^ 'aiaAuthFlow'
     -> AdminInitiateAuth
 adminInitiateAuth pUserPoolId_ pClientId_ pAuthFlow_ =
-    AdminInitiateAuth'
-    { _aiaClientMetadata = Nothing
-    , _aiaAuthParameters = Nothing
-    , _aiaUserPoolId = pUserPoolId_
-    , _aiaClientId = _Sensitive # pClientId_
-    , _aiaAuthFlow = pAuthFlow_
-    }
+  AdminInitiateAuth'
+  { _aiaClientMetadata = Nothing
+  , _aiaAuthParameters = Nothing
+  , _aiaUserPoolId = pUserPoolId_
+  , _aiaClientId = _Sensitive # pClientId_
+  , _aiaAuthFlow = pAuthFlow_
+  }
+
 
 -- | This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.
 aiaClientMetadata :: Lens' AdminInitiateAuth (HashMap Text Text)
@@ -126,9 +128,9 @@ instance AWSRequest AdminInitiateAuth where
                      <*> (x .?> "Session")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AdminInitiateAuth
+instance Hashable AdminInitiateAuth where
 
-instance NFData AdminInitiateAuth
+instance NFData AdminInitiateAuth where
 
 instance ToHeaders AdminInitiateAuth where
         toHeaders
@@ -162,12 +164,13 @@ instance ToQuery AdminInitiateAuth where
 --
 -- /See:/ 'adminInitiateAuthResponse' smart constructor.
 data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
-    { _aiarsChallengeName        :: !(Maybe ChallengeNameType)
-    , _aiarsChallengeParameters  :: !(Maybe (Map Text Text))
-    , _aiarsAuthenticationResult :: !(Maybe AuthenticationResultType)
-    , _aiarsSession              :: !(Maybe Text)
-    , _aiarsResponseStatus       :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _aiarsChallengeName :: {-# NOUNPACK #-}!(Maybe ChallengeNameType)
+  , _aiarsChallengeParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _aiarsAuthenticationResult :: {-# NOUNPACK #-}!(Maybe AuthenticationResultType)
+  , _aiarsSession :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminInitiateAuthResponse' with the minimum fields required to make a request.
 --
@@ -186,13 +189,14 @@ adminInitiateAuthResponse
     :: Int -- ^ 'aiarsResponseStatus'
     -> AdminInitiateAuthResponse
 adminInitiateAuthResponse pResponseStatus_ =
-    AdminInitiateAuthResponse'
-    { _aiarsChallengeName = Nothing
-    , _aiarsChallengeParameters = Nothing
-    , _aiarsAuthenticationResult = Nothing
-    , _aiarsSession = Nothing
-    , _aiarsResponseStatus = pResponseStatus_
-    }
+  AdminInitiateAuthResponse'
+  { _aiarsChallengeName = Nothing
+  , _aiarsChallengeParameters = Nothing
+  , _aiarsAuthenticationResult = Nothing
+  , _aiarsSession = Nothing
+  , _aiarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the challenge which you are responding to with this call. This is returned to you in the @AdminInitiateAuth@ response if you need to pass another challenge.     * @SMS_MFA@ : Next challenge is to supply an @SMS_MFA_CODE@ , delivered via SMS.     * @PASSWORD_VERIFIER@ : Next challenge is to supply @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , and @TIMESTAMP@ after the client-side SRP calculations.     * @CUSTOM_CHALLENGE@ : This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.     * @DEVICE_SRP_AUTH@ : If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.     * @DEVICE_PASSWORD_VERIFIER@ : Similar to @PASSWORD_VERIFIER@ , but for devices only.     * @ADMIN_NO_SRP_AUTH@ : This is returned if you need to authenticate with @USERNAME@ and @PASSWORD@ directly. An app client must be enabled to use this flow.     * @NEW_PASSWORD_REQUIRED@ : For users which are required to change their passwords after successful first login. This challenge should be passed with @NEW_PASSWORD@ and any other required attributes.
 aiarsChallengeName :: Lens' AdminInitiateAuthResponse (Maybe ChallengeNameType)
@@ -214,4 +218,4 @@ aiarsSession = lens _aiarsSession (\ s a -> s{_aiarsSession = a});
 aiarsResponseStatus :: Lens' AdminInitiateAuthResponse Int
 aiarsResponseStatus = lens _aiarsResponseStatus (\ s a -> s{_aiarsResponseStatus = a});
 
-instance NFData AdminInitiateAuthResponse
+instance NFData AdminInitiateAuthResponse where

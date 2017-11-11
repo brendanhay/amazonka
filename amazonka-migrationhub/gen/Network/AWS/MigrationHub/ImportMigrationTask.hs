@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.ImportMigrationTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.MigrationHub.ImportMigrationTask
     , imtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importMigrationTask' smart constructor.
 data ImportMigrationTask = ImportMigrationTask'
-    { _imtDryRun               :: !(Maybe Bool)
-    , _imtProgressUpdateStream :: !Text
-    , _imtMigrationTaskName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _imtDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _imtProgressUpdateStream :: {-# NOUNPACK #-}!Text
+  , _imtMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportMigrationTask' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ importMigrationTask
     -> Text -- ^ 'imtMigrationTaskName'
     -> ImportMigrationTask
 importMigrationTask pProgressUpdateStream_ pMigrationTaskName_ =
-    ImportMigrationTask'
-    { _imtDryRun = Nothing
-    , _imtProgressUpdateStream = pProgressUpdateStream_
-    , _imtMigrationTaskName = pMigrationTaskName_
-    }
+  ImportMigrationTask'
+  { _imtDryRun = Nothing
+  , _imtProgressUpdateStream = pProgressUpdateStream_
+  , _imtMigrationTaskName = pMigrationTaskName_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 imtDryRun :: Lens' ImportMigrationTask (Maybe Bool)
@@ -95,9 +97,9 @@ instance AWSRequest ImportMigrationTask where
               (\ s h x ->
                  ImportMigrationTaskResponse' <$> (pure (fromEnum s)))
 
-instance Hashable ImportMigrationTask
+instance Hashable ImportMigrationTask where
 
-instance NFData ImportMigrationTask
+instance NFData ImportMigrationTask where
 
 instance ToHeaders ImportMigrationTask where
         toHeaders
@@ -126,8 +128,9 @@ instance ToQuery ImportMigrationTask where
 
 -- | /See:/ 'importMigrationTaskResponse' smart constructor.
 newtype ImportMigrationTaskResponse = ImportMigrationTaskResponse'
-    { _imtrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _imtrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportMigrationTaskResponse' with the minimum fields required to make a request.
 --
@@ -138,12 +141,11 @@ importMigrationTaskResponse
     :: Int -- ^ 'imtrsResponseStatus'
     -> ImportMigrationTaskResponse
 importMigrationTaskResponse pResponseStatus_ =
-    ImportMigrationTaskResponse'
-    { _imtrsResponseStatus = pResponseStatus_
-    }
+  ImportMigrationTaskResponse' {_imtrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 imtrsResponseStatus :: Lens' ImportMigrationTaskResponse Int
 imtrsResponseStatus = lens _imtrsResponseStatus (\ s a -> s{_imtrsResponseStatus = a});
 
-instance NFData ImportMigrationTaskResponse
+instance NFData ImportMigrationTaskResponse where

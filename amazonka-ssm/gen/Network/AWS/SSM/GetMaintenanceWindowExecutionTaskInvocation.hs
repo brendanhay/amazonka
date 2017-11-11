@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetMaintenanceWindowExecutionTaskInvocation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,19 +50,20 @@ module Network.AWS.SSM.GetMaintenanceWindowExecutionTaskInvocation
     , gmwetirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getMaintenanceWindowExecutionTaskInvocation' smart constructor.
 data GetMaintenanceWindowExecutionTaskInvocation = GetMaintenanceWindowExecutionTaskInvocation'
-    { _gmwetiWindowExecutionId :: !Text
-    , _gmwetiTaskId            :: !Text
-    , _gmwetiInvocationId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmwetiWindowExecutionId :: {-# NOUNPACK #-}!Text
+  , _gmwetiTaskId            :: {-# NOUNPACK #-}!Text
+  , _gmwetiInvocationId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionTaskInvocation' with the minimum fields required to make a request.
 --
@@ -79,11 +80,12 @@ getMaintenanceWindowExecutionTaskInvocation
     -> Text -- ^ 'gmwetiInvocationId'
     -> GetMaintenanceWindowExecutionTaskInvocation
 getMaintenanceWindowExecutionTaskInvocation pWindowExecutionId_ pTaskId_ pInvocationId_ =
-    GetMaintenanceWindowExecutionTaskInvocation'
-    { _gmwetiWindowExecutionId = pWindowExecutionId_
-    , _gmwetiTaskId = pTaskId_
-    , _gmwetiInvocationId = pInvocationId_
-    }
+  GetMaintenanceWindowExecutionTaskInvocation'
+  { _gmwetiWindowExecutionId = pWindowExecutionId_
+  , _gmwetiTaskId = pTaskId_
+  , _gmwetiInvocationId = pInvocationId_
+  }
+
 
 -- | The ID of the Maintenance Window execution the task is part of.
 gmwetiWindowExecutionId :: Lens' GetMaintenanceWindowExecutionTaskInvocation Text
@@ -98,7 +100,8 @@ gmwetiInvocationId :: Lens' GetMaintenanceWindowExecutionTaskInvocation Text
 gmwetiInvocationId = lens _gmwetiInvocationId (\ s a -> s{_gmwetiInvocationId = a});
 
 instance AWSRequest
-         GetMaintenanceWindowExecutionTaskInvocation where
+           GetMaintenanceWindowExecutionTaskInvocation
+         where
         type Rs GetMaintenanceWindowExecutionTaskInvocation =
              GetMaintenanceWindowExecutionTaskInvocationResponse
         request = postJSON ssm
@@ -121,13 +124,16 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         GetMaintenanceWindowExecutionTaskInvocation
+           GetMaintenanceWindowExecutionTaskInvocation
+         where
 
 instance NFData
-         GetMaintenanceWindowExecutionTaskInvocation
+           GetMaintenanceWindowExecutionTaskInvocation
+         where
 
 instance ToHeaders
-         GetMaintenanceWindowExecutionTaskInvocation where
+           GetMaintenanceWindowExecutionTaskInvocation
+         where
         toHeaders
           = const
               (mconcat
@@ -138,7 +144,8 @@ instance ToHeaders
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON
-         GetMaintenanceWindowExecutionTaskInvocation where
+           GetMaintenanceWindowExecutionTaskInvocation
+         where
         toJSON
           GetMaintenanceWindowExecutionTaskInvocation'{..}
           = object
@@ -149,29 +156,32 @@ instance ToJSON
                   Just ("InvocationId" .= _gmwetiInvocationId)])
 
 instance ToPath
-         GetMaintenanceWindowExecutionTaskInvocation where
+           GetMaintenanceWindowExecutionTaskInvocation
+         where
         toPath = const "/"
 
 instance ToQuery
-         GetMaintenanceWindowExecutionTaskInvocation where
+           GetMaintenanceWindowExecutionTaskInvocation
+         where
         toQuery = const mempty
 
 -- | /See:/ 'getMaintenanceWindowExecutionTaskInvocationResponse' smart constructor.
 data GetMaintenanceWindowExecutionTaskInvocationResponse = GetMaintenanceWindowExecutionTaskInvocationResponse'
-    { _gmwetirsStatus            :: !(Maybe MaintenanceWindowExecutionStatus)
-    , _gmwetirsExecutionId       :: !(Maybe Text)
-    , _gmwetirsTaskExecutionId   :: !(Maybe Text)
-    , _gmwetirsStartTime         :: !(Maybe POSIX)
-    , _gmwetirsInvocationId      :: !(Maybe Text)
-    , _gmwetirsOwnerInformation  :: !(Maybe (Sensitive Text))
-    , _gmwetirsTaskType          :: !(Maybe MaintenanceWindowTaskType)
-    , _gmwetirsWindowTargetId    :: !(Maybe Text)
-    , _gmwetirsWindowExecutionId :: !(Maybe Text)
-    , _gmwetirsStatusDetails     :: !(Maybe Text)
-    , _gmwetirsEndTime           :: !(Maybe POSIX)
-    , _gmwetirsParameters        :: !(Maybe (Sensitive Text))
-    , _gmwetirsResponseStatus    :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gmwetirsStatus :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowExecutionStatus)
+  , _gmwetirsExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwetirsTaskExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwetirsStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmwetirsInvocationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwetirsOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gmwetirsTaskType :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskType)
+  , _gmwetirsWindowTargetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwetirsWindowExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwetirsStatusDetails :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwetirsEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmwetirsParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gmwetirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionTaskInvocationResponse' with the minimum fields required to make a request.
 --
@@ -206,21 +216,22 @@ getMaintenanceWindowExecutionTaskInvocationResponse
     :: Int -- ^ 'gmwetirsResponseStatus'
     -> GetMaintenanceWindowExecutionTaskInvocationResponse
 getMaintenanceWindowExecutionTaskInvocationResponse pResponseStatus_ =
-    GetMaintenanceWindowExecutionTaskInvocationResponse'
-    { _gmwetirsStatus = Nothing
-    , _gmwetirsExecutionId = Nothing
-    , _gmwetirsTaskExecutionId = Nothing
-    , _gmwetirsStartTime = Nothing
-    , _gmwetirsInvocationId = Nothing
-    , _gmwetirsOwnerInformation = Nothing
-    , _gmwetirsTaskType = Nothing
-    , _gmwetirsWindowTargetId = Nothing
-    , _gmwetirsWindowExecutionId = Nothing
-    , _gmwetirsStatusDetails = Nothing
-    , _gmwetirsEndTime = Nothing
-    , _gmwetirsParameters = Nothing
-    , _gmwetirsResponseStatus = pResponseStatus_
-    }
+  GetMaintenanceWindowExecutionTaskInvocationResponse'
+  { _gmwetirsStatus = Nothing
+  , _gmwetirsExecutionId = Nothing
+  , _gmwetirsTaskExecutionId = Nothing
+  , _gmwetirsStartTime = Nothing
+  , _gmwetirsInvocationId = Nothing
+  , _gmwetirsOwnerInformation = Nothing
+  , _gmwetirsTaskType = Nothing
+  , _gmwetirsWindowTargetId = Nothing
+  , _gmwetirsWindowExecutionId = Nothing
+  , _gmwetirsStatusDetails = Nothing
+  , _gmwetirsEndTime = Nothing
+  , _gmwetirsParameters = Nothing
+  , _gmwetirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The task status for an invocation.
 gmwetirsStatus :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe MaintenanceWindowExecutionStatus)
@@ -275,4 +286,5 @@ gmwetirsResponseStatus :: Lens' GetMaintenanceWindowExecutionTaskInvocationRespo
 gmwetirsResponseStatus = lens _gmwetirsResponseStatus (\ s a -> s{_gmwetirsResponseStatus = a});
 
 instance NFData
-         GetMaintenanceWindowExecutionTaskInvocationResponse
+           GetMaintenanceWindowExecutionTaskInvocationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
     , demahrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to list completed and failed managed actions.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEnvironmentManagedActionHistory' smart constructor.
 data DescribeEnvironmentManagedActionHistory = DescribeEnvironmentManagedActionHistory'
-    { _demahNextToken       :: !(Maybe Text)
-    , _demahEnvironmentName :: !(Maybe Text)
-    , _demahMaxItems        :: !(Maybe Int)
-    , _demahEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _demahNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _demahEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _demahMaxItems        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _demahEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironmentManagedActionHistory' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribeEnvironmentManagedActionHistory = DescribeEnvironmentManagedActionH
 describeEnvironmentManagedActionHistory
     :: DescribeEnvironmentManagedActionHistory
 describeEnvironmentManagedActionHistory =
-    DescribeEnvironmentManagedActionHistory'
-    { _demahNextToken = Nothing
-    , _demahEnvironmentName = Nothing
-    , _demahMaxItems = Nothing
-    , _demahEnvironmentId = Nothing
-    }
+  DescribeEnvironmentManagedActionHistory'
+  { _demahNextToken = Nothing
+  , _demahEnvironmentName = Nothing
+  , _demahMaxItems = Nothing
+  , _demahEnvironmentId = Nothing
+  }
+
 
 -- | The pagination token returned by a previous request.
 demahNextToken :: Lens' DescribeEnvironmentManagedActionHistory (Maybe Text)
@@ -98,7 +100,8 @@ demahEnvironmentId :: Lens' DescribeEnvironmentManagedActionHistory (Maybe Text)
 demahEnvironmentId = lens _demahEnvironmentId (\ s a -> s{_demahEnvironmentId = a});
 
 instance AWSRequest
-         DescribeEnvironmentManagedActionHistory where
+           DescribeEnvironmentManagedActionHistory
+         where
         type Rs DescribeEnvironmentManagedActionHistory =
              DescribeEnvironmentManagedActionHistoryResponse
         request = postQuery elasticBeanstalk
@@ -113,21 +116,26 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeEnvironmentManagedActionHistory
+           DescribeEnvironmentManagedActionHistory
+         where
 
 instance NFData
-         DescribeEnvironmentManagedActionHistory
+           DescribeEnvironmentManagedActionHistory
+         where
 
 instance ToHeaders
-         DescribeEnvironmentManagedActionHistory where
+           DescribeEnvironmentManagedActionHistory
+         where
         toHeaders = const mempty
 
 instance ToPath
-         DescribeEnvironmentManagedActionHistory where
+           DescribeEnvironmentManagedActionHistory
+         where
         toPath = const "/"
 
 instance ToQuery
-         DescribeEnvironmentManagedActionHistory where
+           DescribeEnvironmentManagedActionHistory
+         where
         toQuery DescribeEnvironmentManagedActionHistory'{..}
           = mconcat
               ["Action" =:
@@ -145,10 +153,11 @@ instance ToQuery
 --
 -- /See:/ 'describeEnvironmentManagedActionHistoryResponse' smart constructor.
 data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManagedActionHistoryResponse'
-    { _demahrsManagedActionHistoryItems :: !(Maybe (List1 ManagedActionHistoryItem))
-    , _demahrsNextToken                 :: !(Maybe Text)
-    , _demahrsResponseStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _demahrsManagedActionHistoryItems :: {-# NOUNPACK #-}!(Maybe (List1 ManagedActionHistoryItem))
+  , _demahrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _demahrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironmentManagedActionHistoryResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +172,12 @@ describeEnvironmentManagedActionHistoryResponse
     :: Int -- ^ 'demahrsResponseStatus'
     -> DescribeEnvironmentManagedActionHistoryResponse
 describeEnvironmentManagedActionHistoryResponse pResponseStatus_ =
-    DescribeEnvironmentManagedActionHistoryResponse'
-    { _demahrsManagedActionHistoryItems = Nothing
-    , _demahrsNextToken = Nothing
-    , _demahrsResponseStatus = pResponseStatus_
-    }
+  DescribeEnvironmentManagedActionHistoryResponse'
+  { _demahrsManagedActionHistoryItems = Nothing
+  , _demahrsNextToken = Nothing
+  , _demahrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of completed and failed managed actions.
 demahrsManagedActionHistoryItems :: Lens' DescribeEnvironmentManagedActionHistoryResponse (Maybe (NonEmpty ManagedActionHistoryItem))
@@ -182,4 +192,5 @@ demahrsResponseStatus :: Lens' DescribeEnvironmentManagedActionHistoryResponse I
 demahrsResponseStatus = lens _demahrsResponseStatus (\ s a -> s{_demahrsResponseStatus = a});
 
 instance NFData
-         DescribeEnvironmentManagedActionHistoryResponse
+           DescribeEnvironmentManagedActionHistoryResponse
+         where

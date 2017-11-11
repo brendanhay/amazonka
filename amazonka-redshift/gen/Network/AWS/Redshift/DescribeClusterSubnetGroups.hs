@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterSubnetGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,13 +48,13 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     , dcsgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -62,12 +62,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeClusterSubnetGroups' smart constructor.
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
-    { _dcsgsTagValues              :: !(Maybe [Text])
-    , _dcsgsTagKeys                :: !(Maybe [Text])
-    , _dcsgsClusterSubnetGroupName :: !(Maybe Text)
-    , _dcsgsMarker                 :: !(Maybe Text)
-    , _dcsgsMaxRecords             :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsgsTagValues              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcsgsTagKeys                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcsgsClusterSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgsMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgsMaxRecords             :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterSubnetGroups' with the minimum fields required to make a request.
 --
@@ -85,13 +86,14 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
 describeClusterSubnetGroups
     :: DescribeClusterSubnetGroups
 describeClusterSubnetGroups =
-    DescribeClusterSubnetGroups'
-    { _dcsgsTagValues = Nothing
-    , _dcsgsTagKeys = Nothing
-    , _dcsgsClusterSubnetGroupName = Nothing
-    , _dcsgsMarker = Nothing
-    , _dcsgsMaxRecords = Nothing
-    }
+  DescribeClusterSubnetGroups'
+  { _dcsgsTagValues = Nothing
+  , _dcsgsTagKeys = Nothing
+  , _dcsgsClusterSubnetGroupName = Nothing
+  , _dcsgsMarker = Nothing
+  , _dcsgsMaxRecords = Nothing
+  }
+
 
 -- | A tag value or values for which you want to return all matching cluster subnet groups that are associated with the specified tag value or values. For example, suppose that you have subnet groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the subnet groups that have either or both of these tag values associated with them.
 dcsgsTagValues :: Lens' DescribeClusterSubnetGroups [Text]
@@ -134,9 +136,9 @@ instance AWSRequest DescribeClusterSubnetGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeClusterSubnetGroups
+instance Hashable DescribeClusterSubnetGroups where
 
-instance NFData DescribeClusterSubnetGroups
+instance NFData DescribeClusterSubnetGroups where
 
 instance ToHeaders DescribeClusterSubnetGroups where
         toHeaders = const mempty
@@ -165,10 +167,11 @@ instance ToQuery DescribeClusterSubnetGroups where
 --
 -- /See:/ 'describeClusterSubnetGroupsResponse' smart constructor.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
-    { _dcsgrsClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
-    , _dcsgrsMarker              :: !(Maybe Text)
-    , _dcsgrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsgrsClusterSubnetGroups :: {-# NOUNPACK #-}!(Maybe [ClusterSubnetGroup])
+  , _dcsgrsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterSubnetGroupsResponse' with the minimum fields required to make a request.
 --
@@ -183,11 +186,12 @@ describeClusterSubnetGroupsResponse
     :: Int -- ^ 'dcsgrsResponseStatus'
     -> DescribeClusterSubnetGroupsResponse
 describeClusterSubnetGroupsResponse pResponseStatus_ =
-    DescribeClusterSubnetGroupsResponse'
-    { _dcsgrsClusterSubnetGroups = Nothing
-    , _dcsgrsMarker = Nothing
-    , _dcsgrsResponseStatus = pResponseStatus_
-    }
+  DescribeClusterSubnetGroupsResponse'
+  { _dcsgrsClusterSubnetGroups = Nothing
+  , _dcsgrsMarker = Nothing
+  , _dcsgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'ClusterSubnetGroup' instances.
 dcsgrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
@@ -202,3 +206,4 @@ dcsgrsResponseStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
 dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a});
 
 instance NFData DescribeClusterSubnetGroupsResponse
+         where

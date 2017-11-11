@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeScalingParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
     , dsprsScalingParameters
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DescribeScalingParameters' @ operation. Specifies the name of the domain you want to describe.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeScalingParameters' smart constructor.
 newtype DescribeScalingParameters = DescribeScalingParameters'
-    { _dspDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dspDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingParameters' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ describeScalingParameters
     :: Text -- ^ 'dspDomainName'
     -> DescribeScalingParameters
 describeScalingParameters pDomainName_ =
-    DescribeScalingParameters'
-    { _dspDomainName = pDomainName_
-    }
+  DescribeScalingParameters' {_dspDomainName = pDomainName_}
+
 
 -- | Undocumented member.
 dspDomainName :: Lens' DescribeScalingParameters Text
@@ -80,9 +80,9 @@ instance AWSRequest DescribeScalingParameters where
                  DescribeScalingParametersResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ScalingParameters"))
 
-instance Hashable DescribeScalingParameters
+instance Hashable DescribeScalingParameters where
 
-instance NFData DescribeScalingParameters
+instance NFData DescribeScalingParameters where
 
 instance ToHeaders DescribeScalingParameters where
         toHeaders = const mempty
@@ -104,9 +104,10 @@ instance ToQuery DescribeScalingParameters where
 --
 -- /See:/ 'describeScalingParametersResponse' smart constructor.
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
-    { _dsprsResponseStatus    :: !Int
-    , _dsprsScalingParameters :: !ScalingParametersStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _dsprsScalingParameters :: {-# NOUNPACK #-}!ScalingParametersStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingParametersResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +121,11 @@ describeScalingParametersResponse
     -> ScalingParametersStatus -- ^ 'dsprsScalingParameters'
     -> DescribeScalingParametersResponse
 describeScalingParametersResponse pResponseStatus_ pScalingParameters_ =
-    DescribeScalingParametersResponse'
-    { _dsprsResponseStatus = pResponseStatus_
-    , _dsprsScalingParameters = pScalingParameters_
-    }
+  DescribeScalingParametersResponse'
+  { _dsprsResponseStatus = pResponseStatus_
+  , _dsprsScalingParameters = pScalingParameters_
+  }
+
 
 -- | -- | The response status code.
 dsprsResponseStatus :: Lens' DescribeScalingParametersResponse Int
@@ -134,3 +136,4 @@ dsprsScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParamet
 dsprsScalingParameters = lens _dsprsScalingParameters (\ s a -> s{_dsprsScalingParameters = a});
 
 instance NFData DescribeScalingParametersResponse
+         where

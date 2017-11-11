@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateStage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.APIGateway.UpdateStage
     , sDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to change information about a 'Stage' resource.
 --
@@ -62,10 +62,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateStage' smart constructor.
 data UpdateStage = UpdateStage'
-    { _usPatchOperations :: !(Maybe [PatchOperation])
-    , _usRestAPIId       :: !Text
-    , _usStageName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _usRestAPIId       :: {-# NOUNPACK #-}!Text
+  , _usStageName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStage' with the minimum fields required to make a request.
 --
@@ -81,11 +82,12 @@ updateStage
     -> Text -- ^ 'usStageName'
     -> UpdateStage
 updateStage pRestAPIId_ pStageName_ =
-    UpdateStage'
-    { _usPatchOperations = Nothing
-    , _usRestAPIId = pRestAPIId_
-    , _usStageName = pStageName_
-    }
+  UpdateStage'
+  { _usPatchOperations = Nothing
+  , _usRestAPIId = pRestAPIId_
+  , _usStageName = pStageName_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 usPatchOperations :: Lens' UpdateStage [PatchOperation]
@@ -104,9 +106,9 @@ instance AWSRequest UpdateStage where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateStage
+instance Hashable UpdateStage where
 
-instance NFData UpdateStage
+instance NFData UpdateStage where
 
 instance ToHeaders UpdateStage where
         toHeaders

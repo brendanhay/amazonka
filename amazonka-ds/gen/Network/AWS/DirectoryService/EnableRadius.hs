@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.EnableRadius
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DirectoryService.EnableRadius
     , errsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'EnableRadius' operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableRadius' smart constructor.
 data EnableRadius = EnableRadius'
-    { _erDirectoryId    :: !Text
-    , _erRadiusSettings :: !RadiusSettings
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _erDirectoryId    :: {-# NOUNPACK #-}!Text
+  , _erRadiusSettings :: {-# NOUNPACK #-}!RadiusSettings
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableRadius' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ enableRadius
     -> RadiusSettings -- ^ 'erRadiusSettings'
     -> EnableRadius
 enableRadius pDirectoryId_ pRadiusSettings_ =
-    EnableRadius'
-    { _erDirectoryId = pDirectoryId_
-    , _erRadiusSettings = pRadiusSettings_
-    }
+  EnableRadius'
+  {_erDirectoryId = pDirectoryId_, _erRadiusSettings = pRadiusSettings_}
+
 
 -- | The identifier of the directory for which to enable MFA.
 erDirectoryId :: Lens' EnableRadius Text
@@ -87,9 +87,9 @@ instance AWSRequest EnableRadius where
               (\ s h x ->
                  EnableRadiusResponse' <$> (pure (fromEnum s)))
 
-instance Hashable EnableRadius
+instance Hashable EnableRadius where
 
-instance NFData EnableRadius
+instance NFData EnableRadius where
 
 instance ToHeaders EnableRadius where
         toHeaders
@@ -120,8 +120,9 @@ instance ToQuery EnableRadius where
 --
 -- /See:/ 'enableRadiusResponse' smart constructor.
 newtype EnableRadiusResponse = EnableRadiusResponse'
-    { _errsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _errsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableRadiusResponse' with the minimum fields required to make a request.
 --
@@ -132,12 +133,11 @@ enableRadiusResponse
     :: Int -- ^ 'errsResponseStatus'
     -> EnableRadiusResponse
 enableRadiusResponse pResponseStatus_ =
-    EnableRadiusResponse'
-    { _errsResponseStatus = pResponseStatus_
-    }
+  EnableRadiusResponse' {_errsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 errsResponseStatus :: Lens' EnableRadiusResponse Int
 errsResponseStatus = lens _errsResponseStatus (\ s a -> s{_errsResponseStatus = a});
 
-instance NFData EnableRadiusResponse
+instance NFData EnableRadiusResponse where

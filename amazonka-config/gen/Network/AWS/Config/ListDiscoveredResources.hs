@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.ListDiscoveredResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,13 +47,13 @@ module Network.AWS.Config.ListDiscoveredResources
     , ldrrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,13 +61,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listDiscoveredResources' smart constructor.
 data ListDiscoveredResources = ListDiscoveredResources'
-    { _ldrResourceIds             :: !(Maybe [Text])
-    , _ldrResourceName            :: !(Maybe Text)
-    , _ldrIncludeDeletedResources :: !(Maybe Bool)
-    , _ldrNextToken               :: !(Maybe Text)
-    , _ldrLimit                   :: !(Maybe Nat)
-    , _ldrResourceType            :: !ResourceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrResourceIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ldrResourceName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrIncludeDeletedResources :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ldrNextToken               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrLimit                   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ldrResourceType            :: {-# NOUNPACK #-}!ResourceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDiscoveredResources' with the minimum fields required to make a request.
 --
@@ -88,14 +89,15 @@ listDiscoveredResources
     :: ResourceType -- ^ 'ldrResourceType'
     -> ListDiscoveredResources
 listDiscoveredResources pResourceType_ =
-    ListDiscoveredResources'
-    { _ldrResourceIds = Nothing
-    , _ldrResourceName = Nothing
-    , _ldrIncludeDeletedResources = Nothing
-    , _ldrNextToken = Nothing
-    , _ldrLimit = Nothing
-    , _ldrResourceType = pResourceType_
-    }
+  ListDiscoveredResources'
+  { _ldrResourceIds = Nothing
+  , _ldrResourceName = Nothing
+  , _ldrIncludeDeletedResources = Nothing
+  , _ldrNextToken = Nothing
+  , _ldrLimit = Nothing
+  , _ldrResourceType = pResourceType_
+  }
+
 
 -- | The IDs of only those resources that you want AWS Config to list in the response. If you do not specify this parameter, AWS Config lists all resources of the specified type that it has discovered.
 ldrResourceIds :: Lens' ListDiscoveredResources [Text]
@@ -140,9 +142,9 @@ instance AWSRequest ListDiscoveredResources where
                      (x .?> "resourceIdentifiers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDiscoveredResources
+instance Hashable ListDiscoveredResources where
 
-instance NFData ListDiscoveredResources
+instance NFData ListDiscoveredResources where
 
 instance ToHeaders ListDiscoveredResources where
         toHeaders
@@ -178,10 +180,11 @@ instance ToQuery ListDiscoveredResources where
 --
 -- /See:/ 'listDiscoveredResourcesResponse' smart constructor.
 data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
-    { _ldrrsNextToken           :: !(Maybe Text)
-    , _ldrrsResourceIdentifiers :: !(Maybe [ResourceIdentifier])
-    , _ldrrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrrsResourceIdentifiers :: {-# NOUNPACK #-}!(Maybe [ResourceIdentifier])
+  , _ldrrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDiscoveredResourcesResponse' with the minimum fields required to make a request.
 --
@@ -196,11 +199,12 @@ listDiscoveredResourcesResponse
     :: Int -- ^ 'ldrrsResponseStatus'
     -> ListDiscoveredResourcesResponse
 listDiscoveredResourcesResponse pResponseStatus_ =
-    ListDiscoveredResourcesResponse'
-    { _ldrrsNextToken = Nothing
-    , _ldrrsResourceIdentifiers = Nothing
-    , _ldrrsResponseStatus = pResponseStatus_
-    }
+  ListDiscoveredResourcesResponse'
+  { _ldrrsNextToken = Nothing
+  , _ldrrsResourceIdentifiers = Nothing
+  , _ldrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 ldrrsNextToken :: Lens' ListDiscoveredResourcesResponse (Maybe Text)
@@ -214,4 +218,4 @@ ldrrsResourceIdentifiers = lens _ldrrsResourceIdentifiers (\ s a -> s{_ldrrsReso
 ldrrsResponseStatus :: Lens' ListDiscoveredResourcesResponse Int
 ldrrsResponseStatus = lens _ldrrsResponseStatus (\ s a -> s{_ldrrsResponseStatus = a});
 
-instance NFData ListDiscoveredResourcesResponse
+instance NFData ListDiscoveredResourcesResponse where

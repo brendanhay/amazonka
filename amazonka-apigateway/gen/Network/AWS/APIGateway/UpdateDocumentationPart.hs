@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDocumentationPart
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.UpdateDocumentationPart
     , dpProperties
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Updates an existing documentation part of a given API.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateDocumentationPart' smart constructor.
 data UpdateDocumentationPart = UpdateDocumentationPart'
-    { _udpPatchOperations     :: !(Maybe [PatchOperation])
-    , _udpRestAPIId           :: !Text
-    , _udpDocumentationPartId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udpPatchOperations     :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _udpRestAPIId           :: {-# NOUNPACK #-}!Text
+  , _udpDocumentationPartId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocumentationPart' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ updateDocumentationPart
     -> Text -- ^ 'udpDocumentationPartId'
     -> UpdateDocumentationPart
 updateDocumentationPart pRestAPIId_ pDocumentationPartId_ =
-    UpdateDocumentationPart'
-    { _udpPatchOperations = Nothing
-    , _udpRestAPIId = pRestAPIId_
-    , _udpDocumentationPartId = pDocumentationPartId_
-    }
+  UpdateDocumentationPart'
+  { _udpPatchOperations = Nothing
+  , _udpRestAPIId = pRestAPIId_
+  , _udpDocumentationPartId = pDocumentationPartId_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udpPatchOperations :: Lens' UpdateDocumentationPart [PatchOperation]
@@ -93,9 +95,9 @@ instance AWSRequest UpdateDocumentationPart where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateDocumentationPart
+instance Hashable UpdateDocumentationPart where
 
-instance NFData UpdateDocumentationPart
+instance NFData UpdateDocumentationPart where
 
 instance ToHeaders UpdateDocumentationPart where
         toHeaders

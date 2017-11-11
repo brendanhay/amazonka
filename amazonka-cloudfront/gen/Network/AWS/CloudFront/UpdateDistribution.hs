@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UpdateDistribution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -66,12 +66,12 @@ module Network.AWS.CloudFront.UpdateDistribution
     , udrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to update a distribution.
 --
@@ -79,10 +79,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateDistribution' smart constructor.
 data UpdateDistribution = UpdateDistribution'
-    { _udIfMatch            :: !(Maybe Text)
-    , _udDistributionConfig :: !DistributionConfig
-    , _udId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udIfMatch            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udDistributionConfig :: {-# NOUNPACK #-}!DistributionConfig
+  , _udId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDistribution' with the minimum fields required to make a request.
 --
@@ -98,11 +99,12 @@ updateDistribution
     -> Text -- ^ 'udId'
     -> UpdateDistribution
 updateDistribution pDistributionConfig_ pId_ =
-    UpdateDistribution'
-    { _udIfMatch = Nothing
-    , _udDistributionConfig = pDistributionConfig_
-    , _udId = pId_
-    }
+  UpdateDistribution'
+  { _udIfMatch = Nothing
+  , _udDistributionConfig = pDistributionConfig_
+  , _udId = pId_
+  }
+
 
 -- | The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
@@ -127,9 +129,9 @@ instance AWSRequest UpdateDistribution where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateDistribution
+instance Hashable UpdateDistribution where
 
-instance NFData UpdateDistribution
+instance NFData UpdateDistribution where
 
 instance ToElement UpdateDistribution where
         toElement
@@ -156,10 +158,11 @@ instance ToQuery UpdateDistribution where
 --
 -- /See:/ 'updateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
-    { _udrsETag           :: !(Maybe Text)
-    , _udrsDistribution   :: !(Maybe Distribution)
-    , _udrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udrsETag           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udrsDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
+  , _udrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDistributionResponse' with the minimum fields required to make a request.
 --
@@ -174,11 +177,12 @@ updateDistributionResponse
     :: Int -- ^ 'udrsResponseStatus'
     -> UpdateDistributionResponse
 updateDistributionResponse pResponseStatus_ =
-    UpdateDistributionResponse'
-    { _udrsETag = Nothing
-    , _udrsDistribution = Nothing
-    , _udrsResponseStatus = pResponseStatus_
-    }
+  UpdateDistributionResponse'
+  { _udrsETag = Nothing
+  , _udrsDistribution = Nothing
+  , _udrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
@@ -192,4 +196,4 @@ udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
 udrsResponseStatus :: Lens' UpdateDistributionResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
 
-instance NFData UpdateDistributionResponse
+instance NFData UpdateDistributionResponse where

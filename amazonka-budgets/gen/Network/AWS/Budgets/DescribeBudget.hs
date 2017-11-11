@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DescribeBudget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,20 +36,21 @@ module Network.AWS.Budgets.DescribeBudget
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DescribeBudget
 --
 -- /See:/ 'describeBudget' smart constructor.
 data DescribeBudget = DescribeBudget'
-    { _desAccountId  :: !Text
-    , _desBudgetName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desAccountId  :: {-# NOUNPACK #-}!Text
+  , _desBudgetName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBudget' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ describeBudget
     -> Text -- ^ 'desBudgetName'
     -> DescribeBudget
 describeBudget pAccountId_ pBudgetName_ =
-    DescribeBudget'
-    { _desAccountId = pAccountId_
-    , _desBudgetName = pBudgetName_
-    }
+  DescribeBudget' {_desAccountId = pAccountId_, _desBudgetName = pBudgetName_}
+
 
 -- | Undocumented member.
 desAccountId :: Lens' DescribeBudget Text
@@ -85,9 +84,9 @@ instance AWSRequest DescribeBudget where
                  DescribeBudgetResponse' <$>
                    (x .?> "Budget") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeBudget
+instance Hashable DescribeBudget where
 
-instance NFData DescribeBudget
+instance NFData DescribeBudget where
 
 instance ToHeaders DescribeBudget where
         toHeaders
@@ -116,9 +115,10 @@ instance ToQuery DescribeBudget where
 --
 -- /See:/ 'describeBudgetResponse' smart constructor.
 data DescribeBudgetResponse = DescribeBudgetResponse'
-    { _desrsBudget         :: !(Maybe Budget)
-    , _desrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsBudget         :: {-# NOUNPACK #-}!(Maybe Budget)
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBudgetResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +131,9 @@ describeBudgetResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeBudgetResponse
 describeBudgetResponse pResponseStatus_ =
-    DescribeBudgetResponse'
-    { _desrsBudget = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeBudgetResponse'
+  {_desrsBudget = Nothing, _desrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 desrsBudget :: Lens' DescribeBudgetResponse (Maybe Budget)
@@ -144,4 +143,4 @@ desrsBudget = lens _desrsBudget (\ s a -> s{_desrsBudget = a});
 desrsResponseStatus :: Lens' DescribeBudgetResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeBudgetResponse
+instance NFData DescribeBudgetResponse where

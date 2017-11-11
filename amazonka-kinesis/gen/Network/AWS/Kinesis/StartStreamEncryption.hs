@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.StartStreamEncryption
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.Kinesis.StartStreamEncryption
     , StartStreamEncryptionResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startStreamEncryption' smart constructor.
 data StartStreamEncryption = StartStreamEncryption'
-    { _sStreamName     :: !Text
-    , _sEncryptionType :: !EncryptionType
-    , _sKeyId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStreamName     :: {-# NOUNPACK #-}!Text
+  , _sEncryptionType :: {-# NOUNPACK #-}!EncryptionType
+  , _sKeyId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartStreamEncryption' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ startStreamEncryption
     -> Text -- ^ 'sKeyId'
     -> StartStreamEncryption
 startStreamEncryption pStreamName_ pEncryptionType_ pKeyId_ =
-    StartStreamEncryption'
-    { _sStreamName = pStreamName_
-    , _sEncryptionType = pEncryptionType_
-    , _sKeyId = pKeyId_
-    }
+  StartStreamEncryption'
+  { _sStreamName = pStreamName_
+  , _sEncryptionType = pEncryptionType_
+  , _sKeyId = pKeyId_
+  }
+
 
 -- | The name of the stream for which to start encrypting records.
 sStreamName :: Lens' StartStreamEncryption Text
@@ -95,9 +97,9 @@ instance AWSRequest StartStreamEncryption where
         request = postJSON kinesis
         response = receiveNull StartStreamEncryptionResponse'
 
-instance Hashable StartStreamEncryption
+instance Hashable StartStreamEncryption where
 
-instance NFData StartStreamEncryption
+instance NFData StartStreamEncryption where
 
 instance ToHeaders StartStreamEncryption where
         toHeaders
@@ -125,8 +127,9 @@ instance ToQuery StartStreamEncryption where
 
 -- | /See:/ 'startStreamEncryptionResponse' smart constructor.
 data StartStreamEncryptionResponse =
-    StartStreamEncryptionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StartStreamEncryptionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartStreamEncryptionResponse' with the minimum fields required to make a request.
 --
@@ -134,4 +137,5 @@ startStreamEncryptionResponse
     :: StartStreamEncryptionResponse
 startStreamEncryptionResponse = StartStreamEncryptionResponse'
 
-instance NFData StartStreamEncryptionResponse
+
+instance NFData StartStreamEncryptionResponse where

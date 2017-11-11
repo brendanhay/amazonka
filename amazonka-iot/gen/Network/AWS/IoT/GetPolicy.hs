@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.IoT.GetPolicy
     , gprsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the GetPolicy operation.
 --
@@ -53,8 +53,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getPolicy' smart constructor.
 newtype GetPolicy = GetPolicy'
-    { _gpPolicyName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpPolicyName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ newtype GetPolicy = GetPolicy'
 getPolicy
     :: Text -- ^ 'gpPolicyName'
     -> GetPolicy
-getPolicy pPolicyName_ =
-    GetPolicy'
-    { _gpPolicyName = pPolicyName_
-    }
+getPolicy pPolicyName_ = GetPolicy' {_gpPolicyName = pPolicyName_}
+
 
 -- | The name of the policy.
 gpPolicyName :: Lens' GetPolicy Text
@@ -85,9 +84,9 @@ instance AWSRequest GetPolicy where
                      <*> (x .?> "policyArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetPolicy
+instance Hashable GetPolicy where
 
-instance NFData GetPolicy
+instance NFData GetPolicy where
 
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
@@ -105,12 +104,13 @@ instance ToQuery GetPolicy where
 --
 -- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-    { _gprsPolicyName       :: !(Maybe Text)
-    , _gprsPolicyDocument   :: !(Maybe Text)
-    , _gprsDefaultVersionId :: !(Maybe Text)
-    , _gprsPolicyARN        :: !(Maybe Text)
-    , _gprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gprsPolicyName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gprsPolicyDocument   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gprsDefaultVersionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gprsPolicyARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
 --
@@ -129,13 +129,14 @@ getPolicyResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetPolicyResponse
 getPolicyResponse pResponseStatus_ =
-    GetPolicyResponse'
-    { _gprsPolicyName = Nothing
-    , _gprsPolicyDocument = Nothing
-    , _gprsDefaultVersionId = Nothing
-    , _gprsPolicyARN = Nothing
-    , _gprsResponseStatus = pResponseStatus_
-    }
+  GetPolicyResponse'
+  { _gprsPolicyName = Nothing
+  , _gprsPolicyDocument = Nothing
+  , _gprsDefaultVersionId = Nothing
+  , _gprsPolicyARN = Nothing
+  , _gprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The policy name.
 gprsPolicyName :: Lens' GetPolicyResponse (Maybe Text)
@@ -157,4 +158,4 @@ gprsPolicyARN = lens _gprsPolicyARN (\ s a -> s{_gprsPolicyARN = a});
 gprsResponseStatus :: Lens' GetPolicyResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 
-instance NFData GetPolicyResponse
+instance NFData GetPolicyResponse where

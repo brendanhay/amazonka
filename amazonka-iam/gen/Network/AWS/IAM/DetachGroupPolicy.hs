@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DetachGroupPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.DetachGroupPolicy
     , DetachGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachGroupPolicy' smart constructor.
 data DetachGroupPolicy = DetachGroupPolicy'
-    { _dgpGroupName :: !Text
-    , _dgpPolicyARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgpGroupName :: {-# NOUNPACK #-}!Text
+  , _dgpPolicyARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachGroupPolicy' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ detachGroupPolicy
     -> Text -- ^ 'dgpPolicyARN'
     -> DetachGroupPolicy
 detachGroupPolicy pGroupName_ pPolicyARN_ =
-    DetachGroupPolicy'
-    { _dgpGroupName = pGroupName_
-    , _dgpPolicyARN = pPolicyARN_
-    }
+  DetachGroupPolicy' {_dgpGroupName = pGroupName_, _dgpPolicyARN = pPolicyARN_}
+
 
 -- | The name (friendly name, not ARN) of the IAM group to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dgpGroupName :: Lens' DetachGroupPolicy Text
@@ -80,9 +79,9 @@ instance AWSRequest DetachGroupPolicy where
         request = postQuery iam
         response = receiveNull DetachGroupPolicyResponse'
 
-instance Hashable DetachGroupPolicy
+instance Hashable DetachGroupPolicy where
 
-instance NFData DetachGroupPolicy
+instance NFData DetachGroupPolicy where
 
 instance ToHeaders DetachGroupPolicy where
         toHeaders = const mempty
@@ -100,8 +99,9 @@ instance ToQuery DetachGroupPolicy where
 
 -- | /See:/ 'detachGroupPolicyResponse' smart constructor.
 data DetachGroupPolicyResponse =
-    DetachGroupPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachGroupPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachGroupPolicyResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +109,5 @@ detachGroupPolicyResponse
     :: DetachGroupPolicyResponse
 detachGroupPolicyResponse = DetachGroupPolicyResponse'
 
-instance NFData DetachGroupPolicyResponse
+
+instance NFData DetachGroupPolicyResponse where

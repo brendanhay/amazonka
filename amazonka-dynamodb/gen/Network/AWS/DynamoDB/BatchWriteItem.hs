@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.BatchWriteItem
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -71,12 +71,12 @@ module Network.AWS.DynamoDB.BatchWriteItem
     , bwirsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @BatchWriteItem@ operation.
 --
@@ -84,10 +84,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'batchWriteItem' smart constructor.
 data BatchWriteItem = BatchWriteItem'
-    { _bwiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _bwiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _bwiRequestItems                :: !(Map Text (List1 WriteRequest))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bwiReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
+  , _bwiReturnItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ReturnItemCollectionMetrics)
+  , _bwiRequestItems :: {-# NOUNPACK #-}!(Map Text (List1 WriteRequest))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchWriteItem' with the minimum fields required to make a request.
 --
@@ -101,11 +102,12 @@ data BatchWriteItem = BatchWriteItem'
 batchWriteItem
     :: BatchWriteItem
 batchWriteItem =
-    BatchWriteItem'
-    { _bwiReturnConsumedCapacity = Nothing
-    , _bwiReturnItemCollectionMetrics = Nothing
-    , _bwiRequestItems = mempty
-    }
+  BatchWriteItem'
+  { _bwiReturnConsumedCapacity = Nothing
+  , _bwiReturnItemCollectionMetrics = Nothing
+  , _bwiRequestItems = mempty
+  }
+
 
 -- | Undocumented member.
 bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
@@ -131,9 +133,9 @@ instance AWSRequest BatchWriteItem where
                      <*> (x .?> "UnprocessedItems" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchWriteItem
+instance Hashable BatchWriteItem where
 
-instance NFData BatchWriteItem
+instance NFData BatchWriteItem where
 
 instance ToHeaders BatchWriteItem where
         toHeaders
@@ -166,11 +168,12 @@ instance ToQuery BatchWriteItem where
 --
 -- /See:/ 'batchWriteItemResponse' smart constructor.
 data BatchWriteItemResponse = BatchWriteItemResponse'
-    { _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
-    , _bwirsConsumedCapacity      :: !(Maybe [ConsumedCapacity])
-    , _bwirsUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
-    , _bwirsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bwirsItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe (Map Text [ItemCollectionMetrics]))
+  , _bwirsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe [ConsumedCapacity])
+  , _bwirsUnprocessedItems :: {-# NOUNPACK #-}!(Maybe (Map Text (List1 WriteRequest)))
+  , _bwirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchWriteItemResponse' with the minimum fields required to make a request.
 --
@@ -187,12 +190,13 @@ batchWriteItemResponse
     :: Int -- ^ 'bwirsResponseStatus'
     -> BatchWriteItemResponse
 batchWriteItemResponse pResponseStatus_ =
-    BatchWriteItemResponse'
-    { _bwirsItemCollectionMetrics = Nothing
-    , _bwirsConsumedCapacity = Nothing
-    , _bwirsUnprocessedItems = Nothing
-    , _bwirsResponseStatus = pResponseStatus_
-    }
+  BatchWriteItemResponse'
+  { _bwirsItemCollectionMetrics = Nothing
+  , _bwirsConsumedCapacity = Nothing
+  , _bwirsUnprocessedItems = Nothing
+  , _bwirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of tables that were processed by @BatchWriteItem@ and, for each table, information about any item collections that were affected by individual @DeleteItem@ or @PutItem@ operations. Each entry consists of the following subelements:     * @ItemCollectionKey@ - The partition key value of the item collection. This is the same as the partition key value of the item.     * @SizeEstimateRange@ - An estimate of item collection size, expressed in GB. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on the table. Use this estimate to measure whether a local secondary index is approaching its size limit. The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
 bwirsItemCollectionMetrics :: Lens' BatchWriteItemResponse (HashMap Text [ItemCollectionMetrics])
@@ -210,4 +214,4 @@ bwirsUnprocessedItems = lens _bwirsUnprocessedItems (\ s a -> s{_bwirsUnprocesse
 bwirsResponseStatus :: Lens' BatchWriteItemResponse Int
 bwirsResponseStatus = lens _bwirsResponseStatus (\ s a -> s{_bwirsResponseStatus = a});
 
-instance NFData BatchWriteItemResponse
+instance NFData BatchWriteItemResponse where

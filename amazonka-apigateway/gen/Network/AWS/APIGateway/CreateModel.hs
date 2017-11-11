@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.APIGateway.CreateModel
     , mContentType
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to add a new 'Model' to an existing 'RestApi' resource.
 --
@@ -57,12 +57,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createModel' smart constructor.
 data CreateModel = CreateModel'
-    { _cmSchema      :: !(Maybe Text)
-    , _cmDescription :: !(Maybe Text)
-    , _cmRestAPIId   :: !Text
-    , _cmName        :: !Text
-    , _cmContentType :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmSchema      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmRestAPIId   :: {-# NOUNPACK #-}!Text
+  , _cmName        :: {-# NOUNPACK #-}!Text
+  , _cmContentType :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateModel' with the minimum fields required to make a request.
 --
@@ -83,13 +84,14 @@ createModel
     -> Text -- ^ 'cmContentType'
     -> CreateModel
 createModel pRestAPIId_ pName_ pContentType_ =
-    CreateModel'
-    { _cmSchema = Nothing
-    , _cmDescription = Nothing
-    , _cmRestAPIId = pRestAPIId_
-    , _cmName = pName_
-    , _cmContentType = pContentType_
-    }
+  CreateModel'
+  { _cmSchema = Nothing
+  , _cmDescription = Nothing
+  , _cmRestAPIId = pRestAPIId_
+  , _cmName = pName_
+  , _cmContentType = pContentType_
+  }
+
 
 -- | The schema for the model. For @application/json@ models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
 cmSchema :: Lens' CreateModel (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest CreateModel where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateModel
+instance Hashable CreateModel where
 
-instance NFData CreateModel
+instance NFData CreateModel where
 
 instance ToHeaders CreateModel where
         toHeaders

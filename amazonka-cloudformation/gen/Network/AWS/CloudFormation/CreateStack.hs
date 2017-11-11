@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CreateStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.CloudFormation.CreateStack
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for 'CreateStack' action.
 --
@@ -64,22 +64,23 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-    { _csDisableRollback    :: !(Maybe Bool)
-    , _csNotificationARNs   :: !(Maybe [Text])
-    , _csStackPolicyBody    :: !(Maybe Text)
-    , _csParameters         :: !(Maybe [Parameter])
-    , _csStackPolicyURL     :: !(Maybe Text)
-    , _csTemplateBody       :: !(Maybe Text)
-    , _csTemplateURL        :: !(Maybe Text)
-    , _csClientRequestToken :: !(Maybe Text)
-    , _csCapabilities       :: !(Maybe [Capability])
-    , _csOnFailure          :: !(Maybe OnFailure)
-    , _csResourceTypes      :: !(Maybe [Text])
-    , _csTags               :: !(Maybe [Tag])
-    , _csTimeoutInMinutes   :: !(Maybe Nat)
-    , _csRoleARN            :: !(Maybe Text)
-    , _csStackName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csDisableRollback    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csNotificationARNs   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _csStackPolicyBody    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csParameters         :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _csStackPolicyURL     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csTemplateBody       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csTemplateURL        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csCapabilities       :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _csOnFailure          :: {-# NOUNPACK #-}!(Maybe OnFailure)
+  , _csResourceTypes      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _csTags               :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _csTimeoutInMinutes   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _csRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csStackName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStack' with the minimum fields required to make a request.
 --
@@ -118,23 +119,24 @@ createStack
     :: Text -- ^ 'csStackName'
     -> CreateStack
 createStack pStackName_ =
-    CreateStack'
-    { _csDisableRollback = Nothing
-    , _csNotificationARNs = Nothing
-    , _csStackPolicyBody = Nothing
-    , _csParameters = Nothing
-    , _csStackPolicyURL = Nothing
-    , _csTemplateBody = Nothing
-    , _csTemplateURL = Nothing
-    , _csClientRequestToken = Nothing
-    , _csCapabilities = Nothing
-    , _csOnFailure = Nothing
-    , _csResourceTypes = Nothing
-    , _csTags = Nothing
-    , _csTimeoutInMinutes = Nothing
-    , _csRoleARN = Nothing
-    , _csStackName = pStackName_
-    }
+  CreateStack'
+  { _csDisableRollback = Nothing
+  , _csNotificationARNs = Nothing
+  , _csStackPolicyBody = Nothing
+  , _csParameters = Nothing
+  , _csStackPolicyURL = Nothing
+  , _csTemplateBody = Nothing
+  , _csTemplateURL = Nothing
+  , _csClientRequestToken = Nothing
+  , _csCapabilities = Nothing
+  , _csOnFailure = Nothing
+  , _csResourceTypes = Nothing
+  , _csTags = Nothing
+  , _csTimeoutInMinutes = Nothing
+  , _csRoleARN = Nothing
+  , _csStackName = pStackName_
+  }
+
 
 -- | Set to @true@ to disable rollback of the stack if stack creation failed. You can specify either @DisableRollback@ or @OnFailure@ , but not both. Default: @false@
 csDisableRollback :: Lens' CreateStack (Maybe Bool)
@@ -205,9 +207,9 @@ instance AWSRequest CreateStack where
                  CreateStackResponse' <$>
                    (x .@? "StackId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateStack
+instance Hashable CreateStack where
 
-instance NFData CreateStack
+instance NFData CreateStack where
 
 instance ToHeaders CreateStack where
         toHeaders = const mempty
@@ -246,9 +248,10 @@ instance ToQuery CreateStack where
 --
 -- /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-    { _csrsStackId        :: !(Maybe Text)
-    , _csrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStackResponse' with the minimum fields required to make a request.
 --
@@ -261,10 +264,9 @@ createStackResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateStackResponse
 createStackResponse pResponseStatus_ =
-    CreateStackResponse'
-    { _csrsStackId = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  CreateStackResponse'
+  {_csrsStackId = Nothing, _csrsResponseStatus = pResponseStatus_}
+
 
 -- | Unique identifier of the stack.
 csrsStackId :: Lens' CreateStackResponse (Maybe Text)
@@ -274,4 +276,4 @@ csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 csrsResponseStatus :: Lens' CreateStackResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CreateStackResponse
+instance NFData CreateStackResponse where

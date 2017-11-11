@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DescribeStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,13 +49,13 @@ module Network.AWS.Kinesis.DescribeStream
     , dsrsStreamDescription
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @DescribeStream@ .
 --
@@ -63,10 +63,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeStream' smart constructor.
 data DescribeStream = DescribeStream'
-    { _dExclusiveStartShardId :: !(Maybe Text)
-    , _dLimit                 :: !(Maybe Nat)
-    , _dStreamName            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dExclusiveStartShardId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dLimit                 :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dStreamName            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
 --
@@ -81,11 +82,12 @@ describeStream
     :: Text -- ^ 'dStreamName'
     -> DescribeStream
 describeStream pStreamName_ =
-    DescribeStream'
-    { _dExclusiveStartShardId = Nothing
-    , _dLimit = Nothing
-    , _dStreamName = pStreamName_
-    }
+  DescribeStream'
+  { _dExclusiveStartShardId = Nothing
+  , _dLimit = Nothing
+  , _dStreamName = pStreamName_
+  }
+
 
 -- | The shard ID of the shard to start with.
 dExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest DescribeStream where
                  DescribeStreamResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "StreamDescription"))
 
-instance Hashable DescribeStream
+instance Hashable DescribeStream where
 
-instance NFData DescribeStream
+instance NFData DescribeStream where
 
 instance ToHeaders DescribeStream where
         toHeaders
@@ -157,9 +159,10 @@ instance ToQuery DescribeStream where
 --
 -- /See:/ 'describeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrsResponseStatus    :: !Int
-    , _dsrsStreamDescription :: !StreamDescription
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _dsrsStreamDescription :: {-# NOUNPACK #-}!StreamDescription
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
 --
@@ -173,10 +176,11 @@ describeStreamResponse
     -> StreamDescription -- ^ 'dsrsStreamDescription'
     -> DescribeStreamResponse
 describeStreamResponse pResponseStatus_ pStreamDescription_ =
-    DescribeStreamResponse'
-    { _dsrsResponseStatus = pResponseStatus_
-    , _dsrsStreamDescription = pStreamDescription_
-    }
+  DescribeStreamResponse'
+  { _dsrsResponseStatus = pResponseStatus_
+  , _dsrsStreamDescription = pStreamDescription_
+  }
+
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStreamResponse Int
@@ -186,4 +190,4 @@ dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = 
 dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
 
-instance NFData DescribeStreamResponse
+instance NFData DescribeStreamResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.ListRepositories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.CodeCommit.ListRepositories
     , lrrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list repositories operation.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listRepositories' smart constructor.
 data ListRepositories = ListRepositories'
-    { _lrNextToken :: !(Maybe Text)
-    , _lrOrder     :: !(Maybe OrderEnum)
-    , _lrSortBy    :: !(Maybe SortByEnum)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrOrder     :: {-# NOUNPACK #-}!(Maybe OrderEnum)
+  , _lrSortBy    :: {-# NOUNPACK #-}!(Maybe SortByEnum)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRepositories' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ data ListRepositories = ListRepositories'
 listRepositories
     :: ListRepositories
 listRepositories =
-    ListRepositories'
-    { _lrNextToken = Nothing
-    , _lrOrder = Nothing
-    , _lrSortBy = Nothing
-    }
+  ListRepositories'
+  {_lrNextToken = Nothing, _lrOrder = Nothing, _lrSortBy = Nothing}
+
 
 -- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 lrNextToken :: Lens' ListRepositories (Maybe Text)
@@ -109,9 +108,9 @@ instance AWSRequest ListRepositories where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListRepositories
+instance Hashable ListRepositories where
 
-instance NFData ListRepositories
+instance NFData ListRepositories where
 
 instance ToHeaders ListRepositories where
         toHeaders
@@ -143,10 +142,11 @@ instance ToQuery ListRepositories where
 --
 -- /See:/ 'listRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
-    { _lrrsRepositories   :: !(Maybe [RepositoryNameIdPair])
-    , _lrrsNextToken      :: !(Maybe Text)
-    , _lrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsRepositories   :: {-# NOUNPACK #-}!(Maybe [RepositoryNameIdPair])
+  , _lrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRepositoriesResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +161,12 @@ listRepositoriesResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListRepositoriesResponse
 listRepositoriesResponse pResponseStatus_ =
-    ListRepositoriesResponse'
-    { _lrrsRepositories = Nothing
-    , _lrrsNextToken = Nothing
-    , _lrrsResponseStatus = pResponseStatus_
-    }
+  ListRepositoriesResponse'
+  { _lrrsRepositories = Nothing
+  , _lrrsNextToken = Nothing
+  , _lrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Lists the repositories called by the list repositories operation.
 lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
@@ -179,4 +180,4 @@ lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 lrrsResponseStatus :: Lens' ListRepositoriesResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 
-instance NFData ListRepositoriesResponse
+instance NFData ListRepositoriesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     , adsgirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,12 +56,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'authorizeDBSecurityGroupIngress' smart constructor.
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
-    { _adsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _adsgiEC2SecurityGroupName    :: !(Maybe Text)
-    , _adsgiCIdRIP                  :: !(Maybe Text)
-    , _adsgiEC2SecurityGroupId      :: !(Maybe Text)
-    , _adsgiDBSecurityGroupName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adsgiEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adsgiEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adsgiCIdRIP                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adsgiEC2SecurityGroupId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adsgiDBSecurityGroupName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeDBSecurityGroupIngress' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ authorizeDBSecurityGroupIngress
     :: Text -- ^ 'adsgiDBSecurityGroupName'
     -> AuthorizeDBSecurityGroupIngress
 authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
-    AuthorizeDBSecurityGroupIngress'
-    { _adsgiEC2SecurityGroupOwnerId = Nothing
-    , _adsgiEC2SecurityGroupName = Nothing
-    , _adsgiCIdRIP = Nothing
-    , _adsgiEC2SecurityGroupId = Nothing
-    , _adsgiDBSecurityGroupName = pDBSecurityGroupName_
-    }
+  AuthorizeDBSecurityGroupIngress'
+  { _adsgiEC2SecurityGroupOwnerId = Nothing
+  , _adsgiEC2SecurityGroupName = Nothing
+  , _adsgiCIdRIP = Nothing
+  , _adsgiEC2SecurityGroupId = Nothing
+  , _adsgiDBSecurityGroupName = pDBSecurityGroupName_
+  }
+
 
 -- | AWS account number of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ parameter. The AWS Access Key ID is not an acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
 adsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
@@ -121,8 +123,9 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress
                    (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
 instance Hashable AuthorizeDBSecurityGroupIngress
+         where
 
-instance NFData AuthorizeDBSecurityGroupIngress
+instance NFData AuthorizeDBSecurityGroupIngress where
 
 instance ToHeaders AuthorizeDBSecurityGroupIngress
          where
@@ -147,9 +150,10 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
 
 -- | /See:/ 'authorizeDBSecurityGroupIngressResponse' smart constructor.
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
-    { _adsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _adsgirsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adsgirsDBSecurityGroup :: {-# NOUNPACK #-}!(Maybe DBSecurityGroup)
+  , _adsgirsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeDBSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
@@ -162,10 +166,9 @@ authorizeDBSecurityGroupIngressResponse
     :: Int -- ^ 'adsgirsResponseStatus'
     -> AuthorizeDBSecurityGroupIngressResponse
 authorizeDBSecurityGroupIngressResponse pResponseStatus_ =
-    AuthorizeDBSecurityGroupIngressResponse'
-    { _adsgirsDBSecurityGroup = Nothing
-    , _adsgirsResponseStatus = pResponseStatus_
-    }
+  AuthorizeDBSecurityGroupIngressResponse'
+  {_adsgirsDBSecurityGroup = Nothing, _adsgirsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 adsgirsDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
@@ -176,4 +179,5 @@ adsgirsResponseStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
 adsgirsResponseStatus = lens _adsgirsResponseStatus (\ s a -> s{_adsgirsResponseStatus = a});
 
 instance NFData
-         AuthorizeDBSecurityGroupIngressResponse
+           AuthorizeDBSecurityGroupIngressResponse
+         where

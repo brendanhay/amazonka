@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.PeerVPC
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.Lightsail.PeerVPC
     , pvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'peerVPC' smart constructor.
 data PeerVPC =
-    PeerVPC'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PeerVPC'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PeerVPC' with the minimum fields required to make a request.
 --
 peerVPC
     :: PeerVPC
 peerVPC = PeerVPC'
+
 
 instance AWSRequest PeerVPC where
         type Rs PeerVPC = PeerVPCResponse
@@ -62,9 +64,9 @@ instance AWSRequest PeerVPC where
                  PeerVPCResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable PeerVPC
+instance Hashable PeerVPC where
 
-instance NFData PeerVPC
+instance NFData PeerVPC where
 
 instance ToHeaders PeerVPC where
         toHeaders
@@ -86,9 +88,10 @@ instance ToQuery PeerVPC where
 
 -- | /See:/ 'peerVPCResponse' smart constructor.
 data PeerVPCResponse = PeerVPCResponse'
-    { _pvrsOperation      :: !(Maybe Operation)
-    , _pvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pvrsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _pvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PeerVPCResponse' with the minimum fields required to make a request.
 --
@@ -101,10 +104,9 @@ peerVPCResponse
     :: Int -- ^ 'pvrsResponseStatus'
     -> PeerVPCResponse
 peerVPCResponse pResponseStatus_ =
-    PeerVPCResponse'
-    { _pvrsOperation = Nothing
-    , _pvrsResponseStatus = pResponseStatus_
-    }
+  PeerVPCResponse'
+  {_pvrsOperation = Nothing, _pvrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the request operation.
 pvrsOperation :: Lens' PeerVPCResponse (Maybe Operation)
@@ -114,4 +116,4 @@ pvrsOperation = lens _pvrsOperation (\ s a -> s{_pvrsOperation = a});
 pvrsResponseStatus :: Lens' PeerVPCResponse Int
 pvrsResponseStatus = lens _pvrsResponseStatus (\ s a -> s{_pvrsResponseStatus = a});
 
-instance NFData PeerVPCResponse
+instance NFData PeerVPCResponse where

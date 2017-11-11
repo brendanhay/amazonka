@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.SplitShard
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.Kinesis.SplitShard
     , SplitShardResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @SplitShard@ .
 --
@@ -67,10 +67,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'splitShard' smart constructor.
 data SplitShard = SplitShard'
-    { _ssStreamName         :: !Text
-    , _ssShardToSplit       :: !Text
-    , _ssNewStartingHashKey :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssStreamName         :: {-# NOUNPACK #-}!Text
+  , _ssShardToSplit       :: {-# NOUNPACK #-}!Text
+  , _ssNewStartingHashKey :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SplitShard' with the minimum fields required to make a request.
 --
@@ -87,11 +88,12 @@ splitShard
     -> Text -- ^ 'ssNewStartingHashKey'
     -> SplitShard
 splitShard pStreamName_ pShardToSplit_ pNewStartingHashKey_ =
-    SplitShard'
-    { _ssStreamName = pStreamName_
-    , _ssShardToSplit = pShardToSplit_
-    , _ssNewStartingHashKey = pNewStartingHashKey_
-    }
+  SplitShard'
+  { _ssStreamName = pStreamName_
+  , _ssShardToSplit = pShardToSplit_
+  , _ssNewStartingHashKey = pNewStartingHashKey_
+  }
+
 
 -- | The name of the stream for the shard split.
 ssStreamName :: Lens' SplitShard Text
@@ -110,9 +112,9 @@ instance AWSRequest SplitShard where
         request = postJSON kinesis
         response = receiveNull SplitShardResponse'
 
-instance Hashable SplitShard
+instance Hashable SplitShard where
 
-instance NFData SplitShard
+instance NFData SplitShard where
 
 instance ToHeaders SplitShard where
         toHeaders
@@ -140,8 +142,9 @@ instance ToQuery SplitShard where
 
 -- | /See:/ 'splitShardResponse' smart constructor.
 data SplitShardResponse =
-    SplitShardResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SplitShardResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SplitShardResponse' with the minimum fields required to make a request.
 --
@@ -149,4 +152,5 @@ splitShardResponse
     :: SplitShardResponse
 splitShardResponse = SplitShardResponse'
 
-instance NFData SplitShardResponse
+
+instance NFData SplitShardResponse where

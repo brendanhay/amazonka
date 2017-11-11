@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateBGPPeer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.DirectConnect.CreateBGPPeer
     , cbprsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the CreateBGPPeer operation.
 --
@@ -57,9 +57,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createBGPPeer' smart constructor.
 data CreateBGPPeer = CreateBGPPeer'
-    { _cbpNewBGPPeer         :: !(Maybe NewBGPPeer)
-    , _cbpVirtualInterfaceId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbpNewBGPPeer         :: {-# NOUNPACK #-}!(Maybe NewBGPPeer)
+  , _cbpVirtualInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBGPPeer' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ data CreateBGPPeer = CreateBGPPeer'
 createBGPPeer
     :: CreateBGPPeer
 createBGPPeer =
-    CreateBGPPeer'
-    { _cbpNewBGPPeer = Nothing
-    , _cbpVirtualInterfaceId = Nothing
-    }
+  CreateBGPPeer' {_cbpNewBGPPeer = Nothing, _cbpVirtualInterfaceId = Nothing}
+
 
 -- | Detailed information for the BGP peer to be created. Default: None
 cbpNewBGPPeer :: Lens' CreateBGPPeer (Maybe NewBGPPeer)
@@ -93,9 +92,9 @@ instance AWSRequest CreateBGPPeer where
                  CreateBGPPeerResponse' <$>
                    (x .?> "virtualInterface") <*> (pure (fromEnum s)))
 
-instance Hashable CreateBGPPeer
+instance Hashable CreateBGPPeer where
 
-instance NFData CreateBGPPeer
+instance NFData CreateBGPPeer where
 
 instance ToHeaders CreateBGPPeer where
         toHeaders
@@ -126,9 +125,10 @@ instance ToQuery CreateBGPPeer where
 --
 -- /See:/ 'createBGPPeerResponse' smart constructor.
 data CreateBGPPeerResponse = CreateBGPPeerResponse'
-    { _cbprsVirtualInterface :: !(Maybe VirtualInterface)
-    , _cbprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbprsVirtualInterface :: {-# NOUNPACK #-}!(Maybe VirtualInterface)
+  , _cbprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBGPPeerResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +141,9 @@ createBGPPeerResponse
     :: Int -- ^ 'cbprsResponseStatus'
     -> CreateBGPPeerResponse
 createBGPPeerResponse pResponseStatus_ =
-    CreateBGPPeerResponse'
-    { _cbprsVirtualInterface = Nothing
-    , _cbprsResponseStatus = pResponseStatus_
-    }
+  CreateBGPPeerResponse'
+  {_cbprsVirtualInterface = Nothing, _cbprsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cbprsVirtualInterface :: Lens' CreateBGPPeerResponse (Maybe VirtualInterface)
@@ -154,4 +153,4 @@ cbprsVirtualInterface = lens _cbprsVirtualInterface (\ s a -> s{_cbprsVirtualInt
 cbprsResponseStatus :: Lens' CreateBGPPeerResponse Int
 cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a});
 
-instance NFData CreateBGPPeerResponse
+instance NFData CreateBGPPeerResponse where

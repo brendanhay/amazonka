@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.StorageGateway.ListTagsForResource
     , ltfrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | ListTagsForResourceInput
 --
@@ -54,10 +54,11 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrMarker      :: !(Maybe Text)
-    , _ltfrLimit       :: !(Maybe Nat)
-    , _ltfrResourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrMarker      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltfrLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ltfrResourceARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
 listTagsForResource pResourceARN_ =
-    ListTagsForResource'
-    { _ltfrMarker = Nothing
-    , _ltfrLimit = Nothing
-    , _ltfrResourceARN = pResourceARN_
-    }
+  ListTagsForResource'
+  { _ltfrMarker = Nothing
+  , _ltfrLimit = Nothing
+  , _ltfrResourceARN = pResourceARN_
+  }
+
 
 -- | An opaque string that indicates the position at which to begin returning the list of tags.
 ltfrMarker :: Lens' ListTagsForResource (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest ListTagsForResource where
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders
@@ -136,11 +138,12 @@ instance ToQuery ListTagsForResource where
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsResourceARN    :: !(Maybe Text)
-    , _ltfrrsMarker         :: !(Maybe Text)
-    , _ltfrrsTags           :: !(Maybe [Tag])
-    , _ltfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrrsResourceARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltfrrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltfrrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ltfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +160,13 @@ listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
-    ListTagsForResourceResponse'
-    { _ltfrrsResourceARN = Nothing
-    , _ltfrrsMarker = Nothing
-    , _ltfrrsTags = Nothing
-    , _ltfrrsResponseStatus = pResponseStatus_
-    }
+  ListTagsForResourceResponse'
+  { _ltfrrsResourceARN = Nothing
+  , _ltfrrsMarker = Nothing
+  , _ltfrrsTags = Nothing
+  , _ltfrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | he Amazon Resource Name (ARN) of the resource for which you want to list tags.
 ltfrrsResourceARN :: Lens' ListTagsForResourceResponse (Maybe Text)
@@ -180,4 +184,4 @@ ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
-instance NFData ListTagsForResourceResponse
+instance NFData ListTagsForResourceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.ListAttacks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.Shield.ListAttacks
     , larsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'listAttacks' smart constructor.
 data ListAttacks = ListAttacks'
-    { _laStartTime    :: !(Maybe TimeRange)
-    , _laResourceARNs :: !(Maybe [Text])
-    , _laNextToken    :: !(Maybe Text)
-    , _laEndTime      :: !(Maybe TimeRange)
-    , _laMaxResults   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laStartTime    :: {-# NOUNPACK #-}!(Maybe TimeRange)
+  , _laResourceARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _laNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laEndTime      :: {-# NOUNPACK #-}!(Maybe TimeRange)
+  , _laMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttacks' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ data ListAttacks = ListAttacks'
 listAttacks
     :: ListAttacks
 listAttacks =
-    ListAttacks'
-    { _laStartTime = Nothing
-    , _laResourceARNs = Nothing
-    , _laNextToken = Nothing
-    , _laEndTime = Nothing
-    , _laMaxResults = Nothing
-    }
+  ListAttacks'
+  { _laStartTime = Nothing
+  , _laResourceARNs = Nothing
+  , _laNextToken = Nothing
+  , _laEndTime = Nothing
+  , _laMaxResults = Nothing
+  }
+
 
 -- | The time period for the attacks.
 laStartTime :: Lens' ListAttacks (Maybe TimeRange)
@@ -113,9 +115,9 @@ instance AWSRequest ListAttacks where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAttacks
+instance Hashable ListAttacks where
 
-instance NFData ListAttacks
+instance NFData ListAttacks where
 
 instance ToHeaders ListAttacks where
         toHeaders
@@ -144,10 +146,11 @@ instance ToQuery ListAttacks where
 
 -- | /See:/ 'listAttacksResponse' smart constructor.
 data ListAttacksResponse = ListAttacksResponse'
-    { _larsAttackSummaries :: !(Maybe [AttackSummary])
-    , _larsNextToken       :: !(Maybe Text)
-    , _larsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsAttackSummaries :: {-# NOUNPACK #-}!(Maybe [AttackSummary])
+  , _larsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttacksResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ listAttacksResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAttacksResponse
 listAttacksResponse pResponseStatus_ =
-    ListAttacksResponse'
-    { _larsAttackSummaries = Nothing
-    , _larsNextToken = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    }
+  ListAttacksResponse'
+  { _larsAttackSummaries = Nothing
+  , _larsNextToken = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The attack information for the specified time range.
 larsAttackSummaries :: Lens' ListAttacksResponse [AttackSummary]
@@ -180,4 +184,4 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsResponseStatus :: Lens' ListAttacksResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 
-instance NFData ListAttacksResponse
+instance NFData ListAttacksResponse where

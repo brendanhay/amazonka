@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DisableSSO
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.DirectoryService.DisableSSO
     , dssorsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DisableSso' operation.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableSSO' smart constructor.
 data DisableSSO = DisableSSO'
-    { _dssoUserName    :: !(Maybe Text)
-    , _dssoPassword    :: !(Maybe (Sensitive Text))
-    , _dssoDirectoryId :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dssoUserName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssoPassword    :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _dssoDirectoryId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableSSO' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ disableSSO
     :: Text -- ^ 'dssoDirectoryId'
     -> DisableSSO
 disableSSO pDirectoryId_ =
-    DisableSSO'
-    { _dssoUserName = Nothing
-    , _dssoPassword = Nothing
-    , _dssoDirectoryId = pDirectoryId_
-    }
+  DisableSSO'
+  { _dssoUserName = Nothing
+  , _dssoPassword = Nothing
+  , _dssoDirectoryId = pDirectoryId_
+  }
+
 
 -- | The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name. If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 dssoUserName :: Lens' DisableSSO (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest DisableSSO where
               (\ s h x ->
                  DisableSSOResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DisableSSO
+instance Hashable DisableSSO where
 
-instance NFData DisableSSO
+instance NFData DisableSSO where
 
 instance ToHeaders DisableSSO where
         toHeaders
@@ -129,8 +131,9 @@ instance ToQuery DisableSSO where
 --
 -- /See:/ 'disableSSOResponse' smart constructor.
 newtype DisableSSOResponse = DisableSSOResponse'
-    { _dssorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableSSOResponse' with the minimum fields required to make a request.
 --
@@ -141,12 +144,11 @@ disableSSOResponse
     :: Int -- ^ 'dssorsResponseStatus'
     -> DisableSSOResponse
 disableSSOResponse pResponseStatus_ =
-    DisableSSOResponse'
-    { _dssorsResponseStatus = pResponseStatus_
-    }
+  DisableSSOResponse' {_dssorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dssorsResponseStatus :: Lens' DisableSSOResponse Int
 dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a});
 
-instance NFData DisableSSOResponse
+instance NFData DisableSSOResponse where

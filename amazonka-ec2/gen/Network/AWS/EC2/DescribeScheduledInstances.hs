@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeScheduledInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.DescribeScheduledInstances
     , dsirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeScheduledInstances.
 --
@@ -56,13 +56,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeScheduledInstances' smart constructor.
 data DescribeScheduledInstances = DescribeScheduledInstances'
-    { _dsiFilters              :: !(Maybe [Filter])
-    , _dsiSlotStartTimeRange   :: !(Maybe SlotStartTimeRangeRequest)
-    , _dsiNextToken            :: !(Maybe Text)
-    , _dsiScheduledInstanceIds :: !(Maybe [Text])
-    , _dsiDryRun               :: !(Maybe Bool)
-    , _dsiMaxResults           :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsiFilters :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dsiSlotStartTimeRange :: {-# NOUNPACK #-}!(Maybe SlotStartTimeRangeRequest)
+  , _dsiNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsiScheduledInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsiDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsiMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScheduledInstances' with the minimum fields required to make a request.
 --
@@ -82,14 +83,15 @@ data DescribeScheduledInstances = DescribeScheduledInstances'
 describeScheduledInstances
     :: DescribeScheduledInstances
 describeScheduledInstances =
-    DescribeScheduledInstances'
-    { _dsiFilters = Nothing
-    , _dsiSlotStartTimeRange = Nothing
-    , _dsiNextToken = Nothing
-    , _dsiScheduledInstanceIds = Nothing
-    , _dsiDryRun = Nothing
-    , _dsiMaxResults = Nothing
-    }
+  DescribeScheduledInstances'
+  { _dsiFilters = Nothing
+  , _dsiSlotStartTimeRange = Nothing
+  , _dsiNextToken = Nothing
+  , _dsiScheduledInstanceIds = Nothing
+  , _dsiDryRun = Nothing
+  , _dsiMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @availability-zone@ - The Availability Zone (for example, @us-west-2a@ ).     * @instance-type@ - The instance type (for example, @c4.large@ ).     * @network-platform@ - The network platform (@EC2-Classic@ or @EC2-VPC@ ).     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
 dsiFilters :: Lens' DescribeScheduledInstances [Filter]
@@ -128,9 +130,9 @@ instance AWSRequest DescribeScheduledInstances where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeScheduledInstances
+instance Hashable DescribeScheduledInstances where
 
-instance NFData DescribeScheduledInstances
+instance NFData DescribeScheduledInstances where
 
 instance ToHeaders DescribeScheduledInstances where
         toHeaders = const mempty
@@ -159,10 +161,11 @@ instance ToQuery DescribeScheduledInstances where
 --
 -- /See:/ 'describeScheduledInstancesResponse' smart constructor.
 data DescribeScheduledInstancesResponse = DescribeScheduledInstancesResponse'
-    { _dsirsNextToken            :: !(Maybe Text)
-    , _dsirsScheduledInstanceSet :: !(Maybe [ScheduledInstance])
-    , _dsirsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsirsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsirsScheduledInstanceSet :: {-# NOUNPACK #-}!(Maybe [ScheduledInstance])
+  , _dsirsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScheduledInstancesResponse' with the minimum fields required to make a request.
 --
@@ -177,11 +180,12 @@ describeScheduledInstancesResponse
     :: Int -- ^ 'dsirsResponseStatus'
     -> DescribeScheduledInstancesResponse
 describeScheduledInstancesResponse pResponseStatus_ =
-    DescribeScheduledInstancesResponse'
-    { _dsirsNextToken = Nothing
-    , _dsirsScheduledInstanceSet = Nothing
-    , _dsirsResponseStatus = pResponseStatus_
-    }
+  DescribeScheduledInstancesResponse'
+  { _dsirsNextToken = Nothing
+  , _dsirsScheduledInstanceSet = Nothing
+  , _dsirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 dsirsNextToken :: Lens' DescribeScheduledInstancesResponse (Maybe Text)
@@ -196,3 +200,4 @@ dsirsResponseStatus :: Lens' DescribeScheduledInstancesResponse Int
 dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a});
 
 instance NFData DescribeScheduledInstancesResponse
+         where

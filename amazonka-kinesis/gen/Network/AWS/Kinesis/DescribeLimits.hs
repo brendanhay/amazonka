@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DescribeLimits
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,23 +40,25 @@ module Network.AWS.Kinesis.DescribeLimits
     , dlrsOpenShardCount
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLimits' smart constructor.
 data DescribeLimits =
-    DescribeLimits'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeLimits'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLimits' with the minimum fields required to make a request.
 --
 describeLimits
     :: DescribeLimits
 describeLimits = DescribeLimits'
+
 
 instance AWSRequest DescribeLimits where
         type Rs DescribeLimits = DescribeLimitsResponse
@@ -68,9 +70,9 @@ instance AWSRequest DescribeLimits where
                    (pure (fromEnum s)) <*> (x .:> "ShardLimit") <*>
                      (x .:> "OpenShardCount"))
 
-instance Hashable DescribeLimits
+instance Hashable DescribeLimits where
 
-instance NFData DescribeLimits
+instance NFData DescribeLimits where
 
 instance ToHeaders DescribeLimits where
         toHeaders
@@ -92,10 +94,11 @@ instance ToQuery DescribeLimits where
 
 -- | /See:/ 'describeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
-    { _dlrsResponseStatus :: !Int
-    , _dlrsShardLimit     :: !Nat
-    , _dlrsOpenShardCount :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dlrsShardLimit     :: {-# NOUNPACK #-}!Nat
+  , _dlrsOpenShardCount :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLimitsResponse' with the minimum fields required to make a request.
 --
@@ -112,11 +115,12 @@ describeLimitsResponse
     -> Natural -- ^ 'dlrsOpenShardCount'
     -> DescribeLimitsResponse
 describeLimitsResponse pResponseStatus_ pShardLimit_ pOpenShardCount_ =
-    DescribeLimitsResponse'
-    { _dlrsResponseStatus = pResponseStatus_
-    , _dlrsShardLimit = _Nat # pShardLimit_
-    , _dlrsOpenShardCount = _Nat # pOpenShardCount_
-    }
+  DescribeLimitsResponse'
+  { _dlrsResponseStatus = pResponseStatus_
+  , _dlrsShardLimit = _Nat # pShardLimit_
+  , _dlrsOpenShardCount = _Nat # pOpenShardCount_
+  }
+
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLimitsResponse Int
@@ -130,4 +134,4 @@ dlrsShardLimit = lens _dlrsShardLimit (\ s a -> s{_dlrsShardLimit = a}) . _Nat;
 dlrsOpenShardCount :: Lens' DescribeLimitsResponse Natural
 dlrsOpenShardCount = lens _dlrsOpenShardCount (\ s a -> s{_dlrsOpenShardCount = a}) . _Nat;
 
-instance NFData DescribeLimitsResponse
+instance NFData DescribeLimitsResponse where

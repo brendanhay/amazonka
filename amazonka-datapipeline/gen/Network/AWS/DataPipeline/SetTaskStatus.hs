@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.SetTaskStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DataPipeline.SetTaskStatus
     , stsrsResponseStatus
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for SetTaskStatus.
 --
@@ -53,12 +53,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setTaskStatus' smart constructor.
 data SetTaskStatus = SetTaskStatus'
-    { _stsErrorStackTrace :: !(Maybe Text)
-    , _stsErrorId         :: !(Maybe Text)
-    , _stsErrorMessage    :: !(Maybe Text)
-    , _stsTaskId          :: !Text
-    , _stsTaskStatus      :: !TaskStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stsErrorStackTrace :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stsErrorId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stsErrorMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stsTaskId          :: {-# NOUNPACK #-}!Text
+  , _stsTaskStatus      :: {-# NOUNPACK #-}!TaskStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetTaskStatus' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ setTaskStatus
     -> TaskStatus -- ^ 'stsTaskStatus'
     -> SetTaskStatus
 setTaskStatus pTaskId_ pTaskStatus_ =
-    SetTaskStatus'
-    { _stsErrorStackTrace = Nothing
-    , _stsErrorId = Nothing
-    , _stsErrorMessage = Nothing
-    , _stsTaskId = pTaskId_
-    , _stsTaskStatus = pTaskStatus_
-    }
+  SetTaskStatus'
+  { _stsErrorStackTrace = Nothing
+  , _stsErrorId = Nothing
+  , _stsErrorMessage = Nothing
+  , _stsTaskId = pTaskId_
+  , _stsTaskStatus = pTaskStatus_
+  }
+
 
 -- | If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
 stsErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
@@ -114,9 +116,9 @@ instance AWSRequest SetTaskStatus where
               (\ s h x ->
                  SetTaskStatusResponse' <$> (pure (fromEnum s)))
 
-instance Hashable SetTaskStatus
+instance Hashable SetTaskStatus where
 
-instance NFData SetTaskStatus
+instance NFData SetTaskStatus where
 
 instance ToHeaders SetTaskStatus where
         toHeaders
@@ -149,8 +151,9 @@ instance ToQuery SetTaskStatus where
 --
 -- /See:/ 'setTaskStatusResponse' smart constructor.
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
-    { _stsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetTaskStatusResponse' with the minimum fields required to make a request.
 --
@@ -161,12 +164,11 @@ setTaskStatusResponse
     :: Int -- ^ 'stsrsResponseStatus'
     -> SetTaskStatusResponse
 setTaskStatusResponse pResponseStatus_ =
-    SetTaskStatusResponse'
-    { _stsrsResponseStatus = pResponseStatus_
-    }
+  SetTaskStatusResponse' {_stsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 stsrsResponseStatus :: Lens' SetTaskStatusResponse Int
 stsrsResponseStatus = lens _stsrsResponseStatus (\ s a -> s{_stsrsResponseStatus = a});
 
-instance NFData SetTaskStatusResponse
+instance NFData SetTaskStatusResponse where

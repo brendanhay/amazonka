@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DescribeSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.Shield.DescribeSubscription
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'describeSubscription' smart constructor.
 data DescribeSubscription =
-    DescribeSubscription'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeSubscription'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubscription' with the minimum fields required to make a request.
 --
 describeSubscription
     :: DescribeSubscription
 describeSubscription = DescribeSubscription'
+
 
 instance AWSRequest DescribeSubscription where
         type Rs DescribeSubscription =
@@ -63,9 +65,9 @@ instance AWSRequest DescribeSubscription where
                  DescribeSubscriptionResponse' <$>
                    (x .?> "Subscription") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSubscription
+instance Hashable DescribeSubscription where
 
-instance NFData DescribeSubscription
+instance NFData DescribeSubscription where
 
 instance ToHeaders DescribeSubscription where
         toHeaders
@@ -88,9 +90,10 @@ instance ToQuery DescribeSubscription where
 
 -- | /See:/ 'describeSubscriptionResponse' smart constructor.
 data DescribeSubscriptionResponse = DescribeSubscriptionResponse'
-    { _dsrsSubscription   :: !(Maybe Subscription)
-    , _dsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsSubscription   :: {-# NOUNPACK #-}!(Maybe Subscription)
+  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -103,10 +106,9 @@ describeSubscriptionResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeSubscriptionResponse
 describeSubscriptionResponse pResponseStatus_ =
-    DescribeSubscriptionResponse'
-    { _dsrsSubscription = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DescribeSubscriptionResponse'
+  {_dsrsSubscription = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | The AWS Shield Advanced subscription details for an account.
 dsrsSubscription :: Lens' DescribeSubscriptionResponse (Maybe Subscription)
@@ -116,4 +118,4 @@ dsrsSubscription = lens _dsrsSubscription (\ s a -> s{_dsrsSubscription = a});
 dsrsResponseStatus :: Lens' DescribeSubscriptionResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DescribeSubscriptionResponse
+instance NFData DescribeSubscriptionResponse where

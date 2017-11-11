@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.StartMaintenance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.OpsWorksCM.StartMaintenance
     , smrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startMaintenance' smart constructor.
 newtype StartMaintenance = StartMaintenance'
-    { _smServerName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smServerName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartMaintenance' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ newtype StartMaintenance = StartMaintenance'
 startMaintenance
     :: Text -- ^ 'smServerName'
     -> StartMaintenance
-startMaintenance pServerName_ =
-    StartMaintenance'
-    { _smServerName = pServerName_
-    }
+startMaintenance pServerName_ = StartMaintenance' {_smServerName = pServerName_}
+
 
 -- | The name of the server on which to run maintenance.
 smServerName :: Lens' StartMaintenance Text
@@ -77,9 +76,9 @@ instance AWSRequest StartMaintenance where
                  StartMaintenanceResponse' <$>
                    (x .?> "Server") <*> (pure (fromEnum s)))
 
-instance Hashable StartMaintenance
+instance Hashable StartMaintenance where
 
-instance NFData StartMaintenance
+instance NFData StartMaintenance where
 
 instance ToHeaders StartMaintenance where
         toHeaders
@@ -104,9 +103,10 @@ instance ToQuery StartMaintenance where
 
 -- | /See:/ 'startMaintenanceResponse' smart constructor.
 data StartMaintenanceResponse = StartMaintenanceResponse'
-    { _smrsServer         :: !(Maybe Server)
-    , _smrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _smrsServer         :: {-# NOUNPACK #-}!(Maybe Server)
+  , _smrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartMaintenanceResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +119,9 @@ startMaintenanceResponse
     :: Int -- ^ 'smrsResponseStatus'
     -> StartMaintenanceResponse
 startMaintenanceResponse pResponseStatus_ =
-    StartMaintenanceResponse'
-    { _smrsServer = Nothing
-    , _smrsResponseStatus = pResponseStatus_
-    }
+  StartMaintenanceResponse'
+  {_smrsServer = Nothing, _smrsResponseStatus = pResponseStatus_}
+
 
 -- | Contains the response to a @StartMaintenance@ request.
 smrsServer :: Lens' StartMaintenanceResponse (Maybe Server)
@@ -132,4 +131,4 @@ smrsServer = lens _smrsServer (\ s a -> s{_smrsServer = a});
 smrsResponseStatus :: Lens' StartMaintenanceResponse Int
 smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a});
 
-instance NFData StartMaintenanceResponse
+instance NFData StartMaintenanceResponse where

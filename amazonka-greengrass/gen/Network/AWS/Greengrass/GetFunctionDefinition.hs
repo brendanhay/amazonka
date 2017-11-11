@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetFunctionDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Greengrass.GetFunctionDefinition
     , gfdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getFunctionDefinition' smart constructor.
 newtype GetFunctionDefinition = GetFunctionDefinition'
-    { _gfdFunctionDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfdFunctionDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFunctionDefinition' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getFunctionDefinition
     :: Text -- ^ 'gfdFunctionDefinitionId'
     -> GetFunctionDefinition
 getFunctionDefinition pFunctionDefinitionId_ =
-    GetFunctionDefinition'
-    { _gfdFunctionDefinitionId = pFunctionDefinitionId_
-    }
+  GetFunctionDefinition' {_gfdFunctionDefinitionId = pFunctionDefinitionId_}
+
 
 -- | the unique Id of the lambda definition
 gfdFunctionDefinitionId :: Lens' GetFunctionDefinition Text
@@ -86,9 +86,9 @@ instance AWSRequest GetFunctionDefinition where
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetFunctionDefinition
+instance Hashable GetFunctionDefinition where
 
-instance NFData GetFunctionDefinition
+instance NFData GetFunctionDefinition where
 
 instance ToHeaders GetFunctionDefinition where
         toHeaders
@@ -108,15 +108,16 @@ instance ToQuery GetFunctionDefinition where
 
 -- | /See:/ 'getFunctionDefinitionResponse' smart constructor.
 data GetFunctionDefinitionResponse = GetFunctionDefinitionResponse'
-    { _gfdrsLatestVersionARN     :: !(Maybe Text)
-    , _gfdrsARN                  :: !(Maybe Text)
-    , _gfdrsName                 :: !(Maybe Text)
-    , _gfdrsCreationTimestamp    :: !(Maybe Text)
-    , _gfdrsId                   :: !(Maybe Text)
-    , _gfdrsLatestVersion        :: !(Maybe Text)
-    , _gfdrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _gfdrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFunctionDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -141,16 +142,17 @@ getFunctionDefinitionResponse
     :: Int -- ^ 'gfdrsResponseStatus'
     -> GetFunctionDefinitionResponse
 getFunctionDefinitionResponse pResponseStatus_ =
-    GetFunctionDefinitionResponse'
-    { _gfdrsLatestVersionARN = Nothing
-    , _gfdrsARN = Nothing
-    , _gfdrsName = Nothing
-    , _gfdrsCreationTimestamp = Nothing
-    , _gfdrsId = Nothing
-    , _gfdrsLatestVersion = Nothing
-    , _gfdrsLastUpdatedTimestamp = Nothing
-    , _gfdrsResponseStatus = pResponseStatus_
-    }
+  GetFunctionDefinitionResponse'
+  { _gfdrsLatestVersionARN = Nothing
+  , _gfdrsARN = Nothing
+  , _gfdrsName = Nothing
+  , _gfdrsCreationTimestamp = Nothing
+  , _gfdrsId = Nothing
+  , _gfdrsLatestVersion = Nothing
+  , _gfdrsLastUpdatedTimestamp = Nothing
+  , _gfdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 gfdrsLatestVersionARN :: Lens' GetFunctionDefinitionResponse (Maybe Text)
@@ -184,4 +186,4 @@ gfdrsLastUpdatedTimestamp = lens _gfdrsLastUpdatedTimestamp (\ s a -> s{_gfdrsLa
 gfdrsResponseStatus :: Lens' GetFunctionDefinitionResponse Int
 gfdrsResponseStatus = lens _gfdrsResponseStatus (\ s a -> s{_gfdrsResponseStatus = a});
 
-instance NFData GetFunctionDefinitionResponse
+instance NFData GetFunctionDefinitionResponse where

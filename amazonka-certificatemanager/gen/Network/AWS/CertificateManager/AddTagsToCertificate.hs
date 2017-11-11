@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.AddTagsToCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CertificateManager.AddTagsToCertificate
     , AddTagsToCertificateResponse
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addTagsToCertificate' smart constructor.
 data AddTagsToCertificate = AddTagsToCertificate'
-    { _attcCertificateARN :: !Text
-    , _attcTags           :: !(List1 Tag)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _attcCertificateARN :: {-# NOUNPACK #-}!Text
+  , _attcTags           :: {-# NOUNPACK #-}!(List1 Tag)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToCertificate' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ addTagsToCertificate
     -> NonEmpty Tag -- ^ 'attcTags'
     -> AddTagsToCertificate
 addTagsToCertificate pCertificateARN_ pTags_ =
-    AddTagsToCertificate'
-    { _attcCertificateARN = pCertificateARN_
-    , _attcTags = _List1 # pTags_
-    }
+  AddTagsToCertificate'
+  {_attcCertificateARN = pCertificateARN_, _attcTags = _List1 # pTags_}
+
 
 -- | String that contains the ARN of the ACM Certificate to which the tag is to be applied. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 attcCertificateARN :: Lens' AddTagsToCertificate Text
@@ -83,9 +83,9 @@ instance AWSRequest AddTagsToCertificate where
         request = postJSON certificateManager
         response = receiveNull AddTagsToCertificateResponse'
 
-instance Hashable AddTagsToCertificate
+instance Hashable AddTagsToCertificate where
 
-instance NFData AddTagsToCertificate
+instance NFData AddTagsToCertificate where
 
 instance ToHeaders AddTagsToCertificate where
         toHeaders
@@ -112,8 +112,9 @@ instance ToQuery AddTagsToCertificate where
 
 -- | /See:/ 'addTagsToCertificateResponse' smart constructor.
 data AddTagsToCertificateResponse =
-    AddTagsToCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddTagsToCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToCertificateResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +122,5 @@ addTagsToCertificateResponse
     :: AddTagsToCertificateResponse
 addTagsToCertificateResponse = AddTagsToCertificateResponse'
 
-instance NFData AddTagsToCertificateResponse
+
+instance NFData AddTagsToCertificateResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DeleteProtection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Shield.DeleteProtection
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'deleteProtection' smart constructor.
 newtype DeleteProtection = DeleteProtection'
-    { _dProtectionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dProtectionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProtection' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deleteProtection
     :: Text -- ^ 'dProtectionId'
     -> DeleteProtection
 deleteProtection pProtectionId_ =
-    DeleteProtection'
-    { _dProtectionId = pProtectionId_
-    }
+  DeleteProtection' {_dProtectionId = pProtectionId_}
+
 
 -- | The unique identifier (ID) for the 'Protection' object to be deleted.
 dProtectionId :: Lens' DeleteProtection Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteProtection where
               (\ s h x ->
                  DeleteProtectionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteProtection
+instance Hashable DeleteProtection where
 
-instance NFData DeleteProtection
+instance NFData DeleteProtection where
 
 instance ToHeaders DeleteProtection where
         toHeaders
@@ -100,8 +100,9 @@ instance ToQuery DeleteProtection where
 
 -- | /See:/ 'deleteProtectionResponse' smart constructor.
 newtype DeleteProtectionResponse = DeleteProtectionResponse'
-    { _delrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProtectionResponse' with the minimum fields required to make a request.
 --
@@ -112,12 +113,11 @@ deleteProtectionResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteProtectionResponse
 deleteProtectionResponse pResponseStatus_ =
-    DeleteProtectionResponse'
-    { _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteProtectionResponse' {_delrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteProtectionResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteProtectionResponse
+instance NFData DeleteProtectionResponse where

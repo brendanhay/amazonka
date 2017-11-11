@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetPatchBaseline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,17 +48,18 @@ module Network.AWS.SSM.GetPatchBaseline
     , gpbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getPatchBaseline' smart constructor.
 newtype GetPatchBaseline = GetPatchBaseline'
-    { _gpbBaselineId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpbBaselineId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPatchBaseline' with the minimum fields required to make a request.
 --
@@ -69,9 +70,8 @@ getPatchBaseline
     :: Text -- ^ 'gpbBaselineId'
     -> GetPatchBaseline
 getPatchBaseline pBaselineId_ =
-    GetPatchBaseline'
-    { _gpbBaselineId = pBaselineId_
-    }
+  GetPatchBaseline' {_gpbBaselineId = pBaselineId_}
+
 
 -- | The ID of the patch baseline to retrieve.
 gpbBaselineId :: Lens' GetPatchBaseline Text
@@ -97,9 +97,9 @@ instance AWSRequest GetPatchBaseline where
                      <*> (x .?> "BaselineId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetPatchBaseline
+instance Hashable GetPatchBaseline where
 
-instance NFData GetPatchBaseline
+instance NFData GetPatchBaseline where
 
 instance ToHeaders GetPatchBaseline where
         toHeaders
@@ -123,20 +123,21 @@ instance ToQuery GetPatchBaseline where
 
 -- | /See:/ 'getPatchBaselineResponse' smart constructor.
 data GetPatchBaselineResponse = GetPatchBaselineResponse'
-    { _gpbrsApprovalRules                  :: !(Maybe PatchRuleGroup)
-    , _gpbrsOperatingSystem                :: !(Maybe OperatingSystem)
-    , _gpbrsGlobalFilters                  :: !(Maybe PatchFilterGroup)
-    , _gpbrsApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
-    , _gpbrsApprovedPatches                :: !(Maybe [Text])
-    , _gpbrsRejectedPatches                :: !(Maybe [Text])
-    , _gpbrsCreatedDate                    :: !(Maybe POSIX)
-    , _gpbrsName                           :: !(Maybe Text)
-    , _gpbrsPatchGroups                    :: !(Maybe [Text])
-    , _gpbrsModifiedDate                   :: !(Maybe POSIX)
-    , _gpbrsDescription                    :: !(Maybe Text)
-    , _gpbrsBaselineId                     :: !(Maybe Text)
-    , _gpbrsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpbrsApprovalRules :: {-# NOUNPACK #-}!(Maybe PatchRuleGroup)
+  , _gpbrsOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _gpbrsGlobalFilters :: {-# NOUNPACK #-}!(Maybe PatchFilterGroup)
+  , _gpbrsApprovedPatchesComplianceLevel :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
+  , _gpbrsApprovedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gpbrsRejectedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gpbrsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gpbrsName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpbrsPatchGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gpbrsModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gpbrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpbrsBaselineId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPatchBaselineResponse' with the minimum fields required to make a request.
 --
@@ -171,21 +172,22 @@ getPatchBaselineResponse
     :: Int -- ^ 'gpbrsResponseStatus'
     -> GetPatchBaselineResponse
 getPatchBaselineResponse pResponseStatus_ =
-    GetPatchBaselineResponse'
-    { _gpbrsApprovalRules = Nothing
-    , _gpbrsOperatingSystem = Nothing
-    , _gpbrsGlobalFilters = Nothing
-    , _gpbrsApprovedPatchesComplianceLevel = Nothing
-    , _gpbrsApprovedPatches = Nothing
-    , _gpbrsRejectedPatches = Nothing
-    , _gpbrsCreatedDate = Nothing
-    , _gpbrsName = Nothing
-    , _gpbrsPatchGroups = Nothing
-    , _gpbrsModifiedDate = Nothing
-    , _gpbrsDescription = Nothing
-    , _gpbrsBaselineId = Nothing
-    , _gpbrsResponseStatus = pResponseStatus_
-    }
+  GetPatchBaselineResponse'
+  { _gpbrsApprovalRules = Nothing
+  , _gpbrsOperatingSystem = Nothing
+  , _gpbrsGlobalFilters = Nothing
+  , _gpbrsApprovedPatchesComplianceLevel = Nothing
+  , _gpbrsApprovedPatches = Nothing
+  , _gpbrsRejectedPatches = Nothing
+  , _gpbrsCreatedDate = Nothing
+  , _gpbrsName = Nothing
+  , _gpbrsPatchGroups = Nothing
+  , _gpbrsModifiedDate = Nothing
+  , _gpbrsDescription = Nothing
+  , _gpbrsBaselineId = Nothing
+  , _gpbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A set of rules used to include patches in the baseline.
 gpbrsApprovalRules :: Lens' GetPatchBaselineResponse (Maybe PatchRuleGroup)
@@ -239,4 +241,4 @@ gpbrsBaselineId = lens _gpbrsBaselineId (\ s a -> s{_gpbrsBaselineId = a});
 gpbrsResponseStatus :: Lens' GetPatchBaselineResponse Int
 gpbrsResponseStatus = lens _gpbrsResponseStatus (\ s a -> s{_gpbrsResponseStatus = a});
 
-instance NFData GetPatchBaselineResponse
+instance NFData GetPatchBaselineResponse where

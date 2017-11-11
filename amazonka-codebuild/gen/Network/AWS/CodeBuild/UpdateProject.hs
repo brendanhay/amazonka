@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.UpdateProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,25 +45,26 @@ module Network.AWS.CodeBuild.UpdateProject
     , uprsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
-    { _upArtifacts        :: !(Maybe ProjectArtifacts)
-    , _upEnvironment      :: !(Maybe ProjectEnvironment)
-    , _upSource           :: !(Maybe ProjectSource)
-    , _upEncryptionKey    :: !(Maybe Text)
-    , _upDescription      :: !(Maybe Text)
-    , _upServiceRole      :: !(Maybe Text)
-    , _upTags             :: !(Maybe [Tag])
-    , _upTimeoutInMinutes :: !(Maybe Nat)
-    , _upName             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upArtifacts        :: {-# NOUNPACK #-}!(Maybe ProjectArtifacts)
+  , _upEnvironment      :: {-# NOUNPACK #-}!(Maybe ProjectEnvironment)
+  , _upSource           :: {-# NOUNPACK #-}!(Maybe ProjectSource)
+  , _upEncryptionKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upServiceRole      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _upTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _upName             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
 --
@@ -90,17 +91,18 @@ updateProject
     :: Text -- ^ 'upName'
     -> UpdateProject
 updateProject pName_ =
-    UpdateProject'
-    { _upArtifacts = Nothing
-    , _upEnvironment = Nothing
-    , _upSource = Nothing
-    , _upEncryptionKey = Nothing
-    , _upDescription = Nothing
-    , _upServiceRole = Nothing
-    , _upTags = Nothing
-    , _upTimeoutInMinutes = Nothing
-    , _upName = pName_
-    }
+  UpdateProject'
+  { _upArtifacts = Nothing
+  , _upEnvironment = Nothing
+  , _upSource = Nothing
+  , _upEncryptionKey = Nothing
+  , _upDescription = Nothing
+  , _upServiceRole = Nothing
+  , _upTags = Nothing
+  , _upTimeoutInMinutes = Nothing
+  , _upName = pName_
+  }
+
 
 -- | Information to be changed about the build output artifacts for the build project.
 upArtifacts :: Lens' UpdateProject (Maybe ProjectArtifacts)
@@ -147,9 +149,9 @@ instance AWSRequest UpdateProject where
                  UpdateProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateProject
+instance Hashable UpdateProject where
 
-instance NFData UpdateProject
+instance NFData UpdateProject where
 
 instance ToHeaders UpdateProject where
         toHeaders
@@ -182,9 +184,10 @@ instance ToQuery UpdateProject where
 
 -- | /See:/ 'updateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
-    { _uprsProject        :: !(Maybe Project)
-    , _uprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uprsProject        :: {-# NOUNPACK #-}!(Maybe Project)
+  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.
 --
@@ -197,10 +200,9 @@ updateProjectResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UpdateProjectResponse
 updateProjectResponse pResponseStatus_ =
-    UpdateProjectResponse'
-    { _uprsProject = Nothing
-    , _uprsResponseStatus = pResponseStatus_
-    }
+  UpdateProjectResponse'
+  {_uprsProject = Nothing, _uprsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the build project that was changed.
 uprsProject :: Lens' UpdateProjectResponse (Maybe Project)
@@ -210,4 +212,4 @@ uprsProject = lens _uprsProject (\ s a -> s{_uprsProject = a});
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 
-instance NFData UpdateProjectResponse
+instance NFData UpdateProjectResponse where

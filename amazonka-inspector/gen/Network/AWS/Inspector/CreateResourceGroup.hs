@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.CreateResourceGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Inspector.CreateResourceGroup
     , crgrsResourceGroupARN
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createResourceGroup' smart constructor.
 newtype CreateResourceGroup = CreateResourceGroup'
-    { _crgResourceGroupTags :: List1 ResourceGroupTag
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crgResourceGroupTags :: List1 ResourceGroupTag
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateResourceGroup' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ createResourceGroup
     :: NonEmpty ResourceGroupTag -- ^ 'crgResourceGroupTags'
     -> CreateResourceGroup
 createResourceGroup pResourceGroupTags_ =
-    CreateResourceGroup'
-    { _crgResourceGroupTags = _List1 # pResourceGroupTags_
-    }
+  CreateResourceGroup' {_crgResourceGroupTags = _List1 # pResourceGroupTags_}
+
 
 -- | A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'. For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
 crgResourceGroupTags :: Lens' CreateResourceGroup (NonEmpty ResourceGroupTag)
@@ -76,9 +76,9 @@ instance AWSRequest CreateResourceGroup where
                  CreateResourceGroupResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "resourceGroupArn"))
 
-instance Hashable CreateResourceGroup
+instance Hashable CreateResourceGroup where
 
-instance NFData CreateResourceGroup
+instance NFData CreateResourceGroup where
 
 instance ToHeaders CreateResourceGroup where
         toHeaders
@@ -105,9 +105,10 @@ instance ToQuery CreateResourceGroup where
 
 -- | /See:/ 'createResourceGroupResponse' smart constructor.
 data CreateResourceGroupResponse = CreateResourceGroupResponse'
-    { _crgrsResponseStatus   :: !Int
-    , _crgrsResourceGroupARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _crgrsResourceGroupARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateResourceGroupResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,11 @@ createResourceGroupResponse
     -> Text -- ^ 'crgrsResourceGroupARN'
     -> CreateResourceGroupResponse
 createResourceGroupResponse pResponseStatus_ pResourceGroupARN_ =
-    CreateResourceGroupResponse'
-    { _crgrsResponseStatus = pResponseStatus_
-    , _crgrsResourceGroupARN = pResourceGroupARN_
-    }
+  CreateResourceGroupResponse'
+  { _crgrsResponseStatus = pResponseStatus_
+  , _crgrsResourceGroupARN = pResourceGroupARN_
+  }
+
 
 -- | -- | The response status code.
 crgrsResponseStatus :: Lens' CreateResourceGroupResponse Int
@@ -134,4 +136,4 @@ crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus
 crgrsResourceGroupARN :: Lens' CreateResourceGroupResponse Text
 crgrsResourceGroupARN = lens _crgrsResourceGroupARN (\ s a -> s{_crgrsResourceGroupARN = a});
 
-instance NFData CreateResourceGroupResponse
+instance NFData CreateResourceGroupResponse where

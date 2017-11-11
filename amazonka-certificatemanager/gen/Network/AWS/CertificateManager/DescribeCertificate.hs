@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.DescribeCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CertificateManager.DescribeCertificate
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeCertificate' smart constructor.
 newtype DescribeCertificate = DescribeCertificate'
-    { _dCertificateARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dCertificateARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCertificate' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ describeCertificate
     :: Text -- ^ 'dCertificateARN'
     -> DescribeCertificate
 describeCertificate pCertificateARN_ =
-    DescribeCertificate'
-    { _dCertificateARN = pCertificateARN_
-    }
+  DescribeCertificate' {_dCertificateARN = pCertificateARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the ACM Certificate. The ARN must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 dCertificateARN :: Lens' DescribeCertificate Text
@@ -76,9 +76,9 @@ instance AWSRequest DescribeCertificate where
                  DescribeCertificateResponse' <$>
                    (x .?> "Certificate") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCertificate
+instance Hashable DescribeCertificate where
 
-instance NFData DescribeCertificate
+instance NFData DescribeCertificate where
 
 instance ToHeaders DescribeCertificate where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery DescribeCertificate where
 
 -- | /See:/ 'describeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
-    { _dcrsCertificate    :: !(Maybe CertificateDetail)
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsCertificate    :: {-# NOUNPACK #-}!(Maybe CertificateDetail)
+  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCertificateResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ describeCertificateResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCertificateResponse
 describeCertificateResponse pResponseStatus_ =
-    DescribeCertificateResponse'
-    { _dcrsCertificate = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeCertificateResponse'
+  {_dcrsCertificate = Nothing, _dcrsResponseStatus = pResponseStatus_}
+
 
 -- | Metadata about an ACM certificate.
 dcrsCertificate :: Lens' DescribeCertificateResponse (Maybe CertificateDetail)
@@ -132,4 +132,4 @@ dcrsCertificate = lens _dcrsCertificate (\ s a -> s{_dcrsCertificate = a});
 dcrsResponseStatus :: Lens' DescribeCertificateResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeCertificateResponse
+instance NFData DescribeCertificateResponse where

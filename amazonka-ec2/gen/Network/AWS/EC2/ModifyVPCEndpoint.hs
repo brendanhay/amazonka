@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVPCEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     , mversResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyVpcEndpoint.
 --
@@ -55,13 +55,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyVPCEndpoint' smart constructor.
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
-    { _mvePolicyDocument      :: !(Maybe Text)
-    , _mveRemoveRouteTableIds :: !(Maybe [Text])
-    , _mveResetPolicy         :: !(Maybe Bool)
-    , _mveAddRouteTableIds    :: !(Maybe [Text])
-    , _mveDryRun              :: !(Maybe Bool)
-    , _mveVPCEndpointId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mvePolicyDocument      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mveRemoveRouteTableIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mveResetPolicy         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mveAddRouteTableIds    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mveDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mveVPCEndpointId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVPCEndpoint' with the minimum fields required to make a request.
 --
@@ -82,14 +83,15 @@ modifyVPCEndpoint
     :: Text -- ^ 'mveVPCEndpointId'
     -> ModifyVPCEndpoint
 modifyVPCEndpoint pVPCEndpointId_ =
-    ModifyVPCEndpoint'
-    { _mvePolicyDocument = Nothing
-    , _mveRemoveRouteTableIds = Nothing
-    , _mveResetPolicy = Nothing
-    , _mveAddRouteTableIds = Nothing
-    , _mveDryRun = Nothing
-    , _mveVPCEndpointId = pVPCEndpointId_
-    }
+  ModifyVPCEndpoint'
+  { _mvePolicyDocument = Nothing
+  , _mveRemoveRouteTableIds = Nothing
+  , _mveResetPolicy = Nothing
+  , _mveAddRouteTableIds = Nothing
+  , _mveDryRun = Nothing
+  , _mveVPCEndpointId = pVPCEndpointId_
+  }
+
 
 -- | A policy document to attach to the endpoint. The policy must be in valid JSON format.
 mvePolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
@@ -124,9 +126,9 @@ instance AWSRequest ModifyVPCEndpoint where
                  ModifyVPCEndpointResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyVPCEndpoint
+instance Hashable ModifyVPCEndpoint where
 
-instance NFData ModifyVPCEndpoint
+instance NFData ModifyVPCEndpoint where
 
 instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty
@@ -156,9 +158,10 @@ instance ToQuery ModifyVPCEndpoint where
 --
 -- /See:/ 'modifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
-    { _mversReturn         :: !(Maybe Bool)
-    , _mversResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mversReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mversResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVPCEndpointResponse' with the minimum fields required to make a request.
 --
@@ -171,10 +174,9 @@ modifyVPCEndpointResponse
     :: Int -- ^ 'mversResponseStatus'
     -> ModifyVPCEndpointResponse
 modifyVPCEndpointResponse pResponseStatus_ =
-    ModifyVPCEndpointResponse'
-    { _mversReturn = Nothing
-    , _mversResponseStatus = pResponseStatus_
-    }
+  ModifyVPCEndpointResponse'
+  {_mversReturn = Nothing, _mversResponseStatus = pResponseStatus_}
+
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 mversReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
@@ -184,4 +186,4 @@ mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 mversResponseStatus :: Lens' ModifyVPCEndpointResponse Int
 mversResponseStatus = lens _mversResponseStatus (\ s a -> s{_mversResponseStatus = a});
 
-instance NFData ModifyVPCEndpointResponse
+instance NFData ModifyVPCEndpointResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.CreatePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Organizations.CreatePolicy
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createPolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-    { _cpContent     :: !Text
-    , _cpDescription :: !Text
-    , _cpName        :: !Text
-    , _cpType        :: !PolicyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpContent     :: {-# NOUNPACK #-}!Text
+  , _cpDescription :: {-# NOUNPACK #-}!Text
+  , _cpName        :: {-# NOUNPACK #-}!Text
+  , _cpType        :: {-# NOUNPACK #-}!PolicyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ createPolicy
     -> PolicyType -- ^ 'cpType'
     -> CreatePolicy
 createPolicy pContent_ pDescription_ pName_ pType_ =
-    CreatePolicy'
-    { _cpContent = pContent_
-    , _cpDescription = pDescription_
-    , _cpName = pName_
-    , _cpType = pType_
-    }
+  CreatePolicy'
+  { _cpContent = pContent_
+  , _cpDescription = pDescription_
+  , _cpName = pName_
+  , _cpType = pType_
+  }
+
 
 -- | The policy content to add to the new policy. For example, if you create a <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html service control policy> (SCP), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
 cpContent :: Lens' CreatePolicy Text
@@ -109,9 +111,9 @@ instance AWSRequest CreatePolicy where
                  CreatePolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
-instance Hashable CreatePolicy
+instance Hashable CreatePolicy where
 
-instance NFData CreatePolicy
+instance NFData CreatePolicy where
 
 instance ToHeaders CreatePolicy where
         toHeaders
@@ -139,9 +141,10 @@ instance ToQuery CreatePolicy where
 
 -- | /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-    { _cprsPolicy         :: !(Maybe Policy)
-    , _cprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsPolicy         :: {-# NOUNPACK #-}!(Maybe Policy)
+  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.
 --
@@ -154,10 +157,9 @@ createPolicyResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePolicyResponse
 createPolicyResponse pResponseStatus_ =
-    CreatePolicyResponse'
-    { _cprsPolicy = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreatePolicyResponse'
+  {_cprsPolicy = Nothing, _cprsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the newly created policy.
 cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
@@ -167,4 +169,4 @@ cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreatePolicyResponse
+instance NFData CreatePolicyResponse where

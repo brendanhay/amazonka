@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteLunaClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     , dlcrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLunaClient' smart constructor.
 newtype DeleteLunaClient = DeleteLunaClient'
-    { _dClientARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dClientARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLunaClient' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DeleteLunaClient = DeleteLunaClient'
 deleteLunaClient
     :: Text -- ^ 'dClientARN'
     -> DeleteLunaClient
-deleteLunaClient pClientARN_ =
-    DeleteLunaClient'
-    { _dClientARN = pClientARN_
-    }
+deleteLunaClient pClientARN_ = DeleteLunaClient' {_dClientARN = pClientARN_}
+
 
 -- | The ARN of the client to delete.
 dClientARN :: Lens' DeleteLunaClient Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteLunaClient where
                  DeleteLunaClientResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
-instance Hashable DeleteLunaClient
+instance Hashable DeleteLunaClient where
 
-instance NFData DeleteLunaClient
+instance NFData DeleteLunaClient where
 
 instance ToHeaders DeleteLunaClient where
         toHeaders
@@ -102,9 +101,10 @@ instance ToQuery DeleteLunaClient where
 
 -- | /See:/ 'deleteLunaClientResponse' smart constructor.
 data DeleteLunaClientResponse = DeleteLunaClientResponse'
-    { _dlcrsResponseStatus :: !Int
-    , _dlcrsStatus         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dlcrsStatus         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLunaClientResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +118,9 @@ deleteLunaClientResponse
     -> Text -- ^ 'dlcrsStatus'
     -> DeleteLunaClientResponse
 deleteLunaClientResponse pResponseStatus_ pStatus_ =
-    DeleteLunaClientResponse'
-    { _dlcrsResponseStatus = pResponseStatus_
-    , _dlcrsStatus = pStatus_
-    }
+  DeleteLunaClientResponse'
+  {_dlcrsResponseStatus = pResponseStatus_, _dlcrsStatus = pStatus_}
+
 
 -- | -- | The response status code.
 dlcrsResponseStatus :: Lens' DeleteLunaClientResponse Int
@@ -131,4 +130,4 @@ dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus
 dlcrsStatus :: Lens' DeleteLunaClientResponse Text
 dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
 
-instance NFData DeleteLunaClientResponse
+instance NFData DeleteLunaClientResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.PutInventory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.SSM.PutInventory
     , pirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'putInventory' smart constructor.
 data PutInventory = PutInventory'
-    { _piInstanceId :: !Text
-    , _piItems      :: !(List1 InventoryItem)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _piInstanceId :: {-# NOUNPACK #-}!Text
+  , _piItems      :: {-# NOUNPACK #-}!(List1 InventoryItem)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutInventory' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ putInventory
     -> NonEmpty InventoryItem -- ^ 'piItems'
     -> PutInventory
 putInventory pInstanceId_ pItems_ =
-    PutInventory'
-    { _piInstanceId = pInstanceId_
-    , _piItems = _List1 # pItems_
-    }
+  PutInventory' {_piInstanceId = pInstanceId_, _piItems = _List1 # pItems_}
+
 
 -- | One or more instance IDs where you want to add or update inventory items.
 piInstanceId :: Lens' PutInventory Text
@@ -83,9 +82,9 @@ instance AWSRequest PutInventory where
               (\ s h x ->
                  PutInventoryResponse' <$> (pure (fromEnum s)))
 
-instance Hashable PutInventory
+instance Hashable PutInventory where
 
-instance NFData PutInventory
+instance NFData PutInventory where
 
 instance ToHeaders PutInventory where
         toHeaders
@@ -111,8 +110,9 @@ instance ToQuery PutInventory where
 
 -- | /See:/ 'putInventoryResponse' smart constructor.
 newtype PutInventoryResponse = PutInventoryResponse'
-    { _pirsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pirsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutInventoryResponse' with the minimum fields required to make a request.
 --
@@ -123,12 +123,11 @@ putInventoryResponse
     :: Int -- ^ 'pirsResponseStatus'
     -> PutInventoryResponse
 putInventoryResponse pResponseStatus_ =
-    PutInventoryResponse'
-    { _pirsResponseStatus = pResponseStatus_
-    }
+  PutInventoryResponse' {_pirsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 pirsResponseStatus :: Lens' PutInventoryResponse Int
 pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});
 
-instance NFData PutInventoryResponse
+instance NFData PutInventoryResponse where

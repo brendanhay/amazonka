@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketWebsite
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -32,17 +32,18 @@ module Network.AWS.S3.DeleteBucketWebsite
     , DeleteBucketWebsiteResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketWebsite' smart constructor.
 newtype DeleteBucketWebsite = DeleteBucketWebsite'
-    { _dbwBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbwBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketWebsite' with the minimum fields required to make a request.
 --
@@ -52,10 +53,8 @@ newtype DeleteBucketWebsite = DeleteBucketWebsite'
 deleteBucketWebsite
     :: BucketName -- ^ 'dbwBucket'
     -> DeleteBucketWebsite
-deleteBucketWebsite pBucket_ =
-    DeleteBucketWebsite'
-    { _dbwBucket = pBucket_
-    }
+deleteBucketWebsite pBucket_ = DeleteBucketWebsite' {_dbwBucket = pBucket_}
+
 
 -- | Undocumented member.
 dbwBucket :: Lens' DeleteBucketWebsite BucketName
@@ -67,9 +66,9 @@ instance AWSRequest DeleteBucketWebsite where
         request = delete s3
         response = receiveNull DeleteBucketWebsiteResponse'
 
-instance Hashable DeleteBucketWebsite
+instance Hashable DeleteBucketWebsite where
 
-instance NFData DeleteBucketWebsite
+instance NFData DeleteBucketWebsite where
 
 instance ToHeaders DeleteBucketWebsite where
         toHeaders = const mempty
@@ -83,8 +82,9 @@ instance ToQuery DeleteBucketWebsite where
 
 -- | /See:/ 'deleteBucketWebsiteResponse' smart constructor.
 data DeleteBucketWebsiteResponse =
-    DeleteBucketWebsiteResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketWebsiteResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketWebsiteResponse' with the minimum fields required to make a request.
 --
@@ -92,4 +92,5 @@ deleteBucketWebsiteResponse
     :: DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse'
 
-instance NFData DeleteBucketWebsiteResponse
+
+instance NFData DeleteBucketWebsiteResponse where

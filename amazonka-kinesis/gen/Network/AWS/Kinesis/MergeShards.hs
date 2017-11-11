@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.MergeShards
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.Kinesis.MergeShards
     , MergeShardsResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @MergeShards@ .
 --
@@ -63,10 +63,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'mergeShards' smart constructor.
 data MergeShards = MergeShards'
-    { _msStreamName           :: !Text
-    , _msShardToMerge         :: !Text
-    , _msAdjacentShardToMerge :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _msStreamName           :: {-# NOUNPACK #-}!Text
+  , _msShardToMerge         :: {-# NOUNPACK #-}!Text
+  , _msAdjacentShardToMerge :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MergeShards' with the minimum fields required to make a request.
 --
@@ -83,11 +84,12 @@ mergeShards
     -> Text -- ^ 'msAdjacentShardToMerge'
     -> MergeShards
 mergeShards pStreamName_ pShardToMerge_ pAdjacentShardToMerge_ =
-    MergeShards'
-    { _msStreamName = pStreamName_
-    , _msShardToMerge = pShardToMerge_
-    , _msAdjacentShardToMerge = pAdjacentShardToMerge_
-    }
+  MergeShards'
+  { _msStreamName = pStreamName_
+  , _msShardToMerge = pShardToMerge_
+  , _msAdjacentShardToMerge = pAdjacentShardToMerge_
+  }
+
 
 -- | The name of the stream for the merge.
 msStreamName :: Lens' MergeShards Text
@@ -106,9 +108,9 @@ instance AWSRequest MergeShards where
         request = postJSON kinesis
         response = receiveNull MergeShardsResponse'
 
-instance Hashable MergeShards
+instance Hashable MergeShards where
 
-instance NFData MergeShards
+instance NFData MergeShards where
 
 instance ToHeaders MergeShards where
         toHeaders
@@ -136,8 +138,9 @@ instance ToQuery MergeShards where
 
 -- | /See:/ 'mergeShardsResponse' smart constructor.
 data MergeShardsResponse =
-    MergeShardsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  MergeShardsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MergeShardsResponse' with the minimum fields required to make a request.
 --
@@ -145,4 +148,5 @@ mergeShardsResponse
     :: MergeShardsResponse
 mergeShardsResponse = MergeShardsResponse'
 
-instance NFData MergeShardsResponse
+
+instance NFData MergeShardsResponse where

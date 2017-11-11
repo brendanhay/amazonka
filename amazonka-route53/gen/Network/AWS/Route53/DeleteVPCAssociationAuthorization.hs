@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteVPCAssociationAuthorization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Route53.DeleteVPCAssociationAuthorization
     , dvaarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the request to remove authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'deleteVPCAssociationAuthorization' smart constructor.
 data DeleteVPCAssociationAuthorization = DeleteVPCAssociationAuthorization'
-    { _dvaaHostedZoneId :: !ResourceId
-    , _dvaaVPC          :: !VPC
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvaaHostedZoneId :: {-# NOUNPACK #-}!ResourceId
+  , _dvaaVPC          :: {-# NOUNPACK #-}!VPC
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPCAssociationAuthorization' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ deleteVPCAssociationAuthorization
     -> VPC -- ^ 'dvaaVPC'
     -> DeleteVPCAssociationAuthorization
 deleteVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
-    DeleteVPCAssociationAuthorization'
-    { _dvaaHostedZoneId = pHostedZoneId_
-    , _dvaaVPC = pVPC_
-    }
+  DeleteVPCAssociationAuthorization'
+  {_dvaaHostedZoneId = pHostedZoneId_, _dvaaVPC = pVPC_}
+
 
 -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, the ID of the hosted zone.
 dvaaHostedZoneId :: Lens' DeleteVPCAssociationAuthorization ResourceId
@@ -93,8 +93,10 @@ instance AWSRequest DeleteVPCAssociationAuthorization
                    (pure (fromEnum s)))
 
 instance Hashable DeleteVPCAssociationAuthorization
+         where
 
 instance NFData DeleteVPCAssociationAuthorization
+         where
 
 instance ToElement DeleteVPCAssociationAuthorization
          where
@@ -128,8 +130,9 @@ instance ToXML DeleteVPCAssociationAuthorization
 --
 -- /See:/ 'deleteVPCAssociationAuthorizationResponse' smart constructor.
 newtype DeleteVPCAssociationAuthorizationResponse = DeleteVPCAssociationAuthorizationResponse'
-    { _dvaarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvaarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPCAssociationAuthorizationResponse' with the minimum fields required to make a request.
 --
@@ -140,13 +143,14 @@ deleteVPCAssociationAuthorizationResponse
     :: Int -- ^ 'dvaarsResponseStatus'
     -> DeleteVPCAssociationAuthorizationResponse
 deleteVPCAssociationAuthorizationResponse pResponseStatus_ =
-    DeleteVPCAssociationAuthorizationResponse'
-    { _dvaarsResponseStatus = pResponseStatus_
-    }
+  DeleteVPCAssociationAuthorizationResponse'
+  {_dvaarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dvaarsResponseStatus :: Lens' DeleteVPCAssociationAuthorizationResponse Int
 dvaarsResponseStatus = lens _dvaarsResponseStatus (\ s a -> s{_dvaarsResponseStatus = a});
 
 instance NFData
-         DeleteVPCAssociationAuthorizationResponse
+           DeleteVPCAssociationAuthorizationResponse
+         where

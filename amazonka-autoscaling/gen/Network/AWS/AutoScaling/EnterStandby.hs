@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.EnterStandby
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.AutoScaling.EnterStandby
     , ersResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for EnteStandby.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enterStandby' smart constructor.
 data EnterStandby = EnterStandby'
-    { _esInstanceIds                    :: !(Maybe [Text])
-    , _esAutoScalingGroupName           :: !Text
-    , _esShouldDecrementDesiredCapacity :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esInstanceIds                    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _esAutoScalingGroupName           :: {-# NOUNPACK #-}!Text
+  , _esShouldDecrementDesiredCapacity :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnterStandby' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ enterStandby
     -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
     -> EnterStandby
 enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
-    EnterStandby'
-    { _esInstanceIds = Nothing
-    , _esAutoScalingGroupName = pAutoScalingGroupName_
-    , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
-    }
+  EnterStandby'
+  { _esInstanceIds = Nothing
+  , _esAutoScalingGroupName = pAutoScalingGroupName_
+  , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+  }
+
 
 -- | One or more instances to move into @Standby@ mode. You must specify at least one instance ID.
 esInstanceIds :: Lens' EnterStandby [Text]
@@ -102,9 +104,9 @@ instance AWSRequest EnterStandby where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable EnterStandby
+instance Hashable EnterStandby where
 
-instance NFData EnterStandby
+instance NFData EnterStandby where
 
 instance ToHeaders EnterStandby where
         toHeaders = const mempty
@@ -129,9 +131,10 @@ instance ToQuery EnterStandby where
 --
 -- /See:/ 'enterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
-    { _ersActivities     :: !(Maybe [Activity])
-    , _ersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ersActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
+  , _ersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnterStandbyResponse' with the minimum fields required to make a request.
 --
@@ -144,10 +147,9 @@ enterStandbyResponse
     :: Int -- ^ 'ersResponseStatus'
     -> EnterStandbyResponse
 enterStandbyResponse pResponseStatus_ =
-    EnterStandbyResponse'
-    { _ersActivities = Nothing
-    , _ersResponseStatus = pResponseStatus_
-    }
+  EnterStandbyResponse'
+  {_ersActivities = Nothing, _ersResponseStatus = pResponseStatus_}
+
 
 -- | The activities related to moving instances into @Standby@ mode.
 ersActivities :: Lens' EnterStandbyResponse [Activity]
@@ -157,4 +159,4 @@ ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default 
 ersResponseStatus :: Lens' EnterStandbyResponse Int
 ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});
 
-instance NFData EnterStandbyResponse
+instance NFData EnterStandbyResponse where

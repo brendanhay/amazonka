@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateTrafficPolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Route53.CreateTrafficPolicyVersion
     , ctpvrsLocation
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the traffic policy that you want to create a new version for.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createTrafficPolicyVersion' smart constructor.
 data CreateTrafficPolicyVersion = CreateTrafficPolicyVersion'
-    { _ctpvComment  :: !(Maybe Text)
-    , _ctpvId       :: !Text
-    , _ctpvDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctpvComment  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctpvId       :: {-# NOUNPACK #-}!Text
+  , _ctpvDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrafficPolicyVersion' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ createTrafficPolicyVersion
     -> Text -- ^ 'ctpvDocument'
     -> CreateTrafficPolicyVersion
 createTrafficPolicyVersion pId_ pDocument_ =
-    CreateTrafficPolicyVersion'
-    { _ctpvComment = Nothing
-    , _ctpvId = pId_
-    , _ctpvDocument = pDocument_
-    }
+  CreateTrafficPolicyVersion'
+  {_ctpvComment = Nothing, _ctpvId = pId_, _ctpvDocument = pDocument_}
+
 
 -- | The comment that you specified in the @CreateTrafficPolicyVersion@ request, if any.
 ctpvComment :: Lens' CreateTrafficPolicyVersion (Maybe Text)
@@ -101,9 +100,9 @@ instance AWSRequest CreateTrafficPolicyVersion where
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy") <*>
                      (h .# "Location"))
 
-instance Hashable CreateTrafficPolicyVersion
+instance Hashable CreateTrafficPolicyVersion where
 
-instance NFData CreateTrafficPolicyVersion
+instance NFData CreateTrafficPolicyVersion where
 
 instance ToElement CreateTrafficPolicyVersion where
         toElement
@@ -133,10 +132,11 @@ instance ToXML CreateTrafficPolicyVersion where
 --
 -- /See:/ 'createTrafficPolicyVersionResponse' smart constructor.
 data CreateTrafficPolicyVersionResponse = CreateTrafficPolicyVersionResponse'
-    { _ctpvrsResponseStatus :: !Int
-    , _ctpvrsTrafficPolicy  :: !TrafficPolicy
-    , _ctpvrsLocation       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctpvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ctpvrsTrafficPolicy  :: {-# NOUNPACK #-}!TrafficPolicy
+  , _ctpvrsLocation       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrafficPolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +153,12 @@ createTrafficPolicyVersionResponse
     -> Text -- ^ 'ctpvrsLocation'
     -> CreateTrafficPolicyVersionResponse
 createTrafficPolicyVersionResponse pResponseStatus_ pTrafficPolicy_ pLocation_ =
-    CreateTrafficPolicyVersionResponse'
-    { _ctpvrsResponseStatus = pResponseStatus_
-    , _ctpvrsTrafficPolicy = pTrafficPolicy_
-    , _ctpvrsLocation = pLocation_
-    }
+  CreateTrafficPolicyVersionResponse'
+  { _ctpvrsResponseStatus = pResponseStatus_
+  , _ctpvrsTrafficPolicy = pTrafficPolicy_
+  , _ctpvrsLocation = pLocation_
+  }
+
 
 -- | -- | The response status code.
 ctpvrsResponseStatus :: Lens' CreateTrafficPolicyVersionResponse Int
@@ -172,3 +173,4 @@ ctpvrsLocation :: Lens' CreateTrafficPolicyVersionResponse Text
 ctpvrsLocation = lens _ctpvrsLocation (\ s a -> s{_ctpvrsLocation = a});
 
 instance NFData CreateTrafficPolicyVersionResponse
+         where

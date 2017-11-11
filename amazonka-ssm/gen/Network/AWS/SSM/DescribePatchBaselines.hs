@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribePatchBaselines
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.DescribePatchBaselines
     , dpbsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describePatchBaselines' smart constructor.
 data DescribePatchBaselines = DescribePatchBaselines'
-    { _dpbFilters    :: !(Maybe [PatchOrchestratorFilter])
-    , _dpbNextToken  :: !(Maybe Text)
-    , _dpbMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpbFilters    :: {-# NOUNPACK #-}!(Maybe [PatchOrchestratorFilter])
+  , _dpbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePatchBaselines' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DescribePatchBaselines = DescribePatchBaselines'
 describePatchBaselines
     :: DescribePatchBaselines
 describePatchBaselines =
-    DescribePatchBaselines'
-    { _dpbFilters = Nothing
-    , _dpbNextToken = Nothing
-    , _dpbMaxResults = Nothing
-    }
+  DescribePatchBaselines'
+  {_dpbFilters = Nothing, _dpbNextToken = Nothing, _dpbMaxResults = Nothing}
+
 
 -- | Each element in the array is a structure containing:  Key: (string, "NAME_PREFIX" or "OWNER") Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
 dpbFilters :: Lens' DescribePatchBaselines [PatchOrchestratorFilter]
@@ -96,9 +95,9 @@ instance AWSRequest DescribePatchBaselines where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribePatchBaselines
+instance Hashable DescribePatchBaselines where
 
-instance NFData DescribePatchBaselines
+instance NFData DescribePatchBaselines where
 
 instance ToHeaders DescribePatchBaselines where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery DescribePatchBaselines where
 
 -- | /See:/ 'describePatchBaselinesResponse' smart constructor.
 data DescribePatchBaselinesResponse = DescribePatchBaselinesResponse'
-    { _dpbsrsBaselineIdentities :: !(Maybe [PatchBaselineIdentity])
-    , _dpbsrsNextToken          :: !(Maybe Text)
-    , _dpbsrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpbsrsBaselineIdentities :: {-# NOUNPACK #-}!(Maybe [PatchBaselineIdentity])
+  , _dpbsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePatchBaselinesResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ describePatchBaselinesResponse
     :: Int -- ^ 'dpbsrsResponseStatus'
     -> DescribePatchBaselinesResponse
 describePatchBaselinesResponse pResponseStatus_ =
-    DescribePatchBaselinesResponse'
-    { _dpbsrsBaselineIdentities = Nothing
-    , _dpbsrsNextToken = Nothing
-    , _dpbsrsResponseStatus = pResponseStatus_
-    }
+  DescribePatchBaselinesResponse'
+  { _dpbsrsBaselineIdentities = Nothing
+  , _dpbsrsNextToken = Nothing
+  , _dpbsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of PatchBaselineIdentity elements.
 dpbsrsBaselineIdentities :: Lens' DescribePatchBaselinesResponse [PatchBaselineIdentity]
@@ -161,4 +162,4 @@ dpbsrsNextToken = lens _dpbsrsNextToken (\ s a -> s{_dpbsrsNextToken = a});
 dpbsrsResponseStatus :: Lens' DescribePatchBaselinesResponse Int
 dpbsrsResponseStatus = lens _dpbsrsResponseStatus (\ s a -> s{_dpbsrsResponseStatus = a});
 
-instance NFData DescribePatchBaselinesResponse
+instance NFData DescribePatchBaselinesResponse where

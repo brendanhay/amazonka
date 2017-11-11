@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateEnvironment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -67,12 +67,12 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     , eDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -80,20 +80,21 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createEnvironment' smart constructor.
 data CreateEnvironment = CreateEnvironment'
-    { _cCNAMEPrefix       :: !(Maybe Text)
-    , _cTemplateName      :: !(Maybe Text)
-    , _cOptionsToRemove   :: !(Maybe [OptionSpecification])
-    , _cOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _cVersionLabel      :: !(Maybe Text)
-    , _cPlatformARN       :: !(Maybe Text)
-    , _cTier              :: !(Maybe EnvironmentTier)
-    , _cEnvironmentName   :: !(Maybe Text)
-    , _cSolutionStackName :: !(Maybe Text)
-    , _cGroupName         :: !(Maybe Text)
-    , _cDescription       :: !(Maybe Text)
-    , _cTags              :: !(Maybe [Tag])
-    , _cApplicationName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cCNAMEPrefix       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cTemplateName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cOptionsToRemove   :: {-# NOUNPACK #-}!(Maybe [OptionSpecification])
+  , _cOptionSettings    :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
+  , _cVersionLabel      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cPlatformARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cTier              :: {-# NOUNPACK #-}!(Maybe EnvironmentTier)
+  , _cEnvironmentName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cGroupName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cTags              :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cApplicationName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateEnvironment' with the minimum fields required to make a request.
 --
@@ -128,21 +129,22 @@ createEnvironment
     :: Text -- ^ 'cApplicationName'
     -> CreateEnvironment
 createEnvironment pApplicationName_ =
-    CreateEnvironment'
-    { _cCNAMEPrefix = Nothing
-    , _cTemplateName = Nothing
-    , _cOptionsToRemove = Nothing
-    , _cOptionSettings = Nothing
-    , _cVersionLabel = Nothing
-    , _cPlatformARN = Nothing
-    , _cTier = Nothing
-    , _cEnvironmentName = Nothing
-    , _cSolutionStackName = Nothing
-    , _cGroupName = Nothing
-    , _cDescription = Nothing
-    , _cTags = Nothing
-    , _cApplicationName = pApplicationName_
-    }
+  CreateEnvironment'
+  { _cCNAMEPrefix = Nothing
+  , _cTemplateName = Nothing
+  , _cOptionsToRemove = Nothing
+  , _cOptionSettings = Nothing
+  , _cVersionLabel = Nothing
+  , _cPlatformARN = Nothing
+  , _cTier = Nothing
+  , _cEnvironmentName = Nothing
+  , _cSolutionStackName = Nothing
+  , _cGroupName = Nothing
+  , _cDescription = Nothing
+  , _cTags = Nothing
+  , _cApplicationName = pApplicationName_
+  }
+
 
 -- | If specified, the environment attempts to use this value as the prefix for the CNAME. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
 cCNAMEPrefix :: Lens' CreateEnvironment (Maybe Text)
@@ -203,9 +205,9 @@ instance AWSRequest CreateEnvironment where
           = receiveXMLWrapper "CreateEnvironmentResult"
               (\ s h x -> parseXML x)
 
-instance Hashable CreateEnvironment
+instance Hashable CreateEnvironment where
 
-instance NFData CreateEnvironment
+instance NFData CreateEnvironment where
 
 instance ToHeaders CreateEnvironment where
         toHeaders = const mempty

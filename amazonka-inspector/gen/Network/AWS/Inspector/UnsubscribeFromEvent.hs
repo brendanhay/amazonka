@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.UnsubscribeFromEvent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,19 +36,20 @@ module Network.AWS.Inspector.UnsubscribeFromEvent
     , UnsubscribeFromEventResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'unsubscribeFromEvent' smart constructor.
 data UnsubscribeFromEvent = UnsubscribeFromEvent'
-    { _ufeResourceARN :: !Text
-    , _ufeEvent       :: !InspectorEvent
-    , _ufeTopicARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufeResourceARN :: {-# NOUNPACK #-}!Text
+  , _ufeEvent       :: {-# NOUNPACK #-}!InspectorEvent
+  , _ufeTopicARN    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnsubscribeFromEvent' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ unsubscribeFromEvent
     -> Text -- ^ 'ufeTopicARN'
     -> UnsubscribeFromEvent
 unsubscribeFromEvent pResourceARN_ pEvent_ pTopicARN_ =
-    UnsubscribeFromEvent'
-    { _ufeResourceARN = pResourceARN_
-    , _ufeEvent = pEvent_
-    , _ufeTopicARN = pTopicARN_
-    }
+  UnsubscribeFromEvent'
+  { _ufeResourceARN = pResourceARN_
+  , _ufeEvent = pEvent_
+  , _ufeTopicARN = pTopicARN_
+  }
+
 
 -- | The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications.
 ufeResourceARN :: Lens' UnsubscribeFromEvent Text
@@ -89,9 +91,9 @@ instance AWSRequest UnsubscribeFromEvent where
         request = postJSON inspector
         response = receiveNull UnsubscribeFromEventResponse'
 
-instance Hashable UnsubscribeFromEvent
+instance Hashable UnsubscribeFromEvent where
 
-instance NFData UnsubscribeFromEvent
+instance NFData UnsubscribeFromEvent where
 
 instance ToHeaders UnsubscribeFromEvent where
         toHeaders
@@ -119,8 +121,9 @@ instance ToQuery UnsubscribeFromEvent where
 
 -- | /See:/ 'unsubscribeFromEventResponse' smart constructor.
 data UnsubscribeFromEventResponse =
-    UnsubscribeFromEventResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UnsubscribeFromEventResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnsubscribeFromEventResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +131,5 @@ unsubscribeFromEventResponse
     :: UnsubscribeFromEventResponse
 unsubscribeFromEventResponse = UnsubscribeFromEventResponse'
 
-instance NFData UnsubscribeFromEventResponse
+
+instance NFData UnsubscribeFromEventResponse where

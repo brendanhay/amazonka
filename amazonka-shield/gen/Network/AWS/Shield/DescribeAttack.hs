@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DescribeAttack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Shield.DescribeAttack
     , darsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'describeAttack' smart constructor.
 newtype DescribeAttack = DescribeAttack'
-    { _daAttackId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAttackId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAttack' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DescribeAttack = DescribeAttack'
 describeAttack
     :: Text -- ^ 'daAttackId'
     -> DescribeAttack
-describeAttack pAttackId_ =
-    DescribeAttack'
-    { _daAttackId = pAttackId_
-    }
+describeAttack pAttackId_ = DescribeAttack' {_daAttackId = pAttackId_}
+
 
 -- | The unique identifier (ID) for the attack that to be described.
 daAttackId :: Lens' DescribeAttack Text
@@ -75,9 +74,9 @@ instance AWSRequest DescribeAttack where
                  DescribeAttackResponse' <$>
                    (x .?> "Attack") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAttack
+instance Hashable DescribeAttack where
 
-instance NFData DescribeAttack
+instance NFData DescribeAttack where
 
 instance ToHeaders DescribeAttack where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery DescribeAttack where
 
 -- | /See:/ 'describeAttackResponse' smart constructor.
 data DescribeAttackResponse = DescribeAttackResponse'
-    { _darsAttack         :: !(Maybe AttackDetail)
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsAttack         :: {-# NOUNPACK #-}!(Maybe AttackDetail)
+  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAttackResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ describeAttackResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAttackResponse
 describeAttackResponse pResponseStatus_ =
-    DescribeAttackResponse'
-    { _darsAttack = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeAttackResponse'
+  {_darsAttack = Nothing, _darsResponseStatus = pResponseStatus_}
+
 
 -- | The attack that is described.
 darsAttack :: Lens' DescribeAttackResponse (Maybe AttackDetail)
@@ -129,4 +128,4 @@ darsAttack = lens _darsAttack (\ s a -> s{_darsAttack = a});
 darsResponseStatus :: Lens' DescribeAttackResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeAttackResponse
+instance NFData DescribeAttackResponse where

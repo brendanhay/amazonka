@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeLoa
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.DirectConnect.DescribeLoa
     , dlrsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DescribeLoa operation.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeLoa' smart constructor.
 data DescribeLoa = DescribeLoa'
-    { _dlLoaContentType :: !(Maybe LoaContentType)
-    , _dlProviderName   :: !(Maybe Text)
-    , _dlConnectionId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlLoaContentType :: {-# NOUNPACK #-}!(Maybe LoaContentType)
+  , _dlProviderName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlConnectionId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoa' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ describeLoa
     :: Text -- ^ 'dlConnectionId'
     -> DescribeLoa
 describeLoa pConnectionId_ =
-    DescribeLoa'
-    { _dlLoaContentType = Nothing
-    , _dlProviderName = Nothing
-    , _dlConnectionId = pConnectionId_
-    }
+  DescribeLoa'
+  { _dlLoaContentType = Nothing
+  , _dlProviderName = Nothing
+  , _dlConnectionId = pConnectionId_
+  }
+
 
 -- | A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is "application/pdf". Default: application/pdf
 dlLoaContentType :: Lens' DescribeLoa (Maybe LoaContentType)
@@ -101,9 +103,9 @@ instance AWSRequest DescribeLoa where
                    (x .?> "loaContent") <*> (x .?> "loaContentType") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeLoa
+instance Hashable DescribeLoa where
 
-instance NFData DescribeLoa
+instance NFData DescribeLoa where
 
 instance ToHeaders DescribeLoa where
         toHeaders
@@ -134,10 +136,11 @@ instance ToQuery DescribeLoa where
 --
 -- /See:/ 'describeLoaResponse' smart constructor.
 data DescribeLoaResponse = DescribeLoaResponse'
-    { _dlrsLoaContent     :: !(Maybe Base64)
-    , _dlrsLoaContentType :: !(Maybe LoaContentType)
-    , _dlrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlrsLoaContent     :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _dlrsLoaContentType :: {-# NOUNPACK #-}!(Maybe LoaContentType)
+  , _dlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoaResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +155,12 @@ describeLoaResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DescribeLoaResponse
 describeLoaResponse pResponseStatus_ =
-    DescribeLoaResponse'
-    { _dlrsLoaContent = Nothing
-    , _dlrsLoaContentType = Nothing
-    , _dlrsResponseStatus = pResponseStatus_
-    }
+  DescribeLoaResponse'
+  { _dlrsLoaContent = Nothing
+  , _dlrsLoaContentType = Nothing
+  , _dlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 dlrsLoaContent :: Lens' DescribeLoaResponse (Maybe ByteString)
@@ -170,4 +174,4 @@ dlrsLoaContentType = lens _dlrsLoaContentType (\ s a -> s{_dlrsLoaContentType = 
 dlrsResponseStatus :: Lens' DescribeLoaResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 
-instance NFData DescribeLoaResponse
+instance NFData DescribeLoaResponse where

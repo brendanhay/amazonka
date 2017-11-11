@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.GetClusterCredentials
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.Redshift.GetClusterCredentials
     , gccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request parameters to get cluster credentials.
 --
@@ -65,13 +65,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getClusterCredentials' smart constructor.
 data GetClusterCredentials = GetClusterCredentials'
-    { _gccDBGroups          :: !(Maybe [Text])
-    , _gccDurationSeconds   :: !(Maybe Int)
-    , _gccAutoCreate        :: !(Maybe Bool)
-    , _gccDBName            :: !(Maybe Text)
-    , _gccDBUser            :: !Text
-    , _gccClusterIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gccDBGroups          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gccDurationSeconds   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gccAutoCreate        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gccDBName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gccDBUser            :: {-# NOUNPACK #-}!Text
+  , _gccClusterIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetClusterCredentials' with the minimum fields required to make a request.
 --
@@ -93,14 +94,15 @@ getClusterCredentials
     -> Text -- ^ 'gccClusterIdentifier'
     -> GetClusterCredentials
 getClusterCredentials pDBUser_ pClusterIdentifier_ =
-    GetClusterCredentials'
-    { _gccDBGroups = Nothing
-    , _gccDurationSeconds = Nothing
-    , _gccAutoCreate = Nothing
-    , _gccDBName = Nothing
-    , _gccDBUser = pDBUser_
-    , _gccClusterIdentifier = pClusterIdentifier_
-    }
+  GetClusterCredentials'
+  { _gccDBGroups = Nothing
+  , _gccDurationSeconds = Nothing
+  , _gccAutoCreate = Nothing
+  , _gccDBName = Nothing
+  , _gccDBUser = pDBUser_
+  , _gccClusterIdentifier = pClusterIdentifier_
+  }
+
 
 -- | A list of the names of existing database groups that @DbUser@ will join for the current session. If not specified, the new user is added only to PUBLIC.
 gccDBGroups :: Lens' GetClusterCredentials [Text]
@@ -138,9 +140,9 @@ instance AWSRequest GetClusterCredentials where
                      (x .@? "DbPassword")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetClusterCredentials
+instance Hashable GetClusterCredentials where
 
-instance NFData GetClusterCredentials
+instance NFData GetClusterCredentials where
 
 instance ToHeaders GetClusterCredentials where
         toHeaders = const mempty
@@ -166,11 +168,12 @@ instance ToQuery GetClusterCredentials where
 --
 -- /See:/ 'getClusterCredentialsResponse' smart constructor.
 data GetClusterCredentialsResponse = GetClusterCredentialsResponse'
-    { _gccrsDBUser         :: !(Maybe Text)
-    , _gccrsExpiration     :: !(Maybe ISO8601)
-    , _gccrsDBPassword     :: !(Maybe (Sensitive Text))
-    , _gccrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gccrsDBUser         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gccrsExpiration     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _gccrsDBPassword     :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetClusterCredentialsResponse' with the minimum fields required to make a request.
 --
@@ -187,12 +190,13 @@ getClusterCredentialsResponse
     :: Int -- ^ 'gccrsResponseStatus'
     -> GetClusterCredentialsResponse
 getClusterCredentialsResponse pResponseStatus_ =
-    GetClusterCredentialsResponse'
-    { _gccrsDBUser = Nothing
-    , _gccrsExpiration = Nothing
-    , _gccrsDBPassword = Nothing
-    , _gccrsResponseStatus = pResponseStatus_
-    }
+  GetClusterCredentialsResponse'
+  { _gccrsDBUser = Nothing
+  , _gccrsExpiration = Nothing
+  , _gccrsDBPassword = Nothing
+  , _gccrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A database user name that is authorized to log on to the database @DbName@ using the password @DbPassword@ . If the @DbGroups@ parameter is specifed, @DbUser@ is added to the listed groups for the current session. The user name is prefixed with @IAM:@ for an existing user name or @IAMA:@ if the user was auto-created.
 gccrsDBUser :: Lens' GetClusterCredentialsResponse (Maybe Text)
@@ -210,4 +214,4 @@ gccrsDBPassword = lens _gccrsDBPassword (\ s a -> s{_gccrsDBPassword = a}) . map
 gccrsResponseStatus :: Lens' GetClusterCredentialsResponse Int
 gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a});
 
-instance NFData GetClusterCredentialsResponse
+instance NFData GetClusterCredentialsResponse where

@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.EMR.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.EMR.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ActionOnFailure
-    = CancelAndWait
-    | Continue
-    | TerminateCluster
-    | TerminateJobFlow
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CancelAndWait
+  | Continue
+  | TerminateCluster
+  | TerminateJobFlow
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionOnFailure where
     parser = takeLowerText >>= \case
@@ -55,10 +56,11 @@ instance FromJSON ActionOnFailure where
     parseJSON = parseJSONText "ActionOnFailure"
 
 data AdjustmentType
-    = ChangeInCapacity
-    | ExactCapacity
-    | PercentChangeInCapacity
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ChangeInCapacity
+  | ExactCapacity
+  | PercentChangeInCapacity
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AdjustmentType where
     parser = takeLowerText >>= \case
@@ -87,13 +89,14 @@ instance FromJSON AdjustmentType where
     parseJSON = parseJSONText "AdjustmentType"
 
 data AutoScalingPolicyState
-    = Attached
-    | Attaching
-    | Detached
-    | Detaching
-    | Failed
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Attached
+  | Attaching
+  | Detached
+  | Detaching
+  | Failed
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AutoScalingPolicyState where
     parser = takeLowerText >>= \case
@@ -125,10 +128,11 @@ instance FromJSON AutoScalingPolicyState where
     parseJSON = parseJSONText "AutoScalingPolicyState"
 
 data AutoScalingPolicyStateChangeReasonCode
-    = CleanupFailure
-    | ProvisionFailure
-    | UserRequest
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CleanupFailure
+  | ProvisionFailure
+  | UserRequest
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AutoScalingPolicyStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -154,9 +158,10 @@ instance FromJSON AutoScalingPolicyStateChangeReasonCode where
     parseJSON = parseJSONText "AutoScalingPolicyStateChangeReasonCode"
 
 data CancelStepsRequestStatus
-    = CSRSFailed
-    | CSRSSubmitted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSRSFailed
+  | CSRSSubmitted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CancelStepsRequestStatus where
     parser = takeLowerText >>= \case
@@ -180,14 +185,15 @@ instance FromJSON CancelStepsRequestStatus where
     parseJSON = parseJSONText "CancelStepsRequestStatus"
 
 data ClusterState
-    = CSBootstrapping
-    | CSRunning
-    | CSStarting
-    | CSTerminated
-    | CSTerminatedWithErrors
-    | CSTerminating
-    | CSWaiting
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSBootstrapping
+  | CSRunning
+  | CSStarting
+  | CSTerminated
+  | CSTerminatedWithErrors
+  | CSTerminating
+  | CSWaiting
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ClusterState where
     parser = takeLowerText >>= \case
@@ -224,15 +230,16 @@ instance FromJSON ClusterState where
     parseJSON = parseJSONText "ClusterState"
 
 data ClusterStateChangeReasonCode
-    = CSCRCAllStepsCompleted
-    | CSCRCBootstrapFailure
-    | CSCRCInstanceFailure
-    | CSCRCInstanceFleetTimeout
-    | CSCRCInternalError
-    | CSCRCStepFailure
-    | CSCRCUserRequest
-    | CSCRCValidationError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSCRCAllStepsCompleted
+  | CSCRCBootstrapFailure
+  | CSCRCInstanceFailure
+  | CSCRCInstanceFleetTimeout
+  | CSCRCInternalError
+  | CSCRCStepFailure
+  | CSCRCUserRequest
+  | CSCRCValidationError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ClusterStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -268,11 +275,12 @@ instance FromJSON ClusterStateChangeReasonCode where
     parseJSON = parseJSONText "ClusterStateChangeReasonCode"
 
 data ComparisonOperator
-    = GreaterThan
-    | GreaterThanOrEqual
-    | LessThan
-    | LessThanOrEqual
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GreaterThan
+  | GreaterThanOrEqual
+  | LessThan
+  | LessThanOrEqual
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -303,9 +311,10 @@ instance FromJSON ComparisonOperator where
     parseJSON = parseJSONText "ComparisonOperator"
 
 data InstanceCollectionType
-    = InstanceFleet
-    | InstanceGroup
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = InstanceFleet
+  | InstanceGroup
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceCollectionType where
     parser = takeLowerText >>= \case
@@ -329,14 +338,15 @@ instance FromJSON InstanceCollectionType where
     parseJSON = parseJSONText "InstanceCollectionType"
 
 data InstanceFleetState
-    = IFSBootstrapping
-    | IFSProvisioning
-    | IFSResizing
-    | IFSRunning
-    | IFSSuspended
-    | IFSTerminated
-    | IFSTerminating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = IFSBootstrapping
+  | IFSProvisioning
+  | IFSResizing
+  | IFSRunning
+  | IFSSuspended
+  | IFSTerminated
+  | IFSTerminating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceFleetState where
     parser = takeLowerText >>= \case
@@ -370,11 +380,12 @@ instance FromJSON InstanceFleetState where
     parseJSON = parseJSONText "InstanceFleetState"
 
 data InstanceFleetStateChangeReasonCode
-    = IFSCRCClusterTerminated
-    | IFSCRCInstanceFailure
-    | IFSCRCInternalError
-    | IFSCRCValidationError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = IFSCRCClusterTerminated
+  | IFSCRCInstanceFailure
+  | IFSCRCInternalError
+  | IFSCRCValidationError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceFleetStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -402,10 +413,11 @@ instance FromJSON InstanceFleetStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceFleetStateChangeReasonCode"
 
 data InstanceFleetType
-    = IFTCore
-    | IFTMaster
-    | IFTTask
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = IFTCore
+  | IFTMaster
+  | IFTTask
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceFleetType where
     parser = takeLowerText >>= \case
@@ -434,17 +446,18 @@ instance FromJSON InstanceFleetType where
     parseJSON = parseJSONText "InstanceFleetType"
 
 data InstanceGroupState
-    = Arrested
-    | Bootstrapping
-    | Ended
-    | Provisioning
-    | Resizing
-    | Running
-    | ShuttingDown
-    | Suspended
-    | Terminated
-    | Terminating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Arrested
+  | Bootstrapping
+  | Ended
+  | Provisioning
+  | Resizing
+  | Running
+  | ShuttingDown
+  | Suspended
+  | Terminated
+  | Terminating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceGroupState where
     parser = takeLowerText >>= \case
@@ -484,11 +497,12 @@ instance FromJSON InstanceGroupState where
     parseJSON = parseJSONText "InstanceGroupState"
 
 data InstanceGroupStateChangeReasonCode
-    = ClusterTerminated
-    | InstanceFailure
-    | InternalError
-    | ValidationError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ClusterTerminated
+  | InstanceFailure
+  | InternalError
+  | ValidationError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceGroupStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -516,10 +530,11 @@ instance FromJSON InstanceGroupStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
 
 data InstanceGroupType
-    = Core
-    | Master
-    | Task
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Core
+  | Master
+  | Task
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceGroupType where
     parser = takeLowerText >>= \case
@@ -548,10 +563,11 @@ instance FromJSON InstanceGroupType where
     parseJSON = parseJSONText "InstanceGroupType"
 
 data InstanceRoleType
-    = IRTCore
-    | IRTMaster
-    | IRTTask
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = IRTCore
+  | IRTMaster
+  | IRTTask
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceRoleType where
     parser = takeLowerText >>= \case
@@ -577,12 +593,13 @@ instance ToJSON InstanceRoleType where
     toJSON = toJSONText
 
 data InstanceState
-    = ISAwaitingFulfillment
-    | ISBootstrapping
-    | ISProvisioning
-    | ISRunning
-    | ISTerminated
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISAwaitingFulfillment
+  | ISBootstrapping
+  | ISProvisioning
+  | ISRunning
+  | ISTerminated
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceState where
     parser = takeLowerText >>= \case
@@ -615,12 +632,13 @@ instance FromJSON InstanceState where
     parseJSON = parseJSONText "InstanceState"
 
 data InstanceStateChangeReasonCode
-    = ISCRCBootstrapFailure
-    | ISCRCClusterTerminated
-    | ISCRCInstanceFailure
-    | ISCRCInternalError
-    | ISCRCValidationError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISCRCBootstrapFailure
+  | ISCRCClusterTerminated
+  | ISCRCInstanceFailure
+  | ISCRCInternalError
+  | ISCRCValidationError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -650,9 +668,10 @@ instance FromJSON InstanceStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceStateChangeReasonCode"
 
 data MarketType
-    = OnDemand
-    | Spot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = OnDemand
+  | Spot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MarketType where
     parser = takeLowerText >>= \case
@@ -679,9 +698,10 @@ instance FromJSON MarketType where
     parseJSON = parseJSONText "MarketType"
 
 data RepoUpgradeOnBoot
-    = RUOBNone
-    | RUOBSecurity
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RUOBNone
+  | RUOBSecurity
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RepoUpgradeOnBoot where
     parser = takeLowerText >>= \case
@@ -708,9 +728,10 @@ instance FromJSON RepoUpgradeOnBoot where
     parseJSON = parseJSONText "RepoUpgradeOnBoot"
 
 data ScaleDownBehavior
-    = TerminateAtInstanceHour
-    | TerminateAtTaskCompletion
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TerminateAtInstanceHour
+  | TerminateAtTaskCompletion
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScaleDownBehavior where
     parser = takeLowerText >>= \case
@@ -737,9 +758,10 @@ instance FromJSON ScaleDownBehavior where
     parseJSON = parseJSONText "ScaleDownBehavior"
 
 data SpotProvisioningTimeoutAction
-    = SPTASwitchToOnDemand
-    | SPTATerminateCluster
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SPTASwitchToOnDemand
+  | SPTATerminateCluster
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SpotProvisioningTimeoutAction where
     parser = takeLowerText >>= \case
@@ -766,12 +788,13 @@ instance FromJSON SpotProvisioningTimeoutAction where
     parseJSON = parseJSONText "SpotProvisioningTimeoutAction"
 
 data Statistic
-    = Average
-    | Maximum
-    | Minimum
-    | SampleCount
-    | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Average
+  | Maximum
+  | Minimum
+  | SampleCount
+  | Sum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Statistic where
     parser = takeLowerText >>= \case
@@ -804,14 +827,15 @@ instance FromJSON Statistic where
     parseJSON = parseJSONText "Statistic"
 
 data StepState
-    = SSCancelPending
-    | SSCancelled
-    | SSCompleted
-    | SSFailed
-    | SSInterrupted
-    | SSPending
-    | SSRunning
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSCancelPending
+  | SSCancelled
+  | SSCompleted
+  | SSFailed
+  | SSInterrupted
+  | SSPending
+  | SSRunning
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StepState where
     parser = takeLowerText >>= \case
@@ -848,8 +872,9 @@ instance FromJSON StepState where
     parseJSON = parseJSONText "StepState"
 
 data StepStateChangeReasonCode =
-    SSCRCNone
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  SSCRCNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StepStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -871,34 +896,35 @@ instance FromJSON StepStateChangeReasonCode where
     parseJSON = parseJSONText "StepStateChangeReasonCode"
 
 data Unit
-    = Bits
-    | BitsPerSecond
-    | Bytes
-    | BytesPerSecond
-    | Count
-    | CountPerSecond
-    | GigaBits
-    | GigaBitsPerSecond
-    | GigaBytes
-    | GigaBytesPerSecond
-    | KiloBits
-    | KiloBitsPerSecond
-    | KiloBytes
-    | KiloBytesPerSecond
-    | MegaBits
-    | MegaBitsPerSecond
-    | MegaBytes
-    | MegaBytesPerSecond
-    | MicroSeconds
-    | MilliSeconds
-    | None
-    | Percent
-    | Seconds
-    | TeraBits
-    | TeraBitsPerSecond
-    | TeraBytes
-    | TeraBytesPerSecond
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Bits
+  | BitsPerSecond
+  | Bytes
+  | BytesPerSecond
+  | Count
+  | CountPerSecond
+  | GigaBits
+  | GigaBitsPerSecond
+  | GigaBytes
+  | GigaBytesPerSecond
+  | KiloBits
+  | KiloBitsPerSecond
+  | KiloBytes
+  | KiloBytesPerSecond
+  | MegaBits
+  | MegaBitsPerSecond
+  | MegaBytes
+  | MegaBytesPerSecond
+  | MicroSeconds
+  | MilliSeconds
+  | None
+  | Percent
+  | Seconds
+  | TeraBits
+  | TeraBitsPerSecond
+  | TeraBytes
+  | TeraBytesPerSecond
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Unit where
     parser = takeLowerText >>= \case

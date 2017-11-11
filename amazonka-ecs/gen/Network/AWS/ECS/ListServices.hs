@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListServices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.ECS.ListServices
     , lsrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listServices' smart constructor.
 data ListServices = ListServices'
-    { _lsCluster    :: !(Maybe Text)
-    , _lsNextToken  :: !(Maybe Text)
-    , _lsMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsCluster    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListServices' with the minimum fields required to make a request.
 --
@@ -69,11 +70,9 @@ data ListServices = ListServices'
 listServices
     :: ListServices
 listServices =
-    ListServices'
-    { _lsCluster = Nothing
-    , _lsNextToken = Nothing
-    , _lsMaxResults = Nothing
-    }
+  ListServices'
+  {_lsCluster = Nothing, _lsNextToken = Nothing, _lsMaxResults = Nothing}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list. If you do not specify a cluster, the default cluster is assumed.
 lsCluster :: Lens' ListServices (Maybe Text)
@@ -105,9 +104,9 @@ instance AWSRequest ListServices where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListServices
+instance Hashable ListServices where
 
-instance NFData ListServices
+instance NFData ListServices where
 
 instance ToHeaders ListServices where
         toHeaders
@@ -135,10 +134,11 @@ instance ToQuery ListServices where
 
 -- | /See:/ 'listServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
-    { _lsrsServiceARNs    :: !(Maybe [Text])
-    , _lsrsNextToken      :: !(Maybe Text)
-    , _lsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsrsServiceARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListServicesResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +153,12 @@ listServicesResponse
     :: Int -- ^ 'lsrsResponseStatus'
     -> ListServicesResponse
 listServicesResponse pResponseStatus_ =
-    ListServicesResponse'
-    { _lsrsServiceARNs = Nothing
-    , _lsrsNextToken = Nothing
-    , _lsrsResponseStatus = pResponseStatus_
-    }
+  ListServicesResponse'
+  { _lsrsServiceARNs = Nothing
+  , _lsrsNextToken = Nothing
+  , _lsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of full Amazon Resource Name (ARN) entries for each service associated with the specified cluster.
 lsrsServiceARNs :: Lens' ListServicesResponse [Text]
@@ -171,4 +172,4 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 lsrsResponseStatus :: Lens' ListServicesResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 
-instance NFData ListServicesResponse
+instance NFData ListServicesResponse where

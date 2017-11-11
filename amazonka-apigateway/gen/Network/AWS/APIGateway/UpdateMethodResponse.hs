@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateMethodResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.UpdateMethodResponse
     , mResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to update an existing 'MethodResponse' resource.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateMethodResponse' smart constructor.
 data UpdateMethodResponse = UpdateMethodResponse'
-    { _umPatchOperations :: !(Maybe [PatchOperation])
-    , _umRestAPIId       :: !Text
-    , _umResourceId      :: !Text
-    , _umHttpMethod      :: !Text
-    , _umStatusCode      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _umRestAPIId       :: {-# NOUNPACK #-}!Text
+  , _umResourceId      :: {-# NOUNPACK #-}!Text
+  , _umHttpMethod      :: {-# NOUNPACK #-}!Text
+  , _umStatusCode      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMethodResponse' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ updateMethodResponse
     -> Text -- ^ 'umStatusCode'
     -> UpdateMethodResponse
 updateMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    UpdateMethodResponse'
-    { _umPatchOperations = Nothing
-    , _umRestAPIId = pRestAPIId_
-    , _umResourceId = pResourceId_
-    , _umHttpMethod = pHttpMethod_
-    , _umStatusCode = pStatusCode_
-    }
+  UpdateMethodResponse'
+  { _umPatchOperations = Nothing
+  , _umRestAPIId = pRestAPIId_
+  , _umResourceId = pResourceId_
+  , _umHttpMethod = pHttpMethod_
+  , _umStatusCode = pStatusCode_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 umPatchOperations :: Lens' UpdateMethodResponse [PatchOperation]
@@ -115,9 +117,9 @@ instance AWSRequest UpdateMethodResponse where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateMethodResponse
+instance Hashable UpdateMethodResponse where
 
-instance NFData UpdateMethodResponse
+instance NFData UpdateMethodResponse where
 
 instance ToHeaders UpdateMethodResponse where
         toHeaders

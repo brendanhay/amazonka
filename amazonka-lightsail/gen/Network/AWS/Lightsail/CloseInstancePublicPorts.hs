@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CloseInstancePublicPorts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.CloseInstancePublicPorts
     , cipprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'closeInstancePublicPorts' smart constructor.
 data CloseInstancePublicPorts = CloseInstancePublicPorts'
-    { _cippPortInfo     :: !PortInfo
-    , _cippInstanceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cippPortInfo     :: {-# NOUNPACK #-}!PortInfo
+  , _cippInstanceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloseInstancePublicPorts' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ closeInstancePublicPorts
     -> Text -- ^ 'cippInstanceName'
     -> CloseInstancePublicPorts
 closeInstancePublicPorts pPortInfo_ pInstanceName_ =
-    CloseInstancePublicPorts'
-    { _cippPortInfo = pPortInfo_
-    , _cippInstanceName = pInstanceName_
-    }
+  CloseInstancePublicPorts'
+  {_cippPortInfo = pPortInfo_, _cippInstanceName = pInstanceName_}
+
 
 -- | Information about the public port you are trying to close.
 cippPortInfo :: Lens' CloseInstancePublicPorts PortInfo
@@ -86,9 +86,9 @@ instance AWSRequest CloseInstancePublicPorts where
                  CloseInstancePublicPortsResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable CloseInstancePublicPorts
+instance Hashable CloseInstancePublicPorts where
 
-instance NFData CloseInstancePublicPorts
+instance NFData CloseInstancePublicPorts where
 
 instance ToHeaders CloseInstancePublicPorts where
         toHeaders
@@ -115,9 +115,10 @@ instance ToQuery CloseInstancePublicPorts where
 
 -- | /See:/ 'closeInstancePublicPortsResponse' smart constructor.
 data CloseInstancePublicPortsResponse = CloseInstancePublicPortsResponse'
-    { _cipprsOperation      :: !(Maybe Operation)
-    , _cipprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cipprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _cipprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloseInstancePublicPortsResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,9 @@ closeInstancePublicPortsResponse
     :: Int -- ^ 'cipprsResponseStatus'
     -> CloseInstancePublicPortsResponse
 closeInstancePublicPortsResponse pResponseStatus_ =
-    CloseInstancePublicPortsResponse'
-    { _cipprsOperation = Nothing
-    , _cipprsResponseStatus = pResponseStatus_
-    }
+  CloseInstancePublicPortsResponse'
+  {_cipprsOperation = Nothing, _cipprsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs that contains information about the operation.
 cipprsOperation :: Lens' CloseInstancePublicPortsResponse (Maybe Operation)
@@ -144,3 +144,4 @@ cipprsResponseStatus :: Lens' CloseInstancePublicPortsResponse Int
 cipprsResponseStatus = lens _cipprsResponseStatus (\ s a -> s{_cipprsResponseStatus = a});
 
 instance NFData CloseInstancePublicPortsResponse
+         where

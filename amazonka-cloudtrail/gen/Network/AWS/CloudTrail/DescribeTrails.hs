@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.DescribeTrails
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudTrail.DescribeTrails
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Returns information about the trail.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTrails' smart constructor.
 data DescribeTrails = DescribeTrails'
-    { _dtIncludeShadowTrails :: !(Maybe Bool)
-    , _dtTrailNameList       :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtIncludeShadowTrails :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dtTrailNameList       :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTrails' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data DescribeTrails = DescribeTrails'
 describeTrails
     :: DescribeTrails
 describeTrails =
-    DescribeTrails'
-    { _dtIncludeShadowTrails = Nothing
-    , _dtTrailNameList = Nothing
-    }
+  DescribeTrails' {_dtIncludeShadowTrails = Nothing, _dtTrailNameList = Nothing}
+
 
 -- | Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region. The default is true.
 dtIncludeShadowTrails :: Lens' DescribeTrails (Maybe Bool)
@@ -88,9 +87,9 @@ instance AWSRequest DescribeTrails where
                    (x .?> "trailList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeTrails
+instance Hashable DescribeTrails where
 
-instance NFData DescribeTrails
+instance NFData DescribeTrails where
 
 instance ToHeaders DescribeTrails where
         toHeaders
@@ -122,9 +121,10 @@ instance ToQuery DescribeTrails where
 --
 -- /See:/ 'describeTrailsResponse' smart constructor.
 data DescribeTrailsResponse = DescribeTrailsResponse'
-    { _dtrsTrailList      :: !(Maybe [Trail])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsTrailList      :: {-# NOUNPACK #-}!(Maybe [Trail])
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTrailsResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +137,9 @@ describeTrailsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTrailsResponse
 describeTrailsResponse pResponseStatus_ =
-    DescribeTrailsResponse'
-    { _dtrsTrailList = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTrailsResponse'
+  {_dtrsTrailList = Nothing, _dtrsResponseStatus = pResponseStatus_}
+
 
 -- | The list of trail objects.
 dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
@@ -150,4 +149,4 @@ dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default 
 dtrsResponseStatus :: Lens' DescribeTrailsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTrailsResponse
+instance NFData DescribeTrailsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListRateBasedRules
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.WAFRegional.ListRateBasedRules
     , lrbrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listRateBasedRules' smart constructor.
 data ListRateBasedRules = ListRateBasedRules'
-    { _lrbrNextMarker :: !(Maybe Text)
-    , _lrbrLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrbrNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrbrLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRateBasedRules' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data ListRateBasedRules = ListRateBasedRules'
 listRateBasedRules
     :: ListRateBasedRules
 listRateBasedRules =
-    ListRateBasedRules'
-    { _lrbrNextMarker = Nothing
-    , _lrbrLimit = Nothing
-    }
+  ListRateBasedRules' {_lrbrNextMarker = Nothing, _lrbrLimit = Nothing}
+
 
 -- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRateBasedRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
 lrbrNextMarker :: Lens' ListRateBasedRules (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest ListRateBasedRules where
                    (x .?> "Rules" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListRateBasedRules
+instance Hashable ListRateBasedRules where
 
-instance NFData ListRateBasedRules
+instance NFData ListRateBasedRules where
 
 instance ToHeaders ListRateBasedRules where
         toHeaders
@@ -115,10 +114,11 @@ instance ToQuery ListRateBasedRules where
 
 -- | /See:/ 'listRateBasedRulesResponse' smart constructor.
 data ListRateBasedRulesResponse = ListRateBasedRulesResponse'
-    { _lrbrrsRules          :: !(Maybe [RuleSummary])
-    , _lrbrrsNextMarker     :: !(Maybe Text)
-    , _lrbrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrbrrsRules          :: {-# NOUNPACK #-}!(Maybe [RuleSummary])
+  , _lrbrrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRateBasedRulesResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +133,12 @@ listRateBasedRulesResponse
     :: Int -- ^ 'lrbrrsResponseStatus'
     -> ListRateBasedRulesResponse
 listRateBasedRulesResponse pResponseStatus_ =
-    ListRateBasedRulesResponse'
-    { _lrbrrsRules = Nothing
-    , _lrbrrsNextMarker = Nothing
-    , _lrbrrsResponseStatus = pResponseStatus_
-    }
+  ListRateBasedRulesResponse'
+  { _lrbrrsRules = Nothing
+  , _lrbrrsNextMarker = Nothing
+  , _lrbrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of 'RuleSummary' objects.
 lrbrrsRules :: Lens' ListRateBasedRulesResponse [RuleSummary]
@@ -151,4 +152,4 @@ lrbrrsNextMarker = lens _lrbrrsNextMarker (\ s a -> s{_lrbrrsNextMarker = a});
 lrbrrsResponseStatus :: Lens' ListRateBasedRulesResponse Int
 lrbrrsResponseStatus = lens _lrbrrsResponseStatus (\ s a -> s{_lrbrrsResponseStatus = a});
 
-instance NFData ListRateBasedRulesResponse
+instance NFData ListRateBasedRulesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteEventStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,19 +35,20 @@ module Network.AWS.Pinpoint.DeleteEventStream
     , desrsEventStream
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | DeleteEventStream Request
 --
 -- /See:/ 'deleteEventStream' smart constructor.
 newtype DeleteEventStream = DeleteEventStream'
-    { _desApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEventStream' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deleteEventStream
     :: Text -- ^ 'desApplicationId'
     -> DeleteEventStream
 deleteEventStream pApplicationId_ =
-    DeleteEventStream'
-    { _desApplicationId = pApplicationId_
-    }
+  DeleteEventStream' {_desApplicationId = pApplicationId_}
+
 
 -- | ApplicationId
 desApplicationId :: Lens' DeleteEventStream Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteEventStream where
                  DeleteEventStreamResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteEventStream
+instance Hashable DeleteEventStream where
 
-instance NFData DeleteEventStream
+instance NFData DeleteEventStream where
 
 instance ToHeaders DeleteEventStream where
         toHeaders
@@ -98,9 +98,10 @@ instance ToQuery DeleteEventStream where
 --
 -- /See:/ 'deleteEventStreamResponse' smart constructor.
 data DeleteEventStreamResponse = DeleteEventStreamResponse'
-    { _desrsResponseStatus :: !Int
-    , _desrsEventStream    :: !EventStream
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _desrsEventStream    :: {-# NOUNPACK #-}!EventStream
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEventStreamResponse' with the minimum fields required to make a request.
 --
@@ -114,10 +115,9 @@ deleteEventStreamResponse
     -> EventStream -- ^ 'desrsEventStream'
     -> DeleteEventStreamResponse
 deleteEventStreamResponse pResponseStatus_ pEventStream_ =
-    DeleteEventStreamResponse'
-    { _desrsResponseStatus = pResponseStatus_
-    , _desrsEventStream = pEventStream_
-    }
+  DeleteEventStreamResponse'
+  {_desrsResponseStatus = pResponseStatus_, _desrsEventStream = pEventStream_}
+
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DeleteEventStreamResponse Int
@@ -127,4 +127,4 @@ desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus
 desrsEventStream :: Lens' DeleteEventStreamResponse EventStream
 desrsEventStream = lens _desrsEventStream (\ s a -> s{_desrsEventStream = a});
 
-instance NFData DeleteEventStreamResponse
+instance NFData DeleteEventStreamResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.SendMessages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.SendMessages
     , smrsMessageResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'sendMessages' smart constructor.
 data SendMessages = SendMessages'
-    { _smApplicationId  :: !Text
-    , _smMessageRequest :: !MessageRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smApplicationId  :: {-# NOUNPACK #-}!Text
+  , _smMessageRequest :: {-# NOUNPACK #-}!MessageRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendMessages' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ sendMessages
     -> MessageRequest -- ^ 'smMessageRequest'
     -> SendMessages
 sendMessages pApplicationId_ pMessageRequest_ =
-    SendMessages'
-    { _smApplicationId = pApplicationId_
-    , _smMessageRequest = pMessageRequest_
-    }
+  SendMessages'
+  {_smApplicationId = pApplicationId_, _smMessageRequest = pMessageRequest_}
+
 
 -- | Undocumented member.
 smApplicationId :: Lens' SendMessages Text
@@ -83,9 +83,9 @@ instance AWSRequest SendMessages where
                  SendMessagesResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable SendMessages
+instance Hashable SendMessages where
 
-instance NFData SendMessages
+instance NFData SendMessages where
 
 instance ToHeaders SendMessages where
         toHeaders
@@ -110,9 +110,10 @@ instance ToQuery SendMessages where
 
 -- | /See:/ 'sendMessagesResponse' smart constructor.
 data SendMessagesResponse = SendMessagesResponse'
-    { _smrsResponseStatus  :: !Int
-    , _smrsMessageResponse :: !MessageResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _smrsMessageResponse :: {-# NOUNPACK #-}!MessageResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendMessagesResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +127,11 @@ sendMessagesResponse
     -> MessageResponse -- ^ 'smrsMessageResponse'
     -> SendMessagesResponse
 sendMessagesResponse pResponseStatus_ pMessageResponse_ =
-    SendMessagesResponse'
-    { _smrsResponseStatus = pResponseStatus_
-    , _smrsMessageResponse = pMessageResponse_
-    }
+  SendMessagesResponse'
+  { _smrsResponseStatus = pResponseStatus_
+  , _smrsMessageResponse = pMessageResponse_
+  }
+
 
 -- | -- | The response status code.
 smrsResponseStatus :: Lens' SendMessagesResponse Int
@@ -139,4 +141,4 @@ smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = 
 smrsMessageResponse :: Lens' SendMessagesResponse MessageResponse
 smrsMessageResponse = lens _smrsMessageResponse (\ s a -> s{_smrsMessageResponse = a});
 
-instance NFData SendMessagesResponse
+instance NFData SendMessagesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.RevokeGrant
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.KMS.RevokeGrant
     , RevokeGrantResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'revokeGrant' smart constructor.
 data RevokeGrant = RevokeGrant'
-    { _rKeyId   :: !Text
-    , _rGrantId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rKeyId   :: {-# NOUNPACK #-}!Text
+  , _rGrantId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeGrant' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ revokeGrant
     -> Text -- ^ 'rGrantId'
     -> RevokeGrant
 revokeGrant pKeyId_ pGrantId_ =
-    RevokeGrant'
-    { _rKeyId = pKeyId_
-    , _rGrantId = pGrantId_
-    }
+  RevokeGrant' {_rKeyId = pKeyId_, _rGrantId = pGrantId_}
+
 
 -- | A unique identifier for the customer master key associated with the grant. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 rKeyId :: Lens' RevokeGrant Text
@@ -78,9 +77,9 @@ instance AWSRequest RevokeGrant where
         request = postJSON kms
         response = receiveNull RevokeGrantResponse'
 
-instance Hashable RevokeGrant
+instance Hashable RevokeGrant where
 
-instance NFData RevokeGrant
+instance NFData RevokeGrant where
 
 instance ToHeaders RevokeGrant where
         toHeaders
@@ -106,8 +105,9 @@ instance ToQuery RevokeGrant where
 
 -- | /See:/ 'revokeGrantResponse' smart constructor.
 data RevokeGrantResponse =
-    RevokeGrantResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RevokeGrantResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeGrantResponse' with the minimum fields required to make a request.
 --
@@ -115,4 +115,5 @@ revokeGrantResponse
     :: RevokeGrantResponse
 revokeGrantResponse = RevokeGrantResponse'
 
-instance NFData RevokeGrantResponse
+
+instance NFData RevokeGrantResponse where

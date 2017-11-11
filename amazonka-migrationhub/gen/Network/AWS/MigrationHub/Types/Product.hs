@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MigrationHub.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types.Sum
+import Network.AWS.Prelude
 
 -- | An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'createdArtifact' smart constructor.
 data CreatedArtifact = CreatedArtifact'
-    { _caDescription :: !(Maybe Text)
-    , _caName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatedArtifact' with the minimum fields required to make a request.
 --
@@ -42,10 +43,8 @@ createdArtifact
     :: Text -- ^ 'caName'
     -> CreatedArtifact
 createdArtifact pName_ =
-    CreatedArtifact'
-    { _caDescription = Nothing
-    , _caName = pName_
-    }
+  CreatedArtifact' {_caDescription = Nothing, _caName = pName_}
+
 
 -- | A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
 caDescription :: Lens' CreatedArtifact (Maybe Text)
@@ -62,9 +61,9 @@ instance FromJSON CreatedArtifact where
                  CreatedArtifact' <$>
                    (x .:? "Description") <*> (x .: "Name"))
 
-instance Hashable CreatedArtifact
+instance Hashable CreatedArtifact where
 
-instance NFData CreatedArtifact
+instance NFData CreatedArtifact where
 
 instance ToJSON CreatedArtifact where
         toJSON CreatedArtifact'{..}
@@ -79,9 +78,10 @@ instance ToJSON CreatedArtifact where
 --
 -- /See:/ 'discoveredResource' smart constructor.
 data DiscoveredResource = DiscoveredResource'
-    { _drDescription     :: !(Maybe Text)
-    , _drConfigurationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drConfigurationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DiscoveredResource' with the minimum fields required to make a request.
 --
@@ -94,10 +94,9 @@ discoveredResource
     :: Text -- ^ 'drConfigurationId'
     -> DiscoveredResource
 discoveredResource pConfigurationId_ =
-    DiscoveredResource'
-    { _drDescription = Nothing
-    , _drConfigurationId = pConfigurationId_
-    }
+  DiscoveredResource'
+  {_drDescription = Nothing, _drConfigurationId = pConfigurationId_}
+
 
 -- | A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.
 drDescription :: Lens' DiscoveredResource (Maybe Text)
@@ -114,9 +113,9 @@ instance FromJSON DiscoveredResource where
                  DiscoveredResource' <$>
                    (x .:? "Description") <*> (x .: "ConfigurationId"))
 
-instance Hashable DiscoveredResource
+instance Hashable DiscoveredResource where
 
-instance NFData DiscoveredResource
+instance NFData DiscoveredResource where
 
 instance ToJSON DiscoveredResource where
         toJSON DiscoveredResource'{..}
@@ -131,12 +130,13 @@ instance ToJSON DiscoveredResource where
 --
 -- /See:/ 'migrationTask' smart constructor.
 data MigrationTask = MigrationTask'
-    { _mtUpdateDateTime        :: !(Maybe POSIX)
-    , _mtResourceAttributeList :: !(Maybe [ResourceAttribute])
-    , _mtTask                  :: !(Maybe Task)
-    , _mtProgressUpdateStream  :: !(Maybe Text)
-    , _mtMigrationTaskName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtUpdateDateTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mtResourceAttributeList :: {-# NOUNPACK #-}!(Maybe [ResourceAttribute])
+  , _mtTask                  :: {-# NOUNPACK #-}!(Maybe Task)
+  , _mtProgressUpdateStream  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtMigrationTaskName     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MigrationTask' with the minimum fields required to make a request.
 --
@@ -154,13 +154,14 @@ data MigrationTask = MigrationTask'
 migrationTask
     :: MigrationTask
 migrationTask =
-    MigrationTask'
-    { _mtUpdateDateTime = Nothing
-    , _mtResourceAttributeList = Nothing
-    , _mtTask = Nothing
-    , _mtProgressUpdateStream = Nothing
-    , _mtMigrationTaskName = Nothing
-    }
+  MigrationTask'
+  { _mtUpdateDateTime = Nothing
+  , _mtResourceAttributeList = Nothing
+  , _mtTask = Nothing
+  , _mtProgressUpdateStream = Nothing
+  , _mtMigrationTaskName = Nothing
+  }
+
 
 -- | The timestamp when the task was gathered.
 mtUpdateDateTime :: Lens' MigrationTask (Maybe UTCTime)
@@ -193,9 +194,9 @@ instance FromJSON MigrationTask where
                      <*> (x .:? "ProgressUpdateStream")
                      <*> (x .:? "MigrationTaskName"))
 
-instance Hashable MigrationTask
+instance Hashable MigrationTask where
 
-instance NFData MigrationTask
+instance NFData MigrationTask where
 
 -- | MigrationTaskSummary includes @MigrationTaskName@ , @ProgressPercent@ , @ProgressUpdateStream@ , @Status@ , and @UpdateDateTime@ for each task.
 --
@@ -203,13 +204,14 @@ instance NFData MigrationTask
 --
 -- /See:/ 'migrationTaskSummary' smart constructor.
 data MigrationTaskSummary = MigrationTaskSummary'
-    { _mtsStatus               :: !(Maybe MigrationStatus)
-    , _mtsUpdateDateTime       :: !(Maybe POSIX)
-    , _mtsProgressPercent      :: !(Maybe Nat)
-    , _mtsStatusDetail         :: !(Maybe Text)
-    , _mtsProgressUpdateStream :: !(Maybe Text)
-    , _mtsMigrationTaskName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtsStatus               :: {-# NOUNPACK #-}!(Maybe MigrationStatus)
+  , _mtsUpdateDateTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mtsProgressPercent      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mtsStatusDetail         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtsProgressUpdateStream :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtsMigrationTaskName    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MigrationTaskSummary' with the minimum fields required to make a request.
 --
@@ -229,14 +231,15 @@ data MigrationTaskSummary = MigrationTaskSummary'
 migrationTaskSummary
     :: MigrationTaskSummary
 migrationTaskSummary =
-    MigrationTaskSummary'
-    { _mtsStatus = Nothing
-    , _mtsUpdateDateTime = Nothing
-    , _mtsProgressPercent = Nothing
-    , _mtsStatusDetail = Nothing
-    , _mtsProgressUpdateStream = Nothing
-    , _mtsMigrationTaskName = Nothing
-    }
+  MigrationTaskSummary'
+  { _mtsStatus = Nothing
+  , _mtsUpdateDateTime = Nothing
+  , _mtsProgressPercent = Nothing
+  , _mtsStatusDetail = Nothing
+  , _mtsProgressUpdateStream = Nothing
+  , _mtsMigrationTaskName = Nothing
+  }
+
 
 -- | Status of the task.
 mtsStatus :: Lens' MigrationTaskSummary (Maybe MigrationStatus)
@@ -273,9 +276,9 @@ instance FromJSON MigrationTaskSummary where
                      <*> (x .:? "ProgressUpdateStream")
                      <*> (x .:? "MigrationTaskName"))
 
-instance Hashable MigrationTaskSummary
+instance Hashable MigrationTaskSummary where
 
-instance NFData MigrationTaskSummary
+instance NFData MigrationTaskSummary where
 
 -- | Summary of the AWS resource used for access control that is implicitly linked to your AWS account.
 --
@@ -283,8 +286,9 @@ instance NFData MigrationTaskSummary
 --
 -- /See:/ 'progressUpdateStreamSummary' smart constructor.
 newtype ProgressUpdateStreamSummary = ProgressUpdateStreamSummary'
-    { _pussProgressUpdateStreamName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pussProgressUpdateStreamName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProgressUpdateStreamSummary' with the minimum fields required to make a request.
 --
@@ -294,9 +298,8 @@ newtype ProgressUpdateStreamSummary = ProgressUpdateStreamSummary'
 progressUpdateStreamSummary
     :: ProgressUpdateStreamSummary
 progressUpdateStreamSummary =
-    ProgressUpdateStreamSummary'
-    { _pussProgressUpdateStreamName = Nothing
-    }
+  ProgressUpdateStreamSummary' {_pussProgressUpdateStreamName = Nothing}
+
 
 -- | The name of the ProgressUpdateStream.
 pussProgressUpdateStreamName :: Lens' ProgressUpdateStreamSummary (Maybe Text)
@@ -309,9 +312,9 @@ instance FromJSON ProgressUpdateStreamSummary where
                  ProgressUpdateStreamSummary' <$>
                    (x .:? "ProgressUpdateStreamName"))
 
-instance Hashable ProgressUpdateStreamSummary
+instance Hashable ProgressUpdateStreamSummary where
 
-instance NFData ProgressUpdateStreamSummary
+instance NFData ProgressUpdateStreamSummary where
 
 -- | Attribute associated with a resource.
 --
@@ -319,9 +322,10 @@ instance NFData ProgressUpdateStreamSummary
 --
 -- /See:/ 'resourceAttribute' smart constructor.
 data ResourceAttribute = ResourceAttribute'
-    { _raType  :: !ResourceAttributeType
-    , _raValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raType  :: {-# NOUNPACK #-}!ResourceAttributeType
+  , _raValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceAttribute' with the minimum fields required to make a request.
 --
@@ -335,10 +339,8 @@ resourceAttribute
     -> Text -- ^ 'raValue'
     -> ResourceAttribute
 resourceAttribute pType_ pValue_ =
-    ResourceAttribute'
-    { _raType = pType_
-    , _raValue = pValue_
-    }
+  ResourceAttribute' {_raType = pType_, _raValue = pValue_}
+
 
 -- | Type of resource.
 raType :: Lens' ResourceAttribute ResourceAttributeType
@@ -355,9 +357,9 @@ instance FromJSON ResourceAttribute where
                  ResourceAttribute' <$>
                    (x .: "Type") <*> (x .: "Value"))
 
-instance Hashable ResourceAttribute
+instance Hashable ResourceAttribute where
 
-instance NFData ResourceAttribute
+instance NFData ResourceAttribute where
 
 instance ToJSON ResourceAttribute where
         toJSON ResourceAttribute'{..}
@@ -372,10 +374,11 @@ instance ToJSON ResourceAttribute where
 --
 -- /See:/ 'task' smart constructor.
 data Task = Task'
-    { _tProgressPercent :: !(Maybe Nat)
-    , _tStatusDetail    :: !(Maybe Text)
-    , _tStatus          :: !MigrationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tProgressPercent :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _tStatusDetail    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tStatus          :: {-# NOUNPACK #-}!MigrationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Task' with the minimum fields required to make a request.
 --
@@ -390,11 +393,9 @@ task
     :: MigrationStatus -- ^ 'tStatus'
     -> Task
 task pStatus_ =
-    Task'
-    { _tProgressPercent = Nothing
-    , _tStatusDetail = Nothing
-    , _tStatus = pStatus_
-    }
+  Task'
+  {_tProgressPercent = Nothing, _tStatusDetail = Nothing, _tStatus = pStatus_}
+
 
 -- | Indication of the percentage completion of the task.
 tProgressPercent :: Lens' Task (Maybe Natural)
@@ -416,9 +417,9 @@ instance FromJSON Task where
                    (x .:? "ProgressPercent") <*> (x .:? "StatusDetail")
                      <*> (x .: "Status"))
 
-instance Hashable Task
+instance Hashable Task where
 
-instance NFData Task
+instance NFData Task where
 
 instance ToJSON Task where
         toJSON Task'{..}

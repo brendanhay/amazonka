@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.CreateProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.CodeStar.CreateProject
     , cprsArn
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-    { _cpClientRequestToken :: !(Maybe Text)
-    , _cpDescription        :: !(Maybe (Sensitive Text))
-    , _cpName               :: !(Sensitive Text)
-    , _cpId                 :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cpClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpDescription        :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _cpName               :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _cpId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ createProject
     -> Text -- ^ 'cpId'
     -> CreateProject
 createProject pName_ pId_ =
-    CreateProject'
-    { _cpClientRequestToken = Nothing
-    , _cpDescription = Nothing
-    , _cpName = _Sensitive # pName_
-    , _cpId = pId_
-    }
+  CreateProject'
+  { _cpClientRequestToken = Nothing
+  , _cpDescription = Nothing
+  , _cpName = _Sensitive # pName_
+  , _cpId = pId_
+  }
+
 
 -- | Reserved for future use.
 cpClientRequestToken :: Lens' CreateProject (Maybe Text)
@@ -110,9 +112,9 @@ instance AWSRequest CreateProject where
                      <*> (x .:> "id")
                      <*> (x .:> "arn"))
 
-instance Hashable CreateProject
+instance Hashable CreateProject where
 
-instance NFData CreateProject
+instance NFData CreateProject where
 
 instance ToHeaders CreateProject where
         toHeaders
@@ -139,12 +141,13 @@ instance ToQuery CreateProject where
 
 -- | /See:/ 'createProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-    { _cprsProjectTemplateId  :: !(Maybe Text)
-    , _cprsClientRequestToken :: !(Maybe Text)
-    , _cprsResponseStatus     :: !Int
-    , _cprsId                 :: !Text
-    , _cprsArn                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsProjectTemplateId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cprsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cprsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _cprsId                 :: {-# NOUNPACK #-}!Text
+  , _cprsArn                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
 --
@@ -165,13 +168,14 @@ createProjectResponse
     -> Text -- ^ 'cprsArn'
     -> CreateProjectResponse
 createProjectResponse pResponseStatus_ pId_ pArn_ =
-    CreateProjectResponse'
-    { _cprsProjectTemplateId = Nothing
-    , _cprsClientRequestToken = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    , _cprsId = pId_
-    , _cprsArn = pArn_
-    }
+  CreateProjectResponse'
+  { _cprsProjectTemplateId = Nothing
+  , _cprsClientRequestToken = Nothing
+  , _cprsResponseStatus = pResponseStatus_
+  , _cprsId = pId_
+  , _cprsArn = pArn_
+  }
+
 
 -- | Reserved for future use.
 cprsProjectTemplateId :: Lens' CreateProjectResponse (Maybe Text)
@@ -193,4 +197,4 @@ cprsId = lens _cprsId (\ s a -> s{_cprsId = a});
 cprsArn :: Lens' CreateProjectResponse Text
 cprsArn = lens _cprsArn (\ s a -> s{_cprsArn = a});
 
-instance NFData CreateProjectResponse
+instance NFData CreateProjectResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateUserDefinedFunction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Glue.CreateUserDefinedFunction
     , cudfrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createUserDefinedFunction' smart constructor.
 data CreateUserDefinedFunction = CreateUserDefinedFunction'
-    { _cudfCatalogId     :: !(Maybe Text)
-    , _cudfDatabaseName  :: !Text
-    , _cudfFunctionInput :: !UserDefinedFunctionInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cudfCatalogId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cudfDatabaseName  :: {-# NOUNPACK #-}!Text
+  , _cudfFunctionInput :: {-# NOUNPACK #-}!UserDefinedFunctionInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserDefinedFunction' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ createUserDefinedFunction
     -> UserDefinedFunctionInput -- ^ 'cudfFunctionInput'
     -> CreateUserDefinedFunction
 createUserDefinedFunction pDatabaseName_ pFunctionInput_ =
-    CreateUserDefinedFunction'
-    { _cudfCatalogId = Nothing
-    , _cudfDatabaseName = pDatabaseName_
-    , _cudfFunctionInput = pFunctionInput_
-    }
+  CreateUserDefinedFunction'
+  { _cudfCatalogId = Nothing
+  , _cudfDatabaseName = pDatabaseName_
+  , _cudfFunctionInput = pFunctionInput_
+  }
+
 
 -- | The ID of the Data Catalog in which to create the function. If none is supplied, the AWS account ID is used by default.
 cudfCatalogId :: Lens' CreateUserDefinedFunction (Maybe Text)
@@ -94,9 +96,9 @@ instance AWSRequest CreateUserDefinedFunction where
                  CreateUserDefinedFunctionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateUserDefinedFunction
+instance Hashable CreateUserDefinedFunction where
 
-instance NFData CreateUserDefinedFunction
+instance NFData CreateUserDefinedFunction where
 
 instance ToHeaders CreateUserDefinedFunction where
         toHeaders
@@ -123,8 +125,9 @@ instance ToQuery CreateUserDefinedFunction where
 
 -- | /See:/ 'createUserDefinedFunctionResponse' smart constructor.
 newtype CreateUserDefinedFunctionResponse = CreateUserDefinedFunctionResponse'
-    { _cudfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cudfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserDefinedFunctionResponse' with the minimum fields required to make a request.
 --
@@ -135,12 +138,12 @@ createUserDefinedFunctionResponse
     :: Int -- ^ 'cudfrsResponseStatus'
     -> CreateUserDefinedFunctionResponse
 createUserDefinedFunctionResponse pResponseStatus_ =
-    CreateUserDefinedFunctionResponse'
-    { _cudfrsResponseStatus = pResponseStatus_
-    }
+  CreateUserDefinedFunctionResponse' {_cudfrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cudfrsResponseStatus :: Lens' CreateUserDefinedFunctionResponse Int
 cudfrsResponseStatus = lens _cudfrsResponseStatus (\ s a -> s{_cudfrsResponseStatus = a});
 
 instance NFData CreateUserDefinedFunctionResponse
+         where

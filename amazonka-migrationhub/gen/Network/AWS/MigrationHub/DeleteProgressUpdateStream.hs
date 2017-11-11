@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DeleteProgressUpdateStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,18 +49,19 @@ module Network.AWS.MigrationHub.DeleteProgressUpdateStream
     , dpusrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteProgressUpdateStream' smart constructor.
 data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
-    { _dpusDryRun                   :: !(Maybe Bool)
-    , _dpusProgressUpdateStreamName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpusDryRun                   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dpusProgressUpdateStreamName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProgressUpdateStream' with the minimum fields required to make a request.
 --
@@ -73,10 +74,11 @@ deleteProgressUpdateStream
     :: Text -- ^ 'dpusProgressUpdateStreamName'
     -> DeleteProgressUpdateStream
 deleteProgressUpdateStream pProgressUpdateStreamName_ =
-    DeleteProgressUpdateStream'
-    { _dpusDryRun = Nothing
-    , _dpusProgressUpdateStreamName = pProgressUpdateStreamName_
-    }
+  DeleteProgressUpdateStream'
+  { _dpusDryRun = Nothing
+  , _dpusProgressUpdateStreamName = pProgressUpdateStreamName_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 dpusDryRun :: Lens' DeleteProgressUpdateStream (Maybe Bool)
@@ -96,9 +98,9 @@ instance AWSRequest DeleteProgressUpdateStream where
                  DeleteProgressUpdateStreamResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteProgressUpdateStream
+instance Hashable DeleteProgressUpdateStream where
 
-instance NFData DeleteProgressUpdateStream
+instance NFData DeleteProgressUpdateStream where
 
 instance ToHeaders DeleteProgressUpdateStream where
         toHeaders
@@ -127,8 +129,9 @@ instance ToQuery DeleteProgressUpdateStream where
 
 -- | /See:/ 'deleteProgressUpdateStreamResponse' smart constructor.
 newtype DeleteProgressUpdateStreamResponse = DeleteProgressUpdateStreamResponse'
-    { _dpusrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpusrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProgressUpdateStreamResponse' with the minimum fields required to make a request.
 --
@@ -139,12 +142,12 @@ deleteProgressUpdateStreamResponse
     :: Int -- ^ 'dpusrsResponseStatus'
     -> DeleteProgressUpdateStreamResponse
 deleteProgressUpdateStreamResponse pResponseStatus_ =
-    DeleteProgressUpdateStreamResponse'
-    { _dpusrsResponseStatus = pResponseStatus_
-    }
+  DeleteProgressUpdateStreamResponse' {_dpusrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dpusrsResponseStatus :: Lens' DeleteProgressUpdateStreamResponse Int
 dpusrsResponseStatus = lens _dpusrsResponseStatus (\ s a -> s{_dpusrsResponseStatus = a});
 
 instance NFData DeleteProgressUpdateStreamResponse
+         where

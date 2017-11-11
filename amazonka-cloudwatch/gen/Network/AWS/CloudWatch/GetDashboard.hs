@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.GetDashboard
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.CloudWatch.GetDashboard
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDashboard' smart constructor.
 newtype GetDashboard = GetDashboard'
-    { _gdDashboardName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdDashboardName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDashboard' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetDashboard = GetDashboard'
 -- * 'gdDashboardName' - The name of the dashboard to be described.
 getDashboard
     :: GetDashboard
-getDashboard =
-    GetDashboard'
-    { _gdDashboardName = Nothing
-    }
+getDashboard = GetDashboard' {_gdDashboardName = Nothing}
+
 
 -- | The name of the dashboard to be described.
 gdDashboardName :: Lens' GetDashboard (Maybe Text)
@@ -80,9 +79,9 @@ instance AWSRequest GetDashboard where
                      <*> (x .@? "DashboardArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDashboard
+instance Hashable GetDashboard where
 
-instance NFData GetDashboard
+instance NFData GetDashboard where
 
 instance ToHeaders GetDashboard where
         toHeaders = const mempty
@@ -99,11 +98,12 @@ instance ToQuery GetDashboard where
 
 -- | /See:/ 'getDashboardResponse' smart constructor.
 data GetDashboardResponse = GetDashboardResponse'
-    { _gdrsDashboardName  :: !(Maybe Text)
-    , _gdrsDashboardBody  :: !(Maybe Text)
-    , _gdrsDashboardARN   :: !(Maybe Text)
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsDashboardName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrsDashboardBody  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrsDashboardARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDashboardResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +120,13 @@ getDashboardResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDashboardResponse
 getDashboardResponse pResponseStatus_ =
-    GetDashboardResponse'
-    { _gdrsDashboardName = Nothing
-    , _gdrsDashboardBody = Nothing
-    , _gdrsDashboardARN = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDashboardResponse'
+  { _gdrsDashboardName = Nothing
+  , _gdrsDashboardBody = Nothing
+  , _gdrsDashboardARN = Nothing
+  , _gdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the dashboard.
 gdrsDashboardName :: Lens' GetDashboardResponse (Maybe Text)
@@ -143,4 +144,4 @@ gdrsDashboardARN = lens _gdrsDashboardARN (\ s a -> s{_gdrsDashboardARN = a});
 gdrsResponseStatus :: Lens' GetDashboardResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDashboardResponse
+instance NFData GetDashboardResponse where

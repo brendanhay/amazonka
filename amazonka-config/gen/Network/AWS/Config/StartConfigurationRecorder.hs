@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.StartConfigurationRecorder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.Config.StartConfigurationRecorder
     , StartConfigurationRecorderResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'StartConfigurationRecorder' action.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startConfigurationRecorder' smart constructor.
 newtype StartConfigurationRecorder = StartConfigurationRecorder'
-    { _sConfigurationRecorderName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sConfigurationRecorderName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartConfigurationRecorder' with the minimum fields required to make a request.
 --
@@ -61,9 +62,9 @@ startConfigurationRecorder
     :: Text -- ^ 'sConfigurationRecorderName'
     -> StartConfigurationRecorder
 startConfigurationRecorder pConfigurationRecorderName_ =
-    StartConfigurationRecorder'
-    { _sConfigurationRecorderName = pConfigurationRecorderName_
-    }
+  StartConfigurationRecorder'
+  {_sConfigurationRecorderName = pConfigurationRecorderName_}
+
 
 -- | The name of the recorder object that records each configuration change made to the resources.
 sConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
@@ -76,9 +77,9 @@ instance AWSRequest StartConfigurationRecorder where
         response
           = receiveNull StartConfigurationRecorderResponse'
 
-instance Hashable StartConfigurationRecorder
+instance Hashable StartConfigurationRecorder where
 
-instance NFData StartConfigurationRecorder
+instance NFData StartConfigurationRecorder where
 
 instance ToHeaders StartConfigurationRecorder where
         toHeaders
@@ -106,8 +107,9 @@ instance ToQuery StartConfigurationRecorder where
 
 -- | /See:/ 'startConfigurationRecorderResponse' smart constructor.
 data StartConfigurationRecorderResponse =
-    StartConfigurationRecorderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StartConfigurationRecorderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartConfigurationRecorderResponse' with the minimum fields required to make a request.
 --
@@ -115,4 +117,6 @@ startConfigurationRecorderResponse
     :: StartConfigurationRecorderResponse
 startConfigurationRecorderResponse = StartConfigurationRecorderResponse'
 
+
 instance NFData StartConfigurationRecorderResponse
+         where

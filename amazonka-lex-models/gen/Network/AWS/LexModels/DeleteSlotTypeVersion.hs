@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteSlotTypeVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.LexModels.DeleteSlotTypeVersion
     , DeleteSlotTypeVersionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSlotTypeVersion' smart constructor.
 data DeleteSlotTypeVersion = DeleteSlotTypeVersion'
-    { _dstvName    :: !Text
-    , _dstvVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dstvName    :: {-# NOUNPACK #-}!Text
+  , _dstvVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSlotTypeVersion' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteSlotTypeVersion
     -> Text -- ^ 'dstvVersion'
     -> DeleteSlotTypeVersion
 deleteSlotTypeVersion pName_ pVersion_ =
-    DeleteSlotTypeVersion'
-    { _dstvName = pName_
-    , _dstvVersion = pVersion_
-    }
+  DeleteSlotTypeVersion' {_dstvName = pName_, _dstvVersion = pVersion_}
+
 
 -- | The name of the slot type.
 dstvName :: Lens' DeleteSlotTypeVersion Text
@@ -81,9 +80,9 @@ instance AWSRequest DeleteSlotTypeVersion where
         request = delete lexModels
         response = receiveNull DeleteSlotTypeVersionResponse'
 
-instance Hashable DeleteSlotTypeVersion
+instance Hashable DeleteSlotTypeVersion where
 
-instance NFData DeleteSlotTypeVersion
+instance NFData DeleteSlotTypeVersion where
 
 instance ToHeaders DeleteSlotTypeVersion where
         toHeaders
@@ -103,8 +102,9 @@ instance ToQuery DeleteSlotTypeVersion where
 
 -- | /See:/ 'deleteSlotTypeVersionResponse' smart constructor.
 data DeleteSlotTypeVersionResponse =
-    DeleteSlotTypeVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSlotTypeVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSlotTypeVersionResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +112,5 @@ deleteSlotTypeVersionResponse
     :: DeleteSlotTypeVersionResponse
 deleteSlotTypeVersionResponse = DeleteSlotTypeVersionResponse'
 
-instance NFData DeleteSlotTypeVersionResponse
+
+instance NFData DeleteSlotTypeVersionResponse where

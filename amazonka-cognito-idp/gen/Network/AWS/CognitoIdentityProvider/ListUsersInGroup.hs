@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUsersInGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.CognitoIdentityProvider.ListUsersInGroup
     , luigrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listUsersInGroup' smart constructor.
 data ListUsersInGroup = ListUsersInGroup'
-    { _luigNextToken  :: !(Maybe Text)
-    , _luigLimit      :: !(Maybe Nat)
-    , _luigUserPoolId :: !Text
-    , _luigGroupName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _luigNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _luigLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _luigUserPoolId :: {-# NOUNPACK #-}!Text
+  , _luigGroupName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUsersInGroup' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ listUsersInGroup
     -> Text -- ^ 'luigGroupName'
     -> ListUsersInGroup
 listUsersInGroup pUserPoolId_ pGroupName_ =
-    ListUsersInGroup'
-    { _luigNextToken = Nothing
-    , _luigLimit = Nothing
-    , _luigUserPoolId = pUserPoolId_
-    , _luigGroupName = pGroupName_
-    }
+  ListUsersInGroup'
+  { _luigNextToken = Nothing
+  , _luigLimit = Nothing
+  , _luigUserPoolId = pUserPoolId_
+  , _luigGroupName = pGroupName_
+  }
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luigNextToken :: Lens' ListUsersInGroup (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest ListUsersInGroup where
                    (x .?> "Users" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListUsersInGroup
+instance Hashable ListUsersInGroup where
 
-instance NFData ListUsersInGroup
+instance NFData ListUsersInGroup where
 
 instance ToHeaders ListUsersInGroup where
         toHeaders
@@ -138,10 +140,11 @@ instance ToQuery ListUsersInGroup where
 
 -- | /See:/ 'listUsersInGroupResponse' smart constructor.
 data ListUsersInGroupResponse = ListUsersInGroupResponse'
-    { _luigrsUsers          :: !(Maybe [UserType])
-    , _luigrsNextToken      :: !(Maybe Text)
-    , _luigrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _luigrsUsers          :: {-# NOUNPACK #-}!(Maybe [UserType])
+  , _luigrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _luigrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUsersInGroupResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +159,12 @@ listUsersInGroupResponse
     :: Int -- ^ 'luigrsResponseStatus'
     -> ListUsersInGroupResponse
 listUsersInGroupResponse pResponseStatus_ =
-    ListUsersInGroupResponse'
-    { _luigrsUsers = Nothing
-    , _luigrsNextToken = Nothing
-    , _luigrsResponseStatus = pResponseStatus_
-    }
+  ListUsersInGroupResponse'
+  { _luigrsUsers = Nothing
+  , _luigrsNextToken = Nothing
+  , _luigrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The users returned in the request to list users.
 luigrsUsers :: Lens' ListUsersInGroupResponse [UserType]
@@ -174,4 +178,4 @@ luigrsNextToken = lens _luigrsNextToken (\ s a -> s{_luigrsNextToken = a});
 luigrsResponseStatus :: Lens' ListUsersInGroupResponse Int
 luigrsResponseStatus = lens _luigrsResponseStatus (\ s a -> s{_luigrsResponseStatus = a});
 
-instance NFData ListUsersInGroupResponse
+instance NFData ListUsersInGroupResponse where

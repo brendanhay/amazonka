@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.AddPermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.SQS.AddPermission
     , AddPermissionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -52,11 +52,12 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'addPermission' smart constructor.
 data AddPermission = AddPermission'
-    { _apQueueURL      :: !Text
-    , _apLabel         :: !Text
-    , _apAWSAccountIds :: ![Text]
-    , _apActions       :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apQueueURL      :: {-# NOUNPACK #-}!Text
+  , _apLabel         :: {-# NOUNPACK #-}!Text
+  , _apAWSAccountIds :: {-# NOUNPACK #-}![Text]
+  , _apActions       :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ addPermission
     -> Text -- ^ 'apLabel'
     -> AddPermission
 addPermission pQueueURL_ pLabel_ =
-    AddPermission'
-    { _apQueueURL = pQueueURL_
-    , _apLabel = pLabel_
-    , _apAWSAccountIds = mempty
-    , _apActions = mempty
-    }
+  AddPermission'
+  { _apQueueURL = pQueueURL_
+  , _apLabel = pLabel_
+  , _apAWSAccountIds = mempty
+  , _apActions = mempty
+  }
+
 
 -- | The URL of the Amazon SQS queue to which permissions are added. Queue URLs are case-sensitive.
 apQueueURL :: Lens' AddPermission Text
@@ -102,9 +104,9 @@ instance AWSRequest AddPermission where
         request = postQuery sqs
         response = receiveNull AddPermissionResponse'
 
-instance Hashable AddPermission
+instance Hashable AddPermission where
 
-instance NFData AddPermission
+instance NFData AddPermission where
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty
@@ -123,8 +125,9 @@ instance ToQuery AddPermission where
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse =
-    AddPermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddPermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
 --
@@ -132,4 +135,5 @@ addPermissionResponse
     :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse'
 
-instance NFData AddPermissionResponse
+
+instance NFData AddPermissionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListSizeConstraintSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.WAFRegional.ListSizeConstraintSets
     , lscsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listSizeConstraintSets' smart constructor.
 data ListSizeConstraintSets = ListSizeConstraintSets'
-    { _lscsNextMarker :: !(Maybe Text)
-    , _lscsLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lscsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lscsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSizeConstraintSets' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data ListSizeConstraintSets = ListSizeConstraintSets'
 listSizeConstraintSets
     :: ListSizeConstraintSets
 listSizeConstraintSets =
-    ListSizeConstraintSets'
-    { _lscsNextMarker = Nothing
-    , _lscsLimit = Nothing
-    }
+  ListSizeConstraintSets' {_lscsNextMarker = Nothing, _lscsLimit = Nothing}
+
 
 -- | If you specify a value for @Limit@ and you have more @SizeConstraintSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @SizeConstraintSets@ . For the second and subsequent @ListSizeConstraintSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @SizeConstraintSets@ .
 lscsNextMarker :: Lens' ListSizeConstraintSets (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest ListSizeConstraintSets where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListSizeConstraintSets
+instance Hashable ListSizeConstraintSets where
 
-instance NFData ListSizeConstraintSets
+instance NFData ListSizeConstraintSets where
 
 instance ToHeaders ListSizeConstraintSets where
         toHeaders
@@ -116,10 +115,11 @@ instance ToQuery ListSizeConstraintSets where
 
 -- | /See:/ 'listSizeConstraintSetsResponse' smart constructor.
 data ListSizeConstraintSetsResponse = ListSizeConstraintSetsResponse'
-    { _lscsrsSizeConstraintSets :: !(Maybe [SizeConstraintSetSummary])
-    , _lscsrsNextMarker         :: !(Maybe Text)
-    , _lscsrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lscsrsSizeConstraintSets :: {-# NOUNPACK #-}!(Maybe [SizeConstraintSetSummary])
+  , _lscsrsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lscsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSizeConstraintSetsResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +134,12 @@ listSizeConstraintSetsResponse
     :: Int -- ^ 'lscsrsResponseStatus'
     -> ListSizeConstraintSetsResponse
 listSizeConstraintSetsResponse pResponseStatus_ =
-    ListSizeConstraintSetsResponse'
-    { _lscsrsSizeConstraintSets = Nothing
-    , _lscsrsNextMarker = Nothing
-    , _lscsrsResponseStatus = pResponseStatus_
-    }
+  ListSizeConstraintSetsResponse'
+  { _lscsrsSizeConstraintSets = Nothing
+  , _lscsrsNextMarker = Nothing
+  , _lscsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of 'SizeConstraintSetSummary' objects.
 lscsrsSizeConstraintSets :: Lens' ListSizeConstraintSetsResponse [SizeConstraintSetSummary]
@@ -152,4 +153,4 @@ lscsrsNextMarker = lens _lscsrsNextMarker (\ s a -> s{_lscsrsNextMarker = a});
 lscsrsResponseStatus :: Lens' ListSizeConstraintSetsResponse Int
 lscsrsResponseStatus = lens _lscsrsResponseStatus (\ s a -> s{_lscsrsResponseStatus = a});
 
-instance NFData ListSizeConstraintSetsResponse
+instance NFData ListSizeConstraintSetsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteRouteTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DeleteRouteTable
     , DeleteRouteTableResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteRouteTable.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteRouteTable' smart constructor.
 data DeleteRouteTable = DeleteRouteTable'
-    { _drtrDryRun       :: !(Maybe Bool)
-    , _drtrRouteTableId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drtrDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _drtrRouteTableId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRouteTable' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ deleteRouteTable
     :: Text -- ^ 'drtrRouteTableId'
     -> DeleteRouteTable
 deleteRouteTable pRouteTableId_ =
-    DeleteRouteTable'
-    { _drtrDryRun = Nothing
-    , _drtrRouteTableId = pRouteTableId_
-    }
+  DeleteRouteTable' {_drtrDryRun = Nothing, _drtrRouteTableId = pRouteTableId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 drtrDryRun :: Lens' DeleteRouteTable (Maybe Bool)
@@ -81,9 +80,9 @@ instance AWSRequest DeleteRouteTable where
         request = postQuery ec2
         response = receiveNull DeleteRouteTableResponse'
 
-instance Hashable DeleteRouteTable
+instance Hashable DeleteRouteTable where
 
-instance NFData DeleteRouteTable
+instance NFData DeleteRouteTable where
 
 instance ToHeaders DeleteRouteTable where
         toHeaders = const mempty
@@ -101,8 +100,9 @@ instance ToQuery DeleteRouteTable where
 
 -- | /See:/ 'deleteRouteTableResponse' smart constructor.
 data DeleteRouteTableResponse =
-    DeleteRouteTableResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteRouteTableResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRouteTableResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +110,5 @@ deleteRouteTableResponse
     :: DeleteRouteTableResponse
 deleteRouteTableResponse = DeleteRouteTableResponse'
 
-instance NFData DeleteRouteTableResponse
+
+instance NFData DeleteRouteTableResponse where

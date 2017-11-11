@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateKeyPair
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.Lightsail.CreateKeyPair
     , ckprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createKeyPair' smart constructor.
 newtype CreateKeyPair = CreateKeyPair'
-    { _ckpKeyPairName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckpKeyPairName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateKeyPair' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype CreateKeyPair = CreateKeyPair'
 createKeyPair
     :: Text -- ^ 'ckpKeyPairName'
     -> CreateKeyPair
-createKeyPair pKeyPairName_ =
-    CreateKeyPair'
-    { _ckpKeyPairName = pKeyPairName_
-    }
+createKeyPair pKeyPairName_ = CreateKeyPair' {_ckpKeyPairName = pKeyPairName_}
+
 
 -- | The name for your new key pair.
 ckpKeyPairName :: Lens' CreateKeyPair Text
@@ -81,9 +80,9 @@ instance AWSRequest CreateKeyPair where
                      <*> (x .?> "privateKeyBase64")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateKeyPair
+instance Hashable CreateKeyPair where
 
-instance NFData CreateKeyPair
+instance NFData CreateKeyPair where
 
 instance ToHeaders CreateKeyPair where
         toHeaders
@@ -107,12 +106,13 @@ instance ToQuery CreateKeyPair where
 
 -- | /See:/ 'createKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprsKeyPair          :: !(Maybe KeyPair)
-    , _ckprsOperation        :: !(Maybe Operation)
-    , _ckprsPublicKeyBase64  :: !(Maybe Text)
-    , _ckprsPrivateKeyBase64 :: !(Maybe Text)
-    , _ckprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckprsKeyPair          :: {-# NOUNPACK #-}!(Maybe KeyPair)
+  , _ckprsOperation        :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _ckprsPublicKeyBase64  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ckprsPrivateKeyBase64 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ckprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateKeyPairResponse' with the minimum fields required to make a request.
 --
@@ -131,13 +131,14 @@ createKeyPairResponse
     :: Int -- ^ 'ckprsResponseStatus'
     -> CreateKeyPairResponse
 createKeyPairResponse pResponseStatus_ =
-    CreateKeyPairResponse'
-    { _ckprsKeyPair = Nothing
-    , _ckprsOperation = Nothing
-    , _ckprsPublicKeyBase64 = Nothing
-    , _ckprsPrivateKeyBase64 = Nothing
-    , _ckprsResponseStatus = pResponseStatus_
-    }
+  CreateKeyPairResponse'
+  { _ckprsKeyPair = Nothing
+  , _ckprsOperation = Nothing
+  , _ckprsPublicKeyBase64 = Nothing
+  , _ckprsPrivateKeyBase64 = Nothing
+  , _ckprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of key-value pairs containing information about the new key pair you just created.
 ckprsKeyPair :: Lens' CreateKeyPairResponse (Maybe KeyPair)
@@ -159,4 +160,4 @@ ckprsPrivateKeyBase64 = lens _ckprsPrivateKeyBase64 (\ s a -> s{_ckprsPrivateKey
 ckprsResponseStatus :: Lens' CreateKeyPairResponse Int
 ckprsResponseStatus = lens _ckprsResponseStatus (\ s a -> s{_ckprsResponseStatus = a});
 
-instance NFData CreateKeyPairResponse
+instance NFData CreateKeyPairResponse where

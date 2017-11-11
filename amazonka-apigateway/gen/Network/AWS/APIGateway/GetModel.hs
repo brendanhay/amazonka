@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.GetModel
     , mContentType
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to list information about a model in an existing 'RestApi' resource.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getModel' smart constructor.
 data GetModel = GetModel'
-    { _ggFlatten   :: !(Maybe Bool)
-    , _ggRestAPIId :: !Text
-    , _ggModelName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggFlatten   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ggRestAPIId :: {-# NOUNPACK #-}!Text
+  , _ggModelName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetModel' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ getModel
     -> Text -- ^ 'ggModelName'
     -> GetModel
 getModel pRestAPIId_ pModelName_ =
-    GetModel'
-    { _ggFlatten = Nothing
-    , _ggRestAPIId = pRestAPIId_
-    , _ggModelName = pModelName_
-    }
+  GetModel'
+  {_ggFlatten = Nothing, _ggRestAPIId = pRestAPIId_, _ggModelName = pModelName_}
+
 
 -- | A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 ggFlatten :: Lens' GetModel (Maybe Bool)
@@ -97,9 +96,9 @@ instance AWSRequest GetModel where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetModel
+instance Hashable GetModel where
 
-instance NFData GetModel
+instance NFData GetModel where
 
 instance ToHeaders GetModel where
         toHeaders

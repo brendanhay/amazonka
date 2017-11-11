@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeConnections
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DMS.DescribeConnections
     , drsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeConnections' smart constructor.
 data DescribeConnections = DescribeConnections'
-    { _dcFilters    :: !(Maybe [Filter])
-    , _dcMarker     :: !(Maybe Text)
-    , _dcMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dcMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConnections' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data DescribeConnections = DescribeConnections'
 describeConnections
     :: DescribeConnections
 describeConnections =
-    DescribeConnections'
-    { _dcFilters = Nothing
-    , _dcMarker = Nothing
-    , _dcMaxRecords = Nothing
-    }
+  DescribeConnections'
+  {_dcFilters = Nothing, _dcMarker = Nothing, _dcMaxRecords = Nothing}
+
 
 -- | The filters applied to the connection. Valid filter names: endpoint-arn | replication-instance-arn
 dcFilters :: Lens' DescribeConnections [Filter]
@@ -99,9 +98,9 @@ instance AWSRequest DescribeConnections where
                    (x .?> "Connections" .!@ mempty) <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeConnections
+instance Hashable DescribeConnections where
 
-instance NFData DescribeConnections
+instance NFData DescribeConnections where
 
 instance ToHeaders DescribeConnections where
         toHeaders
@@ -133,10 +132,11 @@ instance ToQuery DescribeConnections where
 --
 -- /See:/ 'describeConnectionsResponse' smart constructor.
 data DescribeConnectionsResponse = DescribeConnectionsResponse'
-    { _drsConnections    :: !(Maybe [Connection])
-    , _drsMarker         :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsConnections    :: {-# NOUNPACK #-}!(Maybe [Connection])
+  , _drsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConnectionsResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +151,12 @@ describeConnectionsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeConnectionsResponse
 describeConnectionsResponse pResponseStatus_ =
-    DescribeConnectionsResponse'
-    { _drsConnections = Nothing
-    , _drsMarker = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeConnectionsResponse'
+  { _drsConnections = Nothing
+  , _drsMarker = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A description of the connections.
 drsConnections :: Lens' DescribeConnectionsResponse [Connection]
@@ -169,4 +170,4 @@ drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 drsResponseStatus :: Lens' DescribeConnectionsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeConnectionsResponse
+instance NFData DescribeConnectionsResponse where

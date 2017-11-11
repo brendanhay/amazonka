@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.EFS.DescribeTags
     , dtrsTags
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -59,10 +59,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-    { _dtMarker       :: !(Maybe Text)
-    , _dtMaxItems     :: !(Maybe Nat)
-    , _dtFileSystemId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtMarker       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtMaxItems     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dtFileSystemId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
@@ -77,11 +78,9 @@ describeTags
     :: Text -- ^ 'dtFileSystemId'
     -> DescribeTags
 describeTags pFileSystemId_ =
-    DescribeTags'
-    { _dtMarker = Nothing
-    , _dtMaxItems = Nothing
-    , _dtFileSystemId = pFileSystemId_
-    }
+  DescribeTags'
+  {_dtMarker = Nothing, _dtMaxItems = Nothing, _dtFileSystemId = pFileSystemId_}
+
 
 -- | (Optional) Opaque pagination token returned from a previous @DescribeTags@ operation (String). If present, it specifies to continue the list from where the previous call left off.
 dtMarker :: Lens' DescribeTags (Maybe Text)
@@ -113,9 +112,9 @@ instance AWSRequest DescribeTags where
                      (pure (fromEnum s))
                      <*> (x .?> "Tags" .!@ mempty))
 
-instance Hashable DescribeTags
+instance Hashable DescribeTags where
 
-instance NFData DescribeTags
+instance NFData DescribeTags where
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -136,11 +135,12 @@ instance ToQuery DescribeTags where
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsMarker         :: !(Maybe Text)
-    , _dtrsNextMarker     :: !(Maybe Text)
-    , _dtrsResponseStatus :: !Int
-    , _dtrsTags           :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dtrsTags           :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +157,13 @@ describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
-    DescribeTagsResponse'
-    { _dtrsMarker = Nothing
-    , _dtrsNextMarker = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    , _dtrsTags = mempty
-    }
+  DescribeTagsResponse'
+  { _dtrsMarker = Nothing
+  , _dtrsNextMarker = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  , _dtrsTags = mempty
+  }
+
 
 -- | If the request included a @Marker@ , the response returns that value in this field.
 dtrsMarker :: Lens' DescribeTagsResponse (Maybe Text)
@@ -180,4 +181,4 @@ dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = 
 dtrsTags :: Lens' DescribeTagsResponse [Tag]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Coerce;
 
-instance NFData DescribeTagsResponse
+instance NFData DescribeTagsResponse where

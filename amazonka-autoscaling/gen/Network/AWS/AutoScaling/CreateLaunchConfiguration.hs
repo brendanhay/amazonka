@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CreateLaunchConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     , CreateLaunchConfigurationResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateLaunchConfiguration.
 --
@@ -68,25 +68,26 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createLaunchConfiguration' smart constructor.
 data CreateLaunchConfiguration = CreateLaunchConfiguration'
-    { _clcInstanceId                   :: !(Maybe Text)
-    , _clcAssociatePublicIPAddress     :: !(Maybe Bool)
-    , _clcSecurityGroups               :: !(Maybe [Text])
-    , _clcSpotPrice                    :: !(Maybe Text)
-    , _clcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
-    , _clcKeyName                      :: !(Maybe Text)
-    , _clcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
-    , _clcRAMDiskId                    :: !(Maybe Text)
-    , _clcKernelId                     :: !(Maybe Text)
-    , _clcInstanceType                 :: !(Maybe Text)
-    , _clcEBSOptimized                 :: !(Maybe Bool)
-    , _clcUserData                     :: !(Maybe Text)
-    , _clcClassicLinkVPCId             :: !(Maybe Text)
-    , _clcIAMInstanceProfile           :: !(Maybe Text)
-    , _clcImageId                      :: !(Maybe Text)
-    , _clcPlacementTenancy             :: !(Maybe Text)
-    , _clcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
-    , _clcLaunchConfigurationName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clcInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcAssociatePublicIPAddress :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _clcSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _clcSpotPrice :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcInstanceMonitoring :: {-# NOUNPACK #-}!(Maybe InstanceMonitoring)
+  , _clcKeyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcClassicLinkVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _clcRAMDiskId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcKernelId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _clcUserData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcClassicLinkVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcIAMInstanceProfile :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcImageId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcPlacementTenancy :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clcBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
+  , _clcLaunchConfigurationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLaunchConfiguration' with the minimum fields required to make a request.
 --
@@ -131,26 +132,27 @@ createLaunchConfiguration
     :: Text -- ^ 'clcLaunchConfigurationName'
     -> CreateLaunchConfiguration
 createLaunchConfiguration pLaunchConfigurationName_ =
-    CreateLaunchConfiguration'
-    { _clcInstanceId = Nothing
-    , _clcAssociatePublicIPAddress = Nothing
-    , _clcSecurityGroups = Nothing
-    , _clcSpotPrice = Nothing
-    , _clcInstanceMonitoring = Nothing
-    , _clcKeyName = Nothing
-    , _clcClassicLinkVPCSecurityGroups = Nothing
-    , _clcRAMDiskId = Nothing
-    , _clcKernelId = Nothing
-    , _clcInstanceType = Nothing
-    , _clcEBSOptimized = Nothing
-    , _clcUserData = Nothing
-    , _clcClassicLinkVPCId = Nothing
-    , _clcIAMInstanceProfile = Nothing
-    , _clcImageId = Nothing
-    , _clcPlacementTenancy = Nothing
-    , _clcBlockDeviceMappings = Nothing
-    , _clcLaunchConfigurationName = pLaunchConfigurationName_
-    }
+  CreateLaunchConfiguration'
+  { _clcInstanceId = Nothing
+  , _clcAssociatePublicIPAddress = Nothing
+  , _clcSecurityGroups = Nothing
+  , _clcSpotPrice = Nothing
+  , _clcInstanceMonitoring = Nothing
+  , _clcKeyName = Nothing
+  , _clcClassicLinkVPCSecurityGroups = Nothing
+  , _clcRAMDiskId = Nothing
+  , _clcKernelId = Nothing
+  , _clcInstanceType = Nothing
+  , _clcEBSOptimized = Nothing
+  , _clcUserData = Nothing
+  , _clcClassicLinkVPCId = Nothing
+  , _clcIAMInstanceProfile = Nothing
+  , _clcImageId = Nothing
+  , _clcPlacementTenancy = Nothing
+  , _clcBlockDeviceMappings = Nothing
+  , _clcLaunchConfigurationName = pLaunchConfigurationName_
+  }
+
 
 -- | The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, with the exception of the block device mapping. To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance> in the /Auto Scaling User Guide/ .
 clcInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
@@ -231,9 +233,9 @@ instance AWSRequest CreateLaunchConfiguration where
         response
           = receiveNull CreateLaunchConfigurationResponse'
 
-instance Hashable CreateLaunchConfiguration
+instance Hashable CreateLaunchConfiguration where
 
-instance NFData CreateLaunchConfiguration
+instance NFData CreateLaunchConfiguration where
 
 instance ToHeaders CreateLaunchConfiguration where
         toHeaders = const mempty
@@ -277,8 +279,9 @@ instance ToQuery CreateLaunchConfiguration where
 
 -- | /See:/ 'createLaunchConfigurationResponse' smart constructor.
 data CreateLaunchConfigurationResponse =
-    CreateLaunchConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateLaunchConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLaunchConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -286,4 +289,6 @@ createLaunchConfigurationResponse
     :: CreateLaunchConfigurationResponse
 createLaunchConfigurationResponse = CreateLaunchConfigurationResponse'
 
+
 instance NFData CreateLaunchConfigurationResponse
+         where

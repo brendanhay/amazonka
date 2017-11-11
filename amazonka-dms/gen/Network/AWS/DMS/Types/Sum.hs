@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.DMS.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DMS.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AuthMechanismValue
-    = Default
-    | MongodbCr
-    | ScramSha1
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Default
+  | MongodbCr
+  | ScramSha1
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AuthMechanismValue where
     parser = takeLowerText >>= \case
@@ -52,9 +53,10 @@ instance FromJSON AuthMechanismValue where
     parseJSON = parseJSONText "AuthMechanismValue"
 
 data AuthTypeValue
-    = NO
-    | Password
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NO
+  | Password
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AuthTypeValue where
     parser = takeLowerText >>= \case
@@ -81,9 +83,10 @@ instance FromJSON AuthTypeValue where
     parseJSON = parseJSONText "AuthTypeValue"
 
 data CompressionTypeValue
-    = CTVGzip
-    | CTVNone
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CTVGzip
+  | CTVNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CompressionTypeValue where
     parser = takeLowerText >>= \case
@@ -110,11 +113,12 @@ instance FromJSON CompressionTypeValue where
     parseJSON = parseJSONText "CompressionTypeValue"
 
 data DmsSSLModeValue
-    = DSMVNone
-    | DSMVRequire
-    | DSMVVerifyCa
-    | DSMVVerifyFull
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DSMVNone
+  | DSMVRequire
+  | DSMVVerifyCa
+  | DSMVVerifyFull
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DmsSSLModeValue where
     parser = takeLowerText >>= \case
@@ -145,10 +149,11 @@ instance FromJSON DmsSSLModeValue where
     parseJSON = parseJSONText "DmsSSLModeValue"
 
 data MigrationTypeValue
-    = Cdc
-    | FullLoad
-    | FullLoadAndCdc
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cdc
+  | FullLoad
+  | FullLoadAndCdc
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MigrationTypeValue where
     parser = takeLowerText >>= \case
@@ -177,9 +182,10 @@ instance FromJSON MigrationTypeValue where
     parseJSON = parseJSONText "MigrationTypeValue"
 
 data NestingLevelValue
-    = None
-    | One
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = None
+  | One
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NestingLevelValue where
     parser = takeLowerText >>= \case
@@ -206,10 +212,11 @@ instance FromJSON NestingLevelValue where
     parseJSON = parseJSONText "NestingLevelValue"
 
 data RefreshSchemasStatusTypeValue
-    = Failed
-    | Refreshing
-    | Successful
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | Refreshing
+  | Successful
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RefreshSchemasStatusTypeValue where
     parser = takeLowerText >>= \case
@@ -235,9 +242,10 @@ instance FromJSON RefreshSchemasStatusTypeValue where
     parseJSON = parseJSONText "RefreshSchemasStatusTypeValue"
 
 data ReplicationEndpointTypeValue
-    = Source
-    | Target
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Source
+  | Target
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReplicationEndpointTypeValue where
     parser = takeLowerText >>= \case
@@ -264,8 +272,9 @@ instance FromJSON ReplicationEndpointTypeValue where
     parseJSON = parseJSONText "ReplicationEndpointTypeValue"
 
 data SourceType =
-    ReplicationInstance
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  ReplicationInstance
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -290,10 +299,11 @@ instance FromJSON SourceType where
     parseJSON = parseJSONText "SourceType"
 
 data StartReplicationTaskTypeValue
-    = ReloadTarget
-    | ResumeProcessing
-    | StartReplication
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ReloadTarget
+  | ResumeProcessing
+  | StartReplication
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StartReplicationTaskTypeValue where
     parser = takeLowerText >>= \case

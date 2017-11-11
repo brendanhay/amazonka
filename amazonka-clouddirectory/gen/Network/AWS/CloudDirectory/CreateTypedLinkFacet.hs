@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateTypedLinkFacet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CloudDirectory.CreateTypedLinkFacet
     , ctlfrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createTypedLinkFacet' smart constructor.
 data CreateTypedLinkFacet = CreateTypedLinkFacet'
-    { _ctlfSchemaARN :: !Text
-    , _ctlfFacet     :: !TypedLinkFacet
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctlfSchemaARN :: {-# NOUNPACK #-}!Text
+  , _ctlfFacet     :: {-# NOUNPACK #-}!TypedLinkFacet
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTypedLinkFacet' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ createTypedLinkFacet
     -> TypedLinkFacet -- ^ 'ctlfFacet'
     -> CreateTypedLinkFacet
 createTypedLinkFacet pSchemaARN_ pFacet_ =
-    CreateTypedLinkFacet'
-    { _ctlfSchemaARN = pSchemaARN_
-    , _ctlfFacet = pFacet_
-    }
+  CreateTypedLinkFacet' {_ctlfSchemaARN = pSchemaARN_, _ctlfFacet = pFacet_}
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 ctlfSchemaARN :: Lens' CreateTypedLinkFacet Text
@@ -85,9 +84,9 @@ instance AWSRequest CreateTypedLinkFacet where
                  CreateTypedLinkFacetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateTypedLinkFacet
+instance Hashable CreateTypedLinkFacet where
 
-instance NFData CreateTypedLinkFacet
+instance NFData CreateTypedLinkFacet where
 
 instance ToHeaders CreateTypedLinkFacet where
         toHeaders CreateTypedLinkFacet'{..}
@@ -107,8 +106,9 @@ instance ToQuery CreateTypedLinkFacet where
 
 -- | /See:/ 'createTypedLinkFacetResponse' smart constructor.
 newtype CreateTypedLinkFacetResponse = CreateTypedLinkFacetResponse'
-    { _ctlfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctlfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTypedLinkFacetResponse' with the minimum fields required to make a request.
 --
@@ -119,12 +119,11 @@ createTypedLinkFacetResponse
     :: Int -- ^ 'ctlfrsResponseStatus'
     -> CreateTypedLinkFacetResponse
 createTypedLinkFacetResponse pResponseStatus_ =
-    CreateTypedLinkFacetResponse'
-    { _ctlfrsResponseStatus = pResponseStatus_
-    }
+  CreateTypedLinkFacetResponse' {_ctlfrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ctlfrsResponseStatus :: Lens' CreateTypedLinkFacetResponse Int
 ctlfrsResponseStatus = lens _ctlfrsResponseStatus (\ s a -> s{_ctlfrsResponseStatus = a});
 
-instance NFData CreateTypedLinkFacetResponse
+instance NFData CreateTypedLinkFacetResponse where

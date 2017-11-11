@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.ListTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.OpsWorks.ListTags
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTags' smart constructor.
 data ListTags = ListTags'
-    { _ltNextToken   :: !(Maybe Text)
-    , _ltMaxResults  :: !(Maybe Int)
-    , _ltResourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltMaxResults  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ltResourceARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listTags
     :: Text -- ^ 'ltResourceARN'
     -> ListTags
 listTags pResourceARN_ =
-    ListTags'
-    { _ltNextToken = Nothing
-    , _ltMaxResults = Nothing
-    , _ltResourceARN = pResourceARN_
-    }
+  ListTags'
+  { _ltNextToken = Nothing
+  , _ltMaxResults = Nothing
+  , _ltResourceARN = pResourceARN_
+  }
+
 
 -- | Do not use. A validation exception occurs if you add a @NextToken@ parameter to a @ListTagsRequest@ call.
 ltNextToken :: Lens' ListTags (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest ListTags where
                    (x .?> "NextToken") <*> (x .?> "Tags" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListTags
+instance Hashable ListTags where
 
-instance NFData ListTags
+instance NFData ListTags where
 
 instance ToHeaders ListTags where
         toHeaders
@@ -128,10 +130,11 @@ instance ToQuery ListTags where
 --
 -- /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-    { _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsTags           :: !(Maybe (Map Text Text))
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
@@ -146,11 +149,12 @@ listTagsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTagsResponse
 listTagsResponse pResponseStatus_ =
-    ListTagsResponse'
-    { _ltrsNextToken = Nothing
-    , _ltrsTags = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTagsResponse'
+  { _ltrsNextToken = Nothing
+  , _ltrsTags = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
 ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
@@ -164,4 +168,4 @@ ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Map;
 ltrsResponseStatus :: Lens' ListTagsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTagsResponse
+instance NFData ListTagsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.PutRecord
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,18 +50,19 @@ module Network.AWS.Firehose.PutRecord
     , prrsRecordId
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putRecord' smart constructor.
 data PutRecord = PutRecord'
-    { _prDeliveryStreamName :: !Text
-    , _prRecord             :: !Record
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prDeliveryStreamName :: {-# NOUNPACK #-}!Text
+  , _prRecord             :: {-# NOUNPACK #-}!Record
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecord' with the minimum fields required to make a request.
 --
@@ -75,10 +76,9 @@ putRecord
     -> Record -- ^ 'prRecord'
     -> PutRecord
 putRecord pDeliveryStreamName_ pRecord_ =
-    PutRecord'
-    { _prDeliveryStreamName = pDeliveryStreamName_
-    , _prRecord = pRecord_
-    }
+  PutRecord'
+  {_prDeliveryStreamName = pDeliveryStreamName_, _prRecord = pRecord_}
+
 
 -- | The name of the delivery stream.
 prDeliveryStreamName :: Lens' PutRecord Text
@@ -97,9 +97,9 @@ instance AWSRequest PutRecord where
                  PutRecordResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "RecordId"))
 
-instance Hashable PutRecord
+instance Hashable PutRecord where
 
-instance NFData PutRecord
+instance NFData PutRecord where
 
 instance ToHeaders PutRecord where
         toHeaders
@@ -126,9 +126,10 @@ instance ToQuery PutRecord where
 
 -- | /See:/ 'putRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
-    { _prrsResponseStatus :: !Int
-    , _prrsRecordId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _prrsRecordId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecordResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +143,9 @@ putRecordResponse
     -> Text -- ^ 'prrsRecordId'
     -> PutRecordResponse
 putRecordResponse pResponseStatus_ pRecordId_ =
-    PutRecordResponse'
-    { _prrsResponseStatus = pResponseStatus_
-    , _prrsRecordId = pRecordId_
-    }
+  PutRecordResponse'
+  {_prrsResponseStatus = pResponseStatus_, _prrsRecordId = pRecordId_}
+
 
 -- | -- | The response status code.
 prrsResponseStatus :: Lens' PutRecordResponse Int
@@ -155,4 +155,4 @@ prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = 
 prrsRecordId :: Lens' PutRecordResponse Text
 prrsRecordId = lens _prrsRecordId (\ s a -> s{_prrsRecordId = a});
 
-instance NFData PutRecordResponse
+instance NFData PutRecordResponse where

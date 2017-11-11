@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeExportTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DescribeExportTasks
     , detrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeExportTasks.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeExportTasks' smart constructor.
 newtype DescribeExportTasks = DescribeExportTasks'
-    { _detExportTaskIds :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detExportTaskIds :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype DescribeExportTasks = DescribeExportTasks'
 -- * 'detExportTaskIds' - One or more export task IDs.
 describeExportTasks
     :: DescribeExportTasks
-describeExportTasks =
-    DescribeExportTasks'
-    { _detExportTaskIds = Nothing
-    }
+describeExportTasks = DescribeExportTasks' {_detExportTaskIds = Nothing}
+
 
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
@@ -81,9 +80,9 @@ instance AWSRequest DescribeExportTasks where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeExportTasks
+instance Hashable DescribeExportTasks where
 
-instance NFData DescribeExportTasks
+instance NFData DescribeExportTasks where
 
 instance ToHeaders DescribeExportTasks where
         toHeaders = const mempty
@@ -105,9 +104,10 @@ instance ToQuery DescribeExportTasks where
 --
 -- /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-    { _detrsExportTasks    :: !(Maybe [ExportTask])
-    , _detrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detrsExportTasks    :: {-# NOUNPACK #-}!(Maybe [ExportTask])
+  , _detrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +120,9 @@ describeExportTasksResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DescribeExportTasksResponse
 describeExportTasksResponse pResponseStatus_ =
-    DescribeExportTasksResponse'
-    { _detrsExportTasks = Nothing
-    , _detrsResponseStatus = pResponseStatus_
-    }
+  DescribeExportTasksResponse'
+  {_detrsExportTasks = Nothing, _detrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the export tasks.
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
@@ -133,4 +132,4 @@ detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . 
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 
-instance NFData DescribeExportTasksResponse
+instance NFData DescribeExportTasksResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketNotificationConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.S3.GetBucketNotificationConfiguration
     , ncLambdaFunctionConfigurations
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketNotificationConfiguration' smart constructor.
 newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
-    { _gbncBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbncBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketNotificationConfiguration' with the minimum fields required to make a request.
 --
@@ -57,24 +58,26 @@ getBucketNotificationConfiguration
     :: BucketName -- ^ 'gbncBucket'
     -> GetBucketNotificationConfiguration
 getBucketNotificationConfiguration pBucket_ =
-    GetBucketNotificationConfiguration'
-    { _gbncBucket = pBucket_
-    }
+  GetBucketNotificationConfiguration' {_gbncBucket = pBucket_}
+
 
 -- | Name of the bucket to get the notification configuration for.
 gbncBucket :: Lens' GetBucketNotificationConfiguration BucketName
 gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a});
 
 instance AWSRequest
-         GetBucketNotificationConfiguration where
+           GetBucketNotificationConfiguration
+         where
         type Rs GetBucketNotificationConfiguration =
              NotificationConfiguration
         request = get s3
         response = receiveXML (\ s h x -> parseXML x)
 
 instance Hashable GetBucketNotificationConfiguration
+         where
 
 instance NFData GetBucketNotificationConfiguration
+         where
 
 instance ToHeaders GetBucketNotificationConfiguration
          where

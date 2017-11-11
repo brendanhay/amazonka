@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.EC2.ImportSnapshot
     , isrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ImportSnapshot.
 --
@@ -57,13 +57,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'importSnapshot' smart constructor.
 data ImportSnapshot = ImportSnapshot'
-    { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
-    , _isClientToken   :: !(Maybe Text)
-    , _isRoleName      :: !(Maybe Text)
-    , _isDescription   :: !(Maybe Text)
-    , _isDryRun        :: !(Maybe Bool)
-    , _isClientData    :: !(Maybe ClientData)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isDiskContainer :: {-# NOUNPACK #-}!(Maybe SnapshotDiskContainer)
+  , _isClientToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isRoleName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isDescription   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _isClientData    :: {-# NOUNPACK #-}!(Maybe ClientData)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportSnapshot' with the minimum fields required to make a request.
 --
@@ -83,14 +84,15 @@ data ImportSnapshot = ImportSnapshot'
 importSnapshot
     :: ImportSnapshot
 importSnapshot =
-    ImportSnapshot'
-    { _isDiskContainer = Nothing
-    , _isClientToken = Nothing
-    , _isRoleName = Nothing
-    , _isDescription = Nothing
-    , _isDryRun = Nothing
-    , _isClientData = Nothing
-    }
+  ImportSnapshot'
+  { _isDiskContainer = Nothing
+  , _isClientToken = Nothing
+  , _isRoleName = Nothing
+  , _isDescription = Nothing
+  , _isDryRun = Nothing
+  , _isClientData = Nothing
+  }
+
 
 -- | Information about the disk container.
 isDiskContainer :: Lens' ImportSnapshot (Maybe SnapshotDiskContainer)
@@ -128,9 +130,9 @@ instance AWSRequest ImportSnapshot where
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ImportSnapshot
+instance Hashable ImportSnapshot where
 
-instance NFData ImportSnapshot
+instance NFData ImportSnapshot where
 
 instance ToHeaders ImportSnapshot where
         toHeaders = const mempty
@@ -155,11 +157,12 @@ instance ToQuery ImportSnapshot where
 --
 -- /See:/ 'importSnapshotResponse' smart constructor.
 data ImportSnapshotResponse = ImportSnapshotResponse'
-    { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
-    , _isrsImportTaskId       :: !(Maybe Text)
-    , _isrsDescription        :: !(Maybe Text)
-    , _isrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isrsSnapshotTaskDetail :: {-# NOUNPACK #-}!(Maybe SnapshotTaskDetail)
+  , _isrsImportTaskId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isrsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -176,12 +179,13 @@ importSnapshotResponse
     :: Int -- ^ 'isrsResponseStatus'
     -> ImportSnapshotResponse
 importSnapshotResponse pResponseStatus_ =
-    ImportSnapshotResponse'
-    { _isrsSnapshotTaskDetail = Nothing
-    , _isrsImportTaskId = Nothing
-    , _isrsDescription = Nothing
-    , _isrsResponseStatus = pResponseStatus_
-    }
+  ImportSnapshotResponse'
+  { _isrsSnapshotTaskDetail = Nothing
+  , _isrsImportTaskId = Nothing
+  , _isrsDescription = Nothing
+  , _isrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the import snapshot task.
 isrsSnapshotTaskDetail :: Lens' ImportSnapshotResponse (Maybe SnapshotTaskDetail)
@@ -199,4 +203,4 @@ isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
 isrsResponseStatus :: Lens' ImportSnapshotResponse Int
 isrsResponseStatus = lens _isrsResponseStatus (\ s a -> s{_isrsResponseStatus = a});
 
-instance NFData ImportSnapshotResponse
+instance NFData ImportSnapshotResponse where

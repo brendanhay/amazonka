@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeDomainControllers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.DirectoryService.DescribeDomainControllers
     , ddcrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDomainControllers' smart constructor.
 data DescribeDomainControllers = DescribeDomainControllers'
-    { _ddcNextToken           :: !(Maybe Text)
-    , _ddcDomainControllerIds :: !(Maybe [Text])
-    , _ddcLimit               :: !(Maybe Nat)
-    , _ddcDirectoryId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcDomainControllerIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ddcLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ddcDirectoryId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDomainControllers' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeDomainControllers
     :: Text -- ^ 'ddcDirectoryId'
     -> DescribeDomainControllers
 describeDomainControllers pDirectoryId_ =
-    DescribeDomainControllers'
-    { _ddcNextToken = Nothing
-    , _ddcDomainControllerIds = Nothing
-    , _ddcLimit = Nothing
-    , _ddcDirectoryId = pDirectoryId_
-    }
+  DescribeDomainControllers'
+  { _ddcNextToken = Nothing
+  , _ddcDomainControllerIds = Nothing
+  , _ddcLimit = Nothing
+  , _ddcDirectoryId = pDirectoryId_
+  }
+
 
 -- | The /DescribeDomainControllers.NextToken/ value from a previous call to 'DescribeDomainControllers' . Pass null if this is the first call.
 ddcNextToken :: Lens' DescribeDomainControllers (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest DescribeDomainControllers where
                      (x .?> "DomainControllers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDomainControllers
+instance Hashable DescribeDomainControllers where
 
-instance NFData DescribeDomainControllers
+instance NFData DescribeDomainControllers where
 
 instance ToHeaders DescribeDomainControllers where
         toHeaders
@@ -138,10 +140,11 @@ instance ToQuery DescribeDomainControllers where
 
 -- | /See:/ 'describeDomainControllersResponse' smart constructor.
 data DescribeDomainControllersResponse = DescribeDomainControllersResponse'
-    { _ddcrsNextToken         :: !(Maybe Text)
-    , _ddcrsDomainControllers :: !(Maybe [DomainController])
-    , _ddcrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcrsDomainControllers :: {-# NOUNPACK #-}!(Maybe [DomainController])
+  , _ddcrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDomainControllersResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +159,12 @@ describeDomainControllersResponse
     :: Int -- ^ 'ddcrsResponseStatus'
     -> DescribeDomainControllersResponse
 describeDomainControllersResponse pResponseStatus_ =
-    DescribeDomainControllersResponse'
-    { _ddcrsNextToken = Nothing
-    , _ddcrsDomainControllers = Nothing
-    , _ddcrsResponseStatus = pResponseStatus_
-    }
+  DescribeDomainControllersResponse'
+  { _ddcrsNextToken = Nothing
+  , _ddcrsDomainControllers = Nothing
+  , _ddcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDomainControllers' retrieve the next set of items.
 ddcrsNextToken :: Lens' DescribeDomainControllersResponse (Maybe Text)
@@ -175,3 +179,4 @@ ddcrsResponseStatus :: Lens' DescribeDomainControllersResponse Int
 ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
 
 instance NFData DescribeDomainControllersResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyCacheParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     , cpgnmCacheParameterGroupName
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @ModifyCacheParameterGroup@ operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyCacheParameterGroup' smart constructor.
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
-    { _mcpgCacheParameterGroupName :: !Text
-    , _mcpgParameterNameValues     :: ![ParameterNameValue]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcpgCacheParameterGroupName :: {-# NOUNPACK #-}!Text
+  , _mcpgParameterNameValues     :: {-# NOUNPACK #-}![ParameterNameValue]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyCacheParameterGroup' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ modifyCacheParameterGroup
     :: Text -- ^ 'mcpgCacheParameterGroupName'
     -> ModifyCacheParameterGroup
 modifyCacheParameterGroup pCacheParameterGroupName_ =
-    ModifyCacheParameterGroup'
-    { _mcpgCacheParameterGroupName = pCacheParameterGroupName_
-    , _mcpgParameterNameValues = mempty
-    }
+  ModifyCacheParameterGroup'
+  { _mcpgCacheParameterGroupName = pCacheParameterGroupName_
+  , _mcpgParameterNameValues = mempty
+  }
+
 
 -- | The name of the cache parameter group to modify.
 mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text
@@ -86,9 +88,9 @@ instance AWSRequest ModifyCacheParameterGroup where
           = receiveXMLWrapper "ModifyCacheParameterGroupResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ModifyCacheParameterGroup
+instance Hashable ModifyCacheParameterGroup where
 
-instance NFData ModifyCacheParameterGroup
+instance NFData ModifyCacheParameterGroup where
 
 instance ToHeaders ModifyCacheParameterGroup where
         toHeaders = const mempty

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -92,12 +92,12 @@ module Network.AWS.GameLift.DescribeFleetAttributes
     , dfarsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -105,10 +105,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeFleetAttributes' smart constructor.
 data DescribeFleetAttributes = DescribeFleetAttributes'
-    { _dfaNextToken :: !(Maybe Text)
-    , _dfaLimit     :: !(Maybe Nat)
-    , _dfaFleetIds  :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfaNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfaLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dfaFleetIds  :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetAttributes' with the minimum fields required to make a request.
 --
@@ -122,11 +123,9 @@ data DescribeFleetAttributes = DescribeFleetAttributes'
 describeFleetAttributes
     :: DescribeFleetAttributes
 describeFleetAttributes =
-    DescribeFleetAttributes'
-    { _dfaNextToken = Nothing
-    , _dfaLimit = Nothing
-    , _dfaFleetIds = Nothing
-    }
+  DescribeFleetAttributes'
+  {_dfaNextToken = Nothing, _dfaLimit = Nothing, _dfaFleetIds = Nothing}
+
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfaNextToken :: Lens' DescribeFleetAttributes (Maybe Text)
@@ -152,9 +151,9 @@ instance AWSRequest DescribeFleetAttributes where
                      (x .?> "FleetAttributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeFleetAttributes
+instance Hashable DescribeFleetAttributes where
 
-instance NFData DescribeFleetAttributes
+instance NFData DescribeFleetAttributes where
 
 instance ToHeaders DescribeFleetAttributes where
         toHeaders
@@ -185,10 +184,11 @@ instance ToQuery DescribeFleetAttributes where
 --
 -- /See:/ 'describeFleetAttributesResponse' smart constructor.
 data DescribeFleetAttributesResponse = DescribeFleetAttributesResponse'
-    { _dfarsNextToken       :: !(Maybe Text)
-    , _dfarsFleetAttributes :: !(Maybe [FleetAttributes])
-    , _dfarsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfarsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfarsFleetAttributes :: {-# NOUNPACK #-}!(Maybe [FleetAttributes])
+  , _dfarsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetAttributesResponse' with the minimum fields required to make a request.
 --
@@ -203,11 +203,12 @@ describeFleetAttributesResponse
     :: Int -- ^ 'dfarsResponseStatus'
     -> DescribeFleetAttributesResponse
 describeFleetAttributesResponse pResponseStatus_ =
-    DescribeFleetAttributesResponse'
-    { _dfarsNextToken = Nothing
-    , _dfarsFleetAttributes = Nothing
-    , _dfarsResponseStatus = pResponseStatus_
-    }
+  DescribeFleetAttributesResponse'
+  { _dfarsNextToken = Nothing
+  , _dfarsFleetAttributes = Nothing
+  , _dfarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfarsNextToken :: Lens' DescribeFleetAttributesResponse (Maybe Text)
@@ -221,4 +222,4 @@ dfarsFleetAttributes = lens _dfarsFleetAttributes (\ s a -> s{_dfarsFleetAttribu
 dfarsResponseStatus :: Lens' DescribeFleetAttributesResponse Int
 dfarsResponseStatus = lens _dfarsResponseStatus (\ s a -> s{_dfarsResponseStatus = a});
 
-instance NFData DescribeFleetAttributesResponse
+instance NFData DescribeFleetAttributesResponse where

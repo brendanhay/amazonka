@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeBuild
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.GameLift.DescribeBuild
     , dbrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -64,8 +64,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeBuild' smart constructor.
 newtype DescribeBuild = DescribeBuild'
-    { _dBuildId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dBuildId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBuild' with the minimum fields required to make a request.
 --
@@ -75,10 +76,8 @@ newtype DescribeBuild = DescribeBuild'
 describeBuild
     :: Text -- ^ 'dBuildId'
     -> DescribeBuild
-describeBuild pBuildId_ =
-    DescribeBuild'
-    { _dBuildId = pBuildId_
-    }
+describeBuild pBuildId_ = DescribeBuild' {_dBuildId = pBuildId_}
+
 
 -- | Unique identifier for a build to retrieve properties for.
 dBuildId :: Lens' DescribeBuild Text
@@ -93,9 +92,9 @@ instance AWSRequest DescribeBuild where
                  DescribeBuildResponse' <$>
                    (x .?> "Build") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeBuild
+instance Hashable DescribeBuild where
 
-instance NFData DescribeBuild
+instance NFData DescribeBuild where
 
 instance ToHeaders DescribeBuild where
         toHeaders
@@ -122,9 +121,10 @@ instance ToQuery DescribeBuild where
 --
 -- /See:/ 'describeBuildResponse' smart constructor.
 data DescribeBuildResponse = DescribeBuildResponse'
-    { _dbrsBuild          :: !(Maybe Build)
-    , _dbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbrsBuild          :: {-# NOUNPACK #-}!(Maybe Build)
+  , _dbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBuildResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +137,9 @@ describeBuildResponse
     :: Int -- ^ 'dbrsResponseStatus'
     -> DescribeBuildResponse
 describeBuildResponse pResponseStatus_ =
-    DescribeBuildResponse'
-    { _dbrsBuild = Nothing
-    , _dbrsResponseStatus = pResponseStatus_
-    }
+  DescribeBuildResponse'
+  {_dbrsBuild = Nothing, _dbrsResponseStatus = pResponseStatus_}
+
 
 -- | Set of properties describing the requested build.
 dbrsBuild :: Lens' DescribeBuildResponse (Maybe Build)
@@ -150,4 +149,4 @@ dbrsBuild = lens _dbrsBuild (\ s a -> s{_dbrsBuild = a});
 dbrsResponseStatus :: Lens' DescribeBuildResponse Int
 dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
 
-instance NFData DescribeBuildResponse
+instance NFData DescribeBuildResponse where

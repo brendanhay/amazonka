@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.CreateDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudSearch.CreateDomain
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'CreateDomain' @ operation. Specifies a name for the new search domain.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDomain' smart constructor.
 newtype CreateDomain = CreateDomain'
-    { _cdDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype CreateDomain = CreateDomain'
 createDomain
     :: Text -- ^ 'cdDomainName'
     -> CreateDomain
-createDomain pDomainName_ =
-    CreateDomain'
-    { _cdDomainName = pDomainName_
-    }
+createDomain pDomainName_ = CreateDomain' {_cdDomainName = pDomainName_}
+
 
 -- | A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.
 cdDomainName :: Lens' CreateDomain Text
@@ -79,9 +78,9 @@ instance AWSRequest CreateDomain where
                  CreateDomainResponse' <$>
                    (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDomain
+instance Hashable CreateDomain where
 
-instance NFData CreateDomain
+instance NFData CreateDomain where
 
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
@@ -102,9 +101,10 @@ instance ToQuery CreateDomain where
 --
 -- /See:/ 'createDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-    { _cdrsDomainStatus   :: !(Maybe DomainStatus)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsDomainStatus   :: {-# NOUNPACK #-}!(Maybe DomainStatus)
+  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ createDomainResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDomainResponse
 createDomainResponse pResponseStatus_ =
-    CreateDomainResponse'
-    { _cdrsDomainStatus = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDomainResponse'
+  {_cdrsDomainStatus = Nothing, _cdrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
@@ -130,4 +129,4 @@ cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
 cdrsResponseStatus :: Lens' CreateDomainResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDomainResponse
+instance NFData CreateDomainResponse where

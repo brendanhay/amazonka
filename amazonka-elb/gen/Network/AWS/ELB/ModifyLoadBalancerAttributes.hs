@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     , mlbarsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyLoadBalancerAttributes.
 --
@@ -66,9 +66,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerName       :: !Text
-    , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlbaLoadBalancerName       :: {-# NOUNPACK #-}!Text
+  , _mlbaLoadBalancerAttributes :: {-# NOUNPACK #-}!LoadBalancerAttributes
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
 --
@@ -82,10 +83,11 @@ modifyLoadBalancerAttributes
     -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
     -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
-    ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerName = pLoadBalancerName_
-    , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
-    }
+  ModifyLoadBalancerAttributes'
+  { _mlbaLoadBalancerName = pLoadBalancerName_
+  , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
+  }
+
 
 -- | The name of the load balancer.
 mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
@@ -109,9 +111,9 @@ instance AWSRequest ModifyLoadBalancerAttributes
                      (x .@? "LoadBalancerAttributes")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ModifyLoadBalancerAttributes
+instance Hashable ModifyLoadBalancerAttributes where
 
-instance NFData ModifyLoadBalancerAttributes
+instance NFData ModifyLoadBalancerAttributes where
 
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty
@@ -135,10 +137,11 @@ instance ToQuery ModifyLoadBalancerAttributes where
 --
 -- /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-    { _mlbarsLoadBalancerName       :: !(Maybe Text)
-    , _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _mlbarsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlbarsLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlbarsLoadBalancerAttributes :: {-# NOUNPACK #-}!(Maybe LoadBalancerAttributes)
+  , _mlbarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ modifyLoadBalancerAttributesResponse
     :: Int -- ^ 'mlbarsResponseStatus'
     -> ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributesResponse pResponseStatus_ =
-    ModifyLoadBalancerAttributesResponse'
-    { _mlbarsLoadBalancerName = Nothing
-    , _mlbarsLoadBalancerAttributes = Nothing
-    , _mlbarsResponseStatus = pResponseStatus_
-    }
+  ModifyLoadBalancerAttributesResponse'
+  { _mlbarsLoadBalancerName = Nothing
+  , _mlbarsLoadBalancerAttributes = Nothing
+  , _mlbarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the load balancer.
 mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
@@ -172,3 +176,4 @@ mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
 mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a});
 
 instance NFData ModifyLoadBalancerAttributesResponse
+         where

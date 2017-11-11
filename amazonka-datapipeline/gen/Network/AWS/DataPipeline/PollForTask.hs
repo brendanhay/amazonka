@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.PollForTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.DataPipeline.PollForTask
     , pftrsResponseStatus
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PollForTask.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'pollForTask' smart constructor.
 data PollForTask = PollForTask'
-    { _pftHostname         :: !(Maybe Text)
-    , _pftInstanceIdentity :: !(Maybe InstanceIdentity)
-    , _pftWorkerGroup      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pftHostname         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pftInstanceIdentity :: {-# NOUNPACK #-}!(Maybe InstanceIdentity)
+  , _pftWorkerGroup      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForTask' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ pollForTask
     :: Text -- ^ 'pftWorkerGroup'
     -> PollForTask
 pollForTask pWorkerGroup_ =
-    PollForTask'
-    { _pftHostname = Nothing
-    , _pftInstanceIdentity = Nothing
-    , _pftWorkerGroup = pWorkerGroup_
-    }
+  PollForTask'
+  { _pftHostname = Nothing
+  , _pftInstanceIdentity = Nothing
+  , _pftWorkerGroup = pWorkerGroup_
+  }
+
 
 -- | The public DNS name of the calling task runner.
 pftHostname :: Lens' PollForTask (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest PollForTask where
                  PollForTaskResponse' <$>
                    (x .?> "taskObject") <*> (pure (fromEnum s)))
 
-instance Hashable PollForTask
+instance Hashable PollForTask where
 
-instance NFData PollForTask
+instance NFData PollForTask where
 
 instance ToHeaders PollForTask where
         toHeaders
@@ -132,9 +134,10 @@ instance ToQuery PollForTask where
 --
 -- /See:/ 'pollForTaskResponse' smart constructor.
 data PollForTaskResponse = PollForTaskResponse'
-    { _pftrsTaskObject     :: !(Maybe TaskObject)
-    , _pftrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pftrsTaskObject     :: {-# NOUNPACK #-}!(Maybe TaskObject)
+  , _pftrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForTaskResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +150,9 @@ pollForTaskResponse
     :: Int -- ^ 'pftrsResponseStatus'
     -> PollForTaskResponse
 pollForTaskResponse pResponseStatus_ =
-    PollForTaskResponse'
-    { _pftrsTaskObject = Nothing
-    , _pftrsResponseStatus = pResponseStatus_
-    }
+  PollForTaskResponse'
+  {_pftrsTaskObject = Nothing, _pftrsResponseStatus = pResponseStatus_}
+
 
 -- | The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is @taskId@ , which contains an identifier for the task being assigned. The calling task runner uses @taskId@ in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus' .
 pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
@@ -160,4 +162,4 @@ pftrsTaskObject = lens _pftrsTaskObject (\ s a -> s{_pftrsTaskObject = a});
 pftrsResponseStatus :: Lens' PollForTaskResponse Int
 pftrsResponseStatus = lens _pftrsResponseStatus (\ s a -> s{_pftrsResponseStatus = a});
 
-instance NFData PollForTaskResponse
+instance NFData PollForTaskResponse where

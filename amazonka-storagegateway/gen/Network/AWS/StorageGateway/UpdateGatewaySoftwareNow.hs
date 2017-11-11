@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     , ugsnrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway to update.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateGatewaySoftwareNow' smart constructor.
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
-    { _ugsnGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugsnGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGatewaySoftwareNow' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ updateGatewaySoftwareNow
     :: Text -- ^ 'ugsnGatewayARN'
     -> UpdateGatewaySoftwareNow
 updateGatewaySoftwareNow pGatewayARN_ =
-    UpdateGatewaySoftwareNow'
-    { _ugsnGatewayARN = pGatewayARN_
-    }
+  UpdateGatewaySoftwareNow' {_ugsnGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
@@ -82,9 +82,9 @@ instance AWSRequest UpdateGatewaySoftwareNow where
                  UpdateGatewaySoftwareNowResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateGatewaySoftwareNow
+instance Hashable UpdateGatewaySoftwareNow where
 
-instance NFData UpdateGatewaySoftwareNow
+instance NFData UpdateGatewaySoftwareNow where
 
 instance ToHeaders UpdateGatewaySoftwareNow where
         toHeaders
@@ -113,9 +113,10 @@ instance ToQuery UpdateGatewaySoftwareNow where
 --
 -- /See:/ 'updateGatewaySoftwareNowResponse' smart constructor.
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
-    { _ugsnrsGatewayARN     :: !(Maybe Text)
-    , _ugsnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugsnrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugsnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGatewaySoftwareNowResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +129,9 @@ updateGatewaySoftwareNowResponse
     :: Int -- ^ 'ugsnrsResponseStatus'
     -> UpdateGatewaySoftwareNowResponse
 updateGatewaySoftwareNowResponse pResponseStatus_ =
-    UpdateGatewaySoftwareNowResponse'
-    { _ugsnrsGatewayARN = Nothing
-    , _ugsnrsResponseStatus = pResponseStatus_
-    }
+  UpdateGatewaySoftwareNowResponse'
+  {_ugsnrsGatewayARN = Nothing, _ugsnrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
@@ -142,3 +142,4 @@ ugsnrsResponseStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
 ugsnrsResponseStatus = lens _ugsnrsResponseStatus (\ s a -> s{_ugsnrsResponseStatus = a});
 
 instance NFData UpdateGatewaySoftwareNowResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketReplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -32,17 +32,18 @@ module Network.AWS.S3.DeleteBucketReplication
     , DeleteBucketReplicationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketReplication' smart constructor.
 newtype DeleteBucketReplication = DeleteBucketReplication'
-    { _dbrBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbrBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketReplication' with the minimum fields required to make a request.
 --
@@ -53,9 +54,8 @@ deleteBucketReplication
     :: BucketName -- ^ 'dbrBucket'
     -> DeleteBucketReplication
 deleteBucketReplication pBucket_ =
-    DeleteBucketReplication'
-    { _dbrBucket = pBucket_
-    }
+  DeleteBucketReplication' {_dbrBucket = pBucket_}
+
 
 -- | Undocumented member.
 dbrBucket :: Lens' DeleteBucketReplication BucketName
@@ -68,9 +68,9 @@ instance AWSRequest DeleteBucketReplication where
         response
           = receiveNull DeleteBucketReplicationResponse'
 
-instance Hashable DeleteBucketReplication
+instance Hashable DeleteBucketReplication where
 
-instance NFData DeleteBucketReplication
+instance NFData DeleteBucketReplication where
 
 instance ToHeaders DeleteBucketReplication where
         toHeaders = const mempty
@@ -84,8 +84,9 @@ instance ToQuery DeleteBucketReplication where
 
 -- | /See:/ 'deleteBucketReplicationResponse' smart constructor.
 data DeleteBucketReplicationResponse =
-    DeleteBucketReplicationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketReplicationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketReplicationResponse' with the minimum fields required to make a request.
 --
@@ -93,4 +94,5 @@ deleteBucketReplicationResponse
     :: DeleteBucketReplicationResponse
 deleteBucketReplicationResponse = DeleteBucketReplicationResponse'
 
-instance NFData DeleteBucketReplicationResponse
+
+instance NFData DeleteBucketReplicationResponse where

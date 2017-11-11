@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -65,12 +65,12 @@ module Network.AWS.Redshift.CreateCluster
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -78,34 +78,35 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-    { _ccEnhancedVPCRouting               :: !(Maybe Bool)
-    , _ccAdditionalInfo                   :: !(Maybe Text)
-    , _ccPubliclyAccessible               :: !(Maybe Bool)
-    , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
-    , _ccClusterSecurityGroups            :: !(Maybe [Text])
-    , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _ccEncrypted                        :: !(Maybe Bool)
-    , _ccClusterSubnetGroupName           :: !(Maybe Text)
-    , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
-    , _ccNumberOfNodes                    :: !(Maybe Int)
-    , _ccElasticIP                        :: !(Maybe Text)
-    , _ccPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _ccKMSKeyId                         :: !(Maybe Text)
-    , _ccAvailabilityZone                 :: !(Maybe Text)
-    , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _ccIAMRoles                         :: !(Maybe [Text])
-    , _ccClusterType                      :: !(Maybe Text)
-    , _ccClusterVersion                   :: !(Maybe Text)
-    , _ccAllowVersionUpgrade              :: !(Maybe Bool)
-    , _ccClusterParameterGroupName        :: !(Maybe Text)
-    , _ccTags                             :: !(Maybe [Tag])
-    , _ccPort                             :: !(Maybe Int)
-    , _ccDBName                           :: !(Maybe Text)
-    , _ccClusterIdentifier                :: !Text
-    , _ccNodeType                         :: !Text
-    , _ccMasterUsername                   :: !Text
-    , _ccMasterUserPassword               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccEnhancedVPCRouting               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccAdditionalInfo                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccHSMConfigurationIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccClusterSecurityGroups            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ccEncrypted                        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccClusterSubnetGroupName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccHSMClientCertificateIdentifier   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccNumberOfNodes                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ccElasticIP                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccPreferredMaintenanceWindow       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccAvailabilityZone                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccVPCSecurityGroupIds              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccIAMRoles                         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccClusterType                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccClusterVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccAllowVersionUpgrade              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccClusterParameterGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccTags                             :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ccPort                             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ccDBName                           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccClusterIdentifier                :: {-# NOUNPACK #-}!Text
+  , _ccNodeType                         :: {-# NOUNPACK #-}!Text
+  , _ccMasterUsername                   :: {-# NOUNPACK #-}!Text
+  , _ccMasterUserPassword               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
@@ -171,35 +172,36 @@ createCluster
     -> Text -- ^ 'ccMasterUserPassword'
     -> CreateCluster
 createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPassword_ =
-    CreateCluster'
-    { _ccEnhancedVPCRouting = Nothing
-    , _ccAdditionalInfo = Nothing
-    , _ccPubliclyAccessible = Nothing
-    , _ccHSMConfigurationIdentifier = Nothing
-    , _ccClusterSecurityGroups = Nothing
-    , _ccAutomatedSnapshotRetentionPeriod = Nothing
-    , _ccEncrypted = Nothing
-    , _ccClusterSubnetGroupName = Nothing
-    , _ccHSMClientCertificateIdentifier = Nothing
-    , _ccNumberOfNodes = Nothing
-    , _ccElasticIP = Nothing
-    , _ccPreferredMaintenanceWindow = Nothing
-    , _ccKMSKeyId = Nothing
-    , _ccAvailabilityZone = Nothing
-    , _ccVPCSecurityGroupIds = Nothing
-    , _ccIAMRoles = Nothing
-    , _ccClusterType = Nothing
-    , _ccClusterVersion = Nothing
-    , _ccAllowVersionUpgrade = Nothing
-    , _ccClusterParameterGroupName = Nothing
-    , _ccTags = Nothing
-    , _ccPort = Nothing
-    , _ccDBName = Nothing
-    , _ccClusterIdentifier = pClusterIdentifier_
-    , _ccNodeType = pNodeType_
-    , _ccMasterUsername = pMasterUsername_
-    , _ccMasterUserPassword = pMasterUserPassword_
-    }
+  CreateCluster'
+  { _ccEnhancedVPCRouting = Nothing
+  , _ccAdditionalInfo = Nothing
+  , _ccPubliclyAccessible = Nothing
+  , _ccHSMConfigurationIdentifier = Nothing
+  , _ccClusterSecurityGroups = Nothing
+  , _ccAutomatedSnapshotRetentionPeriod = Nothing
+  , _ccEncrypted = Nothing
+  , _ccClusterSubnetGroupName = Nothing
+  , _ccHSMClientCertificateIdentifier = Nothing
+  , _ccNumberOfNodes = Nothing
+  , _ccElasticIP = Nothing
+  , _ccPreferredMaintenanceWindow = Nothing
+  , _ccKMSKeyId = Nothing
+  , _ccAvailabilityZone = Nothing
+  , _ccVPCSecurityGroupIds = Nothing
+  , _ccIAMRoles = Nothing
+  , _ccClusterType = Nothing
+  , _ccClusterVersion = Nothing
+  , _ccAllowVersionUpgrade = Nothing
+  , _ccClusterParameterGroupName = Nothing
+  , _ccTags = Nothing
+  , _ccPort = Nothing
+  , _ccDBName = Nothing
+  , _ccClusterIdentifier = pClusterIdentifier_
+  , _ccNodeType = pNodeType_
+  , _ccMasterUsername = pMasterUsername_
+  , _ccMasterUserPassword = pMasterUserPassword_
+  }
+
 
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 ccEnhancedVPCRouting :: Lens' CreateCluster (Maybe Bool)
@@ -318,9 +320,9 @@ instance AWSRequest CreateCluster where
                  CreateClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable CreateCluster
+instance Hashable CreateCluster where
 
-instance NFData CreateCluster
+instance NFData CreateCluster where
 
 instance ToHeaders CreateCluster where
         toHeaders = const mempty
@@ -375,9 +377,10 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-    { _ccrsCluster        :: !(Maybe Cluster)
-    , _ccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
 --
@@ -390,10 +393,9 @@ createClusterResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CreateClusterResponse
 createClusterResponse pResponseStatus_ =
-    CreateClusterResponse'
-    { _ccrsCluster = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
-    }
+  CreateClusterResponse'
+  {_ccrsCluster = Nothing, _ccrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
@@ -403,4 +405,4 @@ ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 ccrsResponseStatus :: Lens' CreateClusterResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData CreateClusterResponse
+instance NFData CreateClusterResponse where

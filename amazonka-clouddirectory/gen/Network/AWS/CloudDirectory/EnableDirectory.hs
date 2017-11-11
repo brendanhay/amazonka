@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.EnableDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CloudDirectory.EnableDirectory
     , edrsDirectoryARN
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableDirectory' smart constructor.
 newtype EnableDirectory = EnableDirectory'
-    { _edDirectoryARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edDirectoryARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableDirectory' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ enableDirectory
     :: Text -- ^ 'edDirectoryARN'
     -> EnableDirectory
 enableDirectory pDirectoryARN_ =
-    EnableDirectory'
-    { _edDirectoryARN = pDirectoryARN_
-    }
+  EnableDirectory' {_edDirectoryARN = pDirectoryARN_}
+
 
 -- | The ARN of the directory to enable.
 edDirectoryARN :: Lens' EnableDirectory Text
@@ -75,9 +75,9 @@ instance AWSRequest EnableDirectory where
                  EnableDirectoryResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DirectoryArn"))
 
-instance Hashable EnableDirectory
+instance Hashable EnableDirectory where
 
-instance NFData EnableDirectory
+instance NFData EnableDirectory where
 
 instance ToHeaders EnableDirectory where
         toHeaders EnableDirectory'{..}
@@ -96,9 +96,10 @@ instance ToQuery EnableDirectory where
 
 -- | /See:/ 'enableDirectoryResponse' smart constructor.
 data EnableDirectoryResponse = EnableDirectoryResponse'
-    { _edrsResponseStatus :: !Int
-    , _edrsDirectoryARN   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _edrsDirectoryARN   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableDirectoryResponse' with the minimum fields required to make a request.
 --
@@ -112,10 +113,9 @@ enableDirectoryResponse
     -> Text -- ^ 'edrsDirectoryARN'
     -> EnableDirectoryResponse
 enableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
-    EnableDirectoryResponse'
-    { _edrsResponseStatus = pResponseStatus_
-    , _edrsDirectoryARN = pDirectoryARN_
-    }
+  EnableDirectoryResponse'
+  {_edrsResponseStatus = pResponseStatus_, _edrsDirectoryARN = pDirectoryARN_}
+
 
 -- | -- | The response status code.
 edrsResponseStatus :: Lens' EnableDirectoryResponse Int
@@ -125,4 +125,4 @@ edrsResponseStatus = lens _edrsResponseStatus (\ s a -> s{_edrsResponseStatus = 
 edrsDirectoryARN :: Lens' EnableDirectoryResponse Text
 edrsDirectoryARN = lens _edrsDirectoryARN (\ s a -> s{_edrsDirectoryARN = a});
 
-instance NFData EnableDirectoryResponse
+instance NFData EnableDirectoryResponse where

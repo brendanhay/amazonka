@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeAttachment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Support.DescribeAttachment
     , darsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeAttachment' smart constructor.
 newtype DescribeAttachment = DescribeAttachment'
-    { _daAttachmentId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAttachmentId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAttachment' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ describeAttachment
     :: Text -- ^ 'daAttachmentId'
     -> DescribeAttachment
 describeAttachment pAttachmentId_ =
-    DescribeAttachment'
-    { _daAttachmentId = pAttachmentId_
-    }
+  DescribeAttachment' {_daAttachmentId = pAttachmentId_}
+
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the 'DescribeCommunications' operation.
 daAttachmentId :: Lens' DescribeAttachment Text
@@ -76,9 +76,9 @@ instance AWSRequest DescribeAttachment where
                  DescribeAttachmentResponse' <$>
                    (x .?> "attachment") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAttachment
+instance Hashable DescribeAttachment where
 
-instance NFData DescribeAttachment
+instance NFData DescribeAttachment where
 
 instance ToHeaders DescribeAttachment where
         toHeaders
@@ -108,9 +108,10 @@ instance ToQuery DescribeAttachment where
 --
 -- /See:/ 'describeAttachmentResponse' smart constructor.
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
-    { _darsAttachment     :: !(Maybe Attachment)
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsAttachment     :: {-# NOUNPACK #-}!(Maybe Attachment)
+  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAttachmentResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +124,9 @@ describeAttachmentResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAttachmentResponse
 describeAttachmentResponse pResponseStatus_ =
-    DescribeAttachmentResponse'
-    { _darsAttachment = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeAttachmentResponse'
+  {_darsAttachment = Nothing, _darsResponseStatus = pResponseStatus_}
+
 
 -- | The attachment content and file name.
 darsAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
@@ -136,4 +136,4 @@ darsAttachment = lens _darsAttachment (\ s a -> s{_darsAttachment = a});
 darsResponseStatus :: Lens' DescribeAttachmentResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeAttachmentResponse
+instance NFData DescribeAttachmentResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.StartAssessmentRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Inspector.StartAssessmentRun
     , sarrsAssessmentRunARN
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startAssessmentRun' smart constructor.
 data StartAssessmentRun = StartAssessmentRun'
-    { _sarAssessmentRunName     :: !(Maybe Text)
-    , _sarAssessmentTemplateARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sarAssessmentRunName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sarAssessmentTemplateARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartAssessmentRun' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ startAssessmentRun
     :: Text -- ^ 'sarAssessmentTemplateARN'
     -> StartAssessmentRun
 startAssessmentRun pAssessmentTemplateARN_ =
-    StartAssessmentRun'
-    { _sarAssessmentRunName = Nothing
-    , _sarAssessmentTemplateARN = pAssessmentTemplateARN_
-    }
+  StartAssessmentRun'
+  { _sarAssessmentRunName = Nothing
+  , _sarAssessmentTemplateARN = pAssessmentTemplateARN_
+  }
+
 
 -- | You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.
 sarAssessmentRunName :: Lens' StartAssessmentRun (Maybe Text)
@@ -85,9 +87,9 @@ instance AWSRequest StartAssessmentRun where
                  StartAssessmentRunResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "assessmentRunArn"))
 
-instance Hashable StartAssessmentRun
+instance Hashable StartAssessmentRun where
 
-instance NFData StartAssessmentRun
+instance NFData StartAssessmentRun where
 
 instance ToHeaders StartAssessmentRun where
         toHeaders
@@ -116,9 +118,10 @@ instance ToQuery StartAssessmentRun where
 
 -- | /See:/ 'startAssessmentRunResponse' smart constructor.
 data StartAssessmentRunResponse = StartAssessmentRunResponse'
-    { _sarrsResponseStatus   :: !Int
-    , _sarrsAssessmentRunARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sarrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _sarrsAssessmentRunARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartAssessmentRunResponse' with the minimum fields required to make a request.
 --
@@ -132,10 +135,11 @@ startAssessmentRunResponse
     -> Text -- ^ 'sarrsAssessmentRunARN'
     -> StartAssessmentRunResponse
 startAssessmentRunResponse pResponseStatus_ pAssessmentRunARN_ =
-    StartAssessmentRunResponse'
-    { _sarrsResponseStatus = pResponseStatus_
-    , _sarrsAssessmentRunARN = pAssessmentRunARN_
-    }
+  StartAssessmentRunResponse'
+  { _sarrsResponseStatus = pResponseStatus_
+  , _sarrsAssessmentRunARN = pAssessmentRunARN_
+  }
+
 
 -- | -- | The response status code.
 sarrsResponseStatus :: Lens' StartAssessmentRunResponse Int
@@ -145,4 +149,4 @@ sarrsResponseStatus = lens _sarrsResponseStatus (\ s a -> s{_sarrsResponseStatus
 sarrsAssessmentRunARN :: Lens' StartAssessmentRunResponse Text
 sarrsAssessmentRunARN = lens _sarrsAssessmentRunARN (\ s a -> s{_sarrsAssessmentRunARN = a});
 
-instance NFData StartAssessmentRunResponse
+instance NFData StartAssessmentRunResponse where

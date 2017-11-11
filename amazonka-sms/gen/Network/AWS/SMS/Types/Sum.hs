@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.SMS.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SMS.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 -- | Capabilities for a Connector
 data ConnectorCapability =
-    CCVsphere
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  CCVsphere
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConnectorCapability where
     parser = takeLowerText >>= \case
@@ -45,9 +46,10 @@ instance FromJSON ConnectorCapability where
 
 -- | Status of on-premise Connector
 data ConnectorStatus
-    = Healthy
-    | Unhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Healthy
+  | Unhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConnectorStatus where
     parser = takeLowerText >>= \case
@@ -72,9 +74,10 @@ instance FromJSON ConnectorStatus where
 
 -- | The license type to be used for the Amazon Machine Image (AMI) created after a successful ReplicationRun.
 data LicenseType
-    = AWS
-    | Byol
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWS
+  | Byol
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LicenseType where
     parser = takeLowerText >>= \case
@@ -102,12 +105,13 @@ instance FromJSON LicenseType where
 
 -- | Current state of Replication Job
 data ReplicationJobState
-    = RJSActive
-    | RJSDeleted
-    | RJSDeleting
-    | RJSFailed
-    | RJSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RJSActive
+  | RJSDeleted
+  | RJSDeleting
+  | RJSFailed
+  | RJSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReplicationJobState where
     parser = takeLowerText >>= \case
@@ -138,14 +142,15 @@ instance FromJSON ReplicationJobState where
 
 -- | Current state of Replication Run
 data ReplicationRunState
-    = RRSActive
-    | RRSCompleted
-    | RRSDeleted
-    | RRSDeleting
-    | RRSFailed
-    | RRSMissed
-    | RRSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RRSActive
+  | RRSCompleted
+  | RRSDeleted
+  | RRSDeleting
+  | RRSFailed
+  | RRSMissed
+  | RRSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReplicationRunState where
     parser = takeLowerText >>= \case
@@ -180,9 +185,10 @@ instance FromJSON ReplicationRunState where
 
 -- | Type of Replication Run
 data ReplicationRunType
-    = Automatic
-    | OnDemand
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Automatic
+  | OnDemand
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReplicationRunType where
     parser = takeLowerText >>= \case
@@ -207,12 +213,13 @@ instance FromJSON ReplicationRunType where
 
 -- | Status of Server catalog
 data ServerCatalogStatus
-    = Available
-    | Deleted
-    | Expired
-    | Importing
-    | NotImported
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | Deleted
+  | Expired
+  | Importing
+  | NotImported
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ServerCatalogStatus where
     parser = takeLowerText >>= \case
@@ -243,8 +250,9 @@ instance FromJSON ServerCatalogStatus where
 
 -- | Type of server.
 data ServerType =
-    VirtualMachine
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  VirtualMachine
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ServerType where
     parser = takeLowerText >>= \case
@@ -267,8 +275,9 @@ instance FromJSON ServerType where
 
 -- | VM Management Product
 data VMManagerType =
-    Vsphere
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Vsphere
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VMManagerType where
     parser = takeLowerText >>= \case

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.PutKeyPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.KMS.PutKeyPolicy
     , PutKeyPolicyResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putKeyPolicy' smart constructor.
 data PutKeyPolicy = PutKeyPolicy'
-    { _pkpBypassPolicyLockoutSafetyCheck :: !(Maybe Bool)
-    , _pkpKeyId                          :: !Text
-    , _pkpPolicyName                     :: !Text
-    , _pkpPolicy                         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pkpBypassPolicyLockoutSafetyCheck :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pkpKeyId                          :: {-# NOUNPACK #-}!Text
+  , _pkpPolicyName                     :: {-# NOUNPACK #-}!Text
+  , _pkpPolicy                         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutKeyPolicy' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ putKeyPolicy
     -> Text -- ^ 'pkpPolicy'
     -> PutKeyPolicy
 putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
-    PutKeyPolicy'
-    { _pkpBypassPolicyLockoutSafetyCheck = Nothing
-    , _pkpKeyId = pKeyId_
-    , _pkpPolicyName = pPolicyName_
-    , _pkpPolicy = pPolicy_
-    }
+  PutKeyPolicy'
+  { _pkpBypassPolicyLockoutSafetyCheck = Nothing
+  , _pkpKeyId = pKeyId_
+  , _pkpPolicyName = pPolicyName_
+  , _pkpPolicy = pPolicy_
+  }
+
 
 -- | A flag to indicate whether to bypass the key policy lockout safety check. /Important:/ Setting this value to true increases the likelihood that the CMK becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/ . Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent @PutKeyPolicy@ request on the CMK. The default value is false.
 pkpBypassPolicyLockoutSafetyCheck :: Lens' PutKeyPolicy (Maybe Bool)
@@ -99,9 +101,9 @@ instance AWSRequest PutKeyPolicy where
         request = postJSON kms
         response = receiveNull PutKeyPolicyResponse'
 
-instance Hashable PutKeyPolicy
+instance Hashable PutKeyPolicy where
 
-instance NFData PutKeyPolicy
+instance NFData PutKeyPolicy where
 
 instance ToHeaders PutKeyPolicy where
         toHeaders
@@ -130,8 +132,9 @@ instance ToQuery PutKeyPolicy where
 
 -- | /See:/ 'putKeyPolicyResponse' smart constructor.
 data PutKeyPolicyResponse =
-    PutKeyPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutKeyPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutKeyPolicyResponse' with the minimum fields required to make a request.
 --
@@ -139,4 +142,5 @@ putKeyPolicyResponse
     :: PutKeyPolicyResponse
 putKeyPolicyResponse = PutKeyPolicyResponse'
 
-instance NFData PutKeyPolicyResponse
+
+instance NFData PutKeyPolicyResponse where

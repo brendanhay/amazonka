@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.UploadArchive
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.Glacier.UploadArchive
     , acoLocation
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options to add an archive to a vault.
 --
@@ -67,12 +67,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'uploadArchive' smart constructor.
 data UploadArchive = UploadArchive'
-    { _uaChecksum           :: !(Maybe Text)
-    , _uaArchiveDescription :: !(Maybe Text)
-    , _uaVaultName          :: !Text
-    , _uaAccountId          :: !Text
-    , _uaBody               :: !HashedBody
-    } deriving (Show,Generic)
+  { _uaChecksum           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaArchiveDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaVaultName          :: {-# NOUNPACK #-}!Text
+  , _uaAccountId          :: {-# NOUNPACK #-}!Text
+  , _uaBody               :: {-# NOUNPACK #-}!HashedBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'UploadArchive' with the minimum fields required to make a request.
 --
@@ -93,13 +94,14 @@ uploadArchive
     -> HashedBody -- ^ 'uaBody'
     -> UploadArchive
 uploadArchive pVaultName_ pAccountId_ pBody_ =
-    UploadArchive'
-    { _uaChecksum = Nothing
-    , _uaArchiveDescription = Nothing
-    , _uaVaultName = pVaultName_
-    , _uaAccountId = pAccountId_
-    , _uaBody = pBody_
-    }
+  UploadArchive'
+  { _uaChecksum = Nothing
+  , _uaArchiveDescription = Nothing
+  , _uaVaultName = pVaultName_
+  , _uaAccountId = pAccountId_
+  , _uaBody = pBody_
+  }
+
 
 -- | The SHA256 tree hash of the data being uploaded.
 uaChecksum :: Lens' UploadArchive (Maybe Text)

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,13 +49,13 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     , dwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | Contains the inputs for the 'DescribeWorkspaces' operation.
 --
@@ -63,13 +63,14 @@ import           Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'describeWorkspaces' smart constructor.
 data DescribeWorkspaces = DescribeWorkspaces'
-    { _dwDirectoryId  :: !(Maybe Text)
-    , _dwWorkspaceIds :: !(Maybe (List1 Text))
-    , _dwUserName     :: !(Maybe Text)
-    , _dwBundleId     :: !(Maybe Text)
-    , _dwNextToken    :: !(Maybe Text)
-    , _dwLimit        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwDirectoryId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwWorkspaceIds :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _dwUserName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwBundleId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkspaces' with the minimum fields required to make a request.
 --
@@ -89,14 +90,15 @@ data DescribeWorkspaces = DescribeWorkspaces'
 describeWorkspaces
     :: DescribeWorkspaces
 describeWorkspaces =
-    DescribeWorkspaces'
-    { _dwDirectoryId = Nothing
-    , _dwWorkspaceIds = Nothing
-    , _dwUserName = Nothing
-    , _dwBundleId = Nothing
-    , _dwNextToken = Nothing
-    , _dwLimit = Nothing
-    }
+  DescribeWorkspaces'
+  { _dwDirectoryId = Nothing
+  , _dwWorkspaceIds = Nothing
+  , _dwUserName = Nothing
+  , _dwBundleId = Nothing
+  , _dwNextToken = Nothing
+  , _dwLimit = Nothing
+  }
+
 
 -- | Specifies the directory identifier to which to limit the WorkSpaces. Optionally, you can specify a specific directory user with the @UserName@ parameter. This parameter cannot be combined with any other filter parameter.
 dwDirectoryId :: Lens' DescribeWorkspaces (Maybe Text)
@@ -141,9 +143,9 @@ instance AWSRequest DescribeWorkspaces where
                      (x .?> "Workspaces" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeWorkspaces
+instance Hashable DescribeWorkspaces where
 
-instance NFData DescribeWorkspaces
+instance NFData DescribeWorkspaces where
 
 instance ToHeaders DescribeWorkspaces where
         toHeaders
@@ -178,10 +180,11 @@ instance ToQuery DescribeWorkspaces where
 --
 -- /See:/ 'describeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
-    { _dwrsNextToken      :: !(Maybe Text)
-    , _dwrsWorkspaces     :: !(Maybe [Workspace])
-    , _dwrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwrsWorkspaces     :: {-# NOUNPACK #-}!(Maybe [Workspace])
+  , _dwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkspacesResponse' with the minimum fields required to make a request.
 --
@@ -196,11 +199,12 @@ describeWorkspacesResponse
     :: Int -- ^ 'dwrsResponseStatus'
     -> DescribeWorkspacesResponse
 describeWorkspacesResponse pResponseStatus_ =
-    DescribeWorkspacesResponse'
-    { _dwrsNextToken = Nothing
-    , _dwrsWorkspaces = Nothing
-    , _dwrsResponseStatus = pResponseStatus_
-    }
+  DescribeWorkspacesResponse'
+  { _dwrsNextToken = Nothing
+  , _dwrsWorkspaces = Nothing
+  , _dwrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
 dwrsNextToken :: Lens' DescribeWorkspacesResponse (Maybe Text)
@@ -214,4 +218,4 @@ dwrsWorkspaces = lens _dwrsWorkspaces (\ s a -> s{_dwrsWorkspaces = a}) . _Defau
 dwrsResponseStatus :: Lens' DescribeWorkspacesResponse Int
 dwrsResponseStatus = lens _dwrsResponseStatus (\ s a -> s{_dwrsResponseStatus = a});
 
-instance NFData DescribeWorkspacesResponse
+instance NFData DescribeWorkspacesResponse where

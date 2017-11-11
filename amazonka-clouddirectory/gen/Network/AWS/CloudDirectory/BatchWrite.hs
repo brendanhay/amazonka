@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.BatchWrite
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CloudDirectory.BatchWrite
     , bwrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchWrite' smart constructor.
 data BatchWrite = BatchWrite'
-    { _bwDirectoryARN :: !Text
-    , _bwOperations   :: ![BatchWriteOperation]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bwDirectoryARN :: {-# NOUNPACK #-}!Text
+  , _bwOperations   :: {-# NOUNPACK #-}![BatchWriteOperation]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchWrite' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ batchWrite
     :: Text -- ^ 'bwDirectoryARN'
     -> BatchWrite
 batchWrite pDirectoryARN_ =
-    BatchWrite'
-    { _bwDirectoryARN = pDirectoryARN_
-    , _bwOperations = mempty
-    }
+  BatchWrite' {_bwDirectoryARN = pDirectoryARN_, _bwOperations = mempty}
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 bwDirectoryARN :: Lens' BatchWrite Text
@@ -85,9 +84,9 @@ instance AWSRequest BatchWrite where
                    (x .?> "Responses" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable BatchWrite
+instance Hashable BatchWrite where
 
-instance NFData BatchWrite
+instance NFData BatchWrite where
 
 instance ToHeaders BatchWrite where
         toHeaders BatchWrite'{..}
@@ -107,9 +106,10 @@ instance ToQuery BatchWrite where
 
 -- | /See:/ 'batchWriteResponse' smart constructor.
 data BatchWriteResponse = BatchWriteResponse'
-    { _bwrsResponses      :: !(Maybe [BatchWriteOperationResponse])
-    , _bwrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bwrsResponses :: {-# NOUNPACK #-}!(Maybe [BatchWriteOperationResponse])
+  , _bwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchWriteResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +122,9 @@ batchWriteResponse
     :: Int -- ^ 'bwrsResponseStatus'
     -> BatchWriteResponse
 batchWriteResponse pResponseStatus_ =
-    BatchWriteResponse'
-    { _bwrsResponses = Nothing
-    , _bwrsResponseStatus = pResponseStatus_
-    }
+  BatchWriteResponse'
+  {_bwrsResponses = Nothing, _bwrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of all the responses for each batch write.
 bwrsResponses :: Lens' BatchWriteResponse [BatchWriteOperationResponse]
@@ -135,4 +134,4 @@ bwrsResponses = lens _bwrsResponses (\ s a -> s{_bwrsResponses = a}) . _Default 
 bwrsResponseStatus :: Lens' BatchWriteResponse Int
 bwrsResponseStatus = lens _bwrsResponseStatus (\ s a -> s{_bwrsResponseStatus = a});
 
-instance NFData BatchWriteResponse
+instance NFData BatchWriteResponse where

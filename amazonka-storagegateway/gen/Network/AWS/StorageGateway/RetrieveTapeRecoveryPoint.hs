@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     , rtrprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | RetrieveTapeRecoveryPointInput
 --
@@ -53,9 +53,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'retrieveTapeRecoveryPoint' smart constructor.
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
-    { _rtrpTapeARN    :: !Text
-    , _rtrpGatewayARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrpTapeARN    :: {-# NOUNPACK #-}!Text
+  , _rtrpGatewayARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RetrieveTapeRecoveryPoint' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ retrieveTapeRecoveryPoint
     -> Text -- ^ 'rtrpGatewayARN'
     -> RetrieveTapeRecoveryPoint
 retrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
-    RetrieveTapeRecoveryPoint'
-    { _rtrpTapeARN = pTapeARN_
-    , _rtrpGatewayARN = pGatewayARN_
-    }
+  RetrieveTapeRecoveryPoint'
+  {_rtrpTapeARN = pTapeARN_, _rtrpGatewayARN = pGatewayARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
@@ -92,9 +92,9 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
                  RetrieveTapeRecoveryPointResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
-instance Hashable RetrieveTapeRecoveryPoint
+instance Hashable RetrieveTapeRecoveryPoint where
 
-instance NFData RetrieveTapeRecoveryPoint
+instance NFData RetrieveTapeRecoveryPoint where
 
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders
@@ -125,9 +125,10 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 --
 -- /See:/ 'retrieveTapeRecoveryPointResponse' smart constructor.
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
-    { _rtrprsTapeARN        :: !(Maybe Text)
-    , _rtrprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrprsTapeARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtrprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RetrieveTapeRecoveryPointResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +141,9 @@ retrieveTapeRecoveryPointResponse
     :: Int -- ^ 'rtrprsResponseStatus'
     -> RetrieveTapeRecoveryPointResponse
 retrieveTapeRecoveryPointResponse pResponseStatus_ =
-    RetrieveTapeRecoveryPointResponse'
-    { _rtrprsTapeARN = Nothing
-    , _rtrprsResponseStatus = pResponseStatus_
-    }
+  RetrieveTapeRecoveryPointResponse'
+  {_rtrprsTapeARN = Nothing, _rtrprsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
 rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
@@ -154,3 +154,4 @@ rtrprsResponseStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
 rtrprsResponseStatus = lens _rtrprsResponseStatus (\ s a -> s{_rtrprsResponseStatus = a});
 
 instance NFData RetrieveTapeRecoveryPointResponse
+         where

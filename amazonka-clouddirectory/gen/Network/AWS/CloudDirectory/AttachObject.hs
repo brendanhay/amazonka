@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,20 +46,21 @@ module Network.AWS.CloudDirectory.AttachObject
     , aorsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachObject' smart constructor.
 data AttachObject = AttachObject'
-    { _aoDirectoryARN    :: !Text
-    , _aoParentReference :: !ObjectReference
-    , _aoChildReference  :: !ObjectReference
-    , _aoLinkName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aoDirectoryARN    :: {-# NOUNPACK #-}!Text
+  , _aoParentReference :: {-# NOUNPACK #-}!ObjectReference
+  , _aoChildReference  :: {-# NOUNPACK #-}!ObjectReference
+  , _aoLinkName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachObject' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ attachObject
     -> Text -- ^ 'aoLinkName'
     -> AttachObject
 attachObject pDirectoryARN_ pParentReference_ pChildReference_ pLinkName_ =
-    AttachObject'
-    { _aoDirectoryARN = pDirectoryARN_
-    , _aoParentReference = pParentReference_
-    , _aoChildReference = pChildReference_
-    , _aoLinkName = pLinkName_
-    }
+  AttachObject'
+  { _aoDirectoryARN = pDirectoryARN_
+  , _aoParentReference = pParentReference_
+  , _aoChildReference = pChildReference_
+  , _aoLinkName = pLinkName_
+  }
+
 
 -- | Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 aoDirectoryARN :: Lens' AttachObject Text
@@ -112,9 +114,9 @@ instance AWSRequest AttachObject where
                    (x .?> "AttachedObjectIdentifier") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AttachObject
+instance Hashable AttachObject where
 
-instance NFData AttachObject
+instance NFData AttachObject where
 
 instance ToHeaders AttachObject where
         toHeaders AttachObject'{..}
@@ -138,9 +140,10 @@ instance ToQuery AttachObject where
 
 -- | /See:/ 'attachObjectResponse' smart constructor.
 data AttachObjectResponse = AttachObjectResponse'
-    { _aorsAttachedObjectIdentifier :: !(Maybe Text)
-    , _aorsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aorsAttachedObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aorsResponseStatus           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachObjectResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +156,11 @@ attachObjectResponse
     :: Int -- ^ 'aorsResponseStatus'
     -> AttachObjectResponse
 attachObjectResponse pResponseStatus_ =
-    AttachObjectResponse'
-    { _aorsAttachedObjectIdentifier = Nothing
-    , _aorsResponseStatus = pResponseStatus_
-    }
+  AttachObjectResponse'
+  { _aorsAttachedObjectIdentifier = Nothing
+  , _aorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
 aorsAttachedObjectIdentifier :: Lens' AttachObjectResponse (Maybe Text)
@@ -166,4 +170,4 @@ aorsAttachedObjectIdentifier = lens _aorsAttachedObjectIdentifier (\ s a -> s{_a
 aorsResponseStatus :: Lens' AttachObjectResponse Int
 aorsResponseStatus = lens _aorsResponseStatus (\ s a -> s{_aorsResponseStatus = a});
 
-instance NFData AttachObjectResponse
+instance NFData AttachObjectResponse where

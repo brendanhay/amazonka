@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetFunctionDefinitionVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Greengrass.GetFunctionDefinitionVersion
     , gfdvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getFunctionDefinitionVersion' smart constructor.
 data GetFunctionDefinitionVersion = GetFunctionDefinitionVersion'
-    { _gfdvFunctionDefinitionId        :: !Text
-    , _gfdvFunctionDefinitionVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfdvFunctionDefinitionId        :: {-# NOUNPACK #-}!Text
+  , _gfdvFunctionDefinitionVersionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFunctionDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ getFunctionDefinitionVersion
     -> Text -- ^ 'gfdvFunctionDefinitionVersionId'
     -> GetFunctionDefinitionVersion
 getFunctionDefinitionVersion pFunctionDefinitionId_ pFunctionDefinitionVersionId_ =
-    GetFunctionDefinitionVersion'
-    { _gfdvFunctionDefinitionId = pFunctionDefinitionId_
-    , _gfdvFunctionDefinitionVersionId = pFunctionDefinitionVersionId_
-    }
+  GetFunctionDefinitionVersion'
+  { _gfdvFunctionDefinitionId = pFunctionDefinitionId_
+  , _gfdvFunctionDefinitionVersionId = pFunctionDefinitionVersionId_
+  }
+
 
 -- | the unique Id of the lambda definition
 gfdvFunctionDefinitionId :: Lens' GetFunctionDefinitionVersion Text
@@ -93,9 +95,9 @@ instance AWSRequest GetFunctionDefinitionVersion
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetFunctionDefinitionVersion
+instance Hashable GetFunctionDefinitionVersion where
 
-instance NFData GetFunctionDefinitionVersion
+instance NFData GetFunctionDefinitionVersion where
 
 instance ToHeaders GetFunctionDefinitionVersion where
         toHeaders
@@ -116,13 +118,14 @@ instance ToQuery GetFunctionDefinitionVersion where
 
 -- | /See:/ 'getFunctionDefinitionVersionResponse' smart constructor.
 data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse'
-    { _gfdvrsDefinition        :: !(Maybe FunctionDefinitionVersion)
-    , _gfdvrsARN               :: !(Maybe Text)
-    , _gfdvrsCreationTimestamp :: !(Maybe Text)
-    , _gfdvrsVersion           :: !(Maybe Text)
-    , _gfdvrsId                :: !(Maybe Text)
-    , _gfdvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfdvrsDefinition :: {-# NOUNPACK #-}!(Maybe FunctionDefinitionVersion)
+  , _gfdvrsARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdvrsVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdvrsId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFunctionDefinitionVersionResponse' with the minimum fields required to make a request.
 --
@@ -143,14 +146,15 @@ getFunctionDefinitionVersionResponse
     :: Int -- ^ 'gfdvrsResponseStatus'
     -> GetFunctionDefinitionVersionResponse
 getFunctionDefinitionVersionResponse pResponseStatus_ =
-    GetFunctionDefinitionVersionResponse'
-    { _gfdvrsDefinition = Nothing
-    , _gfdvrsARN = Nothing
-    , _gfdvrsCreationTimestamp = Nothing
-    , _gfdvrsVersion = Nothing
-    , _gfdvrsId = Nothing
-    , _gfdvrsResponseStatus = pResponseStatus_
-    }
+  GetFunctionDefinitionVersionResponse'
+  { _gfdvrsDefinition = Nothing
+  , _gfdvrsARN = Nothing
+  , _gfdvrsCreationTimestamp = Nothing
+  , _gfdvrsVersion = Nothing
+  , _gfdvrsId = Nothing
+  , _gfdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gfdvrsDefinition :: Lens' GetFunctionDefinitionVersionResponse (Maybe FunctionDefinitionVersion)
@@ -177,3 +181,4 @@ gfdvrsResponseStatus :: Lens' GetFunctionDefinitionVersionResponse Int
 gfdvrsResponseStatus = lens _gfdvrsResponseStatus (\ s a -> s{_gfdvrsResponseStatus = a});
 
 instance NFData GetFunctionDefinitionVersionResponse
+         where

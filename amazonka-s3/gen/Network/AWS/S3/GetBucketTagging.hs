@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketTagging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.S3.GetBucketTagging
     , gbtrsTagSet
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketTagging' smart constructor.
 newtype GetBucketTagging = GetBucketTagging'
-    { _gbtBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbtBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketTagging' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype GetBucketTagging = GetBucketTagging'
 getBucketTagging
     :: BucketName -- ^ 'gbtBucket'
     -> GetBucketTagging
-getBucketTagging pBucket_ =
-    GetBucketTagging'
-    { _gbtBucket = pBucket_
-    }
+getBucketTagging pBucket_ = GetBucketTagging' {_gbtBucket = pBucket_}
+
 
 -- | Undocumented member.
 gbtBucket :: Lens' GetBucketTagging BucketName
@@ -74,9 +73,9 @@ instance AWSRequest GetBucketTagging where
                    (pure (fromEnum s)) <*>
                      (x .@? "TagSet" .!@ mempty >>= parseXMLList "Tag"))
 
-instance Hashable GetBucketTagging
+instance Hashable GetBucketTagging where
 
-instance NFData GetBucketTagging
+instance NFData GetBucketTagging where
 
 instance ToHeaders GetBucketTagging where
         toHeaders = const mempty
@@ -90,9 +89,10 @@ instance ToQuery GetBucketTagging where
 
 -- | /See:/ 'getBucketTaggingResponse' smart constructor.
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-    { _gbtrsResponseStatus :: !Int
-    , _gbtrsTagSet         :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gbtrsTagSet         :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketTaggingResponse' with the minimum fields required to make a request.
 --
@@ -105,10 +105,9 @@ getBucketTaggingResponse
     :: Int -- ^ 'gbtrsResponseStatus'
     -> GetBucketTaggingResponse
 getBucketTaggingResponse pResponseStatus_ =
-    GetBucketTaggingResponse'
-    { _gbtrsResponseStatus = pResponseStatus_
-    , _gbtrsTagSet = mempty
-    }
+  GetBucketTaggingResponse'
+  {_gbtrsResponseStatus = pResponseStatus_, _gbtrsTagSet = mempty}
+
 
 -- | -- | The response status code.
 gbtrsResponseStatus :: Lens' GetBucketTaggingResponse Int
@@ -118,4 +117,4 @@ gbtrsResponseStatus = lens _gbtrsResponseStatus (\ s a -> s{_gbtrsResponseStatus
 gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a}) . _Coerce;
 
-instance NFData GetBucketTaggingResponse
+instance NFData GetBucketTaggingResponse where

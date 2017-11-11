@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeReplicationTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DMS.DescribeReplicationTasks
     , drtsrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReplicationTasks' smart constructor.
 data DescribeReplicationTasks = DescribeReplicationTasks'
-    { _drtFilters    :: !(Maybe [Filter])
-    , _drtMarker     :: !(Maybe Text)
-    , _drtMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drtFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _drtMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drtMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReplicationTasks' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data DescribeReplicationTasks = DescribeReplicationTasks'
 describeReplicationTasks
     :: DescribeReplicationTasks
 describeReplicationTasks =
-    DescribeReplicationTasks'
-    { _drtFilters = Nothing
-    , _drtMarker = Nothing
-    , _drtMaxRecords = Nothing
-    }
+  DescribeReplicationTasks'
+  {_drtFilters = Nothing, _drtMarker = Nothing, _drtMaxRecords = Nothing}
+
 
 -- | Filters applied to the describe action. Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn
 drtFilters :: Lens' DescribeReplicationTasks [Filter]
@@ -100,9 +99,9 @@ instance AWSRequest DescribeReplicationTasks where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeReplicationTasks
+instance Hashable DescribeReplicationTasks where
 
-instance NFData DescribeReplicationTasks
+instance NFData DescribeReplicationTasks where
 
 instance ToHeaders DescribeReplicationTasks where
         toHeaders
@@ -134,10 +133,11 @@ instance ToQuery DescribeReplicationTasks where
 --
 -- /See:/ 'describeReplicationTasksResponse' smart constructor.
 data DescribeReplicationTasksResponse = DescribeReplicationTasksResponse'
-    { _drtsrsReplicationTasks :: !(Maybe [ReplicationTask])
-    , _drtsrsMarker           :: !(Maybe Text)
-    , _drtsrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drtsrsReplicationTasks :: {-# NOUNPACK #-}!(Maybe [ReplicationTask])
+  , _drtsrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drtsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReplicationTasksResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +152,12 @@ describeReplicationTasksResponse
     :: Int -- ^ 'drtsrsResponseStatus'
     -> DescribeReplicationTasksResponse
 describeReplicationTasksResponse pResponseStatus_ =
-    DescribeReplicationTasksResponse'
-    { _drtsrsReplicationTasks = Nothing
-    , _drtsrsMarker = Nothing
-    , _drtsrsResponseStatus = pResponseStatus_
-    }
+  DescribeReplicationTasksResponse'
+  { _drtsrsReplicationTasks = Nothing
+  , _drtsrsMarker = Nothing
+  , _drtsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A description of the replication tasks.
 drtsrsReplicationTasks :: Lens' DescribeReplicationTasksResponse [ReplicationTask]
@@ -171,3 +172,4 @@ drtsrsResponseStatus :: Lens' DescribeReplicationTasksResponse Int
 drtsrsResponseStatus = lens _drtsrsResponseStatus (\ s a -> s{_drtsrsResponseStatus = a});
 
 instance NFData DescribeReplicationTasksResponse
+         where

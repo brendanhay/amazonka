@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeImages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.AppStream.DescribeImages
     , dirsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeImages' smart constructor.
 newtype DescribeImages = DescribeImages'
-    { _diNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImages' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DescribeImages = DescribeImages'
 -- * 'diNames' - A specific list of images to describe.
 describeImages
     :: DescribeImages
-describeImages =
-    DescribeImages'
-    { _diNames = Nothing
-    }
+describeImages = DescribeImages' {_diNames = Nothing}
+
 
 -- | A specific list of images to describe.
 diNames :: Lens' DescribeImages [Text]
@@ -74,9 +73,9 @@ instance AWSRequest DescribeImages where
                  DescribeImagesResponse' <$>
                    (x .?> "Images" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable DescribeImages
+instance Hashable DescribeImages where
 
-instance NFData DescribeImages
+instance NFData DescribeImages where
 
 instance ToHeaders DescribeImages where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery DescribeImages where
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _dirsImages         :: !(Maybe [Image])
-    , _dirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dirsImages         :: {-# NOUNPACK #-}!(Maybe [Image])
+  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ describeImagesResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DescribeImagesResponse
 describeImagesResponse pResponseStatus_ =
-    DescribeImagesResponse'
-    { _dirsImages = Nothing
-    , _dirsResponseStatus = pResponseStatus_
-    }
+  DescribeImagesResponse'
+  {_dirsImages = Nothing, _dirsResponseStatus = pResponseStatus_}
+
 
 -- | The list of images.
 dirsImages :: Lens' DescribeImagesResponse [Image]
@@ -128,4 +127,4 @@ dirsImages = lens _dirsImages (\ s a -> s{_dirsImages = a}) . _Default . _Coerce
 dirsResponseStatus :: Lens' DescribeImagesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 
-instance NFData DescribeImagesResponse
+instance NFData DescribeImagesResponse where

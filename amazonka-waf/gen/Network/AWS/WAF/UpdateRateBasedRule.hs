@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateRateBasedRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -68,20 +68,21 @@ module Network.AWS.WAF.UpdateRateBasedRule
     , urbrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'updateRateBasedRule' smart constructor.
 data UpdateRateBasedRule = UpdateRateBasedRule'
-    { _urbrRuleId      :: !Text
-    , _urbrChangeToken :: !Text
-    , _urbrUpdates     :: ![RuleUpdate]
-    , _urbrRateLimit   :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urbrRuleId      :: {-# NOUNPACK #-}!Text
+  , _urbrChangeToken :: {-# NOUNPACK #-}!Text
+  , _urbrUpdates     :: {-# NOUNPACK #-}![RuleUpdate]
+  , _urbrRateLimit   :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRateBasedRule' with the minimum fields required to make a request.
 --
@@ -100,12 +101,13 @@ updateRateBasedRule
     -> Natural -- ^ 'urbrRateLimit'
     -> UpdateRateBasedRule
 updateRateBasedRule pRuleId_ pChangeToken_ pRateLimit_ =
-    UpdateRateBasedRule'
-    { _urbrRuleId = pRuleId_
-    , _urbrChangeToken = pChangeToken_
-    , _urbrUpdates = mempty
-    , _urbrRateLimit = _Nat # pRateLimit_
-    }
+  UpdateRateBasedRule'
+  { _urbrRuleId = pRuleId_
+  , _urbrChangeToken = pChangeToken_
+  , _urbrUpdates = mempty
+  , _urbrRateLimit = _Nat # pRateLimit_
+  }
+
 
 -- | The @RuleId@ of the @RateBasedRule@ that you want to update. @RuleId@ is returned by @CreateRateBasedRule@ and by 'ListRateBasedRules' .
 urbrRuleId :: Lens' UpdateRateBasedRule Text
@@ -133,9 +135,9 @@ instance AWSRequest UpdateRateBasedRule where
                  UpdateRateBasedRuleResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateRateBasedRule
+instance Hashable UpdateRateBasedRule where
 
-instance NFData UpdateRateBasedRule
+instance NFData UpdateRateBasedRule where
 
 instance ToHeaders UpdateRateBasedRule where
         toHeaders
@@ -164,9 +166,10 @@ instance ToQuery UpdateRateBasedRule where
 
 -- | /See:/ 'updateRateBasedRuleResponse' smart constructor.
 data UpdateRateBasedRuleResponse = UpdateRateBasedRuleResponse'
-    { _urbrrsChangeToken    :: !(Maybe Text)
-    , _urbrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urbrrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _urbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRateBasedRuleResponse' with the minimum fields required to make a request.
 --
@@ -179,10 +182,9 @@ updateRateBasedRuleResponse
     :: Int -- ^ 'urbrrsResponseStatus'
     -> UpdateRateBasedRuleResponse
 updateRateBasedRuleResponse pResponseStatus_ =
-    UpdateRateBasedRuleResponse'
-    { _urbrrsChangeToken = Nothing
-    , _urbrrsResponseStatus = pResponseStatus_
-    }
+  UpdateRateBasedRuleResponse'
+  {_urbrrsChangeToken = Nothing, _urbrrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 urbrrsChangeToken :: Lens' UpdateRateBasedRuleResponse (Maybe Text)
@@ -192,4 +194,4 @@ urbrrsChangeToken = lens _urbrrsChangeToken (\ s a -> s{_urbrrsChangeToken = a})
 urbrrsResponseStatus :: Lens' UpdateRateBasedRuleResponse Int
 urbrrsResponseStatus = lens _urbrrsResponseStatus (\ s a -> s{_urbrrsResponseStatus = a});
 
-instance NFData UpdateRateBasedRuleResponse
+instance NFData UpdateRateBasedRuleResponse where

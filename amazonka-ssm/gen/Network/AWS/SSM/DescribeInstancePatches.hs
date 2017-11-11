@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstancePatches
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.DescribeInstancePatches
     , diprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstancePatches' smart constructor.
 data DescribeInstancePatches = DescribeInstancePatches'
-    { _dipFilters    :: !(Maybe [PatchOrchestratorFilter])
-    , _dipNextToken  :: !(Maybe Text)
-    , _dipMaxResults :: !(Maybe Nat)
-    , _dipInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dipFilters    :: {-# NOUNPACK #-}!(Maybe [PatchOrchestratorFilter])
+  , _dipNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dipMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dipInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstancePatches' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeInstancePatches
     :: Text -- ^ 'dipInstanceId'
     -> DescribeInstancePatches
 describeInstancePatches pInstanceId_ =
-    DescribeInstancePatches'
-    { _dipFilters = Nothing
-    , _dipNextToken = Nothing
-    , _dipMaxResults = Nothing
-    , _dipInstanceId = pInstanceId_
-    }
+  DescribeInstancePatches'
+  { _dipFilters = Nothing
+  , _dipNextToken = Nothing
+  , _dipMaxResults = Nothing
+  , _dipInstanceId = pInstanceId_
+  }
+
 
 -- | Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string between 1 and 256 characters)
 dipFilters :: Lens' DescribeInstancePatches [PatchOrchestratorFilter]
@@ -105,9 +107,9 @@ instance AWSRequest DescribeInstancePatches where
                    (x .?> "Patches" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeInstancePatches
+instance Hashable DescribeInstancePatches where
 
-instance NFData DescribeInstancePatches
+instance NFData DescribeInstancePatches where
 
 instance ToHeaders DescribeInstancePatches where
         toHeaders
@@ -135,10 +137,11 @@ instance ToQuery DescribeInstancePatches where
 
 -- | /See:/ 'describeInstancePatchesResponse' smart constructor.
 data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
-    { _diprsPatches        :: !(Maybe [PatchComplianceData])
-    , _diprsNextToken      :: !(Maybe Text)
-    , _diprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diprsPatches        :: {-# NOUNPACK #-}!(Maybe [PatchComplianceData])
+  , _diprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstancePatchesResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ describeInstancePatchesResponse
     :: Int -- ^ 'diprsResponseStatus'
     -> DescribeInstancePatchesResponse
 describeInstancePatchesResponse pResponseStatus_ =
-    DescribeInstancePatchesResponse'
-    { _diprsPatches = Nothing
-    , _diprsNextToken = Nothing
-    , _diprsResponseStatus = pResponseStatus_
-    }
+  DescribeInstancePatchesResponse'
+  { _diprsPatches = Nothing
+  , _diprsNextToken = Nothing
+  , _diprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string: "INSTALLED", "INSTALLED OTHER", "MISSING", "NOT APPLICABLE", "FAILED") InstalledTime (DateTime) InstalledBy (string)
 diprsPatches :: Lens' DescribeInstancePatchesResponse [PatchComplianceData]
@@ -171,4 +175,4 @@ diprsNextToken = lens _diprsNextToken (\ s a -> s{_diprsNextToken = a});
 diprsResponseStatus :: Lens' DescribeInstancePatchesResponse Int
 diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a});
 
-instance NFData DescribeInstancePatchesResponse
+instance NFData DescribeInstancePatchesResponse where

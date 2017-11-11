@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DeviceFarm.GetUpload
     , gursResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get upload operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getUpload' smart constructor.
 newtype GetUpload = GetUpload'
-    { _guArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _guArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUpload' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetUpload = GetUpload'
 getUpload
     :: Text -- ^ 'guArn'
     -> GetUpload
-getUpload pArn_ =
-    GetUpload'
-    { _guArn = pArn_
-    }
+getUpload pArn_ = GetUpload' {_guArn = pArn_}
+
 
 -- | The upload's ARN.
 guArn :: Lens' GetUpload Text
@@ -79,9 +78,9 @@ instance AWSRequest GetUpload where
                  GetUploadResponse' <$>
                    (x .?> "upload") <*> (pure (fromEnum s)))
 
-instance Hashable GetUpload
+instance Hashable GetUpload where
 
-instance NFData GetUpload
+instance NFData GetUpload where
 
 instance ToHeaders GetUpload where
         toHeaders
@@ -108,9 +107,10 @@ instance ToQuery GetUpload where
 --
 -- /See:/ 'getUploadResponse' smart constructor.
 data GetUploadResponse = GetUploadResponse'
-    { _gursUpload         :: !(Maybe Upload)
-    , _gursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gursUpload         :: {-# NOUNPACK #-}!(Maybe Upload)
+  , _gursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUploadResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +123,9 @@ getUploadResponse
     :: Int -- ^ 'gursResponseStatus'
     -> GetUploadResponse
 getUploadResponse pResponseStatus_ =
-    GetUploadResponse'
-    { _gursUpload = Nothing
-    , _gursResponseStatus = pResponseStatus_
-    }
+  GetUploadResponse'
+  {_gursUpload = Nothing, _gursResponseStatus = pResponseStatus_}
+
 
 -- | An app or a set of one or more tests to upload or that have been uploaded.
 gursUpload :: Lens' GetUploadResponse (Maybe Upload)
@@ -136,4 +135,4 @@ gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
 gursResponseStatus :: Lens' GetUploadResponse Int
 gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
 
-instance NFData GetUploadResponse
+instance NFData GetUploadResponse where

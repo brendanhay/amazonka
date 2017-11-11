@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -305,22 +305,22 @@ module Network.AWS.Rekognition
     , sConfidence
     ) where
 
-import           Network.AWS.Rekognition.CompareFaces
-import           Network.AWS.Rekognition.CreateCollection
-import           Network.AWS.Rekognition.DeleteCollection
-import           Network.AWS.Rekognition.DeleteFaces
-import           Network.AWS.Rekognition.DetectFaces
-import           Network.AWS.Rekognition.DetectLabels
-import           Network.AWS.Rekognition.DetectModerationLabels
-import           Network.AWS.Rekognition.GetCelebrityInfo
-import           Network.AWS.Rekognition.IndexFaces
-import           Network.AWS.Rekognition.ListCollections
-import           Network.AWS.Rekognition.ListFaces
-import           Network.AWS.Rekognition.RecognizeCelebrities
-import           Network.AWS.Rekognition.SearchFaces
-import           Network.AWS.Rekognition.SearchFacesByImage
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Waiters
+import Network.AWS.Rekognition.CompareFaces
+import Network.AWS.Rekognition.CreateCollection
+import Network.AWS.Rekognition.DeleteCollection
+import Network.AWS.Rekognition.DeleteFaces
+import Network.AWS.Rekognition.DetectFaces
+import Network.AWS.Rekognition.DetectLabels
+import Network.AWS.Rekognition.DetectModerationLabels
+import Network.AWS.Rekognition.GetCelebrityInfo
+import Network.AWS.Rekognition.IndexFaces
+import Network.AWS.Rekognition.ListCollections
+import Network.AWS.Rekognition.ListFaces
+import Network.AWS.Rekognition.RecognizeCelebrities
+import Network.AWS.Rekognition.SearchFaces
+import Network.AWS.Rekognition.SearchFacesByImage
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

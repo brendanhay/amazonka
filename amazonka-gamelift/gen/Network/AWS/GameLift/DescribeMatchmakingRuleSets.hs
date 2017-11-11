@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeMatchmakingRuleSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,12 +58,12 @@ module Network.AWS.GameLift.DescribeMatchmakingRuleSets
     , dmrsrsRuleSets
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -71,10 +71,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeMatchmakingRuleSets' smart constructor.
 data DescribeMatchmakingRuleSets = DescribeMatchmakingRuleSets'
-    { _dmrsNextToken :: !(Maybe Text)
-    , _dmrsNames     :: !(Maybe (List1 Text))
-    , _dmrsLimit     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmrsNames     :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _dmrsLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMatchmakingRuleSets' with the minimum fields required to make a request.
 --
@@ -88,11 +89,9 @@ data DescribeMatchmakingRuleSets = DescribeMatchmakingRuleSets'
 describeMatchmakingRuleSets
     :: DescribeMatchmakingRuleSets
 describeMatchmakingRuleSets =
-    DescribeMatchmakingRuleSets'
-    { _dmrsNextToken = Nothing
-    , _dmrsNames = Nothing
-    , _dmrsLimit = Nothing
-    }
+  DescribeMatchmakingRuleSets'
+  {_dmrsNextToken = Nothing, _dmrsNames = Nothing, _dmrsLimit = Nothing}
+
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dmrsNextToken :: Lens' DescribeMatchmakingRuleSets (Maybe Text)
@@ -117,9 +116,9 @@ instance AWSRequest DescribeMatchmakingRuleSets where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "RuleSets" .!@ mempty))
 
-instance Hashable DescribeMatchmakingRuleSets
+instance Hashable DescribeMatchmakingRuleSets where
 
-instance NFData DescribeMatchmakingRuleSets
+instance NFData DescribeMatchmakingRuleSets where
 
 instance ToHeaders DescribeMatchmakingRuleSets where
         toHeaders
@@ -151,10 +150,11 @@ instance ToQuery DescribeMatchmakingRuleSets where
 --
 -- /See:/ 'describeMatchmakingRuleSetsResponse' smart constructor.
 data DescribeMatchmakingRuleSetsResponse = DescribeMatchmakingRuleSetsResponse'
-    { _dmrsrsNextToken      :: !(Maybe Text)
-    , _dmrsrsResponseStatus :: !Int
-    , _dmrsrsRuleSets       :: ![MatchmakingRuleSet]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmrsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dmrsrsRuleSets       :: {-# NOUNPACK #-}![MatchmakingRuleSet]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMatchmakingRuleSetsResponse' with the minimum fields required to make a request.
 --
@@ -169,11 +169,12 @@ describeMatchmakingRuleSetsResponse
     :: Int -- ^ 'dmrsrsResponseStatus'
     -> DescribeMatchmakingRuleSetsResponse
 describeMatchmakingRuleSetsResponse pResponseStatus_ =
-    DescribeMatchmakingRuleSetsResponse'
-    { _dmrsrsNextToken = Nothing
-    , _dmrsrsResponseStatus = pResponseStatus_
-    , _dmrsrsRuleSets = mempty
-    }
+  DescribeMatchmakingRuleSetsResponse'
+  { _dmrsrsNextToken = Nothing
+  , _dmrsrsResponseStatus = pResponseStatus_
+  , _dmrsrsRuleSets = mempty
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dmrsrsNextToken :: Lens' DescribeMatchmakingRuleSetsResponse (Maybe Text)
@@ -188,3 +189,4 @@ dmrsrsRuleSets :: Lens' DescribeMatchmakingRuleSetsResponse [MatchmakingRuleSet]
 dmrsrsRuleSets = lens _dmrsrsRuleSets (\ s a -> s{_dmrsrsRuleSets = a}) . _Coerce;
 
 instance NFData DescribeMatchmakingRuleSetsResponse
+         where

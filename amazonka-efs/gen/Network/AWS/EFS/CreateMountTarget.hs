@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.CreateMountTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -107,12 +107,12 @@ module Network.AWS.EFS.CreateMountTarget
     , mtdLifeCycleState
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -120,11 +120,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createMountTarget' smart constructor.
 data CreateMountTarget = CreateMountTarget'
-    { _cmtIPAddress      :: !(Maybe Text)
-    , _cmtSecurityGroups :: !(Maybe [Text])
-    , _cmtFileSystemId   :: !Text
-    , _cmtSubnetId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmtIPAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmtSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cmtFileSystemId   :: {-# NOUNPACK #-}!Text
+  , _cmtSubnetId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMountTarget' with the minimum fields required to make a request.
 --
@@ -142,12 +143,13 @@ createMountTarget
     -> Text -- ^ 'cmtSubnetId'
     -> CreateMountTarget
 createMountTarget pFileSystemId_ pSubnetId_ =
-    CreateMountTarget'
-    { _cmtIPAddress = Nothing
-    , _cmtSecurityGroups = Nothing
-    , _cmtFileSystemId = pFileSystemId_
-    , _cmtSubnetId = pSubnetId_
-    }
+  CreateMountTarget'
+  { _cmtIPAddress = Nothing
+  , _cmtSecurityGroups = Nothing
+  , _cmtFileSystemId = pFileSystemId_
+  , _cmtSubnetId = pSubnetId_
+  }
+
 
 -- | Valid IPv4 address within the address range of the specified subnet.
 cmtIPAddress :: Lens' CreateMountTarget (Maybe Text)
@@ -170,9 +172,9 @@ instance AWSRequest CreateMountTarget where
         request = postJSON efs
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateMountTarget
+instance Hashable CreateMountTarget where
 
-instance NFData CreateMountTarget
+instance NFData CreateMountTarget where
 
 instance ToHeaders CreateMountTarget where
         toHeaders = const mempty

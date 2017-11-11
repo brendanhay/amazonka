@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyTargetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,25 +47,26 @@ module Network.AWS.ELBv2.ModifyTargetGroup
     , mtgrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyTargetGroup' smart constructor.
 data ModifyTargetGroup = ModifyTargetGroup'
-    { _mtgMatcher                    :: !(Maybe Matcher)
-    , _mtgHealthCheckPath            :: !(Maybe Text)
-    , _mtgUnhealthyThresholdCount    :: !(Maybe Nat)
-    , _mtgHealthCheckIntervalSeconds :: !(Maybe Nat)
-    , _mtgHealthyThresholdCount      :: !(Maybe Nat)
-    , _mtgHealthCheckProtocol        :: !(Maybe ProtocolEnum)
-    , _mtgHealthCheckTimeoutSeconds  :: !(Maybe Nat)
-    , _mtgHealthCheckPort            :: !(Maybe Text)
-    , _mtgTargetGroupARN             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtgMatcher                    :: {-# NOUNPACK #-}!(Maybe Matcher)
+  , _mtgHealthCheckPath            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtgUnhealthyThresholdCount    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mtgHealthCheckIntervalSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mtgHealthyThresholdCount      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mtgHealthCheckProtocol        :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
+  , _mtgHealthCheckTimeoutSeconds  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mtgHealthCheckPort            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtgTargetGroupARN             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyTargetGroup' with the minimum fields required to make a request.
 --
@@ -92,17 +93,18 @@ modifyTargetGroup
     :: Text -- ^ 'mtgTargetGroupARN'
     -> ModifyTargetGroup
 modifyTargetGroup pTargetGroupARN_ =
-    ModifyTargetGroup'
-    { _mtgMatcher = Nothing
-    , _mtgHealthCheckPath = Nothing
-    , _mtgUnhealthyThresholdCount = Nothing
-    , _mtgHealthCheckIntervalSeconds = Nothing
-    , _mtgHealthyThresholdCount = Nothing
-    , _mtgHealthCheckProtocol = Nothing
-    , _mtgHealthCheckTimeoutSeconds = Nothing
-    , _mtgHealthCheckPort = Nothing
-    , _mtgTargetGroupARN = pTargetGroupARN_
-    }
+  ModifyTargetGroup'
+  { _mtgMatcher = Nothing
+  , _mtgHealthCheckPath = Nothing
+  , _mtgUnhealthyThresholdCount = Nothing
+  , _mtgHealthCheckIntervalSeconds = Nothing
+  , _mtgHealthyThresholdCount = Nothing
+  , _mtgHealthCheckProtocol = Nothing
+  , _mtgHealthCheckTimeoutSeconds = Nothing
+  , _mtgHealthCheckPort = Nothing
+  , _mtgTargetGroupARN = pTargetGroupARN_
+  }
+
 
 -- | The HTTP codes to use when checking for a successful response from a target.
 mtgMatcher :: Lens' ModifyTargetGroup (Maybe Matcher)
@@ -151,9 +153,9 @@ instance AWSRequest ModifyTargetGroup where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ModifyTargetGroup
+instance Hashable ModifyTargetGroup where
 
-instance NFData ModifyTargetGroup
+instance NFData ModifyTargetGroup where
 
 instance ToHeaders ModifyTargetGroup where
         toHeaders = const mempty
@@ -181,9 +183,10 @@ instance ToQuery ModifyTargetGroup where
 
 -- | /See:/ 'modifyTargetGroupResponse' smart constructor.
 data ModifyTargetGroupResponse = ModifyTargetGroupResponse'
-    { _mtgrsTargetGroups   :: !(Maybe [TargetGroup])
-    , _mtgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtgrsTargetGroups   :: {-# NOUNPACK #-}!(Maybe [TargetGroup])
+  , _mtgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyTargetGroupResponse' with the minimum fields required to make a request.
 --
@@ -196,10 +199,9 @@ modifyTargetGroupResponse
     :: Int -- ^ 'mtgrsResponseStatus'
     -> ModifyTargetGroupResponse
 modifyTargetGroupResponse pResponseStatus_ =
-    ModifyTargetGroupResponse'
-    { _mtgrsTargetGroups = Nothing
-    , _mtgrsResponseStatus = pResponseStatus_
-    }
+  ModifyTargetGroupResponse'
+  {_mtgrsTargetGroups = Nothing, _mtgrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the target group.
 mtgrsTargetGroups :: Lens' ModifyTargetGroupResponse [TargetGroup]
@@ -209,4 +211,4 @@ mtgrsTargetGroups = lens _mtgrsTargetGroups (\ s a -> s{_mtgrsTargetGroups = a})
 mtgrsResponseStatus :: Lens' ModifyTargetGroupResponse Int
 mtgrsResponseStatus = lens _mtgrsResponseStatus (\ s a -> s{_mtgrsResponseStatus = a});
 
-instance NFData ModifyTargetGroupResponse
+instance NFData ModifyTargetGroupResponse where

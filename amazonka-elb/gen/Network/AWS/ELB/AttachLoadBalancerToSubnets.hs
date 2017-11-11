@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.AttachLoadBalancerToSubnets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     , albtsrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachLoaBalancerToSubnets.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'attachLoadBalancerToSubnets' smart constructor.
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
-    { _albtsLoadBalancerName :: !Text
-    , _albtsSubnets          :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albtsLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _albtsSubnets          :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancerToSubnets' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ attachLoadBalancerToSubnets
     :: Text -- ^ 'albtsLoadBalancerName'
     -> AttachLoadBalancerToSubnets
 attachLoadBalancerToSubnets pLoadBalancerName_ =
-    AttachLoadBalancerToSubnets'
-    { _albtsLoadBalancerName = pLoadBalancerName_
-    , _albtsSubnets = mempty
-    }
+  AttachLoadBalancerToSubnets'
+  {_albtsLoadBalancerName = pLoadBalancerName_, _albtsSubnets = mempty}
+
 
 -- | The name of the load balancer.
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
@@ -94,9 +94,9 @@ instance AWSRequest AttachLoadBalancerToSubnets where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable AttachLoadBalancerToSubnets
+instance Hashable AttachLoadBalancerToSubnets where
 
-instance NFData AttachLoadBalancerToSubnets
+instance NFData AttachLoadBalancerToSubnets where
 
 instance ToHeaders AttachLoadBalancerToSubnets where
         toHeaders = const mempty
@@ -119,9 +119,10 @@ instance ToQuery AttachLoadBalancerToSubnets where
 --
 -- /See:/ 'attachLoadBalancerToSubnetsResponse' smart constructor.
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
-    { _albtsrsSubnets        :: !(Maybe [Text])
-    , _albtsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albtsrsSubnets        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _albtsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancerToSubnetsResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +135,9 @@ attachLoadBalancerToSubnetsResponse
     :: Int -- ^ 'albtsrsResponseStatus'
     -> AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnetsResponse pResponseStatus_ =
-    AttachLoadBalancerToSubnetsResponse'
-    { _albtsrsSubnets = Nothing
-    , _albtsrsResponseStatus = pResponseStatus_
-    }
+  AttachLoadBalancerToSubnetsResponse'
+  {_albtsrsSubnets = Nothing, _albtsrsResponseStatus = pResponseStatus_}
+
 
 -- | The IDs of the subnets attached to the load balancer.
 albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
@@ -148,3 +148,4 @@ albtsrsResponseStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
 albtsrsResponseStatus = lens _albtsrsResponseStatus (\ s a -> s{_albtsrsResponseStatus = a});
 
 instance NFData AttachLoadBalancerToSubnetsResponse
+         where

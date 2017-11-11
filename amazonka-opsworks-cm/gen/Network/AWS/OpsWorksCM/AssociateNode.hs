@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.AssociateNode
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.OpsWorksCM.AssociateNode
     , anrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateNode' smart constructor.
 data AssociateNode = AssociateNode'
-    { _anServerName       :: !Text
-    , _anNodeName         :: !Text
-    , _anEngineAttributes :: ![EngineAttribute]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _anServerName       :: {-# NOUNPACK #-}!Text
+  , _anNodeName         :: {-# NOUNPACK #-}!Text
+  , _anEngineAttributes :: {-# NOUNPACK #-}![EngineAttribute]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateNode' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ associateNode
     -> Text -- ^ 'anNodeName'
     -> AssociateNode
 associateNode pServerName_ pNodeName_ =
-    AssociateNode'
-    { _anServerName = pServerName_
-    , _anNodeName = pNodeName_
-    , _anEngineAttributes = mempty
-    }
+  AssociateNode'
+  { _anServerName = pServerName_
+  , _anNodeName = pNodeName_
+  , _anEngineAttributes = mempty
+  }
+
 
 -- | The name of the server with which to associate the node.
 anServerName :: Lens' AssociateNode Text
@@ -99,9 +101,9 @@ instance AWSRequest AssociateNode where
                    (x .?> "NodeAssociationStatusToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AssociateNode
+instance Hashable AssociateNode where
 
-instance NFData AssociateNode
+instance NFData AssociateNode where
 
 instance ToHeaders AssociateNode where
         toHeaders
@@ -129,9 +131,10 @@ instance ToQuery AssociateNode where
 
 -- | /See:/ 'associateNodeResponse' smart constructor.
 data AssociateNodeResponse = AssociateNodeResponse'
-    { _anrsNodeAssociationStatusToken :: !(Maybe Text)
-    , _anrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _anrsNodeAssociationStatusToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _anrsResponseStatus             :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateNodeResponse' with the minimum fields required to make a request.
 --
@@ -144,10 +147,11 @@ associateNodeResponse
     :: Int -- ^ 'anrsResponseStatus'
     -> AssociateNodeResponse
 associateNodeResponse pResponseStatus_ =
-    AssociateNodeResponse'
-    { _anrsNodeAssociationStatusToken = Nothing
-    , _anrsResponseStatus = pResponseStatus_
-    }
+  AssociateNodeResponse'
+  { _anrsNodeAssociationStatusToken = Nothing
+  , _anrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the association request.
 anrsNodeAssociationStatusToken :: Lens' AssociateNodeResponse (Maybe Text)
@@ -157,4 +161,4 @@ anrsNodeAssociationStatusToken = lens _anrsNodeAssociationStatusToken (\ s a -> 
 anrsResponseStatus :: Lens' AssociateNodeResponse Int
 anrsResponseStatus = lens _anrsResponseStatus (\ s a -> s{_anrsResponseStatus = a});
 
-instance NFData AssociateNodeResponse
+instance NFData AssociateNodeResponse where

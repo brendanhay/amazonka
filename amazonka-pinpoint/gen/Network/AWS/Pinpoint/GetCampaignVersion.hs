@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaignVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.Pinpoint.GetCampaignVersion
     , gcvcrsCampaignResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCampaignVersion' smart constructor.
 data GetCampaignVersion = GetCampaignVersion'
-    { _gcvcVersion       :: !Text
-    , _gcvcApplicationId :: !Text
-    , _gcvcCampaignId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcvcVersion       :: {-# NOUNPACK #-}!Text
+  , _gcvcApplicationId :: {-# NOUNPACK #-}!Text
+  , _gcvcCampaignId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCampaignVersion' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ getCampaignVersion
     -> Text -- ^ 'gcvcCampaignId'
     -> GetCampaignVersion
 getCampaignVersion pVersion_ pApplicationId_ pCampaignId_ =
-    GetCampaignVersion'
-    { _gcvcVersion = pVersion_
-    , _gcvcApplicationId = pApplicationId_
-    , _gcvcCampaignId = pCampaignId_
-    }
+  GetCampaignVersion'
+  { _gcvcVersion = pVersion_
+  , _gcvcApplicationId = pApplicationId_
+  , _gcvcCampaignId = pCampaignId_
+  }
+
 
 -- | Undocumented member.
 gcvcVersion :: Lens' GetCampaignVersion Text
@@ -94,9 +96,9 @@ instance AWSRequest GetCampaignVersion where
                  GetCampaignVersionResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetCampaignVersion
+instance Hashable GetCampaignVersion where
 
-instance NFData GetCampaignVersion
+instance NFData GetCampaignVersion where
 
 instance ToHeaders GetCampaignVersion where
         toHeaders
@@ -117,9 +119,10 @@ instance ToQuery GetCampaignVersion where
 
 -- | /See:/ 'getCampaignVersionResponse' smart constructor.
 data GetCampaignVersionResponse = GetCampaignVersionResponse'
-    { _gcvcrsResponseStatus   :: !Int
-    , _gcvcrsCampaignResponse :: !CampaignResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcvcrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _gcvcrsCampaignResponse :: {-# NOUNPACK #-}!CampaignResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCampaignVersionResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +136,11 @@ getCampaignVersionResponse
     -> CampaignResponse -- ^ 'gcvcrsCampaignResponse'
     -> GetCampaignVersionResponse
 getCampaignVersionResponse pResponseStatus_ pCampaignResponse_ =
-    GetCampaignVersionResponse'
-    { _gcvcrsResponseStatus = pResponseStatus_
-    , _gcvcrsCampaignResponse = pCampaignResponse_
-    }
+  GetCampaignVersionResponse'
+  { _gcvcrsResponseStatus = pResponseStatus_
+  , _gcvcrsCampaignResponse = pCampaignResponse_
+  }
+
 
 -- | -- | The response status code.
 gcvcrsResponseStatus :: Lens' GetCampaignVersionResponse Int
@@ -146,4 +150,4 @@ gcvcrsResponseStatus = lens _gcvcrsResponseStatus (\ s a -> s{_gcvcrsResponseSta
 gcvcrsCampaignResponse :: Lens' GetCampaignVersionResponse CampaignResponse
 gcvcrsCampaignResponse = lens _gcvcrsCampaignResponse (\ s a -> s{_gcvcrsCampaignResponse = a});
 
-instance NFData GetCampaignVersionResponse
+instance NFData GetCampaignVersionResponse where

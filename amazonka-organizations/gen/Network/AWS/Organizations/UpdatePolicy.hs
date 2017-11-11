@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.UpdatePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.Organizations.UpdatePolicy
     , uprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
-    { _upContent     :: !(Maybe Text)
-    , _upName        :: !(Maybe Text)
-    , _upDescription :: !(Maybe Text)
-    , _upPolicyId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upContent     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upPolicyId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePolicy' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ updatePolicy
     :: Text -- ^ 'upPolicyId'
     -> UpdatePolicy
 updatePolicy pPolicyId_ =
-    UpdatePolicy'
-    { _upContent = Nothing
-    , _upName = Nothing
-    , _upDescription = Nothing
-    , _upPolicyId = pPolicyId_
-    }
+  UpdatePolicy'
+  { _upContent = Nothing
+  , _upName = Nothing
+  , _upDescription = Nothing
+  , _upPolicyId = pPolicyId_
+  }
+
 
 -- | If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
 upContent :: Lens' UpdatePolicy (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest UpdatePolicy where
                  UpdatePolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
-instance Hashable UpdatePolicy
+instance Hashable UpdatePolicy where
 
-instance NFData UpdatePolicy
+instance NFData UpdatePolicy where
 
 instance ToHeaders UpdatePolicy where
         toHeaders
@@ -135,9 +137,10 @@ instance ToQuery UpdatePolicy where
 
 -- | /See:/ 'updatePolicyResponse' smart constructor.
 data UpdatePolicyResponse = UpdatePolicyResponse'
-    { _uprsPolicy         :: !(Maybe Policy)
-    , _uprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uprsPolicy         :: {-# NOUNPACK #-}!(Maybe Policy)
+  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePolicyResponse' with the minimum fields required to make a request.
 --
@@ -150,10 +153,9 @@ updatePolicyResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UpdatePolicyResponse
 updatePolicyResponse pResponseStatus_ =
-    UpdatePolicyResponse'
-    { _uprsPolicy = Nothing
-    , _uprsResponseStatus = pResponseStatus_
-    }
+  UpdatePolicyResponse'
+  {_uprsPolicy = Nothing, _uprsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the updated policy, showing the requested changes.
 uprsPolicy :: Lens' UpdatePolicyResponse (Maybe Policy)
@@ -163,4 +165,4 @@ uprsPolicy = lens _uprsPolicy (\ s a -> s{_uprsPolicy = a});
 uprsResponseStatus :: Lens' UpdatePolicyResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 
-instance NFData UpdatePolicyResponse
+instance NFData UpdatePolicyResponse where

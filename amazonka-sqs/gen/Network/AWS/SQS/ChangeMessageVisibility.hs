@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ChangeMessageVisibility
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,19 +48,20 @@ module Network.AWS.SQS.ChangeMessageVisibility
     , ChangeMessageVisibilityResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'changeMessageVisibility' smart constructor.
 data ChangeMessageVisibility = ChangeMessageVisibility'
-    { _cmvQueueURL          :: !Text
-    , _cmvReceiptHandle     :: !Text
-    , _cmvVisibilityTimeout :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmvQueueURL          :: {-# NOUNPACK #-}!Text
+  , _cmvReceiptHandle     :: {-# NOUNPACK #-}!Text
+  , _cmvVisibilityTimeout :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeMessageVisibility' with the minimum fields required to make a request.
 --
@@ -77,11 +78,12 @@ changeMessageVisibility
     -> Int -- ^ 'cmvVisibilityTimeout'
     -> ChangeMessageVisibility
 changeMessageVisibility pQueueURL_ pReceiptHandle_ pVisibilityTimeout_ =
-    ChangeMessageVisibility'
-    { _cmvQueueURL = pQueueURL_
-    , _cmvReceiptHandle = pReceiptHandle_
-    , _cmvVisibilityTimeout = pVisibilityTimeout_
-    }
+  ChangeMessageVisibility'
+  { _cmvQueueURL = pQueueURL_
+  , _cmvReceiptHandle = pReceiptHandle_
+  , _cmvVisibilityTimeout = pVisibilityTimeout_
+  }
+
 
 -- | The URL of the Amazon SQS queue whose message's visibility is changed. Queue URLs are case-sensitive.
 cmvQueueURL :: Lens' ChangeMessageVisibility Text
@@ -102,9 +104,9 @@ instance AWSRequest ChangeMessageVisibility where
         response
           = receiveNull ChangeMessageVisibilityResponse'
 
-instance Hashable ChangeMessageVisibility
+instance Hashable ChangeMessageVisibility where
 
-instance NFData ChangeMessageVisibility
+instance NFData ChangeMessageVisibility where
 
 instance ToHeaders ChangeMessageVisibility where
         toHeaders = const mempty
@@ -124,8 +126,9 @@ instance ToQuery ChangeMessageVisibility where
 
 -- | /See:/ 'changeMessageVisibilityResponse' smart constructor.
 data ChangeMessageVisibilityResponse =
-    ChangeMessageVisibilityResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ChangeMessageVisibilityResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeMessageVisibilityResponse' with the minimum fields required to make a request.
 --
@@ -133,4 +136,5 @@ changeMessageVisibilityResponse
     :: ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse = ChangeMessageVisibilityResponse'
 
-instance NFData ChangeMessageVisibilityResponse
+
+instance NFData ChangeMessageVisibilityResponse where

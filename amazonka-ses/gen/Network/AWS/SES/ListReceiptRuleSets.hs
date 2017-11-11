@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListReceiptRuleSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.SES.ListReceiptRuleSets
     , lrrsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to list the receipt rule sets that exist under your AWS account. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
@@ -55,8 +55,9 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'listReceiptRuleSets' smart constructor.
 newtype ListReceiptRuleSets = ListReceiptRuleSets'
-    { _lrrsNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListReceiptRuleSets' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ newtype ListReceiptRuleSets = ListReceiptRuleSets'
 -- * 'lrrsNextToken' - A token returned from a previous call to @ListReceiptRuleSets@ to indicate the position in the receipt rule set list.
 listReceiptRuleSets
     :: ListReceiptRuleSets
-listReceiptRuleSets =
-    ListReceiptRuleSets'
-    { _lrrsNextToken = Nothing
-    }
+listReceiptRuleSets = ListReceiptRuleSets' {_lrrsNextToken = Nothing}
+
 
 -- | A token returned from a previous call to @ListReceiptRuleSets@ to indicate the position in the receipt rule set list.
 lrrsNextToken :: Lens' ListReceiptRuleSets (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest ListReceiptRuleSets where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListReceiptRuleSets
+instance Hashable ListReceiptRuleSets where
 
-instance NFData ListReceiptRuleSets
+instance NFData ListReceiptRuleSets where
 
 instance ToHeaders ListReceiptRuleSets where
         toHeaders = const mempty
@@ -110,10 +109,11 @@ instance ToQuery ListReceiptRuleSets where
 --
 -- /See:/ 'listReceiptRuleSetsResponse' smart constructor.
 data ListReceiptRuleSetsResponse = ListReceiptRuleSetsResponse'
-    { _lrrsrsRuleSets       :: !(Maybe [ReceiptRuleSetMetadata])
-    , _lrrsrsNextToken      :: !(Maybe Text)
-    , _lrrsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsrsRuleSets       :: {-# NOUNPACK #-}!(Maybe [ReceiptRuleSetMetadata])
+  , _lrrsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListReceiptRuleSetsResponse' with the minimum fields required to make a request.
 --
@@ -128,11 +128,12 @@ listReceiptRuleSetsResponse
     :: Int -- ^ 'lrrsrsResponseStatus'
     -> ListReceiptRuleSetsResponse
 listReceiptRuleSetsResponse pResponseStatus_ =
-    ListReceiptRuleSetsResponse'
-    { _lrrsrsRuleSets = Nothing
-    , _lrrsrsNextToken = Nothing
-    , _lrrsrsResponseStatus = pResponseStatus_
-    }
+  ListReceiptRuleSetsResponse'
+  { _lrrsrsRuleSets = Nothing
+  , _lrrsrsNextToken = Nothing
+  , _lrrsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The metadata for the currently active receipt rule set. The metadata consists of the rule set name and the timestamp of when the rule set was created.
 lrrsrsRuleSets :: Lens' ListReceiptRuleSetsResponse [ReceiptRuleSetMetadata]
@@ -146,4 +147,4 @@ lrrsrsNextToken = lens _lrrsrsNextToken (\ s a -> s{_lrrsrsNextToken = a});
 lrrsrsResponseStatus :: Lens' ListReceiptRuleSetsResponse Int
 lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\ s a -> s{_lrrsrsResponseStatus = a});
 
-instance NFData ListReceiptRuleSetsResponse
+instance NFData ListReceiptRuleSetsResponse where

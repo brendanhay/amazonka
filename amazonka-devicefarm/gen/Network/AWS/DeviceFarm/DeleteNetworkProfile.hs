@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteNetworkProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.DeviceFarm.DeleteNetworkProfile
     , dnprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkProfile' smart constructor.
 newtype DeleteNetworkProfile = DeleteNetworkProfile'
-    { _dnpArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnpArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNetworkProfile' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteNetworkProfile = DeleteNetworkProfile'
 deleteNetworkProfile
     :: Text -- ^ 'dnpArn'
     -> DeleteNetworkProfile
-deleteNetworkProfile pArn_ =
-    DeleteNetworkProfile'
-    { _dnpArn = pArn_
-    }
+deleteNetworkProfile pArn_ = DeleteNetworkProfile' {_dnpArn = pArn_}
+
 
 -- | The Amazon Resource Name (ARN) of the network profile you want to delete.
 dnpArn :: Lens' DeleteNetworkProfile Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteNetworkProfile where
                  DeleteNetworkProfileResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteNetworkProfile
+instance Hashable DeleteNetworkProfile where
 
-instance NFData DeleteNetworkProfile
+instance NFData DeleteNetworkProfile where
 
 instance ToHeaders DeleteNetworkProfile where
         toHeaders
@@ -101,8 +100,9 @@ instance ToQuery DeleteNetworkProfile where
 
 -- | /See:/ 'deleteNetworkProfileResponse' smart constructor.
 newtype DeleteNetworkProfileResponse = DeleteNetworkProfileResponse'
-    { _dnprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNetworkProfileResponse' with the minimum fields required to make a request.
 --
@@ -113,12 +113,11 @@ deleteNetworkProfileResponse
     :: Int -- ^ 'dnprsResponseStatus'
     -> DeleteNetworkProfileResponse
 deleteNetworkProfileResponse pResponseStatus_ =
-    DeleteNetworkProfileResponse'
-    { _dnprsResponseStatus = pResponseStatus_
-    }
+  DeleteNetworkProfileResponse' {_dnprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dnprsResponseStatus :: Lens' DeleteNetworkProfileResponse Int
 dnprsResponseStatus = lens _dnprsResponseStatus (\ s a -> s{_dnprsResponseStatus = a});
 
-instance NFData DeleteNetworkProfileResponse
+instance NFData DeleteNetworkProfileResponse where

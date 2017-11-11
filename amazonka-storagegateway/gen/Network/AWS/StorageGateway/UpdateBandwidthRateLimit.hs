@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateBandwidthRateLimit
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     , ubrlrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -62,10 +62,11 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateBandwidthRateLimit' smart constructor.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
-    { _ubrlAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
-    , _ubrlAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
-    , _ubrlGatewayARN                           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ubrlAverageUploadRateLimitInBitsPerSec   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ubrlAverageDownloadRateLimitInBitsPerSec :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ubrlGatewayARN                           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateBandwidthRateLimit' with the minimum fields required to make a request.
 --
@@ -80,11 +81,12 @@ updateBandwidthRateLimit
     :: Text -- ^ 'ubrlGatewayARN'
     -> UpdateBandwidthRateLimit
 updateBandwidthRateLimit pGatewayARN_ =
-    UpdateBandwidthRateLimit'
-    { _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
-    , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
-    , _ubrlGatewayARN = pGatewayARN_
-    }
+  UpdateBandwidthRateLimit'
+  { _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
+  , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
+  , _ubrlGatewayARN = pGatewayARN_
+  }
+
 
 -- | The average upload bandwidth rate limit in bits per second.
 ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
@@ -108,9 +110,9 @@ instance AWSRequest UpdateBandwidthRateLimit where
                  UpdateBandwidthRateLimitResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateBandwidthRateLimit
+instance Hashable UpdateBandwidthRateLimit where
 
-instance NFData UpdateBandwidthRateLimit
+instance NFData UpdateBandwidthRateLimit where
 
 instance ToHeaders UpdateBandwidthRateLimit where
         toHeaders
@@ -144,9 +146,10 @@ instance ToQuery UpdateBandwidthRateLimit where
 --
 -- /See:/ 'updateBandwidthRateLimitResponse' smart constructor.
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
-    { _ubrlrsGatewayARN     :: !(Maybe Text)
-    , _ubrlrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ubrlrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ubrlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateBandwidthRateLimitResponse' with the minimum fields required to make a request.
 --
@@ -159,10 +162,9 @@ updateBandwidthRateLimitResponse
     :: Int -- ^ 'ubrlrsResponseStatus'
     -> UpdateBandwidthRateLimitResponse
 updateBandwidthRateLimitResponse pResponseStatus_ =
-    UpdateBandwidthRateLimitResponse'
-    { _ubrlrsGatewayARN = Nothing
-    , _ubrlrsResponseStatus = pResponseStatus_
-    }
+  UpdateBandwidthRateLimitResponse'
+  {_ubrlrsGatewayARN = Nothing, _ubrlrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ubrlrsGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
@@ -173,3 +175,4 @@ ubrlrsResponseStatus :: Lens' UpdateBandwidthRateLimitResponse Int
 ubrlrsResponseStatus = lens _ubrlrsResponseStatus (\ s a -> s{_ubrlrsResponseStatus = a});
 
 instance NFData UpdateBandwidthRateLimitResponse
+         where

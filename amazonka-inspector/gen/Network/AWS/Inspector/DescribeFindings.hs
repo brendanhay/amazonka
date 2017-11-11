@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeFindings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Inspector.DescribeFindings
     , dfrsFailedItems
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeFindings' smart constructor.
 data DescribeFindings = DescribeFindings'
-    { _dfLocale      :: !(Maybe Locale)
-    , _dfFindingARNs :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfLocale      :: {-# NOUNPACK #-}!(Maybe Locale)
+  , _dfFindingARNs :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFindings' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ describeFindings
     :: NonEmpty Text -- ^ 'dfFindingARNs'
     -> DescribeFindings
 describeFindings pFindingARNs_ =
-    DescribeFindings'
-    { _dfLocale = Nothing
-    , _dfFindingARNs = _List1 # pFindingARNs_
-    }
+  DescribeFindings'
+  {_dfLocale = Nothing, _dfFindingARNs = _List1 # pFindingARNs_}
+
 
 -- | The locale into which you want to translate a finding description, recommendation, and the short description that identifies the finding.
 dfLocale :: Lens' DescribeFindings (Maybe Locale)
@@ -86,9 +86,9 @@ instance AWSRequest DescribeFindings where
                    (pure (fromEnum s)) <*> (x .?> "findings" .!@ mempty)
                      <*> (x .?> "failedItems" .!@ mempty))
 
-instance Hashable DescribeFindings
+instance Hashable DescribeFindings where
 
-instance NFData DescribeFindings
+instance NFData DescribeFindings where
 
 instance ToHeaders DescribeFindings where
         toHeaders
@@ -114,10 +114,11 @@ instance ToQuery DescribeFindings where
 
 -- | /See:/ 'describeFindingsResponse' smart constructor.
 data DescribeFindingsResponse = DescribeFindingsResponse'
-    { _dfrsResponseStatus :: !Int
-    , _dfrsFindings       :: ![Finding]
-    , _dfrsFailedItems    :: !(Map Text FailedItemDetails)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dfrsFindings       :: {-# NOUNPACK #-}![Finding]
+  , _dfrsFailedItems    :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFindingsResponse' with the minimum fields required to make a request.
 --
@@ -132,11 +133,12 @@ describeFindingsResponse
     :: Int -- ^ 'dfrsResponseStatus'
     -> DescribeFindingsResponse
 describeFindingsResponse pResponseStatus_ =
-    DescribeFindingsResponse'
-    { _dfrsResponseStatus = pResponseStatus_
-    , _dfrsFindings = mempty
-    , _dfrsFailedItems = mempty
-    }
+  DescribeFindingsResponse'
+  { _dfrsResponseStatus = pResponseStatus_
+  , _dfrsFindings = mempty
+  , _dfrsFailedItems = mempty
+  }
+
 
 -- | -- | The response status code.
 dfrsResponseStatus :: Lens' DescribeFindingsResponse Int
@@ -150,4 +152,4 @@ dfrsFindings = lens _dfrsFindings (\ s a -> s{_dfrsFindings = a}) . _Coerce;
 dfrsFailedItems :: Lens' DescribeFindingsResponse (HashMap Text FailedItemDetails)
 dfrsFailedItems = lens _dfrsFailedItems (\ s a -> s{_dfrsFailedItems = a}) . _Map;
 
-instance NFData DescribeFindingsResponse
+instance NFData DescribeFindingsResponse where

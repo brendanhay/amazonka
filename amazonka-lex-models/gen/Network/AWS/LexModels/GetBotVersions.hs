@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBotVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,19 +46,20 @@ module Network.AWS.LexModels.GetBotVersions
     , gbvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBotVersions' smart constructor.
 data GetBotVersions = GetBotVersions'
-    { _gbvNextToken  :: !(Maybe Text)
-    , _gbvMaxResults :: !(Maybe Nat)
-    , _gbvName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbvNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbvMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gbvName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotVersions' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ getBotVersions
     :: Text -- ^ 'gbvName'
     -> GetBotVersions
 getBotVersions pName_ =
-    GetBotVersions'
-    { _gbvNextToken = Nothing
-    , _gbvMaxResults = Nothing
-    , _gbvName = pName_
-    }
+  GetBotVersions'
+  {_gbvNextToken = Nothing, _gbvMaxResults = Nothing, _gbvName = pName_}
+
 
 -- | A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
 gbvNextToken :: Lens' GetBotVersions (Maybe Text)
@@ -101,9 +100,9 @@ instance AWSRequest GetBotVersions where
                    (x .?> "bots" .!@ mempty) <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetBotVersions
+instance Hashable GetBotVersions where
 
-instance NFData GetBotVersions
+instance NFData GetBotVersions where
 
 instance ToHeaders GetBotVersions where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery GetBotVersions where
 
 -- | /See:/ 'getBotVersionsResponse' smart constructor.
 data GetBotVersionsResponse = GetBotVersionsResponse'
-    { _gbvrsBots           :: !(Maybe [BotMetadata])
-    , _gbvrsNextToken      :: !(Maybe Text)
-    , _gbvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbvrsBots           :: {-# NOUNPACK #-}!(Maybe [BotMetadata])
+  , _gbvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotVersionsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ getBotVersionsResponse
     :: Int -- ^ 'gbvrsResponseStatus'
     -> GetBotVersionsResponse
 getBotVersionsResponse pResponseStatus_ =
-    GetBotVersionsResponse'
-    { _gbvrsBots = Nothing
-    , _gbvrsNextToken = Nothing
-    , _gbvrsResponseStatus = pResponseStatus_
-    }
+  GetBotVersionsResponse'
+  { _gbvrsBots = Nothing
+  , _gbvrsNextToken = Nothing
+  , _gbvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of @BotMetadata@ objects, one for each numbered version of the bot plus one for the @> LATEST@ version.
 gbvrsBots :: Lens' GetBotVersionsResponse [BotMetadata]
@@ -160,4 +161,4 @@ gbvrsNextToken = lens _gbvrsNextToken (\ s a -> s{_gbvrsNextToken = a});
 gbvrsResponseStatus :: Lens' GetBotVersionsResponse Int
 gbvrsResponseStatus = lens _gbvrsResponseStatus (\ s a -> s{_gbvrsResponseStatus = a});
 
-instance NFData GetBotVersionsResponse
+instance NFData GetBotVersionsResponse where

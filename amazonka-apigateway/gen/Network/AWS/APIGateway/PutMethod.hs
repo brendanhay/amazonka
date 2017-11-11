@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutMethod
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.APIGateway.PutMethod
     , mMethodIntegration
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to add a method to an existing 'Resource' resource.
 --
@@ -67,17 +67,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putMethod' smart constructor.
 data PutMethod = PutMethod'
-    { _putRequestValidatorId :: !(Maybe Text)
-    , _putRequestModels      :: !(Maybe (Map Text Text))
-    , _putRequestParameters  :: !(Maybe (Map Text Bool))
-    , _putAuthorizerId       :: !(Maybe Text)
-    , _putOperationName      :: !(Maybe Text)
-    , _putApiKeyRequired     :: !(Maybe Bool)
-    , _putRestAPIId          :: !Text
-    , _putResourceId         :: !Text
-    , _putHttpMethod         :: !Text
-    , _putAuthorizationType  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _putRequestValidatorId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _putRequestModels      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _putRequestParameters  :: {-# NOUNPACK #-}!(Maybe (Map Text Bool))
+  , _putAuthorizerId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _putOperationName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _putApiKeyRequired     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _putRestAPIId          :: {-# NOUNPACK #-}!Text
+  , _putResourceId         :: {-# NOUNPACK #-}!Text
+  , _putHttpMethod         :: {-# NOUNPACK #-}!Text
+  , _putAuthorizationType  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMethod' with the minimum fields required to make a request.
 --
@@ -109,18 +110,19 @@ putMethod
     -> Text -- ^ 'putAuthorizationType'
     -> PutMethod
 putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
-    PutMethod'
-    { _putRequestValidatorId = Nothing
-    , _putRequestModels = Nothing
-    , _putRequestParameters = Nothing
-    , _putAuthorizerId = Nothing
-    , _putOperationName = Nothing
-    , _putApiKeyRequired = Nothing
-    , _putRestAPIId = pRestAPIId_
-    , _putResourceId = pResourceId_
-    , _putHttpMethod = pHttpMethod_
-    , _putAuthorizationType = pAuthorizationType_
-    }
+  PutMethod'
+  { _putRequestValidatorId = Nothing
+  , _putRequestModels = Nothing
+  , _putRequestParameters = Nothing
+  , _putAuthorizerId = Nothing
+  , _putOperationName = Nothing
+  , _putApiKeyRequired = Nothing
+  , _putRestAPIId = pRestAPIId_
+  , _putResourceId = pResourceId_
+  , _putHttpMethod = pHttpMethod_
+  , _putAuthorizationType = pAuthorizationType_
+  }
+
 
 -- | The identifier of a 'RequestValidator' for validating the method request.
 putRequestValidatorId :: Lens' PutMethod (Maybe Text)
@@ -167,9 +169,9 @@ instance AWSRequest PutMethod where
         request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable PutMethod
+instance Hashable PutMethod where
 
-instance NFData PutMethod
+instance NFData PutMethod where
 
 instance ToHeaders PutMethod where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.SetEndpointAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.SNS.SetEndpointAttributes
     , SetEndpointAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for SetEndpointAttributes action.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'setEndpointAttributes' smart constructor.
 data SetEndpointAttributes = SetEndpointAttributes'
-    { _seaEndpointARN :: !Text
-    , _seaAttributes  :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seaEndpointARN :: {-# NOUNPACK #-}!Text
+  , _seaAttributes  :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetEndpointAttributes' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ setEndpointAttributes
     :: Text -- ^ 'seaEndpointARN'
     -> SetEndpointAttributes
 setEndpointAttributes pEndpointARN_ =
-    SetEndpointAttributes'
-    { _seaEndpointARN = pEndpointARN_
-    , _seaAttributes = mempty
-    }
+  SetEndpointAttributes'
+  {_seaEndpointARN = pEndpointARN_, _seaAttributes = mempty}
+
 
 -- | EndpointArn used for SetEndpointAttributes action.
 seaEndpointARN :: Lens' SetEndpointAttributes Text
@@ -82,9 +82,9 @@ instance AWSRequest SetEndpointAttributes where
         request = postQuery sns
         response = receiveNull SetEndpointAttributesResponse'
 
-instance Hashable SetEndpointAttributes
+instance Hashable SetEndpointAttributes where
 
-instance NFData SetEndpointAttributes
+instance NFData SetEndpointAttributes where
 
 instance ToHeaders SetEndpointAttributes where
         toHeaders = const mempty
@@ -103,8 +103,9 @@ instance ToQuery SetEndpointAttributes where
 
 -- | /See:/ 'setEndpointAttributesResponse' smart constructor.
 data SetEndpointAttributesResponse =
-    SetEndpointAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetEndpointAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetEndpointAttributesResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +113,5 @@ setEndpointAttributesResponse
     :: SetEndpointAttributesResponse
 setEndpointAttributesResponse = SetEndpointAttributesResponse'
 
-instance NFData SetEndpointAttributesResponse
+
+instance NFData SetEndpointAttributesResponse where

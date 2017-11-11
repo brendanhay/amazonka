@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.GetInstanceState
     , getrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getInstanceState' smart constructor.
 newtype GetInstanceState = GetInstanceState'
-    { _gisInstanceName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisInstanceName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceState' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getInstanceState
     :: Text -- ^ 'gisInstanceName'
     -> GetInstanceState
 getInstanceState pInstanceName_ =
-    GetInstanceState'
-    { _gisInstanceName = pInstanceName_
-    }
+  GetInstanceState' {_gisInstanceName = pInstanceName_}
+
 
 -- | The name of the instance to get state information about.
 gisInstanceName :: Lens' GetInstanceState Text
@@ -75,9 +75,9 @@ instance AWSRequest GetInstanceState where
                  GetInstanceStateResponse' <$>
                    (x .?> "state") <*> (pure (fromEnum s)))
 
-instance Hashable GetInstanceState
+instance Hashable GetInstanceState where
 
-instance NFData GetInstanceState
+instance NFData GetInstanceState where
 
 instance ToHeaders GetInstanceState where
         toHeaders
@@ -103,9 +103,10 @@ instance ToQuery GetInstanceState where
 
 -- | /See:/ 'getInstanceStateResponse' smart constructor.
 data GetInstanceStateResponse = GetInstanceStateResponse'
-    { _getrsState          :: !(Maybe InstanceState)
-    , _getrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _getrsState          :: {-# NOUNPACK #-}!(Maybe InstanceState)
+  , _getrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceStateResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +119,9 @@ getInstanceStateResponse
     :: Int -- ^ 'getrsResponseStatus'
     -> GetInstanceStateResponse
 getInstanceStateResponse pResponseStatus_ =
-    GetInstanceStateResponse'
-    { _getrsState = Nothing
-    , _getrsResponseStatus = pResponseStatus_
-    }
+  GetInstanceStateResponse'
+  {_getrsState = Nothing, _getrsResponseStatus = pResponseStatus_}
+
 
 -- | The state of the instance.
 getrsState :: Lens' GetInstanceStateResponse (Maybe InstanceState)
@@ -131,4 +131,4 @@ getrsState = lens _getrsState (\ s a -> s{_getrsState = a});
 getrsResponseStatus :: Lens' GetInstanceStateResponse Int
 getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
 
-instance NFData GetInstanceStateResponse
+instance NFData GetInstanceStateResponse where

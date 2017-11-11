@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteBotVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.LexModels.DeleteBotVersion
     , DeleteBotVersionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteBotVersion' smart constructor.
 data DeleteBotVersion = DeleteBotVersion'
-    { _dbvName    :: !Text
-    , _dbvVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbvName    :: {-# NOUNPACK #-}!Text
+  , _dbvVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBotVersion' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteBotVersion
     -> Text -- ^ 'dbvVersion'
     -> DeleteBotVersion
 deleteBotVersion pName_ pVersion_ =
-    DeleteBotVersion'
-    { _dbvName = pName_
-    , _dbvVersion = pVersion_
-    }
+  DeleteBotVersion' {_dbvName = pName_, _dbvVersion = pVersion_}
+
 
 -- | The name of the bot.
 dbvName :: Lens' DeleteBotVersion Text
@@ -80,9 +79,9 @@ instance AWSRequest DeleteBotVersion where
         request = delete lexModels
         response = receiveNull DeleteBotVersionResponse'
 
-instance Hashable DeleteBotVersion
+instance Hashable DeleteBotVersion where
 
-instance NFData DeleteBotVersion
+instance NFData DeleteBotVersion where
 
 instance ToHeaders DeleteBotVersion where
         toHeaders
@@ -102,8 +101,9 @@ instance ToQuery DeleteBotVersion where
 
 -- | /See:/ 'deleteBotVersionResponse' smart constructor.
 data DeleteBotVersionResponse =
-    DeleteBotVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBotVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBotVersionResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ deleteBotVersionResponse
     :: DeleteBotVersionResponse
 deleteBotVersionResponse = DeleteBotVersionResponse'
 
-instance NFData DeleteBotVersionResponse
+
+instance NFData DeleteBotVersionResponse where

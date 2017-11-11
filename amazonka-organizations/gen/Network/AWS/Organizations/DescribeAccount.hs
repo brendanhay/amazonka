@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeAccount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.Organizations.DescribeAccount
     , darsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAccount' smart constructor.
 newtype DescribeAccount = DescribeAccount'
-    { _daAccountId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAccountId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccount' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ newtype DescribeAccount = DescribeAccount'
 describeAccount
     :: Text -- ^ 'daAccountId'
     -> DescribeAccount
-describeAccount pAccountId_ =
-    DescribeAccount'
-    { _daAccountId = pAccountId_
-    }
+describeAccount pAccountId_ = DescribeAccount' {_daAccountId = pAccountId_}
+
 
 -- | The unique identifier (ID) of the AWS account that you want information about. You can get the ID from the 'ListAccounts' or 'ListAccountsForParent' operations. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 daAccountId :: Lens' DescribeAccount Text
@@ -77,9 +76,9 @@ instance AWSRequest DescribeAccount where
                  DescribeAccountResponse' <$>
                    (x .?> "Account") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAccount
+instance Hashable DescribeAccount where
 
-instance NFData DescribeAccount
+instance NFData DescribeAccount where
 
 instance ToHeaders DescribeAccount where
         toHeaders
@@ -104,9 +103,10 @@ instance ToQuery DescribeAccount where
 
 -- | /See:/ 'describeAccountResponse' smart constructor.
 data DescribeAccountResponse = DescribeAccountResponse'
-    { _darsAccount        :: !(Maybe Account)
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _darsAccount        :: {-# NOUNPACK #-}!(Maybe Account)
+  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +119,9 @@ describeAccountResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAccountResponse
 describeAccountResponse pResponseStatus_ =
-    DescribeAccountResponse'
-    { _darsAccount = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeAccountResponse'
+  {_darsAccount = Nothing, _darsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains information about the requested account.
 darsAccount :: Lens' DescribeAccountResponse (Maybe Account)
@@ -132,4 +131,4 @@ darsAccount = lens _darsAccount (\ s a -> s{_darsAccount = a});
 darsResponseStatus :: Lens' DescribeAccountResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeAccountResponse
+instance NFData DescribeAccountResponse where

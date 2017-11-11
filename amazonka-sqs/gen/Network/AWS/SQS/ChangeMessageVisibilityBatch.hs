@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ChangeMessageVisibilityBatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     , cmvbrsFailed
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -54,9 +54,10 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'changeMessageVisibilityBatch' smart constructor.
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
-    { _cmvbQueueURL :: !Text
-    , _cmvbEntries  :: ![ChangeMessageVisibilityBatchRequestEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmvbQueueURL :: {-# NOUNPACK #-}!Text
+  , _cmvbEntries  :: {-# NOUNPACK #-}![ChangeMessageVisibilityBatchRequestEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeMessageVisibilityBatch' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ changeMessageVisibilityBatch
     :: Text -- ^ 'cmvbQueueURL'
     -> ChangeMessageVisibilityBatch
 changeMessageVisibilityBatch pQueueURL_ =
-    ChangeMessageVisibilityBatch'
-    { _cmvbQueueURL = pQueueURL_
-    , _cmvbEntries = mempty
-    }
+  ChangeMessageVisibilityBatch'
+  {_cmvbQueueURL = pQueueURL_, _cmvbEntries = mempty}
+
 
 -- | The URL of the Amazon SQS queue whose messages' visibility is changed. Queue URLs are case-sensitive.
 cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
@@ -98,9 +98,9 @@ instance AWSRequest ChangeMessageVisibilityBatch
                         x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
-instance Hashable ChangeMessageVisibilityBatch
+instance Hashable ChangeMessageVisibilityBatch where
 
-instance NFData ChangeMessageVisibilityBatch
+instance NFData ChangeMessageVisibilityBatch where
 
 instance ToHeaders ChangeMessageVisibilityBatch where
         toHeaders = const mempty
@@ -125,10 +125,11 @@ instance ToQuery ChangeMessageVisibilityBatch where
 --
 -- /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
-    { _cmvbrsResponseStatus :: !Int
-    , _cmvbrsSuccessful     :: ![ChangeMessageVisibilityBatchResultEntry]
-    , _cmvbrsFailed         :: ![BatchResultErrorEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmvbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _cmvbrsSuccessful :: {-# NOUNPACK #-}![ChangeMessageVisibilityBatchResultEntry]
+  , _cmvbrsFailed :: {-# NOUNPACK #-}![BatchResultErrorEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeMessageVisibilityBatchResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +144,12 @@ changeMessageVisibilityBatchResponse
     :: Int -- ^ 'cmvbrsResponseStatus'
     -> ChangeMessageVisibilityBatchResponse
 changeMessageVisibilityBatchResponse pResponseStatus_ =
-    ChangeMessageVisibilityBatchResponse'
-    { _cmvbrsResponseStatus = pResponseStatus_
-    , _cmvbrsSuccessful = mempty
-    , _cmvbrsFailed = mempty
-    }
+  ChangeMessageVisibilityBatchResponse'
+  { _cmvbrsResponseStatus = pResponseStatus_
+  , _cmvbrsSuccessful = mempty
+  , _cmvbrsFailed = mempty
+  }
+
 
 -- | -- | The response status code.
 cmvbrsResponseStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
@@ -162,3 +164,4 @@ cmvbrsFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntr
 cmvbrsFailed = lens _cmvbrsFailed (\ s a -> s{_cmvbrsFailed = a}) . _Coerce;
 
 instance NFData ChangeMessageVisibilityBatchResponse
+         where

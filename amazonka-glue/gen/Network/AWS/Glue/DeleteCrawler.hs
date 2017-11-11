@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteCrawler
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.DeleteCrawler
     , dccrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCrawler' smart constructor.
 newtype DeleteCrawler = DeleteCrawler'
-    { _dcName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCrawler' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteCrawler = DeleteCrawler'
 deleteCrawler
     :: Text -- ^ 'dcName'
     -> DeleteCrawler
-deleteCrawler pName_ =
-    DeleteCrawler'
-    { _dcName = pName_
-    }
+deleteCrawler pName_ = DeleteCrawler' {_dcName = pName_}
+
 
 -- | Name of the @Crawler@ to remove.
 dcName :: Lens' DeleteCrawler Text
@@ -73,9 +72,9 @@ instance AWSRequest DeleteCrawler where
               (\ s h x ->
                  DeleteCrawlerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteCrawler
+instance Hashable DeleteCrawler where
 
-instance NFData DeleteCrawler
+instance NFData DeleteCrawler where
 
 instance ToHeaders DeleteCrawler where
         toHeaders
@@ -98,8 +97,9 @@ instance ToQuery DeleteCrawler where
 
 -- | /See:/ 'deleteCrawlerResponse' smart constructor.
 newtype DeleteCrawlerResponse = DeleteCrawlerResponse'
-    { _dccrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dccrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCrawlerResponse' with the minimum fields required to make a request.
 --
@@ -110,12 +110,11 @@ deleteCrawlerResponse
     :: Int -- ^ 'dccrsResponseStatus'
     -> DeleteCrawlerResponse
 deleteCrawlerResponse pResponseStatus_ =
-    DeleteCrawlerResponse'
-    { _dccrsResponseStatus = pResponseStatus_
-    }
+  DeleteCrawlerResponse' {_dccrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dccrsResponseStatus :: Lens' DeleteCrawlerResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
 
-instance NFData DeleteCrawlerResponse
+instance NFData DeleteCrawlerResponse where

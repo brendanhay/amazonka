@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyDBClusterParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.RDS.CopyDBClusterParameterGroup
     , cdcpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'copyDBClusterParameterGroup' smart constructor.
 data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
-    { _cdbcpgTags                                     :: !(Maybe [Tag])
-    , _cdbcpgSourceDBClusterParameterGroupIdentifier  :: !Text
-    , _cdbcpgTargetDBClusterParameterGroupIdentifier  :: !Text
-    , _cdbcpgTargetDBClusterParameterGroupDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdbcpgTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdbcpgSourceDBClusterParameterGroupIdentifier :: {-# NOUNPACK #-}!Text
+  , _cdbcpgTargetDBClusterParameterGroupIdentifier :: {-# NOUNPACK #-}!Text
+  , _cdbcpgTargetDBClusterParameterGroupDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyDBClusterParameterGroup' with the minimum fields required to make a request.
 --
@@ -72,12 +73,16 @@ copyDBClusterParameterGroup
     -> Text -- ^ 'cdbcpgTargetDBClusterParameterGroupDescription'
     -> CopyDBClusterParameterGroup
 copyDBClusterParameterGroup pSourceDBClusterParameterGroupIdentifier_ pTargetDBClusterParameterGroupIdentifier_ pTargetDBClusterParameterGroupDescription_ =
-    CopyDBClusterParameterGroup'
-    { _cdbcpgTags = Nothing
-    , _cdbcpgSourceDBClusterParameterGroupIdentifier = pSourceDBClusterParameterGroupIdentifier_
-    , _cdbcpgTargetDBClusterParameterGroupIdentifier = pTargetDBClusterParameterGroupIdentifier_
-    , _cdbcpgTargetDBClusterParameterGroupDescription = pTargetDBClusterParameterGroupDescription_
-    }
+  CopyDBClusterParameterGroup'
+  { _cdbcpgTags = Nothing
+  , _cdbcpgSourceDBClusterParameterGroupIdentifier =
+      pSourceDBClusterParameterGroupIdentifier_
+  , _cdbcpgTargetDBClusterParameterGroupIdentifier =
+      pTargetDBClusterParameterGroupIdentifier_
+  , _cdbcpgTargetDBClusterParameterGroupDescription =
+      pTargetDBClusterParameterGroupDescription_
+  }
+
 
 -- | Undocumented member.
 cdbcpgTags :: Lens' CopyDBClusterParameterGroup [Tag]
@@ -107,9 +112,9 @@ instance AWSRequest CopyDBClusterParameterGroup where
                    (x .@? "DBClusterParameterGroup") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CopyDBClusterParameterGroup
+instance Hashable CopyDBClusterParameterGroup where
 
-instance NFData CopyDBClusterParameterGroup
+instance NFData CopyDBClusterParameterGroup where
 
 instance ToHeaders CopyDBClusterParameterGroup where
         toHeaders = const mempty
@@ -134,9 +139,10 @@ instance ToQuery CopyDBClusterParameterGroup where
 
 -- | /See:/ 'copyDBClusterParameterGroupResponse' smart constructor.
 data CopyDBClusterParameterGroupResponse = CopyDBClusterParameterGroupResponse'
-    { _cdcpgrsDBClusterParameterGroup :: !(Maybe DBClusterParameterGroup)
-    , _cdcpgrsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdcpgrsDBClusterParameterGroup :: {-# NOUNPACK #-}!(Maybe DBClusterParameterGroup)
+  , _cdcpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyDBClusterParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -149,10 +155,11 @@ copyDBClusterParameterGroupResponse
     :: Int -- ^ 'cdcpgrsResponseStatus'
     -> CopyDBClusterParameterGroupResponse
 copyDBClusterParameterGroupResponse pResponseStatus_ =
-    CopyDBClusterParameterGroupResponse'
-    { _cdcpgrsDBClusterParameterGroup = Nothing
-    , _cdcpgrsResponseStatus = pResponseStatus_
-    }
+  CopyDBClusterParameterGroupResponse'
+  { _cdcpgrsDBClusterParameterGroup = Nothing
+  , _cdcpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 cdcpgrsDBClusterParameterGroup :: Lens' CopyDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
@@ -163,3 +170,4 @@ cdcpgrsResponseStatus :: Lens' CopyDBClusterParameterGroupResponse Int
 cdcpgrsResponseStatus = lens _cdcpgrsResponseStatus (\ s a -> s{_cdcpgrsResponseStatus = a});
 
 instance NFData CopyDBClusterParameterGroupResponse
+         where

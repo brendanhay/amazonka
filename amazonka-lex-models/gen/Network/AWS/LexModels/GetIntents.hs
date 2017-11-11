@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetIntents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,19 +48,20 @@ module Network.AWS.LexModels.GetIntents
     , gisrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getIntents' smart constructor.
 data GetIntents = GetIntents'
-    { _giNameContains :: !(Maybe Text)
-    , _giNextToken    :: !(Maybe Text)
-    , _giMaxResults   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giNameContains :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntents' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ data GetIntents = GetIntents'
 getIntents
     :: GetIntents
 getIntents =
-    GetIntents'
-    { _giNameContains = Nothing
-    , _giNextToken = Nothing
-    , _giMaxResults = Nothing
-    }
+  GetIntents'
+  {_giNameContains = Nothing, _giNextToken = Nothing, _giMaxResults = Nothing}
+
 
 -- | Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 giNameContains :: Lens' GetIntents (Maybe Text)
@@ -102,9 +101,9 @@ instance AWSRequest GetIntents where
                    (x .?> "intents" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetIntents
+instance Hashable GetIntents where
 
-instance NFData GetIntents
+instance NFData GetIntents where
 
 instance ToHeaders GetIntents where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery GetIntents where
 
 -- | /See:/ 'getIntentsResponse' smart constructor.
 data GetIntentsResponse = GetIntentsResponse'
-    { _gisrsIntents        :: !(Maybe [IntentMetadata])
-    , _gisrsNextToken      :: !(Maybe Text)
-    , _gisrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisrsIntents        :: {-# NOUNPACK #-}!(Maybe [IntentMetadata])
+  , _gisrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntentsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ getIntentsResponse
     :: Int -- ^ 'gisrsResponseStatus'
     -> GetIntentsResponse
 getIntentsResponse pResponseStatus_ =
-    GetIntentsResponse'
-    { _gisrsIntents = Nothing
-    , _gisrsNextToken = Nothing
-    , _gisrsResponseStatus = pResponseStatus_
-    }
+  GetIntentsResponse'
+  { _gisrsIntents = Nothing
+  , _gisrsNextToken = Nothing
+  , _gisrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of @Intent@ objects. For more information, see 'PutBot' .
 gisrsIntents :: Lens' GetIntentsResponse [IntentMetadata]
@@ -161,4 +162,4 @@ gisrsNextToken = lens _gisrsNextToken (\ s a -> s{_gisrsNextToken = a});
 gisrsResponseStatus :: Lens' GetIntentsResponse Int
 gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
 
-instance NFData GetIntentsResponse
+instance NFData GetIntentsResponse where

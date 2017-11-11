@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeTimeToLive
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.DynamoDB.DescribeTimeToLive
     , dttlrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTimeToLive' smart constructor.
 newtype DescribeTimeToLive = DescribeTimeToLive'
-    { _dttlTableName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dttlTableName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTimeToLive' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ describeTimeToLive
     :: Text -- ^ 'dttlTableName'
     -> DescribeTimeToLive
 describeTimeToLive pTableName_ =
-    DescribeTimeToLive'
-    { _dttlTableName = pTableName_
-    }
+  DescribeTimeToLive' {_dttlTableName = pTableName_}
+
 
 -- | The name of the table to be described.
 dttlTableName :: Lens' DescribeTimeToLive Text
@@ -77,9 +77,9 @@ instance AWSRequest DescribeTimeToLive where
                    (x .?> "TimeToLiveDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeTimeToLive
+instance Hashable DescribeTimeToLive where
 
-instance NFData DescribeTimeToLive
+instance NFData DescribeTimeToLive where
 
 instance ToHeaders DescribeTimeToLive where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery DescribeTimeToLive where
 
 -- | /See:/ 'describeTimeToLiveResponse' smart constructor.
 data DescribeTimeToLiveResponse = DescribeTimeToLiveResponse'
-    { _dttlrsTimeToLiveDescription :: !(Maybe TimeToLiveDescription)
-    , _dttlrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dttlrsTimeToLiveDescription :: {-# NOUNPACK #-}!(Maybe TimeToLiveDescription)
+  , _dttlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTimeToLiveResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,11 @@ describeTimeToLiveResponse
     :: Int -- ^ 'dttlrsResponseStatus'
     -> DescribeTimeToLiveResponse
 describeTimeToLiveResponse pResponseStatus_ =
-    DescribeTimeToLiveResponse'
-    { _dttlrsTimeToLiveDescription = Nothing
-    , _dttlrsResponseStatus = pResponseStatus_
-    }
+  DescribeTimeToLiveResponse'
+  { _dttlrsTimeToLiveDescription = Nothing
+  , _dttlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- |
 dttlrsTimeToLiveDescription :: Lens' DescribeTimeToLiveResponse (Maybe TimeToLiveDescription)
@@ -132,4 +134,4 @@ dttlrsTimeToLiveDescription = lens _dttlrsTimeToLiveDescription (\ s a -> s{_dtt
 dttlrsResponseStatus :: Lens' DescribeTimeToLiveResponse Int
 dttlrsResponseStatus = lens _dttlrsResponseStatus (\ s a -> s{_dttlrsResponseStatus = a});
 
-instance NFData DescribeTimeToLiveResponse
+instance NFData DescribeTimeToLiveResponse where

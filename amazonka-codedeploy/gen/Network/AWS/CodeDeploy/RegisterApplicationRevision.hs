@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
     , RegisterApplicationRevisionResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a RegisterApplicationRevision operation.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'registerApplicationRevision' smart constructor.
 data RegisterApplicationRevision = RegisterApplicationRevision'
-    { _rarDescription     :: !(Maybe Text)
-    , _rarApplicationName :: !Text
-    , _rarRevision        :: !RevisionLocation
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rarDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rarApplicationName :: {-# NOUNPACK #-}!Text
+  , _rarRevision        :: {-# NOUNPACK #-}!RevisionLocation
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterApplicationRevision' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ registerApplicationRevision
     -> RevisionLocation -- ^ 'rarRevision'
     -> RegisterApplicationRevision
 registerApplicationRevision pApplicationName_ pRevision_ =
-    RegisterApplicationRevision'
-    { _rarDescription = Nothing
-    , _rarApplicationName = pApplicationName_
-    , _rarRevision = pRevision_
-    }
+  RegisterApplicationRevision'
+  { _rarDescription = Nothing
+  , _rarApplicationName = pApplicationName_
+  , _rarRevision = pRevision_
+  }
+
 
 -- | A comment about the revision.
 rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
@@ -93,9 +95,9 @@ instance AWSRequest RegisterApplicationRevision where
         response
           = receiveNull RegisterApplicationRevisionResponse'
 
-instance Hashable RegisterApplicationRevision
+instance Hashable RegisterApplicationRevision where
 
-instance NFData RegisterApplicationRevision
+instance NFData RegisterApplicationRevision where
 
 instance ToHeaders RegisterApplicationRevision where
         toHeaders
@@ -123,8 +125,9 @@ instance ToQuery RegisterApplicationRevision where
 
 -- | /See:/ 'registerApplicationRevisionResponse' smart constructor.
 data RegisterApplicationRevisionResponse =
-    RegisterApplicationRevisionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RegisterApplicationRevisionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterApplicationRevisionResponse' with the minimum fields required to make a request.
 --
@@ -132,4 +135,6 @@ registerApplicationRevisionResponse
     :: RegisterApplicationRevisionResponse
 registerApplicationRevisionResponse = RegisterApplicationRevisionResponse'
 
+
 instance NFData RegisterApplicationRevisionResponse
+         where

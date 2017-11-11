@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.InitiateMultipartUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     , imursResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for initiating a multipart upload to an Amazon Glacier vault.
 --
@@ -64,11 +64,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'initiateMultipartUpload' smart constructor.
 data InitiateMultipartUpload = InitiateMultipartUpload'
-    { _imuPartSize           :: !(Maybe Text)
-    , _imuArchiveDescription :: !(Maybe Text)
-    , _imuAccountId          :: !Text
-    , _imuVaultName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _imuPartSize           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _imuArchiveDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _imuAccountId          :: {-# NOUNPACK #-}!Text
+  , _imuVaultName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateMultipartUpload' with the minimum fields required to make a request.
 --
@@ -86,12 +87,13 @@ initiateMultipartUpload
     -> Text -- ^ 'imuVaultName'
     -> InitiateMultipartUpload
 initiateMultipartUpload pAccountId_ pVaultName_ =
-    InitiateMultipartUpload'
-    { _imuPartSize = Nothing
-    , _imuArchiveDescription = Nothing
-    , _imuAccountId = pAccountId_
-    , _imuVaultName = pVaultName_
-    }
+  InitiateMultipartUpload'
+  { _imuPartSize = Nothing
+  , _imuArchiveDescription = Nothing
+  , _imuAccountId = pAccountId_
+  , _imuVaultName = pVaultName_
+  }
+
 
 -- | The size of each part except the last, in bytes. The last part can be smaller than this part size.
 imuPartSize :: Lens' InitiateMultipartUpload (Maybe Text)
@@ -121,9 +123,9 @@ instance AWSRequest InitiateMultipartUpload where
                      (h .#? "x-amz-multipart-upload-id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable InitiateMultipartUpload
+instance Hashable InitiateMultipartUpload where
 
-instance NFData InitiateMultipartUpload
+instance NFData InitiateMultipartUpload where
 
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}
@@ -150,10 +152,11 @@ instance ToQuery InitiateMultipartUpload where
 --
 -- /See:/ 'initiateMultipartUploadResponse' smart constructor.
 data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
-    { _imursLocation       :: !(Maybe Text)
-    , _imursUploadId       :: !(Maybe Text)
-    , _imursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _imursLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _imursUploadId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _imursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateMultipartUploadResponse' with the minimum fields required to make a request.
 --
@@ -168,11 +171,12 @@ initiateMultipartUploadResponse
     :: Int -- ^ 'imursResponseStatus'
     -> InitiateMultipartUploadResponse
 initiateMultipartUploadResponse pResponseStatus_ =
-    InitiateMultipartUploadResponse'
-    { _imursLocation = Nothing
-    , _imursUploadId = Nothing
-    , _imursResponseStatus = pResponseStatus_
-    }
+  InitiateMultipartUploadResponse'
+  { _imursLocation = Nothing
+  , _imursUploadId = Nothing
+  , _imursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The relative URI path of the multipart upload ID Amazon Glacier created.
 imursLocation :: Lens' InitiateMultipartUploadResponse (Maybe Text)
@@ -186,4 +190,4 @@ imursUploadId = lens _imursUploadId (\ s a -> s{_imursUploadId = a});
 imursResponseStatus :: Lens' InitiateMultipartUploadResponse Int
 imursResponseStatus = lens _imursResponseStatus (\ s a -> s{_imursResponseStatus = a});
 
-instance NFData InitiateMultipartUploadResponse
+instance NFData InitiateMultipartUploadResponse where

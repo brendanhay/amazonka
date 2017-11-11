@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteConfigurationRecorder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Config.DeleteConfigurationRecorder
     , DeleteConfigurationRecorderResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request object for the @DeleteConfigurationRecorder@ action.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteConfigurationRecorder' smart constructor.
 newtype DeleteConfigurationRecorder = DeleteConfigurationRecorder'
-    { _dcrConfigurationRecorderName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrConfigurationRecorderName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigurationRecorder' with the minimum fields required to make a request.
 --
@@ -63,9 +64,9 @@ deleteConfigurationRecorder
     :: Text -- ^ 'dcrConfigurationRecorderName'
     -> DeleteConfigurationRecorder
 deleteConfigurationRecorder pConfigurationRecorderName_ =
-    DeleteConfigurationRecorder'
-    { _dcrConfigurationRecorderName = pConfigurationRecorderName_
-    }
+  DeleteConfigurationRecorder'
+  {_dcrConfigurationRecorderName = pConfigurationRecorderName_}
+
 
 -- | The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the @DescribeConfigurationRecorders@ action.
 dcrConfigurationRecorderName :: Lens' DeleteConfigurationRecorder Text
@@ -78,9 +79,9 @@ instance AWSRequest DeleteConfigurationRecorder where
         response
           = receiveNull DeleteConfigurationRecorderResponse'
 
-instance Hashable DeleteConfigurationRecorder
+instance Hashable DeleteConfigurationRecorder where
 
-instance NFData DeleteConfigurationRecorder
+instance NFData DeleteConfigurationRecorder where
 
 instance ToHeaders DeleteConfigurationRecorder where
         toHeaders
@@ -108,8 +109,9 @@ instance ToQuery DeleteConfigurationRecorder where
 
 -- | /See:/ 'deleteConfigurationRecorderResponse' smart constructor.
 data DeleteConfigurationRecorderResponse =
-    DeleteConfigurationRecorderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteConfigurationRecorderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigurationRecorderResponse' with the minimum fields required to make a request.
 --
@@ -117,4 +119,6 @@ deleteConfigurationRecorderResponse
     :: DeleteConfigurationRecorderResponse
 deleteConfigurationRecorderResponse = DeleteConfigurationRecorderResponse'
 
+
 instance NFData DeleteConfigurationRecorderResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateGatewayResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.UpdateGatewayResponse
     , gResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Updates a 'GatewayResponse' of a specified response type on the given 'RestApi' .
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateGatewayResponse' smart constructor.
 data UpdateGatewayResponse = UpdateGatewayResponse'
-    { _ugPatchOperations :: !(Maybe [PatchOperation])
-    , _ugRestAPIId       :: !Text
-    , _ugResponseType    :: !GatewayResponseType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _ugRestAPIId       :: {-# NOUNPACK #-}!Text
+  , _ugResponseType    :: {-# NOUNPACK #-}!GatewayResponseType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGatewayResponse' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ updateGatewayResponse
     -> GatewayResponseType -- ^ 'ugResponseType'
     -> UpdateGatewayResponse
 updateGatewayResponse pRestAPIId_ pResponseType_ =
-    UpdateGatewayResponse'
-    { _ugPatchOperations = Nothing
-    , _ugRestAPIId = pRestAPIId_
-    , _ugResponseType = pResponseType_
-    }
+  UpdateGatewayResponse'
+  { _ugPatchOperations = Nothing
+  , _ugRestAPIId = pRestAPIId_
+  , _ugResponseType = pResponseType_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 ugPatchOperations :: Lens' UpdateGatewayResponse [PatchOperation]
@@ -97,9 +99,9 @@ instance AWSRequest UpdateGatewayResponse where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateGatewayResponse
+instance Hashable UpdateGatewayResponse where
 
-instance NFData UpdateGatewayResponse
+instance NFData UpdateGatewayResponse where
 
 instance ToHeaders UpdateGatewayResponse where
         toHeaders

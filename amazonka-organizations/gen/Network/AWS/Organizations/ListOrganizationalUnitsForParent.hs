@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListOrganizationalUnitsForParent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Organizations.ListOrganizationalUnitsForParent
     , loufprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listOrganizationalUnitsForParent' smart constructor.
 data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
-    { _loufpNextToken  :: !(Maybe Text)
-    , _loufpMaxResults :: !(Maybe Nat)
-    , _loufpParentId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loufpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loufpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _loufpParentId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOrganizationalUnitsForParent' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ listOrganizationalUnitsForParent
     :: Text -- ^ 'loufpParentId'
     -> ListOrganizationalUnitsForParent
 listOrganizationalUnitsForParent pParentId_ =
-    ListOrganizationalUnitsForParent'
-    { _loufpNextToken = Nothing
-    , _loufpMaxResults = Nothing
-    , _loufpParentId = pParentId_
-    }
+  ListOrganizationalUnitsForParent'
+  { _loufpNextToken = Nothing
+  , _loufpMaxResults = Nothing
+  , _loufpParentId = pParentId_
+  }
+
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 loufpNextToken :: Lens' ListOrganizationalUnitsForParent (Maybe Text)
@@ -112,8 +114,10 @@ instance AWSRequest ListOrganizationalUnitsForParent
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListOrganizationalUnitsForParent
+         where
 
 instance NFData ListOrganizationalUnitsForParent
+         where
 
 instance ToHeaders ListOrganizationalUnitsForParent
          where
@@ -145,10 +149,11 @@ instance ToQuery ListOrganizationalUnitsForParent
 
 -- | /See:/ 'listOrganizationalUnitsForParentResponse' smart constructor.
 data ListOrganizationalUnitsForParentResponse = ListOrganizationalUnitsForParentResponse'
-    { _loufprsNextToken           :: !(Maybe Text)
-    , _loufprsOrganizationalUnits :: !(Maybe [OrganizationalUnit])
-    , _loufprsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loufprsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loufprsOrganizationalUnits :: {-# NOUNPACK #-}!(Maybe [OrganizationalUnit])
+  , _loufprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOrganizationalUnitsForParentResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +168,12 @@ listOrganizationalUnitsForParentResponse
     :: Int -- ^ 'loufprsResponseStatus'
     -> ListOrganizationalUnitsForParentResponse
 listOrganizationalUnitsForParentResponse pResponseStatus_ =
-    ListOrganizationalUnitsForParentResponse'
-    { _loufprsNextToken = Nothing
-    , _loufprsOrganizationalUnits = Nothing
-    , _loufprsResponseStatus = pResponseStatus_
-    }
+  ListOrganizationalUnitsForParentResponse'
+  { _loufprsNextToken = Nothing
+  , _loufprsOrganizationalUnits = Nothing
+  , _loufprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 loufprsNextToken :: Lens' ListOrganizationalUnitsForParentResponse (Maybe Text)
@@ -182,4 +188,5 @@ loufprsResponseStatus :: Lens' ListOrganizationalUnitsForParentResponse Int
 loufprsResponseStatus = lens _loufprsResponseStatus (\ s a -> s{_loufprsResponseStatus = a});
 
 instance NFData
-         ListOrganizationalUnitsForParentResponse
+           ListOrganizationalUnitsForParentResponse
+         where

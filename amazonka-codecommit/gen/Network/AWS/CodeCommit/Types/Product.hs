@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodeCommit.Types.Product where
 
-import           Network.AWS.CodeCommit.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CodeCommit.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Returns information about a specific Git blob object.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'blobMetadata' smart constructor.
 data BlobMetadata = BlobMetadata'
-    { _bmPath   :: !(Maybe Text)
-    , _bmMode   :: !(Maybe Text)
-    , _bmBlobId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bmPath   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bmMode   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bmBlobId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BlobMetadata' with the minimum fields required to make a request.
 --
@@ -44,11 +45,8 @@ data BlobMetadata = BlobMetadata'
 blobMetadata
     :: BlobMetadata
 blobMetadata =
-    BlobMetadata'
-    { _bmPath = Nothing
-    , _bmMode = Nothing
-    , _bmBlobId = Nothing
-    }
+  BlobMetadata' {_bmPath = Nothing, _bmMode = Nothing, _bmBlobId = Nothing}
+
 
 -- | The path to the blob and any associated file name, if any.
 bmPath :: Lens' BlobMetadata (Maybe Text)
@@ -70,9 +68,9 @@ instance FromJSON BlobMetadata where
                    (x .:? "path") <*> (x .:? "mode") <*>
                      (x .:? "blobId"))
 
-instance Hashable BlobMetadata
+instance Hashable BlobMetadata where
 
-instance NFData BlobMetadata
+instance NFData BlobMetadata where
 
 -- | Returns information about a branch.
 --
@@ -80,9 +78,10 @@ instance NFData BlobMetadata
 --
 -- /See:/ 'branchInfo' smart constructor.
 data BranchInfo = BranchInfo'
-    { _biCommitId   :: !(Maybe Text)
-    , _biBranchName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _biCommitId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _biBranchName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BranchInfo' with the minimum fields required to make a request.
 --
@@ -93,11 +92,8 @@ data BranchInfo = BranchInfo'
 -- * 'biBranchName' - The name of the branch.
 branchInfo
     :: BranchInfo
-branchInfo =
-    BranchInfo'
-    { _biCommitId = Nothing
-    , _biBranchName = Nothing
-    }
+branchInfo = BranchInfo' {_biCommitId = Nothing, _biBranchName = Nothing}
+
 
 -- | The ID of the last commit made to the branch.
 biCommitId :: Lens' BranchInfo (Maybe Text)
@@ -114,9 +110,9 @@ instance FromJSON BranchInfo where
                  BranchInfo' <$>
                    (x .:? "commitId") <*> (x .:? "branchName"))
 
-instance Hashable BranchInfo
+instance Hashable BranchInfo where
 
-instance NFData BranchInfo
+instance NFData BranchInfo where
 
 -- | Returns information about a specific commit.
 --
@@ -124,13 +120,14 @@ instance NFData BranchInfo
 --
 -- /See:/ 'commit' smart constructor.
 data Commit = Commit'
-    { _cCommitter      :: !(Maybe UserInfo)
-    , _cTreeId         :: !(Maybe Text)
-    , _cAdditionalData :: !(Maybe Text)
-    , _cParents        :: !(Maybe [Text])
-    , _cAuthor         :: !(Maybe UserInfo)
-    , _cMessage        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cCommitter      :: {-# NOUNPACK #-}!(Maybe UserInfo)
+  , _cTreeId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cAdditionalData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cParents        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cAuthor         :: {-# NOUNPACK #-}!(Maybe UserInfo)
+  , _cMessage        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Commit' with the minimum fields required to make a request.
 --
@@ -150,14 +147,15 @@ data Commit = Commit'
 commit
     :: Commit
 commit =
-    Commit'
-    { _cCommitter = Nothing
-    , _cTreeId = Nothing
-    , _cAdditionalData = Nothing
-    , _cParents = Nothing
-    , _cAuthor = Nothing
-    , _cMessage = Nothing
-    }
+  Commit'
+  { _cCommitter = Nothing
+  , _cTreeId = Nothing
+  , _cAdditionalData = Nothing
+  , _cParents = Nothing
+  , _cAuthor = Nothing
+  , _cMessage = Nothing
+  }
+
 
 -- | Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
 cCommitter :: Lens' Commit (Maybe UserInfo)
@@ -194,9 +192,9 @@ instance FromJSON Commit where
                      <*> (x .:? "author")
                      <*> (x .:? "message"))
 
-instance Hashable Commit
+instance Hashable Commit where
 
-instance NFData Commit
+instance NFData Commit where
 
 -- | Returns information about a set of differences for a commit specifier.
 --
@@ -204,10 +202,11 @@ instance NFData Commit
 --
 -- /See:/ 'difference' smart constructor.
 data Difference = Difference'
-    { _dAfterBlob  :: !(Maybe BlobMetadata)
-    , _dBeforeBlob :: !(Maybe BlobMetadata)
-    , _dChangeType :: !(Maybe ChangeTypeEnum)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dAfterBlob  :: {-# NOUNPACK #-}!(Maybe BlobMetadata)
+  , _dBeforeBlob :: {-# NOUNPACK #-}!(Maybe BlobMetadata)
+  , _dChangeType :: {-# NOUNPACK #-}!(Maybe ChangeTypeEnum)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Difference' with the minimum fields required to make a request.
 --
@@ -221,11 +220,9 @@ data Difference = Difference'
 difference
     :: Difference
 difference =
-    Difference'
-    { _dAfterBlob = Nothing
-    , _dBeforeBlob = Nothing
-    , _dChangeType = Nothing
-    }
+  Difference'
+  {_dAfterBlob = Nothing, _dBeforeBlob = Nothing, _dChangeType = Nothing}
+
 
 -- | Information about an @afterBlob@ data type object, including the ID, the file mode permission code, and the path.
 dAfterBlob :: Lens' Difference (Maybe BlobMetadata)
@@ -247,9 +244,9 @@ instance FromJSON Difference where
                    (x .:? "afterBlob") <*> (x .:? "beforeBlob") <*>
                      (x .:? "changeType"))
 
-instance Hashable Difference
+instance Hashable Difference where
 
-instance NFData Difference
+instance NFData Difference where
 
 -- | Information about a repository.
 --
@@ -257,17 +254,18 @@ instance NFData Difference
 --
 -- /See:/ 'repositoryMetadata' smart constructor.
 data RepositoryMetadata = RepositoryMetadata'
-    { _rmRepositoryDescription :: !(Maybe Text)
-    , _rmLastModifiedDate      :: !(Maybe POSIX)
-    , _rmARN                   :: !(Maybe Text)
-    , _rmCloneURLHTTP          :: !(Maybe Text)
-    , _rmAccountId             :: !(Maybe Text)
-    , _rmDefaultBranch         :: !(Maybe Text)
-    , _rmRepositoryId          :: !(Maybe Text)
-    , _rmRepositoryName        :: !(Maybe Text)
-    , _rmCreationDate          :: !(Maybe POSIX)
-    , _rmCloneURLSSH           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rmRepositoryDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmLastModifiedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rmARN                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmCloneURLHTTP          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmAccountId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmDefaultBranch         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmRepositoryId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmRepositoryName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmCreationDate          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rmCloneURLSSH           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RepositoryMetadata' with the minimum fields required to make a request.
 --
@@ -295,18 +293,19 @@ data RepositoryMetadata = RepositoryMetadata'
 repositoryMetadata
     :: RepositoryMetadata
 repositoryMetadata =
-    RepositoryMetadata'
-    { _rmRepositoryDescription = Nothing
-    , _rmLastModifiedDate = Nothing
-    , _rmARN = Nothing
-    , _rmCloneURLHTTP = Nothing
-    , _rmAccountId = Nothing
-    , _rmDefaultBranch = Nothing
-    , _rmRepositoryId = Nothing
-    , _rmRepositoryName = Nothing
-    , _rmCreationDate = Nothing
-    , _rmCloneURLSSH = Nothing
-    }
+  RepositoryMetadata'
+  { _rmRepositoryDescription = Nothing
+  , _rmLastModifiedDate = Nothing
+  , _rmARN = Nothing
+  , _rmCloneURLHTTP = Nothing
+  , _rmAccountId = Nothing
+  , _rmDefaultBranch = Nothing
+  , _rmRepositoryId = Nothing
+  , _rmRepositoryName = Nothing
+  , _rmCreationDate = Nothing
+  , _rmCloneURLSSH = Nothing
+  }
+
 
 -- | A comment or description about the repository.
 rmRepositoryDescription :: Lens' RepositoryMetadata (Maybe Text)
@@ -364,9 +363,9 @@ instance FromJSON RepositoryMetadata where
                      <*> (x .:? "creationDate")
                      <*> (x .:? "cloneUrlSsh"))
 
-instance Hashable RepositoryMetadata
+instance Hashable RepositoryMetadata where
 
-instance NFData RepositoryMetadata
+instance NFData RepositoryMetadata where
 
 -- | Information about a repository name and ID.
 --
@@ -374,9 +373,10 @@ instance NFData RepositoryMetadata
 --
 -- /See:/ 'repositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
-    { _rnipRepositoryId   :: !(Maybe Text)
-    , _rnipRepositoryName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rnipRepositoryId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnipRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RepositoryNameIdPair' with the minimum fields required to make a request.
 --
@@ -388,10 +388,9 @@ data RepositoryNameIdPair = RepositoryNameIdPair'
 repositoryNameIdPair
     :: RepositoryNameIdPair
 repositoryNameIdPair =
-    RepositoryNameIdPair'
-    { _rnipRepositoryId = Nothing
-    , _rnipRepositoryName = Nothing
-    }
+  RepositoryNameIdPair'
+  {_rnipRepositoryId = Nothing, _rnipRepositoryName = Nothing}
+
 
 -- | The ID associated with the repository.
 rnipRepositoryId :: Lens' RepositoryNameIdPair (Maybe Text)
@@ -408,9 +407,9 @@ instance FromJSON RepositoryNameIdPair where
                  RepositoryNameIdPair' <$>
                    (x .:? "repositoryId") <*> (x .:? "repositoryName"))
 
-instance Hashable RepositoryNameIdPair
+instance Hashable RepositoryNameIdPair where
 
-instance NFData RepositoryNameIdPair
+instance NFData RepositoryNameIdPair where
 
 -- | Information about a trigger for a repository.
 --
@@ -418,12 +417,13 @@ instance NFData RepositoryNameIdPair
 --
 -- /See:/ 'repositoryTrigger' smart constructor.
 data RepositoryTrigger = RepositoryTrigger'
-    { _rtBranches       :: !(Maybe [Text])
-    , _rtCustomData     :: !(Maybe Text)
-    , _rtName           :: !Text
-    , _rtDestinationARN :: !Text
-    , _rtEvents         :: ![RepositoryTriggerEventEnum]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtBranches       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rtCustomData     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtName           :: {-# NOUNPACK #-}!Text
+  , _rtDestinationARN :: {-# NOUNPACK #-}!Text
+  , _rtEvents         :: {-# NOUNPACK #-}![RepositoryTriggerEventEnum]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RepositoryTrigger' with the minimum fields required to make a request.
 --
@@ -443,13 +443,14 @@ repositoryTrigger
     -> Text -- ^ 'rtDestinationARN'
     -> RepositoryTrigger
 repositoryTrigger pName_ pDestinationARN_ =
-    RepositoryTrigger'
-    { _rtBranches = Nothing
-    , _rtCustomData = Nothing
-    , _rtName = pName_
-    , _rtDestinationARN = pDestinationARN_
-    , _rtEvents = mempty
-    }
+  RepositoryTrigger'
+  { _rtBranches = Nothing
+  , _rtCustomData = Nothing
+  , _rtName = pName_
+  , _rtDestinationARN = pDestinationARN_
+  , _rtEvents = mempty
+  }
+
 
 -- | The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
 rtBranches :: Lens' RepositoryTrigger [Text]
@@ -482,9 +483,9 @@ instance FromJSON RepositoryTrigger where
                      <*> (x .: "destinationArn")
                      <*> (x .:? "events" .!= mempty))
 
-instance Hashable RepositoryTrigger
+instance Hashable RepositoryTrigger where
 
-instance NFData RepositoryTrigger
+instance NFData RepositoryTrigger where
 
 instance ToJSON RepositoryTrigger where
         toJSON RepositoryTrigger'{..}
@@ -502,9 +503,10 @@ instance ToJSON RepositoryTrigger where
 --
 -- /See:/ 'repositoryTriggerExecutionFailure' smart constructor.
 data RepositoryTriggerExecutionFailure = RepositoryTriggerExecutionFailure'
-    { _rtefFailureMessage :: !(Maybe Text)
-    , _rtefTrigger        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtefFailureMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtefTrigger        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RepositoryTriggerExecutionFailure' with the minimum fields required to make a request.
 --
@@ -516,10 +518,9 @@ data RepositoryTriggerExecutionFailure = RepositoryTriggerExecutionFailure'
 repositoryTriggerExecutionFailure
     :: RepositoryTriggerExecutionFailure
 repositoryTriggerExecutionFailure =
-    RepositoryTriggerExecutionFailure'
-    { _rtefFailureMessage = Nothing
-    , _rtefTrigger = Nothing
-    }
+  RepositoryTriggerExecutionFailure'
+  {_rtefFailureMessage = Nothing, _rtefTrigger = Nothing}
+
 
 -- | Additional message information about the trigger that did not run.
 rtefFailureMessage :: Lens' RepositoryTriggerExecutionFailure (Maybe Text)
@@ -538,8 +539,10 @@ instance FromJSON RepositoryTriggerExecutionFailure
                    (x .:? "failureMessage") <*> (x .:? "trigger"))
 
 instance Hashable RepositoryTriggerExecutionFailure
+         where
 
 instance NFData RepositoryTriggerExecutionFailure
+         where
 
 -- | Information about the user who made a specified commit.
 --
@@ -547,10 +550,11 @@ instance NFData RepositoryTriggerExecutionFailure
 --
 -- /See:/ 'userInfo' smart constructor.
 data UserInfo = UserInfo'
-    { _uiEmail :: !(Maybe Text)
-    , _uiDate  :: !(Maybe Text)
-    , _uiName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiEmail :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiDate  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserInfo' with the minimum fields required to make a request.
 --
@@ -563,12 +567,8 @@ data UserInfo = UserInfo'
 -- * 'uiName' - The name of the user who made the specified commit.
 userInfo
     :: UserInfo
-userInfo =
-    UserInfo'
-    { _uiEmail = Nothing
-    , _uiDate = Nothing
-    , _uiName = Nothing
-    }
+userInfo = UserInfo' {_uiEmail = Nothing, _uiDate = Nothing, _uiName = Nothing}
+
 
 -- | The email address associated with the user who made the commit, if any.
 uiEmail :: Lens' UserInfo (Maybe Text)
@@ -590,6 +590,6 @@ instance FromJSON UserInfo where
                    (x .:? "email") <*> (x .:? "date") <*>
                      (x .:? "name"))
 
-instance Hashable UserInfo
+instance Hashable UserInfo where
 
-instance NFData UserInfo
+instance NFData UserInfo where

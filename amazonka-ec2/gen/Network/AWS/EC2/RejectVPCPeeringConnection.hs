@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RejectVPCPeeringConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.RejectVPCPeeringConnection
     , rvpcrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RejectVpcPeeringConnection.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'rejectVPCPeeringConnection' smart constructor.
 data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
-    { _rvpcDryRun                 :: !(Maybe Bool)
-    , _rvpcVPCPeeringConnectionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rvpcDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rvpcVPCPeeringConnectionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectVPCPeeringConnection' with the minimum fields required to make a request.
 --
@@ -66,10 +67,11 @@ rejectVPCPeeringConnection
     :: Text -- ^ 'rvpcVPCPeeringConnectionId'
     -> RejectVPCPeeringConnection
 rejectVPCPeeringConnection pVPCPeeringConnectionId_ =
-    RejectVPCPeeringConnection'
-    { _rvpcDryRun = Nothing
-    , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
-    }
+  RejectVPCPeeringConnection'
+  { _rvpcDryRun = Nothing
+  , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rvpcDryRun :: Lens' RejectVPCPeeringConnection (Maybe Bool)
@@ -89,9 +91,9 @@ instance AWSRequest RejectVPCPeeringConnection where
                  RejectVPCPeeringConnectionResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable RejectVPCPeeringConnection
+instance Hashable RejectVPCPeeringConnection where
 
-instance NFData RejectVPCPeeringConnection
+instance NFData RejectVPCPeeringConnection where
 
 instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty
@@ -115,9 +117,10 @@ instance ToQuery RejectVPCPeeringConnection where
 --
 -- /See:/ 'rejectVPCPeeringConnectionResponse' smart constructor.
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
-    { _rvpcrsReturn         :: !(Maybe Bool)
-    , _rvpcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rvpcrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rvpcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +133,9 @@ rejectVPCPeeringConnectionResponse
     :: Int -- ^ 'rvpcrsResponseStatus'
     -> RejectVPCPeeringConnectionResponse
 rejectVPCPeeringConnectionResponse pResponseStatus_ =
-    RejectVPCPeeringConnectionResponse'
-    { _rvpcrsReturn = Nothing
-    , _rvpcrsResponseStatus = pResponseStatus_
-    }
+  RejectVPCPeeringConnectionResponse'
+  {_rvpcrsReturn = Nothing, _rvpcrsResponseStatus = pResponseStatus_}
+
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 rvpcrsReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
@@ -144,3 +146,4 @@ rvpcrsResponseStatus :: Lens' RejectVPCPeeringConnectionResponse Int
 rvpcrsResponseStatus = lens _rvpcrsResponseStatus (\ s a -> s{_rvpcrsResponseStatus = a});
 
 instance NFData RejectVPCPeeringConnectionResponse
+         where

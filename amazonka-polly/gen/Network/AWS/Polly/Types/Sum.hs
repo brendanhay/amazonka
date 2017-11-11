@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Polly.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Polly.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data Gender
-    = Female
-    | Male
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Female
+  | Male
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Gender where
     parser = takeLowerText >>= \case
@@ -46,31 +47,32 @@ instance FromJSON Gender where
     parseJSON = parseJSONText "Gender"
 
 data LanguageCode
-    = CyGb
-    | DaDk
-    | DeDe
-    | EnAu
-    | EnGb
-    | EnGbWls
-    | EnIn
-    | EnUs
-    | EsEs
-    | EsUs
-    | FrCa
-    | FrFr
-    | IsIs
-    | ItIt
-    | JaJp
-    | NbNo
-    | NlNl
-    | PlPl
-    | PtBr
-    | PtPt
-    | RoRo
-    | RuRu
-    | SvSe
-    | TrTr
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CyGb
+  | DaDk
+  | DeDe
+  | EnAu
+  | EnGb
+  | EnGbWls
+  | EnIn
+  | EnUs
+  | EsEs
+  | EsUs
+  | FrCa
+  | FrFr
+  | IsIs
+  | ItIt
+  | JaJp
+  | NbNo
+  | NlNl
+  | PlPl
+  | PtBr
+  | PtPt
+  | RoRo
+  | RuRu
+  | SvSe
+  | TrTr
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LanguageCode where
     parser = takeLowerText >>= \case
@@ -141,11 +143,12 @@ instance FromJSON LanguageCode where
     parseJSON = parseJSONText "LanguageCode"
 
 data OutputFormat
-    = JSON
-    | MP3
-    | OggVorbis
-    | Pcm
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = JSON
+  | MP3
+  | OggVorbis
+  | Pcm
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OutputFormat where
     parser = takeLowerText >>= \case
@@ -173,11 +176,12 @@ instance ToJSON OutputFormat where
     toJSON = toJSONText
 
 data SpeechMarkType
-    = Sentence
-    | Ssml
-    | Viseme
-    | Word
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Sentence
+  | Ssml
+  | Viseme
+  | Word
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SpeechMarkType where
     parser = takeLowerText >>= \case
@@ -205,9 +209,10 @@ instance ToJSON SpeechMarkType where
     toJSON = toJSONText
 
 data TextType
-    = TTSsml
-    | TTText
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TTSsml
+  | TTText
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TextType where
     parser = takeLowerText >>= \case
@@ -231,55 +236,56 @@ instance ToJSON TextType where
     toJSON = toJSONText
 
 data VoiceId
-    = Amy
-    | Astrid
-    | Brian
-    | Carla
-    | Carmen
-    | Celine
-    | Chantal
-    | Conchita
-    | Cristiano
-    | Dora
-    | Emma
-    | Enrique
-    | Ewa
-    | Filiz
-    | Geraint
-    | Giorgio
-    | Gwyneth
-    | Hans
-    | Ines
-    | Ivy
-    | Jacek
-    | Jan
-    | Joanna
-    | Joey
-    | Justin
-    | Karl
-    | Kendra
-    | Kimberly
-    | Liv
-    | Lotte
-    | Mads
-    | Maja
-    | Marlene
-    | Mathieu
-    | Maxim
-    | Miguel
-    | Mizuki
-    | Naja
-    | Nicole
-    | Penelope
-    | Raveena
-    | Ricardo
-    | Ruben
-    | Russell
-    | Salli
-    | Tatyana
-    | Vicki
-    | Vitoria
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Amy
+  | Astrid
+  | Brian
+  | Carla
+  | Carmen
+  | Celine
+  | Chantal
+  | Conchita
+  | Cristiano
+  | Dora
+  | Emma
+  | Enrique
+  | Ewa
+  | Filiz
+  | Geraint
+  | Giorgio
+  | Gwyneth
+  | Hans
+  | Ines
+  | Ivy
+  | Jacek
+  | Jan
+  | Joanna
+  | Joey
+  | Justin
+  | Karl
+  | Kendra
+  | Kimberly
+  | Liv
+  | Lotte
+  | Mads
+  | Maja
+  | Marlene
+  | Mathieu
+  | Maxim
+  | Miguel
+  | Mizuki
+  | Naja
+  | Nicole
+  | Penelope
+  | Raveena
+  | Ricardo
+  | Ruben
+  | Russell
+  | Salli
+  | Tatyana
+  | Vicki
+  | Vitoria
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VoiceId where
     parser = takeLowerText >>= \case

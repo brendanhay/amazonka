@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateDeviceDefinitionVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Greengrass.CreateDeviceDefinitionVersion
     , cddvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDeviceDefinitionVersion' smart constructor.
 data CreateDeviceDefinitionVersion = CreateDeviceDefinitionVersion'
-    { _cddvAmznClientToken    :: !(Maybe Text)
-    , _cddvDevices            :: !(Maybe [Device])
-    , _cddvDeviceDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cddvAmznClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cddvDevices            :: {-# NOUNPACK #-}!(Maybe [Device])
+  , _cddvDeviceDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeviceDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ createDeviceDefinitionVersion
     :: Text -- ^ 'cddvDeviceDefinitionId'
     -> CreateDeviceDefinitionVersion
 createDeviceDefinitionVersion pDeviceDefinitionId_ =
-    CreateDeviceDefinitionVersion'
-    { _cddvAmznClientToken = Nothing
-    , _cddvDevices = Nothing
-    , _cddvDeviceDefinitionId = pDeviceDefinitionId_
-    }
+  CreateDeviceDefinitionVersion'
+  { _cddvAmznClientToken = Nothing
+  , _cddvDevices = Nothing
+  , _cddvDeviceDefinitionId = pDeviceDefinitionId_
+  }
+
 
 -- | The client token used to request idempotent operations.
 cddvAmznClientToken :: Lens' CreateDeviceDefinitionVersion (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest CreateDeviceDefinitionVersion
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateDeviceDefinitionVersion
+instance Hashable CreateDeviceDefinitionVersion where
 
-instance NFData CreateDeviceDefinitionVersion
+instance NFData CreateDeviceDefinitionVersion where
 
 instance ToHeaders CreateDeviceDefinitionVersion
          where
@@ -127,12 +129,13 @@ instance ToQuery CreateDeviceDefinitionVersion where
 
 -- | /See:/ 'createDeviceDefinitionVersionResponse' smart constructor.
 data CreateDeviceDefinitionVersionResponse = CreateDeviceDefinitionVersionResponse'
-    { _cddvrsARN               :: !(Maybe Text)
-    , _cddvrsCreationTimestamp :: !(Maybe Text)
-    , _cddvrsVersion           :: !(Maybe Text)
-    , _cddvrsId                :: !(Maybe Text)
-    , _cddvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cddvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cddvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cddvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cddvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cddvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeviceDefinitionVersionResponse' with the minimum fields required to make a request.
 --
@@ -151,13 +154,14 @@ createDeviceDefinitionVersionResponse
     :: Int -- ^ 'cddvrsResponseStatus'
     -> CreateDeviceDefinitionVersionResponse
 createDeviceDefinitionVersionResponse pResponseStatus_ =
-    CreateDeviceDefinitionVersionResponse'
-    { _cddvrsARN = Nothing
-    , _cddvrsCreationTimestamp = Nothing
-    , _cddvrsVersion = Nothing
-    , _cddvrsId = Nothing
-    , _cddvrsResponseStatus = pResponseStatus_
-    }
+  CreateDeviceDefinitionVersionResponse'
+  { _cddvrsARN = Nothing
+  , _cddvrsCreationTimestamp = Nothing
+  , _cddvrsVersion = Nothing
+  , _cddvrsId = Nothing
+  , _cddvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Arn of the version.
 cddvrsARN :: Lens' CreateDeviceDefinitionVersionResponse (Maybe Text)
@@ -180,3 +184,4 @@ cddvrsResponseStatus :: Lens' CreateDeviceDefinitionVersionResponse Int
 cddvrsResponseStatus = lens _cddvrsResponseStatus (\ s a -> s{_cddvrsResponseStatus = a});
 
 instance NFData CreateDeviceDefinitionVersionResponse
+         where

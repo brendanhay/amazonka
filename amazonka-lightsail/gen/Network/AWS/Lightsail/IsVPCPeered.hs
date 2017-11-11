@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.IsVPCPeered
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.Lightsail.IsVPCPeered
     , ivprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'isVPCPeered' smart constructor.
 data IsVPCPeered =
-    IsVPCPeered'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  IsVPCPeered'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IsVPCPeered' with the minimum fields required to make a request.
 --
 isVPCPeered
     :: IsVPCPeered
 isVPCPeered = IsVPCPeered'
+
 
 instance AWSRequest IsVPCPeered where
         type Rs IsVPCPeered = IsVPCPeeredResponse
@@ -62,9 +64,9 @@ instance AWSRequest IsVPCPeered where
                  IsVPCPeeredResponse' <$>
                    (x .?> "isPeered") <*> (pure (fromEnum s)))
 
-instance Hashable IsVPCPeered
+instance Hashable IsVPCPeered where
 
-instance NFData IsVPCPeered
+instance NFData IsVPCPeered where
 
 instance ToHeaders IsVPCPeered where
         toHeaders
@@ -86,9 +88,10 @@ instance ToQuery IsVPCPeered where
 
 -- | /See:/ 'isVPCPeeredResponse' smart constructor.
 data IsVPCPeeredResponse = IsVPCPeeredResponse'
-    { _ivprsIsPeered       :: !(Maybe Bool)
-    , _ivprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ivprsIsPeered       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ivprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IsVPCPeeredResponse' with the minimum fields required to make a request.
 --
@@ -101,10 +104,9 @@ isVPCPeeredResponse
     :: Int -- ^ 'ivprsResponseStatus'
     -> IsVPCPeeredResponse
 isVPCPeeredResponse pResponseStatus_ =
-    IsVPCPeeredResponse'
-    { _ivprsIsPeered = Nothing
-    , _ivprsResponseStatus = pResponseStatus_
-    }
+  IsVPCPeeredResponse'
+  {_ivprsIsPeered = Nothing, _ivprsResponseStatus = pResponseStatus_}
+
 
 -- | Returns @true@ if the Lightsail VPC is peered; otherwise, @false@ .
 ivprsIsPeered :: Lens' IsVPCPeeredResponse (Maybe Bool)
@@ -114,4 +116,4 @@ ivprsIsPeered = lens _ivprsIsPeered (\ s a -> s{_ivprsIsPeered = a});
 ivprsResponseStatus :: Lens' IsVPCPeeredResponse Int
 ivprsResponseStatus = lens _ivprsResponseStatus (\ s a -> s{_ivprsResponseStatus = a});
 
-instance NFData IsVPCPeeredResponse
+instance NFData IsVPCPeeredResponse where

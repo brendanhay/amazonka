@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListIndex
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,22 +43,23 @@ module Network.AWS.CloudDirectory.ListIndex
     , lirsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listIndex' smart constructor.
 data ListIndex = ListIndex'
-    { _liRangesOnIndexedValues :: !(Maybe [ObjectAttributeRange])
-    , _liConsistencyLevel      :: !(Maybe ConsistencyLevel)
-    , _liNextToken             :: !(Maybe Text)
-    , _liMaxResults            :: !(Maybe Nat)
-    , _liDirectoryARN          :: !Text
-    , _liIndexReference        :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liRangesOnIndexedValues :: {-# NOUNPACK #-}!(Maybe [ObjectAttributeRange])
+  , _liConsistencyLevel      :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
+  , _liNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liMaxResults            :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _liDirectoryARN          :: {-# NOUNPACK #-}!Text
+  , _liIndexReference        :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIndex' with the minimum fields required to make a request.
 --
@@ -80,14 +81,15 @@ listIndex
     -> ObjectReference -- ^ 'liIndexReference'
     -> ListIndex
 listIndex pDirectoryARN_ pIndexReference_ =
-    ListIndex'
-    { _liRangesOnIndexedValues = Nothing
-    , _liConsistencyLevel = Nothing
-    , _liNextToken = Nothing
-    , _liMaxResults = Nothing
-    , _liDirectoryARN = pDirectoryARN_
-    , _liIndexReference = pIndexReference_
-    }
+  ListIndex'
+  { _liRangesOnIndexedValues = Nothing
+  , _liConsistencyLevel = Nothing
+  , _liNextToken = Nothing
+  , _liMaxResults = Nothing
+  , _liDirectoryARN = pDirectoryARN_
+  , _liIndexReference = pIndexReference_
+  }
+
 
 -- | Specifies the ranges of indexed values that you want to query.
 liRangesOnIndexedValues :: Lens' ListIndex [ObjectAttributeRange]
@@ -124,9 +126,9 @@ instance AWSRequest ListIndex where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListIndex
+instance Hashable ListIndex where
 
-instance NFData ListIndex
+instance NFData ListIndex where
 
 instance ToHeaders ListIndex where
         toHeaders ListIndex'{..}
@@ -154,10 +156,11 @@ instance ToQuery ListIndex where
 
 -- | /See:/ 'listIndexResponse' smart constructor.
 data ListIndexResponse = ListIndexResponse'
-    { _lirsIndexAttachments :: !(Maybe [IndexAttachment])
-    , _lirsNextToken        :: !(Maybe Text)
-    , _lirsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirsIndexAttachments :: {-# NOUNPACK #-}!(Maybe [IndexAttachment])
+  , _lirsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIndexResponse' with the minimum fields required to make a request.
 --
@@ -172,11 +175,12 @@ listIndexResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListIndexResponse
 listIndexResponse pResponseStatus_ =
-    ListIndexResponse'
-    { _lirsIndexAttachments = Nothing
-    , _lirsNextToken = Nothing
-    , _lirsResponseStatus = pResponseStatus_
-    }
+  ListIndexResponse'
+  { _lirsIndexAttachments = Nothing
+  , _lirsNextToken = Nothing
+  , _lirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The objects and indexed values attached to the index.
 lirsIndexAttachments :: Lens' ListIndexResponse [IndexAttachment]
@@ -190,4 +194,4 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 lirsResponseStatus :: Lens' ListIndexResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
-instance NFData ListIndexResponse
+instance NFData ListIndexResponse where

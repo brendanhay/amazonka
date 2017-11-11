@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.EnableDomainTransferLock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     , edtlrsOperationId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | A request to set the transfer lock for the specified domain.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'enableDomainTransferLock' smart constructor.
 newtype EnableDomainTransferLock = EnableDomainTransferLock'
-    { _edtlDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edtlDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableDomainTransferLock' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ enableDomainTransferLock
     :: Text -- ^ 'edtlDomainName'
     -> EnableDomainTransferLock
 enableDomainTransferLock pDomainName_ =
-    EnableDomainTransferLock'
-    { _edtlDomainName = pDomainName_
-    }
+  EnableDomainTransferLock' {_edtlDomainName = pDomainName_}
+
 
 -- | The name of the domain that you want to set the transfer lock for.
 edtlDomainName :: Lens' EnableDomainTransferLock Text
@@ -80,9 +80,9 @@ instance AWSRequest EnableDomainTransferLock where
                  EnableDomainTransferLockResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
-instance Hashable EnableDomainTransferLock
+instance Hashable EnableDomainTransferLock where
 
-instance NFData EnableDomainTransferLock
+instance NFData EnableDomainTransferLock where
 
 instance ToHeaders EnableDomainTransferLock where
         toHeaders
@@ -111,9 +111,10 @@ instance ToQuery EnableDomainTransferLock where
 --
 -- /See:/ 'enableDomainTransferLockResponse' smart constructor.
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
-    { _edtlrsResponseStatus :: !Int
-    , _edtlrsOperationId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edtlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _edtlrsOperationId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableDomainTransferLockResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ enableDomainTransferLockResponse
     -> Text -- ^ 'edtlrsOperationId'
     -> EnableDomainTransferLockResponse
 enableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
-    EnableDomainTransferLockResponse'
-    { _edtlrsResponseStatus = pResponseStatus_
-    , _edtlrsOperationId = pOperationId_
-    }
+  EnableDomainTransferLockResponse'
+  {_edtlrsResponseStatus = pResponseStatus_, _edtlrsOperationId = pOperationId_}
+
 
 -- | -- | The response status code.
 edtlrsResponseStatus :: Lens' EnableDomainTransferLockResponse Int
@@ -141,3 +141,4 @@ edtlrsOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrsOperationId = lens _edtlrsOperationId (\ s a -> s{_edtlrsOperationId = a});
 
 instance NFData EnableDomainTransferLockResponse
+         where

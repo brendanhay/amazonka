@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.PutGroupPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.IAM.PutGroupPolicy
     , PutGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putGroupPolicy' smart constructor.
 data PutGroupPolicy = PutGroupPolicy'
-    { _pgpGroupName      :: !Text
-    , _pgpPolicyName     :: !Text
-    , _pgpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pgpGroupName      :: {-# NOUNPACK #-}!Text
+  , _pgpPolicyName     :: {-# NOUNPACK #-}!Text
+  , _pgpPolicyDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutGroupPolicy' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ putGroupPolicy
     -> Text -- ^ 'pgpPolicyDocument'
     -> PutGroupPolicy
 putGroupPolicy pGroupName_ pPolicyName_ pPolicyDocument_ =
-    PutGroupPolicy'
-    { _pgpGroupName = pGroupName_
-    , _pgpPolicyName = pPolicyName_
-    , _pgpPolicyDocument = pPolicyDocument_
-    }
+  PutGroupPolicy'
+  { _pgpGroupName = pGroupName_
+  , _pgpPolicyName = pPolicyName_
+  , _pgpPolicyDocument = pPolicyDocument_
+  }
+
 
 -- | The name of the group to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 pgpGroupName :: Lens' PutGroupPolicy Text
@@ -92,9 +94,9 @@ instance AWSRequest PutGroupPolicy where
         request = postQuery iam
         response = receiveNull PutGroupPolicyResponse'
 
-instance Hashable PutGroupPolicy
+instance Hashable PutGroupPolicy where
 
-instance NFData PutGroupPolicy
+instance NFData PutGroupPolicy where
 
 instance ToHeaders PutGroupPolicy where
         toHeaders = const mempty
@@ -113,8 +115,9 @@ instance ToQuery PutGroupPolicy where
 
 -- | /See:/ 'putGroupPolicyResponse' smart constructor.
 data PutGroupPolicyResponse =
-    PutGroupPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutGroupPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutGroupPolicyResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +125,5 @@ putGroupPolicyResponse
     :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse'
 
-instance NFData PutGroupPolicyResponse
+
+instance NFData PutGroupPolicyResponse where

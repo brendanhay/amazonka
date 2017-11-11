@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeWorkingStorage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     , dwsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway.
 --
@@ -55,8 +55,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeWorkingStorage' smart constructor.
 newtype DescribeWorkingStorage = DescribeWorkingStorage'
-    { _dwsGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwsGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkingStorage' with the minimum fields required to make a request.
 --
@@ -67,9 +68,8 @@ describeWorkingStorage
     :: Text -- ^ 'dwsGatewayARN'
     -> DescribeWorkingStorage
 describeWorkingStorage pGatewayARN_ =
-    DescribeWorkingStorage'
-    { _dwsGatewayARN = pGatewayARN_
-    }
+  DescribeWorkingStorage' {_dwsGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dwsGatewayARN :: Lens' DescribeWorkingStorage Text
@@ -88,9 +88,9 @@ instance AWSRequest DescribeWorkingStorage where
                      <*> (x .?> "WorkingStorageUsedInBytes")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeWorkingStorage
+instance Hashable DescribeWorkingStorage where
 
-instance NFData DescribeWorkingStorage
+instance NFData DescribeWorkingStorage where
 
 instance ToHeaders DescribeWorkingStorage where
         toHeaders
@@ -119,12 +119,13 @@ instance ToQuery DescribeWorkingStorage where
 --
 -- /See:/ 'describeWorkingStorageResponse' smart constructor.
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
-    { _dwsrsGatewayARN                     :: !(Maybe Text)
-    , _dwsrsDiskIds                        :: !(Maybe [Text])
-    , _dwsrsWorkingStorageAllocatedInBytes :: !(Maybe Integer)
-    , _dwsrsWorkingStorageUsedInBytes      :: !(Maybe Integer)
-    , _dwsrsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwsrsGatewayARN                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwsrsDiskIds                        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dwsrsWorkingStorageAllocatedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dwsrsWorkingStorageUsedInBytes      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dwsrsResponseStatus                 :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkingStorageResponse' with the minimum fields required to make a request.
 --
@@ -143,13 +144,14 @@ describeWorkingStorageResponse
     :: Int -- ^ 'dwsrsResponseStatus'
     -> DescribeWorkingStorageResponse
 describeWorkingStorageResponse pResponseStatus_ =
-    DescribeWorkingStorageResponse'
-    { _dwsrsGatewayARN = Nothing
-    , _dwsrsDiskIds = Nothing
-    , _dwsrsWorkingStorageAllocatedInBytes = Nothing
-    , _dwsrsWorkingStorageUsedInBytes = Nothing
-    , _dwsrsResponseStatus = pResponseStatus_
-    }
+  DescribeWorkingStorageResponse'
+  { _dwsrsGatewayARN = Nothing
+  , _dwsrsDiskIds = Nothing
+  , _dwsrsWorkingStorageAllocatedInBytes = Nothing
+  , _dwsrsWorkingStorageUsedInBytes = Nothing
+  , _dwsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
@@ -171,4 +173,4 @@ dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> 
 dwsrsResponseStatus :: Lens' DescribeWorkingStorageResponse Int
 dwsrsResponseStatus = lens _dwsrsResponseStatus (\ s a -> s{_dwsrsResponseStatus = a});
 
-instance NFData DescribeWorkingStorageResponse
+instance NFData DescribeWorkingStorageResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.StopAssessmentRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.Inspector.StopAssessmentRun
     , StopAssessmentRunResponse
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopAssessmentRun' smart constructor.
 data StopAssessmentRun = StopAssessmentRun'
-    { _sarStopAction       :: !(Maybe StopAction)
-    , _sarAssessmentRunARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sarStopAction       :: {-# NOUNPACK #-}!(Maybe StopAction)
+  , _sarAssessmentRunARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopAssessmentRun' with the minimum fields required to make a request.
 --
@@ -59,10 +60,9 @@ stopAssessmentRun
     :: Text -- ^ 'sarAssessmentRunARN'
     -> StopAssessmentRun
 stopAssessmentRun pAssessmentRunARN_ =
-    StopAssessmentRun'
-    { _sarStopAction = Nothing
-    , _sarAssessmentRunARN = pAssessmentRunARN_
-    }
+  StopAssessmentRun'
+  {_sarStopAction = Nothing, _sarAssessmentRunARN = pAssessmentRunARN_}
+
 
 -- | An input option that can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION (the default value), stops the AWS agent from collecting data and begins the results evaluation and the findings generation process. SKIP_EVALUATION cancels the assessment run immediately, after which no findings are generated.
 sarStopAction :: Lens' StopAssessmentRun (Maybe StopAction)
@@ -77,9 +77,9 @@ instance AWSRequest StopAssessmentRun where
         request = postJSON inspector
         response = receiveNull StopAssessmentRunResponse'
 
-instance Hashable StopAssessmentRun
+instance Hashable StopAssessmentRun where
 
-instance NFData StopAssessmentRun
+instance NFData StopAssessmentRun where
 
 instance ToHeaders StopAssessmentRun where
         toHeaders
@@ -105,8 +105,9 @@ instance ToQuery StopAssessmentRun where
 
 -- | /See:/ 'stopAssessmentRunResponse' smart constructor.
 data StopAssessmentRunResponse =
-    StopAssessmentRunResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StopAssessmentRunResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopAssessmentRunResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +115,5 @@ stopAssessmentRunResponse
     :: StopAssessmentRunResponse
 stopAssessmentRunResponse = StopAssessmentRunResponse'
 
-instance NFData StopAssessmentRunResponse
+
+instance NFData StopAssessmentRunResponse where

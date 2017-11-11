@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeConstraint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.ServiceCatalog.DescribeConstraint
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeConstraint' smart constructor.
 data DescribeConstraint = DescribeConstraint'
-    { _dAcceptLanguage :: !(Maybe Text)
-    , _dId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConstraint' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ describeConstraint
     :: Text -- ^ 'dId'
     -> DescribeConstraint
 describeConstraint pId_ =
-    DescribeConstraint'
-    { _dAcceptLanguage = Nothing
-    , _dId = pId_
-    }
+  DescribeConstraint' {_dAcceptLanguage = Nothing, _dId = pId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dAcceptLanguage :: Lens' DescribeConstraint (Maybe Text)
@@ -89,9 +88,9 @@ instance AWSRequest DescribeConstraint where
                      (x .?> "ConstraintParameters")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeConstraint
+instance Hashable DescribeConstraint where
 
-instance NFData DescribeConstraint
+instance NFData DescribeConstraint where
 
 instance ToHeaders DescribeConstraint where
         toHeaders
@@ -118,11 +117,12 @@ instance ToQuery DescribeConstraint where
 
 -- | /See:/ 'describeConstraintResponse' smart constructor.
 data DescribeConstraintResponse = DescribeConstraintResponse'
-    { _desrsStatus               :: !(Maybe RequestStatus)
-    , _desrsConstraintDetail     :: !(Maybe ConstraintDetail)
-    , _desrsConstraintParameters :: !(Maybe Text)
-    , _desrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsStatus               :: {-# NOUNPACK #-}!(Maybe RequestStatus)
+  , _desrsConstraintDetail     :: {-# NOUNPACK #-}!(Maybe ConstraintDetail)
+  , _desrsConstraintParameters :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConstraintResponse' with the minimum fields required to make a request.
 --
@@ -139,12 +139,13 @@ describeConstraintResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeConstraintResponse
 describeConstraintResponse pResponseStatus_ =
-    DescribeConstraintResponse'
-    { _desrsStatus = Nothing
-    , _desrsConstraintDetail = Nothing
-    , _desrsConstraintParameters = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeConstraintResponse'
+  { _desrsStatus = Nothing
+  , _desrsConstraintDetail = Nothing
+  , _desrsConstraintParameters = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the current request.
 desrsStatus :: Lens' DescribeConstraintResponse (Maybe RequestStatus)
@@ -162,4 +163,4 @@ desrsConstraintParameters = lens _desrsConstraintParameters (\ s a -> s{_desrsCo
 desrsResponseStatus :: Lens' DescribeConstraintResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeConstraintResponse
+instance NFData DescribeConstraintResponse where

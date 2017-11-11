@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.EnableVGWRoutePropagation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.EnableVGWRoutePropagation
     , EnableVGWRoutePropagationResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for EnableVgwRoutePropagation.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableVGWRoutePropagation' smart constructor.
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
-    { _evrpGatewayId    :: !Text
-    , _evrpRouteTableId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evrpGatewayId    :: {-# NOUNPACK #-}!Text
+  , _evrpRouteTableId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableVGWRoutePropagation' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ enableVGWRoutePropagation
     -> Text -- ^ 'evrpRouteTableId'
     -> EnableVGWRoutePropagation
 enableVGWRoutePropagation pGatewayId_ pRouteTableId_ =
-    EnableVGWRoutePropagation'
-    { _evrpGatewayId = pGatewayId_
-    , _evrpRouteTableId = pRouteTableId_
-    }
+  EnableVGWRoutePropagation'
+  {_evrpGatewayId = pGatewayId_, _evrpRouteTableId = pRouteTableId_}
+
 
 -- | The ID of the virtual private gateway.
 evrpGatewayId :: Lens' EnableVGWRoutePropagation Text
@@ -84,9 +84,9 @@ instance AWSRequest EnableVGWRoutePropagation where
         response
           = receiveNull EnableVGWRoutePropagationResponse'
 
-instance Hashable EnableVGWRoutePropagation
+instance Hashable EnableVGWRoutePropagation where
 
-instance NFData EnableVGWRoutePropagation
+instance NFData EnableVGWRoutePropagation where
 
 instance ToHeaders EnableVGWRoutePropagation where
         toHeaders = const mempty
@@ -105,8 +105,9 @@ instance ToQuery EnableVGWRoutePropagation where
 
 -- | /See:/ 'enableVGWRoutePropagationResponse' smart constructor.
 data EnableVGWRoutePropagationResponse =
-    EnableVGWRoutePropagationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableVGWRoutePropagationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableVGWRoutePropagationResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +115,6 @@ enableVGWRoutePropagationResponse
     :: EnableVGWRoutePropagationResponse
 enableVGWRoutePropagationResponse = EnableVGWRoutePropagationResponse'
 
+
 instance NFData EnableVGWRoutePropagationResponse
+         where

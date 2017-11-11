@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.CreateSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.DAX.CreateSubnetGroup
     , csgrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createSubnetGroup' smart constructor.
 data CreateSubnetGroup = CreateSubnetGroup'
-    { _csgDescription     :: !(Maybe Text)
-    , _csgSubnetGroupName :: !Text
-    , _csgSubnetIds       :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgSubnetGroupName :: {-# NOUNPACK #-}!Text
+  , _csgSubnetIds       :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubnetGroup' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ createSubnetGroup
     :: Text -- ^ 'csgSubnetGroupName'
     -> CreateSubnetGroup
 createSubnetGroup pSubnetGroupName_ =
-    CreateSubnetGroup'
-    { _csgDescription = Nothing
-    , _csgSubnetGroupName = pSubnetGroupName_
-    , _csgSubnetIds = mempty
-    }
+  CreateSubnetGroup'
+  { _csgDescription = Nothing
+  , _csgSubnetGroupName = pSubnetGroupName_
+  , _csgSubnetIds = mempty
+  }
+
 
 -- | A description for the subnet group
 csgDescription :: Lens' CreateSubnetGroup (Maybe Text)
@@ -93,9 +95,9 @@ instance AWSRequest CreateSubnetGroup where
                  CreateSubnetGroupResponse' <$>
                    (x .?> "SubnetGroup") <*> (pure (fromEnum s)))
 
-instance Hashable CreateSubnetGroup
+instance Hashable CreateSubnetGroup where
 
-instance NFData CreateSubnetGroup
+instance NFData CreateSubnetGroup where
 
 instance ToHeaders CreateSubnetGroup where
         toHeaders
@@ -122,9 +124,10 @@ instance ToQuery CreateSubnetGroup where
 
 -- | /See:/ 'createSubnetGroupResponse' smart constructor.
 data CreateSubnetGroupResponse = CreateSubnetGroupResponse'
-    { _csgrsSubnetGroup    :: !(Maybe SubnetGroup)
-    , _csgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgrsSubnetGroup    :: {-# NOUNPACK #-}!(Maybe SubnetGroup)
+  , _csgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,9 @@ createSubnetGroupResponse
     :: Int -- ^ 'csgrsResponseStatus'
     -> CreateSubnetGroupResponse
 createSubnetGroupResponse pResponseStatus_ =
-    CreateSubnetGroupResponse'
-    { _csgrsSubnetGroup = Nothing
-    , _csgrsResponseStatus = pResponseStatus_
-    }
+  CreateSubnetGroupResponse'
+  {_csgrsSubnetGroup = Nothing, _csgrsResponseStatus = pResponseStatus_}
+
 
 -- | Represents the output of a /CreateSubnetGroup/ operation.
 csgrsSubnetGroup :: Lens' CreateSubnetGroupResponse (Maybe SubnetGroup)
@@ -150,4 +152,4 @@ csgrsSubnetGroup = lens _csgrsSubnetGroup (\ s a -> s{_csgrsSubnetGroup = a});
 csgrsResponseStatus :: Lens' CreateSubnetGroupResponse Int
 csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus = a});
 
-instance NFData CreateSubnetGroupResponse
+instance NFData CreateSubnetGroupResponse where

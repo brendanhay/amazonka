@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ApproveAssignment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,19 +50,20 @@ module Network.AWS.MechanicalTurk.ApproveAssignment
     , aarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'approveAssignment' smart constructor.
 data ApproveAssignment = ApproveAssignment'
-    { _aaOverrideRejection :: !(Maybe Bool)
-    , _aaRequesterFeedback :: !(Maybe Text)
-    , _aaAssignmentId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aaOverrideRejection :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aaRequesterFeedback :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aaAssignmentId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApproveAssignment' with the minimum fields required to make a request.
 --
@@ -77,11 +78,12 @@ approveAssignment
     :: Text -- ^ 'aaAssignmentId'
     -> ApproveAssignment
 approveAssignment pAssignmentId_ =
-    ApproveAssignment'
-    { _aaOverrideRejection = Nothing
-    , _aaRequesterFeedback = Nothing
-    , _aaAssignmentId = pAssignmentId_
-    }
+  ApproveAssignment'
+  { _aaOverrideRejection = Nothing
+  , _aaRequesterFeedback = Nothing
+  , _aaAssignmentId = pAssignmentId_
+  }
+
 
 -- | A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to @False@ .
 aaOverrideRejection :: Lens' ApproveAssignment (Maybe Bool)
@@ -103,9 +105,9 @@ instance AWSRequest ApproveAssignment where
               (\ s h x ->
                  ApproveAssignmentResponse' <$> (pure (fromEnum s)))
 
-instance Hashable ApproveAssignment
+instance Hashable ApproveAssignment where
 
-instance NFData ApproveAssignment
+instance NFData ApproveAssignment where
 
 instance ToHeaders ApproveAssignment where
         toHeaders
@@ -133,8 +135,9 @@ instance ToQuery ApproveAssignment where
 
 -- | /See:/ 'approveAssignmentResponse' smart constructor.
 newtype ApproveAssignmentResponse = ApproveAssignmentResponse'
-    { _aarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApproveAssignmentResponse' with the minimum fields required to make a request.
 --
@@ -145,12 +148,11 @@ approveAssignmentResponse
     :: Int -- ^ 'aarsResponseStatus'
     -> ApproveAssignmentResponse
 approveAssignmentResponse pResponseStatus_ =
-    ApproveAssignmentResponse'
-    { _aarsResponseStatus = pResponseStatus_
-    }
+  ApproveAssignmentResponse' {_aarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aarsResponseStatus :: Lens' ApproveAssignmentResponse Int
 aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a});
 
-instance NFData ApproveAssignmentResponse
+instance NFData ApproveAssignmentResponse where

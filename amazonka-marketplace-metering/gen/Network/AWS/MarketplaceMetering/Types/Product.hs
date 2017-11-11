@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MarketplaceMetering.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.MarketplaceMetering.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.MarketplaceMetering.Types.Sum
+import Network.AWS.Prelude
 
 -- | A UsageRecord indicates a quantity of usage for a given product, customer, dimension and time.
 --
@@ -29,11 +29,12 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'usageRecord' smart constructor.
 data UsageRecord = UsageRecord'
-    { _urTimestamp          :: !POSIX
-    , _urCustomerIdentifier :: !Text
-    , _urDimension          :: !Text
-    , _urQuantity           :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urTimestamp          :: {-# NOUNPACK #-}!POSIX
+  , _urCustomerIdentifier :: {-# NOUNPACK #-}!Text
+  , _urDimension          :: {-# NOUNPACK #-}!Text
+  , _urQuantity           :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UsageRecord' with the minimum fields required to make a request.
 --
@@ -53,12 +54,13 @@ usageRecord
     -> Natural -- ^ 'urQuantity'
     -> UsageRecord
 usageRecord pTimestamp_ pCustomerIdentifier_ pDimension_ pQuantity_ =
-    UsageRecord'
-    { _urTimestamp = _Time # pTimestamp_
-    , _urCustomerIdentifier = pCustomerIdentifier_
-    , _urDimension = pDimension_
-    , _urQuantity = _Nat # pQuantity_
-    }
+  UsageRecord'
+  { _urTimestamp = _Time # pTimestamp_
+  , _urCustomerIdentifier = pCustomerIdentifier_
+  , _urDimension = pDimension_
+  , _urQuantity = _Nat # pQuantity_
+  }
+
 
 -- | Timestamp of the hour, recorded in UTC. The seconds and milliseconds portions of the timestamp will be ignored. Your application can meter usage for up to one hour in the past.
 urTimestamp :: Lens' UsageRecord UTCTime
@@ -85,9 +87,9 @@ instance FromJSON UsageRecord where
                      <*> (x .: "Dimension")
                      <*> (x .: "Quantity"))
 
-instance Hashable UsageRecord
+instance Hashable UsageRecord where
 
-instance NFData UsageRecord
+instance NFData UsageRecord where
 
 instance ToJSON UsageRecord where
         toJSON UsageRecord'{..}
@@ -104,10 +106,11 @@ instance ToJSON UsageRecord where
 --
 -- /See:/ 'usageRecordResult' smart constructor.
 data UsageRecordResult = UsageRecordResult'
-    { _urrStatus           :: !(Maybe UsageRecordResultStatus)
-    , _urrUsageRecord      :: !(Maybe UsageRecord)
-    , _urrMeteringRecordId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urrStatus           :: {-# NOUNPACK #-}!(Maybe UsageRecordResultStatus)
+  , _urrUsageRecord      :: {-# NOUNPACK #-}!(Maybe UsageRecord)
+  , _urrMeteringRecordId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UsageRecordResult' with the minimum fields required to make a request.
 --
@@ -121,11 +124,12 @@ data UsageRecordResult = UsageRecordResult'
 usageRecordResult
     :: UsageRecordResult
 usageRecordResult =
-    UsageRecordResult'
-    { _urrStatus = Nothing
-    , _urrUsageRecord = Nothing
-    , _urrMeteringRecordId = Nothing
-    }
+  UsageRecordResult'
+  { _urrStatus = Nothing
+  , _urrUsageRecord = Nothing
+  , _urrMeteringRecordId = Nothing
+  }
+
 
 -- | The UsageRecordResult Status indicates the status of an individual UsageRecord processed by BatchMeterUsage.     * /Success/ - The UsageRecord was accepted and honored by BatchMeterUsage.     * /CustomerNotSubscribed/ - The CustomerIdentifier specified is not subscribed to your product. The UsageRecord was not honored. Future UsageRecords for this customer will fail until the customer subscribes to your product.     * /DuplicateRecord/ - Indicates that the UsageRecord was invalid and not honored. A previously metered UsageRecord had the same customer, dimension, and time, but a different quantity.
 urrStatus :: Lens' UsageRecordResult (Maybe UsageRecordResultStatus)
@@ -147,6 +151,6 @@ instance FromJSON UsageRecordResult where
                    (x .:? "Status") <*> (x .:? "UsageRecord") <*>
                      (x .:? "MeteringRecordId"))
 
-instance Hashable UsageRecordResult
+instance Hashable UsageRecordResult where
 
-instance NFData UsageRecordResult
+instance NFData UsageRecordResult where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetCommit
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodeCommit.GetCommit
     , gcrsCommit
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get commit operation.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getCommit' smart constructor.
 data GetCommit = GetCommit'
-    { _gcRepositoryName :: !Text
-    , _gcCommitId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcRepositoryName :: {-# NOUNPACK #-}!Text
+  , _gcCommitId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCommit' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ getCommit
     -> Text -- ^ 'gcCommitId'
     -> GetCommit
 getCommit pRepositoryName_ pCommitId_ =
-    GetCommit'
-    { _gcRepositoryName = pRepositoryName_
-    , _gcCommitId = pCommitId_
-    }
+  GetCommit' {_gcRepositoryName = pRepositoryName_, _gcCommitId = pCommitId_}
+
 
 -- | The name of the repository to which the commit was made.
 gcRepositoryName :: Lens' GetCommit Text
@@ -89,9 +88,9 @@ instance AWSRequest GetCommit where
                  GetCommitResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "commit"))
 
-instance Hashable GetCommit
+instance Hashable GetCommit where
 
-instance NFData GetCommit
+instance NFData GetCommit where
 
 instance ToHeaders GetCommit where
         toHeaders
@@ -121,9 +120,10 @@ instance ToQuery GetCommit where
 --
 -- /See:/ 'getCommitResponse' smart constructor.
 data GetCommitResponse = GetCommitResponse'
-    { _gcrsResponseStatus :: !Int
-    , _gcrsCommit         :: !Commit
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gcrsCommit         :: {-# NOUNPACK #-}!Commit
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCommitResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +137,9 @@ getCommitResponse
     -> Commit -- ^ 'gcrsCommit'
     -> GetCommitResponse
 getCommitResponse pResponseStatus_ pCommit_ =
-    GetCommitResponse'
-    { _gcrsResponseStatus = pResponseStatus_
-    , _gcrsCommit = pCommit_
-    }
+  GetCommitResponse'
+  {_gcrsResponseStatus = pResponseStatus_, _gcrsCommit = pCommit_}
+
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetCommitResponse Int
@@ -150,4 +149,4 @@ gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = 
 gcrsCommit :: Lens' GetCommitResponse Commit
 gcrsCommit = lens _gcrsCommit (\ s a -> s{_gcrsCommit = a});
 
-instance NFData GetCommitResponse
+instance NFData GetCommitResponse where

@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ElasticTranscoder.Types.Product where
 
-import           Network.AWS.ElasticTranscoder.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.ElasticTranscoder.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.
 --
@@ -31,14 +31,15 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'artwork' smart constructor.
 data Artwork = Artwork'
-    { _aSizingPolicy   :: !(Maybe Text)
-    , _aAlbumArtFormat :: !(Maybe Text)
-    , _aMaxHeight      :: !(Maybe Text)
-    , _aInputKey       :: !(Maybe Text)
-    , _aPaddingPolicy  :: !(Maybe Text)
-    , _aEncryption     :: !(Maybe Encryption)
-    , _aMaxWidth       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aSizingPolicy   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAlbumArtFormat :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aMaxHeight      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aInputKey       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aPaddingPolicy  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aEncryption     :: {-# NOUNPACK #-}!(Maybe Encryption)
+  , _aMaxWidth       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Artwork' with the minimum fields required to make a request.
 --
@@ -60,15 +61,16 @@ data Artwork = Artwork'
 artwork
     :: Artwork
 artwork =
-    Artwork'
-    { _aSizingPolicy = Nothing
-    , _aAlbumArtFormat = Nothing
-    , _aMaxHeight = Nothing
-    , _aInputKey = Nothing
-    , _aPaddingPolicy = Nothing
-    , _aEncryption = Nothing
-    , _aMaxWidth = Nothing
-    }
+  Artwork'
+  { _aSizingPolicy = Nothing
+  , _aAlbumArtFormat = Nothing
+  , _aMaxHeight = Nothing
+  , _aInputKey = Nothing
+  , _aPaddingPolicy = Nothing
+  , _aEncryption = Nothing
+  , _aMaxWidth = Nothing
+  }
+
 
 -- | Specify one of the following values to control scaling of the output album art:     * @Fit:@ Elastic Transcoder scales the output art so it matches the value that you specified in either @MaxWidth@ or @MaxHeight@ without exceeding the other value.     * @Fill:@ Elastic Transcoder scales the output art so it matches the value that you specified in either @MaxWidth@ or @MaxHeight@ and matches or exceeds the other value. Elastic Transcoder centers the output art and then crops it in the dimension (if any) that exceeds the maximum value.      * @Stretch:@ Elastic Transcoder stretches the output art to match the values that you specified for @MaxWidth@ and @MaxHeight@ . If the relative proportions of the input art and the output art are different, the output art will be distorted.     * @Keep:@ Elastic Transcoder does not scale the output art. If either dimension of the input art exceeds the values that you specified for @MaxWidth@ and @MaxHeight@ , Elastic Transcoder crops the output art.     * @ShrinkToFit:@ Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of @MaxWidth@ and @MaxHeight@ without exceeding either value. If you specify this option, Elastic Transcoder does not scale the art up.     * @ShrinkToFill@ Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of @MaxWidth@ and @MaxHeight@ without dropping below either value. If you specify this option, Elastic Transcoder does not scale the art up.
 aSizingPolicy :: Lens' Artwork (Maybe Text)
@@ -110,9 +112,9 @@ instance FromJSON Artwork where
                      <*> (x .:? "Encryption")
                      <*> (x .:? "MaxWidth"))
 
-instance Hashable Artwork
+instance Hashable Artwork where
 
-instance NFData Artwork
+instance NFData Artwork where
 
 instance ToJSON Artwork where
         toJSON Artwork'{..}
@@ -132,11 +134,12 @@ instance ToJSON Artwork where
 --
 -- /See:/ 'audioCodecOptions' smart constructor.
 data AudioCodecOptions = AudioCodecOptions'
-    { _acoSigned   :: !(Maybe Text)
-    , _acoBitDepth :: !(Maybe Text)
-    , _acoProfile  :: !(Maybe Text)
-    , _acoBitOrder :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acoSigned   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acoBitDepth :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acoProfile  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acoBitOrder :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AudioCodecOptions' with the minimum fields required to make a request.
 --
@@ -152,12 +155,13 @@ data AudioCodecOptions = AudioCodecOptions'
 audioCodecOptions
     :: AudioCodecOptions
 audioCodecOptions =
-    AudioCodecOptions'
-    { _acoSigned = Nothing
-    , _acoBitDepth = Nothing
-    , _acoProfile = Nothing
-    , _acoBitOrder = Nothing
-    }
+  AudioCodecOptions'
+  { _acoSigned = Nothing
+  , _acoBitDepth = Nothing
+  , _acoProfile = Nothing
+  , _acoBitOrder = Nothing
+  }
+
 
 -- | You can only choose whether an audio sample is signed when you specify @pcm@ for the value of Audio:Codec. Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is @Signed@ .
 acoSigned :: Lens' AudioCodecOptions (Maybe Text)
@@ -184,9 +188,9 @@ instance FromJSON AudioCodecOptions where
                      (x .:? "Profile")
                      <*> (x .:? "BitOrder"))
 
-instance Hashable AudioCodecOptions
+instance Hashable AudioCodecOptions where
 
-instance NFData AudioCodecOptions
+instance NFData AudioCodecOptions where
 
 instance ToJSON AudioCodecOptions where
         toJSON AudioCodecOptions'{..}
@@ -203,13 +207,14 @@ instance ToJSON AudioCodecOptions where
 --
 -- /See:/ 'audioParameters' smart constructor.
 data AudioParameters = AudioParameters'
-    { _apChannels         :: !(Maybe Text)
-    , _apCodec            :: !(Maybe Text)
-    , _apAudioPackingMode :: !(Maybe Text)
-    , _apSampleRate       :: !(Maybe Text)
-    , _apBitRate          :: !(Maybe Text)
-    , _apCodecOptions     :: !(Maybe AudioCodecOptions)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apChannels         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apCodec            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apAudioPackingMode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apSampleRate       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apBitRate          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apCodecOptions     :: {-# NOUNPACK #-}!(Maybe AudioCodecOptions)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AudioParameters' with the minimum fields required to make a request.
 --
@@ -229,14 +234,15 @@ data AudioParameters = AudioParameters'
 audioParameters
     :: AudioParameters
 audioParameters =
-    AudioParameters'
-    { _apChannels = Nothing
-    , _apCodec = Nothing
-    , _apAudioPackingMode = Nothing
-    , _apSampleRate = Nothing
-    , _apBitRate = Nothing
-    , _apCodecOptions = Nothing
-    }
+  AudioParameters'
+  { _apChannels = Nothing
+  , _apCodec = Nothing
+  , _apAudioPackingMode = Nothing
+  , _apSampleRate = Nothing
+  , _apBitRate = Nothing
+  , _apCodecOptions = Nothing
+  }
+
 
 -- | The number of audio channels in the output file. The following values are valid: @auto@ , @0@ , @1@ , @2@  One channel carries the information played by a single speaker. For example, a stereo track with two channels sends one channel to the left speaker, and the other channel to the right speaker. The output channels are organized into tracks. If you want Elastic Transcoder to automatically detect the number of audio channels in the input file and use that value for the output file, select @auto@ . The output of a specific channel value and inputs are as follows:     * @auto@ __channel specified, with any input:__ Pass through up to eight input channels.     * @0@ __channels specified, with any input:__ Audio omitted from the output.     * @1@ __channel specified, with at least one input channel:__ Mono sound.     * @2@ __channels specified, with any input:__ Two identical mono channels or stereo. For more information about tracks, see @Audio:AudioPackingMode.@  For more information about how Elastic Transcoder organizes channels and tracks, see @Audio:AudioPackingMode@ .
 apChannels :: Lens' AudioParameters (Maybe Text)
@@ -273,9 +279,9 @@ instance FromJSON AudioParameters where
                      <*> (x .:? "BitRate")
                      <*> (x .:? "CodecOptions"))
 
-instance Hashable AudioParameters
+instance Hashable AudioParameters where
 
-instance NFData AudioParameters
+instance NFData AudioParameters where
 
 instance ToJSON AudioParameters where
         toJSON AudioParameters'{..}
@@ -294,10 +300,11 @@ instance ToJSON AudioParameters where
 --
 -- /See:/ 'captionFormat' smart constructor.
 data CaptionFormat = CaptionFormat'
-    { _cfPattern    :: !(Maybe Text)
-    , _cfFormat     :: !(Maybe Text)
-    , _cfEncryption :: !(Maybe Encryption)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfPattern    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfFormat     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfEncryption :: {-# NOUNPACK #-}!(Maybe Encryption)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CaptionFormat' with the minimum fields required to make a request.
 --
@@ -311,11 +318,9 @@ data CaptionFormat = CaptionFormat'
 captionFormat
     :: CaptionFormat
 captionFormat =
-    CaptionFormat'
-    { _cfPattern = Nothing
-    , _cfFormat = Nothing
-    , _cfEncryption = Nothing
-    }
+  CaptionFormat'
+  {_cfPattern = Nothing, _cfFormat = Nothing, _cfEncryption = Nothing}
+
 
 -- | The prefix for caption filenames, in the form /description/ -@{language}@ , where:     * /description/ is a description of the video.     * @{language}@ is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names. If you don't include @{language}@ in the file name pattern, Elastic Transcoder automatically appends "@{language}@ " to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files. For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
 cfPattern :: Lens' CaptionFormat (Maybe Text)
@@ -337,9 +342,9 @@ instance FromJSON CaptionFormat where
                    (x .:? "Pattern") <*> (x .:? "Format") <*>
                      (x .:? "Encryption"))
 
-instance Hashable CaptionFormat
+instance Hashable CaptionFormat where
 
-instance NFData CaptionFormat
+instance NFData CaptionFormat where
 
 instance ToJSON CaptionFormat where
         toJSON CaptionFormat'{..}
@@ -355,12 +360,13 @@ instance ToJSON CaptionFormat where
 --
 -- /See:/ 'captionSource' smart constructor.
 data CaptionSource = CaptionSource'
-    { _csTimeOffset :: !(Maybe Text)
-    , _csEncryption :: !(Maybe Encryption)
-    , _csKey        :: !(Maybe Text)
-    , _csLanguage   :: !(Maybe Text)
-    , _csLabel      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csTimeOffset :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csEncryption :: {-# NOUNPACK #-}!(Maybe Encryption)
+  , _csKey        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csLabel      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CaptionSource' with the minimum fields required to make a request.
 --
@@ -378,13 +384,14 @@ data CaptionSource = CaptionSource'
 captionSource
     :: CaptionSource
 captionSource =
-    CaptionSource'
-    { _csTimeOffset = Nothing
-    , _csEncryption = Nothing
-    , _csKey = Nothing
-    , _csLanguage = Nothing
-    , _csLabel = Nothing
-    }
+  CaptionSource'
+  { _csTimeOffset = Nothing
+  , _csEncryption = Nothing
+  , _csKey = Nothing
+  , _csLanguage = Nothing
+  , _csLabel = Nothing
+  }
+
 
 -- | For clip generation or captions that do not start at the same time as the associated video file, the @TimeOffset@ tells Elastic Transcoder how much of the video to encode before including captions. Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
 csTimeOffset :: Lens' CaptionSource (Maybe Text)
@@ -416,9 +423,9 @@ instance FromJSON CaptionSource where
                      <*> (x .:? "Language")
                      <*> (x .:? "Label"))
 
-instance Hashable CaptionSource
+instance Hashable CaptionSource where
 
-instance NFData CaptionSource
+instance NFData CaptionSource where
 
 instance ToJSON CaptionSource where
         toJSON CaptionSource'{..}
@@ -436,10 +443,11 @@ instance ToJSON CaptionSource where
 --
 -- /See:/ 'captions' smart constructor.
 data Captions = Captions'
-    { _cMergePolicy    :: !(Maybe Text)
-    , _cCaptionSources :: !(Maybe [CaptionSource])
-    , _cCaptionFormats :: !(Maybe [CaptionFormat])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cMergePolicy    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCaptionSources :: {-# NOUNPACK #-}!(Maybe [CaptionSource])
+  , _cCaptionFormats :: {-# NOUNPACK #-}!(Maybe [CaptionFormat])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Captions' with the minimum fields required to make a request.
 --
@@ -453,11 +461,12 @@ data Captions = Captions'
 captions
     :: Captions
 captions =
-    Captions'
-    { _cMergePolicy = Nothing
-    , _cCaptionSources = Nothing
-    , _cCaptionFormats = Nothing
-    }
+  Captions'
+  { _cMergePolicy = Nothing
+  , _cCaptionSources = Nothing
+  , _cCaptionFormats = Nothing
+  }
+
 
 -- | A policy that determines how Elastic Transcoder handles the existence of multiple captions.     * __MergeOverride:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.     * __MergeRetain:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If @CaptionSources@ is empty, Elastic Transcoder omits all sidecar captions from the output files.     * __Override:__ Elastic Transcoder transcodes only the sidecar captions that you specify in @CaptionSources@ . @MergePolicy@ cannot be null.
 cMergePolicy :: Lens' Captions (Maybe Text)
@@ -480,9 +489,9 @@ instance FromJSON Captions where
                      (x .:? "CaptionSources" .!= mempty)
                      <*> (x .:? "CaptionFormats" .!= mempty))
 
-instance Hashable Captions
+instance Hashable Captions where
 
-instance NFData Captions
+instance NFData Captions where
 
 instance ToJSON Captions where
         toJSON Captions'{..}
@@ -498,8 +507,9 @@ instance ToJSON Captions where
 --
 -- /See:/ 'clip' smart constructor.
 newtype Clip = Clip'
-    { _cTimeSpan :: Maybe TimeSpan
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cTimeSpan :: Maybe TimeSpan
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Clip' with the minimum fields required to make a request.
 --
@@ -508,10 +518,8 @@ newtype Clip = Clip'
 -- * 'cTimeSpan' - Settings that determine when a clip begins and how long it lasts.
 clip
     :: Clip
-clip =
-    Clip'
-    { _cTimeSpan = Nothing
-    }
+clip = Clip' {_cTimeSpan = Nothing}
+
 
 -- | Settings that determine when a clip begins and how long it lasts.
 cTimeSpan :: Lens' Clip (Maybe TimeSpan)
@@ -522,9 +530,9 @@ instance FromJSON Clip where
           = withObject "Clip"
               (\ x -> Clip' <$> (x .:? "TimeSpan"))
 
-instance Hashable Clip
+instance Hashable Clip where
 
-instance NFData Clip
+instance NFData Clip where
 
 instance ToJSON Clip where
         toJSON Clip'{..}
@@ -536,18 +544,19 @@ instance ToJSON Clip where
 --
 -- /See:/ 'createJobOutput' smart constructor.
 data CreateJobOutput = CreateJobOutput'
-    { _cjoThumbnailPattern    :: !(Maybe Text)
-    , _cjoCaptions            :: !(Maybe Captions)
-    , _cjoPresetId            :: !(Maybe Text)
-    , _cjoComposition         :: !(Maybe [Clip])
-    , _cjoAlbumArt            :: !(Maybe JobAlbumArt)
-    , _cjoWatermarks          :: !(Maybe [JobWatermark])
-    , _cjoEncryption          :: !(Maybe Encryption)
-    , _cjoKey                 :: !(Maybe Text)
-    , _cjoSegmentDuration     :: !(Maybe Text)
-    , _cjoThumbnailEncryption :: !(Maybe Encryption)
-    , _cjoRotate              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjoThumbnailPattern    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjoCaptions            :: {-# NOUNPACK #-}!(Maybe Captions)
+  , _cjoPresetId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjoComposition         :: {-# NOUNPACK #-}!(Maybe [Clip])
+  , _cjoAlbumArt            :: {-# NOUNPACK #-}!(Maybe JobAlbumArt)
+  , _cjoWatermarks          :: {-# NOUNPACK #-}!(Maybe [JobWatermark])
+  , _cjoEncryption          :: {-# NOUNPACK #-}!(Maybe Encryption)
+  , _cjoKey                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjoSegmentDuration     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjoThumbnailEncryption :: {-# NOUNPACK #-}!(Maybe Encryption)
+  , _cjoRotate              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJobOutput' with the minimum fields required to make a request.
 --
@@ -577,19 +586,20 @@ data CreateJobOutput = CreateJobOutput'
 createJobOutput
     :: CreateJobOutput
 createJobOutput =
-    CreateJobOutput'
-    { _cjoThumbnailPattern = Nothing
-    , _cjoCaptions = Nothing
-    , _cjoPresetId = Nothing
-    , _cjoComposition = Nothing
-    , _cjoAlbumArt = Nothing
-    , _cjoWatermarks = Nothing
-    , _cjoEncryption = Nothing
-    , _cjoKey = Nothing
-    , _cjoSegmentDuration = Nothing
-    , _cjoThumbnailEncryption = Nothing
-    , _cjoRotate = Nothing
-    }
+  CreateJobOutput'
+  { _cjoThumbnailPattern = Nothing
+  , _cjoCaptions = Nothing
+  , _cjoPresetId = Nothing
+  , _cjoComposition = Nothing
+  , _cjoAlbumArt = Nothing
+  , _cjoWatermarks = Nothing
+  , _cjoEncryption = Nothing
+  , _cjoKey = Nothing
+  , _cjoSegmentDuration = Nothing
+  , _cjoThumbnailEncryption = Nothing
+  , _cjoRotate = Nothing
+  }
+
 
 -- | Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want Elastic Transcoder to name the files. If you don't want Elastic Transcoder to create thumbnails, specify "". If you do want Elastic Transcoder to create thumbnails, specify the information that you want to include in the file name for each thumbnail. You can specify the following values in any sequence:     * __@{count}@ (Required)__ : If you want to create thumbnails, you must include @{count}@ in the @ThumbnailPattern@ object. Wherever you specify @{count}@ , Elastic Transcoder adds a five-digit sequence number (beginning with __00001__ ) to thumbnail file names. The number indicates where a given thumbnail appears in the sequence of thumbnails for a transcoded file.  /Important:/ If you specify a literal value and/or @{resolution}@ but you omit @{count}@ , Elastic Transcoder returns a validation error and does not create the job.     * __Literal values (Optional)__ : You can specify literal values anywhere in the @ThumbnailPattern@ object. For example, you can include them as a file name prefix or as a delimiter between @{resolution}@ and @{count}@ .      * __@{resolution}@ (Optional)__ : If you want Elastic Transcoder to include the resolution in the file name, include @{resolution}@ in the @ThumbnailPattern@ object.  When creating thumbnails, Elastic Transcoder automatically saves the files in the format (.jpg or .png) that appears in the preset that you specified in the @PresetID@ value of @CreateJobOutput@ . Elastic Transcoder also appends the applicable file name extension.
 cjoThumbnailPattern :: Lens' CreateJobOutput (Maybe Text)
@@ -635,9 +645,9 @@ cjoThumbnailEncryption = lens _cjoThumbnailEncryption (\ s a -> s{_cjoThumbnailE
 cjoRotate :: Lens' CreateJobOutput (Maybe Text)
 cjoRotate = lens _cjoRotate (\ s a -> s{_cjoRotate = a});
 
-instance Hashable CreateJobOutput
+instance Hashable CreateJobOutput where
 
-instance NFData CreateJobOutput
+instance NFData CreateJobOutput where
 
 instance ToJSON CreateJobOutput where
         toJSON CreateJobOutput'{..}
@@ -662,12 +672,13 @@ instance ToJSON CreateJobOutput where
 --
 -- /See:/ 'createJobPlaylist' smart constructor.
 data CreateJobPlaylist = CreateJobPlaylist'
-    { _cjpPlayReadyDrm         :: !(Maybe PlayReadyDrm)
-    , _cjpFormat               :: !(Maybe Text)
-    , _cjpOutputKeys           :: !(Maybe [Text])
-    , _cjpName                 :: !(Maybe Text)
-    , _cjpHlsContentProtection :: !(Maybe HlsContentProtection)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjpPlayReadyDrm         :: {-# NOUNPACK #-}!(Maybe PlayReadyDrm)
+  , _cjpFormat               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjpOutputKeys           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cjpName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjpHlsContentProtection :: {-# NOUNPACK #-}!(Maybe HlsContentProtection)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJobPlaylist' with the minimum fields required to make a request.
 --
@@ -685,13 +696,14 @@ data CreateJobPlaylist = CreateJobPlaylist'
 createJobPlaylist
     :: CreateJobPlaylist
 createJobPlaylist =
-    CreateJobPlaylist'
-    { _cjpPlayReadyDrm = Nothing
-    , _cjpFormat = Nothing
-    , _cjpOutputKeys = Nothing
-    , _cjpName = Nothing
-    , _cjpHlsContentProtection = Nothing
-    }
+  CreateJobPlaylist'
+  { _cjpPlayReadyDrm = Nothing
+  , _cjpFormat = Nothing
+  , _cjpOutputKeys = Nothing
+  , _cjpName = Nothing
+  , _cjpHlsContentProtection = Nothing
+  }
+
 
 -- | The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.
 cjpPlayReadyDrm :: Lens' CreateJobPlaylist (Maybe PlayReadyDrm)
@@ -713,9 +725,9 @@ cjpName = lens _cjpName (\ s a -> s{_cjpName = a});
 cjpHlsContentProtection :: Lens' CreateJobPlaylist (Maybe HlsContentProtection)
 cjpHlsContentProtection = lens _cjpHlsContentProtection (\ s a -> s{_cjpHlsContentProtection = a});
 
-instance Hashable CreateJobPlaylist
+instance Hashable CreateJobPlaylist where
 
-instance NFData CreateJobPlaylist
+instance NFData CreateJobPlaylist where
 
 instance ToJSON CreateJobPlaylist where
         toJSON CreateJobPlaylist'{..}
@@ -734,12 +746,13 @@ instance ToJSON CreateJobPlaylist where
 --
 -- /See:/ 'detectedProperties' smart constructor.
 data DetectedProperties = DetectedProperties'
-    { _dpHeight         :: !(Maybe Int)
-    , _dpFrameRate      :: !(Maybe Text)
-    , _dpFileSize       :: !(Maybe Integer)
-    , _dpWidth          :: !(Maybe Int)
-    , _dpDurationMillis :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpHeight         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpFrameRate      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpFileSize       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dpWidth          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpDurationMillis :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetectedProperties' with the minimum fields required to make a request.
 --
@@ -757,13 +770,14 @@ data DetectedProperties = DetectedProperties'
 detectedProperties
     :: DetectedProperties
 detectedProperties =
-    DetectedProperties'
-    { _dpHeight = Nothing
-    , _dpFrameRate = Nothing
-    , _dpFileSize = Nothing
-    , _dpWidth = Nothing
-    , _dpDurationMillis = Nothing
-    }
+  DetectedProperties'
+  { _dpHeight = Nothing
+  , _dpFrameRate = Nothing
+  , _dpFileSize = Nothing
+  , _dpWidth = Nothing
+  , _dpDurationMillis = Nothing
+  }
+
 
 -- | The detected height of the input file, in pixels.
 dpHeight :: Lens' DetectedProperties (Maybe Int)
@@ -795,9 +809,9 @@ instance FromJSON DetectedProperties where
                      <*> (x .:? "Width")
                      <*> (x .:? "DurationMillis"))
 
-instance Hashable DetectedProperties
+instance Hashable DetectedProperties where
 
-instance NFData DetectedProperties
+instance NFData DetectedProperties where
 
 instance ToJSON DetectedProperties where
         toJSON DetectedProperties'{..}
@@ -815,11 +829,12 @@ instance ToJSON DetectedProperties where
 --
 -- /See:/ 'encryption' smart constructor.
 data Encryption = Encryption'
-    { _eMode                 :: !(Maybe Text)
-    , _eKeyMD5               :: !(Maybe Text)
-    , _eKey                  :: !(Maybe Text)
-    , _eInitializationVector :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eMode                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eKeyMD5               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eKey                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eInitializationVector :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Encryption' with the minimum fields required to make a request.
 --
@@ -835,12 +850,13 @@ data Encryption = Encryption'
 encryption
     :: Encryption
 encryption =
-    Encryption'
-    { _eMode = Nothing
-    , _eKeyMD5 = Nothing
-    , _eKey = Nothing
-    , _eInitializationVector = Nothing
-    }
+  Encryption'
+  { _eMode = Nothing
+  , _eKeyMD5 = Nothing
+  , _eKey = Nothing
+  , _eInitializationVector = Nothing
+  }
+
 
 -- | The specific server-side encryption mode that you want Elastic Transcoder to use when decrypting your input files or encrypting your output files. Elastic Transcoder supports the following options:     * __S3:__ Amazon S3 creates and manages the keys used for encrypting your files.     * __S3-AWS-KMS:__ Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify @S3-AWS-KMS@ and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline.     * __AES-CBC-PKCS7:__ A padded cipher-block mode of operation originally used for HLS files.     * __AES-CTR:__ AES Counter Mode.     * __AES-GCM:__ AES Galois Counter Mode, a mode of operation that is an authenticated encryption format, meaning that a file, key, or initialization vector that has been tampered with fails the decryption process. For all three AES options, you must provide the following settings, which must be base64-encoded:     * __Key__      * __Key MD5__      * __Initialization Vector__  /Important:/ For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
 eMode :: Lens' Encryption (Maybe Text)
@@ -866,9 +882,9 @@ instance FromJSON Encryption where
                    (x .:? "Mode") <*> (x .:? "KeyMd5") <*> (x .:? "Key")
                      <*> (x .:? "InitializationVector"))
 
-instance Hashable Encryption
+instance Hashable Encryption where
 
-instance NFData Encryption
+instance NFData Encryption where
 
 instance ToJSON Encryption where
         toJSON Encryption'{..}
@@ -885,13 +901,14 @@ instance ToJSON Encryption where
 --
 -- /See:/ 'hlsContentProtection' smart constructor.
 data HlsContentProtection = HlsContentProtection'
-    { _hcpKeyMD5                :: !(Maybe Text)
-    , _hcpKeyStoragePolicy      :: !(Maybe Text)
-    , _hcpKey                   :: !(Maybe Text)
-    , _hcpMethod                :: !(Maybe Text)
-    , _hcpInitializationVector  :: !(Maybe Text)
-    , _hcpLicenseAcquisitionURL :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hcpKeyMD5                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcpKeyStoragePolicy      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcpKey                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcpMethod                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcpInitializationVector  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcpLicenseAcquisitionURL :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HlsContentProtection' with the minimum fields required to make a request.
 --
@@ -911,14 +928,15 @@ data HlsContentProtection = HlsContentProtection'
 hlsContentProtection
     :: HlsContentProtection
 hlsContentProtection =
-    HlsContentProtection'
-    { _hcpKeyMD5 = Nothing
-    , _hcpKeyStoragePolicy = Nothing
-    , _hcpKey = Nothing
-    , _hcpMethod = Nothing
-    , _hcpInitializationVector = Nothing
-    , _hcpLicenseAcquisitionURL = Nothing
-    }
+  HlsContentProtection'
+  { _hcpKeyMD5 = Nothing
+  , _hcpKeyStoragePolicy = Nothing
+  , _hcpKey = Nothing
+  , _hcpMethod = Nothing
+  , _hcpInitializationVector = Nothing
+  , _hcpLicenseAcquisitionURL = Nothing
+  }
+
 
 -- | If Elastic Transcoder is generating your key for you, you must leave this field blank. The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
 hcpKeyMD5 :: Lens' HlsContentProtection (Maybe Text)
@@ -955,9 +973,9 @@ instance FromJSON HlsContentProtection where
                      <*> (x .:? "InitializationVector")
                      <*> (x .:? "LicenseAcquisitionUrl"))
 
-instance Hashable HlsContentProtection
+instance Hashable HlsContentProtection where
 
-instance NFData HlsContentProtection
+instance NFData HlsContentProtection where
 
 instance ToJSON HlsContentProtection where
         toJSON HlsContentProtection'{..}
@@ -977,9 +995,10 @@ instance ToJSON HlsContentProtection where
 --
 -- /See:/ 'inputCaptions' smart constructor.
 data InputCaptions = InputCaptions'
-    { _icMergePolicy    :: !(Maybe Text)
-    , _icCaptionSources :: !(Maybe [CaptionSource])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _icMergePolicy    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _icCaptionSources :: {-# NOUNPACK #-}!(Maybe [CaptionSource])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InputCaptions' with the minimum fields required to make a request.
 --
@@ -991,10 +1010,8 @@ data InputCaptions = InputCaptions'
 inputCaptions
     :: InputCaptions
 inputCaptions =
-    InputCaptions'
-    { _icMergePolicy = Nothing
-    , _icCaptionSources = Nothing
-    }
+  InputCaptions' {_icMergePolicy = Nothing, _icCaptionSources = Nothing}
+
 
 -- | A policy that determines how Elastic Transcoder handles the existence of multiple captions.     * __MergeOverride:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.     * __MergeRetain:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If @CaptionSources@ is empty, Elastic Transcoder omits all sidecar captions from the output files.     * __Override:__ Elastic Transcoder transcodes only the sidecar captions that you specify in @CaptionSources@ . @MergePolicy@ cannot be null.
 icMergePolicy :: Lens' InputCaptions (Maybe Text)
@@ -1012,9 +1029,9 @@ instance FromJSON InputCaptions where
                    (x .:? "MergePolicy") <*>
                      (x .:? "CaptionSources" .!= mempty))
 
-instance Hashable InputCaptions
+instance Hashable InputCaptions where
 
-instance NFData InputCaptions
+instance NFData InputCaptions where
 
 instance ToJSON InputCaptions where
         toJSON InputCaptions'{..}
@@ -1029,19 +1046,20 @@ instance ToJSON InputCaptions where
 --
 -- /See:/ 'job'' smart constructor.
 data Job' = Job''
-    { _jStatus          :: !(Maybe Text)
-    , _jPipelineId      :: !(Maybe Text)
-    , _jARN             :: !(Maybe Text)
-    , _jInputs          :: !(Maybe [JobInput])
-    , _jInput           :: !(Maybe JobInput)
-    , _jUserMetadata    :: !(Maybe (Map Text Text))
-    , _jOutputs         :: !(Maybe [JobOutput])
-    , _jOutput          :: !(Maybe JobOutput)
-    , _jId              :: !(Maybe Text)
-    , _jPlaylists       :: !(Maybe [Playlist])
-    , _jOutputKeyPrefix :: !(Maybe Text)
-    , _jTiming          :: !(Maybe Timing)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jStatus          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jPipelineId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jInputs          :: {-# NOUNPACK #-}!(Maybe [JobInput])
+  , _jInput           :: {-# NOUNPACK #-}!(Maybe JobInput)
+  , _jUserMetadata    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _jOutputs         :: {-# NOUNPACK #-}!(Maybe [JobOutput])
+  , _jOutput          :: {-# NOUNPACK #-}!(Maybe JobOutput)
+  , _jId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jPlaylists       :: {-# NOUNPACK #-}!(Maybe [Playlist])
+  , _jOutputKeyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jTiming          :: {-# NOUNPACK #-}!(Maybe Timing)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Job'' with the minimum fields required to make a request.
 --
@@ -1073,20 +1091,21 @@ data Job' = Job''
 job'
     :: Job'
 job' =
-    Job''
-    { _jStatus = Nothing
-    , _jPipelineId = Nothing
-    , _jARN = Nothing
-    , _jInputs = Nothing
-    , _jInput = Nothing
-    , _jUserMetadata = Nothing
-    , _jOutputs = Nothing
-    , _jOutput = Nothing
-    , _jId = Nothing
-    , _jPlaylists = Nothing
-    , _jOutputKeyPrefix = Nothing
-    , _jTiming = Nothing
-    }
+  Job''
+  { _jStatus = Nothing
+  , _jPipelineId = Nothing
+  , _jARN = Nothing
+  , _jInputs = Nothing
+  , _jInput = Nothing
+  , _jUserMetadata = Nothing
+  , _jOutputs = Nothing
+  , _jOutput = Nothing
+  , _jId = Nothing
+  , _jPlaylists = Nothing
+  , _jOutputKeyPrefix = Nothing
+  , _jTiming = Nothing
+  }
+
 
 -- | The status of the job: @Submitted@ , @Progressing@ , @Complete@ , @Canceled@ , or @Error@ .
 jStatus :: Lens' Job' (Maybe Text)
@@ -1153,9 +1172,9 @@ instance FromJSON Job' where
                      <*> (x .:? "OutputKeyPrefix")
                      <*> (x .:? "Timing"))
 
-instance Hashable Job'
+instance Hashable Job' where
 
-instance NFData Job'
+instance NFData Job' where
 
 -- | The .jpg or .png file associated with an audio file.
 --
@@ -1163,9 +1182,10 @@ instance NFData Job'
 --
 -- /See:/ 'jobAlbumArt' smart constructor.
 data JobAlbumArt = JobAlbumArt'
-    { _jaaMergePolicy :: !(Maybe Text)
-    , _jaaArtwork     :: !(Maybe [Artwork])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jaaMergePolicy :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jaaArtwork     :: {-# NOUNPACK #-}!(Maybe [Artwork])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobAlbumArt' with the minimum fields required to make a request.
 --
@@ -1176,11 +1196,8 @@ data JobAlbumArt = JobAlbumArt'
 -- * 'jaaArtwork' - The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are @.jpg@ and @.png@
 jobAlbumArt
     :: JobAlbumArt
-jobAlbumArt =
-    JobAlbumArt'
-    { _jaaMergePolicy = Nothing
-    , _jaaArtwork = Nothing
-    }
+jobAlbumArt = JobAlbumArt' {_jaaMergePolicy = Nothing, _jaaArtwork = Nothing}
+
 
 -- | A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.     * @Replace:@ The specified album art replaces any existing album art.     * @Prepend:@ The specified album art is placed in front of any existing album art.     * @Append:@ The specified album art is placed after any existing album art.     * @Fallback:@ If the original input file contains artwork, Elastic Transcoder uses that artwork for the output. If the original input does not contain artwork, Elastic Transcoder uses the specified album art file.
 jaaMergePolicy :: Lens' JobAlbumArt (Maybe Text)
@@ -1198,9 +1215,9 @@ instance FromJSON JobAlbumArt where
                    (x .:? "MergePolicy") <*>
                      (x .:? "Artwork" .!= mempty))
 
-instance Hashable JobAlbumArt
+instance Hashable JobAlbumArt where
 
-instance NFData JobAlbumArt
+instance NFData JobAlbumArt where
 
 instance ToJSON JobAlbumArt where
         toJSON JobAlbumArt'{..}
@@ -1215,17 +1232,18 @@ instance ToJSON JobAlbumArt where
 --
 -- /See:/ 'jobInput' smart constructor.
 data JobInput = JobInput'
-    { _jiFrameRate          :: !(Maybe Text)
-    , _jiResolution         :: !(Maybe Text)
-    , _jiAspectRatio        :: !(Maybe Text)
-    , _jiTimeSpan           :: !(Maybe TimeSpan)
-    , _jiEncryption         :: !(Maybe Encryption)
-    , _jiKey                :: !(Maybe Text)
-    , _jiDetectedProperties :: !(Maybe DetectedProperties)
-    , _jiContainer          :: !(Maybe Text)
-    , _jiInterlaced         :: !(Maybe Text)
-    , _jiInputCaptions      :: !(Maybe InputCaptions)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jiFrameRate          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jiResolution         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jiAspectRatio        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jiTimeSpan           :: {-# NOUNPACK #-}!(Maybe TimeSpan)
+  , _jiEncryption         :: {-# NOUNPACK #-}!(Maybe Encryption)
+  , _jiKey                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jiDetectedProperties :: {-# NOUNPACK #-}!(Maybe DetectedProperties)
+  , _jiContainer          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jiInterlaced         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jiInputCaptions      :: {-# NOUNPACK #-}!(Maybe InputCaptions)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobInput' with the minimum fields required to make a request.
 --
@@ -1253,18 +1271,19 @@ data JobInput = JobInput'
 jobInput
     :: JobInput
 jobInput =
-    JobInput'
-    { _jiFrameRate = Nothing
-    , _jiResolution = Nothing
-    , _jiAspectRatio = Nothing
-    , _jiTimeSpan = Nothing
-    , _jiEncryption = Nothing
-    , _jiKey = Nothing
-    , _jiDetectedProperties = Nothing
-    , _jiContainer = Nothing
-    , _jiInterlaced = Nothing
-    , _jiInputCaptions = Nothing
-    }
+  JobInput'
+  { _jiFrameRate = Nothing
+  , _jiResolution = Nothing
+  , _jiAspectRatio = Nothing
+  , _jiTimeSpan = Nothing
+  , _jiEncryption = Nothing
+  , _jiKey = Nothing
+  , _jiDetectedProperties = Nothing
+  , _jiContainer = Nothing
+  , _jiInterlaced = Nothing
+  , _jiInputCaptions = Nothing
+  }
+
 
 -- | The frame rate of the input file. If you want Elastic Transcoder to automatically detect the frame rate of the input file, specify @auto@ . If you want to specify the frame rate for the input file, enter one of the following values:  @10@ , @15@ , @23.97@ , @24@ , @25@ , @29.97@ , @30@ , @60@  If you specify a value other than @auto@ , Elastic Transcoder disables automatic detection of the frame rate.
 jiFrameRate :: Lens' JobInput (Maybe Text)
@@ -1321,9 +1340,9 @@ instance FromJSON JobInput where
                      <*> (x .:? "Interlaced")
                      <*> (x .:? "InputCaptions"))
 
-instance Hashable JobInput
+instance Hashable JobInput where
 
-instance NFData JobInput
+instance NFData JobInput where
 
 instance ToJSON JobInput where
         toJSON JobInput'{..}
@@ -1348,28 +1367,29 @@ instance ToJSON JobInput where
 --
 -- /See:/ 'jobOutput' smart constructor.
 data JobOutput = JobOutput'
-    { _joAppliedColorSpaceConversion :: !(Maybe Text)
-    , _joThumbnailPattern            :: !(Maybe Text)
-    , _joStatus                      :: !(Maybe Text)
-    , _joHeight                      :: !(Maybe Int)
-    , _joFrameRate                   :: !(Maybe Text)
-    , _joCaptions                    :: !(Maybe Captions)
-    , _joPresetId                    :: !(Maybe Text)
-    , _joComposition                 :: !(Maybe [Clip])
-    , _joAlbumArt                    :: !(Maybe JobAlbumArt)
-    , _joFileSize                    :: !(Maybe Integer)
-    , _joWatermarks                  :: !(Maybe [JobWatermark])
-    , _joWidth                       :: !(Maybe Int)
-    , _joEncryption                  :: !(Maybe Encryption)
-    , _joKey                         :: !(Maybe Text)
-    , _joStatusDetail                :: !(Maybe Text)
-    , _joId                          :: !(Maybe Text)
-    , _joSegmentDuration             :: !(Maybe Text)
-    , _joDurationMillis              :: !(Maybe Integer)
-    , _joThumbnailEncryption         :: !(Maybe Encryption)
-    , _joDuration                    :: !(Maybe Integer)
-    , _joRotate                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _joAppliedColorSpaceConversion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joThumbnailPattern            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joStatus                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joHeight                      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _joFrameRate                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joCaptions                    :: {-# NOUNPACK #-}!(Maybe Captions)
+  , _joPresetId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joComposition                 :: {-# NOUNPACK #-}!(Maybe [Clip])
+  , _joAlbumArt                    :: {-# NOUNPACK #-}!(Maybe JobAlbumArt)
+  , _joFileSize                    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _joWatermarks                  :: {-# NOUNPACK #-}!(Maybe [JobWatermark])
+  , _joWidth                       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _joEncryption                  :: {-# NOUNPACK #-}!(Maybe Encryption)
+  , _joKey                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joStatusDetail                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joId                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joSegmentDuration             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _joDurationMillis              :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _joThumbnailEncryption         :: {-# NOUNPACK #-}!(Maybe Encryption)
+  , _joDuration                    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _joRotate                      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobOutput' with the minimum fields required to make a request.
 --
@@ -1419,29 +1439,30 @@ data JobOutput = JobOutput'
 jobOutput
     :: JobOutput
 jobOutput =
-    JobOutput'
-    { _joAppliedColorSpaceConversion = Nothing
-    , _joThumbnailPattern = Nothing
-    , _joStatus = Nothing
-    , _joHeight = Nothing
-    , _joFrameRate = Nothing
-    , _joCaptions = Nothing
-    , _joPresetId = Nothing
-    , _joComposition = Nothing
-    , _joAlbumArt = Nothing
-    , _joFileSize = Nothing
-    , _joWatermarks = Nothing
-    , _joWidth = Nothing
-    , _joEncryption = Nothing
-    , _joKey = Nothing
-    , _joStatusDetail = Nothing
-    , _joId = Nothing
-    , _joSegmentDuration = Nothing
-    , _joDurationMillis = Nothing
-    , _joThumbnailEncryption = Nothing
-    , _joDuration = Nothing
-    , _joRotate = Nothing
-    }
+  JobOutput'
+  { _joAppliedColorSpaceConversion = Nothing
+  , _joThumbnailPattern = Nothing
+  , _joStatus = Nothing
+  , _joHeight = Nothing
+  , _joFrameRate = Nothing
+  , _joCaptions = Nothing
+  , _joPresetId = Nothing
+  , _joComposition = Nothing
+  , _joAlbumArt = Nothing
+  , _joFileSize = Nothing
+  , _joWatermarks = Nothing
+  , _joWidth = Nothing
+  , _joEncryption = Nothing
+  , _joKey = Nothing
+  , _joStatusDetail = Nothing
+  , _joId = Nothing
+  , _joSegmentDuration = Nothing
+  , _joDurationMillis = Nothing
+  , _joThumbnailEncryption = Nothing
+  , _joDuration = Nothing
+  , _joRotate = Nothing
+  }
+
 
 -- | If Elastic Transcoder used a preset with a @ColorSpaceConversionMode@ to transcode the output file, the @AppliedColorSpaceConversion@ parameter shows the conversion used. If no @ColorSpaceConversionMode@ was defined in the preset, this parameter is not be included in the job response.
 joAppliedColorSpaceConversion :: Lens' JobOutput (Maybe Text)
@@ -1554,9 +1575,9 @@ instance FromJSON JobOutput where
                      <*> (x .:? "Duration")
                      <*> (x .:? "Rotate"))
 
-instance Hashable JobOutput
+instance Hashable JobOutput where
 
-instance NFData JobOutput
+instance NFData JobOutput where
 
 -- | Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.
 --
@@ -1564,10 +1585,11 @@ instance NFData JobOutput
 --
 -- /See:/ 'jobWatermark' smart constructor.
 data JobWatermark = JobWatermark'
-    { _jwPresetWatermarkId :: !(Maybe Text)
-    , _jwInputKey          :: !(Maybe Text)
-    , _jwEncryption        :: !(Maybe Encryption)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jwPresetWatermarkId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jwInputKey          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jwEncryption        :: {-# NOUNPACK #-}!(Maybe Encryption)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobWatermark' with the minimum fields required to make a request.
 --
@@ -1581,11 +1603,12 @@ data JobWatermark = JobWatermark'
 jobWatermark
     :: JobWatermark
 jobWatermark =
-    JobWatermark'
-    { _jwPresetWatermarkId = Nothing
-    , _jwInputKey = Nothing
-    , _jwEncryption = Nothing
-    }
+  JobWatermark'
+  { _jwPresetWatermarkId = Nothing
+  , _jwInputKey = Nothing
+  , _jwEncryption = Nothing
+  }
+
 
 -- | The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.
 jwPresetWatermarkId :: Lens' JobWatermark (Maybe Text)
@@ -1607,9 +1630,9 @@ instance FromJSON JobWatermark where
                    (x .:? "PresetWatermarkId") <*> (x .:? "InputKey")
                      <*> (x .:? "Encryption"))
 
-instance Hashable JobWatermark
+instance Hashable JobWatermark where
 
-instance NFData JobWatermark
+instance NFData JobWatermark where
 
 instance ToJSON JobWatermark where
         toJSON JobWatermark'{..}
@@ -1627,11 +1650,12 @@ instance ToJSON JobWatermark where
 --
 -- /See:/ 'notifications' smart constructor.
 data Notifications = Notifications'
-    { _nError       :: !(Maybe Text)
-    , _nWarning     :: !(Maybe Text)
-    , _nProgressing :: !(Maybe Text)
-    , _nCompleted   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nError       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nWarning     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nProgressing :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nCompleted   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Notifications' with the minimum fields required to make a request.
 --
@@ -1647,12 +1671,13 @@ data Notifications = Notifications'
 notifications
     :: Notifications
 notifications =
-    Notifications'
-    { _nError = Nothing
-    , _nWarning = Nothing
-    , _nProgressing = Nothing
-    , _nCompleted = Nothing
-    }
+  Notifications'
+  { _nError = Nothing
+  , _nWarning = Nothing
+  , _nProgressing = Nothing
+  , _nCompleted = Nothing
+  }
+
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.
 nError :: Lens' Notifications (Maybe Text)
@@ -1679,9 +1704,9 @@ instance FromJSON Notifications where
                      (x .:? "Progressing")
                      <*> (x .:? "Completed"))
 
-instance Hashable Notifications
+instance Hashable Notifications where
 
-instance NFData Notifications
+instance NFData Notifications where
 
 instance ToJSON Notifications where
         toJSON Notifications'{..}
@@ -1698,10 +1723,11 @@ instance ToJSON Notifications where
 --
 -- /See:/ 'permission' smart constructor.
 data Permission = Permission'
-    { _pAccess      :: !(Maybe [Text])
-    , _pGranteeType :: !(Maybe Text)
-    , _pGrantee     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pAccess      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pGranteeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pGrantee     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Permission' with the minimum fields required to make a request.
 --
@@ -1715,11 +1741,8 @@ data Permission = Permission'
 permission
     :: Permission
 permission =
-    Permission'
-    { _pAccess = Nothing
-    , _pGranteeType = Nothing
-    , _pGrantee = Nothing
-    }
+  Permission' {_pAccess = Nothing, _pGranteeType = Nothing, _pGrantee = Nothing}
+
 
 -- | The permission that you want to give to the AWS user that is listed in Grantee. Valid values include:      * @READ@ : The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.     * @READ_ACP@ : The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.     * @WRITE_ACP@ : The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.     * @FULL_CONTROL@ : The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
 pAccess :: Lens' Permission [Text]
@@ -1741,9 +1764,9 @@ instance FromJSON Permission where
                    (x .:? "Access" .!= mempty) <*> (x .:? "GranteeType")
                      <*> (x .:? "Grantee"))
 
-instance Hashable Permission
+instance Hashable Permission where
 
-instance NFData Permission
+instance NFData Permission where
 
 instance ToJSON Permission where
         toJSON Permission'{..}
@@ -1759,18 +1782,19 @@ instance ToJSON Permission where
 --
 -- /See:/ 'pipeline' smart constructor.
 data Pipeline = Pipeline'
-    { _pipStatus          :: !(Maybe Text)
-    , _pipARN             :: !(Maybe Text)
-    , _pipInputBucket     :: !(Maybe Text)
-    , _pipContentConfig   :: !(Maybe PipelineOutputConfig)
-    , _pipOutputBucket    :: !(Maybe Text)
-    , _pipRole            :: !(Maybe Text)
-    , _pipName            :: !(Maybe Text)
-    , _pipAWSKMSKeyARN    :: !(Maybe Text)
-    , _pipId              :: !(Maybe Text)
-    , _pipNotifications   :: !(Maybe Notifications)
-    , _pipThumbnailConfig :: !(Maybe PipelineOutputConfig)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pipStatus          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pipARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pipInputBucket     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pipContentConfig   :: {-# NOUNPACK #-}!(Maybe PipelineOutputConfig)
+  , _pipOutputBucket    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pipRole            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pipName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pipAWSKMSKeyARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pipId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pipNotifications   :: {-# NOUNPACK #-}!(Maybe Notifications)
+  , _pipThumbnailConfig :: {-# NOUNPACK #-}!(Maybe PipelineOutputConfig)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Pipeline' with the minimum fields required to make a request.
 --
@@ -1800,19 +1824,20 @@ data Pipeline = Pipeline'
 pipeline
     :: Pipeline
 pipeline =
-    Pipeline'
-    { _pipStatus = Nothing
-    , _pipARN = Nothing
-    , _pipInputBucket = Nothing
-    , _pipContentConfig = Nothing
-    , _pipOutputBucket = Nothing
-    , _pipRole = Nothing
-    , _pipName = Nothing
-    , _pipAWSKMSKeyARN = Nothing
-    , _pipId = Nothing
-    , _pipNotifications = Nothing
-    , _pipThumbnailConfig = Nothing
-    }
+  Pipeline'
+  { _pipStatus = Nothing
+  , _pipARN = Nothing
+  , _pipInputBucket = Nothing
+  , _pipContentConfig = Nothing
+  , _pipOutputBucket = Nothing
+  , _pipRole = Nothing
+  , _pipName = Nothing
+  , _pipAWSKMSKeyARN = Nothing
+  , _pipId = Nothing
+  , _pipNotifications = Nothing
+  , _pipThumbnailConfig = Nothing
+  }
+
 
 -- | The current status of the pipeline:     * @Active@ : The pipeline is processing jobs.     * @Paused@ : The pipeline is not currently processing jobs.
 pipStatus :: Lens' Pipeline (Maybe Text)
@@ -1874,9 +1899,9 @@ instance FromJSON Pipeline where
                      <*> (x .:? "Notifications")
                      <*> (x .:? "ThumbnailConfig"))
 
-instance Hashable Pipeline
+instance Hashable Pipeline where
 
-instance NFData Pipeline
+instance NFData Pipeline where
 
 -- | The @PipelineOutputConfig@ structure.
 --
@@ -1884,10 +1909,11 @@ instance NFData Pipeline
 --
 -- /See:/ 'pipelineOutputConfig' smart constructor.
 data PipelineOutputConfig = PipelineOutputConfig'
-    { _pocBucket       :: !(Maybe Text)
-    , _pocStorageClass :: !(Maybe Text)
-    , _pocPermissions  :: !(Maybe [Permission])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pocBucket       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pocStorageClass :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pocPermissions  :: {-# NOUNPACK #-}!(Maybe [Permission])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PipelineOutputConfig' with the minimum fields required to make a request.
 --
@@ -1901,11 +1927,9 @@ data PipelineOutputConfig = PipelineOutputConfig'
 pipelineOutputConfig
     :: PipelineOutputConfig
 pipelineOutputConfig =
-    PipelineOutputConfig'
-    { _pocBucket = Nothing
-    , _pocStorageClass = Nothing
-    , _pocPermissions = Nothing
-    }
+  PipelineOutputConfig'
+  {_pocBucket = Nothing, _pocStorageClass = Nothing, _pocPermissions = Nothing}
+
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files. Specify this value when all of the following are true:     * You want to save transcoded files, thumbnails (if any), and playlists (if any) together in one bucket.     * You do not want to specify the users or groups who have access to the transcoded files, thumbnails, and playlists.     * You do not want to specify the permissions that Elastic Transcoder grants to the files.     * You want to associate the transcoded files and thumbnails with the Amazon S3 Standard storage class. If you want to save transcoded files and playlists in one bucket and thumbnails in another bucket, specify which users can access the transcoded files or the permissions the users have, or change the Amazon S3 storage class, omit OutputBucket and specify values for @ContentConfig@ and @ThumbnailConfig@ instead.
 pocBucket :: Lens' PipelineOutputConfig (Maybe Text)
@@ -1927,9 +1951,9 @@ instance FromJSON PipelineOutputConfig where
                    (x .:? "Bucket") <*> (x .:? "StorageClass") <*>
                      (x .:? "Permissions" .!= mempty))
 
-instance Hashable PipelineOutputConfig
+instance Hashable PipelineOutputConfig where
 
-instance NFData PipelineOutputConfig
+instance NFData PipelineOutputConfig where
 
 instance ToJSON PipelineOutputConfig where
         toJSON PipelineOutputConfig'{..}
@@ -1949,13 +1973,14 @@ instance ToJSON PipelineOutputConfig where
 --
 -- /See:/ 'playReadyDrm' smart constructor.
 data PlayReadyDrm = PlayReadyDrm'
-    { _prdKeyId                 :: !(Maybe Text)
-    , _prdFormat                :: !(Maybe Text)
-    , _prdKeyMD5                :: !(Maybe Text)
-    , _prdKey                   :: !(Maybe Text)
-    , _prdInitializationVector  :: !(Maybe Text)
-    , _prdLicenseAcquisitionURL :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prdKeyId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prdFormat                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prdKeyMD5                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prdKey                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prdInitializationVector  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prdLicenseAcquisitionURL :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlayReadyDrm' with the minimum fields required to make a request.
 --
@@ -1975,14 +2000,15 @@ data PlayReadyDrm = PlayReadyDrm'
 playReadyDrm
     :: PlayReadyDrm
 playReadyDrm =
-    PlayReadyDrm'
-    { _prdKeyId = Nothing
-    , _prdFormat = Nothing
-    , _prdKeyMD5 = Nothing
-    , _prdKey = Nothing
-    , _prdInitializationVector = Nothing
-    , _prdLicenseAcquisitionURL = Nothing
-    }
+  PlayReadyDrm'
+  { _prdKeyId = Nothing
+  , _prdFormat = Nothing
+  , _prdKeyMD5 = Nothing
+  , _prdKey = Nothing
+  , _prdInitializationVector = Nothing
+  , _prdLicenseAcquisitionURL = Nothing
+  }
+
 
 -- | The ID for your DRM key, so that your DRM license provider knows which key to provide. The key ID must be provided in big endian, and Elastic Transcoder converts it to little endian before inserting it into the PlayReady DRM headers. If you are unsure whether your license server provides your key ID in big or little endian, check with your DRM provider.
 prdKeyId :: Lens' PlayReadyDrm (Maybe Text)
@@ -2019,9 +2045,9 @@ instance FromJSON PlayReadyDrm where
                      <*> (x .:? "InitializationVector")
                      <*> (x .:? "LicenseAcquisitionUrl"))
 
-instance Hashable PlayReadyDrm
+instance Hashable PlayReadyDrm where
 
-instance NFData PlayReadyDrm
+instance NFData PlayReadyDrm where
 
 instance ToJSON PlayReadyDrm where
         toJSON PlayReadyDrm'{..}
@@ -2041,14 +2067,15 @@ instance ToJSON PlayReadyDrm where
 --
 -- /See:/ 'playlist' smart constructor.
 data Playlist = Playlist'
-    { _pStatus               :: !(Maybe Text)
-    , _pPlayReadyDrm         :: !(Maybe PlayReadyDrm)
-    , _pFormat               :: !(Maybe Text)
-    , _pOutputKeys           :: !(Maybe [Text])
-    , _pName                 :: !(Maybe Text)
-    , _pStatusDetail         :: !(Maybe Text)
-    , _pHlsContentProtection :: !(Maybe HlsContentProtection)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pStatus               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pPlayReadyDrm         :: {-# NOUNPACK #-}!(Maybe PlayReadyDrm)
+  , _pFormat               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pOutputKeys           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pStatusDetail         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pHlsContentProtection :: {-# NOUNPACK #-}!(Maybe HlsContentProtection)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Playlist' with the minimum fields required to make a request.
 --
@@ -2070,15 +2097,16 @@ data Playlist = Playlist'
 playlist
     :: Playlist
 playlist =
-    Playlist'
-    { _pStatus = Nothing
-    , _pPlayReadyDrm = Nothing
-    , _pFormat = Nothing
-    , _pOutputKeys = Nothing
-    , _pName = Nothing
-    , _pStatusDetail = Nothing
-    , _pHlsContentProtection = Nothing
-    }
+  Playlist'
+  { _pStatus = Nothing
+  , _pPlayReadyDrm = Nothing
+  , _pFormat = Nothing
+  , _pOutputKeys = Nothing
+  , _pName = Nothing
+  , _pStatusDetail = Nothing
+  , _pHlsContentProtection = Nothing
+  }
+
 
 -- | The status of the job with which the playlist is associated.
 pStatus :: Lens' Playlist (Maybe Text)
@@ -2120,9 +2148,9 @@ instance FromJSON Playlist where
                      <*> (x .:? "StatusDetail")
                      <*> (x .:? "HlsContentProtection"))
 
-instance Hashable Playlist
+instance Hashable Playlist where
 
-instance NFData Playlist
+instance NFData Playlist where
 
 -- | Presets are templates that contain most of the settings for transcoding media files from one format to another. Elastic Transcoder includes some default presets for common formats, for example, several iPod and iPhone versions. You can also create your own presets for formats that aren't included among the default presets. You specify which preset you want to use when you create a job.
 --
@@ -2130,16 +2158,17 @@ instance NFData Playlist
 --
 -- /See:/ 'preset' smart constructor.
 data Preset = Preset'
-    { _preARN         :: !(Maybe Text)
-    , _preVideo       :: !(Maybe VideoParameters)
-    , _preThumbnails  :: !(Maybe Thumbnails)
-    , _preName        :: !(Maybe Text)
-    , _preContainer   :: !(Maybe Text)
-    , _preId          :: !(Maybe Text)
-    , _preType        :: !(Maybe Text)
-    , _preDescription :: !(Maybe Text)
-    , _preAudio       :: !(Maybe AudioParameters)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _preARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _preVideo       :: {-# NOUNPACK #-}!(Maybe VideoParameters)
+  , _preThumbnails  :: {-# NOUNPACK #-}!(Maybe Thumbnails)
+  , _preName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _preContainer   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _preId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _preType        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _preDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _preAudio       :: {-# NOUNPACK #-}!(Maybe AudioParameters)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Preset' with the minimum fields required to make a request.
 --
@@ -2165,17 +2194,18 @@ data Preset = Preset'
 preset
     :: Preset
 preset =
-    Preset'
-    { _preARN = Nothing
-    , _preVideo = Nothing
-    , _preThumbnails = Nothing
-    , _preName = Nothing
-    , _preContainer = Nothing
-    , _preId = Nothing
-    , _preType = Nothing
-    , _preDescription = Nothing
-    , _preAudio = Nothing
-    }
+  Preset'
+  { _preARN = Nothing
+  , _preVideo = Nothing
+  , _preThumbnails = Nothing
+  , _preName = Nothing
+  , _preContainer = Nothing
+  , _preId = Nothing
+  , _preType = Nothing
+  , _preDescription = Nothing
+  , _preAudio = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) for the preset.
 preARN :: Lens' Preset (Maybe Text)
@@ -2227,9 +2257,9 @@ instance FromJSON Preset where
                      <*> (x .:? "Description")
                      <*> (x .:? "Audio"))
 
-instance Hashable Preset
+instance Hashable Preset where
 
-instance NFData Preset
+instance NFData Preset where
 
 -- | Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.
 --
@@ -2241,17 +2271,18 @@ instance NFData Preset
 --
 -- /See:/ 'presetWatermark' smart constructor.
 data PresetWatermark = PresetWatermark'
-    { _pwVerticalAlign    :: !(Maybe Text)
-    , _pwSizingPolicy     :: !(Maybe Text)
-    , _pwHorizontalOffset :: !(Maybe Text)
-    , _pwMaxHeight        :: !(Maybe Text)
-    , _pwOpacity          :: !(Maybe Text)
-    , _pwVerticalOffset   :: !(Maybe Text)
-    , _pwMaxWidth         :: !(Maybe Text)
-    , _pwId               :: !(Maybe Text)
-    , _pwHorizontalAlign  :: !(Maybe Text)
-    , _pwTarget           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pwVerticalAlign    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwSizingPolicy     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwHorizontalOffset :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwMaxHeight        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwOpacity          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwVerticalOffset   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwMaxWidth         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwHorizontalAlign  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pwTarget           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PresetWatermark' with the minimum fields required to make a request.
 --
@@ -2279,18 +2310,19 @@ data PresetWatermark = PresetWatermark'
 presetWatermark
     :: PresetWatermark
 presetWatermark =
-    PresetWatermark'
-    { _pwVerticalAlign = Nothing
-    , _pwSizingPolicy = Nothing
-    , _pwHorizontalOffset = Nothing
-    , _pwMaxHeight = Nothing
-    , _pwOpacity = Nothing
-    , _pwVerticalOffset = Nothing
-    , _pwMaxWidth = Nothing
-    , _pwId = Nothing
-    , _pwHorizontalAlign = Nothing
-    , _pwTarget = Nothing
-    }
+  PresetWatermark'
+  { _pwVerticalAlign = Nothing
+  , _pwSizingPolicy = Nothing
+  , _pwHorizontalOffset = Nothing
+  , _pwMaxHeight = Nothing
+  , _pwOpacity = Nothing
+  , _pwVerticalOffset = Nothing
+  , _pwMaxWidth = Nothing
+  , _pwId = Nothing
+  , _pwHorizontalAlign = Nothing
+  , _pwTarget = Nothing
+  }
+
 
 -- | The vertical position of the watermark unless you specify a non-zero value for @VerticalOffset@ :      * __Top__ : The top edge of the watermark is aligned with the top border of the video.     * __Bottom__ : The bottom edge of the watermark is aligned with the bottom border of the video.     * __Center__ : The watermark is centered between the top and bottom borders.
 pwVerticalAlign :: Lens' PresetWatermark (Maybe Text)
@@ -2347,9 +2379,9 @@ instance FromJSON PresetWatermark where
                      <*> (x .:? "HorizontalAlign")
                      <*> (x .:? "Target"))
 
-instance Hashable PresetWatermark
+instance Hashable PresetWatermark where
 
-instance NFData PresetWatermark
+instance NFData PresetWatermark where
 
 instance ToJSON PresetWatermark where
         toJSON PresetWatermark'{..}
@@ -2371,15 +2403,16 @@ instance ToJSON PresetWatermark where
 --
 -- /See:/ 'thumbnails' smart constructor.
 data Thumbnails = Thumbnails'
-    { _tSizingPolicy  :: !(Maybe Text)
-    , _tFormat        :: !(Maybe Text)
-    , _tMaxHeight     :: !(Maybe Text)
-    , _tResolution    :: !(Maybe Text)
-    , _tAspectRatio   :: !(Maybe Text)
-    , _tPaddingPolicy :: !(Maybe Text)
-    , _tInterval      :: !(Maybe Text)
-    , _tMaxWidth      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tSizingPolicy  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tFormat        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tMaxHeight     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tResolution    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tAspectRatio   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tPaddingPolicy :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tInterval      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tMaxWidth      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Thumbnails' with the minimum fields required to make a request.
 --
@@ -2403,16 +2436,17 @@ data Thumbnails = Thumbnails'
 thumbnails
     :: Thumbnails
 thumbnails =
-    Thumbnails'
-    { _tSizingPolicy = Nothing
-    , _tFormat = Nothing
-    , _tMaxHeight = Nothing
-    , _tResolution = Nothing
-    , _tAspectRatio = Nothing
-    , _tPaddingPolicy = Nothing
-    , _tInterval = Nothing
-    , _tMaxWidth = Nothing
-    }
+  Thumbnails'
+  { _tSizingPolicy = Nothing
+  , _tFormat = Nothing
+  , _tMaxHeight = Nothing
+  , _tResolution = Nothing
+  , _tAspectRatio = Nothing
+  , _tPaddingPolicy = Nothing
+  , _tInterval = Nothing
+  , _tMaxWidth = Nothing
+  }
+
 
 -- | Specify one of the following values to control scaling of thumbnails:     * @Fit@ : Elastic Transcoder scales thumbnails so they match the value that you specified in thumbnail MaxWidth or MaxHeight settings without exceeding the other value.      * @Fill@ : Elastic Transcoder scales thumbnails so they match the value that you specified in thumbnail @MaxWidth@ or @MaxHeight@ settings and matches or exceeds the other value. Elastic Transcoder centers the image in thumbnails and then crops in the dimension (if any) that exceeds the maximum value.     * @Stretch@ : Elastic Transcoder stretches thumbnails to match the values that you specified for thumbnail @MaxWidth@ and @MaxHeight@ settings. If the relative proportions of the input video and thumbnails are different, the thumbnails will be distorted.     * @Keep@ : Elastic Transcoder does not scale thumbnails. If either dimension of the input video exceeds the values that you specified for thumbnail @MaxWidth@ and @MaxHeight@ settings, Elastic Transcoder crops the thumbnails.     * @ShrinkToFit@ : Elastic Transcoder scales thumbnails down so that their dimensions match the values that you specified for at least one of thumbnail @MaxWidth@ and @MaxHeight@ without exceeding either value. If you specify this option, Elastic Transcoder does not scale thumbnails up.     * @ShrinkToFill@ : Elastic Transcoder scales thumbnails down so that their dimensions match the values that you specified for at least one of @MaxWidth@ and @MaxHeight@ without dropping below either value. If you specify this option, Elastic Transcoder does not scale thumbnails up.
 tSizingPolicy :: Lens' Thumbnails (Maybe Text)
@@ -2459,9 +2493,9 @@ instance FromJSON Thumbnails where
                      <*> (x .:? "Interval")
                      <*> (x .:? "MaxWidth"))
 
-instance Hashable Thumbnails
+instance Hashable Thumbnails where
 
-instance NFData Thumbnails
+instance NFData Thumbnails where
 
 instance ToJSON Thumbnails where
         toJSON Thumbnails'{..}
@@ -2482,9 +2516,10 @@ instance ToJSON Thumbnails where
 --
 -- /See:/ 'timeSpan' smart constructor.
 data TimeSpan = TimeSpan'
-    { _tsStartTime :: !(Maybe Text)
-    , _tsDuration  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tsStartTime :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tsDuration  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TimeSpan' with the minimum fields required to make a request.
 --
@@ -2495,11 +2530,8 @@ data TimeSpan = TimeSpan'
 -- * 'tsDuration' - The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file. If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
 timeSpan
     :: TimeSpan
-timeSpan =
-    TimeSpan'
-    { _tsStartTime = Nothing
-    , _tsDuration = Nothing
-    }
+timeSpan = TimeSpan' {_tsStartTime = Nothing, _tsDuration = Nothing}
+
 
 -- | The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
 tsStartTime :: Lens' TimeSpan (Maybe Text)
@@ -2516,9 +2548,9 @@ instance FromJSON TimeSpan where
                  TimeSpan' <$>
                    (x .:? "StartTime") <*> (x .:? "Duration"))
 
-instance Hashable TimeSpan
+instance Hashable TimeSpan where
 
-instance NFData TimeSpan
+instance NFData TimeSpan where
 
 instance ToJSON TimeSpan where
         toJSON TimeSpan'{..}
@@ -2533,10 +2565,11 @@ instance ToJSON TimeSpan where
 --
 -- /See:/ 'timing' smart constructor.
 data Timing = Timing'
-    { _tSubmitTimeMillis :: !(Maybe Integer)
-    , _tFinishTimeMillis :: !(Maybe Integer)
-    , _tStartTimeMillis  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tSubmitTimeMillis :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tFinishTimeMillis :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tStartTimeMillis  :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Timing' with the minimum fields required to make a request.
 --
@@ -2550,11 +2583,12 @@ data Timing = Timing'
 timing
     :: Timing
 timing =
-    Timing'
-    { _tSubmitTimeMillis = Nothing
-    , _tFinishTimeMillis = Nothing
-    , _tStartTimeMillis = Nothing
-    }
+  Timing'
+  { _tSubmitTimeMillis = Nothing
+  , _tFinishTimeMillis = Nothing
+  , _tStartTimeMillis = Nothing
+  }
+
 
 -- | The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
 tSubmitTimeMillis :: Lens' Timing (Maybe Integer)
@@ -2577,9 +2611,9 @@ instance FromJSON Timing where
                      (x .:? "FinishTimeMillis")
                      <*> (x .:? "StartTimeMillis"))
 
-instance Hashable Timing
+instance Hashable Timing where
 
-instance NFData Timing
+instance NFData Timing where
 
 -- | The @VideoParameters@ structure.
 --
@@ -2587,22 +2621,23 @@ instance NFData Timing
 --
 -- /See:/ 'videoParameters' smart constructor.
 data VideoParameters = VideoParameters'
-    { _vpKeyframesMaxDist   :: !(Maybe Text)
-    , _vpFrameRate          :: !(Maybe Text)
-    , _vpSizingPolicy       :: !(Maybe Text)
-    , _vpMaxFrameRate       :: !(Maybe Text)
-    , _vpMaxHeight          :: !(Maybe Text)
-    , _vpWatermarks         :: !(Maybe [PresetWatermark])
-    , _vpDisplayAspectRatio :: !(Maybe Text)
-    , _vpResolution         :: !(Maybe Text)
-    , _vpCodec              :: !(Maybe Text)
-    , _vpAspectRatio        :: !(Maybe Text)
-    , _vpPaddingPolicy      :: !(Maybe Text)
-    , _vpMaxWidth           :: !(Maybe Text)
-    , _vpBitRate            :: !(Maybe Text)
-    , _vpFixedGOP           :: !(Maybe Text)
-    , _vpCodecOptions       :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vpKeyframesMaxDist   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpFrameRate          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpSizingPolicy       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpMaxFrameRate       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpMaxHeight          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpWatermarks         :: {-# NOUNPACK #-}!(Maybe [PresetWatermark])
+  , _vpDisplayAspectRatio :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpResolution         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpCodec              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpAspectRatio        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpPaddingPolicy      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpMaxWidth           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpBitRate            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpFixedGOP           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpCodecOptions       :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VideoParameters' with the minimum fields required to make a request.
 --
@@ -2640,23 +2675,24 @@ data VideoParameters = VideoParameters'
 videoParameters
     :: VideoParameters
 videoParameters =
-    VideoParameters'
-    { _vpKeyframesMaxDist = Nothing
-    , _vpFrameRate = Nothing
-    , _vpSizingPolicy = Nothing
-    , _vpMaxFrameRate = Nothing
-    , _vpMaxHeight = Nothing
-    , _vpWatermarks = Nothing
-    , _vpDisplayAspectRatio = Nothing
-    , _vpResolution = Nothing
-    , _vpCodec = Nothing
-    , _vpAspectRatio = Nothing
-    , _vpPaddingPolicy = Nothing
-    , _vpMaxWidth = Nothing
-    , _vpBitRate = Nothing
-    , _vpFixedGOP = Nothing
-    , _vpCodecOptions = Nothing
-    }
+  VideoParameters'
+  { _vpKeyframesMaxDist = Nothing
+  , _vpFrameRate = Nothing
+  , _vpSizingPolicy = Nothing
+  , _vpMaxFrameRate = Nothing
+  , _vpMaxHeight = Nothing
+  , _vpWatermarks = Nothing
+  , _vpDisplayAspectRatio = Nothing
+  , _vpResolution = Nothing
+  , _vpCodec = Nothing
+  , _vpAspectRatio = Nothing
+  , _vpPaddingPolicy = Nothing
+  , _vpMaxWidth = Nothing
+  , _vpBitRate = Nothing
+  , _vpFixedGOP = Nothing
+  , _vpCodecOptions = Nothing
+  }
+
 
 -- | Applicable only when the value of Video:Codec is one of @H.264@ , @MPEG2@ , or @VP8@ . The maximum number of frames between key frames. Key frames are fully encoded frames; the frames between key frames are encoded based, in part, on the content of the key frames. The value is an integer formatted as a string; valid values are between 1 (every frame is a key frame) and 100000, inclusive. A higher value results in higher compression but may also discernibly decrease video quality. For @Smooth@ outputs, the @FrameRate@ must have a constant ratio to the @KeyframesMaxDist@ . This allows @Smooth@ playlists to switch between different quality levels while the file is being played. For example, an input file can have a @FrameRate@ of 30 with a @KeyframesMaxDist@ of 90. The output file then needs to have a ratio of 1:3. Valid outputs would have @FrameRate@ of 30, 25, and 10, and @KeyframesMaxDist@ of 90, 75, and 30, respectively. Alternately, this can be achieved by setting @FrameRate@ to auto and having the same values for @MaxFrameRate@ and @KeyframesMaxDist@ .
 vpKeyframesMaxDist :: Lens' VideoParameters (Maybe Text)
@@ -2738,9 +2774,9 @@ instance FromJSON VideoParameters where
                      <*> (x .:? "FixedGOP")
                      <*> (x .:? "CodecOptions" .!= mempty))
 
-instance Hashable VideoParameters
+instance Hashable VideoParameters where
 
-instance NFData VideoParameters
+instance NFData VideoParameters where
 
 instance ToJSON VideoParameters where
         toJSON VideoParameters'{..}
@@ -2770,9 +2806,10 @@ instance ToJSON VideoParameters where
 --
 -- /See:/ 'warning' smart constructor.
 data Warning = Warning'
-    { _wCode    :: !(Maybe Text)
-    , _wMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Warning' with the minimum fields required to make a request.
 --
@@ -2783,11 +2820,8 @@ data Warning = Warning'
 -- * 'wMessage' - The message explaining what resources are in a different region from the pipeline.
 warning
     :: Warning
-warning =
-    Warning'
-    { _wCode = Nothing
-    , _wMessage = Nothing
-    }
+warning = Warning' {_wCode = Nothing, _wMessage = Nothing}
+
 
 -- | The code of the cross-regional warning.
 wCode :: Lens' Warning (Maybe Text)
@@ -2803,6 +2837,6 @@ instance FromJSON Warning where
               (\ x ->
                  Warning' <$> (x .:? "Code") <*> (x .:? "Message"))
 
-instance Hashable Warning
+instance Hashable Warning where
 
-instance NFData Warning
+instance NFData Warning where

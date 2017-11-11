@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketAnalyticsConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.S3.GetBucketAnalyticsConfiguration
     , gbacrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketAnalyticsConfiguration' smart constructor.
 data GetBucketAnalyticsConfiguration = GetBucketAnalyticsConfiguration'
-    { _getBucket :: !BucketName
-    , _getId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _getBucket :: {-# NOUNPACK #-}!BucketName
+  , _getId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketAnalyticsConfiguration' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ getBucketAnalyticsConfiguration
     -> Text -- ^ 'getId'
     -> GetBucketAnalyticsConfiguration
 getBucketAnalyticsConfiguration pBucket_ pId_ =
-    GetBucketAnalyticsConfiguration'
-    { _getBucket = pBucket_
-    , _getId = pId_
-    }
+  GetBucketAnalyticsConfiguration' {_getBucket = pBucket_, _getId = pId_}
+
 
 -- | The name of the bucket from which an analytics configuration is retrieved.
 getBucket :: Lens' GetBucketAnalyticsConfiguration BucketName
@@ -86,8 +85,9 @@ instance AWSRequest GetBucketAnalyticsConfiguration
                    (parseXML x) <*> (pure (fromEnum s)))
 
 instance Hashable GetBucketAnalyticsConfiguration
+         where
 
-instance NFData GetBucketAnalyticsConfiguration
+instance NFData GetBucketAnalyticsConfiguration where
 
 instance ToHeaders GetBucketAnalyticsConfiguration
          where
@@ -104,9 +104,10 @@ instance ToQuery GetBucketAnalyticsConfiguration
 
 -- | /See:/ 'getBucketAnalyticsConfigurationResponse' smart constructor.
 data GetBucketAnalyticsConfigurationResponse = GetBucketAnalyticsConfigurationResponse'
-    { _gbacrsAnalyticsConfiguration :: !(Maybe AnalyticsConfiguration)
-    , _gbacrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbacrsAnalyticsConfiguration :: {-# NOUNPACK #-}!(Maybe AnalyticsConfiguration)
+  , _gbacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketAnalyticsConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,11 @@ getBucketAnalyticsConfigurationResponse
     :: Int -- ^ 'gbacrsResponseStatus'
     -> GetBucketAnalyticsConfigurationResponse
 getBucketAnalyticsConfigurationResponse pResponseStatus_ =
-    GetBucketAnalyticsConfigurationResponse'
-    { _gbacrsAnalyticsConfiguration = Nothing
-    , _gbacrsResponseStatus = pResponseStatus_
-    }
+  GetBucketAnalyticsConfigurationResponse'
+  { _gbacrsAnalyticsConfiguration = Nothing
+  , _gbacrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The configuration and any analyses for the analytics filter.
 gbacrsAnalyticsConfiguration :: Lens' GetBucketAnalyticsConfigurationResponse (Maybe AnalyticsConfiguration)
@@ -133,4 +135,5 @@ gbacrsResponseStatus :: Lens' GetBucketAnalyticsConfigurationResponse Int
 gbacrsResponseStatus = lens _gbacrsResponseStatus (\ s a -> s{_gbacrsResponseStatus = a});
 
 instance NFData
-         GetBucketAnalyticsConfigurationResponse
+           GetBucketAnalyticsConfigurationResponse
+         where

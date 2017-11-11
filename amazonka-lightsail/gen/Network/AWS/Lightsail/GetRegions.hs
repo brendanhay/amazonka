@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetRegions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.GetRegions
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getRegions' smart constructor.
 newtype GetRegions = GetRegions'
-    { _grIncludeAvailabilityZones :: Maybe Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grIncludeAvailabilityZones :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRegions' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype GetRegions = GetRegions'
 -- * 'grIncludeAvailabilityZones' - A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., @us-east-1a@ .
 getRegions
     :: GetRegions
-getRegions =
-    GetRegions'
-    { _grIncludeAvailabilityZones = Nothing
-    }
+getRegions = GetRegions' {_grIncludeAvailabilityZones = Nothing}
+
 
 -- | A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., @us-east-1a@ .
 grIncludeAvailabilityZones :: Lens' GetRegions (Maybe Bool)
@@ -74,9 +73,9 @@ instance AWSRequest GetRegions where
                  GetRegionsResponse' <$>
                    (x .?> "regions" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable GetRegions
+instance Hashable GetRegions where
 
-instance NFData GetRegions
+instance NFData GetRegions where
 
 instance ToHeaders GetRegions where
         toHeaders
@@ -102,9 +101,10 @@ instance ToQuery GetRegions where
 
 -- | /See:/ 'getRegionsResponse' smart constructor.
 data GetRegionsResponse = GetRegionsResponse'
-    { _grrsRegions        :: !(Maybe [RegionInfo])
-    , _grrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsRegions        :: {-# NOUNPACK #-}!(Maybe [RegionInfo])
+  , _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRegionsResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ getRegionsResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRegionsResponse
 getRegionsResponse pResponseStatus_ =
-    GetRegionsResponse'
-    { _grrsRegions = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GetRegionsResponse'
+  {_grrsRegions = Nothing, _grrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about your get regions request.
 grrsRegions :: Lens' GetRegionsResponse [RegionInfo]
@@ -130,4 +129,4 @@ grrsRegions = lens _grrsRegions (\ s a -> s{_grrsRegions = a}) . _Default . _Coe
 grrsResponseStatus :: Lens' GetRegionsResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GetRegionsResponse
+instance NFData GetRegionsResponse where

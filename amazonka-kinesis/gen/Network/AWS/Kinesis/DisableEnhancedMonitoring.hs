@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DisableEnhancedMonitoring
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Kinesis.DisableEnhancedMonitoring
     , emoStreamName
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for 'DisableEnhancedMonitoring' .
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableEnhancedMonitoring' smart constructor.
 data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
-    { _demStreamName        :: !Text
-    , _demShardLevelMetrics :: ![MetricsName]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _demStreamName        :: {-# NOUNPACK #-}!Text
+  , _demShardLevelMetrics :: {-# NOUNPACK #-}![MetricsName]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableEnhancedMonitoring' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ disableEnhancedMonitoring
     :: Text -- ^ 'demStreamName'
     -> DisableEnhancedMonitoring
 disableEnhancedMonitoring pStreamName_ =
-    DisableEnhancedMonitoring'
-    { _demStreamName = pStreamName_
-    , _demShardLevelMetrics = mempty
-    }
+  DisableEnhancedMonitoring'
+  {_demStreamName = pStreamName_, _demShardLevelMetrics = mempty}
+
 
 -- | The name of the Amazon Kinesis stream for which to disable enhanced monitoring.
 demStreamName :: Lens' DisableEnhancedMonitoring Text
@@ -86,9 +86,9 @@ instance AWSRequest DisableEnhancedMonitoring where
         request = postJSON kinesis
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable DisableEnhancedMonitoring
+instance Hashable DisableEnhancedMonitoring where
 
-instance NFData DisableEnhancedMonitoring
+instance NFData DisableEnhancedMonitoring where
 
 instance ToHeaders DisableEnhancedMonitoring where
         toHeaders

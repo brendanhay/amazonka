@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     , gcfoairsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to get an origin access identity's information.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentity' smart constructor.
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity'
-    { _gcfoaiId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcfoaiId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ getCloudFrontOriginAccessIdentity
     :: Text -- ^ 'gcfoaiId'
     -> GetCloudFrontOriginAccessIdentity
 getCloudFrontOriginAccessIdentity pId_ =
-    GetCloudFrontOriginAccessIdentity'
-    { _gcfoaiId = pId_
-    }
+  GetCloudFrontOriginAccessIdentity' {_gcfoaiId = pId_}
+
 
 -- | The identity's ID.
 gcfoaiId :: Lens' GetCloudFrontOriginAccessIdentity Text
@@ -84,8 +84,10 @@ instance AWSRequest GetCloudFrontOriginAccessIdentity
                      (pure (fromEnum s)))
 
 instance Hashable GetCloudFrontOriginAccessIdentity
+         where
 
 instance NFData GetCloudFrontOriginAccessIdentity
+         where
 
 instance ToHeaders GetCloudFrontOriginAccessIdentity
          where
@@ -108,10 +110,11 @@ instance ToQuery GetCloudFrontOriginAccessIdentity
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityResponse' smart constructor.
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse'
-    { _gcfoairsETag                           :: !(Maybe Text)
-    , _gcfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _gcfoairsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcfoairsETag :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcfoairsCloudFrontOriginAccessIdentity :: {-# NOUNPACK #-}!(Maybe CloudFrontOriginAccessIdentity)
+  , _gcfoairsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
@@ -126,11 +129,12 @@ getCloudFrontOriginAccessIdentityResponse
     :: Int -- ^ 'gcfoairsResponseStatus'
     -> GetCloudFrontOriginAccessIdentityResponse
 getCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
-    GetCloudFrontOriginAccessIdentityResponse'
-    { _gcfoairsETag = Nothing
-    , _gcfoairsCloudFrontOriginAccessIdentity = Nothing
-    , _gcfoairsResponseStatus = pResponseStatus_
-    }
+  GetCloudFrontOriginAccessIdentityResponse'
+  { _gcfoairsETag = Nothing
+  , _gcfoairsCloudFrontOriginAccessIdentity = Nothing
+  , _gcfoairsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the origin access identity's information. For example: @E2QWRUHAPOMQZL@ .
 gcfoairsETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
@@ -145,4 +149,5 @@ gcfoairsResponseStatus :: Lens' GetCloudFrontOriginAccessIdentityResponse Int
 gcfoairsResponseStatus = lens _gcfoairsResponseStatus (\ s a -> s{_gcfoairsResponseStatus = a});
 
 instance NFData
-         GetCloudFrontOriginAccessIdentityResponse
+           GetCloudFrontOriginAccessIdentityResponse
+         where

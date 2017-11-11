@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.PollForActivityTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,19 +60,20 @@ module Network.AWS.SWF.PollForActivityTask
     , pfatrsStartedEventId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'pollForActivityTask' smart constructor.
 data PollForActivityTask = PollForActivityTask'
-    { _pfatIdentity :: !(Maybe Text)
-    , _pfatDomain   :: !Text
-    , _pfatTaskList :: !TaskList
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfatIdentity :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfatDomain   :: {-# NOUNPACK #-}!Text
+  , _pfatTaskList :: {-# NOUNPACK #-}!TaskList
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForActivityTask' with the minimum fields required to make a request.
 --
@@ -88,11 +89,9 @@ pollForActivityTask
     -> TaskList -- ^ 'pfatTaskList'
     -> PollForActivityTask
 pollForActivityTask pDomain_ pTaskList_ =
-    PollForActivityTask'
-    { _pfatIdentity = Nothing
-    , _pfatDomain = pDomain_
-    , _pfatTaskList = pTaskList_
-    }
+  PollForActivityTask'
+  {_pfatIdentity = Nothing, _pfatDomain = pDomain_, _pfatTaskList = pTaskList_}
+
 
 -- | Identity of the worker making the request, recorded in the @ActivityTaskStarted@ event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
 pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
@@ -121,9 +120,9 @@ instance AWSRequest PollForActivityTask where
                      <*> (pure (fromEnum s))
                      <*> (x .:> "startedEventId"))
 
-instance Hashable PollForActivityTask
+instance Hashable PollForActivityTask where
 
-instance NFData PollForActivityTask
+instance NFData PollForActivityTask where
 
 instance ToHeaders PollForActivityTask where
         toHeaders
@@ -155,14 +154,15 @@ instance ToQuery PollForActivityTask where
 --
 -- /See:/ 'pollForActivityTaskResponse' smart constructor.
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
-    { _pfatrsActivityType      :: !(Maybe ActivityType)
-    , _pfatrsActivityId        :: !(Maybe Text)
-    , _pfatrsInput             :: !(Maybe Text)
-    , _pfatrsTaskToken         :: !(Maybe Text)
-    , _pfatrsWorkflowExecution :: !(Maybe WorkflowExecution)
-    , _pfatrsResponseStatus    :: !Int
-    , _pfatrsStartedEventId    :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfatrsActivityType      :: {-# NOUNPACK #-}!(Maybe ActivityType)
+  , _pfatrsActivityId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfatrsInput             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfatrsTaskToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfatrsWorkflowExecution :: {-# NOUNPACK #-}!(Maybe WorkflowExecution)
+  , _pfatrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _pfatrsStartedEventId    :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForActivityTaskResponse' with the minimum fields required to make a request.
 --
@@ -186,15 +186,16 @@ pollForActivityTaskResponse
     -> Integer -- ^ 'pfatrsStartedEventId'
     -> PollForActivityTaskResponse
 pollForActivityTaskResponse pResponseStatus_ pStartedEventId_ =
-    PollForActivityTaskResponse'
-    { _pfatrsActivityType = Nothing
-    , _pfatrsActivityId = Nothing
-    , _pfatrsInput = Nothing
-    , _pfatrsTaskToken = Nothing
-    , _pfatrsWorkflowExecution = Nothing
-    , _pfatrsResponseStatus = pResponseStatus_
-    , _pfatrsStartedEventId = pStartedEventId_
-    }
+  PollForActivityTaskResponse'
+  { _pfatrsActivityType = Nothing
+  , _pfatrsActivityId = Nothing
+  , _pfatrsInput = Nothing
+  , _pfatrsTaskToken = Nothing
+  , _pfatrsWorkflowExecution = Nothing
+  , _pfatrsResponseStatus = pResponseStatus_
+  , _pfatrsStartedEventId = pStartedEventId_
+  }
+
 
 -- | The type of this activity task.
 pfatrsActivityType :: Lens' PollForActivityTaskResponse (Maybe ActivityType)
@@ -224,4 +225,4 @@ pfatrsResponseStatus = lens _pfatrsResponseStatus (\ s a -> s{_pfatrsResponseSta
 pfatrsStartedEventId :: Lens' PollForActivityTaskResponse Integer
 pfatrsStartedEventId = lens _pfatrsStartedEventId (\ s a -> s{_pfatrsStartedEventId = a});
 
-instance NFData PollForActivityTaskResponse
+instance NFData PollForActivityTaskResponse where

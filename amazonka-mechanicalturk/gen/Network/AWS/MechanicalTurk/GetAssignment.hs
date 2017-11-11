@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetAssignment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.MechanicalTurk.GetAssignment
     , garsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAssignment' smart constructor.
 newtype GetAssignment = GetAssignment'
-    { _gaAssignmentId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaAssignmentId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAssignment' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype GetAssignment = GetAssignment'
 getAssignment
     :: Text -- ^ 'gaAssignmentId'
     -> GetAssignment
-getAssignment pAssignmentId_ =
-    GetAssignment'
-    { _gaAssignmentId = pAssignmentId_
-    }
+getAssignment pAssignmentId_ = GetAssignment' {_gaAssignmentId = pAssignmentId_}
+
 
 -- | The ID of the Assignment to be retrieved.
 gaAssignmentId :: Lens' GetAssignment Text
@@ -77,9 +76,9 @@ instance AWSRequest GetAssignment where
                    (x .?> "HIT") <*> (x .?> "Assignment") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetAssignment
+instance Hashable GetAssignment where
 
-instance NFData GetAssignment
+instance NFData GetAssignment where
 
 instance ToHeaders GetAssignment where
         toHeaders
@@ -105,10 +104,11 @@ instance ToQuery GetAssignment where
 
 -- | /See:/ 'getAssignmentResponse' smart constructor.
 data GetAssignmentResponse = GetAssignmentResponse'
-    { _garsHIT            :: !(Maybe HIT)
-    , _garsAssignment     :: !(Maybe Assignment)
-    , _garsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garsHIT            :: {-# NOUNPACK #-}!(Maybe HIT)
+  , _garsAssignment     :: {-# NOUNPACK #-}!(Maybe Assignment)
+  , _garsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAssignmentResponse' with the minimum fields required to make a request.
 --
@@ -123,11 +123,12 @@ getAssignmentResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GetAssignmentResponse
 getAssignmentResponse pResponseStatus_ =
-    GetAssignmentResponse'
-    { _garsHIT = Nothing
-    , _garsAssignment = Nothing
-    , _garsResponseStatus = pResponseStatus_
-    }
+  GetAssignmentResponse'
+  { _garsHIT = Nothing
+  , _garsAssignment = Nothing
+  , _garsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The HIT associated with this assignment. The response includes one HIT element.
 garsHIT :: Lens' GetAssignmentResponse (Maybe HIT)
@@ -141,4 +142,4 @@ garsAssignment = lens _garsAssignment (\ s a -> s{_garsAssignment = a});
 garsResponseStatus :: Lens' GetAssignmentResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 
-instance NFData GetAssignmentResponse
+instance NFData GetAssignmentResponse where

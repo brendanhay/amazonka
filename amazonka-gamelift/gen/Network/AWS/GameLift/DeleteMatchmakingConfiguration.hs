@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteMatchmakingConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.GameLift.DeleteMatchmakingConfiguration
     , dmcrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -67,8 +67,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteMatchmakingConfiguration' smart constructor.
 newtype DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
-    { _dmcName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmcName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMatchmakingConfiguration' with the minimum fields required to make a request.
 --
@@ -79,9 +80,8 @@ deleteMatchmakingConfiguration
     :: Text -- ^ 'dmcName'
     -> DeleteMatchmakingConfiguration
 deleteMatchmakingConfiguration pName_ =
-    DeleteMatchmakingConfiguration'
-    { _dmcName = pName_
-    }
+  DeleteMatchmakingConfiguration' {_dmcName = pName_}
+
 
 -- | Unique identifier for a matchmaking configuration
 dmcName :: Lens' DeleteMatchmakingConfiguration Text
@@ -99,8 +99,9 @@ instance AWSRequest DeleteMatchmakingConfiguration
                    (pure (fromEnum s)))
 
 instance Hashable DeleteMatchmakingConfiguration
+         where
 
-instance NFData DeleteMatchmakingConfiguration
+instance NFData DeleteMatchmakingConfiguration where
 
 instance ToHeaders DeleteMatchmakingConfiguration
          where
@@ -125,8 +126,9 @@ instance ToQuery DeleteMatchmakingConfiguration where
 
 -- | /See:/ 'deleteMatchmakingConfigurationResponse' smart constructor.
 newtype DeleteMatchmakingConfigurationResponse = DeleteMatchmakingConfigurationResponse'
-    { _dmcrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmcrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMatchmakingConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -137,13 +139,14 @@ deleteMatchmakingConfigurationResponse
     :: Int -- ^ 'dmcrsResponseStatus'
     -> DeleteMatchmakingConfigurationResponse
 deleteMatchmakingConfigurationResponse pResponseStatus_ =
-    DeleteMatchmakingConfigurationResponse'
-    { _dmcrsResponseStatus = pResponseStatus_
-    }
+  DeleteMatchmakingConfigurationResponse'
+  {_dmcrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dmcrsResponseStatus :: Lens' DeleteMatchmakingConfigurationResponse Int
 dmcrsResponseStatus = lens _dmcrsResponseStatus (\ s a -> s{_dmcrsResponseStatus = a});
 
 instance NFData
-         DeleteMatchmakingConfigurationResponse
+           DeleteMatchmakingConfigurationResponse
+         where

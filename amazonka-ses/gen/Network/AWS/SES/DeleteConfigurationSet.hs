@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteConfigurationSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.SES.DeleteConfigurationSet
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to delete a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
@@ -53,8 +53,9 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'deleteConfigurationSet' smart constructor.
 newtype DeleteConfigurationSet = DeleteConfigurationSet'
-    { _dConfigurationSetName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dConfigurationSetName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigurationSet' with the minimum fields required to make a request.
 --
@@ -65,9 +66,8 @@ deleteConfigurationSet
     :: Text -- ^ 'dConfigurationSetName'
     -> DeleteConfigurationSet
 deleteConfigurationSet pConfigurationSetName_ =
-    DeleteConfigurationSet'
-    { _dConfigurationSetName = pConfigurationSetName_
-    }
+  DeleteConfigurationSet' {_dConfigurationSetName = pConfigurationSetName_}
+
 
 -- | The name of the configuration set to delete.
 dConfigurationSetName :: Lens' DeleteConfigurationSet Text
@@ -83,9 +83,9 @@ instance AWSRequest DeleteConfigurationSet where
                  DeleteConfigurationSetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteConfigurationSet
+instance Hashable DeleteConfigurationSet where
 
-instance NFData DeleteConfigurationSet
+instance NFData DeleteConfigurationSet where
 
 instance ToHeaders DeleteConfigurationSet where
         toHeaders = const mempty
@@ -107,8 +107,9 @@ instance ToQuery DeleteConfigurationSet where
 --
 -- /See:/ 'deleteConfigurationSetResponse' smart constructor.
 newtype DeleteConfigurationSetResponse = DeleteConfigurationSetResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigurationSetResponse' with the minimum fields required to make a request.
 --
@@ -119,12 +120,11 @@ deleteConfigurationSetResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteConfigurationSetResponse
 deleteConfigurationSetResponse pResponseStatus_ =
-    DeleteConfigurationSetResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteConfigurationSetResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteConfigurationSetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteConfigurationSetResponse
+instance NFData DeleteConfigurationSetResponse where

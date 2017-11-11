@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetCrawlers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Glue.GetCrawlers
     , grsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCrawlers' smart constructor.
 data GetCrawlers = GetCrawlers'
-    { _gNextToken  :: !(Maybe Text)
-    , _gMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCrawlers' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data GetCrawlers = GetCrawlers'
 -- * 'gMaxResults' - The number of Crawlers to return on each call.
 getCrawlers
     :: GetCrawlers
-getCrawlers =
-    GetCrawlers'
-    { _gNextToken = Nothing
-    , _gMaxResults = Nothing
-    }
+getCrawlers = GetCrawlers' {_gNextToken = Nothing, _gMaxResults = Nothing}
+
 
 -- | A continuation token, if this is a continuation request.
 gNextToken :: Lens' GetCrawlers (Maybe Text)
@@ -85,9 +83,9 @@ instance AWSRequest GetCrawlers where
                    (x .?> "NextToken") <*> (x .?> "Crawlers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetCrawlers
+instance Hashable GetCrawlers where
 
-instance NFData GetCrawlers
+instance NFData GetCrawlers where
 
 instance ToHeaders GetCrawlers where
         toHeaders
@@ -113,10 +111,11 @@ instance ToQuery GetCrawlers where
 
 -- | /See:/ 'getCrawlersResponse' smart constructor.
 data GetCrawlersResponse = GetCrawlersResponse'
-    { _grsNextToken      :: !(Maybe Text)
-    , _grsCrawlers       :: !(Maybe [Crawler])
-    , _grsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grsCrawlers       :: {-# NOUNPACK #-}!(Maybe [Crawler])
+  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCrawlersResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +130,12 @@ getCrawlersResponse
     :: Int -- ^ 'grsResponseStatus'
     -> GetCrawlersResponse
 getCrawlersResponse pResponseStatus_ =
-    GetCrawlersResponse'
-    { _grsNextToken = Nothing
-    , _grsCrawlers = Nothing
-    , _grsResponseStatus = pResponseStatus_
-    }
+  GetCrawlersResponse'
+  { _grsNextToken = Nothing
+  , _grsCrawlers = Nothing
+  , _grsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A continuation token, if the returned list has not reached the end of those defined in this customer account.
 grsNextToken :: Lens' GetCrawlersResponse (Maybe Text)
@@ -149,4 +149,4 @@ grsCrawlers = lens _grsCrawlers (\ s a -> s{_grsCrawlers = a}) . _Default . _Coe
 grsResponseStatus :: Lens' GetCrawlersResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
-instance NFData GetCrawlersResponse
+instance NFData GetCrawlersResponse where

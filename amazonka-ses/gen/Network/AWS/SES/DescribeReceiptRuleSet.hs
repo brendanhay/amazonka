@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.DescribeReceiptRuleSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.SES.DescribeReceiptRuleSet
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
@@ -55,8 +55,9 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'describeReceiptRuleSet' smart constructor.
 newtype DescribeReceiptRuleSet = DescribeReceiptRuleSet'
-    { _drrsRuleSetName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsRuleSetName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReceiptRuleSet' with the minimum fields required to make a request.
 --
@@ -67,9 +68,8 @@ describeReceiptRuleSet
     :: Text -- ^ 'drrsRuleSetName'
     -> DescribeReceiptRuleSet
 describeReceiptRuleSet pRuleSetName_ =
-    DescribeReceiptRuleSet'
-    { _drrsRuleSetName = pRuleSetName_
-    }
+  DescribeReceiptRuleSet' {_drrsRuleSetName = pRuleSetName_}
+
 
 -- | The name of the receipt rule set to describe.
 drrsRuleSetName :: Lens' DescribeReceiptRuleSet Text
@@ -88,9 +88,9 @@ instance AWSRequest DescribeReceiptRuleSet where
                      <*> (x .@? "Metadata")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeReceiptRuleSet
+instance Hashable DescribeReceiptRuleSet where
 
-instance NFData DescribeReceiptRuleSet
+instance NFData DescribeReceiptRuleSet where
 
 instance ToHeaders DescribeReceiptRuleSet where
         toHeaders = const mempty
@@ -112,10 +112,11 @@ instance ToQuery DescribeReceiptRuleSet where
 --
 -- /See:/ 'describeReceiptRuleSetResponse' smart constructor.
 data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
-    { _desrsRules          :: !(Maybe [ReceiptRule])
-    , _desrsMetadata       :: !(Maybe ReceiptRuleSetMetadata)
-    , _desrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsRules          :: {-# NOUNPACK #-}!(Maybe [ReceiptRule])
+  , _desrsMetadata       :: {-# NOUNPACK #-}!(Maybe ReceiptRuleSetMetadata)
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
@@ -130,11 +131,12 @@ describeReceiptRuleSetResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeReceiptRuleSetResponse
 describeReceiptRuleSetResponse pResponseStatus_ =
-    DescribeReceiptRuleSetResponse'
-    { _desrsRules = Nothing
-    , _desrsMetadata = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeReceiptRuleSetResponse'
+  { _desrsRules = Nothing
+  , _desrsMetadata = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the receipt rules that belong to the specified receipt rule set.
 desrsRules :: Lens' DescribeReceiptRuleSetResponse [ReceiptRule]
@@ -148,4 +150,4 @@ desrsMetadata = lens _desrsMetadata (\ s a -> s{_desrsMetadata = a});
 desrsResponseStatus :: Lens' DescribeReceiptRuleSetResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeReceiptRuleSetResponse
+instance NFData DescribeReceiptRuleSetResponse where

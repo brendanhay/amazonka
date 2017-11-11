@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.LexRuntime
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -98,10 +98,10 @@ module Network.AWS.LexRuntime
     , rcContentType
     ) where
 
-import           Network.AWS.LexRuntime.PostContent
-import           Network.AWS.LexRuntime.PostText
-import           Network.AWS.LexRuntime.Types
-import           Network.AWS.LexRuntime.Waiters
+import Network.AWS.LexRuntime.PostContent
+import Network.AWS.LexRuntime.PostText
+import Network.AWS.LexRuntime.Types
+import Network.AWS.LexRuntime.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

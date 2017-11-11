@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteStage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteStage
     , DeleteStageResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to delete a 'Stage' resource.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteStage' smart constructor.
 data DeleteStage = DeleteStage'
-    { _dsRestAPIId :: !Text
-    , _dsStageName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsRestAPIId :: {-# NOUNPACK #-}!Text
+  , _dsStageName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStage' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ deleteStage
     -> Text -- ^ 'dsStageName'
     -> DeleteStage
 deleteStage pRestAPIId_ pStageName_ =
-    DeleteStage'
-    { _dsRestAPIId = pRestAPIId_
-    , _dsStageName = pStageName_
-    }
+  DeleteStage' {_dsRestAPIId = pRestAPIId_, _dsStageName = pStageName_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 dsRestAPIId :: Lens' DeleteStage Text
@@ -82,9 +81,9 @@ instance AWSRequest DeleteStage where
         request = delete apiGateway
         response = receiveNull DeleteStageResponse'
 
-instance Hashable DeleteStage
+instance Hashable DeleteStage where
 
-instance NFData DeleteStage
+instance NFData DeleteStage where
 
 instance ToHeaders DeleteStage where
         toHeaders
@@ -103,8 +102,9 @@ instance ToQuery DeleteStage where
 
 -- | /See:/ 'deleteStageResponse' smart constructor.
 data DeleteStageResponse =
-    DeleteStageResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteStageResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStageResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +112,5 @@ deleteStageResponse
     :: DeleteStageResponse
 deleteStageResponse = DeleteStageResponse'
 
-instance NFData DeleteStageResponse
+
+instance NFData DeleteStageResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.AddIPRoutes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.DirectoryService.AddIPRoutes
     , airrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addIPRoutes' smart constructor.
 data AddIPRoutes = AddIPRoutes'
-    { _airUpdateSecurityGroupForDirectoryControllers :: !(Maybe Bool)
-    , _airDirectoryId                                :: !Text
-    , _airIPRoutes                                   :: ![IPRoute]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _airUpdateSecurityGroupForDirectoryControllers :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _airDirectoryId :: {-# NOUNPACK #-}!Text
+  , _airIPRoutes :: {-# NOUNPACK #-}![IPRoute]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddIPRoutes' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ addIPRoutes
     :: Text -- ^ 'airDirectoryId'
     -> AddIPRoutes
 addIPRoutes pDirectoryId_ =
-    AddIPRoutes'
-    { _airUpdateSecurityGroupForDirectoryControllers = Nothing
-    , _airDirectoryId = pDirectoryId_
-    , _airIPRoutes = mempty
-    }
+  AddIPRoutes'
+  { _airUpdateSecurityGroupForDirectoryControllers = Nothing
+  , _airDirectoryId = pDirectoryId_
+  , _airIPRoutes = mempty
+  }
+
 
 -- | If set to true, updates the inbound and outbound rules of the security group that has the description: "AWS created security group for /directory ID/ directory controllers." Following are the new rules:  Inbound:     * Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0     * Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0     * Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0     * Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0     * Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0     * Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0     * Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0 Outbound:     * Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0 These security rules impact an internal network interface that is not exposed publicly.
 airUpdateSecurityGroupForDirectoryControllers :: Lens' AddIPRoutes (Maybe Bool)
@@ -93,9 +95,9 @@ instance AWSRequest AddIPRoutes where
               (\ s h x ->
                  AddIPRoutesResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AddIPRoutes
+instance Hashable AddIPRoutes where
 
-instance NFData AddIPRoutes
+instance NFData AddIPRoutes where
 
 instance ToHeaders AddIPRoutes where
         toHeaders
@@ -124,8 +126,9 @@ instance ToQuery AddIPRoutes where
 
 -- | /See:/ 'addIPRoutesResponse' smart constructor.
 newtype AddIPRoutesResponse = AddIPRoutesResponse'
-    { _airrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _airrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddIPRoutesResponse' with the minimum fields required to make a request.
 --
@@ -136,12 +139,11 @@ addIPRoutesResponse
     :: Int -- ^ 'airrsResponseStatus'
     -> AddIPRoutesResponse
 addIPRoutesResponse pResponseStatus_ =
-    AddIPRoutesResponse'
-    { _airrsResponseStatus = pResponseStatus_
-    }
+  AddIPRoutesResponse' {_airrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 airrsResponseStatus :: Lens' AddIPRoutesResponse Int
 airrsResponseStatus = lens _airrsResponseStatus (\ s a -> s{_airrsResponseStatus = a});
 
-instance NFData AddIPRoutesResponse
+instance NFData AddIPRoutesResponse where

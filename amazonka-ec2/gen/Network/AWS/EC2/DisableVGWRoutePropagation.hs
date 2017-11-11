@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisableVGWRoutePropagation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DisableVGWRoutePropagation
     , DisableVGWRoutePropagationResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DisableVgwRoutePropagation.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableVGWRoutePropagation' smart constructor.
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
-    { _dvrpGatewayId    :: !Text
-    , _dvrpRouteTableId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvrpGatewayId    :: {-# NOUNPACK #-}!Text
+  , _dvrpRouteTableId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableVGWRoutePropagation' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ disableVGWRoutePropagation
     -> Text -- ^ 'dvrpRouteTableId'
     -> DisableVGWRoutePropagation
 disableVGWRoutePropagation pGatewayId_ pRouteTableId_ =
-    DisableVGWRoutePropagation'
-    { _dvrpGatewayId = pGatewayId_
-    , _dvrpRouteTableId = pRouteTableId_
-    }
+  DisableVGWRoutePropagation'
+  {_dvrpGatewayId = pGatewayId_, _dvrpRouteTableId = pRouteTableId_}
+
 
 -- | The ID of the virtual private gateway.
 dvrpGatewayId :: Lens' DisableVGWRoutePropagation Text
@@ -84,9 +84,9 @@ instance AWSRequest DisableVGWRoutePropagation where
         response
           = receiveNull DisableVGWRoutePropagationResponse'
 
-instance Hashable DisableVGWRoutePropagation
+instance Hashable DisableVGWRoutePropagation where
 
-instance NFData DisableVGWRoutePropagation
+instance NFData DisableVGWRoutePropagation where
 
 instance ToHeaders DisableVGWRoutePropagation where
         toHeaders = const mempty
@@ -105,8 +105,9 @@ instance ToQuery DisableVGWRoutePropagation where
 
 -- | /See:/ 'disableVGWRoutePropagationResponse' smart constructor.
 data DisableVGWRoutePropagationResponse =
-    DisableVGWRoutePropagationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisableVGWRoutePropagationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableVGWRoutePropagationResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +115,6 @@ disableVGWRoutePropagationResponse
     :: DisableVGWRoutePropagationResponse
 disableVGWRoutePropagationResponse = DisableVGWRoutePropagationResponse'
 
+
 instance NFData DisableVGWRoutePropagationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetCheckerIPRanges
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.Route53.GetCheckerIPRanges
     , gcirrsCheckerIPRanges
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | /See:/ 'getCheckerIPRanges' smart constructor.
 data GetCheckerIPRanges =
-    GetCheckerIPRanges'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetCheckerIPRanges'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCheckerIPRanges' with the minimum fields required to make a request.
 --
 getCheckerIPRanges
     :: GetCheckerIPRanges
 getCheckerIPRanges = GetCheckerIPRanges'
+
 
 instance AWSRequest GetCheckerIPRanges where
         type Rs GetCheckerIPRanges =
@@ -65,9 +67,9 @@ instance AWSRequest GetCheckerIPRanges where
                      (x .@? "CheckerIpRanges" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable GetCheckerIPRanges
+instance Hashable GetCheckerIPRanges where
 
-instance NFData GetCheckerIPRanges
+instance NFData GetCheckerIPRanges where
 
 instance ToHeaders GetCheckerIPRanges where
         toHeaders = const mempty
@@ -80,9 +82,10 @@ instance ToQuery GetCheckerIPRanges where
 
 -- | /See:/ 'getCheckerIPRangesResponse' smart constructor.
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
-    { _gcirrsResponseStatus  :: !Int
-    , _gcirrsCheckerIPRanges :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcirrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _gcirrsCheckerIPRanges :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCheckerIPRangesResponse' with the minimum fields required to make a request.
 --
@@ -95,10 +98,9 @@ getCheckerIPRangesResponse
     :: Int -- ^ 'gcirrsResponseStatus'
     -> GetCheckerIPRangesResponse
 getCheckerIPRangesResponse pResponseStatus_ =
-    GetCheckerIPRangesResponse'
-    { _gcirrsResponseStatus = pResponseStatus_
-    , _gcirrsCheckerIPRanges = mempty
-    }
+  GetCheckerIPRangesResponse'
+  {_gcirrsResponseStatus = pResponseStatus_, _gcirrsCheckerIPRanges = mempty}
+
 
 -- | -- | The response status code.
 gcirrsResponseStatus :: Lens' GetCheckerIPRangesResponse Int
@@ -108,4 +110,4 @@ gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseSta
 gcirrsCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
 gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a}) . _Coerce;
 
-instance NFData GetCheckerIPRangesResponse
+instance NFData GetCheckerIPRangesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteLag
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.DirectConnect.DeleteLag
     , lagRegion
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DeleteLag operation.
 --
@@ -60,8 +60,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteLag' smart constructor.
 newtype DeleteLag = DeleteLag'
-    { _dLagId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dLagId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLag' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ newtype DeleteLag = DeleteLag'
 deleteLag
     :: Text -- ^ 'dLagId'
     -> DeleteLag
-deleteLag pLagId_ =
-    DeleteLag'
-    { _dLagId = pLagId_
-    }
+deleteLag pLagId_ = DeleteLag' {_dLagId = pLagId_}
+
 
 -- | The ID of the LAG to delete. Example: dxlag-abc123 Default: None
 dLagId :: Lens' DeleteLag Text
@@ -85,9 +84,9 @@ instance AWSRequest DeleteLag where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable DeleteLag
+instance Hashable DeleteLag where
 
-instance NFData DeleteLag
+instance NFData DeleteLag where
 
 instance ToHeaders DeleteLag where
         toHeaders

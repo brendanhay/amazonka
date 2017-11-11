@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
     , dacwlorsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteApplicationCloudWatchLoggingOption' smart constructor.
 data DeleteApplicationCloudWatchLoggingOption = DeleteApplicationCloudWatchLoggingOption'
-    { _dacwloApplicationName             :: !Text
-    , _dacwloCurrentApplicationVersionId :: !Nat
-    , _dacwloCloudWatchLoggingOptionId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dacwloApplicationName             :: {-# NOUNPACK #-}!Text
+  , _dacwloCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
+  , _dacwloCloudWatchLoggingOptionId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationCloudWatchLoggingOption' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ deleteApplicationCloudWatchLoggingOption
     -> Text -- ^ 'dacwloCloudWatchLoggingOptionId'
     -> DeleteApplicationCloudWatchLoggingOption
 deleteApplicationCloudWatchLoggingOption pApplicationName_ pCurrentApplicationVersionId_ pCloudWatchLoggingOptionId_ =
-    DeleteApplicationCloudWatchLoggingOption'
-    { _dacwloApplicationName = pApplicationName_
-    , _dacwloCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _dacwloCloudWatchLoggingOptionId = pCloudWatchLoggingOptionId_
-    }
+  DeleteApplicationCloudWatchLoggingOption'
+  { _dacwloApplicationName = pApplicationName_
+  , _dacwloCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+  , _dacwloCloudWatchLoggingOptionId = pCloudWatchLoggingOptionId_
+  }
+
 
 -- | The Kinesis Analytics application name.
 dacwloApplicationName :: Lens' DeleteApplicationCloudWatchLoggingOption Text
@@ -86,7 +88,8 @@ dacwloCloudWatchLoggingOptionId :: Lens' DeleteApplicationCloudWatchLoggingOptio
 dacwloCloudWatchLoggingOptionId = lens _dacwloCloudWatchLoggingOptionId (\ s a -> s{_dacwloCloudWatchLoggingOptionId = a});
 
 instance AWSRequest
-         DeleteApplicationCloudWatchLoggingOption where
+           DeleteApplicationCloudWatchLoggingOption
+         where
         type Rs DeleteApplicationCloudWatchLoggingOption =
              DeleteApplicationCloudWatchLoggingOptionResponse
         request = postJSON kinesisAnalytics
@@ -97,13 +100,16 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         DeleteApplicationCloudWatchLoggingOption
+           DeleteApplicationCloudWatchLoggingOption
+         where
 
 instance NFData
-         DeleteApplicationCloudWatchLoggingOption
+           DeleteApplicationCloudWatchLoggingOption
+         where
 
 instance ToHeaders
-         DeleteApplicationCloudWatchLoggingOption where
+           DeleteApplicationCloudWatchLoggingOption
+         where
         toHeaders
           = const
               (mconcat
@@ -114,7 +120,8 @@ instance ToHeaders
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON
-         DeleteApplicationCloudWatchLoggingOption where
+           DeleteApplicationCloudWatchLoggingOption
+         where
         toJSON DeleteApplicationCloudWatchLoggingOption'{..}
           = object
               (catMaybes
@@ -127,17 +134,20 @@ instance ToJSON
                        _dacwloCloudWatchLoggingOptionId)])
 
 instance ToPath
-         DeleteApplicationCloudWatchLoggingOption where
+           DeleteApplicationCloudWatchLoggingOption
+         where
         toPath = const "/"
 
 instance ToQuery
-         DeleteApplicationCloudWatchLoggingOption where
+           DeleteApplicationCloudWatchLoggingOption
+         where
         toQuery = const mempty
 
 -- | /See:/ 'deleteApplicationCloudWatchLoggingOptionResponse' smart constructor.
 newtype DeleteApplicationCloudWatchLoggingOptionResponse = DeleteApplicationCloudWatchLoggingOptionResponse'
-    { _dacwlorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dacwlorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationCloudWatchLoggingOptionResponse' with the minimum fields required to make a request.
 --
@@ -148,13 +158,14 @@ deleteApplicationCloudWatchLoggingOptionResponse
     :: Int -- ^ 'dacwlorsResponseStatus'
     -> DeleteApplicationCloudWatchLoggingOptionResponse
 deleteApplicationCloudWatchLoggingOptionResponse pResponseStatus_ =
-    DeleteApplicationCloudWatchLoggingOptionResponse'
-    { _dacwlorsResponseStatus = pResponseStatus_
-    }
+  DeleteApplicationCloudWatchLoggingOptionResponse'
+  {_dacwlorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dacwlorsResponseStatus :: Lens' DeleteApplicationCloudWatchLoggingOptionResponse Int
 dacwlorsResponseStatus = lens _dacwlorsResponseStatus (\ s a -> s{_dacwlorsResponseStatus = a});
 
 instance NFData
-         DeleteApplicationCloudWatchLoggingOptionResponse
+           DeleteApplicationCloudWatchLoggingOptionResponse
+         where

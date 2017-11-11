@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -866,66 +866,66 @@ module Network.AWS.GameLift
     , spConcurrentExecutions
     ) where
 
-import           Network.AWS.GameLift.AcceptMatch
-import           Network.AWS.GameLift.CreateAlias
-import           Network.AWS.GameLift.CreateBuild
-import           Network.AWS.GameLift.CreateFleet
-import           Network.AWS.GameLift.CreateGameSession
-import           Network.AWS.GameLift.CreateGameSessionQueue
-import           Network.AWS.GameLift.CreateMatchmakingConfiguration
-import           Network.AWS.GameLift.CreateMatchmakingRuleSet
-import           Network.AWS.GameLift.CreatePlayerSession
-import           Network.AWS.GameLift.CreatePlayerSessions
-import           Network.AWS.GameLift.DeleteAlias
-import           Network.AWS.GameLift.DeleteBuild
-import           Network.AWS.GameLift.DeleteFleet
-import           Network.AWS.GameLift.DeleteGameSessionQueue
-import           Network.AWS.GameLift.DeleteMatchmakingConfiguration
-import           Network.AWS.GameLift.DeleteScalingPolicy
-import           Network.AWS.GameLift.DescribeAlias
-import           Network.AWS.GameLift.DescribeBuild
-import           Network.AWS.GameLift.DescribeEC2InstanceLimits
-import           Network.AWS.GameLift.DescribeFleetAttributes
-import           Network.AWS.GameLift.DescribeFleetCapacity
-import           Network.AWS.GameLift.DescribeFleetEvents
-import           Network.AWS.GameLift.DescribeFleetPortSettings
-import           Network.AWS.GameLift.DescribeFleetUtilization
-import           Network.AWS.GameLift.DescribeGameSessionDetails
-import           Network.AWS.GameLift.DescribeGameSessionPlacement
-import           Network.AWS.GameLift.DescribeGameSessionQueues
-import           Network.AWS.GameLift.DescribeGameSessions
-import           Network.AWS.GameLift.DescribeInstances
-import           Network.AWS.GameLift.DescribeMatchmaking
-import           Network.AWS.GameLift.DescribeMatchmakingConfigurations
-import           Network.AWS.GameLift.DescribeMatchmakingRuleSets
-import           Network.AWS.GameLift.DescribePlayerSessions
-import           Network.AWS.GameLift.DescribeRuntimeConfiguration
-import           Network.AWS.GameLift.DescribeScalingPolicies
-import           Network.AWS.GameLift.GetGameSessionLogURL
-import           Network.AWS.GameLift.GetInstanceAccess
-import           Network.AWS.GameLift.ListAliases
-import           Network.AWS.GameLift.ListBuilds
-import           Network.AWS.GameLift.ListFleets
-import           Network.AWS.GameLift.PutScalingPolicy
-import           Network.AWS.GameLift.RequestUploadCredentials
-import           Network.AWS.GameLift.ResolveAlias
-import           Network.AWS.GameLift.SearchGameSessions
-import           Network.AWS.GameLift.StartGameSessionPlacement
-import           Network.AWS.GameLift.StartMatchmaking
-import           Network.AWS.GameLift.StopGameSessionPlacement
-import           Network.AWS.GameLift.StopMatchmaking
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.UpdateAlias
-import           Network.AWS.GameLift.UpdateBuild
-import           Network.AWS.GameLift.UpdateFleetAttributes
-import           Network.AWS.GameLift.UpdateFleetCapacity
-import           Network.AWS.GameLift.UpdateFleetPortSettings
-import           Network.AWS.GameLift.UpdateGameSession
-import           Network.AWS.GameLift.UpdateGameSessionQueue
-import           Network.AWS.GameLift.UpdateMatchmakingConfiguration
-import           Network.AWS.GameLift.UpdateRuntimeConfiguration
-import           Network.AWS.GameLift.ValidateMatchmakingRuleSet
-import           Network.AWS.GameLift.Waiters
+import Network.AWS.GameLift.AcceptMatch
+import Network.AWS.GameLift.CreateAlias
+import Network.AWS.GameLift.CreateBuild
+import Network.AWS.GameLift.CreateFleet
+import Network.AWS.GameLift.CreateGameSession
+import Network.AWS.GameLift.CreateGameSessionQueue
+import Network.AWS.GameLift.CreateMatchmakingConfiguration
+import Network.AWS.GameLift.CreateMatchmakingRuleSet
+import Network.AWS.GameLift.CreatePlayerSession
+import Network.AWS.GameLift.CreatePlayerSessions
+import Network.AWS.GameLift.DeleteAlias
+import Network.AWS.GameLift.DeleteBuild
+import Network.AWS.GameLift.DeleteFleet
+import Network.AWS.GameLift.DeleteGameSessionQueue
+import Network.AWS.GameLift.DeleteMatchmakingConfiguration
+import Network.AWS.GameLift.DeleteScalingPolicy
+import Network.AWS.GameLift.DescribeAlias
+import Network.AWS.GameLift.DescribeBuild
+import Network.AWS.GameLift.DescribeEC2InstanceLimits
+import Network.AWS.GameLift.DescribeFleetAttributes
+import Network.AWS.GameLift.DescribeFleetCapacity
+import Network.AWS.GameLift.DescribeFleetEvents
+import Network.AWS.GameLift.DescribeFleetPortSettings
+import Network.AWS.GameLift.DescribeFleetUtilization
+import Network.AWS.GameLift.DescribeGameSessionDetails
+import Network.AWS.GameLift.DescribeGameSessionPlacement
+import Network.AWS.GameLift.DescribeGameSessionQueues
+import Network.AWS.GameLift.DescribeGameSessions
+import Network.AWS.GameLift.DescribeInstances
+import Network.AWS.GameLift.DescribeMatchmaking
+import Network.AWS.GameLift.DescribeMatchmakingConfigurations
+import Network.AWS.GameLift.DescribeMatchmakingRuleSets
+import Network.AWS.GameLift.DescribePlayerSessions
+import Network.AWS.GameLift.DescribeRuntimeConfiguration
+import Network.AWS.GameLift.DescribeScalingPolicies
+import Network.AWS.GameLift.GetGameSessionLogURL
+import Network.AWS.GameLift.GetInstanceAccess
+import Network.AWS.GameLift.ListAliases
+import Network.AWS.GameLift.ListBuilds
+import Network.AWS.GameLift.ListFleets
+import Network.AWS.GameLift.PutScalingPolicy
+import Network.AWS.GameLift.RequestUploadCredentials
+import Network.AWS.GameLift.ResolveAlias
+import Network.AWS.GameLift.SearchGameSessions
+import Network.AWS.GameLift.StartGameSessionPlacement
+import Network.AWS.GameLift.StartMatchmaking
+import Network.AWS.GameLift.StopGameSessionPlacement
+import Network.AWS.GameLift.StopMatchmaking
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.UpdateAlias
+import Network.AWS.GameLift.UpdateBuild
+import Network.AWS.GameLift.UpdateFleetAttributes
+import Network.AWS.GameLift.UpdateFleetCapacity
+import Network.AWS.GameLift.UpdateFleetPortSettings
+import Network.AWS.GameLift.UpdateGameSession
+import Network.AWS.GameLift.UpdateGameSessionQueue
+import Network.AWS.GameLift.UpdateMatchmakingConfiguration
+import Network.AWS.GameLift.UpdateRuntimeConfiguration
+import Network.AWS.GameLift.ValidateMatchmakingRuleSet
+import Network.AWS.GameLift.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

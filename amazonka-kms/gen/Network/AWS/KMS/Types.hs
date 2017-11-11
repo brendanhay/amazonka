@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -128,40 +128,40 @@ module Network.AWS.KMS.Types
     , tagTagValue
     ) where
 
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.KMS.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.KMS.Types.Product
+import Network.AWS.KMS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2014-11-01@ of the Amazon Key Management Service SDK configuration.
 kms :: Service
 kms =
-    Service
-    { _svcAbbrev = "KMS"
-    , _svcSigner = v4
-    , _svcPrefix = "kms"
-    , _svcVersion = "2014-11-01"
-    , _svcEndpoint = defaultEndpoint kms
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "KMS"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "KMS"
+  , _svcSigner = v4
+  , _svcPrefix = "kms"
+  , _svcVersion = "2014-11-01"
+  , _svcEndpoint = defaultEndpoint kms
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "KMS"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -170,11 +170,13 @@ kms =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The request was rejected because the marker that specifies where pagination should next begin is not valid.
 --
 --
 _InvalidMarkerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMarkerException = _MatchServiceError kms "InvalidMarkerException"
+
 
 -- | The request was rejected because the state of the specified resource is not valid for this request.
 --
@@ -184,25 +186,29 @@ _InvalidMarkerException = _MatchServiceError kms "InvalidMarkerException"
 _KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSInvalidStateException = _MatchServiceError kms "KMSInvalidStateException"
 
+
 -- | The request was rejected because the specified @KeySpec@ value is not valid.
 --
 --
 _InvalidKeyUsageException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidKeyUsageException = _MatchServiceError kms "InvalidKeyUsageException"
 
+
 -- | The request was rejected because the specified policy is not syntactically or semantically correct.
 --
 --
 _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyDocumentException =
-    _MatchServiceError kms "MalformedPolicyDocumentException"
+  _MatchServiceError kms "MalformedPolicyDocumentException"
+
 
 -- | The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
 --
 --
 _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOperationException =
-    _MatchServiceError kms "UnsupportedOperationException"
+  _MatchServiceError kms "UnsupportedOperationException"
+
 
 -- | The request was rejected because the specified CMK is not enabled.
 --
@@ -210,18 +216,21 @@ _UnsupportedOperationException =
 _DisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _DisabledException = _MatchServiceError kms "DisabledException"
 
+
 -- | The request was rejected because the specified CMK was not available. The request can be retried.
 --
 --
 _KeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _KeyUnavailableException = _MatchServiceError kms "KeyUnavailableException"
 
+
 -- | The request was rejected because the provided key material is invalid or is not the same key material that was previously imported into this customer master key (CMK).
 --
 --
 _IncorrectKeyMaterialException :: AsError a => Getting (First ServiceError) a ServiceError
 _IncorrectKeyMaterialException =
-    _MatchServiceError kms "IncorrectKeyMaterialException"
+  _MatchServiceError kms "IncorrectKeyMaterialException"
+
 
 -- | The request was rejected because an internal exception occurred. The request can be retried.
 --
@@ -229,18 +238,21 @@ _IncorrectKeyMaterialException =
 _KMSInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSInternalException = _MatchServiceError kms "KMSInternalException"
 
+
 -- | The request was rejected because one or more tags are not valid.
 --
 --
 _TagException :: AsError a => Getting (First ServiceError) a ServiceError
 _TagException = _MatchServiceError kms "TagException"
 
+
 -- | The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).
 --
 --
 _InvalidImportTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidImportTokenException =
-    _MatchServiceError kms "InvalidImportTokenException"
+  _MatchServiceError kms "InvalidImportTokenException"
+
 
 -- | The request was rejected because the specified entity or resource could not be found.
 --
@@ -248,11 +260,13 @@ _InvalidImportTokenException =
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _MatchServiceError kms "NotFoundException"
 
+
 -- | The request was rejected because the specified alias name is not valid.
 --
 --
 _InvalidAliasNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAliasNameException = _MatchServiceError kms "InvalidAliasNameException"
+
 
 -- | The request was rejected because the specified @GrantId@ is not valid.
 --
@@ -260,12 +274,14 @@ _InvalidAliasNameException = _MatchServiceError kms "InvalidAliasNameException"
 _InvalidGrantIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGrantIdException = _MatchServiceError kms "InvalidGrantIdException"
 
+
 -- | The request was rejected because the specified grant token is not valid.
 --
 --
 _InvalidGrantTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGrantTokenException =
-    _MatchServiceError kms "InvalidGrantTokenException"
+  _MatchServiceError kms "InvalidGrantTokenException"
+
 
 -- | The request was rejected because a specified ARN was not valid.
 --
@@ -273,26 +289,30 @@ _InvalidGrantTokenException =
 _InvalidARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidARNException = _MatchServiceError kms "InvalidArnException"
 
+
 -- | The system timed out while trying to fulfill the request. The request can be retried.
 --
 --
 _DependencyTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
 _DependencyTimeoutException =
-    _MatchServiceError kms "DependencyTimeoutException"
+  _MatchServiceError kms "DependencyTimeoutException"
+
 
 -- | The request was rejected because the provided import token is expired. Use 'GetParametersForImport' to retrieve a new import token and public key, use the new public key to encrypt the key material, and then try the request again.
 --
 --
 _ExpiredImportTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredImportTokenException =
-    _MatchServiceError kms "ExpiredImportTokenException"
+  _MatchServiceError kms "ExpiredImportTokenException"
+
 
 -- | The request was rejected because the specified ciphertext has been corrupted or is otherwise invalid.
 --
 --
 _InvalidCiphertextException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCiphertextException =
-    _MatchServiceError kms "InvalidCiphertextException"
+  _MatchServiceError kms "InvalidCiphertextException"
+
 
 -- | The request was rejected because it attempted to create a resource that already exists.
 --
@@ -300,8 +320,10 @@ _InvalidCiphertextException =
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException = _MatchServiceError kms "AlreadyExistsException"
 
+
 -- | The request was rejected because a limit was exceeded. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html Limits> in the /AWS Key Management Service Developer Guide/ .
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _MatchServiceError kms "LimitExceededException"
+

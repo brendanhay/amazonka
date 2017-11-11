@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.NotifyMigrationTaskState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,22 +49,23 @@ module Network.AWS.MigrationHub.NotifyMigrationTaskState
     , nmtsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'notifyMigrationTaskState' smart constructor.
 data NotifyMigrationTaskState = NotifyMigrationTaskState'
-    { _nmtsDryRun               :: !(Maybe Bool)
-    , _nmtsProgressUpdateStream :: !Text
-    , _nmtsMigrationTaskName    :: !Text
-    , _nmtsTask                 :: !Task
-    , _nmtsUpdateDateTime       :: !POSIX
-    , _nmtsNextUpdateSeconds    :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nmtsDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _nmtsProgressUpdateStream :: {-# NOUNPACK #-}!Text
+  , _nmtsMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  , _nmtsTask                 :: {-# NOUNPACK #-}!Task
+  , _nmtsUpdateDateTime       :: {-# NOUNPACK #-}!POSIX
+  , _nmtsNextUpdateSeconds    :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotifyMigrationTaskState' with the minimum fields required to make a request.
 --
@@ -89,14 +90,15 @@ notifyMigrationTaskState
     -> Natural -- ^ 'nmtsNextUpdateSeconds'
     -> NotifyMigrationTaskState
 notifyMigrationTaskState pProgressUpdateStream_ pMigrationTaskName_ pTask_ pUpdateDateTime_ pNextUpdateSeconds_ =
-    NotifyMigrationTaskState'
-    { _nmtsDryRun = Nothing
-    , _nmtsProgressUpdateStream = pProgressUpdateStream_
-    , _nmtsMigrationTaskName = pMigrationTaskName_
-    , _nmtsTask = pTask_
-    , _nmtsUpdateDateTime = _Time # pUpdateDateTime_
-    , _nmtsNextUpdateSeconds = _Nat # pNextUpdateSeconds_
-    }
+  NotifyMigrationTaskState'
+  { _nmtsDryRun = Nothing
+  , _nmtsProgressUpdateStream = pProgressUpdateStream_
+  , _nmtsMigrationTaskName = pMigrationTaskName_
+  , _nmtsTask = pTask_
+  , _nmtsUpdateDateTime = _Time # pUpdateDateTime_
+  , _nmtsNextUpdateSeconds = _Nat # pNextUpdateSeconds_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 nmtsDryRun :: Lens' NotifyMigrationTaskState (Maybe Bool)
@@ -132,9 +134,9 @@ instance AWSRequest NotifyMigrationTaskState where
                  NotifyMigrationTaskStateResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable NotifyMigrationTaskState
+instance Hashable NotifyMigrationTaskState where
 
-instance NFData NotifyMigrationTaskState
+instance NFData NotifyMigrationTaskState where
 
 instance ToHeaders NotifyMigrationTaskState where
         toHeaders
@@ -168,8 +170,9 @@ instance ToQuery NotifyMigrationTaskState where
 
 -- | /See:/ 'notifyMigrationTaskStateResponse' smart constructor.
 newtype NotifyMigrationTaskStateResponse = NotifyMigrationTaskStateResponse'
-    { _nmtsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nmtsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotifyMigrationTaskStateResponse' with the minimum fields required to make a request.
 --
@@ -180,12 +183,12 @@ notifyMigrationTaskStateResponse
     :: Int -- ^ 'nmtsrsResponseStatus'
     -> NotifyMigrationTaskStateResponse
 notifyMigrationTaskStateResponse pResponseStatus_ =
-    NotifyMigrationTaskStateResponse'
-    { _nmtsrsResponseStatus = pResponseStatus_
-    }
+  NotifyMigrationTaskStateResponse' {_nmtsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 nmtsrsResponseStatus :: Lens' NotifyMigrationTaskStateResponse Int
 nmtsrsResponseStatus = lens _nmtsrsResponseStatus (\ s a -> s{_nmtsrsResponseStatus = a});
 
 instance NFData NotifyMigrationTaskStateResponse
+         where

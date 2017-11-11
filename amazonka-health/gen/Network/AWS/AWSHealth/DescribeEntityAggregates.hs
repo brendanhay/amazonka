@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEntityAggregates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.AWSHealth.DescribeEntityAggregates
     , dearsResponseStatus
     ) where
 
-import           Network.AWS.AWSHealth.Types
-import           Network.AWS.AWSHealth.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AWSHealth.Types
+import Network.AWS.AWSHealth.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEntityAggregates' smart constructor.
 newtype DescribeEntityAggregates = DescribeEntityAggregates'
-    { _deaEventARNs :: Maybe (List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deaEventARNs :: Maybe (List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEntityAggregates' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DescribeEntityAggregates = DescribeEntityAggregates'
 -- * 'deaEventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
 describeEntityAggregates
     :: DescribeEntityAggregates
-describeEntityAggregates =
-    DescribeEntityAggregates'
-    { _deaEventARNs = Nothing
-    }
+describeEntityAggregates = DescribeEntityAggregates' {_deaEventARNs = Nothing}
+
 
 -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
 deaEventARNs :: Lens' DescribeEntityAggregates (Maybe (NonEmpty Text))
@@ -76,9 +75,9 @@ instance AWSRequest DescribeEntityAggregates where
                    (x .?> "entityAggregates" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeEntityAggregates
+instance Hashable DescribeEntityAggregates where
 
-instance NFData DescribeEntityAggregates
+instance NFData DescribeEntityAggregates where
 
 instance ToHeaders DescribeEntityAggregates where
         toHeaders
@@ -103,9 +102,10 @@ instance ToQuery DescribeEntityAggregates where
 
 -- | /See:/ 'describeEntityAggregatesResponse' smart constructor.
 data DescribeEntityAggregatesResponse = DescribeEntityAggregatesResponse'
-    { _dearsEntityAggregates :: !(Maybe [EntityAggregate])
-    , _dearsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dearsEntityAggregates :: {-# NOUNPACK #-}!(Maybe [EntityAggregate])
+  , _dearsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEntityAggregatesResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +118,9 @@ describeEntityAggregatesResponse
     :: Int -- ^ 'dearsResponseStatus'
     -> DescribeEntityAggregatesResponse
 describeEntityAggregatesResponse pResponseStatus_ =
-    DescribeEntityAggregatesResponse'
-    { _dearsEntityAggregates = Nothing
-    , _dearsResponseStatus = pResponseStatus_
-    }
+  DescribeEntityAggregatesResponse'
+  {_dearsEntityAggregates = Nothing, _dearsResponseStatus = pResponseStatus_}
+
 
 -- | The number of entities that are affected by each of the specified events.
 dearsEntityAggregates :: Lens' DescribeEntityAggregatesResponse [EntityAggregate]
@@ -132,3 +131,4 @@ dearsResponseStatus :: Lens' DescribeEntityAggregatesResponse Int
 dearsResponseStatus = lens _dearsResponseStatus (\ s a -> s{_dearsResponseStatus = a});
 
 instance NFData DescribeEntityAggregatesResponse
+         where

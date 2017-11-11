@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetHIT
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.MechanicalTurk.GetHIT
     , ghitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getHIT' smart constructor.
 newtype GetHIT = GetHIT'
-    { _ghitHITId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghitHITId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHIT' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetHIT = GetHIT'
 getHIT
     :: Text -- ^ 'ghitHITId'
     -> GetHIT
-getHIT pHITId_ =
-    GetHIT'
-    { _ghitHITId = pHITId_
-    }
+getHIT pHITId_ = GetHIT' {_ghitHITId = pHITId_}
+
 
 -- | The ID of the HIT to be retrieved.
 ghitHITId :: Lens' GetHIT Text
@@ -75,9 +74,9 @@ instance AWSRequest GetHIT where
                  GetHITResponse' <$>
                    (x .?> "HIT") <*> (pure (fromEnum s)))
 
-instance Hashable GetHIT
+instance Hashable GetHIT where
 
-instance NFData GetHIT
+instance NFData GetHIT where
 
 instance ToHeaders GetHIT where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery GetHIT where
 
 -- | /See:/ 'getHITResponse' smart constructor.
 data GetHITResponse = GetHITResponse'
-    { _ghitrsHIT            :: !(Maybe HIT)
-    , _ghitrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghitrsHIT            :: {-# NOUNPACK #-}!(Maybe HIT)
+  , _ghitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHITResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ getHITResponse
     :: Int -- ^ 'ghitrsResponseStatus'
     -> GetHITResponse
 getHITResponse pResponseStatus_ =
-    GetHITResponse'
-    { _ghitrsHIT = Nothing
-    , _ghitrsResponseStatus = pResponseStatus_
-    }
+  GetHITResponse'
+  {_ghitrsHIT = Nothing, _ghitrsResponseStatus = pResponseStatus_}
+
 
 -- | Contains the requested HIT data.
 ghitrsHIT :: Lens' GetHITResponse (Maybe HIT)
@@ -129,4 +128,4 @@ ghitrsHIT = lens _ghitrsHIT (\ s a -> s{_ghitrsHIT = a});
 ghitrsResponseStatus :: Lens' GetHITResponse Int
 ghitrsResponseStatus = lens _ghitrsResponseStatus (\ s a -> s{_ghitrsResponseStatus = a});
 
-instance NFData GetHITResponse
+instance NFData GetHITResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.DisableDomainTransferLock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Route53Domains.DisableDomainTransferLock
     , ddtlrsOperationId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The DisableDomainTransferLock request includes the following element.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'disableDomainTransferLock' smart constructor.
 newtype DisableDomainTransferLock = DisableDomainTransferLock'
-    { _ddtlDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddtlDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableDomainTransferLock' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ disableDomainTransferLock
     :: Text -- ^ 'ddtlDomainName'
     -> DisableDomainTransferLock
 disableDomainTransferLock pDomainName_ =
-    DisableDomainTransferLock'
-    { _ddtlDomainName = pDomainName_
-    }
+  DisableDomainTransferLock' {_ddtlDomainName = pDomainName_}
+
 
 -- | The name of the domain that you want to remove the transfer lock for.
 ddtlDomainName :: Lens' DisableDomainTransferLock Text
@@ -80,9 +80,9 @@ instance AWSRequest DisableDomainTransferLock where
                  DisableDomainTransferLockResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
-instance Hashable DisableDomainTransferLock
+instance Hashable DisableDomainTransferLock where
 
-instance NFData DisableDomainTransferLock
+instance NFData DisableDomainTransferLock where
 
 instance ToHeaders DisableDomainTransferLock where
         toHeaders
@@ -111,9 +111,10 @@ instance ToQuery DisableDomainTransferLock where
 --
 -- /See:/ 'disableDomainTransferLockResponse' smart constructor.
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
-    { _ddtlrsResponseStatus :: !Int
-    , _ddtlrsOperationId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddtlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ddtlrsOperationId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableDomainTransferLockResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ disableDomainTransferLockResponse
     -> Text -- ^ 'ddtlrsOperationId'
     -> DisableDomainTransferLockResponse
 disableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
-    DisableDomainTransferLockResponse'
-    { _ddtlrsResponseStatus = pResponseStatus_
-    , _ddtlrsOperationId = pOperationId_
-    }
+  DisableDomainTransferLockResponse'
+  {_ddtlrsResponseStatus = pResponseStatus_, _ddtlrsOperationId = pOperationId_}
+
 
 -- | -- | The response status code.
 ddtlrsResponseStatus :: Lens' DisableDomainTransferLockResponse Int
@@ -141,3 +141,4 @@ ddtlrsOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrsOperationId = lens _ddtlrsOperationId (\ s a -> s{_ddtlrsOperationId = a});
 
 instance NFData DisableDomainTransferLockResponse
+         where

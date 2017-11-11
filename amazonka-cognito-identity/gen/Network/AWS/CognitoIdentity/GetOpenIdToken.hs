@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdToken
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     , goitrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the GetOpenIdToken action.
 --
@@ -56,9 +56,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getOpenIdToken' smart constructor.
 data GetOpenIdToken = GetOpenIdToken'
-    { _goitLogins     :: !(Maybe (Map Text Text))
-    , _goitIdentityId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goitLogins     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _goitIdentityId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOpenIdToken' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ getOpenIdToken
     :: Text -- ^ 'goitIdentityId'
     -> GetOpenIdToken
 getOpenIdToken pIdentityId_ =
-    GetOpenIdToken'
-    { _goitLogins = Nothing
-    , _goitIdentityId = pIdentityId_
-    }
+  GetOpenIdToken' {_goitLogins = Nothing, _goitIdentityId = pIdentityId_}
+
 
 -- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the @id_token@ .
 goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
@@ -94,9 +93,9 @@ instance AWSRequest GetOpenIdToken where
                    (x .?> "Token") <*> (x .?> "IdentityId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetOpenIdToken
+instance Hashable GetOpenIdToken where
 
-instance NFData GetOpenIdToken
+instance NFData GetOpenIdToken where
 
 instance ToHeaders GetOpenIdToken where
         toHeaders
@@ -127,10 +126,11 @@ instance ToQuery GetOpenIdToken where
 --
 -- /See:/ 'getOpenIdTokenResponse' smart constructor.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-    { _goitrsToken          :: !(Maybe Text)
-    , _goitrsIdentityId     :: !(Maybe Text)
-    , _goitrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goitrsToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goitrsIdentityId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOpenIdTokenResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ getOpenIdTokenResponse
     :: Int -- ^ 'goitrsResponseStatus'
     -> GetOpenIdTokenResponse
 getOpenIdTokenResponse pResponseStatus_ =
-    GetOpenIdTokenResponse'
-    { _goitrsToken = Nothing
-    , _goitrsIdentityId = Nothing
-    , _goitrsResponseStatus = pResponseStatus_
-    }
+  GetOpenIdTokenResponse'
+  { _goitrsToken = Nothing
+  , _goitrsIdentityId = Nothing
+  , _goitrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An OpenID token, valid for 15 minutes.
 goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
@@ -163,4 +164,4 @@ goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 goitrsResponseStatus :: Lens' GetOpenIdTokenResponse Int
 goitrsResponseStatus = lens _goitrsResponseStatus (\ s a -> s{_goitrsResponseStatus = a});
 
-instance NFData GetOpenIdTokenResponse
+instance NFData GetOpenIdTokenResponse where

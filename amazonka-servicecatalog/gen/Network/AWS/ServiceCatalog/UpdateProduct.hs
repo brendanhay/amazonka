@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateProduct
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,27 +48,28 @@ module Network.AWS.ServiceCatalog.UpdateProduct
     , ursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateProduct' smart constructor.
 data UpdateProduct = UpdateProduct'
-    { _upRemoveTags         :: !(Maybe [Text])
-    , _upOwner              :: !(Maybe Text)
-    , _upSupportURL         :: !(Maybe Text)
-    , _upDistributor        :: !(Maybe Text)
-    , _upName               :: !(Maybe Text)
-    , _upAcceptLanguage     :: !(Maybe Text)
-    , _upAddTags            :: !(Maybe [Tag])
-    , _upSupportEmail       :: !(Maybe Text)
-    , _upDescription        :: !(Maybe Text)
-    , _upSupportDescription :: !(Maybe Text)
-    , _upId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upRemoveTags         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upOwner              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upSupportURL         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upDistributor        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upAcceptLanguage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upAddTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _upSupportEmail       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upSupportDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProduct' with the minimum fields required to make a request.
 --
@@ -99,19 +100,20 @@ updateProduct
     :: Text -- ^ 'upId'
     -> UpdateProduct
 updateProduct pId_ =
-    UpdateProduct'
-    { _upRemoveTags = Nothing
-    , _upOwner = Nothing
-    , _upSupportURL = Nothing
-    , _upDistributor = Nothing
-    , _upName = Nothing
-    , _upAcceptLanguage = Nothing
-    , _upAddTags = Nothing
-    , _upSupportEmail = Nothing
-    , _upDescription = Nothing
-    , _upSupportDescription = Nothing
-    , _upId = pId_
-    }
+  UpdateProduct'
+  { _upRemoveTags = Nothing
+  , _upOwner = Nothing
+  , _upSupportURL = Nothing
+  , _upDistributor = Nothing
+  , _upName = Nothing
+  , _upAcceptLanguage = Nothing
+  , _upAddTags = Nothing
+  , _upSupportEmail = Nothing
+  , _upDescription = Nothing
+  , _upSupportDescription = Nothing
+  , _upId = pId_
+  }
+
 
 -- | Tags to remove from the existing list of tags associated with the product.
 upRemoveTags :: Lens' UpdateProduct [Text]
@@ -168,9 +170,9 @@ instance AWSRequest UpdateProduct where
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateProduct
+instance Hashable UpdateProduct where
 
-instance NFData UpdateProduct
+instance NFData UpdateProduct where
 
 instance ToHeaders UpdateProduct where
         toHeaders
@@ -206,10 +208,11 @@ instance ToQuery UpdateProduct where
 
 -- | /See:/ 'updateProductResponse' smart constructor.
 data UpdateProductResponse = UpdateProductResponse'
-    { _ursProductViewDetail :: !(Maybe ProductViewDetail)
-    , _ursTags              :: !(Maybe [Tag])
-    , _ursResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ursProductViewDetail :: {-# NOUNPACK #-}!(Maybe ProductViewDetail)
+  , _ursTags              :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ursResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProductResponse' with the minimum fields required to make a request.
 --
@@ -224,11 +227,12 @@ updateProductResponse
     :: Int -- ^ 'ursResponseStatus'
     -> UpdateProductResponse
 updateProductResponse pResponseStatus_ =
-    UpdateProductResponse'
-    { _ursProductViewDetail = Nothing
-    , _ursTags = Nothing
-    , _ursResponseStatus = pResponseStatus_
-    }
+  UpdateProductResponse'
+  { _ursProductViewDetail = Nothing
+  , _ursTags = Nothing
+  , _ursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The resulting detailed product view information.
 ursProductViewDetail :: Lens' UpdateProductResponse (Maybe ProductViewDetail)
@@ -242,4 +246,4 @@ ursTags = lens _ursTags (\ s a -> s{_ursTags = a}) . _Default . _Coerce;
 ursResponseStatus :: Lens' UpdateProductResponse Int
 ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
 
-instance NFData UpdateProductResponse
+instance NFData UpdateProductResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
     , apwprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'associatePrincipalWithPortfolio' smart constructor.
 data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
-    { _aAcceptLanguage :: !(Maybe Text)
-    , _aPortfolioId    :: !Text
-    , _aPrincipalARN   :: !Text
-    , _aPrincipalType  :: !PrincipalType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aPortfolioId    :: {-# NOUNPACK #-}!Text
+  , _aPrincipalARN   :: {-# NOUNPACK #-}!Text
+  , _aPrincipalType  :: {-# NOUNPACK #-}!PrincipalType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociatePrincipalWithPortfolio' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ associatePrincipalWithPortfolio
     -> PrincipalType -- ^ 'aPrincipalType'
     -> AssociatePrincipalWithPortfolio
 associatePrincipalWithPortfolio pPortfolioId_ pPrincipalARN_ pPrincipalType_ =
-    AssociatePrincipalWithPortfolio'
-    { _aAcceptLanguage = Nothing
-    , _aPortfolioId = pPortfolioId_
-    , _aPrincipalARN = pPrincipalARN_
-    , _aPrincipalType = pPrincipalType_
-    }
+  AssociatePrincipalWithPortfolio'
+  { _aAcceptLanguage = Nothing
+  , _aPortfolioId = pPortfolioId_
+  , _aPrincipalARN = pPrincipalARN_
+  , _aPrincipalType = pPrincipalType_
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 aAcceptLanguage :: Lens' AssociatePrincipalWithPortfolio (Maybe Text)
@@ -106,8 +108,9 @@ instance AWSRequest AssociatePrincipalWithPortfolio
                    (pure (fromEnum s)))
 
 instance Hashable AssociatePrincipalWithPortfolio
+         where
 
-instance NFData AssociatePrincipalWithPortfolio
+instance NFData AssociatePrincipalWithPortfolio where
 
 instance ToHeaders AssociatePrincipalWithPortfolio
          where
@@ -138,8 +141,9 @@ instance ToQuery AssociatePrincipalWithPortfolio
 
 -- | /See:/ 'associatePrincipalWithPortfolioResponse' smart constructor.
 newtype AssociatePrincipalWithPortfolioResponse = AssociatePrincipalWithPortfolioResponse'
-    { _apwprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apwprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociatePrincipalWithPortfolioResponse' with the minimum fields required to make a request.
 --
@@ -150,13 +154,14 @@ associatePrincipalWithPortfolioResponse
     :: Int -- ^ 'apwprsResponseStatus'
     -> AssociatePrincipalWithPortfolioResponse
 associatePrincipalWithPortfolioResponse pResponseStatus_ =
-    AssociatePrincipalWithPortfolioResponse'
-    { _apwprsResponseStatus = pResponseStatus_
-    }
+  AssociatePrincipalWithPortfolioResponse'
+  {_apwprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 apwprsResponseStatus :: Lens' AssociatePrincipalWithPortfolioResponse Int
 apwprsResponseStatus = lens _apwprsResponseStatus (\ s a -> s{_apwprsResponseStatus = a});
 
 instance NFData
-         AssociatePrincipalWithPortfolioResponse
+           AssociatePrincipalWithPortfolioResponse
+         where

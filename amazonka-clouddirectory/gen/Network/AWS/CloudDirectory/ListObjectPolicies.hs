@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListObjectPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.CloudDirectory.ListObjectPolicies
     , loprsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listObjectPolicies' smart constructor.
 data ListObjectPolicies = ListObjectPolicies'
-    { _lConsistencyLevel :: !(Maybe ConsistencyLevel)
-    , _lNextToken        :: !(Maybe Text)
-    , _lMaxResults       :: !(Maybe Nat)
-    , _lDirectoryARN     :: !Text
-    , _lObjectReference  :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
+  , _lNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lDirectoryARN     :: {-# NOUNPACK #-}!Text
+  , _lObjectReference  :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectPolicies' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ listObjectPolicies
     -> ObjectReference -- ^ 'lObjectReference'
     -> ListObjectPolicies
 listObjectPolicies pDirectoryARN_ pObjectReference_ =
-    ListObjectPolicies'
-    { _lConsistencyLevel = Nothing
-    , _lNextToken = Nothing
-    , _lMaxResults = Nothing
-    , _lDirectoryARN = pDirectoryARN_
-    , _lObjectReference = pObjectReference_
-    }
+  ListObjectPolicies'
+  { _lConsistencyLevel = Nothing
+  , _lNextToken = Nothing
+  , _lMaxResults = Nothing
+  , _lDirectoryARN = pDirectoryARN_
+  , _lObjectReference = pObjectReference_
+  }
+
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 lConsistencyLevel :: Lens' ListObjectPolicies (Maybe ConsistencyLevel)
@@ -116,9 +118,9 @@ instance AWSRequest ListObjectPolicies where
                      (x .?> "AttachedPolicyIds" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListObjectPolicies
+instance Hashable ListObjectPolicies where
 
-instance NFData ListObjectPolicies
+instance NFData ListObjectPolicies where
 
 instance ToHeaders ListObjectPolicies where
         toHeaders ListObjectPolicies'{..}
@@ -144,10 +146,11 @@ instance ToQuery ListObjectPolicies where
 
 -- | /See:/ 'listObjectPoliciesResponse' smart constructor.
 data ListObjectPoliciesResponse = ListObjectPoliciesResponse'
-    { _loprsNextToken         :: !(Maybe Text)
-    , _loprsAttachedPolicyIds :: !(Maybe [Text])
-    , _loprsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loprsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loprsAttachedPolicyIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _loprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ listObjectPoliciesResponse
     :: Int -- ^ 'loprsResponseStatus'
     -> ListObjectPoliciesResponse
 listObjectPoliciesResponse pResponseStatus_ =
-    ListObjectPoliciesResponse'
-    { _loprsNextToken = Nothing
-    , _loprsAttachedPolicyIds = Nothing
-    , _loprsResponseStatus = pResponseStatus_
-    }
+  ListObjectPoliciesResponse'
+  { _loprsNextToken = Nothing
+  , _loprsAttachedPolicyIds = Nothing
+  , _loprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 loprsNextToken :: Lens' ListObjectPoliciesResponse (Maybe Text)
@@ -180,4 +184,4 @@ loprsAttachedPolicyIds = lens _loprsAttachedPolicyIds (\ s a -> s{_loprsAttached
 loprsResponseStatus :: Lens' ListObjectPoliciesResponse Int
 loprsResponseStatus = lens _loprsResponseStatus (\ s a -> s{_loprsResponseStatus = a});
 
-instance NFData ListObjectPoliciesResponse
+instance NFData ListObjectPoliciesResponse where

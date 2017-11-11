@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.ELBv2.ModifyRule
     , mrrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyRule' smart constructor.
 data ModifyRule = ModifyRule'
-    { _mrActions    :: !(Maybe [Action])
-    , _mrConditions :: !(Maybe [RuleCondition])
-    , _mrRuleARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrActions    :: {-# NOUNPACK #-}!(Maybe [Action])
+  , _mrConditions :: {-# NOUNPACK #-}!(Maybe [RuleCondition])
+  , _mrRuleARN    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyRule' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ modifyRule
     :: Text -- ^ 'mrRuleARN'
     -> ModifyRule
 modifyRule pRuleARN_ =
-    ModifyRule'
-    { _mrActions = Nothing
-    , _mrConditions = Nothing
-    , _mrRuleARN = pRuleARN_
-    }
+  ModifyRule'
+  {_mrActions = Nothing, _mrConditions = Nothing, _mrRuleARN = pRuleARN_}
+
 
 -- | The actions.
 mrActions :: Lens' ModifyRule [Action]
@@ -99,9 +98,9 @@ instance AWSRequest ModifyRule where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ModifyRule
+instance Hashable ModifyRule where
 
-instance NFData ModifyRule
+instance NFData ModifyRule where
 
 instance ToHeaders ModifyRule where
         toHeaders = const mempty
@@ -122,9 +121,10 @@ instance ToQuery ModifyRule where
 
 -- | /See:/ 'modifyRuleResponse' smart constructor.
 data ModifyRuleResponse = ModifyRuleResponse'
-    { _mrrsRules          :: !(Maybe [Rule])
-    , _mrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrrsRules          :: {-# NOUNPACK #-}!(Maybe [Rule])
+  , _mrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyRuleResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +137,9 @@ modifyRuleResponse
     :: Int -- ^ 'mrrsResponseStatus'
     -> ModifyRuleResponse
 modifyRuleResponse pResponseStatus_ =
-    ModifyRuleResponse'
-    { _mrrsRules = Nothing
-    , _mrrsResponseStatus = pResponseStatus_
-    }
+  ModifyRuleResponse'
+  {_mrrsRules = Nothing, _mrrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the rule.
 mrrsRules :: Lens' ModifyRuleResponse [Rule]
@@ -150,4 +149,4 @@ mrrsRules = lens _mrrsRules (\ s a -> s{_mrrsRules = a}) . _Default . _Coerce;
 mrrsResponseStatus :: Lens' ModifyRuleResponse Int
 mrrsResponseStatus = lens _mrrsResponseStatus (\ s a -> s{_mrrsResponseStatus = a});
 
-instance NFData ModifyRuleResponse
+instance NFData ModifyRuleResponse where

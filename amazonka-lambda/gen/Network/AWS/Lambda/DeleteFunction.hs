@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.DeleteFunction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.Lambda.DeleteFunction
     , DeleteFunctionResponse
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteFunction' smart constructor.
 data DeleteFunction = DeleteFunction'
-    { _dfQualifier    :: !(Maybe Text)
-    , _dfFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfFunctionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFunction' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ deleteFunction
     :: Text -- ^ 'dfFunctionName'
     -> DeleteFunction
 deleteFunction pFunctionName_ =
-    DeleteFunction'
-    { _dfQualifier = Nothing
-    , _dfFunctionName = pFunctionName_
-    }
+  DeleteFunction' {_dfQualifier = Nothing, _dfFunctionName = pFunctionName_}
+
 
 -- | Using this optional parameter you can specify a function version (but not the @> LATEST@ version) to direct AWS Lambda to delete a specific function version. If the function version has one or more aliases pointing to it, you will get an error because you cannot have aliases pointing to it. You can delete any function version but not the @> LATEST@ , that is, you cannot specify @> LATEST@ as the value of this parameter. The @> LATEST@ version can be deleted only when you want to delete all the function versions and aliases. You can only specify a function version, not an alias name, using this parameter. You cannot delete a function version using its alias. If you don't specify this parameter, AWS Lambda will delete the function, including all of its versions and aliases.
 dfQualifier :: Lens' DeleteFunction (Maybe Text)
@@ -83,9 +82,9 @@ instance AWSRequest DeleteFunction where
         request = delete lambda
         response = receiveNull DeleteFunctionResponse'
 
-instance Hashable DeleteFunction
+instance Hashable DeleteFunction where
 
-instance NFData DeleteFunction
+instance NFData DeleteFunction where
 
 instance ToHeaders DeleteFunction where
         toHeaders = const mempty
@@ -101,8 +100,9 @@ instance ToQuery DeleteFunction where
 
 -- | /See:/ 'deleteFunctionResponse' smart constructor.
 data DeleteFunctionResponse =
-    DeleteFunctionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteFunctionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFunctionResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +110,5 @@ deleteFunctionResponse
     :: DeleteFunctionResponse
 deleteFunctionResponse = DeleteFunctionResponse'
 
-instance NFData DeleteFunctionResponse
+
+instance NFData DeleteFunctionResponse where

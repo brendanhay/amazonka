@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateMLModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.MachineLearning.UpdateMLModel
     , umlmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateMLModel' smart constructor.
 data UpdateMLModel = UpdateMLModel'
-    { _umlmMLModelName    :: !(Maybe Text)
-    , _umlmScoreThreshold :: !(Maybe Double)
-    , _umlmMLModelId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umlmMLModelName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umlmScoreThreshold :: {-# NOUNPACK #-}!(Maybe Double)
+  , _umlmMLModelId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMLModel' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ updateMLModel
     :: Text -- ^ 'umlmMLModelId'
     -> UpdateMLModel
 updateMLModel pMLModelId_ =
-    UpdateMLModel'
-    { _umlmMLModelName = Nothing
-    , _umlmScoreThreshold = Nothing
-    , _umlmMLModelId = pMLModelId_
-    }
+  UpdateMLModel'
+  { _umlmMLModelName = Nothing
+  , _umlmScoreThreshold = Nothing
+  , _umlmMLModelId = pMLModelId_
+  }
+
 
 -- | A user-supplied name or description of the @MLModel@ .
 umlmMLModelName :: Lens' UpdateMLModel (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest UpdateMLModel where
                  UpdateMLModelResponse' <$>
                    (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateMLModel
+instance Hashable UpdateMLModel where
 
-instance NFData UpdateMLModel
+instance NFData UpdateMLModel where
 
 instance ToHeaders UpdateMLModel where
         toHeaders
@@ -130,9 +132,10 @@ instance ToQuery UpdateMLModel where
 --
 -- /See:/ 'updateMLModelResponse' smart constructor.
 data UpdateMLModelResponse = UpdateMLModelResponse'
-    { _umlmrsMLModelId      :: !(Maybe Text)
-    , _umlmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umlmrsMLModelId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umlmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMLModelResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +148,9 @@ updateMLModelResponse
     :: Int -- ^ 'umlmrsResponseStatus'
     -> UpdateMLModelResponse
 updateMLModelResponse pResponseStatus_ =
-    UpdateMLModelResponse'
-    { _umlmrsMLModelId = Nothing
-    , _umlmrsResponseStatus = pResponseStatus_
-    }
+  UpdateMLModelResponse'
+  {_umlmrsMLModelId = Nothing, _umlmrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID assigned to the @MLModel@ during creation. This value should be identical to the value of the @MLModelID@ in the request.
 umlmrsMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
@@ -158,4 +160,4 @@ umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a});
 umlmrsResponseStatus :: Lens' UpdateMLModelResponse Int
 umlmrsResponseStatus = lens _umlmrsResponseStatus (\ s a -> s{_umlmrsResponseStatus = a});
 
-instance NFData UpdateMLModelResponse
+instance NFData UpdateMLModelResponse where

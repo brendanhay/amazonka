@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAccessKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,20 +47,21 @@ module Network.AWS.IAM.ListAccessKeys
     , lakrsAccessKeyMetadata
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAccessKeys' smart constructor.
 data ListAccessKeys = ListAccessKeys'
-    { _lakUserName :: !(Maybe Text)
-    , _lakMarker   :: !(Maybe Text)
-    , _lakMaxItems :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lakUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lakMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lakMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAccessKeys' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ data ListAccessKeys = ListAccessKeys'
 listAccessKeys
     :: ListAccessKeys
 listAccessKeys =
-    ListAccessKeys'
-    { _lakUserName = Nothing
-    , _lakMarker = Nothing
-    , _lakMaxItems = Nothing
-    }
+  ListAccessKeys'
+  {_lakUserName = Nothing, _lakMarker = Nothing, _lakMaxItems = Nothing}
+
 
 -- | The name of the user. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
@@ -112,9 +111,9 @@ instance AWSRequest ListAccessKeys where
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListAccessKeys
+instance Hashable ListAccessKeys where
 
-instance NFData ListAccessKeys
+instance NFData ListAccessKeys where
 
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
@@ -136,11 +135,12 @@ instance ToQuery ListAccessKeys where
 --
 -- /See:/ 'listAccessKeysResponse' smart constructor.
 data ListAccessKeysResponse = ListAccessKeysResponse'
-    { _lakrsMarker            :: !(Maybe Text)
-    , _lakrsIsTruncated       :: !(Maybe Bool)
-    , _lakrsResponseStatus    :: !Int
-    , _lakrsAccessKeyMetadata :: ![AccessKeyMetadata]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lakrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lakrsIsTruncated       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lakrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _lakrsAccessKeyMetadata :: {-# NOUNPACK #-}![AccessKeyMetadata]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAccessKeysResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +157,13 @@ listAccessKeysResponse
     :: Int -- ^ 'lakrsResponseStatus'
     -> ListAccessKeysResponse
 listAccessKeysResponse pResponseStatus_ =
-    ListAccessKeysResponse'
-    { _lakrsMarker = Nothing
-    , _lakrsIsTruncated = Nothing
-    , _lakrsResponseStatus = pResponseStatus_
-    , _lakrsAccessKeyMetadata = mempty
-    }
+  ListAccessKeysResponse'
+  { _lakrsMarker = Nothing
+  , _lakrsIsTruncated = Nothing
+  , _lakrsResponseStatus = pResponseStatus_
+  , _lakrsAccessKeyMetadata = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lakrsMarker :: Lens' ListAccessKeysResponse (Maybe Text)
@@ -180,4 +181,4 @@ lakrsResponseStatus = lens _lakrsResponseStatus (\ s a -> s{_lakrsResponseStatus
 lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a}) . _Coerce;
 
-instance NFData ListAccessKeysResponse
+instance NFData ListAccessKeysResponse where

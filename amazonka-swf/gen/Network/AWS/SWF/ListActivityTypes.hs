@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.ListActivityTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,23 +59,24 @@ module Network.AWS.SWF.ListActivityTypes
     , latrsTypeInfos
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listActivityTypes' smart constructor.
 data ListActivityTypes = ListActivityTypes'
-    { _latNextPageToken      :: !(Maybe Text)
-    , _latReverseOrder       :: !(Maybe Bool)
-    , _latName               :: !(Maybe Text)
-    , _latMaximumPageSize    :: !(Maybe Nat)
-    , _latDomain             :: !Text
-    , _latRegistrationStatus :: !RegistrationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _latNextPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _latReverseOrder       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _latName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _latMaximumPageSize    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _latDomain             :: {-# NOUNPACK #-}!Text
+  , _latRegistrationStatus :: {-# NOUNPACK #-}!RegistrationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListActivityTypes' with the minimum fields required to make a request.
 --
@@ -97,14 +98,15 @@ listActivityTypes
     -> RegistrationStatus -- ^ 'latRegistrationStatus'
     -> ListActivityTypes
 listActivityTypes pDomain_ pRegistrationStatus_ =
-    ListActivityTypes'
-    { _latNextPageToken = Nothing
-    , _latReverseOrder = Nothing
-    , _latName = Nothing
-    , _latMaximumPageSize = Nothing
-    , _latDomain = pDomain_
-    , _latRegistrationStatus = pRegistrationStatus_
-    }
+  ListActivityTypes'
+  { _latNextPageToken = Nothing
+  , _latReverseOrder = Nothing
+  , _latName = Nothing
+  , _latMaximumPageSize = Nothing
+  , _latDomain = pDomain_
+  , _latRegistrationStatus = pRegistrationStatus_
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 latNextPageToken :: Lens' ListActivityTypes (Maybe Text)
@@ -148,9 +150,9 @@ instance AWSRequest ListActivityTypes where
                    (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "typeInfos" .!@ mempty))
 
-instance Hashable ListActivityTypes
+instance Hashable ListActivityTypes where
 
-instance NFData ListActivityTypes
+instance NFData ListActivityTypes where
 
 instance ToHeaders ListActivityTypes where
         toHeaders
@@ -186,10 +188,11 @@ instance ToQuery ListActivityTypes where
 --
 -- /See:/ 'listActivityTypesResponse' smart constructor.
 data ListActivityTypesResponse = ListActivityTypesResponse'
-    { _latrsNextPageToken  :: !(Maybe Text)
-    , _latrsResponseStatus :: !Int
-    , _latrsTypeInfos      :: ![ActivityTypeInfo]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _latrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _latrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _latrsTypeInfos      :: {-# NOUNPACK #-}![ActivityTypeInfo]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListActivityTypesResponse' with the minimum fields required to make a request.
 --
@@ -204,11 +207,12 @@ listActivityTypesResponse
     :: Int -- ^ 'latrsResponseStatus'
     -> ListActivityTypesResponse
 listActivityTypesResponse pResponseStatus_ =
-    ListActivityTypesResponse'
-    { _latrsNextPageToken = Nothing
-    , _latrsResponseStatus = pResponseStatus_
-    , _latrsTypeInfos = mempty
-    }
+  ListActivityTypesResponse'
+  { _latrsNextPageToken = Nothing
+  , _latrsResponseStatus = pResponseStatus_
+  , _latrsTypeInfos = mempty
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 latrsNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
@@ -222,4 +226,4 @@ latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus
 latrsTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
 latrsTypeInfos = lens _latrsTypeInfos (\ s a -> s{_latrsTypeInfos = a}) . _Coerce;
 
-instance NFData ListActivityTypesResponse
+instance NFData ListActivityTypesResponse where

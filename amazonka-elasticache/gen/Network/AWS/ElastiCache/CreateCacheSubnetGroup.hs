@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateCacheSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     , crsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @CreateCacheSubnetGroup@ operation.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCacheSubnetGroup' smart constructor.
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
-    { _ccsgCacheSubnetGroupName        :: !Text
-    , _ccsgCacheSubnetGroupDescription :: !Text
-    , _ccsgSubnetIds                   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsgCacheSubnetGroupName        :: {-# NOUNPACK #-}!Text
+  , _ccsgCacheSubnetGroupDescription :: {-# NOUNPACK #-}!Text
+  , _ccsgSubnetIds                   :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCacheSubnetGroup' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ createCacheSubnetGroup
     -> Text -- ^ 'ccsgCacheSubnetGroupDescription'
     -> CreateCacheSubnetGroup
 createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
-    CreateCacheSubnetGroup'
-    { _ccsgCacheSubnetGroupName = pCacheSubnetGroupName_
-    , _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription_
-    , _ccsgSubnetIds = mempty
-    }
+  CreateCacheSubnetGroup'
+  { _ccsgCacheSubnetGroupName = pCacheSubnetGroupName_
+  , _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription_
+  , _ccsgSubnetIds = mempty
+  }
+
 
 -- | A name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
 ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
@@ -101,9 +103,9 @@ instance AWSRequest CreateCacheSubnetGroup where
                  CreateCacheSubnetGroupResponse' <$>
                    (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
 
-instance Hashable CreateCacheSubnetGroup
+instance Hashable CreateCacheSubnetGroup where
 
-instance NFData CreateCacheSubnetGroup
+instance NFData CreateCacheSubnetGroup where
 
 instance ToHeaders CreateCacheSubnetGroup where
         toHeaders = const mempty
@@ -125,9 +127,10 @@ instance ToQuery CreateCacheSubnetGroup where
 
 -- | /See:/ 'createCacheSubnetGroupResponse' smart constructor.
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
-    { _crsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
-    , _crsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsCacheSubnetGroup :: {-# NOUNPACK #-}!(Maybe CacheSubnetGroup)
+  , _crsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCacheSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +143,9 @@ createCacheSubnetGroupResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateCacheSubnetGroupResponse
 createCacheSubnetGroupResponse pResponseStatus_ =
-    CreateCacheSubnetGroupResponse'
-    { _crsCacheSubnetGroup = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CreateCacheSubnetGroupResponse'
+  {_crsCacheSubnetGroup = Nothing, _crsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 crsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
@@ -153,4 +155,4 @@ crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup
 crsResponseStatus :: Lens' CreateCacheSubnetGroupResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CreateCacheSubnetGroupResponse
+instance NFData CreateCacheSubnetGroupResponse where

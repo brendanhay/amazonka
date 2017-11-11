@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeComplianceByConfigRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,13 +54,13 @@ module Network.AWS.Config.DescribeComplianceByConfigRule
     , dcbcrrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -68,10 +68,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeComplianceByConfigRule' smart constructor.
 data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
-    { _dcbcrConfigRuleNames :: !(Maybe [Text])
-    , _dcbcrComplianceTypes :: !(Maybe [ComplianceType])
-    , _dcbcrNextToken       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcbcrConfigRuleNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcbcrComplianceTypes :: {-# NOUNPACK #-}!(Maybe [ComplianceType])
+  , _dcbcrNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeComplianceByConfigRule' with the minimum fields required to make a request.
 --
@@ -85,11 +86,12 @@ data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
 describeComplianceByConfigRule
     :: DescribeComplianceByConfigRule
 describeComplianceByConfigRule =
-    DescribeComplianceByConfigRule'
-    { _dcbcrConfigRuleNames = Nothing
-    , _dcbcrComplianceTypes = Nothing
-    , _dcbcrNextToken = Nothing
-    }
+  DescribeComplianceByConfigRule'
+  { _dcbcrConfigRuleNames = Nothing
+  , _dcbcrComplianceTypes = Nothing
+  , _dcbcrNextToken = Nothing
+  }
+
 
 -- | Specify one or more AWS Config rule names to filter the results by rule.
 dcbcrConfigRuleNames :: Lens' DescribeComplianceByConfigRule [Text]
@@ -126,8 +128,9 @@ instance AWSRequest DescribeComplianceByConfigRule
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeComplianceByConfigRule
+         where
 
-instance NFData DescribeComplianceByConfigRule
+instance NFData DescribeComplianceByConfigRule where
 
 instance ToHeaders DescribeComplianceByConfigRule
          where
@@ -160,10 +163,11 @@ instance ToQuery DescribeComplianceByConfigRule where
 --
 -- /See:/ 'describeComplianceByConfigRuleResponse' smart constructor.
 data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResponse'
-    { _dcbcrrsComplianceByConfigRules :: !(Maybe [ComplianceByConfigRule])
-    , _dcbcrrsNextToken               :: !(Maybe Text)
-    , _dcbcrrsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcbcrrsComplianceByConfigRules :: {-# NOUNPACK #-}!(Maybe [ComplianceByConfigRule])
+  , _dcbcrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcbcrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeComplianceByConfigRuleResponse' with the minimum fields required to make a request.
 --
@@ -178,11 +182,12 @@ describeComplianceByConfigRuleResponse
     :: Int -- ^ 'dcbcrrsResponseStatus'
     -> DescribeComplianceByConfigRuleResponse
 describeComplianceByConfigRuleResponse pResponseStatus_ =
-    DescribeComplianceByConfigRuleResponse'
-    { _dcbcrrsComplianceByConfigRules = Nothing
-    , _dcbcrrsNextToken = Nothing
-    , _dcbcrrsResponseStatus = pResponseStatus_
-    }
+  DescribeComplianceByConfigRuleResponse'
+  { _dcbcrrsComplianceByConfigRules = Nothing
+  , _dcbcrrsNextToken = Nothing
+  , _dcbcrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Indicates whether each of the specified AWS Config rules is compliant.
 dcbcrrsComplianceByConfigRules :: Lens' DescribeComplianceByConfigRuleResponse [ComplianceByConfigRule]
@@ -197,4 +202,5 @@ dcbcrrsResponseStatus :: Lens' DescribeComplianceByConfigRuleResponse Int
 dcbcrrsResponseStatus = lens _dcbcrrsResponseStatus (\ s a -> s{_dcbcrrsResponseStatus = a});
 
 instance NFData
-         DescribeComplianceByConfigRuleResponse
+           DescribeComplianceByConfigRuleResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateConfigurationSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.SES.CreateConfigurationSet
     , ccsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to create a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
@@ -53,8 +53,9 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'createConfigurationSet' smart constructor.
 newtype CreateConfigurationSet = CreateConfigurationSet'
-    { _ccsConfigurationSet :: ConfigurationSet
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsConfigurationSet :: ConfigurationSet
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConfigurationSet' with the minimum fields required to make a request.
 --
@@ -65,9 +66,8 @@ createConfigurationSet
     :: ConfigurationSet -- ^ 'ccsConfigurationSet'
     -> CreateConfigurationSet
 createConfigurationSet pConfigurationSet_ =
-    CreateConfigurationSet'
-    { _ccsConfigurationSet = pConfigurationSet_
-    }
+  CreateConfigurationSet' {_ccsConfigurationSet = pConfigurationSet_}
+
 
 -- | A data structure that contains the name of the configuration set.
 ccsConfigurationSet :: Lens' CreateConfigurationSet ConfigurationSet
@@ -83,9 +83,9 @@ instance AWSRequest CreateConfigurationSet where
                  CreateConfigurationSetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateConfigurationSet
+instance Hashable CreateConfigurationSet where
 
-instance NFData CreateConfigurationSet
+instance NFData CreateConfigurationSet where
 
 instance ToHeaders CreateConfigurationSet where
         toHeaders = const mempty
@@ -107,8 +107,9 @@ instance ToQuery CreateConfigurationSet where
 --
 -- /See:/ 'createConfigurationSetResponse' smart constructor.
 newtype CreateConfigurationSetResponse = CreateConfigurationSetResponse'
-    { _ccsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConfigurationSetResponse' with the minimum fields required to make a request.
 --
@@ -119,12 +120,11 @@ createConfigurationSetResponse
     :: Int -- ^ 'ccsrsResponseStatus'
     -> CreateConfigurationSetResponse
 createConfigurationSetResponse pResponseStatus_ =
-    CreateConfigurationSetResponse'
-    { _ccsrsResponseStatus = pResponseStatus_
-    }
+  CreateConfigurationSetResponse' {_ccsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ccsrsResponseStatus :: Lens' CreateConfigurationSetResponse Int
 ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});
 
-instance NFData CreateConfigurationSetResponse
+instance NFData CreateConfigurationSetResponse where

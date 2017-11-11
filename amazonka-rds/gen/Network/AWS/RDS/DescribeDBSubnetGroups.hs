@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSubnetGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     , ddsgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBSubnetGroups' smart constructor.
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
-    { _ddsgDBSubnetGroupName :: !(Maybe Text)
-    , _ddsgFilters           :: !(Maybe [Filter])
-    , _ddsgMarker            :: !(Maybe Text)
-    , _ddsgMaxRecords        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsgDBSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsgFilters           :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddsgMarker            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsgMaxRecords        :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSubnetGroups' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
 describeDBSubnetGroups
     :: DescribeDBSubnetGroups
 describeDBSubnetGroups =
-    DescribeDBSubnetGroups'
-    { _ddsgDBSubnetGroupName = Nothing
-    , _ddsgFilters = Nothing
-    , _ddsgMarker = Nothing
-    , _ddsgMaxRecords = Nothing
-    }
+  DescribeDBSubnetGroups'
+  { _ddsgDBSubnetGroupName = Nothing
+  , _ddsgFilters = Nothing
+  , _ddsgMarker = Nothing
+  , _ddsgMaxRecords = Nothing
+  }
+
 
 -- | The name of the DB subnet group to return details for.
 ddsgDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
@@ -122,9 +124,9 @@ instance AWSRequest DescribeDBSubnetGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBSubnetGroups
+instance Hashable DescribeDBSubnetGroups where
 
-instance NFData DescribeDBSubnetGroups
+instance NFData DescribeDBSubnetGroups where
 
 instance ToHeaders DescribeDBSubnetGroups where
         toHeaders = const mempty
@@ -150,10 +152,11 @@ instance ToQuery DescribeDBSubnetGroups where
 --
 -- /See:/ 'describeDBSubnetGroupsResponse' smart constructor.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
-    { _ddsgrsDBSubnetGroups :: !(Maybe [DBSubnetGroup])
-    , _ddsgrsMarker         :: !(Maybe Text)
-    , _ddsgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsgrsDBSubnetGroups :: {-# NOUNPACK #-}!(Maybe [DBSubnetGroup])
+  , _ddsgrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSubnetGroupsResponse' with the minimum fields required to make a request.
 --
@@ -168,11 +171,12 @@ describeDBSubnetGroupsResponse
     :: Int -- ^ 'ddsgrsResponseStatus'
     -> DescribeDBSubnetGroupsResponse
 describeDBSubnetGroupsResponse pResponseStatus_ =
-    DescribeDBSubnetGroupsResponse'
-    { _ddsgrsDBSubnetGroups = Nothing
-    , _ddsgrsMarker = Nothing
-    , _ddsgrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBSubnetGroupsResponse'
+  { _ddsgrsDBSubnetGroups = Nothing
+  , _ddsgrsMarker = Nothing
+  , _ddsgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'DBSubnetGroup' instances.
 ddsgrsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
@@ -186,4 +190,4 @@ ddsgrsMarker = lens _ddsgrsMarker (\ s a -> s{_ddsgrsMarker = a});
 ddsgrsResponseStatus :: Lens' DescribeDBSubnetGroupsResponse Int
 ddsgrsResponseStatus = lens _ddsgrsResponseStatus (\ s a -> s{_ddsgrsResponseStatus = a});
 
-instance NFData DescribeDBSubnetGroupsResponse
+instance NFData DescribeDBSubnetGroupsResponse where

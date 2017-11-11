@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeDocumentVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,23 +47,24 @@ module Network.AWS.WorkDocs.DescribeDocumentVersions
     , ddvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeDocumentVersions' smart constructor.
 data DescribeDocumentVersions = DescribeDocumentVersions'
-    { _ddvInclude             :: !(Maybe Text)
-    , _ddvAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _ddvMarker              :: !(Maybe Text)
-    , _ddvLimit               :: !(Maybe Nat)
-    , _ddvFields              :: !(Maybe Text)
-    , _ddvDocumentId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ddvInclude             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddvAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ddvMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddvLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ddvFields              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddvDocumentId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDocumentVersions' with the minimum fields required to make a request.
 --
@@ -84,14 +85,15 @@ describeDocumentVersions
     :: Text -- ^ 'ddvDocumentId'
     -> DescribeDocumentVersions
 describeDocumentVersions pDocumentId_ =
-    DescribeDocumentVersions'
-    { _ddvInclude = Nothing
-    , _ddvAuthenticationToken = Nothing
-    , _ddvMarker = Nothing
-    , _ddvLimit = Nothing
-    , _ddvFields = Nothing
-    , _ddvDocumentId = pDocumentId_
-    }
+  DescribeDocumentVersions'
+  { _ddvInclude = Nothing
+  , _ddvAuthenticationToken = Nothing
+  , _ddvMarker = Nothing
+  , _ddvLimit = Nothing
+  , _ddvFields = Nothing
+  , _ddvDocumentId = pDocumentId_
+  }
+
 
 -- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
 ddvInclude :: Lens' DescribeDocumentVersions (Maybe Text)
@@ -136,9 +138,9 @@ instance AWSRequest DescribeDocumentVersions where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDocumentVersions
+instance Hashable DescribeDocumentVersions where
 
-instance NFData DescribeDocumentVersions
+instance NFData DescribeDocumentVersions where
 
 instance ToHeaders DescribeDocumentVersions where
         toHeaders DescribeDocumentVersions'{..}
@@ -161,10 +163,11 @@ instance ToQuery DescribeDocumentVersions where
 
 -- | /See:/ 'describeDocumentVersionsResponse' smart constructor.
 data DescribeDocumentVersionsResponse = DescribeDocumentVersionsResponse'
-    { _ddvrsDocumentVersions :: !(Maybe [DocumentVersionMetadata])
-    , _ddvrsMarker           :: !(Maybe Text)
-    , _ddvrsResponseStatus   :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ddvrsDocumentVersions :: {-# NOUNPACK #-}!(Maybe [DocumentVersionMetadata])
+  , _ddvrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddvrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDocumentVersionsResponse' with the minimum fields required to make a request.
 --
@@ -179,11 +182,12 @@ describeDocumentVersionsResponse
     :: Int -- ^ 'ddvrsResponseStatus'
     -> DescribeDocumentVersionsResponse
 describeDocumentVersionsResponse pResponseStatus_ =
-    DescribeDocumentVersionsResponse'
-    { _ddvrsDocumentVersions = Nothing
-    , _ddvrsMarker = Nothing
-    , _ddvrsResponseStatus = pResponseStatus_
-    }
+  DescribeDocumentVersionsResponse'
+  { _ddvrsDocumentVersions = Nothing
+  , _ddvrsMarker = Nothing
+  , _ddvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The document versions.
 ddvrsDocumentVersions :: Lens' DescribeDocumentVersionsResponse [DocumentVersionMetadata]
@@ -198,3 +202,4 @@ ddvrsResponseStatus :: Lens' DescribeDocumentVersionsResponse Int
 ddvrsResponseStatus = lens _ddvrsResponseStatus (\ s a -> s{_ddvrsResponseStatus = a});
 
 instance NFData DescribeDocumentVersionsResponse
+         where

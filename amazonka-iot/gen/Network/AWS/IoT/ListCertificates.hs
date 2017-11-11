@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.IoT.ListCertificates
     , lcrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListCertificates operation.
 --
@@ -58,10 +58,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-    { _lcMarker         :: !(Maybe Text)
-    , _lcAscendingOrder :: !(Maybe Bool)
-    , _lcPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lcPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
@@ -75,11 +76,9 @@ data ListCertificates = ListCertificates'
 listCertificates
     :: ListCertificates
 listCertificates =
-    ListCertificates'
-    { _lcMarker = Nothing
-    , _lcAscendingOrder = Nothing
-    , _lcPageSize = Nothing
-    }
+  ListCertificates'
+  {_lcMarker = Nothing, _lcAscendingOrder = Nothing, _lcPageSize = Nothing}
+
 
 -- | The marker for the next set of results.
 lcMarker :: Lens' ListCertificates (Maybe Text)
@@ -111,9 +110,9 @@ instance AWSRequest ListCertificates where
                      (x .?> "nextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCertificates
+instance Hashable ListCertificates where
 
-instance NFData ListCertificates
+instance NFData ListCertificates where
 
 instance ToHeaders ListCertificates where
         toHeaders = const mempty
@@ -134,10 +133,11 @@ instance ToQuery ListCertificates where
 --
 -- /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-    { _lcrsCertificates   :: !(Maybe [Certificate])
-    , _lcrsNextMarker     :: !(Maybe Text)
-    , _lcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcrsCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
+  , _lcrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +152,12 @@ listCertificatesResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCertificatesResponse
 listCertificatesResponse pResponseStatus_ =
-    ListCertificatesResponse'
-    { _lcrsCertificates = Nothing
-    , _lcrsNextMarker = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
-    }
+  ListCertificatesResponse'
+  { _lcrsCertificates = Nothing
+  , _lcrsNextMarker = Nothing
+  , _lcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The descriptions of the certificates.
 lcrsCertificates :: Lens' ListCertificatesResponse [Certificate]
@@ -170,4 +171,4 @@ lcrsNextMarker = lens _lcrsNextMarker (\ s a -> s{_lcrsNextMarker = a});
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 
-instance NFData ListCertificatesResponse
+instance NFData ListCertificatesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateCrawler
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,25 +44,26 @@ module Network.AWS.Glue.UpdateCrawler
     , uccrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateCrawler' smart constructor.
 data UpdateCrawler = UpdateCrawler'
-    { _uSchemaChangePolicy :: !(Maybe SchemaChangePolicy)
-    , _uSchedule           :: !(Maybe Text)
-    , _uClassifiers        :: !(Maybe [Text])
-    , _uRole               :: !(Maybe Text)
-    , _uTargets            :: !(Maybe CrawlerTargets)
-    , _uDatabaseName       :: !(Maybe Text)
-    , _uTablePrefix        :: !(Maybe Text)
-    , _uDescription        :: !(Maybe Text)
-    , _uName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uSchemaChangePolicy :: {-# NOUNPACK #-}!(Maybe SchemaChangePolicy)
+  , _uSchedule           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uClassifiers        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uRole               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uTargets            :: {-# NOUNPACK #-}!(Maybe CrawlerTargets)
+  , _uDatabaseName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uTablePrefix        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uName               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCrawler' with the minimum fields required to make a request.
 --
@@ -89,17 +90,18 @@ updateCrawler
     :: Text -- ^ 'uName'
     -> UpdateCrawler
 updateCrawler pName_ =
-    UpdateCrawler'
-    { _uSchemaChangePolicy = Nothing
-    , _uSchedule = Nothing
-    , _uClassifiers = Nothing
-    , _uRole = Nothing
-    , _uTargets = Nothing
-    , _uDatabaseName = Nothing
-    , _uTablePrefix = Nothing
-    , _uDescription = Nothing
-    , _uName = pName_
-    }
+  UpdateCrawler'
+  { _uSchemaChangePolicy = Nothing
+  , _uSchedule = Nothing
+  , _uClassifiers = Nothing
+  , _uRole = Nothing
+  , _uTargets = Nothing
+  , _uDatabaseName = Nothing
+  , _uTablePrefix = Nothing
+  , _uDescription = Nothing
+  , _uName = pName_
+  }
+
 
 -- | Policy for the crawler's update and deletion behavior.
 uSchemaChangePolicy :: Lens' UpdateCrawler (Maybe SchemaChangePolicy)
@@ -145,9 +147,9 @@ instance AWSRequest UpdateCrawler where
               (\ s h x ->
                  UpdateCrawlerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateCrawler
+instance Hashable UpdateCrawler where
 
-instance NFData UpdateCrawler
+instance NFData UpdateCrawler where
 
 instance ToHeaders UpdateCrawler where
         toHeaders
@@ -179,8 +181,9 @@ instance ToQuery UpdateCrawler where
 
 -- | /See:/ 'updateCrawlerResponse' smart constructor.
 newtype UpdateCrawlerResponse = UpdateCrawlerResponse'
-    { _uccrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uccrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCrawlerResponse' with the minimum fields required to make a request.
 --
@@ -191,12 +194,11 @@ updateCrawlerResponse
     :: Int -- ^ 'uccrsResponseStatus'
     -> UpdateCrawlerResponse
 updateCrawlerResponse pResponseStatus_ =
-    UpdateCrawlerResponse'
-    { _uccrsResponseStatus = pResponseStatus_
-    }
+  UpdateCrawlerResponse' {_uccrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uccrsResponseStatus :: Lens' UpdateCrawlerResponse Int
 uccrsResponseStatus = lens _uccrsResponseStatus (\ s a -> s{_uccrsResponseStatus = a});
 
-instance NFData UpdateCrawlerResponse
+instance NFData UpdateCrawlerResponse where

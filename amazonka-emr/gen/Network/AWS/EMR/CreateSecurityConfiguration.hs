@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.CreateSecurityConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.EMR.CreateSecurityConfiguration
     , cscrsCreationDateTime
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createSecurityConfiguration' smart constructor.
 data CreateSecurityConfiguration = CreateSecurityConfiguration'
-    { _cscName                  :: !Text
-    , _cscSecurityConfiguration :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscName                  :: {-# NOUNPACK #-}!Text
+  , _cscSecurityConfiguration :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSecurityConfiguration' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ createSecurityConfiguration
     -> Text -- ^ 'cscSecurityConfiguration'
     -> CreateSecurityConfiguration
 createSecurityConfiguration pName_ pSecurityConfiguration_ =
-    CreateSecurityConfiguration'
-    { _cscName = pName_
-    , _cscSecurityConfiguration = pSecurityConfiguration_
-    }
+  CreateSecurityConfiguration'
+  {_cscName = pName_, _cscSecurityConfiguration = pSecurityConfiguration_}
+
 
 -- | The name of the security configuration.
 cscName :: Lens' CreateSecurityConfiguration Text
@@ -88,9 +88,9 @@ instance AWSRequest CreateSecurityConfiguration where
                    (pure (fromEnum s)) <*> (x .:> "Name") <*>
                      (x .:> "CreationDateTime"))
 
-instance Hashable CreateSecurityConfiguration
+instance Hashable CreateSecurityConfiguration where
 
-instance NFData CreateSecurityConfiguration
+instance NFData CreateSecurityConfiguration where
 
 instance ToHeaders CreateSecurityConfiguration where
         toHeaders
@@ -119,10 +119,11 @@ instance ToQuery CreateSecurityConfiguration where
 
 -- | /See:/ 'createSecurityConfigurationResponse' smart constructor.
 data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
-    { _cscrsResponseStatus   :: !Int
-    , _cscrsName             :: !Text
-    , _cscrsCreationDateTime :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _cscrsName             :: {-# NOUNPACK #-}!Text
+  , _cscrsCreationDateTime :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -139,11 +140,12 @@ createSecurityConfigurationResponse
     -> UTCTime -- ^ 'cscrsCreationDateTime'
     -> CreateSecurityConfigurationResponse
 createSecurityConfigurationResponse pResponseStatus_ pName_ pCreationDateTime_ =
-    CreateSecurityConfigurationResponse'
-    { _cscrsResponseStatus = pResponseStatus_
-    , _cscrsName = pName_
-    , _cscrsCreationDateTime = _Time # pCreationDateTime_
-    }
+  CreateSecurityConfigurationResponse'
+  { _cscrsResponseStatus = pResponseStatus_
+  , _cscrsName = pName_
+  , _cscrsCreationDateTime = _Time # pCreationDateTime_
+  }
+
 
 -- | -- | The response status code.
 cscrsResponseStatus :: Lens' CreateSecurityConfigurationResponse Int
@@ -158,3 +160,4 @@ cscrsCreationDateTime :: Lens' CreateSecurityConfigurationResponse UTCTime
 cscrsCreationDateTime = lens _cscrsCreationDateTime (\ s a -> s{_cscrsCreationDateTime = a}) . _Time;
 
 instance NFData CreateSecurityConfigurationResponse
+         where

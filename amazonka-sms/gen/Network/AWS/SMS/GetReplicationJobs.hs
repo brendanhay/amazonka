@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.GetReplicationJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.SMS.GetReplicationJobs
     , grjrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'getReplicationJobs' smart constructor.
 data GetReplicationJobs = GetReplicationJobs'
-    { _grjReplicationJobId :: !(Maybe Text)
-    , _grjNextToken        :: !(Maybe Text)
-    , _grjMaxResults       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grjReplicationJobId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grjNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grjMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetReplicationJobs' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ data GetReplicationJobs = GetReplicationJobs'
 getReplicationJobs
     :: GetReplicationJobs
 getReplicationJobs =
-    GetReplicationJobs'
-    { _grjReplicationJobId = Nothing
-    , _grjNextToken = Nothing
-    , _grjMaxResults = Nothing
-    }
+  GetReplicationJobs'
+  { _grjReplicationJobId = Nothing
+  , _grjNextToken = Nothing
+  , _grjMaxResults = Nothing
+  }
+
 
 -- | Undocumented member.
 grjReplicationJobId :: Lens' GetReplicationJobs (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest GetReplicationJobs where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetReplicationJobs
+instance Hashable GetReplicationJobs where
 
-instance NFData GetReplicationJobs
+instance NFData GetReplicationJobs where
 
 instance ToHeaders GetReplicationJobs where
         toHeaders
@@ -134,10 +136,11 @@ instance ToQuery GetReplicationJobs where
 
 -- | /See:/ 'getReplicationJobsResponse' smart constructor.
 data GetReplicationJobsResponse = GetReplicationJobsResponse'
-    { _grjrsReplicationJobList :: !(Maybe [ReplicationJob])
-    , _grjrsNextToken          :: !(Maybe Text)
-    , _grjrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grjrsReplicationJobList :: {-# NOUNPACK #-}!(Maybe [ReplicationJob])
+  , _grjrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grjrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetReplicationJobsResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +155,12 @@ getReplicationJobsResponse
     :: Int -- ^ 'grjrsResponseStatus'
     -> GetReplicationJobsResponse
 getReplicationJobsResponse pResponseStatus_ =
-    GetReplicationJobsResponse'
-    { _grjrsReplicationJobList = Nothing
-    , _grjrsNextToken = Nothing
-    , _grjrsResponseStatus = pResponseStatus_
-    }
+  GetReplicationJobsResponse'
+  { _grjrsReplicationJobList = Nothing
+  , _grjrsNextToken = Nothing
+  , _grjrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 grjrsReplicationJobList :: Lens' GetReplicationJobsResponse [ReplicationJob]
@@ -170,4 +174,4 @@ grjrsNextToken = lens _grjrsNextToken (\ s a -> s{_grjrsNextToken = a});
 grjrsResponseStatus :: Lens' GetReplicationJobsResponse Int
 grjrsResponseStatus = lens _grjrsResponseStatus (\ s a -> s{_grjrsResponseStatus = a});
 
-instance NFData GetReplicationJobsResponse
+instance NFData GetReplicationJobsResponse where

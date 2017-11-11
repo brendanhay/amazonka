@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.CloudDirectory.CreateDirectory
     , cdrsAppliedSchemaARN
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
-    { _cdName      :: !Text
-    , _cdSchemaARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdName      :: {-# NOUNPACK #-}!Text
+  , _cdSchemaARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDirectory' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ createDirectory
     -> Text -- ^ 'cdSchemaARN'
     -> CreateDirectory
 createDirectory pName_ pSchemaARN_ =
-    CreateDirectory'
-    { _cdName = pName_
-    , _cdSchemaARN = pSchemaARN_
-    }
+  CreateDirectory' {_cdName = pName_, _cdSchemaARN = pSchemaARN_}
+
 
 -- | The name of the 'Directory' . Should be unique per account, per region.
 cdName :: Lens' CreateDirectory Text
@@ -91,9 +90,9 @@ instance AWSRequest CreateDirectory where
                      <*> (x .:> "ObjectIdentifier")
                      <*> (x .:> "AppliedSchemaArn"))
 
-instance Hashable CreateDirectory
+instance Hashable CreateDirectory where
 
-instance NFData CreateDirectory
+instance NFData CreateDirectory where
 
 instance ToHeaders CreateDirectory where
         toHeaders CreateDirectory'{..}
@@ -113,12 +112,13 @@ instance ToQuery CreateDirectory where
 
 -- | /See:/ 'createDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
-    { _cdrsResponseStatus   :: !Int
-    , _cdrsDirectoryARN     :: !Text
-    , _cdrsName             :: !Text
-    , _cdrsObjectIdentifier :: !Text
-    , _cdrsAppliedSchemaARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _cdrsDirectoryARN     :: {-# NOUNPACK #-}!Text
+  , _cdrsName             :: {-# NOUNPACK #-}!Text
+  , _cdrsObjectIdentifier :: {-# NOUNPACK #-}!Text
+  , _cdrsAppliedSchemaARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDirectoryResponse' with the minimum fields required to make a request.
 --
@@ -141,13 +141,14 @@ createDirectoryResponse
     -> Text -- ^ 'cdrsAppliedSchemaARN'
     -> CreateDirectoryResponse
 createDirectoryResponse pResponseStatus_ pDirectoryARN_ pName_ pObjectIdentifier_ pAppliedSchemaARN_ =
-    CreateDirectoryResponse'
-    { _cdrsResponseStatus = pResponseStatus_
-    , _cdrsDirectoryARN = pDirectoryARN_
-    , _cdrsName = pName_
-    , _cdrsObjectIdentifier = pObjectIdentifier_
-    , _cdrsAppliedSchemaARN = pAppliedSchemaARN_
-    }
+  CreateDirectoryResponse'
+  { _cdrsResponseStatus = pResponseStatus_
+  , _cdrsDirectoryARN = pDirectoryARN_
+  , _cdrsName = pName_
+  , _cdrsObjectIdentifier = pObjectIdentifier_
+  , _cdrsAppliedSchemaARN = pAppliedSchemaARN_
+  }
+
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDirectoryResponse Int
@@ -169,4 +170,4 @@ cdrsObjectIdentifier = lens _cdrsObjectIdentifier (\ s a -> s{_cdrsObjectIdentif
 cdrsAppliedSchemaARN :: Lens' CreateDirectoryResponse Text
 cdrsAppliedSchemaARN = lens _cdrsAppliedSchemaARN (\ s a -> s{_cdrsAppliedSchemaARN = a});
 
-instance NFData CreateDirectoryResponse
+instance NFData CreateDirectoryResponse where

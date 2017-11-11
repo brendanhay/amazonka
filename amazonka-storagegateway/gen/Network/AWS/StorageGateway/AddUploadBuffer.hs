@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddUploadBuffer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     , aubrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'addUploadBuffer' smart constructor.
 data AddUploadBuffer = AddUploadBuffer'
-    { _aubGatewayARN :: !Text
-    , _aubDiskIds    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aubGatewayARN :: {-# NOUNPACK #-}!Text
+  , _aubDiskIds    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddUploadBuffer' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ addUploadBuffer
     :: Text -- ^ 'aubGatewayARN'
     -> AddUploadBuffer
 addUploadBuffer pGatewayARN_ =
-    AddUploadBuffer'
-    { _aubGatewayARN = pGatewayARN_
-    , _aubDiskIds = mempty
-    }
+  AddUploadBuffer' {_aubGatewayARN = pGatewayARN_, _aubDiskIds = mempty}
+
 
 -- | Undocumented member.
 aubGatewayARN :: Lens' AddUploadBuffer Text
@@ -86,9 +85,9 @@ instance AWSRequest AddUploadBuffer where
                  AddUploadBufferResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable AddUploadBuffer
+instance Hashable AddUploadBuffer where
 
-instance NFData AddUploadBuffer
+instance NFData AddUploadBuffer where
 
 instance ToHeaders AddUploadBuffer where
         toHeaders
@@ -115,9 +114,10 @@ instance ToQuery AddUploadBuffer where
 
 -- | /See:/ 'addUploadBufferResponse' smart constructor.
 data AddUploadBufferResponse = AddUploadBufferResponse'
-    { _aubrsGatewayARN     :: !(Maybe Text)
-    , _aubrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aubrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aubrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddUploadBufferResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +130,9 @@ addUploadBufferResponse
     :: Int -- ^ 'aubrsResponseStatus'
     -> AddUploadBufferResponse
 addUploadBufferResponse pResponseStatus_ =
-    AddUploadBufferResponse'
-    { _aubrsGatewayARN = Nothing
-    , _aubrsResponseStatus = pResponseStatus_
-    }
+  AddUploadBufferResponse'
+  {_aubrsGatewayARN = Nothing, _aubrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
@@ -143,4 +142,4 @@ aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
 aubrsResponseStatus :: Lens' AddUploadBufferResponse Int
 aubrsResponseStatus = lens _aubrsResponseStatus (\ s a -> s{_aubrsResponseStatus = a});
 
-instance NFData AddUploadBufferResponse
+instance NFData AddUploadBufferResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeregisterTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.ELBv2.DeregisterTargets
     , dtsrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterTargets' smart constructor.
 data DeregisterTargets = DeregisterTargets'
-    { _dtTargetGroupARN :: !Text
-    , _dtTargets        :: ![TargetDescription]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtTargetGroupARN :: {-# NOUNPACK #-}!Text
+  , _dtTargets        :: {-# NOUNPACK #-}![TargetDescription]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterTargets' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ deregisterTargets
     :: Text -- ^ 'dtTargetGroupARN'
     -> DeregisterTargets
 deregisterTargets pTargetGroupARN_ =
-    DeregisterTargets'
-    { _dtTargetGroupARN = pTargetGroupARN_
-    , _dtTargets = mempty
-    }
+  DeregisterTargets' {_dtTargetGroupARN = pTargetGroupARN_, _dtTargets = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dtTargetGroupARN :: Lens' DeregisterTargets Text
@@ -82,9 +81,9 @@ instance AWSRequest DeregisterTargets where
               (\ s h x ->
                  DeregisterTargetsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeregisterTargets
+instance Hashable DeregisterTargets where
 
-instance NFData DeregisterTargets
+instance NFData DeregisterTargets where
 
 instance ToHeaders DeregisterTargets where
         toHeaders = const mempty
@@ -102,8 +101,9 @@ instance ToQuery DeregisterTargets where
 
 -- | /See:/ 'deregisterTargetsResponse' smart constructor.
 newtype DeregisterTargetsResponse = DeregisterTargetsResponse'
-    { _dtsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterTargetsResponse' with the minimum fields required to make a request.
 --
@@ -114,12 +114,11 @@ deregisterTargetsResponse
     :: Int -- ^ 'dtsrsResponseStatus'
     -> DeregisterTargetsResponse
 deregisterTargetsResponse pResponseStatus_ =
-    DeregisterTargetsResponse'
-    { _dtsrsResponseStatus = pResponseStatus_
-    }
+  DeregisterTargetsResponse' {_dtsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dtsrsResponseStatus :: Lens' DeregisterTargetsResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
 
-instance NFData DeregisterTargetsResponse
+instance NFData DeregisterTargetsResponse where

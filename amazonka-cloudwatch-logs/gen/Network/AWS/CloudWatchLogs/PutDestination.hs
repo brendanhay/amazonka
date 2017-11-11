@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutDestination
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.CloudWatchLogs.PutDestination
     , pdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putDestination' smart constructor.
 data PutDestination = PutDestination'
-    { _pdDestinationName :: !Text
-    , _pdTargetARN       :: !Text
-    , _pdRoleARN         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdDestinationName :: {-# NOUNPACK #-}!Text
+  , _pdTargetARN       :: {-# NOUNPACK #-}!Text
+  , _pdRoleARN         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutDestination' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ putDestination
     -> Text -- ^ 'pdRoleARN'
     -> PutDestination
 putDestination pDestinationName_ pTargetARN_ pRoleARN_ =
-    PutDestination'
-    { _pdDestinationName = pDestinationName_
-    , _pdTargetARN = pTargetARN_
-    , _pdRoleARN = pRoleARN_
-    }
+  PutDestination'
+  { _pdDestinationName = pDestinationName_
+  , _pdTargetARN = pTargetARN_
+  , _pdRoleARN = pRoleARN_
+  }
+
 
 -- | A name for the destination.
 pdDestinationName :: Lens' PutDestination Text
@@ -97,9 +99,9 @@ instance AWSRequest PutDestination where
                  PutDestinationResponse' <$>
                    (x .?> "destination") <*> (pure (fromEnum s)))
 
-instance Hashable PutDestination
+instance Hashable PutDestination where
 
-instance NFData PutDestination
+instance NFData PutDestination where
 
 instance ToHeaders PutDestination where
         toHeaders
@@ -126,9 +128,10 @@ instance ToQuery PutDestination where
 
 -- | /See:/ 'putDestinationResponse' smart constructor.
 data PutDestinationResponse = PutDestinationResponse'
-    { _pdrsDestination    :: !(Maybe Destination)
-    , _pdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdrsDestination    :: {-# NOUNPACK #-}!(Maybe Destination)
+  , _pdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutDestinationResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +144,9 @@ putDestinationResponse
     :: Int -- ^ 'pdrsResponseStatus'
     -> PutDestinationResponse
 putDestinationResponse pResponseStatus_ =
-    PutDestinationResponse'
-    { _pdrsDestination = Nothing
-    , _pdrsResponseStatus = pResponseStatus_
-    }
+  PutDestinationResponse'
+  {_pdrsDestination = Nothing, _pdrsResponseStatus = pResponseStatus_}
+
 
 -- | The destination.
 pdrsDestination :: Lens' PutDestinationResponse (Maybe Destination)
@@ -154,4 +156,4 @@ pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a});
 pdrsResponseStatus :: Lens' PutDestinationResponse Int
 pdrsResponseStatus = lens _pdrsResponseStatus (\ s a -> s{_pdrsResponseStatus = a});
 
-instance NFData PutDestinationResponse
+instance NFData PutDestinationResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketVersioning
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.S3.GetBucketVersioning
     , gbvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketVersioning' smart constructor.
 newtype GetBucketVersioning = GetBucketVersioning'
-    { _gbvBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbvBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketVersioning' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype GetBucketVersioning = GetBucketVersioning'
 getBucketVersioning
     :: BucketName -- ^ 'gbvBucket'
     -> GetBucketVersioning
-getBucketVersioning pBucket_ =
-    GetBucketVersioning'
-    { _gbvBucket = pBucket_
-    }
+getBucketVersioning pBucket_ = GetBucketVersioning' {_gbvBucket = pBucket_}
+
 
 -- | Undocumented member.
 gbvBucket :: Lens' GetBucketVersioning BucketName
@@ -76,9 +75,9 @@ instance AWSRequest GetBucketVersioning where
                    (x .@? "Status") <*> (x .@? "MfaDelete") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetBucketVersioning
+instance Hashable GetBucketVersioning where
 
-instance NFData GetBucketVersioning
+instance NFData GetBucketVersioning where
 
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
@@ -92,10 +91,11 @@ instance ToQuery GetBucketVersioning where
 
 -- | /See:/ 'getBucketVersioningResponse' smart constructor.
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
-    { _gbvrsStatus         :: !(Maybe BucketVersioningStatus)
-    , _gbvrsMFADelete      :: !(Maybe MFADeleteStatus)
-    , _gbvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbvrsStatus         :: {-# NOUNPACK #-}!(Maybe BucketVersioningStatus)
+  , _gbvrsMFADelete      :: {-# NOUNPACK #-}!(Maybe MFADeleteStatus)
+  , _gbvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketVersioningResponse' with the minimum fields required to make a request.
 --
@@ -110,11 +110,12 @@ getBucketVersioningResponse
     :: Int -- ^ 'gbvrsResponseStatus'
     -> GetBucketVersioningResponse
 getBucketVersioningResponse pResponseStatus_ =
-    GetBucketVersioningResponse'
-    { _gbvrsStatus = Nothing
-    , _gbvrsMFADelete = Nothing
-    , _gbvrsResponseStatus = pResponseStatus_
-    }
+  GetBucketVersioningResponse'
+  { _gbvrsStatus = Nothing
+  , _gbvrsMFADelete = Nothing
+  , _gbvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The versioning state of the bucket.
 gbvrsStatus :: Lens' GetBucketVersioningResponse (Maybe BucketVersioningStatus)
@@ -128,4 +129,4 @@ gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
 gbvrsResponseStatus :: Lens' GetBucketVersioningResponse Int
 gbvrsResponseStatus = lens _gbvrsResponseStatus (\ s a -> s{_gbvrsResponseStatus = a});
 
-instance NFData GetBucketVersioningResponse
+instance NFData GetBucketVersioningResponse where

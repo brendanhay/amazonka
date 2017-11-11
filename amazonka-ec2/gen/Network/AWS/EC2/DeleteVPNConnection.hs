@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPNConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DeleteVPNConnection
     , DeleteVPNConnectionResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpnConnection.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteVPNConnection' smart constructor.
 data DeleteVPNConnection = DeleteVPNConnection'
-    { _dvcDryRun          :: !(Maybe Bool)
-    , _dvcVPNConnectionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvcDryRun          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvcVPNConnectionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPNConnection' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ deleteVPNConnection
     :: Text -- ^ 'dvcVPNConnectionId'
     -> DeleteVPNConnection
 deleteVPNConnection pVPNConnectionId_ =
-    DeleteVPNConnection'
-    { _dvcDryRun = Nothing
-    , _dvcVPNConnectionId = pVPNConnectionId_
-    }
+  DeleteVPNConnection'
+  {_dvcDryRun = Nothing, _dvcVPNConnectionId = pVPNConnectionId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvcDryRun :: Lens' DeleteVPNConnection (Maybe Bool)
@@ -84,9 +84,9 @@ instance AWSRequest DeleteVPNConnection where
         request = postQuery ec2
         response = receiveNull DeleteVPNConnectionResponse'
 
-instance Hashable DeleteVPNConnection
+instance Hashable DeleteVPNConnection where
 
-instance NFData DeleteVPNConnection
+instance NFData DeleteVPNConnection where
 
 instance ToHeaders DeleteVPNConnection where
         toHeaders = const mempty
@@ -104,8 +104,9 @@ instance ToQuery DeleteVPNConnection where
 
 -- | /See:/ 'deleteVPNConnectionResponse' smart constructor.
 data DeleteVPNConnectionResponse =
-    DeleteVPNConnectionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteVPNConnectionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPNConnectionResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +114,5 @@ deleteVPNConnectionResponse
     :: DeleteVPNConnectionResponse
 deleteVPNConnectionResponse = DeleteVPNConnectionResponse'
 
-instance NFData DeleteVPNConnectionResponse
+
+instance NFData DeleteVPNConnectionResponse where

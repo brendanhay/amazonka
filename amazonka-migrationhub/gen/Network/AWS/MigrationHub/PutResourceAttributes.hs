@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.PutResourceAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.MigrationHub.PutResourceAttributes
     , prarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putResourceAttributes' smart constructor.
 data PutResourceAttributes = PutResourceAttributes'
-    { _praDryRun                :: !(Maybe Bool)
-    , _praProgressUpdateStream  :: !Text
-    , _praMigrationTaskName     :: !Text
-    , _praResourceAttributeList :: !(List1 ResourceAttribute)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _praDryRun                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _praProgressUpdateStream  :: {-# NOUNPACK #-}!Text
+  , _praMigrationTaskName     :: {-# NOUNPACK #-}!Text
+  , _praResourceAttributeList :: {-# NOUNPACK #-}!(List1 ResourceAttribute)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutResourceAttributes' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ putResourceAttributes
     -> NonEmpty ResourceAttribute -- ^ 'praResourceAttributeList'
     -> PutResourceAttributes
 putResourceAttributes pProgressUpdateStream_ pMigrationTaskName_ pResourceAttributeList_ =
-    PutResourceAttributes'
-    { _praDryRun = Nothing
-    , _praProgressUpdateStream = pProgressUpdateStream_
-    , _praMigrationTaskName = pMigrationTaskName_
-    , _praResourceAttributeList = _List1 # pResourceAttributeList_
-    }
+  PutResourceAttributes'
+  { _praDryRun = Nothing
+  , _praProgressUpdateStream = pProgressUpdateStream_
+  , _praMigrationTaskName = pMigrationTaskName_
+  , _praResourceAttributeList = _List1 # pResourceAttributeList_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 praDryRun :: Lens' PutResourceAttributes (Maybe Bool)
@@ -106,9 +108,9 @@ instance AWSRequest PutResourceAttributes where
                  PutResourceAttributesResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable PutResourceAttributes
+instance Hashable PutResourceAttributes where
 
-instance NFData PutResourceAttributes
+instance NFData PutResourceAttributes where
 
 instance ToHeaders PutResourceAttributes where
         toHeaders
@@ -140,8 +142,9 @@ instance ToQuery PutResourceAttributes where
 
 -- | /See:/ 'putResourceAttributesResponse' smart constructor.
 newtype PutResourceAttributesResponse = PutResourceAttributesResponse'
-    { _prarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutResourceAttributesResponse' with the minimum fields required to make a request.
 --
@@ -152,12 +155,11 @@ putResourceAttributesResponse
     :: Int -- ^ 'prarsResponseStatus'
     -> PutResourceAttributesResponse
 putResourceAttributesResponse pResponseStatus_ =
-    PutResourceAttributesResponse'
-    { _prarsResponseStatus = pResponseStatus_
-    }
+  PutResourceAttributesResponse' {_prarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 prarsResponseStatus :: Lens' PutResourceAttributesResponse Int
 prarsResponseStatus = lens _prarsResponseStatus (\ s a -> s{_prarsResponseStatus = a});
 
-instance NFData PutResourceAttributesResponse
+instance NFData PutResourceAttributesResponse where

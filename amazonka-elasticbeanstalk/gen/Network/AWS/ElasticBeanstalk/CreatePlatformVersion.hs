@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreatePlatformVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.ElasticBeanstalk.CreatePlatformVersion
     , cpvrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to create a new platform version.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createPlatformVersion' smart constructor.
 data CreatePlatformVersion = CreatePlatformVersion'
-    { _cpvOptionSettings           :: !(Maybe [ConfigurationOptionSetting])
-    , _cpvEnvironmentName          :: !(Maybe Text)
-    , _cpvPlatformName             :: !Text
-    , _cpvPlatformVersion          :: !Text
-    , _cpvPlatformDefinitionBundle :: !S3Location
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpvOptionSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
+  , _cpvEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpvPlatformName :: {-# NOUNPACK #-}!Text
+  , _cpvPlatformVersion :: {-# NOUNPACK #-}!Text
+  , _cpvPlatformDefinitionBundle :: {-# NOUNPACK #-}!S3Location
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlatformVersion' with the minimum fields required to make a request.
 --
@@ -81,13 +82,14 @@ createPlatformVersion
     -> S3Location -- ^ 'cpvPlatformDefinitionBundle'
     -> CreatePlatformVersion
 createPlatformVersion pPlatformName_ pPlatformVersion_ pPlatformDefinitionBundle_ =
-    CreatePlatformVersion'
-    { _cpvOptionSettings = Nothing
-    , _cpvEnvironmentName = Nothing
-    , _cpvPlatformName = pPlatformName_
-    , _cpvPlatformVersion = pPlatformVersion_
-    , _cpvPlatformDefinitionBundle = pPlatformDefinitionBundle_
-    }
+  CreatePlatformVersion'
+  { _cpvOptionSettings = Nothing
+  , _cpvEnvironmentName = Nothing
+  , _cpvPlatformName = pPlatformName_
+  , _cpvPlatformVersion = pPlatformVersion_
+  , _cpvPlatformDefinitionBundle = pPlatformDefinitionBundle_
+  }
+
 
 -- | The configuration option settings to apply to the builder environment.
 cpvOptionSettings :: Lens' CreatePlatformVersion [ConfigurationOptionSetting]
@@ -120,9 +122,9 @@ instance AWSRequest CreatePlatformVersion where
                    (x .@? "Builder") <*> (x .@? "PlatformSummary") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreatePlatformVersion
+instance Hashable CreatePlatformVersion where
 
-instance NFData CreatePlatformVersion
+instance NFData CreatePlatformVersion where
 
 instance ToHeaders CreatePlatformVersion where
         toHeaders = const mempty
@@ -146,10 +148,11 @@ instance ToQuery CreatePlatformVersion where
 
 -- | /See:/ 'createPlatformVersionResponse' smart constructor.
 data CreatePlatformVersionResponse = CreatePlatformVersionResponse'
-    { _cpvrsBuilder         :: !(Maybe Builder)
-    , _cpvrsPlatformSummary :: !(Maybe PlatformSummary)
-    , _cpvrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpvrsBuilder         :: {-# NOUNPACK #-}!(Maybe Builder)
+  , _cpvrsPlatformSummary :: {-# NOUNPACK #-}!(Maybe PlatformSummary)
+  , _cpvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlatformVersionResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ createPlatformVersionResponse
     :: Int -- ^ 'cpvrsResponseStatus'
     -> CreatePlatformVersionResponse
 createPlatformVersionResponse pResponseStatus_ =
-    CreatePlatformVersionResponse'
-    { _cpvrsBuilder = Nothing
-    , _cpvrsPlatformSummary = Nothing
-    , _cpvrsResponseStatus = pResponseStatus_
-    }
+  CreatePlatformVersionResponse'
+  { _cpvrsBuilder = Nothing
+  , _cpvrsPlatformSummary = Nothing
+  , _cpvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The builder used to create the custom platform.
 cpvrsBuilder :: Lens' CreatePlatformVersionResponse (Maybe Builder)
@@ -182,4 +186,4 @@ cpvrsPlatformSummary = lens _cpvrsPlatformSummary (\ s a -> s{_cpvrsPlatformSumm
 cpvrsResponseStatus :: Lens' CreatePlatformVersionResponse Int
 cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a});
 
-instance NFData CreatePlatformVersionResponse
+instance NFData CreatePlatformVersionResponse where

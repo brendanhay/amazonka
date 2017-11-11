@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.UpdateDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,21 +38,22 @@ module Network.AWS.WorkDocs.UpdateDocument
     , UpdateDocumentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-    { _udParentFolderId      :: !(Maybe Text)
-    , _udAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _udName                :: !(Maybe Text)
-    , _udResourceState       :: !(Maybe ResourceStateType)
-    , _udDocumentId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _udParentFolderId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _udName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udResourceState       :: {-# NOUNPACK #-}!(Maybe ResourceStateType)
+  , _udDocumentId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocument' with the minimum fields required to make a request.
 --
@@ -71,13 +72,14 @@ updateDocument
     :: Text -- ^ 'udDocumentId'
     -> UpdateDocument
 updateDocument pDocumentId_ =
-    UpdateDocument'
-    { _udParentFolderId = Nothing
-    , _udAuthenticationToken = Nothing
-    , _udName = Nothing
-    , _udResourceState = Nothing
-    , _udDocumentId = pDocumentId_
-    }
+  UpdateDocument'
+  { _udParentFolderId = Nothing
+  , _udAuthenticationToken = Nothing
+  , _udName = Nothing
+  , _udResourceState = Nothing
+  , _udDocumentId = pDocumentId_
+  }
+
 
 -- | The ID of the parent folder.
 udParentFolderId :: Lens' UpdateDocument (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest UpdateDocument where
         request = patchJSON workDocs
         response = receiveNull UpdateDocumentResponse'
 
-instance Hashable UpdateDocument
+instance Hashable UpdateDocument where
 
-instance NFData UpdateDocument
+instance NFData UpdateDocument where
 
 instance ToHeaders UpdateDocument where
         toHeaders UpdateDocument'{..}
@@ -132,8 +134,9 @@ instance ToQuery UpdateDocument where
 
 -- | /See:/ 'updateDocumentResponse' smart constructor.
 data UpdateDocumentResponse =
-    UpdateDocumentResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateDocumentResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocumentResponse' with the minimum fields required to make a request.
 --
@@ -141,4 +144,5 @@ updateDocumentResponse
     :: UpdateDocumentResponse
 updateDocumentResponse = UpdateDocumentResponse'
 
-instance NFData UpdateDocumentResponse
+
+instance NFData UpdateDocumentResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.PutScalingPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -106,12 +106,12 @@ module Network.AWS.GameLift.PutScalingPolicy
     , psprsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -119,15 +119,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-    { _pspName                  :: !Text
-    , _pspFleetId               :: !Text
-    , _pspScalingAdjustment     :: !Int
-    , _pspScalingAdjustmentType :: !ScalingAdjustmentType
-    , _pspThreshold             :: !Double
-    , _pspComparisonOperator    :: !ComparisonOperatorType
-    , _pspEvaluationPeriods     :: !Nat
-    , _pspMetricName            :: !MetricName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pspName                  :: {-# NOUNPACK #-}!Text
+  , _pspFleetId               :: {-# NOUNPACK #-}!Text
+  , _pspScalingAdjustment     :: {-# NOUNPACK #-}!Int
+  , _pspScalingAdjustmentType :: {-# NOUNPACK #-}!ScalingAdjustmentType
+  , _pspThreshold             :: {-# NOUNPACK #-}!Double
+  , _pspComparisonOperator    :: {-# NOUNPACK #-}!ComparisonOperatorType
+  , _pspEvaluationPeriods     :: {-# NOUNPACK #-}!Nat
+  , _pspMetricName            :: {-# NOUNPACK #-}!MetricName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
 --
@@ -159,16 +160,17 @@ putScalingPolicy
     -> MetricName -- ^ 'pspMetricName'
     -> PutScalingPolicy
 putScalingPolicy pName_ pFleetId_ pScalingAdjustment_ pScalingAdjustmentType_ pThreshold_ pComparisonOperator_ pEvaluationPeriods_ pMetricName_ =
-    PutScalingPolicy'
-    { _pspName = pName_
-    , _pspFleetId = pFleetId_
-    , _pspScalingAdjustment = pScalingAdjustment_
-    , _pspScalingAdjustmentType = pScalingAdjustmentType_
-    , _pspThreshold = pThreshold_
-    , _pspComparisonOperator = pComparisonOperator_
-    , _pspEvaluationPeriods = _Nat # pEvaluationPeriods_
-    , _pspMetricName = pMetricName_
-    }
+  PutScalingPolicy'
+  { _pspName = pName_
+  , _pspFleetId = pFleetId_
+  , _pspScalingAdjustment = pScalingAdjustment_
+  , _pspScalingAdjustmentType = pScalingAdjustmentType_
+  , _pspThreshold = pThreshold_
+  , _pspComparisonOperator = pComparisonOperator_
+  , _pspEvaluationPeriods = _Nat # pEvaluationPeriods_
+  , _pspMetricName = pMetricName_
+  }
+
 
 -- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
 pspName :: Lens' PutScalingPolicy Text
@@ -211,9 +213,9 @@ instance AWSRequest PutScalingPolicy where
                  PutScalingPolicyResponse' <$>
                    (x .?> "Name") <*> (pure (fromEnum s)))
 
-instance Hashable PutScalingPolicy
+instance Hashable PutScalingPolicy where
 
-instance NFData PutScalingPolicy
+instance NFData PutScalingPolicy where
 
 instance ToHeaders PutScalingPolicy where
         toHeaders
@@ -252,9 +254,10 @@ instance ToQuery PutScalingPolicy where
 --
 -- /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-    { _psprsName           :: !(Maybe Text)
-    , _psprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psprsName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
 --
@@ -267,10 +270,9 @@ putScalingPolicyResponse
     :: Int -- ^ 'psprsResponseStatus'
     -> PutScalingPolicyResponse
 putScalingPolicyResponse pResponseStatus_ =
-    PutScalingPolicyResponse'
-    { _psprsName = Nothing
-    , _psprsResponseStatus = pResponseStatus_
-    }
+  PutScalingPolicyResponse'
+  {_psprsName = Nothing, _psprsResponseStatus = pResponseStatus_}
+
 
 -- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 psprsName :: Lens' PutScalingPolicyResponse (Maybe Text)
@@ -280,4 +282,4 @@ psprsName = lens _psprsName (\ s a -> s{_psprsName = a});
 psprsResponseStatus :: Lens' PutScalingPolicyResponse Int
 psprsResponseStatus = lens _psprsResponseStatus (\ s a -> s{_psprsResponseStatus = a});
 
-instance NFData PutScalingPolicyResponse
+instance NFData PutScalingPolicyResponse where

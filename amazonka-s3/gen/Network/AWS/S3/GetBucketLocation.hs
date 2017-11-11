@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLocation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.S3.GetBucketLocation
     , gblbrsLocationConstraint
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketLocation' smart constructor.
 newtype GetBucketLocation = GetBucketLocation'
-    { _gblBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gblBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketLocation' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype GetBucketLocation = GetBucketLocation'
 getBucketLocation
     :: BucketName -- ^ 'gblBucket'
     -> GetBucketLocation
-getBucketLocation pBucket_ =
-    GetBucketLocation'
-    { _gblBucket = pBucket_
-    }
+getBucketLocation pBucket_ = GetBucketLocation' {_gblBucket = pBucket_}
+
 
 -- | Undocumented member.
 gblBucket :: Lens' GetBucketLocation BucketName
@@ -73,9 +72,9 @@ instance AWSRequest GetBucketLocation where
                  GetBucketLocationResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
-instance Hashable GetBucketLocation
+instance Hashable GetBucketLocation where
 
-instance NFData GetBucketLocation
+instance NFData GetBucketLocation where
 
 instance ToHeaders GetBucketLocation where
         toHeaders = const mempty
@@ -89,9 +88,10 @@ instance ToQuery GetBucketLocation where
 
 -- | /See:/ 'getBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
-    { _gblbrsResponseStatus     :: !Int
-    , _gblbrsLocationConstraint :: !LocationConstraint
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gblbrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _gblbrsLocationConstraint :: {-# NOUNPACK #-}!LocationConstraint
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
 --
@@ -105,10 +105,11 @@ getBucketLocationResponse
     -> LocationConstraint -- ^ 'gblbrsLocationConstraint'
     -> GetBucketLocationResponse
 getBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
-    GetBucketLocationResponse'
-    { _gblbrsResponseStatus = pResponseStatus_
-    , _gblbrsLocationConstraint = pLocationConstraint_
-    }
+  GetBucketLocationResponse'
+  { _gblbrsResponseStatus = pResponseStatus_
+  , _gblbrsLocationConstraint = pLocationConstraint_
+  }
+
 
 -- | -- | The response status code.
 gblbrsResponseStatus :: Lens' GetBucketLocationResponse Int
@@ -118,4 +119,4 @@ gblbrsResponseStatus = lens _gblbrsResponseStatus (\ s a -> s{_gblbrsResponseSta
 gblbrsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
 gblbrsLocationConstraint = lens _gblbrsLocationConstraint (\ s a -> s{_gblbrsLocationConstraint = a});
 
-instance NFData GetBucketLocationResponse
+instance NFData GetBucketLocationResponse where

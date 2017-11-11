@@ -9,19 +9,20 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ELBv2.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ActionTypeEnum =
-    Forward
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Forward
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActionTypeEnum where
     parser = takeLowerText >>= \case
@@ -43,9 +44,10 @@ instance FromXML ActionTypeEnum where
     parseXML = parseXMLText "ActionTypeEnum"
 
 data IPAddressType
-    = Dualstack
-    | IPV4
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Dualstack
+  | IPV4
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IPAddressType where
     parser = takeLowerText >>= \case
@@ -69,9 +71,10 @@ instance FromXML IPAddressType where
     parseXML = parseXMLText "IPAddressType"
 
 data LoadBalancerSchemeEnum
-    = Internal
-    | InternetFacing
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Internal
+  | InternetFacing
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LoadBalancerSchemeEnum where
     parser = takeLowerText >>= \case
@@ -95,10 +98,11 @@ instance FromXML LoadBalancerSchemeEnum where
     parseXML = parseXMLText "LoadBalancerSchemeEnum"
 
 data LoadBalancerStateEnum
-    = Active
-    | Failed
-    | Provisioning
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Failed
+  | Provisioning
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LoadBalancerStateEnum where
     parser = takeLowerText >>= \case
@@ -124,8 +128,9 @@ instance FromXML LoadBalancerStateEnum where
     parseXML = parseXMLText "LoadBalancerStateEnum"
 
 data LoadBalancerTypeEnum =
-    Application
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Application
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LoadBalancerTypeEnum where
     parser = takeLowerText >>= \case
@@ -147,9 +152,10 @@ instance FromXML LoadBalancerTypeEnum where
     parseXML = parseXMLText "LoadBalancerTypeEnum"
 
 data ProtocolEnum
-    = HTTP
-    | HTTPS
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HTTP
+  | HTTPS
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProtocolEnum where
     parser = takeLowerText >>= \case
@@ -173,17 +179,18 @@ instance FromXML ProtocolEnum where
     parseXML = parseXMLText "ProtocolEnum"
 
 data TargetHealthReasonEnum
-    = Elb_InitialHealthChecking
-    | Elb_InternalError
-    | Elb_RegistrationInProgress
-    | Target_DeregistrationInProgress
-    | Target_FailedHealthChecks
-    | Target_InvalidState
-    | Target_NotInUse
-    | Target_NotRegistered
-    | Target_ResponseCodeMismatch
-    | Target_Timeout
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Elb_InitialHealthChecking
+  | Elb_InternalError
+  | Elb_RegistrationInProgress
+  | Target_DeregistrationInProgress
+  | Target_FailedHealthChecks
+  | Target_InvalidState
+  | Target_NotInUse
+  | Target_NotRegistered
+  | Target_ResponseCodeMismatch
+  | Target_Timeout
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TargetHealthReasonEnum where
     parser = takeLowerText >>= \case
@@ -223,12 +230,13 @@ instance FromXML TargetHealthReasonEnum where
     parseXML = parseXMLText "TargetHealthReasonEnum"
 
 data TargetHealthStateEnum
-    = Draining
-    | Healthy
-    | Initial
-    | Unhealthy
-    | Unused
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Draining
+  | Healthy
+  | Initial
+  | Unhealthy
+  | Unused
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TargetHealthStateEnum where
     parser = takeLowerText >>= \case

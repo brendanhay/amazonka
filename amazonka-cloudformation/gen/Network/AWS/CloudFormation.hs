@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -719,47 +719,47 @@ module Network.AWS.CloudFormation
     , tpDescription
     ) where
 
-import           Network.AWS.CloudFormation.CancelUpdateStack
-import           Network.AWS.CloudFormation.ContinueUpdateRollback
-import           Network.AWS.CloudFormation.CreateChangeSet
-import           Network.AWS.CloudFormation.CreateStack
-import           Network.AWS.CloudFormation.CreateStackInstances
-import           Network.AWS.CloudFormation.CreateStackSet
-import           Network.AWS.CloudFormation.DeleteChangeSet
-import           Network.AWS.CloudFormation.DeleteStack
-import           Network.AWS.CloudFormation.DeleteStackInstances
-import           Network.AWS.CloudFormation.DeleteStackSet
-import           Network.AWS.CloudFormation.DescribeAccountLimits
-import           Network.AWS.CloudFormation.DescribeChangeSet
-import           Network.AWS.CloudFormation.DescribeStackEvents
-import           Network.AWS.CloudFormation.DescribeStackInstance
-import           Network.AWS.CloudFormation.DescribeStackResource
-import           Network.AWS.CloudFormation.DescribeStackResources
-import           Network.AWS.CloudFormation.DescribeStacks
-import           Network.AWS.CloudFormation.DescribeStackSet
-import           Network.AWS.CloudFormation.DescribeStackSetOperation
-import           Network.AWS.CloudFormation.EstimateTemplateCost
-import           Network.AWS.CloudFormation.ExecuteChangeSet
-import           Network.AWS.CloudFormation.GetStackPolicy
-import           Network.AWS.CloudFormation.GetTemplate
-import           Network.AWS.CloudFormation.GetTemplateSummary
-import           Network.AWS.CloudFormation.ListChangeSets
-import           Network.AWS.CloudFormation.ListExports
-import           Network.AWS.CloudFormation.ListImports
-import           Network.AWS.CloudFormation.ListStackInstances
-import           Network.AWS.CloudFormation.ListStackResources
-import           Network.AWS.CloudFormation.ListStacks
-import           Network.AWS.CloudFormation.ListStackSetOperationResults
-import           Network.AWS.CloudFormation.ListStackSetOperations
-import           Network.AWS.CloudFormation.ListStackSets
-import           Network.AWS.CloudFormation.SetStackPolicy
-import           Network.AWS.CloudFormation.SignalResource
-import           Network.AWS.CloudFormation.StopStackSetOperation
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.UpdateStack
-import           Network.AWS.CloudFormation.UpdateStackSet
-import           Network.AWS.CloudFormation.ValidateTemplate
-import           Network.AWS.CloudFormation.Waiters
+import Network.AWS.CloudFormation.CancelUpdateStack
+import Network.AWS.CloudFormation.ContinueUpdateRollback
+import Network.AWS.CloudFormation.CreateChangeSet
+import Network.AWS.CloudFormation.CreateStack
+import Network.AWS.CloudFormation.CreateStackInstances
+import Network.AWS.CloudFormation.CreateStackSet
+import Network.AWS.CloudFormation.DeleteChangeSet
+import Network.AWS.CloudFormation.DeleteStack
+import Network.AWS.CloudFormation.DeleteStackInstances
+import Network.AWS.CloudFormation.DeleteStackSet
+import Network.AWS.CloudFormation.DescribeAccountLimits
+import Network.AWS.CloudFormation.DescribeChangeSet
+import Network.AWS.CloudFormation.DescribeStackEvents
+import Network.AWS.CloudFormation.DescribeStackInstance
+import Network.AWS.CloudFormation.DescribeStackResource
+import Network.AWS.CloudFormation.DescribeStackResources
+import Network.AWS.CloudFormation.DescribeStacks
+import Network.AWS.CloudFormation.DescribeStackSet
+import Network.AWS.CloudFormation.DescribeStackSetOperation
+import Network.AWS.CloudFormation.EstimateTemplateCost
+import Network.AWS.CloudFormation.ExecuteChangeSet
+import Network.AWS.CloudFormation.GetStackPolicy
+import Network.AWS.CloudFormation.GetTemplate
+import Network.AWS.CloudFormation.GetTemplateSummary
+import Network.AWS.CloudFormation.ListChangeSets
+import Network.AWS.CloudFormation.ListExports
+import Network.AWS.CloudFormation.ListImports
+import Network.AWS.CloudFormation.ListStackInstances
+import Network.AWS.CloudFormation.ListStackResources
+import Network.AWS.CloudFormation.ListStacks
+import Network.AWS.CloudFormation.ListStackSetOperationResults
+import Network.AWS.CloudFormation.ListStackSetOperations
+import Network.AWS.CloudFormation.ListStackSets
+import Network.AWS.CloudFormation.SetStackPolicy
+import Network.AWS.CloudFormation.SignalResource
+import Network.AWS.CloudFormation.StopStackSetOperation
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.UpdateStack
+import Network.AWS.CloudFormation.UpdateStackSet
+import Network.AWS.CloudFormation.ValidateTemplate
+import Network.AWS.CloudFormation.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

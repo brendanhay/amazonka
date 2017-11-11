@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DisablePolicyType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Organizations.DisablePolicyType
     , dptrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disablePolicyType' smart constructor.
 data DisablePolicyType = DisablePolicyType'
-    { _dptRootId     :: !Text
-    , _dptPolicyType :: !PolicyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dptRootId     :: {-# NOUNPACK #-}!Text
+  , _dptPolicyType :: {-# NOUNPACK #-}!PolicyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisablePolicyType' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ disablePolicyType
     -> PolicyType -- ^ 'dptPolicyType'
     -> DisablePolicyType
 disablePolicyType pRootId_ pPolicyType_ =
-    DisablePolicyType'
-    { _dptRootId = pRootId_
-    , _dptPolicyType = pPolicyType_
-    }
+  DisablePolicyType' {_dptRootId = pRootId_, _dptPolicyType = pPolicyType_}
+
 
 -- | The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListPolicies' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
 dptRootId :: Lens' DisablePolicyType Text
@@ -87,9 +86,9 @@ instance AWSRequest DisablePolicyType where
                  DisablePolicyTypeResponse' <$>
                    (x .?> "Root") <*> (pure (fromEnum s)))
 
-instance Hashable DisablePolicyType
+instance Hashable DisablePolicyType where
 
-instance NFData DisablePolicyType
+instance NFData DisablePolicyType where
 
 instance ToHeaders DisablePolicyType where
         toHeaders
@@ -116,9 +115,10 @@ instance ToQuery DisablePolicyType where
 
 -- | /See:/ 'disablePolicyTypeResponse' smart constructor.
 data DisablePolicyTypeResponse = DisablePolicyTypeResponse'
-    { _dptrsRoot           :: !(Maybe Root)
-    , _dptrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dptrsRoot           :: {-# NOUNPACK #-}!(Maybe Root)
+  , _dptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisablePolicyTypeResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +131,9 @@ disablePolicyTypeResponse
     :: Int -- ^ 'dptrsResponseStatus'
     -> DisablePolicyTypeResponse
 disablePolicyTypeResponse pResponseStatus_ =
-    DisablePolicyTypeResponse'
-    { _dptrsRoot = Nothing
-    , _dptrsResponseStatus = pResponseStatus_
-    }
+  DisablePolicyTypeResponse'
+  {_dptrsRoot = Nothing, _dptrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that shows the root with the updated list of enabled policy types.
 dptrsRoot :: Lens' DisablePolicyTypeResponse (Maybe Root)
@@ -144,4 +143,4 @@ dptrsRoot = lens _dptrsRoot (\ s a -> s{_dptrsRoot = a});
 dptrsResponseStatus :: Lens' DisablePolicyTypeResponse Int
 dptrsResponseStatus = lens _dptrsResponseStatus (\ s a -> s{_dptrsResponseStatus = a});
 
-instance NFData DisablePolicyTypeResponse
+instance NFData DisablePolicyTypeResponse where

@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.IoT.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.IoT.Types.Product where
 
-import           Network.AWS.IoT.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.IoT.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Describes the actions associated with a rule.
 --
@@ -27,20 +27,21 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'action' smart constructor.
 data Action = Action'
-    { _aCloudwatchMetric :: !(Maybe CloudwatchMetricAction)
-    , _aDynamoDBv2       :: !(Maybe DynamoDBv2Action)
-    , _aCloudwatchAlarm  :: !(Maybe CloudwatchAlarmAction)
-    , _aSns              :: !(Maybe SNSAction)
-    , _aDynamoDB         :: !(Maybe DynamoDBAction)
-    , _aFirehose         :: !(Maybe FirehoseAction)
-    , _aLambda           :: !(Maybe LambdaAction)
-    , _aSalesforce       :: !(Maybe SalesforceAction)
-    , _aKinesis          :: !(Maybe KinesisAction)
-    , _aS3               :: !(Maybe S3Action)
-    , _aElasticsearch    :: !(Maybe ElasticsearchAction)
-    , _aRepublish        :: !(Maybe RepublishAction)
-    , _aSqs              :: !(Maybe SqsAction)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aCloudwatchMetric :: {-# NOUNPACK #-}!(Maybe CloudwatchMetricAction)
+  , _aDynamoDBv2       :: {-# NOUNPACK #-}!(Maybe DynamoDBv2Action)
+  , _aCloudwatchAlarm  :: {-# NOUNPACK #-}!(Maybe CloudwatchAlarmAction)
+  , _aSns              :: {-# NOUNPACK #-}!(Maybe SNSAction)
+  , _aDynamoDB         :: {-# NOUNPACK #-}!(Maybe DynamoDBAction)
+  , _aFirehose         :: {-# NOUNPACK #-}!(Maybe FirehoseAction)
+  , _aLambda           :: {-# NOUNPACK #-}!(Maybe LambdaAction)
+  , _aSalesforce       :: {-# NOUNPACK #-}!(Maybe SalesforceAction)
+  , _aKinesis          :: {-# NOUNPACK #-}!(Maybe KinesisAction)
+  , _aS3               :: {-# NOUNPACK #-}!(Maybe S3Action)
+  , _aElasticsearch    :: {-# NOUNPACK #-}!(Maybe ElasticsearchAction)
+  , _aRepublish        :: {-# NOUNPACK #-}!(Maybe RepublishAction)
+  , _aSqs              :: {-# NOUNPACK #-}!(Maybe SqsAction)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Action' with the minimum fields required to make a request.
 --
@@ -74,21 +75,22 @@ data Action = Action'
 action
     :: Action
 action =
-    Action'
-    { _aCloudwatchMetric = Nothing
-    , _aDynamoDBv2 = Nothing
-    , _aCloudwatchAlarm = Nothing
-    , _aSns = Nothing
-    , _aDynamoDB = Nothing
-    , _aFirehose = Nothing
-    , _aLambda = Nothing
-    , _aSalesforce = Nothing
-    , _aKinesis = Nothing
-    , _aS3 = Nothing
-    , _aElasticsearch = Nothing
-    , _aRepublish = Nothing
-    , _aSqs = Nothing
-    }
+  Action'
+  { _aCloudwatchMetric = Nothing
+  , _aDynamoDBv2 = Nothing
+  , _aCloudwatchAlarm = Nothing
+  , _aSns = Nothing
+  , _aDynamoDB = Nothing
+  , _aFirehose = Nothing
+  , _aLambda = Nothing
+  , _aSalesforce = Nothing
+  , _aKinesis = Nothing
+  , _aS3 = Nothing
+  , _aElasticsearch = Nothing
+  , _aRepublish = Nothing
+  , _aSqs = Nothing
+  }
+
 
 -- | Capture a CloudWatch metric.
 aCloudwatchMetric :: Lens' Action (Maybe CloudwatchMetricAction)
@@ -160,9 +162,9 @@ instance FromJSON Action where
                      <*> (x .:? "republish")
                      <*> (x .:? "sqs"))
 
-instance Hashable Action
+instance Hashable Action where
 
-instance NFData Action
+instance NFData Action where
 
 instance ToJSON Action where
         toJSON Action'{..}
@@ -186,9 +188,10 @@ instance ToJSON Action where
 --
 -- /See:/ 'attributePayload' smart constructor.
 data AttributePayload = AttributePayload'
-    { _apAttributes :: !(Maybe (Map Text Text))
-    , _apMerge      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _apMerge      :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributePayload' with the minimum fields required to make a request.
 --
@@ -200,10 +203,8 @@ data AttributePayload = AttributePayload'
 attributePayload
     :: AttributePayload
 attributePayload =
-    AttributePayload'
-    { _apAttributes = Nothing
-    , _apMerge = Nothing
-    }
+  AttributePayload' {_apAttributes = Nothing, _apMerge = Nothing}
+
 
 -- | A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
 apAttributes :: Lens' AttributePayload (HashMap Text Text)
@@ -213,9 +214,9 @@ apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _
 apMerge :: Lens' AttributePayload (Maybe Bool)
 apMerge = lens _apMerge (\ s a -> s{_apMerge = a});
 
-instance Hashable AttributePayload
+instance Hashable AttributePayload where
 
-instance NFData AttributePayload
+instance NFData AttributePayload where
 
 instance ToJSON AttributePayload where
         toJSON AttributePayload'{..}
@@ -230,11 +231,12 @@ instance ToJSON AttributePayload where
 --
 -- /See:/ 'cACertificate' smart constructor.
 data CACertificate = CACertificate'
-    { _cacStatus         :: !(Maybe CACertificateStatus)
-    , _cacCertificateARN :: !(Maybe Text)
-    , _cacCertificateId  :: !(Maybe Text)
-    , _cacCreationDate   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cacStatus         :: {-# NOUNPACK #-}!(Maybe CACertificateStatus)
+  , _cacCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cacCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cacCreationDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CACertificate' with the minimum fields required to make a request.
 --
@@ -250,12 +252,13 @@ data CACertificate = CACertificate'
 cACertificate
     :: CACertificate
 cACertificate =
-    CACertificate'
-    { _cacStatus = Nothing
-    , _cacCertificateARN = Nothing
-    , _cacCertificateId = Nothing
-    , _cacCreationDate = Nothing
-    }
+  CACertificate'
+  { _cacStatus = Nothing
+  , _cacCertificateARN = Nothing
+  , _cacCertificateId = Nothing
+  , _cacCreationDate = Nothing
+  }
+
 
 -- | The status of the CA certificate. The status value REGISTER_INACTIVE is deprecated and should not be used.
 cacStatus :: Lens' CACertificate (Maybe CACertificateStatus)
@@ -282,9 +285,9 @@ instance FromJSON CACertificate where
                      (x .:? "certificateId")
                      <*> (x .:? "creationDate"))
 
-instance Hashable CACertificate
+instance Hashable CACertificate where
 
-instance NFData CACertificate
+instance NFData CACertificate where
 
 -- | Describes a CA certificate.
 --
@@ -292,14 +295,15 @@ instance NFData CACertificate
 --
 -- /See:/ 'cACertificateDescription' smart constructor.
 data CACertificateDescription = CACertificateDescription'
-    { _cacdStatus                 :: !(Maybe CACertificateStatus)
-    , _cacdOwnedBy                :: !(Maybe Text)
-    , _cacdCertificatePem         :: !(Maybe Text)
-    , _cacdCertificateARN         :: !(Maybe Text)
-    , _cacdCertificateId          :: !(Maybe Text)
-    , _cacdAutoRegistrationStatus :: !(Maybe AutoRegistrationStatus)
-    , _cacdCreationDate           :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cacdStatus :: {-# NOUNPACK #-}!(Maybe CACertificateStatus)
+  , _cacdOwnedBy :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cacdCertificatePem :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cacdCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cacdCertificateId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cacdAutoRegistrationStatus :: {-# NOUNPACK #-}!(Maybe AutoRegistrationStatus)
+  , _cacdCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CACertificateDescription' with the minimum fields required to make a request.
 --
@@ -321,15 +325,16 @@ data CACertificateDescription = CACertificateDescription'
 cACertificateDescription
     :: CACertificateDescription
 cACertificateDescription =
-    CACertificateDescription'
-    { _cacdStatus = Nothing
-    , _cacdOwnedBy = Nothing
-    , _cacdCertificatePem = Nothing
-    , _cacdCertificateARN = Nothing
-    , _cacdCertificateId = Nothing
-    , _cacdAutoRegistrationStatus = Nothing
-    , _cacdCreationDate = Nothing
-    }
+  CACertificateDescription'
+  { _cacdStatus = Nothing
+  , _cacdOwnedBy = Nothing
+  , _cacdCertificatePem = Nothing
+  , _cacdCertificateARN = Nothing
+  , _cacdCertificateId = Nothing
+  , _cacdAutoRegistrationStatus = Nothing
+  , _cacdCreationDate = Nothing
+  }
+
 
 -- | The status of a CA certificate.
 cacdStatus :: Lens' CACertificateDescription (Maybe CACertificateStatus)
@@ -371,9 +376,9 @@ instance FromJSON CACertificateDescription where
                      <*> (x .:? "autoRegistrationStatus")
                      <*> (x .:? "creationDate"))
 
-instance Hashable CACertificateDescription
+instance Hashable CACertificateDescription where
 
-instance NFData CACertificateDescription
+instance NFData CACertificateDescription where
 
 -- | Information about a certificate.
 --
@@ -381,11 +386,12 @@ instance NFData CACertificateDescription
 --
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
-    { _cStatus         :: !(Maybe CertificateStatus)
-    , _cCertificateARN :: !(Maybe Text)
-    , _cCertificateId  :: !(Maybe Text)
-    , _cCreationDate   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cStatus         :: {-# NOUNPACK #-}!(Maybe CertificateStatus)
+  , _cCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCreationDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
@@ -401,12 +407,13 @@ data Certificate = Certificate'
 certificate
     :: Certificate
 certificate =
-    Certificate'
-    { _cStatus = Nothing
-    , _cCertificateARN = Nothing
-    , _cCertificateId = Nothing
-    , _cCreationDate = Nothing
-    }
+  Certificate'
+  { _cStatus = Nothing
+  , _cCertificateARN = Nothing
+  , _cCertificateId = Nothing
+  , _cCreationDate = Nothing
+  }
+
 
 -- | The status of the certificate. The status value REGISTER_INACTIVE is deprecated and should not be used.
 cStatus :: Lens' Certificate (Maybe CertificateStatus)
@@ -433,9 +440,9 @@ instance FromJSON Certificate where
                      (x .:? "certificateId")
                      <*> (x .:? "creationDate"))
 
-instance Hashable Certificate
+instance Hashable Certificate where
 
-instance NFData Certificate
+instance NFData Certificate where
 
 -- | Describes a certificate.
 --
@@ -443,17 +450,18 @@ instance NFData Certificate
 --
 -- /See:/ 'certificateDescription' smart constructor.
 data CertificateDescription = CertificateDescription'
-    { _cdStatus           :: !(Maybe CertificateStatus)
-    , _cdOwnedBy          :: !(Maybe Text)
-    , _cdLastModifiedDate :: !(Maybe POSIX)
-    , _cdCaCertificateId  :: !(Maybe Text)
-    , _cdPreviousOwnedBy  :: !(Maybe Text)
-    , _cdCertificatePem   :: !(Maybe Text)
-    , _cdCertificateARN   :: !(Maybe Text)
-    , _cdCertificateId    :: !(Maybe Text)
-    , _cdCreationDate     :: !(Maybe POSIX)
-    , _cdTransferData     :: !(Maybe TransferData)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdStatus           :: {-# NOUNPACK #-}!(Maybe CertificateStatus)
+  , _cdOwnedBy          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cdCaCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdPreviousOwnedBy  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdCertificatePem   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdCertificateARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdCertificateId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cdTransferData     :: {-# NOUNPACK #-}!(Maybe TransferData)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CertificateDescription' with the minimum fields required to make a request.
 --
@@ -481,18 +489,19 @@ data CertificateDescription = CertificateDescription'
 certificateDescription
     :: CertificateDescription
 certificateDescription =
-    CertificateDescription'
-    { _cdStatus = Nothing
-    , _cdOwnedBy = Nothing
-    , _cdLastModifiedDate = Nothing
-    , _cdCaCertificateId = Nothing
-    , _cdPreviousOwnedBy = Nothing
-    , _cdCertificatePem = Nothing
-    , _cdCertificateARN = Nothing
-    , _cdCertificateId = Nothing
-    , _cdCreationDate = Nothing
-    , _cdTransferData = Nothing
-    }
+  CertificateDescription'
+  { _cdStatus = Nothing
+  , _cdOwnedBy = Nothing
+  , _cdLastModifiedDate = Nothing
+  , _cdCaCertificateId = Nothing
+  , _cdPreviousOwnedBy = Nothing
+  , _cdCertificatePem = Nothing
+  , _cdCertificateARN = Nothing
+  , _cdCertificateId = Nothing
+  , _cdCreationDate = Nothing
+  , _cdTransferData = Nothing
+  }
+
 
 -- | The status of the certificate.
 cdStatus :: Lens' CertificateDescription (Maybe CertificateStatus)
@@ -549,9 +558,9 @@ instance FromJSON CertificateDescription where
                      <*> (x .:? "creationDate")
                      <*> (x .:? "transferData"))
 
-instance Hashable CertificateDescription
+instance Hashable CertificateDescription where
 
-instance NFData CertificateDescription
+instance NFData CertificateDescription where
 
 -- | Describes an action that updates a CloudWatch alarm.
 --
@@ -559,11 +568,12 @@ instance NFData CertificateDescription
 --
 -- /See:/ 'cloudwatchAlarmAction' smart constructor.
 data CloudwatchAlarmAction = CloudwatchAlarmAction'
-    { _caaRoleARN     :: !Text
-    , _caaAlarmName   :: !Text
-    , _caaStateReason :: !Text
-    , _caaStateValue  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caaRoleARN     :: {-# NOUNPACK #-}!Text
+  , _caaAlarmName   :: {-# NOUNPACK #-}!Text
+  , _caaStateReason :: {-# NOUNPACK #-}!Text
+  , _caaStateValue  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudwatchAlarmAction' with the minimum fields required to make a request.
 --
@@ -583,12 +593,13 @@ cloudwatchAlarmAction
     -> Text -- ^ 'caaStateValue'
     -> CloudwatchAlarmAction
 cloudwatchAlarmAction pRoleARN_ pAlarmName_ pStateReason_ pStateValue_ =
-    CloudwatchAlarmAction'
-    { _caaRoleARN = pRoleARN_
-    , _caaAlarmName = pAlarmName_
-    , _caaStateReason = pStateReason_
-    , _caaStateValue = pStateValue_
-    }
+  CloudwatchAlarmAction'
+  { _caaRoleARN = pRoleARN_
+  , _caaAlarmName = pAlarmName_
+  , _caaStateReason = pStateReason_
+  , _caaStateValue = pStateValue_
+  }
+
 
 -- | The IAM role that allows access to the CloudWatch alarm.
 caaRoleARN :: Lens' CloudwatchAlarmAction Text
@@ -615,9 +626,9 @@ instance FromJSON CloudwatchAlarmAction where
                      (x .: "stateReason")
                      <*> (x .: "stateValue"))
 
-instance Hashable CloudwatchAlarmAction
+instance Hashable CloudwatchAlarmAction where
 
-instance NFData CloudwatchAlarmAction
+instance NFData CloudwatchAlarmAction where
 
 instance ToJSON CloudwatchAlarmAction where
         toJSON CloudwatchAlarmAction'{..}
@@ -634,13 +645,14 @@ instance ToJSON CloudwatchAlarmAction where
 --
 -- /See:/ 'cloudwatchMetricAction' smart constructor.
 data CloudwatchMetricAction = CloudwatchMetricAction'
-    { _cmaMetricTimestamp :: !(Maybe Text)
-    , _cmaRoleARN         :: !Text
-    , _cmaMetricNamespace :: !Text
-    , _cmaMetricName      :: !Text
-    , _cmaMetricValue     :: !Text
-    , _cmaMetricUnit      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmaMetricTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmaRoleARN         :: {-# NOUNPACK #-}!Text
+  , _cmaMetricNamespace :: {-# NOUNPACK #-}!Text
+  , _cmaMetricName      :: {-# NOUNPACK #-}!Text
+  , _cmaMetricValue     :: {-# NOUNPACK #-}!Text
+  , _cmaMetricUnit      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudwatchMetricAction' with the minimum fields required to make a request.
 --
@@ -665,14 +677,15 @@ cloudwatchMetricAction
     -> Text -- ^ 'cmaMetricUnit'
     -> CloudwatchMetricAction
 cloudwatchMetricAction pRoleARN_ pMetricNamespace_ pMetricName_ pMetricValue_ pMetricUnit_ =
-    CloudwatchMetricAction'
-    { _cmaMetricTimestamp = Nothing
-    , _cmaRoleARN = pRoleARN_
-    , _cmaMetricNamespace = pMetricNamespace_
-    , _cmaMetricName = pMetricName_
-    , _cmaMetricValue = pMetricValue_
-    , _cmaMetricUnit = pMetricUnit_
-    }
+  CloudwatchMetricAction'
+  { _cmaMetricTimestamp = Nothing
+  , _cmaRoleARN = pRoleARN_
+  , _cmaMetricNamespace = pMetricNamespace_
+  , _cmaMetricName = pMetricName_
+  , _cmaMetricValue = pMetricValue_
+  , _cmaMetricUnit = pMetricUnit_
+  }
+
 
 -- | An optional <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp> .
 cmaMetricTimestamp :: Lens' CloudwatchMetricAction (Maybe Text)
@@ -709,9 +722,9 @@ instance FromJSON CloudwatchMetricAction where
                      <*> (x .: "metricValue")
                      <*> (x .: "metricUnit"))
 
-instance Hashable CloudwatchMetricAction
+instance Hashable CloudwatchMetricAction where
 
-instance NFData CloudwatchMetricAction
+instance NFData CloudwatchMetricAction where
 
 instance ToJSON CloudwatchMetricAction where
         toJSON CloudwatchMetricAction'{..}
@@ -742,17 +755,18 @@ instance ToJSON CloudwatchMetricAction where
 --
 -- /See:/ 'dynamoDBAction' smart constructor.
 data DynamoDBAction = DynamoDBAction'
-    { _ddbaHashKeyType   :: !(Maybe DynamoKeyType)
-    , _ddbaOperation     :: !(Maybe Text)
-    , _ddbaRangeKeyType  :: !(Maybe DynamoKeyType)
-    , _ddbaPayloadField  :: !(Maybe Text)
-    , _ddbaRangeKeyField :: !(Maybe Text)
-    , _ddbaRangeKeyValue :: !(Maybe Text)
-    , _ddbaTableName     :: !Text
-    , _ddbaRoleARN       :: !Text
-    , _ddbaHashKeyField  :: !Text
-    , _ddbaHashKeyValue  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbaHashKeyType   :: {-# NOUNPACK #-}!(Maybe DynamoKeyType)
+  , _ddbaOperation     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbaRangeKeyType  :: {-# NOUNPACK #-}!(Maybe DynamoKeyType)
+  , _ddbaPayloadField  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbaRangeKeyField :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbaRangeKeyValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbaTableName     :: {-# NOUNPACK #-}!Text
+  , _ddbaRoleARN       :: {-# NOUNPACK #-}!Text
+  , _ddbaHashKeyField  :: {-# NOUNPACK #-}!Text
+  , _ddbaHashKeyValue  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DynamoDBAction' with the minimum fields required to make a request.
 --
@@ -784,18 +798,19 @@ dynamoDBAction
     -> Text -- ^ 'ddbaHashKeyValue'
     -> DynamoDBAction
 dynamoDBAction pTableName_ pRoleARN_ pHashKeyField_ pHashKeyValue_ =
-    DynamoDBAction'
-    { _ddbaHashKeyType = Nothing
-    , _ddbaOperation = Nothing
-    , _ddbaRangeKeyType = Nothing
-    , _ddbaPayloadField = Nothing
-    , _ddbaRangeKeyField = Nothing
-    , _ddbaRangeKeyValue = Nothing
-    , _ddbaTableName = pTableName_
-    , _ddbaRoleARN = pRoleARN_
-    , _ddbaHashKeyField = pHashKeyField_
-    , _ddbaHashKeyValue = pHashKeyValue_
-    }
+  DynamoDBAction'
+  { _ddbaHashKeyType = Nothing
+  , _ddbaOperation = Nothing
+  , _ddbaRangeKeyType = Nothing
+  , _ddbaPayloadField = Nothing
+  , _ddbaRangeKeyField = Nothing
+  , _ddbaRangeKeyValue = Nothing
+  , _ddbaTableName = pTableName_
+  , _ddbaRoleARN = pRoleARN_
+  , _ddbaHashKeyField = pHashKeyField_
+  , _ddbaHashKeyValue = pHashKeyValue_
+  }
+
 
 -- | The hash key type. Valid values are "STRING" or "NUMBER"
 ddbaHashKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
@@ -852,9 +867,9 @@ instance FromJSON DynamoDBAction where
                      <*> (x .: "hashKeyField")
                      <*> (x .: "hashKeyValue"))
 
-instance Hashable DynamoDBAction
+instance Hashable DynamoDBAction where
 
-instance NFData DynamoDBAction
+instance NFData DynamoDBAction where
 
 instance ToJSON DynamoDBAction where
         toJSON DynamoDBAction'{..}
@@ -879,9 +894,10 @@ instance ToJSON DynamoDBAction where
 --
 -- /See:/ 'dynamoDBv2Action' smart constructor.
 data DynamoDBv2Action = DynamoDBv2Action'
-    { _ddaPutItem :: !(Maybe PutItemInput)
-    , _ddaRoleARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddaPutItem :: {-# NOUNPACK #-}!(Maybe PutItemInput)
+  , _ddaRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DynamoDBv2Action' with the minimum fields required to make a request.
 --
@@ -893,10 +909,8 @@ data DynamoDBv2Action = DynamoDBv2Action'
 dynamoDBv2Action
     :: DynamoDBv2Action
 dynamoDBv2Action =
-    DynamoDBv2Action'
-    { _ddaPutItem = Nothing
-    , _ddaRoleARN = Nothing
-    }
+  DynamoDBv2Action' {_ddaPutItem = Nothing, _ddaRoleARN = Nothing}
+
 
 -- | Specifies the DynamoDB table to which the message data will be written. For example: @{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }@  Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 ddaPutItem :: Lens' DynamoDBv2Action (Maybe PutItemInput)
@@ -913,9 +927,9 @@ instance FromJSON DynamoDBv2Action where
                  DynamoDBv2Action' <$>
                    (x .:? "putItem") <*> (x .:? "roleArn"))
 
-instance Hashable DynamoDBv2Action
+instance Hashable DynamoDBv2Action where
 
-instance NFData DynamoDBv2Action
+instance NFData DynamoDBv2Action where
 
 instance ToJSON DynamoDBv2Action where
         toJSON DynamoDBv2Action'{..}
@@ -930,12 +944,13 @@ instance ToJSON DynamoDBv2Action where
 --
 -- /See:/ 'elasticsearchAction' smart constructor.
 data ElasticsearchAction = ElasticsearchAction'
-    { _eaRoleARN  :: !Text
-    , _eaEndpoint :: !Text
-    , _eaIndex    :: !Text
-    , _eaType     :: !Text
-    , _eaId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eaRoleARN  :: {-# NOUNPACK #-}!Text
+  , _eaEndpoint :: {-# NOUNPACK #-}!Text
+  , _eaIndex    :: {-# NOUNPACK #-}!Text
+  , _eaType     :: {-# NOUNPACK #-}!Text
+  , _eaId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchAction' with the minimum fields required to make a request.
 --
@@ -958,13 +973,14 @@ elasticsearchAction
     -> Text -- ^ 'eaId'
     -> ElasticsearchAction
 elasticsearchAction pRoleARN_ pEndpoint_ pIndex_ pType_ pId_ =
-    ElasticsearchAction'
-    { _eaRoleARN = pRoleARN_
-    , _eaEndpoint = pEndpoint_
-    , _eaIndex = pIndex_
-    , _eaType = pType_
-    , _eaId = pId_
-    }
+  ElasticsearchAction'
+  { _eaRoleARN = pRoleARN_
+  , _eaEndpoint = pEndpoint_
+  , _eaIndex = pIndex_
+  , _eaType = pType_
+  , _eaId = pId_
+  }
+
 
 -- | The IAM role ARN that has access to Elasticsearch.
 eaRoleARN :: Lens' ElasticsearchAction Text
@@ -996,9 +1012,9 @@ instance FromJSON ElasticsearchAction where
                      <*> (x .: "type")
                      <*> (x .: "id"))
 
-instance Hashable ElasticsearchAction
+instance Hashable ElasticsearchAction where
 
-instance NFData ElasticsearchAction
+instance NFData ElasticsearchAction where
 
 instance ToJSON ElasticsearchAction where
         toJSON ElasticsearchAction'{..}
@@ -1015,10 +1031,11 @@ instance ToJSON ElasticsearchAction where
 --
 -- /See:/ 'firehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
-    { _faSeparator          :: !(Maybe Text)
-    , _faRoleARN            :: !Text
-    , _faDeliveryStreamName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _faSeparator          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _faRoleARN            :: {-# NOUNPACK #-}!Text
+  , _faDeliveryStreamName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FirehoseAction' with the minimum fields required to make a request.
 --
@@ -1034,11 +1051,12 @@ firehoseAction
     -> Text -- ^ 'faDeliveryStreamName'
     -> FirehoseAction
 firehoseAction pRoleARN_ pDeliveryStreamName_ =
-    FirehoseAction'
-    { _faSeparator = Nothing
-    , _faRoleARN = pRoleARN_
-    , _faDeliveryStreamName = pDeliveryStreamName_
-    }
+  FirehoseAction'
+  { _faSeparator = Nothing
+  , _faRoleARN = pRoleARN_
+  , _faDeliveryStreamName = pDeliveryStreamName_
+  }
+
 
 -- | A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 faSeparator :: Lens' FirehoseAction (Maybe Text)
@@ -1060,9 +1078,9 @@ instance FromJSON FirehoseAction where
                    (x .:? "separator") <*> (x .: "roleArn") <*>
                      (x .: "deliveryStreamName"))
 
-instance Hashable FirehoseAction
+instance Hashable FirehoseAction where
 
-instance NFData FirehoseAction
+instance NFData FirehoseAction where
 
 instance ToJSON FirehoseAction where
         toJSON FirehoseAction'{..}
@@ -1079,9 +1097,10 @@ instance ToJSON FirehoseAction where
 --
 -- /See:/ 'keyPair' smart constructor.
 data KeyPair = KeyPair'
-    { _kpPrivateKey :: !(Maybe (Sensitive Text))
-    , _kpPublicKey  :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _kpPrivateKey :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _kpPublicKey  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyPair' with the minimum fields required to make a request.
 --
@@ -1092,11 +1111,8 @@ data KeyPair = KeyPair'
 -- * 'kpPublicKey' - The public key.
 keyPair
     :: KeyPair
-keyPair =
-    KeyPair'
-    { _kpPrivateKey = Nothing
-    , _kpPublicKey = Nothing
-    }
+keyPair = KeyPair' {_kpPrivateKey = Nothing, _kpPublicKey = Nothing}
+
 
 -- | The private key.
 kpPrivateKey :: Lens' KeyPair (Maybe Text)
@@ -1113,9 +1129,9 @@ instance FromJSON KeyPair where
                  KeyPair' <$>
                    (x .:? "PrivateKey") <*> (x .:? "PublicKey"))
 
-instance Hashable KeyPair
+instance Hashable KeyPair where
 
-instance NFData KeyPair
+instance NFData KeyPair where
 
 -- | Describes an action to write data to an Amazon Kinesis stream.
 --
@@ -1123,10 +1139,11 @@ instance NFData KeyPair
 --
 -- /See:/ 'kinesisAction' smart constructor.
 data KinesisAction = KinesisAction'
-    { _kaPartitionKey :: !(Maybe Text)
-    , _kaRoleARN      :: !Text
-    , _kaStreamName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kaPartitionKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kaRoleARN      :: {-# NOUNPACK #-}!Text
+  , _kaStreamName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KinesisAction' with the minimum fields required to make a request.
 --
@@ -1142,11 +1159,12 @@ kinesisAction
     -> Text -- ^ 'kaStreamName'
     -> KinesisAction
 kinesisAction pRoleARN_ pStreamName_ =
-    KinesisAction'
-    { _kaPartitionKey = Nothing
-    , _kaRoleARN = pRoleARN_
-    , _kaStreamName = pStreamName_
-    }
+  KinesisAction'
+  { _kaPartitionKey = Nothing
+  , _kaRoleARN = pRoleARN_
+  , _kaStreamName = pStreamName_
+  }
+
 
 -- | The partition key.
 kaPartitionKey :: Lens' KinesisAction (Maybe Text)
@@ -1168,9 +1186,9 @@ instance FromJSON KinesisAction where
                    (x .:? "partitionKey") <*> (x .: "roleArn") <*>
                      (x .: "streamName"))
 
-instance Hashable KinesisAction
+instance Hashable KinesisAction where
 
-instance NFData KinesisAction
+instance NFData KinesisAction where
 
 instance ToJSON KinesisAction where
         toJSON KinesisAction'{..}
@@ -1186,8 +1204,9 @@ instance ToJSON KinesisAction where
 --
 -- /See:/ 'lambdaAction' smart constructor.
 newtype LambdaAction = LambdaAction'
-    { _laFunctionARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laFunctionARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaAction' with the minimum fields required to make a request.
 --
@@ -1197,10 +1216,8 @@ newtype LambdaAction = LambdaAction'
 lambdaAction
     :: Text -- ^ 'laFunctionARN'
     -> LambdaAction
-lambdaAction pFunctionARN_ =
-    LambdaAction'
-    { _laFunctionARN = pFunctionARN_
-    }
+lambdaAction pFunctionARN_ = LambdaAction' {_laFunctionARN = pFunctionARN_}
+
 
 -- | The ARN of the Lambda function.
 laFunctionARN :: Lens' LambdaAction Text
@@ -1211,9 +1228,9 @@ instance FromJSON LambdaAction where
           = withObject "LambdaAction"
               (\ x -> LambdaAction' <$> (x .: "functionArn"))
 
-instance Hashable LambdaAction
+instance Hashable LambdaAction where
 
-instance NFData LambdaAction
+instance NFData LambdaAction where
 
 instance ToJSON LambdaAction where
         toJSON LambdaAction'{..}
@@ -1226,9 +1243,10 @@ instance ToJSON LambdaAction where
 --
 -- /See:/ 'loggingOptionsPayload' smart constructor.
 data LoggingOptionsPayload = LoggingOptionsPayload'
-    { _lopLogLevel :: !(Maybe LogLevel)
-    , _lopRoleARN  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lopLogLevel :: {-# NOUNPACK #-}!(Maybe LogLevel)
+  , _lopRoleARN  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoggingOptionsPayload' with the minimum fields required to make a request.
 --
@@ -1241,10 +1259,8 @@ loggingOptionsPayload
     :: Text -- ^ 'lopRoleARN'
     -> LoggingOptionsPayload
 loggingOptionsPayload pRoleARN_ =
-    LoggingOptionsPayload'
-    { _lopLogLevel = Nothing
-    , _lopRoleARN = pRoleARN_
-    }
+  LoggingOptionsPayload' {_lopLogLevel = Nothing, _lopRoleARN = pRoleARN_}
+
 
 -- | The logging level.
 lopLogLevel :: Lens' LoggingOptionsPayload (Maybe LogLevel)
@@ -1254,9 +1270,9 @@ lopLogLevel = lens _lopLogLevel (\ s a -> s{_lopLogLevel = a});
 lopRoleARN :: Lens' LoggingOptionsPayload Text
 lopRoleARN = lens _lopRoleARN (\ s a -> s{_lopRoleARN = a});
 
-instance Hashable LoggingOptionsPayload
+instance Hashable LoggingOptionsPayload where
 
-instance NFData LoggingOptionsPayload
+instance NFData LoggingOptionsPayload where
 
 instance ToJSON LoggingOptionsPayload where
         toJSON LoggingOptionsPayload'{..}
@@ -1271,13 +1287,14 @@ instance ToJSON LoggingOptionsPayload where
 --
 -- /See:/ 'outgoingCertificate' smart constructor.
 data OutgoingCertificate = OutgoingCertificate'
-    { _ocTransferDate    :: !(Maybe POSIX)
-    , _ocCertificateARN  :: !(Maybe Text)
-    , _ocCertificateId   :: !(Maybe Text)
-    , _ocTransferredTo   :: !(Maybe Text)
-    , _ocCreationDate    :: !(Maybe POSIX)
-    , _ocTransferMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ocTransferDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ocCertificateARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ocCertificateId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ocTransferredTo   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ocCreationDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ocTransferMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OutgoingCertificate' with the minimum fields required to make a request.
 --
@@ -1297,14 +1314,15 @@ data OutgoingCertificate = OutgoingCertificate'
 outgoingCertificate
     :: OutgoingCertificate
 outgoingCertificate =
-    OutgoingCertificate'
-    { _ocTransferDate = Nothing
-    , _ocCertificateARN = Nothing
-    , _ocCertificateId = Nothing
-    , _ocTransferredTo = Nothing
-    , _ocCreationDate = Nothing
-    , _ocTransferMessage = Nothing
-    }
+  OutgoingCertificate'
+  { _ocTransferDate = Nothing
+  , _ocCertificateARN = Nothing
+  , _ocCertificateId = Nothing
+  , _ocTransferredTo = Nothing
+  , _ocCreationDate = Nothing
+  , _ocTransferMessage = Nothing
+  }
+
 
 -- | The date the transfer was initiated.
 ocTransferDate :: Lens' OutgoingCertificate (Maybe UTCTime)
@@ -1341,9 +1359,9 @@ instance FromJSON OutgoingCertificate where
                      <*> (x .:? "creationDate")
                      <*> (x .:? "transferMessage"))
 
-instance Hashable OutgoingCertificate
+instance Hashable OutgoingCertificate where
 
-instance NFData OutgoingCertificate
+instance NFData OutgoingCertificate where
 
 -- | Describes an AWS IoT policy.
 --
@@ -1351,9 +1369,10 @@ instance NFData OutgoingCertificate
 --
 -- /See:/ 'policy' smart constructor.
 data Policy = Policy'
-    { _pPolicyName :: !(Maybe Text)
-    , _pPolicyARN  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pPolicyARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Policy' with the minimum fields required to make a request.
 --
@@ -1364,11 +1383,8 @@ data Policy = Policy'
 -- * 'pPolicyARN' - The policy ARN.
 policy
     :: Policy
-policy =
-    Policy'
-    { _pPolicyName = Nothing
-    , _pPolicyARN = Nothing
-    }
+policy = Policy' {_pPolicyName = Nothing, _pPolicyARN = Nothing}
+
 
 -- | The policy name.
 pPolicyName :: Lens' Policy (Maybe Text)
@@ -1385,9 +1401,9 @@ instance FromJSON Policy where
                  Policy' <$>
                    (x .:? "policyName") <*> (x .:? "policyArn"))
 
-instance Hashable Policy
+instance Hashable Policy where
 
-instance NFData Policy
+instance NFData Policy where
 
 -- | Describes a policy version.
 --
@@ -1395,10 +1411,11 @@ instance NFData Policy
 --
 -- /See:/ 'policyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-    { _pvVersionId        :: !(Maybe Text)
-    , _pvCreateDate       :: !(Maybe POSIX)
-    , _pvIsDefaultVersion :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pvVersionId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvCreateDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pvIsDefaultVersion :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PolicyVersion' with the minimum fields required to make a request.
 --
@@ -1412,11 +1429,12 @@ data PolicyVersion = PolicyVersion'
 policyVersion
     :: PolicyVersion
 policyVersion =
-    PolicyVersion'
-    { _pvVersionId = Nothing
-    , _pvCreateDate = Nothing
-    , _pvIsDefaultVersion = Nothing
-    }
+  PolicyVersion'
+  { _pvVersionId = Nothing
+  , _pvCreateDate = Nothing
+  , _pvIsDefaultVersion = Nothing
+  }
+
 
 -- | The policy version ID.
 pvVersionId :: Lens' PolicyVersion (Maybe Text)
@@ -1438,9 +1456,9 @@ instance FromJSON PolicyVersion where
                    (x .:? "versionId") <*> (x .:? "createDate") <*>
                      (x .:? "isDefaultVersion"))
 
-instance Hashable PolicyVersion
+instance Hashable PolicyVersion where
 
-instance NFData PolicyVersion
+instance NFData PolicyVersion where
 
 -- | The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
 --
@@ -1448,8 +1466,9 @@ instance NFData PolicyVersion
 --
 -- /See:/ 'putItemInput' smart constructor.
 newtype PutItemInput = PutItemInput'
-    { _piiTableName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _piiTableName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutItemInput' with the minimum fields required to make a request.
 --
@@ -1459,10 +1478,8 @@ newtype PutItemInput = PutItemInput'
 putItemInput
     :: Text -- ^ 'piiTableName'
     -> PutItemInput
-putItemInput pTableName_ =
-    PutItemInput'
-    { _piiTableName = pTableName_
-    }
+putItemInput pTableName_ = PutItemInput' {_piiTableName = pTableName_}
+
 
 -- | The table where the message data will be written
 piiTableName :: Lens' PutItemInput Text
@@ -1473,9 +1490,9 @@ instance FromJSON PutItemInput where
           = withObject "PutItemInput"
               (\ x -> PutItemInput' <$> (x .: "tableName"))
 
-instance Hashable PutItemInput
+instance Hashable PutItemInput where
 
-instance NFData PutItemInput
+instance NFData PutItemInput where
 
 instance ToJSON PutItemInput where
         toJSON PutItemInput'{..}
@@ -1488,9 +1505,10 @@ instance ToJSON PutItemInput where
 --
 -- /See:/ 'republishAction' smart constructor.
 data RepublishAction = RepublishAction'
-    { _raRoleARN :: !Text
-    , _raTopic   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raRoleARN :: {-# NOUNPACK #-}!Text
+  , _raTopic   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RepublishAction' with the minimum fields required to make a request.
 --
@@ -1504,10 +1522,8 @@ republishAction
     -> Text -- ^ 'raTopic'
     -> RepublishAction
 republishAction pRoleARN_ pTopic_ =
-    RepublishAction'
-    { _raRoleARN = pRoleARN_
-    , _raTopic = pTopic_
-    }
+  RepublishAction' {_raRoleARN = pRoleARN_, _raTopic = pTopic_}
+
 
 -- | The ARN of the IAM role that grants access.
 raRoleARN :: Lens' RepublishAction Text
@@ -1524,9 +1540,9 @@ instance FromJSON RepublishAction where
                  RepublishAction' <$>
                    (x .: "roleArn") <*> (x .: "topic"))
 
-instance Hashable RepublishAction
+instance Hashable RepublishAction where
 
-instance NFData RepublishAction
+instance NFData RepublishAction where
 
 instance ToJSON RepublishAction where
         toJSON RepublishAction'{..}
@@ -1541,11 +1557,12 @@ instance ToJSON RepublishAction where
 --
 -- /See:/ 's3Action' smart constructor.
 data S3Action = S3Action'
-    { _sCannedACL  :: !(Maybe CannedAccessControlList)
-    , _sRoleARN    :: !Text
-    , _sBucketName :: !Text
-    , _sKey        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sCannedACL  :: {-# NOUNPACK #-}!(Maybe CannedAccessControlList)
+  , _sRoleARN    :: {-# NOUNPACK #-}!Text
+  , _sBucketName :: {-# NOUNPACK #-}!Text
+  , _sKey        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Action' with the minimum fields required to make a request.
 --
@@ -1564,12 +1581,13 @@ s3Action
     -> Text -- ^ 'sKey'
     -> S3Action
 s3Action pRoleARN_ pBucketName_ pKey_ =
-    S3Action'
-    { _sCannedACL = Nothing
-    , _sRoleARN = pRoleARN_
-    , _sBucketName = pBucketName_
-    , _sKey = pKey_
-    }
+  S3Action'
+  { _sCannedACL = Nothing
+  , _sRoleARN = pRoleARN_
+  , _sBucketName = pBucketName_
+  , _sKey = pKey_
+  }
+
 
 -- | The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs> .
 sCannedACL :: Lens' S3Action (Maybe CannedAccessControlList)
@@ -1596,9 +1614,9 @@ instance FromJSON S3Action where
                      (x .: "bucketName")
                      <*> (x .: "key"))
 
-instance Hashable S3Action
+instance Hashable S3Action where
 
-instance NFData S3Action
+instance NFData S3Action where
 
 instance ToJSON S3Action where
         toJSON S3Action'{..}
@@ -1615,10 +1633,11 @@ instance ToJSON S3Action where
 --
 -- /See:/ 'snsAction' smart constructor.
 data SNSAction = SNSAction'
-    { _snsaMessageFormat :: !(Maybe MessageFormat)
-    , _snsaTargetARN     :: !Text
-    , _snsaRoleARN       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _snsaMessageFormat :: {-# NOUNPACK #-}!(Maybe MessageFormat)
+  , _snsaTargetARN     :: {-# NOUNPACK #-}!Text
+  , _snsaRoleARN       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SNSAction' with the minimum fields required to make a request.
 --
@@ -1634,11 +1653,12 @@ snsAction
     -> Text -- ^ 'snsaRoleARN'
     -> SNSAction
 snsAction pTargetARN_ pRoleARN_ =
-    SNSAction'
-    { _snsaMessageFormat = Nothing
-    , _snsaTargetARN = pTargetARN_
-    , _snsaRoleARN = pRoleARN_
-    }
+  SNSAction'
+  { _snsaMessageFormat = Nothing
+  , _snsaTargetARN = pTargetARN_
+  , _snsaRoleARN = pRoleARN_
+  }
+
 
 -- | The message format of the message to publish. Optional. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html http://docs.aws.amazon.com/sns/latest/dg/json-formats.html> refer to their official documentation.
 snsaMessageFormat :: Lens' SNSAction (Maybe MessageFormat)
@@ -1660,9 +1680,9 @@ instance FromJSON SNSAction where
                    (x .:? "messageFormat") <*> (x .: "targetArn") <*>
                      (x .: "roleArn"))
 
-instance Hashable SNSAction
+instance Hashable SNSAction where
 
-instance NFData SNSAction
+instance NFData SNSAction where
 
 instance ToJSON SNSAction where
         toJSON SNSAction'{..}
@@ -1678,9 +1698,10 @@ instance ToJSON SNSAction where
 --
 -- /See:/ 'salesforceAction' smart constructor.
 data SalesforceAction = SalesforceAction'
-    { _saToken :: !Text
-    , _saUrl   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saToken :: {-# NOUNPACK #-}!Text
+  , _saUrl   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SalesforceAction' with the minimum fields required to make a request.
 --
@@ -1694,10 +1715,8 @@ salesforceAction
     -> Text -- ^ 'saUrl'
     -> SalesforceAction
 salesforceAction pToken_ pUrl_ =
-    SalesforceAction'
-    { _saToken = pToken_
-    , _saUrl = pUrl_
-    }
+  SalesforceAction' {_saToken = pToken_, _saUrl = pUrl_}
+
 
 -- | The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
 saToken :: Lens' SalesforceAction Text
@@ -1714,9 +1733,9 @@ instance FromJSON SalesforceAction where
                  SalesforceAction' <$>
                    (x .: "token") <*> (x .: "url"))
 
-instance Hashable SalesforceAction
+instance Hashable SalesforceAction where
 
-instance NFData SalesforceAction
+instance NFData SalesforceAction where
 
 instance ToJSON SalesforceAction where
         toJSON SalesforceAction'{..}
@@ -1730,10 +1749,11 @@ instance ToJSON SalesforceAction where
 --
 -- /See:/ 'sqsAction' smart constructor.
 data SqsAction = SqsAction'
-    { _saUseBase64 :: !(Maybe Bool)
-    , _saRoleARN   :: !Text
-    , _saQueueURL  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saUseBase64 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _saRoleARN   :: {-# NOUNPACK #-}!Text
+  , _saQueueURL  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SqsAction' with the minimum fields required to make a request.
 --
@@ -1749,11 +1769,9 @@ sqsAction
     -> Text -- ^ 'saQueueURL'
     -> SqsAction
 sqsAction pRoleARN_ pQueueURL_ =
-    SqsAction'
-    { _saUseBase64 = Nothing
-    , _saRoleARN = pRoleARN_
-    , _saQueueURL = pQueueURL_
-    }
+  SqsAction'
+  {_saUseBase64 = Nothing, _saRoleARN = pRoleARN_, _saQueueURL = pQueueURL_}
+
 
 -- | Specifies whether to use Base64 encoding.
 saUseBase64 :: Lens' SqsAction (Maybe Bool)
@@ -1775,9 +1793,9 @@ instance FromJSON SqsAction where
                    (x .:? "useBase64") <*> (x .: "roleArn") <*>
                      (x .: "queueUrl"))
 
-instance Hashable SqsAction
+instance Hashable SqsAction where
 
-instance NFData SqsAction
+instance NFData SqsAction where
 
 instance ToJSON SqsAction where
         toJSON SqsAction'{..}
@@ -1793,11 +1811,12 @@ instance ToJSON SqsAction where
 --
 -- /See:/ 'thingAttribute' smart constructor.
 data ThingAttribute = ThingAttribute'
-    { _taThingTypeName :: !(Maybe Text)
-    , _taAttributes    :: !(Maybe (Map Text Text))
-    , _taVersion       :: !(Maybe Integer)
-    , _taThingName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _taThingTypeName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _taAttributes    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _taVersion       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _taThingName     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ThingAttribute' with the minimum fields required to make a request.
 --
@@ -1813,12 +1832,13 @@ data ThingAttribute = ThingAttribute'
 thingAttribute
     :: ThingAttribute
 thingAttribute =
-    ThingAttribute'
-    { _taThingTypeName = Nothing
-    , _taAttributes = Nothing
-    , _taVersion = Nothing
-    , _taThingName = Nothing
-    }
+  ThingAttribute'
+  { _taThingTypeName = Nothing
+  , _taAttributes = Nothing
+  , _taVersion = Nothing
+  , _taThingName = Nothing
+  }
+
 
 -- | The name of the thing type, if the thing has been associated with a type.
 taThingTypeName :: Lens' ThingAttribute (Maybe Text)
@@ -1846,9 +1866,9 @@ instance FromJSON ThingAttribute where
                      <*> (x .:? "version")
                      <*> (x .:? "thingName"))
 
-instance Hashable ThingAttribute
+instance Hashable ThingAttribute where
 
-instance NFData ThingAttribute
+instance NFData ThingAttribute where
 
 -- | The definition of the thing type, including thing type name and description.
 --
@@ -1856,10 +1876,11 @@ instance NFData ThingAttribute
 --
 -- /See:/ 'thingTypeDefinition' smart constructor.
 data ThingTypeDefinition = ThingTypeDefinition'
-    { _ttdThingTypeProperties :: !(Maybe ThingTypeProperties)
-    , _ttdThingTypeName       :: !(Maybe Text)
-    , _ttdThingTypeMetadata   :: !(Maybe ThingTypeMetadata)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ttdThingTypeProperties :: {-# NOUNPACK #-}!(Maybe ThingTypeProperties)
+  , _ttdThingTypeName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ttdThingTypeMetadata   :: {-# NOUNPACK #-}!(Maybe ThingTypeMetadata)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ThingTypeDefinition' with the minimum fields required to make a request.
 --
@@ -1873,11 +1894,12 @@ data ThingTypeDefinition = ThingTypeDefinition'
 thingTypeDefinition
     :: ThingTypeDefinition
 thingTypeDefinition =
-    ThingTypeDefinition'
-    { _ttdThingTypeProperties = Nothing
-    , _ttdThingTypeName = Nothing
-    , _ttdThingTypeMetadata = Nothing
-    }
+  ThingTypeDefinition'
+  { _ttdThingTypeProperties = Nothing
+  , _ttdThingTypeName = Nothing
+  , _ttdThingTypeMetadata = Nothing
+  }
+
 
 -- | The ThingTypeProperties for the thing type.
 ttdThingTypeProperties :: Lens' ThingTypeDefinition (Maybe ThingTypeProperties)
@@ -1900,9 +1922,9 @@ instance FromJSON ThingTypeDefinition where
                      (x .:? "thingTypeName")
                      <*> (x .:? "thingTypeMetadata"))
 
-instance Hashable ThingTypeDefinition
+instance Hashable ThingTypeDefinition where
 
-instance NFData ThingTypeDefinition
+instance NFData ThingTypeDefinition where
 
 -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when time was deprecated.
 --
@@ -1910,10 +1932,11 @@ instance NFData ThingTypeDefinition
 --
 -- /See:/ 'thingTypeMetadata' smart constructor.
 data ThingTypeMetadata = ThingTypeMetadata'
-    { _ttmDeprecationDate :: !(Maybe POSIX)
-    , _ttmCreationDate    :: !(Maybe POSIX)
-    , _ttmDeprecated      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ttmDeprecationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ttmCreationDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ttmDeprecated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ThingTypeMetadata' with the minimum fields required to make a request.
 --
@@ -1927,11 +1950,12 @@ data ThingTypeMetadata = ThingTypeMetadata'
 thingTypeMetadata
     :: ThingTypeMetadata
 thingTypeMetadata =
-    ThingTypeMetadata'
-    { _ttmDeprecationDate = Nothing
-    , _ttmCreationDate = Nothing
-    , _ttmDeprecated = Nothing
-    }
+  ThingTypeMetadata'
+  { _ttmDeprecationDate = Nothing
+  , _ttmCreationDate = Nothing
+  , _ttmDeprecated = Nothing
+  }
+
 
 -- | The date and time when the thing type was deprecated.
 ttmDeprecationDate :: Lens' ThingTypeMetadata (Maybe UTCTime)
@@ -1953,9 +1977,9 @@ instance FromJSON ThingTypeMetadata where
                    (x .:? "deprecationDate") <*> (x .:? "creationDate")
                      <*> (x .:? "deprecated"))
 
-instance Hashable ThingTypeMetadata
+instance Hashable ThingTypeMetadata where
 
-instance NFData ThingTypeMetadata
+instance NFData ThingTypeMetadata where
 
 -- | The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.
 --
@@ -1963,9 +1987,10 @@ instance NFData ThingTypeMetadata
 --
 -- /See:/ 'thingTypeProperties' smart constructor.
 data ThingTypeProperties = ThingTypeProperties'
-    { _ttpSearchableAttributes :: !(Maybe [Text])
-    , _ttpThingTypeDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ttpSearchableAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ttpThingTypeDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ThingTypeProperties' with the minimum fields required to make a request.
 --
@@ -1977,10 +2002,9 @@ data ThingTypeProperties = ThingTypeProperties'
 thingTypeProperties
     :: ThingTypeProperties
 thingTypeProperties =
-    ThingTypeProperties'
-    { _ttpSearchableAttributes = Nothing
-    , _ttpThingTypeDescription = Nothing
-    }
+  ThingTypeProperties'
+  {_ttpSearchableAttributes = Nothing, _ttpThingTypeDescription = Nothing}
+
 
 -- | A list of searchable thing attribute names.
 ttpSearchableAttributes :: Lens' ThingTypeProperties [Text]
@@ -1998,9 +2022,9 @@ instance FromJSON ThingTypeProperties where
                    (x .:? "searchableAttributes" .!= mempty) <*>
                      (x .:? "thingTypeDescription"))
 
-instance Hashable ThingTypeProperties
+instance Hashable ThingTypeProperties where
 
-instance NFData ThingTypeProperties
+instance NFData ThingTypeProperties where
 
 instance ToJSON ThingTypeProperties where
         toJSON ThingTypeProperties'{..}
@@ -2017,14 +2041,15 @@ instance ToJSON ThingTypeProperties where
 --
 -- /See:/ 'topicRule' smart constructor.
 data TopicRule = TopicRule'
-    { _trCreatedAt        :: !(Maybe POSIX)
-    , _trActions          :: !(Maybe [Action])
-    , _trAwsIotSqlVersion :: !(Maybe Text)
-    , _trRuleDisabled     :: !(Maybe Bool)
-    , _trRuleName         :: !(Maybe Text)
-    , _trSql              :: !(Maybe Text)
-    , _trDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trCreatedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _trActions          :: {-# NOUNPACK #-}!(Maybe [Action])
+  , _trAwsIotSqlVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trRuleDisabled     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _trRuleName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trSql              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TopicRule' with the minimum fields required to make a request.
 --
@@ -2046,15 +2071,16 @@ data TopicRule = TopicRule'
 topicRule
     :: TopicRule
 topicRule =
-    TopicRule'
-    { _trCreatedAt = Nothing
-    , _trActions = Nothing
-    , _trAwsIotSqlVersion = Nothing
-    , _trRuleDisabled = Nothing
-    , _trRuleName = Nothing
-    , _trSql = Nothing
-    , _trDescription = Nothing
-    }
+  TopicRule'
+  { _trCreatedAt = Nothing
+  , _trActions = Nothing
+  , _trAwsIotSqlVersion = Nothing
+  , _trRuleDisabled = Nothing
+  , _trRuleName = Nothing
+  , _trSql = Nothing
+  , _trDescription = Nothing
+  }
+
 
 -- | The date and time the rule was created.
 trCreatedAt :: Lens' TopicRule (Maybe UTCTime)
@@ -2096,9 +2122,9 @@ instance FromJSON TopicRule where
                      <*> (x .:? "sql")
                      <*> (x .:? "description"))
 
-instance Hashable TopicRule
+instance Hashable TopicRule where
 
-instance NFData TopicRule
+instance NFData TopicRule where
 
 -- | Describes a rule.
 --
@@ -2106,12 +2132,13 @@ instance NFData TopicRule
 --
 -- /See:/ 'topicRuleListItem' smart constructor.
 data TopicRuleListItem = TopicRuleListItem'
-    { _trliCreatedAt    :: !(Maybe POSIX)
-    , _trliRuleDisabled :: !(Maybe Bool)
-    , _trliRuleName     :: !(Maybe Text)
-    , _trliRuleARN      :: !(Maybe Text)
-    , _trliTopicPattern :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trliCreatedAt    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _trliRuleDisabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _trliRuleName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trliRuleARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trliTopicPattern :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TopicRuleListItem' with the minimum fields required to make a request.
 --
@@ -2129,13 +2156,14 @@ data TopicRuleListItem = TopicRuleListItem'
 topicRuleListItem
     :: TopicRuleListItem
 topicRuleListItem =
-    TopicRuleListItem'
-    { _trliCreatedAt = Nothing
-    , _trliRuleDisabled = Nothing
-    , _trliRuleName = Nothing
-    , _trliRuleARN = Nothing
-    , _trliTopicPattern = Nothing
-    }
+  TopicRuleListItem'
+  { _trliCreatedAt = Nothing
+  , _trliRuleDisabled = Nothing
+  , _trliRuleName = Nothing
+  , _trliRuleARN = Nothing
+  , _trliTopicPattern = Nothing
+  }
+
 
 -- | The date and time the rule was created.
 trliCreatedAt :: Lens' TopicRuleListItem (Maybe UTCTime)
@@ -2167,9 +2195,9 @@ instance FromJSON TopicRuleListItem where
                      <*> (x .:? "ruleArn")
                      <*> (x .:? "topicPattern"))
 
-instance Hashable TopicRuleListItem
+instance Hashable TopicRuleListItem where
 
-instance NFData TopicRuleListItem
+instance NFData TopicRuleListItem where
 
 -- | Describes a rule.
 --
@@ -2177,12 +2205,13 @@ instance NFData TopicRuleListItem
 --
 -- /See:/ 'topicRulePayload' smart constructor.
 data TopicRulePayload = TopicRulePayload'
-    { _trpAwsIotSqlVersion :: !(Maybe Text)
-    , _trpRuleDisabled     :: !(Maybe Bool)
-    , _trpDescription      :: !(Maybe Text)
-    , _trpSql              :: !Text
-    , _trpActions          :: ![Action]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trpAwsIotSqlVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trpRuleDisabled     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _trpDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trpSql              :: {-# NOUNPACK #-}!Text
+  , _trpActions          :: {-# NOUNPACK #-}![Action]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TopicRulePayload' with the minimum fields required to make a request.
 --
@@ -2201,13 +2230,14 @@ topicRulePayload
     :: Text -- ^ 'trpSql'
     -> TopicRulePayload
 topicRulePayload pSql_ =
-    TopicRulePayload'
-    { _trpAwsIotSqlVersion = Nothing
-    , _trpRuleDisabled = Nothing
-    , _trpDescription = Nothing
-    , _trpSql = pSql_
-    , _trpActions = mempty
-    }
+  TopicRulePayload'
+  { _trpAwsIotSqlVersion = Nothing
+  , _trpRuleDisabled = Nothing
+  , _trpDescription = Nothing
+  , _trpSql = pSql_
+  , _trpActions = mempty
+  }
+
 
 -- | The version of the SQL rules engine to use when evaluating the rule.
 trpAwsIotSqlVersion :: Lens' TopicRulePayload (Maybe Text)
@@ -2229,9 +2259,9 @@ trpSql = lens _trpSql (\ s a -> s{_trpSql = a});
 trpActions :: Lens' TopicRulePayload [Action]
 trpActions = lens _trpActions (\ s a -> s{_trpActions = a}) . _Coerce;
 
-instance Hashable TopicRulePayload
+instance Hashable TopicRulePayload where
 
-instance NFData TopicRulePayload
+instance NFData TopicRulePayload where
 
 instance ToJSON TopicRulePayload where
         toJSON TopicRulePayload'{..}
@@ -2249,12 +2279,13 @@ instance ToJSON TopicRulePayload where
 --
 -- /See:/ 'transferData' smart constructor.
 data TransferData = TransferData'
-    { _tdTransferDate    :: !(Maybe POSIX)
-    , _tdAcceptDate      :: !(Maybe POSIX)
-    , _tdTransferMessage :: !(Maybe Text)
-    , _tdRejectDate      :: !(Maybe POSIX)
-    , _tdRejectReason    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tdTransferDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tdAcceptDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tdTransferMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdRejectDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tdRejectReason    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TransferData' with the minimum fields required to make a request.
 --
@@ -2272,13 +2303,14 @@ data TransferData = TransferData'
 transferData
     :: TransferData
 transferData =
-    TransferData'
-    { _tdTransferDate = Nothing
-    , _tdAcceptDate = Nothing
-    , _tdTransferMessage = Nothing
-    , _tdRejectDate = Nothing
-    , _tdRejectReason = Nothing
-    }
+  TransferData'
+  { _tdTransferDate = Nothing
+  , _tdAcceptDate = Nothing
+  , _tdTransferMessage = Nothing
+  , _tdRejectDate = Nothing
+  , _tdRejectReason = Nothing
+  }
+
 
 -- | The date the transfer took place.
 tdTransferDate :: Lens' TransferData (Maybe UTCTime)
@@ -2310,6 +2342,6 @@ instance FromJSON TransferData where
                      <*> (x .:? "rejectDate")
                      <*> (x .:? "rejectReason"))
 
-instance Hashable TransferData
+instance Hashable TransferData where
 
-instance NFData TransferData
+instance NFData TransferData where

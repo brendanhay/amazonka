@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,13 +55,13 @@ module Network.AWS.Glacier.ListJobs
     , ljrsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving a job list for an Amazon Glacier vault.
 --
@@ -69,13 +69,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
-    { _ljMarker     :: !(Maybe Text)
-    , _ljCompleted  :: !(Maybe Text)
-    , _ljLimit      :: !(Maybe Text)
-    , _ljStatuscode :: !(Maybe Text)
-    , _ljAccountId  :: !Text
-    , _ljVaultName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljCompleted  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljLimit      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljStatuscode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljAccountId  :: {-# NOUNPACK #-}!Text
+  , _ljVaultName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
@@ -97,14 +98,15 @@ listJobs
     -> Text -- ^ 'ljVaultName'
     -> ListJobs
 listJobs pAccountId_ pVaultName_ =
-    ListJobs'
-    { _ljMarker = Nothing
-    , _ljCompleted = Nothing
-    , _ljLimit = Nothing
-    , _ljStatuscode = Nothing
-    , _ljAccountId = pAccountId_
-    , _ljVaultName = pVaultName_
-    }
+  ListJobs'
+  { _ljMarker = Nothing
+  , _ljCompleted = Nothing
+  , _ljLimit = Nothing
+  , _ljStatuscode = Nothing
+  , _ljAccountId = pAccountId_
+  , _ljVaultName = pVaultName_
+  }
+
 
 -- | An opaque string used for pagination. This value specifies the job at which the listing of jobs should begin. Get the marker value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of results started in a previous List Jobs request.
 ljMarker :: Lens' ListJobs (Maybe Text)
@@ -147,9 +149,9 @@ instance AWSRequest ListJobs where
                    (x .?> "Marker") <*> (x .?> "JobList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListJobs
+instance Hashable ListJobs where
 
-instance NFData ListJobs
+instance NFData ListJobs where
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -172,10 +174,11 @@ instance ToQuery ListJobs where
 --
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsMarker         :: !(Maybe Text)
-    , _ljrsJobList        :: !(Maybe [GlacierJobDescription])
-    , _ljrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljrsJobList        :: {-# NOUNPACK #-}!(Maybe [GlacierJobDescription])
+  , _ljrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
@@ -190,11 +193,12 @@ listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
-    ListJobsResponse'
-    { _ljrsMarker = Nothing
-    , _ljrsJobList = Nothing
-    , _ljrsResponseStatus = pResponseStatus_
-    }
+  ListJobsResponse'
+  { _ljrsMarker = Nothing
+  , _ljrsJobList = Nothing
+  , _ljrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An opaque string used for pagination that specifies the job at which the listing of jobs should begin. You get the @marker@ value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of the results started in a previous List Jobs request.
 ljrsMarker :: Lens' ListJobsResponse (Maybe Text)
@@ -208,4 +212,4 @@ ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default . _Coe
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
 
-instance NFData ListJobsResponse
+instance NFData ListJobsResponse where

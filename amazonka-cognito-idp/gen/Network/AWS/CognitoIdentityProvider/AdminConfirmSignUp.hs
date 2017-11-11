@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
     , acsursResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to confirm user registration.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminConfirmSignUp' smart constructor.
 data AdminConfirmSignUp = AdminConfirmSignUp'
-    { _acsuUserPoolId :: !Text
-    , _acsuUsername   :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _acsuUserPoolId :: {-# NOUNPACK #-}!Text
+  , _acsuUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminConfirmSignUp' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ adminConfirmSignUp
     -> Text -- ^ 'acsuUsername'
     -> AdminConfirmSignUp
 adminConfirmSignUp pUserPoolId_ pUsername_ =
-    AdminConfirmSignUp'
-    { _acsuUserPoolId = pUserPoolId_
-    , _acsuUsername = _Sensitive # pUsername_
-    }
+  AdminConfirmSignUp'
+  {_acsuUserPoolId = pUserPoolId_, _acsuUsername = _Sensitive # pUsername_}
+
 
 -- | The user pool ID for which you want to confirm user registration.
 acsuUserPoolId :: Lens' AdminConfirmSignUp Text
@@ -90,9 +90,9 @@ instance AWSRequest AdminConfirmSignUp where
               (\ s h x ->
                  AdminConfirmSignUpResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AdminConfirmSignUp
+instance Hashable AdminConfirmSignUp where
 
-instance NFData AdminConfirmSignUp
+instance NFData AdminConfirmSignUp where
 
 instance ToHeaders AdminConfirmSignUp where
         toHeaders
@@ -123,8 +123,9 @@ instance ToQuery AdminConfirmSignUp where
 --
 -- /See:/ 'adminConfirmSignUpResponse' smart constructor.
 newtype AdminConfirmSignUpResponse = AdminConfirmSignUpResponse'
-    { _acsursResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acsursResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminConfirmSignUpResponse' with the minimum fields required to make a request.
 --
@@ -135,12 +136,11 @@ adminConfirmSignUpResponse
     :: Int -- ^ 'acsursResponseStatus'
     -> AdminConfirmSignUpResponse
 adminConfirmSignUpResponse pResponseStatus_ =
-    AdminConfirmSignUpResponse'
-    { _acsursResponseStatus = pResponseStatus_
-    }
+  AdminConfirmSignUpResponse' {_acsursResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 acsursResponseStatus :: Lens' AdminConfirmSignUpResponse Int
 acsursResponseStatus = lens _acsursResponseStatus (\ s a -> s{_acsursResponseStatus = a});
 
-instance NFData AdminConfirmSignUpResponse
+instance NFData AdminConfirmSignUpResponse where

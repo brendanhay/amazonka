@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.StopStackSetOperation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CloudFormation.StopStackSetOperation
     , sssorsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopStackSetOperation' smart constructor.
 data StopStackSetOperation = StopStackSetOperation'
-    { _sssoStackSetName :: !Text
-    , _sssoOperationId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sssoStackSetName :: {-# NOUNPACK #-}!Text
+  , _sssoOperationId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopStackSetOperation' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ stopStackSetOperation
     -> Text -- ^ 'sssoOperationId'
     -> StopStackSetOperation
 stopStackSetOperation pStackSetName_ pOperationId_ =
-    StopStackSetOperation'
-    { _sssoStackSetName = pStackSetName_
-    , _sssoOperationId = pOperationId_
-    }
+  StopStackSetOperation'
+  {_sssoStackSetName = pStackSetName_, _sssoOperationId = pOperationId_}
+
 
 -- | The name or unique ID of the stack set that you want to stop the operation for.
 sssoStackSetName :: Lens' StopStackSetOperation Text
@@ -85,9 +85,9 @@ instance AWSRequest StopStackSetOperation where
                  StopStackSetOperationResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable StopStackSetOperation
+instance Hashable StopStackSetOperation where
 
-instance NFData StopStackSetOperation
+instance NFData StopStackSetOperation where
 
 instance ToHeaders StopStackSetOperation where
         toHeaders = const mempty
@@ -105,8 +105,9 @@ instance ToQuery StopStackSetOperation where
 
 -- | /See:/ 'stopStackSetOperationResponse' smart constructor.
 newtype StopStackSetOperationResponse = StopStackSetOperationResponse'
-    { _sssorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sssorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopStackSetOperationResponse' with the minimum fields required to make a request.
 --
@@ -117,12 +118,11 @@ stopStackSetOperationResponse
     :: Int -- ^ 'sssorsResponseStatus'
     -> StopStackSetOperationResponse
 stopStackSetOperationResponse pResponseStatus_ =
-    StopStackSetOperationResponse'
-    { _sssorsResponseStatus = pResponseStatus_
-    }
+  StopStackSetOperationResponse' {_sssorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 sssorsResponseStatus :: Lens' StopStackSetOperationResponse Int
 sssorsResponseStatus = lens _sssorsResponseStatus (\ s a -> s{_sssorsResponseStatus = a});
 
-instance NFData StopStackSetOperationResponse
+instance NFData StopStackSetOperationResponse where

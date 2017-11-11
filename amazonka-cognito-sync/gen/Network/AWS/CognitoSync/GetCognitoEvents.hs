@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.GetCognitoEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CognitoSync.GetCognitoEvents
     , gcersResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for a list of the configured Cognito Events
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getCognitoEvents' smart constructor.
 newtype GetCognitoEvents = GetCognitoEvents'
-    { _gceIdentityPoolId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gceIdentityPoolId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCognitoEvents' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ getCognitoEvents
     :: Text -- ^ 'gceIdentityPoolId'
     -> GetCognitoEvents
 getCognitoEvents pIdentityPoolId_ =
-    GetCognitoEvents'
-    { _gceIdentityPoolId = pIdentityPoolId_
-    }
+  GetCognitoEvents' {_gceIdentityPoolId = pIdentityPoolId_}
+
 
 -- | The Cognito Identity Pool ID for the request
 gceIdentityPoolId :: Lens' GetCognitoEvents Text
@@ -81,9 +81,9 @@ instance AWSRequest GetCognitoEvents where
                  GetCognitoEventsResponse' <$>
                    (x .?> "Events" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable GetCognitoEvents
+instance Hashable GetCognitoEvents where
 
-instance NFData GetCognitoEvents
+instance NFData GetCognitoEvents where
 
 instance ToHeaders GetCognitoEvents where
         toHeaders
@@ -107,9 +107,10 @@ instance ToQuery GetCognitoEvents where
 --
 -- /See:/ 'getCognitoEventsResponse' smart constructor.
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
-    { _gcersEvents         :: !(Maybe (Map Text Text))
-    , _gcersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcersEvents         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gcersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCognitoEventsResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +123,9 @@ getCognitoEventsResponse
     :: Int -- ^ 'gcersResponseStatus'
     -> GetCognitoEventsResponse
 getCognitoEventsResponse pResponseStatus_ =
-    GetCognitoEventsResponse'
-    { _gcersEvents = Nothing
-    , _gcersResponseStatus = pResponseStatus_
-    }
+  GetCognitoEventsResponse'
+  {_gcersEvents = Nothing, _gcersResponseStatus = pResponseStatus_}
+
 
 -- | The Cognito Events returned from the GetCognitoEvents request
 gcersEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
@@ -135,4 +135,4 @@ gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map
 gcersResponseStatus :: Lens' GetCognitoEventsResponse Int
 gcersResponseStatus = lens _gcersResponseStatus (\ s a -> s{_gcersResponseStatus = a});
 
-instance NFData GetCognitoEventsResponse
+instance NFData GetCognitoEventsResponse where

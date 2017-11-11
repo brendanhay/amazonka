@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateClusterSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     , crersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createClusterSnapshot' smart constructor.
 data CreateClusterSnapshot = CreateClusterSnapshot'
-    { _ccsTags               :: !(Maybe [Tag])
-    , _ccsSnapshotIdentifier :: !Text
-    , _ccsClusterIdentifier  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsTags               :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ccsSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  , _ccsClusterIdentifier  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterSnapshot' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ createClusterSnapshot
     -> Text -- ^ 'ccsClusterIdentifier'
     -> CreateClusterSnapshot
 createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
-    CreateClusterSnapshot'
-    { _ccsTags = Nothing
-    , _ccsSnapshotIdentifier = pSnapshotIdentifier_
-    , _ccsClusterIdentifier = pClusterIdentifier_
-    }
+  CreateClusterSnapshot'
+  { _ccsTags = Nothing
+  , _ccsSnapshotIdentifier = pSnapshotIdentifier_
+  , _ccsClusterIdentifier = pClusterIdentifier_
+  }
+
 
 -- | A list of tag instances.
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
@@ -101,9 +103,9 @@ instance AWSRequest CreateClusterSnapshot where
                  CreateClusterSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
-instance Hashable CreateClusterSnapshot
+instance Hashable CreateClusterSnapshot where
 
-instance NFData CreateClusterSnapshot
+instance NFData CreateClusterSnapshot where
 
 instance ToHeaders CreateClusterSnapshot where
         toHeaders = const mempty
@@ -122,9 +124,10 @@ instance ToQuery CreateClusterSnapshot where
 
 -- | /See:/ 'createClusterSnapshotResponse' smart constructor.
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
-    { _crersSnapshot       :: !(Maybe Snapshot)
-    , _crersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crersSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
+  , _crersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,9 @@ createClusterSnapshotResponse
     :: Int -- ^ 'crersResponseStatus'
     -> CreateClusterSnapshotResponse
 createClusterSnapshotResponse pResponseStatus_ =
-    CreateClusterSnapshotResponse'
-    { _crersSnapshot = Nothing
-    , _crersResponseStatus = pResponseStatus_
-    }
+  CreateClusterSnapshotResponse'
+  {_crersSnapshot = Nothing, _crersResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 crersSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
@@ -150,4 +152,4 @@ crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 crersResponseStatus :: Lens' CreateClusterSnapshotResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
 
-instance NFData CreateClusterSnapshotResponse
+instance NFData CreateClusterSnapshotResponse where

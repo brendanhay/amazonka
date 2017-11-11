@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DeleteOrganizationalUnit
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Organizations.DeleteOrganizationalUnit
     , DeleteOrganizationalUnitResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteOrganizationalUnit' smart constructor.
 newtype DeleteOrganizationalUnit = DeleteOrganizationalUnit'
-    { _dOrganizationalUnitId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dOrganizationalUnitId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteOrganizationalUnit' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deleteOrganizationalUnit
     :: Text -- ^ 'dOrganizationalUnitId'
     -> DeleteOrganizationalUnit
 deleteOrganizationalUnit pOrganizationalUnitId_ =
-    DeleteOrganizationalUnit'
-    { _dOrganizationalUnitId = pOrganizationalUnitId_
-    }
+  DeleteOrganizationalUnit' {_dOrganizationalUnitId = pOrganizationalUnitId_}
+
 
 -- | The unique identifier (ID) of the organizational unit that you want to delete. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 dOrganizationalUnitId :: Lens' DeleteOrganizationalUnit Text
@@ -72,9 +72,9 @@ instance AWSRequest DeleteOrganizationalUnit where
         response
           = receiveNull DeleteOrganizationalUnitResponse'
 
-instance Hashable DeleteOrganizationalUnit
+instance Hashable DeleteOrganizationalUnit where
 
-instance NFData DeleteOrganizationalUnit
+instance NFData DeleteOrganizationalUnit where
 
 instance ToHeaders DeleteOrganizationalUnit where
         toHeaders
@@ -101,8 +101,9 @@ instance ToQuery DeleteOrganizationalUnit where
 
 -- | /See:/ 'deleteOrganizationalUnitResponse' smart constructor.
 data DeleteOrganizationalUnitResponse =
-    DeleteOrganizationalUnitResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteOrganizationalUnitResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteOrganizationalUnitResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,6 @@ deleteOrganizationalUnitResponse
     :: DeleteOrganizationalUnitResponse
 deleteOrganizationalUnitResponse = DeleteOrganizationalUnitResponse'
 
+
 instance NFData DeleteOrganizationalUnitResponse
+         where

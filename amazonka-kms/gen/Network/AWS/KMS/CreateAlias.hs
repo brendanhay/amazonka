@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CreateAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.KMS.CreateAlias
     , CreateAliasResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
-    { _caAliasName   :: !Text
-    , _caTargetKeyId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caAliasName   :: {-# NOUNPACK #-}!Text
+  , _caTargetKeyId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ createAlias
     -> Text -- ^ 'caTargetKeyId'
     -> CreateAlias
 createAlias pAliasName_ pTargetKeyId_ =
-    CreateAlias'
-    { _caAliasName = pAliasName_
-    , _caTargetKeyId = pTargetKeyId_
-    }
+  CreateAlias' {_caAliasName = pAliasName_, _caTargetKeyId = pTargetKeyId_}
+
 
 -- | String that contains the display name. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
 caAliasName :: Lens' CreateAlias Text
@@ -82,9 +81,9 @@ instance AWSRequest CreateAlias where
         request = postJSON kms
         response = receiveNull CreateAliasResponse'
 
-instance Hashable CreateAlias
+instance Hashable CreateAlias where
 
-instance NFData CreateAlias
+instance NFData CreateAlias where
 
 instance ToHeaders CreateAlias where
         toHeaders
@@ -110,8 +109,9 @@ instance ToQuery CreateAlias where
 
 -- | /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse =
-    CreateAliasResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateAliasResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +119,5 @@ createAliasResponse
     :: CreateAliasResponse
 createAliasResponse = CreateAliasResponse'
 
-instance NFData CreateAliasResponse
+
+instance NFData CreateAliasResponse where

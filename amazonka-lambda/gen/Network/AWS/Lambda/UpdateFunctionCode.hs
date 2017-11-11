@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.UpdateFunctionCode
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -63,12 +63,12 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , fcMasterARN
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -76,14 +76,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateFunctionCode' smart constructor.
 data UpdateFunctionCode = UpdateFunctionCode'
-    { _uS3ObjectVersion :: !(Maybe Text)
-    , _uS3Key           :: !(Maybe Text)
-    , _uZipFile         :: !(Maybe (Sensitive Base64))
-    , _uS3Bucket        :: !(Maybe Text)
-    , _uDryRun          :: !(Maybe Bool)
-    , _uPublish         :: !(Maybe Bool)
-    , _uFunctionName    :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uS3ObjectVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uS3Key           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uZipFile         :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
+  , _uS3Bucket        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uDryRun          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uPublish         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uFunctionName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFunctionCode' with the minimum fields required to make a request.
 --
@@ -106,15 +107,16 @@ updateFunctionCode
     :: Text -- ^ 'uFunctionName'
     -> UpdateFunctionCode
 updateFunctionCode pFunctionName_ =
-    UpdateFunctionCode'
-    { _uS3ObjectVersion = Nothing
-    , _uS3Key = Nothing
-    , _uZipFile = Nothing
-    , _uS3Bucket = Nothing
-    , _uDryRun = Nothing
-    , _uPublish = Nothing
-    , _uFunctionName = pFunctionName_
-    }
+  UpdateFunctionCode'
+  { _uS3ObjectVersion = Nothing
+  , _uS3Key = Nothing
+  , _uZipFile = Nothing
+  , _uS3Bucket = Nothing
+  , _uDryRun = Nothing
+  , _uPublish = Nothing
+  , _uFunctionName = pFunctionName_
+  }
+
 
 -- | The Amazon S3 object (the deployment package) version you want to upload.
 uS3ObjectVersion :: Lens' UpdateFunctionCode (Maybe Text)
@@ -149,9 +151,9 @@ instance AWSRequest UpdateFunctionCode where
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateFunctionCode
+instance Hashable UpdateFunctionCode where
 
-instance NFData UpdateFunctionCode
+instance NFData UpdateFunctionCode where
 
 instance ToHeaders UpdateFunctionCode where
         toHeaders = const mempty

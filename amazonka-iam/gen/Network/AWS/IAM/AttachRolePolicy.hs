@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AttachRolePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.AttachRolePolicy
     , AttachRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachRolePolicy' smart constructor.
 data AttachRolePolicy = AttachRolePolicy'
-    { _arpRoleName  :: !Text
-    , _arpPolicyARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arpRoleName  :: {-# NOUNPACK #-}!Text
+  , _arpPolicyARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachRolePolicy' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ attachRolePolicy
     -> Text -- ^ 'arpPolicyARN'
     -> AttachRolePolicy
 attachRolePolicy pRoleName_ pPolicyARN_ =
-    AttachRolePolicy'
-    { _arpRoleName = pRoleName_
-    , _arpPolicyARN = pPolicyARN_
-    }
+  AttachRolePolicy' {_arpRoleName = pRoleName_, _arpPolicyARN = pPolicyARN_}
+
 
 -- | The name (friendly name, not ARN) of the role to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 arpRoleName :: Lens' AttachRolePolicy Text
@@ -80,9 +79,9 @@ instance AWSRequest AttachRolePolicy where
         request = postQuery iam
         response = receiveNull AttachRolePolicyResponse'
 
-instance Hashable AttachRolePolicy
+instance Hashable AttachRolePolicy where
 
-instance NFData AttachRolePolicy
+instance NFData AttachRolePolicy where
 
 instance ToHeaders AttachRolePolicy where
         toHeaders = const mempty
@@ -100,8 +99,9 @@ instance ToQuery AttachRolePolicy where
 
 -- | /See:/ 'attachRolePolicyResponse' smart constructor.
 data AttachRolePolicyResponse =
-    AttachRolePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachRolePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachRolePolicyResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +109,5 @@ attachRolePolicyResponse
     :: AttachRolePolicyResponse
 attachRolePolicyResponse = AttachRolePolicyResponse'
 
-instance NFData AttachRolePolicyResponse
+
+instance NFData AttachRolePolicyResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ContinueUpdateRollback
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CloudFormation.ContinueUpdateRollback
     , currsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'ContinueUpdateRollback' action.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'continueUpdateRollback' smart constructor.
 data ContinueUpdateRollback = ContinueUpdateRollback'
-    { _curResourcesToSkip    :: !(Maybe [Text])
-    , _curClientRequestToken :: !(Maybe Text)
-    , _curRoleARN            :: !(Maybe Text)
-    , _curStackName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _curResourcesToSkip    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _curClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _curRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _curStackName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContinueUpdateRollback' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ continueUpdateRollback
     :: Text -- ^ 'curStackName'
     -> ContinueUpdateRollback
 continueUpdateRollback pStackName_ =
-    ContinueUpdateRollback'
-    { _curResourcesToSkip = Nothing
-    , _curClientRequestToken = Nothing
-    , _curRoleARN = Nothing
-    , _curStackName = pStackName_
-    }
+  ContinueUpdateRollback'
+  { _curResourcesToSkip = Nothing
+  , _curClientRequestToken = Nothing
+  , _curRoleARN = Nothing
+  , _curStackName = pStackName_
+  }
+
 
 -- | A list of the logical IDs of the resources that AWS CloudFormation skips during the continue update rollback operation. You can specify only resources that are in the @UPDATE_FAILED@ state because a rollback failed. You can't specify resources that are in the @UPDATE_FAILED@ state for other reasons, for example, because an update was cancelled. To check why a resource update failed, use the 'DescribeStackResources' action, and view the resource status reason.  /Important:/ Specify this property to skip rolling back resources that AWS CloudFormation can't successfully roll back. We recommend that you <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot> resources before skipping them. AWS CloudFormation sets the status of the specified resources to @UPDATE_COMPLETE@ and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don't, subsequent stack updates might fail, and the stack will become unrecoverable.  Specify the minimum number of resources required to successfully roll back your stack. For example, a failed resource update might cause dependent resources to fail. In this case, it might not be necessary to skip the dependent resources.  To skip resources that are part of nested stacks, use the following format: @NestedStackName.ResourceLogicalID@ . If you want to specify the logical ID of a stack resource (@Type: AWS::CloudFormation::Stack@ ) in the @ResourcesToSkip@ list, then its corresponding embedded stack must be in one of the following states: @DELETE_IN_PROGRESS@ , @DELETE_COMPLETE@ , or @DELETE_FAILED@ .
 curResourcesToSkip :: Lens' ContinueUpdateRollback [Text]
@@ -108,9 +110,9 @@ instance AWSRequest ContinueUpdateRollback where
                  ContinueUpdateRollbackResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable ContinueUpdateRollback
+instance Hashable ContinueUpdateRollback where
 
-instance NFData ContinueUpdateRollback
+instance NFData ContinueUpdateRollback where
 
 instance ToHeaders ContinueUpdateRollback where
         toHeaders = const mempty
@@ -137,8 +139,9 @@ instance ToQuery ContinueUpdateRollback where
 --
 -- /See:/ 'continueUpdateRollbackResponse' smart constructor.
 newtype ContinueUpdateRollbackResponse = ContinueUpdateRollbackResponse'
-    { _currsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _currsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContinueUpdateRollbackResponse' with the minimum fields required to make a request.
 --
@@ -149,12 +152,11 @@ continueUpdateRollbackResponse
     :: Int -- ^ 'currsResponseStatus'
     -> ContinueUpdateRollbackResponse
 continueUpdateRollbackResponse pResponseStatus_ =
-    ContinueUpdateRollbackResponse'
-    { _currsResponseStatus = pResponseStatus_
-    }
+  ContinueUpdateRollbackResponse' {_currsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 currsResponseStatus :: Lens' ContinueUpdateRollbackResponse Int
 currsResponseStatus = lens _currsResponseStatus (\ s a -> s{_currsResponseStatus = a});
 
-instance NFData ContinueUpdateRollbackResponse
+instance NFData ContinueUpdateRollbackResponse where

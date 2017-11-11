@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.ListClosedWorkflowExecutions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -70,27 +70,28 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     , weiExecutionInfos
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listClosedWorkflowExecutions' smart constructor.
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
-    { _lcweNextPageToken     :: !(Maybe Text)
-    , _lcweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
-    , _lcweCloseStatusFilter :: !(Maybe CloseStatusFilter)
-    , _lcweTypeFilter        :: !(Maybe WorkflowTypeFilter)
-    , _lcweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
-    , _lcweReverseOrder      :: !(Maybe Bool)
-    , _lcweTagFilter         :: !(Maybe TagFilter)
-    , _lcweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
-    , _lcweMaximumPageSize   :: !(Maybe Nat)
-    , _lcweDomain            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcweNextPageToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcweExecutionFilter   :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFilter)
+  , _lcweCloseStatusFilter :: {-# NOUNPACK #-}!(Maybe CloseStatusFilter)
+  , _lcweTypeFilter        :: {-# NOUNPACK #-}!(Maybe WorkflowTypeFilter)
+  , _lcweCloseTimeFilter   :: {-# NOUNPACK #-}!(Maybe ExecutionTimeFilter)
+  , _lcweReverseOrder      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lcweTagFilter         :: {-# NOUNPACK #-}!(Maybe TagFilter)
+  , _lcweStartTimeFilter   :: {-# NOUNPACK #-}!(Maybe ExecutionTimeFilter)
+  , _lcweMaximumPageSize   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lcweDomain            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListClosedWorkflowExecutions' with the minimum fields required to make a request.
 --
@@ -119,18 +120,19 @@ listClosedWorkflowExecutions
     :: Text -- ^ 'lcweDomain'
     -> ListClosedWorkflowExecutions
 listClosedWorkflowExecutions pDomain_ =
-    ListClosedWorkflowExecutions'
-    { _lcweNextPageToken = Nothing
-    , _lcweExecutionFilter = Nothing
-    , _lcweCloseStatusFilter = Nothing
-    , _lcweTypeFilter = Nothing
-    , _lcweCloseTimeFilter = Nothing
-    , _lcweReverseOrder = Nothing
-    , _lcweTagFilter = Nothing
-    , _lcweStartTimeFilter = Nothing
-    , _lcweMaximumPageSize = Nothing
-    , _lcweDomain = pDomain_
-    }
+  ListClosedWorkflowExecutions'
+  { _lcweNextPageToken = Nothing
+  , _lcweExecutionFilter = Nothing
+  , _lcweCloseStatusFilter = Nothing
+  , _lcweTypeFilter = Nothing
+  , _lcweCloseTimeFilter = Nothing
+  , _lcweReverseOrder = Nothing
+  , _lcweTagFilter = Nothing
+  , _lcweStartTimeFilter = Nothing
+  , _lcweMaximumPageSize = Nothing
+  , _lcweDomain = pDomain_
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 lcweNextPageToken :: Lens' ListClosedWorkflowExecutions (Maybe Text)
@@ -187,9 +189,9 @@ instance AWSRequest ListClosedWorkflowExecutions
         request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable ListClosedWorkflowExecutions
+instance Hashable ListClosedWorkflowExecutions where
 
-instance NFData ListClosedWorkflowExecutions
+instance NFData ListClosedWorkflowExecutions where
 
 instance ToHeaders ListClosedWorkflowExecutions where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.ListBranches
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.CodeCommit.ListBranches
     , lbrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list branches operation.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listBranches' smart constructor.
 data ListBranches = ListBranches'
-    { _lbNextToken      :: !(Maybe Text)
-    , _lbRepositoryName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbRepositoryName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBranches' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ listBranches
     :: Text -- ^ 'lbRepositoryName'
     -> ListBranches
 listBranches pRepositoryName_ =
-    ListBranches'
-    { _lbNextToken = Nothing
-    , _lbRepositoryName = pRepositoryName_
-    }
+  ListBranches' {_lbNextToken = Nothing, _lbRepositoryName = pRepositoryName_}
+
 
 -- | An enumeration token that allows the operation to batch the results.
 lbNextToken :: Lens' ListBranches (Maybe Text)
@@ -100,9 +99,9 @@ instance AWSRequest ListBranches where
                    (x .?> "branches" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListBranches
+instance Hashable ListBranches where
 
-instance NFData ListBranches
+instance NFData ListBranches where
 
 instance ToHeaders ListBranches where
         toHeaders
@@ -132,10 +131,11 @@ instance ToQuery ListBranches where
 --
 -- /See:/ 'listBranchesResponse' smart constructor.
 data ListBranchesResponse = ListBranchesResponse'
-    { _lbrsBranches       :: !(Maybe [Text])
-    , _lbrsNextToken      :: !(Maybe Text)
-    , _lbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbrsBranches       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBranchesResponse' with the minimum fields required to make a request.
 --
@@ -150,11 +150,12 @@ listBranchesResponse
     :: Int -- ^ 'lbrsResponseStatus'
     -> ListBranchesResponse
 listBranchesResponse pResponseStatus_ =
-    ListBranchesResponse'
-    { _lbrsBranches = Nothing
-    , _lbrsNextToken = Nothing
-    , _lbrsResponseStatus = pResponseStatus_
-    }
+  ListBranchesResponse'
+  { _lbrsBranches = Nothing
+  , _lbrsNextToken = Nothing
+  , _lbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of branch names.
 lbrsBranches :: Lens' ListBranchesResponse [Text]
@@ -168,4 +169,4 @@ lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 lbrsResponseStatus :: Lens' ListBranchesResponse Int
 lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
 
-instance NFData ListBranchesResponse
+instance NFData ListBranchesResponse where

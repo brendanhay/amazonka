@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyInstanceAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     , ModifyInstanceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyInstanceAttribute.
 --
@@ -64,23 +64,24 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyInstanceAttribute' smart constructor.
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
-    { _mGroups                            :: !(Maybe [Text])
-    , _mAttribute                         :: !(Maybe InstanceAttributeName)
-    , _mEnaSupport                        :: !(Maybe AttributeBooleanValue)
-    , _mSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
-    , _mDisableAPITermination             :: !(Maybe AttributeBooleanValue)
-    , _mKernel                            :: !(Maybe AttributeValue)
-    , _mRAMDisk                           :: !(Maybe AttributeValue)
-    , _mValue                             :: !(Maybe Text)
-    , _mInstanceType                      :: !(Maybe AttributeValue)
-    , _mSRIOVNetSupport                   :: !(Maybe AttributeValue)
-    , _mEBSOptimized                      :: !(Maybe AttributeBooleanValue)
-    , _mUserData                          :: !(Maybe BlobAttributeValue)
-    , _mInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
-    , _mBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
-    , _mDryRun                            :: !(Maybe Bool)
-    , _mInstanceId                        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mAttribute :: {-# NOUNPACK #-}!(Maybe InstanceAttributeName)
+  , _mEnaSupport :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _mSourceDestCheck :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _mDisableAPITermination :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _mKernel :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _mRAMDisk :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _mValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mInstanceType :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _mSRIOVNetSupport :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _mEBSOptimized :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _mUserData :: {-# NOUNPACK #-}!(Maybe BlobAttributeValue)
+  , _mInstanceInitiatedShutdownBehavior :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _mBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [InstanceBlockDeviceMappingSpecification])
+  , _mDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyInstanceAttribute' with the minimum fields required to make a request.
 --
@@ -121,24 +122,25 @@ modifyInstanceAttribute
     :: Text -- ^ 'mInstanceId'
     -> ModifyInstanceAttribute
 modifyInstanceAttribute pInstanceId_ =
-    ModifyInstanceAttribute'
-    { _mGroups = Nothing
-    , _mAttribute = Nothing
-    , _mEnaSupport = Nothing
-    , _mSourceDestCheck = Nothing
-    , _mDisableAPITermination = Nothing
-    , _mKernel = Nothing
-    , _mRAMDisk = Nothing
-    , _mValue = Nothing
-    , _mInstanceType = Nothing
-    , _mSRIOVNetSupport = Nothing
-    , _mEBSOptimized = Nothing
-    , _mUserData = Nothing
-    , _mInstanceInitiatedShutdownBehavior = Nothing
-    , _mBlockDeviceMappings = Nothing
-    , _mDryRun = Nothing
-    , _mInstanceId = pInstanceId_
-    }
+  ModifyInstanceAttribute'
+  { _mGroups = Nothing
+  , _mAttribute = Nothing
+  , _mEnaSupport = Nothing
+  , _mSourceDestCheck = Nothing
+  , _mDisableAPITermination = Nothing
+  , _mKernel = Nothing
+  , _mRAMDisk = Nothing
+  , _mValue = Nothing
+  , _mInstanceType = Nothing
+  , _mSRIOVNetSupport = Nothing
+  , _mEBSOptimized = Nothing
+  , _mUserData = Nothing
+  , _mInstanceInitiatedShutdownBehavior = Nothing
+  , _mBlockDeviceMappings = Nothing
+  , _mDryRun = Nothing
+  , _mInstanceId = pInstanceId_
+  }
+
 
 -- | [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
 mGroups :: Lens' ModifyInstanceAttribute [Text]
@@ -211,9 +213,9 @@ instance AWSRequest ModifyInstanceAttribute where
         response
           = receiveNull ModifyInstanceAttributeResponse'
 
-instance Hashable ModifyInstanceAttribute
+instance Hashable ModifyInstanceAttribute where
 
-instance NFData ModifyInstanceAttribute
+instance NFData ModifyInstanceAttribute where
 
 instance ToHeaders ModifyInstanceAttribute where
         toHeaders = const mempty
@@ -246,8 +248,9 @@ instance ToQuery ModifyInstanceAttribute where
 
 -- | /See:/ 'modifyInstanceAttributeResponse' smart constructor.
 data ModifyInstanceAttributeResponse =
-    ModifyInstanceAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyInstanceAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyInstanceAttributeResponse' with the minimum fields required to make a request.
 --
@@ -255,4 +258,5 @@ modifyInstanceAttributeResponse
     :: ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse'
 
-instance NFData ModifyInstanceAttributeResponse
+
+instance NFData ModifyInstanceAttributeResponse where

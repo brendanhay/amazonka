@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutIntegration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,12 +58,12 @@ module Network.AWS.APIGateway.PutIntegration
     , iCacheKeyParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Sets up a method's integration.
 --
@@ -71,20 +71,21 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putIntegration' smart constructor.
 data PutIntegration = PutIntegration'
-    { _pRequestTemplates      :: !(Maybe (Map Text Text))
-    , _pCredentials           :: !(Maybe Text)
-    , _pRequestParameters     :: !(Maybe (Map Text Text))
-    , _pContentHandling       :: !(Maybe ContentHandlingStrategy)
-    , _pPassthroughBehavior   :: !(Maybe Text)
-    , _pUri                   :: !(Maybe Text)
-    , _pCacheNamespace        :: !(Maybe Text)
-    , _pIntegrationHTTPMethod :: !(Maybe Text)
-    , _pCacheKeyParameters    :: !(Maybe [Text])
-    , _pRestAPIId             :: !Text
-    , _pResourceId            :: !Text
-    , _pHttpMethod            :: !Text
-    , _pType                  :: !IntegrationType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pRequestTemplates      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _pCredentials           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pRequestParameters     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _pContentHandling       :: {-# NOUNPACK #-}!(Maybe ContentHandlingStrategy)
+  , _pPassthroughBehavior   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pUri                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pCacheNamespace        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pIntegrationHTTPMethod :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pCacheKeyParameters    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pRestAPIId             :: {-# NOUNPACK #-}!Text
+  , _pResourceId            :: {-# NOUNPACK #-}!Text
+  , _pHttpMethod            :: {-# NOUNPACK #-}!Text
+  , _pType                  :: {-# NOUNPACK #-}!IntegrationType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutIntegration' with the minimum fields required to make a request.
 --
@@ -122,21 +123,22 @@ putIntegration
     -> IntegrationType -- ^ 'pType'
     -> PutIntegration
 putIntegration pRestAPIId_ pResourceId_ pHttpMethod_ pType_ =
-    PutIntegration'
-    { _pRequestTemplates = Nothing
-    , _pCredentials = Nothing
-    , _pRequestParameters = Nothing
-    , _pContentHandling = Nothing
-    , _pPassthroughBehavior = Nothing
-    , _pUri = Nothing
-    , _pCacheNamespace = Nothing
-    , _pIntegrationHTTPMethod = Nothing
-    , _pCacheKeyParameters = Nothing
-    , _pRestAPIId = pRestAPIId_
-    , _pResourceId = pResourceId_
-    , _pHttpMethod = pHttpMethod_
-    , _pType = pType_
-    }
+  PutIntegration'
+  { _pRequestTemplates = Nothing
+  , _pCredentials = Nothing
+  , _pRequestParameters = Nothing
+  , _pContentHandling = Nothing
+  , _pPassthroughBehavior = Nothing
+  , _pUri = Nothing
+  , _pCacheNamespace = Nothing
+  , _pIntegrationHTTPMethod = Nothing
+  , _pCacheKeyParameters = Nothing
+  , _pRestAPIId = pRestAPIId_
+  , _pResourceId = pResourceId_
+  , _pHttpMethod = pHttpMethod_
+  , _pType = pType_
+  }
+
 
 -- | Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
 pRequestTemplates :: Lens' PutIntegration (HashMap Text Text)
@@ -195,9 +197,9 @@ instance AWSRequest PutIntegration where
         request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable PutIntegration
+instance Hashable PutIntegration where
 
-instance NFData PutIntegration
+instance NFData PutIntegration where
 
 instance ToHeaders PutIntegration where
         toHeaders

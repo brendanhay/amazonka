@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.CreateTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EFS.CreateTags
     , CreateTagsResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
-    { _ctFileSystemId :: !Text
-    , _ctTags         :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctFileSystemId :: {-# NOUNPACK #-}!Text
+  , _ctTags         :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ createTags
     :: Text -- ^ 'ctFileSystemId'
     -> CreateTags
 createTags pFileSystemId_ =
-    CreateTags'
-    { _ctFileSystemId = pFileSystemId_
-    , _ctTags = mempty
-    }
+  CreateTags' {_ctFileSystemId = pFileSystemId_, _ctTags = mempty}
+
 
 -- | ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.
 ctFileSystemId :: Lens' CreateTags Text
@@ -83,9 +82,9 @@ instance AWSRequest CreateTags where
         request = postJSON efs
         response = receiveNull CreateTagsResponse'
 
-instance Hashable CreateTags
+instance Hashable CreateTags where
 
-instance NFData CreateTags
+instance NFData CreateTags where
 
 instance ToHeaders CreateTags where
         toHeaders = const mempty
@@ -104,8 +103,9 @@ instance ToQuery CreateTags where
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =
-    CreateTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +113,5 @@ createTagsResponse
     :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse'
 
-instance NFData CreateTagsResponse
+
+instance NFData CreateTagsResponse where

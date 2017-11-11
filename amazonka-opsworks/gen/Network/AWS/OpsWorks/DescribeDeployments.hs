@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeDeployments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.OpsWorks.DescribeDeployments
     , ddrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDeployments' smart constructor.
 data DescribeDeployments = DescribeDeployments'
-    { _ddAppId         :: !(Maybe Text)
-    , _ddDeploymentIds :: !(Maybe [Text])
-    , _ddStackId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddAppId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddDeploymentIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ddStackId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDeployments' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ data DescribeDeployments = DescribeDeployments'
 describeDeployments
     :: DescribeDeployments
 describeDeployments =
-    DescribeDeployments'
-    { _ddAppId = Nothing
-    , _ddDeploymentIds = Nothing
-    , _ddStackId = Nothing
-    }
+  DescribeDeployments'
+  {_ddAppId = Nothing, _ddDeploymentIds = Nothing, _ddStackId = Nothing}
+
 
 -- | The app ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified app.
 ddAppId :: Lens' DescribeDeployments (Maybe Text)
@@ -96,9 +95,9 @@ instance AWSRequest DescribeDeployments where
                    (x .?> "Deployments" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeDeployments
+instance Hashable DescribeDeployments where
 
-instance NFData DescribeDeployments
+instance NFData DescribeDeployments where
 
 instance ToHeaders DescribeDeployments where
         toHeaders
@@ -130,9 +129,10 @@ instance ToQuery DescribeDeployments where
 --
 -- /See:/ 'describeDeploymentsResponse' smart constructor.
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
-    { _ddrsDeployments    :: !(Maybe [Deployment])
-    , _ddrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsDeployments    :: {-# NOUNPACK #-}!(Maybe [Deployment])
+  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDeploymentsResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +145,9 @@ describeDeploymentsResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDeploymentsResponse
 describeDeploymentsResponse pResponseStatus_ =
-    DescribeDeploymentsResponse'
-    { _ddrsDeployments = Nothing
-    , _ddrsResponseStatus = pResponseStatus_
-    }
+  DescribeDeploymentsResponse'
+  {_ddrsDeployments = Nothing, _ddrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of @Deployment@ objects that describe the deployments.
 ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
@@ -158,4 +157,4 @@ ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _De
 ddrsResponseStatus :: Lens' DescribeDeploymentsResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
-instance NFData DescribeDeploymentsResponse
+instance NFData DescribeDeploymentsResponse where

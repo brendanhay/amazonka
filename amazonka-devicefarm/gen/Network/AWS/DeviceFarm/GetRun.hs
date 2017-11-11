@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DeviceFarm.GetRun
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get run operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRun' smart constructor.
 newtype GetRun = GetRun'
-    { _grArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRun' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetRun = GetRun'
 getRun
     :: Text -- ^ 'grArn'
     -> GetRun
-getRun pArn_ =
-    GetRun'
-    { _grArn = pArn_
-    }
+getRun pArn_ = GetRun' {_grArn = pArn_}
+
 
 -- | The run's ARN.
 grArn :: Lens' GetRun Text
@@ -79,9 +78,9 @@ instance AWSRequest GetRun where
                  GetRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
 
-instance Hashable GetRun
+instance Hashable GetRun where
 
-instance NFData GetRun
+instance NFData GetRun where
 
 instance ToHeaders GetRun where
         toHeaders
@@ -108,9 +107,10 @@ instance ToQuery GetRun where
 --
 -- /See:/ 'getRunResponse' smart constructor.
 data GetRunResponse = GetRunResponse'
-    { _grrsRun            :: !(Maybe Run)
-    , _grrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsRun            :: {-# NOUNPACK #-}!(Maybe Run)
+  , _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRunResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +123,8 @@ getRunResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRunResponse
 getRunResponse pResponseStatus_ =
-    GetRunResponse'
-    { _grrsRun = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GetRunResponse' {_grrsRun = Nothing, _grrsResponseStatus = pResponseStatus_}
+
 
 -- | The run you wish to get results from.
 grrsRun :: Lens' GetRunResponse (Maybe Run)
@@ -136,4 +134,4 @@ grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
 grrsResponseStatus :: Lens' GetRunResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GetRunResponse
+instance NFData GetRunResponse where

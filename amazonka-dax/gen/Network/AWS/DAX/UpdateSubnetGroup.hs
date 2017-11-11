@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.UpdateSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.DAX.UpdateSubnetGroup
     , usgrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSubnetGroup' smart constructor.
 data UpdateSubnetGroup = UpdateSubnetGroup'
-    { _usgSubnetIds       :: !(Maybe [Text])
-    , _usgDescription     :: !(Maybe Text)
-    , _usgSubnetGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usgSubnetIds       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _usgDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usgSubnetGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSubnetGroup' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ updateSubnetGroup
     :: Text -- ^ 'usgSubnetGroupName'
     -> UpdateSubnetGroup
 updateSubnetGroup pSubnetGroupName_ =
-    UpdateSubnetGroup'
-    { _usgSubnetIds = Nothing
-    , _usgDescription = Nothing
-    , _usgSubnetGroupName = pSubnetGroupName_
-    }
+  UpdateSubnetGroup'
+  { _usgSubnetIds = Nothing
+  , _usgDescription = Nothing
+  , _usgSubnetGroupName = pSubnetGroupName_
+  }
+
 
 -- | A list of subnet IDs in the subnet group.
 usgSubnetIds :: Lens' UpdateSubnetGroup [Text]
@@ -93,9 +95,9 @@ instance AWSRequest UpdateSubnetGroup where
                  UpdateSubnetGroupResponse' <$>
                    (x .?> "SubnetGroup") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateSubnetGroup
+instance Hashable UpdateSubnetGroup where
 
-instance NFData UpdateSubnetGroup
+instance NFData UpdateSubnetGroup where
 
 instance ToHeaders UpdateSubnetGroup where
         toHeaders
@@ -122,9 +124,10 @@ instance ToQuery UpdateSubnetGroup where
 
 -- | /See:/ 'updateSubnetGroupResponse' smart constructor.
 data UpdateSubnetGroupResponse = UpdateSubnetGroupResponse'
-    { _usgrsSubnetGroup    :: !(Maybe SubnetGroup)
-    , _usgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usgrsSubnetGroup    :: {-# NOUNPACK #-}!(Maybe SubnetGroup)
+  , _usgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,9 @@ updateSubnetGroupResponse
     :: Int -- ^ 'usgrsResponseStatus'
     -> UpdateSubnetGroupResponse
 updateSubnetGroupResponse pResponseStatus_ =
-    UpdateSubnetGroupResponse'
-    { _usgrsSubnetGroup = Nothing
-    , _usgrsResponseStatus = pResponseStatus_
-    }
+  UpdateSubnetGroupResponse'
+  {_usgrsSubnetGroup = Nothing, _usgrsResponseStatus = pResponseStatus_}
+
 
 -- | The subnet group that has been modified.
 usgrsSubnetGroup :: Lens' UpdateSubnetGroupResponse (Maybe SubnetGroup)
@@ -150,4 +152,4 @@ usgrsSubnetGroup = lens _usgrsSubnetGroup (\ s a -> s{_usgrsSubnetGroup = a});
 usgrsResponseStatus :: Lens' UpdateSubnetGroupResponse Int
 usgrsResponseStatus = lens _usgrsResponseStatus (\ s a -> s{_usgrsResponseStatus = a});
 
-instance NFData UpdateSubnetGroupResponse
+instance NFData UpdateSubnetGroupResponse where

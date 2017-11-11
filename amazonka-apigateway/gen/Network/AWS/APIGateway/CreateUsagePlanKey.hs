@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateUsagePlanKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.CreateUsagePlanKey
     , upkType
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The POST request to create a usage plan key for adding an existing API key to a usage plan.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUsagePlanKey' smart constructor.
 data CreateUsagePlanKey = CreateUsagePlanKey'
-    { _cupkUsagePlanId :: !Text
-    , _cupkKeyId       :: !Text
-    , _cupkKeyType     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cupkUsagePlanId :: {-# NOUNPACK #-}!Text
+  , _cupkKeyId       :: {-# NOUNPACK #-}!Text
+  , _cupkKeyType     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUsagePlanKey' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ createUsagePlanKey
     -> Text -- ^ 'cupkKeyType'
     -> CreateUsagePlanKey
 createUsagePlanKey pUsagePlanId_ pKeyId_ pKeyType_ =
-    CreateUsagePlanKey'
-    { _cupkUsagePlanId = pUsagePlanId_
-    , _cupkKeyId = pKeyId_
-    , _cupkKeyType = pKeyType_
-    }
+  CreateUsagePlanKey'
+  { _cupkUsagePlanId = pUsagePlanId_
+  , _cupkKeyId = pKeyId_
+  , _cupkKeyType = pKeyType_
+  }
+
 
 -- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
 cupkUsagePlanId :: Lens' CreateUsagePlanKey Text
@@ -97,9 +99,9 @@ instance AWSRequest CreateUsagePlanKey where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateUsagePlanKey
+instance Hashable CreateUsagePlanKey where
 
-instance NFData CreateUsagePlanKey
+instance NFData CreateUsagePlanKey where
 
 instance ToHeaders CreateUsagePlanKey where
         toHeaders

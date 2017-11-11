@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateMatchmakingConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -66,12 +66,12 @@ module Network.AWS.GameLift.UpdateMatchmakingConfiguration
     , umcrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -79,19 +79,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateMatchmakingConfiguration' smart constructor.
 data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
-    { _umcGameProperties           :: !(Maybe [GameProperty])
-    , _umcRuleSetName              :: !(Maybe Text)
-    , _umcAcceptanceTimeoutSeconds :: !(Maybe Nat)
-    , _umcRequestTimeoutSeconds    :: !(Maybe Nat)
-    , _umcNotificationTarget       :: !(Maybe Text)
-    , _umcGameSessionQueueARNs     :: !(Maybe [Text])
-    , _umcCustomEventData          :: !(Maybe Text)
-    , _umcAcceptanceRequired       :: !(Maybe Bool)
-    , _umcGameSessionData          :: !(Maybe Text)
-    , _umcDescription              :: !(Maybe Text)
-    , _umcAdditionalPlayerCount    :: !(Maybe Nat)
-    , _umcName                     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umcGameProperties           :: {-# NOUNPACK #-}!(Maybe [GameProperty])
+  , _umcRuleSetName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umcAcceptanceTimeoutSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _umcRequestTimeoutSeconds    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _umcNotificationTarget       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umcGameSessionQueueARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _umcCustomEventData          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umcAcceptanceRequired       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _umcGameSessionData          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umcDescription              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umcAdditionalPlayerCount    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _umcName                     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMatchmakingConfiguration' with the minimum fields required to make a request.
 --
@@ -124,20 +125,21 @@ updateMatchmakingConfiguration
     :: Text -- ^ 'umcName'
     -> UpdateMatchmakingConfiguration
 updateMatchmakingConfiguration pName_ =
-    UpdateMatchmakingConfiguration'
-    { _umcGameProperties = Nothing
-    , _umcRuleSetName = Nothing
-    , _umcAcceptanceTimeoutSeconds = Nothing
-    , _umcRequestTimeoutSeconds = Nothing
-    , _umcNotificationTarget = Nothing
-    , _umcGameSessionQueueARNs = Nothing
-    , _umcCustomEventData = Nothing
-    , _umcAcceptanceRequired = Nothing
-    , _umcGameSessionData = Nothing
-    , _umcDescription = Nothing
-    , _umcAdditionalPlayerCount = Nothing
-    , _umcName = pName_
-    }
+  UpdateMatchmakingConfiguration'
+  { _umcGameProperties = Nothing
+  , _umcRuleSetName = Nothing
+  , _umcAcceptanceTimeoutSeconds = Nothing
+  , _umcRequestTimeoutSeconds = Nothing
+  , _umcNotificationTarget = Nothing
+  , _umcGameSessionQueueARNs = Nothing
+  , _umcCustomEventData = Nothing
+  , _umcAcceptanceRequired = Nothing
+  , _umcGameSessionData = Nothing
+  , _umcDescription = Nothing
+  , _umcAdditionalPlayerCount = Nothing
+  , _umcName = pName_
+  }
+
 
 -- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 umcGameProperties :: Lens' UpdateMatchmakingConfiguration [GameProperty]
@@ -199,8 +201,9 @@ instance AWSRequest UpdateMatchmakingConfiguration
                    (x .?> "Configuration") <*> (pure (fromEnum s)))
 
 instance Hashable UpdateMatchmakingConfiguration
+         where
 
-instance NFData UpdateMatchmakingConfiguration
+instance NFData UpdateMatchmakingConfiguration where
 
 instance ToHeaders UpdateMatchmakingConfiguration
          where
@@ -246,9 +249,10 @@ instance ToQuery UpdateMatchmakingConfiguration where
 --
 -- /See:/ 'updateMatchmakingConfigurationResponse' smart constructor.
 data UpdateMatchmakingConfigurationResponse = UpdateMatchmakingConfigurationResponse'
-    { _umcrsConfiguration  :: !(Maybe MatchmakingConfiguration)
-    , _umcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umcrsConfiguration  :: {-# NOUNPACK #-}!(Maybe MatchmakingConfiguration)
+  , _umcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMatchmakingConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -261,10 +265,9 @@ updateMatchmakingConfigurationResponse
     :: Int -- ^ 'umcrsResponseStatus'
     -> UpdateMatchmakingConfigurationResponse
 updateMatchmakingConfigurationResponse pResponseStatus_ =
-    UpdateMatchmakingConfigurationResponse'
-    { _umcrsConfiguration = Nothing
-    , _umcrsResponseStatus = pResponseStatus_
-    }
+  UpdateMatchmakingConfigurationResponse'
+  {_umcrsConfiguration = Nothing, _umcrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that describes the updated matchmaking configuration.
 umcrsConfiguration :: Lens' UpdateMatchmakingConfigurationResponse (Maybe MatchmakingConfiguration)
@@ -275,4 +278,5 @@ umcrsResponseStatus :: Lens' UpdateMatchmakingConfigurationResponse Int
 umcrsResponseStatus = lens _umcrsResponseStatus (\ s a -> s{_umcrsResponseStatus = a});
 
 instance NFData
-         UpdateMatchmakingConfigurationResponse
+           UpdateMatchmakingConfigurationResponse
+         where

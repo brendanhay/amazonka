@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateCacheCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,12 +61,12 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , cccrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a CreateCacheCluster operation.
 --
@@ -74,30 +74,31 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCacheCluster' smart constructor.
 data CreateCacheCluster = CreateCacheCluster'
-    { _cccEngineVersion              :: !(Maybe Text)
-    , _cccCacheNodeType              :: !(Maybe Text)
-    , _cccSecurityGroupIds           :: !(Maybe [Text])
-    , _cccSnapshotARNs               :: !(Maybe [Text])
-    , _cccAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _cccCacheParameterGroupName    :: !(Maybe Text)
-    , _cccSnapshotWindow             :: !(Maybe Text)
-    , _cccAuthToken                  :: !(Maybe Text)
-    , _cccEngine                     :: !(Maybe Text)
-    , _cccPreferredAvailabilityZones :: !(Maybe [Text])
-    , _cccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _cccCacheSubnetGroupName       :: !(Maybe Text)
-    , _cccPreferredAvailabilityZone  :: !(Maybe Text)
-    , _cccSnapshotRetentionLimit     :: !(Maybe Int)
-    , _cccAZMode                     :: !(Maybe AZMode)
-    , _cccSnapshotName               :: !(Maybe Text)
-    , _cccReplicationGroupId         :: !(Maybe Text)
-    , _cccNotificationTopicARN       :: !(Maybe Text)
-    , _cccNumCacheNodes              :: !(Maybe Int)
-    , _cccTags                       :: !(Maybe [Tag])
-    , _cccPort                       :: !(Maybe Int)
-    , _cccCacheSecurityGroupNames    :: !(Maybe [Text])
-    , _cccCacheClusterId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cccEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccCacheNodeType              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cccSnapshotARNs               :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cccAutoMinorVersionUpgrade    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cccCacheParameterGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccSnapshotWindow             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccAuthToken                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccEngine                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccPreferredAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccCacheSubnetGroupName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccPreferredAvailabilityZone  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccSnapshotRetentionLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cccAZMode                     :: {-# NOUNPACK #-}!(Maybe AZMode)
+  , _cccSnapshotName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccReplicationGroupId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccNotificationTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cccNumCacheNodes              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cccTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cccPort                       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cccCacheSecurityGroupNames    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cccCacheClusterId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCacheCluster' with the minimum fields required to make a request.
 --
@@ -152,31 +153,32 @@ createCacheCluster
     :: Text -- ^ 'cccCacheClusterId'
     -> CreateCacheCluster
 createCacheCluster pCacheClusterId_ =
-    CreateCacheCluster'
-    { _cccEngineVersion = Nothing
-    , _cccCacheNodeType = Nothing
-    , _cccSecurityGroupIds = Nothing
-    , _cccSnapshotARNs = Nothing
-    , _cccAutoMinorVersionUpgrade = Nothing
-    , _cccCacheParameterGroupName = Nothing
-    , _cccSnapshotWindow = Nothing
-    , _cccAuthToken = Nothing
-    , _cccEngine = Nothing
-    , _cccPreferredAvailabilityZones = Nothing
-    , _cccPreferredMaintenanceWindow = Nothing
-    , _cccCacheSubnetGroupName = Nothing
-    , _cccPreferredAvailabilityZone = Nothing
-    , _cccSnapshotRetentionLimit = Nothing
-    , _cccAZMode = Nothing
-    , _cccSnapshotName = Nothing
-    , _cccReplicationGroupId = Nothing
-    , _cccNotificationTopicARN = Nothing
-    , _cccNumCacheNodes = Nothing
-    , _cccTags = Nothing
-    , _cccPort = Nothing
-    , _cccCacheSecurityGroupNames = Nothing
-    , _cccCacheClusterId = pCacheClusterId_
-    }
+  CreateCacheCluster'
+  { _cccEngineVersion = Nothing
+  , _cccCacheNodeType = Nothing
+  , _cccSecurityGroupIds = Nothing
+  , _cccSnapshotARNs = Nothing
+  , _cccAutoMinorVersionUpgrade = Nothing
+  , _cccCacheParameterGroupName = Nothing
+  , _cccSnapshotWindow = Nothing
+  , _cccAuthToken = Nothing
+  , _cccEngine = Nothing
+  , _cccPreferredAvailabilityZones = Nothing
+  , _cccPreferredMaintenanceWindow = Nothing
+  , _cccCacheSubnetGroupName = Nothing
+  , _cccPreferredAvailabilityZone = Nothing
+  , _cccSnapshotRetentionLimit = Nothing
+  , _cccAZMode = Nothing
+  , _cccSnapshotName = Nothing
+  , _cccReplicationGroupId = Nothing
+  , _cccNotificationTopicARN = Nothing
+  , _cccNumCacheNodes = Nothing
+  , _cccTags = Nothing
+  , _cccPort = Nothing
+  , _cccCacheSecurityGroupNames = Nothing
+  , _cccCacheClusterId = pCacheClusterId_
+  }
+
 
 -- | The version number of the cache engine to be used for this cache cluster. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation. __Important:__ You can upgrade to a newer engine version (see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version> ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cache cluster or replication group and create it anew with the earlier engine version.
 cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
@@ -280,9 +282,9 @@ instance AWSRequest CreateCacheCluster where
                  CreateCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
-instance Hashable CreateCacheCluster
+instance Hashable CreateCacheCluster where
 
-instance NFData CreateCacheCluster
+instance NFData CreateCacheCluster where
 
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
@@ -336,9 +338,10 @@ instance ToQuery CreateCacheCluster where
 
 -- | /See:/ 'createCacheClusterResponse' smart constructor.
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
-    { _cccrsCacheCluster   :: !(Maybe CacheCluster)
-    , _cccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cccrsCacheCluster   :: {-# NOUNPACK #-}!(Maybe CacheCluster)
+  , _cccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCacheClusterResponse' with the minimum fields required to make a request.
 --
@@ -351,10 +354,9 @@ createCacheClusterResponse
     :: Int -- ^ 'cccrsResponseStatus'
     -> CreateCacheClusterResponse
 createCacheClusterResponse pResponseStatus_ =
-    CreateCacheClusterResponse'
-    { _cccrsCacheCluster = Nothing
-    , _cccrsResponseStatus = pResponseStatus_
-    }
+  CreateCacheClusterResponse'
+  {_cccrsCacheCluster = Nothing, _cccrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cccrsCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
@@ -364,4 +366,4 @@ cccrsCacheCluster = lens _cccrsCacheCluster (\ s a -> s{_cccrsCacheCluster = a})
 cccrsResponseStatus :: Lens' CreateCacheClusterResponse Int
 cccrsResponseStatus = lens _cccrsResponseStatus (\ s a -> s{_cccrsResponseStatus = a});
 
-instance NFData CreateCacheClusterResponse
+instance NFData CreateCacheClusterResponse where

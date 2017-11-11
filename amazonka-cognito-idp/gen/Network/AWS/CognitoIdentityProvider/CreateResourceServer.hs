@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateResourceServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.CognitoIdentityProvider.CreateResourceServer
     , crsrsResourceServer
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createResourceServer' smart constructor.
 data CreateResourceServer = CreateResourceServer'
-    { _crsScopes     :: !(Maybe [ResourceServerScopeType])
-    , _crsUserPoolId :: !Text
-    , _crsIdentifier :: !Text
-    , _crsName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsScopes     :: {-# NOUNPACK #-}!(Maybe [ResourceServerScopeType])
+  , _crsUserPoolId :: {-# NOUNPACK #-}!Text
+  , _crsIdentifier :: {-# NOUNPACK #-}!Text
+  , _crsName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateResourceServer' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ createResourceServer
     -> Text -- ^ 'crsName'
     -> CreateResourceServer
 createResourceServer pUserPoolId_ pIdentifier_ pName_ =
-    CreateResourceServer'
-    { _crsScopes = Nothing
-    , _crsUserPoolId = pUserPoolId_
-    , _crsIdentifier = pIdentifier_
-    , _crsName = pName_
-    }
+  CreateResourceServer'
+  { _crsScopes = Nothing
+  , _crsUserPoolId = pUserPoolId_
+  , _crsIdentifier = pIdentifier_
+  , _crsName = pName_
+  }
+
 
 -- | A list of scopes. Each scope is map, where the keys are @name@ and @description@ .
 crsScopes :: Lens' CreateResourceServer [ResourceServerScopeType]
@@ -105,9 +107,9 @@ instance AWSRequest CreateResourceServer where
                  CreateResourceServerResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "ResourceServer"))
 
-instance Hashable CreateResourceServer
+instance Hashable CreateResourceServer where
 
-instance NFData CreateResourceServer
+instance NFData CreateResourceServer where
 
 instance ToHeaders CreateResourceServer where
         toHeaders
@@ -136,9 +138,10 @@ instance ToQuery CreateResourceServer where
 
 -- | /See:/ 'createResourceServerResponse' smart constructor.
 data CreateResourceServerResponse = CreateResourceServerResponse'
-    { _crsrsResponseStatus :: !Int
-    , _crsrsResourceServer :: !ResourceServerType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _crsrsResourceServer :: {-# NOUNPACK #-}!ResourceServerType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateResourceServerResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,11 @@ createResourceServerResponse
     -> ResourceServerType -- ^ 'crsrsResourceServer'
     -> CreateResourceServerResponse
 createResourceServerResponse pResponseStatus_ pResourceServer_ =
-    CreateResourceServerResponse'
-    { _crsrsResponseStatus = pResponseStatus_
-    , _crsrsResourceServer = pResourceServer_
-    }
+  CreateResourceServerResponse'
+  { _crsrsResponseStatus = pResponseStatus_
+  , _crsrsResourceServer = pResourceServer_
+  }
+
 
 -- | -- | The response status code.
 crsrsResponseStatus :: Lens' CreateResourceServerResponse Int
@@ -165,4 +169,4 @@ crsrsResponseStatus = lens _crsrsResponseStatus (\ s a -> s{_crsrsResponseStatus
 crsrsResourceServer :: Lens' CreateResourceServerResponse ResourceServerType
 crsrsResourceServer = lens _crsrsResourceServer (\ s a -> s{_crsrsResourceServer = a});
 
-instance NFData CreateResourceServerResponse
+instance NFData CreateResourceServerResponse where

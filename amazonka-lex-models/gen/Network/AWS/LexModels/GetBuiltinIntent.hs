@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBuiltinIntent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.LexModels.GetBuiltinIntent
     , gbirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBuiltinIntent' smart constructor.
 newtype GetBuiltinIntent = GetBuiltinIntent'
-    { _gbiSignature :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbiSignature :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBuiltinIntent' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetBuiltinIntent = GetBuiltinIntent'
 getBuiltinIntent
     :: Text -- ^ 'gbiSignature'
     -> GetBuiltinIntent
-getBuiltinIntent pSignature_ =
-    GetBuiltinIntent'
-    { _gbiSignature = pSignature_
-    }
+getBuiltinIntent pSignature_ = GetBuiltinIntent' {_gbiSignature = pSignature_}
+
 
 -- | The unique identifier for a built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
 gbiSignature :: Lens' GetBuiltinIntent Text
@@ -81,9 +80,9 @@ instance AWSRequest GetBuiltinIntent where
                      <*> (x .?> "supportedLocales" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBuiltinIntent
+instance Hashable GetBuiltinIntent where
 
-instance NFData GetBuiltinIntent
+instance NFData GetBuiltinIntent where
 
 instance ToHeaders GetBuiltinIntent where
         toHeaders
@@ -101,11 +100,12 @@ instance ToQuery GetBuiltinIntent where
 
 -- | /See:/ 'getBuiltinIntentResponse' smart constructor.
 data GetBuiltinIntentResponse = GetBuiltinIntentResponse'
-    { _gbirsSignature        :: !(Maybe Text)
-    , _gbirsSlots            :: !(Maybe [BuiltinIntentSlot])
-    , _gbirsSupportedLocales :: !(Maybe [Locale])
-    , _gbirsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbirsSignature        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbirsSlots            :: {-# NOUNPACK #-}!(Maybe [BuiltinIntentSlot])
+  , _gbirsSupportedLocales :: {-# NOUNPACK #-}!(Maybe [Locale])
+  , _gbirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBuiltinIntentResponse' with the minimum fields required to make a request.
 --
@@ -122,12 +122,13 @@ getBuiltinIntentResponse
     :: Int -- ^ 'gbirsResponseStatus'
     -> GetBuiltinIntentResponse
 getBuiltinIntentResponse pResponseStatus_ =
-    GetBuiltinIntentResponse'
-    { _gbirsSignature = Nothing
-    , _gbirsSlots = Nothing
-    , _gbirsSupportedLocales = Nothing
-    , _gbirsResponseStatus = pResponseStatus_
-    }
+  GetBuiltinIntentResponse'
+  { _gbirsSignature = Nothing
+  , _gbirsSlots = Nothing
+  , _gbirsSupportedLocales = Nothing
+  , _gbirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The unique identifier for a built-in intent.
 gbirsSignature :: Lens' GetBuiltinIntentResponse (Maybe Text)
@@ -145,4 +146,4 @@ gbirsSupportedLocales = lens _gbirsSupportedLocales (\ s a -> s{_gbirsSupportedL
 gbirsResponseStatus :: Lens' GetBuiltinIntentResponse Int
 gbirsResponseStatus = lens _gbirsResponseStatus (\ s a -> s{_gbirsResponseStatus = a});
 
-instance NFData GetBuiltinIntentResponse
+instance NFData GetBuiltinIntentResponse where

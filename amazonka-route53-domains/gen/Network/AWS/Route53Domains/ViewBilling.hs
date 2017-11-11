@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ViewBilling
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Route53Domains.ViewBilling
     , vbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The ViewBilling request includes the following elements.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'viewBilling' smart constructor.
 data ViewBilling = ViewBilling'
-    { _vbStart    :: !(Maybe POSIX)
-    , _vbEnd      :: !(Maybe POSIX)
-    , _vbMarker   :: !(Maybe Text)
-    , _vbMaxItems :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vbStart    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _vbEnd      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _vbMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vbMaxItems :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ViewBilling' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data ViewBilling = ViewBilling'
 viewBilling
     :: ViewBilling
 viewBilling =
-    ViewBilling'
-    { _vbStart = Nothing
-    , _vbEnd = Nothing
-    , _vbMarker = Nothing
-    , _vbMaxItems = Nothing
-    }
+  ViewBilling'
+  { _vbStart = Nothing
+  , _vbEnd = Nothing
+  , _vbMarker = Nothing
+  , _vbMaxItems = Nothing
+  }
+
 
 -- | The beginning date and time for the time period for which you want a list of billing records. Specify the date in Unix time format.
 vbStart :: Lens' ViewBilling (Maybe UTCTime)
@@ -108,9 +110,9 @@ instance AWSRequest ViewBilling where
                      (x .?> "BillingRecords" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ViewBilling
+instance Hashable ViewBilling where
 
-instance NFData ViewBilling
+instance NFData ViewBilling where
 
 instance ToHeaders ViewBilling where
         toHeaders
@@ -142,10 +144,11 @@ instance ToQuery ViewBilling where
 --
 -- /See:/ 'viewBillingResponse' smart constructor.
 data ViewBillingResponse = ViewBillingResponse'
-    { _vbrsNextPageMarker :: !(Maybe Text)
-    , _vbrsBillingRecords :: !(Maybe [BillingRecord])
-    , _vbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vbrsNextPageMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vbrsBillingRecords :: {-# NOUNPACK #-}!(Maybe [BillingRecord])
+  , _vbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ViewBillingResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +163,12 @@ viewBillingResponse
     :: Int -- ^ 'vbrsResponseStatus'
     -> ViewBillingResponse
 viewBillingResponse pResponseStatus_ =
-    ViewBillingResponse'
-    { _vbrsNextPageMarker = Nothing
-    , _vbrsBillingRecords = Nothing
-    , _vbrsResponseStatus = pResponseStatus_
-    }
+  ViewBillingResponse'
+  { _vbrsNextPageMarker = Nothing
+  , _vbrsBillingRecords = Nothing
+  , _vbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If there are more billing records than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
 vbrsNextPageMarker :: Lens' ViewBillingResponse (Maybe Text)
@@ -178,4 +182,4 @@ vbrsBillingRecords = lens _vbrsBillingRecords (\ s a -> s{_vbrsBillingRecords = 
 vbrsResponseStatus :: Lens' ViewBillingResponse Int
 vbrsResponseStatus = lens _vbrsResponseStatus (\ s a -> s{_vbrsResponseStatus = a});
 
-instance NFData ViewBillingResponse
+instance NFData ViewBillingResponse where

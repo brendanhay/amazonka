@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListResourceServers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CognitoIdentityProvider.ListResourceServers
     , lrsrsResourceServers
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listResourceServers' smart constructor.
 data ListResourceServers = ListResourceServers'
-    { _lrsNextToken  :: !(Maybe Text)
-    , _lrsMaxResults :: !(Maybe Nat)
-    , _lrsUserPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lrsUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourceServers' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listResourceServers
     :: Text -- ^ 'lrsUserPoolId'
     -> ListResourceServers
 listResourceServers pUserPoolId_ =
-    ListResourceServers'
-    { _lrsNextToken = Nothing
-    , _lrsMaxResults = Nothing
-    , _lrsUserPoolId = pUserPoolId_
-    }
+  ListResourceServers'
+  { _lrsNextToken = Nothing
+  , _lrsMaxResults = Nothing
+  , _lrsUserPoolId = pUserPoolId_
+  }
+
 
 -- | A pagination token.
 lrsNextToken :: Lens' ListResourceServers (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest ListResourceServers where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "ResourceServers" .!@ mempty))
 
-instance Hashable ListResourceServers
+instance Hashable ListResourceServers where
 
-instance NFData ListResourceServers
+instance NFData ListResourceServers where
 
 instance ToHeaders ListResourceServers where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery ListResourceServers where
 
 -- | /See:/ 'listResourceServersResponse' smart constructor.
 data ListResourceServersResponse = ListResourceServersResponse'
-    { _lrsrsNextToken       :: !(Maybe Text)
-    , _lrsrsResponseStatus  :: !Int
-    , _lrsrsResourceServers :: ![ResourceServerType]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsrsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _lrsrsResourceServers :: {-# NOUNPACK #-}![ResourceServerType]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourceServersResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ listResourceServersResponse
     :: Int -- ^ 'lrsrsResponseStatus'
     -> ListResourceServersResponse
 listResourceServersResponse pResponseStatus_ =
-    ListResourceServersResponse'
-    { _lrsrsNextToken = Nothing
-    , _lrsrsResponseStatus = pResponseStatus_
-    , _lrsrsResourceServers = mempty
-    }
+  ListResourceServersResponse'
+  { _lrsrsNextToken = Nothing
+  , _lrsrsResponseStatus = pResponseStatus_
+  , _lrsrsResourceServers = mempty
+  }
+
 
 -- | A pagination token.
 lrsrsNextToken :: Lens' ListResourceServersResponse (Maybe Text)
@@ -162,4 +166,4 @@ lrsrsResponseStatus = lens _lrsrsResponseStatus (\ s a -> s{_lrsrsResponseStatus
 lrsrsResourceServers :: Lens' ListResourceServersResponse [ResourceServerType]
 lrsrsResourceServers = lens _lrsrsResourceServers (\ s a -> s{_lrsrsResourceServers = a}) . _Coerce;
 
-instance NFData ListResourceServersResponse
+instance NFData ListResourceServersResponse where

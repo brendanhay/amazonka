@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListCuratedEnvironmentImages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.CodeBuild.ListCuratedEnvironmentImages
     , lceirsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listCuratedEnvironmentImages' smart constructor.
 data ListCuratedEnvironmentImages =
-    ListCuratedEnvironmentImages'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ListCuratedEnvironmentImages'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCuratedEnvironmentImages' with the minimum fields required to make a request.
 --
 listCuratedEnvironmentImages
     :: ListCuratedEnvironmentImages
 listCuratedEnvironmentImages = ListCuratedEnvironmentImages'
+
 
 instance AWSRequest ListCuratedEnvironmentImages
          where
@@ -65,9 +67,9 @@ instance AWSRequest ListCuratedEnvironmentImages
                    (x .?> "platforms" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListCuratedEnvironmentImages
+instance Hashable ListCuratedEnvironmentImages where
 
-instance NFData ListCuratedEnvironmentImages
+instance NFData ListCuratedEnvironmentImages where
 
 instance ToHeaders ListCuratedEnvironmentImages where
         toHeaders
@@ -90,9 +92,10 @@ instance ToQuery ListCuratedEnvironmentImages where
 
 -- | /See:/ 'listCuratedEnvironmentImagesResponse' smart constructor.
 data ListCuratedEnvironmentImagesResponse = ListCuratedEnvironmentImagesResponse'
-    { _lceirsPlatforms      :: !(Maybe [EnvironmentPlatform])
-    , _lceirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lceirsPlatforms      :: {-# NOUNPACK #-}!(Maybe [EnvironmentPlatform])
+  , _lceirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCuratedEnvironmentImagesResponse' with the minimum fields required to make a request.
 --
@@ -105,10 +108,9 @@ listCuratedEnvironmentImagesResponse
     :: Int -- ^ 'lceirsResponseStatus'
     -> ListCuratedEnvironmentImagesResponse
 listCuratedEnvironmentImagesResponse pResponseStatus_ =
-    ListCuratedEnvironmentImagesResponse'
-    { _lceirsPlatforms = Nothing
-    , _lceirsResponseStatus = pResponseStatus_
-    }
+  ListCuratedEnvironmentImagesResponse'
+  {_lceirsPlatforms = Nothing, _lceirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about supported platforms for Docker images that are managed by AWS CodeBuild.
 lceirsPlatforms :: Lens' ListCuratedEnvironmentImagesResponse [EnvironmentPlatform]
@@ -119,3 +121,4 @@ lceirsResponseStatus :: Lens' ListCuratedEnvironmentImagesResponse Int
 lceirsResponseStatus = lens _lceirsResponseStatus (\ s a -> s{_lceirsResponseStatus = a});
 
 instance NFData ListCuratedEnvironmentImagesResponse
+         where

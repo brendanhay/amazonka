@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,25 +40,26 @@ module Network.AWS.S3.PutBucketACL
     , PutBucketACLResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketACL' smart constructor.
 data PutBucketACL = PutBucketACL'
-    { _pbaGrantReadACP        :: !(Maybe Text)
-    , _pbaGrantWriteACP       :: !(Maybe Text)
-    , _pbaGrantRead           :: !(Maybe Text)
-    , _pbaGrantFullControl    :: !(Maybe Text)
-    , _pbaContentMD5          :: !(Maybe Text)
-    , _pbaAccessControlPolicy :: !(Maybe AccessControlPolicy)
-    , _pbaGrantWrite          :: !(Maybe Text)
-    , _pbaACL                 :: !(Maybe BucketCannedACL)
-    , _pbaBucket              :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbaGrantReadACP        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbaGrantWriteACP       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbaGrantRead           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbaGrantFullControl    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbaContentMD5          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbaAccessControlPolicy :: {-# NOUNPACK #-}!(Maybe AccessControlPolicy)
+  , _pbaGrantWrite          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbaACL                 :: {-# NOUNPACK #-}!(Maybe BucketCannedACL)
+  , _pbaBucket              :: {-# NOUNPACK #-}!BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketACL' with the minimum fields required to make a request.
 --
@@ -85,17 +86,18 @@ putBucketACL
     :: BucketName -- ^ 'pbaBucket'
     -> PutBucketACL
 putBucketACL pBucket_ =
-    PutBucketACL'
-    { _pbaGrantReadACP = Nothing
-    , _pbaGrantWriteACP = Nothing
-    , _pbaGrantRead = Nothing
-    , _pbaGrantFullControl = Nothing
-    , _pbaContentMD5 = Nothing
-    , _pbaAccessControlPolicy = Nothing
-    , _pbaGrantWrite = Nothing
-    , _pbaACL = Nothing
-    , _pbaBucket = pBucket_
-    }
+  PutBucketACL'
+  { _pbaGrantReadACP = Nothing
+  , _pbaGrantWriteACP = Nothing
+  , _pbaGrantRead = Nothing
+  , _pbaGrantFullControl = Nothing
+  , _pbaContentMD5 = Nothing
+  , _pbaAccessControlPolicy = Nothing
+  , _pbaGrantWrite = Nothing
+  , _pbaACL = Nothing
+  , _pbaBucket = pBucket_
+  }
+
 
 -- | Allows grantee to read the bucket ACL.
 pbaGrantReadACP :: Lens' PutBucketACL (Maybe Text)
@@ -138,9 +140,9 @@ instance AWSRequest PutBucketACL where
         request = putXML s3
         response = receiveNull PutBucketACLResponse'
 
-instance Hashable PutBucketACL
+instance Hashable PutBucketACL where
 
-instance NFData PutBucketACL
+instance NFData PutBucketACL where
 
 instance ToElement PutBucketACL where
         toElement
@@ -169,8 +171,9 @@ instance ToQuery PutBucketACL where
 
 -- | /See:/ 'putBucketACLResponse' smart constructor.
 data PutBucketACLResponse =
-    PutBucketACLResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketACLResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketACLResponse' with the minimum fields required to make a request.
 --
@@ -178,4 +181,5 @@ putBucketACLResponse
     :: PutBucketACLResponse
 putBucketACLResponse = PutBucketACLResponse'
 
-instance NFData PutBucketACLResponse
+
+instance NFData PutBucketACLResponse where

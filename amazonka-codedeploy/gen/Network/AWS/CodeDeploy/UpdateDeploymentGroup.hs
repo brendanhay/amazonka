@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.UpdateDeploymentGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an UpdateDeploymentGroup operation.
 --
@@ -65,23 +65,24 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateDeploymentGroup' smart constructor.
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
-    { _udgServiceRoleARN                   :: !(Maybe Text)
-    , _udgEc2TagSet                        :: !(Maybe EC2TagSet)
-    , _udgDeploymentConfigName             :: !(Maybe Text)
-    , _udgOnPremisesTagSet                 :: !(Maybe OnPremisesTagSet)
-    , _udgNewDeploymentGroupName           :: !(Maybe Text)
-    , _udgEc2TagFilters                    :: !(Maybe [EC2TagFilter])
-    , _udgBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
-    , _udgLoadBalancerInfo                 :: !(Maybe LoadBalancerInfo)
-    , _udgOnPremisesInstanceTagFilters     :: !(Maybe [TagFilter])
-    , _udgAlarmConfiguration               :: !(Maybe AlarmConfiguration)
-    , _udgTriggerConfigurations            :: !(Maybe [TriggerConfig])
-    , _udgAutoScalingGroups                :: !(Maybe [Text])
-    , _udgDeploymentStyle                  :: !(Maybe DeploymentStyle)
-    , _udgAutoRollbackConfiguration        :: !(Maybe AutoRollbackConfiguration)
-    , _udgApplicationName                  :: !Text
-    , _udgCurrentDeploymentGroupName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udgServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udgEc2TagSet :: {-# NOUNPACK #-}!(Maybe EC2TagSet)
+  , _udgDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udgOnPremisesTagSet :: {-# NOUNPACK #-}!(Maybe OnPremisesTagSet)
+  , _udgNewDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udgEc2TagFilters :: {-# NOUNPACK #-}!(Maybe [EC2TagFilter])
+  , _udgBlueGreenDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe BlueGreenDeploymentConfiguration)
+  , _udgLoadBalancerInfo :: {-# NOUNPACK #-}!(Maybe LoadBalancerInfo)
+  , _udgOnPremisesInstanceTagFilters :: {-# NOUNPACK #-}!(Maybe [TagFilter])
+  , _udgAlarmConfiguration :: {-# NOUNPACK #-}!(Maybe AlarmConfiguration)
+  , _udgTriggerConfigurations :: {-# NOUNPACK #-}!(Maybe [TriggerConfig])
+  , _udgAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _udgDeploymentStyle :: {-# NOUNPACK #-}!(Maybe DeploymentStyle)
+  , _udgAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
+  , _udgApplicationName :: {-# NOUNPACK #-}!Text
+  , _udgCurrentDeploymentGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDeploymentGroup' with the minimum fields required to make a request.
 --
@@ -123,24 +124,25 @@ updateDeploymentGroup
     -> Text -- ^ 'udgCurrentDeploymentGroupName'
     -> UpdateDeploymentGroup
 updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
-    UpdateDeploymentGroup'
-    { _udgServiceRoleARN = Nothing
-    , _udgEc2TagSet = Nothing
-    , _udgDeploymentConfigName = Nothing
-    , _udgOnPremisesTagSet = Nothing
-    , _udgNewDeploymentGroupName = Nothing
-    , _udgEc2TagFilters = Nothing
-    , _udgBlueGreenDeploymentConfiguration = Nothing
-    , _udgLoadBalancerInfo = Nothing
-    , _udgOnPremisesInstanceTagFilters = Nothing
-    , _udgAlarmConfiguration = Nothing
-    , _udgTriggerConfigurations = Nothing
-    , _udgAutoScalingGroups = Nothing
-    , _udgDeploymentStyle = Nothing
-    , _udgAutoRollbackConfiguration = Nothing
-    , _udgApplicationName = pApplicationName_
-    , _udgCurrentDeploymentGroupName = pCurrentDeploymentGroupName_
-    }
+  UpdateDeploymentGroup'
+  { _udgServiceRoleARN = Nothing
+  , _udgEc2TagSet = Nothing
+  , _udgDeploymentConfigName = Nothing
+  , _udgOnPremisesTagSet = Nothing
+  , _udgNewDeploymentGroupName = Nothing
+  , _udgEc2TagFilters = Nothing
+  , _udgBlueGreenDeploymentConfiguration = Nothing
+  , _udgLoadBalancerInfo = Nothing
+  , _udgOnPremisesInstanceTagFilters = Nothing
+  , _udgAlarmConfiguration = Nothing
+  , _udgTriggerConfigurations = Nothing
+  , _udgAutoScalingGroups = Nothing
+  , _udgDeploymentStyle = Nothing
+  , _udgAutoRollbackConfiguration = Nothing
+  , _udgApplicationName = pApplicationName_
+  , _udgCurrentDeploymentGroupName = pCurrentDeploymentGroupName_
+  }
+
 
 -- | A replacement ARN for the service role, if you want to change it.
 udgServiceRoleARN :: Lens' UpdateDeploymentGroup (Maybe Text)
@@ -217,9 +219,9 @@ instance AWSRequest UpdateDeploymentGroup where
                    (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateDeploymentGroup
+instance Hashable UpdateDeploymentGroup where
 
-instance NFData UpdateDeploymentGroup
+instance NFData UpdateDeploymentGroup where
 
 instance ToHeaders UpdateDeploymentGroup where
         toHeaders
@@ -272,9 +274,10 @@ instance ToQuery UpdateDeploymentGroup where
 --
 -- /See:/ 'updateDeploymentGroupResponse' smart constructor.
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
-    { _udgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _udgrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udgrsHooksNotCleanedUp :: {-# NOUNPACK #-}!(Maybe [AutoScalingGroup])
+  , _udgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDeploymentGroupResponse' with the minimum fields required to make a request.
 --
@@ -287,10 +290,9 @@ updateDeploymentGroupResponse
     :: Int -- ^ 'udgrsResponseStatus'
     -> UpdateDeploymentGroupResponse
 updateDeploymentGroupResponse pResponseStatus_ =
-    UpdateDeploymentGroupResponse'
-    { _udgrsHooksNotCleanedUp = Nothing
-    , _udgrsResponseStatus = pResponseStatus_
-    }
+  UpdateDeploymentGroupResponse'
+  {_udgrsHooksNotCleanedUp = Nothing, _udgrsResponseStatus = pResponseStatus_}
+
 
 -- | If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the AWS account. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the AWS account.
 udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
@@ -300,4 +302,4 @@ udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNot
 udgrsResponseStatus :: Lens' UpdateDeploymentGroupResponse Int
 udgrsResponseStatus = lens _udgrsResponseStatus (\ s a -> s{_udgrsResponseStatus = a});
 
-instance NFData UpdateDeploymentGroupResponse
+instance NFData UpdateDeploymentGroupResponse where

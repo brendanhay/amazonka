@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DisableKeyRotation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.KMS.DisableKeyRotation
     , DisableKeyRotationResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableKeyRotation' smart constructor.
 newtype DisableKeyRotation = DisableKeyRotation'
-    { _dkrKeyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dkrKeyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableKeyRotation' with the minimum fields required to make a request.
 --
@@ -54,10 +55,8 @@ newtype DisableKeyRotation = DisableKeyRotation'
 disableKeyRotation
     :: Text -- ^ 'dkrKeyId'
     -> DisableKeyRotation
-disableKeyRotation pKeyId_ =
-    DisableKeyRotation'
-    { _dkrKeyId = pKeyId_
-    }
+disableKeyRotation pKeyId_ = DisableKeyRotation' {_dkrKeyId = pKeyId_}
+
 
 -- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 dkrKeyId :: Lens' DisableKeyRotation Text
@@ -69,9 +68,9 @@ instance AWSRequest DisableKeyRotation where
         request = postJSON kms
         response = receiveNull DisableKeyRotationResponse'
 
-instance Hashable DisableKeyRotation
+instance Hashable DisableKeyRotation where
 
-instance NFData DisableKeyRotation
+instance NFData DisableKeyRotation where
 
 instance ToHeaders DisableKeyRotation where
         toHeaders
@@ -94,8 +93,9 @@ instance ToQuery DisableKeyRotation where
 
 -- | /See:/ 'disableKeyRotationResponse' smart constructor.
 data DisableKeyRotationResponse =
-    DisableKeyRotationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisableKeyRotationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableKeyRotationResponse' with the minimum fields required to make a request.
 --
@@ -103,4 +103,5 @@ disableKeyRotationResponse
     :: DisableKeyRotationResponse
 disableKeyRotationResponse = DisableKeyRotationResponse'
 
-instance NFData DisableKeyRotationResponse
+
+instance NFData DisableKeyRotationResponse where

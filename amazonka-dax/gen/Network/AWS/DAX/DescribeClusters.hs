@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeClusters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,19 +48,20 @@ module Network.AWS.DAX.DescribeClusters
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-    { _dcClusterNames :: !(Maybe [Text])
-    , _dcNextToken    :: !(Maybe Text)
-    , _dcMaxResults   :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcClusterNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMaxResults   :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ data DescribeClusters = DescribeClusters'
 describeClusters
     :: DescribeClusters
 describeClusters =
-    DescribeClusters'
-    { _dcClusterNames = Nothing
-    , _dcNextToken = Nothing
-    , _dcMaxResults = Nothing
-    }
+  DescribeClusters'
+  {_dcClusterNames = Nothing, _dcNextToken = Nothing, _dcMaxResults = Nothing}
+
 
 -- | The names of the DAX clusters being described.
 dcClusterNames :: Lens' DescribeClusters [Text]
@@ -102,9 +101,9 @@ instance AWSRequest DescribeClusters where
                    (x .?> "NextToken") <*> (x .?> "Clusters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeClusters
+instance Hashable DescribeClusters where
 
-instance NFData DescribeClusters
+instance NFData DescribeClusters where
 
 instance ToHeaders DescribeClusters where
         toHeaders
@@ -131,10 +130,11 @@ instance ToQuery DescribeClusters where
 
 -- | /See:/ 'describeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrsNextToken      :: !(Maybe Text)
-    , _dcrsClusters       :: !(Maybe [Cluster])
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcrsClusters       :: {-# NOUNPACK #-}!(Maybe [Cluster])
+  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +149,12 @@ describeClustersResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeClustersResponse
 describeClustersResponse pResponseStatus_ =
-    DescribeClustersResponse'
-    { _dcrsNextToken = Nothing
-    , _dcrsClusters = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeClustersResponse'
+  { _dcrsNextToken = Nothing
+  , _dcrsClusters = Nothing
+  , _dcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcrsNextToken :: Lens' DescribeClustersResponse (Maybe Text)
@@ -167,4 +168,4 @@ dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _
 dcrsResponseStatus :: Lens' DescribeClustersResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeClustersResponse
+instance NFData DescribeClustersResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.DescribeAddresses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.Snowball.DescribeAddresses
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'describeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-    { _daNextToken  :: !(Maybe Text)
-    , _daMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAddresses' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data DescribeAddresses = DescribeAddresses'
 describeAddresses
     :: DescribeAddresses
 describeAddresses =
-    DescribeAddresses'
-    { _daNextToken = Nothing
-    , _daMaxResults = Nothing
-    }
+  DescribeAddresses' {_daNextToken = Nothing, _daMaxResults = Nothing}
+
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @ADDRESS@ objects, you have the option of specifying a value for @NextToken@ as the starting point for your list of returned addresses.
 daNextToken :: Lens' DescribeAddresses (Maybe Text)
@@ -96,9 +95,9 @@ instance AWSRequest DescribeAddresses where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAddresses
+instance Hashable DescribeAddresses where
 
-instance NFData DescribeAddresses
+instance NFData DescribeAddresses where
 
 instance ToHeaders DescribeAddresses where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery DescribeAddresses where
 
 -- | /See:/ 'describeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-    { _drsAddresses      :: !(Maybe [Address])
-    , _drsNextToken      :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsAddresses      :: {-# NOUNPACK #-}!(Maybe [Address])
+  , _drsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAddressesResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ describeAddressesResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeAddressesResponse
 describeAddressesResponse pResponseStatus_ =
-    DescribeAddressesResponse'
-    { _drsAddresses = Nothing
-    , _drsNextToken = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeAddressesResponse'
+  { _drsAddresses = Nothing
+  , _drsNextToken = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Snowball shipping addresses that were created for this account.
 drsAddresses :: Lens' DescribeAddressesResponse [Address]
@@ -161,4 +162,4 @@ drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 drsResponseStatus :: Lens' DescribeAddressesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeAddressesResponse
+instance NFData DescribeAddressesResponse where

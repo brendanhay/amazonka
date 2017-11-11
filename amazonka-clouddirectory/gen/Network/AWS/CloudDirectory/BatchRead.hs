@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.BatchRead
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.CloudDirectory.BatchRead
     , brrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchRead' smart constructor.
 data BatchRead = BatchRead'
-    { _brConsistencyLevel :: !(Maybe ConsistencyLevel)
-    , _brDirectoryARN     :: !Text
-    , _brOperations       :: ![BatchReadOperation]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _brConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
+  , _brDirectoryARN     :: {-# NOUNPACK #-}!Text
+  , _brOperations       :: {-# NOUNPACK #-}![BatchReadOperation]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchRead' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ batchRead
     :: Text -- ^ 'brDirectoryARN'
     -> BatchRead
 batchRead pDirectoryARN_ =
-    BatchRead'
-    { _brConsistencyLevel = Nothing
-    , _brDirectoryARN = pDirectoryARN_
-    , _brOperations = mempty
-    }
+  BatchRead'
+  { _brConsistencyLevel = Nothing
+  , _brDirectoryARN = pDirectoryARN_
+  , _brOperations = mempty
+  }
+
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 brConsistencyLevel :: Lens' BatchRead (Maybe ConsistencyLevel)
@@ -94,9 +96,9 @@ instance AWSRequest BatchRead where
                    (x .?> "Responses" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable BatchRead
+instance Hashable BatchRead where
 
-instance NFData BatchRead
+instance NFData BatchRead where
 
 instance ToHeaders BatchRead where
         toHeaders BatchRead'{..}
@@ -118,9 +120,10 @@ instance ToQuery BatchRead where
 
 -- | /See:/ 'batchReadResponse' smart constructor.
 data BatchReadResponse = BatchReadResponse'
-    { _brrsResponses      :: !(Maybe [BatchReadOperationResponse])
-    , _brrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _brrsResponses      :: {-# NOUNPACK #-}!(Maybe [BatchReadOperationResponse])
+  , _brrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchReadResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +136,9 @@ batchReadResponse
     :: Int -- ^ 'brrsResponseStatus'
     -> BatchReadResponse
 batchReadResponse pResponseStatus_ =
-    BatchReadResponse'
-    { _brrsResponses = Nothing
-    , _brrsResponseStatus = pResponseStatus_
-    }
+  BatchReadResponse'
+  {_brrsResponses = Nothing, _brrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of all the responses for each batch read.
 brrsResponses :: Lens' BatchReadResponse [BatchReadOperationResponse]
@@ -146,4 +148,4 @@ brrsResponses = lens _brrsResponses (\ s a -> s{_brrsResponses = a}) . _Default 
 brrsResponseStatus :: Lens' BatchReadResponse Int
 brrsResponseStatus = lens _brrsResponseStatus (\ s a -> s{_brrsResponseStatus = a});
 
-instance NFData BatchReadResponse
+instance NFData BatchReadResponse where

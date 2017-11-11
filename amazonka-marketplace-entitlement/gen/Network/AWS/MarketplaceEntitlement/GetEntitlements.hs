@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceEntitlement.GetEntitlements
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.MarketplaceEntitlement.GetEntitlements
     , gersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MarketplaceEntitlement.Types
-import           Network.AWS.MarketplaceEntitlement.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MarketplaceEntitlement.Types
+import Network.AWS.MarketplaceEntitlement.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The GetEntitlementsRequest contains parameters for the GetEntitlements operation.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getEntitlements' smart constructor.
 data GetEntitlements = GetEntitlements'
-    { _geNextToken   :: !(Maybe Text)
-    , _geFilter      :: !(Maybe (Map GetEntitlementFilterName (List1 Text)))
-    , _geMaxResults  :: !(Maybe Int)
-    , _geProductCode :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _geNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _geFilter :: {-# NOUNPACK #-}!(Maybe (Map GetEntitlementFilterName (List1 Text)))
+  , _geMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  , _geProductCode :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEntitlements' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ getEntitlements
     :: Text -- ^ 'geProductCode'
     -> GetEntitlements
 getEntitlements pProductCode_ =
-    GetEntitlements'
-    { _geNextToken = Nothing
-    , _geFilter = Nothing
-    , _geMaxResults = Nothing
-    , _geProductCode = pProductCode_
-    }
+  GetEntitlements'
+  { _geNextToken = Nothing
+  , _geFilter = Nothing
+  , _geMaxResults = Nothing
+  , _geProductCode = pProductCode_
+  }
+
 
 -- | For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.
 geNextToken :: Lens' GetEntitlements (Maybe Text)
@@ -109,9 +111,9 @@ instance AWSRequest GetEntitlements where
                      (x .?> "Entitlements" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetEntitlements
+instance Hashable GetEntitlements where
 
-instance NFData GetEntitlements
+instance NFData GetEntitlements where
 
 instance ToHeaders GetEntitlements where
         toHeaders
@@ -144,10 +146,11 @@ instance ToQuery GetEntitlements where
 --
 -- /See:/ 'getEntitlementsResponse' smart constructor.
 data GetEntitlementsResponse = GetEntitlementsResponse'
-    { _gersNextToken      :: !(Maybe Text)
-    , _gersEntitlements   :: !(Maybe [Entitlement])
-    , _gersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersEntitlements   :: {-# NOUNPACK #-}!(Maybe [Entitlement])
+  , _gersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEntitlementsResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ getEntitlementsResponse
     :: Int -- ^ 'gersResponseStatus'
     -> GetEntitlementsResponse
 getEntitlementsResponse pResponseStatus_ =
-    GetEntitlementsResponse'
-    { _gersNextToken = Nothing
-    , _gersEntitlements = Nothing
-    , _gersResponseStatus = pResponseStatus_
-    }
+  GetEntitlementsResponse'
+  { _gersNextToken = Nothing
+  , _gersEntitlements = Nothing
+  , _gersResponseStatus = pResponseStatus_
+  }
+
 
 -- | For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used.
 gersNextToken :: Lens' GetEntitlementsResponse (Maybe Text)
@@ -180,4 +184,4 @@ gersEntitlements = lens _gersEntitlements (\ s a -> s{_gersEntitlements = a}) . 
 gersResponseStatus :: Lens' GetEntitlementsResponse Int
 gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
 
-instance NFData GetEntitlementsResponse
+instance NFData GetEntitlementsResponse where

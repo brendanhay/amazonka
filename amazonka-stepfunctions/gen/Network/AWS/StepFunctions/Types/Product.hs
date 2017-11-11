@@ -9,23 +9,24 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.StepFunctions.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.StepFunctions.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.StepFunctions.Types.Sum
 
 -- | /See:/ 'activityFailedEventDetails' smart constructor.
 data ActivityFailedEventDetails = ActivityFailedEventDetails'
-    { _afedError :: !(Maybe Text)
-    , _afedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _afedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _afedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivityFailedEventDetails' with the minimum fields required to make a request.
 --
@@ -37,10 +38,8 @@ data ActivityFailedEventDetails = ActivityFailedEventDetails'
 activityFailedEventDetails
     :: ActivityFailedEventDetails
 activityFailedEventDetails =
-    ActivityFailedEventDetails'
-    { _afedError = Nothing
-    , _afedCause = Nothing
-    }
+  ActivityFailedEventDetails' {_afedError = Nothing, _afedCause = Nothing}
+
 
 -- | The error code of the failure.
 afedError :: Lens' ActivityFailedEventDetails (Maybe Text)
@@ -57,16 +56,17 @@ instance FromJSON ActivityFailedEventDetails where
                  ActivityFailedEventDetails' <$>
                    (x .:? "error") <*> (x .:? "cause"))
 
-instance Hashable ActivityFailedEventDetails
+instance Hashable ActivityFailedEventDetails where
 
-instance NFData ActivityFailedEventDetails
+instance NFData ActivityFailedEventDetails where
 
 -- | /See:/ 'activityListItem' smart constructor.
 data ActivityListItem = ActivityListItem'
-    { _aliActivityARN  :: !Text
-    , _aliName         :: !Text
-    , _aliCreationDate :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aliActivityARN  :: {-# NOUNPACK #-}!Text
+  , _aliName         :: {-# NOUNPACK #-}!Text
+  , _aliCreationDate :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivityListItem' with the minimum fields required to make a request.
 --
@@ -83,11 +83,12 @@ activityListItem
     -> UTCTime -- ^ 'aliCreationDate'
     -> ActivityListItem
 activityListItem pActivityARN_ pName_ pCreationDate_ =
-    ActivityListItem'
-    { _aliActivityARN = pActivityARN_
-    , _aliName = pName_
-    , _aliCreationDate = _Time # pCreationDate_
-    }
+  ActivityListItem'
+  { _aliActivityARN = pActivityARN_
+  , _aliName = pName_
+  , _aliCreationDate = _Time # pCreationDate_
+  }
+
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
 aliActivityARN :: Lens' ActivityListItem Text
@@ -109,15 +110,16 @@ instance FromJSON ActivityListItem where
                    (x .: "activityArn") <*> (x .: "name") <*>
                      (x .: "creationDate"))
 
-instance Hashable ActivityListItem
+instance Hashable ActivityListItem where
 
-instance NFData ActivityListItem
+instance NFData ActivityListItem where
 
 -- | /See:/ 'activityScheduleFailedEventDetails' smart constructor.
 data ActivityScheduleFailedEventDetails = ActivityScheduleFailedEventDetails'
-    { _asfedError :: !(Maybe Text)
-    , _asfedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asfedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asfedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivityScheduleFailedEventDetails' with the minimum fields required to make a request.
 --
@@ -129,10 +131,9 @@ data ActivityScheduleFailedEventDetails = ActivityScheduleFailedEventDetails'
 activityScheduleFailedEventDetails
     :: ActivityScheduleFailedEventDetails
 activityScheduleFailedEventDetails =
-    ActivityScheduleFailedEventDetails'
-    { _asfedError = Nothing
-    , _asfedCause = Nothing
-    }
+  ActivityScheduleFailedEventDetails'
+  {_asfedError = Nothing, _asfedCause = Nothing}
+
 
 -- | The error code of the failure.
 asfedError :: Lens' ActivityScheduleFailedEventDetails (Maybe Text)
@@ -151,16 +152,19 @@ instance FromJSON ActivityScheduleFailedEventDetails
                    (x .:? "error") <*> (x .:? "cause"))
 
 instance Hashable ActivityScheduleFailedEventDetails
+         where
 
 instance NFData ActivityScheduleFailedEventDetails
+         where
 
 -- | /See:/ 'activityScheduledEventDetails' smart constructor.
 data ActivityScheduledEventDetails = ActivityScheduledEventDetails'
-    { _asedHeartbeatInSeconds :: !(Maybe Integer)
-    , _asedInput              :: !(Maybe Text)
-    , _asedTimeoutInSeconds   :: !(Maybe Integer)
-    , _asedResource           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asedHeartbeatInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _asedInput              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asedTimeoutInSeconds   :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _asedResource           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivityScheduledEventDetails' with the minimum fields required to make a request.
 --
@@ -177,12 +181,13 @@ activityScheduledEventDetails
     :: Text -- ^ 'asedResource'
     -> ActivityScheduledEventDetails
 activityScheduledEventDetails pResource_ =
-    ActivityScheduledEventDetails'
-    { _asedHeartbeatInSeconds = Nothing
-    , _asedInput = Nothing
-    , _asedTimeoutInSeconds = Nothing
-    , _asedResource = pResource_
-    }
+  ActivityScheduledEventDetails'
+  { _asedHeartbeatInSeconds = Nothing
+  , _asedInput = Nothing
+  , _asedTimeoutInSeconds = Nothing
+  , _asedResource = pResource_
+  }
+
 
 -- | The maximum allowed duration between two heartbeats for the activity task.
 asedHeartbeatInSeconds :: Lens' ActivityScheduledEventDetails (Maybe Integer)
@@ -209,14 +214,15 @@ instance FromJSON ActivityScheduledEventDetails where
                      (x .:? "timeoutInSeconds")
                      <*> (x .: "resource"))
 
-instance Hashable ActivityScheduledEventDetails
+instance Hashable ActivityScheduledEventDetails where
 
-instance NFData ActivityScheduledEventDetails
+instance NFData ActivityScheduledEventDetails where
 
 -- | /See:/ 'activityStartedEventDetails' smart constructor.
 newtype ActivityStartedEventDetails = ActivityStartedEventDetails'
-    { _asedWorkerName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asedWorkerName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivityStartedEventDetails' with the minimum fields required to make a request.
 --
@@ -226,9 +232,8 @@ newtype ActivityStartedEventDetails = ActivityStartedEventDetails'
 activityStartedEventDetails
     :: ActivityStartedEventDetails
 activityStartedEventDetails =
-    ActivityStartedEventDetails'
-    { _asedWorkerName = Nothing
-    }
+  ActivityStartedEventDetails' {_asedWorkerName = Nothing}
+
 
 -- | The name of the worker that the task was assigned to. These names are provided by the workers when calling 'GetActivityTask' .
 asedWorkerName :: Lens' ActivityStartedEventDetails (Maybe Text)
@@ -241,14 +246,15 @@ instance FromJSON ActivityStartedEventDetails where
                  ActivityStartedEventDetails' <$>
                    (x .:? "workerName"))
 
-instance Hashable ActivityStartedEventDetails
+instance Hashable ActivityStartedEventDetails where
 
-instance NFData ActivityStartedEventDetails
+instance NFData ActivityStartedEventDetails where
 
 -- | /See:/ 'activitySucceededEventDetails' smart constructor.
 newtype ActivitySucceededEventDetails = ActivitySucceededEventDetails'
-    { _asedOutput :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asedOutput :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivitySucceededEventDetails' with the minimum fields required to make a request.
 --
@@ -258,9 +264,8 @@ newtype ActivitySucceededEventDetails = ActivitySucceededEventDetails'
 activitySucceededEventDetails
     :: ActivitySucceededEventDetails
 activitySucceededEventDetails =
-    ActivitySucceededEventDetails'
-    { _asedOutput = Nothing
-    }
+  ActivitySucceededEventDetails' {_asedOutput = Nothing}
+
 
 -- | The JSON data output by the activity task.
 asedOutput :: Lens' ActivitySucceededEventDetails (Maybe Text)
@@ -272,15 +277,16 @@ instance FromJSON ActivitySucceededEventDetails where
               (\ x ->
                  ActivitySucceededEventDetails' <$> (x .:? "output"))
 
-instance Hashable ActivitySucceededEventDetails
+instance Hashable ActivitySucceededEventDetails where
 
-instance NFData ActivitySucceededEventDetails
+instance NFData ActivitySucceededEventDetails where
 
 -- | /See:/ 'activityTimedOutEventDetails' smart constructor.
 data ActivityTimedOutEventDetails = ActivityTimedOutEventDetails'
-    { _atoedError :: !(Maybe Text)
-    , _atoedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atoedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _atoedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivityTimedOutEventDetails' with the minimum fields required to make a request.
 --
@@ -292,10 +298,8 @@ data ActivityTimedOutEventDetails = ActivityTimedOutEventDetails'
 activityTimedOutEventDetails
     :: ActivityTimedOutEventDetails
 activityTimedOutEventDetails =
-    ActivityTimedOutEventDetails'
-    { _atoedError = Nothing
-    , _atoedCause = Nothing
-    }
+  ActivityTimedOutEventDetails' {_atoedError = Nothing, _atoedCause = Nothing}
+
 
 -- | The error code of the failure.
 atoedError :: Lens' ActivityTimedOutEventDetails (Maybe Text)
@@ -312,15 +316,16 @@ instance FromJSON ActivityTimedOutEventDetails where
                  ActivityTimedOutEventDetails' <$>
                    (x .:? "error") <*> (x .:? "cause"))
 
-instance Hashable ActivityTimedOutEventDetails
+instance Hashable ActivityTimedOutEventDetails where
 
-instance NFData ActivityTimedOutEventDetails
+instance NFData ActivityTimedOutEventDetails where
 
 -- | /See:/ 'executionAbortedEventDetails' smart constructor.
 data ExecutionAbortedEventDetails = ExecutionAbortedEventDetails'
-    { _eaedError :: !(Maybe Text)
-    , _eaedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eaedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eaedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutionAbortedEventDetails' with the minimum fields required to make a request.
 --
@@ -332,10 +337,8 @@ data ExecutionAbortedEventDetails = ExecutionAbortedEventDetails'
 executionAbortedEventDetails
     :: ExecutionAbortedEventDetails
 executionAbortedEventDetails =
-    ExecutionAbortedEventDetails'
-    { _eaedError = Nothing
-    , _eaedCause = Nothing
-    }
+  ExecutionAbortedEventDetails' {_eaedError = Nothing, _eaedCause = Nothing}
+
 
 -- | The error code of the failure.
 eaedError :: Lens' ExecutionAbortedEventDetails (Maybe Text)
@@ -352,15 +355,16 @@ instance FromJSON ExecutionAbortedEventDetails where
                  ExecutionAbortedEventDetails' <$>
                    (x .:? "error") <*> (x .:? "cause"))
 
-instance Hashable ExecutionAbortedEventDetails
+instance Hashable ExecutionAbortedEventDetails where
 
-instance NFData ExecutionAbortedEventDetails
+instance NFData ExecutionAbortedEventDetails where
 
 -- | /See:/ 'executionFailedEventDetails' smart constructor.
 data ExecutionFailedEventDetails = ExecutionFailedEventDetails'
-    { _efedError :: !(Maybe Text)
-    , _efedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _efedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _efedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutionFailedEventDetails' with the minimum fields required to make a request.
 --
@@ -372,10 +376,8 @@ data ExecutionFailedEventDetails = ExecutionFailedEventDetails'
 executionFailedEventDetails
     :: ExecutionFailedEventDetails
 executionFailedEventDetails =
-    ExecutionFailedEventDetails'
-    { _efedError = Nothing
-    , _efedCause = Nothing
-    }
+  ExecutionFailedEventDetails' {_efedError = Nothing, _efedCause = Nothing}
+
 
 -- | The error code of the failure.
 efedError :: Lens' ExecutionFailedEventDetails (Maybe Text)
@@ -392,19 +394,20 @@ instance FromJSON ExecutionFailedEventDetails where
                  ExecutionFailedEventDetails' <$>
                    (x .:? "error") <*> (x .:? "cause"))
 
-instance Hashable ExecutionFailedEventDetails
+instance Hashable ExecutionFailedEventDetails where
 
-instance NFData ExecutionFailedEventDetails
+instance NFData ExecutionFailedEventDetails where
 
 -- | /See:/ 'executionListItem' smart constructor.
 data ExecutionListItem = ExecutionListItem'
-    { _eliStopDate        :: !(Maybe POSIX)
-    , _eliExecutionARN    :: !Text
-    , _eliStateMachineARN :: !Text
-    , _eliName            :: !Text
-    , _eliStatus          :: !ExecutionStatus
-    , _eliStartDate       :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eliStopDate        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eliExecutionARN    :: {-# NOUNPACK #-}!Text
+  , _eliStateMachineARN :: {-# NOUNPACK #-}!Text
+  , _eliName            :: {-# NOUNPACK #-}!Text
+  , _eliStatus          :: {-# NOUNPACK #-}!ExecutionStatus
+  , _eliStartDate       :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutionListItem' with the minimum fields required to make a request.
 --
@@ -429,14 +432,15 @@ executionListItem
     -> UTCTime -- ^ 'eliStartDate'
     -> ExecutionListItem
 executionListItem pExecutionARN_ pStateMachineARN_ pName_ pStatus_ pStartDate_ =
-    ExecutionListItem'
-    { _eliStopDate = Nothing
-    , _eliExecutionARN = pExecutionARN_
-    , _eliStateMachineARN = pStateMachineARN_
-    , _eliName = pName_
-    , _eliStatus = pStatus_
-    , _eliStartDate = _Time # pStartDate_
-    }
+  ExecutionListItem'
+  { _eliStopDate = Nothing
+  , _eliExecutionARN = pExecutionARN_
+  , _eliStateMachineARN = pStateMachineARN_
+  , _eliName = pName_
+  , _eliStatus = pStatus_
+  , _eliStartDate = _Time # pStartDate_
+  }
+
 
 -- | If the execution already ended, the date the execution stopped.
 eliStopDate :: Lens' ExecutionListItem (Maybe UTCTime)
@@ -473,15 +477,16 @@ instance FromJSON ExecutionListItem where
                      <*> (x .: "status")
                      <*> (x .: "startDate"))
 
-instance Hashable ExecutionListItem
+instance Hashable ExecutionListItem where
 
-instance NFData ExecutionListItem
+instance NFData ExecutionListItem where
 
 -- | /See:/ 'executionStartedEventDetails' smart constructor.
 data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
-    { _esedInput   :: !(Maybe Text)
-    , _esedRoleARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esedInput   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esedRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutionStartedEventDetails' with the minimum fields required to make a request.
 --
@@ -493,10 +498,8 @@ data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
 executionStartedEventDetails
     :: ExecutionStartedEventDetails
 executionStartedEventDetails =
-    ExecutionStartedEventDetails'
-    { _esedInput = Nothing
-    , _esedRoleARN = Nothing
-    }
+  ExecutionStartedEventDetails' {_esedInput = Nothing, _esedRoleARN = Nothing}
+
 
 -- | The JSON data input to the execution.
 esedInput :: Lens' ExecutionStartedEventDetails (Maybe Text)
@@ -513,14 +516,15 @@ instance FromJSON ExecutionStartedEventDetails where
                  ExecutionStartedEventDetails' <$>
                    (x .:? "input") <*> (x .:? "roleArn"))
 
-instance Hashable ExecutionStartedEventDetails
+instance Hashable ExecutionStartedEventDetails where
 
-instance NFData ExecutionStartedEventDetails
+instance NFData ExecutionStartedEventDetails where
 
 -- | /See:/ 'executionSucceededEventDetails' smart constructor.
 newtype ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
-    { _esedOutput :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esedOutput :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutionSucceededEventDetails' with the minimum fields required to make a request.
 --
@@ -530,9 +534,8 @@ newtype ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
 executionSucceededEventDetails
     :: ExecutionSucceededEventDetails
 executionSucceededEventDetails =
-    ExecutionSucceededEventDetails'
-    { _esedOutput = Nothing
-    }
+  ExecutionSucceededEventDetails' {_esedOutput = Nothing}
+
 
 -- | The JSON data output by the execution.
 esedOutput :: Lens' ExecutionSucceededEventDetails (Maybe Text)
@@ -546,14 +549,16 @@ instance FromJSON ExecutionSucceededEventDetails
                  ExecutionSucceededEventDetails' <$> (x .:? "output"))
 
 instance Hashable ExecutionSucceededEventDetails
+         where
 
-instance NFData ExecutionSucceededEventDetails
+instance NFData ExecutionSucceededEventDetails where
 
 -- | /See:/ 'executionTimedOutEventDetails' smart constructor.
 data ExecutionTimedOutEventDetails = ExecutionTimedOutEventDetails'
-    { _etoedError :: !(Maybe Text)
-    , _etoedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etoedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etoedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutionTimedOutEventDetails' with the minimum fields required to make a request.
 --
@@ -565,10 +570,8 @@ data ExecutionTimedOutEventDetails = ExecutionTimedOutEventDetails'
 executionTimedOutEventDetails
     :: ExecutionTimedOutEventDetails
 executionTimedOutEventDetails =
-    ExecutionTimedOutEventDetails'
-    { _etoedError = Nothing
-    , _etoedCause = Nothing
-    }
+  ExecutionTimedOutEventDetails' {_etoedError = Nothing, _etoedCause = Nothing}
+
 
 -- | The error code of the failure.
 etoedError :: Lens' ExecutionTimedOutEventDetails (Maybe Text)
@@ -585,36 +588,37 @@ instance FromJSON ExecutionTimedOutEventDetails where
                  ExecutionTimedOutEventDetails' <$>
                    (x .:? "error") <*> (x .:? "cause"))
 
-instance Hashable ExecutionTimedOutEventDetails
+instance Hashable ExecutionTimedOutEventDetails where
 
-instance NFData ExecutionTimedOutEventDetails
+instance NFData ExecutionTimedOutEventDetails where
 
 -- | /See:/ 'historyEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
-    { _heActivityStartedEventDetails              :: !(Maybe ActivityStartedEventDetails)
-    , _heLambdaFunctionStartFailedEventDetails    :: !(Maybe LambdaFunctionStartFailedEventDetails)
-    , _heStateExitedEventDetails                  :: !(Maybe StateExitedEventDetails)
-    , _heLambdaFunctionSucceededEventDetails      :: !(Maybe LambdaFunctionSucceededEventDetails)
-    , _heActivitySucceededEventDetails            :: !(Maybe ActivitySucceededEventDetails)
-    , _heLambdaFunctionTimedOutEventDetails       :: !(Maybe LambdaFunctionTimedOutEventDetails)
-    , _heActivityTimedOutEventDetails             :: !(Maybe ActivityTimedOutEventDetails)
-    , _heExecutionFailedEventDetails              :: !(Maybe ExecutionFailedEventDetails)
-    , _heExecutionAbortedEventDetails             :: !(Maybe ExecutionAbortedEventDetails)
-    , _heExecutionSucceededEventDetails           :: !(Maybe ExecutionSucceededEventDetails)
-    , _heLambdaFunctionScheduledEventDetails      :: !(Maybe LambdaFunctionScheduledEventDetails)
-    , _heActivityScheduledEventDetails            :: !(Maybe ActivityScheduledEventDetails)
-    , _heExecutionStartedEventDetails             :: !(Maybe ExecutionStartedEventDetails)
-    , _heActivityScheduleFailedEventDetails       :: !(Maybe ActivityScheduleFailedEventDetails)
-    , _heLambdaFunctionScheduleFailedEventDetails :: !(Maybe LambdaFunctionScheduleFailedEventDetails)
-    , _heStateEnteredEventDetails                 :: !(Maybe StateEnteredEventDetails)
-    , _hePreviousEventId                          :: !(Maybe Integer)
-    , _heActivityFailedEventDetails               :: !(Maybe ActivityFailedEventDetails)
-    , _heLambdaFunctionFailedEventDetails         :: !(Maybe LambdaFunctionFailedEventDetails)
-    , _heExecutionTimedOutEventDetails            :: !(Maybe ExecutionTimedOutEventDetails)
-    , _heTimestamp                                :: !POSIX
-    , _heType                                     :: !HistoryEventType
-    , _heId                                       :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _heActivityStartedEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityStartedEventDetails)
+  , _heLambdaFunctionStartFailedEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionStartFailedEventDetails)
+  , _heStateExitedEventDetails :: {-# NOUNPACK #-}!(Maybe StateExitedEventDetails)
+  , _heLambdaFunctionSucceededEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionSucceededEventDetails)
+  , _heActivitySucceededEventDetails :: {-# NOUNPACK #-}!(Maybe ActivitySucceededEventDetails)
+  , _heLambdaFunctionTimedOutEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionTimedOutEventDetails)
+  , _heActivityTimedOutEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityTimedOutEventDetails)
+  , _heExecutionFailedEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionFailedEventDetails)
+  , _heExecutionAbortedEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionAbortedEventDetails)
+  , _heExecutionSucceededEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionSucceededEventDetails)
+  , _heLambdaFunctionScheduledEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionScheduledEventDetails)
+  , _heActivityScheduledEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityScheduledEventDetails)
+  , _heExecutionStartedEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionStartedEventDetails)
+  , _heActivityScheduleFailedEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityScheduleFailedEventDetails)
+  , _heLambdaFunctionScheduleFailedEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionScheduleFailedEventDetails)
+  , _heStateEnteredEventDetails :: {-# NOUNPACK #-}!(Maybe StateEnteredEventDetails)
+  , _hePreviousEventId :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _heActivityFailedEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityFailedEventDetails)
+  , _heLambdaFunctionFailedEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionFailedEventDetails)
+  , _heExecutionTimedOutEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionTimedOutEventDetails)
+  , _heTimestamp :: {-# NOUNPACK #-}!POSIX
+  , _heType :: {-# NOUNPACK #-}!HistoryEventType
+  , _heId :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HistoryEvent' with the minimum fields required to make a request.
 --
@@ -671,31 +675,32 @@ historyEvent
     -> Integer -- ^ 'heId'
     -> HistoryEvent
 historyEvent pTimestamp_ pType_ pId_ =
-    HistoryEvent'
-    { _heActivityStartedEventDetails = Nothing
-    , _heLambdaFunctionStartFailedEventDetails = Nothing
-    , _heStateExitedEventDetails = Nothing
-    , _heLambdaFunctionSucceededEventDetails = Nothing
-    , _heActivitySucceededEventDetails = Nothing
-    , _heLambdaFunctionTimedOutEventDetails = Nothing
-    , _heActivityTimedOutEventDetails = Nothing
-    , _heExecutionFailedEventDetails = Nothing
-    , _heExecutionAbortedEventDetails = Nothing
-    , _heExecutionSucceededEventDetails = Nothing
-    , _heLambdaFunctionScheduledEventDetails = Nothing
-    , _heActivityScheduledEventDetails = Nothing
-    , _heExecutionStartedEventDetails = Nothing
-    , _heActivityScheduleFailedEventDetails = Nothing
-    , _heLambdaFunctionScheduleFailedEventDetails = Nothing
-    , _heStateEnteredEventDetails = Nothing
-    , _hePreviousEventId = Nothing
-    , _heActivityFailedEventDetails = Nothing
-    , _heLambdaFunctionFailedEventDetails = Nothing
-    , _heExecutionTimedOutEventDetails = Nothing
-    , _heTimestamp = _Time # pTimestamp_
-    , _heType = pType_
-    , _heId = pId_
-    }
+  HistoryEvent'
+  { _heActivityStartedEventDetails = Nothing
+  , _heLambdaFunctionStartFailedEventDetails = Nothing
+  , _heStateExitedEventDetails = Nothing
+  , _heLambdaFunctionSucceededEventDetails = Nothing
+  , _heActivitySucceededEventDetails = Nothing
+  , _heLambdaFunctionTimedOutEventDetails = Nothing
+  , _heActivityTimedOutEventDetails = Nothing
+  , _heExecutionFailedEventDetails = Nothing
+  , _heExecutionAbortedEventDetails = Nothing
+  , _heExecutionSucceededEventDetails = Nothing
+  , _heLambdaFunctionScheduledEventDetails = Nothing
+  , _heActivityScheduledEventDetails = Nothing
+  , _heExecutionStartedEventDetails = Nothing
+  , _heActivityScheduleFailedEventDetails = Nothing
+  , _heLambdaFunctionScheduleFailedEventDetails = Nothing
+  , _heStateEnteredEventDetails = Nothing
+  , _hePreviousEventId = Nothing
+  , _heActivityFailedEventDetails = Nothing
+  , _heLambdaFunctionFailedEventDetails = Nothing
+  , _heExecutionTimedOutEventDetails = Nothing
+  , _heTimestamp = _Time # pTimestamp_
+  , _heType = pType_
+  , _heId = pId_
+  }
+
 
 -- | Undocumented member.
 heActivityStartedEventDetails :: Lens' HistoryEvent (Maybe ActivityStartedEventDetails)
@@ -819,15 +824,16 @@ instance FromJSON HistoryEvent where
                      <*> (x .: "type")
                      <*> (x .: "id"))
 
-instance Hashable HistoryEvent
+instance Hashable HistoryEvent where
 
-instance NFData HistoryEvent
+instance NFData HistoryEvent where
 
 -- | /See:/ 'lambdaFunctionFailedEventDetails' smart constructor.
 data LambdaFunctionFailedEventDetails = LambdaFunctionFailedEventDetails'
-    { _lffedError :: !(Maybe Text)
-    , _lffedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lffedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lffedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionFailedEventDetails' with the minimum fields required to make a request.
 --
@@ -839,10 +845,9 @@ data LambdaFunctionFailedEventDetails = LambdaFunctionFailedEventDetails'
 lambdaFunctionFailedEventDetails
     :: LambdaFunctionFailedEventDetails
 lambdaFunctionFailedEventDetails =
-    LambdaFunctionFailedEventDetails'
-    { _lffedError = Nothing
-    , _lffedCause = Nothing
-    }
+  LambdaFunctionFailedEventDetails'
+  {_lffedError = Nothing, _lffedCause = Nothing}
+
 
 -- | The error code of the failure.
 lffedError :: Lens' LambdaFunctionFailedEventDetails (Maybe Text)
@@ -861,14 +866,17 @@ instance FromJSON LambdaFunctionFailedEventDetails
                    (x .:? "error") <*> (x .:? "cause"))
 
 instance Hashable LambdaFunctionFailedEventDetails
+         where
 
 instance NFData LambdaFunctionFailedEventDetails
+         where
 
 -- | /See:/ 'lambdaFunctionScheduleFailedEventDetails' smart constructor.
 data LambdaFunctionScheduleFailedEventDetails = LambdaFunctionScheduleFailedEventDetails'
-    { _lError :: !(Maybe Text)
-    , _lCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionScheduleFailedEventDetails' with the minimum fields required to make a request.
 --
@@ -880,10 +888,9 @@ data LambdaFunctionScheduleFailedEventDetails = LambdaFunctionScheduleFailedEven
 lambdaFunctionScheduleFailedEventDetails
     :: LambdaFunctionScheduleFailedEventDetails
 lambdaFunctionScheduleFailedEventDetails =
-    LambdaFunctionScheduleFailedEventDetails'
-    { _lError = Nothing
-    , _lCause = Nothing
-    }
+  LambdaFunctionScheduleFailedEventDetails'
+  {_lError = Nothing, _lCause = Nothing}
+
 
 -- | The error code of the failure.
 lError :: Lens' LambdaFunctionScheduleFailedEventDetails (Maybe Text)
@@ -894,7 +901,8 @@ lCause :: Lens' LambdaFunctionScheduleFailedEventDetails (Maybe Text)
 lCause = lens _lCause (\ s a -> s{_lCause = a});
 
 instance FromJSON
-         LambdaFunctionScheduleFailedEventDetails where
+           LambdaFunctionScheduleFailedEventDetails
+         where
         parseJSON
           = withObject
               "LambdaFunctionScheduleFailedEventDetails"
@@ -903,17 +911,20 @@ instance FromJSON
                    (x .:? "error") <*> (x .:? "cause"))
 
 instance Hashable
-         LambdaFunctionScheduleFailedEventDetails
+           LambdaFunctionScheduleFailedEventDetails
+         where
 
 instance NFData
-         LambdaFunctionScheduleFailedEventDetails
+           LambdaFunctionScheduleFailedEventDetails
+         where
 
 -- | /See:/ 'lambdaFunctionScheduledEventDetails' smart constructor.
 data LambdaFunctionScheduledEventDetails = LambdaFunctionScheduledEventDetails'
-    { _lfsedInput            :: !(Maybe Text)
-    , _lfsedTimeoutInSeconds :: !(Maybe Integer)
-    , _lfsedResource         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfsedInput            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfsedTimeoutInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _lfsedResource         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionScheduledEventDetails' with the minimum fields required to make a request.
 --
@@ -928,11 +939,12 @@ lambdaFunctionScheduledEventDetails
     :: Text -- ^ 'lfsedResource'
     -> LambdaFunctionScheduledEventDetails
 lambdaFunctionScheduledEventDetails pResource_ =
-    LambdaFunctionScheduledEventDetails'
-    { _lfsedInput = Nothing
-    , _lfsedTimeoutInSeconds = Nothing
-    , _lfsedResource = pResource_
-    }
+  LambdaFunctionScheduledEventDetails'
+  { _lfsedInput = Nothing
+  , _lfsedTimeoutInSeconds = Nothing
+  , _lfsedResource = pResource_
+  }
+
 
 -- | The JSON data input to the lambda function.
 lfsedInput :: Lens' LambdaFunctionScheduledEventDetails (Maybe Text)
@@ -956,14 +968,17 @@ instance FromJSON LambdaFunctionScheduledEventDetails
                      (x .: "resource"))
 
 instance Hashable LambdaFunctionScheduledEventDetails
+         where
 
 instance NFData LambdaFunctionScheduledEventDetails
+         where
 
 -- | /See:/ 'lambdaFunctionStartFailedEventDetails' smart constructor.
 data LambdaFunctionStartFailedEventDetails = LambdaFunctionStartFailedEventDetails'
-    { _lfsfedError :: !(Maybe Text)
-    , _lfsfedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfsfedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfsfedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionStartFailedEventDetails' with the minimum fields required to make a request.
 --
@@ -975,10 +990,9 @@ data LambdaFunctionStartFailedEventDetails = LambdaFunctionStartFailedEventDetai
 lambdaFunctionStartFailedEventDetails
     :: LambdaFunctionStartFailedEventDetails
 lambdaFunctionStartFailedEventDetails =
-    LambdaFunctionStartFailedEventDetails'
-    { _lfsfedError = Nothing
-    , _lfsfedCause = Nothing
-    }
+  LambdaFunctionStartFailedEventDetails'
+  {_lfsfedError = Nothing, _lfsfedCause = Nothing}
+
 
 -- | The error code of the failure.
 lfsfedError :: Lens' LambdaFunctionStartFailedEventDetails (Maybe Text)
@@ -989,7 +1003,8 @@ lfsfedCause :: Lens' LambdaFunctionStartFailedEventDetails (Maybe Text)
 lfsfedCause = lens _lfsfedCause (\ s a -> s{_lfsfedCause = a});
 
 instance FromJSON
-         LambdaFunctionStartFailedEventDetails where
+           LambdaFunctionStartFailedEventDetails
+         where
         parseJSON
           = withObject "LambdaFunctionStartFailedEventDetails"
               (\ x ->
@@ -997,14 +1012,17 @@ instance FromJSON
                    (x .:? "error") <*> (x .:? "cause"))
 
 instance Hashable
-         LambdaFunctionStartFailedEventDetails
+           LambdaFunctionStartFailedEventDetails
+         where
 
 instance NFData LambdaFunctionStartFailedEventDetails
+         where
 
 -- | /See:/ 'lambdaFunctionSucceededEventDetails' smart constructor.
 newtype LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
-    { _lfsedOutput :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfsedOutput :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionSucceededEventDetails' with the minimum fields required to make a request.
 --
@@ -1014,9 +1032,8 @@ newtype LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetail
 lambdaFunctionSucceededEventDetails
     :: LambdaFunctionSucceededEventDetails
 lambdaFunctionSucceededEventDetails =
-    LambdaFunctionSucceededEventDetails'
-    { _lfsedOutput = Nothing
-    }
+  LambdaFunctionSucceededEventDetails' {_lfsedOutput = Nothing}
+
 
 -- | The JSON data output by the lambda function.
 lfsedOutput :: Lens' LambdaFunctionSucceededEventDetails (Maybe Text)
@@ -1031,14 +1048,17 @@ instance FromJSON LambdaFunctionSucceededEventDetails
                    (x .:? "output"))
 
 instance Hashable LambdaFunctionSucceededEventDetails
+         where
 
 instance NFData LambdaFunctionSucceededEventDetails
+         where
 
 -- | /See:/ 'lambdaFunctionTimedOutEventDetails' smart constructor.
 data LambdaFunctionTimedOutEventDetails = LambdaFunctionTimedOutEventDetails'
-    { _lftoedError :: !(Maybe Text)
-    , _lftoedCause :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lftoedError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lftoedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionTimedOutEventDetails' with the minimum fields required to make a request.
 --
@@ -1050,10 +1070,9 @@ data LambdaFunctionTimedOutEventDetails = LambdaFunctionTimedOutEventDetails'
 lambdaFunctionTimedOutEventDetails
     :: LambdaFunctionTimedOutEventDetails
 lambdaFunctionTimedOutEventDetails =
-    LambdaFunctionTimedOutEventDetails'
-    { _lftoedError = Nothing
-    , _lftoedCause = Nothing
-    }
+  LambdaFunctionTimedOutEventDetails'
+  {_lftoedError = Nothing, _lftoedCause = Nothing}
+
 
 -- | The error code of the failure.
 lftoedError :: Lens' LambdaFunctionTimedOutEventDetails (Maybe Text)
@@ -1072,14 +1091,17 @@ instance FromJSON LambdaFunctionTimedOutEventDetails
                    (x .:? "error") <*> (x .:? "cause"))
 
 instance Hashable LambdaFunctionTimedOutEventDetails
+         where
 
 instance NFData LambdaFunctionTimedOutEventDetails
+         where
 
 -- | /See:/ 'stateEnteredEventDetails' smart constructor.
 data StateEnteredEventDetails = StateEnteredEventDetails'
-    { _sInput :: !(Maybe Text)
-    , _sName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sInput :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StateEnteredEventDetails' with the minimum fields required to make a request.
 --
@@ -1092,10 +1114,8 @@ stateEnteredEventDetails
     :: Text -- ^ 'sName'
     -> StateEnteredEventDetails
 stateEnteredEventDetails pName_ =
-    StateEnteredEventDetails'
-    { _sInput = Nothing
-    , _sName = pName_
-    }
+  StateEnteredEventDetails' {_sInput = Nothing, _sName = pName_}
+
 
 -- | The JSON input data to the state.
 sInput :: Lens' StateEnteredEventDetails (Maybe Text)
@@ -1112,15 +1132,16 @@ instance FromJSON StateEnteredEventDetails where
                  StateEnteredEventDetails' <$>
                    (x .:? "input") <*> (x .: "name"))
 
-instance Hashable StateEnteredEventDetails
+instance Hashable StateEnteredEventDetails where
 
-instance NFData StateEnteredEventDetails
+instance NFData StateEnteredEventDetails where
 
 -- | /See:/ 'stateExitedEventDetails' smart constructor.
 data StateExitedEventDetails = StateExitedEventDetails'
-    { _seedOutput :: !(Maybe Text)
-    , _seedName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seedOutput :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seedName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StateExitedEventDetails' with the minimum fields required to make a request.
 --
@@ -1133,10 +1154,8 @@ stateExitedEventDetails
     :: Text -- ^ 'seedName'
     -> StateExitedEventDetails
 stateExitedEventDetails pName_ =
-    StateExitedEventDetails'
-    { _seedOutput = Nothing
-    , _seedName = pName_
-    }
+  StateExitedEventDetails' {_seedOutput = Nothing, _seedName = pName_}
+
 
 -- | The JSON output data of the state.
 seedOutput :: Lens' StateExitedEventDetails (Maybe Text)
@@ -1153,16 +1172,17 @@ instance FromJSON StateExitedEventDetails where
                  StateExitedEventDetails' <$>
                    (x .:? "output") <*> (x .: "name"))
 
-instance Hashable StateExitedEventDetails
+instance Hashable StateExitedEventDetails where
 
-instance NFData StateExitedEventDetails
+instance NFData StateExitedEventDetails where
 
 -- | /See:/ 'stateMachineListItem' smart constructor.
 data StateMachineListItem = StateMachineListItem'
-    { _smliStateMachineARN :: !Text
-    , _smliName            :: !Text
-    , _smliCreationDate    :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smliStateMachineARN :: {-# NOUNPACK #-}!Text
+  , _smliName            :: {-# NOUNPACK #-}!Text
+  , _smliCreationDate    :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StateMachineListItem' with the minimum fields required to make a request.
 --
@@ -1179,11 +1199,12 @@ stateMachineListItem
     -> UTCTime -- ^ 'smliCreationDate'
     -> StateMachineListItem
 stateMachineListItem pStateMachineARN_ pName_ pCreationDate_ =
-    StateMachineListItem'
-    { _smliStateMachineARN = pStateMachineARN_
-    , _smliName = pName_
-    , _smliCreationDate = _Time # pCreationDate_
-    }
+  StateMachineListItem'
+  { _smliStateMachineARN = pStateMachineARN_
+  , _smliName = pName_
+  , _smliCreationDate = _Time # pCreationDate_
+  }
+
 
 -- | The Amazon Resource Name (ARN) that identifies the state machine.
 smliStateMachineARN :: Lens' StateMachineListItem Text
@@ -1205,6 +1226,6 @@ instance FromJSON StateMachineListItem where
                    (x .: "stateMachineArn") <*> (x .: "name") <*>
                      (x .: "creationDate"))
 
-instance Hashable StateMachineListItem
+instance Hashable StateMachineListItem where
 
-instance NFData StateMachineListItem
+instance NFData StateMachineListItem where

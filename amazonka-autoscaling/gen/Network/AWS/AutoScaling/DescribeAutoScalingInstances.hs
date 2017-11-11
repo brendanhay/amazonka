@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     , dasirsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeAutoScalingInstances.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeAutoScalingInstances' smart constructor.
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
-    { _dasiNextToken   :: !(Maybe Text)
-    , _dasiInstanceIds :: !(Maybe [Text])
-    , _dasiMaxRecords  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasiNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dasiInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dasiMaxRecords  :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAutoScalingInstances' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
 describeAutoScalingInstances
     :: DescribeAutoScalingInstances
 describeAutoScalingInstances =
-    DescribeAutoScalingInstances'
-    { _dasiNextToken = Nothing
-    , _dasiInstanceIds = Nothing
-    , _dasiMaxRecords = Nothing
-    }
+  DescribeAutoScalingInstances'
+  { _dasiNextToken = Nothing
+  , _dasiInstanceIds = Nothing
+  , _dasiMaxRecords = Nothing
+  }
+
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
@@ -113,9 +115,9 @@ instance AWSRequest DescribeAutoScalingInstances
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAutoScalingInstances
+instance Hashable DescribeAutoScalingInstances where
 
-instance NFData DescribeAutoScalingInstances
+instance NFData DescribeAutoScalingInstances where
 
 instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty
@@ -140,10 +142,11 @@ instance ToQuery DescribeAutoScalingInstances where
 --
 -- /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
-    { _dasirsNextToken            :: !(Maybe Text)
-    , _dasirsAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
-    , _dasirsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasirsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dasirsAutoScalingInstances :: {-# NOUNPACK #-}!(Maybe [AutoScalingInstanceDetails])
+  , _dasirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAutoScalingInstancesResponse' with the minimum fields required to make a request.
 --
@@ -158,11 +161,12 @@ describeAutoScalingInstancesResponse
     :: Int -- ^ 'dasirsResponseStatus'
     -> DescribeAutoScalingInstancesResponse
 describeAutoScalingInstancesResponse pResponseStatus_ =
-    DescribeAutoScalingInstancesResponse'
-    { _dasirsNextToken = Nothing
-    , _dasirsAutoScalingInstances = Nothing
-    , _dasirsResponseStatus = pResponseStatus_
-    }
+  DescribeAutoScalingInstancesResponse'
+  { _dasirsNextToken = Nothing
+  , _dasirsAutoScalingInstances = Nothing
+  , _dasirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dasirsNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
@@ -177,3 +181,4 @@ dasirsResponseStatus :: Lens' DescribeAutoScalingInstancesResponse Int
 dasirsResponseStatus = lens _dasirsResponseStatus (\ s a -> s{_dasirsResponseStatus = a});
 
 instance NFData DescribeAutoScalingInstancesResponse
+         where

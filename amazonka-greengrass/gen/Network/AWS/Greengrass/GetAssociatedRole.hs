@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetAssociatedRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Greengrass.GetAssociatedRole
     , garrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAssociatedRole' smart constructor.
 newtype GetAssociatedRole = GetAssociatedRole'
-    { _garGroupId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garGroupId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAssociatedRole' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype GetAssociatedRole = GetAssociatedRole'
 getAssociatedRole
     :: Text -- ^ 'garGroupId'
     -> GetAssociatedRole
-getAssociatedRole pGroupId_ =
-    GetAssociatedRole'
-    { _garGroupId = pGroupId_
-    }
+getAssociatedRole pGroupId_ = GetAssociatedRole' {_garGroupId = pGroupId_}
+
 
 -- | The unique Id of the AWS Greengrass Group
 garGroupId :: Lens' GetAssociatedRole Text
@@ -75,9 +74,9 @@ instance AWSRequest GetAssociatedRole where
                    (x .?> "AssociatedAt") <*> (x .?> "RoleArn") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetAssociatedRole
+instance Hashable GetAssociatedRole where
 
-instance NFData GetAssociatedRole
+instance NFData GetAssociatedRole where
 
 instance ToHeaders GetAssociatedRole where
         toHeaders
@@ -96,10 +95,11 @@ instance ToQuery GetAssociatedRole where
 
 -- | /See:/ 'getAssociatedRoleResponse' smart constructor.
 data GetAssociatedRoleResponse = GetAssociatedRoleResponse'
-    { _garrsAssociatedAt   :: !(Maybe Text)
-    , _garrsRoleARN        :: !(Maybe Text)
-    , _garrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garrsAssociatedAt   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _garrsRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _garrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAssociatedRoleResponse' with the minimum fields required to make a request.
 --
@@ -114,11 +114,12 @@ getAssociatedRoleResponse
     :: Int -- ^ 'garrsResponseStatus'
     -> GetAssociatedRoleResponse
 getAssociatedRoleResponse pResponseStatus_ =
-    GetAssociatedRoleResponse'
-    { _garrsAssociatedAt = Nothing
-    , _garrsRoleARN = Nothing
-    , _garrsResponseStatus = pResponseStatus_
-    }
+  GetAssociatedRoleResponse'
+  { _garrsAssociatedAt = Nothing
+  , _garrsRoleARN = Nothing
+  , _garrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Time when the role was associated for the group.
 garrsAssociatedAt :: Lens' GetAssociatedRoleResponse (Maybe Text)
@@ -132,4 +133,4 @@ garrsRoleARN = lens _garrsRoleARN (\ s a -> s{_garrsRoleARN = a});
 garrsResponseStatus :: Lens' GetAssociatedRoleResponse Int
 garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a});
 
-instance NFData GetAssociatedRoleResponse
+instance NFData GetAssociatedRoleResponse where

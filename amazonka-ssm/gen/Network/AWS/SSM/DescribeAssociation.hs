@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.SSM.DescribeAssociation
     , daarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAssociation' smart constructor.
 data DescribeAssociation = DescribeAssociation'
-    { _daAssociationId :: !(Maybe Text)
-    , _daInstanceId    :: !(Maybe Text)
-    , _daName          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daInstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daName          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssociation' with the minimum fields required to make a request.
 --
@@ -65,11 +66,9 @@ data DescribeAssociation = DescribeAssociation'
 describeAssociation
     :: DescribeAssociation
 describeAssociation =
-    DescribeAssociation'
-    { _daAssociationId = Nothing
-    , _daInstanceId = Nothing
-    , _daName = Nothing
-    }
+  DescribeAssociation'
+  {_daAssociationId = Nothing, _daInstanceId = Nothing, _daName = Nothing}
+
 
 -- | The association ID for which you want information.
 daAssociationId :: Lens' DescribeAssociation (Maybe Text)
@@ -94,9 +93,9 @@ instance AWSRequest DescribeAssociation where
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeAssociation
+instance Hashable DescribeAssociation where
 
-instance NFData DescribeAssociation
+instance NFData DescribeAssociation where
 
 instance ToHeaders DescribeAssociation where
         toHeaders
@@ -123,9 +122,10 @@ instance ToQuery DescribeAssociation where
 
 -- | /See:/ 'describeAssociationResponse' smart constructor.
 data DescribeAssociationResponse = DescribeAssociationResponse'
-    { _daarsAssociationDescription :: !(Maybe AssociationDescription)
-    , _daarsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daarsAssociationDescription :: {-# NOUNPACK #-}!(Maybe AssociationDescription)
+  , _daarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssociationResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +138,11 @@ describeAssociationResponse
     :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAssociationResponse
 describeAssociationResponse pResponseStatus_ =
-    DescribeAssociationResponse'
-    { _daarsAssociationDescription = Nothing
-    , _daarsResponseStatus = pResponseStatus_
-    }
+  DescribeAssociationResponse'
+  { _daarsAssociationDescription = Nothing
+  , _daarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the association.
 daarsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
@@ -151,4 +152,4 @@ daarsAssociationDescription = lens _daarsAssociationDescription (\ s a -> s{_daa
 daarsResponseStatus :: Lens' DescribeAssociationResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 
-instance NFData DescribeAssociationResponse
+instance NFData DescribeAssociationResponse where

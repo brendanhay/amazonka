@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListProvisioningArtifacts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.ServiceCatalog.ListProvisioningArtifacts
     , lrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listProvisioningArtifacts' smart constructor.
 data ListProvisioningArtifacts = ListProvisioningArtifacts'
-    { _lpaAcceptLanguage :: !(Maybe Text)
-    , _lpaProductId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpaAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpaProductId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProvisioningArtifacts' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ listProvisioningArtifacts
     :: Text -- ^ 'lpaProductId'
     -> ListProvisioningArtifacts
 listProvisioningArtifacts pProductId_ =
-    ListProvisioningArtifacts'
-    { _lpaAcceptLanguage = Nothing
-    , _lpaProductId = pProductId_
-    }
+  ListProvisioningArtifacts'
+  {_lpaAcceptLanguage = Nothing, _lpaProductId = pProductId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 lpaAcceptLanguage :: Lens' ListProvisioningArtifacts (Maybe Text)
@@ -88,9 +88,9 @@ instance AWSRequest ListProvisioningArtifacts where
                      (x .?> "ProvisioningArtifactDetails" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListProvisioningArtifacts
+instance Hashable ListProvisioningArtifacts where
 
-instance NFData ListProvisioningArtifacts
+instance NFData ListProvisioningArtifacts where
 
 instance ToHeaders ListProvisioningArtifacts where
         toHeaders
@@ -117,10 +117,11 @@ instance ToQuery ListProvisioningArtifacts where
 
 -- | /See:/ 'listProvisioningArtifactsResponse' smart constructor.
 data ListProvisioningArtifactsResponse = ListProvisioningArtifactsResponse'
-    { _lrsNextPageToken               :: !(Maybe Text)
-    , _lrsProvisioningArtifactDetails :: !(Maybe [ProvisioningArtifactDetail])
-    , _lrsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsNextPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsProvisioningArtifactDetails :: {-# NOUNPACK #-}!(Maybe [ProvisioningArtifactDetail])
+  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProvisioningArtifactsResponse' with the minimum fields required to make a request.
 --
@@ -135,11 +136,12 @@ listProvisioningArtifactsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListProvisioningArtifactsResponse
 listProvisioningArtifactsResponse pResponseStatus_ =
-    ListProvisioningArtifactsResponse'
-    { _lrsNextPageToken = Nothing
-    , _lrsProvisioningArtifactDetails = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    }
+  ListProvisioningArtifactsResponse'
+  { _lrsNextPageToken = Nothing
+  , _lrsProvisioningArtifactDetails = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 lrsNextPageToken :: Lens' ListProvisioningArtifactsResponse (Maybe Text)
@@ -154,3 +156,4 @@ lrsResponseStatus :: Lens' ListProvisioningArtifactsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
 instance NFData ListProvisioningArtifactsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.DeleteRateBasedRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,18 +50,19 @@ module Network.AWS.WAF.DeleteRateBasedRule
     , drbrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'deleteRateBasedRule' smart constructor.
 data DeleteRateBasedRule = DeleteRateBasedRule'
-    { _drbrRuleId      :: !Text
-    , _drbrChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drbrRuleId      :: {-# NOUNPACK #-}!Text
+  , _drbrChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRateBasedRule' with the minimum fields required to make a request.
 --
@@ -75,10 +76,9 @@ deleteRateBasedRule
     -> Text -- ^ 'drbrChangeToken'
     -> DeleteRateBasedRule
 deleteRateBasedRule pRuleId_ pChangeToken_ =
-    DeleteRateBasedRule'
-    { _drbrRuleId = pRuleId_
-    , _drbrChangeToken = pChangeToken_
-    }
+  DeleteRateBasedRule'
+  {_drbrRuleId = pRuleId_, _drbrChangeToken = pChangeToken_}
+
 
 -- | The @RuleId@ of the 'RateBasedRule' that you want to delete. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
 drbrRuleId :: Lens' DeleteRateBasedRule Text
@@ -98,9 +98,9 @@ instance AWSRequest DeleteRateBasedRule where
                  DeleteRateBasedRuleResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteRateBasedRule
+instance Hashable DeleteRateBasedRule where
 
-instance NFData DeleteRateBasedRule
+instance NFData DeleteRateBasedRule where
 
 instance ToHeaders DeleteRateBasedRule where
         toHeaders
@@ -127,9 +127,10 @@ instance ToQuery DeleteRateBasedRule where
 
 -- | /See:/ 'deleteRateBasedRuleResponse' smart constructor.
 data DeleteRateBasedRuleResponse = DeleteRateBasedRuleResponse'
-    { _drbrrsChangeToken    :: !(Maybe Text)
-    , _drbrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drbrrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRateBasedRuleResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +143,9 @@ deleteRateBasedRuleResponse
     :: Int -- ^ 'drbrrsResponseStatus'
     -> DeleteRateBasedRuleResponse
 deleteRateBasedRuleResponse pResponseStatus_ =
-    DeleteRateBasedRuleResponse'
-    { _drbrrsChangeToken = Nothing
-    , _drbrrsResponseStatus = pResponseStatus_
-    }
+  DeleteRateBasedRuleResponse'
+  {_drbrrsChangeToken = Nothing, _drbrrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 drbrrsChangeToken :: Lens' DeleteRateBasedRuleResponse (Maybe Text)
@@ -155,4 +155,4 @@ drbrrsChangeToken = lens _drbrrsChangeToken (\ s a -> s{_drbrrsChangeToken = a})
 drbrrsResponseStatus :: Lens' DeleteRateBasedRuleResponse Int
 drbrrsResponseStatus = lens _drbrrsResponseStatus (\ s a -> s{_drbrrsResponseStatus = a});
 
-instance NFData DeleteRateBasedRuleResponse
+instance NFData DeleteRateBasedRuleResponse where

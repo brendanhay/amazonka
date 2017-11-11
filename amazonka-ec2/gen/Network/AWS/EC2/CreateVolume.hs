@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -63,12 +63,12 @@ module Network.AWS.EC2.CreateVolume
     , vVolumeType
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateVolume.
 --
@@ -76,16 +76,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createVolume' smart constructor.
 data CreateVolume = CreateVolume'
-    { _creSize              :: !(Maybe Int)
-    , _creIOPS              :: !(Maybe Int)
-    , _creEncrypted         :: !(Maybe Bool)
-    , _creTagSpecifications :: !(Maybe [TagSpecification])
-    , _creKMSKeyId          :: !(Maybe Text)
-    , _creVolumeType        :: !(Maybe VolumeType)
-    , _creDryRun            :: !(Maybe Bool)
-    , _creSnapshotId        :: !(Maybe Text)
-    , _creAvailabilityZone  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _creSize              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _creIOPS              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _creEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _creTagSpecifications :: {-# NOUNPACK #-}!(Maybe [TagSpecification])
+  , _creKMSKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _creVolumeType        :: {-# NOUNPACK #-}!(Maybe VolumeType)
+  , _creDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _creSnapshotId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _creAvailabilityZone  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVolume' with the minimum fields required to make a request.
 --
@@ -112,17 +113,18 @@ createVolume
     :: Text -- ^ 'creAvailabilityZone'
     -> CreateVolume
 createVolume pAvailabilityZone_ =
-    CreateVolume'
-    { _creSize = Nothing
-    , _creIOPS = Nothing
-    , _creEncrypted = Nothing
-    , _creTagSpecifications = Nothing
-    , _creKMSKeyId = Nothing
-    , _creVolumeType = Nothing
-    , _creDryRun = Nothing
-    , _creSnapshotId = Nothing
-    , _creAvailabilityZone = pAvailabilityZone_
-    }
+  CreateVolume'
+  { _creSize = Nothing
+  , _creIOPS = Nothing
+  , _creEncrypted = Nothing
+  , _creTagSpecifications = Nothing
+  , _creKMSKeyId = Nothing
+  , _creVolumeType = Nothing
+  , _creDryRun = Nothing
+  , _creSnapshotId = Nothing
+  , _creAvailabilityZone = pAvailabilityZone_
+  }
+
 
 -- | The size of the volume, in GiBs. Constraints: 1-16384 for @gp2@ , 4-16384 for @io1@ , 500-16384 for @st1@ , 500-16384 for @sc1@ , and 1-1024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
 creSize :: Lens' CreateVolume (Maybe Int)
@@ -165,9 +167,9 @@ instance AWSRequest CreateVolume where
         request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
-instance Hashable CreateVolume
+instance Hashable CreateVolume where
 
-instance NFData CreateVolume
+instance NFData CreateVolume where
 
 instance ToHeaders CreateVolume where
         toHeaders = const mempty

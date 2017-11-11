@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.GetDocumentationVersions
     , gdvrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Gets the documentation versions of an API.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDocumentationVersions' smart constructor.
 data GetDocumentationVersions = GetDocumentationVersions'
-    { _gdvLimit     :: !(Maybe Int)
-    , _gdvPosition  :: !(Maybe Text)
-    , _gdvRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdvLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gdvPosition  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdvRestAPIId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentationVersions' with the minimum fields required to make a request.
 --
@@ -69,11 +70,9 @@ getDocumentationVersions
     :: Text -- ^ 'gdvRestAPIId'
     -> GetDocumentationVersions
 getDocumentationVersions pRestAPIId_ =
-    GetDocumentationVersions'
-    { _gdvLimit = Nothing
-    , _gdvPosition = Nothing
-    , _gdvRestAPIId = pRestAPIId_
-    }
+  GetDocumentationVersions'
+  {_gdvLimit = Nothing, _gdvPosition = Nothing, _gdvRestAPIId = pRestAPIId_}
+
 
 -- | The maximum number of returned results per page.
 gdvLimit :: Lens' GetDocumentationVersions (Maybe Int)
@@ -98,9 +97,9 @@ instance AWSRequest GetDocumentationVersions where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetDocumentationVersions
+instance Hashable GetDocumentationVersions where
 
-instance NFData GetDocumentationVersions
+instance NFData GetDocumentationVersions where
 
 instance ToHeaders GetDocumentationVersions where
         toHeaders
@@ -128,10 +127,11 @@ instance ToQuery GetDocumentationVersions where
 --
 -- /See:/ 'getDocumentationVersionsResponse' smart constructor.
 data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
-    { _gdvrsItems          :: !(Maybe [DocumentationVersion])
-    , _gdvrsPosition       :: !(Maybe Text)
-    , _gdvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdvrsItems          :: {-# NOUNPACK #-}!(Maybe [DocumentationVersion])
+  , _gdvrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentationVersionsResponse' with the minimum fields required to make a request.
 --
@@ -146,11 +146,12 @@ getDocumentationVersionsResponse
     :: Int -- ^ 'gdvrsResponseStatus'
     -> GetDocumentationVersionsResponse
 getDocumentationVersionsResponse pResponseStatus_ =
-    GetDocumentationVersionsResponse'
-    { _gdvrsItems = Nothing
-    , _gdvrsPosition = Nothing
-    , _gdvrsResponseStatus = pResponseStatus_
-    }
+  GetDocumentationVersionsResponse'
+  { _gdvrsItems = Nothing
+  , _gdvrsPosition = Nothing
+  , _gdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 gdvrsItems :: Lens' GetDocumentationVersionsResponse [DocumentationVersion]
@@ -165,3 +166,4 @@ gdvrsResponseStatus :: Lens' GetDocumentationVersionsResponse Int
 gdvrsResponseStatus = lens _gdvrsResponseStatus (\ s a -> s{_gdvrsResponseStatus = a});
 
 instance NFData GetDocumentationVersionsResponse
+         where

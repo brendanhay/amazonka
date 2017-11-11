@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.WorkSpaces.DescribeTags
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | The request of the 'DescribeTags' operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'describeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
-    { _dtResourceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtResourceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype DescribeTags = DescribeTags'
 describeTags
     :: Text -- ^ 'dtResourceId'
     -> DescribeTags
-describeTags pResourceId_ =
-    DescribeTags'
-    { _dtResourceId = pResourceId_
-    }
+describeTags pResourceId_ = DescribeTags' {_dtResourceId = pResourceId_}
+
 
 -- | The resource ID of the request.
 dtResourceId :: Lens' DescribeTags Text
@@ -79,9 +78,9 @@ instance AWSRequest DescribeTags where
                  DescribeTagsResponse' <$>
                    (x .?> "TagList" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTags
+instance Hashable DescribeTags where
 
-instance NFData DescribeTags
+instance NFData DescribeTags where
 
 instance ToHeaders DescribeTags where
         toHeaders
@@ -109,9 +108,10 @@ instance ToQuery DescribeTags where
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsTagList        :: !(Maybe [Tag])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsTagList        :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
@@ -124,10 +124,9 @@ describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
-    DescribeTagsResponse'
-    { _dtrsTagList = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTagsResponse'
+  {_dtrsTagList = Nothing, _dtrsResponseStatus = pResponseStatus_}
+
 
 -- | The list of tags.
 dtrsTagList :: Lens' DescribeTagsResponse [Tag]
@@ -137,4 +136,4 @@ dtrsTagList = lens _dtrsTagList (\ s a -> s{_dtrsTagList = a}) . _Default . _Coe
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTagsResponse
+instance NFData DescribeTagsResponse where

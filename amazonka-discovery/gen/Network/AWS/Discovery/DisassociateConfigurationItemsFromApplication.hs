@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
     , dcifarsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateConfigurationItemsFromApplication' smart constructor.
 data DisassociateConfigurationItemsFromApplication = DisassociateConfigurationItemsFromApplication'
-    { _dcifaApplicationConfigurationId :: !Text
-    , _dcifaConfigurationIds           :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcifaApplicationConfigurationId :: {-# NOUNPACK #-}!Text
+  , _dcifaConfigurationIds           :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateConfigurationItemsFromApplication' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ disassociateConfigurationItemsFromApplication
     :: Text -- ^ 'dcifaApplicationConfigurationId'
     -> DisassociateConfigurationItemsFromApplication
 disassociateConfigurationItemsFromApplication pApplicationConfigurationId_ =
-    DisassociateConfigurationItemsFromApplication'
-    { _dcifaApplicationConfigurationId = pApplicationConfigurationId_
-    , _dcifaConfigurationIds = mempty
-    }
+  DisassociateConfigurationItemsFromApplication'
+  { _dcifaApplicationConfigurationId = pApplicationConfigurationId_
+  , _dcifaConfigurationIds = mempty
+  }
+
 
 -- | Configuration ID of an application from which each item is disassociated.
 dcifaApplicationConfigurationId :: Lens' DisassociateConfigurationItemsFromApplication Text
@@ -75,7 +77,8 @@ dcifaConfigurationIds :: Lens' DisassociateConfigurationItemsFromApplication [Te
 dcifaConfigurationIds = lens _dcifaConfigurationIds (\ s a -> s{_dcifaConfigurationIds = a}) . _Coerce;
 
 instance AWSRequest
-         DisassociateConfigurationItemsFromApplication where
+           DisassociateConfigurationItemsFromApplication
+         where
         type Rs DisassociateConfigurationItemsFromApplication
              =
              DisassociateConfigurationItemsFromApplicationResponse
@@ -87,13 +90,16 @@ instance AWSRequest
                    <$> (pure (fromEnum s)))
 
 instance Hashable
-         DisassociateConfigurationItemsFromApplication
+           DisassociateConfigurationItemsFromApplication
+         where
 
 instance NFData
-         DisassociateConfigurationItemsFromApplication
+           DisassociateConfigurationItemsFromApplication
+         where
 
 instance ToHeaders
-         DisassociateConfigurationItemsFromApplication where
+           DisassociateConfigurationItemsFromApplication
+         where
         toHeaders
           = const
               (mconcat
@@ -104,7 +110,8 @@ instance ToHeaders
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON
-         DisassociateConfigurationItemsFromApplication where
+           DisassociateConfigurationItemsFromApplication
+         where
         toJSON
           DisassociateConfigurationItemsFromApplication'{..}
           = object
@@ -115,17 +122,20 @@ instance ToJSON
                   Just ("configurationIds" .= _dcifaConfigurationIds)])
 
 instance ToPath
-         DisassociateConfigurationItemsFromApplication where
+           DisassociateConfigurationItemsFromApplication
+         where
         toPath = const "/"
 
 instance ToQuery
-         DisassociateConfigurationItemsFromApplication where
+           DisassociateConfigurationItemsFromApplication
+         where
         toQuery = const mempty
 
 -- | /See:/ 'disassociateConfigurationItemsFromApplicationResponse' smart constructor.
 newtype DisassociateConfigurationItemsFromApplicationResponse = DisassociateConfigurationItemsFromApplicationResponse'
-    { _dcifarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcifarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateConfigurationItemsFromApplicationResponse' with the minimum fields required to make a request.
 --
@@ -136,13 +146,14 @@ disassociateConfigurationItemsFromApplicationResponse
     :: Int -- ^ 'dcifarsResponseStatus'
     -> DisassociateConfigurationItemsFromApplicationResponse
 disassociateConfigurationItemsFromApplicationResponse pResponseStatus_ =
-    DisassociateConfigurationItemsFromApplicationResponse'
-    { _dcifarsResponseStatus = pResponseStatus_
-    }
+  DisassociateConfigurationItemsFromApplicationResponse'
+  {_dcifarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dcifarsResponseStatus :: Lens' DisassociateConfigurationItemsFromApplicationResponse Int
 dcifarsResponseStatus = lens _dcifarsResponseStatus (\ s a -> s{_dcifarsResponseStatus = a});
 
 instance NFData
-         DisassociateConfigurationItemsFromApplicationResponse
+           DisassociateConfigurationItemsFromApplicationResponse
+         where

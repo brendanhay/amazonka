@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RebootCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Redshift.RebootCluster
     , rcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'rebootCluster' smart constructor.
 newtype RebootCluster = RebootCluster'
-    { _rcClusterIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcClusterIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootCluster' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ rebootCluster
     :: Text -- ^ 'rcClusterIdentifier'
     -> RebootCluster
 rebootCluster pClusterIdentifier_ =
-    RebootCluster'
-    { _rcClusterIdentifier = pClusterIdentifier_
-    }
+  RebootCluster' {_rcClusterIdentifier = pClusterIdentifier_}
+
 
 -- | The cluster identifier.
 rcClusterIdentifier :: Lens' RebootCluster Text
@@ -79,9 +79,9 @@ instance AWSRequest RebootCluster where
                  RebootClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable RebootCluster
+instance Hashable RebootCluster where
 
-instance NFData RebootCluster
+instance NFData RebootCluster where
 
 instance ToHeaders RebootCluster where
         toHeaders = const mempty
@@ -98,9 +98,10 @@ instance ToQuery RebootCluster where
 
 -- | /See:/ 'rebootClusterResponse' smart constructor.
 data RebootClusterResponse = RebootClusterResponse'
-    { _rcrsCluster        :: !(Maybe Cluster)
-    , _rcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _rcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootClusterResponse' with the minimum fields required to make a request.
 --
@@ -113,10 +114,9 @@ rebootClusterResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RebootClusterResponse
 rebootClusterResponse pResponseStatus_ =
-    RebootClusterResponse'
-    { _rcrsCluster = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
-    }
+  RebootClusterResponse'
+  {_rcrsCluster = Nothing, _rcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
@@ -126,4 +126,4 @@ rcrsCluster = lens _rcrsCluster (\ s a -> s{_rcrsCluster = a});
 rcrsResponseStatus :: Lens' RebootClusterResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 
-instance NFData RebootClusterResponse
+instance NFData RebootClusterResponse where

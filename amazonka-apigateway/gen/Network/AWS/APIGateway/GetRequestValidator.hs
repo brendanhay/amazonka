@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetRequestValidator
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GetRequestValidator
     , rvId
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Gets a 'RequestValidator' of a given 'RestApi' .
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRequestValidator' smart constructor.
 data GetRequestValidator = GetRequestValidator'
-    { _grvrRestAPIId          :: !Text
-    , _grvrRequestValidatorId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grvrRestAPIId          :: {-# NOUNPACK #-}!Text
+  , _grvrRequestValidatorId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRequestValidator' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ getRequestValidator
     -> Text -- ^ 'grvrRequestValidatorId'
     -> GetRequestValidator
 getRequestValidator pRestAPIId_ pRequestValidatorId_ =
-    GetRequestValidator'
-    { _grvrRestAPIId = pRestAPIId_
-    , _grvrRequestValidatorId = pRequestValidatorId_
-    }
+  GetRequestValidator'
+  {_grvrRestAPIId = pRestAPIId_, _grvrRequestValidatorId = pRequestValidatorId_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 grvrRestAPIId :: Lens' GetRequestValidator Text
@@ -87,9 +87,9 @@ instance AWSRequest GetRequestValidator where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetRequestValidator
+instance Hashable GetRequestValidator where
 
-instance NFData GetRequestValidator
+instance NFData GetRequestValidator where
 
 instance ToHeaders GetRequestValidator where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminCreateUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.CognitoIdentityProvider.AdminCreateUser
     , acursResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to create a user in the specified user pool.
 --
@@ -59,15 +59,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminCreateUser' smart constructor.
 data AdminCreateUser = AdminCreateUser'
-    { _acuTemporaryPassword      :: !(Maybe (Sensitive Text))
-    , _acuForceAliasCreation     :: !(Maybe Bool)
-    , _acuDesiredDeliveryMediums :: !(Maybe [DeliveryMediumType])
-    , _acuMessageAction          :: !(Maybe MessageActionType)
-    , _acuUserAttributes         :: !(Maybe [AttributeType])
-    , _acuValidationData         :: !(Maybe [AttributeType])
-    , _acuUserPoolId             :: !Text
-    , _acuUsername               :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _acuTemporaryPassword      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _acuForceAliasCreation     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acuDesiredDeliveryMediums :: {-# NOUNPACK #-}!(Maybe [DeliveryMediumType])
+  , _acuMessageAction          :: {-# NOUNPACK #-}!(Maybe MessageActionType)
+  , _acuUserAttributes         :: {-# NOUNPACK #-}!(Maybe [AttributeType])
+  , _acuValidationData         :: {-# NOUNPACK #-}!(Maybe [AttributeType])
+  , _acuUserPoolId             :: {-# NOUNPACK #-}!Text
+  , _acuUsername               :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminCreateUser' with the minimum fields required to make a request.
 --
@@ -93,16 +94,17 @@ adminCreateUser
     -> Text -- ^ 'acuUsername'
     -> AdminCreateUser
 adminCreateUser pUserPoolId_ pUsername_ =
-    AdminCreateUser'
-    { _acuTemporaryPassword = Nothing
-    , _acuForceAliasCreation = Nothing
-    , _acuDesiredDeliveryMediums = Nothing
-    , _acuMessageAction = Nothing
-    , _acuUserAttributes = Nothing
-    , _acuValidationData = Nothing
-    , _acuUserPoolId = pUserPoolId_
-    , _acuUsername = _Sensitive # pUsername_
-    }
+  AdminCreateUser'
+  { _acuTemporaryPassword = Nothing
+  , _acuForceAliasCreation = Nothing
+  , _acuDesiredDeliveryMediums = Nothing
+  , _acuMessageAction = Nothing
+  , _acuUserAttributes = Nothing
+  , _acuValidationData = Nothing
+  , _acuUserPoolId = pUserPoolId_
+  , _acuUsername = _Sensitive # pUsername_
+  }
+
 
 -- | The user's temporary password. This password must conform to the password policy that you specified when you created the user pool. The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins. This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you. The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call @AdminCreateUser@ again, specifying @"RESEND"@ for the @MessageAction@ parameter.
 acuTemporaryPassword :: Lens' AdminCreateUser (Maybe Text)
@@ -145,9 +147,9 @@ instance AWSRequest AdminCreateUser where
                  AdminCreateUserResponse' <$>
                    (x .?> "User") <*> (pure (fromEnum s)))
 
-instance Hashable AdminCreateUser
+instance Hashable AdminCreateUser where
 
-instance NFData AdminCreateUser
+instance NFData AdminCreateUser where
 
 instance ToHeaders AdminCreateUser where
         toHeaders
@@ -185,9 +187,10 @@ instance ToQuery AdminCreateUser where
 --
 -- /See:/ 'adminCreateUserResponse' smart constructor.
 data AdminCreateUserResponse = AdminCreateUserResponse'
-    { _acursUser           :: !(Maybe UserType)
-    , _acursResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _acursUser           :: {-# NOUNPACK #-}!(Maybe UserType)
+  , _acursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminCreateUserResponse' with the minimum fields required to make a request.
 --
@@ -200,10 +203,9 @@ adminCreateUserResponse
     :: Int -- ^ 'acursResponseStatus'
     -> AdminCreateUserResponse
 adminCreateUserResponse pResponseStatus_ =
-    AdminCreateUserResponse'
-    { _acursUser = Nothing
-    , _acursResponseStatus = pResponseStatus_
-    }
+  AdminCreateUserResponse'
+  {_acursUser = Nothing, _acursResponseStatus = pResponseStatus_}
+
 
 -- | The newly created user.
 acursUser :: Lens' AdminCreateUserResponse (Maybe UserType)
@@ -213,4 +215,4 @@ acursUser = lens _acursUser (\ s a -> s{_acursUser = a});
 acursResponseStatus :: Lens' AdminCreateUserResponse Int
 acursResponseStatus = lens _acursResponseStatus (\ s a -> s{_acursResponseStatus = a});
 
-instance NFData AdminCreateUserResponse
+instance NFData AdminCreateUserResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListGateways
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.StorageGateway.ListGateways
     , lgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing zero or more of the following fields:
 --
@@ -65,9 +65,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listGateways' smart constructor.
 data ListGateways = ListGateways'
-    { _lgMarker :: !(Maybe Text)
-    , _lgLimit  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGateways' with the minimum fields required to make a request.
 --
@@ -78,11 +79,8 @@ data ListGateways = ListGateways'
 -- * 'lgLimit' - Specifies that the list of gateways returned be limited to the specified number of items.
 listGateways
     :: ListGateways
-listGateways =
-    ListGateways'
-    { _lgMarker = Nothing
-    , _lgLimit = Nothing
-    }
+listGateways = ListGateways' {_lgMarker = Nothing, _lgLimit = Nothing}
+
 
 -- | An opaque string that indicates the position at which to begin the returned list of gateways.
 lgMarker :: Lens' ListGateways (Maybe Text)
@@ -109,9 +107,9 @@ instance AWSRequest ListGateways where
                    (x .?> "Marker") <*> (x .?> "Gateways" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListGateways
+instance Hashable ListGateways where
 
-instance NFData ListGateways
+instance NFData ListGateways where
 
 instance ToHeaders ListGateways where
         toHeaders
@@ -138,10 +136,11 @@ instance ToQuery ListGateways where
 
 -- | /See:/ 'listGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-    { _lgrsMarker         :: !(Maybe Text)
-    , _lgrsGateways       :: !(Maybe [GatewayInfo])
-    , _lgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgrsGateways       :: {-# NOUNPACK #-}!(Maybe [GatewayInfo])
+  , _lgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGatewaysResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +155,12 @@ listGatewaysResponse
     :: Int -- ^ 'lgrsResponseStatus'
     -> ListGatewaysResponse
 listGatewaysResponse pResponseStatus_ =
-    ListGatewaysResponse'
-    { _lgrsMarker = Nothing
-    , _lgrsGateways = Nothing
-    , _lgrsResponseStatus = pResponseStatus_
-    }
+  ListGatewaysResponse'
+  { _lgrsMarker = Nothing
+  , _lgrsGateways = Nothing
+  , _lgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
@@ -174,4 +174,4 @@ lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _
 lgrsResponseStatus :: Lens' ListGatewaysResponse Int
 lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
 
-instance NFData ListGatewaysResponse
+instance NFData ListGatewaysResponse where

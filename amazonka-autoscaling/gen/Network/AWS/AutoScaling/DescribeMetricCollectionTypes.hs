@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeMetricCollectionTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,23 +38,25 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     , dmctrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMetricCollectionTypes' smart constructor.
 data DescribeMetricCollectionTypes =
-    DescribeMetricCollectionTypes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeMetricCollectionTypes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMetricCollectionTypes' with the minimum fields required to make a request.
 --
 describeMetricCollectionTypes
     :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes'
+
 
 instance AWSRequest DescribeMetricCollectionTypes
          where
@@ -73,9 +75,9 @@ instance AWSRequest DescribeMetricCollectionTypes
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeMetricCollectionTypes
+instance Hashable DescribeMetricCollectionTypes where
 
-instance NFData DescribeMetricCollectionTypes
+instance NFData DescribeMetricCollectionTypes where
 
 instance ToHeaders DescribeMetricCollectionTypes
          where
@@ -98,10 +100,11 @@ instance ToQuery DescribeMetricCollectionTypes where
 --
 -- /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-    { _dmctrsMetrics        :: !(Maybe [MetricCollectionType])
-    , _dmctrsGranularities  :: !(Maybe [MetricGranularityType])
-    , _dmctrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmctrsMetrics        :: {-# NOUNPACK #-}!(Maybe [MetricCollectionType])
+  , _dmctrsGranularities  :: {-# NOUNPACK #-}!(Maybe [MetricGranularityType])
+  , _dmctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMetricCollectionTypesResponse' with the minimum fields required to make a request.
 --
@@ -116,11 +119,12 @@ describeMetricCollectionTypesResponse
     :: Int -- ^ 'dmctrsResponseStatus'
     -> DescribeMetricCollectionTypesResponse
 describeMetricCollectionTypesResponse pResponseStatus_ =
-    DescribeMetricCollectionTypesResponse'
-    { _dmctrsMetrics = Nothing
-    , _dmctrsGranularities = Nothing
-    , _dmctrsResponseStatus = pResponseStatus_
-    }
+  DescribeMetricCollectionTypesResponse'
+  { _dmctrsMetrics = Nothing
+  , _dmctrsGranularities = Nothing
+  , _dmctrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | One or more metrics.
 dmctrsMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
@@ -135,3 +139,4 @@ dmctrsResponseStatus :: Lens' DescribeMetricCollectionTypesResponse Int
 dmctrsResponseStatus = lens _dmctrsResponseStatus (\ s a -> s{_dmctrsResponseStatus = a});
 
 instance NFData DescribeMetricCollectionTypesResponse
+         where

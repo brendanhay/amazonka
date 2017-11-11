@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RevokeSecurityGroupEgress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     , RevokeSecurityGroupEgressResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RevokeSecurityGroupEgress.
 --
@@ -59,16 +59,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'revokeSecurityGroupEgress' smart constructor.
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
-    { _rsgeFromPort                   :: !(Maybe Int)
-    , _rsgeIPPermissions              :: !(Maybe [IPPermission])
-    , _rsgeIPProtocol                 :: !(Maybe Text)
-    , _rsgeToPort                     :: !(Maybe Int)
-    , _rsgeCidrIP                     :: !(Maybe Text)
-    , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
-    , _rsgeDryRun                     :: !(Maybe Bool)
-    , _rsgeGroupId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsgeFromPort                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rsgeIPPermissions              :: {-# NOUNPACK #-}!(Maybe [IPPermission])
+  , _rsgeIPProtocol                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsgeToPort                     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rsgeCidrIP                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsgeSourceSecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsgeSourceSecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsgeDryRun                     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rsgeGroupId                    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeSecurityGroupEgress' with the minimum fields required to make a request.
 --
@@ -95,17 +96,18 @@ revokeSecurityGroupEgress
     :: Text -- ^ 'rsgeGroupId'
     -> RevokeSecurityGroupEgress
 revokeSecurityGroupEgress pGroupId_ =
-    RevokeSecurityGroupEgress'
-    { _rsgeFromPort = Nothing
-    , _rsgeIPPermissions = Nothing
-    , _rsgeIPProtocol = Nothing
-    , _rsgeToPort = Nothing
-    , _rsgeCidrIP = Nothing
-    , _rsgeSourceSecurityGroupOwnerId = Nothing
-    , _rsgeSourceSecurityGroupName = Nothing
-    , _rsgeDryRun = Nothing
-    , _rsgeGroupId = pGroupId_
-    }
+  RevokeSecurityGroupEgress'
+  { _rsgeFromPort = Nothing
+  , _rsgeIPPermissions = Nothing
+  , _rsgeIPProtocol = Nothing
+  , _rsgeToPort = Nothing
+  , _rsgeCidrIP = Nothing
+  , _rsgeSourceSecurityGroupOwnerId = Nothing
+  , _rsgeSourceSecurityGroupName = Nothing
+  , _rsgeDryRun = Nothing
+  , _rsgeGroupId = pGroupId_
+  }
+
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
 rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
@@ -150,9 +152,9 @@ instance AWSRequest RevokeSecurityGroupEgress where
         response
           = receiveNull RevokeSecurityGroupEgressResponse'
 
-instance Hashable RevokeSecurityGroupEgress
+instance Hashable RevokeSecurityGroupEgress where
 
-instance NFData RevokeSecurityGroupEgress
+instance NFData RevokeSecurityGroupEgress where
 
 instance ToHeaders RevokeSecurityGroupEgress where
         toHeaders = const mempty
@@ -179,8 +181,9 @@ instance ToQuery RevokeSecurityGroupEgress where
 
 -- | /See:/ 'revokeSecurityGroupEgressResponse' smart constructor.
 data RevokeSecurityGroupEgressResponse =
-    RevokeSecurityGroupEgressResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RevokeSecurityGroupEgressResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeSecurityGroupEgressResponse' with the minimum fields required to make a request.
 --
@@ -188,4 +191,6 @@ revokeSecurityGroupEgressResponse
     :: RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse'
 
+
 instance NFData RevokeSecurityGroupEgressResponse
+         where

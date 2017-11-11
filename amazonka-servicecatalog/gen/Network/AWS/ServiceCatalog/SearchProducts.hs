@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.SearchProducts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,22 +46,23 @@ module Network.AWS.ServiceCatalog.SearchProducts
     , sprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'searchProducts' smart constructor.
 data SearchProducts = SearchProducts'
-    { _spFilters        :: !(Maybe (Map ProductViewFilterBy [Text]))
-    , _spSortOrder      :: !(Maybe SortOrder)
-    , _spAcceptLanguage :: !(Maybe Text)
-    , _spPageToken      :: !(Maybe Text)
-    , _spPageSize       :: !(Maybe Nat)
-    , _spSortBy         :: !(Maybe ProductViewSortBy)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spFilters :: {-# NOUNPACK #-}!(Maybe (Map ProductViewFilterBy [Text]))
+  , _spSortOrder :: {-# NOUNPACK #-}!(Maybe SortOrder)
+  , _spAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _spPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _spPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _spSortBy :: {-# NOUNPACK #-}!(Maybe ProductViewSortBy)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchProducts' with the minimum fields required to make a request.
 --
@@ -81,14 +82,15 @@ data SearchProducts = SearchProducts'
 searchProducts
     :: SearchProducts
 searchProducts =
-    SearchProducts'
-    { _spFilters = Nothing
-    , _spSortOrder = Nothing
-    , _spAcceptLanguage = Nothing
-    , _spPageToken = Nothing
-    , _spPageSize = Nothing
-    , _spSortBy = Nothing
-    }
+  SearchProducts'
+  { _spFilters = Nothing
+  , _spSortOrder = Nothing
+  , _spAcceptLanguage = Nothing
+  , _spPageToken = Nothing
+  , _spPageSize = Nothing
+  , _spSortBy = Nothing
+  }
+
 
 -- | The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access.
 spFilters :: Lens' SearchProducts (HashMap ProductViewFilterBy [Text])
@@ -126,9 +128,9 @@ instance AWSRequest SearchProducts where
                      <*> (x .?> "ProductViewSummaries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable SearchProducts
+instance Hashable SearchProducts where
 
-instance NFData SearchProducts
+instance NFData SearchProducts where
 
 instance ToHeaders SearchProducts where
         toHeaders
@@ -159,11 +161,12 @@ instance ToQuery SearchProducts where
 
 -- | /See:/ 'searchProductsResponse' smart constructor.
 data SearchProductsResponse = SearchProductsResponse'
-    { _sprsNextPageToken           :: !(Maybe Text)
-    , _sprsProductViewAggregations :: !(Maybe (Map Text [ProductViewAggregationValue]))
-    , _sprsProductViewSummaries    :: !(Maybe [ProductViewSummary])
-    , _sprsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sprsNextPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sprsProductViewAggregations :: {-# NOUNPACK #-}!(Maybe (Map Text [ProductViewAggregationValue]))
+  , _sprsProductViewSummaries :: {-# NOUNPACK #-}!(Maybe [ProductViewSummary])
+  , _sprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchProductsResponse' with the minimum fields required to make a request.
 --
@@ -180,12 +183,13 @@ searchProductsResponse
     :: Int -- ^ 'sprsResponseStatus'
     -> SearchProductsResponse
 searchProductsResponse pResponseStatus_ =
-    SearchProductsResponse'
-    { _sprsNextPageToken = Nothing
-    , _sprsProductViewAggregations = Nothing
-    , _sprsProductViewSummaries = Nothing
-    , _sprsResponseStatus = pResponseStatus_
-    }
+  SearchProductsResponse'
+  { _sprsNextPageToken = Nothing
+  , _sprsProductViewAggregations = Nothing
+  , _sprsProductViewSummaries = Nothing
+  , _sprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 sprsNextPageToken :: Lens' SearchProductsResponse (Maybe Text)
@@ -203,4 +207,4 @@ sprsProductViewSummaries = lens _sprsProductViewSummaries (\ s a -> s{_sprsProdu
 sprsResponseStatus :: Lens' SearchProductsResponse Int
 sprsResponseStatus = lens _sprsResponseStatus (\ s a -> s{_sprsResponseStatus = a});
 
-instance NFData SearchProductsResponse
+instance NFData SearchProductsResponse where

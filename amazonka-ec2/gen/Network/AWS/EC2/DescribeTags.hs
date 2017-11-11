@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.EC2.DescribeTags
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeTags.
 --
@@ -59,11 +59,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-    { _dtFilters    :: !(Maybe [Filter])
-    , _dtNextToken  :: !(Maybe Text)
-    , _dtDryRun     :: !(Maybe Bool)
-    , _dtMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dtNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dtMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ data DescribeTags = DescribeTags'
 describeTags
     :: DescribeTags
 describeTags =
-    DescribeTags'
-    { _dtFilters = Nothing
-    , _dtNextToken = Nothing
-    , _dtDryRun = Nothing
-    , _dtMaxResults = Nothing
-    }
+  DescribeTags'
+  { _dtFilters = Nothing
+  , _dtNextToken = Nothing
+  , _dtDryRun = Nothing
+  , _dtMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @key@ - The tag key.     * @resource-id@ - The resource ID.     * @resource-type@ - The resource type (@customer-gateway@ | @dhcp-options@ | @image@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpn-connection@ | @vpn-gateway@ ).     * @value@ - The tag value.
 dtFilters :: Lens' DescribeTags [Filter]
@@ -121,9 +123,9 @@ instance AWSRequest DescribeTags where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTags
+instance Hashable DescribeTags where
 
-instance NFData DescribeTags
+instance NFData DescribeTags where
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -146,10 +148,11 @@ instance ToQuery DescribeTags where
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsNextToken      :: !(Maybe Text)
-    , _dtrsTags           :: !(Maybe [TagDescription])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsTags           :: {-# NOUNPACK #-}!(Maybe [TagDescription])
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
-    DescribeTagsResponse'
-    { _dtrsNextToken = Nothing
-    , _dtrsTags = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTagsResponse'
+  { _dtrsNextToken = Nothing
+  , _dtrsTags = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return..
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
@@ -182,4 +186,4 @@ dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTagsResponse
+instance NFData DescribeTagsResponse where

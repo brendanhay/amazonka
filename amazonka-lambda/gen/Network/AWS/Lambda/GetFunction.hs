@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetFunction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.Lambda.GetFunction
     , gfrsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,9 +57,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getFunction' smart constructor.
 data GetFunction = GetFunction'
-    { _gfQualifier    :: !(Maybe Text)
-    , _gfFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfFunctionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFunction' with the minimum fields required to make a request.
 --
@@ -72,10 +73,8 @@ getFunction
     :: Text -- ^ 'gfFunctionName'
     -> GetFunction
 getFunction pFunctionName_ =
-    GetFunction'
-    { _gfQualifier = Nothing
-    , _gfFunctionName = pFunctionName_
-    }
+  GetFunction' {_gfQualifier = Nothing, _gfFunctionName = pFunctionName_}
+
 
 -- | Using this optional parameter to specify a function version or an alias name. If you specify function version, the API uses qualified function ARN for the request and returns information about the specific Lambda function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't provide this parameter, the API uses unqualified function ARN and returns information about the @> LATEST@ version of the Lambda function.
 gfQualifier :: Lens' GetFunction (Maybe Text)
@@ -96,9 +95,9 @@ instance AWSRequest GetFunction where
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetFunction
+instance Hashable GetFunction where
 
-instance NFData GetFunction
+instance NFData GetFunction where
 
 instance ToHeaders GetFunction where
         toHeaders = const mempty
@@ -118,11 +117,12 @@ instance ToQuery GetFunction where
 --
 -- /See:/ 'getFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-    { _gfrsCode           :: !(Maybe FunctionCodeLocation)
-    , _gfrsConfiguration  :: !(Maybe FunctionConfiguration)
-    , _gfrsTags           :: !(Maybe (Map Text Text))
-    , _gfrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gfrsCode           :: {-# NOUNPACK #-}!(Maybe FunctionCodeLocation)
+  , _gfrsConfiguration  :: {-# NOUNPACK #-}!(Maybe FunctionConfiguration)
+  , _gfrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFunctionResponse' with the minimum fields required to make a request.
 --
@@ -139,12 +139,13 @@ getFunctionResponse
     :: Int -- ^ 'gfrsResponseStatus'
     -> GetFunctionResponse
 getFunctionResponse pResponseStatus_ =
-    GetFunctionResponse'
-    { _gfrsCode = Nothing
-    , _gfrsConfiguration = Nothing
-    , _gfrsTags = Nothing
-    , _gfrsResponseStatus = pResponseStatus_
-    }
+  GetFunctionResponse'
+  { _gfrsCode = Nothing
+  , _gfrsConfiguration = Nothing
+  , _gfrsTags = Nothing
+  , _gfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gfrsCode :: Lens' GetFunctionResponse (Maybe FunctionCodeLocation)
@@ -162,4 +163,4 @@ gfrsTags = lens _gfrsTags (\ s a -> s{_gfrsTags = a}) . _Default . _Map;
 gfrsResponseStatus :: Lens' GetFunctionResponse Int
 gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a});
 
-instance NFData GetFunctionResponse
+instance NFData GetFunctionResponse where

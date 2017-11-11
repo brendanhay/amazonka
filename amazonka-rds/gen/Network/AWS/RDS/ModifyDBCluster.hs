@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.RDS.ModifyDBCluster
     , mdcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,19 +61,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBCluster' smart constructor.
 data ModifyDBCluster = ModifyDBCluster'
-    { _mdcMasterUserPassword              :: !(Maybe Text)
-    , _mdcPreferredMaintenanceWindow      :: !(Maybe Text)
-    , _mdcPreferredBackupWindow           :: !(Maybe Text)
-    , _mdcBackupRetentionPeriod           :: !(Maybe Int)
-    , _mdcVPCSecurityGroupIds             :: !(Maybe [Text])
-    , _mdcDBClusterParameterGroupName     :: !(Maybe Text)
-    , _mdcApplyImmediately                :: !(Maybe Bool)
-    , _mdcOptionGroupName                 :: !(Maybe Text)
-    , _mdcNewDBClusterIdentifier          :: !(Maybe Text)
-    , _mdcPort                            :: !(Maybe Int)
-    , _mdcEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _mdcDBClusterIdentifier             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdcMasterUserPassword              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdcPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdcPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdcBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mdcVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mdcDBClusterParameterGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdcApplyImmediately                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdcOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdcNewDBClusterIdentifier          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdcPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mdcEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdcDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBCluster' with the minimum fields required to make a request.
 --
@@ -106,20 +107,21 @@ modifyDBCluster
     :: Text -- ^ 'mdcDBClusterIdentifier'
     -> ModifyDBCluster
 modifyDBCluster pDBClusterIdentifier_ =
-    ModifyDBCluster'
-    { _mdcMasterUserPassword = Nothing
-    , _mdcPreferredMaintenanceWindow = Nothing
-    , _mdcPreferredBackupWindow = Nothing
-    , _mdcBackupRetentionPeriod = Nothing
-    , _mdcVPCSecurityGroupIds = Nothing
-    , _mdcDBClusterParameterGroupName = Nothing
-    , _mdcApplyImmediately = Nothing
-    , _mdcOptionGroupName = Nothing
-    , _mdcNewDBClusterIdentifier = Nothing
-    , _mdcPort = Nothing
-    , _mdcEnableIAMDatabaseAuthentication = Nothing
-    , _mdcDBClusterIdentifier = pDBClusterIdentifier_
-    }
+  ModifyDBCluster'
+  { _mdcMasterUserPassword = Nothing
+  , _mdcPreferredMaintenanceWindow = Nothing
+  , _mdcPreferredBackupWindow = Nothing
+  , _mdcBackupRetentionPeriod = Nothing
+  , _mdcVPCSecurityGroupIds = Nothing
+  , _mdcDBClusterParameterGroupName = Nothing
+  , _mdcApplyImmediately = Nothing
+  , _mdcOptionGroupName = Nothing
+  , _mdcNewDBClusterIdentifier = Nothing
+  , _mdcPort = Nothing
+  , _mdcEnableIAMDatabaseAuthentication = Nothing
+  , _mdcDBClusterIdentifier = pDBClusterIdentifier_
+  }
+
 
 -- | The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@". Constraints: Must contain from 8 to 41 characters.
 mdcMasterUserPassword :: Lens' ModifyDBCluster (Maybe Text)
@@ -178,9 +180,9 @@ instance AWSRequest ModifyDBCluster where
                  ModifyDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyDBCluster
+instance Hashable ModifyDBCluster where
 
-instance NFData ModifyDBCluster
+instance NFData ModifyDBCluster where
 
 instance ToHeaders ModifyDBCluster where
         toHeaders = const mempty
@@ -215,9 +217,10 @@ instance ToQuery ModifyDBCluster where
 
 -- | /See:/ 'modifyDBClusterResponse' smart constructor.
 data ModifyDBClusterResponse = ModifyDBClusterResponse'
-    { _mdcrsDBCluster      :: !(Maybe DBCluster)
-    , _mdcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdcrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
+  , _mdcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBClusterResponse' with the minimum fields required to make a request.
 --
@@ -230,10 +233,9 @@ modifyDBClusterResponse
     :: Int -- ^ 'mdcrsResponseStatus'
     -> ModifyDBClusterResponse
 modifyDBClusterResponse pResponseStatus_ =
-    ModifyDBClusterResponse'
-    { _mdcrsDBCluster = Nothing
-    , _mdcrsResponseStatus = pResponseStatus_
-    }
+  ModifyDBClusterResponse'
+  {_mdcrsDBCluster = Nothing, _mdcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mdcrsDBCluster :: Lens' ModifyDBClusterResponse (Maybe DBCluster)
@@ -243,4 +245,4 @@ mdcrsDBCluster = lens _mdcrsDBCluster (\ s a -> s{_mdcrsDBCluster = a});
 mdcrsResponseStatus :: Lens' ModifyDBClusterResponse Int
 mdcrsResponseStatus = lens _mdcrsResponseStatus (\ s a -> s{_mdcrsResponseStatus = a});
 
-instance NFData ModifyDBClusterResponse
+instance NFData ModifyDBClusterResponse where

@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.GameLift.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AcceptanceType
-    = Accept
-    | Reject
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Accept
+  | Reject
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AcceptanceType where
     parser = takeLowerText >>= \case
@@ -46,10 +47,11 @@ instance ToJSON AcceptanceType where
     toJSON = toJSONText
 
 data BuildStatus
-    = Failed
-    | Initialized
-    | Ready
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | Initialized
+  | Ready
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BuildStatus where
     parser = takeLowerText >>= \case
@@ -78,11 +80,12 @@ instance FromJSON BuildStatus where
     parseJSON = parseJSONText "BuildStatus"
 
 data ComparisonOperatorType
-    = GreaterThanOrEqualToThreshold
-    | GreaterThanThreshold
-    | LessThanOrEqualToThreshold
-    | LessThanThreshold
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GreaterThanOrEqualToThreshold
+  | GreaterThanThreshold
+  | LessThanOrEqualToThreshold
+  | LessThanThreshold
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComparisonOperatorType where
     parser = takeLowerText >>= \case
@@ -113,35 +116,36 @@ instance FromJSON ComparisonOperatorType where
     parseJSON = parseJSONText "ComparisonOperatorType"
 
 data EC2InstanceType
-    = C3_2XLarge
-    | C3_4XLarge
-    | C3_8XLarge
-    | C3_Large
-    | C3_XLarge
-    | C4_2XLarge
-    | C4_4XLarge
-    | C4_8XLarge
-    | C4_Large
-    | C4_XLarge
-    | M3_2XLarge
-    | M3_Large
-    | M3_Medium
-    | M3_XLarge
-    | M4_10XLarge
-    | M4_2XLarge
-    | M4_4XLarge
-    | M4_Large
-    | M4_XLarge
-    | R3_2XLarge
-    | R3_4XLarge
-    | R3_8XLarge
-    | R3_Large
-    | R3_XLarge
-    | T2_Large
-    | T2_Medium
-    | T2_Micro
-    | T2_Small
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = C3_2XLarge
+  | C3_4XLarge
+  | C3_8XLarge
+  | C3_Large
+  | C3_XLarge
+  | C4_2XLarge
+  | C4_4XLarge
+  | C4_8XLarge
+  | C4_Large
+  | C4_XLarge
+  | M3_2XLarge
+  | M3_Large
+  | M3_Medium
+  | M3_XLarge
+  | M4_10XLarge
+  | M4_2XLarge
+  | M4_4XLarge
+  | M4_Large
+  | M4_XLarge
+  | R3_2XLarge
+  | R3_4XLarge
+  | R3_8XLarge
+  | R3_Large
+  | R3_XLarge
+  | T2_Large
+  | T2_Medium
+  | T2_Micro
+  | T2_Small
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EC2InstanceType where
     parser = takeLowerText >>= \case
@@ -220,36 +224,37 @@ instance FromJSON EC2InstanceType where
     parseJSON = parseJSONText "EC2InstanceType"
 
 data EventCode
-    = FleetActivationFailed
-    | FleetActivationFailedNoInstances
-    | FleetBinaryDownloadFailed
-    | FleetCreated
-    | FleetCreationExtractingBuild
-    | FleetCreationRunningInstaller
-    | FleetCreationValidatingRuntimeConfig
-    | FleetDeleted
-    | FleetInitializationFailed
-    | FleetNewGameSessionProtectionPolicyUpdated
-    | FleetScalingEvent
-    | FleetStateActivating
-    | FleetStateActive
-    | FleetStateBuilding
-    | FleetStateDownloading
-    | FleetStateError
-    | FleetStateValidating
-    | FleetValidationExecutableRuntimeFailure
-    | FleetValidationLaunchPathNotFound
-    | FleetValidationTimedOut
-    | GameSessionActivationTimeout
-    | GenericEvent
-    | ServerProcessCrashed
-    | ServerProcessForceTerminated
-    | ServerProcessInvalidPath
-    | ServerProcessProcessExitTimeout
-    | ServerProcessProcessReadyTimeout
-    | ServerProcessSDKInitializationTimeout
-    | ServerProcessTerminatedUnhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FleetActivationFailed
+  | FleetActivationFailedNoInstances
+  | FleetBinaryDownloadFailed
+  | FleetCreated
+  | FleetCreationExtractingBuild
+  | FleetCreationRunningInstaller
+  | FleetCreationValidatingRuntimeConfig
+  | FleetDeleted
+  | FleetInitializationFailed
+  | FleetNewGameSessionProtectionPolicyUpdated
+  | FleetScalingEvent
+  | FleetStateActivating
+  | FleetStateActive
+  | FleetStateBuilding
+  | FleetStateDownloading
+  | FleetStateError
+  | FleetStateValidating
+  | FleetValidationExecutableRuntimeFailure
+  | FleetValidationLaunchPathNotFound
+  | FleetValidationTimedOut
+  | GameSessionActivationTimeout
+  | GenericEvent
+  | ServerProcessCrashed
+  | ServerProcessForceTerminated
+  | ServerProcessInvalidPath
+  | ServerProcessProcessExitTimeout
+  | ServerProcessProcessReadyTimeout
+  | ServerProcessSDKInitializationTimeout
+  | ServerProcessTerminatedUnhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventCode where
     parser = takeLowerText >>= \case
@@ -327,16 +332,17 @@ instance FromJSON EventCode where
     parseJSON = parseJSONText "EventCode"
 
 data FleetStatus
-    = FSActivating
-    | FSActive
-    | FSBuilding
-    | FSDeleting
-    | FSDownloading
-    | FSError'
-    | FSNew
-    | FSTerminated
-    | FSValidating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FSActivating
+  | FSActive
+  | FSBuilding
+  | FSDeleting
+  | FSDownloading
+  | FSError'
+  | FSNew
+  | FSTerminated
+  | FSValidating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FleetStatus where
     parser = takeLowerText >>= \case
@@ -374,11 +380,12 @@ instance FromJSON FleetStatus where
     parseJSON = parseJSONText "FleetStatus"
 
 data GameSessionPlacementState
-    = Cancelled
-    | Fulfilled
-    | Pending
-    | TimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cancelled
+  | Fulfilled
+  | Pending
+  | TimedOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText GameSessionPlacementState where
     parser = takeLowerText >>= \case
@@ -406,12 +413,13 @@ instance FromJSON GameSessionPlacementState where
     parseJSON = parseJSONText "GameSessionPlacementState"
 
 data GameSessionStatus
-    = GSSActivating
-    | GSSActive
-    | GSSError'
-    | GSSTerminated
-    | GSSTerminating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GSSActivating
+  | GSSActive
+  | GSSError'
+  | GSSTerminated
+  | GSSTerminating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText GameSessionStatus where
     parser = takeLowerText >>= \case
@@ -441,9 +449,10 @@ instance FromJSON GameSessionStatus where
     parseJSON = parseJSONText "GameSessionStatus"
 
 data IPProtocol
-    = TCP
-    | Udp
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TCP
+  | Udp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IPProtocol where
     parser = takeLowerText >>= \case
@@ -470,10 +479,11 @@ instance FromJSON IPProtocol where
     parseJSON = parseJSONText "IPProtocol"
 
 data InstanceStatus
-    = ISActive
-    | ISPending
-    | ISTerminating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISActive
+  | ISPending
+  | ISTerminating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceStatus where
     parser = takeLowerText >>= \case
@@ -499,15 +509,16 @@ instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
 
 data MatchmakingConfigurationStatus
-    = MCSCanceled
-    | MCSComplete
-    | MCSFailed
-    | MCSPlacing
-    | MCSQueued
-    | MCSRequiresAcceptance
-    | MCSSearching
-    | MCSTimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = MCSCanceled
+  | MCSComplete
+  | MCSFailed
+  | MCSPlacing
+  | MCSQueued
+  | MCSRequiresAcceptance
+  | MCSSearching
+  | MCSTimedOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MatchmakingConfigurationStatus where
     parser = takeLowerText >>= \case
@@ -543,18 +554,19 @@ instance FromJSON MatchmakingConfigurationStatus where
     parseJSON = parseJSONText "MatchmakingConfigurationStatus"
 
 data MetricName
-    = ActivatingGameSessions
-    | ActiveGameSessions
-    | ActiveInstances
-    | AvailableGameSessions
-    | AvailablePlayerSessions
-    | CurrentPlayerSessions
-    | IdleInstances
-    | PercentAvailableGameSessions
-    | PercentIdleInstances
-    | QueueDepth
-    | WaitTime
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ActivatingGameSessions
+  | ActiveGameSessions
+  | ActiveInstances
+  | AvailableGameSessions
+  | AvailablePlayerSessions
+  | CurrentPlayerSessions
+  | IdleInstances
+  | PercentAvailableGameSessions
+  | PercentIdleInstances
+  | QueueDepth
+  | WaitTime
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricName where
     parser = takeLowerText >>= \case
@@ -599,9 +611,10 @@ instance FromJSON MetricName where
     parseJSON = parseJSONText "MetricName"
 
 data OperatingSystem
-    = AmazonLinux
-    | Windows2012
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AmazonLinux
+  | Windows2012
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OperatingSystem where
     parser = takeLowerText >>= \case
@@ -628,9 +641,10 @@ instance FromJSON OperatingSystem where
     parseJSON = parseJSONText "OperatingSystem"
 
 data PlayerSessionCreationPolicy
-    = AcceptAll
-    | DenyAll
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AcceptAll
+  | DenyAll
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PlayerSessionCreationPolicy where
     parser = takeLowerText >>= \case
@@ -657,11 +671,12 @@ instance FromJSON PlayerSessionCreationPolicy where
     parseJSON = parseJSONText "PlayerSessionCreationPolicy"
 
 data PlayerSessionStatus
-    = PSSActive
-    | PSSCompleted
-    | PSSReserved
-    | PSSTimedout
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = PSSActive
+  | PSSCompleted
+  | PSSReserved
+  | PSSTimedout
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PlayerSessionStatus where
     parser = takeLowerText >>= \case
@@ -689,9 +704,10 @@ instance FromJSON PlayerSessionStatus where
     parseJSON = parseJSONText "PlayerSessionStatus"
 
 data ProtectionPolicy
-    = FullProtection
-    | NoProtection
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FullProtection
+  | NoProtection
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProtectionPolicy where
     parser = takeLowerText >>= \case
@@ -718,9 +734,10 @@ instance FromJSON ProtectionPolicy where
     parseJSON = parseJSONText "ProtectionPolicy"
 
 data RoutingStrategyType
-    = Simple
-    | Terminal
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Simple
+  | Terminal
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RoutingStrategyType where
     parser = takeLowerText >>= \case
@@ -747,10 +764,11 @@ instance FromJSON RoutingStrategyType where
     parseJSON = parseJSONText "RoutingStrategyType"
 
 data ScalingAdjustmentType
-    = ChangeInCapacity
-    | ExactCapacity
-    | PercentChangeInCapacity
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ChangeInCapacity
+  | ExactCapacity
+  | PercentChangeInCapacity
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScalingAdjustmentType where
     parser = takeLowerText >>= \case
@@ -779,14 +797,15 @@ instance FromJSON ScalingAdjustmentType where
     parseJSON = parseJSONText "ScalingAdjustmentType"
 
 data ScalingStatusType
-    = Active
-    | DeleteRequested
-    | Deleted
-    | Deleting
-    | Error'
-    | UpdateRequested
-    | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | DeleteRequested
+  | Deleted
+  | Deleting
+  | Error'
+  | UpdateRequested
+  | Updating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScalingStatusType where
     parser = takeLowerText >>= \case

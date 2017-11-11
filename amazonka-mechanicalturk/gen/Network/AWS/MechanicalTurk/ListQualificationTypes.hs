@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListQualificationTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.MechanicalTurk.ListQualificationTypes
     , lqtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listQualificationTypes' smart constructor.
 data ListQualificationTypes = ListQualificationTypes'
-    { _lqtMustBeOwnedByCaller :: !(Maybe Bool)
-    , _lqtNextToken           :: !(Maybe Text)
-    , _lqtQuery               :: !(Maybe Text)
-    , _lqtMaxResults          :: !(Maybe Nat)
-    , _lqtMustBeRequestable   :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lqtMustBeOwnedByCaller :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lqtNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lqtQuery               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lqtMaxResults          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lqtMustBeRequestable   :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListQualificationTypes' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ listQualificationTypes
     :: Bool -- ^ 'lqtMustBeRequestable'
     -> ListQualificationTypes
 listQualificationTypes pMustBeRequestable_ =
-    ListQualificationTypes'
-    { _lqtMustBeOwnedByCaller = Nothing
-    , _lqtNextToken = Nothing
-    , _lqtQuery = Nothing
-    , _lqtMaxResults = Nothing
-    , _lqtMustBeRequestable = pMustBeRequestable_
-    }
+  ListQualificationTypes'
+  { _lqtMustBeOwnedByCaller = Nothing
+  , _lqtNextToken = Nothing
+  , _lqtQuery = Nothing
+  , _lqtMaxResults = Nothing
+  , _lqtMustBeRequestable = pMustBeRequestable_
+  }
+
 
 -- | Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types.
 lqtMustBeOwnedByCaller :: Lens' ListQualificationTypes (Maybe Bool)
@@ -117,9 +119,9 @@ instance AWSRequest ListQualificationTypes where
                      <*> (x .?> "NumResults")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListQualificationTypes
+instance Hashable ListQualificationTypes where
 
-instance NFData ListQualificationTypes
+instance NFData ListQualificationTypes where
 
 instance ToHeaders ListQualificationTypes where
         toHeaders
@@ -150,11 +152,12 @@ instance ToQuery ListQualificationTypes where
 
 -- | /See:/ 'listQualificationTypesResponse' smart constructor.
 data ListQualificationTypesResponse = ListQualificationTypesResponse'
-    { _lqtrsQualificationTypes :: !(Maybe [QualificationType])
-    , _lqtrsNextToken          :: !(Maybe Text)
-    , _lqtrsNumResults         :: !(Maybe Int)
-    , _lqtrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lqtrsQualificationTypes :: {-# NOUNPACK #-}!(Maybe [QualificationType])
+  , _lqtrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lqtrsNumResults         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lqtrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListQualificationTypesResponse' with the minimum fields required to make a request.
 --
@@ -171,12 +174,13 @@ listQualificationTypesResponse
     :: Int -- ^ 'lqtrsResponseStatus'
     -> ListQualificationTypesResponse
 listQualificationTypesResponse pResponseStatus_ =
-    ListQualificationTypesResponse'
-    { _lqtrsQualificationTypes = Nothing
-    , _lqtrsNextToken = Nothing
-    , _lqtrsNumResults = Nothing
-    , _lqtrsResponseStatus = pResponseStatus_
-    }
+  ListQualificationTypesResponse'
+  { _lqtrsQualificationTypes = Nothing
+  , _lqtrsNextToken = Nothing
+  , _lqtrsNumResults = Nothing
+  , _lqtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of QualificationType elements returned by the query.
 lqtrsQualificationTypes :: Lens' ListQualificationTypesResponse [QualificationType]
@@ -194,4 +198,4 @@ lqtrsNumResults = lens _lqtrsNumResults (\ s a -> s{_lqtrsNumResults = a});
 lqtrsResponseStatus :: Lens' ListQualificationTypesResponse Int
 lqtrsResponseStatus = lens _lqtrsResponseStatus (\ s a -> s{_lqtrsResponseStatus = a});
 
-instance NFData ListQualificationTypesResponse
+instance NFData ListQualificationTypesResponse where

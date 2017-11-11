@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.ActivateUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.WorkDocs.ActivateUser
     , aursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'activateUser' smart constructor.
 data ActivateUser = ActivateUser'
-    { _auAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _auUserId              :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _auAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _auUserId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivateUser' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ activateUser
     :: Text -- ^ 'auUserId'
     -> ActivateUser
 activateUser pUserId_ =
-    ActivateUser'
-    { _auAuthenticationToken = Nothing
-    , _auUserId = pUserId_
-    }
+  ActivateUser' {_auAuthenticationToken = Nothing, _auUserId = pUserId_}
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 auAuthenticationToken :: Lens' ActivateUser (Maybe Text)
@@ -84,9 +83,9 @@ instance AWSRequest ActivateUser where
                  ActivateUserResponse' <$>
                    (x .?> "User") <*> (pure (fromEnum s)))
 
-instance Hashable ActivateUser
+instance Hashable ActivateUser where
 
-instance NFData ActivateUser
+instance NFData ActivateUser where
 
 instance ToHeaders ActivateUser where
         toHeaders ActivateUser'{..}
@@ -108,9 +107,10 @@ instance ToQuery ActivateUser where
 
 -- | /See:/ 'activateUserResponse' smart constructor.
 data ActivateUserResponse = ActivateUserResponse'
-    { _aursUser           :: !(Maybe User)
-    , _aursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aursUser           :: {-# NOUNPACK #-}!(Maybe User)
+  , _aursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivateUserResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +123,9 @@ activateUserResponse
     :: Int -- ^ 'aursResponseStatus'
     -> ActivateUserResponse
 activateUserResponse pResponseStatus_ =
-    ActivateUserResponse'
-    { _aursUser = Nothing
-    , _aursResponseStatus = pResponseStatus_
-    }
+  ActivateUserResponse'
+  {_aursUser = Nothing, _aursResponseStatus = pResponseStatus_}
+
 
 -- | The user information.
 aursUser :: Lens' ActivateUserResponse (Maybe User)
@@ -136,4 +135,4 @@ aursUser = lens _aursUser (\ s a -> s{_aursUser = a});
 aursResponseStatus :: Lens' ActivateUserResponse Int
 aursResponseStatus = lens _aursResponseStatus (\ s a -> s{_aursResponseStatus = a});
 
-instance NFData ActivateUserResponse
+instance NFData ActivateUserResponse where

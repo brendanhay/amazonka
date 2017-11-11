@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MechanicalTurk.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AssignmentStatus
-    = Approved
-    | Rejected
-    | Submitted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Approved
+  | Rejected
+  | Submitted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AssignmentStatus where
     parser = takeLowerText >>= \case
@@ -52,17 +53,18 @@ instance FromJSON AssignmentStatus where
     parseJSON = parseJSONText "AssignmentStatus"
 
 data Comparator
-    = DoesNotExist
-    | EqualTo
-    | Exists
-    | GreaterThan
-    | GreaterThanOrEqualTo
-    | IN
-    | LessThan
-    | LessThanOrEqualTo
-    | NotEqualTo
-    | NotIn
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DoesNotExist
+  | EqualTo
+  | Exists
+  | GreaterThan
+  | GreaterThanOrEqualTo
+  | IN
+  | LessThan
+  | LessThanOrEqualTo
+  | NotEqualTo
+  | NotIn
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Comparator where
     parser = takeLowerText >>= \case
@@ -105,19 +107,20 @@ instance FromJSON Comparator where
     parseJSON = parseJSONText "Comparator"
 
 data EventType
-    = AssignmentAbandoned
-    | AssignmentAccepted
-    | AssignmentApproved
-    | AssignmentRejected
-    | AssignmentReturned
-    | AssignmentSubmitted
-    | HITCreated
-    | HITDisposed
-    | HITExpired
-    | HITExtended
-    | HITReviewable
-    | Ping
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AssignmentAbandoned
+  | AssignmentAccepted
+  | AssignmentApproved
+  | AssignmentRejected
+  | AssignmentReturned
+  | AssignmentSubmitted
+  | HITCreated
+  | HITDisposed
+  | HITExpired
+  | HITExtended
+  | HITReviewable
+  | Ping
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
@@ -161,11 +164,12 @@ instance ToJSON EventType where
     toJSON = toJSONText
 
 data HITReviewStatus
-    = MarkedForReview
-    | NotReviewed
-    | ReviewedAppropriate
-    | ReviewedInappropriate
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = MarkedForReview
+  | NotReviewed
+  | ReviewedAppropriate
+  | ReviewedInappropriate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HITReviewStatus where
     parser = takeLowerText >>= \case
@@ -193,12 +197,13 @@ instance FromJSON HITReviewStatus where
     parseJSON = parseJSONText "HITReviewStatus"
 
 data HITStatus
-    = HITSAssignable
-    | HITSDisposed
-    | HITSReviewable
-    | HITSReviewing
-    | HITSUnassignable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HITSAssignable
+  | HITSDisposed
+  | HITSReviewable
+  | HITSReviewing
+  | HITSUnassignable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HITStatus where
     parser = takeLowerText >>= \case
@@ -228,9 +233,10 @@ instance FromJSON HITStatus where
     parseJSON = parseJSONText "HITStatus"
 
 data NotificationTransport
-    = Email
-    | Sqs
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Email
+  | Sqs
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NotificationTransport where
     parser = takeLowerText >>= \case
@@ -254,9 +260,10 @@ instance ToJSON NotificationTransport where
     toJSON = toJSONText
 
 data NotifyWorkersFailureCode
-    = HardFailure
-    | SoftFailure
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HardFailure
+  | SoftFailure
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NotifyWorkersFailureCode where
     parser = takeLowerText >>= \case
@@ -280,9 +287,10 @@ instance FromJSON NotifyWorkersFailureCode where
     parseJSON = parseJSONText "NotifyWorkersFailureCode"
 
 data QualificationStatus
-    = Granted
-    | Revoked
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Granted
+  | Revoked
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText QualificationStatus where
     parser = takeLowerText >>= \case
@@ -309,9 +317,10 @@ instance FromJSON QualificationStatus where
     parseJSON = parseJSONText "QualificationStatus"
 
 data QualificationTypeStatus
-    = Active
-    | Inactive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Inactive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText QualificationTypeStatus where
     parser = takeLowerText >>= \case
@@ -338,11 +347,12 @@ instance FromJSON QualificationTypeStatus where
     parseJSON = parseJSONText "QualificationTypeStatus"
 
 data ReviewActionStatus
-    = Cancelled
-    | Failed
-    | Intended
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cancelled
+  | Failed
+  | Intended
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReviewActionStatus where
     parser = takeLowerText >>= \case
@@ -370,9 +380,10 @@ instance FromJSON ReviewActionStatus where
     parseJSON = parseJSONText "ReviewActionStatus"
 
 data ReviewPolicyLevel
-    = Assignment
-    | Hit
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Assignment
+  | Hit
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReviewPolicyLevel where
     parser = takeLowerText >>= \case
@@ -396,9 +407,10 @@ instance ToJSON ReviewPolicyLevel where
     toJSON = toJSONText
 
 data ReviewableHITStatus
-    = Reviewable
-    | Reviewing
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Reviewable
+  | Reviewing
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReviewableHITStatus where
     parser = takeLowerText >>= \case

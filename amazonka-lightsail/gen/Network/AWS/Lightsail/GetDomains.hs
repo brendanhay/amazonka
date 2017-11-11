@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetDomains
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Lightsail.GetDomains
     , gdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDomains' smart constructor.
 newtype GetDomains = GetDomains'
-    { _gdPageToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdPageToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomains' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetDomains = GetDomains'
 -- * 'gdPageToken' - A token used for advancing to the next page of results from your get domains request.
 getDomains
     :: GetDomains
-getDomains =
-    GetDomains'
-    { _gdPageToken = Nothing
-    }
+getDomains = GetDomains' {_gdPageToken = Nothing}
+
 
 -- | A token used for advancing to the next page of results from your get domains request.
 gdPageToken :: Lens' GetDomains (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest GetDomains where
                      (x .?> "domains" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDomains
+instance Hashable GetDomains where
 
-instance NFData GetDomains
+instance NFData GetDomains where
 
 instance ToHeaders GetDomains where
         toHeaders
@@ -113,10 +112,11 @@ instance ToQuery GetDomains where
 
 -- | /See:/ 'getDomainsResponse' smart constructor.
 data GetDomainsResponse = GetDomainsResponse'
-    { _gdsrsNextPageToken  :: !(Maybe Text)
-    , _gdsrsDomains        :: !(Maybe [Domain])
-    , _gdsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsDomains        :: {-# NOUNPACK #-}!(Maybe [Domain])
+  , _gdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainsResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +131,12 @@ getDomainsResponse
     :: Int -- ^ 'gdsrsResponseStatus'
     -> GetDomainsResponse
 getDomainsResponse pResponseStatus_ =
-    GetDomainsResponse'
-    { _gdsrsNextPageToken = Nothing
-    , _gdsrsDomains = Nothing
-    , _gdsrsResponseStatus = pResponseStatus_
-    }
+  GetDomainsResponse'
+  { _gdsrsNextPageToken = Nothing
+  , _gdsrsDomains = Nothing
+  , _gdsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token used for advancing to the next page of results from your get active names request.
 gdsrsNextPageToken :: Lens' GetDomainsResponse (Maybe Text)
@@ -149,4 +150,4 @@ gdsrsDomains = lens _gdsrsDomains (\ s a -> s{_gdsrsDomains = a}) . _Default . _
 gdsrsResponseStatus :: Lens' GetDomainsResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
 
-instance NFData GetDomainsResponse
+instance NFData GetDomainsResponse where

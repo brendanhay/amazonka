@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeCreateAccountStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.Organizations.DescribeCreateAccountStatus
     , dcasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeCreateAccountStatus' smart constructor.
 newtype DescribeCreateAccountStatus = DescribeCreateAccountStatus'
-    { _dcasCreateAccountRequestId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcasCreateAccountRequestId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCreateAccountStatus' with the minimum fields required to make a request.
 --
@@ -60,9 +61,9 @@ describeCreateAccountStatus
     :: Text -- ^ 'dcasCreateAccountRequestId'
     -> DescribeCreateAccountStatus
 describeCreateAccountStatus pCreateAccountRequestId_ =
-    DescribeCreateAccountStatus'
-    { _dcasCreateAccountRequestId = pCreateAccountRequestId_
-    }
+  DescribeCreateAccountStatus'
+  {_dcasCreateAccountRequestId = pCreateAccountRequestId_}
+
 
 -- | Specifies the @operationId@ that uniquely identifies the request. You can get the ID from the response to an earlier 'CreateAccount' request, or from the 'ListCreateAccountStatus' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an create account request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.
 dcasCreateAccountRequestId :: Lens' DescribeCreateAccountStatus Text
@@ -79,9 +80,9 @@ instance AWSRequest DescribeCreateAccountStatus where
                    (x .?> "CreateAccountStatus") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeCreateAccountStatus
+instance Hashable DescribeCreateAccountStatus where
 
-instance NFData DescribeCreateAccountStatus
+instance NFData DescribeCreateAccountStatus where
 
 instance ToHeaders DescribeCreateAccountStatus where
         toHeaders
@@ -109,9 +110,10 @@ instance ToQuery DescribeCreateAccountStatus where
 
 -- | /See:/ 'describeCreateAccountStatusResponse' smart constructor.
 data DescribeCreateAccountStatusResponse = DescribeCreateAccountStatusResponse'
-    { _dcasrsCreateAccountStatus :: !(Maybe CreateAccountStatus)
-    , _dcasrsResponseStatus      :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dcasrsCreateAccountStatus :: {-# NOUNPACK #-}!(Maybe CreateAccountStatus)
+  , _dcasrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCreateAccountStatusResponse' with the minimum fields required to make a request.
 --
@@ -124,10 +126,11 @@ describeCreateAccountStatusResponse
     :: Int -- ^ 'dcasrsResponseStatus'
     -> DescribeCreateAccountStatusResponse
 describeCreateAccountStatusResponse pResponseStatus_ =
-    DescribeCreateAccountStatusResponse'
-    { _dcasrsCreateAccountStatus = Nothing
-    , _dcasrsResponseStatus = pResponseStatus_
-    }
+  DescribeCreateAccountStatusResponse'
+  { _dcasrsCreateAccountStatus = Nothing
+  , _dcasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A structure that contains the current status of an account creation request.
 dcasrsCreateAccountStatus :: Lens' DescribeCreateAccountStatusResponse (Maybe CreateAccountStatus)
@@ -138,3 +141,4 @@ dcasrsResponseStatus :: Lens' DescribeCreateAccountStatusResponse Int
 dcasrsResponseStatus = lens _dcasrsResponseStatus (\ s a -> s{_dcasrsResponseStatus = a});
 
 instance NFData DescribeCreateAccountStatusResponse
+         where

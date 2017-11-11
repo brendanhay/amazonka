@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.CompleteLayerUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.ECR.CompleteLayerUpload
     , clursResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'completeLayerUpload' smart constructor.
 data CompleteLayerUpload = CompleteLayerUpload'
-    { _cluRegistryId     :: !(Maybe Text)
-    , _cluRepositoryName :: !Text
-    , _cluUploadId       :: !Text
-    , _cluLayerDigests   :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cluRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluRepositoryName :: {-# NOUNPACK #-}!Text
+  , _cluUploadId       :: {-# NOUNPACK #-}!Text
+  , _cluLayerDigests   :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteLayerUpload' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ completeLayerUpload
     -> NonEmpty Text -- ^ 'cluLayerDigests'
     -> CompleteLayerUpload
 completeLayerUpload pRepositoryName_ pUploadId_ pLayerDigests_ =
-    CompleteLayerUpload'
-    { _cluRegistryId = Nothing
-    , _cluRepositoryName = pRepositoryName_
-    , _cluUploadId = pUploadId_
-    , _cluLayerDigests = _List1 # pLayerDigests_
-    }
+  CompleteLayerUpload'
+  { _cluRegistryId = Nothing
+  , _cluRepositoryName = pRepositoryName_
+  , _cluUploadId = pUploadId_
+  , _cluLayerDigests = _List1 # pLayerDigests_
+  }
+
 
 -- | The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
 cluRegistryId :: Lens' CompleteLayerUpload (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest CompleteLayerUpload where
                      <*> (x .?> "uploadId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CompleteLayerUpload
+instance Hashable CompleteLayerUpload where
 
-instance NFData CompleteLayerUpload
+instance NFData CompleteLayerUpload where
 
 instance ToHeaders CompleteLayerUpload where
         toHeaders
@@ -142,12 +144,13 @@ instance ToQuery CompleteLayerUpload where
 
 -- | /See:/ 'completeLayerUploadResponse' smart constructor.
 data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
-    { _clursRegistryId     :: !(Maybe Text)
-    , _clursLayerDigest    :: !(Maybe Text)
-    , _clursRepositoryName :: !(Maybe Text)
-    , _clursUploadId       :: !(Maybe Text)
-    , _clursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clursRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clursLayerDigest    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clursRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clursUploadId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteLayerUploadResponse' with the minimum fields required to make a request.
 --
@@ -166,13 +169,14 @@ completeLayerUploadResponse
     :: Int -- ^ 'clursResponseStatus'
     -> CompleteLayerUploadResponse
 completeLayerUploadResponse pResponseStatus_ =
-    CompleteLayerUploadResponse'
-    { _clursRegistryId = Nothing
-    , _clursLayerDigest = Nothing
-    , _clursRepositoryName = Nothing
-    , _clursUploadId = Nothing
-    , _clursResponseStatus = pResponseStatus_
-    }
+  CompleteLayerUploadResponse'
+  { _clursRegistryId = Nothing
+  , _clursLayerDigest = Nothing
+  , _clursRepositoryName = Nothing
+  , _clursUploadId = Nothing
+  , _clursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The registry ID associated with the request.
 clursRegistryId :: Lens' CompleteLayerUploadResponse (Maybe Text)
@@ -194,4 +198,4 @@ clursUploadId = lens _clursUploadId (\ s a -> s{_clursUploadId = a});
 clursResponseStatus :: Lens' CompleteLayerUploadResponse Int
 clursResponseStatus = lens _clursResponseStatus (\ s a -> s{_clursResponseStatus = a});
 
-instance NFData CompleteLayerUploadResponse
+instance NFData CompleteLayerUploadResponse where

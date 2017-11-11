@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.XRay.GetTraceGraph
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.XRay.GetTraceGraph
     , gtgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.XRay.Types
-import           Network.AWS.XRay.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.XRay.Types
+import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'getTraceGraph' smart constructor.
 data GetTraceGraph = GetTraceGraph'
-    { _gtgNextToken :: !(Maybe Text)
-    , _gtgTraceIds  :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtgNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtgTraceIds  :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTraceGraph' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data GetTraceGraph = GetTraceGraph'
 -- * 'gtgTraceIds' - Trace IDs of requests for which to generate a service graph.
 getTraceGraph
     :: GetTraceGraph
-getTraceGraph =
-    GetTraceGraph'
-    { _gtgNextToken = Nothing
-    , _gtgTraceIds = mempty
-    }
+getTraceGraph = GetTraceGraph' {_gtgNextToken = Nothing, _gtgTraceIds = mempty}
+
 
 -- | Pagination token. Not used.
 gtgNextToken :: Lens' GetTraceGraph (Maybe Text)
@@ -85,9 +83,9 @@ instance AWSRequest GetTraceGraph where
                    (x .?> "NextToken") <*> (x .?> "Services" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTraceGraph
+instance Hashable GetTraceGraph where
 
-instance NFData GetTraceGraph
+instance NFData GetTraceGraph where
 
 instance ToHeaders GetTraceGraph where
         toHeaders = const mempty
@@ -107,10 +105,11 @@ instance ToQuery GetTraceGraph where
 
 -- | /See:/ 'getTraceGraphResponse' smart constructor.
 data GetTraceGraphResponse = GetTraceGraphResponse'
-    { _gtgrsNextToken      :: !(Maybe Text)
-    , _gtgrsServices       :: !(Maybe [ServiceInfo])
-    , _gtgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtgrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtgrsServices       :: {-# NOUNPACK #-}!(Maybe [ServiceInfo])
+  , _gtgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTraceGraphResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +124,12 @@ getTraceGraphResponse
     :: Int -- ^ 'gtgrsResponseStatus'
     -> GetTraceGraphResponse
 getTraceGraphResponse pResponseStatus_ =
-    GetTraceGraphResponse'
-    { _gtgrsNextToken = Nothing
-    , _gtgrsServices = Nothing
-    , _gtgrsResponseStatus = pResponseStatus_
-    }
+  GetTraceGraphResponse'
+  { _gtgrsNextToken = Nothing
+  , _gtgrsServices = Nothing
+  , _gtgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Pagination token. Not used.
 gtgrsNextToken :: Lens' GetTraceGraphResponse (Maybe Text)
@@ -143,4 +143,4 @@ gtgrsServices = lens _gtgrsServices (\ s a -> s{_gtgrsServices = a}) . _Default 
 gtgrsResponseStatus :: Lens' GetTraceGraphResponse Int
 gtgrsResponseStatus = lens _gtgrsResponseStatus (\ s a -> s{_gtgrsResponseStatus = a});
 
-instance NFData GetTraceGraphResponse
+instance NFData GetTraceGraphResponse where

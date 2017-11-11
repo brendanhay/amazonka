@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetObjectTagging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.S3.GetObjectTagging
     , gotrsTagSet
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectTagging' smart constructor.
 data GetObjectTagging = GetObjectTagging'
-    { _gotoVersionId :: !(Maybe ObjectVersionId)
-    , _gotoBucket    :: !BucketName
-    , _gotoKey       :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gotoVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _gotoBucket    :: {-# NOUNPACK #-}!BucketName
+  , _gotoKey       :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetObjectTagging' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ getObjectTagging
     -> ObjectKey -- ^ 'gotoKey'
     -> GetObjectTagging
 getObjectTagging pBucket_ pKey_ =
-    GetObjectTagging'
-    { _gotoVersionId = Nothing
-    , _gotoBucket = pBucket_
-    , _gotoKey = pKey_
-    }
+  GetObjectTagging'
+  {_gotoVersionId = Nothing, _gotoBucket = pBucket_, _gotoKey = pKey_}
+
 
 -- | Undocumented member.
 gotoVersionId :: Lens' GetObjectTagging (Maybe ObjectVersionId)
@@ -95,9 +94,9 @@ instance AWSRequest GetObjectTagging where
                      <*>
                      (x .@? "TagSet" .!@ mempty >>= parseXMLList "Tag"))
 
-instance Hashable GetObjectTagging
+instance Hashable GetObjectTagging where
 
-instance NFData GetObjectTagging
+instance NFData GetObjectTagging where
 
 instance ToHeaders GetObjectTagging where
         toHeaders = const mempty
@@ -112,10 +111,11 @@ instance ToQuery GetObjectTagging where
 
 -- | /See:/ 'getObjectTaggingResponse' smart constructor.
 data GetObjectTaggingResponse = GetObjectTaggingResponse'
-    { _gotrsVersionId      :: !(Maybe ObjectVersionId)
-    , _gotrsResponseStatus :: !Int
-    , _gotrsTagSet         :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gotrsVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _gotrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gotrsTagSet         :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetObjectTaggingResponse' with the minimum fields required to make a request.
 --
@@ -130,11 +130,12 @@ getObjectTaggingResponse
     :: Int -- ^ 'gotrsResponseStatus'
     -> GetObjectTaggingResponse
 getObjectTaggingResponse pResponseStatus_ =
-    GetObjectTaggingResponse'
-    { _gotrsVersionId = Nothing
-    , _gotrsResponseStatus = pResponseStatus_
-    , _gotrsTagSet = mempty
-    }
+  GetObjectTaggingResponse'
+  { _gotrsVersionId = Nothing
+  , _gotrsResponseStatus = pResponseStatus_
+  , _gotrsTagSet = mempty
+  }
+
 
 -- | Undocumented member.
 gotrsVersionId :: Lens' GetObjectTaggingResponse (Maybe ObjectVersionId)
@@ -148,4 +149,4 @@ gotrsResponseStatus = lens _gotrsResponseStatus (\ s a -> s{_gotrsResponseStatus
 gotrsTagSet :: Lens' GetObjectTaggingResponse [Tag]
 gotrsTagSet = lens _gotrsTagSet (\ s a -> s{_gotrsTagSet = a}) . _Coerce;
 
-instance NFData GetObjectTaggingResponse
+instance NFData GetObjectTaggingResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadPipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     , rrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @ReadPipelineRequest@ structure.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'readPipeline' smart constructor.
 newtype ReadPipeline = ReadPipeline'
-    { _rId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReadPipeline' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype ReadPipeline = ReadPipeline'
 readPipeline
     :: Text -- ^ 'rId'
     -> ReadPipeline
-readPipeline pId_ =
-    ReadPipeline'
-    { _rId = pId_
-    }
+readPipeline pId_ = ReadPipeline' {_rId = pId_}
+
 
 -- | The identifier of the pipeline to read.
 rId :: Lens' ReadPipeline Text
@@ -81,9 +80,9 @@ instance AWSRequest ReadPipeline where
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ReadPipeline
+instance Hashable ReadPipeline where
 
-instance NFData ReadPipeline
+instance NFData ReadPipeline where
 
 instance ToHeaders ReadPipeline where
         toHeaders = const mempty
@@ -101,10 +100,11 @@ instance ToQuery ReadPipeline where
 --
 -- /See:/ 'readPipelineResponse' smart constructor.
 data ReadPipelineResponse = ReadPipelineResponse'
-    { _rrsWarnings       :: !(Maybe [Warning])
-    , _rrsPipeline       :: !(Maybe Pipeline)
-    , _rrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsWarnings       :: {-# NOUNPACK #-}!(Maybe [Warning])
+  , _rrsPipeline       :: {-# NOUNPACK #-}!(Maybe Pipeline)
+  , _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReadPipelineResponse' with the minimum fields required to make a request.
 --
@@ -119,11 +119,12 @@ readPipelineResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> ReadPipelineResponse
 readPipelineResponse pResponseStatus_ =
-    ReadPipelineResponse'
-    { _rrsWarnings = Nothing
-    , _rrsPipeline = Nothing
-    , _rrsResponseStatus = pResponseStatus_
-    }
+  ReadPipelineResponse'
+  { _rrsWarnings = Nothing
+  , _rrsPipeline = Nothing
+  , _rrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline. Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
 rrsWarnings :: Lens' ReadPipelineResponse [Warning]
@@ -137,4 +138,4 @@ rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a});
 rrsResponseStatus :: Lens' ReadPipelineResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 
-instance NFData ReadPipelineResponse
+instance NFData ReadPipelineResponse where

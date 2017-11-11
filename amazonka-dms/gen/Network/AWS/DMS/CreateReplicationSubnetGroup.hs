@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.CreateReplicationSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DMS.CreateReplicationSubnetGroup
     , crsgrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createReplicationSubnetGroup' smart constructor.
 data CreateReplicationSubnetGroup = CreateReplicationSubnetGroup'
-    { _crsgTags                              :: !(Maybe [Tag])
-    , _crsgReplicationSubnetGroupIdentifier  :: !Text
-    , _crsgReplicationSubnetGroupDescription :: !Text
-    , _crsgSubnetIds                         :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsgTags                              :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _crsgReplicationSubnetGroupIdentifier  :: {-# NOUNPACK #-}!Text
+  , _crsgReplicationSubnetGroupDescription :: {-# NOUNPACK #-}!Text
+  , _crsgSubnetIds                         :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationSubnetGroup' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ createReplicationSubnetGroup
     -> Text -- ^ 'crsgReplicationSubnetGroupDescription'
     -> CreateReplicationSubnetGroup
 createReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ pReplicationSubnetGroupDescription_ =
-    CreateReplicationSubnetGroup'
-    { _crsgTags = Nothing
-    , _crsgReplicationSubnetGroupIdentifier = pReplicationSubnetGroupIdentifier_
-    , _crsgReplicationSubnetGroupDescription = pReplicationSubnetGroupDescription_
-    , _crsgSubnetIds = mempty
-    }
+  CreateReplicationSubnetGroup'
+  { _crsgTags = Nothing
+  , _crsgReplicationSubnetGroupIdentifier = pReplicationSubnetGroupIdentifier_
+  , _crsgReplicationSubnetGroupDescription = pReplicationSubnetGroupDescription_
+  , _crsgSubnetIds = mempty
+  }
+
 
 -- | The tag to be assigned to the subnet group.
 crsgTags :: Lens' CreateReplicationSubnetGroup [Tag]
@@ -110,9 +112,9 @@ instance AWSRequest CreateReplicationSubnetGroup
                    (x .?> "ReplicationSubnetGroup") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateReplicationSubnetGroup
+instance Hashable CreateReplicationSubnetGroup where
 
-instance NFData CreateReplicationSubnetGroup
+instance NFData CreateReplicationSubnetGroup where
 
 instance ToHeaders CreateReplicationSubnetGroup where
         toHeaders
@@ -149,9 +151,10 @@ instance ToQuery CreateReplicationSubnetGroup where
 --
 -- /See:/ 'createReplicationSubnetGroupResponse' smart constructor.
 data CreateReplicationSubnetGroupResponse = CreateReplicationSubnetGroupResponse'
-    { _crsgrsReplicationSubnetGroup :: !(Maybe ReplicationSubnetGroup)
-    , _crsgrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsgrsReplicationSubnetGroup :: {-# NOUNPACK #-}!(Maybe ReplicationSubnetGroup)
+  , _crsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -164,10 +167,11 @@ createReplicationSubnetGroupResponse
     :: Int -- ^ 'crsgrsResponseStatus'
     -> CreateReplicationSubnetGroupResponse
 createReplicationSubnetGroupResponse pResponseStatus_ =
-    CreateReplicationSubnetGroupResponse'
-    { _crsgrsReplicationSubnetGroup = Nothing
-    , _crsgrsResponseStatus = pResponseStatus_
-    }
+  CreateReplicationSubnetGroupResponse'
+  { _crsgrsReplicationSubnetGroup = Nothing
+  , _crsgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The replication subnet group that was created.
 crsgrsReplicationSubnetGroup :: Lens' CreateReplicationSubnetGroupResponse (Maybe ReplicationSubnetGroup)
@@ -178,3 +182,4 @@ crsgrsResponseStatus :: Lens' CreateReplicationSubnetGroupResponse Int
 crsgrsResponseStatus = lens _crsgrsResponseStatus (\ s a -> s{_crsgrsResponseStatus = a});
 
 instance NFData CreateReplicationSubnetGroupResponse
+         where

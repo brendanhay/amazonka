@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CopyClusterSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     , ccsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'copyClusterSnapshot' smart constructor.
 data CopyClusterSnapshot = CopyClusterSnapshot'
-    { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
-    , _ccsSourceSnapshotIdentifier        :: !Text
-    , _ccsTargetSnapshotIdentifier        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsSourceSnapshotClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsSourceSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
+  , _ccsTargetSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyClusterSnapshot' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ copyClusterSnapshot
     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
     -> CopyClusterSnapshot
 copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
-    CopyClusterSnapshot'
-    { _ccsSourceSnapshotClusterIdentifier = Nothing
-    , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
-    , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
-    }
+  CopyClusterSnapshot'
+  { _ccsSourceSnapshotClusterIdentifier = Nothing
+  , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
+  , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
+  }
+
 
 -- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
 ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
@@ -103,9 +105,9 @@ instance AWSRequest CopyClusterSnapshot where
                  CopyClusterSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
-instance Hashable CopyClusterSnapshot
+instance Hashable CopyClusterSnapshot where
 
-instance NFData CopyClusterSnapshot
+instance NFData CopyClusterSnapshot where
 
 instance ToHeaders CopyClusterSnapshot where
         toHeaders = const mempty
@@ -127,9 +129,10 @@ instance ToQuery CopyClusterSnapshot where
 
 -- | /See:/ 'copyClusterSnapshotResponse' smart constructor.
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
-    { _ccsrsSnapshot       :: !(Maybe Snapshot)
-    , _ccsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsrsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
+  , _ccsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyClusterSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,9 @@ copyClusterSnapshotResponse
     :: Int -- ^ 'ccsrsResponseStatus'
     -> CopyClusterSnapshotResponse
 copyClusterSnapshotResponse pResponseStatus_ =
-    CopyClusterSnapshotResponse'
-    { _ccsrsSnapshot = Nothing
-    , _ccsrsResponseStatus = pResponseStatus_
-    }
+  CopyClusterSnapshotResponse'
+  {_ccsrsSnapshot = Nothing, _ccsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
@@ -155,4 +157,4 @@ ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
 ccsrsResponseStatus :: Lens' CopyClusterSnapshotResponse Int
 ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});
 
-instance NFData CopyClusterSnapshotResponse
+instance NFData CopyClusterSnapshotResponse where

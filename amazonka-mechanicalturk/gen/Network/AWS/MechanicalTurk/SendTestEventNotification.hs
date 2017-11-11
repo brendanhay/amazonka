@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.SendTestEventNotification
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.MechanicalTurk.SendTestEventNotification
     , stenrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'sendTestEventNotification' smart constructor.
 data SendTestEventNotification = SendTestEventNotification'
-    { _stenNotification  :: !NotificationSpecification
-    , _stenTestEventType :: !EventType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stenNotification  :: {-# NOUNPACK #-}!NotificationSpecification
+  , _stenTestEventType :: {-# NOUNPACK #-}!EventType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendTestEventNotification' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ sendTestEventNotification
     -> EventType -- ^ 'stenTestEventType'
     -> SendTestEventNotification
 sendTestEventNotification pNotification_ pTestEventType_ =
-    SendTestEventNotification'
-    { _stenNotification = pNotification_
-    , _stenTestEventType = pTestEventType_
-    }
+  SendTestEventNotification'
+  {_stenNotification = pNotification_, _stenTestEventType = pTestEventType_}
+
 
 -- | The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
 stenNotification :: Lens' SendTestEventNotification NotificationSpecification
@@ -85,9 +85,9 @@ instance AWSRequest SendTestEventNotification where
                  SendTestEventNotificationResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable SendTestEventNotification
+instance Hashable SendTestEventNotification where
 
-instance NFData SendTestEventNotification
+instance NFData SendTestEventNotification where
 
 instance ToHeaders SendTestEventNotification where
         toHeaders
@@ -114,8 +114,9 @@ instance ToQuery SendTestEventNotification where
 
 -- | /See:/ 'sendTestEventNotificationResponse' smart constructor.
 newtype SendTestEventNotificationResponse = SendTestEventNotificationResponse'
-    { _stenrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stenrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendTestEventNotificationResponse' with the minimum fields required to make a request.
 --
@@ -126,12 +127,12 @@ sendTestEventNotificationResponse
     :: Int -- ^ 'stenrsResponseStatus'
     -> SendTestEventNotificationResponse
 sendTestEventNotificationResponse pResponseStatus_ =
-    SendTestEventNotificationResponse'
-    { _stenrsResponseStatus = pResponseStatus_
-    }
+  SendTestEventNotificationResponse' {_stenrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 stenrsResponseStatus :: Lens' SendTestEventNotificationResponse Int
 stenrsResponseStatus = lens _stenrsResponseStatus (\ s a -> s{_stenrsResponseStatus = a});
 
 instance NFData SendTestEventNotificationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetApplicationSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.GetApplicationSettings
     , gassrsApplicationSettingsResource
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getApplicationSettings' smart constructor.
 newtype GetApplicationSettings = GetApplicationSettings'
-    { _gasApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gasApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetApplicationSettings' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ getApplicationSettings
     :: Text -- ^ 'gasApplicationId'
     -> GetApplicationSettings
 getApplicationSettings pApplicationId_ =
-    GetApplicationSettings'
-    { _gasApplicationId = pApplicationId_
-    }
+  GetApplicationSettings' {_gasApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 gasApplicationId :: Lens' GetApplicationSettings Text
@@ -74,9 +74,9 @@ instance AWSRequest GetApplicationSettings where
                  GetApplicationSettingsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetApplicationSettings
+instance Hashable GetApplicationSettings where
 
-instance NFData GetApplicationSettings
+instance NFData GetApplicationSettings where
 
 instance ToHeaders GetApplicationSettings where
         toHeaders
@@ -95,9 +95,10 @@ instance ToQuery GetApplicationSettings where
 
 -- | /See:/ 'getApplicationSettingsResponse' smart constructor.
 data GetApplicationSettingsResponse = GetApplicationSettingsResponse'
-    { _gassrsResponseStatus              :: !Int
-    , _gassrsApplicationSettingsResource :: !ApplicationSettingsResource
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gassrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gassrsApplicationSettingsResource :: {-# NOUNPACK #-}!ApplicationSettingsResource
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetApplicationSettingsResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +112,11 @@ getApplicationSettingsResponse
     -> ApplicationSettingsResource -- ^ 'gassrsApplicationSettingsResource'
     -> GetApplicationSettingsResponse
 getApplicationSettingsResponse pResponseStatus_ pApplicationSettingsResource_ =
-    GetApplicationSettingsResponse'
-    { _gassrsResponseStatus = pResponseStatus_
-    , _gassrsApplicationSettingsResource = pApplicationSettingsResource_
-    }
+  GetApplicationSettingsResponse'
+  { _gassrsResponseStatus = pResponseStatus_
+  , _gassrsApplicationSettingsResource = pApplicationSettingsResource_
+  }
+
 
 -- | -- | The response status code.
 gassrsResponseStatus :: Lens' GetApplicationSettingsResponse Int
@@ -124,4 +126,4 @@ gassrsResponseStatus = lens _gassrsResponseStatus (\ s a -> s{_gassrsResponseSta
 gassrsApplicationSettingsResource :: Lens' GetApplicationSettingsResponse ApplicationSettingsResource
 gassrsApplicationSettingsResource = lens _gassrsApplicationSettingsResource (\ s a -> s{_gassrsApplicationSettingsResource = a});
 
-instance NFData GetApplicationSettingsResponse
+instance NFData GetApplicationSettingsResponse where

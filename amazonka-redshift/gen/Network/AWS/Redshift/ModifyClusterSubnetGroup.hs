@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyClusterSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     , mcsgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyClusterSubnetGroup' smart constructor.
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
-    { _mcsgDescription            :: !(Maybe Text)
-    , _mcsgClusterSubnetGroupName :: !Text
-    , _mcsgSubnetIds              :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcsgDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcsgClusterSubnetGroupName :: {-# NOUNPACK #-}!Text
+  , _mcsgSubnetIds              :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyClusterSubnetGroup' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ modifyClusterSubnetGroup
     :: Text -- ^ 'mcsgClusterSubnetGroupName'
     -> ModifyClusterSubnetGroup
 modifyClusterSubnetGroup pClusterSubnetGroupName_ =
-    ModifyClusterSubnetGroup'
-    { _mcsgDescription = Nothing
-    , _mcsgClusterSubnetGroupName = pClusterSubnetGroupName_
-    , _mcsgSubnetIds = mempty
-    }
+  ModifyClusterSubnetGroup'
+  { _mcsgDescription = Nothing
+  , _mcsgClusterSubnetGroupName = pClusterSubnetGroupName_
+  , _mcsgSubnetIds = mempty
+  }
+
 
 -- | A text description of the subnet group to be modified.
 mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest ModifyClusterSubnetGroup where
                  ModifyClusterSubnetGroupResponse' <$>
                    (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyClusterSubnetGroup
+instance Hashable ModifyClusterSubnetGroup where
 
-instance NFData ModifyClusterSubnetGroup
+instance NFData ModifyClusterSubnetGroup where
 
 instance ToHeaders ModifyClusterSubnetGroup where
         toHeaders = const mempty
@@ -122,9 +124,10 @@ instance ToQuery ModifyClusterSubnetGroup where
 
 -- | /See:/ 'modifyClusterSubnetGroupResponse' smart constructor.
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
-    { _mcsgrsClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
-    , _mcsgrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcsgrsClusterSubnetGroup :: {-# NOUNPACK #-}!(Maybe ClusterSubnetGroup)
+  , _mcsgrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyClusterSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,11 @@ modifyClusterSubnetGroupResponse
     :: Int -- ^ 'mcsgrsResponseStatus'
     -> ModifyClusterSubnetGroupResponse
 modifyClusterSubnetGroupResponse pResponseStatus_ =
-    ModifyClusterSubnetGroupResponse'
-    { _mcsgrsClusterSubnetGroup = Nothing
-    , _mcsgrsResponseStatus = pResponseStatus_
-    }
+  ModifyClusterSubnetGroupResponse'
+  { _mcsgrsClusterSubnetGroup = Nothing
+  , _mcsgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
@@ -151,3 +155,4 @@ mcsgrsResponseStatus :: Lens' ModifyClusterSubnetGroupResponse Int
 mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a});
 
 instance NFData ModifyClusterSubnetGroupResponse
+         where

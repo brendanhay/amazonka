@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.DeleteProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CodeStar.DeleteProject
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteProject' smart constructor.
 data DeleteProject = DeleteProject'
-    { _dpDeleteStack        :: !(Maybe Bool)
-    , _dpClientRequestToken :: !(Maybe Text)
-    , _dpId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpDeleteStack        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dpClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ deleteProject
     :: Text -- ^ 'dpId'
     -> DeleteProject
 deleteProject pId_ =
-    DeleteProject'
-    { _dpDeleteStack = Nothing
-    , _dpClientRequestToken = Nothing
-    , _dpId = pId_
-    }
+  DeleteProject'
+  {_dpDeleteStack = Nothing, _dpClientRequestToken = Nothing, _dpId = pId_}
+
 
 -- | Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
 dpDeleteStack :: Lens' DeleteProject (Maybe Bool)
@@ -95,9 +94,9 @@ instance AWSRequest DeleteProject where
                    (x .?> "projectArn") <*> (x .?> "stackId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DeleteProject
+instance Hashable DeleteProject where
 
-instance NFData DeleteProject
+instance NFData DeleteProject where
 
 instance ToHeaders DeleteProject where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery DeleteProject where
 
 -- | /See:/ 'deleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
-    { _dprsProjectARN     :: !(Maybe Text)
-    , _dprsStackId        :: !(Maybe Text)
-    , _dprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsProjectARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dprsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ deleteProjectResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DeleteProjectResponse
 deleteProjectResponse pResponseStatus_ =
-    DeleteProjectResponse'
-    { _dprsProjectARN = Nothing
-    , _dprsStackId = Nothing
-    , _dprsResponseStatus = pResponseStatus_
-    }
+  DeleteProjectResponse'
+  { _dprsProjectARN = Nothing
+  , _dprsStackId = Nothing
+  , _dprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the deleted project.
 dprsProjectARN :: Lens' DeleteProjectResponse (Maybe Text)
@@ -160,4 +161,4 @@ dprsStackId = lens _dprsStackId (\ s a -> s{_dprsStackId = a});
 dprsResponseStatus :: Lens' DeleteProjectResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DeleteProjectResponse
+instance NFData DeleteProjectResponse where

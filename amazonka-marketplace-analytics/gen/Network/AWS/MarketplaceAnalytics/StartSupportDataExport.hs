@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceAnalytics.StartSupportDataExport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,25 +41,26 @@ module Network.AWS.MarketplaceAnalytics.StartSupportDataExport
     , ssdersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MarketplaceAnalytics.Types
-import           Network.AWS.MarketplaceAnalytics.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MarketplaceAnalytics.Types
+import Network.AWS.MarketplaceAnalytics.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the StartSupportDataExport operation.
 --
 -- /See:/ 'startSupportDataExport' smart constructor.
 data StartSupportDataExport = StartSupportDataExport'
-    { _ssdeCustomerDefinedValues   :: !(Maybe (Map Text Text))
-    , _ssdeDestinationS3Prefix     :: !(Maybe Text)
-    , _ssdeDataSetType             :: !SupportDataSetType
-    , _ssdeFromDate                :: !POSIX
-    , _ssdeRoleNameARN             :: !Text
-    , _ssdeDestinationS3BucketName :: !Text
-    , _ssdeSnsTopicARN             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssdeCustomerDefinedValues   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ssdeDestinationS3Prefix     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssdeDataSetType             :: {-# NOUNPACK #-}!SupportDataSetType
+  , _ssdeFromDate                :: {-# NOUNPACK #-}!POSIX
+  , _ssdeRoleNameARN             :: {-# NOUNPACK #-}!Text
+  , _ssdeDestinationS3BucketName :: {-# NOUNPACK #-}!Text
+  , _ssdeSnsTopicARN             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartSupportDataExport' with the minimum fields required to make a request.
 --
@@ -86,15 +87,16 @@ startSupportDataExport
     -> Text -- ^ 'ssdeSnsTopicARN'
     -> StartSupportDataExport
 startSupportDataExport pDataSetType_ pFromDate_ pRoleNameARN_ pDestinationS3BucketName_ pSnsTopicARN_ =
-    StartSupportDataExport'
-    { _ssdeCustomerDefinedValues = Nothing
-    , _ssdeDestinationS3Prefix = Nothing
-    , _ssdeDataSetType = pDataSetType_
-    , _ssdeFromDate = _Time # pFromDate_
-    , _ssdeRoleNameARN = pRoleNameARN_
-    , _ssdeDestinationS3BucketName = pDestinationS3BucketName_
-    , _ssdeSnsTopicARN = pSnsTopicARN_
-    }
+  StartSupportDataExport'
+  { _ssdeCustomerDefinedValues = Nothing
+  , _ssdeDestinationS3Prefix = Nothing
+  , _ssdeDataSetType = pDataSetType_
+  , _ssdeFromDate = _Time # pFromDate_
+  , _ssdeRoleNameARN = pRoleNameARN_
+  , _ssdeDestinationS3BucketName = pDestinationS3BucketName_
+  , _ssdeSnsTopicARN = pSnsTopicARN_
+  }
+
 
 -- | (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file.
 ssdeCustomerDefinedValues :: Lens' StartSupportDataExport (HashMap Text Text)
@@ -134,9 +136,9 @@ instance AWSRequest StartSupportDataExport where
                  StartSupportDataExportResponse' <$>
                    (x .?> "dataSetRequestId") <*> (pure (fromEnum s)))
 
-instance Hashable StartSupportDataExport
+instance Hashable StartSupportDataExport where
 
-instance NFData StartSupportDataExport
+instance NFData StartSupportDataExport where
 
 instance ToHeaders StartSupportDataExport where
         toHeaders
@@ -174,9 +176,10 @@ instance ToQuery StartSupportDataExport where
 --
 -- /See:/ 'startSupportDataExportResponse' smart constructor.
 data StartSupportDataExportResponse = StartSupportDataExportResponse'
-    { _ssdersDataSetRequestId :: !(Maybe Text)
-    , _ssdersResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssdersDataSetRequestId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssdersResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartSupportDataExportResponse' with the minimum fields required to make a request.
 --
@@ -189,10 +192,9 @@ startSupportDataExportResponse
     :: Int -- ^ 'ssdersResponseStatus'
     -> StartSupportDataExportResponse
 startSupportDataExportResponse pResponseStatus_ =
-    StartSupportDataExportResponse'
-    { _ssdersDataSetRequestId = Nothing
-    , _ssdersResponseStatus = pResponseStatus_
-    }
+  StartSupportDataExportResponse'
+  {_ssdersDataSetRequestId = Nothing, _ssdersResponseStatus = pResponseStatus_}
+
 
 -- | A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be used to correlate a request with notifications from the SNS topic.
 ssdersDataSetRequestId :: Lens' StartSupportDataExportResponse (Maybe Text)
@@ -202,4 +204,4 @@ ssdersDataSetRequestId = lens _ssdersDataSetRequestId (\ s a -> s{_ssdersDataSet
 ssdersResponseStatus :: Lens' StartSupportDataExportResponse Int
 ssdersResponseStatus = lens _ssdersResponseStatus (\ s a -> s{_ssdersResponseStatus = a});
 
-instance NFData StartSupportDataExportResponse
+instance NFData StartSupportDataExportResponse where

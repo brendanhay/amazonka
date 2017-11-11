@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetAccessKeyLastUsed
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     , gaklursResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAccessKeyLastUsed' smart constructor.
 newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
-    { _gakluAccessKeyId :: AccessKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gakluAccessKeyId :: AccessKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccessKeyLastUsed' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ getAccessKeyLastUsed
     :: AccessKey -- ^ 'gakluAccessKeyId'
     -> GetAccessKeyLastUsed
 getAccessKeyLastUsed pAccessKeyId_ =
-    GetAccessKeyLastUsed'
-    { _gakluAccessKeyId = pAccessKeyId_
-    }
+  GetAccessKeyLastUsed' {_gakluAccessKeyId = pAccessKeyId_}
+
 
 -- | The identifier of an access key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 gakluAccessKeyId :: Lens' GetAccessKeyLastUsed AccessKey
@@ -78,9 +78,9 @@ instance AWSRequest GetAccessKeyLastUsed where
                    (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetAccessKeyLastUsed
+instance Hashable GetAccessKeyLastUsed where
 
-instance NFData GetAccessKeyLastUsed
+instance NFData GetAccessKeyLastUsed where
 
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
@@ -101,10 +101,11 @@ instance ToQuery GetAccessKeyLastUsed where
 --
 -- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-    { _gaklursUserName          :: !(Maybe Text)
-    , _gaklursAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
-    , _gaklursResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaklursUserName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gaklursAccessKeyLastUsed :: {-# NOUNPACK #-}!(Maybe AccessKeyLastUsed)
+  , _gaklursResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccessKeyLastUsedResponse' with the minimum fields required to make a request.
 --
@@ -119,11 +120,12 @@ getAccessKeyLastUsedResponse
     :: Int -- ^ 'gaklursResponseStatus'
     -> GetAccessKeyLastUsedResponse
 getAccessKeyLastUsedResponse pResponseStatus_ =
-    GetAccessKeyLastUsedResponse'
-    { _gaklursUserName = Nothing
-    , _gaklursAccessKeyLastUsed = Nothing
-    , _gaklursResponseStatus = pResponseStatus_
-    }
+  GetAccessKeyLastUsedResponse'
+  { _gaklursUserName = Nothing
+  , _gaklursAccessKeyLastUsed = Nothing
+  , _gaklursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the AWS IAM user that owns this access key.
 gaklursUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
@@ -137,4 +139,4 @@ gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAc
 gaklursResponseStatus :: Lens' GetAccessKeyLastUsedResponse Int
 gaklursResponseStatus = lens _gaklursResponseStatus (\ s a -> s{_gaklursResponseStatus = a});
 
-instance NFData GetAccessKeyLastUsedResponse
+instance NFData GetAccessKeyLastUsedResponse where

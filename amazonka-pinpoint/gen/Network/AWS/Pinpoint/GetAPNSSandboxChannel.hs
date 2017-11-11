@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetAPNSSandboxChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.GetAPNSSandboxChannel
     , gascrsAPNSSandboxChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAPNSSandboxChannel' smart constructor.
 newtype GetAPNSSandboxChannel = GetAPNSSandboxChannel'
-    { _gascApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gascApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPNSSandboxChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ getAPNSSandboxChannel
     :: Text -- ^ 'gascApplicationId'
     -> GetAPNSSandboxChannel
 getAPNSSandboxChannel pApplicationId_ =
-    GetAPNSSandboxChannel'
-    { _gascApplicationId = pApplicationId_
-    }
+  GetAPNSSandboxChannel' {_gascApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 gascApplicationId :: Lens' GetAPNSSandboxChannel Text
@@ -74,9 +74,9 @@ instance AWSRequest GetAPNSSandboxChannel where
                  GetAPNSSandboxChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetAPNSSandboxChannel
+instance Hashable GetAPNSSandboxChannel where
 
-instance NFData GetAPNSSandboxChannel
+instance NFData GetAPNSSandboxChannel where
 
 instance ToHeaders GetAPNSSandboxChannel where
         toHeaders
@@ -96,9 +96,10 @@ instance ToQuery GetAPNSSandboxChannel where
 
 -- | /See:/ 'getAPNSSandboxChannelResponse' smart constructor.
 data GetAPNSSandboxChannelResponse = GetAPNSSandboxChannelResponse'
-    { _gascrsResponseStatus             :: !Int
-    , _gascrsAPNSSandboxChannelResponse :: !APNSSandboxChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gascrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gascrsAPNSSandboxChannelResponse :: {-# NOUNPACK #-}!APNSSandboxChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPNSSandboxChannelResponse' with the minimum fields required to make a request.
 --
@@ -112,10 +113,11 @@ getAPNSSandboxChannelResponse
     -> APNSSandboxChannelResponse -- ^ 'gascrsAPNSSandboxChannelResponse'
     -> GetAPNSSandboxChannelResponse
 getAPNSSandboxChannelResponse pResponseStatus_ pAPNSSandboxChannelResponse_ =
-    GetAPNSSandboxChannelResponse'
-    { _gascrsResponseStatus = pResponseStatus_
-    , _gascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
-    }
+  GetAPNSSandboxChannelResponse'
+  { _gascrsResponseStatus = pResponseStatus_
+  , _gascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 gascrsResponseStatus :: Lens' GetAPNSSandboxChannelResponse Int
@@ -125,4 +127,4 @@ gascrsResponseStatus = lens _gascrsResponseStatus (\ s a -> s{_gascrsResponseSta
 gascrsAPNSSandboxChannelResponse :: Lens' GetAPNSSandboxChannelResponse APNSSandboxChannelResponse
 gascrsAPNSSandboxChannelResponse = lens _gascrsAPNSSandboxChannelResponse (\ s a -> s{_gascrsAPNSSandboxChannelResponse = a});
 
-instance NFData GetAPNSSandboxChannelResponse
+instance NFData GetAPNSSandboxChannelResponse where

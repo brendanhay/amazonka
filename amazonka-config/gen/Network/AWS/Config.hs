@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Config
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -468,35 +468,35 @@ module Network.AWS.Config
     , sdEventSource
     ) where
 
-import           Network.AWS.Config.DeleteConfigRule
-import           Network.AWS.Config.DeleteConfigurationRecorder
-import           Network.AWS.Config.DeleteDeliveryChannel
-import           Network.AWS.Config.DeleteEvaluationResults
-import           Network.AWS.Config.DeliverConfigSnapshot
-import           Network.AWS.Config.DescribeComplianceByConfigRule
-import           Network.AWS.Config.DescribeComplianceByResource
-import           Network.AWS.Config.DescribeConfigRuleEvaluationStatus
-import           Network.AWS.Config.DescribeConfigRules
-import           Network.AWS.Config.DescribeConfigurationRecorders
-import           Network.AWS.Config.DescribeConfigurationRecorderStatus
-import           Network.AWS.Config.DescribeDeliveryChannels
-import           Network.AWS.Config.DescribeDeliveryChannelStatus
-import           Network.AWS.Config.GetComplianceDetailsByConfigRule
-import           Network.AWS.Config.GetComplianceDetailsByResource
-import           Network.AWS.Config.GetComplianceSummaryByConfigRule
-import           Network.AWS.Config.GetComplianceSummaryByResourceType
-import           Network.AWS.Config.GetDiscoveredResourceCounts
-import           Network.AWS.Config.GetResourceConfigHistory
-import           Network.AWS.Config.ListDiscoveredResources
-import           Network.AWS.Config.PutConfigRule
-import           Network.AWS.Config.PutConfigurationRecorder
-import           Network.AWS.Config.PutDeliveryChannel
-import           Network.AWS.Config.PutEvaluations
-import           Network.AWS.Config.StartConfigRulesEvaluation
-import           Network.AWS.Config.StartConfigurationRecorder
-import           Network.AWS.Config.StopConfigurationRecorder
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Waiters
+import Network.AWS.Config.DeleteConfigRule
+import Network.AWS.Config.DeleteConfigurationRecorder
+import Network.AWS.Config.DeleteDeliveryChannel
+import Network.AWS.Config.DeleteEvaluationResults
+import Network.AWS.Config.DeliverConfigSnapshot
+import Network.AWS.Config.DescribeComplianceByConfigRule
+import Network.AWS.Config.DescribeComplianceByResource
+import Network.AWS.Config.DescribeConfigRuleEvaluationStatus
+import Network.AWS.Config.DescribeConfigRules
+import Network.AWS.Config.DescribeConfigurationRecorders
+import Network.AWS.Config.DescribeConfigurationRecorderStatus
+import Network.AWS.Config.DescribeDeliveryChannels
+import Network.AWS.Config.DescribeDeliveryChannelStatus
+import Network.AWS.Config.GetComplianceDetailsByConfigRule
+import Network.AWS.Config.GetComplianceDetailsByResource
+import Network.AWS.Config.GetComplianceSummaryByConfigRule
+import Network.AWS.Config.GetComplianceSummaryByResourceType
+import Network.AWS.Config.GetDiscoveredResourceCounts
+import Network.AWS.Config.GetResourceConfigHistory
+import Network.AWS.Config.ListDiscoveredResources
+import Network.AWS.Config.PutConfigRule
+import Network.AWS.Config.PutConfigurationRecorder
+import Network.AWS.Config.PutDeliveryChannel
+import Network.AWS.Config.PutEvaluations
+import Network.AWS.Config.StartConfigRulesEvaluation
+import Network.AWS.Config.StartConfigurationRecorder
+import Network.AWS.Config.StopConfigurationRecorder
+import Network.AWS.Config.Types
+import Network.AWS.Config.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

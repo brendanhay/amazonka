@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.ListTagsLogGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.CloudWatchLogs.ListTagsLogGroup
     , ltlgrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTagsLogGroup' smart constructor.
 newtype ListTagsLogGroup = ListTagsLogGroup'
-    { _ltlgLogGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltlgLogGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsLogGroup' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ listTagsLogGroup
     :: Text -- ^ 'ltlgLogGroupName'
     -> ListTagsLogGroup
 listTagsLogGroup pLogGroupName_ =
-    ListTagsLogGroup'
-    { _ltlgLogGroupName = pLogGroupName_
-    }
+  ListTagsLogGroup' {_ltlgLogGroupName = pLogGroupName_}
+
 
 -- | The name of the log group.
 ltlgLogGroupName :: Lens' ListTagsLogGroup Text
@@ -77,9 +77,9 @@ instance AWSRequest ListTagsLogGroup where
                  ListTagsLogGroupResponse' <$>
                    (x .?> "tags" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable ListTagsLogGroup
+instance Hashable ListTagsLogGroup where
 
-instance NFData ListTagsLogGroup
+instance NFData ListTagsLogGroup where
 
 instance ToHeaders ListTagsLogGroup where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery ListTagsLogGroup where
 
 -- | /See:/ 'listTagsLogGroupResponse' smart constructor.
 data ListTagsLogGroupResponse = ListTagsLogGroupResponse'
-    { _ltlgrsTags           :: !(Maybe (Map Text Text))
-    , _ltlgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltlgrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ltlgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsLogGroupResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ listTagsLogGroupResponse
     :: Int -- ^ 'ltlgrsResponseStatus'
     -> ListTagsLogGroupResponse
 listTagsLogGroupResponse pResponseStatus_ =
-    ListTagsLogGroupResponse'
-    { _ltlgrsTags = Nothing
-    , _ltlgrsResponseStatus = pResponseStatus_
-    }
+  ListTagsLogGroupResponse'
+  {_ltlgrsTags = Nothing, _ltlgrsResponseStatus = pResponseStatus_}
+
 
 -- | The tags.
 ltlgrsTags :: Lens' ListTagsLogGroupResponse (HashMap Text Text)
@@ -132,4 +132,4 @@ ltlgrsTags = lens _ltlgrsTags (\ s a -> s{_ltlgrsTags = a}) . _Default . _Map;
 ltlgrsResponseStatus :: Lens' ListTagsLogGroupResponse Int
 ltlgrsResponseStatus = lens _ltlgrsResponseStatus (\ s a -> s{_ltlgrsResponseStatus = a});
 
-instance NFData ListTagsLogGroupResponse
+instance NFData ListTagsLogGroupResponse where

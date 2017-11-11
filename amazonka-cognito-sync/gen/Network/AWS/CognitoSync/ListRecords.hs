@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.ListRecords
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,25 +53,26 @@ module Network.AWS.CognitoSync.ListRecords
     , lrrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for a list of records.
 --
 -- /See:/ 'listRecords' smart constructor.
 data ListRecords = ListRecords'
-    { _lrLastSyncCount    :: !(Maybe Integer)
-    , _lrNextToken        :: !(Maybe Text)
-    , _lrSyncSessionToken :: !(Maybe Text)
-    , _lrMaxResults       :: !(Maybe Int)
-    , _lrIdentityPoolId   :: !Text
-    , _lrIdentityId       :: !Text
-    , _lrDatasetName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrLastSyncCount    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _lrNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrSyncSessionToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lrIdentityPoolId   :: {-# NOUNPACK #-}!Text
+  , _lrIdentityId       :: {-# NOUNPACK #-}!Text
+  , _lrDatasetName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRecords' with the minimum fields required to make a request.
 --
@@ -96,15 +97,16 @@ listRecords
     -> Text -- ^ 'lrDatasetName'
     -> ListRecords
 listRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ =
-    ListRecords'
-    { _lrLastSyncCount = Nothing
-    , _lrNextToken = Nothing
-    , _lrSyncSessionToken = Nothing
-    , _lrMaxResults = Nothing
-    , _lrIdentityPoolId = pIdentityPoolId_
-    , _lrIdentityId = pIdentityId_
-    , _lrDatasetName = pDatasetName_
-    }
+  ListRecords'
+  { _lrLastSyncCount = Nothing
+  , _lrNextToken = Nothing
+  , _lrSyncSessionToken = Nothing
+  , _lrMaxResults = Nothing
+  , _lrIdentityPoolId = pIdentityPoolId_
+  , _lrIdentityId = pIdentityId_
+  , _lrDatasetName = pDatasetName_
+  }
+
 
 -- | The last server sync count for this record.
 lrLastSyncCount :: Lens' ListRecords (Maybe Integer)
@@ -152,9 +154,9 @@ instance AWSRequest ListRecords where
                      <*> (x .?> "DatasetSyncCount")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListRecords
+instance Hashable ListRecords where
 
-instance NFData ListRecords
+instance NFData ListRecords where
 
 instance ToHeaders ListRecords where
         toHeaders
@@ -182,17 +184,18 @@ instance ToQuery ListRecords where
 --
 -- /See:/ 'listRecordsResponse' smart constructor.
 data ListRecordsResponse = ListRecordsResponse'
-    { _lrrsDatasetDeletedAfterRequestedSyncCount :: !(Maybe Bool)
-    , _lrrsDatasetExists                         :: !(Maybe Bool)
-    , _lrrsCount                                 :: !(Maybe Int)
-    , _lrrsRecords                               :: !(Maybe [Record])
-    , _lrrsNextToken                             :: !(Maybe Text)
-    , _lrrsMergedDatasetNames                    :: !(Maybe [Text])
-    , _lrrsSyncSessionToken                      :: !(Maybe Text)
-    , _lrrsLastModifiedBy                        :: !(Maybe Text)
-    , _lrrsDatasetSyncCount                      :: !(Maybe Integer)
-    , _lrrsResponseStatus                        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsDatasetDeletedAfterRequestedSyncCount :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lrrsDatasetExists :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lrrsCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lrrsRecords :: {-# NOUNPACK #-}!(Maybe [Record])
+  , _lrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsMergedDatasetNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lrrsSyncSessionToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsLastModifiedBy :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsDatasetSyncCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _lrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRecordsResponse' with the minimum fields required to make a request.
 --
@@ -221,18 +224,19 @@ listRecordsResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListRecordsResponse
 listRecordsResponse pResponseStatus_ =
-    ListRecordsResponse'
-    { _lrrsDatasetDeletedAfterRequestedSyncCount = Nothing
-    , _lrrsDatasetExists = Nothing
-    , _lrrsCount = Nothing
-    , _lrrsRecords = Nothing
-    , _lrrsNextToken = Nothing
-    , _lrrsMergedDatasetNames = Nothing
-    , _lrrsSyncSessionToken = Nothing
-    , _lrrsLastModifiedBy = Nothing
-    , _lrrsDatasetSyncCount = Nothing
-    , _lrrsResponseStatus = pResponseStatus_
-    }
+  ListRecordsResponse'
+  { _lrrsDatasetDeletedAfterRequestedSyncCount = Nothing
+  , _lrrsDatasetExists = Nothing
+  , _lrrsCount = Nothing
+  , _lrrsRecords = Nothing
+  , _lrrsNextToken = Nothing
+  , _lrrsMergedDatasetNames = Nothing
+  , _lrrsSyncSessionToken = Nothing
+  , _lrrsLastModifiedBy = Nothing
+  , _lrrsDatasetSyncCount = Nothing
+  , _lrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A boolean value specifying whether to delete the dataset locally.
 lrrsDatasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
@@ -274,4 +278,4 @@ lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\ s a -> s{_lrrsDatasetSyncCo
 lrrsResponseStatus :: Lens' ListRecordsResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 
-instance NFData ListRecordsResponse
+instance NFData ListRecordsResponse where

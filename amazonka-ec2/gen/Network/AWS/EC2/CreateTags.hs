@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.CreateTags
     , CreateTagsResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateTags.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
-    { _cDryRun    :: !(Maybe Bool)
-    , _cResources :: ![Text]
-    , _cTags      :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cResources :: {-# NOUNPACK #-}![Text]
+  , _cTags      :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
@@ -68,11 +69,8 @@ data CreateTags = CreateTags'
 createTags
     :: CreateTags
 createTags =
-    CreateTags'
-    { _cDryRun = Nothing
-    , _cResources = mempty
-    , _cTags = mempty
-    }
+  CreateTags' {_cDryRun = Nothing, _cResources = mempty, _cTags = mempty}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cDryRun :: Lens' CreateTags (Maybe Bool)
@@ -91,9 +89,9 @@ instance AWSRequest CreateTags where
         request = postQuery ec2
         response = receiveNull CreateTagsResponse'
 
-instance Hashable CreateTags
+instance Hashable CreateTags where
 
-instance NFData CreateTags
+instance NFData CreateTags where
 
 instance ToHeaders CreateTags where
         toHeaders = const mempty
@@ -112,8 +110,9 @@ instance ToQuery CreateTags where
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =
-    CreateTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +120,5 @@ createTagsResponse
     :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse'
 
-instance NFData CreateTagsResponse
+
+instance NFData CreateTagsResponse where

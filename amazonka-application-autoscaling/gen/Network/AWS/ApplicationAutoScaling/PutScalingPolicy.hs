@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.PutScalingPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,23 +50,24 @@ module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
     , psprsPolicyARN
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-    { _pspPolicyType                               :: !(Maybe PolicyType)
-    , _pspTargetTrackingScalingPolicyConfiguration :: !(Maybe TargetTrackingScalingPolicyConfiguration)
-    , _pspStepScalingPolicyConfiguration           :: !(Maybe StepScalingPolicyConfiguration)
-    , _pspPolicyName                               :: !Text
-    , _pspServiceNamespace                         :: !ServiceNamespace
-    , _pspResourceId                               :: !Text
-    , _pspScalableDimension                        :: !ScalableDimension
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pspPolicyType :: {-# NOUNPACK #-}!(Maybe PolicyType)
+  , _pspTargetTrackingScalingPolicyConfiguration :: {-# NOUNPACK #-}!(Maybe TargetTrackingScalingPolicyConfiguration)
+  , _pspStepScalingPolicyConfiguration :: {-# NOUNPACK #-}!(Maybe StepScalingPolicyConfiguration)
+  , _pspPolicyName :: {-# NOUNPACK #-}!Text
+  , _pspServiceNamespace :: {-# NOUNPACK #-}!ServiceNamespace
+  , _pspResourceId :: {-# NOUNPACK #-}!Text
+  , _pspScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
 --
@@ -92,15 +93,16 @@ putScalingPolicy
     -> ScalableDimension -- ^ 'pspScalableDimension'
     -> PutScalingPolicy
 putScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ =
-    PutScalingPolicy'
-    { _pspPolicyType = Nothing
-    , _pspTargetTrackingScalingPolicyConfiguration = Nothing
-    , _pspStepScalingPolicyConfiguration = Nothing
-    , _pspPolicyName = pPolicyName_
-    , _pspServiceNamespace = pServiceNamespace_
-    , _pspResourceId = pResourceId_
-    , _pspScalableDimension = pScalableDimension_
-    }
+  PutScalingPolicy'
+  { _pspPolicyType = Nothing
+  , _pspTargetTrackingScalingPolicyConfiguration = Nothing
+  , _pspStepScalingPolicyConfiguration = Nothing
+  , _pspPolicyName = pPolicyName_
+  , _pspServiceNamespace = pServiceNamespace_
+  , _pspResourceId = pResourceId_
+  , _pspScalableDimension = pScalableDimension_
+  }
+
 
 -- | The policy type. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required. For DynamoDB, only @TargetTrackingScaling@ is supported. For any other service, only @StepScaling@ is supported.
 pspPolicyType :: Lens' PutScalingPolicy (Maybe PolicyType)
@@ -140,9 +142,9 @@ instance AWSRequest PutScalingPolicy where
                    (x .?> "Alarms" .!@ mempty) <*> (pure (fromEnum s))
                      <*> (x .:> "PolicyARN"))
 
-instance Hashable PutScalingPolicy
+instance Hashable PutScalingPolicy where
 
-instance NFData PutScalingPolicy
+instance NFData PutScalingPolicy where
 
 instance ToHeaders PutScalingPolicy where
         toHeaders
@@ -176,10 +178,11 @@ instance ToQuery PutScalingPolicy where
 
 -- | /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-    { _psprsAlarms         :: !(Maybe [Alarm])
-    , _psprsResponseStatus :: !Int
-    , _psprsPolicyARN      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psprsAlarms         :: {-# NOUNPACK #-}!(Maybe [Alarm])
+  , _psprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _psprsPolicyARN      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
 --
@@ -195,11 +198,12 @@ putScalingPolicyResponse
     -> Text -- ^ 'psprsPolicyARN'
     -> PutScalingPolicyResponse
 putScalingPolicyResponse pResponseStatus_ pPolicyARN_ =
-    PutScalingPolicyResponse'
-    { _psprsAlarms = Nothing
-    , _psprsResponseStatus = pResponseStatus_
-    , _psprsPolicyARN = pPolicyARN_
-    }
+  PutScalingPolicyResponse'
+  { _psprsAlarms = Nothing
+  , _psprsResponseStatus = pResponseStatus_
+  , _psprsPolicyARN = pPolicyARN_
+  }
+
 
 -- | The CloudWatch alarms created for the target tracking policy.
 psprsAlarms :: Lens' PutScalingPolicyResponse [Alarm]
@@ -213,4 +217,4 @@ psprsResponseStatus = lens _psprsResponseStatus (\ s a -> s{_psprsResponseStatus
 psprsPolicyARN :: Lens' PutScalingPolicyResponse Text
 psprsPolicyARN = lens _psprsPolicyARN (\ s a -> s{_psprsPolicyARN = a});
 
-instance NFData PutScalingPolicyResponse
+instance NFData PutScalingPolicyResponse where

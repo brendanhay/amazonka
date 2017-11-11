@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAccountLimits
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,23 +40,25 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     , dalrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAccountLimits' smart constructor.
 data DescribeAccountLimits =
-    DescribeAccountLimits'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeAccountLimits'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
 --
 describeAccountLimits
     :: DescribeAccountLimits
 describeAccountLimits = DescribeAccountLimits'
+
 
 instance AWSRequest DescribeAccountLimits where
         type Rs DescribeAccountLimits =
@@ -72,9 +74,9 @@ instance AWSRequest DescribeAccountLimits where
                      <*> (x .@? "MaxNumberOfLaunchConfigurations")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAccountLimits
+instance Hashable DescribeAccountLimits where
 
-instance NFData DescribeAccountLimits
+instance NFData DescribeAccountLimits where
 
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
@@ -95,12 +97,13 @@ instance ToQuery DescribeAccountLimits where
 --
 -- /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-    { _dalrsNumberOfLaunchConfigurations    :: !(Maybe Int)
-    , _dalrsNumberOfAutoScalingGroups       :: !(Maybe Int)
-    , _dalrsMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
-    , _dalrsMaxNumberOfLaunchConfigurations :: !(Maybe Int)
-    , _dalrsResponseStatus                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dalrsNumberOfLaunchConfigurations    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dalrsNumberOfAutoScalingGroups       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dalrsMaxNumberOfAutoScalingGroups    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dalrsMaxNumberOfLaunchConfigurations :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dalrsResponseStatus                  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
 --
@@ -119,13 +122,14 @@ describeAccountLimitsResponse
     :: Int -- ^ 'dalrsResponseStatus'
     -> DescribeAccountLimitsResponse
 describeAccountLimitsResponse pResponseStatus_ =
-    DescribeAccountLimitsResponse'
-    { _dalrsNumberOfLaunchConfigurations = Nothing
-    , _dalrsNumberOfAutoScalingGroups = Nothing
-    , _dalrsMaxNumberOfAutoScalingGroups = Nothing
-    , _dalrsMaxNumberOfLaunchConfigurations = Nothing
-    , _dalrsResponseStatus = pResponseStatus_
-    }
+  DescribeAccountLimitsResponse'
+  { _dalrsNumberOfLaunchConfigurations = Nothing
+  , _dalrsNumberOfAutoScalingGroups = Nothing
+  , _dalrsMaxNumberOfAutoScalingGroups = Nothing
+  , _dalrsMaxNumberOfLaunchConfigurations = Nothing
+  , _dalrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current number of launch configurations for your AWS account.
 dalrsNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
@@ -147,4 +151,4 @@ dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfiguration
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
 dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
 
-instance NFData DescribeAccountLimitsResponse
+instance NFData DescribeAccountLimitsResponse where

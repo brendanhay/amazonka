@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListDeployments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Greengrass.ListDeployments
     , ldrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-    { _lNextToken  :: !(Maybe Text)
-    , _lMaxResults :: !(Maybe Text)
-    , _lGroupId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lGroupId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeployments' with the minimum fields required to make a request.
 --
@@ -65,11 +66,9 @@ listDeployments
     :: Text -- ^ 'lGroupId'
     -> ListDeployments
 listDeployments pGroupId_ =
-    ListDeployments'
-    { _lNextToken = Nothing
-    , _lMaxResults = Nothing
-    , _lGroupId = pGroupId_
-    }
+  ListDeployments'
+  {_lNextToken = Nothing, _lMaxResults = Nothing, _lGroupId = pGroupId_}
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lNextToken :: Lens' ListDeployments (Maybe Text)
@@ -94,9 +93,9 @@ instance AWSRequest ListDeployments where
                      (x .?> "Deployments" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDeployments
+instance Hashable ListDeployments where
 
-instance NFData ListDeployments
+instance NFData ListDeployments where
 
 instance ToHeaders ListDeployments where
         toHeaders
@@ -119,10 +118,11 @@ instance ToQuery ListDeployments where
 
 -- | /See:/ 'listDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-    { _ldrsNextToken      :: !(Maybe Text)
-    , _ldrsDeployments    :: !(Maybe [Deployment])
-    , _ldrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrsDeployments    :: {-# NOUNPACK #-}!(Maybe [Deployment])
+  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeploymentsResponse' with the minimum fields required to make a request.
 --
@@ -137,11 +137,12 @@ listDeploymentsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDeploymentsResponse
 listDeploymentsResponse pResponseStatus_ =
-    ListDeploymentsResponse'
-    { _ldrsNextToken = Nothing
-    , _ldrsDeployments = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    }
+  ListDeploymentsResponse'
+  { _ldrsNextToken = Nothing
+  , _ldrsDeployments = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
@@ -155,4 +156,4 @@ ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _De
 ldrsResponseStatus :: Lens' ListDeploymentsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
-instance NFData ListDeploymentsResponse
+instance NFData ListDeploymentsResponse where

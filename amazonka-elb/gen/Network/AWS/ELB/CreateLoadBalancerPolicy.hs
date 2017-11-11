@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateLoadBalancerPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     , clbprsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateLoadBalancerPolicy.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createLoadBalancerPolicy' smart constructor.
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
-    { _clbpPolicyAttributes :: !(Maybe [PolicyAttribute])
-    , _clbpLoadBalancerName :: !Text
-    , _clbpPolicyName       :: !Text
-    , _clbpPolicyTypeName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clbpPolicyAttributes :: {-# NOUNPACK #-}!(Maybe [PolicyAttribute])
+  , _clbpLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _clbpPolicyName       :: {-# NOUNPACK #-}!Text
+  , _clbpPolicyTypeName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLoadBalancerPolicy' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ createLoadBalancerPolicy
     -> Text -- ^ 'clbpPolicyTypeName'
     -> CreateLoadBalancerPolicy
 createLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ pPolicyTypeName_ =
-    CreateLoadBalancerPolicy'
-    { _clbpPolicyAttributes = Nothing
-    , _clbpLoadBalancerName = pLoadBalancerName_
-    , _clbpPolicyName = pPolicyName_
-    , _clbpPolicyTypeName = pPolicyTypeName_
-    }
+  CreateLoadBalancerPolicy'
+  { _clbpPolicyAttributes = Nothing
+  , _clbpLoadBalancerName = pLoadBalancerName_
+  , _clbpPolicyName = pPolicyName_
+  , _clbpPolicyTypeName = pPolicyTypeName_
+  }
+
 
 -- | The policy attributes.
 clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
@@ -110,9 +112,9 @@ instance AWSRequest CreateLoadBalancerPolicy where
                  CreateLoadBalancerPolicyResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateLoadBalancerPolicy
+instance Hashable CreateLoadBalancerPolicy where
 
-instance NFData CreateLoadBalancerPolicy
+instance NFData CreateLoadBalancerPolicy where
 
 instance ToHeaders CreateLoadBalancerPolicy where
         toHeaders = const mempty
@@ -139,8 +141,9 @@ instance ToQuery CreateLoadBalancerPolicy where
 --
 -- /See:/ 'createLoadBalancerPolicyResponse' smart constructor.
 newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
-    { _clbprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clbprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLoadBalancerPolicyResponse' with the minimum fields required to make a request.
 --
@@ -151,12 +154,12 @@ createLoadBalancerPolicyResponse
     :: Int -- ^ 'clbprsResponseStatus'
     -> CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicyResponse pResponseStatus_ =
-    CreateLoadBalancerPolicyResponse'
-    { _clbprsResponseStatus = pResponseStatus_
-    }
+  CreateLoadBalancerPolicyResponse' {_clbprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 clbprsResponseStatus :: Lens' CreateLoadBalancerPolicyResponse Int
 clbprsResponseStatus = lens _clbprsResponseStatus (\ s a -> s{_clbprsResponseStatus = a});
 
 instance NFData CreateLoadBalancerPolicyResponse
+         where

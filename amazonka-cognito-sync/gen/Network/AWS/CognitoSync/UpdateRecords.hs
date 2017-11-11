@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.UpdateRecords
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,25 +49,26 @@ module Network.AWS.CognitoSync.UpdateRecords
     , urrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to post updates to records or add and delete records for a dataset and user.
 --
 -- /See:/ 'updateRecords' smart constructor.
 data UpdateRecords = UpdateRecords'
-    { _urRecordPatches    :: !(Maybe [RecordPatch])
-    , _urDeviceId         :: !(Maybe Text)
-    , _urClientContext    :: !(Maybe Text)
-    , _urIdentityPoolId   :: !Text
-    , _urIdentityId       :: !Text
-    , _urDatasetName      :: !Text
-    , _urSyncSessionToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urRecordPatches    :: {-# NOUNPACK #-}!(Maybe [RecordPatch])
+  , _urDeviceId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _urClientContext    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _urIdentityPoolId   :: {-# NOUNPACK #-}!Text
+  , _urIdentityId       :: {-# NOUNPACK #-}!Text
+  , _urDatasetName      :: {-# NOUNPACK #-}!Text
+  , _urSyncSessionToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRecords' with the minimum fields required to make a request.
 --
@@ -93,15 +94,16 @@ updateRecords
     -> Text -- ^ 'urSyncSessionToken'
     -> UpdateRecords
 updateRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ pSyncSessionToken_ =
-    UpdateRecords'
-    { _urRecordPatches = Nothing
-    , _urDeviceId = Nothing
-    , _urClientContext = Nothing
-    , _urIdentityPoolId = pIdentityPoolId_
-    , _urIdentityId = pIdentityId_
-    , _urDatasetName = pDatasetName_
-    , _urSyncSessionToken = pSyncSessionToken_
-    }
+  UpdateRecords'
+  { _urRecordPatches = Nothing
+  , _urDeviceId = Nothing
+  , _urClientContext = Nothing
+  , _urIdentityPoolId = pIdentityPoolId_
+  , _urIdentityId = pIdentityId_
+  , _urDatasetName = pDatasetName_
+  , _urSyncSessionToken = pSyncSessionToken_
+  }
+
 
 -- | A list of patch operations.
 urRecordPatches :: Lens' UpdateRecords [RecordPatch]
@@ -140,9 +142,9 @@ instance AWSRequest UpdateRecords where
                  UpdateRecordsResponse' <$>
                    (x .?> "Records" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable UpdateRecords
+instance Hashable UpdateRecords where
 
-instance NFData UpdateRecords
+instance NFData UpdateRecords where
 
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}
@@ -173,9 +175,10 @@ instance ToQuery UpdateRecords where
 --
 -- /See:/ 'updateRecordsResponse' smart constructor.
 data UpdateRecordsResponse = UpdateRecordsResponse'
-    { _urrsRecords        :: !(Maybe [Record])
-    , _urrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urrsRecords        :: {-# NOUNPACK #-}!(Maybe [Record])
+  , _urrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRecordsResponse' with the minimum fields required to make a request.
 --
@@ -188,10 +191,9 @@ updateRecordsResponse
     :: Int -- ^ 'urrsResponseStatus'
     -> UpdateRecordsResponse
 updateRecordsResponse pResponseStatus_ =
-    UpdateRecordsResponse'
-    { _urrsRecords = Nothing
-    , _urrsResponseStatus = pResponseStatus_
-    }
+  UpdateRecordsResponse'
+  {_urrsRecords = Nothing, _urrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of records that have been updated.
 urrsRecords :: Lens' UpdateRecordsResponse [Record]
@@ -201,4 +203,4 @@ urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coe
 urrsResponseStatus :: Lens' UpdateRecordsResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
 
-instance NFData UpdateRecordsResponse
+instance NFData UpdateRecordsResponse where

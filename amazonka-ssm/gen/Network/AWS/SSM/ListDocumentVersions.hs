@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListDocumentVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.ListDocumentVersions
     , ldvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listDocumentVersions' smart constructor.
 data ListDocumentVersions = ListDocumentVersions'
-    { _ldvNextToken  :: !(Maybe Text)
-    , _ldvMaxResults :: !(Maybe Nat)
-    , _ldvName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldvNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldvMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ldvName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDocumentVersions' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ listDocumentVersions
     :: Text -- ^ 'ldvName'
     -> ListDocumentVersions
 listDocumentVersions pName_ =
-    ListDocumentVersions'
-    { _ldvNextToken = Nothing
-    , _ldvMaxResults = Nothing
-    , _ldvName = pName_
-    }
+  ListDocumentVersions'
+  {_ldvNextToken = Nothing, _ldvMaxResults = Nothing, _ldvName = pName_}
+
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 ldvNextToken :: Lens' ListDocumentVersions (Maybe Text)
@@ -96,9 +95,9 @@ instance AWSRequest ListDocumentVersions where
                    (x .?> "DocumentVersions") <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDocumentVersions
+instance Hashable ListDocumentVersions where
 
-instance NFData ListDocumentVersions
+instance NFData ListDocumentVersions where
 
 instance ToHeaders ListDocumentVersions where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery ListDocumentVersions where
 
 -- | /See:/ 'listDocumentVersionsResponse' smart constructor.
 data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
-    { _ldvrsDocumentVersions :: !(Maybe (List1 DocumentVersionInfo))
-    , _ldvrsNextToken        :: !(Maybe Text)
-    , _ldvrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldvrsDocumentVersions :: {-# NOUNPACK #-}!(Maybe (List1 DocumentVersionInfo))
+  , _ldvrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDocumentVersionsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ listDocumentVersionsResponse
     :: Int -- ^ 'ldvrsResponseStatus'
     -> ListDocumentVersionsResponse
 listDocumentVersionsResponse pResponseStatus_ =
-    ListDocumentVersionsResponse'
-    { _ldvrsDocumentVersions = Nothing
-    , _ldvrsNextToken = Nothing
-    , _ldvrsResponseStatus = pResponseStatus_
-    }
+  ListDocumentVersionsResponse'
+  { _ldvrsDocumentVersions = Nothing
+  , _ldvrsNextToken = Nothing
+  , _ldvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The document versions.
 ldvrsDocumentVersions :: Lens' ListDocumentVersionsResponse (Maybe (NonEmpty DocumentVersionInfo))
@@ -161,4 +162,4 @@ ldvrsNextToken = lens _ldvrsNextToken (\ s a -> s{_ldvrsNextToken = a});
 ldvrsResponseStatus :: Lens' ListDocumentVersionsResponse Int
 ldvrsResponseStatus = lens _ldvrsResponseStatus (\ s a -> s{_ldvrsResponseStatus = a});
 
-instance NFData ListDocumentVersionsResponse
+instance NFData ListDocumentVersionsResponse where

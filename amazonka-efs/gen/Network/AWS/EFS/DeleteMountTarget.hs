@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteMountTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.EFS.DeleteMountTarget
     , DeleteMountTargetResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,8 +61,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteMountTarget' smart constructor.
 newtype DeleteMountTarget = DeleteMountTarget'
-    { _dMountTargetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dMountTargetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMountTarget' with the minimum fields required to make a request.
 --
@@ -73,9 +74,8 @@ deleteMountTarget
     :: Text -- ^ 'dMountTargetId'
     -> DeleteMountTarget
 deleteMountTarget pMountTargetId_ =
-    DeleteMountTarget'
-    { _dMountTargetId = pMountTargetId_
-    }
+  DeleteMountTarget' {_dMountTargetId = pMountTargetId_}
+
 
 -- | ID of the mount target to delete (String).
 dMountTargetId :: Lens' DeleteMountTarget Text
@@ -86,9 +86,9 @@ instance AWSRequest DeleteMountTarget where
         request = delete efs
         response = receiveNull DeleteMountTargetResponse'
 
-instance Hashable DeleteMountTarget
+instance Hashable DeleteMountTarget where
 
-instance NFData DeleteMountTarget
+instance NFData DeleteMountTarget where
 
 instance ToHeaders DeleteMountTarget where
         toHeaders = const mempty
@@ -103,8 +103,9 @@ instance ToQuery DeleteMountTarget where
 
 -- | /See:/ 'deleteMountTargetResponse' smart constructor.
 data DeleteMountTargetResponse =
-    DeleteMountTargetResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteMountTargetResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMountTargetResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +113,5 @@ deleteMountTargetResponse
     :: DeleteMountTargetResponse
 deleteMountTargetResponse = DeleteMountTargetResponse'
 
-instance NFData DeleteMountTargetResponse
+
+instance NFData DeleteMountTargetResponse where

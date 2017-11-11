@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.CreateListener
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,22 +48,23 @@ module Network.AWS.ELBv2.CreateListener
     , clrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createListener' smart constructor.
 data CreateListener = CreateListener'
-    { _clSSLPolicy       :: !(Maybe Text)
-    , _clCertificates    :: !(Maybe [Certificate])
-    , _clLoadBalancerARN :: !Text
-    , _clProtocol        :: !ProtocolEnum
-    , _clPort            :: !Nat
-    , _clDefaultActions  :: ![Action]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clSSLPolicy       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clCertificates    :: {-# NOUNPACK #-}!(Maybe [Certificate])
+  , _clLoadBalancerARN :: {-# NOUNPACK #-}!Text
+  , _clProtocol        :: {-# NOUNPACK #-}!ProtocolEnum
+  , _clPort            :: {-# NOUNPACK #-}!Nat
+  , _clDefaultActions  :: {-# NOUNPACK #-}![Action]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateListener' with the minimum fields required to make a request.
 --
@@ -86,14 +87,15 @@ createListener
     -> Natural -- ^ 'clPort'
     -> CreateListener
 createListener pLoadBalancerARN_ pProtocol_ pPort_ =
-    CreateListener'
-    { _clSSLPolicy = Nothing
-    , _clCertificates = Nothing
-    , _clLoadBalancerARN = pLoadBalancerARN_
-    , _clProtocol = pProtocol_
-    , _clPort = _Nat # pPort_
-    , _clDefaultActions = mempty
-    }
+  CreateListener'
+  { _clSSLPolicy = Nothing
+  , _clCertificates = Nothing
+  , _clLoadBalancerARN = pLoadBalancerARN_
+  , _clProtocol = pProtocol_
+  , _clPort = _Nat # pPort_
+  , _clDefaultActions = mempty
+  }
+
 
 -- | The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
 clSSLPolicy :: Lens' CreateListener (Maybe Text)
@@ -130,9 +132,9 @@ instance AWSRequest CreateListener where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateListener
+instance Hashable CreateListener where
 
-instance NFData CreateListener
+instance NFData CreateListener where
 
 instance ToHeaders CreateListener where
         toHeaders = const mempty
@@ -155,9 +157,10 @@ instance ToQuery CreateListener where
 
 -- | /See:/ 'createListenerResponse' smart constructor.
 data CreateListenerResponse = CreateListenerResponse'
-    { _clrsListeners      :: !(Maybe [Listener])
-    , _clrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clrsListeners      :: {-# NOUNPACK #-}!(Maybe [Listener])
+  , _clrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateListenerResponse' with the minimum fields required to make a request.
 --
@@ -170,10 +173,9 @@ createListenerResponse
     :: Int -- ^ 'clrsResponseStatus'
     -> CreateListenerResponse
 createListenerResponse pResponseStatus_ =
-    CreateListenerResponse'
-    { _clrsListeners = Nothing
-    , _clrsResponseStatus = pResponseStatus_
-    }
+  CreateListenerResponse'
+  {_clrsListeners = Nothing, _clrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the listener.
 clrsListeners :: Lens' CreateListenerResponse [Listener]
@@ -183,4 +185,4 @@ clrsListeners = lens _clrsListeners (\ s a -> s{_clrsListeners = a}) . _Default 
 clrsResponseStatus :: Lens' CreateListenerResponse Int
 clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a});
 
-instance NFData CreateListenerResponse
+instance NFData CreateListenerResponse where

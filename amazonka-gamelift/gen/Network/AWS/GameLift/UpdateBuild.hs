@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateBuild
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.GameLift.UpdateBuild
     , ubrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -66,10 +66,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
-    { _ubName    :: !(Maybe Text)
-    , _ubVersion :: !(Maybe Text)
-    , _ubBuildId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ubName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ubVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ubBuildId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateBuild' with the minimum fields required to make a request.
 --
@@ -84,11 +85,8 @@ updateBuild
     :: Text -- ^ 'ubBuildId'
     -> UpdateBuild
 updateBuild pBuildId_ =
-    UpdateBuild'
-    { _ubName = Nothing
-    , _ubVersion = Nothing
-    , _ubBuildId = pBuildId_
-    }
+  UpdateBuild' {_ubName = Nothing, _ubVersion = Nothing, _ubBuildId = pBuildId_}
+
 
 -- | Descriptive label that is associated with a build. Build names do not need to be unique.
 ubName :: Lens' UpdateBuild (Maybe Text)
@@ -111,9 +109,9 @@ instance AWSRequest UpdateBuild where
                  UpdateBuildResponse' <$>
                    (x .?> "Build") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateBuild
+instance Hashable UpdateBuild where
 
-instance NFData UpdateBuild
+instance NFData UpdateBuild where
 
 instance ToHeaders UpdateBuild where
         toHeaders
@@ -144,9 +142,10 @@ instance ToQuery UpdateBuild where
 --
 -- /See:/ 'updateBuildResponse' smart constructor.
 data UpdateBuildResponse = UpdateBuildResponse'
-    { _ubrsBuild          :: !(Maybe Build)
-    , _ubrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ubrsBuild          :: {-# NOUNPACK #-}!(Maybe Build)
+  , _ubrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateBuildResponse' with the minimum fields required to make a request.
 --
@@ -159,10 +158,9 @@ updateBuildResponse
     :: Int -- ^ 'ubrsResponseStatus'
     -> UpdateBuildResponse
 updateBuildResponse pResponseStatus_ =
-    UpdateBuildResponse'
-    { _ubrsBuild = Nothing
-    , _ubrsResponseStatus = pResponseStatus_
-    }
+  UpdateBuildResponse'
+  {_ubrsBuild = Nothing, _ubrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that contains the updated build record.
 ubrsBuild :: Lens' UpdateBuildResponse (Maybe Build)
@@ -172,4 +170,4 @@ ubrsBuild = lens _ubrsBuild (\ s a -> s{_ubrsBuild = a});
 ubrsResponseStatus :: Lens' UpdateBuildResponse Int
 ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a});
 
-instance NFData UpdateBuildResponse
+instance NFData UpdateBuildResponse where

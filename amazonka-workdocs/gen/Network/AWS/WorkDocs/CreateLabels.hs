@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateLabels
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.WorkDocs.CreateLabels
     , clrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createLabels' smart constructor.
 data CreateLabels = CreateLabels'
-    { _clAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _clResourceId          :: !Text
-    , _clLabels              :: ![Text]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _clAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _clResourceId          :: {-# NOUNPACK #-}!Text
+  , _clLabels              :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLabels' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ createLabels
     :: Text -- ^ 'clResourceId'
     -> CreateLabels
 createLabels pResourceId_ =
-    CreateLabels'
-    { _clAuthenticationToken = Nothing
-    , _clResourceId = pResourceId_
-    , _clLabels = mempty
-    }
+  CreateLabels'
+  { _clAuthenticationToken = Nothing
+  , _clResourceId = pResourceId_
+  , _clLabels = mempty
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 clAuthenticationToken :: Lens' CreateLabels (Maybe Text)
@@ -91,9 +93,9 @@ instance AWSRequest CreateLabels where
               (\ s h x ->
                  CreateLabelsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateLabels
+instance Hashable CreateLabels where
 
-instance NFData CreateLabels
+instance NFData CreateLabels where
 
 instance ToHeaders CreateLabels where
         toHeaders CreateLabels'{..}
@@ -116,8 +118,9 @@ instance ToQuery CreateLabels where
 
 -- | /See:/ 'createLabelsResponse' smart constructor.
 newtype CreateLabelsResponse = CreateLabelsResponse'
-    { _clrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLabelsResponse' with the minimum fields required to make a request.
 --
@@ -128,12 +131,11 @@ createLabelsResponse
     :: Int -- ^ 'clrsResponseStatus'
     -> CreateLabelsResponse
 createLabelsResponse pResponseStatus_ =
-    CreateLabelsResponse'
-    { _clrsResponseStatus = pResponseStatus_
-    }
+  CreateLabelsResponse' {_clrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 clrsResponseStatus :: Lens' CreateLabelsResponse Int
 clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a});
 
-instance NFData CreateLabelsResponse
+instance NFData CreateLabelsResponse where

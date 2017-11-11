@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -482,56 +482,56 @@ module Network.AWS.Lightsail
     , siAttachedTo
     ) where
 
-import           Network.AWS.Lightsail.AllocateStaticIP
-import           Network.AWS.Lightsail.AttachStaticIP
-import           Network.AWS.Lightsail.CloseInstancePublicPorts
-import           Network.AWS.Lightsail.CreateDomain
-import           Network.AWS.Lightsail.CreateDomainEntry
-import           Network.AWS.Lightsail.CreateInstances
-import           Network.AWS.Lightsail.CreateInstancesFromSnapshot
-import           Network.AWS.Lightsail.CreateInstanceSnapshot
-import           Network.AWS.Lightsail.CreateKeyPair
-import           Network.AWS.Lightsail.DeleteDomain
-import           Network.AWS.Lightsail.DeleteDomainEntry
-import           Network.AWS.Lightsail.DeleteInstance
-import           Network.AWS.Lightsail.DeleteInstanceSnapshot
-import           Network.AWS.Lightsail.DeleteKeyPair
-import           Network.AWS.Lightsail.DetachStaticIP
-import           Network.AWS.Lightsail.DownloadDefaultKeyPair
-import           Network.AWS.Lightsail.GetActiveNames
-import           Network.AWS.Lightsail.GetBlueprints
-import           Network.AWS.Lightsail.GetBundles
-import           Network.AWS.Lightsail.GetDomain
-import           Network.AWS.Lightsail.GetDomains
-import           Network.AWS.Lightsail.GetInstance
-import           Network.AWS.Lightsail.GetInstanceAccessDetails
-import           Network.AWS.Lightsail.GetInstanceMetricData
-import           Network.AWS.Lightsail.GetInstancePortStates
-import           Network.AWS.Lightsail.GetInstances
-import           Network.AWS.Lightsail.GetInstanceSnapshot
-import           Network.AWS.Lightsail.GetInstanceSnapshots
-import           Network.AWS.Lightsail.GetInstanceState
-import           Network.AWS.Lightsail.GetKeyPair
-import           Network.AWS.Lightsail.GetKeyPairs
-import           Network.AWS.Lightsail.GetOperation
-import           Network.AWS.Lightsail.GetOperations
-import           Network.AWS.Lightsail.GetOperationsForResource
-import           Network.AWS.Lightsail.GetRegions
-import           Network.AWS.Lightsail.GetStaticIP
-import           Network.AWS.Lightsail.GetStaticIPs
-import           Network.AWS.Lightsail.ImportKeyPair
-import           Network.AWS.Lightsail.IsVPCPeered
-import           Network.AWS.Lightsail.OpenInstancePublicPorts
-import           Network.AWS.Lightsail.PeerVPC
-import           Network.AWS.Lightsail.PutInstancePublicPorts
-import           Network.AWS.Lightsail.RebootInstance
-import           Network.AWS.Lightsail.ReleaseStaticIP
-import           Network.AWS.Lightsail.StartInstance
-import           Network.AWS.Lightsail.StopInstance
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.UnpeerVPC
-import           Network.AWS.Lightsail.UpdateDomainEntry
-import           Network.AWS.Lightsail.Waiters
+import Network.AWS.Lightsail.AllocateStaticIP
+import Network.AWS.Lightsail.AttachStaticIP
+import Network.AWS.Lightsail.CloseInstancePublicPorts
+import Network.AWS.Lightsail.CreateDomain
+import Network.AWS.Lightsail.CreateDomainEntry
+import Network.AWS.Lightsail.CreateInstances
+import Network.AWS.Lightsail.CreateInstancesFromSnapshot
+import Network.AWS.Lightsail.CreateInstanceSnapshot
+import Network.AWS.Lightsail.CreateKeyPair
+import Network.AWS.Lightsail.DeleteDomain
+import Network.AWS.Lightsail.DeleteDomainEntry
+import Network.AWS.Lightsail.DeleteInstance
+import Network.AWS.Lightsail.DeleteInstanceSnapshot
+import Network.AWS.Lightsail.DeleteKeyPair
+import Network.AWS.Lightsail.DetachStaticIP
+import Network.AWS.Lightsail.DownloadDefaultKeyPair
+import Network.AWS.Lightsail.GetActiveNames
+import Network.AWS.Lightsail.GetBlueprints
+import Network.AWS.Lightsail.GetBundles
+import Network.AWS.Lightsail.GetDomain
+import Network.AWS.Lightsail.GetDomains
+import Network.AWS.Lightsail.GetInstance
+import Network.AWS.Lightsail.GetInstanceAccessDetails
+import Network.AWS.Lightsail.GetInstanceMetricData
+import Network.AWS.Lightsail.GetInstancePortStates
+import Network.AWS.Lightsail.GetInstances
+import Network.AWS.Lightsail.GetInstanceSnapshot
+import Network.AWS.Lightsail.GetInstanceSnapshots
+import Network.AWS.Lightsail.GetInstanceState
+import Network.AWS.Lightsail.GetKeyPair
+import Network.AWS.Lightsail.GetKeyPairs
+import Network.AWS.Lightsail.GetOperation
+import Network.AWS.Lightsail.GetOperations
+import Network.AWS.Lightsail.GetOperationsForResource
+import Network.AWS.Lightsail.GetRegions
+import Network.AWS.Lightsail.GetStaticIP
+import Network.AWS.Lightsail.GetStaticIPs
+import Network.AWS.Lightsail.ImportKeyPair
+import Network.AWS.Lightsail.IsVPCPeered
+import Network.AWS.Lightsail.OpenInstancePublicPorts
+import Network.AWS.Lightsail.PeerVPC
+import Network.AWS.Lightsail.PutInstancePublicPorts
+import Network.AWS.Lightsail.RebootInstance
+import Network.AWS.Lightsail.ReleaseStaticIP
+import Network.AWS.Lightsail.StartInstance
+import Network.AWS.Lightsail.StopInstance
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.UnpeerVPC
+import Network.AWS.Lightsail.UpdateDomainEntry
+import Network.AWS.Lightsail.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

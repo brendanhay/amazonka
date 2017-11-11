@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
     , dascrsAPNSSandboxChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAPNSSandboxChannel' smart constructor.
 newtype DeleteAPNSSandboxChannel = DeleteAPNSSandboxChannel'
-    { _dascApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dascApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAPNSSandboxChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ deleteAPNSSandboxChannel
     :: Text -- ^ 'dascApplicationId'
     -> DeleteAPNSSandboxChannel
 deleteAPNSSandboxChannel pApplicationId_ =
-    DeleteAPNSSandboxChannel'
-    { _dascApplicationId = pApplicationId_
-    }
+  DeleteAPNSSandboxChannel' {_dascApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 dascApplicationId :: Lens' DeleteAPNSSandboxChannel Text
@@ -74,9 +74,9 @@ instance AWSRequest DeleteAPNSSandboxChannel where
                  DeleteAPNSSandboxChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteAPNSSandboxChannel
+instance Hashable DeleteAPNSSandboxChannel where
 
-instance NFData DeleteAPNSSandboxChannel
+instance NFData DeleteAPNSSandboxChannel where
 
 instance ToHeaders DeleteAPNSSandboxChannel where
         toHeaders
@@ -96,9 +96,10 @@ instance ToQuery DeleteAPNSSandboxChannel where
 
 -- | /See:/ 'deleteAPNSSandboxChannelResponse' smart constructor.
 data DeleteAPNSSandboxChannelResponse = DeleteAPNSSandboxChannelResponse'
-    { _dascrsResponseStatus             :: !Int
-    , _dascrsAPNSSandboxChannelResponse :: !APNSSandboxChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dascrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dascrsAPNSSandboxChannelResponse :: {-# NOUNPACK #-}!APNSSandboxChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAPNSSandboxChannelResponse' with the minimum fields required to make a request.
 --
@@ -112,10 +113,11 @@ deleteAPNSSandboxChannelResponse
     -> APNSSandboxChannelResponse -- ^ 'dascrsAPNSSandboxChannelResponse'
     -> DeleteAPNSSandboxChannelResponse
 deleteAPNSSandboxChannelResponse pResponseStatus_ pAPNSSandboxChannelResponse_ =
-    DeleteAPNSSandboxChannelResponse'
-    { _dascrsResponseStatus = pResponseStatus_
-    , _dascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
-    }
+  DeleteAPNSSandboxChannelResponse'
+  { _dascrsResponseStatus = pResponseStatus_
+  , _dascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 dascrsResponseStatus :: Lens' DeleteAPNSSandboxChannelResponse Int
@@ -126,3 +128,4 @@ dascrsAPNSSandboxChannelResponse :: Lens' DeleteAPNSSandboxChannelResponse APNSS
 dascrsAPNSSandboxChannelResponse = lens _dascrsAPNSSandboxChannelResponse (\ s a -> s{_dascrsAPNSSandboxChannelResponse = a});
 
 instance NFData DeleteAPNSSandboxChannelResponse
+         where

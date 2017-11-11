@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.UpdateBudget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,20 +35,21 @@ module Network.AWS.Budgets.UpdateBudget
     , ubrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of UpdateBudget
 --
 -- /See:/ 'updateBudget' smart constructor.
 data UpdateBudget = UpdateBudget'
-    { _ubAccountId :: !Text
-    , _ubNewBudget :: !Budget
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ubAccountId :: {-# NOUNPACK #-}!Text
+  , _ubNewBudget :: {-# NOUNPACK #-}!Budget
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateBudget' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ updateBudget
     -> Budget -- ^ 'ubNewBudget'
     -> UpdateBudget
 updateBudget pAccountId_ pNewBudget_ =
-    UpdateBudget'
-    { _ubAccountId = pAccountId_
-    , _ubNewBudget = pNewBudget_
-    }
+  UpdateBudget' {_ubAccountId = pAccountId_, _ubNewBudget = pNewBudget_}
+
 
 -- | Undocumented member.
 ubAccountId :: Lens' UpdateBudget Text
@@ -83,9 +82,9 @@ instance AWSRequest UpdateBudget where
               (\ s h x ->
                  UpdateBudgetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateBudget
+instance Hashable UpdateBudget where
 
-instance NFData UpdateBudget
+instance NFData UpdateBudget where
 
 instance ToHeaders UpdateBudget where
         toHeaders
@@ -114,8 +113,9 @@ instance ToQuery UpdateBudget where
 --
 -- /See:/ 'updateBudgetResponse' smart constructor.
 newtype UpdateBudgetResponse = UpdateBudgetResponse'
-    { _ubrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ubrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateBudgetResponse' with the minimum fields required to make a request.
 --
@@ -126,12 +126,11 @@ updateBudgetResponse
     :: Int -- ^ 'ubrsResponseStatus'
     -> UpdateBudgetResponse
 updateBudgetResponse pResponseStatus_ =
-    UpdateBudgetResponse'
-    { _ubrsResponseStatus = pResponseStatus_
-    }
+  UpdateBudgetResponse' {_ubrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ubrsResponseStatus :: Lens' UpdateBudgetResponse Int
 ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a});
 
-instance NFData UpdateBudgetResponse
+instance NFData UpdateBudgetResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateCACertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.IoT.UpdateCACertificate
     , UpdateCACertificateResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the UpdateCACertificate operation.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateCACertificate' smart constructor.
 data UpdateCACertificate = UpdateCACertificate'
-    { _ucacNewStatus                 :: !(Maybe CACertificateStatus)
-    , _ucacNewAutoRegistrationStatus :: !(Maybe AutoRegistrationStatus)
-    , _ucacCertificateId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucacNewStatus :: {-# NOUNPACK #-}!(Maybe CACertificateStatus)
+  , _ucacNewAutoRegistrationStatus :: {-# NOUNPACK #-}!(Maybe AutoRegistrationStatus)
+  , _ucacCertificateId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCACertificate' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ updateCACertificate
     :: Text -- ^ 'ucacCertificateId'
     -> UpdateCACertificate
 updateCACertificate pCertificateId_ =
-    UpdateCACertificate'
-    { _ucacNewStatus = Nothing
-    , _ucacNewAutoRegistrationStatus = Nothing
-    , _ucacCertificateId = pCertificateId_
-    }
+  UpdateCACertificate'
+  { _ucacNewStatus = Nothing
+  , _ucacNewAutoRegistrationStatus = Nothing
+  , _ucacCertificateId = pCertificateId_
+  }
+
 
 -- | The updated status of the CA certificate. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
 ucacNewStatus :: Lens' UpdateCACertificate (Maybe CACertificateStatus)
@@ -91,9 +93,9 @@ instance AWSRequest UpdateCACertificate where
         request = putJSON ioT
         response = receiveNull UpdateCACertificateResponse'
 
-instance Hashable UpdateCACertificate
+instance Hashable UpdateCACertificate where
 
-instance NFData UpdateCACertificate
+instance NFData UpdateCACertificate where
 
 instance ToHeaders UpdateCACertificate where
         toHeaders = const mempty
@@ -115,8 +117,9 @@ instance ToQuery UpdateCACertificate where
 
 -- | /See:/ 'updateCACertificateResponse' smart constructor.
 data UpdateCACertificateResponse =
-    UpdateCACertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateCACertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCACertificateResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +127,5 @@ updateCACertificateResponse
     :: UpdateCACertificateResponse
 updateCACertificateResponse = UpdateCACertificateResponse'
 
-instance NFData UpdateCACertificateResponse
+
+instance NFData UpdateCACertificateResponse where

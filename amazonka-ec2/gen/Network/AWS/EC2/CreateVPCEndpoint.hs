@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPCEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.EC2.CreateVPCEndpoint
     , cversResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateVpcEndpoint.
 --
@@ -58,13 +58,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createVPCEndpoint' smart constructor.
 data CreateVPCEndpoint = CreateVPCEndpoint'
-    { _cvePolicyDocument :: !(Maybe Text)
-    , _cveClientToken    :: !(Maybe Text)
-    , _cveDryRun         :: !(Maybe Bool)
-    , _cveRouteTableIds  :: !(Maybe [Text])
-    , _cveServiceName    :: !Text
-    , _cveVPCId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvePolicyDocument :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cveClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cveDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cveRouteTableIds  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cveServiceName    :: {-# NOUNPACK #-}!Text
+  , _cveVPCId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPCEndpoint' with the minimum fields required to make a request.
 --
@@ -86,14 +87,15 @@ createVPCEndpoint
     -> Text -- ^ 'cveVPCId'
     -> CreateVPCEndpoint
 createVPCEndpoint pServiceName_ pVPCId_ =
-    CreateVPCEndpoint'
-    { _cvePolicyDocument = Nothing
-    , _cveClientToken = Nothing
-    , _cveDryRun = Nothing
-    , _cveRouteTableIds = Nothing
-    , _cveServiceName = pServiceName_
-    , _cveVPCId = pVPCId_
-    }
+  CreateVPCEndpoint'
+  { _cvePolicyDocument = Nothing
+  , _cveClientToken = Nothing
+  , _cveDryRun = Nothing
+  , _cveRouteTableIds = Nothing
+  , _cveServiceName = pServiceName_
+  , _cveVPCId = pVPCId_
+  }
+
 
 -- | A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
 cvePolicyDocument :: Lens' CreateVPCEndpoint (Maybe Text)
@@ -129,9 +131,9 @@ instance AWSRequest CreateVPCEndpoint where
                    (x .@? "clientToken") <*> (x .@? "vpcEndpoint") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateVPCEndpoint
+instance Hashable CreateVPCEndpoint where
 
-instance NFData CreateVPCEndpoint
+instance NFData CreateVPCEndpoint where
 
 instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty
@@ -158,10 +160,11 @@ instance ToQuery CreateVPCEndpoint where
 --
 -- /See:/ 'createVPCEndpointResponse' smart constructor.
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
-    { _cversClientToken    :: !(Maybe Text)
-    , _cversVPCEndpoint    :: !(Maybe VPCEndpoint)
-    , _cversResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cversClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cversVPCEndpoint    :: {-# NOUNPACK #-}!(Maybe VPCEndpoint)
+  , _cversResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPCEndpointResponse' with the minimum fields required to make a request.
 --
@@ -176,11 +179,12 @@ createVPCEndpointResponse
     :: Int -- ^ 'cversResponseStatus'
     -> CreateVPCEndpointResponse
 createVPCEndpointResponse pResponseStatus_ =
-    CreateVPCEndpointResponse'
-    { _cversClientToken = Nothing
-    , _cversVPCEndpoint = Nothing
-    , _cversResponseStatus = pResponseStatus_
-    }
+  CreateVPCEndpointResponse'
+  { _cversClientToken = Nothing
+  , _cversVPCEndpoint = Nothing
+  , _cversResponseStatus = pResponseStatus_
+  }
+
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
 cversClientToken :: Lens' CreateVPCEndpointResponse (Maybe Text)
@@ -194,4 +198,4 @@ cversVPCEndpoint = lens _cversVPCEndpoint (\ s a -> s{_cversVPCEndpoint = a});
 cversResponseStatus :: Lens' CreateVPCEndpointResponse Int
 cversResponseStatus = lens _cversResponseStatus (\ s a -> s{_cversResponseStatus = a});
 
-instance NFData CreateVPCEndpointResponse
+instance NFData CreateVPCEndpointResponse where

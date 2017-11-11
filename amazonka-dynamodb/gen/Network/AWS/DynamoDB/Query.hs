@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Query
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -71,13 +71,13 @@ module Network.AWS.DynamoDB.Query
     , qrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @Query@ operation.
 --
@@ -85,24 +85,25 @@ import           Network.AWS.Response
 --
 -- /See:/ 'query' smart constructor.
 data Query = Query'
-    { _qKeyConditions             :: !(Maybe (Map Text Condition))
-    , _qProjectionExpression      :: !(Maybe Text)
-    , _qAttributesToGet           :: !(Maybe (List1 Text))
-    , _qExpressionAttributeNames  :: !(Maybe (Map Text Text))
-    , _qFilterExpression          :: !(Maybe Text)
-    , _qQueryFilter               :: !(Maybe (Map Text Condition))
-    , _qConsistentRead            :: !(Maybe Bool)
-    , _qExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
-    , _qReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
-    , _qScanIndexForward          :: !(Maybe Bool)
-    , _qLimit                     :: !(Maybe Nat)
-    , _qSelect                    :: !(Maybe Select)
-    , _qKeyConditionExpression    :: !(Maybe Text)
-    , _qConditionalOperator       :: !(Maybe ConditionalOperator)
-    , _qExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
-    , _qIndexName                 :: !(Maybe Text)
-    , _qTableName                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qKeyConditions :: {-# NOUNPACK #-}!(Maybe (Map Text Condition))
+  , _qProjectionExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qAttributesToGet :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _qExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _qFilterExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qQueryFilter :: {-# NOUNPACK #-}!(Maybe (Map Text Condition))
+  , _qConsistentRead :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _qExpressionAttributeValues :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _qReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
+  , _qScanIndexForward :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _qLimit :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _qSelect :: {-# NOUNPACK #-}!(Maybe Select)
+  , _qKeyConditionExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qConditionalOperator :: {-# NOUNPACK #-}!(Maybe ConditionalOperator)
+  , _qExclusiveStartKey :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _qIndexName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qTableName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Query' with the minimum fields required to make a request.
 --
@@ -145,25 +146,26 @@ query
     :: Text -- ^ 'qTableName'
     -> Query
 query pTableName_ =
-    Query'
-    { _qKeyConditions = Nothing
-    , _qProjectionExpression = Nothing
-    , _qAttributesToGet = Nothing
-    , _qExpressionAttributeNames = Nothing
-    , _qFilterExpression = Nothing
-    , _qQueryFilter = Nothing
-    , _qConsistentRead = Nothing
-    , _qExpressionAttributeValues = Nothing
-    , _qReturnConsumedCapacity = Nothing
-    , _qScanIndexForward = Nothing
-    , _qLimit = Nothing
-    , _qSelect = Nothing
-    , _qKeyConditionExpression = Nothing
-    , _qConditionalOperator = Nothing
-    , _qExclusiveStartKey = Nothing
-    , _qIndexName = Nothing
-    , _qTableName = pTableName_
-    }
+  Query'
+  { _qKeyConditions = Nothing
+  , _qProjectionExpression = Nothing
+  , _qAttributesToGet = Nothing
+  , _qExpressionAttributeNames = Nothing
+  , _qFilterExpression = Nothing
+  , _qQueryFilter = Nothing
+  , _qConsistentRead = Nothing
+  , _qExpressionAttributeValues = Nothing
+  , _qReturnConsumedCapacity = Nothing
+  , _qScanIndexForward = Nothing
+  , _qLimit = Nothing
+  , _qSelect = Nothing
+  , _qKeyConditionExpression = Nothing
+  , _qConditionalOperator = Nothing
+  , _qExclusiveStartKey = Nothing
+  , _qIndexName = Nothing
+  , _qTableName = pTableName_
+  }
+
 
 -- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions> in the /Amazon DynamoDB Developer Guide/ .
 qKeyConditions :: Lens' Query (HashMap Text Condition)
@@ -254,9 +256,9 @@ instance AWSRequest Query where
                      <*> (x .?> "ConsumedCapacity")
                      <*> (pure (fromEnum s)))
 
-instance Hashable Query
+instance Hashable Query where
 
-instance NFData Query
+instance NFData Query where
 
 instance ToHeaders Query where
         toHeaders
@@ -305,13 +307,14 @@ instance ToQuery Query where
 --
 -- /See:/ 'queryResponse' smart constructor.
 data QueryResponse = QueryResponse'
-    { _qrsLastEvaluatedKey :: !(Maybe (Map Text AttributeValue))
-    , _qrsCount            :: !(Maybe Int)
-    , _qrsScannedCount     :: !(Maybe Int)
-    , _qrsItems            :: !(Maybe [Map Text AttributeValue])
-    , _qrsConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _qrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qrsLastEvaluatedKey :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _qrsCount            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _qrsScannedCount     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _qrsItems            :: {-# NOUNPACK #-}!(Maybe [Map Text AttributeValue])
+  , _qrsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
+  , _qrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueryResponse' with the minimum fields required to make a request.
 --
@@ -332,14 +335,15 @@ queryResponse
     :: Int -- ^ 'qrsResponseStatus'
     -> QueryResponse
 queryResponse pResponseStatus_ =
-    QueryResponse'
-    { _qrsLastEvaluatedKey = Nothing
-    , _qrsCount = Nothing
-    , _qrsScannedCount = Nothing
-    , _qrsItems = Nothing
-    , _qrsConsumedCapacity = Nothing
-    , _qrsResponseStatus = pResponseStatus_
-    }
+  QueryResponse'
+  { _qrsLastEvaluatedKey = Nothing
+  , _qrsCount = Nothing
+  , _qrsScannedCount = Nothing
+  , _qrsItems = Nothing
+  , _qrsConsumedCapacity = Nothing
+  , _qrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If @LastEvaluatedKey@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If @LastEvaluatedKey@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedKey@ is empty.
 qrsLastEvaluatedKey :: Lens' QueryResponse (HashMap Text AttributeValue)
@@ -365,4 +369,4 @@ qrsConsumedCapacity = lens _qrsConsumedCapacity (\ s a -> s{_qrsConsumedCapacity
 qrsResponseStatus :: Lens' QueryResponse Int
 qrsResponseStatus = lens _qrsResponseStatus (\ s a -> s{_qrsResponseStatus = a});
 
-instance NFData QueryResponse
+instance NFData QueryResponse where

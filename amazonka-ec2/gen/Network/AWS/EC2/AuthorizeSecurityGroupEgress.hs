@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AuthorizeSecurityGroupEgress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     , AuthorizeSecurityGroupEgressResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AuthorizeSecurityGroupEgress.
 --
@@ -59,16 +59,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'authorizeSecurityGroupEgress' smart constructor.
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
-    { _asgeFromPort                   :: !(Maybe Int)
-    , _asgeIPPermissions              :: !(Maybe [IPPermission])
-    , _asgeIPProtocol                 :: !(Maybe Text)
-    , _asgeToPort                     :: !(Maybe Int)
-    , _asgeCidrIP                     :: !(Maybe Text)
-    , _asgeSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _asgeSourceSecurityGroupName    :: !(Maybe Text)
-    , _asgeDryRun                     :: !(Maybe Bool)
-    , _asgeGroupId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asgeFromPort                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _asgeIPPermissions              :: {-# NOUNPACK #-}!(Maybe [IPPermission])
+  , _asgeIPProtocol                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgeToPort                     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _asgeCidrIP                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgeSourceSecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgeSourceSecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgeDryRun                     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _asgeGroupId                    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeSecurityGroupEgress' with the minimum fields required to make a request.
 --
@@ -95,17 +96,18 @@ authorizeSecurityGroupEgress
     :: Text -- ^ 'asgeGroupId'
     -> AuthorizeSecurityGroupEgress
 authorizeSecurityGroupEgress pGroupId_ =
-    AuthorizeSecurityGroupEgress'
-    { _asgeFromPort = Nothing
-    , _asgeIPPermissions = Nothing
-    , _asgeIPProtocol = Nothing
-    , _asgeToPort = Nothing
-    , _asgeCidrIP = Nothing
-    , _asgeSourceSecurityGroupOwnerId = Nothing
-    , _asgeSourceSecurityGroupName = Nothing
-    , _asgeDryRun = Nothing
-    , _asgeGroupId = pGroupId_
-    }
+  AuthorizeSecurityGroupEgress'
+  { _asgeFromPort = Nothing
+  , _asgeIPPermissions = Nothing
+  , _asgeIPProtocol = Nothing
+  , _asgeToPort = Nothing
+  , _asgeCidrIP = Nothing
+  , _asgeSourceSecurityGroupOwnerId = Nothing
+  , _asgeSourceSecurityGroupName = Nothing
+  , _asgeDryRun = Nothing
+  , _asgeGroupId = pGroupId_
+  }
+
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
 asgeFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
@@ -151,9 +153,9 @@ instance AWSRequest AuthorizeSecurityGroupEgress
         response
           = receiveNull AuthorizeSecurityGroupEgressResponse'
 
-instance Hashable AuthorizeSecurityGroupEgress
+instance Hashable AuthorizeSecurityGroupEgress where
 
-instance NFData AuthorizeSecurityGroupEgress
+instance NFData AuthorizeSecurityGroupEgress where
 
 instance ToHeaders AuthorizeSecurityGroupEgress where
         toHeaders = const mempty
@@ -180,8 +182,9 @@ instance ToQuery AuthorizeSecurityGroupEgress where
 
 -- | /See:/ 'authorizeSecurityGroupEgressResponse' smart constructor.
 data AuthorizeSecurityGroupEgressResponse =
-    AuthorizeSecurityGroupEgressResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AuthorizeSecurityGroupEgressResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeSecurityGroupEgressResponse' with the minimum fields required to make a request.
 --
@@ -189,4 +192,6 @@ authorizeSecurityGroupEgressResponse
     :: AuthorizeSecurityGroupEgressResponse
 authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'
 
+
 instance NFData AuthorizeSecurityGroupEgressResponse
+         where

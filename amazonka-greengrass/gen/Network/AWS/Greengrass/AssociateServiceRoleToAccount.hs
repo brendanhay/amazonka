@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.AssociateServiceRoleToAccount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Greengrass.AssociateServiceRoleToAccount
     , asrtarsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateServiceRoleToAccount' smart constructor.
 newtype AssociateServiceRoleToAccount = AssociateServiceRoleToAccount'
-    { _asrtaRoleARN :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asrtaRoleARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateServiceRoleToAccount' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ newtype AssociateServiceRoleToAccount = AssociateServiceRoleToAccount'
 associateServiceRoleToAccount
     :: AssociateServiceRoleToAccount
 associateServiceRoleToAccount =
-    AssociateServiceRoleToAccount'
-    { _asrtaRoleARN = Nothing
-    }
+  AssociateServiceRoleToAccount' {_asrtaRoleARN = Nothing}
+
 
 -- | Role arn you wish to associate with this account.
 asrtaRoleARN :: Lens' AssociateServiceRoleToAccount (Maybe Text)
@@ -74,9 +74,9 @@ instance AWSRequest AssociateServiceRoleToAccount
                  AssociateServiceRoleToAccountResponse' <$>
                    (x .?> "AssociatedAt") <*> (pure (fromEnum s)))
 
-instance Hashable AssociateServiceRoleToAccount
+instance Hashable AssociateServiceRoleToAccount where
 
-instance NFData AssociateServiceRoleToAccount
+instance NFData AssociateServiceRoleToAccount where
 
 instance ToHeaders AssociateServiceRoleToAccount
          where
@@ -99,9 +99,10 @@ instance ToQuery AssociateServiceRoleToAccount where
 
 -- | /See:/ 'associateServiceRoleToAccountResponse' smart constructor.
 data AssociateServiceRoleToAccountResponse = AssociateServiceRoleToAccountResponse'
-    { _asrtarsAssociatedAt   :: !(Maybe Text)
-    , _asrtarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asrtarsAssociatedAt   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asrtarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateServiceRoleToAccountResponse' with the minimum fields required to make a request.
 --
@@ -114,10 +115,9 @@ associateServiceRoleToAccountResponse
     :: Int -- ^ 'asrtarsResponseStatus'
     -> AssociateServiceRoleToAccountResponse
 associateServiceRoleToAccountResponse pResponseStatus_ =
-    AssociateServiceRoleToAccountResponse'
-    { _asrtarsAssociatedAt = Nothing
-    , _asrtarsResponseStatus = pResponseStatus_
-    }
+  AssociateServiceRoleToAccountResponse'
+  {_asrtarsAssociatedAt = Nothing, _asrtarsResponseStatus = pResponseStatus_}
+
 
 -- | Time when the service role was associated to the account.
 asrtarsAssociatedAt :: Lens' AssociateServiceRoleToAccountResponse (Maybe Text)
@@ -128,3 +128,4 @@ asrtarsResponseStatus :: Lens' AssociateServiceRoleToAccountResponse Int
 asrtarsResponseStatus = lens _asrtarsResponseStatus (\ s a -> s{_asrtarsResponseStatus = a});
 
 instance NFData AssociateServiceRoleToAccountResponse
+         where

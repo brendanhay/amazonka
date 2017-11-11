@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Polly.DescribeVoices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,18 +47,19 @@ module Network.AWS.Polly.DescribeVoices
     , dvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Polly.Types
-import           Network.AWS.Polly.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Polly.Types
+import Network.AWS.Polly.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVoices' smart constructor.
 data DescribeVoices = DescribeVoices'
-    { _dvLanguageCode :: !(Maybe LanguageCode)
-    , _dvNextToken    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvLanguageCode :: {-# NOUNPACK #-}!(Maybe LanguageCode)
+  , _dvNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVoices' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ data DescribeVoices = DescribeVoices'
 describeVoices
     :: DescribeVoices
 describeVoices =
-    DescribeVoices'
-    { _dvLanguageCode = Nothing
-    , _dvNextToken = Nothing
-    }
+  DescribeVoices' {_dvLanguageCode = Nothing, _dvNextToken = Nothing}
+
 
 -- | The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
 dvLanguageCode :: Lens' DescribeVoices (Maybe LanguageCode)
@@ -93,9 +92,9 @@ instance AWSRequest DescribeVoices where
                    (x .?> "NextToken") <*> (x .?> "Voices" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVoices
+instance Hashable DescribeVoices where
 
-instance NFData DescribeVoices
+instance NFData DescribeVoices where
 
 instance ToHeaders DescribeVoices where
         toHeaders = const mempty
@@ -111,10 +110,11 @@ instance ToQuery DescribeVoices where
 
 -- | /See:/ 'describeVoicesResponse' smart constructor.
 data DescribeVoicesResponse = DescribeVoicesResponse'
-    { _dvrsNextToken      :: !(Maybe Text)
-    , _dvrsVoices         :: !(Maybe [Voice])
-    , _dvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvrsVoices         :: {-# NOUNPACK #-}!(Maybe [Voice])
+  , _dvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVoicesResponse' with the minimum fields required to make a request.
 --
@@ -129,11 +129,12 @@ describeVoicesResponse
     :: Int -- ^ 'dvrsResponseStatus'
     -> DescribeVoicesResponse
 describeVoicesResponse pResponseStatus_ =
-    DescribeVoicesResponse'
-    { _dvrsNextToken = Nothing
-    , _dvrsVoices = Nothing
-    , _dvrsResponseStatus = pResponseStatus_
-    }
+  DescribeVoicesResponse'
+  { _dvrsNextToken = Nothing
+  , _dvrsVoices = Nothing
+  , _dvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token to use in the next request to continue the listing of voices. @NextToken@ is returned only if the response is truncated.
 dvrsNextToken :: Lens' DescribeVoicesResponse (Maybe Text)
@@ -147,4 +148,4 @@ dvrsVoices = lens _dvrsVoices (\ s a -> s{_dvrsVoices = a}) . _Default . _Coerce
 dvrsResponseStatus :: Lens' DescribeVoicesResponse Int
 dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
 
-instance NFData DescribeVoicesResponse
+instance NFData DescribeVoicesResponse where

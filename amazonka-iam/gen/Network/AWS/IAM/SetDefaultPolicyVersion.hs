@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.SetDefaultPolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.IAM.SetDefaultPolicyVersion
     , SetDefaultPolicyVersionResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
-    { _sdpvPolicyARN :: !Text
-    , _sdpvVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdpvPolicyARN :: {-# NOUNPACK #-}!Text
+  , _sdpvVersionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDefaultPolicyVersion' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ setDefaultPolicyVersion
     -> Text -- ^ 'sdpvVersionId'
     -> SetDefaultPolicyVersion
 setDefaultPolicyVersion pPolicyARN_ pVersionId_ =
-    SetDefaultPolicyVersion'
-    { _sdpvPolicyARN = pPolicyARN_
-    , _sdpvVersionId = pVersionId_
-    }
+  SetDefaultPolicyVersion'
+  {_sdpvPolicyARN = pPolicyARN_, _sdpvVersionId = pVersionId_}
+
 
 -- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 sdpvPolicyARN :: Lens' SetDefaultPolicyVersion Text
@@ -84,9 +84,9 @@ instance AWSRequest SetDefaultPolicyVersion where
         response
           = receiveNull SetDefaultPolicyVersionResponse'
 
-instance Hashable SetDefaultPolicyVersion
+instance Hashable SetDefaultPolicyVersion where
 
-instance NFData SetDefaultPolicyVersion
+instance NFData SetDefaultPolicyVersion where
 
 instance ToHeaders SetDefaultPolicyVersion where
         toHeaders = const mempty
@@ -105,8 +105,9 @@ instance ToQuery SetDefaultPolicyVersion where
 
 -- | /See:/ 'setDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse =
-    SetDefaultPolicyVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetDefaultPolicyVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDefaultPolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +115,5 @@ setDefaultPolicyVersionResponse
     :: SetDefaultPolicyVersionResponse
 setDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
 
-instance NFData SetDefaultPolicyVersionResponse
+
+instance NFData SetDefaultPolicyVersionResponse where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -161,24 +161,24 @@ module Network.AWS.MigrationHub
     , tStatus
     ) where
 
-import           Network.AWS.MigrationHub.AssociateCreatedArtifact
-import           Network.AWS.MigrationHub.AssociateDiscoveredResource
-import           Network.AWS.MigrationHub.CreateProgressUpdateStream
-import           Network.AWS.MigrationHub.DeleteProgressUpdateStream
-import           Network.AWS.MigrationHub.DescribeApplicationState
-import           Network.AWS.MigrationHub.DescribeMigrationTask
-import           Network.AWS.MigrationHub.DisassociateCreatedArtifact
-import           Network.AWS.MigrationHub.DisassociateDiscoveredResource
-import           Network.AWS.MigrationHub.ImportMigrationTask
-import           Network.AWS.MigrationHub.ListCreatedArtifacts
-import           Network.AWS.MigrationHub.ListDiscoveredResources
-import           Network.AWS.MigrationHub.ListMigrationTasks
-import           Network.AWS.MigrationHub.ListProgressUpdateStreams
-import           Network.AWS.MigrationHub.NotifyApplicationState
-import           Network.AWS.MigrationHub.NotifyMigrationTaskState
-import           Network.AWS.MigrationHub.PutResourceAttributes
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Waiters
+import Network.AWS.MigrationHub.AssociateCreatedArtifact
+import Network.AWS.MigrationHub.AssociateDiscoveredResource
+import Network.AWS.MigrationHub.CreateProgressUpdateStream
+import Network.AWS.MigrationHub.DeleteProgressUpdateStream
+import Network.AWS.MigrationHub.DescribeApplicationState
+import Network.AWS.MigrationHub.DescribeMigrationTask
+import Network.AWS.MigrationHub.DisassociateCreatedArtifact
+import Network.AWS.MigrationHub.DisassociateDiscoveredResource
+import Network.AWS.MigrationHub.ImportMigrationTask
+import Network.AWS.MigrationHub.ListCreatedArtifacts
+import Network.AWS.MigrationHub.ListDiscoveredResources
+import Network.AWS.MigrationHub.ListMigrationTasks
+import Network.AWS.MigrationHub.ListProgressUpdateStreams
+import Network.AWS.MigrationHub.NotifyApplicationState
+import Network.AWS.MigrationHub.NotifyMigrationTaskState
+import Network.AWS.MigrationHub.PutResourceAttributes
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

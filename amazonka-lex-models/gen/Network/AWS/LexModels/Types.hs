@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -192,40 +192,40 @@ module Network.AWS.LexModels.Types
     , ulUtterances
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.LexModels.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.LexModels.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2017-04-19@ of the Amazon Lex Model Building Service SDK configuration.
 lexModels :: Service
 lexModels =
-    Service
-    { _svcAbbrev = "LexModels"
-    , _svcSigner = v4
-    , _svcPrefix = "models.lex"
-    , _svcVersion = "2017-04-19"
-    , _svcEndpoint = defaultEndpoint lexModels
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "LexModels"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "LexModels"
+  , _svcSigner = v4
+  , _svcPrefix = "models.lex"
+  , _svcVersion = "2017-04-19"
+  , _svcEndpoint = defaultEndpoint lexModels
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "LexModels"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -234,47 +234,54 @@ lexModels =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.
 --
 --
 _PreconditionFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PreconditionFailedException =
-    _MatchServiceError lexModels "PreconditionFailedException" . hasStatus 412
+  _MatchServiceError lexModels "PreconditionFailedException" . hasStatus 412
+
 
 -- | There was a conflict processing the request. Try your request again.
 --
 --
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException =
-    _MatchServiceError lexModels "ConflictException" . hasStatus 409
+  _MatchServiceError lexModels "ConflictException" . hasStatus 409
+
 
 -- | The resource specified in the request was not found. Check the resource and try again.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException =
-    _MatchServiceError lexModels "NotFoundException" . hasStatus 404
+  _MatchServiceError lexModels "NotFoundException" . hasStatus 404
+
 
 -- | An internal Amazon Lex error occurred. Try your request again.
 --
 --
 _InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalFailureException =
-    _MatchServiceError lexModels "InternalFailureException" . hasStatus 500
+  _MatchServiceError lexModels "InternalFailureException" . hasStatus 500
+
 
 -- | The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
 --
 --
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
-    _MatchServiceError lexModels "BadRequestException" . hasStatus 400
+  _MatchServiceError lexModels "BadRequestException" . hasStatus 400
+
 
 -- | The request exceeded a limit. Try your request again.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _MatchServiceError lexModels "LimitExceededException" . hasStatus 429
+  _MatchServiceError lexModels "LimitExceededException" . hasStatus 429
+
 
 -- | The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.
 --
@@ -289,4 +296,5 @@ _LimitExceededException =
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException =
-    _MatchServiceError lexModels "ResourceInUseException" . hasStatus 400
+  _MatchServiceError lexModels "ResourceInUseException" . hasStatus 400
+

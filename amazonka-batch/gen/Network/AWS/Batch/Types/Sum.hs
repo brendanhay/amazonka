@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Batch.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Batch.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data CEState
-    = Disabled
-    | Enabled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CEState where
     parser = takeLowerText >>= \case
@@ -49,13 +50,14 @@ instance FromJSON CEState where
     parseJSON = parseJSONText "CEState"
 
 data CEStatus
-    = CESCreating
-    | CESDeleted
-    | CESDeleting
-    | CESInvalid
-    | CESUpdating
-    | CESValid
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CESCreating
+  | CESDeleted
+  | CESDeleting
+  | CESInvalid
+  | CESUpdating
+  | CESValid
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CEStatus where
     parser = takeLowerText >>= \case
@@ -87,9 +89,10 @@ instance FromJSON CEStatus where
     parseJSON = parseJSONText "CEStatus"
 
 data CEType
-    = Managed
-    | Unmanaged
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Managed
+  | Unmanaged
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CEType where
     parser = takeLowerText >>= \case
@@ -116,9 +119,10 @@ instance FromJSON CEType where
     parseJSON = parseJSONText "CEType"
 
 data CRType
-    = EC2
-    | Spot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EC2
+  | Spot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CRType where
     parser = takeLowerText >>= \case
@@ -145,9 +149,10 @@ instance FromJSON CRType where
     parseJSON = parseJSONText "CRType"
 
 data JQState
-    = JQSDisabled
-    | JQSEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = JQSDisabled
+  | JQSEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JQState where
     parser = takeLowerText >>= \case
@@ -174,13 +179,14 @@ instance FromJSON JQState where
     parseJSON = parseJSONText "JQState"
 
 data JQStatus
-    = Creating
-    | Deleted
-    | Deleting
-    | Invalid
-    | Updating
-    | Valid
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Creating
+  | Deleted
+  | Deleting
+  | Invalid
+  | Updating
+  | Valid
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JQStatus where
     parser = takeLowerText >>= \case
@@ -212,8 +218,9 @@ instance FromJSON JQStatus where
     parseJSON = parseJSONText "JQStatus"
 
 data JobDefinitionType =
-    Container
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Container
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JobDefinitionType where
     parser = takeLowerText >>= \case
@@ -235,14 +242,15 @@ instance ToJSON JobDefinitionType where
     toJSON = toJSONText
 
 data JobStatus
-    = Failed
-    | Pending
-    | Runnable
-    | Running
-    | Starting
-    | Submitted
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | Pending
+  | Runnable
+  | Running
+  | Starting
+  | Submitted
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JobStatus where
     parser = takeLowerText >>= \case

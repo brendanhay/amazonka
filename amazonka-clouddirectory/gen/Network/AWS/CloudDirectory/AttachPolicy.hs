@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.CloudDirectory.AttachPolicy
     , aprsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachPolicy' smart constructor.
 data AttachPolicy = AttachPolicy'
-    { _apDirectoryARN    :: !(Maybe Text)
-    , _apPolicyReference :: !ObjectReference
-    , _apObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apDirectoryARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apPolicyReference :: {-# NOUNPACK #-}!ObjectReference
+  , _apObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachPolicy' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ attachPolicy
     -> ObjectReference -- ^ 'apObjectReference'
     -> AttachPolicy
 attachPolicy pPolicyReference_ pObjectReference_ =
-    AttachPolicy'
-    { _apDirectoryARN = Nothing
-    , _apPolicyReference = pPolicyReference_
-    , _apObjectReference = pObjectReference_
-    }
+  AttachPolicy'
+  { _apDirectoryARN = Nothing
+  , _apPolicyReference = pPolicyReference_
+  , _apObjectReference = pObjectReference_
+  }
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 apDirectoryARN :: Lens' AttachPolicy (Maybe Text)
@@ -92,9 +94,9 @@ instance AWSRequest AttachPolicy where
               (\ s h x ->
                  AttachPolicyResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AttachPolicy
+instance Hashable AttachPolicy where
 
-instance NFData AttachPolicy
+instance NFData AttachPolicy where
 
 instance ToHeaders AttachPolicy where
         toHeaders AttachPolicy'{..}
@@ -117,8 +119,9 @@ instance ToQuery AttachPolicy where
 
 -- | /See:/ 'attachPolicyResponse' smart constructor.
 newtype AttachPolicyResponse = AttachPolicyResponse'
-    { _aprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachPolicyResponse' with the minimum fields required to make a request.
 --
@@ -129,12 +132,11 @@ attachPolicyResponse
     :: Int -- ^ 'aprsResponseStatus'
     -> AttachPolicyResponse
 attachPolicyResponse pResponseStatus_ =
-    AttachPolicyResponse'
-    { _aprsResponseStatus = pResponseStatus_
-    }
+  AttachPolicyResponse' {_aprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aprsResponseStatus :: Lens' AttachPolicyResponse Int
 aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
 
-instance NFData AttachPolicyResponse
+instance NFData AttachPolicyResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DeregisterJobDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Batch.DeregisterJobDefinition
     , derrsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterJobDefinition' smart constructor.
 newtype DeregisterJobDefinition = DeregisterJobDefinition'
-    { _djdJobDefinition :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djdJobDefinition :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterJobDefinition' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deregisterJobDefinition
     :: Text -- ^ 'djdJobDefinition'
     -> DeregisterJobDefinition
 deregisterJobDefinition pJobDefinition_ =
-    DeregisterJobDefinition'
-    { _djdJobDefinition = pJobDefinition_
-    }
+  DeregisterJobDefinition' {_djdJobDefinition = pJobDefinition_}
+
 
 -- | The name and revision (@name:revision@ ) or full Amazon Resource Name (ARN) of the job definition to deregister.
 djdJobDefinition :: Lens' DeregisterJobDefinition Text
@@ -75,9 +75,9 @@ instance AWSRequest DeregisterJobDefinition where
                  DeregisterJobDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeregisterJobDefinition
+instance Hashable DeregisterJobDefinition where
 
-instance NFData DeregisterJobDefinition
+instance NFData DeregisterJobDefinition where
 
 instance ToHeaders DeregisterJobDefinition where
         toHeaders
@@ -100,8 +100,9 @@ instance ToQuery DeregisterJobDefinition where
 
 -- | /See:/ 'deregisterJobDefinitionResponse' smart constructor.
 newtype DeregisterJobDefinitionResponse = DeregisterJobDefinitionResponse'
-    { _derrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterJobDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -112,12 +113,11 @@ deregisterJobDefinitionResponse
     :: Int -- ^ 'derrsResponseStatus'
     -> DeregisterJobDefinitionResponse
 deregisterJobDefinitionResponse pResponseStatus_ =
-    DeregisterJobDefinitionResponse'
-    { _derrsResponseStatus = pResponseStatus_
-    }
+  DeregisterJobDefinitionResponse' {_derrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 derrsResponseStatus :: Lens' DeregisterJobDefinitionResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
 
-instance NFData DeregisterJobDefinitionResponse
+instance NFData DeregisterJobDefinitionResponse where

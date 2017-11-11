@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.DirectConnect.DeleteConnection
     , cConnectionState
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DeleteConnection operation.
 --
@@ -62,8 +62,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteConnection' smart constructor.
 newtype DeleteConnection = DeleteConnection'
-    { _dcConnectionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcConnectionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConnection' with the minimum fields required to make a request.
 --
@@ -74,9 +75,8 @@ deleteConnection
     :: Text -- ^ 'dcConnectionId'
     -> DeleteConnection
 deleteConnection pConnectionId_ =
-    DeleteConnection'
-    { _dcConnectionId = pConnectionId_
-    }
+  DeleteConnection' {_dcConnectionId = pConnectionId_}
+
 
 -- | Undocumented member.
 dcConnectionId :: Lens' DeleteConnection Text
@@ -87,9 +87,9 @@ instance AWSRequest DeleteConnection where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable DeleteConnection
+instance Hashable DeleteConnection where
 
-instance NFData DeleteConnection
+instance NFData DeleteConnection where
 
 instance ToHeaders DeleteConnection where
         toHeaders

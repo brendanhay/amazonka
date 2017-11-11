@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.CreateDeploymentConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
     , cdcrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a CreateDeploymentConfig operation.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDeploymentConfig' smart constructor.
 data CreateDeploymentConfig = CreateDeploymentConfig'
-    { _cdcDeploymentConfigName :: !Text
-    , _cdcMinimumHealthyHosts  :: !MinimumHealthyHosts
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdcDeploymentConfigName :: {-# NOUNPACK #-}!Text
+  , _cdcMinimumHealthyHosts  :: {-# NOUNPACK #-}!MinimumHealthyHosts
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeploymentConfig' with the minimum fields required to make a request.
 --
@@ -67,10 +68,11 @@ createDeploymentConfig
     -> MinimumHealthyHosts -- ^ 'cdcMinimumHealthyHosts'
     -> CreateDeploymentConfig
 createDeploymentConfig pDeploymentConfigName_ pMinimumHealthyHosts_ =
-    CreateDeploymentConfig'
-    { _cdcDeploymentConfigName = pDeploymentConfigName_
-    , _cdcMinimumHealthyHosts = pMinimumHealthyHosts_
-    }
+  CreateDeploymentConfig'
+  { _cdcDeploymentConfigName = pDeploymentConfigName_
+  , _cdcMinimumHealthyHosts = pMinimumHealthyHosts_
+  }
+
 
 -- | The name of the deployment configuration to create.
 cdcDeploymentConfigName :: Lens' CreateDeploymentConfig Text
@@ -90,9 +92,9 @@ instance AWSRequest CreateDeploymentConfig where
                  CreateDeploymentConfigResponse' <$>
                    (x .?> "deploymentConfigId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDeploymentConfig
+instance Hashable CreateDeploymentConfig where
 
-instance NFData CreateDeploymentConfig
+instance NFData CreateDeploymentConfig where
 
 instance ToHeaders CreateDeploymentConfig where
         toHeaders
@@ -125,9 +127,10 @@ instance ToQuery CreateDeploymentConfig where
 --
 -- /See:/ 'createDeploymentConfigResponse' smart constructor.
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
-    { _cdcrsDeploymentConfigId :: !(Maybe Text)
-    , _cdcrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdcrsDeploymentConfigId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeploymentConfigResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +143,9 @@ createDeploymentConfigResponse
     :: Int -- ^ 'cdcrsResponseStatus'
     -> CreateDeploymentConfigResponse
 createDeploymentConfigResponse pResponseStatus_ =
-    CreateDeploymentConfigResponse'
-    { _cdcrsDeploymentConfigId = Nothing
-    , _cdcrsResponseStatus = pResponseStatus_
-    }
+  CreateDeploymentConfigResponse'
+  {_cdcrsDeploymentConfigId = Nothing, _cdcrsResponseStatus = pResponseStatus_}
+
 
 -- | A unique deployment configuration ID.
 cdcrsDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
@@ -153,4 +155,4 @@ cdcrsDeploymentConfigId = lens _cdcrsDeploymentConfigId (\ s a -> s{_cdcrsDeploy
 cdcrsResponseStatus :: Lens' CreateDeploymentConfigResponse Int
 cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});
 
-instance NFData CreateDeploymentConfigResponse
+instance NFData CreateDeploymentConfigResponse where

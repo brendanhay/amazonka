@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkACLEntry
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.EC2.CreateNetworkACLEntry
     , CreateNetworkACLEntryResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateNetworkAclEntry.
 --
@@ -62,17 +62,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createNetworkACLEntry' smart constructor.
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
-    { _cnaeIPv6CidrBlock :: !(Maybe Text)
-    , _cnaeICMPTypeCode  :: !(Maybe ICMPTypeCode)
-    , _cnaePortRange     :: !(Maybe PortRange)
-    , _cnaeCidrBlock     :: !(Maybe Text)
-    , _cnaeDryRun        :: !(Maybe Bool)
-    , _cnaeEgress        :: !Bool
-    , _cnaeNetworkACLId  :: !Text
-    , _cnaeProtocol      :: !Text
-    , _cnaeRuleAction    :: !RuleAction
-    , _cnaeRuleNumber    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnaeIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnaeICMPTypeCode  :: {-# NOUNPACK #-}!(Maybe ICMPTypeCode)
+  , _cnaePortRange     :: {-# NOUNPACK #-}!(Maybe PortRange)
+  , _cnaeCidrBlock     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnaeDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cnaeEgress        :: {-# NOUNPACK #-}!Bool
+  , _cnaeNetworkACLId  :: {-# NOUNPACK #-}!Text
+  , _cnaeProtocol      :: {-# NOUNPACK #-}!Text
+  , _cnaeRuleAction    :: {-# NOUNPACK #-}!RuleAction
+  , _cnaeRuleNumber    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNetworkACLEntry' with the minimum fields required to make a request.
 --
@@ -105,18 +106,19 @@ createNetworkACLEntry
     -> Int -- ^ 'cnaeRuleNumber'
     -> CreateNetworkACLEntry
 createNetworkACLEntry pEgress_ pNetworkACLId_ pProtocol_ pRuleAction_ pRuleNumber_ =
-    CreateNetworkACLEntry'
-    { _cnaeIPv6CidrBlock = Nothing
-    , _cnaeICMPTypeCode = Nothing
-    , _cnaePortRange = Nothing
-    , _cnaeCidrBlock = Nothing
-    , _cnaeDryRun = Nothing
-    , _cnaeEgress = pEgress_
-    , _cnaeNetworkACLId = pNetworkACLId_
-    , _cnaeProtocol = pProtocol_
-    , _cnaeRuleAction = pRuleAction_
-    , _cnaeRuleNumber = pRuleNumber_
-    }
+  CreateNetworkACLEntry'
+  { _cnaeIPv6CidrBlock = Nothing
+  , _cnaeICMPTypeCode = Nothing
+  , _cnaePortRange = Nothing
+  , _cnaeCidrBlock = Nothing
+  , _cnaeDryRun = Nothing
+  , _cnaeEgress = pEgress_
+  , _cnaeNetworkACLId = pNetworkACLId_
+  , _cnaeProtocol = pProtocol_
+  , _cnaeRuleAction = pRuleAction_
+  , _cnaeRuleNumber = pRuleNumber_
+  }
+
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example @2001:db8:1234:1a00::/64@ ).
 cnaeIPv6CidrBlock :: Lens' CreateNetworkACLEntry (Maybe Text)
@@ -164,9 +166,9 @@ instance AWSRequest CreateNetworkACLEntry where
         request = postQuery ec2
         response = receiveNull CreateNetworkACLEntryResponse'
 
-instance Hashable CreateNetworkACLEntry
+instance Hashable CreateNetworkACLEntry where
 
-instance NFData CreateNetworkACLEntry
+instance NFData CreateNetworkACLEntry where
 
 instance ToHeaders CreateNetworkACLEntry where
         toHeaders = const mempty
@@ -191,8 +193,9 @@ instance ToQuery CreateNetworkACLEntry where
 
 -- | /See:/ 'createNetworkACLEntryResponse' smart constructor.
 data CreateNetworkACLEntryResponse =
-    CreateNetworkACLEntryResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateNetworkACLEntryResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNetworkACLEntryResponse' with the minimum fields required to make a request.
 --
@@ -200,4 +203,5 @@ createNetworkACLEntryResponse
     :: CreateNetworkACLEntryResponse
 createNetworkACLEntryResponse = CreateNetworkACLEntryResponse'
 
-instance NFData CreateNetworkACLEntryResponse
+
+instance NFData CreateNetworkACLEntryResponse where

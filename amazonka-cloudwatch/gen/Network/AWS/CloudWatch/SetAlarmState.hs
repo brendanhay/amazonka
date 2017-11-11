@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,20 +37,21 @@ module Network.AWS.CloudWatch.SetAlarmState
     , SetAlarmStateResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setAlarmState' smart constructor.
 data SetAlarmState = SetAlarmState'
-    { _sasStateReasonData :: !(Maybe Text)
-    , _sasAlarmName       :: !Text
-    , _sasStateValue      :: !StateValue
-    , _sasStateReason     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sasStateReasonData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sasAlarmName       :: {-# NOUNPACK #-}!Text
+  , _sasStateValue      :: {-# NOUNPACK #-}!StateValue
+  , _sasStateReason     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetAlarmState' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ setAlarmState
     -> Text -- ^ 'sasStateReason'
     -> SetAlarmState
 setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
-    SetAlarmState'
-    { _sasStateReasonData = Nothing
-    , _sasAlarmName = pAlarmName_
-    , _sasStateValue = pStateValue_
-    , _sasStateReason = pStateReason_
-    }
+  SetAlarmState'
+  { _sasStateReasonData = Nothing
+  , _sasAlarmName = pAlarmName_
+  , _sasStateValue = pStateValue_
+  , _sasStateReason = pStateReason_
+  }
+
 
 -- | The reason that this alarm is set to this specific state, in JSON format.
 sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest SetAlarmState where
         request = postQuery cloudWatch
         response = receiveNull SetAlarmStateResponse'
 
-instance Hashable SetAlarmState
+instance Hashable SetAlarmState where
 
-instance NFData SetAlarmState
+instance NFData SetAlarmState where
 
 instance ToHeaders SetAlarmState where
         toHeaders = const mempty
@@ -119,8 +121,9 @@ instance ToQuery SetAlarmState where
 
 -- | /See:/ 'setAlarmStateResponse' smart constructor.
 data SetAlarmStateResponse =
-    SetAlarmStateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetAlarmStateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetAlarmStateResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +131,5 @@ setAlarmStateResponse
     :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse'
 
-instance NFData SetAlarmStateResponse
+
+instance NFData SetAlarmStateResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Discovery.DescribeTags
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-    { _dtFilters    :: !(Maybe [TagFilter])
-    , _dtNextToken  :: !(Maybe Text)
-    , _dtMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtFilters    :: {-# NOUNPACK #-}!(Maybe [TagFilter])
+  , _dtNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DescribeTags = DescribeTags'
 describeTags
     :: DescribeTags
 describeTags =
-    DescribeTags'
-    { _dtFilters = Nothing
-    , _dtNextToken = Nothing
-    , _dtMaxResults = Nothing
-    }
+  DescribeTags'
+  {_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxResults = Nothing}
+
 
 -- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
 dtFilters :: Lens' DescribeTags [TagFilter]
@@ -94,9 +93,9 @@ instance AWSRequest DescribeTags where
                    (x .?> "nextToken") <*> (x .?> "tags" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeTags
+instance Hashable DescribeTags where
 
-instance NFData DescribeTags
+instance NFData DescribeTags where
 
 instance ToHeaders DescribeTags where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery DescribeTags where
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsNextToken      :: !(Maybe Text)
-    , _dtrsTags           :: !(Maybe [ConfigurationTag])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsTags           :: {-# NOUNPACK #-}!(Maybe [ConfigurationTag])
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
-    DescribeTagsResponse'
-    { _dtrsNextToken = Nothing
-    , _dtrsTags = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTagsResponse'
+  { _dtrsNextToken = Nothing
+  , _dtrsTags = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The call returns a token. Use this token to get the next set of results.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
@@ -160,4 +161,4 @@ dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTagsResponse
+instance NFData DescribeTagsResponse where

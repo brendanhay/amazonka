@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSecurityGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.DeleteSecurityGroup
     , DeleteSecurityGroupResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteSecurityGroup.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteSecurityGroup' smart constructor.
 data DeleteSecurityGroup = DeleteSecurityGroup'
-    { _dsgGroupId   :: !(Maybe Text)
-    , _dsgGroupName :: !(Maybe Text)
-    , _dsgDryRun    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgGroupId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSecurityGroup' with the minimum fields required to make a request.
 --
@@ -68,11 +69,9 @@ data DeleteSecurityGroup = DeleteSecurityGroup'
 deleteSecurityGroup
     :: DeleteSecurityGroup
 deleteSecurityGroup =
-    DeleteSecurityGroup'
-    { _dsgGroupId = Nothing
-    , _dsgGroupName = Nothing
-    , _dsgDryRun = Nothing
-    }
+  DeleteSecurityGroup'
+  {_dsgGroupId = Nothing, _dsgGroupName = Nothing, _dsgDryRun = Nothing}
+
 
 -- | The ID of the security group. Required for a nondefault VPC.
 dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
@@ -92,9 +91,9 @@ instance AWSRequest DeleteSecurityGroup where
         request = postQuery ec2
         response = receiveNull DeleteSecurityGroupResponse'
 
-instance Hashable DeleteSecurityGroup
+instance Hashable DeleteSecurityGroup where
 
-instance NFData DeleteSecurityGroup
+instance NFData DeleteSecurityGroup where
 
 instance ToHeaders DeleteSecurityGroup where
         toHeaders = const mempty
@@ -112,8 +111,9 @@ instance ToQuery DeleteSecurityGroup where
 
 -- | /See:/ 'deleteSecurityGroupResponse' smart constructor.
 data DeleteSecurityGroupResponse =
-    DeleteSecurityGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSecurityGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSecurityGroupResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +121,5 @@ deleteSecurityGroupResponse
     :: DeleteSecurityGroupResponse
 deleteSecurityGroupResponse = DeleteSecurityGroupResponse'
 
-instance NFData DeleteSecurityGroupResponse
+
+instance NFData DeleteSecurityGroupResponse where

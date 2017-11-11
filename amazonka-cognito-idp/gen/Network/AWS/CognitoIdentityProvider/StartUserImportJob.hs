@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.StartUserImportJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CognitoIdentityProvider.StartUserImportJob
     , suijrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to start the user import job.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startUserImportJob' smart constructor.
 data StartUserImportJob = StartUserImportJob'
-    { _suijUserPoolId :: !Text
-    , _suijJobId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _suijUserPoolId :: {-# NOUNPACK #-}!Text
+  , _suijJobId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartUserImportJob' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ startUserImportJob
     -> Text -- ^ 'suijJobId'
     -> StartUserImportJob
 startUserImportJob pUserPoolId_ pJobId_ =
-    StartUserImportJob'
-    { _suijUserPoolId = pUserPoolId_
-    , _suijJobId = pJobId_
-    }
+  StartUserImportJob' {_suijUserPoolId = pUserPoolId_, _suijJobId = pJobId_}
+
 
 -- | The user pool ID for the user pool that the users are being imported into.
 suijUserPoolId :: Lens' StartUserImportJob Text
@@ -90,9 +89,9 @@ instance AWSRequest StartUserImportJob where
                  StartUserImportJobResponse' <$>
                    (x .?> "UserImportJob") <*> (pure (fromEnum s)))
 
-instance Hashable StartUserImportJob
+instance Hashable StartUserImportJob where
 
-instance NFData StartUserImportJob
+instance NFData StartUserImportJob where
 
 instance ToHeaders StartUserImportJob where
         toHeaders
@@ -123,9 +122,10 @@ instance ToQuery StartUserImportJob where
 --
 -- /See:/ 'startUserImportJobResponse' smart constructor.
 data StartUserImportJobResponse = StartUserImportJobResponse'
-    { _suijrsUserImportJob  :: !(Maybe UserImportJobType)
-    , _suijrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _suijrsUserImportJob  :: {-# NOUNPACK #-}!(Maybe UserImportJobType)
+  , _suijrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartUserImportJobResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +138,9 @@ startUserImportJobResponse
     :: Int -- ^ 'suijrsResponseStatus'
     -> StartUserImportJobResponse
 startUserImportJobResponse pResponseStatus_ =
-    StartUserImportJobResponse'
-    { _suijrsUserImportJob = Nothing
-    , _suijrsResponseStatus = pResponseStatus_
-    }
+  StartUserImportJobResponse'
+  {_suijrsUserImportJob = Nothing, _suijrsResponseStatus = pResponseStatus_}
+
 
 -- | The job object that represents the user import job.
 suijrsUserImportJob :: Lens' StartUserImportJobResponse (Maybe UserImportJobType)
@@ -151,4 +150,4 @@ suijrsUserImportJob = lens _suijrsUserImportJob (\ s a -> s{_suijrsUserImportJob
 suijrsResponseStatus :: Lens' StartUserImportJobResponse Int
 suijrsResponseStatus = lens _suijrsResponseStatus (\ s a -> s{_suijrsResponseStatus = a});
 
-instance NFData StartUserImportJobResponse
+instance NFData StartUserImportJobResponse where

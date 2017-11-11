@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListSqlInjectionMatchSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.WAFRegional.ListSqlInjectionMatchSets
     , lsimsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | A request to list the 'SqlInjectionMatchSet' objects created by the current AWS account.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'listSqlInjectionMatchSets' smart constructor.
 data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
-    { _lsimsNextMarker :: !(Maybe Text)
-    , _lsimsLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsimsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsimsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSqlInjectionMatchSets' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
 listSqlInjectionMatchSets
     :: ListSqlInjectionMatchSets
 listSqlInjectionMatchSets =
-    ListSqlInjectionMatchSets'
-    { _lsimsNextMarker = Nothing
-    , _lsimsLimit = Nothing
-    }
+  ListSqlInjectionMatchSets' {_lsimsNextMarker = Nothing, _lsimsLimit = Nothing}
+
 
 -- | If you specify a value for @Limit@ and you have more 'SqlInjectionMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @SqlInjectionMatchSets@ . For the second and subsequent @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @SqlInjectionMatchSets@ .
 lsimsNextMarker :: Lens' ListSqlInjectionMatchSets (Maybe Text)
@@ -91,9 +90,9 @@ instance AWSRequest ListSqlInjectionMatchSets where
                      (x .?> "SqlInjectionMatchSets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListSqlInjectionMatchSets
+instance Hashable ListSqlInjectionMatchSets where
 
-instance NFData ListSqlInjectionMatchSets
+instance NFData ListSqlInjectionMatchSets where
 
 instance ToHeaders ListSqlInjectionMatchSets where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery ListSqlInjectionMatchSets where
 --
 -- /See:/ 'listSqlInjectionMatchSetsResponse' smart constructor.
 data ListSqlInjectionMatchSetsResponse = ListSqlInjectionMatchSetsResponse'
-    { _lsimsrsNextMarker            :: !(Maybe Text)
-    , _lsimsrsSqlInjectionMatchSets :: !(Maybe [SqlInjectionMatchSetSummary])
-    , _lsimsrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsimsrsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsimsrsSqlInjectionMatchSets :: {-# NOUNPACK #-}!(Maybe [SqlInjectionMatchSetSummary])
+  , _lsimsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSqlInjectionMatchSetsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ listSqlInjectionMatchSetsResponse
     :: Int -- ^ 'lsimsrsResponseStatus'
     -> ListSqlInjectionMatchSetsResponse
 listSqlInjectionMatchSetsResponse pResponseStatus_ =
-    ListSqlInjectionMatchSetsResponse'
-    { _lsimsrsNextMarker = Nothing
-    , _lsimsrsSqlInjectionMatchSets = Nothing
-    , _lsimsrsResponseStatus = pResponseStatus_
-    }
+  ListSqlInjectionMatchSetsResponse'
+  { _lsimsrsNextMarker = Nothing
+  , _lsimsrsSqlInjectionMatchSets = Nothing
+  , _lsimsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If you have more 'SqlInjectionMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @SqlInjectionMatchSet@ objects, submit another @ListSqlInjectionMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 lsimsrsNextMarker :: Lens' ListSqlInjectionMatchSetsResponse (Maybe Text)
@@ -161,3 +162,4 @@ lsimsrsResponseStatus :: Lens' ListSqlInjectionMatchSetsResponse Int
 lsimsrsResponseStatus = lens _lsimsrsResponseStatus (\ s a -> s{_lsimsrsResponseStatus = a});
 
 instance NFData ListSqlInjectionMatchSetsResponse
+         where

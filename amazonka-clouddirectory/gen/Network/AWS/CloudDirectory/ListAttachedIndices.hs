@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListAttachedIndices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.CloudDirectory.ListAttachedIndices
     , lairsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAttachedIndices' smart constructor.
 data ListAttachedIndices = ListAttachedIndices'
-    { _laiConsistencyLevel :: !(Maybe ConsistencyLevel)
-    , _laiNextToken        :: !(Maybe Text)
-    , _laiMaxResults       :: !(Maybe Nat)
-    , _laiDirectoryARN     :: !Text
-    , _laiTargetReference  :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laiConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
+  , _laiNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laiMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _laiDirectoryARN     :: {-# NOUNPACK #-}!Text
+  , _laiTargetReference  :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttachedIndices' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ listAttachedIndices
     -> ObjectReference -- ^ 'laiTargetReference'
     -> ListAttachedIndices
 listAttachedIndices pDirectoryARN_ pTargetReference_ =
-    ListAttachedIndices'
-    { _laiConsistencyLevel = Nothing
-    , _laiNextToken = Nothing
-    , _laiMaxResults = Nothing
-    , _laiDirectoryARN = pDirectoryARN_
-    , _laiTargetReference = pTargetReference_
-    }
+  ListAttachedIndices'
+  { _laiConsistencyLevel = Nothing
+  , _laiNextToken = Nothing
+  , _laiMaxResults = Nothing
+  , _laiDirectoryARN = pDirectoryARN_
+  , _laiTargetReference = pTargetReference_
+  }
+
 
 -- | The consistency level to use for this operation.
 laiConsistencyLevel :: Lens' ListAttachedIndices (Maybe ConsistencyLevel)
@@ -116,9 +118,9 @@ instance AWSRequest ListAttachedIndices where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAttachedIndices
+instance Hashable ListAttachedIndices where
 
-instance NFData ListAttachedIndices
+instance NFData ListAttachedIndices where
 
 instance ToHeaders ListAttachedIndices where
         toHeaders ListAttachedIndices'{..}
@@ -144,10 +146,11 @@ instance ToQuery ListAttachedIndices where
 
 -- | /See:/ 'listAttachedIndicesResponse' smart constructor.
 data ListAttachedIndicesResponse = ListAttachedIndicesResponse'
-    { _lairsIndexAttachments :: !(Maybe [IndexAttachment])
-    , _lairsNextToken        :: !(Maybe Text)
-    , _lairsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lairsIndexAttachments :: {-# NOUNPACK #-}!(Maybe [IndexAttachment])
+  , _lairsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lairsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttachedIndicesResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ listAttachedIndicesResponse
     :: Int -- ^ 'lairsResponseStatus'
     -> ListAttachedIndicesResponse
 listAttachedIndicesResponse pResponseStatus_ =
-    ListAttachedIndicesResponse'
-    { _lairsIndexAttachments = Nothing
-    , _lairsNextToken = Nothing
-    , _lairsResponseStatus = pResponseStatus_
-    }
+  ListAttachedIndicesResponse'
+  { _lairsIndexAttachments = Nothing
+  , _lairsNextToken = Nothing
+  , _lairsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The indices attached to the specified object.
 lairsIndexAttachments :: Lens' ListAttachedIndicesResponse [IndexAttachment]
@@ -180,4 +184,4 @@ lairsNextToken = lens _lairsNextToken (\ s a -> s{_lairsNextToken = a});
 lairsResponseStatus :: Lens' ListAttachedIndicesResponse Int
 lairsResponseStatus = lens _lairsResponseStatus (\ s a -> s{_lairsResponseStatus = a});
 
-instance NFData ListAttachedIndicesResponse
+instance NFData ListAttachedIndicesResponse where

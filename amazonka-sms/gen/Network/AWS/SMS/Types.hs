@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -123,40 +123,40 @@ module Network.AWS.SMS.Types
     , vmsaVmId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
-import           Network.AWS.SMS.Types.Product
-import           Network.AWS.SMS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
+import Network.AWS.SMS.Types.Product
+import Network.AWS.SMS.Types.Sum
 
 -- | API version @2016-10-24@ of the Amazon Server Migration Service SDK configuration.
 sms :: Service
 sms =
-    Service
-    { _svcAbbrev = "SMS"
-    , _svcSigner = v4
-    , _svcPrefix = "sms"
-    , _svcVersion = "2016-10-24"
-    , _svcEndpoint = defaultEndpoint sms
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "SMS"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "SMS"
+  , _svcSigner = v4
+  , _svcPrefix = "sms"
+  , _svcVersion = "2016-10-24"
+  , _svcEndpoint = defaultEndpoint sms
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "SMS"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -165,50 +165,61 @@ sms =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | This user has exceeded the maximum allowed Replication Run limit.
 _ReplicationRunLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationRunLimitExceededException =
-    _MatchServiceError sms "ReplicationRunLimitExceededException"
+  _MatchServiceError sms "ReplicationRunLimitExceededException"
+
 
 -- | A parameter specified in the request is not valid, is unsupported, or cannot be used.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException = _MatchServiceError sms "InvalidParameterException"
 
+
 -- | No connectors are available to handle this request. Please associate connector(s) and verify any existing connectors are healthy and can respond to requests.
 _NoConnectorsAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoConnectorsAvailableException =
-    _MatchServiceError sms "NoConnectorsAvailableException"
+  _MatchServiceError sms "NoConnectorsAvailableException"
+
 
 -- | The specified Replication Job cannot be found.
 _ReplicationJobNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationJobNotFoundException =
-    _MatchServiceError sms "ReplicationJobNotFoundException"
+  _MatchServiceError sms "ReplicationJobNotFoundException"
+
 
 -- | The provided server cannot be replicated.
 _ServerCannotBeReplicatedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServerCannotBeReplicatedException =
-    _MatchServiceError sms "ServerCannotBeReplicatedException"
+  _MatchServiceError sms "ServerCannotBeReplicatedException"
+
 
 -- | An internal error has occured.
 _InternalError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalError = _MatchServiceError sms "InternalError"
 
+
 -- | An active Replication Job already exists for the specified server.
 _ReplicationJobAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationJobAlreadyExistsException =
-    _MatchServiceError sms "ReplicationJobAlreadyExistsException"
+  _MatchServiceError sms "ReplicationJobAlreadyExistsException"
+
 
 -- | The specified operation is not allowed. This error can occur for a number of reasons; for example, you might be trying to start a Replication Run before seed Replication Run.
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
-    _MatchServiceError sms "OperationNotPermittedException"
+  _MatchServiceError sms "OperationNotPermittedException"
+
 
 -- | The request is missing a required parameter. Ensure that you have supplied all the required parameters for the request.
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
-    _MatchServiceError sms "MissingRequiredParameterException"
+  _MatchServiceError sms "MissingRequiredParameterException"
+
 
 -- | This user does not have permissions to perform this operation.
 _UnauthorizedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedOperationException =
-    _MatchServiceError sms "UnauthorizedOperationException"
+  _MatchServiceError sms "UnauthorizedOperationException"
+

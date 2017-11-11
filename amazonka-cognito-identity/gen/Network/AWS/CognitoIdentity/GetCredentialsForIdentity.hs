@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetCredentialsForIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     , gcfirsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @GetCredentialsForIdentity@ action.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getCredentialsForIdentity' smart constructor.
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
-    { _gcfiCustomRoleARN :: !(Maybe Text)
-    , _gcfiLogins        :: !(Maybe (Map Text Text))
-    , _gcfiIdentityId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcfiCustomRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcfiLogins        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gcfiIdentityId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCredentialsForIdentity' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ getCredentialsForIdentity
     :: Text -- ^ 'gcfiIdentityId'
     -> GetCredentialsForIdentity
 getCredentialsForIdentity pIdentityId_ =
-    GetCredentialsForIdentity'
-    { _gcfiCustomRoleARN = Nothing
-    , _gcfiLogins = Nothing
-    , _gcfiIdentityId = pIdentityId_
-    }
+  GetCredentialsForIdentity'
+  { _gcfiCustomRoleARN = Nothing
+  , _gcfiLogins = Nothing
+  , _gcfiIdentityId = pIdentityId_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were received in the token from the identity provider. For example, a SAML-based identity provider. This parameter is optional for identity providers that do not support role customization.
 gcfiCustomRoleARN :: Lens' GetCredentialsForIdentity (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest GetCredentialsForIdentity where
                    (x .?> "Credentials") <*> (x .?> "IdentityId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetCredentialsForIdentity
+instance Hashable GetCredentialsForIdentity where
 
-instance NFData GetCredentialsForIdentity
+instance NFData GetCredentialsForIdentity where
 
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery GetCredentialsForIdentity where
 --
 -- /See:/ 'getCredentialsForIdentityResponse' smart constructor.
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
-    { _gcfirsCredentials    :: !(Maybe Credentials)
-    , _gcfirsIdentityId     :: !(Maybe Text)
-    , _gcfirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcfirsCredentials    :: {-# NOUNPACK #-}!(Maybe Credentials)
+  , _gcfirsIdentityId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcfirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCredentialsForIdentityResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ getCredentialsForIdentityResponse
     :: Int -- ^ 'gcfirsResponseStatus'
     -> GetCredentialsForIdentityResponse
 getCredentialsForIdentityResponse pResponseStatus_ =
-    GetCredentialsForIdentityResponse'
-    { _gcfirsCredentials = Nothing
-    , _gcfirsIdentityId = Nothing
-    , _gcfirsResponseStatus = pResponseStatus_
-    }
+  GetCredentialsForIdentityResponse'
+  { _gcfirsCredentials = Nothing
+  , _gcfirsIdentityId = Nothing
+  , _gcfirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Credentials for the provided identity ID.
 gcfirsCredentials :: Lens' GetCredentialsForIdentityResponse (Maybe Credentials)
@@ -173,3 +177,4 @@ gcfirsResponseStatus :: Lens' GetCredentialsForIdentityResponse Int
 gcfirsResponseStatus = lens _gcfirsResponseStatus (\ s a -> s{_gcfirsResponseStatus = a});
 
 instance NFData GetCredentialsForIdentityResponse
+         where

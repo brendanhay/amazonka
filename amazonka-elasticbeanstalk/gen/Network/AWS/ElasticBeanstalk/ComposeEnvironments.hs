@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ComposeEnvironments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.ElasticBeanstalk.ComposeEnvironments
     , edmEnvironments
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to create or update a group of environments.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'composeEnvironments' smart constructor.
 data ComposeEnvironments = ComposeEnvironments'
-    { _ceVersionLabels   :: !(Maybe [Text])
-    , _ceApplicationName :: !(Maybe Text)
-    , _ceGroupName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ceVersionLabels   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ceApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceGroupName       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComposeEnvironments' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data ComposeEnvironments = ComposeEnvironments'
 composeEnvironments
     :: ComposeEnvironments
 composeEnvironments =
-    ComposeEnvironments'
-    { _ceVersionLabels = Nothing
-    , _ceApplicationName = Nothing
-    , _ceGroupName = Nothing
-    }
+  ComposeEnvironments'
+  { _ceVersionLabels = Nothing
+  , _ceApplicationName = Nothing
+  , _ceGroupName = Nothing
+  }
+
 
 -- | A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
 ceVersionLabels :: Lens' ComposeEnvironments [Text]
@@ -95,9 +97,9 @@ instance AWSRequest ComposeEnvironments where
           = receiveXMLWrapper "ComposeEnvironmentsResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ComposeEnvironments
+instance Hashable ComposeEnvironments where
 
-instance NFData ComposeEnvironments
+instance NFData ComposeEnvironments where
 
 instance ToHeaders ComposeEnvironments where
         toHeaders = const mempty

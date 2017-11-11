@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeBackups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.OpsWorksCM.DescribeBackups
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeBackups' smart constructor.
 data DescribeBackups = DescribeBackups'
-    { _dServerName :: !(Maybe Text)
-    , _dBackupId   :: !(Maybe Text)
-    , _dNextToken  :: !(Maybe Text)
-    , _dMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dServerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dBackupId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBackups' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribeBackups = DescribeBackups'
 describeBackups
     :: DescribeBackups
 describeBackups =
-    DescribeBackups'
-    { _dServerName = Nothing
-    , _dBackupId = Nothing
-    , _dNextToken = Nothing
-    , _dMaxResults = Nothing
-    }
+  DescribeBackups'
+  { _dServerName = Nothing
+  , _dBackupId = Nothing
+  , _dNextToken = Nothing
+  , _dMaxResults = Nothing
+  }
+
 
 -- | Returns backups for the server with the specified ServerName.
 dServerName :: Lens' DescribeBackups (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest DescribeBackups where
                    (x .?> "Backups" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeBackups
+instance Hashable DescribeBackups where
 
-instance NFData DescribeBackups
+instance NFData DescribeBackups where
 
 instance ToHeaders DescribeBackups where
         toHeaders
@@ -138,10 +140,11 @@ instance ToQuery DescribeBackups where
 
 -- | /See:/ 'describeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
-    { _drsBackups        :: !(Maybe [Backup])
-    , _drsNextToken      :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsBackups        :: {-# NOUNPACK #-}!(Maybe [Backup])
+  , _drsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBackupsResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +159,12 @@ describeBackupsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeBackupsResponse
 describeBackupsResponse pResponseStatus_ =
-    DescribeBackupsResponse'
-    { _drsBackups = Nothing
-    , _drsNextToken = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeBackupsResponse'
+  { _drsBackups = Nothing
+  , _drsNextToken = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains the response to a @DescribeBackups@ request.
 drsBackups :: Lens' DescribeBackupsResponse [Backup]
@@ -174,4 +178,4 @@ drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 drsResponseStatus :: Lens' DescribeBackupsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeBackupsResponse
+instance NFData DescribeBackupsResponse where

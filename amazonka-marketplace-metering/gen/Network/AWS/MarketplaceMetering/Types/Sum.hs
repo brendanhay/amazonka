@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MarketplaceMetering.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data UsageRecordResultStatus
-    = CustomerNotSubscribed
-    | DuplicateRecord
-    | Success
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CustomerNotSubscribed
+  | DuplicateRecord
+  | Success
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UsageRecordResultStatus where
     parser = takeLowerText >>= \case

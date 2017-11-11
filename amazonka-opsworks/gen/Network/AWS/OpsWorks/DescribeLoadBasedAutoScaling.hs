@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     , dlbasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLoadBasedAutoScaling' smart constructor.
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
-    { _dlbasLayerIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbasLayerIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBasedAutoScaling' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
 describeLoadBasedAutoScaling
     :: DescribeLoadBasedAutoScaling
 describeLoadBasedAutoScaling =
-    DescribeLoadBasedAutoScaling'
-    { _dlbasLayerIds = mempty
-    }
+  DescribeLoadBasedAutoScaling' {_dlbasLayerIds = mempty}
+
 
 -- | An array of layer IDs.
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
@@ -80,9 +80,9 @@ instance AWSRequest DescribeLoadBasedAutoScaling
                       mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLoadBasedAutoScaling
+instance Hashable DescribeLoadBasedAutoScaling where
 
-instance NFData DescribeLoadBasedAutoScaling
+instance NFData DescribeLoadBasedAutoScaling where
 
 instance ToHeaders DescribeLoadBasedAutoScaling where
         toHeaders
@@ -111,9 +111,10 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 --
 -- /See:/ 'describeLoadBasedAutoScalingResponse' smart constructor.
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
-    { _dlbasrsLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
-    , _dlbasrsResponseStatus                     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbasrsLoadBasedAutoScalingConfigurations :: {-# NOUNPACK #-}!(Maybe [LoadBasedAutoScalingConfiguration])
+  , _dlbasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBasedAutoScalingResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +127,11 @@ describeLoadBasedAutoScalingResponse
     :: Int -- ^ 'dlbasrsResponseStatus'
     -> DescribeLoadBasedAutoScalingResponse
 describeLoadBasedAutoScalingResponse pResponseStatus_ =
-    DescribeLoadBasedAutoScalingResponse'
-    { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
-    , _dlbasrsResponseStatus = pResponseStatus_
-    }
+  DescribeLoadBasedAutoScalingResponse'
+  { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
+  , _dlbasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe each layer's configuration.
 dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
@@ -140,3 +142,4 @@ dlbasrsResponseStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
 dlbasrsResponseStatus = lens _dlbasrsResponseStatus (\ s a -> s{_dlbasrsResponseStatus = a});
 
 instance NFData DescribeLoadBasedAutoScalingResponse
+         where

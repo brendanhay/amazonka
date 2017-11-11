@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ListTagsForDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Route53Domains.ListTagsForDomain
     , ltfdrsTagList
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The ListTagsForDomainRequest includes the following elements.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'listTagsForDomain' smart constructor.
 newtype ListTagsForDomain = ListTagsForDomain'
-    { _ltfdDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfdDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForDomain' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ listTagsForDomain
     :: Text -- ^ 'ltfdDomainName'
     -> ListTagsForDomain
 listTagsForDomain pDomainName_ =
-    ListTagsForDomain'
-    { _ltfdDomainName = pDomainName_
-    }
+  ListTagsForDomain' {_ltfdDomainName = pDomainName_}
+
 
 -- | The domain for which you want to get a list of tags.
 ltfdDomainName :: Lens' ListTagsForDomain Text
@@ -81,9 +81,9 @@ instance AWSRequest ListTagsForDomain where
                  ListTagsForDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .?> "TagList" .!@ mempty))
 
-instance Hashable ListTagsForDomain
+instance Hashable ListTagsForDomain where
 
-instance NFData ListTagsForDomain
+instance NFData ListTagsForDomain where
 
 instance ToHeaders ListTagsForDomain where
         toHeaders
@@ -112,9 +112,10 @@ instance ToQuery ListTagsForDomain where
 --
 -- /See:/ 'listTagsForDomainResponse' smart constructor.
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-    { _ltfdrsResponseStatus :: !Int
-    , _ltfdrsTagList        :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ltfdrsTagList        :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForDomainResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ listTagsForDomainResponse
     :: Int -- ^ 'ltfdrsResponseStatus'
     -> ListTagsForDomainResponse
 listTagsForDomainResponse pResponseStatus_ =
-    ListTagsForDomainResponse'
-    { _ltfdrsResponseStatus = pResponseStatus_
-    , _ltfdrsTagList = mempty
-    }
+  ListTagsForDomainResponse'
+  {_ltfdrsResponseStatus = pResponseStatus_, _ltfdrsTagList = mempty}
+
 
 -- | -- | The response status code.
 ltfdrsResponseStatus :: Lens' ListTagsForDomainResponse Int
@@ -140,4 +140,4 @@ ltfdrsResponseStatus = lens _ltfdrsResponseStatus (\ s a -> s{_ltfdrsResponseSta
 ltfdrsTagList :: Lens' ListTagsForDomainResponse [Tag]
 ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a}) . _Coerce;
 
-instance NFData ListTagsForDomainResponse
+instance NFData ListTagsForDomainResponse where

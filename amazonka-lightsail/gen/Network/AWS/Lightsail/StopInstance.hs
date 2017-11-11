@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.StopInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.StopInstance
     , sirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopInstance' smart constructor.
 newtype StopInstance = StopInstance'
-    { _siInstanceName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siInstanceName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopInstance' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype StopInstance = StopInstance'
 stopInstance
     :: Text -- ^ 'siInstanceName'
     -> StopInstance
-stopInstance pInstanceName_ =
-    StopInstance'
-    { _siInstanceName = pInstanceName_
-    }
+stopInstance pInstanceName_ = StopInstance' {_siInstanceName = pInstanceName_}
+
 
 -- | The name of the instance (a virtual private server) to stop.
 siInstanceName :: Lens' StopInstance Text
@@ -76,9 +75,9 @@ instance AWSRequest StopInstance where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable StopInstance
+instance Hashable StopInstance where
 
-instance NFData StopInstance
+instance NFData StopInstance where
 
 instance ToHeaders StopInstance where
         toHeaders
@@ -103,9 +102,10 @@ instance ToQuery StopInstance where
 
 -- | /See:/ 'stopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
-    { _sirsOperations     :: !(Maybe [Operation])
-    , _sirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _sirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopInstanceResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +118,9 @@ stopInstanceResponse
     :: Int -- ^ 'sirsResponseStatus'
     -> StopInstanceResponse
 stopInstanceResponse pResponseStatus_ =
-    StopInstanceResponse'
-    { _sirsOperations = Nothing
-    , _sirsResponseStatus = pResponseStatus_
-    }
+  StopInstanceResponse'
+  {_sirsOperations = Nothing, _sirsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the request operation.
 sirsOperations :: Lens' StopInstanceResponse [Operation]
@@ -131,4 +130,4 @@ sirsOperations = lens _sirsOperations (\ s a -> s{_sirsOperations = a}) . _Defau
 sirsResponseStatus :: Lens' StopInstanceResponse Int
 sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a});
 
-instance NFData StopInstanceResponse
+instance NFData StopInstanceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListInstanceProfilesForRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     , lipfrrsInstanceProfiles
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfilesForRole' smart constructor.
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
-    { _lipfrMarker   :: !(Maybe Text)
-    , _lipfrMaxItems :: !(Maybe Nat)
-    , _lipfrRoleName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipfrMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lipfrMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lipfrRoleName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceProfilesForRole' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ listInstanceProfilesForRole
     :: Text -- ^ 'lipfrRoleName'
     -> ListInstanceProfilesForRole
 listInstanceProfilesForRole pRoleName_ =
-    ListInstanceProfilesForRole'
-    { _lipfrMarker = Nothing
-    , _lipfrMaxItems = Nothing
-    , _lipfrRoleName = pRoleName_
-    }
+  ListInstanceProfilesForRole'
+  { _lipfrMarker = Nothing
+  , _lipfrMaxItems = Nothing
+  , _lipfrRoleName = pRoleName_
+  }
+
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
@@ -113,9 +115,9 @@ instance AWSRequest ListInstanceProfilesForRole where
                      (x .@? "InstanceProfiles" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListInstanceProfilesForRole
+instance Hashable ListInstanceProfilesForRole where
 
-instance NFData ListInstanceProfilesForRole
+instance NFData ListInstanceProfilesForRole where
 
 instance ToHeaders ListInstanceProfilesForRole where
         toHeaders = const mempty
@@ -139,11 +141,12 @@ instance ToQuery ListInstanceProfilesForRole where
 --
 -- /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
-    { _lipfrrsMarker           :: !(Maybe Text)
-    , _lipfrrsIsTruncated      :: !(Maybe Bool)
-    , _lipfrrsResponseStatus   :: !Int
-    , _lipfrrsInstanceProfiles :: ![InstanceProfile]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipfrrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lipfrrsIsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lipfrrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _lipfrrsInstanceProfiles :: {-# NOUNPACK #-}![InstanceProfile]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceProfilesForRoleResponse' with the minimum fields required to make a request.
 --
@@ -160,12 +163,13 @@ listInstanceProfilesForRoleResponse
     :: Int -- ^ 'lipfrrsResponseStatus'
     -> ListInstanceProfilesForRoleResponse
 listInstanceProfilesForRoleResponse pResponseStatus_ =
-    ListInstanceProfilesForRoleResponse'
-    { _lipfrrsMarker = Nothing
-    , _lipfrrsIsTruncated = Nothing
-    , _lipfrrsResponseStatus = pResponseStatus_
-    , _lipfrrsInstanceProfiles = mempty
-    }
+  ListInstanceProfilesForRoleResponse'
+  { _lipfrrsMarker = Nothing
+  , _lipfrrsIsTruncated = Nothing
+  , _lipfrrsResponseStatus = pResponseStatus_
+  , _lipfrrsInstanceProfiles = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lipfrrsMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
@@ -184,3 +188,4 @@ lipfrrsInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstancePr
 lipfrrsInstanceProfiles = lens _lipfrrsInstanceProfiles (\ s a -> s{_lipfrrsInstanceProfiles = a}) . _Coerce;
 
 instance NFData ListInstanceProfilesForRoleResponse
+         where

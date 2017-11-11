@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeGameSessions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -73,12 +73,12 @@ module Network.AWS.GameLift.DescribeGameSessions
     , dgsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -86,13 +86,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeGameSessions' smart constructor.
 data DescribeGameSessions = DescribeGameSessions'
-    { _dgsGameSessionId :: !(Maybe Text)
-    , _dgsAliasId       :: !(Maybe Text)
-    , _dgsNextToken     :: !(Maybe Text)
-    , _dgsStatusFilter  :: !(Maybe Text)
-    , _dgsLimit         :: !(Maybe Nat)
-    , _dgsFleetId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgsGameSessionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgsAliasId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgsNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgsStatusFilter  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgsLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dgsFleetId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGameSessions' with the minimum fields required to make a request.
 --
@@ -112,14 +113,15 @@ data DescribeGameSessions = DescribeGameSessions'
 describeGameSessions
     :: DescribeGameSessions
 describeGameSessions =
-    DescribeGameSessions'
-    { _dgsGameSessionId = Nothing
-    , _dgsAliasId = Nothing
-    , _dgsNextToken = Nothing
-    , _dgsStatusFilter = Nothing
-    , _dgsLimit = Nothing
-    , _dgsFleetId = Nothing
-    }
+  DescribeGameSessions'
+  { _dgsGameSessionId = Nothing
+  , _dgsAliasId = Nothing
+  , _dgsNextToken = Nothing
+  , _dgsStatusFilter = Nothing
+  , _dgsLimit = Nothing
+  , _dgsFleetId = Nothing
+  }
+
 
 -- | Unique identifier for the game session to retrieve. You can use either a @GameSessionId@ or @GameSessionArn@ value.
 dgsGameSessionId :: Lens' DescribeGameSessions (Maybe Text)
@@ -157,9 +159,9 @@ instance AWSRequest DescribeGameSessions where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeGameSessions
+instance Hashable DescribeGameSessions where
 
-instance NFData DescribeGameSessions
+instance NFData DescribeGameSessions where
 
 instance ToHeaders DescribeGameSessions where
         toHeaders
@@ -193,10 +195,11 @@ instance ToQuery DescribeGameSessions where
 --
 -- /See:/ 'describeGameSessionsResponse' smart constructor.
 data DescribeGameSessionsResponse = DescribeGameSessionsResponse'
-    { _dgsrsGameSessions   :: !(Maybe [GameSession])
-    , _dgsrsNextToken      :: !(Maybe Text)
-    , _dgsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgsrsGameSessions   :: {-# NOUNPACK #-}!(Maybe [GameSession])
+  , _dgsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGameSessionsResponse' with the minimum fields required to make a request.
 --
@@ -211,11 +214,12 @@ describeGameSessionsResponse
     :: Int -- ^ 'dgsrsResponseStatus'
     -> DescribeGameSessionsResponse
 describeGameSessionsResponse pResponseStatus_ =
-    DescribeGameSessionsResponse'
-    { _dgsrsGameSessions = Nothing
-    , _dgsrsNextToken = Nothing
-    , _dgsrsResponseStatus = pResponseStatus_
-    }
+  DescribeGameSessionsResponse'
+  { _dgsrsGameSessions = Nothing
+  , _dgsrsNextToken = Nothing
+  , _dgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Collection of objects containing game session properties for each session matching the request.
 dgsrsGameSessions :: Lens' DescribeGameSessionsResponse [GameSession]
@@ -229,4 +233,4 @@ dgsrsNextToken = lens _dgsrsNextToken (\ s a -> s{_dgsrsNextToken = a});
 dgsrsResponseStatus :: Lens' DescribeGameSessionsResponse Int
 dgsrsResponseStatus = lens _dgsrsResponseStatus (\ s a -> s{_dgsrsResponseStatus = a});
 
-instance NFData DescribeGameSessionsResponse
+instance NFData DescribeGameSessionsResponse where

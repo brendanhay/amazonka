@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateRealtimeEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     , crersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createRealtimeEndpoint' smart constructor.
 newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
-    { _creMLModelId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _creMLModelId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRealtimeEndpoint' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ createRealtimeEndpoint
     :: Text -- ^ 'creMLModelId'
     -> CreateRealtimeEndpoint
 createRealtimeEndpoint pMLModelId_ =
-    CreateRealtimeEndpoint'
-    { _creMLModelId = pMLModelId_
-    }
+  CreateRealtimeEndpoint' {_creMLModelId = pMLModelId_}
+
 
 -- | The ID assigned to the @MLModel@ during creation.
 creMLModelId :: Lens' CreateRealtimeEndpoint Text
@@ -79,9 +79,9 @@ instance AWSRequest CreateRealtimeEndpoint where
                      (x .?> "MLModelId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateRealtimeEndpoint
+instance Hashable CreateRealtimeEndpoint where
 
-instance NFData CreateRealtimeEndpoint
+instance NFData CreateRealtimeEndpoint where
 
 instance ToHeaders CreateRealtimeEndpoint where
         toHeaders
@@ -112,10 +112,11 @@ instance ToQuery CreateRealtimeEndpoint where
 --
 -- /See:/ 'createRealtimeEndpointResponse' smart constructor.
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
-    { _crersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
-    , _crersMLModelId            :: !(Maybe Text)
-    , _crersResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crersRealtimeEndpointInfo :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointInfo)
+  , _crersMLModelId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crersResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRealtimeEndpointResponse' with the minimum fields required to make a request.
 --
@@ -130,11 +131,12 @@ createRealtimeEndpointResponse
     :: Int -- ^ 'crersResponseStatus'
     -> CreateRealtimeEndpointResponse
 createRealtimeEndpointResponse pResponseStatus_ =
-    CreateRealtimeEndpointResponse'
-    { _crersRealtimeEndpointInfo = Nothing
-    , _crersMLModelId = Nothing
-    , _crersResponseStatus = pResponseStatus_
-    }
+  CreateRealtimeEndpointResponse'
+  { _crersRealtimeEndpointInfo = Nothing
+  , _crersMLModelId = Nothing
+  , _crersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The endpoint information of the @MLModel@
 crersRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
@@ -148,4 +150,4 @@ crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
 crersResponseStatus :: Lens' CreateRealtimeEndpointResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
 
-instance NFData CreateRealtimeEndpointResponse
+instance NFData CreateRealtimeEndpointResponse where

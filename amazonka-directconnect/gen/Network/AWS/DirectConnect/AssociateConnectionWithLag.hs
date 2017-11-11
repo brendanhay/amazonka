@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AssociateConnectionWithLag
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.DirectConnect.AssociateConnectionWithLag
     , cConnectionState
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the AssociateConnectionWithLag operation.
 --
@@ -65,9 +65,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'associateConnectionWithLag' smart constructor.
 data AssociateConnectionWithLag = AssociateConnectionWithLag'
-    { _acwlConnectionId :: !Text
-    , _acwlLagId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acwlConnectionId :: {-# NOUNPACK #-}!Text
+  , _acwlLagId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateConnectionWithLag' with the minimum fields required to make a request.
 --
@@ -81,10 +82,9 @@ associateConnectionWithLag
     -> Text -- ^ 'acwlLagId'
     -> AssociateConnectionWithLag
 associateConnectionWithLag pConnectionId_ pLagId_ =
-    AssociateConnectionWithLag'
-    { _acwlConnectionId = pConnectionId_
-    , _acwlLagId = pLagId_
-    }
+  AssociateConnectionWithLag'
+  {_acwlConnectionId = pConnectionId_, _acwlLagId = pLagId_}
+
 
 -- | The ID of the connection. Example: dxcon-abc123 Default: None
 acwlConnectionId :: Lens' AssociateConnectionWithLag Text
@@ -99,9 +99,9 @@ instance AWSRequest AssociateConnectionWithLag where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable AssociateConnectionWithLag
+instance Hashable AssociateConnectionWithLag where
 
-instance NFData AssociateConnectionWithLag
+instance NFData AssociateConnectionWithLag where
 
 instance ToHeaders AssociateConnectionWithLag where
         toHeaders

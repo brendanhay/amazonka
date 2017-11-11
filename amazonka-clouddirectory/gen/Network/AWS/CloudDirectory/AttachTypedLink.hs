@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachTypedLink
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.CloudDirectory.AttachTypedLink
     , atlrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachTypedLink' smart constructor.
 data AttachTypedLink = AttachTypedLink'
-    { _atlDirectoryARN          :: !Text
-    , _atlSourceObjectReference :: !ObjectReference
-    , _atlTargetObjectReference :: !ObjectReference
-    , _atlTypedLinkFacet        :: !TypedLinkSchemaAndFacetName
-    , _atlAttributes            :: ![AttributeNameAndValue]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atlDirectoryARN          :: {-# NOUNPACK #-}!Text
+  , _atlSourceObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  , _atlTargetObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  , _atlTypedLinkFacet        :: {-# NOUNPACK #-}!TypedLinkSchemaAndFacetName
+  , _atlAttributes            :: {-# NOUNPACK #-}![AttributeNameAndValue]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachTypedLink' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ attachTypedLink
     -> TypedLinkSchemaAndFacetName -- ^ 'atlTypedLinkFacet'
     -> AttachTypedLink
 attachTypedLink pDirectoryARN_ pSourceObjectReference_ pTargetObjectReference_ pTypedLinkFacet_ =
-    AttachTypedLink'
-    { _atlDirectoryARN = pDirectoryARN_
-    , _atlSourceObjectReference = pSourceObjectReference_
-    , _atlTargetObjectReference = pTargetObjectReference_
-    , _atlTypedLinkFacet = pTypedLinkFacet_
-    , _atlAttributes = mempty
-    }
+  AttachTypedLink'
+  { _atlDirectoryARN = pDirectoryARN_
+  , _atlSourceObjectReference = pSourceObjectReference_
+  , _atlTargetObjectReference = pTargetObjectReference_
+  , _atlTypedLinkFacet = pTypedLinkFacet_
+  , _atlAttributes = mempty
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.
 atlDirectoryARN :: Lens' AttachTypedLink Text
@@ -114,9 +116,9 @@ instance AWSRequest AttachTypedLink where
                  AttachTypedLinkResponse' <$>
                    (x .?> "TypedLinkSpecifier") <*> (pure (fromEnum s)))
 
-instance Hashable AttachTypedLink
+instance Hashable AttachTypedLink where
 
-instance NFData AttachTypedLink
+instance NFData AttachTypedLink where
 
 instance ToHeaders AttachTypedLink where
         toHeaders AttachTypedLink'{..}
@@ -146,9 +148,10 @@ instance ToQuery AttachTypedLink where
 
 -- | /See:/ 'attachTypedLinkResponse' smart constructor.
 data AttachTypedLinkResponse = AttachTypedLinkResponse'
-    { _atlrsTypedLinkSpecifier :: !(Maybe TypedLinkSpecifier)
-    , _atlrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atlrsTypedLinkSpecifier :: {-# NOUNPACK #-}!(Maybe TypedLinkSpecifier)
+  , _atlrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachTypedLinkResponse' with the minimum fields required to make a request.
 --
@@ -161,10 +164,9 @@ attachTypedLinkResponse
     :: Int -- ^ 'atlrsResponseStatus'
     -> AttachTypedLinkResponse
 attachTypedLinkResponse pResponseStatus_ =
-    AttachTypedLinkResponse'
-    { _atlrsTypedLinkSpecifier = Nothing
-    , _atlrsResponseStatus = pResponseStatus_
-    }
+  AttachTypedLinkResponse'
+  {_atlrsTypedLinkSpecifier = Nothing, _atlrsResponseStatus = pResponseStatus_}
+
 
 -- | Returns a typed link specifier as output.
 atlrsTypedLinkSpecifier :: Lens' AttachTypedLinkResponse (Maybe TypedLinkSpecifier)
@@ -174,4 +176,4 @@ atlrsTypedLinkSpecifier = lens _atlrsTypedLinkSpecifier (\ s a -> s{_atlrsTypedL
 atlrsResponseStatus :: Lens' AttachTypedLinkResponse Int
 atlrsResponseStatus = lens _atlrsResponseStatus (\ s a -> s{_atlrsResponseStatus = a});
 
-instance NFData AttachTypedLinkResponse
+instance NFData AttachTypedLinkResponse where

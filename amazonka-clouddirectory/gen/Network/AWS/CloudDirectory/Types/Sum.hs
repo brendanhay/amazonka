@@ -9,31 +9,32 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudDirectory.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data BatchReadExceptionType
-    = AccessDeniedException
-    | CannotListParentOfRootException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidARNException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | NotIndexException
-    | NotNodeException
-    | NotPolicyException
-    | ResourceNotFoundException
-    | ValidationException
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AccessDeniedException
+  | CannotListParentOfRootException
+  | DirectoryNotEnabledException
+  | FacetValidationException
+  | InternalServiceException
+  | InvalidARNException
+  | InvalidNextTokenException
+  | LimitExceededException
+  | NotIndexException
+  | NotNodeException
+  | NotPolicyException
+  | ResourceNotFoundException
+  | ValidationException
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BatchReadExceptionType where
     parser = takeLowerText >>= \case
@@ -79,9 +80,10 @@ instance FromJSON BatchReadExceptionType where
     parseJSON = parseJSONText "BatchReadExceptionType"
 
 data ConsistencyLevel
-    = Eventual
-    | Serializable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Eventual
+  | Serializable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConsistencyLevel where
     parser = takeLowerText >>= \case
@@ -105,10 +107,11 @@ instance ToJSON ConsistencyLevel where
     toJSON = toJSONText
 
 data DirectoryState
-    = Deleted
-    | Disabled
-    | Enabled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Deleted
+  | Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DirectoryState where
     parser = takeLowerText >>= \case
@@ -137,12 +140,13 @@ instance FromJSON DirectoryState where
     parseJSON = parseJSONText "DirectoryState"
 
 data FacetAttributeType
-    = Binary
-    | Boolean
-    | Datetime
-    | Number
-    | String
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Binary
+  | Boolean
+  | Datetime
+  | Number
+  | String
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FacetAttributeType where
     parser = takeLowerText >>= \case
@@ -175,11 +179,12 @@ instance FromJSON FacetAttributeType where
     parseJSON = parseJSONText "FacetAttributeType"
 
 data ObjectType
-    = Index
-    | LeafNode
-    | Node
-    | Policy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Index
+  | LeafNode
+  | Node
+  | Policy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ObjectType where
     parser = takeLowerText >>= \case
@@ -210,12 +215,13 @@ instance FromJSON ObjectType where
     parseJSON = parseJSONText "ObjectType"
 
 data RangeMode
-    = Exclusive
-    | First
-    | Inclusive
-    | Last
-    | LastBeforeMissingValues
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Exclusive
+  | First
+  | Inclusive
+  | Last
+  | LastBeforeMissingValues
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RangeMode where
     parser = takeLowerText >>= \case
@@ -245,9 +251,10 @@ instance ToJSON RangeMode where
     toJSON = toJSONText
 
 data RequiredAttributeBehavior
-    = NotRequired
-    | RequiredAlways
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NotRequired
+  | RequiredAlways
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RequiredAttributeBehavior where
     parser = takeLowerText >>= \case
@@ -274,11 +281,12 @@ instance FromJSON RequiredAttributeBehavior where
     parseJSON = parseJSONText "RequiredAttributeBehavior"
 
 data RuleType
-    = BinaryLength
-    | NumberComparison
-    | StringFromSet
-    | StringLength
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BinaryLength
+  | NumberComparison
+  | StringFromSet
+  | StringLength
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RuleType where
     parser = takeLowerText >>= \case
@@ -309,9 +317,10 @@ instance FromJSON RuleType where
     parseJSON = parseJSONText "RuleType"
 
 data UpdateActionType
-    = CreateOrUpdate
-    | Delete
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreateOrUpdate
+  | Delete
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UpdateActionType where
     parser = takeLowerText >>= \case

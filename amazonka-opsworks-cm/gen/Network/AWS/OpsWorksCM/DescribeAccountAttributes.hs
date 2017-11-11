@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeAccountAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,23 +37,25 @@ module Network.AWS.OpsWorksCM.DescribeAccountAttributes
     , daarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes =
-    DescribeAccountAttributes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeAccountAttributes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
 --
 describeAccountAttributes
     :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes'
+
 
 instance AWSRequest DescribeAccountAttributes where
         type Rs DescribeAccountAttributes =
@@ -66,9 +68,9 @@ instance AWSRequest DescribeAccountAttributes where
                    (x .?> "Attributes" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeAccountAttributes
+instance Hashable DescribeAccountAttributes where
 
-instance NFData DescribeAccountAttributes
+instance NFData DescribeAccountAttributes where
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders
@@ -91,9 +93,10 @@ instance ToQuery DescribeAccountAttributes where
 
 -- | /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarsAttributes     :: !(Maybe [AccountAttribute])
-    , _daarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daarsAttributes     :: {-# NOUNPACK #-}!(Maybe [AccountAttribute])
+  , _daarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
 --
@@ -106,10 +109,9 @@ describeAccountAttributesResponse
     :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pResponseStatus_ =
-    DescribeAccountAttributesResponse'
-    { _daarsAttributes = Nothing
-    , _daarsResponseStatus = pResponseStatus_
-    }
+  DescribeAccountAttributesResponse'
+  {_daarsAttributes = Nothing, _daarsResponseStatus = pResponseStatus_}
+
 
 -- | The attributes that are currently set for the account.
 daarsAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
@@ -120,3 +122,4 @@ daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 
 instance NFData DescribeAccountAttributesResponse
+         where

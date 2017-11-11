@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListStreamingDistributions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,13 +40,13 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     , lsdrsStreamingDistributionList
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list your streaming distributions.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listStreamingDistributions' smart constructor.
 data ListStreamingDistributions = ListStreamingDistributions'
-    { _lsdMarker   :: !(Maybe Text)
-    , _lsdMaxItems :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsdMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsdMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStreamingDistributions' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ data ListStreamingDistributions = ListStreamingDistributions'
 listStreamingDistributions
     :: ListStreamingDistributions
 listStreamingDistributions =
-    ListStreamingDistributions'
-    { _lsdMarker = Nothing
-    , _lsdMaxItems = Nothing
-    }
+  ListStreamingDistributions' {_lsdMarker = Nothing, _lsdMaxItems = Nothing}
+
 
 -- | The value that you provided for the @Marker@ request parameter.
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
@@ -109,9 +108,9 @@ instance AWSRequest ListStreamingDistributions where
                  ListStreamingDistributionsResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
-instance Hashable ListStreamingDistributions
+instance Hashable ListStreamingDistributions where
 
-instance NFData ListStreamingDistributions
+instance NFData ListStreamingDistributions where
 
 instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
@@ -130,9 +129,10 @@ instance ToQuery ListStreamingDistributions where
 --
 -- /See:/ 'listStreamingDistributionsResponse' smart constructor.
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
-    { _lsdrsResponseStatus            :: !Int
-    , _lsdrsStreamingDistributionList :: !StreamingDistributionList
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lsdrsStreamingDistributionList :: {-# NOUNPACK #-}!StreamingDistributionList
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStreamingDistributionsResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +146,11 @@ listStreamingDistributionsResponse
     -> StreamingDistributionList -- ^ 'lsdrsStreamingDistributionList'
     -> ListStreamingDistributionsResponse
 listStreamingDistributionsResponse pResponseStatus_ pStreamingDistributionList_ =
-    ListStreamingDistributionsResponse'
-    { _lsdrsResponseStatus = pResponseStatus_
-    , _lsdrsStreamingDistributionList = pStreamingDistributionList_
-    }
+  ListStreamingDistributionsResponse'
+  { _lsdrsResponseStatus = pResponseStatus_
+  , _lsdrsStreamingDistributionList = pStreamingDistributionList_
+  }
+
 
 -- | -- | The response status code.
 lsdrsResponseStatus :: Lens' ListStreamingDistributionsResponse Int
@@ -160,3 +161,4 @@ lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse Strea
 lsdrsStreamingDistributionList = lens _lsdrsStreamingDistributionList (\ s a -> s{_lsdrsStreamingDistributionList = a});
 
 instance NFData ListStreamingDistributionsResponse
+         where

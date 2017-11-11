@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.EnableSSO
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.DirectoryService.EnableSSO
     , esrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'EnableSso' operation.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableSSO' smart constructor.
 data EnableSSO = EnableSSO'
-    { _esUserName    :: !(Maybe Text)
-    , _esPassword    :: !(Maybe (Sensitive Text))
-    , _esDirectoryId :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _esUserName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esPassword    :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _esDirectoryId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableSSO' with the minimum fields required to make a request.
 --
@@ -69,11 +70,9 @@ enableSSO
     :: Text -- ^ 'esDirectoryId'
     -> EnableSSO
 enableSSO pDirectoryId_ =
-    EnableSSO'
-    { _esUserName = Nothing
-    , _esPassword = Nothing
-    , _esDirectoryId = pDirectoryId_
-    }
+  EnableSSO'
+  {_esUserName = Nothing, _esPassword = Nothing, _esDirectoryId = pDirectoryId_}
+
 
 -- | The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name. If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 esUserName :: Lens' EnableSSO (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest EnableSSO where
               (\ s h x ->
                  EnableSSOResponse' <$> (pure (fromEnum s)))
 
-instance Hashable EnableSSO
+instance Hashable EnableSSO where
 
-instance NFData EnableSSO
+instance NFData EnableSSO where
 
 instance ToHeaders EnableSSO where
         toHeaders
@@ -129,8 +128,9 @@ instance ToQuery EnableSSO where
 --
 -- /See:/ 'enableSSOResponse' smart constructor.
 newtype EnableSSOResponse = EnableSSOResponse'
-    { _esrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableSSOResponse' with the minimum fields required to make a request.
 --
@@ -141,12 +141,11 @@ enableSSOResponse
     :: Int -- ^ 'esrsResponseStatus'
     -> EnableSSOResponse
 enableSSOResponse pResponseStatus_ =
-    EnableSSOResponse'
-    { _esrsResponseStatus = pResponseStatus_
-    }
+  EnableSSOResponse' {_esrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 esrsResponseStatus :: Lens' EnableSSOResponse Int
 esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
 
-instance NFData EnableSSOResponse
+instance NFData EnableSSOResponse where

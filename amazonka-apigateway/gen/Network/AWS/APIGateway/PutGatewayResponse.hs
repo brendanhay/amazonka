@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutGatewayResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.APIGateway.PutGatewayResponse
     , gResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Creates a customization of a 'GatewayResponse' of a specified response type and status code on the given 'RestApi' .
 --
@@ -57,12 +57,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putGatewayResponse' smart constructor.
 data PutGatewayResponse = PutGatewayResponse'
-    { _pgResponseTemplates  :: !(Maybe (Map Text Text))
-    , _pgStatusCode         :: !(Maybe Text)
-    , _pgResponseParameters :: !(Maybe (Map Text Text))
-    , _pgRestAPIId          :: !Text
-    , _pgResponseType       :: !GatewayResponseType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pgResponseTemplates  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _pgStatusCode         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pgResponseParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _pgRestAPIId          :: {-# NOUNPACK #-}!Text
+  , _pgResponseType       :: {-# NOUNPACK #-}!GatewayResponseType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutGatewayResponse' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ putGatewayResponse
     -> GatewayResponseType -- ^ 'pgResponseType'
     -> PutGatewayResponse
 putGatewayResponse pRestAPIId_ pResponseType_ =
-    PutGatewayResponse'
-    { _pgResponseTemplates = Nothing
-    , _pgStatusCode = Nothing
-    , _pgResponseParameters = Nothing
-    , _pgRestAPIId = pRestAPIId_
-    , _pgResponseType = pResponseType_
-    }
+  PutGatewayResponse'
+  { _pgResponseTemplates = Nothing
+  , _pgStatusCode = Nothing
+  , _pgResponseParameters = Nothing
+  , _pgRestAPIId = pRestAPIId_
+  , _pgResponseType = pResponseType_
+  }
+
 
 -- | Response templates of the 'GatewayResponse' as a string-to-string map of key-value pairs.
 pgResponseTemplates :: Lens' PutGatewayResponse (HashMap Text Text)
@@ -115,9 +117,9 @@ instance AWSRequest PutGatewayResponse where
         request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable PutGatewayResponse
+instance Hashable PutGatewayResponse where
 
-instance NFData PutGatewayResponse
+instance NFData PutGatewayResponse where
 
 instance ToHeaders PutGatewayResponse where
         toHeaders

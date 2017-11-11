@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RevokeDBSecurityGroupIngress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     , rdsgirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,12 +54,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'revokeDBSecurityGroupIngress' smart constructor.
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
-    { _rdsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _rdsgiEC2SecurityGroupName    :: !(Maybe Text)
-    , _rdsgiCIdRIP                  :: !(Maybe Text)
-    , _rdsgiEC2SecurityGroupId      :: !(Maybe Text)
-    , _rdsgiDBSecurityGroupName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdsgiEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdsgiEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdsgiCIdRIP                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdsgiEC2SecurityGroupId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdsgiDBSecurityGroupName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeDBSecurityGroupIngress' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ revokeDBSecurityGroupIngress
     :: Text -- ^ 'rdsgiDBSecurityGroupName'
     -> RevokeDBSecurityGroupIngress
 revokeDBSecurityGroupIngress pDBSecurityGroupName_ =
-    RevokeDBSecurityGroupIngress'
-    { _rdsgiEC2SecurityGroupOwnerId = Nothing
-    , _rdsgiEC2SecurityGroupName = Nothing
-    , _rdsgiCIdRIP = Nothing
-    , _rdsgiEC2SecurityGroupId = Nothing
-    , _rdsgiDBSecurityGroupName = pDBSecurityGroupName_
-    }
+  RevokeDBSecurityGroupIngress'
+  { _rdsgiEC2SecurityGroupOwnerId = Nothing
+  , _rdsgiEC2SecurityGroupName = Nothing
+  , _rdsgiCIdRIP = Nothing
+  , _rdsgiEC2SecurityGroupId = Nothing
+  , _rdsgiDBSecurityGroupName = pDBSecurityGroupName_
+  }
+
 
 -- | The AWS Account Number of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ parameter. The AWS Access Key ID is not an acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
 rdsgiEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest RevokeDBSecurityGroupIngress
                  RevokeDBSecurityGroupIngressResponse' <$>
                    (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
-instance Hashable RevokeDBSecurityGroupIngress
+instance Hashable RevokeDBSecurityGroupIngress where
 
-instance NFData RevokeDBSecurityGroupIngress
+instance NFData RevokeDBSecurityGroupIngress where
 
 instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty
@@ -143,9 +145,10 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 
 -- | /See:/ 'revokeDBSecurityGroupIngressResponse' smart constructor.
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
-    { _rdsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _rdsgirsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdsgirsDBSecurityGroup :: {-# NOUNPACK #-}!(Maybe DBSecurityGroup)
+  , _rdsgirsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeDBSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
@@ -158,10 +161,9 @@ revokeDBSecurityGroupIngressResponse
     :: Int -- ^ 'rdsgirsResponseStatus'
     -> RevokeDBSecurityGroupIngressResponse
 revokeDBSecurityGroupIngressResponse pResponseStatus_ =
-    RevokeDBSecurityGroupIngressResponse'
-    { _rdsgirsDBSecurityGroup = Nothing
-    , _rdsgirsResponseStatus = pResponseStatus_
-    }
+  RevokeDBSecurityGroupIngressResponse'
+  {_rdsgirsDBSecurityGroup = Nothing, _rdsgirsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rdsgirsDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
@@ -172,3 +174,4 @@ rdsgirsResponseStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
 rdsgirsResponseStatus = lens _rdsgirsResponseStatus (\ s a -> s{_rdsgirsResponseStatus = a});
 
 instance NFData RevokeDBSecurityGroupIngressResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DeleteBackup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.OpsWorksCM.DeleteBackup
     , dbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteBackup' smart constructor.
 newtype DeleteBackup = DeleteBackup'
-    { _dbBackupId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbBackupId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBackup' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteBackup = DeleteBackup'
 deleteBackup
     :: Text -- ^ 'dbBackupId'
     -> DeleteBackup
-deleteBackup pBackupId_ =
-    DeleteBackup'
-    { _dbBackupId = pBackupId_
-    }
+deleteBackup pBackupId_ = DeleteBackup' {_dbBackupId = pBackupId_}
+
 
 -- | The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs. Backup IDs are in the format @ServerName-yyyyMMddHHmmssSSS@ .
 dbBackupId :: Lens' DeleteBackup Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteBackup where
               (\ s h x ->
                  DeleteBackupResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteBackup
+instance Hashable DeleteBackup where
 
-instance NFData DeleteBackup
+instance NFData DeleteBackup where
 
 instance ToHeaders DeleteBackup where
         toHeaders
@@ -102,8 +101,9 @@ instance ToQuery DeleteBackup where
 
 -- | /See:/ 'deleteBackupResponse' smart constructor.
 newtype DeleteBackupResponse = DeleteBackupResponse'
-    { _dbrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBackupResponse' with the minimum fields required to make a request.
 --
@@ -114,12 +114,11 @@ deleteBackupResponse
     :: Int -- ^ 'dbrsResponseStatus'
     -> DeleteBackupResponse
 deleteBackupResponse pResponseStatus_ =
-    DeleteBackupResponse'
-    { _dbrsResponseStatus = pResponseStatus_
-    }
+  DeleteBackupResponse' {_dbrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dbrsResponseStatus :: Lens' DeleteBackupResponse Int
 dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
 
-instance NFData DeleteBackupResponse
+instance NFData DeleteBackupResponse where

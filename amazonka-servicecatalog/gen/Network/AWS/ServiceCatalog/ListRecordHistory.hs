@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListRecordHistory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.ServiceCatalog.ListRecordHistory
     , lrhrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listRecordHistory' smart constructor.
 data ListRecordHistory = ListRecordHistory'
-    { _lrhSearchFilter      :: !(Maybe ListRecordHistorySearchFilter)
-    , _lrhAcceptLanguage    :: !(Maybe Text)
-    , _lrhAccessLevelFilter :: !(Maybe AccessLevelFilter)
-    , _lrhPageToken         :: !(Maybe Text)
-    , _lrhPageSize          :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrhSearchFilter :: {-# NOUNPACK #-}!(Maybe ListRecordHistorySearchFilter)
+  , _lrhAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrhAccessLevelFilter :: {-# NOUNPACK #-}!(Maybe AccessLevelFilter)
+  , _lrhPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrhPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRecordHistory' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ data ListRecordHistory = ListRecordHistory'
 listRecordHistory
     :: ListRecordHistory
 listRecordHistory =
-    ListRecordHistory'
-    { _lrhSearchFilter = Nothing
-    , _lrhAcceptLanguage = Nothing
-    , _lrhAccessLevelFilter = Nothing
-    , _lrhPageToken = Nothing
-    , _lrhPageSize = Nothing
-    }
+  ListRecordHistory'
+  { _lrhSearchFilter = Nothing
+  , _lrhAcceptLanguage = Nothing
+  , _lrhAccessLevelFilter = Nothing
+  , _lrhPageToken = Nothing
+  , _lrhPageSize = Nothing
+  }
+
 
 -- | The filter to limit search results.
 lrhSearchFilter :: Lens' ListRecordHistory (Maybe ListRecordHistorySearchFilter)
@@ -113,9 +115,9 @@ instance AWSRequest ListRecordHistory where
                      (x .?> "RecordDetails" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListRecordHistory
+instance Hashable ListRecordHistory where
 
-instance NFData ListRecordHistory
+instance NFData ListRecordHistory where
 
 instance ToHeaders ListRecordHistory where
         toHeaders
@@ -145,10 +147,11 @@ instance ToQuery ListRecordHistory where
 
 -- | /See:/ 'listRecordHistoryResponse' smart constructor.
 data ListRecordHistoryResponse = ListRecordHistoryResponse'
-    { _lrhrsNextPageToken  :: !(Maybe Text)
-    , _lrhrsRecordDetails  :: !(Maybe [RecordDetail])
-    , _lrhrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrhrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrhrsRecordDetails  :: {-# NOUNPACK #-}!(Maybe [RecordDetail])
+  , _lrhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRecordHistoryResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +166,12 @@ listRecordHistoryResponse
     :: Int -- ^ 'lrhrsResponseStatus'
     -> ListRecordHistoryResponse
 listRecordHistoryResponse pResponseStatus_ =
-    ListRecordHistoryResponse'
-    { _lrhrsNextPageToken = Nothing
-    , _lrhrsRecordDetails = Nothing
-    , _lrhrsResponseStatus = pResponseStatus_
-    }
+  ListRecordHistoryResponse'
+  { _lrhrsNextPageToken = Nothing
+  , _lrhrsRecordDetails = Nothing
+  , _lrhrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 lrhrsNextPageToken :: Lens' ListRecordHistoryResponse (Maybe Text)
@@ -181,4 +185,4 @@ lrhrsRecordDetails = lens _lrhrsRecordDetails (\ s a -> s{_lrhrsRecordDetails = 
 lrhrsResponseStatus :: Lens' ListRecordHistoryResponse Int
 lrhrsResponseStatus = lens _lrhrsResponseStatus (\ s a -> s{_lrhrsResponseStatus = a});
 
-instance NFData ListRecordHistoryResponse
+instance NFData ListRecordHistoryResponse where

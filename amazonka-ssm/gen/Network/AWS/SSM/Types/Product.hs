@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.SSM.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SSM.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.SSM.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.SSM.Types.Sum
 
 -- | An activation registers one or more on-premises servers or virtual machines (VMs) with AWS so that you can configure those servers or VMs using Run Command. A server or VM that has been registered with AWS is called a managed instance.
 --
@@ -27,16 +27,17 @@ import           Network.AWS.SSM.Types.Sum
 --
 -- /See:/ 'activation' smart constructor.
 data Activation = Activation'
-    { _aExpired             :: !(Maybe Bool)
-    , _aDefaultInstanceName :: !(Maybe Text)
-    , _aActivationId        :: !(Maybe Text)
-    , _aCreatedDate         :: !(Maybe POSIX)
-    , _aRegistrationLimit   :: !(Maybe Nat)
-    , _aExpirationDate      :: !(Maybe POSIX)
-    , _aDescription         :: !(Maybe Text)
-    , _aRegistrationsCount  :: !(Maybe Nat)
-    , _aIAMRole             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aExpired             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aDefaultInstanceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aActivationId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aCreatedDate         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aRegistrationLimit   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _aExpirationDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aRegistrationsCount  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _aIAMRole             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Activation' with the minimum fields required to make a request.
 --
@@ -62,17 +63,18 @@ data Activation = Activation'
 activation
     :: Activation
 activation =
-    Activation'
-    { _aExpired = Nothing
-    , _aDefaultInstanceName = Nothing
-    , _aActivationId = Nothing
-    , _aCreatedDate = Nothing
-    , _aRegistrationLimit = Nothing
-    , _aExpirationDate = Nothing
-    , _aDescription = Nothing
-    , _aRegistrationsCount = Nothing
-    , _aIAMRole = Nothing
-    }
+  Activation'
+  { _aExpired = Nothing
+  , _aDefaultInstanceName = Nothing
+  , _aActivationId = Nothing
+  , _aCreatedDate = Nothing
+  , _aRegistrationLimit = Nothing
+  , _aExpirationDate = Nothing
+  , _aDescription = Nothing
+  , _aRegistrationsCount = Nothing
+  , _aIAMRole = Nothing
+  }
+
 
 -- | Whether or not the activation is expired.
 aExpired :: Lens' Activation (Maybe Bool)
@@ -124,9 +126,9 @@ instance FromJSON Activation where
                      <*> (x .:? "RegistrationsCount")
                      <*> (x .:? "IamRole"))
 
-instance Hashable Activation
+instance Hashable Activation where
 
-instance NFData Activation
+instance NFData Activation where
 
 -- | Describes an association of a Systems Manager document and an instance.
 --
@@ -134,15 +136,16 @@ instance NFData Activation
 --
 -- /See:/ 'association' smart constructor.
 data Association = Association'
-    { _aAssociationId      :: !(Maybe Text)
-    , _aInstanceId         :: !(Maybe Text)
-    , _aOverview           :: !(Maybe AssociationOverview)
-    , _aLastExecutionDate  :: !(Maybe POSIX)
-    , _aScheduleExpression :: !(Maybe Text)
-    , _aName               :: !(Maybe Text)
-    , _aTargets            :: !(Maybe [Target])
-    , _aDocumentVersion    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aAssociationId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aInstanceId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aOverview           :: {-# NOUNPACK #-}!(Maybe AssociationOverview)
+  , _aLastExecutionDate  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aTargets            :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _aDocumentVersion    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Association' with the minimum fields required to make a request.
 --
@@ -166,16 +169,17 @@ data Association = Association'
 association
     :: Association
 association =
-    Association'
-    { _aAssociationId = Nothing
-    , _aInstanceId = Nothing
-    , _aOverview = Nothing
-    , _aLastExecutionDate = Nothing
-    , _aScheduleExpression = Nothing
-    , _aName = Nothing
-    , _aTargets = Nothing
-    , _aDocumentVersion = Nothing
-    }
+  Association'
+  { _aAssociationId = Nothing
+  , _aInstanceId = Nothing
+  , _aOverview = Nothing
+  , _aLastExecutionDate = Nothing
+  , _aScheduleExpression = Nothing
+  , _aName = Nothing
+  , _aTargets = Nothing
+  , _aDocumentVersion = Nothing
+  }
+
 
 -- | The ID created by the system when you create an association. An association is a binding between a document and a set of targets with a schedule.
 aAssociationId :: Lens' Association (Maybe Text)
@@ -222,9 +226,9 @@ instance FromJSON Association where
                      <*> (x .:? "Targets" .!= mempty)
                      <*> (x .:? "DocumentVersion"))
 
-instance Hashable Association
+instance Hashable Association where
 
-instance NFData Association
+instance NFData Association where
 
 -- | Describes the parameters for a document.
 --
@@ -232,21 +236,22 @@ instance NFData Association
 --
 -- /See:/ 'associationDescription' smart constructor.
 data AssociationDescription = AssociationDescription'
-    { _adAssociationId               :: !(Maybe Text)
-    , _adInstanceId                  :: !(Maybe Text)
-    , _adStatus                      :: !(Maybe AssociationStatus)
-    , _adLastSuccessfulExecutionDate :: !(Maybe POSIX)
-    , _adOverview                    :: !(Maybe AssociationOverview)
-    , _adLastUpdateAssociationDate   :: !(Maybe POSIX)
-    , _adDate                        :: !(Maybe POSIX)
-    , _adLastExecutionDate           :: !(Maybe POSIX)
-    , _adScheduleExpression          :: !(Maybe Text)
-    , _adName                        :: !(Maybe Text)
-    , _adOutputLocation              :: !(Maybe InstanceAssociationOutputLocation)
-    , _adTargets                     :: !(Maybe [Target])
-    , _adParameters                  :: !(Maybe (Map Text [Text]))
-    , _adDocumentVersion             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adStatus :: {-# NOUNPACK #-}!(Maybe AssociationStatus)
+  , _adLastSuccessfulExecutionDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _adOverview :: {-# NOUNPACK #-}!(Maybe AssociationOverview)
+  , _adLastUpdateAssociationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _adDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _adLastExecutionDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _adScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adOutputLocation :: {-# NOUNPACK #-}!(Maybe InstanceAssociationOutputLocation)
+  , _adTargets :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _adParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _adDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociationDescription' with the minimum fields required to make a request.
 --
@@ -282,22 +287,23 @@ data AssociationDescription = AssociationDescription'
 associationDescription
     :: AssociationDescription
 associationDescription =
-    AssociationDescription'
-    { _adAssociationId = Nothing
-    , _adInstanceId = Nothing
-    , _adStatus = Nothing
-    , _adLastSuccessfulExecutionDate = Nothing
-    , _adOverview = Nothing
-    , _adLastUpdateAssociationDate = Nothing
-    , _adDate = Nothing
-    , _adLastExecutionDate = Nothing
-    , _adScheduleExpression = Nothing
-    , _adName = Nothing
-    , _adOutputLocation = Nothing
-    , _adTargets = Nothing
-    , _adParameters = Nothing
-    , _adDocumentVersion = Nothing
-    }
+  AssociationDescription'
+  { _adAssociationId = Nothing
+  , _adInstanceId = Nothing
+  , _adStatus = Nothing
+  , _adLastSuccessfulExecutionDate = Nothing
+  , _adOverview = Nothing
+  , _adLastUpdateAssociationDate = Nothing
+  , _adDate = Nothing
+  , _adLastExecutionDate = Nothing
+  , _adScheduleExpression = Nothing
+  , _adName = Nothing
+  , _adOutputLocation = Nothing
+  , _adTargets = Nothing
+  , _adParameters = Nothing
+  , _adDocumentVersion = Nothing
+  }
+
 
 -- | The association ID.
 adAssociationId :: Lens' AssociationDescription (Maybe Text)
@@ -374,9 +380,9 @@ instance FromJSON AssociationDescription where
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "DocumentVersion"))
 
-instance Hashable AssociationDescription
+instance Hashable AssociationDescription where
 
-instance NFData AssociationDescription
+instance NFData AssociationDescription where
 
 -- | Describes a filter.
 --
@@ -384,9 +390,10 @@ instance NFData AssociationDescription
 --
 -- /See:/ 'associationFilter' smart constructor.
 data AssociationFilter = AssociationFilter'
-    { _afKey   :: !AssociationFilterKey
-    , _afValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _afKey   :: {-# NOUNPACK #-}!AssociationFilterKey
+  , _afValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociationFilter' with the minimum fields required to make a request.
 --
@@ -400,10 +407,8 @@ associationFilter
     -> Text -- ^ 'afValue'
     -> AssociationFilter
 associationFilter pKey_ pValue_ =
-    AssociationFilter'
-    { _afKey = pKey_
-    , _afValue = pValue_
-    }
+  AssociationFilter' {_afKey = pKey_, _afValue = pValue_}
+
 
 -- | The name of the filter.
 afKey :: Lens' AssociationFilter AssociationFilterKey
@@ -413,9 +418,9 @@ afKey = lens _afKey (\ s a -> s{_afKey = a});
 afValue :: Lens' AssociationFilter Text
 afValue = lens _afValue (\ s a -> s{_afValue = a});
 
-instance Hashable AssociationFilter
+instance Hashable AssociationFilter where
 
-instance NFData AssociationFilter
+instance NFData AssociationFilter where
 
 instance ToJSON AssociationFilter where
         toJSON AssociationFilter'{..}
@@ -429,10 +434,11 @@ instance ToJSON AssociationFilter where
 --
 -- /See:/ 'associationOverview' smart constructor.
 data AssociationOverview = AssociationOverview'
-    { _aoDetailedStatus                   :: !(Maybe Text)
-    , _aoStatus                           :: !(Maybe Text)
-    , _aoAssociationStatusAggregatedCount :: !(Maybe (Map Text Int))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aoDetailedStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aoStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aoAssociationStatusAggregatedCount :: {-# NOUNPACK #-}!(Maybe (Map Text Int))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociationOverview' with the minimum fields required to make a request.
 --
@@ -446,11 +452,12 @@ data AssociationOverview = AssociationOverview'
 associationOverview
     :: AssociationOverview
 associationOverview =
-    AssociationOverview'
-    { _aoDetailedStatus = Nothing
-    , _aoStatus = Nothing
-    , _aoAssociationStatusAggregatedCount = Nothing
-    }
+  AssociationOverview'
+  { _aoDetailedStatus = Nothing
+  , _aoStatus = Nothing
+  , _aoAssociationStatusAggregatedCount = Nothing
+  }
+
 
 -- | A detailed status of the association.
 aoDetailedStatus :: Lens' AssociationOverview (Maybe Text)
@@ -473,9 +480,9 @@ instance FromJSON AssociationOverview where
                      (x .:? "AssociationStatusAggregatedCount" .!=
                         mempty))
 
-instance Hashable AssociationOverview
+instance Hashable AssociationOverview where
 
-instance NFData AssociationOverview
+instance NFData AssociationOverview where
 
 -- | Describes an association status.
 --
@@ -483,11 +490,12 @@ instance NFData AssociationOverview
 --
 -- /See:/ 'associationStatus' smart constructor.
 data AssociationStatus = AssociationStatus'
-    { _asAdditionalInfo :: !(Maybe Text)
-    , _asDate           :: !POSIX
-    , _asName           :: !AssociationStatusName
-    , _asMessage        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asAdditionalInfo :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asDate           :: {-# NOUNPACK #-}!POSIX
+  , _asName           :: {-# NOUNPACK #-}!AssociationStatusName
+  , _asMessage        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociationStatus' with the minimum fields required to make a request.
 --
@@ -506,12 +514,13 @@ associationStatus
     -> Text -- ^ 'asMessage'
     -> AssociationStatus
 associationStatus pDate_ pName_ pMessage_ =
-    AssociationStatus'
-    { _asAdditionalInfo = Nothing
-    , _asDate = _Time # pDate_
-    , _asName = pName_
-    , _asMessage = pMessage_
-    }
+  AssociationStatus'
+  { _asAdditionalInfo = Nothing
+  , _asDate = _Time # pDate_
+  , _asName = pName_
+  , _asMessage = pMessage_
+  }
+
 
 -- | A user-defined string.
 asAdditionalInfo :: Lens' AssociationStatus (Maybe Text)
@@ -538,9 +547,9 @@ instance FromJSON AssociationStatus where
                      (x .: "Name")
                      <*> (x .: "Message"))
 
-instance Hashable AssociationStatus
+instance Hashable AssociationStatus where
 
-instance NFData AssociationStatus
+instance NFData AssociationStatus where
 
 instance ToJSON AssociationStatus where
         toJSON AssociationStatus'{..}
@@ -556,17 +565,18 @@ instance ToJSON AssociationStatus where
 --
 -- /See:/ 'automationExecution' smart constructor.
 data AutomationExecution = AutomationExecution'
-    { _aeDocumentName              :: !(Maybe Text)
-    , _aeExecutionEndTime          :: !(Maybe POSIX)
-    , _aeFailureMessage            :: !(Maybe Text)
-    , _aeAutomationExecutionStatus :: !(Maybe AutomationExecutionStatus)
-    , _aeOutputs                   :: !(Maybe (Map Text [Text]))
-    , _aeExecutionStartTime        :: !(Maybe POSIX)
-    , _aeParameters                :: !(Maybe (Map Text [Text]))
-    , _aeDocumentVersion           :: !(Maybe Text)
-    , _aeAutomationExecutionId     :: !(Maybe Text)
-    , _aeStepExecutions            :: !(Maybe [StepExecution])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aeDocumentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeExecutionEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aeFailureMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeAutomationExecutionStatus :: {-# NOUNPACK #-}!(Maybe AutomationExecutionStatus)
+  , _aeOutputs :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _aeExecutionStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aeParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _aeDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeAutomationExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeStepExecutions :: {-# NOUNPACK #-}!(Maybe [StepExecution])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutomationExecution' with the minimum fields required to make a request.
 --
@@ -594,18 +604,19 @@ data AutomationExecution = AutomationExecution'
 automationExecution
     :: AutomationExecution
 automationExecution =
-    AutomationExecution'
-    { _aeDocumentName = Nothing
-    , _aeExecutionEndTime = Nothing
-    , _aeFailureMessage = Nothing
-    , _aeAutomationExecutionStatus = Nothing
-    , _aeOutputs = Nothing
-    , _aeExecutionStartTime = Nothing
-    , _aeParameters = Nothing
-    , _aeDocumentVersion = Nothing
-    , _aeAutomationExecutionId = Nothing
-    , _aeStepExecutions = Nothing
-    }
+  AutomationExecution'
+  { _aeDocumentName = Nothing
+  , _aeExecutionEndTime = Nothing
+  , _aeFailureMessage = Nothing
+  , _aeAutomationExecutionStatus = Nothing
+  , _aeOutputs = Nothing
+  , _aeExecutionStartTime = Nothing
+  , _aeParameters = Nothing
+  , _aeDocumentVersion = Nothing
+  , _aeAutomationExecutionId = Nothing
+  , _aeStepExecutions = Nothing
+  }
+
 
 -- | The name of the Automation document used during the execution.
 aeDocumentName :: Lens' AutomationExecution (Maybe Text)
@@ -662,9 +673,9 @@ instance FromJSON AutomationExecution where
                      <*> (x .:? "AutomationExecutionId")
                      <*> (x .:? "StepExecutions" .!= mempty))
 
-instance Hashable AutomationExecution
+instance Hashable AutomationExecution where
 
-instance NFData AutomationExecution
+instance NFData AutomationExecution where
 
 -- | A filter used to match specific automation executions. This is used to limit the scope of Automation execution information returned.
 --
@@ -672,9 +683,10 @@ instance NFData AutomationExecution
 --
 -- /See:/ 'automationExecutionFilter' smart constructor.
 data AutomationExecutionFilter = AutomationExecutionFilter'
-    { _aefKey    :: !AutomationExecutionFilterKey
-    , _aefValues :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aefKey    :: {-# NOUNPACK #-}!AutomationExecutionFilterKey
+  , _aefValues :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutomationExecutionFilter' with the minimum fields required to make a request.
 --
@@ -688,10 +700,8 @@ automationExecutionFilter
     -> NonEmpty Text -- ^ 'aefValues'
     -> AutomationExecutionFilter
 automationExecutionFilter pKey_ pValues_ =
-    AutomationExecutionFilter'
-    { _aefKey = pKey_
-    , _aefValues = _List1 # pValues_
-    }
+  AutomationExecutionFilter' {_aefKey = pKey_, _aefValues = _List1 # pValues_}
+
 
 -- | The aspect of the Automation execution information that should be limited.
 aefKey :: Lens' AutomationExecutionFilter AutomationExecutionFilterKey
@@ -701,9 +711,9 @@ aefKey = lens _aefKey (\ s a -> s{_aefKey = a});
 aefValues :: Lens' AutomationExecutionFilter (NonEmpty Text)
 aefValues = lens _aefValues (\ s a -> s{_aefValues = a}) . _List1;
 
-instance Hashable AutomationExecutionFilter
+instance Hashable AutomationExecutionFilter where
 
-instance NFData AutomationExecutionFilter
+instance NFData AutomationExecutionFilter where
 
 instance ToJSON AutomationExecutionFilter where
         toJSON AutomationExecutionFilter'{..}
@@ -718,16 +728,17 @@ instance ToJSON AutomationExecutionFilter where
 --
 -- /See:/ 'automationExecutionMetadata' smart constructor.
 data AutomationExecutionMetadata = AutomationExecutionMetadata'
-    { _aemLogFile                   :: !(Maybe Text)
-    , _aemExecutedBy                :: !(Maybe Text)
-    , _aemDocumentName              :: !(Maybe Text)
-    , _aemExecutionEndTime          :: !(Maybe POSIX)
-    , _aemAutomationExecutionStatus :: !(Maybe AutomationExecutionStatus)
-    , _aemOutputs                   :: !(Maybe (Map Text [Text]))
-    , _aemExecutionStartTime        :: !(Maybe POSIX)
-    , _aemDocumentVersion           :: !(Maybe Text)
-    , _aemAutomationExecutionId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aemLogFile :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemExecutedBy :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemDocumentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemExecutionEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aemAutomationExecutionStatus :: {-# NOUNPACK #-}!(Maybe AutomationExecutionStatus)
+  , _aemOutputs :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _aemExecutionStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aemDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemAutomationExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutomationExecutionMetadata' with the minimum fields required to make a request.
 --
@@ -753,17 +764,18 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
 automationExecutionMetadata
     :: AutomationExecutionMetadata
 automationExecutionMetadata =
-    AutomationExecutionMetadata'
-    { _aemLogFile = Nothing
-    , _aemExecutedBy = Nothing
-    , _aemDocumentName = Nothing
-    , _aemExecutionEndTime = Nothing
-    , _aemAutomationExecutionStatus = Nothing
-    , _aemOutputs = Nothing
-    , _aemExecutionStartTime = Nothing
-    , _aemDocumentVersion = Nothing
-    , _aemAutomationExecutionId = Nothing
-    }
+  AutomationExecutionMetadata'
+  { _aemLogFile = Nothing
+  , _aemExecutedBy = Nothing
+  , _aemDocumentName = Nothing
+  , _aemExecutionEndTime = Nothing
+  , _aemAutomationExecutionStatus = Nothing
+  , _aemOutputs = Nothing
+  , _aemExecutionStartTime = Nothing
+  , _aemDocumentVersion = Nothing
+  , _aemAutomationExecutionId = Nothing
+  }
+
 
 -- | An Amazon S3 bucket where execution information is stored.
 aemLogFile :: Lens' AutomationExecutionMetadata (Maybe Text)
@@ -815,9 +827,9 @@ instance FromJSON AutomationExecutionMetadata where
                      <*> (x .:? "DocumentVersion")
                      <*> (x .:? "AutomationExecutionId"))
 
-instance Hashable AutomationExecutionMetadata
+instance Hashable AutomationExecutionMetadata where
 
-instance NFData AutomationExecutionMetadata
+instance NFData AutomationExecutionMetadata where
 
 -- | Describes a command request.
 --
@@ -825,27 +837,28 @@ instance NFData AutomationExecutionMetadata
 --
 -- /See:/ 'command' smart constructor.
 data Command = Command'
-    { _cStatus             :: !(Maybe CommandStatus)
-    , _cExpiresAfter       :: !(Maybe POSIX)
-    , _cNotificationConfig :: !(Maybe NotificationConfig)
-    , _cTargetCount        :: !(Maybe Int)
-    , _cOutputS3KeyPrefix  :: !(Maybe Text)
-    , _cDocumentName       :: !(Maybe Text)
-    , _cErrorCount         :: !(Maybe Int)
-    , _cStatusDetails      :: !(Maybe Text)
-    , _cMaxErrors          :: !(Maybe Text)
-    , _cInstanceIds        :: !(Maybe [Text])
-    , _cOutputS3Region     :: !(Maybe Text)
-    , _cTargets            :: !(Maybe [Target])
-    , _cCommandId          :: !(Maybe Text)
-    , _cParameters         :: !(Maybe (Map Text [Text]))
-    , _cComment            :: !(Maybe Text)
-    , _cCompletedCount     :: !(Maybe Int)
-    , _cOutputS3BucketName :: !(Maybe Text)
-    , _cMaxConcurrency     :: !(Maybe Text)
-    , _cRequestedDateTime  :: !(Maybe POSIX)
-    , _cServiceRole        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cStatus             :: {-# NOUNPACK #-}!(Maybe CommandStatus)
+  , _cExpiresAfter       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cNotificationConfig :: {-# NOUNPACK #-}!(Maybe NotificationConfig)
+  , _cTargetCount        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cOutputS3KeyPrefix  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cDocumentName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cErrorCount         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cStatusDetails      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cMaxErrors          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cInstanceIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cOutputS3Region     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cTargets            :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _cCommandId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cParameters         :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _cComment            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCompletedCount     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cOutputS3BucketName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cMaxConcurrency     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cRequestedDateTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cServiceRole        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
@@ -893,28 +906,29 @@ data Command = Command'
 command
     :: Command
 command =
-    Command'
-    { _cStatus = Nothing
-    , _cExpiresAfter = Nothing
-    , _cNotificationConfig = Nothing
-    , _cTargetCount = Nothing
-    , _cOutputS3KeyPrefix = Nothing
-    , _cDocumentName = Nothing
-    , _cErrorCount = Nothing
-    , _cStatusDetails = Nothing
-    , _cMaxErrors = Nothing
-    , _cInstanceIds = Nothing
-    , _cOutputS3Region = Nothing
-    , _cTargets = Nothing
-    , _cCommandId = Nothing
-    , _cParameters = Nothing
-    , _cComment = Nothing
-    , _cCompletedCount = Nothing
-    , _cOutputS3BucketName = Nothing
-    , _cMaxConcurrency = Nothing
-    , _cRequestedDateTime = Nothing
-    , _cServiceRole = Nothing
-    }
+  Command'
+  { _cStatus = Nothing
+  , _cExpiresAfter = Nothing
+  , _cNotificationConfig = Nothing
+  , _cTargetCount = Nothing
+  , _cOutputS3KeyPrefix = Nothing
+  , _cDocumentName = Nothing
+  , _cErrorCount = Nothing
+  , _cStatusDetails = Nothing
+  , _cMaxErrors = Nothing
+  , _cInstanceIds = Nothing
+  , _cOutputS3Region = Nothing
+  , _cTargets = Nothing
+  , _cCommandId = Nothing
+  , _cParameters = Nothing
+  , _cComment = Nothing
+  , _cCompletedCount = Nothing
+  , _cOutputS3BucketName = Nothing
+  , _cMaxConcurrency = Nothing
+  , _cRequestedDateTime = Nothing
+  , _cServiceRole = Nothing
+  }
+
 
 -- | The status of the command.
 cStatus :: Lens' Command (Maybe CommandStatus)
@@ -1021,9 +1035,9 @@ instance FromJSON Command where
                      <*> (x .:? "RequestedDateTime")
                      <*> (x .:? "ServiceRole"))
 
-instance Hashable Command
+instance Hashable Command where
 
-instance NFData Command
+instance NFData Command where
 
 -- | Describes a command filter.
 --
@@ -1031,9 +1045,10 @@ instance NFData Command
 --
 -- /See:/ 'commandFilter' smart constructor.
 data CommandFilter = CommandFilter'
-    { _cfKey   :: !CommandFilterKey
-    , _cfValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfKey   :: {-# NOUNPACK #-}!CommandFilterKey
+  , _cfValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CommandFilter' with the minimum fields required to make a request.
 --
@@ -1047,10 +1062,8 @@ commandFilter
     -> Text -- ^ 'cfValue'
     -> CommandFilter
 commandFilter pKey_ pValue_ =
-    CommandFilter'
-    { _cfKey = pKey_
-    , _cfValue = pValue_
-    }
+  CommandFilter' {_cfKey = pKey_, _cfValue = pValue_}
+
 
 -- | The name of the filter.
 cfKey :: Lens' CommandFilter CommandFilterKey
@@ -1060,9 +1073,9 @@ cfKey = lens _cfKey (\ s a -> s{_cfKey = a});
 cfValue :: Lens' CommandFilter Text
 cfValue = lens _cfValue (\ s a -> s{_cfValue = a});
 
-instance Hashable CommandFilter
+instance Hashable CommandFilter where
 
-instance NFData CommandFilter
+instance NFData CommandFilter where
 
 instance ToJSON CommandFilter where
         toJSON CommandFilter'{..}
@@ -1076,21 +1089,22 @@ instance ToJSON CommandFilter where
 --
 -- /See:/ 'commandInvocation' smart constructor.
 data CommandInvocation = CommandInvocation'
-    { _comInstanceId         :: !(Maybe Text)
-    , _comStatus             :: !(Maybe CommandInvocationStatus)
-    , _comNotificationConfig :: !(Maybe NotificationConfig)
-    , _comCommandPlugins     :: !(Maybe [CommandPlugin])
-    , _comDocumentName       :: !(Maybe Text)
-    , _comStandardErrorURL   :: !(Maybe Text)
-    , _comStatusDetails      :: !(Maybe Text)
-    , _comStandardOutputURL  :: !(Maybe Text)
-    , _comCommandId          :: !(Maybe Text)
-    , _comComment            :: !(Maybe Text)
-    , _comTraceOutput        :: !(Maybe Text)
-    , _comInstanceName       :: !(Maybe Text)
-    , _comRequestedDateTime  :: !(Maybe POSIX)
-    , _comServiceRole        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _comInstanceId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comStatus             :: {-# NOUNPACK #-}!(Maybe CommandInvocationStatus)
+  , _comNotificationConfig :: {-# NOUNPACK #-}!(Maybe NotificationConfig)
+  , _comCommandPlugins     :: {-# NOUNPACK #-}!(Maybe [CommandPlugin])
+  , _comDocumentName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comStandardErrorURL   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comStatusDetails      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comStandardOutputURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comCommandId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comComment            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comTraceOutput        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comInstanceName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _comRequestedDateTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _comServiceRole        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CommandInvocation' with the minimum fields required to make a request.
 --
@@ -1126,22 +1140,23 @@ data CommandInvocation = CommandInvocation'
 commandInvocation
     :: CommandInvocation
 commandInvocation =
-    CommandInvocation'
-    { _comInstanceId = Nothing
-    , _comStatus = Nothing
-    , _comNotificationConfig = Nothing
-    , _comCommandPlugins = Nothing
-    , _comDocumentName = Nothing
-    , _comStandardErrorURL = Nothing
-    , _comStatusDetails = Nothing
-    , _comStandardOutputURL = Nothing
-    , _comCommandId = Nothing
-    , _comComment = Nothing
-    , _comTraceOutput = Nothing
-    , _comInstanceName = Nothing
-    , _comRequestedDateTime = Nothing
-    , _comServiceRole = Nothing
-    }
+  CommandInvocation'
+  { _comInstanceId = Nothing
+  , _comStatus = Nothing
+  , _comNotificationConfig = Nothing
+  , _comCommandPlugins = Nothing
+  , _comDocumentName = Nothing
+  , _comStandardErrorURL = Nothing
+  , _comStatusDetails = Nothing
+  , _comStandardOutputURL = Nothing
+  , _comCommandId = Nothing
+  , _comComment = Nothing
+  , _comTraceOutput = Nothing
+  , _comInstanceName = Nothing
+  , _comRequestedDateTime = Nothing
+  , _comServiceRole = Nothing
+  }
+
 
 -- | The instance ID in which this invocation was requested.
 comInstanceId :: Lens' CommandInvocation (Maybe Text)
@@ -1218,9 +1233,9 @@ instance FromJSON CommandInvocation where
                      <*> (x .:? "RequestedDateTime")
                      <*> (x .:? "ServiceRole"))
 
-instance Hashable CommandInvocation
+instance Hashable CommandInvocation where
 
-instance NFData CommandInvocation
+instance NFData CommandInvocation where
 
 -- | Describes plugin details.
 --
@@ -1228,19 +1243,20 @@ instance NFData CommandInvocation
 --
 -- /See:/ 'commandPlugin' smart constructor.
 data CommandPlugin = CommandPlugin'
-    { _cpStatus                 :: !(Maybe CommandPluginStatus)
-    , _cpResponseStartDateTime  :: !(Maybe POSIX)
-    , _cpOutputS3KeyPrefix      :: !(Maybe Text)
-    , _cpStandardErrorURL       :: !(Maybe Text)
-    , _cpResponseCode           :: !(Maybe Int)
-    , _cpStatusDetails          :: !(Maybe Text)
-    , _cpOutput                 :: !(Maybe Text)
-    , _cpStandardOutputURL      :: !(Maybe Text)
-    , _cpName                   :: !(Maybe Text)
-    , _cpOutputS3Region         :: !(Maybe Text)
-    , _cpOutputS3BucketName     :: !(Maybe Text)
-    , _cpResponseFinishDateTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpStatus                 :: {-# NOUNPACK #-}!(Maybe CommandPluginStatus)
+  , _cpResponseStartDateTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cpOutputS3KeyPrefix      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpStandardErrorURL       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpResponseCode           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cpStatusDetails          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpOutput                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpStandardOutputURL      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpName                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpOutputS3Region         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpOutputS3BucketName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpResponseFinishDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CommandPlugin' with the minimum fields required to make a request.
 --
@@ -1272,20 +1288,21 @@ data CommandPlugin = CommandPlugin'
 commandPlugin
     :: CommandPlugin
 commandPlugin =
-    CommandPlugin'
-    { _cpStatus = Nothing
-    , _cpResponseStartDateTime = Nothing
-    , _cpOutputS3KeyPrefix = Nothing
-    , _cpStandardErrorURL = Nothing
-    , _cpResponseCode = Nothing
-    , _cpStatusDetails = Nothing
-    , _cpOutput = Nothing
-    , _cpStandardOutputURL = Nothing
-    , _cpName = Nothing
-    , _cpOutputS3Region = Nothing
-    , _cpOutputS3BucketName = Nothing
-    , _cpResponseFinishDateTime = Nothing
-    }
+  CommandPlugin'
+  { _cpStatus = Nothing
+  , _cpResponseStartDateTime = Nothing
+  , _cpOutputS3KeyPrefix = Nothing
+  , _cpStandardErrorURL = Nothing
+  , _cpResponseCode = Nothing
+  , _cpStatusDetails = Nothing
+  , _cpOutput = Nothing
+  , _cpStandardOutputURL = Nothing
+  , _cpName = Nothing
+  , _cpOutputS3Region = Nothing
+  , _cpOutputS3BucketName = Nothing
+  , _cpResponseFinishDateTime = Nothing
+  }
+
 
 -- | The status of this plugin. You can execute a document with multiple plugins.
 cpStatus :: Lens' CommandPlugin (Maybe CommandPluginStatus)
@@ -1352,9 +1369,9 @@ instance FromJSON CommandPlugin where
                      <*> (x .:? "OutputS3BucketName")
                      <*> (x .:? "ResponseFinishDateTime"))
 
-instance Hashable CommandPlugin
+instance Hashable CommandPlugin where
 
-instance NFData CommandPlugin
+instance NFData CommandPlugin where
 
 -- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
 --
@@ -1362,10 +1379,11 @@ instance NFData CommandPlugin
 --
 -- /See:/ 'complianceExecutionSummary' smart constructor.
 data ComplianceExecutionSummary = ComplianceExecutionSummary'
-    { _cesExecutionId   :: !(Maybe Text)
-    , _cesExecutionType :: !(Maybe Text)
-    , _cesExecutionTime :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cesExecutionId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cesExecutionType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cesExecutionTime :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceExecutionSummary' with the minimum fields required to make a request.
 --
@@ -1380,11 +1398,12 @@ complianceExecutionSummary
     :: UTCTime -- ^ 'cesExecutionTime'
     -> ComplianceExecutionSummary
 complianceExecutionSummary pExecutionTime_ =
-    ComplianceExecutionSummary'
-    { _cesExecutionId = Nothing
-    , _cesExecutionType = Nothing
-    , _cesExecutionTime = _Time # pExecutionTime_
-    }
+  ComplianceExecutionSummary'
+  { _cesExecutionId = Nothing
+  , _cesExecutionType = Nothing
+  , _cesExecutionTime = _Time # pExecutionTime_
+  }
+
 
 -- | An ID created by the system when @PutComplianceItems@ was called. For example, @CommandID@ is a valid execution ID. You can use this ID in subsequent calls.
 cesExecutionId :: Lens' ComplianceExecutionSummary (Maybe Text)
@@ -1406,9 +1425,9 @@ instance FromJSON ComplianceExecutionSummary where
                    (x .:? "ExecutionId") <*> (x .:? "ExecutionType") <*>
                      (x .: "ExecutionTime"))
 
-instance Hashable ComplianceExecutionSummary
+instance Hashable ComplianceExecutionSummary where
 
-instance NFData ComplianceExecutionSummary
+instance NFData ComplianceExecutionSummary where
 
 instance ToJSON ComplianceExecutionSummary where
         toJSON ComplianceExecutionSummary'{..}
@@ -1424,16 +1443,17 @@ instance ToJSON ComplianceExecutionSummary where
 --
 -- /See:/ 'complianceItem' smart constructor.
 data ComplianceItem = ComplianceItem'
-    { _ciStatus           :: !(Maybe ComplianceStatus)
-    , _ciResourceId       :: !(Maybe Text)
-    , _ciResourceType     :: !(Maybe Text)
-    , _ciSeverity         :: !(Maybe ComplianceSeverity)
-    , _ciExecutionSummary :: !(Maybe ComplianceExecutionSummary)
-    , _ciDetails          :: !(Maybe (Map Text Text))
-    , _ciId               :: !(Maybe Text)
-    , _ciComplianceType   :: !(Maybe Text)
-    , _ciTitle            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciStatus           :: {-# NOUNPACK #-}!(Maybe ComplianceStatus)
+  , _ciResourceId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciResourceType     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciSeverity         :: {-# NOUNPACK #-}!(Maybe ComplianceSeverity)
+  , _ciExecutionSummary :: {-# NOUNPACK #-}!(Maybe ComplianceExecutionSummary)
+  , _ciDetails          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ciId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciComplianceType   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciTitle            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceItem' with the minimum fields required to make a request.
 --
@@ -1459,17 +1479,18 @@ data ComplianceItem = ComplianceItem'
 complianceItem
     :: ComplianceItem
 complianceItem =
-    ComplianceItem'
-    { _ciStatus = Nothing
-    , _ciResourceId = Nothing
-    , _ciResourceType = Nothing
-    , _ciSeverity = Nothing
-    , _ciExecutionSummary = Nothing
-    , _ciDetails = Nothing
-    , _ciId = Nothing
-    , _ciComplianceType = Nothing
-    , _ciTitle = Nothing
-    }
+  ComplianceItem'
+  { _ciStatus = Nothing
+  , _ciResourceId = Nothing
+  , _ciResourceType = Nothing
+  , _ciSeverity = Nothing
+  , _ciExecutionSummary = Nothing
+  , _ciDetails = Nothing
+  , _ciId = Nothing
+  , _ciComplianceType = Nothing
+  , _ciTitle = Nothing
+  }
+
 
 -- | The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
 ciStatus :: Lens' ComplianceItem (Maybe ComplianceStatus)
@@ -1521,9 +1542,9 @@ instance FromJSON ComplianceItem where
                      <*> (x .:? "ComplianceType")
                      <*> (x .:? "Title"))
 
-instance Hashable ComplianceItem
+instance Hashable ComplianceItem where
 
-instance NFData ComplianceItem
+instance NFData ComplianceItem where
 
 -- | Information about a compliance item.
 --
@@ -1531,12 +1552,13 @@ instance NFData ComplianceItem
 --
 -- /See:/ 'complianceItemEntry' smart constructor.
 data ComplianceItemEntry = ComplianceItemEntry'
-    { _cieDetails  :: !(Maybe (Map Text Text))
-    , _cieId       :: !(Maybe Text)
-    , _cieTitle    :: !(Maybe Text)
-    , _cieSeverity :: !ComplianceSeverity
-    , _cieStatus   :: !ComplianceStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cieDetails  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cieId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cieTitle    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cieSeverity :: {-# NOUNPACK #-}!ComplianceSeverity
+  , _cieStatus   :: {-# NOUNPACK #-}!ComplianceStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceItemEntry' with the minimum fields required to make a request.
 --
@@ -1556,13 +1578,14 @@ complianceItemEntry
     -> ComplianceStatus -- ^ 'cieStatus'
     -> ComplianceItemEntry
 complianceItemEntry pSeverity_ pStatus_ =
-    ComplianceItemEntry'
-    { _cieDetails = Nothing
-    , _cieId = Nothing
-    , _cieTitle = Nothing
-    , _cieSeverity = pSeverity_
-    , _cieStatus = pStatus_
-    }
+  ComplianceItemEntry'
+  { _cieDetails = Nothing
+  , _cieId = Nothing
+  , _cieTitle = Nothing
+  , _cieSeverity = pSeverity_
+  , _cieStatus = pStatus_
+  }
+
 
 -- | A "Key": "Value" tag combination for the compliance item.
 cieDetails :: Lens' ComplianceItemEntry (HashMap Text Text)
@@ -1584,9 +1607,9 @@ cieSeverity = lens _cieSeverity (\ s a -> s{_cieSeverity = a});
 cieStatus :: Lens' ComplianceItemEntry ComplianceStatus
 cieStatus = lens _cieStatus (\ s a -> s{_cieStatus = a});
 
-instance Hashable ComplianceItemEntry
+instance Hashable ComplianceItemEntry where
 
-instance NFData ComplianceItemEntry
+instance NFData ComplianceItemEntry where
 
 instance ToJSON ComplianceItemEntry where
         toJSON ComplianceItemEntry'{..}
@@ -1603,10 +1626,11 @@ instance ToJSON ComplianceItemEntry where
 --
 -- /See:/ 'complianceStringFilter' smart constructor.
 data ComplianceStringFilter = ComplianceStringFilter'
-    { _csfValues :: !(Maybe (List1 Text))
-    , _csfKey    :: !(Maybe Text)
-    , _csfType   :: !(Maybe ComplianceQueryOperatorType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csfValues :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _csfKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csfType   :: {-# NOUNPACK #-}!(Maybe ComplianceQueryOperatorType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceStringFilter' with the minimum fields required to make a request.
 --
@@ -1620,11 +1644,9 @@ data ComplianceStringFilter = ComplianceStringFilter'
 complianceStringFilter
     :: ComplianceStringFilter
 complianceStringFilter =
-    ComplianceStringFilter'
-    { _csfValues = Nothing
-    , _csfKey = Nothing
-    , _csfType = Nothing
-    }
+  ComplianceStringFilter'
+  {_csfValues = Nothing, _csfKey = Nothing, _csfType = Nothing}
+
 
 -- | The value you want to search for.
 csfValues :: Lens' ComplianceStringFilter (Maybe (NonEmpty Text))
@@ -1638,9 +1660,9 @@ csfKey = lens _csfKey (\ s a -> s{_csfKey = a});
 csfType :: Lens' ComplianceStringFilter (Maybe ComplianceQueryOperatorType)
 csfType = lens _csfType (\ s a -> s{_csfType = a});
 
-instance Hashable ComplianceStringFilter
+instance Hashable ComplianceStringFilter where
 
-instance NFData ComplianceStringFilter
+instance NFData ComplianceStringFilter where
 
 instance ToJSON ComplianceStringFilter where
         toJSON ComplianceStringFilter'{..}
@@ -1655,10 +1677,11 @@ instance ToJSON ComplianceStringFilter where
 --
 -- /See:/ 'complianceSummaryItem' smart constructor.
 data ComplianceSummaryItem = ComplianceSummaryItem'
-    { _csiNonCompliantSummary :: !(Maybe NonCompliantSummary)
-    , _csiCompliantSummary    :: !(Maybe CompliantSummary)
-    , _csiComplianceType      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csiNonCompliantSummary :: {-# NOUNPACK #-}!(Maybe NonCompliantSummary)
+  , _csiCompliantSummary    :: {-# NOUNPACK #-}!(Maybe CompliantSummary)
+  , _csiComplianceType      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceSummaryItem' with the minimum fields required to make a request.
 --
@@ -1672,11 +1695,12 @@ data ComplianceSummaryItem = ComplianceSummaryItem'
 complianceSummaryItem
     :: ComplianceSummaryItem
 complianceSummaryItem =
-    ComplianceSummaryItem'
-    { _csiNonCompliantSummary = Nothing
-    , _csiCompliantSummary = Nothing
-    , _csiComplianceType = Nothing
-    }
+  ComplianceSummaryItem'
+  { _csiNonCompliantSummary = Nothing
+  , _csiCompliantSummary = Nothing
+  , _csiComplianceType = Nothing
+  }
+
 
 -- | A list of NON_COMPLIANT items for the specified compliance type.
 csiNonCompliantSummary :: Lens' ComplianceSummaryItem (Maybe NonCompliantSummary)
@@ -1699,9 +1723,9 @@ instance FromJSON ComplianceSummaryItem where
                      (x .:? "CompliantSummary")
                      <*> (x .:? "ComplianceType"))
 
-instance Hashable ComplianceSummaryItem
+instance Hashable ComplianceSummaryItem where
 
-instance NFData ComplianceSummaryItem
+instance NFData ComplianceSummaryItem where
 
 -- | A summary of resources that are compliant. The summary is organized according to the resource count for each compliance type.
 --
@@ -1709,9 +1733,10 @@ instance NFData ComplianceSummaryItem
 --
 -- /See:/ 'compliantSummary' smart constructor.
 data CompliantSummary = CompliantSummary'
-    { _csCompliantCount  :: !(Maybe Int)
-    , _csSeveritySummary :: !(Maybe SeveritySummary)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csCompliantCount  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _csSeveritySummary :: {-# NOUNPACK #-}!(Maybe SeveritySummary)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompliantSummary' with the minimum fields required to make a request.
 --
@@ -1723,10 +1748,8 @@ data CompliantSummary = CompliantSummary'
 compliantSummary
     :: CompliantSummary
 compliantSummary =
-    CompliantSummary'
-    { _csCompliantCount = Nothing
-    , _csSeveritySummary = Nothing
-    }
+  CompliantSummary' {_csCompliantCount = Nothing, _csSeveritySummary = Nothing}
+
 
 -- | The total number of resources that are compliant.
 csCompliantCount :: Lens' CompliantSummary (Maybe Int)
@@ -1744,9 +1767,9 @@ instance FromJSON CompliantSummary where
                    (x .:? "CompliantCount") <*>
                      (x .:? "SeveritySummary"))
 
-instance Hashable CompliantSummary
+instance Hashable CompliantSummary where
 
-instance NFData CompliantSummary
+instance NFData CompliantSummary where
 
 -- | Describes the association of a Systems Manager document and an instance.
 --
@@ -1754,14 +1777,15 @@ instance NFData CompliantSummary
 --
 -- /See:/ 'createAssociationBatchRequestEntry' smart constructor.
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
-    { _cabreInstanceId         :: !(Maybe Text)
-    , _cabreScheduleExpression :: !(Maybe Text)
-    , _cabreOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
-    , _cabreTargets            :: !(Maybe [Target])
-    , _cabreParameters         :: !(Maybe (Map Text [Text]))
-    , _cabreDocumentVersion    :: !(Maybe Text)
-    , _cabreName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cabreInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cabreScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cabreOutputLocation :: {-# NOUNPACK #-}!(Maybe InstanceAssociationOutputLocation)
+  , _cabreTargets :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _cabreParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _cabreDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cabreName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAssociationBatchRequestEntry' with the minimum fields required to make a request.
 --
@@ -1784,15 +1808,16 @@ createAssociationBatchRequestEntry
     :: Text -- ^ 'cabreName'
     -> CreateAssociationBatchRequestEntry
 createAssociationBatchRequestEntry pName_ =
-    CreateAssociationBatchRequestEntry'
-    { _cabreInstanceId = Nothing
-    , _cabreScheduleExpression = Nothing
-    , _cabreOutputLocation = Nothing
-    , _cabreTargets = Nothing
-    , _cabreParameters = Nothing
-    , _cabreDocumentVersion = Nothing
-    , _cabreName = pName_
-    }
+  CreateAssociationBatchRequestEntry'
+  { _cabreInstanceId = Nothing
+  , _cabreScheduleExpression = Nothing
+  , _cabreOutputLocation = Nothing
+  , _cabreTargets = Nothing
+  , _cabreParameters = Nothing
+  , _cabreDocumentVersion = Nothing
+  , _cabreName = pName_
+  }
+
 
 -- | The ID of the instance.
 cabreInstanceId :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
@@ -1836,8 +1861,10 @@ instance FromJSON CreateAssociationBatchRequestEntry
                      <*> (x .: "Name"))
 
 instance Hashable CreateAssociationBatchRequestEntry
+         where
 
 instance NFData CreateAssociationBatchRequestEntry
+         where
 
 instance ToJSON CreateAssociationBatchRequestEntry
          where
@@ -1859,9 +1886,10 @@ instance ToJSON CreateAssociationBatchRequestEntry
 --
 -- /See:/ 'describeActivationsFilter' smart constructor.
 data DescribeActivationsFilter = DescribeActivationsFilter'
-    { _dafFilterKey    :: !(Maybe DescribeActivationsFilterKeys)
-    , _dafFilterValues :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dafFilterKey    :: {-# NOUNPACK #-}!(Maybe DescribeActivationsFilterKeys)
+  , _dafFilterValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivationsFilter' with the minimum fields required to make a request.
 --
@@ -1873,10 +1901,9 @@ data DescribeActivationsFilter = DescribeActivationsFilter'
 describeActivationsFilter
     :: DescribeActivationsFilter
 describeActivationsFilter =
-    DescribeActivationsFilter'
-    { _dafFilterKey = Nothing
-    , _dafFilterValues = Nothing
-    }
+  DescribeActivationsFilter'
+  {_dafFilterKey = Nothing, _dafFilterValues = Nothing}
+
 
 -- | The name of the filter.
 dafFilterKey :: Lens' DescribeActivationsFilter (Maybe DescribeActivationsFilterKeys)
@@ -1886,9 +1913,9 @@ dafFilterKey = lens _dafFilterKey (\ s a -> s{_dafFilterKey = a});
 dafFilterValues :: Lens' DescribeActivationsFilter [Text]
 dafFilterValues = lens _dafFilterValues (\ s a -> s{_dafFilterValues = a}) . _Default . _Coerce;
 
-instance Hashable DescribeActivationsFilter
+instance Hashable DescribeActivationsFilter where
 
-instance NFData DescribeActivationsFilter
+instance NFData DescribeActivationsFilter where
 
 instance ToJSON DescribeActivationsFilter where
         toJSON DescribeActivationsFilter'{..}
@@ -1903,9 +1930,10 @@ instance ToJSON DescribeActivationsFilter where
 --
 -- /See:/ 'documentDefaultVersionDescription' smart constructor.
 data DocumentDefaultVersionDescription = DocumentDefaultVersionDescription'
-    { _ddvdDefaultVersion :: !(Maybe Text)
-    , _ddvdName           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddvdDefaultVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddvdName           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentDefaultVersionDescription' with the minimum fields required to make a request.
 --
@@ -1917,10 +1945,9 @@ data DocumentDefaultVersionDescription = DocumentDefaultVersionDescription'
 documentDefaultVersionDescription
     :: DocumentDefaultVersionDescription
 documentDefaultVersionDescription =
-    DocumentDefaultVersionDescription'
-    { _ddvdDefaultVersion = Nothing
-    , _ddvdName = Nothing
-    }
+  DocumentDefaultVersionDescription'
+  {_ddvdDefaultVersion = Nothing, _ddvdName = Nothing}
+
 
 -- | The default version of the document.
 ddvdDefaultVersion :: Lens' DocumentDefaultVersionDescription (Maybe Text)
@@ -1939,8 +1966,10 @@ instance FromJSON DocumentDefaultVersionDescription
                    (x .:? "DefaultVersion") <*> (x .:? "Name"))
 
 instance Hashable DocumentDefaultVersionDescription
+         where
 
 instance NFData DocumentDefaultVersionDescription
+         where
 
 -- | Describes an SSM document.
 --
@@ -1948,22 +1977,23 @@ instance NFData DocumentDefaultVersionDescription
 --
 -- /See:/ 'documentDescription' smart constructor.
 data DocumentDescription = DocumentDescription'
-    { _dStatus          :: !(Maybe DocumentStatus)
-    , _dDocumentType    :: !(Maybe DocumentType)
-    , _dHash            :: !(Maybe Text)
-    , _dSchemaVersion   :: !(Maybe Text)
-    , _dSha1            :: !(Maybe Text)
-    , _dDefaultVersion  :: !(Maybe Text)
-    , _dOwner           :: !(Maybe Text)
-    , _dPlatformTypes   :: !(Maybe [PlatformType])
-    , _dCreatedDate     :: !(Maybe POSIX)
-    , _dName            :: !(Maybe Text)
-    , _dHashType        :: !(Maybe DocumentHashType)
-    , _dParameters      :: !(Maybe [DocumentParameter])
-    , _dDocumentVersion :: !(Maybe Text)
-    , _dDescription     :: !(Maybe Text)
-    , _dLatestVersion   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dStatus          :: {-# NOUNPACK #-}!(Maybe DocumentStatus)
+  , _dDocumentType    :: {-# NOUNPACK #-}!(Maybe DocumentType)
+  , _dHash            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dSchemaVersion   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dSha1            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDefaultVersion  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dOwner           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dPlatformTypes   :: {-# NOUNPACK #-}!(Maybe [PlatformType])
+  , _dCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dHashType        :: {-# NOUNPACK #-}!(Maybe DocumentHashType)
+  , _dParameters      :: {-# NOUNPACK #-}!(Maybe [DocumentParameter])
+  , _dDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dLatestVersion   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentDescription' with the minimum fields required to make a request.
 --
@@ -2001,23 +2031,24 @@ data DocumentDescription = DocumentDescription'
 documentDescription
     :: DocumentDescription
 documentDescription =
-    DocumentDescription'
-    { _dStatus = Nothing
-    , _dDocumentType = Nothing
-    , _dHash = Nothing
-    , _dSchemaVersion = Nothing
-    , _dSha1 = Nothing
-    , _dDefaultVersion = Nothing
-    , _dOwner = Nothing
-    , _dPlatformTypes = Nothing
-    , _dCreatedDate = Nothing
-    , _dName = Nothing
-    , _dHashType = Nothing
-    , _dParameters = Nothing
-    , _dDocumentVersion = Nothing
-    , _dDescription = Nothing
-    , _dLatestVersion = Nothing
-    }
+  DocumentDescription'
+  { _dStatus = Nothing
+  , _dDocumentType = Nothing
+  , _dHash = Nothing
+  , _dSchemaVersion = Nothing
+  , _dSha1 = Nothing
+  , _dDefaultVersion = Nothing
+  , _dOwner = Nothing
+  , _dPlatformTypes = Nothing
+  , _dCreatedDate = Nothing
+  , _dName = Nothing
+  , _dHashType = Nothing
+  , _dParameters = Nothing
+  , _dDocumentVersion = Nothing
+  , _dDescription = Nothing
+  , _dLatestVersion = Nothing
+  }
+
 
 -- | The status of the SSM document.
 dStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
@@ -2099,9 +2130,9 @@ instance FromJSON DocumentDescription where
                      <*> (x .:? "Description")
                      <*> (x .:? "LatestVersion"))
 
-instance Hashable DocumentDescription
+instance Hashable DocumentDescription where
 
-instance NFData DocumentDescription
+instance NFData DocumentDescription where
 
 -- | Describes a filter.
 --
@@ -2109,9 +2140,10 @@ instance NFData DocumentDescription
 --
 -- /See:/ 'documentFilter' smart constructor.
 data DocumentFilter = DocumentFilter'
-    { _dfKey   :: !DocumentFilterKey
-    , _dfValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfKey   :: {-# NOUNPACK #-}!DocumentFilterKey
+  , _dfValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentFilter' with the minimum fields required to make a request.
 --
@@ -2125,10 +2157,8 @@ documentFilter
     -> Text -- ^ 'dfValue'
     -> DocumentFilter
 documentFilter pKey_ pValue_ =
-    DocumentFilter'
-    { _dfKey = pKey_
-    , _dfValue = pValue_
-    }
+  DocumentFilter' {_dfKey = pKey_, _dfValue = pValue_}
+
 
 -- | The name of the filter.
 dfKey :: Lens' DocumentFilter DocumentFilterKey
@@ -2138,9 +2168,9 @@ dfKey = lens _dfKey (\ s a -> s{_dfKey = a});
 dfValue :: Lens' DocumentFilter Text
 dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
 
-instance Hashable DocumentFilter
+instance Hashable DocumentFilter where
 
-instance NFData DocumentFilter
+instance NFData DocumentFilter where
 
 instance ToJSON DocumentFilter where
         toJSON DocumentFilter'{..}
@@ -2154,13 +2184,14 @@ instance ToJSON DocumentFilter where
 --
 -- /See:/ 'documentIdentifier' smart constructor.
 data DocumentIdentifier = DocumentIdentifier'
-    { _diDocumentType    :: !(Maybe DocumentType)
-    , _diSchemaVersion   :: !(Maybe Text)
-    , _diOwner           :: !(Maybe Text)
-    , _diPlatformTypes   :: !(Maybe [PlatformType])
-    , _diName            :: !(Maybe Text)
-    , _diDocumentVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diDocumentType    :: {-# NOUNPACK #-}!(Maybe DocumentType)
+  , _diSchemaVersion   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diOwner           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diPlatformTypes   :: {-# NOUNPACK #-}!(Maybe [PlatformType])
+  , _diName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentIdentifier' with the minimum fields required to make a request.
 --
@@ -2180,14 +2211,15 @@ data DocumentIdentifier = DocumentIdentifier'
 documentIdentifier
     :: DocumentIdentifier
 documentIdentifier =
-    DocumentIdentifier'
-    { _diDocumentType = Nothing
-    , _diSchemaVersion = Nothing
-    , _diOwner = Nothing
-    , _diPlatformTypes = Nothing
-    , _diName = Nothing
-    , _diDocumentVersion = Nothing
-    }
+  DocumentIdentifier'
+  { _diDocumentType = Nothing
+  , _diSchemaVersion = Nothing
+  , _diOwner = Nothing
+  , _diPlatformTypes = Nothing
+  , _diName = Nothing
+  , _diDocumentVersion = Nothing
+  }
+
 
 -- | The document type.
 diDocumentType :: Lens' DocumentIdentifier (Maybe DocumentType)
@@ -2224,9 +2256,9 @@ instance FromJSON DocumentIdentifier where
                      <*> (x .:? "Name")
                      <*> (x .:? "DocumentVersion"))
 
-instance Hashable DocumentIdentifier
+instance Hashable DocumentIdentifier where
 
-instance NFData DocumentIdentifier
+instance NFData DocumentIdentifier where
 
 -- | Parameters specified in a System Manager document that execute on the server when the command is run.
 --
@@ -2234,11 +2266,12 @@ instance NFData DocumentIdentifier
 --
 -- /See:/ 'documentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
-    { _dpName         :: !(Maybe Text)
-    , _dpDefaultValue :: !(Maybe Text)
-    , _dpType         :: !(Maybe DocumentParameterType)
-    , _dpDescription  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpDefaultValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpType         :: {-# NOUNPACK #-}!(Maybe DocumentParameterType)
+  , _dpDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentParameter' with the minimum fields required to make a request.
 --
@@ -2254,12 +2287,13 @@ data DocumentParameter = DocumentParameter'
 documentParameter
     :: DocumentParameter
 documentParameter =
-    DocumentParameter'
-    { _dpName = Nothing
-    , _dpDefaultValue = Nothing
-    , _dpType = Nothing
-    , _dpDescription = Nothing
-    }
+  DocumentParameter'
+  { _dpName = Nothing
+  , _dpDefaultValue = Nothing
+  , _dpType = Nothing
+  , _dpDescription = Nothing
+  }
+
 
 -- | The name of the parameter.
 dpName :: Lens' DocumentParameter (Maybe Text)
@@ -2286,9 +2320,9 @@ instance FromJSON DocumentParameter where
                      (x .:? "Type")
                      <*> (x .:? "Description"))
 
-instance Hashable DocumentParameter
+instance Hashable DocumentParameter where
 
-instance NFData DocumentParameter
+instance NFData DocumentParameter where
 
 -- | Version information about the document.
 --
@@ -2296,11 +2330,12 @@ instance NFData DocumentParameter
 --
 -- /See:/ 'documentVersionInfo' smart constructor.
 data DocumentVersionInfo = DocumentVersionInfo'
-    { _dviCreatedDate      :: !(Maybe POSIX)
-    , _dviName             :: !(Maybe Text)
-    , _dviDocumentVersion  :: !(Maybe Text)
-    , _dviIsDefaultVersion :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dviCreatedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dviName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dviDocumentVersion  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dviIsDefaultVersion :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentVersionInfo' with the minimum fields required to make a request.
 --
@@ -2316,12 +2351,13 @@ data DocumentVersionInfo = DocumentVersionInfo'
 documentVersionInfo
     :: DocumentVersionInfo
 documentVersionInfo =
-    DocumentVersionInfo'
-    { _dviCreatedDate = Nothing
-    , _dviName = Nothing
-    , _dviDocumentVersion = Nothing
-    , _dviIsDefaultVersion = Nothing
-    }
+  DocumentVersionInfo'
+  { _dviCreatedDate = Nothing
+  , _dviName = Nothing
+  , _dviDocumentVersion = Nothing
+  , _dviIsDefaultVersion = Nothing
+  }
+
 
 -- | The date the document was created.
 dviCreatedDate :: Lens' DocumentVersionInfo (Maybe UTCTime)
@@ -2348,9 +2384,9 @@ instance FromJSON DocumentVersionInfo where
                      (x .:? "DocumentVersion")
                      <*> (x .:? "IsDefaultVersion"))
 
-instance Hashable DocumentVersionInfo
+instance Hashable DocumentVersionInfo where
 
-instance NFData DocumentVersionInfo
+instance NFData DocumentVersionInfo where
 
 -- | The EffectivePatch structure defines metadata about a patch along with the approval state of the patch in a particular patch baseline. The approval state includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
 --
@@ -2358,9 +2394,10 @@ instance NFData DocumentVersionInfo
 --
 -- /See:/ 'effectivePatch' smart constructor.
 data EffectivePatch = EffectivePatch'
-    { _epPatch       :: !(Maybe Patch)
-    , _epPatchStatus :: !(Maybe PatchStatus)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _epPatch       :: {-# NOUNPACK #-}!(Maybe Patch)
+  , _epPatchStatus :: {-# NOUNPACK #-}!(Maybe PatchStatus)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EffectivePatch' with the minimum fields required to make a request.
 --
@@ -2371,11 +2408,8 @@ data EffectivePatch = EffectivePatch'
 -- * 'epPatchStatus' - The status of the patch in a patch baseline. This includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
 effectivePatch
     :: EffectivePatch
-effectivePatch =
-    EffectivePatch'
-    { _epPatch = Nothing
-    , _epPatchStatus = Nothing
-    }
+effectivePatch = EffectivePatch' {_epPatch = Nothing, _epPatchStatus = Nothing}
+
 
 -- | Provides metadata for a patch, including information such as the KB ID, severity, classification and a URL for where more information can be obtained about the patch.
 epPatch :: Lens' EffectivePatch (Maybe Patch)
@@ -2392,9 +2426,9 @@ instance FromJSON EffectivePatch where
                  EffectivePatch' <$>
                    (x .:? "Patch") <*> (x .:? "PatchStatus"))
 
-instance Hashable EffectivePatch
+instance Hashable EffectivePatch where
 
-instance NFData EffectivePatch
+instance NFData EffectivePatch where
 
 -- | Describes a failed association.
 --
@@ -2402,10 +2436,11 @@ instance NFData EffectivePatch
 --
 -- /See:/ 'failedCreateAssociation' smart constructor.
 data FailedCreateAssociation = FailedCreateAssociation'
-    { _fcaEntry   :: !(Maybe CreateAssociationBatchRequestEntry)
-    , _fcaFault   :: !(Maybe Fault)
-    , _fcaMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fcaEntry   :: {-# NOUNPACK #-}!(Maybe CreateAssociationBatchRequestEntry)
+  , _fcaFault   :: {-# NOUNPACK #-}!(Maybe Fault)
+  , _fcaMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailedCreateAssociation' with the minimum fields required to make a request.
 --
@@ -2419,11 +2454,9 @@ data FailedCreateAssociation = FailedCreateAssociation'
 failedCreateAssociation
     :: FailedCreateAssociation
 failedCreateAssociation =
-    FailedCreateAssociation'
-    { _fcaEntry = Nothing
-    , _fcaFault = Nothing
-    , _fcaMessage = Nothing
-    }
+  FailedCreateAssociation'
+  {_fcaEntry = Nothing, _fcaFault = Nothing, _fcaMessage = Nothing}
+
 
 -- | The association.
 fcaEntry :: Lens' FailedCreateAssociation (Maybe CreateAssociationBatchRequestEntry)
@@ -2445,9 +2478,9 @@ instance FromJSON FailedCreateAssociation where
                    (x .:? "Entry") <*> (x .:? "Fault") <*>
                      (x .:? "Message"))
 
-instance Hashable FailedCreateAssociation
+instance Hashable FailedCreateAssociation where
 
-instance NFData FailedCreateAssociation
+instance NFData FailedCreateAssociation where
 
 -- | Information about an Automation failure.
 --
@@ -2455,10 +2488,11 @@ instance NFData FailedCreateAssociation
 --
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-    { _fdFailureType  :: !(Maybe Text)
-    , _fdFailureStage :: !(Maybe Text)
-    , _fdDetails      :: !(Maybe (Map Text [Text]))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fdFailureType  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fdFailureStage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fdDetails      :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
 --
@@ -2472,11 +2506,9 @@ data FailureDetails = FailureDetails'
 failureDetails
     :: FailureDetails
 failureDetails =
-    FailureDetails'
-    { _fdFailureType = Nothing
-    , _fdFailureStage = Nothing
-    , _fdDetails = Nothing
-    }
+  FailureDetails'
+  {_fdFailureType = Nothing, _fdFailureStage = Nothing, _fdDetails = Nothing}
+
 
 -- | The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
 fdFailureType :: Lens' FailureDetails (Maybe Text)
@@ -2498,9 +2530,9 @@ instance FromJSON FailureDetails where
                    (x .:? "FailureType") <*> (x .:? "FailureStage") <*>
                      (x .:? "Details" .!= mempty))
 
-instance Hashable FailureDetails
+instance Hashable FailureDetails where
 
-instance NFData FailureDetails
+instance NFData FailureDetails where
 
 -- | Status information about the aggregated associations.
 --
@@ -2508,9 +2540,10 @@ instance NFData FailureDetails
 --
 -- /See:/ 'instanceAggregatedAssociationOverview' smart constructor.
 data InstanceAggregatedAssociationOverview = InstanceAggregatedAssociationOverview'
-    { _iaaoDetailedStatus                           :: !(Maybe Text)
-    , _iaaoInstanceAssociationStatusAggregatedCount :: !(Maybe (Map Text Int))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iaaoDetailedStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaaoInstanceAssociationStatusAggregatedCount :: {-# NOUNPACK #-}!(Maybe (Map Text Int))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceAggregatedAssociationOverview' with the minimum fields required to make a request.
 --
@@ -2522,10 +2555,11 @@ data InstanceAggregatedAssociationOverview = InstanceAggregatedAssociationOvervi
 instanceAggregatedAssociationOverview
     :: InstanceAggregatedAssociationOverview
 instanceAggregatedAssociationOverview =
-    InstanceAggregatedAssociationOverview'
-    { _iaaoDetailedStatus = Nothing
-    , _iaaoInstanceAssociationStatusAggregatedCount = Nothing
-    }
+  InstanceAggregatedAssociationOverview'
+  { _iaaoDetailedStatus = Nothing
+  , _iaaoInstanceAssociationStatusAggregatedCount = Nothing
+  }
+
 
 -- | Detailed status information about the aggregated associations.
 iaaoDetailedStatus :: Lens' InstanceAggregatedAssociationOverview (Maybe Text)
@@ -2536,7 +2570,8 @@ iaaoInstanceAssociationStatusAggregatedCount :: Lens' InstanceAggregatedAssociat
 iaaoInstanceAssociationStatusAggregatedCount = lens _iaaoInstanceAssociationStatusAggregatedCount (\ s a -> s{_iaaoInstanceAssociationStatusAggregatedCount = a}) . _Default . _Map;
 
 instance FromJSON
-         InstanceAggregatedAssociationOverview where
+           InstanceAggregatedAssociationOverview
+         where
         parseJSON
           = withObject "InstanceAggregatedAssociationOverview"
               (\ x ->
@@ -2546,9 +2581,11 @@ instance FromJSON
                         mempty))
 
 instance Hashable
-         InstanceAggregatedAssociationOverview
+           InstanceAggregatedAssociationOverview
+         where
 
 instance NFData InstanceAggregatedAssociationOverview
+         where
 
 -- | One or more association documents on the instance.
 --
@@ -2556,10 +2593,11 @@ instance NFData InstanceAggregatedAssociationOverview
 --
 -- /See:/ 'instanceAssociation' smart constructor.
 data InstanceAssociation = InstanceAssociation'
-    { _iaAssociationId :: !(Maybe Text)
-    , _iaInstanceId    :: !(Maybe Text)
-    , _iaContent       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iaAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaInstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaContent       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceAssociation' with the minimum fields required to make a request.
 --
@@ -2573,11 +2611,9 @@ data InstanceAssociation = InstanceAssociation'
 instanceAssociation
     :: InstanceAssociation
 instanceAssociation =
-    InstanceAssociation'
-    { _iaAssociationId = Nothing
-    , _iaInstanceId = Nothing
-    , _iaContent = Nothing
-    }
+  InstanceAssociation'
+  {_iaAssociationId = Nothing, _iaInstanceId = Nothing, _iaContent = Nothing}
+
 
 -- | The association ID.
 iaAssociationId :: Lens' InstanceAssociation (Maybe Text)
@@ -2599,9 +2635,9 @@ instance FromJSON InstanceAssociation where
                    (x .:? "AssociationId") <*> (x .:? "InstanceId") <*>
                      (x .:? "Content"))
 
-instance Hashable InstanceAssociation
+instance Hashable InstanceAssociation where
 
-instance NFData InstanceAssociation
+instance NFData InstanceAssociation where
 
 -- | An Amazon S3 bucket where you want to store the results of this request.
 --
@@ -2609,8 +2645,9 @@ instance NFData InstanceAssociation
 --
 -- /See:/ 'instanceAssociationOutputLocation' smart constructor.
 newtype InstanceAssociationOutputLocation = InstanceAssociationOutputLocation'
-    { _iaolS3Location :: Maybe S3OutputLocation
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iaolS3Location :: Maybe S3OutputLocation
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceAssociationOutputLocation' with the minimum fields required to make a request.
 --
@@ -2620,9 +2657,8 @@ newtype InstanceAssociationOutputLocation = InstanceAssociationOutputLocation'
 instanceAssociationOutputLocation
     :: InstanceAssociationOutputLocation
 instanceAssociationOutputLocation =
-    InstanceAssociationOutputLocation'
-    { _iaolS3Location = Nothing
-    }
+  InstanceAssociationOutputLocation' {_iaolS3Location = Nothing}
+
 
 -- | An Amazon S3 bucket where you want to store the results of this request.
 iaolS3Location :: Lens' InstanceAssociationOutputLocation (Maybe S3OutputLocation)
@@ -2637,8 +2673,10 @@ instance FromJSON InstanceAssociationOutputLocation
                    (x .:? "S3Location"))
 
 instance Hashable InstanceAssociationOutputLocation
+         where
 
 instance NFData InstanceAssociationOutputLocation
+         where
 
 instance ToJSON InstanceAssociationOutputLocation
          where
@@ -2652,8 +2690,9 @@ instance ToJSON InstanceAssociationOutputLocation
 --
 -- /See:/ 'instanceAssociationOutputURL' smart constructor.
 newtype InstanceAssociationOutputURL = InstanceAssociationOutputURL'
-    { _iaouS3OutputURL :: Maybe S3OutputURL
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iaouS3OutputURL :: Maybe S3OutputURL
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceAssociationOutputURL' with the minimum fields required to make a request.
 --
@@ -2663,9 +2702,8 @@ newtype InstanceAssociationOutputURL = InstanceAssociationOutputURL'
 instanceAssociationOutputURL
     :: InstanceAssociationOutputURL
 instanceAssociationOutputURL =
-    InstanceAssociationOutputURL'
-    { _iaouS3OutputURL = Nothing
-    }
+  InstanceAssociationOutputURL' {_iaouS3OutputURL = Nothing}
+
 
 -- | The URL of Amazon S3 bucket where you want to store the results of this request.
 iaouS3OutputURL :: Lens' InstanceAssociationOutputURL (Maybe S3OutputURL)
@@ -2678,9 +2716,9 @@ instance FromJSON InstanceAssociationOutputURL where
                  InstanceAssociationOutputURL' <$>
                    (x .:? "S3OutputUrl"))
 
-instance Hashable InstanceAssociationOutputURL
+instance Hashable InstanceAssociationOutputURL where
 
-instance NFData InstanceAssociationOutputURL
+instance NFData InstanceAssociationOutputURL where
 
 -- | Status information about the instance association.
 --
@@ -2688,17 +2726,18 @@ instance NFData InstanceAssociationOutputURL
 --
 -- /See:/ 'instanceAssociationStatusInfo' smart constructor.
 data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
-    { _iasiAssociationId    :: !(Maybe Text)
-    , _iasiInstanceId       :: !(Maybe Text)
-    , _iasiDetailedStatus   :: !(Maybe Text)
-    , _iasiStatus           :: !(Maybe Text)
-    , _iasiOutputURL        :: !(Maybe InstanceAssociationOutputURL)
-    , _iasiExecutionSummary :: !(Maybe Text)
-    , _iasiName             :: !(Maybe Text)
-    , _iasiErrorCode        :: !(Maybe Text)
-    , _iasiDocumentVersion  :: !(Maybe Text)
-    , _iasiExecutionDate    :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iasiAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiDetailedStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiOutputURL :: {-# NOUNPACK #-}!(Maybe InstanceAssociationOutputURL)
+  , _iasiExecutionSummary :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiErrorCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiExecutionDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceAssociationStatusInfo' with the minimum fields required to make a request.
 --
@@ -2726,18 +2765,19 @@ data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
 instanceAssociationStatusInfo
     :: InstanceAssociationStatusInfo
 instanceAssociationStatusInfo =
-    InstanceAssociationStatusInfo'
-    { _iasiAssociationId = Nothing
-    , _iasiInstanceId = Nothing
-    , _iasiDetailedStatus = Nothing
-    , _iasiStatus = Nothing
-    , _iasiOutputURL = Nothing
-    , _iasiExecutionSummary = Nothing
-    , _iasiName = Nothing
-    , _iasiErrorCode = Nothing
-    , _iasiDocumentVersion = Nothing
-    , _iasiExecutionDate = Nothing
-    }
+  InstanceAssociationStatusInfo'
+  { _iasiAssociationId = Nothing
+  , _iasiInstanceId = Nothing
+  , _iasiDetailedStatus = Nothing
+  , _iasiStatus = Nothing
+  , _iasiOutputURL = Nothing
+  , _iasiExecutionSummary = Nothing
+  , _iasiName = Nothing
+  , _iasiErrorCode = Nothing
+  , _iasiDocumentVersion = Nothing
+  , _iasiExecutionDate = Nothing
+  }
+
 
 -- | The association ID.
 iasiAssociationId :: Lens' InstanceAssociationStatusInfo (Maybe Text)
@@ -2794,9 +2834,9 @@ instance FromJSON InstanceAssociationStatusInfo where
                      <*> (x .:? "DocumentVersion")
                      <*> (x .:? "ExecutionDate"))
 
-instance Hashable InstanceAssociationStatusInfo
+instance Hashable InstanceAssociationStatusInfo where
 
-instance NFData InstanceAssociationStatusInfo
+instance NFData InstanceAssociationStatusInfo where
 
 -- | Describes a filter for a specific list of instances.
 --
@@ -2804,26 +2844,27 @@ instance NFData InstanceAssociationStatusInfo
 --
 -- /See:/ 'instanceInformation' smart constructor.
 data InstanceInformation = InstanceInformation'
-    { _iiInstanceId                             :: !(Maybe Text)
-    , _iiPingStatus                             :: !(Maybe PingStatus)
-    , _iiIPAddress                              :: !(Maybe Text)
-    , _iiResourceType                           :: !(Maybe ResourceType)
-    , _iiRegistrationDate                       :: !(Maybe POSIX)
-    , _iiPlatformVersion                        :: !(Maybe Text)
-    , _iiIsLatestVersion                        :: !(Maybe Bool)
-    , _iiAgentVersion                           :: !(Maybe Text)
-    , _iiLastPingDateTime                       :: !(Maybe POSIX)
-    , _iiLastSuccessfulAssociationExecutionDate :: !(Maybe POSIX)
-    , _iiActivationId                           :: !(Maybe Text)
-    , _iiName                                   :: !(Maybe Text)
-    , _iiPlatformType                           :: !(Maybe PlatformType)
-    , _iiAssociationOverview                    :: !(Maybe InstanceAggregatedAssociationOverview)
-    , _iiAssociationStatus                      :: !(Maybe Text)
-    , _iiLastAssociationExecutionDate           :: !(Maybe POSIX)
-    , _iiPlatformName                           :: !(Maybe Text)
-    , _iiComputerName                           :: !(Maybe Text)
-    , _iiIAMRole                                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiPingStatus :: {-# NOUNPACK #-}!(Maybe PingStatus)
+  , _iiIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiResourceType :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _iiRegistrationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iiPlatformVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiIsLatestVersion :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iiAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiLastPingDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iiLastSuccessfulAssociationExecutionDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iiActivationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiPlatformType :: {-# NOUNPACK #-}!(Maybe PlatformType)
+  , _iiAssociationOverview :: {-# NOUNPACK #-}!(Maybe InstanceAggregatedAssociationOverview)
+  , _iiAssociationStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiLastAssociationExecutionDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iiPlatformName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiComputerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiIAMRole :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceInformation' with the minimum fields required to make a request.
 --
@@ -2869,27 +2910,28 @@ data InstanceInformation = InstanceInformation'
 instanceInformation
     :: InstanceInformation
 instanceInformation =
-    InstanceInformation'
-    { _iiInstanceId = Nothing
-    , _iiPingStatus = Nothing
-    , _iiIPAddress = Nothing
-    , _iiResourceType = Nothing
-    , _iiRegistrationDate = Nothing
-    , _iiPlatformVersion = Nothing
-    , _iiIsLatestVersion = Nothing
-    , _iiAgentVersion = Nothing
-    , _iiLastPingDateTime = Nothing
-    , _iiLastSuccessfulAssociationExecutionDate = Nothing
-    , _iiActivationId = Nothing
-    , _iiName = Nothing
-    , _iiPlatformType = Nothing
-    , _iiAssociationOverview = Nothing
-    , _iiAssociationStatus = Nothing
-    , _iiLastAssociationExecutionDate = Nothing
-    , _iiPlatformName = Nothing
-    , _iiComputerName = Nothing
-    , _iiIAMRole = Nothing
-    }
+  InstanceInformation'
+  { _iiInstanceId = Nothing
+  , _iiPingStatus = Nothing
+  , _iiIPAddress = Nothing
+  , _iiResourceType = Nothing
+  , _iiRegistrationDate = Nothing
+  , _iiPlatformVersion = Nothing
+  , _iiIsLatestVersion = Nothing
+  , _iiAgentVersion = Nothing
+  , _iiLastPingDateTime = Nothing
+  , _iiLastSuccessfulAssociationExecutionDate = Nothing
+  , _iiActivationId = Nothing
+  , _iiName = Nothing
+  , _iiPlatformType = Nothing
+  , _iiAssociationOverview = Nothing
+  , _iiAssociationStatus = Nothing
+  , _iiLastAssociationExecutionDate = Nothing
+  , _iiPlatformName = Nothing
+  , _iiComputerName = Nothing
+  , _iiIAMRole = Nothing
+  }
+
 
 -- | The instance ID.
 iiInstanceId :: Lens' InstanceInformation (Maybe Text)
@@ -2991,9 +3033,9 @@ instance FromJSON InstanceInformation where
                      <*> (x .:? "ComputerName")
                      <*> (x .:? "IamRole"))
 
-instance Hashable InstanceInformation
+instance Hashable InstanceInformation where
 
-instance NFData InstanceInformation
+instance NFData InstanceInformation where
 
 -- | Describes a filter for a specific list of instances.
 --
@@ -3001,9 +3043,10 @@ instance NFData InstanceInformation
 --
 -- /See:/ 'instanceInformationFilter' smart constructor.
 data InstanceInformationFilter = InstanceInformationFilter'
-    { _iifKey      :: !InstanceInformationFilterKey
-    , _iifValueSet :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iifKey      :: {-# NOUNPACK #-}!InstanceInformationFilterKey
+  , _iifValueSet :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceInformationFilter' with the minimum fields required to make a request.
 --
@@ -3017,10 +3060,9 @@ instanceInformationFilter
     -> NonEmpty Text -- ^ 'iifValueSet'
     -> InstanceInformationFilter
 instanceInformationFilter pKey_ pValueSet_ =
-    InstanceInformationFilter'
-    { _iifKey = pKey_
-    , _iifValueSet = _List1 # pValueSet_
-    }
+  InstanceInformationFilter'
+  {_iifKey = pKey_, _iifValueSet = _List1 # pValueSet_}
+
 
 -- | The name of the filter.
 iifKey :: Lens' InstanceInformationFilter InstanceInformationFilterKey
@@ -3030,9 +3072,9 @@ iifKey = lens _iifKey (\ s a -> s{_iifKey = a});
 iifValueSet :: Lens' InstanceInformationFilter (NonEmpty Text)
 iifValueSet = lens _iifValueSet (\ s a -> s{_iifValueSet = a}) . _List1;
 
-instance Hashable InstanceInformationFilter
+instance Hashable InstanceInformationFilter where
 
-instance NFData InstanceInformationFilter
+instance NFData InstanceInformationFilter where
 
 instance ToJSON InstanceInformationFilter where
         toJSON InstanceInformationFilter'{..}
@@ -3047,9 +3089,10 @@ instance ToJSON InstanceInformationFilter where
 --
 -- /See:/ 'instanceInformationStringFilter' smart constructor.
 data InstanceInformationStringFilter = InstanceInformationStringFilter'
-    { _iisfKey    :: !Text
-    , _iisfValues :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iisfKey    :: {-# NOUNPACK #-}!Text
+  , _iisfValues :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceInformationStringFilter' with the minimum fields required to make a request.
 --
@@ -3063,10 +3106,9 @@ instanceInformationStringFilter
     -> NonEmpty Text -- ^ 'iisfValues'
     -> InstanceInformationStringFilter
 instanceInformationStringFilter pKey_ pValues_ =
-    InstanceInformationStringFilter'
-    { _iisfKey = pKey_
-    , _iisfValues = _List1 # pValues_
-    }
+  InstanceInformationStringFilter'
+  {_iisfKey = pKey_, _iisfValues = _List1 # pValues_}
+
 
 -- | The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
 iisfKey :: Lens' InstanceInformationStringFilter Text
@@ -3077,8 +3119,9 @@ iisfValues :: Lens' InstanceInformationStringFilter (NonEmpty Text)
 iisfValues = lens _iisfValues (\ s a -> s{_iisfValues = a}) . _List1;
 
 instance Hashable InstanceInformationStringFilter
+         where
 
-instance NFData InstanceInformationStringFilter
+instance NFData InstanceInformationStringFilter where
 
 instance ToJSON InstanceInformationStringFilter where
         toJSON InstanceInformationStringFilter'{..}
@@ -3093,20 +3136,21 @@ instance ToJSON InstanceInformationStringFilter where
 --
 -- /See:/ 'instancePatchState' smart constructor.
 data InstancePatchState = InstancePatchState'
-    { _ipsOwnerInformation    :: !(Maybe (Sensitive Text))
-    , _ipsFailedCount         :: !(Maybe Int)
-    , _ipsInstalledOtherCount :: !(Maybe Int)
-    , _ipsMissingCount        :: !(Maybe Int)
-    , _ipsNotApplicableCount  :: !(Maybe Int)
-    , _ipsInstalledCount      :: !(Maybe Int)
-    , _ipsSnapshotId          :: !(Maybe Text)
-    , _ipsInstanceId          :: !Text
-    , _ipsPatchGroup          :: !Text
-    , _ipsBaselineId          :: !Text
-    , _ipsOperationStartTime  :: !POSIX
-    , _ipsOperationEndTime    :: !POSIX
-    , _ipsOperation           :: !PatchOperationType
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ipsOwnerInformation    :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ipsFailedCount         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ipsInstalledOtherCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ipsMissingCount        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ipsNotApplicableCount  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ipsInstalledCount      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ipsSnapshotId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ipsInstanceId          :: {-# NOUNPACK #-}!Text
+  , _ipsPatchGroup          :: {-# NOUNPACK #-}!Text
+  , _ipsBaselineId          :: {-# NOUNPACK #-}!Text
+  , _ipsOperationStartTime  :: {-# NOUNPACK #-}!POSIX
+  , _ipsOperationEndTime    :: {-# NOUNPACK #-}!POSIX
+  , _ipsOperation           :: {-# NOUNPACK #-}!PatchOperationType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstancePatchState' with the minimum fields required to make a request.
 --
@@ -3146,21 +3190,22 @@ instancePatchState
     -> PatchOperationType -- ^ 'ipsOperation'
     -> InstancePatchState
 instancePatchState pInstanceId_ pPatchGroup_ pBaselineId_ pOperationStartTime_ pOperationEndTime_ pOperation_ =
-    InstancePatchState'
-    { _ipsOwnerInformation = Nothing
-    , _ipsFailedCount = Nothing
-    , _ipsInstalledOtherCount = Nothing
-    , _ipsMissingCount = Nothing
-    , _ipsNotApplicableCount = Nothing
-    , _ipsInstalledCount = Nothing
-    , _ipsSnapshotId = Nothing
-    , _ipsInstanceId = pInstanceId_
-    , _ipsPatchGroup = pPatchGroup_
-    , _ipsBaselineId = pBaselineId_
-    , _ipsOperationStartTime = _Time # pOperationStartTime_
-    , _ipsOperationEndTime = _Time # pOperationEndTime_
-    , _ipsOperation = pOperation_
-    }
+  InstancePatchState'
+  { _ipsOwnerInformation = Nothing
+  , _ipsFailedCount = Nothing
+  , _ipsInstalledOtherCount = Nothing
+  , _ipsMissingCount = Nothing
+  , _ipsNotApplicableCount = Nothing
+  , _ipsInstalledCount = Nothing
+  , _ipsSnapshotId = Nothing
+  , _ipsInstanceId = pInstanceId_
+  , _ipsPatchGroup = pPatchGroup_
+  , _ipsBaselineId = pBaselineId_
+  , _ipsOperationStartTime = _Time # pOperationStartTime_
+  , _ipsOperationEndTime = _Time # pOperationEndTime_
+  , _ipsOperation = pOperation_
+  }
+
 
 -- | Placeholder information, this field will always be empty in the current release of the service.
 ipsOwnerInformation :: Lens' InstancePatchState (Maybe Text)
@@ -3232,9 +3277,9 @@ instance FromJSON InstancePatchState where
                      <*> (x .: "OperationEndTime")
                      <*> (x .: "Operation"))
 
-instance Hashable InstancePatchState
+instance Hashable InstancePatchState where
 
-instance NFData InstancePatchState
+instance NFData InstancePatchState where
 
 -- | Defines a filter used in DescribeInstancePatchStatesForPatchGroup used to scope down the information returned by the API.
 --
@@ -3242,10 +3287,11 @@ instance NFData InstancePatchState
 --
 -- /See:/ 'instancePatchStateFilter' smart constructor.
 data InstancePatchStateFilter = InstancePatchStateFilter'
-    { _ipsfKey    :: !Text
-    , _ipsfValues :: !(List1 Text)
-    , _ipsfType   :: !InstancePatchStateOperatorType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ipsfKey    :: {-# NOUNPACK #-}!Text
+  , _ipsfValues :: {-# NOUNPACK #-}!(List1 Text)
+  , _ipsfType   :: {-# NOUNPACK #-}!InstancePatchStateOperatorType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstancePatchStateFilter' with the minimum fields required to make a request.
 --
@@ -3262,11 +3308,9 @@ instancePatchStateFilter
     -> InstancePatchStateOperatorType -- ^ 'ipsfType'
     -> InstancePatchStateFilter
 instancePatchStateFilter pKey_ pValues_ pType_ =
-    InstancePatchStateFilter'
-    { _ipsfKey = pKey_
-    , _ipsfValues = _List1 # pValues_
-    , _ipsfType = pType_
-    }
+  InstancePatchStateFilter'
+  {_ipsfKey = pKey_, _ipsfValues = _List1 # pValues_, _ipsfType = pType_}
+
 
 -- | The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
 ipsfKey :: Lens' InstancePatchStateFilter Text
@@ -3280,9 +3324,9 @@ ipsfValues = lens _ipsfValues (\ s a -> s{_ipsfValues = a}) . _List1;
 ipsfType :: Lens' InstancePatchStateFilter InstancePatchStateOperatorType
 ipsfType = lens _ipsfType (\ s a -> s{_ipsfType = a});
 
-instance Hashable InstancePatchStateFilter
+instance Hashable InstancePatchStateFilter where
 
-instance NFData InstancePatchStateFilter
+instance NFData InstancePatchStateFilter where
 
 instance ToJSON InstancePatchStateFilter where
         toJSON InstancePatchStateFilter'{..}
@@ -3298,10 +3342,11 @@ instance ToJSON InstancePatchStateFilter where
 --
 -- /See:/ 'inventoryFilter' smart constructor.
 data InventoryFilter = InventoryFilter'
-    { _ifType   :: !(Maybe InventoryQueryOperatorType)
-    , _ifKey    :: !Text
-    , _ifValues :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifType   :: {-# NOUNPACK #-}!(Maybe InventoryQueryOperatorType)
+  , _ifKey    :: {-# NOUNPACK #-}!Text
+  , _ifValues :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryFilter' with the minimum fields required to make a request.
 --
@@ -3317,11 +3362,9 @@ inventoryFilter
     -> NonEmpty Text -- ^ 'ifValues'
     -> InventoryFilter
 inventoryFilter pKey_ pValues_ =
-    InventoryFilter'
-    { _ifType = Nothing
-    , _ifKey = pKey_
-    , _ifValues = _List1 # pValues_
-    }
+  InventoryFilter'
+  {_ifType = Nothing, _ifKey = pKey_, _ifValues = _List1 # pValues_}
+
 
 -- | The type of filter. Valid values include the following: "Equal"|"NotEqual"|"BeginWith"|"LessThan"|"GreaterThan"
 ifType :: Lens' InventoryFilter (Maybe InventoryQueryOperatorType)
@@ -3335,9 +3378,9 @@ ifKey = lens _ifKey (\ s a -> s{_ifKey = a});
 ifValues :: Lens' InventoryFilter (NonEmpty Text)
 ifValues = lens _ifValues (\ s a -> s{_ifValues = a}) . _List1;
 
-instance Hashable InventoryFilter
+instance Hashable InventoryFilter where
 
-instance NFData InventoryFilter
+instance NFData InventoryFilter where
 
 instance ToJSON InventoryFilter where
         toJSON InventoryFilter'{..}
@@ -3352,13 +3395,14 @@ instance ToJSON InventoryFilter where
 --
 -- /See:/ 'inventoryItem' smart constructor.
 data InventoryItem = InventoryItem'
-    { _iiContext       :: !(Maybe (Map Text Text))
-    , _iiContentHash   :: !(Maybe Text)
-    , _iiContent       :: !(Maybe [Map Text Text])
-    , _iiTypeName      :: !Text
-    , _iiSchemaVersion :: !Text
-    , _iiCaptureTime   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiContext       :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _iiContentHash   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiContent       :: {-# NOUNPACK #-}!(Maybe [Map Text Text])
+  , _iiTypeName      :: {-# NOUNPACK #-}!Text
+  , _iiSchemaVersion :: {-# NOUNPACK #-}!Text
+  , _iiCaptureTime   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryItem' with the minimum fields required to make a request.
 --
@@ -3381,14 +3425,15 @@ inventoryItem
     -> Text -- ^ 'iiCaptureTime'
     -> InventoryItem
 inventoryItem pTypeName_ pSchemaVersion_ pCaptureTime_ =
-    InventoryItem'
-    { _iiContext = Nothing
-    , _iiContentHash = Nothing
-    , _iiContent = Nothing
-    , _iiTypeName = pTypeName_
-    , _iiSchemaVersion = pSchemaVersion_
-    , _iiCaptureTime = pCaptureTime_
-    }
+  InventoryItem'
+  { _iiContext = Nothing
+  , _iiContentHash = Nothing
+  , _iiContent = Nothing
+  , _iiTypeName = pTypeName_
+  , _iiSchemaVersion = pSchemaVersion_
+  , _iiCaptureTime = pCaptureTime_
+  }
+
 
 -- | A map of associated properties for a specified inventory type. For example, with this attribute, you can specify the @ExecutionId@ , @ExecutionType@ , @ComplianceType@ properties of the @AWS:ComplianceItem@ type.
 iiContext :: Lens' InventoryItem (HashMap Text Text)
@@ -3414,9 +3459,9 @@ iiSchemaVersion = lens _iiSchemaVersion (\ s a -> s{_iiSchemaVersion = a});
 iiCaptureTime :: Lens' InventoryItem Text
 iiCaptureTime = lens _iiCaptureTime (\ s a -> s{_iiCaptureTime = a});
 
-instance Hashable InventoryItem
+instance Hashable InventoryItem where
 
-instance NFData InventoryItem
+instance NFData InventoryItem where
 
 instance ToJSON InventoryItem where
         toJSON InventoryItem'{..}
@@ -3435,9 +3480,10 @@ instance ToJSON InventoryItem where
 --
 -- /See:/ 'inventoryItemAttribute' smart constructor.
 data InventoryItemAttribute = InventoryItemAttribute'
-    { _iiaName     :: !Text
-    , _iiaDataType :: !InventoryAttributeDataType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiaName     :: {-# NOUNPACK #-}!Text
+  , _iiaDataType :: {-# NOUNPACK #-}!InventoryAttributeDataType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryItemAttribute' with the minimum fields required to make a request.
 --
@@ -3451,10 +3497,8 @@ inventoryItemAttribute
     -> InventoryAttributeDataType -- ^ 'iiaDataType'
     -> InventoryItemAttribute
 inventoryItemAttribute pName_ pDataType_ =
-    InventoryItemAttribute'
-    { _iiaName = pName_
-    , _iiaDataType = pDataType_
-    }
+  InventoryItemAttribute' {_iiaName = pName_, _iiaDataType = pDataType_}
+
 
 -- | Name of the inventory item attribute.
 iiaName :: Lens' InventoryItemAttribute Text
@@ -3471,9 +3515,9 @@ instance FromJSON InventoryItemAttribute where
                  InventoryItemAttribute' <$>
                    (x .: "Name") <*> (x .: "DataType"))
 
-instance Hashable InventoryItemAttribute
+instance Hashable InventoryItemAttribute where
 
-instance NFData InventoryItemAttribute
+instance NFData InventoryItemAttribute where
 
 -- | The inventory item schema definition. Users can use this to compose inventory query filters.
 --
@@ -3481,10 +3525,11 @@ instance NFData InventoryItemAttribute
 --
 -- /See:/ 'inventoryItemSchema' smart constructor.
 data InventoryItemSchema = InventoryItemSchema'
-    { _iisVersion    :: !(Maybe Text)
-    , _iisTypeName   :: !Text
-    , _iisAttributes :: !(List1 InventoryItemAttribute)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iisVersion    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iisTypeName   :: {-# NOUNPACK #-}!Text
+  , _iisAttributes :: {-# NOUNPACK #-}!(List1 InventoryItemAttribute)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryItemSchema' with the minimum fields required to make a request.
 --
@@ -3500,11 +3545,12 @@ inventoryItemSchema
     -> NonEmpty InventoryItemAttribute -- ^ 'iisAttributes'
     -> InventoryItemSchema
 inventoryItemSchema pTypeName_ pAttributes_ =
-    InventoryItemSchema'
-    { _iisVersion = Nothing
-    , _iisTypeName = pTypeName_
-    , _iisAttributes = _List1 # pAttributes_
-    }
+  InventoryItemSchema'
+  { _iisVersion = Nothing
+  , _iisTypeName = pTypeName_
+  , _iisAttributes = _List1 # pAttributes_
+  }
+
 
 -- | The schema version for the inventory item.
 iisVersion :: Lens' InventoryItemSchema (Maybe Text)
@@ -3526,9 +3572,9 @@ instance FromJSON InventoryItemSchema where
                    (x .:? "Version") <*> (x .: "TypeName") <*>
                      (x .: "Attributes"))
 
-instance Hashable InventoryItemSchema
+instance Hashable InventoryItemSchema where
 
-instance NFData InventoryItemSchema
+instance NFData InventoryItemSchema where
 
 -- | Inventory query results.
 --
@@ -3536,9 +3582,10 @@ instance NFData InventoryItemSchema
 --
 -- /See:/ 'inventoryResultEntity' smart constructor.
 data InventoryResultEntity = InventoryResultEntity'
-    { _ireData :: !(Maybe (Map Text InventoryResultItem))
-    , _ireId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ireData :: {-# NOUNPACK #-}!(Maybe (Map Text InventoryResultItem))
+  , _ireId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryResultEntity' with the minimum fields required to make a request.
 --
@@ -3550,10 +3597,8 @@ data InventoryResultEntity = InventoryResultEntity'
 inventoryResultEntity
     :: InventoryResultEntity
 inventoryResultEntity =
-    InventoryResultEntity'
-    { _ireData = Nothing
-    , _ireId = Nothing
-    }
+  InventoryResultEntity' {_ireData = Nothing, _ireId = Nothing}
+
 
 -- | The data section in the inventory result entity json.
 ireData :: Lens' InventoryResultEntity (HashMap Text InventoryResultItem)
@@ -3570,9 +3615,9 @@ instance FromJSON InventoryResultEntity where
                  InventoryResultEntity' <$>
                    (x .:? "Data" .!= mempty) <*> (x .:? "Id"))
 
-instance Hashable InventoryResultEntity
+instance Hashable InventoryResultEntity where
 
-instance NFData InventoryResultEntity
+instance NFData InventoryResultEntity where
 
 -- | The inventory result item.
 --
@@ -3580,12 +3625,13 @@ instance NFData InventoryResultEntity
 --
 -- /See:/ 'inventoryResultItem' smart constructor.
 data InventoryResultItem = InventoryResultItem'
-    { _iriContentHash   :: !(Maybe Text)
-    , _iriCaptureTime   :: !(Maybe Text)
-    , _iriTypeName      :: !Text
-    , _iriSchemaVersion :: !Text
-    , _iriContent       :: ![Map Text Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iriContentHash   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iriCaptureTime   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iriTypeName      :: {-# NOUNPACK #-}!Text
+  , _iriSchemaVersion :: {-# NOUNPACK #-}!Text
+  , _iriContent       :: {-# NOUNPACK #-}![Map Text Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryResultItem' with the minimum fields required to make a request.
 --
@@ -3605,13 +3651,14 @@ inventoryResultItem
     -> Text -- ^ 'iriSchemaVersion'
     -> InventoryResultItem
 inventoryResultItem pTypeName_ pSchemaVersion_ =
-    InventoryResultItem'
-    { _iriContentHash = Nothing
-    , _iriCaptureTime = Nothing
-    , _iriTypeName = pTypeName_
-    , _iriSchemaVersion = pSchemaVersion_
-    , _iriContent = mempty
-    }
+  InventoryResultItem'
+  { _iriContentHash = Nothing
+  , _iriCaptureTime = Nothing
+  , _iriTypeName = pTypeName_
+  , _iriSchemaVersion = pSchemaVersion_
+  , _iriContent = mempty
+  }
+
 
 -- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
 iriContentHash :: Lens' InventoryResultItem (Maybe Text)
@@ -3643,9 +3690,9 @@ instance FromJSON InventoryResultItem where
                      <*> (x .: "SchemaVersion")
                      <*> (x .:? "Content" .!= mempty))
 
-instance Hashable InventoryResultItem
+instance Hashable InventoryResultItem where
 
-instance NFData InventoryResultItem
+instance NFData InventoryResultItem where
 
 -- | Information about an Amazon S3 bucket to write instance-level logs to.
 --
@@ -3653,10 +3700,11 @@ instance NFData InventoryResultItem
 --
 -- /See:/ 'loggingInfo' smart constructor.
 data LoggingInfo = LoggingInfo'
-    { _liS3KeyPrefix  :: !(Maybe Text)
-    , _liS3BucketName :: !Text
-    , _liS3Region     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liS3KeyPrefix  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liS3BucketName :: {-# NOUNPACK #-}!Text
+  , _liS3Region     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoggingInfo' with the minimum fields required to make a request.
 --
@@ -3672,11 +3720,12 @@ loggingInfo
     -> Text -- ^ 'liS3Region'
     -> LoggingInfo
 loggingInfo pS3BucketName_ pS3Region_ =
-    LoggingInfo'
-    { _liS3KeyPrefix = Nothing
-    , _liS3BucketName = pS3BucketName_
-    , _liS3Region = pS3Region_
-    }
+  LoggingInfo'
+  { _liS3KeyPrefix = Nothing
+  , _liS3BucketName = pS3BucketName_
+  , _liS3Region = pS3Region_
+  }
+
 
 -- | (Optional) The Amazon S3 bucket subfolder.
 liS3KeyPrefix :: Lens' LoggingInfo (Maybe Text)
@@ -3698,9 +3747,9 @@ instance FromJSON LoggingInfo where
                    (x .:? "S3KeyPrefix") <*> (x .: "S3BucketName") <*>
                      (x .: "S3Region"))
 
-instance Hashable LoggingInfo
+instance Hashable LoggingInfo where
 
-instance NFData LoggingInfo
+instance NFData LoggingInfo where
 
 instance ToJSON LoggingInfo where
         toJSON LoggingInfo'{..}
@@ -3716,9 +3765,10 @@ instance ToJSON LoggingInfo where
 --
 -- /See:/ 'maintenanceWindowAutomationParameters' smart constructor.
 data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParameters'
-    { _mwapParameters      :: !(Maybe (Map Text [Text]))
-    , _mwapDocumentVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mwapParameters      :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _mwapDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowAutomationParameters' with the minimum fields required to make a request.
 --
@@ -3730,10 +3780,9 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
 maintenanceWindowAutomationParameters
     :: MaintenanceWindowAutomationParameters
 maintenanceWindowAutomationParameters =
-    MaintenanceWindowAutomationParameters'
-    { _mwapParameters = Nothing
-    , _mwapDocumentVersion = Nothing
-    }
+  MaintenanceWindowAutomationParameters'
+  {_mwapParameters = Nothing, _mwapDocumentVersion = Nothing}
+
 
 -- | Parameters for the AUTOMATION task.
 mwapParameters :: Lens' MaintenanceWindowAutomationParameters (HashMap Text [Text])
@@ -3744,7 +3793,8 @@ mwapDocumentVersion :: Lens' MaintenanceWindowAutomationParameters (Maybe Text)
 mwapDocumentVersion = lens _mwapDocumentVersion (\ s a -> s{_mwapDocumentVersion = a});
 
 instance FromJSON
-         MaintenanceWindowAutomationParameters where
+           MaintenanceWindowAutomationParameters
+         where
         parseJSON
           = withObject "MaintenanceWindowAutomationParameters"
               (\ x ->
@@ -3753,9 +3803,11 @@ instance FromJSON
                      (x .:? "DocumentVersion"))
 
 instance Hashable
-         MaintenanceWindowAutomationParameters
+           MaintenanceWindowAutomationParameters
+         where
 
 instance NFData MaintenanceWindowAutomationParameters
+         where
 
 instance ToJSON MaintenanceWindowAutomationParameters
          where
@@ -3771,13 +3823,14 @@ instance ToJSON MaintenanceWindowAutomationParameters
 --
 -- /See:/ 'maintenanceWindowExecution' smart constructor.
 data MaintenanceWindowExecution = MaintenanceWindowExecution'
-    { _mweStatus            :: !(Maybe MaintenanceWindowExecutionStatus)
-    , _mweStartTime         :: !(Maybe POSIX)
-    , _mweWindowExecutionId :: !(Maybe Text)
-    , _mweStatusDetails     :: !(Maybe Text)
-    , _mweEndTime           :: !(Maybe POSIX)
-    , _mweWindowId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mweStatus :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowExecutionStatus)
+  , _mweStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mweWindowExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mweStatusDetails :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mweEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mweWindowId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowExecution' with the minimum fields required to make a request.
 --
@@ -3797,14 +3850,15 @@ data MaintenanceWindowExecution = MaintenanceWindowExecution'
 maintenanceWindowExecution
     :: MaintenanceWindowExecution
 maintenanceWindowExecution =
-    MaintenanceWindowExecution'
-    { _mweStatus = Nothing
-    , _mweStartTime = Nothing
-    , _mweWindowExecutionId = Nothing
-    , _mweStatusDetails = Nothing
-    , _mweEndTime = Nothing
-    , _mweWindowId = Nothing
-    }
+  MaintenanceWindowExecution'
+  { _mweStatus = Nothing
+  , _mweStartTime = Nothing
+  , _mweWindowExecutionId = Nothing
+  , _mweStatusDetails = Nothing
+  , _mweEndTime = Nothing
+  , _mweWindowId = Nothing
+  }
+
 
 -- | The status of the execution.
 mweStatus :: Lens' MaintenanceWindowExecution (Maybe MaintenanceWindowExecutionStatus)
@@ -3841,9 +3895,9 @@ instance FromJSON MaintenanceWindowExecution where
                      <*> (x .:? "EndTime")
                      <*> (x .:? "WindowId"))
 
-instance Hashable MaintenanceWindowExecution
+instance Hashable MaintenanceWindowExecution where
 
-instance NFData MaintenanceWindowExecution
+instance NFData MaintenanceWindowExecution where
 
 -- | Information about a task execution performed as part of a Maintenance Window execution.
 --
@@ -3851,15 +3905,16 @@ instance NFData MaintenanceWindowExecution
 --
 -- /See:/ 'maintenanceWindowExecutionTaskIdentity' smart constructor.
 data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIdentity'
-    { _mwetiStatus            :: !(Maybe MaintenanceWindowExecutionStatus)
-    , _mwetiTaskExecutionId   :: !(Maybe Text)
-    , _mwetiStartTime         :: !(Maybe POSIX)
-    , _mwetiTaskType          :: !(Maybe MaintenanceWindowTaskType)
-    , _mwetiTaskARN           :: !(Maybe Text)
-    , _mwetiWindowExecutionId :: !(Maybe Text)
-    , _mwetiStatusDetails     :: !(Maybe Text)
-    , _mwetiEndTime           :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mwetiStatus :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowExecutionStatus)
+  , _mwetiTaskExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mwetiTaskType :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskType)
+  , _mwetiTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiWindowExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiStatusDetails :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowExecutionTaskIdentity' with the minimum fields required to make a request.
 --
@@ -3883,16 +3938,17 @@ data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIden
 maintenanceWindowExecutionTaskIdentity
     :: MaintenanceWindowExecutionTaskIdentity
 maintenanceWindowExecutionTaskIdentity =
-    MaintenanceWindowExecutionTaskIdentity'
-    { _mwetiStatus = Nothing
-    , _mwetiTaskExecutionId = Nothing
-    , _mwetiStartTime = Nothing
-    , _mwetiTaskType = Nothing
-    , _mwetiTaskARN = Nothing
-    , _mwetiWindowExecutionId = Nothing
-    , _mwetiStatusDetails = Nothing
-    , _mwetiEndTime = Nothing
-    }
+  MaintenanceWindowExecutionTaskIdentity'
+  { _mwetiStatus = Nothing
+  , _mwetiTaskExecutionId = Nothing
+  , _mwetiStartTime = Nothing
+  , _mwetiTaskType = Nothing
+  , _mwetiTaskARN = Nothing
+  , _mwetiWindowExecutionId = Nothing
+  , _mwetiStatusDetails = Nothing
+  , _mwetiEndTime = Nothing
+  }
+
 
 -- | The status of the task execution.
 mwetiStatus :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe MaintenanceWindowExecutionStatus)
@@ -3927,7 +3983,8 @@ mwetiEndTime :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe UTCTime)
 mwetiEndTime = lens _mwetiEndTime (\ s a -> s{_mwetiEndTime = a}) . mapping _Time;
 
 instance FromJSON
-         MaintenanceWindowExecutionTaskIdentity where
+           MaintenanceWindowExecutionTaskIdentity
+         where
         parseJSON
           = withObject "MaintenanceWindowExecutionTaskIdentity"
               (\ x ->
@@ -3941,10 +3998,12 @@ instance FromJSON
                      <*> (x .:? "EndTime"))
 
 instance Hashable
-         MaintenanceWindowExecutionTaskIdentity
+           MaintenanceWindowExecutionTaskIdentity
+         where
 
 instance NFData
-         MaintenanceWindowExecutionTaskIdentity
+           MaintenanceWindowExecutionTaskIdentity
+         where
 
 -- | Describes the information about a task invocation for a particular target as part of a task execution performed as part of a Maintenance Window execution.
 --
@@ -3952,19 +4011,20 @@ instance NFData
 --
 -- /See:/ 'maintenanceWindowExecutionTaskInvocationIdentity' smart constructor.
 data MaintenanceWindowExecutionTaskInvocationIdentity = MaintenanceWindowExecutionTaskInvocationIdentity'
-    { _mwetiiStatus            :: !(Maybe MaintenanceWindowExecutionStatus)
-    , _mwetiiExecutionId       :: !(Maybe Text)
-    , _mwetiiTaskExecutionId   :: !(Maybe Text)
-    , _mwetiiStartTime         :: !(Maybe POSIX)
-    , _mwetiiInvocationId      :: !(Maybe Text)
-    , _mwetiiOwnerInformation  :: !(Maybe (Sensitive Text))
-    , _mwetiiTaskType          :: !(Maybe MaintenanceWindowTaskType)
-    , _mwetiiWindowTargetId    :: !(Maybe Text)
-    , _mwetiiWindowExecutionId :: !(Maybe Text)
-    , _mwetiiStatusDetails     :: !(Maybe Text)
-    , _mwetiiEndTime           :: !(Maybe POSIX)
-    , _mwetiiParameters        :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mwetiiStatus :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowExecutionStatus)
+  , _mwetiiExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiiTaskExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiiStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mwetiiInvocationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiiOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _mwetiiTaskType :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskType)
+  , _mwetiiWindowTargetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiiWindowExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiiStatusDetails :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwetiiEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mwetiiParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowExecutionTaskInvocationIdentity' with the minimum fields required to make a request.
 --
@@ -3996,20 +4056,21 @@ data MaintenanceWindowExecutionTaskInvocationIdentity = MaintenanceWindowExecuti
 maintenanceWindowExecutionTaskInvocationIdentity
     :: MaintenanceWindowExecutionTaskInvocationIdentity
 maintenanceWindowExecutionTaskInvocationIdentity =
-    MaintenanceWindowExecutionTaskInvocationIdentity'
-    { _mwetiiStatus = Nothing
-    , _mwetiiExecutionId = Nothing
-    , _mwetiiTaskExecutionId = Nothing
-    , _mwetiiStartTime = Nothing
-    , _mwetiiInvocationId = Nothing
-    , _mwetiiOwnerInformation = Nothing
-    , _mwetiiTaskType = Nothing
-    , _mwetiiWindowTargetId = Nothing
-    , _mwetiiWindowExecutionId = Nothing
-    , _mwetiiStatusDetails = Nothing
-    , _mwetiiEndTime = Nothing
-    , _mwetiiParameters = Nothing
-    }
+  MaintenanceWindowExecutionTaskInvocationIdentity'
+  { _mwetiiStatus = Nothing
+  , _mwetiiExecutionId = Nothing
+  , _mwetiiTaskExecutionId = Nothing
+  , _mwetiiStartTime = Nothing
+  , _mwetiiInvocationId = Nothing
+  , _mwetiiOwnerInformation = Nothing
+  , _mwetiiTaskType = Nothing
+  , _mwetiiWindowTargetId = Nothing
+  , _mwetiiWindowExecutionId = Nothing
+  , _mwetiiStatusDetails = Nothing
+  , _mwetiiEndTime = Nothing
+  , _mwetiiParameters = Nothing
+  }
+
 
 -- | The status of the task invocation.
 mwetiiStatus :: Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Maybe MaintenanceWindowExecutionStatus)
@@ -4060,7 +4121,7 @@ mwetiiParameters :: Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Mayb
 mwetiiParameters = lens _mwetiiParameters (\ s a -> s{_mwetiiParameters = a}) . mapping _Sensitive;
 
 instance FromJSON
-         MaintenanceWindowExecutionTaskInvocationIdentity
+           MaintenanceWindowExecutionTaskInvocationIdentity
          where
         parseJSON
           = withObject
@@ -4080,10 +4141,12 @@ instance FromJSON
                      <*> (x .:? "Parameters"))
 
 instance Hashable
-         MaintenanceWindowExecutionTaskInvocationIdentity
+           MaintenanceWindowExecutionTaskInvocationIdentity
+         where
 
 instance NFData
-         MaintenanceWindowExecutionTaskInvocationIdentity
+           MaintenanceWindowExecutionTaskInvocationIdentity
+         where
 
 -- | Filter used in the request.
 --
@@ -4091,9 +4154,10 @@ instance NFData
 --
 -- /See:/ 'maintenanceWindowFilter' smart constructor.
 data MaintenanceWindowFilter = MaintenanceWindowFilter'
-    { _mwfValues :: !(Maybe [Text])
-    , _mwfKey    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mwfValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mwfKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowFilter' with the minimum fields required to make a request.
 --
@@ -4105,10 +4169,8 @@ data MaintenanceWindowFilter = MaintenanceWindowFilter'
 maintenanceWindowFilter
     :: MaintenanceWindowFilter
 maintenanceWindowFilter =
-    MaintenanceWindowFilter'
-    { _mwfValues = Nothing
-    , _mwfKey = Nothing
-    }
+  MaintenanceWindowFilter' {_mwfValues = Nothing, _mwfKey = Nothing}
+
 
 -- | The filter values.
 mwfValues :: Lens' MaintenanceWindowFilter [Text]
@@ -4118,9 +4180,9 @@ mwfValues = lens _mwfValues (\ s a -> s{_mwfValues = a}) . _Default . _Coerce;
 mwfKey :: Lens' MaintenanceWindowFilter (Maybe Text)
 mwfKey = lens _mwfKey (\ s a -> s{_mwfKey = a});
 
-instance Hashable MaintenanceWindowFilter
+instance Hashable MaintenanceWindowFilter where
 
-instance NFData MaintenanceWindowFilter
+instance NFData MaintenanceWindowFilter where
 
 instance ToJSON MaintenanceWindowFilter where
         toJSON MaintenanceWindowFilter'{..}
@@ -4135,13 +4197,14 @@ instance ToJSON MaintenanceWindowFilter where
 --
 -- /See:/ 'maintenanceWindowIdentity' smart constructor.
 data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
-    { _mwiEnabled     :: !(Maybe Bool)
-    , _mwiName        :: !(Maybe Text)
-    , _mwiCutoff      :: !(Maybe Nat)
-    , _mwiDescription :: !(Maybe (Sensitive Text))
-    , _mwiDuration    :: !(Maybe Nat)
-    , _mwiWindowId    :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mwiEnabled     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mwiName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwiCutoff      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mwiDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _mwiDuration    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mwiWindowId    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowIdentity' with the minimum fields required to make a request.
 --
@@ -4161,14 +4224,15 @@ data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
 maintenanceWindowIdentity
     :: MaintenanceWindowIdentity
 maintenanceWindowIdentity =
-    MaintenanceWindowIdentity'
-    { _mwiEnabled = Nothing
-    , _mwiName = Nothing
-    , _mwiCutoff = Nothing
-    , _mwiDescription = Nothing
-    , _mwiDuration = Nothing
-    , _mwiWindowId = Nothing
-    }
+  MaintenanceWindowIdentity'
+  { _mwiEnabled = Nothing
+  , _mwiName = Nothing
+  , _mwiCutoff = Nothing
+  , _mwiDescription = Nothing
+  , _mwiDuration = Nothing
+  , _mwiWindowId = Nothing
+  }
+
 
 -- | Whether the Maintenance Window is enabled.
 mwiEnabled :: Lens' MaintenanceWindowIdentity (Maybe Bool)
@@ -4205,9 +4269,9 @@ instance FromJSON MaintenanceWindowIdentity where
                      <*> (x .:? "Duration")
                      <*> (x .:? "WindowId"))
 
-instance Hashable MaintenanceWindowIdentity
+instance Hashable MaintenanceWindowIdentity where
 
-instance NFData MaintenanceWindowIdentity
+instance NFData MaintenanceWindowIdentity where
 
 -- | Parameters for a LAMBDA task type.
 --
@@ -4215,10 +4279,11 @@ instance NFData MaintenanceWindowIdentity
 --
 -- /See:/ 'maintenanceWindowLambdaParameters' smart constructor.
 data MaintenanceWindowLambdaParameters = MaintenanceWindowLambdaParameters'
-    { _mwlpPayload       :: !(Maybe (Sensitive Base64))
-    , _mwlpQualifier     :: !(Maybe Text)
-    , _mwlpClientContext :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mwlpPayload       :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
+  , _mwlpQualifier     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwlpClientContext :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowLambdaParameters' with the minimum fields required to make a request.
 --
@@ -4232,11 +4297,12 @@ data MaintenanceWindowLambdaParameters = MaintenanceWindowLambdaParameters'
 maintenanceWindowLambdaParameters
     :: MaintenanceWindowLambdaParameters
 maintenanceWindowLambdaParameters =
-    MaintenanceWindowLambdaParameters'
-    { _mwlpPayload = Nothing
-    , _mwlpQualifier = Nothing
-    , _mwlpClientContext = Nothing
-    }
+  MaintenanceWindowLambdaParameters'
+  { _mwlpPayload = Nothing
+  , _mwlpQualifier = Nothing
+  , _mwlpClientContext = Nothing
+  }
+
 
 -- | JSON that you want to provide to your Lambda function as input.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 mwlpPayload :: Lens' MaintenanceWindowLambdaParameters (Maybe ByteString)
@@ -4260,8 +4326,10 @@ instance FromJSON MaintenanceWindowLambdaParameters
                      (x .:? "ClientContext"))
 
 instance Hashable MaintenanceWindowLambdaParameters
+         where
 
 instance NFData MaintenanceWindowLambdaParameters
+         where
 
 instance ToJSON MaintenanceWindowLambdaParameters
          where
@@ -4278,16 +4346,17 @@ instance ToJSON MaintenanceWindowLambdaParameters
 --
 -- /See:/ 'maintenanceWindowRunCommandParameters' smart constructor.
 data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParameters'
-    { _mwrcpServiceRoleARN     :: !(Maybe Text)
-    , _mwrcpNotificationConfig :: !(Maybe NotificationConfig)
-    , _mwrcpDocumentHashType   :: !(Maybe DocumentHashType)
-    , _mwrcpOutputS3KeyPrefix  :: !(Maybe Text)
-    , _mwrcpParameters         :: !(Maybe (Map Text [Text]))
-    , _mwrcpDocumentHash       :: !(Maybe Text)
-    , _mwrcpTimeoutSeconds     :: !(Maybe Nat)
-    , _mwrcpComment            :: !(Maybe Text)
-    , _mwrcpOutputS3BucketName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mwrcpServiceRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwrcpNotificationConfig :: {-# NOUNPACK #-}!(Maybe NotificationConfig)
+  , _mwrcpDocumentHashType   :: {-# NOUNPACK #-}!(Maybe DocumentHashType)
+  , _mwrcpOutputS3KeyPrefix  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwrcpParameters         :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _mwrcpDocumentHash       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwrcpTimeoutSeconds     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mwrcpComment            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwrcpOutputS3BucketName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowRunCommandParameters' with the minimum fields required to make a request.
 --
@@ -4313,17 +4382,18 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
 maintenanceWindowRunCommandParameters
     :: MaintenanceWindowRunCommandParameters
 maintenanceWindowRunCommandParameters =
-    MaintenanceWindowRunCommandParameters'
-    { _mwrcpServiceRoleARN = Nothing
-    , _mwrcpNotificationConfig = Nothing
-    , _mwrcpDocumentHashType = Nothing
-    , _mwrcpOutputS3KeyPrefix = Nothing
-    , _mwrcpParameters = Nothing
-    , _mwrcpDocumentHash = Nothing
-    , _mwrcpTimeoutSeconds = Nothing
-    , _mwrcpComment = Nothing
-    , _mwrcpOutputS3BucketName = Nothing
-    }
+  MaintenanceWindowRunCommandParameters'
+  { _mwrcpServiceRoleARN = Nothing
+  , _mwrcpNotificationConfig = Nothing
+  , _mwrcpDocumentHashType = Nothing
+  , _mwrcpOutputS3KeyPrefix = Nothing
+  , _mwrcpParameters = Nothing
+  , _mwrcpDocumentHash = Nothing
+  , _mwrcpTimeoutSeconds = Nothing
+  , _mwrcpComment = Nothing
+  , _mwrcpOutputS3BucketName = Nothing
+  }
+
 
 -- | The IAM service role that to assume during task execution.
 mwrcpServiceRoleARN :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
@@ -4362,7 +4432,8 @@ mwrcpOutputS3BucketName :: Lens' MaintenanceWindowRunCommandParameters (Maybe Te
 mwrcpOutputS3BucketName = lens _mwrcpOutputS3BucketName (\ s a -> s{_mwrcpOutputS3BucketName = a});
 
 instance FromJSON
-         MaintenanceWindowRunCommandParameters where
+           MaintenanceWindowRunCommandParameters
+         where
         parseJSON
           = withObject "MaintenanceWindowRunCommandParameters"
               (\ x ->
@@ -4378,9 +4449,11 @@ instance FromJSON
                      <*> (x .:? "OutputS3BucketName"))
 
 instance Hashable
-         MaintenanceWindowRunCommandParameters
+           MaintenanceWindowRunCommandParameters
+         where
 
 instance NFData MaintenanceWindowRunCommandParameters
+         where
 
 instance ToJSON MaintenanceWindowRunCommandParameters
          where
@@ -4405,9 +4478,10 @@ instance ToJSON MaintenanceWindowRunCommandParameters
 --
 -- /See:/ 'maintenanceWindowStepFunctionsParameters' smart constructor.
 data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsParameters'
-    { _mwsfpInput :: !(Maybe (Sensitive Text))
-    , _mwsfpName  :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mwsfpInput :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _mwsfpName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowStepFunctionsParameters' with the minimum fields required to make a request.
 --
@@ -4419,10 +4493,9 @@ data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsPa
 maintenanceWindowStepFunctionsParameters
     :: MaintenanceWindowStepFunctionsParameters
 maintenanceWindowStepFunctionsParameters =
-    MaintenanceWindowStepFunctionsParameters'
-    { _mwsfpInput = Nothing
-    , _mwsfpName = Nothing
-    }
+  MaintenanceWindowStepFunctionsParameters'
+  {_mwsfpInput = Nothing, _mwsfpName = Nothing}
+
 
 -- | The inputs for the STEP_FUNCTION task.
 mwsfpInput :: Lens' MaintenanceWindowStepFunctionsParameters (Maybe Text)
@@ -4433,7 +4506,8 @@ mwsfpName :: Lens' MaintenanceWindowStepFunctionsParameters (Maybe Text)
 mwsfpName = lens _mwsfpName (\ s a -> s{_mwsfpName = a});
 
 instance FromJSON
-         MaintenanceWindowStepFunctionsParameters where
+           MaintenanceWindowStepFunctionsParameters
+         where
         parseJSON
           = withObject
               "MaintenanceWindowStepFunctionsParameters"
@@ -4442,13 +4516,16 @@ instance FromJSON
                    (x .:? "Input") <*> (x .:? "Name"))
 
 instance Hashable
-         MaintenanceWindowStepFunctionsParameters
+           MaintenanceWindowStepFunctionsParameters
+         where
 
 instance NFData
-         MaintenanceWindowStepFunctionsParameters
+           MaintenanceWindowStepFunctionsParameters
+         where
 
 instance ToJSON
-         MaintenanceWindowStepFunctionsParameters where
+           MaintenanceWindowStepFunctionsParameters
+         where
         toJSON MaintenanceWindowStepFunctionsParameters'{..}
           = object
               (catMaybes
@@ -4461,14 +4538,15 @@ instance ToJSON
 --
 -- /See:/ 'maintenanceWindowTarget' smart constructor.
 data MaintenanceWindowTarget = MaintenanceWindowTarget'
-    { _mResourceType     :: !(Maybe MaintenanceWindowResourceType)
-    , _mOwnerInformation :: !(Maybe (Sensitive Text))
-    , _mWindowTargetId   :: !(Maybe Text)
-    , _mName             :: !(Maybe Text)
-    , _mTargets          :: !(Maybe [Target])
-    , _mDescription      :: !(Maybe (Sensitive Text))
-    , _mWindowId         :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mResourceType     :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowResourceType)
+  , _mOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _mWindowTargetId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mTargets          :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _mDescription      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _mWindowId         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowTarget' with the minimum fields required to make a request.
 --
@@ -4490,15 +4568,16 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
 maintenanceWindowTarget
     :: MaintenanceWindowTarget
 maintenanceWindowTarget =
-    MaintenanceWindowTarget'
-    { _mResourceType = Nothing
-    , _mOwnerInformation = Nothing
-    , _mWindowTargetId = Nothing
-    , _mName = Nothing
-    , _mTargets = Nothing
-    , _mDescription = Nothing
-    , _mWindowId = Nothing
-    }
+  MaintenanceWindowTarget'
+  { _mResourceType = Nothing
+  , _mOwnerInformation = Nothing
+  , _mWindowTargetId = Nothing
+  , _mName = Nothing
+  , _mTargets = Nothing
+  , _mDescription = Nothing
+  , _mWindowId = Nothing
+  }
+
 
 -- | The type of target.
 mResourceType :: Lens' MaintenanceWindowTarget (Maybe MaintenanceWindowResourceType)
@@ -4540,9 +4619,9 @@ instance FromJSON MaintenanceWindowTarget where
                      <*> (x .:? "Description")
                      <*> (x .:? "WindowId"))
 
-instance Hashable MaintenanceWindowTarget
+instance Hashable MaintenanceWindowTarget where
 
-instance NFData MaintenanceWindowTarget
+instance NFData MaintenanceWindowTarget where
 
 -- | Information about a task defined for a Maintenance Window.
 --
@@ -4550,20 +4629,21 @@ instance NFData MaintenanceWindowTarget
 --
 -- /See:/ 'maintenanceWindowTask' smart constructor.
 data MaintenanceWindowTask = MaintenanceWindowTask'
-    { _mwtServiceRoleARN :: !(Maybe Text)
-    , _mwtWindowTaskId   :: !(Maybe Text)
-    , _mwtTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
-    , _mwtPriority       :: !(Maybe Nat)
-    , _mwtTaskARN        :: !(Maybe Text)
-    , _mwtMaxErrors      :: !(Maybe Text)
-    , _mwtName           :: !(Maybe Text)
-    , _mwtTargets        :: !(Maybe [Target])
-    , _mwtLoggingInfo    :: !(Maybe LoggingInfo)
-    , _mwtType           :: !(Maybe MaintenanceWindowTaskType)
-    , _mwtDescription    :: !(Maybe (Sensitive Text))
-    , _mwtMaxConcurrency :: !(Maybe Text)
-    , _mwtWindowId       :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mwtServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwtWindowTaskId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwtTaskParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+  , _mwtPriority :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mwtTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwtMaxErrors :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwtName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwtTargets :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _mwtLoggingInfo :: {-# NOUNPACK #-}!(Maybe LoggingInfo)
+  , _mwtType :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskType)
+  , _mwtDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _mwtMaxConcurrency :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mwtWindowId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowTask' with the minimum fields required to make a request.
 --
@@ -4597,21 +4677,22 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
 maintenanceWindowTask
     :: MaintenanceWindowTask
 maintenanceWindowTask =
-    MaintenanceWindowTask'
-    { _mwtServiceRoleARN = Nothing
-    , _mwtWindowTaskId = Nothing
-    , _mwtTaskParameters = Nothing
-    , _mwtPriority = Nothing
-    , _mwtTaskARN = Nothing
-    , _mwtMaxErrors = Nothing
-    , _mwtName = Nothing
-    , _mwtTargets = Nothing
-    , _mwtLoggingInfo = Nothing
-    , _mwtType = Nothing
-    , _mwtDescription = Nothing
-    , _mwtMaxConcurrency = Nothing
-    , _mwtWindowId = Nothing
-    }
+  MaintenanceWindowTask'
+  { _mwtServiceRoleARN = Nothing
+  , _mwtWindowTaskId = Nothing
+  , _mwtTaskParameters = Nothing
+  , _mwtPriority = Nothing
+  , _mwtTaskARN = Nothing
+  , _mwtMaxErrors = Nothing
+  , _mwtName = Nothing
+  , _mwtTargets = Nothing
+  , _mwtLoggingInfo = Nothing
+  , _mwtType = Nothing
+  , _mwtDescription = Nothing
+  , _mwtMaxConcurrency = Nothing
+  , _mwtWindowId = Nothing
+  }
+
 
 -- | The role that should be assumed when executing the task
 mwtServiceRoleARN :: Lens' MaintenanceWindowTask (Maybe Text)
@@ -4683,9 +4764,9 @@ instance FromJSON MaintenanceWindowTask where
                      <*> (x .:? "MaxConcurrency")
                      <*> (x .:? "WindowId"))
 
-instance Hashable MaintenanceWindowTask
+instance Hashable MaintenanceWindowTask where
 
-instance NFData MaintenanceWindowTask
+instance NFData MaintenanceWindowTask where
 
 -- | Parameters for task execution.
 --
@@ -4693,11 +4774,12 @@ instance NFData MaintenanceWindowTask
 --
 -- /See:/ 'maintenanceWindowTaskInvocationParameters' smart constructor.
 data MaintenanceWindowTaskInvocationParameters = MaintenanceWindowTaskInvocationParameters'
-    { _mwtipAutomation    :: !(Maybe MaintenanceWindowAutomationParameters)
-    , _mwtipStepFunctions :: !(Maybe MaintenanceWindowStepFunctionsParameters)
-    , _mwtipRunCommand    :: !(Maybe MaintenanceWindowRunCommandParameters)
-    , _mwtipLambda        :: !(Maybe MaintenanceWindowLambdaParameters)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mwtipAutomation :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowAutomationParameters)
+  , _mwtipStepFunctions :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowStepFunctionsParameters)
+  , _mwtipRunCommand :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowRunCommandParameters)
+  , _mwtipLambda :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowLambdaParameters)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowTaskInvocationParameters' with the minimum fields required to make a request.
 --
@@ -4713,12 +4795,13 @@ data MaintenanceWindowTaskInvocationParameters = MaintenanceWindowTaskInvocation
 maintenanceWindowTaskInvocationParameters
     :: MaintenanceWindowTaskInvocationParameters
 maintenanceWindowTaskInvocationParameters =
-    MaintenanceWindowTaskInvocationParameters'
-    { _mwtipAutomation = Nothing
-    , _mwtipStepFunctions = Nothing
-    , _mwtipRunCommand = Nothing
-    , _mwtipLambda = Nothing
-    }
+  MaintenanceWindowTaskInvocationParameters'
+  { _mwtipAutomation = Nothing
+  , _mwtipStepFunctions = Nothing
+  , _mwtipRunCommand = Nothing
+  , _mwtipLambda = Nothing
+  }
+
 
 -- | Parameters for a AUTOMATION task type.
 mwtipAutomation :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowAutomationParameters)
@@ -4737,7 +4820,8 @@ mwtipLambda :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe Maintenanc
 mwtipLambda = lens _mwtipLambda (\ s a -> s{_mwtipLambda = a});
 
 instance FromJSON
-         MaintenanceWindowTaskInvocationParameters where
+           MaintenanceWindowTaskInvocationParameters
+         where
         parseJSON
           = withObject
               "MaintenanceWindowTaskInvocationParameters"
@@ -4748,13 +4832,16 @@ instance FromJSON
                      <*> (x .:? "Lambda"))
 
 instance Hashable
-         MaintenanceWindowTaskInvocationParameters
+           MaintenanceWindowTaskInvocationParameters
+         where
 
 instance NFData
-         MaintenanceWindowTaskInvocationParameters
+           MaintenanceWindowTaskInvocationParameters
+         where
 
 instance ToJSON
-         MaintenanceWindowTaskInvocationParameters where
+           MaintenanceWindowTaskInvocationParameters
+         where
         toJSON MaintenanceWindowTaskInvocationParameters'{..}
           = object
               (catMaybes
@@ -4769,8 +4856,9 @@ instance ToJSON
 --
 -- /See:/ 'maintenanceWindowTaskParameterValueExpression' smart constructor.
 newtype MaintenanceWindowTaskParameterValueExpression = MaintenanceWindowTaskParameterValueExpression'
-    { _mwtpveValues :: Maybe (Sensitive [Sensitive Text])
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mwtpveValues :: Maybe (Sensitive [Sensitive Text])
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaintenanceWindowTaskParameterValueExpression' with the minimum fields required to make a request.
 --
@@ -4780,16 +4868,16 @@ newtype MaintenanceWindowTaskParameterValueExpression = MaintenanceWindowTaskPar
 maintenanceWindowTaskParameterValueExpression
     :: MaintenanceWindowTaskParameterValueExpression
 maintenanceWindowTaskParameterValueExpression =
-    MaintenanceWindowTaskParameterValueExpression'
-    { _mwtpveValues = Nothing
-    }
+  MaintenanceWindowTaskParameterValueExpression' {_mwtpveValues = Nothing}
+
 
 -- | This field contains an array of 0 or more strings, each 1 to 255 characters in length.
 mwtpveValues :: Lens' MaintenanceWindowTaskParameterValueExpression (Maybe [Text])
 mwtpveValues = lens _mwtpveValues (\ s a -> s{_mwtpveValues = a}) . mapping (_Sensitive . _Coerce);
 
 instance FromJSON
-         MaintenanceWindowTaskParameterValueExpression where
+           MaintenanceWindowTaskParameterValueExpression
+         where
         parseJSON
           = withObject
               "MaintenanceWindowTaskParameterValueExpression"
@@ -4798,13 +4886,16 @@ instance FromJSON
                    (x .:? "Values" .!= mempty))
 
 instance Hashable
-         MaintenanceWindowTaskParameterValueExpression
+           MaintenanceWindowTaskParameterValueExpression
+         where
 
 instance NFData
-         MaintenanceWindowTaskParameterValueExpression
+           MaintenanceWindowTaskParameterValueExpression
+         where
 
 instance ToJSON
-         MaintenanceWindowTaskParameterValueExpression where
+           MaintenanceWindowTaskParameterValueExpression
+         where
         toJSON
           MaintenanceWindowTaskParameterValueExpression'{..}
           = object
@@ -4816,9 +4907,10 @@ instance ToJSON
 --
 -- /See:/ 'nonCompliantSummary' smart constructor.
 data NonCompliantSummary = NonCompliantSummary'
-    { _ncsNonCompliantCount :: !(Maybe Int)
-    , _ncsSeveritySummary   :: !(Maybe SeveritySummary)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ncsNonCompliantCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ncsSeveritySummary   :: {-# NOUNPACK #-}!(Maybe SeveritySummary)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NonCompliantSummary' with the minimum fields required to make a request.
 --
@@ -4830,10 +4922,9 @@ data NonCompliantSummary = NonCompliantSummary'
 nonCompliantSummary
     :: NonCompliantSummary
 nonCompliantSummary =
-    NonCompliantSummary'
-    { _ncsNonCompliantCount = Nothing
-    , _ncsSeveritySummary = Nothing
-    }
+  NonCompliantSummary'
+  {_ncsNonCompliantCount = Nothing, _ncsSeveritySummary = Nothing}
+
 
 -- | The total number of compliance items that are not compliant.
 ncsNonCompliantCount :: Lens' NonCompliantSummary (Maybe Int)
@@ -4851,9 +4942,9 @@ instance FromJSON NonCompliantSummary where
                    (x .:? "NonCompliantCount") <*>
                      (x .:? "SeveritySummary"))
 
-instance Hashable NonCompliantSummary
+instance Hashable NonCompliantSummary where
 
-instance NFData NonCompliantSummary
+instance NFData NonCompliantSummary where
 
 -- | Configurations for sending notifications.
 --
@@ -4861,10 +4952,11 @@ instance NFData NonCompliantSummary
 --
 -- /See:/ 'notificationConfig' smart constructor.
 data NotificationConfig = NotificationConfig'
-    { _ncNotificationEvents :: !(Maybe [NotificationEvent])
-    , _ncNotificationType   :: !(Maybe NotificationType)
-    , _ncNotificationARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ncNotificationEvents :: {-# NOUNPACK #-}!(Maybe [NotificationEvent])
+  , _ncNotificationType   :: {-# NOUNPACK #-}!(Maybe NotificationType)
+  , _ncNotificationARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotificationConfig' with the minimum fields required to make a request.
 --
@@ -4878,11 +4970,12 @@ data NotificationConfig = NotificationConfig'
 notificationConfig
     :: NotificationConfig
 notificationConfig =
-    NotificationConfig'
-    { _ncNotificationEvents = Nothing
-    , _ncNotificationType = Nothing
-    , _ncNotificationARN = Nothing
-    }
+  NotificationConfig'
+  { _ncNotificationEvents = Nothing
+  , _ncNotificationType = Nothing
+  , _ncNotificationARN = Nothing
+  }
+
 
 -- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Setting Up Events and Notifications> in the /Amazon EC2 Systems Manager User Guide/ .
 ncNotificationEvents :: Lens' NotificationConfig [NotificationEvent]
@@ -4905,9 +4998,9 @@ instance FromJSON NotificationConfig where
                      (x .:? "NotificationType")
                      <*> (x .:? "NotificationArn"))
 
-instance Hashable NotificationConfig
+instance Hashable NotificationConfig where
 
-instance NFData NotificationConfig
+instance NFData NotificationConfig where
 
 instance ToJSON NotificationConfig where
         toJSON NotificationConfig'{..}
@@ -4923,10 +5016,11 @@ instance ToJSON NotificationConfig where
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-    { _pValue :: !(Maybe Text)
-    , _pName  :: !(Maybe Text)
-    , _pType  :: !(Maybe ParameterType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pType  :: {-# NOUNPACK #-}!(Maybe ParameterType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
@@ -4939,12 +5033,8 @@ data Parameter = Parameter'
 -- * 'pType' - The type of parameter. Valid values include the following: String, String list, Secure string.
 parameter
     :: Parameter
-parameter =
-    Parameter'
-    { _pValue = Nothing
-    , _pName = Nothing
-    , _pType = Nothing
-    }
+parameter = Parameter' {_pValue = Nothing, _pName = Nothing, _pType = Nothing}
+
 
 -- | The parameter value.
 pValue :: Lens' Parameter (Maybe Text)
@@ -4966,9 +5056,9 @@ instance FromJSON Parameter where
                    (x .:? "Value") <*> (x .:? "Name") <*>
                      (x .:? "Type"))
 
-instance Hashable Parameter
+instance Hashable Parameter where
 
-instance NFData Parameter
+instance NFData Parameter where
 
 -- | Information about parameter usage.
 --
@@ -4976,15 +5066,16 @@ instance NFData Parameter
 --
 -- /See:/ 'parameterHistory' smart constructor.
 data ParameterHistory = ParameterHistory'
-    { _phLastModifiedDate :: !(Maybe POSIX)
-    , _phKeyId            :: !(Maybe Text)
-    , _phValue            :: !(Maybe Text)
-    , _phName             :: !(Maybe Text)
-    , _phLastModifiedUser :: !(Maybe Text)
-    , _phAllowedPattern   :: !(Maybe Text)
-    , _phType             :: !(Maybe ParameterType)
-    , _phDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _phLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _phKeyId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _phValue            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _phName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _phLastModifiedUser :: {-# NOUNPACK #-}!(Maybe Text)
+  , _phAllowedPattern   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _phType             :: {-# NOUNPACK #-}!(Maybe ParameterType)
+  , _phDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterHistory' with the minimum fields required to make a request.
 --
@@ -5008,16 +5099,17 @@ data ParameterHistory = ParameterHistory'
 parameterHistory
     :: ParameterHistory
 parameterHistory =
-    ParameterHistory'
-    { _phLastModifiedDate = Nothing
-    , _phKeyId = Nothing
-    , _phValue = Nothing
-    , _phName = Nothing
-    , _phLastModifiedUser = Nothing
-    , _phAllowedPattern = Nothing
-    , _phType = Nothing
-    , _phDescription = Nothing
-    }
+  ParameterHistory'
+  { _phLastModifiedDate = Nothing
+  , _phKeyId = Nothing
+  , _phValue = Nothing
+  , _phName = Nothing
+  , _phLastModifiedUser = Nothing
+  , _phAllowedPattern = Nothing
+  , _phType = Nothing
+  , _phDescription = Nothing
+  }
+
 
 -- | Date the parameter was last changed or updated.
 phLastModifiedDate :: Lens' ParameterHistory (Maybe UTCTime)
@@ -5064,9 +5156,9 @@ instance FromJSON ParameterHistory where
                      <*> (x .:? "Type")
                      <*> (x .:? "Description"))
 
-instance Hashable ParameterHistory
+instance Hashable ParameterHistory where
 
-instance NFData ParameterHistory
+instance NFData ParameterHistory where
 
 -- | Metada includes information like the ARN of the last user and the date/time the parameter was last used.
 --
@@ -5074,14 +5166,15 @@ instance NFData ParameterHistory
 --
 -- /See:/ 'parameterMetadata' smart constructor.
 data ParameterMetadata = ParameterMetadata'
-    { _pmLastModifiedDate :: !(Maybe POSIX)
-    , _pmKeyId            :: !(Maybe Text)
-    , _pmName             :: !(Maybe Text)
-    , _pmLastModifiedUser :: !(Maybe Text)
-    , _pmAllowedPattern   :: !(Maybe Text)
-    , _pmType             :: !(Maybe ParameterType)
-    , _pmDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pmKeyId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmLastModifiedUser :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmAllowedPattern   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmType             :: {-# NOUNPACK #-}!(Maybe ParameterType)
+  , _pmDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterMetadata' with the minimum fields required to make a request.
 --
@@ -5103,15 +5196,16 @@ data ParameterMetadata = ParameterMetadata'
 parameterMetadata
     :: ParameterMetadata
 parameterMetadata =
-    ParameterMetadata'
-    { _pmLastModifiedDate = Nothing
-    , _pmKeyId = Nothing
-    , _pmName = Nothing
-    , _pmLastModifiedUser = Nothing
-    , _pmAllowedPattern = Nothing
-    , _pmType = Nothing
-    , _pmDescription = Nothing
-    }
+  ParameterMetadata'
+  { _pmLastModifiedDate = Nothing
+  , _pmKeyId = Nothing
+  , _pmName = Nothing
+  , _pmLastModifiedUser = Nothing
+  , _pmAllowedPattern = Nothing
+  , _pmType = Nothing
+  , _pmDescription = Nothing
+  }
+
 
 -- | Date the parameter was last changed or updated.
 pmLastModifiedDate :: Lens' ParameterMetadata (Maybe UTCTime)
@@ -5153,9 +5247,9 @@ instance FromJSON ParameterMetadata where
                      <*> (x .:? "Type")
                      <*> (x .:? "Description"))
 
-instance Hashable ParameterMetadata
+instance Hashable ParameterMetadata where
 
-instance NFData ParameterMetadata
+instance NFData ParameterMetadata where
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 --
@@ -5163,10 +5257,11 @@ instance NFData ParameterMetadata
 --
 -- /See:/ 'parameterStringFilter' smart constructor.
 data ParameterStringFilter = ParameterStringFilter'
-    { _psfValues :: !(Maybe (List1 Text))
-    , _psfOption :: !(Maybe Text)
-    , _psfKey    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psfValues :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _psfOption :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psfKey    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterStringFilter' with the minimum fields required to make a request.
 --
@@ -5181,11 +5276,9 @@ parameterStringFilter
     :: Text -- ^ 'psfKey'
     -> ParameterStringFilter
 parameterStringFilter pKey_ =
-    ParameterStringFilter'
-    { _psfValues = Nothing
-    , _psfOption = Nothing
-    , _psfKey = pKey_
-    }
+  ParameterStringFilter'
+  {_psfValues = Nothing, _psfOption = Nothing, _psfKey = pKey_}
+
 
 -- | The value you want to search for.
 psfValues :: Lens' ParameterStringFilter (Maybe (NonEmpty Text))
@@ -5199,9 +5292,9 @@ psfOption = lens _psfOption (\ s a -> s{_psfOption = a});
 psfKey :: Lens' ParameterStringFilter Text
 psfKey = lens _psfKey (\ s a -> s{_psfKey = a});
 
-instance Hashable ParameterStringFilter
+instance Hashable ParameterStringFilter where
 
-instance NFData ParameterStringFilter
+instance NFData ParameterStringFilter where
 
 instance ToJSON ParameterStringFilter where
         toJSON ParameterStringFilter'{..}
@@ -5217,9 +5310,10 @@ instance ToJSON ParameterStringFilter where
 --
 -- /See:/ 'parametersFilter' smart constructor.
 data ParametersFilter = ParametersFilter'
-    { _pKey    :: !ParametersFilterKey
-    , _pValues :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pKey    :: {-# NOUNPACK #-}!ParametersFilterKey
+  , _pValues :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParametersFilter' with the minimum fields required to make a request.
 --
@@ -5233,10 +5327,8 @@ parametersFilter
     -> NonEmpty Text -- ^ 'pValues'
     -> ParametersFilter
 parametersFilter pKey_ pValues_ =
-    ParametersFilter'
-    { _pKey = pKey_
-    , _pValues = _List1 # pValues_
-    }
+  ParametersFilter' {_pKey = pKey_, _pValues = _List1 # pValues_}
+
 
 -- | The name of the filter.
 pKey :: Lens' ParametersFilter ParametersFilterKey
@@ -5246,9 +5338,9 @@ pKey = lens _pKey (\ s a -> s{_pKey = a});
 pValues :: Lens' ParametersFilter (NonEmpty Text)
 pValues = lens _pValues (\ s a -> s{_pValues = a}) . _List1;
 
-instance Hashable ParametersFilter
+instance Hashable ParametersFilter where
 
-instance NFData ParametersFilter
+instance NFData ParametersFilter where
 
 instance ToJSON ParametersFilter where
         toJSON ParametersFilter'{..}
@@ -5262,20 +5354,21 @@ instance ToJSON ParametersFilter where
 --
 -- /See:/ 'patch' smart constructor.
 data Patch = Patch'
-    { _pVendor         :: !(Maybe Text)
-    , _pMsrcSeverity   :: !(Maybe Text)
-    , _pProductFamily  :: !(Maybe Text)
-    , _pClassification :: !(Maybe Text)
-    , _pMsrcNumber     :: !(Maybe Text)
-    , _pLanguage       :: !(Maybe Text)
-    , _pKbNumber       :: !(Maybe Text)
-    , _pContentURL     :: !(Maybe Text)
-    , _pId             :: !(Maybe Text)
-    , _pReleaseDate    :: !(Maybe POSIX)
-    , _pTitle          :: !(Maybe Text)
-    , _pProduct        :: !(Maybe Text)
-    , _pDescription    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pVendor         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pMsrcSeverity   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pProductFamily  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pClassification :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pMsrcNumber     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pLanguage       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pKbNumber       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pContentURL     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pReleaseDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pTitle          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pProduct        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pDescription    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Patch' with the minimum fields required to make a request.
 --
@@ -5309,21 +5402,22 @@ data Patch = Patch'
 patch
     :: Patch
 patch =
-    Patch'
-    { _pVendor = Nothing
-    , _pMsrcSeverity = Nothing
-    , _pProductFamily = Nothing
-    , _pClassification = Nothing
-    , _pMsrcNumber = Nothing
-    , _pLanguage = Nothing
-    , _pKbNumber = Nothing
-    , _pContentURL = Nothing
-    , _pId = Nothing
-    , _pReleaseDate = Nothing
-    , _pTitle = Nothing
-    , _pProduct = Nothing
-    , _pDescription = Nothing
-    }
+  Patch'
+  { _pVendor = Nothing
+  , _pMsrcSeverity = Nothing
+  , _pProductFamily = Nothing
+  , _pClassification = Nothing
+  , _pMsrcNumber = Nothing
+  , _pLanguage = Nothing
+  , _pKbNumber = Nothing
+  , _pContentURL = Nothing
+  , _pId = Nothing
+  , _pReleaseDate = Nothing
+  , _pTitle = Nothing
+  , _pProduct = Nothing
+  , _pDescription = Nothing
+  }
+
 
 -- | The name of the vendor providing the patch.
 pVendor :: Lens' Patch (Maybe Text)
@@ -5395,9 +5489,9 @@ instance FromJSON Patch where
                      <*> (x .:? "Product")
                      <*> (x .:? "Description"))
 
-instance Hashable Patch
+instance Hashable Patch where
 
-instance NFData Patch
+instance NFData Patch where
 
 -- | Defines the basic information about a patch baseline.
 --
@@ -5405,12 +5499,13 @@ instance NFData Patch
 --
 -- /See:/ 'patchBaselineIdentity' smart constructor.
 data PatchBaselineIdentity = PatchBaselineIdentity'
-    { _pbiBaselineName        :: !(Maybe Text)
-    , _pbiBaselineDescription :: !(Maybe Text)
-    , _pbiOperatingSystem     :: !(Maybe OperatingSystem)
-    , _pbiDefaultBaseline     :: !(Maybe Bool)
-    , _pbiBaselineId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbiBaselineName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbiBaselineDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbiOperatingSystem     :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _pbiDefaultBaseline     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pbiBaselineId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchBaselineIdentity' with the minimum fields required to make a request.
 --
@@ -5428,13 +5523,14 @@ data PatchBaselineIdentity = PatchBaselineIdentity'
 patchBaselineIdentity
     :: PatchBaselineIdentity
 patchBaselineIdentity =
-    PatchBaselineIdentity'
-    { _pbiBaselineName = Nothing
-    , _pbiBaselineDescription = Nothing
-    , _pbiOperatingSystem = Nothing
-    , _pbiDefaultBaseline = Nothing
-    , _pbiBaselineId = Nothing
-    }
+  PatchBaselineIdentity'
+  { _pbiBaselineName = Nothing
+  , _pbiBaselineDescription = Nothing
+  , _pbiOperatingSystem = Nothing
+  , _pbiDefaultBaseline = Nothing
+  , _pbiBaselineId = Nothing
+  }
+
 
 -- | The name of the patch baseline.
 pbiBaselineName :: Lens' PatchBaselineIdentity (Maybe Text)
@@ -5467,9 +5563,9 @@ instance FromJSON PatchBaselineIdentity where
                      <*> (x .:? "DefaultBaseline")
                      <*> (x .:? "BaselineId"))
 
-instance Hashable PatchBaselineIdentity
+instance Hashable PatchBaselineIdentity where
 
-instance NFData PatchBaselineIdentity
+instance NFData PatchBaselineIdentity where
 
 -- | Information about the state of a patch on a particular instance as it relates to the patch baseline used to patch the instance.
 --
@@ -5477,13 +5573,14 @@ instance NFData PatchBaselineIdentity
 --
 -- /See:/ 'patchComplianceData' smart constructor.
 data PatchComplianceData = PatchComplianceData'
-    { _pcdTitle          :: !Text
-    , _pcdKBId           :: !Text
-    , _pcdClassification :: !Text
-    , _pcdSeverity       :: !Text
-    , _pcdState          :: !PatchComplianceDataState
-    , _pcdInstalledTime  :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcdTitle          :: {-# NOUNPACK #-}!Text
+  , _pcdKBId           :: {-# NOUNPACK #-}!Text
+  , _pcdClassification :: {-# NOUNPACK #-}!Text
+  , _pcdSeverity       :: {-# NOUNPACK #-}!Text
+  , _pcdState          :: {-# NOUNPACK #-}!PatchComplianceDataState
+  , _pcdInstalledTime  :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchComplianceData' with the minimum fields required to make a request.
 --
@@ -5509,14 +5606,15 @@ patchComplianceData
     -> UTCTime -- ^ 'pcdInstalledTime'
     -> PatchComplianceData
 patchComplianceData pTitle_ pKBId_ pClassification_ pSeverity_ pState_ pInstalledTime_ =
-    PatchComplianceData'
-    { _pcdTitle = pTitle_
-    , _pcdKBId = pKBId_
-    , _pcdClassification = pClassification_
-    , _pcdSeverity = pSeverity_
-    , _pcdState = pState_
-    , _pcdInstalledTime = _Time # pInstalledTime_
-    }
+  PatchComplianceData'
+  { _pcdTitle = pTitle_
+  , _pcdKBId = pKBId_
+  , _pcdClassification = pClassification_
+  , _pcdSeverity = pSeverity_
+  , _pcdState = pState_
+  , _pcdInstalledTime = _Time # pInstalledTime_
+  }
+
 
 -- | The title of the patch.
 pcdTitle :: Lens' PatchComplianceData Text
@@ -5553,9 +5651,9 @@ instance FromJSON PatchComplianceData where
                      <*> (x .: "State")
                      <*> (x .: "InstalledTime"))
 
-instance Hashable PatchComplianceData
+instance Hashable PatchComplianceData where
 
-instance NFData PatchComplianceData
+instance NFData PatchComplianceData where
 
 -- | Defines a patch filter.
 --
@@ -5563,9 +5661,10 @@ instance NFData PatchComplianceData
 --
 -- /See:/ 'patchFilter' smart constructor.
 data PatchFilter = PatchFilter'
-    { _pfKey    :: !PatchFilterKey
-    , _pfValues :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfKey    :: {-# NOUNPACK #-}!PatchFilterKey
+  , _pfValues :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchFilter' with the minimum fields required to make a request.
 --
@@ -5579,10 +5678,8 @@ patchFilter
     -> NonEmpty Text -- ^ 'pfValues'
     -> PatchFilter
 patchFilter pKey_ pValues_ =
-    PatchFilter'
-    { _pfKey = pKey_
-    , _pfValues = _List1 # pValues_
-    }
+  PatchFilter' {_pfKey = pKey_, _pfValues = _List1 # pValues_}
+
 
 -- | The key for the filter (PRODUCT, CLASSIFICATION, MSRC_SEVERITY, PATCH_ID)
 pfKey :: Lens' PatchFilter PatchFilterKey
@@ -5598,9 +5695,9 @@ instance FromJSON PatchFilter where
               (\ x ->
                  PatchFilter' <$> (x .: "Key") <*> (x .: "Values"))
 
-instance Hashable PatchFilter
+instance Hashable PatchFilter where
 
-instance NFData PatchFilter
+instance NFData PatchFilter where
 
 instance ToJSON PatchFilter where
         toJSON PatchFilter'{..}
@@ -5615,8 +5712,9 @@ instance ToJSON PatchFilter where
 --
 -- /See:/ 'patchFilterGroup' smart constructor.
 newtype PatchFilterGroup = PatchFilterGroup'
-    { _pfgPatchFilters :: [PatchFilter]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfgPatchFilters :: [PatchFilter]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchFilterGroup' with the minimum fields required to make a request.
 --
@@ -5625,10 +5723,8 @@ newtype PatchFilterGroup = PatchFilterGroup'
 -- * 'pfgPatchFilters' - The set of patch filters that make up the group.
 patchFilterGroup
     :: PatchFilterGroup
-patchFilterGroup =
-    PatchFilterGroup'
-    { _pfgPatchFilters = mempty
-    }
+patchFilterGroup = PatchFilterGroup' {_pfgPatchFilters = mempty}
+
 
 -- | The set of patch filters that make up the group.
 pfgPatchFilters :: Lens' PatchFilterGroup [PatchFilter]
@@ -5641,9 +5737,9 @@ instance FromJSON PatchFilterGroup where
                  PatchFilterGroup' <$>
                    (x .:? "PatchFilters" .!= mempty))
 
-instance Hashable PatchFilterGroup
+instance Hashable PatchFilterGroup where
 
-instance NFData PatchFilterGroup
+instance NFData PatchFilterGroup where
 
 instance ToJSON PatchFilterGroup where
         toJSON PatchFilterGroup'{..}
@@ -5657,9 +5753,10 @@ instance ToJSON PatchFilterGroup where
 --
 -- /See:/ 'patchGroupPatchBaselineMapping' smart constructor.
 data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
-    { _pgpbmBaselineIdentity :: !(Maybe PatchBaselineIdentity)
-    , _pgpbmPatchGroup       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pgpbmBaselineIdentity :: {-# NOUNPACK #-}!(Maybe PatchBaselineIdentity)
+  , _pgpbmPatchGroup       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchGroupPatchBaselineMapping' with the minimum fields required to make a request.
 --
@@ -5671,10 +5768,9 @@ data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
 patchGroupPatchBaselineMapping
     :: PatchGroupPatchBaselineMapping
 patchGroupPatchBaselineMapping =
-    PatchGroupPatchBaselineMapping'
-    { _pgpbmBaselineIdentity = Nothing
-    , _pgpbmPatchGroup = Nothing
-    }
+  PatchGroupPatchBaselineMapping'
+  {_pgpbmBaselineIdentity = Nothing, _pgpbmPatchGroup = Nothing}
+
 
 -- | The patch baseline the patch group is registered with.
 pgpbmBaselineIdentity :: Lens' PatchGroupPatchBaselineMapping (Maybe PatchBaselineIdentity)
@@ -5693,8 +5789,9 @@ instance FromJSON PatchGroupPatchBaselineMapping
                    (x .:? "BaselineIdentity") <*> (x .:? "PatchGroup"))
 
 instance Hashable PatchGroupPatchBaselineMapping
+         where
 
-instance NFData PatchGroupPatchBaselineMapping
+instance NFData PatchGroupPatchBaselineMapping where
 
 -- | Defines a filter used in Patch Manager APIs.
 --
@@ -5702,9 +5799,10 @@ instance NFData PatchGroupPatchBaselineMapping
 --
 -- /See:/ 'patchOrchestratorFilter' smart constructor.
 data PatchOrchestratorFilter = PatchOrchestratorFilter'
-    { _pofValues :: !(Maybe [Text])
-    , _pofKey    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pofValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pofKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchOrchestratorFilter' with the minimum fields required to make a request.
 --
@@ -5716,10 +5814,8 @@ data PatchOrchestratorFilter = PatchOrchestratorFilter'
 patchOrchestratorFilter
     :: PatchOrchestratorFilter
 patchOrchestratorFilter =
-    PatchOrchestratorFilter'
-    { _pofValues = Nothing
-    , _pofKey = Nothing
-    }
+  PatchOrchestratorFilter' {_pofValues = Nothing, _pofKey = Nothing}
+
 
 -- | The value for the filter.
 pofValues :: Lens' PatchOrchestratorFilter [Text]
@@ -5729,9 +5825,9 @@ pofValues = lens _pofValues (\ s a -> s{_pofValues = a}) . _Default . _Coerce;
 pofKey :: Lens' PatchOrchestratorFilter (Maybe Text)
 pofKey = lens _pofKey (\ s a -> s{_pofKey = a});
 
-instance Hashable PatchOrchestratorFilter
+instance Hashable PatchOrchestratorFilter where
 
-instance NFData PatchOrchestratorFilter
+instance NFData PatchOrchestratorFilter where
 
 instance ToJSON PatchOrchestratorFilter where
         toJSON PatchOrchestratorFilter'{..}
@@ -5746,10 +5842,11 @@ instance ToJSON PatchOrchestratorFilter where
 --
 -- /See:/ 'patchRule' smart constructor.
 data PatchRule = PatchRule'
-    { _prComplianceLevel  :: !(Maybe PatchComplianceLevel)
-    , _prPatchFilterGroup :: !PatchFilterGroup
-    , _prApproveAfterDays :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prComplianceLevel  :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
+  , _prPatchFilterGroup :: {-# NOUNPACK #-}!PatchFilterGroup
+  , _prApproveAfterDays :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchRule' with the minimum fields required to make a request.
 --
@@ -5765,11 +5862,12 @@ patchRule
     -> Natural -- ^ 'prApproveAfterDays'
     -> PatchRule
 patchRule pPatchFilterGroup_ pApproveAfterDays_ =
-    PatchRule'
-    { _prComplianceLevel = Nothing
-    , _prPatchFilterGroup = pPatchFilterGroup_
-    , _prApproveAfterDays = _Nat # pApproveAfterDays_
-    }
+  PatchRule'
+  { _prComplianceLevel = Nothing
+  , _prPatchFilterGroup = pPatchFilterGroup_
+  , _prApproveAfterDays = _Nat # pApproveAfterDays_
+  }
+
 
 -- | A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: Unspecified, Critical, High, Medium, Low, and Informational.
 prComplianceLevel :: Lens' PatchRule (Maybe PatchComplianceLevel)
@@ -5792,9 +5890,9 @@ instance FromJSON PatchRule where
                      (x .: "PatchFilterGroup")
                      <*> (x .: "ApproveAfterDays"))
 
-instance Hashable PatchRule
+instance Hashable PatchRule where
 
-instance NFData PatchRule
+instance NFData PatchRule where
 
 instance ToJSON PatchRule where
         toJSON PatchRule'{..}
@@ -5810,8 +5908,9 @@ instance ToJSON PatchRule where
 --
 -- /See:/ 'patchRuleGroup' smart constructor.
 newtype PatchRuleGroup = PatchRuleGroup'
-    { _prgPatchRules :: [PatchRule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prgPatchRules :: [PatchRule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchRuleGroup' with the minimum fields required to make a request.
 --
@@ -5820,10 +5919,8 @@ newtype PatchRuleGroup = PatchRuleGroup'
 -- * 'prgPatchRules' - The rules that make up the rule group.
 patchRuleGroup
     :: PatchRuleGroup
-patchRuleGroup =
-    PatchRuleGroup'
-    { _prgPatchRules = mempty
-    }
+patchRuleGroup = PatchRuleGroup' {_prgPatchRules = mempty}
+
 
 -- | The rules that make up the rule group.
 prgPatchRules :: Lens' PatchRuleGroup [PatchRule]
@@ -5835,9 +5932,9 @@ instance FromJSON PatchRuleGroup where
               (\ x ->
                  PatchRuleGroup' <$> (x .:? "PatchRules" .!= mempty))
 
-instance Hashable PatchRuleGroup
+instance Hashable PatchRuleGroup where
 
-instance NFData PatchRuleGroup
+instance NFData PatchRuleGroup where
 
 instance ToJSON PatchRuleGroup where
         toJSON PatchRuleGroup'{..}
@@ -5850,10 +5947,11 @@ instance ToJSON PatchRuleGroup where
 --
 -- /See:/ 'patchStatus' smart constructor.
 data PatchStatus = PatchStatus'
-    { _psApprovalDate     :: !(Maybe POSIX)
-    , _psDeploymentStatus :: !(Maybe PatchDeploymentStatus)
-    , _psComplianceLevel  :: !(Maybe PatchComplianceLevel)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psApprovalDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _psDeploymentStatus :: {-# NOUNPACK #-}!(Maybe PatchDeploymentStatus)
+  , _psComplianceLevel  :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PatchStatus' with the minimum fields required to make a request.
 --
@@ -5867,11 +5965,12 @@ data PatchStatus = PatchStatus'
 patchStatus
     :: PatchStatus
 patchStatus =
-    PatchStatus'
-    { _psApprovalDate = Nothing
-    , _psDeploymentStatus = Nothing
-    , _psComplianceLevel = Nothing
-    }
+  PatchStatus'
+  { _psApprovalDate = Nothing
+  , _psDeploymentStatus = Nothing
+  , _psComplianceLevel = Nothing
+  }
+
 
 -- | The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
 psApprovalDate :: Lens' PatchStatus (Maybe UTCTime)
@@ -5893,9 +5992,9 @@ instance FromJSON PatchStatus where
                    (x .:? "ApprovalDate") <*> (x .:? "DeploymentStatus")
                      <*> (x .:? "ComplianceLevel"))
 
-instance Hashable PatchStatus
+instance Hashable PatchStatus where
 
-instance NFData PatchStatus
+instance NFData PatchStatus where
 
 -- | Compliance summary information for a specific resource.
 --
@@ -5903,15 +6002,16 @@ instance NFData PatchStatus
 --
 -- /See:/ 'resourceComplianceSummaryItem' smart constructor.
 data ResourceComplianceSummaryItem = ResourceComplianceSummaryItem'
-    { _rcsiNonCompliantSummary :: !(Maybe NonCompliantSummary)
-    , _rcsiStatus              :: !(Maybe ComplianceStatus)
-    , _rcsiResourceId          :: !(Maybe Text)
-    , _rcsiResourceType        :: !(Maybe Text)
-    , _rcsiCompliantSummary    :: !(Maybe CompliantSummary)
-    , _rcsiExecutionSummary    :: !(Maybe ComplianceExecutionSummary)
-    , _rcsiOverallSeverity     :: !(Maybe ComplianceSeverity)
-    , _rcsiComplianceType      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcsiNonCompliantSummary :: {-# NOUNPACK #-}!(Maybe NonCompliantSummary)
+  , _rcsiStatus :: {-# NOUNPACK #-}!(Maybe ComplianceStatus)
+  , _rcsiResourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcsiResourceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcsiCompliantSummary :: {-# NOUNPACK #-}!(Maybe CompliantSummary)
+  , _rcsiExecutionSummary :: {-# NOUNPACK #-}!(Maybe ComplianceExecutionSummary)
+  , _rcsiOverallSeverity :: {-# NOUNPACK #-}!(Maybe ComplianceSeverity)
+  , _rcsiComplianceType :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceComplianceSummaryItem' with the minimum fields required to make a request.
 --
@@ -5935,16 +6035,17 @@ data ResourceComplianceSummaryItem = ResourceComplianceSummaryItem'
 resourceComplianceSummaryItem
     :: ResourceComplianceSummaryItem
 resourceComplianceSummaryItem =
-    ResourceComplianceSummaryItem'
-    { _rcsiNonCompliantSummary = Nothing
-    , _rcsiStatus = Nothing
-    , _rcsiResourceId = Nothing
-    , _rcsiResourceType = Nothing
-    , _rcsiCompliantSummary = Nothing
-    , _rcsiExecutionSummary = Nothing
-    , _rcsiOverallSeverity = Nothing
-    , _rcsiComplianceType = Nothing
-    }
+  ResourceComplianceSummaryItem'
+  { _rcsiNonCompliantSummary = Nothing
+  , _rcsiStatus = Nothing
+  , _rcsiResourceId = Nothing
+  , _rcsiResourceType = Nothing
+  , _rcsiCompliantSummary = Nothing
+  , _rcsiExecutionSummary = Nothing
+  , _rcsiOverallSeverity = Nothing
+  , _rcsiComplianceType = Nothing
+  }
+
 
 -- | A list of items that aren't compliant for the resource.
 rcsiNonCompliantSummary :: Lens' ResourceComplianceSummaryItem (Maybe NonCompliantSummary)
@@ -5991,9 +6092,9 @@ instance FromJSON ResourceComplianceSummaryItem where
                      <*> (x .:? "OverallSeverity")
                      <*> (x .:? "ComplianceType"))
 
-instance Hashable ResourceComplianceSummaryItem
+instance Hashable ResourceComplianceSummaryItem where
 
-instance NFData ResourceComplianceSummaryItem
+instance NFData ResourceComplianceSummaryItem where
 
 -- | Information about a Resource Data Sync configuration, including its current status and last successful sync.
 --
@@ -6001,13 +6102,14 @@ instance NFData ResourceComplianceSummaryItem
 --
 -- /See:/ 'resourceDataSyncItem' smart constructor.
 data ResourceDataSyncItem = ResourceDataSyncItem'
-    { _rdsiSyncCreatedTime        :: !(Maybe POSIX)
-    , _rdsiLastSyncTime           :: !(Maybe POSIX)
-    , _rdsiSyncName               :: !(Maybe Text)
-    , _rdsiLastStatus             :: !(Maybe LastResourceDataSyncStatus)
-    , _rdsiS3Destination          :: !(Maybe ResourceDataSyncS3Destination)
-    , _rdsiLastSuccessfulSyncTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdsiSyncCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rdsiLastSyncTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rdsiSyncName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdsiLastStatus :: {-# NOUNPACK #-}!(Maybe LastResourceDataSyncStatus)
+  , _rdsiS3Destination :: {-# NOUNPACK #-}!(Maybe ResourceDataSyncS3Destination)
+  , _rdsiLastSuccessfulSyncTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceDataSyncItem' with the minimum fields required to make a request.
 --
@@ -6027,14 +6129,15 @@ data ResourceDataSyncItem = ResourceDataSyncItem'
 resourceDataSyncItem
     :: ResourceDataSyncItem
 resourceDataSyncItem =
-    ResourceDataSyncItem'
-    { _rdsiSyncCreatedTime = Nothing
-    , _rdsiLastSyncTime = Nothing
-    , _rdsiSyncName = Nothing
-    , _rdsiLastStatus = Nothing
-    , _rdsiS3Destination = Nothing
-    , _rdsiLastSuccessfulSyncTime = Nothing
-    }
+  ResourceDataSyncItem'
+  { _rdsiSyncCreatedTime = Nothing
+  , _rdsiLastSyncTime = Nothing
+  , _rdsiSyncName = Nothing
+  , _rdsiLastStatus = Nothing
+  , _rdsiS3Destination = Nothing
+  , _rdsiLastSuccessfulSyncTime = Nothing
+  }
+
 
 -- | The date and time the configuration was created (UTC).
 rdsiSyncCreatedTime :: Lens' ResourceDataSyncItem (Maybe UTCTime)
@@ -6071,9 +6174,9 @@ instance FromJSON ResourceDataSyncItem where
                      <*> (x .:? "S3Destination")
                      <*> (x .:? "LastSuccessfulSyncTime"))
 
-instance Hashable ResourceDataSyncItem
+instance Hashable ResourceDataSyncItem where
 
-instance NFData ResourceDataSyncItem
+instance NFData ResourceDataSyncItem where
 
 -- | Information about the target Amazon S3 bucket for the Resource Data Sync.
 --
@@ -6081,11 +6184,12 @@ instance NFData ResourceDataSyncItem
 --
 -- /See:/ 'resourceDataSyncS3Destination' smart constructor.
 data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
-    { _rdssdPrefix     :: !(Maybe Text)
-    , _rdssdBucketName :: !Text
-    , _rdssdSyncFormat :: !ResourceDataSyncS3Format
-    , _rdssdRegion     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdssdPrefix     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdssdBucketName :: {-# NOUNPACK #-}!Text
+  , _rdssdSyncFormat :: {-# NOUNPACK #-}!ResourceDataSyncS3Format
+  , _rdssdRegion     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceDataSyncS3Destination' with the minimum fields required to make a request.
 --
@@ -6104,12 +6208,13 @@ resourceDataSyncS3Destination
     -> Text -- ^ 'rdssdRegion'
     -> ResourceDataSyncS3Destination
 resourceDataSyncS3Destination pBucketName_ pSyncFormat_ pRegion_ =
-    ResourceDataSyncS3Destination'
-    { _rdssdPrefix = Nothing
-    , _rdssdBucketName = pBucketName_
-    , _rdssdSyncFormat = pSyncFormat_
-    , _rdssdRegion = pRegion_
-    }
+  ResourceDataSyncS3Destination'
+  { _rdssdPrefix = Nothing
+  , _rdssdBucketName = pBucketName_
+  , _rdssdSyncFormat = pSyncFormat_
+  , _rdssdRegion = pRegion_
+  }
+
 
 -- | An Amazon S3 prefix for the bucket.
 rdssdPrefix :: Lens' ResourceDataSyncS3Destination (Maybe Text)
@@ -6136,9 +6241,9 @@ instance FromJSON ResourceDataSyncS3Destination where
                      (x .: "SyncFormat")
                      <*> (x .: "Region"))
 
-instance Hashable ResourceDataSyncS3Destination
+instance Hashable ResourceDataSyncS3Destination where
 
-instance NFData ResourceDataSyncS3Destination
+instance NFData ResourceDataSyncS3Destination where
 
 instance ToJSON ResourceDataSyncS3Destination where
         toJSON ResourceDataSyncS3Destination'{..}
@@ -6155,8 +6260,9 @@ instance ToJSON ResourceDataSyncS3Destination where
 --
 -- /See:/ 'resultAttribute' smart constructor.
 newtype ResultAttribute = ResultAttribute'
-    { _raTypeName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raTypeName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResultAttribute' with the minimum fields required to make a request.
 --
@@ -6166,18 +6272,16 @@ newtype ResultAttribute = ResultAttribute'
 resultAttribute
     :: Text -- ^ 'raTypeName'
     -> ResultAttribute
-resultAttribute pTypeName_ =
-    ResultAttribute'
-    { _raTypeName = pTypeName_
-    }
+resultAttribute pTypeName_ = ResultAttribute' {_raTypeName = pTypeName_}
+
 
 -- | Name of the inventory item type. Valid value: AWS:InstanceInformation. Default Value: AWS:InstanceInformation.
 raTypeName :: Lens' ResultAttribute Text
 raTypeName = lens _raTypeName (\ s a -> s{_raTypeName = a});
 
-instance Hashable ResultAttribute
+instance Hashable ResultAttribute where
 
-instance NFData ResultAttribute
+instance NFData ResultAttribute where
 
 instance ToJSON ResultAttribute where
         toJSON ResultAttribute'{..}
@@ -6190,10 +6294,11 @@ instance ToJSON ResultAttribute where
 --
 -- /See:/ 's3OutputLocation' smart constructor.
 data S3OutputLocation = S3OutputLocation'
-    { _solOutputS3KeyPrefix  :: !(Maybe Text)
-    , _solOutputS3Region     :: !(Maybe Text)
-    , _solOutputS3BucketName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _solOutputS3KeyPrefix  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _solOutputS3Region     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _solOutputS3BucketName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3OutputLocation' with the minimum fields required to make a request.
 --
@@ -6207,11 +6312,12 @@ data S3OutputLocation = S3OutputLocation'
 s3OutputLocation
     :: S3OutputLocation
 s3OutputLocation =
-    S3OutputLocation'
-    { _solOutputS3KeyPrefix = Nothing
-    , _solOutputS3Region = Nothing
-    , _solOutputS3BucketName = Nothing
-    }
+  S3OutputLocation'
+  { _solOutputS3KeyPrefix = Nothing
+  , _solOutputS3Region = Nothing
+  , _solOutputS3BucketName = Nothing
+  }
+
 
 -- | The Amazon S3 bucket subfolder.
 solOutputS3KeyPrefix :: Lens' S3OutputLocation (Maybe Text)
@@ -6234,9 +6340,9 @@ instance FromJSON S3OutputLocation where
                      (x .:? "OutputS3Region")
                      <*> (x .:? "OutputS3BucketName"))
 
-instance Hashable S3OutputLocation
+instance Hashable S3OutputLocation where
 
-instance NFData S3OutputLocation
+instance NFData S3OutputLocation where
 
 instance ToJSON S3OutputLocation where
         toJSON S3OutputLocation'{..}
@@ -6253,8 +6359,9 @@ instance ToJSON S3OutputLocation where
 --
 -- /See:/ 's3OutputURL' smart constructor.
 newtype S3OutputURL = S3OutputURL'
-    { _souOutputURL :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _souOutputURL :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3OutputURL' with the minimum fields required to make a request.
 --
@@ -6263,10 +6370,8 @@ newtype S3OutputURL = S3OutputURL'
 -- * 'souOutputURL' - A URL for an Amazon S3 bucket where you want to store the results of this request.
 s3OutputURL
     :: S3OutputURL
-s3OutputURL =
-    S3OutputURL'
-    { _souOutputURL = Nothing
-    }
+s3OutputURL = S3OutputURL' {_souOutputURL = Nothing}
+
 
 -- | A URL for an Amazon S3 bucket where you want to store the results of this request.
 souOutputURL :: Lens' S3OutputURL (Maybe Text)
@@ -6277,9 +6382,9 @@ instance FromJSON S3OutputURL where
           = withObject "S3OutputURL"
               (\ x -> S3OutputURL' <$> (x .:? "OutputUrl"))
 
-instance Hashable S3OutputURL
+instance Hashable S3OutputURL where
 
-instance NFData S3OutputURL
+instance NFData S3OutputURL where
 
 -- | The number of managed instances found for each patch severity level defined in the request filter.
 --
@@ -6287,13 +6392,14 @@ instance NFData S3OutputURL
 --
 -- /See:/ 'severitySummary' smart constructor.
 data SeveritySummary = SeveritySummary'
-    { _ssLowCount           :: !(Maybe Int)
-    , _ssUnspecifiedCount   :: !(Maybe Int)
-    , _ssHighCount          :: !(Maybe Int)
-    , _ssMediumCount        :: !(Maybe Int)
-    , _ssInformationalCount :: !(Maybe Int)
-    , _ssCriticalCount      :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssLowCount           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ssUnspecifiedCount   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ssHighCount          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ssMediumCount        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ssInformationalCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ssCriticalCount      :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SeveritySummary' with the minimum fields required to make a request.
 --
@@ -6313,14 +6419,15 @@ data SeveritySummary = SeveritySummary'
 severitySummary
     :: SeveritySummary
 severitySummary =
-    SeveritySummary'
-    { _ssLowCount = Nothing
-    , _ssUnspecifiedCount = Nothing
-    , _ssHighCount = Nothing
-    , _ssMediumCount = Nothing
-    , _ssInformationalCount = Nothing
-    , _ssCriticalCount = Nothing
-    }
+  SeveritySummary'
+  { _ssLowCount = Nothing
+  , _ssUnspecifiedCount = Nothing
+  , _ssHighCount = Nothing
+  , _ssMediumCount = Nothing
+  , _ssInformationalCount = Nothing
+  , _ssCriticalCount = Nothing
+  }
+
 
 -- | The total number of resources or compliance items that have a severity level of low. Low severity is determined by the organization that published the compliance items.
 ssLowCount :: Lens' SeveritySummary (Maybe Int)
@@ -6357,9 +6464,9 @@ instance FromJSON SeveritySummary where
                      <*> (x .:? "InformationalCount")
                      <*> (x .:? "CriticalCount"))
 
-instance Hashable SeveritySummary
+instance Hashable SeveritySummary where
 
-instance NFData SeveritySummary
+instance NFData SeveritySummary where
 
 -- | Detailed information about an the execution state of an Automation step.
 --
@@ -6367,18 +6474,19 @@ instance NFData SeveritySummary
 --
 -- /See:/ 'stepExecution' smart constructor.
 data StepExecution = StepExecution'
-    { _seFailureDetails     :: !(Maybe FailureDetails)
-    , _seInputs             :: !(Maybe (Map Text Text))
-    , _seStepName           :: !(Maybe Text)
-    , _seExecutionEndTime   :: !(Maybe POSIX)
-    , _seFailureMessage     :: !(Maybe Text)
-    , _seResponse           :: !(Maybe Text)
-    , _seAction             :: !(Maybe Text)
-    , _seResponseCode       :: !(Maybe Text)
-    , _seStepStatus         :: !(Maybe AutomationExecutionStatus)
-    , _seOutputs            :: !(Maybe (Map Text [Text]))
-    , _seExecutionStartTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seFailureDetails     :: {-# NOUNPACK #-}!(Maybe FailureDetails)
+  , _seInputs             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _seStepName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seExecutionEndTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _seFailureMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seResponse           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seAction             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seResponseCode       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seStepStatus         :: {-# NOUNPACK #-}!(Maybe AutomationExecutionStatus)
+  , _seOutputs            :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _seExecutionStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepExecution' with the minimum fields required to make a request.
 --
@@ -6408,19 +6516,20 @@ data StepExecution = StepExecution'
 stepExecution
     :: StepExecution
 stepExecution =
-    StepExecution'
-    { _seFailureDetails = Nothing
-    , _seInputs = Nothing
-    , _seStepName = Nothing
-    , _seExecutionEndTime = Nothing
-    , _seFailureMessage = Nothing
-    , _seResponse = Nothing
-    , _seAction = Nothing
-    , _seResponseCode = Nothing
-    , _seStepStatus = Nothing
-    , _seOutputs = Nothing
-    , _seExecutionStartTime = Nothing
-    }
+  StepExecution'
+  { _seFailureDetails = Nothing
+  , _seInputs = Nothing
+  , _seStepName = Nothing
+  , _seExecutionEndTime = Nothing
+  , _seFailureMessage = Nothing
+  , _seResponse = Nothing
+  , _seAction = Nothing
+  , _seResponseCode = Nothing
+  , _seStepStatus = Nothing
+  , _seOutputs = Nothing
+  , _seExecutionStartTime = Nothing
+  }
+
 
 -- | Information about the Automation failure.
 seFailureDetails :: Lens' StepExecution (Maybe FailureDetails)
@@ -6483,9 +6592,9 @@ instance FromJSON StepExecution where
                      <*> (x .:? "Outputs" .!= mempty)
                      <*> (x .:? "ExecutionStartTime"))
 
-instance Hashable StepExecution
+instance Hashable StepExecution where
 
-instance NFData StepExecution
+instance NFData StepExecution where
 
 -- | Metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment.
 --
@@ -6493,9 +6602,10 @@ instance NFData StepExecution
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -6508,11 +6618,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | The name of the tag.
 tagKey :: Lens' Tag Text
@@ -6527,9 +6634,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -6546,9 +6653,10 @@ instance ToJSON Tag where
 --
 -- /See:/ 'target' smart constructor.
 data Target = Target'
-    { _tValues :: !(Maybe [Text])
-    , _tKey    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _tKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Target' with the minimum fields required to make a request.
 --
@@ -6559,11 +6667,8 @@ data Target = Target'
 -- * 'tKey' - User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
 target
     :: Target
-target =
-    Target'
-    { _tValues = Nothing
-    , _tKey = Nothing
-    }
+target = Target' {_tValues = Nothing, _tKey = Nothing}
+
 
 -- | User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
 tValues :: Lens' Target [Text]
@@ -6580,9 +6685,9 @@ instance FromJSON Target where
                  Target' <$>
                    (x .:? "Values" .!= mempty) <*> (x .:? "Key"))
 
-instance Hashable Target
+instance Hashable Target where
 
-instance NFData Target
+instance NFData Target where
 
 instance ToJSON Target where
         toJSON Target'{..}

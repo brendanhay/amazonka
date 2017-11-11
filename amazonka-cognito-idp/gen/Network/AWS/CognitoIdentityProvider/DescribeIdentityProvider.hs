@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
     , diprsIdentityProvider
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeIdentityProvider' smart constructor.
 data DescribeIdentityProvider = DescribeIdentityProvider'
-    { _dipUserPoolId   :: !Text
-    , _dipProviderName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dipUserPoolId   :: {-# NOUNPACK #-}!Text
+  , _dipProviderName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIdentityProvider' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ describeIdentityProvider
     -> Text -- ^ 'dipProviderName'
     -> DescribeIdentityProvider
 describeIdentityProvider pUserPoolId_ pProviderName_ =
-    DescribeIdentityProvider'
-    { _dipUserPoolId = pUserPoolId_
-    , _dipProviderName = pProviderName_
-    }
+  DescribeIdentityProvider'
+  {_dipUserPoolId = pUserPoolId_, _dipProviderName = pProviderName_}
+
 
 -- | The user pool ID.
 dipUserPoolId :: Lens' DescribeIdentityProvider Text
@@ -86,9 +86,9 @@ instance AWSRequest DescribeIdentityProvider where
                  DescribeIdentityProviderResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "IdentityProvider"))
 
-instance Hashable DescribeIdentityProvider
+instance Hashable DescribeIdentityProvider where
 
-instance NFData DescribeIdentityProvider
+instance NFData DescribeIdentityProvider where
 
 instance ToHeaders DescribeIdentityProvider where
         toHeaders
@@ -115,9 +115,10 @@ instance ToQuery DescribeIdentityProvider where
 
 -- | /See:/ 'describeIdentityProviderResponse' smart constructor.
 data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
-    { _diprsResponseStatus   :: !Int
-    , _diprsIdentityProvider :: !IdentityProviderType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _diprsIdentityProvider :: {-# NOUNPACK #-}!IdentityProviderType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIdentityProviderResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,11 @@ describeIdentityProviderResponse
     -> IdentityProviderType -- ^ 'diprsIdentityProvider'
     -> DescribeIdentityProviderResponse
 describeIdentityProviderResponse pResponseStatus_ pIdentityProvider_ =
-    DescribeIdentityProviderResponse'
-    { _diprsResponseStatus = pResponseStatus_
-    , _diprsIdentityProvider = pIdentityProvider_
-    }
+  DescribeIdentityProviderResponse'
+  { _diprsResponseStatus = pResponseStatus_
+  , _diprsIdentityProvider = pIdentityProvider_
+  }
+
 
 -- | -- | The response status code.
 diprsResponseStatus :: Lens' DescribeIdentityProviderResponse Int
@@ -145,3 +147,4 @@ diprsIdentityProvider :: Lens' DescribeIdentityProviderResponse IdentityProvider
 diprsIdentityProvider = lens _diprsIdentityProvider (\ s a -> s{_diprsIdentityProvider = a});
 
 instance NFData DescribeIdentityProviderResponse
+         where

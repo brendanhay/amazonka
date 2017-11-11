@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateLoginProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.IAM.UpdateLoginProfile
     , UpdateLoginProfileResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateLoginProfile' smart constructor.
 data UpdateLoginProfile = UpdateLoginProfile'
-    { _ulpPassword              :: !(Maybe (Sensitive Text))
-    , _ulpPasswordResetRequired :: !(Maybe Bool)
-    , _ulpUserName              :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ulpPassword              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ulpPasswordResetRequired :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ulpUserName              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateLoginProfile' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ updateLoginProfile
     :: Text -- ^ 'ulpUserName'
     -> UpdateLoginProfile
 updateLoginProfile pUserName_ =
-    UpdateLoginProfile'
-    { _ulpPassword = Nothing
-    , _ulpPasswordResetRequired = Nothing
-    , _ulpUserName = pUserName_
-    }
+  UpdateLoginProfile'
+  { _ulpPassword = Nothing
+  , _ulpPasswordResetRequired = Nothing
+  , _ulpUserName = pUserName_
+  }
+
 
 -- | The new password for the specified IAM user. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D). However, the format can be further restricted by the account administrator by setting a password policy on the AWS account. For more information, see 'UpdateAccountPasswordPolicy' .
 ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
@@ -89,9 +91,9 @@ instance AWSRequest UpdateLoginProfile where
         request = postQuery iam
         response = receiveNull UpdateLoginProfileResponse'
 
-instance Hashable UpdateLoginProfile
+instance Hashable UpdateLoginProfile where
 
-instance NFData UpdateLoginProfile
+instance NFData UpdateLoginProfile where
 
 instance ToHeaders UpdateLoginProfile where
         toHeaders = const mempty
@@ -110,8 +112,9 @@ instance ToQuery UpdateLoginProfile where
 
 -- | /See:/ 'updateLoginProfileResponse' smart constructor.
 data UpdateLoginProfileResponse =
-    UpdateLoginProfileResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateLoginProfileResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateLoginProfileResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +122,5 @@ updateLoginProfileResponse
     :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse'
 
-instance NFData UpdateLoginProfileResponse
+
+instance NFData UpdateLoginProfileResponse where

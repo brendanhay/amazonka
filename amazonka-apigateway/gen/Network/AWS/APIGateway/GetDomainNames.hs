@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDomainNames
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.APIGateway.GetDomainNames
     , gdnrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe a collection of 'DomainName' resources.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDomainNames' smart constructor.
 data GetDomainNames = GetDomainNames'
-    { _gdnLimit    :: !(Maybe Int)
-    , _gdnPosition :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdnLimit    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gdnPosition :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainNames' with the minimum fields required to make a request.
 --
@@ -68,11 +69,8 @@ data GetDomainNames = GetDomainNames'
 -- * 'gdnPosition' - The current pagination position in the paged result set.
 getDomainNames
     :: GetDomainNames
-getDomainNames =
-    GetDomainNames'
-    { _gdnLimit = Nothing
-    , _gdnPosition = Nothing
-    }
+getDomainNames = GetDomainNames' {_gdnLimit = Nothing, _gdnPosition = Nothing}
+
 
 -- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gdnLimit :: Lens' GetDomainNames (Maybe Int)
@@ -99,9 +97,9 @@ instance AWSRequest GetDomainNames where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetDomainNames
+instance Hashable GetDomainNames where
 
-instance NFData GetDomainNames
+instance NFData GetDomainNames where
 
 instance ToHeaders GetDomainNames where
         toHeaders
@@ -124,10 +122,11 @@ instance ToQuery GetDomainNames where
 --
 -- /See:/ 'getDomainNamesResponse' smart constructor.
 data GetDomainNamesResponse = GetDomainNamesResponse'
-    { _gdnrsItems          :: !(Maybe [DomainName])
-    , _gdnrsPosition       :: !(Maybe Text)
-    , _gdnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdnrsItems          :: {-# NOUNPACK #-}!(Maybe [DomainName])
+  , _gdnrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainNamesResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +141,12 @@ getDomainNamesResponse
     :: Int -- ^ 'gdnrsResponseStatus'
     -> GetDomainNamesResponse
 getDomainNamesResponse pResponseStatus_ =
-    GetDomainNamesResponse'
-    { _gdnrsItems = Nothing
-    , _gdnrsPosition = Nothing
-    , _gdnrsResponseStatus = pResponseStatus_
-    }
+  GetDomainNamesResponse'
+  { _gdnrsItems = Nothing
+  , _gdnrsPosition = Nothing
+  , _gdnrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 gdnrsItems :: Lens' GetDomainNamesResponse [DomainName]
@@ -160,4 +160,4 @@ gdnrsPosition = lens _gdnrsPosition (\ s a -> s{_gdnrsPosition = a});
 gdnrsResponseStatus :: Lens' GetDomainNamesResponse Int
 gdnrsResponseStatus = lens _gdnrsResponseStatus (\ s a -> s{_gdnrsResponseStatus = a});
 
-instance NFData GetDomainNamesResponse
+instance NFData GetDomainNamesResponse where

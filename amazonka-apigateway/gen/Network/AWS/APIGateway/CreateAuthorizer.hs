@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateAuthorizer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.APIGateway.CreateAuthorizer
     , aAuthorizerCredentials
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to add a new 'Authorizer' to an existing 'RestApi' resource.
 --
@@ -68,17 +68,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
-    { _caAuthorizerURI                :: !(Maybe Text)
-    , _caIdentityValidationExpression :: !(Maybe Text)
-    , _caProviderARNs                 :: !(Maybe [Text])
-    , _caAuthorizerResultTtlInSeconds :: !(Maybe Int)
-    , _caAuthType                     :: !(Maybe Text)
-    , _caAuthorizerCredentials        :: !(Maybe Text)
-    , _caRestAPIId                    :: !Text
-    , _caName                         :: !Text
-    , _caType                         :: !AuthorizerType
-    , _caIdentitySource               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caAuthorizerURI                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caIdentityValidationExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caProviderARNs                 :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _caAuthorizerResultTtlInSeconds :: {-# NOUNPACK #-}!(Maybe Int)
+  , _caAuthType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caAuthorizerCredentials        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caRestAPIId                    :: {-# NOUNPACK #-}!Text
+  , _caName                         :: {-# NOUNPACK #-}!Text
+  , _caType                         :: {-# NOUNPACK #-}!AuthorizerType
+  , _caIdentitySource               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAuthorizer' with the minimum fields required to make a request.
 --
@@ -110,18 +111,19 @@ createAuthorizer
     -> Text -- ^ 'caIdentitySource'
     -> CreateAuthorizer
 createAuthorizer pRestAPIId_ pName_ pType_ pIdentitySource_ =
-    CreateAuthorizer'
-    { _caAuthorizerURI = Nothing
-    , _caIdentityValidationExpression = Nothing
-    , _caProviderARNs = Nothing
-    , _caAuthorizerResultTtlInSeconds = Nothing
-    , _caAuthType = Nothing
-    , _caAuthorizerCredentials = Nothing
-    , _caRestAPIId = pRestAPIId_
-    , _caName = pName_
-    , _caType = pType_
-    , _caIdentitySource = pIdentitySource_
-    }
+  CreateAuthorizer'
+  { _caAuthorizerURI = Nothing
+  , _caIdentityValidationExpression = Nothing
+  , _caProviderARNs = Nothing
+  , _caAuthorizerResultTtlInSeconds = Nothing
+  , _caAuthType = Nothing
+  , _caAuthorizerCredentials = Nothing
+  , _caRestAPIId = pRestAPIId_
+  , _caName = pName_
+  , _caType = pType_
+  , _caIdentitySource = pIdentitySource_
+  }
+
 
 -- | [Required] Specifies the authorizer's Uniform Resource Identifier (URI).
 caAuthorizerURI :: Lens' CreateAuthorizer (Maybe Text)
@@ -168,9 +170,9 @@ instance AWSRequest CreateAuthorizer where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateAuthorizer
+instance Hashable CreateAuthorizer where
 
-instance NFData CreateAuthorizer
+instance NFData CreateAuthorizer where
 
 instance ToHeaders CreateAuthorizer where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.SendBounce
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.SES.SendBounce
     , sbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to send a bounce message to the sender of an email you received through Amazon SES.
 --
@@ -59,13 +59,14 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendBounce' smart constructor.
 data SendBounce = SendBounce'
-    { _sbMessageDsn               :: !(Maybe MessageDsn)
-    , _sbExplanation              :: !(Maybe Text)
-    , _sbBounceSenderARN          :: !(Maybe Text)
-    , _sbOriginalMessageId        :: !Text
-    , _sbBounceSender             :: !Text
-    , _sbBouncedRecipientInfoList :: ![BouncedRecipientInfo]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sbMessageDsn               :: {-# NOUNPACK #-}!(Maybe MessageDsn)
+  , _sbExplanation              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sbBounceSenderARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sbOriginalMessageId        :: {-# NOUNPACK #-}!Text
+  , _sbBounceSender             :: {-# NOUNPACK #-}!Text
+  , _sbBouncedRecipientInfoList :: {-# NOUNPACK #-}![BouncedRecipientInfo]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendBounce' with the minimum fields required to make a request.
 --
@@ -87,14 +88,15 @@ sendBounce
     -> Text -- ^ 'sbBounceSender'
     -> SendBounce
 sendBounce pOriginalMessageId_ pBounceSender_ =
-    SendBounce'
-    { _sbMessageDsn = Nothing
-    , _sbExplanation = Nothing
-    , _sbBounceSenderARN = Nothing
-    , _sbOriginalMessageId = pOriginalMessageId_
-    , _sbBounceSender = pBounceSender_
-    , _sbBouncedRecipientInfoList = mempty
-    }
+  SendBounce'
+  { _sbMessageDsn = Nothing
+  , _sbExplanation = Nothing
+  , _sbBounceSenderARN = Nothing
+  , _sbOriginalMessageId = pOriginalMessageId_
+  , _sbBounceSender = pBounceSender_
+  , _sbBouncedRecipientInfoList = mempty
+  }
+
 
 -- | Message-related DSN fields. If not specified, Amazon SES will choose the values.
 sbMessageDsn :: Lens' SendBounce (Maybe MessageDsn)
@@ -129,9 +131,9 @@ instance AWSRequest SendBounce where
                  SendBounceResponse' <$>
                    (x .@? "MessageId") <*> (pure (fromEnum s)))
 
-instance Hashable SendBounce
+instance Hashable SendBounce where
 
-instance NFData SendBounce
+instance NFData SendBounce where
 
 instance ToHeaders SendBounce where
         toHeaders = const mempty
@@ -158,9 +160,10 @@ instance ToQuery SendBounce where
 --
 -- /See:/ 'sendBounceResponse' smart constructor.
 data SendBounceResponse = SendBounceResponse'
-    { _sbrsMessageId      :: !(Maybe Text)
-    , _sbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sbrsMessageId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendBounceResponse' with the minimum fields required to make a request.
 --
@@ -173,10 +176,9 @@ sendBounceResponse
     :: Int -- ^ 'sbrsResponseStatus'
     -> SendBounceResponse
 sendBounceResponse pResponseStatus_ =
-    SendBounceResponse'
-    { _sbrsMessageId = Nothing
-    , _sbrsResponseStatus = pResponseStatus_
-    }
+  SendBounceResponse'
+  {_sbrsMessageId = Nothing, _sbrsResponseStatus = pResponseStatus_}
+
 
 -- | The message ID of the bounce message.
 sbrsMessageId :: Lens' SendBounceResponse (Maybe Text)
@@ -186,4 +188,4 @@ sbrsMessageId = lens _sbrsMessageId (\ s a -> s{_sbrsMessageId = a});
 sbrsResponseStatus :: Lens' SendBounceResponse Int
 sbrsResponseStatus = lens _sbrsResponseStatus (\ s a -> s{_sbrsResponseStatus = a});
 
-instance NFData SendBounceResponse
+instance NFData SendBounceResponse where

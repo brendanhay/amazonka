@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListAccountsForParent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.Organizations.ListAccountsForParent
     , lafprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAccountsForParent' smart constructor.
 data ListAccountsForParent = ListAccountsForParent'
-    { _lafpNextToken  :: !(Maybe Text)
-    , _lafpMaxResults :: !(Maybe Nat)
-    , _lafpParentId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lafpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lafpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lafpParentId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAccountsForParent' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ listAccountsForParent
     :: Text -- ^ 'lafpParentId'
     -> ListAccountsForParent
 listAccountsForParent pParentId_ =
-    ListAccountsForParent'
-    { _lafpNextToken = Nothing
-    , _lafpMaxResults = Nothing
-    , _lafpParentId = pParentId_
-    }
+  ListAccountsForParent'
+  { _lafpNextToken = Nothing
+  , _lafpMaxResults = Nothing
+  , _lafpParentId = pParentId_
+  }
+
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 lafpNextToken :: Lens' ListAccountsForParent (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest ListAccountsForParent where
                    (x .?> "Accounts" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAccountsForParent
+instance Hashable ListAccountsForParent where
 
-instance NFData ListAccountsForParent
+instance NFData ListAccountsForParent where
 
 instance ToHeaders ListAccountsForParent where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery ListAccountsForParent where
 
 -- | /See:/ 'listAccountsForParentResponse' smart constructor.
 data ListAccountsForParentResponse = ListAccountsForParentResponse'
-    { _lafprsAccounts       :: !(Maybe [Account])
-    , _lafprsNextToken      :: !(Maybe Text)
-    , _lafprsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lafprsAccounts       :: {-# NOUNPACK #-}!(Maybe [Account])
+  , _lafprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lafprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAccountsForParentResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ listAccountsForParentResponse
     :: Int -- ^ 'lafprsResponseStatus'
     -> ListAccountsForParentResponse
 listAccountsForParentResponse pResponseStatus_ =
-    ListAccountsForParentResponse'
-    { _lafprsAccounts = Nothing
-    , _lafprsNextToken = Nothing
-    , _lafprsResponseStatus = pResponseStatus_
-    }
+  ListAccountsForParentResponse'
+  { _lafprsAccounts = Nothing
+  , _lafprsNextToken = Nothing
+  , _lafprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the accounts in the specified root or OU.
 lafprsAccounts :: Lens' ListAccountsForParentResponse [Account]
@@ -172,4 +176,4 @@ lafprsNextToken = lens _lafprsNextToken (\ s a -> s{_lafprsNextToken = a});
 lafprsResponseStatus :: Lens' ListAccountsForParentResponse Int
 lafprsResponseStatus = lens _lafprsResponseStatus (\ s a -> s{_lafprsResponseStatus = a});
 
-instance NFData ListAccountsForParentResponse
+instance NFData ListAccountsForParentResponse where

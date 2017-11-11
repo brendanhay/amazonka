@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -333,41 +333,41 @@ module Network.AWS.DirectConnect
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.AllocateHostedConnection
-import           Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
-import           Network.AWS.DirectConnect.AllocatePublicVirtualInterface
-import           Network.AWS.DirectConnect.AssociateConnectionWithLag
-import           Network.AWS.DirectConnect.AssociateHostedConnection
-import           Network.AWS.DirectConnect.AssociateVirtualInterface
-import           Network.AWS.DirectConnect.ConfirmConnection
-import           Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
-import           Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
-import           Network.AWS.DirectConnect.CreateBGPPeer
-import           Network.AWS.DirectConnect.CreateConnection
-import           Network.AWS.DirectConnect.CreateInterconnect
-import           Network.AWS.DirectConnect.CreateLag
-import           Network.AWS.DirectConnect.CreatePrivateVirtualInterface
-import           Network.AWS.DirectConnect.CreatePublicVirtualInterface
-import           Network.AWS.DirectConnect.DeleteBGPPeer
-import           Network.AWS.DirectConnect.DeleteConnection
-import           Network.AWS.DirectConnect.DeleteInterconnect
-import           Network.AWS.DirectConnect.DeleteLag
-import           Network.AWS.DirectConnect.DeleteVirtualInterface
-import           Network.AWS.DirectConnect.DescribeConnections
-import           Network.AWS.DirectConnect.DescribeHostedConnections
-import           Network.AWS.DirectConnect.DescribeInterconnects
-import           Network.AWS.DirectConnect.DescribeLags
-import           Network.AWS.DirectConnect.DescribeLoa
-import           Network.AWS.DirectConnect.DescribeLocations
-import           Network.AWS.DirectConnect.DescribeTags
-import           Network.AWS.DirectConnect.DescribeVirtualGateways
-import           Network.AWS.DirectConnect.DescribeVirtualInterfaces
-import           Network.AWS.DirectConnect.DisassociateConnectionFromLag
-import           Network.AWS.DirectConnect.TagResource
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.UntagResource
-import           Network.AWS.DirectConnect.UpdateLag
-import           Network.AWS.DirectConnect.Waiters
+import Network.AWS.DirectConnect.AllocateHostedConnection
+import Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
+import Network.AWS.DirectConnect.AllocatePublicVirtualInterface
+import Network.AWS.DirectConnect.AssociateConnectionWithLag
+import Network.AWS.DirectConnect.AssociateHostedConnection
+import Network.AWS.DirectConnect.AssociateVirtualInterface
+import Network.AWS.DirectConnect.ConfirmConnection
+import Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
+import Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
+import Network.AWS.DirectConnect.CreateBGPPeer
+import Network.AWS.DirectConnect.CreateConnection
+import Network.AWS.DirectConnect.CreateInterconnect
+import Network.AWS.DirectConnect.CreateLag
+import Network.AWS.DirectConnect.CreatePrivateVirtualInterface
+import Network.AWS.DirectConnect.CreatePublicVirtualInterface
+import Network.AWS.DirectConnect.DeleteBGPPeer
+import Network.AWS.DirectConnect.DeleteConnection
+import Network.AWS.DirectConnect.DeleteInterconnect
+import Network.AWS.DirectConnect.DeleteLag
+import Network.AWS.DirectConnect.DeleteVirtualInterface
+import Network.AWS.DirectConnect.DescribeConnections
+import Network.AWS.DirectConnect.DescribeHostedConnections
+import Network.AWS.DirectConnect.DescribeInterconnects
+import Network.AWS.DirectConnect.DescribeLags
+import Network.AWS.DirectConnect.DescribeLoa
+import Network.AWS.DirectConnect.DescribeLocations
+import Network.AWS.DirectConnect.DescribeTags
+import Network.AWS.DirectConnect.DescribeVirtualGateways
+import Network.AWS.DirectConnect.DescribeVirtualInterfaces
+import Network.AWS.DirectConnect.DisassociateConnectionFromLag
+import Network.AWS.DirectConnect.TagResource
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.UntagResource
+import Network.AWS.DirectConnect.UpdateLag
+import Network.AWS.DirectConnect.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetGroupVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Greengrass.GetGroupVersion
     , ggvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getGroupVersion' smart constructor.
 data GetGroupVersion = GetGroupVersion'
-    { _ggvGroupVersionId :: !Text
-    , _ggvGroupId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggvGroupVersionId :: {-# NOUNPACK #-}!Text
+  , _ggvGroupId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupVersion' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ getGroupVersion
     -> Text -- ^ 'ggvGroupId'
     -> GetGroupVersion
 getGroupVersion pGroupVersionId_ pGroupId_ =
-    GetGroupVersion'
-    { _ggvGroupVersionId = pGroupVersionId_
-    , _ggvGroupId = pGroupId_
-    }
+  GetGroupVersion'
+  {_ggvGroupVersionId = pGroupVersionId_, _ggvGroupId = pGroupId_}
+
 
 -- | Group version Id
 ggvGroupVersionId :: Lens' GetGroupVersion Text
@@ -91,9 +91,9 @@ instance AWSRequest GetGroupVersion where
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetGroupVersion
+instance Hashable GetGroupVersion where
 
-instance NFData GetGroupVersion
+instance NFData GetGroupVersion where
 
 instance ToHeaders GetGroupVersion where
         toHeaders
@@ -113,13 +113,14 @@ instance ToQuery GetGroupVersion where
 
 -- | /See:/ 'getGroupVersionResponse' smart constructor.
 data GetGroupVersionResponse = GetGroupVersionResponse'
-    { _ggvrsDefinition        :: !(Maybe GroupVersion)
-    , _ggvrsARN               :: !(Maybe Text)
-    , _ggvrsCreationTimestamp :: !(Maybe Text)
-    , _ggvrsVersion           :: !(Maybe Text)
-    , _ggvrsId                :: !(Maybe Text)
-    , _ggvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggvrsDefinition        :: {-# NOUNPACK #-}!(Maybe GroupVersion)
+  , _ggvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupVersionResponse' with the minimum fields required to make a request.
 --
@@ -140,14 +141,15 @@ getGroupVersionResponse
     :: Int -- ^ 'ggvrsResponseStatus'
     -> GetGroupVersionResponse
 getGroupVersionResponse pResponseStatus_ =
-    GetGroupVersionResponse'
-    { _ggvrsDefinition = Nothing
-    , _ggvrsARN = Nothing
-    , _ggvrsCreationTimestamp = Nothing
-    , _ggvrsVersion = Nothing
-    , _ggvrsId = Nothing
-    , _ggvrsResponseStatus = pResponseStatus_
-    }
+  GetGroupVersionResponse'
+  { _ggvrsDefinition = Nothing
+  , _ggvrsARN = Nothing
+  , _ggvrsCreationTimestamp = Nothing
+  , _ggvrsVersion = Nothing
+  , _ggvrsId = Nothing
+  , _ggvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information on the definition
 ggvrsDefinition :: Lens' GetGroupVersionResponse (Maybe GroupVersion)
@@ -173,4 +175,4 @@ ggvrsId = lens _ggvrsId (\ s a -> s{_ggvrsId = a});
 ggvrsResponseStatus :: Lens' GetGroupVersionResponse Int
 ggvrsResponseStatus = lens _ggvrsResponseStatus (\ s a -> s{_ggvrsResponseStatus = a});
 
-instance NFData GetGroupVersionResponse
+instance NFData GetGroupVersionResponse where

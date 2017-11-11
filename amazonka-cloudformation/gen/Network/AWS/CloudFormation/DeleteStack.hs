@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DeleteStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudFormation.DeleteStack
     , DeleteStackResponse
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for 'DeleteStack' action.
 --
@@ -50,11 +50,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteStack' smart constructor.
 data DeleteStack = DeleteStack'
-    { _dsRetainResources    :: !(Maybe [Text])
-    , _dsClientRequestToken :: !(Maybe Text)
-    , _dsRoleARN            :: !(Maybe Text)
-    , _dsStackName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsRetainResources    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsStackName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ deleteStack
     :: Text -- ^ 'dsStackName'
     -> DeleteStack
 deleteStack pStackName_ =
-    DeleteStack'
-    { _dsRetainResources = Nothing
-    , _dsClientRequestToken = Nothing
-    , _dsRoleARN = Nothing
-    , _dsStackName = pStackName_
-    }
+  DeleteStack'
+  { _dsRetainResources = Nothing
+  , _dsClientRequestToken = Nothing
+  , _dsRoleARN = Nothing
+  , _dsStackName = pStackName_
+  }
+
 
 -- | For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs that are associated with the resources you want to retain. During deletion, AWS CloudFormation deletes the stack but does not delete the retained resources. Retaining resources is useful when you cannot delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.
 dsRetainResources :: Lens' DeleteStack [Text]
@@ -99,9 +101,9 @@ instance AWSRequest DeleteStack where
         request = postQuery cloudFormation
         response = receiveNull DeleteStackResponse'
 
-instance Hashable DeleteStack
+instance Hashable DeleteStack where
 
-instance NFData DeleteStack
+instance NFData DeleteStack where
 
 instance ToHeaders DeleteStack where
         toHeaders = const mempty
@@ -122,8 +124,9 @@ instance ToQuery DeleteStack where
 
 -- | /See:/ 'deleteStackResponse' smart constructor.
 data DeleteStackResponse =
-    DeleteStackResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteStackResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
 --
@@ -131,4 +134,5 @@ deleteStackResponse
     :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse'
 
-instance NFData DeleteStackResponse
+
+instance NFData DeleteStackResponse where

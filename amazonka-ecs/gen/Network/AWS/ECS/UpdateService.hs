@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateService
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -77,21 +77,22 @@ module Network.AWS.ECS.UpdateService
     , usrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateService' smart constructor.
 data UpdateService = UpdateService'
-    { _usCluster                 :: !(Maybe Text)
-    , _usDesiredCount            :: !(Maybe Int)
-    , _usTaskDefinition          :: !(Maybe Text)
-    , _usDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
-    , _usService                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usCluster :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usDesiredCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _usTaskDefinition :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe DeploymentConfiguration)
+  , _usService :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateService' with the minimum fields required to make a request.
 --
@@ -110,13 +111,14 @@ updateService
     :: Text -- ^ 'usService'
     -> UpdateService
 updateService pService_ =
-    UpdateService'
-    { _usCluster = Nothing
-    , _usDesiredCount = Nothing
-    , _usTaskDefinition = Nothing
-    , _usDeploymentConfiguration = Nothing
-    , _usService = pService_
-    }
+  UpdateService'
+  { _usCluster = Nothing
+  , _usDesiredCount = Nothing
+  , _usTaskDefinition = Nothing
+  , _usDeploymentConfiguration = Nothing
+  , _usService = pService_
+  }
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
 usCluster :: Lens' UpdateService (Maybe Text)
@@ -147,9 +149,9 @@ instance AWSRequest UpdateService where
                  UpdateServiceResponse' <$>
                    (x .?> "service") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateService
+instance Hashable UpdateService where
 
-instance NFData UpdateService
+instance NFData UpdateService where
 
 instance ToHeaders UpdateService where
         toHeaders
@@ -180,9 +182,10 @@ instance ToQuery UpdateService where
 
 -- | /See:/ 'updateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
-    { _usrsService        :: !(Maybe ContainerService)
-    , _usrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usrsService        :: {-# NOUNPACK #-}!(Maybe ContainerService)
+  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServiceResponse' with the minimum fields required to make a request.
 --
@@ -195,10 +198,9 @@ updateServiceResponse
     :: Int -- ^ 'usrsResponseStatus'
     -> UpdateServiceResponse
 updateServiceResponse pResponseStatus_ =
-    UpdateServiceResponse'
-    { _usrsService = Nothing
-    , _usrsResponseStatus = pResponseStatus_
-    }
+  UpdateServiceResponse'
+  {_usrsService = Nothing, _usrsResponseStatus = pResponseStatus_}
+
 
 -- | The full description of your service following the update call.
 usrsService :: Lens' UpdateServiceResponse (Maybe ContainerService)
@@ -208,4 +210,4 @@ usrsService = lens _usrsService (\ s a -> s{_usrsService = a});
 usrsResponseStatus :: Lens' UpdateServiceResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
 
-instance NFData UpdateServiceResponse
+instance NFData UpdateServiceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DisassociateVPCFromHostedZone
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Route53.DisassociateVPCFromHostedZone
     , dvfhzrsChangeInfo
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the VPC that you want to disassociate from a specified private hosted zone.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'disassociateVPCFromHostedZone' smart constructor.
 data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
-    { _dvfhzComment      :: !(Maybe Text)
-    , _dvfhzHostedZoneId :: !ResourceId
-    , _dvfhzVPC          :: !VPC
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvfhzComment      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvfhzHostedZoneId :: {-# NOUNPACK #-}!ResourceId
+  , _dvfhzVPC          :: {-# NOUNPACK #-}!VPC
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateVPCFromHostedZone' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ disassociateVPCFromHostedZone
     -> VPC -- ^ 'dvfhzVPC'
     -> DisassociateVPCFromHostedZone
 disassociateVPCFromHostedZone pHostedZoneId_ pVPC_ =
-    DisassociateVPCFromHostedZone'
-    { _dvfhzComment = Nothing
-    , _dvfhzHostedZoneId = pHostedZoneId_
-    , _dvfhzVPC = pVPC_
-    }
+  DisassociateVPCFromHostedZone'
+  { _dvfhzComment = Nothing
+  , _dvfhzHostedZoneId = pHostedZoneId_
+  , _dvfhzVPC = pVPC_
+  }
+
 
 -- | /Optional:/ A comment about the disassociation request.
 dvfhzComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest DisassociateVPCFromHostedZone
                  DisassociateVPCFromHostedZoneResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
-instance Hashable DisassociateVPCFromHostedZone
+instance Hashable DisassociateVPCFromHostedZone where
 
-instance NFData DisassociateVPCFromHostedZone
+instance NFData DisassociateVPCFromHostedZone where
 
 instance ToElement DisassociateVPCFromHostedZone
          where
@@ -136,9 +138,10 @@ instance ToXML DisassociateVPCFromHostedZone where
 --
 -- /See:/ 'disassociateVPCFromHostedZoneResponse' smart constructor.
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrsResponseStatus :: !Int
-    , _dvfhzrsChangeInfo     :: !ChangeInfo
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvfhzrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dvfhzrsChangeInfo     :: {-# NOUNPACK #-}!ChangeInfo
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateVPCFromHostedZoneResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,9 @@ disassociateVPCFromHostedZoneResponse
     -> ChangeInfo -- ^ 'dvfhzrsChangeInfo'
     -> DisassociateVPCFromHostedZoneResponse
 disassociateVPCFromHostedZoneResponse pResponseStatus_ pChangeInfo_ =
-    DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrsResponseStatus = pResponseStatus_
-    , _dvfhzrsChangeInfo = pChangeInfo_
-    }
+  DisassociateVPCFromHostedZoneResponse'
+  {_dvfhzrsResponseStatus = pResponseStatus_, _dvfhzrsChangeInfo = pChangeInfo_}
+
 
 -- | -- | The response status code.
 dvfhzrsResponseStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
@@ -166,3 +168,4 @@ dvfhzrsChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvfhzrsChangeInfo = lens _dvfhzrsChangeInfo (\ s a -> s{_dvfhzrsChangeInfo = a});
 
 instance NFData DisassociateVPCFromHostedZoneResponse
+         where

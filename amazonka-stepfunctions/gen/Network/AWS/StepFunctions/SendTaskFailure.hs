@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.SendTaskFailure
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.StepFunctions.SendTaskFailure
     , stfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'sendTaskFailure' smart constructor.
 data SendTaskFailure = SendTaskFailure'
-    { _stfError     :: !(Maybe Text)
-    , _stfCause     :: !(Maybe Text)
-    , _stfTaskToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stfError     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stfCause     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stfTaskToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendTaskFailure' with the minimum fields required to make a request.
 --
@@ -65,11 +66,9 @@ sendTaskFailure
     :: Text -- ^ 'stfTaskToken'
     -> SendTaskFailure
 sendTaskFailure pTaskToken_ =
-    SendTaskFailure'
-    { _stfError = Nothing
-    , _stfCause = Nothing
-    , _stfTaskToken = pTaskToken_
-    }
+  SendTaskFailure'
+  {_stfError = Nothing, _stfCause = Nothing, _stfTaskToken = pTaskToken_}
+
 
 -- | An arbitrary error code that identifies the cause of the failure.
 stfError :: Lens' SendTaskFailure (Maybe Text)
@@ -91,9 +90,9 @@ instance AWSRequest SendTaskFailure where
               (\ s h x ->
                  SendTaskFailureResponse' <$> (pure (fromEnum s)))
 
-instance Hashable SendTaskFailure
+instance Hashable SendTaskFailure where
 
-instance NFData SendTaskFailure
+instance NFData SendTaskFailure where
 
 instance ToHeaders SendTaskFailure where
         toHeaders
@@ -120,8 +119,9 @@ instance ToQuery SendTaskFailure where
 
 -- | /See:/ 'sendTaskFailureResponse' smart constructor.
 newtype SendTaskFailureResponse = SendTaskFailureResponse'
-    { _stfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendTaskFailureResponse' with the minimum fields required to make a request.
 --
@@ -132,12 +132,11 @@ sendTaskFailureResponse
     :: Int -- ^ 'stfrsResponseStatus'
     -> SendTaskFailureResponse
 sendTaskFailureResponse pResponseStatus_ =
-    SendTaskFailureResponse'
-    { _stfrsResponseStatus = pResponseStatus_
-    }
+  SendTaskFailureResponse' {_stfrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 stfrsResponseStatus :: Lens' SendTaskFailureResponse Int
 stfrsResponseStatus = lens _stfrsResponseStatus (\ s a -> s{_stfrsResponseStatus = a});
 
-instance NFData SendTaskFailureResponse
+instance NFData SendTaskFailureResponse where

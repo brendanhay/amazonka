@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.ListDeliveryStreams
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.Firehose.ListDeliveryStreams
     , ldsrsHasMoreDeliveryStreams
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'
-    { _ldsLimit                            :: !(Maybe Nat)
-    , _ldsExclusiveStartDeliveryStreamName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldsLimit                            :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ldsExclusiveStartDeliveryStreamName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeliveryStreams' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ data ListDeliveryStreams = ListDeliveryStreams'
 listDeliveryStreams
     :: ListDeliveryStreams
 listDeliveryStreams =
-    ListDeliveryStreams'
-    { _ldsLimit = Nothing
-    , _ldsExclusiveStartDeliveryStreamName = Nothing
-    }
+  ListDeliveryStreams'
+  {_ldsLimit = Nothing, _ldsExclusiveStartDeliveryStreamName = Nothing}
+
 
 -- | The maximum number of delivery streams to list.
 ldsLimit :: Lens' ListDeliveryStreams (Maybe Natural)
@@ -89,9 +89,9 @@ instance AWSRequest ListDeliveryStreams where
                      (x .?> "DeliveryStreamNames" .!@ mempty)
                      <*> (x .:> "HasMoreDeliveryStreams"))
 
-instance Hashable ListDeliveryStreams
+instance Hashable ListDeliveryStreams where
 
-instance NFData ListDeliveryStreams
+instance NFData ListDeliveryStreams where
 
 instance ToHeaders ListDeliveryStreams where
         toHeaders
@@ -119,10 +119,11 @@ instance ToQuery ListDeliveryStreams where
 
 -- | /See:/ 'listDeliveryStreamsResponse' smart constructor.
 data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
-    { _ldsrsResponseStatus         :: !Int
-    , _ldsrsDeliveryStreamNames    :: ![Text]
-    , _ldsrsHasMoreDeliveryStreams :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldsrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  , _ldsrsDeliveryStreamNames    :: {-# NOUNPACK #-}![Text]
+  , _ldsrsHasMoreDeliveryStreams :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeliveryStreamsResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +139,12 @@ listDeliveryStreamsResponse
     -> Bool -- ^ 'ldsrsHasMoreDeliveryStreams'
     -> ListDeliveryStreamsResponse
 listDeliveryStreamsResponse pResponseStatus_ pHasMoreDeliveryStreams_ =
-    ListDeliveryStreamsResponse'
-    { _ldsrsResponseStatus = pResponseStatus_
-    , _ldsrsDeliveryStreamNames = mempty
-    , _ldsrsHasMoreDeliveryStreams = pHasMoreDeliveryStreams_
-    }
+  ListDeliveryStreamsResponse'
+  { _ldsrsResponseStatus = pResponseStatus_
+  , _ldsrsDeliveryStreamNames = mempty
+  , _ldsrsHasMoreDeliveryStreams = pHasMoreDeliveryStreams_
+  }
+
 
 -- | -- | The response status code.
 ldsrsResponseStatus :: Lens' ListDeliveryStreamsResponse Int
@@ -156,4 +158,4 @@ ldsrsDeliveryStreamNames = lens _ldsrsDeliveryStreamNames (\ s a -> s{_ldsrsDeli
 ldsrsHasMoreDeliveryStreams :: Lens' ListDeliveryStreamsResponse Bool
 ldsrsHasMoreDeliveryStreams = lens _ldsrsHasMoreDeliveryStreams (\ s a -> s{_ldsrsHasMoreDeliveryStreams = a});
 
-instance NFData ListDeliveryStreamsResponse
+instance NFData ListDeliveryStreamsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -75,12 +75,12 @@ module Network.AWS.RDS.CreateDBInstance
     , cdirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -88,46 +88,47 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDBInstance' smart constructor.
 data CreateDBInstance = CreateDBInstance'
-    { _cdiEngineVersion                   :: !(Maybe Text)
-    , _cdiDBSecurityGroups                :: !(Maybe [Text])
-    , _cdiStorageEncrypted                :: !(Maybe Bool)
-    , _cdiDBClusterIdentifier             :: !(Maybe Text)
-    , _cdiMasterUserPassword              :: !(Maybe Text)
-    , _cdiPubliclyAccessible              :: !(Maybe Bool)
-    , _cdiAutoMinorVersionUpgrade         :: !(Maybe Bool)
-    , _cdiMasterUsername                  :: !(Maybe Text)
-    , _cdiDBSubnetGroupName               :: !(Maybe Text)
-    , _cdiMonitoringRoleARN               :: !(Maybe Text)
-    , _cdiIOPS                            :: !(Maybe Int)
-    , _cdiDomain                          :: !(Maybe Text)
-    , _cdiMonitoringInterval              :: !(Maybe Int)
-    , _cdiTDECredentialPassword           :: !(Maybe Text)
-    , _cdiPromotionTier                   :: !(Maybe Int)
-    , _cdiLicenseModel                    :: !(Maybe Text)
-    , _cdiPreferredMaintenanceWindow      :: !(Maybe Text)
-    , _cdiCharacterSetName                :: !(Maybe Text)
-    , _cdiKMSKeyId                        :: !(Maybe Text)
-    , _cdiDBParameterGroupName            :: !(Maybe Text)
-    , _cdiPreferredBackupWindow           :: !(Maybe Text)
-    , _cdiAvailabilityZone                :: !(Maybe Text)
-    , _cdiBackupRetentionPeriod           :: !(Maybe Int)
-    , _cdiVPCSecurityGroupIds             :: !(Maybe [Text])
-    , _cdiMultiAZ                         :: !(Maybe Bool)
-    , _cdiAllocatedStorage                :: !(Maybe Int)
-    , _cdiOptionGroupName                 :: !(Maybe Text)
-    , _cdiCopyTagsToSnapshot              :: !(Maybe Bool)
-    , _cdiTimezone                        :: !(Maybe Text)
-    , _cdiTDECredentialARN                :: !(Maybe Text)
-    , _cdiDomainIAMRoleName               :: !(Maybe Text)
-    , _cdiTags                            :: !(Maybe [Tag])
-    , _cdiPort                            :: !(Maybe Int)
-    , _cdiEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _cdiStorageType                     :: !(Maybe Text)
-    , _cdiDBName                          :: !(Maybe Text)
-    , _cdiDBInstanceIdentifier            :: !Text
-    , _cdiDBInstanceClass                 :: !Text
-    , _cdiEngine                          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdiEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiDBSecurityGroups                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdiStorageEncrypted                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdiDBClusterIdentifier             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiMasterUserPassword              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiPubliclyAccessible              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdiAutoMinorVersionUpgrade         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdiMasterUsername                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiMonitoringRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiIOPS                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdiDomain                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiMonitoringInterval              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdiTDECredentialPassword           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiPromotionTier                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdiLicenseModel                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiCharacterSetName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiDBParameterGroupName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiAvailabilityZone                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdiVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdiMultiAZ                         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdiAllocatedStorage                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdiOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiCopyTagsToSnapshot              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdiTimezone                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiTDECredentialARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiDomainIAMRoleName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdiPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdiEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdiStorageType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiDBName                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdiDBInstanceIdentifier            :: {-# NOUNPACK #-}!Text
+  , _cdiDBInstanceClass                 :: {-# NOUNPACK #-}!Text
+  , _cdiEngine                          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBInstance' with the minimum fields required to make a request.
 --
@@ -216,47 +217,48 @@ createDBInstance
     -> Text -- ^ 'cdiEngine'
     -> CreateDBInstance
 createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
-    CreateDBInstance'
-    { _cdiEngineVersion = Nothing
-    , _cdiDBSecurityGroups = Nothing
-    , _cdiStorageEncrypted = Nothing
-    , _cdiDBClusterIdentifier = Nothing
-    , _cdiMasterUserPassword = Nothing
-    , _cdiPubliclyAccessible = Nothing
-    , _cdiAutoMinorVersionUpgrade = Nothing
-    , _cdiMasterUsername = Nothing
-    , _cdiDBSubnetGroupName = Nothing
-    , _cdiMonitoringRoleARN = Nothing
-    , _cdiIOPS = Nothing
-    , _cdiDomain = Nothing
-    , _cdiMonitoringInterval = Nothing
-    , _cdiTDECredentialPassword = Nothing
-    , _cdiPromotionTier = Nothing
-    , _cdiLicenseModel = Nothing
-    , _cdiPreferredMaintenanceWindow = Nothing
-    , _cdiCharacterSetName = Nothing
-    , _cdiKMSKeyId = Nothing
-    , _cdiDBParameterGroupName = Nothing
-    , _cdiPreferredBackupWindow = Nothing
-    , _cdiAvailabilityZone = Nothing
-    , _cdiBackupRetentionPeriod = Nothing
-    , _cdiVPCSecurityGroupIds = Nothing
-    , _cdiMultiAZ = Nothing
-    , _cdiAllocatedStorage = Nothing
-    , _cdiOptionGroupName = Nothing
-    , _cdiCopyTagsToSnapshot = Nothing
-    , _cdiTimezone = Nothing
-    , _cdiTDECredentialARN = Nothing
-    , _cdiDomainIAMRoleName = Nothing
-    , _cdiTags = Nothing
-    , _cdiPort = Nothing
-    , _cdiEnableIAMDatabaseAuthentication = Nothing
-    , _cdiStorageType = Nothing
-    , _cdiDBName = Nothing
-    , _cdiDBInstanceIdentifier = pDBInstanceIdentifier_
-    , _cdiDBInstanceClass = pDBInstanceClass_
-    , _cdiEngine = pEngine_
-    }
+  CreateDBInstance'
+  { _cdiEngineVersion = Nothing
+  , _cdiDBSecurityGroups = Nothing
+  , _cdiStorageEncrypted = Nothing
+  , _cdiDBClusterIdentifier = Nothing
+  , _cdiMasterUserPassword = Nothing
+  , _cdiPubliclyAccessible = Nothing
+  , _cdiAutoMinorVersionUpgrade = Nothing
+  , _cdiMasterUsername = Nothing
+  , _cdiDBSubnetGroupName = Nothing
+  , _cdiMonitoringRoleARN = Nothing
+  , _cdiIOPS = Nothing
+  , _cdiDomain = Nothing
+  , _cdiMonitoringInterval = Nothing
+  , _cdiTDECredentialPassword = Nothing
+  , _cdiPromotionTier = Nothing
+  , _cdiLicenseModel = Nothing
+  , _cdiPreferredMaintenanceWindow = Nothing
+  , _cdiCharacterSetName = Nothing
+  , _cdiKMSKeyId = Nothing
+  , _cdiDBParameterGroupName = Nothing
+  , _cdiPreferredBackupWindow = Nothing
+  , _cdiAvailabilityZone = Nothing
+  , _cdiBackupRetentionPeriod = Nothing
+  , _cdiVPCSecurityGroupIds = Nothing
+  , _cdiMultiAZ = Nothing
+  , _cdiAllocatedStorage = Nothing
+  , _cdiOptionGroupName = Nothing
+  , _cdiCopyTagsToSnapshot = Nothing
+  , _cdiTimezone = Nothing
+  , _cdiTDECredentialARN = Nothing
+  , _cdiDomainIAMRoleName = Nothing
+  , _cdiTags = Nothing
+  , _cdiPort = Nothing
+  , _cdiEnableIAMDatabaseAuthentication = Nothing
+  , _cdiStorageType = Nothing
+  , _cdiDBName = Nothing
+  , _cdiDBInstanceIdentifier = pDBInstanceIdentifier_
+  , _cdiDBInstanceClass = pDBInstanceClass_
+  , _cdiEngine = pEngine_
+  }
+
 
 -- | The version number of the database engine to use. The following are the database engines and major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region. __Amazon Aurora__  Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster. For more information, see 'CreateDBCluster' . __MariaDB__      * @10.1.19@ (supported in all AWS regions)     * @10.1.14@ (supported in all regions except us-east-2)     * @10.0.28@ (supported in all AWS regions)     * @10.0.24@ (supported in all AWS regions)     * @10.0.17@ (supported in all regions except us-east-2, ca-central-1, eu-west-2) __Microsoft SQL Server 2016__      * @13.00.4422.0.v1@ (supported for all editions, and all AWS regions)     * @13.00.2164.0.v1@ (supported for all editions, and all AWS regions) __Microsoft SQL Server 2014__      * @12.00.5546.0.v1@ (supported for all editions, and all AWS regions)     * @12.00.5000.0.v1@ (supported for all editions, and all AWS regions)     * @12.00.4422.0.v1@ (supported for all editions except Enterprise Edition, and all AWS regions except ca-central-1 and eu-west-2) __Microsoft SQL Server 2012__      * @11.00.6594.0.v1@ (supported for all editions, and all AWS regions)     * @11.00.6020.0.v1@ (supported for all editions, and all AWS regions)     * @11.00.5058.0.v1@ (supported for all editions, and all AWS regions except us-east-2, ca-central-1, and eu-west-2)     * @11.00.2100.60.v1@ (supported for all editions, and all AWS regions except us-east-2, ca-central-1, and eu-west-2) __Microsoft SQL Server 2008 R2__      * @10.50.6529.0.v1@ (supported for all editions, and all AWS regions except us-east-2, ca-central-1, and eu-west-2)     * @10.50.6000.34.v1@ (supported for all editions, and all AWS regions except us-east-2, ca-central-1, and eu-west-2)     * @10.50.2789.0.v1@ (supported for all editions, and all AWS regions except us-east-2, ca-central-1, and eu-west-2) __MySQL__      * @5.7.17@ (supported in all AWS regions)     * @5.7.16@ (supported in all AWS regions)     * @5.7.11@ (supported in all AWS regions)     * @5.6.35@ (supported in all AWS regions)     * @5.6.34@ (supported in all AWS regions)     * @5.6.29@ (supported in all AWS regions)     * @5.6.27@ (supported in all regions except us-east-2, ca-central-1, eu-west-2)     * @5.5.54@ (supported in all AWS regions)     * @5.5.53@ (supported in all AWS regions)     * @5.5.46@ (supported in all AWS regions) __Oracle 12c__      * @12.1.0.2.v8@ (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)     * @12.1.0.2.v7@ (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)     * @12.1.0.2.v6@ (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)     * @12.1.0.2.v5@ (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)     * @12.1.0.2.v4@ (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)     * @12.1.0.2.v3@ (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)     * @12.1.0.2.v2@ (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1)     * @12.1.0.2.v1@ (supported for EE in all AWS regions, and SE2 in all AWS regions except us-gov-west-1) __Oracle 11g__      * @11.2.0.4.v12@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v11@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v10@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v9@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v8@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v7@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v6@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v5@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v4@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v3@ (supported for EE, SE1, and SE, in all AWS regions)     * @11.2.0.4.v1@ (supported for EE, SE1, and SE, in all AWS regions) __PostgreSQL__      * __Version 9.6.x:__ @9.6.1 | 9.6.2@      * __Version 9.5.x:__ @9.5.6 | 9.5.4 | 9.5.2@      * __Version 9.4.x:__ @9.4.11 | 9.4.9 | 9.4.7@      * __Version 9.3.x:__ @9.3.16 | 9.3.14 | 9.3.12@
 cdiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
@@ -423,9 +425,9 @@ instance AWSRequest CreateDBInstance where
                  CreateDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDBInstance
+instance Hashable CreateDBInstance where
 
-instance NFData CreateDBInstance
+instance NFData CreateDBInstance where
 
 instance ToHeaders CreateDBInstance where
         toHeaders = const mempty
@@ -488,9 +490,10 @@ instance ToQuery CreateDBInstance where
 
 -- | /See:/ 'createDBInstanceResponse' smart constructor.
 data CreateDBInstanceResponse = CreateDBInstanceResponse'
-    { _cdirsDBInstance     :: !(Maybe DBInstance)
-    , _cdirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _cdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -503,10 +506,9 @@ createDBInstanceResponse
     :: Int -- ^ 'cdirsResponseStatus'
     -> CreateDBInstanceResponse
 createDBInstanceResponse pResponseStatus_ =
-    CreateDBInstanceResponse'
-    { _cdirsDBInstance = Nothing
-    , _cdirsResponseStatus = pResponseStatus_
-    }
+  CreateDBInstanceResponse'
+  {_cdirsDBInstance = Nothing, _cdirsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cdirsDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
@@ -516,4 +518,4 @@ cdirsDBInstance = lens _cdirsDBInstance (\ s a -> s{_cdirsDBInstance = a});
 cdirsResponseStatus :: Lens' CreateDBInstanceResponse Int
 cdirsResponseStatus = lens _cdirsResponseStatus (\ s a -> s{_cdirsResponseStatus = a});
 
-instance NFData CreateDBInstanceResponse
+instance NFData CreateDBInstanceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.IoT.ListThings
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListThings operation.
 --
@@ -58,12 +58,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listThings' smart constructor.
 data ListThings = ListThings'
-    { _ltAttributeValue :: !(Maybe Text)
-    , _ltThingTypeName  :: !(Maybe Text)
-    , _ltNextToken      :: !(Maybe Text)
-    , _ltAttributeName  :: !(Maybe Text)
-    , _ltMaxResults     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltThingTypeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThings' with the minimum fields required to make a request.
 --
@@ -81,13 +82,14 @@ data ListThings = ListThings'
 listThings
     :: ListThings
 listThings =
-    ListThings'
-    { _ltAttributeValue = Nothing
-    , _ltThingTypeName = Nothing
-    , _ltNextToken = Nothing
-    , _ltAttributeName = Nothing
-    , _ltMaxResults = Nothing
-    }
+  ListThings'
+  { _ltAttributeValue = Nothing
+  , _ltThingTypeName = Nothing
+  , _ltNextToken = Nothing
+  , _ltAttributeName = Nothing
+  , _ltMaxResults = Nothing
+  }
+
 
 -- | The attribute value used to search for things.
 ltAttributeValue :: Lens' ListThings (Maybe Text)
@@ -126,9 +128,9 @@ instance AWSRequest ListThings where
                    (x .?> "nextToken") <*> (x .?> "things" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListThings
+instance Hashable ListThings where
 
-instance NFData ListThings
+instance NFData ListThings where
 
 instance ToHeaders ListThings where
         toHeaders = const mempty
@@ -151,10 +153,11 @@ instance ToQuery ListThings where
 --
 -- /See:/ 'listThingsResponse' smart constructor.
 data ListThingsResponse = ListThingsResponse'
-    { _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsThings         :: !(Maybe [ThingAttribute])
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltrsThings         :: {-# NOUNPACK #-}!(Maybe [ThingAttribute])
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThingsResponse' with the minimum fields required to make a request.
 --
@@ -169,11 +172,12 @@ listThingsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListThingsResponse
 listThingsResponse pResponseStatus_ =
-    ListThingsResponse'
-    { _ltrsNextToken = Nothing
-    , _ltrsThings = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListThingsResponse'
+  { _ltrsNextToken = Nothing
+  , _ltrsThings = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
 ltrsNextToken :: Lens' ListThingsResponse (Maybe Text)
@@ -187,4 +191,4 @@ ltrsThings = lens _ltrsThings (\ s a -> s{_ltrsThings = a}) . _Default . _Coerce
 ltrsResponseStatus :: Lens' ListThingsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListThingsResponse
+instance NFData ListThingsResponse where

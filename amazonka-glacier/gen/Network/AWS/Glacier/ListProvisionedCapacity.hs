@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListProvisionedCapacity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glacier.ListProvisionedCapacity
     , lpcrsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listProvisionedCapacity' smart constructor.
 newtype ListProvisionedCapacity = ListProvisionedCapacity'
-    { _lpcAccountId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpcAccountId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProvisionedCapacity' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ listProvisionedCapacity
     :: Text -- ^ 'lpcAccountId'
     -> ListProvisionedCapacity
 listProvisionedCapacity pAccountId_ =
-    ListProvisionedCapacity'
-    { _lpcAccountId = pAccountId_
-    }
+  ListProvisionedCapacity' {_lpcAccountId = pAccountId_}
+
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
 lpcAccountId :: Lens' ListProvisionedCapacity Text
@@ -77,9 +77,9 @@ instance AWSRequest ListProvisionedCapacity where
                    (x .?> "ProvisionedCapacityList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListProvisionedCapacity
+instance Hashable ListProvisionedCapacity where
 
-instance NFData ListProvisionedCapacity
+instance NFData ListProvisionedCapacity where
 
 instance ToHeaders ListProvisionedCapacity where
         toHeaders = const mempty
@@ -94,9 +94,10 @@ instance ToQuery ListProvisionedCapacity where
 
 -- | /See:/ 'listProvisionedCapacityResponse' smart constructor.
 data ListProvisionedCapacityResponse = ListProvisionedCapacityResponse'
-    { _lpcrsProvisionedCapacityList :: !(Maybe [ProvisionedCapacityDescription])
-    , _lpcrsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpcrsProvisionedCapacityList :: {-# NOUNPACK #-}!(Maybe [ProvisionedCapacityDescription])
+  , _lpcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProvisionedCapacityResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +110,11 @@ listProvisionedCapacityResponse
     :: Int -- ^ 'lpcrsResponseStatus'
     -> ListProvisionedCapacityResponse
 listProvisionedCapacityResponse pResponseStatus_ =
-    ListProvisionedCapacityResponse'
-    { _lpcrsProvisionedCapacityList = Nothing
-    , _lpcrsResponseStatus = pResponseStatus_
-    }
+  ListProvisionedCapacityResponse'
+  { _lpcrsProvisionedCapacityList = Nothing
+  , _lpcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The response body contains the following JSON fields.
 lpcrsProvisionedCapacityList :: Lens' ListProvisionedCapacityResponse [ProvisionedCapacityDescription]
@@ -122,4 +124,4 @@ lpcrsProvisionedCapacityList = lens _lpcrsProvisionedCapacityList (\ s a -> s{_l
 lpcrsResponseStatus :: Lens' ListProvisionedCapacityResponse Int
 lpcrsResponseStatus = lens _lpcrsResponseStatus (\ s a -> s{_lpcrsResponseStatus = a});
 
-instance NFData ListProvisionedCapacityResponse
+instance NFData ListProvisionedCapacityResponse where

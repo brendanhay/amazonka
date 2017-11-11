@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceMetricData
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,23 +44,24 @@ module Network.AWS.Lightsail.GetInstanceMetricData
     , gimdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getInstanceMetricData' smart constructor.
 data GetInstanceMetricData = GetInstanceMetricData'
-    { _gimdInstanceName :: !Text
-    , _gimdMetricName   :: !InstanceMetricName
-    , _gimdPeriod       :: !Nat
-    , _gimdStartTime    :: !POSIX
-    , _gimdEndTime      :: !POSIX
-    , _gimdUnit         :: !MetricUnit
-    , _gimdStatistics   :: ![MetricStatistic]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gimdInstanceName :: {-# NOUNPACK #-}!Text
+  , _gimdMetricName   :: {-# NOUNPACK #-}!InstanceMetricName
+  , _gimdPeriod       :: {-# NOUNPACK #-}!Nat
+  , _gimdStartTime    :: {-# NOUNPACK #-}!POSIX
+  , _gimdEndTime      :: {-# NOUNPACK #-}!POSIX
+  , _gimdUnit         :: {-# NOUNPACK #-}!MetricUnit
+  , _gimdStatistics   :: {-# NOUNPACK #-}![MetricStatistic]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceMetricData' with the minimum fields required to make a request.
 --
@@ -88,15 +89,16 @@ getInstanceMetricData
     -> MetricUnit -- ^ 'gimdUnit'
     -> GetInstanceMetricData
 getInstanceMetricData pInstanceName_ pMetricName_ pPeriod_ pStartTime_ pEndTime_ pUnit_ =
-    GetInstanceMetricData'
-    { _gimdInstanceName = pInstanceName_
-    , _gimdMetricName = pMetricName_
-    , _gimdPeriod = _Nat # pPeriod_
-    , _gimdStartTime = _Time # pStartTime_
-    , _gimdEndTime = _Time # pEndTime_
-    , _gimdUnit = pUnit_
-    , _gimdStatistics = mempty
-    }
+  GetInstanceMetricData'
+  { _gimdInstanceName = pInstanceName_
+  , _gimdMetricName = pMetricName_
+  , _gimdPeriod = _Nat # pPeriod_
+  , _gimdStartTime = _Time # pStartTime_
+  , _gimdEndTime = _Time # pEndTime_
+  , _gimdUnit = pUnit_
+  , _gimdStatistics = mempty
+  }
+
 
 -- | The name of the instance for which you want to get metrics data.
 gimdInstanceName :: Lens' GetInstanceMetricData Text
@@ -138,9 +140,9 @@ instance AWSRequest GetInstanceMetricData where
                      (x .?> "metricData" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetInstanceMetricData
+instance Hashable GetInstanceMetricData where
 
-instance NFData GetInstanceMetricData
+instance NFData GetInstanceMetricData where
 
 instance ToHeaders GetInstanceMetricData where
         toHeaders
@@ -172,10 +174,11 @@ instance ToQuery GetInstanceMetricData where
 
 -- | /See:/ 'getInstanceMetricDataResponse' smart constructor.
 data GetInstanceMetricDataResponse = GetInstanceMetricDataResponse'
-    { _gimdrsMetricName     :: !(Maybe InstanceMetricName)
-    , _gimdrsMetricData     :: !(Maybe [MetricDatapoint])
-    , _gimdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gimdrsMetricName     :: {-# NOUNPACK #-}!(Maybe InstanceMetricName)
+  , _gimdrsMetricData     :: {-# NOUNPACK #-}!(Maybe [MetricDatapoint])
+  , _gimdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceMetricDataResponse' with the minimum fields required to make a request.
 --
@@ -190,11 +193,12 @@ getInstanceMetricDataResponse
     :: Int -- ^ 'gimdrsResponseStatus'
     -> GetInstanceMetricDataResponse
 getInstanceMetricDataResponse pResponseStatus_ =
-    GetInstanceMetricDataResponse'
-    { _gimdrsMetricName = Nothing
-    , _gimdrsMetricData = Nothing
-    , _gimdrsResponseStatus = pResponseStatus_
-    }
+  GetInstanceMetricDataResponse'
+  { _gimdrsMetricName = Nothing
+  , _gimdrsMetricData = Nothing
+  , _gimdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The metric name to return data for.
 gimdrsMetricName :: Lens' GetInstanceMetricDataResponse (Maybe InstanceMetricName)
@@ -208,4 +212,4 @@ gimdrsMetricData = lens _gimdrsMetricData (\ s a -> s{_gimdrsMetricData = a}) . 
 gimdrsResponseStatus :: Lens' GetInstanceMetricDataResponse Int
 gimdrsResponseStatus = lens _gimdrsResponseStatus (\ s a -> s{_gimdrsResponseStatus = a});
 
-instance NFData GetInstanceMetricDataResponse
+instance NFData GetInstanceMetricDataResponse where

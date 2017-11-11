@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeleteConditionalForwarder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DirectoryService.DeleteConditionalForwarder
     , drsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Deletes a conditional forwarder.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteConditionalForwarder' smart constructor.
 data DeleteConditionalForwarder = DeleteConditionalForwarder'
-    { _delDirectoryId      :: !Text
-    , _delRemoteDomainName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delDirectoryId      :: {-# NOUNPACK #-}!Text
+  , _delRemoteDomainName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConditionalForwarder' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ deleteConditionalForwarder
     -> Text -- ^ 'delRemoteDomainName'
     -> DeleteConditionalForwarder
 deleteConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
-    DeleteConditionalForwarder'
-    { _delDirectoryId = pDirectoryId_
-    , _delRemoteDomainName = pRemoteDomainName_
-    }
+  DeleteConditionalForwarder'
+  {_delDirectoryId = pDirectoryId_, _delRemoteDomainName = pRemoteDomainName_}
+
 
 -- | The directory ID for which you are deleting the conditional forwarder.
 delDirectoryId :: Lens' DeleteConditionalForwarder Text
@@ -89,9 +89,9 @@ instance AWSRequest DeleteConditionalForwarder where
                  DeleteConditionalForwarderResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteConditionalForwarder
+instance Hashable DeleteConditionalForwarder where
 
-instance NFData DeleteConditionalForwarder
+instance NFData DeleteConditionalForwarder where
 
 instance ToHeaders DeleteConditionalForwarder where
         toHeaders
@@ -122,8 +122,9 @@ instance ToQuery DeleteConditionalForwarder where
 --
 -- /See:/ 'deleteConditionalForwarderResponse' smart constructor.
 newtype DeleteConditionalForwarderResponse = DeleteConditionalForwarderResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConditionalForwarderResponse' with the minimum fields required to make a request.
 --
@@ -134,12 +135,12 @@ deleteConditionalForwarderResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteConditionalForwarderResponse
 deleteConditionalForwarderResponse pResponseStatus_ =
-    DeleteConditionalForwarderResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteConditionalForwarderResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteConditionalForwarderResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 instance NFData DeleteConditionalForwarderResponse
+         where

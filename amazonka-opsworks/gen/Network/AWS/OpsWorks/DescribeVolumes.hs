@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeVolumes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.OpsWorks.DescribeVolumes
     , dvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVolumes' smart constructor.
 data DescribeVolumes = DescribeVolumes'
-    { _dvInstanceId  :: !(Maybe Text)
-    , _dvVolumeIds   :: !(Maybe [Text])
-    , _dvRAIdArrayId :: !(Maybe Text)
-    , _dvStackId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvInstanceId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvVolumeIds   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dvRAIdArrayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvStackId     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumes' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ data DescribeVolumes = DescribeVolumes'
 describeVolumes
     :: DescribeVolumes
 describeVolumes =
-    DescribeVolumes'
-    { _dvInstanceId = Nothing
-    , _dvVolumeIds = Nothing
-    , _dvRAIdArrayId = Nothing
-    , _dvStackId = Nothing
-    }
+  DescribeVolumes'
+  { _dvInstanceId = Nothing
+  , _dvVolumeIds = Nothing
+  , _dvRAIdArrayId = Nothing
+  , _dvStackId = Nothing
+  }
+
 
 -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
 dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
@@ -103,9 +105,9 @@ instance AWSRequest DescribeVolumes where
                  DescribeVolumesResponse' <$>
                    (x .?> "Volumes" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVolumes
+instance Hashable DescribeVolumes where
 
-instance NFData DescribeVolumes
+instance NFData DescribeVolumes where
 
 instance ToHeaders DescribeVolumes where
         toHeaders
@@ -137,9 +139,10 @@ instance ToQuery DescribeVolumes where
 --
 -- /See:/ 'describeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
-    { _dvrsVolumes        :: !(Maybe [Volume])
-    , _dvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvrsVolumes        :: {-# NOUNPACK #-}!(Maybe [Volume])
+  , _dvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumesResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,9 @@ describeVolumesResponse
     :: Int -- ^ 'dvrsResponseStatus'
     -> DescribeVolumesResponse
 describeVolumesResponse pResponseStatus_ =
-    DescribeVolumesResponse'
-    { _dvrsVolumes = Nothing
-    , _dvrsResponseStatus = pResponseStatus_
-    }
+  DescribeVolumesResponse'
+  {_dvrsVolumes = Nothing, _dvrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of volume IDs.
 dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
@@ -165,4 +167,4 @@ dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default . _Coe
 dvrsResponseStatus :: Lens' DescribeVolumesResponse Int
 dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
 
-instance NFData DescribeVolumesResponse
+instance NFData DescribeVolumesResponse where

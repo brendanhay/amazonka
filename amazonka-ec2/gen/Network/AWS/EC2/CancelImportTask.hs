@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelImportTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.CancelImportTask
     , citrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CancelImportTask.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'cancelImportTask' smart constructor.
 data CancelImportTask = CancelImportTask'
-    { _citCancelReason :: !(Maybe Text)
-    , _citImportTaskId :: !(Maybe Text)
-    , _citDryRun       :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _citCancelReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _citImportTaskId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _citDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelImportTask' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ data CancelImportTask = CancelImportTask'
 cancelImportTask
     :: CancelImportTask
 cancelImportTask =
-    CancelImportTask'
-    { _citCancelReason = Nothing
-    , _citImportTaskId = Nothing
-    , _citDryRun = Nothing
-    }
+  CancelImportTask'
+  {_citCancelReason = Nothing, _citImportTaskId = Nothing, _citDryRun = Nothing}
+
 
 -- | The reason for canceling the task.
 citCancelReason :: Lens' CancelImportTask (Maybe Text)
@@ -100,9 +99,9 @@ instance AWSRequest CancelImportTask where
                      (x .@? "previousState")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CancelImportTask
+instance Hashable CancelImportTask where
 
-instance NFData CancelImportTask
+instance NFData CancelImportTask where
 
 instance ToHeaders CancelImportTask where
         toHeaders = const mempty
@@ -125,11 +124,12 @@ instance ToQuery CancelImportTask where
 --
 -- /See:/ 'cancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
-    { _citrsState          :: !(Maybe Text)
-    , _citrsImportTaskId   :: !(Maybe Text)
-    , _citrsPreviousState  :: !(Maybe Text)
-    , _citrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _citrsState          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _citrsImportTaskId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _citrsPreviousState  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _citrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelImportTaskResponse' with the minimum fields required to make a request.
 --
@@ -146,12 +146,13 @@ cancelImportTaskResponse
     :: Int -- ^ 'citrsResponseStatus'
     -> CancelImportTaskResponse
 cancelImportTaskResponse pResponseStatus_ =
-    CancelImportTaskResponse'
-    { _citrsState = Nothing
-    , _citrsImportTaskId = Nothing
-    , _citrsPreviousState = Nothing
-    , _citrsResponseStatus = pResponseStatus_
-    }
+  CancelImportTaskResponse'
+  { _citrsState = Nothing
+  , _citrsImportTaskId = Nothing
+  , _citrsPreviousState = Nothing
+  , _citrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current state of the task being canceled.
 citrsState :: Lens' CancelImportTaskResponse (Maybe Text)
@@ -169,4 +170,4 @@ citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = 
 citrsResponseStatus :: Lens' CancelImportTaskResponse Int
 citrsResponseStatus = lens _citrsResponseStatus (\ s a -> s{_citrsResponseStatus = a});
 
-instance NFData CancelImportTaskResponse
+instance NFData CancelImportTaskResponse where

@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Glacier.Types.Product where
 
-import           Network.AWS.Glacier.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Glacier.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Contains the Amazon Glacier response to your request.
 --
@@ -29,10 +29,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'archiveCreationOutput' smart constructor.
 data ArchiveCreationOutput = ArchiveCreationOutput'
-    { _acoArchiveId :: !(Maybe Text)
-    , _acoChecksum  :: !(Maybe Text)
-    , _acoLocation  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acoArchiveId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acoChecksum  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acoLocation  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ArchiveCreationOutput' with the minimum fields required to make a request.
 --
@@ -46,11 +47,9 @@ data ArchiveCreationOutput = ArchiveCreationOutput'
 archiveCreationOutput
     :: ArchiveCreationOutput
 archiveCreationOutput =
-    ArchiveCreationOutput'
-    { _acoArchiveId = Nothing
-    , _acoChecksum = Nothing
-    , _acoLocation = Nothing
-    }
+  ArchiveCreationOutput'
+  {_acoArchiveId = Nothing, _acoChecksum = Nothing, _acoLocation = Nothing}
+
 
 -- | The ID of the archive. This value is also included as part of the location.
 acoArchiveId :: Lens' ArchiveCreationOutput (Maybe Text)
@@ -73,9 +72,9 @@ instance FromJSON ArchiveCreationOutput where
                      (x .:? "x-amz-sha256-tree-hash")
                      <*> (x .:? "Location"))
 
-instance Hashable ArchiveCreationOutput
+instance Hashable ArchiveCreationOutput where
 
-instance NFData ArchiveCreationOutput
+instance NFData ArchiveCreationOutput where
 
 -- | Data retrieval policy.
 --
@@ -83,8 +82,9 @@ instance NFData ArchiveCreationOutput
 --
 -- /See:/ 'dataRetrievalPolicy' smart constructor.
 newtype DataRetrievalPolicy = DataRetrievalPolicy'
-    { _drpRules :: Maybe [DataRetrievalRule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drpRules :: Maybe [DataRetrievalRule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DataRetrievalPolicy' with the minimum fields required to make a request.
 --
@@ -93,10 +93,8 @@ newtype DataRetrievalPolicy = DataRetrievalPolicy'
 -- * 'drpRules' - The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.
 dataRetrievalPolicy
     :: DataRetrievalPolicy
-dataRetrievalPolicy =
-    DataRetrievalPolicy'
-    { _drpRules = Nothing
-    }
+dataRetrievalPolicy = DataRetrievalPolicy' {_drpRules = Nothing}
+
 
 -- | The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.
 drpRules :: Lens' DataRetrievalPolicy [DataRetrievalRule]
@@ -108,9 +106,9 @@ instance FromJSON DataRetrievalPolicy where
               (\ x ->
                  DataRetrievalPolicy' <$> (x .:? "Rules" .!= mempty))
 
-instance Hashable DataRetrievalPolicy
+instance Hashable DataRetrievalPolicy where
 
-instance NFData DataRetrievalPolicy
+instance NFData DataRetrievalPolicy where
 
 instance ToJSON DataRetrievalPolicy where
         toJSON DataRetrievalPolicy'{..}
@@ -122,9 +120,10 @@ instance ToJSON DataRetrievalPolicy where
 --
 -- /See:/ 'dataRetrievalRule' smart constructor.
 data DataRetrievalRule = DataRetrievalRule'
-    { _drrStrategy     :: !(Maybe Text)
-    , _drrBytesPerHour :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrStrategy     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drrBytesPerHour :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DataRetrievalRule' with the minimum fields required to make a request.
 --
@@ -136,10 +135,8 @@ data DataRetrievalRule = DataRetrievalRule'
 dataRetrievalRule
     :: DataRetrievalRule
 dataRetrievalRule =
-    DataRetrievalRule'
-    { _drrStrategy = Nothing
-    , _drrBytesPerHour = Nothing
-    }
+  DataRetrievalRule' {_drrStrategy = Nothing, _drrBytesPerHour = Nothing}
+
 
 -- | The type of data retrieval policy to set. Valid values: BytesPerHour|FreeTier|None
 drrStrategy :: Lens' DataRetrievalRule (Maybe Text)
@@ -156,9 +153,9 @@ instance FromJSON DataRetrievalRule where
                  DataRetrievalRule' <$>
                    (x .:? "Strategy") <*> (x .:? "BytesPerHour"))
 
-instance Hashable DataRetrievalRule
+instance Hashable DataRetrievalRule where
 
-instance NFData DataRetrievalRule
+instance NFData DataRetrievalRule where
 
 instance ToJSON DataRetrievalRule where
         toJSON DataRetrievalRule'{..}
@@ -173,13 +170,14 @@ instance ToJSON DataRetrievalRule where
 --
 -- /See:/ 'describeVaultOutput' smart constructor.
 data DescribeVaultOutput = DescribeVaultOutput'
-    { _dvoVaultName         :: !(Maybe Text)
-    , _dvoSizeInBytes       :: !(Maybe Integer)
-    , _dvoLastInventoryDate :: !(Maybe Text)
-    , _dvoVaultARN          :: !(Maybe Text)
-    , _dvoCreationDate      :: !(Maybe Text)
-    , _dvoNumberOfArchives  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvoVaultName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvoSizeInBytes       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dvoLastInventoryDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvoVaultARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvoCreationDate      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvoNumberOfArchives  :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVaultOutput' with the minimum fields required to make a request.
 --
@@ -199,14 +197,15 @@ data DescribeVaultOutput = DescribeVaultOutput'
 describeVaultOutput
     :: DescribeVaultOutput
 describeVaultOutput =
-    DescribeVaultOutput'
-    { _dvoVaultName = Nothing
-    , _dvoSizeInBytes = Nothing
-    , _dvoLastInventoryDate = Nothing
-    , _dvoVaultARN = Nothing
-    , _dvoCreationDate = Nothing
-    , _dvoNumberOfArchives = Nothing
-    }
+  DescribeVaultOutput'
+  { _dvoVaultName = Nothing
+  , _dvoSizeInBytes = Nothing
+  , _dvoLastInventoryDate = Nothing
+  , _dvoVaultARN = Nothing
+  , _dvoCreationDate = Nothing
+  , _dvoNumberOfArchives = Nothing
+  }
+
 
 -- | The name of the vault.
 dvoVaultName :: Lens' DescribeVaultOutput (Maybe Text)
@@ -243,9 +242,9 @@ instance FromJSON DescribeVaultOutput where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "NumberOfArchives"))
 
-instance Hashable DescribeVaultOutput
+instance Hashable DescribeVaultOutput where
 
-instance NFData DescribeVaultOutput
+instance NFData DescribeVaultOutput where
 
 -- | Describes an Amazon Glacier job.
 --
@@ -253,25 +252,26 @@ instance NFData DescribeVaultOutput
 --
 -- /See:/ 'glacierJobDescription' smart constructor.
 data GlacierJobDescription = GlacierJobDescription'
-    { _gjdSHA256TreeHash               :: !(Maybe Text)
-    , _gjdArchiveId                    :: !(Maybe Text)
-    , _gjdJobId                        :: !(Maybe Text)
-    , _gjdRetrievalByteRange           :: !(Maybe Text)
-    , _gjdInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobDescription)
-    , _gjdAction                       :: !(Maybe ActionCode)
-    , _gjdJobDescription               :: !(Maybe Text)
-    , _gjdSNSTopic                     :: !(Maybe Text)
-    , _gjdStatusMessage                :: !(Maybe Text)
-    , _gjdVaultARN                     :: !(Maybe Text)
-    , _gjdTier                         :: !(Maybe Text)
-    , _gjdArchiveSHA256TreeHash        :: !(Maybe Text)
-    , _gjdCreationDate                 :: !(Maybe Text)
-    , _gjdCompleted                    :: !(Maybe Bool)
-    , _gjdCompletionDate               :: !(Maybe Text)
-    , _gjdInventorySizeInBytes         :: !(Maybe Integer)
-    , _gjdArchiveSizeInBytes           :: !(Maybe Integer)
-    , _gjdStatusCode                   :: !(Maybe StatusCode)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjdSHA256TreeHash :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdArchiveId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdJobId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdRetrievalByteRange :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdInventoryRetrievalParameters :: {-# NOUNPACK #-}!(Maybe InventoryRetrievalJobDescription)
+  , _gjdAction :: {-# NOUNPACK #-}!(Maybe ActionCode)
+  , _gjdJobDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdSNSTopic :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdStatusMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdVaultARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdTier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdArchiveSHA256TreeHash :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdCreationDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdCompleted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gjdCompletionDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjdInventorySizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gjdArchiveSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gjdStatusCode :: {-# NOUNPACK #-}!(Maybe StatusCode)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlacierJobDescription' with the minimum fields required to make a request.
 --
@@ -315,26 +315,27 @@ data GlacierJobDescription = GlacierJobDescription'
 glacierJobDescription
     :: GlacierJobDescription
 glacierJobDescription =
-    GlacierJobDescription'
-    { _gjdSHA256TreeHash = Nothing
-    , _gjdArchiveId = Nothing
-    , _gjdJobId = Nothing
-    , _gjdRetrievalByteRange = Nothing
-    , _gjdInventoryRetrievalParameters = Nothing
-    , _gjdAction = Nothing
-    , _gjdJobDescription = Nothing
-    , _gjdSNSTopic = Nothing
-    , _gjdStatusMessage = Nothing
-    , _gjdVaultARN = Nothing
-    , _gjdTier = Nothing
-    , _gjdArchiveSHA256TreeHash = Nothing
-    , _gjdCreationDate = Nothing
-    , _gjdCompleted = Nothing
-    , _gjdCompletionDate = Nothing
-    , _gjdInventorySizeInBytes = Nothing
-    , _gjdArchiveSizeInBytes = Nothing
-    , _gjdStatusCode = Nothing
-    }
+  GlacierJobDescription'
+  { _gjdSHA256TreeHash = Nothing
+  , _gjdArchiveId = Nothing
+  , _gjdJobId = Nothing
+  , _gjdRetrievalByteRange = Nothing
+  , _gjdInventoryRetrievalParameters = Nothing
+  , _gjdAction = Nothing
+  , _gjdJobDescription = Nothing
+  , _gjdSNSTopic = Nothing
+  , _gjdStatusMessage = Nothing
+  , _gjdVaultARN = Nothing
+  , _gjdTier = Nothing
+  , _gjdArchiveSHA256TreeHash = Nothing
+  , _gjdCreationDate = Nothing
+  , _gjdCompleted = Nothing
+  , _gjdCompletionDate = Nothing
+  , _gjdInventorySizeInBytes = Nothing
+  , _gjdArchiveSizeInBytes = Nothing
+  , _gjdStatusCode = Nothing
+  }
+
 
 -- | For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null. The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value. For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value. This field is null in the following situations:     * Archive retrieval jobs that specify a range that is not tree-hash aligned.     * Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.     * Inventory jobs.
 gjdSHA256TreeHash :: Lens' GlacierJobDescription (Maybe Text)
@@ -431,9 +432,9 @@ instance FromJSON GlacierJobDescription where
                      <*> (x .:? "ArchiveSizeInBytes")
                      <*> (x .:? "StatusCode"))
 
-instance Hashable GlacierJobDescription
+instance Hashable GlacierJobDescription where
 
-instance NFData GlacierJobDescription
+instance NFData GlacierJobDescription where
 
 -- | Describes the options for a range inventory retrieval job.
 --
@@ -441,12 +442,13 @@ instance NFData GlacierJobDescription
 --
 -- /See:/ 'inventoryRetrievalJobDescription' smart constructor.
 data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
-    { _irjdFormat    :: !(Maybe Text)
-    , _irjdEndDate   :: !(Maybe Text)
-    , _irjdStartDate :: !(Maybe Text)
-    , _irjdMarker    :: !(Maybe Text)
-    , _irjdLimit     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irjdFormat    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irjdEndDate   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irjdStartDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irjdMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irjdLimit     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryRetrievalJobDescription' with the minimum fields required to make a request.
 --
@@ -464,13 +466,14 @@ data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
 inventoryRetrievalJobDescription
     :: InventoryRetrievalJobDescription
 inventoryRetrievalJobDescription =
-    InventoryRetrievalJobDescription'
-    { _irjdFormat = Nothing
-    , _irjdEndDate = Nothing
-    , _irjdStartDate = Nothing
-    , _irjdMarker = Nothing
-    , _irjdLimit = Nothing
-    }
+  InventoryRetrievalJobDescription'
+  { _irjdFormat = Nothing
+  , _irjdEndDate = Nothing
+  , _irjdStartDate = Nothing
+  , _irjdMarker = Nothing
+  , _irjdLimit = Nothing
+  }
+
 
 -- | The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are @CSV@ and @JSON@ .
 irjdFormat :: Lens' InventoryRetrievalJobDescription (Maybe Text)
@@ -504,8 +507,10 @@ instance FromJSON InventoryRetrievalJobDescription
                      <*> (x .:? "Limit"))
 
 instance Hashable InventoryRetrievalJobDescription
+         where
 
 instance NFData InventoryRetrievalJobDescription
+         where
 
 -- | Provides options for specifying a range inventory retrieval job.
 --
@@ -513,11 +518,12 @@ instance NFData InventoryRetrievalJobDescription
 --
 -- /See:/ 'inventoryRetrievalJobInput' smart constructor.
 data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
-    { _irjiEndDate   :: !(Maybe Text)
-    , _irjiStartDate :: !(Maybe Text)
-    , _irjiMarker    :: !(Maybe Text)
-    , _irjiLimit     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irjiEndDate   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irjiStartDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irjiMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irjiLimit     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryRetrievalJobInput' with the minimum fields required to make a request.
 --
@@ -533,12 +539,13 @@ data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
 inventoryRetrievalJobInput
     :: InventoryRetrievalJobInput
 inventoryRetrievalJobInput =
-    InventoryRetrievalJobInput'
-    { _irjiEndDate = Nothing
-    , _irjiStartDate = Nothing
-    , _irjiMarker = Nothing
-    , _irjiLimit = Nothing
-    }
+  InventoryRetrievalJobInput'
+  { _irjiEndDate = Nothing
+  , _irjiStartDate = Nothing
+  , _irjiMarker = Nothing
+  , _irjiLimit = Nothing
+  }
+
 
 -- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 irjiEndDate :: Lens' InventoryRetrievalJobInput (Maybe Text)
@@ -556,9 +563,9 @@ irjiMarker = lens _irjiMarker (\ s a -> s{_irjiMarker = a});
 irjiLimit :: Lens' InventoryRetrievalJobInput (Maybe Text)
 irjiLimit = lens _irjiLimit (\ s a -> s{_irjiLimit = a});
 
-instance Hashable InventoryRetrievalJobInput
+instance Hashable InventoryRetrievalJobInput where
 
-instance NFData InventoryRetrievalJobInput
+instance NFData InventoryRetrievalJobInput where
 
 instance ToJSON InventoryRetrievalJobInput where
         toJSON InventoryRetrievalJobInput'{..}
@@ -575,15 +582,16 @@ instance ToJSON InventoryRetrievalJobInput where
 --
 -- /See:/ 'jobParameters' smart constructor.
 data JobParameters = JobParameters'
-    { _jpArchiveId                    :: !(Maybe Text)
-    , _jpFormat                       :: !(Maybe Text)
-    , _jpRetrievalByteRange           :: !(Maybe Text)
-    , _jpInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobInput)
-    , _jpSNSTopic                     :: !(Maybe Text)
-    , _jpTier                         :: !(Maybe Text)
-    , _jpType                         :: !(Maybe Text)
-    , _jpDescription                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jpArchiveId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jpFormat :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jpRetrievalByteRange :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jpInventoryRetrievalParameters :: {-# NOUNPACK #-}!(Maybe InventoryRetrievalJobInput)
+  , _jpSNSTopic :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jpTier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jpType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jpDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobParameters' with the minimum fields required to make a request.
 --
@@ -607,16 +615,17 @@ data JobParameters = JobParameters'
 jobParameters
     :: JobParameters
 jobParameters =
-    JobParameters'
-    { _jpArchiveId = Nothing
-    , _jpFormat = Nothing
-    , _jpRetrievalByteRange = Nothing
-    , _jpInventoryRetrievalParameters = Nothing
-    , _jpSNSTopic = Nothing
-    , _jpTier = Nothing
-    , _jpType = Nothing
-    , _jpDescription = Nothing
-    }
+  JobParameters'
+  { _jpArchiveId = Nothing
+  , _jpFormat = Nothing
+  , _jpRetrievalByteRange = Nothing
+  , _jpInventoryRetrievalParameters = Nothing
+  , _jpSNSTopic = Nothing
+  , _jpTier = Nothing
+  , _jpType = Nothing
+  , _jpDescription = Nothing
+  }
+
 
 -- | The ID of the archive that you want to retrieve. This field is required only if @Type@ is set to archive-retrieval. An error occurs if you specify this request parameter for an inventory retrieval job request.
 jpArchiveId :: Lens' JobParameters (Maybe Text)
@@ -650,9 +659,9 @@ jpType = lens _jpType (\ s a -> s{_jpType = a});
 jpDescription :: Lens' JobParameters (Maybe Text)
 jpDescription = lens _jpDescription (\ s a -> s{_jpDescription = a});
 
-instance Hashable JobParameters
+instance Hashable JobParameters where
 
-instance NFData JobParameters
+instance NFData JobParameters where
 
 instance ToJSON JobParameters where
         toJSON JobParameters'{..}
@@ -673,9 +682,10 @@ instance ToJSON JobParameters where
 --
 -- /See:/ 'partListElement' smart constructor.
 data PartListElement = PartListElement'
-    { _pleSHA256TreeHash :: !(Maybe Text)
-    , _pleRangeInBytes   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pleSHA256TreeHash :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pleRangeInBytes   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PartListElement' with the minimum fields required to make a request.
 --
@@ -687,10 +697,8 @@ data PartListElement = PartListElement'
 partListElement
     :: PartListElement
 partListElement =
-    PartListElement'
-    { _pleSHA256TreeHash = Nothing
-    , _pleRangeInBytes = Nothing
-    }
+  PartListElement' {_pleSHA256TreeHash = Nothing, _pleRangeInBytes = Nothing}
+
 
 -- | The SHA256 tree hash value that Amazon Glacier calculated for the part. This field is never @null@ .
 pleSHA256TreeHash :: Lens' PartListElement (Maybe Text)
@@ -707,9 +715,9 @@ instance FromJSON PartListElement where
                  PartListElement' <$>
                    (x .:? "SHA256TreeHash") <*> (x .:? "RangeInBytes"))
 
-instance Hashable PartListElement
+instance Hashable PartListElement where
 
-instance NFData PartListElement
+instance NFData PartListElement where
 
 -- | The definition for a provisioned capacity unit.
 --
@@ -717,10 +725,11 @@ instance NFData PartListElement
 --
 -- /See:/ 'provisionedCapacityDescription' smart constructor.
 data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
-    { _pcdCapacityId     :: !(Maybe Text)
-    , _pcdStartDate      :: !(Maybe Text)
-    , _pcdExpirationDate :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcdCapacityId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcdStartDate      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcdExpirationDate :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisionedCapacityDescription' with the minimum fields required to make a request.
 --
@@ -734,11 +743,12 @@ data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
 provisionedCapacityDescription
     :: ProvisionedCapacityDescription
 provisionedCapacityDescription =
-    ProvisionedCapacityDescription'
-    { _pcdCapacityId = Nothing
-    , _pcdStartDate = Nothing
-    , _pcdExpirationDate = Nothing
-    }
+  ProvisionedCapacityDescription'
+  { _pcdCapacityId = Nothing
+  , _pcdStartDate = Nothing
+  , _pcdExpirationDate = Nothing
+  }
+
 
 -- | The ID that identifies the provisioned capacity unit.
 pcdCapacityId :: Lens' ProvisionedCapacityDescription (Maybe Text)
@@ -762,8 +772,9 @@ instance FromJSON ProvisionedCapacityDescription
                      (x .:? "ExpirationDate"))
 
 instance Hashable ProvisionedCapacityDescription
+         where
 
-instance NFData ProvisionedCapacityDescription
+instance NFData ProvisionedCapacityDescription where
 
 -- | A list of in-progress multipart uploads for a vault.
 --
@@ -771,12 +782,13 @@ instance NFData ProvisionedCapacityDescription
 --
 -- /See:/ 'uploadListElement' smart constructor.
 data UploadListElement = UploadListElement'
-    { _uleMultipartUploadId  :: !(Maybe Text)
-    , _ulePartSizeInBytes    :: !(Maybe Integer)
-    , _uleArchiveDescription :: !(Maybe Text)
-    , _uleVaultARN           :: !(Maybe Text)
-    , _uleCreationDate       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uleMultipartUploadId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ulePartSizeInBytes    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _uleArchiveDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uleVaultARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uleCreationDate       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadListElement' with the minimum fields required to make a request.
 --
@@ -794,13 +806,14 @@ data UploadListElement = UploadListElement'
 uploadListElement
     :: UploadListElement
 uploadListElement =
-    UploadListElement'
-    { _uleMultipartUploadId = Nothing
-    , _ulePartSizeInBytes = Nothing
-    , _uleArchiveDescription = Nothing
-    , _uleVaultARN = Nothing
-    , _uleCreationDate = Nothing
-    }
+  UploadListElement'
+  { _uleMultipartUploadId = Nothing
+  , _ulePartSizeInBytes = Nothing
+  , _uleArchiveDescription = Nothing
+  , _uleVaultARN = Nothing
+  , _uleCreationDate = Nothing
+  }
+
 
 -- | The ID of a multipart upload.
 uleMultipartUploadId :: Lens' UploadListElement (Maybe Text)
@@ -833,9 +846,9 @@ instance FromJSON UploadListElement where
                      <*> (x .:? "VaultARN")
                      <*> (x .:? "CreationDate"))
 
-instance Hashable UploadListElement
+instance Hashable UploadListElement where
 
-instance NFData UploadListElement
+instance NFData UploadListElement where
 
 -- | Contains the vault access policy.
 --
@@ -843,8 +856,9 @@ instance NFData UploadListElement
 --
 -- /See:/ 'vaultAccessPolicy' smart constructor.
 newtype VaultAccessPolicy = VaultAccessPolicy'
-    { _vapPolicy :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vapPolicy :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VaultAccessPolicy' with the minimum fields required to make a request.
 --
@@ -853,10 +867,8 @@ newtype VaultAccessPolicy = VaultAccessPolicy'
 -- * 'vapPolicy' - The vault access policy.
 vaultAccessPolicy
     :: VaultAccessPolicy
-vaultAccessPolicy =
-    VaultAccessPolicy'
-    { _vapPolicy = Nothing
-    }
+vaultAccessPolicy = VaultAccessPolicy' {_vapPolicy = Nothing}
+
 
 -- | The vault access policy.
 vapPolicy :: Lens' VaultAccessPolicy (Maybe Text)
@@ -867,9 +879,9 @@ instance FromJSON VaultAccessPolicy where
           = withObject "VaultAccessPolicy"
               (\ x -> VaultAccessPolicy' <$> (x .:? "Policy"))
 
-instance Hashable VaultAccessPolicy
+instance Hashable VaultAccessPolicy where
 
-instance NFData VaultAccessPolicy
+instance NFData VaultAccessPolicy where
 
 instance ToJSON VaultAccessPolicy where
         toJSON VaultAccessPolicy'{..}
@@ -881,8 +893,9 @@ instance ToJSON VaultAccessPolicy where
 --
 -- /See:/ 'vaultLockPolicy' smart constructor.
 newtype VaultLockPolicy = VaultLockPolicy'
-    { _vlpPolicy :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vlpPolicy :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VaultLockPolicy' with the minimum fields required to make a request.
 --
@@ -891,18 +904,16 @@ newtype VaultLockPolicy = VaultLockPolicy'
 -- * 'vlpPolicy' - The vault lock policy.
 vaultLockPolicy
     :: VaultLockPolicy
-vaultLockPolicy =
-    VaultLockPolicy'
-    { _vlpPolicy = Nothing
-    }
+vaultLockPolicy = VaultLockPolicy' {_vlpPolicy = Nothing}
+
 
 -- | The vault lock policy.
 vlpPolicy :: Lens' VaultLockPolicy (Maybe Text)
 vlpPolicy = lens _vlpPolicy (\ s a -> s{_vlpPolicy = a});
 
-instance Hashable VaultLockPolicy
+instance Hashable VaultLockPolicy where
 
-instance NFData VaultLockPolicy
+instance NFData VaultLockPolicy where
 
 instance ToJSON VaultLockPolicy where
         toJSON VaultLockPolicy'{..}
@@ -914,9 +925,10 @@ instance ToJSON VaultLockPolicy where
 --
 -- /See:/ 'vaultNotificationConfig' smart constructor.
 data VaultNotificationConfig = VaultNotificationConfig'
-    { _vncSNSTopic :: !(Maybe Text)
-    , _vncEvents   :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vncSNSTopic :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vncEvents   :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VaultNotificationConfig' with the minimum fields required to make a request.
 --
@@ -928,10 +940,8 @@ data VaultNotificationConfig = VaultNotificationConfig'
 vaultNotificationConfig
     :: VaultNotificationConfig
 vaultNotificationConfig =
-    VaultNotificationConfig'
-    { _vncSNSTopic = Nothing
-    , _vncEvents = Nothing
-    }
+  VaultNotificationConfig' {_vncSNSTopic = Nothing, _vncEvents = Nothing}
+
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).
 vncSNSTopic :: Lens' VaultNotificationConfig (Maybe Text)
@@ -948,9 +958,9 @@ instance FromJSON VaultNotificationConfig where
                  VaultNotificationConfig' <$>
                    (x .:? "SNSTopic") <*> (x .:? "Events" .!= mempty))
 
-instance Hashable VaultNotificationConfig
+instance Hashable VaultNotificationConfig where
 
-instance NFData VaultNotificationConfig
+instance NFData VaultNotificationConfig where
 
 instance ToJSON VaultNotificationConfig where
         toJSON VaultNotificationConfig'{..}

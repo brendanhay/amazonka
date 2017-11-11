@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StopStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.StopStack
     , StopStackResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopStack' smart constructor.
 newtype StopStack = StopStack'
-    { _stoStackId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stoStackId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopStack' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype StopStack = StopStack'
 stopStack
     :: Text -- ^ 'stoStackId'
     -> StopStack
-stopStack pStackId_ =
-    StopStack'
-    { _stoStackId = pStackId_
-    }
+stopStack pStackId_ = StopStack' {_stoStackId = pStackId_}
+
 
 -- | The stack ID.
 stoStackId :: Lens' StopStack Text
@@ -70,9 +69,9 @@ instance AWSRequest StopStack where
         request = postJSON opsWorks
         response = receiveNull StopStackResponse'
 
-instance Hashable StopStack
+instance Hashable StopStack where
 
-instance NFData StopStack
+instance NFData StopStack where
 
 instance ToHeaders StopStack where
         toHeaders
@@ -96,8 +95,9 @@ instance ToQuery StopStack where
 
 -- | /See:/ 'stopStackResponse' smart constructor.
 data StopStackResponse =
-    StopStackResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StopStackResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopStackResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +105,5 @@ stopStackResponse
     :: StopStackResponse
 stopStackResponse = StopStackResponse'
 
-instance NFData StopStackResponse
+
+instance NFData StopStackResponse where

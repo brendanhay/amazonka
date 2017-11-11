@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Glue.UpdateTable
     , utrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateTable' smart constructor.
 data UpdateTable = UpdateTable'
-    { _utCatalogId    :: !(Maybe Text)
-    , _utDatabaseName :: !Text
-    , _utTableInput   :: !TableInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utDatabaseName :: {-# NOUNPACK #-}!Text
+  , _utTableInput   :: {-# NOUNPACK #-}!TableInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTable' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ updateTable
     -> TableInput -- ^ 'utTableInput'
     -> UpdateTable
 updateTable pDatabaseName_ pTableInput_ =
-    UpdateTable'
-    { _utCatalogId = Nothing
-    , _utDatabaseName = pDatabaseName_
-    , _utTableInput = pTableInput_
-    }
+  UpdateTable'
+  { _utCatalogId = Nothing
+  , _utDatabaseName = pDatabaseName_
+  , _utTableInput = pTableInput_
+  }
+
 
 -- | The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
 utCatalogId :: Lens' UpdateTable (Maybe Text)
@@ -92,9 +94,9 @@ instance AWSRequest UpdateTable where
               (\ s h x ->
                  UpdateTableResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateTable
+instance Hashable UpdateTable where
 
-instance NFData UpdateTable
+instance NFData UpdateTable where
 
 instance ToHeaders UpdateTable where
         toHeaders
@@ -121,8 +123,9 @@ instance ToQuery UpdateTable where
 
 -- | /See:/ 'updateTableResponse' smart constructor.
 newtype UpdateTableResponse = UpdateTableResponse'
-    { _utrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTableResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +136,11 @@ updateTableResponse
     :: Int -- ^ 'utrsResponseStatus'
     -> UpdateTableResponse
 updateTableResponse pResponseStatus_ =
-    UpdateTableResponse'
-    { _utrsResponseStatus = pResponseStatus_
-    }
+  UpdateTableResponse' {_utrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 utrsResponseStatus :: Lens' UpdateTableResponse Int
 utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
 
-instance NFData UpdateTableResponse
+instance NFData UpdateTableResponse where

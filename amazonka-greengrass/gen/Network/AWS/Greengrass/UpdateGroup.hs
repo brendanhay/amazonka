@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.Greengrass.UpdateGroup
     , ugrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-    { _ugName    :: !(Maybe Text)
-    , _ugGroupId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugGroupId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
 --
@@ -58,11 +59,8 @@ data UpdateGroup = UpdateGroup'
 updateGroup
     :: Text -- ^ 'ugGroupId'
     -> UpdateGroup
-updateGroup pGroupId_ =
-    UpdateGroup'
-    { _ugName = Nothing
-    , _ugGroupId = pGroupId_
-    }
+updateGroup pGroupId_ = UpdateGroup' {_ugName = Nothing, _ugGroupId = pGroupId_}
+
 
 -- | name of the definition
 ugName :: Lens' UpdateGroup (Maybe Text)
@@ -80,9 +78,9 @@ instance AWSRequest UpdateGroup where
               (\ s h x ->
                  UpdateGroupResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateGroup
+instance Hashable UpdateGroup where
 
-instance NFData UpdateGroup
+instance NFData UpdateGroup where
 
 instance ToHeaders UpdateGroup where
         toHeaders
@@ -104,8 +102,9 @@ instance ToQuery UpdateGroup where
 
 -- | /See:/ 'updateGroupResponse' smart constructor.
 newtype UpdateGroupResponse = UpdateGroupResponse'
-    { _ugrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
 --
@@ -116,12 +115,11 @@ updateGroupResponse
     :: Int -- ^ 'ugrsResponseStatus'
     -> UpdateGroupResponse
 updateGroupResponse pResponseStatus_ =
-    UpdateGroupResponse'
-    { _ugrsResponseStatus = pResponseStatus_
-    }
+  UpdateGroupResponse' {_ugrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ugrsResponseStatus :: Lens' UpdateGroupResponse Int
 ugrsResponseStatus = lens _ugrsResponseStatus (\ s a -> s{_ugrsResponseStatus = a});
 
-instance NFData UpdateGroupResponse
+instance NFData UpdateGroupResponse where

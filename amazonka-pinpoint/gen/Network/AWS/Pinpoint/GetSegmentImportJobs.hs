@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegmentImportJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,20 +38,21 @@ module Network.AWS.Pinpoint.GetSegmentImportJobs
     , gsijrsImportJobsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSegmentImportJobs' smart constructor.
 data GetSegmentImportJobs = GetSegmentImportJobs'
-    { _gsijToken         :: !(Maybe Text)
-    , _gsijPageSize      :: !(Maybe Text)
-    , _gsijSegmentId     :: !Text
-    , _gsijApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsijToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsijPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsijSegmentId     :: {-# NOUNPACK #-}!Text
+  , _gsijApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegmentImportJobs' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ getSegmentImportJobs
     -> Text -- ^ 'gsijApplicationId'
     -> GetSegmentImportJobs
 getSegmentImportJobs pSegmentId_ pApplicationId_ =
-    GetSegmentImportJobs'
-    { _gsijToken = Nothing
-    , _gsijPageSize = Nothing
-    , _gsijSegmentId = pSegmentId_
-    , _gsijApplicationId = pApplicationId_
-    }
+  GetSegmentImportJobs'
+  { _gsijToken = Nothing
+  , _gsijPageSize = Nothing
+  , _gsijSegmentId = pSegmentId_
+  , _gsijApplicationId = pApplicationId_
+  }
+
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gsijToken :: Lens' GetSegmentImportJobs (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest GetSegmentImportJobs where
                  GetSegmentImportJobsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetSegmentImportJobs
+instance Hashable GetSegmentImportJobs where
 
-instance NFData GetSegmentImportJobs
+instance NFData GetSegmentImportJobs where
 
 instance ToHeaders GetSegmentImportJobs where
         toHeaders
@@ -126,9 +128,10 @@ instance ToQuery GetSegmentImportJobs where
 
 -- | /See:/ 'getSegmentImportJobsResponse' smart constructor.
 data GetSegmentImportJobsResponse = GetSegmentImportJobsResponse'
-    { _gsijrsResponseStatus     :: !Int
-    , _gsijrsImportJobsResponse :: !ImportJobsResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsijrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _gsijrsImportJobsResponse :: {-# NOUNPACK #-}!ImportJobsResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegmentImportJobsResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,11 @@ getSegmentImportJobsResponse
     -> ImportJobsResponse -- ^ 'gsijrsImportJobsResponse'
     -> GetSegmentImportJobsResponse
 getSegmentImportJobsResponse pResponseStatus_ pImportJobsResponse_ =
-    GetSegmentImportJobsResponse'
-    { _gsijrsResponseStatus = pResponseStatus_
-    , _gsijrsImportJobsResponse = pImportJobsResponse_
-    }
+  GetSegmentImportJobsResponse'
+  { _gsijrsResponseStatus = pResponseStatus_
+  , _gsijrsImportJobsResponse = pImportJobsResponse_
+  }
+
 
 -- | -- | The response status code.
 gsijrsResponseStatus :: Lens' GetSegmentImportJobsResponse Int
@@ -155,4 +159,4 @@ gsijrsResponseStatus = lens _gsijrsResponseStatus (\ s a -> s{_gsijrsResponseSta
 gsijrsImportJobsResponse :: Lens' GetSegmentImportJobsResponse ImportJobsResponse
 gsijrsImportJobsResponse = lens _gsijrsImportJobsResponse (\ s a -> s{_gsijrsImportJobsResponse = a});
 
-instance NFData GetSegmentImportJobsResponse
+instance NFData GetSegmentImportJobsResponse where

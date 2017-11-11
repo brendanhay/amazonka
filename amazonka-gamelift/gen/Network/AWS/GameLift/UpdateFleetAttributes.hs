@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateFleetAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -94,12 +94,12 @@ module Network.AWS.GameLift.UpdateFleetAttributes
     , ufarsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -107,13 +107,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateFleetAttributes' smart constructor.
 data UpdateFleetAttributes = UpdateFleetAttributes'
-    { _ufaNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
-    , _ufaName                           :: !(Maybe Text)
-    , _ufaMetricGroups                   :: !(Maybe [Text])
-    , _ufaDescription                    :: !(Maybe Text)
-    , _ufaResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
-    , _ufaFleetId                        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufaNewGameSessionProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
+  , _ufaName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufaMetricGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ufaDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufaResourceCreationLimitPolicy :: {-# NOUNPACK #-}!(Maybe ResourceCreationLimitPolicy)
+  , _ufaFleetId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFleetAttributes' with the minimum fields required to make a request.
 --
@@ -134,14 +135,15 @@ updateFleetAttributes
     :: Text -- ^ 'ufaFleetId'
     -> UpdateFleetAttributes
 updateFleetAttributes pFleetId_ =
-    UpdateFleetAttributes'
-    { _ufaNewGameSessionProtectionPolicy = Nothing
-    , _ufaName = Nothing
-    , _ufaMetricGroups = Nothing
-    , _ufaDescription = Nothing
-    , _ufaResourceCreationLimitPolicy = Nothing
-    , _ufaFleetId = pFleetId_
-    }
+  UpdateFleetAttributes'
+  { _ufaNewGameSessionProtectionPolicy = Nothing
+  , _ufaName = Nothing
+  , _ufaMetricGroups = Nothing
+  , _ufaDescription = Nothing
+  , _ufaResourceCreationLimitPolicy = Nothing
+  , _ufaFleetId = pFleetId_
+  }
+
 
 -- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 ufaNewGameSessionProtectionPolicy :: Lens' UpdateFleetAttributes (Maybe ProtectionPolicy)
@@ -177,9 +179,9 @@ instance AWSRequest UpdateFleetAttributes where
                  UpdateFleetAttributesResponse' <$>
                    (x .?> "FleetId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateFleetAttributes
+instance Hashable UpdateFleetAttributes where
 
-instance NFData UpdateFleetAttributes
+instance NFData UpdateFleetAttributes where
 
 instance ToHeaders UpdateFleetAttributes where
         toHeaders
@@ -215,9 +217,10 @@ instance ToQuery UpdateFleetAttributes where
 --
 -- /See:/ 'updateFleetAttributesResponse' smart constructor.
 data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
-    { _ufarsFleetId        :: !(Maybe Text)
-    , _ufarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufarsFleetId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFleetAttributesResponse' with the minimum fields required to make a request.
 --
@@ -230,10 +233,9 @@ updateFleetAttributesResponse
     :: Int -- ^ 'ufarsResponseStatus'
     -> UpdateFleetAttributesResponse
 updateFleetAttributesResponse pResponseStatus_ =
-    UpdateFleetAttributesResponse'
-    { _ufarsFleetId = Nothing
-    , _ufarsResponseStatus = pResponseStatus_
-    }
+  UpdateFleetAttributesResponse'
+  {_ufarsFleetId = Nothing, _ufarsResponseStatus = pResponseStatus_}
+
 
 -- | Unique identifier for a fleet that was updated.
 ufarsFleetId :: Lens' UpdateFleetAttributesResponse (Maybe Text)
@@ -243,4 +245,4 @@ ufarsFleetId = lens _ufarsFleetId (\ s a -> s{_ufarsFleetId = a});
 ufarsResponseStatus :: Lens' UpdateFleetAttributesResponse Int
 ufarsResponseStatus = lens _ufarsResponseStatus (\ s a -> s{_ufarsResponseStatus = a});
 
-instance NFData UpdateFleetAttributesResponse
+instance NFData UpdateFleetAttributesResponse where

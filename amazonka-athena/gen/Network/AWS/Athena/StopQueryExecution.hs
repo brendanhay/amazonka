@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.StopQueryExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Athena.StopQueryExecution
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopQueryExecution' smart constructor.
 newtype StopQueryExecution = StopQueryExecution'
-    { _sqeQueryExecutionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sqeQueryExecutionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopQueryExecution' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ stopQueryExecution
     :: Text -- ^ 'sqeQueryExecutionId'
     -> StopQueryExecution
 stopQueryExecution pQueryExecutionId_ =
-    StopQueryExecution'
-    { _sqeQueryExecutionId = pQueryExecutionId_
-    }
+  StopQueryExecution' {_sqeQueryExecutionId = pQueryExecutionId_}
+
 
 -- | The unique ID of the query execution to stop.
 sqeQueryExecutionId :: Lens' StopQueryExecution Text
@@ -76,9 +76,9 @@ instance AWSRequest StopQueryExecution where
               (\ s h x ->
                  StopQueryExecutionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StopQueryExecution
+instance Hashable StopQueryExecution where
 
-instance NFData StopQueryExecution
+instance NFData StopQueryExecution where
 
 instance ToHeaders StopQueryExecution where
         toHeaders
@@ -103,8 +103,9 @@ instance ToQuery StopQueryExecution where
 
 -- | /See:/ 'stopQueryExecutionResponse' smart constructor.
 newtype StopQueryExecutionResponse = StopQueryExecutionResponse'
-    { _srsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopQueryExecutionResponse' with the minimum fields required to make a request.
 --
@@ -115,12 +116,11 @@ stopQueryExecutionResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopQueryExecutionResponse
 stopQueryExecutionResponse pResponseStatus_ =
-    StopQueryExecutionResponse'
-    { _srsResponseStatus = pResponseStatus_
-    }
+  StopQueryExecutionResponse' {_srsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopQueryExecutionResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StopQueryExecutionResponse
+instance NFData StopQueryExecutionResponse where

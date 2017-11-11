@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateNotificationSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.WorkDocs.CreateNotificationSubscription
     , cnsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createNotificationSubscription' smart constructor.
 data CreateNotificationSubscription = CreateNotificationSubscription'
-    { _cnsOrganizationId   :: !Text
-    , _cnsEndpoint         :: !Text
-    , _cnsProtocol         :: !SubscriptionProtocolType
-    , _cnsSubscriptionType :: !SubscriptionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnsOrganizationId   :: {-# NOUNPACK #-}!Text
+  , _cnsEndpoint         :: {-# NOUNPACK #-}!Text
+  , _cnsProtocol         :: {-# NOUNPACK #-}!SubscriptionProtocolType
+  , _cnsSubscriptionType :: {-# NOUNPACK #-}!SubscriptionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNotificationSubscription' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ createNotificationSubscription
     -> SubscriptionType -- ^ 'cnsSubscriptionType'
     -> CreateNotificationSubscription
 createNotificationSubscription pOrganizationId_ pEndpoint_ pProtocol_ pSubscriptionType_ =
-    CreateNotificationSubscription'
-    { _cnsOrganizationId = pOrganizationId_
-    , _cnsEndpoint = pEndpoint_
-    , _cnsProtocol = pProtocol_
-    , _cnsSubscriptionType = pSubscriptionType_
-    }
+  CreateNotificationSubscription'
+  { _cnsOrganizationId = pOrganizationId_
+  , _cnsEndpoint = pEndpoint_
+  , _cnsProtocol = pProtocol_
+  , _cnsSubscriptionType = pSubscriptionType_
+  }
+
 
 -- | The ID of the organization.
 cnsOrganizationId :: Lens' CreateNotificationSubscription Text
@@ -110,8 +112,9 @@ instance AWSRequest CreateNotificationSubscription
                    (x .?> "Subscription") <*> (pure (fromEnum s)))
 
 instance Hashable CreateNotificationSubscription
+         where
 
-instance NFData CreateNotificationSubscription
+instance NFData CreateNotificationSubscription where
 
 instance ToHeaders CreateNotificationSubscription
          where
@@ -140,9 +143,10 @@ instance ToQuery CreateNotificationSubscription where
 
 -- | /See:/ 'createNotificationSubscriptionResponse' smart constructor.
 data CreateNotificationSubscriptionResponse = CreateNotificationSubscriptionResponse'
-    { _cnsrsSubscription   :: !(Maybe Subscription)
-    , _cnsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnsrsSubscription   :: {-# NOUNPACK #-}!(Maybe Subscription)
+  , _cnsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNotificationSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -155,10 +159,9 @@ createNotificationSubscriptionResponse
     :: Int -- ^ 'cnsrsResponseStatus'
     -> CreateNotificationSubscriptionResponse
 createNotificationSubscriptionResponse pResponseStatus_ =
-    CreateNotificationSubscriptionResponse'
-    { _cnsrsSubscription = Nothing
-    , _cnsrsResponseStatus = pResponseStatus_
-    }
+  CreateNotificationSubscriptionResponse'
+  {_cnsrsSubscription = Nothing, _cnsrsResponseStatus = pResponseStatus_}
+
 
 -- | The subscription.
 cnsrsSubscription :: Lens' CreateNotificationSubscriptionResponse (Maybe Subscription)
@@ -169,4 +172,5 @@ cnsrsResponseStatus :: Lens' CreateNotificationSubscriptionResponse Int
 cnsrsResponseStatus = lens _cnsrsResponseStatus (\ s a -> s{_cnsrsResponseStatus = a});
 
 instance NFData
-         CreateNotificationSubscriptionResponse
+           CreateNotificationSubscriptionResponse
+         where

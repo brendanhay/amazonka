@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListBuilds
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CodeBuild.ListBuilds
     , lbrsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-    { _lbSortOrder :: !(Maybe SortOrderType)
-    , _lbNextToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbSortOrder :: {-# NOUNPACK #-}!(Maybe SortOrderType)
+  , _lbNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBuilds' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data ListBuilds = ListBuilds'
 -- * 'lbNextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 listBuilds
     :: ListBuilds
-listBuilds =
-    ListBuilds'
-    { _lbSortOrder = Nothing
-    , _lbNextToken = Nothing
-    }
+listBuilds = ListBuilds' {_lbSortOrder = Nothing, _lbNextToken = Nothing}
+
 
 -- | The order to list build IDs. Valid values include:     * @ASCENDING@ : List the build IDs in ascending order by build ID.     * @DESCENDING@ : List the build IDs in descending order by build ID.
 lbSortOrder :: Lens' ListBuilds (Maybe SortOrderType)
@@ -85,9 +83,9 @@ instance AWSRequest ListBuilds where
                    (x .?> "ids") <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListBuilds
+instance Hashable ListBuilds where
 
-instance NFData ListBuilds
+instance NFData ListBuilds where
 
 instance ToHeaders ListBuilds where
         toHeaders
@@ -113,10 +111,11 @@ instance ToQuery ListBuilds where
 
 -- | /See:/ 'listBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-    { _lbrsIds            :: !(Maybe (List1 Text))
-    , _lbrsNextToken      :: !(Maybe Text)
-    , _lbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbrsIds            :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _lbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBuildsResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +130,12 @@ listBuildsResponse
     :: Int -- ^ 'lbrsResponseStatus'
     -> ListBuildsResponse
 listBuildsResponse pResponseStatus_ =
-    ListBuildsResponse'
-    { _lbrsIds = Nothing
-    , _lbrsNextToken = Nothing
-    , _lbrsResponseStatus = pResponseStatus_
-    }
+  ListBuildsResponse'
+  { _lbrsIds = Nothing
+  , _lbrsNextToken = Nothing
+  , _lbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of build IDs, with each build ID representing a single build.
 lbrsIds :: Lens' ListBuildsResponse (Maybe (NonEmpty Text))
@@ -149,4 +149,4 @@ lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 lbrsResponseStatus :: Lens' ListBuildsResponse Int
 lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
 
-instance NFData ListBuildsResponse
+instance NFData ListBuildsResponse where

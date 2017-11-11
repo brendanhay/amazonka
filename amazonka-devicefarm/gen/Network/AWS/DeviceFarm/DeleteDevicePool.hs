@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteDevicePool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.DeviceFarm.DeleteDevicePool
     , ddprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the delete device pool operation.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDevicePool' smart constructor.
 newtype DeleteDevicePool = DeleteDevicePool'
-    { _ddpArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddpArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDevicePool' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype DeleteDevicePool = DeleteDevicePool'
 deleteDevicePool
     :: Text -- ^ 'ddpArn'
     -> DeleteDevicePool
-deleteDevicePool pArn_ =
-    DeleteDevicePool'
-    { _ddpArn = pArn_
-    }
+deleteDevicePool pArn_ = DeleteDevicePool' {_ddpArn = pArn_}
+
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm device pool you wish to delete.
 ddpArn :: Lens' DeleteDevicePool Text
@@ -77,9 +76,9 @@ instance AWSRequest DeleteDevicePool where
               (\ s h x ->
                  DeleteDevicePoolResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteDevicePool
+instance Hashable DeleteDevicePool where
 
-instance NFData DeleteDevicePool
+instance NFData DeleteDevicePool where
 
 instance ToHeaders DeleteDevicePool where
         toHeaders
@@ -107,8 +106,9 @@ instance ToQuery DeleteDevicePool where
 --
 -- /See:/ 'deleteDevicePoolResponse' smart constructor.
 newtype DeleteDevicePoolResponse = DeleteDevicePoolResponse'
-    { _ddprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDevicePoolResponse' with the minimum fields required to make a request.
 --
@@ -119,12 +119,11 @@ deleteDevicePoolResponse
     :: Int -- ^ 'ddprsResponseStatus'
     -> DeleteDevicePoolResponse
 deleteDevicePoolResponse pResponseStatus_ =
-    DeleteDevicePoolResponse'
-    { _ddprsResponseStatus = pResponseStatus_
-    }
+  DeleteDevicePoolResponse' {_ddprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ddprsResponseStatus :: Lens' DeleteDevicePoolResponse Int
 ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
 
-instance NFData DeleteDevicePoolResponse
+instance NFData DeleteDevicePoolResponse where

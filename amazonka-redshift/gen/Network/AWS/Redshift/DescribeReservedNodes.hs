@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeReservedNodes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.Redshift.DescribeReservedNodes
     , drnrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReservedNodes' smart constructor.
 data DescribeReservedNodes = DescribeReservedNodes'
-    { _drnReservedNodeId :: !(Maybe Text)
-    , _drnMarker         :: !(Maybe Text)
-    , _drnMaxRecords     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drnReservedNodeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drnMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drnMaxRecords     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedNodes' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ data DescribeReservedNodes = DescribeReservedNodes'
 describeReservedNodes
     :: DescribeReservedNodes
 describeReservedNodes =
-    DescribeReservedNodes'
-    { _drnReservedNodeId = Nothing
-    , _drnMarker = Nothing
-    , _drnMaxRecords = Nothing
-    }
+  DescribeReservedNodes'
+  {_drnReservedNodeId = Nothing, _drnMarker = Nothing, _drnMaxRecords = Nothing}
+
 
 -- | Identifier for the node reservation.
 drnReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
@@ -111,9 +110,9 @@ instance AWSRequest DescribeReservedNodes where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeReservedNodes
+instance Hashable DescribeReservedNodes where
 
-instance NFData DescribeReservedNodes
+instance NFData DescribeReservedNodes where
 
 instance ToHeaders DescribeReservedNodes where
         toHeaders = const mempty
@@ -136,10 +135,11 @@ instance ToQuery DescribeReservedNodes where
 --
 -- /See:/ 'describeReservedNodesResponse' smart constructor.
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
-    { _drnrsReservedNodes  :: !(Maybe [ReservedNode])
-    , _drnrsMarker         :: !(Maybe Text)
-    , _drnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drnrsReservedNodes  :: {-# NOUNPACK #-}!(Maybe [ReservedNode])
+  , _drnrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedNodesResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +154,12 @@ describeReservedNodesResponse
     :: Int -- ^ 'drnrsResponseStatus'
     -> DescribeReservedNodesResponse
 describeReservedNodesResponse pResponseStatus_ =
-    DescribeReservedNodesResponse'
-    { _drnrsReservedNodes = Nothing
-    , _drnrsMarker = Nothing
-    , _drnrsResponseStatus = pResponseStatus_
-    }
+  DescribeReservedNodesResponse'
+  { _drnrsReservedNodes = Nothing
+  , _drnrsMarker = Nothing
+  , _drnrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of @ReservedNode@ objects.
 drnrsReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
@@ -172,4 +173,4 @@ drnrsMarker = lens _drnrsMarker (\ s a -> s{_drnrsMarker = a});
 drnrsResponseStatus :: Lens' DescribeReservedNodesResponse Int
 drnrsResponseStatus = lens _drnrsResponseStatus (\ s a -> s{_drnrsResponseStatus = a});
 
-instance NFData DescribeReservedNodesResponse
+instance NFData DescribeReservedNodesResponse where

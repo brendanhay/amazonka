@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutObjectTagging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,21 +39,22 @@ module Network.AWS.S3.PutObjectTagging
     , potrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObjectTagging' smart constructor.
 data PutObjectTagging = PutObjectTagging'
-    { _potVersionId  :: !(Maybe ObjectVersionId)
-    , _potContentMD5 :: !(Maybe Text)
-    , _potBucket     :: !BucketName
-    , _potKey        :: !ObjectKey
-    , _potTagging    :: !Tagging
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _potVersionId  :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _potContentMD5 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _potBucket     :: {-# NOUNPACK #-}!BucketName
+  , _potKey        :: {-# NOUNPACK #-}!ObjectKey
+  , _potTagging    :: {-# NOUNPACK #-}!Tagging
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutObjectTagging' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ putObjectTagging
     -> Tagging -- ^ 'potTagging'
     -> PutObjectTagging
 putObjectTagging pBucket_ pKey_ pTagging_ =
-    PutObjectTagging'
-    { _potVersionId = Nothing
-    , _potContentMD5 = Nothing
-    , _potBucket = pBucket_
-    , _potKey = pKey_
-    , _potTagging = pTagging_
-    }
+  PutObjectTagging'
+  { _potVersionId = Nothing
+  , _potContentMD5 = Nothing
+  , _potBucket = pBucket_
+  , _potKey = pKey_
+  , _potTagging = pTagging_
+  }
+
 
 -- | Undocumented member.
 potVersionId :: Lens' PutObjectTagging (Maybe ObjectVersionId)
@@ -111,9 +113,9 @@ instance AWSRequest PutObjectTagging where
                  PutObjectTaggingResponse' <$>
                    (h .#? "x-amz-version-id") <*> (pure (fromEnum s)))
 
-instance Hashable PutObjectTagging
+instance Hashable PutObjectTagging where
 
-instance NFData PutObjectTagging
+instance NFData PutObjectTagging where
 
 instance ToElement PutObjectTagging where
         toElement
@@ -136,9 +138,10 @@ instance ToQuery PutObjectTagging where
 
 -- | /See:/ 'putObjectTaggingResponse' smart constructor.
 data PutObjectTaggingResponse = PutObjectTaggingResponse'
-    { _potrsVersionId      :: !(Maybe ObjectVersionId)
-    , _potrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _potrsVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _potrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutObjectTaggingResponse' with the minimum fields required to make a request.
 --
@@ -151,10 +154,9 @@ putObjectTaggingResponse
     :: Int -- ^ 'potrsResponseStatus'
     -> PutObjectTaggingResponse
 putObjectTaggingResponse pResponseStatus_ =
-    PutObjectTaggingResponse'
-    { _potrsVersionId = Nothing
-    , _potrsResponseStatus = pResponseStatus_
-    }
+  PutObjectTaggingResponse'
+  {_potrsVersionId = Nothing, _potrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 potrsVersionId :: Lens' PutObjectTaggingResponse (Maybe ObjectVersionId)
@@ -164,4 +166,4 @@ potrsVersionId = lens _potrsVersionId (\ s a -> s{_potrsVersionId = a});
 potrsResponseStatus :: Lens' PutObjectTaggingResponse Int
 potrsResponseStatus = lens _potrsResponseStatus (\ s a -> s{_potrsResponseStatus = a});
 
-instance NFData PutObjectTaggingResponse
+instance NFData PutObjectTaggingResponse where

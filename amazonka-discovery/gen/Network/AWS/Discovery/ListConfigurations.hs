@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.ListConfigurations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.Discovery.ListConfigurations
     , lcrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listConfigurations' smart constructor.
 data ListConfigurations = ListConfigurations'
-    { _lcOrderBy           :: !(Maybe [OrderByElement])
-    , _lcFilters           :: !(Maybe [Filter])
-    , _lcNextToken         :: !(Maybe Text)
-    , _lcMaxResults        :: !(Maybe Int)
-    , _lcConfigurationType :: !ConfigurationItemType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcOrderBy           :: {-# NOUNPACK #-}!(Maybe [OrderByElement])
+  , _lcFilters           :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _lcNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lcConfigurationType :: {-# NOUNPACK #-}!ConfigurationItemType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListConfigurations' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ listConfigurations
     :: ConfigurationItemType -- ^ 'lcConfigurationType'
     -> ListConfigurations
 listConfigurations pConfigurationType_ =
-    ListConfigurations'
-    { _lcOrderBy = Nothing
-    , _lcFilters = Nothing
-    , _lcNextToken = Nothing
-    , _lcMaxResults = Nothing
-    , _lcConfigurationType = pConfigurationType_
-    }
+  ListConfigurations'
+  { _lcOrderBy = Nothing
+  , _lcFilters = Nothing
+  , _lcNextToken = Nothing
+  , _lcMaxResults = Nothing
+  , _lcConfigurationType = pConfigurationType_
+  }
+
 
 -- | Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> .
 lcOrderBy :: Lens' ListConfigurations [OrderByElement]
@@ -115,9 +117,9 @@ instance AWSRequest ListConfigurations where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListConfigurations
+instance Hashable ListConfigurations where
 
-instance NFData ListConfigurations
+instance NFData ListConfigurations where
 
 instance ToHeaders ListConfigurations where
         toHeaders
@@ -147,10 +149,11 @@ instance ToQuery ListConfigurations where
 
 -- | /See:/ 'listConfigurationsResponse' smart constructor.
 data ListConfigurationsResponse = ListConfigurationsResponse'
-    { _lcrsConfigurations :: !(Maybe [Map Text Text])
-    , _lcrsNextToken      :: !(Maybe Text)
-    , _lcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcrsConfigurations :: {-# NOUNPACK #-}!(Maybe [Map Text Text])
+  , _lcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListConfigurationsResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ listConfigurationsResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListConfigurationsResponse
 listConfigurationsResponse pResponseStatus_ =
-    ListConfigurationsResponse'
-    { _lcrsConfigurations = Nothing
-    , _lcrsNextToken = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
-    }
+  ListConfigurationsResponse'
+  { _lcrsConfigurations = Nothing
+  , _lcrsNextToken = Nothing
+  , _lcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Returns configuration details, including the configuration ID, attribute names, and attribute values.
 lcrsConfigurations :: Lens' ListConfigurationsResponse [HashMap Text Text]
@@ -183,4 +187,4 @@ lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 lcrsResponseStatus :: Lens' ListConfigurationsResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 
-instance NFData ListConfigurationsResponse
+instance NFData ListConfigurationsResponse where

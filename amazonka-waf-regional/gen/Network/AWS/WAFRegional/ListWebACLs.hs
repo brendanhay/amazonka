@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListWebACLs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.WAFRegional.ListWebACLs
     , lwarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listWebACLs' smart constructor.
 data ListWebACLs = ListWebACLs'
-    { _lwaNextMarker :: !(Maybe Text)
-    , _lwaLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lwaNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lwaLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListWebACLs' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data ListWebACLs = ListWebACLs'
 -- * 'lwaLimit' - Specifies the number of @WebACL@ objects that you want AWS WAF to return for this request. If you have more @WebACL@ objects than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @WebACL@ objects.
 listWebACLs
     :: ListWebACLs
-listWebACLs =
-    ListWebACLs'
-    { _lwaNextMarker = Nothing
-    , _lwaLimit = Nothing
-    }
+listWebACLs = ListWebACLs' {_lwaNextMarker = Nothing, _lwaLimit = Nothing}
+
 
 -- | If you specify a value for @Limit@ and you have more @WebACL@ objects than the number that you specify for @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @WebACL@ objects. For the second and subsequent @ListWebACLs@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @WebACL@ objects.
 lwaNextMarker :: Lens' ListWebACLs (Maybe Text)
@@ -85,9 +83,9 @@ instance AWSRequest ListWebACLs where
                    (x .?> "WebACLs" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListWebACLs
+instance Hashable ListWebACLs where
 
-instance NFData ListWebACLs
+instance NFData ListWebACLs where
 
 instance ToHeaders ListWebACLs where
         toHeaders
@@ -114,10 +112,11 @@ instance ToQuery ListWebACLs where
 
 -- | /See:/ 'listWebACLsResponse' smart constructor.
 data ListWebACLsResponse = ListWebACLsResponse'
-    { _lwarsWebACLs        :: !(Maybe [WebACLSummary])
-    , _lwarsNextMarker     :: !(Maybe Text)
-    , _lwarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lwarsWebACLs        :: {-# NOUNPACK #-}!(Maybe [WebACLSummary])
+  , _lwarsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListWebACLsResponse' with the minimum fields required to make a request.
 --
@@ -132,11 +131,12 @@ listWebACLsResponse
     :: Int -- ^ 'lwarsResponseStatus'
     -> ListWebACLsResponse
 listWebACLsResponse pResponseStatus_ =
-    ListWebACLsResponse'
-    { _lwarsWebACLs = Nothing
-    , _lwarsNextMarker = Nothing
-    , _lwarsResponseStatus = pResponseStatus_
-    }
+  ListWebACLsResponse'
+  { _lwarsWebACLs = Nothing
+  , _lwarsNextMarker = Nothing
+  , _lwarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of 'WebACLSummary' objects.
 lwarsWebACLs :: Lens' ListWebACLsResponse [WebACLSummary]
@@ -150,4 +150,4 @@ lwarsNextMarker = lens _lwarsNextMarker (\ s a -> s{_lwarsNextMarker = a});
 lwarsResponseStatus :: Lens' ListWebACLsResponse Int
 lwarsResponseStatus = lens _lwarsResponseStatus (\ s a -> s{_lwarsResponseStatus = a});
 
-instance NFData ListWebACLsResponse
+instance NFData ListWebACLsResponse where

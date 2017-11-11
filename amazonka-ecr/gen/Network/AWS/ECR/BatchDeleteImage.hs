@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.BatchDeleteImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.ECR.BatchDeleteImage
     , bdirsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Deletes specified images within a specified repository. Images are specified with either the @imageTag@ or @imageDigest@ .
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'batchDeleteImage' smart constructor.
 data BatchDeleteImage = BatchDeleteImage'
-    { _bdiRegistryId     :: !(Maybe Text)
-    , _bdiRepositoryName :: !Text
-    , _bdiImageIds       :: ![ImageIdentifier]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdiRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bdiRepositoryName :: {-# NOUNPACK #-}!Text
+  , _bdiImageIds       :: {-# NOUNPACK #-}![ImageIdentifier]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteImage' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ batchDeleteImage
     :: Text -- ^ 'bdiRepositoryName'
     -> BatchDeleteImage
 batchDeleteImage pRepositoryName_ =
-    BatchDeleteImage'
-    { _bdiRegistryId = Nothing
-    , _bdiRepositoryName = pRepositoryName_
-    , _bdiImageIds = mempty
-    }
+  BatchDeleteImage'
+  { _bdiRegistryId = Nothing
+  , _bdiRepositoryName = pRepositoryName_
+  , _bdiImageIds = mempty
+  }
+
 
 -- | The AWS account ID associated with the registry that contains the image to delete. If you do not specify a registry, the default registry is assumed.
 bdiRegistryId :: Lens' BatchDeleteImage (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest BatchDeleteImage where
                      (x .?> "imageIds" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchDeleteImage
+instance Hashable BatchDeleteImage where
 
-instance NFData BatchDeleteImage
+instance NFData BatchDeleteImage where
 
 instance ToHeaders BatchDeleteImage where
         toHeaders
@@ -134,10 +136,11 @@ instance ToQuery BatchDeleteImage where
 
 -- | /See:/ 'batchDeleteImageResponse' smart constructor.
 data BatchDeleteImageResponse = BatchDeleteImageResponse'
-    { _bdirsFailures       :: !(Maybe [ImageFailure])
-    , _bdirsImageIds       :: !(Maybe [ImageIdentifier])
-    , _bdirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdirsFailures       :: {-# NOUNPACK #-}!(Maybe [ImageFailure])
+  , _bdirsImageIds       :: {-# NOUNPACK #-}!(Maybe [ImageIdentifier])
+  , _bdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteImageResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +155,12 @@ batchDeleteImageResponse
     :: Int -- ^ 'bdirsResponseStatus'
     -> BatchDeleteImageResponse
 batchDeleteImageResponse pResponseStatus_ =
-    BatchDeleteImageResponse'
-    { _bdirsFailures = Nothing
-    , _bdirsImageIds = Nothing
-    , _bdirsResponseStatus = pResponseStatus_
-    }
+  BatchDeleteImageResponse'
+  { _bdirsFailures = Nothing
+  , _bdirsImageIds = Nothing
+  , _bdirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Any failures associated with the call.
 bdirsFailures :: Lens' BatchDeleteImageResponse [ImageFailure]
@@ -170,4 +174,4 @@ bdirsImageIds = lens _bdirsImageIds (\ s a -> s{_bdirsImageIds = a}) . _Default 
 bdirsResponseStatus :: Lens' BatchDeleteImageResponse Int
 bdirsResponseStatus = lens _bdirsResponseStatus (\ s a -> s{_bdirsResponseStatus = a});
 
-instance NFData BatchDeleteImageResponse
+instance NFData BatchDeleteImageResponse where

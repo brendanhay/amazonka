@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.GetQueryExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Athena.GetQueryExecution
     , gqersResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getQueryExecution' smart constructor.
 newtype GetQueryExecution = GetQueryExecution'
-    { _gqeQueryExecutionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gqeQueryExecutionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQueryExecution' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getQueryExecution
     :: Text -- ^ 'gqeQueryExecutionId'
     -> GetQueryExecution
 getQueryExecution pQueryExecutionId_ =
-    GetQueryExecution'
-    { _gqeQueryExecutionId = pQueryExecutionId_
-    }
+  GetQueryExecution' {_gqeQueryExecutionId = pQueryExecutionId_}
+
 
 -- | The unique ID of the query execution.
 gqeQueryExecutionId :: Lens' GetQueryExecution Text
@@ -75,9 +75,9 @@ instance AWSRequest GetQueryExecution where
                  GetQueryExecutionResponse' <$>
                    (x .?> "QueryExecution") <*> (pure (fromEnum s)))
 
-instance Hashable GetQueryExecution
+instance Hashable GetQueryExecution where
 
-instance NFData GetQueryExecution
+instance NFData GetQueryExecution where
 
 instance ToHeaders GetQueryExecution where
         toHeaders
@@ -102,9 +102,10 @@ instance ToQuery GetQueryExecution where
 
 -- | /See:/ 'getQueryExecutionResponse' smart constructor.
 data GetQueryExecutionResponse = GetQueryExecutionResponse'
-    { _gqersQueryExecution :: !(Maybe QueryExecution)
-    , _gqersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gqersQueryExecution :: {-# NOUNPACK #-}!(Maybe QueryExecution)
+  , _gqersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQueryExecutionResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ getQueryExecutionResponse
     :: Int -- ^ 'gqersResponseStatus'
     -> GetQueryExecutionResponse
 getQueryExecutionResponse pResponseStatus_ =
-    GetQueryExecutionResponse'
-    { _gqersQueryExecution = Nothing
-    , _gqersResponseStatus = pResponseStatus_
-    }
+  GetQueryExecutionResponse'
+  {_gqersQueryExecution = Nothing, _gqersResponseStatus = pResponseStatus_}
+
 
 -- | Information about the query execution.
 gqersQueryExecution :: Lens' GetQueryExecutionResponse (Maybe QueryExecution)
@@ -130,4 +130,4 @@ gqersQueryExecution = lens _gqersQueryExecution (\ s a -> s{_gqersQueryExecution
 gqersResponseStatus :: Lens' GetQueryExecutionResponse Int
 gqersResponseStatus = lens _gqersResponseStatus (\ s a -> s{_gqersResponseStatus = a});
 
-instance NFData GetQueryExecutionResponse
+instance NFData GetQueryExecutionResponse where

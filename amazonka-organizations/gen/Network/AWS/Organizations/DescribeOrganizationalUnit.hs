@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeOrganizationalUnit
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.Organizations.DescribeOrganizationalUnit
     , doursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeOrganizationalUnit' smart constructor.
 newtype DescribeOrganizationalUnit = DescribeOrganizationalUnit'
-    { _douOrganizationalUnitId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _douOrganizationalUnitId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrganizationalUnit' with the minimum fields required to make a request.
 --
@@ -60,9 +61,9 @@ describeOrganizationalUnit
     :: Text -- ^ 'douOrganizationalUnitId'
     -> DescribeOrganizationalUnit
 describeOrganizationalUnit pOrganizationalUnitId_ =
-    DescribeOrganizationalUnit'
-    { _douOrganizationalUnitId = pOrganizationalUnitId_
-    }
+  DescribeOrganizationalUnit'
+  {_douOrganizationalUnitId = pOrganizationalUnitId_}
+
 
 -- | The unique identifier (ID) of the organizational unit that you want details about. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 douOrganizationalUnitId :: Lens' DescribeOrganizationalUnit Text
@@ -78,9 +79,9 @@ instance AWSRequest DescribeOrganizationalUnit where
                  DescribeOrganizationalUnitResponse' <$>
                    (x .?> "OrganizationalUnit") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeOrganizationalUnit
+instance Hashable DescribeOrganizationalUnit where
 
-instance NFData DescribeOrganizationalUnit
+instance NFData DescribeOrganizationalUnit where
 
 instance ToHeaders DescribeOrganizationalUnit where
         toHeaders
@@ -108,9 +109,10 @@ instance ToQuery DescribeOrganizationalUnit where
 
 -- | /See:/ 'describeOrganizationalUnitResponse' smart constructor.
 data DescribeOrganizationalUnitResponse = DescribeOrganizationalUnitResponse'
-    { _doursOrganizationalUnit :: !(Maybe OrganizationalUnit)
-    , _doursResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doursOrganizationalUnit :: {-# NOUNPACK #-}!(Maybe OrganizationalUnit)
+  , _doursResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrganizationalUnitResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +125,9 @@ describeOrganizationalUnitResponse
     :: Int -- ^ 'doursResponseStatus'
     -> DescribeOrganizationalUnitResponse
 describeOrganizationalUnitResponse pResponseStatus_ =
-    DescribeOrganizationalUnitResponse'
-    { _doursOrganizationalUnit = Nothing
-    , _doursResponseStatus = pResponseStatus_
-    }
+  DescribeOrganizationalUnitResponse'
+  {_doursOrganizationalUnit = Nothing, _doursResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the specified OU.
 doursOrganizationalUnit :: Lens' DescribeOrganizationalUnitResponse (Maybe OrganizationalUnit)
@@ -137,3 +138,4 @@ doursResponseStatus :: Lens' DescribeOrganizationalUnitResponse Int
 doursResponseStatus = lens _doursResponseStatus (\ s a -> s{_doursResponseStatus = a});
 
 instance NFData DescribeOrganizationalUnitResponse
+         where

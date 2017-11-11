@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaceBundles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,13 +46,13 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     , dwbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | Contains the inputs for the 'DescribeWorkspaceBundles' operation.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'describeWorkspaceBundles' smart constructor.
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
-    { _dwbBundleIds :: !(Maybe (List1 Text))
-    , _dwbOwner     :: !(Maybe Text)
-    , _dwbNextToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwbBundleIds :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _dwbOwner     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwbNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkspaceBundles' with the minimum fields required to make a request.
 --
@@ -77,11 +78,9 @@ data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
 describeWorkspaceBundles
     :: DescribeWorkspaceBundles
 describeWorkspaceBundles =
-    DescribeWorkspaceBundles'
-    { _dwbBundleIds = Nothing
-    , _dwbOwner = Nothing
-    , _dwbNextToken = Nothing
-    }
+  DescribeWorkspaceBundles'
+  {_dwbBundleIds = Nothing, _dwbOwner = Nothing, _dwbNextToken = Nothing}
+
 
 -- | An array of strings that contains the identifiers of the bundles to retrieve. This parameter cannot be combined with any other filter parameter.
 dwbBundleIds :: Lens' DescribeWorkspaceBundles (Maybe (NonEmpty Text))
@@ -113,9 +112,9 @@ instance AWSRequest DescribeWorkspaceBundles where
                    (x .?> "Bundles" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeWorkspaceBundles
+instance Hashable DescribeWorkspaceBundles where
 
-instance NFData DescribeWorkspaceBundles
+instance NFData DescribeWorkspaceBundles where
 
 instance ToHeaders DescribeWorkspaceBundles where
         toHeaders
@@ -147,10 +146,11 @@ instance ToQuery DescribeWorkspaceBundles where
 --
 -- /See:/ 'describeWorkspaceBundlesResponse' smart constructor.
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
-    { _dwbrsBundles        :: !(Maybe [WorkspaceBundle])
-    , _dwbrsNextToken      :: !(Maybe Text)
-    , _dwbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwbrsBundles        :: {-# NOUNPACK #-}!(Maybe [WorkspaceBundle])
+  , _dwbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkspaceBundlesResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +165,12 @@ describeWorkspaceBundlesResponse
     :: Int -- ^ 'dwbrsResponseStatus'
     -> DescribeWorkspaceBundlesResponse
 describeWorkspaceBundlesResponse pResponseStatus_ =
-    DescribeWorkspaceBundlesResponse'
-    { _dwbrsBundles = Nothing
-    , _dwbrsNextToken = Nothing
-    , _dwbrsResponseStatus = pResponseStatus_
-    }
+  DescribeWorkspaceBundlesResponse'
+  { _dwbrsBundles = Nothing
+  , _dwbrsNextToken = Nothing
+  , _dwbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of structures that contain information about the bundles.
 dwbrsBundles :: Lens' DescribeWorkspaceBundlesResponse [WorkspaceBundle]
@@ -184,3 +185,4 @@ dwbrsResponseStatus :: Lens' DescribeWorkspaceBundlesResponse Int
 dwbrsResponseStatus = lens _dwbrsResponseStatus (\ s a -> s{_dwbrsResponseStatus = a});
 
 instance NFData DescribeWorkspaceBundlesResponse
+         where

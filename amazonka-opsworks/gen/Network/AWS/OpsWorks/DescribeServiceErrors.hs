@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeServiceErrors
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     , dsersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeServiceErrors' smart constructor.
 data DescribeServiceErrors = DescribeServiceErrors'
-    { _dseInstanceId      :: !(Maybe Text)
-    , _dseStackId         :: !(Maybe Text)
-    , _dseServiceErrorIds :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dseInstanceId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dseStackId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dseServiceErrorIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeServiceErrors' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data DescribeServiceErrors = DescribeServiceErrors'
 describeServiceErrors
     :: DescribeServiceErrors
 describeServiceErrors =
-    DescribeServiceErrors'
-    { _dseInstanceId = Nothing
-    , _dseStackId = Nothing
-    , _dseServiceErrorIds = Nothing
-    }
+  DescribeServiceErrors'
+  { _dseInstanceId = Nothing
+  , _dseStackId = Nothing
+  , _dseServiceErrorIds = Nothing
+  }
+
 
 -- | The instance ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified instance.
 dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest DescribeServiceErrors where
                    (x .?> "ServiceErrors" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeServiceErrors
+instance Hashable DescribeServiceErrors where
 
-instance NFData DescribeServiceErrors
+instance NFData DescribeServiceErrors where
 
 instance ToHeaders DescribeServiceErrors where
         toHeaders
@@ -132,9 +134,10 @@ instance ToQuery DescribeServiceErrors where
 --
 -- /See:/ 'describeServiceErrorsResponse' smart constructor.
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
-    { _dsersServiceErrors  :: !(Maybe [ServiceError'])
-    , _dsersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsersServiceErrors  :: {-# NOUNPACK #-}!(Maybe [ServiceError'])
+  , _dsersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeServiceErrorsResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +150,9 @@ describeServiceErrorsResponse
     :: Int -- ^ 'dsersResponseStatus'
     -> DescribeServiceErrorsResponse
 describeServiceErrorsResponse pResponseStatus_ =
-    DescribeServiceErrorsResponse'
-    { _dsersServiceErrors = Nothing
-    , _dsersResponseStatus = pResponseStatus_
-    }
+  DescribeServiceErrorsResponse'
+  {_dsersServiceErrors = Nothing, _dsersResponseStatus = pResponseStatus_}
+
 
 -- | An array of @ServiceError@ objects that describe the specified service errors.
 dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
@@ -160,4 +162,4 @@ dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = 
 dsersResponseStatus :: Lens' DescribeServiceErrorsResponse Int
 dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});
 
-instance NFData DescribeServiceErrorsResponse
+instance NFData DescribeServiceErrorsResponse where

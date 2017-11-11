@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , lirsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the ListIdentities action.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-    { _liHideDisabled   :: !(Maybe Bool)
-    , _liNextToken      :: !(Maybe Text)
-    , _liIdentityPoolId :: !Text
-    , _liMaxResults     :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liHideDisabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _liNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _liMaxResults     :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ listIdentities
     -> Natural -- ^ 'liMaxResults'
     -> ListIdentities
 listIdentities pIdentityPoolId_ pMaxResults_ =
-    ListIdentities'
-    { _liHideDisabled = Nothing
-    , _liNextToken = Nothing
-    , _liIdentityPoolId = pIdentityPoolId_
-    , _liMaxResults = _Nat # pMaxResults_
-    }
+  ListIdentities'
+  { _liHideDisabled = Nothing
+  , _liNextToken = Nothing
+  , _liIdentityPoolId = pIdentityPoolId_
+  , _liMaxResults = _Nat # pMaxResults_
+  }
+
 
 -- | An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 liHideDisabled :: Lens' ListIdentities (Maybe Bool)
@@ -113,9 +115,9 @@ instance AWSRequest ListIdentities where
                      (x .?> "Identities" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListIdentities
+instance Hashable ListIdentities where
 
-instance NFData ListIdentities
+instance NFData ListIdentities where
 
 instance ToHeaders ListIdentities where
         toHeaders
@@ -148,11 +150,12 @@ instance ToQuery ListIdentities where
 --
 -- /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-    { _lirsIdentityPoolId :: !(Maybe Text)
-    , _lirsNextToken      :: !(Maybe Text)
-    , _lirsIdentities     :: !(Maybe [IdentityDescription])
-    , _lirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirsIdentityPoolId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lirsIdentities     :: {-# NOUNPACK #-}!(Maybe [IdentityDescription])
+  , _lirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
 --
@@ -169,12 +172,13 @@ listIdentitiesResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListIdentitiesResponse
 listIdentitiesResponse pResponseStatus_ =
-    ListIdentitiesResponse'
-    { _lirsIdentityPoolId = Nothing
-    , _lirsNextToken = Nothing
-    , _lirsIdentities = Nothing
-    , _lirsResponseStatus = pResponseStatus_
-    }
+  ListIdentitiesResponse'
+  { _lirsIdentityPoolId = Nothing
+  , _lirsNextToken = Nothing
+  , _lirsIdentities = Nothing
+  , _lirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An identity pool ID in the format REGION:GUID.
 lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
@@ -192,4 +196,4 @@ lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Defau
 lirsResponseStatus :: Lens' ListIdentitiesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
-instance NFData ListIdentitiesResponse
+instance NFData ListIdentitiesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListAssociations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.SSM.ListAssociations
     , larsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listAssociations' smart constructor.
 data ListAssociations = ListAssociations'
-    { _laAssociationFilterList :: !(Maybe (List1 AssociationFilter))
-    , _laNextToken             :: !(Maybe Text)
-    , _laMaxResults            :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laAssociationFilterList :: {-# NOUNPACK #-}!(Maybe (List1 AssociationFilter))
+  , _laNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssociations' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data ListAssociations = ListAssociations'
 listAssociations
     :: ListAssociations
 listAssociations =
-    ListAssociations'
-    { _laAssociationFilterList = Nothing
-    , _laNextToken = Nothing
-    , _laMaxResults = Nothing
-    }
+  ListAssociations'
+  { _laAssociationFilterList = Nothing
+  , _laNextToken = Nothing
+  , _laMaxResults = Nothing
+  }
+
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 laAssociationFilterList :: Lens' ListAssociations (Maybe (NonEmpty AssociationFilter))
@@ -105,9 +107,9 @@ instance AWSRequest ListAssociations where
                      (x .?> "Associations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAssociations
+instance Hashable ListAssociations where
 
-instance NFData ListAssociations
+instance NFData ListAssociations where
 
 instance ToHeaders ListAssociations where
         toHeaders
@@ -135,10 +137,11 @@ instance ToQuery ListAssociations where
 
 -- | /See:/ 'listAssociationsResponse' smart constructor.
 data ListAssociationsResponse = ListAssociationsResponse'
-    { _larsNextToken      :: !(Maybe Text)
-    , _larsAssociations   :: !(Maybe [Association])
-    , _larsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larsAssociations   :: {-# NOUNPACK #-}!(Maybe [Association])
+  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssociationsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ listAssociationsResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAssociationsResponse
 listAssociationsResponse pResponseStatus_ =
-    ListAssociationsResponse'
-    { _larsNextToken = Nothing
-    , _larsAssociations = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    }
+  ListAssociationsResponse'
+  { _larsNextToken = Nothing
+  , _larsAssociations = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 larsNextToken :: Lens' ListAssociationsResponse (Maybe Text)
@@ -171,4 +175,4 @@ larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . 
 larsResponseStatus :: Lens' ListAssociationsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 
-instance NFData ListAssociationsResponse
+instance NFData ListAssociationsResponse where

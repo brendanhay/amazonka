@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBotAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,18 +46,19 @@ module Network.AWS.LexModels.GetBotAlias
     , gbasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBotAlias' smart constructor.
 data GetBotAlias = GetBotAlias'
-    { _gbasName    :: !Text
-    , _gbasBotName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbasName    :: {-# NOUNPACK #-}!Text
+  , _gbasBotName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotAlias' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ getBotAlias
     -> Text -- ^ 'gbasBotName'
     -> GetBotAlias
 getBotAlias pName_ pBotName_ =
-    GetBotAlias'
-    { _gbasName = pName_
-    , _gbasBotName = pBotName_
-    }
+  GetBotAlias' {_gbasName = pName_, _gbasBotName = pBotName_}
+
 
 -- | The name of the bot alias. The name is case sensitive.
 gbasName :: Lens' GetBotAlias Text
@@ -99,9 +98,9 @@ instance AWSRequest GetBotAlias where
                      <*> (x .?> "description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBotAlias
+instance Hashable GetBotAlias where
 
-instance NFData GetBotAlias
+instance NFData GetBotAlias where
 
 instance ToHeaders GetBotAlias where
         toHeaders
@@ -121,15 +120,16 @@ instance ToQuery GetBotAlias where
 
 -- | /See:/ 'getBotAliasResponse' smart constructor.
 data GetBotAliasResponse = GetBotAliasResponse'
-    { _gbasrsChecksum        :: !(Maybe Text)
-    , _gbasrsBotVersion      :: !(Maybe Text)
-    , _gbasrsBotName         :: !(Maybe Text)
-    , _gbasrsCreatedDate     :: !(Maybe POSIX)
-    , _gbasrsName            :: !(Maybe Text)
-    , _gbasrsLastUpdatedDate :: !(Maybe POSIX)
-    , _gbasrsDescription     :: !(Maybe Text)
-    , _gbasrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbasrsChecksum        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbasrsBotVersion      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbasrsBotName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbasrsCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gbasrsName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbasrsLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gbasrsDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbasrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotAliasResponse' with the minimum fields required to make a request.
 --
@@ -154,16 +154,17 @@ getBotAliasResponse
     :: Int -- ^ 'gbasrsResponseStatus'
     -> GetBotAliasResponse
 getBotAliasResponse pResponseStatus_ =
-    GetBotAliasResponse'
-    { _gbasrsChecksum = Nothing
-    , _gbasrsBotVersion = Nothing
-    , _gbasrsBotName = Nothing
-    , _gbasrsCreatedDate = Nothing
-    , _gbasrsName = Nothing
-    , _gbasrsLastUpdatedDate = Nothing
-    , _gbasrsDescription = Nothing
-    , _gbasrsResponseStatus = pResponseStatus_
-    }
+  GetBotAliasResponse'
+  { _gbasrsChecksum = Nothing
+  , _gbasrsBotVersion = Nothing
+  , _gbasrsBotName = Nothing
+  , _gbasrsCreatedDate = Nothing
+  , _gbasrsName = Nothing
+  , _gbasrsLastUpdatedDate = Nothing
+  , _gbasrsDescription = Nothing
+  , _gbasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Checksum of the bot alias.
 gbasrsChecksum :: Lens' GetBotAliasResponse (Maybe Text)
@@ -197,4 +198,4 @@ gbasrsDescription = lens _gbasrsDescription (\ s a -> s{_gbasrsDescription = a})
 gbasrsResponseStatus :: Lens' GetBotAliasResponse Int
 gbasrsResponseStatus = lens _gbasrsResponseStatus (\ s a -> s{_gbasrsResponseStatus = a});
 
-instance NFData GetBotAliasResponse
+instance NFData GetBotAliasResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeServers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,19 +44,20 @@ module Network.AWS.OpsWorksCM.DescribeServers
     , dssrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeServers' smart constructor.
 data DescribeServers = DescribeServers'
-    { _dssServerName :: !(Maybe Text)
-    , _dssNextToken  :: !(Maybe Text)
-    , _dssMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssServerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeServers' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data DescribeServers = DescribeServers'
 describeServers
     :: DescribeServers
 describeServers =
-    DescribeServers'
-    { _dssServerName = Nothing
-    , _dssNextToken = Nothing
-    , _dssMaxResults = Nothing
-    }
+  DescribeServers'
+  {_dssServerName = Nothing, _dssNextToken = Nothing, _dssMaxResults = Nothing}
+
 
 -- | Describes the server with the specified ServerName.
 dssServerName :: Lens' DescribeServers (Maybe Text)
@@ -98,9 +97,9 @@ instance AWSRequest DescribeServers where
                    (x .?> "Servers" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeServers
+instance Hashable DescribeServers where
 
-instance NFData DescribeServers
+instance NFData DescribeServers where
 
 instance ToHeaders DescribeServers where
         toHeaders
@@ -128,10 +127,11 @@ instance ToQuery DescribeServers where
 
 -- | /See:/ 'describeServersResponse' smart constructor.
 data DescribeServersResponse = DescribeServersResponse'
-    { _dssrsServers        :: !(Maybe [Server])
-    , _dssrsNextToken      :: !(Maybe Text)
-    , _dssrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dssrsServers        :: {-# NOUNPACK #-}!(Maybe [Server])
+  , _dssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeServersResponse' with the minimum fields required to make a request.
 --
@@ -146,11 +146,12 @@ describeServersResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeServersResponse
 describeServersResponse pResponseStatus_ =
-    DescribeServersResponse'
-    { _dssrsServers = Nothing
-    , _dssrsNextToken = Nothing
-    , _dssrsResponseStatus = pResponseStatus_
-    }
+  DescribeServersResponse'
+  { _dssrsServers = Nothing
+  , _dssrsNextToken = Nothing
+  , _dssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains the response to a @DescribeServers@ request.
 dssrsServers :: Lens' DescribeServersResponse [Server]
@@ -164,4 +165,4 @@ dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 dssrsResponseStatus :: Lens' DescribeServersResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 
-instance NFData DescribeServersResponse
+instance NFData DescribeServersResponse where

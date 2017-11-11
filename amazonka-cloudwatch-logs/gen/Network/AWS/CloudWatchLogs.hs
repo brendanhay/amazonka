@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -288,36 +288,36 @@ module Network.AWS.CloudWatchLogs
     , sfRoleARN
     ) where
 
-import           Network.AWS.CloudWatchLogs.CancelExportTask
-import           Network.AWS.CloudWatchLogs.CreateExportTask
-import           Network.AWS.CloudWatchLogs.CreateLogGroup
-import           Network.AWS.CloudWatchLogs.CreateLogStream
-import           Network.AWS.CloudWatchLogs.DeleteDestination
-import           Network.AWS.CloudWatchLogs.DeleteLogGroup
-import           Network.AWS.CloudWatchLogs.DeleteLogStream
-import           Network.AWS.CloudWatchLogs.DeleteMetricFilter
-import           Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
-import           Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
-import           Network.AWS.CloudWatchLogs.DescribeDestinations
-import           Network.AWS.CloudWatchLogs.DescribeExportTasks
-import           Network.AWS.CloudWatchLogs.DescribeLogGroups
-import           Network.AWS.CloudWatchLogs.DescribeLogStreams
-import           Network.AWS.CloudWatchLogs.DescribeMetricFilters
-import           Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
-import           Network.AWS.CloudWatchLogs.FilterLogEvents
-import           Network.AWS.CloudWatchLogs.GetLogEvents
-import           Network.AWS.CloudWatchLogs.ListTagsLogGroup
-import           Network.AWS.CloudWatchLogs.PutDestination
-import           Network.AWS.CloudWatchLogs.PutDestinationPolicy
-import           Network.AWS.CloudWatchLogs.PutLogEvents
-import           Network.AWS.CloudWatchLogs.PutMetricFilter
-import           Network.AWS.CloudWatchLogs.PutRetentionPolicy
-import           Network.AWS.CloudWatchLogs.PutSubscriptionFilter
-import           Network.AWS.CloudWatchLogs.TagLogGroup
-import           Network.AWS.CloudWatchLogs.TestMetricFilter
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.UntagLogGroup
-import           Network.AWS.CloudWatchLogs.Waiters
+import Network.AWS.CloudWatchLogs.CancelExportTask
+import Network.AWS.CloudWatchLogs.CreateExportTask
+import Network.AWS.CloudWatchLogs.CreateLogGroup
+import Network.AWS.CloudWatchLogs.CreateLogStream
+import Network.AWS.CloudWatchLogs.DeleteDestination
+import Network.AWS.CloudWatchLogs.DeleteLogGroup
+import Network.AWS.CloudWatchLogs.DeleteLogStream
+import Network.AWS.CloudWatchLogs.DeleteMetricFilter
+import Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
+import Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
+import Network.AWS.CloudWatchLogs.DescribeDestinations
+import Network.AWS.CloudWatchLogs.DescribeExportTasks
+import Network.AWS.CloudWatchLogs.DescribeLogGroups
+import Network.AWS.CloudWatchLogs.DescribeLogStreams
+import Network.AWS.CloudWatchLogs.DescribeMetricFilters
+import Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
+import Network.AWS.CloudWatchLogs.FilterLogEvents
+import Network.AWS.CloudWatchLogs.GetLogEvents
+import Network.AWS.CloudWatchLogs.ListTagsLogGroup
+import Network.AWS.CloudWatchLogs.PutDestination
+import Network.AWS.CloudWatchLogs.PutDestinationPolicy
+import Network.AWS.CloudWatchLogs.PutLogEvents
+import Network.AWS.CloudWatchLogs.PutMetricFilter
+import Network.AWS.CloudWatchLogs.PutRetentionPolicy
+import Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+import Network.AWS.CloudWatchLogs.TagLogGroup
+import Network.AWS.CloudWatchLogs.TestMetricFilter
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.UntagLogGroup
+import Network.AWS.CloudWatchLogs.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

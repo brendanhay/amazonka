@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.OpenInstancePublicPorts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.OpenInstancePublicPorts
     , oipprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'openInstancePublicPorts' smart constructor.
 data OpenInstancePublicPorts = OpenInstancePublicPorts'
-    { _oippPortInfo     :: !PortInfo
-    , _oippInstanceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oippPortInfo     :: {-# NOUNPACK #-}!PortInfo
+  , _oippInstanceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OpenInstancePublicPorts' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ openInstancePublicPorts
     -> Text -- ^ 'oippInstanceName'
     -> OpenInstancePublicPorts
 openInstancePublicPorts pPortInfo_ pInstanceName_ =
-    OpenInstancePublicPorts'
-    { _oippPortInfo = pPortInfo_
-    , _oippInstanceName = pInstanceName_
-    }
+  OpenInstancePublicPorts'
+  {_oippPortInfo = pPortInfo_, _oippInstanceName = pInstanceName_}
+
 
 -- | An array of key-value pairs containing information about the port mappings.
 oippPortInfo :: Lens' OpenInstancePublicPorts PortInfo
@@ -86,9 +86,9 @@ instance AWSRequest OpenInstancePublicPorts where
                  OpenInstancePublicPortsResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable OpenInstancePublicPorts
+instance Hashable OpenInstancePublicPorts where
 
-instance NFData OpenInstancePublicPorts
+instance NFData OpenInstancePublicPorts where
 
 instance ToHeaders OpenInstancePublicPorts where
         toHeaders
@@ -115,9 +115,10 @@ instance ToQuery OpenInstancePublicPorts where
 
 -- | /See:/ 'openInstancePublicPortsResponse' smart constructor.
 data OpenInstancePublicPortsResponse = OpenInstancePublicPortsResponse'
-    { _oipprsOperation      :: !(Maybe Operation)
-    , _oipprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oipprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _oipprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OpenInstancePublicPortsResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,9 @@ openInstancePublicPortsResponse
     :: Int -- ^ 'oipprsResponseStatus'
     -> OpenInstancePublicPortsResponse
 openInstancePublicPortsResponse pResponseStatus_ =
-    OpenInstancePublicPortsResponse'
-    { _oipprsOperation = Nothing
-    , _oipprsResponseStatus = pResponseStatus_
-    }
+  OpenInstancePublicPortsResponse'
+  {_oipprsOperation = Nothing, _oipprsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the request operation.
 oipprsOperation :: Lens' OpenInstancePublicPortsResponse (Maybe Operation)
@@ -143,4 +143,4 @@ oipprsOperation = lens _oipprsOperation (\ s a -> s{_oipprsOperation = a});
 oipprsResponseStatus :: Lens' OpenInstancePublicPortsResponse Int
 oipprsResponseStatus = lens _oipprsResponseStatus (\ s a -> s{_oipprsResponseStatus = a});
 
-instance NFData OpenInstancePublicPortsResponse
+instance NFData OpenInstancePublicPortsResponse where

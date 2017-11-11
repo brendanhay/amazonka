@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetAccountAuthorizationDetails
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,20 +48,21 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     , gaadrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAccountAuthorizationDetails' smart constructor.
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
-    { _gaadMarker   :: !(Maybe Text)
-    , _gaadMaxItems :: !(Maybe Nat)
-    , _gaadFilter   :: !(Maybe [EntityType])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaadMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gaadMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gaadFilter   :: {-# NOUNPACK #-}!(Maybe [EntityType])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountAuthorizationDetails' with the minimum fields required to make a request.
 --
@@ -75,11 +76,9 @@ data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
 getAccountAuthorizationDetails
     :: GetAccountAuthorizationDetails
 getAccountAuthorizationDetails =
-    GetAccountAuthorizationDetails'
-    { _gaadMarker = Nothing
-    , _gaadMaxItems = Nothing
-    , _gaadFilter = Nothing
-    }
+  GetAccountAuthorizationDetails'
+  {_gaadMarker = Nothing, _gaadMaxItems = Nothing, _gaadFilter = Nothing}
+
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
@@ -127,8 +126,9 @@ instance AWSRequest GetAccountAuthorizationDetails
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetAccountAuthorizationDetails
+         where
 
-instance NFData GetAccountAuthorizationDetails
+instance NFData GetAccountAuthorizationDetails where
 
 instance ToHeaders GetAccountAuthorizationDetails
          where
@@ -153,14 +153,15 @@ instance ToQuery GetAccountAuthorizationDetails where
 --
 -- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
-    { _gaadrsRoleDetailList  :: !(Maybe [RoleDetail])
-    , _gaadrsGroupDetailList :: !(Maybe [GroupDetail])
-    , _gaadrsUserDetailList  :: !(Maybe [UserDetail])
-    , _gaadrsMarker          :: !(Maybe Text)
-    , _gaadrsIsTruncated     :: !(Maybe Bool)
-    , _gaadrsPolicies        :: !(Maybe [ManagedPolicyDetail])
-    , _gaadrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaadrsRoleDetailList  :: {-# NOUNPACK #-}!(Maybe [RoleDetail])
+  , _gaadrsGroupDetailList :: {-# NOUNPACK #-}!(Maybe [GroupDetail])
+  , _gaadrsUserDetailList  :: {-# NOUNPACK #-}!(Maybe [UserDetail])
+  , _gaadrsMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gaadrsIsTruncated     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gaadrsPolicies        :: {-# NOUNPACK #-}!(Maybe [ManagedPolicyDetail])
+  , _gaadrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountAuthorizationDetailsResponse' with the minimum fields required to make a request.
 --
@@ -183,15 +184,16 @@ getAccountAuthorizationDetailsResponse
     :: Int -- ^ 'gaadrsResponseStatus'
     -> GetAccountAuthorizationDetailsResponse
 getAccountAuthorizationDetailsResponse pResponseStatus_ =
-    GetAccountAuthorizationDetailsResponse'
-    { _gaadrsRoleDetailList = Nothing
-    , _gaadrsGroupDetailList = Nothing
-    , _gaadrsUserDetailList = Nothing
-    , _gaadrsMarker = Nothing
-    , _gaadrsIsTruncated = Nothing
-    , _gaadrsPolicies = Nothing
-    , _gaadrsResponseStatus = pResponseStatus_
-    }
+  GetAccountAuthorizationDetailsResponse'
+  { _gaadrsRoleDetailList = Nothing
+  , _gaadrsGroupDetailList = Nothing
+  , _gaadrsUserDetailList = Nothing
+  , _gaadrsMarker = Nothing
+  , _gaadrsIsTruncated = Nothing
+  , _gaadrsPolicies = Nothing
+  , _gaadrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list containing information about IAM roles.
 gaadrsRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
@@ -222,4 +224,5 @@ gaadrsResponseStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
 gaadrsResponseStatus = lens _gaadrsResponseStatus (\ s a -> s{_gaadrsResponseStatus = a});
 
 instance NFData
-         GetAccountAuthorizationDetailsResponse
+           GetAccountAuthorizationDetailsResponse
+         where

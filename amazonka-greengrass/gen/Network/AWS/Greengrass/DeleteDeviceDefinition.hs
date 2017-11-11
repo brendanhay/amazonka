@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteDeviceDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.Greengrass.DeleteDeviceDefinition
     , dddrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDeviceDefinition' smart constructor.
 newtype DeleteDeviceDefinition = DeleteDeviceDefinition'
-    { _dddDeviceDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dddDeviceDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeviceDefinition' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ deleteDeviceDefinition
     :: Text -- ^ 'dddDeviceDefinitionId'
     -> DeleteDeviceDefinition
 deleteDeviceDefinition pDeviceDefinitionId_ =
-    DeleteDeviceDefinition'
-    { _dddDeviceDefinitionId = pDeviceDefinitionId_
-    }
+  DeleteDeviceDefinition' {_dddDeviceDefinitionId = pDeviceDefinitionId_}
+
 
 -- | device definition Id
 dddDeviceDefinitionId :: Lens' DeleteDeviceDefinition Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteDeviceDefinition where
                  DeleteDeviceDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteDeviceDefinition
+instance Hashable DeleteDeviceDefinition where
 
-instance NFData DeleteDeviceDefinition
+instance NFData DeleteDeviceDefinition where
 
 instance ToHeaders DeleteDeviceDefinition where
         toHeaders
@@ -95,8 +95,9 @@ instance ToQuery DeleteDeviceDefinition where
 
 -- | /See:/ 'deleteDeviceDefinitionResponse' smart constructor.
 newtype DeleteDeviceDefinitionResponse = DeleteDeviceDefinitionResponse'
-    { _dddrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dddrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeviceDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -107,12 +108,11 @@ deleteDeviceDefinitionResponse
     :: Int -- ^ 'dddrsResponseStatus'
     -> DeleteDeviceDefinitionResponse
 deleteDeviceDefinitionResponse pResponseStatus_ =
-    DeleteDeviceDefinitionResponse'
-    { _dddrsResponseStatus = pResponseStatus_
-    }
+  DeleteDeviceDefinitionResponse' {_dddrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dddrsResponseStatus :: Lens' DeleteDeviceDefinitionResponse Int
 dddrsResponseStatus = lens _dddrsResponseStatus (\ s a -> s{_dddrsResponseStatus = a});
 
-instance NFData DeleteDeviceDefinitionResponse
+instance NFData DeleteDeviceDefinitionResponse where

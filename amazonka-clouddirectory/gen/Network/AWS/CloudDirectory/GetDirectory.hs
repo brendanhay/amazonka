@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CloudDirectory.GetDirectory
     , gdrsDirectory
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDirectory' smart constructor.
 newtype GetDirectory = GetDirectory'
-    { _gdDirectoryARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdDirectoryARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDirectory' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetDirectory = GetDirectory'
 getDirectory
     :: Text -- ^ 'gdDirectoryARN'
     -> GetDirectory
-getDirectory pDirectoryARN_ =
-    GetDirectory'
-    { _gdDirectoryARN = pDirectoryARN_
-    }
+getDirectory pDirectoryARN_ = GetDirectory' {_gdDirectoryARN = pDirectoryARN_}
+
 
 -- | The ARN of the directory.
 gdDirectoryARN :: Lens' GetDirectory Text
@@ -75,9 +74,9 @@ instance AWSRequest GetDirectory where
                  GetDirectoryResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Directory"))
 
-instance Hashable GetDirectory
+instance Hashable GetDirectory where
 
-instance NFData GetDirectory
+instance NFData GetDirectory where
 
 instance ToHeaders GetDirectory where
         toHeaders GetDirectory'{..}
@@ -96,9 +95,10 @@ instance ToQuery GetDirectory where
 
 -- | /See:/ 'getDirectoryResponse' smart constructor.
 data GetDirectoryResponse = GetDirectoryResponse'
-    { _gdrsResponseStatus :: !Int
-    , _gdrsDirectory      :: !Directory
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gdrsDirectory      :: {-# NOUNPACK #-}!Directory
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDirectoryResponse' with the minimum fields required to make a request.
 --
@@ -112,10 +112,9 @@ getDirectoryResponse
     -> Directory -- ^ 'gdrsDirectory'
     -> GetDirectoryResponse
 getDirectoryResponse pResponseStatus_ pDirectory_ =
-    GetDirectoryResponse'
-    { _gdrsResponseStatus = pResponseStatus_
-    , _gdrsDirectory = pDirectory_
-    }
+  GetDirectoryResponse'
+  {_gdrsResponseStatus = pResponseStatus_, _gdrsDirectory = pDirectory_}
+
 
 -- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDirectoryResponse Int
@@ -125,4 +124,4 @@ gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = 
 gdrsDirectory :: Lens' GetDirectoryResponse Directory
 gdrsDirectory = lens _gdrsDirectory (\ s a -> s{_gdrsDirectory = a});
 
-instance NFData GetDirectoryResponse
+instance NFData GetDirectoryResponse where

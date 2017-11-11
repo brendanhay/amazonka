@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DeleteTypedLinkFacet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CloudDirectory.DeleteTypedLinkFacet
     , dtlfrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteTypedLinkFacet' smart constructor.
 data DeleteTypedLinkFacet = DeleteTypedLinkFacet'
-    { _dtlfSchemaARN :: !Text
-    , _dtlfName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtlfSchemaARN :: {-# NOUNPACK #-}!Text
+  , _dtlfName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTypedLinkFacet' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteTypedLinkFacet
     -> Text -- ^ 'dtlfName'
     -> DeleteTypedLinkFacet
 deleteTypedLinkFacet pSchemaARN_ pName_ =
-    DeleteTypedLinkFacet'
-    { _dtlfSchemaARN = pSchemaARN_
-    , _dtlfName = pName_
-    }
+  DeleteTypedLinkFacet' {_dtlfSchemaARN = pSchemaARN_, _dtlfName = pName_}
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 dtlfSchemaARN :: Lens' DeleteTypedLinkFacet Text
@@ -85,9 +84,9 @@ instance AWSRequest DeleteTypedLinkFacet where
                  DeleteTypedLinkFacetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteTypedLinkFacet
+instance Hashable DeleteTypedLinkFacet where
 
-instance NFData DeleteTypedLinkFacet
+instance NFData DeleteTypedLinkFacet where
 
 instance ToHeaders DeleteTypedLinkFacet where
         toHeaders DeleteTypedLinkFacet'{..}
@@ -107,8 +106,9 @@ instance ToQuery DeleteTypedLinkFacet where
 
 -- | /See:/ 'deleteTypedLinkFacetResponse' smart constructor.
 newtype DeleteTypedLinkFacetResponse = DeleteTypedLinkFacetResponse'
-    { _dtlfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtlfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTypedLinkFacetResponse' with the minimum fields required to make a request.
 --
@@ -119,12 +119,11 @@ deleteTypedLinkFacetResponse
     :: Int -- ^ 'dtlfrsResponseStatus'
     -> DeleteTypedLinkFacetResponse
 deleteTypedLinkFacetResponse pResponseStatus_ =
-    DeleteTypedLinkFacetResponse'
-    { _dtlfrsResponseStatus = pResponseStatus_
-    }
+  DeleteTypedLinkFacetResponse' {_dtlfrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dtlfrsResponseStatus :: Lens' DeleteTypedLinkFacetResponse Int
 dtlfrsResponseStatus = lens _dtlfrsResponseStatus (\ s a -> s{_dtlfrsResponseStatus = a});
 
-instance NFData DeleteTypedLinkFacetResponse
+instance NFData DeleteTypedLinkFacetResponse where

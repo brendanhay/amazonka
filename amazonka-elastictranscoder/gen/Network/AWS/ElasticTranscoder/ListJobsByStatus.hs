@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     , ljbsrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @ListJobsByStatusRequest@ structure.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listJobsByStatus' smart constructor.
 data ListJobsByStatus = ListJobsByStatus'
-    { _ljbsAscending :: !(Maybe Text)
-    , _ljbsPageToken :: !(Maybe Text)
-    , _ljbsStatus    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljbsAscending :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljbsPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljbsStatus    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobsByStatus' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ listJobsByStatus
     :: Text -- ^ 'ljbsStatus'
     -> ListJobsByStatus
 listJobsByStatus pStatus_ =
-    ListJobsByStatus'
-    { _ljbsAscending = Nothing
-    , _ljbsPageToken = Nothing
-    , _ljbsStatus = pStatus_
-    }
+  ListJobsByStatus'
+  {_ljbsAscending = Nothing, _ljbsPageToken = Nothing, _ljbsStatus = pStatus_}
+
 
 -- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
 ljbsAscending :: Lens' ListJobsByStatus (Maybe Text)
@@ -110,9 +109,9 @@ instance AWSRequest ListJobsByStatus where
                    (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListJobsByStatus
+instance Hashable ListJobsByStatus where
 
-instance NFData ListJobsByStatus
+instance NFData ListJobsByStatus where
 
 instance ToHeaders ListJobsByStatus where
         toHeaders = const mempty
@@ -134,10 +133,11 @@ instance ToQuery ListJobsByStatus where
 --
 -- /See:/ 'listJobsByStatusResponse' smart constructor.
 data ListJobsByStatusResponse = ListJobsByStatusResponse'
-    { _ljbsrsNextPageToken  :: !(Maybe Text)
-    , _ljbsrsJobs           :: !(Maybe [Job'])
-    , _ljbsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljbsrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljbsrsJobs           :: {-# NOUNPACK #-}!(Maybe [Job'])
+  , _ljbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobsByStatusResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +152,12 @@ listJobsByStatusResponse
     :: Int -- ^ 'ljbsrsResponseStatus'
     -> ListJobsByStatusResponse
 listJobsByStatusResponse pResponseStatus_ =
-    ListJobsByStatusResponse'
-    { _ljbsrsNextPageToken = Nothing
-    , _ljbsrsJobs = Nothing
-    , _ljbsrsResponseStatus = pResponseStatus_
-    }
+  ListJobsByStatusResponse'
+  { _ljbsrsNextPageToken = Nothing
+  , _ljbsrsJobs = Nothing
+  , _ljbsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 ljbsrsNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
@@ -170,4 +171,4 @@ ljbsrsJobs = lens _ljbsrsJobs (\ s a -> s{_ljbsrsJobs = a}) . _Default . _Coerce
 ljbsrsResponseStatus :: Lens' ListJobsByStatusResponse Int
 ljbsrsResponseStatus = lens _ljbsrsResponseStatus (\ s a -> s{_ljbsrsResponseStatus = a});
 
-instance NFData ListJobsByStatusResponse
+instance NFData ListJobsByStatusResponse where

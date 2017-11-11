@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListHITs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.MechanicalTurk.ListHITs
     , lhitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listHITs' smart constructor.
 data ListHITs = ListHITs'
-    { _lhitNextToken  :: !(Maybe Text)
-    , _lhitMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhitNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhitMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHITs' with the minimum fields required to make a request.
 --
@@ -62,11 +63,8 @@ data ListHITs = ListHITs'
 -- * 'lhitMaxResults' - Undocumented member.
 listHITs
     :: ListHITs
-listHITs =
-    ListHITs'
-    { _lhitNextToken = Nothing
-    , _lhitMaxResults = Nothing
-    }
+listHITs = ListHITs' {_lhitNextToken = Nothing, _lhitMaxResults = Nothing}
+
 
 -- | Pagination token
 lhitNextToken :: Lens' ListHITs (Maybe Text)
@@ -87,9 +85,9 @@ instance AWSRequest ListHITs where
                      (x .?> "HITs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListHITs
+instance Hashable ListHITs where
 
-instance NFData ListHITs
+instance NFData ListHITs where
 
 instance ToHeaders ListHITs where
         toHeaders
@@ -116,11 +114,12 @@ instance ToQuery ListHITs where
 
 -- | /See:/ 'listHITsResponse' smart constructor.
 data ListHITsResponse = ListHITsResponse'
-    { _lhitrsNextToken      :: !(Maybe Text)
-    , _lhitrsNumResults     :: !(Maybe Int)
-    , _lhitrsHITs           :: !(Maybe [HIT])
-    , _lhitrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhitrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhitrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lhitrsHITs           :: {-# NOUNPACK #-}!(Maybe [HIT])
+  , _lhitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHITsResponse' with the minimum fields required to make a request.
 --
@@ -137,12 +136,13 @@ listHITsResponse
     :: Int -- ^ 'lhitrsResponseStatus'
     -> ListHITsResponse
 listHITsResponse pResponseStatus_ =
-    ListHITsResponse'
-    { _lhitrsNextToken = Nothing
-    , _lhitrsNumResults = Nothing
-    , _lhitrsHITs = Nothing
-    , _lhitrsResponseStatus = pResponseStatus_
-    }
+  ListHITsResponse'
+  { _lhitrsNextToken = Nothing
+  , _lhitrsNumResults = Nothing
+  , _lhitrsHITs = Nothing
+  , _lhitrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lhitrsNextToken :: Lens' ListHITsResponse (Maybe Text)
@@ -160,4 +160,4 @@ lhitrsHITs = lens _lhitrsHITs (\ s a -> s{_lhitrsHITs = a}) . _Default . _Coerce
 lhitrsResponseStatus :: Lens' ListHITsResponse Int
 lhitrsResponseStatus = lens _lhitrsResponseStatus (\ s a -> s{_lhitrsResponseStatus = a});
 
-instance NFData ListHITsResponse
+instance NFData ListHITsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.SendEmail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,12 +59,12 @@ module Network.AWS.SES.SendEmail
     , sersMessageId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to send a single formatted email using Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html Amazon SES Developer Guide> .
 --
@@ -72,16 +72,17 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendEmail' smart constructor.
 data SendEmail = SendEmail'
-    { _seReturnPath           :: !(Maybe Text)
-    , _seConfigurationSetName :: !(Maybe Text)
-    , _seSourceARN            :: !(Maybe Text)
-    , _seReturnPathARN        :: !(Maybe Text)
-    , _seTags                 :: !(Maybe [MessageTag])
-    , _seReplyToAddresses     :: !(Maybe [Text])
-    , _seSource               :: !Text
-    , _seDestination          :: !Destination
-    , _seMessage              :: !Message
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seReturnPath           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seConfigurationSetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seSourceARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seReturnPathARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seTags                 :: {-# NOUNPACK #-}!(Maybe [MessageTag])
+  , _seReplyToAddresses     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _seSource               :: {-# NOUNPACK #-}!Text
+  , _seDestination          :: {-# NOUNPACK #-}!Destination
+  , _seMessage              :: {-# NOUNPACK #-}!Message
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendEmail' with the minimum fields required to make a request.
 --
@@ -110,17 +111,18 @@ sendEmail
     -> Message -- ^ 'seMessage'
     -> SendEmail
 sendEmail pSource_ pDestination_ pMessage_ =
-    SendEmail'
-    { _seReturnPath = Nothing
-    , _seConfigurationSetName = Nothing
-    , _seSourceARN = Nothing
-    , _seReturnPathARN = Nothing
-    , _seTags = Nothing
-    , _seReplyToAddresses = Nothing
-    , _seSource = pSource_
-    , _seDestination = pDestination_
-    , _seMessage = pMessage_
-    }
+  SendEmail'
+  { _seReturnPath = Nothing
+  , _seConfigurationSetName = Nothing
+  , _seSourceARN = Nothing
+  , _seReturnPathARN = Nothing
+  , _seTags = Nothing
+  , _seReplyToAddresses = Nothing
+  , _seSource = pSource_
+  , _seDestination = pDestination_
+  , _seMessage = pMessage_
+  }
+
 
 -- | The email address to which bounces and complaints are to be forwarded when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
 seReturnPath :: Lens' SendEmail (Maybe Text)
@@ -167,9 +169,9 @@ instance AWSRequest SendEmail where
                  SendEmailResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "MessageId"))
 
-instance Hashable SendEmail
+instance Hashable SendEmail where
 
-instance NFData SendEmail
+instance NFData SendEmail where
 
 instance ToHeaders SendEmail where
         toHeaders = const mempty
@@ -200,9 +202,10 @@ instance ToQuery SendEmail where
 --
 -- /See:/ 'sendEmailResponse' smart constructor.
 data SendEmailResponse = SendEmailResponse'
-    { _sersResponseStatus :: !Int
-    , _sersMessageId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sersResponseStatus :: {-# NOUNPACK #-}!Int
+  , _sersMessageId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendEmailResponse' with the minimum fields required to make a request.
 --
@@ -216,10 +219,9 @@ sendEmailResponse
     -> Text -- ^ 'sersMessageId'
     -> SendEmailResponse
 sendEmailResponse pResponseStatus_ pMessageId_ =
-    SendEmailResponse'
-    { _sersResponseStatus = pResponseStatus_
-    , _sersMessageId = pMessageId_
-    }
+  SendEmailResponse'
+  {_sersResponseStatus = pResponseStatus_, _sersMessageId = pMessageId_}
+
 
 -- | -- | The response status code.
 sersResponseStatus :: Lens' SendEmailResponse Int
@@ -229,4 +231,4 @@ sersResponseStatus = lens _sersResponseStatus (\ s a -> s{_sersResponseStatus = 
 sersMessageId :: Lens' SendEmailResponse Text
 sersMessageId = lens _sersMessageId (\ s a -> s{_sersMessageId = a});
 
-instance NFData SendEmailResponse
+instance NFData SendEmailResponse where

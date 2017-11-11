@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     , AbortEnvironmentUpdateResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'abortEnvironmentUpdate' smart constructor.
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
-    { _aeuEnvironmentName :: !(Maybe Text)
-    , _aeuEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aeuEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeuEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortEnvironmentUpdate' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
 abortEnvironmentUpdate
     :: AbortEnvironmentUpdate
 abortEnvironmentUpdate =
-    AbortEnvironmentUpdate'
-    { _aeuEnvironmentName = Nothing
-    , _aeuEnvironmentId = Nothing
-    }
+  AbortEnvironmentUpdate'
+  {_aeuEnvironmentName = Nothing, _aeuEnvironmentId = Nothing}
+
 
 -- | This specifies the name of the environment with the in-progress update that you want to cancel.
 aeuEnvironmentName :: Lens' AbortEnvironmentUpdate (Maybe Text)
@@ -82,9 +82,9 @@ instance AWSRequest AbortEnvironmentUpdate where
         response
           = receiveNull AbortEnvironmentUpdateResponse'
 
-instance Hashable AbortEnvironmentUpdate
+instance Hashable AbortEnvironmentUpdate where
 
-instance NFData AbortEnvironmentUpdate
+instance NFData AbortEnvironmentUpdate where
 
 instance ToHeaders AbortEnvironmentUpdate where
         toHeaders = const mempty
@@ -103,8 +103,9 @@ instance ToQuery AbortEnvironmentUpdate where
 
 -- | /See:/ 'abortEnvironmentUpdateResponse' smart constructor.
 data AbortEnvironmentUpdateResponse =
-    AbortEnvironmentUpdateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AbortEnvironmentUpdateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortEnvironmentUpdateResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +113,5 @@ abortEnvironmentUpdateResponse
     :: AbortEnvironmentUpdateResponse
 abortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'
 
-instance NFData AbortEnvironmentUpdateResponse
+
+instance NFData AbortEnvironmentUpdateResponse where

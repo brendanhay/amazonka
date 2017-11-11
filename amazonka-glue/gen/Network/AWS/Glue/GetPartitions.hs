@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetPartitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,23 +44,24 @@ module Network.AWS.Glue.GetPartitions
     , gpsrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getPartitions' smart constructor.
 data GetPartitions = GetPartitions'
-    { _gpsCatalogId    :: !(Maybe Text)
-    , _gpsNextToken    :: !(Maybe Text)
-    , _gpsExpression   :: !(Maybe Text)
-    , _gpsSegment      :: !(Maybe Segment)
-    , _gpsMaxResults   :: !(Maybe Nat)
-    , _gpsDatabaseName :: !Text
-    , _gpsTableName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpsCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpsNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpsExpression   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpsSegment      :: {-# NOUNPACK #-}!(Maybe Segment)
+  , _gpsMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gpsDatabaseName :: {-# NOUNPACK #-}!Text
+  , _gpsTableName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPartitions' with the minimum fields required to make a request.
 --
@@ -84,15 +85,16 @@ getPartitions
     -> Text -- ^ 'gpsTableName'
     -> GetPartitions
 getPartitions pDatabaseName_ pTableName_ =
-    GetPartitions'
-    { _gpsCatalogId = Nothing
-    , _gpsNextToken = Nothing
-    , _gpsExpression = Nothing
-    , _gpsSegment = Nothing
-    , _gpsMaxResults = Nothing
-    , _gpsDatabaseName = pDatabaseName_
-    , _gpsTableName = pTableName_
-    }
+  GetPartitions'
+  { _gpsCatalogId = Nothing
+  , _gpsNextToken = Nothing
+  , _gpsExpression = Nothing
+  , _gpsSegment = Nothing
+  , _gpsMaxResults = Nothing
+  , _gpsDatabaseName = pDatabaseName_
+  , _gpsTableName = pTableName_
+  }
+
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
 gpsCatalogId :: Lens' GetPartitions (Maybe Text)
@@ -133,9 +135,9 @@ instance AWSRequest GetPartitions where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetPartitions
+instance Hashable GetPartitions where
 
-instance NFData GetPartitions
+instance NFData GetPartitions where
 
 instance ToHeaders GetPartitions where
         toHeaders
@@ -166,10 +168,11 @@ instance ToQuery GetPartitions where
 
 -- | /See:/ 'getPartitionsResponse' smart constructor.
 data GetPartitionsResponse = GetPartitionsResponse'
-    { _gpsrsPartitions     :: !(Maybe [Partition])
-    , _gpsrsNextToken      :: !(Maybe Text)
-    , _gpsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpsrsPartitions     :: {-# NOUNPACK #-}!(Maybe [Partition])
+  , _gpsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPartitionsResponse' with the minimum fields required to make a request.
 --
@@ -184,11 +187,12 @@ getPartitionsResponse
     :: Int -- ^ 'gpsrsResponseStatus'
     -> GetPartitionsResponse
 getPartitionsResponse pResponseStatus_ =
-    GetPartitionsResponse'
-    { _gpsrsPartitions = Nothing
-    , _gpsrsNextToken = Nothing
-    , _gpsrsResponseStatus = pResponseStatus_
-    }
+  GetPartitionsResponse'
+  { _gpsrsPartitions = Nothing
+  , _gpsrsNextToken = Nothing
+  , _gpsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of requested partitions.
 gpsrsPartitions :: Lens' GetPartitionsResponse [Partition]
@@ -202,4 +206,4 @@ gpsrsNextToken = lens _gpsrsNextToken (\ s a -> s{_gpsrsNextToken = a});
 gpsrsResponseStatus :: Lens' GetPartitionsResponse Int
 gpsrsResponseStatus = lens _gpsrsResponseStatus (\ s a -> s{_gpsrsResponseStatus = a});
 
-instance NFData GetPartitionsResponse
+instance NFData GetPartitionsResponse where

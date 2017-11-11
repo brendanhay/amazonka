@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.StopDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CodeDeploy.StopDeployment
     , sdrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a StopDeployment operation.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'stopDeployment' smart constructor.
 data StopDeployment = StopDeployment'
-    { _sdAutoRollbackEnabled :: !(Maybe Bool)
-    , _sdDeploymentId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdAutoRollbackEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sdDeploymentId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopDeployment' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ stopDeployment
     :: Text -- ^ 'sdDeploymentId'
     -> StopDeployment
 stopDeployment pDeploymentId_ =
-    StopDeployment'
-    { _sdAutoRollbackEnabled = Nothing
-    , _sdDeploymentId = pDeploymentId_
-    }
+  StopDeployment'
+  {_sdAutoRollbackEnabled = Nothing, _sdDeploymentId = pDeploymentId_}
+
 
 -- | Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
 sdAutoRollbackEnabled :: Lens' StopDeployment (Maybe Bool)
@@ -90,9 +90,9 @@ instance AWSRequest StopDeployment where
                    (x .?> "status") <*> (x .?> "statusMessage") <*>
                      (pure (fromEnum s)))
 
-instance Hashable StopDeployment
+instance Hashable StopDeployment where
 
-instance NFData StopDeployment
+instance NFData StopDeployment where
 
 instance ToHeaders StopDeployment where
         toHeaders
@@ -123,10 +123,11 @@ instance ToQuery StopDeployment where
 --
 -- /See:/ 'stopDeploymentResponse' smart constructor.
 data StopDeploymentResponse = StopDeploymentResponse'
-    { _sdrsStatus         :: !(Maybe StopStatus)
-    , _sdrsStatusMessage  :: !(Maybe Text)
-    , _sdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdrsStatus         :: {-# NOUNPACK #-}!(Maybe StopStatus)
+  , _sdrsStatusMessage  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopDeploymentResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +142,12 @@ stopDeploymentResponse
     :: Int -- ^ 'sdrsResponseStatus'
     -> StopDeploymentResponse
 stopDeploymentResponse pResponseStatus_ =
-    StopDeploymentResponse'
-    { _sdrsStatus = Nothing
-    , _sdrsStatusMessage = Nothing
-    , _sdrsResponseStatus = pResponseStatus_
-    }
+  StopDeploymentResponse'
+  { _sdrsStatus = Nothing
+  , _sdrsStatusMessage = Nothing
+  , _sdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the stop deployment operation:     * Pending: The stop operation is pending.     * Succeeded: The stop operation was successful.
 sdrsStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
@@ -159,4 +161,4 @@ sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a})
 sdrsResponseStatus :: Lens' StopDeploymentResponse Int
 sdrsResponseStatus = lens _sdrsResponseStatus (\ s a -> s{_sdrsResponseStatus = a});
 
-instance NFData StopDeploymentResponse
+instance NFData StopDeploymentResponse where

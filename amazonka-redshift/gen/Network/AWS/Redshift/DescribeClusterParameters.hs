@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,13 +47,13 @@ module Network.AWS.Redshift.DescribeClusterParameters
     , dcprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,11 +61,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeClusterParameters' smart constructor.
 data DescribeClusterParameters = DescribeClusterParameters'
-    { _dcpsMarker             :: !(Maybe Text)
-    , _dcpsMaxRecords         :: !(Maybe Int)
-    , _dcpsSource             :: !(Maybe Text)
-    , _dcpsParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcpsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcpsMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcpsSource             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcpsParameterGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterParameters' with the minimum fields required to make a request.
 --
@@ -82,12 +83,13 @@ describeClusterParameters
     :: Text -- ^ 'dcpsParameterGroupName'
     -> DescribeClusterParameters
 describeClusterParameters pParameterGroupName_ =
-    DescribeClusterParameters'
-    { _dcpsMarker = Nothing
-    , _dcpsMaxRecords = Nothing
-    , _dcpsSource = Nothing
-    , _dcpsParameterGroupName = pParameterGroupName_
-    }
+  DescribeClusterParameters'
+  { _dcpsMarker = Nothing
+  , _dcpsMaxRecords = Nothing
+  , _dcpsSource = Nothing
+  , _dcpsParameterGroupName = pParameterGroupName_
+  }
+
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 dcpsMarker :: Lens' DescribeClusterParameters (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest DescribeClusterParameters where
                         may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeClusterParameters
+instance Hashable DescribeClusterParameters where
 
-instance NFData DescribeClusterParameters
+instance NFData DescribeClusterParameters where
 
 instance ToHeaders DescribeClusterParameters where
         toHeaders = const mempty
@@ -152,10 +154,11 @@ instance ToQuery DescribeClusterParameters where
 --
 -- /See:/ 'describeClusterParametersResponse' smart constructor.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
-    { _dcprsMarker         :: !(Maybe Text)
-    , _dcprsParameters     :: !(Maybe [Parameter])
-    , _dcprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _dcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterParametersResponse' with the minimum fields required to make a request.
 --
@@ -170,11 +173,12 @@ describeClusterParametersResponse
     :: Int -- ^ 'dcprsResponseStatus'
     -> DescribeClusterParametersResponse
 describeClusterParametersResponse pResponseStatus_ =
-    DescribeClusterParametersResponse'
-    { _dcprsMarker = Nothing
-    , _dcprsParameters = Nothing
-    , _dcprsResponseStatus = pResponseStatus_
-    }
+  DescribeClusterParametersResponse'
+  { _dcprsMarker = Nothing
+  , _dcprsParameters = Nothing
+  , _dcprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 dcprsMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
@@ -189,3 +193,4 @@ dcprsResponseStatus :: Lens' DescribeClusterParametersResponse Int
 dcprsResponseStatus = lens _dcprsResponseStatus (\ s a -> s{_dcprsResponseStatus = a});
 
 instance NFData DescribeClusterParametersResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation
     , riaparsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'replaceIAMInstanceProfileAssociation' smart constructor.
 data ReplaceIAMInstanceProfileAssociation = ReplaceIAMInstanceProfileAssociation'
-    { _riapaIAMInstanceProfile :: !IAMInstanceProfileSpecification
-    , _riapaAssociationId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riapaIAMInstanceProfile :: {-# NOUNPACK #-}!IAMInstanceProfileSpecification
+  , _riapaAssociationId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceIAMInstanceProfileAssociation' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ replaceIAMInstanceProfileAssociation
     -> Text -- ^ 'riapaAssociationId'
     -> ReplaceIAMInstanceProfileAssociation
 replaceIAMInstanceProfileAssociation pIAMInstanceProfile_ pAssociationId_ =
-    ReplaceIAMInstanceProfileAssociation'
-    { _riapaIAMInstanceProfile = pIAMInstanceProfile_
-    , _riapaAssociationId = pAssociationId_
-    }
+  ReplaceIAMInstanceProfileAssociation'
+  { _riapaIAMInstanceProfile = pIAMInstanceProfile_
+  , _riapaAssociationId = pAssociationId_
+  }
+
 
 -- | The IAM instance profile.
 riapaIAMInstanceProfile :: Lens' ReplaceIAMInstanceProfileAssociation IAMInstanceProfileSpecification
@@ -79,7 +81,8 @@ riapaAssociationId :: Lens' ReplaceIAMInstanceProfileAssociation Text
 riapaAssociationId = lens _riapaAssociationId (\ s a -> s{_riapaAssociationId = a});
 
 instance AWSRequest
-         ReplaceIAMInstanceProfileAssociation where
+           ReplaceIAMInstanceProfileAssociation
+         where
         type Rs ReplaceIAMInstanceProfileAssociation =
              ReplaceIAMInstanceProfileAssociationResponse
         request = postQuery ec2
@@ -91,12 +94,15 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable
-         ReplaceIAMInstanceProfileAssociation
+           ReplaceIAMInstanceProfileAssociation
+         where
 
 instance NFData ReplaceIAMInstanceProfileAssociation
+         where
 
 instance ToHeaders
-         ReplaceIAMInstanceProfileAssociation where
+           ReplaceIAMInstanceProfileAssociation
+         where
         toHeaders = const mempty
 
 instance ToPath ReplaceIAMInstanceProfileAssociation
@@ -116,9 +122,10 @@ instance ToQuery ReplaceIAMInstanceProfileAssociation
 
 -- | /See:/ 'replaceIAMInstanceProfileAssociationResponse' smart constructor.
 data ReplaceIAMInstanceProfileAssociationResponse = ReplaceIAMInstanceProfileAssociationResponse'
-    { _riaparsIAMInstanceProfileAssociation :: !(Maybe IAMInstanceProfileAssociation)
-    , _riaparsResponseStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riaparsIAMInstanceProfileAssociation :: {-# NOUNPACK #-}!(Maybe IAMInstanceProfileAssociation)
+  , _riaparsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceIAMInstanceProfileAssociationResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +138,11 @@ replaceIAMInstanceProfileAssociationResponse
     :: Int -- ^ 'riaparsResponseStatus'
     -> ReplaceIAMInstanceProfileAssociationResponse
 replaceIAMInstanceProfileAssociationResponse pResponseStatus_ =
-    ReplaceIAMInstanceProfileAssociationResponse'
-    { _riaparsIAMInstanceProfileAssociation = Nothing
-    , _riaparsResponseStatus = pResponseStatus_
-    }
+  ReplaceIAMInstanceProfileAssociationResponse'
+  { _riaparsIAMInstanceProfileAssociation = Nothing
+  , _riaparsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the IAM instance profile association.
 riaparsIAMInstanceProfileAssociation :: Lens' ReplaceIAMInstanceProfileAssociationResponse (Maybe IAMInstanceProfileAssociation)
@@ -145,4 +153,5 @@ riaparsResponseStatus :: Lens' ReplaceIAMInstanceProfileAssociationResponse Int
 riaparsResponseStatus = lens _riaparsResponseStatus (\ s a -> s{_riaparsResponseStatus = a});
 
 instance NFData
-         ReplaceIAMInstanceProfileAssociationResponse
+           ReplaceIAMInstanceProfileAssociationResponse
+         where

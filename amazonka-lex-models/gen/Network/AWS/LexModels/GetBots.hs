@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBots
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,19 +48,20 @@ module Network.AWS.LexModels.GetBots
     , gbsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBots' smart constructor.
 data GetBots = GetBots'
-    { _gbNameContains :: !(Maybe Text)
-    , _gbNextToken    :: !(Maybe Text)
-    , _gbMaxResults   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbNameContains :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBots' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ data GetBots = GetBots'
 getBots
     :: GetBots
 getBots =
-    GetBots'
-    { _gbNameContains = Nothing
-    , _gbNextToken = Nothing
-    , _gbMaxResults = Nothing
-    }
+  GetBots'
+  {_gbNameContains = Nothing, _gbNextToken = Nothing, _gbMaxResults = Nothing}
+
 
 -- | Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 gbNameContains :: Lens' GetBots (Maybe Text)
@@ -102,9 +101,9 @@ instance AWSRequest GetBots where
                    (x .?> "bots" .!@ mempty) <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetBots
+instance Hashable GetBots where
 
-instance NFData GetBots
+instance NFData GetBots where
 
 instance ToHeaders GetBots where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery GetBots where
 
 -- | /See:/ 'getBotsResponse' smart constructor.
 data GetBotsResponse = GetBotsResponse'
-    { _gbsrsBots           :: !(Maybe [BotMetadata])
-    , _gbsrsNextToken      :: !(Maybe Text)
-    , _gbsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbsrsBots           :: {-# NOUNPACK #-}!(Maybe [BotMetadata])
+  , _gbsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ getBotsResponse
     :: Int -- ^ 'gbsrsResponseStatus'
     -> GetBotsResponse
 getBotsResponse pResponseStatus_ =
-    GetBotsResponse'
-    { _gbsrsBots = Nothing
-    , _gbsrsNextToken = Nothing
-    , _gbsrsResponseStatus = pResponseStatus_
-    }
+  GetBotsResponse'
+  { _gbsrsBots = Nothing
+  , _gbsrsNextToken = Nothing
+  , _gbsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of @botMetadata@ objects, with one entry for each bot.
 gbsrsBots :: Lens' GetBotsResponse [BotMetadata]
@@ -161,4 +162,4 @@ gbsrsNextToken = lens _gbsrsNextToken (\ s a -> s{_gbsrsNextToken = a});
 gbsrsResponseStatus :: Lens' GetBotsResponse Int
 gbsrsResponseStatus = lens _gbsrsResponseStatus (\ s a -> s{_gbsrsResponseStatus = a});
 
-instance NFData GetBotsResponse
+instance NFData GetBotsResponse where

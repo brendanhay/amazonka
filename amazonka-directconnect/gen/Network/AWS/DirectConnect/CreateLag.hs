@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateLag
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,12 +59,12 @@ module Network.AWS.DirectConnect.CreateLag
     , lagRegion
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the CreateLag operation.
 --
@@ -72,12 +72,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createLag' smart constructor.
 data CreateLag = CreateLag'
-    { _clConnectionId         :: !(Maybe Text)
-    , _clNumberOfConnections  :: !Int
-    , _clLocation             :: !Text
-    , _clConnectionsBandwidth :: !Text
-    , _clLagName              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clConnectionId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clNumberOfConnections  :: {-# NOUNPACK #-}!Int
+  , _clLocation             :: {-# NOUNPACK #-}!Text
+  , _clConnectionsBandwidth :: {-# NOUNPACK #-}!Text
+  , _clLagName              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLag' with the minimum fields required to make a request.
 --
@@ -99,13 +100,14 @@ createLag
     -> Text -- ^ 'clLagName'
     -> CreateLag
 createLag pNumberOfConnections_ pLocation_ pConnectionsBandwidth_ pLagName_ =
-    CreateLag'
-    { _clConnectionId = Nothing
-    , _clNumberOfConnections = pNumberOfConnections_
-    , _clLocation = pLocation_
-    , _clConnectionsBandwidth = pConnectionsBandwidth_
-    , _clLagName = pLagName_
-    }
+  CreateLag'
+  { _clConnectionId = Nothing
+  , _clNumberOfConnections = pNumberOfConnections_
+  , _clLocation = pLocation_
+  , _clConnectionsBandwidth = pConnectionsBandwidth_
+  , _clLagName = pLagName_
+  }
+
 
 -- | The ID of an existing connection to migrate to the LAG. Default: None
 clConnectionId :: Lens' CreateLag (Maybe Text)
@@ -132,9 +134,9 @@ instance AWSRequest CreateLag where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateLag
+instance Hashable CreateLag where
 
-instance NFData CreateLag
+instance NFData CreateLag where
 
 instance ToHeaders CreateLag where
         toHeaders

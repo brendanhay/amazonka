@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteIntentVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.LexModels.DeleteIntentVersion
     , DeleteIntentVersionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteIntentVersion' smart constructor.
 data DeleteIntentVersion = DeleteIntentVersion'
-    { _divName    :: !Text
-    , _divVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _divName    :: {-# NOUNPACK #-}!Text
+  , _divVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntentVersion' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteIntentVersion
     -> Text -- ^ 'divVersion'
     -> DeleteIntentVersion
 deleteIntentVersion pName_ pVersion_ =
-    DeleteIntentVersion'
-    { _divName = pName_
-    , _divVersion = pVersion_
-    }
+  DeleteIntentVersion' {_divName = pName_, _divVersion = pVersion_}
+
 
 -- | The name of the intent.
 divName :: Lens' DeleteIntentVersion Text
@@ -81,9 +80,9 @@ instance AWSRequest DeleteIntentVersion where
         request = delete lexModels
         response = receiveNull DeleteIntentVersionResponse'
 
-instance Hashable DeleteIntentVersion
+instance Hashable DeleteIntentVersion where
 
-instance NFData DeleteIntentVersion
+instance NFData DeleteIntentVersion where
 
 instance ToHeaders DeleteIntentVersion where
         toHeaders
@@ -103,8 +102,9 @@ instance ToQuery DeleteIntentVersion where
 
 -- | /See:/ 'deleteIntentVersionResponse' smart constructor.
 data DeleteIntentVersionResponse =
-    DeleteIntentVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteIntentVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntentVersionResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +112,5 @@ deleteIntentVersionResponse
     :: DeleteIntentVersionResponse
 deleteIntentVersionResponse = DeleteIntentVersionResponse'
 
-instance NFData DeleteIntentVersionResponse
+
+instance NFData DeleteIntentVersionResponse where

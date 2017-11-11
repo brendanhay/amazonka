@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,34 +53,35 @@ module Network.AWS.OpsWorks.UpdateStack
     , UpdateStackResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-    { _usDefaultInstanceProfileARN :: !(Maybe Text)
-    , _usServiceRoleARN            :: !(Maybe Text)
-    , _usDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _usChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _usAgentVersion              :: !(Maybe Text)
-    , _usDefaultSSHKeyName         :: !(Maybe Text)
-    , _usCustomJSON                :: !(Maybe Text)
-    , _usCustomCookbooksSource     :: !(Maybe Source)
-    , _usDefaultAvailabilityZone   :: !(Maybe Text)
-    , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _usName                      :: !(Maybe Text)
-    , _usDefaultOS                 :: !(Maybe Text)
-    , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _usUseCustomCookbooks        :: !(Maybe Bool)
-    , _usDefaultSubnetId           :: !(Maybe Text)
-    , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _usHostnameTheme             :: !(Maybe Text)
-    , _usStackId                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usDefaultInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usDefaultRootDeviceType :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
+  , _usChefConfiguration :: {-# NOUNPACK #-}!(Maybe ChefConfiguration)
+  , _usAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usDefaultSSHKeyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usCustomCookbooksSource :: {-# NOUNPACK #-}!(Maybe Source)
+  , _usDefaultAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usAttributes :: {-# NOUNPACK #-}!(Maybe (Map StackAttributesKeys Text))
+  , _usName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usDefaultOS :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usUseOpsworksSecurityGroups :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _usUseCustomCookbooks :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _usDefaultSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
+  , _usHostnameTheme :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usStackId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStack' with the minimum fields required to make a request.
 --
@@ -125,26 +126,27 @@ updateStack
     :: Text -- ^ 'usStackId'
     -> UpdateStack
 updateStack pStackId_ =
-    UpdateStack'
-    { _usDefaultInstanceProfileARN = Nothing
-    , _usServiceRoleARN = Nothing
-    , _usDefaultRootDeviceType = Nothing
-    , _usChefConfiguration = Nothing
-    , _usAgentVersion = Nothing
-    , _usDefaultSSHKeyName = Nothing
-    , _usCustomJSON = Nothing
-    , _usCustomCookbooksSource = Nothing
-    , _usDefaultAvailabilityZone = Nothing
-    , _usAttributes = Nothing
-    , _usName = Nothing
-    , _usDefaultOS = Nothing
-    , _usUseOpsworksSecurityGroups = Nothing
-    , _usUseCustomCookbooks = Nothing
-    , _usDefaultSubnetId = Nothing
-    , _usConfigurationManager = Nothing
-    , _usHostnameTheme = Nothing
-    , _usStackId = pStackId_
-    }
+  UpdateStack'
+  { _usDefaultInstanceProfileARN = Nothing
+  , _usServiceRoleARN = Nothing
+  , _usDefaultRootDeviceType = Nothing
+  , _usChefConfiguration = Nothing
+  , _usAgentVersion = Nothing
+  , _usDefaultSSHKeyName = Nothing
+  , _usCustomJSON = Nothing
+  , _usCustomCookbooksSource = Nothing
+  , _usDefaultAvailabilityZone = Nothing
+  , _usAttributes = Nothing
+  , _usName = Nothing
+  , _usDefaultOS = Nothing
+  , _usUseOpsworksSecurityGroups = Nothing
+  , _usUseCustomCookbooks = Nothing
+  , _usDefaultSubnetId = Nothing
+  , _usConfigurationManager = Nothing
+  , _usHostnameTheme = Nothing
+  , _usStackId = pStackId_
+  }
+
 
 -- | The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 usDefaultInstanceProfileARN :: Lens' UpdateStack (Maybe Text)
@@ -223,9 +225,9 @@ instance AWSRequest UpdateStack where
         request = postJSON opsWorks
         response = receiveNull UpdateStackResponse'
 
-instance Hashable UpdateStack
+instance Hashable UpdateStack where
 
-instance NFData UpdateStack
+instance NFData UpdateStack where
 
 instance ToHeaders UpdateStack where
         toHeaders
@@ -273,8 +275,9 @@ instance ToQuery UpdateStack where
 
 -- | /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse =
-    UpdateStackResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateStackResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStackResponse' with the minimum fields required to make a request.
 --
@@ -282,4 +285,5 @@ updateStackResponse
     :: UpdateStackResponse
 updateStackResponse = UpdateStackResponse'
 
-instance NFData UpdateStackResponse
+
+instance NFData UpdateStackResponse where

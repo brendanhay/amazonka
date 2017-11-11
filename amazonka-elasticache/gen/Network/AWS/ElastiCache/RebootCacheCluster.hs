@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.RebootCacheCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     , rccrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @RebootCacheCluster@ operation.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'rebootCacheCluster' smart constructor.
 data RebootCacheCluster = RebootCacheCluster'
-    { _rccCacheClusterId       :: !Text
-    , _rccCacheNodeIdsToReboot :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rccCacheClusterId       :: {-# NOUNPACK #-}!Text
+  , _rccCacheNodeIdsToReboot :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootCacheCluster' with the minimum fields required to make a request.
 --
@@ -70,10 +71,9 @@ rebootCacheCluster
     :: Text -- ^ 'rccCacheClusterId'
     -> RebootCacheCluster
 rebootCacheCluster pCacheClusterId_ =
-    RebootCacheCluster'
-    { _rccCacheClusterId = pCacheClusterId_
-    , _rccCacheNodeIdsToReboot = mempty
-    }
+  RebootCacheCluster'
+  {_rccCacheClusterId = pCacheClusterId_, _rccCacheNodeIdsToReboot = mempty}
+
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase string.
 rccCacheClusterId :: Lens' RebootCacheCluster Text
@@ -93,9 +93,9 @@ instance AWSRequest RebootCacheCluster where
                  RebootCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
-instance Hashable RebootCacheCluster
+instance Hashable RebootCacheCluster where
 
-instance NFData RebootCacheCluster
+instance NFData RebootCacheCluster where
 
 instance ToHeaders RebootCacheCluster where
         toHeaders = const mempty
@@ -114,9 +114,10 @@ instance ToQuery RebootCacheCluster where
 
 -- | /See:/ 'rebootCacheClusterResponse' smart constructor.
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
-    { _rccrsCacheCluster   :: !(Maybe CacheCluster)
-    , _rccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rccrsCacheCluster   :: {-# NOUNPACK #-}!(Maybe CacheCluster)
+  , _rccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootCacheClusterResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ rebootCacheClusterResponse
     :: Int -- ^ 'rccrsResponseStatus'
     -> RebootCacheClusterResponse
 rebootCacheClusterResponse pResponseStatus_ =
-    RebootCacheClusterResponse'
-    { _rccrsCacheCluster = Nothing
-    , _rccrsResponseStatus = pResponseStatus_
-    }
+  RebootCacheClusterResponse'
+  {_rccrsCacheCluster = Nothing, _rccrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
@@ -142,4 +142,4 @@ rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a})
 rccrsResponseStatus :: Lens' RebootCacheClusterResponse Int
 rccrsResponseStatus = lens _rccrsResponseStatus (\ s a -> s{_rccrsResponseStatus = a});
 
-instance NFData RebootCacheClusterResponse
+instance NFData RebootCacheClusterResponse where

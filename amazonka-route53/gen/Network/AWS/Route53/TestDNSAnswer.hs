@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.TestDNSAnswer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.Route53.TestDNSAnswer
     , tdarsProtocol
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
 --
@@ -60,13 +60,14 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'testDNSAnswer' smart constructor.
 data TestDNSAnswer = TestDNSAnswer'
-    { _tdaResolverIP            :: !(Maybe Text)
-    , _tdaEDNS0ClientSubnetIP   :: !(Maybe Text)
-    , _tdaEDNS0ClientSubnetMask :: !(Maybe Text)
-    , _tdaHostedZoneId          :: !ResourceId
-    , _tdaRecordName            :: !Text
-    , _tdaRecordType            :: !RecordType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tdaResolverIP            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdaEDNS0ClientSubnetIP   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdaEDNS0ClientSubnetMask :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdaHostedZoneId          :: {-# NOUNPACK #-}!ResourceId
+  , _tdaRecordName            :: {-# NOUNPACK #-}!Text
+  , _tdaRecordType            :: {-# NOUNPACK #-}!RecordType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestDNSAnswer' with the minimum fields required to make a request.
 --
@@ -89,14 +90,15 @@ testDNSAnswer
     -> RecordType -- ^ 'tdaRecordType'
     -> TestDNSAnswer
 testDNSAnswer pHostedZoneId_ pRecordName_ pRecordType_ =
-    TestDNSAnswer'
-    { _tdaResolverIP = Nothing
-    , _tdaEDNS0ClientSubnetIP = Nothing
-    , _tdaEDNS0ClientSubnetMask = Nothing
-    , _tdaHostedZoneId = pHostedZoneId_
-    , _tdaRecordName = pRecordName_
-    , _tdaRecordType = pRecordType_
-    }
+  TestDNSAnswer'
+  { _tdaResolverIP = Nothing
+  , _tdaEDNS0ClientSubnetIP = Nothing
+  , _tdaEDNS0ClientSubnetMask = Nothing
+  , _tdaHostedZoneId = pHostedZoneId_
+  , _tdaRecordName = pRecordName_
+  , _tdaRecordType = pRecordType_
+  }
+
 
 -- | If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region (@us-east-1@ ).
 tdaResolverIP :: Lens' TestDNSAnswer (Maybe Text)
@@ -138,9 +140,9 @@ instance AWSRequest TestDNSAnswer where
                      <*> (x .@ "ResponseCode")
                      <*> (x .@ "Protocol"))
 
-instance Hashable TestDNSAnswer
+instance Hashable TestDNSAnswer where
 
-instance NFData TestDNSAnswer
+instance NFData TestDNSAnswer where
 
 instance ToHeaders TestDNSAnswer where
         toHeaders = const mempty
@@ -164,14 +166,15 @@ instance ToQuery TestDNSAnswer where
 --
 -- /See:/ 'testDNSAnswerResponse' smart constructor.
 data TestDNSAnswerResponse = TestDNSAnswerResponse'
-    { _tdarsResponseStatus :: !Int
-    , _tdarsNameserver     :: !Text
-    , _tdarsRecordName     :: !Text
-    , _tdarsRecordType     :: !RecordType
-    , _tdarsRecordData     :: ![Text]
-    , _tdarsResponseCode   :: !Text
-    , _tdarsProtocol       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tdarsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _tdarsNameserver     :: {-# NOUNPACK #-}!Text
+  , _tdarsRecordName     :: {-# NOUNPACK #-}!Text
+  , _tdarsRecordType     :: {-# NOUNPACK #-}!RecordType
+  , _tdarsRecordData     :: {-# NOUNPACK #-}![Text]
+  , _tdarsResponseCode   :: {-# NOUNPACK #-}!Text
+  , _tdarsProtocol       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestDNSAnswerResponse' with the minimum fields required to make a request.
 --
@@ -199,15 +202,16 @@ testDNSAnswerResponse
     -> Text -- ^ 'tdarsProtocol'
     -> TestDNSAnswerResponse
 testDNSAnswerResponse pResponseStatus_ pNameserver_ pRecordName_ pRecordType_ pResponseCode_ pProtocol_ =
-    TestDNSAnswerResponse'
-    { _tdarsResponseStatus = pResponseStatus_
-    , _tdarsNameserver = pNameserver_
-    , _tdarsRecordName = pRecordName_
-    , _tdarsRecordType = pRecordType_
-    , _tdarsRecordData = mempty
-    , _tdarsResponseCode = pResponseCode_
-    , _tdarsProtocol = pProtocol_
-    }
+  TestDNSAnswerResponse'
+  { _tdarsResponseStatus = pResponseStatus_
+  , _tdarsNameserver = pNameserver_
+  , _tdarsRecordName = pRecordName_
+  , _tdarsRecordType = pRecordType_
+  , _tdarsRecordData = mempty
+  , _tdarsResponseCode = pResponseCode_
+  , _tdarsProtocol = pProtocol_
+  }
+
 
 -- | -- | The response status code.
 tdarsResponseStatus :: Lens' TestDNSAnswerResponse Int
@@ -237,4 +241,4 @@ tdarsResponseCode = lens _tdarsResponseCode (\ s a -> s{_tdarsResponseCode = a})
 tdarsProtocol :: Lens' TestDNSAnswerResponse Text
 tdarsProtocol = lens _tdarsProtocol (\ s a -> s{_tdarsProtocol = a});
 
-instance NFData TestDNSAnswerResponse
+instance NFData TestDNSAnswerResponse where

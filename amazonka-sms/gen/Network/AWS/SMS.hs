@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -187,19 +187,19 @@ module Network.AWS.SMS
     , vmsaVmId
     ) where
 
-import           Network.AWS.SMS.CreateReplicationJob
-import           Network.AWS.SMS.DeleteReplicationJob
-import           Network.AWS.SMS.DeleteServerCatalog
-import           Network.AWS.SMS.DisassociateConnector
-import           Network.AWS.SMS.GetConnectors
-import           Network.AWS.SMS.GetReplicationJobs
-import           Network.AWS.SMS.GetReplicationRuns
-import           Network.AWS.SMS.GetServers
-import           Network.AWS.SMS.ImportServerCatalog
-import           Network.AWS.SMS.StartOnDemandReplicationRun
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.UpdateReplicationJob
-import           Network.AWS.SMS.Waiters
+import Network.AWS.SMS.CreateReplicationJob
+import Network.AWS.SMS.DeleteReplicationJob
+import Network.AWS.SMS.DeleteServerCatalog
+import Network.AWS.SMS.DisassociateConnector
+import Network.AWS.SMS.GetConnectors
+import Network.AWS.SMS.GetReplicationJobs
+import Network.AWS.SMS.GetReplicationRuns
+import Network.AWS.SMS.GetServers
+import Network.AWS.SMS.ImportServerCatalog
+import Network.AWS.SMS.StartOnDemandReplicationRun
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.UpdateReplicationJob
+import Network.AWS.SMS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Polly.DeleteLexicon
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Polly.DeleteLexicon
     , dlrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Polly.Types
-import           Network.AWS.Polly.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Polly.Types
+import Network.AWS.Polly.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLexicon' smart constructor.
 newtype DeleteLexicon = DeleteLexicon'
-    { _dlName :: Sensitive Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dlName :: Sensitive Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLexicon' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteLexicon = DeleteLexicon'
 deleteLexicon
     :: Text -- ^ 'dlName'
     -> DeleteLexicon
-deleteLexicon pName_ =
-    DeleteLexicon'
-    { _dlName = _Sensitive # pName_
-    }
+deleteLexicon pName_ = DeleteLexicon' {_dlName = _Sensitive # pName_}
+
 
 -- | The name of the lexicon to delete. Must be an existing lexicon in the region.
 dlName :: Lens' DeleteLexicon Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteLexicon where
               (\ s h x ->
                  DeleteLexiconResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteLexicon
+instance Hashable DeleteLexicon where
 
-instance NFData DeleteLexicon
+instance NFData DeleteLexicon where
 
 instance ToHeaders DeleteLexicon where
         toHeaders = const mempty
@@ -91,8 +90,9 @@ instance ToQuery DeleteLexicon where
 
 -- | /See:/ 'deleteLexiconResponse' smart constructor.
 newtype DeleteLexiconResponse = DeleteLexiconResponse'
-    { _dlrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLexiconResponse' with the minimum fields required to make a request.
 --
@@ -103,12 +103,11 @@ deleteLexiconResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DeleteLexiconResponse
 deleteLexiconResponse pResponseStatus_ =
-    DeleteLexiconResponse'
-    { _dlrsResponseStatus = pResponseStatus_
-    }
+  DeleteLexiconResponse' {_dlrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DeleteLexiconResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 
-instance NFData DeleteLexiconResponse
+instance NFData DeleteLexiconResponse where

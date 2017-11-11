@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.GameLift.DescribeInstances
     , dirsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -56,11 +56,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
-    { _diInstanceId :: !(Maybe Text)
-    , _diNextToken  :: !(Maybe Text)
-    , _diLimit      :: !(Maybe Nat)
-    , _diFleetId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _diFleetId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstances' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ describeInstances
     :: Text -- ^ 'diFleetId'
     -> DescribeInstances
 describeInstances pFleetId_ =
-    DescribeInstances'
-    { _diInstanceId = Nothing
-    , _diNextToken = Nothing
-    , _diLimit = Nothing
-    , _diFleetId = pFleetId_
-    }
+  DescribeInstances'
+  { _diInstanceId = Nothing
+  , _diNextToken = Nothing
+  , _diLimit = Nothing
+  , _diFleetId = pFleetId_
+  }
+
 
 -- | Unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
 diInstanceId :: Lens' DescribeInstances (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest DescribeInstances where
                      (x .?> "Instances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeInstances
+instance Hashable DescribeInstances where
 
-instance NFData DescribeInstances
+instance NFData DescribeInstances where
 
 instance ToHeaders DescribeInstances where
         toHeaders
@@ -145,10 +147,11 @@ instance ToQuery DescribeInstances where
 --
 -- /See:/ 'describeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-    { _dirsNextToken      :: !(Maybe Text)
-    , _dirsInstances      :: !(Maybe [Instance])
-    , _dirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dirsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
+  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstancesResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +166,12 @@ describeInstancesResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DescribeInstancesResponse
 describeInstancesResponse pResponseStatus_ =
-    DescribeInstancesResponse'
-    { _dirsNextToken = Nothing
-    , _dirsInstances = Nothing
-    , _dirsResponseStatus = pResponseStatus_
-    }
+  DescribeInstancesResponse'
+  { _dirsNextToken = Nothing
+  , _dirsInstances = Nothing
+  , _dirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dirsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
@@ -181,4 +185,4 @@ dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default 
 dirsResponseStatus :: Lens' DescribeInstancesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 
-instance NFData DescribeInstancesResponse
+instance NFData DescribeInstancesResponse where

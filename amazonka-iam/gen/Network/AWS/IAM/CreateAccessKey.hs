@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateAccessKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,17 +43,18 @@ module Network.AWS.IAM.CreateAccessKey
     , cakrsAccessKey
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAccessKey' smart constructor.
 newtype CreateAccessKey = CreateAccessKey'
-    { _cakUserName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cakUserName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAccessKey' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype CreateAccessKey = CreateAccessKey'
 -- * 'cakUserName' - The name of the IAM user that the new key will belong to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 createAccessKey
     :: CreateAccessKey
-createAccessKey =
-    CreateAccessKey'
-    { _cakUserName = Nothing
-    }
+createAccessKey = CreateAccessKey' {_cakUserName = Nothing}
+
 
 -- | The name of the IAM user that the new key will belong to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
@@ -80,9 +79,9 @@ instance AWSRequest CreateAccessKey where
                  CreateAccessKeyResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AccessKey"))
 
-instance Hashable CreateAccessKey
+instance Hashable CreateAccessKey where
 
-instance NFData CreateAccessKey
+instance NFData CreateAccessKey where
 
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
@@ -103,9 +102,10 @@ instance ToQuery CreateAccessKey where
 --
 -- /See:/ 'createAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-    { _cakrsResponseStatus :: !Int
-    , _cakrsAccessKey      :: !AccessKeyInfo
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cakrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _cakrsAccessKey      :: {-# NOUNPACK #-}!AccessKeyInfo
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAccessKeyResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +119,9 @@ createAccessKeyResponse
     -> AccessKeyInfo -- ^ 'cakrsAccessKey'
     -> CreateAccessKeyResponse
 createAccessKeyResponse pResponseStatus_ pAccessKey_ =
-    CreateAccessKeyResponse'
-    { _cakrsResponseStatus = pResponseStatus_
-    , _cakrsAccessKey = pAccessKey_
-    }
+  CreateAccessKeyResponse'
+  {_cakrsResponseStatus = pResponseStatus_, _cakrsAccessKey = pAccessKey_}
+
 
 -- | -- | The response status code.
 cakrsResponseStatus :: Lens' CreateAccessKeyResponse Int
@@ -132,4 +131,4 @@ cakrsResponseStatus = lens _cakrsResponseStatus (\ s a -> s{_cakrsResponseStatus
 cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKeyInfo
 cakrsAccessKey = lens _cakrsAccessKey (\ s a -> s{_cakrsAccessKey = a});
 
-instance NFData CreateAccessKeyResponse
+instance NFData CreateAccessKeyResponse where

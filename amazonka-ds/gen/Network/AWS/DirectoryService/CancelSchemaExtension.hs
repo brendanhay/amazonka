@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CancelSchemaExtension
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.DirectoryService.CancelSchemaExtension
     , csersResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelSchemaExtension' smart constructor.
 data CancelSchemaExtension = CancelSchemaExtension'
-    { _cseDirectoryId       :: !Text
-    , _cseSchemaExtensionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cseDirectoryId       :: {-# NOUNPACK #-}!Text
+  , _cseSchemaExtensionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelSchemaExtension' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ cancelSchemaExtension
     -> Text -- ^ 'cseSchemaExtensionId'
     -> CancelSchemaExtension
 cancelSchemaExtension pDirectoryId_ pSchemaExtensionId_ =
-    CancelSchemaExtension'
-    { _cseDirectoryId = pDirectoryId_
-    , _cseSchemaExtensionId = pSchemaExtensionId_
-    }
+  CancelSchemaExtension'
+  {_cseDirectoryId = pDirectoryId_, _cseSchemaExtensionId = pSchemaExtensionId_}
+
 
 -- | The identifier of the directory whose schema extension will be canceled.
 cseDirectoryId :: Lens' CancelSchemaExtension Text
@@ -85,9 +85,9 @@ instance AWSRequest CancelSchemaExtension where
                  CancelSchemaExtensionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CancelSchemaExtension
+instance Hashable CancelSchemaExtension where
 
-instance NFData CancelSchemaExtension
+instance NFData CancelSchemaExtension where
 
 instance ToHeaders CancelSchemaExtension where
         toHeaders
@@ -114,8 +114,9 @@ instance ToQuery CancelSchemaExtension where
 
 -- | /See:/ 'cancelSchemaExtensionResponse' smart constructor.
 newtype CancelSchemaExtensionResponse = CancelSchemaExtensionResponse'
-    { _csersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelSchemaExtensionResponse' with the minimum fields required to make a request.
 --
@@ -126,12 +127,11 @@ cancelSchemaExtensionResponse
     :: Int -- ^ 'csersResponseStatus'
     -> CancelSchemaExtensionResponse
 cancelSchemaExtensionResponse pResponseStatus_ =
-    CancelSchemaExtensionResponse'
-    { _csersResponseStatus = pResponseStatus_
-    }
+  CancelSchemaExtensionResponse' {_csersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 csersResponseStatus :: Lens' CancelSchemaExtensionResponse Int
 csersResponseStatus = lens _csersResponseStatus (\ s a -> s{_csersResponseStatus = a});
 
-instance NFData CancelSchemaExtensionResponse
+instance NFData CancelSchemaExtensionResponse where

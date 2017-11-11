@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DeclineHandshake
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Organizations.DeclineHandshake
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'declineHandshake' smart constructor.
 newtype DeclineHandshake = DeclineHandshake'
-    { _dHandshakeId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dHandshakeId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeclineHandshake' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ declineHandshake
     :: Text -- ^ 'dHandshakeId'
     -> DeclineHandshake
 declineHandshake pHandshakeId_ =
-    DeclineHandshake'
-    { _dHandshakeId = pHandshakeId_
-    }
+  DeclineHandshake' {_dHandshakeId = pHandshakeId_}
+
 
 -- | The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the 'ListHandshakesForAccount' operation. The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
 dHandshakeId :: Lens' DeclineHandshake Text
@@ -79,9 +79,9 @@ instance AWSRequest DeclineHandshake where
                  DeclineHandshakeResponse' <$>
                    (x .?> "Handshake") <*> (pure (fromEnum s)))
 
-instance Hashable DeclineHandshake
+instance Hashable DeclineHandshake where
 
-instance NFData DeclineHandshake
+instance NFData DeclineHandshake where
 
 instance ToHeaders DeclineHandshake where
         toHeaders
@@ -106,9 +106,10 @@ instance ToQuery DeclineHandshake where
 
 -- | /See:/ 'declineHandshakeResponse' smart constructor.
 data DeclineHandshakeResponse = DeclineHandshakeResponse'
-    { _drsHandshake      :: !(Maybe Handshake)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _drsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeclineHandshakeResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,9 @@ declineHandshakeResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeclineHandshakeResponse
 declineHandshakeResponse pResponseStatus_ =
-    DeclineHandshakeResponse'
-    { _drsHandshake = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeclineHandshakeResponse'
+  {_drsHandshake = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the declined handshake. The state is updated to show the value @DECLINED@ .
 drsHandshake :: Lens' DeclineHandshakeResponse (Maybe Handshake)
@@ -134,4 +134,4 @@ drsHandshake = lens _drsHandshake (\ s a -> s{_drsHandshake = a});
 drsResponseStatus :: Lens' DeclineHandshakeResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeclineHandshakeResponse
+instance NFData DeclineHandshakeResponse where

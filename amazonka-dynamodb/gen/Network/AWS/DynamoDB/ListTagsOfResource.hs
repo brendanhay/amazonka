@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.ListTagsOfResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.DynamoDB.ListTagsOfResource
     , ltorrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTagsOfResource' smart constructor.
 data ListTagsOfResource = ListTagsOfResource'
-    { _ltorNextToken   :: !(Maybe Text)
-    , _ltorResourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltorNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltorResourceARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsOfResource' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ listTagsOfResource
     :: Text -- ^ 'ltorResourceARN'
     -> ListTagsOfResource
 listTagsOfResource pResourceARN_ =
-    ListTagsOfResource'
-    { _ltorNextToken = Nothing
-    , _ltorResourceARN = pResourceARN_
-    }
+  ListTagsOfResource'
+  {_ltorNextToken = Nothing, _ltorResourceARN = pResourceARN_}
+
 
 -- | An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.
 ltorNextToken :: Lens' ListTagsOfResource (Maybe Text)
@@ -89,9 +89,9 @@ instance AWSRequest ListTagsOfResource where
                    (x .?> "NextToken") <*> (x .?> "Tags" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListTagsOfResource
+instance Hashable ListTagsOfResource where
 
-instance NFData ListTagsOfResource
+instance NFData ListTagsOfResource where
 
 instance ToHeaders ListTagsOfResource where
         toHeaders
@@ -118,10 +118,11 @@ instance ToQuery ListTagsOfResource where
 
 -- | /See:/ 'listTagsOfResourceResponse' smart constructor.
 data ListTagsOfResourceResponse = ListTagsOfResourceResponse'
-    { _ltorrsNextToken      :: !(Maybe Text)
-    , _ltorrsTags           :: !(Maybe [Tag])
-    , _ltorrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltorrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltorrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ltorrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsOfResourceResponse' with the minimum fields required to make a request.
 --
@@ -136,11 +137,12 @@ listTagsOfResourceResponse
     :: Int -- ^ 'ltorrsResponseStatus'
     -> ListTagsOfResourceResponse
 listTagsOfResourceResponse pResponseStatus_ =
-    ListTagsOfResourceResponse'
-    { _ltorrsNextToken = Nothing
-    , _ltorrsTags = Nothing
-    , _ltorrsResponseStatus = pResponseStatus_
-    }
+  ListTagsOfResourceResponse'
+  { _ltorrsNextToken = Nothing
+  , _ltorrsTags = Nothing
+  , _ltorrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.
 ltorrsNextToken :: Lens' ListTagsOfResourceResponse (Maybe Text)
@@ -154,4 +156,4 @@ ltorrsTags = lens _ltorrsTags (\ s a -> s{_ltorrsTags = a}) . _Default . _Coerce
 ltorrsResponseStatus :: Lens' ListTagsOfResourceResponse Int
 ltorrsResponseStatus = lens _ltorrsResponseStatus (\ s a -> s{_ltorrsResponseStatus = a});
 
-instance NFData ListTagsOfResourceResponse
+instance NFData ListTagsOfResourceResponse where

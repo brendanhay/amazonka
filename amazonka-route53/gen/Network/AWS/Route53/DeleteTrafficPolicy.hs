@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteTrafficPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Route53.DeleteTrafficPolicy
     , dtprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to delete a specified traffic policy version.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'deleteTrafficPolicy' smart constructor.
 data DeleteTrafficPolicy = DeleteTrafficPolicy'
-    { _dtpId      :: !Text
-    , _dtpVersion :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtpId      :: {-# NOUNPACK #-}!Text
+  , _dtpVersion :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTrafficPolicy' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ deleteTrafficPolicy
     -> Natural -- ^ 'dtpVersion'
     -> DeleteTrafficPolicy
 deleteTrafficPolicy pId_ pVersion_ =
-    DeleteTrafficPolicy'
-    { _dtpId = pId_
-    , _dtpVersion = _Nat # pVersion_
-    }
+  DeleteTrafficPolicy' {_dtpId = pId_, _dtpVersion = _Nat # pVersion_}
+
 
 -- | The ID of the traffic policy that you want to delete.
 dtpId :: Lens' DeleteTrafficPolicy Text
@@ -88,9 +87,9 @@ instance AWSRequest DeleteTrafficPolicy where
               (\ s h x ->
                  DeleteTrafficPolicyResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteTrafficPolicy
+instance Hashable DeleteTrafficPolicy where
 
-instance NFData DeleteTrafficPolicy
+instance NFData DeleteTrafficPolicy where
 
 instance ToHeaders DeleteTrafficPolicy where
         toHeaders = const mempty
@@ -110,8 +109,9 @@ instance ToQuery DeleteTrafficPolicy where
 --
 -- /See:/ 'deleteTrafficPolicyResponse' smart constructor.
 newtype DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
-    { _dtprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTrafficPolicyResponse' with the minimum fields required to make a request.
 --
@@ -122,12 +122,11 @@ deleteTrafficPolicyResponse
     :: Int -- ^ 'dtprsResponseStatus'
     -> DeleteTrafficPolicyResponse
 deleteTrafficPolicyResponse pResponseStatus_ =
-    DeleteTrafficPolicyResponse'
-    { _dtprsResponseStatus = pResponseStatus_
-    }
+  DeleteTrafficPolicyResponse' {_dtprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dtprsResponseStatus :: Lens' DeleteTrafficPolicyResponse Int
 dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
 
-instance NFData DeleteTrafficPolicyResponse
+instance NFData DeleteTrafficPolicyResponse where

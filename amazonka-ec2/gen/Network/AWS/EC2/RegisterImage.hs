@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RegisterImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.EC2.RegisterImage
     , rirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RegisterImage.
 --
@@ -70,20 +70,21 @@ import           Network.AWS.Response
 --
 -- /See:/ 'registerImage' smart constructor.
 data RegisterImage = RegisterImage'
-    { _riVirtualizationType  :: !(Maybe Text)
-    , _riImageLocation       :: !(Maybe Text)
-    , _riEnaSupport          :: !(Maybe Bool)
-    , _riBillingProducts     :: !(Maybe [Text])
-    , _riRAMDiskId           :: !(Maybe Text)
-    , _riKernelId            :: !(Maybe Text)
-    , _riRootDeviceName      :: !(Maybe Text)
-    , _riSRIOVNetSupport     :: !(Maybe Text)
-    , _riArchitecture        :: !(Maybe ArchitectureValues)
-    , _riDescription         :: !(Maybe Text)
-    , _riBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _riDryRun              :: !(Maybe Bool)
-    , _riName                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riVirtualizationType  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riImageLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riEnaSupport          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _riBillingProducts     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _riRAMDiskId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riKernelId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riRootDeviceName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riSRIOVNetSupport     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riArchitecture        :: {-# NOUNPACK #-}!(Maybe ArchitectureValues)
+  , _riDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
+  , _riDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _riName                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterImage' with the minimum fields required to make a request.
 --
@@ -118,21 +119,22 @@ registerImage
     :: Text -- ^ 'riName'
     -> RegisterImage
 registerImage pName_ =
-    RegisterImage'
-    { _riVirtualizationType = Nothing
-    , _riImageLocation = Nothing
-    , _riEnaSupport = Nothing
-    , _riBillingProducts = Nothing
-    , _riRAMDiskId = Nothing
-    , _riKernelId = Nothing
-    , _riRootDeviceName = Nothing
-    , _riSRIOVNetSupport = Nothing
-    , _riArchitecture = Nothing
-    , _riDescription = Nothing
-    , _riBlockDeviceMappings = Nothing
-    , _riDryRun = Nothing
-    , _riName = pName_
-    }
+  RegisterImage'
+  { _riVirtualizationType = Nothing
+  , _riImageLocation = Nothing
+  , _riEnaSupport = Nothing
+  , _riBillingProducts = Nothing
+  , _riRAMDiskId = Nothing
+  , _riKernelId = Nothing
+  , _riRootDeviceName = Nothing
+  , _riSRIOVNetSupport = Nothing
+  , _riArchitecture = Nothing
+  , _riDescription = Nothing
+  , _riBlockDeviceMappings = Nothing
+  , _riDryRun = Nothing
+  , _riName = pName_
+  }
+
 
 -- | The type of virtualization. Default: @paravirtual@
 riVirtualizationType :: Lens' RegisterImage (Maybe Text)
@@ -195,9 +197,9 @@ instance AWSRequest RegisterImage where
                  RegisterImageResponse' <$>
                    (x .@? "imageId") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterImage
+instance Hashable RegisterImage where
 
-instance NFData RegisterImage
+instance NFData RegisterImage where
 
 instance ToHeaders RegisterImage where
         toHeaders = const mempty
@@ -233,9 +235,10 @@ instance ToQuery RegisterImage where
 --
 -- /See:/ 'registerImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
-    { _rirsImageId        :: !(Maybe Text)
-    , _rirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rirsImageId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterImageResponse' with the minimum fields required to make a request.
 --
@@ -248,10 +251,9 @@ registerImageResponse
     :: Int -- ^ 'rirsResponseStatus'
     -> RegisterImageResponse
 registerImageResponse pResponseStatus_ =
-    RegisterImageResponse'
-    { _rirsImageId = Nothing
-    , _rirsResponseStatus = pResponseStatus_
-    }
+  RegisterImageResponse'
+  {_rirsImageId = Nothing, _rirsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the newly registered AMI.
 rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
@@ -261,4 +263,4 @@ rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
 rirsResponseStatus :: Lens' RegisterImageResponse Int
 rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
 
-instance NFData RegisterImageResponse
+instance NFData RegisterImageResponse where

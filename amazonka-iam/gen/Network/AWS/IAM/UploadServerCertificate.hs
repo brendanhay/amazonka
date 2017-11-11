@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UploadServerCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,21 +47,22 @@ module Network.AWS.IAM.UploadServerCertificate
     , ursResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'uploadServerCertificate' smart constructor.
 data UploadServerCertificate = UploadServerCertificate'
-    { _uscPath                  :: !(Maybe Text)
-    , _uscCertificateChain      :: !(Maybe Text)
-    , _uscServerCertificateName :: !Text
-    , _uscCertificateBody       :: !Text
-    , _uscPrivateKey            :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uscPath                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uscCertificateChain      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uscServerCertificateName :: {-# NOUNPACK #-}!Text
+  , _uscCertificateBody       :: {-# NOUNPACK #-}!Text
+  , _uscPrivateKey            :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadServerCertificate' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ uploadServerCertificate
     -> Text -- ^ 'uscPrivateKey'
     -> UploadServerCertificate
 uploadServerCertificate pServerCertificateName_ pCertificateBody_ pPrivateKey_ =
-    UploadServerCertificate'
-    { _uscPath = Nothing
-    , _uscCertificateChain = Nothing
-    , _uscServerCertificateName = pServerCertificateName_
-    , _uscCertificateBody = pCertificateBody_
-    , _uscPrivateKey = _Sensitive # pPrivateKey_
-    }
+  UploadServerCertificate'
+  { _uscPath = Nothing
+  , _uscCertificateChain = Nothing
+  , _uscServerCertificateName = pServerCertificateName_
+  , _uscCertificateBody = pCertificateBody_
+  , _uscPrivateKey = _Sensitive # pPrivateKey_
+  }
+
 
 -- | The path for the server certificate. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 uscPath :: Lens' UploadServerCertificate (Maybe Text)
@@ -121,9 +123,9 @@ instance AWSRequest UploadServerCertificate where
                    (x .@? "ServerCertificateMetadata") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UploadServerCertificate
+instance Hashable UploadServerCertificate where
 
-instance NFData UploadServerCertificate
+instance NFData UploadServerCertificate where
 
 instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty
@@ -149,9 +151,10 @@ instance ToQuery UploadServerCertificate where
 --
 -- /See:/ 'uploadServerCertificateResponse' smart constructor.
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
-    { _ursServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
-    , _ursResponseStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ursServerCertificateMetadata :: {-# NOUNPACK #-}!(Maybe ServerCertificateMetadata)
+  , _ursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadServerCertificateResponse' with the minimum fields required to make a request.
 --
@@ -164,10 +167,11 @@ uploadServerCertificateResponse
     :: Int -- ^ 'ursResponseStatus'
     -> UploadServerCertificateResponse
 uploadServerCertificateResponse pResponseStatus_ =
-    UploadServerCertificateResponse'
-    { _ursServerCertificateMetadata = Nothing
-    , _ursResponseStatus = pResponseStatus_
-    }
+  UploadServerCertificateResponse'
+  { _ursServerCertificateMetadata = Nothing
+  , _ursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The meta information of the uploaded server certificate without its certificate body, certificate chain, and private key.
 ursServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
@@ -177,4 +181,4 @@ ursServerCertificateMetadata = lens _ursServerCertificateMetadata (\ s a -> s{_u
 ursResponseStatus :: Lens' UploadServerCertificateResponse Int
 ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
 
-instance NFData UploadServerCertificateResponse
+instance NFData UploadServerCertificateResponse where

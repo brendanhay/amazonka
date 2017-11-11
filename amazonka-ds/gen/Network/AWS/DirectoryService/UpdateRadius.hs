@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.UpdateRadius
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DirectoryService.UpdateRadius
     , urrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'UpdateRadius' operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateRadius' smart constructor.
 data UpdateRadius = UpdateRadius'
-    { _urDirectoryId    :: !Text
-    , _urRadiusSettings :: !RadiusSettings
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _urDirectoryId    :: {-# NOUNPACK #-}!Text
+  , _urRadiusSettings :: {-# NOUNPACK #-}!RadiusSettings
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRadius' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ updateRadius
     -> RadiusSettings -- ^ 'urRadiusSettings'
     -> UpdateRadius
 updateRadius pDirectoryId_ pRadiusSettings_ =
-    UpdateRadius'
-    { _urDirectoryId = pDirectoryId_
-    , _urRadiusSettings = pRadiusSettings_
-    }
+  UpdateRadius'
+  {_urDirectoryId = pDirectoryId_, _urRadiusSettings = pRadiusSettings_}
+
 
 -- | The identifier of the directory for which to update the RADIUS server information.
 urDirectoryId :: Lens' UpdateRadius Text
@@ -87,9 +87,9 @@ instance AWSRequest UpdateRadius where
               (\ s h x ->
                  UpdateRadiusResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateRadius
+instance Hashable UpdateRadius where
 
-instance NFData UpdateRadius
+instance NFData UpdateRadius where
 
 instance ToHeaders UpdateRadius where
         toHeaders
@@ -120,8 +120,9 @@ instance ToQuery UpdateRadius where
 --
 -- /See:/ 'updateRadiusResponse' smart constructor.
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
-    { _urrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRadiusResponse' with the minimum fields required to make a request.
 --
@@ -132,12 +133,11 @@ updateRadiusResponse
     :: Int -- ^ 'urrsResponseStatus'
     -> UpdateRadiusResponse
 updateRadiusResponse pResponseStatus_ =
-    UpdateRadiusResponse'
-    { _urrsResponseStatus = pResponseStatus_
-    }
+  UpdateRadiusResponse' {_urrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRadiusResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
 
-instance NFData UpdateRadiusResponse
+instance NFData UpdateRadiusResponse where

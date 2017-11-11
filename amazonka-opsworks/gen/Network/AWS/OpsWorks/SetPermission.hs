@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.SetPermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,21 +40,22 @@ module Network.AWS.OpsWorks.SetPermission
     , SetPermissionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setPermission' smart constructor.
 data SetPermission = SetPermission'
-    { _spAllowSudo  :: !(Maybe Bool)
-    , _spLevel      :: !(Maybe Text)
-    , _spAllowSSH   :: !(Maybe Bool)
-    , _spStackId    :: !Text
-    , _spIAMUserARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spAllowSudo  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _spLevel      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _spAllowSSH   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _spStackId    :: {-# NOUNPACK #-}!Text
+  , _spIAMUserARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetPermission' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ setPermission
     -> Text -- ^ 'spIAMUserARN'
     -> SetPermission
 setPermission pStackId_ pIAMUserARN_ =
-    SetPermission'
-    { _spAllowSudo = Nothing
-    , _spLevel = Nothing
-    , _spAllowSSH = Nothing
-    , _spStackId = pStackId_
-    , _spIAMUserARN = pIAMUserARN_
-    }
+  SetPermission'
+  { _spAllowSudo = Nothing
+  , _spLevel = Nothing
+  , _spAllowSSH = Nothing
+  , _spStackId = pStackId_
+  , _spIAMUserARN = pIAMUserARN_
+  }
+
 
 -- | The user is allowed to use __sudo__ to elevate privileges.
 spAllowSudo :: Lens' SetPermission (Maybe Bool)
@@ -107,9 +109,9 @@ instance AWSRequest SetPermission where
         request = postJSON opsWorks
         response = receiveNull SetPermissionResponse'
 
-instance Hashable SetPermission
+instance Hashable SetPermission where
 
-instance NFData SetPermission
+instance NFData SetPermission where
 
 instance ToHeaders SetPermission where
         toHeaders
@@ -138,8 +140,9 @@ instance ToQuery SetPermission where
 
 -- | /See:/ 'setPermissionResponse' smart constructor.
 data SetPermissionResponse =
-    SetPermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetPermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetPermissionResponse' with the minimum fields required to make a request.
 --
@@ -147,4 +150,5 @@ setPermissionResponse
     :: SetPermissionResponse
 setPermissionResponse = SetPermissionResponse'
 
-instance NFData SetPermissionResponse
+
+instance NFData SetPermissionResponse where

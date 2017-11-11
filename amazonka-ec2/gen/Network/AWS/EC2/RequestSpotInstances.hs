@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RequestSpotInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.EC2.RequestSpotInstances
     , rsirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RequestSpotInstances.
 --
@@ -60,18 +60,19 @@ import           Network.AWS.Response
 --
 -- /See:/ 'requestSpotInstances' smart constructor.
 data RequestSpotInstances = RequestSpotInstances'
-    { _rsisBlockDurationMinutes  :: !(Maybe Int)
-    , _rsisClientToken           :: !(Maybe Text)
-    , _rsisInstanceCount         :: !(Maybe Int)
-    , _rsisLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
-    , _rsisAvailabilityZoneGroup :: !(Maybe Text)
-    , _rsisValidUntil            :: !(Maybe ISO8601)
-    , _rsisLaunchGroup           :: !(Maybe Text)
-    , _rsisType                  :: !(Maybe SpotInstanceType)
-    , _rsisValidFrom             :: !(Maybe ISO8601)
-    , _rsisDryRun                :: !(Maybe Bool)
-    , _rsisSpotPrice             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsisBlockDurationMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rsisClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsisInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rsisLaunchSpecification :: {-# NOUNPACK #-}!(Maybe RequestSpotLaunchSpecification)
+  , _rsisAvailabilityZoneGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsisValidUntil :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _rsisLaunchGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsisType :: {-# NOUNPACK #-}!(Maybe SpotInstanceType)
+  , _rsisValidFrom :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _rsisDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rsisSpotPrice :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestSpotInstances' with the minimum fields required to make a request.
 --
@@ -102,19 +103,20 @@ requestSpotInstances
     :: Text -- ^ 'rsisSpotPrice'
     -> RequestSpotInstances
 requestSpotInstances pSpotPrice_ =
-    RequestSpotInstances'
-    { _rsisBlockDurationMinutes = Nothing
-    , _rsisClientToken = Nothing
-    , _rsisInstanceCount = Nothing
-    , _rsisLaunchSpecification = Nothing
-    , _rsisAvailabilityZoneGroup = Nothing
-    , _rsisValidUntil = Nothing
-    , _rsisLaunchGroup = Nothing
-    , _rsisType = Nothing
-    , _rsisValidFrom = Nothing
-    , _rsisDryRun = Nothing
-    , _rsisSpotPrice = pSpotPrice_
-    }
+  RequestSpotInstances'
+  { _rsisBlockDurationMinutes = Nothing
+  , _rsisClientToken = Nothing
+  , _rsisInstanceCount = Nothing
+  , _rsisLaunchSpecification = Nothing
+  , _rsisAvailabilityZoneGroup = Nothing
+  , _rsisValidUntil = Nothing
+  , _rsisLaunchGroup = Nothing
+  , _rsisType = Nothing
+  , _rsisValidFrom = Nothing
+  , _rsisDryRun = Nothing
+  , _rsisSpotPrice = pSpotPrice_
+  }
+
 
 -- | The required duration for the Spot instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360). The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates. Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 rsisBlockDurationMinutes :: Lens' RequestSpotInstances (Maybe Int)
@@ -172,9 +174,9 @@ instance AWSRequest RequestSpotInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable RequestSpotInstances
+instance Hashable RequestSpotInstances where
 
-instance NFData RequestSpotInstances
+instance NFData RequestSpotInstances where
 
 instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty
@@ -205,9 +207,10 @@ instance ToQuery RequestSpotInstances where
 --
 -- /See:/ 'requestSpotInstancesResponse' smart constructor.
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
-    { _rsirsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
-    , _rsirsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsirsSpotInstanceRequests :: {-# NOUNPACK #-}!(Maybe [SpotInstanceRequest])
+  , _rsirsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestSpotInstancesResponse' with the minimum fields required to make a request.
 --
@@ -220,10 +223,11 @@ requestSpotInstancesResponse
     :: Int -- ^ 'rsirsResponseStatus'
     -> RequestSpotInstancesResponse
 requestSpotInstancesResponse pResponseStatus_ =
-    RequestSpotInstancesResponse'
-    { _rsirsSpotInstanceRequests = Nothing
-    , _rsirsResponseStatus = pResponseStatus_
-    }
+  RequestSpotInstancesResponse'
+  { _rsirsSpotInstanceRequests = Nothing
+  , _rsirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | One or more Spot instance requests.
 rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
@@ -233,4 +237,4 @@ rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSp
 rsirsResponseStatus :: Lens' RequestSpotInstancesResponse Int
 rsirsResponseStatus = lens _rsirsResponseStatus (\ s a -> s{_rsirsResponseStatus = a});
 
-instance NFData RequestSpotInstancesResponse
+instance NFData RequestSpotInstancesResponse where

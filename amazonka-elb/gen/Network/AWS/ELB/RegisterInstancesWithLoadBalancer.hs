@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.RegisterInstancesWithLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     , riwlbrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RegisterInstancesWithLoadBalancer.
 --
@@ -61,9 +61,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'registerInstancesWithLoadBalancer' smart constructor.
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
-    { _riwlbLoadBalancerName :: !Text
-    , _riwlbInstances        :: ![Instance]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riwlbLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _riwlbInstances        :: {-# NOUNPACK #-}![Instance]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterInstancesWithLoadBalancer' with the minimum fields required to make a request.
 --
@@ -76,10 +77,9 @@ registerInstancesWithLoadBalancer
     :: Text -- ^ 'riwlbLoadBalancerName'
     -> RegisterInstancesWithLoadBalancer
 registerInstancesWithLoadBalancer pLoadBalancerName_ =
-    RegisterInstancesWithLoadBalancer'
-    { _riwlbLoadBalancerName = pLoadBalancerName_
-    , _riwlbInstances = mempty
-    }
+  RegisterInstancesWithLoadBalancer'
+  {_riwlbLoadBalancerName = pLoadBalancerName_, _riwlbInstances = mempty}
+
 
 -- | The name of the load balancer.
 riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
@@ -104,8 +104,10 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
                      <*> (pure (fromEnum s)))
 
 instance Hashable RegisterInstancesWithLoadBalancer
+         where
 
 instance NFData RegisterInstancesWithLoadBalancer
+         where
 
 instance ToHeaders RegisterInstancesWithLoadBalancer
          where
@@ -131,9 +133,10 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 --
 -- /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
-    { _riwlbrsInstances      :: !(Maybe [Instance])
-    , _riwlbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riwlbrsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
+  , _riwlbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterInstancesWithLoadBalancerResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +149,9 @@ registerInstancesWithLoadBalancerResponse
     :: Int -- ^ 'riwlbrsResponseStatus'
     -> RegisterInstancesWithLoadBalancerResponse
 registerInstancesWithLoadBalancerResponse pResponseStatus_ =
-    RegisterInstancesWithLoadBalancerResponse'
-    { _riwlbrsInstances = Nothing
-    , _riwlbrsResponseStatus = pResponseStatus_
-    }
+  RegisterInstancesWithLoadBalancerResponse'
+  {_riwlbrsInstances = Nothing, _riwlbrsResponseStatus = pResponseStatus_}
+
 
 -- | The updated list of instances for the load balancer.
 riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
@@ -160,4 +162,5 @@ riwlbrsResponseStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
 riwlbrsResponseStatus = lens _riwlbrsResponseStatus (\ s a -> s{_riwlbrsResponseStatus = a});
 
 instance NFData
-         RegisterInstancesWithLoadBalancerResponse
+           RegisterInstancesWithLoadBalancerResponse
+         where

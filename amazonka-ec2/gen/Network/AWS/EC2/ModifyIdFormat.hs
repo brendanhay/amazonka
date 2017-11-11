@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyIdFormat
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.ModifyIdFormat
     , ModifyIdFormatResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters of ModifyIdFormat.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyIdFormat' smart constructor.
 data ModifyIdFormat = ModifyIdFormat'
-    { _mifResource   :: !Text
-    , _mifUseLongIds :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mifResource   :: {-# NOUNPACK #-}!Text
+  , _mifUseLongIds :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyIdFormat' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ modifyIdFormat
     -> Bool -- ^ 'mifUseLongIds'
     -> ModifyIdFormat
 modifyIdFormat pResource_ pUseLongIds_ =
-    ModifyIdFormat'
-    { _mifResource = pResource_
-    , _mifUseLongIds = pUseLongIds_
-    }
+  ModifyIdFormat' {_mifResource = pResource_, _mifUseLongIds = pUseLongIds_}
+
 
 -- | The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 mifResource :: Lens' ModifyIdFormat Text
@@ -86,9 +85,9 @@ instance AWSRequest ModifyIdFormat where
         request = postQuery ec2
         response = receiveNull ModifyIdFormatResponse'
 
-instance Hashable ModifyIdFormat
+instance Hashable ModifyIdFormat where
 
-instance NFData ModifyIdFormat
+instance NFData ModifyIdFormat where
 
 instance ToHeaders ModifyIdFormat where
         toHeaders = const mempty
@@ -106,8 +105,9 @@ instance ToQuery ModifyIdFormat where
 
 -- | /See:/ 'modifyIdFormatResponse' smart constructor.
 data ModifyIdFormatResponse =
-    ModifyIdFormatResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyIdFormatResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyIdFormatResponse' with the minimum fields required to make a request.
 --
@@ -115,4 +115,5 @@ modifyIdFormatResponse
     :: ModifyIdFormatResponse
 modifyIdFormatResponse = ModifyIdFormatResponse'
 
-instance NFData ModifyIdFormatResponse
+
+instance NFData ModifyIdFormatResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.GetConnectors
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.SMS.GetConnectors
     , gcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'getConnectors' smart constructor.
 data GetConnectors = GetConnectors'
-    { _gcNextToken  :: !(Maybe Text)
-    , _gcMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConnectors' with the minimum fields required to make a request.
 --
@@ -62,11 +63,8 @@ data GetConnectors = GetConnectors'
 -- * 'gcMaxResults' - Undocumented member.
 getConnectors
     :: GetConnectors
-getConnectors =
-    GetConnectors'
-    { _gcNextToken = Nothing
-    , _gcMaxResults = Nothing
-    }
+getConnectors = GetConnectors' {_gcNextToken = Nothing, _gcMaxResults = Nothing}
+
 
 -- | Undocumented member.
 gcNextToken :: Lens' GetConnectors (Maybe Text)
@@ -94,9 +92,9 @@ instance AWSRequest GetConnectors where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetConnectors
+instance Hashable GetConnectors where
 
-instance NFData GetConnectors
+instance NFData GetConnectors where
 
 instance ToHeaders GetConnectors where
         toHeaders
@@ -123,10 +121,11 @@ instance ToQuery GetConnectors where
 
 -- | /See:/ 'getConnectorsResponse' smart constructor.
 data GetConnectorsResponse = GetConnectorsResponse'
-    { _gcrsConnectorList  :: !(Maybe [Connector])
-    , _gcrsNextToken      :: !(Maybe Text)
-    , _gcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrsConnectorList  :: {-# NOUNPACK #-}!(Maybe [Connector])
+  , _gcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConnectorsResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +140,12 @@ getConnectorsResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> GetConnectorsResponse
 getConnectorsResponse pResponseStatus_ =
-    GetConnectorsResponse'
-    { _gcrsConnectorList = Nothing
-    , _gcrsNextToken = Nothing
-    , _gcrsResponseStatus = pResponseStatus_
-    }
+  GetConnectorsResponse'
+  { _gcrsConnectorList = Nothing
+  , _gcrsNextToken = Nothing
+  , _gcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gcrsConnectorList :: Lens' GetConnectorsResponse [Connector]
@@ -159,4 +159,4 @@ gcrsNextToken = lens _gcrsNextToken (\ s a -> s{_gcrsNextToken = a});
 gcrsResponseStatus :: Lens' GetConnectorsResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 
-instance NFData GetConnectorsResponse
+instance NFData GetConnectorsResponse where

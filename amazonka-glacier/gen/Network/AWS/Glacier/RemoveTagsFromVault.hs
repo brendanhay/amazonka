@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.RemoveTagsFromVault
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.Glacier.RemoveTagsFromVault
     , RemoveTagsFromVaultResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input value for @RemoveTagsFromVaultInput@ .
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'removeTagsFromVault' smart constructor.
 data RemoveTagsFromVault = RemoveTagsFromVault'
-    { _rtfvTagKeys   :: !(Maybe [Text])
-    , _rtfvAccountId :: !Text
-    , _rtfvVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfvTagKeys   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rtfvAccountId :: {-# NOUNPACK #-}!Text
+  , _rtfvVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromVault' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ removeTagsFromVault
     -> Text -- ^ 'rtfvVaultName'
     -> RemoveTagsFromVault
 removeTagsFromVault pAccountId_ pVaultName_ =
-    RemoveTagsFromVault'
-    { _rtfvTagKeys = Nothing
-    , _rtfvAccountId = pAccountId_
-    , _rtfvVaultName = pVaultName_
-    }
+  RemoveTagsFromVault'
+  { _rtfvTagKeys = Nothing
+  , _rtfvAccountId = pAccountId_
+  , _rtfvVaultName = pVaultName_
+  }
+
 
 -- | A list of tag keys. Each corresponding tag is removed from the vault.
 rtfvTagKeys :: Lens' RemoveTagsFromVault [Text]
@@ -92,9 +94,9 @@ instance AWSRequest RemoveTagsFromVault where
         request = postJSON glacier
         response = receiveNull RemoveTagsFromVaultResponse'
 
-instance Hashable RemoveTagsFromVault
+instance Hashable RemoveTagsFromVault where
 
-instance NFData RemoveTagsFromVault
+instance NFData RemoveTagsFromVault where
 
 instance ToHeaders RemoveTagsFromVault where
         toHeaders = const mempty
@@ -115,8 +117,9 @@ instance ToQuery RemoveTagsFromVault where
 
 -- | /See:/ 'removeTagsFromVaultResponse' smart constructor.
 data RemoveTagsFromVaultResponse =
-    RemoveTagsFromVaultResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveTagsFromVaultResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromVaultResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +127,5 @@ removeTagsFromVaultResponse
     :: RemoveTagsFromVaultResponse
 removeTagsFromVaultResponse = RemoveTagsFromVaultResponse'
 
-instance NFData RemoveTagsFromVaultResponse
+
+instance NFData RemoveTagsFromVaultResponse where

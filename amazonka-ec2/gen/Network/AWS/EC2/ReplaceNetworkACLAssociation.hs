@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.ReplaceNetworkACLAssociation
     , rnaarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReplaceNetworkAclAssociation.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'replaceNetworkACLAssociation' smart constructor.
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
-    { _rnaaDryRun        :: !(Maybe Bool)
-    , _rnaaAssociationId :: !Text
-    , _rnaaNetworkACLId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rnaaDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rnaaAssociationId :: {-# NOUNPACK #-}!Text
+  , _rnaaNetworkACLId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceNetworkACLAssociation' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ replaceNetworkACLAssociation
     -> Text -- ^ 'rnaaNetworkACLId'
     -> ReplaceNetworkACLAssociation
 replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
-    ReplaceNetworkACLAssociation'
-    { _rnaaDryRun = Nothing
-    , _rnaaAssociationId = pAssociationId_
-    , _rnaaNetworkACLId = pNetworkACLId_
-    }
+  ReplaceNetworkACLAssociation'
+  { _rnaaDryRun = Nothing
+  , _rnaaAssociationId = pAssociationId_
+  , _rnaaNetworkACLId = pNetworkACLId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rnaaDryRun :: Lens' ReplaceNetworkACLAssociation (Maybe Bool)
@@ -100,9 +102,9 @@ instance AWSRequest ReplaceNetworkACLAssociation
                  ReplaceNetworkACLAssociationResponse' <$>
                    (x .@? "newAssociationId") <*> (pure (fromEnum s)))
 
-instance Hashable ReplaceNetworkACLAssociation
+instance Hashable ReplaceNetworkACLAssociation where
 
-instance NFData ReplaceNetworkACLAssociation
+instance NFData ReplaceNetworkACLAssociation where
 
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty
@@ -126,9 +128,10 @@ instance ToQuery ReplaceNetworkACLAssociation where
 --
 -- /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
-    { _rnaarsNewAssociationId :: !(Maybe Text)
-    , _rnaarsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rnaarsNewAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnaarsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceNetworkACLAssociationResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +144,9 @@ replaceNetworkACLAssociationResponse
     :: Int -- ^ 'rnaarsResponseStatus'
     -> ReplaceNetworkACLAssociationResponse
 replaceNetworkACLAssociationResponse pResponseStatus_ =
-    ReplaceNetworkACLAssociationResponse'
-    { _rnaarsNewAssociationId = Nothing
-    , _rnaarsResponseStatus = pResponseStatus_
-    }
+  ReplaceNetworkACLAssociationResponse'
+  {_rnaarsNewAssociationId = Nothing, _rnaarsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the new association.
 rnaarsNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
@@ -155,3 +157,4 @@ rnaarsResponseStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
 rnaarsResponseStatus = lens _rnaarsResponseStatus (\ s a -> s{_rnaarsResponseStatus = a});
 
 instance NFData ReplaceNetworkACLAssociationResponse
+         where

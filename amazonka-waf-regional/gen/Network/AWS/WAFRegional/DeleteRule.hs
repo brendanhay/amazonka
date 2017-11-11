@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,18 +50,19 @@ module Network.AWS.WAFRegional.DeleteRule
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteRule' smart constructor.
 data DeleteRule = DeleteRule'
-    { _drRuleId      :: !Text
-    , _drChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drRuleId      :: {-# NOUNPACK #-}!Text
+  , _drChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRule' with the minimum fields required to make a request.
 --
@@ -75,10 +76,8 @@ deleteRule
     -> Text -- ^ 'drChangeToken'
     -> DeleteRule
 deleteRule pRuleId_ pChangeToken_ =
-    DeleteRule'
-    { _drRuleId = pRuleId_
-    , _drChangeToken = pChangeToken_
-    }
+  DeleteRule' {_drRuleId = pRuleId_, _drChangeToken = pChangeToken_}
+
 
 -- | The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 drRuleId :: Lens' DeleteRule Text
@@ -97,9 +96,9 @@ instance AWSRequest DeleteRule where
                  DeleteRuleResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteRule
+instance Hashable DeleteRule where
 
-instance NFData DeleteRule
+instance NFData DeleteRule where
 
 instance ToHeaders DeleteRule where
         toHeaders
@@ -126,9 +125,10 @@ instance ToQuery DeleteRule where
 
 -- | /See:/ 'deleteRuleResponse' smart constructor.
 data DeleteRuleResponse = DeleteRuleResponse'
-    { _drrsChangeToken    :: !(Maybe Text)
-    , _drrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRuleResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +141,9 @@ deleteRuleResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DeleteRuleResponse
 deleteRuleResponse pResponseStatus_ =
-    DeleteRuleResponse'
-    { _drrsChangeToken = Nothing
-    , _drrsResponseStatus = pResponseStatus_
-    }
+  DeleteRuleResponse'
+  {_drrsChangeToken = Nothing, _drrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 drrsChangeToken :: Lens' DeleteRuleResponse (Maybe Text)
@@ -154,4 +153,4 @@ drrsChangeToken = lens _drrsChangeToken (\ s a -> s{_drrsChangeToken = a});
 drrsResponseStatus :: Lens' DeleteRuleResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DeleteRuleResponse
+instance NFData DeleteRuleResponse where

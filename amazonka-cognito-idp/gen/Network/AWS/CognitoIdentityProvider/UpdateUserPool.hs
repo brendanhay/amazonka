@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateUserPool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     , uuprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to update the user pool.
 --
@@ -63,22 +63,23 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUserPool' smart constructor.
 data UpdateUserPool = UpdateUserPool'
-    { _uupUserPoolTags                :: !(Maybe (Map Text Text))
-    , _uupVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
-    , _uupEmailVerificationMessage    :: !(Maybe Text)
-    , _uupSmsAuthenticationMessage    :: !(Maybe Text)
-    , _uupEmailVerificationSubject    :: !(Maybe Text)
-    , _uupEmailConfiguration          :: !(Maybe EmailConfigurationType)
-    , _uupSmsVerificationMessage      :: !(Maybe Text)
-    , _uupMFAConfiguration            :: !(Maybe UserPoolMFAType)
-    , _uupLambdaConfig                :: !(Maybe LambdaConfigType)
-    , _uupSmsConfiguration            :: !(Maybe SmsConfigurationType)
-    , _uupAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
-    , _uupDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
-    , _uupAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
-    , _uupPolicies                    :: !(Maybe UserPoolPolicyType)
-    , _uupUserPoolId                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uupUserPoolTags :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _uupVerificationMessageTemplate :: {-# NOUNPACK #-}!(Maybe VerificationMessageTemplateType)
+  , _uupEmailVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupSmsAuthenticationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupEmailVerificationSubject :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupEmailConfiguration :: {-# NOUNPACK #-}!(Maybe EmailConfigurationType)
+  , _uupSmsVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupMFAConfiguration :: {-# NOUNPACK #-}!(Maybe UserPoolMFAType)
+  , _uupLambdaConfig :: {-# NOUNPACK #-}!(Maybe LambdaConfigType)
+  , _uupSmsConfiguration :: {-# NOUNPACK #-}!(Maybe SmsConfigurationType)
+  , _uupAdminCreateUserConfig :: {-# NOUNPACK #-}!(Maybe AdminCreateUserConfigType)
+  , _uupDeviceConfiguration :: {-# NOUNPACK #-}!(Maybe DeviceConfigurationType)
+  , _uupAutoVerifiedAttributes :: {-# NOUNPACK #-}!(Maybe [VerifiedAttributeType])
+  , _uupPolicies :: {-# NOUNPACK #-}!(Maybe UserPoolPolicyType)
+  , _uupUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserPool' with the minimum fields required to make a request.
 --
@@ -117,23 +118,24 @@ updateUserPool
     :: Text -- ^ 'uupUserPoolId'
     -> UpdateUserPool
 updateUserPool pUserPoolId_ =
-    UpdateUserPool'
-    { _uupUserPoolTags = Nothing
-    , _uupVerificationMessageTemplate = Nothing
-    , _uupEmailVerificationMessage = Nothing
-    , _uupSmsAuthenticationMessage = Nothing
-    , _uupEmailVerificationSubject = Nothing
-    , _uupEmailConfiguration = Nothing
-    , _uupSmsVerificationMessage = Nothing
-    , _uupMFAConfiguration = Nothing
-    , _uupLambdaConfig = Nothing
-    , _uupSmsConfiguration = Nothing
-    , _uupAdminCreateUserConfig = Nothing
-    , _uupDeviceConfiguration = Nothing
-    , _uupAutoVerifiedAttributes = Nothing
-    , _uupPolicies = Nothing
-    , _uupUserPoolId = pUserPoolId_
-    }
+  UpdateUserPool'
+  { _uupUserPoolTags = Nothing
+  , _uupVerificationMessageTemplate = Nothing
+  , _uupEmailVerificationMessage = Nothing
+  , _uupSmsAuthenticationMessage = Nothing
+  , _uupEmailVerificationSubject = Nothing
+  , _uupEmailConfiguration = Nothing
+  , _uupSmsVerificationMessage = Nothing
+  , _uupMFAConfiguration = Nothing
+  , _uupLambdaConfig = Nothing
+  , _uupSmsConfiguration = Nothing
+  , _uupAdminCreateUserConfig = Nothing
+  , _uupDeviceConfiguration = Nothing
+  , _uupAutoVerifiedAttributes = Nothing
+  , _uupPolicies = Nothing
+  , _uupUserPoolId = pUserPoolId_
+  }
+
 
 -- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 uupUserPoolTags :: Lens' UpdateUserPool (HashMap Text Text)
@@ -203,9 +205,9 @@ instance AWSRequest UpdateUserPool where
               (\ s h x ->
                  UpdateUserPoolResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateUserPool
+instance Hashable UpdateUserPool where
 
-instance NFData UpdateUserPool
+instance NFData UpdateUserPool where
 
 instance ToHeaders UpdateUserPool where
         toHeaders
@@ -257,8 +259,9 @@ instance ToQuery UpdateUserPool where
 --
 -- /See:/ 'updateUserPoolResponse' smart constructor.
 newtype UpdateUserPoolResponse = UpdateUserPoolResponse'
-    { _uuprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uuprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserPoolResponse' with the minimum fields required to make a request.
 --
@@ -269,12 +272,11 @@ updateUserPoolResponse
     :: Int -- ^ 'uuprsResponseStatus'
     -> UpdateUserPoolResponse
 updateUserPoolResponse pResponseStatus_ =
-    UpdateUserPoolResponse'
-    { _uuprsResponseStatus = pResponseStatus_
-    }
+  UpdateUserPoolResponse' {_uuprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uuprsResponseStatus :: Lens' UpdateUserPoolResponse Int
 uuprsResponseStatus = lens _uuprsResponseStatus (\ s a -> s{_uuprsResponseStatus = a});
 
-instance NFData UpdateUserPoolResponse
+instance NFData UpdateUserPoolResponse where

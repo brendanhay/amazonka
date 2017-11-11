@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateBatchPrediction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     , cbprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createBatchPrediction' smart constructor.
 data CreateBatchPrediction = CreateBatchPrediction'
-    { _cbpBatchPredictionName         :: !(Maybe Text)
-    , _cbpBatchPredictionId           :: !Text
-    , _cbpMLModelId                   :: !Text
-    , _cbpBatchPredictionDataSourceId :: !Text
-    , _cbpOutputURI                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbpBatchPredictionName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbpBatchPredictionId           :: {-# NOUNPACK #-}!Text
+  , _cbpMLModelId                   :: {-# NOUNPACK #-}!Text
+  , _cbpBatchPredictionDataSourceId :: {-# NOUNPACK #-}!Text
+  , _cbpOutputURI                   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBatchPrediction' with the minimum fields required to make a request.
 --
@@ -81,13 +82,14 @@ createBatchPrediction
     -> Text -- ^ 'cbpOutputURI'
     -> CreateBatchPrediction
 createBatchPrediction pBatchPredictionId_ pMLModelId_ pBatchPredictionDataSourceId_ pOutputURI_ =
-    CreateBatchPrediction'
-    { _cbpBatchPredictionName = Nothing
-    , _cbpBatchPredictionId = pBatchPredictionId_
-    , _cbpMLModelId = pMLModelId_
-    , _cbpBatchPredictionDataSourceId = pBatchPredictionDataSourceId_
-    , _cbpOutputURI = pOutputURI_
-    }
+  CreateBatchPrediction'
+  { _cbpBatchPredictionName = Nothing
+  , _cbpBatchPredictionId = pBatchPredictionId_
+  , _cbpMLModelId = pMLModelId_
+  , _cbpBatchPredictionDataSourceId = pBatchPredictionDataSourceId_
+  , _cbpOutputURI = pOutputURI_
+  }
+
 
 -- | A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
 cbpBatchPredictionName :: Lens' CreateBatchPrediction (Maybe Text)
@@ -119,9 +121,9 @@ instance AWSRequest CreateBatchPrediction where
                  CreateBatchPredictionResponse' <$>
                    (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateBatchPrediction
+instance Hashable CreateBatchPrediction where
 
-instance NFData CreateBatchPrediction
+instance NFData CreateBatchPrediction where
 
 instance ToHeaders CreateBatchPrediction where
         toHeaders
@@ -160,9 +162,10 @@ instance ToQuery CreateBatchPrediction where
 --
 -- /See:/ 'createBatchPredictionResponse' smart constructor.
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
-    { _cbprsBatchPredictionId :: !(Maybe Text)
-    , _cbprsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbprsBatchPredictionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBatchPredictionResponse' with the minimum fields required to make a request.
 --
@@ -175,10 +178,9 @@ createBatchPredictionResponse
     :: Int -- ^ 'cbprsResponseStatus'
     -> CreateBatchPredictionResponse
 createBatchPredictionResponse pResponseStatus_ =
-    CreateBatchPredictionResponse'
-    { _cbprsBatchPredictionId = Nothing
-    , _cbprsResponseStatus = pResponseStatus_
-    }
+  CreateBatchPredictionResponse'
+  {_cbprsBatchPredictionId = Nothing, _cbprsResponseStatus = pResponseStatus_}
+
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value is identical to the value of the @BatchPredictionId@ in the request.
 cbprsBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
@@ -188,4 +190,4 @@ cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\ s a -> s{_cbprsBatchPre
 cbprsResponseStatus :: Lens' CreateBatchPredictionResponse Int
 cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a});
 
-instance NFData CreateBatchPredictionResponse
+instance NFData CreateBatchPredictionResponse where

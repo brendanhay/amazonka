@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DescribeApplicationState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.MigrationHub.DescribeApplicationState
     , dasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeApplicationState' smart constructor.
 newtype DescribeApplicationState = DescribeApplicationState'
-    { _dasApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeApplicationState' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ describeApplicationState
     :: Text -- ^ 'dasApplicationId'
     -> DescribeApplicationState
 describeApplicationState pApplicationId_ =
-    DescribeApplicationState'
-    { _dasApplicationId = pApplicationId_
-    }
+  DescribeApplicationState' {_dasApplicationId = pApplicationId_}
+
 
 -- | The configurationId in ADS that uniquely identifies the grouped application.
 dasApplicationId :: Lens' DescribeApplicationState Text
@@ -79,9 +79,9 @@ instance AWSRequest DescribeApplicationState where
                      (x .?> "ApplicationStatus")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeApplicationState
+instance Hashable DescribeApplicationState where
 
-instance NFData DescribeApplicationState
+instance NFData DescribeApplicationState where
 
 instance ToHeaders DescribeApplicationState where
         toHeaders
@@ -107,10 +107,11 @@ instance ToQuery DescribeApplicationState where
 
 -- | /See:/ 'describeApplicationStateResponse' smart constructor.
 data DescribeApplicationStateResponse = DescribeApplicationStateResponse'
-    { _dasrsLastUpdatedTime   :: !(Maybe POSIX)
-    , _dasrsApplicationStatus :: !(Maybe ApplicationStatus)
-    , _dasrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasrsLastUpdatedTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dasrsApplicationStatus :: {-# NOUNPACK #-}!(Maybe ApplicationStatus)
+  , _dasrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeApplicationStateResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +126,12 @@ describeApplicationStateResponse
     :: Int -- ^ 'dasrsResponseStatus'
     -> DescribeApplicationStateResponse
 describeApplicationStateResponse pResponseStatus_ =
-    DescribeApplicationStateResponse'
-    { _dasrsLastUpdatedTime = Nothing
-    , _dasrsApplicationStatus = Nothing
-    , _dasrsResponseStatus = pResponseStatus_
-    }
+  DescribeApplicationStateResponse'
+  { _dasrsLastUpdatedTime = Nothing
+  , _dasrsApplicationStatus = Nothing
+  , _dasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The timestamp when the application status was last updated.
 dasrsLastUpdatedTime :: Lens' DescribeApplicationStateResponse (Maybe UTCTime)
@@ -144,3 +146,4 @@ dasrsResponseStatus :: Lens' DescribeApplicationStateResponse Int
 dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a});
 
 instance NFData DescribeApplicationStateResponse
+         where

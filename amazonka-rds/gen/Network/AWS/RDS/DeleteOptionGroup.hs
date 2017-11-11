@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteOptionGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.RDS.DeleteOptionGroup
     , DeleteOptionGroupResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteOptionGroup' smart constructor.
 newtype DeleteOptionGroup = DeleteOptionGroup'
-    { _dOptionGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dOptionGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteOptionGroup' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteOptionGroup
     :: Text -- ^ 'dOptionGroupName'
     -> DeleteOptionGroup
 deleteOptionGroup pOptionGroupName_ =
-    DeleteOptionGroup'
-    { _dOptionGroupName = pOptionGroupName_
-    }
+  DeleteOptionGroup' {_dOptionGroupName = pOptionGroupName_}
+
 
 -- | The name of the option group to be deleted.
 dOptionGroupName :: Lens' DeleteOptionGroup Text
@@ -72,9 +72,9 @@ instance AWSRequest DeleteOptionGroup where
         request = postQuery rds
         response = receiveNull DeleteOptionGroupResponse'
 
-instance Hashable DeleteOptionGroup
+instance Hashable DeleteOptionGroup where
 
-instance NFData DeleteOptionGroup
+instance NFData DeleteOptionGroup where
 
 instance ToHeaders DeleteOptionGroup where
         toHeaders = const mempty
@@ -91,8 +91,9 @@ instance ToQuery DeleteOptionGroup where
 
 -- | /See:/ 'deleteOptionGroupResponse' smart constructor.
 data DeleteOptionGroupResponse =
-    DeleteOptionGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteOptionGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteOptionGroupResponse' with the minimum fields required to make a request.
 --
@@ -100,4 +101,5 @@ deleteOptionGroupResponse
     :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse'
 
-instance NFData DeleteOptionGroupResponse
+
+instance NFData DeleteOptionGroupResponse where

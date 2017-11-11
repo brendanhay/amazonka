@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.RejectAssignment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.MechanicalTurk.RejectAssignment
     , rarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'rejectAssignment' smart constructor.
 data RejectAssignment = RejectAssignment'
-    { _raRequesterFeedback :: !(Maybe Text)
-    , _raAssignmentId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raRequesterFeedback :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raAssignmentId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectAssignment' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ rejectAssignment
     :: Text -- ^ 'raAssignmentId'
     -> RejectAssignment
 rejectAssignment pAssignmentId_ =
-    RejectAssignment'
-    { _raRequesterFeedback = Nothing
-    , _raAssignmentId = pAssignmentId_
-    }
+  RejectAssignment'
+  {_raRequesterFeedback = Nothing, _raAssignmentId = pAssignmentId_}
+
 
 -- | A message for the Worker, which the Worker can see in the Status section of the web site.
 raRequesterFeedback :: Lens' RejectAssignment (Maybe Text)
@@ -86,9 +86,9 @@ instance AWSRequest RejectAssignment where
               (\ s h x ->
                  RejectAssignmentResponse' <$> (pure (fromEnum s)))
 
-instance Hashable RejectAssignment
+instance Hashable RejectAssignment where
 
-instance NFData RejectAssignment
+instance NFData RejectAssignment where
 
 instance ToHeaders RejectAssignment where
         toHeaders
@@ -115,8 +115,9 @@ instance ToQuery RejectAssignment where
 
 -- | /See:/ 'rejectAssignmentResponse' smart constructor.
 newtype RejectAssignmentResponse = RejectAssignmentResponse'
-    { _rarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectAssignmentResponse' with the minimum fields required to make a request.
 --
@@ -127,12 +128,11 @@ rejectAssignmentResponse
     :: Int -- ^ 'rarsResponseStatus'
     -> RejectAssignmentResponse
 rejectAssignmentResponse pResponseStatus_ =
-    RejectAssignmentResponse'
-    { _rarsResponseStatus = pResponseStatus_
-    }
+  RejectAssignmentResponse' {_rarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rarsResponseStatus :: Lens' RejectAssignmentResponse Int
 rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a});
 
-instance NFData RejectAssignmentResponse
+instance NFData RejectAssignmentResponse where

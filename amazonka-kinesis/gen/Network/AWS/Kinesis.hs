@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -229,29 +229,29 @@ module Network.AWS.Kinesis
     , tagKey
     ) where
 
-import           Network.AWS.Kinesis.AddTagsToStream
-import           Network.AWS.Kinesis.CreateStream
-import           Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
-import           Network.AWS.Kinesis.DeleteStream
-import           Network.AWS.Kinesis.DescribeLimits
-import           Network.AWS.Kinesis.DescribeStream
-import           Network.AWS.Kinesis.DisableEnhancedMonitoring
-import           Network.AWS.Kinesis.EnableEnhancedMonitoring
-import           Network.AWS.Kinesis.GetRecords
-import           Network.AWS.Kinesis.GetShardIterator
-import           Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
-import           Network.AWS.Kinesis.ListStreams
-import           Network.AWS.Kinesis.ListTagsForStream
-import           Network.AWS.Kinesis.MergeShards
-import           Network.AWS.Kinesis.PutRecord
-import           Network.AWS.Kinesis.PutRecords
-import           Network.AWS.Kinesis.RemoveTagsFromStream
-import           Network.AWS.Kinesis.SplitShard
-import           Network.AWS.Kinesis.StartStreamEncryption
-import           Network.AWS.Kinesis.StopStreamEncryption
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.UpdateShardCount
-import           Network.AWS.Kinesis.Waiters
+import Network.AWS.Kinesis.AddTagsToStream
+import Network.AWS.Kinesis.CreateStream
+import Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
+import Network.AWS.Kinesis.DeleteStream
+import Network.AWS.Kinesis.DescribeLimits
+import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.DisableEnhancedMonitoring
+import Network.AWS.Kinesis.EnableEnhancedMonitoring
+import Network.AWS.Kinesis.GetRecords
+import Network.AWS.Kinesis.GetShardIterator
+import Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
+import Network.AWS.Kinesis.ListStreams
+import Network.AWS.Kinesis.ListTagsForStream
+import Network.AWS.Kinesis.MergeShards
+import Network.AWS.Kinesis.PutRecord
+import Network.AWS.Kinesis.PutRecords
+import Network.AWS.Kinesis.RemoveTagsFromStream
+import Network.AWS.Kinesis.SplitShard
+import Network.AWS.Kinesis.StartStreamEncryption
+import Network.AWS.Kinesis.StopStreamEncryption
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.UpdateShardCount
+import Network.AWS.Kinesis.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

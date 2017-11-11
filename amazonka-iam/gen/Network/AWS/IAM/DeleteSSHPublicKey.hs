@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSSHPublicKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.DeleteSSHPublicKey
     , DeleteSSHPublicKeyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSSHPublicKey' smart constructor.
 data DeleteSSHPublicKey = DeleteSSHPublicKey'
-    { _dspkUserName       :: !Text
-    , _dspkSSHPublicKeyId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dspkUserName       :: {-# NOUNPACK #-}!Text
+  , _dspkSSHPublicKeyId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSSHPublicKey' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ deleteSSHPublicKey
     -> Text -- ^ 'dspkSSHPublicKeyId'
     -> DeleteSSHPublicKey
 deleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
-    DeleteSSHPublicKey'
-    { _dspkUserName = pUserName_
-    , _dspkSSHPublicKeyId = pSSHPublicKeyId_
-    }
+  DeleteSSHPublicKey'
+  {_dspkUserName = pUserName_, _dspkSSHPublicKeyId = pSSHPublicKeyId_}
+
 
 -- | The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dspkUserName :: Lens' DeleteSSHPublicKey Text
@@ -81,9 +81,9 @@ instance AWSRequest DeleteSSHPublicKey where
         request = postQuery iam
         response = receiveNull DeleteSSHPublicKeyResponse'
 
-instance Hashable DeleteSSHPublicKey
+instance Hashable DeleteSSHPublicKey where
 
-instance NFData DeleteSSHPublicKey
+instance NFData DeleteSSHPublicKey where
 
 instance ToHeaders DeleteSSHPublicKey where
         toHeaders = const mempty
@@ -101,8 +101,9 @@ instance ToQuery DeleteSSHPublicKey where
 
 -- | /See:/ 'deleteSSHPublicKeyResponse' smart constructor.
 data DeleteSSHPublicKeyResponse =
-    DeleteSSHPublicKeyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSSHPublicKeyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSSHPublicKeyResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,5 @@ deleteSSHPublicKeyResponse
     :: DeleteSSHPublicKeyResponse
 deleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
 
-instance NFData DeleteSSHPublicKeyResponse
+
+instance NFData DeleteSSHPublicKeyResponse where

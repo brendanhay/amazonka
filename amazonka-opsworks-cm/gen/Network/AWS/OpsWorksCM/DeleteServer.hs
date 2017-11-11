@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DeleteServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,17 +42,18 @@ module Network.AWS.OpsWorksCM.DeleteServer
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteServer' smart constructor.
 newtype DeleteServer = DeleteServer'
-    { _dsServerName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsServerName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteServer' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype DeleteServer = DeleteServer'
 deleteServer
     :: Text -- ^ 'dsServerName'
     -> DeleteServer
-deleteServer pServerName_ =
-    DeleteServer'
-    { _dsServerName = pServerName_
-    }
+deleteServer pServerName_ = DeleteServer' {_dsServerName = pServerName_}
+
 
 -- | The ID of the server to delete.
 dsServerName :: Lens' DeleteServer Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteServer where
               (\ s h x ->
                  DeleteServerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteServer
+instance Hashable DeleteServer where
 
-instance NFData DeleteServer
+instance NFData DeleteServer where
 
 instance ToHeaders DeleteServer where
         toHeaders
@@ -106,8 +105,9 @@ instance ToQuery DeleteServer where
 
 -- | /See:/ 'deleteServerResponse' smart constructor.
 newtype DeleteServerResponse = DeleteServerResponse'
-    { _dsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteServerResponse' with the minimum fields required to make a request.
 --
@@ -118,12 +118,11 @@ deleteServerResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteServerResponse
 deleteServerResponse pResponseStatus_ =
-    DeleteServerResponse'
-    { _dsrsResponseStatus = pResponseStatus_
-    }
+  DeleteServerResponse' {_dsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteServerResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DeleteServerResponse
+instance NFData DeleteServerResponse where

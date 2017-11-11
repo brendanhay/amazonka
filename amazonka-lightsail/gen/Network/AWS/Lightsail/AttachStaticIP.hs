@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.AttachStaticIP
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.AttachStaticIP
     , asiprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachStaticIP' smart constructor.
 data AttachStaticIP = AttachStaticIP'
-    { _asipStaticIPName :: !Text
-    , _asipInstanceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asipStaticIPName :: {-# NOUNPACK #-}!Text
+  , _asipInstanceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachStaticIP' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ attachStaticIP
     -> Text -- ^ 'asipInstanceName'
     -> AttachStaticIP
 attachStaticIP pStaticIPName_ pInstanceName_ =
-    AttachStaticIP'
-    { _asipStaticIPName = pStaticIPName_
-    , _asipInstanceName = pInstanceName_
-    }
+  AttachStaticIP'
+  {_asipStaticIPName = pStaticIPName_, _asipInstanceName = pInstanceName_}
+
 
 -- | The name of the static IP.
 asipStaticIPName :: Lens' AttachStaticIP Text
@@ -86,9 +86,9 @@ instance AWSRequest AttachStaticIP where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable AttachStaticIP
+instance Hashable AttachStaticIP where
 
-instance NFData AttachStaticIP
+instance NFData AttachStaticIP where
 
 instance ToHeaders AttachStaticIP where
         toHeaders
@@ -114,9 +114,10 @@ instance ToQuery AttachStaticIP where
 
 -- | /See:/ 'attachStaticIPResponse' smart constructor.
 data AttachStaticIPResponse = AttachStaticIPResponse'
-    { _asiprsOperations     :: !(Maybe [Operation])
-    , _asiprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asiprsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _asiprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachStaticIPResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ attachStaticIPResponse
     :: Int -- ^ 'asiprsResponseStatus'
     -> AttachStaticIPResponse
 attachStaticIPResponse pResponseStatus_ =
-    AttachStaticIPResponse'
-    { _asiprsOperations = Nothing
-    , _asiprsResponseStatus = pResponseStatus_
-    }
+  AttachStaticIPResponse'
+  {_asiprsOperations = Nothing, _asiprsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about your API operations.
 asiprsOperations :: Lens' AttachStaticIPResponse [Operation]
@@ -142,4 +142,4 @@ asiprsOperations = lens _asiprsOperations (\ s a -> s{_asiprsOperations = a}) . 
 asiprsResponseStatus :: Lens' AttachStaticIPResponse Int
 asiprsResponseStatus = lens _asiprsResponseStatus (\ s a -> s{_asiprsResponseStatus = a});
 
-instance NFData AttachStaticIPResponse
+instance NFData AttachStaticIPResponse where

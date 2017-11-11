@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.DisableStageTransition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CodePipeline.DisableStageTransition
     , DisableStageTransitionResponse
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a disable stage transition input action.
 --
@@ -50,11 +50,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableStageTransition' smart constructor.
 data DisableStageTransition = DisableStageTransition'
-    { _dstPipelineName   :: !Text
-    , _dstStageName      :: !Text
-    , _dstTransitionType :: !StageTransitionType
-    , _dstReason         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dstPipelineName   :: {-# NOUNPACK #-}!Text
+  , _dstStageName      :: {-# NOUNPACK #-}!Text
+  , _dstTransitionType :: {-# NOUNPACK #-}!StageTransitionType
+  , _dstReason         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableStageTransition' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ disableStageTransition
     -> Text -- ^ 'dstReason'
     -> DisableStageTransition
 disableStageTransition pPipelineName_ pStageName_ pTransitionType_ pReason_ =
-    DisableStageTransition'
-    { _dstPipelineName = pPipelineName_
-    , _dstStageName = pStageName_
-    , _dstTransitionType = pTransitionType_
-    , _dstReason = pReason_
-    }
+  DisableStageTransition'
+  { _dstPipelineName = pPipelineName_
+  , _dstStageName = pStageName_
+  , _dstTransitionType = pTransitionType_
+  , _dstReason = pReason_
+  }
+
 
 -- | The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
 dstPipelineName :: Lens' DisableStageTransition Text
@@ -104,9 +106,9 @@ instance AWSRequest DisableStageTransition where
         response
           = receiveNull DisableStageTransitionResponse'
 
-instance Hashable DisableStageTransition
+instance Hashable DisableStageTransition where
 
-instance NFData DisableStageTransition
+instance NFData DisableStageTransition where
 
 instance ToHeaders DisableStageTransition where
         toHeaders
@@ -135,8 +137,9 @@ instance ToQuery DisableStageTransition where
 
 -- | /See:/ 'disableStageTransitionResponse' smart constructor.
 data DisableStageTransitionResponse =
-    DisableStageTransitionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisableStageTransitionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableStageTransitionResponse' with the minimum fields required to make a request.
 --
@@ -144,4 +147,5 @@ disableStageTransitionResponse
     :: DisableStageTransitionResponse
 disableStageTransitionResponse = DisableStageTransitionResponse'
 
-instance NFData DisableStageTransitionResponse
+
+instance NFData DisableStageTransitionResponse where

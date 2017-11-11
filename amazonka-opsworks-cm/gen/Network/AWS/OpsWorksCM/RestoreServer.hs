@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.RestoreServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.OpsWorksCM.RestoreServer
     , rsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'restoreServer' smart constructor.
 data RestoreServer = RestoreServer'
-    { _rsKeyPair      :: !(Maybe Text)
-    , _rsInstanceType :: !(Maybe Text)
-    , _rsBackupId     :: !Text
-    , _rsServerName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsKeyPair      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsBackupId     :: {-# NOUNPACK #-}!Text
+  , _rsServerName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreServer' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ restoreServer
     -> Text -- ^ 'rsServerName'
     -> RestoreServer
 restoreServer pBackupId_ pServerName_ =
-    RestoreServer'
-    { _rsKeyPair = Nothing
-    , _rsInstanceType = Nothing
-    , _rsBackupId = pBackupId_
-    , _rsServerName = pServerName_
-    }
+  RestoreServer'
+  { _rsKeyPair = Nothing
+  , _rsInstanceType = Nothing
+  , _rsBackupId = pBackupId_
+  , _rsServerName = pServerName_
+  }
+
 
 -- | The name of the key pair to set on the new EC2 instance. This can be helpful if the administrator no longer has the SSH key.
 rsKeyPair :: Lens' RestoreServer (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest RestoreServer where
               (\ s h x ->
                  RestoreServerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable RestoreServer
+instance Hashable RestoreServer where
 
-instance NFData RestoreServer
+instance NFData RestoreServer where
 
 instance ToHeaders RestoreServer where
         toHeaders
@@ -136,8 +138,9 @@ instance ToQuery RestoreServer where
 
 -- | /See:/ 'restoreServerResponse' smart constructor.
 newtype RestoreServerResponse = RestoreServerResponse'
-    { _rsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreServerResponse' with the minimum fields required to make a request.
 --
@@ -148,12 +151,11 @@ restoreServerResponse
     :: Int -- ^ 'rsrsResponseStatus'
     -> RestoreServerResponse
 restoreServerResponse pResponseStatus_ =
-    RestoreServerResponse'
-    { _rsrsResponseStatus = pResponseStatus_
-    }
+  RestoreServerResponse' {_rsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rsrsResponseStatus :: Lens' RestoreServerResponse Int
 rsrsResponseStatus = lens _rsrsResponseStatus (\ s a -> s{_rsrsResponseStatus = a});
 
-instance NFData RestoreServerResponse
+instance NFData RestoreServerResponse where

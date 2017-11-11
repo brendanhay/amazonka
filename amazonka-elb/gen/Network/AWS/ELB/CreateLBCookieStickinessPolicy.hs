@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateLBCookieStickinessPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     , clbcsprsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateLBCookieStickinessPolicy.
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createLBCookieStickinessPolicy' smart constructor.
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
-    { _clbcspCookieExpirationPeriod :: !(Maybe Integer)
-    , _clbcspLoadBalancerName       :: !Text
-    , _clbcspPolicyName             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clbcspCookieExpirationPeriod :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _clbcspLoadBalancerName       :: {-# NOUNPACK #-}!Text
+  , _clbcspPolicyName             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLBCookieStickinessPolicy' with the minimum fields required to make a request.
 --
@@ -76,11 +77,12 @@ createLBCookieStickinessPolicy
     -> Text -- ^ 'clbcspPolicyName'
     -> CreateLBCookieStickinessPolicy
 createLBCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ =
-    CreateLBCookieStickinessPolicy'
-    { _clbcspCookieExpirationPeriod = Nothing
-    , _clbcspLoadBalancerName = pLoadBalancerName_
-    , _clbcspPolicyName = pPolicyName_
-    }
+  CreateLBCookieStickinessPolicy'
+  { _clbcspCookieExpirationPeriod = Nothing
+  , _clbcspLoadBalancerName = pLoadBalancerName_
+  , _clbcspPolicyName = pPolicyName_
+  }
+
 
 -- | The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.
 clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
@@ -107,8 +109,9 @@ instance AWSRequest CreateLBCookieStickinessPolicy
                    (pure (fromEnum s)))
 
 instance Hashable CreateLBCookieStickinessPolicy
+         where
 
-instance NFData CreateLBCookieStickinessPolicy
+instance NFData CreateLBCookieStickinessPolicy where
 
 instance ToHeaders CreateLBCookieStickinessPolicy
          where
@@ -134,8 +137,9 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 --
 -- /See:/ 'createLBCookieStickinessPolicyResponse' smart constructor.
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
-    { _clbcsprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clbcsprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLBCookieStickinessPolicyResponse' with the minimum fields required to make a request.
 --
@@ -146,13 +150,14 @@ createLBCookieStickinessPolicyResponse
     :: Int -- ^ 'clbcsprsResponseStatus'
     -> CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse pResponseStatus_ =
-    CreateLBCookieStickinessPolicyResponse'
-    { _clbcsprsResponseStatus = pResponseStatus_
-    }
+  CreateLBCookieStickinessPolicyResponse'
+  {_clbcsprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 clbcsprsResponseStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
 clbcsprsResponseStatus = lens _clbcsprsResponseStatus (\ s a -> s{_clbcsprsResponseStatus = a});
 
 instance NFData
-         CreateLBCookieStickinessPolicyResponse
+           CreateLBCookieStickinessPolicyResponse
+         where

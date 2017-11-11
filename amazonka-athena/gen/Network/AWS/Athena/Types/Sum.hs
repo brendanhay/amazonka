@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.Athena.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Athena.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ColumnNullable
-    = NotNull
-    | Nullable
-    | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NotNull
+  | Nullable
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ColumnNullable where
     parser = takeLowerText >>= \case
@@ -49,10 +50,11 @@ instance FromJSON ColumnNullable where
     parseJSON = parseJSONText "ColumnNullable"
 
 data EncryptionOption
-    = CseKMS
-    | SseKMS
-    | SseS3
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CseKMS
+  | SseKMS
+  | SseS3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EncryptionOption where
     parser = takeLowerText >>= \case
@@ -81,12 +83,13 @@ instance FromJSON EncryptionOption where
     parseJSON = parseJSONText "EncryptionOption"
 
 data QueryExecutionState
-    = Cancelled
-    | Failed
-    | Queued
-    | Running
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cancelled
+  | Failed
+  | Queued
+  | Running
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText QueryExecutionState where
     parser = takeLowerText >>= \case

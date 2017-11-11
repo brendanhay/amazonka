@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.StartPipelineExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CodePipeline.StartPipelineExecution
     , spersResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a start pipeline execution action.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startPipelineExecution' smart constructor.
 newtype StartPipelineExecution = StartPipelineExecution'
-    { _speName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _speName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartPipelineExecution' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype StartPipelineExecution = StartPipelineExecution'
 startPipelineExecution
     :: Text -- ^ 'speName'
     -> StartPipelineExecution
-startPipelineExecution pName_ =
-    StartPipelineExecution'
-    { _speName = pName_
-    }
+startPipelineExecution pName_ = StartPipelineExecution' {_speName = pName_}
+
 
 -- | The name of the pipeline to start.
 speName :: Lens' StartPipelineExecution Text
@@ -81,9 +80,9 @@ instance AWSRequest StartPipelineExecution where
                    (x .?> "pipelineExecutionId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable StartPipelineExecution
+instance Hashable StartPipelineExecution where
 
-instance NFData StartPipelineExecution
+instance NFData StartPipelineExecution where
 
 instance ToHeaders StartPipelineExecution where
         toHeaders
@@ -111,9 +110,10 @@ instance ToQuery StartPipelineExecution where
 --
 -- /See:/ 'startPipelineExecutionResponse' smart constructor.
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
-    { _spersPipelineExecutionId :: !(Maybe Text)
-    , _spersResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spersPipelineExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _spersResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartPipelineExecutionResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +126,9 @@ startPipelineExecutionResponse
     :: Int -- ^ 'spersResponseStatus'
     -> StartPipelineExecutionResponse
 startPipelineExecutionResponse pResponseStatus_ =
-    StartPipelineExecutionResponse'
-    { _spersPipelineExecutionId = Nothing
-    , _spersResponseStatus = pResponseStatus_
-    }
+  StartPipelineExecutionResponse'
+  {_spersPipelineExecutionId = Nothing, _spersResponseStatus = pResponseStatus_}
+
 
 -- | The unique system-generated ID of the pipeline execution that was started.
 spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
@@ -139,4 +138,4 @@ spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipe
 spersResponseStatus :: Lens' StartPipelineExecutionResponse Int
 spersResponseStatus = lens _spersResponseStatus (\ s a -> s{_spersResponseStatus = a});
 
-instance NFData StartPipelineExecutionResponse
+instance NFData StartPipelineExecutionResponse where

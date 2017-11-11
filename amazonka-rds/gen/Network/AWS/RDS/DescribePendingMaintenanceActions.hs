@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribePendingMaintenanceActions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     , dpmarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describePendingMaintenanceActions' smart constructor.
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
-    { _dpmaFilters            :: !(Maybe [Filter])
-    , _dpmaMarker             :: !(Maybe Text)
-    , _dpmaMaxRecords         :: !(Maybe Int)
-    , _dpmaResourceIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpmaFilters            :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dpmaMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpmaMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpmaResourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePendingMaintenanceActions' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 describePendingMaintenanceActions
     :: DescribePendingMaintenanceActions
 describePendingMaintenanceActions =
-    DescribePendingMaintenanceActions'
-    { _dpmaFilters = Nothing
-    , _dpmaMarker = Nothing
-    , _dpmaMaxRecords = Nothing
-    , _dpmaResourceIdentifier = Nothing
-    }
+  DescribePendingMaintenanceActions'
+  { _dpmaFilters = Nothing
+  , _dpmaMarker = Nothing
+  , _dpmaMaxRecords = Nothing
+  , _dpmaResourceIdentifier = Nothing
+  }
+
 
 -- | A filter that specifies one or more resources to return pending maintenance actions for. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB clusters identified by these ARNs.     * @db-instance-id@ - Accepts DB instance identifiers and DB instance ARNs. The results list will only include pending maintenance actions for the DB instances identified by these ARNs.
 dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
@@ -114,8 +116,10 @@ instance AWSRequest DescribePendingMaintenanceActions
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribePendingMaintenanceActions
+         where
 
 instance NFData DescribePendingMaintenanceActions
+         where
 
 instance ToHeaders DescribePendingMaintenanceActions
          where
@@ -144,10 +148,11 @@ instance ToQuery DescribePendingMaintenanceActions
 --
 -- /See:/ 'describePendingMaintenanceActionsResponse' smart constructor.
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
-    { _dpmarsPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
-    , _dpmarsMarker                    :: !(Maybe Text)
-    , _dpmarsResponseStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpmarsPendingMaintenanceActions :: {-# NOUNPACK #-}!(Maybe [ResourcePendingMaintenanceActions])
+  , _dpmarsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpmarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePendingMaintenanceActionsResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +167,12 @@ describePendingMaintenanceActionsResponse
     :: Int -- ^ 'dpmarsResponseStatus'
     -> DescribePendingMaintenanceActionsResponse
 describePendingMaintenanceActionsResponse pResponseStatus_ =
-    DescribePendingMaintenanceActionsResponse'
-    { _dpmarsPendingMaintenanceActions = Nothing
-    , _dpmarsMarker = Nothing
-    , _dpmarsResponseStatus = pResponseStatus_
-    }
+  DescribePendingMaintenanceActionsResponse'
+  { _dpmarsPendingMaintenanceActions = Nothing
+  , _dpmarsMarker = Nothing
+  , _dpmarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the pending maintenance actions for the resource.
 dpmarsPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
@@ -181,4 +187,5 @@ dpmarsResponseStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
 dpmarsResponseStatus = lens _dpmarsResponseStatus (\ s a -> s{_dpmarsResponseStatus = a});
 
 instance NFData
-         DescribePendingMaintenanceActionsResponse
+           DescribePendingMaintenanceActionsResponse
+         where

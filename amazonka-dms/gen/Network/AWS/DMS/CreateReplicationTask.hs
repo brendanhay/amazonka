@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.CreateReplicationTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.DMS.CreateReplicationTask
     , crtrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,16 +58,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createReplicationTask' smart constructor.
 data CreateReplicationTask = CreateReplicationTask'
-    { _crtReplicationTaskSettings   :: !(Maybe Text)
-    , _crtTags                      :: !(Maybe [Tag])
-    , _crtCdcStartTime              :: !(Maybe POSIX)
-    , _crtReplicationTaskIdentifier :: !Text
-    , _crtSourceEndpointARN         :: !Text
-    , _crtTargetEndpointARN         :: !Text
-    , _crtReplicationInstanceARN    :: !Text
-    , _crtMigrationType             :: !MigrationTypeValue
-    , _crtTableMappings             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crtReplicationTaskSettings   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crtTags                      :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _crtCdcStartTime              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _crtReplicationTaskIdentifier :: {-# NOUNPACK #-}!Text
+  , _crtSourceEndpointARN         :: {-# NOUNPACK #-}!Text
+  , _crtTargetEndpointARN         :: {-# NOUNPACK #-}!Text
+  , _crtReplicationInstanceARN    :: {-# NOUNPACK #-}!Text
+  , _crtMigrationType             :: {-# NOUNPACK #-}!MigrationTypeValue
+  , _crtTableMappings             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationTask' with the minimum fields required to make a request.
 --
@@ -99,17 +100,18 @@ createReplicationTask
     -> Text -- ^ 'crtTableMappings'
     -> CreateReplicationTask
 createReplicationTask pReplicationTaskIdentifier_ pSourceEndpointARN_ pTargetEndpointARN_ pReplicationInstanceARN_ pMigrationType_ pTableMappings_ =
-    CreateReplicationTask'
-    { _crtReplicationTaskSettings = Nothing
-    , _crtTags = Nothing
-    , _crtCdcStartTime = Nothing
-    , _crtReplicationTaskIdentifier = pReplicationTaskIdentifier_
-    , _crtSourceEndpointARN = pSourceEndpointARN_
-    , _crtTargetEndpointARN = pTargetEndpointARN_
-    , _crtReplicationInstanceARN = pReplicationInstanceARN_
-    , _crtMigrationType = pMigrationType_
-    , _crtTableMappings = pTableMappings_
-    }
+  CreateReplicationTask'
+  { _crtReplicationTaskSettings = Nothing
+  , _crtTags = Nothing
+  , _crtCdcStartTime = Nothing
+  , _crtReplicationTaskIdentifier = pReplicationTaskIdentifier_
+  , _crtSourceEndpointARN = pSourceEndpointARN_
+  , _crtTargetEndpointARN = pTargetEndpointARN_
+  , _crtReplicationInstanceARN = pReplicationInstanceARN_
+  , _crtMigrationType = pMigrationType_
+  , _crtTableMappings = pTableMappings_
+  }
+
 
 -- | Settings for the task, such as target metadata settings. For a complete list of task settings, see <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Task Settings for AWS Database Migration Service Tasks> .
 crtReplicationTaskSettings :: Lens' CreateReplicationTask (Maybe Text)
@@ -157,9 +159,9 @@ instance AWSRequest CreateReplicationTask where
                  CreateReplicationTaskResponse' <$>
                    (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
 
-instance Hashable CreateReplicationTask
+instance Hashable CreateReplicationTask where
 
-instance NFData CreateReplicationTask
+instance NFData CreateReplicationTask where
 
 instance ToHeaders CreateReplicationTask where
         toHeaders
@@ -202,9 +204,10 @@ instance ToQuery CreateReplicationTask where
 --
 -- /See:/ 'createReplicationTaskResponse' smart constructor.
 data CreateReplicationTaskResponse = CreateReplicationTaskResponse'
-    { _crtrsReplicationTask :: !(Maybe ReplicationTask)
-    , _crtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crtrsReplicationTask :: {-# NOUNPACK #-}!(Maybe ReplicationTask)
+  , _crtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationTaskResponse' with the minimum fields required to make a request.
 --
@@ -217,10 +220,9 @@ createReplicationTaskResponse
     :: Int -- ^ 'crtrsResponseStatus'
     -> CreateReplicationTaskResponse
 createReplicationTaskResponse pResponseStatus_ =
-    CreateReplicationTaskResponse'
-    { _crtrsReplicationTask = Nothing
-    , _crtrsResponseStatus = pResponseStatus_
-    }
+  CreateReplicationTaskResponse'
+  {_crtrsReplicationTask = Nothing, _crtrsResponseStatus = pResponseStatus_}
+
 
 -- | The replication task that was created.
 crtrsReplicationTask :: Lens' CreateReplicationTaskResponse (Maybe ReplicationTask)
@@ -230,4 +232,4 @@ crtrsReplicationTask = lens _crtrsReplicationTask (\ s a -> s{_crtrsReplicationT
 crtrsResponseStatus :: Lens' CreateReplicationTaskResponse Int
 crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a});
 
-instance NFData CreateReplicationTaskResponse
+instance NFData CreateReplicationTaskResponse where

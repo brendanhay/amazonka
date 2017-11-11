@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.MergeDeveloperIdentities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     , mdirsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @MergeDeveloperIdentities@ action.
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'mergeDeveloperIdentities' smart constructor.
 data MergeDeveloperIdentities = MergeDeveloperIdentities'
-    { _mdiSourceUserIdentifier      :: !Text
-    , _mdiDestinationUserIdentifier :: !Text
-    , _mdiDeveloperProviderName     :: !Text
-    , _mdiIdentityPoolId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdiSourceUserIdentifier      :: {-# NOUNPACK #-}!Text
+  , _mdiDestinationUserIdentifier :: {-# NOUNPACK #-}!Text
+  , _mdiDeveloperProviderName     :: {-# NOUNPACK #-}!Text
+  , _mdiIdentityPoolId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MergeDeveloperIdentities' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ mergeDeveloperIdentities
     -> Text -- ^ 'mdiIdentityPoolId'
     -> MergeDeveloperIdentities
 mergeDeveloperIdentities pSourceUserIdentifier_ pDestinationUserIdentifier_ pDeveloperProviderName_ pIdentityPoolId_ =
-    MergeDeveloperIdentities'
-    { _mdiSourceUserIdentifier = pSourceUserIdentifier_
-    , _mdiDestinationUserIdentifier = pDestinationUserIdentifier_
-    , _mdiDeveloperProviderName = pDeveloperProviderName_
-    , _mdiIdentityPoolId = pIdentityPoolId_
-    }
+  MergeDeveloperIdentities'
+  { _mdiSourceUserIdentifier = pSourceUserIdentifier_
+  , _mdiDestinationUserIdentifier = pDestinationUserIdentifier_
+  , _mdiDeveloperProviderName = pDeveloperProviderName_
+  , _mdiIdentityPoolId = pIdentityPoolId_
+  }
+
 
 -- | User identifier for the source user. The value should be a @DeveloperUserIdentifier@ .
 mdiSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
@@ -112,9 +114,9 @@ instance AWSRequest MergeDeveloperIdentities where
                  MergeDeveloperIdentitiesResponse' <$>
                    (x .?> "IdentityId") <*> (pure (fromEnum s)))
 
-instance Hashable MergeDeveloperIdentities
+instance Hashable MergeDeveloperIdentities where
 
-instance NFData MergeDeveloperIdentities
+instance NFData MergeDeveloperIdentities where
 
 instance ToHeaders MergeDeveloperIdentities where
         toHeaders
@@ -152,9 +154,10 @@ instance ToQuery MergeDeveloperIdentities where
 --
 -- /See:/ 'mergeDeveloperIdentitiesResponse' smart constructor.
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
-    { _mdirsIdentityId     :: !(Maybe Text)
-    , _mdirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdirsIdentityId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MergeDeveloperIdentitiesResponse' with the minimum fields required to make a request.
 --
@@ -167,10 +170,9 @@ mergeDeveloperIdentitiesResponse
     :: Int -- ^ 'mdirsResponseStatus'
     -> MergeDeveloperIdentitiesResponse
 mergeDeveloperIdentitiesResponse pResponseStatus_ =
-    MergeDeveloperIdentitiesResponse'
-    { _mdirsIdentityId = Nothing
-    , _mdirsResponseStatus = pResponseStatus_
-    }
+  MergeDeveloperIdentitiesResponse'
+  {_mdirsIdentityId = Nothing, _mdirsResponseStatus = pResponseStatus_}
+
 
 -- | A unique identifier in the format REGION:GUID.
 mdirsIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
@@ -181,3 +183,4 @@ mdirsResponseStatus :: Lens' MergeDeveloperIdentitiesResponse Int
 mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});
 
 instance NFData MergeDeveloperIdentitiesResponse
+         where

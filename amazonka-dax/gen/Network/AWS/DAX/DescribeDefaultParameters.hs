@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeDefaultParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.DAX.DescribeDefaultParameters
     , ddprsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDefaultParameters' smart constructor.
 data DescribeDefaultParameters = DescribeDefaultParameters'
-    { _ddpNextToken  :: !(Maybe Text)
-    , _ddpMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddpMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDefaultParameters' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data DescribeDefaultParameters = DescribeDefaultParameters'
 describeDefaultParameters
     :: DescribeDefaultParameters
 describeDefaultParameters =
-    DescribeDefaultParameters'
-    { _ddpNextToken = Nothing
-    , _ddpMaxResults = Nothing
-    }
+  DescribeDefaultParameters' {_ddpNextToken = Nothing, _ddpMaxResults = Nothing}
+
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 ddpNextToken :: Lens' DescribeDefaultParameters (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest DescribeDefaultParameters where
                      (x .?> "Parameters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDefaultParameters
+instance Hashable DescribeDefaultParameters where
 
-instance NFData DescribeDefaultParameters
+instance NFData DescribeDefaultParameters where
 
 instance ToHeaders DescribeDefaultParameters where
         toHeaders
@@ -116,10 +115,11 @@ instance ToQuery DescribeDefaultParameters where
 
 -- | /See:/ 'describeDefaultParametersResponse' smart constructor.
 data DescribeDefaultParametersResponse = DescribeDefaultParametersResponse'
-    { _ddprsNextToken      :: !(Maybe Text)
-    , _ddprsParameters     :: !(Maybe [Parameter])
-    , _ddprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _ddprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDefaultParametersResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +134,12 @@ describeDefaultParametersResponse
     :: Int -- ^ 'ddprsResponseStatus'
     -> DescribeDefaultParametersResponse
 describeDefaultParametersResponse pResponseStatus_ =
-    DescribeDefaultParametersResponse'
-    { _ddprsNextToken = Nothing
-    , _ddprsParameters = Nothing
-    , _ddprsResponseStatus = pResponseStatus_
-    }
+  DescribeDefaultParametersResponse'
+  { _ddprsNextToken = Nothing
+  , _ddprsParameters = Nothing
+  , _ddprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Provides an identifier to allow retrieval of paginated results.
 ddprsNextToken :: Lens' DescribeDefaultParametersResponse (Maybe Text)
@@ -153,3 +154,4 @@ ddprsResponseStatus :: Lens' DescribeDefaultParametersResponse Int
 ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
 
 instance NFData DescribeDefaultParametersResponse
+         where

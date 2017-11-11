@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.PurchaseReservedNodeOffering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     , prnorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'purchaseReservedNodeOffering' smart constructor.
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
-    { _prnoNodeCount              :: !(Maybe Int)
-    , _prnoReservedNodeOfferingId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prnoNodeCount              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _prnoReservedNodeOfferingId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedNodeOffering' with the minimum fields required to make a request.
 --
@@ -68,10 +69,11 @@ purchaseReservedNodeOffering
     :: Text -- ^ 'prnoReservedNodeOfferingId'
     -> PurchaseReservedNodeOffering
 purchaseReservedNodeOffering pReservedNodeOfferingId_ =
-    PurchaseReservedNodeOffering'
-    { _prnoNodeCount = Nothing
-    , _prnoReservedNodeOfferingId = pReservedNodeOfferingId_
-    }
+  PurchaseReservedNodeOffering'
+  { _prnoNodeCount = Nothing
+  , _prnoReservedNodeOfferingId = pReservedNodeOfferingId_
+  }
+
 
 -- | The number of reserved nodes that you want to purchase. Default: @1@
 prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
@@ -93,9 +95,9 @@ instance AWSRequest PurchaseReservedNodeOffering
                  PurchaseReservedNodeOfferingResponse' <$>
                    (x .@? "ReservedNode") <*> (pure (fromEnum s)))
 
-instance Hashable PurchaseReservedNodeOffering
+instance Hashable PurchaseReservedNodeOffering where
 
-instance NFData PurchaseReservedNodeOffering
+instance NFData PurchaseReservedNodeOffering where
 
 instance ToHeaders PurchaseReservedNodeOffering where
         toHeaders = const mempty
@@ -115,9 +117,10 @@ instance ToQuery PurchaseReservedNodeOffering where
 
 -- | /See:/ 'purchaseReservedNodeOfferingResponse' smart constructor.
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
-    { _prnorsReservedNode   :: !(Maybe ReservedNode)
-    , _prnorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prnorsReservedNode   :: {-# NOUNPACK #-}!(Maybe ReservedNode)
+  , _prnorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedNodeOfferingResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +133,9 @@ purchaseReservedNodeOfferingResponse
     :: Int -- ^ 'prnorsResponseStatus'
     -> PurchaseReservedNodeOfferingResponse
 purchaseReservedNodeOfferingResponse pResponseStatus_ =
-    PurchaseReservedNodeOfferingResponse'
-    { _prnorsReservedNode = Nothing
-    , _prnorsResponseStatus = pResponseStatus_
-    }
+  PurchaseReservedNodeOfferingResponse'
+  {_prnorsReservedNode = Nothing, _prnorsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
@@ -144,3 +146,4 @@ prnorsResponseStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
 prnorsResponseStatus = lens _prnorsResponseStatus (\ s a -> s{_prnorsResponseStatus = a});
 
 instance NFData PurchaseReservedNodeOfferingResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CreateOrUpdateTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
     , CreateOrUpdateTagsResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateOrUpdateTags.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createOrUpdateTags' smart constructor.
 newtype CreateOrUpdateTags = CreateOrUpdateTags'
-    { _coutTags :: [Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _coutTags :: [Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateOrUpdateTags' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype CreateOrUpdateTags = CreateOrUpdateTags'
 -- * 'coutTags' - One or more tags.
 createOrUpdateTags
     :: CreateOrUpdateTags
-createOrUpdateTags =
-    CreateOrUpdateTags'
-    { _coutTags = mempty
-    }
+createOrUpdateTags = CreateOrUpdateTags' {_coutTags = mempty}
+
 
 -- | One or more tags.
 coutTags :: Lens' CreateOrUpdateTags [Tag]
@@ -76,9 +75,9 @@ instance AWSRequest CreateOrUpdateTags where
         request = postQuery autoScaling
         response = receiveNull CreateOrUpdateTagsResponse'
 
-instance Hashable CreateOrUpdateTags
+instance Hashable CreateOrUpdateTags where
 
-instance NFData CreateOrUpdateTags
+instance NFData CreateOrUpdateTags where
 
 instance ToHeaders CreateOrUpdateTags where
         toHeaders = const mempty
@@ -95,8 +94,9 @@ instance ToQuery CreateOrUpdateTags where
 
 -- | /See:/ 'createOrUpdateTagsResponse' smart constructor.
 data CreateOrUpdateTagsResponse =
-    CreateOrUpdateTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateOrUpdateTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateOrUpdateTagsResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ createOrUpdateTagsResponse
     :: CreateOrUpdateTagsResponse
 createOrUpdateTagsResponse = CreateOrUpdateTagsResponse'
 
-instance NFData CreateOrUpdateTagsResponse
+
+instance NFData CreateOrUpdateTagsResponse where

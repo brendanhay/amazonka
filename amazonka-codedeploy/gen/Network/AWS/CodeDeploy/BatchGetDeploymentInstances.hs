@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeploymentInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CodeDeploy.BatchGetDeploymentInstances
     , bgdirsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a BatchGetDeploymentInstances operation.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'batchGetDeploymentInstances' smart constructor.
 data BatchGetDeploymentInstances = BatchGetDeploymentInstances'
-    { _bgdiDeploymentId :: !Text
-    , _bgdiInstanceIds  :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgdiDeploymentId :: {-# NOUNPACK #-}!Text
+  , _bgdiInstanceIds  :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetDeploymentInstances' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ batchGetDeploymentInstances
     :: Text -- ^ 'bgdiDeploymentId'
     -> BatchGetDeploymentInstances
 batchGetDeploymentInstances pDeploymentId_ =
-    BatchGetDeploymentInstances'
-    { _bgdiDeploymentId = pDeploymentId_
-    , _bgdiInstanceIds = mempty
-    }
+  BatchGetDeploymentInstances'
+  {_bgdiDeploymentId = pDeploymentId_, _bgdiInstanceIds = mempty}
+
 
 -- | The unique ID of a deployment.
 bgdiDeploymentId :: Lens' BatchGetDeploymentInstances Text
@@ -92,9 +92,9 @@ instance AWSRequest BatchGetDeploymentInstances where
                      (x .?> "errorMessage")
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetDeploymentInstances
+instance Hashable BatchGetDeploymentInstances where
 
-instance NFData BatchGetDeploymentInstances
+instance NFData BatchGetDeploymentInstances where
 
 instance ToHeaders BatchGetDeploymentInstances where
         toHeaders
@@ -125,10 +125,11 @@ instance ToQuery BatchGetDeploymentInstances where
 --
 -- /See:/ 'batchGetDeploymentInstancesResponse' smart constructor.
 data BatchGetDeploymentInstancesResponse = BatchGetDeploymentInstancesResponse'
-    { _bgdirsInstancesSummary :: !(Maybe [InstanceSummary])
-    , _bgdirsErrorMessage     :: !(Maybe Text)
-    , _bgdirsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgdirsInstancesSummary :: {-# NOUNPACK #-}!(Maybe [InstanceSummary])
+  , _bgdirsErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bgdirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetDeploymentInstancesResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +144,12 @@ batchGetDeploymentInstancesResponse
     :: Int -- ^ 'bgdirsResponseStatus'
     -> BatchGetDeploymentInstancesResponse
 batchGetDeploymentInstancesResponse pResponseStatus_ =
-    BatchGetDeploymentInstancesResponse'
-    { _bgdirsInstancesSummary = Nothing
-    , _bgdirsErrorMessage = Nothing
-    , _bgdirsResponseStatus = pResponseStatus_
-    }
+  BatchGetDeploymentInstancesResponse'
+  { _bgdirsInstancesSummary = Nothing
+  , _bgdirsErrorMessage = Nothing
+  , _bgdirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the instance.
 bgdirsInstancesSummary :: Lens' BatchGetDeploymentInstancesResponse [InstanceSummary]
@@ -162,3 +164,4 @@ bgdirsResponseStatus :: Lens' BatchGetDeploymentInstancesResponse Int
 bgdirsResponseStatus = lens _bgdirsResponseStatus (\ s a -> s{_bgdirsResponseStatus = a});
 
 instance NFData BatchGetDeploymentInstancesResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeThing
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.IoT.DescribeThing
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DescribeThing operation.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeThing' smart constructor.
 newtype DescribeThing = DescribeThing'
-    { _dThingName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dThingName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeThing' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ newtype DescribeThing = DescribeThing'
 describeThing
     :: Text -- ^ 'dThingName'
     -> DescribeThing
-describeThing pThingName_ =
-    DescribeThing'
-    { _dThingName = pThingName_
-    }
+describeThing pThingName_ = DescribeThing' {_dThingName = pThingName_}
+
 
 -- | The name of the thing.
 dThingName :: Lens' DescribeThing Text
@@ -87,9 +86,9 @@ instance AWSRequest DescribeThing where
                      <*> (x .?> "thingName")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeThing
+instance Hashable DescribeThing where
 
-instance NFData DescribeThing
+instance NFData DescribeThing where
 
 instance ToHeaders DescribeThing where
         toHeaders = const mempty
@@ -107,13 +106,14 @@ instance ToQuery DescribeThing where
 --
 -- /See:/ 'describeThingResponse' smart constructor.
 data DescribeThingResponse = DescribeThingResponse'
-    { _dtrsDefaultClientId :: !(Maybe Text)
-    , _dtrsThingTypeName   :: !(Maybe Text)
-    , _dtrsAttributes      :: !(Maybe (Map Text Text))
-    , _dtrsVersion         :: !(Maybe Integer)
-    , _dtrsThingName       :: !(Maybe Text)
-    , _dtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsDefaultClientId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsThingTypeName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsAttributes      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _dtrsVersion         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dtrsThingName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeThingResponse' with the minimum fields required to make a request.
 --
@@ -134,14 +134,15 @@ describeThingResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeThingResponse
 describeThingResponse pResponseStatus_ =
-    DescribeThingResponse'
-    { _dtrsDefaultClientId = Nothing
-    , _dtrsThingTypeName = Nothing
-    , _dtrsAttributes = Nothing
-    , _dtrsVersion = Nothing
-    , _dtrsThingName = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeThingResponse'
+  { _dtrsDefaultClientId = Nothing
+  , _dtrsThingTypeName = Nothing
+  , _dtrsAttributes = Nothing
+  , _dtrsVersion = Nothing
+  , _dtrsThingName = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The default client ID.
 dtrsDefaultClientId :: Lens' DescribeThingResponse (Maybe Text)
@@ -167,4 +168,4 @@ dtrsThingName = lens _dtrsThingName (\ s a -> s{_dtrsThingName = a});
 dtrsResponseStatus :: Lens' DescribeThingResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeThingResponse
+instance NFData DescribeThingResponse where

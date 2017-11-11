@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.StopApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.KinesisAnalytics.StopApplication
     , srsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'stopApplication' smart constructor.
 newtype StopApplication = StopApplication'
-    { _sApplicationName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sApplicationName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopApplication' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ stopApplication
     :: Text -- ^ 'sApplicationName'
     -> StopApplication
 stopApplication pApplicationName_ =
-    StopApplication'
-    { _sApplicationName = pApplicationName_
-    }
+  StopApplication' {_sApplicationName = pApplicationName_}
+
 
 -- | Name of the running application to stop.
 sApplicationName :: Lens' StopApplication Text
@@ -79,9 +79,9 @@ instance AWSRequest StopApplication where
               (\ s h x ->
                  StopApplicationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StopApplication
+instance Hashable StopApplication where
 
-instance NFData StopApplication
+instance NFData StopApplication where
 
 instance ToHeaders StopApplication where
         toHeaders
@@ -111,8 +111,9 @@ instance ToQuery StopApplication where
 --
 -- /See:/ 'stopApplicationResponse' smart constructor.
 newtype StopApplicationResponse = StopApplicationResponse'
-    { _srsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopApplicationResponse' with the minimum fields required to make a request.
 --
@@ -123,12 +124,11 @@ stopApplicationResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopApplicationResponse
 stopApplicationResponse pResponseStatus_ =
-    StopApplicationResponse'
-    { _srsResponseStatus = pResponseStatus_
-    }
+  StopApplicationResponse' {_srsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopApplicationResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StopApplicationResponse
+instance NFData StopApplicationResponse where

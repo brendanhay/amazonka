@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudHSM.DeleteHSM
     , dhsmrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DeleteHsm' operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteHSM' smart constructor.
 newtype DeleteHSM = DeleteHSM'
-    { _dhHSMARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhHSMARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHSM' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype DeleteHSM = DeleteHSM'
 deleteHSM
     :: Text -- ^ 'dhHSMARN'
     -> DeleteHSM
-deleteHSM pHSMARN_ =
-    DeleteHSM'
-    { _dhHSMARN = pHSMARN_
-    }
+deleteHSM pHSMARN_ = DeleteHSM' {_dhHSMARN = pHSMARN_}
+
 
 -- | The ARN of the HSM to delete.
 dhHSMARN :: Lens' DeleteHSM Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteHSM where
                  DeleteHSMResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
-instance Hashable DeleteHSM
+instance Hashable DeleteHSM where
 
-instance NFData DeleteHSM
+instance NFData DeleteHSM where
 
 instance ToHeaders DeleteHSM where
         toHeaders
@@ -108,9 +107,10 @@ instance ToQuery DeleteHSM where
 --
 -- /See:/ 'deleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
-    { _dhsmrsResponseStatus :: !Int
-    , _dhsmrsStatus         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhsmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dhsmrsStatus         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHSMResponse' with the minimum fields required to make a request.
 --
@@ -124,10 +124,9 @@ deleteHSMResponse
     -> Text -- ^ 'dhsmrsStatus'
     -> DeleteHSMResponse
 deleteHSMResponse pResponseStatus_ pStatus_ =
-    DeleteHSMResponse'
-    { _dhsmrsResponseStatus = pResponseStatus_
-    , _dhsmrsStatus = pStatus_
-    }
+  DeleteHSMResponse'
+  {_dhsmrsResponseStatus = pResponseStatus_, _dhsmrsStatus = pStatus_}
+
 
 -- | -- | The response status code.
 dhsmrsResponseStatus :: Lens' DeleteHSMResponse Int
@@ -137,4 +136,4 @@ dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseSta
 dhsmrsStatus :: Lens' DeleteHSMResponse Text
 dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});
 
-instance NFData DeleteHSMResponse
+instance NFData DeleteHSMResponse where

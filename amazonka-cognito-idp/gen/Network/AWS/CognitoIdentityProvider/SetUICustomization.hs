@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SetUICustomization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.CognitoIdentityProvider.SetUICustomization
     , suicrsUICustomization
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setUICustomization' smart constructor.
 data SetUICustomization = SetUICustomization'
-    { _suicClientId   :: !(Maybe (Sensitive Text))
-    , _suicCSS        :: !(Maybe Text)
-    , _suicImageFile  :: !(Maybe Base64)
-    , _suicUserPoolId :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _suicClientId   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _suicCSS        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _suicImageFile  :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _suicUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetUICustomization' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ setUICustomization
     :: Text -- ^ 'suicUserPoolId'
     -> SetUICustomization
 setUICustomization pUserPoolId_ =
-    SetUICustomization'
-    { _suicClientId = Nothing
-    , _suicCSS = Nothing
-    , _suicImageFile = Nothing
-    , _suicUserPoolId = pUserPoolId_
-    }
+  SetUICustomization'
+  { _suicClientId = Nothing
+  , _suicCSS = Nothing
+  , _suicImageFile = Nothing
+  , _suicUserPoolId = pUserPoolId_
+  }
+
 
 -- | The client ID for the client app.
 suicClientId :: Lens' SetUICustomization (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest SetUICustomization where
                  SetUICustomizationResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "UICustomization"))
 
-instance Hashable SetUICustomization
+instance Hashable SetUICustomization where
 
-instance NFData SetUICustomization
+instance NFData SetUICustomization where
 
 instance ToHeaders SetUICustomization where
         toHeaders
@@ -136,9 +138,10 @@ instance ToQuery SetUICustomization where
 
 -- | /See:/ 'setUICustomizationResponse' smart constructor.
 data SetUICustomizationResponse = SetUICustomizationResponse'
-    { _suicrsResponseStatus  :: !Int
-    , _suicrsUICustomization :: !UICustomizationType
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _suicrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _suicrsUICustomization :: {-# NOUNPACK #-}!UICustomizationType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetUICustomizationResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,11 @@ setUICustomizationResponse
     -> UICustomizationType -- ^ 'suicrsUICustomization'
     -> SetUICustomizationResponse
 setUICustomizationResponse pResponseStatus_ pUICustomization_ =
-    SetUICustomizationResponse'
-    { _suicrsResponseStatus = pResponseStatus_
-    , _suicrsUICustomization = pUICustomization_
-    }
+  SetUICustomizationResponse'
+  { _suicrsResponseStatus = pResponseStatus_
+  , _suicrsUICustomization = pUICustomization_
+  }
+
 
 -- | -- | The response status code.
 suicrsResponseStatus :: Lens' SetUICustomizationResponse Int
@@ -165,4 +169,4 @@ suicrsResponseStatus = lens _suicrsResponseStatus (\ s a -> s{_suicrsResponseSta
 suicrsUICustomization :: Lens' SetUICustomizationResponse UICustomizationType
 suicrsUICustomization = lens _suicrsUICustomization (\ s a -> s{_suicrsUICustomization = a});
 
-instance NFData SetUICustomizationResponse
+instance NFData SetUICustomizationResponse where

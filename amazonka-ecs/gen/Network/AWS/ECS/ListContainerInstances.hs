@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListContainerInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,22 +44,23 @@ module Network.AWS.ECS.ListContainerInstances
     , lcirsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listContainerInstances' smart constructor.
 data ListContainerInstances = ListContainerInstances'
-    { _lciStatus     :: !(Maybe ContainerInstanceStatus)
-    , _lciCluster    :: !(Maybe Text)
-    , _lciNextToken  :: !(Maybe Text)
-    , _lciFilter     :: !(Maybe Text)
-    , _lciMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lciStatus     :: {-# NOUNPACK #-}!(Maybe ContainerInstanceStatus)
+  , _lciCluster    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lciNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lciFilter     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lciMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListContainerInstances' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ data ListContainerInstances = ListContainerInstances'
 listContainerInstances
     :: ListContainerInstances
 listContainerInstances =
-    ListContainerInstances'
-    { _lciStatus = Nothing
-    , _lciCluster = Nothing
-    , _lciNextToken = Nothing
-    , _lciFilter = Nothing
-    , _lciMaxResults = Nothing
-    }
+  ListContainerInstances'
+  { _lciStatus = Nothing
+  , _lciCluster = Nothing
+  , _lciNextToken = Nothing
+  , _lciFilter = Nothing
+  , _lciMaxResults = Nothing
+  }
+
 
 -- | Filters the container instances by status. For example, if you specify the @DRAINING@ status, the results include only container instances that have been set to @DRAINING@ using 'UpdateContainerInstancesState' . If you do not specify this parameter, the default is to include container instances set to @ACTIVE@ and @DRAINING@ .
 lciStatus :: Lens' ListContainerInstances (Maybe ContainerInstanceStatus)
@@ -124,9 +126,9 @@ instance AWSRequest ListContainerInstances where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListContainerInstances
+instance Hashable ListContainerInstances where
 
-instance NFData ListContainerInstances
+instance NFData ListContainerInstances where
 
 instance ToHeaders ListContainerInstances where
         toHeaders
@@ -156,10 +158,11 @@ instance ToQuery ListContainerInstances where
 
 -- | /See:/ 'listContainerInstancesResponse' smart constructor.
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
-    { _lcirsContainerInstanceARNs :: !(Maybe [Text])
-    , _lcirsNextToken             :: !(Maybe Text)
-    , _lcirsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcirsContainerInstanceARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lcirsNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcirsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListContainerInstancesResponse' with the minimum fields required to make a request.
 --
@@ -174,11 +177,12 @@ listContainerInstancesResponse
     :: Int -- ^ 'lcirsResponseStatus'
     -> ListContainerInstancesResponse
 listContainerInstancesResponse pResponseStatus_ =
-    ListContainerInstancesResponse'
-    { _lcirsContainerInstanceARNs = Nothing
-    , _lcirsNextToken = Nothing
-    , _lcirsResponseStatus = pResponseStatus_
-    }
+  ListContainerInstancesResponse'
+  { _lcirsContainerInstanceARNs = Nothing
+  , _lcirsNextToken = Nothing
+  , _lcirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of container instances with full Amazon Resource Name (ARN) entries for each container instance associated with the specified cluster.
 lcirsContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
@@ -192,4 +196,4 @@ lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 lcirsResponseStatus :: Lens' ListContainerInstancesResponse Int
 lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a});
 
-instance NFData ListContainerInstancesResponse
+instance NFData ListContainerInstancesResponse where

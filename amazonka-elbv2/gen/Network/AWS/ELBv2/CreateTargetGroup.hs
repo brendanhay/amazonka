@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.CreateTargetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,28 +56,29 @@ module Network.AWS.ELBv2.CreateTargetGroup
     , ctgrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createTargetGroup' smart constructor.
 data CreateTargetGroup = CreateTargetGroup'
-    { _ctgMatcher                    :: !(Maybe Matcher)
-    , _ctgHealthCheckPath            :: !(Maybe Text)
-    , _ctgUnhealthyThresholdCount    :: !(Maybe Nat)
-    , _ctgHealthCheckIntervalSeconds :: !(Maybe Nat)
-    , _ctgHealthyThresholdCount      :: !(Maybe Nat)
-    , _ctgHealthCheckProtocol        :: !(Maybe ProtocolEnum)
-    , _ctgHealthCheckTimeoutSeconds  :: !(Maybe Nat)
-    , _ctgHealthCheckPort            :: !(Maybe Text)
-    , _ctgName                       :: !Text
-    , _ctgProtocol                   :: !ProtocolEnum
-    , _ctgPort                       :: !Nat
-    , _ctgVPCId                      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctgMatcher                    :: {-# NOUNPACK #-}!(Maybe Matcher)
+  , _ctgHealthCheckPath            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctgUnhealthyThresholdCount    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ctgHealthCheckIntervalSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ctgHealthyThresholdCount      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ctgHealthCheckProtocol        :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
+  , _ctgHealthCheckTimeoutSeconds  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ctgHealthCheckPort            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctgName                       :: {-# NOUNPACK #-}!Text
+  , _ctgProtocol                   :: {-# NOUNPACK #-}!ProtocolEnum
+  , _ctgPort                       :: {-# NOUNPACK #-}!Nat
+  , _ctgVPCId                      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTargetGroup' with the minimum fields required to make a request.
 --
@@ -113,20 +114,21 @@ createTargetGroup
     -> Text -- ^ 'ctgVPCId'
     -> CreateTargetGroup
 createTargetGroup pName_ pProtocol_ pPort_ pVPCId_ =
-    CreateTargetGroup'
-    { _ctgMatcher = Nothing
-    , _ctgHealthCheckPath = Nothing
-    , _ctgUnhealthyThresholdCount = Nothing
-    , _ctgHealthCheckIntervalSeconds = Nothing
-    , _ctgHealthyThresholdCount = Nothing
-    , _ctgHealthCheckProtocol = Nothing
-    , _ctgHealthCheckTimeoutSeconds = Nothing
-    , _ctgHealthCheckPort = Nothing
-    , _ctgName = pName_
-    , _ctgProtocol = pProtocol_
-    , _ctgPort = _Nat # pPort_
-    , _ctgVPCId = pVPCId_
-    }
+  CreateTargetGroup'
+  { _ctgMatcher = Nothing
+  , _ctgHealthCheckPath = Nothing
+  , _ctgUnhealthyThresholdCount = Nothing
+  , _ctgHealthCheckIntervalSeconds = Nothing
+  , _ctgHealthyThresholdCount = Nothing
+  , _ctgHealthCheckProtocol = Nothing
+  , _ctgHealthCheckTimeoutSeconds = Nothing
+  , _ctgHealthCheckPort = Nothing
+  , _ctgName = pName_
+  , _ctgProtocol = pProtocol_
+  , _ctgPort = _Nat # pPort_
+  , _ctgVPCId = pVPCId_
+  }
+
 
 -- | The HTTP codes to use when checking for a successful response from a target. The default is 200.
 ctgMatcher :: Lens' CreateTargetGroup (Maybe Matcher)
@@ -187,9 +189,9 @@ instance AWSRequest CreateTargetGroup where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateTargetGroup
+instance Hashable CreateTargetGroup where
 
-instance NFData CreateTargetGroup
+instance NFData CreateTargetGroup where
 
 instance ToHeaders CreateTargetGroup where
         toHeaders = const mempty
@@ -218,9 +220,10 @@ instance ToQuery CreateTargetGroup where
 
 -- | /See:/ 'createTargetGroupResponse' smart constructor.
 data CreateTargetGroupResponse = CreateTargetGroupResponse'
-    { _ctgrsTargetGroups   :: !(Maybe [TargetGroup])
-    , _ctgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctgrsTargetGroups   :: {-# NOUNPACK #-}!(Maybe [TargetGroup])
+  , _ctgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTargetGroupResponse' with the minimum fields required to make a request.
 --
@@ -233,10 +236,9 @@ createTargetGroupResponse
     :: Int -- ^ 'ctgrsResponseStatus'
     -> CreateTargetGroupResponse
 createTargetGroupResponse pResponseStatus_ =
-    CreateTargetGroupResponse'
-    { _ctgrsTargetGroups = Nothing
-    , _ctgrsResponseStatus = pResponseStatus_
-    }
+  CreateTargetGroupResponse'
+  {_ctgrsTargetGroups = Nothing, _ctgrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the target group.
 ctgrsTargetGroups :: Lens' CreateTargetGroupResponse [TargetGroup]
@@ -246,4 +248,4 @@ ctgrsTargetGroups = lens _ctgrsTargetGroups (\ s a -> s{_ctgrsTargetGroups = a})
 ctgrsResponseStatus :: Lens' CreateTargetGroupResponse Int
 ctgrsResponseStatus = lens _ctgrsResponseStatus (\ s a -> s{_ctgrsResponseStatus = a});
 
-instance NFData CreateTargetGroupResponse
+instance NFData CreateTargetGroupResponse where

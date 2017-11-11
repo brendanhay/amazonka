@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     , dasntrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingNotificationTypes' smart constructor.
 data DescribeAutoScalingNotificationTypes =
-    DescribeAutoScalingNotificationTypes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeAutoScalingNotificationTypes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAutoScalingNotificationTypes' with the minimum fields required to make a request.
 --
@@ -53,8 +54,10 @@ describeAutoScalingNotificationTypes
     :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes'
 
+
 instance AWSRequest
-         DescribeAutoScalingNotificationTypes where
+           DescribeAutoScalingNotificationTypes
+         where
         type Rs DescribeAutoScalingNotificationTypes =
              DescribeAutoScalingNotificationTypesResponse
         request = postQuery autoScaling
@@ -68,12 +71,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeAutoScalingNotificationTypes
+           DescribeAutoScalingNotificationTypes
+         where
 
 instance NFData DescribeAutoScalingNotificationTypes
+         where
 
 instance ToHeaders
-         DescribeAutoScalingNotificationTypes where
+           DescribeAutoScalingNotificationTypes
+         where
         toHeaders = const mempty
 
 instance ToPath DescribeAutoScalingNotificationTypes
@@ -96,9 +102,10 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 --
 -- /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
-    { _dasntrsAutoScalingNotificationTypes :: !(Maybe [Text])
-    , _dasntrsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasntrsAutoScalingNotificationTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dasntrsResponseStatus               :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAutoScalingNotificationTypesResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +118,11 @@ describeAutoScalingNotificationTypesResponse
     :: Int -- ^ 'dasntrsResponseStatus'
     -> DescribeAutoScalingNotificationTypesResponse
 describeAutoScalingNotificationTypesResponse pResponseStatus_ =
-    DescribeAutoScalingNotificationTypesResponse'
-    { _dasntrsAutoScalingNotificationTypes = Nothing
-    , _dasntrsResponseStatus = pResponseStatus_
-    }
+  DescribeAutoScalingNotificationTypesResponse'
+  { _dasntrsAutoScalingNotificationTypes = Nothing
+  , _dasntrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The notification types.
 dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
@@ -125,4 +133,5 @@ dasntrsResponseStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
 dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a});
 
 instance NFData
-         DescribeAutoScalingNotificationTypesResponse
+           DescribeAutoScalingNotificationTypesResponse
+         where

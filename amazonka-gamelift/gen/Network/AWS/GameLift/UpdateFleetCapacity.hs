@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateFleetCapacity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -96,12 +96,12 @@ module Network.AWS.GameLift.UpdateFleetCapacity
     , ufcrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -109,11 +109,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateFleetCapacity' smart constructor.
 data UpdateFleetCapacity = UpdateFleetCapacity'
-    { _ufcMaxSize          :: !(Maybe Nat)
-    , _ufcMinSize          :: !(Maybe Nat)
-    , _ufcDesiredInstances :: !(Maybe Nat)
-    , _ufcFleetId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufcMaxSize          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ufcMinSize          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ufcDesiredInstances :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ufcFleetId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFleetCapacity' with the minimum fields required to make a request.
 --
@@ -130,12 +131,13 @@ updateFleetCapacity
     :: Text -- ^ 'ufcFleetId'
     -> UpdateFleetCapacity
 updateFleetCapacity pFleetId_ =
-    UpdateFleetCapacity'
-    { _ufcMaxSize = Nothing
-    , _ufcMinSize = Nothing
-    , _ufcDesiredInstances = Nothing
-    , _ufcFleetId = pFleetId_
-    }
+  UpdateFleetCapacity'
+  { _ufcMaxSize = Nothing
+  , _ufcMinSize = Nothing
+  , _ufcDesiredInstances = Nothing
+  , _ufcFleetId = pFleetId_
+  }
+
 
 -- | Maximum value allowed for the fleet's instance count. Default if not set is 1.
 ufcMaxSize :: Lens' UpdateFleetCapacity (Maybe Natural)
@@ -163,9 +165,9 @@ instance AWSRequest UpdateFleetCapacity where
                  UpdateFleetCapacityResponse' <$>
                    (x .?> "FleetId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateFleetCapacity
+instance Hashable UpdateFleetCapacity where
 
-instance NFData UpdateFleetCapacity
+instance NFData UpdateFleetCapacity where
 
 instance ToHeaders UpdateFleetCapacity where
         toHeaders
@@ -197,9 +199,10 @@ instance ToQuery UpdateFleetCapacity where
 --
 -- /See:/ 'updateFleetCapacityResponse' smart constructor.
 data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
-    { _ufcrsFleetId        :: !(Maybe Text)
-    , _ufcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufcrsFleetId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFleetCapacityResponse' with the minimum fields required to make a request.
 --
@@ -212,10 +215,9 @@ updateFleetCapacityResponse
     :: Int -- ^ 'ufcrsResponseStatus'
     -> UpdateFleetCapacityResponse
 updateFleetCapacityResponse pResponseStatus_ =
-    UpdateFleetCapacityResponse'
-    { _ufcrsFleetId = Nothing
-    , _ufcrsResponseStatus = pResponseStatus_
-    }
+  UpdateFleetCapacityResponse'
+  {_ufcrsFleetId = Nothing, _ufcrsResponseStatus = pResponseStatus_}
+
 
 -- | Unique identifier for a fleet that was updated.
 ufcrsFleetId :: Lens' UpdateFleetCapacityResponse (Maybe Text)
@@ -225,4 +227,4 @@ ufcrsFleetId = lens _ufcrsFleetId (\ s a -> s{_ufcrsFleetId = a});
 ufcrsResponseStatus :: Lens' UpdateFleetCapacityResponse Int
 ufcrsResponseStatus = lens _ufcrsResponseStatus (\ s a -> s{_ufcrsResponseStatus = a});
 
-instance NFData UpdateFleetCapacityResponse
+instance NFData UpdateFleetCapacityResponse where

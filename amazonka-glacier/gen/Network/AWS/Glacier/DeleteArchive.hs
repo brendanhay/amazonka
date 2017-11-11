@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteArchive
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.Glacier.DeleteArchive
     , DeleteArchiveResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for deleting an archive from an Amazon Glacier vault.
 --
@@ -61,10 +61,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteArchive' smart constructor.
 data DeleteArchive = DeleteArchive'
-    { _daAccountId :: !Text
-    , _daVaultName :: !Text
-    , _daArchiveId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAccountId :: {-# NOUNPACK #-}!Text
+  , _daVaultName :: {-# NOUNPACK #-}!Text
+  , _daArchiveId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteArchive' with the minimum fields required to make a request.
 --
@@ -81,11 +82,12 @@ deleteArchive
     -> Text -- ^ 'daArchiveId'
     -> DeleteArchive
 deleteArchive pAccountId_ pVaultName_ pArchiveId_ =
-    DeleteArchive'
-    { _daAccountId = pAccountId_
-    , _daVaultName = pVaultName_
-    , _daArchiveId = pArchiveId_
-    }
+  DeleteArchive'
+  { _daAccountId = pAccountId_
+  , _daVaultName = pVaultName_
+  , _daArchiveId = pArchiveId_
+  }
+
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 daAccountId :: Lens' DeleteArchive Text
@@ -104,9 +106,9 @@ instance AWSRequest DeleteArchive where
         request = delete glacier
         response = receiveNull DeleteArchiveResponse'
 
-instance Hashable DeleteArchive
+instance Hashable DeleteArchive where
 
-instance NFData DeleteArchive
+instance NFData DeleteArchive where
 
 instance ToHeaders DeleteArchive where
         toHeaders = const mempty
@@ -122,8 +124,9 @@ instance ToQuery DeleteArchive where
 
 -- | /See:/ 'deleteArchiveResponse' smart constructor.
 data DeleteArchiveResponse =
-    DeleteArchiveResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteArchiveResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteArchiveResponse' with the minimum fields required to make a request.
 --
@@ -131,4 +134,5 @@ deleteArchiveResponse
     :: DeleteArchiveResponse
 deleteArchiveResponse = DeleteArchiveResponse'
 
-instance NFData DeleteArchiveResponse
+
+instance NFData DeleteArchiveResponse where

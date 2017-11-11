@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetImportJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.GetImportJob
     , gijrsImportJobResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getImportJob' smart constructor.
 data GetImportJob = GetImportJob'
-    { _gijApplicationId :: !Text
-    , _gijJobId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gijApplicationId :: {-# NOUNPACK #-}!Text
+  , _gijJobId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetImportJob' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ getImportJob
     -> Text -- ^ 'gijJobId'
     -> GetImportJob
 getImportJob pApplicationId_ pJobId_ =
-    GetImportJob'
-    { _gijApplicationId = pApplicationId_
-    , _gijJobId = pJobId_
-    }
+  GetImportJob' {_gijApplicationId = pApplicationId_, _gijJobId = pJobId_}
+
 
 -- | Undocumented member.
 gijApplicationId :: Lens' GetImportJob Text
@@ -83,9 +82,9 @@ instance AWSRequest GetImportJob where
                  GetImportJobResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetImportJob
+instance Hashable GetImportJob where
 
-instance NFData GetImportJob
+instance NFData GetImportJob where
 
 instance ToHeaders GetImportJob where
         toHeaders
@@ -105,9 +104,10 @@ instance ToQuery GetImportJob where
 
 -- | /See:/ 'getImportJobResponse' smart constructor.
 data GetImportJobResponse = GetImportJobResponse'
-    { _gijrsResponseStatus    :: !Int
-    , _gijrsImportJobResponse :: !ImportJobResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gijrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _gijrsImportJobResponse :: {-# NOUNPACK #-}!ImportJobResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetImportJobResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +121,11 @@ getImportJobResponse
     -> ImportJobResponse -- ^ 'gijrsImportJobResponse'
     -> GetImportJobResponse
 getImportJobResponse pResponseStatus_ pImportJobResponse_ =
-    GetImportJobResponse'
-    { _gijrsResponseStatus = pResponseStatus_
-    , _gijrsImportJobResponse = pImportJobResponse_
-    }
+  GetImportJobResponse'
+  { _gijrsResponseStatus = pResponseStatus_
+  , _gijrsImportJobResponse = pImportJobResponse_
+  }
+
 
 -- | -- | The response status code.
 gijrsResponseStatus :: Lens' GetImportJobResponse Int
@@ -134,4 +135,4 @@ gijrsResponseStatus = lens _gijrsResponseStatus (\ s a -> s{_gijrsResponseStatus
 gijrsImportJobResponse :: Lens' GetImportJobResponse ImportJobResponse
 gijrsImportJobResponse = lens _gijrsImportJobResponse (\ s a -> s{_gijrsImportJobResponse = a});
 
-instance NFData GetImportJobResponse
+instance NFData GetImportJobResponse where

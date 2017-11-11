@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudWatchEvents.Types.Product where
 
-import           Network.AWS.CloudWatchEvents.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudWatchEvents.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | The custom parameters to be used when the target is an Amazon ECS cluster.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'ecsParameters' smart constructor.
 data EcsParameters = EcsParameters'
-    { _epTaskCount         :: !(Maybe Nat)
-    , _epTaskDefinitionARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _epTaskCount         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _epTaskDefinitionARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EcsParameters' with the minimum fields required to make a request.
 --
@@ -42,10 +43,9 @@ ecsParameters
     :: Text -- ^ 'epTaskDefinitionARN'
     -> EcsParameters
 ecsParameters pTaskDefinitionARN_ =
-    EcsParameters'
-    { _epTaskCount = Nothing
-    , _epTaskDefinitionARN = pTaskDefinitionARN_
-    }
+  EcsParameters'
+  {_epTaskCount = Nothing, _epTaskDefinitionARN = pTaskDefinitionARN_}
+
 
 -- | The number of tasks to create based on the @TaskDefinition@ . The default is one.
 epTaskCount :: Lens' EcsParameters (Maybe Natural)
@@ -62,9 +62,9 @@ instance FromJSON EcsParameters where
                  EcsParameters' <$>
                    (x .:? "TaskCount") <*> (x .: "TaskDefinitionArn"))
 
-instance Hashable EcsParameters
+instance Hashable EcsParameters where
 
-instance NFData EcsParameters
+instance NFData EcsParameters where
 
 instance ToJSON EcsParameters where
         toJSON EcsParameters'{..}
@@ -79,9 +79,10 @@ instance ToJSON EcsParameters where
 --
 -- /See:/ 'inputTransformer' smart constructor.
 data InputTransformer = InputTransformer'
-    { _itInputPathsMap :: !(Maybe (Map Text Text))
-    , _itInputTemplate :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _itInputPathsMap :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _itInputTemplate :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InputTransformer' with the minimum fields required to make a request.
 --
@@ -94,10 +95,9 @@ inputTransformer
     :: Text -- ^ 'itInputTemplate'
     -> InputTransformer
 inputTransformer pInputTemplate_ =
-    InputTransformer'
-    { _itInputPathsMap = Nothing
-    , _itInputTemplate = pInputTemplate_
-    }
+  InputTransformer'
+  {_itInputPathsMap = Nothing, _itInputTemplate = pInputTemplate_}
+
 
 -- | Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path. You must use JSON dot notation, not bracket notation.
 itInputPathsMap :: Lens' InputTransformer (HashMap Text Text)
@@ -115,9 +115,9 @@ instance FromJSON InputTransformer where
                    (x .:? "InputPathsMap" .!= mempty) <*>
                      (x .: "InputTemplate"))
 
-instance Hashable InputTransformer
+instance Hashable InputTransformer where
 
-instance NFData InputTransformer
+instance NFData InputTransformer where
 
 instance ToJSON InputTransformer where
         toJSON InputTransformer'{..}
@@ -132,8 +132,9 @@ instance ToJSON InputTransformer where
 --
 -- /See:/ 'kinesisParameters' smart constructor.
 newtype KinesisParameters = KinesisParameters'
-    { _kpPartitionKeyPath :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kpPartitionKeyPath :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KinesisParameters' with the minimum fields required to make a request.
 --
@@ -144,9 +145,8 @@ kinesisParameters
     :: Text -- ^ 'kpPartitionKeyPath'
     -> KinesisParameters
 kinesisParameters pPartitionKeyPath_ =
-    KinesisParameters'
-    { _kpPartitionKeyPath = pPartitionKeyPath_
-    }
+  KinesisParameters' {_kpPartitionKeyPath = pPartitionKeyPath_}
+
 
 -- | The JSON path to be extracted from the event and used as the partition key. For more information, see <http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts> in the /Amazon Kinesis Streams Developer Guide/ .
 kpPartitionKeyPath :: Lens' KinesisParameters Text
@@ -158,9 +158,9 @@ instance FromJSON KinesisParameters where
               (\ x ->
                  KinesisParameters' <$> (x .: "PartitionKeyPath"))
 
-instance Hashable KinesisParameters
+instance Hashable KinesisParameters where
 
-instance NFData KinesisParameters
+instance NFData KinesisParameters where
 
 instance ToJSON KinesisParameters where
         toJSON KinesisParameters'{..}
@@ -174,12 +174,13 @@ instance ToJSON KinesisParameters where
 --
 -- /See:/ 'putEventsRequestEntry' smart constructor.
 data PutEventsRequestEntry = PutEventsRequestEntry'
-    { _pereTime       :: !(Maybe POSIX)
-    , _pereDetailType :: !(Maybe Text)
-    , _pereResources  :: !(Maybe [Text])
-    , _pereSource     :: !(Maybe Text)
-    , _pereDetail     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pereTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pereDetailType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pereResources  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pereSource     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pereDetail     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEventsRequestEntry' with the minimum fields required to make a request.
 --
@@ -197,13 +198,14 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
 putEventsRequestEntry
     :: PutEventsRequestEntry
 putEventsRequestEntry =
-    PutEventsRequestEntry'
-    { _pereTime = Nothing
-    , _pereDetailType = Nothing
-    , _pereResources = Nothing
-    , _pereSource = Nothing
-    , _pereDetail = Nothing
-    }
+  PutEventsRequestEntry'
+  { _pereTime = Nothing
+  , _pereDetailType = Nothing
+  , _pereResources = Nothing
+  , _pereSource = Nothing
+  , _pereDetail = Nothing
+  }
+
 
 -- | The timestamp of the event, per <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339> . If no timestamp is provided, the timestamp of the 'PutEvents' call is used.
 pereTime :: Lens' PutEventsRequestEntry (Maybe UTCTime)
@@ -225,9 +227,9 @@ pereSource = lens _pereSource (\ s a -> s{_pereSource = a});
 pereDetail :: Lens' PutEventsRequestEntry (Maybe Text)
 pereDetail = lens _pereDetail (\ s a -> s{_pereDetail = a});
 
-instance Hashable PutEventsRequestEntry
+instance Hashable PutEventsRequestEntry where
 
-instance NFData PutEventsRequestEntry
+instance NFData PutEventsRequestEntry where
 
 instance ToJSON PutEventsRequestEntry where
         toJSON PutEventsRequestEntry'{..}
@@ -245,10 +247,11 @@ instance ToJSON PutEventsRequestEntry where
 --
 -- /See:/ 'putEventsResultEntry' smart constructor.
 data PutEventsResultEntry = PutEventsResultEntry'
-    { _pereErrorCode    :: !(Maybe Text)
-    , _pereErrorMessage :: !(Maybe Text)
-    , _pereEventId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pereErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pereErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pereEventId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEventsResultEntry' with the minimum fields required to make a request.
 --
@@ -262,11 +265,12 @@ data PutEventsResultEntry = PutEventsResultEntry'
 putEventsResultEntry
     :: PutEventsResultEntry
 putEventsResultEntry =
-    PutEventsResultEntry'
-    { _pereErrorCode = Nothing
-    , _pereErrorMessage = Nothing
-    , _pereEventId = Nothing
-    }
+  PutEventsResultEntry'
+  { _pereErrorCode = Nothing
+  , _pereErrorMessage = Nothing
+  , _pereEventId = Nothing
+  }
+
 
 -- | The error code that indicates why the event submission failed.
 pereErrorCode :: Lens' PutEventsResultEntry (Maybe Text)
@@ -288,9 +292,9 @@ instance FromJSON PutEventsResultEntry where
                    (x .:? "ErrorCode") <*> (x .:? "ErrorMessage") <*>
                      (x .:? "EventId"))
 
-instance Hashable PutEventsResultEntry
+instance Hashable PutEventsResultEntry where
 
-instance NFData PutEventsResultEntry
+instance NFData PutEventsResultEntry where
 
 -- | Represents a target that failed to be added to a rule.
 --
@@ -298,10 +302,11 @@ instance NFData PutEventsResultEntry
 --
 -- /See:/ 'putTargetsResultEntry' smart constructor.
 data PutTargetsResultEntry = PutTargetsResultEntry'
-    { _ptreTargetId     :: !(Maybe Text)
-    , _ptreErrorCode    :: !(Maybe Text)
-    , _ptreErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptreTargetId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptreErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptreErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutTargetsResultEntry' with the minimum fields required to make a request.
 --
@@ -315,11 +320,12 @@ data PutTargetsResultEntry = PutTargetsResultEntry'
 putTargetsResultEntry
     :: PutTargetsResultEntry
 putTargetsResultEntry =
-    PutTargetsResultEntry'
-    { _ptreTargetId = Nothing
-    , _ptreErrorCode = Nothing
-    , _ptreErrorMessage = Nothing
-    }
+  PutTargetsResultEntry'
+  { _ptreTargetId = Nothing
+  , _ptreErrorCode = Nothing
+  , _ptreErrorMessage = Nothing
+  }
+
 
 -- | The ID of the target.
 ptreTargetId :: Lens' PutTargetsResultEntry (Maybe Text)
@@ -341,9 +347,9 @@ instance FromJSON PutTargetsResultEntry where
                    (x .:? "TargetId") <*> (x .:? "ErrorCode") <*>
                      (x .:? "ErrorMessage"))
 
-instance Hashable PutTargetsResultEntry
+instance Hashable PutTargetsResultEntry where
 
-instance NFData PutTargetsResultEntry
+instance NFData PutTargetsResultEntry where
 
 -- | Represents a target that failed to be removed from a rule.
 --
@@ -351,10 +357,11 @@ instance NFData PutTargetsResultEntry
 --
 -- /See:/ 'removeTargetsResultEntry' smart constructor.
 data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
-    { _rtreTargetId     :: !(Maybe Text)
-    , _rtreErrorCode    :: !(Maybe Text)
-    , _rtreErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtreTargetId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtreErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtreErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTargetsResultEntry' with the minimum fields required to make a request.
 --
@@ -368,11 +375,12 @@ data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
 removeTargetsResultEntry
     :: RemoveTargetsResultEntry
 removeTargetsResultEntry =
-    RemoveTargetsResultEntry'
-    { _rtreTargetId = Nothing
-    , _rtreErrorCode = Nothing
-    , _rtreErrorMessage = Nothing
-    }
+  RemoveTargetsResultEntry'
+  { _rtreTargetId = Nothing
+  , _rtreErrorCode = Nothing
+  , _rtreErrorMessage = Nothing
+  }
+
 
 -- | The ID of the target.
 rtreTargetId :: Lens' RemoveTargetsResultEntry (Maybe Text)
@@ -394,9 +402,9 @@ instance FromJSON RemoveTargetsResultEntry where
                    (x .:? "TargetId") <*> (x .:? "ErrorCode") <*>
                      (x .:? "ErrorMessage"))
 
-instance Hashable RemoveTargetsResultEntry
+instance Hashable RemoveTargetsResultEntry where
 
-instance NFData RemoveTargetsResultEntry
+instance NFData RemoveTargetsResultEntry where
 
 -- | Contains information about a rule in Amazon CloudWatch Events.
 --
@@ -404,14 +412,15 @@ instance NFData RemoveTargetsResultEntry
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-    { _rEventPattern       :: !(Maybe Text)
-    , _rState              :: !(Maybe RuleState)
-    , _rARN                :: !(Maybe Text)
-    , _rScheduleExpression :: !(Maybe Text)
-    , _rName               :: !(Maybe Text)
-    , _rDescription        :: !(Maybe Text)
-    , _rRoleARN            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rEventPattern       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rState              :: {-# NOUNPACK #-}!(Maybe RuleState)
+  , _rARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Rule' with the minimum fields required to make a request.
 --
@@ -433,15 +442,16 @@ data Rule = Rule'
 rule
     :: Rule
 rule =
-    Rule'
-    { _rEventPattern = Nothing
-    , _rState = Nothing
-    , _rARN = Nothing
-    , _rScheduleExpression = Nothing
-    , _rName = Nothing
-    , _rDescription = Nothing
-    , _rRoleARN = Nothing
-    }
+  Rule'
+  { _rEventPattern = Nothing
+  , _rState = Nothing
+  , _rARN = Nothing
+  , _rScheduleExpression = Nothing
+  , _rName = Nothing
+  , _rDescription = Nothing
+  , _rRoleARN = Nothing
+  }
+
 
 -- | The event pattern of the rule. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 rEventPattern :: Lens' Rule (Maybe Text)
@@ -483,9 +493,9 @@ instance FromJSON Rule where
                      <*> (x .:? "Description")
                      <*> (x .:? "RoleArn"))
 
-instance Hashable Rule
+instance Hashable Rule where
 
-instance NFData Rule
+instance NFData Rule where
 
 -- | This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
 --
@@ -493,8 +503,9 @@ instance NFData Rule
 --
 -- /See:/ 'runCommandParameters' smart constructor.
 newtype RunCommandParameters = RunCommandParameters'
-    { _rcpRunCommandTargets :: List1 RunCommandTarget
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcpRunCommandTargets :: List1 RunCommandTarget
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunCommandParameters' with the minimum fields required to make a request.
 --
@@ -505,9 +516,8 @@ runCommandParameters
     :: NonEmpty RunCommandTarget -- ^ 'rcpRunCommandTargets'
     -> RunCommandParameters
 runCommandParameters pRunCommandTargets_ =
-    RunCommandParameters'
-    { _rcpRunCommandTargets = _List1 # pRunCommandTargets_
-    }
+  RunCommandParameters' {_rcpRunCommandTargets = _List1 # pRunCommandTargets_}
+
 
 -- | Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
 rcpRunCommandTargets :: Lens' RunCommandParameters (NonEmpty RunCommandTarget)
@@ -519,9 +529,9 @@ instance FromJSON RunCommandParameters where
               (\ x ->
                  RunCommandParameters' <$> (x .: "RunCommandTargets"))
 
-instance Hashable RunCommandParameters
+instance Hashable RunCommandParameters where
 
-instance NFData RunCommandParameters
+instance NFData RunCommandParameters where
 
 instance ToJSON RunCommandParameters where
         toJSON RunCommandParameters'{..}
@@ -536,9 +546,10 @@ instance ToJSON RunCommandParameters where
 --
 -- /See:/ 'runCommandTarget' smart constructor.
 data RunCommandTarget = RunCommandTarget'
-    { _rctKey    :: !Text
-    , _rctValues :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rctKey    :: {-# NOUNPACK #-}!Text
+  , _rctValues :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunCommandTarget' with the minimum fields required to make a request.
 --
@@ -552,10 +563,8 @@ runCommandTarget
     -> NonEmpty Text -- ^ 'rctValues'
     -> RunCommandTarget
 runCommandTarget pKey_ pValues_ =
-    RunCommandTarget'
-    { _rctKey = pKey_
-    , _rctValues = _List1 # pValues_
-    }
+  RunCommandTarget' {_rctKey = pKey_, _rctValues = _List1 # pValues_}
+
 
 -- | Can be either @tag:@ /tag-key/ or @InstanceIds@ .
 rctKey :: Lens' RunCommandTarget Text
@@ -572,9 +581,9 @@ instance FromJSON RunCommandTarget where
                  RunCommandTarget' <$>
                    (x .: "Key") <*> (x .: "Values"))
 
-instance Hashable RunCommandTarget
+instance Hashable RunCommandTarget where
 
-instance NFData RunCommandTarget
+instance NFData RunCommandTarget where
 
 instance ToJSON RunCommandTarget where
         toJSON RunCommandTarget'{..}
@@ -589,16 +598,17 @@ instance ToJSON RunCommandTarget where
 --
 -- /See:/ 'target' smart constructor.
 data Target = Target'
-    { _tRunCommandParameters :: !(Maybe RunCommandParameters)
-    , _tKinesisParameters    :: !(Maybe KinesisParameters)
-    , _tInputTransformer     :: !(Maybe InputTransformer)
-    , _tInput                :: !(Maybe Text)
-    , _tEcsParameters        :: !(Maybe EcsParameters)
-    , _tInputPath            :: !(Maybe Text)
-    , _tRoleARN              :: !(Maybe Text)
-    , _tId                   :: !Text
-    , _tARN                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tRunCommandParameters :: {-# NOUNPACK #-}!(Maybe RunCommandParameters)
+  , _tKinesisParameters    :: {-# NOUNPACK #-}!(Maybe KinesisParameters)
+  , _tInputTransformer     :: {-# NOUNPACK #-}!(Maybe InputTransformer)
+  , _tInput                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tEcsParameters        :: {-# NOUNPACK #-}!(Maybe EcsParameters)
+  , _tInputPath            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tRoleARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tId                   :: {-# NOUNPACK #-}!Text
+  , _tARN                  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Target' with the minimum fields required to make a request.
 --
@@ -626,17 +636,18 @@ target
     -> Text -- ^ 'tARN'
     -> Target
 target pId_ pARN_ =
-    Target'
-    { _tRunCommandParameters = Nothing
-    , _tKinesisParameters = Nothing
-    , _tInputTransformer = Nothing
-    , _tInput = Nothing
-    , _tEcsParameters = Nothing
-    , _tInputPath = Nothing
-    , _tRoleARN = Nothing
-    , _tId = pId_
-    , _tARN = pARN_
-    }
+  Target'
+  { _tRunCommandParameters = Nothing
+  , _tKinesisParameters = Nothing
+  , _tInputTransformer = Nothing
+  , _tInput = Nothing
+  , _tEcsParameters = Nothing
+  , _tInputPath = Nothing
+  , _tRoleARN = Nothing
+  , _tId = pId_
+  , _tARN = pARN_
+  }
+
 
 -- | Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 tRunCommandParameters :: Lens' Target (Maybe RunCommandParameters)
@@ -689,9 +700,9 @@ instance FromJSON Target where
                      <*> (x .: "Id")
                      <*> (x .: "Arn"))
 
-instance Hashable Target
+instance Hashable Target where
 
-instance NFData Target
+instance NFData Target where
 
 instance ToJSON Target where
         toJSON Target'{..}

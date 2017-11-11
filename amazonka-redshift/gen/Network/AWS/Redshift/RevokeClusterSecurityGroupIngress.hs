@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     , rcsgirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'revokeClusterSecurityGroupIngress' smart constructor.
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
-    { _rcsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
-    , _rcsgiEC2SecurityGroupName     :: !(Maybe Text)
-    , _rcsgiCIdRIP                   :: !(Maybe Text)
-    , _rcsgiClusterSecurityGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcsgiEC2SecurityGroupOwnerId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcsgiEC2SecurityGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcsgiCIdRIP                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcsgiClusterSecurityGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeClusterSecurityGroupIngress' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ revokeClusterSecurityGroupIngress
     :: Text -- ^ 'rcsgiClusterSecurityGroupName'
     -> RevokeClusterSecurityGroupIngress
 revokeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
-    RevokeClusterSecurityGroupIngress'
-    { _rcsgiEC2SecurityGroupOwnerId = Nothing
-    , _rcsgiEC2SecurityGroupName = Nothing
-    , _rcsgiCIdRIP = Nothing
-    , _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName_
-    }
+  RevokeClusterSecurityGroupIngress'
+  { _rcsgiEC2SecurityGroupOwnerId = Nothing
+  , _rcsgiEC2SecurityGroupName = Nothing
+  , _rcsgiCIdRIP = Nothing
+  , _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName_
+  }
+
 
 -- | The AWS account number of the owner of the security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID is not an acceptable value. If @EC2SecurityGroupOwnerId@ is specified, @EC2SecurityGroupName@ must also be provided. and @CIDRIP@ cannot be provided.  Example: @111122223333@
 rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
@@ -111,8 +113,10 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
                      (pure (fromEnum s)))
 
 instance Hashable RevokeClusterSecurityGroupIngress
+         where
 
 instance NFData RevokeClusterSecurityGroupIngress
+         where
 
 instance ToHeaders RevokeClusterSecurityGroupIngress
          where
@@ -138,9 +142,10 @@ instance ToQuery RevokeClusterSecurityGroupIngress
 
 -- | /See:/ 'revokeClusterSecurityGroupIngressResponse' smart constructor.
 data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
-    { _rcsgirsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _rcsgirsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcsgirsClusterSecurityGroup :: {-# NOUNPACK #-}!(Maybe ClusterSecurityGroup)
+  , _rcsgirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeClusterSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +158,11 @@ revokeClusterSecurityGroupIngressResponse
     :: Int -- ^ 'rcsgirsResponseStatus'
     -> RevokeClusterSecurityGroupIngressResponse
 revokeClusterSecurityGroupIngressResponse pResponseStatus_ =
-    RevokeClusterSecurityGroupIngressResponse'
-    { _rcsgirsClusterSecurityGroup = Nothing
-    , _rcsgirsResponseStatus = pResponseStatus_
-    }
+  RevokeClusterSecurityGroupIngressResponse'
+  { _rcsgirsClusterSecurityGroup = Nothing
+  , _rcsgirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 rcsgirsClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
@@ -167,4 +173,5 @@ rcsgirsResponseStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
 rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});
 
 instance NFData
-         RevokeClusterSecurityGroupIngressResponse
+           RevokeClusterSecurityGroupIngressResponse
+         where

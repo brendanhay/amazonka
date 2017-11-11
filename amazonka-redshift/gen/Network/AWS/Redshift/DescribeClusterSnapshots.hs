@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterSnapshots
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,13 +53,13 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     , dcssrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -67,17 +67,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeClusterSnapshots' smart constructor.
 data DescribeClusterSnapshots = DescribeClusterSnapshots'
-    { _dSnapshotIdentifier :: !(Maybe Text)
-    , _dTagValues          :: !(Maybe [Text])
-    , _dStartTime          :: !(Maybe ISO8601)
-    , _dTagKeys            :: !(Maybe [Text])
-    , _dClusterIdentifier  :: !(Maybe Text)
-    , _dSnapshotType       :: !(Maybe Text)
-    , _dMarker             :: !(Maybe Text)
-    , _dMaxRecords         :: !(Maybe Int)
-    , _dEndTime            :: !(Maybe ISO8601)
-    , _dOwnerAccount       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dTagValues          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dStartTime          :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dTagKeys            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dClusterIdentifier  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dSnapshotType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dEndTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dOwnerAccount       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterSnapshots' with the minimum fields required to make a request.
 --
@@ -105,18 +106,19 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 describeClusterSnapshots
     :: DescribeClusterSnapshots
 describeClusterSnapshots =
-    DescribeClusterSnapshots'
-    { _dSnapshotIdentifier = Nothing
-    , _dTagValues = Nothing
-    , _dStartTime = Nothing
-    , _dTagKeys = Nothing
-    , _dClusterIdentifier = Nothing
-    , _dSnapshotType = Nothing
-    , _dMarker = Nothing
-    , _dMaxRecords = Nothing
-    , _dEndTime = Nothing
-    , _dOwnerAccount = Nothing
-    }
+  DescribeClusterSnapshots'
+  { _dSnapshotIdentifier = Nothing
+  , _dTagValues = Nothing
+  , _dStartTime = Nothing
+  , _dTagKeys = Nothing
+  , _dClusterIdentifier = Nothing
+  , _dSnapshotType = Nothing
+  , _dMarker = Nothing
+  , _dMaxRecords = Nothing
+  , _dEndTime = Nothing
+  , _dOwnerAccount = Nothing
+  }
+
 
 -- | The snapshot identifier of the snapshot about which to return information.
 dSnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
@@ -178,9 +180,9 @@ instance AWSRequest DescribeClusterSnapshots where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeClusterSnapshots
+instance Hashable DescribeClusterSnapshots where
 
-instance NFData DescribeClusterSnapshots
+instance NFData DescribeClusterSnapshots where
 
 instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
@@ -212,10 +214,11 @@ instance ToQuery DescribeClusterSnapshots where
 --
 -- /See:/ 'describeClusterSnapshotsResponse' smart constructor.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
-    { _dcssrsSnapshots      :: !(Maybe [Snapshot])
-    , _dcssrsMarker         :: !(Maybe Text)
-    , _dcssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcssrsSnapshots      :: {-# NOUNPACK #-}!(Maybe [Snapshot])
+  , _dcssrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterSnapshotsResponse' with the minimum fields required to make a request.
 --
@@ -230,11 +233,12 @@ describeClusterSnapshotsResponse
     :: Int -- ^ 'dcssrsResponseStatus'
     -> DescribeClusterSnapshotsResponse
 describeClusterSnapshotsResponse pResponseStatus_ =
-    DescribeClusterSnapshotsResponse'
-    { _dcssrsSnapshots = Nothing
-    , _dcssrsMarker = Nothing
-    , _dcssrsResponseStatus = pResponseStatus_
-    }
+  DescribeClusterSnapshotsResponse'
+  { _dcssrsSnapshots = Nothing
+  , _dcssrsMarker = Nothing
+  , _dcssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'Snapshot' instances.
 dcssrsSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
@@ -249,3 +253,4 @@ dcssrsResponseStatus :: Lens' DescribeClusterSnapshotsResponse Int
 dcssrsResponseStatus = lens _dcssrsResponseStatus (\ s a -> s{_dcssrsResponseStatus = a});
 
 instance NFData DescribeClusterSnapshotsResponse
+         where

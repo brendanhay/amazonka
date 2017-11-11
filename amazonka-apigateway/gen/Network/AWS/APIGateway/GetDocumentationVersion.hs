@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.GetDocumentationVersion
     , dvDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Gets a documentation snapshot of an API.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDocumentationVersion' smart constructor.
 data GetDocumentationVersion = GetDocumentationVersion'
-    { _gdvdRestAPIId            :: !Text
-    , _gdvdDocumentationVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdvdRestAPIId            :: {-# NOUNPACK #-}!Text
+  , _gdvdDocumentationVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentationVersion' with the minimum fields required to make a request.
 --
@@ -66,10 +67,11 @@ getDocumentationVersion
     -> Text -- ^ 'gdvdDocumentationVersion'
     -> GetDocumentationVersion
 getDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
-    GetDocumentationVersion'
-    { _gdvdRestAPIId = pRestAPIId_
-    , _gdvdDocumentationVersion = pDocumentationVersion_
-    }
+  GetDocumentationVersion'
+  { _gdvdRestAPIId = pRestAPIId_
+  , _gdvdDocumentationVersion = pDocumentationVersion_
+  }
+
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 gdvdRestAPIId :: Lens' GetDocumentationVersion Text
@@ -85,9 +87,9 @@ instance AWSRequest GetDocumentationVersion where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetDocumentationVersion
+instance Hashable GetDocumentationVersion where
 
-instance NFData GetDocumentationVersion
+instance NFData GetDocumentationVersion where
 
 instance ToHeaders GetDocumentationVersion where
         toHeaders

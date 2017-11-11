@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetIdentityProviderByIdentifier
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CognitoIdentityProvider.GetIdentityProviderByIdentifier
     , gipbirsIdentityProvider
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getIdentityProviderByIdentifier' smart constructor.
 data GetIdentityProviderByIdentifier = GetIdentityProviderByIdentifier'
-    { _gipbiUserPoolId    :: !Text
-    , _gipbiIdpIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gipbiUserPoolId    :: {-# NOUNPACK #-}!Text
+  , _gipbiIdpIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdentityProviderByIdentifier' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ getIdentityProviderByIdentifier
     -> Text -- ^ 'gipbiIdpIdentifier'
     -> GetIdentityProviderByIdentifier
 getIdentityProviderByIdentifier pUserPoolId_ pIdpIdentifier_ =
-    GetIdentityProviderByIdentifier'
-    { _gipbiUserPoolId = pUserPoolId_
-    , _gipbiIdpIdentifier = pIdpIdentifier_
-    }
+  GetIdentityProviderByIdentifier'
+  {_gipbiUserPoolId = pUserPoolId_, _gipbiIdpIdentifier = pIdpIdentifier_}
+
 
 -- | The user pool ID.
 gipbiUserPoolId :: Lens' GetIdentityProviderByIdentifier Text
@@ -88,8 +88,9 @@ instance AWSRequest GetIdentityProviderByIdentifier
                    (pure (fromEnum s)) <*> (x .:> "IdentityProvider"))
 
 instance Hashable GetIdentityProviderByIdentifier
+         where
 
-instance NFData GetIdentityProviderByIdentifier
+instance NFData GetIdentityProviderByIdentifier where
 
 instance ToHeaders GetIdentityProviderByIdentifier
          where
@@ -118,9 +119,10 @@ instance ToQuery GetIdentityProviderByIdentifier
 
 -- | /See:/ 'getIdentityProviderByIdentifierResponse' smart constructor.
 data GetIdentityProviderByIdentifierResponse = GetIdentityProviderByIdentifierResponse'
-    { _gipbirsResponseStatus   :: !Int
-    , _gipbirsIdentityProvider :: !IdentityProviderType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gipbirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _gipbirsIdentityProvider :: {-# NOUNPACK #-}!IdentityProviderType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdentityProviderByIdentifierResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +136,11 @@ getIdentityProviderByIdentifierResponse
     -> IdentityProviderType -- ^ 'gipbirsIdentityProvider'
     -> GetIdentityProviderByIdentifierResponse
 getIdentityProviderByIdentifierResponse pResponseStatus_ pIdentityProvider_ =
-    GetIdentityProviderByIdentifierResponse'
-    { _gipbirsResponseStatus = pResponseStatus_
-    , _gipbirsIdentityProvider = pIdentityProvider_
-    }
+  GetIdentityProviderByIdentifierResponse'
+  { _gipbirsResponseStatus = pResponseStatus_
+  , _gipbirsIdentityProvider = pIdentityProvider_
+  }
+
 
 -- | -- | The response status code.
 gipbirsResponseStatus :: Lens' GetIdentityProviderByIdentifierResponse Int
@@ -148,4 +151,5 @@ gipbirsIdentityProvider :: Lens' GetIdentityProviderByIdentifierResponse Identit
 gipbirsIdentityProvider = lens _gipbirsIdentityProvider (\ s a -> s{_gipbirsIdentityProvider = a});
 
 instance NFData
-         GetIdentityProviderByIdentifierResponse
+           GetIdentityProviderByIdentifierResponse
+         where

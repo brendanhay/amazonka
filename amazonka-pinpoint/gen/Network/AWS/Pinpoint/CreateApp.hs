@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.CreateApp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.CreateApp
     , carsApplicationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createApp' smart constructor.
 newtype CreateApp = CreateApp'
-    { _caCreateApplicationRequest :: CreateApplicationRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caCreateApplicationRequest :: CreateApplicationRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ createApp
     :: CreateApplicationRequest -- ^ 'caCreateApplicationRequest'
     -> CreateApp
 createApp pCreateApplicationRequest_ =
-    CreateApp'
-    { _caCreateApplicationRequest = pCreateApplicationRequest_
-    }
+  CreateApp' {_caCreateApplicationRequest = pCreateApplicationRequest_}
+
 
 -- | Undocumented member.
 caCreateApplicationRequest :: Lens' CreateApp CreateApplicationRequest
@@ -73,9 +73,9 @@ instance AWSRequest CreateApp where
                  CreateAppResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable CreateApp
+instance Hashable CreateApp where
 
-instance NFData CreateApp
+instance NFData CreateApp where
 
 instance ToHeaders CreateApp where
         toHeaders
@@ -100,9 +100,10 @@ instance ToQuery CreateApp where
 
 -- | /See:/ 'createAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-    { _carsResponseStatus      :: !Int
-    , _carsApplicationResponse :: !ApplicationResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _carsApplicationResponse :: {-# NOUNPACK #-}!ApplicationResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +117,11 @@ createAppResponse
     -> ApplicationResponse -- ^ 'carsApplicationResponse'
     -> CreateAppResponse
 createAppResponse pResponseStatus_ pApplicationResponse_ =
-    CreateAppResponse'
-    { _carsResponseStatus = pResponseStatus_
-    , _carsApplicationResponse = pApplicationResponse_
-    }
+  CreateAppResponse'
+  { _carsResponseStatus = pResponseStatus_
+  , _carsApplicationResponse = pApplicationResponse_
+  }
+
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAppResponse Int
@@ -129,4 +131,4 @@ carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = 
 carsApplicationResponse :: Lens' CreateAppResponse ApplicationResponse
 carsApplicationResponse = lens _carsApplicationResponse (\ s a -> s{_carsApplicationResponse = a});
 
-instance NFData CreateAppResponse
+instance NFData CreateAppResponse where

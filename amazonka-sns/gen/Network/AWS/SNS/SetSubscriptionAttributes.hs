@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.SetSubscriptionAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     , SetSubscriptionAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for SetSubscriptionAttributes action.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'setSubscriptionAttributes' smart constructor.
 data SetSubscriptionAttributes = SetSubscriptionAttributes'
-    { _ssaAttributeValue  :: !(Maybe Text)
-    , _ssaSubscriptionARN :: !Text
-    , _ssaAttributeName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssaAttributeValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssaSubscriptionARN :: {-# NOUNPACK #-}!Text
+  , _ssaAttributeName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetSubscriptionAttributes' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ setSubscriptionAttributes
     -> Text -- ^ 'ssaAttributeName'
     -> SetSubscriptionAttributes
 setSubscriptionAttributes pSubscriptionARN_ pAttributeName_ =
-    SetSubscriptionAttributes'
-    { _ssaAttributeValue = Nothing
-    , _ssaSubscriptionARN = pSubscriptionARN_
-    , _ssaAttributeName = pAttributeName_
-    }
+  SetSubscriptionAttributes'
+  { _ssaAttributeValue = Nothing
+  , _ssaSubscriptionARN = pSubscriptionARN_
+  , _ssaAttributeName = pAttributeName_
+  }
+
 
 -- | The new value for the attribute in JSON format.
 ssaAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
@@ -93,9 +95,9 @@ instance AWSRequest SetSubscriptionAttributes where
         response
           = receiveNull SetSubscriptionAttributesResponse'
 
-instance Hashable SetSubscriptionAttributes
+instance Hashable SetSubscriptionAttributes where
 
-instance NFData SetSubscriptionAttributes
+instance NFData SetSubscriptionAttributes where
 
 instance ToHeaders SetSubscriptionAttributes where
         toHeaders = const mempty
@@ -115,8 +117,9 @@ instance ToQuery SetSubscriptionAttributes where
 
 -- | /See:/ 'setSubscriptionAttributesResponse' smart constructor.
 data SetSubscriptionAttributesResponse =
-    SetSubscriptionAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetSubscriptionAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetSubscriptionAttributesResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +127,6 @@ setSubscriptionAttributesResponse
     :: SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'
 
+
 instance NFData SetSubscriptionAttributesResponse
+         where

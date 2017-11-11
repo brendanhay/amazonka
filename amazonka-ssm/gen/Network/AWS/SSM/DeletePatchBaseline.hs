@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeletePatchBaseline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.SSM.DeletePatchBaseline
     , dpbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deletePatchBaseline' smart constructor.
 newtype DeletePatchBaseline = DeletePatchBaseline'
-    { _dpbBaselineId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpbBaselineId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePatchBaseline' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deletePatchBaseline
     :: Text -- ^ 'dpbBaselineId'
     -> DeletePatchBaseline
 deletePatchBaseline pBaselineId_ =
-    DeletePatchBaseline'
-    { _dpbBaselineId = pBaselineId_
-    }
+  DeletePatchBaseline' {_dpbBaselineId = pBaselineId_}
+
 
 -- | The ID of the patch baseline to delete.
 dpbBaselineId :: Lens' DeletePatchBaseline Text
@@ -76,9 +76,9 @@ instance AWSRequest DeletePatchBaseline where
                  DeletePatchBaselineResponse' <$>
                    (x .?> "BaselineId") <*> (pure (fromEnum s)))
 
-instance Hashable DeletePatchBaseline
+instance Hashable DeletePatchBaseline where
 
-instance NFData DeletePatchBaseline
+instance NFData DeletePatchBaseline where
 
 instance ToHeaders DeletePatchBaseline where
         toHeaders
@@ -102,9 +102,10 @@ instance ToQuery DeletePatchBaseline where
 
 -- | /See:/ 'deletePatchBaselineResponse' smart constructor.
 data DeletePatchBaselineResponse = DeletePatchBaselineResponse'
-    { _dpbrsBaselineId     :: !(Maybe Text)
-    , _dpbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpbrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePatchBaselineResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ deletePatchBaselineResponse
     :: Int -- ^ 'dpbrsResponseStatus'
     -> DeletePatchBaselineResponse
 deletePatchBaselineResponse pResponseStatus_ =
-    DeletePatchBaselineResponse'
-    { _dpbrsBaselineId = Nothing
-    , _dpbrsResponseStatus = pResponseStatus_
-    }
+  DeletePatchBaselineResponse'
+  {_dpbrsBaselineId = Nothing, _dpbrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the deleted patch baseline.
 dpbrsBaselineId :: Lens' DeletePatchBaselineResponse (Maybe Text)
@@ -130,4 +130,4 @@ dpbrsBaselineId = lens _dpbrsBaselineId (\ s a -> s{_dpbrsBaselineId = a});
 dpbrsResponseStatus :: Lens' DeletePatchBaselineResponse Int
 dpbrsResponseStatus = lens _dpbrsResponseStatus (\ s a -> s{_dpbrsResponseStatus = a});
 
-instance NFData DeletePatchBaselineResponse
+instance NFData DeletePatchBaselineResponse where

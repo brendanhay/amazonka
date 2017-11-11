@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DeleteDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CloudDirectory.DeleteDirectory
     , ddrsDirectoryARN
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDirectory' smart constructor.
 newtype DeleteDirectory = DeleteDirectory'
-    { _delDirectoryARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delDirectoryARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDirectory' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deleteDirectory
     :: Text -- ^ 'delDirectoryARN'
     -> DeleteDirectory
 deleteDirectory pDirectoryARN_ =
-    DeleteDirectory'
-    { _delDirectoryARN = pDirectoryARN_
-    }
+  DeleteDirectory' {_delDirectoryARN = pDirectoryARN_}
+
 
 -- | The ARN of the directory to delete.
 delDirectoryARN :: Lens' DeleteDirectory Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteDirectory where
                  DeleteDirectoryResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DirectoryArn"))
 
-instance Hashable DeleteDirectory
+instance Hashable DeleteDirectory where
 
-instance NFData DeleteDirectory
+instance NFData DeleteDirectory where
 
 instance ToHeaders DeleteDirectory where
         toHeaders DeleteDirectory'{..}
@@ -96,9 +96,10 @@ instance ToQuery DeleteDirectory where
 
 -- | /See:/ 'deleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-    { _ddrsResponseStatus :: !Int
-    , _ddrsDirectoryARN   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ddrsDirectoryARN   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDirectoryResponse' with the minimum fields required to make a request.
 --
@@ -112,10 +113,9 @@ deleteDirectoryResponse
     -> Text -- ^ 'ddrsDirectoryARN'
     -> DeleteDirectoryResponse
 deleteDirectoryResponse pResponseStatus_ pDirectoryARN_ =
-    DeleteDirectoryResponse'
-    { _ddrsResponseStatus = pResponseStatus_
-    , _ddrsDirectoryARN = pDirectoryARN_
-    }
+  DeleteDirectoryResponse'
+  {_ddrsResponseStatus = pResponseStatus_, _ddrsDirectoryARN = pDirectoryARN_}
+
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDirectoryResponse Int
@@ -125,4 +125,4 @@ ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = 
 ddrsDirectoryARN :: Lens' DeleteDirectoryResponse Text
 ddrsDirectoryARN = lens _ddrsDirectoryARN (\ s a -> s{_ddrsDirectoryARN = a});
 
-instance NFData DeleteDirectoryResponse
+instance NFData DeleteDirectoryResponse where

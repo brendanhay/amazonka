@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreatePartition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.Glue.CreatePartition
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createPartition' smart constructor.
 data CreatePartition = CreatePartition'
-    { _cpCatalogId      :: !(Maybe Text)
-    , _cpDatabaseName   :: !Text
-    , _cpTableName      :: !Text
-    , _cpPartitionInput :: !PartitionInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpCatalogId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpDatabaseName   :: {-# NOUNPACK #-}!Text
+  , _cpTableName      :: {-# NOUNPACK #-}!Text
+  , _cpPartitionInput :: {-# NOUNPACK #-}!PartitionInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePartition' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ createPartition
     -> PartitionInput -- ^ 'cpPartitionInput'
     -> CreatePartition
 createPartition pDatabaseName_ pTableName_ pPartitionInput_ =
-    CreatePartition'
-    { _cpCatalogId = Nothing
-    , _cpDatabaseName = pDatabaseName_
-    , _cpTableName = pTableName_
-    , _cpPartitionInput = pPartitionInput_
-    }
+  CreatePartition'
+  { _cpCatalogId = Nothing
+  , _cpDatabaseName = pDatabaseName_
+  , _cpTableName = pTableName_
+  , _cpPartitionInput = pPartitionInput_
+  }
+
 
 -- | The ID of the catalog in which the partion is to be created. Currently, this should be the AWS account ID.
 cpCatalogId :: Lens' CreatePartition (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest CreatePartition where
               (\ s h x ->
                  CreatePartitionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreatePartition
+instance Hashable CreatePartition where
 
-instance NFData CreatePartition
+instance NFData CreatePartition where
 
 instance ToHeaders CreatePartition where
         toHeaders
@@ -132,8 +134,9 @@ instance ToQuery CreatePartition where
 
 -- | /See:/ 'createPartitionResponse' smart constructor.
 newtype CreatePartitionResponse = CreatePartitionResponse'
-    { _cprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePartitionResponse' with the minimum fields required to make a request.
 --
@@ -144,12 +147,11 @@ createPartitionResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePartitionResponse
 createPartitionResponse pResponseStatus_ =
-    CreatePartitionResponse'
-    { _cprsResponseStatus = pResponseStatus_
-    }
+  CreatePartitionResponse' {_cprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePartitionResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreatePartitionResponse
+instance NFData CreatePartitionResponse where

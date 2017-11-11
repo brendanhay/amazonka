@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBClusterParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.RDS.ModifyDBClusterParameterGroup
     , dcpgnmDBClusterParameterGroupName
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBClusterParameterGroup' smart constructor.
 data ModifyDBClusterParameterGroup = ModifyDBClusterParameterGroup'
-    { _mdcpgDBClusterParameterGroupName :: !Text
-    , _mdcpgParameters                  :: ![Parameter]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdcpgDBClusterParameterGroupName :: {-# NOUNPACK #-}!Text
+  , _mdcpgParameters                  :: {-# NOUNPACK #-}![Parameter]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBClusterParameterGroup' with the minimum fields required to make a request.
 --
@@ -69,10 +70,11 @@ modifyDBClusterParameterGroup
     :: Text -- ^ 'mdcpgDBClusterParameterGroupName'
     -> ModifyDBClusterParameterGroup
 modifyDBClusterParameterGroup pDBClusterParameterGroupName_ =
-    ModifyDBClusterParameterGroup'
-    { _mdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
-    , _mdcpgParameters = mempty
-    }
+  ModifyDBClusterParameterGroup'
+  { _mdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
+  , _mdcpgParameters = mempty
+  }
+
 
 -- | The name of the DB cluster parameter group to modify.
 mdcpgDBClusterParameterGroupName :: Lens' ModifyDBClusterParameterGroup Text
@@ -92,9 +94,9 @@ instance AWSRequest ModifyDBClusterParameterGroup
               "ModifyDBClusterParameterGroupResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ModifyDBClusterParameterGroup
+instance Hashable ModifyDBClusterParameterGroup where
 
-instance NFData ModifyDBClusterParameterGroup
+instance NFData ModifyDBClusterParameterGroup where
 
 instance ToHeaders ModifyDBClusterParameterGroup
          where

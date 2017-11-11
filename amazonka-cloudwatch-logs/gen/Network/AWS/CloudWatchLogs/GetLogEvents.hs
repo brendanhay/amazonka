@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.GetLogEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,23 +47,24 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     , glersResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getLogEvents' smart constructor.
 data GetLogEvents = GetLogEvents'
-    { _gleStartTime     :: !(Maybe Nat)
-    , _gleStartFromHead :: !(Maybe Bool)
-    , _gleNextToken     :: !(Maybe Text)
-    , _gleEndTime       :: !(Maybe Nat)
-    , _gleLimit         :: !(Maybe Nat)
-    , _gleLogGroupName  :: !Text
-    , _gleLogStreamName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gleStartTime     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gleStartFromHead :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gleNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gleEndTime       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gleLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gleLogGroupName  :: {-# NOUNPACK #-}!Text
+  , _gleLogStreamName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLogEvents' with the minimum fields required to make a request.
 --
@@ -87,15 +88,16 @@ getLogEvents
     -> Text -- ^ 'gleLogStreamName'
     -> GetLogEvents
 getLogEvents pLogGroupName_ pLogStreamName_ =
-    GetLogEvents'
-    { _gleStartTime = Nothing
-    , _gleStartFromHead = Nothing
-    , _gleNextToken = Nothing
-    , _gleEndTime = Nothing
-    , _gleLimit = Nothing
-    , _gleLogGroupName = pLogGroupName_
-    , _gleLogStreamName = pLogStreamName_
-    }
+  GetLogEvents'
+  { _gleStartTime = Nothing
+  , _gleStartFromHead = Nothing
+  , _gleNextToken = Nothing
+  , _gleEndTime = Nothing
+  , _gleLimit = Nothing
+  , _gleLogGroupName = pLogGroupName_
+  , _gleLogStreamName = pLogStreamName_
+  }
+
 
 -- | The start of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not included.
 gleStartTime :: Lens' GetLogEvents (Maybe Natural)
@@ -137,9 +139,9 @@ instance AWSRequest GetLogEvents where
                      <*> (x .?> "events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetLogEvents
+instance Hashable GetLogEvents where
 
-instance NFData GetLogEvents
+instance NFData GetLogEvents where
 
 instance ToHeaders GetLogEvents where
         toHeaders
@@ -170,11 +172,12 @@ instance ToQuery GetLogEvents where
 
 -- | /See:/ 'getLogEventsResponse' smart constructor.
 data GetLogEventsResponse = GetLogEventsResponse'
-    { _glersNextBackwardToken :: !(Maybe Text)
-    , _glersNextForwardToken  :: !(Maybe Text)
-    , _glersEvents            :: !(Maybe [OutputLogEvent])
-    , _glersResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _glersNextBackwardToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _glersNextForwardToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _glersEvents            :: {-# NOUNPACK #-}!(Maybe [OutputLogEvent])
+  , _glersResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLogEventsResponse' with the minimum fields required to make a request.
 --
@@ -191,12 +194,13 @@ getLogEventsResponse
     :: Int -- ^ 'glersResponseStatus'
     -> GetLogEventsResponse
 getLogEventsResponse pResponseStatus_ =
-    GetLogEventsResponse'
-    { _glersNextBackwardToken = Nothing
-    , _glersNextForwardToken = Nothing
-    , _glersEvents = Nothing
-    , _glersResponseStatus = pResponseStatus_
-    }
+  GetLogEventsResponse'
+  { _glersNextBackwardToken = Nothing
+  , _glersNextForwardToken = Nothing
+  , _glersEvents = Nothing
+  , _glersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of items in the backward direction. The token expires after 24 hours.
 glersNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
@@ -214,4 +218,4 @@ glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default . _Coe
 glersResponseStatus :: Lens' GetLogEventsResponse Int
 glersResponseStatus = lens _glersResponseStatus (\ s a -> s{_glersResponseStatus = a});
 
-instance NFData GetLogEventsResponse
+instance NFData GetLogEventsResponse where

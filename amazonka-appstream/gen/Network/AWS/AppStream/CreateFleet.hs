@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.AppStream.CreateFleet
     , cfrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for the new fleet to create.
 --
@@ -60,18 +60,19 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createFleet' smart constructor.
 data CreateFleet = CreateFleet'
-    { _cfDomainJoinInfo              :: !(Maybe DomainJoinInfo)
-    , _cfDisconnectTimeoutInSeconds  :: !(Maybe Int)
-    , _cfMaxUserDurationInSeconds    :: !(Maybe Int)
-    , _cfVPCConfig                   :: !(Maybe VPCConfig)
-    , _cfDisplayName                 :: !(Maybe Text)
-    , _cfEnableDefaultInternetAccess :: !(Maybe Bool)
-    , _cfDescription                 :: !(Maybe Text)
-    , _cfName                        :: !Text
-    , _cfImageName                   :: !Text
-    , _cfInstanceType                :: !Text
-    , _cfComputeCapacity             :: !ComputeCapacity
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfDomainJoinInfo              :: {-# NOUNPACK #-}!(Maybe DomainJoinInfo)
+  , _cfDisconnectTimeoutInSeconds  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cfMaxUserDurationInSeconds    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cfVPCConfig                   :: {-# NOUNPACK #-}!(Maybe VPCConfig)
+  , _cfDisplayName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfEnableDefaultInternetAccess :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cfDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfName                        :: {-# NOUNPACK #-}!Text
+  , _cfImageName                   :: {-# NOUNPACK #-}!Text
+  , _cfInstanceType                :: {-# NOUNPACK #-}!Text
+  , _cfComputeCapacity             :: {-# NOUNPACK #-}!ComputeCapacity
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFleet' with the minimum fields required to make a request.
 --
@@ -105,19 +106,20 @@ createFleet
     -> ComputeCapacity -- ^ 'cfComputeCapacity'
     -> CreateFleet
 createFleet pName_ pImageName_ pInstanceType_ pComputeCapacity_ =
-    CreateFleet'
-    { _cfDomainJoinInfo = Nothing
-    , _cfDisconnectTimeoutInSeconds = Nothing
-    , _cfMaxUserDurationInSeconds = Nothing
-    , _cfVPCConfig = Nothing
-    , _cfDisplayName = Nothing
-    , _cfEnableDefaultInternetAccess = Nothing
-    , _cfDescription = Nothing
-    , _cfName = pName_
-    , _cfImageName = pImageName_
-    , _cfInstanceType = pInstanceType_
-    , _cfComputeCapacity = pComputeCapacity_
-    }
+  CreateFleet'
+  { _cfDomainJoinInfo = Nothing
+  , _cfDisconnectTimeoutInSeconds = Nothing
+  , _cfMaxUserDurationInSeconds = Nothing
+  , _cfVPCConfig = Nothing
+  , _cfDisplayName = Nothing
+  , _cfEnableDefaultInternetAccess = Nothing
+  , _cfDescription = Nothing
+  , _cfName = pName_
+  , _cfImageName = pImageName_
+  , _cfInstanceType = pInstanceType_
+  , _cfComputeCapacity = pComputeCapacity_
+  }
+
 
 -- | The /DirectoryName/ and /OrganizationalUnitDistinguishedName/ values, which are used to join domains for the AppStream 2.0 streaming instances.
 cfDomainJoinInfo :: Lens' CreateFleet (Maybe DomainJoinInfo)
@@ -172,9 +174,9 @@ instance AWSRequest CreateFleet where
                  CreateFleetResponse' <$>
                    (x .?> "Fleet") <*> (pure (fromEnum s)))
 
-instance Hashable CreateFleet
+instance Hashable CreateFleet where
 
-instance NFData CreateFleet
+instance NFData CreateFleet where
 
 instance ToHeaders CreateFleet where
         toHeaders
@@ -213,9 +215,10 @@ instance ToQuery CreateFleet where
 
 -- | /See:/ 'createFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
-    { _cfrsFleet          :: !(Maybe Fleet)
-    , _cfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfrsFleet          :: {-# NOUNPACK #-}!(Maybe Fleet)
+  , _cfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFleetResponse' with the minimum fields required to make a request.
 --
@@ -228,10 +231,9 @@ createFleetResponse
     :: Int -- ^ 'cfrsResponseStatus'
     -> CreateFleetResponse
 createFleetResponse pResponseStatus_ =
-    CreateFleetResponse'
-    { _cfrsFleet = Nothing
-    , _cfrsResponseStatus = pResponseStatus_
-    }
+  CreateFleetResponse'
+  {_cfrsFleet = Nothing, _cfrsResponseStatus = pResponseStatus_}
+
 
 -- | The details for the created fleet.
 cfrsFleet :: Lens' CreateFleetResponse (Maybe Fleet)
@@ -241,4 +243,4 @@ cfrsFleet = lens _cfrsFleet (\ s a -> s{_cfrsFleet = a});
 cfrsResponseStatus :: Lens' CreateFleetResponse Int
 cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
 
-instance NFData CreateFleetResponse
+instance NFData CreateFleetResponse where

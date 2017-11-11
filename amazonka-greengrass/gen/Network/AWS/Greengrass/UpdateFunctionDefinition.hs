@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateFunctionDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.Greengrass.UpdateFunctionDefinition
     , ufdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateFunctionDefinition' smart constructor.
 data UpdateFunctionDefinition = UpdateFunctionDefinition'
-    { _ufdName                 :: !(Maybe Text)
-    , _ufdFunctionDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufdName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufdFunctionDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFunctionDefinition' with the minimum fields required to make a request.
 --
@@ -59,10 +60,9 @@ updateFunctionDefinition
     :: Text -- ^ 'ufdFunctionDefinitionId'
     -> UpdateFunctionDefinition
 updateFunctionDefinition pFunctionDefinitionId_ =
-    UpdateFunctionDefinition'
-    { _ufdName = Nothing
-    , _ufdFunctionDefinitionId = pFunctionDefinitionId_
-    }
+  UpdateFunctionDefinition'
+  {_ufdName = Nothing, _ufdFunctionDefinitionId = pFunctionDefinitionId_}
+
 
 -- | name of the definition
 ufdName :: Lens' UpdateFunctionDefinition (Maybe Text)
@@ -82,9 +82,9 @@ instance AWSRequest UpdateFunctionDefinition where
                  UpdateFunctionDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateFunctionDefinition
+instance Hashable UpdateFunctionDefinition where
 
-instance NFData UpdateFunctionDefinition
+instance NFData UpdateFunctionDefinition where
 
 instance ToHeaders UpdateFunctionDefinition where
         toHeaders
@@ -108,8 +108,9 @@ instance ToQuery UpdateFunctionDefinition where
 
 -- | /See:/ 'updateFunctionDefinitionResponse' smart constructor.
 newtype UpdateFunctionDefinitionResponse = UpdateFunctionDefinitionResponse'
-    { _ufdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFunctionDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +121,12 @@ updateFunctionDefinitionResponse
     :: Int -- ^ 'ufdrsResponseStatus'
     -> UpdateFunctionDefinitionResponse
 updateFunctionDefinitionResponse pResponseStatus_ =
-    UpdateFunctionDefinitionResponse'
-    { _ufdrsResponseStatus = pResponseStatus_
-    }
+  UpdateFunctionDefinitionResponse' {_ufdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ufdrsResponseStatus :: Lens' UpdateFunctionDefinitionResponse Int
 ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a});
 
 instance NFData UpdateFunctionDefinitionResponse
+         where

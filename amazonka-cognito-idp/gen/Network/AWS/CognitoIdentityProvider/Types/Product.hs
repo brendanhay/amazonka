@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CognitoIdentityProvider.Types.Product where
 
-import           Network.AWS.CognitoIdentityProvider.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CognitoIdentityProvider.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | The type of configuration for creating a new user profile.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'adminCreateUserConfigType' smart constructor.
 data AdminCreateUserConfigType = AdminCreateUserConfigType'
-    { _acuctAllowAdminCreateUserOnly  :: !(Maybe Bool)
-    , _acuctUnusedAccountValidityDays :: !(Maybe Nat)
-    , _acuctInviteMessageTemplate     :: !(Maybe MessageTemplateType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acuctAllowAdminCreateUserOnly :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acuctUnusedAccountValidityDays :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _acuctInviteMessageTemplate :: {-# NOUNPACK #-}!(Maybe MessageTemplateType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminCreateUserConfigType' with the minimum fields required to make a request.
 --
@@ -44,11 +45,12 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
 adminCreateUserConfigType
     :: AdminCreateUserConfigType
 adminCreateUserConfigType =
-    AdminCreateUserConfigType'
-    { _acuctAllowAdminCreateUserOnly = Nothing
-    , _acuctUnusedAccountValidityDays = Nothing
-    , _acuctInviteMessageTemplate = Nothing
-    }
+  AdminCreateUserConfigType'
+  { _acuctAllowAdminCreateUserOnly = Nothing
+  , _acuctUnusedAccountValidityDays = Nothing
+  , _acuctInviteMessageTemplate = Nothing
+  }
+
 
 -- | Set to @True@ if only the administrator is allowed to create user profiles. Set to @False@ if users can sign themselves up via an app.
 acuctAllowAdminCreateUserOnly :: Lens' AdminCreateUserConfigType (Maybe Bool)
@@ -71,9 +73,9 @@ instance FromJSON AdminCreateUserConfigType where
                      (x .:? "UnusedAccountValidityDays")
                      <*> (x .:? "InviteMessageTemplate"))
 
-instance Hashable AdminCreateUserConfigType
+instance Hashable AdminCreateUserConfigType where
 
-instance NFData AdminCreateUserConfigType
+instance NFData AdminCreateUserConfigType where
 
 instance ToJSON AdminCreateUserConfigType where
         toJSON AdminCreateUserConfigType'{..}
@@ -92,9 +94,10 @@ instance ToJSON AdminCreateUserConfigType where
 --
 -- /See:/ 'attributeType' smart constructor.
 data AttributeType = AttributeType'
-    { _atValue :: !(Maybe (Sensitive Text))
-    , _atName  :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _atValue :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _atName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeType' with the minimum fields required to make a request.
 --
@@ -106,11 +109,8 @@ data AttributeType = AttributeType'
 attributeType
     :: Text -- ^ 'atName'
     -> AttributeType
-attributeType pName_ =
-    AttributeType'
-    { _atValue = Nothing
-    , _atName = pName_
-    }
+attributeType pName_ = AttributeType' {_atValue = Nothing, _atName = pName_}
+
 
 -- | The value of the attribute.
 atValue :: Lens' AttributeType (Maybe Text)
@@ -126,9 +126,9 @@ instance FromJSON AttributeType where
               (\ x ->
                  AttributeType' <$> (x .:? "Value") <*> (x .: "Name"))
 
-instance Hashable AttributeType
+instance Hashable AttributeType where
 
-instance NFData AttributeType
+instance NFData AttributeType where
 
 instance ToJSON AttributeType where
         toJSON AttributeType'{..}
@@ -143,13 +143,14 @@ instance ToJSON AttributeType where
 --
 -- /See:/ 'authenticationResultType' smart constructor.
 data AuthenticationResultType = AuthenticationResultType'
-    { _artAccessToken       :: !(Maybe (Sensitive Text))
-    , _artRefreshToken      :: !(Maybe (Sensitive Text))
-    , _artNewDeviceMetadata :: !(Maybe NewDeviceMetadataType)
-    , _artExpiresIn         :: !(Maybe Int)
-    , _artTokenType         :: !(Maybe Text)
-    , _artIdToken           :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _artAccessToken       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _artRefreshToken      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _artNewDeviceMetadata :: {-# NOUNPACK #-}!(Maybe NewDeviceMetadataType)
+  , _artExpiresIn         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _artTokenType         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _artIdToken           :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthenticationResultType' with the minimum fields required to make a request.
 --
@@ -169,14 +170,15 @@ data AuthenticationResultType = AuthenticationResultType'
 authenticationResultType
     :: AuthenticationResultType
 authenticationResultType =
-    AuthenticationResultType'
-    { _artAccessToken = Nothing
-    , _artRefreshToken = Nothing
-    , _artNewDeviceMetadata = Nothing
-    , _artExpiresIn = Nothing
-    , _artTokenType = Nothing
-    , _artIdToken = Nothing
-    }
+  AuthenticationResultType'
+  { _artAccessToken = Nothing
+  , _artRefreshToken = Nothing
+  , _artNewDeviceMetadata = Nothing
+  , _artExpiresIn = Nothing
+  , _artTokenType = Nothing
+  , _artIdToken = Nothing
+  }
+
 
 -- | The access token of the authentication result.
 artAccessToken :: Lens' AuthenticationResultType (Maybe Text)
@@ -213,9 +215,9 @@ instance FromJSON AuthenticationResultType where
                      <*> (x .:? "TokenType")
                      <*> (x .:? "IdToken"))
 
-instance Hashable AuthenticationResultType
+instance Hashable AuthenticationResultType where
 
-instance NFData AuthenticationResultType
+instance NFData AuthenticationResultType where
 
 -- | The type of code delivery details being returned from the server.
 --
@@ -223,10 +225,11 @@ instance NFData AuthenticationResultType
 --
 -- /See:/ 'codeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
-    { _cddtDestination    :: !(Maybe Text)
-    , _cddtDeliveryMedium :: !(Maybe DeliveryMediumType)
-    , _cddtAttributeName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cddtDestination    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cddtDeliveryMedium :: {-# NOUNPACK #-}!(Maybe DeliveryMediumType)
+  , _cddtAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CodeDeliveryDetailsType' with the minimum fields required to make a request.
 --
@@ -240,11 +243,12 @@ data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
 codeDeliveryDetailsType
     :: CodeDeliveryDetailsType
 codeDeliveryDetailsType =
-    CodeDeliveryDetailsType'
-    { _cddtDestination = Nothing
-    , _cddtDeliveryMedium = Nothing
-    , _cddtAttributeName = Nothing
-    }
+  CodeDeliveryDetailsType'
+  { _cddtDestination = Nothing
+  , _cddtDeliveryMedium = Nothing
+  , _cddtAttributeName = Nothing
+  }
+
 
 -- | The destination for the code delivery details.
 cddtDestination :: Lens' CodeDeliveryDetailsType (Maybe Text)
@@ -266,9 +270,9 @@ instance FromJSON CodeDeliveryDetailsType where
                    (x .:? "Destination") <*> (x .:? "DeliveryMedium")
                      <*> (x .:? "AttributeName"))
 
-instance Hashable CodeDeliveryDetailsType
+instance Hashable CodeDeliveryDetailsType where
 
-instance NFData CodeDeliveryDetailsType
+instance NFData CodeDeliveryDetailsType where
 
 -- | The type of configuration for the user pool's device tracking.
 --
@@ -276,9 +280,10 @@ instance NFData CodeDeliveryDetailsType
 --
 -- /See:/ 'deviceConfigurationType' smart constructor.
 data DeviceConfigurationType = DeviceConfigurationType'
-    { _dctChallengeRequiredOnNewDevice     :: !(Maybe Bool)
-    , _dctDeviceOnlyRememberedOnUserPrompt :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dctChallengeRequiredOnNewDevice     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dctDeviceOnlyRememberedOnUserPrompt :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeviceConfigurationType' with the minimum fields required to make a request.
 --
@@ -290,10 +295,11 @@ data DeviceConfigurationType = DeviceConfigurationType'
 deviceConfigurationType
     :: DeviceConfigurationType
 deviceConfigurationType =
-    DeviceConfigurationType'
-    { _dctChallengeRequiredOnNewDevice = Nothing
-    , _dctDeviceOnlyRememberedOnUserPrompt = Nothing
-    }
+  DeviceConfigurationType'
+  { _dctChallengeRequiredOnNewDevice = Nothing
+  , _dctDeviceOnlyRememberedOnUserPrompt = Nothing
+  }
+
 
 -- | Indicates whether a challenge is required on a new device. Only applicable to a new device.
 dctChallengeRequiredOnNewDevice :: Lens' DeviceConfigurationType (Maybe Bool)
@@ -311,9 +317,9 @@ instance FromJSON DeviceConfigurationType where
                    (x .:? "ChallengeRequiredOnNewDevice") <*>
                      (x .:? "DeviceOnlyRememberedOnUserPrompt"))
 
-instance Hashable DeviceConfigurationType
+instance Hashable DeviceConfigurationType where
 
-instance NFData DeviceConfigurationType
+instance NFData DeviceConfigurationType where
 
 instance ToJSON DeviceConfigurationType where
         toJSON DeviceConfigurationType'{..}
@@ -330,9 +336,10 @@ instance ToJSON DeviceConfigurationType where
 --
 -- /See:/ 'deviceSecretVerifierConfigType' smart constructor.
 data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
-    { _dsvctPasswordVerifier :: !(Maybe Text)
-    , _dsvctSalt             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsvctPasswordVerifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsvctSalt             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeviceSecretVerifierConfigType' with the minimum fields required to make a request.
 --
@@ -344,10 +351,9 @@ data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
 deviceSecretVerifierConfigType
     :: DeviceSecretVerifierConfigType
 deviceSecretVerifierConfigType =
-    DeviceSecretVerifierConfigType'
-    { _dsvctPasswordVerifier = Nothing
-    , _dsvctSalt = Nothing
-    }
+  DeviceSecretVerifierConfigType'
+  {_dsvctPasswordVerifier = Nothing, _dsvctSalt = Nothing}
+
 
 -- | The password verifier.
 dsvctPasswordVerifier :: Lens' DeviceSecretVerifierConfigType (Maybe Text)
@@ -358,8 +364,9 @@ dsvctSalt :: Lens' DeviceSecretVerifierConfigType (Maybe Text)
 dsvctSalt = lens _dsvctSalt (\ s a -> s{_dsvctSalt = a});
 
 instance Hashable DeviceSecretVerifierConfigType
+         where
 
-instance NFData DeviceSecretVerifierConfigType
+instance NFData DeviceSecretVerifierConfigType where
 
 instance ToJSON DeviceSecretVerifierConfigType where
         toJSON DeviceSecretVerifierConfigType'{..}
@@ -374,12 +381,13 @@ instance ToJSON DeviceSecretVerifierConfigType where
 --
 -- /See:/ 'deviceType' smart constructor.
 data DeviceType = DeviceType'
-    { _dtDeviceLastModifiedDate      :: !(Maybe POSIX)
-    , _dtDeviceCreateDate            :: !(Maybe POSIX)
-    , _dtDeviceAttributes            :: !(Maybe [AttributeType])
-    , _dtDeviceKey                   :: !(Maybe Text)
-    , _dtDeviceLastAuthenticatedDate :: !(Maybe POSIX)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dtDeviceLastModifiedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dtDeviceCreateDate            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dtDeviceAttributes            :: {-# NOUNPACK #-}!(Maybe [AttributeType])
+  , _dtDeviceKey                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtDeviceLastAuthenticatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeviceType' with the minimum fields required to make a request.
 --
@@ -397,13 +405,14 @@ data DeviceType = DeviceType'
 deviceType
     :: DeviceType
 deviceType =
-    DeviceType'
-    { _dtDeviceLastModifiedDate = Nothing
-    , _dtDeviceCreateDate = Nothing
-    , _dtDeviceAttributes = Nothing
-    , _dtDeviceKey = Nothing
-    , _dtDeviceLastAuthenticatedDate = Nothing
-    }
+  DeviceType'
+  { _dtDeviceLastModifiedDate = Nothing
+  , _dtDeviceCreateDate = Nothing
+  , _dtDeviceAttributes = Nothing
+  , _dtDeviceKey = Nothing
+  , _dtDeviceLastAuthenticatedDate = Nothing
+  }
+
 
 -- | The last modified date of the device.
 dtDeviceLastModifiedDate :: Lens' DeviceType (Maybe UTCTime)
@@ -436,9 +445,9 @@ instance FromJSON DeviceType where
                      <*> (x .:? "DeviceKey")
                      <*> (x .:? "DeviceLastAuthenticatedDate"))
 
-instance Hashable DeviceType
+instance Hashable DeviceType where
 
-instance NFData DeviceType
+instance NFData DeviceType where
 
 -- | A container for information about a domain.
 --
@@ -446,14 +455,15 @@ instance NFData DeviceType
 --
 -- /See:/ 'domainDescriptionType' smart constructor.
 data DomainDescriptionType = DomainDescriptionType'
-    { _ddtStatus                 :: !(Maybe DomainStatusType)
-    , _ddtCloudFrontDistribution :: !(Maybe Text)
-    , _ddtUserPoolId             :: !(Maybe Text)
-    , _ddtDomain                 :: !(Maybe Text)
-    , _ddtAWSAccountId           :: !(Maybe Text)
-    , _ddtVersion                :: !(Maybe Text)
-    , _ddtS3Bucket               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddtStatus                 :: {-# NOUNPACK #-}!(Maybe DomainStatusType)
+  , _ddtCloudFrontDistribution :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddtUserPoolId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddtDomain                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddtAWSAccountId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddtVersion                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddtS3Bucket               :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainDescriptionType' with the minimum fields required to make a request.
 --
@@ -475,15 +485,16 @@ data DomainDescriptionType = DomainDescriptionType'
 domainDescriptionType
     :: DomainDescriptionType
 domainDescriptionType =
-    DomainDescriptionType'
-    { _ddtStatus = Nothing
-    , _ddtCloudFrontDistribution = Nothing
-    , _ddtUserPoolId = Nothing
-    , _ddtDomain = Nothing
-    , _ddtAWSAccountId = Nothing
-    , _ddtVersion = Nothing
-    , _ddtS3Bucket = Nothing
-    }
+  DomainDescriptionType'
+  { _ddtStatus = Nothing
+  , _ddtCloudFrontDistribution = Nothing
+  , _ddtUserPoolId = Nothing
+  , _ddtDomain = Nothing
+  , _ddtAWSAccountId = Nothing
+  , _ddtVersion = Nothing
+  , _ddtS3Bucket = Nothing
+  }
+
 
 -- | The domain status.
 ddtStatus :: Lens' DomainDescriptionType (Maybe DomainStatusType)
@@ -525,9 +536,9 @@ instance FromJSON DomainDescriptionType where
                      <*> (x .:? "Version")
                      <*> (x .:? "S3Bucket"))
 
-instance Hashable DomainDescriptionType
+instance Hashable DomainDescriptionType where
 
-instance NFData DomainDescriptionType
+instance NFData DomainDescriptionType where
 
 -- | The email configuration type.
 --
@@ -535,9 +546,10 @@ instance NFData DomainDescriptionType
 --
 -- /See:/ 'emailConfigurationType' smart constructor.
 data EmailConfigurationType = EmailConfigurationType'
-    { _ectSourceARN           :: !(Maybe Text)
-    , _ectReplyToEmailAddress :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ectSourceARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ectReplyToEmailAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EmailConfigurationType' with the minimum fields required to make a request.
 --
@@ -549,10 +561,9 @@ data EmailConfigurationType = EmailConfigurationType'
 emailConfigurationType
     :: EmailConfigurationType
 emailConfigurationType =
-    EmailConfigurationType'
-    { _ectSourceARN = Nothing
-    , _ectReplyToEmailAddress = Nothing
-    }
+  EmailConfigurationType'
+  {_ectSourceARN = Nothing, _ectReplyToEmailAddress = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) of the email source.
 ectSourceARN :: Lens' EmailConfigurationType (Maybe Text)
@@ -570,9 +581,9 @@ instance FromJSON EmailConfigurationType where
                    (x .:? "SourceArn") <*>
                      (x .:? "ReplyToEmailAddress"))
 
-instance Hashable EmailConfigurationType
+instance Hashable EmailConfigurationType where
 
-instance NFData EmailConfigurationType
+instance NFData EmailConfigurationType where
 
 instance ToJSON EmailConfigurationType where
         toJSON EmailConfigurationType'{..}
@@ -588,14 +599,15 @@ instance ToJSON EmailConfigurationType where
 --
 -- /See:/ 'groupType' smart constructor.
 data GroupType = GroupType'
-    { _gtLastModifiedDate :: !(Maybe POSIX)
-    , _gtUserPoolId       :: !(Maybe Text)
-    , _gtCreationDate     :: !(Maybe POSIX)
-    , _gtPrecedence       :: !(Maybe Nat)
-    , _gtGroupName        :: !(Maybe Text)
-    , _gtDescription      :: !(Maybe Text)
-    , _gtRoleARN          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtUserPoolId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtPrecedence       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gtGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtRoleARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GroupType' with the minimum fields required to make a request.
 --
@@ -617,15 +629,16 @@ data GroupType = GroupType'
 groupType
     :: GroupType
 groupType =
-    GroupType'
-    { _gtLastModifiedDate = Nothing
-    , _gtUserPoolId = Nothing
-    , _gtCreationDate = Nothing
-    , _gtPrecedence = Nothing
-    , _gtGroupName = Nothing
-    , _gtDescription = Nothing
-    , _gtRoleARN = Nothing
-    }
+  GroupType'
+  { _gtLastModifiedDate = Nothing
+  , _gtUserPoolId = Nothing
+  , _gtCreationDate = Nothing
+  , _gtPrecedence = Nothing
+  , _gtGroupName = Nothing
+  , _gtDescription = Nothing
+  , _gtRoleARN = Nothing
+  }
+
 
 -- | The date the group was last modified.
 gtLastModifiedDate :: Lens' GroupType (Maybe UTCTime)
@@ -667,9 +680,9 @@ instance FromJSON GroupType where
                      <*> (x .:? "Description")
                      <*> (x .:? "RoleArn"))
 
-instance Hashable GroupType
+instance Hashable GroupType where
 
-instance NFData GroupType
+instance NFData GroupType where
 
 -- | A container for information about an identity provider.
 --
@@ -677,15 +690,16 @@ instance NFData GroupType
 --
 -- /See:/ 'identityProviderType' smart constructor.
 data IdentityProviderType = IdentityProviderType'
-    { _iptLastModifiedDate :: !(Maybe POSIX)
-    , _iptUserPoolId       :: !(Maybe Text)
-    , _iptProviderType     :: !(Maybe IdentityProviderTypeType)
-    , _iptCreationDate     :: !(Maybe POSIX)
-    , _iptIdpIdentifiers   :: !(Maybe [Text])
-    , _iptAttributeMapping :: !(Maybe (Map Text Text))
-    , _iptProviderDetails  :: !(Maybe (Map Text Text))
-    , _iptProviderName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iptLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iptUserPoolId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iptProviderType     :: {-# NOUNPACK #-}!(Maybe IdentityProviderTypeType)
+  , _iptCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iptIdpIdentifiers   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _iptAttributeMapping :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _iptProviderDetails  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _iptProviderName     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityProviderType' with the minimum fields required to make a request.
 --
@@ -709,16 +723,17 @@ data IdentityProviderType = IdentityProviderType'
 identityProviderType
     :: IdentityProviderType
 identityProviderType =
-    IdentityProviderType'
-    { _iptLastModifiedDate = Nothing
-    , _iptUserPoolId = Nothing
-    , _iptProviderType = Nothing
-    , _iptCreationDate = Nothing
-    , _iptIdpIdentifiers = Nothing
-    , _iptAttributeMapping = Nothing
-    , _iptProviderDetails = Nothing
-    , _iptProviderName = Nothing
-    }
+  IdentityProviderType'
+  { _iptLastModifiedDate = Nothing
+  , _iptUserPoolId = Nothing
+  , _iptProviderType = Nothing
+  , _iptCreationDate = Nothing
+  , _iptIdpIdentifiers = Nothing
+  , _iptAttributeMapping = Nothing
+  , _iptProviderDetails = Nothing
+  , _iptProviderName = Nothing
+  }
+
 
 -- | The date the identity provider was last modified.
 iptLastModifiedDate :: Lens' IdentityProviderType (Maybe UTCTime)
@@ -765,9 +780,9 @@ instance FromJSON IdentityProviderType where
                      <*> (x .:? "ProviderDetails" .!= mempty)
                      <*> (x .:? "ProviderName"))
 
-instance Hashable IdentityProviderType
+instance Hashable IdentityProviderType where
 
-instance NFData IdentityProviderType
+instance NFData IdentityProviderType where
 
 -- | Specifies the type of configuration for AWS Lambda triggers.
 --
@@ -775,15 +790,16 @@ instance NFData IdentityProviderType
 --
 -- /See:/ 'lambdaConfigType' smart constructor.
 data LambdaConfigType = LambdaConfigType'
-    { _lctPreAuthentication           :: !(Maybe Text)
-    , _lctCreateAuthChallenge         :: !(Maybe Text)
-    , _lctVerifyAuthChallengeResponse :: !(Maybe Text)
-    , _lctPostAuthentication          :: !(Maybe Text)
-    , _lctCustomMessage               :: !(Maybe Text)
-    , _lctDefineAuthChallenge         :: !(Maybe Text)
-    , _lctPostConfirmation            :: !(Maybe Text)
-    , _lctPreSignUp                   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lctPreAuthentication           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lctCreateAuthChallenge         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lctVerifyAuthChallengeResponse :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lctPostAuthentication          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lctCustomMessage               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lctDefineAuthChallenge         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lctPostConfirmation            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lctPreSignUp                   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaConfigType' with the minimum fields required to make a request.
 --
@@ -807,16 +823,17 @@ data LambdaConfigType = LambdaConfigType'
 lambdaConfigType
     :: LambdaConfigType
 lambdaConfigType =
-    LambdaConfigType'
-    { _lctPreAuthentication = Nothing
-    , _lctCreateAuthChallenge = Nothing
-    , _lctVerifyAuthChallengeResponse = Nothing
-    , _lctPostAuthentication = Nothing
-    , _lctCustomMessage = Nothing
-    , _lctDefineAuthChallenge = Nothing
-    , _lctPostConfirmation = Nothing
-    , _lctPreSignUp = Nothing
-    }
+  LambdaConfigType'
+  { _lctPreAuthentication = Nothing
+  , _lctCreateAuthChallenge = Nothing
+  , _lctVerifyAuthChallengeResponse = Nothing
+  , _lctPostAuthentication = Nothing
+  , _lctCustomMessage = Nothing
+  , _lctDefineAuthChallenge = Nothing
+  , _lctPostConfirmation = Nothing
+  , _lctPreSignUp = Nothing
+  }
+
 
 -- | A pre-authentication AWS Lambda trigger.
 lctPreAuthentication :: Lens' LambdaConfigType (Maybe Text)
@@ -864,9 +881,9 @@ instance FromJSON LambdaConfigType where
                      <*> (x .:? "PostConfirmation")
                      <*> (x .:? "PreSignUp"))
 
-instance Hashable LambdaConfigType
+instance Hashable LambdaConfigType where
 
-instance NFData LambdaConfigType
+instance NFData LambdaConfigType where
 
 instance ToJSON LambdaConfigType where
         toJSON LambdaConfigType'{..}
@@ -890,9 +907,10 @@ instance ToJSON LambdaConfigType where
 --
 -- /See:/ 'mfaOptionType' smart constructor.
 data MFAOptionType = MFAOptionType'
-    { _motDeliveryMedium :: !(Maybe DeliveryMediumType)
-    , _motAttributeName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _motDeliveryMedium :: {-# NOUNPACK #-}!(Maybe DeliveryMediumType)
+  , _motAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MFAOptionType' with the minimum fields required to make a request.
 --
@@ -904,10 +922,8 @@ data MFAOptionType = MFAOptionType'
 mfaOptionType
     :: MFAOptionType
 mfaOptionType =
-    MFAOptionType'
-    { _motDeliveryMedium = Nothing
-    , _motAttributeName = Nothing
-    }
+  MFAOptionType' {_motDeliveryMedium = Nothing, _motAttributeName = Nothing}
+
 
 -- | The delivery medium (email message or SMS message) to send the MFA code.
 motDeliveryMedium :: Lens' MFAOptionType (Maybe DeliveryMediumType)
@@ -924,9 +940,9 @@ instance FromJSON MFAOptionType where
                  MFAOptionType' <$>
                    (x .:? "DeliveryMedium") <*> (x .:? "AttributeName"))
 
-instance Hashable MFAOptionType
+instance Hashable MFAOptionType where
 
-instance NFData MFAOptionType
+instance NFData MFAOptionType where
 
 instance ToJSON MFAOptionType where
         toJSON MFAOptionType'{..}
@@ -941,10 +957,11 @@ instance ToJSON MFAOptionType where
 --
 -- /See:/ 'messageTemplateType' smart constructor.
 data MessageTemplateType = MessageTemplateType'
-    { _mttEmailSubject :: !(Maybe Text)
-    , _mttSMSMessage   :: !(Maybe Text)
-    , _mttEmailMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mttEmailSubject :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mttSMSMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mttEmailMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageTemplateType' with the minimum fields required to make a request.
 --
@@ -958,11 +975,12 @@ data MessageTemplateType = MessageTemplateType'
 messageTemplateType
     :: MessageTemplateType
 messageTemplateType =
-    MessageTemplateType'
-    { _mttEmailSubject = Nothing
-    , _mttSMSMessage = Nothing
-    , _mttEmailMessage = Nothing
-    }
+  MessageTemplateType'
+  { _mttEmailSubject = Nothing
+  , _mttSMSMessage = Nothing
+  , _mttEmailMessage = Nothing
+  }
+
 
 -- | The subject line for email messages.
 mttEmailSubject :: Lens' MessageTemplateType (Maybe Text)
@@ -984,9 +1002,9 @@ instance FromJSON MessageTemplateType where
                    (x .:? "EmailSubject") <*> (x .:? "SMSMessage") <*>
                      (x .:? "EmailMessage"))
 
-instance Hashable MessageTemplateType
+instance Hashable MessageTemplateType where
 
-instance NFData MessageTemplateType
+instance NFData MessageTemplateType where
 
 instance ToJSON MessageTemplateType where
         toJSON MessageTemplateType'{..}
@@ -1002,9 +1020,10 @@ instance ToJSON MessageTemplateType where
 --
 -- /See:/ 'newDeviceMetadataType' smart constructor.
 data NewDeviceMetadataType = NewDeviceMetadataType'
-    { _ndmtDeviceGroupKey :: !(Maybe Text)
-    , _ndmtDeviceKey      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ndmtDeviceGroupKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ndmtDeviceKey      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NewDeviceMetadataType' with the minimum fields required to make a request.
 --
@@ -1016,10 +1035,9 @@ data NewDeviceMetadataType = NewDeviceMetadataType'
 newDeviceMetadataType
     :: NewDeviceMetadataType
 newDeviceMetadataType =
-    NewDeviceMetadataType'
-    { _ndmtDeviceGroupKey = Nothing
-    , _ndmtDeviceKey = Nothing
-    }
+  NewDeviceMetadataType'
+  {_ndmtDeviceGroupKey = Nothing, _ndmtDeviceKey = Nothing}
+
 
 -- | The device group key.
 ndmtDeviceGroupKey :: Lens' NewDeviceMetadataType (Maybe Text)
@@ -1036,9 +1054,9 @@ instance FromJSON NewDeviceMetadataType where
                  NewDeviceMetadataType' <$>
                    (x .:? "DeviceGroupKey") <*> (x .:? "DeviceKey"))
 
-instance Hashable NewDeviceMetadataType
+instance Hashable NewDeviceMetadataType where
 
-instance NFData NewDeviceMetadataType
+instance NFData NewDeviceMetadataType where
 
 -- | The minimum and maximum value of an attribute that is of the number data type.
 --
@@ -1046,9 +1064,10 @@ instance NFData NewDeviceMetadataType
 --
 -- /See:/ 'numberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
-    { _nactMaxValue :: !(Maybe Text)
-    , _nactMinValue :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nactMaxValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nactMinValue :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NumberAttributeConstraintsType' with the minimum fields required to make a request.
 --
@@ -1060,10 +1079,9 @@ data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
 numberAttributeConstraintsType
     :: NumberAttributeConstraintsType
 numberAttributeConstraintsType =
-    NumberAttributeConstraintsType'
-    { _nactMaxValue = Nothing
-    , _nactMinValue = Nothing
-    }
+  NumberAttributeConstraintsType'
+  {_nactMaxValue = Nothing, _nactMinValue = Nothing}
+
 
 -- | The maximum value of an attribute that is of the number data type.
 nactMaxValue :: Lens' NumberAttributeConstraintsType (Maybe Text)
@@ -1082,8 +1100,9 @@ instance FromJSON NumberAttributeConstraintsType
                    (x .:? "MaxValue") <*> (x .:? "MinValue"))
 
 instance Hashable NumberAttributeConstraintsType
+         where
 
-instance NFData NumberAttributeConstraintsType
+instance NFData NumberAttributeConstraintsType where
 
 instance ToJSON NumberAttributeConstraintsType where
         toJSON NumberAttributeConstraintsType'{..}
@@ -1098,12 +1117,13 @@ instance ToJSON NumberAttributeConstraintsType where
 --
 -- /See:/ 'passwordPolicyType' smart constructor.
 data PasswordPolicyType = PasswordPolicyType'
-    { _pptRequireNumbers   :: !(Maybe Bool)
-    , _pptRequireUppercase :: !(Maybe Bool)
-    , _pptRequireLowercase :: !(Maybe Bool)
-    , _pptMinimumLength    :: !(Maybe Nat)
-    , _pptRequireSymbols   :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pptRequireNumbers   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pptRequireUppercase :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pptRequireLowercase :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pptMinimumLength    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _pptRequireSymbols   :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PasswordPolicyType' with the minimum fields required to make a request.
 --
@@ -1121,13 +1141,14 @@ data PasswordPolicyType = PasswordPolicyType'
 passwordPolicyType
     :: PasswordPolicyType
 passwordPolicyType =
-    PasswordPolicyType'
-    { _pptRequireNumbers = Nothing
-    , _pptRequireUppercase = Nothing
-    , _pptRequireLowercase = Nothing
-    , _pptMinimumLength = Nothing
-    , _pptRequireSymbols = Nothing
-    }
+  PasswordPolicyType'
+  { _pptRequireNumbers = Nothing
+  , _pptRequireUppercase = Nothing
+  , _pptRequireLowercase = Nothing
+  , _pptMinimumLength = Nothing
+  , _pptRequireSymbols = Nothing
+  }
+
 
 -- | In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
 pptRequireNumbers :: Lens' PasswordPolicyType (Maybe Bool)
@@ -1160,9 +1181,9 @@ instance FromJSON PasswordPolicyType where
                      <*> (x .:? "MinimumLength")
                      <*> (x .:? "RequireSymbols"))
 
-instance Hashable PasswordPolicyType
+instance Hashable PasswordPolicyType where
 
-instance NFData PasswordPolicyType
+instance NFData PasswordPolicyType where
 
 instance ToJSON PasswordPolicyType where
         toJSON PasswordPolicyType'{..}
@@ -1180,11 +1201,12 @@ instance ToJSON PasswordPolicyType where
 --
 -- /See:/ 'providerDescription' smart constructor.
 data ProviderDescription = ProviderDescription'
-    { _pdLastModifiedDate :: !(Maybe POSIX)
-    , _pdProviderType     :: !(Maybe IdentityProviderTypeType)
-    , _pdCreationDate     :: !(Maybe POSIX)
-    , _pdProviderName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pdProviderType     :: {-# NOUNPACK #-}!(Maybe IdentityProviderTypeType)
+  , _pdCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pdProviderName     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProviderDescription' with the minimum fields required to make a request.
 --
@@ -1200,12 +1222,13 @@ data ProviderDescription = ProviderDescription'
 providerDescription
     :: ProviderDescription
 providerDescription =
-    ProviderDescription'
-    { _pdLastModifiedDate = Nothing
-    , _pdProviderType = Nothing
-    , _pdCreationDate = Nothing
-    , _pdProviderName = Nothing
-    }
+  ProviderDescription'
+  { _pdLastModifiedDate = Nothing
+  , _pdProviderType = Nothing
+  , _pdCreationDate = Nothing
+  , _pdProviderName = Nothing
+  }
+
 
 -- | The date the provider was last modified.
 pdLastModifiedDate :: Lens' ProviderDescription (Maybe UTCTime)
@@ -1232,9 +1255,9 @@ instance FromJSON ProviderDescription where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "ProviderName"))
 
-instance Hashable ProviderDescription
+instance Hashable ProviderDescription where
 
-instance NFData ProviderDescription
+instance NFData ProviderDescription where
 
 -- | A container for information about an identity provider for a user pool.
 --
@@ -1242,10 +1265,11 @@ instance NFData ProviderDescription
 --
 -- /See:/ 'providerUserIdentifierType' smart constructor.
 data ProviderUserIdentifierType = ProviderUserIdentifierType'
-    { _puitProviderAttributeValue :: !(Maybe Text)
-    , _puitProviderAttributeName  :: !(Maybe Text)
-    , _puitProviderName           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _puitProviderAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _puitProviderAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _puitProviderName           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProviderUserIdentifierType' with the minimum fields required to make a request.
 --
@@ -1259,11 +1283,12 @@ data ProviderUserIdentifierType = ProviderUserIdentifierType'
 providerUserIdentifierType
     :: ProviderUserIdentifierType
 providerUserIdentifierType =
-    ProviderUserIdentifierType'
-    { _puitProviderAttributeValue = Nothing
-    , _puitProviderAttributeName = Nothing
-    , _puitProviderName = Nothing
-    }
+  ProviderUserIdentifierType'
+  { _puitProviderAttributeValue = Nothing
+  , _puitProviderAttributeName = Nothing
+  , _puitProviderName = Nothing
+  }
+
 
 -- | The value of the provider attribute to link to, for example, @xxxxx_account@ .
 puitProviderAttributeValue :: Lens' ProviderUserIdentifierType (Maybe Text)
@@ -1277,9 +1302,9 @@ puitProviderAttributeName = lens _puitProviderAttributeName (\ s a -> s{_puitPro
 puitProviderName :: Lens' ProviderUserIdentifierType (Maybe Text)
 puitProviderName = lens _puitProviderName (\ s a -> s{_puitProviderName = a});
 
-instance Hashable ProviderUserIdentifierType
+instance Hashable ProviderUserIdentifierType where
 
-instance NFData ProviderUserIdentifierType
+instance NFData ProviderUserIdentifierType where
 
 instance ToJSON ProviderUserIdentifierType where
         toJSON ProviderUserIdentifierType'{..}
@@ -1297,9 +1322,10 @@ instance ToJSON ProviderUserIdentifierType where
 --
 -- /See:/ 'resourceServerScopeType' smart constructor.
 data ResourceServerScopeType = ResourceServerScopeType'
-    { _rsstScopeName        :: !Text
-    , _rsstScopeDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsstScopeName        :: {-# NOUNPACK #-}!Text
+  , _rsstScopeDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceServerScopeType' with the minimum fields required to make a request.
 --
@@ -1313,10 +1339,9 @@ resourceServerScopeType
     -> Text -- ^ 'rsstScopeDescription'
     -> ResourceServerScopeType
 resourceServerScopeType pScopeName_ pScopeDescription_ =
-    ResourceServerScopeType'
-    { _rsstScopeName = pScopeName_
-    , _rsstScopeDescription = pScopeDescription_
-    }
+  ResourceServerScopeType'
+  {_rsstScopeName = pScopeName_, _rsstScopeDescription = pScopeDescription_}
+
 
 -- | The name of the scope.
 rsstScopeName :: Lens' ResourceServerScopeType Text
@@ -1333,9 +1358,9 @@ instance FromJSON ResourceServerScopeType where
                  ResourceServerScopeType' <$>
                    (x .: "ScopeName") <*> (x .: "ScopeDescription"))
 
-instance Hashable ResourceServerScopeType
+instance Hashable ResourceServerScopeType where
 
-instance NFData ResourceServerScopeType
+instance NFData ResourceServerScopeType where
 
 instance ToJSON ResourceServerScopeType where
         toJSON ResourceServerScopeType'{..}
@@ -1350,11 +1375,12 @@ instance ToJSON ResourceServerScopeType where
 --
 -- /See:/ 'resourceServerType' smart constructor.
 data ResourceServerType = ResourceServerType'
-    { _rstUserPoolId :: !(Maybe Text)
-    , _rstIdentifier :: !(Maybe Text)
-    , _rstScopes     :: !(Maybe [ResourceServerScopeType])
-    , _rstName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rstUserPoolId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rstIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rstScopes     :: {-# NOUNPACK #-}!(Maybe [ResourceServerScopeType])
+  , _rstName       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceServerType' with the minimum fields required to make a request.
 --
@@ -1370,12 +1396,13 @@ data ResourceServerType = ResourceServerType'
 resourceServerType
     :: ResourceServerType
 resourceServerType =
-    ResourceServerType'
-    { _rstUserPoolId = Nothing
-    , _rstIdentifier = Nothing
-    , _rstScopes = Nothing
-    , _rstName = Nothing
-    }
+  ResourceServerType'
+  { _rstUserPoolId = Nothing
+  , _rstIdentifier = Nothing
+  , _rstScopes = Nothing
+  , _rstName = Nothing
+  }
+
 
 -- | The user pool ID for the user pool that hosts the resource server.
 rstUserPoolId :: Lens' ResourceServerType (Maybe Text)
@@ -1402,9 +1429,9 @@ instance FromJSON ResourceServerType where
                      (x .:? "Scopes" .!= mempty)
                      <*> (x .:? "Name"))
 
-instance Hashable ResourceServerType
+instance Hashable ResourceServerType where
 
-instance NFData ResourceServerType
+instance NFData ResourceServerType where
 
 -- | Contains information about the schema attribute.
 --
@@ -1412,14 +1439,15 @@ instance NFData ResourceServerType
 --
 -- /See:/ 'schemaAttributeType' smart constructor.
 data SchemaAttributeType = SchemaAttributeType'
-    { _satNumberAttributeConstraints :: !(Maybe NumberAttributeConstraintsType)
-    , _satRequired                   :: !(Maybe Bool)
-    , _satAttributeDataType          :: !(Maybe AttributeDataType)
-    , _satStringAttributeConstraints :: !(Maybe StringAttributeConstraintsType)
-    , _satName                       :: !(Maybe Text)
-    , _satDeveloperOnlyAttribute     :: !(Maybe Bool)
-    , _satMutable                    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _satNumberAttributeConstraints :: {-# NOUNPACK #-}!(Maybe NumberAttributeConstraintsType)
+  , _satRequired :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _satAttributeDataType :: {-# NOUNPACK #-}!(Maybe AttributeDataType)
+  , _satStringAttributeConstraints :: {-# NOUNPACK #-}!(Maybe StringAttributeConstraintsType)
+  , _satName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _satDeveloperOnlyAttribute :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _satMutable :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SchemaAttributeType' with the minimum fields required to make a request.
 --
@@ -1441,15 +1469,16 @@ data SchemaAttributeType = SchemaAttributeType'
 schemaAttributeType
     :: SchemaAttributeType
 schemaAttributeType =
-    SchemaAttributeType'
-    { _satNumberAttributeConstraints = Nothing
-    , _satRequired = Nothing
-    , _satAttributeDataType = Nothing
-    , _satStringAttributeConstraints = Nothing
-    , _satName = Nothing
-    , _satDeveloperOnlyAttribute = Nothing
-    , _satMutable = Nothing
-    }
+  SchemaAttributeType'
+  { _satNumberAttributeConstraints = Nothing
+  , _satRequired = Nothing
+  , _satAttributeDataType = Nothing
+  , _satStringAttributeConstraints = Nothing
+  , _satName = Nothing
+  , _satDeveloperOnlyAttribute = Nothing
+  , _satMutable = Nothing
+  }
+
 
 -- | Specifies the constraints for an attribute of the number type.
 satNumberAttributeConstraints :: Lens' SchemaAttributeType (Maybe NumberAttributeConstraintsType)
@@ -1492,9 +1521,9 @@ instance FromJSON SchemaAttributeType where
                      <*> (x .:? "DeveloperOnlyAttribute")
                      <*> (x .:? "Mutable"))
 
-instance Hashable SchemaAttributeType
+instance Hashable SchemaAttributeType where
 
-instance NFData SchemaAttributeType
+instance NFData SchemaAttributeType where
 
 instance ToJSON SchemaAttributeType where
         toJSON SchemaAttributeType'{..}
@@ -1517,9 +1546,10 @@ instance ToJSON SchemaAttributeType where
 --
 -- /See:/ 'smsConfigurationType' smart constructor.
 data SmsConfigurationType = SmsConfigurationType'
-    { _sctExternalId   :: !(Maybe Text)
-    , _sctSNSCallerARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sctExternalId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sctSNSCallerARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SmsConfigurationType' with the minimum fields required to make a request.
 --
@@ -1532,10 +1562,9 @@ smsConfigurationType
     :: Text -- ^ 'sctSNSCallerARN'
     -> SmsConfigurationType
 smsConfigurationType pSNSCallerARN_ =
-    SmsConfigurationType'
-    { _sctExternalId = Nothing
-    , _sctSNSCallerARN = pSNSCallerARN_
-    }
+  SmsConfigurationType'
+  {_sctExternalId = Nothing, _sctSNSCallerARN = pSNSCallerARN_}
+
 
 -- | The external ID.
 sctExternalId :: Lens' SmsConfigurationType (Maybe Text)
@@ -1552,9 +1581,9 @@ instance FromJSON SmsConfigurationType where
                  SmsConfigurationType' <$>
                    (x .:? "ExternalId") <*> (x .: "SnsCallerArn"))
 
-instance Hashable SmsConfigurationType
+instance Hashable SmsConfigurationType where
 
-instance NFData SmsConfigurationType
+instance NFData SmsConfigurationType where
 
 instance ToJSON SmsConfigurationType where
         toJSON SmsConfigurationType'{..}
@@ -1569,9 +1598,10 @@ instance ToJSON SmsConfigurationType where
 --
 -- /See:/ 'stringAttributeConstraintsType' smart constructor.
 data StringAttributeConstraintsType = StringAttributeConstraintsType'
-    { _sactMaxLength :: !(Maybe Text)
-    , _sactMinLength :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sactMaxLength :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sactMinLength :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StringAttributeConstraintsType' with the minimum fields required to make a request.
 --
@@ -1583,10 +1613,9 @@ data StringAttributeConstraintsType = StringAttributeConstraintsType'
 stringAttributeConstraintsType
     :: StringAttributeConstraintsType
 stringAttributeConstraintsType =
-    StringAttributeConstraintsType'
-    { _sactMaxLength = Nothing
-    , _sactMinLength = Nothing
-    }
+  StringAttributeConstraintsType'
+  {_sactMaxLength = Nothing, _sactMinLength = Nothing}
+
 
 -- | The maximum length of an attribute value of the string type.
 sactMaxLength :: Lens' StringAttributeConstraintsType (Maybe Text)
@@ -1605,8 +1634,9 @@ instance FromJSON StringAttributeConstraintsType
                    (x .:? "MaxLength") <*> (x .:? "MinLength"))
 
 instance Hashable StringAttributeConstraintsType
+         where
 
-instance NFData StringAttributeConstraintsType
+instance NFData StringAttributeConstraintsType where
 
 instance ToJSON StringAttributeConstraintsType where
         toJSON StringAttributeConstraintsType'{..}
@@ -1621,14 +1651,15 @@ instance ToJSON StringAttributeConstraintsType where
 --
 -- /See:/ 'uICustomizationType' smart constructor.
 data UICustomizationType = UICustomizationType'
-    { _uictClientId         :: !(Maybe (Sensitive Text))
-    , _uictLastModifiedDate :: !(Maybe POSIX)
-    , _uictUserPoolId       :: !(Maybe Text)
-    , _uictCSS              :: !(Maybe Text)
-    , _uictCSSVersion       :: !(Maybe Text)
-    , _uictImageURL         :: !(Maybe Text)
-    , _uictCreationDate     :: !(Maybe POSIX)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uictClientId         :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _uictLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uictUserPoolId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uictCSS              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uictCSSVersion       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uictImageURL         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uictCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UICustomizationType' with the minimum fields required to make a request.
 --
@@ -1650,15 +1681,16 @@ data UICustomizationType = UICustomizationType'
 uICustomizationType
     :: UICustomizationType
 uICustomizationType =
-    UICustomizationType'
-    { _uictClientId = Nothing
-    , _uictLastModifiedDate = Nothing
-    , _uictUserPoolId = Nothing
-    , _uictCSS = Nothing
-    , _uictCSSVersion = Nothing
-    , _uictImageURL = Nothing
-    , _uictCreationDate = Nothing
-    }
+  UICustomizationType'
+  { _uictClientId = Nothing
+  , _uictLastModifiedDate = Nothing
+  , _uictUserPoolId = Nothing
+  , _uictCSS = Nothing
+  , _uictCSSVersion = Nothing
+  , _uictImageURL = Nothing
+  , _uictCreationDate = Nothing
+  }
+
 
 -- | The client ID for the client app.
 uictClientId :: Lens' UICustomizationType (Maybe Text)
@@ -1700,9 +1732,9 @@ instance FromJSON UICustomizationType where
                      <*> (x .:? "ImageUrl")
                      <*> (x .:? "CreationDate"))
 
-instance Hashable UICustomizationType
+instance Hashable UICustomizationType where
 
-instance NFData UICustomizationType
+instance NFData UICustomizationType where
 
 -- | The user import job type.
 --
@@ -1710,20 +1742,21 @@ instance NFData UICustomizationType
 --
 -- /See:/ 'userImportJobType' smart constructor.
 data UserImportJobType = UserImportJobType'
-    { _uijtStatus                :: !(Maybe UserImportJobStatusType)
-    , _uijtSkippedUsers          :: !(Maybe Integer)
-    , _uijtJobId                 :: !(Maybe Text)
-    , _uijtUserPoolId            :: !(Maybe Text)
-    , _uijtJobName               :: !(Maybe Text)
-    , _uijtPreSignedURL          :: !(Maybe Text)
-    , _uijtFailedUsers           :: !(Maybe Integer)
-    , _uijtStartDate             :: !(Maybe POSIX)
-    , _uijtCompletionMessage     :: !(Maybe Text)
-    , _uijtCreationDate          :: !(Maybe POSIX)
-    , _uijtCompletionDate        :: !(Maybe POSIX)
-    , _uijtCloudWatchLogsRoleARN :: !(Maybe Text)
-    , _uijtImportedUsers         :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uijtStatus :: {-# NOUNPACK #-}!(Maybe UserImportJobStatusType)
+  , _uijtSkippedUsers :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _uijtJobId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uijtUserPoolId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uijtJobName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uijtPreSignedURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uijtFailedUsers :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _uijtStartDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uijtCompletionMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uijtCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uijtCompletionDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uijtCloudWatchLogsRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uijtImportedUsers :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserImportJobType' with the minimum fields required to make a request.
 --
@@ -1757,21 +1790,22 @@ data UserImportJobType = UserImportJobType'
 userImportJobType
     :: UserImportJobType
 userImportJobType =
-    UserImportJobType'
-    { _uijtStatus = Nothing
-    , _uijtSkippedUsers = Nothing
-    , _uijtJobId = Nothing
-    , _uijtUserPoolId = Nothing
-    , _uijtJobName = Nothing
-    , _uijtPreSignedURL = Nothing
-    , _uijtFailedUsers = Nothing
-    , _uijtStartDate = Nothing
-    , _uijtCompletionMessage = Nothing
-    , _uijtCreationDate = Nothing
-    , _uijtCompletionDate = Nothing
-    , _uijtCloudWatchLogsRoleARN = Nothing
-    , _uijtImportedUsers = Nothing
-    }
+  UserImportJobType'
+  { _uijtStatus = Nothing
+  , _uijtSkippedUsers = Nothing
+  , _uijtJobId = Nothing
+  , _uijtUserPoolId = Nothing
+  , _uijtJobName = Nothing
+  , _uijtPreSignedURL = Nothing
+  , _uijtFailedUsers = Nothing
+  , _uijtStartDate = Nothing
+  , _uijtCompletionMessage = Nothing
+  , _uijtCreationDate = Nothing
+  , _uijtCompletionDate = Nothing
+  , _uijtCloudWatchLogsRoleARN = Nothing
+  , _uijtImportedUsers = Nothing
+  }
+
 
 -- | The status of the user import job. One of the following:     * @Created@ - The job was created but not started.     * @Pending@ - A transition state. You have started the job, but it has not begun importing users yet.     * @InProgress@ - The job has started, and users are being imported.     * @Stopping@ - You have stopped the job, but the job has not stopped importing users yet.     * @Stopped@ - You have stopped the job, and the job has stopped importing users.     * @Succeeded@ - The job has completed successfully.     * @Failed@ - The job has stopped due to an error.     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 uijtStatus :: Lens' UserImportJobType (Maybe UserImportJobStatusType)
@@ -1843,9 +1877,9 @@ instance FromJSON UserImportJobType where
                      <*> (x .:? "CloudWatchLogsRoleArn")
                      <*> (x .:? "ImportedUsers"))
 
-instance Hashable UserImportJobType
+instance Hashable UserImportJobType where
 
-instance NFData UserImportJobType
+instance NFData UserImportJobType where
 
 -- | The description of the user pool client.
 --
@@ -1853,10 +1887,11 @@ instance NFData UserImportJobType
 --
 -- /See:/ 'userPoolClientDescription' smart constructor.
 data UserPoolClientDescription = UserPoolClientDescription'
-    { _upcdClientId   :: !(Maybe (Sensitive Text))
-    , _upcdUserPoolId :: !(Maybe Text)
-    , _upcdClientName :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _upcdClientId   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _upcdUserPoolId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upcdClientName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserPoolClientDescription' with the minimum fields required to make a request.
 --
@@ -1870,11 +1905,12 @@ data UserPoolClientDescription = UserPoolClientDescription'
 userPoolClientDescription
     :: UserPoolClientDescription
 userPoolClientDescription =
-    UserPoolClientDescription'
-    { _upcdClientId = Nothing
-    , _upcdUserPoolId = Nothing
-    , _upcdClientName = Nothing
-    }
+  UserPoolClientDescription'
+  { _upcdClientId = Nothing
+  , _upcdUserPoolId = Nothing
+  , _upcdClientName = Nothing
+  }
+
 
 -- | The ID of the client associated with the user pool.
 upcdClientId :: Lens' UserPoolClientDescription (Maybe Text)
@@ -1896,9 +1932,9 @@ instance FromJSON UserPoolClientDescription where
                    (x .:? "ClientId") <*> (x .:? "UserPoolId") <*>
                      (x .:? "ClientName"))
 
-instance Hashable UserPoolClientDescription
+instance Hashable UserPoolClientDescription where
 
-instance NFData UserPoolClientDescription
+instance NFData UserPoolClientDescription where
 
 -- | Contains information about a user pool client.
 --
@@ -1906,24 +1942,25 @@ instance NFData UserPoolClientDescription
 --
 -- /See:/ 'userPoolClientType' smart constructor.
 data UserPoolClientType = UserPoolClientType'
-    { _upctRefreshTokenValidity            :: !(Maybe Nat)
-    , _upctClientId                        :: !(Maybe (Sensitive Text))
-    , _upctExplicitAuthFlows               :: !(Maybe [ExplicitAuthFlowsType])
-    , _upctClientSecret                    :: !(Maybe (Sensitive Text))
-    , _upctLastModifiedDate                :: !(Maybe POSIX)
-    , _upctSupportedIdentityProviders      :: !(Maybe [Text])
-    , _upctLogoutURLs                      :: !(Maybe [Text])
-    , _upctAllowedOAuthFlowsUserPoolClient :: !(Maybe Bool)
-    , _upctUserPoolId                      :: !(Maybe Text)
-    , _upctDefaultRedirectURI              :: !(Maybe Text)
-    , _upctWriteAttributes                 :: !(Maybe [Text])
-    , _upctCreationDate                    :: !(Maybe POSIX)
-    , _upctReadAttributes                  :: !(Maybe [Text])
-    , _upctAllowedOAuthScopes              :: !(Maybe [Text])
-    , _upctAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
-    , _upctClientName                      :: !(Maybe Text)
-    , _upctCallbackURLs                    :: !(Maybe [Text])
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _upctRefreshTokenValidity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _upctClientId :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _upctExplicitAuthFlows :: {-# NOUNPACK #-}!(Maybe [ExplicitAuthFlowsType])
+  , _upctClientSecret :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _upctLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _upctSupportedIdentityProviders :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upctLogoutURLs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upctAllowedOAuthFlowsUserPoolClient :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _upctUserPoolId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upctDefaultRedirectURI :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upctWriteAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upctCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _upctReadAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upctAllowedOAuthScopes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upctAllowedOAuthFlows :: {-# NOUNPACK #-}!(Maybe [OAuthFlowType])
+  , _upctClientName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upctCallbackURLs :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserPoolClientType' with the minimum fields required to make a request.
 --
@@ -1965,25 +2002,26 @@ data UserPoolClientType = UserPoolClientType'
 userPoolClientType
     :: UserPoolClientType
 userPoolClientType =
-    UserPoolClientType'
-    { _upctRefreshTokenValidity = Nothing
-    , _upctClientId = Nothing
-    , _upctExplicitAuthFlows = Nothing
-    , _upctClientSecret = Nothing
-    , _upctLastModifiedDate = Nothing
-    , _upctSupportedIdentityProviders = Nothing
-    , _upctLogoutURLs = Nothing
-    , _upctAllowedOAuthFlowsUserPoolClient = Nothing
-    , _upctUserPoolId = Nothing
-    , _upctDefaultRedirectURI = Nothing
-    , _upctWriteAttributes = Nothing
-    , _upctCreationDate = Nothing
-    , _upctReadAttributes = Nothing
-    , _upctAllowedOAuthScopes = Nothing
-    , _upctAllowedOAuthFlows = Nothing
-    , _upctClientName = Nothing
-    , _upctCallbackURLs = Nothing
-    }
+  UserPoolClientType'
+  { _upctRefreshTokenValidity = Nothing
+  , _upctClientId = Nothing
+  , _upctExplicitAuthFlows = Nothing
+  , _upctClientSecret = Nothing
+  , _upctLastModifiedDate = Nothing
+  , _upctSupportedIdentityProviders = Nothing
+  , _upctLogoutURLs = Nothing
+  , _upctAllowedOAuthFlowsUserPoolClient = Nothing
+  , _upctUserPoolId = Nothing
+  , _upctDefaultRedirectURI = Nothing
+  , _upctWriteAttributes = Nothing
+  , _upctCreationDate = Nothing
+  , _upctReadAttributes = Nothing
+  , _upctAllowedOAuthScopes = Nothing
+  , _upctAllowedOAuthFlows = Nothing
+  , _upctClientName = Nothing
+  , _upctCallbackURLs = Nothing
+  }
+
 
 -- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 upctRefreshTokenValidity :: Lens' UserPoolClientType (Maybe Natural)
@@ -2075,9 +2113,9 @@ instance FromJSON UserPoolClientType where
                      <*> (x .:? "ClientName")
                      <*> (x .:? "CallbackURLs" .!= mempty))
 
-instance Hashable UserPoolClientType
+instance Hashable UserPoolClientType where
 
-instance NFData UserPoolClientType
+instance NFData UserPoolClientType where
 
 -- | A user pool description.
 --
@@ -2085,13 +2123,14 @@ instance NFData UserPoolClientType
 --
 -- /See:/ 'userPoolDescriptionType' smart constructor.
 data UserPoolDescriptionType = UserPoolDescriptionType'
-    { _updtStatus           :: !(Maybe StatusType)
-    , _updtLastModifiedDate :: !(Maybe POSIX)
-    , _updtName             :: !(Maybe Text)
-    , _updtId               :: !(Maybe Text)
-    , _updtCreationDate     :: !(Maybe POSIX)
-    , _updtLambdaConfig     :: !(Maybe LambdaConfigType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _updtStatus           :: {-# NOUNPACK #-}!(Maybe StatusType)
+  , _updtLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _updtName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _updtId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _updtCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _updtLambdaConfig     :: {-# NOUNPACK #-}!(Maybe LambdaConfigType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserPoolDescriptionType' with the minimum fields required to make a request.
 --
@@ -2111,14 +2150,15 @@ data UserPoolDescriptionType = UserPoolDescriptionType'
 userPoolDescriptionType
     :: UserPoolDescriptionType
 userPoolDescriptionType =
-    UserPoolDescriptionType'
-    { _updtStatus = Nothing
-    , _updtLastModifiedDate = Nothing
-    , _updtName = Nothing
-    , _updtId = Nothing
-    , _updtCreationDate = Nothing
-    , _updtLambdaConfig = Nothing
-    }
+  UserPoolDescriptionType'
+  { _updtStatus = Nothing
+  , _updtLastModifiedDate = Nothing
+  , _updtName = Nothing
+  , _updtId = Nothing
+  , _updtCreationDate = Nothing
+  , _updtLambdaConfig = Nothing
+  }
+
 
 -- | The user pool status in a user pool description.
 updtStatus :: Lens' UserPoolDescriptionType (Maybe StatusType)
@@ -2155,9 +2195,9 @@ instance FromJSON UserPoolDescriptionType where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "LambdaConfig"))
 
-instance Hashable UserPoolDescriptionType
+instance Hashable UserPoolDescriptionType where
 
-instance NFData UserPoolDescriptionType
+instance NFData UserPoolDescriptionType where
 
 -- | The type of policy in a user pool.
 --
@@ -2165,8 +2205,9 @@ instance NFData UserPoolDescriptionType
 --
 -- /See:/ 'userPoolPolicyType' smart constructor.
 newtype UserPoolPolicyType = UserPoolPolicyType'
-    { _upptPasswordPolicy :: Maybe PasswordPolicyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upptPasswordPolicy :: Maybe PasswordPolicyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserPoolPolicyType' with the minimum fields required to make a request.
 --
@@ -2175,10 +2216,8 @@ newtype UserPoolPolicyType = UserPoolPolicyType'
 -- * 'upptPasswordPolicy' - A container for information about the user pool password policy.
 userPoolPolicyType
     :: UserPoolPolicyType
-userPoolPolicyType =
-    UserPoolPolicyType'
-    { _upptPasswordPolicy = Nothing
-    }
+userPoolPolicyType = UserPoolPolicyType' {_upptPasswordPolicy = Nothing}
+
 
 -- | A container for information about the user pool password policy.
 upptPasswordPolicy :: Lens' UserPoolPolicyType (Maybe PasswordPolicyType)
@@ -2190,9 +2229,9 @@ instance FromJSON UserPoolPolicyType where
               (\ x ->
                  UserPoolPolicyType' <$> (x .:? "PasswordPolicy"))
 
-instance Hashable UserPoolPolicyType
+instance Hashable UserPoolPolicyType where
 
-instance NFData UserPoolPolicyType
+instance NFData UserPoolPolicyType where
 
 instance ToJSON UserPoolPolicyType where
         toJSON UserPoolPolicyType'{..}
@@ -2206,32 +2245,33 @@ instance ToJSON UserPoolPolicyType where
 --
 -- /See:/ 'userPoolType' smart constructor.
 data UserPoolType = UserPoolType'
-    { _uptStatus                      :: !(Maybe StatusType)
-    , _uptUserPoolTags                :: !(Maybe (Map Text Text))
-    , _uptEmailConfigurationFailure   :: !(Maybe Text)
-    , _uptLastModifiedDate            :: !(Maybe POSIX)
-    , _uptVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
-    , _uptEstimatedNumberOfUsers      :: !(Maybe Int)
-    , _uptEmailVerificationMessage    :: !(Maybe Text)
-    , _uptSmsAuthenticationMessage    :: !(Maybe Text)
-    , _uptSchemaAttributes            :: !(Maybe (List1 SchemaAttributeType))
-    , _uptEmailVerificationSubject    :: !(Maybe Text)
-    , _uptUsernameAttributes          :: !(Maybe [UsernameAttributeType])
-    , _uptAliasAttributes             :: !(Maybe [AliasAttributeType])
-    , _uptEmailConfiguration          :: !(Maybe EmailConfigurationType)
-    , _uptSmsVerificationMessage      :: !(Maybe Text)
-    , _uptName                        :: !(Maybe Text)
-    , _uptMFAConfiguration            :: !(Maybe UserPoolMFAType)
-    , _uptId                          :: !(Maybe Text)
-    , _uptSmsConfigurationFailure     :: !(Maybe Text)
-    , _uptCreationDate                :: !(Maybe POSIX)
-    , _uptLambdaConfig                :: !(Maybe LambdaConfigType)
-    , _uptSmsConfiguration            :: !(Maybe SmsConfigurationType)
-    , _uptAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
-    , _uptDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
-    , _uptAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
-    , _uptPolicies                    :: !(Maybe UserPoolPolicyType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uptStatus :: {-# NOUNPACK #-}!(Maybe StatusType)
+  , _uptUserPoolTags :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _uptEmailConfigurationFailure :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uptLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uptVerificationMessageTemplate :: {-# NOUNPACK #-}!(Maybe VerificationMessageTemplateType)
+  , _uptEstimatedNumberOfUsers :: {-# NOUNPACK #-}!(Maybe Int)
+  , _uptEmailVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uptSmsAuthenticationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uptSchemaAttributes :: {-# NOUNPACK #-}!(Maybe (List1 SchemaAttributeType))
+  , _uptEmailVerificationSubject :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uptUsernameAttributes :: {-# NOUNPACK #-}!(Maybe [UsernameAttributeType])
+  , _uptAliasAttributes :: {-# NOUNPACK #-}!(Maybe [AliasAttributeType])
+  , _uptEmailConfiguration :: {-# NOUNPACK #-}!(Maybe EmailConfigurationType)
+  , _uptSmsVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uptName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uptMFAConfiguration :: {-# NOUNPACK #-}!(Maybe UserPoolMFAType)
+  , _uptId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uptSmsConfigurationFailure :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uptCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uptLambdaConfig :: {-# NOUNPACK #-}!(Maybe LambdaConfigType)
+  , _uptSmsConfiguration :: {-# NOUNPACK #-}!(Maybe SmsConfigurationType)
+  , _uptAdminCreateUserConfig :: {-# NOUNPACK #-}!(Maybe AdminCreateUserConfigType)
+  , _uptDeviceConfiguration :: {-# NOUNPACK #-}!(Maybe DeviceConfigurationType)
+  , _uptAutoVerifiedAttributes :: {-# NOUNPACK #-}!(Maybe [VerifiedAttributeType])
+  , _uptPolicies :: {-# NOUNPACK #-}!(Maybe UserPoolPolicyType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserPoolType' with the minimum fields required to make a request.
 --
@@ -2289,33 +2329,34 @@ data UserPoolType = UserPoolType'
 userPoolType
     :: UserPoolType
 userPoolType =
-    UserPoolType'
-    { _uptStatus = Nothing
-    , _uptUserPoolTags = Nothing
-    , _uptEmailConfigurationFailure = Nothing
-    , _uptLastModifiedDate = Nothing
-    , _uptVerificationMessageTemplate = Nothing
-    , _uptEstimatedNumberOfUsers = Nothing
-    , _uptEmailVerificationMessage = Nothing
-    , _uptSmsAuthenticationMessage = Nothing
-    , _uptSchemaAttributes = Nothing
-    , _uptEmailVerificationSubject = Nothing
-    , _uptUsernameAttributes = Nothing
-    , _uptAliasAttributes = Nothing
-    , _uptEmailConfiguration = Nothing
-    , _uptSmsVerificationMessage = Nothing
-    , _uptName = Nothing
-    , _uptMFAConfiguration = Nothing
-    , _uptId = Nothing
-    , _uptSmsConfigurationFailure = Nothing
-    , _uptCreationDate = Nothing
-    , _uptLambdaConfig = Nothing
-    , _uptSmsConfiguration = Nothing
-    , _uptAdminCreateUserConfig = Nothing
-    , _uptDeviceConfiguration = Nothing
-    , _uptAutoVerifiedAttributes = Nothing
-    , _uptPolicies = Nothing
-    }
+  UserPoolType'
+  { _uptStatus = Nothing
+  , _uptUserPoolTags = Nothing
+  , _uptEmailConfigurationFailure = Nothing
+  , _uptLastModifiedDate = Nothing
+  , _uptVerificationMessageTemplate = Nothing
+  , _uptEstimatedNumberOfUsers = Nothing
+  , _uptEmailVerificationMessage = Nothing
+  , _uptSmsAuthenticationMessage = Nothing
+  , _uptSchemaAttributes = Nothing
+  , _uptEmailVerificationSubject = Nothing
+  , _uptUsernameAttributes = Nothing
+  , _uptAliasAttributes = Nothing
+  , _uptEmailConfiguration = Nothing
+  , _uptSmsVerificationMessage = Nothing
+  , _uptName = Nothing
+  , _uptMFAConfiguration = Nothing
+  , _uptId = Nothing
+  , _uptSmsConfigurationFailure = Nothing
+  , _uptCreationDate = Nothing
+  , _uptLambdaConfig = Nothing
+  , _uptSmsConfiguration = Nothing
+  , _uptAdminCreateUserConfig = Nothing
+  , _uptDeviceConfiguration = Nothing
+  , _uptAutoVerifiedAttributes = Nothing
+  , _uptPolicies = Nothing
+  }
+
 
 -- | The status of a user pool.
 uptStatus :: Lens' UserPoolType (Maybe StatusType)
@@ -2448,9 +2489,9 @@ instance FromJSON UserPoolType where
                      <*> (x .:? "AutoVerifiedAttributes" .!= mempty)
                      <*> (x .:? "Policies"))
 
-instance Hashable UserPoolType
+instance Hashable UserPoolType where
 
-instance NFData UserPoolType
+instance NFData UserPoolType where
 
 -- | The user type.
 --
@@ -2458,14 +2499,15 @@ instance NFData UserPoolType
 --
 -- /See:/ 'userType' smart constructor.
 data UserType = UserType'
-    { _utEnabled              :: !(Maybe Bool)
-    , _utUserStatus           :: !(Maybe UserStatusType)
-    , _utUsername             :: !(Maybe (Sensitive Text))
-    , _utUserCreateDate       :: !(Maybe POSIX)
-    , _utAttributes           :: !(Maybe [AttributeType])
-    , _utMFAOptions           :: !(Maybe [MFAOptionType])
-    , _utUserLastModifiedDate :: !(Maybe POSIX)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _utEnabled              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utUserStatus           :: {-# NOUNPACK #-}!(Maybe UserStatusType)
+  , _utUsername             :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _utUserCreateDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _utAttributes           :: {-# NOUNPACK #-}!(Maybe [AttributeType])
+  , _utMFAOptions           :: {-# NOUNPACK #-}!(Maybe [MFAOptionType])
+  , _utUserLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserType' with the minimum fields required to make a request.
 --
@@ -2487,15 +2529,16 @@ data UserType = UserType'
 userType
     :: UserType
 userType =
-    UserType'
-    { _utEnabled = Nothing
-    , _utUserStatus = Nothing
-    , _utUsername = Nothing
-    , _utUserCreateDate = Nothing
-    , _utAttributes = Nothing
-    , _utMFAOptions = Nothing
-    , _utUserLastModifiedDate = Nothing
-    }
+  UserType'
+  { _utEnabled = Nothing
+  , _utUserStatus = Nothing
+  , _utUsername = Nothing
+  , _utUserCreateDate = Nothing
+  , _utAttributes = Nothing
+  , _utMFAOptions = Nothing
+  , _utUserLastModifiedDate = Nothing
+  }
+
 
 -- | Specifies whether the user is enabled.
 utEnabled :: Lens' UserType (Maybe Bool)
@@ -2537,9 +2580,9 @@ instance FromJSON UserType where
                      <*> (x .:? "MFAOptions" .!= mempty)
                      <*> (x .:? "UserLastModifiedDate"))
 
-instance Hashable UserType
+instance Hashable UserType where
 
-instance NFData UserType
+instance NFData UserType where
 
 -- | The template for verification messages.
 --
@@ -2547,13 +2590,14 @@ instance NFData UserType
 --
 -- /See:/ 'verificationMessageTemplateType' smart constructor.
 data VerificationMessageTemplateType = VerificationMessageTemplateType'
-    { _vmttDefaultEmailOption :: !(Maybe DefaultEmailOptionType)
-    , _vmttEmailSubject       :: !(Maybe Text)
-    , _vmttEmailSubjectByLink :: !(Maybe Text)
-    , _vmttSmsMessage         :: !(Maybe Text)
-    , _vmttEmailMessageByLink :: !(Maybe Text)
-    , _vmttEmailMessage       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vmttDefaultEmailOption :: {-# NOUNPACK #-}!(Maybe DefaultEmailOptionType)
+  , _vmttEmailSubject       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmttEmailSubjectByLink :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmttSmsMessage         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmttEmailMessageByLink :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmttEmailMessage       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VerificationMessageTemplateType' with the minimum fields required to make a request.
 --
@@ -2573,14 +2617,15 @@ data VerificationMessageTemplateType = VerificationMessageTemplateType'
 verificationMessageTemplateType
     :: VerificationMessageTemplateType
 verificationMessageTemplateType =
-    VerificationMessageTemplateType'
-    { _vmttDefaultEmailOption = Nothing
-    , _vmttEmailSubject = Nothing
-    , _vmttEmailSubjectByLink = Nothing
-    , _vmttSmsMessage = Nothing
-    , _vmttEmailMessageByLink = Nothing
-    , _vmttEmailMessage = Nothing
-    }
+  VerificationMessageTemplateType'
+  { _vmttDefaultEmailOption = Nothing
+  , _vmttEmailSubject = Nothing
+  , _vmttEmailSubjectByLink = Nothing
+  , _vmttSmsMessage = Nothing
+  , _vmttEmailMessageByLink = Nothing
+  , _vmttEmailMessage = Nothing
+  }
+
 
 -- | The default email option.
 vmttDefaultEmailOption :: Lens' VerificationMessageTemplateType (Maybe DefaultEmailOptionType)
@@ -2620,8 +2665,9 @@ instance FromJSON VerificationMessageTemplateType
                      <*> (x .:? "EmailMessage"))
 
 instance Hashable VerificationMessageTemplateType
+         where
 
-instance NFData VerificationMessageTemplateType
+instance NFData VerificationMessageTemplateType where
 
 instance ToJSON VerificationMessageTemplateType where
         toJSON VerificationMessageTemplateType'{..}

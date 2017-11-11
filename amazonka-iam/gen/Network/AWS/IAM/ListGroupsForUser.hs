@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListGroupsForUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.IAM.ListGroupsForUser
     , lgfursGroups
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listGroupsForUser' smart constructor.
 data ListGroupsForUser = ListGroupsForUser'
-    { _lgfuMarker   :: !(Maybe Text)
-    , _lgfuMaxItems :: !(Maybe Nat)
-    , _lgfuUserName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgfuMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgfuMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lgfuUserName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroupsForUser' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ listGroupsForUser
     :: Text -- ^ 'lgfuUserName'
     -> ListGroupsForUser
 listGroupsForUser pUserName_ =
-    ListGroupsForUser'
-    { _lgfuMarker = Nothing
-    , _lgfuMaxItems = Nothing
-    , _lgfuUserName = pUserName_
-    }
+  ListGroupsForUser'
+  {_lgfuMarker = Nothing, _lgfuMaxItems = Nothing, _lgfuUserName = pUserName_}
+
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
@@ -111,9 +110,9 @@ instance AWSRequest ListGroupsForUser where
                      (x .@? "Groups" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListGroupsForUser
+instance Hashable ListGroupsForUser where
 
-instance NFData ListGroupsForUser
+instance NFData ListGroupsForUser where
 
 instance ToHeaders ListGroupsForUser where
         toHeaders = const mempty
@@ -135,11 +134,12 @@ instance ToQuery ListGroupsForUser where
 --
 -- /See:/ 'listGroupsForUserResponse' smart constructor.
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
-    { _lgfursMarker         :: !(Maybe Text)
-    , _lgfursIsTruncated    :: !(Maybe Bool)
-    , _lgfursResponseStatus :: !Int
-    , _lgfursGroups         :: ![Group]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgfursMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgfursIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lgfursResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lgfursGroups         :: {-# NOUNPACK #-}![Group]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroupsForUserResponse' with the minimum fields required to make a request.
 --
@@ -156,12 +156,13 @@ listGroupsForUserResponse
     :: Int -- ^ 'lgfursResponseStatus'
     -> ListGroupsForUserResponse
 listGroupsForUserResponse pResponseStatus_ =
-    ListGroupsForUserResponse'
-    { _lgfursMarker = Nothing
-    , _lgfursIsTruncated = Nothing
-    , _lgfursResponseStatus = pResponseStatus_
-    , _lgfursGroups = mempty
-    }
+  ListGroupsForUserResponse'
+  { _lgfursMarker = Nothing
+  , _lgfursIsTruncated = Nothing
+  , _lgfursResponseStatus = pResponseStatus_
+  , _lgfursGroups = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lgfursMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
@@ -179,4 +180,4 @@ lgfursResponseStatus = lens _lgfursResponseStatus (\ s a -> s{_lgfursResponseSta
 lgfursGroups :: Lens' ListGroupsForUserResponse [Group]
 lgfursGroups = lens _lgfursGroups (\ s a -> s{_lgfursGroups = a}) . _Coerce;
 
-instance NFData ListGroupsForUserResponse
+instance NFData ListGroupsForUserResponse where

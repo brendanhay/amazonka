@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RestoreTableFromClusterSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.Redshift.RestoreTableFromClusterSnapshot
     , rtfcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -59,15 +59,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreTableFromClusterSnapshot' smart constructor.
 data RestoreTableFromClusterSnapshot = RestoreTableFromClusterSnapshot'
-    { _rtfcsTargetSchemaName   :: !(Maybe Text)
-    , _rtfcsTargetDatabaseName :: !(Maybe Text)
-    , _rtfcsSourceSchemaName   :: !(Maybe Text)
-    , _rtfcsClusterIdentifier  :: !Text
-    , _rtfcsSnapshotIdentifier :: !Text
-    , _rtfcsSourceDatabaseName :: !Text
-    , _rtfcsSourceTableName    :: !Text
-    , _rtfcsNewTableName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfcsTargetSchemaName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtfcsTargetDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtfcsSourceSchemaName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtfcsClusterIdentifier  :: {-# NOUNPACK #-}!Text
+  , _rtfcsSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  , _rtfcsSourceDatabaseName :: {-# NOUNPACK #-}!Text
+  , _rtfcsSourceTableName    :: {-# NOUNPACK #-}!Text
+  , _rtfcsNewTableName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreTableFromClusterSnapshot' with the minimum fields required to make a request.
 --
@@ -96,16 +97,17 @@ restoreTableFromClusterSnapshot
     -> Text -- ^ 'rtfcsNewTableName'
     -> RestoreTableFromClusterSnapshot
 restoreTableFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ pSourceDatabaseName_ pSourceTableName_ pNewTableName_ =
-    RestoreTableFromClusterSnapshot'
-    { _rtfcsTargetSchemaName = Nothing
-    , _rtfcsTargetDatabaseName = Nothing
-    , _rtfcsSourceSchemaName = Nothing
-    , _rtfcsClusterIdentifier = pClusterIdentifier_
-    , _rtfcsSnapshotIdentifier = pSnapshotIdentifier_
-    , _rtfcsSourceDatabaseName = pSourceDatabaseName_
-    , _rtfcsSourceTableName = pSourceTableName_
-    , _rtfcsNewTableName = pNewTableName_
-    }
+  RestoreTableFromClusterSnapshot'
+  { _rtfcsTargetSchemaName = Nothing
+  , _rtfcsTargetDatabaseName = Nothing
+  , _rtfcsSourceSchemaName = Nothing
+  , _rtfcsClusterIdentifier = pClusterIdentifier_
+  , _rtfcsSnapshotIdentifier = pSnapshotIdentifier_
+  , _rtfcsSourceDatabaseName = pSourceDatabaseName_
+  , _rtfcsSourceTableName = pSourceTableName_
+  , _rtfcsNewTableName = pNewTableName_
+  }
+
 
 -- | The name of the schema to restore the table to.
 rtfcsTargetSchemaName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
@@ -152,8 +154,9 @@ instance AWSRequest RestoreTableFromClusterSnapshot
                    (x .@? "TableRestoreStatus") <*> (pure (fromEnum s)))
 
 instance Hashable RestoreTableFromClusterSnapshot
+         where
 
-instance NFData RestoreTableFromClusterSnapshot
+instance NFData RestoreTableFromClusterSnapshot where
 
 instance ToHeaders RestoreTableFromClusterSnapshot
          where
@@ -180,9 +183,10 @@ instance ToQuery RestoreTableFromClusterSnapshot
 
 -- | /See:/ 'restoreTableFromClusterSnapshotResponse' smart constructor.
 data RestoreTableFromClusterSnapshotResponse = RestoreTableFromClusterSnapshotResponse'
-    { _rtfcsrsTableRestoreStatus :: !(Maybe TableRestoreStatus)
-    , _rtfcsrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfcsrsTableRestoreStatus :: {-# NOUNPACK #-}!(Maybe TableRestoreStatus)
+  , _rtfcsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreTableFromClusterSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -195,10 +199,11 @@ restoreTableFromClusterSnapshotResponse
     :: Int -- ^ 'rtfcsrsResponseStatus'
     -> RestoreTableFromClusterSnapshotResponse
 restoreTableFromClusterSnapshotResponse pResponseStatus_ =
-    RestoreTableFromClusterSnapshotResponse'
-    { _rtfcsrsTableRestoreStatus = Nothing
-    , _rtfcsrsResponseStatus = pResponseStatus_
-    }
+  RestoreTableFromClusterSnapshotResponse'
+  { _rtfcsrsTableRestoreStatus = Nothing
+  , _rtfcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 rtfcsrsTableRestoreStatus :: Lens' RestoreTableFromClusterSnapshotResponse (Maybe TableRestoreStatus)
@@ -209,4 +214,5 @@ rtfcsrsResponseStatus :: Lens' RestoreTableFromClusterSnapshotResponse Int
 rtfcsrsResponseStatus = lens _rtfcsrsResponseStatus (\ s a -> s{_rtfcsrsResponseStatus = a});
 
 instance NFData
-         RestoreTableFromClusterSnapshotResponse
+           RestoreTableFromClusterSnapshotResponse
+         where

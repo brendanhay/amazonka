@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachFromIndex
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.CloudDirectory.DetachFromIndex
     , dfirsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachFromIndex' smart constructor.
 data DetachFromIndex = DetachFromIndex'
-    { _dfiDirectoryARN    :: !Text
-    , _dfiIndexReference  :: !ObjectReference
-    , _dfiTargetReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfiDirectoryARN    :: {-# NOUNPACK #-}!Text
+  , _dfiIndexReference  :: {-# NOUNPACK #-}!ObjectReference
+  , _dfiTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachFromIndex' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ detachFromIndex
     -> ObjectReference -- ^ 'dfiTargetReference'
     -> DetachFromIndex
 detachFromIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
-    DetachFromIndex'
-    { _dfiDirectoryARN = pDirectoryARN_
-    , _dfiIndexReference = pIndexReference_
-    , _dfiTargetReference = pTargetReference_
-    }
+  DetachFromIndex'
+  { _dfiDirectoryARN = pDirectoryARN_
+  , _dfiIndexReference = pIndexReference_
+  , _dfiTargetReference = pTargetReference_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the directory the index and object exist in.
 dfiDirectoryARN :: Lens' DetachFromIndex Text
@@ -96,9 +98,9 @@ instance AWSRequest DetachFromIndex where
                    (x .?> "DetachedObjectIdentifier") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DetachFromIndex
+instance Hashable DetachFromIndex where
 
-instance NFData DetachFromIndex
+instance NFData DetachFromIndex where
 
 instance ToHeaders DetachFromIndex where
         toHeaders DetachFromIndex'{..}
@@ -122,9 +124,10 @@ instance ToQuery DetachFromIndex where
 
 -- | /See:/ 'detachFromIndexResponse' smart constructor.
 data DetachFromIndexResponse = DetachFromIndexResponse'
-    { _dfirsDetachedObjectIdentifier :: !(Maybe Text)
-    , _dfirsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfirsDetachedObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfirsResponseStatus           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachFromIndexResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,11 @@ detachFromIndexResponse
     :: Int -- ^ 'dfirsResponseStatus'
     -> DetachFromIndexResponse
 detachFromIndexResponse pResponseStatus_ =
-    DetachFromIndexResponse'
-    { _dfirsDetachedObjectIdentifier = Nothing
-    , _dfirsResponseStatus = pResponseStatus_
-    }
+  DetachFromIndexResponse'
+  { _dfirsDetachedObjectIdentifier = Nothing
+  , _dfirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @ObjectIdentifier@ of the object that was detached from the index.
 dfirsDetachedObjectIdentifier :: Lens' DetachFromIndexResponse (Maybe Text)
@@ -150,4 +154,4 @@ dfirsDetachedObjectIdentifier = lens _dfirsDetachedObjectIdentifier (\ s a -> s{
 dfirsResponseStatus :: Lens' DetachFromIndexResponse Int
 dfirsResponseStatus = lens _dfirsResponseStatus (\ s a -> s{_dfirsResponseStatus = a});
 
-instance NFData DetachFromIndexResponse
+instance NFData DetachFromIndexResponse where

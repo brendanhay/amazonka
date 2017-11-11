@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.UploadPart
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,27 +54,28 @@ module Network.AWS.S3.UploadPart
     , uprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'uploadPart' smart constructor.
 data UploadPart = UploadPart'
-    { _upContentLength        :: !(Maybe Integer)
-    , _upSSECustomerAlgorithm :: !(Maybe Text)
-    , _upSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _upRequestPayer         :: !(Maybe RequestPayer)
-    , _upSSECustomerKeyMD5    :: !(Maybe Text)
-    , _upContentMD5           :: !(Maybe Text)
-    , _upBucket               :: !BucketName
-    , _upKey                  :: !ObjectKey
-    , _upPartNumber           :: !Int
-    , _upUploadId             :: !Text
-    , _upBody                 :: !RqBody
-    } deriving (Show,Generic)
+  { _upContentLength        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _upSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upSSECustomerKey       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _upRequestPayer         :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _upSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upContentMD5           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upBucket               :: {-# NOUNPACK #-}!BucketName
+  , _upKey                  :: {-# NOUNPACK #-}!ObjectKey
+  , _upPartNumber           :: {-# NOUNPACK #-}!Int
+  , _upUploadId             :: {-# NOUNPACK #-}!Text
+  , _upBody                 :: {-# NOUNPACK #-}!RqBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'UploadPart' with the minimum fields required to make a request.
 --
@@ -109,19 +110,20 @@ uploadPart
     -> RqBody -- ^ 'upBody'
     -> UploadPart
 uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
-    UploadPart'
-    { _upContentLength = Nothing
-    , _upSSECustomerAlgorithm = Nothing
-    , _upSSECustomerKey = Nothing
-    , _upRequestPayer = Nothing
-    , _upSSECustomerKeyMD5 = Nothing
-    , _upContentMD5 = Nothing
-    , _upBucket = pBucket_
-    , _upKey = pKey_
-    , _upPartNumber = pPartNumber_
-    , _upUploadId = pUploadId_
-    , _upBody = pBody_
-    }
+  UploadPart'
+  { _upContentLength = Nothing
+  , _upSSECustomerAlgorithm = Nothing
+  , _upSSECustomerKey = Nothing
+  , _upRequestPayer = Nothing
+  , _upSSECustomerKeyMD5 = Nothing
+  , _upContentMD5 = Nothing
+  , _upBucket = pBucket_
+  , _upKey = pKey_
+  , _upPartNumber = pPartNumber_
+  , _upUploadId = pUploadId_
+  , _upBody = pBody_
+  }
+
 
 -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 upContentLength :: Lens' UploadPart (Maybe Integer)
@@ -214,14 +216,15 @@ instance ToQuery UploadPart where
 
 -- | /See:/ 'uploadPartResponse' smart constructor.
 data UploadPartResponse = UploadPartResponse'
-    { _uprsRequestCharged       :: !(Maybe RequestCharged)
-    , _uprsETag                 :: !(Maybe ETag)
-    , _uprsSSECustomerAlgorithm :: !(Maybe Text)
-    , _uprsSSECustomerKeyMD5    :: !(Maybe Text)
-    , _uprsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _uprsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _uprsResponseStatus       :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uprsRequestCharged       :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _uprsETag                 :: {-# NOUNPACK #-}!(Maybe ETag)
+  , _uprsSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uprsSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uprsSSEKMSKeyId          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _uprsServerSideEncryption :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
+  , _uprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadPartResponse' with the minimum fields required to make a request.
 --
@@ -244,15 +247,16 @@ uploadPartResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UploadPartResponse
 uploadPartResponse pResponseStatus_ =
-    UploadPartResponse'
-    { _uprsRequestCharged = Nothing
-    , _uprsETag = Nothing
-    , _uprsSSECustomerAlgorithm = Nothing
-    , _uprsSSECustomerKeyMD5 = Nothing
-    , _uprsSSEKMSKeyId = Nothing
-    , _uprsServerSideEncryption = Nothing
-    , _uprsResponseStatus = pResponseStatus_
-    }
+  UploadPartResponse'
+  { _uprsRequestCharged = Nothing
+  , _uprsETag = Nothing
+  , _uprsSSECustomerAlgorithm = Nothing
+  , _uprsSSECustomerKeyMD5 = Nothing
+  , _uprsSSEKMSKeyId = Nothing
+  , _uprsServerSideEncryption = Nothing
+  , _uprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 uprsRequestCharged :: Lens' UploadPartResponse (Maybe RequestCharged)
@@ -282,4 +286,4 @@ uprsServerSideEncryption = lens _uprsServerSideEncryption (\ s a -> s{_uprsServe
 uprsResponseStatus :: Lens' UploadPartResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 
-instance NFData UploadPartResponse
+instance NFData UploadPartResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterParameterGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,13 +50,13 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     , dcpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -64,12 +64,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeClusterParameterGroups' smart constructor.
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
-    { _dcpgTagValues          :: !(Maybe [Text])
-    , _dcpgTagKeys            :: !(Maybe [Text])
-    , _dcpgMarker             :: !(Maybe Text)
-    , _dcpgMaxRecords         :: !(Maybe Int)
-    , _dcpgParameterGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcpgTagValues          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcpgTagKeys            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcpgMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcpgMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcpgParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterParameterGroups' with the minimum fields required to make a request.
 --
@@ -87,13 +88,14 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
 describeClusterParameterGroups
     :: DescribeClusterParameterGroups
 describeClusterParameterGroups =
-    DescribeClusterParameterGroups'
-    { _dcpgTagValues = Nothing
-    , _dcpgTagKeys = Nothing
-    , _dcpgMarker = Nothing
-    , _dcpgMaxRecords = Nothing
-    , _dcpgParameterGroupName = Nothing
-    }
+  DescribeClusterParameterGroups'
+  { _dcpgTagValues = Nothing
+  , _dcpgTagKeys = Nothing
+  , _dcpgMarker = Nothing
+  , _dcpgMaxRecords = Nothing
+  , _dcpgParameterGroupName = Nothing
+  }
+
 
 -- | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the parameter groups that have either or both of these tag values associated with them.
 dcpgTagValues :: Lens' DescribeClusterParameterGroups [Text]
@@ -139,8 +141,9 @@ instance AWSRequest DescribeClusterParameterGroups
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeClusterParameterGroups
+         where
 
-instance NFData DescribeClusterParameterGroups
+instance NFData DescribeClusterParameterGroups where
 
 instance ToHeaders DescribeClusterParameterGroups
          where
@@ -169,10 +172,11 @@ instance ToQuery DescribeClusterParameterGroups where
 --
 -- /See:/ 'describeClusterParameterGroupsResponse' smart constructor.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
-    { _dcpgrsMarker          :: !(Maybe Text)
-    , _dcpgrsParameterGroups :: !(Maybe [ClusterParameterGroup])
-    , _dcpgrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcpgrsMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcpgrsParameterGroups :: {-# NOUNPACK #-}!(Maybe [ClusterParameterGroup])
+  , _dcpgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterParameterGroupsResponse' with the minimum fields required to make a request.
 --
@@ -187,11 +191,12 @@ describeClusterParameterGroupsResponse
     :: Int -- ^ 'dcpgrsResponseStatus'
     -> DescribeClusterParameterGroupsResponse
 describeClusterParameterGroupsResponse pResponseStatus_ =
-    DescribeClusterParameterGroupsResponse'
-    { _dcpgrsMarker = Nothing
-    , _dcpgrsParameterGroups = Nothing
-    , _dcpgrsResponseStatus = pResponseStatus_
-    }
+  DescribeClusterParameterGroupsResponse'
+  { _dcpgrsMarker = Nothing
+  , _dcpgrsParameterGroups = Nothing
+  , _dcpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 dcpgrsMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
@@ -206,4 +211,5 @@ dcpgrsResponseStatus :: Lens' DescribeClusterParameterGroupsResponse Int
 dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a});
 
 instance NFData
-         DescribeClusterParameterGroupsResponse
+           DescribeClusterParameterGroupsResponse
+         where

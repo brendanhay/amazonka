@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.EMR.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.EMR.Types.Product where
 
-import           Network.AWS.EMR.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.EMR.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-mapr.html Using the MapR Distribution for Hadoop> . Currently supported values are:
 --
@@ -35,11 +35,12 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'application' smart constructor.
 data Application = Application'
-    { _aArgs           :: !(Maybe [Text])
-    , _aAdditionalInfo :: !(Maybe (Map Text Text))
-    , _aName           :: !(Maybe Text)
-    , _aVersion        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aArgs           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _aAdditionalInfo :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _aName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Application' with the minimum fields required to make a request.
 --
@@ -55,12 +56,13 @@ data Application = Application'
 application
     :: Application
 application =
-    Application'
-    { _aArgs = Nothing
-    , _aAdditionalInfo = Nothing
-    , _aName = Nothing
-    , _aVersion = Nothing
-    }
+  Application'
+  { _aArgs = Nothing
+  , _aAdditionalInfo = Nothing
+  , _aName = Nothing
+  , _aVersion = Nothing
+  }
+
 
 -- | Arguments for Amazon EMR to pass to the application.
 aArgs :: Lens' Application [Text]
@@ -88,9 +90,9 @@ instance FromJSON Application where
                      <*> (x .:? "Name")
                      <*> (x .:? "Version"))
 
-instance Hashable Application
+instance Hashable Application where
 
-instance NFData Application
+instance NFData Application where
 
 instance ToJSON Application where
         toJSON Application'{..}
@@ -107,9 +109,10 @@ instance ToJSON Application where
 --
 -- /See:/ 'autoScalingPolicy' smart constructor.
 data AutoScalingPolicy = AutoScalingPolicy'
-    { _aspConstraints :: !ScalingConstraints
-    , _aspRules       :: ![ScalingRule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aspConstraints :: {-# NOUNPACK #-}!ScalingConstraints
+  , _aspRules       :: {-# NOUNPACK #-}![ScalingRule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingPolicy' with the minimum fields required to make a request.
 --
@@ -122,10 +125,8 @@ autoScalingPolicy
     :: ScalingConstraints -- ^ 'aspConstraints'
     -> AutoScalingPolicy
 autoScalingPolicy pConstraints_ =
-    AutoScalingPolicy'
-    { _aspConstraints = pConstraints_
-    , _aspRules = mempty
-    }
+  AutoScalingPolicy' {_aspConstraints = pConstraints_, _aspRules = mempty}
+
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
 aspConstraints :: Lens' AutoScalingPolicy ScalingConstraints
@@ -135,9 +136,9 @@ aspConstraints = lens _aspConstraints (\ s a -> s{_aspConstraints = a});
 aspRules :: Lens' AutoScalingPolicy [ScalingRule]
 aspRules = lens _aspRules (\ s a -> s{_aspRules = a}) . _Coerce;
 
-instance Hashable AutoScalingPolicy
+instance Hashable AutoScalingPolicy where
 
-instance NFData AutoScalingPolicy
+instance NFData AutoScalingPolicy where
 
 instance ToJSON AutoScalingPolicy where
         toJSON AutoScalingPolicy'{..}
@@ -152,10 +153,11 @@ instance ToJSON AutoScalingPolicy where
 --
 -- /See:/ 'autoScalingPolicyDescription' smart constructor.
 data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
-    { _aspdStatus      :: !(Maybe AutoScalingPolicyStatus)
-    , _aspdRules       :: !(Maybe [ScalingRule])
-    , _aspdConstraints :: !(Maybe ScalingConstraints)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aspdStatus      :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyStatus)
+  , _aspdRules       :: {-# NOUNPACK #-}!(Maybe [ScalingRule])
+  , _aspdConstraints :: {-# NOUNPACK #-}!(Maybe ScalingConstraints)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingPolicyDescription' with the minimum fields required to make a request.
 --
@@ -169,11 +171,9 @@ data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
 autoScalingPolicyDescription
     :: AutoScalingPolicyDescription
 autoScalingPolicyDescription =
-    AutoScalingPolicyDescription'
-    { _aspdStatus = Nothing
-    , _aspdRules = Nothing
-    , _aspdConstraints = Nothing
-    }
+  AutoScalingPolicyDescription'
+  {_aspdStatus = Nothing, _aspdRules = Nothing, _aspdConstraints = Nothing}
+
 
 -- | The status of an automatic scaling policy.
 aspdStatus :: Lens' AutoScalingPolicyDescription (Maybe AutoScalingPolicyStatus)
@@ -195,9 +195,9 @@ instance FromJSON AutoScalingPolicyDescription where
                    (x .:? "Status") <*> (x .:? "Rules" .!= mempty) <*>
                      (x .:? "Constraints"))
 
-instance Hashable AutoScalingPolicyDescription
+instance Hashable AutoScalingPolicyDescription where
 
-instance NFData AutoScalingPolicyDescription
+instance NFData AutoScalingPolicyDescription where
 
 -- | The reason for an 'AutoScalingPolicyStatus' change.
 --
@@ -205,9 +205,10 @@ instance NFData AutoScalingPolicyDescription
 --
 -- /See:/ 'autoScalingPolicyStateChangeReason' smart constructor.
 data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
-    { _aspscrCode    :: !(Maybe AutoScalingPolicyStateChangeReasonCode)
-    , _aspscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aspscrCode :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyStateChangeReasonCode)
+  , _aspscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingPolicyStateChangeReason' with the minimum fields required to make a request.
 --
@@ -219,10 +220,9 @@ data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
 autoScalingPolicyStateChangeReason
     :: AutoScalingPolicyStateChangeReason
 autoScalingPolicyStateChangeReason =
-    AutoScalingPolicyStateChangeReason'
-    { _aspscrCode = Nothing
-    , _aspscrMessage = Nothing
-    }
+  AutoScalingPolicyStateChangeReason'
+  {_aspscrCode = Nothing, _aspscrMessage = Nothing}
+
 
 -- | The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
 aspscrCode :: Lens' AutoScalingPolicyStateChangeReason (Maybe AutoScalingPolicyStateChangeReasonCode)
@@ -241,8 +241,10 @@ instance FromJSON AutoScalingPolicyStateChangeReason
                    (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable AutoScalingPolicyStateChangeReason
+         where
 
 instance NFData AutoScalingPolicyStateChangeReason
+         where
 
 -- | The status of an automatic scaling policy.
 --
@@ -250,9 +252,10 @@ instance NFData AutoScalingPolicyStateChangeReason
 --
 -- /See:/ 'autoScalingPolicyStatus' smart constructor.
 data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
-    { _aspsState             :: !(Maybe AutoScalingPolicyState)
-    , _aspsStateChangeReason :: !(Maybe AutoScalingPolicyStateChangeReason)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aspsState :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyState)
+  , _aspsStateChangeReason :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyStateChangeReason)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingPolicyStatus' with the minimum fields required to make a request.
 --
@@ -264,10 +267,9 @@ data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
 autoScalingPolicyStatus
     :: AutoScalingPolicyStatus
 autoScalingPolicyStatus =
-    AutoScalingPolicyStatus'
-    { _aspsState = Nothing
-    , _aspsStateChangeReason = Nothing
-    }
+  AutoScalingPolicyStatus'
+  {_aspsState = Nothing, _aspsStateChangeReason = Nothing}
+
 
 -- | Indicates the status of the automatic scaling policy.
 aspsState :: Lens' AutoScalingPolicyStatus (Maybe AutoScalingPolicyState)
@@ -284,9 +286,9 @@ instance FromJSON AutoScalingPolicyStatus where
                  AutoScalingPolicyStatus' <$>
                    (x .:? "State") <*> (x .:? "StateChangeReason"))
 
-instance Hashable AutoScalingPolicyStatus
+instance Hashable AutoScalingPolicyStatus where
 
-instance NFData AutoScalingPolicyStatus
+instance NFData AutoScalingPolicyStatus where
 
 -- | Configuration of a bootstrap action.
 --
@@ -294,9 +296,10 @@ instance NFData AutoScalingPolicyStatus
 --
 -- /See:/ 'bootstrapActionConfig' smart constructor.
 data BootstrapActionConfig = BootstrapActionConfig'
-    { _bacName                  :: !Text
-    , _bacScriptBootstrapAction :: !ScriptBootstrapActionConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bacName                  :: {-# NOUNPACK #-}!Text
+  , _bacScriptBootstrapAction :: {-# NOUNPACK #-}!ScriptBootstrapActionConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BootstrapActionConfig' with the minimum fields required to make a request.
 --
@@ -310,10 +313,9 @@ bootstrapActionConfig
     -> ScriptBootstrapActionConfig -- ^ 'bacScriptBootstrapAction'
     -> BootstrapActionConfig
 bootstrapActionConfig pName_ pScriptBootstrapAction_ =
-    BootstrapActionConfig'
-    { _bacName = pName_
-    , _bacScriptBootstrapAction = pScriptBootstrapAction_
-    }
+  BootstrapActionConfig'
+  {_bacName = pName_, _bacScriptBootstrapAction = pScriptBootstrapAction_}
+
 
 -- | The name of the bootstrap action.
 bacName :: Lens' BootstrapActionConfig Text
@@ -323,9 +325,9 @@ bacName = lens _bacName (\ s a -> s{_bacName = a});
 bacScriptBootstrapAction :: Lens' BootstrapActionConfig ScriptBootstrapActionConfig
 bacScriptBootstrapAction = lens _bacScriptBootstrapAction (\ s a -> s{_bacScriptBootstrapAction = a});
 
-instance Hashable BootstrapActionConfig
+instance Hashable BootstrapActionConfig where
 
-instance NFData BootstrapActionConfig
+instance NFData BootstrapActionConfig where
 
 instance ToJSON BootstrapActionConfig where
         toJSON BootstrapActionConfig'{..}
@@ -342,10 +344,11 @@ instance ToJSON BootstrapActionConfig where
 --
 -- /See:/ 'cancelStepsInfo' smart constructor.
 data CancelStepsInfo = CancelStepsInfo'
-    { _csiStatus :: !(Maybe CancelStepsRequestStatus)
-    , _csiStepId :: !(Maybe Text)
-    , _csiReason :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csiStatus :: {-# NOUNPACK #-}!(Maybe CancelStepsRequestStatus)
+  , _csiStepId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csiReason :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelStepsInfo' with the minimum fields required to make a request.
 --
@@ -359,11 +362,9 @@ data CancelStepsInfo = CancelStepsInfo'
 cancelStepsInfo
     :: CancelStepsInfo
 cancelStepsInfo =
-    CancelStepsInfo'
-    { _csiStatus = Nothing
-    , _csiStepId = Nothing
-    , _csiReason = Nothing
-    }
+  CancelStepsInfo'
+  {_csiStatus = Nothing, _csiStepId = Nothing, _csiReason = Nothing}
+
 
 -- | The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
 csiStatus :: Lens' CancelStepsInfo (Maybe CancelStepsRequestStatus)
@@ -385,9 +386,9 @@ instance FromJSON CancelStepsInfo where
                    (x .:? "Status") <*> (x .:? "StepId") <*>
                      (x .:? "Reason"))
 
-instance Hashable CancelStepsInfo
+instance Hashable CancelStepsInfo where
 
-instance NFData CancelStepsInfo
+instance NFData CancelStepsInfo where
 
 -- | The definition of a CloudWatch metric alarm, which determines when an automatic scaling activity is triggered. When the defined alarm conditions are satisfied, scaling activity begins.
 --
@@ -395,16 +396,17 @@ instance NFData CancelStepsInfo
 --
 -- /See:/ 'cloudWatchAlarmDefinition' smart constructor.
 data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
-    { _cwadEvaluationPeriods  :: !(Maybe Int)
-    , _cwadNamespace          :: !(Maybe Text)
-    , _cwadDimensions         :: !(Maybe [MetricDimension])
-    , _cwadUnit               :: !(Maybe Unit)
-    , _cwadStatistic          :: !(Maybe Statistic)
-    , _cwadComparisonOperator :: !ComparisonOperator
-    , _cwadMetricName         :: !Text
-    , _cwadPeriod             :: !Int
-    , _cwadThreshold          :: !Double
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwadEvaluationPeriods  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cwadNamespace          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cwadDimensions         :: {-# NOUNPACK #-}!(Maybe [MetricDimension])
+  , _cwadUnit               :: {-# NOUNPACK #-}!(Maybe Unit)
+  , _cwadStatistic          :: {-# NOUNPACK #-}!(Maybe Statistic)
+  , _cwadComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
+  , _cwadMetricName         :: {-# NOUNPACK #-}!Text
+  , _cwadPeriod             :: {-# NOUNPACK #-}!Int
+  , _cwadThreshold          :: {-# NOUNPACK #-}!Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudWatchAlarmDefinition' with the minimum fields required to make a request.
 --
@@ -434,17 +436,18 @@ cloudWatchAlarmDefinition
     -> Double -- ^ 'cwadThreshold'
     -> CloudWatchAlarmDefinition
 cloudWatchAlarmDefinition pComparisonOperator_ pMetricName_ pPeriod_ pThreshold_ =
-    CloudWatchAlarmDefinition'
-    { _cwadEvaluationPeriods = Nothing
-    , _cwadNamespace = Nothing
-    , _cwadDimensions = Nothing
-    , _cwadUnit = Nothing
-    , _cwadStatistic = Nothing
-    , _cwadComparisonOperator = pComparisonOperator_
-    , _cwadMetricName = pMetricName_
-    , _cwadPeriod = pPeriod_
-    , _cwadThreshold = pThreshold_
-    }
+  CloudWatchAlarmDefinition'
+  { _cwadEvaluationPeriods = Nothing
+  , _cwadNamespace = Nothing
+  , _cwadDimensions = Nothing
+  , _cwadUnit = Nothing
+  , _cwadStatistic = Nothing
+  , _cwadComparisonOperator = pComparisonOperator_
+  , _cwadMetricName = pMetricName_
+  , _cwadPeriod = pPeriod_
+  , _cwadThreshold = pThreshold_
+  }
+
 
 -- | The number of periods, expressed in seconds using @Period@ , during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is @1@ .
 cwadEvaluationPeriods :: Lens' CloudWatchAlarmDefinition (Maybe Int)
@@ -496,9 +499,9 @@ instance FromJSON CloudWatchAlarmDefinition where
                      <*> (x .: "Period")
                      <*> (x .: "Threshold"))
 
-instance Hashable CloudWatchAlarmDefinition
+instance Hashable CloudWatchAlarmDefinition where
 
-instance NFData CloudWatchAlarmDefinition
+instance NFData CloudWatchAlarmDefinition where
 
 instance ToJSON CloudWatchAlarmDefinition where
         toJSON CloudWatchAlarmDefinition'{..}
@@ -521,31 +524,32 @@ instance ToJSON CloudWatchAlarmDefinition where
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-    { _cluRequestedAMIVersion     :: !(Maybe Text)
-    , _cluEBSRootVolumeSize       :: !(Maybe Int)
-    , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
-    , _cluNormalizedInstanceHours :: !(Maybe Int)
-    , _cluConfigurations          :: !(Maybe [Configuration])
-    , _cluCustomAMIId             :: !(Maybe Text)
-    , _cluAutoScalingRole         :: !(Maybe Text)
-    , _cluSecurityConfiguration   :: !(Maybe Text)
-    , _cluScaleDownBehavior       :: !(Maybe ScaleDownBehavior)
-    , _cluInstanceCollectionType  :: !(Maybe InstanceCollectionType)
-    , _cluReleaseLabel            :: !(Maybe Text)
-    , _cluRepoUpgradeOnBoot       :: !(Maybe RepoUpgradeOnBoot)
-    , _cluLogURI                  :: !(Maybe Text)
-    , _cluRunningAMIVersion       :: !(Maybe Text)
-    , _cluMasterPublicDNSName     :: !(Maybe Text)
-    , _cluTerminationProtected    :: !(Maybe Bool)
-    , _cluVisibleToAllUsers       :: !(Maybe Bool)
-    , _cluAutoTerminate           :: !(Maybe Bool)
-    , _cluApplications            :: !(Maybe [Application])
-    , _cluTags                    :: !(Maybe [Tag])
-    , _cluServiceRole             :: !(Maybe Text)
-    , _cluId                      :: !Text
-    , _cluName                    :: !Text
-    , _cluStatus                  :: !ClusterStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cluRequestedAMIVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluEBSRootVolumeSize :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cluEC2InstanceAttributes :: {-# NOUNPACK #-}!(Maybe EC2InstanceAttributes)
+  , _cluNormalizedInstanceHours :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cluConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
+  , _cluCustomAMIId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluAutoScalingRole :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluSecurityConfiguration :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluScaleDownBehavior :: {-# NOUNPACK #-}!(Maybe ScaleDownBehavior)
+  , _cluInstanceCollectionType :: {-# NOUNPACK #-}!(Maybe InstanceCollectionType)
+  , _cluReleaseLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluRepoUpgradeOnBoot :: {-# NOUNPACK #-}!(Maybe RepoUpgradeOnBoot)
+  , _cluLogURI :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluRunningAMIVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluMasterPublicDNSName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluTerminationProtected :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cluVisibleToAllUsers :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cluAutoTerminate :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cluApplications :: {-# NOUNPACK #-}!(Maybe [Application])
+  , _cluTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cluServiceRole :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluId :: {-# NOUNPACK #-}!Text
+  , _cluName :: {-# NOUNPACK #-}!Text
+  , _cluStatus :: {-# NOUNPACK #-}!ClusterStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
@@ -604,32 +608,33 @@ cluster
     -> ClusterStatus -- ^ 'cluStatus'
     -> Cluster
 cluster pId_ pName_ pStatus_ =
-    Cluster'
-    { _cluRequestedAMIVersion = Nothing
-    , _cluEBSRootVolumeSize = Nothing
-    , _cluEC2InstanceAttributes = Nothing
-    , _cluNormalizedInstanceHours = Nothing
-    , _cluConfigurations = Nothing
-    , _cluCustomAMIId = Nothing
-    , _cluAutoScalingRole = Nothing
-    , _cluSecurityConfiguration = Nothing
-    , _cluScaleDownBehavior = Nothing
-    , _cluInstanceCollectionType = Nothing
-    , _cluReleaseLabel = Nothing
-    , _cluRepoUpgradeOnBoot = Nothing
-    , _cluLogURI = Nothing
-    , _cluRunningAMIVersion = Nothing
-    , _cluMasterPublicDNSName = Nothing
-    , _cluTerminationProtected = Nothing
-    , _cluVisibleToAllUsers = Nothing
-    , _cluAutoTerminate = Nothing
-    , _cluApplications = Nothing
-    , _cluTags = Nothing
-    , _cluServiceRole = Nothing
-    , _cluId = pId_
-    , _cluName = pName_
-    , _cluStatus = pStatus_
-    }
+  Cluster'
+  { _cluRequestedAMIVersion = Nothing
+  , _cluEBSRootVolumeSize = Nothing
+  , _cluEC2InstanceAttributes = Nothing
+  , _cluNormalizedInstanceHours = Nothing
+  , _cluConfigurations = Nothing
+  , _cluCustomAMIId = Nothing
+  , _cluAutoScalingRole = Nothing
+  , _cluSecurityConfiguration = Nothing
+  , _cluScaleDownBehavior = Nothing
+  , _cluInstanceCollectionType = Nothing
+  , _cluReleaseLabel = Nothing
+  , _cluRepoUpgradeOnBoot = Nothing
+  , _cluLogURI = Nothing
+  , _cluRunningAMIVersion = Nothing
+  , _cluMasterPublicDNSName = Nothing
+  , _cluTerminationProtected = Nothing
+  , _cluVisibleToAllUsers = Nothing
+  , _cluAutoTerminate = Nothing
+  , _cluApplications = Nothing
+  , _cluTags = Nothing
+  , _cluServiceRole = Nothing
+  , _cluId = pId_
+  , _cluName = pName_
+  , _cluStatus = pStatus_
+  }
+
 
 -- | The AMI version requested for this cluster.
 cluRequestedAMIVersion :: Lens' Cluster (Maybe Text)
@@ -757,9 +762,9 @@ instance FromJSON Cluster where
                      <*> (x .: "Name")
                      <*> (x .: "Status"))
 
-instance Hashable Cluster
+instance Hashable Cluster where
 
-instance NFData Cluster
+instance NFData Cluster where
 
 -- | The reason that the cluster changed to its current state.
 --
@@ -767,9 +772,10 @@ instance NFData Cluster
 --
 -- /See:/ 'clusterStateChangeReason' smart constructor.
 data ClusterStateChangeReason = ClusterStateChangeReason'
-    { _cscrCode    :: !(Maybe ClusterStateChangeReasonCode)
-    , _cscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscrCode    :: {-# NOUNPACK #-}!(Maybe ClusterStateChangeReasonCode)
+  , _cscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterStateChangeReason' with the minimum fields required to make a request.
 --
@@ -781,10 +787,8 @@ data ClusterStateChangeReason = ClusterStateChangeReason'
 clusterStateChangeReason
     :: ClusterStateChangeReason
 clusterStateChangeReason =
-    ClusterStateChangeReason'
-    { _cscrCode = Nothing
-    , _cscrMessage = Nothing
-    }
+  ClusterStateChangeReason' {_cscrCode = Nothing, _cscrMessage = Nothing}
+
 
 -- | The programmatic code for the state change reason.
 cscrCode :: Lens' ClusterStateChangeReason (Maybe ClusterStateChangeReasonCode)
@@ -801,9 +805,9 @@ instance FromJSON ClusterStateChangeReason where
                  ClusterStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
-instance Hashable ClusterStateChangeReason
+instance Hashable ClusterStateChangeReason where
 
-instance NFData ClusterStateChangeReason
+instance NFData ClusterStateChangeReason where
 
 -- | The detailed status of the cluster.
 --
@@ -811,10 +815,11 @@ instance NFData ClusterStateChangeReason
 --
 -- /See:/ 'clusterStatus' smart constructor.
 data ClusterStatus = ClusterStatus'
-    { _csState             :: !(Maybe ClusterState)
-    , _csStateChangeReason :: !(Maybe ClusterStateChangeReason)
-    , _csTimeline          :: !(Maybe ClusterTimeline)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csState             :: {-# NOUNPACK #-}!(Maybe ClusterState)
+  , _csStateChangeReason :: {-# NOUNPACK #-}!(Maybe ClusterStateChangeReason)
+  , _csTimeline          :: {-# NOUNPACK #-}!(Maybe ClusterTimeline)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterStatus' with the minimum fields required to make a request.
 --
@@ -828,11 +833,9 @@ data ClusterStatus = ClusterStatus'
 clusterStatus
     :: ClusterStatus
 clusterStatus =
-    ClusterStatus'
-    { _csState = Nothing
-    , _csStateChangeReason = Nothing
-    , _csTimeline = Nothing
-    }
+  ClusterStatus'
+  {_csState = Nothing, _csStateChangeReason = Nothing, _csTimeline = Nothing}
+
 
 -- | The current state of the cluster.
 csState :: Lens' ClusterStatus (Maybe ClusterState)
@@ -854,9 +857,9 @@ instance FromJSON ClusterStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
-instance Hashable ClusterStatus
+instance Hashable ClusterStatus where
 
-instance NFData ClusterStatus
+instance NFData ClusterStatus where
 
 -- | The summary description of the cluster.
 --
@@ -864,11 +867,12 @@ instance NFData ClusterStatus
 --
 -- /See:/ 'clusterSummary' smart constructor.
 data ClusterSummary = ClusterSummary'
-    { _csStatus                  :: !(Maybe ClusterStatus)
-    , _csNormalizedInstanceHours :: !(Maybe Int)
-    , _csName                    :: !(Maybe Text)
-    , _csId                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csStatus                  :: {-# NOUNPACK #-}!(Maybe ClusterStatus)
+  , _csNormalizedInstanceHours :: {-# NOUNPACK #-}!(Maybe Int)
+  , _csName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csId                      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSummary' with the minimum fields required to make a request.
 --
@@ -884,12 +888,13 @@ data ClusterSummary = ClusterSummary'
 clusterSummary
     :: ClusterSummary
 clusterSummary =
-    ClusterSummary'
-    { _csStatus = Nothing
-    , _csNormalizedInstanceHours = Nothing
-    , _csName = Nothing
-    , _csId = Nothing
-    }
+  ClusterSummary'
+  { _csStatus = Nothing
+  , _csNormalizedInstanceHours = Nothing
+  , _csName = Nothing
+  , _csId = Nothing
+  }
+
 
 -- | The details about the current status of the cluster.
 csStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
@@ -917,9 +922,9 @@ instance FromJSON ClusterSummary where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
-instance Hashable ClusterSummary
+instance Hashable ClusterSummary where
 
-instance NFData ClusterSummary
+instance NFData ClusterSummary where
 
 -- | Represents the timeline of the cluster's lifecycle.
 --
@@ -927,10 +932,11 @@ instance NFData ClusterSummary
 --
 -- /See:/ 'clusterTimeline' smart constructor.
 data ClusterTimeline = ClusterTimeline'
-    { _ctReadyDateTime    :: !(Maybe POSIX)
-    , _ctCreationDateTime :: !(Maybe POSIX)
-    , _ctEndDateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctReadyDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ctCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ctEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterTimeline' with the minimum fields required to make a request.
 --
@@ -944,11 +950,12 @@ data ClusterTimeline = ClusterTimeline'
 clusterTimeline
     :: ClusterTimeline
 clusterTimeline =
-    ClusterTimeline'
-    { _ctReadyDateTime = Nothing
-    , _ctCreationDateTime = Nothing
-    , _ctEndDateTime = Nothing
-    }
+  ClusterTimeline'
+  { _ctReadyDateTime = Nothing
+  , _ctCreationDateTime = Nothing
+  , _ctEndDateTime = Nothing
+  }
+
 
 -- | The date and time when the cluster was ready to execute steps.
 ctReadyDateTime :: Lens' ClusterTimeline (Maybe UTCTime)
@@ -971,9 +978,9 @@ instance FromJSON ClusterTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
-instance Hashable ClusterTimeline
+instance Hashable ClusterTimeline where
 
-instance NFData ClusterTimeline
+instance NFData ClusterTimeline where
 
 -- | An entity describing an executable that runs on a cluster.
 --
@@ -981,10 +988,11 @@ instance NFData ClusterTimeline
 --
 -- /See:/ 'command' smart constructor.
 data Command = Command'
-    { _cArgs       :: !(Maybe [Text])
-    , _cScriptPath :: !(Maybe Text)
-    , _cName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cArgs       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cScriptPath :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cName       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
@@ -997,12 +1005,8 @@ data Command = Command'
 -- * 'cName' - The name of the command.
 command
     :: Command
-command =
-    Command'
-    { _cArgs = Nothing
-    , _cScriptPath = Nothing
-    , _cName = Nothing
-    }
+command = Command' {_cArgs = Nothing, _cScriptPath = Nothing, _cName = Nothing}
+
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
 cArgs :: Lens' Command [Text]
@@ -1024,9 +1028,9 @@ instance FromJSON Command where
                    (x .:? "Args" .!= mempty) <*> (x .:? "ScriptPath")
                      <*> (x .:? "Name"))
 
-instance Hashable Command
+instance Hashable Command where
 
-instance NFData Command
+instance NFData Command where
 
 -- | An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html Configuring Applications> .
 --
@@ -1034,10 +1038,11 @@ instance NFData Command
 --
 -- /See:/ 'configuration' smart constructor.
 data Configuration = Configuration'
-    { _cConfigurations :: !(Maybe [Configuration])
-    , _cClassification :: !(Maybe Text)
-    , _cProperties     :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
+  , _cClassification :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cProperties     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Configuration' with the minimum fields required to make a request.
 --
@@ -1051,11 +1056,12 @@ data Configuration = Configuration'
 configuration
     :: Configuration
 configuration =
-    Configuration'
-    { _cConfigurations = Nothing
-    , _cClassification = Nothing
-    , _cProperties = Nothing
-    }
+  Configuration'
+  { _cConfigurations = Nothing
+  , _cClassification = Nothing
+  , _cProperties = Nothing
+  }
+
 
 -- | A list of additional configurations to apply within a configuration object.
 cConfigurations :: Lens' Configuration [Configuration]
@@ -1078,9 +1084,9 @@ instance FromJSON Configuration where
                      (x .:? "Classification")
                      <*> (x .:? "Properties" .!= mempty))
 
-instance Hashable Configuration
+instance Hashable Configuration where
 
-instance NFData Configuration
+instance NFData Configuration where
 
 instance ToJSON Configuration where
         toJSON Configuration'{..}
@@ -1096,9 +1102,10 @@ instance ToJSON Configuration where
 --
 -- /See:/ 'ebsBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
-    { _ebdDevice              :: !(Maybe Text)
-    , _ebdVolumeSpecification :: !(Maybe VolumeSpecification)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ebdDevice              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ebdVolumeSpecification :: {-# NOUNPACK #-}!(Maybe VolumeSpecification)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.
 --
@@ -1110,10 +1117,8 @@ data EBSBlockDevice = EBSBlockDevice'
 ebsBlockDevice
     :: EBSBlockDevice
 ebsBlockDevice =
-    EBSBlockDevice'
-    { _ebdDevice = Nothing
-    , _ebdVolumeSpecification = Nothing
-    }
+  EBSBlockDevice' {_ebdDevice = Nothing, _ebdVolumeSpecification = Nothing}
+
 
 -- | The device name that is exposed to the instance, such as /dev/sdh.
 ebdDevice :: Lens' EBSBlockDevice (Maybe Text)
@@ -1130,9 +1135,9 @@ instance FromJSON EBSBlockDevice where
                  EBSBlockDevice' <$>
                    (x .:? "Device") <*> (x .:? "VolumeSpecification"))
 
-instance Hashable EBSBlockDevice
+instance Hashable EBSBlockDevice where
 
-instance NFData EBSBlockDevice
+instance NFData EBSBlockDevice where
 
 -- | Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.
 --
@@ -1140,9 +1145,10 @@ instance NFData EBSBlockDevice
 --
 -- /See:/ 'ebsBlockDeviceConfig' smart constructor.
 data EBSBlockDeviceConfig = EBSBlockDeviceConfig'
-    { _ebdcVolumesPerInstance  :: !(Maybe Int)
-    , _ebdcVolumeSpecification :: !VolumeSpecification
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ebdcVolumesPerInstance  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ebdcVolumeSpecification :: {-# NOUNPACK #-}!VolumeSpecification
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EBSBlockDeviceConfig' with the minimum fields required to make a request.
 --
@@ -1155,10 +1161,11 @@ ebsBlockDeviceConfig
     :: VolumeSpecification -- ^ 'ebdcVolumeSpecification'
     -> EBSBlockDeviceConfig
 ebsBlockDeviceConfig pVolumeSpecification_ =
-    EBSBlockDeviceConfig'
-    { _ebdcVolumesPerInstance = Nothing
-    , _ebdcVolumeSpecification = pVolumeSpecification_
-    }
+  EBSBlockDeviceConfig'
+  { _ebdcVolumesPerInstance = Nothing
+  , _ebdcVolumeSpecification = pVolumeSpecification_
+  }
+
 
 -- | Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group
 ebdcVolumesPerInstance :: Lens' EBSBlockDeviceConfig (Maybe Int)
@@ -1168,9 +1175,9 @@ ebdcVolumesPerInstance = lens _ebdcVolumesPerInstance (\ s a -> s{_ebdcVolumesPe
 ebdcVolumeSpecification :: Lens' EBSBlockDeviceConfig VolumeSpecification
 ebdcVolumeSpecification = lens _ebdcVolumeSpecification (\ s a -> s{_ebdcVolumeSpecification = a});
 
-instance Hashable EBSBlockDeviceConfig
+instance Hashable EBSBlockDeviceConfig where
 
-instance NFData EBSBlockDeviceConfig
+instance NFData EBSBlockDeviceConfig where
 
 instance ToJSON EBSBlockDeviceConfig where
         toJSON EBSBlockDeviceConfig'{..}
@@ -1187,9 +1194,10 @@ instance ToJSON EBSBlockDeviceConfig where
 --
 -- /See:/ 'ebsConfiguration' smart constructor.
 data EBSConfiguration = EBSConfiguration'
-    { _ecEBSOptimized          :: !(Maybe Bool)
-    , _ecEBSBlockDeviceConfigs :: !(Maybe [EBSBlockDeviceConfig])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecEBSOptimized          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ecEBSBlockDeviceConfigs :: {-# NOUNPACK #-}!(Maybe [EBSBlockDeviceConfig])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EBSConfiguration' with the minimum fields required to make a request.
 --
@@ -1201,10 +1209,9 @@ data EBSConfiguration = EBSConfiguration'
 ebsConfiguration
     :: EBSConfiguration
 ebsConfiguration =
-    EBSConfiguration'
-    { _ecEBSOptimized = Nothing
-    , _ecEBSBlockDeviceConfigs = Nothing
-    }
+  EBSConfiguration'
+  {_ecEBSOptimized = Nothing, _ecEBSBlockDeviceConfigs = Nothing}
+
 
 -- | Indicates whether an Amazon EBS volume is EBS-optimized.
 ecEBSOptimized :: Lens' EBSConfiguration (Maybe Bool)
@@ -1214,9 +1221,9 @@ ecEBSOptimized = lens _ecEBSOptimized (\ s a -> s{_ecEBSOptimized = a});
 ecEBSBlockDeviceConfigs :: Lens' EBSConfiguration [EBSBlockDeviceConfig]
 ecEBSBlockDeviceConfigs = lens _ecEBSBlockDeviceConfigs (\ s a -> s{_ecEBSBlockDeviceConfigs = a}) . _Default . _Coerce;
 
-instance Hashable EBSConfiguration
+instance Hashable EBSConfiguration where
 
-instance NFData EBSConfiguration
+instance NFData EBSConfiguration where
 
 instance ToJSON EBSConfiguration where
         toJSON EBSConfiguration'{..}
@@ -1232,9 +1239,10 @@ instance ToJSON EBSConfiguration where
 --
 -- /See:/ 'ebsVolume' smart constructor.
 data EBSVolume = EBSVolume'
-    { _evDevice   :: !(Maybe Text)
-    , _evVolumeId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evDevice   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _evVolumeId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EBSVolume' with the minimum fields required to make a request.
 --
@@ -1245,11 +1253,8 @@ data EBSVolume = EBSVolume'
 -- * 'evVolumeId' - The volume identifier of the EBS volume.
 ebsVolume
     :: EBSVolume
-ebsVolume =
-    EBSVolume'
-    { _evDevice = Nothing
-    , _evVolumeId = Nothing
-    }
+ebsVolume = EBSVolume' {_evDevice = Nothing, _evVolumeId = Nothing}
+
 
 -- | The device name that is exposed to the instance, such as /dev/sdh.
 evDevice :: Lens' EBSVolume (Maybe Text)
@@ -1266,9 +1271,9 @@ instance FromJSON EBSVolume where
                  EBSVolume' <$>
                    (x .:? "Device") <*> (x .:? "VolumeId"))
 
-instance Hashable EBSVolume
+instance Hashable EBSVolume where
 
-instance NFData EBSVolume
+instance NFData EBSVolume where
 
 -- | Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
 --
@@ -1276,18 +1281,19 @@ instance NFData EBSVolume
 --
 -- /See:/ 'ec2InstanceAttributes' smart constructor.
 data EC2InstanceAttributes = EC2InstanceAttributes'
-    { _eiaEC2KeyName                     :: !(Maybe Text)
-    , _eiaEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
-    , _eiaAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
-    , _eiaRequestedEC2SubnetIds          :: !(Maybe [Text])
-    , _eiaAdditionalMasterSecurityGroups :: !(Maybe [Text])
-    , _eiaIAMInstanceProfile             :: !(Maybe Text)
-    , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
-    , _eiaEC2SubnetId                    :: !(Maybe Text)
-    , _eiaRequestedEC2AvailabilityZones  :: !(Maybe [Text])
-    , _eiaServiceAccessSecurityGroup     :: !(Maybe Text)
-    , _eiaEC2AvailabilityZone            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eiaEC2KeyName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiaEmrManagedSlaveSecurityGroup   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiaAdditionalSlaveSecurityGroups  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eiaRequestedEC2SubnetIds          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eiaAdditionalMasterSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eiaIAMInstanceProfile             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiaEmrManagedMasterSecurityGroup  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiaEC2SubnetId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiaRequestedEC2AvailabilityZones  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eiaServiceAccessSecurityGroup     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiaEC2AvailabilityZone            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2InstanceAttributes' with the minimum fields required to make a request.
 --
@@ -1317,19 +1323,20 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
 ec2InstanceAttributes
     :: EC2InstanceAttributes
 ec2InstanceAttributes =
-    EC2InstanceAttributes'
-    { _eiaEC2KeyName = Nothing
-    , _eiaEmrManagedSlaveSecurityGroup = Nothing
-    , _eiaAdditionalSlaveSecurityGroups = Nothing
-    , _eiaRequestedEC2SubnetIds = Nothing
-    , _eiaAdditionalMasterSecurityGroups = Nothing
-    , _eiaIAMInstanceProfile = Nothing
-    , _eiaEmrManagedMasterSecurityGroup = Nothing
-    , _eiaEC2SubnetId = Nothing
-    , _eiaRequestedEC2AvailabilityZones = Nothing
-    , _eiaServiceAccessSecurityGroup = Nothing
-    , _eiaEC2AvailabilityZone = Nothing
-    }
+  EC2InstanceAttributes'
+  { _eiaEC2KeyName = Nothing
+  , _eiaEmrManagedSlaveSecurityGroup = Nothing
+  , _eiaAdditionalSlaveSecurityGroups = Nothing
+  , _eiaRequestedEC2SubnetIds = Nothing
+  , _eiaAdditionalMasterSecurityGroups = Nothing
+  , _eiaIAMInstanceProfile = Nothing
+  , _eiaEmrManagedMasterSecurityGroup = Nothing
+  , _eiaEC2SubnetId = Nothing
+  , _eiaRequestedEC2AvailabilityZones = Nothing
+  , _eiaServiceAccessSecurityGroup = Nothing
+  , _eiaEC2AvailabilityZone = Nothing
+  }
+
 
 -- | The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named "hadoop".
 eiaEC2KeyName :: Lens' EC2InstanceAttributes (Maybe Text)
@@ -1395,9 +1402,9 @@ instance FromJSON EC2InstanceAttributes where
                      <*> (x .:? "ServiceAccessSecurityGroup")
                      <*> (x .:? "Ec2AvailabilityZone"))
 
-instance Hashable EC2InstanceAttributes
+instance Hashable EC2InstanceAttributes where
 
-instance NFData EC2InstanceAttributes
+instance NFData EC2InstanceAttributes where
 
 -- | The details of the step failure. The service attempts to detect the root cause for many common failures.
 --
@@ -1405,10 +1412,11 @@ instance NFData EC2InstanceAttributes
 --
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-    { _fdLogFile :: !(Maybe Text)
-    , _fdReason  :: !(Maybe Text)
-    , _fdMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fdLogFile :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fdReason  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fdMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
 --
@@ -1422,11 +1430,9 @@ data FailureDetails = FailureDetails'
 failureDetails
     :: FailureDetails
 failureDetails =
-    FailureDetails'
-    { _fdLogFile = Nothing
-    , _fdReason = Nothing
-    , _fdMessage = Nothing
-    }
+  FailureDetails'
+  {_fdLogFile = Nothing, _fdReason = Nothing, _fdMessage = Nothing}
+
 
 -- | The path to the log file where the step failure root cause was originally recorded.
 fdLogFile :: Lens' FailureDetails (Maybe Text)
@@ -1448,9 +1454,9 @@ instance FromJSON FailureDetails where
                    (x .:? "LogFile") <*> (x .:? "Reason") <*>
                      (x .:? "Message"))
 
-instance Hashable FailureDetails
+instance Hashable FailureDetails where
 
-instance NFData FailureDetails
+instance NFData FailureDetails where
 
 -- | A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.
 --
@@ -1458,11 +1464,12 @@ instance NFData FailureDetails
 --
 -- /See:/ 'hadoopJARStepConfig' smart constructor.
 data HadoopJARStepConfig = HadoopJARStepConfig'
-    { _hjscArgs       :: !(Maybe [Text])
-    , _hjscMainClass  :: !(Maybe Text)
-    , _hjscProperties :: !(Maybe [KeyValue])
-    , _hjscJAR        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hjscArgs       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _hjscMainClass  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hjscProperties :: {-# NOUNPACK #-}!(Maybe [KeyValue])
+  , _hjscJAR        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HadoopJARStepConfig' with the minimum fields required to make a request.
 --
@@ -1479,12 +1486,13 @@ hadoopJARStepConfig
     :: Text -- ^ 'hjscJAR'
     -> HadoopJARStepConfig
 hadoopJARStepConfig pJAR_ =
-    HadoopJARStepConfig'
-    { _hjscArgs = Nothing
-    , _hjscMainClass = Nothing
-    , _hjscProperties = Nothing
-    , _hjscJAR = pJAR_
-    }
+  HadoopJARStepConfig'
+  { _hjscArgs = Nothing
+  , _hjscMainClass = Nothing
+  , _hjscProperties = Nothing
+  , _hjscJAR = pJAR_
+  }
+
 
 -- | A list of command line arguments passed to the JAR file's main function when executed.
 hjscArgs :: Lens' HadoopJARStepConfig [Text]
@@ -1502,9 +1510,9 @@ hjscProperties = lens _hjscProperties (\ s a -> s{_hjscProperties = a}) . _Defau
 hjscJAR :: Lens' HadoopJARStepConfig Text
 hjscJAR = lens _hjscJAR (\ s a -> s{_hjscJAR = a});
 
-instance Hashable HadoopJARStepConfig
+instance Hashable HadoopJARStepConfig where
 
-instance NFData HadoopJARStepConfig
+instance NFData HadoopJARStepConfig where
 
 instance ToJSON HadoopJARStepConfig where
         toJSON HadoopJARStepConfig'{..}
@@ -1521,11 +1529,12 @@ instance ToJSON HadoopJARStepConfig where
 --
 -- /See:/ 'hadoopStepConfig' smart constructor.
 data HadoopStepConfig = HadoopStepConfig'
-    { _hscArgs       :: !(Maybe [Text])
-    , _hscJAR        :: !(Maybe Text)
-    , _hscMainClass  :: !(Maybe Text)
-    , _hscProperties :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hscArgs       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _hscJAR        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hscMainClass  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hscProperties :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HadoopStepConfig' with the minimum fields required to make a request.
 --
@@ -1541,12 +1550,13 @@ data HadoopStepConfig = HadoopStepConfig'
 hadoopStepConfig
     :: HadoopStepConfig
 hadoopStepConfig =
-    HadoopStepConfig'
-    { _hscArgs = Nothing
-    , _hscJAR = Nothing
-    , _hscMainClass = Nothing
-    , _hscProperties = Nothing
-    }
+  HadoopStepConfig'
+  { _hscArgs = Nothing
+  , _hscJAR = Nothing
+  , _hscMainClass = Nothing
+  , _hscProperties = Nothing
+  }
+
 
 -- | The list of command line arguments to pass to the JAR file's main function for execution.
 hscArgs :: Lens' HadoopStepConfig [Text]
@@ -1573,9 +1583,9 @@ instance FromJSON HadoopStepConfig where
                      (x .:? "MainClass")
                      <*> (x .:? "Properties" .!= mempty))
 
-instance Hashable HadoopStepConfig
+instance Hashable HadoopStepConfig where
 
-instance NFData HadoopStepConfig
+instance NFData HadoopStepConfig where
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
@@ -1583,19 +1593,20 @@ instance NFData HadoopStepConfig
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-    { _iStatus           :: !(Maybe InstanceStatus)
-    , _iPublicDNSName    :: !(Maybe Text)
-    , _iEBSVolumes       :: !(Maybe [EBSVolume])
-    , _iEC2InstanceId    :: !(Maybe Text)
-    , _iInstanceType     :: !(Maybe Text)
-    , _iMarket           :: !(Maybe MarketType)
-    , _iPrivateIPAddress :: !(Maybe Text)
-    , _iInstanceFleetId  :: !(Maybe Text)
-    , _iId               :: !(Maybe Text)
-    , _iInstanceGroupId  :: !(Maybe Text)
-    , _iPrivateDNSName   :: !(Maybe Text)
-    , _iPublicIPAddress  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iStatus           :: {-# NOUNPACK #-}!(Maybe InstanceStatus)
+  , _iPublicDNSName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iEBSVolumes       :: {-# NOUNPACK #-}!(Maybe [EBSVolume])
+  , _iEC2InstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInstanceType     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iMarket           :: {-# NOUNPACK #-}!(Maybe MarketType)
+  , _iPrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInstanceFleetId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInstanceGroupId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iPrivateDNSName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iPublicIPAddress  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
@@ -1627,20 +1638,21 @@ data Instance = Instance'
 instance'
     :: Instance
 instance' =
-    Instance'
-    { _iStatus = Nothing
-    , _iPublicDNSName = Nothing
-    , _iEBSVolumes = Nothing
-    , _iEC2InstanceId = Nothing
-    , _iInstanceType = Nothing
-    , _iMarket = Nothing
-    , _iPrivateIPAddress = Nothing
-    , _iInstanceFleetId = Nothing
-    , _iId = Nothing
-    , _iInstanceGroupId = Nothing
-    , _iPrivateDNSName = Nothing
-    , _iPublicIPAddress = Nothing
-    }
+  Instance'
+  { _iStatus = Nothing
+  , _iPublicDNSName = Nothing
+  , _iEBSVolumes = Nothing
+  , _iEC2InstanceId = Nothing
+  , _iInstanceType = Nothing
+  , _iMarket = Nothing
+  , _iPrivateIPAddress = Nothing
+  , _iInstanceFleetId = Nothing
+  , _iId = Nothing
+  , _iInstanceGroupId = Nothing
+  , _iPrivateDNSName = Nothing
+  , _iPublicIPAddress = Nothing
+  }
+
 
 -- | The current status of the instance.
 iStatus :: Lens' Instance (Maybe InstanceStatus)
@@ -1707,9 +1719,9 @@ instance FromJSON Instance where
                      <*> (x .:? "PrivateDnsName")
                      <*> (x .:? "PublicIpAddress"))
 
-instance Hashable Instance
+instance Hashable Instance where
 
-instance NFData Instance
+instance NFData Instance where
 
 -- | Describes an instance fleet, which is a group of EC2 instances that host a particular node type (master, core, or task) in an Amazon EMR cluster. Instance fleets can consist of a mix of instance types and On-Demand and Spot instances, which are provisioned to meet a defined target capacity.
 --
@@ -1717,17 +1729,18 @@ instance NFData Instance
 --
 -- /See:/ 'instanceFleet' smart constructor.
 data InstanceFleet = InstanceFleet'
-    { _ifProvisionedSpotCapacity     :: !(Maybe Nat)
-    , _ifStatus                      :: !(Maybe InstanceFleetStatus)
-    , _ifTargetOnDemandCapacity      :: !(Maybe Nat)
-    , _ifInstanceFleetType           :: !(Maybe InstanceFleetType)
-    , _ifInstanceTypeSpecifications  :: !(Maybe [InstanceTypeSpecification])
-    , _ifName                        :: !(Maybe Text)
-    , _ifProvisionedOnDemandCapacity :: !(Maybe Nat)
-    , _ifTargetSpotCapacity          :: !(Maybe Nat)
-    , _ifId                          :: !(Maybe Text)
-    , _ifLaunchSpecifications        :: !(Maybe InstanceFleetProvisioningSpecifications)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifProvisionedSpotCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ifStatus :: {-# NOUNPACK #-}!(Maybe InstanceFleetStatus)
+  , _ifTargetOnDemandCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ifInstanceFleetType :: {-# NOUNPACK #-}!(Maybe InstanceFleetType)
+  , _ifInstanceTypeSpecifications :: {-# NOUNPACK #-}!(Maybe [InstanceTypeSpecification])
+  , _ifName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ifProvisionedOnDemandCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ifTargetSpotCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ifId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ifLaunchSpecifications :: {-# NOUNPACK #-}!(Maybe InstanceFleetProvisioningSpecifications)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceFleet' with the minimum fields required to make a request.
 --
@@ -1755,18 +1768,19 @@ data InstanceFleet = InstanceFleet'
 instanceFleet
     :: InstanceFleet
 instanceFleet =
-    InstanceFleet'
-    { _ifProvisionedSpotCapacity = Nothing
-    , _ifStatus = Nothing
-    , _ifTargetOnDemandCapacity = Nothing
-    , _ifInstanceFleetType = Nothing
-    , _ifInstanceTypeSpecifications = Nothing
-    , _ifName = Nothing
-    , _ifProvisionedOnDemandCapacity = Nothing
-    , _ifTargetSpotCapacity = Nothing
-    , _ifId = Nothing
-    , _ifLaunchSpecifications = Nothing
-    }
+  InstanceFleet'
+  { _ifProvisionedSpotCapacity = Nothing
+  , _ifStatus = Nothing
+  , _ifTargetOnDemandCapacity = Nothing
+  , _ifInstanceFleetType = Nothing
+  , _ifInstanceTypeSpecifications = Nothing
+  , _ifName = Nothing
+  , _ifProvisionedOnDemandCapacity = Nothing
+  , _ifTargetSpotCapacity = Nothing
+  , _ifId = Nothing
+  , _ifLaunchSpecifications = Nothing
+  }
+
 
 -- | The number of Spot units that have been provisioned for this instance fleet to fulfill @TargetSpotCapacity@ . This provisioned capacity might be less than or greater than @TargetSpotCapacity@ .
 ifProvisionedSpotCapacity :: Lens' InstanceFleet (Maybe Natural)
@@ -1824,9 +1838,9 @@ instance FromJSON InstanceFleet where
                      <*> (x .:? "Id")
                      <*> (x .:? "LaunchSpecifications"))
 
-instance Hashable InstanceFleet
+instance Hashable InstanceFleet where
 
-instance NFData InstanceFleet
+instance NFData InstanceFleet where
 
 -- | The configuration that defines an instance fleet.
 --
@@ -1834,13 +1848,14 @@ instance NFData InstanceFleet
 --
 -- /See:/ 'instanceFleetConfig' smart constructor.
 data InstanceFleetConfig = InstanceFleetConfig'
-    { _ifcInstanceTypeConfigs    :: !(Maybe [InstanceTypeConfig])
-    , _ifcTargetOnDemandCapacity :: !(Maybe Nat)
-    , _ifcName                   :: !(Maybe Text)
-    , _ifcTargetSpotCapacity     :: !(Maybe Nat)
-    , _ifcLaunchSpecifications   :: !(Maybe InstanceFleetProvisioningSpecifications)
-    , _ifcInstanceFleetType      :: !InstanceFleetType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifcInstanceTypeConfigs :: {-# NOUNPACK #-}!(Maybe [InstanceTypeConfig])
+  , _ifcTargetOnDemandCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ifcName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ifcTargetSpotCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ifcLaunchSpecifications :: {-# NOUNPACK #-}!(Maybe InstanceFleetProvisioningSpecifications)
+  , _ifcInstanceFleetType :: {-# NOUNPACK #-}!InstanceFleetType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceFleetConfig' with the minimum fields required to make a request.
 --
@@ -1861,14 +1876,15 @@ instanceFleetConfig
     :: InstanceFleetType -- ^ 'ifcInstanceFleetType'
     -> InstanceFleetConfig
 instanceFleetConfig pInstanceFleetType_ =
-    InstanceFleetConfig'
-    { _ifcInstanceTypeConfigs = Nothing
-    , _ifcTargetOnDemandCapacity = Nothing
-    , _ifcName = Nothing
-    , _ifcTargetSpotCapacity = Nothing
-    , _ifcLaunchSpecifications = Nothing
-    , _ifcInstanceFleetType = pInstanceFleetType_
-    }
+  InstanceFleetConfig'
+  { _ifcInstanceTypeConfigs = Nothing
+  , _ifcTargetOnDemandCapacity = Nothing
+  , _ifcName = Nothing
+  , _ifcTargetSpotCapacity = Nothing
+  , _ifcLaunchSpecifications = Nothing
+  , _ifcInstanceFleetType = pInstanceFleetType_
+  }
+
 
 -- | The instance type configurations that define the EC2 instances in the instance fleet.
 ifcInstanceTypeConfigs :: Lens' InstanceFleetConfig [InstanceTypeConfig]
@@ -1894,9 +1910,9 @@ ifcLaunchSpecifications = lens _ifcLaunchSpecifications (\ s a -> s{_ifcLaunchSp
 ifcInstanceFleetType :: Lens' InstanceFleetConfig InstanceFleetType
 ifcInstanceFleetType = lens _ifcInstanceFleetType (\ s a -> s{_ifcInstanceFleetType = a});
 
-instance Hashable InstanceFleetConfig
+instance Hashable InstanceFleetConfig where
 
-instance NFData InstanceFleetConfig
+instance NFData InstanceFleetConfig where
 
 instance ToJSON InstanceFleetConfig where
         toJSON InstanceFleetConfig'{..}
@@ -1918,10 +1934,11 @@ instance ToJSON InstanceFleetConfig where
 --
 -- /See:/ 'instanceFleetModifyConfig' smart constructor.
 data InstanceFleetModifyConfig = InstanceFleetModifyConfig'
-    { _ifmcTargetOnDemandCapacity :: !(Maybe Nat)
-    , _ifmcTargetSpotCapacity     :: !(Maybe Nat)
-    , _ifmcInstanceFleetId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifmcTargetOnDemandCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ifmcTargetSpotCapacity     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ifmcInstanceFleetId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceFleetModifyConfig' with the minimum fields required to make a request.
 --
@@ -1936,11 +1953,12 @@ instanceFleetModifyConfig
     :: Text -- ^ 'ifmcInstanceFleetId'
     -> InstanceFleetModifyConfig
 instanceFleetModifyConfig pInstanceFleetId_ =
-    InstanceFleetModifyConfig'
-    { _ifmcTargetOnDemandCapacity = Nothing
-    , _ifmcTargetSpotCapacity = Nothing
-    , _ifmcInstanceFleetId = pInstanceFleetId_
-    }
+  InstanceFleetModifyConfig'
+  { _ifmcTargetOnDemandCapacity = Nothing
+  , _ifmcTargetSpotCapacity = Nothing
+  , _ifmcInstanceFleetId = pInstanceFleetId_
+  }
+
 
 -- | The target capacity of On-Demand units for the instance fleet. For more information see 'InstanceFleetConfig$TargetOnDemandCapacity' .
 ifmcTargetOnDemandCapacity :: Lens' InstanceFleetModifyConfig (Maybe Natural)
@@ -1954,9 +1972,9 @@ ifmcTargetSpotCapacity = lens _ifmcTargetSpotCapacity (\ s a -> s{_ifmcTargetSpo
 ifmcInstanceFleetId :: Lens' InstanceFleetModifyConfig Text
 ifmcInstanceFleetId = lens _ifmcInstanceFleetId (\ s a -> s{_ifmcInstanceFleetId = a});
 
-instance Hashable InstanceFleetModifyConfig
+instance Hashable InstanceFleetModifyConfig where
 
-instance NFData InstanceFleetModifyConfig
+instance NFData InstanceFleetModifyConfig where
 
 instance ToJSON InstanceFleetModifyConfig where
         toJSON InstanceFleetModifyConfig'{..}
@@ -1974,8 +1992,9 @@ instance ToJSON InstanceFleetModifyConfig where
 --
 -- /See:/ 'instanceFleetProvisioningSpecifications' smart constructor.
 newtype InstanceFleetProvisioningSpecifications = InstanceFleetProvisioningSpecifications'
-    { _ifpsSpotSpecification :: SpotProvisioningSpecification
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifpsSpotSpecification :: SpotProvisioningSpecification
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceFleetProvisioningSpecifications' with the minimum fields required to make a request.
 --
@@ -1986,16 +2005,17 @@ instanceFleetProvisioningSpecifications
     :: SpotProvisioningSpecification -- ^ 'ifpsSpotSpecification'
     -> InstanceFleetProvisioningSpecifications
 instanceFleetProvisioningSpecifications pSpotSpecification_ =
-    InstanceFleetProvisioningSpecifications'
-    { _ifpsSpotSpecification = pSpotSpecification_
-    }
+  InstanceFleetProvisioningSpecifications'
+  {_ifpsSpotSpecification = pSpotSpecification_}
+
 
 -- | The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
 ifpsSpotSpecification :: Lens' InstanceFleetProvisioningSpecifications SpotProvisioningSpecification
 ifpsSpotSpecification = lens _ifpsSpotSpecification (\ s a -> s{_ifpsSpotSpecification = a});
 
 instance FromJSON
-         InstanceFleetProvisioningSpecifications where
+           InstanceFleetProvisioningSpecifications
+         where
         parseJSON
           = withObject
               "InstanceFleetProvisioningSpecifications"
@@ -2004,13 +2024,16 @@ instance FromJSON
                    (x .: "SpotSpecification"))
 
 instance Hashable
-         InstanceFleetProvisioningSpecifications
+           InstanceFleetProvisioningSpecifications
+         where
 
 instance NFData
-         InstanceFleetProvisioningSpecifications
+           InstanceFleetProvisioningSpecifications
+         where
 
 instance ToJSON
-         InstanceFleetProvisioningSpecifications where
+           InstanceFleetProvisioningSpecifications
+         where
         toJSON InstanceFleetProvisioningSpecifications'{..}
           = object
               (catMaybes
@@ -2023,9 +2046,10 @@ instance ToJSON
 --
 -- /See:/ 'instanceFleetStateChangeReason' smart constructor.
 data InstanceFleetStateChangeReason = InstanceFleetStateChangeReason'
-    { _ifscrCode    :: !(Maybe InstanceFleetStateChangeReasonCode)
-    , _ifscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifscrCode    :: {-# NOUNPACK #-}!(Maybe InstanceFleetStateChangeReasonCode)
+  , _ifscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceFleetStateChangeReason' with the minimum fields required to make a request.
 --
@@ -2037,10 +2061,9 @@ data InstanceFleetStateChangeReason = InstanceFleetStateChangeReason'
 instanceFleetStateChangeReason
     :: InstanceFleetStateChangeReason
 instanceFleetStateChangeReason =
-    InstanceFleetStateChangeReason'
-    { _ifscrCode = Nothing
-    , _ifscrMessage = Nothing
-    }
+  InstanceFleetStateChangeReason'
+  {_ifscrCode = Nothing, _ifscrMessage = Nothing}
+
 
 -- | A code corresponding to the reason the state change occurred.
 ifscrCode :: Lens' InstanceFleetStateChangeReason (Maybe InstanceFleetStateChangeReasonCode)
@@ -2059,8 +2082,9 @@ instance FromJSON InstanceFleetStateChangeReason
                    (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable InstanceFleetStateChangeReason
+         where
 
-instance NFData InstanceFleetStateChangeReason
+instance NFData InstanceFleetStateChangeReason where
 
 -- | The status of the instance fleet.
 --
@@ -2068,10 +2092,11 @@ instance NFData InstanceFleetStateChangeReason
 --
 -- /See:/ 'instanceFleetStatus' smart constructor.
 data InstanceFleetStatus = InstanceFleetStatus'
-    { _ifsState             :: !(Maybe InstanceFleetState)
-    , _ifsStateChangeReason :: !(Maybe InstanceFleetStateChangeReason)
-    , _ifsTimeline          :: !(Maybe InstanceFleetTimeline)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifsState :: {-# NOUNPACK #-}!(Maybe InstanceFleetState)
+  , _ifsStateChangeReason :: {-# NOUNPACK #-}!(Maybe InstanceFleetStateChangeReason)
+  , _ifsTimeline :: {-# NOUNPACK #-}!(Maybe InstanceFleetTimeline)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceFleetStatus' with the minimum fields required to make a request.
 --
@@ -2085,11 +2110,9 @@ data InstanceFleetStatus = InstanceFleetStatus'
 instanceFleetStatus
     :: InstanceFleetStatus
 instanceFleetStatus =
-    InstanceFleetStatus'
-    { _ifsState = Nothing
-    , _ifsStateChangeReason = Nothing
-    , _ifsTimeline = Nothing
-    }
+  InstanceFleetStatus'
+  {_ifsState = Nothing, _ifsStateChangeReason = Nothing, _ifsTimeline = Nothing}
+
 
 -- | A code representing the instance fleet status.
 ifsState :: Lens' InstanceFleetStatus (Maybe InstanceFleetState)
@@ -2111,9 +2134,9 @@ instance FromJSON InstanceFleetStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
-instance Hashable InstanceFleetStatus
+instance Hashable InstanceFleetStatus where
 
-instance NFData InstanceFleetStatus
+instance NFData InstanceFleetStatus where
 
 -- | Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
 --
@@ -2121,10 +2144,11 @@ instance NFData InstanceFleetStatus
 --
 -- /See:/ 'instanceFleetTimeline' smart constructor.
 data InstanceFleetTimeline = InstanceFleetTimeline'
-    { _iftReadyDateTime    :: !(Maybe POSIX)
-    , _iftCreationDateTime :: !(Maybe POSIX)
-    , _iftEndDateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iftReadyDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iftCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iftEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceFleetTimeline' with the minimum fields required to make a request.
 --
@@ -2138,11 +2162,12 @@ data InstanceFleetTimeline = InstanceFleetTimeline'
 instanceFleetTimeline
     :: InstanceFleetTimeline
 instanceFleetTimeline =
-    InstanceFleetTimeline'
-    { _iftReadyDateTime = Nothing
-    , _iftCreationDateTime = Nothing
-    , _iftEndDateTime = Nothing
-    }
+  InstanceFleetTimeline'
+  { _iftReadyDateTime = Nothing
+  , _iftCreationDateTime = Nothing
+  , _iftEndDateTime = Nothing
+  }
+
 
 -- | The time and date the instance fleet was ready to run jobs.
 iftReadyDateTime :: Lens' InstanceFleetTimeline (Maybe UTCTime)
@@ -2165,9 +2190,9 @@ instance FromJSON InstanceFleetTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
-instance Hashable InstanceFleetTimeline
+instance Hashable InstanceFleetTimeline where
 
-instance NFData InstanceFleetTimeline
+instance NFData InstanceFleetTimeline where
 
 -- | This entity represents an instance group, which is a group of instances that have common purpose. For example, CORE instance group is used for HDFS.
 --
@@ -2175,21 +2200,22 @@ instance NFData InstanceFleetTimeline
 --
 -- /See:/ 'instanceGroup' smart constructor.
 data InstanceGroup = InstanceGroup'
-    { _igStatus                 :: !(Maybe InstanceGroupStatus)
-    , _igBidPrice               :: !(Maybe Text)
-    , _igRequestedInstanceCount :: !(Maybe Int)
-    , _igRunningInstanceCount   :: !(Maybe Int)
-    , _igConfigurations         :: !(Maybe [Configuration])
-    , _igInstanceGroupType      :: !(Maybe InstanceGroupType)
-    , _igEBSBlockDevices        :: !(Maybe [EBSBlockDevice])
-    , _igInstanceType           :: !(Maybe Text)
-    , _igEBSOptimized           :: !(Maybe Bool)
-    , _igMarket                 :: !(Maybe MarketType)
-    , _igName                   :: !(Maybe Text)
-    , _igAutoScalingPolicy      :: !(Maybe AutoScalingPolicyDescription)
-    , _igShrinkPolicy           :: !(Maybe ShrinkPolicy)
-    , _igId                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _igStatus :: {-# NOUNPACK #-}!(Maybe InstanceGroupStatus)
+  , _igBidPrice :: {-# NOUNPACK #-}!(Maybe Text)
+  , _igRequestedInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _igRunningInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _igConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
+  , _igInstanceGroupType :: {-# NOUNPACK #-}!(Maybe InstanceGroupType)
+  , _igEBSBlockDevices :: {-# NOUNPACK #-}!(Maybe [EBSBlockDevice])
+  , _igInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _igEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _igMarket :: {-# NOUNPACK #-}!(Maybe MarketType)
+  , _igName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _igAutoScalingPolicy :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyDescription)
+  , _igShrinkPolicy :: {-# NOUNPACK #-}!(Maybe ShrinkPolicy)
+  , _igId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceGroup' with the minimum fields required to make a request.
 --
@@ -2225,22 +2251,23 @@ data InstanceGroup = InstanceGroup'
 instanceGroup
     :: InstanceGroup
 instanceGroup =
-    InstanceGroup'
-    { _igStatus = Nothing
-    , _igBidPrice = Nothing
-    , _igRequestedInstanceCount = Nothing
-    , _igRunningInstanceCount = Nothing
-    , _igConfigurations = Nothing
-    , _igInstanceGroupType = Nothing
-    , _igEBSBlockDevices = Nothing
-    , _igInstanceType = Nothing
-    , _igEBSOptimized = Nothing
-    , _igMarket = Nothing
-    , _igName = Nothing
-    , _igAutoScalingPolicy = Nothing
-    , _igShrinkPolicy = Nothing
-    , _igId = Nothing
-    }
+  InstanceGroup'
+  { _igStatus = Nothing
+  , _igBidPrice = Nothing
+  , _igRequestedInstanceCount = Nothing
+  , _igRunningInstanceCount = Nothing
+  , _igConfigurations = Nothing
+  , _igInstanceGroupType = Nothing
+  , _igEBSBlockDevices = Nothing
+  , _igInstanceType = Nothing
+  , _igEBSOptimized = Nothing
+  , _igMarket = Nothing
+  , _igName = Nothing
+  , _igAutoScalingPolicy = Nothing
+  , _igShrinkPolicy = Nothing
+  , _igId = Nothing
+  }
+
 
 -- | The current status of the instance group.
 igStatus :: Lens' InstanceGroup (Maybe InstanceGroupStatus)
@@ -2317,9 +2344,9 @@ instance FromJSON InstanceGroup where
                      <*> (x .:? "ShrinkPolicy")
                      <*> (x .:? "Id"))
 
-instance Hashable InstanceGroup
+instance Hashable InstanceGroup where
 
-instance NFData InstanceGroup
+instance NFData InstanceGroup where
 
 -- | Configuration defining a new instance group.
 --
@@ -2327,16 +2354,17 @@ instance NFData InstanceGroup
 --
 -- /See:/ 'instanceGroupConfig' smart constructor.
 data InstanceGroupConfig = InstanceGroupConfig'
-    { _igcEBSConfiguration  :: !(Maybe EBSConfiguration)
-    , _igcBidPrice          :: !(Maybe Text)
-    , _igcConfigurations    :: !(Maybe [Configuration])
-    , _igcMarket            :: !(Maybe MarketType)
-    , _igcName              :: !(Maybe Text)
-    , _igcAutoScalingPolicy :: !(Maybe AutoScalingPolicy)
-    , _igcInstanceRole      :: !InstanceRoleType
-    , _igcInstanceType      :: !Text
-    , _igcInstanceCount     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _igcEBSConfiguration  :: {-# NOUNPACK #-}!(Maybe EBSConfiguration)
+  , _igcBidPrice          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _igcConfigurations    :: {-# NOUNPACK #-}!(Maybe [Configuration])
+  , _igcMarket            :: {-# NOUNPACK #-}!(Maybe MarketType)
+  , _igcName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _igcAutoScalingPolicy :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicy)
+  , _igcInstanceRole      :: {-# NOUNPACK #-}!InstanceRoleType
+  , _igcInstanceType      :: {-# NOUNPACK #-}!Text
+  , _igcInstanceCount     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceGroupConfig' with the minimum fields required to make a request.
 --
@@ -2365,17 +2393,18 @@ instanceGroupConfig
     -> Int -- ^ 'igcInstanceCount'
     -> InstanceGroupConfig
 instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
-    InstanceGroupConfig'
-    { _igcEBSConfiguration = Nothing
-    , _igcBidPrice = Nothing
-    , _igcConfigurations = Nothing
-    , _igcMarket = Nothing
-    , _igcName = Nothing
-    , _igcAutoScalingPolicy = Nothing
-    , _igcInstanceRole = pInstanceRole_
-    , _igcInstanceType = pInstanceType_
-    , _igcInstanceCount = pInstanceCount_
-    }
+  InstanceGroupConfig'
+  { _igcEBSConfiguration = Nothing
+  , _igcBidPrice = Nothing
+  , _igcConfigurations = Nothing
+  , _igcMarket = Nothing
+  , _igcName = Nothing
+  , _igcAutoScalingPolicy = Nothing
+  , _igcInstanceRole = pInstanceRole_
+  , _igcInstanceType = pInstanceType_
+  , _igcInstanceCount = pInstanceCount_
+  }
+
 
 -- | EBS configurations that will be attached to each EC2 instance in the instance group.
 igcEBSConfiguration :: Lens' InstanceGroupConfig (Maybe EBSConfiguration)
@@ -2413,9 +2442,9 @@ igcInstanceType = lens _igcInstanceType (\ s a -> s{_igcInstanceType = a});
 igcInstanceCount :: Lens' InstanceGroupConfig Int
 igcInstanceCount = lens _igcInstanceCount (\ s a -> s{_igcInstanceCount = a});
 
-instance Hashable InstanceGroupConfig
+instance Hashable InstanceGroupConfig where
 
-instance NFData InstanceGroupConfig
+instance NFData InstanceGroupConfig where
 
 instance ToJSON InstanceGroupConfig where
         toJSON InstanceGroupConfig'{..}
@@ -2437,11 +2466,12 @@ instance ToJSON InstanceGroupConfig where
 --
 -- /See:/ 'instanceGroupModifyConfig' smart constructor.
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
-    { _igmcInstanceCount             :: !(Maybe Int)
-    , _igmcEC2InstanceIdsToTerminate :: !(Maybe [Text])
-    , _igmcShrinkPolicy              :: !(Maybe ShrinkPolicy)
-    , _igmcInstanceGroupId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _igmcInstanceCount             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _igmcEC2InstanceIdsToTerminate :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _igmcShrinkPolicy              :: {-# NOUNPACK #-}!(Maybe ShrinkPolicy)
+  , _igmcInstanceGroupId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceGroupModifyConfig' with the minimum fields required to make a request.
 --
@@ -2458,12 +2488,13 @@ instanceGroupModifyConfig
     :: Text -- ^ 'igmcInstanceGroupId'
     -> InstanceGroupModifyConfig
 instanceGroupModifyConfig pInstanceGroupId_ =
-    InstanceGroupModifyConfig'
-    { _igmcInstanceCount = Nothing
-    , _igmcEC2InstanceIdsToTerminate = Nothing
-    , _igmcShrinkPolicy = Nothing
-    , _igmcInstanceGroupId = pInstanceGroupId_
-    }
+  InstanceGroupModifyConfig'
+  { _igmcInstanceCount = Nothing
+  , _igmcEC2InstanceIdsToTerminate = Nothing
+  , _igmcShrinkPolicy = Nothing
+  , _igmcInstanceGroupId = pInstanceGroupId_
+  }
+
 
 -- | Target size for the instance group.
 igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Int)
@@ -2481,9 +2512,9 @@ igmcShrinkPolicy = lens _igmcShrinkPolicy (\ s a -> s{_igmcShrinkPolicy = a});
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
 igmcInstanceGroupId = lens _igmcInstanceGroupId (\ s a -> s{_igmcInstanceGroupId = a});
 
-instance Hashable InstanceGroupModifyConfig
+instance Hashable InstanceGroupModifyConfig where
 
-instance NFData InstanceGroupModifyConfig
+instance NFData InstanceGroupModifyConfig where
 
 instance ToJSON InstanceGroupModifyConfig where
         toJSON InstanceGroupModifyConfig'{..}
@@ -2501,9 +2532,10 @@ instance ToJSON InstanceGroupModifyConfig where
 --
 -- /See:/ 'instanceGroupStateChangeReason' smart constructor.
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
-    { _igscrCode    :: !(Maybe InstanceGroupStateChangeReasonCode)
-    , _igscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _igscrCode    :: {-# NOUNPACK #-}!(Maybe InstanceGroupStateChangeReasonCode)
+  , _igscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceGroupStateChangeReason' with the minimum fields required to make a request.
 --
@@ -2515,10 +2547,9 @@ data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
 instanceGroupStateChangeReason
     :: InstanceGroupStateChangeReason
 instanceGroupStateChangeReason =
-    InstanceGroupStateChangeReason'
-    { _igscrCode = Nothing
-    , _igscrMessage = Nothing
-    }
+  InstanceGroupStateChangeReason'
+  {_igscrCode = Nothing, _igscrMessage = Nothing}
+
 
 -- | The programmable code for the state change reason.
 igscrCode :: Lens' InstanceGroupStateChangeReason (Maybe InstanceGroupStateChangeReasonCode)
@@ -2537,8 +2568,9 @@ instance FromJSON InstanceGroupStateChangeReason
                    (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable InstanceGroupStateChangeReason
+         where
 
-instance NFData InstanceGroupStateChangeReason
+instance NFData InstanceGroupStateChangeReason where
 
 -- | The details of the instance group status.
 --
@@ -2546,10 +2578,11 @@ instance NFData InstanceGroupStateChangeReason
 --
 -- /See:/ 'instanceGroupStatus' smart constructor.
 data InstanceGroupStatus = InstanceGroupStatus'
-    { _igsState             :: !(Maybe InstanceGroupState)
-    , _igsStateChangeReason :: !(Maybe InstanceGroupStateChangeReason)
-    , _igsTimeline          :: !(Maybe InstanceGroupTimeline)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _igsState :: {-# NOUNPACK #-}!(Maybe InstanceGroupState)
+  , _igsStateChangeReason :: {-# NOUNPACK #-}!(Maybe InstanceGroupStateChangeReason)
+  , _igsTimeline :: {-# NOUNPACK #-}!(Maybe InstanceGroupTimeline)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceGroupStatus' with the minimum fields required to make a request.
 --
@@ -2563,11 +2596,9 @@ data InstanceGroupStatus = InstanceGroupStatus'
 instanceGroupStatus
     :: InstanceGroupStatus
 instanceGroupStatus =
-    InstanceGroupStatus'
-    { _igsState = Nothing
-    , _igsStateChangeReason = Nothing
-    , _igsTimeline = Nothing
-    }
+  InstanceGroupStatus'
+  {_igsState = Nothing, _igsStateChangeReason = Nothing, _igsTimeline = Nothing}
+
 
 -- | The current state of the instance group.
 igsState :: Lens' InstanceGroupStatus (Maybe InstanceGroupState)
@@ -2589,9 +2620,9 @@ instance FromJSON InstanceGroupStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
-instance Hashable InstanceGroupStatus
+instance Hashable InstanceGroupStatus where
 
-instance NFData InstanceGroupStatus
+instance NFData InstanceGroupStatus where
 
 -- | The timeline of the instance group lifecycle.
 --
@@ -2599,10 +2630,11 @@ instance NFData InstanceGroupStatus
 --
 -- /See:/ 'instanceGroupTimeline' smart constructor.
 data InstanceGroupTimeline = InstanceGroupTimeline'
-    { _igtReadyDateTime    :: !(Maybe POSIX)
-    , _igtCreationDateTime :: !(Maybe POSIX)
-    , _igtEndDateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _igtReadyDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _igtCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _igtEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceGroupTimeline' with the minimum fields required to make a request.
 --
@@ -2616,11 +2648,12 @@ data InstanceGroupTimeline = InstanceGroupTimeline'
 instanceGroupTimeline
     :: InstanceGroupTimeline
 instanceGroupTimeline =
-    InstanceGroupTimeline'
-    { _igtReadyDateTime = Nothing
-    , _igtCreationDateTime = Nothing
-    , _igtEndDateTime = Nothing
-    }
+  InstanceGroupTimeline'
+  { _igtReadyDateTime = Nothing
+  , _igtCreationDateTime = Nothing
+  , _igtEndDateTime = Nothing
+  }
+
 
 -- | The date and time when the instance group became ready to perform tasks.
 igtReadyDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
@@ -2643,9 +2676,9 @@ instance FromJSON InstanceGroupTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
-instance Hashable InstanceGroupTimeline
+instance Hashable InstanceGroupTimeline where
 
-instance NFData InstanceGroupTimeline
+instance NFData InstanceGroupTimeline where
 
 -- | Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
 --
@@ -2653,10 +2686,11 @@ instance NFData InstanceGroupTimeline
 --
 -- /See:/ 'instanceResizePolicy' smart constructor.
 data InstanceResizePolicy = InstanceResizePolicy'
-    { _irpInstancesToProtect         :: !(Maybe [Text])
-    , _irpInstancesToTerminate       :: !(Maybe [Text])
-    , _irpInstanceTerminationTimeout :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irpInstancesToProtect         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _irpInstancesToTerminate       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _irpInstanceTerminationTimeout :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceResizePolicy' with the minimum fields required to make a request.
 --
@@ -2670,11 +2704,12 @@ data InstanceResizePolicy = InstanceResizePolicy'
 instanceResizePolicy
     :: InstanceResizePolicy
 instanceResizePolicy =
-    InstanceResizePolicy'
-    { _irpInstancesToProtect = Nothing
-    , _irpInstancesToTerminate = Nothing
-    , _irpInstanceTerminationTimeout = Nothing
-    }
+  InstanceResizePolicy'
+  { _irpInstancesToProtect = Nothing
+  , _irpInstancesToTerminate = Nothing
+  , _irpInstanceTerminationTimeout = Nothing
+  }
+
 
 -- | Specific list of instances to be protected when shrinking an instance group.
 irpInstancesToProtect :: Lens' InstanceResizePolicy [Text]
@@ -2697,9 +2732,9 @@ instance FromJSON InstanceResizePolicy where
                      (x .:? "InstancesToTerminate" .!= mempty)
                      <*> (x .:? "InstanceTerminationTimeout"))
 
-instance Hashable InstanceResizePolicy
+instance Hashable InstanceResizePolicy where
 
-instance NFData InstanceResizePolicy
+instance NFData InstanceResizePolicy where
 
 instance ToJSON InstanceResizePolicy where
         toJSON InstanceResizePolicy'{..}
@@ -2718,9 +2753,10 @@ instance ToJSON InstanceResizePolicy where
 --
 -- /See:/ 'instanceStateChangeReason' smart constructor.
 data InstanceStateChangeReason = InstanceStateChangeReason'
-    { _iscrCode    :: !(Maybe InstanceStateChangeReasonCode)
-    , _iscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iscrCode    :: {-# NOUNPACK #-}!(Maybe InstanceStateChangeReasonCode)
+  , _iscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceStateChangeReason' with the minimum fields required to make a request.
 --
@@ -2732,10 +2768,8 @@ data InstanceStateChangeReason = InstanceStateChangeReason'
 instanceStateChangeReason
     :: InstanceStateChangeReason
 instanceStateChangeReason =
-    InstanceStateChangeReason'
-    { _iscrCode = Nothing
-    , _iscrMessage = Nothing
-    }
+  InstanceStateChangeReason' {_iscrCode = Nothing, _iscrMessage = Nothing}
+
 
 -- | The programmable code for the state change reason.
 iscrCode :: Lens' InstanceStateChangeReason (Maybe InstanceStateChangeReasonCode)
@@ -2752,9 +2786,9 @@ instance FromJSON InstanceStateChangeReason where
                  InstanceStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
-instance Hashable InstanceStateChangeReason
+instance Hashable InstanceStateChangeReason where
 
-instance NFData InstanceStateChangeReason
+instance NFData InstanceStateChangeReason where
 
 -- | The instance status details.
 --
@@ -2762,10 +2796,11 @@ instance NFData InstanceStateChangeReason
 --
 -- /See:/ 'instanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
-    { _isState             :: !(Maybe InstanceState)
-    , _isStateChangeReason :: !(Maybe InstanceStateChangeReason)
-    , _isTimeline          :: !(Maybe InstanceTimeline)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isState             :: {-# NOUNPACK #-}!(Maybe InstanceState)
+  , _isStateChangeReason :: {-# NOUNPACK #-}!(Maybe InstanceStateChangeReason)
+  , _isTimeline          :: {-# NOUNPACK #-}!(Maybe InstanceTimeline)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceStatus' with the minimum fields required to make a request.
 --
@@ -2779,11 +2814,9 @@ data InstanceStatus = InstanceStatus'
 instanceStatus
     :: InstanceStatus
 instanceStatus =
-    InstanceStatus'
-    { _isState = Nothing
-    , _isStateChangeReason = Nothing
-    , _isTimeline = Nothing
-    }
+  InstanceStatus'
+  {_isState = Nothing, _isStateChangeReason = Nothing, _isTimeline = Nothing}
+
 
 -- | The current state of the instance.
 isState :: Lens' InstanceStatus (Maybe InstanceState)
@@ -2805,9 +2838,9 @@ instance FromJSON InstanceStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
-instance Hashable InstanceStatus
+instance Hashable InstanceStatus where
 
-instance NFData InstanceStatus
+instance NFData InstanceStatus where
 
 -- | The timeline of the instance lifecycle.
 --
@@ -2815,10 +2848,11 @@ instance NFData InstanceStatus
 --
 -- /See:/ 'instanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
-    { _itReadyDateTime    :: !(Maybe POSIX)
-    , _itCreationDateTime :: !(Maybe POSIX)
-    , _itEndDateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _itReadyDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _itCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _itEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceTimeline' with the minimum fields required to make a request.
 --
@@ -2832,11 +2866,12 @@ data InstanceTimeline = InstanceTimeline'
 instanceTimeline
     :: InstanceTimeline
 instanceTimeline =
-    InstanceTimeline'
-    { _itReadyDateTime = Nothing
-    , _itCreationDateTime = Nothing
-    , _itEndDateTime = Nothing
-    }
+  InstanceTimeline'
+  { _itReadyDateTime = Nothing
+  , _itCreationDateTime = Nothing
+  , _itEndDateTime = Nothing
+  }
+
 
 -- | The date and time when the instance was ready to perform tasks.
 itReadyDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
@@ -2859,9 +2894,9 @@ instance FromJSON InstanceTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
-instance Hashable InstanceTimeline
+instance Hashable InstanceTimeline where
 
-instance NFData InstanceTimeline
+instance NFData InstanceTimeline where
 
 -- | An instance type configuration for each instance type in an instance fleet, which determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities. There can be a maximum of 5 instance type configurations in a fleet.
 --
@@ -2869,13 +2904,14 @@ instance NFData InstanceTimeline
 --
 -- /See:/ 'instanceTypeConfig' smart constructor.
 data InstanceTypeConfig = InstanceTypeConfig'
-    { _itcEBSConfiguration                    :: !(Maybe EBSConfiguration)
-    , _itcBidPrice                            :: !(Maybe Text)
-    , _itcWeightedCapacity                    :: !(Maybe Nat)
-    , _itcConfigurations                      :: !(Maybe [Configuration])
-    , _itcBidPriceAsPercentageOfOnDemandPrice :: !(Maybe Double)
-    , _itcInstanceType                        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _itcEBSConfiguration :: {-# NOUNPACK #-}!(Maybe EBSConfiguration)
+  , _itcBidPrice :: {-# NOUNPACK #-}!(Maybe Text)
+  , _itcWeightedCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _itcConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
+  , _itcBidPriceAsPercentageOfOnDemandPrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _itcInstanceType :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceTypeConfig' with the minimum fields required to make a request.
 --
@@ -2896,14 +2932,15 @@ instanceTypeConfig
     :: Text -- ^ 'itcInstanceType'
     -> InstanceTypeConfig
 instanceTypeConfig pInstanceType_ =
-    InstanceTypeConfig'
-    { _itcEBSConfiguration = Nothing
-    , _itcBidPrice = Nothing
-    , _itcWeightedCapacity = Nothing
-    , _itcConfigurations = Nothing
-    , _itcBidPriceAsPercentageOfOnDemandPrice = Nothing
-    , _itcInstanceType = pInstanceType_
-    }
+  InstanceTypeConfig'
+  { _itcEBSConfiguration = Nothing
+  , _itcBidPrice = Nothing
+  , _itcWeightedCapacity = Nothing
+  , _itcConfigurations = Nothing
+  , _itcBidPriceAsPercentageOfOnDemandPrice = Nothing
+  , _itcInstanceType = pInstanceType_
+  }
+
 
 -- | The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by @InstanceType@ .
 itcEBSConfiguration :: Lens' InstanceTypeConfig (Maybe EBSConfiguration)
@@ -2929,9 +2966,9 @@ itcBidPriceAsPercentageOfOnDemandPrice = lens _itcBidPriceAsPercentageOfOnDemand
 itcInstanceType :: Lens' InstanceTypeConfig Text
 itcInstanceType = lens _itcInstanceType (\ s a -> s{_itcInstanceType = a});
 
-instance Hashable InstanceTypeConfig
+instance Hashable InstanceTypeConfig where
 
-instance NFData InstanceTypeConfig
+instance NFData InstanceTypeConfig where
 
 instance ToJSON InstanceTypeConfig where
         toJSON InstanceTypeConfig'{..}
@@ -2951,14 +2988,15 @@ instance ToJSON InstanceTypeConfig where
 --
 -- /See:/ 'instanceTypeSpecification' smart constructor.
 data InstanceTypeSpecification = InstanceTypeSpecification'
-    { _itsBidPrice                            :: !(Maybe Text)
-    , _itsWeightedCapacity                    :: !(Maybe Nat)
-    , _itsConfigurations                      :: !(Maybe [Configuration])
-    , _itsEBSBlockDevices                     :: !(Maybe [EBSBlockDevice])
-    , _itsInstanceType                        :: !(Maybe Text)
-    , _itsEBSOptimized                        :: !(Maybe Bool)
-    , _itsBidPriceAsPercentageOfOnDemandPrice :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _itsBidPrice :: {-# NOUNPACK #-}!(Maybe Text)
+  , _itsWeightedCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _itsConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
+  , _itsEBSBlockDevices :: {-# NOUNPACK #-}!(Maybe [EBSBlockDevice])
+  , _itsInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _itsEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _itsBidPriceAsPercentageOfOnDemandPrice :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceTypeSpecification' with the minimum fields required to make a request.
 --
@@ -2980,15 +3018,16 @@ data InstanceTypeSpecification = InstanceTypeSpecification'
 instanceTypeSpecification
     :: InstanceTypeSpecification
 instanceTypeSpecification =
-    InstanceTypeSpecification'
-    { _itsBidPrice = Nothing
-    , _itsWeightedCapacity = Nothing
-    , _itsConfigurations = Nothing
-    , _itsEBSBlockDevices = Nothing
-    , _itsInstanceType = Nothing
-    , _itsEBSOptimized = Nothing
-    , _itsBidPriceAsPercentageOfOnDemandPrice = Nothing
-    }
+  InstanceTypeSpecification'
+  { _itsBidPrice = Nothing
+  , _itsWeightedCapacity = Nothing
+  , _itsConfigurations = Nothing
+  , _itsEBSBlockDevices = Nothing
+  , _itsInstanceType = Nothing
+  , _itsEBSOptimized = Nothing
+  , _itsBidPriceAsPercentageOfOnDemandPrice = Nothing
+  }
+
 
 -- | The bid price for each EC2 Spot instance type as defined by @InstanceType@ . Expressed in USD.
 itsBidPrice :: Lens' InstanceTypeSpecification (Maybe Text)
@@ -3030,9 +3069,9 @@ instance FromJSON InstanceTypeSpecification where
                      <*> (x .:? "EbsOptimized")
                      <*> (x .:? "BidPriceAsPercentageOfOnDemandPrice"))
 
-instance Hashable InstanceTypeSpecification
+instance Hashable InstanceTypeSpecification where
 
-instance NFData InstanceTypeSpecification
+instance NFData InstanceTypeSpecification where
 
 -- | A description of the Amazon EC2 instance on which the cluster (job flow) runs. A valid JobFlowInstancesConfig must contain either InstanceGroups or InstanceFleets, which is the recommended configuration. They cannot be used together. You may also have MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must be present), but we don't recommend this configuration.
 --
@@ -3040,24 +3079,25 @@ instance NFData InstanceTypeSpecification
 --
 -- /See:/ 'jobFlowInstancesConfig' smart constructor.
 data JobFlowInstancesConfig = JobFlowInstancesConfig'
-    { _jficInstanceFleets                 :: !(Maybe [InstanceFleetConfig])
-    , _jficEC2KeyName                     :: !(Maybe Text)
-    , _jficSlaveInstanceType              :: !(Maybe Text)
-    , _jficInstanceCount                  :: !(Maybe Int)
-    , _jficEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
-    , _jficAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
-    , _jficEC2SubnetIds                   :: !(Maybe [Text])
-    , _jficHadoopVersion                  :: !(Maybe Text)
-    , _jficAdditionalMasterSecurityGroups :: !(Maybe [Text])
-    , _jficEmrManagedMasterSecurityGroup  :: !(Maybe Text)
-    , _jficEC2SubnetId                    :: !(Maybe Text)
-    , _jficMasterInstanceType             :: !(Maybe Text)
-    , _jficInstanceGroups                 :: !(Maybe [InstanceGroupConfig])
-    , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
-    , _jficServiceAccessSecurityGroup     :: !(Maybe Text)
-    , _jficTerminationProtected           :: !(Maybe Bool)
-    , _jficPlacement                      :: !(Maybe PlacementType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jficInstanceFleets :: {-# NOUNPACK #-}!(Maybe [InstanceFleetConfig])
+  , _jficEC2KeyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jficSlaveInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jficInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _jficEmrManagedSlaveSecurityGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jficAdditionalSlaveSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _jficEC2SubnetIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _jficHadoopVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jficAdditionalMasterSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _jficEmrManagedMasterSecurityGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jficEC2SubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jficMasterInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jficInstanceGroups :: {-# NOUNPACK #-}!(Maybe [InstanceGroupConfig])
+  , _jficKeepJobFlowAliveWhenNoSteps :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _jficServiceAccessSecurityGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jficTerminationProtected :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _jficPlacement :: {-# NOUNPACK #-}!(Maybe PlacementType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobFlowInstancesConfig' with the minimum fields required to make a request.
 --
@@ -3099,25 +3139,26 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 jobFlowInstancesConfig
     :: JobFlowInstancesConfig
 jobFlowInstancesConfig =
-    JobFlowInstancesConfig'
-    { _jficInstanceFleets = Nothing
-    , _jficEC2KeyName = Nothing
-    , _jficSlaveInstanceType = Nothing
-    , _jficInstanceCount = Nothing
-    , _jficEmrManagedSlaveSecurityGroup = Nothing
-    , _jficAdditionalSlaveSecurityGroups = Nothing
-    , _jficEC2SubnetIds = Nothing
-    , _jficHadoopVersion = Nothing
-    , _jficAdditionalMasterSecurityGroups = Nothing
-    , _jficEmrManagedMasterSecurityGroup = Nothing
-    , _jficEC2SubnetId = Nothing
-    , _jficMasterInstanceType = Nothing
-    , _jficInstanceGroups = Nothing
-    , _jficKeepJobFlowAliveWhenNoSteps = Nothing
-    , _jficServiceAccessSecurityGroup = Nothing
-    , _jficTerminationProtected = Nothing
-    , _jficPlacement = Nothing
-    }
+  JobFlowInstancesConfig'
+  { _jficInstanceFleets = Nothing
+  , _jficEC2KeyName = Nothing
+  , _jficSlaveInstanceType = Nothing
+  , _jficInstanceCount = Nothing
+  , _jficEmrManagedSlaveSecurityGroup = Nothing
+  , _jficAdditionalSlaveSecurityGroups = Nothing
+  , _jficEC2SubnetIds = Nothing
+  , _jficHadoopVersion = Nothing
+  , _jficAdditionalMasterSecurityGroups = Nothing
+  , _jficEmrManagedMasterSecurityGroup = Nothing
+  , _jficEC2SubnetId = Nothing
+  , _jficMasterInstanceType = Nothing
+  , _jficInstanceGroups = Nothing
+  , _jficKeepJobFlowAliveWhenNoSteps = Nothing
+  , _jficServiceAccessSecurityGroup = Nothing
+  , _jficTerminationProtected = Nothing
+  , _jficPlacement = Nothing
+  }
+
 
 -- | Describes the EC2 instances and instance configurations for clusters that use the instance fleet configuration.
 jficInstanceFleets :: Lens' JobFlowInstancesConfig [InstanceFleetConfig]
@@ -3187,9 +3228,9 @@ jficTerminationProtected = lens _jficTerminationProtected (\ s a -> s{_jficTermi
 jficPlacement :: Lens' JobFlowInstancesConfig (Maybe PlacementType)
 jficPlacement = lens _jficPlacement (\ s a -> s{_jficPlacement = a});
 
-instance Hashable JobFlowInstancesConfig
+instance Hashable JobFlowInstancesConfig where
 
-instance NFData JobFlowInstancesConfig
+instance NFData JobFlowInstancesConfig where
 
 instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
@@ -3227,9 +3268,10 @@ instance ToJSON JobFlowInstancesConfig where
 --
 -- /See:/ 'keyValue' smart constructor.
 data KeyValue = KeyValue'
-    { _kvValue :: !(Maybe Text)
-    , _kvKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kvValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kvKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyValue' with the minimum fields required to make a request.
 --
@@ -3240,11 +3282,8 @@ data KeyValue = KeyValue'
 -- * 'kvKey' - The unique identifier of a key value pair.
 keyValue
     :: KeyValue
-keyValue =
-    KeyValue'
-    { _kvValue = Nothing
-    , _kvKey = Nothing
-    }
+keyValue = KeyValue' {_kvValue = Nothing, _kvKey = Nothing}
+
 
 -- | The value part of the identified key.
 kvValue :: Lens' KeyValue (Maybe Text)
@@ -3254,9 +3293,9 @@ kvValue = lens _kvValue (\ s a -> s{_kvValue = a});
 kvKey :: Lens' KeyValue (Maybe Text)
 kvKey = lens _kvKey (\ s a -> s{_kvKey = a});
 
-instance Hashable KeyValue
+instance Hashable KeyValue where
 
-instance NFData KeyValue
+instance NFData KeyValue where
 
 instance ToJSON KeyValue where
         toJSON KeyValue'{..}
@@ -3270,9 +3309,10 @@ instance ToJSON KeyValue where
 --
 -- /See:/ 'metricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-    { _mdValue :: !(Maybe Text)
-    , _mdKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
 --
@@ -3283,11 +3323,8 @@ data MetricDimension = MetricDimension'
 -- * 'mdKey' - The dimension name.
 metricDimension
     :: MetricDimension
-metricDimension =
-    MetricDimension'
-    { _mdValue = Nothing
-    , _mdKey = Nothing
-    }
+metricDimension = MetricDimension' {_mdValue = Nothing, _mdKey = Nothing}
+
 
 -- | The dimension value.
 mdValue :: Lens' MetricDimension (Maybe Text)
@@ -3304,9 +3341,9 @@ instance FromJSON MetricDimension where
                  MetricDimension' <$>
                    (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable MetricDimension
+instance Hashable MetricDimension where
 
-instance NFData MetricDimension
+instance NFData MetricDimension where
 
 instance ToJSON MetricDimension where
         toJSON MetricDimension'{..}
@@ -3320,9 +3357,10 @@ instance ToJSON MetricDimension where
 --
 -- /See:/ 'placementType' smart constructor.
 data PlacementType = PlacementType'
-    { _ptAvailabilityZones :: !(Maybe [Text])
-    , _ptAvailabilityZone  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ptAvailabilityZone  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlacementType' with the minimum fields required to make a request.
 --
@@ -3334,10 +3372,8 @@ data PlacementType = PlacementType'
 placementType
     :: PlacementType
 placementType =
-    PlacementType'
-    { _ptAvailabilityZones = Nothing
-    , _ptAvailabilityZone = Nothing
-    }
+  PlacementType' {_ptAvailabilityZones = Nothing, _ptAvailabilityZone = Nothing}
+
 
 -- | When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. @AvailabilityZones@ is used for instance fleets, while @AvailabilityZone@ (singular) is used for uniform instance groups.
 ptAvailabilityZones :: Lens' PlacementType [Text]
@@ -3347,9 +3383,9 @@ ptAvailabilityZones = lens _ptAvailabilityZones (\ s a -> s{_ptAvailabilityZones
 ptAvailabilityZone :: Lens' PlacementType (Maybe Text)
 ptAvailabilityZone = lens _ptAvailabilityZone (\ s a -> s{_ptAvailabilityZone = a});
 
-instance Hashable PlacementType
+instance Hashable PlacementType where
 
-instance NFData PlacementType
+instance NFData PlacementType where
 
 instance ToJSON PlacementType where
         toJSON PlacementType'{..}
@@ -3364,9 +3400,10 @@ instance ToJSON PlacementType where
 --
 -- /See:/ 'scalingAction' smart constructor.
 data ScalingAction = ScalingAction'
-    { _saMarket                           :: !(Maybe MarketType)
-    , _saSimpleScalingPolicyConfiguration :: !SimpleScalingPolicyConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saMarket :: {-# NOUNPACK #-}!(Maybe MarketType)
+  , _saSimpleScalingPolicyConfiguration :: {-# NOUNPACK #-}!SimpleScalingPolicyConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingAction' with the minimum fields required to make a request.
 --
@@ -3379,10 +3416,11 @@ scalingAction
     :: SimpleScalingPolicyConfiguration -- ^ 'saSimpleScalingPolicyConfiguration'
     -> ScalingAction
 scalingAction pSimpleScalingPolicyConfiguration_ =
-    ScalingAction'
-    { _saMarket = Nothing
-    , _saSimpleScalingPolicyConfiguration = pSimpleScalingPolicyConfiguration_
-    }
+  ScalingAction'
+  { _saMarket = Nothing
+  , _saSimpleScalingPolicyConfiguration = pSimpleScalingPolicyConfiguration_
+  }
+
 
 -- | Not available for instance groups. Instance groups use the market type specified for the group.
 saMarket :: Lens' ScalingAction (Maybe MarketType)
@@ -3400,9 +3438,9 @@ instance FromJSON ScalingAction where
                    (x .:? "Market") <*>
                      (x .: "SimpleScalingPolicyConfiguration"))
 
-instance Hashable ScalingAction
+instance Hashable ScalingAction where
 
-instance NFData ScalingAction
+instance NFData ScalingAction where
 
 instance ToJSON ScalingAction where
         toJSON ScalingAction'{..}
@@ -3419,9 +3457,10 @@ instance ToJSON ScalingAction where
 --
 -- /See:/ 'scalingConstraints' smart constructor.
 data ScalingConstraints = ScalingConstraints'
-    { _scMinCapacity :: !Int
-    , _scMaxCapacity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scMinCapacity :: {-# NOUNPACK #-}!Int
+  , _scMaxCapacity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingConstraints' with the minimum fields required to make a request.
 --
@@ -3435,10 +3474,9 @@ scalingConstraints
     -> Int -- ^ 'scMaxCapacity'
     -> ScalingConstraints
 scalingConstraints pMinCapacity_ pMaxCapacity_ =
-    ScalingConstraints'
-    { _scMinCapacity = pMinCapacity_
-    , _scMaxCapacity = pMaxCapacity_
-    }
+  ScalingConstraints'
+  {_scMinCapacity = pMinCapacity_, _scMaxCapacity = pMaxCapacity_}
+
 
 -- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
 scMinCapacity :: Lens' ScalingConstraints Int
@@ -3455,9 +3493,9 @@ instance FromJSON ScalingConstraints where
                  ScalingConstraints' <$>
                    (x .: "MinCapacity") <*> (x .: "MaxCapacity"))
 
-instance Hashable ScalingConstraints
+instance Hashable ScalingConstraints where
 
-instance NFData ScalingConstraints
+instance NFData ScalingConstraints where
 
 instance ToJSON ScalingConstraints where
         toJSON ScalingConstraints'{..}
@@ -3472,11 +3510,12 @@ instance ToJSON ScalingConstraints where
 --
 -- /See:/ 'scalingRule' smart constructor.
 data ScalingRule = ScalingRule'
-    { _srDescription :: !(Maybe Text)
-    , _srName        :: !Text
-    , _srAction      :: !ScalingAction
-    , _srTrigger     :: !ScalingTrigger
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srName        :: {-# NOUNPACK #-}!Text
+  , _srAction      :: {-# NOUNPACK #-}!ScalingAction
+  , _srTrigger     :: {-# NOUNPACK #-}!ScalingTrigger
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingRule' with the minimum fields required to make a request.
 --
@@ -3495,12 +3534,13 @@ scalingRule
     -> ScalingTrigger -- ^ 'srTrigger'
     -> ScalingRule
 scalingRule pName_ pAction_ pTrigger_ =
-    ScalingRule'
-    { _srDescription = Nothing
-    , _srName = pName_
-    , _srAction = pAction_
-    , _srTrigger = pTrigger_
-    }
+  ScalingRule'
+  { _srDescription = Nothing
+  , _srName = pName_
+  , _srAction = pAction_
+  , _srTrigger = pTrigger_
+  }
+
 
 -- | A friendly, more verbose description of the automatic scaling rule.
 srDescription :: Lens' ScalingRule (Maybe Text)
@@ -3527,9 +3567,9 @@ instance FromJSON ScalingRule where
                      (x .: "Action")
                      <*> (x .: "Trigger"))
 
-instance Hashable ScalingRule
+instance Hashable ScalingRule where
 
-instance NFData ScalingRule
+instance NFData ScalingRule where
 
 instance ToJSON ScalingRule where
         toJSON ScalingRule'{..}
@@ -3546,8 +3586,9 @@ instance ToJSON ScalingRule where
 --
 -- /See:/ 'scalingTrigger' smart constructor.
 newtype ScalingTrigger = ScalingTrigger'
-    { _stCloudWatchAlarmDefinition :: CloudWatchAlarmDefinition
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stCloudWatchAlarmDefinition :: CloudWatchAlarmDefinition
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingTrigger' with the minimum fields required to make a request.
 --
@@ -3558,9 +3599,8 @@ scalingTrigger
     :: CloudWatchAlarmDefinition -- ^ 'stCloudWatchAlarmDefinition'
     -> ScalingTrigger
 scalingTrigger pCloudWatchAlarmDefinition_ =
-    ScalingTrigger'
-    { _stCloudWatchAlarmDefinition = pCloudWatchAlarmDefinition_
-    }
+  ScalingTrigger' {_stCloudWatchAlarmDefinition = pCloudWatchAlarmDefinition_}
+
 
 -- | The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
 stCloudWatchAlarmDefinition :: Lens' ScalingTrigger CloudWatchAlarmDefinition
@@ -3573,9 +3613,9 @@ instance FromJSON ScalingTrigger where
                  ScalingTrigger' <$>
                    (x .: "CloudWatchAlarmDefinition"))
 
-instance Hashable ScalingTrigger
+instance Hashable ScalingTrigger where
 
-instance NFData ScalingTrigger
+instance NFData ScalingTrigger where
 
 instance ToJSON ScalingTrigger where
         toJSON ScalingTrigger'{..}
@@ -3591,9 +3631,10 @@ instance ToJSON ScalingTrigger where
 --
 -- /See:/ 'scriptBootstrapActionConfig' smart constructor.
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
-    { _sbacArgs :: !(Maybe [Text])
-    , _sbacPath :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sbacArgs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sbacPath :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScriptBootstrapActionConfig' with the minimum fields required to make a request.
 --
@@ -3606,10 +3647,8 @@ scriptBootstrapActionConfig
     :: Text -- ^ 'sbacPath'
     -> ScriptBootstrapActionConfig
 scriptBootstrapActionConfig pPath_ =
-    ScriptBootstrapActionConfig'
-    { _sbacArgs = Nothing
-    , _sbacPath = pPath_
-    }
+  ScriptBootstrapActionConfig' {_sbacArgs = Nothing, _sbacPath = pPath_}
+
 
 -- | A list of command line arguments to pass to the bootstrap action script.
 sbacArgs :: Lens' ScriptBootstrapActionConfig [Text]
@@ -3619,9 +3658,9 @@ sbacArgs = lens _sbacArgs (\ s a -> s{_sbacArgs = a}) . _Default . _Coerce;
 sbacPath :: Lens' ScriptBootstrapActionConfig Text
 sbacPath = lens _sbacPath (\ s a -> s{_sbacPath = a});
 
-instance Hashable ScriptBootstrapActionConfig
+instance Hashable ScriptBootstrapActionConfig where
 
-instance NFData ScriptBootstrapActionConfig
+instance NFData ScriptBootstrapActionConfig where
 
 instance ToJSON ScriptBootstrapActionConfig where
         toJSON ScriptBootstrapActionConfig'{..}
@@ -3636,9 +3675,10 @@ instance ToJSON ScriptBootstrapActionConfig where
 --
 -- /See:/ 'securityConfigurationSummary' smart constructor.
 data SecurityConfigurationSummary = SecurityConfigurationSummary'
-    { _scsName             :: !(Maybe Text)
-    , _scsCreationDateTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scsName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scsCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SecurityConfigurationSummary' with the minimum fields required to make a request.
 --
@@ -3650,10 +3690,9 @@ data SecurityConfigurationSummary = SecurityConfigurationSummary'
 securityConfigurationSummary
     :: SecurityConfigurationSummary
 securityConfigurationSummary =
-    SecurityConfigurationSummary'
-    { _scsName = Nothing
-    , _scsCreationDateTime = Nothing
-    }
+  SecurityConfigurationSummary'
+  {_scsName = Nothing, _scsCreationDateTime = Nothing}
+
 
 -- | The name of the security configuration.
 scsName :: Lens' SecurityConfigurationSummary (Maybe Text)
@@ -3670,9 +3709,9 @@ instance FromJSON SecurityConfigurationSummary where
                  SecurityConfigurationSummary' <$>
                    (x .:? "Name") <*> (x .:? "CreationDateTime"))
 
-instance Hashable SecurityConfigurationSummary
+instance Hashable SecurityConfigurationSummary where
 
-instance NFData SecurityConfigurationSummary
+instance NFData SecurityConfigurationSummary where
 
 -- | Policy for customizing shrink operations. Allows configuration of decommissioning timeout and targeted instance shrinking.
 --
@@ -3680,9 +3719,10 @@ instance NFData SecurityConfigurationSummary
 --
 -- /See:/ 'shrinkPolicy' smart constructor.
 data ShrinkPolicy = ShrinkPolicy'
-    { _spDecommissionTimeout  :: !(Maybe Int)
-    , _spInstanceResizePolicy :: !(Maybe InstanceResizePolicy)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spDecommissionTimeout  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _spInstanceResizePolicy :: {-# NOUNPACK #-}!(Maybe InstanceResizePolicy)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ShrinkPolicy' with the minimum fields required to make a request.
 --
@@ -3694,10 +3734,9 @@ data ShrinkPolicy = ShrinkPolicy'
 shrinkPolicy
     :: ShrinkPolicy
 shrinkPolicy =
-    ShrinkPolicy'
-    { _spDecommissionTimeout = Nothing
-    , _spInstanceResizePolicy = Nothing
-    }
+  ShrinkPolicy'
+  {_spDecommissionTimeout = Nothing, _spInstanceResizePolicy = Nothing}
+
 
 -- | The desired timeout for decommissioning an instance. Overrides the default YARN decommissioning timeout.
 spDecommissionTimeout :: Lens' ShrinkPolicy (Maybe Int)
@@ -3715,9 +3754,9 @@ instance FromJSON ShrinkPolicy where
                    (x .:? "DecommissionTimeout") <*>
                      (x .:? "InstanceResizePolicy"))
 
-instance Hashable ShrinkPolicy
+instance Hashable ShrinkPolicy where
 
-instance NFData ShrinkPolicy
+instance NFData ShrinkPolicy where
 
 instance ToJSON ShrinkPolicy where
         toJSON ShrinkPolicy'{..}
@@ -3734,10 +3773,11 @@ instance ToJSON ShrinkPolicy where
 --
 -- /See:/ 'simpleScalingPolicyConfiguration' smart constructor.
 data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
-    { _sspcAdjustmentType    :: !(Maybe AdjustmentType)
-    , _sspcCoolDown          :: !(Maybe Int)
-    , _sspcScalingAdjustment :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sspcAdjustmentType    :: {-# NOUNPACK #-}!(Maybe AdjustmentType)
+  , _sspcCoolDown          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sspcScalingAdjustment :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SimpleScalingPolicyConfiguration' with the minimum fields required to make a request.
 --
@@ -3752,11 +3792,12 @@ simpleScalingPolicyConfiguration
     :: Int -- ^ 'sspcScalingAdjustment'
     -> SimpleScalingPolicyConfiguration
 simpleScalingPolicyConfiguration pScalingAdjustment_ =
-    SimpleScalingPolicyConfiguration'
-    { _sspcAdjustmentType = Nothing
-    , _sspcCoolDown = Nothing
-    , _sspcScalingAdjustment = pScalingAdjustment_
-    }
+  SimpleScalingPolicyConfiguration'
+  { _sspcAdjustmentType = Nothing
+  , _sspcCoolDown = Nothing
+  , _sspcScalingAdjustment = pScalingAdjustment_
+  }
+
 
 -- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a positive number) or terminated (if @ScalingAdjustment@ is a negative number) each time the scaling activity is triggered. @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that the EC2 instance count increments or decrements by @ScalingAdjustment@ , which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or decrements by the percentage specified by @ScalingAdjustment@ , which should be expressed as a decimal. For example, 0.20 indicates an increase in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity results in an instance group with the number of EC2 instances specified by @ScalingAdjustment@ , which should be expressed as a positive integer.
 sspcAdjustmentType :: Lens' SimpleScalingPolicyConfiguration (Maybe AdjustmentType)
@@ -3780,8 +3821,10 @@ instance FromJSON SimpleScalingPolicyConfiguration
                      (x .: "ScalingAdjustment"))
 
 instance Hashable SimpleScalingPolicyConfiguration
+         where
 
 instance NFData SimpleScalingPolicyConfiguration
+         where
 
 instance ToJSON SimpleScalingPolicyConfiguration
          where
@@ -3799,10 +3842,11 @@ instance ToJSON SimpleScalingPolicyConfiguration
 --
 -- /See:/ 'spotProvisioningSpecification' smart constructor.
 data SpotProvisioningSpecification = SpotProvisioningSpecification'
-    { _spsBlockDurationMinutes   :: !(Maybe Nat)
-    , _spsTimeoutDurationMinutes :: !Nat
-    , _spsTimeoutAction          :: !SpotProvisioningTimeoutAction
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spsBlockDurationMinutes   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _spsTimeoutDurationMinutes :: {-# NOUNPACK #-}!Nat
+  , _spsTimeoutAction          :: {-# NOUNPACK #-}!SpotProvisioningTimeoutAction
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SpotProvisioningSpecification' with the minimum fields required to make a request.
 --
@@ -3818,11 +3862,12 @@ spotProvisioningSpecification
     -> SpotProvisioningTimeoutAction -- ^ 'spsTimeoutAction'
     -> SpotProvisioningSpecification
 spotProvisioningSpecification pTimeoutDurationMinutes_ pTimeoutAction_ =
-    SpotProvisioningSpecification'
-    { _spsBlockDurationMinutes = Nothing
-    , _spsTimeoutDurationMinutes = _Nat # pTimeoutDurationMinutes_
-    , _spsTimeoutAction = pTimeoutAction_
-    }
+  SpotProvisioningSpecification'
+  { _spsBlockDurationMinutes = Nothing
+  , _spsTimeoutDurationMinutes = _Nat # pTimeoutDurationMinutes_
+  , _spsTimeoutAction = pTimeoutAction_
+  }
+
 
 -- | The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 spsBlockDurationMinutes :: Lens' SpotProvisioningSpecification (Maybe Natural)
@@ -3845,9 +3890,9 @@ instance FromJSON SpotProvisioningSpecification where
                      (x .: "TimeoutDurationMinutes")
                      <*> (x .: "TimeoutAction"))
 
-instance Hashable SpotProvisioningSpecification
+instance Hashable SpotProvisioningSpecification where
 
-instance NFData SpotProvisioningSpecification
+instance NFData SpotProvisioningSpecification where
 
 instance ToJSON SpotProvisioningSpecification where
         toJSON SpotProvisioningSpecification'{..}
@@ -3866,12 +3911,13 @@ instance ToJSON SpotProvisioningSpecification where
 --
 -- /See:/ 'step' smart constructor.
 data Step = Step'
-    { _sStatus          :: !(Maybe StepStatus)
-    , _sActionOnFailure :: !(Maybe ActionOnFailure)
-    , _sConfig          :: !(Maybe HadoopStepConfig)
-    , _sName            :: !(Maybe Text)
-    , _sId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStatus          :: {-# NOUNPACK #-}!(Maybe StepStatus)
+  , _sActionOnFailure :: {-# NOUNPACK #-}!(Maybe ActionOnFailure)
+  , _sConfig          :: {-# NOUNPACK #-}!(Maybe HadoopStepConfig)
+  , _sName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sId              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Step' with the minimum fields required to make a request.
 --
@@ -3889,13 +3935,14 @@ data Step = Step'
 step
     :: Step
 step =
-    Step'
-    { _sStatus = Nothing
-    , _sActionOnFailure = Nothing
-    , _sConfig = Nothing
-    , _sName = Nothing
-    , _sId = Nothing
-    }
+  Step'
+  { _sStatus = Nothing
+  , _sActionOnFailure = Nothing
+  , _sConfig = Nothing
+  , _sName = Nothing
+  , _sId = Nothing
+  }
+
 
 -- | The current execution status details of the cluster step.
 sStatus :: Lens' Step (Maybe StepStatus)
@@ -3927,9 +3974,9 @@ instance FromJSON Step where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
-instance Hashable Step
+instance Hashable Step where
 
-instance NFData Step
+instance NFData Step where
 
 -- | Specification of a cluster (job flow) step.
 --
@@ -3937,10 +3984,11 @@ instance NFData Step
 --
 -- /See:/ 'stepConfig' smart constructor.
 data StepConfig = StepConfig'
-    { _scActionOnFailure :: !(Maybe ActionOnFailure)
-    , _scName            :: !Text
-    , _scHadoopJARStep   :: !HadoopJARStepConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scActionOnFailure :: {-# NOUNPACK #-}!(Maybe ActionOnFailure)
+  , _scName            :: {-# NOUNPACK #-}!Text
+  , _scHadoopJARStep   :: {-# NOUNPACK #-}!HadoopJARStepConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepConfig' with the minimum fields required to make a request.
 --
@@ -3956,11 +4004,12 @@ stepConfig
     -> HadoopJARStepConfig -- ^ 'scHadoopJARStep'
     -> StepConfig
 stepConfig pName_ pHadoopJARStep_ =
-    StepConfig'
-    { _scActionOnFailure = Nothing
-    , _scName = pName_
-    , _scHadoopJARStep = pHadoopJARStep_
-    }
+  StepConfig'
+  { _scActionOnFailure = Nothing
+  , _scName = pName_
+  , _scHadoopJARStep = pHadoopJARStep_
+  }
+
 
 -- | The action to take if the step fails.
 scActionOnFailure :: Lens' StepConfig (Maybe ActionOnFailure)
@@ -3974,9 +4023,9 @@ scName = lens _scName (\ s a -> s{_scName = a});
 scHadoopJARStep :: Lens' StepConfig HadoopJARStepConfig
 scHadoopJARStep = lens _scHadoopJARStep (\ s a -> s{_scHadoopJARStep = a});
 
-instance Hashable StepConfig
+instance Hashable StepConfig where
 
-instance NFData StepConfig
+instance NFData StepConfig where
 
 instance ToJSON StepConfig where
         toJSON StepConfig'{..}
@@ -3992,9 +4041,10 @@ instance ToJSON StepConfig where
 --
 -- /See:/ 'stepStateChangeReason' smart constructor.
 data StepStateChangeReason = StepStateChangeReason'
-    { _sscrCode    :: !(Maybe StepStateChangeReasonCode)
-    , _sscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sscrCode    :: {-# NOUNPACK #-}!(Maybe StepStateChangeReasonCode)
+  , _sscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepStateChangeReason' with the minimum fields required to make a request.
 --
@@ -4006,10 +4056,8 @@ data StepStateChangeReason = StepStateChangeReason'
 stepStateChangeReason
     :: StepStateChangeReason
 stepStateChangeReason =
-    StepStateChangeReason'
-    { _sscrCode = Nothing
-    , _sscrMessage = Nothing
-    }
+  StepStateChangeReason' {_sscrCode = Nothing, _sscrMessage = Nothing}
+
 
 -- | The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
 sscrCode :: Lens' StepStateChangeReason (Maybe StepStateChangeReasonCode)
@@ -4026,9 +4074,9 @@ instance FromJSON StepStateChangeReason where
                  StepStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
-instance Hashable StepStateChangeReason
+instance Hashable StepStateChangeReason where
 
-instance NFData StepStateChangeReason
+instance NFData StepStateChangeReason where
 
 -- | The execution status details of the cluster step.
 --
@@ -4036,11 +4084,12 @@ instance NFData StepStateChangeReason
 --
 -- /See:/ 'stepStatus' smart constructor.
 data StepStatus = StepStatus'
-    { _ssState             :: !(Maybe StepState)
-    , _ssFailureDetails    :: !(Maybe FailureDetails)
-    , _ssStateChangeReason :: !(Maybe StepStateChangeReason)
-    , _ssTimeline          :: !(Maybe StepTimeline)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssState             :: {-# NOUNPACK #-}!(Maybe StepState)
+  , _ssFailureDetails    :: {-# NOUNPACK #-}!(Maybe FailureDetails)
+  , _ssStateChangeReason :: {-# NOUNPACK #-}!(Maybe StepStateChangeReason)
+  , _ssTimeline          :: {-# NOUNPACK #-}!(Maybe StepTimeline)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepStatus' with the minimum fields required to make a request.
 --
@@ -4056,12 +4105,13 @@ data StepStatus = StepStatus'
 stepStatus
     :: StepStatus
 stepStatus =
-    StepStatus'
-    { _ssState = Nothing
-    , _ssFailureDetails = Nothing
-    , _ssStateChangeReason = Nothing
-    , _ssTimeline = Nothing
-    }
+  StepStatus'
+  { _ssState = Nothing
+  , _ssFailureDetails = Nothing
+  , _ssStateChangeReason = Nothing
+  , _ssTimeline = Nothing
+  }
+
 
 -- | The execution state of the cluster step.
 ssState :: Lens' StepStatus (Maybe StepState)
@@ -4088,9 +4138,9 @@ instance FromJSON StepStatus where
                      (x .:? "StateChangeReason")
                      <*> (x .:? "Timeline"))
 
-instance Hashable StepStatus
+instance Hashable StepStatus where
 
-instance NFData StepStatus
+instance NFData StepStatus where
 
 -- | The summary of the cluster step.
 --
@@ -4098,12 +4148,13 @@ instance NFData StepStatus
 --
 -- /See:/ 'stepSummary' smart constructor.
 data StepSummary = StepSummary'
-    { _ssStatus          :: !(Maybe StepStatus)
-    , _ssActionOnFailure :: !(Maybe ActionOnFailure)
-    , _ssConfig          :: !(Maybe HadoopStepConfig)
-    , _ssName            :: !(Maybe Text)
-    , _ssId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssStatus          :: {-# NOUNPACK #-}!(Maybe StepStatus)
+  , _ssActionOnFailure :: {-# NOUNPACK #-}!(Maybe ActionOnFailure)
+  , _ssConfig          :: {-# NOUNPACK #-}!(Maybe HadoopStepConfig)
+  , _ssName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssId              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepSummary' with the minimum fields required to make a request.
 --
@@ -4121,13 +4172,14 @@ data StepSummary = StepSummary'
 stepSummary
     :: StepSummary
 stepSummary =
-    StepSummary'
-    { _ssStatus = Nothing
-    , _ssActionOnFailure = Nothing
-    , _ssConfig = Nothing
-    , _ssName = Nothing
-    , _ssId = Nothing
-    }
+  StepSummary'
+  { _ssStatus = Nothing
+  , _ssActionOnFailure = Nothing
+  , _ssConfig = Nothing
+  , _ssName = Nothing
+  , _ssId = Nothing
+  }
+
 
 -- | The current execution status details of the cluster step.
 ssStatus :: Lens' StepSummary (Maybe StepStatus)
@@ -4159,9 +4211,9 @@ instance FromJSON StepSummary where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
-instance Hashable StepSummary
+instance Hashable StepSummary where
 
-instance NFData StepSummary
+instance NFData StepSummary where
 
 -- | The timeline of the cluster step lifecycle.
 --
@@ -4169,10 +4221,11 @@ instance NFData StepSummary
 --
 -- /See:/ 'stepTimeline' smart constructor.
 data StepTimeline = StepTimeline'
-    { _stCreationDateTime :: !(Maybe POSIX)
-    , _stEndDateTime      :: !(Maybe POSIX)
-    , _stStartDateTime    :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _stEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _stStartDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepTimeline' with the minimum fields required to make a request.
 --
@@ -4186,11 +4239,12 @@ data StepTimeline = StepTimeline'
 stepTimeline
     :: StepTimeline
 stepTimeline =
-    StepTimeline'
-    { _stCreationDateTime = Nothing
-    , _stEndDateTime = Nothing
-    , _stStartDateTime = Nothing
-    }
+  StepTimeline'
+  { _stCreationDateTime = Nothing
+  , _stEndDateTime = Nothing
+  , _stStartDateTime = Nothing
+  }
+
 
 -- | The date and time when the cluster step was created.
 stCreationDateTime :: Lens' StepTimeline (Maybe UTCTime)
@@ -4212,9 +4266,9 @@ instance FromJSON StepTimeline where
                    (x .:? "CreationDateTime") <*> (x .:? "EndDateTime")
                      <*> (x .:? "StartDateTime"))
 
-instance Hashable StepTimeline
+instance Hashable StepTimeline where
 
-instance NFData StepTimeline
+instance NFData StepTimeline where
 
 -- | The list of supported product configurations which allow user-supplied arguments. EMR accepts these arguments and forwards them to the corresponding installation script as bootstrap action arguments.
 --
@@ -4222,9 +4276,10 @@ instance NFData StepTimeline
 --
 -- /See:/ 'supportedProductConfig' smart constructor.
 data SupportedProductConfig = SupportedProductConfig'
-    { _spcArgs :: !(Maybe [Text])
-    , _spcName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spcArgs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _spcName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SupportedProductConfig' with the minimum fields required to make a request.
 --
@@ -4236,10 +4291,8 @@ data SupportedProductConfig = SupportedProductConfig'
 supportedProductConfig
     :: SupportedProductConfig
 supportedProductConfig =
-    SupportedProductConfig'
-    { _spcArgs = Nothing
-    , _spcName = Nothing
-    }
+  SupportedProductConfig' {_spcArgs = Nothing, _spcName = Nothing}
+
 
 -- | The list of user-supplied arguments.
 spcArgs :: Lens' SupportedProductConfig [Text]
@@ -4249,9 +4302,9 @@ spcArgs = lens _spcArgs (\ s a -> s{_spcArgs = a}) . _Default . _Coerce;
 spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName = lens _spcName (\ s a -> s{_spcName = a});
 
-instance Hashable SupportedProductConfig
+instance Hashable SupportedProductConfig where
 
-instance NFData SupportedProductConfig
+instance NFData SupportedProductConfig where
 
 instance ToJSON SupportedProductConfig where
         toJSON SupportedProductConfig'{..}
@@ -4265,9 +4318,10 @@ instance ToJSON SupportedProductConfig where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -4278,11 +4332,8 @@ data Tag = Tag'
 -- * 'tagKey' - A user-defined key, which is the minimum required information for a valid tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | A user-defined value, which is optional in a tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
 tagValue :: Lens' Tag (Maybe Text)
@@ -4297,9 +4348,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -4313,10 +4364,11 @@ instance ToJSON Tag where
 --
 -- /See:/ 'volumeSpecification' smart constructor.
 data VolumeSpecification = VolumeSpecification'
-    { _vsIOPS       :: !(Maybe Int)
-    , _vsVolumeType :: !Text
-    , _vsSizeInGB   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vsIOPS       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _vsVolumeType :: {-# NOUNPACK #-}!Text
+  , _vsSizeInGB   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VolumeSpecification' with the minimum fields required to make a request.
 --
@@ -4332,11 +4384,9 @@ volumeSpecification
     -> Int -- ^ 'vsSizeInGB'
     -> VolumeSpecification
 volumeSpecification pVolumeType_ pSizeInGB_ =
-    VolumeSpecification'
-    { _vsIOPS = Nothing
-    , _vsVolumeType = pVolumeType_
-    , _vsSizeInGB = pSizeInGB_
-    }
+  VolumeSpecification'
+  {_vsIOPS = Nothing, _vsVolumeType = pVolumeType_, _vsSizeInGB = pSizeInGB_}
+
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
 vsIOPS :: Lens' VolumeSpecification (Maybe Int)
@@ -4358,9 +4408,9 @@ instance FromJSON VolumeSpecification where
                    (x .:? "Iops") <*> (x .: "VolumeType") <*>
                      (x .: "SizeInGB"))
 
-instance Hashable VolumeSpecification
+instance Hashable VolumeSpecification where
 
-instance NFData VolumeSpecification
+instance NFData VolumeSpecification where
 
 instance ToJSON VolumeSpecification where
         toJSON VolumeSpecification'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteParameter
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.SSM.DeleteParameter
     , dpprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteParameter' smart constructor.
 newtype DeleteParameter = DeleteParameter'
-    { _delName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteParameter' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteParameter = DeleteParameter'
 deleteParameter
     :: Text -- ^ 'delName'
     -> DeleteParameter
-deleteParameter pName_ =
-    DeleteParameter'
-    { _delName = pName_
-    }
+deleteParameter pName_ = DeleteParameter' {_delName = pName_}
+
 
 -- | The name of the parameter to delete.
 delName :: Lens' DeleteParameter Text
@@ -73,9 +72,9 @@ instance AWSRequest DeleteParameter where
               (\ s h x ->
                  DeleteParameterResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteParameter
+instance Hashable DeleteParameter where
 
-instance NFData DeleteParameter
+instance NFData DeleteParameter where
 
 instance ToHeaders DeleteParameter where
         toHeaders
@@ -98,8 +97,9 @@ instance ToQuery DeleteParameter where
 
 -- | /See:/ 'deleteParameterResponse' smart constructor.
 newtype DeleteParameterResponse = DeleteParameterResponse'
-    { _dpprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteParameterResponse' with the minimum fields required to make a request.
 --
@@ -110,12 +110,11 @@ deleteParameterResponse
     :: Int -- ^ 'dpprsResponseStatus'
     -> DeleteParameterResponse
 deleteParameterResponse pResponseStatus_ =
-    DeleteParameterResponse'
-    { _dpprsResponseStatus = pResponseStatus_
-    }
+  DeleteParameterResponse' {_dpprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dpprsResponseStatus :: Lens' DeleteParameterResponse Int
 dpprsResponseStatus = lens _dpprsResponseStatus (\ s a -> s{_dpprsResponseStatus = a});
 
-instance NFData DeleteParameterResponse
+instance NFData DeleteParameterResponse where

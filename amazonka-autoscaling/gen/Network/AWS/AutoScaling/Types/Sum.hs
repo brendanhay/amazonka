@@ -9,31 +9,32 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.AutoScaling.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data LifecycleState
-    = Detached
-    | Detaching
-    | EnteringStandby
-    | InService
-    | Pending
-    | PendingProceed
-    | PendingWait
-    | Quarantined
-    | Standby
-    | Terminated
-    | Terminating
-    | TerminatingProceed
-    | TerminatingWait
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Detached
+  | Detaching
+  | EnteringStandby
+  | InService
+  | Pending
+  | PendingProceed
+  | PendingWait
+  | Quarantined
+  | Standby
+  | Terminated
+  | Terminating
+  | TerminatingProceed
+  | TerminatingWait
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LifecycleState where
     parser = takeLowerText >>= \case
@@ -79,12 +80,13 @@ instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
 
 data MetricStatistic
-    = Average
-    | Maximum
-    | Minimum
-    | SampleCount
-    | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Average
+  | Maximum
+  | Minimum
+  | SampleCount
+  | Sum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricStatistic where
     parser = takeLowerText >>= \case
@@ -114,11 +116,12 @@ instance FromXML MetricStatistic where
     parseXML = parseXMLText "MetricStatistic"
 
 data MetricType
-    = ALBRequestCountPerTarget
-    | ASGAverageCPUUtilization
-    | ASGAverageNetworkIn
-    | ASGAverageNetworkOut
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ALBRequestCountPerTarget
+  | ASGAverageCPUUtilization
+  | ASGAverageNetworkIn
+  | ASGAverageNetworkOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricType where
     parser = takeLowerText >>= \case
@@ -146,19 +149,20 @@ instance FromXML MetricType where
     parseXML = parseXMLText "MetricType"
 
 data ScalingActivityStatusCode
-    = Cancelled
-    | Failed
-    | InProgress
-    | MidLifecycleAction
-    | PendingSpotBidPlacement
-    | PreInService
-    | Successful
-    | WaitingForELBConnectionDraining
-    | WaitingForInstanceId
-    | WaitingForInstanceWarmup
-    | WaitingForSpotInstanceId
-    | WaitingForSpotInstanceRequestId
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cancelled
+  | Failed
+  | InProgress
+  | MidLifecycleAction
+  | PendingSpotBidPlacement
+  | PreInService
+  | Successful
+  | WaitingForELBConnectionDraining
+  | WaitingForInstanceId
+  | WaitingForInstanceWarmup
+  | WaitingForSpotInstanceId
+  | WaitingForSpotInstanceRequestId
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScalingActivityStatusCode where
     parser = takeLowerText >>= \case

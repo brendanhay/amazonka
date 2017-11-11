@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeAddresses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribeAddresses
     , darsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeAddresses.
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-    { _daFilters       :: !(Maybe [Filter])
-    , _daPublicIPs     :: !(Maybe [Text])
-    , _daAllocationIds :: !(Maybe [Text])
-    , _daDryRun        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _daPublicIPs     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _daAllocationIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _daDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAddresses' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ data DescribeAddresses = DescribeAddresses'
 describeAddresses
     :: DescribeAddresses
 describeAddresses =
-    DescribeAddresses'
-    { _daFilters = Nothing
-    , _daPublicIPs = Nothing
-    , _daAllocationIds = Nothing
-    , _daDryRun = Nothing
-    }
+  DescribeAddresses'
+  { _daFilters = Nothing
+  , _daPublicIPs = Nothing
+  , _daAllocationIds = Nothing
+  , _daDryRun = Nothing
+  }
+
 
 -- | One or more filters. Filter names and values are case-sensitive.     * @allocation-id@ - [EC2-VPC] The allocation ID for the address.     * @association-id@ - [EC2-VPC] The association ID for the address.     * @domain@ - Indicates whether the address is for use in EC2-Classic (@standard@ ) or in a VPC (@vpc@ ).     * @instance-id@ - The ID of the instance the address is associated with, if any.     * @network-interface-id@ - [EC2-VPC] The ID of the network interface that the address is associated with, if any.     * @network-interface-owner-id@ - The AWS account ID of the owner.     * @private-ip-address@ - [EC2-VPC] The private IP address associated with the Elastic IP address.     * @public-ip@ - The Elastic IP address.
 daFilters :: Lens' DescribeAddresses [Filter]
@@ -109,9 +111,9 @@ instance AWSRequest DescribeAddresses where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAddresses
+instance Hashable DescribeAddresses where
 
-instance NFData DescribeAddresses
+instance NFData DescribeAddresses where
 
 instance ToHeaders DescribeAddresses where
         toHeaders = const mempty
@@ -136,9 +138,10 @@ instance ToQuery DescribeAddresses where
 --
 -- /See:/ 'describeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-    { _darsAddresses      :: !(Maybe [Address])
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsAddresses      :: {-# NOUNPACK #-}!(Maybe [Address])
+  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAddressesResponse' with the minimum fields required to make a request.
 --
@@ -151,10 +154,9 @@ describeAddressesResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAddressesResponse
 describeAddressesResponse pResponseStatus_ =
-    DescribeAddressesResponse'
-    { _darsAddresses = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeAddressesResponse'
+  {_darsAddresses = Nothing, _darsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more Elastic IP addresses.
 darsAddresses :: Lens' DescribeAddressesResponse [Address]
@@ -164,4 +166,4 @@ darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default 
 darsResponseStatus :: Lens' DescribeAddressesResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeAddressesResponse
+instance NFData DescribeAddressesResponse where

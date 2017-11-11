@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.CreatePipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CodePipeline.CreatePipeline
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create pipeline action.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createPipeline' smart constructor.
 newtype CreatePipeline = CreatePipeline'
-    { _cpPipeline :: PipelineDeclaration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpPipeline :: PipelineDeclaration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype CreatePipeline = CreatePipeline'
 createPipeline
     :: PipelineDeclaration -- ^ 'cpPipeline'
     -> CreatePipeline
-createPipeline pPipeline_ =
-    CreatePipeline'
-    { _cpPipeline = pPipeline_
-    }
+createPipeline pPipeline_ = CreatePipeline' {_cpPipeline = pPipeline_}
+
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 cpPipeline :: Lens' CreatePipeline PipelineDeclaration
@@ -79,9 +78,9 @@ instance AWSRequest CreatePipeline where
                  CreatePipelineResponse' <$>
                    (x .?> "pipeline") <*> (pure (fromEnum s)))
 
-instance Hashable CreatePipeline
+instance Hashable CreatePipeline where
 
-instance NFData CreatePipeline
+instance NFData CreatePipeline where
 
 instance ToHeaders CreatePipeline where
         toHeaders
@@ -110,9 +109,10 @@ instance ToQuery CreatePipeline where
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprsPipeline       :: !(Maybe PipelineDeclaration)
-    , _cprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsPipeline       :: {-# NOUNPACK #-}!(Maybe PipelineDeclaration)
+  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +125,9 @@ createPipelineResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePipelineResponse
 createPipelineResponse pResponseStatus_ =
-    CreatePipelineResponse'
-    { _cprsPipeline = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreatePipelineResponse'
+  {_cprsPipeline = Nothing, _cprsResponseStatus = pResponseStatus_}
+
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
@@ -138,4 +137,4 @@ cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 cprsResponseStatus :: Lens' CreatePipelineResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreatePipelineResponse
+instance NFData CreatePipelineResponse where

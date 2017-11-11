@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     , usdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to update a streaming distribution.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateStreamingDistribution' smart constructor.
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
-    { _usdIfMatch                     :: !(Maybe Text)
-    , _usdStreamingDistributionConfig :: !StreamingDistributionConfig
-    , _usdId                          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usdIfMatch :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usdStreamingDistributionConfig :: {-# NOUNPACK #-}!StreamingDistributionConfig
+  , _usdId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStreamingDistribution' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ updateStreamingDistribution
     -> Text -- ^ 'usdId'
     -> UpdateStreamingDistribution
 updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
-    UpdateStreamingDistribution'
-    { _usdIfMatch = Nothing
-    , _usdStreamingDistributionConfig = pStreamingDistributionConfig_
-    , _usdId = pId_
-    }
+  UpdateStreamingDistribution'
+  { _usdIfMatch = Nothing
+  , _usdStreamingDistributionConfig = pStreamingDistributionConfig_
+  , _usdId = pId_
+  }
+
 
 -- | The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
 usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest UpdateStreamingDistribution where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateStreamingDistribution
+instance Hashable UpdateStreamingDistribution where
 
-instance NFData UpdateStreamingDistribution
+instance NFData UpdateStreamingDistribution where
 
 instance ToElement UpdateStreamingDistribution where
         toElement
@@ -131,10 +133,11 @@ instance ToQuery UpdateStreamingDistribution where
 --
 -- /See:/ 'updateStreamingDistributionResponse' smart constructor.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
-    { _usdrsETag                  :: !(Maybe Text)
-    , _usdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _usdrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usdrsETag :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usdrsStreamingDistribution :: {-# NOUNPACK #-}!(Maybe StreamingDistribution)
+  , _usdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStreamingDistributionResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +152,12 @@ updateStreamingDistributionResponse
     :: Int -- ^ 'usdrsResponseStatus'
     -> UpdateStreamingDistributionResponse
 updateStreamingDistributionResponse pResponseStatus_ =
-    UpdateStreamingDistributionResponse'
-    { _usdrsETag = Nothing
-    , _usdrsStreamingDistribution = Nothing
-    , _usdrsResponseStatus = pResponseStatus_
-    }
+  UpdateStreamingDistributionResponse'
+  { _usdrsETag = Nothing
+  , _usdrsStreamingDistribution = Nothing
+  , _usdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
@@ -168,3 +172,4 @@ usdrsResponseStatus :: Lens' UpdateStreamingDistributionResponse Int
 usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a});
 
 instance NFData UpdateStreamingDistributionResponse
+         where

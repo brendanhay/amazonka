@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListPublishedSchemaARNs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CloudDirectory.ListPublishedSchemaARNs
     , lpsarsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listPublishedSchemaARNs' smart constructor.
 data ListPublishedSchemaARNs = ListPublishedSchemaARNs'
-    { _lpsaNextToken  :: !(Maybe Text)
-    , _lpsaMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpsaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpsaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPublishedSchemaARNs' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data ListPublishedSchemaARNs = ListPublishedSchemaARNs'
 listPublishedSchemaARNs
     :: ListPublishedSchemaARNs
 listPublishedSchemaARNs =
-    ListPublishedSchemaARNs'
-    { _lpsaNextToken = Nothing
-    , _lpsaMaxResults = Nothing
-    }
+  ListPublishedSchemaARNs' {_lpsaNextToken = Nothing, _lpsaMaxResults = Nothing}
+
 
 -- | The pagination token.
 lpsaNextToken :: Lens' ListPublishedSchemaARNs (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest ListPublishedSchemaARNs where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPublishedSchemaARNs
+instance Hashable ListPublishedSchemaARNs where
 
-instance NFData ListPublishedSchemaARNs
+instance NFData ListPublishedSchemaARNs where
 
 instance ToHeaders ListPublishedSchemaARNs where
         toHeaders = const mempty
@@ -111,10 +110,11 @@ instance ToQuery ListPublishedSchemaARNs where
 
 -- | /See:/ 'listPublishedSchemaARNsResponse' smart constructor.
 data ListPublishedSchemaARNsResponse = ListPublishedSchemaARNsResponse'
-    { _lpsarsSchemaARNs     :: !(Maybe [Text])
-    , _lpsarsNextToken      :: !(Maybe Text)
-    , _lpsarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpsarsSchemaARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lpsarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPublishedSchemaARNsResponse' with the minimum fields required to make a request.
 --
@@ -129,11 +129,12 @@ listPublishedSchemaARNsResponse
     :: Int -- ^ 'lpsarsResponseStatus'
     -> ListPublishedSchemaARNsResponse
 listPublishedSchemaARNsResponse pResponseStatus_ =
-    ListPublishedSchemaARNsResponse'
-    { _lpsarsSchemaARNs = Nothing
-    , _lpsarsNextToken = Nothing
-    , _lpsarsResponseStatus = pResponseStatus_
-    }
+  ListPublishedSchemaARNsResponse'
+  { _lpsarsSchemaARNs = Nothing
+  , _lpsarsNextToken = Nothing
+  , _lpsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARNs of published schemas.
 lpsarsSchemaARNs :: Lens' ListPublishedSchemaARNsResponse [Text]
@@ -147,4 +148,4 @@ lpsarsNextToken = lens _lpsarsNextToken (\ s a -> s{_lpsarsNextToken = a});
 lpsarsResponseStatus :: Lens' ListPublishedSchemaARNsResponse Int
 lpsarsResponseStatus = lens _lpsarsResponseStatus (\ s a -> s{_lpsarsResponseStatus = a});
 
-instance NFData ListPublishedSchemaARNsResponse
+instance NFData ListPublishedSchemaARNsResponse where

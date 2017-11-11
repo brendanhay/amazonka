@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DiscoverInputSchema
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.KinesisAnalytics.DiscoverInputSchema
     , disrsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,10 +58,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'discoverInputSchema' smart constructor.
 data DiscoverInputSchema = DiscoverInputSchema'
-    { _disResourceARN                        :: !Text
-    , _disRoleARN                            :: !Text
-    , _disInputStartingPositionConfiguration :: !InputStartingPositionConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disResourceARN :: {-# NOUNPACK #-}!Text
+  , _disRoleARN :: {-# NOUNPACK #-}!Text
+  , _disInputStartingPositionConfiguration :: {-# NOUNPACK #-}!InputStartingPositionConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DiscoverInputSchema' with the minimum fields required to make a request.
 --
@@ -78,11 +79,13 @@ discoverInputSchema
     -> InputStartingPositionConfiguration -- ^ 'disInputStartingPositionConfiguration'
     -> DiscoverInputSchema
 discoverInputSchema pResourceARN_ pRoleARN_ pInputStartingPositionConfiguration_ =
-    DiscoverInputSchema'
-    { _disResourceARN = pResourceARN_
-    , _disRoleARN = pRoleARN_
-    , _disInputStartingPositionConfiguration = pInputStartingPositionConfiguration_
-    }
+  DiscoverInputSchema'
+  { _disResourceARN = pResourceARN_
+  , _disRoleARN = pRoleARN_
+  , _disInputStartingPositionConfiguration =
+      pInputStartingPositionConfiguration_
+  }
+
 
 -- | Amazon Resource Name (ARN) of the streaming source.
 disResourceARN :: Lens' DiscoverInputSchema Text
@@ -109,9 +112,9 @@ instance AWSRequest DiscoverInputSchema where
                      <*> (x .?> "ParsedInputRecords" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DiscoverInputSchema
+instance Hashable DiscoverInputSchema where
 
-instance NFData DiscoverInputSchema
+instance NFData DiscoverInputSchema where
 
 instance ToHeaders DiscoverInputSchema where
         toHeaders
@@ -145,11 +148,12 @@ instance ToQuery DiscoverInputSchema where
 --
 -- /See:/ 'discoverInputSchemaResponse' smart constructor.
 data DiscoverInputSchemaResponse = DiscoverInputSchemaResponse'
-    { _disrsRawInputRecords    :: !(Maybe [Text])
-    , _disrsInputSchema        :: !(Maybe SourceSchema)
-    , _disrsParsedInputRecords :: !(Maybe [[Text]])
-    , _disrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disrsRawInputRecords    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _disrsInputSchema        :: {-# NOUNPACK #-}!(Maybe SourceSchema)
+  , _disrsParsedInputRecords :: {-# NOUNPACK #-}!(Maybe [[Text]])
+  , _disrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DiscoverInputSchemaResponse' with the minimum fields required to make a request.
 --
@@ -166,12 +170,13 @@ discoverInputSchemaResponse
     :: Int -- ^ 'disrsResponseStatus'
     -> DiscoverInputSchemaResponse
 discoverInputSchemaResponse pResponseStatus_ =
-    DiscoverInputSchemaResponse'
-    { _disrsRawInputRecords = Nothing
-    , _disrsInputSchema = Nothing
-    , _disrsParsedInputRecords = Nothing
-    , _disrsResponseStatus = pResponseStatus_
-    }
+  DiscoverInputSchemaResponse'
+  { _disrsRawInputRecords = Nothing
+  , _disrsInputSchema = Nothing
+  , _disrsParsedInputRecords = Nothing
+  , _disrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Raw stream data that was sampled to infer the schema.
 disrsRawInputRecords :: Lens' DiscoverInputSchemaResponse [Text]
@@ -189,4 +194,4 @@ disrsParsedInputRecords = lens _disrsParsedInputRecords (\ s a -> s{_disrsParsed
 disrsResponseStatus :: Lens' DiscoverInputSchemaResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 
-instance NFData DiscoverInputSchemaResponse
+instance NFData DiscoverInputSchemaResponse where

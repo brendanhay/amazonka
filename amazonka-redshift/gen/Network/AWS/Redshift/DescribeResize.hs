@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeResize
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.Redshift.DescribeResize
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -63,8 +63,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeResize' smart constructor.
 newtype DescribeResize = DescribeResize'
-    { _drClusterIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drClusterIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeResize' with the minimum fields required to make a request.
 --
@@ -75,9 +76,8 @@ describeResize
     :: Text -- ^ 'drClusterIdentifier'
     -> DescribeResize
 describeResize pClusterIdentifier_ =
-    DescribeResize'
-    { _drClusterIdentifier = pClusterIdentifier_
-    }
+  DescribeResize' {_drClusterIdentifier = pClusterIdentifier_}
+
 
 -- | The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive. By default, resize operations for all clusters defined for an AWS account are returned.
 drClusterIdentifier :: Lens' DescribeResize Text
@@ -109,9 +109,9 @@ instance AWSRequest DescribeResize where
                      <*> (x .@? "ElapsedTimeInSeconds")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeResize
+instance Hashable DescribeResize where
 
-instance NFData DescribeResize
+instance NFData DescribeResize where
 
 instance ToHeaders DescribeResize where
         toHeaders = const mempty
@@ -132,20 +132,21 @@ instance ToQuery DescribeResize where
 --
 -- /See:/ 'describeResizeResponse' smart constructor.
 data DescribeResizeResponse = DescribeResizeResponse'
-    { _drrsImportTablesNotStarted             :: !(Maybe [Text])
-    , _drrsStatus                             :: !(Maybe Text)
-    , _drrsEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
-    , _drrsAvgResizeRateInMegaBytesPerSecond  :: !(Maybe Double)
-    , _drrsTargetNumberOfNodes                :: !(Maybe Int)
-    , _drrsTargetNodeType                     :: !(Maybe Text)
-    , _drrsImportTablesInProgress             :: !(Maybe [Text])
-    , _drrsImportTablesCompleted              :: !(Maybe [Text])
-    , _drrsProgressInMegaBytes                :: !(Maybe Integer)
-    , _drrsTotalResizeDataInMegaBytes         :: !(Maybe Integer)
-    , _drrsTargetClusterType                  :: !(Maybe Text)
-    , _drrsElapsedTimeInSeconds               :: !(Maybe Integer)
-    , _drrsResponseStatus                     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsImportTablesNotStarted             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drrsStatus                             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drrsEstimatedTimeToCompletionInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _drrsAvgResizeRateInMegaBytesPerSecond  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _drrsTargetNumberOfNodes                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _drrsTargetNodeType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drrsImportTablesInProgress             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drrsImportTablesCompleted              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drrsProgressInMegaBytes                :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _drrsTotalResizeDataInMegaBytes         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _drrsTargetClusterType                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drrsElapsedTimeInSeconds               :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _drrsResponseStatus                     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeResizeResponse' with the minimum fields required to make a request.
 --
@@ -180,21 +181,22 @@ describeResizeResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DescribeResizeResponse
 describeResizeResponse pResponseStatus_ =
-    DescribeResizeResponse'
-    { _drrsImportTablesNotStarted = Nothing
-    , _drrsStatus = Nothing
-    , _drrsEstimatedTimeToCompletionInSeconds = Nothing
-    , _drrsAvgResizeRateInMegaBytesPerSecond = Nothing
-    , _drrsTargetNumberOfNodes = Nothing
-    , _drrsTargetNodeType = Nothing
-    , _drrsImportTablesInProgress = Nothing
-    , _drrsImportTablesCompleted = Nothing
-    , _drrsProgressInMegaBytes = Nothing
-    , _drrsTotalResizeDataInMegaBytes = Nothing
-    , _drrsTargetClusterType = Nothing
-    , _drrsElapsedTimeInSeconds = Nothing
-    , _drrsResponseStatus = pResponseStatus_
-    }
+  DescribeResizeResponse'
+  { _drrsImportTablesNotStarted = Nothing
+  , _drrsStatus = Nothing
+  , _drrsEstimatedTimeToCompletionInSeconds = Nothing
+  , _drrsAvgResizeRateInMegaBytesPerSecond = Nothing
+  , _drrsTargetNumberOfNodes = Nothing
+  , _drrsTargetNodeType = Nothing
+  , _drrsImportTablesInProgress = Nothing
+  , _drrsImportTablesCompleted = Nothing
+  , _drrsProgressInMegaBytes = Nothing
+  , _drrsTotalResizeDataInMegaBytes = Nothing
+  , _drrsTargetClusterType = Nothing
+  , _drrsElapsedTimeInSeconds = Nothing
+  , _drrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The names of tables that have not been yet imported. Valid Values: List of table names
 drrsImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
@@ -248,4 +250,4 @@ drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElaps
 drrsResponseStatus :: Lens' DescribeResizeResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DescribeResizeResponse
+instance NFData DescribeResizeResponse where

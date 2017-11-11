@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.GetExecutionHistory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.StepFunctions.GetExecutionHistory
     , gehrsEvents
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'getExecutionHistory' smart constructor.
 data GetExecutionHistory = GetExecutionHistory'
-    { _gehReverseOrder :: !(Maybe Bool)
-    , _gehNextToken    :: !(Maybe Text)
-    , _gehMaxResults   :: !(Maybe Nat)
-    , _gehExecutionARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gehReverseOrder :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gehNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gehMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gehExecutionARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetExecutionHistory' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ getExecutionHistory
     :: Text -- ^ 'gehExecutionARN'
     -> GetExecutionHistory
 getExecutionHistory pExecutionARN_ =
-    GetExecutionHistory'
-    { _gehReverseOrder = Nothing
-    , _gehNextToken = Nothing
-    , _gehMaxResults = Nothing
-    , _gehExecutionARN = pExecutionARN_
-    }
+  GetExecutionHistory'
+  { _gehReverseOrder = Nothing
+  , _gehNextToken = Nothing
+  , _gehMaxResults = Nothing
+  , _gehExecutionARN = pExecutionARN_
+  }
+
 
 -- | Lists events in descending order of their @timeStamp@ .
 gehReverseOrder :: Lens' GetExecutionHistory (Maybe Bool)
@@ -115,9 +117,9 @@ instance AWSRequest GetExecutionHistory where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "events" .!@ mempty))
 
-instance Hashable GetExecutionHistory
+instance Hashable GetExecutionHistory where
 
-instance NFData GetExecutionHistory
+instance NFData GetExecutionHistory where
 
 instance ToHeaders GetExecutionHistory where
         toHeaders
@@ -146,10 +148,11 @@ instance ToQuery GetExecutionHistory where
 
 -- | /See:/ 'getExecutionHistoryResponse' smart constructor.
 data GetExecutionHistoryResponse = GetExecutionHistoryResponse'
-    { _gehrsNextToken      :: !(Maybe Text)
-    , _gehrsResponseStatus :: !Int
-    , _gehrsEvents         :: ![HistoryEvent]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gehrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gehrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gehrsEvents         :: {-# NOUNPACK #-}![HistoryEvent]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetExecutionHistoryResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ getExecutionHistoryResponse
     :: Int -- ^ 'gehrsResponseStatus'
     -> GetExecutionHistoryResponse
 getExecutionHistoryResponse pResponseStatus_ =
-    GetExecutionHistoryResponse'
-    { _gehrsNextToken = Nothing
-    , _gehrsResponseStatus = pResponseStatus_
-    , _gehrsEvents = mempty
-    }
+  GetExecutionHistoryResponse'
+  { _gehrsNextToken = Nothing
+  , _gehrsResponseStatus = pResponseStatus_
+  , _gehrsEvents = mempty
+  }
+
 
 -- | If a @nextToken@ is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 gehrsNextToken :: Lens' GetExecutionHistoryResponse (Maybe Text)
@@ -182,4 +186,4 @@ gehrsResponseStatus = lens _gehrsResponseStatus (\ s a -> s{_gehrsResponseStatus
 gehrsEvents :: Lens' GetExecutionHistoryResponse [HistoryEvent]
 gehrsEvents = lens _gehrsEvents (\ s a -> s{_gehrsEvents = a}) . _Coerce;
 
-instance NFData GetExecutionHistoryResponse
+instance NFData GetExecutionHistoryResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.SetPlatformApplicationAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     , SetPlatformApplicationAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for SetPlatformApplicationAttributes action.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'setPlatformApplicationAttributes' smart constructor.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
-    { _spaaPlatformApplicationARN :: !Text
-    , _spaaAttributes             :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spaaPlatformApplicationARN :: {-# NOUNPACK #-}!Text
+  , _spaaAttributes             :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetPlatformApplicationAttributes' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ setPlatformApplicationAttributes
     :: Text -- ^ 'spaaPlatformApplicationARN'
     -> SetPlatformApplicationAttributes
 setPlatformApplicationAttributes pPlatformApplicationARN_ =
-    SetPlatformApplicationAttributes'
-    { _spaaPlatformApplicationARN = pPlatformApplicationARN_
-    , _spaaAttributes = mempty
-    }
+  SetPlatformApplicationAttributes'
+  { _spaaPlatformApplicationARN = pPlatformApplicationARN_
+  , _spaaAttributes = mempty
+  }
+
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
 spaaPlatformApplicationARN :: Lens' SetPlatformApplicationAttributes Text
@@ -86,8 +88,10 @@ instance AWSRequest SetPlatformApplicationAttributes
               SetPlatformApplicationAttributesResponse'
 
 instance Hashable SetPlatformApplicationAttributes
+         where
 
 instance NFData SetPlatformApplicationAttributes
+         where
 
 instance ToHeaders SetPlatformApplicationAttributes
          where
@@ -111,15 +115,18 @@ instance ToQuery SetPlatformApplicationAttributes
 
 -- | /See:/ 'setPlatformApplicationAttributesResponse' smart constructor.
 data SetPlatformApplicationAttributesResponse =
-    SetPlatformApplicationAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetPlatformApplicationAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetPlatformApplicationAttributesResponse' with the minimum fields required to make a request.
 --
 setPlatformApplicationAttributesResponse
     :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse =
-    SetPlatformApplicationAttributesResponse'
+  SetPlatformApplicationAttributesResponse'
+
 
 instance NFData
-         SetPlatformApplicationAttributesResponse
+           SetPlatformApplicationAttributesResponse
+         where

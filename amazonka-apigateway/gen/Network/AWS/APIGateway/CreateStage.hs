@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateStage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.APIGateway.CreateStage
     , sDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to create a 'Stage' resource.
 --
@@ -67,15 +67,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createStage' smart constructor.
 data CreateStage = CreateStage'
-    { _csVariables            :: !(Maybe (Map Text Text))
-    , _csDocumentationVersion :: !(Maybe Text)
-    , _csCacheClusterSize     :: !(Maybe CacheClusterSize)
-    , _csCacheClusterEnabled  :: !(Maybe Bool)
-    , _csDescription          :: !(Maybe Text)
-    , _csRestAPIId            :: !Text
-    , _csStageName            :: !Text
-    , _csDeploymentId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csVariables            :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _csDocumentationVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csCacheClusterSize     :: {-# NOUNPACK #-}!(Maybe CacheClusterSize)
+  , _csCacheClusterEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csRestAPIId            :: {-# NOUNPACK #-}!Text
+  , _csStageName            :: {-# NOUNPACK #-}!Text
+  , _csDeploymentId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStage' with the minimum fields required to make a request.
 --
@@ -102,16 +103,17 @@ createStage
     -> Text -- ^ 'csDeploymentId'
     -> CreateStage
 createStage pRestAPIId_ pStageName_ pDeploymentId_ =
-    CreateStage'
-    { _csVariables = Nothing
-    , _csDocumentationVersion = Nothing
-    , _csCacheClusterSize = Nothing
-    , _csCacheClusterEnabled = Nothing
-    , _csDescription = Nothing
-    , _csRestAPIId = pRestAPIId_
-    , _csStageName = pStageName_
-    , _csDeploymentId = pDeploymentId_
-    }
+  CreateStage'
+  { _csVariables = Nothing
+  , _csDocumentationVersion = Nothing
+  , _csCacheClusterSize = Nothing
+  , _csCacheClusterEnabled = Nothing
+  , _csDescription = Nothing
+  , _csRestAPIId = pRestAPIId_
+  , _csStageName = pStageName_
+  , _csDeploymentId = pDeploymentId_
+  }
+
 
 -- | A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
 csVariables :: Lens' CreateStage (HashMap Text Text)
@@ -150,9 +152,9 @@ instance AWSRequest CreateStage where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateStage
+instance Hashable CreateStage where
 
-instance NFData CreateStage
+instance NFData CreateStage where
 
 instance ToHeaders CreateStage where
         toHeaders

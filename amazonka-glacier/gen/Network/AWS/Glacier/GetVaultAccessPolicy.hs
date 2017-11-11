@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetVaultAccessPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
     , gvaprsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input for GetVaultAccessPolicy.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getVaultAccessPolicy' smart constructor.
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
-    { _gvapAccountId :: !Text
-    , _gvapVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gvapAccountId :: {-# NOUNPACK #-}!Text
+  , _gvapVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetVaultAccessPolicy' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ getVaultAccessPolicy
     -> Text -- ^ 'gvapVaultName'
     -> GetVaultAccessPolicy
 getVaultAccessPolicy pAccountId_ pVaultName_ =
-    GetVaultAccessPolicy'
-    { _gvapAccountId = pAccountId_
-    , _gvapVaultName = pVaultName_
-    }
+  GetVaultAccessPolicy'
+  {_gvapAccountId = pAccountId_, _gvapVaultName = pVaultName_}
+
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 gvapAccountId :: Lens' GetVaultAccessPolicy Text
@@ -90,9 +90,9 @@ instance AWSRequest GetVaultAccessPolicy where
                  GetVaultAccessPolicyResponse' <$>
                    (eitherParseJSON x) <*> (pure (fromEnum s)))
 
-instance Hashable GetVaultAccessPolicy
+instance Hashable GetVaultAccessPolicy where
 
-instance NFData GetVaultAccessPolicy
+instance NFData GetVaultAccessPolicy where
 
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty
@@ -112,9 +112,10 @@ instance ToQuery GetVaultAccessPolicy where
 --
 -- /See:/ 'getVaultAccessPolicyResponse' smart constructor.
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
-    { _gvaprsPolicy         :: !(Maybe VaultAccessPolicy)
-    , _gvaprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gvaprsPolicy         :: {-# NOUNPACK #-}!(Maybe VaultAccessPolicy)
+  , _gvaprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetVaultAccessPolicyResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ getVaultAccessPolicyResponse
     :: Int -- ^ 'gvaprsResponseStatus'
     -> GetVaultAccessPolicyResponse
 getVaultAccessPolicyResponse pResponseStatus_ =
-    GetVaultAccessPolicyResponse'
-    { _gvaprsPolicy = Nothing
-    , _gvaprsResponseStatus = pResponseStatus_
-    }
+  GetVaultAccessPolicyResponse'
+  {_gvaprsPolicy = Nothing, _gvaprsResponseStatus = pResponseStatus_}
+
 
 -- | Contains the returned vault access policy as a JSON string.
 gvaprsPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
@@ -140,4 +140,4 @@ gvaprsPolicy = lens _gvaprsPolicy (\ s a -> s{_gvaprsPolicy = a});
 gvaprsResponseStatus :: Lens' GetVaultAccessPolicyResponse Int
 gvaprsResponseStatus = lens _gvaprsResponseStatus (\ s a -> s{_gvaprsResponseStatus = a});
 
-instance NFData GetVaultAccessPolicyResponse
+instance NFData GetVaultAccessPolicyResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
     , SkipWaitTimeForInstanceTerminationResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'skipWaitTimeForInstanceTermination' smart constructor.
 newtype SkipWaitTimeForInstanceTermination = SkipWaitTimeForInstanceTermination'
-    { _swtfitDeploymentId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _swtfitDeploymentId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SkipWaitTimeForInstanceTermination' with the minimum fields required to make a request.
 --
@@ -54,16 +55,16 @@ newtype SkipWaitTimeForInstanceTermination = SkipWaitTimeForInstanceTermination'
 skipWaitTimeForInstanceTermination
     :: SkipWaitTimeForInstanceTermination
 skipWaitTimeForInstanceTermination =
-    SkipWaitTimeForInstanceTermination'
-    { _swtfitDeploymentId = Nothing
-    }
+  SkipWaitTimeForInstanceTermination' {_swtfitDeploymentId = Nothing}
+
 
 -- | The ID of the blue/green deployment for which you want to skip the instance termination wait time.
 swtfitDeploymentId :: Lens' SkipWaitTimeForInstanceTermination (Maybe Text)
 swtfitDeploymentId = lens _swtfitDeploymentId (\ s a -> s{_swtfitDeploymentId = a});
 
 instance AWSRequest
-         SkipWaitTimeForInstanceTermination where
+           SkipWaitTimeForInstanceTermination
+         where
         type Rs SkipWaitTimeForInstanceTermination =
              SkipWaitTimeForInstanceTerminationResponse
         request = postJSON codeDeploy
@@ -72,8 +73,10 @@ instance AWSRequest
               SkipWaitTimeForInstanceTerminationResponse'
 
 instance Hashable SkipWaitTimeForInstanceTermination
+         where
 
 instance NFData SkipWaitTimeForInstanceTermination
+         where
 
 instance ToHeaders SkipWaitTimeForInstanceTermination
          where
@@ -103,15 +106,18 @@ instance ToQuery SkipWaitTimeForInstanceTermination
 
 -- | /See:/ 'skipWaitTimeForInstanceTerminationResponse' smart constructor.
 data SkipWaitTimeForInstanceTerminationResponse =
-    SkipWaitTimeForInstanceTerminationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SkipWaitTimeForInstanceTerminationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SkipWaitTimeForInstanceTerminationResponse' with the minimum fields required to make a request.
 --
 skipWaitTimeForInstanceTerminationResponse
     :: SkipWaitTimeForInstanceTerminationResponse
 skipWaitTimeForInstanceTerminationResponse =
-    SkipWaitTimeForInstanceTerminationResponse'
+  SkipWaitTimeForInstanceTerminationResponse'
+
 
 instance NFData
-         SkipWaitTimeForInstanceTerminationResponse
+           SkipWaitTimeForInstanceTerminationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachVPNGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.DetachVPNGateway
     , DetachVPNGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachVpnGateway.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachVPNGateway' smart constructor.
 data DetachVPNGateway = DetachVPNGateway'
-    { _dvpngDryRun       :: !(Maybe Bool)
-    , _dvpngVPCId        :: !Text
-    , _dvpngVPNGatewayId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpngDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvpngVPCId        :: {-# NOUNPACK #-}!Text
+  , _dvpngVPNGatewayId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachVPNGateway' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ detachVPNGateway
     -> Text -- ^ 'dvpngVPNGatewayId'
     -> DetachVPNGateway
 detachVPNGateway pVPCId_ pVPNGatewayId_ =
-    DetachVPNGateway'
-    { _dvpngDryRun = Nothing
-    , _dvpngVPCId = pVPCId_
-    , _dvpngVPNGatewayId = pVPNGatewayId_
-    }
+  DetachVPNGateway'
+  { _dvpngDryRun = Nothing
+  , _dvpngVPCId = pVPCId_
+  , _dvpngVPNGatewayId = pVPNGatewayId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpngDryRun :: Lens' DetachVPNGateway (Maybe Bool)
@@ -93,9 +95,9 @@ instance AWSRequest DetachVPNGateway where
         request = postQuery ec2
         response = receiveNull DetachVPNGatewayResponse'
 
-instance Hashable DetachVPNGateway
+instance Hashable DetachVPNGateway where
 
-instance NFData DetachVPNGateway
+instance NFData DetachVPNGateway where
 
 instance ToHeaders DetachVPNGateway where
         toHeaders = const mempty
@@ -113,8 +115,9 @@ instance ToQuery DetachVPNGateway where
 
 -- | /See:/ 'detachVPNGatewayResponse' smart constructor.
 data DetachVPNGatewayResponse =
-    DetachVPNGatewayResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachVPNGatewayResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachVPNGatewayResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +125,5 @@ detachVPNGatewayResponse
     :: DetachVPNGatewayResponse
 detachVPNGatewayResponse = DetachVPNGatewayResponse'
 
-instance NFData DetachVPNGatewayResponse
+
+instance NFData DetachVPNGatewayResponse where

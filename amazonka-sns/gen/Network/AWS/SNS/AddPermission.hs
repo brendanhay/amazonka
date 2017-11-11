@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.AddPermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,20 +37,21 @@ module Network.AWS.SNS.AddPermission
     , AddPermissionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'addPermission' smart constructor.
 data AddPermission = AddPermission'
-    { _apTopicARN     :: !Text
-    , _apLabel        :: !Text
-    , _apAWSAccountId :: ![Text]
-    , _apActionName   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apTopicARN     :: {-# NOUNPACK #-}!Text
+  , _apLabel        :: {-# NOUNPACK #-}!Text
+  , _apAWSAccountId :: {-# NOUNPACK #-}![Text]
+  , _apActionName   :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
@@ -68,12 +69,13 @@ addPermission
     -> Text -- ^ 'apLabel'
     -> AddPermission
 addPermission pTopicARN_ pLabel_ =
-    AddPermission'
-    { _apTopicARN = pTopicARN_
-    , _apLabel = pLabel_
-    , _apAWSAccountId = mempty
-    , _apActionName = mempty
-    }
+  AddPermission'
+  { _apTopicARN = pTopicARN_
+  , _apLabel = pLabel_
+  , _apAWSAccountId = mempty
+  , _apActionName = mempty
+  }
+
 
 -- | The ARN of the topic whose access control policy you wish to modify.
 apTopicARN :: Lens' AddPermission Text
@@ -96,9 +98,9 @@ instance AWSRequest AddPermission where
         request = postQuery sns
         response = receiveNull AddPermissionResponse'
 
-instance Hashable AddPermission
+instance Hashable AddPermission where
 
-instance NFData AddPermission
+instance NFData AddPermission where
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty
@@ -118,8 +120,9 @@ instance ToQuery AddPermission where
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse =
-    AddPermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddPermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
 --
@@ -127,4 +130,5 @@ addPermissionResponse
     :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse'
 
-instance NFData AddPermissionResponse
+
+instance NFData AddPermissionResponse where

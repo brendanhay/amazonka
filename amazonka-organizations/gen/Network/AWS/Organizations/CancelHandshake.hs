@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.CancelHandshake
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Organizations.CancelHandshake
     , chrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelHandshake' smart constructor.
 newtype CancelHandshake = CancelHandshake'
-    { _chHandshakeId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chHandshakeId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelHandshake' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ cancelHandshake
     :: Text -- ^ 'chHandshakeId'
     -> CancelHandshake
 cancelHandshake pHandshakeId_ =
-    CancelHandshake'
-    { _chHandshakeId = pHandshakeId_
-    }
+  CancelHandshake' {_chHandshakeId = pHandshakeId_}
+
 
 -- | The unique identifier (ID) of the handshake that you want to cancel. You can get the ID from the 'ListHandshakesForOrganization' operation. The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
 chHandshakeId :: Lens' CancelHandshake Text
@@ -79,9 +79,9 @@ instance AWSRequest CancelHandshake where
                  CancelHandshakeResponse' <$>
                    (x .?> "Handshake") <*> (pure (fromEnum s)))
 
-instance Hashable CancelHandshake
+instance Hashable CancelHandshake where
 
-instance NFData CancelHandshake
+instance NFData CancelHandshake where
 
 instance ToHeaders CancelHandshake where
         toHeaders
@@ -106,9 +106,10 @@ instance ToQuery CancelHandshake where
 
 -- | /See:/ 'cancelHandshakeResponse' smart constructor.
 data CancelHandshakeResponse = CancelHandshakeResponse'
-    { _chrsHandshake      :: !(Maybe Handshake)
-    , _chrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _chrsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
+  , _chrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelHandshakeResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,9 @@ cancelHandshakeResponse
     :: Int -- ^ 'chrsResponseStatus'
     -> CancelHandshakeResponse
 cancelHandshakeResponse pResponseStatus_ =
-    CancelHandshakeResponse'
-    { _chrsHandshake = Nothing
-    , _chrsResponseStatus = pResponseStatus_
-    }
+  CancelHandshakeResponse'
+  {_chrsHandshake = Nothing, _chrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the handshake that you canceled.
 chrsHandshake :: Lens' CancelHandshakeResponse (Maybe Handshake)
@@ -134,4 +134,4 @@ chrsHandshake = lens _chrsHandshake (\ s a -> s{_chrsHandshake = a});
 chrsResponseStatus :: Lens' CancelHandshakeResponse Int
 chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a});
 
-instance NFData CancelHandshakeResponse
+instance NFData CancelHandshakeResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,20 +51,21 @@ module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
     , mvpcorsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyVPCPeeringConnectionOptions' smart constructor.
 data ModifyVPCPeeringConnectionOptions = ModifyVPCPeeringConnectionOptions'
-    { _mvpcoRequesterPeeringConnectionOptions :: !(Maybe PeeringConnectionOptionsRequest)
-    , _mvpcoAccepterPeeringConnectionOptions  :: !(Maybe PeeringConnectionOptionsRequest)
-    , _mvpcoDryRun                            :: !(Maybe Bool)
-    , _mvpcoVPCPeeringConnectionId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mvpcoRequesterPeeringConnectionOptions :: {-# NOUNPACK #-}!(Maybe PeeringConnectionOptionsRequest)
+  , _mvpcoAccepterPeeringConnectionOptions :: {-# NOUNPACK #-}!(Maybe PeeringConnectionOptionsRequest)
+  , _mvpcoDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mvpcoVPCPeeringConnectionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVPCPeeringConnectionOptions' with the minimum fields required to make a request.
 --
@@ -81,12 +82,13 @@ modifyVPCPeeringConnectionOptions
     :: Text -- ^ 'mvpcoVPCPeeringConnectionId'
     -> ModifyVPCPeeringConnectionOptions
 modifyVPCPeeringConnectionOptions pVPCPeeringConnectionId_ =
-    ModifyVPCPeeringConnectionOptions'
-    { _mvpcoRequesterPeeringConnectionOptions = Nothing
-    , _mvpcoAccepterPeeringConnectionOptions = Nothing
-    , _mvpcoDryRun = Nothing
-    , _mvpcoVPCPeeringConnectionId = pVPCPeeringConnectionId_
-    }
+  ModifyVPCPeeringConnectionOptions'
+  { _mvpcoRequesterPeeringConnectionOptions = Nothing
+  , _mvpcoAccepterPeeringConnectionOptions = Nothing
+  , _mvpcoDryRun = Nothing
+  , _mvpcoVPCPeeringConnectionId = pVPCPeeringConnectionId_
+  }
+
 
 -- | The VPC peering connection options for the requester VPC.
 mvpcoRequesterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptions (Maybe PeeringConnectionOptionsRequest)
@@ -118,8 +120,10 @@ instance AWSRequest ModifyVPCPeeringConnectionOptions
                      <*> (pure (fromEnum s)))
 
 instance Hashable ModifyVPCPeeringConnectionOptions
+         where
 
 instance NFData ModifyVPCPeeringConnectionOptions
+         where
 
 instance ToHeaders ModifyVPCPeeringConnectionOptions
          where
@@ -146,10 +150,11 @@ instance ToQuery ModifyVPCPeeringConnectionOptions
 
 -- | /See:/ 'modifyVPCPeeringConnectionOptionsResponse' smart constructor.
 data ModifyVPCPeeringConnectionOptionsResponse = ModifyVPCPeeringConnectionOptionsResponse'
-    { _mvpcorsRequesterPeeringConnectionOptions :: !(Maybe PeeringConnectionOptions)
-    , _mvpcorsAccepterPeeringConnectionOptions  :: !(Maybe PeeringConnectionOptions)
-    , _mvpcorsResponseStatus                    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mvpcorsRequesterPeeringConnectionOptions :: {-# NOUNPACK #-}!(Maybe PeeringConnectionOptions)
+  , _mvpcorsAccepterPeeringConnectionOptions :: {-# NOUNPACK #-}!(Maybe PeeringConnectionOptions)
+  , _mvpcorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVPCPeeringConnectionOptionsResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +169,12 @@ modifyVPCPeeringConnectionOptionsResponse
     :: Int -- ^ 'mvpcorsResponseStatus'
     -> ModifyVPCPeeringConnectionOptionsResponse
 modifyVPCPeeringConnectionOptionsResponse pResponseStatus_ =
-    ModifyVPCPeeringConnectionOptionsResponse'
-    { _mvpcorsRequesterPeeringConnectionOptions = Nothing
-    , _mvpcorsAccepterPeeringConnectionOptions = Nothing
-    , _mvpcorsResponseStatus = pResponseStatus_
-    }
+  ModifyVPCPeeringConnectionOptionsResponse'
+  { _mvpcorsRequesterPeeringConnectionOptions = Nothing
+  , _mvpcorsAccepterPeeringConnectionOptions = Nothing
+  , _mvpcorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the VPC peering connection options for the requester VPC.
 mvpcorsRequesterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptionsResponse (Maybe PeeringConnectionOptions)
@@ -183,4 +189,5 @@ mvpcorsResponseStatus :: Lens' ModifyVPCPeeringConnectionOptionsResponse Int
 mvpcorsResponseStatus = lens _mvpcorsResponseStatus (\ s a -> s{_mvpcorsResponseStatus = a});
 
 instance NFData
-         ModifyVPCPeeringConnectionOptionsResponse
+           ModifyVPCPeeringConnectionOptionsResponse
+         where

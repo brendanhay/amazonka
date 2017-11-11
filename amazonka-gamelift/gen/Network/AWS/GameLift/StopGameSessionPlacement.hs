@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.StopGameSessionPlacement
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -63,12 +63,12 @@ module Network.AWS.GameLift.StopGameSessionPlacement
     , storsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -76,8 +76,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'stopGameSessionPlacement' smart constructor.
 newtype StopGameSessionPlacement = StopGameSessionPlacement'
-    { _sPlacementId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sPlacementId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopGameSessionPlacement' with the minimum fields required to make a request.
 --
@@ -88,9 +89,8 @@ stopGameSessionPlacement
     :: Text -- ^ 'sPlacementId'
     -> StopGameSessionPlacement
 stopGameSessionPlacement pPlacementId_ =
-    StopGameSessionPlacement'
-    { _sPlacementId = pPlacementId_
-    }
+  StopGameSessionPlacement' {_sPlacementId = pPlacementId_}
+
 
 -- | Unique identifier for a game session placement to cancel.
 sPlacementId :: Lens' StopGameSessionPlacement Text
@@ -107,9 +107,9 @@ instance AWSRequest StopGameSessionPlacement where
                    (x .?> "GameSessionPlacement") <*>
                      (pure (fromEnum s)))
 
-instance Hashable StopGameSessionPlacement
+instance Hashable StopGameSessionPlacement where
 
-instance NFData StopGameSessionPlacement
+instance NFData StopGameSessionPlacement where
 
 instance ToHeaders StopGameSessionPlacement where
         toHeaders
@@ -137,9 +137,10 @@ instance ToQuery StopGameSessionPlacement where
 --
 -- /See:/ 'stopGameSessionPlacementResponse' smart constructor.
 data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
-    { _storsGameSessionPlacement :: !(Maybe GameSessionPlacement)
-    , _storsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _storsGameSessionPlacement :: {-# NOUNPACK #-}!(Maybe GameSessionPlacement)
+  , _storsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopGameSessionPlacementResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +153,11 @@ stopGameSessionPlacementResponse
     :: Int -- ^ 'storsResponseStatus'
     -> StopGameSessionPlacementResponse
 stopGameSessionPlacementResponse pResponseStatus_ =
-    StopGameSessionPlacementResponse'
-    { _storsGameSessionPlacement = Nothing
-    , _storsResponseStatus = pResponseStatus_
-    }
+  StopGameSessionPlacementResponse'
+  { _storsGameSessionPlacement = Nothing
+  , _storsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
 storsGameSessionPlacement :: Lens' StopGameSessionPlacementResponse (Maybe GameSessionPlacement)
@@ -166,3 +168,4 @@ storsResponseStatus :: Lens' StopGameSessionPlacementResponse Int
 storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a});
 
 instance NFData StopGameSessionPlacementResponse
+         where

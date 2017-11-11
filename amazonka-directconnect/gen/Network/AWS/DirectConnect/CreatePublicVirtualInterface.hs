@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreatePublicVirtualInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the CreatePublicVirtualInterface operation.
 --
@@ -68,9 +68,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createPublicVirtualInterface' smart constructor.
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
-    { _cpviConnectionId              :: !Text
-    , _cpviNewPublicVirtualInterface :: !NewPublicVirtualInterface
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpviConnectionId              :: {-# NOUNPACK #-}!Text
+  , _cpviNewPublicVirtualInterface :: {-# NOUNPACK #-}!NewPublicVirtualInterface
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePublicVirtualInterface' with the minimum fields required to make a request.
 --
@@ -84,10 +85,11 @@ createPublicVirtualInterface
     -> NewPublicVirtualInterface -- ^ 'cpviNewPublicVirtualInterface'
     -> CreatePublicVirtualInterface
 createPublicVirtualInterface pConnectionId_ pNewPublicVirtualInterface_ =
-    CreatePublicVirtualInterface'
-    { _cpviConnectionId = pConnectionId_
-    , _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface_
-    }
+  CreatePublicVirtualInterface'
+  { _cpviConnectionId = pConnectionId_
+  , _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface_
+  }
+
 
 -- | Undocumented member.
 cpviConnectionId :: Lens' CreatePublicVirtualInterface Text
@@ -104,9 +106,9 @@ instance AWSRequest CreatePublicVirtualInterface
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreatePublicVirtualInterface
+instance Hashable CreatePublicVirtualInterface where
 
-instance NFData CreatePublicVirtualInterface
+instance NFData CreatePublicVirtualInterface where
 
 instance ToHeaders CreatePublicVirtualInterface where
         toHeaders

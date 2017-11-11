@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StartTrigger
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.StartTrigger
     , starsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startTrigger' smart constructor.
 newtype StartTrigger = StartTrigger'
-    { _staName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _staName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartTrigger' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype StartTrigger = StartTrigger'
 startTrigger
     :: Text -- ^ 'staName'
     -> StartTrigger
-startTrigger pName_ =
-    StartTrigger'
-    { _staName = pName_
-    }
+startTrigger pName_ = StartTrigger' {_staName = pName_}
+
 
 -- | The name of the trigger to start.
 staName :: Lens' StartTrigger Text
@@ -75,9 +74,9 @@ instance AWSRequest StartTrigger where
                  StartTriggerResponse' <$>
                    (x .?> "Name") <*> (pure (fromEnum s)))
 
-instance Hashable StartTrigger
+instance Hashable StartTrigger where
 
-instance NFData StartTrigger
+instance NFData StartTrigger where
 
 instance ToHeaders StartTrigger where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery StartTrigger where
 
 -- | /See:/ 'startTriggerResponse' smart constructor.
 data StartTriggerResponse = StartTriggerResponse'
-    { _starsName           :: !(Maybe Text)
-    , _starsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _starsName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _starsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartTriggerResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ startTriggerResponse
     :: Int -- ^ 'starsResponseStatus'
     -> StartTriggerResponse
 startTriggerResponse pResponseStatus_ =
-    StartTriggerResponse'
-    { _starsName = Nothing
-    , _starsResponseStatus = pResponseStatus_
-    }
+  StartTriggerResponse'
+  {_starsName = Nothing, _starsResponseStatus = pResponseStatus_}
+
 
 -- | The name of the trigger that was started.
 starsName :: Lens' StartTriggerResponse (Maybe Text)
@@ -128,4 +127,4 @@ starsName = lens _starsName (\ s a -> s{_starsName = a});
 starsResponseStatus :: Lens' StartTriggerResponse Int
 starsResponseStatus = lens _starsResponseStatus (\ s a -> s{_starsResponseStatus = a});
 
-instance NFData StartTriggerResponse
+instance NFData StartTriggerResponse where

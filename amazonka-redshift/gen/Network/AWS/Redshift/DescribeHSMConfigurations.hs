@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeHSMConfigurations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,13 +48,13 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     , dhcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -62,12 +62,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeHSMConfigurations' smart constructor.
 data DescribeHSMConfigurations = DescribeHSMConfigurations'
-    { _dhsmcTagValues                  :: !(Maybe [Text])
-    , _dhsmcHSMConfigurationIdentifier :: !(Maybe Text)
-    , _dhsmcTagKeys                    :: !(Maybe [Text])
-    , _dhsmcMarker                     :: !(Maybe Text)
-    , _dhsmcMaxRecords                 :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhsmcTagValues                  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhsmcHSMConfigurationIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhsmcTagKeys                    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhsmcMarker                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhsmcMaxRecords                 :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHSMConfigurations' with the minimum fields required to make a request.
 --
@@ -85,13 +86,14 @@ data DescribeHSMConfigurations = DescribeHSMConfigurations'
 describeHSMConfigurations
     :: DescribeHSMConfigurations
 describeHSMConfigurations =
-    DescribeHSMConfigurations'
-    { _dhsmcTagValues = Nothing
-    , _dhsmcHSMConfigurationIdentifier = Nothing
-    , _dhsmcTagKeys = Nothing
-    , _dhsmcMarker = Nothing
-    , _dhsmcMaxRecords = Nothing
-    }
+  DescribeHSMConfigurations'
+  { _dhsmcTagValues = Nothing
+  , _dhsmcHSMConfigurationIdentifier = Nothing
+  , _dhsmcTagKeys = Nothing
+  , _dhsmcMarker = Nothing
+  , _dhsmcMaxRecords = Nothing
+  }
+
 
 -- | A tag value or values for which you want to return all matching HSM configurations that are associated with the specified tag value or values. For example, suppose that you have HSM configurations that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM configurations that have either or both of these tag values associated with them.
 dhsmcTagValues :: Lens' DescribeHSMConfigurations [Text]
@@ -133,9 +135,9 @@ instance AWSRequest DescribeHSMConfigurations where
                         may (parseXMLList "HsmConfiguration"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHSMConfigurations
+instance Hashable DescribeHSMConfigurations where
 
-instance NFData DescribeHSMConfigurations
+instance NFData DescribeHSMConfigurations where
 
 instance ToHeaders DescribeHSMConfigurations where
         toHeaders = const mempty
@@ -164,10 +166,11 @@ instance ToQuery DescribeHSMConfigurations where
 --
 -- /See:/ 'describeHSMConfigurationsResponse' smart constructor.
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
-    { _dhcrsMarker            :: !(Maybe Text)
-    , _dhcrsHSMConfigurations :: !(Maybe [HSMConfiguration])
-    , _dhcrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhcrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhcrsHSMConfigurations :: {-# NOUNPACK #-}!(Maybe [HSMConfiguration])
+  , _dhcrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHSMConfigurationsResponse' with the minimum fields required to make a request.
 --
@@ -182,11 +185,12 @@ describeHSMConfigurationsResponse
     :: Int -- ^ 'dhcrsResponseStatus'
     -> DescribeHSMConfigurationsResponse
 describeHSMConfigurationsResponse pResponseStatus_ =
-    DescribeHSMConfigurationsResponse'
-    { _dhcrsMarker = Nothing
-    , _dhcrsHSMConfigurations = Nothing
-    , _dhcrsResponseStatus = pResponseStatus_
-    }
+  DescribeHSMConfigurationsResponse'
+  { _dhcrsMarker = Nothing
+  , _dhcrsHSMConfigurations = Nothing
+  , _dhcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 dhcrsMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
@@ -201,3 +205,4 @@ dhcrsResponseStatus :: Lens' DescribeHSMConfigurationsResponse Int
 dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});
 
 instance NFData DescribeHSMConfigurationsResponse
+         where

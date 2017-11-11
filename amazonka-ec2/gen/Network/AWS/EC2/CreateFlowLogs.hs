@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateFlowLogs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EC2.CreateFlowLogs
     , cflrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateFlowLogs.
 --
@@ -59,13 +59,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createFlowLogs' smart constructor.
 data CreateFlowLogs = CreateFlowLogs'
-    { _cflClientToken              :: !(Maybe Text)
-    , _cflDeliverLogsPermissionARN :: !Text
-    , _cflLogGroupName             :: !Text
-    , _cflResourceIds              :: ![Text]
-    , _cflResourceType             :: !FlowLogsResourceType
-    , _cflTrafficType              :: !TrafficType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cflClientToken              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cflDeliverLogsPermissionARN :: {-# NOUNPACK #-}!Text
+  , _cflLogGroupName             :: {-# NOUNPACK #-}!Text
+  , _cflResourceIds              :: {-# NOUNPACK #-}![Text]
+  , _cflResourceType             :: {-# NOUNPACK #-}!FlowLogsResourceType
+  , _cflTrafficType              :: {-# NOUNPACK #-}!TrafficType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFlowLogs' with the minimum fields required to make a request.
 --
@@ -89,14 +90,15 @@ createFlowLogs
     -> TrafficType -- ^ 'cflTrafficType'
     -> CreateFlowLogs
 createFlowLogs pDeliverLogsPermissionARN_ pLogGroupName_ pResourceType_ pTrafficType_ =
-    CreateFlowLogs'
-    { _cflClientToken = Nothing
-    , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
-    , _cflLogGroupName = pLogGroupName_
-    , _cflResourceIds = mempty
-    , _cflResourceType = pResourceType_
-    , _cflTrafficType = pTrafficType_
-    }
+  CreateFlowLogs'
+  { _cflClientToken = Nothing
+  , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
+  , _cflLogGroupName = pLogGroupName_
+  , _cflResourceIds = mempty
+  , _cflResourceType = pResourceType_
+  , _cflTrafficType = pTrafficType_
+  }
+
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 cflClientToken :: Lens' CreateFlowLogs (Maybe Text)
@@ -137,9 +139,9 @@ instance AWSRequest CreateFlowLogs where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateFlowLogs
+instance Hashable CreateFlowLogs where
 
-instance NFData CreateFlowLogs
+instance NFData CreateFlowLogs where
 
 instance ToHeaders CreateFlowLogs where
         toHeaders = const mempty
@@ -166,11 +168,12 @@ instance ToQuery CreateFlowLogs where
 --
 -- /See:/ 'createFlowLogsResponse' smart constructor.
 data CreateFlowLogsResponse = CreateFlowLogsResponse'
-    { _cflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
-    , _cflrsClientToken    :: !(Maybe Text)
-    , _cflrsFlowLogIds     :: !(Maybe [Text])
-    , _cflrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cflrsUnsuccessful   :: {-# NOUNPACK #-}!(Maybe [UnsuccessfulItem])
+  , _cflrsClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cflrsFlowLogIds     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cflrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFlowLogsResponse' with the minimum fields required to make a request.
 --
@@ -187,12 +190,13 @@ createFlowLogsResponse
     :: Int -- ^ 'cflrsResponseStatus'
     -> CreateFlowLogsResponse
 createFlowLogsResponse pResponseStatus_ =
-    CreateFlowLogsResponse'
-    { _cflrsUnsuccessful = Nothing
-    , _cflrsClientToken = Nothing
-    , _cflrsFlowLogIds = Nothing
-    , _cflrsResponseStatus = pResponseStatus_
-    }
+  CreateFlowLogsResponse'
+  { _cflrsUnsuccessful = Nothing
+  , _cflrsClientToken = Nothing
+  , _cflrsFlowLogIds = Nothing
+  , _cflrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the flow logs that could not be created successfully.
 cflrsUnsuccessful :: Lens' CreateFlowLogsResponse [UnsuccessfulItem]
@@ -210,4 +214,4 @@ cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _De
 cflrsResponseStatus :: Lens' CreateFlowLogsResponse Int
 cflrsResponseStatus = lens _cflrsResponseStatus (\ s a -> s{_cflrsResponseStatus = a});
 
-instance NFData CreateFlowLogsResponse
+instance NFData CreateFlowLogsResponse where

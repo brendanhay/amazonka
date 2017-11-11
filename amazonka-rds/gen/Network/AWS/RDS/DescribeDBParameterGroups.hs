@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBParameterGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     , ddpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBParameterGroups' smart constructor.
 data DescribeDBParameterGroups = DescribeDBParameterGroups'
-    { _ddpgFilters              :: !(Maybe [Filter])
-    , _ddpgDBParameterGroupName :: !(Maybe Text)
-    , _ddpgMarker               :: !(Maybe Text)
-    , _ddpgMaxRecords           :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddpgFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddpgDBParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddpgMarker               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddpgMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBParameterGroups' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
 describeDBParameterGroups
     :: DescribeDBParameterGroups
 describeDBParameterGroups =
-    DescribeDBParameterGroups'
-    { _ddpgFilters = Nothing
-    , _ddpgDBParameterGroupName = Nothing
-    , _ddpgMarker = Nothing
-    , _ddpgMaxRecords = Nothing
-    }
+  DescribeDBParameterGroups'
+  { _ddpgFilters = Nothing
+  , _ddpgDBParameterGroupName = Nothing
+  , _ddpgMarker = Nothing
+  , _ddpgMaxRecords = Nothing
+  }
+
 
 -- | This parameter is not currently supported.
 ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
@@ -120,9 +122,9 @@ instance AWSRequest DescribeDBParameterGroups where
                         may (parseXMLList "DBParameterGroup"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBParameterGroups
+instance Hashable DescribeDBParameterGroups where
 
-instance NFData DescribeDBParameterGroups
+instance NFData DescribeDBParameterGroups where
 
 instance ToHeaders DescribeDBParameterGroups where
         toHeaders = const mempty
@@ -148,10 +150,11 @@ instance ToQuery DescribeDBParameterGroups where
 --
 -- /See:/ 'describeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
-    { _ddpgrsMarker            :: !(Maybe Text)
-    , _ddpgrsDBParameterGroups :: !(Maybe [DBParameterGroup])
-    , _ddpgrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddpgrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddpgrsDBParameterGroups :: {-# NOUNPACK #-}!(Maybe [DBParameterGroup])
+  , _ddpgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBParameterGroupsResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ describeDBParameterGroupsResponse
     :: Int -- ^ 'ddpgrsResponseStatus'
     -> DescribeDBParameterGroupsResponse
 describeDBParameterGroupsResponse pResponseStatus_ =
-    DescribeDBParameterGroupsResponse'
-    { _ddpgrsMarker = Nothing
-    , _ddpgrsDBParameterGroups = Nothing
-    , _ddpgrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBParameterGroupsResponse'
+  { _ddpgrsMarker = Nothing
+  , _ddpgrsDBParameterGroups = Nothing
+  , _ddpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
@@ -185,3 +189,4 @@ ddpgrsResponseStatus :: Lens' DescribeDBParameterGroupsResponse Int
 ddpgrsResponseStatus = lens _ddpgrsResponseStatus (\ s a -> s{_ddpgrsResponseStatus = a});
 
 instance NFData DescribeDBParameterGroupsResponse
+         where

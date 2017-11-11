@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Polly.SynthesizeSpeech
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,23 +45,24 @@ module Network.AWS.Polly.SynthesizeSpeech
     , ssrsAudioStream
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Polly.Types
-import           Network.AWS.Polly.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Polly.Types
+import Network.AWS.Polly.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'synthesizeSpeech' smart constructor.
 data SynthesizeSpeech = SynthesizeSpeech'
-    { _ssSpeechMarkTypes :: !(Maybe [SpeechMarkType])
-    , _ssSampleRate      :: !(Maybe Text)
-    , _ssTextType        :: !(Maybe TextType)
-    , _ssLexiconNames    :: !(Maybe [Sensitive Text])
-    , _ssOutputFormat    :: !OutputFormat
-    , _ssText            :: !Text
-    , _ssVoiceId         :: !VoiceId
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ssSpeechMarkTypes :: {-# NOUNPACK #-}!(Maybe [SpeechMarkType])
+  , _ssSampleRate      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssTextType        :: {-# NOUNPACK #-}!(Maybe TextType)
+  , _ssLexiconNames    :: {-# NOUNPACK #-}!(Maybe [Sensitive Text])
+  , _ssOutputFormat    :: {-# NOUNPACK #-}!OutputFormat
+  , _ssText            :: {-# NOUNPACK #-}!Text
+  , _ssVoiceId         :: {-# NOUNPACK #-}!VoiceId
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SynthesizeSpeech' with the minimum fields required to make a request.
 --
@@ -86,15 +87,16 @@ synthesizeSpeech
     -> VoiceId -- ^ 'ssVoiceId'
     -> SynthesizeSpeech
 synthesizeSpeech pOutputFormat_ pText_ pVoiceId_ =
-    SynthesizeSpeech'
-    { _ssSpeechMarkTypes = Nothing
-    , _ssSampleRate = Nothing
-    , _ssTextType = Nothing
-    , _ssLexiconNames = Nothing
-    , _ssOutputFormat = pOutputFormat_
-    , _ssText = pText_
-    , _ssVoiceId = pVoiceId_
-    }
+  SynthesizeSpeech'
+  { _ssSpeechMarkTypes = Nothing
+  , _ssSampleRate = Nothing
+  , _ssTextType = Nothing
+  , _ssLexiconNames = Nothing
+  , _ssOutputFormat = pOutputFormat_
+  , _ssText = pText_
+  , _ssVoiceId = pVoiceId_
+  }
+
 
 -- | The type of speech marks returned for the input text.
 ssSpeechMarkTypes :: Lens' SynthesizeSpeech [SpeechMarkType]
@@ -136,9 +138,9 @@ instance AWSRequest SynthesizeSpeech where
                      <*> (pure (fromEnum s))
                      <*> (pure x))
 
-instance Hashable SynthesizeSpeech
+instance Hashable SynthesizeSpeech where
 
-instance NFData SynthesizeSpeech
+instance NFData SynthesizeSpeech where
 
 instance ToHeaders SynthesizeSpeech where
         toHeaders = const mempty
@@ -163,11 +165,12 @@ instance ToQuery SynthesizeSpeech where
 
 -- | /See:/ 'synthesizeSpeechResponse' smart constructor.
 data SynthesizeSpeechResponse = SynthesizeSpeechResponse'
-    { _ssrsRequestCharacters :: !(Maybe Int)
-    , _ssrsContentType       :: !(Maybe Text)
-    , _ssrsResponseStatus    :: !Int
-    , _ssrsAudioStream       :: !RsBody
-    } deriving (Show,Generic)
+  { _ssrsRequestCharacters :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ssrsContentType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _ssrsAudioStream       :: {-# NOUNPACK #-}!RsBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'SynthesizeSpeechResponse' with the minimum fields required to make a request.
 --
@@ -185,12 +188,13 @@ synthesizeSpeechResponse
     -> RsBody -- ^ 'ssrsAudioStream'
     -> SynthesizeSpeechResponse
 synthesizeSpeechResponse pResponseStatus_ pAudioStream_ =
-    SynthesizeSpeechResponse'
-    { _ssrsRequestCharacters = Nothing
-    , _ssrsContentType = Nothing
-    , _ssrsResponseStatus = pResponseStatus_
-    , _ssrsAudioStream = pAudioStream_
-    }
+  SynthesizeSpeechResponse'
+  { _ssrsRequestCharacters = Nothing
+  , _ssrsContentType = Nothing
+  , _ssrsResponseStatus = pResponseStatus_
+  , _ssrsAudioStream = pAudioStream_
+  }
+
 
 -- | Number of characters synthesized.
 ssrsRequestCharacters :: Lens' SynthesizeSpeechResponse (Maybe Int)

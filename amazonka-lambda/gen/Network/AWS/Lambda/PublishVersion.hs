@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.PublishVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.Lambda.PublishVersion
     , fcMasterARN
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -68,10 +68,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'publishVersion' smart constructor.
 data PublishVersion = PublishVersion'
-    { _pvCodeSha256   :: !(Maybe Text)
-    , _pvDescription  :: !(Maybe Text)
-    , _pvFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pvCodeSha256   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvFunctionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PublishVersion' with the minimum fields required to make a request.
 --
@@ -86,11 +87,12 @@ publishVersion
     :: Text -- ^ 'pvFunctionName'
     -> PublishVersion
 publishVersion pFunctionName_ =
-    PublishVersion'
-    { _pvCodeSha256 = Nothing
-    , _pvDescription = Nothing
-    , _pvFunctionName = pFunctionName_
-    }
+  PublishVersion'
+  { _pvCodeSha256 = Nothing
+  , _pvDescription = Nothing
+  , _pvFunctionName = pFunctionName_
+  }
+
 
 -- | The SHA256 hash of the deployment package you want to publish. This provides validation on the code you are publishing. If you provide this parameter value must match the SHA256 of the $LATEST version for the publication to succeed.
 pvCodeSha256 :: Lens' PublishVersion (Maybe Text)
@@ -109,9 +111,9 @@ instance AWSRequest PublishVersion where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable PublishVersion
+instance Hashable PublishVersion where
 
-instance NFData PublishVersion
+instance NFData PublishVersion where
 
 instance ToHeaders PublishVersion where
         toHeaders = const mempty

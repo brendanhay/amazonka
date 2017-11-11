@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.DAX.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DAX.Types.Product where
 
-import           Network.AWS.DAX.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DAX.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Contains all of the attributes of a specific DAX cluster.
 --
@@ -27,23 +27,24 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-    { _cStatus                     :: !(Maybe Text)
-    , _cIAMRoleARN                 :: !(Maybe Text)
-    , _cClusterARN                 :: !(Maybe Text)
-    , _cActiveNodes                :: !(Maybe Int)
-    , _cSecurityGroups             :: !(Maybe [SecurityGroupMembership])
-    , _cNotificationConfiguration  :: !(Maybe NotificationConfiguration)
-    , _cNodeIdsToRemove            :: !(Maybe [Text])
-    , _cTotalNodes                 :: !(Maybe Int)
-    , _cPreferredMaintenanceWindow :: !(Maybe Text)
-    , _cSubnetGroup                :: !(Maybe Text)
-    , _cClusterName                :: !(Maybe Text)
-    , _cNodeType                   :: !(Maybe Text)
-    , _cNodes                      :: !(Maybe [Node])
-    , _cClusterDiscoveryEndpoint   :: !(Maybe Endpoint)
-    , _cDescription                :: !(Maybe Text)
-    , _cParameterGroup             :: !(Maybe ParameterGroupStatus)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cIAMRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cActiveNodes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cSecurityGroups :: {-# NOUNPACK #-}!(Maybe [SecurityGroupMembership])
+  , _cNotificationConfiguration :: {-# NOUNPACK #-}!(Maybe NotificationConfiguration)
+  , _cNodeIdsToRemove :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cTotalNodes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cSubnetGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cNodes :: {-# NOUNPACK #-}!(Maybe [Node])
+  , _cClusterDiscoveryEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _cDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cParameterGroup :: {-# NOUNPACK #-}!(Maybe ParameterGroupStatus)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
@@ -83,24 +84,25 @@ data Cluster = Cluster'
 cluster
     :: Cluster
 cluster =
-    Cluster'
-    { _cStatus = Nothing
-    , _cIAMRoleARN = Nothing
-    , _cClusterARN = Nothing
-    , _cActiveNodes = Nothing
-    , _cSecurityGroups = Nothing
-    , _cNotificationConfiguration = Nothing
-    , _cNodeIdsToRemove = Nothing
-    , _cTotalNodes = Nothing
-    , _cPreferredMaintenanceWindow = Nothing
-    , _cSubnetGroup = Nothing
-    , _cClusterName = Nothing
-    , _cNodeType = Nothing
-    , _cNodes = Nothing
-    , _cClusterDiscoveryEndpoint = Nothing
-    , _cDescription = Nothing
-    , _cParameterGroup = Nothing
-    }
+  Cluster'
+  { _cStatus = Nothing
+  , _cIAMRoleARN = Nothing
+  , _cClusterARN = Nothing
+  , _cActiveNodes = Nothing
+  , _cSecurityGroups = Nothing
+  , _cNotificationConfiguration = Nothing
+  , _cNodeIdsToRemove = Nothing
+  , _cTotalNodes = Nothing
+  , _cPreferredMaintenanceWindow = Nothing
+  , _cSubnetGroup = Nothing
+  , _cClusterName = Nothing
+  , _cNodeType = Nothing
+  , _cNodes = Nothing
+  , _cClusterDiscoveryEndpoint = Nothing
+  , _cDescription = Nothing
+  , _cParameterGroup = Nothing
+  }
+
 
 -- | The current status of the cluster.
 cStatus :: Lens' Cluster (Maybe Text)
@@ -187,9 +189,9 @@ instance FromJSON Cluster where
                      <*> (x .:? "Description")
                      <*> (x .:? "ParameterGroup"))
 
-instance Hashable Cluster
+instance Hashable Cluster where
 
-instance NFData Cluster
+instance NFData Cluster where
 
 -- | Represents the information required for client programs to connect to the configuration endpoint for a DAX cluster, or to an individual node within the cluster.
 --
@@ -197,9 +199,10 @@ instance NFData Cluster
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-    { _eAddress :: !(Maybe Text)
-    , _ePort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ePort    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
@@ -210,11 +213,8 @@ data Endpoint = Endpoint'
 -- * 'ePort' - The port number that applications should use to connect to the endpoint.
 endpoint
     :: Endpoint
-endpoint =
-    Endpoint'
-    { _eAddress = Nothing
-    , _ePort = Nothing
-    }
+endpoint = Endpoint' {_eAddress = Nothing, _ePort = Nothing}
+
 
 -- | The DNS hostname of the endpoint.
 eAddress :: Lens' Endpoint (Maybe Text)
@@ -230,9 +230,9 @@ instance FromJSON Endpoint where
               (\ x ->
                  Endpoint' <$> (x .:? "Address") <*> (x .:? "Port"))
 
-instance Hashable Endpoint
+instance Hashable Endpoint where
 
-instance NFData Endpoint
+instance NFData Endpoint where
 
 -- | Represents a single occurrence of something interesting within the system. Some examples of events are creating a DAX cluster, adding or removing a node, or rebooting a node.
 --
@@ -240,11 +240,12 @@ instance NFData Endpoint
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eSourceName :: !(Maybe Text)
-    , _eSourceType :: !(Maybe SourceType)
-    , _eDate       :: !(Maybe POSIX)
-    , _eMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eSourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eSourceType :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _eDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
@@ -260,12 +261,13 @@ data Event = Event'
 event
     :: Event
 event =
-    Event'
-    { _eSourceName = Nothing
-    , _eSourceType = Nothing
-    , _eDate = Nothing
-    , _eMessage = Nothing
-    }
+  Event'
+  { _eSourceName = Nothing
+  , _eSourceType = Nothing
+  , _eDate = Nothing
+  , _eMessage = Nothing
+  }
+
 
 -- | The source of the event. For example, if the event occurred at the node level, the source would be the node ID.
 eSourceName :: Lens' Event (Maybe Text)
@@ -292,9 +294,9 @@ instance FromJSON Event where
                      (x .:? "Date")
                      <*> (x .:? "Message"))
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- | Represents an individual node within a DAX cluster.
 --
@@ -302,13 +304,14 @@ instance NFData Event
 --
 -- /See:/ 'node' smart constructor.
 data Node = Node'
-    { _nNodeStatus           :: !(Maybe Text)
-    , _nParameterGroupStatus :: !(Maybe Text)
-    , _nAvailabilityZone     :: !(Maybe Text)
-    , _nNodeId               :: !(Maybe Text)
-    , _nEndpoint             :: !(Maybe Endpoint)
-    , _nNodeCreateTime       :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nNodeStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nParameterGroupStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nAvailabilityZone     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nNodeId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nEndpoint             :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _nNodeCreateTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Node' with the minimum fields required to make a request.
 --
@@ -328,14 +331,15 @@ data Node = Node'
 node
     :: Node
 node =
-    Node'
-    { _nNodeStatus = Nothing
-    , _nParameterGroupStatus = Nothing
-    , _nAvailabilityZone = Nothing
-    , _nNodeId = Nothing
-    , _nEndpoint = Nothing
-    , _nNodeCreateTime = Nothing
-    }
+  Node'
+  { _nNodeStatus = Nothing
+  , _nParameterGroupStatus = Nothing
+  , _nAvailabilityZone = Nothing
+  , _nNodeId = Nothing
+  , _nEndpoint = Nothing
+  , _nNodeCreateTime = Nothing
+  }
+
 
 -- | The current status of the node. For example: @available@ .
 nNodeStatus :: Lens' Node (Maybe Text)
@@ -373,9 +377,9 @@ instance FromJSON Node where
                      <*> (x .:? "Endpoint")
                      <*> (x .:? "NodeCreateTime"))
 
-instance Hashable Node
+instance Hashable Node where
 
-instance NFData Node
+instance NFData Node where
 
 -- | Represents a parameter value that is applicable to a particular node type.
 --
@@ -383,9 +387,10 @@ instance NFData Node
 --
 -- /See:/ 'nodeTypeSpecificValue' smart constructor.
 data NodeTypeSpecificValue = NodeTypeSpecificValue'
-    { _ntsvValue    :: !(Maybe Text)
-    , _ntsvNodeType :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ntsvValue    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ntsvNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NodeTypeSpecificValue' with the minimum fields required to make a request.
 --
@@ -397,10 +402,8 @@ data NodeTypeSpecificValue = NodeTypeSpecificValue'
 nodeTypeSpecificValue
     :: NodeTypeSpecificValue
 nodeTypeSpecificValue =
-    NodeTypeSpecificValue'
-    { _ntsvValue = Nothing
-    , _ntsvNodeType = Nothing
-    }
+  NodeTypeSpecificValue' {_ntsvValue = Nothing, _ntsvNodeType = Nothing}
+
 
 -- | The parameter value for this node type.
 ntsvValue :: Lens' NodeTypeSpecificValue (Maybe Text)
@@ -417,9 +420,9 @@ instance FromJSON NodeTypeSpecificValue where
                  NodeTypeSpecificValue' <$>
                    (x .:? "Value") <*> (x .:? "NodeType"))
 
-instance Hashable NodeTypeSpecificValue
+instance Hashable NodeTypeSpecificValue where
 
-instance NFData NodeTypeSpecificValue
+instance NFData NodeTypeSpecificValue where
 
 -- | Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
 --
@@ -427,9 +430,10 @@ instance NFData NodeTypeSpecificValue
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-    { _ncTopicStatus :: !(Maybe Text)
-    , _ncTopicARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ncTopicStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ncTopicARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
 --
@@ -441,10 +445,8 @@ data NotificationConfiguration = NotificationConfiguration'
 notificationConfiguration
     :: NotificationConfiguration
 notificationConfiguration =
-    NotificationConfiguration'
-    { _ncTopicStatus = Nothing
-    , _ncTopicARN = Nothing
-    }
+  NotificationConfiguration' {_ncTopicStatus = Nothing, _ncTopicARN = Nothing}
+
 
 -- | The current state of the topic.
 ncTopicStatus :: Lens' NotificationConfiguration (Maybe Text)
@@ -461,9 +463,9 @@ instance FromJSON NotificationConfiguration where
                  NotificationConfiguration' <$>
                    (x .:? "TopicStatus") <*> (x .:? "TopicArn"))
 
-instance Hashable NotificationConfiguration
+instance Hashable NotificationConfiguration where
 
-instance NFData NotificationConfiguration
+instance NFData NotificationConfiguration where
 
 -- | Describes an individual setting that controls some aspect of DAX behavior.
 --
@@ -471,17 +473,18 @@ instance NFData NotificationConfiguration
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-    { _pParameterValue         :: !(Maybe Text)
-    , _pParameterType          :: !(Maybe ParameterType)
-    , _pSource                 :: !(Maybe Text)
-    , _pIsModifiable           :: !(Maybe IsModifiable)
-    , _pDataType               :: !(Maybe Text)
-    , _pNodeTypeSpecificValues :: !(Maybe [NodeTypeSpecificValue])
-    , _pAllowedValues          :: !(Maybe Text)
-    , _pParameterName          :: !(Maybe Text)
-    , _pDescription            :: !(Maybe Text)
-    , _pChangeType             :: !(Maybe ChangeType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pParameterValue         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pParameterType          :: {-# NOUNPACK #-}!(Maybe ParameterType)
+  , _pSource                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pIsModifiable           :: {-# NOUNPACK #-}!(Maybe IsModifiable)
+  , _pDataType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pNodeTypeSpecificValues :: {-# NOUNPACK #-}!(Maybe [NodeTypeSpecificValue])
+  , _pAllowedValues          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pParameterName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pChangeType             :: {-# NOUNPACK #-}!(Maybe ChangeType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
@@ -509,18 +512,19 @@ data Parameter = Parameter'
 parameter
     :: Parameter
 parameter =
-    Parameter'
-    { _pParameterValue = Nothing
-    , _pParameterType = Nothing
-    , _pSource = Nothing
-    , _pIsModifiable = Nothing
-    , _pDataType = Nothing
-    , _pNodeTypeSpecificValues = Nothing
-    , _pAllowedValues = Nothing
-    , _pParameterName = Nothing
-    , _pDescription = Nothing
-    , _pChangeType = Nothing
-    }
+  Parameter'
+  { _pParameterValue = Nothing
+  , _pParameterType = Nothing
+  , _pSource = Nothing
+  , _pIsModifiable = Nothing
+  , _pDataType = Nothing
+  , _pNodeTypeSpecificValues = Nothing
+  , _pAllowedValues = Nothing
+  , _pParameterName = Nothing
+  , _pDescription = Nothing
+  , _pChangeType = Nothing
+  }
+
 
 -- | The value for the parameter.
 pParameterValue :: Lens' Parameter (Maybe Text)
@@ -577,9 +581,9 @@ instance FromJSON Parameter where
                      <*> (x .:? "Description")
                      <*> (x .:? "ChangeType"))
 
-instance Hashable Parameter
+instance Hashable Parameter where
 
-instance NFData Parameter
+instance NFData Parameter where
 
 -- | A named set of parameters that are applied to all of the nodes in a DAX cluster.
 --
@@ -587,9 +591,10 @@ instance NFData Parameter
 --
 -- /See:/ 'parameterGroup' smart constructor.
 data ParameterGroup = ParameterGroup'
-    { _pgDescription        :: !(Maybe Text)
-    , _pgParameterGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pgDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pgParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterGroup' with the minimum fields required to make a request.
 --
@@ -601,10 +606,8 @@ data ParameterGroup = ParameterGroup'
 parameterGroup
     :: ParameterGroup
 parameterGroup =
-    ParameterGroup'
-    { _pgDescription = Nothing
-    , _pgParameterGroupName = Nothing
-    }
+  ParameterGroup' {_pgDescription = Nothing, _pgParameterGroupName = Nothing}
+
 
 -- | A description of the parameter group.
 pgDescription :: Lens' ParameterGroup (Maybe Text)
@@ -622,9 +625,9 @@ instance FromJSON ParameterGroup where
                    (x .:? "Description") <*>
                      (x .:? "ParameterGroupName"))
 
-instance Hashable ParameterGroup
+instance Hashable ParameterGroup where
 
-instance NFData ParameterGroup
+instance NFData ParameterGroup where
 
 -- | The status of a parameter group.
 --
@@ -632,10 +635,11 @@ instance NFData ParameterGroup
 --
 -- /See:/ 'parameterGroupStatus' smart constructor.
 data ParameterGroupStatus = ParameterGroupStatus'
-    { _pgsNodeIdsToReboot      :: !(Maybe [Text])
-    , _pgsParameterApplyStatus :: !(Maybe Text)
-    , _pgsParameterGroupName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pgsNodeIdsToReboot      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pgsParameterApplyStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pgsParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterGroupStatus' with the minimum fields required to make a request.
 --
@@ -649,11 +653,12 @@ data ParameterGroupStatus = ParameterGroupStatus'
 parameterGroupStatus
     :: ParameterGroupStatus
 parameterGroupStatus =
-    ParameterGroupStatus'
-    { _pgsNodeIdsToReboot = Nothing
-    , _pgsParameterApplyStatus = Nothing
-    , _pgsParameterGroupName = Nothing
-    }
+  ParameterGroupStatus'
+  { _pgsNodeIdsToReboot = Nothing
+  , _pgsParameterApplyStatus = Nothing
+  , _pgsParameterGroupName = Nothing
+  }
+
 
 -- | The node IDs of one or more nodes to be rebooted.
 pgsNodeIdsToReboot :: Lens' ParameterGroupStatus [Text]
@@ -676,9 +681,9 @@ instance FromJSON ParameterGroupStatus where
                      (x .:? "ParameterApplyStatus")
                      <*> (x .:? "ParameterGroupName"))
 
-instance Hashable ParameterGroupStatus
+instance Hashable ParameterGroupStatus where
 
-instance NFData ParameterGroupStatus
+instance NFData ParameterGroupStatus where
 
 -- | An individual DAX parameter.
 --
@@ -686,9 +691,10 @@ instance NFData ParameterGroupStatus
 --
 -- /See:/ 'parameterNameValue' smart constructor.
 data ParameterNameValue = ParameterNameValue'
-    { _pnvParameterValue :: !(Maybe Text)
-    , _pnvParameterName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pnvParameterValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pnvParameterName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterNameValue' with the minimum fields required to make a request.
 --
@@ -700,10 +706,9 @@ data ParameterNameValue = ParameterNameValue'
 parameterNameValue
     :: ParameterNameValue
 parameterNameValue =
-    ParameterNameValue'
-    { _pnvParameterValue = Nothing
-    , _pnvParameterName = Nothing
-    }
+  ParameterNameValue'
+  {_pnvParameterValue = Nothing, _pnvParameterName = Nothing}
+
 
 -- | The value of the parameter.
 pnvParameterValue :: Lens' ParameterNameValue (Maybe Text)
@@ -713,9 +718,9 @@ pnvParameterValue = lens _pnvParameterValue (\ s a -> s{_pnvParameterValue = a})
 pnvParameterName :: Lens' ParameterNameValue (Maybe Text)
 pnvParameterName = lens _pnvParameterName (\ s a -> s{_pnvParameterName = a});
 
-instance Hashable ParameterNameValue
+instance Hashable ParameterNameValue where
 
-instance NFData ParameterNameValue
+instance NFData ParameterNameValue where
 
 instance ToJSON ParameterNameValue where
         toJSON ParameterNameValue'{..}
@@ -730,9 +735,10 @@ instance ToJSON ParameterNameValue where
 --
 -- /See:/ 'securityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
-    { _sgmStatus                  :: !(Maybe Text)
-    , _sgmSecurityGroupIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgmStatus                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgmSecurityGroupIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SecurityGroupMembership' with the minimum fields required to make a request.
 --
@@ -744,10 +750,9 @@ data SecurityGroupMembership = SecurityGroupMembership'
 securityGroupMembership
     :: SecurityGroupMembership
 securityGroupMembership =
-    SecurityGroupMembership'
-    { _sgmStatus = Nothing
-    , _sgmSecurityGroupIdentifier = Nothing
-    }
+  SecurityGroupMembership'
+  {_sgmStatus = Nothing, _sgmSecurityGroupIdentifier = Nothing}
+
 
 -- | The status of this security group.
 sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
@@ -765,9 +770,9 @@ instance FromJSON SecurityGroupMembership where
                    (x .:? "Status") <*>
                      (x .:? "SecurityGroupIdentifier"))
 
-instance Hashable SecurityGroupMembership
+instance Hashable SecurityGroupMembership where
 
-instance NFData SecurityGroupMembership
+instance NFData SecurityGroupMembership where
 
 -- | Represents the subnet associated with a DAX cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with DAX.
 --
@@ -775,9 +780,10 @@ instance NFData SecurityGroupMembership
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-    { _sSubnetIdentifier       :: !(Maybe Text)
-    , _sSubnetAvailabilityZone :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSubnetIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubnetAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
@@ -789,10 +795,8 @@ data Subnet = Subnet'
 subnet
     :: Subnet
 subnet =
-    Subnet'
-    { _sSubnetIdentifier = Nothing
-    , _sSubnetAvailabilityZone = Nothing
-    }
+  Subnet' {_sSubnetIdentifier = Nothing, _sSubnetAvailabilityZone = Nothing}
+
 
 -- | The system-assigned identifier for the subnet.
 sSubnetIdentifier :: Lens' Subnet (Maybe Text)
@@ -810,9 +814,9 @@ instance FromJSON Subnet where
                    (x .:? "SubnetIdentifier") <*>
                      (x .:? "SubnetAvailabilityZone"))
 
-instance Hashable Subnet
+instance Hashable Subnet where
 
-instance NFData Subnet
+instance NFData Subnet where
 
 -- | Represents the output of one of the following actions:
 --
@@ -826,11 +830,12 @@ instance NFData Subnet
 --
 -- /See:/ 'subnetGroup' smart constructor.
 data SubnetGroup = SubnetGroup'
-    { _sgVPCId           :: !(Maybe Text)
-    , _sgSubnets         :: !(Maybe [Subnet])
-    , _sgSubnetGroupName :: !(Maybe Text)
-    , _sgDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgVPCId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgSubnets         :: {-# NOUNPACK #-}!(Maybe [Subnet])
+  , _sgSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubnetGroup' with the minimum fields required to make a request.
 --
@@ -846,12 +851,13 @@ data SubnetGroup = SubnetGroup'
 subnetGroup
     :: SubnetGroup
 subnetGroup =
-    SubnetGroup'
-    { _sgVPCId = Nothing
-    , _sgSubnets = Nothing
-    , _sgSubnetGroupName = Nothing
-    , _sgDescription = Nothing
-    }
+  SubnetGroup'
+  { _sgVPCId = Nothing
+  , _sgSubnets = Nothing
+  , _sgSubnetGroupName = Nothing
+  , _sgDescription = Nothing
+  }
+
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
 sgVPCId :: Lens' SubnetGroup (Maybe Text)
@@ -878,9 +884,9 @@ instance FromJSON SubnetGroup where
                      (x .:? "SubnetGroupName")
                      <*> (x .:? "Description"))
 
-instance Hashable SubnetGroup
+instance Hashable SubnetGroup where
 
-instance NFData SubnetGroup
+instance NFData SubnetGroup where
 
 -- | A description of a tag. Every tag is a key-value pair. You can add up to 50 tags to a single DAX cluster.
 --
@@ -892,9 +898,10 @@ instance NFData SubnetGroup
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -905,11 +912,8 @@ data Tag = Tag'
 -- * 'tagKey' - The key for the tag. Tag keys are case sensitive. Every DAX cluster can only have one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The value of the tag. Tag values are case-sensitive and can be null.
 tagValue :: Lens' Tag (Maybe Text)
@@ -924,9 +928,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

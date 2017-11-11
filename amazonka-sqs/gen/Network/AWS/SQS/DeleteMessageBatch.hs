@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.DeleteMessageBatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.SQS.DeleteMessageBatch
     , dmbrsFailed
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -54,9 +54,10 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'deleteMessageBatch' smart constructor.
 data DeleteMessageBatch = DeleteMessageBatch'
-    { _dmbQueueURL :: !Text
-    , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmbQueueURL :: {-# NOUNPACK #-}!Text
+  , _dmbEntries  :: {-# NOUNPACK #-}![DeleteMessageBatchRequestEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMessageBatch' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ deleteMessageBatch
     :: Text -- ^ 'dmbQueueURL'
     -> DeleteMessageBatch
 deleteMessageBatch pQueueURL_ =
-    DeleteMessageBatch'
-    { _dmbQueueURL = pQueueURL_
-    , _dmbEntries = mempty
-    }
+  DeleteMessageBatch' {_dmbQueueURL = pQueueURL_, _dmbEntries = mempty}
+
 
 -- | The URL of the Amazon SQS queue from which messages are deleted. Queue URLs are case-sensitive.
 dmbQueueURL :: Lens' DeleteMessageBatch Text
@@ -94,9 +93,9 @@ instance AWSRequest DeleteMessageBatch where
                      (parseXMLList "DeleteMessageBatchResultEntry" x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
-instance Hashable DeleteMessageBatch
+instance Hashable DeleteMessageBatch where
 
-instance NFData DeleteMessageBatch
+instance NFData DeleteMessageBatch where
 
 instance ToHeaders DeleteMessageBatch where
         toHeaders = const mempty
@@ -119,10 +118,11 @@ instance ToQuery DeleteMessageBatch where
 --
 -- /See:/ 'deleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
-    { _dmbrsResponseStatus :: !Int
-    , _dmbrsSuccessful     :: ![DeleteMessageBatchResultEntry]
-    , _dmbrsFailed         :: ![BatchResultErrorEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dmbrsSuccessful     :: {-# NOUNPACK #-}![DeleteMessageBatchResultEntry]
+  , _dmbrsFailed         :: {-# NOUNPACK #-}![BatchResultErrorEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMessageBatchResponse' with the minimum fields required to make a request.
 --
@@ -137,11 +137,12 @@ deleteMessageBatchResponse
     :: Int -- ^ 'dmbrsResponseStatus'
     -> DeleteMessageBatchResponse
 deleteMessageBatchResponse pResponseStatus_ =
-    DeleteMessageBatchResponse'
-    { _dmbrsResponseStatus = pResponseStatus_
-    , _dmbrsSuccessful = mempty
-    , _dmbrsFailed = mempty
-    }
+  DeleteMessageBatchResponse'
+  { _dmbrsResponseStatus = pResponseStatus_
+  , _dmbrsSuccessful = mempty
+  , _dmbrsFailed = mempty
+  }
+
 
 -- | -- | The response status code.
 dmbrsResponseStatus :: Lens' DeleteMessageBatchResponse Int
@@ -155,4 +156,4 @@ dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a}) . _Co
 dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a}) . _Coerce;
 
-instance NFData DeleteMessageBatchResponse
+instance NFData DeleteMessageBatchResponse where

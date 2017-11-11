@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeDocumentPermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.SSM.DescribeDocumentPermission
     , ddprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeDocumentPermission' smart constructor.
 data DescribeDocumentPermission = DescribeDocumentPermission'
-    { _ddpName           :: !Text
-    , _ddpPermissionType :: !DocumentPermissionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddpName           :: {-# NOUNPACK #-}!Text
+  , _ddpPermissionType :: {-# NOUNPACK #-}!DocumentPermissionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDocumentPermission' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ describeDocumentPermission
     -> DocumentPermissionType -- ^ 'ddpPermissionType'
     -> DescribeDocumentPermission
 describeDocumentPermission pName_ pPermissionType_ =
-    DescribeDocumentPermission'
-    { _ddpName = pName_
-    , _ddpPermissionType = pPermissionType_
-    }
+  DescribeDocumentPermission'
+  {_ddpName = pName_, _ddpPermissionType = pPermissionType_}
+
 
 -- | The name of the document for which you are the owner.
 ddpName :: Lens' DescribeDocumentPermission Text
@@ -87,9 +87,9 @@ instance AWSRequest DescribeDocumentPermission where
                    (x .?> "AccountIds" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeDocumentPermission
+instance Hashable DescribeDocumentPermission where
 
-instance NFData DescribeDocumentPermission
+instance NFData DescribeDocumentPermission where
 
 instance ToHeaders DescribeDocumentPermission where
         toHeaders
@@ -116,9 +116,10 @@ instance ToQuery DescribeDocumentPermission where
 
 -- | /See:/ 'describeDocumentPermissionResponse' smart constructor.
 data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
-    { _ddprsAccountIds     :: !(Maybe [Text])
-    , _ddprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddprsAccountIds     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ddprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDocumentPermissionResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ describeDocumentPermissionResponse
     :: Int -- ^ 'ddprsResponseStatus'
     -> DescribeDocumentPermissionResponse
 describeDocumentPermissionResponse pResponseStatus_ =
-    DescribeDocumentPermissionResponse'
-    { _ddprsAccountIds = Nothing
-    , _ddprsResponseStatus = pResponseStatus_
-    }
+  DescribeDocumentPermissionResponse'
+  {_ddprsAccountIds = Nothing, _ddprsResponseStatus = pResponseStatus_}
+
 
 -- | The account IDs that have permission to use this document. The ID can be either an AWS account or /All/ .
 ddprsAccountIds :: Lens' DescribeDocumentPermissionResponse [Text]
@@ -145,3 +145,4 @@ ddprsResponseStatus :: Lens' DescribeDocumentPermissionResponse Int
 ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
 
 instance NFData DescribeDocumentPermissionResponse
+         where

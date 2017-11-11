@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ListAliases
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.GameLift.ListAliases
     , larsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -70,11 +70,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listAliases' smart constructor.
 data ListAliases = ListAliases'
-    { _laRoutingStrategyType :: !(Maybe RoutingStrategyType)
-    , _laNextToken           :: !(Maybe Text)
-    , _laName                :: !(Maybe Text)
-    , _laLimit               :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laRoutingStrategyType :: {-# NOUNPACK #-}!(Maybe RoutingStrategyType)
+  , _laNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
 --
@@ -90,12 +91,13 @@ data ListAliases = ListAliases'
 listAliases
     :: ListAliases
 listAliases =
-    ListAliases'
-    { _laRoutingStrategyType = Nothing
-    , _laNextToken = Nothing
-    , _laName = Nothing
-    , _laLimit = Nothing
-    }
+  ListAliases'
+  { _laRoutingStrategyType = Nothing
+  , _laNextToken = Nothing
+  , _laName = Nothing
+  , _laLimit = Nothing
+  }
+
 
 -- | Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 laRoutingStrategyType :: Lens' ListAliases (Maybe RoutingStrategyType)
@@ -123,9 +125,9 @@ instance AWSRequest ListAliases where
                    (x .?> "Aliases" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAliases
+instance Hashable ListAliases where
 
-instance NFData ListAliases
+instance NFData ListAliases where
 
 instance ToHeaders ListAliases where
         toHeaders
@@ -157,10 +159,11 @@ instance ToQuery ListAliases where
 --
 -- /See:/ 'listAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-    { _larsAliases        :: !(Maybe [Alias])
-    , _larsNextToken      :: !(Maybe Text)
-    , _larsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsAliases        :: {-# NOUNPACK #-}!(Maybe [Alias])
+  , _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
 --
@@ -175,11 +178,12 @@ listAliasesResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAliasesResponse
 listAliasesResponse pResponseStatus_ =
-    ListAliasesResponse'
-    { _larsAliases = Nothing
-    , _larsNextToken = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    }
+  ListAliasesResponse'
+  { _larsAliases = Nothing
+  , _larsNextToken = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Collection of alias records that match the list request.
 larsAliases :: Lens' ListAliasesResponse [Alias]
@@ -193,4 +197,4 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsResponseStatus :: Lens' ListAliasesResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 
-instance NFData ListAliasesResponse
+instance NFData ListAliasesResponse where

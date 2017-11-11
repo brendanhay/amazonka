@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateSizeConstraintSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -65,19 +65,20 @@ module Network.AWS.WAFRegional.UpdateSizeConstraintSet
     , uscsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'updateSizeConstraintSet' smart constructor.
 data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
-    { _uscsSizeConstraintSetId :: !Text
-    , _uscsChangeToken         :: !Text
-    , _uscsUpdates             :: ![SizeConstraintSetUpdate]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uscsSizeConstraintSetId :: {-# NOUNPACK #-}!Text
+  , _uscsChangeToken         :: {-# NOUNPACK #-}!Text
+  , _uscsUpdates             :: {-# NOUNPACK #-}![SizeConstraintSetUpdate]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSizeConstraintSet' with the minimum fields required to make a request.
 --
@@ -93,11 +94,12 @@ updateSizeConstraintSet
     -> Text -- ^ 'uscsChangeToken'
     -> UpdateSizeConstraintSet
 updateSizeConstraintSet pSizeConstraintSetId_ pChangeToken_ =
-    UpdateSizeConstraintSet'
-    { _uscsSizeConstraintSetId = pSizeConstraintSetId_
-    , _uscsChangeToken = pChangeToken_
-    , _uscsUpdates = mempty
-    }
+  UpdateSizeConstraintSet'
+  { _uscsSizeConstraintSetId = pSizeConstraintSetId_
+  , _uscsChangeToken = pChangeToken_
+  , _uscsUpdates = mempty
+  }
+
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to update. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 uscsSizeConstraintSetId :: Lens' UpdateSizeConstraintSet Text
@@ -121,9 +123,9 @@ instance AWSRequest UpdateSizeConstraintSet where
                  UpdateSizeConstraintSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateSizeConstraintSet
+instance Hashable UpdateSizeConstraintSet where
 
-instance NFData UpdateSizeConstraintSet
+instance NFData UpdateSizeConstraintSet where
 
 instance ToHeaders UpdateSizeConstraintSet where
         toHeaders
@@ -152,9 +154,10 @@ instance ToQuery UpdateSizeConstraintSet where
 
 -- | /See:/ 'updateSizeConstraintSetResponse' smart constructor.
 data UpdateSizeConstraintSetResponse = UpdateSizeConstraintSetResponse'
-    { _uscsrsChangeToken    :: !(Maybe Text)
-    , _uscsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uscsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uscsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSizeConstraintSetResponse' with the minimum fields required to make a request.
 --
@@ -167,10 +170,9 @@ updateSizeConstraintSetResponse
     :: Int -- ^ 'uscsrsResponseStatus'
     -> UpdateSizeConstraintSetResponse
 updateSizeConstraintSetResponse pResponseStatus_ =
-    UpdateSizeConstraintSetResponse'
-    { _uscsrsChangeToken = Nothing
-    , _uscsrsResponseStatus = pResponseStatus_
-    }
+  UpdateSizeConstraintSetResponse'
+  {_uscsrsChangeToken = Nothing, _uscsrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 uscsrsChangeToken :: Lens' UpdateSizeConstraintSetResponse (Maybe Text)
@@ -180,4 +182,4 @@ uscsrsChangeToken = lens _uscsrsChangeToken (\ s a -> s{_uscsrsChangeToken = a})
 uscsrsResponseStatus :: Lens' UpdateSizeConstraintSetResponse Int
 uscsrsResponseStatus = lens _uscsrsResponseStatus (\ s a -> s{_uscsrsResponseStatus = a});
 
-instance NFData UpdateSizeConstraintSetResponse
+instance NFData UpdateSizeConstraintSetResponse where

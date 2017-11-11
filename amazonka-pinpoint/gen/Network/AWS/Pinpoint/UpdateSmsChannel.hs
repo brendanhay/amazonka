@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateSmsChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.UpdateSmsChannel
     , uscrsSMSChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSmsChannel' smart constructor.
 data UpdateSmsChannel = UpdateSmsChannel'
-    { _uscApplicationId     :: !Text
-    , _uscSMSChannelRequest :: !SMSChannelRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uscApplicationId     :: {-# NOUNPACK #-}!Text
+  , _uscSMSChannelRequest :: {-# NOUNPACK #-}!SMSChannelRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSmsChannel' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ updateSmsChannel
     -> SMSChannelRequest -- ^ 'uscSMSChannelRequest'
     -> UpdateSmsChannel
 updateSmsChannel pApplicationId_ pSMSChannelRequest_ =
-    UpdateSmsChannel'
-    { _uscApplicationId = pApplicationId_
-    , _uscSMSChannelRequest = pSMSChannelRequest_
-    }
+  UpdateSmsChannel'
+  { _uscApplicationId = pApplicationId_
+  , _uscSMSChannelRequest = pSMSChannelRequest_
+  }
+
 
 -- | Undocumented member.
 uscApplicationId :: Lens' UpdateSmsChannel Text
@@ -83,9 +85,9 @@ instance AWSRequest UpdateSmsChannel where
                  UpdateSmsChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateSmsChannel
+instance Hashable UpdateSmsChannel where
 
-instance NFData UpdateSmsChannel
+instance NFData UpdateSmsChannel where
 
 instance ToHeaders UpdateSmsChannel where
         toHeaders
@@ -112,9 +114,10 @@ instance ToQuery UpdateSmsChannel where
 
 -- | /See:/ 'updateSmsChannelResponse' smart constructor.
 data UpdateSmsChannelResponse = UpdateSmsChannelResponse'
-    { _uscrsResponseStatus     :: !Int
-    , _uscrsSMSChannelResponse :: !SMSChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uscrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _uscrsSMSChannelResponse :: {-# NOUNPACK #-}!SMSChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSmsChannelResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +131,11 @@ updateSmsChannelResponse
     -> SMSChannelResponse -- ^ 'uscrsSMSChannelResponse'
     -> UpdateSmsChannelResponse
 updateSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
-    UpdateSmsChannelResponse'
-    { _uscrsResponseStatus = pResponseStatus_
-    , _uscrsSMSChannelResponse = pSMSChannelResponse_
-    }
+  UpdateSmsChannelResponse'
+  { _uscrsResponseStatus = pResponseStatus_
+  , _uscrsSMSChannelResponse = pSMSChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 uscrsResponseStatus :: Lens' UpdateSmsChannelResponse Int
@@ -141,4 +145,4 @@ uscrsResponseStatus = lens _uscrsResponseStatus (\ s a -> s{_uscrsResponseStatus
 uscrsSMSChannelResponse :: Lens' UpdateSmsChannelResponse SMSChannelResponse
 uscrsSMSChannelResponse = lens _uscrsSMSChannelResponse (\ s a -> s{_uscrsSMSChannelResponse = a});
 
-instance NFData UpdateSmsChannelResponse
+instance NFData UpdateSmsChannelResponse where

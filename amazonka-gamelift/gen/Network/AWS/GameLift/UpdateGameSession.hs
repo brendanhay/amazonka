@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateGameSession
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -67,12 +67,12 @@ module Network.AWS.GameLift.UpdateGameSession
     , ugsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -80,12 +80,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateGameSession' smart constructor.
 data UpdateGameSession = UpdateGameSession'
-    { _ugsMaximumPlayerSessionCount   :: !(Maybe Nat)
-    , _ugsPlayerSessionCreationPolicy :: !(Maybe PlayerSessionCreationPolicy)
-    , _ugsName                        :: !(Maybe Text)
-    , _ugsProtectionPolicy            :: !(Maybe ProtectionPolicy)
-    , _ugsGameSessionId               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugsMaximumPlayerSessionCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ugsPlayerSessionCreationPolicy :: {-# NOUNPACK #-}!(Maybe PlayerSessionCreationPolicy)
+  , _ugsName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugsProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
+  , _ugsGameSessionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGameSession' with the minimum fields required to make a request.
 --
@@ -104,13 +105,14 @@ updateGameSession
     :: Text -- ^ 'ugsGameSessionId'
     -> UpdateGameSession
 updateGameSession pGameSessionId_ =
-    UpdateGameSession'
-    { _ugsMaximumPlayerSessionCount = Nothing
-    , _ugsPlayerSessionCreationPolicy = Nothing
-    , _ugsName = Nothing
-    , _ugsProtectionPolicy = Nothing
-    , _ugsGameSessionId = pGameSessionId_
-    }
+  UpdateGameSession'
+  { _ugsMaximumPlayerSessionCount = Nothing
+  , _ugsPlayerSessionCreationPolicy = Nothing
+  , _ugsName = Nothing
+  , _ugsProtectionPolicy = Nothing
+  , _ugsGameSessionId = pGameSessionId_
+  }
+
 
 -- | Maximum number of players that can be connected simultaneously to the game session.
 ugsMaximumPlayerSessionCount :: Lens' UpdateGameSession (Maybe Natural)
@@ -141,9 +143,9 @@ instance AWSRequest UpdateGameSession where
                  UpdateGameSessionResponse' <$>
                    (x .?> "GameSession") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateGameSession
+instance Hashable UpdateGameSession where
 
-instance NFData UpdateGameSession
+instance NFData UpdateGameSession where
 
 instance ToHeaders UpdateGameSession where
         toHeaders
@@ -178,9 +180,10 @@ instance ToQuery UpdateGameSession where
 --
 -- /See:/ 'updateGameSessionResponse' smart constructor.
 data UpdateGameSessionResponse = UpdateGameSessionResponse'
-    { _ugsrsGameSession    :: !(Maybe GameSession)
-    , _ugsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugsrsGameSession    :: {-# NOUNPACK #-}!(Maybe GameSession)
+  , _ugsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGameSessionResponse' with the minimum fields required to make a request.
 --
@@ -193,10 +196,9 @@ updateGameSessionResponse
     :: Int -- ^ 'ugsrsResponseStatus'
     -> UpdateGameSessionResponse
 updateGameSessionResponse pResponseStatus_ =
-    UpdateGameSessionResponse'
-    { _ugsrsGameSession = Nothing
-    , _ugsrsResponseStatus = pResponseStatus_
-    }
+  UpdateGameSessionResponse'
+  {_ugsrsGameSession = Nothing, _ugsrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that contains the updated game session metadata.
 ugsrsGameSession :: Lens' UpdateGameSessionResponse (Maybe GameSession)
@@ -206,4 +208,4 @@ ugsrsGameSession = lens _ugsrsGameSession (\ s a -> s{_ugsrsGameSession = a});
 ugsrsResponseStatus :: Lens' UpdateGameSessionResponse Int
 ugsrsResponseStatus = lens _ugsrsResponseStatus (\ s a -> s{_ugsrsResponseStatus = a});
 
-instance NFData UpdateGameSessionResponse
+instance NFData UpdateGameSessionResponse where

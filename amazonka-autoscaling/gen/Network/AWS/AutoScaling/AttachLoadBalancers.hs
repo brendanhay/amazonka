@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.AutoScaling.AttachLoadBalancers
     , albrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachLoadBalancers.
 --
@@ -56,9 +56,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'attachLoadBalancers' smart constructor.
 data AttachLoadBalancers = AttachLoadBalancers'
-    { _albAutoScalingGroupName :: !Text
-    , _albLoadBalancerNames    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _albLoadBalancerNames    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancers' with the minimum fields required to make a request.
 --
@@ -71,10 +72,11 @@ attachLoadBalancers
     :: Text -- ^ 'albAutoScalingGroupName'
     -> AttachLoadBalancers
 attachLoadBalancers pAutoScalingGroupName_ =
-    AttachLoadBalancers'
-    { _albAutoScalingGroupName = pAutoScalingGroupName_
-    , _albLoadBalancerNames = mempty
-    }
+  AttachLoadBalancers'
+  { _albAutoScalingGroupName = pAutoScalingGroupName_
+  , _albLoadBalancerNames = mempty
+  }
+
 
 -- | The name of the group.
 albAutoScalingGroupName :: Lens' AttachLoadBalancers Text
@@ -93,9 +95,9 @@ instance AWSRequest AttachLoadBalancers where
               (\ s h x ->
                  AttachLoadBalancersResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AttachLoadBalancers
+instance Hashable AttachLoadBalancers where
 
-instance NFData AttachLoadBalancers
+instance NFData AttachLoadBalancers where
 
 instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty
@@ -118,8 +120,9 @@ instance ToQuery AttachLoadBalancers where
 --
 -- /See:/ 'attachLoadBalancersResponse' smart constructor.
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
-    { _albrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancersResponse' with the minimum fields required to make a request.
 --
@@ -130,12 +133,11 @@ attachLoadBalancersResponse
     :: Int -- ^ 'albrsResponseStatus'
     -> AttachLoadBalancersResponse
 attachLoadBalancersResponse pResponseStatus_ =
-    AttachLoadBalancersResponse'
-    { _albrsResponseStatus = pResponseStatus_
-    }
+  AttachLoadBalancersResponse' {_albrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
 albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a});
 
-instance NFData AttachLoadBalancersResponse
+instance NFData AttachLoadBalancersResponse where

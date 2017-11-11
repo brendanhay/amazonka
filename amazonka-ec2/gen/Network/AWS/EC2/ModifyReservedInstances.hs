@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyReservedInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.ModifyReservedInstances
     , mrirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyReservedInstances.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyReservedInstances' smart constructor.
 data ModifyReservedInstances = ModifyReservedInstances'
-    { _mriClientToken          :: !(Maybe Text)
-    , _mriReservedInstancesIds :: ![Text]
-    , _mriTargetConfigurations :: ![ReservedInstancesConfiguration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mriClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mriReservedInstancesIds :: {-# NOUNPACK #-}![Text]
+  , _mriTargetConfigurations :: {-# NOUNPACK #-}![ReservedInstancesConfiguration]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyReservedInstances' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ data ModifyReservedInstances = ModifyReservedInstances'
 modifyReservedInstances
     :: ModifyReservedInstances
 modifyReservedInstances =
-    ModifyReservedInstances'
-    { _mriClientToken = Nothing
-    , _mriReservedInstancesIds = mempty
-    , _mriTargetConfigurations = mempty
-    }
+  ModifyReservedInstances'
+  { _mriClientToken = Nothing
+  , _mriReservedInstancesIds = mempty
+  , _mriTargetConfigurations = mempty
+  }
+
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest ModifyReservedInstances where
                    (x .@? "reservedInstancesModificationId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ModifyReservedInstances
+instance Hashable ModifyReservedInstances where
 
-instance NFData ModifyReservedInstances
+instance NFData ModifyReservedInstances where
 
 instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty
@@ -129,9 +131,10 @@ instance ToQuery ModifyReservedInstances where
 --
 -- /See:/ 'modifyReservedInstancesResponse' smart constructor.
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
-    { _mrirsReservedInstancesModificationId :: !(Maybe Text)
-    , _mrirsResponseStatus                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrirsReservedInstancesModificationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrirsResponseStatus                  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyReservedInstancesResponse' with the minimum fields required to make a request.
 --
@@ -144,10 +147,11 @@ modifyReservedInstancesResponse
     :: Int -- ^ 'mrirsResponseStatus'
     -> ModifyReservedInstancesResponse
 modifyReservedInstancesResponse pResponseStatus_ =
-    ModifyReservedInstancesResponse'
-    { _mrirsReservedInstancesModificationId = Nothing
-    , _mrirsResponseStatus = pResponseStatus_
-    }
+  ModifyReservedInstancesResponse'
+  { _mrirsReservedInstancesModificationId = Nothing
+  , _mrirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID for the modification.
 mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
@@ -157,4 +161,4 @@ mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationI
 mrirsResponseStatus :: Lens' ModifyReservedInstancesResponse Int
 mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a});
 
-instance NFData ModifyReservedInstancesResponse
+instance NFData ModifyReservedInstancesResponse where

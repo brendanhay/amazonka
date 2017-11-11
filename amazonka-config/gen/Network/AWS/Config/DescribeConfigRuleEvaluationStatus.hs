@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigRuleEvaluationStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
     , dcresrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeConfigRuleEvaluationStatus' smart constructor.
 data DescribeConfigRuleEvaluationStatus = DescribeConfigRuleEvaluationStatus'
-    { _dcresConfigRuleNames :: !(Maybe [Text])
-    , _dcresNextToken       :: !(Maybe Text)
-    , _dcresLimit           :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcresConfigRuleNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcresNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcresLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigRuleEvaluationStatus' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ data DescribeConfigRuleEvaluationStatus = DescribeConfigRuleEvaluationStatus'
 describeConfigRuleEvaluationStatus
     :: DescribeConfigRuleEvaluationStatus
 describeConfigRuleEvaluationStatus =
-    DescribeConfigRuleEvaluationStatus'
-    { _dcresConfigRuleNames = Nothing
-    , _dcresNextToken = Nothing
-    , _dcresLimit = Nothing
-    }
+  DescribeConfigRuleEvaluationStatus'
+  { _dcresConfigRuleNames = Nothing
+  , _dcresNextToken = Nothing
+  , _dcresLimit = Nothing
+  }
+
 
 -- | The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
 dcresConfigRuleNames :: Lens' DescribeConfigRuleEvaluationStatus [Text]
@@ -89,7 +91,8 @@ dcresLimit :: Lens' DescribeConfigRuleEvaluationStatus (Maybe Natural)
 dcresLimit = lens _dcresLimit (\ s a -> s{_dcresLimit = a}) . mapping _Nat;
 
 instance AWSRequest
-         DescribeConfigRuleEvaluationStatus where
+           DescribeConfigRuleEvaluationStatus
+         where
         type Rs DescribeConfigRuleEvaluationStatus =
              DescribeConfigRuleEvaluationStatusResponse
         request = postJSON config
@@ -102,8 +105,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeConfigRuleEvaluationStatus
+         where
 
 instance NFData DescribeConfigRuleEvaluationStatus
+         where
 
 instance ToHeaders DescribeConfigRuleEvaluationStatus
          where
@@ -139,10 +144,11 @@ instance ToQuery DescribeConfigRuleEvaluationStatus
 --
 -- /See:/ 'describeConfigRuleEvaluationStatusResponse' smart constructor.
 data DescribeConfigRuleEvaluationStatusResponse = DescribeConfigRuleEvaluationStatusResponse'
-    { _dcresrsConfigRulesEvaluationStatus :: !(Maybe [ConfigRuleEvaluationStatus])
-    , _dcresrsNextToken                   :: !(Maybe Text)
-    , _dcresrsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcresrsConfigRulesEvaluationStatus :: {-# NOUNPACK #-}!(Maybe [ConfigRuleEvaluationStatus])
+  , _dcresrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcresrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigRuleEvaluationStatusResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +163,12 @@ describeConfigRuleEvaluationStatusResponse
     :: Int -- ^ 'dcresrsResponseStatus'
     -> DescribeConfigRuleEvaluationStatusResponse
 describeConfigRuleEvaluationStatusResponse pResponseStatus_ =
-    DescribeConfigRuleEvaluationStatusResponse'
-    { _dcresrsConfigRulesEvaluationStatus = Nothing
-    , _dcresrsNextToken = Nothing
-    , _dcresrsResponseStatus = pResponseStatus_
-    }
+  DescribeConfigRuleEvaluationStatusResponse'
+  { _dcresrsConfigRulesEvaluationStatus = Nothing
+  , _dcresrsNextToken = Nothing
+  , _dcresrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Status information about your AWS managed Config rules.
 dcresrsConfigRulesEvaluationStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse [ConfigRuleEvaluationStatus]
@@ -176,4 +183,5 @@ dcresrsResponseStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse Int
 dcresrsResponseStatus = lens _dcresrsResponseStatus (\ s a -> s{_dcresrsResponseStatus = a});
 
 instance NFData
-         DescribeConfigRuleEvaluationStatusResponse
+           DescribeConfigRuleEvaluationStatusResponse
+         where

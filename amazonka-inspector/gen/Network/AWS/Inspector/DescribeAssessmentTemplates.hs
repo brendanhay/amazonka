@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeAssessmentTemplates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Inspector.DescribeAssessmentTemplates
     , datrsFailedItems
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAssessmentTemplates' smart constructor.
 newtype DescribeAssessmentTemplates = DescribeAssessmentTemplates'
-    { _datAssessmentTemplateARNs :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datAssessmentTemplateARNs :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssessmentTemplates' with the minimum fields required to make a request.
 --
@@ -59,9 +60,9 @@ describeAssessmentTemplates
     :: NonEmpty Text -- ^ 'datAssessmentTemplateARNs'
     -> DescribeAssessmentTemplates
 describeAssessmentTemplates pAssessmentTemplateARNs_ =
-    DescribeAssessmentTemplates'
-    { _datAssessmentTemplateARNs = _List1 # pAssessmentTemplateARNs_
-    }
+  DescribeAssessmentTemplates'
+  {_datAssessmentTemplateARNs = _List1 # pAssessmentTemplateARNs_}
+
 
 -- | Undocumented member.
 datAssessmentTemplateARNs :: Lens' DescribeAssessmentTemplates (NonEmpty Text)
@@ -79,9 +80,9 @@ instance AWSRequest DescribeAssessmentTemplates where
                      (x .?> "assessmentTemplates" .!@ mempty)
                      <*> (x .?> "failedItems" .!@ mempty))
 
-instance Hashable DescribeAssessmentTemplates
+instance Hashable DescribeAssessmentTemplates where
 
-instance NFData DescribeAssessmentTemplates
+instance NFData DescribeAssessmentTemplates where
 
 instance ToHeaders DescribeAssessmentTemplates where
         toHeaders
@@ -109,10 +110,11 @@ instance ToQuery DescribeAssessmentTemplates where
 
 -- | /See:/ 'describeAssessmentTemplatesResponse' smart constructor.
 data DescribeAssessmentTemplatesResponse = DescribeAssessmentTemplatesResponse'
-    { _datrsResponseStatus      :: !Int
-    , _datrsAssessmentTemplates :: ![AssessmentTemplate]
-    , _datrsFailedItems         :: !(Map Text FailedItemDetails)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _datrsAssessmentTemplates :: {-# NOUNPACK #-}![AssessmentTemplate]
+  , _datrsFailedItems         :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssessmentTemplatesResponse' with the minimum fields required to make a request.
 --
@@ -127,11 +129,12 @@ describeAssessmentTemplatesResponse
     :: Int -- ^ 'datrsResponseStatus'
     -> DescribeAssessmentTemplatesResponse
 describeAssessmentTemplatesResponse pResponseStatus_ =
-    DescribeAssessmentTemplatesResponse'
-    { _datrsResponseStatus = pResponseStatus_
-    , _datrsAssessmentTemplates = mempty
-    , _datrsFailedItems = mempty
-    }
+  DescribeAssessmentTemplatesResponse'
+  { _datrsResponseStatus = pResponseStatus_
+  , _datrsAssessmentTemplates = mempty
+  , _datrsFailedItems = mempty
+  }
+
 
 -- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeAssessmentTemplatesResponse Int
@@ -146,3 +149,4 @@ datrsFailedItems :: Lens' DescribeAssessmentTemplatesResponse (HashMap Text Fail
 datrsFailedItems = lens _datrsFailedItems (\ s a -> s{_datrsFailedItems = a}) . _Map;
 
 instance NFData DescribeAssessmentTemplatesResponse
+         where

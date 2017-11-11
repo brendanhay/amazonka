@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeTaskDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.ECS.DescribeTaskDefinition
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTaskDefinition' smart constructor.
 newtype DescribeTaskDefinition = DescribeTaskDefinition'
-    { _dtdTaskDefinition :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtdTaskDefinition :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTaskDefinition' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ describeTaskDefinition
     :: Text -- ^ 'dtdTaskDefinition'
     -> DescribeTaskDefinition
 describeTaskDefinition pTaskDefinition_ =
-    DescribeTaskDefinition'
-    { _dtdTaskDefinition = pTaskDefinition_
-    }
+  DescribeTaskDefinition' {_dtdTaskDefinition = pTaskDefinition_}
+
 
 -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
 dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
@@ -76,9 +76,9 @@ instance AWSRequest DescribeTaskDefinition where
                  DescribeTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTaskDefinition
+instance Hashable DescribeTaskDefinition where
 
-instance NFData DescribeTaskDefinition
+instance NFData DescribeTaskDefinition where
 
 instance ToHeaders DescribeTaskDefinition where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery DescribeTaskDefinition where
 
 -- | /See:/ 'describeTaskDefinitionResponse' smart constructor.
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
-    { _desrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _desrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsTaskDefinition :: {-# NOUNPACK #-}!(Maybe TaskDefinition)
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTaskDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ describeTaskDefinitionResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeTaskDefinitionResponse
 describeTaskDefinitionResponse pResponseStatus_ =
-    DescribeTaskDefinitionResponse'
-    { _desrsTaskDefinition = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeTaskDefinitionResponse'
+  {_desrsTaskDefinition = Nothing, _desrsResponseStatus = pResponseStatus_}
+
 
 -- | The full task definition description.
 desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
@@ -132,4 +132,4 @@ desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition
 desrsResponseStatus :: Lens' DescribeTaskDefinitionResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeTaskDefinitionResponse
+instance NFData DescribeTaskDefinitionResponse where

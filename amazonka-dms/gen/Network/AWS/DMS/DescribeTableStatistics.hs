@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeTableStatistics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.DMS.DescribeTableStatistics
     , dtsrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTableStatistics' smart constructor.
 data DescribeTableStatistics = DescribeTableStatistics'
-    { _dtsMarker             :: !(Maybe Text)
-    , _dtsMaxRecords         :: !(Maybe Int)
-    , _dtsReplicationTaskARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtsMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dtsReplicationTaskARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTableStatistics' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ describeTableStatistics
     :: Text -- ^ 'dtsReplicationTaskARN'
     -> DescribeTableStatistics
 describeTableStatistics pReplicationTaskARN_ =
-    DescribeTableStatistics'
-    { _dtsMarker = Nothing
-    , _dtsMaxRecords = Nothing
-    , _dtsReplicationTaskARN = pReplicationTaskARN_
-    }
+  DescribeTableStatistics'
+  { _dtsMarker = Nothing
+  , _dtsMaxRecords = Nothing
+  , _dtsReplicationTaskARN = pReplicationTaskARN_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dtsMarker :: Lens' DescribeTableStatistics (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest DescribeTableStatistics where
                      (x .?> "TableStatistics" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTableStatistics
+instance Hashable DescribeTableStatistics where
 
-instance NFData DescribeTableStatistics
+instance NFData DescribeTableStatistics where
 
 instance ToHeaders DescribeTableStatistics where
         toHeaders
@@ -137,11 +139,12 @@ instance ToQuery DescribeTableStatistics where
 --
 -- /See:/ 'describeTableStatisticsResponse' smart constructor.
 data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
-    { _dtsrsReplicationTaskARN :: !(Maybe Text)
-    , _dtsrsMarker             :: !(Maybe Text)
-    , _dtsrsTableStatistics    :: !(Maybe [TableStatistics])
-    , _dtsrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtsrsReplicationTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtsrsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtsrsTableStatistics    :: {-# NOUNPACK #-}!(Maybe [TableStatistics])
+  , _dtsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTableStatisticsResponse' with the minimum fields required to make a request.
 --
@@ -158,12 +161,13 @@ describeTableStatisticsResponse
     :: Int -- ^ 'dtsrsResponseStatus'
     -> DescribeTableStatisticsResponse
 describeTableStatisticsResponse pResponseStatus_ =
-    DescribeTableStatisticsResponse'
-    { _dtsrsReplicationTaskARN = Nothing
-    , _dtsrsMarker = Nothing
-    , _dtsrsTableStatistics = Nothing
-    , _dtsrsResponseStatus = pResponseStatus_
-    }
+  DescribeTableStatisticsResponse'
+  { _dtsrsReplicationTaskARN = Nothing
+  , _dtsrsMarker = Nothing
+  , _dtsrsTableStatistics = Nothing
+  , _dtsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the replication task.
 dtsrsReplicationTaskARN :: Lens' DescribeTableStatisticsResponse (Maybe Text)
@@ -181,4 +185,4 @@ dtsrsTableStatistics = lens _dtsrsTableStatistics (\ s a -> s{_dtsrsTableStatist
 dtsrsResponseStatus :: Lens' DescribeTableStatisticsResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
 
-instance NFData DescribeTableStatisticsResponse
+instance NFData DescribeTableStatisticsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.XRay.GetTraceSummaries
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,21 +54,22 @@ module Network.AWS.XRay.GetTraceSummaries
     , gtsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.XRay.Types
-import           Network.AWS.XRay.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.XRay.Types
+import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'getTraceSummaries' smart constructor.
 data GetTraceSummaries = GetTraceSummaries'
-    { _gtsFilterExpression :: !(Maybe Text)
-    , _gtsNextToken        :: !(Maybe Text)
-    , _gtsSampling         :: !(Maybe Bool)
-    , _gtsStartTime        :: !POSIX
-    , _gtsEndTime          :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtsFilterExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsSampling         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gtsStartTime        :: {-# NOUNPACK #-}!POSIX
+  , _gtsEndTime          :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTraceSummaries' with the minimum fields required to make a request.
 --
@@ -88,13 +89,14 @@ getTraceSummaries
     -> UTCTime -- ^ 'gtsEndTime'
     -> GetTraceSummaries
 getTraceSummaries pStartTime_ pEndTime_ =
-    GetTraceSummaries'
-    { _gtsFilterExpression = Nothing
-    , _gtsNextToken = Nothing
-    , _gtsSampling = Nothing
-    , _gtsStartTime = _Time # pStartTime_
-    , _gtsEndTime = _Time # pEndTime_
-    }
+  GetTraceSummaries'
+  { _gtsFilterExpression = Nothing
+  , _gtsNextToken = Nothing
+  , _gtsSampling = Nothing
+  , _gtsStartTime = _Time # pStartTime_
+  , _gtsEndTime = _Time # pEndTime_
+  }
+
 
 -- | Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.
 gtsFilterExpression :: Lens' GetTraceSummaries (Maybe Text)
@@ -129,9 +131,9 @@ instance AWSRequest GetTraceSummaries where
                      <*> (x .?> "TraceSummaries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTraceSummaries
+instance Hashable GetTraceSummaries where
 
-instance NFData GetTraceSummaries
+instance NFData GetTraceSummaries where
 
 instance ToHeaders GetTraceSummaries where
         toHeaders = const mempty
@@ -154,12 +156,13 @@ instance ToQuery GetTraceSummaries where
 
 -- | /See:/ 'getTraceSummariesResponse' smart constructor.
 data GetTraceSummariesResponse = GetTraceSummariesResponse'
-    { _gtsrsTracesProcessedCount :: !(Maybe Integer)
-    , _gtsrsNextToken            :: !(Maybe Text)
-    , _gtsrsApproximateTime      :: !(Maybe POSIX)
-    , _gtsrsTraceSummaries       :: !(Maybe [TraceSummary])
-    , _gtsrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtsrsTracesProcessedCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gtsrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsApproximateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtsrsTraceSummaries       :: {-# NOUNPACK #-}!(Maybe [TraceSummary])
+  , _gtsrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTraceSummariesResponse' with the minimum fields required to make a request.
 --
@@ -178,13 +181,14 @@ getTraceSummariesResponse
     :: Int -- ^ 'gtsrsResponseStatus'
     -> GetTraceSummariesResponse
 getTraceSummariesResponse pResponseStatus_ =
-    GetTraceSummariesResponse'
-    { _gtsrsTracesProcessedCount = Nothing
-    , _gtsrsNextToken = Nothing
-    , _gtsrsApproximateTime = Nothing
-    , _gtsrsTraceSummaries = Nothing
-    , _gtsrsResponseStatus = pResponseStatus_
-    }
+  GetTraceSummariesResponse'
+  { _gtsrsTracesProcessedCount = Nothing
+  , _gtsrsNextToken = Nothing
+  , _gtsrsApproximateTime = Nothing
+  , _gtsrsTraceSummaries = Nothing
+  , _gtsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of traces that were processed to get this set of summaries.
 gtsrsTracesProcessedCount :: Lens' GetTraceSummariesResponse (Maybe Integer)
@@ -206,4 +210,4 @@ gtsrsTraceSummaries = lens _gtsrsTraceSummaries (\ s a -> s{_gtsrsTraceSummaries
 gtsrsResponseStatus :: Lens' GetTraceSummariesResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
 
-instance NFData GetTraceSummariesResponse
+instance NFData GetTraceSummariesResponse where

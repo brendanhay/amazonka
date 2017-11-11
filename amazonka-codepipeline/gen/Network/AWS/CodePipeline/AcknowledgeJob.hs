@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.AcknowledgeJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodePipeline.AcknowledgeJob
     , ajrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an acknowledge job action.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'acknowledgeJob' smart constructor.
 data AcknowledgeJob = AcknowledgeJob'
-    { _ajJobId :: !Text
-    , _ajNonce :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ajJobId :: {-# NOUNPACK #-}!Text
+  , _ajNonce :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcknowledgeJob' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ acknowledgeJob
     -> Text -- ^ 'ajNonce'
     -> AcknowledgeJob
 acknowledgeJob pJobId_ pNonce_ =
-    AcknowledgeJob'
-    { _ajJobId = pJobId_
-    , _ajNonce = pNonce_
-    }
+  AcknowledgeJob' {_ajJobId = pJobId_, _ajNonce = pNonce_}
+
 
 -- | The unique system-generated ID of the job for which you want to confirm receipt.
 ajJobId :: Lens' AcknowledgeJob Text
@@ -89,9 +88,9 @@ instance AWSRequest AcknowledgeJob where
                  AcknowledgeJobResponse' <$>
                    (x .?> "status") <*> (pure (fromEnum s)))
 
-instance Hashable AcknowledgeJob
+instance Hashable AcknowledgeJob where
 
-instance NFData AcknowledgeJob
+instance NFData AcknowledgeJob where
 
 instance ToHeaders AcknowledgeJob where
         toHeaders
@@ -122,9 +121,10 @@ instance ToQuery AcknowledgeJob where
 --
 -- /See:/ 'acknowledgeJobResponse' smart constructor.
 data AcknowledgeJobResponse = AcknowledgeJobResponse'
-    { _ajrsStatus         :: !(Maybe JobStatus)
-    , _ajrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ajrsStatus         :: {-# NOUNPACK #-}!(Maybe JobStatus)
+  , _ajrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcknowledgeJobResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +137,9 @@ acknowledgeJobResponse
     :: Int -- ^ 'ajrsResponseStatus'
     -> AcknowledgeJobResponse
 acknowledgeJobResponse pResponseStatus_ =
-    AcknowledgeJobResponse'
-    { _ajrsStatus = Nothing
-    , _ajrsResponseStatus = pResponseStatus_
-    }
+  AcknowledgeJobResponse'
+  {_ajrsStatus = Nothing, _ajrsResponseStatus = pResponseStatus_}
+
 
 -- | Whether the job worker has received the specified job.
 ajrsStatus :: Lens' AcknowledgeJobResponse (Maybe JobStatus)
@@ -150,4 +149,4 @@ ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});
 ajrsResponseStatus :: Lens' AcknowledgeJobResponse Int
 ajrsResponseStatus = lens _ajrsResponseStatus (\ s a -> s{_ajrsResponseStatus = a});
 
-instance NFData AcknowledgeJobResponse
+instance NFData AcknowledgeJobResponse where

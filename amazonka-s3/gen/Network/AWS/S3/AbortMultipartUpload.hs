@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.AbortMultipartUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.S3.AbortMultipartUpload
     , amursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'abortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-    { _amuRequestPayer :: !(Maybe RequestPayer)
-    , _amuBucket       :: !BucketName
-    , _amuKey          :: !ObjectKey
-    , _amuUploadId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amuRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _amuBucket       :: {-# NOUNPACK #-}!BucketName
+  , _amuKey          :: {-# NOUNPACK #-}!ObjectKey
+  , _amuUploadId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortMultipartUpload' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ abortMultipartUpload
     -> Text -- ^ 'amuUploadId'
     -> AbortMultipartUpload
 abortMultipartUpload pBucket_ pKey_ pUploadId_ =
-    AbortMultipartUpload'
-    { _amuRequestPayer = Nothing
-    , _amuBucket = pBucket_
-    , _amuKey = pKey_
-    , _amuUploadId = pUploadId_
-    }
+  AbortMultipartUpload'
+  { _amuRequestPayer = Nothing
+  , _amuBucket = pBucket_
+  , _amuKey = pKey_
+  , _amuUploadId = pUploadId_
+  }
+
 
 -- | Undocumented member.
 amuRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
@@ -108,9 +110,9 @@ instance AWSRequest AbortMultipartUpload where
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AbortMultipartUpload
+instance Hashable AbortMultipartUpload where
 
-instance NFData AbortMultipartUpload
+instance NFData AbortMultipartUpload where
 
 instance ToHeaders AbortMultipartUpload where
         toHeaders AbortMultipartUpload'{..}
@@ -126,9 +128,10 @@ instance ToQuery AbortMultipartUpload where
 
 -- | /See:/ 'abortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
-    { _amursRequestCharged :: !(Maybe RequestCharged)
-    , _amursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amursRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _amursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +144,9 @@ abortMultipartUploadResponse
     :: Int -- ^ 'amursResponseStatus'
     -> AbortMultipartUploadResponse
 abortMultipartUploadResponse pResponseStatus_ =
-    AbortMultipartUploadResponse'
-    { _amursRequestCharged = Nothing
-    , _amursResponseStatus = pResponseStatus_
-    }
+  AbortMultipartUploadResponse'
+  {_amursRequestCharged = Nothing, _amursResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 amursRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
@@ -154,4 +156,4 @@ amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged
 amursResponseStatus :: Lens' AbortMultipartUploadResponse Int
 amursResponseStatus = lens _amursResponseStatus (\ s a -> s{_amursResponseStatus = a});
 
-instance NFData AbortMultipartUploadResponse
+instance NFData AbortMultipartUploadResponse where

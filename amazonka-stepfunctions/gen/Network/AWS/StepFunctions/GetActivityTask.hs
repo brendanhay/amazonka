@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.GetActivityTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.StepFunctions.GetActivityTask
     , gatrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'getActivityTask' smart constructor.
 data GetActivityTask = GetActivityTask'
-    { _gatWorkerName  :: !(Maybe Text)
-    , _gatActivityARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gatWorkerName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gatActivityARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetActivityTask' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ getActivityTask
     :: Text -- ^ 'gatActivityARN'
     -> GetActivityTask
 getActivityTask pActivityARN_ =
-    GetActivityTask'
-    { _gatWorkerName = Nothing
-    , _gatActivityARN = pActivityARN_
-    }
+  GetActivityTask' {_gatWorkerName = Nothing, _gatActivityARN = pActivityARN_}
+
 
 -- | An arbitrary name may be provided in order to identify the worker that the task is assigned to. This name will be used when it is logged in the execution history.
 gatWorkerName :: Lens' GetActivityTask (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest GetActivityTask where
                    (x .?> "input") <*> (x .?> "taskToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetActivityTask
+instance Hashable GetActivityTask where
 
-instance NFData GetActivityTask
+instance NFData GetActivityTask where
 
 instance ToHeaders GetActivityTask where
         toHeaders
@@ -116,10 +115,11 @@ instance ToQuery GetActivityTask where
 
 -- | /See:/ 'getActivityTaskResponse' smart constructor.
 data GetActivityTaskResponse = GetActivityTaskResponse'
-    { _gatrsInput          :: !(Maybe Text)
-    , _gatrsTaskToken      :: !(Maybe Text)
-    , _gatrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gatrsInput          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gatrsTaskToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gatrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetActivityTaskResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +134,12 @@ getActivityTaskResponse
     :: Int -- ^ 'gatrsResponseStatus'
     -> GetActivityTaskResponse
 getActivityTaskResponse pResponseStatus_ =
-    GetActivityTaskResponse'
-    { _gatrsInput = Nothing
-    , _gatrsTaskToken = Nothing
-    , _gatrsResponseStatus = pResponseStatus_
-    }
+  GetActivityTaskResponse'
+  { _gatrsInput = Nothing
+  , _gatrsTaskToken = Nothing
+  , _gatrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The JSON input data for the task.
 gatrsInput :: Lens' GetActivityTaskResponse (Maybe Text)
@@ -152,4 +153,4 @@ gatrsTaskToken = lens _gatrsTaskToken (\ s a -> s{_gatrsTaskToken = a});
 gatrsResponseStatus :: Lens' GetActivityTaskResponse Int
 gatrsResponseStatus = lens _gatrsResponseStatus (\ s a -> s{_gatrsResponseStatus = a});
 
-instance NFData GetActivityTaskResponse
+instance NFData GetActivityTaskResponse where

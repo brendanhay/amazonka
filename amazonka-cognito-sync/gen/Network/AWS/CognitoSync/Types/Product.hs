@@ -9,26 +9,27 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CognitoSync.Types.Product where
 
-import           Network.AWS.CognitoSync.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CognitoSync.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Configuration options for configure Cognito streams.
 --
 -- /See:/ 'cognitoStreams' smart constructor.
 data CognitoStreams = CognitoStreams'
-    { _csStreamingStatus :: !(Maybe StreamingStatus)
-    , _csStreamName      :: !(Maybe Text)
-    , _csRoleARN         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csStreamingStatus :: {-# NOUNPACK #-}!(Maybe StreamingStatus)
+  , _csStreamName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csRoleARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CognitoStreams' with the minimum fields required to make a request.
 --
@@ -42,11 +43,9 @@ data CognitoStreams = CognitoStreams'
 cognitoStreams
     :: CognitoStreams
 cognitoStreams =
-    CognitoStreams'
-    { _csStreamingStatus = Nothing
-    , _csStreamName = Nothing
-    , _csRoleARN = Nothing
-    }
+  CognitoStreams'
+  {_csStreamingStatus = Nothing, _csStreamName = Nothing, _csRoleARN = Nothing}
+
 
 -- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled. DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
 csStreamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
@@ -68,9 +67,9 @@ instance FromJSON CognitoStreams where
                    (x .:? "StreamingStatus") <*> (x .:? "StreamName")
                      <*> (x .:? "RoleArn"))
 
-instance Hashable CognitoStreams
+instance Hashable CognitoStreams where
 
-instance NFData CognitoStreams
+instance NFData CognitoStreams where
 
 instance ToJSON CognitoStreams where
         toJSON CognitoStreams'{..}
@@ -84,14 +83,15 @@ instance ToJSON CognitoStreams where
 --
 -- /See:/ 'dataset' smart constructor.
 data Dataset = Dataset'
-    { _dLastModifiedDate :: !(Maybe POSIX)
-    , _dNumRecords       :: !(Maybe Integer)
-    , _dDataStorage      :: !(Maybe Integer)
-    , _dDatasetName      :: !(Maybe Text)
-    , _dCreationDate     :: !(Maybe POSIX)
-    , _dLastModifiedBy   :: !(Maybe Text)
-    , _dIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dNumRecords       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dDataStorage      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dDatasetName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dIdentityId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Dataset' with the minimum fields required to make a request.
 --
@@ -113,15 +113,16 @@ data Dataset = Dataset'
 dataset
     :: Dataset
 dataset =
-    Dataset'
-    { _dLastModifiedDate = Nothing
-    , _dNumRecords = Nothing
-    , _dDataStorage = Nothing
-    , _dDatasetName = Nothing
-    , _dCreationDate = Nothing
-    , _dLastModifiedBy = Nothing
-    , _dIdentityId = Nothing
-    }
+  Dataset'
+  { _dLastModifiedDate = Nothing
+  , _dNumRecords = Nothing
+  , _dDataStorage = Nothing
+  , _dDatasetName = Nothing
+  , _dCreationDate = Nothing
+  , _dLastModifiedBy = Nothing
+  , _dIdentityId = Nothing
+  }
+
 
 -- | Date when the dataset was last modified.
 dLastModifiedDate :: Lens' Dataset (Maybe UTCTime)
@@ -163,19 +164,20 @@ instance FromJSON Dataset where
                      <*> (x .:? "LastModifiedBy")
                      <*> (x .:? "IdentityId"))
 
-instance Hashable Dataset
+instance Hashable Dataset where
 
-instance NFData Dataset
+instance NFData Dataset where
 
 -- | Usage information for the identity pool.
 --
 -- /See:/ 'identityPoolUsage' smart constructor.
 data IdentityPoolUsage = IdentityPoolUsage'
-    { _ipuLastModifiedDate  :: !(Maybe POSIX)
-    , _ipuIdentityPoolId    :: !(Maybe Text)
-    , _ipuDataStorage       :: !(Maybe Integer)
-    , _ipuSyncSessionsCount :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ipuLastModifiedDate  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ipuIdentityPoolId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ipuDataStorage       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _ipuSyncSessionsCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityPoolUsage' with the minimum fields required to make a request.
 --
@@ -191,12 +193,13 @@ data IdentityPoolUsage = IdentityPoolUsage'
 identityPoolUsage
     :: IdentityPoolUsage
 identityPoolUsage =
-    IdentityPoolUsage'
-    { _ipuLastModifiedDate = Nothing
-    , _ipuIdentityPoolId = Nothing
-    , _ipuDataStorage = Nothing
-    , _ipuSyncSessionsCount = Nothing
-    }
+  IdentityPoolUsage'
+  { _ipuLastModifiedDate = Nothing
+  , _ipuIdentityPoolId = Nothing
+  , _ipuDataStorage = Nothing
+  , _ipuSyncSessionsCount = Nothing
+  }
+
 
 -- | Date on which the identity pool was last modified.
 ipuLastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
@@ -224,20 +227,21 @@ instance FromJSON IdentityPoolUsage where
                      <*> (x .:? "DataStorage")
                      <*> (x .:? "SyncSessionsCount"))
 
-instance Hashable IdentityPoolUsage
+instance Hashable IdentityPoolUsage where
 
-instance NFData IdentityPoolUsage
+instance NFData IdentityPoolUsage where
 
 -- | Usage information for the identity.
 --
 -- /See:/ 'identityUsage' smart constructor.
 data IdentityUsage = IdentityUsage'
-    { _iuLastModifiedDate :: !(Maybe POSIX)
-    , _iuIdentityPoolId   :: !(Maybe Text)
-    , _iuDatasetCount     :: !(Maybe Int)
-    , _iuDataStorage      :: !(Maybe Integer)
-    , _iuIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iuLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iuIdentityPoolId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iuDatasetCount     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _iuDataStorage      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _iuIdentityId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityUsage' with the minimum fields required to make a request.
 --
@@ -255,13 +259,14 @@ data IdentityUsage = IdentityUsage'
 identityUsage
     :: IdentityUsage
 identityUsage =
-    IdentityUsage'
-    { _iuLastModifiedDate = Nothing
-    , _iuIdentityPoolId = Nothing
-    , _iuDatasetCount = Nothing
-    , _iuDataStorage = Nothing
-    , _iuIdentityId = Nothing
-    }
+  IdentityUsage'
+  { _iuLastModifiedDate = Nothing
+  , _iuIdentityPoolId = Nothing
+  , _iuDatasetCount = Nothing
+  , _iuDataStorage = Nothing
+  , _iuIdentityId = Nothing
+  }
+
 
 -- | Date on which the identity was last modified.
 iuLastModifiedDate :: Lens' IdentityUsage (Maybe UTCTime)
@@ -294,9 +299,9 @@ instance FromJSON IdentityUsage where
                      <*> (x .:? "DataStorage")
                      <*> (x .:? "IdentityId"))
 
-instance Hashable IdentityUsage
+instance Hashable IdentityUsage where
 
-instance NFData IdentityUsage
+instance NFData IdentityUsage where
 
 -- | Configuration options to be applied to the identity pool.
 --
@@ -304,9 +309,10 @@ instance NFData IdentityUsage
 --
 -- /See:/ 'pushSync' smart constructor.
 data PushSync = PushSync'
-    { _psApplicationARNs :: !(Maybe [Text])
-    , _psRoleARN         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psApplicationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _psRoleARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PushSync' with the minimum fields required to make a request.
 --
@@ -317,11 +323,8 @@ data PushSync = PushSync'
 -- * 'psRoleARN' - A role configured to allow Cognito to call SNS on behalf of the developer.
 pushSync
     :: PushSync
-pushSync =
-    PushSync'
-    { _psApplicationARNs = Nothing
-    , _psRoleARN = Nothing
-    }
+pushSync = PushSync' {_psApplicationARNs = Nothing, _psRoleARN = Nothing}
+
 
 -- | List of SNS platform application ARNs that could be used by clients.
 psApplicationARNs :: Lens' PushSync [Text]
@@ -339,9 +342,9 @@ instance FromJSON PushSync where
                    (x .:? "ApplicationArns" .!= mempty) <*>
                      (x .:? "RoleArn"))
 
-instance Hashable PushSync
+instance Hashable PushSync where
 
-instance NFData PushSync
+instance NFData PushSync where
 
 instance ToJSON PushSync where
         toJSON PushSync'{..}
@@ -354,13 +357,14 @@ instance ToJSON PushSync where
 --
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-    { _rSyncCount              :: !(Maybe Integer)
-    , _rDeviceLastModifiedDate :: !(Maybe POSIX)
-    , _rLastModifiedDate       :: !(Maybe POSIX)
-    , _rValue                  :: !(Maybe Text)
-    , _rKey                    :: !(Maybe Text)
-    , _rLastModifiedBy         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rSyncCount              :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _rDeviceLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rLastModifiedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rValue                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rKey                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rLastModifiedBy         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
@@ -380,14 +384,15 @@ data Record = Record'
 record
     :: Record
 record =
-    Record'
-    { _rSyncCount = Nothing
-    , _rDeviceLastModifiedDate = Nothing
-    , _rLastModifiedDate = Nothing
-    , _rValue = Nothing
-    , _rKey = Nothing
-    , _rLastModifiedBy = Nothing
-    }
+  Record'
+  { _rSyncCount = Nothing
+  , _rDeviceLastModifiedDate = Nothing
+  , _rLastModifiedDate = Nothing
+  , _rValue = Nothing
+  , _rKey = Nothing
+  , _rLastModifiedBy = Nothing
+  }
+
 
 -- | The server sync count for this record.
 rSyncCount :: Lens' Record (Maybe Integer)
@@ -425,20 +430,21 @@ instance FromJSON Record where
                      <*> (x .:? "Key")
                      <*> (x .:? "LastModifiedBy"))
 
-instance Hashable Record
+instance Hashable Record where
 
-instance NFData Record
+instance NFData Record where
 
 -- | An update operation for a record.
 --
 -- /See:/ 'recordPatch' smart constructor.
 data RecordPatch = RecordPatch'
-    { _rpDeviceLastModifiedDate :: !(Maybe POSIX)
-    , _rpValue                  :: !(Maybe Text)
-    , _rpOp                     :: !Operation
-    , _rpKey                    :: !Text
-    , _rpSyncCount              :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpDeviceLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rpValue                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpOp                     :: {-# NOUNPACK #-}!Operation
+  , _rpKey                    :: {-# NOUNPACK #-}!Text
+  , _rpSyncCount              :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordPatch' with the minimum fields required to make a request.
 --
@@ -459,13 +465,14 @@ recordPatch
     -> Integer -- ^ 'rpSyncCount'
     -> RecordPatch
 recordPatch pOp_ pKey_ pSyncCount_ =
-    RecordPatch'
-    { _rpDeviceLastModifiedDate = Nothing
-    , _rpValue = Nothing
-    , _rpOp = pOp_
-    , _rpKey = pKey_
-    , _rpSyncCount = pSyncCount_
-    }
+  RecordPatch'
+  { _rpDeviceLastModifiedDate = Nothing
+  , _rpValue = Nothing
+  , _rpOp = pOp_
+  , _rpKey = pKey_
+  , _rpSyncCount = pSyncCount_
+  }
+
 
 -- | The last modified date of the client device.
 rpDeviceLastModifiedDate :: Lens' RecordPatch (Maybe UTCTime)
@@ -487,9 +494,9 @@ rpKey = lens _rpKey (\ s a -> s{_rpKey = a});
 rpSyncCount :: Lens' RecordPatch Integer
 rpSyncCount = lens _rpSyncCount (\ s a -> s{_rpSyncCount = a});
 
-instance Hashable RecordPatch
+instance Hashable RecordPatch where
 
-instance NFData RecordPatch
+instance NFData RecordPatch where
 
 instance ToJSON RecordPatch where
         toJSON RecordPatch'{..}

@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.DAX.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DAX.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ChangeType
-    = Immediate
-    | RequiresReboot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Immediate
+  | RequiresReboot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeType where
     parser = takeLowerText >>= \case
@@ -46,10 +47,11 @@ instance FromJSON ChangeType where
     parseJSON = parseJSONText "ChangeType"
 
 data IsModifiable
-    = Conditional
-    | False'
-    | True'
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Conditional
+  | False'
+  | True'
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IsModifiable where
     parser = takeLowerText >>= \case
@@ -75,9 +77,10 @@ instance FromJSON IsModifiable where
     parseJSON = parseJSONText "IsModifiable"
 
 data ParameterType
-    = Default
-    | NodeTypeSpecific
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Default
+  | NodeTypeSpecific
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ParameterType where
     parser = takeLowerText >>= \case
@@ -101,10 +104,11 @@ instance FromJSON ParameterType where
     parseJSON = parseJSONText "ParameterType"
 
 data SourceType
-    = Cluster
-    | ParameterGroup
-    | SubnetGroup
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cluster
+  | ParameterGroup
+  | SubnetGroup
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case

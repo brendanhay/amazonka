@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetApplicationRevision
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     , garrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a GetApplicationRevision operation.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getApplicationRevision' smart constructor.
 data GetApplicationRevision = GetApplicationRevision'
-    { _garApplicationName :: !Text
-    , _garRevision        :: !RevisionLocation
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garApplicationName :: {-# NOUNPACK #-}!Text
+  , _garRevision        :: {-# NOUNPACK #-}!RevisionLocation
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetApplicationRevision' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ getApplicationRevision
     -> RevisionLocation -- ^ 'garRevision'
     -> GetApplicationRevision
 getApplicationRevision pApplicationName_ pRevision_ =
-    GetApplicationRevision'
-    { _garApplicationName = pApplicationName_
-    , _garRevision = pRevision_
-    }
+  GetApplicationRevision'
+  {_garApplicationName = pApplicationName_, _garRevision = pRevision_}
+
 
 -- | The name of the application that corresponds to the revision.
 garApplicationName :: Lens' GetApplicationRevision Text
@@ -94,9 +94,9 @@ instance AWSRequest GetApplicationRevision where
                      <*> (x .?> "revision")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetApplicationRevision
+instance Hashable GetApplicationRevision where
 
-instance NFData GetApplicationRevision
+instance NFData GetApplicationRevision where
 
 instance ToHeaders GetApplicationRevision where
         toHeaders
@@ -127,11 +127,12 @@ instance ToQuery GetApplicationRevision where
 --
 -- /See:/ 'getApplicationRevisionResponse' smart constructor.
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
-    { _garrsApplicationName :: !(Maybe Text)
-    , _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
-    , _garrsRevision        :: !(Maybe RevisionLocation)
-    , _garrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garrsApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _garrsRevisionInfo    :: {-# NOUNPACK #-}!(Maybe GenericRevisionInfo)
+  , _garrsRevision        :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
+  , _garrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetApplicationRevisionResponse' with the minimum fields required to make a request.
 --
@@ -148,12 +149,13 @@ getApplicationRevisionResponse
     :: Int -- ^ 'garrsResponseStatus'
     -> GetApplicationRevisionResponse
 getApplicationRevisionResponse pResponseStatus_ =
-    GetApplicationRevisionResponse'
-    { _garrsApplicationName = Nothing
-    , _garrsRevisionInfo = Nothing
-    , _garrsRevision = Nothing
-    , _garrsResponseStatus = pResponseStatus_
-    }
+  GetApplicationRevisionResponse'
+  { _garrsApplicationName = Nothing
+  , _garrsRevisionInfo = Nothing
+  , _garrsRevision = Nothing
+  , _garrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the application that corresponds to the revision.
 garrsApplicationName :: Lens' GetApplicationRevisionResponse (Maybe Text)
@@ -171,4 +173,4 @@ garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
 garrsResponseStatus :: Lens' GetApplicationRevisionResponse Int
 garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a});
 
-instance NFData GetApplicationRevisionResponse
+instance NFData GetApplicationRevisionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetIntentVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,19 +46,20 @@ module Network.AWS.LexModels.GetIntentVersions
     , givrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getIntentVersions' smart constructor.
 data GetIntentVersions = GetIntentVersions'
-    { _givNextToken  :: !(Maybe Text)
-    , _givMaxResults :: !(Maybe Nat)
-    , _givName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _givNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _givMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _givName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntentVersions' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ getIntentVersions
     :: Text -- ^ 'givName'
     -> GetIntentVersions
 getIntentVersions pName_ =
-    GetIntentVersions'
-    { _givNextToken = Nothing
-    , _givMaxResults = Nothing
-    , _givName = pName_
-    }
+  GetIntentVersions'
+  {_givNextToken = Nothing, _givMaxResults = Nothing, _givName = pName_}
+
 
 -- | A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
 givNextToken :: Lens' GetIntentVersions (Maybe Text)
@@ -101,9 +100,9 @@ instance AWSRequest GetIntentVersions where
                    (x .?> "intents" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetIntentVersions
+instance Hashable GetIntentVersions where
 
-instance NFData GetIntentVersions
+instance NFData GetIntentVersions where
 
 instance ToHeaders GetIntentVersions where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery GetIntentVersions where
 
 -- | /See:/ 'getIntentVersionsResponse' smart constructor.
 data GetIntentVersionsResponse = GetIntentVersionsResponse'
-    { _givrsIntents        :: !(Maybe [IntentMetadata])
-    , _givrsNextToken      :: !(Maybe Text)
-    , _givrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _givrsIntents        :: {-# NOUNPACK #-}!(Maybe [IntentMetadata])
+  , _givrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _givrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntentVersionsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ getIntentVersionsResponse
     :: Int -- ^ 'givrsResponseStatus'
     -> GetIntentVersionsResponse
 getIntentVersionsResponse pResponseStatus_ =
-    GetIntentVersionsResponse'
-    { _givrsIntents = Nothing
-    , _givrsNextToken = Nothing
-    , _givrsResponseStatus = pResponseStatus_
-    }
+  GetIntentVersionsResponse'
+  { _givrsIntents = Nothing
+  , _givrsNextToken = Nothing
+  , _givrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of @IntentMetadata@ objects, one for each numbered version of the intent plus one for the @> LATEST@ version.
 givrsIntents :: Lens' GetIntentVersionsResponse [IntentMetadata]
@@ -160,4 +161,4 @@ givrsNextToken = lens _givrsNextToken (\ s a -> s{_givrsNextToken = a});
 givrsResponseStatus :: Lens' GetIntentVersionsResponse Int
 givrsResponseStatus = lens _givrsResponseStatus (\ s a -> s{_givrsResponseStatus = a});
 
-instance NFData GetIntentVersionsResponse
+instance NFData GetIntentVersionsResponse where

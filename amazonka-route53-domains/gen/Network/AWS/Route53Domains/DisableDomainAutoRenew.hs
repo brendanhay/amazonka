@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.DisableDomainAutoRenew
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
     , ddarrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | /See:/ 'disableDomainAutoRenew' smart constructor.
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
-    { _ddarDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddarDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableDomainAutoRenew' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ disableDomainAutoRenew
     :: Text -- ^ 'ddarDomainName'
     -> DisableDomainAutoRenew
 disableDomainAutoRenew pDomainName_ =
-    DisableDomainAutoRenew'
-    { _ddarDomainName = pDomainName_
-    }
+  DisableDomainAutoRenew' {_ddarDomainName = pDomainName_}
+
 
 -- | The name of the domain that you want to disable automatic renewal for.
 ddarDomainName :: Lens' DisableDomainAutoRenew Text
@@ -75,9 +75,9 @@ instance AWSRequest DisableDomainAutoRenew where
                  DisableDomainAutoRenewResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DisableDomainAutoRenew
+instance Hashable DisableDomainAutoRenew where
 
-instance NFData DisableDomainAutoRenew
+instance NFData DisableDomainAutoRenew where
 
 instance ToHeaders DisableDomainAutoRenew where
         toHeaders
@@ -102,8 +102,9 @@ instance ToQuery DisableDomainAutoRenew where
 
 -- | /See:/ 'disableDomainAutoRenewResponse' smart constructor.
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
-    { _ddarrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddarrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableDomainAutoRenewResponse' with the minimum fields required to make a request.
 --
@@ -114,12 +115,11 @@ disableDomainAutoRenewResponse
     :: Int -- ^ 'ddarrsResponseStatus'
     -> DisableDomainAutoRenewResponse
 disableDomainAutoRenewResponse pResponseStatus_ =
-    DisableDomainAutoRenewResponse'
-    { _ddarrsResponseStatus = pResponseStatus_
-    }
+  DisableDomainAutoRenewResponse' {_ddarrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ddarrsResponseStatus :: Lens' DisableDomainAutoRenewResponse Int
 ddarrsResponseStatus = lens _ddarrsResponseStatus (\ s a -> s{_ddarrsResponseStatus = a});
 
-instance NFData DisableDomainAutoRenewResponse
+instance NFData DisableDomainAutoRenewResponse where

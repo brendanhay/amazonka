@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ImportKeyMaterial
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,21 +46,22 @@ module Network.AWS.KMS.ImportKeyMaterial
     , ikmrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importKeyMaterial' smart constructor.
 data ImportKeyMaterial = ImportKeyMaterial'
-    { _ikmExpirationModel      :: !(Maybe ExpirationModelType)
-    , _ikmValidTo              :: !(Maybe POSIX)
-    , _ikmKeyId                :: !Text
-    , _ikmImportToken          :: !Base64
-    , _ikmEncryptedKeyMaterial :: !Base64
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ikmExpirationModel      :: {-# NOUNPACK #-}!(Maybe ExpirationModelType)
+  , _ikmValidTo              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ikmKeyId                :: {-# NOUNPACK #-}!Text
+  , _ikmImportToken          :: {-# NOUNPACK #-}!Base64
+  , _ikmEncryptedKeyMaterial :: {-# NOUNPACK #-}!Base64
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportKeyMaterial' with the minimum fields required to make a request.
 --
@@ -81,13 +82,14 @@ importKeyMaterial
     -> ByteString -- ^ 'ikmEncryptedKeyMaterial'
     -> ImportKeyMaterial
 importKeyMaterial pKeyId_ pImportToken_ pEncryptedKeyMaterial_ =
-    ImportKeyMaterial'
-    { _ikmExpirationModel = Nothing
-    , _ikmValidTo = Nothing
-    , _ikmKeyId = pKeyId_
-    , _ikmImportToken = _Base64 # pImportToken_
-    , _ikmEncryptedKeyMaterial = _Base64 # pEncryptedKeyMaterial_
-    }
+  ImportKeyMaterial'
+  { _ikmExpirationModel = Nothing
+  , _ikmValidTo = Nothing
+  , _ikmKeyId = pKeyId_
+  , _ikmImportToken = _Base64 # pImportToken_
+  , _ikmEncryptedKeyMaterial = _Base64 # pEncryptedKeyMaterial_
+  }
+
 
 -- | Specifies whether the key material expires. The default is @KEY_MATERIAL_EXPIRES@ , in which case you must include the @ValidTo@ parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ , you must omit the @ValidTo@ parameter.
 ikmExpirationModel :: Lens' ImportKeyMaterial (Maybe ExpirationModelType)
@@ -117,9 +119,9 @@ instance AWSRequest ImportKeyMaterial where
               (\ s h x ->
                  ImportKeyMaterialResponse' <$> (pure (fromEnum s)))
 
-instance Hashable ImportKeyMaterial
+instance Hashable ImportKeyMaterial where
 
-instance NFData ImportKeyMaterial
+instance NFData ImportKeyMaterial where
 
 instance ToHeaders ImportKeyMaterial where
         toHeaders
@@ -150,8 +152,9 @@ instance ToQuery ImportKeyMaterial where
 
 -- | /See:/ 'importKeyMaterialResponse' smart constructor.
 newtype ImportKeyMaterialResponse = ImportKeyMaterialResponse'
-    { _ikmrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ikmrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportKeyMaterialResponse' with the minimum fields required to make a request.
 --
@@ -162,12 +165,11 @@ importKeyMaterialResponse
     :: Int -- ^ 'ikmrsResponseStatus'
     -> ImportKeyMaterialResponse
 importKeyMaterialResponse pResponseStatus_ =
-    ImportKeyMaterialResponse'
-    { _ikmrsResponseStatus = pResponseStatus_
-    }
+  ImportKeyMaterialResponse' {_ikmrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ikmrsResponseStatus :: Lens' ImportKeyMaterialResponse Int
 ikmrsResponseStatus = lens _ikmrsResponseStatus (\ s a -> s{_ikmrsResponseStatus = a});
 
-instance NFData ImportKeyMaterialResponse
+instance NFData ImportKeyMaterialResponse where

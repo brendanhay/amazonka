@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
     , dvcldsrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DisableVpcClassicLinkDnsSupport.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableVPCClassicLinkDNSSupport' smart constructor.
 newtype DisableVPCClassicLinkDNSSupport = DisableVPCClassicLinkDNSSupport'
-    { _dvcldsVPCId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvcldsVPCId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableVPCClassicLinkDNSSupport' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ newtype DisableVPCClassicLinkDNSSupport = DisableVPCClassicLinkDNSSupport'
 disableVPCClassicLinkDNSSupport
     :: DisableVPCClassicLinkDNSSupport
 disableVPCClassicLinkDNSSupport =
-    DisableVPCClassicLinkDNSSupport'
-    { _dvcldsVPCId = Nothing
-    }
+  DisableVPCClassicLinkDNSSupport' {_dvcldsVPCId = Nothing}
+
 
 -- | The ID of the VPC.
 dvcldsVPCId :: Lens' DisableVPCClassicLinkDNSSupport (Maybe Text)
@@ -81,8 +81,9 @@ instance AWSRequest DisableVPCClassicLinkDNSSupport
                    (x .@? "return") <*> (pure (fromEnum s)))
 
 instance Hashable DisableVPCClassicLinkDNSSupport
+         where
 
-instance NFData DisableVPCClassicLinkDNSSupport
+instance NFData DisableVPCClassicLinkDNSSupport where
 
 instance ToHeaders DisableVPCClassicLinkDNSSupport
          where
@@ -106,9 +107,10 @@ instance ToQuery DisableVPCClassicLinkDNSSupport
 --
 -- /See:/ 'disableVPCClassicLinkDNSSupportResponse' smart constructor.
 data DisableVPCClassicLinkDNSSupportResponse = DisableVPCClassicLinkDNSSupportResponse'
-    { _dvcldsrsReturn         :: !(Maybe Bool)
-    , _dvcldsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvcldsrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvcldsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableVPCClassicLinkDNSSupportResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +123,9 @@ disableVPCClassicLinkDNSSupportResponse
     :: Int -- ^ 'dvcldsrsResponseStatus'
     -> DisableVPCClassicLinkDNSSupportResponse
 disableVPCClassicLinkDNSSupportResponse pResponseStatus_ =
-    DisableVPCClassicLinkDNSSupportResponse'
-    { _dvcldsrsReturn = Nothing
-    , _dvcldsrsResponseStatus = pResponseStatus_
-    }
+  DisableVPCClassicLinkDNSSupportResponse'
+  {_dvcldsrsReturn = Nothing, _dvcldsrsResponseStatus = pResponseStatus_}
+
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvcldsrsReturn :: Lens' DisableVPCClassicLinkDNSSupportResponse (Maybe Bool)
@@ -135,4 +136,5 @@ dvcldsrsResponseStatus :: Lens' DisableVPCClassicLinkDNSSupportResponse Int
 dvcldsrsResponseStatus = lens _dvcldsrsResponseStatus (\ s a -> s{_dvcldsrsResponseStatus = a});
 
 instance NFData
-         DisableVPCClassicLinkDNSSupportResponse
+           DisableVPCClassicLinkDNSSupportResponse
+         where

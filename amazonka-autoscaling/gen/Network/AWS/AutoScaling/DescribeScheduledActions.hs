@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeScheduledActions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     , dsarsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeScheduledActions.
 --
@@ -59,13 +59,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
-    { _dsasStartTime            :: !(Maybe ISO8601)
-    , _dsasNextToken            :: !(Maybe Text)
-    , _dsasAutoScalingGroupName :: !(Maybe Text)
-    , _dsasMaxRecords           :: !(Maybe Int)
-    , _dsasEndTime              :: !(Maybe ISO8601)
-    , _dsasScheduledActionNames :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsasStartTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dsasNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsasAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsasMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsasEndTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dsasScheduledActionNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScheduledActions' with the minimum fields required to make a request.
 --
@@ -85,14 +86,15 @@ data DescribeScheduledActions = DescribeScheduledActions'
 describeScheduledActions
     :: DescribeScheduledActions
 describeScheduledActions =
-    DescribeScheduledActions'
-    { _dsasStartTime = Nothing
-    , _dsasNextToken = Nothing
-    , _dsasAutoScalingGroupName = Nothing
-    , _dsasMaxRecords = Nothing
-    , _dsasEndTime = Nothing
-    , _dsasScheduledActionNames = Nothing
-    }
+  DescribeScheduledActions'
+  { _dsasStartTime = Nothing
+  , _dsasNextToken = Nothing
+  , _dsasAutoScalingGroupName = Nothing
+  , _dsasMaxRecords = Nothing
+  , _dsasEndTime = Nothing
+  , _dsasScheduledActionNames = Nothing
+  }
+
 
 -- | The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 dsasStartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
@@ -139,9 +141,9 @@ instance AWSRequest DescribeScheduledActions where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeScheduledActions
+instance Hashable DescribeScheduledActions where
 
-instance NFData DescribeScheduledActions
+instance NFData DescribeScheduledActions where
 
 instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty
@@ -170,10 +172,11 @@ instance ToQuery DescribeScheduledActions where
 --
 -- /See:/ 'describeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
-    { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
-    , _dsarsNextToken                   :: !(Maybe Text)
-    , _dsarsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsarsScheduledUpdateGroupActions :: {-# NOUNPACK #-}!(Maybe [ScheduledUpdateGroupAction])
+  , _dsarsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScheduledActionsResponse' with the minimum fields required to make a request.
 --
@@ -188,11 +191,12 @@ describeScheduledActionsResponse
     :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeScheduledActionsResponse
 describeScheduledActionsResponse pResponseStatus_ =
-    DescribeScheduledActionsResponse'
-    { _dsarsScheduledUpdateGroupActions = Nothing
-    , _dsarsNextToken = Nothing
-    , _dsarsResponseStatus = pResponseStatus_
-    }
+  DescribeScheduledActionsResponse'
+  { _dsarsScheduledUpdateGroupActions = Nothing
+  , _dsarsNextToken = Nothing
+  , _dsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The scheduled actions.
 dsarsScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
@@ -207,3 +211,4 @@ dsarsResponseStatus :: Lens' DescribeScheduledActionsResponse Int
 dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
 
 instance NFData DescribeScheduledActionsResponse
+         where

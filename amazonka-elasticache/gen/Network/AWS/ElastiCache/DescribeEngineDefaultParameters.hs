@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeEngineDefaultParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     , dedprsEngineDefaults
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DescribeEngineDefaultParameters@ operation.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedpMarker                    :: !(Maybe Text)
-    , _dedpMaxRecords                :: !(Maybe Int)
-    , _dedpCacheParameterGroupFamily :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedpMarker                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dedpMaxRecords                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dedpCacheParameterGroupFamily :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEngineDefaultParameters' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ describeEngineDefaultParameters
     :: Text -- ^ 'dedpCacheParameterGroupFamily'
     -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pCacheParameterGroupFamily_ =
-    DescribeEngineDefaultParameters'
-    { _dedpMarker = Nothing
-    , _dedpMaxRecords = Nothing
-    , _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily_
-    }
+  DescribeEngineDefaultParameters'
+  { _dedpMarker = Nothing
+  , _dedpMaxRecords = Nothing
+  , _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily_
+  }
+
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
@@ -117,8 +119,9 @@ instance AWSRequest DescribeEngineDefaultParameters
                    (pure (fromEnum s)) <*> (x .@ "EngineDefaults"))
 
 instance Hashable DescribeEngineDefaultParameters
+         where
 
-instance NFData DescribeEngineDefaultParameters
+instance NFData DescribeEngineDefaultParameters where
 
 instance ToHeaders DescribeEngineDefaultParameters
          where
@@ -141,9 +144,10 @@ instance ToQuery DescribeEngineDefaultParameters
 
 -- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-    { _dedprsResponseStatus :: !Int
-    , _dedprsEngineDefaults :: !EngineDefaults
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dedprsEngineDefaults :: {-# NOUNPACK #-}!EngineDefaults
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEngineDefaultParametersResponse' with the minimum fields required to make a request.
 --
@@ -157,10 +161,11 @@ describeEngineDefaultParametersResponse
     -> EngineDefaults -- ^ 'dedprsEngineDefaults'
     -> DescribeEngineDefaultParametersResponse
 describeEngineDefaultParametersResponse pResponseStatus_ pEngineDefaults_ =
-    DescribeEngineDefaultParametersResponse'
-    { _dedprsResponseStatus = pResponseStatus_
-    , _dedprsEngineDefaults = pEngineDefaults_
-    }
+  DescribeEngineDefaultParametersResponse'
+  { _dedprsResponseStatus = pResponseStatus_
+  , _dedprsEngineDefaults = pEngineDefaults_
+  }
+
 
 -- | -- | The response status code.
 dedprsResponseStatus :: Lens' DescribeEngineDefaultParametersResponse Int
@@ -171,4 +176,5 @@ dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefa
 dedprsEngineDefaults = lens _dedprsEngineDefaults (\ s a -> s{_dedprsEngineDefaults = a});
 
 instance NFData
-         DescribeEngineDefaultParametersResponse
+           DescribeEngineDefaultParametersResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.SimulatePrincipalPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -62,28 +62,29 @@ module Network.AWS.IAM.SimulatePrincipalPolicy
     , spIsTruncated
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'simulatePrincipalPolicy' smart constructor.
 data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
-    { _sppPolicyInputList        :: !(Maybe [Text])
-    , _sppResourcePolicy         :: !(Maybe Text)
-    , _sppCallerARN              :: !(Maybe Text)
-    , _sppResourceHandlingOption :: !(Maybe Text)
-    , _sppResourceARNs           :: !(Maybe [Text])
-    , _sppMarker                 :: !(Maybe Text)
-    , _sppMaxItems               :: !(Maybe Nat)
-    , _sppContextEntries         :: !(Maybe [ContextEntry])
-    , _sppResourceOwner          :: !(Maybe Text)
-    , _sppPolicySourceARN        :: !Text
-    , _sppActionNames            :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sppPolicyInputList        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sppResourcePolicy         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sppCallerARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sppResourceHandlingOption :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sppResourceARNs           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sppMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sppMaxItems               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sppContextEntries         :: {-# NOUNPACK #-}!(Maybe [ContextEntry])
+  , _sppResourceOwner          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sppPolicySourceARN        :: {-# NOUNPACK #-}!Text
+  , _sppActionNames            :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SimulatePrincipalPolicy' with the minimum fields required to make a request.
 --
@@ -114,19 +115,20 @@ simulatePrincipalPolicy
     :: Text -- ^ 'sppPolicySourceARN'
     -> SimulatePrincipalPolicy
 simulatePrincipalPolicy pPolicySourceARN_ =
-    SimulatePrincipalPolicy'
-    { _sppPolicyInputList = Nothing
-    , _sppResourcePolicy = Nothing
-    , _sppCallerARN = Nothing
-    , _sppResourceHandlingOption = Nothing
-    , _sppResourceARNs = Nothing
-    , _sppMarker = Nothing
-    , _sppMaxItems = Nothing
-    , _sppContextEntries = Nothing
-    , _sppResourceOwner = Nothing
-    , _sppPolicySourceARN = pPolicySourceARN_
-    , _sppActionNames = mempty
-    }
+  SimulatePrincipalPolicy'
+  { _sppPolicyInputList = Nothing
+  , _sppResourcePolicy = Nothing
+  , _sppCallerARN = Nothing
+  , _sppResourceHandlingOption = Nothing
+  , _sppResourceARNs = Nothing
+  , _sppMarker = Nothing
+  , _sppMaxItems = Nothing
+  , _sppContextEntries = Nothing
+  , _sppResourceOwner = Nothing
+  , _sppPolicySourceARN = pPolicySourceARN_
+  , _sppActionNames = mempty
+  }
+
 
 -- | An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 sppPolicyInputList :: Lens' SimulatePrincipalPolicy [Text]
@@ -186,9 +188,9 @@ instance AWSRequest SimulatePrincipalPolicy where
           = receiveXMLWrapper "SimulatePrincipalPolicyResult"
               (\ s h x -> parseXML x)
 
-instance Hashable SimulatePrincipalPolicy
+instance Hashable SimulatePrincipalPolicy where
 
-instance NFData SimulatePrincipalPolicy
+instance NFData SimulatePrincipalPolicy where
 
 instance ToHeaders SimulatePrincipalPolicy where
         toHeaders = const mempty

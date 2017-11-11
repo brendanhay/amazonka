@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteRequestValidator
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteRequestValidator
     , DeleteRequestValidatorResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Deletes a specified 'RequestValidator' of a given 'RestApi' .
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteRequestValidator' smart constructor.
 data DeleteRequestValidator = DeleteRequestValidator'
-    { _drvRestAPIId          :: !Text
-    , _drvRequestValidatorId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drvRestAPIId          :: {-# NOUNPACK #-}!Text
+  , _drvRequestValidatorId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRequestValidator' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ deleteRequestValidator
     -> Text -- ^ 'drvRequestValidatorId'
     -> DeleteRequestValidator
 deleteRequestValidator pRestAPIId_ pRequestValidatorId_ =
-    DeleteRequestValidator'
-    { _drvRestAPIId = pRestAPIId_
-    , _drvRequestValidatorId = pRequestValidatorId_
-    }
+  DeleteRequestValidator'
+  {_drvRestAPIId = pRestAPIId_, _drvRequestValidatorId = pRequestValidatorId_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 drvRestAPIId :: Lens' DeleteRequestValidator Text
@@ -84,9 +84,9 @@ instance AWSRequest DeleteRequestValidator where
         response
           = receiveNull DeleteRequestValidatorResponse'
 
-instance Hashable DeleteRequestValidator
+instance Hashable DeleteRequestValidator where
 
-instance NFData DeleteRequestValidator
+instance NFData DeleteRequestValidator where
 
 instance ToHeaders DeleteRequestValidator where
         toHeaders
@@ -105,8 +105,9 @@ instance ToQuery DeleteRequestValidator where
 
 -- | /See:/ 'deleteRequestValidatorResponse' smart constructor.
 data DeleteRequestValidatorResponse =
-    DeleteRequestValidatorResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteRequestValidatorResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRequestValidatorResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +115,5 @@ deleteRequestValidatorResponse
     :: DeleteRequestValidatorResponse
 deleteRequestValidatorResponse = DeleteRequestValidatorResponse'
 
-instance NFData DeleteRequestValidatorResponse
+
+instance NFData DeleteRequestValidatorResponse where

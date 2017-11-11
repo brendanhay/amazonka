@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     , lrnbtrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listRuleNamesByTarget' smart constructor.
 data ListRuleNamesByTarget = ListRuleNamesByTarget'
-    { _lrnbtNextToken :: !(Maybe Text)
-    , _lrnbtLimit     :: !(Maybe Nat)
-    , _lrnbtTargetARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrnbtNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrnbtLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lrnbtTargetARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRuleNamesByTarget' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listRuleNamesByTarget
     :: Text -- ^ 'lrnbtTargetARN'
     -> ListRuleNamesByTarget
 listRuleNamesByTarget pTargetARN_ =
-    ListRuleNamesByTarget'
-    { _lrnbtNextToken = Nothing
-    , _lrnbtLimit = Nothing
-    , _lrnbtTargetARN = pTargetARN_
-    }
+  ListRuleNamesByTarget'
+  { _lrnbtNextToken = Nothing
+  , _lrnbtLimit = Nothing
+  , _lrnbtTargetARN = pTargetARN_
+  }
+
 
 -- | The token returned by a previous call to retrieve the next set of results.
 lrnbtNextToken :: Lens' ListRuleNamesByTarget (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest ListRuleNamesByTarget where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListRuleNamesByTarget
+instance Hashable ListRuleNamesByTarget where
 
-instance NFData ListRuleNamesByTarget
+instance NFData ListRuleNamesByTarget where
 
 instance ToHeaders ListRuleNamesByTarget where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery ListRuleNamesByTarget where
 
 -- | /See:/ 'listRuleNamesByTargetResponse' smart constructor.
 data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
-    { _lrnbtrsRuleNames      :: !(Maybe [Text])
-    , _lrnbtrsNextToken      :: !(Maybe Text)
-    , _lrnbtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrnbtrsRuleNames      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lrnbtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrnbtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRuleNamesByTargetResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ listRuleNamesByTargetResponse
     :: Int -- ^ 'lrnbtrsResponseStatus'
     -> ListRuleNamesByTargetResponse
 listRuleNamesByTargetResponse pResponseStatus_ =
-    ListRuleNamesByTargetResponse'
-    { _lrnbtrsRuleNames = Nothing
-    , _lrnbtrsNextToken = Nothing
-    , _lrnbtrsResponseStatus = pResponseStatus_
-    }
+  ListRuleNamesByTargetResponse'
+  { _lrnbtrsRuleNames = Nothing
+  , _lrnbtrsNextToken = Nothing
+  , _lrnbtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The names of the rules that can invoke the given target.
 lrnbtrsRuleNames :: Lens' ListRuleNamesByTargetResponse [Text]
@@ -162,4 +166,4 @@ lrnbtrsNextToken = lens _lrnbtrsNextToken (\ s a -> s{_lrnbtrsNextToken = a});
 lrnbtrsResponseStatus :: Lens' ListRuleNamesByTargetResponse Int
 lrnbtrsResponseStatus = lens _lrnbtrsResponseStatus (\ s a -> s{_lrnbtrsResponseStatus = a});
 
-instance NFData ListRuleNamesByTargetResponse
+instance NFData ListRuleNamesByTargetResponse where

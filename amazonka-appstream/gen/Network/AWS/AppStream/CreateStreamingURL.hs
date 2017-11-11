@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateStreamingURL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,22 +43,23 @@ module Network.AWS.AppStream.CreateStreamingURL
     , csursResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createStreamingURL' smart constructor.
 data CreateStreamingURL = CreateStreamingURL'
-    { _csuSessionContext :: !(Maybe Text)
-    , _csuApplicationId  :: !(Maybe Text)
-    , _csuValidity       :: !(Maybe Integer)
-    , _csuStackName      :: !Text
-    , _csuFleetName      :: !Text
-    , _csuUserId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csuSessionContext :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csuApplicationId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csuValidity       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _csuStackName      :: {-# NOUNPACK #-}!Text
+  , _csuFleetName      :: {-# NOUNPACK #-}!Text
+  , _csuUserId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStreamingURL' with the minimum fields required to make a request.
 --
@@ -81,14 +82,15 @@ createStreamingURL
     -> Text -- ^ 'csuUserId'
     -> CreateStreamingURL
 createStreamingURL pStackName_ pFleetName_ pUserId_ =
-    CreateStreamingURL'
-    { _csuSessionContext = Nothing
-    , _csuApplicationId = Nothing
-    , _csuValidity = Nothing
-    , _csuStackName = pStackName_
-    , _csuFleetName = pFleetName_
-    , _csuUserId = pUserId_
-    }
+  CreateStreamingURL'
+  { _csuSessionContext = Nothing
+  , _csuApplicationId = Nothing
+  , _csuValidity = Nothing
+  , _csuStackName = pStackName_
+  , _csuFleetName = pFleetName_
+  , _csuUserId = pUserId_
+  }
+
 
 -- | The sessionContext of the streaming URL.
 csuSessionContext :: Lens' CreateStreamingURL (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest CreateStreamingURL where
                    (x .?> "StreamingURL") <*> (x .?> "Expires") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateStreamingURL
+instance Hashable CreateStreamingURL where
 
-instance NFData CreateStreamingURL
+instance NFData CreateStreamingURL where
 
 instance ToHeaders CreateStreamingURL where
         toHeaders
@@ -158,10 +160,11 @@ instance ToQuery CreateStreamingURL where
 
 -- | /See:/ 'createStreamingURLResponse' smart constructor.
 data CreateStreamingURLResponse = CreateStreamingURLResponse'
-    { _csursStreamingURL   :: !(Maybe Text)
-    , _csursExpires        :: !(Maybe POSIX)
-    , _csursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csursStreamingURL   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csursExpires        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _csursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStreamingURLResponse' with the minimum fields required to make a request.
 --
@@ -176,11 +179,12 @@ createStreamingURLResponse
     :: Int -- ^ 'csursResponseStatus'
     -> CreateStreamingURLResponse
 createStreamingURLResponse pResponseStatus_ =
-    CreateStreamingURLResponse'
-    { _csursStreamingURL = Nothing
-    , _csursExpires = Nothing
-    , _csursResponseStatus = pResponseStatus_
-    }
+  CreateStreamingURLResponse'
+  { _csursStreamingURL = Nothing
+  , _csursExpires = Nothing
+  , _csursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The URL to start the AppStream 2.0 streaming session.
 csursStreamingURL :: Lens' CreateStreamingURLResponse (Maybe Text)
@@ -194,4 +198,4 @@ csursExpires = lens _csursExpires (\ s a -> s{_csursExpires = a}) . mapping _Tim
 csursResponseStatus :: Lens' CreateStreamingURLResponse Int
 csursResponseStatus = lens _csursResponseStatus (\ s a -> s{_csursResponseStatus = a});
 
-instance NFData CreateStreamingURLResponse
+instance NFData CreateStreamingURLResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GenerateDataKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -69,21 +69,22 @@ module Network.AWS.KMS.GenerateDataKey
     , gdkrsCiphertextBlob
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'generateDataKey' smart constructor.
 data GenerateDataKey = GenerateDataKey'
-    { _gdkKeySpec           :: !(Maybe DataKeySpec)
-    , _gdkEncryptionContext :: !(Maybe (Map Text Text))
-    , _gdkNumberOfBytes     :: !(Maybe Nat)
-    , _gdkGrantTokens       :: !(Maybe [Text])
-    , _gdkKeyId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdkKeySpec           :: {-# NOUNPACK #-}!(Maybe DataKeySpec)
+  , _gdkEncryptionContext :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gdkNumberOfBytes     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gdkGrantTokens       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gdkKeyId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateDataKey' with the minimum fields required to make a request.
 --
@@ -102,13 +103,14 @@ generateDataKey
     :: Text -- ^ 'gdkKeyId'
     -> GenerateDataKey
 generateDataKey pKeyId_ =
-    GenerateDataKey'
-    { _gdkKeySpec = Nothing
-    , _gdkEncryptionContext = Nothing
-    , _gdkNumberOfBytes = Nothing
-    , _gdkGrantTokens = Nothing
-    , _gdkKeyId = pKeyId_
-    }
+  GenerateDataKey'
+  { _gdkKeySpec = Nothing
+  , _gdkEncryptionContext = Nothing
+  , _gdkNumberOfBytes = Nothing
+  , _gdkGrantTokens = Nothing
+  , _gdkKeyId = pKeyId_
+  }
+
 
 -- | The length of the data encryption key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
 gdkKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
@@ -141,9 +143,9 @@ instance AWSRequest GenerateDataKey where
                      (x .:> "Plaintext")
                      <*> (x .:> "CiphertextBlob"))
 
-instance Hashable GenerateDataKey
+instance Hashable GenerateDataKey where
 
-instance NFData GenerateDataKey
+instance NFData GenerateDataKey where
 
 instance ToHeaders GenerateDataKey where
         toHeaders
@@ -172,11 +174,12 @@ instance ToQuery GenerateDataKey where
 
 -- | /See:/ 'generateDataKeyResponse' smart constructor.
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
-    { _gdkrsResponseStatus :: !Int
-    , _gdkrsKeyId          :: !Text
-    , _gdkrsPlaintext      :: !(Sensitive Base64)
-    , _gdkrsCiphertextBlob :: !Base64
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gdkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gdkrsKeyId          :: {-# NOUNPACK #-}!Text
+  , _gdkrsPlaintext      :: {-# NOUNPACK #-}!(Sensitive Base64)
+  , _gdkrsCiphertextBlob :: {-# NOUNPACK #-}!Base64
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateDataKeyResponse' with the minimum fields required to make a request.
 --
@@ -196,12 +199,13 @@ generateDataKeyResponse
     -> ByteString -- ^ 'gdkrsCiphertextBlob'
     -> GenerateDataKeyResponse
 generateDataKeyResponse pResponseStatus_ pKeyId_ pPlaintext_ pCiphertextBlob_ =
-    GenerateDataKeyResponse'
-    { _gdkrsResponseStatus = pResponseStatus_
-    , _gdkrsKeyId = pKeyId_
-    , _gdkrsPlaintext = _Sensitive . _Base64 # pPlaintext_
-    , _gdkrsCiphertextBlob = _Base64 # pCiphertextBlob_
-    }
+  GenerateDataKeyResponse'
+  { _gdkrsResponseStatus = pResponseStatus_
+  , _gdkrsKeyId = pKeyId_
+  , _gdkrsPlaintext = _Sensitive . _Base64 # pPlaintext_
+  , _gdkrsCiphertextBlob = _Base64 # pCiphertextBlob_
+  }
+
 
 -- | -- | The response status code.
 gdkrsResponseStatus :: Lens' GenerateDataKeyResponse Int
@@ -219,4 +223,4 @@ gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . _Sensi
 gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse ByteString
 gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . _Base64;
 
-instance NFData GenerateDataKeyResponse
+instance NFData GenerateDataKeyResponse where

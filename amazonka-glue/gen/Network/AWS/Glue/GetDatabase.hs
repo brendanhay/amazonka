@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetDatabase
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Glue.GetDatabase
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDatabase' smart constructor.
 data GetDatabase = GetDatabase'
-    { _gddCatalogId :: !(Maybe Text)
-    , _gddName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gddCatalogId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDatabase' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data GetDatabase = GetDatabase'
 getDatabase
     :: Text -- ^ 'gddName'
     -> GetDatabase
-getDatabase pName_ =
-    GetDatabase'
-    { _gddCatalogId = Nothing
-    , _gddName = pName_
-    }
+getDatabase pName_ = GetDatabase' {_gddCatalogId = Nothing, _gddName = pName_}
+
 
 -- | The ID of the Data Catalog in which the database resides. If none is supplied, the AWS account ID is used by default.
 gddCatalogId :: Lens' GetDatabase (Maybe Text)
@@ -84,9 +82,9 @@ instance AWSRequest GetDatabase where
                  GetDatabaseResponse' <$>
                    (x .?> "Database") <*> (pure (fromEnum s)))
 
-instance Hashable GetDatabase
+instance Hashable GetDatabase where
 
-instance NFData GetDatabase
+instance NFData GetDatabase where
 
 instance ToHeaders GetDatabase where
         toHeaders
@@ -112,9 +110,10 @@ instance ToQuery GetDatabase where
 
 -- | /See:/ 'getDatabaseResponse' smart constructor.
 data GetDatabaseResponse = GetDatabaseResponse'
-    { _gdrsDatabase       :: !(Maybe Database)
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsDatabase       :: {-# NOUNPACK #-}!(Maybe Database)
+  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDatabaseResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +126,9 @@ getDatabaseResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDatabaseResponse
 getDatabaseResponse pResponseStatus_ =
-    GetDatabaseResponse'
-    { _gdrsDatabase = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDatabaseResponse'
+  {_gdrsDatabase = Nothing, _gdrsResponseStatus = pResponseStatus_}
+
 
 -- | The definition of the specified database in the catalog.
 gdrsDatabase :: Lens' GetDatabaseResponse (Maybe Database)
@@ -140,4 +138,4 @@ gdrsDatabase = lens _gdrsDatabase (\ s a -> s{_gdrsDatabase = a});
 gdrsResponseStatus :: Lens' GetDatabaseResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDatabaseResponse
+instance NFData GetDatabaseResponse where

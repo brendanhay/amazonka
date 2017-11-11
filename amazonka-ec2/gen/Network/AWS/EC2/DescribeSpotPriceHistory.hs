@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotPriceHistory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,13 +50,13 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     , dsphrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotPriceHistory.
 --
@@ -64,16 +64,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSpotPriceHistory' smart constructor.
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-    { _dsphInstanceTypes       :: !(Maybe [InstanceType])
-    , _dsphStartTime           :: !(Maybe ISO8601)
-    , _dsphFilters             :: !(Maybe [Filter])
-    , _dsphNextToken           :: !(Maybe Text)
-    , _dsphAvailabilityZone    :: !(Maybe Text)
-    , _dsphEndTime             :: !(Maybe ISO8601)
-    , _dsphProductDescriptions :: !(Maybe [Text])
-    , _dsphDryRun              :: !(Maybe Bool)
-    , _dsphMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsphInstanceTypes       :: {-# NOUNPACK #-}!(Maybe [InstanceType])
+  , _dsphStartTime           :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dsphFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dsphNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsphAvailabilityZone    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsphEndTime             :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dsphProductDescriptions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsphDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsphMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSpotPriceHistory' with the minimum fields required to make a request.
 --
@@ -99,17 +100,18 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
 describeSpotPriceHistory
     :: DescribeSpotPriceHistory
 describeSpotPriceHistory =
-    DescribeSpotPriceHistory'
-    { _dsphInstanceTypes = Nothing
-    , _dsphStartTime = Nothing
-    , _dsphFilters = Nothing
-    , _dsphNextToken = Nothing
-    , _dsphAvailabilityZone = Nothing
-    , _dsphEndTime = Nothing
-    , _dsphProductDescriptions = Nothing
-    , _dsphDryRun = Nothing
-    , _dsphMaxResults = Nothing
-    }
+  DescribeSpotPriceHistory'
+  { _dsphInstanceTypes = Nothing
+  , _dsphStartTime = Nothing
+  , _dsphFilters = Nothing
+  , _dsphNextToken = Nothing
+  , _dsphAvailabilityZone = Nothing
+  , _dsphEndTime = Nothing
+  , _dsphProductDescriptions = Nothing
+  , _dsphDryRun = Nothing
+  , _dsphMaxResults = Nothing
+  }
+
 
 -- | Filters the results by the specified instance types. Note that T2 and HS1 instance types are not supported.
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
@@ -167,9 +169,9 @@ instance AWSRequest DescribeSpotPriceHistory where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSpotPriceHistory
+instance Hashable DescribeSpotPriceHistory where
 
-instance NFData DescribeSpotPriceHistory
+instance NFData DescribeSpotPriceHistory where
 
 instance ToHeaders DescribeSpotPriceHistory where
         toHeaders = const mempty
@@ -202,10 +204,11 @@ instance ToQuery DescribeSpotPriceHistory where
 --
 -- /See:/ 'describeSpotPriceHistoryResponse' smart constructor.
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
-    { _dsphrsNextToken        :: !(Maybe Text)
-    , _dsphrsSpotPriceHistory :: !(Maybe [SpotPrice])
-    , _dsphrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsphrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsphrsSpotPriceHistory :: {-# NOUNPACK #-}!(Maybe [SpotPrice])
+  , _dsphrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSpotPriceHistoryResponse' with the minimum fields required to make a request.
 --
@@ -220,11 +223,12 @@ describeSpotPriceHistoryResponse
     :: Int -- ^ 'dsphrsResponseStatus'
     -> DescribeSpotPriceHistoryResponse
 describeSpotPriceHistoryResponse pResponseStatus_ =
-    DescribeSpotPriceHistoryResponse'
-    { _dsphrsNextToken = Nothing
-    , _dsphrsSpotPriceHistory = Nothing
-    , _dsphrsResponseStatus = pResponseStatus_
-    }
+  DescribeSpotPriceHistoryResponse'
+  { _dsphrsNextToken = Nothing
+  , _dsphrsSpotPriceHistory = Nothing
+  , _dsphrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 dsphrsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
@@ -239,3 +243,4 @@ dsphrsResponseStatus :: Lens' DescribeSpotPriceHistoryResponse Int
 dsphrsResponseStatus = lens _dsphrsResponseStatus (\ s a -> s{_dsphrsResponseStatus = a});
 
 instance NFData DescribeSpotPriceHistoryResponse
+         where

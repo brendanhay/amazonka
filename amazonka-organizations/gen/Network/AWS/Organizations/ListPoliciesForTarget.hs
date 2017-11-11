@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListPoliciesForTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.Organizations.ListPoliciesForTarget
     , lpftrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listPoliciesForTarget' smart constructor.
 data ListPoliciesForTarget = ListPoliciesForTarget'
-    { _lpftNextToken  :: !(Maybe Text)
-    , _lpftMaxResults :: !(Maybe Nat)
-    , _lpftTargetId   :: !Text
-    , _lpftFilter     :: !PolicyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpftNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpftMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lpftTargetId   :: {-# NOUNPACK #-}!Text
+  , _lpftFilter     :: {-# NOUNPACK #-}!PolicyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPoliciesForTarget' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ listPoliciesForTarget
     -> PolicyType -- ^ 'lpftFilter'
     -> ListPoliciesForTarget
 listPoliciesForTarget pTargetId_ pFilter_ =
-    ListPoliciesForTarget'
-    { _lpftNextToken = Nothing
-    , _lpftMaxResults = Nothing
-    , _lpftTargetId = pTargetId_
-    , _lpftFilter = pFilter_
-    }
+  ListPoliciesForTarget'
+  { _lpftNextToken = Nothing
+  , _lpftMaxResults = Nothing
+  , _lpftTargetId = pTargetId_
+  , _lpftFilter = pFilter_
+  }
+
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 lpftNextToken :: Lens' ListPoliciesForTarget (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest ListPoliciesForTarget where
                    (x .?> "NextToken") <*> (x .?> "Policies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPoliciesForTarget
+instance Hashable ListPoliciesForTarget where
 
-instance NFData ListPoliciesForTarget
+instance NFData ListPoliciesForTarget where
 
 instance ToHeaders ListPoliciesForTarget where
         toHeaders
@@ -149,10 +151,11 @@ instance ToQuery ListPoliciesForTarget where
 
 -- | /See:/ 'listPoliciesForTargetResponse' smart constructor.
 data ListPoliciesForTargetResponse = ListPoliciesForTargetResponse'
-    { _lpftrsNextToken      :: !(Maybe Text)
-    , _lpftrsPolicies       :: !(Maybe [PolicySummary])
-    , _lpftrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpftrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpftrsPolicies       :: {-# NOUNPACK #-}!(Maybe [PolicySummary])
+  , _lpftrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPoliciesForTargetResponse' with the minimum fields required to make a request.
 --
@@ -167,11 +170,12 @@ listPoliciesForTargetResponse
     :: Int -- ^ 'lpftrsResponseStatus'
     -> ListPoliciesForTargetResponse
 listPoliciesForTargetResponse pResponseStatus_ =
-    ListPoliciesForTargetResponse'
-    { _lpftrsNextToken = Nothing
-    , _lpftrsPolicies = Nothing
-    , _lpftrsResponseStatus = pResponseStatus_
-    }
+  ListPoliciesForTargetResponse'
+  { _lpftrsNextToken = Nothing
+  , _lpftrsPolicies = Nothing
+  , _lpftrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 lpftrsNextToken :: Lens' ListPoliciesForTargetResponse (Maybe Text)
@@ -185,4 +189,4 @@ lpftrsPolicies = lens _lpftrsPolicies (\ s a -> s{_lpftrsPolicies = a}) . _Defau
 lpftrsResponseStatus :: Lens' ListPoliciesForTargetResponse Int
 lpftrsResponseStatus = lens _lpftrsResponseStatus (\ s a -> s{_lpftrsResponseStatus = a});
 
-instance NFData ListPoliciesForTargetResponse
+instance NFData ListPoliciesForTargetResponse where

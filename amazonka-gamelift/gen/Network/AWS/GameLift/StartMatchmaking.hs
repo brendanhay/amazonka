@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.StartMatchmaking
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -75,12 +75,12 @@ module Network.AWS.GameLift.StartMatchmaking
     , srsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -88,10 +88,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startMatchmaking' smart constructor.
 data StartMatchmaking = StartMatchmaking'
-    { _sTicketId          :: !(Maybe Text)
-    , _sConfigurationName :: !Text
-    , _sPlayers           :: ![Player]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sTicketId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sConfigurationName :: {-# NOUNPACK #-}!Text
+  , _sPlayers           :: {-# NOUNPACK #-}![Player]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartMatchmaking' with the minimum fields required to make a request.
 --
@@ -106,11 +107,12 @@ startMatchmaking
     :: Text -- ^ 'sConfigurationName'
     -> StartMatchmaking
 startMatchmaking pConfigurationName_ =
-    StartMatchmaking'
-    { _sTicketId = Nothing
-    , _sConfigurationName = pConfigurationName_
-    , _sPlayers = mempty
-    }
+  StartMatchmaking'
+  { _sTicketId = Nothing
+  , _sConfigurationName = pConfigurationName_
+  , _sPlayers = mempty
+  }
+
 
 -- | Unique identifier for a matchmaking ticket. Use this identifier to track the matchmaking ticket status and retrieve match results.
 sTicketId :: Lens' StartMatchmaking (Maybe Text)
@@ -133,9 +135,9 @@ instance AWSRequest StartMatchmaking where
                  StartMatchmakingResponse' <$>
                    (x .?> "MatchmakingTicket") <*> (pure (fromEnum s)))
 
-instance Hashable StartMatchmaking
+instance Hashable StartMatchmaking where
 
-instance NFData StartMatchmaking
+instance NFData StartMatchmaking where
 
 instance ToHeaders StartMatchmaking where
         toHeaders
@@ -166,9 +168,10 @@ instance ToQuery StartMatchmaking where
 --
 -- /See:/ 'startMatchmakingResponse' smart constructor.
 data StartMatchmakingResponse = StartMatchmakingResponse'
-    { _srsMatchmakingTicket :: !(Maybe MatchmakingTicket)
-    , _srsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsMatchmakingTicket :: {-# NOUNPACK #-}!(Maybe MatchmakingTicket)
+  , _srsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartMatchmakingResponse' with the minimum fields required to make a request.
 --
@@ -181,10 +184,9 @@ startMatchmakingResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StartMatchmakingResponse
 startMatchmakingResponse pResponseStatus_ =
-    StartMatchmakingResponse'
-    { _srsMatchmakingTicket = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  StartMatchmakingResponse'
+  {_srsMatchmakingTicket = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | Ticket representing the matchmaking request. This object include the information included in the request, ticket status, and match results as generated during the matchmaking process.
 srsMatchmakingTicket :: Lens' StartMatchmakingResponse (Maybe MatchmakingTicket)
@@ -194,4 +196,4 @@ srsMatchmakingTicket = lens _srsMatchmakingTicket (\ s a -> s{_srsMatchmakingTic
 srsResponseStatus :: Lens' StartMatchmakingResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StartMatchmakingResponse
+instance NFData StartMatchmakingResponse where

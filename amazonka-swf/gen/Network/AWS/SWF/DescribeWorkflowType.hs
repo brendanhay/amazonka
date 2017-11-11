@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeWorkflowType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,18 +59,19 @@ module Network.AWS.SWF.DescribeWorkflowType
     , dwtrsConfiguration
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeWorkflowType' smart constructor.
 data DescribeWorkflowType = DescribeWorkflowType'
-    { _dwtDomain       :: !Text
-    , _dwtWorkflowType :: !WorkflowType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwtDomain       :: {-# NOUNPACK #-}!Text
+  , _dwtWorkflowType :: {-# NOUNPACK #-}!WorkflowType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkflowType' with the minimum fields required to make a request.
 --
@@ -84,10 +85,9 @@ describeWorkflowType
     -> WorkflowType -- ^ 'dwtWorkflowType'
     -> DescribeWorkflowType
 describeWorkflowType pDomain_ pWorkflowType_ =
-    DescribeWorkflowType'
-    { _dwtDomain = pDomain_
-    , _dwtWorkflowType = pWorkflowType_
-    }
+  DescribeWorkflowType'
+  {_dwtDomain = pDomain_, _dwtWorkflowType = pWorkflowType_}
+
 
 -- | The name of the domain in which this workflow type is registered.
 dwtDomain :: Lens' DescribeWorkflowType Text
@@ -108,9 +108,9 @@ instance AWSRequest DescribeWorkflowType where
                    (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
                      (x .:> "configuration"))
 
-instance Hashable DescribeWorkflowType
+instance Hashable DescribeWorkflowType where
 
-instance NFData DescribeWorkflowType
+instance NFData DescribeWorkflowType where
 
 instance ToHeaders DescribeWorkflowType where
         toHeaders
@@ -141,10 +141,11 @@ instance ToQuery DescribeWorkflowType where
 --
 -- /See:/ 'describeWorkflowTypeResponse' smart constructor.
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
-    { _dwtrsResponseStatus :: !Int
-    , _dwtrsTypeInfo       :: !WorkflowTypeInfo
-    , _dwtrsConfiguration  :: !WorkflowTypeConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dwtrsTypeInfo       :: {-# NOUNPACK #-}!WorkflowTypeInfo
+  , _dwtrsConfiguration  :: {-# NOUNPACK #-}!WorkflowTypeConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkflowTypeResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +162,12 @@ describeWorkflowTypeResponse
     -> WorkflowTypeConfiguration -- ^ 'dwtrsConfiguration'
     -> DescribeWorkflowTypeResponse
 describeWorkflowTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
-    DescribeWorkflowTypeResponse'
-    { _dwtrsResponseStatus = pResponseStatus_
-    , _dwtrsTypeInfo = pTypeInfo_
-    , _dwtrsConfiguration = pConfiguration_
-    }
+  DescribeWorkflowTypeResponse'
+  { _dwtrsResponseStatus = pResponseStatus_
+  , _dwtrsTypeInfo = pTypeInfo_
+  , _dwtrsConfiguration = pConfiguration_
+  }
+
 
 -- | -- | The response status code.
 dwtrsResponseStatus :: Lens' DescribeWorkflowTypeResponse Int
@@ -179,4 +181,4 @@ dwtrsTypeInfo = lens _dwtrsTypeInfo (\ s a -> s{_dwtrsTypeInfo = a});
 dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrsConfiguration = lens _dwtrsConfiguration (\ s a -> s{_dwtrsConfiguration = a});
 
-instance NFData DescribeWorkflowTypeResponse
+instance NFData DescribeWorkflowTypeResponse where

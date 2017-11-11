@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteInterconnect
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     , drsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DeleteInterconnect operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteInterconnect' smart constructor.
 newtype DeleteInterconnect = DeleteInterconnect'
-    { _dInterconnectId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dInterconnectId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInterconnect' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ deleteInterconnect
     :: Text -- ^ 'dInterconnectId'
     -> DeleteInterconnect
 deleteInterconnect pInterconnectId_ =
-    DeleteInterconnect'
-    { _dInterconnectId = pInterconnectId_
-    }
+  DeleteInterconnect' {_dInterconnectId = pInterconnectId_}
+
 
 -- | Undocumented member.
 dInterconnectId :: Lens' DeleteInterconnect Text
@@ -80,9 +80,9 @@ instance AWSRequest DeleteInterconnect where
                  DeleteInterconnectResponse' <$>
                    (x .?> "interconnectState") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteInterconnect
+instance Hashable DeleteInterconnect where
 
-instance NFData DeleteInterconnect
+instance NFData DeleteInterconnect where
 
 instance ToHeaders DeleteInterconnect where
         toHeaders
@@ -111,9 +111,10 @@ instance ToQuery DeleteInterconnect where
 --
 -- /See:/ 'deleteInterconnectResponse' smart constructor.
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
-    { _drsInterconnectState :: !(Maybe InterconnectState)
-    , _drsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsInterconnectState :: {-# NOUNPACK #-}!(Maybe InterconnectState)
+  , _drsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInterconnectResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +127,9 @@ deleteInterconnectResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteInterconnectResponse
 deleteInterconnectResponse pResponseStatus_ =
-    DeleteInterconnectResponse'
-    { _drsInterconnectState = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteInterconnectResponse'
+  {_drsInterconnectState = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
@@ -139,4 +139,4 @@ drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectSt
 drsResponseStatus :: Lens' DeleteInterconnectResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteInterconnectResponse
+instance NFData DeleteInterconnectResponse where

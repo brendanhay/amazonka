@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EC2.CreateImage
     , cirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateImage.
 --
@@ -59,13 +59,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createImage' smart constructor.
 data CreateImage = CreateImage'
-    { _ciiNoReboot            :: !(Maybe Bool)
-    , _ciiDescription         :: !(Maybe Text)
-    , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _ciiDryRun              :: !(Maybe Bool)
-    , _ciiInstanceId          :: !Text
-    , _ciiName                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciiNoReboot            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ciiDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciiBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
+  , _ciiDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ciiInstanceId          :: {-# NOUNPACK #-}!Text
+  , _ciiName                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateImage' with the minimum fields required to make a request.
 --
@@ -87,14 +88,15 @@ createImage
     -> Text -- ^ 'ciiName'
     -> CreateImage
 createImage pInstanceId_ pName_ =
-    CreateImage'
-    { _ciiNoReboot = Nothing
-    , _ciiDescription = Nothing
-    , _ciiBlockDeviceMappings = Nothing
-    , _ciiDryRun = Nothing
-    , _ciiInstanceId = pInstanceId_
-    , _ciiName = pName_
-    }
+  CreateImage'
+  { _ciiNoReboot = Nothing
+  , _ciiDescription = Nothing
+  , _ciiBlockDeviceMappings = Nothing
+  , _ciiDryRun = Nothing
+  , _ciiInstanceId = pInstanceId_
+  , _ciiName = pName_
+  }
+
 
 -- | By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.
 ciiNoReboot :: Lens' CreateImage (Maybe Bool)
@@ -129,9 +131,9 @@ instance AWSRequest CreateImage where
                  CreateImageResponse' <$>
                    (x .@? "imageId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateImage
+instance Hashable CreateImage where
 
-instance NFData CreateImage
+instance NFData CreateImage where
 
 instance ToHeaders CreateImage where
         toHeaders = const mempty
@@ -158,9 +160,10 @@ instance ToQuery CreateImage where
 --
 -- /See:/ 'createImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
-    { _cirsImageId        :: !(Maybe Text)
-    , _cirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cirsImageId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateImageResponse' with the minimum fields required to make a request.
 --
@@ -173,10 +176,9 @@ createImageResponse
     :: Int -- ^ 'cirsResponseStatus'
     -> CreateImageResponse
 createImageResponse pResponseStatus_ =
-    CreateImageResponse'
-    { _cirsImageId = Nothing
-    , _cirsResponseStatus = pResponseStatus_
-    }
+  CreateImageResponse'
+  {_cirsImageId = Nothing, _cirsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the new AMI.
 cirsImageId :: Lens' CreateImageResponse (Maybe Text)
@@ -186,4 +188,4 @@ cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
 cirsResponseStatus :: Lens' CreateImageResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
 
-instance NFData CreateImageResponse
+instance NFData CreateImageResponse where

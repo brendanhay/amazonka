@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeGatewayInformation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     , dgirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the id of the gateway.
 --
@@ -58,8 +58,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeGatewayInformation' smart constructor.
 newtype DescribeGatewayInformation = DescribeGatewayInformation'
-    { _dgiGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgiGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGatewayInformation' with the minimum fields required to make a request.
 --
@@ -70,9 +71,8 @@ describeGatewayInformation
     :: Text -- ^ 'dgiGatewayARN'
     -> DescribeGatewayInformation
 describeGatewayInformation pGatewayARN_ =
-    DescribeGatewayInformation'
-    { _dgiGatewayARN = pGatewayARN_
-    }
+  DescribeGatewayInformation' {_dgiGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dgiGatewayARN :: Lens' DescribeGatewayInformation Text
@@ -96,9 +96,9 @@ instance AWSRequest DescribeGatewayInformation where
                      <*> (x .?> "GatewayTimezone")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeGatewayInformation
+instance Hashable DescribeGatewayInformation where
 
-instance NFData DescribeGatewayInformation
+instance NFData DescribeGatewayInformation where
 
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
@@ -127,17 +127,18 @@ instance ToQuery DescribeGatewayInformation where
 --
 -- /See:/ 'describeGatewayInformationResponse' smart constructor.
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
-    { _dgirsGatewayState               :: !(Maybe Text)
-    , _dgirsGatewayARN                 :: !(Maybe Text)
-    , _dgirsGatewayNetworkInterfaces   :: !(Maybe [NetworkInterface])
-    , _dgirsNextUpdateAvailabilityDate :: !(Maybe Text)
-    , _dgirsLastSoftwareUpdate         :: !(Maybe Text)
-    , _dgirsGatewayName                :: !(Maybe Text)
-    , _dgirsGatewayId                  :: !(Maybe Text)
-    , _dgirsGatewayType                :: !(Maybe Text)
-    , _dgirsGatewayTimezone            :: !(Maybe Text)
-    , _dgirsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgirsGatewayState :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgirsGatewayARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgirsGatewayNetworkInterfaces :: {-# NOUNPACK #-}!(Maybe [NetworkInterface])
+  , _dgirsNextUpdateAvailabilityDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgirsLastSoftwareUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgirsGatewayName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgirsGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgirsGatewayType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgirsGatewayTimezone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGatewayInformationResponse' with the minimum fields required to make a request.
 --
@@ -166,18 +167,19 @@ describeGatewayInformationResponse
     :: Int -- ^ 'dgirsResponseStatus'
     -> DescribeGatewayInformationResponse
 describeGatewayInformationResponse pResponseStatus_ =
-    DescribeGatewayInformationResponse'
-    { _dgirsGatewayState = Nothing
-    , _dgirsGatewayARN = Nothing
-    , _dgirsGatewayNetworkInterfaces = Nothing
-    , _dgirsNextUpdateAvailabilityDate = Nothing
-    , _dgirsLastSoftwareUpdate = Nothing
-    , _dgirsGatewayName = Nothing
-    , _dgirsGatewayId = Nothing
-    , _dgirsGatewayType = Nothing
-    , _dgirsGatewayTimezone = Nothing
-    , _dgirsResponseStatus = pResponseStatus_
-    }
+  DescribeGatewayInformationResponse'
+  { _dgirsGatewayState = Nothing
+  , _dgirsGatewayARN = Nothing
+  , _dgirsGatewayNetworkInterfaces = Nothing
+  , _dgirsNextUpdateAvailabilityDate = Nothing
+  , _dgirsLastSoftwareUpdate = Nothing
+  , _dgirsGatewayName = Nothing
+  , _dgirsGatewayId = Nothing
+  , _dgirsGatewayType = Nothing
+  , _dgirsGatewayTimezone = Nothing
+  , _dgirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that indicates the operating state of the gateway.
 dgirsGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
@@ -220,3 +222,4 @@ dgirsResponseStatus :: Lens' DescribeGatewayInformationResponse Int
 dgirsResponseStatus = lens _dgirsResponseStatus (\ s a -> s{_dgirsResponseStatus = a});
 
 instance NFData DescribeGatewayInformationResponse
+         where

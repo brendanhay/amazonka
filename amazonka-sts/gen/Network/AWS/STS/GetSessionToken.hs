@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.STS.GetSessionToken
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,19 +53,20 @@ module Network.AWS.STS.GetSessionToken
     , gstrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.STS.Types
-import           Network.AWS.STS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.STS.Types
+import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'getSessionToken' smart constructor.
 data GetSessionToken = GetSessionToken'
-    { _gstTokenCode       :: !(Maybe Text)
-    , _gstDurationSeconds :: !(Maybe Nat)
-    , _gstSerialNumber    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gstTokenCode       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gstDurationSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gstSerialNumber    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSessionToken' with the minimum fields required to make a request.
 --
@@ -79,11 +80,12 @@ data GetSessionToken = GetSessionToken'
 getSessionToken
     :: GetSessionToken
 getSessionToken =
-    GetSessionToken'
-    { _gstTokenCode = Nothing
-    , _gstDurationSeconds = Nothing
-    , _gstSerialNumber = Nothing
-    }
+  GetSessionToken'
+  { _gstTokenCode = Nothing
+  , _gstDurationSeconds = Nothing
+  , _gstSerialNumber = Nothing
+  }
+
 
 -- | The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, and the user does not provide a code when requesting a set of temporary security credentials, the user will receive an "access denied" response when requesting resources that require MFA authentication. The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
 gstTokenCode :: Lens' GetSessionToken (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest GetSessionToken where
                  GetSessionTokenResponse' <$>
                    (x .@? "Credentials") <*> (pure (fromEnum s)))
 
-instance Hashable GetSessionToken
+instance Hashable GetSessionToken where
 
-instance NFData GetSessionToken
+instance NFData GetSessionToken where
 
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty
@@ -131,9 +133,10 @@ instance ToQuery GetSessionToken where
 --
 -- /See:/ 'getSessionTokenResponse' smart constructor.
 data GetSessionTokenResponse = GetSessionTokenResponse'
-    { _gstrsCredentials    :: !(Maybe AuthEnv)
-    , _gstrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gstrsCredentials    :: {-# NOUNPACK #-}!(Maybe AuthEnv)
+  , _gstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSessionTokenResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +149,9 @@ getSessionTokenResponse
     :: Int -- ^ 'gstrsResponseStatus'
     -> GetSessionTokenResponse
 getSessionTokenResponse pResponseStatus_ =
-    GetSessionTokenResponse'
-    { _gstrsCredentials = Nothing
-    , _gstrsResponseStatus = pResponseStatus_
-    }
+  GetSessionTokenResponse'
+  {_gstrsCredentials = Nothing, _gstrsResponseStatus = pResponseStatus_}
+
 
 -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
 gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe AuthEnv)
@@ -159,4 +161,4 @@ gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 gstrsResponseStatus :: Lens' GetSessionTokenResponse Int
 gstrsResponseStatus = lens _gstrsResponseStatus (\ s a -> s{_gstrsResponseStatus = a});
 
-instance NFData GetSessionTokenResponse
+instance NFData GetSessionTokenResponse where

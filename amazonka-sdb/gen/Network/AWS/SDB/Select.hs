@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SDB.Select
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,20 +46,21 @@ module Network.AWS.SDB.Select
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'select' smart constructor.
 data Select = Select'
-    { _sConsistentRead   :: !(Maybe Bool)
-    , _sNextToken        :: !(Maybe Text)
-    , _sSelectExpression :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sConsistentRead   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSelectExpression :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Select' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ select
     :: Text -- ^ 'sSelectExpression'
     -> Select
 select pSelectExpression_ =
-    Select'
-    { _sConsistentRead = Nothing
-    , _sNextToken = Nothing
-    , _sSelectExpression = pSelectExpression_
-    }
+  Select'
+  { _sConsistentRead = Nothing
+  , _sNextToken = Nothing
+  , _sSelectExpression = pSelectExpression_
+  }
+
 
 -- | @true@
 sConsistentRead :: Lens' Select (Maybe Bool)
@@ -109,9 +111,9 @@ instance AWSRequest Select where
                    (may (parseXMLList "Item") x) <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable Select
+instance Hashable Select where
 
-instance NFData Select
+instance NFData Select where
 
 instance ToHeaders Select where
         toHeaders = const mempty
@@ -130,10 +132,11 @@ instance ToQuery Select where
 
 -- | /See:/ 'selectResponse' smart constructor.
 data SelectResponse = SelectResponse'
-    { _srsItems          :: !(Maybe [Item])
-    , _srsNextToken      :: !(Maybe Text)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsItems          :: {-# NOUNPACK #-}!(Maybe [Item])
+  , _srsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SelectResponse' with the minimum fields required to make a request.
 --
@@ -148,11 +151,12 @@ selectResponse
     :: Int -- ^ 'srsResponseStatus'
     -> SelectResponse
 selectResponse pResponseStatus_ =
-    SelectResponse'
-    { _srsItems = Nothing
-    , _srsNextToken = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  SelectResponse'
+  { _srsItems = Nothing
+  , _srsNextToken = Nothing
+  , _srsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of items that match the select expression.
 srsItems :: Lens' SelectResponse [Item]
@@ -166,4 +170,4 @@ srsNextToken = lens _srsNextToken (\ s a -> s{_srsNextToken = a});
 srsResponseStatus :: Lens' SelectResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData SelectResponse
+instance NFData SelectResponse where

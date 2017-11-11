@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachInternetGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.EC2.AttachInternetGateway
     , AttachInternetGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachInternetGateway.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'attachInternetGateway' smart constructor.
 data AttachInternetGateway = AttachInternetGateway'
-    { _aigDryRun            :: !(Maybe Bool)
-    , _aigInternetGatewayId :: !Text
-    , _aigVPCId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aigDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aigInternetGatewayId :: {-# NOUNPACK #-}!Text
+  , _aigVPCId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachInternetGateway' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ attachInternetGateway
     -> Text -- ^ 'aigVPCId'
     -> AttachInternetGateway
 attachInternetGateway pInternetGatewayId_ pVPCId_ =
-    AttachInternetGateway'
-    { _aigDryRun = Nothing
-    , _aigInternetGatewayId = pInternetGatewayId_
-    , _aigVPCId = pVPCId_
-    }
+  AttachInternetGateway'
+  { _aigDryRun = Nothing
+  , _aigInternetGatewayId = pInternetGatewayId_
+  , _aigVPCId = pVPCId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
@@ -92,9 +94,9 @@ instance AWSRequest AttachInternetGateway where
         request = postQuery ec2
         response = receiveNull AttachInternetGatewayResponse'
 
-instance Hashable AttachInternetGateway
+instance Hashable AttachInternetGateway where
 
-instance NFData AttachInternetGateway
+instance NFData AttachInternetGateway where
 
 instance ToHeaders AttachInternetGateway where
         toHeaders = const mempty
@@ -113,8 +115,9 @@ instance ToQuery AttachInternetGateway where
 
 -- | /See:/ 'attachInternetGatewayResponse' smart constructor.
 data AttachInternetGatewayResponse =
-    AttachInternetGatewayResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachInternetGatewayResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachInternetGatewayResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +125,5 @@ attachInternetGatewayResponse
     :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse'
 
-instance NFData AttachInternetGatewayResponse
+
+instance NFData AttachInternetGatewayResponse where

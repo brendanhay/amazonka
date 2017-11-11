@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DescribeKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.KMS.DescribeKey
     , dkrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeKey' smart constructor.
 data DescribeKey = DescribeKey'
-    { _dGrantTokens :: !(Maybe [Text])
-    , _dKeyId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dGrantTokens :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dKeyId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeKey' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data DescribeKey = DescribeKey'
 describeKey
     :: Text -- ^ 'dKeyId'
     -> DescribeKey
-describeKey pKeyId_ =
-    DescribeKey'
-    { _dGrantTokens = Nothing
-    , _dKeyId = pKeyId_
-    }
+describeKey pKeyId_ = DescribeKey' {_dGrantTokens = Nothing, _dKeyId = pKeyId_}
+
 
 -- | A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 dGrantTokens :: Lens' DescribeKey [Text]
@@ -84,9 +82,9 @@ instance AWSRequest DescribeKey where
                  DescribeKeyResponse' <$>
                    (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeKey
+instance Hashable DescribeKey where
 
-instance NFData DescribeKey
+instance NFData DescribeKey where
 
 instance ToHeaders DescribeKey where
         toHeaders
@@ -112,9 +110,10 @@ instance ToQuery DescribeKey where
 
 -- | /See:/ 'describeKeyResponse' smart constructor.
 data DescribeKeyResponse = DescribeKeyResponse'
-    { _dkrsKeyMetadata    :: !(Maybe KeyMetadata)
-    , _dkrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dkrsKeyMetadata    :: {-# NOUNPACK #-}!(Maybe KeyMetadata)
+  , _dkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeKeyResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +126,9 @@ describeKeyResponse
     :: Int -- ^ 'dkrsResponseStatus'
     -> DescribeKeyResponse
 describeKeyResponse pResponseStatus_ =
-    DescribeKeyResponse'
-    { _dkrsKeyMetadata = Nothing
-    , _dkrsResponseStatus = pResponseStatus_
-    }
+  DescribeKeyResponse'
+  {_dkrsKeyMetadata = Nothing, _dkrsResponseStatus = pResponseStatus_}
+
 
 -- | Metadata associated with the key.
 dkrsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
@@ -140,4 +138,4 @@ dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
 dkrsResponseStatus :: Lens' DescribeKeyResponse Int
 dkrsResponseStatus = lens _dkrsResponseStatus (\ s a -> s{_dkrsResponseStatus = a});
 
-instance NFData DescribeKeyResponse
+instance NFData DescribeKeyResponse where

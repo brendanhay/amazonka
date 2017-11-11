@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeAvailabilityZones
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     , dazrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeAvailabilityZones.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeAvailabilityZones' smart constructor.
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
-    { _dazZoneNames :: !(Maybe [Text])
-    , _dazFilters   :: !(Maybe [Filter])
-    , _dazDryRun    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dazZoneNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dazFilters   :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dazDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAvailabilityZones' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
 describeAvailabilityZones
     :: DescribeAvailabilityZones
 describeAvailabilityZones =
-    DescribeAvailabilityZones'
-    { _dazZoneNames = Nothing
-    , _dazFilters = Nothing
-    , _dazDryRun = Nothing
-    }
+  DescribeAvailabilityZones'
+  {_dazZoneNames = Nothing, _dazFilters = Nothing, _dazDryRun = Nothing}
+
 
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
@@ -101,9 +100,9 @@ instance AWSRequest DescribeAvailabilityZones where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAvailabilityZones
+instance Hashable DescribeAvailabilityZones where
 
-instance NFData DescribeAvailabilityZones
+instance NFData DescribeAvailabilityZones where
 
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
@@ -127,9 +126,10 @@ instance ToQuery DescribeAvailabilityZones where
 --
 -- /See:/ 'describeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
-    { _dazrsAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _dazrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dazrsAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
+  , _dazrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAvailabilityZonesResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +142,9 @@ describeAvailabilityZonesResponse
     :: Int -- ^ 'dazrsResponseStatus'
     -> DescribeAvailabilityZonesResponse
 describeAvailabilityZonesResponse pResponseStatus_ =
-    DescribeAvailabilityZonesResponse'
-    { _dazrsAvailabilityZones = Nothing
-    , _dazrsResponseStatus = pResponseStatus_
-    }
+  DescribeAvailabilityZonesResponse'
+  {_dazrsAvailabilityZones = Nothing, _dazrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more Availability Zones.
 dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
@@ -156,3 +155,4 @@ dazrsResponseStatus :: Lens' DescribeAvailabilityZonesResponse Int
 dazrsResponseStatus = lens _dazrsResponseStatus (\ s a -> s{_dazrsResponseStatus = a});
 
 instance NFData DescribeAvailabilityZonesResponse
+         where

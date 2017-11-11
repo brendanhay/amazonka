@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -183,19 +183,19 @@ module Network.AWS.Athena
     , uqeiErrorMessage
     ) where
 
-import           Network.AWS.Athena.BatchGetNamedQuery
-import           Network.AWS.Athena.BatchGetQueryExecution
-import           Network.AWS.Athena.CreateNamedQuery
-import           Network.AWS.Athena.DeleteNamedQuery
-import           Network.AWS.Athena.GetNamedQuery
-import           Network.AWS.Athena.GetQueryExecution
-import           Network.AWS.Athena.GetQueryResults
-import           Network.AWS.Athena.ListNamedQueries
-import           Network.AWS.Athena.ListQueryExecutions
-import           Network.AWS.Athena.StartQueryExecution
-import           Network.AWS.Athena.StopQueryExecution
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Waiters
+import Network.AWS.Athena.BatchGetNamedQuery
+import Network.AWS.Athena.BatchGetQueryExecution
+import Network.AWS.Athena.CreateNamedQuery
+import Network.AWS.Athena.DeleteNamedQuery
+import Network.AWS.Athena.GetNamedQuery
+import Network.AWS.Athena.GetQueryExecution
+import Network.AWS.Athena.GetQueryResults
+import Network.AWS.Athena.ListNamedQueries
+import Network.AWS.Athena.ListQueryExecutions
+import Network.AWS.Athena.StartQueryExecution
+import Network.AWS.Athena.StopQueryExecution
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

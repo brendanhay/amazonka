@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateSegment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.Pinpoint.UpdateSegment
     , usrsSegmentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSegment' smart constructor.
 data UpdateSegment = UpdateSegment'
-    { _usSegmentId           :: !Text
-    , _usApplicationId       :: !Text
-    , _usWriteSegmentRequest :: !WriteSegmentRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usSegmentId           :: {-# NOUNPACK #-}!Text
+  , _usApplicationId       :: {-# NOUNPACK #-}!Text
+  , _usWriteSegmentRequest :: {-# NOUNPACK #-}!WriteSegmentRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSegment' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ updateSegment
     -> WriteSegmentRequest -- ^ 'usWriteSegmentRequest'
     -> UpdateSegment
 updateSegment pSegmentId_ pApplicationId_ pWriteSegmentRequest_ =
-    UpdateSegment'
-    { _usSegmentId = pSegmentId_
-    , _usApplicationId = pApplicationId_
-    , _usWriteSegmentRequest = pWriteSegmentRequest_
-    }
+  UpdateSegment'
+  { _usSegmentId = pSegmentId_
+  , _usApplicationId = pApplicationId_
+  , _usWriteSegmentRequest = pWriteSegmentRequest_
+  }
+
 
 -- | Undocumented member.
 usSegmentId :: Lens' UpdateSegment Text
@@ -93,9 +95,9 @@ instance AWSRequest UpdateSegment where
                  UpdateSegmentResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateSegment
+instance Hashable UpdateSegment where
 
-instance NFData UpdateSegment
+instance NFData UpdateSegment where
 
 instance ToHeaders UpdateSegment where
         toHeaders
@@ -122,9 +124,10 @@ instance ToQuery UpdateSegment where
 
 -- | /See:/ 'updateSegmentResponse' smart constructor.
 data UpdateSegmentResponse = UpdateSegmentResponse'
-    { _usrsResponseStatus  :: !Int
-    , _usrsSegmentResponse :: !SegmentResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _usrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSegmentResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,11 @@ updateSegmentResponse
     -> SegmentResponse -- ^ 'usrsSegmentResponse'
     -> UpdateSegmentResponse
 updateSegmentResponse pResponseStatus_ pSegmentResponse_ =
-    UpdateSegmentResponse'
-    { _usrsResponseStatus = pResponseStatus_
-    , _usrsSegmentResponse = pSegmentResponse_
-    }
+  UpdateSegmentResponse'
+  { _usrsResponseStatus = pResponseStatus_
+  , _usrsSegmentResponse = pSegmentResponse_
+  }
+
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateSegmentResponse Int
@@ -151,4 +155,4 @@ usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = 
 usrsSegmentResponse :: Lens' UpdateSegmentResponse SegmentResponse
 usrsSegmentResponse = lens _usrsSegmentResponse (\ s a -> s{_usrsSegmentResponse = a});
 
-instance NFData UpdateSegmentResponse
+instance NFData UpdateSegmentResponse where

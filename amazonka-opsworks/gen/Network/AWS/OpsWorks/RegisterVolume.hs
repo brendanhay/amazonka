@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.OpsWorks.RegisterVolume
     , rvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerVolume' smart constructor.
 data RegisterVolume = RegisterVolume'
-    { _rvEC2VolumeId :: !(Maybe Text)
-    , _rvStackId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rvEC2VolumeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rvStackId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterVolume' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ registerVolume
     :: Text -- ^ 'rvStackId'
     -> RegisterVolume
 registerVolume pStackId_ =
-    RegisterVolume'
-    { _rvEC2VolumeId = Nothing
-    , _rvStackId = pStackId_
-    }
+  RegisterVolume' {_rvEC2VolumeId = Nothing, _rvStackId = pStackId_}
+
 
 -- | The Amazon EBS volume ID.
 rvEC2VolumeId :: Lens' RegisterVolume (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest RegisterVolume where
                  RegisterVolumeResponse' <$>
                    (x .?> "VolumeId") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterVolume
+instance Hashable RegisterVolume where
 
-instance NFData RegisterVolume
+instance NFData RegisterVolume where
 
 instance ToHeaders RegisterVolume where
         toHeaders
@@ -118,9 +117,10 @@ instance ToQuery RegisterVolume where
 --
 -- /See:/ 'registerVolumeResponse' smart constructor.
 data RegisterVolumeResponse = RegisterVolumeResponse'
-    { _rvrsVolumeId       :: !(Maybe Text)
-    , _rvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rvrsVolumeId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterVolumeResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +133,9 @@ registerVolumeResponse
     :: Int -- ^ 'rvrsResponseStatus'
     -> RegisterVolumeResponse
 registerVolumeResponse pResponseStatus_ =
-    RegisterVolumeResponse'
-    { _rvrsVolumeId = Nothing
-    , _rvrsResponseStatus = pResponseStatus_
-    }
+  RegisterVolumeResponse'
+  {_rvrsVolumeId = Nothing, _rvrsResponseStatus = pResponseStatus_}
+
 
 -- | The volume ID.
 rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
@@ -146,4 +145,4 @@ rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
 rvrsResponseStatus :: Lens' RegisterVolumeResponse Int
 rvrsResponseStatus = lens _rvrsResponseStatus (\ s a -> s{_rvrsResponseStatus = a});
 
-instance NFData RegisterVolumeResponse
+instance NFData RegisterVolumeResponse where

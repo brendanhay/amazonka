@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.SSM.DeleteDocument
     , ddrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteDocument' smart constructor.
 newtype DeleteDocument = DeleteDocument'
-    { _dddName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dddName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDocument' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteDocument = DeleteDocument'
 deleteDocument
     :: Text -- ^ 'dddName'
     -> DeleteDocument
-deleteDocument pName_ =
-    DeleteDocument'
-    { _dddName = pName_
-    }
+deleteDocument pName_ = DeleteDocument' {_dddName = pName_}
+
 
 -- | The name of the document.
 dddName :: Lens' DeleteDocument Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteDocument where
               (\ s h x ->
                  DeleteDocumentResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteDocument
+instance Hashable DeleteDocument where
 
-instance NFData DeleteDocument
+instance NFData DeleteDocument where
 
 instance ToHeaders DeleteDocument where
         toHeaders
@@ -100,8 +99,9 @@ instance ToQuery DeleteDocument where
 
 -- | /See:/ 'deleteDocumentResponse' smart constructor.
 newtype DeleteDocumentResponse = DeleteDocumentResponse'
-    { _ddrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDocumentResponse' with the minimum fields required to make a request.
 --
@@ -112,12 +112,11 @@ deleteDocumentResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DeleteDocumentResponse
 deleteDocumentResponse pResponseStatus_ =
-    DeleteDocumentResponse'
-    { _ddrsResponseStatus = pResponseStatus_
-    }
+  DeleteDocumentResponse' {_ddrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDocumentResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
-instance NFData DeleteDocumentResponse
+instance NFData DeleteDocumentResponse where

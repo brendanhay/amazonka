@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeMatchmaking
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.GameLift.DescribeMatchmaking
     , dmrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -66,8 +66,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeMatchmaking' smart constructor.
 newtype DescribeMatchmaking = DescribeMatchmaking'
-    { _dmTicketIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmTicketIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMatchmaking' with the minimum fields required to make a request.
 --
@@ -76,10 +77,8 @@ newtype DescribeMatchmaking = DescribeMatchmaking'
 -- * 'dmTicketIds' - Unique identifier for a matchmaking ticket. To request all existing tickets, leave this parameter empty.
 describeMatchmaking
     :: DescribeMatchmaking
-describeMatchmaking =
-    DescribeMatchmaking'
-    { _dmTicketIds = mempty
-    }
+describeMatchmaking = DescribeMatchmaking' {_dmTicketIds = mempty}
+
 
 -- | Unique identifier for a matchmaking ticket. To request all existing tickets, leave this parameter empty.
 dmTicketIds :: Lens' DescribeMatchmaking [Text]
@@ -96,9 +95,9 @@ instance AWSRequest DescribeMatchmaking where
                    (x .?> "TicketList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeMatchmaking
+instance Hashable DescribeMatchmaking where
 
-instance NFData DescribeMatchmaking
+instance NFData DescribeMatchmaking where
 
 instance ToHeaders DescribeMatchmaking where
         toHeaders
@@ -126,9 +125,10 @@ instance ToQuery DescribeMatchmaking where
 --
 -- /See:/ 'describeMatchmakingResponse' smart constructor.
 data DescribeMatchmakingResponse = DescribeMatchmakingResponse'
-    { _dmrsTicketList     :: !(Maybe [MatchmakingTicket])
-    , _dmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmrsTicketList     :: {-# NOUNPACK #-}!(Maybe [MatchmakingTicket])
+  , _dmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMatchmakingResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +141,9 @@ describeMatchmakingResponse
     :: Int -- ^ 'dmrsResponseStatus'
     -> DescribeMatchmakingResponse
 describeMatchmakingResponse pResponseStatus_ =
-    DescribeMatchmakingResponse'
-    { _dmrsTicketList = Nothing
-    , _dmrsResponseStatus = pResponseStatus_
-    }
+  DescribeMatchmakingResponse'
+  {_dmrsTicketList = Nothing, _dmrsResponseStatus = pResponseStatus_}
+
 
 -- | Collection of existing matchmaking ticket objects matching the request.
 dmrsTicketList :: Lens' DescribeMatchmakingResponse [MatchmakingTicket]
@@ -154,4 +153,4 @@ dmrsTicketList = lens _dmrsTicketList (\ s a -> s{_dmrsTicketList = a}) . _Defau
 dmrsResponseStatus :: Lens' DescribeMatchmakingResponse Int
 dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a});
 
-instance NFData DescribeMatchmakingResponse
+instance NFData DescribeMatchmakingResponse where

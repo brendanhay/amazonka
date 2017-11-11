@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SDB.BatchDeleteAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.SDB.BatchDeleteAttributes
     , BatchDeleteAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'batchDeleteAttributes' smart constructor.
 data BatchDeleteAttributes = BatchDeleteAttributes'
-    { _bdaDomainName :: !Text
-    , _bdaItems      :: ![DeletableItem]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdaDomainName :: {-# NOUNPACK #-}!Text
+  , _bdaItems      :: {-# NOUNPACK #-}![DeletableItem]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteAttributes' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ batchDeleteAttributes
     :: Text -- ^ 'bdaDomainName'
     -> BatchDeleteAttributes
 batchDeleteAttributes pDomainName_ =
-    BatchDeleteAttributes'
-    { _bdaDomainName = pDomainName_
-    , _bdaItems = mempty
-    }
+  BatchDeleteAttributes' {_bdaDomainName = pDomainName_, _bdaItems = mempty}
+
 
 -- | The name of the domain in which the attributes are being deleted.
 bdaDomainName :: Lens' BatchDeleteAttributes Text
@@ -82,9 +81,9 @@ instance AWSRequest BatchDeleteAttributes where
         request = postQuery sdb
         response = receiveNull BatchDeleteAttributesResponse'
 
-instance Hashable BatchDeleteAttributes
+instance Hashable BatchDeleteAttributes where
 
-instance NFData BatchDeleteAttributes
+instance NFData BatchDeleteAttributes where
 
 instance ToHeaders BatchDeleteAttributes where
         toHeaders = const mempty
@@ -102,8 +101,9 @@ instance ToQuery BatchDeleteAttributes where
 
 -- | /See:/ 'batchDeleteAttributesResponse' smart constructor.
 data BatchDeleteAttributesResponse =
-    BatchDeleteAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  BatchDeleteAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteAttributesResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ batchDeleteAttributesResponse
     :: BatchDeleteAttributesResponse
 batchDeleteAttributesResponse = BatchDeleteAttributesResponse'
 
-instance NFData BatchDeleteAttributesResponse
+
+instance NFData BatchDeleteAttributesResponse where

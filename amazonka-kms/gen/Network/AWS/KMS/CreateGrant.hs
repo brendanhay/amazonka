@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CreateGrant
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,23 +46,24 @@ module Network.AWS.KMS.CreateGrant
     , cgrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createGrant' smart constructor.
 data CreateGrant = CreateGrant'
-    { _cgRetiringPrincipal :: !(Maybe Text)
-    , _cgGrantTokens       :: !(Maybe [Text])
-    , _cgConstraints       :: !(Maybe GrantConstraints)
-    , _cgName              :: !(Maybe Text)
-    , _cgOperations        :: !(Maybe [GrantOperation])
-    , _cgKeyId             :: !Text
-    , _cgGranteePrincipal  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgRetiringPrincipal :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgGrantTokens       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cgConstraints       :: {-# NOUNPACK #-}!(Maybe GrantConstraints)
+  , _cgName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgOperations        :: {-# NOUNPACK #-}!(Maybe [GrantOperation])
+  , _cgKeyId             :: {-# NOUNPACK #-}!Text
+  , _cgGranteePrincipal  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGrant' with the minimum fields required to make a request.
 --
@@ -86,15 +87,16 @@ createGrant
     -> Text -- ^ 'cgGranteePrincipal'
     -> CreateGrant
 createGrant pKeyId_ pGranteePrincipal_ =
-    CreateGrant'
-    { _cgRetiringPrincipal = Nothing
-    , _cgGrantTokens = Nothing
-    , _cgConstraints = Nothing
-    , _cgName = Nothing
-    , _cgOperations = Nothing
-    , _cgKeyId = pKeyId_
-    , _cgGranteePrincipal = pGranteePrincipal_
-    }
+  CreateGrant'
+  { _cgRetiringPrincipal = Nothing
+  , _cgGrantTokens = Nothing
+  , _cgConstraints = Nothing
+  , _cgName = Nothing
+  , _cgOperations = Nothing
+  , _cgKeyId = pKeyId_
+  , _cgGranteePrincipal = pGranteePrincipal_
+  }
+
 
 -- | The principal that is given permission to retire the grant by using 'RetireGrant' operation. To specify the principal, use the <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
 cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
@@ -134,9 +136,9 @@ instance AWSRequest CreateGrant where
                    (x .?> "GrantId") <*> (x .?> "GrantToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateGrant
+instance Hashable CreateGrant where
 
-instance NFData CreateGrant
+instance NFData CreateGrant where
 
 instance ToHeaders CreateGrant where
         toHeaders
@@ -167,10 +169,11 @@ instance ToQuery CreateGrant where
 
 -- | /See:/ 'createGrantResponse' smart constructor.
 data CreateGrantResponse = CreateGrantResponse'
-    { _cgrsGrantId        :: !(Maybe Text)
-    , _cgrsGrantToken     :: !(Maybe Text)
-    , _cgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgrsGrantId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsGrantToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGrantResponse' with the minimum fields required to make a request.
 --
@@ -185,11 +188,12 @@ createGrantResponse
     :: Int -- ^ 'cgrsResponseStatus'
     -> CreateGrantResponse
 createGrantResponse pResponseStatus_ =
-    CreateGrantResponse'
-    { _cgrsGrantId = Nothing
-    , _cgrsGrantToken = Nothing
-    , _cgrsResponseStatus = pResponseStatus_
-    }
+  CreateGrantResponse'
+  { _cgrsGrantId = Nothing
+  , _cgrsGrantToken = Nothing
+  , _cgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The unique identifier for the grant. You can use the @GrantId@ in a subsequent 'RetireGrant' or 'RevokeGrant' operation.
 cgrsGrantId :: Lens' CreateGrantResponse (Maybe Text)
@@ -203,4 +207,4 @@ cgrsGrantToken = lens _cgrsGrantToken (\ s a -> s{_cgrsGrantToken = a});
 cgrsResponseStatus :: Lens' CreateGrantResponse Int
 cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});
 
-instance NFData CreateGrantResponse
+instance NFData CreateGrantResponse where

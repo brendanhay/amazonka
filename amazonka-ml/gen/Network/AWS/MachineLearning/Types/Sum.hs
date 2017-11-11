@@ -9,15 +9,15 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MachineLearning.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 -- | The function used to train an @MLModel@ . Training choices supported by Amazon ML include the following:
 --
@@ -25,8 +25,9 @@ import           Network.AWS.Prelude
 --     * @SGD@ - Stochastic Gradient Descent.    * @RandomForest@ - Random forest of decision trees.
 --
 data Algorithm =
-    SGD
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  SGD
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Algorithm where
     parser = takeLowerText >>= \case
@@ -53,15 +54,16 @@ instance FromJSON Algorithm where
 --     * @CreatedAt@ - Sets the search criteria to @BatchPrediction@ creation date.    * @Status@ - Sets the search criteria to @BatchPrediction@ status.    * @Name@ - Sets the search criteria to the contents of @BatchPrediction@ ____ @Name@ .    * @IAMUser@ - Sets the search criteria to the user account that invoked the @BatchPrediction@ creation.    * @MLModelId@ - Sets the search criteria to the @MLModel@ used in the @BatchPrediction@ .    * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .    * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
 --
 data BatchPredictionFilterVariable
-    = BatchCreatedAt
-    | BatchDataSourceId
-    | BatchDataURI
-    | BatchIAMUser
-    | BatchLastUpdatedAt
-    | BatchMLModelId
-    | BatchName
-    | BatchStatus
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BatchCreatedAt
+  | BatchDataSourceId
+  | BatchDataURI
+  | BatchIAMUser
+  | BatchLastUpdatedAt
+  | BatchMLModelId
+  | BatchName
+  | BatchStatus
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BatchPredictionFilterVariable where
     parser = takeLowerText >>= \case
@@ -102,13 +104,14 @@ instance ToJSON BatchPredictionFilterVariable where
 --     * @CreatedAt@ - Sets the search criteria to @DataSource@ creation date.    * @Status@ - Sets the search criteria to @DataSource@ status.    * @Name@ - Sets the search criteria to the contents of @DataSource@ ____ @Name@ .    * @DataUri@ - Sets the search criteria to the URI of data files used to create the @DataSource@ . The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.    * @IAMUser@ - Sets the search criteria to the user account that invoked the @DataSource@ creation.
 --
 data DataSourceFilterVariable
-    = DataCreatedAt
-    | DataDATALOCATIONS3
-    | DataIAMUser
-    | DataLastUpdatedAt
-    | DataName
-    | DataStatus
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DataCreatedAt
+  | DataDATALOCATIONS3
+  | DataIAMUser
+  | DataLastUpdatedAt
+  | DataName
+  | DataStatus
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DataSourceFilterVariable where
     parser = takeLowerText >>= \case
@@ -141,9 +144,10 @@ instance ToJSON DataSourceFilterVariable where
 
 -- | Contains the key values of @DetailsMap@ : @PredictiveModelType@ - Indicates the type of the @MLModel@ . @Algorithm@ - Indicates the algorithm that was used for the @MLModel@ .
 data DetailsAttributes
-    = Algorithm
-    | PredictiveModelType
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Algorithm
+  | PredictiveModelType
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DetailsAttributes where
     parser = takeLowerText >>= \case
@@ -172,12 +176,13 @@ instance FromJSON DetailsAttributes where
 --     * @PENDING@     * @INPROGRESS@     * @FAILED@     * @COMPLETED@     * @DELETED@
 --
 data EntityStatus
-    = ESCompleted
-    | ESDeleted
-    | ESFailed
-    | ESInprogress
-    | ESPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ESCompleted
+  | ESDeleted
+  | ESFailed
+  | ESInprogress
+  | ESPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EntityStatus where
     parser = takeLowerText >>= \case
@@ -212,15 +217,16 @@ instance FromJSON EntityStatus where
 --     * @CreatedAt@ - Sets the search criteria to @Evaluation@ creation date.    * @Status@ - Sets the search criteria to @Evaluation@ status.    * @Name@ - Sets the search criteria to the contents of @Evaluation@ ____ @Name@ .    * @IAMUser@ - Sets the search criteria to the user account that invoked an evaluation.    * @MLModelId@ - Sets the search criteria to the @Predictor@ that was evaluated.    * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in evaluation.    * @DataUri@ - Sets the search criteria to the data file(s) used in evaluation. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
 --
 data EvaluationFilterVariable
-    = EvalCreatedAt
-    | EvalDataSourceId
-    | EvalDataURI
-    | EvalIAMUser
-    | EvalLastUpdatedAt
-    | EvalMLModelId
-    | EvalName
-    | EvalStatus
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EvalCreatedAt
+  | EvalDataSourceId
+  | EvalDataURI
+  | EvalIAMUser
+  | EvalLastUpdatedAt
+  | EvalMLModelId
+  | EvalName
+  | EvalStatus
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EvaluationFilterVariable where
     parser = takeLowerText >>= \case
@@ -256,17 +262,18 @@ instance ToJSON EvaluationFilterVariable where
     toJSON = toJSONText
 
 data MLModelFilterVariable
-    = MLMFVAlgorithm
-    | MLMFVCreatedAt
-    | MLMFVIAMUser
-    | MLMFVLastUpdatedAt
-    | MLMFVMLModelType
-    | MLMFVName
-    | MLMFVRealtimeEndpointStatus
-    | MLMFVStatus
-    | MLMFVTrainingDataSourceId
-    | MLMFVTrainingDataURI
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = MLMFVAlgorithm
+  | MLMFVCreatedAt
+  | MLMFVIAMUser
+  | MLMFVLastUpdatedAt
+  | MLMFVMLModelType
+  | MLMFVName
+  | MLMFVRealtimeEndpointStatus
+  | MLMFVStatus
+  | MLMFVTrainingDataSourceId
+  | MLMFVTrainingDataURI
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MLModelFilterVariable where
     parser = takeLowerText >>= \case
@@ -306,10 +313,11 @@ instance ToJSON MLModelFilterVariable where
     toJSON = toJSONText
 
 data MLModelType
-    = Binary
-    | Multiclass
-    | Regression
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Binary
+  | Multiclass
+  | Regression
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MLModelType where
     parser = takeLowerText >>= \case
@@ -338,11 +346,12 @@ instance FromJSON MLModelType where
     parseJSON = parseJSONText "MLModelType"
 
 data RealtimeEndpointStatus
-    = Failed
-    | None
-    | Ready
-    | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | None
+  | Ready
+  | Updating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RealtimeEndpointStatus where
     parser = takeLowerText >>= \case
@@ -375,9 +384,10 @@ instance FromJSON RealtimeEndpointStatus where
 --     * @asc@ - Present the information in ascending order (from A-Z).    * @dsc@ - Present the information in descending order (from Z-A).
 --
 data SortOrder
-    = Asc
-    | Dsc
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Asc
+  | Dsc
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -401,11 +411,12 @@ instance ToJSON SortOrder where
     toJSON = toJSONText
 
 data TaggableResourceType
-    = BatchPrediction
-    | DataSource
-    | Evaluation
-    | MLModel
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BatchPrediction
+  | DataSource
+  | Evaluation
+  | MLModel
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TaggableResourceType where
     parser = takeLowerText >>= \case

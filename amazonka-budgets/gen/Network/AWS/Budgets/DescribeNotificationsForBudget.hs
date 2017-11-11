@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DescribeNotificationsForBudget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,22 +39,23 @@ module Network.AWS.Budgets.DescribeNotificationsForBudget
     , dnfbrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DescribeNotificationsForBudget
 --
 -- /See:/ 'describeNotificationsForBudget' smart constructor.
 data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
-    { _dnfbNextToken  :: !(Maybe Text)
-    , _dnfbMaxResults :: !(Maybe Nat)
-    , _dnfbAccountId  :: !Text
-    , _dnfbBudgetName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnfbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnfbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dnfbAccountId  :: {-# NOUNPACK #-}!Text
+  , _dnfbBudgetName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNotificationsForBudget' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ describeNotificationsForBudget
     -> Text -- ^ 'dnfbBudgetName'
     -> DescribeNotificationsForBudget
 describeNotificationsForBudget pAccountId_ pBudgetName_ =
-    DescribeNotificationsForBudget'
-    { _dnfbNextToken = Nothing
-    , _dnfbMaxResults = Nothing
-    , _dnfbAccountId = pAccountId_
-    , _dnfbBudgetName = pBudgetName_
-    }
+  DescribeNotificationsForBudget'
+  { _dnfbNextToken = Nothing
+  , _dnfbMaxResults = Nothing
+  , _dnfbAccountId = pAccountId_
+  , _dnfbBudgetName = pBudgetName_
+  }
+
 
 -- | Undocumented member.
 dnfbNextToken :: Lens' DescribeNotificationsForBudget (Maybe Text)
@@ -109,8 +111,9 @@ instance AWSRequest DescribeNotificationsForBudget
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeNotificationsForBudget
+         where
 
-instance NFData DescribeNotificationsForBudget
+instance NFData DescribeNotificationsForBudget where
 
 instance ToHeaders DescribeNotificationsForBudget
          where
@@ -142,10 +145,11 @@ instance ToQuery DescribeNotificationsForBudget where
 --
 -- /See:/ 'describeNotificationsForBudgetResponse' smart constructor.
 data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResponse'
-    { _dnfbrsNextToken      :: !(Maybe Text)
-    , _dnfbrsNotifications  :: !(Maybe [Notification])
-    , _dnfbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnfbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnfbrsNotifications  :: {-# NOUNPACK #-}!(Maybe [Notification])
+  , _dnfbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNotificationsForBudgetResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +164,12 @@ describeNotificationsForBudgetResponse
     :: Int -- ^ 'dnfbrsResponseStatus'
     -> DescribeNotificationsForBudgetResponse
 describeNotificationsForBudgetResponse pResponseStatus_ =
-    DescribeNotificationsForBudgetResponse'
-    { _dnfbrsNextToken = Nothing
-    , _dnfbrsNotifications = Nothing
-    , _dnfbrsResponseStatus = pResponseStatus_
-    }
+  DescribeNotificationsForBudgetResponse'
+  { _dnfbrsNextToken = Nothing
+  , _dnfbrsNotifications = Nothing
+  , _dnfbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dnfbrsNextToken :: Lens' DescribeNotificationsForBudgetResponse (Maybe Text)
@@ -179,4 +184,5 @@ dnfbrsResponseStatus :: Lens' DescribeNotificationsForBudgetResponse Int
 dnfbrsResponseStatus = lens _dnfbrsResponseStatus (\ s a -> s{_dnfbrsResponseStatus = a});
 
 instance NFData
-         DescribeNotificationsForBudgetResponse
+           DescribeNotificationsForBudgetResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CopyImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EC2.CopyImage
     , coprsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CopyImage.
 --
@@ -59,15 +59,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'copyImage' smart constructor.
 data CopyImage = CopyImage'
-    { _ciClientToken   :: !(Maybe Text)
-    , _ciEncrypted     :: !(Maybe Bool)
-    , _ciKMSKeyId      :: !(Maybe Text)
-    , _ciDescription   :: !(Maybe Text)
-    , _ciDryRun        :: !(Maybe Bool)
-    , _ciName          :: !Text
-    , _ciSourceImageId :: !Text
-    , _ciSourceRegion  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciClientToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciEncrypted     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ciKMSKeyId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciDescription   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ciName          :: {-# NOUNPACK #-}!Text
+  , _ciSourceImageId :: {-# NOUNPACK #-}!Text
+  , _ciSourceRegion  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyImage' with the minimum fields required to make a request.
 --
@@ -94,16 +95,17 @@ copyImage
     -> Text -- ^ 'ciSourceRegion'
     -> CopyImage
 copyImage pName_ pSourceImageId_ pSourceRegion_ =
-    CopyImage'
-    { _ciClientToken = Nothing
-    , _ciEncrypted = Nothing
-    , _ciKMSKeyId = Nothing
-    , _ciDescription = Nothing
-    , _ciDryRun = Nothing
-    , _ciName = pName_
-    , _ciSourceImageId = pSourceImageId_
-    , _ciSourceRegion = pSourceRegion_
-    }
+  CopyImage'
+  { _ciClientToken = Nothing
+  , _ciEncrypted = Nothing
+  , _ciKMSKeyId = Nothing
+  , _ciDescription = Nothing
+  , _ciDryRun = Nothing
+  , _ciName = pName_
+  , _ciSourceImageId = pSourceImageId_
+  , _ciSourceRegion = pSourceRegion_
+  }
+
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 ciClientToken :: Lens' CopyImage (Maybe Text)
@@ -146,9 +148,9 @@ instance AWSRequest CopyImage where
                  CopyImageResponse' <$>
                    (x .@? "imageId") <*> (pure (fromEnum s)))
 
-instance Hashable CopyImage
+instance Hashable CopyImage where
 
-instance NFData CopyImage
+instance NFData CopyImage where
 
 instance ToHeaders CopyImage where
         toHeaders = const mempty
@@ -175,9 +177,10 @@ instance ToQuery CopyImage where
 --
 -- /See:/ 'copyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
-    { _coprsImageId        :: !(Maybe Text)
-    , _coprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _coprsImageId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _coprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyImageResponse' with the minimum fields required to make a request.
 --
@@ -190,10 +193,9 @@ copyImageResponse
     :: Int -- ^ 'coprsResponseStatus'
     -> CopyImageResponse
 copyImageResponse pResponseStatus_ =
-    CopyImageResponse'
-    { _coprsImageId = Nothing
-    , _coprsResponseStatus = pResponseStatus_
-    }
+  CopyImageResponse'
+  {_coprsImageId = Nothing, _coprsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the new AMI.
 coprsImageId :: Lens' CopyImageResponse (Maybe Text)
@@ -203,4 +205,4 @@ coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 coprsResponseStatus :: Lens' CopyImageResponse Int
 coprsResponseStatus = lens _coprsResponseStatus (\ s a -> s{_coprsResponseStatus = a});
 
-instance NFData CopyImageResponse
+instance NFData CopyImageResponse where

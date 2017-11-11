@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetStages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.GetStages
     , gsrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to get information about one or more 'Stage' resources.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getStages' smart constructor.
 data GetStages = GetStages'
-    { _gsDeploymentId :: !(Maybe Text)
-    , _gsRestAPIId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsRestAPIId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStages' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ getStages
     :: Text -- ^ 'gsRestAPIId'
     -> GetStages
 getStages pRestAPIId_ =
-    GetStages'
-    { _gsDeploymentId = Nothing
-    , _gsRestAPIId = pRestAPIId_
-    }
+  GetStages' {_gsDeploymentId = Nothing, _gsRestAPIId = pRestAPIId_}
+
 
 -- | The stages' deployment identifiers.
 gsDeploymentId :: Lens' GetStages (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest GetStages where
                  GetStagesResponse' <$>
                    (x .?> "item" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable GetStages
+instance Hashable GetStages where
 
-instance NFData GetStages
+instance NFData GetStages where
 
 instance ToHeaders GetStages where
         toHeaders
@@ -114,9 +113,10 @@ instance ToQuery GetStages where
 --
 -- /See:/ 'getStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'
-    { _gsrsItem           :: !(Maybe [Stage])
-    , _gsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsrsItem           :: {-# NOUNPACK #-}!(Maybe [Stage])
+  , _gsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStagesResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ getStagesResponse
     :: Int -- ^ 'gsrsResponseStatus'
     -> GetStagesResponse
 getStagesResponse pResponseStatus_ =
-    GetStagesResponse'
-    { _gsrsItem = Nothing
-    , _gsrsResponseStatus = pResponseStatus_
-    }
+  GetStagesResponse'
+  {_gsrsItem = Nothing, _gsrsResponseStatus = pResponseStatus_}
+
 
 -- | The current page of elements from this collection.
 gsrsItem :: Lens' GetStagesResponse [Stage]
@@ -142,4 +141,4 @@ gsrsItem = lens _gsrsItem (\ s a -> s{_gsrsItem = a}) . _Default . _Coerce;
 gsrsResponseStatus :: Lens' GetStagesResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
 
-instance NFData GetStagesResponse
+instance NFData GetStagesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.DeletePipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.CodePipeline.DeletePipeline
     , DeletePipelineResponse
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a delete pipeline action.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deletePipeline' smart constructor.
 newtype DeletePipeline = DeletePipeline'
-    { _dpName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePipeline' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeletePipeline = DeletePipeline'
 deletePipeline
     :: Text -- ^ 'dpName'
     -> DeletePipeline
-deletePipeline pName_ =
-    DeletePipeline'
-    { _dpName = pName_
-    }
+deletePipeline pName_ = DeletePipeline' {_dpName = pName_}
+
 
 -- | The name of the pipeline to be deleted.
 dpName :: Lens' DeletePipeline Text
@@ -72,9 +71,9 @@ instance AWSRequest DeletePipeline where
         request = postJSON codePipeline
         response = receiveNull DeletePipelineResponse'
 
-instance Hashable DeletePipeline
+instance Hashable DeletePipeline where
 
-instance NFData DeletePipeline
+instance NFData DeletePipeline where
 
 instance ToHeaders DeletePipeline where
         toHeaders
@@ -98,8 +97,9 @@ instance ToQuery DeletePipeline where
 
 -- | /See:/ 'deletePipelineResponse' smart constructor.
 data DeletePipelineResponse =
-    DeletePipelineResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePipelineResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +107,5 @@ deletePipelineResponse
     :: DeletePipelineResponse
 deletePipelineResponse = DeletePipelineResponse'
 
-instance NFData DeletePipelineResponse
+
+instance NFData DeletePipelineResponse where

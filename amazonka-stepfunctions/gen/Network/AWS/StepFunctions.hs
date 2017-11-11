@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -312,25 +312,25 @@ module Network.AWS.StepFunctions
     , smliCreationDate
     ) where
 
-import           Network.AWS.StepFunctions.CreateActivity
-import           Network.AWS.StepFunctions.CreateStateMachine
-import           Network.AWS.StepFunctions.DeleteActivity
-import           Network.AWS.StepFunctions.DeleteStateMachine
-import           Network.AWS.StepFunctions.DescribeActivity
-import           Network.AWS.StepFunctions.DescribeExecution
-import           Network.AWS.StepFunctions.DescribeStateMachine
-import           Network.AWS.StepFunctions.GetActivityTask
-import           Network.AWS.StepFunctions.GetExecutionHistory
-import           Network.AWS.StepFunctions.ListActivities
-import           Network.AWS.StepFunctions.ListExecutions
-import           Network.AWS.StepFunctions.ListStateMachines
-import           Network.AWS.StepFunctions.SendTaskFailure
-import           Network.AWS.StepFunctions.SendTaskHeartbeat
-import           Network.AWS.StepFunctions.SendTaskSuccess
-import           Network.AWS.StepFunctions.StartExecution
-import           Network.AWS.StepFunctions.StopExecution
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Waiters
+import Network.AWS.StepFunctions.CreateActivity
+import Network.AWS.StepFunctions.CreateStateMachine
+import Network.AWS.StepFunctions.DeleteActivity
+import Network.AWS.StepFunctions.DeleteStateMachine
+import Network.AWS.StepFunctions.DescribeActivity
+import Network.AWS.StepFunctions.DescribeExecution
+import Network.AWS.StepFunctions.DescribeStateMachine
+import Network.AWS.StepFunctions.GetActivityTask
+import Network.AWS.StepFunctions.GetExecutionHistory
+import Network.AWS.StepFunctions.ListActivities
+import Network.AWS.StepFunctions.ListExecutions
+import Network.AWS.StepFunctions.ListStateMachines
+import Network.AWS.StepFunctions.SendTaskFailure
+import Network.AWS.StepFunctions.SendTaskHeartbeat
+import Network.AWS.StepFunctions.SendTaskSuccess
+import Network.AWS.StepFunctions.StartExecution
+import Network.AWS.StepFunctions.StopExecution
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

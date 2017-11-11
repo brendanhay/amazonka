@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.StartBuild
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,22 +42,23 @@ module Network.AWS.CodeBuild.StartBuild
     , srsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startBuild' smart constructor.
 data StartBuild = StartBuild'
-    { _sbEnvironmentVariablesOverride :: !(Maybe [EnvironmentVariable])
-    , _sbTimeoutInMinutesOverride     :: !(Maybe Nat)
-    , _sbSourceVersion                :: !(Maybe Text)
-    , _sbBuildspecOverride            :: !(Maybe Text)
-    , _sbArtifactsOverride            :: !(Maybe ProjectArtifacts)
-    , _sbProjectName                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sbEnvironmentVariablesOverride :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
+  , _sbTimeoutInMinutesOverride :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sbSourceVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sbBuildspecOverride :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sbArtifactsOverride :: {-# NOUNPACK #-}!(Maybe ProjectArtifacts)
+  , _sbProjectName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartBuild' with the minimum fields required to make a request.
 --
@@ -78,14 +79,15 @@ startBuild
     :: Text -- ^ 'sbProjectName'
     -> StartBuild
 startBuild pProjectName_ =
-    StartBuild'
-    { _sbEnvironmentVariablesOverride = Nothing
-    , _sbTimeoutInMinutesOverride = Nothing
-    , _sbSourceVersion = Nothing
-    , _sbBuildspecOverride = Nothing
-    , _sbArtifactsOverride = Nothing
-    , _sbProjectName = pProjectName_
-    }
+  StartBuild'
+  { _sbEnvironmentVariablesOverride = Nothing
+  , _sbTimeoutInMinutesOverride = Nothing
+  , _sbSourceVersion = Nothing
+  , _sbBuildspecOverride = Nothing
+  , _sbArtifactsOverride = Nothing
+  , _sbProjectName = pProjectName_
+  }
+
 
 -- | A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
 sbEnvironmentVariablesOverride :: Lens' StartBuild [EnvironmentVariable]
@@ -120,9 +122,9 @@ instance AWSRequest StartBuild where
                  StartBuildResponse' <$>
                    (x .?> "build") <*> (pure (fromEnum s)))
 
-instance Hashable StartBuild
+instance Hashable StartBuild where
 
-instance NFData StartBuild
+instance NFData StartBuild where
 
 instance ToHeaders StartBuild where
         toHeaders
@@ -154,9 +156,10 @@ instance ToQuery StartBuild where
 
 -- | /See:/ 'startBuildResponse' smart constructor.
 data StartBuildResponse = StartBuildResponse'
-    { _srsBuild          :: !(Maybe Build)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsBuild          :: {-# NOUNPACK #-}!(Maybe Build)
+  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartBuildResponse' with the minimum fields required to make a request.
 --
@@ -169,10 +172,9 @@ startBuildResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StartBuildResponse
 startBuildResponse pResponseStatus_ =
-    StartBuildResponse'
-    { _srsBuild = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  StartBuildResponse'
+  {_srsBuild = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the build to be run.
 srsBuild :: Lens' StartBuildResponse (Maybe Build)
@@ -182,4 +184,4 @@ srsBuild = lens _srsBuild (\ s a -> s{_srsBuild = a});
 srsResponseStatus :: Lens' StartBuildResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StartBuildResponse
+instance NFData StartBuildResponse where

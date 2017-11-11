@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DisassociateDiscoveredResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.MigrationHub.DisassociateDiscoveredResource
     , ddrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateDiscoveredResource' smart constructor.
 data DisassociateDiscoveredResource = DisassociateDiscoveredResource'
-    { _ddrDryRun               :: !(Maybe Bool)
-    , _ddrProgressUpdateStream :: !Text
-    , _ddrMigrationTaskName    :: !Text
-    , _ddrConfigurationId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddrProgressUpdateStream :: {-# NOUNPACK #-}!Text
+  , _ddrMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  , _ddrConfigurationId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateDiscoveredResource' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ disassociateDiscoveredResource
     -> Text -- ^ 'ddrConfigurationId'
     -> DisassociateDiscoveredResource
 disassociateDiscoveredResource pProgressUpdateStream_ pMigrationTaskName_ pConfigurationId_ =
-    DisassociateDiscoveredResource'
-    { _ddrDryRun = Nothing
-    , _ddrProgressUpdateStream = pProgressUpdateStream_
-    , _ddrMigrationTaskName = pMigrationTaskName_
-    , _ddrConfigurationId = pConfigurationId_
-    }
+  DisassociateDiscoveredResource'
+  { _ddrDryRun = Nothing
+  , _ddrProgressUpdateStream = pProgressUpdateStream_
+  , _ddrMigrationTaskName = pMigrationTaskName_
+  , _ddrConfigurationId = pConfigurationId_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 ddrDryRun :: Lens' DisassociateDiscoveredResource (Maybe Bool)
@@ -106,8 +108,9 @@ instance AWSRequest DisassociateDiscoveredResource
                    (pure (fromEnum s)))
 
 instance Hashable DisassociateDiscoveredResource
+         where
 
-instance NFData DisassociateDiscoveredResource
+instance NFData DisassociateDiscoveredResource where
 
 instance ToHeaders DisassociateDiscoveredResource
          where
@@ -138,8 +141,9 @@ instance ToQuery DisassociateDiscoveredResource where
 
 -- | /See:/ 'disassociateDiscoveredResourceResponse' smart constructor.
 newtype DisassociateDiscoveredResourceResponse = DisassociateDiscoveredResourceResponse'
-    { _ddrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateDiscoveredResourceResponse' with the minimum fields required to make a request.
 --
@@ -150,13 +154,14 @@ disassociateDiscoveredResourceResponse
     :: Int -- ^ 'ddrrsResponseStatus'
     -> DisassociateDiscoveredResourceResponse
 disassociateDiscoveredResourceResponse pResponseStatus_ =
-    DisassociateDiscoveredResourceResponse'
-    { _ddrrsResponseStatus = pResponseStatus_
-    }
+  DisassociateDiscoveredResourceResponse'
+  {_ddrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ddrrsResponseStatus :: Lens' DisassociateDiscoveredResourceResponse Int
 ddrrsResponseStatus = lens _ddrrsResponseStatus (\ s a -> s{_ddrrsResponseStatus = a});
 
 instance NFData
-         DisassociateDiscoveredResourceResponse
+           DisassociateDiscoveredResourceResponse
+         where

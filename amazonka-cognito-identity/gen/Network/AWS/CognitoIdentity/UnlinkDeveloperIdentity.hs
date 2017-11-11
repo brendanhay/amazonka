@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     , UnlinkDeveloperIdentityResponse
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @UnlinkDeveloperIdentity@ action.
 --
@@ -52,11 +52,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'unlinkDeveloperIdentity' smart constructor.
 data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
-    { _udiIdentityId              :: !Text
-    , _udiIdentityPoolId          :: !Text
-    , _udiDeveloperProviderName   :: !Text
-    , _udiDeveloperUserIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udiIdentityId              :: {-# NOUNPACK #-}!Text
+  , _udiIdentityPoolId          :: {-# NOUNPACK #-}!Text
+  , _udiDeveloperProviderName   :: {-# NOUNPACK #-}!Text
+  , _udiDeveloperUserIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnlinkDeveloperIdentity' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ unlinkDeveloperIdentity
     -> Text -- ^ 'udiDeveloperUserIdentifier'
     -> UnlinkDeveloperIdentity
 unlinkDeveloperIdentity pIdentityId_ pIdentityPoolId_ pDeveloperProviderName_ pDeveloperUserIdentifier_ =
-    UnlinkDeveloperIdentity'
-    { _udiIdentityId = pIdentityId_
-    , _udiIdentityPoolId = pIdentityPoolId_
-    , _udiDeveloperProviderName = pDeveloperProviderName_
-    , _udiDeveloperUserIdentifier = pDeveloperUserIdentifier_
-    }
+  UnlinkDeveloperIdentity'
+  { _udiIdentityId = pIdentityId_
+  , _udiIdentityPoolId = pIdentityPoolId_
+  , _udiDeveloperProviderName = pDeveloperProviderName_
+  , _udiDeveloperUserIdentifier = pDeveloperUserIdentifier_
+  }
+
 
 -- | A unique identifier in the format REGION:GUID.
 udiIdentityId :: Lens' UnlinkDeveloperIdentity Text
@@ -106,9 +108,9 @@ instance AWSRequest UnlinkDeveloperIdentity where
         response
           = receiveNull UnlinkDeveloperIdentityResponse'
 
-instance Hashable UnlinkDeveloperIdentity
+instance Hashable UnlinkDeveloperIdentity where
 
-instance NFData UnlinkDeveloperIdentity
+instance NFData UnlinkDeveloperIdentity where
 
 instance ToHeaders UnlinkDeveloperIdentity where
         toHeaders
@@ -141,8 +143,9 @@ instance ToQuery UnlinkDeveloperIdentity where
 
 -- | /See:/ 'unlinkDeveloperIdentityResponse' smart constructor.
 data UnlinkDeveloperIdentityResponse =
-    UnlinkDeveloperIdentityResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UnlinkDeveloperIdentityResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnlinkDeveloperIdentityResponse' with the minimum fields required to make a request.
 --
@@ -150,4 +153,5 @@ unlinkDeveloperIdentityResponse
     :: UnlinkDeveloperIdentityResponse
 unlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse'
 
-instance NFData UnlinkDeveloperIdentityResponse
+
+instance NFData UnlinkDeveloperIdentityResponse where

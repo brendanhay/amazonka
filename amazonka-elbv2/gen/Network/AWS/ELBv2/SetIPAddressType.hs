@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.SetIPAddressType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.ELBv2.SetIPAddressType
     , siatrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setIPAddressType' smart constructor.
 data SetIPAddressType = SetIPAddressType'
-    { _siatLoadBalancerARN :: !Text
-    , _siatIPAddressType   :: !IPAddressType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siatLoadBalancerARN :: {-# NOUNPACK #-}!Text
+  , _siatIPAddressType   :: {-# NOUNPACK #-}!IPAddressType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIPAddressType' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ setIPAddressType
     -> IPAddressType -- ^ 'siatIPAddressType'
     -> SetIPAddressType
 setIPAddressType pLoadBalancerARN_ pIPAddressType_ =
-    SetIPAddressType'
-    { _siatLoadBalancerARN = pLoadBalancerARN_
-    , _siatIPAddressType = pIPAddressType_
-    }
+  SetIPAddressType'
+  { _siatLoadBalancerARN = pLoadBalancerARN_
+  , _siatIPAddressType = pIPAddressType_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 siatLoadBalancerARN :: Lens' SetIPAddressType Text
@@ -85,9 +87,9 @@ instance AWSRequest SetIPAddressType where
                  SetIPAddressTypeResponse' <$>
                    (x .@? "IpAddressType") <*> (pure (fromEnum s)))
 
-instance Hashable SetIPAddressType
+instance Hashable SetIPAddressType where
 
-instance NFData SetIPAddressType
+instance NFData SetIPAddressType where
 
 instance ToHeaders SetIPAddressType where
         toHeaders = const mempty
@@ -105,9 +107,10 @@ instance ToQuery SetIPAddressType where
 
 -- | /See:/ 'setIPAddressTypeResponse' smart constructor.
 data SetIPAddressTypeResponse = SetIPAddressTypeResponse'
-    { _siatrsIPAddressType  :: !(Maybe IPAddressType)
-    , _siatrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siatrsIPAddressType  :: {-# NOUNPACK #-}!(Maybe IPAddressType)
+  , _siatrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIPAddressTypeResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +123,9 @@ setIPAddressTypeResponse
     :: Int -- ^ 'siatrsResponseStatus'
     -> SetIPAddressTypeResponse
 setIPAddressTypeResponse pResponseStatus_ =
-    SetIPAddressTypeResponse'
-    { _siatrsIPAddressType = Nothing
-    , _siatrsResponseStatus = pResponseStatus_
-    }
+  SetIPAddressTypeResponse'
+  {_siatrsIPAddressType = Nothing, _siatrsResponseStatus = pResponseStatus_}
+
 
 -- | The IP address type.
 siatrsIPAddressType :: Lens' SetIPAddressTypeResponse (Maybe IPAddressType)
@@ -133,4 +135,4 @@ siatrsIPAddressType = lens _siatrsIPAddressType (\ s a -> s{_siatrsIPAddressType
 siatrsResponseStatus :: Lens' SetIPAddressTypeResponse Int
 siatrsResponseStatus = lens _siatrsResponseStatus (\ s a -> s{_siatrsResponseStatus = a});
 
-instance NFData SetIPAddressTypeResponse
+instance NFData SetIPAddressTypeResponse where

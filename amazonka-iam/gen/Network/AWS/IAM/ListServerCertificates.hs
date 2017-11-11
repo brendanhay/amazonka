@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListServerCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,20 +47,21 @@ module Network.AWS.IAM.ListServerCertificates
     , lscrsServerCertificateMetadataList
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listServerCertificates' smart constructor.
 data ListServerCertificates = ListServerCertificates'
-    { _lscPathPrefix :: !(Maybe Text)
-    , _lscMarker     :: !(Maybe Text)
-    , _lscMaxItems   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lscPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lscMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lscMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListServerCertificates' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ data ListServerCertificates = ListServerCertificates'
 listServerCertificates
     :: ListServerCertificates
 listServerCertificates =
-    ListServerCertificates'
-    { _lscPathPrefix = Nothing
-    , _lscMarker = Nothing
-    , _lscMaxItems = Nothing
-    }
+  ListServerCertificates'
+  {_lscPathPrefix = Nothing, _lscMarker = Nothing, _lscMaxItems = Nothing}
+
 
 -- | The path prefix for filtering the results. For example: @/company/servercerts@ would get all server certificates for which the path starts with @/company/servercerts@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all server certificates. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
@@ -113,9 +112,9 @@ instance AWSRequest ListServerCertificates where
                      (x .@? "ServerCertificateMetadataList" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListServerCertificates
+instance Hashable ListServerCertificates where
 
-instance NFData ListServerCertificates
+instance NFData ListServerCertificates where
 
 instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
@@ -138,11 +137,12 @@ instance ToQuery ListServerCertificates where
 --
 -- /See:/ 'listServerCertificatesResponse' smart constructor.
 data ListServerCertificatesResponse = ListServerCertificatesResponse'
-    { _lscrsMarker                        :: !(Maybe Text)
-    , _lscrsIsTruncated                   :: !(Maybe Bool)
-    , _lscrsResponseStatus                :: !Int
-    , _lscrsServerCertificateMetadataList :: ![ServerCertificateMetadata]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lscrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lscrsIsTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lscrsServerCertificateMetadataList :: {-# NOUNPACK #-}![ServerCertificateMetadata]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListServerCertificatesResponse' with the minimum fields required to make a request.
 --
@@ -159,12 +159,13 @@ listServerCertificatesResponse
     :: Int -- ^ 'lscrsResponseStatus'
     -> ListServerCertificatesResponse
 listServerCertificatesResponse pResponseStatus_ =
-    ListServerCertificatesResponse'
-    { _lscrsMarker = Nothing
-    , _lscrsIsTruncated = Nothing
-    , _lscrsResponseStatus = pResponseStatus_
-    , _lscrsServerCertificateMetadataList = mempty
-    }
+  ListServerCertificatesResponse'
+  { _lscrsMarker = Nothing
+  , _lscrsIsTruncated = Nothing
+  , _lscrsResponseStatus = pResponseStatus_
+  , _lscrsServerCertificateMetadataList = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lscrsMarker :: Lens' ListServerCertificatesResponse (Maybe Text)
@@ -182,4 +183,4 @@ lscrsResponseStatus = lens _lscrsResponseStatus (\ s a -> s{_lscrsResponseStatus
 lscrsServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
 lscrsServerCertificateMetadataList = lens _lscrsServerCertificateMetadataList (\ s a -> s{_lscrsServerCertificateMetadataList = a}) . _Coerce;
 
-instance NFData ListServerCertificatesResponse
+instance NFData ListServerCertificatesResponse where

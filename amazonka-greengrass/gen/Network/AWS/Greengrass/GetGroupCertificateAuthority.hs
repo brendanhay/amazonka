@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetGroupCertificateAuthority
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Greengrass.GetGroupCertificateAuthority
     , ggcarsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getGroupCertificateAuthority' smart constructor.
 data GetGroupCertificateAuthority = GetGroupCertificateAuthority'
-    { _ggcaCertificateAuthorityId :: !Text
-    , _ggcaGroupId                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggcaCertificateAuthorityId :: {-# NOUNPACK #-}!Text
+  , _ggcaGroupId                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupCertificateAuthority' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ getGroupCertificateAuthority
     -> Text -- ^ 'ggcaGroupId'
     -> GetGroupCertificateAuthority
 getGroupCertificateAuthority pCertificateAuthorityId_ pGroupId_ =
-    GetGroupCertificateAuthority'
-    { _ggcaCertificateAuthorityId = pCertificateAuthorityId_
-    , _ggcaGroupId = pGroupId_
-    }
+  GetGroupCertificateAuthority'
+  { _ggcaCertificateAuthorityId = pCertificateAuthorityId_
+  , _ggcaGroupId = pGroupId_
+  }
+
 
 -- | certificate authority Id
 ggcaCertificateAuthorityId :: Lens' GetGroupCertificateAuthority Text
@@ -90,9 +92,9 @@ instance AWSRequest GetGroupCertificateAuthority
                      <*> (x .?> "GroupCertificateAuthorityId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetGroupCertificateAuthority
+instance Hashable GetGroupCertificateAuthority where
 
-instance NFData GetGroupCertificateAuthority
+instance NFData GetGroupCertificateAuthority where
 
 instance ToHeaders GetGroupCertificateAuthority where
         toHeaders
@@ -113,11 +115,12 @@ instance ToQuery GetGroupCertificateAuthority where
 
 -- | /See:/ 'getGroupCertificateAuthorityResponse' smart constructor.
 data GetGroupCertificateAuthorityResponse = GetGroupCertificateAuthorityResponse'
-    { _ggcarsPemEncodedCertificate        :: !(Maybe Text)
-    , _ggcarsGroupCertificateAuthorityARN :: !(Maybe Text)
-    , _ggcarsGroupCertificateAuthorityId  :: !(Maybe Text)
-    , _ggcarsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggcarsPemEncodedCertificate        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggcarsGroupCertificateAuthorityARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggcarsGroupCertificateAuthorityId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggcarsResponseStatus               :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupCertificateAuthorityResponse' with the minimum fields required to make a request.
 --
@@ -134,12 +137,13 @@ getGroupCertificateAuthorityResponse
     :: Int -- ^ 'ggcarsResponseStatus'
     -> GetGroupCertificateAuthorityResponse
 getGroupCertificateAuthorityResponse pResponseStatus_ =
-    GetGroupCertificateAuthorityResponse'
-    { _ggcarsPemEncodedCertificate = Nothing
-    , _ggcarsGroupCertificateAuthorityARN = Nothing
-    , _ggcarsGroupCertificateAuthorityId = Nothing
-    , _ggcarsResponseStatus = pResponseStatus_
-    }
+  GetGroupCertificateAuthorityResponse'
+  { _ggcarsPemEncodedCertificate = Nothing
+  , _ggcarsGroupCertificateAuthorityARN = Nothing
+  , _ggcarsGroupCertificateAuthorityId = Nothing
+  , _ggcarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | PEM encoded certificate for the group.
 ggcarsPemEncodedCertificate :: Lens' GetGroupCertificateAuthorityResponse (Maybe Text)
@@ -158,3 +162,4 @@ ggcarsResponseStatus :: Lens' GetGroupCertificateAuthorityResponse Int
 ggcarsResponseStatus = lens _ggcarsResponseStatus (\ s a -> s{_ggcarsResponseStatus = a});
 
 instance NFData GetGroupCertificateAuthorityResponse
+         where

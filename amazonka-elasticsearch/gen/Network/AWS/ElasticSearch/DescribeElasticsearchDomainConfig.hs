@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
     , dedcrsDomainConfig
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @DescribeElasticsearchDomainConfig@ operation. Specifies the domain name for which you want configuration information.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeElasticsearchDomainConfig' smart constructor.
 newtype DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
-    { _dedcDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedcDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticsearchDomainConfig' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ describeElasticsearchDomainConfig
     :: Text -- ^ 'dedcDomainName'
     -> DescribeElasticsearchDomainConfig
 describeElasticsearchDomainConfig pDomainName_ =
-    DescribeElasticsearchDomainConfig'
-    { _dedcDomainName = pDomainName_
-    }
+  DescribeElasticsearchDomainConfig' {_dedcDomainName = pDomainName_}
+
 
 -- | The Elasticsearch domain that you want to get information about.
 dedcDomainName :: Lens' DescribeElasticsearchDomainConfig Text
@@ -82,8 +82,10 @@ instance AWSRequest DescribeElasticsearchDomainConfig
                    (pure (fromEnum s)) <*> (x .:> "DomainConfig"))
 
 instance Hashable DescribeElasticsearchDomainConfig
+         where
 
 instance NFData DescribeElasticsearchDomainConfig
+         where
 
 instance ToHeaders DescribeElasticsearchDomainConfig
          where
@@ -106,9 +108,10 @@ instance ToQuery DescribeElasticsearchDomainConfig
 --
 -- /See:/ 'describeElasticsearchDomainConfigResponse' smart constructor.
 data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConfigResponse'
-    { _dedcrsResponseStatus :: !Int
-    , _dedcrsDomainConfig   :: !ElasticsearchDomainConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dedcrsDomainConfig   :: {-# NOUNPACK #-}!ElasticsearchDomainConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticsearchDomainConfigResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +125,11 @@ describeElasticsearchDomainConfigResponse
     -> ElasticsearchDomainConfig -- ^ 'dedcrsDomainConfig'
     -> DescribeElasticsearchDomainConfigResponse
 describeElasticsearchDomainConfigResponse pResponseStatus_ pDomainConfig_ =
-    DescribeElasticsearchDomainConfigResponse'
-    { _dedcrsResponseStatus = pResponseStatus_
-    , _dedcrsDomainConfig = pDomainConfig_
-    }
+  DescribeElasticsearchDomainConfigResponse'
+  { _dedcrsResponseStatus = pResponseStatus_
+  , _dedcrsDomainConfig = pDomainConfig_
+  }
+
 
 -- | -- | The response status code.
 dedcrsResponseStatus :: Lens' DescribeElasticsearchDomainConfigResponse Int
@@ -136,4 +140,5 @@ dedcrsDomainConfig :: Lens' DescribeElasticsearchDomainConfigResponse Elasticsea
 dedcrsDomainConfig = lens _dedcrsDomainConfig (\ s a -> s{_dedcrsDomainConfig = a});
 
 instance NFData
-         DescribeElasticsearchDomainConfigResponse
+           DescribeElasticsearchDomainConfigResponse
+         where

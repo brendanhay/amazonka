@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentityPool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     , DeleteIdentityPoolResponse
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the DeleteIdentityPool action.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteIdentityPool' smart constructor.
 newtype DeleteIdentityPool = DeleteIdentityPool'
-    { _dIdentityPoolId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dIdentityPoolId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIdentityPool' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ deleteIdentityPool
     :: Text -- ^ 'dIdentityPoolId'
     -> DeleteIdentityPool
 deleteIdentityPool pIdentityPoolId_ =
-    DeleteIdentityPool'
-    { _dIdentityPoolId = pIdentityPoolId_
-    }
+  DeleteIdentityPool' {_dIdentityPoolId = pIdentityPoolId_}
+
 
 -- | An identity pool ID in the format REGION:GUID.
 dIdentityPoolId :: Lens' DeleteIdentityPool Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteIdentityPool where
         request = postJSON cognitoIdentity
         response = receiveNull DeleteIdentityPoolResponse'
 
-instance Hashable DeleteIdentityPool
+instance Hashable DeleteIdentityPool where
 
-instance NFData DeleteIdentityPool
+instance NFData DeleteIdentityPool where
 
 instance ToHeaders DeleteIdentityPool where
         toHeaders
@@ -103,8 +103,9 @@ instance ToQuery DeleteIdentityPool where
 
 -- | /See:/ 'deleteIdentityPoolResponse' smart constructor.
 data DeleteIdentityPoolResponse =
-    DeleteIdentityPoolResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteIdentityPoolResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIdentityPoolResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +113,5 @@ deleteIdentityPoolResponse
     :: DeleteIdentityPoolResponse
 deleteIdentityPoolResponse = DeleteIdentityPoolResponse'
 
-instance NFData DeleteIdentityPoolResponse
+
+instance NFData DeleteIdentityPoolResponse where

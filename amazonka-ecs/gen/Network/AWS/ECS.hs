@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -500,39 +500,39 @@ module Network.AWS.ECS
     , vfReadOnly
     ) where
 
-import           Network.AWS.ECS.CreateCluster
-import           Network.AWS.ECS.CreateService
-import           Network.AWS.ECS.DeleteAttributes
-import           Network.AWS.ECS.DeleteCluster
-import           Network.AWS.ECS.DeleteService
-import           Network.AWS.ECS.DeregisterContainerInstance
-import           Network.AWS.ECS.DeregisterTaskDefinition
-import           Network.AWS.ECS.DescribeClusters
-import           Network.AWS.ECS.DescribeContainerInstances
-import           Network.AWS.ECS.DescribeServices
-import           Network.AWS.ECS.DescribeTaskDefinition
-import           Network.AWS.ECS.DescribeTasks
-import           Network.AWS.ECS.DiscoverPollEndpoint
-import           Network.AWS.ECS.ListAttributes
-import           Network.AWS.ECS.ListClusters
-import           Network.AWS.ECS.ListContainerInstances
-import           Network.AWS.ECS.ListServices
-import           Network.AWS.ECS.ListTaskDefinitionFamilies
-import           Network.AWS.ECS.ListTaskDefinitions
-import           Network.AWS.ECS.ListTasks
-import           Network.AWS.ECS.PutAttributes
-import           Network.AWS.ECS.RegisterContainerInstance
-import           Network.AWS.ECS.RegisterTaskDefinition
-import           Network.AWS.ECS.RunTask
-import           Network.AWS.ECS.StartTask
-import           Network.AWS.ECS.StopTask
-import           Network.AWS.ECS.SubmitContainerStateChange
-import           Network.AWS.ECS.SubmitTaskStateChange
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.UpdateContainerAgent
-import           Network.AWS.ECS.UpdateContainerInstancesState
-import           Network.AWS.ECS.UpdateService
-import           Network.AWS.ECS.Waiters
+import Network.AWS.ECS.CreateCluster
+import Network.AWS.ECS.CreateService
+import Network.AWS.ECS.DeleteAttributes
+import Network.AWS.ECS.DeleteCluster
+import Network.AWS.ECS.DeleteService
+import Network.AWS.ECS.DeregisterContainerInstance
+import Network.AWS.ECS.DeregisterTaskDefinition
+import Network.AWS.ECS.DescribeClusters
+import Network.AWS.ECS.DescribeContainerInstances
+import Network.AWS.ECS.DescribeServices
+import Network.AWS.ECS.DescribeTaskDefinition
+import Network.AWS.ECS.DescribeTasks
+import Network.AWS.ECS.DiscoverPollEndpoint
+import Network.AWS.ECS.ListAttributes
+import Network.AWS.ECS.ListClusters
+import Network.AWS.ECS.ListContainerInstances
+import Network.AWS.ECS.ListServices
+import Network.AWS.ECS.ListTaskDefinitionFamilies
+import Network.AWS.ECS.ListTaskDefinitions
+import Network.AWS.ECS.ListTasks
+import Network.AWS.ECS.PutAttributes
+import Network.AWS.ECS.RegisterContainerInstance
+import Network.AWS.ECS.RegisterTaskDefinition
+import Network.AWS.ECS.RunTask
+import Network.AWS.ECS.StartTask
+import Network.AWS.ECS.StopTask
+import Network.AWS.ECS.SubmitContainerStateChange
+import Network.AWS.ECS.SubmitTaskStateChange
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.UpdateContainerAgent
+import Network.AWS.ECS.UpdateContainerInstancesState
+import Network.AWS.ECS.UpdateService
+import Network.AWS.ECS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

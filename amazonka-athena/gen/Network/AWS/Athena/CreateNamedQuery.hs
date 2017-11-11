@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.CreateNamedQuery
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.Athena.CreateNamedQuery
     , cnqrsResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createNamedQuery' smart constructor.
 data CreateNamedQuery = CreateNamedQuery'
-    { _cnqClientRequestToken :: !(Maybe Text)
-    , _cnqDescription        :: !(Maybe Text)
-    , _cnqName               :: !Text
-    , _cnqDatabase           :: !Text
-    , _cnqQueryString        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnqClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnqDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnqName               :: {-# NOUNPACK #-}!Text
+  , _cnqDatabase           :: {-# NOUNPACK #-}!Text
+  , _cnqQueryString        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNamedQuery' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ createNamedQuery
     -> Text -- ^ 'cnqQueryString'
     -> CreateNamedQuery
 createNamedQuery pName_ pDatabase_ pQueryString_ =
-    CreateNamedQuery'
-    { _cnqClientRequestToken = Nothing
-    , _cnqDescription = Nothing
-    , _cnqName = pName_
-    , _cnqDatabase = pDatabase_
-    , _cnqQueryString = pQueryString_
-    }
+  CreateNamedQuery'
+  { _cnqClientRequestToken = Nothing
+  , _cnqDescription = Nothing
+  , _cnqName = pName_
+  , _cnqDatabase = pDatabase_
+  , _cnqQueryString = pQueryString_
+  }
+
 
 -- | A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another @CreateNamedQuery@ request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the @QueryString@ , an error is returned. /Important:/ This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.
 cnqClientRequestToken :: Lens' CreateNamedQuery (Maybe Text)
@@ -115,9 +117,9 @@ instance AWSRequest CreateNamedQuery where
                  CreateNamedQueryResponse' <$>
                    (x .?> "NamedQueryId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateNamedQuery
+instance Hashable CreateNamedQuery where
 
-instance NFData CreateNamedQuery
+instance NFData CreateNamedQuery where
 
 instance ToHeaders CreateNamedQuery where
         toHeaders
@@ -147,9 +149,10 @@ instance ToQuery CreateNamedQuery where
 
 -- | /See:/ 'createNamedQueryResponse' smart constructor.
 data CreateNamedQueryResponse = CreateNamedQueryResponse'
-    { _cnqrsNamedQueryId   :: !(Maybe Text)
-    , _cnqrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnqrsNamedQueryId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNamedQueryResponse' with the minimum fields required to make a request.
 --
@@ -162,10 +165,9 @@ createNamedQueryResponse
     :: Int -- ^ 'cnqrsResponseStatus'
     -> CreateNamedQueryResponse
 createNamedQueryResponse pResponseStatus_ =
-    CreateNamedQueryResponse'
-    { _cnqrsNamedQueryId = Nothing
-    , _cnqrsResponseStatus = pResponseStatus_
-    }
+  CreateNamedQueryResponse'
+  {_cnqrsNamedQueryId = Nothing, _cnqrsResponseStatus = pResponseStatus_}
+
 
 -- | The unique ID of the query.
 cnqrsNamedQueryId :: Lens' CreateNamedQueryResponse (Maybe Text)
@@ -175,4 +177,4 @@ cnqrsNamedQueryId = lens _cnqrsNamedQueryId (\ s a -> s{_cnqrsNamedQueryId = a})
 cnqrsResponseStatus :: Lens' CreateNamedQueryResponse Int
 cnqrsResponseStatus = lens _cnqrsResponseStatus (\ s a -> s{_cnqrsResponseStatus = a});
 
-instance NFData CreateNamedQueryResponse
+instance NFData CreateNamedQueryResponse where

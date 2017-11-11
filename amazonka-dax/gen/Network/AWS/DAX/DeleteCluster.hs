@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DeleteCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.DAX.DeleteCluster
     , drsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCluster' smart constructor.
 newtype DeleteCluster = DeleteCluster'
-    { _dcClusterName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcClusterName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DeleteCluster = DeleteCluster'
 deleteCluster
     :: Text -- ^ 'dcClusterName'
     -> DeleteCluster
-deleteCluster pClusterName_ =
-    DeleteCluster'
-    { _dcClusterName = pClusterName_
-    }
+deleteCluster pClusterName_ = DeleteCluster' {_dcClusterName = pClusterName_}
+
 
 -- | The name of the cluster to be deleted.
 dcClusterName :: Lens' DeleteCluster Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteCluster where
                  DeleteClusterResponse' <$>
                    (x .?> "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteCluster
+instance Hashable DeleteCluster where
 
-instance NFData DeleteCluster
+instance NFData DeleteCluster where
 
 instance ToHeaders DeleteCluster where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery DeleteCluster where
 
 -- | /See:/ 'deleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
-    { _drsCluster        :: !(Maybe Cluster)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ deleteClusterResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteClusterResponse
 deleteClusterResponse pResponseStatus_ =
-    DeleteClusterResponse'
-    { _drsCluster = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteClusterResponse'
+  {_drsCluster = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | A description of the DAX cluster that is being deleted.
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
@@ -129,4 +128,4 @@ drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 drsResponseStatus :: Lens' DeleteClusterResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteClusterResponse
+instance NFData DeleteClusterResponse where

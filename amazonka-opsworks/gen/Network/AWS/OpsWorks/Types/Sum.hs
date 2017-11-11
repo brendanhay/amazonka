@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.OpsWorks.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AppAttributesKeys
-    = AWSFlowRubySettings
-    | AutoBundleOnDeploy
-    | DocumentRoot
-    | RailsEnv
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWSFlowRubySettings
+  | AutoBundleOnDeploy
+  | DocumentRoot
+  | RailsEnv
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AppAttributesKeys where
     parser = takeLowerText >>= \case
@@ -55,14 +56,15 @@ instance FromJSON AppAttributesKeys where
     parseJSON = parseJSONText "AppAttributesKeys"
 
 data AppType
-    = ATAWSFlowRuby
-    | ATJava
-    | ATNodejs
-    | ATOther
-    | ATPHP
-    | ATRails
-    | ATStatic
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ATAWSFlowRuby
+  | ATJava
+  | ATNodejs
+  | ATOther
+  | ATPHP
+  | ATRails
+  | ATStatic
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AppType where
     parser = takeLowerText >>= \case
@@ -99,9 +101,10 @@ instance FromJSON AppType where
     parseJSON = parseJSONText "AppType"
 
 data Architecture
-    = I386
-    | X86_64
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = I386
+  | X86_64
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Architecture where
     parser = takeLowerText >>= \case
@@ -128,9 +131,10 @@ instance FromJSON Architecture where
     parseJSON = parseJSONText "Architecture"
 
 data AutoScalingType
-    = Load
-    | Timer
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Load
+  | Timer
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AutoScalingType where
     parser = takeLowerText >>= \case
@@ -160,99 +164,100 @@ instance FromJSON AutoScalingType where
 --
 --
 data CloudWatchLogsEncoding
-    = Ascii
-    | BIG5
-    | Big5hkscs
-    | CP037
-    | CP1006
-    | CP1026
-    | CP1140
-    | CP1250
-    | CP1251
-    | CP1252
-    | CP1253
-    | CP1254
-    | CP1255
-    | CP1256
-    | CP1257
-    | CP1258
-    | CP424
-    | CP437
-    | CP500
-    | CP720
-    | CP737
-    | CP775
-    | CP850
-    | CP852
-    | CP855
-    | CP856
-    | CP857
-    | CP858
-    | CP860
-    | CP861
-    | CP862
-    | CP863
-    | CP864
-    | CP865
-    | CP866
-    | CP869
-    | CP874
-    | CP875
-    | CP932
-    | CP949
-    | CP950
-    | EucJISX0213
-    | EucJis2004
-    | EucJp
-    | EucKr
-    | GB18030
-    | GB2312
-    | Gbk
-    | HZ
-    | ISO2022Jp
-    | ISO2022Jp1
-    | ISO2022Jp2
-    | ISO2022Jp2004
-    | ISO2022Jp3
-    | ISO2022JpExt
-    | ISO2022Kr
-    | ISO885910
-    | ISO885913
-    | ISO885914
-    | ISO885915
-    | ISO885916
-    | ISO88592
-    | ISO88593
-    | ISO88594
-    | ISO88595
-    | ISO88596
-    | ISO88597
-    | ISO88598
-    | ISO88599
-    | Johab
-    | KOI8r
-    | KOI8u
-    | Latin1
-    | MACCyrillic
-    | MACGreek
-    | MACIceland
-    | MACLATIN2
-    | MACRoman
-    | MACTurkish
-    | PTCP154
-    | ShiftJISX0213
-    | ShiftJis
-    | ShiftJis2004
-    | Utf16
-    | Utf16Be
-    | Utf16Le
-    | Utf32
-    | Utf32Be
-    | Utf32Le
-    | Utf7
-    | Utf8
-    | Utf8Sig
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Ascii
+  | BIG5
+  | Big5hkscs
+  | CP037
+  | CP1006
+  | CP1026
+  | CP1140
+  | CP1250
+  | CP1251
+  | CP1252
+  | CP1253
+  | CP1254
+  | CP1255
+  | CP1256
+  | CP1257
+  | CP1258
+  | CP424
+  | CP437
+  | CP500
+  | CP720
+  | CP737
+  | CP775
+  | CP850
+  | CP852
+  | CP855
+  | CP856
+  | CP857
+  | CP858
+  | CP860
+  | CP861
+  | CP862
+  | CP863
+  | CP864
+  | CP865
+  | CP866
+  | CP869
+  | CP874
+  | CP875
+  | CP932
+  | CP949
+  | CP950
+  | EucJISX0213
+  | EucJis2004
+  | EucJp
+  | EucKr
+  | GB18030
+  | GB2312
+  | Gbk
+  | HZ
+  | ISO2022Jp
+  | ISO2022Jp1
+  | ISO2022Jp2
+  | ISO2022Jp2004
+  | ISO2022Jp3
+  | ISO2022JpExt
+  | ISO2022Kr
+  | ISO885910
+  | ISO885913
+  | ISO885914
+  | ISO885915
+  | ISO885916
+  | ISO88592
+  | ISO88593
+  | ISO88594
+  | ISO88595
+  | ISO88596
+  | ISO88597
+  | ISO88598
+  | ISO88599
+  | Johab
+  | KOI8r
+  | KOI8u
+  | Latin1
+  | MACCyrillic
+  | MACGreek
+  | MACIceland
+  | MACLATIN2
+  | MACRoman
+  | MACTurkish
+  | PTCP154
+  | ShiftJISX0213
+  | ShiftJis
+  | ShiftJis2004
+  | Utf16
+  | Utf16Be
+  | Utf16Le
+  | Utf32
+  | Utf32Be
+  | Utf32Le
+  | Utf7
+  | Utf8
+  | Utf8Sig
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CloudWatchLogsEncoding where
     parser = takeLowerText >>= \case
@@ -462,9 +467,10 @@ instance FromJSON CloudWatchLogsEncoding where
 --
 --
 data CloudWatchLogsInitialPosition
-    = EndOfFile
-    | StartOfFile
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EndOfFile
+  | StartOfFile
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CloudWatchLogsInitialPosition where
     parser = takeLowerText >>= \case
@@ -494,9 +500,10 @@ instance FromJSON CloudWatchLogsInitialPosition where
 --
 --
 data CloudWatchLogsTimeZone
-    = Local
-    | Utc
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Local
+  | Utc
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CloudWatchLogsTimeZone where
     parser = takeLowerText >>= \case
@@ -523,19 +530,20 @@ instance FromJSON CloudWatchLogsTimeZone where
     parseJSON = parseJSONText "CloudWatchLogsTimeZone"
 
 data DeploymentCommandName
-    = Configure
-    | Deploy
-    | ExecuteRecipes
-    | InstallDependencies
-    | Restart
-    | Rollback
-    | Setup
-    | Start
-    | Stop
-    | Undeploy
-    | UpdateCustomCookbooks
-    | UpdateDependencies
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Configure
+  | Deploy
+  | ExecuteRecipes
+  | InstallDependencies
+  | Restart
+  | Rollback
+  | Setup
+  | Start
+  | Stop
+  | Undeploy
+  | UpdateCustomCookbooks
+  | UpdateDependencies
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeploymentCommandName where
     parser = takeLowerText >>= \case
@@ -582,32 +590,33 @@ instance FromJSON DeploymentCommandName where
     parseJSON = parseJSONText "DeploymentCommandName"
 
 data LayerAttributesKeys
-    = BundlerVersion
-    | EcsClusterARN
-    | EnableHaproxyStats
-    | GangliaPassword
-    | GangliaURL
-    | GangliaUser
-    | HaproxyHealthCheckMethod
-    | HaproxyHealthCheckURL
-    | HaproxyStatsPassword
-    | HaproxyStatsURL
-    | HaproxyStatsUser
-    | JVM
-    | JVMOptions
-    | JVMVersion
-    | JavaAppServer
-    | JavaAppServerVersion
-    | ManageBundler
-    | MemcachedMemory
-    | MysqlRootPassword
-    | MysqlRootPasswordUbiquitous
-    | NodejsVersion
-    | PassengerVersion
-    | RailsStack
-    | RubyVersion
-    | RubygemsVersion
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BundlerVersion
+  | EcsClusterARN
+  | EnableHaproxyStats
+  | GangliaPassword
+  | GangliaURL
+  | GangliaUser
+  | HaproxyHealthCheckMethod
+  | HaproxyHealthCheckURL
+  | HaproxyStatsPassword
+  | HaproxyStatsURL
+  | HaproxyStatsUser
+  | JVM
+  | JVMOptions
+  | JVMVersion
+  | JavaAppServer
+  | JavaAppServerVersion
+  | ManageBundler
+  | MemcachedMemory
+  | MysqlRootPassword
+  | MysqlRootPasswordUbiquitous
+  | NodejsVersion
+  | PassengerVersion
+  | RailsStack
+  | RubyVersion
+  | RubygemsVersion
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LayerAttributesKeys where
     parser = takeLowerText >>= \case
@@ -680,19 +689,20 @@ instance FromJSON LayerAttributesKeys where
     parseJSON = parseJSONText "LayerAttributesKeys"
 
 data LayerType
-    = AWSFlowRuby
-    | Custom
-    | DBMaster
-    | EcsCluster
-    | JavaApp
-    | LB
-    | Memcached
-    | MonitoringMaster
-    | NodejsApp
-    | PHPApp
-    | RailsApp
-    | Web
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWSFlowRuby
+  | Custom
+  | DBMaster
+  | EcsCluster
+  | JavaApp
+  | LB
+  | Memcached
+  | MonitoringMaster
+  | NodejsApp
+  | PHPApp
+  | RailsApp
+  | Web
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LayerType where
     parser = takeLowerText >>= \case
@@ -739,9 +749,10 @@ instance FromJSON LayerType where
     parseJSON = parseJSONText "LayerType"
 
 data RootDeviceType
-    = EBS
-    | InstanceStore
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EBS
+  | InstanceStore
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RootDeviceType where
     parser = takeLowerText >>= \case
@@ -768,11 +779,12 @@ instance FromJSON RootDeviceType where
     parseJSON = parseJSONText "RootDeviceType"
 
 data SourceType
-    = Archive
-    | Git
-    | S3
-    | SVN
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Archive
+  | Git
+  | S3
+  | SVN
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -803,8 +815,9 @@ instance FromJSON SourceType where
     parseJSON = parseJSONText "SourceType"
 
 data StackAttributesKeys =
-    Color
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Color
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackAttributesKeys where
     parser = takeLowerText >>= \case
@@ -829,9 +842,10 @@ instance FromJSON StackAttributesKeys where
     parseJSON = parseJSONText "StackAttributesKeys"
 
 data VirtualizationType
-    = HVM
-    | Paravirtual
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HVM
+  | Paravirtual
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
@@ -855,10 +869,11 @@ instance FromJSON VirtualizationType where
     parseJSON = parseJSONText "VirtualizationType"
 
 data VolumeType
-    = GP2
-    | IO1
-    | Standard
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GP2
+  | IO1
+  | Standard
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case

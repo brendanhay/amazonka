@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,13 +46,13 @@ module Network.AWS.EMR.ListInstances
     , lirsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which instances to list.
 --
@@ -60,14 +60,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listInstances' smart constructor.
 data ListInstances = ListInstances'
-    { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
-    , _liInstanceFleetType  :: !(Maybe InstanceFleetType)
-    , _liMarker             :: !(Maybe Text)
-    , _liInstanceFleetId    :: !(Maybe Text)
-    , _liInstanceStates     :: !(Maybe [InstanceState])
-    , _liInstanceGroupId    :: !(Maybe Text)
-    , _liClusterId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liInstanceGroupTypes :: {-# NOUNPACK #-}!(Maybe [InstanceGroupType])
+  , _liInstanceFleetType  :: {-# NOUNPACK #-}!(Maybe InstanceFleetType)
+  , _liMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liInstanceFleetId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liInstanceStates     :: {-# NOUNPACK #-}!(Maybe [InstanceState])
+  , _liInstanceGroupId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liClusterId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
 --
@@ -90,15 +91,16 @@ listInstances
     :: Text -- ^ 'liClusterId'
     -> ListInstances
 listInstances pClusterId_ =
-    ListInstances'
-    { _liInstanceGroupTypes = Nothing
-    , _liInstanceFleetType = Nothing
-    , _liMarker = Nothing
-    , _liInstanceFleetId = Nothing
-    , _liInstanceStates = Nothing
-    , _liInstanceGroupId = Nothing
-    , _liClusterId = pClusterId_
-    }
+  ListInstances'
+  { _liInstanceGroupTypes = Nothing
+  , _liInstanceFleetType = Nothing
+  , _liMarker = Nothing
+  , _liInstanceFleetId = Nothing
+  , _liInstanceStates = Nothing
+  , _liInstanceGroupId = Nothing
+  , _liClusterId = pClusterId_
+  }
+
 
 -- | The type of instance group for which to list the instances.
 liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
@@ -145,9 +147,9 @@ instance AWSRequest ListInstances where
                    (x .?> "Marker") <*> (x .?> "Instances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListInstances
+instance Hashable ListInstances where
 
-instance NFData ListInstances
+instance NFData ListInstances where
 
 instance ToHeaders ListInstances where
         toHeaders
@@ -182,10 +184,11 @@ instance ToQuery ListInstances where
 --
 -- /See:/ 'listInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-    { _lirsMarker         :: !(Maybe Text)
-    , _lirsInstances      :: !(Maybe [Instance])
-    , _lirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lirsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
+  , _lirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
 --
@@ -200,11 +203,12 @@ listInstancesResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListInstancesResponse
 listInstancesResponse pResponseStatus_ =
-    ListInstancesResponse'
-    { _lirsMarker = Nothing
-    , _lirsInstances = Nothing
-    , _lirsResponseStatus = pResponseStatus_
-    }
+  ListInstancesResponse'
+  { _lirsMarker = Nothing
+  , _lirsInstances = Nothing
+  , _lirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
@@ -218,4 +222,4 @@ lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default 
 lirsResponseStatus :: Lens' ListInstancesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
-instance NFData ListInstancesResponse
+instance NFData ListInstancesResponse where

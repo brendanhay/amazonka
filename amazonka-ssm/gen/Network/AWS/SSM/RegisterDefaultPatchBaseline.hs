@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterDefaultPatchBaseline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.SSM.RegisterDefaultPatchBaseline
     , rdpbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'registerDefaultPatchBaseline' smart constructor.
 newtype RegisterDefaultPatchBaseline = RegisterDefaultPatchBaseline'
-    { _rdpbBaselineId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdpbBaselineId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterDefaultPatchBaseline' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ registerDefaultPatchBaseline
     :: Text -- ^ 'rdpbBaselineId'
     -> RegisterDefaultPatchBaseline
 registerDefaultPatchBaseline pBaselineId_ =
-    RegisterDefaultPatchBaseline'
-    { _rdpbBaselineId = pBaselineId_
-    }
+  RegisterDefaultPatchBaseline' {_rdpbBaselineId = pBaselineId_}
+
 
 -- | The ID of the patch baseline that should be the default patch baseline.
 rdpbBaselineId :: Lens' RegisterDefaultPatchBaseline Text
@@ -77,9 +77,9 @@ instance AWSRequest RegisterDefaultPatchBaseline
                  RegisterDefaultPatchBaselineResponse' <$>
                    (x .?> "BaselineId") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterDefaultPatchBaseline
+instance Hashable RegisterDefaultPatchBaseline where
 
-instance NFData RegisterDefaultPatchBaseline
+instance NFData RegisterDefaultPatchBaseline where
 
 instance ToHeaders RegisterDefaultPatchBaseline where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery RegisterDefaultPatchBaseline where
 
 -- | /See:/ 'registerDefaultPatchBaselineResponse' smart constructor.
 data RegisterDefaultPatchBaselineResponse = RegisterDefaultPatchBaselineResponse'
-    { _rdpbrsBaselineId     :: !(Maybe Text)
-    , _rdpbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdpbrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdpbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterDefaultPatchBaselineResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ registerDefaultPatchBaselineResponse
     :: Int -- ^ 'rdpbrsResponseStatus'
     -> RegisterDefaultPatchBaselineResponse
 registerDefaultPatchBaselineResponse pResponseStatus_ =
-    RegisterDefaultPatchBaselineResponse'
-    { _rdpbrsBaselineId = Nothing
-    , _rdpbrsResponseStatus = pResponseStatus_
-    }
+  RegisterDefaultPatchBaselineResponse'
+  {_rdpbrsBaselineId = Nothing, _rdpbrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the default patch baseline.
 rdpbrsBaselineId :: Lens' RegisterDefaultPatchBaselineResponse (Maybe Text)
@@ -133,3 +133,4 @@ rdpbrsResponseStatus :: Lens' RegisterDefaultPatchBaselineResponse Int
 rdpbrsResponseStatus = lens _rdpbrsResponseStatus (\ s a -> s{_rdpbrsResponseStatus = a});
 
 instance NFData RegisterDefaultPatchBaselineResponse
+         where

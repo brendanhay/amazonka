@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateConfigurationSetEventDestination
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.SES.CreateConfigurationSetEventDestination
     , ccsedrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to create a configuration set event destination. A configuration set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service in which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
@@ -54,9 +54,10 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'createConfigurationSetEventDestination' smart constructor.
 data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestination'
-    { _ccsedConfigurationSetName :: !Text
-    , _ccsedEventDestination     :: !EventDestination
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsedConfigurationSetName :: {-# NOUNPACK #-}!Text
+  , _ccsedEventDestination     :: {-# NOUNPACK #-}!EventDestination
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConfigurationSetEventDestination' with the minimum fields required to make a request.
 --
@@ -70,10 +71,11 @@ createConfigurationSetEventDestination
     -> EventDestination -- ^ 'ccsedEventDestination'
     -> CreateConfigurationSetEventDestination
 createConfigurationSetEventDestination pConfigurationSetName_ pEventDestination_ =
-    CreateConfigurationSetEventDestination'
-    { _ccsedConfigurationSetName = pConfigurationSetName_
-    , _ccsedEventDestination = pEventDestination_
-    }
+  CreateConfigurationSetEventDestination'
+  { _ccsedConfigurationSetName = pConfigurationSetName_
+  , _ccsedEventDestination = pEventDestination_
+  }
+
 
 -- | The name of the configuration set to which to apply the event destination.
 ccsedConfigurationSetName :: Lens' CreateConfigurationSetEventDestination Text
@@ -84,7 +86,8 @@ ccsedEventDestination :: Lens' CreateConfigurationSetEventDestination EventDesti
 ccsedEventDestination = lens _ccsedEventDestination (\ s a -> s{_ccsedEventDestination = a});
 
 instance AWSRequest
-         CreateConfigurationSetEventDestination where
+           CreateConfigurationSetEventDestination
+         where
         type Rs CreateConfigurationSetEventDestination =
              CreateConfigurationSetEventDestinationResponse
         request = postQuery ses
@@ -96,21 +99,26 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         CreateConfigurationSetEventDestination
+           CreateConfigurationSetEventDestination
+         where
 
 instance NFData
-         CreateConfigurationSetEventDestination
+           CreateConfigurationSetEventDestination
+         where
 
 instance ToHeaders
-         CreateConfigurationSetEventDestination where
+           CreateConfigurationSetEventDestination
+         where
         toHeaders = const mempty
 
 instance ToPath
-         CreateConfigurationSetEventDestination where
+           CreateConfigurationSetEventDestination
+         where
         toPath = const "/"
 
 instance ToQuery
-         CreateConfigurationSetEventDestination where
+           CreateConfigurationSetEventDestination
+         where
         toQuery CreateConfigurationSetEventDestination'{..}
           = mconcat
               ["Action" =:
@@ -126,8 +134,9 @@ instance ToQuery
 --
 -- /See:/ 'createConfigurationSetEventDestinationResponse' smart constructor.
 newtype CreateConfigurationSetEventDestinationResponse = CreateConfigurationSetEventDestinationResponse'
-    { _ccsedrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsedrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConfigurationSetEventDestinationResponse' with the minimum fields required to make a request.
 --
@@ -138,13 +147,14 @@ createConfigurationSetEventDestinationResponse
     :: Int -- ^ 'ccsedrsResponseStatus'
     -> CreateConfigurationSetEventDestinationResponse
 createConfigurationSetEventDestinationResponse pResponseStatus_ =
-    CreateConfigurationSetEventDestinationResponse'
-    { _ccsedrsResponseStatus = pResponseStatus_
-    }
+  CreateConfigurationSetEventDestinationResponse'
+  {_ccsedrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ccsedrsResponseStatus :: Lens' CreateConfigurationSetEventDestinationResponse Int
 ccsedrsResponseStatus = lens _ccsedrsResponseStatus (\ s a -> s{_ccsedrsResponseStatus = a});
 
 instance NFData
-         CreateConfigurationSetEventDestinationResponse
+           CreateConfigurationSetEventDestinationResponse
+         where

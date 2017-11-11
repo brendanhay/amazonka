@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.DisassociateConnector
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.SMS.DisassociateConnector
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'disassociateConnector' smart constructor.
 newtype DisassociateConnector = DisassociateConnector'
-    { _dcConnectorId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcConnectorId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateConnector' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ disassociateConnector
     :: Text -- ^ 'dcConnectorId'
     -> DisassociateConnector
 disassociateConnector pConnectorId_ =
-    DisassociateConnector'
-    { _dcConnectorId = pConnectorId_
-    }
+  DisassociateConnector' {_dcConnectorId = pConnectorId_}
+
 
 -- | Undocumented member.
 dcConnectorId :: Lens' DisassociateConnector Text
@@ -73,9 +73,9 @@ instance AWSRequest DisassociateConnector where
                  DisassociateConnectorResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DisassociateConnector
+instance Hashable DisassociateConnector where
 
-instance NFData DisassociateConnector
+instance NFData DisassociateConnector where
 
 instance ToHeaders DisassociateConnector where
         toHeaders
@@ -100,8 +100,9 @@ instance ToQuery DisassociateConnector where
 
 -- | /See:/ 'disassociateConnectorResponse' smart constructor.
 newtype DisassociateConnectorResponse = DisassociateConnectorResponse'
-    { _dcrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateConnectorResponse' with the minimum fields required to make a request.
 --
@@ -112,12 +113,11 @@ disassociateConnectorResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DisassociateConnectorResponse
 disassociateConnectorResponse pResponseStatus_ =
-    DisassociateConnectorResponse'
-    { _dcrsResponseStatus = pResponseStatus_
-    }
+  DisassociateConnectorResponse' {_dcrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DisassociateConnectorResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DisassociateConnectorResponse
+instance NFData DisassociateConnectorResponse where

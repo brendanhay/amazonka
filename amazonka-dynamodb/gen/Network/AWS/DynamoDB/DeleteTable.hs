@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DeleteTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.DynamoDB.DeleteTable
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DeleteTable@ operation.
 --
@@ -56,8 +56,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteTable' smart constructor.
 newtype DeleteTable = DeleteTable'
-    { _dtTableName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtTableName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTable' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ newtype DeleteTable = DeleteTable'
 deleteTable
     :: Text -- ^ 'dtTableName'
     -> DeleteTable
-deleteTable pTableName_ =
-    DeleteTable'
-    { _dtTableName = pTableName_
-    }
+deleteTable pTableName_ = DeleteTable' {_dtTableName = pTableName_}
+
 
 -- | The name of the table to delete.
 dtTableName :: Lens' DeleteTable Text
@@ -85,9 +84,9 @@ instance AWSRequest DeleteTable where
                  DeleteTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteTable
+instance Hashable DeleteTable where
 
-instance NFData DeleteTable
+instance NFData DeleteTable where
 
 instance ToHeaders DeleteTable where
         toHeaders
@@ -115,9 +114,10 @@ instance ToQuery DeleteTable where
 --
 -- /See:/ 'deleteTableResponse' smart constructor.
 data DeleteTableResponse = DeleteTableResponse'
-    { _dtrsTableDescription :: !(Maybe TableDescription)
-    , _dtrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsTableDescription :: {-# NOUNPACK #-}!(Maybe TableDescription)
+  , _dtrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTableResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +130,9 @@ deleteTableResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DeleteTableResponse
 deleteTableResponse pResponseStatus_ =
-    DeleteTableResponse'
-    { _dtrsTableDescription = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DeleteTableResponse'
+  {_dtrsTableDescription = Nothing, _dtrsResponseStatus = pResponseStatus_}
+
 
 -- | Represents the properties of a table.
 dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
@@ -143,4 +142,4 @@ dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescript
 dtrsResponseStatus :: Lens' DeleteTableResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DeleteTableResponse
+instance NFData DeleteTableResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateSubnetCidrBlock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.EC2.AssociateSubnetCidrBlock
     , ascbrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateSubnetCidrBlock' smart constructor.
 data AssociateSubnetCidrBlock = AssociateSubnetCidrBlock'
-    { _ascbIPv6CidrBlock :: !Text
-    , _ascbSubnetId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ascbIPv6CidrBlock :: {-# NOUNPACK #-}!Text
+  , _ascbSubnetId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateSubnetCidrBlock' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ associateSubnetCidrBlock
     -> Text -- ^ 'ascbSubnetId'
     -> AssociateSubnetCidrBlock
 associateSubnetCidrBlock pIPv6CidrBlock_ pSubnetId_ =
-    AssociateSubnetCidrBlock'
-    { _ascbIPv6CidrBlock = pIPv6CidrBlock_
-    , _ascbSubnetId = pSubnetId_
-    }
+  AssociateSubnetCidrBlock'
+  {_ascbIPv6CidrBlock = pIPv6CidrBlock_, _ascbSubnetId = pSubnetId_}
+
 
 -- | The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.
 ascbIPv6CidrBlock :: Lens' AssociateSubnetCidrBlock Text
@@ -89,9 +89,9 @@ instance AWSRequest AssociateSubnetCidrBlock where
                      (x .@? "ipv6CidrBlockAssociation")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AssociateSubnetCidrBlock
+instance Hashable AssociateSubnetCidrBlock where
 
-instance NFData AssociateSubnetCidrBlock
+instance NFData AssociateSubnetCidrBlock where
 
 instance ToHeaders AssociateSubnetCidrBlock where
         toHeaders = const mempty
@@ -110,10 +110,11 @@ instance ToQuery AssociateSubnetCidrBlock where
 
 -- | /See:/ 'associateSubnetCidrBlockResponse' smart constructor.
 data AssociateSubnetCidrBlockResponse = AssociateSubnetCidrBlockResponse'
-    { _ascbrsSubnetId                 :: !(Maybe Text)
-    , _ascbrsIPv6CidrBlockAssociation :: !(Maybe SubnetIPv6CidrBlockAssociation)
-    , _ascbrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ascbrsSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ascbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe SubnetIPv6CidrBlockAssociation)
+  , _ascbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateSubnetCidrBlockResponse' with the minimum fields required to make a request.
 --
@@ -128,11 +129,12 @@ associateSubnetCidrBlockResponse
     :: Int -- ^ 'ascbrsResponseStatus'
     -> AssociateSubnetCidrBlockResponse
 associateSubnetCidrBlockResponse pResponseStatus_ =
-    AssociateSubnetCidrBlockResponse'
-    { _ascbrsSubnetId = Nothing
-    , _ascbrsIPv6CidrBlockAssociation = Nothing
-    , _ascbrsResponseStatus = pResponseStatus_
-    }
+  AssociateSubnetCidrBlockResponse'
+  { _ascbrsSubnetId = Nothing
+  , _ascbrsIPv6CidrBlockAssociation = Nothing
+  , _ascbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the subnet.
 ascbrsSubnetId :: Lens' AssociateSubnetCidrBlockResponse (Maybe Text)
@@ -147,3 +149,4 @@ ascbrsResponseStatus :: Lens' AssociateSubnetCidrBlockResponse Int
 ascbrsResponseStatus = lens _ascbrsResponseStatus (\ s a -> s{_ascbrsResponseStatus = a});
 
 instance NFData AssociateSubnetCidrBlockResponse
+         where

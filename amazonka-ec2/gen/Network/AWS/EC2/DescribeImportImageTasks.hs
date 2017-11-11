@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImportImageTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribeImportImageTasks
     , diitrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeImportImageTasks.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeImportImageTasks' smart constructor.
 data DescribeImportImageTasks = DescribeImportImageTasks'
-    { _diitFilters       :: !(Maybe [Filter])
-    , _diitImportTaskIds :: !(Maybe [Text])
-    , _diitNextToken     :: !(Maybe Text)
-    , _diitDryRun        :: !(Maybe Bool)
-    , _diitMaxResults    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diitFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _diitImportTaskIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _diitNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diitDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diitMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImportImageTasks' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ data DescribeImportImageTasks = DescribeImportImageTasks'
 describeImportImageTasks
     :: DescribeImportImageTasks
 describeImportImageTasks =
-    DescribeImportImageTasks'
-    { _diitFilters = Nothing
-    , _diitImportTaskIds = Nothing
-    , _diitNextToken = Nothing
-    , _diitDryRun = Nothing
-    , _diitMaxResults = Nothing
-    }
+  DescribeImportImageTasks'
+  { _diitFilters = Nothing
+  , _diitImportTaskIds = Nothing
+  , _diitNextToken = Nothing
+  , _diitDryRun = Nothing
+  , _diitMaxResults = Nothing
+  }
+
 
 -- | Filter tasks using the @task-state@ filter and one of the following values: active, completed, deleting, deleted.
 diitFilters :: Lens' DescribeImportImageTasks [Filter]
@@ -119,9 +121,9 @@ instance AWSRequest DescribeImportImageTasks where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeImportImageTasks
+instance Hashable DescribeImportImageTasks where
 
-instance NFData DescribeImportImageTasks
+instance NFData DescribeImportImageTasks where
 
 instance ToHeaders DescribeImportImageTasks where
         toHeaders = const mempty
@@ -148,10 +150,11 @@ instance ToQuery DescribeImportImageTasks where
 --
 -- /See:/ 'describeImportImageTasksResponse' smart constructor.
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
-    { _diitrsNextToken        :: !(Maybe Text)
-    , _diitrsImportImageTasks :: !(Maybe [ImportImageTask])
-    , _diitrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diitrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diitrsImportImageTasks :: {-# NOUNPACK #-}!(Maybe [ImportImageTask])
+  , _diitrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImportImageTasksResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ describeImportImageTasksResponse
     :: Int -- ^ 'diitrsResponseStatus'
     -> DescribeImportImageTasksResponse
 describeImportImageTasksResponse pResponseStatus_ =
-    DescribeImportImageTasksResponse'
-    { _diitrsNextToken = Nothing
-    , _diitrsImportImageTasks = Nothing
-    , _diitrsResponseStatus = pResponseStatus_
-    }
+  DescribeImportImageTasksResponse'
+  { _diitrsNextToken = Nothing
+  , _diitrsImportImageTasks = Nothing
+  , _diitrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
 diitrsNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
@@ -185,3 +189,4 @@ diitrsResponseStatus :: Lens' DescribeImportImageTasksResponse Int
 diitrsResponseStatus = lens _diitrsResponseStatus (\ s a -> s{_diitrsResponseStatus = a});
 
 instance NFData DescribeImportImageTasksResponse
+         where

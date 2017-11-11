@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.APIGateway.CreateDeployment
     , dDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to create a 'Deployment' resource.
 --
@@ -58,14 +58,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-    { _cdStageDescription    :: !(Maybe Text)
-    , _cdVariables           :: !(Maybe (Map Text Text))
-    , _cdCacheClusterSize    :: !(Maybe CacheClusterSize)
-    , _cdCacheClusterEnabled :: !(Maybe Bool)
-    , _cdStageName           :: !(Maybe Text)
-    , _cdDescription         :: !(Maybe Text)
-    , _cdRestAPIId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdStageDescription    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdVariables           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cdCacheClusterSize    :: {-# NOUNPACK #-}!(Maybe CacheClusterSize)
+  , _cdCacheClusterEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdStageName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdRestAPIId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
@@ -88,15 +89,16 @@ createDeployment
     :: Text -- ^ 'cdRestAPIId'
     -> CreateDeployment
 createDeployment pRestAPIId_ =
-    CreateDeployment'
-    { _cdStageDescription = Nothing
-    , _cdVariables = Nothing
-    , _cdCacheClusterSize = Nothing
-    , _cdCacheClusterEnabled = Nothing
-    , _cdStageName = Nothing
-    , _cdDescription = Nothing
-    , _cdRestAPIId = pRestAPIId_
-    }
+  CreateDeployment'
+  { _cdStageDescription = Nothing
+  , _cdVariables = Nothing
+  , _cdCacheClusterSize = Nothing
+  , _cdCacheClusterEnabled = Nothing
+  , _cdStageName = Nothing
+  , _cdDescription = Nothing
+  , _cdRestAPIId = pRestAPIId_
+  }
+
 
 -- | The description of the 'Stage' resource for the 'Deployment' resource to create.
 cdStageDescription :: Lens' CreateDeployment (Maybe Text)
@@ -131,9 +133,9 @@ instance AWSRequest CreateDeployment where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateDeployment
+instance Hashable CreateDeployment where
 
-instance NFData CreateDeployment
+instance NFData CreateDeployment where
 
 instance ToHeaders CreateDeployment where
         toHeaders

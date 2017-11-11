@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     , dlbptrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancerPolicyTypes.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
-    { _dlbptPolicyTypeNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbptPolicyTypeNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerPolicyTypes' with the minimum fields required to make a request.
 --
@@ -65,9 +66,8 @@ newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
 describeLoadBalancerPolicyTypes
     :: DescribeLoadBalancerPolicyTypes
 describeLoadBalancerPolicyTypes =
-    DescribeLoadBalancerPolicyTypes'
-    { _dlbptPolicyTypeNames = Nothing
-    }
+  DescribeLoadBalancerPolicyTypes' {_dlbptPolicyTypeNames = Nothing}
+
 
 -- | The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
@@ -88,8 +88,9 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeLoadBalancerPolicyTypes
+         where
 
-instance NFData DescribeLoadBalancerPolicyTypes
+instance NFData DescribeLoadBalancerPolicyTypes where
 
 instance ToHeaders DescribeLoadBalancerPolicyTypes
          where
@@ -115,9 +116,10 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 --
 -- /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
-    { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
-    , _dlbptrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbptrsPolicyTypeDescriptions :: {-# NOUNPACK #-}!(Maybe [PolicyTypeDescription])
+  , _dlbptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerPolicyTypesResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +132,11 @@ describeLoadBalancerPolicyTypesResponse
     :: Int -- ^ 'dlbptrsResponseStatus'
     -> DescribeLoadBalancerPolicyTypesResponse
 describeLoadBalancerPolicyTypesResponse pResponseStatus_ =
-    DescribeLoadBalancerPolicyTypesResponse'
-    { _dlbptrsPolicyTypeDescriptions = Nothing
-    , _dlbptrsResponseStatus = pResponseStatus_
-    }
+  DescribeLoadBalancerPolicyTypesResponse'
+  { _dlbptrsPolicyTypeDescriptions = Nothing
+  , _dlbptrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the policy types.
 dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
@@ -144,4 +147,5 @@ dlbptrsResponseStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
 dlbptrsResponseStatus = lens _dlbptrsResponseStatus (\ s a -> s{_dlbptrsResponseStatus = a});
 
 instance NFData
-         DescribeLoadBalancerPolicyTypesResponse
+           DescribeLoadBalancerPolicyTypesResponse
+         where

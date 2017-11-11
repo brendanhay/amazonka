@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.StartWorkflowExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -81,27 +81,28 @@ module Network.AWS.SWF.StartWorkflowExecution
     , swersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'startWorkflowExecution' smart constructor.
 data StartWorkflowExecution = StartWorkflowExecution'
-    { _sTagList                      :: !(Maybe [Text])
-    , _sTaskStartToCloseTimeout      :: !(Maybe Text)
-    , _sLambdaRole                   :: !(Maybe Text)
-    , _sInput                        :: !(Maybe Text)
-    , _sExecutionStartToCloseTimeout :: !(Maybe Text)
-    , _sTaskList                     :: !(Maybe TaskList)
-    , _sTaskPriority                 :: !(Maybe Text)
-    , _sChildPolicy                  :: !(Maybe ChildPolicy)
-    , _sDomain                       :: !Text
-    , _sWorkflowId                   :: !Text
-    , _sWorkflowType                 :: !WorkflowType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sTagList                      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sTaskStartToCloseTimeout      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sLambdaRole                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sInput                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTaskList                     :: {-# NOUNPACK #-}!(Maybe TaskList)
+  , _sTaskPriority                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sChildPolicy                  :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
+  , _sDomain                       :: {-# NOUNPACK #-}!Text
+  , _sWorkflowId                   :: {-# NOUNPACK #-}!Text
+  , _sWorkflowType                 :: {-# NOUNPACK #-}!WorkflowType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartWorkflowExecution' with the minimum fields required to make a request.
 --
@@ -134,19 +135,20 @@ startWorkflowExecution
     -> WorkflowType -- ^ 'sWorkflowType'
     -> StartWorkflowExecution
 startWorkflowExecution pDomain_ pWorkflowId_ pWorkflowType_ =
-    StartWorkflowExecution'
-    { _sTagList = Nothing
-    , _sTaskStartToCloseTimeout = Nothing
-    , _sLambdaRole = Nothing
-    , _sInput = Nothing
-    , _sExecutionStartToCloseTimeout = Nothing
-    , _sTaskList = Nothing
-    , _sTaskPriority = Nothing
-    , _sChildPolicy = Nothing
-    , _sDomain = pDomain_
-    , _sWorkflowId = pWorkflowId_
-    , _sWorkflowType = pWorkflowType_
-    }
+  StartWorkflowExecution'
+  { _sTagList = Nothing
+  , _sTaskStartToCloseTimeout = Nothing
+  , _sLambdaRole = Nothing
+  , _sInput = Nothing
+  , _sExecutionStartToCloseTimeout = Nothing
+  , _sTaskList = Nothing
+  , _sTaskPriority = Nothing
+  , _sChildPolicy = Nothing
+  , _sDomain = pDomain_
+  , _sWorkflowId = pWorkflowId_
+  , _sWorkflowType = pWorkflowType_
+  }
+
 
 -- | The list of tags to associate with the workflow execution. You can specify a maximum of 5 tags. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
 sTagList :: Lens' StartWorkflowExecution [Text]
@@ -202,9 +204,9 @@ instance AWSRequest StartWorkflowExecution where
                  StartWorkflowExecutionResponse' <$>
                    (x .?> "runId") <*> (pure (fromEnum s)))
 
-instance Hashable StartWorkflowExecution
+instance Hashable StartWorkflowExecution where
 
-instance NFData StartWorkflowExecution
+instance NFData StartWorkflowExecution where
 
 instance ToHeaders StartWorkflowExecution where
         toHeaders
@@ -246,9 +248,10 @@ instance ToQuery StartWorkflowExecution where
 --
 -- /See:/ 'startWorkflowExecutionResponse' smart constructor.
 data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
-    { _swersRunId          :: !(Maybe Text)
-    , _swersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _swersRunId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _swersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartWorkflowExecutionResponse' with the minimum fields required to make a request.
 --
@@ -261,10 +264,9 @@ startWorkflowExecutionResponse
     :: Int -- ^ 'swersResponseStatus'
     -> StartWorkflowExecutionResponse
 startWorkflowExecutionResponse pResponseStatus_ =
-    StartWorkflowExecutionResponse'
-    { _swersRunId = Nothing
-    , _swersResponseStatus = pResponseStatus_
-    }
+  StartWorkflowExecutionResponse'
+  {_swersRunId = Nothing, _swersResponseStatus = pResponseStatus_}
+
 
 -- | The @runId@ of a workflow execution. This ID is generated by the service and can be used to uniquely identify the workflow execution within a domain.
 swersRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
@@ -274,4 +276,4 @@ swersRunId = lens _swersRunId (\ s a -> s{_swersRunId = a});
 swersResponseStatus :: Lens' StartWorkflowExecutionResponse Int
 swersResponseStatus = lens _swersResponseStatus (\ s a -> s{_swersResponseStatus = a});
 
-instance NFData StartWorkflowExecutionResponse
+instance NFData StartWorkflowExecutionResponse where

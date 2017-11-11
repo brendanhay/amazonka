@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.TerminateProvisionedProduct
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.ServiceCatalog.TerminateProvisionedProduct
     , tpprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'terminateProvisionedProduct' smart constructor.
 data TerminateProvisionedProduct = TerminateProvisionedProduct'
-    { _tppProvisionedProductName :: !(Maybe Text)
-    , _tppAcceptLanguage         :: !(Maybe Text)
-    , _tppIgnoreErrors           :: !(Maybe Bool)
-    , _tppProvisionedProductId   :: !(Maybe Text)
-    , _tppTerminateToken         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tppProvisionedProductName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tppAcceptLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tppIgnoreErrors           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tppProvisionedProductId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tppTerminateToken         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateProvisionedProduct' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ terminateProvisionedProduct
     :: Text -- ^ 'tppTerminateToken'
     -> TerminateProvisionedProduct
 terminateProvisionedProduct pTerminateToken_ =
-    TerminateProvisionedProduct'
-    { _tppProvisionedProductName = Nothing
-    , _tppAcceptLanguage = Nothing
-    , _tppIgnoreErrors = Nothing
-    , _tppProvisionedProductId = Nothing
-    , _tppTerminateToken = pTerminateToken_
-    }
+  TerminateProvisionedProduct'
+  { _tppProvisionedProductName = Nothing
+  , _tppAcceptLanguage = Nothing
+  , _tppIgnoreErrors = Nothing
+  , _tppProvisionedProductId = Nothing
+  , _tppTerminateToken = pTerminateToken_
+  }
+
 
 -- | The name of the ProvisionedProduct object to terminate. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 tppProvisionedProductName :: Lens' TerminateProvisionedProduct (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest TerminateProvisionedProduct where
                  TerminateProvisionedProductResponse' <$>
                    (x .?> "RecordDetail") <*> (pure (fromEnum s)))
 
-instance Hashable TerminateProvisionedProduct
+instance Hashable TerminateProvisionedProduct where
 
-instance NFData TerminateProvisionedProduct
+instance NFData TerminateProvisionedProduct where
 
 instance ToHeaders TerminateProvisionedProduct where
         toHeaders
@@ -150,9 +152,10 @@ instance ToQuery TerminateProvisionedProduct where
 
 -- | /See:/ 'terminateProvisionedProductResponse' smart constructor.
 data TerminateProvisionedProductResponse = TerminateProvisionedProductResponse'
-    { _tpprsRecordDetail   :: !(Maybe RecordDetail)
-    , _tpprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tpprsRecordDetail   :: {-# NOUNPACK #-}!(Maybe RecordDetail)
+  , _tpprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateProvisionedProductResponse' with the minimum fields required to make a request.
 --
@@ -165,10 +168,9 @@ terminateProvisionedProductResponse
     :: Int -- ^ 'tpprsResponseStatus'
     -> TerminateProvisionedProductResponse
 terminateProvisionedProductResponse pResponseStatus_ =
-    TerminateProvisionedProductResponse'
-    { _tpprsRecordDetail = Nothing
-    , _tpprsResponseStatus = pResponseStatus_
-    }
+  TerminateProvisionedProductResponse'
+  {_tpprsRecordDetail = Nothing, _tpprsResponseStatus = pResponseStatus_}
+
 
 -- | The detailed result of the 'TerminateProvisionedProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
 tpprsRecordDetail :: Lens' TerminateProvisionedProductResponse (Maybe RecordDetail)
@@ -179,3 +181,4 @@ tpprsResponseStatus :: Lens' TerminateProvisionedProductResponse Int
 tpprsResponseStatus = lens _tpprsResponseStatus (\ s a -> s{_tpprsResponseStatus = a});
 
 instance NFData TerminateProvisionedProductResponse
+         where

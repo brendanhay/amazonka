@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetCrawlerMetrics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Glue.GetCrawlerMetrics
     , gcmrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCrawlerMetrics' smart constructor.
 data GetCrawlerMetrics = GetCrawlerMetrics'
-    { _gcmNextToken       :: !(Maybe Text)
-    , _gcmMaxResults      :: !(Maybe Nat)
-    , _gcmCrawlerNameList :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcmNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcmMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gcmCrawlerNameList :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCrawlerMetrics' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ data GetCrawlerMetrics = GetCrawlerMetrics'
 getCrawlerMetrics
     :: GetCrawlerMetrics
 getCrawlerMetrics =
-    GetCrawlerMetrics'
-    { _gcmNextToken = Nothing
-    , _gcmMaxResults = Nothing
-    , _gcmCrawlerNameList = Nothing
-    }
+  GetCrawlerMetrics'
+  { _gcmNextToken = Nothing
+  , _gcmMaxResults = Nothing
+  , _gcmCrawlerNameList = Nothing
+  }
+
 
 -- | A continuation token, if this is a continuation call.
 gcmNextToken :: Lens' GetCrawlerMetrics (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest GetCrawlerMetrics where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetCrawlerMetrics
+instance Hashable GetCrawlerMetrics where
 
-instance NFData GetCrawlerMetrics
+instance NFData GetCrawlerMetrics where
 
 instance ToHeaders GetCrawlerMetrics where
         toHeaders
@@ -124,10 +126,11 @@ instance ToQuery GetCrawlerMetrics where
 
 -- | /See:/ 'getCrawlerMetricsResponse' smart constructor.
 data GetCrawlerMetricsResponse = GetCrawlerMetricsResponse'
-    { _gcmrsCrawlerMetricsList :: !(Maybe [CrawlerMetrics])
-    , _gcmrsNextToken          :: !(Maybe Text)
-    , _gcmrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcmrsCrawlerMetricsList :: {-# NOUNPACK #-}!(Maybe [CrawlerMetrics])
+  , _gcmrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcmrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCrawlerMetricsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +145,12 @@ getCrawlerMetricsResponse
     :: Int -- ^ 'gcmrsResponseStatus'
     -> GetCrawlerMetricsResponse
 getCrawlerMetricsResponse pResponseStatus_ =
-    GetCrawlerMetricsResponse'
-    { _gcmrsCrawlerMetricsList = Nothing
-    , _gcmrsNextToken = Nothing
-    , _gcmrsResponseStatus = pResponseStatus_
-    }
+  GetCrawlerMetricsResponse'
+  { _gcmrsCrawlerMetricsList = Nothing
+  , _gcmrsNextToken = Nothing
+  , _gcmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of metrics for the specified crawler.
 gcmrsCrawlerMetricsList :: Lens' GetCrawlerMetricsResponse [CrawlerMetrics]
@@ -160,4 +164,4 @@ gcmrsNextToken = lens _gcmrsNextToken (\ s a -> s{_gcmrsNextToken = a});
 gcmrsResponseStatus :: Lens' GetCrawlerMetricsResponse Int
 gcmrsResponseStatus = lens _gcmrsResponseStatus (\ s a -> s{_gcmrsResponseStatus = a});
 
-instance NFData GetCrawlerMetricsResponse
+instance NFData GetCrawlerMetricsResponse where

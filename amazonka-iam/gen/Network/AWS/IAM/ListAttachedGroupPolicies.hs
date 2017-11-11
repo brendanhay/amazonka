@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAttachedGroupPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,21 +48,22 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , lagprsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAttachedGroupPolicies' smart constructor.
 data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
-    { _lagpPathPrefix :: !(Maybe Text)
-    , _lagpMarker     :: !(Maybe Text)
-    , _lagpMaxItems   :: !(Maybe Nat)
-    , _lagpGroupName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lagpPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagpMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagpMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lagpGroupName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttachedGroupPolicies' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ listAttachedGroupPolicies
     :: Text -- ^ 'lagpGroupName'
     -> ListAttachedGroupPolicies
 listAttachedGroupPolicies pGroupName_ =
-    ListAttachedGroupPolicies'
-    { _lagpPathPrefix = Nothing
-    , _lagpMarker = Nothing
-    , _lagpMaxItems = Nothing
-    , _lagpGroupName = pGroupName_
-    }
+  ListAttachedGroupPolicies'
+  { _lagpPathPrefix = Nothing
+  , _lagpMarker = Nothing
+  , _lagpMaxItems = Nothing
+  , _lagpGroupName = pGroupName_
+  }
+
 
 -- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lagpPathPrefix :: Lens' ListAttachedGroupPolicies (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest ListAttachedGroupPolicies where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAttachedGroupPolicies
+instance Hashable ListAttachedGroupPolicies where
 
-instance NFData ListAttachedGroupPolicies
+instance NFData ListAttachedGroupPolicies where
 
 instance ToHeaders ListAttachedGroupPolicies where
         toHeaders = const mempty
@@ -149,11 +151,12 @@ instance ToQuery ListAttachedGroupPolicies where
 --
 -- /See:/ 'listAttachedGroupPoliciesResponse' smart constructor.
 data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
-    { _lagprsAttachedPolicies :: !(Maybe [AttachedPolicy])
-    , _lagprsMarker           :: !(Maybe Text)
-    , _lagprsIsTruncated      :: !(Maybe Bool)
-    , _lagprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lagprsAttachedPolicies :: {-# NOUNPACK #-}!(Maybe [AttachedPolicy])
+  , _lagprsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagprsIsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lagprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttachedGroupPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -170,12 +173,13 @@ listAttachedGroupPoliciesResponse
     :: Int -- ^ 'lagprsResponseStatus'
     -> ListAttachedGroupPoliciesResponse
 listAttachedGroupPoliciesResponse pResponseStatus_ =
-    ListAttachedGroupPoliciesResponse'
-    { _lagprsAttachedPolicies = Nothing
-    , _lagprsMarker = Nothing
-    , _lagprsIsTruncated = Nothing
-    , _lagprsResponseStatus = pResponseStatus_
-    }
+  ListAttachedGroupPoliciesResponse'
+  { _lagprsAttachedPolicies = Nothing
+  , _lagprsMarker = Nothing
+  , _lagprsIsTruncated = Nothing
+  , _lagprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the attached policies.
 lagprsAttachedPolicies :: Lens' ListAttachedGroupPoliciesResponse [AttachedPolicy]
@@ -194,3 +198,4 @@ lagprsResponseStatus :: Lens' ListAttachedGroupPoliciesResponse Int
 lagprsResponseStatus = lens _lagprsResponseStatus (\ s a -> s{_lagprsResponseStatus = a});
 
 instance NFData ListAttachedGroupPoliciesResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutIntegrationResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.APIGateway.PutIntegrationResponse
     , intResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a put integration response request.
 --
@@ -60,15 +60,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putIntegrationResponse' smart constructor.
 data PutIntegrationResponse = PutIntegrationResponse'
-    { _piContentHandling    :: !(Maybe ContentHandlingStrategy)
-    , _piResponseTemplates  :: !(Maybe (Map Text Text))
-    , _piSelectionPattern   :: !(Maybe Text)
-    , _piResponseParameters :: !(Maybe (Map Text Text))
-    , _piRestAPIId          :: !Text
-    , _piResourceId         :: !Text
-    , _piHttpMethod         :: !Text
-    , _piStatusCode         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _piContentHandling    :: {-# NOUNPACK #-}!(Maybe ContentHandlingStrategy)
+  , _piResponseTemplates  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _piSelectionPattern   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _piResponseParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _piRestAPIId          :: {-# NOUNPACK #-}!Text
+  , _piResourceId         :: {-# NOUNPACK #-}!Text
+  , _piHttpMethod         :: {-# NOUNPACK #-}!Text
+  , _piStatusCode         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutIntegrationResponse' with the minimum fields required to make a request.
 --
@@ -96,16 +97,17 @@ putIntegrationResponse
     -> Text -- ^ 'piStatusCode'
     -> PutIntegrationResponse
 putIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    PutIntegrationResponse'
-    { _piContentHandling = Nothing
-    , _piResponseTemplates = Nothing
-    , _piSelectionPattern = Nothing
-    , _piResponseParameters = Nothing
-    , _piRestAPIId = pRestAPIId_
-    , _piResourceId = pResourceId_
-    , _piHttpMethod = pHttpMethod_
-    , _piStatusCode = pStatusCode_
-    }
+  PutIntegrationResponse'
+  { _piContentHandling = Nothing
+  , _piResponseTemplates = Nothing
+  , _piSelectionPattern = Nothing
+  , _piResponseParameters = Nothing
+  , _piRestAPIId = pRestAPIId_
+  , _piResourceId = pResourceId_
+  , _piHttpMethod = pHttpMethod_
+  , _piStatusCode = pStatusCode_
+  }
+
 
 -- | Specifies how to handle response payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a response payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a response payload from a binary blob to a Base64-encoded string. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 piContentHandling :: Lens' PutIntegrationResponse (Maybe ContentHandlingStrategy)
@@ -144,9 +146,9 @@ instance AWSRequest PutIntegrationResponse where
         request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable PutIntegrationResponse
+instance Hashable PutIntegrationResponse where
 
-instance NFData PutIntegrationResponse
+instance NFData PutIntegrationResponse where
 
 instance ToHeaders PutIntegrationResponse where
         toHeaders

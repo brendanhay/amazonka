@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteEvaluation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,17 +43,18 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     , dersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteEvaluation' smart constructor.
 newtype DeleteEvaluation = DeleteEvaluation'
-    { _deEvaluationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deEvaluationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEvaluation' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ deleteEvaluation
     :: Text -- ^ 'deEvaluationId'
     -> DeleteEvaluation
 deleteEvaluation pEvaluationId_ =
-    DeleteEvaluation'
-    { _deEvaluationId = pEvaluationId_
-    }
+  DeleteEvaluation' {_deEvaluationId = pEvaluationId_}
+
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
 deEvaluationId :: Lens' DeleteEvaluation Text
@@ -81,9 +81,9 @@ instance AWSRequest DeleteEvaluation where
                  DeleteEvaluationResponse' <$>
                    (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteEvaluation
+instance Hashable DeleteEvaluation where
 
-instance NFData DeleteEvaluation
+instance NFData DeleteEvaluation where
 
 instance ToHeaders DeleteEvaluation where
         toHeaders
@@ -114,9 +114,10 @@ instance ToQuery DeleteEvaluation where
 --
 -- /See:/ 'deleteEvaluationResponse' smart constructor.
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
-    { _dersEvaluationId   :: !(Maybe Text)
-    , _dersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersEvaluationId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEvaluationResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ deleteEvaluationResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DeleteEvaluationResponse
 deleteEvaluationResponse pResponseStatus_ =
-    DeleteEvaluationResponse'
-    { _dersEvaluationId = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DeleteEvaluationResponse'
+  {_dersEvaluationId = Nothing, _dersResponseStatus = pResponseStatus_}
+
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 dersEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
@@ -142,4 +142,4 @@ dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
 dersResponseStatus :: Lens' DeleteEvaluationResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DeleteEvaluationResponse
+instance NFData DeleteEvaluationResponse where

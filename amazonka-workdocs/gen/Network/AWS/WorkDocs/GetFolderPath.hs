@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetFolderPath
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.WorkDocs.GetFolderPath
     , gfprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getFolderPath' smart constructor.
 data GetFolderPath = GetFolderPath'
-    { _gfpAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _gfpMarker              :: !(Maybe Text)
-    , _gfpLimit               :: !(Maybe Nat)
-    , _gfpFields              :: !(Maybe Text)
-    , _gfpFolderId            :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gfpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gfpMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfpLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gfpFields              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfpFolderId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFolderPath' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ getFolderPath
     :: Text -- ^ 'gfpFolderId'
     -> GetFolderPath
 getFolderPath pFolderId_ =
-    GetFolderPath'
-    { _gfpAuthenticationToken = Nothing
-    , _gfpMarker = Nothing
-    , _gfpLimit = Nothing
-    , _gfpFields = Nothing
-    , _gfpFolderId = pFolderId_
-    }
+  GetFolderPath'
+  { _gfpAuthenticationToken = Nothing
+  , _gfpMarker = Nothing
+  , _gfpLimit = Nothing
+  , _gfpFields = Nothing
+  , _gfpFolderId = pFolderId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 gfpAuthenticationToken :: Lens' GetFolderPath (Maybe Text)
@@ -113,9 +115,9 @@ instance AWSRequest GetFolderPath where
                  GetFolderPathResponse' <$>
                    (x .?> "Path") <*> (pure (fromEnum s)))
 
-instance Hashable GetFolderPath
+instance Hashable GetFolderPath where
 
-instance NFData GetFolderPath
+instance NFData GetFolderPath where
 
 instance ToHeaders GetFolderPath where
         toHeaders GetFolderPath'{..}
@@ -137,9 +139,10 @@ instance ToQuery GetFolderPath where
 
 -- | /See:/ 'getFolderPathResponse' smart constructor.
 data GetFolderPathResponse = GetFolderPathResponse'
-    { _gfprsPath           :: !(Maybe ResourcePath)
-    , _gfprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfprsPath           :: {-# NOUNPACK #-}!(Maybe ResourcePath)
+  , _gfprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFolderPathResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,9 @@ getFolderPathResponse
     :: Int -- ^ 'gfprsResponseStatus'
     -> GetFolderPathResponse
 getFolderPathResponse pResponseStatus_ =
-    GetFolderPathResponse'
-    { _gfprsPath = Nothing
-    , _gfprsResponseStatus = pResponseStatus_
-    }
+  GetFolderPathResponse'
+  {_gfprsPath = Nothing, _gfprsResponseStatus = pResponseStatus_}
+
 
 -- | The path information.
 gfprsPath :: Lens' GetFolderPathResponse (Maybe ResourcePath)
@@ -165,4 +167,4 @@ gfprsPath = lens _gfprsPath (\ s a -> s{_gfprsPath = a});
 gfprsResponseStatus :: Lens' GetFolderPathResponse Int
 gfprsResponseStatus = lens _gfprsResponseStatus (\ s a -> s{_gfprsResponseStatus = a});
 
-instance NFData GetFolderPathResponse
+instance NFData GetFolderPathResponse where

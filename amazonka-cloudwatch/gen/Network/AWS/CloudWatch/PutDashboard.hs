@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.PutDashboard
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,18 +44,19 @@ module Network.AWS.CloudWatch.PutDashboard
     , pdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putDashboard' smart constructor.
 data PutDashboard = PutDashboard'
-    { _pdDashboardName :: !(Maybe Text)
-    , _pdDashboardBody :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdDashboardName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdDashboardBody :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutDashboard' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ data PutDashboard = PutDashboard'
 putDashboard
     :: PutDashboard
 putDashboard =
-    PutDashboard'
-    { _pdDashboardName = Nothing
-    , _pdDashboardBody = Nothing
-    }
+  PutDashboard' {_pdDashboardName = Nothing, _pdDashboardBody = Nothing}
+
 
 -- | The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-", and "_".
 pdDashboardName :: Lens' PutDashboard (Maybe Text)
@@ -91,9 +90,9 @@ instance AWSRequest PutDashboard where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutDashboard
+instance Hashable PutDashboard where
 
-instance NFData PutDashboard
+instance NFData PutDashboard where
 
 instance ToHeaders PutDashboard where
         toHeaders = const mempty
@@ -111,9 +110,10 @@ instance ToQuery PutDashboard where
 
 -- | /See:/ 'putDashboardResponse' smart constructor.
 data PutDashboardResponse = PutDashboardResponse'
-    { _pdrsDashboardValidationMessages :: !(Maybe [DashboardValidationMessage])
-    , _pdrsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdrsDashboardValidationMessages :: {-# NOUNPACK #-}!(Maybe [DashboardValidationMessage])
+  , _pdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutDashboardResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +126,11 @@ putDashboardResponse
     :: Int -- ^ 'pdrsResponseStatus'
     -> PutDashboardResponse
 putDashboardResponse pResponseStatus_ =
-    PutDashboardResponse'
-    { _pdrsDashboardValidationMessages = Nothing
-    , _pdrsResponseStatus = pResponseStatus_
-    }
+  PutDashboardResponse'
+  { _pdrsDashboardValidationMessages = Nothing
+  , _pdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the input for @PutDashboard@ was correct and the dashboard was successfully created or modified, this result is empty. If this result includes only warning messages, then the input was valid enough for the dashboard to be created or modified, but some elements of the dashboard may not render. If this result includes error messages, the input was not valid and the operation failed.
 pdrsDashboardValidationMessages :: Lens' PutDashboardResponse [DashboardValidationMessage]
@@ -139,4 +140,4 @@ pdrsDashboardValidationMessages = lens _pdrsDashboardValidationMessages (\ s a -
 pdrsResponseStatus :: Lens' PutDashboardResponse Int
 pdrsResponseStatus = lens _pdrsResponseStatus (\ s a -> s{_pdrsResponseStatus = a});
 
-instance NFData PutDashboardResponse
+instance NFData PutDashboardResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DisableGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.StorageGateway.DisableGateway
     , disrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DisableGatewayInput
 --
@@ -54,8 +54,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'disableGateway' smart constructor.
 newtype DisableGateway = DisableGateway'
-    { _dGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableGateway' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ newtype DisableGateway = DisableGateway'
 disableGateway
     :: Text -- ^ 'dGatewayARN'
     -> DisableGateway
-disableGateway pGatewayARN_ =
-    DisableGateway'
-    { _dGatewayARN = pGatewayARN_
-    }
+disableGateway pGatewayARN_ = DisableGateway' {_dGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dGatewayARN :: Lens' DisableGateway Text
@@ -83,9 +82,9 @@ instance AWSRequest DisableGateway where
                  DisableGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable DisableGateway
+instance Hashable DisableGateway where
 
-instance NFData DisableGateway
+instance NFData DisableGateway where
 
 instance ToHeaders DisableGateway where
         toHeaders
@@ -114,9 +113,10 @@ instance ToQuery DisableGateway where
 --
 -- /See:/ 'disableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
-    { _disrsGatewayARN     :: !(Maybe Text)
-    , _disrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _disrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableGatewayResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ disableGatewayResponse
     :: Int -- ^ 'disrsResponseStatus'
     -> DisableGatewayResponse
 disableGatewayResponse pResponseStatus_ =
-    DisableGatewayResponse'
-    { _disrsGatewayARN = Nothing
-    , _disrsResponseStatus = pResponseStatus_
-    }
+  DisableGatewayResponse'
+  {_disrsGatewayARN = Nothing, _disrsResponseStatus = pResponseStatus_}
+
 
 -- | The unique Amazon Resource Name of the disabled gateway.
 disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
@@ -142,4 +141,4 @@ disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
 disrsResponseStatus :: Lens' DisableGatewayResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 
-instance NFData DisableGatewayResponse
+instance NFData DisableGatewayResponse where

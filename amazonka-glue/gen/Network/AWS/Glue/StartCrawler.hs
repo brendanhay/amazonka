@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StartCrawler
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.StartCrawler
     , scrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startCrawler' smart constructor.
 newtype StartCrawler = StartCrawler'
-    { _scName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartCrawler' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype StartCrawler = StartCrawler'
 startCrawler
     :: Text -- ^ 'scName'
     -> StartCrawler
-startCrawler pName_ =
-    StartCrawler'
-    { _scName = pName_
-    }
+startCrawler pName_ = StartCrawler' {_scName = pName_}
+
 
 -- | Name of the @Crawler@ to start.
 scName :: Lens' StartCrawler Text
@@ -73,9 +72,9 @@ instance AWSRequest StartCrawler where
               (\ s h x ->
                  StartCrawlerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StartCrawler
+instance Hashable StartCrawler where
 
-instance NFData StartCrawler
+instance NFData StartCrawler where
 
 instance ToHeaders StartCrawler where
         toHeaders
@@ -98,8 +97,9 @@ instance ToQuery StartCrawler where
 
 -- | /See:/ 'startCrawlerResponse' smart constructor.
 newtype StartCrawlerResponse = StartCrawlerResponse'
-    { _scrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartCrawlerResponse' with the minimum fields required to make a request.
 --
@@ -110,12 +110,11 @@ startCrawlerResponse
     :: Int -- ^ 'scrsResponseStatus'
     -> StartCrawlerResponse
 startCrawlerResponse pResponseStatus_ =
-    StartCrawlerResponse'
-    { _scrsResponseStatus = pResponseStatus_
-    }
+  StartCrawlerResponse' {_scrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 scrsResponseStatus :: Lens' StartCrawlerResponse Int
 scrsResponseStatus = lens _scrsResponseStatus (\ s a -> s{_scrsResponseStatus = a});
 
-instance NFData StartCrawlerResponse
+instance NFData StartCrawlerResponse where

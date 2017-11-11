@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.SSM.UpdateAssociation
     , uarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateAssociation' smart constructor.
 data UpdateAssociation = UpdateAssociation'
-    { _uaScheduleExpression :: !(Maybe Text)
-    , _uaName               :: !(Maybe Text)
-    , _uaOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
-    , _uaTargets            :: !(Maybe [Target])
-    , _uaParameters         :: !(Maybe (Map Text [Text]))
-    , _uaDocumentVersion    :: !(Maybe Text)
-    , _uaAssociationId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaOutputLocation :: {-# NOUNPACK #-}!(Maybe InstanceAssociationOutputLocation)
+  , _uaTargets :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _uaParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _uaDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaAssociationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAssociation' with the minimum fields required to make a request.
 --
@@ -82,15 +83,16 @@ updateAssociation
     :: Text -- ^ 'uaAssociationId'
     -> UpdateAssociation
 updateAssociation pAssociationId_ =
-    UpdateAssociation'
-    { _uaScheduleExpression = Nothing
-    , _uaName = Nothing
-    , _uaOutputLocation = Nothing
-    , _uaTargets = Nothing
-    , _uaParameters = Nothing
-    , _uaDocumentVersion = Nothing
-    , _uaAssociationId = pAssociationId_
-    }
+  UpdateAssociation'
+  { _uaScheduleExpression = Nothing
+  , _uaName = Nothing
+  , _uaOutputLocation = Nothing
+  , _uaTargets = Nothing
+  , _uaParameters = Nothing
+  , _uaDocumentVersion = Nothing
+  , _uaAssociationId = pAssociationId_
+  }
+
 
 -- | The cron expression used to schedule the association that you want to update.
 uaScheduleExpression :: Lens' UpdateAssociation (Maybe Text)
@@ -130,9 +132,9 @@ instance AWSRequest UpdateAssociation where
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateAssociation
+instance Hashable UpdateAssociation where
 
-instance NFData UpdateAssociation
+instance NFData UpdateAssociation where
 
 instance ToHeaders UpdateAssociation where
         toHeaders
@@ -163,9 +165,10 @@ instance ToQuery UpdateAssociation where
 
 -- | /See:/ 'updateAssociationResponse' smart constructor.
 data UpdateAssociationResponse = UpdateAssociationResponse'
-    { _uarsAssociationDescription :: !(Maybe AssociationDescription)
-    , _uarsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uarsAssociationDescription :: {-# NOUNPACK #-}!(Maybe AssociationDescription)
+  , _uarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAssociationResponse' with the minimum fields required to make a request.
 --
@@ -178,10 +181,11 @@ updateAssociationResponse
     :: Int -- ^ 'uarsResponseStatus'
     -> UpdateAssociationResponse
 updateAssociationResponse pResponseStatus_ =
-    UpdateAssociationResponse'
-    { _uarsAssociationDescription = Nothing
-    , _uarsResponseStatus = pResponseStatus_
-    }
+  UpdateAssociationResponse'
+  { _uarsAssociationDescription = Nothing
+  , _uarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The description of the association that was updated.
 uarsAssociationDescription :: Lens' UpdateAssociationResponse (Maybe AssociationDescription)
@@ -191,4 +195,4 @@ uarsAssociationDescription = lens _uarsAssociationDescription (\ s a -> s{_uarsA
 uarsResponseStatus :: Lens' UpdateAssociationResponse Int
 uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
 
-instance NFData UpdateAssociationResponse
+instance NFData UpdateAssociationResponse where

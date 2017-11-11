@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAttachedRolePolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,21 +48,22 @@ module Network.AWS.IAM.ListAttachedRolePolicies
     , larprsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAttachedRolePolicies' smart constructor.
 data ListAttachedRolePolicies = ListAttachedRolePolicies'
-    { _larpPathPrefix :: !(Maybe Text)
-    , _larpMarker     :: !(Maybe Text)
-    , _larpMaxItems   :: !(Maybe Nat)
-    , _larpRoleName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larpPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larpMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larpMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _larpRoleName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttachedRolePolicies' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ listAttachedRolePolicies
     :: Text -- ^ 'larpRoleName'
     -> ListAttachedRolePolicies
 listAttachedRolePolicies pRoleName_ =
-    ListAttachedRolePolicies'
-    { _larpPathPrefix = Nothing
-    , _larpMarker = Nothing
-    , _larpMaxItems = Nothing
-    , _larpRoleName = pRoleName_
-    }
+  ListAttachedRolePolicies'
+  { _larpPathPrefix = Nothing
+  , _larpMarker = Nothing
+  , _larpMaxItems = Nothing
+  , _larpRoleName = pRoleName_
+  }
+
 
 -- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 larpPathPrefix :: Lens' ListAttachedRolePolicies (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest ListAttachedRolePolicies where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAttachedRolePolicies
+instance Hashable ListAttachedRolePolicies where
 
-instance NFData ListAttachedRolePolicies
+instance NFData ListAttachedRolePolicies where
 
 instance ToHeaders ListAttachedRolePolicies where
         toHeaders = const mempty
@@ -149,11 +151,12 @@ instance ToQuery ListAttachedRolePolicies where
 --
 -- /See:/ 'listAttachedRolePoliciesResponse' smart constructor.
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
-    { _larprsAttachedPolicies :: !(Maybe [AttachedPolicy])
-    , _larprsMarker           :: !(Maybe Text)
-    , _larprsIsTruncated      :: !(Maybe Bool)
-    , _larprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larprsAttachedPolicies :: {-# NOUNPACK #-}!(Maybe [AttachedPolicy])
+  , _larprsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larprsIsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _larprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAttachedRolePoliciesResponse' with the minimum fields required to make a request.
 --
@@ -170,12 +173,13 @@ listAttachedRolePoliciesResponse
     :: Int -- ^ 'larprsResponseStatus'
     -> ListAttachedRolePoliciesResponse
 listAttachedRolePoliciesResponse pResponseStatus_ =
-    ListAttachedRolePoliciesResponse'
-    { _larprsAttachedPolicies = Nothing
-    , _larprsMarker = Nothing
-    , _larprsIsTruncated = Nothing
-    , _larprsResponseStatus = pResponseStatus_
-    }
+  ListAttachedRolePoliciesResponse'
+  { _larprsAttachedPolicies = Nothing
+  , _larprsMarker = Nothing
+  , _larprsIsTruncated = Nothing
+  , _larprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the attached policies.
 larprsAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
@@ -194,3 +198,4 @@ larprsResponseStatus :: Lens' ListAttachedRolePoliciesResponse Int
 larprsResponseStatus = lens _larprsResponseStatus (\ s a -> s{_larprsResponseStatus = a});
 
 instance NFData ListAttachedRolePoliciesResponse
+         where

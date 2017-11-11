@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterEcsCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.OpsWorks.RegisterEcsCluster
     , recrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerEcsCluster' smart constructor.
 data RegisterEcsCluster = RegisterEcsCluster'
-    { _recEcsClusterARN :: !Text
-    , _recStackId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _recEcsClusterARN :: {-# NOUNPACK #-}!Text
+  , _recStackId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterEcsCluster' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ registerEcsCluster
     -> Text -- ^ 'recStackId'
     -> RegisterEcsCluster
 registerEcsCluster pEcsClusterARN_ pStackId_ =
-    RegisterEcsCluster'
-    { _recEcsClusterARN = pEcsClusterARN_
-    , _recStackId = pStackId_
-    }
+  RegisterEcsCluster'
+  {_recEcsClusterARN = pEcsClusterARN_, _recStackId = pStackId_}
+
 
 -- | The cluster's ARN.
 recEcsClusterARN :: Lens' RegisterEcsCluster Text
@@ -88,9 +88,9 @@ instance AWSRequest RegisterEcsCluster where
                  RegisterEcsClusterResponse' <$>
                    (x .?> "EcsClusterArn") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterEcsCluster
+instance Hashable RegisterEcsCluster where
 
-instance NFData RegisterEcsCluster
+instance NFData RegisterEcsCluster where
 
 instance ToHeaders RegisterEcsCluster where
         toHeaders
@@ -121,9 +121,10 @@ instance ToQuery RegisterEcsCluster where
 --
 -- /See:/ 'registerEcsClusterResponse' smart constructor.
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
-    { _recrsEcsClusterARN  :: !(Maybe Text)
-    , _recrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _recrsEcsClusterARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _recrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterEcsClusterResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +137,9 @@ registerEcsClusterResponse
     :: Int -- ^ 'recrsResponseStatus'
     -> RegisterEcsClusterResponse
 registerEcsClusterResponse pResponseStatus_ =
-    RegisterEcsClusterResponse'
-    { _recrsEcsClusterARN = Nothing
-    , _recrsResponseStatus = pResponseStatus_
-    }
+  RegisterEcsClusterResponse'
+  {_recrsEcsClusterARN = Nothing, _recrsResponseStatus = pResponseStatus_}
+
 
 -- | The cluster's ARN.
 recrsEcsClusterARN :: Lens' RegisterEcsClusterResponse (Maybe Text)
@@ -149,4 +149,4 @@ recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = 
 recrsResponseStatus :: Lens' RegisterEcsClusterResponse Int
 recrsResponseStatus = lens _recrsResponseStatus (\ s a -> s{_recrsResponseStatus = a});
 
-instance NFData RegisterEcsClusterResponse
+instance NFData RegisterEcsClusterResponse where

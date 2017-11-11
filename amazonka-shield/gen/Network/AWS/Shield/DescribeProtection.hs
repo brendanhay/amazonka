@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DescribeProtection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Shield.DescribeProtection
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'describeProtection' smart constructor.
 newtype DescribeProtection = DescribeProtection'
-    { _dpProtectionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpProtectionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProtection' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ describeProtection
     :: Text -- ^ 'dpProtectionId'
     -> DescribeProtection
 describeProtection pProtectionId_ =
-    DescribeProtection'
-    { _dpProtectionId = pProtectionId_
-    }
+  DescribeProtection' {_dpProtectionId = pProtectionId_}
+
 
 -- | The unique identifier (ID) for the 'Protection' object that is described.
 dpProtectionId :: Lens' DescribeProtection Text
@@ -76,9 +76,9 @@ instance AWSRequest DescribeProtection where
                  DescribeProtectionResponse' <$>
                    (x .?> "Protection") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeProtection
+instance Hashable DescribeProtection where
 
-instance NFData DescribeProtection
+instance NFData DescribeProtection where
 
 instance ToHeaders DescribeProtection where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery DescribeProtection where
 
 -- | /See:/ 'describeProtectionResponse' smart constructor.
 data DescribeProtectionResponse = DescribeProtectionResponse'
-    { _dprsProtection     :: !(Maybe Protection)
-    , _dprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsProtection     :: {-# NOUNPACK #-}!(Maybe Protection)
+  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProtectionResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ describeProtectionResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribeProtectionResponse
 describeProtectionResponse pResponseStatus_ =
-    DescribeProtectionResponse'
-    { _dprsProtection = Nothing
-    , _dprsResponseStatus = pResponseStatus_
-    }
+  DescribeProtectionResponse'
+  {_dprsProtection = Nothing, _dprsResponseStatus = pResponseStatus_}
+
 
 -- | The 'Protection' object that is described.
 dprsProtection :: Lens' DescribeProtectionResponse (Maybe Protection)
@@ -132,4 +132,4 @@ dprsProtection = lens _dprsProtection (\ s a -> s{_dprsProtection = a});
 dprsResponseStatus :: Lens' DescribeProtectionResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DescribeProtectionResponse
+instance NFData DescribeProtectionResponse where

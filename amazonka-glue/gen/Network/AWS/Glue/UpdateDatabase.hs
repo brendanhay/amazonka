@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateDatabase
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Glue.UpdateDatabase
     , udrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateDatabase' smart constructor.
 data UpdateDatabase = UpdateDatabase'
-    { _udCatalogId     :: !(Maybe Text)
-    , _udName          :: !Text
-    , _udDatabaseInput :: !DatabaseInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udCatalogId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udName          :: {-# NOUNPACK #-}!Text
+  , _udDatabaseInput :: {-# NOUNPACK #-}!DatabaseInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDatabase' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ updateDatabase
     -> DatabaseInput -- ^ 'udDatabaseInput'
     -> UpdateDatabase
 updateDatabase pName_ pDatabaseInput_ =
-    UpdateDatabase'
-    { _udCatalogId = Nothing
-    , _udName = pName_
-    , _udDatabaseInput = pDatabaseInput_
-    }
+  UpdateDatabase'
+  {_udCatalogId = Nothing, _udName = pName_, _udDatabaseInput = pDatabaseInput_}
+
 
 -- | The ID of the Data Catalog in which the metadata database resides. If none is supplied, the AWS account ID is used by default.
 udCatalogId :: Lens' UpdateDatabase (Maybe Text)
@@ -92,9 +91,9 @@ instance AWSRequest UpdateDatabase where
               (\ s h x ->
                  UpdateDatabaseResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateDatabase
+instance Hashable UpdateDatabase where
 
-instance NFData UpdateDatabase
+instance NFData UpdateDatabase where
 
 instance ToHeaders UpdateDatabase where
         toHeaders
@@ -121,8 +120,9 @@ instance ToQuery UpdateDatabase where
 
 -- | /See:/ 'updateDatabaseResponse' smart constructor.
 newtype UpdateDatabaseResponse = UpdateDatabaseResponse'
-    { _udrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDatabaseResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +133,11 @@ updateDatabaseResponse
     :: Int -- ^ 'udrsResponseStatus'
     -> UpdateDatabaseResponse
 updateDatabaseResponse pResponseStatus_ =
-    UpdateDatabaseResponse'
-    { _udrsResponseStatus = pResponseStatus_
-    }
+  UpdateDatabaseResponse' {_udrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDatabaseResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
 
-instance NFData UpdateDatabaseResponse
+instance NFData UpdateDatabaseResponse where

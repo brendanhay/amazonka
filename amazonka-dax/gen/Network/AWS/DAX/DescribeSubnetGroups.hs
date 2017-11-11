@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeSubnetGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.DAX.DescribeSubnetGroups
     , dsgsrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeSubnetGroups' smart constructor.
 data DescribeSubnetGroups = DescribeSubnetGroups'
-    { _dsgSubnetGroupNames :: !(Maybe [Text])
-    , _dsgNextToken        :: !(Maybe Text)
-    , _dsgMaxResults       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgSubnetGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsgNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubnetGroups' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ data DescribeSubnetGroups = DescribeSubnetGroups'
 describeSubnetGroups
     :: DescribeSubnetGroups
 describeSubnetGroups =
-    DescribeSubnetGroups'
-    { _dsgSubnetGroupNames = Nothing
-    , _dsgNextToken = Nothing
-    , _dsgMaxResults = Nothing
-    }
+  DescribeSubnetGroups'
+  { _dsgSubnetGroupNames = Nothing
+  , _dsgNextToken = Nothing
+  , _dsgMaxResults = Nothing
+  }
+
 
 -- | The name of the subnet group.
 dsgSubnetGroupNames :: Lens' DescribeSubnetGroups [Text]
@@ -96,9 +98,9 @@ instance AWSRequest DescribeSubnetGroups where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSubnetGroups
+instance Hashable DescribeSubnetGroups where
 
-instance NFData DescribeSubnetGroups
+instance NFData DescribeSubnetGroups where
 
 instance ToHeaders DescribeSubnetGroups where
         toHeaders
@@ -125,10 +127,11 @@ instance ToQuery DescribeSubnetGroups where
 
 -- | /See:/ 'describeSubnetGroupsResponse' smart constructor.
 data DescribeSubnetGroupsResponse = DescribeSubnetGroupsResponse'
-    { _dsgsrsSubnetGroups   :: !(Maybe [SubnetGroup])
-    , _dsgsrsNextToken      :: !(Maybe Text)
-    , _dsgsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgsrsSubnetGroups   :: {-# NOUNPACK #-}!(Maybe [SubnetGroup])
+  , _dsgsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubnetGroupsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +146,12 @@ describeSubnetGroupsResponse
     :: Int -- ^ 'dsgsrsResponseStatus'
     -> DescribeSubnetGroupsResponse
 describeSubnetGroupsResponse pResponseStatus_ =
-    DescribeSubnetGroupsResponse'
-    { _dsgsrsSubnetGroups = Nothing
-    , _dsgsrsNextToken = Nothing
-    , _dsgsrsResponseStatus = pResponseStatus_
-    }
+  DescribeSubnetGroupsResponse'
+  { _dsgsrsSubnetGroups = Nothing
+  , _dsgsrsNextToken = Nothing
+  , _dsgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of subnet groups. Each element in the array represents a single subnet group.
 dsgsrsSubnetGroups :: Lens' DescribeSubnetGroupsResponse [SubnetGroup]
@@ -161,4 +165,4 @@ dsgsrsNextToken = lens _dsgsrsNextToken (\ s a -> s{_dsgsrsNextToken = a});
 dsgsrsResponseStatus :: Lens' DescribeSubnetGroupsResponse Int
 dsgsrsResponseStatus = lens _dsgsrsResponseStatus (\ s a -> s{_dsgsrsResponseStatus = a});
 
-instance NFData DescribeSubnetGroupsResponse
+instance NFData DescribeSubnetGroupsResponse where

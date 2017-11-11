@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.DMS.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DMS.Types.Product where
 
-import           Network.AWS.DMS.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DMS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Describes a quota for an AWS account, for example, the number of replication instances allowed.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'accountQuota' smart constructor.
 data AccountQuota = AccountQuota'
-    { _aqMax              :: !(Maybe Integer)
-    , _aqUsed             :: !(Maybe Integer)
-    , _aqAccountQuotaName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aqMax              :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _aqUsed             :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _aqAccountQuotaName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccountQuota' with the minimum fields required to make a request.
 --
@@ -44,11 +45,9 @@ data AccountQuota = AccountQuota'
 accountQuota
     :: AccountQuota
 accountQuota =
-    AccountQuota'
-    { _aqMax = Nothing
-    , _aqUsed = Nothing
-    , _aqAccountQuotaName = Nothing
-    }
+  AccountQuota'
+  {_aqMax = Nothing, _aqUsed = Nothing, _aqAccountQuotaName = Nothing}
+
 
 -- | The maximum allowed value for the quota.
 aqMax :: Lens' AccountQuota (Maybe Integer)
@@ -70,9 +69,9 @@ instance FromJSON AccountQuota where
                    (x .:? "Max") <*> (x .:? "Used") <*>
                      (x .:? "AccountQuotaName"))
 
-instance Hashable AccountQuota
+instance Hashable AccountQuota where
 
-instance NFData AccountQuota
+instance NFData AccountQuota where
 
 -- |
 --
@@ -80,8 +79,9 @@ instance NFData AccountQuota
 --
 -- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
-    { _azName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _azName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
@@ -90,10 +90,8 @@ newtype AvailabilityZone = AvailabilityZone'
 -- * 'azName' - The name of the availability zone.
 availabilityZone
     :: AvailabilityZone
-availabilityZone =
-    AvailabilityZone'
-    { _azName = Nothing
-    }
+availabilityZone = AvailabilityZone' {_azName = Nothing}
+
 
 -- | The name of the availability zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
@@ -104,9 +102,9 @@ instance FromJSON AvailabilityZone where
           = withObject "AvailabilityZone"
               (\ x -> AvailabilityZone' <$> (x .:? "Name"))
 
-instance Hashable AvailabilityZone
+instance Hashable AvailabilityZone where
 
-instance NFData AvailabilityZone
+instance NFData AvailabilityZone where
 
 -- | The SSL certificate that can be used to encrypt connections between the endpoints and the replication instance.
 --
@@ -114,17 +112,18 @@ instance NFData AvailabilityZone
 --
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
-    { _cCertificateOwner        :: !(Maybe Text)
-    , _cSigningAlgorithm        :: !(Maybe Text)
-    , _cValidFromDate           :: !(Maybe POSIX)
-    , _cCertificatePem          :: !(Maybe Text)
-    , _cCertificateARN          :: !(Maybe Text)
-    , _cCertificateCreationDate :: !(Maybe POSIX)
-    , _cCertificateIdentifier   :: !(Maybe Text)
-    , _cCertificateWallet       :: !(Maybe Base64)
-    , _cKeyLength               :: !(Maybe Int)
-    , _cValidToDate             :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cCertificateOwner        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cSigningAlgorithm        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cValidFromDate           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cCertificatePem          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCertificateARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCertificateCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cCertificateIdentifier   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCertificateWallet       :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _cKeyLength               :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cValidToDate             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
@@ -152,18 +151,19 @@ data Certificate = Certificate'
 certificate
     :: Certificate
 certificate =
-    Certificate'
-    { _cCertificateOwner = Nothing
-    , _cSigningAlgorithm = Nothing
-    , _cValidFromDate = Nothing
-    , _cCertificatePem = Nothing
-    , _cCertificateARN = Nothing
-    , _cCertificateCreationDate = Nothing
-    , _cCertificateIdentifier = Nothing
-    , _cCertificateWallet = Nothing
-    , _cKeyLength = Nothing
-    , _cValidToDate = Nothing
-    }
+  Certificate'
+  { _cCertificateOwner = Nothing
+  , _cSigningAlgorithm = Nothing
+  , _cValidFromDate = Nothing
+  , _cCertificatePem = Nothing
+  , _cCertificateARN = Nothing
+  , _cCertificateCreationDate = Nothing
+  , _cCertificateIdentifier = Nothing
+  , _cCertificateWallet = Nothing
+  , _cKeyLength = Nothing
+  , _cValidToDate = Nothing
+  }
+
 
 -- | The owner of the certificate.
 cCertificateOwner :: Lens' Certificate (Maybe Text)
@@ -221,9 +221,9 @@ instance FromJSON Certificate where
                      <*> (x .:? "KeyLength")
                      <*> (x .:? "ValidToDate"))
 
-instance Hashable Certificate
+instance Hashable Certificate where
 
-instance NFData Certificate
+instance NFData Certificate where
 
 -- |
 --
@@ -231,13 +231,14 @@ instance NFData Certificate
 --
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
-    { _cStatus                        :: !(Maybe Text)
-    , _cReplicationInstanceARN        :: !(Maybe Text)
-    , _cEndpointIdentifier            :: !(Maybe Text)
-    , _cReplicationInstanceIdentifier :: !(Maybe Text)
-    , _cEndpointARN                   :: !(Maybe Text)
-    , _cLastFailureMessage            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cStatus                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cReplicationInstanceARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cEndpointIdentifier            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cReplicationInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cEndpointARN                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cLastFailureMessage            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Connection' with the minimum fields required to make a request.
 --
@@ -257,14 +258,15 @@ data Connection = Connection'
 connection
     :: Connection
 connection =
-    Connection'
-    { _cStatus = Nothing
-    , _cReplicationInstanceARN = Nothing
-    , _cEndpointIdentifier = Nothing
-    , _cReplicationInstanceIdentifier = Nothing
-    , _cEndpointARN = Nothing
-    , _cLastFailureMessage = Nothing
-    }
+  Connection'
+  { _cStatus = Nothing
+  , _cReplicationInstanceARN = Nothing
+  , _cEndpointIdentifier = Nothing
+  , _cReplicationInstanceIdentifier = Nothing
+  , _cEndpointARN = Nothing
+  , _cLastFailureMessage = Nothing
+  }
+
 
 -- | The connection status.
 cStatus :: Lens' Connection (Maybe Text)
@@ -301,9 +303,9 @@ instance FromJSON Connection where
                      <*> (x .:? "EndpointArn")
                      <*> (x .:? "LastFailureMessage"))
 
-instance Hashable Connection
+instance Hashable Connection where
 
-instance NFData Connection
+instance NFData Connection where
 
 -- |
 --
@@ -311,8 +313,9 @@ instance NFData Connection
 --
 -- /See:/ 'dynamoDBSettings' smart constructor.
 newtype DynamoDBSettings = DynamoDBSettings'
-    { _ddsServiceAccessRoleARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsServiceAccessRoleARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DynamoDBSettings' with the minimum fields required to make a request.
 --
@@ -323,9 +326,8 @@ dynamoDBSettings
     :: Text -- ^ 'ddsServiceAccessRoleARN'
     -> DynamoDBSettings
 dynamoDBSettings pServiceAccessRoleARN_ =
-    DynamoDBSettings'
-    { _ddsServiceAccessRoleARN = pServiceAccessRoleARN_
-    }
+  DynamoDBSettings' {_ddsServiceAccessRoleARN = pServiceAccessRoleARN_}
+
 
 -- | The Amazon Resource Name (ARN) used by the service access IAM role.
 ddsServiceAccessRoleARN :: Lens' DynamoDBSettings Text
@@ -337,9 +339,9 @@ instance FromJSON DynamoDBSettings where
               (\ x ->
                  DynamoDBSettings' <$> (x .: "ServiceAccessRoleArn"))
 
-instance Hashable DynamoDBSettings
+instance Hashable DynamoDBSettings where
 
-instance NFData DynamoDBSettings
+instance NFData DynamoDBSettings where
 
 instance ToJSON DynamoDBSettings where
         toJSON DynamoDBSettings'{..}
@@ -355,24 +357,25 @@ instance ToJSON DynamoDBSettings where
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-    { _eStatus                    :: !(Maybe Text)
-    , _eServerName                :: !(Maybe Text)
-    , _eCertificateARN            :: !(Maybe Text)
-    , _eExtraConnectionAttributes :: !(Maybe Text)
-    , _eEndpointType              :: !(Maybe ReplicationEndpointTypeValue)
-    , _eUsername                  :: !(Maybe Text)
-    , _eEngineName                :: !(Maybe Text)
-    , _eKMSKeyId                  :: !(Maybe Text)
-    , _eMongoDBSettings           :: !(Maybe MongoDBSettings)
-    , _eSSLMode                   :: !(Maybe DmsSSLModeValue)
-    , _eDatabaseName              :: !(Maybe Text)
-    , _eS3Settings                :: !(Maybe S3Settings)
-    , _eEndpointIdentifier        :: !(Maybe Text)
-    , _eExternalId                :: !(Maybe Text)
-    , _eDynamoDBSettings          :: !(Maybe DynamoDBSettings)
-    , _eEndpointARN               :: !(Maybe Text)
-    , _ePort                      :: !(Maybe Int)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _eStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eServerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eExtraConnectionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEndpointType :: {-# NOUNPACK #-}!(Maybe ReplicationEndpointTypeValue)
+  , _eUsername :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEngineName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eMongoDBSettings :: {-# NOUNPACK #-}!(Maybe MongoDBSettings)
+  , _eSSLMode :: {-# NOUNPACK #-}!(Maybe DmsSSLModeValue)
+  , _eDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eS3Settings :: {-# NOUNPACK #-}!(Maybe S3Settings)
+  , _eEndpointIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eExternalId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eDynamoDBSettings :: {-# NOUNPACK #-}!(Maybe DynamoDBSettings)
+  , _eEndpointARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ePort :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
@@ -414,25 +417,26 @@ data Endpoint = Endpoint'
 endpoint
     :: Endpoint
 endpoint =
-    Endpoint'
-    { _eStatus = Nothing
-    , _eServerName = Nothing
-    , _eCertificateARN = Nothing
-    , _eExtraConnectionAttributes = Nothing
-    , _eEndpointType = Nothing
-    , _eUsername = Nothing
-    , _eEngineName = Nothing
-    , _eKMSKeyId = Nothing
-    , _eMongoDBSettings = Nothing
-    , _eSSLMode = Nothing
-    , _eDatabaseName = Nothing
-    , _eS3Settings = Nothing
-    , _eEndpointIdentifier = Nothing
-    , _eExternalId = Nothing
-    , _eDynamoDBSettings = Nothing
-    , _eEndpointARN = Nothing
-    , _ePort = Nothing
-    }
+  Endpoint'
+  { _eStatus = Nothing
+  , _eServerName = Nothing
+  , _eCertificateARN = Nothing
+  , _eExtraConnectionAttributes = Nothing
+  , _eEndpointType = Nothing
+  , _eUsername = Nothing
+  , _eEngineName = Nothing
+  , _eKMSKeyId = Nothing
+  , _eMongoDBSettings = Nothing
+  , _eSSLMode = Nothing
+  , _eDatabaseName = Nothing
+  , _eS3Settings = Nothing
+  , _eEndpointIdentifier = Nothing
+  , _eExternalId = Nothing
+  , _eDynamoDBSettings = Nothing
+  , _eEndpointARN = Nothing
+  , _ePort = Nothing
+  }
+
 
 -- | The status of the endpoint.
 eStatus :: Lens' Endpoint (Maybe Text)
@@ -524,9 +528,9 @@ instance FromJSON Endpoint where
                      <*> (x .:? "EndpointArn")
                      <*> (x .:? "Port"))
 
-instance Hashable Endpoint
+instance Hashable Endpoint where
 
-instance NFData Endpoint
+instance NFData Endpoint where
 
 -- |
 --
@@ -534,12 +538,13 @@ instance NFData Endpoint
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eSourceType       :: !(Maybe SourceType)
-    , _eSourceIdentifier :: !(Maybe Text)
-    , _eDate             :: !(Maybe POSIX)
-    , _eEventCategories  :: !(Maybe [Text])
-    , _eMessage          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _eSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eDate             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eMessage          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
@@ -557,13 +562,14 @@ data Event = Event'
 event
     :: Event
 event =
-    Event'
-    { _eSourceType = Nothing
-    , _eSourceIdentifier = Nothing
-    , _eDate = Nothing
-    , _eEventCategories = Nothing
-    , _eMessage = Nothing
-    }
+  Event'
+  { _eSourceType = Nothing
+  , _eSourceIdentifier = Nothing
+  , _eDate = Nothing
+  , _eEventCategories = Nothing
+  , _eMessage = Nothing
+  }
+
 
 -- | The type of AWS DMS resource that generates events.  Valid values: replication-instance | endpoint | migration-task
 eSourceType :: Lens' Event (Maybe SourceType)
@@ -595,9 +601,9 @@ instance FromJSON Event where
                      <*> (x .:? "EventCategories" .!= mempty)
                      <*> (x .:? "Message"))
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- |
 --
@@ -605,9 +611,10 @@ instance NFData Event
 --
 -- /See:/ 'eventCategoryGroup' smart constructor.
 data EventCategoryGroup = EventCategoryGroup'
-    { _ecgSourceType      :: !(Maybe Text)
-    , _ecgEventCategories :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecgSourceType      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecgEventCategories :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventCategoryGroup' with the minimum fields required to make a request.
 --
@@ -619,10 +626,8 @@ data EventCategoryGroup = EventCategoryGroup'
 eventCategoryGroup
     :: EventCategoryGroup
 eventCategoryGroup =
-    EventCategoryGroup'
-    { _ecgSourceType = Nothing
-    , _ecgEventCategories = Nothing
-    }
+  EventCategoryGroup' {_ecgSourceType = Nothing, _ecgEventCategories = Nothing}
+
 
 -- | The type of AWS DMS resource that generates events.  Valid values: replication-instance | replication-server | security-group | migration-task
 ecgSourceType :: Lens' EventCategoryGroup (Maybe Text)
@@ -640,9 +645,9 @@ instance FromJSON EventCategoryGroup where
                    (x .:? "SourceType") <*>
                      (x .:? "EventCategories" .!= mempty))
 
-instance Hashable EventCategoryGroup
+instance Hashable EventCategoryGroup where
 
-instance NFData EventCategoryGroup
+instance NFData EventCategoryGroup where
 
 -- |
 --
@@ -650,16 +655,17 @@ instance NFData EventCategoryGroup
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-    { _esStatus                   :: !(Maybe Text)
-    , _esCustomerAWSId            :: !(Maybe Text)
-    , _esCustSubscriptionId       :: !(Maybe Text)
-    , _esSNSTopicARN              :: !(Maybe Text)
-    , _esEnabled                  :: !(Maybe Bool)
-    , _esSourceType               :: !(Maybe Text)
-    , _esSubscriptionCreationTime :: !(Maybe Text)
-    , _esEventCategoriesList      :: !(Maybe [Text])
-    , _esSourceIdsList            :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esCustomerAWSId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esCustSubscriptionId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esSNSTopicARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _esSourceType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esSubscriptionCreationTime :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esEventCategoriesList      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _esSourceIdsList            :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
@@ -685,17 +691,18 @@ data EventSubscription = EventSubscription'
 eventSubscription
     :: EventSubscription
 eventSubscription =
-    EventSubscription'
-    { _esStatus = Nothing
-    , _esCustomerAWSId = Nothing
-    , _esCustSubscriptionId = Nothing
-    , _esSNSTopicARN = Nothing
-    , _esEnabled = Nothing
-    , _esSourceType = Nothing
-    , _esSubscriptionCreationTime = Nothing
-    , _esEventCategoriesList = Nothing
-    , _esSourceIdsList = Nothing
-    }
+  EventSubscription'
+  { _esStatus = Nothing
+  , _esCustomerAWSId = Nothing
+  , _esCustSubscriptionId = Nothing
+  , _esSNSTopicARN = Nothing
+  , _esEnabled = Nothing
+  , _esSourceType = Nothing
+  , _esSubscriptionCreationTime = Nothing
+  , _esEventCategoriesList = Nothing
+  , _esSourceIdsList = Nothing
+  }
+
 
 -- | The status of the AWS DMS event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
@@ -747,9 +754,9 @@ instance FromJSON EventSubscription where
                      <*> (x .:? "EventCategoriesList" .!= mempty)
                      <*> (x .:? "SourceIdsList" .!= mempty))
 
-instance Hashable EventSubscription
+instance Hashable EventSubscription where
 
-instance NFData EventSubscription
+instance NFData EventSubscription where
 
 -- |
 --
@@ -757,9 +764,10 @@ instance NFData EventSubscription
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
-    { _fName   :: !Text
-    , _fValues :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fName   :: {-# NOUNPACK #-}!Text
+  , _fValues :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
@@ -771,11 +779,8 @@ data Filter = Filter'
 filter'
     :: Text -- ^ 'fName'
     -> Filter
-filter' pName_ =
-    Filter'
-    { _fName = pName_
-    , _fValues = mempty
-    }
+filter' pName_ = Filter' {_fName = pName_, _fValues = mempty}
+
 
 -- | The name of the filter.
 fName :: Lens' Filter Text
@@ -785,9 +790,9 @@ fName = lens _fName (\ s a -> s{_fName = a});
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 
-instance Hashable Filter
+instance Hashable Filter where
 
-instance NFData Filter
+instance NFData Filter where
 
 instance ToJSON Filter where
         toJSON Filter'{..}
@@ -802,18 +807,19 @@ instance ToJSON Filter where
 --
 -- /See:/ 'mongoDBSettings' smart constructor.
 data MongoDBSettings = MongoDBSettings'
-    { _mdsServerName        :: !(Maybe Text)
-    , _mdsAuthMechanism     :: !(Maybe AuthMechanismValue)
-    , _mdsUsername          :: !(Maybe Text)
-    , _mdsPassword          :: !(Maybe (Sensitive Text))
-    , _mdsNestingLevel      :: !(Maybe NestingLevelValue)
-    , _mdsDatabaseName      :: !(Maybe Text)
-    , _mdsDocsToInvestigate :: !(Maybe Text)
-    , _mdsAuthSource        :: !(Maybe Text)
-    , _mdsExtractDocId      :: !(Maybe Text)
-    , _mdsAuthType          :: !(Maybe AuthTypeValue)
-    , _mdsPort              :: !(Maybe Int)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mdsServerName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdsAuthMechanism     :: {-# NOUNPACK #-}!(Maybe AuthMechanismValue)
+  , _mdsUsername          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdsPassword          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _mdsNestingLevel      :: {-# NOUNPACK #-}!(Maybe NestingLevelValue)
+  , _mdsDatabaseName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdsDocsToInvestigate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdsAuthSource        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdsExtractDocId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdsAuthType          :: {-# NOUNPACK #-}!(Maybe AuthTypeValue)
+  , _mdsPort              :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MongoDBSettings' with the minimum fields required to make a request.
 --
@@ -843,19 +849,20 @@ data MongoDBSettings = MongoDBSettings'
 mongoDBSettings
     :: MongoDBSettings
 mongoDBSettings =
-    MongoDBSettings'
-    { _mdsServerName = Nothing
-    , _mdsAuthMechanism = Nothing
-    , _mdsUsername = Nothing
-    , _mdsPassword = Nothing
-    , _mdsNestingLevel = Nothing
-    , _mdsDatabaseName = Nothing
-    , _mdsDocsToInvestigate = Nothing
-    , _mdsAuthSource = Nothing
-    , _mdsExtractDocId = Nothing
-    , _mdsAuthType = Nothing
-    , _mdsPort = Nothing
-    }
+  MongoDBSettings'
+  { _mdsServerName = Nothing
+  , _mdsAuthMechanism = Nothing
+  , _mdsUsername = Nothing
+  , _mdsPassword = Nothing
+  , _mdsNestingLevel = Nothing
+  , _mdsDatabaseName = Nothing
+  , _mdsDocsToInvestigate = Nothing
+  , _mdsAuthSource = Nothing
+  , _mdsExtractDocId = Nothing
+  , _mdsAuthType = Nothing
+  , _mdsPort = Nothing
+  }
+
 
 -- | The name of the server on the MongoDB source endpoint.
 mdsServerName :: Lens' MongoDBSettings (Maybe Text)
@@ -917,9 +924,9 @@ instance FromJSON MongoDBSettings where
                      <*> (x .:? "AuthType")
                      <*> (x .:? "Port"))
 
-instance Hashable MongoDBSettings
+instance Hashable MongoDBSettings where
 
-instance NFData MongoDBSettings
+instance NFData MongoDBSettings where
 
 instance ToJSON MongoDBSettings where
         toJSON MongoDBSettings'{..}
@@ -943,14 +950,15 @@ instance ToJSON MongoDBSettings where
 --
 -- /See:/ 'orderableReplicationInstance' smart constructor.
 data OrderableReplicationInstance = OrderableReplicationInstance'
-    { _oriEngineVersion            :: !(Maybe Text)
-    , _oriMinAllocatedStorage      :: !(Maybe Int)
-    , _oriIncludedAllocatedStorage :: !(Maybe Int)
-    , _oriMaxAllocatedStorage      :: !(Maybe Int)
-    , _oriReplicationInstanceClass :: !(Maybe Text)
-    , _oriDefaultAllocatedStorage  :: !(Maybe Int)
-    , _oriStorageType              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oriEngineVersion            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oriMinAllocatedStorage      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _oriIncludedAllocatedStorage :: {-# NOUNPACK #-}!(Maybe Int)
+  , _oriMaxAllocatedStorage      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _oriReplicationInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oriDefaultAllocatedStorage  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _oriStorageType              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OrderableReplicationInstance' with the minimum fields required to make a request.
 --
@@ -972,15 +980,16 @@ data OrderableReplicationInstance = OrderableReplicationInstance'
 orderableReplicationInstance
     :: OrderableReplicationInstance
 orderableReplicationInstance =
-    OrderableReplicationInstance'
-    { _oriEngineVersion = Nothing
-    , _oriMinAllocatedStorage = Nothing
-    , _oriIncludedAllocatedStorage = Nothing
-    , _oriMaxAllocatedStorage = Nothing
-    , _oriReplicationInstanceClass = Nothing
-    , _oriDefaultAllocatedStorage = Nothing
-    , _oriStorageType = Nothing
-    }
+  OrderableReplicationInstance'
+  { _oriEngineVersion = Nothing
+  , _oriMinAllocatedStorage = Nothing
+  , _oriIncludedAllocatedStorage = Nothing
+  , _oriMaxAllocatedStorage = Nothing
+  , _oriReplicationInstanceClass = Nothing
+  , _oriDefaultAllocatedStorage = Nothing
+  , _oriStorageType = Nothing
+  }
+
 
 -- | The version of the replication engine.
 oriEngineVersion :: Lens' OrderableReplicationInstance (Maybe Text)
@@ -1023,9 +1032,9 @@ instance FromJSON OrderableReplicationInstance where
                      <*> (x .:? "DefaultAllocatedStorage")
                      <*> (x .:? "StorageType"))
 
-instance Hashable OrderableReplicationInstance
+instance Hashable OrderableReplicationInstance where
 
-instance NFData OrderableReplicationInstance
+instance NFData OrderableReplicationInstance where
 
 -- |
 --
@@ -1033,12 +1042,13 @@ instance NFData OrderableReplicationInstance
 --
 -- /See:/ 'refreshSchemasStatus' smart constructor.
 data RefreshSchemasStatus = RefreshSchemasStatus'
-    { _rssStatus                 :: !(Maybe RefreshSchemasStatusTypeValue)
-    , _rssLastRefreshDate        :: !(Maybe POSIX)
-    , _rssReplicationInstanceARN :: !(Maybe Text)
-    , _rssEndpointARN            :: !(Maybe Text)
-    , _rssLastFailureMessage     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rssStatus :: {-# NOUNPACK #-}!(Maybe RefreshSchemasStatusTypeValue)
+  , _rssLastRefreshDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rssReplicationInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rssEndpointARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rssLastFailureMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RefreshSchemasStatus' with the minimum fields required to make a request.
 --
@@ -1056,13 +1066,14 @@ data RefreshSchemasStatus = RefreshSchemasStatus'
 refreshSchemasStatus
     :: RefreshSchemasStatus
 refreshSchemasStatus =
-    RefreshSchemasStatus'
-    { _rssStatus = Nothing
-    , _rssLastRefreshDate = Nothing
-    , _rssReplicationInstanceARN = Nothing
-    , _rssEndpointARN = Nothing
-    , _rssLastFailureMessage = Nothing
-    }
+  RefreshSchemasStatus'
+  { _rssStatus = Nothing
+  , _rssLastRefreshDate = Nothing
+  , _rssReplicationInstanceARN = Nothing
+  , _rssEndpointARN = Nothing
+  , _rssLastFailureMessage = Nothing
+  }
+
 
 -- | The status of the schema.
 rssStatus :: Lens' RefreshSchemasStatus (Maybe RefreshSchemasStatusTypeValue)
@@ -1094,9 +1105,9 @@ instance FromJSON RefreshSchemasStatus where
                      <*> (x .:? "EndpointArn")
                      <*> (x .:? "LastFailureMessage"))
 
-instance Hashable RefreshSchemasStatus
+instance Hashable RefreshSchemasStatus where
 
-instance NFData RefreshSchemasStatus
+instance NFData RefreshSchemasStatus where
 
 -- |
 --
@@ -1104,28 +1115,29 @@ instance NFData RefreshSchemasStatus
 --
 -- /See:/ 'replicationInstance' smart constructor.
 data ReplicationInstance = ReplicationInstance'
-    { _riEngineVersion                         :: !(Maybe Text)
-    , _riPubliclyAccessible                    :: !(Maybe Bool)
-    , _riAutoMinorVersionUpgrade               :: !(Maybe Bool)
-    , _riReplicationInstancePublicIPAddresses  :: !(Maybe [Text])
-    , _riReplicationSubnetGroup                :: !(Maybe ReplicationSubnetGroup)
-    , _riInstanceCreateTime                    :: !(Maybe POSIX)
-    , _riReplicationInstanceStatus             :: !(Maybe Text)
-    , _riReplicationInstancePrivateIPAddresses :: !(Maybe [Text])
-    , _riPreferredMaintenanceWindow            :: !(Maybe Text)
-    , _riReplicationInstancePrivateIPAddress   :: !(Maybe Text)
-    , _riKMSKeyId                              :: !(Maybe Text)
-    , _riAvailabilityZone                      :: !(Maybe Text)
-    , _riVPCSecurityGroups                     :: !(Maybe [VPCSecurityGroupMembership])
-    , _riMultiAZ                               :: !(Maybe Bool)
-    , _riSecondaryAvailabilityZone             :: !(Maybe Text)
-    , _riReplicationInstanceARN                :: !(Maybe Text)
-    , _riAllocatedStorage                      :: !(Maybe Int)
-    , _riReplicationInstancePublicIPAddress    :: !(Maybe Text)
-    , _riReplicationInstanceClass              :: !(Maybe Text)
-    , _riReplicationInstanceIdentifier         :: !(Maybe Text)
-    , _riPendingModifiedValues                 :: !(Maybe ReplicationPendingModifiedValues)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riPubliclyAccessible :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _riAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _riReplicationInstancePublicIPAddresses :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _riReplicationSubnetGroup :: {-# NOUNPACK #-}!(Maybe ReplicationSubnetGroup)
+  , _riInstanceCreateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _riReplicationInstanceStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riReplicationInstancePrivateIPAddresses :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _riPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riReplicationInstancePrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
+  , _riMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _riSecondaryAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riReplicationInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riAllocatedStorage :: {-# NOUNPACK #-}!(Maybe Int)
+  , _riReplicationInstancePublicIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riReplicationInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riReplicationInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe ReplicationPendingModifiedValues)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationInstance' with the minimum fields required to make a request.
 --
@@ -1175,29 +1187,30 @@ data ReplicationInstance = ReplicationInstance'
 replicationInstance
     :: ReplicationInstance
 replicationInstance =
-    ReplicationInstance'
-    { _riEngineVersion = Nothing
-    , _riPubliclyAccessible = Nothing
-    , _riAutoMinorVersionUpgrade = Nothing
-    , _riReplicationInstancePublicIPAddresses = Nothing
-    , _riReplicationSubnetGroup = Nothing
-    , _riInstanceCreateTime = Nothing
-    , _riReplicationInstanceStatus = Nothing
-    , _riReplicationInstancePrivateIPAddresses = Nothing
-    , _riPreferredMaintenanceWindow = Nothing
-    , _riReplicationInstancePrivateIPAddress = Nothing
-    , _riKMSKeyId = Nothing
-    , _riAvailabilityZone = Nothing
-    , _riVPCSecurityGroups = Nothing
-    , _riMultiAZ = Nothing
-    , _riSecondaryAvailabilityZone = Nothing
-    , _riReplicationInstanceARN = Nothing
-    , _riAllocatedStorage = Nothing
-    , _riReplicationInstancePublicIPAddress = Nothing
-    , _riReplicationInstanceClass = Nothing
-    , _riReplicationInstanceIdentifier = Nothing
-    , _riPendingModifiedValues = Nothing
-    }
+  ReplicationInstance'
+  { _riEngineVersion = Nothing
+  , _riPubliclyAccessible = Nothing
+  , _riAutoMinorVersionUpgrade = Nothing
+  , _riReplicationInstancePublicIPAddresses = Nothing
+  , _riReplicationSubnetGroup = Nothing
+  , _riInstanceCreateTime = Nothing
+  , _riReplicationInstanceStatus = Nothing
+  , _riReplicationInstancePrivateIPAddresses = Nothing
+  , _riPreferredMaintenanceWindow = Nothing
+  , _riReplicationInstancePrivateIPAddress = Nothing
+  , _riKMSKeyId = Nothing
+  , _riAvailabilityZone = Nothing
+  , _riVPCSecurityGroups = Nothing
+  , _riMultiAZ = Nothing
+  , _riSecondaryAvailabilityZone = Nothing
+  , _riReplicationInstanceARN = Nothing
+  , _riAllocatedStorage = Nothing
+  , _riReplicationInstancePublicIPAddress = Nothing
+  , _riReplicationInstanceClass = Nothing
+  , _riReplicationInstanceIdentifier = Nothing
+  , _riPendingModifiedValues = Nothing
+  }
+
 
 -- | The engine version number of the replication instance.
 riEngineVersion :: Lens' ReplicationInstance (Maybe Text)
@@ -1314,9 +1327,9 @@ instance FromJSON ReplicationInstance where
                      <*> (x .:? "ReplicationInstanceIdentifier")
                      <*> (x .:? "PendingModifiedValues"))
 
-instance Hashable ReplicationInstance
+instance Hashable ReplicationInstance where
 
-instance NFData ReplicationInstance
+instance NFData ReplicationInstance where
 
 -- |
 --
@@ -1324,11 +1337,12 @@ instance NFData ReplicationInstance
 --
 -- /See:/ 'replicationPendingModifiedValues' smart constructor.
 data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
-    { _rpmvEngineVersion            :: !(Maybe Text)
-    , _rpmvMultiAZ                  :: !(Maybe Bool)
-    , _rpmvAllocatedStorage         :: !(Maybe Int)
-    , _rpmvReplicationInstanceClass :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpmvEngineVersion            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpmvMultiAZ                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rpmvAllocatedStorage         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rpmvReplicationInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationPendingModifiedValues' with the minimum fields required to make a request.
 --
@@ -1344,12 +1358,13 @@ data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
 replicationPendingModifiedValues
     :: ReplicationPendingModifiedValues
 replicationPendingModifiedValues =
-    ReplicationPendingModifiedValues'
-    { _rpmvEngineVersion = Nothing
-    , _rpmvMultiAZ = Nothing
-    , _rpmvAllocatedStorage = Nothing
-    , _rpmvReplicationInstanceClass = Nothing
-    }
+  ReplicationPendingModifiedValues'
+  { _rpmvEngineVersion = Nothing
+  , _rpmvMultiAZ = Nothing
+  , _rpmvAllocatedStorage = Nothing
+  , _rpmvReplicationInstanceClass = Nothing
+  }
+
 
 -- | The engine version number of the replication instance.
 rpmvEngineVersion :: Lens' ReplicationPendingModifiedValues (Maybe Text)
@@ -1378,8 +1393,10 @@ instance FromJSON ReplicationPendingModifiedValues
                      <*> (x .:? "ReplicationInstanceClass"))
 
 instance Hashable ReplicationPendingModifiedValues
+         where
 
 instance NFData ReplicationPendingModifiedValues
+         where
 
 -- |
 --
@@ -1387,12 +1404,13 @@ instance NFData ReplicationPendingModifiedValues
 --
 -- /See:/ 'replicationSubnetGroup' smart constructor.
 data ReplicationSubnetGroup = ReplicationSubnetGroup'
-    { _rsgVPCId                             :: !(Maybe Text)
-    , _rsgSubnets                           :: !(Maybe [Subnet])
-    , _rsgReplicationSubnetGroupIdentifier  :: !(Maybe Text)
-    , _rsgSubnetGroupStatus                 :: !(Maybe Text)
-    , _rsgReplicationSubnetGroupDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsgVPCId                             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsgSubnets                           :: {-# NOUNPACK #-}!(Maybe [Subnet])
+  , _rsgReplicationSubnetGroupIdentifier  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsgSubnetGroupStatus                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsgReplicationSubnetGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationSubnetGroup' with the minimum fields required to make a request.
 --
@@ -1410,13 +1428,14 @@ data ReplicationSubnetGroup = ReplicationSubnetGroup'
 replicationSubnetGroup
     :: ReplicationSubnetGroup
 replicationSubnetGroup =
-    ReplicationSubnetGroup'
-    { _rsgVPCId = Nothing
-    , _rsgSubnets = Nothing
-    , _rsgReplicationSubnetGroupIdentifier = Nothing
-    , _rsgSubnetGroupStatus = Nothing
-    , _rsgReplicationSubnetGroupDescription = Nothing
-    }
+  ReplicationSubnetGroup'
+  { _rsgVPCId = Nothing
+  , _rsgSubnets = Nothing
+  , _rsgReplicationSubnetGroupIdentifier = Nothing
+  , _rsgSubnetGroupStatus = Nothing
+  , _rsgReplicationSubnetGroupDescription = Nothing
+  }
+
 
 -- | The ID of the VPC.
 rsgVPCId :: Lens' ReplicationSubnetGroup (Maybe Text)
@@ -1448,9 +1467,9 @@ instance FromJSON ReplicationSubnetGroup where
                      <*> (x .:? "SubnetGroupStatus")
                      <*> (x .:? "ReplicationSubnetGroupDescription"))
 
-instance Hashable ReplicationSubnetGroup
+instance Hashable ReplicationSubnetGroup where
 
-instance NFData ReplicationSubnetGroup
+instance NFData ReplicationSubnetGroup where
 
 -- |
 --
@@ -1458,21 +1477,22 @@ instance NFData ReplicationSubnetGroup
 --
 -- /See:/ 'replicationTask' smart constructor.
 data ReplicationTask = ReplicationTask'
-    { _rReplicationTaskSettings     :: !(Maybe Text)
-    , _rStatus                      :: !(Maybe Text)
-    , _rStopReason                  :: !(Maybe Text)
-    , _rTargetEndpointARN           :: !(Maybe Text)
-    , _rReplicationTaskIdentifier   :: !(Maybe Text)
-    , _rReplicationTaskStartDate    :: !(Maybe POSIX)
-    , _rSourceEndpointARN           :: !(Maybe Text)
-    , _rTableMappings               :: !(Maybe Text)
-    , _rReplicationTaskCreationDate :: !(Maybe POSIX)
-    , _rMigrationType               :: !(Maybe MigrationTypeValue)
-    , _rReplicationTaskARN          :: !(Maybe Text)
-    , _rReplicationTaskStats        :: !(Maybe ReplicationTaskStats)
-    , _rReplicationInstanceARN      :: !(Maybe Text)
-    , _rLastFailureMessage          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rReplicationTaskSettings :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rStopReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rTargetEndpointARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rReplicationTaskIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rReplicationTaskStartDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rSourceEndpointARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rTableMappings :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rReplicationTaskCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rMigrationType :: {-# NOUNPACK #-}!(Maybe MigrationTypeValue)
+  , _rReplicationTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rReplicationTaskStats :: {-# NOUNPACK #-}!(Maybe ReplicationTaskStats)
+  , _rReplicationInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rLastFailureMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationTask' with the minimum fields required to make a request.
 --
@@ -1508,22 +1528,23 @@ data ReplicationTask = ReplicationTask'
 replicationTask
     :: ReplicationTask
 replicationTask =
-    ReplicationTask'
-    { _rReplicationTaskSettings = Nothing
-    , _rStatus = Nothing
-    , _rStopReason = Nothing
-    , _rTargetEndpointARN = Nothing
-    , _rReplicationTaskIdentifier = Nothing
-    , _rReplicationTaskStartDate = Nothing
-    , _rSourceEndpointARN = Nothing
-    , _rTableMappings = Nothing
-    , _rReplicationTaskCreationDate = Nothing
-    , _rMigrationType = Nothing
-    , _rReplicationTaskARN = Nothing
-    , _rReplicationTaskStats = Nothing
-    , _rReplicationInstanceARN = Nothing
-    , _rLastFailureMessage = Nothing
-    }
+  ReplicationTask'
+  { _rReplicationTaskSettings = Nothing
+  , _rStatus = Nothing
+  , _rStopReason = Nothing
+  , _rTargetEndpointARN = Nothing
+  , _rReplicationTaskIdentifier = Nothing
+  , _rReplicationTaskStartDate = Nothing
+  , _rSourceEndpointARN = Nothing
+  , _rTableMappings = Nothing
+  , _rReplicationTaskCreationDate = Nothing
+  , _rMigrationType = Nothing
+  , _rReplicationTaskARN = Nothing
+  , _rReplicationTaskStats = Nothing
+  , _rReplicationInstanceARN = Nothing
+  , _rLastFailureMessage = Nothing
+  }
+
 
 -- | The settings for the replication task.
 rReplicationTaskSettings :: Lens' ReplicationTask (Maybe Text)
@@ -1601,9 +1622,9 @@ instance FromJSON ReplicationTask where
                      <*> (x .:? "ReplicationInstanceArn")
                      <*> (x .:? "LastFailureMessage"))
 
-instance Hashable ReplicationTask
+instance Hashable ReplicationTask where
 
-instance NFData ReplicationTask
+instance NFData ReplicationTask where
 
 -- |
 --
@@ -1611,13 +1632,14 @@ instance NFData ReplicationTask
 --
 -- /See:/ 'replicationTaskStats' smart constructor.
 data ReplicationTaskStats = ReplicationTaskStats'
-    { _rtsFullLoadProgressPercent :: !(Maybe Int)
-    , _rtsElapsedTimeMillis       :: !(Maybe Integer)
-    , _rtsTablesErrored           :: !(Maybe Int)
-    , _rtsTablesLoaded            :: !(Maybe Int)
-    , _rtsTablesQueued            :: !(Maybe Int)
-    , _rtsTablesLoading           :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtsFullLoadProgressPercent :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rtsElapsedTimeMillis       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _rtsTablesErrored           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rtsTablesLoaded            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rtsTablesQueued            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rtsTablesLoading           :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationTaskStats' with the minimum fields required to make a request.
 --
@@ -1637,14 +1659,15 @@ data ReplicationTaskStats = ReplicationTaskStats'
 replicationTaskStats
     :: ReplicationTaskStats
 replicationTaskStats =
-    ReplicationTaskStats'
-    { _rtsFullLoadProgressPercent = Nothing
-    , _rtsElapsedTimeMillis = Nothing
-    , _rtsTablesErrored = Nothing
-    , _rtsTablesLoaded = Nothing
-    , _rtsTablesQueued = Nothing
-    , _rtsTablesLoading = Nothing
-    }
+  ReplicationTaskStats'
+  { _rtsFullLoadProgressPercent = Nothing
+  , _rtsElapsedTimeMillis = Nothing
+  , _rtsTablesErrored = Nothing
+  , _rtsTablesLoaded = Nothing
+  , _rtsTablesQueued = Nothing
+  , _rtsTablesLoading = Nothing
+  }
+
 
 -- | The percent complete for the full load migration task.
 rtsFullLoadProgressPercent :: Lens' ReplicationTaskStats (Maybe Int)
@@ -1682,9 +1705,9 @@ instance FromJSON ReplicationTaskStats where
                      <*> (x .:? "TablesQueued")
                      <*> (x .:? "TablesLoading"))
 
-instance Hashable ReplicationTaskStats
+instance Hashable ReplicationTaskStats where
 
-instance NFData ReplicationTaskStats
+instance NFData ReplicationTaskStats where
 
 -- |
 --
@@ -1692,14 +1715,15 @@ instance NFData ReplicationTaskStats
 --
 -- /See:/ 's3Settings' smart constructor.
 data S3Settings = S3Settings'
-    { _ssCSVDelimiter            :: !(Maybe Text)
-    , _ssServiceAccessRoleARN    :: !(Maybe Text)
-    , _ssBucketFolder            :: !(Maybe Text)
-    , _ssExternalTableDefinition :: !(Maybe Text)
-    , _ssBucketName              :: !(Maybe Text)
-    , _ssCSVRowDelimiter         :: !(Maybe Text)
-    , _ssCompressionType         :: !(Maybe CompressionTypeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssCSVDelimiter            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssServiceAccessRoleARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssBucketFolder            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssExternalTableDefinition :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssBucketName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssCSVRowDelimiter         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssCompressionType         :: {-# NOUNPACK #-}!(Maybe CompressionTypeValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Settings' with the minimum fields required to make a request.
 --
@@ -1721,15 +1745,16 @@ data S3Settings = S3Settings'
 s3Settings
     :: S3Settings
 s3Settings =
-    S3Settings'
-    { _ssCSVDelimiter = Nothing
-    , _ssServiceAccessRoleARN = Nothing
-    , _ssBucketFolder = Nothing
-    , _ssExternalTableDefinition = Nothing
-    , _ssBucketName = Nothing
-    , _ssCSVRowDelimiter = Nothing
-    , _ssCompressionType = Nothing
-    }
+  S3Settings'
+  { _ssCSVDelimiter = Nothing
+  , _ssServiceAccessRoleARN = Nothing
+  , _ssBucketFolder = Nothing
+  , _ssExternalTableDefinition = Nothing
+  , _ssBucketName = Nothing
+  , _ssCSVRowDelimiter = Nothing
+  , _ssCompressionType = Nothing
+  }
+
 
 -- | The delimiter used to separate columns in the source files. The default is a comma.
 ssCSVDelimiter :: Lens' S3Settings (Maybe Text)
@@ -1772,9 +1797,9 @@ instance FromJSON S3Settings where
                      <*> (x .:? "CsvRowDelimiter")
                      <*> (x .:? "CompressionType"))
 
-instance Hashable S3Settings
+instance Hashable S3Settings where
 
-instance NFData S3Settings
+instance NFData S3Settings where
 
 instance ToJSON S3Settings where
         toJSON S3Settings'{..}
@@ -1796,10 +1821,11 @@ instance ToJSON S3Settings where
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-    { _sSubnetStatus           :: !(Maybe Text)
-    , _sSubnetIdentifier       :: !(Maybe Text)
-    , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSubnetStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubnetIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubnetAvailabilityZone :: {-# NOUNPACK #-}!(Maybe AvailabilityZone)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
@@ -1813,11 +1839,12 @@ data Subnet = Subnet'
 subnet
     :: Subnet
 subnet =
-    Subnet'
-    { _sSubnetStatus = Nothing
-    , _sSubnetIdentifier = Nothing
-    , _sSubnetAvailabilityZone = Nothing
-    }
+  Subnet'
+  { _sSubnetStatus = Nothing
+  , _sSubnetIdentifier = Nothing
+  , _sSubnetAvailabilityZone = Nothing
+  }
+
 
 -- | The status of the subnet.
 sSubnetStatus :: Lens' Subnet (Maybe Text)
@@ -1839,9 +1866,9 @@ instance FromJSON Subnet where
                    (x .:? "SubnetStatus") <*> (x .:? "SubnetIdentifier")
                      <*> (x .:? "SubnetAvailabilityZone"))
 
-instance Hashable Subnet
+instance Hashable Subnet where
 
-instance NFData Subnet
+instance NFData Subnet where
 
 -- |
 --
@@ -1849,10 +1876,11 @@ instance NFData Subnet
 --
 -- /See:/ 'supportedEndpointType' smart constructor.
 data SupportedEndpointType = SupportedEndpointType'
-    { _setEndpointType :: !(Maybe ReplicationEndpointTypeValue)
-    , _setEngineName   :: !(Maybe Text)
-    , _setSupportsCDC  :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _setEndpointType :: {-# NOUNPACK #-}!(Maybe ReplicationEndpointTypeValue)
+  , _setEngineName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _setSupportsCDC  :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SupportedEndpointType' with the minimum fields required to make a request.
 --
@@ -1866,11 +1894,12 @@ data SupportedEndpointType = SupportedEndpointType'
 supportedEndpointType
     :: SupportedEndpointType
 supportedEndpointType =
-    SupportedEndpointType'
-    { _setEndpointType = Nothing
-    , _setEngineName = Nothing
-    , _setSupportsCDC = Nothing
-    }
+  SupportedEndpointType'
+  { _setEndpointType = Nothing
+  , _setEngineName = Nothing
+  , _setSupportsCDC = Nothing
+  }
+
 
 -- | The type of endpoint.
 setEndpointType :: Lens' SupportedEndpointType (Maybe ReplicationEndpointTypeValue)
@@ -1892,9 +1921,9 @@ instance FromJSON SupportedEndpointType where
                    (x .:? "EndpointType") <*> (x .:? "EngineName") <*>
                      (x .:? "SupportsCDC"))
 
-instance Hashable SupportedEndpointType
+instance Hashable SupportedEndpointType where
 
-instance NFData SupportedEndpointType
+instance NFData SupportedEndpointType where
 
 -- |
 --
@@ -1902,18 +1931,19 @@ instance NFData SupportedEndpointType
 --
 -- /See:/ 'tableStatistics' smart constructor.
 data TableStatistics = TableStatistics'
-    { _tsFullLoadRows                 :: !(Maybe Integer)
-    , _tsInserts                      :: !(Maybe Integer)
-    , _tsFullLoadCondtnlChkFailedRows :: !(Maybe Integer)
-    , _tsSchemaName                   :: !(Maybe Text)
-    , _tsTableState                   :: !(Maybe Text)
-    , _tsFullLoadErrorRows            :: !(Maybe Integer)
-    , _tsDdls                         :: !(Maybe Integer)
-    , _tsDeletes                      :: !(Maybe Integer)
-    , _tsUpdates                      :: !(Maybe Integer)
-    , _tsLastUpdateTime               :: !(Maybe POSIX)
-    , _tsTableName                    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tsFullLoadRows                 :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tsInserts                      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tsFullLoadCondtnlChkFailedRows :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tsSchemaName                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tsTableState                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tsFullLoadErrorRows            :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tsDdls                         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tsDeletes                      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tsUpdates                      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tsLastUpdateTime               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tsTableName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TableStatistics' with the minimum fields required to make a request.
 --
@@ -1943,19 +1973,20 @@ data TableStatistics = TableStatistics'
 tableStatistics
     :: TableStatistics
 tableStatistics =
-    TableStatistics'
-    { _tsFullLoadRows = Nothing
-    , _tsInserts = Nothing
-    , _tsFullLoadCondtnlChkFailedRows = Nothing
-    , _tsSchemaName = Nothing
-    , _tsTableState = Nothing
-    , _tsFullLoadErrorRows = Nothing
-    , _tsDdls = Nothing
-    , _tsDeletes = Nothing
-    , _tsUpdates = Nothing
-    , _tsLastUpdateTime = Nothing
-    , _tsTableName = Nothing
-    }
+  TableStatistics'
+  { _tsFullLoadRows = Nothing
+  , _tsInserts = Nothing
+  , _tsFullLoadCondtnlChkFailedRows = Nothing
+  , _tsSchemaName = Nothing
+  , _tsTableState = Nothing
+  , _tsFullLoadErrorRows = Nothing
+  , _tsDdls = Nothing
+  , _tsDeletes = Nothing
+  , _tsUpdates = Nothing
+  , _tsLastUpdateTime = Nothing
+  , _tsTableName = Nothing
+  }
+
 
 -- | The number of rows added during the Full Load operation.
 tsFullLoadRows :: Lens' TableStatistics (Maybe Integer)
@@ -2017,9 +2048,9 @@ instance FromJSON TableStatistics where
                      <*> (x .:? "LastUpdateTime")
                      <*> (x .:? "TableName"))
 
-instance Hashable TableStatistics
+instance Hashable TableStatistics where
 
-instance NFData TableStatistics
+instance NFData TableStatistics where
 
 -- |
 --
@@ -2027,9 +2058,10 @@ instance NFData TableStatistics
 --
 -- /See:/ 'tableToReload' smart constructor.
 data TableToReload = TableToReload'
-    { _ttrSchemaName :: !(Maybe Text)
-    , _ttrTableName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ttrSchemaName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ttrTableName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TableToReload' with the minimum fields required to make a request.
 --
@@ -2041,10 +2073,8 @@ data TableToReload = TableToReload'
 tableToReload
     :: TableToReload
 tableToReload =
-    TableToReload'
-    { _ttrSchemaName = Nothing
-    , _ttrTableName = Nothing
-    }
+  TableToReload' {_ttrSchemaName = Nothing, _ttrTableName = Nothing}
+
 
 -- | The schema name of the table to be reloaded.
 ttrSchemaName :: Lens' TableToReload (Maybe Text)
@@ -2054,9 +2084,9 @@ ttrSchemaName = lens _ttrSchemaName (\ s a -> s{_ttrSchemaName = a});
 ttrTableName :: Lens' TableToReload (Maybe Text)
 ttrTableName = lens _ttrTableName (\ s a -> s{_ttrTableName = a});
 
-instance Hashable TableToReload
+instance Hashable TableToReload where
 
-instance NFData TableToReload
+instance NFData TableToReload where
 
 instance ToJSON TableToReload where
         toJSON TableToReload'{..}
@@ -2071,9 +2101,10 @@ instance ToJSON TableToReload where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -2084,11 +2115,8 @@ data Tag = Tag'
 -- * 'tagKey' - A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tagValue :: Lens' Tag (Maybe Text)
@@ -2103,9 +2131,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -2119,9 +2147,10 @@ instance ToJSON Tag where
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-    { _vsgmStatus             :: !(Maybe Text)
-    , _vsgmVPCSecurityGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vsgmStatus             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vsgmVPCSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.
 --
@@ -2133,10 +2162,9 @@ data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
 vpcSecurityGroupMembership
     :: VPCSecurityGroupMembership
 vpcSecurityGroupMembership =
-    VPCSecurityGroupMembership'
-    { _vsgmStatus = Nothing
-    , _vsgmVPCSecurityGroupId = Nothing
-    }
+  VPCSecurityGroupMembership'
+  {_vsgmStatus = Nothing, _vsgmVPCSecurityGroupId = Nothing}
+
 
 -- | The status of the VPC security group.
 vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)
@@ -2153,6 +2181,6 @@ instance FromJSON VPCSecurityGroupMembership where
                  VPCSecurityGroupMembership' <$>
                    (x .:? "Status") <*> (x .:? "VpcSecurityGroupId"))
 
-instance Hashable VPCSecurityGroupMembership
+instance Hashable VPCSecurityGroupMembership where
 
-instance NFData VPCSecurityGroupMembership
+instance NFData VPCSecurityGroupMembership where

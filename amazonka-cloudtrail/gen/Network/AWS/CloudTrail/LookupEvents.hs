@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.LookupEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -64,13 +64,13 @@ module Network.AWS.CloudTrail.LookupEvents
     , lersResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains a request for LookupEvents.
 --
@@ -78,12 +78,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'lookupEvents' smart constructor.
 data LookupEvents = LookupEvents'
-    { _leStartTime        :: !(Maybe POSIX)
-    , _leLookupAttributes :: !(Maybe [LookupAttribute])
-    , _leNextToken        :: !(Maybe Text)
-    , _leEndTime          :: !(Maybe POSIX)
-    , _leMaxResults       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _leStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _leLookupAttributes :: {-# NOUNPACK #-}!(Maybe [LookupAttribute])
+  , _leNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _leEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _leMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LookupEvents' with the minimum fields required to make a request.
 --
@@ -101,13 +102,14 @@ data LookupEvents = LookupEvents'
 lookupEvents
     :: LookupEvents
 lookupEvents =
-    LookupEvents'
-    { _leStartTime = Nothing
-    , _leLookupAttributes = Nothing
-    , _leNextToken = Nothing
-    , _leEndTime = Nothing
-    , _leMaxResults = Nothing
-    }
+  LookupEvents'
+  { _leStartTime = Nothing
+  , _leLookupAttributes = Nothing
+  , _leNextToken = Nothing
+  , _leEndTime = Nothing
+  , _leMaxResults = Nothing
+  }
+
 
 -- | Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.
 leStartTime :: Lens' LookupEvents (Maybe UTCTime)
@@ -146,9 +148,9 @@ instance AWSRequest LookupEvents where
                    (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable LookupEvents
+instance Hashable LookupEvents where
 
-instance NFData LookupEvents
+instance NFData LookupEvents where
 
 instance ToHeaders LookupEvents where
         toHeaders
@@ -182,10 +184,11 @@ instance ToQuery LookupEvents where
 --
 -- /See:/ 'lookupEventsResponse' smart constructor.
 data LookupEventsResponse = LookupEventsResponse'
-    { _lersNextToken      :: !(Maybe Text)
-    , _lersEvents         :: !(Maybe [Event])
-    , _lersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
+  , _lersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LookupEventsResponse' with the minimum fields required to make a request.
 --
@@ -200,11 +203,12 @@ lookupEventsResponse
     :: Int -- ^ 'lersResponseStatus'
     -> LookupEventsResponse
 lookupEventsResponse pResponseStatus_ =
-    LookupEventsResponse'
-    { _lersNextToken = Nothing
-    , _lersEvents = Nothing
-    , _lersResponseStatus = pResponseStatus_
-    }
+  LookupEventsResponse'
+  { _lersNextToken = Nothing
+  , _lersEvents = Nothing
+  , _lersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
 lersNextToken :: Lens' LookupEventsResponse (Maybe Text)
@@ -218,4 +222,4 @@ lersEvents = lens _lersEvents (\ s a -> s{_lersEvents = a}) . _Default . _Coerce
 lersResponseStatus :: Lens' LookupEventsResponse Int
 lersResponseStatus = lens _lersResponseStatus (\ s a -> s{_lersResponseStatus = a});
 
-instance NFData LookupEventsResponse
+instance NFData LookupEventsResponse where

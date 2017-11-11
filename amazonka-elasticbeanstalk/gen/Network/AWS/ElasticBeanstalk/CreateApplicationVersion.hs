@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplicationVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     , avdmApplicationVersion
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -64,15 +64,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createApplicationVersion' smart constructor.
 data CreateApplicationVersion = CreateApplicationVersion'
-    { _cavProcess                :: !(Maybe Bool)
-    , _cavSourceBundle           :: !(Maybe S3Location)
-    , _cavAutoCreateApplication  :: !(Maybe Bool)
-    , _cavSourceBuildInformation :: !(Maybe SourceBuildInformation)
-    , _cavDescription            :: !(Maybe Text)
-    , _cavBuildConfiguration     :: !(Maybe BuildConfiguration)
-    , _cavApplicationName        :: !Text
-    , _cavVersionLabel           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cavProcess :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cavSourceBundle :: {-# NOUNPACK #-}!(Maybe S3Location)
+  , _cavAutoCreateApplication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cavSourceBuildInformation :: {-# NOUNPACK #-}!(Maybe SourceBuildInformation)
+  , _cavDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cavBuildConfiguration :: {-# NOUNPACK #-}!(Maybe BuildConfiguration)
+  , _cavApplicationName :: {-# NOUNPACK #-}!Text
+  , _cavVersionLabel :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApplicationVersion' with the minimum fields required to make a request.
 --
@@ -98,16 +99,17 @@ createApplicationVersion
     -> Text -- ^ 'cavVersionLabel'
     -> CreateApplicationVersion
 createApplicationVersion pApplicationName_ pVersionLabel_ =
-    CreateApplicationVersion'
-    { _cavProcess = Nothing
-    , _cavSourceBundle = Nothing
-    , _cavAutoCreateApplication = Nothing
-    , _cavSourceBuildInformation = Nothing
-    , _cavDescription = Nothing
-    , _cavBuildConfiguration = Nothing
-    , _cavApplicationName = pApplicationName_
-    , _cavVersionLabel = pVersionLabel_
-    }
+  CreateApplicationVersion'
+  { _cavProcess = Nothing
+  , _cavSourceBundle = Nothing
+  , _cavAutoCreateApplication = Nothing
+  , _cavSourceBuildInformation = Nothing
+  , _cavDescription = Nothing
+  , _cavBuildConfiguration = Nothing
+  , _cavApplicationName = pApplicationName_
+  , _cavVersionLabel = pVersionLabel_
+  }
+
 
 -- | Preprocesses and validates the environment manifest and configuration files in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment.
 cavProcess :: Lens' CreateApplicationVersion (Maybe Bool)
@@ -149,9 +151,9 @@ instance AWSRequest CreateApplicationVersion where
           = receiveXMLWrapper "CreateApplicationVersionResult"
               (\ s h x -> parseXML x)
 
-instance Hashable CreateApplicationVersion
+instance Hashable CreateApplicationVersion where
 
-instance NFData CreateApplicationVersion
+instance NFData CreateApplicationVersion where
 
 instance ToHeaders CreateApplicationVersion where
         toHeaders = const mempty

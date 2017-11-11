@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateAccount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.APIGateway.UpdateAccount
     , aThrottleSettings
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to change information about the current 'Account' resource.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateAccount' smart constructor.
 newtype UpdateAccount = UpdateAccount'
-    { _uaPatchOperations :: Maybe [PatchOperation]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaPatchOperations :: Maybe [PatchOperation]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAccount' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype UpdateAccount = UpdateAccount'
 -- * 'uaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 updateAccount
     :: UpdateAccount
-updateAccount =
-    UpdateAccount'
-    { _uaPatchOperations = Nothing
-    }
+updateAccount = UpdateAccount' {_uaPatchOperations = Nothing}
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uaPatchOperations :: Lens' UpdateAccount [PatchOperation]
@@ -76,9 +75,9 @@ instance AWSRequest UpdateAccount where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateAccount
+instance Hashable UpdateAccount where
 
-instance NFData UpdateAccount
+instance NFData UpdateAccount where
 
 instance ToHeaders UpdateAccount where
         toHeaders

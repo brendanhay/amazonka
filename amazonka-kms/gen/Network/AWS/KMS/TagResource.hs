@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.TagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.KMS.TagResource
     , TagResourceResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
-    { _trKeyId :: !Text
-    , _trTags  :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trKeyId :: {-# NOUNPACK #-}!Text
+  , _trTags  :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
@@ -62,11 +63,8 @@ data TagResource = TagResource'
 tagResource
     :: Text -- ^ 'trKeyId'
     -> TagResource
-tagResource pKeyId_ =
-    TagResource'
-    { _trKeyId = pKeyId_
-    , _trTags = mempty
-    }
+tagResource pKeyId_ = TagResource' {_trKeyId = pKeyId_, _trTags = mempty}
+
 
 -- | A unique identifier for the CMK you are tagging. You can use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 trKeyId :: Lens' TagResource Text
@@ -81,9 +79,9 @@ instance AWSRequest TagResource where
         request = postJSON kms
         response = receiveNull TagResourceResponse'
 
-instance Hashable TagResource
+instance Hashable TagResource where
 
-instance NFData TagResource
+instance NFData TagResource where
 
 instance ToHeaders TagResource where
         toHeaders
@@ -109,8 +107,9 @@ instance ToQuery TagResource where
 
 -- | /See:/ 'tagResourceResponse' smart constructor.
 data TagResourceResponse =
-    TagResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  TagResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +117,5 @@ tagResourceResponse
     :: TagResourceResponse
 tagResourceResponse = TagResourceResponse'
 
-instance NFData TagResourceResponse
+
+instance NFData TagResourceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetContactReachabilityStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.Route53Domains.GetContactReachabilityStatus
     , gcrsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | /See:/ 'getContactReachabilityStatus' smart constructor.
 newtype GetContactReachabilityStatus = GetContactReachabilityStatus'
-    { _gcrsDomainName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrsDomainName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetContactReachabilityStatus' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ newtype GetContactReachabilityStatus = GetContactReachabilityStatus'
 getContactReachabilityStatus
     :: GetContactReachabilityStatus
 getContactReachabilityStatus =
-    GetContactReachabilityStatus'
-    { _gcrsDomainName = Nothing
-    }
+  GetContactReachabilityStatus' {_gcrsDomainName = Nothing}
+
 
 -- | The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.
 gcrsDomainName :: Lens' GetContactReachabilityStatus (Maybe Text)
@@ -80,9 +80,9 @@ instance AWSRequest GetContactReachabilityStatus
                    (x .?> "status") <*> (x .?> "domainName") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetContactReachabilityStatus
+instance Hashable GetContactReachabilityStatus where
 
-instance NFData GetContactReachabilityStatus
+instance NFData GetContactReachabilityStatus where
 
 instance ToHeaders GetContactReachabilityStatus where
         toHeaders
@@ -107,10 +107,11 @@ instance ToQuery GetContactReachabilityStatus where
 
 -- | /See:/ 'getContactReachabilityStatusResponse' smart constructor.
 data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse'
-    { _gcrsrsStatus         :: !(Maybe ReachabilityStatus)
-    , _gcrsrsDomainName     :: !(Maybe Text)
-    , _gcrsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrsrsStatus         :: {-# NOUNPACK #-}!(Maybe ReachabilityStatus)
+  , _gcrsrsDomainName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetContactReachabilityStatusResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +126,12 @@ getContactReachabilityStatusResponse
     :: Int -- ^ 'gcrsrsResponseStatus'
     -> GetContactReachabilityStatusResponse
 getContactReachabilityStatusResponse pResponseStatus_ =
-    GetContactReachabilityStatusResponse'
-    { _gcrsrsStatus = Nothing
-    , _gcrsrsDomainName = Nothing
-    , _gcrsrsResponseStatus = pResponseStatus_
-    }
+  GetContactReachabilityStatusResponse'
+  { _gcrsrsStatus = Nothing
+  , _gcrsrsDomainName = Nothing
+  , _gcrsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Whether the registrant contact has responded. Values include the following:     * PENDING    * We sent the confirmation email and haven't received a response yet.     * DONE    * We sent the email and got confirmation from the registrant contact.     * EXPIRED    * The time limit expired before the registrant contact responded.
 gcrsrsStatus :: Lens' GetContactReachabilityStatusResponse (Maybe ReachabilityStatus)
@@ -144,3 +146,4 @@ gcrsrsResponseStatus :: Lens' GetContactReachabilityStatusResponse Int
 gcrsrsResponseStatus = lens _gcrsrsResponseStatus (\ s a -> s{_gcrsrsResponseStatus = a});
 
 instance NFData GetContactReachabilityStatusResponse
+         where

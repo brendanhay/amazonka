@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.DeleteByteMatchSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,18 +50,19 @@ module Network.AWS.WAF.DeleteByteMatchSet
     , dbmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'deleteByteMatchSet' smart constructor.
 data DeleteByteMatchSet = DeleteByteMatchSet'
-    { _dbmsByteMatchSetId :: !Text
-    , _dbmsChangeToken    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbmsByteMatchSetId :: {-# NOUNPACK #-}!Text
+  , _dbmsChangeToken    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteByteMatchSet' with the minimum fields required to make a request.
 --
@@ -75,10 +76,9 @@ deleteByteMatchSet
     -> Text -- ^ 'dbmsChangeToken'
     -> DeleteByteMatchSet
 deleteByteMatchSet pByteMatchSetId_ pChangeToken_ =
-    DeleteByteMatchSet'
-    { _dbmsByteMatchSetId = pByteMatchSetId_
-    , _dbmsChangeToken = pChangeToken_
-    }
+  DeleteByteMatchSet'
+  {_dbmsByteMatchSetId = pByteMatchSetId_, _dbmsChangeToken = pChangeToken_}
+
 
 -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to delete. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 dbmsByteMatchSetId :: Lens' DeleteByteMatchSet Text
@@ -98,9 +98,9 @@ instance AWSRequest DeleteByteMatchSet where
                  DeleteByteMatchSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteByteMatchSet
+instance Hashable DeleteByteMatchSet where
 
-instance NFData DeleteByteMatchSet
+instance NFData DeleteByteMatchSet where
 
 instance ToHeaders DeleteByteMatchSet where
         toHeaders
@@ -126,9 +126,10 @@ instance ToQuery DeleteByteMatchSet where
 
 -- | /See:/ 'deleteByteMatchSetResponse' smart constructor.
 data DeleteByteMatchSetResponse = DeleteByteMatchSetResponse'
-    { _dbmsrsChangeToken    :: !(Maybe Text)
-    , _dbmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteByteMatchSetResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +142,9 @@ deleteByteMatchSetResponse
     :: Int -- ^ 'dbmsrsResponseStatus'
     -> DeleteByteMatchSetResponse
 deleteByteMatchSetResponse pResponseStatus_ =
-    DeleteByteMatchSetResponse'
-    { _dbmsrsChangeToken = Nothing
-    , _dbmsrsResponseStatus = pResponseStatus_
-    }
+  DeleteByteMatchSetResponse'
+  {_dbmsrsChangeToken = Nothing, _dbmsrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @DeleteByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dbmsrsChangeToken :: Lens' DeleteByteMatchSetResponse (Maybe Text)
@@ -154,4 +154,4 @@ dbmsrsChangeToken = lens _dbmsrsChangeToken (\ s a -> s{_dbmsrsChangeToken = a})
 dbmsrsResponseStatus :: Lens' DeleteByteMatchSetResponse Int
 dbmsrsResponseStatus = lens _dbmsrsResponseStatus (\ s a -> s{_dbmsrsResponseStatus = a});
 
-instance NFData DeleteByteMatchSetResponse
+instance NFData DeleteByteMatchSetResponse where

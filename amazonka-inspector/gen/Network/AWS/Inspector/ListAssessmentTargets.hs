@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListAssessmentTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Inspector.ListAssessmentTargets
     , lrsAssessmentTargetARNs
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAssessmentTargets' smart constructor.
 data ListAssessmentTargets = ListAssessmentTargets'
-    { _lNextToken  :: !(Maybe Text)
-    , _lFilter     :: !(Maybe AssessmentTargetFilter)
-    , _lMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lFilter     :: {-# NOUNPACK #-}!(Maybe AssessmentTargetFilter)
+  , _lMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssessmentTargets' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data ListAssessmentTargets = ListAssessmentTargets'
 listAssessmentTargets
     :: ListAssessmentTargets
 listAssessmentTargets =
-    ListAssessmentTargets'
-    { _lNextToken = Nothing
-    , _lFilter = Nothing
-    , _lMaxResults = Nothing
-    }
+  ListAssessmentTargets'
+  {_lNextToken = Nothing, _lFilter = Nothing, _lMaxResults = Nothing}
+
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTargets__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 lNextToken :: Lens' ListAssessmentTargets (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest ListAssessmentTargets where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "assessmentTargetArns" .!@ mempty))
 
-instance Hashable ListAssessmentTargets
+instance Hashable ListAssessmentTargets where
 
-instance NFData ListAssessmentTargets
+instance NFData ListAssessmentTargets where
 
 instance ToHeaders ListAssessmentTargets where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery ListAssessmentTargets where
 
 -- | /See:/ 'listAssessmentTargetsResponse' smart constructor.
 data ListAssessmentTargetsResponse = ListAssessmentTargetsResponse'
-    { _lrsNextToken            :: !(Maybe Text)
-    , _lrsResponseStatus       :: !Int
-    , _lrsAssessmentTargetARNs :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  , _lrsAssessmentTargetARNs :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssessmentTargetsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ listAssessmentTargetsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListAssessmentTargetsResponse
 listAssessmentTargetsResponse pResponseStatus_ =
-    ListAssessmentTargetsResponse'
-    { _lrsNextToken = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    , _lrsAssessmentTargetARNs = mempty
-    }
+  ListAssessmentTargetsResponse'
+  { _lrsNextToken = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  , _lrsAssessmentTargetARNs = mempty
+  }
+
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 lrsNextToken :: Lens' ListAssessmentTargetsResponse (Maybe Text)
@@ -161,4 +162,4 @@ lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 lrsAssessmentTargetARNs :: Lens' ListAssessmentTargetsResponse [Text]
 lrsAssessmentTargetARNs = lens _lrsAssessmentTargetARNs (\ s a -> s{_lrsAssessmentTargetARNs = a}) . _Coerce;
 
-instance NFData ListAssessmentTargetsResponse
+instance NFData ListAssessmentTargetsResponse where

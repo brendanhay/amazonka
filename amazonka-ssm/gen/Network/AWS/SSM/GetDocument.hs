@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.SSM.GetDocument
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getDocument' smart constructor.
 data GetDocument = GetDocument'
-    { _gdDocumentVersion :: !(Maybe Text)
-    , _gdName            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdName            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ getDocument
     :: Text -- ^ 'gdName'
     -> GetDocument
 getDocument pName_ =
-    GetDocument'
-    { _gdDocumentVersion = Nothing
-    , _gdName = pName_
-    }
+  GetDocument' {_gdDocumentVersion = Nothing, _gdName = pName_}
+
 
 -- | The document version for which you want information.
 gdDocumentVersion :: Lens' GetDocument (Maybe Text)
@@ -90,9 +89,9 @@ instance AWSRequest GetDocument where
                      <*> (x .?> "DocumentVersion")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDocument
+instance Hashable GetDocument where
 
-instance NFData GetDocument
+instance NFData GetDocument where
 
 instance ToHeaders GetDocument where
         toHeaders
@@ -118,12 +117,13 @@ instance ToQuery GetDocument where
 
 -- | /See:/ 'getDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-    { _gdrsDocumentType    :: !(Maybe DocumentType)
-    , _gdrsContent         :: !(Maybe Text)
-    , _gdrsName            :: !(Maybe Text)
-    , _gdrsDocumentVersion :: !(Maybe Text)
-    , _gdrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsDocumentType    :: {-# NOUNPACK #-}!(Maybe DocumentType)
+  , _gdrsContent         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrsName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrsDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
 --
@@ -142,13 +142,14 @@ getDocumentResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDocumentResponse
 getDocumentResponse pResponseStatus_ =
-    GetDocumentResponse'
-    { _gdrsDocumentType = Nothing
-    , _gdrsContent = Nothing
-    , _gdrsName = Nothing
-    , _gdrsDocumentVersion = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDocumentResponse'
+  { _gdrsDocumentType = Nothing
+  , _gdrsContent = Nothing
+  , _gdrsName = Nothing
+  , _gdrsDocumentVersion = Nothing
+  , _gdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The document type.
 gdrsDocumentType :: Lens' GetDocumentResponse (Maybe DocumentType)
@@ -170,4 +171,4 @@ gdrsDocumentVersion = lens _gdrsDocumentVersion (\ s a -> s{_gdrsDocumentVersion
 gdrsResponseStatus :: Lens' GetDocumentResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDocumentResponse
+instance NFData GetDocumentResponse where

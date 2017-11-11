@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.SignalWorkflowExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,21 +52,22 @@ module Network.AWS.SWF.SignalWorkflowExecution
     , SignalWorkflowExecutionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'signalWorkflowExecution' smart constructor.
 data SignalWorkflowExecution = SignalWorkflowExecution'
-    { _sweInput      :: !(Maybe Text)
-    , _sweRunId      :: !(Maybe Text)
-    , _sweDomain     :: !Text
-    , _sweWorkflowId :: !Text
-    , _sweSignalName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sweInput      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sweRunId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sweDomain     :: {-# NOUNPACK #-}!Text
+  , _sweWorkflowId :: {-# NOUNPACK #-}!Text
+  , _sweSignalName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignalWorkflowExecution' with the minimum fields required to make a request.
 --
@@ -87,13 +88,14 @@ signalWorkflowExecution
     -> Text -- ^ 'sweSignalName'
     -> SignalWorkflowExecution
 signalWorkflowExecution pDomain_ pWorkflowId_ pSignalName_ =
-    SignalWorkflowExecution'
-    { _sweInput = Nothing
-    , _sweRunId = Nothing
-    , _sweDomain = pDomain_
-    , _sweWorkflowId = pWorkflowId_
-    , _sweSignalName = pSignalName_
-    }
+  SignalWorkflowExecution'
+  { _sweInput = Nothing
+  , _sweRunId = Nothing
+  , _sweDomain = pDomain_
+  , _sweWorkflowId = pWorkflowId_
+  , _sweSignalName = pSignalName_
+  }
+
 
 -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target workflow execution's history.
 sweInput :: Lens' SignalWorkflowExecution (Maybe Text)
@@ -122,9 +124,9 @@ instance AWSRequest SignalWorkflowExecution where
         response
           = receiveNull SignalWorkflowExecutionResponse'
 
-instance Hashable SignalWorkflowExecution
+instance Hashable SignalWorkflowExecution where
 
-instance NFData SignalWorkflowExecution
+instance NFData SignalWorkflowExecution where
 
 instance ToHeaders SignalWorkflowExecution where
         toHeaders
@@ -154,8 +156,9 @@ instance ToQuery SignalWorkflowExecution where
 
 -- | /See:/ 'signalWorkflowExecutionResponse' smart constructor.
 data SignalWorkflowExecutionResponse =
-    SignalWorkflowExecutionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SignalWorkflowExecutionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignalWorkflowExecutionResponse' with the minimum fields required to make a request.
 --
@@ -163,4 +166,5 @@ signalWorkflowExecutionResponse
     :: SignalWorkflowExecutionResponse
 signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse'
 
-instance NFData SignalWorkflowExecutionResponse
+
+instance NFData SignalWorkflowExecutionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteRestAPI
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.APIGateway.DeleteRestAPI
     , DeleteRestAPIResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to delete the specified API from your collection.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteRestAPI' smart constructor.
 newtype DeleteRestAPI = DeleteRestAPI'
-    { _draRestAPIId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _draRestAPIId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRestAPI' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteRestAPI = DeleteRestAPI'
 deleteRestAPI
     :: Text -- ^ 'draRestAPIId'
     -> DeleteRestAPI
-deleteRestAPI pRestAPIId_ =
-    DeleteRestAPI'
-    { _draRestAPIId = pRestAPIId_
-    }
+deleteRestAPI pRestAPIId_ = DeleteRestAPI' {_draRestAPIId = pRestAPIId_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 draRestAPIId :: Lens' DeleteRestAPI Text
@@ -72,9 +71,9 @@ instance AWSRequest DeleteRestAPI where
         request = delete apiGateway
         response = receiveNull DeleteRestAPIResponse'
 
-instance Hashable DeleteRestAPI
+instance Hashable DeleteRestAPI where
 
-instance NFData DeleteRestAPI
+instance NFData DeleteRestAPI where
 
 instance ToHeaders DeleteRestAPI where
         toHeaders
@@ -91,8 +90,9 @@ instance ToQuery DeleteRestAPI where
 
 -- | /See:/ 'deleteRestAPIResponse' smart constructor.
 data DeleteRestAPIResponse =
-    DeleteRestAPIResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteRestAPIResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRestAPIResponse' with the minimum fields required to make a request.
 --
@@ -100,4 +100,5 @@ deleteRestAPIResponse
     :: DeleteRestAPIResponse
 deleteRestAPIResponse = DeleteRestAPIResponse'
 
-instance NFData DeleteRestAPIResponse
+
+instance NFData DeleteRestAPIResponse where

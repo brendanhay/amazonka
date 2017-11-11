@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.ListExecutions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.StepFunctions.ListExecutions
     , lersExecutions
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'listExecutions' smart constructor.
 data ListExecutions = ListExecutions'
-    { _leStatusFilter    :: !(Maybe ExecutionStatus)
-    , _leNextToken       :: !(Maybe Text)
-    , _leMaxResults      :: !(Maybe Nat)
-    , _leStateMachineARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _leStatusFilter    :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
+  , _leNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _leMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _leStateMachineARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListExecutions' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ listExecutions
     :: Text -- ^ 'leStateMachineARN'
     -> ListExecutions
 listExecutions pStateMachineARN_ =
-    ListExecutions'
-    { _leStatusFilter = Nothing
-    , _leNextToken = Nothing
-    , _leMaxResults = Nothing
-    , _leStateMachineARN = pStateMachineARN_
-    }
+  ListExecutions'
+  { _leStatusFilter = Nothing
+  , _leNextToken = Nothing
+  , _leMaxResults = Nothing
+  , _leStateMachineARN = pStateMachineARN_
+  }
+
 
 -- | If specified, only list the executions whose current execution status matches the given filter.
 leStatusFilter :: Lens' ListExecutions (Maybe ExecutionStatus)
@@ -114,9 +116,9 @@ instance AWSRequest ListExecutions where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "executions" .!@ mempty))
 
-instance Hashable ListExecutions
+instance Hashable ListExecutions where
 
-instance NFData ListExecutions
+instance NFData ListExecutions where
 
 instance ToHeaders ListExecutions where
         toHeaders
@@ -144,10 +146,11 @@ instance ToQuery ListExecutions where
 
 -- | /See:/ 'listExecutionsResponse' smart constructor.
 data ListExecutionsResponse = ListExecutionsResponse'
-    { _lersNextToken      :: !(Maybe Text)
-    , _lersResponseStatus :: !Int
-    , _lersExecutions     :: ![ExecutionListItem]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lersResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lersExecutions     :: {-# NOUNPACK #-}![ExecutionListItem]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListExecutionsResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ listExecutionsResponse
     :: Int -- ^ 'lersResponseStatus'
     -> ListExecutionsResponse
 listExecutionsResponse pResponseStatus_ =
-    ListExecutionsResponse'
-    { _lersNextToken = Nothing
-    , _lersResponseStatus = pResponseStatus_
-    , _lersExecutions = mempty
-    }
+  ListExecutionsResponse'
+  { _lersNextToken = Nothing
+  , _lersResponseStatus = pResponseStatus_
+  , _lersExecutions = mempty
+  }
+
 
 -- | If a @nextToken@ is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 lersNextToken :: Lens' ListExecutionsResponse (Maybe Text)
@@ -180,4 +184,4 @@ lersResponseStatus = lens _lersResponseStatus (\ s a -> s{_lersResponseStatus = 
 lersExecutions :: Lens' ListExecutionsResponse [ExecutionListItem]
 lersExecutions = lens _lersExecutions (\ s a -> s{_lersExecutions = a}) . _Coerce;
 
-instance NFData ListExecutionsResponse
+instance NFData ListExecutionsResponse where

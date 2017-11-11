@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeEcsClusters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,21 +47,22 @@ module Network.AWS.OpsWorks.DescribeEcsClusters
     , decrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEcsClusters' smart constructor.
 data DescribeEcsClusters = DescribeEcsClusters'
-    { _decNextToken      :: !(Maybe Text)
-    , _decStackId        :: !(Maybe Text)
-    , _decMaxResults     :: !(Maybe Int)
-    , _decEcsClusterARNs :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _decStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _decMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _decEcsClusterARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEcsClusters' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data DescribeEcsClusters = DescribeEcsClusters'
 describeEcsClusters
     :: DescribeEcsClusters
 describeEcsClusters =
-    DescribeEcsClusters'
-    { _decNextToken = Nothing
-    , _decStackId = Nothing
-    , _decMaxResults = Nothing
-    , _decEcsClusterARNs = Nothing
-    }
+  DescribeEcsClusters'
+  { _decNextToken = Nothing
+  , _decStackId = Nothing
+  , _decMaxResults = Nothing
+  , _decEcsClusterARNs = Nothing
+  }
+
 
 -- | If the previous paginated request did not return all of the remaining results, the response object's@NextToken@ parameter value is set to a token. To retrieve the next set of results, call @DescribeEcsClusters@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 decNextToken :: Lens' DescribeEcsClusters (Maybe Text)
@@ -119,9 +121,9 @@ instance AWSRequest DescribeEcsClusters where
                      (x .?> "EcsClusters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEcsClusters
+instance Hashable DescribeEcsClusters where
 
-instance NFData DescribeEcsClusters
+instance NFData DescribeEcsClusters where
 
 instance ToHeaders DescribeEcsClusters where
         toHeaders
@@ -154,10 +156,11 @@ instance ToQuery DescribeEcsClusters where
 --
 -- /See:/ 'describeEcsClustersResponse' smart constructor.
 data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
-    { _decrsNextToken      :: !(Maybe Text)
-    , _decrsEcsClusters    :: !(Maybe [EcsCluster])
-    , _decrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _decrsEcsClusters    :: {-# NOUNPACK #-}!(Maybe [EcsCluster])
+  , _decrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEcsClustersResponse' with the minimum fields required to make a request.
 --
@@ -172,11 +175,12 @@ describeEcsClustersResponse
     :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEcsClustersResponse
 describeEcsClustersResponse pResponseStatus_ =
-    DescribeEcsClustersResponse'
-    { _decrsNextToken = Nothing
-    , _decrsEcsClusters = Nothing
-    , _decrsResponseStatus = pResponseStatus_
-    }
+  DescribeEcsClustersResponse'
+  { _decrsNextToken = Nothing
+  , _decrsEcsClusters = Nothing
+  , _decrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
 decrsNextToken :: Lens' DescribeEcsClustersResponse (Maybe Text)
@@ -190,4 +194,4 @@ decrsEcsClusters = lens _decrsEcsClusters (\ s a -> s{_decrsEcsClusters = a}) . 
 decrsResponseStatus :: Lens' DescribeEcsClustersResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
 
-instance NFData DescribeEcsClustersResponse
+instance NFData DescribeEcsClustersResponse where

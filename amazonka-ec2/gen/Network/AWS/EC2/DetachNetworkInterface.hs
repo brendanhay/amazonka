@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachNetworkInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.EC2.DetachNetworkInterface
     , DetachNetworkInterfaceResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachNetworkInterface.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachNetworkInterface' smart constructor.
 data DetachNetworkInterface = DetachNetworkInterface'
-    { _dniForce        :: !(Maybe Bool)
-    , _dniDryRun       :: !(Maybe Bool)
-    , _dniAttachmentId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dniForce        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dniDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dniAttachmentId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachNetworkInterface' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ detachNetworkInterface
     :: Text -- ^ 'dniAttachmentId'
     -> DetachNetworkInterface
 detachNetworkInterface pAttachmentId_ =
-    DetachNetworkInterface'
-    { _dniForce = Nothing
-    , _dniDryRun = Nothing
-    , _dniAttachmentId = pAttachmentId_
-    }
+  DetachNetworkInterface'
+  {_dniForce = Nothing, _dniDryRun = Nothing, _dniAttachmentId = pAttachmentId_}
+
 
 -- | Specifies whether to force a detachment.
 dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
@@ -92,9 +91,9 @@ instance AWSRequest DetachNetworkInterface where
         response
           = receiveNull DetachNetworkInterfaceResponse'
 
-instance Hashable DetachNetworkInterface
+instance Hashable DetachNetworkInterface where
 
-instance NFData DetachNetworkInterface
+instance NFData DetachNetworkInterface where
 
 instance ToHeaders DetachNetworkInterface where
         toHeaders = const mempty
@@ -113,8 +112,9 @@ instance ToQuery DetachNetworkInterface where
 
 -- | /See:/ 'detachNetworkInterfaceResponse' smart constructor.
 data DetachNetworkInterfaceResponse =
-    DetachNetworkInterfaceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachNetworkInterfaceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachNetworkInterfaceResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +122,5 @@ detachNetworkInterfaceResponse
     :: DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'
 
-instance NFData DetachNetworkInterfaceResponse
+
+instance NFData DetachNetworkInterfaceResponse where

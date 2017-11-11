@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateDocumentDefaultVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.SSM.UpdateDocumentDefaultVersion
     , uddvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateDocumentDefaultVersion' smart constructor.
 data UpdateDocumentDefaultVersion = UpdateDocumentDefaultVersion'
-    { _uddvName            :: !Text
-    , _uddvDocumentVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uddvName            :: {-# NOUNPACK #-}!Text
+  , _uddvDocumentVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocumentDefaultVersion' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ updateDocumentDefaultVersion
     -> Text -- ^ 'uddvDocumentVersion'
     -> UpdateDocumentDefaultVersion
 updateDocumentDefaultVersion pName_ pDocumentVersion_ =
-    UpdateDocumentDefaultVersion'
-    { _uddvName = pName_
-    , _uddvDocumentVersion = pDocumentVersion_
-    }
+  UpdateDocumentDefaultVersion'
+  {_uddvName = pName_, _uddvDocumentVersion = pDocumentVersion_}
+
 
 -- | The name of a custom document that you want to set as the default version.
 uddvName :: Lens' UpdateDocumentDefaultVersion Text
@@ -87,9 +87,9 @@ instance AWSRequest UpdateDocumentDefaultVersion
                  UpdateDocumentDefaultVersionResponse' <$>
                    (x .?> "Description") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateDocumentDefaultVersion
+instance Hashable UpdateDocumentDefaultVersion where
 
-instance NFData UpdateDocumentDefaultVersion
+instance NFData UpdateDocumentDefaultVersion where
 
 instance ToHeaders UpdateDocumentDefaultVersion where
         toHeaders
@@ -116,9 +116,10 @@ instance ToQuery UpdateDocumentDefaultVersion where
 
 -- | /See:/ 'updateDocumentDefaultVersionResponse' smart constructor.
 data UpdateDocumentDefaultVersionResponse = UpdateDocumentDefaultVersionResponse'
-    { _uddvrsDescription    :: !(Maybe DocumentDefaultVersionDescription)
-    , _uddvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uddvrsDescription :: {-# NOUNPACK #-}!(Maybe DocumentDefaultVersionDescription)
+  , _uddvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocumentDefaultVersionResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ updateDocumentDefaultVersionResponse
     :: Int -- ^ 'uddvrsResponseStatus'
     -> UpdateDocumentDefaultVersionResponse
 updateDocumentDefaultVersionResponse pResponseStatus_ =
-    UpdateDocumentDefaultVersionResponse'
-    { _uddvrsDescription = Nothing
-    , _uddvrsResponseStatus = pResponseStatus_
-    }
+  UpdateDocumentDefaultVersionResponse'
+  {_uddvrsDescription = Nothing, _uddvrsResponseStatus = pResponseStatus_}
+
 
 -- | The description of a custom document that you want to set as the default version.
 uddvrsDescription :: Lens' UpdateDocumentDefaultVersionResponse (Maybe DocumentDefaultVersionDescription)
@@ -145,3 +145,4 @@ uddvrsResponseStatus :: Lens' UpdateDocumentDefaultVersionResponse Int
 uddvrsResponseStatus = lens _uddvrsResponseStatus (\ s a -> s{_uddvrsResponseStatus = a});
 
 instance NFData UpdateDocumentDefaultVersionResponse
+         where

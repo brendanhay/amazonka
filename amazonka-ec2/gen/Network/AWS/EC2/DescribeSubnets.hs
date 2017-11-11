@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSubnets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeSubnets
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSubnets.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSubnets' smart constructor.
 data DescribeSubnets = DescribeSubnets'
-    { _dsSubnetIds :: !(Maybe [Text])
-    , _dsFilters   :: !(Maybe [Filter])
-    , _dsDryRun    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsSubnetIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsFilters   :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dsDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubnets' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ data DescribeSubnets = DescribeSubnets'
 describeSubnets
     :: DescribeSubnets
 describeSubnets =
-    DescribeSubnets'
-    { _dsSubnetIds = Nothing
-    , _dsFilters = Nothing
-    , _dsDryRun = Nothing
-    }
+  DescribeSubnets'
+  {_dsSubnetIds = Nothing, _dsFilters = Nothing, _dsDryRun = Nothing}
+
 
 -- | One or more subnet IDs. Default: Describes all your subnets.
 dsSubnetIds :: Lens' DescribeSubnets [Text]
@@ -100,9 +99,9 @@ instance AWSRequest DescribeSubnets where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSubnets
+instance Hashable DescribeSubnets where
 
-instance NFData DescribeSubnets
+instance NFData DescribeSubnets where
 
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty
@@ -125,9 +124,10 @@ instance ToQuery DescribeSubnets where
 --
 -- /See:/ 'describeSubnetsResponse' smart constructor.
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
-    { _dsrsSubnets        :: !(Maybe [Subnet])
-    , _dsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsSubnets        :: {-# NOUNPACK #-}!(Maybe [Subnet])
+  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubnetsResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +140,9 @@ describeSubnetsResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeSubnetsResponse
 describeSubnetsResponse pResponseStatus_ =
-    DescribeSubnetsResponse'
-    { _dsrsSubnets = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DescribeSubnetsResponse'
+  {_dsrsSubnets = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more subnets.
 dsrsSubnets :: Lens' DescribeSubnetsResponse [Subnet]
@@ -153,4 +152,4 @@ dsrsSubnets = lens _dsrsSubnets (\ s a -> s{_dsrsSubnets = a}) . _Default . _Coe
 dsrsResponseStatus :: Lens' DescribeSubnetsResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DescribeSubnetsResponse
+instance NFData DescribeSubnetsResponse where

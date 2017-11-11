@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -487,47 +487,47 @@ module Network.AWS.WorkDocs
     , usmStorageRule
     ) where
 
-import           Network.AWS.WorkDocs.AbortDocumentVersionUpload
-import           Network.AWS.WorkDocs.ActivateUser
-import           Network.AWS.WorkDocs.AddResourcePermissions
-import           Network.AWS.WorkDocs.CreateComment
-import           Network.AWS.WorkDocs.CreateCustomMetadata
-import           Network.AWS.WorkDocs.CreateFolder
-import           Network.AWS.WorkDocs.CreateLabels
-import           Network.AWS.WorkDocs.CreateNotificationSubscription
-import           Network.AWS.WorkDocs.CreateUser
-import           Network.AWS.WorkDocs.DeactivateUser
-import           Network.AWS.WorkDocs.DeleteComment
-import           Network.AWS.WorkDocs.DeleteCustomMetadata
-import           Network.AWS.WorkDocs.DeleteDocument
-import           Network.AWS.WorkDocs.DeleteFolder
-import           Network.AWS.WorkDocs.DeleteFolderContents
-import           Network.AWS.WorkDocs.DeleteLabels
-import           Network.AWS.WorkDocs.DeleteNotificationSubscription
-import           Network.AWS.WorkDocs.DeleteUser
-import           Network.AWS.WorkDocs.DescribeActivities
-import           Network.AWS.WorkDocs.DescribeComments
-import           Network.AWS.WorkDocs.DescribeDocumentVersions
-import           Network.AWS.WorkDocs.DescribeFolderContents
-import           Network.AWS.WorkDocs.DescribeNotificationSubscriptions
-import           Network.AWS.WorkDocs.DescribeResourcePermissions
-import           Network.AWS.WorkDocs.DescribeRootFolders
-import           Network.AWS.WorkDocs.DescribeUsers
-import           Network.AWS.WorkDocs.GetCurrentUser
-import           Network.AWS.WorkDocs.GetDocument
-import           Network.AWS.WorkDocs.GetDocumentPath
-import           Network.AWS.WorkDocs.GetDocumentVersion
-import           Network.AWS.WorkDocs.GetFolder
-import           Network.AWS.WorkDocs.GetFolderPath
-import           Network.AWS.WorkDocs.InitiateDocumentVersionUpload
-import           Network.AWS.WorkDocs.RemoveAllResourcePermissions
-import           Network.AWS.WorkDocs.RemoveResourcePermission
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.UpdateDocument
-import           Network.AWS.WorkDocs.UpdateDocumentVersion
-import           Network.AWS.WorkDocs.UpdateFolder
-import           Network.AWS.WorkDocs.UpdateUser
-import           Network.AWS.WorkDocs.Waiters
+import Network.AWS.WorkDocs.AbortDocumentVersionUpload
+import Network.AWS.WorkDocs.ActivateUser
+import Network.AWS.WorkDocs.AddResourcePermissions
+import Network.AWS.WorkDocs.CreateComment
+import Network.AWS.WorkDocs.CreateCustomMetadata
+import Network.AWS.WorkDocs.CreateFolder
+import Network.AWS.WorkDocs.CreateLabels
+import Network.AWS.WorkDocs.CreateNotificationSubscription
+import Network.AWS.WorkDocs.CreateUser
+import Network.AWS.WorkDocs.DeactivateUser
+import Network.AWS.WorkDocs.DeleteComment
+import Network.AWS.WorkDocs.DeleteCustomMetadata
+import Network.AWS.WorkDocs.DeleteDocument
+import Network.AWS.WorkDocs.DeleteFolder
+import Network.AWS.WorkDocs.DeleteFolderContents
+import Network.AWS.WorkDocs.DeleteLabels
+import Network.AWS.WorkDocs.DeleteNotificationSubscription
+import Network.AWS.WorkDocs.DeleteUser
+import Network.AWS.WorkDocs.DescribeActivities
+import Network.AWS.WorkDocs.DescribeComments
+import Network.AWS.WorkDocs.DescribeDocumentVersions
+import Network.AWS.WorkDocs.DescribeFolderContents
+import Network.AWS.WorkDocs.DescribeNotificationSubscriptions
+import Network.AWS.WorkDocs.DescribeResourcePermissions
+import Network.AWS.WorkDocs.DescribeRootFolders
+import Network.AWS.WorkDocs.DescribeUsers
+import Network.AWS.WorkDocs.GetCurrentUser
+import Network.AWS.WorkDocs.GetDocument
+import Network.AWS.WorkDocs.GetDocumentPath
+import Network.AWS.WorkDocs.GetDocumentVersion
+import Network.AWS.WorkDocs.GetFolder
+import Network.AWS.WorkDocs.GetFolderPath
+import Network.AWS.WorkDocs.InitiateDocumentVersionUpload
+import Network.AWS.WorkDocs.RemoveAllResourcePermissions
+import Network.AWS.WorkDocs.RemoveResourcePermission
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.UpdateDocument
+import Network.AWS.WorkDocs.UpdateDocumentVersion
+import Network.AWS.WorkDocs.UpdateFolder
+import Network.AWS.WorkDocs.UpdateUser
+import Network.AWS.WorkDocs.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

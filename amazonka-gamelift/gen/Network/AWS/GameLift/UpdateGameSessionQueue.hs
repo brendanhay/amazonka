@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateGameSessionQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.GameLift.UpdateGameSessionQueue
     , ugsqrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -65,11 +65,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateGameSessionQueue' smart constructor.
 data UpdateGameSessionQueue = UpdateGameSessionQueue'
-    { _ugsqPlayerLatencyPolicies :: !(Maybe [PlayerLatencyPolicy])
-    , _ugsqTimeoutInSeconds      :: !(Maybe Nat)
-    , _ugsqDestinations          :: !(Maybe [GameSessionQueueDestination])
-    , _ugsqName                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugsqPlayerLatencyPolicies :: {-# NOUNPACK #-}!(Maybe [PlayerLatencyPolicy])
+  , _ugsqTimeoutInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ugsqDestinations :: {-# NOUNPACK #-}!(Maybe [GameSessionQueueDestination])
+  , _ugsqName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGameSessionQueue' with the minimum fields required to make a request.
 --
@@ -86,12 +87,13 @@ updateGameSessionQueue
     :: Text -- ^ 'ugsqName'
     -> UpdateGameSessionQueue
 updateGameSessionQueue pName_ =
-    UpdateGameSessionQueue'
-    { _ugsqPlayerLatencyPolicies = Nothing
-    , _ugsqTimeoutInSeconds = Nothing
-    , _ugsqDestinations = Nothing
-    , _ugsqName = pName_
-    }
+  UpdateGameSessionQueue'
+  { _ugsqPlayerLatencyPolicies = Nothing
+  , _ugsqTimeoutInSeconds = Nothing
+  , _ugsqDestinations = Nothing
+  , _ugsqName = pName_
+  }
+
 
 -- | Collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, it is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement. When updating policies, provide a complete collection of policies.
 ugsqPlayerLatencyPolicies :: Lens' UpdateGameSessionQueue [PlayerLatencyPolicy]
@@ -119,9 +121,9 @@ instance AWSRequest UpdateGameSessionQueue where
                  UpdateGameSessionQueueResponse' <$>
                    (x .?> "GameSessionQueue") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateGameSessionQueue
+instance Hashable UpdateGameSessionQueue where
 
-instance NFData UpdateGameSessionQueue
+instance NFData UpdateGameSessionQueue where
 
 instance ToHeaders UpdateGameSessionQueue where
         toHeaders
@@ -154,9 +156,10 @@ instance ToQuery UpdateGameSessionQueue where
 --
 -- /See:/ 'updateGameSessionQueueResponse' smart constructor.
 data UpdateGameSessionQueueResponse = UpdateGameSessionQueueResponse'
-    { _ugsqrsGameSessionQueue :: !(Maybe GameSessionQueue)
-    , _ugsqrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugsqrsGameSessionQueue :: {-# NOUNPACK #-}!(Maybe GameSessionQueue)
+  , _ugsqrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGameSessionQueueResponse' with the minimum fields required to make a request.
 --
@@ -169,10 +172,9 @@ updateGameSessionQueueResponse
     :: Int -- ^ 'ugsqrsResponseStatus'
     -> UpdateGameSessionQueueResponse
 updateGameSessionQueueResponse pResponseStatus_ =
-    UpdateGameSessionQueueResponse'
-    { _ugsqrsGameSessionQueue = Nothing
-    , _ugsqrsResponseStatus = pResponseStatus_
-    }
+  UpdateGameSessionQueueResponse'
+  {_ugsqrsGameSessionQueue = Nothing, _ugsqrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that describes the newly updated game session queue.
 ugsqrsGameSessionQueue :: Lens' UpdateGameSessionQueueResponse (Maybe GameSessionQueue)
@@ -182,4 +184,4 @@ ugsqrsGameSessionQueue = lens _ugsqrsGameSessionQueue (\ s a -> s{_ugsqrsGameSes
 ugsqrsResponseStatus :: Lens' UpdateGameSessionQueueResponse Int
 ugsqrsResponseStatus = lens _ugsqrsResponseStatus (\ s a -> s{_ugsqrsResponseStatus = a});
 
-instance NFData UpdateGameSessionQueueResponse
+instance NFData UpdateGameSessionQueueResponse where

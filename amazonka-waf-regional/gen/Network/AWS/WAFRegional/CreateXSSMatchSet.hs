@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateXSSMatchSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.WAFRegional.CreateXSSMatchSet
     , cxmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | A request to create an 'XssMatchSet' .
 --
@@ -66,9 +66,10 @@ import           Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'createXSSMatchSet' smart constructor.
 data CreateXSSMatchSet = CreateXSSMatchSet'
-    { _cxmsName        :: !Text
-    , _cxmsChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cxmsName        :: {-# NOUNPACK #-}!Text
+  , _cxmsChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateXSSMatchSet' with the minimum fields required to make a request.
 --
@@ -82,10 +83,8 @@ createXSSMatchSet
     -> Text -- ^ 'cxmsChangeToken'
     -> CreateXSSMatchSet
 createXSSMatchSet pName_ pChangeToken_ =
-    CreateXSSMatchSet'
-    { _cxmsName = pName_
-    , _cxmsChangeToken = pChangeToken_
-    }
+  CreateXSSMatchSet' {_cxmsName = pName_, _cxmsChangeToken = pChangeToken_}
+
 
 -- | A friendly name or description for the 'XssMatchSet' that you're creating. You can't change @Name@ after you create the @XssMatchSet@ .
 cxmsName :: Lens' CreateXSSMatchSet Text
@@ -105,9 +104,9 @@ instance AWSRequest CreateXSSMatchSet where
                    (x .?> "XssMatchSet") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateXSSMatchSet
+instance Hashable CreateXSSMatchSet where
 
-instance NFData CreateXSSMatchSet
+instance NFData CreateXSSMatchSet where
 
 instance ToHeaders CreateXSSMatchSet where
         toHeaders
@@ -138,10 +137,11 @@ instance ToQuery CreateXSSMatchSet where
 --
 -- /See:/ 'createXSSMatchSetResponse' smart constructor.
 data CreateXSSMatchSetResponse = CreateXSSMatchSetResponse'
-    { _cxmsrsXSSMatchSet    :: !(Maybe XSSMatchSet)
-    , _cxmsrsChangeToken    :: !(Maybe Text)
-    , _cxmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cxmsrsXSSMatchSet    :: {-# NOUNPACK #-}!(Maybe XSSMatchSet)
+  , _cxmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateXSSMatchSetResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +156,12 @@ createXSSMatchSetResponse
     :: Int -- ^ 'cxmsrsResponseStatus'
     -> CreateXSSMatchSetResponse
 createXSSMatchSetResponse pResponseStatus_ =
-    CreateXSSMatchSetResponse'
-    { _cxmsrsXSSMatchSet = Nothing
-    , _cxmsrsChangeToken = Nothing
-    , _cxmsrsResponseStatus = pResponseStatus_
-    }
+  CreateXSSMatchSetResponse'
+  { _cxmsrsXSSMatchSet = Nothing
+  , _cxmsrsChangeToken = Nothing
+  , _cxmsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An 'XssMatchSet' .
 cxmsrsXSSMatchSet :: Lens' CreateXSSMatchSetResponse (Maybe XSSMatchSet)
@@ -174,4 +175,4 @@ cxmsrsChangeToken = lens _cxmsrsChangeToken (\ s a -> s{_cxmsrsChangeToken = a})
 cxmsrsResponseStatus :: Lens' CreateXSSMatchSetResponse Int
 cxmsrsResponseStatus = lens _cxmsrsResponseStatus (\ s a -> s{_cxmsrsResponseStatus = a});
 
-instance NFData CreateXSSMatchSetResponse
+instance NFData CreateXSSMatchSetResponse where

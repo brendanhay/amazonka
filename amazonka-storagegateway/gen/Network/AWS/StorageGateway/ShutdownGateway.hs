@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ShutdownGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.StorageGateway.ShutdownGateway
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway to shut down.
 --
@@ -56,8 +56,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'shutdownGateway' smart constructor.
 newtype ShutdownGateway = ShutdownGateway'
-    { _sGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ShutdownGateway' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ newtype ShutdownGateway = ShutdownGateway'
 shutdownGateway
     :: Text -- ^ 'sGatewayARN'
     -> ShutdownGateway
-shutdownGateway pGatewayARN_ =
-    ShutdownGateway'
-    { _sGatewayARN = pGatewayARN_
-    }
+shutdownGateway pGatewayARN_ = ShutdownGateway' {_sGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 sGatewayARN :: Lens' ShutdownGateway Text
@@ -85,9 +84,9 @@ instance AWSRequest ShutdownGateway where
                  ShutdownGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable ShutdownGateway
+instance Hashable ShutdownGateway where
 
-instance NFData ShutdownGateway
+instance NFData ShutdownGateway where
 
 instance ToHeaders ShutdownGateway where
         toHeaders
@@ -116,9 +115,10 @@ instance ToQuery ShutdownGateway where
 --
 -- /See:/ 'shutdownGatewayResponse' smart constructor.
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-    { _srsGatewayARN     :: !(Maybe Text)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ShutdownGatewayResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +131,9 @@ shutdownGatewayResponse
     :: Int -- ^ 'srsResponseStatus'
     -> ShutdownGatewayResponse
 shutdownGatewayResponse pResponseStatus_ =
-    ShutdownGatewayResponse'
-    { _srsGatewayARN = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  ShutdownGatewayResponse'
+  {_srsGatewayARN = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 srsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
@@ -144,4 +143,4 @@ srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
 srsResponseStatus :: Lens' ShutdownGatewayResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData ShutdownGatewayResponse
+instance NFData ShutdownGatewayResponse where

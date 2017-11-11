@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
     , mdcsarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBClusterSnapshotAttribute' smart constructor.
 data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
-    { _mdcsaValuesToAdd                 :: !(Maybe [Text])
-    , _mdcsaValuesToRemove              :: !(Maybe [Text])
-    , _mdcsaDBClusterSnapshotIdentifier :: !Text
-    , _mdcsaAttributeName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdcsaValuesToAdd                 :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mdcsaValuesToRemove              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mdcsaDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  , _mdcsaAttributeName               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBClusterSnapshotAttribute' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ modifyDBClusterSnapshotAttribute
     -> Text -- ^ 'mdcsaAttributeName'
     -> ModifyDBClusterSnapshotAttribute
 modifyDBClusterSnapshotAttribute pDBClusterSnapshotIdentifier_ pAttributeName_ =
-    ModifyDBClusterSnapshotAttribute'
-    { _mdcsaValuesToAdd = Nothing
-    , _mdcsaValuesToRemove = Nothing
-    , _mdcsaDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_
-    , _mdcsaAttributeName = pAttributeName_
-    }
+  ModifyDBClusterSnapshotAttribute'
+  { _mdcsaValuesToAdd = Nothing
+  , _mdcsaValuesToRemove = Nothing
+  , _mdcsaDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_
+  , _mdcsaAttributeName = pAttributeName_
+  }
+
 
 -- | A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ . To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB cluster snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
 mdcsaValuesToAdd :: Lens' ModifyDBClusterSnapshotAttribute [Text]
@@ -116,8 +118,10 @@ instance AWSRequest ModifyDBClusterSnapshotAttribute
                      (pure (fromEnum s)))
 
 instance Hashable ModifyDBClusterSnapshotAttribute
+         where
 
 instance NFData ModifyDBClusterSnapshotAttribute
+         where
 
 instance ToHeaders ModifyDBClusterSnapshotAttribute
          where
@@ -147,9 +151,10 @@ instance ToQuery ModifyDBClusterSnapshotAttribute
 
 -- | /See:/ 'modifyDBClusterSnapshotAttributeResponse' smart constructor.
 data ModifyDBClusterSnapshotAttributeResponse = ModifyDBClusterSnapshotAttributeResponse'
-    { _mdcsarsDBClusterSnapshotAttributesResult :: !(Maybe DBClusterSnapshotAttributesResult)
-    , _mdcsarsResponseStatus                    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdcsarsDBClusterSnapshotAttributesResult :: {-# NOUNPACK #-}!(Maybe DBClusterSnapshotAttributesResult)
+  , _mdcsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBClusterSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
@@ -162,10 +167,11 @@ modifyDBClusterSnapshotAttributeResponse
     :: Int -- ^ 'mdcsarsResponseStatus'
     -> ModifyDBClusterSnapshotAttributeResponse
 modifyDBClusterSnapshotAttributeResponse pResponseStatus_ =
-    ModifyDBClusterSnapshotAttributeResponse'
-    { _mdcsarsDBClusterSnapshotAttributesResult = Nothing
-    , _mdcsarsResponseStatus = pResponseStatus_
-    }
+  ModifyDBClusterSnapshotAttributeResponse'
+  { _mdcsarsDBClusterSnapshotAttributesResult = Nothing
+  , _mdcsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 mdcsarsDBClusterSnapshotAttributesResult :: Lens' ModifyDBClusterSnapshotAttributeResponse (Maybe DBClusterSnapshotAttributesResult)
@@ -176,4 +182,5 @@ mdcsarsResponseStatus :: Lens' ModifyDBClusterSnapshotAttributeResponse Int
 mdcsarsResponseStatus = lens _mdcsarsResponseStatus (\ s a -> s{_mdcsarsResponseStatus = a});
 
 instance NFData
-         ModifyDBClusterSnapshotAttributeResponse
+           ModifyDBClusterSnapshotAttributeResponse
+         where

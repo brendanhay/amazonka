@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,19 +44,20 @@ module Network.AWS.OpsWorksCM.DescribeEvents
     , dersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-    { _deNextToken  :: !(Maybe Text)
-    , _deMaxResults :: !(Maybe Nat)
-    , _deServerName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _deServerName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ describeEvents
     :: Text -- ^ 'deServerName'
     -> DescribeEvents
 describeEvents pServerName_ =
-    DescribeEvents'
-    { _deNextToken = Nothing
-    , _deMaxResults = Nothing
-    , _deServerName = pServerName_
-    }
+  DescribeEvents'
+  { _deNextToken = Nothing
+  , _deMaxResults = Nothing
+  , _deServerName = pServerName_
+  }
+
 
 -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 deNextToken :: Lens' DescribeEvents (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest DescribeEvents where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEvents
+instance Hashable DescribeEvents where
 
-instance NFData DescribeEvents
+instance NFData DescribeEvents where
 
 instance ToHeaders DescribeEvents where
         toHeaders
@@ -130,10 +132,11 @@ instance ToQuery DescribeEvents where
 
 -- | /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersServerEvents   :: !(Maybe [ServerEvent])
-    , _dersNextToken      :: !(Maybe Text)
-    , _dersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersServerEvents   :: {-# NOUNPACK #-}!(Maybe [ServerEvent])
+  , _dersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
@@ -148,11 +151,12 @@ describeEventsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
-    DescribeEventsResponse'
-    { _dersServerEvents = Nothing
-    , _dersNextToken = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DescribeEventsResponse'
+  { _dersServerEvents = Nothing
+  , _dersNextToken = Nothing
+  , _dersResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains the response to a @DescribeEvents@ request.
 dersServerEvents :: Lens' DescribeEventsResponse [ServerEvent]
@@ -166,4 +170,4 @@ dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
 dersResponseStatus :: Lens' DescribeEventsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DescribeEventsResponse
+instance NFData DescribeEventsResponse where

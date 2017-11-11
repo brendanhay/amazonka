@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.BatchGetNamedQuery
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Athena.BatchGetNamedQuery
     , bgnqrsResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchGetNamedQuery' smart constructor.
 newtype BatchGetNamedQuery = BatchGetNamedQuery'
-    { _bgnqNamedQueryIds :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgnqNamedQueryIds :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetNamedQuery' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ batchGetNamedQuery
     :: NonEmpty Text -- ^ 'bgnqNamedQueryIds'
     -> BatchGetNamedQuery
 batchGetNamedQuery pNamedQueryIds_ =
-    BatchGetNamedQuery'
-    { _bgnqNamedQueryIds = _List1 # pNamedQueryIds_
-    }
+  BatchGetNamedQuery' {_bgnqNamedQueryIds = _List1 # pNamedQueryIds_}
+
 
 -- | An array of query IDs.
 bgnqNamedQueryIds :: Lens' BatchGetNamedQuery (NonEmpty Text)
@@ -79,9 +79,9 @@ instance AWSRequest BatchGetNamedQuery where
                      (x .?> "UnprocessedNamedQueryIds" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetNamedQuery
+instance Hashable BatchGetNamedQuery where
 
-instance NFData BatchGetNamedQuery
+instance NFData BatchGetNamedQuery where
 
 instance ToHeaders BatchGetNamedQuery where
         toHeaders
@@ -106,10 +106,11 @@ instance ToQuery BatchGetNamedQuery where
 
 -- | /See:/ 'batchGetNamedQueryResponse' smart constructor.
 data BatchGetNamedQueryResponse = BatchGetNamedQueryResponse'
-    { _bgnqrsNamedQueries             :: !(Maybe [NamedQuery])
-    , _bgnqrsUnprocessedNamedQueryIds :: !(Maybe [UnprocessedNamedQueryId])
-    , _bgnqrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgnqrsNamedQueries :: {-# NOUNPACK #-}!(Maybe [NamedQuery])
+  , _bgnqrsUnprocessedNamedQueryIds :: {-# NOUNPACK #-}!(Maybe [UnprocessedNamedQueryId])
+  , _bgnqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetNamedQueryResponse' with the minimum fields required to make a request.
 --
@@ -124,11 +125,12 @@ batchGetNamedQueryResponse
     :: Int -- ^ 'bgnqrsResponseStatus'
     -> BatchGetNamedQueryResponse
 batchGetNamedQueryResponse pResponseStatus_ =
-    BatchGetNamedQueryResponse'
-    { _bgnqrsNamedQueries = Nothing
-    , _bgnqrsUnprocessedNamedQueryIds = Nothing
-    , _bgnqrsResponseStatus = pResponseStatus_
-    }
+  BatchGetNamedQueryResponse'
+  { _bgnqrsNamedQueries = Nothing
+  , _bgnqrsUnprocessedNamedQueryIds = Nothing
+  , _bgnqrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the named query IDs submitted.
 bgnqrsNamedQueries :: Lens' BatchGetNamedQueryResponse [NamedQuery]
@@ -142,4 +144,4 @@ bgnqrsUnprocessedNamedQueryIds = lens _bgnqrsUnprocessedNamedQueryIds (\ s a -> 
 bgnqrsResponseStatus :: Lens' BatchGetNamedQueryResponse Int
 bgnqrsResponseStatus = lens _bgnqrsResponseStatus (\ s a -> s{_bgnqrsResponseStatus = a});
 
-instance NFData BatchGetNamedQueryResponse
+instance NFData BatchGetNamedQueryResponse where

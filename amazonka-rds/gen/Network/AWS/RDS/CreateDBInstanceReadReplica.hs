@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBInstanceReadReplica
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,34 +60,35 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdirrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDBInstanceReadReplica' smart constructor.
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
-    { _cdirrPubliclyAccessible              :: !(Maybe Bool)
-    , _cdirrAutoMinorVersionUpgrade         :: !(Maybe Bool)
-    , _cdirrDBSubnetGroupName               :: !(Maybe Text)
-    , _cdirrMonitoringRoleARN               :: !(Maybe Text)
-    , _cdirrIOPS                            :: !(Maybe Int)
-    , _cdirrMonitoringInterval              :: !(Maybe Int)
-    , _cdirrPreSignedURL                    :: !(Maybe Text)
-    , _cdirrDBInstanceClass                 :: !(Maybe Text)
-    , _cdirrKMSKeyId                        :: !(Maybe Text)
-    , _cdirrAvailabilityZone                :: !(Maybe Text)
-    , _cdirrOptionGroupName                 :: !(Maybe Text)
-    , _cdirrCopyTagsToSnapshot              :: !(Maybe Bool)
-    , _cdirrTags                            :: !(Maybe [Tag])
-    , _cdirrPort                            :: !(Maybe Int)
-    , _cdirrEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _cdirrStorageType                     :: !(Maybe Text)
-    , _cdirrDBInstanceIdentifier            :: !Text
-    , _cdirrSourceDBInstanceIdentifier      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdirrPubliclyAccessible              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdirrAutoMinorVersionUpgrade         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdirrDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdirrMonitoringRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdirrIOPS                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdirrMonitoringInterval              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdirrPreSignedURL                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdirrDBInstanceClass                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdirrKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdirrAvailabilityZone                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdirrOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdirrCopyTagsToSnapshot              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdirrTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdirrPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdirrEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdirrStorageType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdirrDBInstanceIdentifier            :: {-# NOUNPACK #-}!Text
+  , _cdirrSourceDBInstanceIdentifier      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBInstanceReadReplica' with the minimum fields required to make a request.
 --
@@ -133,26 +134,27 @@ createDBInstanceReadReplica
     -> Text -- ^ 'cdirrSourceDBInstanceIdentifier'
     -> CreateDBInstanceReadReplica
 createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ =
-    CreateDBInstanceReadReplica'
-    { _cdirrPubliclyAccessible = Nothing
-    , _cdirrAutoMinorVersionUpgrade = Nothing
-    , _cdirrDBSubnetGroupName = Nothing
-    , _cdirrMonitoringRoleARN = Nothing
-    , _cdirrIOPS = Nothing
-    , _cdirrMonitoringInterval = Nothing
-    , _cdirrPreSignedURL = Nothing
-    , _cdirrDBInstanceClass = Nothing
-    , _cdirrKMSKeyId = Nothing
-    , _cdirrAvailabilityZone = Nothing
-    , _cdirrOptionGroupName = Nothing
-    , _cdirrCopyTagsToSnapshot = Nothing
-    , _cdirrTags = Nothing
-    , _cdirrPort = Nothing
-    , _cdirrEnableIAMDatabaseAuthentication = Nothing
-    , _cdirrStorageType = Nothing
-    , _cdirrDBInstanceIdentifier = pDBInstanceIdentifier_
-    , _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
-    }
+  CreateDBInstanceReadReplica'
+  { _cdirrPubliclyAccessible = Nothing
+  , _cdirrAutoMinorVersionUpgrade = Nothing
+  , _cdirrDBSubnetGroupName = Nothing
+  , _cdirrMonitoringRoleARN = Nothing
+  , _cdirrIOPS = Nothing
+  , _cdirrMonitoringInterval = Nothing
+  , _cdirrPreSignedURL = Nothing
+  , _cdirrDBInstanceClass = Nothing
+  , _cdirrKMSKeyId = Nothing
+  , _cdirrAvailabilityZone = Nothing
+  , _cdirrOptionGroupName = Nothing
+  , _cdirrCopyTagsToSnapshot = Nothing
+  , _cdirrTags = Nothing
+  , _cdirrPort = Nothing
+  , _cdirrEnableIAMDatabaseAuthentication = Nothing
+  , _cdirrStorageType = Nothing
+  , _cdirrDBInstanceIdentifier = pDBInstanceIdentifier_
+  , _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
+  }
+
 
 -- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
 cdirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
@@ -237,9 +239,9 @@ instance AWSRequest CreateDBInstanceReadReplica where
                  CreateDBInstanceReadReplicaResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDBInstanceReadReplica
+instance Hashable CreateDBInstanceReadReplica where
 
-instance NFData CreateDBInstanceReadReplica
+instance NFData CreateDBInstanceReadReplica where
 
 instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty
@@ -277,9 +279,10 @@ instance ToQuery CreateDBInstanceReadReplica where
 
 -- | /See:/ 'createDBInstanceReadReplicaResponse' smart constructor.
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
-    { _cdirrrsDBInstance     :: !(Maybe DBInstance)
-    , _cdirrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdirrrsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _cdirrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBInstanceReadReplicaResponse' with the minimum fields required to make a request.
 --
@@ -292,10 +295,9 @@ createDBInstanceReadReplicaResponse
     :: Int -- ^ 'cdirrrsResponseStatus'
     -> CreateDBInstanceReadReplicaResponse
 createDBInstanceReadReplicaResponse pResponseStatus_ =
-    CreateDBInstanceReadReplicaResponse'
-    { _cdirrrsDBInstance = Nothing
-    , _cdirrrsResponseStatus = pResponseStatus_
-    }
+  CreateDBInstanceReadReplicaResponse'
+  {_cdirrrsDBInstance = Nothing, _cdirrrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cdirrrsDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
@@ -306,3 +308,4 @@ cdirrrsResponseStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
 cdirrrsResponseStatus = lens _cdirrrsResponseStatus (\ s a -> s{_cdirrrsResponseStatus = a});
 
 instance NFData CreateDBInstanceReadReplicaResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DescribeHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,12 +58,12 @@ module Network.AWS.CloudHSM.DescribeHSM
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DescribeHsm' operation.
 --
@@ -71,9 +71,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeHSM' smart constructor.
 data DescribeHSM = DescribeHSM'
-    { _dhsmHSMSerialNumber :: !(Maybe Text)
-    , _dhsmHSMARN          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhsmHSMSerialNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhsmHSMARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHSM' with the minimum fields required to make a request.
 --
@@ -85,10 +86,8 @@ data DescribeHSM = DescribeHSM'
 describeHSM
     :: DescribeHSM
 describeHSM =
-    DescribeHSM'
-    { _dhsmHSMSerialNumber = Nothing
-    , _dhsmHSMARN = Nothing
-    }
+  DescribeHSM' {_dhsmHSMSerialNumber = Nothing, _dhsmHSMARN = Nothing}
+
 
 -- | The serial number of the HSM. Either the /HsmArn/ or the /HsmSerialNumber/ parameter must be specified.
 dhsmHSMSerialNumber :: Lens' DescribeHSM (Maybe Text)
@@ -127,9 +126,9 @@ instance AWSRequest DescribeHSM where
                      <*> (x .?> "HsmType")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHSM
+instance Hashable DescribeHSM where
 
-instance NFData DescribeHSM
+instance NFData DescribeHSM where
 
 instance ToHeaders DescribeHSM where
         toHeaders
@@ -160,29 +159,30 @@ instance ToQuery DescribeHSM where
 --
 -- /See:/ 'describeHSMResponse' smart constructor.
 data DescribeHSMResponse = DescribeHSMResponse'
-    { _desrsStatus                :: !(Maybe HSMStatus)
-    , _desrsIAMRoleARN            :: !(Maybe Text)
-    , _desrsEniId                 :: !(Maybe Text)
-    , _desrsVPCId                 :: !(Maybe Text)
-    , _desrsSSHKeyLastUpdated     :: !(Maybe Text)
-    , _desrsSubscriptionEndDate   :: !(Maybe Text)
-    , _desrsServerCertURI         :: !(Maybe Text)
-    , _desrsSubscriptionType      :: !(Maybe SubscriptionType)
-    , _desrsSSHPublicKey          :: !(Maybe Text)
-    , _desrsSubnetId              :: !(Maybe Text)
-    , _desrsStatusDetails         :: !(Maybe Text)
-    , _desrsPartitions            :: !(Maybe [Text])
-    , _desrsSubscriptionStartDate :: !(Maybe Text)
-    , _desrsAvailabilityZone      :: !(Maybe Text)
-    , _desrsServerCertLastUpdated :: !(Maybe Text)
-    , _desrsSoftwareVersion       :: !(Maybe Text)
-    , _desrsVendorName            :: !(Maybe Text)
-    , _desrsSerialNumber          :: !(Maybe Text)
-    , _desrsHSMARN                :: !(Maybe Text)
-    , _desrsEniIP                 :: !(Maybe Text)
-    , _desrsHSMType               :: !(Maybe Text)
-    , _desrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsStatus                :: {-# NOUNPACK #-}!(Maybe HSMStatus)
+  , _desrsIAMRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsEniId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsVPCId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsSSHKeyLastUpdated     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsSubscriptionEndDate   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsServerCertURI         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsSubscriptionType      :: {-# NOUNPACK #-}!(Maybe SubscriptionType)
+  , _desrsSSHPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsSubnetId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsStatusDetails         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsPartitions            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _desrsSubscriptionStartDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsAvailabilityZone      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsServerCertLastUpdated :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsSoftwareVersion       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsVendorName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsSerialNumber          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsHSMARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsEniIP                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsHSMType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHSMResponse' with the minimum fields required to make a request.
 --
@@ -235,30 +235,31 @@ describeHSMResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeHSMResponse
 describeHSMResponse pResponseStatus_ =
-    DescribeHSMResponse'
-    { _desrsStatus = Nothing
-    , _desrsIAMRoleARN = Nothing
-    , _desrsEniId = Nothing
-    , _desrsVPCId = Nothing
-    , _desrsSSHKeyLastUpdated = Nothing
-    , _desrsSubscriptionEndDate = Nothing
-    , _desrsServerCertURI = Nothing
-    , _desrsSubscriptionType = Nothing
-    , _desrsSSHPublicKey = Nothing
-    , _desrsSubnetId = Nothing
-    , _desrsStatusDetails = Nothing
-    , _desrsPartitions = Nothing
-    , _desrsSubscriptionStartDate = Nothing
-    , _desrsAvailabilityZone = Nothing
-    , _desrsServerCertLastUpdated = Nothing
-    , _desrsSoftwareVersion = Nothing
-    , _desrsVendorName = Nothing
-    , _desrsSerialNumber = Nothing
-    , _desrsHSMARN = Nothing
-    , _desrsEniIP = Nothing
-    , _desrsHSMType = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeHSMResponse'
+  { _desrsStatus = Nothing
+  , _desrsIAMRoleARN = Nothing
+  , _desrsEniId = Nothing
+  , _desrsVPCId = Nothing
+  , _desrsSSHKeyLastUpdated = Nothing
+  , _desrsSubscriptionEndDate = Nothing
+  , _desrsServerCertURI = Nothing
+  , _desrsSubscriptionType = Nothing
+  , _desrsSSHPublicKey = Nothing
+  , _desrsSubnetId = Nothing
+  , _desrsStatusDetails = Nothing
+  , _desrsPartitions = Nothing
+  , _desrsSubscriptionStartDate = Nothing
+  , _desrsAvailabilityZone = Nothing
+  , _desrsServerCertLastUpdated = Nothing
+  , _desrsSoftwareVersion = Nothing
+  , _desrsVendorName = Nothing
+  , _desrsSerialNumber = Nothing
+  , _desrsHSMARN = Nothing
+  , _desrsEniIP = Nothing
+  , _desrsHSMType = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the HSM.
 desrsStatus :: Lens' DescribeHSMResponse (Maybe HSMStatus)
@@ -348,4 +349,4 @@ desrsHSMType = lens _desrsHSMType (\ s a -> s{_desrsHSMType = a});
 desrsResponseStatus :: Lens' DescribeHSMResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeHSMResponse
+instance NFData DescribeHSMResponse where

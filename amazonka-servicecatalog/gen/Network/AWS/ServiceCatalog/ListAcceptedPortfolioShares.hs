@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
     , lapsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listAcceptedPortfolioShares' smart constructor.
 data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
-    { _lapsAcceptLanguage :: !(Maybe Text)
-    , _lapsPageToken      :: !(Maybe Text)
-    , _lapsPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lapsAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lapsPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lapsPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAcceptedPortfolioShares' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 listAcceptedPortfolioShares
     :: ListAcceptedPortfolioShares
 listAcceptedPortfolioShares =
-    ListAcceptedPortfolioShares'
-    { _lapsAcceptLanguage = Nothing
-    , _lapsPageToken = Nothing
-    , _lapsPageSize = Nothing
-    }
+  ListAcceptedPortfolioShares'
+  { _lapsAcceptLanguage = Nothing
+  , _lapsPageToken = Nothing
+  , _lapsPageSize = Nothing
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 lapsAcceptLanguage :: Lens' ListAcceptedPortfolioShares (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest ListAcceptedPortfolioShares where
                      (x .?> "PortfolioDetails" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAcceptedPortfolioShares
+instance Hashable ListAcceptedPortfolioShares where
 
-instance NFData ListAcceptedPortfolioShares
+instance NFData ListAcceptedPortfolioShares where
 
 instance ToHeaders ListAcceptedPortfolioShares where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery ListAcceptedPortfolioShares where
 
 -- | /See:/ 'listAcceptedPortfolioSharesResponse' smart constructor.
 data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
-    { _lapsrsNextPageToken    :: !(Maybe Text)
-    , _lapsrsPortfolioDetails :: !(Maybe [PortfolioDetail])
-    , _lapsrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lapsrsNextPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lapsrsPortfolioDetails :: {-# NOUNPACK #-}!(Maybe [PortfolioDetail])
+  , _lapsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAcceptedPortfolioSharesResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ listAcceptedPortfolioSharesResponse
     :: Int -- ^ 'lapsrsResponseStatus'
     -> ListAcceptedPortfolioSharesResponse
 listAcceptedPortfolioSharesResponse pResponseStatus_ =
-    ListAcceptedPortfolioSharesResponse'
-    { _lapsrsNextPageToken = Nothing
-    , _lapsrsPortfolioDetails = Nothing
-    , _lapsrsResponseStatus = pResponseStatus_
-    }
+  ListAcceptedPortfolioSharesResponse'
+  { _lapsrsNextPageToken = Nothing
+  , _lapsrsPortfolioDetails = Nothing
+  , _lapsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 lapsrsNextPageToken :: Lens' ListAcceptedPortfolioSharesResponse (Maybe Text)
@@ -163,3 +167,4 @@ lapsrsResponseStatus :: Lens' ListAcceptedPortfolioSharesResponse Int
 lapsrsResponseStatus = lens _lapsrsResponseStatus (\ s a -> s{_lapsrsResponseStatus = a});
 
 instance NFData ListAcceptedPortfolioSharesResponse
+         where

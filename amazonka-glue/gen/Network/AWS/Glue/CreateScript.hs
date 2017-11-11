@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateScript
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Glue.CreateScript
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createScript' smart constructor.
 data CreateScript = CreateScript'
-    { _csDagEdges :: !(Maybe [CodeGenEdge])
-    , _csDagNodes :: !(Maybe [CodeGenNode])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csDagEdges :: {-# NOUNPACK #-}!(Maybe [CodeGenEdge])
+  , _csDagNodes :: {-# NOUNPACK #-}!(Maybe [CodeGenNode])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateScript' with the minimum fields required to make a request.
 --
@@ -60,11 +61,8 @@ data CreateScript = CreateScript'
 -- * 'csDagNodes' - A list of the nodes in the DAG.
 createScript
     :: CreateScript
-createScript =
-    CreateScript'
-    { _csDagEdges = Nothing
-    , _csDagNodes = Nothing
-    }
+createScript = CreateScript' {_csDagEdges = Nothing, _csDagNodes = Nothing}
+
 
 -- | A list of the edges in the DAG.
 csDagEdges :: Lens' CreateScript [CodeGenEdge]
@@ -83,9 +81,9 @@ instance AWSRequest CreateScript where
                  CreateScriptResponse' <$>
                    (x .?> "PythonScript") <*> (pure (fromEnum s)))
 
-instance Hashable CreateScript
+instance Hashable CreateScript where
 
-instance NFData CreateScript
+instance NFData CreateScript where
 
 instance ToHeaders CreateScript where
         toHeaders
@@ -111,9 +109,10 @@ instance ToQuery CreateScript where
 
 -- | /See:/ 'createScriptResponse' smart constructor.
 data CreateScriptResponse = CreateScriptResponse'
-    { _csrsPythonScript   :: !(Maybe Text)
-    , _csrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsPythonScript   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateScriptResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +125,9 @@ createScriptResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateScriptResponse
 createScriptResponse pResponseStatus_ =
-    CreateScriptResponse'
-    { _csrsPythonScript = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  CreateScriptResponse'
+  {_csrsPythonScript = Nothing, _csrsResponseStatus = pResponseStatus_}
+
 
 -- | The Python script generated from the DAG.
 csrsPythonScript :: Lens' CreateScriptResponse (Maybe Text)
@@ -139,4 +137,4 @@ csrsPythonScript = lens _csrsPythonScript (\ s a -> s{_csrsPythonScript = a});
 csrsResponseStatus :: Lens' CreateScriptResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CreateScriptResponse
+instance NFData CreateScriptResponse where

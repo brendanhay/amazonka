@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
     , ldsarsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listDevelopmentSchemaARNs' smart constructor.
 data ListDevelopmentSchemaARNs = ListDevelopmentSchemaARNs'
-    { _ldsaNextToken  :: !(Maybe Text)
-    , _ldsaMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldsaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldsaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDevelopmentSchemaARNs' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ data ListDevelopmentSchemaARNs = ListDevelopmentSchemaARNs'
 listDevelopmentSchemaARNs
     :: ListDevelopmentSchemaARNs
 listDevelopmentSchemaARNs =
-    ListDevelopmentSchemaARNs'
-    { _ldsaNextToken = Nothing
-    , _ldsaMaxResults = Nothing
-    }
+  ListDevelopmentSchemaARNs'
+  {_ldsaNextToken = Nothing, _ldsaMaxResults = Nothing}
+
 
 -- | The pagination token.
 ldsaNextToken :: Lens' ListDevelopmentSchemaARNs (Maybe Text)
@@ -87,9 +87,9 @@ instance AWSRequest ListDevelopmentSchemaARNs where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDevelopmentSchemaARNs
+instance Hashable ListDevelopmentSchemaARNs where
 
-instance NFData ListDevelopmentSchemaARNs
+instance NFData ListDevelopmentSchemaARNs where
 
 instance ToHeaders ListDevelopmentSchemaARNs where
         toHeaders = const mempty
@@ -111,10 +111,11 @@ instance ToQuery ListDevelopmentSchemaARNs where
 
 -- | /See:/ 'listDevelopmentSchemaARNsResponse' smart constructor.
 data ListDevelopmentSchemaARNsResponse = ListDevelopmentSchemaARNsResponse'
-    { _ldsarsSchemaARNs     :: !(Maybe [Text])
-    , _ldsarsNextToken      :: !(Maybe Text)
-    , _ldsarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldsarsSchemaARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ldsarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDevelopmentSchemaARNsResponse' with the minimum fields required to make a request.
 --
@@ -129,11 +130,12 @@ listDevelopmentSchemaARNsResponse
     :: Int -- ^ 'ldsarsResponseStatus'
     -> ListDevelopmentSchemaARNsResponse
 listDevelopmentSchemaARNsResponse pResponseStatus_ =
-    ListDevelopmentSchemaARNsResponse'
-    { _ldsarsSchemaARNs = Nothing
-    , _ldsarsNextToken = Nothing
-    , _ldsarsResponseStatus = pResponseStatus_
-    }
+  ListDevelopmentSchemaARNsResponse'
+  { _ldsarsSchemaARNs = Nothing
+  , _ldsarsNextToken = Nothing
+  , _ldsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARNs of retrieved development schemas.
 ldsarsSchemaARNs :: Lens' ListDevelopmentSchemaARNsResponse [Text]
@@ -148,3 +150,4 @@ ldsarsResponseStatus :: Lens' ListDevelopmentSchemaARNsResponse Int
 ldsarsResponseStatus = lens _ldsarsResponseStatus (\ s a -> s{_ldsarsResponseStatus = a});
 
 instance NFData ListDevelopmentSchemaARNsResponse
+         where

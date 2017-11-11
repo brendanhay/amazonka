@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.CancelCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Snowball.CancelCluster
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'cancelCluster' smart constructor.
 newtype CancelCluster = CancelCluster'
-    { _ccClusterId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccClusterId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelCluster' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype CancelCluster = CancelCluster'
 cancelCluster
     :: Text -- ^ 'ccClusterId'
     -> CancelCluster
-cancelCluster pClusterId_ =
-    CancelCluster'
-    { _ccClusterId = pClusterId_
-    }
+cancelCluster pClusterId_ = CancelCluster' {_ccClusterId = pClusterId_}
+
 
 -- | The 39-character ID for the cluster that you want to cancel, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 ccClusterId :: Lens' CancelCluster Text
@@ -73,9 +72,9 @@ instance AWSRequest CancelCluster where
               (\ s h x ->
                  CancelClusterResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CancelCluster
+instance Hashable CancelCluster where
 
-instance NFData CancelCluster
+instance NFData CancelCluster where
 
 instance ToHeaders CancelCluster where
         toHeaders
@@ -100,8 +99,9 @@ instance ToQuery CancelCluster where
 
 -- | /See:/ 'cancelClusterResponse' smart constructor.
 newtype CancelClusterResponse = CancelClusterResponse'
-    { _ccrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelClusterResponse' with the minimum fields required to make a request.
 --
@@ -112,12 +112,11 @@ cancelClusterResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CancelClusterResponse
 cancelClusterResponse pResponseStatus_ =
-    CancelClusterResponse'
-    { _ccrsResponseStatus = pResponseStatus_
-    }
+  CancelClusterResponse' {_ccrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CancelClusterResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData CancelClusterResponse
+instance NFData CancelClusterResponse where

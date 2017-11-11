@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.PutMetricAlarm
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -75,34 +75,35 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     , PutMetricAlarmResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putMetricAlarm' smart constructor.
 data PutMetricAlarm = PutMetricAlarm'
-    { _pmaTreatMissingData                 :: !(Maybe Text)
-    , _pmaAlarmDescription                 :: !(Maybe Text)
-    , _pmaOKActions                        :: !(Maybe [Text])
-    , _pmaEvaluateLowSampleCountPercentile :: !(Maybe Text)
-    , _pmaActionsEnabled                   :: !(Maybe Bool)
-    , _pmaInsufficientDataActions          :: !(Maybe [Text])
-    , _pmaDimensions                       :: !(Maybe [Dimension])
-    , _pmaAlarmActions                     :: !(Maybe [Text])
-    , _pmaUnit                             :: !(Maybe StandardUnit)
-    , _pmaStatistic                        :: !(Maybe Statistic)
-    , _pmaExtendedStatistic                :: !(Maybe Text)
-    , _pmaAlarmName                        :: !Text
-    , _pmaMetricName                       :: !Text
-    , _pmaNamespace                        :: !Text
-    , _pmaPeriod                           :: !Nat
-    , _pmaEvaluationPeriods                :: !Nat
-    , _pmaThreshold                        :: !Double
-    , _pmaComparisonOperator               :: !ComparisonOperator
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmaTreatMissingData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmaAlarmDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmaOKActions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pmaEvaluateLowSampleCountPercentile :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmaActionsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pmaInsufficientDataActions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pmaDimensions :: {-# NOUNPACK #-}!(Maybe [Dimension])
+  , _pmaAlarmActions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pmaUnit :: {-# NOUNPACK #-}!(Maybe StandardUnit)
+  , _pmaStatistic :: {-# NOUNPACK #-}!(Maybe Statistic)
+  , _pmaExtendedStatistic :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmaAlarmName :: {-# NOUNPACK #-}!Text
+  , _pmaMetricName :: {-# NOUNPACK #-}!Text
+  , _pmaNamespace :: {-# NOUNPACK #-}!Text
+  , _pmaPeriod :: {-# NOUNPACK #-}!Nat
+  , _pmaEvaluationPeriods :: {-# NOUNPACK #-}!Nat
+  , _pmaThreshold :: {-# NOUNPACK #-}!Double
+  , _pmaComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMetricAlarm' with the minimum fields required to make a request.
 --
@@ -153,26 +154,27 @@ putMetricAlarm
     -> ComparisonOperator -- ^ 'pmaComparisonOperator'
     -> PutMetricAlarm
 putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pPeriod_ pEvaluationPeriods_ pThreshold_ pComparisonOperator_ =
-    PutMetricAlarm'
-    { _pmaTreatMissingData = Nothing
-    , _pmaAlarmDescription = Nothing
-    , _pmaOKActions = Nothing
-    , _pmaEvaluateLowSampleCountPercentile = Nothing
-    , _pmaActionsEnabled = Nothing
-    , _pmaInsufficientDataActions = Nothing
-    , _pmaDimensions = Nothing
-    , _pmaAlarmActions = Nothing
-    , _pmaUnit = Nothing
-    , _pmaStatistic = Nothing
-    , _pmaExtendedStatistic = Nothing
-    , _pmaAlarmName = pAlarmName_
-    , _pmaMetricName = pMetricName_
-    , _pmaNamespace = pNamespace_
-    , _pmaPeriod = _Nat # pPeriod_
-    , _pmaEvaluationPeriods = _Nat # pEvaluationPeriods_
-    , _pmaThreshold = pThreshold_
-    , _pmaComparisonOperator = pComparisonOperator_
-    }
+  PutMetricAlarm'
+  { _pmaTreatMissingData = Nothing
+  , _pmaAlarmDescription = Nothing
+  , _pmaOKActions = Nothing
+  , _pmaEvaluateLowSampleCountPercentile = Nothing
+  , _pmaActionsEnabled = Nothing
+  , _pmaInsufficientDataActions = Nothing
+  , _pmaDimensions = Nothing
+  , _pmaAlarmActions = Nothing
+  , _pmaUnit = Nothing
+  , _pmaStatistic = Nothing
+  , _pmaExtendedStatistic = Nothing
+  , _pmaAlarmName = pAlarmName_
+  , _pmaMetricName = pMetricName_
+  , _pmaNamespace = pNamespace_
+  , _pmaPeriod = _Nat # pPeriod_
+  , _pmaEvaluationPeriods = _Nat # pEvaluationPeriods_
+  , _pmaThreshold = pThreshold_
+  , _pmaComparisonOperator = pComparisonOperator_
+  }
+
 
 -- | Sets how this alarm is to handle missing data points. If @TreatMissingData@ is omitted, the default behavior of @missing@ is used. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data> . Valid Values: @breaching | notBreaching | ignore | missing@
 pmaTreatMissingData :: Lens' PutMetricAlarm (Maybe Text)
@@ -251,9 +253,9 @@ instance AWSRequest PutMetricAlarm where
         request = postQuery cloudWatch
         response = receiveNull PutMetricAlarmResponse'
 
-instance Hashable PutMetricAlarm
+instance Hashable PutMetricAlarm where
 
-instance NFData PutMetricAlarm
+instance NFData PutMetricAlarm where
 
 instance ToHeaders PutMetricAlarm where
         toHeaders = const mempty
@@ -292,8 +294,9 @@ instance ToQuery PutMetricAlarm where
 
 -- | /See:/ 'putMetricAlarmResponse' smart constructor.
 data PutMetricAlarmResponse =
-    PutMetricAlarmResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutMetricAlarmResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMetricAlarmResponse' with the minimum fields required to make a request.
 --
@@ -301,4 +304,5 @@ putMetricAlarmResponse
     :: PutMetricAlarmResponse
 putMetricAlarmResponse = PutMetricAlarmResponse'
 
-instance NFData PutMetricAlarmResponse
+
+instance NFData PutMetricAlarmResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetPolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,18 +46,19 @@ module Network.AWS.IAM.GetPolicyVersion
     , gpvrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getPolicyVersion' smart constructor.
 data GetPolicyVersion = GetPolicyVersion'
-    { _gpvPolicyARN :: !Text
-    , _gpvVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpvPolicyARN :: {-# NOUNPACK #-}!Text
+  , _gpvVersionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPolicyVersion' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ getPolicyVersion
     -> Text -- ^ 'gpvVersionId'
     -> GetPolicyVersion
 getPolicyVersion pPolicyARN_ pVersionId_ =
-    GetPolicyVersion'
-    { _gpvPolicyARN = pPolicyARN_
-    , _gpvVersionId = pVersionId_
-    }
+  GetPolicyVersion' {_gpvPolicyARN = pPolicyARN_, _gpvVersionId = pVersionId_}
+
 
 -- | The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 gpvPolicyARN :: Lens' GetPolicyVersion Text
@@ -93,9 +92,9 @@ instance AWSRequest GetPolicyVersion where
                  GetPolicyVersionResponse' <$>
                    (x .@? "PolicyVersion") <*> (pure (fromEnum s)))
 
-instance Hashable GetPolicyVersion
+instance Hashable GetPolicyVersion where
 
-instance NFData GetPolicyVersion
+instance NFData GetPolicyVersion where
 
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty
@@ -117,9 +116,10 @@ instance ToQuery GetPolicyVersion where
 --
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-    { _gpvrsPolicyVersion  :: !(Maybe PolicyVersion)
-    , _gpvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpvrsPolicyVersion  :: {-# NOUNPACK #-}!(Maybe PolicyVersion)
+  , _gpvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -132,10 +132,9 @@ getPolicyVersionResponse
     :: Int -- ^ 'gpvrsResponseStatus'
     -> GetPolicyVersionResponse
 getPolicyVersionResponse pResponseStatus_ =
-    GetPolicyVersionResponse'
-    { _gpvrsPolicyVersion = Nothing
-    , _gpvrsResponseStatus = pResponseStatus_
-    }
+  GetPolicyVersionResponse'
+  {_gpvrsPolicyVersion = Nothing, _gpvrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure containing details about the policy version.
 gpvrsPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
@@ -145,4 +144,4 @@ gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\ s a -> s{_gpvrsPolicyVersion = 
 gpvrsResponseStatus :: Lens' GetPolicyVersionResponse Int
 gpvrsResponseStatus = lens _gpvrsResponseStatus (\ s a -> s{_gpvrsResponseStatus = a});
 
-instance NFData GetPolicyVersionResponse
+instance NFData GetPolicyVersionResponse where

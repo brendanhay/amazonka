@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DetachInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.AutoScaling.DetachInstances
     , dirsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachInstances.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachInstances' smart constructor.
 data DetachInstances = DetachInstances'
-    { _diInstanceIds                    :: !(Maybe [Text])
-    , _diAutoScalingGroupName           :: !Text
-    , _diShouldDecrementDesiredCapacity :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diInstanceIds                    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _diAutoScalingGroupName           :: {-# NOUNPACK #-}!Text
+  , _diShouldDecrementDesiredCapacity :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachInstances' with the minimum fields required to make a request.
 --
@@ -79,11 +80,12 @@ detachInstances
     -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
     -> DetachInstances
 detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
-    DetachInstances'
-    { _diInstanceIds = Nothing
-    , _diAutoScalingGroupName = pAutoScalingGroupName_
-    , _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
-    }
+  DetachInstances'
+  { _diInstanceIds = Nothing
+  , _diAutoScalingGroupName = pAutoScalingGroupName_
+  , _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+  }
+
 
 -- | One or more instance IDs.
 diInstanceIds :: Lens' DetachInstances [Text]
@@ -108,9 +110,9 @@ instance AWSRequest DetachInstances where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DetachInstances
+instance Hashable DetachInstances where
 
-instance NFData DetachInstances
+instance NFData DetachInstances where
 
 instance ToHeaders DetachInstances where
         toHeaders = const mempty
@@ -135,9 +137,10 @@ instance ToQuery DetachInstances where
 --
 -- /See:/ 'detachInstancesResponse' smart constructor.
 data DetachInstancesResponse = DetachInstancesResponse'
-    { _dirsActivities     :: !(Maybe [Activity])
-    , _dirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dirsActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
+  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachInstancesResponse' with the minimum fields required to make a request.
 --
@@ -150,10 +153,9 @@ detachInstancesResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DetachInstancesResponse
 detachInstancesResponse pResponseStatus_ =
-    DetachInstancesResponse'
-    { _dirsActivities = Nothing
-    , _dirsResponseStatus = pResponseStatus_
-    }
+  DetachInstancesResponse'
+  {_dirsActivities = Nothing, _dirsResponseStatus = pResponseStatus_}
+
 
 -- | The activities related to detaching the instances from the Auto Scaling group.
 dirsActivities :: Lens' DetachInstancesResponse [Activity]
@@ -163,4 +165,4 @@ dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Defau
 dirsResponseStatus :: Lens' DetachInstancesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 
-instance NFData DetachInstancesResponse
+instance NFData DetachInstancesResponse where

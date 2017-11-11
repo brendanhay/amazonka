@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     , rcsgirsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @RevokeCacheSecurityGroupIngress@ operation.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'revokeCacheSecurityGroupIngress' smart constructor.
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
-    { _rcsgiCacheSecurityGroupName  :: !Text
-    , _rcsgiEC2SecurityGroupName    :: !Text
-    , _rcsgiEC2SecurityGroupOwnerId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcsgiCacheSecurityGroupName  :: {-# NOUNPACK #-}!Text
+  , _rcsgiEC2SecurityGroupName    :: {-# NOUNPACK #-}!Text
+  , _rcsgiEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeCacheSecurityGroupIngress' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ revokeCacheSecurityGroupIngress
     -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
     -> RevokeCacheSecurityGroupIngress
 revokeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
-    RevokeCacheSecurityGroupIngress'
-    { _rcsgiCacheSecurityGroupName = pCacheSecurityGroupName_
-    , _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName_
-    , _rcsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
-    }
+  RevokeCacheSecurityGroupIngress'
+  { _rcsgiCacheSecurityGroupName = pCacheSecurityGroupName_
+  , _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName_
+  , _rcsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
+  }
+
 
 -- | The name of the cache security group to revoke ingress from.
 rcsgiCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
@@ -103,8 +105,9 @@ instance AWSRequest RevokeCacheSecurityGroupIngress
                    (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
 
 instance Hashable RevokeCacheSecurityGroupIngress
+         where
 
-instance NFData RevokeCacheSecurityGroupIngress
+instance NFData RevokeCacheSecurityGroupIngress where
 
 instance ToHeaders RevokeCacheSecurityGroupIngress
          where
@@ -128,9 +131,10 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 
 -- | /See:/ 'revokeCacheSecurityGroupIngressResponse' smart constructor.
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
-    { _rcsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _rcsgirsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcsgirsCacheSecurityGroup :: {-# NOUNPACK #-}!(Maybe CacheSecurityGroup)
+  , _rcsgirsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeCacheSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +147,11 @@ revokeCacheSecurityGroupIngressResponse
     :: Int -- ^ 'rcsgirsResponseStatus'
     -> RevokeCacheSecurityGroupIngressResponse
 revokeCacheSecurityGroupIngressResponse pResponseStatus_ =
-    RevokeCacheSecurityGroupIngressResponse'
-    { _rcsgirsCacheSecurityGroup = Nothing
-    , _rcsgirsResponseStatus = pResponseStatus_
-    }
+  RevokeCacheSecurityGroupIngressResponse'
+  { _rcsgirsCacheSecurityGroup = Nothing
+  , _rcsgirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 rcsgirsCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
@@ -157,4 +162,5 @@ rcsgirsResponseStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
 rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});
 
 instance NFData
-         RevokeCacheSecurityGroupIngressResponse
+           RevokeCacheSecurityGroupIngressResponse
+         where

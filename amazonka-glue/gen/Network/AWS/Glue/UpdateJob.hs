@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Glue.UpdateJob
     , ujrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateJob' smart constructor.
 data UpdateJob = UpdateJob'
-    { _ujJobName   :: !Text
-    , _ujJobUpdate :: !JobUpdate
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ujJobName   :: {-# NOUNPACK #-}!Text
+  , _ujJobUpdate :: {-# NOUNPACK #-}!JobUpdate
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ updateJob
     -> JobUpdate -- ^ 'ujJobUpdate'
     -> UpdateJob
 updateJob pJobName_ pJobUpdate_ =
-    UpdateJob'
-    { _ujJobName = pJobName_
-    , _ujJobUpdate = pJobUpdate_
-    }
+  UpdateJob' {_ujJobName = pJobName_, _ujJobUpdate = pJobUpdate_}
+
 
 -- | Name of the job definition to update.
 ujJobName :: Lens' UpdateJob Text
@@ -85,9 +84,9 @@ instance AWSRequest UpdateJob where
                  UpdateJobResponse' <$>
                    (x .?> "JobName") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateJob
+instance Hashable UpdateJob where
 
-instance NFData UpdateJob
+instance NFData UpdateJob where
 
 instance ToHeaders UpdateJob where
         toHeaders
@@ -113,9 +112,10 @@ instance ToQuery UpdateJob where
 
 -- | /See:/ 'updateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-    { _ujrsJobName        :: !(Maybe Text)
-    , _ujrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ujrsJobName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ujrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +128,9 @@ updateJobResponse
     :: Int -- ^ 'ujrsResponseStatus'
     -> UpdateJobResponse
 updateJobResponse pResponseStatus_ =
-    UpdateJobResponse'
-    { _ujrsJobName = Nothing
-    , _ujrsResponseStatus = pResponseStatus_
-    }
+  UpdateJobResponse'
+  {_ujrsJobName = Nothing, _ujrsResponseStatus = pResponseStatus_}
+
 
 -- | Returns the name of the updated job.
 ujrsJobName :: Lens' UpdateJobResponse (Maybe Text)
@@ -141,4 +140,4 @@ ujrsJobName = lens _ujrsJobName (\ s a -> s{_ujrsJobName = a});
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
 ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
 
-instance NFData UpdateJobResponse
+instance NFData UpdateJobResponse where

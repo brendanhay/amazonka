@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateFolder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.WorkDocs.CreateFolder
     , cfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createFolder' smart constructor.
 data CreateFolder = CreateFolder'
-    { _cfAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _cfName                :: !(Maybe Text)
-    , _cfParentFolderId      :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cfAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _cfName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfParentFolderId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFolder' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ createFolder
     :: Text -- ^ 'cfParentFolderId'
     -> CreateFolder
 createFolder pParentFolderId_ =
-    CreateFolder'
-    { _cfAuthenticationToken = Nothing
-    , _cfName = Nothing
-    , _cfParentFolderId = pParentFolderId_
-    }
+  CreateFolder'
+  { _cfAuthenticationToken = Nothing
+  , _cfName = Nothing
+  , _cfParentFolderId = pParentFolderId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 cfAuthenticationToken :: Lens' CreateFolder (Maybe Text)
@@ -93,9 +95,9 @@ instance AWSRequest CreateFolder where
                  CreateFolderResponse' <$>
                    (x .?> "Metadata") <*> (pure (fromEnum s)))
 
-instance Hashable CreateFolder
+instance Hashable CreateFolder where
 
-instance NFData CreateFolder
+instance NFData CreateFolder where
 
 instance ToHeaders CreateFolder where
         toHeaders CreateFolder'{..}
@@ -119,9 +121,10 @@ instance ToQuery CreateFolder where
 
 -- | /See:/ 'createFolderResponse' smart constructor.
 data CreateFolderResponse = CreateFolderResponse'
-    { _cfrsMetadata       :: !(Maybe FolderMetadata)
-    , _cfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfrsMetadata       :: {-# NOUNPACK #-}!(Maybe FolderMetadata)
+  , _cfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFolderResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +137,9 @@ createFolderResponse
     :: Int -- ^ 'cfrsResponseStatus'
     -> CreateFolderResponse
 createFolderResponse pResponseStatus_ =
-    CreateFolderResponse'
-    { _cfrsMetadata = Nothing
-    , _cfrsResponseStatus = pResponseStatus_
-    }
+  CreateFolderResponse'
+  {_cfrsMetadata = Nothing, _cfrsResponseStatus = pResponseStatus_}
+
 
 -- | The metadata of the folder.
 cfrsMetadata :: Lens' CreateFolderResponse (Maybe FolderMetadata)
@@ -147,4 +149,4 @@ cfrsMetadata = lens _cfrsMetadata (\ s a -> s{_cfrsMetadata = a});
 cfrsResponseStatus :: Lens' CreateFolderResponse Int
 cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
 
-instance NFData CreateFolderResponse
+instance NFData CreateFolderResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
     , cupcrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to create a user pool client.
 --
@@ -63,21 +63,22 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUserPoolClient' smart constructor.
 data CreateUserPoolClient = CreateUserPoolClient'
-    { _cupcRefreshTokenValidity            :: !(Maybe Nat)
-    , _cupcExplicitAuthFlows               :: !(Maybe [ExplicitAuthFlowsType])
-    , _cupcSupportedIdentityProviders      :: !(Maybe [Text])
-    , _cupcLogoutURLs                      :: !(Maybe [Text])
-    , _cupcAllowedOAuthFlowsUserPoolClient :: !(Maybe Bool)
-    , _cupcGenerateSecret                  :: !(Maybe Bool)
-    , _cupcDefaultRedirectURI              :: !(Maybe Text)
-    , _cupcWriteAttributes                 :: !(Maybe [Text])
-    , _cupcReadAttributes                  :: !(Maybe [Text])
-    , _cupcAllowedOAuthScopes              :: !(Maybe [Text])
-    , _cupcAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
-    , _cupcCallbackURLs                    :: !(Maybe [Text])
-    , _cupcUserPoolId                      :: !Text
-    , _cupcClientName                      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cupcRefreshTokenValidity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cupcExplicitAuthFlows :: {-# NOUNPACK #-}!(Maybe [ExplicitAuthFlowsType])
+  , _cupcSupportedIdentityProviders :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cupcLogoutURLs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cupcAllowedOAuthFlowsUserPoolClient :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cupcGenerateSecret :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cupcDefaultRedirectURI :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cupcWriteAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cupcReadAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cupcAllowedOAuthScopes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cupcAllowedOAuthFlows :: {-# NOUNPACK #-}!(Maybe [OAuthFlowType])
+  , _cupcCallbackURLs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cupcUserPoolId :: {-# NOUNPACK #-}!Text
+  , _cupcClientName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserPoolClient' with the minimum fields required to make a request.
 --
@@ -115,22 +116,23 @@ createUserPoolClient
     -> Text -- ^ 'cupcClientName'
     -> CreateUserPoolClient
 createUserPoolClient pUserPoolId_ pClientName_ =
-    CreateUserPoolClient'
-    { _cupcRefreshTokenValidity = Nothing
-    , _cupcExplicitAuthFlows = Nothing
-    , _cupcSupportedIdentityProviders = Nothing
-    , _cupcLogoutURLs = Nothing
-    , _cupcAllowedOAuthFlowsUserPoolClient = Nothing
-    , _cupcGenerateSecret = Nothing
-    , _cupcDefaultRedirectURI = Nothing
-    , _cupcWriteAttributes = Nothing
-    , _cupcReadAttributes = Nothing
-    , _cupcAllowedOAuthScopes = Nothing
-    , _cupcAllowedOAuthFlows = Nothing
-    , _cupcCallbackURLs = Nothing
-    , _cupcUserPoolId = pUserPoolId_
-    , _cupcClientName = pClientName_
-    }
+  CreateUserPoolClient'
+  { _cupcRefreshTokenValidity = Nothing
+  , _cupcExplicitAuthFlows = Nothing
+  , _cupcSupportedIdentityProviders = Nothing
+  , _cupcLogoutURLs = Nothing
+  , _cupcAllowedOAuthFlowsUserPoolClient = Nothing
+  , _cupcGenerateSecret = Nothing
+  , _cupcDefaultRedirectURI = Nothing
+  , _cupcWriteAttributes = Nothing
+  , _cupcReadAttributes = Nothing
+  , _cupcAllowedOAuthScopes = Nothing
+  , _cupcAllowedOAuthFlows = Nothing
+  , _cupcCallbackURLs = Nothing
+  , _cupcUserPoolId = pUserPoolId_
+  , _cupcClientName = pClientName_
+  }
+
 
 -- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 cupcRefreshTokenValidity :: Lens' CreateUserPoolClient (Maybe Natural)
@@ -198,9 +200,9 @@ instance AWSRequest CreateUserPoolClient where
                  CreateUserPoolClientResponse' <$>
                    (x .?> "UserPoolClient") <*> (pure (fromEnum s)))
 
-instance Hashable CreateUserPoolClient
+instance Hashable CreateUserPoolClient where
 
-instance NFData CreateUserPoolClient
+instance NFData CreateUserPoolClient where
 
 instance ToHeaders CreateUserPoolClient where
         toHeaders
@@ -248,9 +250,10 @@ instance ToQuery CreateUserPoolClient where
 --
 -- /See:/ 'createUserPoolClientResponse' smart constructor.
 data CreateUserPoolClientResponse = CreateUserPoolClientResponse'
-    { _cupcrsUserPoolClient :: !(Maybe UserPoolClientType)
-    , _cupcrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cupcrsUserPoolClient :: {-# NOUNPACK #-}!(Maybe UserPoolClientType)
+  , _cupcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserPoolClientResponse' with the minimum fields required to make a request.
 --
@@ -263,10 +266,9 @@ createUserPoolClientResponse
     :: Int -- ^ 'cupcrsResponseStatus'
     -> CreateUserPoolClientResponse
 createUserPoolClientResponse pResponseStatus_ =
-    CreateUserPoolClientResponse'
-    { _cupcrsUserPoolClient = Nothing
-    , _cupcrsResponseStatus = pResponseStatus_
-    }
+  CreateUserPoolClientResponse'
+  {_cupcrsUserPoolClient = Nothing, _cupcrsResponseStatus = pResponseStatus_}
+
 
 -- | The user pool client that was just created.
 cupcrsUserPoolClient :: Lens' CreateUserPoolClientResponse (Maybe UserPoolClientType)
@@ -276,4 +278,4 @@ cupcrsUserPoolClient = lens _cupcrsUserPoolClient (\ s a -> s{_cupcrsUserPoolCli
 cupcrsResponseStatus :: Lens' CreateUserPoolClientResponse Int
 cupcrsResponseStatus = lens _cupcrsResponseStatus (\ s a -> s{_cupcrsResponseStatus = a});
 
-instance NFData CreateUserPoolClientResponse
+instance NFData CreateUserPoolClientResponse where

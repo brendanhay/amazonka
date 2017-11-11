@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeUsers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,27 +52,28 @@ module Network.AWS.WorkDocs.DescribeUsers
     , dursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-    { _duInclude             :: !(Maybe UserFilterType)
-    , _duUserIds             :: !(Maybe Text)
-    , _duAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _duSort                :: !(Maybe UserSortType)
-    , _duMarker              :: !(Maybe Text)
-    , _duQuery               :: !(Maybe (Sensitive Text))
-    , _duLimit               :: !(Maybe Nat)
-    , _duOrder               :: !(Maybe OrderType)
-    , _duOrganizationId      :: !(Maybe Text)
-    , _duFields              :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _duInclude             :: {-# NOUNPACK #-}!(Maybe UserFilterType)
+  , _duUserIds             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _duAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _duSort                :: {-# NOUNPACK #-}!(Maybe UserSortType)
+  , _duMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _duQuery               :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _duLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _duOrder               :: {-# NOUNPACK #-}!(Maybe OrderType)
+  , _duOrganizationId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _duFields              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUsers' with the minimum fields required to make a request.
 --
@@ -100,18 +101,19 @@ data DescribeUsers = DescribeUsers'
 describeUsers
     :: DescribeUsers
 describeUsers =
-    DescribeUsers'
-    { _duInclude = Nothing
-    , _duUserIds = Nothing
-    , _duAuthenticationToken = Nothing
-    , _duSort = Nothing
-    , _duMarker = Nothing
-    , _duQuery = Nothing
-    , _duLimit = Nothing
-    , _duOrder = Nothing
-    , _duOrganizationId = Nothing
-    , _duFields = Nothing
-    }
+  DescribeUsers'
+  { _duInclude = Nothing
+  , _duUserIds = Nothing
+  , _duAuthenticationToken = Nothing
+  , _duSort = Nothing
+  , _duMarker = Nothing
+  , _duQuery = Nothing
+  , _duLimit = Nothing
+  , _duOrder = Nothing
+  , _duOrganizationId = Nothing
+  , _duFields = Nothing
+  }
+
 
 -- | The state of the users. Specify "ALL" to include inactive users.
 duInclude :: Lens' DescribeUsers (Maybe UserFilterType)
@@ -172,9 +174,9 @@ instance AWSRequest DescribeUsers where
                      <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeUsers
+instance Hashable DescribeUsers where
 
-instance NFData DescribeUsers
+instance NFData DescribeUsers where
 
 instance ToHeaders DescribeUsers where
         toHeaders DescribeUsers'{..}
@@ -198,11 +200,12 @@ instance ToQuery DescribeUsers where
 
 -- | /See:/ 'describeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
-    { _dursUsers              :: !(Maybe [User])
-    , _dursTotalNumberOfUsers :: !(Maybe Integer)
-    , _dursMarker             :: !(Maybe Text)
-    , _dursResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dursUsers              :: {-# NOUNPACK #-}!(Maybe [User])
+  , _dursTotalNumberOfUsers :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dursMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dursResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUsersResponse' with the minimum fields required to make a request.
 --
@@ -219,12 +222,13 @@ describeUsersResponse
     :: Int -- ^ 'dursResponseStatus'
     -> DescribeUsersResponse
 describeUsersResponse pResponseStatus_ =
-    DescribeUsersResponse'
-    { _dursUsers = Nothing
-    , _dursTotalNumberOfUsers = Nothing
-    , _dursMarker = Nothing
-    , _dursResponseStatus = pResponseStatus_
-    }
+  DescribeUsersResponse'
+  { _dursUsers = Nothing
+  , _dursTotalNumberOfUsers = Nothing
+  , _dursMarker = Nothing
+  , _dursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The users.
 dursUsers :: Lens' DescribeUsersResponse [User]
@@ -242,4 +246,4 @@ dursMarker = lens _dursMarker (\ s a -> s{_dursMarker = a});
 dursResponseStatus :: Lens' DescribeUsersResponse Int
 dursResponseStatus = lens _dursResponseStatus (\ s a -> s{_dursResponseStatus = a});
 
-instance NFData DescribeUsersResponse
+instance NFData DescribeUsersResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ReportTaskProgress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     , rtprsCanceled
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReportTaskProgress.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'reportTaskProgress' smart constructor.
 data ReportTaskProgress = ReportTaskProgress'
-    { _rtpFields :: !(Maybe [Field])
-    , _rtpTaskId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtpFields :: {-# NOUNPACK #-}!(Maybe [Field])
+  , _rtpTaskId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReportTaskProgress' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ reportTaskProgress
     :: Text -- ^ 'rtpTaskId'
     -> ReportTaskProgress
 reportTaskProgress pTaskId_ =
-    ReportTaskProgress'
-    { _rtpFields = Nothing
-    , _rtpTaskId = pTaskId_
-    }
+  ReportTaskProgress' {_rtpFields = Nothing, _rtpTaskId = pTaskId_}
+
 
 -- | Key-value pairs that define the properties of the ReportTaskProgressInput object.
 rtpFields :: Lens' ReportTaskProgress [Field]
@@ -91,9 +90,9 @@ instance AWSRequest ReportTaskProgress where
                  ReportTaskProgressResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "canceled"))
 
-instance Hashable ReportTaskProgress
+instance Hashable ReportTaskProgress where
 
-instance NFData ReportTaskProgress
+instance NFData ReportTaskProgress where
 
 instance ToHeaders ReportTaskProgress where
         toHeaders
@@ -123,9 +122,10 @@ instance ToQuery ReportTaskProgress where
 --
 -- /See:/ 'reportTaskProgressResponse' smart constructor.
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
-    { _rtprsResponseStatus :: !Int
-    , _rtprsCanceled       :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _rtprsCanceled       :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReportTaskProgressResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +139,9 @@ reportTaskProgressResponse
     -> Bool -- ^ 'rtprsCanceled'
     -> ReportTaskProgressResponse
 reportTaskProgressResponse pResponseStatus_ pCanceled_ =
-    ReportTaskProgressResponse'
-    { _rtprsResponseStatus = pResponseStatus_
-    , _rtprsCanceled = pCanceled_
-    }
+  ReportTaskProgressResponse'
+  {_rtprsResponseStatus = pResponseStatus_, _rtprsCanceled = pCanceled_}
+
 
 -- | -- | The response status code.
 rtprsResponseStatus :: Lens' ReportTaskProgressResponse Int
@@ -152,4 +151,4 @@ rtprsResponseStatus = lens _rtprsResponseStatus (\ s a -> s{_rtprsResponseStatus
 rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprsCanceled = lens _rtprsCanceled (\ s a -> s{_rtprsCanceled = a});
 
-instance NFData ReportTaskProgressResponse
+instance NFData ReportTaskProgressResponse where

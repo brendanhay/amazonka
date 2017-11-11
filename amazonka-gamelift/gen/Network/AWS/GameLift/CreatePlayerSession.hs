@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreatePlayerSession
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -63,12 +63,12 @@ module Network.AWS.GameLift.CreatePlayerSession
     , cpsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -76,10 +76,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createPlayerSession' smart constructor.
 data CreatePlayerSession = CreatePlayerSession'
-    { _cPlayerData    :: !(Maybe Text)
-    , _cGameSessionId :: !Text
-    , _cPlayerId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cPlayerData    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cGameSessionId :: {-# NOUNPACK #-}!Text
+  , _cPlayerId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlayerSession' with the minimum fields required to make a request.
 --
@@ -95,11 +96,12 @@ createPlayerSession
     -> Text -- ^ 'cPlayerId'
     -> CreatePlayerSession
 createPlayerSession pGameSessionId_ pPlayerId_ =
-    CreatePlayerSession'
-    { _cPlayerData = Nothing
-    , _cGameSessionId = pGameSessionId_
-    , _cPlayerId = pPlayerId_
-    }
+  CreatePlayerSession'
+  { _cPlayerData = Nothing
+  , _cGameSessionId = pGameSessionId_
+  , _cPlayerId = pPlayerId_
+  }
+
 
 -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
 cPlayerData :: Lens' CreatePlayerSession (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest CreatePlayerSession where
                  CreatePlayerSessionResponse' <$>
                    (x .?> "PlayerSession") <*> (pure (fromEnum s)))
 
-instance Hashable CreatePlayerSession
+instance Hashable CreatePlayerSession where
 
-instance NFData CreatePlayerSession
+instance NFData CreatePlayerSession where
 
 instance ToHeaders CreatePlayerSession where
         toHeaders
@@ -156,9 +158,10 @@ instance ToQuery CreatePlayerSession where
 --
 -- /See:/ 'createPlayerSessionResponse' smart constructor.
 data CreatePlayerSessionResponse = CreatePlayerSessionResponse'
-    { _cpsrsPlayerSession  :: !(Maybe PlayerSession)
-    , _cpsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpsrsPlayerSession  :: {-# NOUNPACK #-}!(Maybe PlayerSession)
+  , _cpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlayerSessionResponse' with the minimum fields required to make a request.
 --
@@ -171,10 +174,9 @@ createPlayerSessionResponse
     :: Int -- ^ 'cpsrsResponseStatus'
     -> CreatePlayerSessionResponse
 createPlayerSessionResponse pResponseStatus_ =
-    CreatePlayerSessionResponse'
-    { _cpsrsPlayerSession = Nothing
-    , _cpsrsResponseStatus = pResponseStatus_
-    }
+  CreatePlayerSessionResponse'
+  {_cpsrsPlayerSession = Nothing, _cpsrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that describes the newly created player session record.
 cpsrsPlayerSession :: Lens' CreatePlayerSessionResponse (Maybe PlayerSession)
@@ -184,4 +186,4 @@ cpsrsPlayerSession = lens _cpsrsPlayerSession (\ s a -> s{_cpsrsPlayerSession = 
 cpsrsResponseStatus :: Lens' CreatePlayerSessionResponse Int
 cpsrsResponseStatus = lens _cpsrsResponseStatus (\ s a -> s{_cpsrsResponseStatus = a});
 
-instance NFData CreatePlayerSessionResponse
+instance NFData CreatePlayerSessionResponse where

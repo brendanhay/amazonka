@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -537,40 +537,40 @@ module Network.AWS.OpsWorks.Types
     , wassTuesday
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.OpsWorks.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.OpsWorks.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2013-02-18@ of the Amazon OpsWorks SDK configuration.
 opsWorks :: Service
 opsWorks =
-    Service
-    { _svcAbbrev = "OpsWorks"
-    , _svcSigner = v4
-    , _svcPrefix = "opsworks"
-    , _svcVersion = "2013-02-18"
-    , _svcEndpoint = defaultEndpoint opsWorks
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "OpsWorks"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "OpsWorks"
+  , _svcSigner = v4
+  , _svcPrefix = "opsworks"
+  , _svcVersion = "2013-02-18"
+  , _svcEndpoint = defaultEndpoint opsWorks
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "OpsWorks"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -579,15 +579,18 @@ opsWorks =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | Indicates that a request was not valid.
 --
 --
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _MatchServiceError opsWorks "ValidationException"
 
+
 -- | Indicates that a resource was not found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _MatchServiceError opsWorks "ResourceNotFoundException"
+  _MatchServiceError opsWorks "ResourceNotFoundException"
+

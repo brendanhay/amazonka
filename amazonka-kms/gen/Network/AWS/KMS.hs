@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -329,43 +329,43 @@ module Network.AWS.KMS
     , tagTagValue
     ) where
 
-import           Network.AWS.KMS.CancelKeyDeletion
-import           Network.AWS.KMS.CreateAlias
-import           Network.AWS.KMS.CreateGrant
-import           Network.AWS.KMS.CreateKey
-import           Network.AWS.KMS.Decrypt
-import           Network.AWS.KMS.DeleteAlias
-import           Network.AWS.KMS.DeleteImportedKeyMaterial
-import           Network.AWS.KMS.DescribeKey
-import           Network.AWS.KMS.DisableKey
-import           Network.AWS.KMS.DisableKeyRotation
-import           Network.AWS.KMS.EnableKey
-import           Network.AWS.KMS.EnableKeyRotation
-import           Network.AWS.KMS.Encrypt
-import           Network.AWS.KMS.GenerateDataKey
-import           Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
-import           Network.AWS.KMS.GenerateRandom
-import           Network.AWS.KMS.GetKeyPolicy
-import           Network.AWS.KMS.GetKeyRotationStatus
-import           Network.AWS.KMS.GetParametersForImport
-import           Network.AWS.KMS.ImportKeyMaterial
-import           Network.AWS.KMS.ListAliases
-import           Network.AWS.KMS.ListGrants
-import           Network.AWS.KMS.ListKeyPolicies
-import           Network.AWS.KMS.ListKeys
-import           Network.AWS.KMS.ListResourceTags
-import           Network.AWS.KMS.ListRetirableGrants
-import           Network.AWS.KMS.PutKeyPolicy
-import           Network.AWS.KMS.ReEncrypt
-import           Network.AWS.KMS.RetireGrant
-import           Network.AWS.KMS.RevokeGrant
-import           Network.AWS.KMS.ScheduleKeyDeletion
-import           Network.AWS.KMS.TagResource
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.UntagResource
-import           Network.AWS.KMS.UpdateAlias
-import           Network.AWS.KMS.UpdateKeyDescription
-import           Network.AWS.KMS.Waiters
+import Network.AWS.KMS.CancelKeyDeletion
+import Network.AWS.KMS.CreateAlias
+import Network.AWS.KMS.CreateGrant
+import Network.AWS.KMS.CreateKey
+import Network.AWS.KMS.Decrypt
+import Network.AWS.KMS.DeleteAlias
+import Network.AWS.KMS.DeleteImportedKeyMaterial
+import Network.AWS.KMS.DescribeKey
+import Network.AWS.KMS.DisableKey
+import Network.AWS.KMS.DisableKeyRotation
+import Network.AWS.KMS.EnableKey
+import Network.AWS.KMS.EnableKeyRotation
+import Network.AWS.KMS.Encrypt
+import Network.AWS.KMS.GenerateDataKey
+import Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
+import Network.AWS.KMS.GenerateRandom
+import Network.AWS.KMS.GetKeyPolicy
+import Network.AWS.KMS.GetKeyRotationStatus
+import Network.AWS.KMS.GetParametersForImport
+import Network.AWS.KMS.ImportKeyMaterial
+import Network.AWS.KMS.ListAliases
+import Network.AWS.KMS.ListGrants
+import Network.AWS.KMS.ListKeyPolicies
+import Network.AWS.KMS.ListKeys
+import Network.AWS.KMS.ListResourceTags
+import Network.AWS.KMS.ListRetirableGrants
+import Network.AWS.KMS.PutKeyPolicy
+import Network.AWS.KMS.ReEncrypt
+import Network.AWS.KMS.RetireGrant
+import Network.AWS.KMS.RevokeGrant
+import Network.AWS.KMS.ScheduleKeyDeletion
+import Network.AWS.KMS.TagResource
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.UntagResource
+import Network.AWS.KMS.UpdateAlias
+import Network.AWS.KMS.UpdateKeyDescription
+import Network.AWS.KMS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

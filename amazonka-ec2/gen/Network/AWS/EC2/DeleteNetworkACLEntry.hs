@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNetworkACLEntry
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DeleteNetworkACLEntry
     , DeleteNetworkACLEntryResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteNetworkAclEntry.
 --
@@ -50,11 +50,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteNetworkACLEntry' smart constructor.
 data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
-    { _dnaeDryRun       :: !(Maybe Bool)
-    , _dnaeEgress       :: !Bool
-    , _dnaeNetworkACLId :: !Text
-    , _dnaeRuleNumber   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnaeDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dnaeEgress       :: {-# NOUNPACK #-}!Bool
+  , _dnaeNetworkACLId :: {-# NOUNPACK #-}!Text
+  , _dnaeRuleNumber   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNetworkACLEntry' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ deleteNetworkACLEntry
     -> Int -- ^ 'dnaeRuleNumber'
     -> DeleteNetworkACLEntry
 deleteNetworkACLEntry pEgress_ pNetworkACLId_ pRuleNumber_ =
-    DeleteNetworkACLEntry'
-    { _dnaeDryRun = Nothing
-    , _dnaeEgress = pEgress_
-    , _dnaeNetworkACLId = pNetworkACLId_
-    , _dnaeRuleNumber = pRuleNumber_
-    }
+  DeleteNetworkACLEntry'
+  { _dnaeDryRun = Nothing
+  , _dnaeEgress = pEgress_
+  , _dnaeNetworkACLId = pNetworkACLId_
+  , _dnaeRuleNumber = pRuleNumber_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dnaeDryRun :: Lens' DeleteNetworkACLEntry (Maybe Bool)
@@ -102,9 +104,9 @@ instance AWSRequest DeleteNetworkACLEntry where
         request = postQuery ec2
         response = receiveNull DeleteNetworkACLEntryResponse'
 
-instance Hashable DeleteNetworkACLEntry
+instance Hashable DeleteNetworkACLEntry where
 
-instance NFData DeleteNetworkACLEntry
+instance NFData DeleteNetworkACLEntry where
 
 instance ToHeaders DeleteNetworkACLEntry where
         toHeaders = const mempty
@@ -123,8 +125,9 @@ instance ToQuery DeleteNetworkACLEntry where
 
 -- | /See:/ 'deleteNetworkACLEntryResponse' smart constructor.
 data DeleteNetworkACLEntryResponse =
-    DeleteNetworkACLEntryResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteNetworkACLEntryResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNetworkACLEntryResponse' with the minimum fields required to make a request.
 --
@@ -132,4 +135,5 @@ deleteNetworkACLEntryResponse
     :: DeleteNetworkACLEntryResponse
 deleteNetworkACLEntryResponse = DeleteNetworkACLEntryResponse'
 
-instance NFData DeleteNetworkACLEntryResponse
+
+instance NFData DeleteNetworkACLEntryResponse where

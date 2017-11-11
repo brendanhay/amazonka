@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetParameter
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.SSM.GetParameter
     , gprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getParameter' smart constructor.
 data GetParameter = GetParameter'
-    { _gWithDecryption :: !(Maybe Bool)
-    , _gName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gWithDecryption :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gName           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParameter' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ getParameter
     :: Text -- ^ 'gName'
     -> GetParameter
 getParameter pName_ =
-    GetParameter'
-    { _gWithDecryption = Nothing
-    , _gName = pName_
-    }
+  GetParameter' {_gWithDecryption = Nothing, _gName = pName_}
+
 
 -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
 gWithDecryption :: Lens' GetParameter (Maybe Bool)
@@ -84,9 +83,9 @@ instance AWSRequest GetParameter where
                  GetParameterResponse' <$>
                    (x .?> "Parameter") <*> (pure (fromEnum s)))
 
-instance Hashable GetParameter
+instance Hashable GetParameter where
 
-instance NFData GetParameter
+instance NFData GetParameter where
 
 instance ToHeaders GetParameter where
         toHeaders
@@ -112,9 +111,10 @@ instance ToQuery GetParameter where
 
 -- | /See:/ 'getParameterResponse' smart constructor.
 data GetParameterResponse = GetParameterResponse'
-    { _gprsParameter      :: !(Maybe Parameter)
-    , _gprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gprsParameter      :: {-# NOUNPACK #-}!(Maybe Parameter)
+  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParameterResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +127,9 @@ getParameterResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetParameterResponse
 getParameterResponse pResponseStatus_ =
-    GetParameterResponse'
-    { _gprsParameter = Nothing
-    , _gprsResponseStatus = pResponseStatus_
-    }
+  GetParameterResponse'
+  {_gprsParameter = Nothing, _gprsResponseStatus = pResponseStatus_}
+
 
 -- | Information about a parameter.
 gprsParameter :: Lens' GetParameterResponse (Maybe Parameter)
@@ -140,4 +139,4 @@ gprsParameter = lens _gprsParameter (\ s a -> s{_gprsParameter = a});
 gprsResponseStatus :: Lens' GetParameterResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 
-instance NFData GetParameterResponse
+instance NFData GetParameterResponse where

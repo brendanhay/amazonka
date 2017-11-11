@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBuiltinSlotTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.LexModels.GetBuiltinSlotTypes
     , gbstrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBuiltinSlotTypes' smart constructor.
 data GetBuiltinSlotTypes = GetBuiltinSlotTypes'
-    { _gbstLocale            :: !(Maybe Locale)
-    , _gbstNextToken         :: !(Maybe Text)
-    , _gbstSignatureContains :: !(Maybe Text)
-    , _gbstMaxResults        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbstLocale            :: {-# NOUNPACK #-}!(Maybe Locale)
+  , _gbstNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbstSignatureContains :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbstMaxResults        :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBuiltinSlotTypes' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data GetBuiltinSlotTypes = GetBuiltinSlotTypes'
 getBuiltinSlotTypes
     :: GetBuiltinSlotTypes
 getBuiltinSlotTypes =
-    GetBuiltinSlotTypes'
-    { _gbstLocale = Nothing
-    , _gbstNextToken = Nothing
-    , _gbstSignatureContains = Nothing
-    , _gbstMaxResults = Nothing
-    }
+  GetBuiltinSlotTypes'
+  { _gbstLocale = Nothing
+  , _gbstNextToken = Nothing
+  , _gbstSignatureContains = Nothing
+  , _gbstMaxResults = Nothing
+  }
+
 
 -- | A list of locales that the slot type supports.
 gbstLocale :: Lens' GetBuiltinSlotTypes (Maybe Locale)
@@ -109,9 +111,9 @@ instance AWSRequest GetBuiltinSlotTypes where
                      (x .?> "slotTypes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBuiltinSlotTypes
+instance Hashable GetBuiltinSlotTypes where
 
-instance NFData GetBuiltinSlotTypes
+instance NFData GetBuiltinSlotTypes where
 
 instance ToHeaders GetBuiltinSlotTypes where
         toHeaders
@@ -133,10 +135,11 @@ instance ToQuery GetBuiltinSlotTypes where
 
 -- | /See:/ 'getBuiltinSlotTypesResponse' smart constructor.
 data GetBuiltinSlotTypesResponse = GetBuiltinSlotTypesResponse'
-    { _gbstrsNextToken      :: !(Maybe Text)
-    , _gbstrsSlotTypes      :: !(Maybe [BuiltinSlotTypeMetadata])
-    , _gbstrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbstrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbstrsSlotTypes      :: {-# NOUNPACK #-}!(Maybe [BuiltinSlotTypeMetadata])
+  , _gbstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBuiltinSlotTypesResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +154,12 @@ getBuiltinSlotTypesResponse
     :: Int -- ^ 'gbstrsResponseStatus'
     -> GetBuiltinSlotTypesResponse
 getBuiltinSlotTypesResponse pResponseStatus_ =
-    GetBuiltinSlotTypesResponse'
-    { _gbstrsNextToken = Nothing
-    , _gbstrsSlotTypes = Nothing
-    , _gbstrsResponseStatus = pResponseStatus_
-    }
+  GetBuiltinSlotTypesResponse'
+  { _gbstrsNextToken = Nothing
+  , _gbstrsSlotTypes = Nothing
+  , _gbstrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the response is truncated, the response includes a pagination token that you can use in your next request to fetch the next page of slot types.
 gbstrsNextToken :: Lens' GetBuiltinSlotTypesResponse (Maybe Text)
@@ -169,4 +173,4 @@ gbstrsSlotTypes = lens _gbstrsSlotTypes (\ s a -> s{_gbstrsSlotTypes = a}) . _De
 gbstrsResponseStatus :: Lens' GetBuiltinSlotTypesResponse Int
 gbstrsResponseStatus = lens _gbstrsResponseStatus (\ s a -> s{_gbstrsResponseStatus = a});
 
-instance NFData GetBuiltinSlotTypesResponse
+instance NFData GetBuiltinSlotTypesResponse where

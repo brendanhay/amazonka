@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListObjects
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,24 +52,25 @@ module Network.AWS.S3.ListObjects
     , lorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listObjects' smart constructor.
 data ListObjects = ListObjects'
-    { _loPrefix       :: !(Maybe Text)
-    , _loEncodingType :: !(Maybe EncodingType)
-    , _loRequestPayer :: !(Maybe RequestPayer)
-    , _loMarker       :: !(Maybe Text)
-    , _loMaxKeys      :: !(Maybe Int)
-    , _loDelimiter    :: !(Maybe Delimiter)
-    , _loBucket       :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loPrefix       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loEncodingType :: {-# NOUNPACK #-}!(Maybe EncodingType)
+  , _loRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _loMarker       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loMaxKeys      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _loDelimiter    :: {-# NOUNPACK #-}!(Maybe Delimiter)
+  , _loBucket       :: {-# NOUNPACK #-}!BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjects' with the minimum fields required to make a request.
 --
@@ -92,15 +93,16 @@ listObjects
     :: BucketName -- ^ 'loBucket'
     -> ListObjects
 listObjects pBucket_ =
-    ListObjects'
-    { _loPrefix = Nothing
-    , _loEncodingType = Nothing
-    , _loRequestPayer = Nothing
-    , _loMarker = Nothing
-    , _loMaxKeys = Nothing
-    , _loDelimiter = Nothing
-    , _loBucket = pBucket_
-    }
+  ListObjects'
+  { _loPrefix = Nothing
+  , _loEncodingType = Nothing
+  , _loRequestPayer = Nothing
+  , _loMarker = Nothing
+  , _loMaxKeys = Nothing
+  , _loDelimiter = Nothing
+  , _loBucket = pBucket_
+  }
+
 
 -- | Limits the response to keys that begin with the specified prefix.
 loPrefix :: Lens' ListObjects (Maybe Text)
@@ -164,9 +166,9 @@ instance AWSRequest ListObjects where
                      <*> (x .@? "Delimiter")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListObjects
+instance Hashable ListObjects where
 
-instance NFData ListObjects
+instance NFData ListObjects where
 
 instance ToHeaders ListObjects where
         toHeaders ListObjects'{..}
@@ -186,18 +188,19 @@ instance ToQuery ListObjects where
 
 -- | /See:/ 'listObjectsResponse' smart constructor.
 data ListObjectsResponse = ListObjectsResponse'
-    { _lorsContents       :: !(Maybe [Object])
-    , _lorsPrefix         :: !(Maybe Text)
-    , _lorsCommonPrefixes :: !(Maybe [CommonPrefix])
-    , _lorsEncodingType   :: !(Maybe EncodingType)
-    , _lorsName           :: !(Maybe BucketName)
-    , _lorsMarker         :: !(Maybe Text)
-    , _lorsNextMarker     :: !(Maybe Text)
-    , _lorsMaxKeys        :: !(Maybe Int)
-    , _lorsIsTruncated    :: !(Maybe Bool)
-    , _lorsDelimiter      :: !(Maybe Delimiter)
-    , _lorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lorsContents       :: {-# NOUNPACK #-}!(Maybe [Object])
+  , _lorsPrefix         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lorsCommonPrefixes :: {-# NOUNPACK #-}!(Maybe [CommonPrefix])
+  , _lorsEncodingType   :: {-# NOUNPACK #-}!(Maybe EncodingType)
+  , _lorsName           :: {-# NOUNPACK #-}!(Maybe BucketName)
+  , _lorsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lorsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lorsMaxKeys        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lorsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lorsDelimiter      :: {-# NOUNPACK #-}!(Maybe Delimiter)
+  , _lorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectsResponse' with the minimum fields required to make a request.
 --
@@ -228,19 +231,20 @@ listObjectsResponse
     :: Int -- ^ 'lorsResponseStatus'
     -> ListObjectsResponse
 listObjectsResponse pResponseStatus_ =
-    ListObjectsResponse'
-    { _lorsContents = Nothing
-    , _lorsPrefix = Nothing
-    , _lorsCommonPrefixes = Nothing
-    , _lorsEncodingType = Nothing
-    , _lorsName = Nothing
-    , _lorsMarker = Nothing
-    , _lorsNextMarker = Nothing
-    , _lorsMaxKeys = Nothing
-    , _lorsIsTruncated = Nothing
-    , _lorsDelimiter = Nothing
-    , _lorsResponseStatus = pResponseStatus_
-    }
+  ListObjectsResponse'
+  { _lorsContents = Nothing
+  , _lorsPrefix = Nothing
+  , _lorsCommonPrefixes = Nothing
+  , _lorsEncodingType = Nothing
+  , _lorsName = Nothing
+  , _lorsMarker = Nothing
+  , _lorsNextMarker = Nothing
+  , _lorsMaxKeys = Nothing
+  , _lorsIsTruncated = Nothing
+  , _lorsDelimiter = Nothing
+  , _lorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lorsContents :: Lens' ListObjectsResponse [Object]
@@ -286,4 +290,4 @@ lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
 lorsResponseStatus :: Lens' ListObjectsResponse Int
 lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
 
-instance NFData ListObjectsResponse
+instance NFData ListObjectsResponse where

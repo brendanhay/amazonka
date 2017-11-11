@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.RemoveAttributesFromFindings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Inspector.RemoveAttributesFromFindings
     , raffrsFailedItems
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeAttributesFromFindings' smart constructor.
 data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
-    { _raffFindingARNs   :: !(List1 Text)
-    , _raffAttributeKeys :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raffFindingARNs   :: {-# NOUNPACK #-}!(List1 Text)
+  , _raffAttributeKeys :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveAttributesFromFindings' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ removeAttributesFromFindings
     :: NonEmpty Text -- ^ 'raffFindingARNs'
     -> RemoveAttributesFromFindings
 removeAttributesFromFindings pFindingARNs_ =
-    RemoveAttributesFromFindings'
-    { _raffFindingARNs = _List1 # pFindingARNs_
-    , _raffAttributeKeys = mempty
-    }
+  RemoveAttributesFromFindings'
+  {_raffFindingARNs = _List1 # pFindingARNs_, _raffAttributeKeys = mempty}
+
 
 -- | The ARNs that specify the findings that you want to remove attributes from.
 raffFindingARNs :: Lens' RemoveAttributesFromFindings (NonEmpty Text)
@@ -87,9 +87,9 @@ instance AWSRequest RemoveAttributesFromFindings
                    (pure (fromEnum s)) <*>
                      (x .?> "failedItems" .!@ mempty))
 
-instance Hashable RemoveAttributesFromFindings
+instance Hashable RemoveAttributesFromFindings where
 
-instance NFData RemoveAttributesFromFindings
+instance NFData RemoveAttributesFromFindings where
 
 instance ToHeaders RemoveAttributesFromFindings where
         toHeaders
@@ -116,9 +116,10 @@ instance ToQuery RemoveAttributesFromFindings where
 
 -- | /See:/ 'removeAttributesFromFindingsResponse' smart constructor.
 data RemoveAttributesFromFindingsResponse = RemoveAttributesFromFindingsResponse'
-    { _raffrsResponseStatus :: !Int
-    , _raffrsFailedItems    :: !(Map Text FailedItemDetails)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raffrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _raffrsFailedItems    :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveAttributesFromFindingsResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ removeAttributesFromFindingsResponse
     :: Int -- ^ 'raffrsResponseStatus'
     -> RemoveAttributesFromFindingsResponse
 removeAttributesFromFindingsResponse pResponseStatus_ =
-    RemoveAttributesFromFindingsResponse'
-    { _raffrsResponseStatus = pResponseStatus_
-    , _raffrsFailedItems = mempty
-    }
+  RemoveAttributesFromFindingsResponse'
+  {_raffrsResponseStatus = pResponseStatus_, _raffrsFailedItems = mempty}
+
 
 -- | -- | The response status code.
 raffrsResponseStatus :: Lens' RemoveAttributesFromFindingsResponse Int
@@ -145,3 +145,4 @@ raffrsFailedItems :: Lens' RemoveAttributesFromFindingsResponse (HashMap Text Fa
 raffrsFailedItems = lens _raffrsFailedItems (\ s a -> s{_raffrsFailedItems = a}) . _Map;
 
 instance NFData RemoveAttributesFromFindingsResponse
+         where

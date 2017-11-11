@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeletePlatformVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.ElasticBeanstalk.DeletePlatformVersion
     , dpvrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deletePlatformVersion' smart constructor.
 newtype DeletePlatformVersion = DeletePlatformVersion'
-    { _dpvPlatformARN :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpvPlatformARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePlatformVersion' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeletePlatformVersion = DeletePlatformVersion'
 -- * 'dpvPlatformARN' - The ARN of the version of the custom platform.
 deletePlatformVersion
     :: DeletePlatformVersion
-deletePlatformVersion =
-    DeletePlatformVersion'
-    { _dpvPlatformARN = Nothing
-    }
+deletePlatformVersion = DeletePlatformVersion' {_dpvPlatformARN = Nothing}
+
 
 -- | The ARN of the version of the custom platform.
 dpvPlatformARN :: Lens' DeletePlatformVersion (Maybe Text)
@@ -75,9 +74,9 @@ instance AWSRequest DeletePlatformVersion where
                  DeletePlatformVersionResponse' <$>
                    (x .@? "PlatformSummary") <*> (pure (fromEnum s)))
 
-instance Hashable DeletePlatformVersion
+instance Hashable DeletePlatformVersion where
 
-instance NFData DeletePlatformVersion
+instance NFData DeletePlatformVersion where
 
 instance ToHeaders DeletePlatformVersion where
         toHeaders = const mempty
@@ -94,9 +93,10 @@ instance ToQuery DeletePlatformVersion where
 
 -- | /See:/ 'deletePlatformVersionResponse' smart constructor.
 data DeletePlatformVersionResponse = DeletePlatformVersionResponse'
-    { _dpvrsPlatformSummary :: !(Maybe PlatformSummary)
-    , _dpvrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpvrsPlatformSummary :: {-# NOUNPACK #-}!(Maybe PlatformSummary)
+  , _dpvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePlatformVersionResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +109,9 @@ deletePlatformVersionResponse
     :: Int -- ^ 'dpvrsResponseStatus'
     -> DeletePlatformVersionResponse
 deletePlatformVersionResponse pResponseStatus_ =
-    DeletePlatformVersionResponse'
-    { _dpvrsPlatformSummary = Nothing
-    , _dpvrsResponseStatus = pResponseStatus_
-    }
+  DeletePlatformVersionResponse'
+  {_dpvrsPlatformSummary = Nothing, _dpvrsResponseStatus = pResponseStatus_}
+
 
 -- | Detailed information about the version of the custom platform.
 dpvrsPlatformSummary :: Lens' DeletePlatformVersionResponse (Maybe PlatformSummary)
@@ -122,4 +121,4 @@ dpvrsPlatformSummary = lens _dpvrsPlatformSummary (\ s a -> s{_dpvrsPlatformSumm
 dpvrsResponseStatus :: Lens' DeletePlatformVersionResponse Int
 dpvrsResponseStatus = lens _dpvrsResponseStatus (\ s a -> s{_dpvrsResponseStatus = a});
 
-instance NFData DeletePlatformVersionResponse
+instance NFData DeletePlatformVersionResponse where

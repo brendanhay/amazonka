@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CreateJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , cjrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @CreateJobRequest@ structure.
 --
@@ -59,15 +59,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createJob' smart constructor.
 data CreateJob = CreateJob'
-    { _cjInputs          :: !(Maybe [JobInput])
-    , _cjInput           :: !(Maybe JobInput)
-    , _cjUserMetadata    :: !(Maybe (Map Text Text))
-    , _cjOutputs         :: !(Maybe [CreateJobOutput])
-    , _cjOutput          :: !(Maybe CreateJobOutput)
-    , _cjPlaylists       :: !(Maybe [CreateJobPlaylist])
-    , _cjOutputKeyPrefix :: !(Maybe Text)
-    , _cjPipelineId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjInputs          :: {-# NOUNPACK #-}!(Maybe [JobInput])
+  , _cjInput           :: {-# NOUNPACK #-}!(Maybe JobInput)
+  , _cjUserMetadata    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cjOutputs         :: {-# NOUNPACK #-}!(Maybe [CreateJobOutput])
+  , _cjOutput          :: {-# NOUNPACK #-}!(Maybe CreateJobOutput)
+  , _cjPlaylists       :: {-# NOUNPACK #-}!(Maybe [CreateJobPlaylist])
+  , _cjOutputKeyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjPipelineId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
@@ -92,16 +93,17 @@ createJob
     :: Text -- ^ 'cjPipelineId'
     -> CreateJob
 createJob pPipelineId_ =
-    CreateJob'
-    { _cjInputs = Nothing
-    , _cjInput = Nothing
-    , _cjUserMetadata = Nothing
-    , _cjOutputs = Nothing
-    , _cjOutput = Nothing
-    , _cjPlaylists = Nothing
-    , _cjOutputKeyPrefix = Nothing
-    , _cjPipelineId = pPipelineId_
-    }
+  CreateJob'
+  { _cjInputs = Nothing
+  , _cjInput = Nothing
+  , _cjUserMetadata = Nothing
+  , _cjOutputs = Nothing
+  , _cjOutput = Nothing
+  , _cjPlaylists = Nothing
+  , _cjOutputKeyPrefix = Nothing
+  , _cjPipelineId = pPipelineId_
+  }
+
 
 -- | A section of the request body that provides information about the files that are being transcoded.
 cjInputs :: Lens' CreateJob [JobInput]
@@ -144,9 +146,9 @@ instance AWSRequest CreateJob where
                  CreateJobResponse' <$>
                    (x .?> "Job") <*> (pure (fromEnum s)))
 
-instance Hashable CreateJob
+instance Hashable CreateJob where
 
-instance NFData CreateJob
+instance NFData CreateJob where
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty
@@ -176,9 +178,10 @@ instance ToQuery CreateJob where
 --
 -- /See:/ 'createJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-    { _cjrsJob            :: !(Maybe Job')
-    , _cjrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjrsJob            :: {-# NOUNPACK #-}!(Maybe Job')
+  , _cjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
 --
@@ -191,10 +194,9 @@ createJobResponse
     :: Int -- ^ 'cjrsResponseStatus'
     -> CreateJobResponse
 createJobResponse pResponseStatus_ =
-    CreateJobResponse'
-    { _cjrsJob = Nothing
-    , _cjrsResponseStatus = pResponseStatus_
-    }
+  CreateJobResponse'
+  {_cjrsJob = Nothing, _cjrsResponseStatus = pResponseStatus_}
+
 
 -- | A section of the response body that provides information about the job that is created.
 cjrsJob :: Lens' CreateJobResponse (Maybe Job')
@@ -204,4 +206,4 @@ cjrsJob = lens _cjrsJob (\ s a -> s{_cjrsJob = a});
 cjrsResponseStatus :: Lens' CreateJobResponse Int
 cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
 
-instance NFData CreateJobResponse
+instance NFData CreateJobResponse where

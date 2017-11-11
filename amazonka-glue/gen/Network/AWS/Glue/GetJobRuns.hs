@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetJobRuns
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Glue.GetJobRuns
     , gjrrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getJobRuns' smart constructor.
 data GetJobRuns = GetJobRuns'
-    { _gjrNextToken  :: !(Maybe Text)
-    , _gjrMaxResults :: !(Maybe Nat)
-    , _gjrJobName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjrNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjrMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gjrJobName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobRuns' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ getJobRuns
     :: Text -- ^ 'gjrJobName'
     -> GetJobRuns
 getJobRuns pJobName_ =
-    GetJobRuns'
-    { _gjrNextToken = Nothing
-    , _gjrMaxResults = Nothing
-    , _gjrJobName = pJobName_
-    }
+  GetJobRuns'
+  {_gjrNextToken = Nothing, _gjrMaxResults = Nothing, _gjrJobName = pJobName_}
+
 
 -- | A continuation token, if this is a continuation call.
 gjrNextToken :: Lens' GetJobRuns (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest GetJobRuns where
                    (x .?> "NextToken") <*> (x .?> "JobRuns" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetJobRuns
+instance Hashable GetJobRuns where
 
-instance NFData GetJobRuns
+instance NFData GetJobRuns where
 
 instance ToHeaders GetJobRuns where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery GetJobRuns where
 
 -- | /See:/ 'getJobRunsResponse' smart constructor.
 data GetJobRunsResponse = GetJobRunsResponse'
-    { _gjrrsNextToken      :: !(Maybe Text)
-    , _gjrrsJobRuns        :: !(Maybe [JobRun])
-    , _gjrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjrrsJobRuns        :: {-# NOUNPACK #-}!(Maybe [JobRun])
+  , _gjrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobRunsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ getJobRunsResponse
     :: Int -- ^ 'gjrrsResponseStatus'
     -> GetJobRunsResponse
 getJobRunsResponse pResponseStatus_ =
-    GetJobRunsResponse'
-    { _gjrrsNextToken = Nothing
-    , _gjrrsJobRuns = Nothing
-    , _gjrrsResponseStatus = pResponseStatus_
-    }
+  GetJobRunsResponse'
+  { _gjrrsNextToken = Nothing
+  , _gjrrsJobRuns = Nothing
+  , _gjrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A continuation token, if not all reequested job runs have been returned.
 gjrrsNextToken :: Lens' GetJobRunsResponse (Maybe Text)
@@ -160,4 +161,4 @@ gjrrsJobRuns = lens _gjrrsJobRuns (\ s a -> s{_gjrrsJobRuns = a}) . _Default . _
 gjrrsResponseStatus :: Lens' GetJobRunsResponse Int
 gjrrsResponseStatus = lens _gjrrsResponseStatus (\ s a -> s{_gjrrsResponseStatus = a});
 
-instance NFData GetJobRunsResponse
+instance NFData GetJobRunsResponse where

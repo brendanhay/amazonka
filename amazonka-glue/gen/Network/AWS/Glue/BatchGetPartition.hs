@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchGetPartition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Glue.BatchGetPartition
     , bgprsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchGetPartition' smart constructor.
 data BatchGetPartition = BatchGetPartition'
-    { _bgpCatalogId       :: !(Maybe Text)
-    , _bgpDatabaseName    :: !Text
-    , _bgpTableName       :: !Text
-    , _bgpPartitionsToGet :: ![PartitionValueList]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgpCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bgpDatabaseName    :: {-# NOUNPACK #-}!Text
+  , _bgpTableName       :: {-# NOUNPACK #-}!Text
+  , _bgpPartitionsToGet :: {-# NOUNPACK #-}![PartitionValueList]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetPartition' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ batchGetPartition
     -> Text -- ^ 'bgpTableName'
     -> BatchGetPartition
 batchGetPartition pDatabaseName_ pTableName_ =
-    BatchGetPartition'
-    { _bgpCatalogId = Nothing
-    , _bgpDatabaseName = pDatabaseName_
-    , _bgpTableName = pTableName_
-    , _bgpPartitionsToGet = mempty
-    }
+  BatchGetPartition'
+  { _bgpCatalogId = Nothing
+  , _bgpDatabaseName = pDatabaseName_
+  , _bgpTableName = pTableName_
+  , _bgpPartitionsToGet = mempty
+  }
+
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
 bgpCatalogId :: Lens' BatchGetPartition (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest BatchGetPartition where
                      (x .?> "Partitions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetPartition
+instance Hashable BatchGetPartition where
 
-instance NFData BatchGetPartition
+instance NFData BatchGetPartition where
 
 instance ToHeaders BatchGetPartition where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery BatchGetPartition where
 
 -- | /See:/ 'batchGetPartitionResponse' smart constructor.
 data BatchGetPartitionResponse = BatchGetPartitionResponse'
-    { _bgprsUnprocessedKeys :: !(Maybe [PartitionValueList])
-    , _bgprsPartitions      :: !(Maybe [Partition])
-    , _bgprsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgprsUnprocessedKeys :: {-# NOUNPACK #-}!(Maybe [PartitionValueList])
+  , _bgprsPartitions      :: {-# NOUNPACK #-}!(Maybe [Partition])
+  , _bgprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetPartitionResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ batchGetPartitionResponse
     :: Int -- ^ 'bgprsResponseStatus'
     -> BatchGetPartitionResponse
 batchGetPartitionResponse pResponseStatus_ =
-    BatchGetPartitionResponse'
-    { _bgprsUnprocessedKeys = Nothing
-    , _bgprsPartitions = Nothing
-    , _bgprsResponseStatus = pResponseStatus_
-    }
+  BatchGetPartitionResponse'
+  { _bgprsUnprocessedKeys = Nothing
+  , _bgprsPartitions = Nothing
+  , _bgprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the partition values in the request for which partions were not returned.
 bgprsUnprocessedKeys :: Lens' BatchGetPartitionResponse [PartitionValueList]
@@ -172,4 +176,4 @@ bgprsPartitions = lens _bgprsPartitions (\ s a -> s{_bgprsPartitions = a}) . _De
 bgprsResponseStatus :: Lens' BatchGetPartitionResponse Int
 bgprsResponseStatus = lens _bgprsResponseStatus (\ s a -> s{_bgprsResponseStatus = a});
 
-instance NFData BatchGetPartitionResponse
+instance NFData BatchGetPartitionResponse where

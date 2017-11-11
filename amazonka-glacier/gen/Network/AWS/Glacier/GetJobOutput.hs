@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetJobOutput
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,12 +59,12 @@ module Network.AWS.Glacier.GetJobOutput
     , gjorsBody
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for downloading output of an Amazon Glacier job.
 --
@@ -72,11 +72,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getJobOutput' smart constructor.
 data GetJobOutput = GetJobOutput'
-    { _gjoRange     :: !(Maybe Text)
-    , _gjoAccountId :: !Text
-    , _gjoVaultName :: !Text
-    , _gjoJobId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjoRange     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjoAccountId :: {-# NOUNPACK #-}!Text
+  , _gjoVaultName :: {-# NOUNPACK #-}!Text
+  , _gjoJobId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobOutput' with the minimum fields required to make a request.
 --
@@ -95,12 +96,13 @@ getJobOutput
     -> Text -- ^ 'gjoJobId'
     -> GetJobOutput
 getJobOutput pAccountId_ pVaultName_ pJobId_ =
-    GetJobOutput'
-    { _gjoRange = Nothing
-    , _gjoAccountId = pAccountId_
-    , _gjoVaultName = pVaultName_
-    , _gjoJobId = pJobId_
-    }
+  GetJobOutput'
+  { _gjoRange = Nothing
+  , _gjoAccountId = pAccountId_
+  , _gjoVaultName = pVaultName_
+  , _gjoJobId = pJobId_
+  }
+
 
 -- | The range of bytes to retrieve from the output. For example, if you want to download the first 1,048,576 bytes, specify the range as @bytes=0-1048575@ . By default, this operation downloads the entire output. If the job output is large, then you can use a range to retrieve a portion of the output. This allows you to download the entire output in smaller chunks of bytes. For example, suppose you have 1 GB of job output you want to download and you decide to download 128 MB chunks of data at a time, which is a total of eight Get Job Output requests. You use the following process to download the job output:     * Download a 128 MB chunk of output by specifying the appropriate byte range. Verify that all 128 MB of data was received.     * Along with the data, the response includes a SHA256 tree hash of the payload. You compute the checksum of the payload on the client and compare it with the checksum you received in the response to ensure you received all the expected data.     * Repeat steps 1 and 2 for all the eight 128 MB chunks of output data, each time specifying the appropriate byte range.     * After downloading all the parts of the job output, you have a list of eight checksum values. Compute the tree hash of these values to find the checksum of the entire output. Using the 'DescribeJob' API, obtain job information of the job that provided you the output. The response includes the checksum of the entire archive stored in Amazon Glacier. You compare this value with the checksum you computed to ensure you have downloaded the entire archive content with no errors.
 gjoRange :: Lens' GetJobOutput (Maybe Text)
@@ -133,9 +135,9 @@ instance AWSRequest GetJobOutput where
                      <*> (pure (fromEnum s))
                      <*> (pure x))
 
-instance Hashable GetJobOutput
+instance Hashable GetJobOutput where
 
-instance NFData GetJobOutput
+instance NFData GetJobOutput where
 
 instance ToHeaders GetJobOutput where
         toHeaders GetJobOutput'{..}
@@ -157,14 +159,15 @@ instance ToQuery GetJobOutput where
 --
 -- /See:/ 'getJobOutputResponse' smart constructor.
 data GetJobOutputResponse = GetJobOutputResponse'
-    { _gjorsChecksum           :: !(Maybe Text)
-    , _gjorsAcceptRanges       :: !(Maybe Text)
-    , _gjorsArchiveDescription :: !(Maybe Text)
-    , _gjorsContentRange       :: !(Maybe Text)
-    , _gjorsContentType        :: !(Maybe Text)
-    , _gjorsStatus             :: !Int
-    , _gjorsBody               :: !RsBody
-    } deriving (Show,Generic)
+  { _gjorsChecksum           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjorsAcceptRanges       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjorsArchiveDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjorsContentRange       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjorsContentType        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjorsStatus             :: {-# NOUNPACK #-}!Int
+  , _gjorsBody               :: {-# NOUNPACK #-}!RsBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'GetJobOutputResponse' with the minimum fields required to make a request.
 --
@@ -188,15 +191,16 @@ getJobOutputResponse
     -> RsBody -- ^ 'gjorsBody'
     -> GetJobOutputResponse
 getJobOutputResponse pStatus_ pBody_ =
-    GetJobOutputResponse'
-    { _gjorsChecksum = Nothing
-    , _gjorsAcceptRanges = Nothing
-    , _gjorsArchiveDescription = Nothing
-    , _gjorsContentRange = Nothing
-    , _gjorsContentType = Nothing
-    , _gjorsStatus = pStatus_
-    , _gjorsBody = pBody_
-    }
+  GetJobOutputResponse'
+  { _gjorsChecksum = Nothing
+  , _gjorsAcceptRanges = Nothing
+  , _gjorsArchiveDescription = Nothing
+  , _gjorsContentRange = Nothing
+  , _gjorsContentType = Nothing
+  , _gjorsStatus = pStatus_
+  , _gjorsBody = pBody_
+  }
+
 
 -- | The checksum of the data in the response. This header is returned only when retrieving the output for an archive retrieval job. Furthermore, this header appears only under the following conditions:     * You get the entire range of the archive.     * You request a range to return of the archive that starts and ends on a multiple of 1 MB. For example, if you have an 3.1 MB archive and you specify a range to return that starts at 1 MB and ends at 2 MB, then the x-amz-sha256-tree-hash is returned as a response header.     * You request a range of the archive to return that starts on a multiple of 1 MB and goes to the end of the archive. For example, if you have a 3.1 MB archive and you specify a range that starts at 2 MB and ends at 3.1 MB (the end of the archive), then the x-amz-sha256-tree-hash is returned as a response header.
 gjorsChecksum :: Lens' GetJobOutputResponse (Maybe Text)

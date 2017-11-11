@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBClusterSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.RDS.CreateDBClusterSnapshot
     , cdbcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDBClusterSnapshot' smart constructor.
 data CreateDBClusterSnapshot = CreateDBClusterSnapshot'
-    { _cdcsTags                        :: !(Maybe [Tag])
-    , _cdcsDBClusterSnapshotIdentifier :: !Text
-    , _cdcsDBClusterIdentifier         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdcsTags                        :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdcsDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  , _cdcsDBClusterIdentifier         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBClusterSnapshot' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ createDBClusterSnapshot
     -> Text -- ^ 'cdcsDBClusterIdentifier'
     -> CreateDBClusterSnapshot
 createDBClusterSnapshot pDBClusterSnapshotIdentifier_ pDBClusterIdentifier_ =
-    CreateDBClusterSnapshot'
-    { _cdcsTags = Nothing
-    , _cdcsDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_
-    , _cdcsDBClusterIdentifier = pDBClusterIdentifier_
-    }
+  CreateDBClusterSnapshot'
+  { _cdcsTags = Nothing
+  , _cdcsDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_
+  , _cdcsDBClusterIdentifier = pDBClusterIdentifier_
+  }
+
 
 -- | The tags to be assigned to the DB cluster snapshot.
 cdcsTags :: Lens' CreateDBClusterSnapshot [Tag]
@@ -99,9 +101,9 @@ instance AWSRequest CreateDBClusterSnapshot where
                  CreateDBClusterSnapshotResponse' <$>
                    (x .@? "DBClusterSnapshot") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDBClusterSnapshot
+instance Hashable CreateDBClusterSnapshot where
 
-instance NFData CreateDBClusterSnapshot
+instance NFData CreateDBClusterSnapshot where
 
 instance ToHeaders CreateDBClusterSnapshot where
         toHeaders = const mempty
@@ -122,9 +124,10 @@ instance ToQuery CreateDBClusterSnapshot where
 
 -- | /See:/ 'createDBClusterSnapshotResponse' smart constructor.
 data CreateDBClusterSnapshotResponse = CreateDBClusterSnapshotResponse'
-    { _cdbcsrsDBClusterSnapshot :: !(Maybe DBClusterSnapshot)
-    , _cdbcsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdbcsrsDBClusterSnapshot :: {-# NOUNPACK #-}!(Maybe DBClusterSnapshot)
+  , _cdbcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBClusterSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,11 @@ createDBClusterSnapshotResponse
     :: Int -- ^ 'cdbcsrsResponseStatus'
     -> CreateDBClusterSnapshotResponse
 createDBClusterSnapshotResponse pResponseStatus_ =
-    CreateDBClusterSnapshotResponse'
-    { _cdbcsrsDBClusterSnapshot = Nothing
-    , _cdbcsrsResponseStatus = pResponseStatus_
-    }
+  CreateDBClusterSnapshotResponse'
+  { _cdbcsrsDBClusterSnapshot = Nothing
+  , _cdbcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 cdbcsrsDBClusterSnapshot :: Lens' CreateDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
@@ -150,4 +154,4 @@ cdbcsrsDBClusterSnapshot = lens _cdbcsrsDBClusterSnapshot (\ s a -> s{_cdbcsrsDB
 cdbcsrsResponseStatus :: Lens' CreateDBClusterSnapshotResponse Int
 cdbcsrsResponseStatus = lens _cdbcsrsResponseStatus (\ s a -> s{_cdbcsrsResponseStatus = a});
 
-instance NFData CreateDBClusterSnapshotResponse
+instance NFData CreateDBClusterSnapshotResponse where

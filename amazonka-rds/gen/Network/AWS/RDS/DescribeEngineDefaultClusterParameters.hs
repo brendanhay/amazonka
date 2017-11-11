@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEngineDefaultClusterParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     , dedcprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEngineDefaultClusterParameters' smart constructor.
 data DescribeEngineDefaultClusterParameters = DescribeEngineDefaultClusterParameters'
-    { _dedcpFilters                :: !(Maybe [Filter])
-    , _dedcpMarker                 :: !(Maybe Text)
-    , _dedcpMaxRecords             :: !(Maybe Int)
-    , _dedcpDBParameterGroupFamily :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedcpFilters                :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dedcpMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dedcpMaxRecords             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dedcpDBParameterGroupFamily :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEngineDefaultClusterParameters' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ describeEngineDefaultClusterParameters
     :: Text -- ^ 'dedcpDBParameterGroupFamily'
     -> DescribeEngineDefaultClusterParameters
 describeEngineDefaultClusterParameters pDBParameterGroupFamily_ =
-    DescribeEngineDefaultClusterParameters'
-    { _dedcpFilters = Nothing
-    , _dedcpMarker = Nothing
-    , _dedcpMaxRecords = Nothing
-    , _dedcpDBParameterGroupFamily = pDBParameterGroupFamily_
-    }
+  DescribeEngineDefaultClusterParameters'
+  { _dedcpFilters = Nothing
+  , _dedcpMarker = Nothing
+  , _dedcpMaxRecords = Nothing
+  , _dedcpDBParameterGroupFamily = pDBParameterGroupFamily_
+  }
+
 
 -- | This parameter is not currently supported.
 dedcpFilters :: Lens' DescribeEngineDefaultClusterParameters [Filter]
@@ -100,7 +102,8 @@ dedcpDBParameterGroupFamily :: Lens' DescribeEngineDefaultClusterParameters Text
 dedcpDBParameterGroupFamily = lens _dedcpDBParameterGroupFamily (\ s a -> s{_dedcpDBParameterGroupFamily = a});
 
 instance AWSRequest
-         DescribeEngineDefaultClusterParameters where
+           DescribeEngineDefaultClusterParameters
+         where
         type Rs DescribeEngineDefaultClusterParameters =
              DescribeEngineDefaultClusterParametersResponse
         request = postQuery rds
@@ -112,21 +115,26 @@ instance AWSRequest
                    (x .@? "EngineDefaults") <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeEngineDefaultClusterParameters
+           DescribeEngineDefaultClusterParameters
+         where
 
 instance NFData
-         DescribeEngineDefaultClusterParameters
+           DescribeEngineDefaultClusterParameters
+         where
 
 instance ToHeaders
-         DescribeEngineDefaultClusterParameters where
+           DescribeEngineDefaultClusterParameters
+         where
         toHeaders = const mempty
 
 instance ToPath
-         DescribeEngineDefaultClusterParameters where
+           DescribeEngineDefaultClusterParameters
+         where
         toPath = const "/"
 
 instance ToQuery
-         DescribeEngineDefaultClusterParameters where
+           DescribeEngineDefaultClusterParameters
+         where
         toQuery DescribeEngineDefaultClusterParameters'{..}
           = mconcat
               ["Action" =:
@@ -142,9 +150,10 @@ instance ToQuery
 
 -- | /See:/ 'describeEngineDefaultClusterParametersResponse' smart constructor.
 data DescribeEngineDefaultClusterParametersResponse = DescribeEngineDefaultClusterParametersResponse'
-    { _dedcprsEngineDefaults :: !(Maybe EngineDefaults)
-    , _dedcprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedcprsEngineDefaults :: {-# NOUNPACK #-}!(Maybe EngineDefaults)
+  , _dedcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEngineDefaultClusterParametersResponse' with the minimum fields required to make a request.
 --
@@ -157,10 +166,9 @@ describeEngineDefaultClusterParametersResponse
     :: Int -- ^ 'dedcprsResponseStatus'
     -> DescribeEngineDefaultClusterParametersResponse
 describeEngineDefaultClusterParametersResponse pResponseStatus_ =
-    DescribeEngineDefaultClusterParametersResponse'
-    { _dedcprsEngineDefaults = Nothing
-    , _dedcprsResponseStatus = pResponseStatus_
-    }
+  DescribeEngineDefaultClusterParametersResponse'
+  {_dedcprsEngineDefaults = Nothing, _dedcprsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dedcprsEngineDefaults :: Lens' DescribeEngineDefaultClusterParametersResponse (Maybe EngineDefaults)
@@ -171,4 +179,5 @@ dedcprsResponseStatus :: Lens' DescribeEngineDefaultClusterParametersResponse In
 dedcprsResponseStatus = lens _dedcprsResponseStatus (\ s a -> s{_dedcprsResponseStatus = a});
 
 instance NFData
-         DescribeEngineDefaultClusterParametersResponse
+           DescribeEngineDefaultClusterParametersResponse
+         where

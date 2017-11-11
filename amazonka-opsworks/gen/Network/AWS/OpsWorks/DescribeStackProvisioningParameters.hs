@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeStackProvisioningParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     , dspprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeStackProvisioningParameters' smart constructor.
 newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters'
-    { _dsppStackId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsppStackId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackProvisioningParameters' with the minimum fields required to make a request.
 --
@@ -61,16 +62,16 @@ describeStackProvisioningParameters
     :: Text -- ^ 'dsppStackId'
     -> DescribeStackProvisioningParameters
 describeStackProvisioningParameters pStackId_ =
-    DescribeStackProvisioningParameters'
-    { _dsppStackId = pStackId_
-    }
+  DescribeStackProvisioningParameters' {_dsppStackId = pStackId_}
+
 
 -- | The stack ID
 dsppStackId :: Lens' DescribeStackProvisioningParameters Text
 dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a});
 
 instance AWSRequest
-         DescribeStackProvisioningParameters where
+           DescribeStackProvisioningParameters
+         where
         type Rs DescribeStackProvisioningParameters =
              DescribeStackProvisioningParametersResponse
         request = postJSON opsWorks
@@ -83,11 +84,14 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeStackProvisioningParameters
+         where
 
 instance NFData DescribeStackProvisioningParameters
+         where
 
 instance ToHeaders
-         DescribeStackProvisioningParameters where
+           DescribeStackProvisioningParameters
+         where
         toHeaders
           = const
               (mconcat
@@ -117,10 +121,11 @@ instance ToQuery DescribeStackProvisioningParameters
 --
 -- /See:/ 'describeStackProvisioningParametersResponse' smart constructor.
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
-    { _dspprsAgentInstallerURL :: !(Maybe Text)
-    , _dspprsParameters        :: !(Maybe (Map Text Text))
-    , _dspprsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dspprsAgentInstallerURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dspprsParameters        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _dspprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackProvisioningParametersResponse' with the minimum fields required to make a request.
 --
@@ -135,11 +140,12 @@ describeStackProvisioningParametersResponse
     :: Int -- ^ 'dspprsResponseStatus'
     -> DescribeStackProvisioningParametersResponse
 describeStackProvisioningParametersResponse pResponseStatus_ =
-    DescribeStackProvisioningParametersResponse'
-    { _dspprsAgentInstallerURL = Nothing
-    , _dspprsParameters = Nothing
-    , _dspprsResponseStatus = pResponseStatus_
-    }
+  DescribeStackProvisioningParametersResponse'
+  { _dspprsAgentInstallerURL = Nothing
+  , _dspprsParameters = Nothing
+  , _dspprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The AWS OpsWorks Stacks agent installer's URL.
 dspprsAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
@@ -154,4 +160,5 @@ dspprsResponseStatus :: Lens' DescribeStackProvisioningParametersResponse Int
 dspprsResponseStatus = lens _dspprsResponseStatus (\ s a -> s{_dspprsResponseStatus = a});
 
 instance NFData
-         DescribeStackProvisioningParametersResponse
+           DescribeStackProvisioningParametersResponse
+         where

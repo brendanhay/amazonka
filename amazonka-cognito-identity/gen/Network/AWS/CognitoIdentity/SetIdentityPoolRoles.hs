@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.SetIdentityPoolRoles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     , SetIdentityPoolRolesResponse
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @SetIdentityPoolRoles@ action.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setIdentityPoolRoles' smart constructor.
 data SetIdentityPoolRoles = SetIdentityPoolRoles'
-    { _siprRoleMappings   :: !(Maybe (Map Text RoleMapping))
-    , _siprIdentityPoolId :: !Text
-    , _siprRoles          :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siprRoleMappings   :: {-# NOUNPACK #-}!(Maybe (Map Text RoleMapping))
+  , _siprIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _siprRoles          :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityPoolRoles' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ setIdentityPoolRoles
     :: Text -- ^ 'siprIdentityPoolId'
     -> SetIdentityPoolRoles
 setIdentityPoolRoles pIdentityPoolId_ =
-    SetIdentityPoolRoles'
-    { _siprRoleMappings = Nothing
-    , _siprIdentityPoolId = pIdentityPoolId_
-    , _siprRoles = mempty
-    }
+  SetIdentityPoolRoles'
+  { _siprRoleMappings = Nothing
+  , _siprIdentityPoolId = pIdentityPoolId_
+  , _siprRoles = mempty
+  }
+
 
 -- | How users for a specific identity provider are to mapped to roles. This is a string to 'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Up to 25 rules can be specified per identity provider.
 siprRoleMappings :: Lens' SetIdentityPoolRoles (HashMap Text RoleMapping)
@@ -93,9 +95,9 @@ instance AWSRequest SetIdentityPoolRoles where
         request = postJSON cognitoIdentity
         response = receiveNull SetIdentityPoolRolesResponse'
 
-instance Hashable SetIdentityPoolRoles
+instance Hashable SetIdentityPoolRoles where
 
-instance NFData SetIdentityPoolRoles
+instance NFData SetIdentityPoolRoles where
 
 instance ToHeaders SetIdentityPoolRoles where
         toHeaders
@@ -123,8 +125,9 @@ instance ToQuery SetIdentityPoolRoles where
 
 -- | /See:/ 'setIdentityPoolRolesResponse' smart constructor.
 data SetIdentityPoolRolesResponse =
-    SetIdentityPoolRolesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetIdentityPoolRolesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityPoolRolesResponse' with the minimum fields required to make a request.
 --
@@ -132,4 +135,5 @@ setIdentityPoolRolesResponse
     :: SetIdentityPoolRolesResponse
 setIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'
 
-instance NFData SetIdentityPoolRolesResponse
+
+instance NFData SetIdentityPoolRolesResponse where

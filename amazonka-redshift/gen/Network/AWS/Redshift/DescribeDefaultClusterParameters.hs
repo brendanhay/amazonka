@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeDefaultClusterParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     , ddcprsDefaultClusterParameters
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDefaultClusterParameters' smart constructor.
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-    { _ddcpMarker               :: !(Maybe Text)
-    , _ddcpMaxRecords           :: !(Maybe Int)
-    , _ddcpParameterGroupFamily :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcpMarker               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcpMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ddcpParameterGroupFamily :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDefaultClusterParameters' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ describeDefaultClusterParameters
     :: Text -- ^ 'ddcpParameterGroupFamily'
     -> DescribeDefaultClusterParameters
 describeDefaultClusterParameters pParameterGroupFamily_ =
-    DescribeDefaultClusterParameters'
-    { _ddcpMarker = Nothing
-    , _ddcpMaxRecords = Nothing
-    , _ddcpParameterGroupFamily = pParameterGroupFamily_
-    }
+  DescribeDefaultClusterParameters'
+  { _ddcpMarker = Nothing
+  , _ddcpMaxRecords = Nothing
+  , _ddcpParameterGroupFamily = pParameterGroupFamily_
+  }
+
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeDefaultClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
@@ -124,8 +126,10 @@ instance AWSRequest DescribeDefaultClusterParameters
                      (x .@ "DefaultClusterParameters"))
 
 instance Hashable DescribeDefaultClusterParameters
+         where
 
 instance NFData DescribeDefaultClusterParameters
+         where
 
 instance ToHeaders DescribeDefaultClusterParameters
          where
@@ -148,9 +152,10 @@ instance ToQuery DescribeDefaultClusterParameters
 
 -- | /See:/ 'describeDefaultClusterParametersResponse' smart constructor.
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
-    { _ddcprsResponseStatus           :: !Int
-    , _ddcprsDefaultClusterParameters :: !DefaultClusterParameters
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcprsResponseStatus           :: {-# NOUNPACK #-}!Int
+  , _ddcprsDefaultClusterParameters :: {-# NOUNPACK #-}!DefaultClusterParameters
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDefaultClusterParametersResponse' with the minimum fields required to make a request.
 --
@@ -164,10 +169,11 @@ describeDefaultClusterParametersResponse
     -> DefaultClusterParameters -- ^ 'ddcprsDefaultClusterParameters'
     -> DescribeDefaultClusterParametersResponse
 describeDefaultClusterParametersResponse pResponseStatus_ pDefaultClusterParameters_ =
-    DescribeDefaultClusterParametersResponse'
-    { _ddcprsResponseStatus = pResponseStatus_
-    , _ddcprsDefaultClusterParameters = pDefaultClusterParameters_
-    }
+  DescribeDefaultClusterParametersResponse'
+  { _ddcprsResponseStatus = pResponseStatus_
+  , _ddcprsDefaultClusterParameters = pDefaultClusterParameters_
+  }
+
 
 -- | -- | The response status code.
 ddcprsResponseStatus :: Lens' DescribeDefaultClusterParametersResponse Int
@@ -178,4 +184,5 @@ ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse
 ddcprsDefaultClusterParameters = lens _ddcprsDefaultClusterParameters (\ s a -> s{_ddcprsDefaultClusterParameters = a});
 
 instance NFData
-         DescribeDefaultClusterParametersResponse
+           DescribeDefaultClusterParametersResponse
+         where

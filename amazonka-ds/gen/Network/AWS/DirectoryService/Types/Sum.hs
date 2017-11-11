@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DirectoryService.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data DirectorySize
-    = Large
-    | Small
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Large
+  | Small
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DirectorySize where
     parser = takeLowerText >>= \case
@@ -49,18 +50,19 @@ instance FromJSON DirectorySize where
     parseJSON = parseJSONText "DirectorySize"
 
 data DirectoryStage
-    = DSActive
-    | DSCreated
-    | DSCreating
-    | DSDeleted
-    | DSDeleting
-    | DSFailed
-    | DSImpaired
-    | DSInoperable
-    | DSRequested
-    | DSRestoreFailed
-    | DSRestoring
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DSActive
+  | DSCreated
+  | DSCreating
+  | DSDeleted
+  | DSDeleting
+  | DSFailed
+  | DSImpaired
+  | DSInoperable
+  | DSRequested
+  | DSRestoreFailed
+  | DSRestoring
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DirectoryStage where
     parser = takeLowerText >>= \case
@@ -102,10 +104,11 @@ instance FromJSON DirectoryStage where
     parseJSON = parseJSONText "DirectoryStage"
 
 data DirectoryType
-    = ADConnector
-    | MicrosoftAD
-    | SimpleAD
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ADConnector
+  | MicrosoftAD
+  | SimpleAD
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DirectoryType where
     parser = takeLowerText >>= \case
@@ -131,14 +134,15 @@ instance FromJSON DirectoryType where
     parseJSON = parseJSONText "DirectoryType"
 
 data DomainControllerStatus
-    = Active
-    | Creating
-    | Deleted
-    | Deleting
-    | Failed
-    | Impaired
-    | Restoring
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Creating
+  | Deleted
+  | Deleting
+  | Failed
+  | Impaired
+  | Restoring
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DomainControllerStatus where
     parser = takeLowerText >>= \case
@@ -172,13 +176,14 @@ instance FromJSON DomainControllerStatus where
     parseJSON = parseJSONText "DomainControllerStatus"
 
 data IPRouteStatusMsg
-    = AddFailed
-    | Added
-    | Adding
-    | RemoveFailed
-    | Removed
-    | Removing
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AddFailed
+  | Added
+  | Adding
+  | RemoveFailed
+  | Removed
+  | Removing
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IPRouteStatusMsg where
     parser = takeLowerText >>= \case
@@ -210,11 +215,12 @@ instance FromJSON IPRouteStatusMsg where
     parseJSON = parseJSONText "IPRouteStatusMsg"
 
 data RadiusAuthenticationProtocol
-    = Chap
-    | MsCHAPV1
-    | MsCHAPV2
-    | Pap
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Chap
+  | MsCHAPV1
+  | MsCHAPV2
+  | Pap
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RadiusAuthenticationProtocol where
     parser = takeLowerText >>= \case
@@ -245,10 +251,11 @@ instance FromJSON RadiusAuthenticationProtocol where
     parseJSON = parseJSONText "RadiusAuthenticationProtocol"
 
 data RadiusStatus
-    = RSCompleted
-    | RSCreating
-    | RSFailed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RSCompleted
+  | RSCreating
+  | RSFailed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RadiusStatus where
     parser = takeLowerText >>= \case
@@ -274,8 +281,9 @@ instance FromJSON RadiusStatus where
     parseJSON = parseJSONText "RadiusStatus"
 
 data ReplicationScope =
-    Domain
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Domain
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReplicationScope where
     parser = takeLowerText >>= \case
@@ -297,16 +305,17 @@ instance FromJSON ReplicationScope where
     parseJSON = parseJSONText "ReplicationScope"
 
 data SchemaExtensionStatus
-    = SESCancelInProgress
-    | SESCancelled
-    | SESCompleted
-    | SESCreatingSnapshot
-    | SESFailed
-    | SESInitializing
-    | SESReplicating
-    | SESRollbackInProgress
-    | SESUpdatingSchema
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SESCancelInProgress
+  | SESCancelled
+  | SESCompleted
+  | SESCreatingSnapshot
+  | SESFailed
+  | SESInitializing
+  | SESReplicating
+  | SESRollbackInProgress
+  | SESUpdatingSchema
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SchemaExtensionStatus where
     parser = takeLowerText >>= \case
@@ -344,10 +353,11 @@ instance FromJSON SchemaExtensionStatus where
     parseJSON = parseJSONText "SchemaExtensionStatus"
 
 data SnapshotStatus
-    = SSCompleted
-    | SSCreating
-    | SSFailed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSCompleted
+  | SSCreating
+  | SSFailed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SnapshotStatus where
     parser = takeLowerText >>= \case
@@ -373,9 +383,10 @@ instance FromJSON SnapshotStatus where
     parseJSON = parseJSONText "SnapshotStatus"
 
 data SnapshotType
-    = Auto
-    | Manual
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Auto
+  | Manual
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SnapshotType where
     parser = takeLowerText >>= \case
@@ -399,11 +410,12 @@ instance FromJSON SnapshotType where
     parseJSON = parseJSONText "SnapshotType"
 
 data TopicStatus
-    = TDeleted
-    | TFailed
-    | TRegistered
-    | TTopicNotFound
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TDeleted
+  | TFailed
+  | TRegistered
+  | TTopicNotFound
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TopicStatus where
     parser = takeLowerText >>= \case
@@ -431,10 +443,11 @@ instance FromJSON TopicStatus where
     parseJSON = parseJSONText "TopicStatus"
 
 data TrustDirection
-    = OneWayIncoming
-    | OneWayOutgoing
-    | TwoWay
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = OneWayIncoming
+  | OneWayOutgoing
+  | TwoWay
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TrustDirection where
     parser = takeLowerText >>= \case
@@ -463,15 +476,16 @@ instance FromJSON TrustDirection where
     parseJSON = parseJSONText "TrustDirection"
 
 data TrustState
-    = TSCreated
-    | TSCreating
-    | TSDeleted
-    | TSDeleting
-    | TSFailed
-    | TSVerified
-    | TSVerifyFailed
-    | TSVerifying
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TSCreated
+  | TSCreating
+  | TSDeleted
+  | TSDeleting
+  | TSFailed
+  | TSVerified
+  | TSVerifyFailed
+  | TSVerifying
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TrustState where
     parser = takeLowerText >>= \case
@@ -507,8 +521,9 @@ instance FromJSON TrustState where
     parseJSON = parseJSONText "TrustState"
 
 data TrustType =
-    Forest
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Forest
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TrustType where
     parser = takeLowerText >>= \case

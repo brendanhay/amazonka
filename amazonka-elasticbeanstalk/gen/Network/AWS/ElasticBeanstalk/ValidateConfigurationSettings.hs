@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , vcsrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A list of validation messages for a specified configuration template.
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'validateConfigurationSettings' smart constructor.
 data ValidateConfigurationSettings = ValidateConfigurationSettings'
-    { _vcsTemplateName    :: !(Maybe Text)
-    , _vcsEnvironmentName :: !(Maybe Text)
-    , _vcsApplicationName :: !Text
-    , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcsTemplateName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vcsEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vcsApplicationName :: {-# NOUNPACK #-}!Text
+  , _vcsOptionSettings  :: {-# NOUNPACK #-}![ConfigurationOptionSetting]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidateConfigurationSettings' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ validateConfigurationSettings
     :: Text -- ^ 'vcsApplicationName'
     -> ValidateConfigurationSettings
 validateConfigurationSettings pApplicationName_ =
-    ValidateConfigurationSettings'
-    { _vcsTemplateName = Nothing
-    , _vcsEnvironmentName = Nothing
-    , _vcsApplicationName = pApplicationName_
-    , _vcsOptionSettings = mempty
-    }
+  ValidateConfigurationSettings'
+  { _vcsTemplateName = Nothing
+  , _vcsEnvironmentName = Nothing
+  , _vcsApplicationName = pApplicationName_
+  , _vcsOptionSettings = mempty
+  }
+
 
 -- | The name of the configuration template to validate the settings against. Condition: You cannot specify both this and an environment name.
 vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
@@ -113,9 +115,9 @@ instance AWSRequest ValidateConfigurationSettings
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ValidateConfigurationSettings
+instance Hashable ValidateConfigurationSettings where
 
-instance NFData ValidateConfigurationSettings
+instance NFData ValidateConfigurationSettings where
 
 instance ToHeaders ValidateConfigurationSettings
          where
@@ -142,9 +144,10 @@ instance ToQuery ValidateConfigurationSettings where
 --
 -- /See:/ 'validateConfigurationSettingsResponse' smart constructor.
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
-    { _vcsrsMessages       :: !(Maybe [ValidationMessage])
-    , _vcsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcsrsMessages       :: {-# NOUNPACK #-}!(Maybe [ValidationMessage])
+  , _vcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidateConfigurationSettingsResponse' with the minimum fields required to make a request.
 --
@@ -157,10 +160,9 @@ validateConfigurationSettingsResponse
     :: Int -- ^ 'vcsrsResponseStatus'
     -> ValidateConfigurationSettingsResponse
 validateConfigurationSettingsResponse pResponseStatus_ =
-    ValidateConfigurationSettingsResponse'
-    { _vcsrsMessages = Nothing
-    , _vcsrsResponseStatus = pResponseStatus_
-    }
+  ValidateConfigurationSettingsResponse'
+  {_vcsrsMessages = Nothing, _vcsrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of 'ValidationMessage' .
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
@@ -171,3 +173,4 @@ vcsrsResponseStatus :: Lens' ValidateConfigurationSettingsResponse Int
 vcsrsResponseStatus = lens _vcsrsResponseStatus (\ s a -> s{_vcsrsResponseStatus = a});
 
 instance NFData ValidateConfigurationSettingsResponse
+         where

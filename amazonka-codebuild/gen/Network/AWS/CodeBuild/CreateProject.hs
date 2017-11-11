@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.CreateProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,25 +45,26 @@ module Network.AWS.CodeBuild.CreateProject
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-    { _cpEncryptionKey    :: !(Maybe Text)
-    , _cpDescription      :: !(Maybe Text)
-    , _cpServiceRole      :: !(Maybe Text)
-    , _cpTags             :: !(Maybe [Tag])
-    , _cpTimeoutInMinutes :: !(Maybe Nat)
-    , _cpName             :: !Text
-    , _cpSource           :: !ProjectSource
-    , _cpArtifacts        :: !ProjectArtifacts
-    , _cpEnvironment      :: !ProjectEnvironment
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpEncryptionKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpServiceRole      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cpTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cpName             :: {-# NOUNPACK #-}!Text
+  , _cpSource           :: {-# NOUNPACK #-}!ProjectSource
+  , _cpArtifacts        :: {-# NOUNPACK #-}!ProjectArtifacts
+  , _cpEnvironment      :: {-# NOUNPACK #-}!ProjectEnvironment
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
@@ -93,17 +94,18 @@ createProject
     -> ProjectEnvironment -- ^ 'cpEnvironment'
     -> CreateProject
 createProject pName_ pSource_ pArtifacts_ pEnvironment_ =
-    CreateProject'
-    { _cpEncryptionKey = Nothing
-    , _cpDescription = Nothing
-    , _cpServiceRole = Nothing
-    , _cpTags = Nothing
-    , _cpTimeoutInMinutes = Nothing
-    , _cpName = pName_
-    , _cpSource = pSource_
-    , _cpArtifacts = pArtifacts_
-    , _cpEnvironment = pEnvironment_
-    }
+  CreateProject'
+  { _cpEncryptionKey = Nothing
+  , _cpDescription = Nothing
+  , _cpServiceRole = Nothing
+  , _cpTags = Nothing
+  , _cpTimeoutInMinutes = Nothing
+  , _cpName = pName_
+  , _cpSource = pSource_
+  , _cpArtifacts = pArtifacts_
+  , _cpEnvironment = pEnvironment_
+  }
+
 
 -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 cpEncryptionKey :: Lens' CreateProject (Maybe Text)
@@ -150,9 +152,9 @@ instance AWSRequest CreateProject where
                  CreateProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
 
-instance Hashable CreateProject
+instance Hashable CreateProject where
 
-instance NFData CreateProject
+instance NFData CreateProject where
 
 instance ToHeaders CreateProject where
         toHeaders
@@ -185,9 +187,10 @@ instance ToQuery CreateProject where
 
 -- | /See:/ 'createProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-    { _cprsProject        :: !(Maybe Project)
-    , _cprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsProject        :: {-# NOUNPACK #-}!(Maybe Project)
+  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
 --
@@ -200,10 +203,9 @@ createProjectResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreateProjectResponse
 createProjectResponse pResponseStatus_ =
-    CreateProjectResponse'
-    { _cprsProject = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreateProjectResponse'
+  {_cprsProject = Nothing, _cprsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the build project that was created.
 cprsProject :: Lens' CreateProjectResponse (Maybe Project)
@@ -213,4 +215,4 @@ cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
 cprsResponseStatus :: Lens' CreateProjectResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreateProjectResponse
+instance NFData CreateProjectResponse where

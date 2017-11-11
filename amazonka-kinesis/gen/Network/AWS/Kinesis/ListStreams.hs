@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.ListStreams
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,13 +47,13 @@ module Network.AWS.Kinesis.ListStreams
     , lsrsHasMoreStreams
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @ListStreams@ .
 --
@@ -61,9 +61,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listStreams' smart constructor.
 data ListStreams = ListStreams'
-    { _lsLimit                    :: !(Maybe Nat)
-    , _lsExclusiveStartStreamName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsLimit                    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lsExclusiveStartStreamName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
 --
@@ -75,10 +76,8 @@ data ListStreams = ListStreams'
 listStreams
     :: ListStreams
 listStreams =
-    ListStreams'
-    { _lsLimit = Nothing
-    , _lsExclusiveStartStreamName = Nothing
-    }
+  ListStreams' {_lsLimit = Nothing, _lsExclusiveStartStreamName = Nothing}
+
 
 -- | The maximum number of streams to list.
 lsLimit :: Lens' ListStreams (Maybe Natural)
@@ -108,9 +107,9 @@ instance AWSRequest ListStreams where
                      (x .?> "StreamNames" .!@ mempty)
                      <*> (x .:> "HasMoreStreams"))
 
-instance Hashable ListStreams
+instance Hashable ListStreams where
 
-instance NFData ListStreams
+instance NFData ListStreams where
 
 instance ToHeaders ListStreams where
         toHeaders
@@ -141,10 +140,11 @@ instance ToQuery ListStreams where
 --
 -- /See:/ 'listStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-    { _lsrsResponseStatus :: !Int
-    , _lsrsStreamNames    :: ![Text]
-    , _lsrsHasMoreStreams :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lsrsStreamNames    :: {-# NOUNPACK #-}![Text]
+  , _lsrsHasMoreStreams :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +160,12 @@ listStreamsResponse
     -> Bool -- ^ 'lsrsHasMoreStreams'
     -> ListStreamsResponse
 listStreamsResponse pResponseStatus_ pHasMoreStreams_ =
-    ListStreamsResponse'
-    { _lsrsResponseStatus = pResponseStatus_
-    , _lsrsStreamNames = mempty
-    , _lsrsHasMoreStreams = pHasMoreStreams_
-    }
+  ListStreamsResponse'
+  { _lsrsResponseStatus = pResponseStatus_
+  , _lsrsStreamNames = mempty
+  , _lsrsHasMoreStreams = pHasMoreStreams_
+  }
+
 
 -- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListStreamsResponse Int
@@ -178,4 +179,4 @@ lsrsStreamNames = lens _lsrsStreamNames (\ s a -> s{_lsrsStreamNames = a}) . _Co
 lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrsHasMoreStreams = lens _lsrsHasMoreStreams (\ s a -> s{_lsrsHasMoreStreams = a});
 
-instance NFData ListStreamsResponse
+instance NFData ListStreamsResponse where

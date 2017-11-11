@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,34 +56,35 @@ module Network.AWS.OpsWorks.CreateInstance
     , cirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createInstance' smart constructor.
 data CreateInstance = CreateInstance'
-    { _ciInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _ciVirtualizationType   :: !(Maybe Text)
-    , _ciHostname             :: !(Maybe Text)
-    , _ciSSHKeyName           :: !(Maybe Text)
-    , _ciAgentVersion         :: !(Maybe Text)
-    , _ciSubnetId             :: !(Maybe Text)
-    , _ciEBSOptimized         :: !(Maybe Bool)
-    , _ciOS                   :: !(Maybe Text)
-    , _ciAvailabilityZone     :: !(Maybe Text)
-    , _ciTenancy              :: !(Maybe Text)
-    , _ciAutoScalingType      :: !(Maybe AutoScalingType)
-    , _ciArchitecture         :: !(Maybe Architecture)
-    , _ciAMIId                :: !(Maybe Text)
-    , _ciRootDeviceType       :: !(Maybe RootDeviceType)
-    , _ciBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
-    , _ciStackId              :: !Text
-    , _ciLayerIds             :: ![Text]
-    , _ciInstanceType         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ciVirtualizationType   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciHostname             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciSSHKeyName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciAgentVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciSubnetId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciEBSOptimized         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ciOS                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciAvailabilityZone     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciTenancy              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciAutoScalingType      :: {-# NOUNPACK #-}!(Maybe AutoScalingType)
+  , _ciArchitecture         :: {-# NOUNPACK #-}!(Maybe Architecture)
+  , _ciAMIId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciRootDeviceType       :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
+  , _ciBlockDeviceMappings  :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
+  , _ciStackId              :: {-# NOUNPACK #-}!Text
+  , _ciLayerIds             :: {-# NOUNPACK #-}![Text]
+  , _ciInstanceType         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstance' with the minimum fields required to make a request.
 --
@@ -129,26 +130,27 @@ createInstance
     -> Text -- ^ 'ciInstanceType'
     -> CreateInstance
 createInstance pStackId_ pInstanceType_ =
-    CreateInstance'
-    { _ciInstallUpdatesOnBoot = Nothing
-    , _ciVirtualizationType = Nothing
-    , _ciHostname = Nothing
-    , _ciSSHKeyName = Nothing
-    , _ciAgentVersion = Nothing
-    , _ciSubnetId = Nothing
-    , _ciEBSOptimized = Nothing
-    , _ciOS = Nothing
-    , _ciAvailabilityZone = Nothing
-    , _ciTenancy = Nothing
-    , _ciAutoScalingType = Nothing
-    , _ciArchitecture = Nothing
-    , _ciAMIId = Nothing
-    , _ciRootDeviceType = Nothing
-    , _ciBlockDeviceMappings = Nothing
-    , _ciStackId = pStackId_
-    , _ciLayerIds = mempty
-    , _ciInstanceType = pInstanceType_
-    }
+  CreateInstance'
+  { _ciInstallUpdatesOnBoot = Nothing
+  , _ciVirtualizationType = Nothing
+  , _ciHostname = Nothing
+  , _ciSSHKeyName = Nothing
+  , _ciAgentVersion = Nothing
+  , _ciSubnetId = Nothing
+  , _ciEBSOptimized = Nothing
+  , _ciOS = Nothing
+  , _ciAvailabilityZone = Nothing
+  , _ciTenancy = Nothing
+  , _ciAutoScalingType = Nothing
+  , _ciArchitecture = Nothing
+  , _ciAMIId = Nothing
+  , _ciRootDeviceType = Nothing
+  , _ciBlockDeviceMappings = Nothing
+  , _ciStackId = pStackId_
+  , _ciLayerIds = mempty
+  , _ciInstanceType = pInstanceType_
+  }
+
 
 -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 ciInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
@@ -231,9 +233,9 @@ instance AWSRequest CreateInstance where
                  CreateInstanceResponse' <$>
                    (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateInstance
+instance Hashable CreateInstance where
 
-instance NFData CreateInstance
+instance NFData CreateInstance where
 
 instance ToHeaders CreateInstance where
         toHeaders
@@ -281,9 +283,10 @@ instance ToQuery CreateInstance where
 --
 -- /See:/ 'createInstanceResponse' smart constructor.
 data CreateInstanceResponse = CreateInstanceResponse'
-    { _cirsInstanceId     :: !(Maybe Text)
-    , _cirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cirsInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstanceResponse' with the minimum fields required to make a request.
 --
@@ -296,10 +299,9 @@ createInstanceResponse
     :: Int -- ^ 'cirsResponseStatus'
     -> CreateInstanceResponse
 createInstanceResponse pResponseStatus_ =
-    CreateInstanceResponse'
-    { _cirsInstanceId = Nothing
-    , _cirsResponseStatus = pResponseStatus_
-    }
+  CreateInstanceResponse'
+  {_cirsInstanceId = Nothing, _cirsResponseStatus = pResponseStatus_}
+
 
 -- | The instance ID.
 cirsInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
@@ -309,4 +311,4 @@ cirsInstanceId = lens _cirsInstanceId (\ s a -> s{_cirsInstanceId = a});
 cirsResponseStatus :: Lens' CreateInstanceResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
 
-instance NFData CreateInstanceResponse
+instance NFData CreateInstanceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.CloudFormation.DescribeStackInstance
     , dsisrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeStackInstance' smart constructor.
 data DescribeStackInstance = DescribeStackInstance'
-    { _dStackSetName         :: !Text
-    , _dStackInstanceAccount :: !Text
-    , _dStackInstanceRegion  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dStackSetName         :: {-# NOUNPACK #-}!Text
+  , _dStackInstanceAccount :: {-# NOUNPACK #-}!Text
+  , _dStackInstanceRegion  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackInstance' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ describeStackInstance
     -> Text -- ^ 'dStackInstanceRegion'
     -> DescribeStackInstance
 describeStackInstance pStackSetName_ pStackInstanceAccount_ pStackInstanceRegion_ =
-    DescribeStackInstance'
-    { _dStackSetName = pStackSetName_
-    , _dStackInstanceAccount = pStackInstanceAccount_
-    , _dStackInstanceRegion = pStackInstanceRegion_
-    }
+  DescribeStackInstance'
+  { _dStackSetName = pStackSetName_
+  , _dStackInstanceAccount = pStackInstanceAccount_
+  , _dStackInstanceRegion = pStackInstanceRegion_
+  }
+
 
 -- | The name or the unique stack ID of the stack set that you want to get stack instance information for.
 dStackSetName :: Lens' DescribeStackInstance Text
@@ -98,9 +100,9 @@ instance AWSRequest DescribeStackInstance where
                  DescribeStackInstanceResponse' <$>
                    (x .@? "StackInstance") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeStackInstance
+instance Hashable DescribeStackInstance where
 
-instance NFData DescribeStackInstance
+instance NFData DescribeStackInstance where
 
 instance ToHeaders DescribeStackInstance where
         toHeaders = const mempty
@@ -119,9 +121,10 @@ instance ToQuery DescribeStackInstance where
 
 -- | /See:/ 'describeStackInstanceResponse' smart constructor.
 data DescribeStackInstanceResponse = DescribeStackInstanceResponse'
-    { _dsisrsStackInstance  :: !(Maybe StackInstance)
-    , _dsisrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsisrsStackInstance  :: {-# NOUNPACK #-}!(Maybe StackInstance)
+  , _dsisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackInstanceResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +137,9 @@ describeStackInstanceResponse
     :: Int -- ^ 'dsisrsResponseStatus'
     -> DescribeStackInstanceResponse
 describeStackInstanceResponse pResponseStatus_ =
-    DescribeStackInstanceResponse'
-    { _dsisrsStackInstance = Nothing
-    , _dsisrsResponseStatus = pResponseStatus_
-    }
+  DescribeStackInstanceResponse'
+  {_dsisrsStackInstance = Nothing, _dsisrsResponseStatus = pResponseStatus_}
+
 
 -- | The stack instance that matches the specified request parameters.
 dsisrsStackInstance :: Lens' DescribeStackInstanceResponse (Maybe StackInstance)
@@ -147,4 +149,4 @@ dsisrsStackInstance = lens _dsisrsStackInstance (\ s a -> s{_dsisrsStackInstance
 dsisrsResponseStatus :: Lens' DescribeStackInstanceResponse Int
 dsisrsResponseStatus = lens _dsisrsResponseStatus (\ s a -> s{_dsisrsResponseStatus = a});
 
-instance NFData DescribeStackInstanceResponse
+instance NFData DescribeStackInstanceResponse where

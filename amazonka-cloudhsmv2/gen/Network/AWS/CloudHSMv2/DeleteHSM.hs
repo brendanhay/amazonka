@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.DeleteHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.CloudHSMv2.DeleteHSM
     , dhrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSMv2.Types
-import           Network.AWS.CloudHSMv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSMv2.Types
+import Network.AWS.CloudHSMv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteHSM' smart constructor.
 data DeleteHSM = DeleteHSM'
-    { _dhEniId     :: !(Maybe Text)
-    , _dhHSMId     :: !(Maybe Text)
-    , _dhEniIP     :: !(Maybe Text)
-    , _dhClusterId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhEniId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhHSMId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhEniIP     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhClusterId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHSM' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ deleteHSM
     :: Text -- ^ 'dhClusterId'
     -> DeleteHSM
 deleteHSM pClusterId_ =
-    DeleteHSM'
-    { _dhEniId = Nothing
-    , _dhHSMId = Nothing
-    , _dhEniIP = Nothing
-    , _dhClusterId = pClusterId_
-    }
+  DeleteHSM'
+  { _dhEniId = Nothing
+  , _dhHSMId = Nothing
+  , _dhEniIP = Nothing
+  , _dhClusterId = pClusterId_
+  }
+
 
 -- | The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting.
 dhEniId :: Lens' DeleteHSM (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest DeleteHSM where
                  DeleteHSMResponse' <$>
                    (x .?> "HsmId") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteHSM
+instance Hashable DeleteHSM where
 
-instance NFData DeleteHSM
+instance NFData DeleteHSM where
 
 instance ToHeaders DeleteHSM where
         toHeaders
@@ -131,9 +133,10 @@ instance ToQuery DeleteHSM where
 
 -- | /See:/ 'deleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
-    { _dhrsHSMId          :: !(Maybe Text)
-    , _dhrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrsHSMId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHSMResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +149,9 @@ deleteHSMResponse
     :: Int -- ^ 'dhrsResponseStatus'
     -> DeleteHSMResponse
 deleteHSMResponse pResponseStatus_ =
-    DeleteHSMResponse'
-    { _dhrsHSMId = Nothing
-    , _dhrsResponseStatus = pResponseStatus_
-    }
+  DeleteHSMResponse'
+  {_dhrsHSMId = Nothing, _dhrsResponseStatus = pResponseStatus_}
+
 
 -- | The identifier (ID) of the HSM that was deleted.
 dhrsHSMId :: Lens' DeleteHSMResponse (Maybe Text)
@@ -159,4 +161,4 @@ dhrsHSMId = lens _dhrsHSMId (\ s a -> s{_dhrsHSMId = a});
 dhrsResponseStatus :: Lens' DeleteHSMResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
 
-instance NFData DeleteHSMResponse
+instance NFData DeleteHSMResponse where

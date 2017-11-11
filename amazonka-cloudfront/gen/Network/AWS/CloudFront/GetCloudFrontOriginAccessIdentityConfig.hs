@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     , gcfoaicrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The origin access identity's configuration information. For more information, see 'CloudFrontOriginAccessIdentityConfigComplexType' .
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityConfig' smart constructor.
 newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig'
-    { _gcfoaicId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcfoaicId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCloudFrontOriginAccessIdentityConfig' with the minimum fields required to make a request.
 --
@@ -63,16 +64,16 @@ getCloudFrontOriginAccessIdentityConfig
     :: Text -- ^ 'gcfoaicId'
     -> GetCloudFrontOriginAccessIdentityConfig
 getCloudFrontOriginAccessIdentityConfig pId_ =
-    GetCloudFrontOriginAccessIdentityConfig'
-    { _gcfoaicId = pId_
-    }
+  GetCloudFrontOriginAccessIdentityConfig' {_gcfoaicId = pId_}
+
 
 -- | The identity's ID.
 gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig Text
 gcfoaicId = lens _gcfoaicId (\ s a -> s{_gcfoaicId = a});
 
 instance AWSRequest
-         GetCloudFrontOriginAccessIdentityConfig where
+           GetCloudFrontOriginAccessIdentityConfig
+         where
         type Rs GetCloudFrontOriginAccessIdentityConfig =
              GetCloudFrontOriginAccessIdentityConfigResponse
         request = get cloudFront
@@ -84,24 +85,29 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable
-         GetCloudFrontOriginAccessIdentityConfig
+           GetCloudFrontOriginAccessIdentityConfig
+         where
 
 instance NFData
-         GetCloudFrontOriginAccessIdentityConfig
+           GetCloudFrontOriginAccessIdentityConfig
+         where
 
 instance ToHeaders
-         GetCloudFrontOriginAccessIdentityConfig where
+           GetCloudFrontOriginAccessIdentityConfig
+         where
         toHeaders = const mempty
 
 instance ToPath
-         GetCloudFrontOriginAccessIdentityConfig where
+           GetCloudFrontOriginAccessIdentityConfig
+         where
         toPath GetCloudFrontOriginAccessIdentityConfig'{..}
           = mconcat
               ["/2017-03-25/origin-access-identity/cloudfront/",
                toBS _gcfoaicId, "/config"]
 
 instance ToQuery
-         GetCloudFrontOriginAccessIdentityConfig where
+           GetCloudFrontOriginAccessIdentityConfig
+         where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
@@ -110,10 +116,11 @@ instance ToQuery
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'
-    { _gcfoaicrsCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
-    , _gcfoaicrsETag                                 :: !(Maybe Text)
-    , _gcfoaicrsResponseStatus                       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcfoaicrsCloudFrontOriginAccessIdentityConfig :: {-# NOUNPACK #-}!(Maybe CloudFrontOriginAccessIdentityConfig)
+  , _gcfoaicrsETag :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcfoaicrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCloudFrontOriginAccessIdentityConfigResponse' with the minimum fields required to make a request.
 --
@@ -128,11 +135,12 @@ getCloudFrontOriginAccessIdentityConfigResponse
     :: Int -- ^ 'gcfoaicrsResponseStatus'
     -> GetCloudFrontOriginAccessIdentityConfigResponse
 getCloudFrontOriginAccessIdentityConfigResponse pResponseStatus_ =
-    GetCloudFrontOriginAccessIdentityConfigResponse'
-    { _gcfoaicrsCloudFrontOriginAccessIdentityConfig = Nothing
-    , _gcfoaicrsETag = Nothing
-    , _gcfoaicrsResponseStatus = pResponseStatus_
-    }
+  GetCloudFrontOriginAccessIdentityConfigResponse'
+  { _gcfoaicrsCloudFrontOriginAccessIdentityConfig = Nothing
+  , _gcfoaicrsETag = Nothing
+  , _gcfoaicrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The origin access identity's configuration information.
 gcfoaicrsCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
@@ -147,4 +155,5 @@ gcfoaicrsResponseStatus :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse
 gcfoaicrsResponseStatus = lens _gcfoaicrsResponseStatus (\ s a -> s{_gcfoaicrsResponseStatus = a});
 
 instance NFData
-         GetCloudFrontOriginAccessIdentityConfigResponse
+           GetCloudFrontOriginAccessIdentityConfigResponse
+         where

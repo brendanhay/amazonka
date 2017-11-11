@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateReceiptRuleSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.SES.CreateReceiptRuleSet
     , crrsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to create an empty receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
@@ -53,8 +53,9 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'createReceiptRuleSet' smart constructor.
 newtype CreateReceiptRuleSet = CreateReceiptRuleSet'
-    { _crrsRuleSetName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsRuleSetName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReceiptRuleSet' with the minimum fields required to make a request.
 --
@@ -65,9 +66,8 @@ createReceiptRuleSet
     :: Text -- ^ 'crrsRuleSetName'
     -> CreateReceiptRuleSet
 createReceiptRuleSet pRuleSetName_ =
-    CreateReceiptRuleSet'
-    { _crrsRuleSetName = pRuleSetName_
-    }
+  CreateReceiptRuleSet' {_crrsRuleSetName = pRuleSetName_}
+
 
 -- | The name of the rule set to create. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 crrsRuleSetName :: Lens' CreateReceiptRuleSet Text
@@ -83,9 +83,9 @@ instance AWSRequest CreateReceiptRuleSet where
                  CreateReceiptRuleSetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateReceiptRuleSet
+instance Hashable CreateReceiptRuleSet where
 
-instance NFData CreateReceiptRuleSet
+instance NFData CreateReceiptRuleSet where
 
 instance ToHeaders CreateReceiptRuleSet where
         toHeaders = const mempty
@@ -106,8 +106,9 @@ instance ToQuery CreateReceiptRuleSet where
 --
 -- /See:/ 'createReceiptRuleSetResponse' smart constructor.
 newtype CreateReceiptRuleSetResponse = CreateReceiptRuleSetResponse'
-    { _crrsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
@@ -118,12 +119,11 @@ createReceiptRuleSetResponse
     :: Int -- ^ 'crrsrsResponseStatus'
     -> CreateReceiptRuleSetResponse
 createReceiptRuleSetResponse pResponseStatus_ =
-    CreateReceiptRuleSetResponse'
-    { _crrsrsResponseStatus = pResponseStatus_
-    }
+  CreateReceiptRuleSetResponse' {_crrsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 crrsrsResponseStatus :: Lens' CreateReceiptRuleSetResponse Int
 crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a});
 
-instance NFData CreateReceiptRuleSetResponse
+instance NFData CreateReceiptRuleSetResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.RestoreObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,21 +39,22 @@ module Network.AWS.S3.RestoreObject
     , rorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'restoreObject' smart constructor.
 data RestoreObject = RestoreObject'
-    { _roVersionId      :: !(Maybe ObjectVersionId)
-    , _roRequestPayer   :: !(Maybe RequestPayer)
-    , _roRestoreRequest :: !(Maybe RestoreRequest)
-    , _roBucket         :: !BucketName
-    , _roKey            :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _roVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _roRequestPayer   :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _roRestoreRequest :: {-# NOUNPACK #-}!(Maybe RestoreRequest)
+  , _roBucket         :: {-# NOUNPACK #-}!BucketName
+  , _roKey            :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreObject' with the minimum fields required to make a request.
 --
@@ -73,13 +74,14 @@ restoreObject
     -> ObjectKey -- ^ 'roKey'
     -> RestoreObject
 restoreObject pBucket_ pKey_ =
-    RestoreObject'
-    { _roVersionId = Nothing
-    , _roRequestPayer = Nothing
-    , _roRestoreRequest = Nothing
-    , _roBucket = pBucket_
-    , _roKey = pKey_
-    }
+  RestoreObject'
+  { _roVersionId = Nothing
+  , _roRequestPayer = Nothing
+  , _roRestoreRequest = Nothing
+  , _roBucket = pBucket_
+  , _roKey = pKey_
+  }
+
 
 -- | Undocumented member.
 roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
@@ -111,9 +113,9 @@ instance AWSRequest RestoreObject where
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
 
-instance Hashable RestoreObject
+instance Hashable RestoreObject where
 
-instance NFData RestoreObject
+instance NFData RestoreObject where
 
 instance ToElement RestoreObject where
         toElement
@@ -136,9 +138,10 @@ instance ToQuery RestoreObject where
 
 -- | /See:/ 'restoreObjectResponse' smart constructor.
 data RestoreObjectResponse = RestoreObjectResponse'
-    { _rorsRequestCharged :: !(Maybe RequestCharged)
-    , _rorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rorsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _rorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreObjectResponse' with the minimum fields required to make a request.
 --
@@ -151,10 +154,9 @@ restoreObjectResponse
     :: Int -- ^ 'rorsResponseStatus'
     -> RestoreObjectResponse
 restoreObjectResponse pResponseStatus_ =
-    RestoreObjectResponse'
-    { _rorsRequestCharged = Nothing
-    , _rorsResponseStatus = pResponseStatus_
-    }
+  RestoreObjectResponse'
+  {_rorsRequestCharged = Nothing, _rorsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rorsRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
@@ -164,4 +166,4 @@ rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = 
 rorsResponseStatus :: Lens' RestoreObjectResponse Int
 rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a});
 
-instance NFData RestoreObjectResponse
+instance NFData RestoreObjectResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateAddress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.EC2.AssociateAddress
     , arsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AssociateAddress.
 --
@@ -64,14 +64,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'associateAddress' smart constructor.
 data AssociateAddress = AssociateAddress'
-    { _aasInstanceId         :: !(Maybe Text)
-    , _aasAllocationId       :: !(Maybe Text)
-    , _aasNetworkInterfaceId :: !(Maybe Text)
-    , _aasAllowReassociation :: !(Maybe Bool)
-    , _aasPrivateIPAddress   :: !(Maybe Text)
-    , _aasPublicIP           :: !(Maybe Text)
-    , _aasDryRun             :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aasInstanceId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aasAllocationId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aasNetworkInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aasAllowReassociation :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aasPrivateIPAddress   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aasPublicIP           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aasDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateAddress' with the minimum fields required to make a request.
 --
@@ -93,15 +94,16 @@ data AssociateAddress = AssociateAddress'
 associateAddress
     :: AssociateAddress
 associateAddress =
-    AssociateAddress'
-    { _aasInstanceId = Nothing
-    , _aasAllocationId = Nothing
-    , _aasNetworkInterfaceId = Nothing
-    , _aasAllowReassociation = Nothing
-    , _aasPrivateIPAddress = Nothing
-    , _aasPublicIP = Nothing
-    , _aasDryRun = Nothing
-    }
+  AssociateAddress'
+  { _aasInstanceId = Nothing
+  , _aasAllocationId = Nothing
+  , _aasNetworkInterfaceId = Nothing
+  , _aasAllowReassociation = Nothing
+  , _aasPrivateIPAddress = Nothing
+  , _aasPublicIP = Nothing
+  , _aasDryRun = Nothing
+  }
+
 
 -- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
 aasInstanceId :: Lens' AssociateAddress (Maybe Text)
@@ -140,9 +142,9 @@ instance AWSRequest AssociateAddress where
                  AssociateAddressResponse' <$>
                    (x .@? "associationId") <*> (pure (fromEnum s)))
 
-instance Hashable AssociateAddress
+instance Hashable AssociateAddress where
 
-instance NFData AssociateAddress
+instance NFData AssociateAddress where
 
 instance ToHeaders AssociateAddress where
         toHeaders = const mempty
@@ -168,9 +170,10 @@ instance ToQuery AssociateAddress where
 --
 -- /See:/ 'associateAddressResponse' smart constructor.
 data AssociateAddressResponse = AssociateAddressResponse'
-    { _arsAssociationId  :: !(Maybe Text)
-    , _arsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arsAssociationId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateAddressResponse' with the minimum fields required to make a request.
 --
@@ -183,10 +186,9 @@ associateAddressResponse
     :: Int -- ^ 'arsResponseStatus'
     -> AssociateAddressResponse
 associateAddressResponse pResponseStatus_ =
-    AssociateAddressResponse'
-    { _arsAssociationId = Nothing
-    , _arsResponseStatus = pResponseStatus_
-    }
+  AssociateAddressResponse'
+  {_arsAssociationId = Nothing, _arsResponseStatus = pResponseStatus_}
+
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.
 arsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
@@ -196,4 +198,4 @@ arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 arsResponseStatus :: Lens' AssociateAddressResponse Int
 arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a});
 
-instance NFData AssociateAddressResponse
+instance NFData AssociateAddressResponse where

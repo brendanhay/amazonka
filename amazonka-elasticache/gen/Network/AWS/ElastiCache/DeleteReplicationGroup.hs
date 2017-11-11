@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteReplicationGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DeleteReplicationGroup@ operation.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteReplicationGroup' smart constructor.
 data DeleteReplicationGroup = DeleteReplicationGroup'
-    { _drgFinalSnapshotIdentifier :: !(Maybe Text)
-    , _drgRetainPrimaryCluster    :: !(Maybe Bool)
-    , _drgReplicationGroupId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drgFinalSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drgRetainPrimaryCluster    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _drgReplicationGroupId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReplicationGroup' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ deleteReplicationGroup
     :: Text -- ^ 'drgReplicationGroupId'
     -> DeleteReplicationGroup
 deleteReplicationGroup pReplicationGroupId_ =
-    DeleteReplicationGroup'
-    { _drgFinalSnapshotIdentifier = Nothing
-    , _drgRetainPrimaryCluster = Nothing
-    , _drgReplicationGroupId = pReplicationGroupId_
-    }
+  DeleteReplicationGroup'
+  { _drgFinalSnapshotIdentifier = Nothing
+  , _drgRetainPrimaryCluster = Nothing
+  , _drgReplicationGroupId = pReplicationGroupId_
+  }
+
 
 -- | The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
 drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest DeleteReplicationGroup where
                  DeleteReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteReplicationGroup
+instance Hashable DeleteReplicationGroup where
 
-instance NFData DeleteReplicationGroup
+instance NFData DeleteReplicationGroup where
 
 instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty
@@ -123,9 +125,10 @@ instance ToQuery DeleteReplicationGroup where
 
 -- | /See:/ 'deleteReplicationGroupResponse' smart constructor.
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
-    { _delrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _delrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsReplicationGroup :: {-# NOUNPACK #-}!(Maybe ReplicationGroup)
+  , _delrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReplicationGroupResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,9 @@ deleteReplicationGroupResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteReplicationGroupResponse
 deleteReplicationGroupResponse pResponseStatus_ =
-    DeleteReplicationGroupResponse'
-    { _delrsReplicationGroup = Nothing
-    , _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteReplicationGroupResponse'
+  {_delrsReplicationGroup = Nothing, _delrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 delrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
@@ -151,4 +153,4 @@ delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicatio
 delrsResponseStatus :: Lens' DeleteReplicationGroupResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteReplicationGroupResponse
+instance NFData DeleteReplicationGroupResponse where

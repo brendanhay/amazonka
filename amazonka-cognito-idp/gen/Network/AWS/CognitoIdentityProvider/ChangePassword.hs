@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ChangePassword
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CognitoIdentityProvider.ChangePassword
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to change a user password.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'changePassword' smart constructor.
 data ChangePassword = ChangePassword'
-    { _cpPreviousPassword :: !(Sensitive Text)
-    , _cpProposedPassword :: !(Sensitive Text)
-    , _cpAccessToken      :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cpPreviousPassword :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _cpProposedPassword :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _cpAccessToken      :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangePassword' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ changePassword
     -> Text -- ^ 'cpAccessToken'
     -> ChangePassword
 changePassword pPreviousPassword_ pProposedPassword_ pAccessToken_ =
-    ChangePassword'
-    { _cpPreviousPassword = _Sensitive # pPreviousPassword_
-    , _cpProposedPassword = _Sensitive # pProposedPassword_
-    , _cpAccessToken = _Sensitive # pAccessToken_
-    }
+  ChangePassword'
+  { _cpPreviousPassword = _Sensitive # pPreviousPassword_
+  , _cpProposedPassword = _Sensitive # pProposedPassword_
+  , _cpAccessToken = _Sensitive # pAccessToken_
+  }
+
 
 -- | The old password in the change password request.
 cpPreviousPassword :: Lens' ChangePassword Text
@@ -97,9 +99,9 @@ instance AWSRequest ChangePassword where
               (\ s h x ->
                  ChangePasswordResponse' <$> (pure (fromEnum s)))
 
-instance Hashable ChangePassword
+instance Hashable ChangePassword where
 
-instance NFData ChangePassword
+instance NFData ChangePassword where
 
 instance ToHeaders ChangePassword where
         toHeaders
@@ -131,8 +133,9 @@ instance ToQuery ChangePassword where
 --
 -- /See:/ 'changePasswordResponse' smart constructor.
 newtype ChangePasswordResponse = ChangePasswordResponse'
-    { _cprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangePasswordResponse' with the minimum fields required to make a request.
 --
@@ -143,12 +146,11 @@ changePasswordResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> ChangePasswordResponse
 changePasswordResponse pResponseStatus_ =
-    ChangePasswordResponse'
-    { _cprsResponseStatus = pResponseStatus_
-    }
+  ChangePasswordResponse' {_cprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' ChangePasswordResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData ChangePasswordResponse
+instance NFData ChangePasswordResponse where

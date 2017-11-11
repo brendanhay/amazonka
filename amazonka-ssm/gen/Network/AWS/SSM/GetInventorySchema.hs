@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetInventorySchema
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.GetInventorySchema
     , gisrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getInventorySchema' smart constructor.
 data GetInventorySchema = GetInventorySchema'
-    { _gisTypeName   :: !(Maybe Text)
-    , _gisNextToken  :: !(Maybe Text)
-    , _gisSubType    :: !(Maybe Bool)
-    , _gisMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisTypeName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gisNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gisSubType    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gisMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInventorySchema' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data GetInventorySchema = GetInventorySchema'
 getInventorySchema
     :: GetInventorySchema
 getInventorySchema =
-    GetInventorySchema'
-    { _gisTypeName = Nothing
-    , _gisNextToken = Nothing
-    , _gisSubType = Nothing
-    , _gisMaxResults = Nothing
-    }
+  GetInventorySchema'
+  { _gisTypeName = Nothing
+  , _gisNextToken = Nothing
+  , _gisSubType = Nothing
+  , _gisMaxResults = Nothing
+  }
+
 
 -- | The type of inventory item to return.
 gisTypeName :: Lens' GetInventorySchema (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest GetInventorySchema where
                    (x .?> "Schemas" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetInventorySchema
+instance Hashable GetInventorySchema where
 
-instance NFData GetInventorySchema
+instance NFData GetInventorySchema where
 
 instance ToHeaders GetInventorySchema where
         toHeaders
@@ -134,10 +136,11 @@ instance ToQuery GetInventorySchema where
 
 -- | /See:/ 'getInventorySchemaResponse' smart constructor.
 data GetInventorySchemaResponse = GetInventorySchemaResponse'
-    { _gisrsSchemas        :: !(Maybe [InventoryItemSchema])
-    , _gisrsNextToken      :: !(Maybe Text)
-    , _gisrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisrsSchemas        :: {-# NOUNPACK #-}!(Maybe [InventoryItemSchema])
+  , _gisrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInventorySchemaResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +155,12 @@ getInventorySchemaResponse
     :: Int -- ^ 'gisrsResponseStatus'
     -> GetInventorySchemaResponse
 getInventorySchemaResponse pResponseStatus_ =
-    GetInventorySchemaResponse'
-    { _gisrsSchemas = Nothing
-    , _gisrsNextToken = Nothing
-    , _gisrsResponseStatus = pResponseStatus_
-    }
+  GetInventorySchemaResponse'
+  { _gisrsSchemas = Nothing
+  , _gisrsNextToken = Nothing
+  , _gisrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Inventory schemas returned by the request.
 gisrsSchemas :: Lens' GetInventorySchemaResponse [InventoryItemSchema]
@@ -170,4 +174,4 @@ gisrsNextToken = lens _gisrsNextToken (\ s a -> s{_gisrsNextToken = a});
 gisrsResponseStatus :: Lens' GetInventorySchemaResponse Int
 gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
 
-instance NFData GetInventorySchemaResponse
+instance NFData GetInventorySchemaResponse where

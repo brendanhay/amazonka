@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PollForJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CodePipeline.PollForJobs
     , pfjrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a poll for jobs action.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'pollForJobs' smart constructor.
 data PollForJobs = PollForJobs'
-    { _pfjMaxBatchSize :: !(Maybe Nat)
-    , _pfjQueryParam   :: !(Maybe (Map Text Text))
-    , _pfjActionTypeId :: !ActionTypeId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfjMaxBatchSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _pfjQueryParam   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _pfjActionTypeId :: {-# NOUNPACK #-}!ActionTypeId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForJobs' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ pollForJobs
     :: ActionTypeId -- ^ 'pfjActionTypeId'
     -> PollForJobs
 pollForJobs pActionTypeId_ =
-    PollForJobs'
-    { _pfjMaxBatchSize = Nothing
-    , _pfjQueryParam = Nothing
-    , _pfjActionTypeId = pActionTypeId_
-    }
+  PollForJobs'
+  { _pfjMaxBatchSize = Nothing
+  , _pfjQueryParam = Nothing
+  , _pfjActionTypeId = pActionTypeId_
+  }
+
 
 -- | The maximum number of jobs to return in a poll for jobs call.
 pfjMaxBatchSize :: Lens' PollForJobs (Maybe Natural)
@@ -99,9 +101,9 @@ instance AWSRequest PollForJobs where
                  PollForJobsResponse' <$>
                    (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable PollForJobs
+instance Hashable PollForJobs where
 
-instance NFData PollForJobs
+instance NFData PollForJobs where
 
 instance ToHeaders PollForJobs where
         toHeaders
@@ -132,9 +134,10 @@ instance ToQuery PollForJobs where
 --
 -- /See:/ 'pollForJobsResponse' smart constructor.
 data PollForJobsResponse = PollForJobsResponse'
-    { _pfjrsJobs           :: !(Maybe [Job])
-    , _pfjrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _pfjrsJobs           :: {-# NOUNPACK #-}!(Maybe [Job])
+  , _pfjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForJobsResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +150,9 @@ pollForJobsResponse
     :: Int -- ^ 'pfjrsResponseStatus'
     -> PollForJobsResponse
 pollForJobsResponse pResponseStatus_ =
-    PollForJobsResponse'
-    { _pfjrsJobs = Nothing
-    , _pfjrsResponseStatus = pResponseStatus_
-    }
+  PollForJobsResponse'
+  {_pfjrsJobs = Nothing, _pfjrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the jobs to take action on.
 pfjrsJobs :: Lens' PollForJobsResponse [Job]
@@ -160,4 +162,4 @@ pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default . _Coerce;
 pfjrsResponseStatus :: Lens' PollForJobsResponse Int
 pfjrsResponseStatus = lens _pfjrsResponseStatus (\ s a -> s{_pfjrsResponseStatus = a});
 
-instance NFData PollForJobsResponse
+instance NFData PollForJobsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.AbortDocumentVersionUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,19 +36,20 @@ module Network.AWS.WorkDocs.AbortDocumentVersionUpload
     , AbortDocumentVersionUploadResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'abortDocumentVersionUpload' smart constructor.
 data AbortDocumentVersionUpload = AbortDocumentVersionUpload'
-    { _advuAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _advuDocumentId          :: !Text
-    , _advuVersionId           :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _advuAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _advuDocumentId          :: {-# NOUNPACK #-}!Text
+  , _advuVersionId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortDocumentVersionUpload' with the minimum fields required to make a request.
 --
@@ -64,11 +65,12 @@ abortDocumentVersionUpload
     -> Text -- ^ 'advuVersionId'
     -> AbortDocumentVersionUpload
 abortDocumentVersionUpload pDocumentId_ pVersionId_ =
-    AbortDocumentVersionUpload'
-    { _advuAuthenticationToken = Nothing
-    , _advuDocumentId = pDocumentId_
-    , _advuVersionId = pVersionId_
-    }
+  AbortDocumentVersionUpload'
+  { _advuAuthenticationToken = Nothing
+  , _advuDocumentId = pDocumentId_
+  , _advuVersionId = pVersionId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 advuAuthenticationToken :: Lens' AbortDocumentVersionUpload (Maybe Text)
@@ -89,9 +91,9 @@ instance AWSRequest AbortDocumentVersionUpload where
         response
           = receiveNull AbortDocumentVersionUploadResponse'
 
-instance Hashable AbortDocumentVersionUpload
+instance Hashable AbortDocumentVersionUpload where
 
-instance NFData AbortDocumentVersionUpload
+instance NFData AbortDocumentVersionUpload where
 
 instance ToHeaders AbortDocumentVersionUpload where
         toHeaders AbortDocumentVersionUpload'{..}
@@ -111,8 +113,9 @@ instance ToQuery AbortDocumentVersionUpload where
 
 -- | /See:/ 'abortDocumentVersionUploadResponse' smart constructor.
 data AbortDocumentVersionUploadResponse =
-    AbortDocumentVersionUploadResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AbortDocumentVersionUploadResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortDocumentVersionUploadResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +123,6 @@ abortDocumentVersionUploadResponse
     :: AbortDocumentVersionUploadResponse
 abortDocumentVersionUploadResponse = AbortDocumentVersionUploadResponse'
 
+
 instance NFData AbortDocumentVersionUploadResponse
+         where

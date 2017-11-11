@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ConfirmSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.SNS.ConfirmSubscription
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for ConfirmSubscription action.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'confirmSubscription' smart constructor.
 data ConfirmSubscription = ConfirmSubscription'
-    { _csAuthenticateOnUnsubscribe :: !(Maybe Text)
-    , _csTopicARN                  :: !Text
-    , _csToken                     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csAuthenticateOnUnsubscribe :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csTopicARN                  :: {-# NOUNPACK #-}!Text
+  , _csToken                     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmSubscription' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ confirmSubscription
     -> Text -- ^ 'csToken'
     -> ConfirmSubscription
 confirmSubscription pTopicARN_ pToken_ =
-    ConfirmSubscription'
-    { _csAuthenticateOnUnsubscribe = Nothing
-    , _csTopicARN = pTopicARN_
-    , _csToken = pToken_
-    }
+  ConfirmSubscription'
+  { _csAuthenticateOnUnsubscribe = Nothing
+  , _csTopicARN = pTopicARN_
+  , _csToken = pToken_
+  }
+
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is @true@ and the request has an AWS signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires AWS authentication.
 csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest ConfirmSubscription where
                  ConfirmSubscriptionResponse' <$>
                    (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
-instance Hashable ConfirmSubscription
+instance Hashable ConfirmSubscription where
 
-instance NFData ConfirmSubscription
+instance NFData ConfirmSubscription where
 
 instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty
@@ -124,9 +126,10 @@ instance ToQuery ConfirmSubscription where
 --
 -- /See:/ 'confirmSubscriptionResponse' smart constructor.
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
-    { _csrsSubscriptionARN :: !(Maybe Text)
-    , _csrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsSubscriptionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ confirmSubscriptionResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> ConfirmSubscriptionResponse
 confirmSubscriptionResponse pResponseStatus_ =
-    ConfirmSubscriptionResponse'
-    { _csrsSubscriptionARN = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  ConfirmSubscriptionResponse'
+  {_csrsSubscriptionARN = Nothing, _csrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the created subscription.
 csrsSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
@@ -152,4 +154,4 @@ csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN
 csrsResponseStatus :: Lens' ConfirmSubscriptionResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData ConfirmSubscriptionResponse
+instance NFData ConfirmSubscriptionResponse where

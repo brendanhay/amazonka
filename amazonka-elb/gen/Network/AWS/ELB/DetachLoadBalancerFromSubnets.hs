@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DetachLoadBalancerFromSubnets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     , dlbfsrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachLoadBalancerFromSubnets.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
-    { _dlbfsLoadBalancerName :: !Text
-    , _dlbfsSubnets          :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbfsLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _dlbfsSubnets          :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachLoadBalancerFromSubnets' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ detachLoadBalancerFromSubnets
     :: Text -- ^ 'dlbfsLoadBalancerName'
     -> DetachLoadBalancerFromSubnets
 detachLoadBalancerFromSubnets pLoadBalancerName_ =
-    DetachLoadBalancerFromSubnets'
-    { _dlbfsLoadBalancerName = pLoadBalancerName_
-    , _dlbfsSubnets = mempty
-    }
+  DetachLoadBalancerFromSubnets'
+  {_dlbfsLoadBalancerName = pLoadBalancerName_, _dlbfsSubnets = mempty}
+
 
 -- | The name of the load balancer.
 dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
@@ -95,9 +95,9 @@ instance AWSRequest DetachLoadBalancerFromSubnets
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DetachLoadBalancerFromSubnets
+instance Hashable DetachLoadBalancerFromSubnets where
 
-instance NFData DetachLoadBalancerFromSubnets
+instance NFData DetachLoadBalancerFromSubnets where
 
 instance ToHeaders DetachLoadBalancerFromSubnets
          where
@@ -121,9 +121,10 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 --
 -- /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
-    { _dlbfsrsSubnets        :: !(Maybe [Text])
-    , _dlbfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbfsrsSubnets        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dlbfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachLoadBalancerFromSubnetsResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +137,9 @@ detachLoadBalancerFromSubnetsResponse
     :: Int -- ^ 'dlbfsrsResponseStatus'
     -> DetachLoadBalancerFromSubnetsResponse
 detachLoadBalancerFromSubnetsResponse pResponseStatus_ =
-    DetachLoadBalancerFromSubnetsResponse'
-    { _dlbfsrsSubnets = Nothing
-    , _dlbfsrsResponseStatus = pResponseStatus_
-    }
+  DetachLoadBalancerFromSubnetsResponse'
+  {_dlbfsrsSubnets = Nothing, _dlbfsrsResponseStatus = pResponseStatus_}
+
 
 -- | The IDs of the remaining subnets for the load balancer.
 dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
@@ -150,3 +150,4 @@ dlbfsrsResponseStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
 dlbfsrsResponseStatus = lens _dlbfsrsResponseStatus (\ s a -> s{_dlbfsrsResponseStatus = a});
 
 instance NFData DetachLoadBalancerFromSubnetsResponse
+         where

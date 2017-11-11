@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.SetTimeBasedAutoScaling
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     , SetTimeBasedAutoScalingResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setTimeBasedAutoScaling' smart constructor.
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
-    { _stbasAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
-    , _stbasInstanceId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stbasAutoScalingSchedule :: {-# NOUNPACK #-}!(Maybe WeeklyAutoScalingSchedule)
+  , _stbasInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetTimeBasedAutoScaling' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ setTimeBasedAutoScaling
     :: Text -- ^ 'stbasInstanceId'
     -> SetTimeBasedAutoScaling
 setTimeBasedAutoScaling pInstanceId_ =
-    SetTimeBasedAutoScaling'
-    { _stbasAutoScalingSchedule = Nothing
-    , _stbasInstanceId = pInstanceId_
-    }
+  SetTimeBasedAutoScaling'
+  {_stbasAutoScalingSchedule = Nothing, _stbasInstanceId = pInstanceId_}
+
 
 -- | An @AutoScalingSchedule@ with the instance schedule.
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
@@ -81,9 +81,9 @@ instance AWSRequest SetTimeBasedAutoScaling where
         response
           = receiveNull SetTimeBasedAutoScalingResponse'
 
-instance Hashable SetTimeBasedAutoScaling
+instance Hashable SetTimeBasedAutoScaling where
 
-instance NFData SetTimeBasedAutoScaling
+instance NFData SetTimeBasedAutoScaling where
 
 instance ToHeaders SetTimeBasedAutoScaling where
         toHeaders
@@ -111,8 +111,9 @@ instance ToQuery SetTimeBasedAutoScaling where
 
 -- | /See:/ 'setTimeBasedAutoScalingResponse' smart constructor.
 data SetTimeBasedAutoScalingResponse =
-    SetTimeBasedAutoScalingResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetTimeBasedAutoScalingResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetTimeBasedAutoScalingResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +121,5 @@ setTimeBasedAutoScalingResponse
     :: SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'
 
-instance NFData SetTimeBasedAutoScalingResponse
+
+instance NFData SetTimeBasedAutoScalingResponse where

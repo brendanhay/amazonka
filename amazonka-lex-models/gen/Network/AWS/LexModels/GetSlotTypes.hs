@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetSlotTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,19 +48,20 @@ module Network.AWS.LexModels.GetSlotTypes
     , gstrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSlotTypes' smart constructor.
 data GetSlotTypes = GetSlotTypes'
-    { _gstNameContains :: !(Maybe Text)
-    , _gstNextToken    :: !(Maybe Text)
-    , _gstMaxResults   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gstNameContains :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gstNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gstMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSlotTypes' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ data GetSlotTypes = GetSlotTypes'
 getSlotTypes
     :: GetSlotTypes
 getSlotTypes =
-    GetSlotTypes'
-    { _gstNameContains = Nothing
-    , _gstNextToken = Nothing
-    , _gstMaxResults = Nothing
-    }
+  GetSlotTypes'
+  { _gstNameContains = Nothing
+  , _gstNextToken = Nothing
+  , _gstMaxResults = Nothing
+  }
+
 
 -- | Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 gstNameContains :: Lens' GetSlotTypes (Maybe Text)
@@ -103,9 +105,9 @@ instance AWSRequest GetSlotTypes where
                      (x .?> "slotTypes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSlotTypes
+instance Hashable GetSlotTypes where
 
-instance NFData GetSlotTypes
+instance NFData GetSlotTypes where
 
 instance ToHeaders GetSlotTypes where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery GetSlotTypes where
 
 -- | /See:/ 'getSlotTypesResponse' smart constructor.
 data GetSlotTypesResponse = GetSlotTypesResponse'
-    { _gstrsNextToken      :: !(Maybe Text)
-    , _gstrsSlotTypes      :: !(Maybe [SlotTypeMetadata])
-    , _gstrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gstrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gstrsSlotTypes      :: {-# NOUNPACK #-}!(Maybe [SlotTypeMetadata])
+  , _gstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSlotTypesResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ getSlotTypesResponse
     :: Int -- ^ 'gstrsResponseStatus'
     -> GetSlotTypesResponse
 getSlotTypesResponse pResponseStatus_ =
-    GetSlotTypesResponse'
-    { _gstrsNextToken = Nothing
-    , _gstrsSlotTypes = Nothing
-    , _gstrsResponseStatus = pResponseStatus_
-    }
+  GetSlotTypesResponse'
+  { _gstrsNextToken = Nothing
+  , _gstrsSlotTypes = Nothing
+  , _gstrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of slot types.
 gstrsNextToken :: Lens' GetSlotTypesResponse (Maybe Text)
@@ -162,4 +166,4 @@ gstrsSlotTypes = lens _gstrsSlotTypes (\ s a -> s{_gstrsSlotTypes = a}) . _Defau
 gstrsResponseStatus :: Lens' GetSlotTypesResponse Int
 gstrsResponseStatus = lens _gstrsResponseStatus (\ s a -> s{_gstrsResponseStatus = a});
 
-instance NFData GetSlotTypesResponse
+instance NFData GetSlotTypesResponse where

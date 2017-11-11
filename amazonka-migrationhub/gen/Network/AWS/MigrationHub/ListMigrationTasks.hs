@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.ListMigrationTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,19 +48,20 @@ module Network.AWS.MigrationHub.ListMigrationTasks
     , lmtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listMigrationTasks' smart constructor.
 data ListMigrationTasks = ListMigrationTasks'
-    { _lmtResourceName :: !(Maybe Text)
-    , _lmtNextToken    :: !(Maybe Text)
-    , _lmtMaxResults   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lmtResourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmtNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmtMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListMigrationTasks' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ data ListMigrationTasks = ListMigrationTasks'
 listMigrationTasks
     :: ListMigrationTasks
 listMigrationTasks =
-    ListMigrationTasks'
-    { _lmtResourceName = Nothing
-    , _lmtNextToken = Nothing
-    , _lmtMaxResults = Nothing
-    }
+  ListMigrationTasks'
+  { _lmtResourceName = Nothing
+  , _lmtNextToken = Nothing
+  , _lmtMaxResults = Nothing
+  }
+
 
 -- | Filter migration tasks by discovered resource name.
 lmtResourceName :: Lens' ListMigrationTasks (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest ListMigrationTasks where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListMigrationTasks
+instance Hashable ListMigrationTasks where
 
-instance NFData ListMigrationTasks
+instance NFData ListMigrationTasks where
 
 instance ToHeaders ListMigrationTasks where
         toHeaders
@@ -133,10 +135,11 @@ instance ToQuery ListMigrationTasks where
 
 -- | /See:/ 'listMigrationTasksResponse' smart constructor.
 data ListMigrationTasksResponse = ListMigrationTasksResponse'
-    { _lmtrsMigrationTaskSummaryList :: !(Maybe [MigrationTaskSummary])
-    , _lmtrsNextToken                :: !(Maybe Text)
-    , _lmtrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lmtrsMigrationTaskSummaryList :: {-# NOUNPACK #-}!(Maybe [MigrationTaskSummary])
+  , _lmtrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListMigrationTasksResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +154,12 @@ listMigrationTasksResponse
     :: Int -- ^ 'lmtrsResponseStatus'
     -> ListMigrationTasksResponse
 listMigrationTasksResponse pResponseStatus_ =
-    ListMigrationTasksResponse'
-    { _lmtrsMigrationTaskSummaryList = Nothing
-    , _lmtrsNextToken = Nothing
-    , _lmtrsResponseStatus = pResponseStatus_
-    }
+  ListMigrationTasksResponse'
+  { _lmtrsMigrationTaskSummaryList = Nothing
+  , _lmtrsNextToken = Nothing
+  , _lmtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Lists the migration task's summary which includes: @MigrationTaskName@ , @ProgressPercent@ , @ProgressUpdateStream@ , @Status@ , and the @UpdateDateTime@ for each task.
 lmtrsMigrationTaskSummaryList :: Lens' ListMigrationTasksResponse [MigrationTaskSummary]
@@ -169,4 +173,4 @@ lmtrsNextToken = lens _lmtrsNextToken (\ s a -> s{_lmtrsNextToken = a});
 lmtrsResponseStatus :: Lens' ListMigrationTasksResponse Int
 lmtrsResponseStatus = lens _lmtrsResponseStatus (\ s a -> s{_lmtrsResponseStatus = a});
 
-instance NFData ListMigrationTasksResponse
+instance NFData ListMigrationTasksResponse where

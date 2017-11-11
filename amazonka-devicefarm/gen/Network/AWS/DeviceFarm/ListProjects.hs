@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListProjects
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.DeviceFarm.ListProjects
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list projects operation.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listProjects' smart constructor.
 data ListProjects = ListProjects'
-    { _lpArn       :: !(Maybe Text)
-    , _lpNextToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpArn       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
 --
@@ -68,11 +69,8 @@ data ListProjects = ListProjects'
 -- * 'lpNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listProjects
     :: ListProjects
-listProjects =
-    ListProjects'
-    { _lpArn = Nothing
-    , _lpNextToken = Nothing
-    }
+listProjects = ListProjects' {_lpArn = Nothing, _lpNextToken = Nothing}
+
 
 -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.
 lpArn :: Lens' ListProjects (Maybe Text)
@@ -99,9 +97,9 @@ instance AWSRequest ListProjects where
                    (x .?> "nextToken") <*> (x .?> "projects" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListProjects
+instance Hashable ListProjects where
 
-instance NFData ListProjects
+instance NFData ListProjects where
 
 instance ToHeaders ListProjects where
         toHeaders
@@ -131,10 +129,11 @@ instance ToQuery ListProjects where
 --
 -- /See:/ 'listProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-    { _lprsNextToken      :: !(Maybe Text)
-    , _lprsProjects       :: !(Maybe [Project])
-    , _lprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsProjects       :: {-# NOUNPACK #-}!(Maybe [Project])
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +148,12 @@ listProjectsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListProjectsResponse
 listProjectsResponse pResponseStatus_ =
-    ListProjectsResponse'
-    { _lprsNextToken = Nothing
-    , _lprsProjects = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListProjectsResponse'
+  { _lprsNextToken = Nothing
+  , _lprsProjects = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
@@ -167,4 +167,4 @@ lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _
 lprsResponseStatus :: Lens' ListProjectsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListProjectsResponse
+instance NFData ListProjectsResponse where

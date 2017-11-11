@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListTapes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.StorageGateway.ListTapes
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object that contains one or more of the following fields:
 --
@@ -63,10 +63,11 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listTapes' smart constructor.
 data ListTapes = ListTapes'
-    { _ltMarker   :: !(Maybe Text)
-    , _ltLimit    :: !(Maybe Nat)
-    , _ltTapeARNs :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltLimit    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ltTapeARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTapes' with the minimum fields required to make a request.
 --
@@ -80,11 +81,8 @@ data ListTapes = ListTapes'
 listTapes
     :: ListTapes
 listTapes =
-    ListTapes'
-    { _ltMarker = Nothing
-    , _ltLimit = Nothing
-    , _ltTapeARNs = Nothing
-    }
+  ListTapes' {_ltMarker = Nothing, _ltLimit = Nothing, _ltTapeARNs = Nothing}
+
 
 -- | A string that indicates the position at which to begin the returned list of tapes.
 ltMarker :: Lens' ListTapes (Maybe Text)
@@ -108,9 +106,9 @@ instance AWSRequest ListTapes where
                    (x .?> "Marker") <*> (x .?> "TapeInfos" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTapes
+instance Hashable ListTapes where
 
-instance NFData ListTapes
+instance NFData ListTapes where
 
 instance ToHeaders ListTapes where
         toHeaders
@@ -147,10 +145,11 @@ instance ToQuery ListTapes where
 --
 -- /See:/ 'listTapesResponse' smart constructor.
 data ListTapesResponse = ListTapesResponse'
-    { _ltrsMarker         :: !(Maybe Text)
-    , _ltrsTapeInfos      :: !(Maybe [TapeInfo])
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltrsTapeInfos      :: {-# NOUNPACK #-}!(Maybe [TapeInfo])
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTapesResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +164,12 @@ listTapesResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTapesResponse
 listTapesResponse pResponseStatus_ =
-    ListTapesResponse'
-    { _ltrsMarker = Nothing
-    , _ltrsTapeInfos = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTapesResponse'
+  { _ltrsMarker = Nothing
+  , _ltrsTapeInfos = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A string that indicates the position at which to begin returning the next list of tapes. Use the marker in your next request to continue pagination of tapes. If there are no more tapes to list, this element does not appear in the response body.
 ltrsMarker :: Lens' ListTapesResponse (Maybe Text)
@@ -183,4 +183,4 @@ ltrsTapeInfos = lens _ltrsTapeInfos (\ s a -> s{_ltrsTapeInfos = a}) . _Default 
 ltrsResponseStatus :: Lens' ListTapesResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTapesResponse
+instance NFData ListTapesResponse where

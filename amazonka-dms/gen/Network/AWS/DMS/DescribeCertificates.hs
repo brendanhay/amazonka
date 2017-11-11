@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.DMS.DescribeCertificates
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeCertificates' smart constructor.
 data DescribeCertificates = DescribeCertificates'
-    { _dFilters    :: !(Maybe [Filter])
-    , _dMarker     :: !(Maybe Text)
-    , _dMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCertificates' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DescribeCertificates = DescribeCertificates'
 describeCertificates
     :: DescribeCertificates
 describeCertificates =
-    DescribeCertificates'
-    { _dFilters = Nothing
-    , _dMarker = Nothing
-    , _dMaxRecords = Nothing
-    }
+  DescribeCertificates'
+  {_dFilters = Nothing, _dMarker = Nothing, _dMaxRecords = Nothing}
+
 
 -- | Filters applied to the certificate described in the form of key-value pairs.
 dFilters :: Lens' DescribeCertificates [Filter]
@@ -96,9 +95,9 @@ instance AWSRequest DescribeCertificates where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCertificates
+instance Hashable DescribeCertificates where
 
-instance NFData DescribeCertificates
+instance NFData DescribeCertificates where
 
 instance ToHeaders DescribeCertificates where
         toHeaders
@@ -126,10 +125,11 @@ instance ToQuery DescribeCertificates where
 
 -- | /See:/ 'describeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-    { _dcrsCertificates   :: !(Maybe [Certificate])
-    , _dcrsMarker         :: !(Maybe Text)
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
+  , _dcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCertificatesResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +144,12 @@ describeCertificatesResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCertificatesResponse
 describeCertificatesResponse pResponseStatus_ =
-    DescribeCertificatesResponse'
-    { _dcrsCertificates = Nothing
-    , _dcrsMarker = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeCertificatesResponse'
+  { _dcrsCertificates = Nothing
+  , _dcrsMarker = Nothing
+  , _dcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Secure Sockets Layer (SSL) certificates associated with the replication instance.
 dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
@@ -162,4 +163,4 @@ dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 dcrsResponseStatus :: Lens' DescribeCertificatesResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeCertificatesResponse
+instance NFData DescribeCertificatesResponse where

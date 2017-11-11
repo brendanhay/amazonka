@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DeprecateWorkflowType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,18 +55,19 @@ module Network.AWS.SWF.DeprecateWorkflowType
     , DeprecateWorkflowTypeResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'deprecateWorkflowType' smart constructor.
 data DeprecateWorkflowType = DeprecateWorkflowType'
-    { _dDomain       :: !Text
-    , _dWorkflowType :: !WorkflowType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDomain       :: {-# NOUNPACK #-}!Text
+  , _dWorkflowType :: {-# NOUNPACK #-}!WorkflowType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateWorkflowType' with the minimum fields required to make a request.
 --
@@ -80,10 +81,8 @@ deprecateWorkflowType
     -> WorkflowType -- ^ 'dWorkflowType'
     -> DeprecateWorkflowType
 deprecateWorkflowType pDomain_ pWorkflowType_ =
-    DeprecateWorkflowType'
-    { _dDomain = pDomain_
-    , _dWorkflowType = pWorkflowType_
-    }
+  DeprecateWorkflowType' {_dDomain = pDomain_, _dWorkflowType = pWorkflowType_}
+
 
 -- | The name of the domain in which the workflow type is registered.
 dDomain :: Lens' DeprecateWorkflowType Text
@@ -99,9 +98,9 @@ instance AWSRequest DeprecateWorkflowType where
         request = postJSON swf
         response = receiveNull DeprecateWorkflowTypeResponse'
 
-instance Hashable DeprecateWorkflowType
+instance Hashable DeprecateWorkflowType where
 
-instance NFData DeprecateWorkflowType
+instance NFData DeprecateWorkflowType where
 
 instance ToHeaders DeprecateWorkflowType where
         toHeaders
@@ -128,8 +127,9 @@ instance ToQuery DeprecateWorkflowType where
 
 -- | /See:/ 'deprecateWorkflowTypeResponse' smart constructor.
 data DeprecateWorkflowTypeResponse =
-    DeprecateWorkflowTypeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeprecateWorkflowTypeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateWorkflowTypeResponse' with the minimum fields required to make a request.
 --
@@ -137,4 +137,5 @@ deprecateWorkflowTypeResponse
     :: DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'
 
-instance NFData DeprecateWorkflowTypeResponse
+
+instance NFData DeprecateWorkflowTypeResponse where

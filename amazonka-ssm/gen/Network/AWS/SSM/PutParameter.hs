@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.PutParameter
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,23 +42,24 @@ module Network.AWS.SSM.PutParameter
     , pprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'putParameter' smart constructor.
 data PutParameter = PutParameter'
-    { _ppKeyId          :: !(Maybe Text)
-    , _ppAllowedPattern :: !(Maybe Text)
-    , _ppOverwrite      :: !(Maybe Bool)
-    , _ppDescription    :: !(Maybe Text)
-    , _ppName           :: !Text
-    , _ppValue          :: !Text
-    , _ppType           :: !ParameterType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppAllowedPattern :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppOverwrite      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ppDescription    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppName           :: {-# NOUNPACK #-}!Text
+  , _ppValue          :: {-# NOUNPACK #-}!Text
+  , _ppType           :: {-# NOUNPACK #-}!ParameterType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutParameter' with the minimum fields required to make a request.
 --
@@ -83,15 +84,16 @@ putParameter
     -> ParameterType -- ^ 'ppType'
     -> PutParameter
 putParameter pName_ pValue_ pType_ =
-    PutParameter'
-    { _ppKeyId = Nothing
-    , _ppAllowedPattern = Nothing
-    , _ppOverwrite = Nothing
-    , _ppDescription = Nothing
-    , _ppName = pName_
-    , _ppValue = pValue_
-    , _ppType = pType_
-    }
+  PutParameter'
+  { _ppKeyId = Nothing
+  , _ppAllowedPattern = Nothing
+  , _ppOverwrite = Nothing
+  , _ppDescription = Nothing
+  , _ppName = pName_
+  , _ppValue = pValue_
+  , _ppType = pType_
+  }
+
 
 -- | The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If you don't specify a key ID, the system uses the default key associated with your AWS account.
 ppKeyId :: Lens' PutParameter (Maybe Text)
@@ -129,9 +131,9 @@ instance AWSRequest PutParameter where
               (\ s h x ->
                  PutParameterResponse' <$> (pure (fromEnum s)))
 
-instance Hashable PutParameter
+instance Hashable PutParameter where
 
-instance NFData PutParameter
+instance NFData PutParameter where
 
 instance ToHeaders PutParameter where
         toHeaders
@@ -161,8 +163,9 @@ instance ToQuery PutParameter where
 
 -- | /See:/ 'putParameterResponse' smart constructor.
 newtype PutParameterResponse = PutParameterResponse'
-    { _pprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutParameterResponse' with the minimum fields required to make a request.
 --
@@ -173,12 +176,11 @@ putParameterResponse
     :: Int -- ^ 'pprsResponseStatus'
     -> PutParameterResponse
 putParameterResponse pResponseStatus_ =
-    PutParameterResponse'
-    { _pprsResponseStatus = pResponseStatus_
-    }
+  PutParameterResponse' {_pprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 pprsResponseStatus :: Lens' PutParameterResponse Int
 pprsResponseStatus = lens _pprsResponseStatus (\ s a -> s{_pprsResponseStatus = a});
 
-instance NFData PutParameterResponse
+instance NFData PutParameterResponse where

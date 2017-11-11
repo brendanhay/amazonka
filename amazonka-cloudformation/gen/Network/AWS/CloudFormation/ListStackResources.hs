@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStackResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.CloudFormation.ListStackResources
     , lsrrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'ListStackResource' action.
 --
@@ -57,9 +57,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listStackResources' smart constructor.
 data ListStackResources = ListStackResources'
-    { _lsrNextToken :: !(Maybe Text)
-    , _lsrStackName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsrNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsrStackName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStackResources' with the minimum fields required to make a request.
 --
@@ -72,10 +73,8 @@ listStackResources
     :: Text -- ^ 'lsrStackName'
     -> ListStackResources
 listStackResources pStackName_ =
-    ListStackResources'
-    { _lsrNextToken = Nothing
-    , _lsrStackName = pStackName_
-    }
+  ListStackResources' {_lsrNextToken = Nothing, _lsrStackName = pStackName_}
+
 
 -- | A string that identifies the next page of stack resources that you want to retrieve.
 lsrNextToken :: Lens' ListStackResources (Maybe Text)
@@ -105,9 +104,9 @@ instance AWSRequest ListStackResources where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListStackResources
+instance Hashable ListStackResources where
 
-instance NFData ListStackResources
+instance NFData ListStackResources where
 
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
@@ -129,10 +128,11 @@ instance ToQuery ListStackResources where
 --
 -- /See:/ 'listStackResourcesResponse' smart constructor.
 data ListStackResourcesResponse = ListStackResourcesResponse'
-    { _lsrrsNextToken              :: !(Maybe Text)
-    , _lsrrsStackResourceSummaries :: !(Maybe [StackResourceSummary])
-    , _lsrrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsrrsStackResourceSummaries :: {-# NOUNPACK #-}!(Maybe [StackResourceSummary])
+  , _lsrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStackResourcesResponse' with the minimum fields required to make a request.
 --
@@ -147,11 +147,12 @@ listStackResourcesResponse
     :: Int -- ^ 'lsrrsResponseStatus'
     -> ListStackResourcesResponse
 listStackResourcesResponse pResponseStatus_ =
-    ListStackResourcesResponse'
-    { _lsrrsNextToken = Nothing
-    , _lsrrsStackResourceSummaries = Nothing
-    , _lsrrsResponseStatus = pResponseStatus_
-    }
+  ListStackResourcesResponse'
+  { _lsrrsNextToken = Nothing
+  , _lsrrsStackResourceSummaries = Nothing
+  , _lsrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the output exceeds 1 MB, a string that identifies the next page of stack resources. If no additional page exists, this value is null.
 lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
@@ -165,4 +166,4 @@ lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsr
 lsrrsResponseStatus :: Lens' ListStackResourcesResponse Int
 lsrrsResponseStatus = lens _lsrrsResponseStatus (\ s a -> s{_lsrrsResponseStatus = a});
 
-instance NFData ListStackResourcesResponse
+instance NFData ListStackResourcesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.PurchaseScheduledInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.PurchaseScheduledInstances
     , psirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PurchaseScheduledInstances.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'purchaseScheduledInstances' smart constructor.
 data PurchaseScheduledInstances = PurchaseScheduledInstances'
-    { _psiClientToken      :: !(Maybe Text)
-    , _psiDryRun           :: !(Maybe Bool)
-    , _psiPurchaseRequests :: !(List1 PurchaseRequest)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psiClientToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psiDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _psiPurchaseRequests :: {-# NOUNPACK #-}!(List1 PurchaseRequest)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseScheduledInstances' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ purchaseScheduledInstances
     :: NonEmpty PurchaseRequest -- ^ 'psiPurchaseRequests'
     -> PurchaseScheduledInstances
 purchaseScheduledInstances pPurchaseRequests_ =
-    PurchaseScheduledInstances'
-    { _psiClientToken = Nothing
-    , _psiDryRun = Nothing
-    , _psiPurchaseRequests = _List1 # pPurchaseRequests_
-    }
+  PurchaseScheduledInstances'
+  { _psiClientToken = Nothing
+  , _psiDryRun = Nothing
+  , _psiPurchaseRequests = _List1 # pPurchaseRequests_
+  }
+
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 psiClientToken :: Lens' PurchaseScheduledInstances (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest PurchaseScheduledInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable PurchaseScheduledInstances
+instance Hashable PurchaseScheduledInstances where
 
-instance NFData PurchaseScheduledInstances
+instance NFData PurchaseScheduledInstances where
 
 instance ToHeaders PurchaseScheduledInstances where
         toHeaders = const mempty
@@ -130,9 +132,10 @@ instance ToQuery PurchaseScheduledInstances where
 --
 -- /See:/ 'purchaseScheduledInstancesResponse' smart constructor.
 data PurchaseScheduledInstancesResponse = PurchaseScheduledInstancesResponse'
-    { _psirsScheduledInstanceSet :: !(Maybe [ScheduledInstance])
-    , _psirsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psirsScheduledInstanceSet :: {-# NOUNPACK #-}!(Maybe [ScheduledInstance])
+  , _psirsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseScheduledInstancesResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +148,11 @@ purchaseScheduledInstancesResponse
     :: Int -- ^ 'psirsResponseStatus'
     -> PurchaseScheduledInstancesResponse
 purchaseScheduledInstancesResponse pResponseStatus_ =
-    PurchaseScheduledInstancesResponse'
-    { _psirsScheduledInstanceSet = Nothing
-    , _psirsResponseStatus = pResponseStatus_
-    }
+  PurchaseScheduledInstancesResponse'
+  { _psirsScheduledInstanceSet = Nothing
+  , _psirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the Scheduled Instances.
 psirsScheduledInstanceSet :: Lens' PurchaseScheduledInstancesResponse [ScheduledInstance]
@@ -159,3 +163,4 @@ psirsResponseStatus :: Lens' PurchaseScheduledInstancesResponse Int
 psirsResponseStatus = lens _psirsResponseStatus (\ s a -> s{_psirsResponseStatus = a});
 
 instance NFData PurchaseScheduledInstancesResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreateProduct
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,28 +50,29 @@ module Network.AWS.ServiceCatalog.CreateProduct
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createProduct' smart constructor.
 data CreateProduct = CreateProduct'
-    { _cpSupportURL                     :: !(Maybe Text)
-    , _cpDistributor                    :: !(Maybe Text)
-    , _cpAcceptLanguage                 :: !(Maybe Text)
-    , _cpSupportEmail                   :: !(Maybe Text)
-    , _cpDescription                    :: !(Maybe Text)
-    , _cpTags                           :: !(Maybe [Tag])
-    , _cpSupportDescription             :: !(Maybe Text)
-    , _cpName                           :: !Text
-    , _cpOwner                          :: !Text
-    , _cpProductType                    :: !ProductType
-    , _cpProvisioningArtifactParameters :: !ProvisioningArtifactProperties
-    , _cpIdempotencyToken               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpSupportURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpDistributor :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpSupportEmail :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cpSupportDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpName :: {-# NOUNPACK #-}!Text
+  , _cpOwner :: {-# NOUNPACK #-}!Text
+  , _cpProductType :: {-# NOUNPACK #-}!ProductType
+  , _cpProvisioningArtifactParameters :: {-# NOUNPACK #-}!ProvisioningArtifactProperties
+  , _cpIdempotencyToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProduct' with the minimum fields required to make a request.
 --
@@ -108,20 +109,21 @@ createProduct
     -> Text -- ^ 'cpIdempotencyToken'
     -> CreateProduct
 createProduct pName_ pOwner_ pProductType_ pProvisioningArtifactParameters_ pIdempotencyToken_ =
-    CreateProduct'
-    { _cpSupportURL = Nothing
-    , _cpDistributor = Nothing
-    , _cpAcceptLanguage = Nothing
-    , _cpSupportEmail = Nothing
-    , _cpDescription = Nothing
-    , _cpTags = Nothing
-    , _cpSupportDescription = Nothing
-    , _cpName = pName_
-    , _cpOwner = pOwner_
-    , _cpProductType = pProductType_
-    , _cpProvisioningArtifactParameters = pProvisioningArtifactParameters_
-    , _cpIdempotencyToken = pIdempotencyToken_
-    }
+  CreateProduct'
+  { _cpSupportURL = Nothing
+  , _cpDistributor = Nothing
+  , _cpAcceptLanguage = Nothing
+  , _cpSupportEmail = Nothing
+  , _cpDescription = Nothing
+  , _cpTags = Nothing
+  , _cpSupportDescription = Nothing
+  , _cpName = pName_
+  , _cpOwner = pOwner_
+  , _cpProductType = pProductType_
+  , _cpProvisioningArtifactParameters = pProvisioningArtifactParameters_
+  , _cpIdempotencyToken = pIdempotencyToken_
+  }
+
 
 -- | Contact URL for product support.
 cpSupportURL :: Lens' CreateProduct (Maybe Text)
@@ -183,9 +185,9 @@ instance AWSRequest CreateProduct where
                      <*> (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateProduct
+instance Hashable CreateProduct where
 
-instance NFData CreateProduct
+instance NFData CreateProduct where
 
 instance ToHeaders CreateProduct where
         toHeaders
@@ -223,11 +225,12 @@ instance ToQuery CreateProduct where
 
 -- | /See:/ 'createProductResponse' smart constructor.
 data CreateProductResponse = CreateProductResponse'
-    { _cprsProductViewDetail          :: !(Maybe ProductViewDetail)
-    , _cprsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
-    , _cprsTags                       :: !(Maybe [Tag])
-    , _cprsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsProductViewDetail :: {-# NOUNPACK #-}!(Maybe ProductViewDetail)
+  , _cprsProvisioningArtifactDetail :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactDetail)
+  , _cprsTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProductResponse' with the minimum fields required to make a request.
 --
@@ -244,12 +247,13 @@ createProductResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreateProductResponse
 createProductResponse pResponseStatus_ =
-    CreateProductResponse'
-    { _cprsProductViewDetail = Nothing
-    , _cprsProvisioningArtifactDetail = Nothing
-    , _cprsTags = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreateProductResponse'
+  { _cprsProductViewDetail = Nothing
+  , _cprsProvisioningArtifactDetail = Nothing
+  , _cprsTags = Nothing
+  , _cprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The resulting detailed product view information.
 cprsProductViewDetail :: Lens' CreateProductResponse (Maybe ProductViewDetail)
@@ -267,4 +271,4 @@ cprsTags = lens _cprsTags (\ s a -> s{_cprsTags = a}) . _Default . _Coerce;
 cprsResponseStatus :: Lens' CreateProductResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreateProductResponse
+instance NFData CreateProductResponse where

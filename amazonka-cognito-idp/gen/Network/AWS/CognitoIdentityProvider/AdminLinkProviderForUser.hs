@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminLinkProviderForUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,19 +46,20 @@ module Network.AWS.CognitoIdentityProvider.AdminLinkProviderForUser
     , alpfursResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'adminLinkProviderForUser' smart constructor.
 data AdminLinkProviderForUser = AdminLinkProviderForUser'
-    { _alpfuUserPoolId      :: !Text
-    , _alpfuDestinationUser :: !ProviderUserIdentifierType
-    , _alpfuSourceUser      :: !ProviderUserIdentifierType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _alpfuUserPoolId      :: {-# NOUNPACK #-}!Text
+  , _alpfuDestinationUser :: {-# NOUNPACK #-}!ProviderUserIdentifierType
+  , _alpfuSourceUser      :: {-# NOUNPACK #-}!ProviderUserIdentifierType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminLinkProviderForUser' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ adminLinkProviderForUser
     -> ProviderUserIdentifierType -- ^ 'alpfuSourceUser'
     -> AdminLinkProviderForUser
 adminLinkProviderForUser pUserPoolId_ pDestinationUser_ pSourceUser_ =
-    AdminLinkProviderForUser'
-    { _alpfuUserPoolId = pUserPoolId_
-    , _alpfuDestinationUser = pDestinationUser_
-    , _alpfuSourceUser = pSourceUser_
-    }
+  AdminLinkProviderForUser'
+  { _alpfuUserPoolId = pUserPoolId_
+  , _alpfuDestinationUser = pDestinationUser_
+  , _alpfuSourceUser = pSourceUser_
+  }
+
 
 -- | The user pool ID for the user pool.
 alpfuUserPoolId :: Lens' AdminLinkProviderForUser Text
@@ -103,9 +105,9 @@ instance AWSRequest AdminLinkProviderForUser where
                  AdminLinkProviderForUserResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminLinkProviderForUser
+instance Hashable AdminLinkProviderForUser where
 
-instance NFData AdminLinkProviderForUser
+instance NFData AdminLinkProviderForUser where
 
 instance ToHeaders AdminLinkProviderForUser where
         toHeaders
@@ -133,8 +135,9 @@ instance ToQuery AdminLinkProviderForUser where
 
 -- | /See:/ 'adminLinkProviderForUserResponse' smart constructor.
 newtype AdminLinkProviderForUserResponse = AdminLinkProviderForUserResponse'
-    { _alpfursResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _alpfursResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminLinkProviderForUserResponse' with the minimum fields required to make a request.
 --
@@ -145,12 +148,12 @@ adminLinkProviderForUserResponse
     :: Int -- ^ 'alpfursResponseStatus'
     -> AdminLinkProviderForUserResponse
 adminLinkProviderForUserResponse pResponseStatus_ =
-    AdminLinkProviderForUserResponse'
-    { _alpfursResponseStatus = pResponseStatus_
-    }
+  AdminLinkProviderForUserResponse' {_alpfursResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 alpfursResponseStatus :: Lens' AdminLinkProviderForUserResponse Int
 alpfursResponseStatus = lens _alpfursResponseStatus (\ s a -> s{_alpfursResponseStatus = a});
 
 instance NFData AdminLinkProviderForUserResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutObjectACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,28 +46,29 @@ module Network.AWS.S3.PutObjectACL
     , poarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObjectACL' smart constructor.
 data PutObjectACL = PutObjectACL'
-    { _poaVersionId           :: !(Maybe ObjectVersionId)
-    , _poaGrantReadACP        :: !(Maybe Text)
-    , _poaRequestPayer        :: !(Maybe RequestPayer)
-    , _poaGrantWriteACP       :: !(Maybe Text)
-    , _poaGrantRead           :: !(Maybe Text)
-    , _poaGrantFullControl    :: !(Maybe Text)
-    , _poaContentMD5          :: !(Maybe Text)
-    , _poaAccessControlPolicy :: !(Maybe AccessControlPolicy)
-    , _poaGrantWrite          :: !(Maybe Text)
-    , _poaACL                 :: !(Maybe ObjectCannedACL)
-    , _poaBucket              :: !BucketName
-    , _poaKey                 :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _poaVersionId           :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _poaGrantReadACP        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _poaRequestPayer        :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _poaGrantWriteACP       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _poaGrantRead           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _poaGrantFullControl    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _poaContentMD5          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _poaAccessControlPolicy :: {-# NOUNPACK #-}!(Maybe AccessControlPolicy)
+  , _poaGrantWrite          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _poaACL                 :: {-# NOUNPACK #-}!(Maybe ObjectCannedACL)
+  , _poaBucket              :: {-# NOUNPACK #-}!BucketName
+  , _poaKey                 :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutObjectACL' with the minimum fields required to make a request.
 --
@@ -101,20 +102,21 @@ putObjectACL
     -> ObjectKey -- ^ 'poaKey'
     -> PutObjectACL
 putObjectACL pBucket_ pKey_ =
-    PutObjectACL'
-    { _poaVersionId = Nothing
-    , _poaGrantReadACP = Nothing
-    , _poaRequestPayer = Nothing
-    , _poaGrantWriteACP = Nothing
-    , _poaGrantRead = Nothing
-    , _poaGrantFullControl = Nothing
-    , _poaContentMD5 = Nothing
-    , _poaAccessControlPolicy = Nothing
-    , _poaGrantWrite = Nothing
-    , _poaACL = Nothing
-    , _poaBucket = pBucket_
-    , _poaKey = pKey_
-    }
+  PutObjectACL'
+  { _poaVersionId = Nothing
+  , _poaGrantReadACP = Nothing
+  , _poaRequestPayer = Nothing
+  , _poaGrantWriteACP = Nothing
+  , _poaGrantRead = Nothing
+  , _poaGrantFullControl = Nothing
+  , _poaContentMD5 = Nothing
+  , _poaAccessControlPolicy = Nothing
+  , _poaGrantWrite = Nothing
+  , _poaACL = Nothing
+  , _poaBucket = pBucket_
+  , _poaKey = pKey_
+  }
+
 
 -- | VersionId used to reference a specific version of the object.
 poaVersionId :: Lens' PutObjectACL (Maybe ObjectVersionId)
@@ -174,9 +176,9 @@ instance AWSRequest PutObjectACL where
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
 
-instance Hashable PutObjectACL
+instance Hashable PutObjectACL where
 
-instance NFData PutObjectACL
+instance NFData PutObjectACL where
 
 instance ToElement PutObjectACL where
         toElement
@@ -207,9 +209,10 @@ instance ToQuery PutObjectACL where
 
 -- | /See:/ 'putObjectACLResponse' smart constructor.
 data PutObjectACLResponse = PutObjectACLResponse'
-    { _poarsRequestCharged :: !(Maybe RequestCharged)
-    , _poarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _poarsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _poarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutObjectACLResponse' with the minimum fields required to make a request.
 --
@@ -222,10 +225,9 @@ putObjectACLResponse
     :: Int -- ^ 'poarsResponseStatus'
     -> PutObjectACLResponse
 putObjectACLResponse pResponseStatus_ =
-    PutObjectACLResponse'
-    { _poarsRequestCharged = Nothing
-    , _poarsResponseStatus = pResponseStatus_
-    }
+  PutObjectACLResponse'
+  {_poarsRequestCharged = Nothing, _poarsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 poarsRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
@@ -235,4 +237,4 @@ poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged
 poarsResponseStatus :: Lens' PutObjectACLResponse Int
 poarsResponseStatus = lens _poarsResponseStatus (\ s a -> s{_poarsResponseStatus = a});
 
-instance NFData PutObjectACLResponse
+instance NFData PutObjectACLResponse where

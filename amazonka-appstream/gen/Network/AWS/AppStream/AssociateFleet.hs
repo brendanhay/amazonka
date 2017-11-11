@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.AssociateFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.AppStream.AssociateFleet
     , afrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateFleet' smart constructor.
 data AssociateFleet = AssociateFleet'
-    { _afFleetName :: !Text
-    , _afStackName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _afFleetName :: {-# NOUNPACK #-}!Text
+  , _afStackName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateFleet' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ associateFleet
     -> Text -- ^ 'afStackName'
     -> AssociateFleet
 associateFleet pFleetName_ pStackName_ =
-    AssociateFleet'
-    { _afFleetName = pFleetName_
-    , _afStackName = pStackName_
-    }
+  AssociateFleet' {_afFleetName = pFleetName_, _afStackName = pStackName_}
+
 
 -- | The name of the fleet to associate.
 afFleetName :: Lens' AssociateFleet Text
@@ -83,9 +82,9 @@ instance AWSRequest AssociateFleet where
               (\ s h x ->
                  AssociateFleetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AssociateFleet
+instance Hashable AssociateFleet where
 
-instance NFData AssociateFleet
+instance NFData AssociateFleet where
 
 instance ToHeaders AssociateFleet where
         toHeaders
@@ -112,8 +111,9 @@ instance ToQuery AssociateFleet where
 
 -- | /See:/ 'associateFleetResponse' smart constructor.
 newtype AssociateFleetResponse = AssociateFleetResponse'
-    { _afrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _afrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateFleetResponse' with the minimum fields required to make a request.
 --
@@ -124,12 +124,11 @@ associateFleetResponse
     :: Int -- ^ 'afrsResponseStatus'
     -> AssociateFleetResponse
 associateFleetResponse pResponseStatus_ =
-    AssociateFleetResponse'
-    { _afrsResponseStatus = pResponseStatus_
-    }
+  AssociateFleetResponse' {_afrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 afrsResponseStatus :: Lens' AssociateFleetResponse Int
 afrsResponseStatus = lens _afrsResponseStatus (\ s a -> s{_afrsResponseStatus = a});
 
-instance NFData AssociateFleetResponse
+instance NFData AssociateFleetResponse where

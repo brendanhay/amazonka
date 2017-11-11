@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStackInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.CloudFormation.ListStackInstances
     , lsirsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listStackInstances' smart constructor.
 data ListStackInstances = ListStackInstances'
-    { _lsiStackInstanceRegion  :: !(Maybe Text)
-    , _lsiNextToken            :: !(Maybe Text)
-    , _lsiStackInstanceAccount :: !(Maybe Text)
-    , _lsiMaxResults           :: !(Maybe Nat)
-    , _lsiStackSetName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsiStackInstanceRegion  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsiNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsiStackInstanceAccount :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsiMaxResults           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lsiStackSetName         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStackInstances' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ listStackInstances
     :: Text -- ^ 'lsiStackSetName'
     -> ListStackInstances
 listStackInstances pStackSetName_ =
-    ListStackInstances'
-    { _lsiStackInstanceRegion = Nothing
-    , _lsiNextToken = Nothing
-    , _lsiStackInstanceAccount = Nothing
-    , _lsiMaxResults = Nothing
-    , _lsiStackSetName = pStackSetName_
-    }
+  ListStackInstances'
+  { _lsiStackInstanceRegion = Nothing
+  , _lsiNextToken = Nothing
+  , _lsiStackInstanceAccount = Nothing
+  , _lsiMaxResults = Nothing
+  , _lsiStackSetName = pStackSetName_
+  }
+
 
 -- | The name of the region where you want to list stack instances.
 lsiStackInstanceRegion :: Lens' ListStackInstances (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest ListStackInstances where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListStackInstances
+instance Hashable ListStackInstances where
 
-instance NFData ListStackInstances
+instance NFData ListStackInstances where
 
 instance ToHeaders ListStackInstances where
         toHeaders = const mempty
@@ -139,10 +141,11 @@ instance ToQuery ListStackInstances where
 
 -- | /See:/ 'listStackInstancesResponse' smart constructor.
 data ListStackInstancesResponse = ListStackInstancesResponse'
-    { _lsirsNextToken      :: !(Maybe Text)
-    , _lsirsSummaries      :: !(Maybe [StackInstanceSummary])
-    , _lsirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsirsSummaries      :: {-# NOUNPACK #-}!(Maybe [StackInstanceSummary])
+  , _lsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStackInstancesResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +160,12 @@ listStackInstancesResponse
     :: Int -- ^ 'lsirsResponseStatus'
     -> ListStackInstancesResponse
 listStackInstancesResponse pResponseStatus_ =
-    ListStackInstancesResponse'
-    { _lsirsNextToken = Nothing
-    , _lsirsSummaries = Nothing
-    , _lsirsResponseStatus = pResponseStatus_
-    }
+  ListStackInstancesResponse'
+  { _lsirsNextToken = Nothing
+  , _lsirsSummaries = Nothing
+  , _lsirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
 lsirsNextToken :: Lens' ListStackInstancesResponse (Maybe Text)
@@ -175,4 +179,4 @@ lsirsSummaries = lens _lsirsSummaries (\ s a -> s{_lsirsSummaries = a}) . _Defau
 lsirsResponseStatus :: Lens' ListStackInstancesResponse Int
 lsirsResponseStatus = lens _lsirsResponseStatus (\ s a -> s{_lsirsResponseStatus = a});
 
-instance NFData ListStackInstancesResponse
+instance NFData ListStackInstancesResponse where

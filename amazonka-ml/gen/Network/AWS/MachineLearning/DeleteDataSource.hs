@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteDataSource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.MachineLearning.DeleteDataSource
     , ddsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDataSource' smart constructor.
 newtype DeleteDataSource = DeleteDataSource'
-    { _ddsDataSourceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsDataSourceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDataSource' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ deleteDataSource
     :: Text -- ^ 'ddsDataSourceId'
     -> DeleteDataSource
 deleteDataSource pDataSourceId_ =
-    DeleteDataSource'
-    { _ddsDataSourceId = pDataSourceId_
-    }
+  DeleteDataSource' {_ddsDataSourceId = pDataSourceId_}
+
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ .
 ddsDataSourceId :: Lens' DeleteDataSource Text
@@ -79,9 +79,9 @@ instance AWSRequest DeleteDataSource where
                  DeleteDataSourceResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteDataSource
+instance Hashable DeleteDataSource where
 
-instance NFData DeleteDataSource
+instance NFData DeleteDataSource where
 
 instance ToHeaders DeleteDataSource where
         toHeaders
@@ -110,9 +110,10 @@ instance ToQuery DeleteDataSource where
 --
 -- /See:/ 'deleteDataSourceResponse' smart constructor.
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
-    { _ddsrsDataSourceId   :: !(Maybe Text)
-    , _ddsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDataSourceResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +126,9 @@ deleteDataSourceResponse
     :: Int -- ^ 'ddsrsResponseStatus'
     -> DeleteDataSourceResponse
 deleteDataSourceResponse pResponseStatus_ =
-    DeleteDataSourceResponse'
-    { _ddsrsDataSourceId = Nothing
-    , _ddsrsResponseStatus = pResponseStatus_
-    }
+  DeleteDataSourceResponse'
+  {_ddsrsDataSourceId = Nothing, _ddsrsResponseStatus = pResponseStatus_}
+
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
 ddsrsDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
@@ -138,4 +138,4 @@ ddsrsDataSourceId = lens _ddsrsDataSourceId (\ s a -> s{_ddsrsDataSourceId = a})
 ddsrsResponseStatus :: Lens' DeleteDataSourceResponse Int
 ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
 
-instance NFData DeleteDataSourceResponse
+instance NFData DeleteDataSourceResponse where

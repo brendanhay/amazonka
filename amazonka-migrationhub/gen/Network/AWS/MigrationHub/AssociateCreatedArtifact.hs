@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.AssociateCreatedArtifact
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,20 +47,21 @@ module Network.AWS.MigrationHub.AssociateCreatedArtifact
     , acarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateCreatedArtifact' smart constructor.
 data AssociateCreatedArtifact = AssociateCreatedArtifact'
-    { _acaDryRun               :: !(Maybe Bool)
-    , _acaProgressUpdateStream :: !Text
-    , _acaMigrationTaskName    :: !Text
-    , _acaCreatedArtifact      :: !CreatedArtifact
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acaDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acaProgressUpdateStream :: {-# NOUNPACK #-}!Text
+  , _acaMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  , _acaCreatedArtifact      :: {-# NOUNPACK #-}!CreatedArtifact
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateCreatedArtifact' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ associateCreatedArtifact
     -> CreatedArtifact -- ^ 'acaCreatedArtifact'
     -> AssociateCreatedArtifact
 associateCreatedArtifact pProgressUpdateStream_ pMigrationTaskName_ pCreatedArtifact_ =
-    AssociateCreatedArtifact'
-    { _acaDryRun = Nothing
-    , _acaProgressUpdateStream = pProgressUpdateStream_
-    , _acaMigrationTaskName = pMigrationTaskName_
-    , _acaCreatedArtifact = pCreatedArtifact_
-    }
+  AssociateCreatedArtifact'
+  { _acaDryRun = Nothing
+  , _acaProgressUpdateStream = pProgressUpdateStream_
+  , _acaMigrationTaskName = pMigrationTaskName_
+  , _acaCreatedArtifact = pCreatedArtifact_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 acaDryRun :: Lens' AssociateCreatedArtifact (Maybe Bool)
@@ -112,9 +114,9 @@ instance AWSRequest AssociateCreatedArtifact where
                  AssociateCreatedArtifactResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AssociateCreatedArtifact
+instance Hashable AssociateCreatedArtifact where
 
-instance NFData AssociateCreatedArtifact
+instance NFData AssociateCreatedArtifact where
 
 instance ToHeaders AssociateCreatedArtifact where
         toHeaders
@@ -144,8 +146,9 @@ instance ToQuery AssociateCreatedArtifact where
 
 -- | /See:/ 'associateCreatedArtifactResponse' smart constructor.
 newtype AssociateCreatedArtifactResponse = AssociateCreatedArtifactResponse'
-    { _acarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateCreatedArtifactResponse' with the minimum fields required to make a request.
 --
@@ -156,12 +159,12 @@ associateCreatedArtifactResponse
     :: Int -- ^ 'acarsResponseStatus'
     -> AssociateCreatedArtifactResponse
 associateCreatedArtifactResponse pResponseStatus_ =
-    AssociateCreatedArtifactResponse'
-    { _acarsResponseStatus = pResponseStatus_
-    }
+  AssociateCreatedArtifactResponse' {_acarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 acarsResponseStatus :: Lens' AssociateCreatedArtifactResponse Int
 acarsResponseStatus = lens _acarsResponseStatus (\ s a -> s{_acarsResponseStatus = a});
 
 instance NFData AssociateCreatedArtifactResponse
+         where

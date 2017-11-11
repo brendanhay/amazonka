@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListSecurityConfigurations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.EMR.ListSecurityConfigurations
     , lscrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listSecurityConfigurations' smart constructor.
 newtype ListSecurityConfigurations = ListSecurityConfigurations'
-    { _lscMarker :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lscMarker :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSecurityConfigurations' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype ListSecurityConfigurations = ListSecurityConfigurations'
 -- * 'lscMarker' - The pagination token that indicates the set of results to retrieve.
 listSecurityConfigurations
     :: ListSecurityConfigurations
-listSecurityConfigurations =
-    ListSecurityConfigurations'
-    { _lscMarker = Nothing
-    }
+listSecurityConfigurations = ListSecurityConfigurations' {_lscMarker = Nothing}
+
 
 -- | The pagination token that indicates the set of results to retrieve.
 lscMarker :: Lens' ListSecurityConfigurations (Maybe Text)
@@ -78,9 +77,9 @@ instance AWSRequest ListSecurityConfigurations where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListSecurityConfigurations
+instance Hashable ListSecurityConfigurations where
 
-instance NFData ListSecurityConfigurations
+instance NFData ListSecurityConfigurations where
 
 instance ToHeaders ListSecurityConfigurations where
         toHeaders
@@ -104,10 +103,11 @@ instance ToQuery ListSecurityConfigurations where
 
 -- | /See:/ 'listSecurityConfigurationsResponse' smart constructor.
 data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
-    { _lscrsSecurityConfigurations :: !(Maybe [SecurityConfigurationSummary])
-    , _lscrsMarker                 :: !(Maybe Text)
-    , _lscrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lscrsSecurityConfigurations :: {-# NOUNPACK #-}!(Maybe [SecurityConfigurationSummary])
+  , _lscrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSecurityConfigurationsResponse' with the minimum fields required to make a request.
 --
@@ -122,11 +122,12 @@ listSecurityConfigurationsResponse
     :: Int -- ^ 'lscrsResponseStatus'
     -> ListSecurityConfigurationsResponse
 listSecurityConfigurationsResponse pResponseStatus_ =
-    ListSecurityConfigurationsResponse'
-    { _lscrsSecurityConfigurations = Nothing
-    , _lscrsMarker = Nothing
-    , _lscrsResponseStatus = pResponseStatus_
-    }
+  ListSecurityConfigurationsResponse'
+  { _lscrsSecurityConfigurations = Nothing
+  , _lscrsMarker = Nothing
+  , _lscrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The creation date and time, and name, of each security configuration.
 lscrsSecurityConfigurations :: Lens' ListSecurityConfigurationsResponse [SecurityConfigurationSummary]
@@ -141,3 +142,4 @@ lscrsResponseStatus :: Lens' ListSecurityConfigurationsResponse Int
 lscrsResponseStatus = lens _lscrsResponseStatus (\ s a -> s{_lscrsResponseStatus = a});
 
 instance NFData ListSecurityConfigurationsResponse
+         where

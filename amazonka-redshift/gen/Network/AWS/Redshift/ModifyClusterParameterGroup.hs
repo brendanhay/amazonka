@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyClusterParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     , cpgnmParameterGroupName
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyClusterParameterGroup' smart constructor.
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
-    { _mcpgParameterGroupName :: !Text
-    , _mcpgParameters         :: ![Parameter]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcpgParameterGroupName :: {-# NOUNPACK #-}!Text
+  , _mcpgParameters         :: {-# NOUNPACK #-}![Parameter]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyClusterParameterGroup' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ modifyClusterParameterGroup
     :: Text -- ^ 'mcpgParameterGroupName'
     -> ModifyClusterParameterGroup
 modifyClusterParameterGroup pParameterGroupName_ =
-    ModifyClusterParameterGroup'
-    { _mcpgParameterGroupName = pParameterGroupName_
-    , _mcpgParameters = mempty
-    }
+  ModifyClusterParameterGroup'
+  {_mcpgParameterGroupName = pParameterGroupName_, _mcpgParameters = mempty}
+
 
 -- | The name of the parameter group to be modified.
 mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text
@@ -90,9 +90,9 @@ instance AWSRequest ModifyClusterParameterGroup where
               "ModifyClusterParameterGroupResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ModifyClusterParameterGroup
+instance Hashable ModifyClusterParameterGroup where
 
-instance NFData ModifyClusterParameterGroup
+instance NFData ModifyClusterParameterGroup where
 
 instance ToHeaders ModifyClusterParameterGroup where
         toHeaders = const mempty

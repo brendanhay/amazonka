@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     , rlahrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RecordLifecycleActionHeartbeat.
 --
@@ -68,11 +68,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
-    { _rlahInstanceId           :: !(Maybe Text)
-    , _rlahLifecycleActionToken :: !(Maybe Text)
-    , _rlahLifecycleHookName    :: !Text
-    , _rlahAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rlahInstanceId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rlahLifecycleActionToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rlahLifecycleHookName    :: {-# NOUNPACK #-}!Text
+  , _rlahAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordLifecycleActionHeartbeat' with the minimum fields required to make a request.
 --
@@ -90,12 +91,13 @@ recordLifecycleActionHeartbeat
     -> Text -- ^ 'rlahAutoScalingGroupName'
     -> RecordLifecycleActionHeartbeat
 recordLifecycleActionHeartbeat pLifecycleHookName_ pAutoScalingGroupName_ =
-    RecordLifecycleActionHeartbeat'
-    { _rlahInstanceId = Nothing
-    , _rlahLifecycleActionToken = Nothing
-    , _rlahLifecycleHookName = pLifecycleHookName_
-    , _rlahAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  RecordLifecycleActionHeartbeat'
+  { _rlahInstanceId = Nothing
+  , _rlahLifecycleActionToken = Nothing
+  , _rlahLifecycleHookName = pLifecycleHookName_
+  , _rlahAutoScalingGroupName = pAutoScalingGroupName_
+  }
+
 
 -- | The ID of the instance.
 rlahInstanceId :: Lens' RecordLifecycleActionHeartbeat (Maybe Text)
@@ -126,8 +128,9 @@ instance AWSRequest RecordLifecycleActionHeartbeat
                    (pure (fromEnum s)))
 
 instance Hashable RecordLifecycleActionHeartbeat
+         where
 
-instance NFData RecordLifecycleActionHeartbeat
+instance NFData RecordLifecycleActionHeartbeat where
 
 instance ToHeaders RecordLifecycleActionHeartbeat
          where
@@ -153,8 +156,9 @@ instance ToQuery RecordLifecycleActionHeartbeat where
 --
 -- /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
-    { _rlahrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rlahrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordLifecycleActionHeartbeatResponse' with the minimum fields required to make a request.
 --
@@ -165,13 +169,14 @@ recordLifecycleActionHeartbeatResponse
     :: Int -- ^ 'rlahrsResponseStatus'
     -> RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse pResponseStatus_ =
-    RecordLifecycleActionHeartbeatResponse'
-    { _rlahrsResponseStatus = pResponseStatus_
-    }
+  RecordLifecycleActionHeartbeatResponse'
+  {_rlahrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rlahrsResponseStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
 rlahrsResponseStatus = lens _rlahrsResponseStatus (\ s a -> s{_rlahrsResponseStatus = a});
 
 instance NFData
-         RecordLifecycleActionHeartbeatResponse
+           RecordLifecycleActionHeartbeatResponse
+         where

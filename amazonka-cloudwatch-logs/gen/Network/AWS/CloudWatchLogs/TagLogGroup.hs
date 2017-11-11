@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.TagLogGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CloudWatchLogs.TagLogGroup
     , TagLogGroupResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'tagLogGroup' smart constructor.
 data TagLogGroup = TagLogGroup'
-    { _tlgLogGroupName :: !Text
-    , _tlgTags         :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tlgLogGroupName :: {-# NOUNPACK #-}!Text
+  , _tlgTags         :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagLogGroup' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ tagLogGroup
     :: Text -- ^ 'tlgLogGroupName'
     -> TagLogGroup
 tagLogGroup pLogGroupName_ =
-    TagLogGroup'
-    { _tlgLogGroupName = pLogGroupName_
-    , _tlgTags = mempty
-    }
+  TagLogGroup' {_tlgLogGroupName = pLogGroupName_, _tlgTags = mempty}
+
 
 -- | The name of the log group.
 tlgLogGroupName :: Lens' TagLogGroup Text
@@ -81,9 +80,9 @@ instance AWSRequest TagLogGroup where
         request = postJSON cloudWatchLogs
         response = receiveNull TagLogGroupResponse'
 
-instance Hashable TagLogGroup
+instance Hashable TagLogGroup where
 
-instance NFData TagLogGroup
+instance NFData TagLogGroup where
 
 instance ToHeaders TagLogGroup where
         toHeaders
@@ -109,8 +108,9 @@ instance ToQuery TagLogGroup where
 
 -- | /See:/ 'tagLogGroupResponse' smart constructor.
 data TagLogGroupResponse =
-    TagLogGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  TagLogGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagLogGroupResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +118,5 @@ tagLogGroupResponse
     :: TagLogGroupResponse
 tagLogGroupResponse = TagLogGroupResponse'
 
-instance NFData TagLogGroupResponse
+
+instance NFData TagLogGroupResponse where

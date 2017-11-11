@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.RequestCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.CertificateManager.RequestCertificate
     , rcrsResponseStatus
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'requestCertificate' smart constructor.
 data RequestCertificate = RequestCertificate'
-    { _rcIdempotencyToken        :: !(Maybe Text)
-    , _rcSubjectAlternativeNames :: !(Maybe (List1 Text))
-    , _rcDomainValidationOptions :: !(Maybe (List1 DomainValidationOption))
-    , _rcDomainName              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcIdempotencyToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcSubjectAlternativeNames :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _rcDomainValidationOptions :: {-# NOUNPACK #-}!(Maybe (List1 DomainValidationOption))
+  , _rcDomainName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestCertificate' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ requestCertificate
     :: Text -- ^ 'rcDomainName'
     -> RequestCertificate
 requestCertificate pDomainName_ =
-    RequestCertificate'
-    { _rcIdempotencyToken = Nothing
-    , _rcSubjectAlternativeNames = Nothing
-    , _rcDomainValidationOptions = Nothing
-    , _rcDomainName = pDomainName_
-    }
+  RequestCertificate'
+  { _rcIdempotencyToken = Nothing
+  , _rcSubjectAlternativeNames = Nothing
+  , _rcDomainValidationOptions = Nothing
+  , _rcDomainName = pDomainName_
+  }
+
 
 -- | Customer chosen string that can be used to distinguish between calls to @RequestCertificate@ . Idempotency tokens time out after one hour. Therefore, if you call @RequestCertificate@ multiple times with the same idempotency token within one hour, ACM recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, ACM recognizes that you are requesting multiple certificates.
 rcIdempotencyToken :: Lens' RequestCertificate (Maybe Text)
@@ -103,9 +105,9 @@ instance AWSRequest RequestCertificate where
                  RequestCertificateResponse' <$>
                    (x .?> "CertificateArn") <*> (pure (fromEnum s)))
 
-instance Hashable RequestCertificate
+instance Hashable RequestCertificate where
 
-instance NFData RequestCertificate
+instance NFData RequestCertificate where
 
 instance ToHeaders RequestCertificate where
         toHeaders
@@ -136,9 +138,10 @@ instance ToQuery RequestCertificate where
 
 -- | /See:/ 'requestCertificateResponse' smart constructor.
 data RequestCertificateResponse = RequestCertificateResponse'
-    { _rcrsCertificateARN :: !(Maybe Text)
-    , _rcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestCertificateResponse' with the minimum fields required to make a request.
 --
@@ -151,10 +154,9 @@ requestCertificateResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RequestCertificateResponse
 requestCertificateResponse pResponseStatus_ =
-    RequestCertificateResponse'
-    { _rcrsCertificateARN = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
-    }
+  RequestCertificateResponse'
+  {_rcrsCertificateARN = Nothing, _rcrsResponseStatus = pResponseStatus_}
+
 
 -- | String that contains the ARN of the issued certificate. This must be of the form: @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 rcrsCertificateARN :: Lens' RequestCertificateResponse (Maybe Text)
@@ -164,4 +166,4 @@ rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = 
 rcrsResponseStatus :: Lens' RequestCertificateResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 
-instance NFData RequestCertificateResponse
+instance NFData RequestCertificateResponse where

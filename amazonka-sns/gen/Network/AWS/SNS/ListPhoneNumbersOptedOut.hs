@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListPhoneNumbersOptedOut
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.SNS.ListPhoneNumbersOptedOut
     , lpnoorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | The input for the @ListPhoneNumbersOptedOut@ action.
 --
@@ -53,8 +53,9 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'listPhoneNumbersOptedOut' smart constructor.
 newtype ListPhoneNumbersOptedOut = ListPhoneNumbersOptedOut'
-    { _lpnooNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpnooNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPhoneNumbersOptedOut' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ newtype ListPhoneNumbersOptedOut = ListPhoneNumbersOptedOut'
 -- * 'lpnooNextToken' - A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
 listPhoneNumbersOptedOut
     :: ListPhoneNumbersOptedOut
-listPhoneNumbersOptedOut =
-    ListPhoneNumbersOptedOut'
-    { _lpnooNextToken = Nothing
-    }
+listPhoneNumbersOptedOut = ListPhoneNumbersOptedOut' {_lpnooNextToken = Nothing}
+
 
 -- | A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
 lpnooNextToken :: Lens' ListPhoneNumbersOptedOut (Maybe Text)
@@ -85,9 +84,9 @@ instance AWSRequest ListPhoneNumbersOptedOut where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPhoneNumbersOptedOut
+instance Hashable ListPhoneNumbersOptedOut where
 
-instance NFData ListPhoneNumbersOptedOut
+instance NFData ListPhoneNumbersOptedOut where
 
 instance ToHeaders ListPhoneNumbersOptedOut where
         toHeaders = const mempty
@@ -109,10 +108,11 @@ instance ToQuery ListPhoneNumbersOptedOut where
 --
 -- /See:/ 'listPhoneNumbersOptedOutResponse' smart constructor.
 data ListPhoneNumbersOptedOutResponse = ListPhoneNumbersOptedOutResponse'
-    { _lpnoorsPhoneNumbers   :: !(Maybe [Text])
-    , _lpnoorsNextToken      :: !(Maybe Text)
-    , _lpnoorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpnoorsPhoneNumbers   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lpnoorsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpnoorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPhoneNumbersOptedOutResponse' with the minimum fields required to make a request.
 --
@@ -127,11 +127,12 @@ listPhoneNumbersOptedOutResponse
     :: Int -- ^ 'lpnoorsResponseStatus'
     -> ListPhoneNumbersOptedOutResponse
 listPhoneNumbersOptedOutResponse pResponseStatus_ =
-    ListPhoneNumbersOptedOutResponse'
-    { _lpnoorsPhoneNumbers = Nothing
-    , _lpnoorsNextToken = Nothing
-    , _lpnoorsResponseStatus = pResponseStatus_
-    }
+  ListPhoneNumbersOptedOutResponse'
+  { _lpnoorsPhoneNumbers = Nothing
+  , _lpnoorsNextToken = Nothing
+  , _lpnoorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
 lpnoorsPhoneNumbers :: Lens' ListPhoneNumbersOptedOutResponse [Text]
@@ -146,3 +147,4 @@ lpnoorsResponseStatus :: Lens' ListPhoneNumbersOptedOutResponse Int
 lpnoorsResponseStatus = lens _lpnoorsResponseStatus (\ s a -> s{_lpnoorsResponseStatus = a});
 
 instance NFData ListPhoneNumbersOptedOutResponse
+         where

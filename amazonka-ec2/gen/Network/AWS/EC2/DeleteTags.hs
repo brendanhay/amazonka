@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.DeleteTags
     , DeleteTagsResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteTags.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-    { _dtsDryRun    :: !(Maybe Bool)
-    , _dtsTags      :: !(Maybe [Tag])
-    , _dtsResources :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtsDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dtsTags      :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _dtsResources :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
@@ -68,11 +69,8 @@ data DeleteTags = DeleteTags'
 deleteTags
     :: DeleteTags
 deleteTags =
-    DeleteTags'
-    { _dtsDryRun = Nothing
-    , _dtsTags = Nothing
-    , _dtsResources = mempty
-    }
+  DeleteTags' {_dtsDryRun = Nothing, _dtsTags = Nothing, _dtsResources = mempty}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dtsDryRun :: Lens' DeleteTags (Maybe Bool)
@@ -91,9 +89,9 @@ instance AWSRequest DeleteTags where
         request = postQuery ec2
         response = receiveNull DeleteTagsResponse'
 
-instance Hashable DeleteTags
+instance Hashable DeleteTags where
 
-instance NFData DeleteTags
+instance NFData DeleteTags where
 
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
@@ -112,8 +110,9 @@ instance ToQuery DeleteTags where
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =
-    DeleteTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +120,5 @@ deleteTagsResponse
     :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'
 
-instance NFData DeleteTagsResponse
+
+instance NFData DeleteTagsResponse where

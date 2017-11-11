@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateNotificationSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.MechanicalTurk.UpdateNotificationSettings
     , unsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateNotificationSettings' smart constructor.
 data UpdateNotificationSettings = UpdateNotificationSettings'
-    { _unsNotification :: !(Maybe NotificationSpecification)
-    , _unsActive       :: !(Maybe Bool)
-    , _unsHITTypeId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unsNotification :: {-# NOUNPACK #-}!(Maybe NotificationSpecification)
+  , _unsActive       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _unsHITTypeId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNotificationSettings' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ updateNotificationSettings
     :: Text -- ^ 'unsHITTypeId'
     -> UpdateNotificationSettings
 updateNotificationSettings pHITTypeId_ =
-    UpdateNotificationSettings'
-    { _unsNotification = Nothing
-    , _unsActive = Nothing
-    , _unsHITTypeId = pHITTypeId_
-    }
+  UpdateNotificationSettings'
+  { _unsNotification = Nothing
+  , _unsActive = Nothing
+  , _unsHITTypeId = pHITTypeId_
+  }
+
 
 -- | The notification specification for the HIT type.
 unsNotification :: Lens' UpdateNotificationSettings (Maybe NotificationSpecification)
@@ -93,9 +95,9 @@ instance AWSRequest UpdateNotificationSettings where
                  UpdateNotificationSettingsResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateNotificationSettings
+instance Hashable UpdateNotificationSettings where
 
-instance NFData UpdateNotificationSettings
+instance NFData UpdateNotificationSettings where
 
 instance ToHeaders UpdateNotificationSettings where
         toHeaders
@@ -123,8 +125,9 @@ instance ToQuery UpdateNotificationSettings where
 
 -- | /See:/ 'updateNotificationSettingsResponse' smart constructor.
 newtype UpdateNotificationSettingsResponse = UpdateNotificationSettingsResponse'
-    { _unsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNotificationSettingsResponse' with the minimum fields required to make a request.
 --
@@ -135,12 +138,12 @@ updateNotificationSettingsResponse
     :: Int -- ^ 'unsrsResponseStatus'
     -> UpdateNotificationSettingsResponse
 updateNotificationSettingsResponse pResponseStatus_ =
-    UpdateNotificationSettingsResponse'
-    { _unsrsResponseStatus = pResponseStatus_
-    }
+  UpdateNotificationSettingsResponse' {_unsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 unsrsResponseStatus :: Lens' UpdateNotificationSettingsResponse Int
 unsrsResponseStatus = lens _unsrsResponseStatus (\ s a -> s{_unsrsResponseStatus = a});
 
 instance NFData UpdateNotificationSettingsResponse
+         where

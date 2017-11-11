@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.EC2.CreateNetworkACL
     , cnarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateNetworkAcl.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createNetworkACL' smart constructor.
 data CreateNetworkACL = CreateNetworkACL'
-    { _cnaDryRun :: !(Maybe Bool)
-    , _cnaVPCId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnaDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cnaVPCId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNetworkACL' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ createNetworkACL
     :: Text -- ^ 'cnaVPCId'
     -> CreateNetworkACL
 createNetworkACL pVPCId_ =
-    CreateNetworkACL'
-    { _cnaDryRun = Nothing
-    , _cnaVPCId = pVPCId_
-    }
+  CreateNetworkACL' {_cnaDryRun = Nothing, _cnaVPCId = pVPCId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cnaDryRun :: Lens' CreateNetworkACL (Maybe Bool)
@@ -90,9 +89,9 @@ instance AWSRequest CreateNetworkACL where
                  CreateNetworkACLResponse' <$>
                    (x .@? "networkAcl") <*> (pure (fromEnum s)))
 
-instance Hashable CreateNetworkACL
+instance Hashable CreateNetworkACL where
 
-instance NFData CreateNetworkACL
+instance NFData CreateNetworkACL where
 
 instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty
@@ -113,9 +112,10 @@ instance ToQuery CreateNetworkACL where
 --
 -- /See:/ 'createNetworkACLResponse' smart constructor.
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
-    { _cnarsNetworkACL     :: !(Maybe NetworkACL)
-    , _cnarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnarsNetworkACL     :: {-# NOUNPACK #-}!(Maybe NetworkACL)
+  , _cnarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNetworkACLResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +128,9 @@ createNetworkACLResponse
     :: Int -- ^ 'cnarsResponseStatus'
     -> CreateNetworkACLResponse
 createNetworkACLResponse pResponseStatus_ =
-    CreateNetworkACLResponse'
-    { _cnarsNetworkACL = Nothing
-    , _cnarsResponseStatus = pResponseStatus_
-    }
+  CreateNetworkACLResponse'
+  {_cnarsNetworkACL = Nothing, _cnarsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the network ACL.
 cnarsNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
@@ -141,4 +140,4 @@ cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 cnarsResponseStatus :: Lens' CreateNetworkACLResponse Int
 cnarsResponseStatus = lens _cnarsResponseStatus (\ s a -> s{_cnarsResponseStatus = a});
 
-instance NFData CreateNetworkACLResponse
+instance NFData CreateNetworkACLResponse where

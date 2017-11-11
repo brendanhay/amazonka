@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.DetectFaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,18 +47,19 @@ module Network.AWS.Rekognition.DetectFaces
     , dfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detectFaces' smart constructor.
 data DetectFaces = DetectFaces'
-    { _dfAttributes :: !(Maybe [Attribute])
-    , _dfImage      :: !Image
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _dfImage      :: {-# NOUNPACK #-}!Image
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetectFaces' with the minimum fields required to make a request.
 --
@@ -70,11 +71,8 @@ data DetectFaces = DetectFaces'
 detectFaces
     :: Image -- ^ 'dfImage'
     -> DetectFaces
-detectFaces pImage_ =
-    DetectFaces'
-    { _dfAttributes = Nothing
-    , _dfImage = pImage_
-    }
+detectFaces pImage_ = DetectFaces' {_dfAttributes = Nothing, _dfImage = pImage_}
+
 
 -- | An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned but the operation will take longer to complete. If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
 dfAttributes :: Lens' DetectFaces [Attribute]
@@ -95,9 +93,9 @@ instance AWSRequest DetectFaces where
                      (x .?> "FaceDetails" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DetectFaces
+instance Hashable DetectFaces where
 
-instance NFData DetectFaces
+instance NFData DetectFaces where
 
 instance ToHeaders DetectFaces where
         toHeaders
@@ -123,10 +121,11 @@ instance ToQuery DetectFaces where
 
 -- | /See:/ 'detectFacesResponse' smart constructor.
 data DetectFacesResponse = DetectFacesResponse'
-    { _dfrsOrientationCorrection :: !(Maybe OrientationCorrection)
-    , _dfrsFaceDetails           :: !(Maybe [FaceDetail])
-    , _dfrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfrsOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
+  , _dfrsFaceDetails           :: {-# NOUNPACK #-}!(Maybe [FaceDetail])
+  , _dfrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetectFacesResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +140,12 @@ detectFacesResponse
     :: Int -- ^ 'dfrsResponseStatus'
     -> DetectFacesResponse
 detectFacesResponse pResponseStatus_ =
-    DetectFacesResponse'
-    { _dfrsOrientationCorrection = Nothing
-    , _dfrsFaceDetails = Nothing
-    , _dfrsResponseStatus = pResponseStatus_
-    }
+  DetectFacesResponse'
+  { _dfrsOrientationCorrection = Nothing
+  , _dfrsFaceDetails = Nothing
+  , _dfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in @FaceDetails@ represent face locations before the image orientation is corrected.
 dfrsOrientationCorrection :: Lens' DetectFacesResponse (Maybe OrientationCorrection)
@@ -159,4 +159,4 @@ dfrsFaceDetails = lens _dfrsFaceDetails (\ s a -> s{_dfrsFaceDetails = a}) . _De
 dfrsResponseStatus :: Lens' DetectFacesResponse Int
 dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a});
 
-instance NFData DetectFacesResponse
+instance NFData DetectFacesResponse where

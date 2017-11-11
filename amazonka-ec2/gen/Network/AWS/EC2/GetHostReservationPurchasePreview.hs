@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.GetHostReservationPurchasePreview
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,18 +43,19 @@ module Network.AWS.EC2.GetHostReservationPurchasePreview
     , ghrpprsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getHostReservationPurchasePreview' smart constructor.
 data GetHostReservationPurchasePreview = GetHostReservationPurchasePreview'
-    { _ghrppHostIdSet  :: ![Text]
-    , _ghrppOfferingId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghrppHostIdSet  :: {-# NOUNPACK #-}![Text]
+  , _ghrppOfferingId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHostReservationPurchasePreview' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ getHostReservationPurchasePreview
     :: Text -- ^ 'ghrppOfferingId'
     -> GetHostReservationPurchasePreview
 getHostReservationPurchasePreview pOfferingId_ =
-    GetHostReservationPurchasePreview'
-    { _ghrppHostIdSet = mempty
-    , _ghrppOfferingId = pOfferingId_
-    }
+  GetHostReservationPurchasePreview'
+  {_ghrppHostIdSet = mempty, _ghrppOfferingId = pOfferingId_}
+
 
 -- | The ID/s of the Dedicated Host/s that the reservation will be associated with.
 ghrppHostIdSet :: Lens' GetHostReservationPurchasePreview [Text]
@@ -97,8 +97,10 @@ instance AWSRequest GetHostReservationPurchasePreview
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetHostReservationPurchasePreview
+         where
 
 instance NFData GetHostReservationPurchasePreview
+         where
 
 instance ToHeaders GetHostReservationPurchasePreview
          where
@@ -120,12 +122,13 @@ instance ToQuery GetHostReservationPurchasePreview
 
 -- | /See:/ 'getHostReservationPurchasePreviewResponse' smart constructor.
 data GetHostReservationPurchasePreviewResponse = GetHostReservationPurchasePreviewResponse'
-    { _ghrpprsCurrencyCode      :: !(Maybe CurrencyCodeValues)
-    , _ghrpprsTotalHourlyPrice  :: !(Maybe Text)
-    , _ghrpprsTotalUpfrontPrice :: !(Maybe Text)
-    , _ghrpprsPurchase          :: !(Maybe [Purchase])
-    , _ghrpprsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghrpprsCurrencyCode      :: {-# NOUNPACK #-}!(Maybe CurrencyCodeValues)
+  , _ghrpprsTotalHourlyPrice  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ghrpprsTotalUpfrontPrice :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ghrpprsPurchase          :: {-# NOUNPACK #-}!(Maybe [Purchase])
+  , _ghrpprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHostReservationPurchasePreviewResponse' with the minimum fields required to make a request.
 --
@@ -144,13 +147,14 @@ getHostReservationPurchasePreviewResponse
     :: Int -- ^ 'ghrpprsResponseStatus'
     -> GetHostReservationPurchasePreviewResponse
 getHostReservationPurchasePreviewResponse pResponseStatus_ =
-    GetHostReservationPurchasePreviewResponse'
-    { _ghrpprsCurrencyCode = Nothing
-    , _ghrpprsTotalHourlyPrice = Nothing
-    , _ghrpprsTotalUpfrontPrice = Nothing
-    , _ghrpprsPurchase = Nothing
-    , _ghrpprsResponseStatus = pResponseStatus_
-    }
+  GetHostReservationPurchasePreviewResponse'
+  { _ghrpprsCurrencyCode = Nothing
+  , _ghrpprsTotalHourlyPrice = Nothing
+  , _ghrpprsTotalUpfrontPrice = Nothing
+  , _ghrpprsPurchase = Nothing
+  , _ghrpprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
 ghrpprsCurrencyCode :: Lens' GetHostReservationPurchasePreviewResponse (Maybe CurrencyCodeValues)
@@ -173,4 +177,5 @@ ghrpprsResponseStatus :: Lens' GetHostReservationPurchasePreviewResponse Int
 ghrpprsResponseStatus = lens _ghrpprsResponseStatus (\ s a -> s{_ghrpprsResponseStatus = a});
 
 instance NFData
-         GetHostReservationPurchasePreviewResponse
+           GetHostReservationPurchasePreviewResponse
+         where

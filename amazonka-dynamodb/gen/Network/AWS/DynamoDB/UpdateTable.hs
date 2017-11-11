@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.UpdateTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.DynamoDB.UpdateTable
     , utrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an @UpdateTable@ operation.
 --
@@ -68,12 +68,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateTable' smart constructor.
 data UpdateTable = UpdateTable'
-    { _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
-    , _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
-    , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
-    , _utStreamSpecification         :: !(Maybe StreamSpecification)
-    , _utTableName                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utAttributeDefinitions :: {-# NOUNPACK #-}!(Maybe [AttributeDefinition])
+  , _utProvisionedThroughput :: {-# NOUNPACK #-}!(Maybe ProvisionedThroughput)
+  , _utGlobalSecondaryIndexUpdates :: {-# NOUNPACK #-}!(Maybe [GlobalSecondaryIndexUpdate])
+  , _utStreamSpecification :: {-# NOUNPACK #-}!(Maybe StreamSpecification)
+  , _utTableName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTable' with the minimum fields required to make a request.
 --
@@ -92,13 +93,14 @@ updateTable
     :: Text -- ^ 'utTableName'
     -> UpdateTable
 updateTable pTableName_ =
-    UpdateTable'
-    { _utAttributeDefinitions = Nothing
-    , _utProvisionedThroughput = Nothing
-    , _utGlobalSecondaryIndexUpdates = Nothing
-    , _utStreamSpecification = Nothing
-    , _utTableName = pTableName_
-    }
+  UpdateTable'
+  { _utAttributeDefinitions = Nothing
+  , _utProvisionedThroughput = Nothing
+  , _utGlobalSecondaryIndexUpdates = Nothing
+  , _utStreamSpecification = Nothing
+  , _utTableName = pTableName_
+  }
+
 
 -- | An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, @AttributeDefinitions@ must include the key element(s) of the new index.
 utAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
@@ -129,9 +131,9 @@ instance AWSRequest UpdateTable where
                  UpdateTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateTable
+instance Hashable UpdateTable where
 
-instance NFData UpdateTable
+instance NFData UpdateTable where
 
 instance ToHeaders UpdateTable where
         toHeaders
@@ -168,9 +170,10 @@ instance ToQuery UpdateTable where
 --
 -- /See:/ 'updateTableResponse' smart constructor.
 data UpdateTableResponse = UpdateTableResponse'
-    { _utrsTableDescription :: !(Maybe TableDescription)
-    , _utrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utrsTableDescription :: {-# NOUNPACK #-}!(Maybe TableDescription)
+  , _utrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTableResponse' with the minimum fields required to make a request.
 --
@@ -183,10 +186,9 @@ updateTableResponse
     :: Int -- ^ 'utrsResponseStatus'
     -> UpdateTableResponse
 updateTableResponse pResponseStatus_ =
-    UpdateTableResponse'
-    { _utrsTableDescription = Nothing
-    , _utrsResponseStatus = pResponseStatus_
-    }
+  UpdateTableResponse'
+  {_utrsTableDescription = Nothing, _utrsResponseStatus = pResponseStatus_}
+
 
 -- | Represents the properties of the table.
 utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
@@ -196,4 +198,4 @@ utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescript
 utrsResponseStatus :: Lens' UpdateTableResponse Int
 utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
 
-instance NFData UpdateTableResponse
+instance NFData UpdateTableResponse where

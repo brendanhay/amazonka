@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeAvailabilityOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     , daorsResponseStatus
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DescribeAvailabilityOptions' @ operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the Deployed option to @true@ .
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeAvailabilityOptions' smart constructor.
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
-    { _daoDeployed   :: !(Maybe Bool)
-    , _daoDomainName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daoDeployed   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _daoDomainName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAvailabilityOptions' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ describeAvailabilityOptions
     :: Text -- ^ 'daoDomainName'
     -> DescribeAvailabilityOptions
 describeAvailabilityOptions pDomainName_ =
-    DescribeAvailabilityOptions'
-    { _daoDeployed = Nothing
-    , _daoDomainName = pDomainName_
-    }
+  DescribeAvailabilityOptions'
+  {_daoDeployed = Nothing, _daoDomainName = pDomainName_}
+
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 daoDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
@@ -91,9 +91,9 @@ instance AWSRequest DescribeAvailabilityOptions where
                    (x .@? "AvailabilityOptions") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeAvailabilityOptions
+instance Hashable DescribeAvailabilityOptions where
 
-instance NFData DescribeAvailabilityOptions
+instance NFData DescribeAvailabilityOptions where
 
 instance ToHeaders DescribeAvailabilityOptions where
         toHeaders = const mempty
@@ -116,9 +116,10 @@ instance ToQuery DescribeAvailabilityOptions where
 --
 -- /See:/ 'describeAvailabilityOptionsResponse' smart constructor.
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
-    { _daorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _daorsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daorsAvailabilityOptions :: {-# NOUNPACK #-}!(Maybe AvailabilityOptionsStatus)
+  , _daorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAvailabilityOptionsResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ describeAvailabilityOptionsResponse
     :: Int -- ^ 'daorsResponseStatus'
     -> DescribeAvailabilityOptionsResponse
 describeAvailabilityOptionsResponse pResponseStatus_ =
-    DescribeAvailabilityOptionsResponse'
-    { _daorsAvailabilityOptions = Nothing
-    , _daorsResponseStatus = pResponseStatus_
-    }
+  DescribeAvailabilityOptionsResponse'
+  {_daorsAvailabilityOptions = Nothing, _daorsResponseStatus = pResponseStatus_}
+
 
 -- | The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain.
 daorsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
@@ -145,3 +145,4 @@ daorsResponseStatus :: Lens' DescribeAvailabilityOptionsResponse Int
 daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a});
 
 instance NFData DescribeAvailabilityOptionsResponse
+         where

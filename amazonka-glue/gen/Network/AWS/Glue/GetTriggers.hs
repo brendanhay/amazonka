@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetTriggers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Glue.GetTriggers
     , gttrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getTriggers' smart constructor.
 data GetTriggers = GetTriggers'
-    { _gtsNextToken        :: !(Maybe Text)
-    , _gtsMaxResults       :: !(Maybe Nat)
-    , _gtsDependentJobName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gtsDependentJobName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTriggers' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ data GetTriggers = GetTriggers'
 getTriggers
     :: GetTriggers
 getTriggers =
-    GetTriggers'
-    { _gtsNextToken = Nothing
-    , _gtsMaxResults = Nothing
-    , _gtsDependentJobName = Nothing
-    }
+  GetTriggers'
+  { _gtsNextToken = Nothing
+  , _gtsMaxResults = Nothing
+  , _gtsDependentJobName = Nothing
+  }
+
 
 -- | A continuation token, if this is a continuation call.
 gtsNextToken :: Lens' GetTriggers (Maybe Text)
@@ -94,9 +96,9 @@ instance AWSRequest GetTriggers where
                    (x .?> "Triggers" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTriggers
+instance Hashable GetTriggers where
 
-instance NFData GetTriggers
+instance NFData GetTriggers where
 
 instance ToHeaders GetTriggers where
         toHeaders
@@ -123,10 +125,11 @@ instance ToQuery GetTriggers where
 
 -- | /See:/ 'getTriggersResponse' smart constructor.
 data GetTriggersResponse = GetTriggersResponse'
-    { _gttrsTriggers       :: !(Maybe [Trigger])
-    , _gttrsNextToken      :: !(Maybe Text)
-    , _gttrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gttrsTriggers       :: {-# NOUNPACK #-}!(Maybe [Trigger])
+  , _gttrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gttrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTriggersResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +144,12 @@ getTriggersResponse
     :: Int -- ^ 'gttrsResponseStatus'
     -> GetTriggersResponse
 getTriggersResponse pResponseStatus_ =
-    GetTriggersResponse'
-    { _gttrsTriggers = Nothing
-    , _gttrsNextToken = Nothing
-    , _gttrsResponseStatus = pResponseStatus_
-    }
+  GetTriggersResponse'
+  { _gttrsTriggers = Nothing
+  , _gttrsNextToken = Nothing
+  , _gttrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of triggers for the specified job.
 gttrsTriggers :: Lens' GetTriggersResponse [Trigger]
@@ -159,4 +163,4 @@ gttrsNextToken = lens _gttrsNextToken (\ s a -> s{_gttrsNextToken = a});
 gttrsResponseStatus :: Lens' GetTriggersResponse Int
 gttrsResponseStatus = lens _gttrsResponseStatus (\ s a -> s{_gttrsResponseStatus = a});
 
-instance NFData GetTriggersResponse
+instance NFData GetTriggersResponse where

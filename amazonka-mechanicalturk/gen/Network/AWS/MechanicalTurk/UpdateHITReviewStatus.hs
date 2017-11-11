@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateHITReviewStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.MechanicalTurk.UpdateHITReviewStatus
     , uhitrsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateHITReviewStatus' smart constructor.
 data UpdateHITReviewStatus = UpdateHITReviewStatus'
-    { _uhitrsRevert :: !(Maybe Bool)
-    , _uhitrsHITId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uhitrsRevert :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uhitrsHITId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateHITReviewStatus' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ updateHITReviewStatus
     :: Text -- ^ 'uhitrsHITId'
     -> UpdateHITReviewStatus
 updateHITReviewStatus pHITId_ =
-    UpdateHITReviewStatus'
-    { _uhitrsRevert = Nothing
-    , _uhitrsHITId = pHITId_
-    }
+  UpdateHITReviewStatus' {_uhitrsRevert = Nothing, _uhitrsHITId = pHITId_}
+
 
 -- | Specifies how to update the HIT status. Default is @False@ .      * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@      * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
 uhitrsRevert :: Lens' UpdateHITReviewStatus (Maybe Bool)
@@ -84,9 +83,9 @@ instance AWSRequest UpdateHITReviewStatus where
                  UpdateHITReviewStatusResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateHITReviewStatus
+instance Hashable UpdateHITReviewStatus where
 
-instance NFData UpdateHITReviewStatus
+instance NFData UpdateHITReviewStatus where
 
 instance ToHeaders UpdateHITReviewStatus where
         toHeaders
@@ -113,8 +112,9 @@ instance ToQuery UpdateHITReviewStatus where
 
 -- | /See:/ 'updateHITReviewStatusResponse' smart constructor.
 newtype UpdateHITReviewStatusResponse = UpdateHITReviewStatusResponse'
-    { _uhitrsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uhitrsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateHITReviewStatusResponse' with the minimum fields required to make a request.
 --
@@ -125,12 +125,11 @@ updateHITReviewStatusResponse
     :: Int -- ^ 'uhitrsrsResponseStatus'
     -> UpdateHITReviewStatusResponse
 updateHITReviewStatusResponse pResponseStatus_ =
-    UpdateHITReviewStatusResponse'
-    { _uhitrsrsResponseStatus = pResponseStatus_
-    }
+  UpdateHITReviewStatusResponse' {_uhitrsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uhitrsrsResponseStatus :: Lens' UpdateHITReviewStatusResponse Int
 uhitrsrsResponseStatus = lens _uhitrsrsResponseStatus (\ s a -> s{_uhitrsrsResponseStatus = a});
 
-instance NFData UpdateHITReviewStatusResponse
+instance NFData UpdateHITReviewStatusResponse where

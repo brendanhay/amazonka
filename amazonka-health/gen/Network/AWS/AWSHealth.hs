@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -203,14 +203,14 @@ module Network.AWS.AWSHealth
     , etfServices
     ) where
 
-import           Network.AWS.AWSHealth.DescribeAffectedEntities
-import           Network.AWS.AWSHealth.DescribeEntityAggregates
-import           Network.AWS.AWSHealth.DescribeEventAggregates
-import           Network.AWS.AWSHealth.DescribeEventDetails
-import           Network.AWS.AWSHealth.DescribeEvents
-import           Network.AWS.AWSHealth.DescribeEventTypes
-import           Network.AWS.AWSHealth.Types
-import           Network.AWS.AWSHealth.Waiters
+import Network.AWS.AWSHealth.DescribeAffectedEntities
+import Network.AWS.AWSHealth.DescribeEntityAggregates
+import Network.AWS.AWSHealth.DescribeEventAggregates
+import Network.AWS.AWSHealth.DescribeEventDetails
+import Network.AWS.AWSHealth.DescribeEvents
+import Network.AWS.AWSHealth.DescribeEventTypes
+import Network.AWS.AWSHealth.Types
+import Network.AWS.AWSHealth.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

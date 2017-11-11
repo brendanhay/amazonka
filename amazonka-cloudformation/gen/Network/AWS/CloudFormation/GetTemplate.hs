@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.GetTemplate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.CloudFormation.GetTemplate
     , gtrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for a 'GetTemplate' action.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getTemplate' smart constructor.
 data GetTemplate = GetTemplate'
-    { _gtChangeSetName :: !(Maybe Text)
-    , _gtTemplateStage :: !(Maybe TemplateStage)
-    , _gtStackName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtChangeSetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtTemplateStage :: {-# NOUNPACK #-}!(Maybe TemplateStage)
+  , _gtStackName     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTemplate' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ data GetTemplate = GetTemplate'
 getTemplate
     :: GetTemplate
 getTemplate =
-    GetTemplate'
-    { _gtChangeSetName = Nothing
-    , _gtTemplateStage = Nothing
-    , _gtStackName = Nothing
-    }
+  GetTemplate'
+  { _gtChangeSetName = Nothing
+  , _gtTemplateStage = Nothing
+  , _gtStackName = Nothing
+  }
+
 
 -- | The name or Amazon Resource Name (ARN) of a change set for which AWS CloudFormation returns the associated template. If you specify a name, you must also specify the @StackName@ .
 gtChangeSetName :: Lens' GetTemplate (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest GetTemplate where
                      <*> (x .@? "TemplateBody")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTemplate
+instance Hashable GetTemplate where
 
-instance NFData GetTemplate
+instance NFData GetTemplate where
 
 instance ToHeaders GetTemplate where
         toHeaders = const mempty
@@ -127,10 +129,11 @@ instance ToQuery GetTemplate where
 --
 -- /See:/ 'getTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-    { _gtrsStagesAvailable :: !(Maybe [TemplateStage])
-    , _gtrsTemplateBody    :: !(Maybe Text)
-    , _gtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtrsStagesAvailable :: {-# NOUNPACK #-}!(Maybe [TemplateStage])
+  , _gtrsTemplateBody    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTemplateResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +148,12 @@ getTemplateResponse
     :: Int -- ^ 'gtrsResponseStatus'
     -> GetTemplateResponse
 getTemplateResponse pResponseStatus_ =
-    GetTemplateResponse'
-    { _gtrsStagesAvailable = Nothing
-    , _gtrsTemplateBody = Nothing
-    , _gtrsResponseStatus = pResponseStatus_
-    }
+  GetTemplateResponse'
+  { _gtrsStagesAvailable = Nothing
+  , _gtrsTemplateBody = Nothing
+  , _gtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The stage of the template that you can retrieve. For stacks, the @Original@ and @Processed@ templates are always available. For change sets, the @Original@ template is always available. After AWS CloudFormation finishes creating the change set, the @Processed@ template becomes available.
 gtrsStagesAvailable :: Lens' GetTemplateResponse [TemplateStage]
@@ -163,4 +167,4 @@ gtrsTemplateBody = lens _gtrsTemplateBody (\ s a -> s{_gtrsTemplateBody = a});
 gtrsResponseStatus :: Lens' GetTemplateResponse Int
 gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
 
-instance NFData GetTemplateResponse
+instance NFData GetTemplateResponse where

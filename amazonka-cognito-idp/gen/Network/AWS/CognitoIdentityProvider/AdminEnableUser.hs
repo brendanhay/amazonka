@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminEnableUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CognitoIdentityProvider.AdminEnableUser
     , aeursResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request that enables the user as an administrator.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminEnableUser' smart constructor.
 data AdminEnableUser = AdminEnableUser'
-    { _aeuUserPoolId :: !Text
-    , _aeuUsername   :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _aeuUserPoolId :: {-# NOUNPACK #-}!Text
+  , _aeuUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminEnableUser' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ adminEnableUser
     -> Text -- ^ 'aeuUsername'
     -> AdminEnableUser
 adminEnableUser pUserPoolId_ pUsername_ =
-    AdminEnableUser'
-    { _aeuUserPoolId = pUserPoolId_
-    , _aeuUsername = _Sensitive # pUsername_
-    }
+  AdminEnableUser'
+  {_aeuUserPoolId = pUserPoolId_, _aeuUsername = _Sensitive # pUsername_}
+
 
 -- | The user pool ID for the user pool where you want to enable the user.
 aeuUserPoolId :: Lens' AdminEnableUser Text
@@ -89,9 +89,9 @@ instance AWSRequest AdminEnableUser where
               (\ s h x ->
                  AdminEnableUserResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AdminEnableUser
+instance Hashable AdminEnableUser where
 
-instance NFData AdminEnableUser
+instance NFData AdminEnableUser where
 
 instance ToHeaders AdminEnableUser where
         toHeaders
@@ -122,8 +122,9 @@ instance ToQuery AdminEnableUser where
 --
 -- /See:/ 'adminEnableUserResponse' smart constructor.
 newtype AdminEnableUserResponse = AdminEnableUserResponse'
-    { _aeursResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aeursResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminEnableUserResponse' with the minimum fields required to make a request.
 --
@@ -134,12 +135,11 @@ adminEnableUserResponse
     :: Int -- ^ 'aeursResponseStatus'
     -> AdminEnableUserResponse
 adminEnableUserResponse pResponseStatus_ =
-    AdminEnableUserResponse'
-    { _aeursResponseStatus = pResponseStatus_
-    }
+  AdminEnableUserResponse' {_aeursResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aeursResponseStatus :: Lens' AdminEnableUserResponse Int
 aeursResponseStatus = lens _aeursResponseStatus (\ s a -> s{_aeursResponseStatus = a});
 
-instance NFData AdminEnableUserResponse
+instance NFData AdminEnableUserResponse where

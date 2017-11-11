@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.ImportKeyPair
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.ImportKeyPair
     , ikprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importKeyPair' smart constructor.
 data ImportKeyPair = ImportKeyPair'
-    { _ikpKeyPairName     :: !Text
-    , _ikpPublicKeyBase64 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ikpKeyPairName     :: {-# NOUNPACK #-}!Text
+  , _ikpPublicKeyBase64 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportKeyPair' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ importKeyPair
     -> Text -- ^ 'ikpPublicKeyBase64'
     -> ImportKeyPair
 importKeyPair pKeyPairName_ pPublicKeyBase64_ =
-    ImportKeyPair'
-    { _ikpKeyPairName = pKeyPairName_
-    , _ikpPublicKeyBase64 = pPublicKeyBase64_
-    }
+  ImportKeyPair'
+  {_ikpKeyPairName = pKeyPairName_, _ikpPublicKeyBase64 = pPublicKeyBase64_}
+
 
 -- | The name of the key pair for which you want to import the public key.
 ikpKeyPairName :: Lens' ImportKeyPair Text
@@ -85,9 +85,9 @@ instance AWSRequest ImportKeyPair where
                  ImportKeyPairResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable ImportKeyPair
+instance Hashable ImportKeyPair where
 
-instance NFData ImportKeyPair
+instance NFData ImportKeyPair where
 
 instance ToHeaders ImportKeyPair where
         toHeaders
@@ -113,9 +113,10 @@ instance ToQuery ImportKeyPair where
 
 -- | /See:/ 'importKeyPairResponse' smart constructor.
 data ImportKeyPairResponse = ImportKeyPairResponse'
-    { _ikprsOperation      :: !(Maybe Operation)
-    , _ikprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ikprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _ikprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportKeyPairResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +129,9 @@ importKeyPairResponse
     :: Int -- ^ 'ikprsResponseStatus'
     -> ImportKeyPairResponse
 importKeyPairResponse pResponseStatus_ =
-    ImportKeyPairResponse'
-    { _ikprsOperation = Nothing
-    , _ikprsResponseStatus = pResponseStatus_
-    }
+  ImportKeyPairResponse'
+  {_ikprsOperation = Nothing, _ikprsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the request operation.
 ikprsOperation :: Lens' ImportKeyPairResponse (Maybe Operation)
@@ -141,4 +141,4 @@ ikprsOperation = lens _ikprsOperation (\ s a -> s{_ikprsOperation = a});
 ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
 ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a});
 
-instance NFData ImportKeyPairResponse
+instance NFData ImportKeyPairResponse where

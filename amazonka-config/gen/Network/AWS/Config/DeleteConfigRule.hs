@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteConfigRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Config.DeleteConfigRule
     , DeleteConfigRuleResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteConfigRule' smart constructor.
 newtype DeleteConfigRule = DeleteConfigRule'
-    { _dcrConfigRuleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrConfigRuleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigRule' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ deleteConfigRule
     :: Text -- ^ 'dcrConfigRuleName'
     -> DeleteConfigRule
 deleteConfigRule pConfigRuleName_ =
-    DeleteConfigRule'
-    { _dcrConfigRuleName = pConfigRuleName_
-    }
+  DeleteConfigRule' {_dcrConfigRuleName = pConfigRuleName_}
+
 
 -- | The name of the AWS Config rule that you want to delete.
 dcrConfigRuleName :: Lens' DeleteConfigRule Text
@@ -76,9 +76,9 @@ instance AWSRequest DeleteConfigRule where
         request = postJSON config
         response = receiveNull DeleteConfigRuleResponse'
 
-instance Hashable DeleteConfigRule
+instance Hashable DeleteConfigRule where
 
-instance NFData DeleteConfigRule
+instance NFData DeleteConfigRule where
 
 instance ToHeaders DeleteConfigRule where
         toHeaders
@@ -104,8 +104,9 @@ instance ToQuery DeleteConfigRule where
 
 -- | /See:/ 'deleteConfigRuleResponse' smart constructor.
 data DeleteConfigRuleResponse =
-    DeleteConfigRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteConfigRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigRuleResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +114,5 @@ deleteConfigRuleResponse
     :: DeleteConfigRuleResponse
 deleteConfigRuleResponse = DeleteConfigRuleResponse'
 
-instance NFData DeleteConfigRuleResponse
+
+instance NFData DeleteConfigRuleResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteIPSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,18 +50,19 @@ module Network.AWS.WAFRegional.DeleteIPSet
     , disrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteIPSet' smart constructor.
 data DeleteIPSet = DeleteIPSet'
-    { _disIPSetId     :: !Text
-    , _disChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disIPSetId     :: {-# NOUNPACK #-}!Text
+  , _disChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIPSet' with the minimum fields required to make a request.
 --
@@ -75,10 +76,8 @@ deleteIPSet
     -> Text -- ^ 'disChangeToken'
     -> DeleteIPSet
 deleteIPSet pIPSetId_ pChangeToken_ =
-    DeleteIPSet'
-    { _disIPSetId = pIPSetId_
-    , _disChangeToken = pChangeToken_
-    }
+  DeleteIPSet' {_disIPSetId = pIPSetId_, _disChangeToken = pChangeToken_}
+
 
 -- | The @IPSetId@ of the 'IPSet' that you want to delete. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 disIPSetId :: Lens' DeleteIPSet Text
@@ -97,9 +96,9 @@ instance AWSRequest DeleteIPSet where
                  DeleteIPSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteIPSet
+instance Hashable DeleteIPSet where
 
-instance NFData DeleteIPSet
+instance NFData DeleteIPSet where
 
 instance ToHeaders DeleteIPSet where
         toHeaders
@@ -126,9 +125,10 @@ instance ToQuery DeleteIPSet where
 
 -- | /See:/ 'deleteIPSetResponse' smart constructor.
 data DeleteIPSetResponse = DeleteIPSetResponse'
-    { _disrsChangeToken    :: !(Maybe Text)
-    , _disrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _disrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIPSetResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +141,9 @@ deleteIPSetResponse
     :: Int -- ^ 'disrsResponseStatus'
     -> DeleteIPSetResponse
 deleteIPSetResponse pResponseStatus_ =
-    DeleteIPSetResponse'
-    { _disrsChangeToken = Nothing
-    , _disrsResponseStatus = pResponseStatus_
-    }
+  DeleteIPSetResponse'
+  {_disrsChangeToken = Nothing, _disrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @DeleteIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 disrsChangeToken :: Lens' DeleteIPSetResponse (Maybe Text)
@@ -154,4 +153,4 @@ disrsChangeToken = lens _disrsChangeToken (\ s a -> s{_disrsChangeToken = a});
 disrsResponseStatus :: Lens' DeleteIPSetResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 
-instance NFData DeleteIPSetResponse
+instance NFData DeleteIPSetResponse where

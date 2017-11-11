@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListFindings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Inspector.ListFindings
     , lfrsFindingARNs
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listFindings' smart constructor.
 data ListFindings = ListFindings'
-    { _lfAssessmentRunARNs :: !(Maybe [Text])
-    , _lfNextToken         :: !(Maybe Text)
-    , _lfFilter            :: !(Maybe FindingFilter)
-    , _lfMaxResults        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfAssessmentRunARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lfNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfFilter            :: {-# NOUNPACK #-}!(Maybe FindingFilter)
+  , _lfMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFindings' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data ListFindings = ListFindings'
 listFindings
     :: ListFindings
 listFindings =
-    ListFindings'
-    { _lfAssessmentRunARNs = Nothing
-    , _lfNextToken = Nothing
-    , _lfFilter = Nothing
-    , _lfMaxResults = Nothing
-    }
+  ListFindings'
+  { _lfAssessmentRunARNs = Nothing
+  , _lfNextToken = Nothing
+  , _lfFilter = Nothing
+  , _lfMaxResults = Nothing
+  }
+
 
 -- | The ARNs of the assessment runs that generate the findings that you want to list.
 lfAssessmentRunARNs :: Lens' ListFindings [Text]
@@ -103,9 +105,9 @@ instance AWSRequest ListFindings where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "findingArns" .!@ mempty))
 
-instance Hashable ListFindings
+instance Hashable ListFindings where
 
-instance NFData ListFindings
+instance NFData ListFindings where
 
 instance ToHeaders ListFindings where
         toHeaders
@@ -133,10 +135,11 @@ instance ToQuery ListFindings where
 
 -- | /See:/ 'listFindingsResponse' smart constructor.
 data ListFindingsResponse = ListFindingsResponse'
-    { _lfrsNextToken      :: !(Maybe Text)
-    , _lfrsResponseStatus :: !Int
-    , _lfrsFindingARNs    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lfrsFindingARNs    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFindingsResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +154,12 @@ listFindingsResponse
     :: Int -- ^ 'lfrsResponseStatus'
     -> ListFindingsResponse
 listFindingsResponse pResponseStatus_ =
-    ListFindingsResponse'
-    { _lfrsNextToken = Nothing
-    , _lfrsResponseStatus = pResponseStatus_
-    , _lfrsFindingARNs = mempty
-    }
+  ListFindingsResponse'
+  { _lfrsNextToken = Nothing
+  , _lfrsResponseStatus = pResponseStatus_
+  , _lfrsFindingARNs = mempty
+  }
+
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 lfrsNextToken :: Lens' ListFindingsResponse (Maybe Text)
@@ -169,4 +173,4 @@ lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = 
 lfrsFindingARNs :: Lens' ListFindingsResponse [Text]
 lfrsFindingARNs = lens _lfrsFindingARNs (\ s a -> s{_lfrsFindingARNs = a}) . _Coerce;
 
-instance NFData ListFindingsResponse
+instance NFData ListFindingsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Publish
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.SNS.Publish
     , prsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for Publish action.
 --
@@ -60,14 +60,15 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'publish' smart constructor.
 data Publish = Publish'
-    { _pSubject           :: !(Maybe Text)
-    , _pTargetARN         :: !(Maybe Text)
-    , _pMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _pTopicARN          :: !(Maybe Text)
-    , _pPhoneNumber       :: !(Maybe Text)
-    , _pMessageStructure  :: !(Maybe Text)
-    , _pMessage           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pSubject :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pMessageAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text MessageAttributeValue))
+  , _pTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pPhoneNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pMessageStructure :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pMessage :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Publish' with the minimum fields required to make a request.
 --
@@ -90,15 +91,16 @@ publish
     :: Text -- ^ 'pMessage'
     -> Publish
 publish pMessage_ =
-    Publish'
-    { _pSubject = Nothing
-    , _pTargetARN = Nothing
-    , _pMessageAttributes = Nothing
-    , _pTopicARN = Nothing
-    , _pPhoneNumber = Nothing
-    , _pMessageStructure = Nothing
-    , _pMessage = pMessage_
-    }
+  Publish'
+  { _pSubject = Nothing
+  , _pTargetARN = Nothing
+  , _pMessageAttributes = Nothing
+  , _pTopicARN = Nothing
+  , _pPhoneNumber = Nothing
+  , _pMessageStructure = Nothing
+  , _pMessage = pMessage_
+  }
+
 
 -- | Optional parameter to be used as the "Subject" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints. Constraints: Subjects must be ASCII text that begins with a letter, number, or punctuation mark; must not include line breaks or control characters; and must be less than 100 characters long.
 pSubject :: Lens' Publish (Maybe Text)
@@ -137,9 +139,9 @@ instance AWSRequest Publish where
                  PublishResponse' <$>
                    (x .@? "MessageId") <*> (pure (fromEnum s)))
 
-instance Hashable Publish
+instance Hashable Publish where
 
-instance NFData Publish
+instance NFData Publish where
 
 instance ToHeaders Publish where
         toHeaders = const mempty
@@ -168,9 +170,10 @@ instance ToQuery Publish where
 --
 -- /See:/ 'publishResponse' smart constructor.
 data PublishResponse = PublishResponse'
-    { _prsMessageId      :: !(Maybe Text)
-    , _prsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prsMessageId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PublishResponse' with the minimum fields required to make a request.
 --
@@ -183,10 +186,9 @@ publishResponse
     :: Int -- ^ 'prsResponseStatus'
     -> PublishResponse
 publishResponse pResponseStatus_ =
-    PublishResponse'
-    { _prsMessageId = Nothing
-    , _prsResponseStatus = pResponseStatus_
-    }
+  PublishResponse'
+  {_prsMessageId = Nothing, _prsResponseStatus = pResponseStatus_}
+
 
 -- | Unique identifier assigned to the published message. Length Constraint: Maximum 100 characters
 prsMessageId :: Lens' PublishResponse (Maybe Text)
@@ -196,4 +198,4 @@ prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 prsResponseStatus :: Lens' PublishResponse Int
 prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
 
-instance NFData PublishResponse
+instance NFData PublishResponse where

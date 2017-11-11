@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeDataSources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,28 +50,29 @@ module Network.AWS.MachineLearning.DescribeDataSources
     , ddssrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDataSources' smart constructor.
 data DescribeDataSources = DescribeDataSources'
-    { _ddsEQ             :: !(Maybe Text)
-    , _ddsGE             :: !(Maybe Text)
-    , _ddsPrefix         :: !(Maybe Text)
-    , _ddsGT             :: !(Maybe Text)
-    , _ddsNE             :: !(Maybe Text)
-    , _ddsNextToken      :: !(Maybe Text)
-    , _ddsSortOrder      :: !(Maybe SortOrder)
-    , _ddsLimit          :: !(Maybe Nat)
-    , _ddsLT             :: !(Maybe Text)
-    , _ddsFilterVariable :: !(Maybe DataSourceFilterVariable)
-    , _ddsLE             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsEQ             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsGE             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsPrefix         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsGT             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsNE             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsSortOrder      :: {-# NOUNPACK #-}!(Maybe SortOrder)
+  , _ddsLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ddsLT             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsFilterVariable :: {-# NOUNPACK #-}!(Maybe DataSourceFilterVariable)
+  , _ddsLE             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDataSources' with the minimum fields required to make a request.
 --
@@ -101,19 +102,20 @@ data DescribeDataSources = DescribeDataSources'
 describeDataSources
     :: DescribeDataSources
 describeDataSources =
-    DescribeDataSources'
-    { _ddsEQ = Nothing
-    , _ddsGE = Nothing
-    , _ddsPrefix = Nothing
-    , _ddsGT = Nothing
-    , _ddsNE = Nothing
-    , _ddsNextToken = Nothing
-    , _ddsSortOrder = Nothing
-    , _ddsLimit = Nothing
-    , _ddsLT = Nothing
-    , _ddsFilterVariable = Nothing
-    , _ddsLE = Nothing
-    }
+  DescribeDataSources'
+  { _ddsEQ = Nothing
+  , _ddsGE = Nothing
+  , _ddsPrefix = Nothing
+  , _ddsGT = Nothing
+  , _ddsNE = Nothing
+  , _ddsNextToken = Nothing
+  , _ddsSortOrder = Nothing
+  , _ddsLimit = Nothing
+  , _ddsLT = Nothing
+  , _ddsFilterVariable = Nothing
+  , _ddsLE = Nothing
+  }
+
 
 -- | The equal to operator. The @DataSource@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
 ddsEQ :: Lens' DescribeDataSources (Maybe Text)
@@ -177,9 +179,9 @@ instance AWSRequest DescribeDataSources where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDataSources
+instance Hashable DescribeDataSources where
 
-instance NFData DescribeDataSources
+instance NFData DescribeDataSources where
 
 instance ToHeaders DescribeDataSources where
         toHeaders
@@ -216,10 +218,11 @@ instance ToQuery DescribeDataSources where
 --
 -- /See:/ 'describeDataSourcesResponse' smart constructor.
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
-    { _ddssrsResults        :: !(Maybe [DataSource])
-    , _ddssrsNextToken      :: !(Maybe Text)
-    , _ddssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddssrsResults        :: {-# NOUNPACK #-}!(Maybe [DataSource])
+  , _ddssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDataSourcesResponse' with the minimum fields required to make a request.
 --
@@ -234,11 +237,12 @@ describeDataSourcesResponse
     :: Int -- ^ 'ddssrsResponseStatus'
     -> DescribeDataSourcesResponse
 describeDataSourcesResponse pResponseStatus_ =
-    DescribeDataSourcesResponse'
-    { _ddssrsResults = Nothing
-    , _ddssrsNextToken = Nothing
-    , _ddssrsResponseStatus = pResponseStatus_
-    }
+  DescribeDataSourcesResponse'
+  { _ddssrsResults = Nothing
+  , _ddssrsNextToken = Nothing
+  , _ddssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of @DataSource@ that meet the search criteria.
 ddssrsResults :: Lens' DescribeDataSourcesResponse [DataSource]
@@ -252,4 +256,4 @@ ddssrsNextToken = lens _ddssrsNextToken (\ s a -> s{_ddssrsNextToken = a});
 ddssrsResponseStatus :: Lens' DescribeDataSourcesResponse Int
 ddssrsResponseStatus = lens _ddssrsResponseStatus (\ s a -> s{_ddssrsResponseStatus = a});
 
-instance NFData DescribeDataSourcesResponse
+instance NFData DescribeDataSourcesResponse where

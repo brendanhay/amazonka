@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetComplianceSummaryByResourceType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Config.GetComplianceSummaryByResourceType
     , gcsbrtrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getComplianceSummaryByResourceType' smart constructor.
 newtype GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
-    { _gcsbrtResourceTypes :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcsbrtResourceTypes :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetComplianceSummaryByResourceType' with the minimum fields required to make a request.
 --
@@ -61,16 +62,16 @@ newtype GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
 getComplianceSummaryByResourceType
     :: GetComplianceSummaryByResourceType
 getComplianceSummaryByResourceType =
-    GetComplianceSummaryByResourceType'
-    { _gcsbrtResourceTypes = Nothing
-    }
+  GetComplianceSummaryByResourceType' {_gcsbrtResourceTypes = Nothing}
+
 
 -- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type. For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ , and you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 gcsbrtResourceTypes :: Lens' GetComplianceSummaryByResourceType [Text]
 gcsbrtResourceTypes = lens _gcsbrtResourceTypes (\ s a -> s{_gcsbrtResourceTypes = a}) . _Default . _Coerce;
 
 instance AWSRequest
-         GetComplianceSummaryByResourceType where
+           GetComplianceSummaryByResourceType
+         where
         type Rs GetComplianceSummaryByResourceType =
              GetComplianceSummaryByResourceTypeResponse
         request = postJSON config
@@ -83,8 +84,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetComplianceSummaryByResourceType
+         where
 
 instance NFData GetComplianceSummaryByResourceType
+         where
 
 instance ToHeaders GetComplianceSummaryByResourceType
          where
@@ -118,9 +121,10 @@ instance ToQuery GetComplianceSummaryByResourceType
 --
 -- /See:/ 'getComplianceSummaryByResourceTypeResponse' smart constructor.
 data GetComplianceSummaryByResourceTypeResponse = GetComplianceSummaryByResourceTypeResponse'
-    { _gcsbrtrsComplianceSummariesByResourceType :: !(Maybe [ComplianceSummaryByResourceType])
-    , _gcsbrtrsResponseStatus                    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcsbrtrsComplianceSummariesByResourceType :: {-# NOUNPACK #-}!(Maybe [ComplianceSummaryByResourceType])
+  , _gcsbrtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetComplianceSummaryByResourceTypeResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +137,11 @@ getComplianceSummaryByResourceTypeResponse
     :: Int -- ^ 'gcsbrtrsResponseStatus'
     -> GetComplianceSummaryByResourceTypeResponse
 getComplianceSummaryByResourceTypeResponse pResponseStatus_ =
-    GetComplianceSummaryByResourceTypeResponse'
-    { _gcsbrtrsComplianceSummariesByResourceType = Nothing
-    , _gcsbrtrsResponseStatus = pResponseStatus_
-    }
+  GetComplianceSummaryByResourceTypeResponse'
+  { _gcsbrtrsComplianceSummariesByResourceType = Nothing
+  , _gcsbrtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
 gcsbrtrsComplianceSummariesByResourceType :: Lens' GetComplianceSummaryByResourceTypeResponse [ComplianceSummaryByResourceType]
@@ -147,4 +152,5 @@ gcsbrtrsResponseStatus :: Lens' GetComplianceSummaryByResourceTypeResponse Int
 gcsbrtrsResponseStatus = lens _gcsbrtrsResponseStatus (\ s a -> s{_gcsbrtrsResponseStatus = a});
 
 instance NFData
-         GetComplianceSummaryByResourceTypeResponse
+           GetComplianceSummaryByResourceTypeResponse
+         where

@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -96,40 +96,40 @@ module Network.AWS.CloudSearchDomains.Types
     , smId
     ) where
 
-import           Network.AWS.CloudSearchDomains.Types.Product
-import           Network.AWS.CloudSearchDomains.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudSearchDomains.Types.Product
+import Network.AWS.CloudSearchDomains.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2013-01-01@ of the Amazon CloudSearch Domain SDK configuration.
 cloudSearchDomains :: Service
 cloudSearchDomains =
-    Service
-    { _svcAbbrev = "CloudSearchDomains"
-    , _svcSigner = v4
-    , _svcPrefix = "cloudsearchdomain"
-    , _svcVersion = "2013-01-01"
-    , _svcEndpoint = defaultEndpoint cloudSearchDomains
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "CloudSearchDomains"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "CloudSearchDomains"
+  , _svcSigner = v4
+  , _svcPrefix = "cloudsearchdomain"
+  , _svcVersion = "2013-01-01"
+  , _svcEndpoint = defaultEndpoint cloudSearchDomains
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "CloudSearchDomains"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -138,15 +138,18 @@ cloudSearchDomains =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | Information about any problems encountered while processing an upload request.
 --
 --
 _DocumentServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentServiceException =
-    _MatchServiceError cloudSearchDomains "DocumentServiceException"
+  _MatchServiceError cloudSearchDomains "DocumentServiceException"
+
 
 -- | Information about any problems encountered while processing a search request.
 --
 --
 _SearchException :: AsError a => Getting (First ServiceError) a ServiceError
 _SearchException = _MatchServiceError cloudSearchDomains "SearchException"
+

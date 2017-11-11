@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.IAM.CreateRole
     , crrsRole
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createRole' smart constructor.
 data CreateRole = CreateRole'
-    { _crPath                     :: !(Maybe Text)
-    , _crDescription              :: !(Maybe Text)
-    , _crRoleName                 :: !Text
-    , _crAssumeRolePolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crPath                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crDescription              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crRoleName                 :: {-# NOUNPACK #-}!Text
+  , _crAssumeRolePolicyDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRole' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ createRole
     -> Text -- ^ 'crAssumeRolePolicyDocument'
     -> CreateRole
 createRole pRoleName_ pAssumeRolePolicyDocument_ =
-    CreateRole'
-    { _crPath = Nothing
-    , _crDescription = Nothing
-    , _crRoleName = pRoleName_
-    , _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument_
-    }
+  CreateRole'
+  { _crPath = Nothing
+  , _crDescription = Nothing
+  , _crRoleName = pRoleName_
+  , _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument_
+  }
+
 
 -- | The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 crPath :: Lens' CreateRole (Maybe Text)
@@ -103,9 +105,9 @@ instance AWSRequest CreateRole where
                  CreateRoleResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Role"))
 
-instance Hashable CreateRole
+instance Hashable CreateRole where
 
-instance NFData CreateRole
+instance NFData CreateRole where
 
 instance ToHeaders CreateRole where
         toHeaders = const mempty
@@ -129,9 +131,10 @@ instance ToQuery CreateRole where
 --
 -- /See:/ 'createRoleResponse' smart constructor.
 data CreateRoleResponse = CreateRoleResponse'
-    { _crrsResponseStatus :: !Int
-    , _crrsRole           :: !Role
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _crrsRole           :: {-# NOUNPACK #-}!Role
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRoleResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +148,9 @@ createRoleResponse
     -> Role -- ^ 'crrsRole'
     -> CreateRoleResponse
 createRoleResponse pResponseStatus_ pRole_ =
-    CreateRoleResponse'
-    { _crrsResponseStatus = pResponseStatus_
-    , _crrsRole = pRole_
-    }
+  CreateRoleResponse'
+  {_crrsResponseStatus = pResponseStatus_, _crrsRole = pRole_}
+
 
 -- | -- | The response status code.
 crrsResponseStatus :: Lens' CreateRoleResponse Int
@@ -158,4 +160,4 @@ crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = 
 crrsRole :: Lens' CreateRoleResponse Role
 crrsRole = lens _crrsRole (\ s a -> s{_crrsRole = a});
 
-instance NFData CreateRoleResponse
+instance NFData CreateRoleResponse where

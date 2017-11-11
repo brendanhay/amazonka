@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeThingType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.IoT.DescribeThingType
     , drsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DescribeThingType operation.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeThingType' smart constructor.
 newtype DescribeThingType = DescribeThingType'
-    { _dThingTypeName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dThingTypeName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeThingType' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ describeThingType
     :: Text -- ^ 'dThingTypeName'
     -> DescribeThingType
 describeThingType pThingTypeName_ =
-    DescribeThingType'
-    { _dThingTypeName = pThingTypeName_
-    }
+  DescribeThingType' {_dThingTypeName = pThingTypeName_}
+
 
 -- | The name of the thing type.
 dThingTypeName :: Lens' DescribeThingType Text
@@ -84,9 +84,9 @@ instance AWSRequest DescribeThingType where
                      <*> (x .?> "thingTypeMetadata")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeThingType
+instance Hashable DescribeThingType where
 
-instance NFData DescribeThingType
+instance NFData DescribeThingType where
 
 instance ToHeaders DescribeThingType where
         toHeaders = const mempty
@@ -104,11 +104,12 @@ instance ToQuery DescribeThingType where
 --
 -- /See:/ 'describeThingTypeResponse' smart constructor.
 data DescribeThingTypeResponse = DescribeThingTypeResponse'
-    { _drsThingTypeProperties :: !(Maybe ThingTypeProperties)
-    , _drsThingTypeName       :: !(Maybe Text)
-    , _drsThingTypeMetadata   :: !(Maybe ThingTypeMetadata)
-    , _drsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsThingTypeProperties :: {-# NOUNPACK #-}!(Maybe ThingTypeProperties)
+  , _drsThingTypeName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsThingTypeMetadata   :: {-# NOUNPACK #-}!(Maybe ThingTypeMetadata)
+  , _drsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeThingTypeResponse' with the minimum fields required to make a request.
 --
@@ -125,12 +126,13 @@ describeThingTypeResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeThingTypeResponse
 describeThingTypeResponse pResponseStatus_ =
-    DescribeThingTypeResponse'
-    { _drsThingTypeProperties = Nothing
-    , _drsThingTypeName = Nothing
-    , _drsThingTypeMetadata = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeThingTypeResponse'
+  { _drsThingTypeProperties = Nothing
+  , _drsThingTypeName = Nothing
+  , _drsThingTypeMetadata = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
 drsThingTypeProperties :: Lens' DescribeThingTypeResponse (Maybe ThingTypeProperties)
@@ -148,4 +150,4 @@ drsThingTypeMetadata = lens _drsThingTypeMetadata (\ s a -> s{_drsThingTypeMetad
 drsResponseStatus :: Lens' DescribeThingTypeResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeThingTypeResponse
+instance NFData DescribeThingTypeResponse where

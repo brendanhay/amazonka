@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.AssociateWebACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.WAFRegional.AssociateWebACL
     , awarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'associateWebACL' smart constructor.
 data AssociateWebACL = AssociateWebACL'
-    { _awaWebACLId    :: !Text
-    , _awaResourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _awaWebACLId    :: {-# NOUNPACK #-}!Text
+  , _awaResourceARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateWebACL' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ associateWebACL
     -> Text -- ^ 'awaResourceARN'
     -> AssociateWebACL
 associateWebACL pWebACLId_ pResourceARN_ =
-    AssociateWebACL'
-    { _awaWebACLId = pWebACLId_
-    , _awaResourceARN = pResourceARN_
-    }
+  AssociateWebACL' {_awaWebACLId = pWebACLId_, _awaResourceARN = pResourceARN_}
+
 
 -- | A unique identifier (ID) for the web ACL.
 awaWebACLId :: Lens' AssociateWebACL Text
@@ -83,9 +82,9 @@ instance AWSRequest AssociateWebACL where
               (\ s h x ->
                  AssociateWebACLResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AssociateWebACL
+instance Hashable AssociateWebACL where
 
-instance NFData AssociateWebACL
+instance NFData AssociateWebACL where
 
 instance ToHeaders AssociateWebACL where
         toHeaders
@@ -112,8 +111,9 @@ instance ToQuery AssociateWebACL where
 
 -- | /See:/ 'associateWebACLResponse' smart constructor.
 newtype AssociateWebACLResponse = AssociateWebACLResponse'
-    { _awarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _awarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateWebACLResponse' with the minimum fields required to make a request.
 --
@@ -124,12 +124,11 @@ associateWebACLResponse
     :: Int -- ^ 'awarsResponseStatus'
     -> AssociateWebACLResponse
 associateWebACLResponse pResponseStatus_ =
-    AssociateWebACLResponse'
-    { _awarsResponseStatus = pResponseStatus_
-    }
+  AssociateWebACLResponse' {_awarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 awarsResponseStatus :: Lens' AssociateWebACLResponse Int
 awarsResponseStatus = lens _awarsResponseStatus (\ s a -> s{_awarsResponseStatus = a});
 
-instance NFData AssociateWebACLResponse
+instance NFData AssociateWebACLResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateApplicationSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.UpdateApplicationSettings
     , uasrsApplicationSettingsResource
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateApplicationSettings' smart constructor.
 data UpdateApplicationSettings = UpdateApplicationSettings'
-    { _uasApplicationId                   :: !Text
-    , _uasWriteApplicationSettingsRequest :: !WriteApplicationSettingsRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uasApplicationId :: {-# NOUNPACK #-}!Text
+  , _uasWriteApplicationSettingsRequest :: {-# NOUNPACK #-}!WriteApplicationSettingsRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplicationSettings' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ updateApplicationSettings
     -> WriteApplicationSettingsRequest -- ^ 'uasWriteApplicationSettingsRequest'
     -> UpdateApplicationSettings
 updateApplicationSettings pApplicationId_ pWriteApplicationSettingsRequest_ =
-    UpdateApplicationSettings'
-    { _uasApplicationId = pApplicationId_
-    , _uasWriteApplicationSettingsRequest = pWriteApplicationSettingsRequest_
-    }
+  UpdateApplicationSettings'
+  { _uasApplicationId = pApplicationId_
+  , _uasWriteApplicationSettingsRequest = pWriteApplicationSettingsRequest_
+  }
+
 
 -- | Undocumented member.
 uasApplicationId :: Lens' UpdateApplicationSettings Text
@@ -84,9 +86,9 @@ instance AWSRequest UpdateApplicationSettings where
                  UpdateApplicationSettingsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateApplicationSettings
+instance Hashable UpdateApplicationSettings where
 
-instance NFData UpdateApplicationSettings
+instance NFData UpdateApplicationSettings where
 
 instance ToHeaders UpdateApplicationSettings where
         toHeaders
@@ -113,9 +115,10 @@ instance ToQuery UpdateApplicationSettings where
 
 -- | /See:/ 'updateApplicationSettingsResponse' smart constructor.
 data UpdateApplicationSettingsResponse = UpdateApplicationSettingsResponse'
-    { _uasrsResponseStatus              :: !Int
-    , _uasrsApplicationSettingsResource :: !ApplicationSettingsResource
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _uasrsApplicationSettingsResource :: {-# NOUNPACK #-}!ApplicationSettingsResource
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplicationSettingsResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +132,11 @@ updateApplicationSettingsResponse
     -> ApplicationSettingsResource -- ^ 'uasrsApplicationSettingsResource'
     -> UpdateApplicationSettingsResponse
 updateApplicationSettingsResponse pResponseStatus_ pApplicationSettingsResource_ =
-    UpdateApplicationSettingsResponse'
-    { _uasrsResponseStatus = pResponseStatus_
-    , _uasrsApplicationSettingsResource = pApplicationSettingsResource_
-    }
+  UpdateApplicationSettingsResponse'
+  { _uasrsResponseStatus = pResponseStatus_
+  , _uasrsApplicationSettingsResource = pApplicationSettingsResource_
+  }
+
 
 -- | -- | The response status code.
 uasrsResponseStatus :: Lens' UpdateApplicationSettingsResponse Int
@@ -143,3 +147,4 @@ uasrsApplicationSettingsResource :: Lens' UpdateApplicationSettingsResponse Appl
 uasrsApplicationSettingsResource = lens _uasrsApplicationSettingsResource (\ s a -> s{_uasrsApplicationSettingsResource = a});
 
 instance NFData UpdateApplicationSettingsResponse
+         where

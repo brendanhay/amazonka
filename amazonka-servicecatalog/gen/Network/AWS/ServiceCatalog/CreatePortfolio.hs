@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreatePortfolio
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,22 +43,23 @@ module Network.AWS.ServiceCatalog.CreatePortfolio
     , crsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createPortfolio' smart constructor.
 data CreatePortfolio = CreatePortfolio'
-    { _cAcceptLanguage   :: !(Maybe Text)
-    , _cDescription      :: !(Maybe Text)
-    , _cTags             :: !(Maybe [Tag])
-    , _cDisplayName      :: !Text
-    , _cProviderName     :: !Text
-    , _cIdempotencyToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cAcceptLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cDisplayName      :: {-# NOUNPACK #-}!Text
+  , _cProviderName     :: {-# NOUNPACK #-}!Text
+  , _cIdempotencyToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePortfolio' with the minimum fields required to make a request.
 --
@@ -81,14 +82,15 @@ createPortfolio
     -> Text -- ^ 'cIdempotencyToken'
     -> CreatePortfolio
 createPortfolio pDisplayName_ pProviderName_ pIdempotencyToken_ =
-    CreatePortfolio'
-    { _cAcceptLanguage = Nothing
-    , _cDescription = Nothing
-    , _cTags = Nothing
-    , _cDisplayName = pDisplayName_
-    , _cProviderName = pProviderName_
-    , _cIdempotencyToken = pIdempotencyToken_
-    }
+  CreatePortfolio'
+  { _cAcceptLanguage = Nothing
+  , _cDescription = Nothing
+  , _cTags = Nothing
+  , _cDisplayName = pDisplayName_
+  , _cProviderName = pProviderName_
+  , _cIdempotencyToken = pIdempotencyToken_
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 cAcceptLanguage :: Lens' CreatePortfolio (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest CreatePortfolio where
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreatePortfolio
+instance Hashable CreatePortfolio where
 
-instance NFData CreatePortfolio
+instance NFData CreatePortfolio where
 
 instance ToHeaders CreatePortfolio where
         toHeaders
@@ -158,10 +160,11 @@ instance ToQuery CreatePortfolio where
 
 -- | /See:/ 'createPortfolioResponse' smart constructor.
 data CreatePortfolioResponse = CreatePortfolioResponse'
-    { _crsPortfolioDetail :: !(Maybe PortfolioDetail)
-    , _crsTags            :: !(Maybe [Tag])
-    , _crsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsPortfolioDetail :: {-# NOUNPACK #-}!(Maybe PortfolioDetail)
+  , _crsTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _crsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePortfolioResponse' with the minimum fields required to make a request.
 --
@@ -176,11 +179,12 @@ createPortfolioResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreatePortfolioResponse
 createPortfolioResponse pResponseStatus_ =
-    CreatePortfolioResponse'
-    { _crsPortfolioDetail = Nothing
-    , _crsTags = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CreatePortfolioResponse'
+  { _crsPortfolioDetail = Nothing
+  , _crsTags = Nothing
+  , _crsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The resulting detailed portfolio information.
 crsPortfolioDetail :: Lens' CreatePortfolioResponse (Maybe PortfolioDetail)
@@ -194,4 +198,4 @@ crsTags = lens _crsTags (\ s a -> s{_crsTags = a}) . _Default . _Coerce;
 crsResponseStatus :: Lens' CreatePortfolioResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CreatePortfolioResponse
+instance NFData CreatePortfolioResponse where

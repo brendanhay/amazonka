@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.GetDeployment
     , dDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to get information about a 'Deployment' resource.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDeployment' smart constructor.
 data GetDeployment = GetDeployment'
-    { _gEmbed        :: !(Maybe [Text])
-    , _gRestAPIId    :: !Text
-    , _gDeploymentId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gEmbed        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gRestAPIId    :: {-# NOUNPACK #-}!Text
+  , _gDeploymentId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeployment' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ getDeployment
     -> Text -- ^ 'gDeploymentId'
     -> GetDeployment
 getDeployment pRestAPIId_ pDeploymentId_ =
-    GetDeployment'
-    { _gEmbed = Nothing
-    , _gRestAPIId = pRestAPIId_
-    , _gDeploymentId = pDeploymentId_
-    }
+  GetDeployment'
+  { _gEmbed = Nothing
+  , _gRestAPIId = pRestAPIId_
+  , _gDeploymentId = pDeploymentId_
+  }
+
 
 -- | A query parameter to retrieve the specified embedded resources of the returned 'Deployment' resource in the response. In a REST API call, this @embed@ parameter value is a list of comma-separated strings, as in @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2@ . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the @"apisummary"@ string. For example, @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary@ .
 gEmbed :: Lens' GetDeployment [Text]
@@ -96,9 +98,9 @@ instance AWSRequest GetDeployment where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetDeployment
+instance Hashable GetDeployment where
 
-instance NFData GetDeployment
+instance NFData GetDeployment where
 
 instance ToHeaders GetDeployment where
         toHeaders

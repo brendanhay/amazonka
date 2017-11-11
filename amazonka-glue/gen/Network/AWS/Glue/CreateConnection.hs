@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Glue.CreateConnection
     , crsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createConnection' smart constructor.
 data CreateConnection = CreateConnection'
-    { _ccCatalogId       :: !(Maybe Text)
-    , _ccConnectionInput :: !ConnectionInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccConnectionInput :: {-# NOUNPACK #-}!ConnectionInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ createConnection
     :: ConnectionInput -- ^ 'ccConnectionInput'
     -> CreateConnection
 createConnection pConnectionInput_ =
-    CreateConnection'
-    { _ccCatalogId = Nothing
-    , _ccConnectionInput = pConnectionInput_
-    }
+  CreateConnection'
+  {_ccCatalogId = Nothing, _ccConnectionInput = pConnectionInput_}
+
 
 -- | The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 ccCatalogId :: Lens' CreateConnection (Maybe Text)
@@ -82,9 +82,9 @@ instance AWSRequest CreateConnection where
               (\ s h x ->
                  CreateConnectionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateConnection
+instance Hashable CreateConnection where
 
-instance NFData CreateConnection
+instance NFData CreateConnection where
 
 instance ToHeaders CreateConnection where
         toHeaders
@@ -110,8 +110,9 @@ instance ToQuery CreateConnection where
 
 -- | /See:/ 'createConnectionResponse' smart constructor.
 newtype CreateConnectionResponse = CreateConnectionResponse'
-    { _crsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConnectionResponse' with the minimum fields required to make a request.
 --
@@ -122,12 +123,11 @@ createConnectionResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateConnectionResponse
 createConnectionResponse pResponseStatus_ =
-    CreateConnectionResponse'
-    { _crsResponseStatus = pResponseStatus_
-    }
+  CreateConnectionResponse' {_crsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 crsResponseStatus :: Lens' CreateConnectionResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CreateConnectionResponse
+instance NFData CreateConnectionResponse where

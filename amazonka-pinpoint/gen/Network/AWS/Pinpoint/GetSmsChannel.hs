@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSmsChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.GetSmsChannel
     , gscrsSMSChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSmsChannel' smart constructor.
 newtype GetSmsChannel = GetSmsChannel'
-    { _gscApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gscApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSmsChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ getSmsChannel
     :: Text -- ^ 'gscApplicationId'
     -> GetSmsChannel
 getSmsChannel pApplicationId_ =
-    GetSmsChannel'
-    { _gscApplicationId = pApplicationId_
-    }
+  GetSmsChannel' {_gscApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 gscApplicationId :: Lens' GetSmsChannel Text
@@ -73,9 +73,9 @@ instance AWSRequest GetSmsChannel where
                  GetSmsChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetSmsChannel
+instance Hashable GetSmsChannel where
 
-instance NFData GetSmsChannel
+instance NFData GetSmsChannel where
 
 instance ToHeaders GetSmsChannel where
         toHeaders
@@ -95,9 +95,10 @@ instance ToQuery GetSmsChannel where
 
 -- | /See:/ 'getSmsChannelResponse' smart constructor.
 data GetSmsChannelResponse = GetSmsChannelResponse'
-    { _gscrsResponseStatus     :: !Int
-    , _gscrsSMSChannelResponse :: !SMSChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gscrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _gscrsSMSChannelResponse :: {-# NOUNPACK #-}!SMSChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSmsChannelResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +112,11 @@ getSmsChannelResponse
     -> SMSChannelResponse -- ^ 'gscrsSMSChannelResponse'
     -> GetSmsChannelResponse
 getSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
-    GetSmsChannelResponse'
-    { _gscrsResponseStatus = pResponseStatus_
-    , _gscrsSMSChannelResponse = pSMSChannelResponse_
-    }
+  GetSmsChannelResponse'
+  { _gscrsResponseStatus = pResponseStatus_
+  , _gscrsSMSChannelResponse = pSMSChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 gscrsResponseStatus :: Lens' GetSmsChannelResponse Int
@@ -124,4 +126,4 @@ gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus
 gscrsSMSChannelResponse :: Lens' GetSmsChannelResponse SMSChannelResponse
 gscrsSMSChannelResponse = lens _gscrsSMSChannelResponse (\ s a -> s{_gscrsSMSChannelResponse = a});
 
-instance NFData GetSmsChannelResponse
+instance NFData GetSmsChannelResponse where

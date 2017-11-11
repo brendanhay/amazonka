@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.IAM.DeleteRole
     , DeleteRoleResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteRole' smart constructor.
 newtype DeleteRole = DeleteRole'
-    { _drRoleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drRoleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRole' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteRole = DeleteRole'
 deleteRole
     :: Text -- ^ 'drRoleName'
     -> DeleteRole
-deleteRole pRoleName_ =
-    DeleteRole'
-    { _drRoleName = pRoleName_
-    }
+deleteRole pRoleName_ = DeleteRole' {_drRoleName = pRoleName_}
+
 
 -- | The name of the role to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 drRoleName :: Lens' DeleteRole Text
@@ -70,9 +69,9 @@ instance AWSRequest DeleteRole where
         request = postQuery iam
         response = receiveNull DeleteRoleResponse'
 
-instance Hashable DeleteRole
+instance Hashable DeleteRole where
 
-instance NFData DeleteRole
+instance NFData DeleteRole where
 
 instance ToHeaders DeleteRole where
         toHeaders = const mempty
@@ -89,8 +88,9 @@ instance ToQuery DeleteRole where
 
 -- | /See:/ 'deleteRoleResponse' smart constructor.
 data DeleteRoleResponse =
-    DeleteRoleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteRoleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRoleResponse' with the minimum fields required to make a request.
 --
@@ -98,4 +98,5 @@ deleteRoleResponse
     :: DeleteRoleResponse
 deleteRoleResponse = DeleteRoleResponse'
 
-instance NFData DeleteRoleResponse
+
+instance NFData DeleteRoleResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
     , guavcrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to get user attribute verification.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getUserAttributeVerificationCode' smart constructor.
 data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
-    { _guavcAccessToken   :: !(Sensitive Text)
-    , _guavcAttributeName :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _guavcAccessToken   :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _guavcAttributeName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUserAttributeVerificationCode' with the minimum fields required to make a request.
 --
@@ -67,10 +68,11 @@ getUserAttributeVerificationCode
     -> Text -- ^ 'guavcAttributeName'
     -> GetUserAttributeVerificationCode
 getUserAttributeVerificationCode pAccessToken_ pAttributeName_ =
-    GetUserAttributeVerificationCode'
-    { _guavcAccessToken = _Sensitive # pAccessToken_
-    , _guavcAttributeName = pAttributeName_
-    }
+  GetUserAttributeVerificationCode'
+  { _guavcAccessToken = _Sensitive # pAccessToken_
+  , _guavcAttributeName = pAttributeName_
+  }
+
 
 -- | The access token returned by the server response to get the user attribute verification code.
 guavcAccessToken :: Lens' GetUserAttributeVerificationCode Text
@@ -93,8 +95,10 @@ instance AWSRequest GetUserAttributeVerificationCode
                      (pure (fromEnum s)))
 
 instance Hashable GetUserAttributeVerificationCode
+         where
 
 instance NFData GetUserAttributeVerificationCode
+         where
 
 instance ToHeaders GetUserAttributeVerificationCode
          where
@@ -129,9 +133,10 @@ instance ToQuery GetUserAttributeVerificationCode
 --
 -- /See:/ 'getUserAttributeVerificationCodeResponse' smart constructor.
 data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCodeResponse'
-    { _guavcrsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
-    , _guavcrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _guavcrsCodeDeliveryDetails :: {-# NOUNPACK #-}!(Maybe CodeDeliveryDetailsType)
+  , _guavcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUserAttributeVerificationCodeResponse' with the minimum fields required to make a request.
 --
@@ -144,10 +149,11 @@ getUserAttributeVerificationCodeResponse
     :: Int -- ^ 'guavcrsResponseStatus'
     -> GetUserAttributeVerificationCodeResponse
 getUserAttributeVerificationCodeResponse pResponseStatus_ =
-    GetUserAttributeVerificationCodeResponse'
-    { _guavcrsCodeDeliveryDetails = Nothing
-    , _guavcrsResponseStatus = pResponseStatus_
-    }
+  GetUserAttributeVerificationCodeResponse'
+  { _guavcrsCodeDeliveryDetails = Nothing
+  , _guavcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The code delivery details returned by the server in response to the request to get the user attribute verification code.
 guavcrsCodeDeliveryDetails :: Lens' GetUserAttributeVerificationCodeResponse (Maybe CodeDeliveryDetailsType)
@@ -158,4 +164,5 @@ guavcrsResponseStatus :: Lens' GetUserAttributeVerificationCodeResponse Int
 guavcrsResponseStatus = lens _guavcrsResponseStatus (\ s a -> s{_guavcrsResponseStatus = a});
 
 instance NFData
-         GetUserAttributeVerificationCodeResponse
+           GetUserAttributeVerificationCodeResponse
+         where

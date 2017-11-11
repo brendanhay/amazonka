@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudWatch.Types.Product where
 
-import           Network.AWS.CloudWatch.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudWatch.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Represents the history of a specific alarm.
 --
@@ -27,12 +27,13 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'alarmHistoryItem' smart constructor.
 data AlarmHistoryItem = AlarmHistoryItem'
-    { _ahiAlarmName       :: !(Maybe Text)
-    , _ahiHistoryItemType :: !(Maybe HistoryItemType)
-    , _ahiHistoryData     :: !(Maybe Text)
-    , _ahiHistorySummary  :: !(Maybe Text)
-    , _ahiTimestamp       :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ahiAlarmName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ahiHistoryItemType :: {-# NOUNPACK #-}!(Maybe HistoryItemType)
+  , _ahiHistoryData     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ahiHistorySummary  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ahiTimestamp       :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AlarmHistoryItem' with the minimum fields required to make a request.
 --
@@ -50,13 +51,14 @@ data AlarmHistoryItem = AlarmHistoryItem'
 alarmHistoryItem
     :: AlarmHistoryItem
 alarmHistoryItem =
-    AlarmHistoryItem'
-    { _ahiAlarmName = Nothing
-    , _ahiHistoryItemType = Nothing
-    , _ahiHistoryData = Nothing
-    , _ahiHistorySummary = Nothing
-    , _ahiTimestamp = Nothing
-    }
+  AlarmHistoryItem'
+  { _ahiAlarmName = Nothing
+  , _ahiHistoryItemType = Nothing
+  , _ahiHistoryData = Nothing
+  , _ahiHistorySummary = Nothing
+  , _ahiTimestamp = Nothing
+  }
+
 
 -- | The descriptive name for the alarm.
 ahiAlarmName :: Lens' AlarmHistoryItem (Maybe Text)
@@ -86,9 +88,9 @@ instance FromXML AlarmHistoryItem where
                 <*> (x .@? "HistorySummary")
                 <*> (x .@? "Timestamp")
 
-instance Hashable AlarmHistoryItem
+instance Hashable AlarmHistoryItem where
 
-instance NFData AlarmHistoryItem
+instance NFData AlarmHistoryItem where
 
 -- | Represents a specific dashboard.
 --
@@ -96,11 +98,12 @@ instance NFData AlarmHistoryItem
 --
 -- /See:/ 'dashboardEntry' smart constructor.
 data DashboardEntry = DashboardEntry'
-    { _deSize          :: !(Maybe Integer)
-    , _deDashboardName :: !(Maybe Text)
-    , _deLastModified  :: !(Maybe ISO8601)
-    , _deDashboardARN  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deSize          :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _deDashboardName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deLastModified  :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _deDashboardARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DashboardEntry' with the minimum fields required to make a request.
 --
@@ -116,12 +119,13 @@ data DashboardEntry = DashboardEntry'
 dashboardEntry
     :: DashboardEntry
 dashboardEntry =
-    DashboardEntry'
-    { _deSize = Nothing
-    , _deDashboardName = Nothing
-    , _deLastModified = Nothing
-    , _deDashboardARN = Nothing
-    }
+  DashboardEntry'
+  { _deSize = Nothing
+  , _deDashboardName = Nothing
+  , _deLastModified = Nothing
+  , _deDashboardARN = Nothing
+  }
+
 
 -- | The size of the dashboard, in bytes.
 deSize :: Lens' DashboardEntry (Maybe Integer)
@@ -146,9 +150,9 @@ instance FromXML DashboardEntry where
                 (x .@? "LastModified")
                 <*> (x .@? "DashboardArn")
 
-instance Hashable DashboardEntry
+instance Hashable DashboardEntry where
 
-instance NFData DashboardEntry
+instance NFData DashboardEntry where
 
 -- | An error or warning for the operation.
 --
@@ -156,9 +160,10 @@ instance NFData DashboardEntry
 --
 -- /See:/ 'dashboardValidationMessage' smart constructor.
 data DashboardValidationMessage = DashboardValidationMessage'
-    { _dvmDataPath :: !(Maybe Text)
-    , _dvmMessage  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvmDataPath :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvmMessage  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DashboardValidationMessage' with the minimum fields required to make a request.
 --
@@ -170,10 +175,8 @@ data DashboardValidationMessage = DashboardValidationMessage'
 dashboardValidationMessage
     :: DashboardValidationMessage
 dashboardValidationMessage =
-    DashboardValidationMessage'
-    { _dvmDataPath = Nothing
-    , _dvmMessage = Nothing
-    }
+  DashboardValidationMessage' {_dvmDataPath = Nothing, _dvmMessage = Nothing}
+
 
 -- | The data path related to the message.
 dvmDataPath :: Lens' DashboardValidationMessage (Maybe Text)
@@ -188,9 +191,9 @@ instance FromXML DashboardValidationMessage where
           = DashboardValidationMessage' <$>
               (x .@? "DataPath") <*> (x .@? "Message")
 
-instance Hashable DashboardValidationMessage
+instance Hashable DashboardValidationMessage where
 
-instance NFData DashboardValidationMessage
+instance NFData DashboardValidationMessage where
 
 -- | Encapsulates the statistical data that CloudWatch computes from metric data.
 --
@@ -198,15 +201,16 @@ instance NFData DashboardValidationMessage
 --
 -- /See:/ 'datapoint' smart constructor.
 data Datapoint = Datapoint'
-    { _dSampleCount        :: !(Maybe Double)
-    , _dMaximum            :: !(Maybe Double)
-    , _dAverage            :: !(Maybe Double)
-    , _dMinimum            :: !(Maybe Double)
-    , _dExtendedStatistics :: !(Maybe (Map Text Double))
-    , _dSum                :: !(Maybe Double)
-    , _dUnit               :: !(Maybe StandardUnit)
-    , _dTimestamp          :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dSampleCount        :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dMaximum            :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dAverage            :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dMinimum            :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dExtendedStatistics :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
+  , _dSum                :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dUnit               :: {-# NOUNPACK #-}!(Maybe StandardUnit)
+  , _dTimestamp          :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Datapoint' with the minimum fields required to make a request.
 --
@@ -230,16 +234,17 @@ data Datapoint = Datapoint'
 datapoint
     :: Datapoint
 datapoint =
-    Datapoint'
-    { _dSampleCount = Nothing
-    , _dMaximum = Nothing
-    , _dAverage = Nothing
-    , _dMinimum = Nothing
-    , _dExtendedStatistics = Nothing
-    , _dSum = Nothing
-    , _dUnit = Nothing
-    , _dTimestamp = Nothing
-    }
+  Datapoint'
+  { _dSampleCount = Nothing
+  , _dMaximum = Nothing
+  , _dAverage = Nothing
+  , _dMinimum = Nothing
+  , _dExtendedStatistics = Nothing
+  , _dSum = Nothing
+  , _dUnit = Nothing
+  , _dTimestamp = Nothing
+  }
+
 
 -- | The number of metric values that contributed to the aggregate value of this data point.
 dSampleCount :: Lens' Datapoint (Maybe Double)
@@ -286,9 +291,9 @@ instance FromXML Datapoint where
                 <*> (x .@? "Unit")
                 <*> (x .@? "Timestamp")
 
-instance Hashable Datapoint
+instance Hashable Datapoint where
 
-instance NFData Datapoint
+instance NFData Datapoint where
 
 -- | Expands the identity of a metric.
 --
@@ -296,9 +301,10 @@ instance NFData Datapoint
 --
 -- /See:/ 'dimension' smart constructor.
 data Dimension = Dimension'
-    { _dName  :: !Text
-    , _dValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dName  :: {-# NOUNPACK #-}!Text
+  , _dValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Dimension' with the minimum fields required to make a request.
 --
@@ -311,11 +317,8 @@ dimension
     :: Text -- ^ 'dName'
     -> Text -- ^ 'dValue'
     -> Dimension
-dimension pName_ pValue_ =
-    Dimension'
-    { _dName = pName_
-    , _dValue = pValue_
-    }
+dimension pName_ pValue_ = Dimension' {_dName = pName_, _dValue = pValue_}
+
 
 -- | The name of the dimension.
 dName :: Lens' Dimension Text
@@ -329,9 +332,9 @@ instance FromXML Dimension where
         parseXML x
           = Dimension' <$> (x .@ "Name") <*> (x .@ "Value")
 
-instance Hashable Dimension
+instance Hashable Dimension where
 
-instance NFData Dimension
+instance NFData Dimension where
 
 instance ToQuery Dimension where
         toQuery Dimension'{..}
@@ -343,9 +346,10 @@ instance ToQuery Dimension where
 --
 -- /See:/ 'dimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
-    { _dfValue :: !(Maybe Text)
-    , _dfName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DimensionFilter' with the minimum fields required to make a request.
 --
@@ -357,11 +361,8 @@ data DimensionFilter = DimensionFilter'
 dimensionFilter
     :: Text -- ^ 'dfName'
     -> DimensionFilter
-dimensionFilter pName_ =
-    DimensionFilter'
-    { _dfValue = Nothing
-    , _dfName = pName_
-    }
+dimensionFilter pName_ = DimensionFilter' {_dfValue = Nothing, _dfName = pName_}
+
 
 -- | The value of the dimension to be matched.
 dfValue :: Lens' DimensionFilter (Maybe Text)
@@ -371,9 +372,9 @@ dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
 dfName :: Lens' DimensionFilter Text
 dfName = lens _dfName (\ s a -> s{_dfName = a});
 
-instance Hashable DimensionFilter
+instance Hashable DimensionFilter where
 
-instance NFData DimensionFilter
+instance NFData DimensionFilter where
 
 instance ToQuery DimensionFilter where
         toQuery DimensionFilter'{..}
@@ -385,10 +386,11 @@ instance ToQuery DimensionFilter where
 --
 -- /See:/ 'metric' smart constructor.
 data Metric = Metric'
-    { _mMetricName :: !(Maybe Text)
-    , _mNamespace  :: !(Maybe Text)
-    , _mDimensions :: !(Maybe [Dimension])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mMetricName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mNamespace  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mDimensions :: {-# NOUNPACK #-}!(Maybe [Dimension])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Metric' with the minimum fields required to make a request.
 --
@@ -402,11 +404,9 @@ data Metric = Metric'
 metric
     :: Metric
 metric =
-    Metric'
-    { _mMetricName = Nothing
-    , _mNamespace = Nothing
-    , _mDimensions = Nothing
-    }
+  Metric'
+  {_mMetricName = Nothing, _mNamespace = Nothing, _mDimensions = Nothing}
+
 
 -- | The name of the metric.
 mMetricName :: Lens' Metric (Maybe Text)
@@ -427,9 +427,9 @@ instance FromXML Metric where
                 (x .@? "Dimensions" .!@ mempty >>=
                    may (parseXMLList "member"))
 
-instance Hashable Metric
+instance Hashable Metric where
 
-instance NFData Metric
+instance NFData Metric where
 
 -- | Represents an alarm.
 --
@@ -437,31 +437,32 @@ instance NFData Metric
 --
 -- /See:/ 'metricAlarm' smart constructor.
 data MetricAlarm = MetricAlarm'
-    { _maAlarmName                          :: !(Maybe Text)
-    , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
-    , _maTreatMissingData                   :: !(Maybe Text)
-    , _maPeriod                             :: !(Maybe Nat)
-    , _maAlarmDescription                   :: !(Maybe Text)
-    , _maEvaluationPeriods                  :: !(Maybe Nat)
-    , _maMetricName                         :: !(Maybe Text)
-    , _maNamespace                          :: !(Maybe Text)
-    , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
-    , _maOKActions                          :: !(Maybe [Text])
-    , _maEvaluateLowSampleCountPercentile   :: !(Maybe Text)
-    , _maStateValue                         :: !(Maybe StateValue)
-    , _maThreshold                          :: !(Maybe Double)
-    , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
-    , _maActionsEnabled                     :: !(Maybe Bool)
-    , _maInsufficientDataActions            :: !(Maybe [Text])
-    , _maStateReason                        :: !(Maybe Text)
-    , _maStateReasonData                    :: !(Maybe Text)
-    , _maDimensions                         :: !(Maybe [Dimension])
-    , _maAlarmARN                           :: !(Maybe Text)
-    , _maAlarmActions                       :: !(Maybe [Text])
-    , _maUnit                               :: !(Maybe StandardUnit)
-    , _maStatistic                          :: !(Maybe Statistic)
-    , _maExtendedStatistic                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _maAlarmName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maStateUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _maTreatMissingData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maPeriod :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _maAlarmDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maEvaluationPeriods :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _maMetricName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maNamespace :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maComparisonOperator :: {-# NOUNPACK #-}!(Maybe ComparisonOperator)
+  , _maOKActions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _maEvaluateLowSampleCountPercentile :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maStateValue :: {-# NOUNPACK #-}!(Maybe StateValue)
+  , _maThreshold :: {-# NOUNPACK #-}!(Maybe Double)
+  , _maAlarmConfigurationUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _maActionsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _maInsufficientDataActions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _maStateReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maStateReasonData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maDimensions :: {-# NOUNPACK #-}!(Maybe [Dimension])
+  , _maAlarmARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maAlarmActions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _maUnit :: {-# NOUNPACK #-}!(Maybe StandardUnit)
+  , _maStatistic :: {-# NOUNPACK #-}!(Maybe Statistic)
+  , _maExtendedStatistic :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricAlarm' with the minimum fields required to make a request.
 --
@@ -517,32 +518,33 @@ data MetricAlarm = MetricAlarm'
 metricAlarm
     :: MetricAlarm
 metricAlarm =
-    MetricAlarm'
-    { _maAlarmName = Nothing
-    , _maStateUpdatedTimestamp = Nothing
-    , _maTreatMissingData = Nothing
-    , _maPeriod = Nothing
-    , _maAlarmDescription = Nothing
-    , _maEvaluationPeriods = Nothing
-    , _maMetricName = Nothing
-    , _maNamespace = Nothing
-    , _maComparisonOperator = Nothing
-    , _maOKActions = Nothing
-    , _maEvaluateLowSampleCountPercentile = Nothing
-    , _maStateValue = Nothing
-    , _maThreshold = Nothing
-    , _maAlarmConfigurationUpdatedTimestamp = Nothing
-    , _maActionsEnabled = Nothing
-    , _maInsufficientDataActions = Nothing
-    , _maStateReason = Nothing
-    , _maStateReasonData = Nothing
-    , _maDimensions = Nothing
-    , _maAlarmARN = Nothing
-    , _maAlarmActions = Nothing
-    , _maUnit = Nothing
-    , _maStatistic = Nothing
-    , _maExtendedStatistic = Nothing
-    }
+  MetricAlarm'
+  { _maAlarmName = Nothing
+  , _maStateUpdatedTimestamp = Nothing
+  , _maTreatMissingData = Nothing
+  , _maPeriod = Nothing
+  , _maAlarmDescription = Nothing
+  , _maEvaluationPeriods = Nothing
+  , _maMetricName = Nothing
+  , _maNamespace = Nothing
+  , _maComparisonOperator = Nothing
+  , _maOKActions = Nothing
+  , _maEvaluateLowSampleCountPercentile = Nothing
+  , _maStateValue = Nothing
+  , _maThreshold = Nothing
+  , _maAlarmConfigurationUpdatedTimestamp = Nothing
+  , _maActionsEnabled = Nothing
+  , _maInsufficientDataActions = Nothing
+  , _maStateReason = Nothing
+  , _maStateReasonData = Nothing
+  , _maDimensions = Nothing
+  , _maAlarmARN = Nothing
+  , _maAlarmActions = Nothing
+  , _maUnit = Nothing
+  , _maStatistic = Nothing
+  , _maExtendedStatistic = Nothing
+  }
+
 
 -- | The name of the alarm.
 maAlarmName :: Lens' MetricAlarm (Maybe Text)
@@ -676,9 +678,9 @@ instance FromXML MetricAlarm where
                 <*> (x .@? "Statistic")
                 <*> (x .@? "ExtendedStatistic")
 
-instance Hashable MetricAlarm
+instance Hashable MetricAlarm where
 
-instance NFData MetricAlarm
+instance NFData MetricAlarm where
 
 -- | Encapsulates the information sent to either create a metric or add new values to be aggregated into an existing metric.
 --
@@ -686,14 +688,15 @@ instance NFData MetricAlarm
 --
 -- /See:/ 'metricDatum' smart constructor.
 data MetricDatum = MetricDatum'
-    { _mdValue             :: !(Maybe Double)
-    , _mdStorageResolution :: !(Maybe Nat)
-    , _mdDimensions        :: !(Maybe [Dimension])
-    , _mdUnit              :: !(Maybe StandardUnit)
-    , _mdTimestamp         :: !(Maybe ISO8601)
-    , _mdStatisticValues   :: !(Maybe StatisticSet)
-    , _mdMetricName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdValue             :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mdStorageResolution :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mdDimensions        :: {-# NOUNPACK #-}!(Maybe [Dimension])
+  , _mdUnit              :: {-# NOUNPACK #-}!(Maybe StandardUnit)
+  , _mdTimestamp         :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _mdStatisticValues   :: {-# NOUNPACK #-}!(Maybe StatisticSet)
+  , _mdMetricName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricDatum' with the minimum fields required to make a request.
 --
@@ -716,15 +719,16 @@ metricDatum
     :: Text -- ^ 'mdMetricName'
     -> MetricDatum
 metricDatum pMetricName_ =
-    MetricDatum'
-    { _mdValue = Nothing
-    , _mdStorageResolution = Nothing
-    , _mdDimensions = Nothing
-    , _mdUnit = Nothing
-    , _mdTimestamp = Nothing
-    , _mdStatisticValues = Nothing
-    , _mdMetricName = pMetricName_
-    }
+  MetricDatum'
+  { _mdValue = Nothing
+  , _mdStorageResolution = Nothing
+  , _mdDimensions = Nothing
+  , _mdUnit = Nothing
+  , _mdTimestamp = Nothing
+  , _mdStatisticValues = Nothing
+  , _mdMetricName = pMetricName_
+  }
+
 
 -- | The value for the metric. Although the parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
 mdValue :: Lens' MetricDatum (Maybe Double)
@@ -754,9 +758,9 @@ mdStatisticValues = lens _mdStatisticValues (\ s a -> s{_mdStatisticValues = a})
 mdMetricName :: Lens' MetricDatum Text
 mdMetricName = lens _mdMetricName (\ s a -> s{_mdMetricName = a});
 
-instance Hashable MetricDatum
+instance Hashable MetricDatum where
 
-instance NFData MetricDatum
+instance NFData MetricDatum where
 
 instance ToQuery MetricDatum where
         toQuery MetricDatum'{..}
@@ -775,11 +779,12 @@ instance ToQuery MetricDatum where
 --
 -- /See:/ 'statisticSet' smart constructor.
 data StatisticSet = StatisticSet'
-    { _ssSampleCount :: !Double
-    , _ssSum         :: !Double
-    , _ssMinimum     :: !Double
-    , _ssMaximum     :: !Double
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssSampleCount :: {-# NOUNPACK #-}!Double
+  , _ssSum         :: {-# NOUNPACK #-}!Double
+  , _ssMinimum     :: {-# NOUNPACK #-}!Double
+  , _ssMaximum     :: {-# NOUNPACK #-}!Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StatisticSet' with the minimum fields required to make a request.
 --
@@ -799,12 +804,13 @@ statisticSet
     -> Double -- ^ 'ssMaximum'
     -> StatisticSet
 statisticSet pSampleCount_ pSum_ pMinimum_ pMaximum_ =
-    StatisticSet'
-    { _ssSampleCount = pSampleCount_
-    , _ssSum = pSum_
-    , _ssMinimum = pMinimum_
-    , _ssMaximum = pMaximum_
-    }
+  StatisticSet'
+  { _ssSampleCount = pSampleCount_
+  , _ssSum = pSum_
+  , _ssMinimum = pMinimum_
+  , _ssMaximum = pMaximum_
+  }
+
 
 -- | The number of samples used for the statistic set.
 ssSampleCount :: Lens' StatisticSet Double
@@ -822,9 +828,9 @@ ssMinimum = lens _ssMinimum (\ s a -> s{_ssMinimum = a});
 ssMaximum :: Lens' StatisticSet Double
 ssMaximum = lens _ssMaximum (\ s a -> s{_ssMaximum = a});
 
-instance Hashable StatisticSet
+instance Hashable StatisticSet where
 
-instance NFData StatisticSet
+instance NFData StatisticSet where
 
 instance ToQuery StatisticSet where
         toQuery StatisticSet'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DeleteBudget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,20 +35,21 @@ module Network.AWS.Budgets.DeleteBudget
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DeleteBudget
 --
 -- /See:/ 'deleteBudget' smart constructor.
 data DeleteBudget = DeleteBudget'
-    { _dAccountId  :: !Text
-    , _dBudgetName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dAccountId  :: {-# NOUNPACK #-}!Text
+  , _dBudgetName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBudget' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteBudget
     -> Text -- ^ 'dBudgetName'
     -> DeleteBudget
 deleteBudget pAccountId_ pBudgetName_ =
-    DeleteBudget'
-    { _dAccountId = pAccountId_
-    , _dBudgetName = pBudgetName_
-    }
+  DeleteBudget' {_dAccountId = pAccountId_, _dBudgetName = pBudgetName_}
+
 
 -- | Undocumented member.
 dAccountId :: Lens' DeleteBudget Text
@@ -83,9 +82,9 @@ instance AWSRequest DeleteBudget where
               (\ s h x ->
                  DeleteBudgetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteBudget
+instance Hashable DeleteBudget where
 
-instance NFData DeleteBudget
+instance NFData DeleteBudget where
 
 instance ToHeaders DeleteBudget where
         toHeaders
@@ -114,8 +113,9 @@ instance ToQuery DeleteBudget where
 --
 -- /See:/ 'deleteBudgetResponse' smart constructor.
 newtype DeleteBudgetResponse = DeleteBudgetResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBudgetResponse' with the minimum fields required to make a request.
 --
@@ -126,12 +126,11 @@ deleteBudgetResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteBudgetResponse
 deleteBudgetResponse pResponseStatus_ =
-    DeleteBudgetResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteBudgetResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteBudgetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteBudgetResponse
+instance NFData DeleteBudgetResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CognitoIdentityProvider.DeleteGroup
     , DeleteGroupResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
-    { _dgGroupName  :: !Text
-    , _dgUserPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgGroupName  :: {-# NOUNPACK #-}!Text
+  , _dgUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteGroup
     -> Text -- ^ 'dgUserPoolId'
     -> DeleteGroup
 deleteGroup pGroupName_ pUserPoolId_ =
-    DeleteGroup'
-    { _dgGroupName = pGroupName_
-    , _dgUserPoolId = pUserPoolId_
-    }
+  DeleteGroup' {_dgGroupName = pGroupName_, _dgUserPoolId = pUserPoolId_}
+
 
 -- | The name of the group.
 dgGroupName :: Lens' DeleteGroup Text
@@ -80,9 +79,9 @@ instance AWSRequest DeleteGroup where
         request = postJSON cognitoIdentityProvider
         response = receiveNull DeleteGroupResponse'
 
-instance Hashable DeleteGroup
+instance Hashable DeleteGroup where
 
-instance NFData DeleteGroup
+instance NFData DeleteGroup where
 
 instance ToHeaders DeleteGroup where
         toHeaders
@@ -109,8 +108,9 @@ instance ToQuery DeleteGroup where
 
 -- | /See:/ 'deleteGroupResponse' smart constructor.
 data DeleteGroupResponse =
-    DeleteGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +118,5 @@ deleteGroupResponse
     :: DeleteGroupResponse
 deleteGroupResponse = DeleteGroupResponse'
 
-instance NFData DeleteGroupResponse
+
+instance NFData DeleteGroupResponse where

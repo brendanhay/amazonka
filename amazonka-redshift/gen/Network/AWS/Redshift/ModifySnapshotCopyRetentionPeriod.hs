@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     , mscrprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifySnapshotCopyRetentionPeriod' smart constructor.
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
-    { _mscrpClusterIdentifier :: !Text
-    , _mscrpRetentionPeriod   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mscrpClusterIdentifier :: {-# NOUNPACK #-}!Text
+  , _mscrpRetentionPeriod   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifySnapshotCopyRetentionPeriod' with the minimum fields required to make a request.
 --
@@ -67,10 +68,11 @@ modifySnapshotCopyRetentionPeriod
     -> Int -- ^ 'mscrpRetentionPeriod'
     -> ModifySnapshotCopyRetentionPeriod
 modifySnapshotCopyRetentionPeriod pClusterIdentifier_ pRetentionPeriod_ =
-    ModifySnapshotCopyRetentionPeriod'
-    { _mscrpClusterIdentifier = pClusterIdentifier_
-    , _mscrpRetentionPeriod = pRetentionPeriod_
-    }
+  ModifySnapshotCopyRetentionPeriod'
+  { _mscrpClusterIdentifier = pClusterIdentifier_
+  , _mscrpRetentionPeriod = pRetentionPeriod_
+  }
+
 
 -- | The unique identifier of the cluster for which you want to change the retention period for automated snapshots that are copied to a destination region. Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 mscrpClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod Text
@@ -93,8 +95,10 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
 instance Hashable ModifySnapshotCopyRetentionPeriod
+         where
 
 instance NFData ModifySnapshotCopyRetentionPeriod
+         where
 
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
          where
@@ -116,9 +120,10 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 
 -- | /See:/ 'modifySnapshotCopyRetentionPeriodResponse' smart constructor.
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
-    { _mscrprsCluster        :: !(Maybe Cluster)
-    , _mscrprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mscrprsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _mscrprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifySnapshotCopyRetentionPeriodResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +136,9 @@ modifySnapshotCopyRetentionPeriodResponse
     :: Int -- ^ 'mscrprsResponseStatus'
     -> ModifySnapshotCopyRetentionPeriodResponse
 modifySnapshotCopyRetentionPeriodResponse pResponseStatus_ =
-    ModifySnapshotCopyRetentionPeriodResponse'
-    { _mscrprsCluster = Nothing
-    , _mscrprsResponseStatus = pResponseStatus_
-    }
+  ModifySnapshotCopyRetentionPeriodResponse'
+  {_mscrprsCluster = Nothing, _mscrprsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mscrprsCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
@@ -145,4 +149,5 @@ mscrprsResponseStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
 mscrprsResponseStatus = lens _mscrprsResponseStatus (\ s a -> s{_mscrprsResponseStatus = a});
 
 instance NFData
-         ModifySnapshotCopyRetentionPeriodResponse
+           ModifySnapshotCopyRetentionPeriodResponse
+         where

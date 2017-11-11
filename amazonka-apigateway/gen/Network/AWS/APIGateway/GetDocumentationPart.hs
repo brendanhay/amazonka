@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationPart
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.GetDocumentationPart
     , dpProperties
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Gets a specified documentation part of a given API.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDocumentationPart' smart constructor.
 data GetDocumentationPart = GetDocumentationPart'
-    { _getRestAPIId           :: !Text
-    , _getDocumentationPartId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _getRestAPIId           :: {-# NOUNPACK #-}!Text
+  , _getDocumentationPartId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentationPart' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ getDocumentationPart
     -> Text -- ^ 'getDocumentationPartId'
     -> GetDocumentationPart
 getDocumentationPart pRestAPIId_ pDocumentationPartId_ =
-    GetDocumentationPart'
-    { _getRestAPIId = pRestAPIId_
-    , _getDocumentationPartId = pDocumentationPartId_
-    }
+  GetDocumentationPart'
+  {_getRestAPIId = pRestAPIId_, _getDocumentationPartId = pDocumentationPartId_}
+
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 getRestAPIId :: Lens' GetDocumentationPart Text
@@ -84,9 +84,9 @@ instance AWSRequest GetDocumentationPart where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetDocumentationPart
+instance Hashable GetDocumentationPart where
 
-instance NFData GetDocumentationPart
+instance NFData GetDocumentationPart where
 
 instance ToHeaders GetDocumentationPart where
         toHeaders

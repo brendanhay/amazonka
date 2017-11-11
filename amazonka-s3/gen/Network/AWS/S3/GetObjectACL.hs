@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetObjectACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.S3.GetObjectACL
     , goarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectACL' smart constructor.
 data GetObjectACL = GetObjectACL'
-    { _goaVersionId    :: !(Maybe ObjectVersionId)
-    , _goaRequestPayer :: !(Maybe RequestPayer)
-    , _goaBucket       :: !BucketName
-    , _goaKey          :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goaVersionId    :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _goaRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _goaBucket       :: {-# NOUNPACK #-}!BucketName
+  , _goaKey          :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetObjectACL' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ getObjectACL
     -> ObjectKey -- ^ 'goaKey'
     -> GetObjectACL
 getObjectACL pBucket_ pKey_ =
-    GetObjectACL'
-    { _goaVersionId = Nothing
-    , _goaRequestPayer = Nothing
-    , _goaBucket = pBucket_
-    , _goaKey = pKey_
-    }
+  GetObjectACL'
+  { _goaVersionId = Nothing
+  , _goaRequestPayer = Nothing
+  , _goaBucket = pBucket_
+  , _goaKey = pKey_
+  }
+
 
 -- | VersionId used to reference a specific version of the object.
 goaVersionId :: Lens' GetObjectACL (Maybe ObjectVersionId)
@@ -107,9 +109,9 @@ instance AWSRequest GetObjectACL where
                      <*> (x .@? "Owner")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetObjectACL
+instance Hashable GetObjectACL where
 
-instance NFData GetObjectACL
+instance NFData GetObjectACL where
 
 instance ToHeaders GetObjectACL where
         toHeaders GetObjectACL'{..}
@@ -125,11 +127,12 @@ instance ToQuery GetObjectACL where
 
 -- | /See:/ 'getObjectACLResponse' smart constructor.
 data GetObjectACLResponse = GetObjectACLResponse'
-    { _goarsRequestCharged :: !(Maybe RequestCharged)
-    , _goarsGrants         :: !(Maybe [Grant])
-    , _goarsOwner          :: !(Maybe Owner)
-    , _goarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goarsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _goarsGrants         :: {-# NOUNPACK #-}!(Maybe [Grant])
+  , _goarsOwner          :: {-# NOUNPACK #-}!(Maybe Owner)
+  , _goarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetObjectACLResponse' with the minimum fields required to make a request.
 --
@@ -146,12 +149,13 @@ getObjectACLResponse
     :: Int -- ^ 'goarsResponseStatus'
     -> GetObjectACLResponse
 getObjectACLResponse pResponseStatus_ =
-    GetObjectACLResponse'
-    { _goarsRequestCharged = Nothing
-    , _goarsGrants = Nothing
-    , _goarsOwner = Nothing
-    , _goarsResponseStatus = pResponseStatus_
-    }
+  GetObjectACLResponse'
+  { _goarsRequestCharged = Nothing
+  , _goarsGrants = Nothing
+  , _goarsOwner = Nothing
+  , _goarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 goarsRequestCharged :: Lens' GetObjectACLResponse (Maybe RequestCharged)
@@ -169,4 +173,4 @@ goarsOwner = lens _goarsOwner (\ s a -> s{_goarsOwner = a});
 goarsResponseStatus :: Lens' GetObjectACLResponse Int
 goarsResponseStatus = lens _goarsResponseStatus (\ s a -> s{_goarsResponseStatus = a});
 
-instance NFData GetObjectACLResponse
+instance NFData GetObjectACLResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListCreateAccountStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Organizations.ListCreateAccountStatus
     , lcasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listCreateAccountStatus' smart constructor.
 data ListCreateAccountStatus = ListCreateAccountStatus'
-    { _lcasStates     :: !(Maybe [CreateAccountState])
-    , _lcasNextToken  :: !(Maybe Text)
-    , _lcasMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcasStates     :: {-# NOUNPACK #-}!(Maybe [CreateAccountState])
+  , _lcasNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcasMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCreateAccountStatus' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ data ListCreateAccountStatus = ListCreateAccountStatus'
 listCreateAccountStatus
     :: ListCreateAccountStatus
 listCreateAccountStatus =
-    ListCreateAccountStatus'
-    { _lcasStates = Nothing
-    , _lcasNextToken = Nothing
-    , _lcasMaxResults = Nothing
-    }
+  ListCreateAccountStatus'
+  {_lcasStates = Nothing, _lcasNextToken = Nothing, _lcasMaxResults = Nothing}
+
 
 -- | A list of one or more states that you want included in the response. If this parameter is not present, then all requests are included in the response.
 lcasStates :: Lens' ListCreateAccountStatus [CreateAccountState]
@@ -108,9 +107,9 @@ instance AWSRequest ListCreateAccountStatus where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCreateAccountStatus
+instance Hashable ListCreateAccountStatus where
 
-instance NFData ListCreateAccountStatus
+instance NFData ListCreateAccountStatus where
 
 instance ToHeaders ListCreateAccountStatus where
         toHeaders
@@ -138,10 +137,11 @@ instance ToQuery ListCreateAccountStatus where
 
 -- | /See:/ 'listCreateAccountStatusResponse' smart constructor.
 data ListCreateAccountStatusResponse = ListCreateAccountStatusResponse'
-    { _lcasrsCreateAccountStatuses :: !(Maybe [CreateAccountStatus])
-    , _lcasrsNextToken             :: !(Maybe Text)
-    , _lcasrsResponseStatus        :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lcasrsCreateAccountStatuses :: {-# NOUNPACK #-}!(Maybe [CreateAccountStatus])
+  , _lcasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCreateAccountStatusResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +156,12 @@ listCreateAccountStatusResponse
     :: Int -- ^ 'lcasrsResponseStatus'
     -> ListCreateAccountStatusResponse
 listCreateAccountStatusResponse pResponseStatus_ =
-    ListCreateAccountStatusResponse'
-    { _lcasrsCreateAccountStatuses = Nothing
-    , _lcasrsNextToken = Nothing
-    , _lcasrsResponseStatus = pResponseStatus_
-    }
+  ListCreateAccountStatusResponse'
+  { _lcasrsCreateAccountStatuses = Nothing
+  , _lcasrsNextToken = Nothing
+  , _lcasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of objects with details about the requests. Certain elements, such as the accountId number, are present in the output only after the account has been successfully created.
 lcasrsCreateAccountStatuses :: Lens' ListCreateAccountStatusResponse [CreateAccountStatus]
@@ -174,4 +175,4 @@ lcasrsNextToken = lens _lcasrsNextToken (\ s a -> s{_lcasrsNextToken = a});
 lcasrsResponseStatus :: Lens' ListCreateAccountStatusResponse Int
 lcasrsResponseStatus = lens _lcasrsResponseStatus (\ s a -> s{_lcasrsResponseStatus = a});
 
-instance NFData ListCreateAccountStatusResponse
+instance NFData ListCreateAccountStatusResponse where

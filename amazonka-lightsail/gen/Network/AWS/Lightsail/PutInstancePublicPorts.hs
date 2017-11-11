@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.PutInstancePublicPorts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.PutInstancePublicPorts
     , pipprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putInstancePublicPorts' smart constructor.
 data PutInstancePublicPorts = PutInstancePublicPorts'
-    { _pippPortInfos    :: ![PortInfo]
-    , _pippInstanceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pippPortInfos    :: {-# NOUNPACK #-}![PortInfo]
+  , _pippInstanceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutInstancePublicPorts' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ putInstancePublicPorts
     :: Text -- ^ 'pippInstanceName'
     -> PutInstancePublicPorts
 putInstancePublicPorts pInstanceName_ =
-    PutInstancePublicPorts'
-    { _pippPortInfos = mempty
-    , _pippInstanceName = pInstanceName_
-    }
+  PutInstancePublicPorts'
+  {_pippPortInfos = mempty, _pippInstanceName = pInstanceName_}
+
 
 -- | Specifies information about the public port(s).
 pippPortInfos :: Lens' PutInstancePublicPorts [PortInfo]
@@ -85,9 +85,9 @@ instance AWSRequest PutInstancePublicPorts where
                  PutInstancePublicPortsResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable PutInstancePublicPorts
+instance Hashable PutInstancePublicPorts where
 
-instance NFData PutInstancePublicPorts
+instance NFData PutInstancePublicPorts where
 
 instance ToHeaders PutInstancePublicPorts where
         toHeaders
@@ -114,9 +114,10 @@ instance ToQuery PutInstancePublicPorts where
 
 -- | /See:/ 'putInstancePublicPortsResponse' smart constructor.
 data PutInstancePublicPortsResponse = PutInstancePublicPortsResponse'
-    { _pipprsOperation      :: !(Maybe Operation)
-    , _pipprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pipprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _pipprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutInstancePublicPortsResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ putInstancePublicPortsResponse
     :: Int -- ^ 'pipprsResponseStatus'
     -> PutInstancePublicPortsResponse
 putInstancePublicPortsResponse pResponseStatus_ =
-    PutInstancePublicPortsResponse'
-    { _pipprsOperation = Nothing
-    , _pipprsResponseStatus = pResponseStatus_
-    }
+  PutInstancePublicPortsResponse'
+  {_pipprsOperation = Nothing, _pipprsResponseStatus = pResponseStatus_}
+
 
 -- | Describes metadata about the operation you just executed.
 pipprsOperation :: Lens' PutInstancePublicPortsResponse (Maybe Operation)
@@ -142,4 +142,4 @@ pipprsOperation = lens _pipprsOperation (\ s a -> s{_pipprsOperation = a});
 pipprsResponseStatus :: Lens' PutInstancePublicPortsResponse Int
 pipprsResponseStatus = lens _pipprsResponseStatus (\ s a -> s{_pipprsResponseStatus = a});
 
-instance NFData PutInstancePublicPortsResponse
+instance NFData PutInstancePublicPortsResponse where

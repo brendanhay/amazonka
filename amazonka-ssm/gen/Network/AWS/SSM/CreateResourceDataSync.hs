@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateResourceDataSync
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.SSM.CreateResourceDataSync
     , crdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createResourceDataSync' smart constructor.
 data CreateResourceDataSync = CreateResourceDataSync'
-    { _crdsSyncName      :: !Text
-    , _crdsS3Destination :: !ResourceDataSyncS3Destination
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crdsSyncName      :: {-# NOUNPACK #-}!Text
+  , _crdsS3Destination :: {-# NOUNPACK #-}!ResourceDataSyncS3Destination
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateResourceDataSync' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ createResourceDataSync
     -> ResourceDataSyncS3Destination -- ^ 'crdsS3Destination'
     -> CreateResourceDataSync
 createResourceDataSync pSyncName_ pS3Destination_ =
-    CreateResourceDataSync'
-    { _crdsSyncName = pSyncName_
-    , _crdsS3Destination = pS3Destination_
-    }
+  CreateResourceDataSync'
+  {_crdsSyncName = pSyncName_, _crdsS3Destination = pS3Destination_}
+
 
 -- | A name for the configuration.
 crdsSyncName :: Lens' CreateResourceDataSync Text
@@ -87,9 +87,9 @@ instance AWSRequest CreateResourceDataSync where
                  CreateResourceDataSyncResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateResourceDataSync
+instance Hashable CreateResourceDataSync where
 
-instance NFData CreateResourceDataSync
+instance NFData CreateResourceDataSync where
 
 instance ToHeaders CreateResourceDataSync where
         toHeaders
@@ -115,8 +115,9 @@ instance ToQuery CreateResourceDataSync where
 
 -- | /See:/ 'createResourceDataSyncResponse' smart constructor.
 newtype CreateResourceDataSyncResponse = CreateResourceDataSyncResponse'
-    { _crdsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crdsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateResourceDataSyncResponse' with the minimum fields required to make a request.
 --
@@ -127,12 +128,11 @@ createResourceDataSyncResponse
     :: Int -- ^ 'crdsrsResponseStatus'
     -> CreateResourceDataSyncResponse
 createResourceDataSyncResponse pResponseStatus_ =
-    CreateResourceDataSyncResponse'
-    { _crdsrsResponseStatus = pResponseStatus_
-    }
+  CreateResourceDataSyncResponse' {_crdsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 crdsrsResponseStatus :: Lens' CreateResourceDataSyncResponse Int
 crdsrsResponseStatus = lens _crdsrsResponseStatus (\ s a -> s{_crdsrsResponseStatus = a});
 
-instance NFData CreateResourceDataSyncResponse
+instance NFData CreateResourceDataSyncResponse where

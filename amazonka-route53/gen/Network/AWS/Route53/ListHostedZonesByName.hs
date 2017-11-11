@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListHostedZonesByName
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -71,12 +71,12 @@ module Network.AWS.Route53.ListHostedZonesByName
     , lhzbnrsMaxItems
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | Retrieves a list of the public and private hosted zones that are associated with the current AWS account in ASCII order by domain name.
 --
@@ -84,10 +84,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listHostedZonesByName' smart constructor.
 data ListHostedZonesByName = ListHostedZonesByName'
-    { _lhzbnHostedZoneId :: !(Maybe ResourceId)
-    , _lhzbnMaxItems     :: !(Maybe Text)
-    , _lhzbnDNSName      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhzbnHostedZoneId :: {-# NOUNPACK #-}!(Maybe ResourceId)
+  , _lhzbnMaxItems     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhzbnDNSName      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHostedZonesByName' with the minimum fields required to make a request.
 --
@@ -101,11 +102,12 @@ data ListHostedZonesByName = ListHostedZonesByName'
 listHostedZonesByName
     :: ListHostedZonesByName
 listHostedZonesByName =
-    ListHostedZonesByName'
-    { _lhzbnHostedZoneId = Nothing
-    , _lhzbnMaxItems = Nothing
-    , _lhzbnDNSName = Nothing
-    }
+  ListHostedZonesByName'
+  { _lhzbnHostedZoneId = Nothing
+  , _lhzbnMaxItems = Nothing
+  , _lhzbnDNSName = Nothing
+  }
+
 
 -- | (Optional) For your first request to @ListHostedZonesByName@ , do not include the @hostedzoneid@ parameter. If you have more hosted zones than the value of @maxitems@ , @ListHostedZonesByName@ returns only the first @maxitems@ hosted zones. To get the next group of @maxitems@ hosted zones, submit another request to @ListHostedZonesByName@ and include both @dnsname@ and @hostedzoneid@ parameters. For the value of @hostedzoneid@ , specify the value of the @NextHostedZoneId@ element from the previous response.
 lhzbnHostedZoneId :: Lens' ListHostedZonesByName (Maybe ResourceId)
@@ -137,9 +139,9 @@ instance AWSRequest ListHostedZonesByName where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
-instance Hashable ListHostedZonesByName
+instance Hashable ListHostedZonesByName where
 
-instance NFData ListHostedZonesByName
+instance NFData ListHostedZonesByName where
 
 instance ToHeaders ListHostedZonesByName where
         toHeaders = const mempty
@@ -160,15 +162,16 @@ instance ToQuery ListHostedZonesByName where
 --
 -- /See:/ 'listHostedZonesByNameResponse' smart constructor.
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
-    { _lhzbnrsHostedZoneId     :: !(Maybe ResourceId)
-    , _lhzbnrsNextHostedZoneId :: !(Maybe ResourceId)
-    , _lhzbnrsDNSName          :: !(Maybe Text)
-    , _lhzbnrsNextDNSName      :: !(Maybe Text)
-    , _lhzbnrsResponseStatus   :: !Int
-    , _lhzbnrsHostedZones      :: ![HostedZone]
-    , _lhzbnrsIsTruncated      :: !Bool
-    , _lhzbnrsMaxItems         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhzbnrsHostedZoneId     :: {-# NOUNPACK #-}!(Maybe ResourceId)
+  , _lhzbnrsNextHostedZoneId :: {-# NOUNPACK #-}!(Maybe ResourceId)
+  , _lhzbnrsDNSName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhzbnrsNextDNSName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhzbnrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _lhzbnrsHostedZones      :: {-# NOUNPACK #-}![HostedZone]
+  , _lhzbnrsIsTruncated      :: {-# NOUNPACK #-}!Bool
+  , _lhzbnrsMaxItems         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHostedZonesByNameResponse' with the minimum fields required to make a request.
 --
@@ -195,16 +198,17 @@ listHostedZonesByNameResponse
     -> Text -- ^ 'lhzbnrsMaxItems'
     -> ListHostedZonesByNameResponse
 listHostedZonesByNameResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
-    ListHostedZonesByNameResponse'
-    { _lhzbnrsHostedZoneId = Nothing
-    , _lhzbnrsNextHostedZoneId = Nothing
-    , _lhzbnrsDNSName = Nothing
-    , _lhzbnrsNextDNSName = Nothing
-    , _lhzbnrsResponseStatus = pResponseStatus_
-    , _lhzbnrsHostedZones = mempty
-    , _lhzbnrsIsTruncated = pIsTruncated_
-    , _lhzbnrsMaxItems = pMaxItems_
-    }
+  ListHostedZonesByNameResponse'
+  { _lhzbnrsHostedZoneId = Nothing
+  , _lhzbnrsNextHostedZoneId = Nothing
+  , _lhzbnrsDNSName = Nothing
+  , _lhzbnrsNextDNSName = Nothing
+  , _lhzbnrsResponseStatus = pResponseStatus_
+  , _lhzbnrsHostedZones = mempty
+  , _lhzbnrsIsTruncated = pIsTruncated_
+  , _lhzbnrsMaxItems = pMaxItems_
+  }
+
 
 -- | The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 lhzbnrsHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe ResourceId)
@@ -238,4 +242,4 @@ lhzbnrsIsTruncated = lens _lhzbnrsIsTruncated (\ s a -> s{_lhzbnrsIsTruncated = 
 lhzbnrsMaxItems :: Lens' ListHostedZonesByNameResponse Text
 lhzbnrsMaxItems = lens _lhzbnrsMaxItems (\ s a -> s{_lhzbnrsMaxItems = a});
 
-instance NFData ListHostedZonesByNameResponse
+instance NFData ListHostedZonesByNameResponse where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -427,39 +427,39 @@ module Network.AWS.ELBv2
     , thdTarget
     ) where
 
-import           Network.AWS.ELBv2.AddTags
-import           Network.AWS.ELBv2.CreateListener
-import           Network.AWS.ELBv2.CreateLoadBalancer
-import           Network.AWS.ELBv2.CreateRule
-import           Network.AWS.ELBv2.CreateTargetGroup
-import           Network.AWS.ELBv2.DeleteListener
-import           Network.AWS.ELBv2.DeleteLoadBalancer
-import           Network.AWS.ELBv2.DeleteRule
-import           Network.AWS.ELBv2.DeleteTargetGroup
-import           Network.AWS.ELBv2.DeregisterTargets
-import           Network.AWS.ELBv2.DescribeAccountLimits
-import           Network.AWS.ELBv2.DescribeListeners
-import           Network.AWS.ELBv2.DescribeLoadBalancerAttributes
-import           Network.AWS.ELBv2.DescribeLoadBalancers
-import           Network.AWS.ELBv2.DescribeRules
-import           Network.AWS.ELBv2.DescribeSSLPolicies
-import           Network.AWS.ELBv2.DescribeTags
-import           Network.AWS.ELBv2.DescribeTargetGroupAttributes
-import           Network.AWS.ELBv2.DescribeTargetGroups
-import           Network.AWS.ELBv2.DescribeTargetHealth
-import           Network.AWS.ELBv2.ModifyListener
-import           Network.AWS.ELBv2.ModifyLoadBalancerAttributes
-import           Network.AWS.ELBv2.ModifyRule
-import           Network.AWS.ELBv2.ModifyTargetGroup
-import           Network.AWS.ELBv2.ModifyTargetGroupAttributes
-import           Network.AWS.ELBv2.RegisterTargets
-import           Network.AWS.ELBv2.RemoveTags
-import           Network.AWS.ELBv2.SetIPAddressType
-import           Network.AWS.ELBv2.SetRulePriorities
-import           Network.AWS.ELBv2.SetSecurityGroups
-import           Network.AWS.ELBv2.SetSubnets
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Waiters
+import Network.AWS.ELBv2.AddTags
+import Network.AWS.ELBv2.CreateListener
+import Network.AWS.ELBv2.CreateLoadBalancer
+import Network.AWS.ELBv2.CreateRule
+import Network.AWS.ELBv2.CreateTargetGroup
+import Network.AWS.ELBv2.DeleteListener
+import Network.AWS.ELBv2.DeleteLoadBalancer
+import Network.AWS.ELBv2.DeleteRule
+import Network.AWS.ELBv2.DeleteTargetGroup
+import Network.AWS.ELBv2.DeregisterTargets
+import Network.AWS.ELBv2.DescribeAccountLimits
+import Network.AWS.ELBv2.DescribeListeners
+import Network.AWS.ELBv2.DescribeLoadBalancerAttributes
+import Network.AWS.ELBv2.DescribeLoadBalancers
+import Network.AWS.ELBv2.DescribeRules
+import Network.AWS.ELBv2.DescribeSSLPolicies
+import Network.AWS.ELBv2.DescribeTags
+import Network.AWS.ELBv2.DescribeTargetGroupAttributes
+import Network.AWS.ELBv2.DescribeTargetGroups
+import Network.AWS.ELBv2.DescribeTargetHealth
+import Network.AWS.ELBv2.ModifyListener
+import Network.AWS.ELBv2.ModifyLoadBalancerAttributes
+import Network.AWS.ELBv2.ModifyRule
+import Network.AWS.ELBv2.ModifyTargetGroup
+import Network.AWS.ELBv2.ModifyTargetGroupAttributes
+import Network.AWS.ELBv2.RegisterTargets
+import Network.AWS.ELBv2.RemoveTags
+import Network.AWS.ELBv2.SetIPAddressType
+import Network.AWS.ELBv2.SetRulePriorities
+import Network.AWS.ELBv2.SetSecurityGroups
+import Network.AWS.ELBv2.SetSubnets
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

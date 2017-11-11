@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.CreateTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.DynamoDB.CreateTable
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @CreateTable@ operation.
 --
@@ -62,14 +62,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createTable' smart constructor.
 data CreateTable = CreateTable'
-    { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
-    , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
-    , _ctStreamSpecification    :: !(Maybe StreamSpecification)
-    , _ctAttributeDefinitions   :: ![AttributeDefinition]
-    , _ctTableName              :: !Text
-    , _ctKeySchema              :: !(List1 KeySchemaElement)
-    , _ctProvisionedThroughput  :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctGlobalSecondaryIndexes :: {-# NOUNPACK #-}!(Maybe [GlobalSecondaryIndex])
+  , _ctLocalSecondaryIndexes  :: {-# NOUNPACK #-}!(Maybe [LocalSecondaryIndex])
+  , _ctStreamSpecification    :: {-# NOUNPACK #-}!(Maybe StreamSpecification)
+  , _ctAttributeDefinitions   :: {-# NOUNPACK #-}![AttributeDefinition]
+  , _ctTableName              :: {-# NOUNPACK #-}!Text
+  , _ctKeySchema              :: {-# NOUNPACK #-}!(List1 KeySchemaElement)
+  , _ctProvisionedThroughput  :: {-# NOUNPACK #-}!ProvisionedThroughput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTable' with the minimum fields required to make a request.
 --
@@ -94,15 +95,16 @@ createTable
     -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
     -> CreateTable
 createTable pTableName_ pKeySchema_ pProvisionedThroughput_ =
-    CreateTable'
-    { _ctGlobalSecondaryIndexes = Nothing
-    , _ctLocalSecondaryIndexes = Nothing
-    , _ctStreamSpecification = Nothing
-    , _ctAttributeDefinitions = mempty
-    , _ctTableName = pTableName_
-    , _ctKeySchema = _List1 # pKeySchema_
-    , _ctProvisionedThroughput = pProvisionedThroughput_
-    }
+  CreateTable'
+  { _ctGlobalSecondaryIndexes = Nothing
+  , _ctLocalSecondaryIndexes = Nothing
+  , _ctStreamSpecification = Nothing
+  , _ctAttributeDefinitions = mempty
+  , _ctTableName = pTableName_
+  , _ctKeySchema = _List1 # pKeySchema_
+  , _ctProvisionedThroughput = pProvisionedThroughput_
+  }
+
 
 -- | One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:     * @IndexName@ - The name of the global secondary index. Must be unique only for this table.     * @KeySchema@ - Specifies the key schema for the global secondary index.     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * @ProjectionType@ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
 ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
@@ -141,9 +143,9 @@ instance AWSRequest CreateTable where
                  CreateTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
-instance Hashable CreateTable
+instance Hashable CreateTable where
 
-instance NFData CreateTable
+instance NFData CreateTable where
 
 instance ToHeaders CreateTable where
         toHeaders
@@ -184,9 +186,10 @@ instance ToQuery CreateTable where
 --
 -- /See:/ 'createTableResponse' smart constructor.
 data CreateTableResponse = CreateTableResponse'
-    { _ctrsTableDescription :: !(Maybe TableDescription)
-    , _ctrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsTableDescription :: {-# NOUNPACK #-}!(Maybe TableDescription)
+  , _ctrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTableResponse' with the minimum fields required to make a request.
 --
@@ -199,10 +202,9 @@ createTableResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTableResponse
 createTableResponse pResponseStatus_ =
-    CreateTableResponse'
-    { _ctrsTableDescription = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTableResponse'
+  {_ctrsTableDescription = Nothing, _ctrsResponseStatus = pResponseStatus_}
+
 
 -- | Represents the properties of the table.
 ctrsTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
@@ -212,4 +214,4 @@ ctrsTableDescription = lens _ctrsTableDescription (\ s a -> s{_ctrsTableDescript
 ctrsResponseStatus :: Lens' CreateTableResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTableResponse
+instance NFData CreateTableResponse where

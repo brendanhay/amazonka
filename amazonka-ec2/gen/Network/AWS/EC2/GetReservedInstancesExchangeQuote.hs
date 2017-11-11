@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.GetReservedInstancesExchangeQuote
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.EC2.GetReservedInstancesExchangeQuote
     , grieqrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for GetReservedInstanceExchangeQuote.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getReservedInstancesExchangeQuote' smart constructor.
 data GetReservedInstancesExchangeQuote = GetReservedInstancesExchangeQuote'
-    { _grieqTargetConfigurations :: !(Maybe [TargetConfigurationRequest])
-    , _grieqDryRun               :: !(Maybe Bool)
-    , _grieqReservedInstanceIds  :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grieqTargetConfigurations :: {-# NOUNPACK #-}!(Maybe [TargetConfigurationRequest])
+  , _grieqDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _grieqReservedInstanceIds :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetReservedInstancesExchangeQuote' with the minimum fields required to make a request.
 --
@@ -77,11 +78,12 @@ data GetReservedInstancesExchangeQuote = GetReservedInstancesExchangeQuote'
 getReservedInstancesExchangeQuote
     :: GetReservedInstancesExchangeQuote
 getReservedInstancesExchangeQuote =
-    GetReservedInstancesExchangeQuote'
-    { _grieqTargetConfigurations = Nothing
-    , _grieqDryRun = Nothing
-    , _grieqReservedInstanceIds = mempty
-    }
+  GetReservedInstancesExchangeQuote'
+  { _grieqTargetConfigurations = Nothing
+  , _grieqDryRun = Nothing
+  , _grieqReservedInstanceIds = mempty
+  }
+
 
 -- | The configuration requirements of the Convertible Reserved Instances to exchange for your current Convertible Reserved Instances.
 grieqTargetConfigurations :: Lens' GetReservedInstancesExchangeQuote [TargetConfigurationRequest]
@@ -120,8 +122,10 @@ instance AWSRequest GetReservedInstancesExchangeQuote
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetReservedInstancesExchangeQuote
+         where
 
 instance NFData GetReservedInstancesExchangeQuote
+         where
 
 instance ToHeaders GetReservedInstancesExchangeQuote
          where
@@ -151,17 +155,18 @@ instance ToQuery GetReservedInstancesExchangeQuote
 --
 -- /See:/ 'getReservedInstancesExchangeQuoteResponse' smart constructor.
 data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuoteResponse'
-    { _grieqrsValidationFailureReason             :: !(Maybe Text)
-    , _grieqrsTargetConfigurationValueRollup      :: !(Maybe ReservationValue)
-    , _grieqrsCurrencyCode                        :: !(Maybe Text)
-    , _grieqrsTargetConfigurationValueSet         :: !(Maybe [TargetReservationValue])
-    , _grieqrsReservedInstanceValueRollup         :: !(Maybe ReservationValue)
-    , _grieqrsOutputReservedInstancesWillExpireAt :: !(Maybe ISO8601)
-    , _grieqrsReservedInstanceValueSet            :: !(Maybe [ReservedInstanceReservationValue])
-    , _grieqrsIsValidExchange                     :: !(Maybe Bool)
-    , _grieqrsPaymentDue                          :: !(Maybe Text)
-    , _grieqrsResponseStatus                      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grieqrsValidationFailureReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grieqrsTargetConfigurationValueRollup :: {-# NOUNPACK #-}!(Maybe ReservationValue)
+  , _grieqrsCurrencyCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grieqrsTargetConfigurationValueSet :: {-# NOUNPACK #-}!(Maybe [TargetReservationValue])
+  , _grieqrsReservedInstanceValueRollup :: {-# NOUNPACK #-}!(Maybe ReservationValue)
+  , _grieqrsOutputReservedInstancesWillExpireAt :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _grieqrsReservedInstanceValueSet :: {-# NOUNPACK #-}!(Maybe [ReservedInstanceReservationValue])
+  , _grieqrsIsValidExchange :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _grieqrsPaymentDue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grieqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetReservedInstancesExchangeQuoteResponse' with the minimum fields required to make a request.
 --
@@ -190,18 +195,19 @@ getReservedInstancesExchangeQuoteResponse
     :: Int -- ^ 'grieqrsResponseStatus'
     -> GetReservedInstancesExchangeQuoteResponse
 getReservedInstancesExchangeQuoteResponse pResponseStatus_ =
-    GetReservedInstancesExchangeQuoteResponse'
-    { _grieqrsValidationFailureReason = Nothing
-    , _grieqrsTargetConfigurationValueRollup = Nothing
-    , _grieqrsCurrencyCode = Nothing
-    , _grieqrsTargetConfigurationValueSet = Nothing
-    , _grieqrsReservedInstanceValueRollup = Nothing
-    , _grieqrsOutputReservedInstancesWillExpireAt = Nothing
-    , _grieqrsReservedInstanceValueSet = Nothing
-    , _grieqrsIsValidExchange = Nothing
-    , _grieqrsPaymentDue = Nothing
-    , _grieqrsResponseStatus = pResponseStatus_
-    }
+  GetReservedInstancesExchangeQuoteResponse'
+  { _grieqrsValidationFailureReason = Nothing
+  , _grieqrsTargetConfigurationValueRollup = Nothing
+  , _grieqrsCurrencyCode = Nothing
+  , _grieqrsTargetConfigurationValueSet = Nothing
+  , _grieqrsReservedInstanceValueRollup = Nothing
+  , _grieqrsOutputReservedInstancesWillExpireAt = Nothing
+  , _grieqrsReservedInstanceValueSet = Nothing
+  , _grieqrsIsValidExchange = Nothing
+  , _grieqrsPaymentDue = Nothing
+  , _grieqrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Describes the reason why the exchange cannot be completed.
 grieqrsValidationFailureReason :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
@@ -244,4 +250,5 @@ grieqrsResponseStatus :: Lens' GetReservedInstancesExchangeQuoteResponse Int
 grieqrsResponseStatus = lens _grieqrsResponseStatus (\ s a -> s{_grieqrsResponseStatus = a});
 
 instance NFData
-         GetReservedInstancesExchangeQuoteResponse
+           GetReservedInstancesExchangeQuoteResponse
+         where

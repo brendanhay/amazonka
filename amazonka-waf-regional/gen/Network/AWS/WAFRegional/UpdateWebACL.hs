@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateWebACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -68,20 +68,21 @@ module Network.AWS.WAFRegional.UpdateWebACL
     , uwarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'updateWebACL' smart constructor.
 data UpdateWebACL = UpdateWebACL'
-    { _uwaUpdates       :: !(Maybe [WebACLUpdate])
-    , _uwaDefaultAction :: !(Maybe WafAction)
-    , _uwaWebACLId      :: !Text
-    , _uwaChangeToken   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uwaUpdates       :: {-# NOUNPACK #-}!(Maybe [WebACLUpdate])
+  , _uwaDefaultAction :: {-# NOUNPACK #-}!(Maybe WafAction)
+  , _uwaWebACLId      :: {-# NOUNPACK #-}!Text
+  , _uwaChangeToken   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateWebACL' with the minimum fields required to make a request.
 --
@@ -99,12 +100,13 @@ updateWebACL
     -> Text -- ^ 'uwaChangeToken'
     -> UpdateWebACL
 updateWebACL pWebACLId_ pChangeToken_ =
-    UpdateWebACL'
-    { _uwaUpdates = Nothing
-    , _uwaDefaultAction = Nothing
-    , _uwaWebACLId = pWebACLId_
-    , _uwaChangeToken = pChangeToken_
-    }
+  UpdateWebACL'
+  { _uwaUpdates = Nothing
+  , _uwaDefaultAction = Nothing
+  , _uwaWebACLId = pWebACLId_
+  , _uwaChangeToken = pChangeToken_
+  }
+
 
 -- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , @RuleId@ , and @Type@      * 'WafAction' : Contains @Type@
 uwaUpdates :: Lens' UpdateWebACL [WebACLUpdate]
@@ -131,9 +133,9 @@ instance AWSRequest UpdateWebACL where
                  UpdateWebACLResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateWebACL
+instance Hashable UpdateWebACL where
 
-instance NFData UpdateWebACL
+instance NFData UpdateWebACL where
 
 instance ToHeaders UpdateWebACL where
         toHeaders
@@ -162,9 +164,10 @@ instance ToQuery UpdateWebACL where
 
 -- | /See:/ 'updateWebACLResponse' smart constructor.
 data UpdateWebACLResponse = UpdateWebACLResponse'
-    { _uwarsChangeToken    :: !(Maybe Text)
-    , _uwarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uwarsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateWebACLResponse' with the minimum fields required to make a request.
 --
@@ -177,10 +180,9 @@ updateWebACLResponse
     :: Int -- ^ 'uwarsResponseStatus'
     -> UpdateWebACLResponse
 updateWebACLResponse pResponseStatus_ =
-    UpdateWebACLResponse'
-    { _uwarsChangeToken = Nothing
-    , _uwarsResponseStatus = pResponseStatus_
-    }
+  UpdateWebACLResponse'
+  {_uwarsChangeToken = Nothing, _uwarsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @UpdateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 uwarsChangeToken :: Lens' UpdateWebACLResponse (Maybe Text)
@@ -190,4 +192,4 @@ uwarsChangeToken = lens _uwarsChangeToken (\ s a -> s{_uwarsChangeToken = a});
 uwarsResponseStatus :: Lens' UpdateWebACLResponse Int
 uwarsResponseStatus = lens _uwarsResponseStatus (\ s a -> s{_uwarsResponseStatus = a});
 
-instance NFData UpdateWebACLResponse
+instance NFData UpdateWebACLResponse where

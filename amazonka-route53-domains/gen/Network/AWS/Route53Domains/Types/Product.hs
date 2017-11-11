@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Route53Domains.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Route53Domains.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Route53Domains.Types.Sum
 
 -- | Information for one billing record.
 --
@@ -27,12 +27,13 @@ import           Network.AWS.Route53Domains.Types.Sum
 --
 -- /See:/ 'billingRecord' smart constructor.
 data BillingRecord = BillingRecord'
-    { _brOperation  :: !(Maybe OperationType)
-    , _brInvoiceId  :: !(Maybe Text)
-    , _brDomainName :: !(Maybe Text)
-    , _brBillDate   :: !(Maybe POSIX)
-    , _brPrice      :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _brOperation  :: {-# NOUNPACK #-}!(Maybe OperationType)
+  , _brInvoiceId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _brDomainName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _brBillDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _brPrice      :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BillingRecord' with the minimum fields required to make a request.
 --
@@ -50,13 +51,14 @@ data BillingRecord = BillingRecord'
 billingRecord
     :: BillingRecord
 billingRecord =
-    BillingRecord'
-    { _brOperation = Nothing
-    , _brInvoiceId = Nothing
-    , _brDomainName = Nothing
-    , _brBillDate = Nothing
-    , _brPrice = Nothing
-    }
+  BillingRecord'
+  { _brOperation = Nothing
+  , _brInvoiceId = Nothing
+  , _brDomainName = Nothing
+  , _brBillDate = Nothing
+  , _brPrice = Nothing
+  }
+
 
 -- | The operation that you were charged for.
 brOperation :: Lens' BillingRecord (Maybe OperationType)
@@ -88,9 +90,9 @@ instance FromJSON BillingRecord where
                      <*> (x .:? "BillDate")
                      <*> (x .:? "Price"))
 
-instance Hashable BillingRecord
+instance Hashable BillingRecord where
 
-instance NFData BillingRecord
+instance NFData BillingRecord where
 
 -- | ContactDetail includes the following elements.
 --
@@ -98,21 +100,22 @@ instance NFData BillingRecord
 --
 -- /See:/ 'contactDetail' smart constructor.
 data ContactDetail = ContactDetail'
-    { _cdOrganizationName :: !(Maybe Text)
-    , _cdEmail            :: !(Maybe Text)
-    , _cdState            :: !(Maybe Text)
-    , _cdFax              :: !(Maybe Text)
-    , _cdLastName         :: !(Maybe Text)
-    , _cdExtraParams      :: !(Maybe [ExtraParam])
-    , _cdZipCode          :: !(Maybe Text)
-    , _cdAddressLine1     :: !(Maybe Text)
-    , _cdCity             :: !(Maybe Text)
-    , _cdPhoneNumber      :: !(Maybe Text)
-    , _cdAddressLine2     :: !(Maybe Text)
-    , _cdFirstName        :: !(Maybe Text)
-    , _cdCountryCode      :: !(Maybe CountryCode)
-    , _cdContactType      :: !(Maybe ContactType)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cdOrganizationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdEmail            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdState            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdFax              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdLastName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdExtraParams      :: {-# NOUNPACK #-}!(Maybe [ExtraParam])
+  , _cdZipCode          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdAddressLine1     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdCity             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdPhoneNumber      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdAddressLine2     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdFirstName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdCountryCode      :: {-# NOUNPACK #-}!(Maybe CountryCode)
+  , _cdContactType      :: {-# NOUNPACK #-}!(Maybe ContactType)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContactDetail' with the minimum fields required to make a request.
 --
@@ -148,22 +151,23 @@ data ContactDetail = ContactDetail'
 contactDetail
     :: ContactDetail
 contactDetail =
-    ContactDetail'
-    { _cdOrganizationName = Nothing
-    , _cdEmail = Nothing
-    , _cdState = Nothing
-    , _cdFax = Nothing
-    , _cdLastName = Nothing
-    , _cdExtraParams = Nothing
-    , _cdZipCode = Nothing
-    , _cdAddressLine1 = Nothing
-    , _cdCity = Nothing
-    , _cdPhoneNumber = Nothing
-    , _cdAddressLine2 = Nothing
-    , _cdFirstName = Nothing
-    , _cdCountryCode = Nothing
-    , _cdContactType = Nothing
-    }
+  ContactDetail'
+  { _cdOrganizationName = Nothing
+  , _cdEmail = Nothing
+  , _cdState = Nothing
+  , _cdFax = Nothing
+  , _cdLastName = Nothing
+  , _cdExtraParams = Nothing
+  , _cdZipCode = Nothing
+  , _cdAddressLine1 = Nothing
+  , _cdCity = Nothing
+  , _cdPhoneNumber = Nothing
+  , _cdAddressLine2 = Nothing
+  , _cdFirstName = Nothing
+  , _cdCountryCode = Nothing
+  , _cdContactType = Nothing
+  }
+
 
 -- | Name of the organization for contact types other than @PERSON@ .
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
@@ -240,9 +244,9 @@ instance FromJSON ContactDetail where
                      <*> (x .:? "CountryCode")
                      <*> (x .:? "ContactType"))
 
-instance Hashable ContactDetail
+instance Hashable ContactDetail where
 
-instance NFData ContactDetail
+instance NFData ContactDetail where
 
 instance ToJSON ContactDetail where
         toJSON ContactDetail'{..}
@@ -268,9 +272,10 @@ instance ToJSON ContactDetail where
 --
 -- /See:/ 'domainSuggestion' smart constructor.
 data DomainSuggestion = DomainSuggestion'
-    { _dAvailability :: !(Maybe Text)
-    , _dDomainName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dAvailability :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDomainName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainSuggestion' with the minimum fields required to make a request.
 --
@@ -282,10 +287,8 @@ data DomainSuggestion = DomainSuggestion'
 domainSuggestion
     :: DomainSuggestion
 domainSuggestion =
-    DomainSuggestion'
-    { _dAvailability = Nothing
-    , _dDomainName = Nothing
-    }
+  DomainSuggestion' {_dAvailability = Nothing, _dDomainName = Nothing}
+
 
 -- | Whether the domain name is available for registering. Valid values:     * AVAILABLE    * The domain name is available.     * AVAILABLE_RESERVED    * The domain name is reserved under specific conditions.     * AVAILABLE_PREORDER    * The domain name is available and can be preordered.     * DONT_KNOW    * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.     * PENDING    * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.     * RESERVED    * The domain name has been reserved for another person or organization.     * UNAVAILABLE    * The domain name is not available.     * UNAVAILABLE_PREMIUM    * The domain name is not available.     * UNAVAILABLE_RESTRICTED    * The domain name is forbidden.
 dAvailability :: Lens' DomainSuggestion (Maybe Text)
@@ -302,9 +305,9 @@ instance FromJSON DomainSuggestion where
                  DomainSuggestion' <$>
                    (x .:? "Availability") <*> (x .:? "DomainName"))
 
-instance Hashable DomainSuggestion
+instance Hashable DomainSuggestion where
 
-instance NFData DomainSuggestion
+instance NFData DomainSuggestion where
 
 -- | Summary information about one domain.
 --
@@ -312,11 +315,12 @@ instance NFData DomainSuggestion
 --
 -- /See:/ 'domainSummary' smart constructor.
 data DomainSummary = DomainSummary'
-    { _dsExpiry       :: !(Maybe POSIX)
-    , _dsTransferLock :: !(Maybe Bool)
-    , _dsAutoRenew    :: !(Maybe Bool)
-    , _dsDomainName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsExpiry       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dsTransferLock :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsAutoRenew    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsDomainName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainSummary' with the minimum fields required to make a request.
 --
@@ -333,12 +337,13 @@ domainSummary
     :: Text -- ^ 'dsDomainName'
     -> DomainSummary
 domainSummary pDomainName_ =
-    DomainSummary'
-    { _dsExpiry = Nothing
-    , _dsTransferLock = Nothing
-    , _dsAutoRenew = Nothing
-    , _dsDomainName = pDomainName_
-    }
+  DomainSummary'
+  { _dsExpiry = Nothing
+  , _dsTransferLock = Nothing
+  , _dsAutoRenew = Nothing
+  , _dsDomainName = pDomainName_
+  }
+
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC).
 dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
@@ -365,9 +370,9 @@ instance FromJSON DomainSummary where
                      (x .:? "AutoRenew")
                      <*> (x .: "DomainName"))
 
-instance Hashable DomainSummary
+instance Hashable DomainSummary where
 
-instance NFData DomainSummary
+instance NFData DomainSummary where
 
 -- | ExtraParam includes the following elements.
 --
@@ -375,9 +380,10 @@ instance NFData DomainSummary
 --
 -- /See:/ 'extraParam' smart constructor.
 data ExtraParam = ExtraParam'
-    { _epName  :: !ExtraParamName
-    , _epValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _epName  :: {-# NOUNPACK #-}!ExtraParamName
+  , _epValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExtraParam' with the minimum fields required to make a request.
 --
@@ -390,11 +396,8 @@ extraParam
     :: ExtraParamName -- ^ 'epName'
     -> Text -- ^ 'epValue'
     -> ExtraParam
-extraParam pName_ pValue_ =
-    ExtraParam'
-    { _epName = pName_
-    , _epValue = pValue_
-    }
+extraParam pName_ pValue_ = ExtraParam' {_epName = pName_, _epValue = pValue_}
+
 
 -- | Name of the additional parameter required by the top-level domain.
 epName :: Lens' ExtraParam ExtraParamName
@@ -410,9 +413,9 @@ instance FromJSON ExtraParam where
               (\ x ->
                  ExtraParam' <$> (x .: "Name") <*> (x .: "Value"))
 
-instance Hashable ExtraParam
+instance Hashable ExtraParam where
 
-instance NFData ExtraParam
+instance NFData ExtraParam where
 
 instance ToJSON ExtraParam where
         toJSON ExtraParam'{..}
@@ -427,9 +430,10 @@ instance ToJSON ExtraParam where
 --
 -- /See:/ 'nameserver' smart constructor.
 data Nameserver = Nameserver'
-    { _nGlueIPs :: !(Maybe [Text])
-    , _nName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nGlueIPs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _nName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Nameserver' with the minimum fields required to make a request.
 --
@@ -441,11 +445,8 @@ data Nameserver = Nameserver'
 nameserver
     :: Text -- ^ 'nName'
     -> Nameserver
-nameserver pName_ =
-    Nameserver'
-    { _nGlueIPs = Nothing
-    , _nName = pName_
-    }
+nameserver pName_ = Nameserver' {_nGlueIPs = Nothing, _nName = pName_}
+
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com. Constraints: The list can contain only one IPv4 and one IPv6 address.
 nGlueIPs :: Lens' Nameserver [Text]
@@ -462,9 +463,9 @@ instance FromJSON Nameserver where
                  Nameserver' <$>
                    (x .:? "GlueIps" .!= mempty) <*> (x .: "Name"))
 
-instance Hashable Nameserver
+instance Hashable Nameserver where
 
-instance NFData Nameserver
+instance NFData Nameserver where
 
 instance ToJSON Nameserver where
         toJSON Nameserver'{..}
@@ -479,11 +480,12 @@ instance ToJSON Nameserver where
 --
 -- /See:/ 'operationSummary' smart constructor.
 data OperationSummary = OperationSummary'
-    { _osOperationId   :: !Text
-    , _osStatus        :: !OperationStatus
-    , _osType          :: !OperationType
-    , _osSubmittedDate :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _osOperationId   :: {-# NOUNPACK #-}!Text
+  , _osStatus        :: {-# NOUNPACK #-}!OperationStatus
+  , _osType          :: {-# NOUNPACK #-}!OperationType
+  , _osSubmittedDate :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OperationSummary' with the minimum fields required to make a request.
 --
@@ -503,12 +505,13 @@ operationSummary
     -> UTCTime -- ^ 'osSubmittedDate'
     -> OperationSummary
 operationSummary pOperationId_ pStatus_ pType_ pSubmittedDate_ =
-    OperationSummary'
-    { _osOperationId = pOperationId_
-    , _osStatus = pStatus_
-    , _osType = pType_
-    , _osSubmittedDate = _Time # pSubmittedDate_
-    }
+  OperationSummary'
+  { _osOperationId = pOperationId_
+  , _osStatus = pStatus_
+  , _osType = pType_
+  , _osSubmittedDate = _Time # pSubmittedDate_
+  }
+
 
 -- | Identifier returned to track the requested action.
 osOperationId :: Lens' OperationSummary Text
@@ -535,9 +538,9 @@ instance FromJSON OperationSummary where
                      (x .: "Type")
                      <*> (x .: "SubmittedDate"))
 
-instance Hashable OperationSummary
+instance Hashable OperationSummary where
 
-instance NFData OperationSummary
+instance NFData OperationSummary where
 
 -- | Each tag includes the following elements.
 --
@@ -545,9 +548,10 @@ instance NFData OperationSummary
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -558,11 +562,8 @@ data Tag = Tag'
 -- * 'tagKey' - The key (name) of a tag. Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each key can be 1-128 characters long.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The value of a tag. Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each value can be 0-256 characters long.
 tagValue :: Lens' Tag (Maybe Text)
@@ -577,9 +578,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.ElastiCache.ListTagsForResource
     , tlmTagList
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input parameters for the @ListTagsForResource@ operation.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-    { _ltfrResourceName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrResourceName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ listTagsForResource
     :: Text -- ^ 'ltfrResourceName'
     -> ListTagsForResource
 listTagsForResource pResourceName_ =
-    ListTagsForResource'
-    { _ltfrResourceName = pResourceName_
-    }
+  ListTagsForResource' {_ltfrResourceName = pResourceName_}
+
 
 -- | The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 ltfrResourceName :: Lens' ListTagsForResource Text
@@ -78,9 +78,9 @@ instance AWSRequest ListTagsForResource where
           = receiveXMLWrapper "ListTagsForResourceResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty

@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.AWSHealth.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data EntityStatusCode
-    = Impaired
-    | Unimpaired
-    | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Impaired
+  | Unimpaired
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EntityStatusCode where
     parser = takeLowerText >>= \case
@@ -52,8 +53,9 @@ instance FromJSON EntityStatusCode where
     parseJSON = parseJSONText "EntityStatusCode"
 
 data EventAggregateField =
-    EventTypeCategory
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  EventTypeCategory
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventAggregateField where
     parser = takeLowerText >>= \case
@@ -75,10 +77,11 @@ instance ToJSON EventAggregateField where
     toJSON = toJSONText
 
 data EventStatusCode
-    = Closed
-    | Open
-    | Upcoming
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Closed
+  | Open
+  | Upcoming
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventStatusCode where
     parser = takeLowerText >>= \case
@@ -107,10 +110,11 @@ instance FromJSON EventStatusCode where
     parseJSON = parseJSONText "EventStatusCode"
 
 data EventTypeCategory
-    = AccountNotification
-    | Issue
-    | ScheduledChange
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AccountNotification
+  | Issue
+  | ScheduledChange
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventTypeCategory where
     parser = takeLowerText >>= \case

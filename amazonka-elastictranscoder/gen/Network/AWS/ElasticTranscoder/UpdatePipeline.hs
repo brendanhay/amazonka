@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     , uprsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @UpdatePipelineRequest@ structure.
 --
@@ -60,15 +60,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
-    { _upInputBucket     :: !(Maybe Text)
-    , _upContentConfig   :: !(Maybe PipelineOutputConfig)
-    , _upRole            :: !(Maybe Text)
-    , _upName            :: !(Maybe Text)
-    , _upAWSKMSKeyARN    :: !(Maybe Text)
-    , _upNotifications   :: !(Maybe Notifications)
-    , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
-    , _upId              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upInputBucket     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upContentConfig   :: {-# NOUNPACK #-}!(Maybe PipelineOutputConfig)
+  , _upRole            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upAWSKMSKeyARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upNotifications   :: {-# NOUNPACK #-}!(Maybe Notifications)
+  , _upThumbnailConfig :: {-# NOUNPACK #-}!(Maybe PipelineOutputConfig)
+  , _upId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePipeline' with the minimum fields required to make a request.
 --
@@ -93,16 +94,17 @@ updatePipeline
     :: Text -- ^ 'upId'
     -> UpdatePipeline
 updatePipeline pId_ =
-    UpdatePipeline'
-    { _upInputBucket = Nothing
-    , _upContentConfig = Nothing
-    , _upRole = Nothing
-    , _upName = Nothing
-    , _upAWSKMSKeyARN = Nothing
-    , _upNotifications = Nothing
-    , _upThumbnailConfig = Nothing
-    , _upId = pId_
-    }
+  UpdatePipeline'
+  { _upInputBucket = Nothing
+  , _upContentConfig = Nothing
+  , _upRole = Nothing
+  , _upName = Nothing
+  , _upAWSKMSKeyARN = Nothing
+  , _upNotifications = Nothing
+  , _upThumbnailConfig = Nothing
+  , _upId = pId_
+  }
+
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
 upInputBucket :: Lens' UpdatePipeline (Maybe Text)
@@ -146,9 +148,9 @@ instance AWSRequest UpdatePipeline where
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdatePipeline
+instance Hashable UpdatePipeline where
 
-instance NFData UpdatePipeline
+instance NFData UpdatePipeline where
 
 instance ToHeaders UpdatePipeline where
         toHeaders = const mempty
@@ -177,10 +179,11 @@ instance ToQuery UpdatePipeline where
 --
 -- /See:/ 'updatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
-    { _uprsWarnings       :: !(Maybe [Warning])
-    , _uprsPipeline       :: !(Maybe Pipeline)
-    , _uprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uprsWarnings       :: {-# NOUNPACK #-}!(Maybe [Warning])
+  , _uprsPipeline       :: {-# NOUNPACK #-}!(Maybe Pipeline)
+  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
 --
@@ -195,11 +198,12 @@ updatePipelineResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UpdatePipelineResponse
 updatePipelineResponse pResponseStatus_ =
-    UpdatePipelineResponse'
-    { _uprsWarnings = Nothing
-    , _uprsPipeline = Nothing
-    , _uprsResponseStatus = pResponseStatus_
-    }
+  UpdatePipelineResponse'
+  { _uprsWarnings = Nothing
+  , _uprsPipeline = Nothing
+  , _uprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline. Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
 uprsWarnings :: Lens' UpdatePipelineResponse [Warning]
@@ -213,4 +217,4 @@ uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 uprsResponseStatus :: Lens' UpdatePipelineResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 
-instance NFData UpdatePipelineResponse
+instance NFData UpdatePipelineResponse where

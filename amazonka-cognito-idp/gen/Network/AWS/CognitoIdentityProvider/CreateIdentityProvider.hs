@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateIdentityProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,22 +42,23 @@ module Network.AWS.CognitoIdentityProvider.CreateIdentityProvider
     , ciprsIdentityProvider
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createIdentityProvider' smart constructor.
 data CreateIdentityProvider = CreateIdentityProvider'
-    { _cipIdpIdentifiers   :: !(Maybe [Text])
-    , _cipAttributeMapping :: !(Maybe (Map Text Text))
-    , _cipUserPoolId       :: !Text
-    , _cipProviderName     :: !Text
-    , _cipProviderType     :: !IdentityProviderTypeType
-    , _cipProviderDetails  :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cipIdpIdentifiers   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cipAttributeMapping :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cipUserPoolId       :: {-# NOUNPACK #-}!Text
+  , _cipProviderName     :: {-# NOUNPACK #-}!Text
+  , _cipProviderType     :: {-# NOUNPACK #-}!IdentityProviderTypeType
+  , _cipProviderDetails  :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIdentityProvider' with the minimum fields required to make a request.
 --
@@ -80,14 +81,15 @@ createIdentityProvider
     -> IdentityProviderTypeType -- ^ 'cipProviderType'
     -> CreateIdentityProvider
 createIdentityProvider pUserPoolId_ pProviderName_ pProviderType_ =
-    CreateIdentityProvider'
-    { _cipIdpIdentifiers = Nothing
-    , _cipAttributeMapping = Nothing
-    , _cipUserPoolId = pUserPoolId_
-    , _cipProviderName = pProviderName_
-    , _cipProviderType = pProviderType_
-    , _cipProviderDetails = mempty
-    }
+  CreateIdentityProvider'
+  { _cipIdpIdentifiers = Nothing
+  , _cipAttributeMapping = Nothing
+  , _cipUserPoolId = pUserPoolId_
+  , _cipProviderName = pProviderName_
+  , _cipProviderType = pProviderType_
+  , _cipProviderDetails = mempty
+  }
+
 
 -- | A list of identity provider identifiers.
 cipIdpIdentifiers :: Lens' CreateIdentityProvider [Text]
@@ -123,9 +125,9 @@ instance AWSRequest CreateIdentityProvider where
                  CreateIdentityProviderResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "IdentityProvider"))
 
-instance Hashable CreateIdentityProvider
+instance Hashable CreateIdentityProvider where
 
-instance NFData CreateIdentityProvider
+instance NFData CreateIdentityProvider where
 
 instance ToHeaders CreateIdentityProvider where
         toHeaders
@@ -156,9 +158,10 @@ instance ToQuery CreateIdentityProvider where
 
 -- | /See:/ 'createIdentityProviderResponse' smart constructor.
 data CreateIdentityProviderResponse = CreateIdentityProviderResponse'
-    { _ciprsResponseStatus   :: !Int
-    , _ciprsIdentityProvider :: !IdentityProviderType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _ciprsIdentityProvider :: {-# NOUNPACK #-}!IdentityProviderType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIdentityProviderResponse' with the minimum fields required to make a request.
 --
@@ -172,10 +175,11 @@ createIdentityProviderResponse
     -> IdentityProviderType -- ^ 'ciprsIdentityProvider'
     -> CreateIdentityProviderResponse
 createIdentityProviderResponse pResponseStatus_ pIdentityProvider_ =
-    CreateIdentityProviderResponse'
-    { _ciprsResponseStatus = pResponseStatus_
-    , _ciprsIdentityProvider = pIdentityProvider_
-    }
+  CreateIdentityProviderResponse'
+  { _ciprsResponseStatus = pResponseStatus_
+  , _ciprsIdentityProvider = pIdentityProvider_
+  }
+
 
 -- | -- | The response status code.
 ciprsResponseStatus :: Lens' CreateIdentityProviderResponse Int
@@ -185,4 +189,4 @@ ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus
 ciprsIdentityProvider :: Lens' CreateIdentityProviderResponse IdentityProviderType
 ciprsIdentityProvider = lens _ciprsIdentityProvider (\ s a -> s{_ciprsIdentityProvider = a});
 
-instance NFData CreateIdentityProviderResponse
+instance NFData CreateIdentityProviderResponse where

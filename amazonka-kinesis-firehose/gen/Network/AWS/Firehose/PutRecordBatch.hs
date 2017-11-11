@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.PutRecordBatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,18 +57,19 @@ module Network.AWS.Firehose.PutRecordBatch
     , prbrsRequestResponses
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putRecordBatch' smart constructor.
 data PutRecordBatch = PutRecordBatch'
-    { _prbDeliveryStreamName :: !Text
-    , _prbRecords            :: !(List1 Record)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prbDeliveryStreamName :: {-# NOUNPACK #-}!Text
+  , _prbRecords            :: {-# NOUNPACK #-}!(List1 Record)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecordBatch' with the minimum fields required to make a request.
 --
@@ -82,10 +83,11 @@ putRecordBatch
     -> NonEmpty Record -- ^ 'prbRecords'
     -> PutRecordBatch
 putRecordBatch pDeliveryStreamName_ pRecords_ =
-    PutRecordBatch'
-    { _prbDeliveryStreamName = pDeliveryStreamName_
-    , _prbRecords = _List1 # pRecords_
-    }
+  PutRecordBatch'
+  { _prbDeliveryStreamName = pDeliveryStreamName_
+  , _prbRecords = _List1 # pRecords_
+  }
+
 
 -- | The name of the delivery stream.
 prbDeliveryStreamName :: Lens' PutRecordBatch Text
@@ -105,9 +107,9 @@ instance AWSRequest PutRecordBatch where
                    (pure (fromEnum s)) <*> (x .:> "FailedPutCount") <*>
                      (x .:> "RequestResponses"))
 
-instance Hashable PutRecordBatch
+instance Hashable PutRecordBatch where
 
-instance NFData PutRecordBatch
+instance NFData PutRecordBatch where
 
 instance ToHeaders PutRecordBatch where
         toHeaders
@@ -134,10 +136,11 @@ instance ToQuery PutRecordBatch where
 
 -- | /See:/ 'putRecordBatchResponse' smart constructor.
 data PutRecordBatchResponse = PutRecordBatchResponse'
-    { _prbrsResponseStatus   :: !Int
-    , _prbrsFailedPutCount   :: !Nat
-    , _prbrsRequestResponses :: !(List1 PutRecordBatchResponseEntry)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _prbrsFailedPutCount :: {-# NOUNPACK #-}!Nat
+  , _prbrsRequestResponses :: {-# NOUNPACK #-}!(List1 PutRecordBatchResponseEntry)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecordBatchResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ putRecordBatchResponse
     -> NonEmpty PutRecordBatchResponseEntry -- ^ 'prbrsRequestResponses'
     -> PutRecordBatchResponse
 putRecordBatchResponse pResponseStatus_ pFailedPutCount_ pRequestResponses_ =
-    PutRecordBatchResponse'
-    { _prbrsResponseStatus = pResponseStatus_
-    , _prbrsFailedPutCount = _Nat # pFailedPutCount_
-    , _prbrsRequestResponses = _List1 # pRequestResponses_
-    }
+  PutRecordBatchResponse'
+  { _prbrsResponseStatus = pResponseStatus_
+  , _prbrsFailedPutCount = _Nat # pFailedPutCount_
+  , _prbrsRequestResponses = _List1 # pRequestResponses_
+  }
+
 
 -- | -- | The response status code.
 prbrsResponseStatus :: Lens' PutRecordBatchResponse Int
@@ -172,4 +176,4 @@ prbrsFailedPutCount = lens _prbrsFailedPutCount (\ s a -> s{_prbrsFailedPutCount
 prbrsRequestResponses :: Lens' PutRecordBatchResponse (NonEmpty PutRecordBatchResponseEntry)
 prbrsRequestResponses = lens _prbrsRequestResponses (\ s a -> s{_prbrsRequestResponses = a}) . _List1;
 
-instance NFData PutRecordBatchResponse
+instance NFData PutRecordBatchResponse where

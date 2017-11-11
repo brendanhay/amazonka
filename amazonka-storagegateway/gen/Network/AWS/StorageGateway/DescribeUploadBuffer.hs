@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeUploadBuffer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,17 +42,18 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     , dubrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'describeUploadBuffer' smart constructor.
 newtype DescribeUploadBuffer = DescribeUploadBuffer'
-    { _dubGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dubGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUploadBuffer' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ describeUploadBuffer
     :: Text -- ^ 'dubGatewayARN'
     -> DescribeUploadBuffer
 describeUploadBuffer pGatewayARN_ =
-    DescribeUploadBuffer'
-    { _dubGatewayARN = pGatewayARN_
-    }
+  DescribeUploadBuffer' {_dubGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dubGatewayARN :: Lens' DescribeUploadBuffer Text
@@ -85,9 +85,9 @@ instance AWSRequest DescribeUploadBuffer where
                      <*> (x .?> "UploadBufferUsedInBytes")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeUploadBuffer
+instance Hashable DescribeUploadBuffer where
 
-instance NFData DescribeUploadBuffer
+instance NFData DescribeUploadBuffer where
 
 instance ToHeaders DescribeUploadBuffer where
         toHeaders
@@ -112,12 +112,13 @@ instance ToQuery DescribeUploadBuffer where
 
 -- | /See:/ 'describeUploadBufferResponse' smart constructor.
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
-    { _dubrsUploadBufferAllocatedInBytes :: !(Maybe Integer)
-    , _dubrsGatewayARN                   :: !(Maybe Text)
-    , _dubrsDiskIds                      :: !(Maybe [Text])
-    , _dubrsUploadBufferUsedInBytes      :: !(Maybe Integer)
-    , _dubrsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dubrsUploadBufferAllocatedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dubrsGatewayARN                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dubrsDiskIds                      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dubrsUploadBufferUsedInBytes      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dubrsResponseStatus               :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUploadBufferResponse' with the minimum fields required to make a request.
 --
@@ -136,13 +137,14 @@ describeUploadBufferResponse
     :: Int -- ^ 'dubrsResponseStatus'
     -> DescribeUploadBufferResponse
 describeUploadBufferResponse pResponseStatus_ =
-    DescribeUploadBufferResponse'
-    { _dubrsUploadBufferAllocatedInBytes = Nothing
-    , _dubrsGatewayARN = Nothing
-    , _dubrsDiskIds = Nothing
-    , _dubrsUploadBufferUsedInBytes = Nothing
-    , _dubrsResponseStatus = pResponseStatus_
-    }
+  DescribeUploadBufferResponse'
+  { _dubrsUploadBufferAllocatedInBytes = Nothing
+  , _dubrsGatewayARN = Nothing
+  , _dubrsDiskIds = Nothing
+  , _dubrsUploadBufferUsedInBytes = Nothing
+  , _dubrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dubrsUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
@@ -164,4 +166,4 @@ dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_d
 dubrsResponseStatus :: Lens' DescribeUploadBufferResponse Int
 dubrsResponseStatus = lens _dubrsResponseStatus (\ s a -> s{_dubrsResponseStatus = a});
 
-instance NFData DescribeUploadBufferResponse
+instance NFData DescribeUploadBufferResponse where

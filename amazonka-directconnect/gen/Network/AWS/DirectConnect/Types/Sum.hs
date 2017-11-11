@@ -9,15 +9,15 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DirectConnect.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 -- | Indicates the address family for the BGP peer.
 --
@@ -29,9 +29,10 @@ import           Network.AWS.Prelude
 --
 --
 data AddressFamily
-    = IPV4
-    | IPV6
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = IPV4
+  | IPV6
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AddressFamily where
     parser = takeLowerText >>= \case
@@ -73,12 +74,13 @@ instance FromJSON AddressFamily where
 --
 --
 data BGPPeerState
-    = Available
-    | Deleted
-    | Deleting
-    | Pending
-    | Verifying
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | Deleted
+  | Deleting
+  | Pending
+  | Verifying
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BGPPeerState where
     parser = takeLowerText >>= \case
@@ -117,9 +119,10 @@ instance FromJSON BGPPeerState where
 --
 --
 data BGPStatus
-    = Down
-    | UP
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Down
+  | UP
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BGPStatus where
     parser = takeLowerText >>= \case
@@ -164,15 +167,16 @@ instance FromJSON BGPStatus where
 --
 --
 data ConnectionState
-    = CSAvailable
-    | CSDeleted
-    | CSDeleting
-    | CSDown
-    | CSOrdering
-    | CSPending
-    | CSRejected
-    | CSRequested
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSAvailable
+  | CSDeleted
+  | CSDeleting
+  | CSDown
+  | CSOrdering
+  | CSPending
+  | CSRejected
+  | CSRequested
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConnectionState where
     parser = takeLowerText >>= \case
@@ -225,13 +229,14 @@ instance FromJSON ConnectionState where
 --
 --
 data InterconnectState
-    = ISAvailable
-    | ISDeleted
-    | ISDeleting
-    | ISDown
-    | ISPending
-    | ISRequested
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISAvailable
+  | ISDeleted
+  | ISDeleting
+  | ISDown
+  | ISPending
+  | ISRequested
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InterconnectState where
     parser = takeLowerText >>= \case
@@ -280,13 +285,14 @@ instance FromJSON InterconnectState where
 --
 --
 data LagState
-    = LSAvailable
-    | LSDeleted
-    | LSDeleting
-    | LSDown
-    | LSPending
-    | LSRequested
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LSAvailable
+  | LSDeleted
+  | LSDeleting
+  | LSDown
+  | LSPending
+  | LSRequested
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LagState where
     parser = takeLowerText >>= \case
@@ -323,8 +329,9 @@ instance FromJSON LagState where
 -- Default: application/pdf
 --
 data LoaContentType =
-    ApplicationPdf
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  ApplicationPdf
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LoaContentType where
     parser = takeLowerText >>= \case
@@ -370,15 +377,16 @@ instance FromJSON LoaContentType where
 --
 --
 data VirtualInterfaceState
-    = VISAvailable
-    | VISConfirming
-    | VISDeleted
-    | VISDeleting
-    | VISDown
-    | VISPending
-    | VISRejected
-    | VISVerifying
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VISAvailable
+  | VISConfirming
+  | VISDeleted
+  | VISDeleting
+  | VISDown
+  | VISPending
+  | VISRejected
+  | VISVerifying
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VirtualInterfaceState where
     parser = takeLowerText >>= \case

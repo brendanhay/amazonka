@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegmentVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,20 +38,21 @@ module Network.AWS.Pinpoint.GetSegmentVersions
     , grsSegmentsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSegmentVersions' smart constructor.
 data GetSegmentVersions = GetSegmentVersions'
-    { _gsvToken         :: !(Maybe Text)
-    , _gsvPageSize      :: !(Maybe Text)
-    , _gsvSegmentId     :: !Text
-    , _gsvApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsvToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsvPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsvSegmentId     :: {-# NOUNPACK #-}!Text
+  , _gsvApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegmentVersions' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ getSegmentVersions
     -> Text -- ^ 'gsvApplicationId'
     -> GetSegmentVersions
 getSegmentVersions pSegmentId_ pApplicationId_ =
-    GetSegmentVersions'
-    { _gsvToken = Nothing
-    , _gsvPageSize = Nothing
-    , _gsvSegmentId = pSegmentId_
-    , _gsvApplicationId = pApplicationId_
-    }
+  GetSegmentVersions'
+  { _gsvToken = Nothing
+  , _gsvPageSize = Nothing
+  , _gsvSegmentId = pSegmentId_
+  , _gsvApplicationId = pApplicationId_
+  }
+
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gsvToken :: Lens' GetSegmentVersions (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest GetSegmentVersions where
                  GetSegmentVersionsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetSegmentVersions
+instance Hashable GetSegmentVersions where
 
-instance NFData GetSegmentVersions
+instance NFData GetSegmentVersions where
 
 instance ToHeaders GetSegmentVersions where
         toHeaders
@@ -126,9 +128,10 @@ instance ToQuery GetSegmentVersions where
 
 -- | /See:/ 'getSegmentVersionsResponse' smart constructor.
 data GetSegmentVersionsResponse = GetSegmentVersionsResponse'
-    { _grsResponseStatus   :: !Int
-    , _grsSegmentsResponse :: !SegmentsResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _grsSegmentsResponse :: {-# NOUNPACK #-}!SegmentsResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegmentVersionsResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,11 @@ getSegmentVersionsResponse
     -> SegmentsResponse -- ^ 'grsSegmentsResponse'
     -> GetSegmentVersionsResponse
 getSegmentVersionsResponse pResponseStatus_ pSegmentsResponse_ =
-    GetSegmentVersionsResponse'
-    { _grsResponseStatus = pResponseStatus_
-    , _grsSegmentsResponse = pSegmentsResponse_
-    }
+  GetSegmentVersionsResponse'
+  { _grsResponseStatus = pResponseStatus_
+  , _grsSegmentsResponse = pSegmentsResponse_
+  }
+
 
 -- | -- | The response status code.
 grsResponseStatus :: Lens' GetSegmentVersionsResponse Int
@@ -155,4 +159,4 @@ grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 grsSegmentsResponse :: Lens' GetSegmentVersionsResponse SegmentsResponse
 grsSegmentsResponse = lens _grsSegmentsResponse (\ s a -> s{_grsSegmentsResponse = a});
 
-instance NFData GetSegmentVersionsResponse
+instance NFData GetSegmentVersionsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
     , aduarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to delete user attributes as an administrator.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminDeleteUserAttributes' smart constructor.
 data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
-    { _aduaUserPoolId         :: !Text
-    , _aduaUsername           :: !(Sensitive Text)
-    , _aduaUserAttributeNames :: ![Text]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _aduaUserPoolId         :: {-# NOUNPACK #-}!Text
+  , _aduaUsername           :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _aduaUserAttributeNames :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminDeleteUserAttributes' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ adminDeleteUserAttributes
     -> Text -- ^ 'aduaUsername'
     -> AdminDeleteUserAttributes
 adminDeleteUserAttributes pUserPoolId_ pUsername_ =
-    AdminDeleteUserAttributes'
-    { _aduaUserPoolId = pUserPoolId_
-    , _aduaUsername = _Sensitive # pUsername_
-    , _aduaUserAttributeNames = mempty
-    }
+  AdminDeleteUserAttributes'
+  { _aduaUserPoolId = pUserPoolId_
+  , _aduaUsername = _Sensitive # pUsername_
+  , _aduaUserAttributeNames = mempty
+  }
+
 
 -- | The user pool ID for the user pool where you want to delete user attributes.
 aduaUserPoolId :: Lens' AdminDeleteUserAttributes Text
@@ -100,9 +102,9 @@ instance AWSRequest AdminDeleteUserAttributes where
                  AdminDeleteUserAttributesResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminDeleteUserAttributes
+instance Hashable AdminDeleteUserAttributes where
 
-instance NFData AdminDeleteUserAttributes
+instance NFData AdminDeleteUserAttributes where
 
 instance ToHeaders AdminDeleteUserAttributes where
         toHeaders
@@ -135,8 +137,9 @@ instance ToQuery AdminDeleteUserAttributes where
 --
 -- /See:/ 'adminDeleteUserAttributesResponse' smart constructor.
 newtype AdminDeleteUserAttributesResponse = AdminDeleteUserAttributesResponse'
-    { _aduarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aduarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminDeleteUserAttributesResponse' with the minimum fields required to make a request.
 --
@@ -147,12 +150,12 @@ adminDeleteUserAttributesResponse
     :: Int -- ^ 'aduarsResponseStatus'
     -> AdminDeleteUserAttributesResponse
 adminDeleteUserAttributesResponse pResponseStatus_ =
-    AdminDeleteUserAttributesResponse'
-    { _aduarsResponseStatus = pResponseStatus_
-    }
+  AdminDeleteUserAttributesResponse' {_aduarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aduarsResponseStatus :: Lens' AdminDeleteUserAttributesResponse Int
 aduarsResponseStatus = lens _aduarsResponseStatus (\ s a -> s{_aduarsResponseStatus = a});
 
 instance NFData AdminDeleteUserAttributesResponse
+         where

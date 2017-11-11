@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.PutScalingPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , psprsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PutScalingPolicy.
 --
@@ -64,19 +64,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-    { _pspMinAdjustmentStep           :: !(Maybe Int)
-    , _pspEstimatedInstanceWarmup     :: !(Maybe Int)
-    , _pspPolicyType                  :: !(Maybe Text)
-    , _pspStepAdjustments             :: !(Maybe [StepAdjustment])
-    , _pspTargetTrackingConfiguration :: !(Maybe TargetTrackingConfiguration)
-    , _pspAdjustmentType              :: !(Maybe Text)
-    , _pspScalingAdjustment           :: !(Maybe Int)
-    , _pspCooldown                    :: !(Maybe Int)
-    , _pspMetricAggregationType       :: !(Maybe Text)
-    , _pspMinAdjustmentMagnitude      :: !(Maybe Int)
-    , _pspAutoScalingGroupName        :: !Text
-    , _pspPolicyName                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pspMinAdjustmentStep :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pspEstimatedInstanceWarmup :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pspPolicyType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pspStepAdjustments :: {-# NOUNPACK #-}!(Maybe [StepAdjustment])
+  , _pspTargetTrackingConfiguration :: {-# NOUNPACK #-}!(Maybe TargetTrackingConfiguration)
+  , _pspAdjustmentType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pspScalingAdjustment :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pspCooldown :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pspMetricAggregationType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pspMinAdjustmentMagnitude :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pspAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _pspPolicyName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
 --
@@ -110,20 +111,21 @@ putScalingPolicy
     -> Text -- ^ 'pspPolicyName'
     -> PutScalingPolicy
 putScalingPolicy pAutoScalingGroupName_ pPolicyName_ =
-    PutScalingPolicy'
-    { _pspMinAdjustmentStep = Nothing
-    , _pspEstimatedInstanceWarmup = Nothing
-    , _pspPolicyType = Nothing
-    , _pspStepAdjustments = Nothing
-    , _pspTargetTrackingConfiguration = Nothing
-    , _pspAdjustmentType = Nothing
-    , _pspScalingAdjustment = Nothing
-    , _pspCooldown = Nothing
-    , _pspMetricAggregationType = Nothing
-    , _pspMinAdjustmentMagnitude = Nothing
-    , _pspAutoScalingGroupName = pAutoScalingGroupName_
-    , _pspPolicyName = pPolicyName_
-    }
+  PutScalingPolicy'
+  { _pspMinAdjustmentStep = Nothing
+  , _pspEstimatedInstanceWarmup = Nothing
+  , _pspPolicyType = Nothing
+  , _pspStepAdjustments = Nothing
+  , _pspTargetTrackingConfiguration = Nothing
+  , _pspAdjustmentType = Nothing
+  , _pspScalingAdjustment = Nothing
+  , _pspCooldown = Nothing
+  , _pspMetricAggregationType = Nothing
+  , _pspMinAdjustmentMagnitude = Nothing
+  , _pspAutoScalingGroupName = pAutoScalingGroupName_
+  , _pspPolicyName = pPolicyName_
+  }
+
 
 -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@ instead.
 pspMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Int)
@@ -185,9 +187,9 @@ instance AWSRequest PutScalingPolicy where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutScalingPolicy
+instance Hashable PutScalingPolicy where
 
-instance NFData PutScalingPolicy
+instance NFData PutScalingPolicy where
 
 instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty
@@ -224,10 +226,11 @@ instance ToQuery PutScalingPolicy where
 --
 -- /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-    { _psprsPolicyARN      :: !(Maybe Text)
-    , _psprsAlarms         :: !(Maybe [Alarm])
-    , _psprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psprsPolicyARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psprsAlarms         :: {-# NOUNPACK #-}!(Maybe [Alarm])
+  , _psprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
 --
@@ -242,11 +245,12 @@ putScalingPolicyResponse
     :: Int -- ^ 'psprsResponseStatus'
     -> PutScalingPolicyResponse
 putScalingPolicyResponse pResponseStatus_ =
-    PutScalingPolicyResponse'
-    { _psprsPolicyARN = Nothing
-    , _psprsAlarms = Nothing
-    , _psprsResponseStatus = pResponseStatus_
-    }
+  PutScalingPolicyResponse'
+  { _psprsPolicyARN = Nothing
+  , _psprsAlarms = Nothing
+  , _psprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the policy.
 psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
@@ -260,4 +264,4 @@ psprsAlarms = lens _psprsAlarms (\ s a -> s{_psprsAlarms = a}) . _Default . _Coe
 psprsResponseStatus :: Lens' PutScalingPolicyResponse Int
 psprsResponseStatus = lens _psprsResponseStatus (\ s a -> s{_psprsResponseStatus = a});
 
-instance NFData PutScalingPolicyResponse
+instance NFData PutScalingPolicyResponse where

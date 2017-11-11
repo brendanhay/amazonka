@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteApp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.DeleteApp
     , darsApplicationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteApp' smart constructor.
 newtype DeleteApp = DeleteApp'
-    { _daApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApp' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype DeleteApp = DeleteApp'
 deleteApp
     :: Text -- ^ 'daApplicationId'
     -> DeleteApp
-deleteApp pApplicationId_ =
-    DeleteApp'
-    { _daApplicationId = pApplicationId_
-    }
+deleteApp pApplicationId_ = DeleteApp' {_daApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 daApplicationId :: Lens' DeleteApp Text
@@ -73,9 +72,9 @@ instance AWSRequest DeleteApp where
                  DeleteAppResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteApp
+instance Hashable DeleteApp where
 
-instance NFData DeleteApp
+instance NFData DeleteApp where
 
 instance ToHeaders DeleteApp where
         toHeaders
@@ -93,9 +92,10 @@ instance ToQuery DeleteApp where
 
 -- | /See:/ 'deleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
-    { _darsResponseStatus      :: !Int
-    , _darsApplicationResponse :: !ApplicationResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _darsApplicationResponse :: {-# NOUNPACK #-}!ApplicationResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAppResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +109,11 @@ deleteAppResponse
     -> ApplicationResponse -- ^ 'darsApplicationResponse'
     -> DeleteAppResponse
 deleteAppResponse pResponseStatus_ pApplicationResponse_ =
-    DeleteAppResponse'
-    { _darsResponseStatus = pResponseStatus_
-    , _darsApplicationResponse = pApplicationResponse_
-    }
+  DeleteAppResponse'
+  { _darsResponseStatus = pResponseStatus_
+  , _darsApplicationResponse = pApplicationResponse_
+  }
+
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DeleteAppResponse Int
@@ -122,4 +123,4 @@ darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = 
 darsApplicationResponse :: Lens' DeleteAppResponse ApplicationResponse
 darsApplicationResponse = lens _darsApplicationResponse (\ s a -> s{_darsApplicationResponse = a});
 
-instance NFData DeleteAppResponse
+instance NFData DeleteAppResponse where

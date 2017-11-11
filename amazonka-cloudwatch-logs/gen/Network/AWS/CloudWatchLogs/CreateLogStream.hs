@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,18 +47,19 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
     , CreateLogStreamResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLogStream' smart constructor.
 data CreateLogStream = CreateLogStream'
-    { _clsLogGroupName  :: !Text
-    , _clsLogStreamName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clsLogGroupName  :: {-# NOUNPACK #-}!Text
+  , _clsLogStreamName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLogStream' with the minimum fields required to make a request.
 --
@@ -72,10 +73,9 @@ createLogStream
     -> Text -- ^ 'clsLogStreamName'
     -> CreateLogStream
 createLogStream pLogGroupName_ pLogStreamName_ =
-    CreateLogStream'
-    { _clsLogGroupName = pLogGroupName_
-    , _clsLogStreamName = pLogStreamName_
-    }
+  CreateLogStream'
+  {_clsLogGroupName = pLogGroupName_, _clsLogStreamName = pLogStreamName_}
+
 
 -- | The name of the log group.
 clsLogGroupName :: Lens' CreateLogStream Text
@@ -90,9 +90,9 @@ instance AWSRequest CreateLogStream where
         request = postJSON cloudWatchLogs
         response = receiveNull CreateLogStreamResponse'
 
-instance Hashable CreateLogStream
+instance Hashable CreateLogStream where
 
-instance NFData CreateLogStream
+instance NFData CreateLogStream where
 
 instance ToHeaders CreateLogStream where
         toHeaders
@@ -118,8 +118,9 @@ instance ToQuery CreateLogStream where
 
 -- | /See:/ 'createLogStreamResponse' smart constructor.
 data CreateLogStreamResponse =
-    CreateLogStreamResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateLogStreamResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLogStreamResponse' with the minimum fields required to make a request.
 --
@@ -127,4 +128,5 @@ createLogStreamResponse
     :: CreateLogStreamResponse
 createLogStreamResponse = CreateLogStreamResponse'
 
-instance NFData CreateLogStreamResponse
+
+instance NFData CreateLogStreamResponse where

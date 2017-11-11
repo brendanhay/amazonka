@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketCORS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.S3.GetBucketCORS
     , gbcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketCORS' smart constructor.
 newtype GetBucketCORS = GetBucketCORS'
-    { _gbcBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbcBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketCORS' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype GetBucketCORS = GetBucketCORS'
 getBucketCORS
     :: BucketName -- ^ 'gbcBucket'
     -> GetBucketCORS
-getBucketCORS pBucket_ =
-    GetBucketCORS'
-    { _gbcBucket = pBucket_
-    }
+getBucketCORS pBucket_ = GetBucketCORS' {_gbcBucket = pBucket_}
+
 
 -- | Undocumented member.
 gbcBucket :: Lens' GetBucketCORS BucketName
@@ -74,9 +73,9 @@ instance AWSRequest GetBucketCORS where
                    (may (parseXMLList "CORSRule") x) <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetBucketCORS
+instance Hashable GetBucketCORS where
 
-instance NFData GetBucketCORS
+instance NFData GetBucketCORS where
 
 instance ToHeaders GetBucketCORS where
         toHeaders = const mempty
@@ -90,9 +89,10 @@ instance ToQuery GetBucketCORS where
 
 -- | /See:/ 'getBucketCORSResponse' smart constructor.
 data GetBucketCORSResponse = GetBucketCORSResponse'
-    { _gbcrsCORSRules      :: !(Maybe [CORSRule])
-    , _gbcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbcrsCORSRules      :: {-# NOUNPACK #-}!(Maybe [CORSRule])
+  , _gbcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketCORSResponse' with the minimum fields required to make a request.
 --
@@ -105,10 +105,9 @@ getBucketCORSResponse
     :: Int -- ^ 'gbcrsResponseStatus'
     -> GetBucketCORSResponse
 getBucketCORSResponse pResponseStatus_ =
-    GetBucketCORSResponse'
-    { _gbcrsCORSRules = Nothing
-    , _gbcrsResponseStatus = pResponseStatus_
-    }
+  GetBucketCORSResponse'
+  {_gbcrsCORSRules = Nothing, _gbcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
@@ -118,4 +117,4 @@ gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Defau
 gbcrsResponseStatus :: Lens' GetBucketCORSResponse Int
 gbcrsResponseStatus = lens _gbcrsResponseStatus (\ s a -> s{_gbcrsResponseStatus = a});
 
-instance NFData GetBucketCORSResponse
+instance NFData GetBucketCORSResponse where

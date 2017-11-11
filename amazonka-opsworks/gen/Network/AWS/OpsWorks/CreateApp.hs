@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateApp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,28 +50,29 @@ module Network.AWS.OpsWorks.CreateApp
     , carsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createApp' smart constructor.
 data CreateApp = CreateApp'
-    { _caSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _caEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _caEnableSSL        :: !(Maybe Bool)
-    , _caShortname        :: !(Maybe Text)
-    , _caDataSources      :: !(Maybe [DataSource])
-    , _caAppSource        :: !(Maybe Source)
-    , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _caDomains          :: !(Maybe [Text])
-    , _caDescription      :: !(Maybe Text)
-    , _caStackId          :: !Text
-    , _caName             :: !Text
-    , _caType             :: !AppType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caSSLConfiguration :: {-# NOUNPACK #-}!(Maybe SSLConfiguration)
+  , _caEnvironment      :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
+  , _caEnableSSL        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _caShortname        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caDataSources      :: {-# NOUNPACK #-}!(Maybe [DataSource])
+  , _caAppSource        :: {-# NOUNPACK #-}!(Maybe Source)
+  , _caAttributes       :: {-# NOUNPACK #-}!(Maybe (Map AppAttributesKeys Text))
+  , _caDomains          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _caDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caStackId          :: {-# NOUNPACK #-}!Text
+  , _caName             :: {-# NOUNPACK #-}!Text
+  , _caType             :: {-# NOUNPACK #-}!AppType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
@@ -106,20 +107,21 @@ createApp
     -> AppType -- ^ 'caType'
     -> CreateApp
 createApp pStackId_ pName_ pType_ =
-    CreateApp'
-    { _caSSLConfiguration = Nothing
-    , _caEnvironment = Nothing
-    , _caEnableSSL = Nothing
-    , _caShortname = Nothing
-    , _caDataSources = Nothing
-    , _caAppSource = Nothing
-    , _caAttributes = Nothing
-    , _caDomains = Nothing
-    , _caDescription = Nothing
-    , _caStackId = pStackId_
-    , _caName = pName_
-    , _caType = pType_
-    }
+  CreateApp'
+  { _caSSLConfiguration = Nothing
+  , _caEnvironment = Nothing
+  , _caEnableSSL = Nothing
+  , _caShortname = Nothing
+  , _caDataSources = Nothing
+  , _caAppSource = Nothing
+  , _caAttributes = Nothing
+  , _caDomains = Nothing
+  , _caDescription = Nothing
+  , _caStackId = pStackId_
+  , _caName = pName_
+  , _caType = pType_
+  }
+
 
 -- | An @SslConfiguration@ object with the SSL configuration.
 caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
@@ -178,9 +180,9 @@ instance AWSRequest CreateApp where
                  CreateAppResponse' <$>
                    (x .?> "AppId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateApp
+instance Hashable CreateApp where
 
-instance NFData CreateApp
+instance NFData CreateApp where
 
 instance ToHeaders CreateApp where
         toHeaders
@@ -219,9 +221,10 @@ instance ToQuery CreateApp where
 --
 -- /See:/ 'createAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-    { _carsAppId          :: !(Maybe Text)
-    , _carsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carsAppId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
 --
@@ -234,10 +237,9 @@ createAppResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CreateAppResponse
 createAppResponse pResponseStatus_ =
-    CreateAppResponse'
-    { _carsAppId = Nothing
-    , _carsResponseStatus = pResponseStatus_
-    }
+  CreateAppResponse'
+  {_carsAppId = Nothing, _carsResponseStatus = pResponseStatus_}
+
 
 -- | The app ID.
 carsAppId :: Lens' CreateAppResponse (Maybe Text)
@@ -247,4 +249,4 @@ carsAppId = lens _carsAppId (\ s a -> s{_carsAppId = a});
 carsResponseStatus :: Lens' CreateAppResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 
-instance NFData CreateAppResponse
+instance NFData CreateAppResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetUserDefinedFunction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.Glue.GetUserDefinedFunction
     , gudfursResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getUserDefinedFunction' smart constructor.
 data GetUserDefinedFunction = GetUserDefinedFunction'
-    { _getCatalogId    :: !(Maybe Text)
-    , _getDatabaseName :: !Text
-    , _getFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _getCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _getDatabaseName :: {-# NOUNPACK #-}!Text
+  , _getFunctionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUserDefinedFunction' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ getUserDefinedFunction
     -> Text -- ^ 'getFunctionName'
     -> GetUserDefinedFunction
 getUserDefinedFunction pDatabaseName_ pFunctionName_ =
-    GetUserDefinedFunction'
-    { _getCatalogId = Nothing
-    , _getDatabaseName = pDatabaseName_
-    , _getFunctionName = pFunctionName_
-    }
+  GetUserDefinedFunction'
+  { _getCatalogId = Nothing
+  , _getDatabaseName = pDatabaseName_
+  , _getFunctionName = pFunctionName_
+  }
+
 
 -- | The ID of the Data Catalog where the function to be retrieved is located. If none is supplied, the AWS account ID is used by default.
 getCatalogId :: Lens' GetUserDefinedFunction (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest GetUserDefinedFunction where
                    (x .?> "UserDefinedFunction") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetUserDefinedFunction
+instance Hashable GetUserDefinedFunction where
 
-instance NFData GetUserDefinedFunction
+instance NFData GetUserDefinedFunction where
 
 instance ToHeaders GetUserDefinedFunction where
         toHeaders
@@ -125,9 +127,10 @@ instance ToQuery GetUserDefinedFunction where
 
 -- | /See:/ 'getUserDefinedFunctionResponse' smart constructor.
 data GetUserDefinedFunctionResponse = GetUserDefinedFunctionResponse'
-    { _gudfursUserDefinedFunction :: !(Maybe UserDefinedFunction)
-    , _gudfursResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gudfursUserDefinedFunction :: {-# NOUNPACK #-}!(Maybe UserDefinedFunction)
+  , _gudfursResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUserDefinedFunctionResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +143,11 @@ getUserDefinedFunctionResponse
     :: Int -- ^ 'gudfursResponseStatus'
     -> GetUserDefinedFunctionResponse
 getUserDefinedFunctionResponse pResponseStatus_ =
-    GetUserDefinedFunctionResponse'
-    { _gudfursUserDefinedFunction = Nothing
-    , _gudfursResponseStatus = pResponseStatus_
-    }
+  GetUserDefinedFunctionResponse'
+  { _gudfursUserDefinedFunction = Nothing
+  , _gudfursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The requested function definition.
 gudfursUserDefinedFunction :: Lens' GetUserDefinedFunctionResponse (Maybe UserDefinedFunction)
@@ -153,4 +157,4 @@ gudfursUserDefinedFunction = lens _gudfursUserDefinedFunction (\ s a -> s{_gudfu
 gudfursResponseStatus :: Lens' GetUserDefinedFunctionResponse Int
 gudfursResponseStatus = lens _gudfursResponseStatus (\ s a -> s{_gudfursResponseStatus = a});
 
-instance NFData GetUserDefinedFunctionResponse
+instance NFData GetUserDefinedFunctionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetOpenIdConnectProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.IAM.GetOpenIdConnectProvider
     , goicprsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getOpenIdConnectProvider' smart constructor.
 newtype GetOpenIdConnectProvider = GetOpenIdConnectProvider'
-    { _goicpOpenIdConnectProviderARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goicpOpenIdConnectProviderARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOpenIdConnectProvider' with the minimum fields required to make a request.
 --
@@ -61,9 +62,9 @@ getOpenIdConnectProvider
     :: Text -- ^ 'goicpOpenIdConnectProviderARN'
     -> GetOpenIdConnectProvider
 getOpenIdConnectProvider pOpenIdConnectProviderARN_ =
-    GetOpenIdConnectProvider'
-    { _goicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
-    }
+  GetOpenIdConnectProvider'
+  {_goicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get information for. You can get a list of OIDC provider resource ARNs by using the 'ListOpenIDConnectProviders' action. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 goicpOpenIdConnectProviderARN :: Lens' GetOpenIdConnectProvider Text
@@ -85,9 +86,9 @@ instance AWSRequest GetOpenIdConnectProvider where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetOpenIdConnectProvider
+instance Hashable GetOpenIdConnectProvider where
 
-instance NFData GetOpenIdConnectProvider
+instance NFData GetOpenIdConnectProvider where
 
 instance ToHeaders GetOpenIdConnectProvider where
         toHeaders = const mempty
@@ -110,12 +111,13 @@ instance ToQuery GetOpenIdConnectProvider where
 --
 -- /See:/ 'getOpenIdConnectProviderResponse' smart constructor.
 data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
-    { _goicprsCreateDate     :: !(Maybe ISO8601)
-    , _goicprsURL            :: !(Maybe Text)
-    , _goicprsThumbprintList :: !(Maybe [Text])
-    , _goicprsClientIdList   :: !(Maybe [Text])
-    , _goicprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goicprsCreateDate     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _goicprsURL            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goicprsThumbprintList :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _goicprsClientIdList   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _goicprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOpenIdConnectProviderResponse' with the minimum fields required to make a request.
 --
@@ -134,13 +136,14 @@ getOpenIdConnectProviderResponse
     :: Int -- ^ 'goicprsResponseStatus'
     -> GetOpenIdConnectProviderResponse
 getOpenIdConnectProviderResponse pResponseStatus_ =
-    GetOpenIdConnectProviderResponse'
-    { _goicprsCreateDate = Nothing
-    , _goicprsURL = Nothing
-    , _goicprsThumbprintList = Nothing
-    , _goicprsClientIdList = Nothing
-    , _goicprsResponseStatus = pResponseStatus_
-    }
+  GetOpenIdConnectProviderResponse'
+  { _goicprsCreateDate = Nothing
+  , _goicprsURL = Nothing
+  , _goicprsThumbprintList = Nothing
+  , _goicprsClientIdList = Nothing
+  , _goicprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The date and time when the IAM OIDC provider resource object was created in the AWS account.
 goicprsCreateDate :: Lens' GetOpenIdConnectProviderResponse (Maybe UTCTime)
@@ -163,3 +166,4 @@ goicprsResponseStatus :: Lens' GetOpenIdConnectProviderResponse Int
 goicprsResponseStatus = lens _goicprsResponseStatus (\ s a -> s{_goicprsResponseStatus = a});
 
 instance NFData GetOpenIdConnectProviderResponse
+         where

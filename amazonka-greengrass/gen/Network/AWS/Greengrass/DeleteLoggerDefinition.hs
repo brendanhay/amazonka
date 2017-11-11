@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteLoggerDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.Greengrass.DeleteLoggerDefinition
     , dldrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLoggerDefinition' smart constructor.
 newtype DeleteLoggerDefinition = DeleteLoggerDefinition'
-    { _dldLoggerDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dldLoggerDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoggerDefinition' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ deleteLoggerDefinition
     :: Text -- ^ 'dldLoggerDefinitionId'
     -> DeleteLoggerDefinition
 deleteLoggerDefinition pLoggerDefinitionId_ =
-    DeleteLoggerDefinition'
-    { _dldLoggerDefinitionId = pLoggerDefinitionId_
-    }
+  DeleteLoggerDefinition' {_dldLoggerDefinitionId = pLoggerDefinitionId_}
+
 
 -- | logger definition Id
 dldLoggerDefinitionId :: Lens' DeleteLoggerDefinition Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteLoggerDefinition where
                  DeleteLoggerDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteLoggerDefinition
+instance Hashable DeleteLoggerDefinition where
 
-instance NFData DeleteLoggerDefinition
+instance NFData DeleteLoggerDefinition where
 
 instance ToHeaders DeleteLoggerDefinition where
         toHeaders
@@ -95,8 +95,9 @@ instance ToQuery DeleteLoggerDefinition where
 
 -- | /See:/ 'deleteLoggerDefinitionResponse' smart constructor.
 newtype DeleteLoggerDefinitionResponse = DeleteLoggerDefinitionResponse'
-    { _dldrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dldrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoggerDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -107,12 +108,11 @@ deleteLoggerDefinitionResponse
     :: Int -- ^ 'dldrsResponseStatus'
     -> DeleteLoggerDefinitionResponse
 deleteLoggerDefinitionResponse pResponseStatus_ =
-    DeleteLoggerDefinitionResponse'
-    { _dldrsResponseStatus = pResponseStatus_
-    }
+  DeleteLoggerDefinitionResponse' {_dldrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dldrsResponseStatus :: Lens' DeleteLoggerDefinitionResponse Int
 dldrsResponseStatus = lens _dldrsResponseStatus (\ s a -> s{_dldrsResponseStatus = a});
 
-instance NFData DeleteLoggerDefinitionResponse
+instance NFData DeleteLoggerDefinitionResponse where

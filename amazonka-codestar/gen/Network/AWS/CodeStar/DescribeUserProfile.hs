@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.DescribeUserProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,17 +42,18 @@ module Network.AWS.CodeStar.DescribeUserProfile
     , duprsLastModifiedTimestamp
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeUserProfile' smart constructor.
 newtype DescribeUserProfile = DescribeUserProfile'
-    { _dupUserARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupUserARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserProfile' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype DescribeUserProfile = DescribeUserProfile'
 describeUserProfile
     :: Text -- ^ 'dupUserARN'
     -> DescribeUserProfile
-describeUserProfile pUserARN_ =
-    DescribeUserProfile'
-    { _dupUserARN = pUserARN_
-    }
+describeUserProfile pUserARN_ = DescribeUserProfile' {_dupUserARN = pUserARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the user.
 dupUserARN :: Lens' DescribeUserProfile Text
@@ -86,9 +85,9 @@ instance AWSRequest DescribeUserProfile where
                      <*> (x .:> "createdTimestamp")
                      <*> (x .:> "lastModifiedTimestamp"))
 
-instance Hashable DescribeUserProfile
+instance Hashable DescribeUserProfile where
 
-instance NFData DescribeUserProfile
+instance NFData DescribeUserProfile where
 
 instance ToHeaders DescribeUserProfile where
         toHeaders
@@ -113,14 +112,15 @@ instance ToQuery DescribeUserProfile where
 
 -- | /See:/ 'describeUserProfileResponse' smart constructor.
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
-    { _duprsSshPublicKey          :: !(Maybe Text)
-    , _duprsEmailAddress          :: !(Maybe Text)
-    , _duprsDisplayName           :: !(Maybe Text)
-    , _duprsResponseStatus        :: !Int
-    , _duprsUserARN               :: !Text
-    , _duprsCreatedTimestamp      :: !POSIX
-    , _duprsLastModifiedTimestamp :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _duprsSshPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _duprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _duprsDisplayName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _duprsResponseStatus        :: {-# NOUNPACK #-}!Int
+  , _duprsUserARN               :: {-# NOUNPACK #-}!Text
+  , _duprsCreatedTimestamp      :: {-# NOUNPACK #-}!POSIX
+  , _duprsLastModifiedTimestamp :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserProfileResponse' with the minimum fields required to make a request.
 --
@@ -146,15 +146,16 @@ describeUserProfileResponse
     -> UTCTime -- ^ 'duprsLastModifiedTimestamp'
     -> DescribeUserProfileResponse
 describeUserProfileResponse pResponseStatus_ pUserARN_ pCreatedTimestamp_ pLastModifiedTimestamp_ =
-    DescribeUserProfileResponse'
-    { _duprsSshPublicKey = Nothing
-    , _duprsEmailAddress = Nothing
-    , _duprsDisplayName = Nothing
-    , _duprsResponseStatus = pResponseStatus_
-    , _duprsUserARN = pUserARN_
-    , _duprsCreatedTimestamp = _Time # pCreatedTimestamp_
-    , _duprsLastModifiedTimestamp = _Time # pLastModifiedTimestamp_
-    }
+  DescribeUserProfileResponse'
+  { _duprsSshPublicKey = Nothing
+  , _duprsEmailAddress = Nothing
+  , _duprsDisplayName = Nothing
+  , _duprsResponseStatus = pResponseStatus_
+  , _duprsUserARN = pUserARN_
+  , _duprsCreatedTimestamp = _Time # pCreatedTimestamp_
+  , _duprsLastModifiedTimestamp = _Time # pLastModifiedTimestamp_
+  }
+
 
 -- | The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
 duprsSshPublicKey :: Lens' DescribeUserProfileResponse (Maybe Text)
@@ -184,4 +185,4 @@ duprsCreatedTimestamp = lens _duprsCreatedTimestamp (\ s a -> s{_duprsCreatedTim
 duprsLastModifiedTimestamp :: Lens' DescribeUserProfileResponse UTCTime
 duprsLastModifiedTimestamp = lens _duprsLastModifiedTimestamp (\ s a -> s{_duprsLastModifiedTimestamp = a}) . _Time;
 
-instance NFData DescribeUserProfileResponse
+instance NFData DescribeUserProfileResponse where

@@ -9,25 +9,26 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CertificateManager.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data CertificateStatus
-    = CSExpired
-    | CSFailed
-    | CSInactive
-    | CSIssued
-    | CSPendingValidation
-    | CSRevoked
-    | CSValidationTimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSExpired
+  | CSFailed
+  | CSInactive
+  | CSIssued
+  | CSPendingValidation
+  | CSRevoked
+  | CSValidationTimedOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CertificateStatus where
     parser = takeLowerText >>= \case
@@ -64,9 +65,10 @@ instance FromJSON CertificateStatus where
     parseJSON = parseJSONText "CertificateStatus"
 
 data CertificateType
-    = AmazonIssued
-    | Imported
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AmazonIssued
+  | Imported
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CertificateType where
     parser = takeLowerText >>= \case
@@ -90,10 +92,11 @@ instance FromJSON CertificateType where
     parseJSON = parseJSONText "CertificateType"
 
 data DomainStatus
-    = Failed
-    | PendingValidation
-    | Success
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | PendingValidation
+  | Success
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DomainStatus where
     parser = takeLowerText >>= \case
@@ -119,12 +122,13 @@ instance FromJSON DomainStatus where
     parseJSON = parseJSONText "DomainStatus"
 
 data FailureReason
-    = AdditionalVerificationRequired
-    | DomainNotAllowed
-    | InvalidPublicDomain
-    | NoAvailableContacts
-    | Other
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AdditionalVerificationRequired
+  | DomainNotAllowed
+  | InvalidPublicDomain
+  | NoAvailableContacts
+  | Other
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FailureReason where
     parser = takeLowerText >>= \case
@@ -154,10 +158,11 @@ instance FromJSON FailureReason where
     parseJSON = parseJSONText "FailureReason"
 
 data KeyAlgorithm
-    = EcPRIME256V1
-    | Rsa1024
-    | Rsa2048
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EcPRIME256V1
+  | Rsa1024
+  | Rsa2048
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText KeyAlgorithm where
     parser = takeLowerText >>= \case
@@ -183,11 +188,12 @@ instance FromJSON KeyAlgorithm where
     parseJSON = parseJSONText "KeyAlgorithm"
 
 data RenewalStatus
-    = RSFailed
-    | RSPendingAutoRenewal
-    | RSPendingValidation
-    | RSSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RSFailed
+  | RSPendingAutoRenewal
+  | RSPendingValidation
+  | RSSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RenewalStatus where
     parser = takeLowerText >>= \case
@@ -215,17 +221,18 @@ instance FromJSON RenewalStatus where
     parseJSON = parseJSONText "RenewalStatus"
 
 data RevocationReason
-    = AACompromise
-    | AffiliationChanged
-    | CaCompromise
-    | CertificateHold
-    | CessationOfOperation
-    | KeyCompromise
-    | PrivilegeWithdrawn
-    | RemoveFromCrl
-    | Superceded
-    | Unspecified
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AACompromise
+  | AffiliationChanged
+  | CaCompromise
+  | CertificateHold
+  | CessationOfOperation
+  | KeyCompromise
+  | PrivilegeWithdrawn
+  | RemoveFromCrl
+  | Superceded
+  | Unspecified
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RevocationReason where
     parser = takeLowerText >>= \case

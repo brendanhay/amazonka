@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.Greengrass.CreateGroup
     , cgrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createGroup' smart constructor.
 data CreateGroup = CreateGroup'
-    { _cgAmznClientToken :: !(Maybe Text)
-    , _cgInitialVersion  :: !(Maybe GroupVersion)
-    , _cgName            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgInitialVersion  :: {-# NOUNPACK #-}!(Maybe GroupVersion)
+  , _cgName            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
 --
@@ -69,11 +70,9 @@ data CreateGroup = CreateGroup'
 createGroup
     :: CreateGroup
 createGroup =
-    CreateGroup'
-    { _cgAmznClientToken = Nothing
-    , _cgInitialVersion = Nothing
-    , _cgName = Nothing
-    }
+  CreateGroup'
+  {_cgAmznClientToken = Nothing, _cgInitialVersion = Nothing, _cgName = Nothing}
+
 
 -- | The client token used to request idempotent operations.
 cgAmznClientToken :: Lens' CreateGroup (Maybe Text)
@@ -102,9 +101,9 @@ instance AWSRequest CreateGroup where
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateGroup
+instance Hashable CreateGroup where
 
-instance NFData CreateGroup
+instance NFData CreateGroup where
 
 instance ToHeaders CreateGroup where
         toHeaders CreateGroup'{..}
@@ -128,15 +127,16 @@ instance ToQuery CreateGroup where
 
 -- | /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-    { _cgrsLatestVersionARN     :: !(Maybe Text)
-    , _cgrsARN                  :: !(Maybe Text)
-    , _cgrsName                 :: !(Maybe Text)
-    , _cgrsCreationTimestamp    :: !(Maybe Text)
-    , _cgrsId                   :: !(Maybe Text)
-    , _cgrsLatestVersion        :: !(Maybe Text)
-    , _cgrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _cgrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
 --
@@ -161,16 +161,17 @@ createGroupResponse
     :: Int -- ^ 'cgrsResponseStatus'
     -> CreateGroupResponse
 createGroupResponse pResponseStatus_ =
-    CreateGroupResponse'
-    { _cgrsLatestVersionARN = Nothing
-    , _cgrsARN = Nothing
-    , _cgrsName = Nothing
-    , _cgrsCreationTimestamp = Nothing
-    , _cgrsId = Nothing
-    , _cgrsLatestVersion = Nothing
-    , _cgrsLastUpdatedTimestamp = Nothing
-    , _cgrsResponseStatus = pResponseStatus_
-    }
+  CreateGroupResponse'
+  { _cgrsLatestVersionARN = Nothing
+  , _cgrsARN = Nothing
+  , _cgrsName = Nothing
+  , _cgrsCreationTimestamp = Nothing
+  , _cgrsId = Nothing
+  , _cgrsLatestVersion = Nothing
+  , _cgrsLastUpdatedTimestamp = Nothing
+  , _cgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 cgrsLatestVersionARN :: Lens' CreateGroupResponse (Maybe Text)
@@ -204,4 +205,4 @@ cgrsLastUpdatedTimestamp = lens _cgrsLastUpdatedTimestamp (\ s a -> s{_cgrsLastU
 cgrsResponseStatus :: Lens' CreateGroupResponse Int
 cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});
 
-instance NFData CreateGroupResponse
+instance NFData CreateGroupResponse where

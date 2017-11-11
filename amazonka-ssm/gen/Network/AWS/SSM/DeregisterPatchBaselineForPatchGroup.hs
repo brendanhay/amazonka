@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
     , dpbfpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deregisterPatchBaselineForPatchGroup' smart constructor.
 data DeregisterPatchBaselineForPatchGroup = DeregisterPatchBaselineForPatchGroup'
-    { _dpbfpgBaselineId :: !Text
-    , _dpbfpgPatchGroup :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpbfpgBaselineId :: {-# NOUNPACK #-}!Text
+  , _dpbfpgPatchGroup :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterPatchBaselineForPatchGroup' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ deregisterPatchBaselineForPatchGroup
     -> Text -- ^ 'dpbfpgPatchGroup'
     -> DeregisterPatchBaselineForPatchGroup
 deregisterPatchBaselineForPatchGroup pBaselineId_ pPatchGroup_ =
-    DeregisterPatchBaselineForPatchGroup'
-    { _dpbfpgBaselineId = pBaselineId_
-    , _dpbfpgPatchGroup = pPatchGroup_
-    }
+  DeregisterPatchBaselineForPatchGroup'
+  {_dpbfpgBaselineId = pBaselineId_, _dpbfpgPatchGroup = pPatchGroup_}
+
 
 -- | The ID of the patch baseline to deregister the patch group from.
 dpbfpgBaselineId :: Lens' DeregisterPatchBaselineForPatchGroup Text
@@ -78,7 +78,8 @@ dpbfpgPatchGroup :: Lens' DeregisterPatchBaselineForPatchGroup Text
 dpbfpgPatchGroup = lens _dpbfpgPatchGroup (\ s a -> s{_dpbfpgPatchGroup = a});
 
 instance AWSRequest
-         DeregisterPatchBaselineForPatchGroup where
+           DeregisterPatchBaselineForPatchGroup
+         where
         type Rs DeregisterPatchBaselineForPatchGroup =
              DeregisterPatchBaselineForPatchGroupResponse
         request = postJSON ssm
@@ -90,12 +91,15 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable
-         DeregisterPatchBaselineForPatchGroup
+           DeregisterPatchBaselineForPatchGroup
+         where
 
 instance NFData DeregisterPatchBaselineForPatchGroup
+         where
 
 instance ToHeaders
-         DeregisterPatchBaselineForPatchGroup where
+           DeregisterPatchBaselineForPatchGroup
+         where
         toHeaders
           = const
               (mconcat
@@ -123,10 +127,11 @@ instance ToQuery DeregisterPatchBaselineForPatchGroup
 
 -- | /See:/ 'deregisterPatchBaselineForPatchGroupResponse' smart constructor.
 data DeregisterPatchBaselineForPatchGroupResponse = DeregisterPatchBaselineForPatchGroupResponse'
-    { _dpbfpgrsBaselineId     :: !(Maybe Text)
-    , _dpbfpgrsPatchGroup     :: !(Maybe Text)
-    , _dpbfpgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpbfpgrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpbfpgrsPatchGroup     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpbfpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterPatchBaselineForPatchGroupResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +146,12 @@ deregisterPatchBaselineForPatchGroupResponse
     :: Int -- ^ 'dpbfpgrsResponseStatus'
     -> DeregisterPatchBaselineForPatchGroupResponse
 deregisterPatchBaselineForPatchGroupResponse pResponseStatus_ =
-    DeregisterPatchBaselineForPatchGroupResponse'
-    { _dpbfpgrsBaselineId = Nothing
-    , _dpbfpgrsPatchGroup = Nothing
-    , _dpbfpgrsResponseStatus = pResponseStatus_
-    }
+  DeregisterPatchBaselineForPatchGroupResponse'
+  { _dpbfpgrsBaselineId = Nothing
+  , _dpbfpgrsPatchGroup = Nothing
+  , _dpbfpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the patch baseline the patch group was deregistered from.
 dpbfpgrsBaselineId :: Lens' DeregisterPatchBaselineForPatchGroupResponse (Maybe Text)
@@ -160,4 +166,5 @@ dpbfpgrsResponseStatus :: Lens' DeregisterPatchBaselineForPatchGroupResponse Int
 dpbfpgrsResponseStatus = lens _dpbfpgrsResponseStatus (\ s a -> s{_dpbfpgrsResponseStatus = a});
 
 instance NFData
-         DeregisterPatchBaselineForPatchGroupResponse
+           DeregisterPatchBaselineForPatchGroupResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.DeleteJob
     , djrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteJob' smart constructor.
 newtype DeleteJob = DeleteJob'
-    { _djJobName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djJobName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteJob' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DeleteJob = DeleteJob'
 deleteJob
     :: Text -- ^ 'djJobName'
     -> DeleteJob
-deleteJob pJobName_ =
-    DeleteJob'
-    { _djJobName = pJobName_
-    }
+deleteJob pJobName_ = DeleteJob' {_djJobName = pJobName_}
+
 
 -- | The name of the job to delete.
 djJobName :: Lens' DeleteJob Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteJob where
                  DeleteJobResponse' <$>
                    (x .?> "JobName") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteJob
+instance Hashable DeleteJob where
 
-instance NFData DeleteJob
+instance NFData DeleteJob where
 
 instance ToHeaders DeleteJob where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery DeleteJob where
 
 -- | /See:/ 'deleteJobResponse' smart constructor.
 data DeleteJobResponse = DeleteJobResponse'
-    { _djrsJobName        :: !(Maybe Text)
-    , _djrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djrsJobName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _djrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteJobResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ deleteJobResponse
     :: Int -- ^ 'djrsResponseStatus'
     -> DeleteJobResponse
 deleteJobResponse pResponseStatus_ =
-    DeleteJobResponse'
-    { _djrsJobName = Nothing
-    , _djrsResponseStatus = pResponseStatus_
-    }
+  DeleteJobResponse'
+  {_djrsJobName = Nothing, _djrsResponseStatus = pResponseStatus_}
+
 
 -- | The name of the job that was deleted.
 djrsJobName :: Lens' DeleteJobResponse (Maybe Text)
@@ -128,4 +127,4 @@ djrsJobName = lens _djrsJobName (\ s a -> s{_djrsJobName = a});
 djrsResponseStatus :: Lens' DeleteJobResponse Int
 djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a});
 
-instance NFData DeleteJobResponse
+instance NFData DeleteJobResponse where

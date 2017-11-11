@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeActivityType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,18 +59,19 @@ module Network.AWS.SWF.DescribeActivityType
     , datrsConfiguration
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeActivityType' smart constructor.
 data DescribeActivityType = DescribeActivityType'
-    { _datDomain       :: !Text
-    , _datActivityType :: !ActivityType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datDomain       :: {-# NOUNPACK #-}!Text
+  , _datActivityType :: {-# NOUNPACK #-}!ActivityType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivityType' with the minimum fields required to make a request.
 --
@@ -84,10 +85,9 @@ describeActivityType
     -> ActivityType -- ^ 'datActivityType'
     -> DescribeActivityType
 describeActivityType pDomain_ pActivityType_ =
-    DescribeActivityType'
-    { _datDomain = pDomain_
-    , _datActivityType = pActivityType_
-    }
+  DescribeActivityType'
+  {_datDomain = pDomain_, _datActivityType = pActivityType_}
+
 
 -- | The name of the domain in which the activity type is registered.
 datDomain :: Lens' DescribeActivityType Text
@@ -108,9 +108,9 @@ instance AWSRequest DescribeActivityType where
                    (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
                      (x .:> "configuration"))
 
-instance Hashable DescribeActivityType
+instance Hashable DescribeActivityType where
 
-instance NFData DescribeActivityType
+instance NFData DescribeActivityType where
 
 instance ToHeaders DescribeActivityType where
         toHeaders
@@ -141,10 +141,11 @@ instance ToQuery DescribeActivityType where
 --
 -- /See:/ 'describeActivityTypeResponse' smart constructor.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-    { _datrsResponseStatus :: !Int
-    , _datrsTypeInfo       :: !ActivityTypeInfo
-    , _datrsConfiguration  :: !ActivityTypeConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _datrsTypeInfo       :: {-# NOUNPACK #-}!ActivityTypeInfo
+  , _datrsConfiguration  :: {-# NOUNPACK #-}!ActivityTypeConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivityTypeResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +162,12 @@ describeActivityTypeResponse
     -> ActivityTypeConfiguration -- ^ 'datrsConfiguration'
     -> DescribeActivityTypeResponse
 describeActivityTypeResponse pResponseStatus_ pTypeInfo_ pConfiguration_ =
-    DescribeActivityTypeResponse'
-    { _datrsResponseStatus = pResponseStatus_
-    , _datrsTypeInfo = pTypeInfo_
-    , _datrsConfiguration = pConfiguration_
-    }
+  DescribeActivityTypeResponse'
+  { _datrsResponseStatus = pResponseStatus_
+  , _datrsTypeInfo = pTypeInfo_
+  , _datrsConfiguration = pConfiguration_
+  }
+
 
 -- | -- | The response status code.
 datrsResponseStatus :: Lens' DescribeActivityTypeResponse Int
@@ -179,4 +181,4 @@ datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 datrsConfiguration = lens _datrsConfiguration (\ s a -> s{_datrsConfiguration = a});
 
-instance NFData DescribeActivityTypeResponse
+instance NFData DescribeActivityTypeResponse where

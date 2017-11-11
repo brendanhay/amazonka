@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListUserPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,20 +47,21 @@ module Network.AWS.IAM.ListUserPolicies
     , luprsPolicyNames
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listUserPolicies' smart constructor.
 data ListUserPolicies = ListUserPolicies'
-    { _lupMarker   :: !(Maybe Text)
-    , _lupMaxItems :: !(Maybe Nat)
-    , _lupUserName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lupMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lupMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lupUserName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserPolicies' with the minimum fields required to make a request.
 --
@@ -75,11 +76,9 @@ listUserPolicies
     :: Text -- ^ 'lupUserName'
     -> ListUserPolicies
 listUserPolicies pUserName_ =
-    ListUserPolicies'
-    { _lupMarker = Nothing
-    , _lupMaxItems = Nothing
-    , _lupUserName = pUserName_
-    }
+  ListUserPolicies'
+  {_lupMarker = Nothing, _lupMaxItems = Nothing, _lupUserName = pUserName_}
+
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lupMarker :: Lens' ListUserPolicies (Maybe Text)
@@ -113,9 +112,9 @@ instance AWSRequest ListUserPolicies where
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListUserPolicies
+instance Hashable ListUserPolicies where
 
-instance NFData ListUserPolicies
+instance NFData ListUserPolicies where
 
 instance ToHeaders ListUserPolicies where
         toHeaders = const mempty
@@ -137,11 +136,12 @@ instance ToQuery ListUserPolicies where
 --
 -- /See:/ 'listUserPoliciesResponse' smart constructor.
 data ListUserPoliciesResponse = ListUserPoliciesResponse'
-    { _luprsMarker         :: !(Maybe Text)
-    , _luprsIsTruncated    :: !(Maybe Bool)
-    , _luprsResponseStatus :: !Int
-    , _luprsPolicyNames    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _luprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _luprsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _luprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _luprsPolicyNames    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -158,12 +158,13 @@ listUserPoliciesResponse
     :: Int -- ^ 'luprsResponseStatus'
     -> ListUserPoliciesResponse
 listUserPoliciesResponse pResponseStatus_ =
-    ListUserPoliciesResponse'
-    { _luprsMarker = Nothing
-    , _luprsIsTruncated = Nothing
-    , _luprsResponseStatus = pResponseStatus_
-    , _luprsPolicyNames = mempty
-    }
+  ListUserPoliciesResponse'
+  { _luprsMarker = Nothing
+  , _luprsIsTruncated = Nothing
+  , _luprsResponseStatus = pResponseStatus_
+  , _luprsPolicyNames = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 luprsMarker :: Lens' ListUserPoliciesResponse (Maybe Text)
@@ -181,4 +182,4 @@ luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus
 luprsPolicyNames :: Lens' ListUserPoliciesResponse [Text]
 luprsPolicyNames = lens _luprsPolicyNames (\ s a -> s{_luprsPolicyNames = a}) . _Coerce;
 
-instance NFData ListUserPoliciesResponse
+instance NFData ListUserPoliciesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.CreateAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Lambda.CreateAlias
     , acDescription
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
-    { _caDescription     :: !(Maybe Text)
-    , _caFunctionName    :: !Text
-    , _caName            :: !Text
-    , _caFunctionVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caFunctionName    :: {-# NOUNPACK #-}!Text
+  , _caName            :: {-# NOUNPACK #-}!Text
+  , _caFunctionVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ createAlias
     -> Text -- ^ 'caFunctionVersion'
     -> CreateAlias
 createAlias pFunctionName_ pName_ pFunctionVersion_ =
-    CreateAlias'
-    { _caDescription = Nothing
-    , _caFunctionName = pFunctionName_
-    , _caName = pName_
-    , _caFunctionVersion = pFunctionVersion_
-    }
+  CreateAlias'
+  { _caDescription = Nothing
+  , _caFunctionName = pFunctionName_
+  , _caName = pName_
+  , _caFunctionVersion = pFunctionVersion_
+  }
+
 
 -- | Description of the alias.
 caDescription :: Lens' CreateAlias (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest CreateAlias where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateAlias
+instance Hashable CreateAlias where
 
-instance NFData CreateAlias
+instance NFData CreateAlias where
 
 instance ToHeaders CreateAlias where
         toHeaders = const mempty

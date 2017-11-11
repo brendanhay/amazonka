@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.RemoveTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EMR.RemoveTags
     , rtrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input identifies a cluster and a list of tags to remove.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
-    { _rtResourceId :: !Text
-    , _rtTagKeys    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtResourceId :: {-# NOUNPACK #-}!Text
+  , _rtTagKeys    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ removeTags
     :: Text -- ^ 'rtResourceId'
     -> RemoveTags
 removeTags pResourceId_ =
-    RemoveTags'
-    { _rtResourceId = pResourceId_
-    , _rtTagKeys = mempty
-    }
+  RemoveTags' {_rtResourceId = pResourceId_, _rtTagKeys = mempty}
+
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.
 rtResourceId :: Lens' RemoveTags Text
@@ -88,9 +87,9 @@ instance AWSRequest RemoveTags where
               (\ s h x ->
                  RemoveTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable RemoveTags
+instance Hashable RemoveTags where
 
-instance NFData RemoveTags
+instance NFData RemoveTags where
 
 instance ToHeaders RemoveTags where
         toHeaders
@@ -120,8 +119,9 @@ instance ToQuery RemoveTags where
 --
 -- /See:/ 'removeTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
-    { _rtrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
 --
@@ -132,12 +132,11 @@ removeTagsResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTagsResponse
 removeTagsResponse pResponseStatus_ =
-    RemoveTagsResponse'
-    { _rtrsResponseStatus = pResponseStatus_
-    }
+  RemoveTagsResponse' {_rtrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 
-instance NFData RemoveTagsResponse
+instance NFData RemoveTagsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.Glue.GetTable
     , ggrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getTable' smart constructor.
 data GetTable = GetTable'
-    { _gttCatalogId    :: !(Maybe Text)
-    , _gttDatabaseName :: !Text
-    , _gttName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gttCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gttDatabaseName :: {-# NOUNPACK #-}!Text
+  , _gttName         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTable' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ getTable
     -> Text -- ^ 'gttName'
     -> GetTable
 getTable pDatabaseName_ pName_ =
-    GetTable'
-    { _gttCatalogId = Nothing
-    , _gttDatabaseName = pDatabaseName_
-    , _gttName = pName_
-    }
+  GetTable'
+  { _gttCatalogId = Nothing
+  , _gttDatabaseName = pDatabaseName_
+  , _gttName = pName_
+  }
+
 
 -- | The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
 gttCatalogId :: Lens' GetTable (Maybe Text)
@@ -94,9 +96,9 @@ instance AWSRequest GetTable where
                  GetTableResponse' <$>
                    (x .?> "Table") <*> (pure (fromEnum s)))
 
-instance Hashable GetTable
+instance Hashable GetTable where
 
-instance NFData GetTable
+instance NFData GetTable where
 
 instance ToHeaders GetTable where
         toHeaders
@@ -123,9 +125,10 @@ instance ToQuery GetTable where
 
 -- | /See:/ 'getTableResponse' smart constructor.
 data GetTableResponse = GetTableResponse'
-    { _ggrsTable          :: !(Maybe Table)
-    , _ggrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggrsTable          :: {-# NOUNPACK #-}!(Maybe Table)
+  , _ggrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTableResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,9 @@ getTableResponse
     :: Int -- ^ 'ggrsResponseStatus'
     -> GetTableResponse
 getTableResponse pResponseStatus_ =
-    GetTableResponse'
-    { _ggrsTable = Nothing
-    , _ggrsResponseStatus = pResponseStatus_
-    }
+  GetTableResponse'
+  {_ggrsTable = Nothing, _ggrsResponseStatus = pResponseStatus_}
+
 
 -- | The @Table@ object that defines the specified table.
 ggrsTable :: Lens' GetTableResponse (Maybe Table)
@@ -151,4 +153,4 @@ ggrsTable = lens _ggrsTable (\ s a -> s{_ggrsTable = a});
 ggrsResponseStatus :: Lens' GetTableResponse Int
 ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
 
-instance NFData GetTableResponse
+instance NFData GetTableResponse where

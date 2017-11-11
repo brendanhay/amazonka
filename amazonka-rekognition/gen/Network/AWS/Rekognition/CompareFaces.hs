@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.CompareFaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,19 +53,20 @@ module Network.AWS.Rekognition.CompareFaces
     , cfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'compareFaces' smart constructor.
 data CompareFaces = CompareFaces'
-    { _cfSimilarityThreshold :: !(Maybe Double)
-    , _cfSourceImage         :: !Image
-    , _cfTargetImage         :: !Image
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfSimilarityThreshold :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cfSourceImage         :: {-# NOUNPACK #-}!Image
+  , _cfTargetImage         :: {-# NOUNPACK #-}!Image
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompareFaces' with the minimum fields required to make a request.
 --
@@ -81,11 +82,12 @@ compareFaces
     -> Image -- ^ 'cfTargetImage'
     -> CompareFaces
 compareFaces pSourceImage_ pTargetImage_ =
-    CompareFaces'
-    { _cfSimilarityThreshold = Nothing
-    , _cfSourceImage = pSourceImage_
-    , _cfTargetImage = pTargetImage_
-    }
+  CompareFaces'
+  { _cfSimilarityThreshold = Nothing
+  , _cfSourceImage = pSourceImage_
+  , _cfTargetImage = pTargetImage_
+  }
+
 
 -- | The minimum level of confidence in the face matches that a match must meet to be included in the @FaceMatches@ array.
 cfSimilarityThreshold :: Lens' CompareFaces (Maybe Double)
@@ -113,9 +115,9 @@ instance AWSRequest CompareFaces where
                      <*> (x .?> "SourceImageFace")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CompareFaces
+instance Hashable CompareFaces where
 
-instance NFData CompareFaces
+instance NFData CompareFaces where
 
 instance ToHeaders CompareFaces where
         toHeaders
@@ -143,13 +145,14 @@ instance ToQuery CompareFaces where
 
 -- | /See:/ 'compareFacesResponse' smart constructor.
 data CompareFacesResponse = CompareFacesResponse'
-    { _cfrsFaceMatches                      :: !(Maybe [CompareFacesMatch])
-    , _cfrsUnmatchedFaces                   :: !(Maybe [ComparedFace])
-    , _cfrsTargetImageOrientationCorrection :: !(Maybe OrientationCorrection)
-    , _cfrsSourceImageOrientationCorrection :: !(Maybe OrientationCorrection)
-    , _cfrsSourceImageFace                  :: !(Maybe ComparedSourceImageFace)
-    , _cfrsResponseStatus                   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfrsFaceMatches :: {-# NOUNPACK #-}!(Maybe [CompareFacesMatch])
+  , _cfrsUnmatchedFaces :: {-# NOUNPACK #-}!(Maybe [ComparedFace])
+  , _cfrsTargetImageOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
+  , _cfrsSourceImageOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
+  , _cfrsSourceImageFace :: {-# NOUNPACK #-}!(Maybe ComparedSourceImageFace)
+  , _cfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompareFacesResponse' with the minimum fields required to make a request.
 --
@@ -170,14 +173,15 @@ compareFacesResponse
     :: Int -- ^ 'cfrsResponseStatus'
     -> CompareFacesResponse
 compareFacesResponse pResponseStatus_ =
-    CompareFacesResponse'
-    { _cfrsFaceMatches = Nothing
-    , _cfrsUnmatchedFaces = Nothing
-    , _cfrsTargetImageOrientationCorrection = Nothing
-    , _cfrsSourceImageOrientationCorrection = Nothing
-    , _cfrsSourceImageFace = Nothing
-    , _cfrsResponseStatus = pResponseStatus_
-    }
+  CompareFacesResponse'
+  { _cfrsFaceMatches = Nothing
+  , _cfrsUnmatchedFaces = Nothing
+  , _cfrsTargetImageOrientationCorrection = Nothing
+  , _cfrsSourceImageOrientationCorrection = Nothing
+  , _cfrsSourceImageFace = Nothing
+  , _cfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of faces in the target image that match the source image face. Each @CompareFacesMatch@ object provides the bounding box, the confidence level that the bounding box contains a face, and the similarity score for the face in the bounding box and the face in the source image.
 cfrsFaceMatches :: Lens' CompareFacesResponse [CompareFacesMatch]
@@ -203,4 +207,4 @@ cfrsSourceImageFace = lens _cfrsSourceImageFace (\ s a -> s{_cfrsSourceImageFace
 cfrsResponseStatus :: Lens' CompareFacesResponse Int
 cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
 
-instance NFData CompareFacesResponse
+instance NFData CompareFacesResponse where

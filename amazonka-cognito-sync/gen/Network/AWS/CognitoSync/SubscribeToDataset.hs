@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.SubscribeToDataset
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     , stdrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to SubscribeToDatasetRequest.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'subscribeToDataset' smart constructor.
 data SubscribeToDataset = SubscribeToDataset'
-    { _stdIdentityPoolId :: !Text
-    , _stdIdentityId     :: !Text
-    , _stdDatasetName    :: !Text
-    , _stdDeviceId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stdIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _stdIdentityId     :: {-# NOUNPACK #-}!Text
+  , _stdDatasetName    :: {-# NOUNPACK #-}!Text
+  , _stdDeviceId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubscribeToDataset' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ subscribeToDataset
     -> Text -- ^ 'stdDeviceId'
     -> SubscribeToDataset
 subscribeToDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
-    SubscribeToDataset'
-    { _stdIdentityPoolId = pIdentityPoolId_
-    , _stdIdentityId = pIdentityId_
-    , _stdDatasetName = pDatasetName_
-    , _stdDeviceId = pDeviceId_
-    }
+  SubscribeToDataset'
+  { _stdIdentityPoolId = pIdentityPoolId_
+  , _stdIdentityId = pIdentityId_
+  , _stdDatasetName = pDatasetName_
+  , _stdDeviceId = pDeviceId_
+  }
+
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.
 stdIdentityPoolId :: Lens' SubscribeToDataset Text
@@ -110,9 +112,9 @@ instance AWSRequest SubscribeToDataset where
               (\ s h x ->
                  SubscribeToDatasetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable SubscribeToDataset
+instance Hashable SubscribeToDataset where
 
-instance NFData SubscribeToDataset
+instance NFData SubscribeToDataset where
 
 instance ToHeaders SubscribeToDataset where
         toHeaders
@@ -141,8 +143,9 @@ instance ToQuery SubscribeToDataset where
 --
 -- /See:/ 'subscribeToDatasetResponse' smart constructor.
 newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
-    { _stdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubscribeToDatasetResponse' with the minimum fields required to make a request.
 --
@@ -153,12 +156,11 @@ subscribeToDatasetResponse
     :: Int -- ^ 'stdrsResponseStatus'
     -> SubscribeToDatasetResponse
 subscribeToDatasetResponse pResponseStatus_ =
-    SubscribeToDatasetResponse'
-    { _stdrsResponseStatus = pResponseStatus_
-    }
+  SubscribeToDatasetResponse' {_stdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 stdrsResponseStatus :: Lens' SubscribeToDatasetResponse Int
 stdrsResponseStatus = lens _stdrsResponseStatus (\ s a -> s{_stdrsResponseStatus = a});
 
-instance NFData SubscribeToDatasetResponse
+instance NFData SubscribeToDatasetResponse where

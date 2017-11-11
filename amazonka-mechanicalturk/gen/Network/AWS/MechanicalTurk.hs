@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -364,47 +364,47 @@ module Network.AWS.MechanicalTurk
     , wbWorkerId
     ) where
 
-import           Network.AWS.MechanicalTurk.AcceptQualificationRequest
-import           Network.AWS.MechanicalTurk.ApproveAssignment
-import           Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
-import           Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
-import           Network.AWS.MechanicalTurk.CreateHIT
-import           Network.AWS.MechanicalTurk.CreateHITType
-import           Network.AWS.MechanicalTurk.CreateHITWithHITType
-import           Network.AWS.MechanicalTurk.CreateQualificationType
-import           Network.AWS.MechanicalTurk.CreateWorkerBlock
-import           Network.AWS.MechanicalTurk.DeleteHIT
-import           Network.AWS.MechanicalTurk.DeleteQualificationType
-import           Network.AWS.MechanicalTurk.DeleteWorkerBlock
-import           Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
-import           Network.AWS.MechanicalTurk.GetAccountBalance
-import           Network.AWS.MechanicalTurk.GetAssignment
-import           Network.AWS.MechanicalTurk.GetFileUploadURL
-import           Network.AWS.MechanicalTurk.GetHIT
-import           Network.AWS.MechanicalTurk.GetQualificationScore
-import           Network.AWS.MechanicalTurk.GetQualificationType
-import           Network.AWS.MechanicalTurk.ListAssignmentsForHIT
-import           Network.AWS.MechanicalTurk.ListBonusPayments
-import           Network.AWS.MechanicalTurk.ListHITs
-import           Network.AWS.MechanicalTurk.ListHITsForQualificationType
-import           Network.AWS.MechanicalTurk.ListQualificationRequests
-import           Network.AWS.MechanicalTurk.ListQualificationTypes
-import           Network.AWS.MechanicalTurk.ListReviewableHITs
-import           Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
-import           Network.AWS.MechanicalTurk.ListWorkerBlocks
-import           Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
-import           Network.AWS.MechanicalTurk.NotifyWorkers
-import           Network.AWS.MechanicalTurk.RejectAssignment
-import           Network.AWS.MechanicalTurk.RejectQualificationRequest
-import           Network.AWS.MechanicalTurk.SendBonus
-import           Network.AWS.MechanicalTurk.SendTestEventNotification
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.UpdateExpirationForHIT
-import           Network.AWS.MechanicalTurk.UpdateHITReviewStatus
-import           Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
-import           Network.AWS.MechanicalTurk.UpdateNotificationSettings
-import           Network.AWS.MechanicalTurk.UpdateQualificationType
-import           Network.AWS.MechanicalTurk.Waiters
+import Network.AWS.MechanicalTurk.AcceptQualificationRequest
+import Network.AWS.MechanicalTurk.ApproveAssignment
+import Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
+import Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
+import Network.AWS.MechanicalTurk.CreateHIT
+import Network.AWS.MechanicalTurk.CreateHITType
+import Network.AWS.MechanicalTurk.CreateHITWithHITType
+import Network.AWS.MechanicalTurk.CreateQualificationType
+import Network.AWS.MechanicalTurk.CreateWorkerBlock
+import Network.AWS.MechanicalTurk.DeleteHIT
+import Network.AWS.MechanicalTurk.DeleteQualificationType
+import Network.AWS.MechanicalTurk.DeleteWorkerBlock
+import Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
+import Network.AWS.MechanicalTurk.GetAccountBalance
+import Network.AWS.MechanicalTurk.GetAssignment
+import Network.AWS.MechanicalTurk.GetFileUploadURL
+import Network.AWS.MechanicalTurk.GetHIT
+import Network.AWS.MechanicalTurk.GetQualificationScore
+import Network.AWS.MechanicalTurk.GetQualificationType
+import Network.AWS.MechanicalTurk.ListAssignmentsForHIT
+import Network.AWS.MechanicalTurk.ListBonusPayments
+import Network.AWS.MechanicalTurk.ListHITs
+import Network.AWS.MechanicalTurk.ListHITsForQualificationType
+import Network.AWS.MechanicalTurk.ListQualificationRequests
+import Network.AWS.MechanicalTurk.ListQualificationTypes
+import Network.AWS.MechanicalTurk.ListReviewableHITs
+import Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
+import Network.AWS.MechanicalTurk.ListWorkerBlocks
+import Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
+import Network.AWS.MechanicalTurk.NotifyWorkers
+import Network.AWS.MechanicalTurk.RejectAssignment
+import Network.AWS.MechanicalTurk.RejectQualificationRequest
+import Network.AWS.MechanicalTurk.SendBonus
+import Network.AWS.MechanicalTurk.SendTestEventNotification
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.UpdateExpirationForHIT
+import Network.AWS.MechanicalTurk.UpdateHITReviewStatus
+import Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
+import Network.AWS.MechanicalTurk.UpdateNotificationSettings
+import Network.AWS.MechanicalTurk.UpdateQualificationType
+import Network.AWS.MechanicalTurk.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.UpdateAutoScalingGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,12 +60,12 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     , UpdateAutoScalingGroupResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for UpdateAutoScalingGroup.
 --
@@ -73,20 +73,21 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateAutoScalingGroup' smart constructor.
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-    { _uasgTerminationPolicies              :: !(Maybe [Text])
-    , _uasgHealthCheckGracePeriod           :: !(Maybe Int)
-    , _uasgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
-    , _uasgVPCZoneIdentifier                :: !(Maybe Text)
-    , _uasgDefaultCooldown                  :: !(Maybe Int)
-    , _uasgMaxSize                          :: !(Maybe Int)
-    , _uasgAvailabilityZones                :: !(Maybe (List1 Text))
-    , _uasgDesiredCapacity                  :: !(Maybe Int)
-    , _uasgMinSize                          :: !(Maybe Int)
-    , _uasgLaunchConfigurationName          :: !(Maybe Text)
-    , _uasgHealthCheckType                  :: !(Maybe Text)
-    , _uasgPlacementGroup                   :: !(Maybe Text)
-    , _uasgAutoScalingGroupName             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uasgTerminationPolicies :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uasgHealthCheckGracePeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _uasgNewInstancesProtectedFromScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uasgVPCZoneIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uasgDefaultCooldown :: {-# NOUNPACK #-}!(Maybe Int)
+  , _uasgMaxSize :: {-# NOUNPACK #-}!(Maybe Int)
+  , _uasgAvailabilityZones :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _uasgDesiredCapacity :: {-# NOUNPACK #-}!(Maybe Int)
+  , _uasgMinSize :: {-# NOUNPACK #-}!(Maybe Int)
+  , _uasgLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uasgHealthCheckType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uasgPlacementGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uasgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAutoScalingGroup' with the minimum fields required to make a request.
 --
@@ -121,21 +122,22 @@ updateAutoScalingGroup
     :: Text -- ^ 'uasgAutoScalingGroupName'
     -> UpdateAutoScalingGroup
 updateAutoScalingGroup pAutoScalingGroupName_ =
-    UpdateAutoScalingGroup'
-    { _uasgTerminationPolicies = Nothing
-    , _uasgHealthCheckGracePeriod = Nothing
-    , _uasgNewInstancesProtectedFromScaleIn = Nothing
-    , _uasgVPCZoneIdentifier = Nothing
-    , _uasgDefaultCooldown = Nothing
-    , _uasgMaxSize = Nothing
-    , _uasgAvailabilityZones = Nothing
-    , _uasgDesiredCapacity = Nothing
-    , _uasgMinSize = Nothing
-    , _uasgLaunchConfigurationName = Nothing
-    , _uasgHealthCheckType = Nothing
-    , _uasgPlacementGroup = Nothing
-    , _uasgAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  UpdateAutoScalingGroup'
+  { _uasgTerminationPolicies = Nothing
+  , _uasgHealthCheckGracePeriod = Nothing
+  , _uasgNewInstancesProtectedFromScaleIn = Nothing
+  , _uasgVPCZoneIdentifier = Nothing
+  , _uasgDefaultCooldown = Nothing
+  , _uasgMaxSize = Nothing
+  , _uasgAvailabilityZones = Nothing
+  , _uasgDesiredCapacity = Nothing
+  , _uasgMinSize = Nothing
+  , _uasgLaunchConfigurationName = Nothing
+  , _uasgHealthCheckType = Nothing
+  , _uasgPlacementGroup = Nothing
+  , _uasgAutoScalingGroupName = pAutoScalingGroupName_
+  }
+
 
 -- | A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Auto Scaling User Guide/ .
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
@@ -196,9 +198,9 @@ instance AWSRequest UpdateAutoScalingGroup where
         response
           = receiveNull UpdateAutoScalingGroupResponse'
 
-instance Hashable UpdateAutoScalingGroup
+instance Hashable UpdateAutoScalingGroup where
 
-instance NFData UpdateAutoScalingGroup
+instance NFData UpdateAutoScalingGroup where
 
 instance ToHeaders UpdateAutoScalingGroup where
         toHeaders = const mempty
@@ -235,8 +237,9 @@ instance ToQuery UpdateAutoScalingGroup where
 
 -- | /See:/ 'updateAutoScalingGroupResponse' smart constructor.
 data UpdateAutoScalingGroupResponse =
-    UpdateAutoScalingGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateAutoScalingGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAutoScalingGroupResponse' with the minimum fields required to make a request.
 --
@@ -244,4 +247,5 @@ updateAutoScalingGroupResponse
     :: UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse'
 
-instance NFData UpdateAutoScalingGroupResponse
+
+instance NFData UpdateAutoScalingGroupResponse where

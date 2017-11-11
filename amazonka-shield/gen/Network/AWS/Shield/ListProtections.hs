@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.ListProtections
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Shield.ListProtections
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'listProtections' smart constructor.
 data ListProtections = ListProtections'
-    { _lpNextToken  :: !(Maybe Text)
-    , _lpMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProtections' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data ListProtections = ListProtections'
 listProtections
     :: ListProtections
 listProtections =
-    ListProtections'
-    { _lpNextToken = Nothing
-    , _lpMaxResults = Nothing
-    }
+  ListProtections' {_lpNextToken = Nothing, _lpMaxResults = Nothing}
+
 
 -- | The @ListProtectionsRequest.NextToken@ value from a previous call to @ListProtections@ . Pass null if this is the first call.
 lpNextToken :: Lens' ListProtections (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest ListProtections where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListProtections
+instance Hashable ListProtections where
 
-instance NFData ListProtections
+instance NFData ListProtections where
 
 instance ToHeaders ListProtections where
         toHeaders
@@ -114,10 +113,11 @@ instance ToQuery ListProtections where
 
 -- | /See:/ 'listProtectionsResponse' smart constructor.
 data ListProtectionsResponse = ListProtectionsResponse'
-    { _lprsProtections    :: !(Maybe [Protection])
-    , _lprsNextToken      :: !(Maybe Text)
-    , _lprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsProtections    :: {-# NOUNPACK #-}!(Maybe [Protection])
+  , _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProtectionsResponse' with the minimum fields required to make a request.
 --
@@ -132,11 +132,12 @@ listProtectionsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListProtectionsResponse
 listProtectionsResponse pResponseStatus_ =
-    ListProtectionsResponse'
-    { _lprsProtections = Nothing
-    , _lprsNextToken = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListProtectionsResponse'
+  { _lprsProtections = Nothing
+  , _lprsNextToken = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The array of enabled 'Protection' objects.
 lprsProtections :: Lens' ListProtectionsResponse [Protection]
@@ -150,4 +151,4 @@ lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 lprsResponseStatus :: Lens' ListProtectionsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListProtectionsResponse
+instance NFData ListProtectionsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetCapacity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -92,12 +92,12 @@ module Network.AWS.GameLift.DescribeFleetCapacity
     , dfcrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -105,10 +105,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeFleetCapacity' smart constructor.
 data DescribeFleetCapacity = DescribeFleetCapacity'
-    { _dfcNextToken :: !(Maybe Text)
-    , _dfcLimit     :: !(Maybe Nat)
-    , _dfcFleetIds  :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfcNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfcLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dfcFleetIds  :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetCapacity' with the minimum fields required to make a request.
 --
@@ -122,11 +123,9 @@ data DescribeFleetCapacity = DescribeFleetCapacity'
 describeFleetCapacity
     :: DescribeFleetCapacity
 describeFleetCapacity =
-    DescribeFleetCapacity'
-    { _dfcNextToken = Nothing
-    , _dfcLimit = Nothing
-    , _dfcFleetIds = Nothing
-    }
+  DescribeFleetCapacity'
+  {_dfcNextToken = Nothing, _dfcLimit = Nothing, _dfcFleetIds = Nothing}
+
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfcNextToken :: Lens' DescribeFleetCapacity (Maybe Text)
@@ -152,9 +151,9 @@ instance AWSRequest DescribeFleetCapacity where
                      (x .?> "FleetCapacity" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeFleetCapacity
+instance Hashable DescribeFleetCapacity where
 
-instance NFData DescribeFleetCapacity
+instance NFData DescribeFleetCapacity where
 
 instance ToHeaders DescribeFleetCapacity where
         toHeaders
@@ -185,10 +184,11 @@ instance ToQuery DescribeFleetCapacity where
 --
 -- /See:/ 'describeFleetCapacityResponse' smart constructor.
 data DescribeFleetCapacityResponse = DescribeFleetCapacityResponse'
-    { _dfcrsNextToken      :: !(Maybe Text)
-    , _dfcrsFleetCapacity  :: !(Maybe [FleetCapacity])
-    , _dfcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfcrsFleetCapacity  :: {-# NOUNPACK #-}!(Maybe [FleetCapacity])
+  , _dfcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetCapacityResponse' with the minimum fields required to make a request.
 --
@@ -203,11 +203,12 @@ describeFleetCapacityResponse
     :: Int -- ^ 'dfcrsResponseStatus'
     -> DescribeFleetCapacityResponse
 describeFleetCapacityResponse pResponseStatus_ =
-    DescribeFleetCapacityResponse'
-    { _dfcrsNextToken = Nothing
-    , _dfcrsFleetCapacity = Nothing
-    , _dfcrsResponseStatus = pResponseStatus_
-    }
+  DescribeFleetCapacityResponse'
+  { _dfcrsNextToken = Nothing
+  , _dfcrsFleetCapacity = Nothing
+  , _dfcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfcrsNextToken :: Lens' DescribeFleetCapacityResponse (Maybe Text)
@@ -221,4 +222,4 @@ dfcrsFleetCapacity = lens _dfcrsFleetCapacity (\ s a -> s{_dfcrsFleetCapacity = 
 dfcrsResponseStatus :: Lens' DescribeFleetCapacityResponse Int
 dfcrsResponseStatus = lens _dfcrsResponseStatus (\ s a -> s{_dfcrsResponseStatus = a});
 
-instance NFData DescribeFleetCapacityResponse
+instance NFData DescribeFleetCapacityResponse where

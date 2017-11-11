@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeInstanceStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,13 +55,13 @@ module Network.AWS.EC2.DescribeInstanceStatus
     , disrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeInstanceStatus.
 --
@@ -69,13 +69,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeInstanceStatus' smart constructor.
 data DescribeInstanceStatus = DescribeInstanceStatus'
-    { _disIncludeAllInstances :: !(Maybe Bool)
-    , _disFilters             :: !(Maybe [Filter])
-    , _disNextToken           :: !(Maybe Text)
-    , _disInstanceIds         :: !(Maybe [Text])
-    , _disDryRun              :: !(Maybe Bool)
-    , _disMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disIncludeAllInstances :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _disFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _disNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _disInstanceIds         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _disDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _disMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstanceStatus' with the minimum fields required to make a request.
 --
@@ -95,14 +96,15 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
 describeInstanceStatus
     :: DescribeInstanceStatus
 describeInstanceStatus =
-    DescribeInstanceStatus'
-    { _disIncludeAllInstances = Nothing
-    , _disFilters = Nothing
-    , _disNextToken = Nothing
-    , _disInstanceIds = Nothing
-    , _disDryRun = Nothing
-    , _disMaxResults = Nothing
-    }
+  DescribeInstanceStatus'
+  { _disIncludeAllInstances = Nothing
+  , _disFilters = Nothing
+  , _disNextToken = Nothing
+  , _disInstanceIds = Nothing
+  , _disDryRun = Nothing
+  , _disMaxResults = Nothing
+  }
+
 
 -- | When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only. Default: @false@
 disIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
@@ -148,9 +150,9 @@ instance AWSRequest DescribeInstanceStatus where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeInstanceStatus
+instance Hashable DescribeInstanceStatus where
 
-instance NFData DescribeInstanceStatus
+instance NFData DescribeInstanceStatus where
 
 instance ToHeaders DescribeInstanceStatus where
         toHeaders = const mempty
@@ -178,10 +180,11 @@ instance ToQuery DescribeInstanceStatus where
 --
 -- /See:/ 'describeInstanceStatusResponse' smart constructor.
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
-    { _disrsInstanceStatuses :: !(Maybe [InstanceStatus])
-    , _disrsNextToken        :: !(Maybe Text)
-    , _disrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disrsInstanceStatuses :: {-# NOUNPACK #-}!(Maybe [InstanceStatus])
+  , _disrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _disrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstanceStatusResponse' with the minimum fields required to make a request.
 --
@@ -196,11 +199,12 @@ describeInstanceStatusResponse
     :: Int -- ^ 'disrsResponseStatus'
     -> DescribeInstanceStatusResponse
 describeInstanceStatusResponse pResponseStatus_ =
-    DescribeInstanceStatusResponse'
-    { _disrsInstanceStatuses = Nothing
-    , _disrsNextToken = Nothing
-    , _disrsResponseStatus = pResponseStatus_
-    }
+  DescribeInstanceStatusResponse'
+  { _disrsInstanceStatuses = Nothing
+  , _disrsNextToken = Nothing
+  , _disrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | One or more instance status descriptions.
 disrsInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
@@ -214,4 +218,4 @@ disrsNextToken = lens _disrsNextToken (\ s a -> s{_disrsNextToken = a});
 disrsResponseStatus :: Lens' DescribeInstanceStatusResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 
-instance NFData DescribeInstanceStatusResponse
+instance NFData DescribeInstanceStatusResponse where

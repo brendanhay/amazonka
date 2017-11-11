@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.AddApplicationInput
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.KinesisAnalytics.AddApplicationInput
     , aairsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addApplicationInput' smart constructor.
 data AddApplicationInput = AddApplicationInput'
-    { _aaiApplicationName             :: !Text
-    , _aaiCurrentApplicationVersionId :: !Nat
-    , _aaiInput                       :: !Input
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aaiApplicationName             :: {-# NOUNPACK #-}!Text
+  , _aaiCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
+  , _aaiInput                       :: {-# NOUNPACK #-}!Input
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddApplicationInput' with the minimum fields required to make a request.
 --
@@ -77,11 +78,12 @@ addApplicationInput
     -> Input -- ^ 'aaiInput'
     -> AddApplicationInput
 addApplicationInput pApplicationName_ pCurrentApplicationVersionId_ pInput_ =
-    AddApplicationInput'
-    { _aaiApplicationName = pApplicationName_
-    , _aaiCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _aaiInput = pInput_
-    }
+  AddApplicationInput'
+  { _aaiApplicationName = pApplicationName_
+  , _aaiCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+  , _aaiInput = pInput_
+  }
+
 
 -- | Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.
 aaiApplicationName :: Lens' AddApplicationInput Text
@@ -104,9 +106,9 @@ instance AWSRequest AddApplicationInput where
               (\ s h x ->
                  AddApplicationInputResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AddApplicationInput
+instance Hashable AddApplicationInput where
 
-instance NFData AddApplicationInput
+instance NFData AddApplicationInput where
 
 instance ToHeaders AddApplicationInput where
         toHeaders
@@ -140,8 +142,9 @@ instance ToQuery AddApplicationInput where
 --
 -- /See:/ 'addApplicationInputResponse' smart constructor.
 newtype AddApplicationInputResponse = AddApplicationInputResponse'
-    { _aairsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aairsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddApplicationInputResponse' with the minimum fields required to make a request.
 --
@@ -152,12 +155,11 @@ addApplicationInputResponse
     :: Int -- ^ 'aairsResponseStatus'
     -> AddApplicationInputResponse
 addApplicationInputResponse pResponseStatus_ =
-    AddApplicationInputResponse'
-    { _aairsResponseStatus = pResponseStatus_
-    }
+  AddApplicationInputResponse' {_aairsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aairsResponseStatus :: Lens' AddApplicationInputResponse Int
 aairsResponseStatus = lens _aairsResponseStatus (\ s a -> s{_aairsResponseStatus = a});
 
-instance NFData AddApplicationInputResponse
+instance NFData AddApplicationInputResponse where

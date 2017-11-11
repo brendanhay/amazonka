@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListKeyPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.KMS.ListKeyPolicies
     , lkprsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listKeyPolicies' smart constructor.
 data ListKeyPolicies = ListKeyPolicies'
-    { _lkpMarker :: !(Maybe Text)
-    , _lkpLimit  :: !(Maybe Nat)
-    , _lkpKeyId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lkpMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lkpLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lkpKeyId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListKeyPolicies' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ listKeyPolicies
     :: Text -- ^ 'lkpKeyId'
     -> ListKeyPolicies
 listKeyPolicies pKeyId_ =
-    ListKeyPolicies'
-    { _lkpMarker = Nothing
-    , _lkpLimit = Nothing
-    , _lkpKeyId = pKeyId_
-    }
+  ListKeyPolicies'
+  {_lkpMarker = Nothing, _lkpLimit = Nothing, _lkpKeyId = pKeyId_}
+
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
@@ -108,9 +107,9 @@ instance AWSRequest ListKeyPolicies where
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListKeyPolicies
+instance Hashable ListKeyPolicies where
 
-instance NFData ListKeyPolicies
+instance NFData ListKeyPolicies where
 
 instance ToHeaders ListKeyPolicies where
         toHeaders
@@ -137,11 +136,12 @@ instance ToQuery ListKeyPolicies where
 
 -- | /See:/ 'listKeyPoliciesResponse' smart constructor.
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
-    { _lkprsPolicyNames    :: !(Maybe [Text])
-    , _lkprsTruncated      :: !(Maybe Bool)
-    , _lkprsNextMarker     :: !(Maybe Text)
-    , _lkprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lkprsPolicyNames    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lkprsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lkprsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lkprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListKeyPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -158,12 +158,13 @@ listKeyPoliciesResponse
     :: Int -- ^ 'lkprsResponseStatus'
     -> ListKeyPoliciesResponse
 listKeyPoliciesResponse pResponseStatus_ =
-    ListKeyPoliciesResponse'
-    { _lkprsPolicyNames = Nothing
-    , _lkprsTruncated = Nothing
-    , _lkprsNextMarker = Nothing
-    , _lkprsResponseStatus = pResponseStatus_
-    }
+  ListKeyPoliciesResponse'
+  { _lkprsPolicyNames = Nothing
+  , _lkprsTruncated = Nothing
+  , _lkprsNextMarker = Nothing
+  , _lkprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of policy names. Currently, there is only one policy and it is named "Default".
 lkprsPolicyNames :: Lens' ListKeyPoliciesResponse [Text]
@@ -181,4 +182,4 @@ lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 lkprsResponseStatus :: Lens' ListKeyPoliciesResponse Int
 lkprsResponseStatus = lens _lkprsResponseStatus (\ s a -> s{_lkprsResponseStatus = a});
 
-instance NFData ListKeyPoliciesResponse
+instance NFData ListKeyPoliciesResponse where

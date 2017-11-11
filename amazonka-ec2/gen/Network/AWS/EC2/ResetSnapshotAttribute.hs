@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetSnapshotAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     , ResetSnapshotAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ResetSnapshotAttribute.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'resetSnapshotAttribute' smart constructor.
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
-    { _rsaDryRun     :: !(Maybe Bool)
-    , _rsaAttribute  :: !SnapshotAttributeName
-    , _rsaSnapshotId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsaDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rsaAttribute  :: {-# NOUNPACK #-}!SnapshotAttributeName
+  , _rsaSnapshotId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetSnapshotAttribute' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ resetSnapshotAttribute
     -> Text -- ^ 'rsaSnapshotId'
     -> ResetSnapshotAttribute
 resetSnapshotAttribute pAttribute_ pSnapshotId_ =
-    ResetSnapshotAttribute'
-    { _rsaDryRun = Nothing
-    , _rsaAttribute = pAttribute_
-    , _rsaSnapshotId = pSnapshotId_
-    }
+  ResetSnapshotAttribute'
+  { _rsaDryRun = Nothing
+  , _rsaAttribute = pAttribute_
+  , _rsaSnapshotId = pSnapshotId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
@@ -95,9 +97,9 @@ instance AWSRequest ResetSnapshotAttribute where
         response
           = receiveNull ResetSnapshotAttributeResponse'
 
-instance Hashable ResetSnapshotAttribute
+instance Hashable ResetSnapshotAttribute where
 
-instance NFData ResetSnapshotAttribute
+instance NFData ResetSnapshotAttribute where
 
 instance ToHeaders ResetSnapshotAttribute where
         toHeaders = const mempty
@@ -116,8 +118,9 @@ instance ToQuery ResetSnapshotAttribute where
 
 -- | /See:/ 'resetSnapshotAttributeResponse' smart constructor.
 data ResetSnapshotAttributeResponse =
-    ResetSnapshotAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ResetSnapshotAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
@@ -125,4 +128,5 @@ resetSnapshotAttributeResponse
     :: ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse'
 
-instance NFData ResetSnapshotAttributeResponse
+
+instance NFData ResetSnapshotAttributeResponse where

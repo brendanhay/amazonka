@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateClientCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.UpdateClientCertificate
     , ccDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to change information about an 'ClientCertificate' resource.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateClientCertificate' smart constructor.
 data UpdateClientCertificate = UpdateClientCertificate'
-    { _uccPatchOperations     :: !(Maybe [PatchOperation])
-    , _uccClientCertificateId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uccPatchOperations     :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _uccClientCertificateId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateClientCertificate' with the minimum fields required to make a request.
 --
@@ -69,10 +70,11 @@ updateClientCertificate
     :: Text -- ^ 'uccClientCertificateId'
     -> UpdateClientCertificate
 updateClientCertificate pClientCertificateId_ =
-    UpdateClientCertificate'
-    { _uccPatchOperations = Nothing
-    , _uccClientCertificateId = pClientCertificateId_
-    }
+  UpdateClientCertificate'
+  { _uccPatchOperations = Nothing
+  , _uccClientCertificateId = pClientCertificateId_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uccPatchOperations :: Lens' UpdateClientCertificate [PatchOperation]
@@ -87,9 +89,9 @@ instance AWSRequest UpdateClientCertificate where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateClientCertificate
+instance Hashable UpdateClientCertificate where
 
-instance NFData UpdateClientCertificate
+instance NFData UpdateClientCertificate where
 
 instance ToHeaders UpdateClientCertificate where
         toHeaders

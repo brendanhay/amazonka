@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.StopAutomationExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.SSM.StopAutomationExecution
     , saersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'stopAutomationExecution' smart constructor.
 newtype StopAutomationExecution = StopAutomationExecution'
-    { _saeAutomationExecutionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saeAutomationExecutionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopAutomationExecution' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ stopAutomationExecution
     :: Text -- ^ 'saeAutomationExecutionId'
     -> StopAutomationExecution
 stopAutomationExecution pAutomationExecutionId_ =
-    StopAutomationExecution'
-    { _saeAutomationExecutionId = pAutomationExecutionId_
-    }
+  StopAutomationExecution' {_saeAutomationExecutionId = pAutomationExecutionId_}
+
 
 -- | The execution ID of the Automation to stop.
 saeAutomationExecutionId :: Lens' StopAutomationExecution Text
@@ -75,9 +75,9 @@ instance AWSRequest StopAutomationExecution where
                  StopAutomationExecutionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable StopAutomationExecution
+instance Hashable StopAutomationExecution where
 
-instance NFData StopAutomationExecution
+instance NFData StopAutomationExecution where
 
 instance ToHeaders StopAutomationExecution where
         toHeaders
@@ -104,8 +104,9 @@ instance ToQuery StopAutomationExecution where
 
 -- | /See:/ 'stopAutomationExecutionResponse' smart constructor.
 newtype StopAutomationExecutionResponse = StopAutomationExecutionResponse'
-    { _saersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopAutomationExecutionResponse' with the minimum fields required to make a request.
 --
@@ -116,12 +117,11 @@ stopAutomationExecutionResponse
     :: Int -- ^ 'saersResponseStatus'
     -> StopAutomationExecutionResponse
 stopAutomationExecutionResponse pResponseStatus_ =
-    StopAutomationExecutionResponse'
-    { _saersResponseStatus = pResponseStatus_
-    }
+  StopAutomationExecutionResponse' {_saersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 saersResponseStatus :: Lens' StopAutomationExecutionResponse Int
 saersResponseStatus = lens _saersResponseStatus (\ s a -> s{_saersResponseStatus = a});
 
-instance NFData StopAutomationExecutionResponse
+instance NFData StopAutomationExecutionResponse where

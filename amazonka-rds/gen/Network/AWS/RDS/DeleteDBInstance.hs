@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.RDS.DeleteDBInstance
     , ddirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -66,10 +66,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDBInstance' smart constructor.
 data DeleteDBInstance = DeleteDBInstance'
-    { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
-    , _ddiSkipFinalSnapshot         :: !(Maybe Bool)
-    , _ddiDBInstanceIdentifier      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddiFinalDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddiSkipFinalSnapshot         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddiDBInstanceIdentifier      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBInstance' with the minimum fields required to make a request.
 --
@@ -84,11 +85,12 @@ deleteDBInstance
     :: Text -- ^ 'ddiDBInstanceIdentifier'
     -> DeleteDBInstance
 deleteDBInstance pDBInstanceIdentifier_ =
-    DeleteDBInstance'
-    { _ddiFinalDBSnapshotIdentifier = Nothing
-    , _ddiSkipFinalSnapshot = Nothing
-    , _ddiDBInstanceIdentifier = pDBInstanceIdentifier_
-    }
+  DeleteDBInstance'
+  { _ddiFinalDBSnapshotIdentifier = Nothing
+  , _ddiSkipFinalSnapshot = Nothing
+  , _ddiDBInstanceIdentifier = pDBInstanceIdentifier_
+  }
+
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Cannot be specified when deleting a Read Replica.
 ddiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest DeleteDBInstance where
                  DeleteDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteDBInstance
+instance Hashable DeleteDBInstance where
 
-instance NFData DeleteDBInstance
+instance NFData DeleteDBInstance where
 
 instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty
@@ -133,9 +135,10 @@ instance ToQuery DeleteDBInstance where
 
 -- | /See:/ 'deleteDBInstanceResponse' smart constructor.
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
-    { _ddirsDBInstance     :: !(Maybe DBInstance)
-    , _ddirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _ddirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -148,10 +151,9 @@ deleteDBInstanceResponse
     :: Int -- ^ 'ddirsResponseStatus'
     -> DeleteDBInstanceResponse
 deleteDBInstanceResponse pResponseStatus_ =
-    DeleteDBInstanceResponse'
-    { _ddirsDBInstance = Nothing
-    , _ddirsResponseStatus = pResponseStatus_
-    }
+  DeleteDBInstanceResponse'
+  {_ddirsDBInstance = Nothing, _ddirsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ddirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
@@ -161,4 +163,4 @@ ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
 ddirsResponseStatus :: Lens' DeleteDBInstanceResponse Int
 ddirsResponseStatus = lens _ddirsResponseStatus (\ s a -> s{_ddirsResponseStatus = a});
 
-instance NFData DeleteDBInstanceResponse
+instance NFData DeleteDBInstanceResponse where

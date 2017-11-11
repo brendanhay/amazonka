@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucket
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -32,17 +32,18 @@ module Network.AWS.S3.DeleteBucket
     , DeleteBucketResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucket' smart constructor.
 newtype DeleteBucket = DeleteBucket'
-    { _dbBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucket' with the minimum fields required to make a request.
 --
@@ -52,10 +53,8 @@ newtype DeleteBucket = DeleteBucket'
 deleteBucket
     :: BucketName -- ^ 'dbBucket'
     -> DeleteBucket
-deleteBucket pBucket_ =
-    DeleteBucket'
-    { _dbBucket = pBucket_
-    }
+deleteBucket pBucket_ = DeleteBucket' {_dbBucket = pBucket_}
+
 
 -- | Undocumented member.
 dbBucket :: Lens' DeleteBucket BucketName
@@ -66,9 +65,9 @@ instance AWSRequest DeleteBucket where
         request = delete s3
         response = receiveNull DeleteBucketResponse'
 
-instance Hashable DeleteBucket
+instance Hashable DeleteBucket where
 
-instance NFData DeleteBucket
+instance NFData DeleteBucket where
 
 instance ToHeaders DeleteBucket where
         toHeaders = const mempty
@@ -82,8 +81,9 @@ instance ToQuery DeleteBucket where
 
 -- | /See:/ 'deleteBucketResponse' smart constructor.
 data DeleteBucketResponse =
-    DeleteBucketResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketResponse' with the minimum fields required to make a request.
 --
@@ -91,4 +91,5 @@ deleteBucketResponse
     :: DeleteBucketResponse
 deleteBucketResponse = DeleteBucketResponse'
 
-instance NFData DeleteBucketResponse
+
+instance NFData DeleteBucketResponse where

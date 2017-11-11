@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAuthorizers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.GetAuthorizers
     , garsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe an existing 'Authorizers' resource.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getAuthorizers' smart constructor.
 data GetAuthorizers = GetAuthorizers'
-    { _gaLimit     :: !(Maybe Int)
-    , _gaPosition  :: !(Maybe Text)
-    , _gaRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gaPosition  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gaRestAPIId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAuthorizers' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ getAuthorizers
     :: Text -- ^ 'gaRestAPIId'
     -> GetAuthorizers
 getAuthorizers pRestAPIId_ =
-    GetAuthorizers'
-    { _gaLimit = Nothing
-    , _gaPosition = Nothing
-    , _gaRestAPIId = pRestAPIId_
-    }
+  GetAuthorizers'
+  {_gaLimit = Nothing, _gaPosition = Nothing, _gaRestAPIId = pRestAPIId_}
+
 
 -- | The maximum number of returned results per page.
 gaLimit :: Lens' GetAuthorizers (Maybe Int)
@@ -100,9 +99,9 @@ instance AWSRequest GetAuthorizers where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetAuthorizers
+instance Hashable GetAuthorizers where
 
-instance NFData GetAuthorizers
+instance NFData GetAuthorizers where
 
 instance ToHeaders GetAuthorizers where
         toHeaders
@@ -127,10 +126,11 @@ instance ToQuery GetAuthorizers where
 --
 -- /See:/ 'getAuthorizersResponse' smart constructor.
 data GetAuthorizersResponse = GetAuthorizersResponse'
-    { _garsItems          :: !(Maybe [Authorizer])
-    , _garsPosition       :: !(Maybe Text)
-    , _garsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garsItems          :: {-# NOUNPACK #-}!(Maybe [Authorizer])
+  , _garsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _garsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAuthorizersResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ getAuthorizersResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GetAuthorizersResponse
 getAuthorizersResponse pResponseStatus_ =
-    GetAuthorizersResponse'
-    { _garsItems = Nothing
-    , _garsPosition = Nothing
-    , _garsResponseStatus = pResponseStatus_
-    }
+  GetAuthorizersResponse'
+  { _garsItems = Nothing
+  , _garsPosition = Nothing
+  , _garsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 garsItems :: Lens' GetAuthorizersResponse [Authorizer]
@@ -163,4 +164,4 @@ garsPosition = lens _garsPosition (\ s a -> s{_garsPosition = a});
 garsResponseStatus :: Lens' GetAuthorizersResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 
-instance NFData GetAuthorizersResponse
+instance NFData GetAuthorizersResponse where

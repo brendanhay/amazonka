@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserPool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.CognitoIdentityProvider.DeleteUserPool
     , DeleteUserPoolResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to delete a user pool.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteUserPool' smart constructor.
 newtype DeleteUserPool = DeleteUserPool'
-    { _dupUserPoolId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupUserPoolId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserPool' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteUserPool = DeleteUserPool'
 deleteUserPool
     :: Text -- ^ 'dupUserPoolId'
     -> DeleteUserPool
-deleteUserPool pUserPoolId_ =
-    DeleteUserPool'
-    { _dupUserPoolId = pUserPoolId_
-    }
+deleteUserPool pUserPoolId_ = DeleteUserPool' {_dupUserPoolId = pUserPoolId_}
+
 
 -- | The user pool ID for the user pool you want to delete.
 dupUserPoolId :: Lens' DeleteUserPool Text
@@ -72,9 +71,9 @@ instance AWSRequest DeleteUserPool where
         request = postJSON cognitoIdentityProvider
         response = receiveNull DeleteUserPoolResponse'
 
-instance Hashable DeleteUserPool
+instance Hashable DeleteUserPool where
 
-instance NFData DeleteUserPool
+instance NFData DeleteUserPool where
 
 instance ToHeaders DeleteUserPool where
         toHeaders
@@ -99,8 +98,9 @@ instance ToQuery DeleteUserPool where
 
 -- | /See:/ 'deleteUserPoolResponse' smart constructor.
 data DeleteUserPoolResponse =
-    DeleteUserPoolResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteUserPoolResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserPoolResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +108,5 @@ deleteUserPoolResponse
     :: DeleteUserPoolResponse
 deleteUserPoolResponse = DeleteUserPoolResponse'
 
-instance NFData DeleteUserPoolResponse
+
+instance NFData DeleteUserPoolResponse where

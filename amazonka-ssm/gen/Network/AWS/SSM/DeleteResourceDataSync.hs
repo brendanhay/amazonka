@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteResourceDataSync
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.SSM.DeleteResourceDataSync
     , drdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteResourceDataSync' smart constructor.
 newtype DeleteResourceDataSync = DeleteResourceDataSync'
-    { _drdsSyncName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdsSyncName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteResourceDataSync' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deleteResourceDataSync
     :: Text -- ^ 'drdsSyncName'
     -> DeleteResourceDataSync
 deleteResourceDataSync pSyncName_ =
-    DeleteResourceDataSync'
-    { _drdsSyncName = pSyncName_
-    }
+  DeleteResourceDataSync' {_drdsSyncName = pSyncName_}
+
 
 -- | The name of the configuration to delete.
 drdsSyncName :: Lens' DeleteResourceDataSync Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteResourceDataSync where
                  DeleteResourceDataSyncResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteResourceDataSync
+instance Hashable DeleteResourceDataSync where
 
-instance NFData DeleteResourceDataSync
+instance NFData DeleteResourceDataSync where
 
 instance ToHeaders DeleteResourceDataSync where
         toHeaders
@@ -101,8 +101,9 @@ instance ToQuery DeleteResourceDataSync where
 
 -- | /See:/ 'deleteResourceDataSyncResponse' smart constructor.
 newtype DeleteResourceDataSyncResponse = DeleteResourceDataSyncResponse'
-    { _drdsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteResourceDataSyncResponse' with the minimum fields required to make a request.
 --
@@ -113,12 +114,11 @@ deleteResourceDataSyncResponse
     :: Int -- ^ 'drdsrsResponseStatus'
     -> DeleteResourceDataSyncResponse
 deleteResourceDataSyncResponse pResponseStatus_ =
-    DeleteResourceDataSyncResponse'
-    { _drdsrsResponseStatus = pResponseStatus_
-    }
+  DeleteResourceDataSyncResponse' {_drdsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drdsrsResponseStatus :: Lens' DeleteResourceDataSyncResponse Int
 drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a});
 
-instance NFData DeleteResourceDataSyncResponse
+instance NFData DeleteResourceDataSyncResponse where

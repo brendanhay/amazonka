@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.STS.AssumeRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -71,23 +71,24 @@ module Network.AWS.STS.AssumeRole
     , arrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.STS.Types
-import           Network.AWS.STS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.STS.Types
+import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'assumeRole' smart constructor.
 data AssumeRole = AssumeRole'
-    { _arTokenCode       :: !(Maybe Text)
-    , _arDurationSeconds :: !(Maybe Nat)
-    , _arPolicy          :: !(Maybe Text)
-    , _arExternalId      :: !(Maybe Text)
-    , _arSerialNumber    :: !(Maybe Text)
-    , _arRoleARN         :: !Text
-    , _arRoleSessionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arTokenCode       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arDurationSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _arPolicy          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arExternalId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arSerialNumber    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arRoleARN         :: {-# NOUNPACK #-}!Text
+  , _arRoleSessionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssumeRole' with the minimum fields required to make a request.
 --
@@ -111,15 +112,16 @@ assumeRole
     -> Text -- ^ 'arRoleSessionName'
     -> AssumeRole
 assumeRole pRoleARN_ pRoleSessionName_ =
-    AssumeRole'
-    { _arTokenCode = Nothing
-    , _arDurationSeconds = Nothing
-    , _arPolicy = Nothing
-    , _arExternalId = Nothing
-    , _arSerialNumber = Nothing
-    , _arRoleARN = pRoleARN_
-    , _arRoleSessionName = pRoleSessionName_
-    }
+  AssumeRole'
+  { _arTokenCode = Nothing
+  , _arDurationSeconds = Nothing
+  , _arPolicy = Nothing
+  , _arExternalId = Nothing
+  , _arSerialNumber = Nothing
+  , _arRoleARN = pRoleARN_
+  , _arRoleSessionName = pRoleSessionName_
+  }
+
 
 -- | The value provided by the MFA device, if the trust policy of the role being assumed requires MFA (that is, if the policy includes a condition that tests for MFA). If the role being assumed requires MFA and if the @TokenCode@ value is missing or expired, the @AssumeRole@ call returns an "access denied" error. The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
 arTokenCode :: Lens' AssumeRole (Maybe Text)
@@ -160,9 +162,9 @@ instance AWSRequest AssumeRole where
                      <*> (x .@? "AssumedRoleUser")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AssumeRole
+instance Hashable AssumeRole where
 
-instance NFData AssumeRole
+instance NFData AssumeRole where
 
 instance ToHeaders AssumeRole where
         toHeaders = const mempty
@@ -188,11 +190,12 @@ instance ToQuery AssumeRole where
 --
 -- /See:/ 'assumeRoleResponse' smart constructor.
 data AssumeRoleResponse = AssumeRoleResponse'
-    { _arrsPackedPolicySize :: !(Maybe Nat)
-    , _arrsCredentials      :: !(Maybe AuthEnv)
-    , _arrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
-    , _arrsResponseStatus   :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _arrsPackedPolicySize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _arrsCredentials      :: {-# NOUNPACK #-}!(Maybe AuthEnv)
+  , _arrsAssumedRoleUser  :: {-# NOUNPACK #-}!(Maybe AssumedRoleUser)
+  , _arrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssumeRoleResponse' with the minimum fields required to make a request.
 --
@@ -209,12 +212,13 @@ assumeRoleResponse
     :: Int -- ^ 'arrsResponseStatus'
     -> AssumeRoleResponse
 assumeRoleResponse pResponseStatus_ =
-    AssumeRoleResponse'
-    { _arrsPackedPolicySize = Nothing
-    , _arrsCredentials = Nothing
-    , _arrsAssumedRoleUser = Nothing
-    , _arrsResponseStatus = pResponseStatus_
-    }
+  AssumeRoleResponse'
+  { _arrsPackedPolicySize = Nothing
+  , _arrsCredentials = Nothing
+  , _arrsAssumedRoleUser = Nothing
+  , _arrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space.
 arrsPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Natural)
@@ -232,4 +236,4 @@ arrsAssumedRoleUser = lens _arrsAssumedRoleUser (\ s a -> s{_arrsAssumedRoleUser
 arrsResponseStatus :: Lens' AssumeRoleResponse Int
 arrsResponseStatus = lens _arrsResponseStatus (\ s a -> s{_arrsResponseStatus = a});
 
-instance NFData AssumeRoleResponse
+instance NFData AssumeRoleResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CognitoIdentityProvider.GetUser
     , gursUserAttributes
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to get information about the user.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getUser' smart constructor.
 newtype GetUser = GetUser'
-    { _guAccessToken :: Sensitive Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _guAccessToken :: Sensitive Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUser' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ newtype GetUser = GetUser'
 getUser
     :: Text -- ^ 'guAccessToken'
     -> GetUser
-getUser pAccessToken_ =
-    GetUser'
-    { _guAccessToken = _Sensitive # pAccessToken_
-    }
+getUser pAccessToken_ = GetUser' {_guAccessToken = _Sensitive # pAccessToken_}
+
 
 -- | The access token returned by the server response to get information about the user.
 guAccessToken :: Lens' GetUser Text
@@ -84,9 +83,9 @@ instance AWSRequest GetUser where
                      <*> (x .:> "Username")
                      <*> (x .?> "UserAttributes" .!@ mempty))
 
-instance Hashable GetUser
+instance Hashable GetUser where
 
-instance NFData GetUser
+instance NFData GetUser where
 
 instance ToHeaders GetUser where
         toHeaders
@@ -115,11 +114,12 @@ instance ToQuery GetUser where
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-    { _gursMFAOptions     :: !(Maybe [MFAOptionType])
-    , _gursResponseStatus :: !Int
-    , _gursUsername       :: !(Sensitive Text)
-    , _gursUserAttributes :: ![AttributeType]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gursMFAOptions     :: {-# NOUNPACK #-}!(Maybe [MFAOptionType])
+  , _gursResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gursUsername       :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _gursUserAttributes :: {-# NOUNPACK #-}![AttributeType]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUserResponse' with the minimum fields required to make a request.
 --
@@ -137,12 +137,13 @@ getUserResponse
     -> Text -- ^ 'gursUsername'
     -> GetUserResponse
 getUserResponse pResponseStatus_ pUsername_ =
-    GetUserResponse'
-    { _gursMFAOptions = Nothing
-    , _gursResponseStatus = pResponseStatus_
-    , _gursUsername = _Sensitive # pUsername_
-    , _gursUserAttributes = mempty
-    }
+  GetUserResponse'
+  { _gursMFAOptions = Nothing
+  , _gursResponseStatus = pResponseStatus_
+  , _gursUsername = _Sensitive # pUsername_
+  , _gursUserAttributes = mempty
+  }
+
 
 -- | Specifies the options for MFA (e.g., email or phone number).
 gursMFAOptions :: Lens' GetUserResponse [MFAOptionType]
@@ -160,4 +161,4 @@ gursUsername = lens _gursUsername (\ s a -> s{_gursUsername = a}) . _Sensitive;
 gursUserAttributes :: Lens' GetUserResponse [AttributeType]
 gursUserAttributes = lens _gursUserAttributes (\ s a -> s{_gursUserAttributes = a}) . _Coerce;
 
-instance NFData GetUserResponse
+instance NFData GetUserResponse where

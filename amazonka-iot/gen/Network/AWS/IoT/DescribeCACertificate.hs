@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeCACertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.IoT.DescribeCACertificate
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DescribeCACertificate operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCACertificate' smart constructor.
 newtype DescribeCACertificate = DescribeCACertificate'
-    { _dCertificateId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dCertificateId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCACertificate' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ describeCACertificate
     :: Text -- ^ 'dCertificateId'
     -> DescribeCACertificate
 describeCACertificate pCertificateId_ =
-    DescribeCACertificate'
-    { _dCertificateId = pCertificateId_
-    }
+  DescribeCACertificate' {_dCertificateId = pCertificateId_}
+
 
 -- | The CA certificate identifier.
 dCertificateId :: Lens' DescribeCACertificate Text
@@ -81,9 +81,9 @@ instance AWSRequest DescribeCACertificate where
                    (x .?> "certificateDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeCACertificate
+instance Hashable DescribeCACertificate where
 
-instance NFData DescribeCACertificate
+instance NFData DescribeCACertificate where
 
 instance ToHeaders DescribeCACertificate where
         toHeaders = const mempty
@@ -101,9 +101,10 @@ instance ToQuery DescribeCACertificate where
 --
 -- /See:/ 'describeCACertificateResponse' smart constructor.
 data DescribeCACertificateResponse = DescribeCACertificateResponse'
-    { _desrsCertificateDescription :: !(Maybe CACertificateDescription)
-    , _desrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsCertificateDescription :: {-# NOUNPACK #-}!(Maybe CACertificateDescription)
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCACertificateResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +117,11 @@ describeCACertificateResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeCACertificateResponse
 describeCACertificateResponse pResponseStatus_ =
-    DescribeCACertificateResponse'
-    { _desrsCertificateDescription = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeCACertificateResponse'
+  { _desrsCertificateDescription = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The CA certificate description.
 desrsCertificateDescription :: Lens' DescribeCACertificateResponse (Maybe CACertificateDescription)
@@ -129,4 +131,4 @@ desrsCertificateDescription = lens _desrsCertificateDescription (\ s a -> s{_des
 desrsResponseStatus :: Lens' DescribeCACertificateResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeCACertificateResponse
+instance NFData DescribeCACertificateResponse where

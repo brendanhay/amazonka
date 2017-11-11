@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.CancelJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Batch.CancelJob
     , cjrsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelJob' smart constructor.
 data CancelJob = CancelJob'
-    { _cjJobId  :: !Text
-    , _cjReason :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjJobId  :: {-# NOUNPACK #-}!Text
+  , _cjReason :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ cancelJob
     -> Text -- ^ 'cjReason'
     -> CancelJob
 cancelJob pJobId_ pReason_ =
-    CancelJob'
-    { _cjJobId = pJobId_
-    , _cjReason = pReason_
-    }
+  CancelJob' {_cjJobId = pJobId_, _cjReason = pReason_}
+
 
 -- | A list of up to 100 job IDs to cancel.
 cjJobId :: Lens' CancelJob Text
@@ -83,9 +82,9 @@ instance AWSRequest CancelJob where
               (\ s h x ->
                  CancelJobResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CancelJob
+instance Hashable CancelJob where
 
-instance NFData CancelJob
+instance NFData CancelJob where
 
 instance ToHeaders CancelJob where
         toHeaders
@@ -109,8 +108,9 @@ instance ToQuery CancelJob where
 
 -- | /See:/ 'cancelJobResponse' smart constructor.
 newtype CancelJobResponse = CancelJobResponse'
-    { _cjrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
 --
@@ -121,12 +121,11 @@ cancelJobResponse
     :: Int -- ^ 'cjrsResponseStatus'
     -> CancelJobResponse
 cancelJobResponse pResponseStatus_ =
-    CancelJobResponse'
-    { _cjrsResponseStatus = pResponseStatus_
-    }
+  CancelJobResponse' {_cjrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cjrsResponseStatus :: Lens' CancelJobResponse Int
 cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
 
-instance NFData CancelJobResponse
+instance NFData CancelJobResponse where

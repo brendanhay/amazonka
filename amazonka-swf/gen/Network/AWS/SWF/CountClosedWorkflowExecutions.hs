@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.CountClosedWorkflowExecutions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -65,23 +65,24 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     , wecCount
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countClosedWorkflowExecutions' smart constructor.
 data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
-    { _ccweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
-    , _ccweCloseStatusFilter :: !(Maybe CloseStatusFilter)
-    , _ccweTypeFilter        :: !(Maybe WorkflowTypeFilter)
-    , _ccweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
-    , _ccweTagFilter         :: !(Maybe TagFilter)
-    , _ccweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
-    , _ccweDomain            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccweExecutionFilter   :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFilter)
+  , _ccweCloseStatusFilter :: {-# NOUNPACK #-}!(Maybe CloseStatusFilter)
+  , _ccweTypeFilter        :: {-# NOUNPACK #-}!(Maybe WorkflowTypeFilter)
+  , _ccweCloseTimeFilter   :: {-# NOUNPACK #-}!(Maybe ExecutionTimeFilter)
+  , _ccweTagFilter         :: {-# NOUNPACK #-}!(Maybe TagFilter)
+  , _ccweStartTimeFilter   :: {-# NOUNPACK #-}!(Maybe ExecutionTimeFilter)
+  , _ccweDomain            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CountClosedWorkflowExecutions' with the minimum fields required to make a request.
 --
@@ -104,15 +105,16 @@ countClosedWorkflowExecutions
     :: Text -- ^ 'ccweDomain'
     -> CountClosedWorkflowExecutions
 countClosedWorkflowExecutions pDomain_ =
-    CountClosedWorkflowExecutions'
-    { _ccweExecutionFilter = Nothing
-    , _ccweCloseStatusFilter = Nothing
-    , _ccweTypeFilter = Nothing
-    , _ccweCloseTimeFilter = Nothing
-    , _ccweTagFilter = Nothing
-    , _ccweStartTimeFilter = Nothing
-    , _ccweDomain = pDomain_
-    }
+  CountClosedWorkflowExecutions'
+  { _ccweExecutionFilter = Nothing
+  , _ccweCloseStatusFilter = Nothing
+  , _ccweTypeFilter = Nothing
+  , _ccweCloseTimeFilter = Nothing
+  , _ccweTagFilter = Nothing
+  , _ccweStartTimeFilter = Nothing
+  , _ccweDomain = pDomain_
+  }
+
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
 ccweExecutionFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
@@ -149,9 +151,9 @@ instance AWSRequest CountClosedWorkflowExecutions
         request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CountClosedWorkflowExecutions
+instance Hashable CountClosedWorkflowExecutions where
 
-instance NFData CountClosedWorkflowExecutions
+instance NFData CountClosedWorkflowExecutions where
 
 instance ToHeaders CountClosedWorkflowExecutions
          where

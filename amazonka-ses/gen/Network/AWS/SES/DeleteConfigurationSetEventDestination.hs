@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteConfigurationSetEventDestination
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.SES.DeleteConfigurationSetEventDestination
     , dcsedrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to delete a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
@@ -54,9 +54,10 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'deleteConfigurationSetEventDestination' smart constructor.
 data DeleteConfigurationSetEventDestination = DeleteConfigurationSetEventDestination'
-    { _dcsedConfigurationSetName :: !Text
-    , _dcsedEventDestinationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsedConfigurationSetName :: {-# NOUNPACK #-}!Text
+  , _dcsedEventDestinationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigurationSetEventDestination' with the minimum fields required to make a request.
 --
@@ -70,10 +71,11 @@ deleteConfigurationSetEventDestination
     -> Text -- ^ 'dcsedEventDestinationName'
     -> DeleteConfigurationSetEventDestination
 deleteConfigurationSetEventDestination pConfigurationSetName_ pEventDestinationName_ =
-    DeleteConfigurationSetEventDestination'
-    { _dcsedConfigurationSetName = pConfigurationSetName_
-    , _dcsedEventDestinationName = pEventDestinationName_
-    }
+  DeleteConfigurationSetEventDestination'
+  { _dcsedConfigurationSetName = pConfigurationSetName_
+  , _dcsedEventDestinationName = pEventDestinationName_
+  }
+
 
 -- | The name of the configuration set from which to delete the event destination.
 dcsedConfigurationSetName :: Lens' DeleteConfigurationSetEventDestination Text
@@ -84,7 +86,8 @@ dcsedEventDestinationName :: Lens' DeleteConfigurationSetEventDestination Text
 dcsedEventDestinationName = lens _dcsedEventDestinationName (\ s a -> s{_dcsedEventDestinationName = a});
 
 instance AWSRequest
-         DeleteConfigurationSetEventDestination where
+           DeleteConfigurationSetEventDestination
+         where
         type Rs DeleteConfigurationSetEventDestination =
              DeleteConfigurationSetEventDestinationResponse
         request = postQuery ses
@@ -96,21 +99,26 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         DeleteConfigurationSetEventDestination
+           DeleteConfigurationSetEventDestination
+         where
 
 instance NFData
-         DeleteConfigurationSetEventDestination
+           DeleteConfigurationSetEventDestination
+         where
 
 instance ToHeaders
-         DeleteConfigurationSetEventDestination where
+           DeleteConfigurationSetEventDestination
+         where
         toHeaders = const mempty
 
 instance ToPath
-         DeleteConfigurationSetEventDestination where
+           DeleteConfigurationSetEventDestination
+         where
         toPath = const "/"
 
 instance ToQuery
-         DeleteConfigurationSetEventDestination where
+           DeleteConfigurationSetEventDestination
+         where
         toQuery DeleteConfigurationSetEventDestination'{..}
           = mconcat
               ["Action" =:
@@ -126,8 +134,9 @@ instance ToQuery
 --
 -- /See:/ 'deleteConfigurationSetEventDestinationResponse' smart constructor.
 newtype DeleteConfigurationSetEventDestinationResponse = DeleteConfigurationSetEventDestinationResponse'
-    { _dcsedrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsedrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteConfigurationSetEventDestinationResponse' with the minimum fields required to make a request.
 --
@@ -138,13 +147,14 @@ deleteConfigurationSetEventDestinationResponse
     :: Int -- ^ 'dcsedrsResponseStatus'
     -> DeleteConfigurationSetEventDestinationResponse
 deleteConfigurationSetEventDestinationResponse pResponseStatus_ =
-    DeleteConfigurationSetEventDestinationResponse'
-    { _dcsedrsResponseStatus = pResponseStatus_
-    }
+  DeleteConfigurationSetEventDestinationResponse'
+  {_dcsedrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dcsedrsResponseStatus :: Lens' DeleteConfigurationSetEventDestinationResponse Int
 dcsedrsResponseStatus = lens _dcsedrsResponseStatus (\ s a -> s{_dcsedrsResponseStatus = a});
 
 instance NFData
-         DeleteConfigurationSetEventDestinationResponse
+           DeleteConfigurationSetEventDestinationResponse
+         where

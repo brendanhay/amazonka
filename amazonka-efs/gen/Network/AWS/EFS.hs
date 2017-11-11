@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -163,19 +163,19 @@ module Network.AWS.EFS
     , tagValue
     ) where
 
-import           Network.AWS.EFS.CreateFileSystem
-import           Network.AWS.EFS.CreateMountTarget
-import           Network.AWS.EFS.CreateTags
-import           Network.AWS.EFS.DeleteFileSystem
-import           Network.AWS.EFS.DeleteMountTarget
-import           Network.AWS.EFS.DeleteTags
-import           Network.AWS.EFS.DescribeFileSystems
-import           Network.AWS.EFS.DescribeMountTargets
-import           Network.AWS.EFS.DescribeMountTargetSecurityGroups
-import           Network.AWS.EFS.DescribeTags
-import           Network.AWS.EFS.ModifyMountTargetSecurityGroups
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Waiters
+import Network.AWS.EFS.CreateFileSystem
+import Network.AWS.EFS.CreateMountTarget
+import Network.AWS.EFS.CreateTags
+import Network.AWS.EFS.DeleteFileSystem
+import Network.AWS.EFS.DeleteMountTarget
+import Network.AWS.EFS.DeleteTags
+import Network.AWS.EFS.DescribeFileSystems
+import Network.AWS.EFS.DescribeMountTargets
+import Network.AWS.EFS.DescribeMountTargetSecurityGroups
+import Network.AWS.EFS.DescribeTags
+import Network.AWS.EFS.ModifyMountTargetSecurityGroups
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

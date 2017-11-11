@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.ListStateMachines
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.StepFunctions.ListStateMachines
     , lsmrsStateMachines
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'listStateMachines' smart constructor.
 data ListStateMachines = ListStateMachines'
-    { _lsmNextToken  :: !(Maybe Text)
-    , _lsmMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsmNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsmMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStateMachines' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data ListStateMachines = ListStateMachines'
 listStateMachines
     :: ListStateMachines
 listStateMachines =
-    ListStateMachines'
-    { _lsmNextToken = Nothing
-    , _lsmMaxResults = Nothing
-    }
+  ListStateMachines' {_lsmNextToken = Nothing, _lsmMaxResults = Nothing}
+
 
 -- | If a @nextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 lsmNextToken :: Lens' ListStateMachines (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest ListStateMachines where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "stateMachines" .!@ mempty))
 
-instance Hashable ListStateMachines
+instance Hashable ListStateMachines where
 
-instance NFData ListStateMachines
+instance NFData ListStateMachines where
 
 instance ToHeaders ListStateMachines where
         toHeaders
@@ -123,10 +122,11 @@ instance ToQuery ListStateMachines where
 
 -- | /See:/ 'listStateMachinesResponse' smart constructor.
 data ListStateMachinesResponse = ListStateMachinesResponse'
-    { _lsmrsNextToken      :: !(Maybe Text)
-    , _lsmrsResponseStatus :: !Int
-    , _lsmrsStateMachines  :: ![StateMachineListItem]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsmrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lsmrsStateMachines  :: {-# NOUNPACK #-}![StateMachineListItem]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStateMachinesResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +141,12 @@ listStateMachinesResponse
     :: Int -- ^ 'lsmrsResponseStatus'
     -> ListStateMachinesResponse
 listStateMachinesResponse pResponseStatus_ =
-    ListStateMachinesResponse'
-    { _lsmrsNextToken = Nothing
-    , _lsmrsResponseStatus = pResponseStatus_
-    , _lsmrsStateMachines = mempty
-    }
+  ListStateMachinesResponse'
+  { _lsmrsNextToken = Nothing
+  , _lsmrsResponseStatus = pResponseStatus_
+  , _lsmrsStateMachines = mempty
+  }
+
 
 -- | If a @nextToken@ is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 lsmrsNextToken :: Lens' ListStateMachinesResponse (Maybe Text)
@@ -159,4 +160,4 @@ lsmrsResponseStatus = lens _lsmrsResponseStatus (\ s a -> s{_lsmrsResponseStatus
 lsmrsStateMachines :: Lens' ListStateMachinesResponse [StateMachineListItem]
 lsmrsStateMachines = lens _lsmrsStateMachines (\ s a -> s{_lsmrsStateMachines = a}) . _Coerce;
 
-instance NFData ListStateMachinesResponse
+instance NFData ListStateMachinesResponse where

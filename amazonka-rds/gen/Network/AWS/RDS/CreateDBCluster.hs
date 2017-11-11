@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -62,12 +62,12 @@ module Network.AWS.RDS.CreateDBCluster
     , cdcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -75,29 +75,30 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDBCluster' smart constructor.
 data CreateDBCluster = CreateDBCluster'
-    { _cdcEngineVersion                   :: !(Maybe Text)
-    , _cdcStorageEncrypted                :: !(Maybe Bool)
-    , _cdcMasterUserPassword              :: !(Maybe Text)
-    , _cdcReplicationSourceIdentifier     :: !(Maybe Text)
-    , _cdcMasterUsername                  :: !(Maybe Text)
-    , _cdcDBSubnetGroupName               :: !(Maybe Text)
-    , _cdcPreSignedURL                    :: !(Maybe Text)
-    , _cdcPreferredMaintenanceWindow      :: !(Maybe Text)
-    , _cdcAvailabilityZones               :: !(Maybe [Text])
-    , _cdcCharacterSetName                :: !(Maybe Text)
-    , _cdcKMSKeyId                        :: !(Maybe Text)
-    , _cdcPreferredBackupWindow           :: !(Maybe Text)
-    , _cdcBackupRetentionPeriod           :: !(Maybe Int)
-    , _cdcVPCSecurityGroupIds             :: !(Maybe [Text])
-    , _cdcDatabaseName                    :: !(Maybe Text)
-    , _cdcDBClusterParameterGroupName     :: !(Maybe Text)
-    , _cdcOptionGroupName                 :: !(Maybe Text)
-    , _cdcTags                            :: !(Maybe [Tag])
-    , _cdcPort                            :: !(Maybe Int)
-    , _cdcEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _cdcDBClusterIdentifier             :: !Text
-    , _cdcEngine                          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdcEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcStorageEncrypted                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdcMasterUserPassword              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcReplicationSourceIdentifier     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcMasterUsername                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcPreSignedURL                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcAvailabilityZones               :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdcCharacterSetName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdcVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdcDatabaseName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcDBClusterParameterGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdcTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdcPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdcEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdcDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
+  , _cdcEngine                          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBCluster' with the minimum fields required to make a request.
 --
@@ -151,30 +152,31 @@ createDBCluster
     -> Text -- ^ 'cdcEngine'
     -> CreateDBCluster
 createDBCluster pDBClusterIdentifier_ pEngine_ =
-    CreateDBCluster'
-    { _cdcEngineVersion = Nothing
-    , _cdcStorageEncrypted = Nothing
-    , _cdcMasterUserPassword = Nothing
-    , _cdcReplicationSourceIdentifier = Nothing
-    , _cdcMasterUsername = Nothing
-    , _cdcDBSubnetGroupName = Nothing
-    , _cdcPreSignedURL = Nothing
-    , _cdcPreferredMaintenanceWindow = Nothing
-    , _cdcAvailabilityZones = Nothing
-    , _cdcCharacterSetName = Nothing
-    , _cdcKMSKeyId = Nothing
-    , _cdcPreferredBackupWindow = Nothing
-    , _cdcBackupRetentionPeriod = Nothing
-    , _cdcVPCSecurityGroupIds = Nothing
-    , _cdcDatabaseName = Nothing
-    , _cdcDBClusterParameterGroupName = Nothing
-    , _cdcOptionGroupName = Nothing
-    , _cdcTags = Nothing
-    , _cdcPort = Nothing
-    , _cdcEnableIAMDatabaseAuthentication = Nothing
-    , _cdcDBClusterIdentifier = pDBClusterIdentifier_
-    , _cdcEngine = pEngine_
-    }
+  CreateDBCluster'
+  { _cdcEngineVersion = Nothing
+  , _cdcStorageEncrypted = Nothing
+  , _cdcMasterUserPassword = Nothing
+  , _cdcReplicationSourceIdentifier = Nothing
+  , _cdcMasterUsername = Nothing
+  , _cdcDBSubnetGroupName = Nothing
+  , _cdcPreSignedURL = Nothing
+  , _cdcPreferredMaintenanceWindow = Nothing
+  , _cdcAvailabilityZones = Nothing
+  , _cdcCharacterSetName = Nothing
+  , _cdcKMSKeyId = Nothing
+  , _cdcPreferredBackupWindow = Nothing
+  , _cdcBackupRetentionPeriod = Nothing
+  , _cdcVPCSecurityGroupIds = Nothing
+  , _cdcDatabaseName = Nothing
+  , _cdcDBClusterParameterGroupName = Nothing
+  , _cdcOptionGroupName = Nothing
+  , _cdcTags = Nothing
+  , _cdcPort = Nothing
+  , _cdcEnableIAMDatabaseAuthentication = Nothing
+  , _cdcDBClusterIdentifier = pDBClusterIdentifier_
+  , _cdcEngine = pEngine_
+  }
+
 
 -- | The version number of the database engine to use. __Aurora__  Example: @5.6.10a@
 cdcEngineVersion :: Lens' CreateDBCluster (Maybe Text)
@@ -273,9 +275,9 @@ instance AWSRequest CreateDBCluster where
                  CreateDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDBCluster
+instance Hashable CreateDBCluster where
 
-instance NFData CreateDBCluster
+instance NFData CreateDBCluster where
 
 instance ToHeaders CreateDBCluster where
         toHeaders = const mempty
@@ -323,9 +325,10 @@ instance ToQuery CreateDBCluster where
 
 -- | /See:/ 'createDBClusterResponse' smart constructor.
 data CreateDBClusterResponse = CreateDBClusterResponse'
-    { _cdcrsDBCluster      :: !(Maybe DBCluster)
-    , _cdcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdcrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
+  , _cdcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBClusterResponse' with the minimum fields required to make a request.
 --
@@ -338,10 +341,9 @@ createDBClusterResponse
     :: Int -- ^ 'cdcrsResponseStatus'
     -> CreateDBClusterResponse
 createDBClusterResponse pResponseStatus_ =
-    CreateDBClusterResponse'
-    { _cdcrsDBCluster = Nothing
-    , _cdcrsResponseStatus = pResponseStatus_
-    }
+  CreateDBClusterResponse'
+  {_cdcrsDBCluster = Nothing, _cdcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cdcrsDBCluster :: Lens' CreateDBClusterResponse (Maybe DBCluster)
@@ -351,4 +353,4 @@ cdcrsDBCluster = lens _cdcrsDBCluster (\ s a -> s{_cdcrsDBCluster = a});
 cdcrsResponseStatus :: Lens' CreateDBClusterResponse Int
 cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});
 
-instance NFData CreateDBClusterResponse
+instance NFData CreateDBClusterResponse where

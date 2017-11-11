@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
     , unodcrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateNumberOfDomainControllers' smart constructor.
 data UpdateNumberOfDomainControllers = UpdateNumberOfDomainControllers'
-    { _unodcDirectoryId   :: !Text
-    , _unodcDesiredNumber :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unodcDirectoryId   :: {-# NOUNPACK #-}!Text
+  , _unodcDesiredNumber :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNumberOfDomainControllers' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ updateNumberOfDomainControllers
     -> Natural -- ^ 'unodcDesiredNumber'
     -> UpdateNumberOfDomainControllers
 updateNumberOfDomainControllers pDirectoryId_ pDesiredNumber_ =
-    UpdateNumberOfDomainControllers'
-    { _unodcDirectoryId = pDirectoryId_
-    , _unodcDesiredNumber = _Nat # pDesiredNumber_
-    }
+  UpdateNumberOfDomainControllers'
+  { _unodcDirectoryId = pDirectoryId_
+  , _unodcDesiredNumber = _Nat # pDesiredNumber_
+  }
+
 
 -- | Identifier of the directory to which the domain controllers will be added or removed.
 unodcDirectoryId :: Lens' UpdateNumberOfDomainControllers Text
@@ -87,8 +89,9 @@ instance AWSRequest UpdateNumberOfDomainControllers
                    (pure (fromEnum s)))
 
 instance Hashable UpdateNumberOfDomainControllers
+         where
 
-instance NFData UpdateNumberOfDomainControllers
+instance NFData UpdateNumberOfDomainControllers where
 
 instance ToHeaders UpdateNumberOfDomainControllers
          where
@@ -117,8 +120,9 @@ instance ToQuery UpdateNumberOfDomainControllers
 
 -- | /See:/ 'updateNumberOfDomainControllersResponse' smart constructor.
 newtype UpdateNumberOfDomainControllersResponse = UpdateNumberOfDomainControllersResponse'
-    { _unodcrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unodcrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNumberOfDomainControllersResponse' with the minimum fields required to make a request.
 --
@@ -129,13 +133,14 @@ updateNumberOfDomainControllersResponse
     :: Int -- ^ 'unodcrsResponseStatus'
     -> UpdateNumberOfDomainControllersResponse
 updateNumberOfDomainControllersResponse pResponseStatus_ =
-    UpdateNumberOfDomainControllersResponse'
-    { _unodcrsResponseStatus = pResponseStatus_
-    }
+  UpdateNumberOfDomainControllersResponse'
+  {_unodcrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 unodcrsResponseStatus :: Lens' UpdateNumberOfDomainControllersResponse Int
 unodcrsResponseStatus = lens _unodcrsResponseStatus (\ s a -> s{_unodcrsResponseStatus = a});
 
 instance NFData
-         UpdateNumberOfDomainControllersResponse
+           UpdateNumberOfDomainControllersResponse
+         where

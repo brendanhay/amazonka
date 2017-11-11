@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetDevicePoolCompatibility
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     , gdpcrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get device pool compatibility operation.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDevicePoolCompatibility' smart constructor.
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-    { _gdpcTest          :: !(Maybe ScheduleRunTest)
-    , _gdpcAppARN        :: !(Maybe Text)
-    , _gdpcTestType      :: !(Maybe TestType)
-    , _gdpcDevicePoolARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdpcTest          :: {-# NOUNPACK #-}!(Maybe ScheduleRunTest)
+  , _gdpcAppARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpcTestType      :: {-# NOUNPACK #-}!(Maybe TestType)
+  , _gdpcDevicePoolARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDevicePoolCompatibility' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ getDevicePoolCompatibility
     :: Text -- ^ 'gdpcDevicePoolARN'
     -> GetDevicePoolCompatibility
 getDevicePoolCompatibility pDevicePoolARN_ =
-    GetDevicePoolCompatibility'
-    { _gdpcTest = Nothing
-    , _gdpcAppARN = Nothing
-    , _gdpcTestType = Nothing
-    , _gdpcDevicePoolARN = pDevicePoolARN_
-    }
+  GetDevicePoolCompatibility'
+  { _gdpcTest = Nothing
+  , _gdpcAppARN = Nothing
+  , _gdpcTestType = Nothing
+  , _gdpcDevicePoolARN = pDevicePoolARN_
+  }
+
 
 -- | Information about the uploaded test to be run against the device pool.
 gdpcTest :: Lens' GetDevicePoolCompatibility (Maybe ScheduleRunTest)
@@ -110,9 +112,9 @@ instance AWSRequest GetDevicePoolCompatibility where
                      (x .?> "compatibleDevices" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDevicePoolCompatibility
+instance Hashable GetDevicePoolCompatibility where
 
-instance NFData GetDevicePoolCompatibility
+instance NFData GetDevicePoolCompatibility where
 
 instance ToHeaders GetDevicePoolCompatibility where
         toHeaders
@@ -145,10 +147,11 @@ instance ToQuery GetDevicePoolCompatibility where
 --
 -- /See:/ 'getDevicePoolCompatibilityResponse' smart constructor.
 data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
-    { _gdpcrsIncompatibleDevices :: !(Maybe [DevicePoolCompatibilityResult])
-    , _gdpcrsCompatibleDevices   :: !(Maybe [DevicePoolCompatibilityResult])
-    , _gdpcrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdpcrsIncompatibleDevices :: {-# NOUNPACK #-}!(Maybe [DevicePoolCompatibilityResult])
+  , _gdpcrsCompatibleDevices :: {-# NOUNPACK #-}!(Maybe [DevicePoolCompatibilityResult])
+  , _gdpcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDevicePoolCompatibilityResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +166,12 @@ getDevicePoolCompatibilityResponse
     :: Int -- ^ 'gdpcrsResponseStatus'
     -> GetDevicePoolCompatibilityResponse
 getDevicePoolCompatibilityResponse pResponseStatus_ =
-    GetDevicePoolCompatibilityResponse'
-    { _gdpcrsIncompatibleDevices = Nothing
-    , _gdpcrsCompatibleDevices = Nothing
-    , _gdpcrsResponseStatus = pResponseStatus_
-    }
+  GetDevicePoolCompatibilityResponse'
+  { _gdpcrsIncompatibleDevices = Nothing
+  , _gdpcrsCompatibleDevices = Nothing
+  , _gdpcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about incompatible devices.
 gdpcrsIncompatibleDevices :: Lens' GetDevicePoolCompatibilityResponse [DevicePoolCompatibilityResult]
@@ -182,3 +186,4 @@ gdpcrsResponseStatus :: Lens' GetDevicePoolCompatibilityResponse Int
 gdpcrsResponseStatus = lens _gdpcrsResponseStatus (\ s a -> s{_gdpcrsResponseStatus = a});
 
 instance NFData GetDevicePoolCompatibilityResponse
+         where

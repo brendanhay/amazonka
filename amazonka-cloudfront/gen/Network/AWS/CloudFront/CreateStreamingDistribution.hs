@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     , csdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create a new streaming distribution.
 --
@@ -60,8 +60,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createStreamingDistribution' smart constructor.
 newtype CreateStreamingDistribution = CreateStreamingDistribution'
-    { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdStreamingDistributionConfig :: StreamingDistributionConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStreamingDistribution' with the minimum fields required to make a request.
 --
@@ -72,9 +73,9 @@ createStreamingDistribution
     :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
     -> CreateStreamingDistribution
 createStreamingDistribution pStreamingDistributionConfig_ =
-    CreateStreamingDistribution'
-    { _csdStreamingDistributionConfig = pStreamingDistributionConfig_
-    }
+  CreateStreamingDistribution'
+  {_csdStreamingDistributionConfig = pStreamingDistributionConfig_}
+
 
 -- | The streaming distribution's configuration information.
 csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
@@ -92,9 +93,9 @@ instance AWSRequest CreateStreamingDistribution where
                      (parseXML x)
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateStreamingDistribution
+instance Hashable CreateStreamingDistribution where
 
-instance NFData CreateStreamingDistribution
+instance NFData CreateStreamingDistribution where
 
 instance ToElement CreateStreamingDistribution where
         toElement
@@ -118,11 +119,12 @@ instance ToQuery CreateStreamingDistribution where
 --
 -- /See:/ 'createStreamingDistributionResponse' smart constructor.
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-    { _csdrsETag                  :: !(Maybe Text)
-    , _csdrsLocation              :: !(Maybe Text)
-    , _csdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _csdrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdrsETag :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsLocation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsStreamingDistribution :: {-# NOUNPACK #-}!(Maybe StreamingDistribution)
+  , _csdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStreamingDistributionResponse' with the minimum fields required to make a request.
 --
@@ -139,12 +141,13 @@ createStreamingDistributionResponse
     :: Int -- ^ 'csdrsResponseStatus'
     -> CreateStreamingDistributionResponse
 createStreamingDistributionResponse pResponseStatus_ =
-    CreateStreamingDistributionResponse'
-    { _csdrsETag = Nothing
-    , _csdrsLocation = Nothing
-    , _csdrsStreamingDistribution = Nothing
-    , _csdrsResponseStatus = pResponseStatus_
-    }
+  CreateStreamingDistributionResponse'
+  { _csdrsETag = Nothing
+  , _csdrsLocation = Nothing
+  , _csdrsStreamingDistribution = Nothing
+  , _csdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the streaming distribution created.
 csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
@@ -163,3 +166,4 @@ csdrsResponseStatus :: Lens' CreateStreamingDistributionResponse Int
 csdrsResponseStatus = lens _csdrsResponseStatus (\ s a -> s{_csdrsResponseStatus = a});
 
 instance NFData CreateStreamingDistributionResponse
+         where

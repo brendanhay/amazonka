@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.RebuildWorkspaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.WorkSpaces.RebuildWorkspaces
     , rwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | Contains the inputs for the 'RebuildWorkspaces' operation.
 --
@@ -60,8 +60,9 @@ import           Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'rebuildWorkspaces' smart constructor.
 newtype RebuildWorkspaces = RebuildWorkspaces'
-    { _rwRebuildWorkspaceRequests :: List1 RebuildRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rwRebuildWorkspaceRequests :: List1 RebuildRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebuildWorkspaces' with the minimum fields required to make a request.
 --
@@ -72,9 +73,9 @@ rebuildWorkspaces
     :: NonEmpty RebuildRequest -- ^ 'rwRebuildWorkspaceRequests'
     -> RebuildWorkspaces
 rebuildWorkspaces pRebuildWorkspaceRequests_ =
-    RebuildWorkspaces'
-    { _rwRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests_
-    }
+  RebuildWorkspaces'
+  {_rwRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests_}
+
 
 -- | An array of structures that specify the WorkSpaces to rebuild.
 rwRebuildWorkspaceRequests :: Lens' RebuildWorkspaces (NonEmpty RebuildRequest)
@@ -90,9 +91,9 @@ instance AWSRequest RebuildWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable RebuildWorkspaces
+instance Hashable RebuildWorkspaces where
 
-instance NFData RebuildWorkspaces
+instance NFData RebuildWorkspaces where
 
 instance ToHeaders RebuildWorkspaces where
         toHeaders
@@ -124,9 +125,10 @@ instance ToQuery RebuildWorkspaces where
 --
 -- /See:/ 'rebuildWorkspacesResponse' smart constructor.
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
-    { _rwrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _rwrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rwrsFailedRequests :: {-# NOUNPACK #-}!(Maybe [FailedWorkspaceChangeRequest])
+  , _rwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebuildWorkspacesResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +141,9 @@ rebuildWorkspacesResponse
     :: Int -- ^ 'rwrsResponseStatus'
     -> RebuildWorkspacesResponse
 rebuildWorkspacesResponse pResponseStatus_ =
-    RebuildWorkspacesResponse'
-    { _rwrsFailedRequests = Nothing
-    , _rwrsResponseStatus = pResponseStatus_
-    }
+  RebuildWorkspacesResponse'
+  {_rwrsFailedRequests = Nothing, _rwrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of structures representing any WorkSpaces that could not be rebuilt.
 rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
@@ -152,4 +153,4 @@ rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = 
 rwrsResponseStatus :: Lens' RebuildWorkspacesResponse Int
 rwrsResponseStatus = lens _rwrsResponseStatus (\ s a -> s{_rwrsResponseStatus = a});
 
-instance NFData RebuildWorkspacesResponse
+instance NFData RebuildWorkspacesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
     , dwcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | /See:/ 'describeWorkspacesConnectionStatus' smart constructor.
 data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
-    { _dwcsWorkspaceIds :: !(Maybe (List1 Text))
-    , _dwcsNextToken    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwcsWorkspaceIds :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _dwcsNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkspacesConnectionStatus' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
 describeWorkspacesConnectionStatus
     :: DescribeWorkspacesConnectionStatus
 describeWorkspacesConnectionStatus =
-    DescribeWorkspacesConnectionStatus'
-    { _dwcsWorkspaceIds = Nothing
-    , _dwcsNextToken = Nothing
-    }
+  DescribeWorkspacesConnectionStatus'
+  {_dwcsWorkspaceIds = Nothing, _dwcsNextToken = Nothing}
+
 
 -- | An array of strings that contain the identifiers of the WorkSpaces.
 dwcsWorkspaceIds :: Lens' DescribeWorkspacesConnectionStatus (Maybe (NonEmpty Text))
@@ -76,7 +76,8 @@ dwcsNextToken :: Lens' DescribeWorkspacesConnectionStatus (Maybe Text)
 dwcsNextToken = lens _dwcsNextToken (\ s a -> s{_dwcsNextToken = a});
 
 instance AWSRequest
-         DescribeWorkspacesConnectionStatus where
+           DescribeWorkspacesConnectionStatus
+         where
         type Rs DescribeWorkspacesConnectionStatus =
              DescribeWorkspacesConnectionStatusResponse
         request = postJSON workSpaces
@@ -89,8 +90,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeWorkspacesConnectionStatus
+         where
 
 instance NFData DescribeWorkspacesConnectionStatus
+         where
 
 instance ToHeaders DescribeWorkspacesConnectionStatus
          where
@@ -121,10 +124,11 @@ instance ToQuery DescribeWorkspacesConnectionStatus
 
 -- | /See:/ 'describeWorkspacesConnectionStatusResponse' smart constructor.
 data DescribeWorkspacesConnectionStatusResponse = DescribeWorkspacesConnectionStatusResponse'
-    { _dwcsrsNextToken                  :: !(Maybe Text)
-    , _dwcsrsWorkspacesConnectionStatus :: !(Maybe [WorkspaceConnectionStatus])
-    , _dwcsrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwcsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwcsrsWorkspacesConnectionStatus :: {-# NOUNPACK #-}!(Maybe [WorkspaceConnectionStatus])
+  , _dwcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkspacesConnectionStatusResponse' with the minimum fields required to make a request.
 --
@@ -139,11 +143,12 @@ describeWorkspacesConnectionStatusResponse
     :: Int -- ^ 'dwcsrsResponseStatus'
     -> DescribeWorkspacesConnectionStatusResponse
 describeWorkspacesConnectionStatusResponse pResponseStatus_ =
-    DescribeWorkspacesConnectionStatusResponse'
-    { _dwcsrsNextToken = Nothing
-    , _dwcsrsWorkspacesConnectionStatus = Nothing
-    , _dwcsrsResponseStatus = pResponseStatus_
-    }
+  DescribeWorkspacesConnectionStatusResponse'
+  { _dwcsrsNextToken = Nothing
+  , _dwcsrsWorkspacesConnectionStatus = Nothing
+  , _dwcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The next token of the result.
 dwcsrsNextToken :: Lens' DescribeWorkspacesConnectionStatusResponse (Maybe Text)
@@ -158,4 +163,5 @@ dwcsrsResponseStatus :: Lens' DescribeWorkspacesConnectionStatusResponse Int
 dwcsrsResponseStatus = lens _dwcsrsResponseStatus (\ s a -> s{_dwcsrsResponseStatus = a});
 
 instance NFData
-         DescribeWorkspacesConnectionStatusResponse
+           DescribeWorkspacesConnectionStatusResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.WorkDocs.DeleteUser
     , DeleteUserResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-    { _duuAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _duuUserId              :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _duuAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _duuUserId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ deleteUser
     :: Text -- ^ 'duuUserId'
     -> DeleteUser
 deleteUser pUserId_ =
-    DeleteUser'
-    { _duuAuthenticationToken = Nothing
-    , _duuUserId = pUserId_
-    }
+  DeleteUser' {_duuAuthenticationToken = Nothing, _duuUserId = pUserId_}
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 duuAuthenticationToken :: Lens' DeleteUser (Maybe Text)
@@ -77,9 +76,9 @@ instance AWSRequest DeleteUser where
         request = delete workDocs
         response = receiveNull DeleteUserResponse'
 
-instance Hashable DeleteUser
+instance Hashable DeleteUser where
 
-instance NFData DeleteUser
+instance NFData DeleteUser where
 
 instance ToHeaders DeleteUser where
         toHeaders DeleteUser'{..}
@@ -97,8 +96,9 @@ instance ToQuery DeleteUser where
 
 -- | /See:/ 'deleteUserResponse' smart constructor.
 data DeleteUserResponse =
-    DeleteUserResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteUserResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +106,5 @@ deleteUserResponse
     :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse'
 
-instance NFData DeleteUserResponse
+
+instance NFData DeleteUserResponse where

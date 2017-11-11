@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateAPIKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.APIGateway.CreateAPIKey
     , akDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to create an 'ApiKey' resource.
 --
@@ -64,14 +64,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
-    { _cakEnabled            :: !(Maybe Bool)
-    , _cakValue              :: !(Maybe Text)
-    , _cakCustomerId         :: !(Maybe Text)
-    , _cakGenerateDistinctId :: !(Maybe Bool)
-    , _cakName               :: !(Maybe Text)
-    , _cakStageKeys          :: !(Maybe [StageKey])
-    , _cakDescription        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cakEnabled            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cakValue              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cakCustomerId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cakGenerateDistinctId :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cakName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cakStageKeys          :: {-# NOUNPACK #-}!(Maybe [StageKey])
+  , _cakDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAPIKey' with the minimum fields required to make a request.
 --
@@ -93,15 +94,16 @@ data CreateAPIKey = CreateAPIKey'
 createAPIKey
     :: CreateAPIKey
 createAPIKey =
-    CreateAPIKey'
-    { _cakEnabled = Nothing
-    , _cakValue = Nothing
-    , _cakCustomerId = Nothing
-    , _cakGenerateDistinctId = Nothing
-    , _cakName = Nothing
-    , _cakStageKeys = Nothing
-    , _cakDescription = Nothing
-    }
+  CreateAPIKey'
+  { _cakEnabled = Nothing
+  , _cakValue = Nothing
+  , _cakCustomerId = Nothing
+  , _cakGenerateDistinctId = Nothing
+  , _cakName = Nothing
+  , _cakStageKeys = Nothing
+  , _cakDescription = Nothing
+  }
+
 
 -- | Specifies whether the 'ApiKey' can be used by callers.
 cakEnabled :: Lens' CreateAPIKey (Maybe Bool)
@@ -136,9 +138,9 @@ instance AWSRequest CreateAPIKey where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateAPIKey
+instance Hashable CreateAPIKey where
 
-instance NFData CreateAPIKey
+instance NFData CreateAPIKey where
 
 instance ToHeaders CreateAPIKey where
         toHeaders

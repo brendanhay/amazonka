@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.IncreaseReplicationFactor
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.DAX.IncreaseReplicationFactor
     , irfrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'increaseReplicationFactor' smart constructor.
 data IncreaseReplicationFactor = IncreaseReplicationFactor'
-    { _irfAvailabilityZones    :: !(Maybe [Text])
-    , _irfClusterName          :: !Text
-    , _irfNewReplicationFactor :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irfAvailabilityZones    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _irfClusterName          :: {-# NOUNPACK #-}!Text
+  , _irfNewReplicationFactor :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IncreaseReplicationFactor' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ increaseReplicationFactor
     -> Int -- ^ 'irfNewReplicationFactor'
     -> IncreaseReplicationFactor
 increaseReplicationFactor pClusterName_ pNewReplicationFactor_ =
-    IncreaseReplicationFactor'
-    { _irfAvailabilityZones = Nothing
-    , _irfClusterName = pClusterName_
-    , _irfNewReplicationFactor = pNewReplicationFactor_
-    }
+  IncreaseReplicationFactor'
+  { _irfAvailabilityZones = Nothing
+  , _irfClusterName = pClusterName_
+  , _irfNewReplicationFactor = pNewReplicationFactor_
+  }
+
 
 -- | The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.
 irfAvailabilityZones :: Lens' IncreaseReplicationFactor [Text]
@@ -95,9 +97,9 @@ instance AWSRequest IncreaseReplicationFactor where
                  IncreaseReplicationFactorResponse' <$>
                    (x .?> "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable IncreaseReplicationFactor
+instance Hashable IncreaseReplicationFactor where
 
-instance NFData IncreaseReplicationFactor
+instance NFData IncreaseReplicationFactor where
 
 instance ToHeaders IncreaseReplicationFactor where
         toHeaders
@@ -127,9 +129,10 @@ instance ToQuery IncreaseReplicationFactor where
 
 -- | /See:/ 'increaseReplicationFactorResponse' smart constructor.
 data IncreaseReplicationFactorResponse = IncreaseReplicationFactorResponse'
-    { _irfrsCluster        :: !(Maybe Cluster)
-    , _irfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irfrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _irfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IncreaseReplicationFactorResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,9 @@ increaseReplicationFactorResponse
     :: Int -- ^ 'irfrsResponseStatus'
     -> IncreaseReplicationFactorResponse
 increaseReplicationFactorResponse pResponseStatus_ =
-    IncreaseReplicationFactorResponse'
-    { _irfrsCluster = Nothing
-    , _irfrsResponseStatus = pResponseStatus_
-    }
+  IncreaseReplicationFactorResponse'
+  {_irfrsCluster = Nothing, _irfrsResponseStatus = pResponseStatus_}
+
 
 -- | A description of the DAX cluster. with its new replication factor.
 irfrsCluster :: Lens' IncreaseReplicationFactorResponse (Maybe Cluster)
@@ -156,3 +158,4 @@ irfrsResponseStatus :: Lens' IncreaseReplicationFactorResponse Int
 irfrsResponseStatus = lens _irfrsResponseStatus (\ s a -> s{_irfrsResponseStatus = a});
 
 instance NFData IncreaseReplicationFactorResponse
+         where

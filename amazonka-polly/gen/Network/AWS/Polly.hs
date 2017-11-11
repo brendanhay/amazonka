@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Polly
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -142,14 +142,14 @@ module Network.AWS.Polly
     , vId
     ) where
 
-import           Network.AWS.Polly.DeleteLexicon
-import           Network.AWS.Polly.DescribeVoices
-import           Network.AWS.Polly.GetLexicon
-import           Network.AWS.Polly.ListLexicons
-import           Network.AWS.Polly.PutLexicon
-import           Network.AWS.Polly.SynthesizeSpeech
-import           Network.AWS.Polly.Types
-import           Network.AWS.Polly.Waiters
+import Network.AWS.Polly.DeleteLexicon
+import Network.AWS.Polly.DescribeVoices
+import Network.AWS.Polly.GetLexicon
+import Network.AWS.Polly.ListLexicons
+import Network.AWS.Polly.PutLexicon
+import Network.AWS.Polly.SynthesizeSpeech
+import Network.AWS.Polly.Types
+import Network.AWS.Polly.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

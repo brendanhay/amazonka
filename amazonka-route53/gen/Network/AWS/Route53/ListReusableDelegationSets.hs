@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListReusableDelegationSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.Route53.ListReusableDelegationSets
     , lrdsrsMaxItems
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to get a list of the reusable delegation sets that are associated with the current AWS account.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listReusableDelegationSets' smart constructor.
 data ListReusableDelegationSets = ListReusableDelegationSets'
-    { _lrdsMarker   :: !(Maybe Text)
-    , _lrdsMaxItems :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrdsMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrdsMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListReusableDelegationSets' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ data ListReusableDelegationSets = ListReusableDelegationSets'
 listReusableDelegationSets
     :: ListReusableDelegationSets
 listReusableDelegationSets =
-    ListReusableDelegationSets'
-    { _lrdsMarker = Nothing
-    , _lrdsMaxItems = Nothing
-    }
+  ListReusableDelegationSets' {_lrdsMarker = Nothing, _lrdsMaxItems = Nothing}
+
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more reusable delegation sets. To get another group, submit another @ListReusableDelegationSets@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first reusable delegation set that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more reusable delegation sets to get.
 lrdsMarker :: Lens' ListReusableDelegationSets (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest ListReusableDelegationSets where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
-instance Hashable ListReusableDelegationSets
+instance Hashable ListReusableDelegationSets where
 
-instance NFData ListReusableDelegationSets
+instance NFData ListReusableDelegationSets where
 
 instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty
@@ -119,13 +118,14 @@ instance ToQuery ListReusableDelegationSets where
 --
 -- /See:/ 'listReusableDelegationSetsResponse' smart constructor.
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
-    { _lrdsrsNextMarker     :: !(Maybe Text)
-    , _lrdsrsResponseStatus :: !Int
-    , _lrdsrsDelegationSets :: ![DelegationSet]
-    , _lrdsrsMarker         :: !Text
-    , _lrdsrsIsTruncated    :: !Bool
-    , _lrdsrsMaxItems       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrdsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lrdsrsDelegationSets :: {-# NOUNPACK #-}![DelegationSet]
+  , _lrdsrsMarker         :: {-# NOUNPACK #-}!Text
+  , _lrdsrsIsTruncated    :: {-# NOUNPACK #-}!Bool
+  , _lrdsrsMaxItems       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListReusableDelegationSetsResponse' with the minimum fields required to make a request.
 --
@@ -149,14 +149,15 @@ listReusableDelegationSetsResponse
     -> Text -- ^ 'lrdsrsMaxItems'
     -> ListReusableDelegationSetsResponse
 listReusableDelegationSetsResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
-    ListReusableDelegationSetsResponse'
-    { _lrdsrsNextMarker = Nothing
-    , _lrdsrsResponseStatus = pResponseStatus_
-    , _lrdsrsDelegationSets = mempty
-    , _lrdsrsMarker = pMarker_
-    , _lrdsrsIsTruncated = pIsTruncated_
-    , _lrdsrsMaxItems = pMaxItems_
-    }
+  ListReusableDelegationSetsResponse'
+  { _lrdsrsNextMarker = Nothing
+  , _lrdsrsResponseStatus = pResponseStatus_
+  , _lrdsrsDelegationSets = mempty
+  , _lrdsrsMarker = pMarker_
+  , _lrdsrsIsTruncated = pIsTruncated_
+  , _lrdsrsMaxItems = pMaxItems_
+  }
+
 
 -- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the next reusable delegation set that Amazon Route 53 will return if you submit another @ListReusableDelegationSets@ request and specify the value of @NextMarker@ in the @marker@ parameter.
 lrdsrsNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
@@ -183,3 +184,4 @@ lrdsrsMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrsMaxItems = lens _lrdsrsMaxItems (\ s a -> s{_lrdsrsMaxItems = a});
 
 instance NFData ListReusableDelegationSetsResponse
+         where

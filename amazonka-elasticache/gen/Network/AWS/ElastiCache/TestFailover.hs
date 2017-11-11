@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.TestFailover
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -74,18 +74,19 @@ module Network.AWS.ElastiCache.TestFailover
     , tfrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'testFailover' smart constructor.
 data TestFailover = TestFailover'
-    { _tfReplicationGroupId :: !Text
-    , _tfNodeGroupId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tfReplicationGroupId :: {-# NOUNPACK #-}!Text
+  , _tfNodeGroupId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestFailover' with the minimum fields required to make a request.
 --
@@ -99,10 +100,9 @@ testFailover
     -> Text -- ^ 'tfNodeGroupId'
     -> TestFailover
 testFailover pReplicationGroupId_ pNodeGroupId_ =
-    TestFailover'
-    { _tfReplicationGroupId = pReplicationGroupId_
-    , _tfNodeGroupId = pNodeGroupId_
-    }
+  TestFailover'
+  {_tfReplicationGroupId = pReplicationGroupId_, _tfNodeGroupId = pNodeGroupId_}
+
 
 -- | The name of the replication group (console: cluster) whose automatic failover is being tested by this operation.
 tfReplicationGroupId :: Lens' TestFailover Text
@@ -121,9 +121,9 @@ instance AWSRequest TestFailover where
                  TestFailoverResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
-instance Hashable TestFailover
+instance Hashable TestFailover where
 
-instance NFData TestFailover
+instance NFData TestFailover where
 
 instance ToHeaders TestFailover where
         toHeaders = const mempty
@@ -141,9 +141,10 @@ instance ToQuery TestFailover where
 
 -- | /See:/ 'testFailoverResponse' smart constructor.
 data TestFailoverResponse = TestFailoverResponse'
-    { _tfrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _tfrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tfrsReplicationGroup :: {-# NOUNPACK #-}!(Maybe ReplicationGroup)
+  , _tfrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestFailoverResponse' with the minimum fields required to make a request.
 --
@@ -156,10 +157,9 @@ testFailoverResponse
     :: Int -- ^ 'tfrsResponseStatus'
     -> TestFailoverResponse
 testFailoverResponse pResponseStatus_ =
-    TestFailoverResponse'
-    { _tfrsReplicationGroup = Nothing
-    , _tfrsResponseStatus = pResponseStatus_
-    }
+  TestFailoverResponse'
+  {_tfrsReplicationGroup = Nothing, _tfrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 tfrsReplicationGroup :: Lens' TestFailoverResponse (Maybe ReplicationGroup)
@@ -169,4 +169,4 @@ tfrsReplicationGroup = lens _tfrsReplicationGroup (\ s a -> s{_tfrsReplicationGr
 tfrsResponseStatus :: Lens' TestFailoverResponse Int
 tfrsResponseStatus = lens _tfrsResponseStatus (\ s a -> s{_tfrsResponseStatus = a});
 
-instance NFData TestFailoverResponse
+instance NFData TestFailoverResponse where

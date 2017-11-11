@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListGroupVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Greengrass.ListGroupVersions
     , lgvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listGroupVersions' smart constructor.
 data ListGroupVersions = ListGroupVersions'
-    { _lgvNextToken  :: !(Maybe Text)
-    , _lgvMaxResults :: !(Maybe Text)
-    , _lgvGroupId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgvNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgvMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgvGroupId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroupVersions' with the minimum fields required to make a request.
 --
@@ -65,11 +66,9 @@ listGroupVersions
     :: Text -- ^ 'lgvGroupId'
     -> ListGroupVersions
 listGroupVersions pGroupId_ =
-    ListGroupVersions'
-    { _lgvNextToken = Nothing
-    , _lgvMaxResults = Nothing
-    , _lgvGroupId = pGroupId_
-    }
+  ListGroupVersions'
+  {_lgvNextToken = Nothing, _lgvMaxResults = Nothing, _lgvGroupId = pGroupId_}
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lgvNextToken :: Lens' ListGroupVersions (Maybe Text)
@@ -93,9 +92,9 @@ instance AWSRequest ListGroupVersions where
                    (x .?> "Versions" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListGroupVersions
+instance Hashable ListGroupVersions where
 
-instance NFData ListGroupVersions
+instance NFData ListGroupVersions where
 
 instance ToHeaders ListGroupVersions where
         toHeaders
@@ -118,10 +117,11 @@ instance ToQuery ListGroupVersions where
 
 -- | /See:/ 'listGroupVersionsResponse' smart constructor.
 data ListGroupVersionsResponse = ListGroupVersionsResponse'
-    { _lgvrsVersions       :: !(Maybe [VersionInformation])
-    , _lgvrsNextToken      :: !(Maybe Text)
-    , _lgvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
+  , _lgvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroupVersionsResponse' with the minimum fields required to make a request.
 --
@@ -136,11 +136,12 @@ listGroupVersionsResponse
     :: Int -- ^ 'lgvrsResponseStatus'
     -> ListGroupVersionsResponse
 listGroupVersionsResponse pResponseStatus_ =
-    ListGroupVersionsResponse'
-    { _lgvrsVersions = Nothing
-    , _lgvrsNextToken = Nothing
-    , _lgvrsResponseStatus = pResponseStatus_
-    }
+  ListGroupVersionsResponse'
+  { _lgvrsVersions = Nothing
+  , _lgvrsNextToken = Nothing
+  , _lgvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Versions
 lgvrsVersions :: Lens' ListGroupVersionsResponse [VersionInformation]
@@ -154,4 +155,4 @@ lgvrsNextToken = lens _lgvrsNextToken (\ s a -> s{_lgvrsNextToken = a});
 lgvrsResponseStatus :: Lens' ListGroupVersionsResponse Int
 lgvrsResponseStatus = lens _lgvrsResponseStatus (\ s a -> s{_lgvrsResponseStatus = a});
 
-instance NFData ListGroupVersionsResponse
+instance NFData ListGroupVersionsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeOrganization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,23 +37,25 @@ module Network.AWS.Organizations.DescribeOrganization
     , dorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeOrganization' smart constructor.
 data DescribeOrganization =
-    DescribeOrganization'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeOrganization'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrganization' with the minimum fields required to make a request.
 --
 describeOrganization
     :: DescribeOrganization
 describeOrganization = DescribeOrganization'
+
 
 instance AWSRequest DescribeOrganization where
         type Rs DescribeOrganization =
@@ -65,9 +67,9 @@ instance AWSRequest DescribeOrganization where
                  DescribeOrganizationResponse' <$>
                    (x .?> "Organization") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeOrganization
+instance Hashable DescribeOrganization where
 
-instance NFData DescribeOrganization
+instance NFData DescribeOrganization where
 
 instance ToHeaders DescribeOrganization where
         toHeaders
@@ -90,9 +92,10 @@ instance ToQuery DescribeOrganization where
 
 -- | /See:/ 'describeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
-    { _dorsOrganization   :: !(Maybe Organization)
-    , _dorsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dorsOrganization   :: {-# NOUNPACK #-}!(Maybe Organization)
+  , _dorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrganizationResponse' with the minimum fields required to make a request.
 --
@@ -105,10 +108,9 @@ describeOrganizationResponse
     :: Int -- ^ 'dorsResponseStatus'
     -> DescribeOrganizationResponse
 describeOrganizationResponse pResponseStatus_ =
-    DescribeOrganizationResponse'
-    { _dorsOrganization = Nothing
-    , _dorsResponseStatus = pResponseStatus_
-    }
+  DescribeOrganizationResponse'
+  {_dorsOrganization = Nothing, _dorsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains information about the organization.
 dorsOrganization :: Lens' DescribeOrganizationResponse (Maybe Organization)
@@ -118,4 +120,4 @@ dorsOrganization = lens _dorsOrganization (\ s a -> s{_dorsOrganization = a});
 dorsResponseStatus :: Lens' DescribeOrganizationResponse Int
 dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});
 
-instance NFData DescribeOrganizationResponse
+instance NFData DescribeOrganizationResponse where

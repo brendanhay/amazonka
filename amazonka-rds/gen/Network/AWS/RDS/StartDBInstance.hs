@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.StartDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.RDS.StartDBInstance
     , sdbirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startDBInstance' smart constructor.
 newtype StartDBInstance = StartDBInstance'
-    { _sdbiDBInstanceIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdbiDBInstanceIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartDBInstance' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ startDBInstance
     :: Text -- ^ 'sdbiDBInstanceIdentifier'
     -> StartDBInstance
 startDBInstance pDBInstanceIdentifier_ =
-    StartDBInstance'
-    { _sdbiDBInstanceIdentifier = pDBInstanceIdentifier_
-    }
+  StartDBInstance' {_sdbiDBInstanceIdentifier = pDBInstanceIdentifier_}
+
 
 -- | The user-supplied instance identifier.
 sdbiDBInstanceIdentifier :: Lens' StartDBInstance Text
@@ -75,9 +75,9 @@ instance AWSRequest StartDBInstance where
                  StartDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-instance Hashable StartDBInstance
+instance Hashable StartDBInstance where
 
-instance NFData StartDBInstance
+instance NFData StartDBInstance where
 
 instance ToHeaders StartDBInstance where
         toHeaders = const mempty
@@ -94,9 +94,10 @@ instance ToQuery StartDBInstance where
 
 -- | /See:/ 'startDBInstanceResponse' smart constructor.
 data StartDBInstanceResponse = StartDBInstanceResponse'
-    { _sdbirsDBInstance     :: !(Maybe DBInstance)
-    , _sdbirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdbirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _sdbirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +110,9 @@ startDBInstanceResponse
     :: Int -- ^ 'sdbirsResponseStatus'
     -> StartDBInstanceResponse
 startDBInstanceResponse pResponseStatus_ =
-    StartDBInstanceResponse'
-    { _sdbirsDBInstance = Nothing
-    , _sdbirsResponseStatus = pResponseStatus_
-    }
+  StartDBInstanceResponse'
+  {_sdbirsDBInstance = Nothing, _sdbirsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 sdbirsDBInstance :: Lens' StartDBInstanceResponse (Maybe DBInstance)
@@ -122,4 +122,4 @@ sdbirsDBInstance = lens _sdbirsDBInstance (\ s a -> s{_sdbirsDBInstance = a});
 sdbirsResponseStatus :: Lens' StartDBInstanceResponse Int
 sdbirsResponseStatus = lens _sdbirsResponseStatus (\ s a -> s{_sdbirsResponseStatus = a});
 
-instance NFData StartDBInstanceResponse
+instance NFData StartDBInstanceResponse where

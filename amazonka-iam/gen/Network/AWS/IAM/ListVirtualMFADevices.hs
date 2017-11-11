@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListVirtualMFADevices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.IAM.ListVirtualMFADevices
     , lvmdrsVirtualMFADevices
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listVirtualMFADevices' smart constructor.
 data ListVirtualMFADevices = ListVirtualMFADevices'
-    { _lvmdAssignmentStatus :: !(Maybe AssignmentStatusType)
-    , _lvmdMarker           :: !(Maybe Text)
-    , _lvmdMaxItems         :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvmdAssignmentStatus :: {-# NOUNPACK #-}!(Maybe AssignmentStatusType)
+  , _lvmdMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvmdMaxItems         :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVirtualMFADevices' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ data ListVirtualMFADevices = ListVirtualMFADevices'
 listVirtualMFADevices
     :: ListVirtualMFADevices
 listVirtualMFADevices =
-    ListVirtualMFADevices'
-    { _lvmdAssignmentStatus = Nothing
-    , _lvmdMarker = Nothing
-    , _lvmdMaxItems = Nothing
-    }
+  ListVirtualMFADevices'
+  { _lvmdAssignmentStatus = Nothing
+  , _lvmdMarker = Nothing
+  , _lvmdMaxItems = Nothing
+  }
+
 
 -- | The status (@Unassigned@ or @Assigned@ ) of the devices to list. If you do not specify an @AssignmentStatus@ , the action defaults to @Any@ which lists both assigned and unassigned virtual MFA devices.
 lvmdAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
@@ -111,9 +113,9 @@ instance AWSRequest ListVirtualMFADevices where
                      (x .@? "VirtualMFADevices" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListVirtualMFADevices
+instance Hashable ListVirtualMFADevices where
 
-instance NFData ListVirtualMFADevices
+instance NFData ListVirtualMFADevices where
 
 instance ToHeaders ListVirtualMFADevices where
         toHeaders = const mempty
@@ -135,11 +137,12 @@ instance ToQuery ListVirtualMFADevices where
 --
 -- /See:/ 'listVirtualMFADevicesResponse' smart constructor.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
-    { _lvmdrsMarker            :: !(Maybe Text)
-    , _lvmdrsIsTruncated       :: !(Maybe Bool)
-    , _lvmdrsResponseStatus    :: !Int
-    , _lvmdrsVirtualMFADevices :: ![VirtualMFADevice]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lvmdrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvmdrsIsTruncated       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lvmdrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _lvmdrsVirtualMFADevices :: {-# NOUNPACK #-}![VirtualMFADevice]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVirtualMFADevicesResponse' with the minimum fields required to make a request.
 --
@@ -156,12 +159,13 @@ listVirtualMFADevicesResponse
     :: Int -- ^ 'lvmdrsResponseStatus'
     -> ListVirtualMFADevicesResponse
 listVirtualMFADevicesResponse pResponseStatus_ =
-    ListVirtualMFADevicesResponse'
-    { _lvmdrsMarker = Nothing
-    , _lvmdrsIsTruncated = Nothing
-    , _lvmdrsResponseStatus = pResponseStatus_
-    , _lvmdrsVirtualMFADevices = mempty
-    }
+  ListVirtualMFADevicesResponse'
+  { _lvmdrsMarker = Nothing
+  , _lvmdrsIsTruncated = Nothing
+  , _lvmdrsResponseStatus = pResponseStatus_
+  , _lvmdrsVirtualMFADevices = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lvmdrsMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
@@ -179,4 +183,4 @@ lvmdrsResponseStatus = lens _lvmdrsResponseStatus (\ s a -> s{_lvmdrsResponseSta
 lvmdrsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 lvmdrsVirtualMFADevices = lens _lvmdrsVirtualMFADevices (\ s a -> s{_lvmdrsVirtualMFADevices = a}) . _Coerce;
 
-instance NFData ListVirtualMFADevicesResponse
+instance NFData ListVirtualMFADevicesResponse where

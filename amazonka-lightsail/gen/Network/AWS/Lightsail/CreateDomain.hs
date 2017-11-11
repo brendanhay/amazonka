@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.CreateDomain
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDomain' smart constructor.
 newtype CreateDomain = CreateDomain'
-    { _cdDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype CreateDomain = CreateDomain'
 createDomain
     :: Text -- ^ 'cdDomainName'
     -> CreateDomain
-createDomain pDomainName_ =
-    CreateDomain'
-    { _cdDomainName = pDomainName_
-    }
+createDomain pDomainName_ = CreateDomain' {_cdDomainName = pDomainName_}
+
 
 -- | The domain name to manage (e.g., @example.com@ ).
 cdDomainName :: Lens' CreateDomain Text
@@ -75,9 +74,9 @@ instance AWSRequest CreateDomain where
                  CreateDomainResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDomain
+instance Hashable CreateDomain where
 
-instance NFData CreateDomain
+instance NFData CreateDomain where
 
 instance ToHeaders CreateDomain where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery CreateDomain where
 
 -- | /See:/ 'createDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-    { _cdrsOperation      :: !(Maybe Operation)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ createDomainResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDomainResponse
 createDomainResponse pResponseStatus_ =
-    CreateDomainResponse'
-    { _cdrsOperation = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDomainResponse'
+  {_cdrsOperation = Nothing, _cdrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the domain resource you created.
 cdrsOperation :: Lens' CreateDomainResponse (Maybe Operation)
@@ -129,4 +128,4 @@ cdrsOperation = lens _cdrsOperation (\ s a -> s{_cdrsOperation = a});
 cdrsResponseStatus :: Lens' CreateDomainResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDomainResponse
+instance NFData CreateDomainResponse where

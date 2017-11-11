@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateUsagePlan
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.UpdateUsagePlan
     , upProductCode
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The PATCH request to update a usage plan of a given plan Id.
 --
@@ -56,9 +56,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUsagePlan' smart constructor.
 data UpdateUsagePlan = UpdateUsagePlan'
-    { _uupPatchOperations :: !(Maybe [PatchOperation])
-    , _uupUsagePlanId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uupPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _uupUsagePlanId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUsagePlan' with the minimum fields required to make a request.
 --
@@ -71,10 +72,9 @@ updateUsagePlan
     :: Text -- ^ 'uupUsagePlanId'
     -> UpdateUsagePlan
 updateUsagePlan pUsagePlanId_ =
-    UpdateUsagePlan'
-    { _uupPatchOperations = Nothing
-    , _uupUsagePlanId = pUsagePlanId_
-    }
+  UpdateUsagePlan'
+  {_uupPatchOperations = Nothing, _uupUsagePlanId = pUsagePlanId_}
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uupPatchOperations :: Lens' UpdateUsagePlan [PatchOperation]
@@ -89,9 +89,9 @@ instance AWSRequest UpdateUsagePlan where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateUsagePlan
+instance Hashable UpdateUsagePlan where
 
-instance NFData UpdateUsagePlan
+instance NFData UpdateUsagePlan where
 
 instance ToHeaders UpdateUsagePlan where
         toHeaders

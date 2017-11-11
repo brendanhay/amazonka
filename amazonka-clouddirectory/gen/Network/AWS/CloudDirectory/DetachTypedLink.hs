@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachTypedLink
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.CloudDirectory.DetachTypedLink
     , DetachTypedLinkResponse
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachTypedLink' smart constructor.
 data DetachTypedLink = DetachTypedLink'
-    { _dtlDirectoryARN       :: !Text
-    , _dtlTypedLinkSpecifier :: !TypedLinkSpecifier
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtlDirectoryARN       :: {-# NOUNPACK #-}!Text
+  , _dtlTypedLinkSpecifier :: {-# NOUNPACK #-}!TypedLinkSpecifier
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachTypedLink' with the minimum fields required to make a request.
 --
@@ -60,10 +61,11 @@ detachTypedLink
     -> TypedLinkSpecifier -- ^ 'dtlTypedLinkSpecifier'
     -> DetachTypedLink
 detachTypedLink pDirectoryARN_ pTypedLinkSpecifier_ =
-    DetachTypedLink'
-    { _dtlDirectoryARN = pDirectoryARN_
-    , _dtlTypedLinkSpecifier = pTypedLinkSpecifier_
-    }
+  DetachTypedLink'
+  { _dtlDirectoryARN = pDirectoryARN_
+  , _dtlTypedLinkSpecifier = pTypedLinkSpecifier_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.
 dtlDirectoryARN :: Lens' DetachTypedLink Text
@@ -78,9 +80,9 @@ instance AWSRequest DetachTypedLink where
         request = putJSON cloudDirectory
         response = receiveNull DetachTypedLinkResponse'
 
-instance Hashable DetachTypedLink
+instance Hashable DetachTypedLink where
 
-instance NFData DetachTypedLink
+instance NFData DetachTypedLink where
 
 instance ToHeaders DetachTypedLink where
         toHeaders DetachTypedLink'{..}
@@ -104,8 +106,9 @@ instance ToQuery DetachTypedLink where
 
 -- | /See:/ 'detachTypedLinkResponse' smart constructor.
 data DetachTypedLinkResponse =
-    DetachTypedLinkResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachTypedLinkResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachTypedLinkResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +116,5 @@ detachTypedLinkResponse
     :: DetachTypedLinkResponse
 detachTypedLinkResponse = DetachTypedLinkResponse'
 
-instance NFData DetachTypedLinkResponse
+
+instance NFData DetachTypedLinkResponse where

@@ -9,27 +9,28 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Greengrass.Types.Product where
 
-import           Network.AWS.Greengrass.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Greengrass.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Connectivity Info
 --
 -- /See:/ 'connectivityInfo' smart constructor.
 data ConnectivityInfo = ConnectivityInfo'
-    { _ciPortNumber  :: !(Maybe Int)
-    , _ciId          :: !(Maybe Text)
-    , _ciMetadata    :: !(Maybe Text)
-    , _ciHostAddress :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciPortNumber  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ciId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciMetadata    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciHostAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConnectivityInfo' with the minimum fields required to make a request.
 --
@@ -45,12 +46,13 @@ data ConnectivityInfo = ConnectivityInfo'
 connectivityInfo
     :: ConnectivityInfo
 connectivityInfo =
-    ConnectivityInfo'
-    { _ciPortNumber = Nothing
-    , _ciId = Nothing
-    , _ciMetadata = Nothing
-    , _ciHostAddress = Nothing
-    }
+  ConnectivityInfo'
+  { _ciPortNumber = Nothing
+  , _ciId = Nothing
+  , _ciMetadata = Nothing
+  , _ciHostAddress = Nothing
+  }
+
 
 -- | Port of the GGC. Usually 8883.
 ciPortNumber :: Lens' ConnectivityInfo (Maybe Int)
@@ -77,9 +79,9 @@ instance FromJSON ConnectivityInfo where
                      (x .:? "Metadata")
                      <*> (x .:? "HostAddress"))
 
-instance Hashable ConnectivityInfo
+instance Hashable ConnectivityInfo where
 
-instance NFData ConnectivityInfo
+instance NFData ConnectivityInfo where
 
 instance ToJSON ConnectivityInfo where
         toJSON ConnectivityInfo'{..}
@@ -93,11 +95,12 @@ instance ToJSON ConnectivityInfo where
 --
 -- /See:/ 'core' smart constructor.
 data Core = Core'
-    { _cCertificateARN :: !(Maybe Text)
-    , _cThingARN       :: !(Maybe Text)
-    , _cSyncShadow     :: !(Maybe Bool)
-    , _cId             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cThingARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cSyncShadow     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cId             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Core' with the minimum fields required to make a request.
 --
@@ -113,12 +116,13 @@ data Core = Core'
 core
     :: Core
 core =
-    Core'
-    { _cCertificateARN = Nothing
-    , _cThingARN = Nothing
-    , _cSyncShadow = Nothing
-    , _cId = Nothing
-    }
+  Core'
+  { _cCertificateARN = Nothing
+  , _cThingARN = Nothing
+  , _cSyncShadow = Nothing
+  , _cId = Nothing
+  }
+
 
 -- | Certificate arn of the core.
 cCertificateARN :: Lens' Core (Maybe Text)
@@ -145,9 +149,9 @@ instance FromJSON Core where
                      (x .:? "SyncShadow")
                      <*> (x .:? "Id"))
 
-instance Hashable Core
+instance Hashable Core where
 
-instance NFData Core
+instance NFData Core where
 
 instance ToJSON Core where
         toJSON Core'{..}
@@ -162,8 +166,9 @@ instance ToJSON Core where
 --
 -- /See:/ 'coreDefinitionVersion' smart constructor.
 newtype CoreDefinitionVersion = CoreDefinitionVersion'
-    { _cdvCores :: Maybe [Core]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdvCores :: Maybe [Core]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CoreDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -172,10 +177,8 @@ newtype CoreDefinitionVersion = CoreDefinitionVersion'
 -- * 'cdvCores' - Cores in the definition version.
 coreDefinitionVersion
     :: CoreDefinitionVersion
-coreDefinitionVersion =
-    CoreDefinitionVersion'
-    { _cdvCores = Nothing
-    }
+coreDefinitionVersion = CoreDefinitionVersion' {_cdvCores = Nothing}
+
 
 -- | Cores in the definition version.
 cdvCores :: Lens' CoreDefinitionVersion [Core]
@@ -188,9 +191,9 @@ instance FromJSON CoreDefinitionVersion where
                  CoreDefinitionVersion' <$>
                    (x .:? "Cores" .!= mempty))
 
-instance Hashable CoreDefinitionVersion
+instance Hashable CoreDefinitionVersion where
 
-instance NFData CoreDefinitionVersion
+instance NFData CoreDefinitionVersion where
 
 instance ToJSON CoreDefinitionVersion where
         toJSON CoreDefinitionVersion'{..}
@@ -200,14 +203,15 @@ instance ToJSON CoreDefinitionVersion where
 --
 -- /See:/ 'definitionInformation' smart constructor.
 data DefinitionInformation = DefinitionInformation'
-    { _diLatestVersionARN     :: !(Maybe Text)
-    , _diARN                  :: !(Maybe Text)
-    , _diName                 :: !(Maybe Text)
-    , _diCreationTimestamp    :: !(Maybe Text)
-    , _diId                   :: !(Maybe Text)
-    , _diLatestVersion        :: !(Maybe Text)
-    , _diLastUpdatedTimestamp :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefinitionInformation' with the minimum fields required to make a request.
 --
@@ -229,15 +233,16 @@ data DefinitionInformation = DefinitionInformation'
 definitionInformation
     :: DefinitionInformation
 definitionInformation =
-    DefinitionInformation'
-    { _diLatestVersionARN = Nothing
-    , _diARN = Nothing
-    , _diName = Nothing
-    , _diCreationTimestamp = Nothing
-    , _diId = Nothing
-    , _diLatestVersion = Nothing
-    , _diLastUpdatedTimestamp = Nothing
-    }
+  DefinitionInformation'
+  { _diLatestVersionARN = Nothing
+  , _diARN = Nothing
+  , _diName = Nothing
+  , _diCreationTimestamp = Nothing
+  , _diId = Nothing
+  , _diLatestVersion = Nothing
+  , _diLastUpdatedTimestamp = Nothing
+  }
+
 
 -- | Latest version arn of the definition.
 diLatestVersionARN :: Lens' DefinitionInformation (Maybe Text)
@@ -279,19 +284,20 @@ instance FromJSON DefinitionInformation where
                      <*> (x .:? "LatestVersion")
                      <*> (x .:? "LastUpdatedTimestamp"))
 
-instance Hashable DefinitionInformation
+instance Hashable DefinitionInformation where
 
-instance NFData DefinitionInformation
+instance NFData DefinitionInformation where
 
 -- | Information on the deployment
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-    { _dDeploymentId  :: !(Maybe Text)
-    , _dDeploymentARN :: !(Maybe Text)
-    , _dCreatedAt     :: !(Maybe Text)
-    , _dGroupARN      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDeploymentId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDeploymentARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCreatedAt     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dGroupARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
@@ -307,12 +313,13 @@ data Deployment = Deployment'
 deployment
     :: Deployment
 deployment =
-    Deployment'
-    { _dDeploymentId = Nothing
-    , _dDeploymentARN = Nothing
-    , _dCreatedAt = Nothing
-    , _dGroupARN = Nothing
-    }
+  Deployment'
+  { _dDeploymentId = Nothing
+  , _dDeploymentARN = Nothing
+  , _dCreatedAt = Nothing
+  , _dGroupARN = Nothing
+  }
+
 
 -- | Id of the deployment.
 dDeploymentId :: Lens' Deployment (Maybe Text)
@@ -339,19 +346,20 @@ instance FromJSON Deployment where
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "GroupArn"))
 
-instance Hashable Deployment
+instance Hashable Deployment where
 
-instance NFData Deployment
+instance NFData Deployment where
 
 -- | Information on a Device
 --
 -- /See:/ 'device' smart constructor.
 data Device = Device'
-    { _dCertificateARN :: !(Maybe Text)
-    , _dThingARN       :: !(Maybe Text)
-    , _dSyncShadow     :: !(Maybe Bool)
-    , _dId             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dThingARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dSyncShadow     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dId             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
 --
@@ -367,12 +375,13 @@ data Device = Device'
 device
     :: Device
 device =
-    Device'
-    { _dCertificateARN = Nothing
-    , _dThingARN = Nothing
-    , _dSyncShadow = Nothing
-    , _dId = Nothing
-    }
+  Device'
+  { _dCertificateARN = Nothing
+  , _dThingARN = Nothing
+  , _dSyncShadow = Nothing
+  , _dId = Nothing
+  }
+
 
 -- | Certificate arn of the device.
 dCertificateARN :: Lens' Device (Maybe Text)
@@ -399,9 +408,9 @@ instance FromJSON Device where
                      (x .:? "SyncShadow")
                      <*> (x .:? "Id"))
 
-instance Hashable Device
+instance Hashable Device where
 
-instance NFData Device
+instance NFData Device where
 
 instance ToJSON Device where
         toJSON Device'{..}
@@ -416,8 +425,9 @@ instance ToJSON Device where
 --
 -- /See:/ 'deviceDefinitionVersion' smart constructor.
 newtype DeviceDefinitionVersion = DeviceDefinitionVersion'
-    { _ddvDevices :: Maybe [Device]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddvDevices :: Maybe [Device]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeviceDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -426,10 +436,8 @@ newtype DeviceDefinitionVersion = DeviceDefinitionVersion'
 -- * 'ddvDevices' - Devices in the definition version.
 deviceDefinitionVersion
     :: DeviceDefinitionVersion
-deviceDefinitionVersion =
-    DeviceDefinitionVersion'
-    { _ddvDevices = Nothing
-    }
+deviceDefinitionVersion = DeviceDefinitionVersion' {_ddvDevices = Nothing}
+
 
 -- | Devices in the definition version.
 ddvDevices :: Lens' DeviceDefinitionVersion [Device]
@@ -442,9 +450,9 @@ instance FromJSON DeviceDefinitionVersion where
                  DeviceDefinitionVersion' <$>
                    (x .:? "Devices" .!= mempty))
 
-instance Hashable DeviceDefinitionVersion
+instance Hashable DeviceDefinitionVersion where
 
-instance NFData DeviceDefinitionVersion
+instance NFData DeviceDefinitionVersion where
 
 instance ToJSON DeviceDefinitionVersion where
         toJSON DeviceDefinitionVersion'{..}
@@ -454,10 +462,11 @@ instance ToJSON DeviceDefinitionVersion where
 --
 -- /See:/ 'function' smart constructor.
 data Function = Function'
-    { _fFunctionARN           :: !(Maybe Text)
-    , _fFunctionConfiguration :: !(Maybe FunctionConfiguration)
-    , _fId                    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fFunctionARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fFunctionConfiguration :: {-# NOUNPACK #-}!(Maybe FunctionConfiguration)
+  , _fId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Function' with the minimum fields required to make a request.
 --
@@ -471,11 +480,9 @@ data Function = Function'
 function
     :: Function
 function =
-    Function'
-    { _fFunctionARN = Nothing
-    , _fFunctionConfiguration = Nothing
-    , _fId = Nothing
-    }
+  Function'
+  {_fFunctionARN = Nothing, _fFunctionConfiguration = Nothing, _fId = Nothing}
+
 
 -- | Arn of the Lambda function.
 fFunctionARN :: Lens' Function (Maybe Text)
@@ -498,9 +505,9 @@ instance FromJSON Function where
                      (x .:? "FunctionConfiguration")
                      <*> (x .:? "Id"))
 
-instance Hashable Function
+instance Hashable Function where
 
-instance NFData Function
+instance NFData Function where
 
 instance ToJSON Function where
         toJSON Function'{..}
@@ -515,13 +522,14 @@ instance ToJSON Function where
 --
 -- /See:/ 'functionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-    { _fcMemorySize  :: !(Maybe Int)
-    , _fcExecArgs    :: !(Maybe Text)
-    , _fcEnvironment :: !(Maybe FunctionConfigurationEnvironment)
-    , _fcExecutable  :: !(Maybe Text)
-    , _fcPinned      :: !(Maybe Bool)
-    , _fcTimeout     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fcMemorySize  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _fcExecArgs    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcEnvironment :: {-# NOUNPACK #-}!(Maybe FunctionConfigurationEnvironment)
+  , _fcExecutable  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcPinned      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _fcTimeout     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
 --
@@ -541,14 +549,15 @@ data FunctionConfiguration = FunctionConfiguration'
 functionConfiguration
     :: FunctionConfiguration
 functionConfiguration =
-    FunctionConfiguration'
-    { _fcMemorySize = Nothing
-    , _fcExecArgs = Nothing
-    , _fcEnvironment = Nothing
-    , _fcExecutable = Nothing
-    , _fcPinned = Nothing
-    , _fcTimeout = Nothing
-    }
+  FunctionConfiguration'
+  { _fcMemorySize = Nothing
+  , _fcExecArgs = Nothing
+  , _fcEnvironment = Nothing
+  , _fcExecutable = Nothing
+  , _fcPinned = Nothing
+  , _fcTimeout = Nothing
+  }
+
 
 -- | The memory size, in KB, you configured for the function.
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Int)
@@ -585,9 +594,9 @@ instance FromJSON FunctionConfiguration where
                      <*> (x .:? "Pinned")
                      <*> (x .:? "Timeout"))
 
-instance Hashable FunctionConfiguration
+instance Hashable FunctionConfiguration where
 
-instance NFData FunctionConfiguration
+instance NFData FunctionConfiguration where
 
 instance ToJSON FunctionConfiguration where
         toJSON FunctionConfiguration'{..}
@@ -604,8 +613,9 @@ instance ToJSON FunctionConfiguration where
 --
 -- /See:/ 'functionConfigurationEnvironment' smart constructor.
 newtype FunctionConfigurationEnvironment = FunctionConfigurationEnvironment'
-    { _fceVariables :: Maybe (Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fceVariables :: Maybe (Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FunctionConfigurationEnvironment' with the minimum fields required to make a request.
 --
@@ -615,9 +625,8 @@ newtype FunctionConfigurationEnvironment = FunctionConfigurationEnvironment'
 functionConfigurationEnvironment
     :: FunctionConfigurationEnvironment
 functionConfigurationEnvironment =
-    FunctionConfigurationEnvironment'
-    { _fceVariables = Nothing
-    }
+  FunctionConfigurationEnvironment' {_fceVariables = Nothing}
+
 
 -- | Environment variables for the lambda function.
 fceVariables :: Lens' FunctionConfigurationEnvironment (HashMap Text Text)
@@ -632,8 +641,10 @@ instance FromJSON FunctionConfigurationEnvironment
                    (x .:? "Variables" .!= mempty))
 
 instance Hashable FunctionConfigurationEnvironment
+         where
 
 instance NFData FunctionConfigurationEnvironment
+         where
 
 instance ToJSON FunctionConfigurationEnvironment
          where
@@ -645,8 +656,9 @@ instance ToJSON FunctionConfigurationEnvironment
 --
 -- /See:/ 'functionDefinitionVersion' smart constructor.
 newtype FunctionDefinitionVersion = FunctionDefinitionVersion'
-    { _fdvFunctions :: Maybe [Function]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fdvFunctions :: Maybe [Function]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FunctionDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -655,10 +667,8 @@ newtype FunctionDefinitionVersion = FunctionDefinitionVersion'
 -- * 'fdvFunctions' - Lambda functions in this function definition version.
 functionDefinitionVersion
     :: FunctionDefinitionVersion
-functionDefinitionVersion =
-    FunctionDefinitionVersion'
-    { _fdvFunctions = Nothing
-    }
+functionDefinitionVersion = FunctionDefinitionVersion' {_fdvFunctions = Nothing}
+
 
 -- | Lambda functions in this function definition version.
 fdvFunctions :: Lens' FunctionDefinitionVersion [Function]
@@ -671,9 +681,9 @@ instance FromJSON FunctionDefinitionVersion where
                  FunctionDefinitionVersion' <$>
                    (x .:? "Functions" .!= mempty))
 
-instance Hashable FunctionDefinitionVersion
+instance Hashable FunctionDefinitionVersion where
 
-instance NFData FunctionDefinitionVersion
+instance NFData FunctionDefinitionVersion where
 
 instance ToJSON FunctionDefinitionVersion where
         toJSON FunctionDefinitionVersion'{..}
@@ -684,12 +694,13 @@ instance ToJSON FunctionDefinitionVersion where
 --
 -- /See:/ 'greengrassLogger' smart constructor.
 data GreengrassLogger = GreengrassLogger'
-    { _glSpace     :: !(Maybe Int)
-    , _glComponent :: !(Maybe LoggerComponent)
-    , _glId        :: !(Maybe Text)
-    , _glType      :: !(Maybe LoggerType)
-    , _glLevel     :: !(Maybe LoggerLevel)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _glSpace     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _glComponent :: {-# NOUNPACK #-}!(Maybe LoggerComponent)
+  , _glId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _glType      :: {-# NOUNPACK #-}!(Maybe LoggerType)
+  , _glLevel     :: {-# NOUNPACK #-}!(Maybe LoggerLevel)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GreengrassLogger' with the minimum fields required to make a request.
 --
@@ -707,13 +718,14 @@ data GreengrassLogger = GreengrassLogger'
 greengrassLogger
     :: GreengrassLogger
 greengrassLogger =
-    GreengrassLogger'
-    { _glSpace = Nothing
-    , _glComponent = Nothing
-    , _glId = Nothing
-    , _glType = Nothing
-    , _glLevel = Nothing
-    }
+  GreengrassLogger'
+  { _glSpace = Nothing
+  , _glComponent = Nothing
+  , _glId = Nothing
+  , _glType = Nothing
+  , _glLevel = Nothing
+  }
+
 
 -- | Amount of hardware space, in KB, to use if file system is used for logging purposes.
 glSpace :: Lens' GreengrassLogger (Maybe Int)
@@ -745,9 +757,9 @@ instance FromJSON GreengrassLogger where
                      <*> (x .:? "Type")
                      <*> (x .:? "Level"))
 
-instance Hashable GreengrassLogger
+instance Hashable GreengrassLogger where
 
-instance NFData GreengrassLogger
+instance NFData GreengrassLogger where
 
 instance ToJSON GreengrassLogger where
         toJSON GreengrassLogger'{..}
@@ -762,9 +774,10 @@ instance ToJSON GreengrassLogger where
 --
 -- /See:/ 'groupCertificateAuthorityProperties' smart constructor.
 data GroupCertificateAuthorityProperties = GroupCertificateAuthorityProperties'
-    { _gcapGroupCertificateAuthorityARN :: !(Maybe Text)
-    , _gcapGroupCertificateAuthorityId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcapGroupCertificateAuthorityARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcapGroupCertificateAuthorityId  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GroupCertificateAuthorityProperties' with the minimum fields required to make a request.
 --
@@ -776,10 +789,11 @@ data GroupCertificateAuthorityProperties = GroupCertificateAuthorityProperties'
 groupCertificateAuthorityProperties
     :: GroupCertificateAuthorityProperties
 groupCertificateAuthorityProperties =
-    GroupCertificateAuthorityProperties'
-    { _gcapGroupCertificateAuthorityARN = Nothing
-    , _gcapGroupCertificateAuthorityId = Nothing
-    }
+  GroupCertificateAuthorityProperties'
+  { _gcapGroupCertificateAuthorityARN = Nothing
+  , _gcapGroupCertificateAuthorityId = Nothing
+  }
+
 
 -- | Arn of the certificate authority for the group.
 gcapGroupCertificateAuthorityARN :: Lens' GroupCertificateAuthorityProperties (Maybe Text)
@@ -799,21 +813,24 @@ instance FromJSON GroupCertificateAuthorityProperties
                      (x .:? "GroupCertificateAuthorityId"))
 
 instance Hashable GroupCertificateAuthorityProperties
+         where
 
 instance NFData GroupCertificateAuthorityProperties
+         where
 
 -- | Information of a group
 --
 -- /See:/ 'groupInformation' smart constructor.
 data GroupInformation = GroupInformation'
-    { _giLatestVersionARN     :: !(Maybe Text)
-    , _giARN                  :: !(Maybe Text)
-    , _giName                 :: !(Maybe Text)
-    , _giCreationTimestamp    :: !(Maybe Text)
-    , _giId                   :: !(Maybe Text)
-    , _giLatestVersion        :: !(Maybe Text)
-    , _giLastUpdatedTimestamp :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GroupInformation' with the minimum fields required to make a request.
 --
@@ -835,15 +852,16 @@ data GroupInformation = GroupInformation'
 groupInformation
     :: GroupInformation
 groupInformation =
-    GroupInformation'
-    { _giLatestVersionARN = Nothing
-    , _giARN = Nothing
-    , _giName = Nothing
-    , _giCreationTimestamp = Nothing
-    , _giId = Nothing
-    , _giLatestVersion = Nothing
-    , _giLastUpdatedTimestamp = Nothing
-    }
+  GroupInformation'
+  { _giLatestVersionARN = Nothing
+  , _giARN = Nothing
+  , _giName = Nothing
+  , _giCreationTimestamp = Nothing
+  , _giId = Nothing
+  , _giLatestVersion = Nothing
+  , _giLastUpdatedTimestamp = Nothing
+  }
+
 
 -- | Latest version arn of the group.
 giLatestVersionARN :: Lens' GroupInformation (Maybe Text)
@@ -885,20 +903,21 @@ instance FromJSON GroupInformation where
                      <*> (x .:? "LatestVersion")
                      <*> (x .:? "LastUpdatedTimestamp"))
 
-instance Hashable GroupInformation
+instance Hashable GroupInformation where
 
-instance NFData GroupInformation
+instance NFData GroupInformation where
 
 -- | Information on group version
 --
 -- /See:/ 'groupVersion' smart constructor.
 data GroupVersion = GroupVersion'
-    { _gvSubscriptionDefinitionVersionARN :: !(Maybe Text)
-    , _gvCoreDefinitionVersionARN         :: !(Maybe Text)
-    , _gvDeviceDefinitionVersionARN       :: !(Maybe Text)
-    , _gvFunctionDefinitionVersionARN     :: !(Maybe Text)
-    , _gvLoggerDefinitionVersionARN       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gvSubscriptionDefinitionVersionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gvCoreDefinitionVersionARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gvDeviceDefinitionVersionARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gvFunctionDefinitionVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gvLoggerDefinitionVersionARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GroupVersion' with the minimum fields required to make a request.
 --
@@ -916,13 +935,14 @@ data GroupVersion = GroupVersion'
 groupVersion
     :: GroupVersion
 groupVersion =
-    GroupVersion'
-    { _gvSubscriptionDefinitionVersionARN = Nothing
-    , _gvCoreDefinitionVersionARN = Nothing
-    , _gvDeviceDefinitionVersionARN = Nothing
-    , _gvFunctionDefinitionVersionARN = Nothing
-    , _gvLoggerDefinitionVersionARN = Nothing
-    }
+  GroupVersion'
+  { _gvSubscriptionDefinitionVersionARN = Nothing
+  , _gvCoreDefinitionVersionARN = Nothing
+  , _gvDeviceDefinitionVersionARN = Nothing
+  , _gvFunctionDefinitionVersionARN = Nothing
+  , _gvLoggerDefinitionVersionARN = Nothing
+  }
+
 
 -- | Subscription definition version arn for this group.
 gvSubscriptionDefinitionVersionARN :: Lens' GroupVersion (Maybe Text)
@@ -955,9 +975,9 @@ instance FromJSON GroupVersion where
                      <*> (x .:? "FunctionDefinitionVersionArn")
                      <*> (x .:? "LoggerDefinitionVersionArn"))
 
-instance Hashable GroupVersion
+instance Hashable GroupVersion where
 
-instance NFData GroupVersion
+instance NFData GroupVersion where
 
 instance ToJSON GroupVersion where
         toJSON GroupVersion'{..}
@@ -978,8 +998,9 @@ instance ToJSON GroupVersion where
 --
 -- /See:/ 'loggerDefinitionVersion' smart constructor.
 newtype LoggerDefinitionVersion = LoggerDefinitionVersion'
-    { _ldvLoggers :: Maybe [GreengrassLogger]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldvLoggers :: Maybe [GreengrassLogger]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoggerDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -988,10 +1009,8 @@ newtype LoggerDefinitionVersion = LoggerDefinitionVersion'
 -- * 'ldvLoggers' - List of loggers.
 loggerDefinitionVersion
     :: LoggerDefinitionVersion
-loggerDefinitionVersion =
-    LoggerDefinitionVersion'
-    { _ldvLoggers = Nothing
-    }
+loggerDefinitionVersion = LoggerDefinitionVersion' {_ldvLoggers = Nothing}
+
 
 -- | List of loggers.
 ldvLoggers :: Lens' LoggerDefinitionVersion [GreengrassLogger]
@@ -1004,9 +1023,9 @@ instance FromJSON LoggerDefinitionVersion where
                  LoggerDefinitionVersion' <$>
                    (x .:? "Loggers" .!= mempty))
 
-instance Hashable LoggerDefinitionVersion
+instance Hashable LoggerDefinitionVersion where
 
-instance NFData LoggerDefinitionVersion
+instance NFData LoggerDefinitionVersion where
 
 instance ToJSON LoggerDefinitionVersion where
         toJSON LoggerDefinitionVersion'{..}
@@ -1016,11 +1035,12 @@ instance ToJSON LoggerDefinitionVersion where
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-    { _sSubject :: !(Maybe Text)
-    , _sSource  :: !(Maybe Text)
-    , _sId      :: !(Maybe Text)
-    , _sTarget  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSubject :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSource  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTarget  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
@@ -1036,12 +1056,9 @@ data Subscription = Subscription'
 subscription
     :: Subscription
 subscription =
-    Subscription'
-    { _sSubject = Nothing
-    , _sSource = Nothing
-    , _sId = Nothing
-    , _sTarget = Nothing
-    }
+  Subscription'
+  {_sSubject = Nothing, _sSource = Nothing, _sId = Nothing, _sTarget = Nothing}
+
 
 -- | Subject of the message.
 sSubject :: Lens' Subscription (Maybe Text)
@@ -1068,9 +1085,9 @@ instance FromJSON Subscription where
                      (x .:? "Id")
                      <*> (x .:? "Target"))
 
-instance Hashable Subscription
+instance Hashable Subscription where
 
-instance NFData Subscription
+instance NFData Subscription where
 
 instance ToJSON Subscription where
         toJSON Subscription'{..}
@@ -1084,8 +1101,9 @@ instance ToJSON Subscription where
 --
 -- /See:/ 'subscriptionDefinitionVersion' smart constructor.
 newtype SubscriptionDefinitionVersion = SubscriptionDefinitionVersion'
-    { _sdvSubscriptions :: Maybe [Subscription]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdvSubscriptions :: Maybe [Subscription]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubscriptionDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -1095,9 +1113,8 @@ newtype SubscriptionDefinitionVersion = SubscriptionDefinitionVersion'
 subscriptionDefinitionVersion
     :: SubscriptionDefinitionVersion
 subscriptionDefinitionVersion =
-    SubscriptionDefinitionVersion'
-    { _sdvSubscriptions = Nothing
-    }
+  SubscriptionDefinitionVersion' {_sdvSubscriptions = Nothing}
+
 
 -- | Subscriptions in the version.
 sdvSubscriptions :: Lens' SubscriptionDefinitionVersion [Subscription]
@@ -1110,9 +1127,9 @@ instance FromJSON SubscriptionDefinitionVersion where
                  SubscriptionDefinitionVersion' <$>
                    (x .:? "Subscriptions" .!= mempty))
 
-instance Hashable SubscriptionDefinitionVersion
+instance Hashable SubscriptionDefinitionVersion where
 
-instance NFData SubscriptionDefinitionVersion
+instance NFData SubscriptionDefinitionVersion where
 
 instance ToJSON SubscriptionDefinitionVersion where
         toJSON SubscriptionDefinitionVersion'{..}
@@ -1124,11 +1141,12 @@ instance ToJSON SubscriptionDefinitionVersion where
 --
 -- /See:/ 'versionInformation' smart constructor.
 data VersionInformation = VersionInformation'
-    { _viARN               :: !(Maybe Text)
-    , _viCreationTimestamp :: !(Maybe Text)
-    , _viVersion           :: !(Maybe Text)
-    , _viId                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _viARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viId                :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VersionInformation' with the minimum fields required to make a request.
 --
@@ -1144,12 +1162,13 @@ data VersionInformation = VersionInformation'
 versionInformation
     :: VersionInformation
 versionInformation =
-    VersionInformation'
-    { _viARN = Nothing
-    , _viCreationTimestamp = Nothing
-    , _viVersion = Nothing
-    , _viId = Nothing
-    }
+  VersionInformation'
+  { _viARN = Nothing
+  , _viCreationTimestamp = Nothing
+  , _viVersion = Nothing
+  , _viId = Nothing
+  }
+
 
 -- | Arn of the version.
 viARN :: Lens' VersionInformation (Maybe Text)
@@ -1176,6 +1195,6 @@ instance FromJSON VersionInformation where
                      (x .:? "Version")
                      <*> (x .:? "Id"))
 
-instance Hashable VersionInformation
+instance Hashable VersionInformation where
 
-instance NFData VersionInformation
+instance NFData VersionInformation where

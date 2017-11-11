@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBClusterParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.RDS.CreateDBClusterParameterGroup
     , cdbcpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,11 +61,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDBClusterParameterGroup' smart constructor.
 data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
-    { _cdcpgTags                        :: !(Maybe [Tag])
-    , _cdcpgDBClusterParameterGroupName :: !Text
-    , _cdcpgDBParameterGroupFamily      :: !Text
-    , _cdcpgDescription                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdcpgTags                        :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdcpgDBClusterParameterGroupName :: {-# NOUNPACK #-}!Text
+  , _cdcpgDBParameterGroupFamily      :: {-# NOUNPACK #-}!Text
+  , _cdcpgDescription                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBClusterParameterGroup' with the minimum fields required to make a request.
 --
@@ -84,12 +85,13 @@ createDBClusterParameterGroup
     -> Text -- ^ 'cdcpgDescription'
     -> CreateDBClusterParameterGroup
 createDBClusterParameterGroup pDBClusterParameterGroupName_ pDBParameterGroupFamily_ pDescription_ =
-    CreateDBClusterParameterGroup'
-    { _cdcpgTags = Nothing
-    , _cdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
-    , _cdcpgDBParameterGroupFamily = pDBParameterGroupFamily_
-    , _cdcpgDescription = pDescription_
-    }
+  CreateDBClusterParameterGroup'
+  { _cdcpgTags = Nothing
+  , _cdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
+  , _cdcpgDBParameterGroupFamily = pDBParameterGroupFamily_
+  , _cdcpgDescription = pDescription_
+  }
+
 
 -- | Undocumented member.
 cdcpgTags :: Lens' CreateDBClusterParameterGroup [Tag]
@@ -120,9 +122,9 @@ instance AWSRequest CreateDBClusterParameterGroup
                    (x .@? "DBClusterParameterGroup") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateDBClusterParameterGroup
+instance Hashable CreateDBClusterParameterGroup where
 
-instance NFData CreateDBClusterParameterGroup
+instance NFData CreateDBClusterParameterGroup where
 
 instance ToHeaders CreateDBClusterParameterGroup
          where
@@ -146,9 +148,10 @@ instance ToQuery CreateDBClusterParameterGroup where
 
 -- | /See:/ 'createDBClusterParameterGroupResponse' smart constructor.
 data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupResponse'
-    { _cdbcpgrsDBClusterParameterGroup :: !(Maybe DBClusterParameterGroup)
-    , _cdbcpgrsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdbcpgrsDBClusterParameterGroup :: {-# NOUNPACK #-}!(Maybe DBClusterParameterGroup)
+  , _cdbcpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBClusterParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -161,10 +164,11 @@ createDBClusterParameterGroupResponse
     :: Int -- ^ 'cdbcpgrsResponseStatus'
     -> CreateDBClusterParameterGroupResponse
 createDBClusterParameterGroupResponse pResponseStatus_ =
-    CreateDBClusterParameterGroupResponse'
-    { _cdbcpgrsDBClusterParameterGroup = Nothing
-    , _cdbcpgrsResponseStatus = pResponseStatus_
-    }
+  CreateDBClusterParameterGroupResponse'
+  { _cdbcpgrsDBClusterParameterGroup = Nothing
+  , _cdbcpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 cdbcpgrsDBClusterParameterGroup :: Lens' CreateDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
@@ -175,3 +179,4 @@ cdbcpgrsResponseStatus :: Lens' CreateDBClusterParameterGroupResponse Int
 cdbcpgrsResponseStatus = lens _cdbcpgrsResponseStatus (\ s a -> s{_cdbcpgrsResponseStatus = a});
 
 instance NFData CreateDBClusterParameterGroupResponse
+         where

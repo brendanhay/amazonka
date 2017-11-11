@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DescribeSubscribersForNotification
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,23 +40,24 @@ module Network.AWS.Budgets.DescribeSubscribersForNotification
     , dsfnrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DescribeSubscribersForNotification
 --
 -- /See:/ 'describeSubscribersForNotification' smart constructor.
 data DescribeSubscribersForNotification = DescribeSubscribersForNotification'
-    { _dsfnNextToken    :: !(Maybe Text)
-    , _dsfnMaxResults   :: !(Maybe Nat)
-    , _dsfnAccountId    :: !Text
-    , _dsfnBudgetName   :: !Text
-    , _dsfnNotification :: !Notification
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsfnNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsfnMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dsfnAccountId    :: {-# NOUNPACK #-}!Text
+  , _dsfnBudgetName   :: {-# NOUNPACK #-}!Text
+  , _dsfnNotification :: {-# NOUNPACK #-}!Notification
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubscribersForNotification' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ describeSubscribersForNotification
     -> Notification -- ^ 'dsfnNotification'
     -> DescribeSubscribersForNotification
 describeSubscribersForNotification pAccountId_ pBudgetName_ pNotification_ =
-    DescribeSubscribersForNotification'
-    { _dsfnNextToken = Nothing
-    , _dsfnMaxResults = Nothing
-    , _dsfnAccountId = pAccountId_
-    , _dsfnBudgetName = pBudgetName_
-    , _dsfnNotification = pNotification_
-    }
+  DescribeSubscribersForNotification'
+  { _dsfnNextToken = Nothing
+  , _dsfnMaxResults = Nothing
+  , _dsfnAccountId = pAccountId_
+  , _dsfnBudgetName = pBudgetName_
+  , _dsfnNotification = pNotification_
+  }
+
 
 -- | Undocumented member.
 dsfnNextToken :: Lens' DescribeSubscribersForNotification (Maybe Text)
@@ -106,7 +108,8 @@ dsfnNotification :: Lens' DescribeSubscribersForNotification Notification
 dsfnNotification = lens _dsfnNotification (\ s a -> s{_dsfnNotification = a});
 
 instance AWSRequest
-         DescribeSubscribersForNotification where
+           DescribeSubscribersForNotification
+         where
         type Rs DescribeSubscribersForNotification =
              DescribeSubscribersForNotificationResponse
         request = postJSON budgets
@@ -118,8 +121,10 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable DescribeSubscribersForNotification
+         where
 
 instance NFData DescribeSubscribersForNotification
+         where
 
 instance ToHeaders DescribeSubscribersForNotification
          where
@@ -155,10 +160,11 @@ instance ToQuery DescribeSubscribersForNotification
 --
 -- /See:/ 'describeSubscribersForNotificationResponse' smart constructor.
 data DescribeSubscribersForNotificationResponse = DescribeSubscribersForNotificationResponse'
-    { _dsfnrsNextToken      :: !(Maybe Text)
-    , _dsfnrsSubscribers    :: !(Maybe (List1 Subscriber))
-    , _dsfnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsfnrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsfnrsSubscribers    :: {-# NOUNPACK #-}!(Maybe (List1 Subscriber))
+  , _dsfnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubscribersForNotificationResponse' with the minimum fields required to make a request.
 --
@@ -173,11 +179,12 @@ describeSubscribersForNotificationResponse
     :: Int -- ^ 'dsfnrsResponseStatus'
     -> DescribeSubscribersForNotificationResponse
 describeSubscribersForNotificationResponse pResponseStatus_ =
-    DescribeSubscribersForNotificationResponse'
-    { _dsfnrsNextToken = Nothing
-    , _dsfnrsSubscribers = Nothing
-    , _dsfnrsResponseStatus = pResponseStatus_
-    }
+  DescribeSubscribersForNotificationResponse'
+  { _dsfnrsNextToken = Nothing
+  , _dsfnrsSubscribers = Nothing
+  , _dsfnrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dsfnrsNextToken :: Lens' DescribeSubscribersForNotificationResponse (Maybe Text)
@@ -192,4 +199,5 @@ dsfnrsResponseStatus :: Lens' DescribeSubscribersForNotificationResponse Int
 dsfnrsResponseStatus = lens _dsfnrsResponseStatus (\ s a -> s{_dsfnrsResponseStatus = a});
 
 instance NFData
-         DescribeSubscribersForNotificationResponse
+           DescribeSubscribersForNotificationResponse
+         where

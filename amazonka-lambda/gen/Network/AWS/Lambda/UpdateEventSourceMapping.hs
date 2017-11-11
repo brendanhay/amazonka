@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.UpdateEventSourceMapping
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , esmcLastModified
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -65,11 +65,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateEventSourceMapping' smart constructor.
 data UpdateEventSourceMapping = UpdateEventSourceMapping'
-    { _uesmEnabled      :: !(Maybe Bool)
-    , _uesmBatchSize    :: !(Maybe Nat)
-    , _uesmFunctionName :: !(Maybe Text)
-    , _uesmUUId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uesmEnabled      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uesmBatchSize    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uesmFunctionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uesmUUId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEventSourceMapping' with the minimum fields required to make a request.
 --
@@ -86,12 +87,13 @@ updateEventSourceMapping
     :: Text -- ^ 'uesmUUId'
     -> UpdateEventSourceMapping
 updateEventSourceMapping pUUId_ =
-    UpdateEventSourceMapping'
-    { _uesmEnabled = Nothing
-    , _uesmBatchSize = Nothing
-    , _uesmFunctionName = Nothing
-    , _uesmUUId = pUUId_
-    }
+  UpdateEventSourceMapping'
+  { _uesmEnabled = Nothing
+  , _uesmBatchSize = Nothing
+  , _uesmFunctionName = Nothing
+  , _uesmUUId = pUUId_
+  }
+
 
 -- | Specifies whether AWS Lambda should actively poll the stream or not. If disabled, AWS Lambda will not poll the stream.
 uesmEnabled :: Lens' UpdateEventSourceMapping (Maybe Bool)
@@ -115,9 +117,9 @@ instance AWSRequest UpdateEventSourceMapping where
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateEventSourceMapping
+instance Hashable UpdateEventSourceMapping where
 
-instance NFData UpdateEventSourceMapping
+instance NFData UpdateEventSourceMapping where
 
 instance ToHeaders UpdateEventSourceMapping where
         toHeaders = const mempty

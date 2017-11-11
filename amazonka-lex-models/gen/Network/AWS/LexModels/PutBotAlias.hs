@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.PutBotAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,21 +49,22 @@ module Network.AWS.LexModels.PutBotAlias
     , pbarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putBotAlias' smart constructor.
 data PutBotAlias = PutBotAlias'
-    { _pbaChecksum    :: !(Maybe Text)
-    , _pbaDescription :: !(Maybe Text)
-    , _pbaName        :: !Text
-    , _pbaBotVersion  :: !Text
-    , _pbaBotName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbaChecksum    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbaDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbaName        :: {-# NOUNPACK #-}!Text
+  , _pbaBotVersion  :: {-# NOUNPACK #-}!Text
+  , _pbaBotName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBotAlias' with the minimum fields required to make a request.
 --
@@ -84,13 +85,14 @@ putBotAlias
     -> Text -- ^ 'pbaBotName'
     -> PutBotAlias
 putBotAlias pName_ pBotVersion_ pBotName_ =
-    PutBotAlias'
-    { _pbaChecksum = Nothing
-    , _pbaDescription = Nothing
-    , _pbaName = pName_
-    , _pbaBotVersion = pBotVersion_
-    , _pbaBotName = pBotName_
-    }
+  PutBotAlias'
+  { _pbaChecksum = Nothing
+  , _pbaDescription = Nothing
+  , _pbaName = pName_
+  , _pbaBotVersion = pBotVersion_
+  , _pbaBotName = pBotName_
+  }
+
 
 -- | Identifies a specific revision of the @> LATEST@ version. When you create a new bot alias, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception. When you want to update a bot alias, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
 pbaChecksum :: Lens' PutBotAlias (Maybe Text)
@@ -127,9 +129,9 @@ instance AWSRequest PutBotAlias where
                      <*> (x .?> "description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutBotAlias
+instance Hashable PutBotAlias where
 
-instance NFData PutBotAlias
+instance NFData PutBotAlias where
 
 instance ToHeaders PutBotAlias where
         toHeaders
@@ -157,15 +159,16 @@ instance ToQuery PutBotAlias where
 
 -- | /See:/ 'putBotAliasResponse' smart constructor.
 data PutBotAliasResponse = PutBotAliasResponse'
-    { _pbarsChecksum        :: !(Maybe Text)
-    , _pbarsBotVersion      :: !(Maybe Text)
-    , _pbarsBotName         :: !(Maybe Text)
-    , _pbarsCreatedDate     :: !(Maybe POSIX)
-    , _pbarsName            :: !(Maybe Text)
-    , _pbarsLastUpdatedDate :: !(Maybe POSIX)
-    , _pbarsDescription     :: !(Maybe Text)
-    , _pbarsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbarsChecksum        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbarsBotVersion      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbarsBotName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbarsCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pbarsName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbarsLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pbarsDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbarsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBotAliasResponse' with the minimum fields required to make a request.
 --
@@ -190,16 +193,17 @@ putBotAliasResponse
     :: Int -- ^ 'pbarsResponseStatus'
     -> PutBotAliasResponse
 putBotAliasResponse pResponseStatus_ =
-    PutBotAliasResponse'
-    { _pbarsChecksum = Nothing
-    , _pbarsBotVersion = Nothing
-    , _pbarsBotName = Nothing
-    , _pbarsCreatedDate = Nothing
-    , _pbarsName = Nothing
-    , _pbarsLastUpdatedDate = Nothing
-    , _pbarsDescription = Nothing
-    , _pbarsResponseStatus = pResponseStatus_
-    }
+  PutBotAliasResponse'
+  { _pbarsChecksum = Nothing
+  , _pbarsBotVersion = Nothing
+  , _pbarsBotName = Nothing
+  , _pbarsCreatedDate = Nothing
+  , _pbarsName = Nothing
+  , _pbarsLastUpdatedDate = Nothing
+  , _pbarsDescription = Nothing
+  , _pbarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The checksum for the current version of the alias.
 pbarsChecksum :: Lens' PutBotAliasResponse (Maybe Text)
@@ -233,4 +237,4 @@ pbarsDescription = lens _pbarsDescription (\ s a -> s{_pbarsDescription = a});
 pbarsResponseStatus :: Lens' PutBotAliasResponse Int
 pbarsResponseStatus = lens _pbarsResponseStatus (\ s a -> s{_pbarsResponseStatus = a});
 
-instance NFData PutBotAliasResponse
+instance NFData PutBotAliasResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteHostedZone
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.Route53.DeleteHostedZone
     , dhzrsChangeInfo
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to delete a hosted zone.
 --
@@ -64,8 +64,9 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'deleteHostedZone' smart constructor.
 newtype DeleteHostedZone = DeleteHostedZone'
-    { _dhzId :: ResourceId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhzId :: ResourceId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHostedZone' with the minimum fields required to make a request.
 --
@@ -75,10 +76,8 @@ newtype DeleteHostedZone = DeleteHostedZone'
 deleteHostedZone
     :: ResourceId -- ^ 'dhzId'
     -> DeleteHostedZone
-deleteHostedZone pId_ =
-    DeleteHostedZone'
-    { _dhzId = pId_
-    }
+deleteHostedZone pId_ = DeleteHostedZone' {_dhzId = pId_}
+
 
 -- | The ID of the hosted zone you want to delete.
 dhzId :: Lens' DeleteHostedZone ResourceId
@@ -93,9 +92,9 @@ instance AWSRequest DeleteHostedZone where
                  DeleteHostedZoneResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
-instance Hashable DeleteHostedZone
+instance Hashable DeleteHostedZone where
 
-instance NFData DeleteHostedZone
+instance NFData DeleteHostedZone where
 
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty
@@ -113,9 +112,10 @@ instance ToQuery DeleteHostedZone where
 --
 -- /See:/ 'deleteHostedZoneResponse' smart constructor.
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-    { _dhzrsResponseStatus :: !Int
-    , _dhzrsChangeInfo     :: !ChangeInfo
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhzrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dhzrsChangeInfo     :: {-# NOUNPACK #-}!ChangeInfo
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHostedZoneResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ deleteHostedZoneResponse
     -> ChangeInfo -- ^ 'dhzrsChangeInfo'
     -> DeleteHostedZoneResponse
 deleteHostedZoneResponse pResponseStatus_ pChangeInfo_ =
-    DeleteHostedZoneResponse'
-    { _dhzrsResponseStatus = pResponseStatus_
-    , _dhzrsChangeInfo = pChangeInfo_
-    }
+  DeleteHostedZoneResponse'
+  {_dhzrsResponseStatus = pResponseStatus_, _dhzrsChangeInfo = pChangeInfo_}
+
 
 -- | -- | The response status code.
 dhzrsResponseStatus :: Lens' DeleteHostedZoneResponse Int
@@ -142,4 +141,4 @@ dhzrsResponseStatus = lens _dhzrsResponseStatus (\ s a -> s{_dhzrsResponseStatus
 dhzrsChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrsChangeInfo = lens _dhzrsChangeInfo (\ s a -> s{_dhzrsChangeInfo = a});
 
-instance NFData DeleteHostedZoneResponse
+instance NFData DeleteHostedZoneResponse where

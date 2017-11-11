@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.TagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.Lambda.TagResource
     , TagResourceResponse
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
-    { _trResource :: !Text
-    , _trTags     :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trResource :: {-# NOUNPACK #-}!Text
+  , _trTags     :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ tagResource
     :: Text -- ^ 'trResource'
     -> TagResource
 tagResource pResource_ =
-    TagResource'
-    { _trResource = pResource_
-    , _trTags = mempty
-    }
+  TagResource' {_trResource = pResource_, _trTags = mempty}
+
 
 -- | The ARN (Amazon Resource Name) of the Lambda function.
 trResource :: Lens' TagResource Text
@@ -77,9 +76,9 @@ instance AWSRequest TagResource where
         request = postJSON lambda
         response = receiveNull TagResourceResponse'
 
-instance Hashable TagResource
+instance Hashable TagResource where
 
-instance NFData TagResource
+instance NFData TagResource where
 
 instance ToHeaders TagResource where
         toHeaders = const mempty
@@ -97,8 +96,9 @@ instance ToQuery TagResource where
 
 -- | /See:/ 'tagResourceResponse' smart constructor.
 data TagResourceResponse =
-    TagResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  TagResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +106,5 @@ tagResourceResponse
     :: TagResourceResponse
 tagResourceResponse = TagResourceResponse'
 
-instance NFData TagResourceResponse
+
+instance NFData TagResourceResponse where

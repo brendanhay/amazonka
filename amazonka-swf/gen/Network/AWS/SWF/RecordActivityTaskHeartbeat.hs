@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RecordActivityTaskHeartbeat
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,18 +58,19 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     , rathrsCancelRequested
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'recordActivityTaskHeartbeat' smart constructor.
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'
-    { _rathDetails   :: !(Maybe Text)
-    , _rathTaskToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rathDetails   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rathTaskToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordActivityTaskHeartbeat' with the minimum fields required to make a request.
 --
@@ -82,10 +83,9 @@ recordActivityTaskHeartbeat
     :: Text -- ^ 'rathTaskToken'
     -> RecordActivityTaskHeartbeat
 recordActivityTaskHeartbeat pTaskToken_ =
-    RecordActivityTaskHeartbeat'
-    { _rathDetails = Nothing
-    , _rathTaskToken = pTaskToken_
-    }
+  RecordActivityTaskHeartbeat'
+  {_rathDetails = Nothing, _rathTaskToken = pTaskToken_}
+
 
 -- | If specified, contains details about the progress of the task.
 rathDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
@@ -105,9 +105,9 @@ instance AWSRequest RecordActivityTaskHeartbeat where
                  RecordActivityTaskHeartbeatResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "cancelRequested"))
 
-instance Hashable RecordActivityTaskHeartbeat
+instance Hashable RecordActivityTaskHeartbeat where
 
-instance NFData RecordActivityTaskHeartbeat
+instance NFData RecordActivityTaskHeartbeat where
 
 instance ToHeaders RecordActivityTaskHeartbeat where
         toHeaders
@@ -138,9 +138,10 @@ instance ToQuery RecordActivityTaskHeartbeat where
 --
 -- /See:/ 'recordActivityTaskHeartbeatResponse' smart constructor.
 data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
-    { _rathrsResponseStatus  :: !Int
-    , _rathrsCancelRequested :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rathrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _rathrsCancelRequested :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordActivityTaskHeartbeatResponse' with the minimum fields required to make a request.
 --
@@ -154,10 +155,11 @@ recordActivityTaskHeartbeatResponse
     -> Bool -- ^ 'rathrsCancelRequested'
     -> RecordActivityTaskHeartbeatResponse
 recordActivityTaskHeartbeatResponse pResponseStatus_ pCancelRequested_ =
-    RecordActivityTaskHeartbeatResponse'
-    { _rathrsResponseStatus = pResponseStatus_
-    , _rathrsCancelRequested = pCancelRequested_
-    }
+  RecordActivityTaskHeartbeatResponse'
+  { _rathrsResponseStatus = pResponseStatus_
+  , _rathrsCancelRequested = pCancelRequested_
+  }
+
 
 -- | -- | The response status code.
 rathrsResponseStatus :: Lens' RecordActivityTaskHeartbeatResponse Int
@@ -168,3 +170,4 @@ rathrsCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
 rathrsCancelRequested = lens _rathrsCancelRequested (\ s a -> s{_rathrsCancelRequested = a});
 
 instance NFData RecordActivityTaskHeartbeatResponse
+         where

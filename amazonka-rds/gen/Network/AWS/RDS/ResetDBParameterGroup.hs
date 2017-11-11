@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ResetDBParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.RDS.ResetDBParameterGroup
     , dpgnmDBParameterGroupName
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'resetDBParameterGroup' smart constructor.
 data ResetDBParameterGroup = ResetDBParameterGroup'
-    { _rdpgResetAllParameters   :: !(Maybe Bool)
-    , _rdpgParameters           :: !(Maybe [Parameter])
-    , _rdpgDBParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdpgResetAllParameters   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdpgParameters           :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _rdpgDBParameterGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetDBParameterGroup' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ resetDBParameterGroup
     :: Text -- ^ 'rdpgDBParameterGroupName'
     -> ResetDBParameterGroup
 resetDBParameterGroup pDBParameterGroupName_ =
-    ResetDBParameterGroup'
-    { _rdpgResetAllParameters = Nothing
-    , _rdpgParameters = Nothing
-    , _rdpgDBParameterGroupName = pDBParameterGroupName_
-    }
+  ResetDBParameterGroup'
+  { _rdpgResetAllParameters = Nothing
+  , _rdpgParameters = Nothing
+  , _rdpgDBParameterGroupName = pDBParameterGroupName_
+  }
+
 
 -- | Specifies whether (@true@ ) or not (@false@ ) to reset all parameters in the DB parameter group to default values.  Default: @true@
 rdpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
@@ -95,9 +97,9 @@ instance AWSRequest ResetDBParameterGroup where
           = receiveXMLWrapper "ResetDBParameterGroupResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ResetDBParameterGroup
+instance Hashable ResetDBParameterGroup where
 
-instance NFData ResetDBParameterGroup
+instance NFData ResetDBParameterGroup where
 
 instance ToHeaders ResetDBParameterGroup where
         toHeaders = const mempty

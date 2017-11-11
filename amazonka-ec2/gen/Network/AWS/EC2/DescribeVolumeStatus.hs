@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumeStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,13 +52,13 @@ module Network.AWS.EC2.DescribeVolumeStatus
     , dvsrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeVolumeStatus.
 --
@@ -66,12 +66,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeVolumeStatus' smart constructor.
 data DescribeVolumeStatus = DescribeVolumeStatus'
-    { _dvssFilters    :: !(Maybe [Filter])
-    , _dvssVolumeIds  :: !(Maybe [Text])
-    , _dvssNextToken  :: !(Maybe Text)
-    , _dvssDryRun     :: !(Maybe Bool)
-    , _dvssMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvssFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dvssVolumeIds  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dvssNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvssDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvssMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumeStatus' with the minimum fields required to make a request.
 --
@@ -89,13 +90,14 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
 describeVolumeStatus
     :: DescribeVolumeStatus
 describeVolumeStatus =
-    DescribeVolumeStatus'
-    { _dvssFilters = Nothing
-    , _dvssVolumeIds = Nothing
-    , _dvssNextToken = Nothing
-    , _dvssDryRun = Nothing
-    , _dvssMaxResults = Nothing
-    }
+  DescribeVolumeStatus'
+  { _dvssFilters = Nothing
+  , _dvssVolumeIds = Nothing
+  , _dvssNextToken = Nothing
+  , _dvssDryRun = Nothing
+  , _dvssMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @action.code@ - The action code for the event (for example, @enable-volume-io@ ).     * @action.description@ - A description of the action.     * @action.event-id@ - The event ID associated with the action.     * @availability-zone@ - The Availability Zone of the instance.     * @event.description@ - A description of the event.     * @event.event-id@ - The event ID.     * @event.event-type@ - The event type (for @io-enabled@ : @passed@ | @failed@ ; for @io-performance@ : @io-performance:degraded@ | @io-performance:severely-degraded@ | @io-performance:stalled@ ).     * @event.not-after@ - The latest end time for the event.     * @event.not-before@ - The earliest start time for the event.     * @volume-status.details-name@ - The cause for @volume-status.status@ (@io-enabled@ | @io-performance@ ).     * @volume-status.details-status@ - The status of @volume-status.details-name@ (for @io-enabled@ : @passed@ | @failed@ ; for @io-performance@ : @normal@ | @degraded@ | @severely-degraded@ | @stalled@ ).     * @volume-status.status@ - The status of the volume (@ok@ | @impaired@ | @warning@ | @insufficient-data@ ).
 dvssFilters :: Lens' DescribeVolumeStatus [Filter]
@@ -137,9 +139,9 @@ instance AWSRequest DescribeVolumeStatus where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVolumeStatus
+instance Hashable DescribeVolumeStatus where
 
-instance NFData DescribeVolumeStatus
+instance NFData DescribeVolumeStatus where
 
 instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty
@@ -164,10 +166,11 @@ instance ToQuery DescribeVolumeStatus where
 --
 -- /See:/ 'describeVolumeStatusResponse' smart constructor.
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
-    { _dvsrsNextToken      :: !(Maybe Text)
-    , _dvsrsVolumeStatuses :: !(Maybe [VolumeStatusItem])
-    , _dvsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvsrsVolumeStatuses :: {-# NOUNPACK #-}!(Maybe [VolumeStatusItem])
+  , _dvsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumeStatusResponse' with the minimum fields required to make a request.
 --
@@ -182,11 +185,12 @@ describeVolumeStatusResponse
     :: Int -- ^ 'dvsrsResponseStatus'
     -> DescribeVolumeStatusResponse
 describeVolumeStatusResponse pResponseStatus_ =
-    DescribeVolumeStatusResponse'
-    { _dvsrsNextToken = Nothing
-    , _dvsrsVolumeStatuses = Nothing
-    , _dvsrsResponseStatus = pResponseStatus_
-    }
+  DescribeVolumeStatusResponse'
+  { _dvsrsNextToken = Nothing
+  , _dvsrsVolumeStatuses = Nothing
+  , _dvsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dvsrsNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
@@ -200,4 +204,4 @@ dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses
 dvsrsResponseStatus :: Lens' DescribeVolumeStatusResponse Int
 dvsrsResponseStatus = lens _dvsrsResponseStatus (\ s a -> s{_dvsrsResponseStatus = a});
 
-instance NFData DescribeVolumeStatusResponse
+instance NFData DescribeVolumeStatusResponse where

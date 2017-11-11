@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateDocumentationVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.APIGateway.CreateDocumentationVersion
     , dvDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Creates a new documentation version of a given API.
 --
@@ -52,11 +52,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDocumentationVersion' smart constructor.
 data CreateDocumentationVersion = CreateDocumentationVersion'
-    { _cdvStageName            :: !(Maybe Text)
-    , _cdvDescription          :: !(Maybe Text)
-    , _cdvRestAPIId            :: !Text
-    , _cdvDocumentationVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdvStageName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdvDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdvRestAPIId            :: {-# NOUNPACK #-}!Text
+  , _cdvDocumentationVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDocumentationVersion' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ createDocumentationVersion
     -> Text -- ^ 'cdvDocumentationVersion'
     -> CreateDocumentationVersion
 createDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
-    CreateDocumentationVersion'
-    { _cdvStageName = Nothing
-    , _cdvDescription = Nothing
-    , _cdvRestAPIId = pRestAPIId_
-    , _cdvDocumentationVersion = pDocumentationVersion_
-    }
+  CreateDocumentationVersion'
+  { _cdvStageName = Nothing
+  , _cdvDescription = Nothing
+  , _cdvRestAPIId = pRestAPIId_
+  , _cdvDocumentationVersion = pDocumentationVersion_
+  }
+
 
 -- | The stage name to be associated with the new documentation snapshot.
 cdvStageName :: Lens' CreateDocumentationVersion (Maybe Text)
@@ -103,9 +105,9 @@ instance AWSRequest CreateDocumentationVersion where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateDocumentationVersion
+instance Hashable CreateDocumentationVersion where
 
-instance NFData CreateDocumentationVersion
+instance NFData CreateDocumentationVersion where
 
 instance ToHeaders CreateDocumentationVersion where
         toHeaders

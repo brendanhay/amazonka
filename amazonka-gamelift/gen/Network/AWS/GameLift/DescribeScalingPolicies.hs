@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeScalingPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -95,12 +95,12 @@ module Network.AWS.GameLift.DescribeScalingPolicies
     , dsprsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -108,11 +108,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeScalingPolicies' smart constructor.
 data DescribeScalingPolicies = DescribeScalingPolicies'
-    { _dNextToken    :: !(Maybe Text)
-    , _dStatusFilter :: !(Maybe ScalingStatusType)
-    , _dLimit        :: !(Maybe Nat)
-    , _dFleetId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dStatusFilter :: {-# NOUNPACK #-}!(Maybe ScalingStatusType)
+  , _dLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dFleetId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingPolicies' with the minimum fields required to make a request.
 --
@@ -129,12 +130,13 @@ describeScalingPolicies
     :: Text -- ^ 'dFleetId'
     -> DescribeScalingPolicies
 describeScalingPolicies pFleetId_ =
-    DescribeScalingPolicies'
-    { _dNextToken = Nothing
-    , _dStatusFilter = Nothing
-    , _dLimit = Nothing
-    , _dFleetId = pFleetId_
-    }
+  DescribeScalingPolicies'
+  { _dNextToken = Nothing
+  , _dStatusFilter = Nothing
+  , _dLimit = Nothing
+  , _dFleetId = pFleetId_
+  }
+
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
@@ -164,9 +166,9 @@ instance AWSRequest DescribeScalingPolicies where
                      (x .?> "ScalingPolicies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeScalingPolicies
+instance Hashable DescribeScalingPolicies where
 
-instance NFData DescribeScalingPolicies
+instance NFData DescribeScalingPolicies where
 
 instance ToHeaders DescribeScalingPolicies where
         toHeaders
@@ -198,10 +200,11 @@ instance ToQuery DescribeScalingPolicies where
 --
 -- /See:/ 'describeScalingPoliciesResponse' smart constructor.
 data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
-    { _dsprsNextToken       :: !(Maybe Text)
-    , _dsprsScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _dsprsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsprsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsprsScalingPolicies :: {-# NOUNPACK #-}!(Maybe [ScalingPolicy])
+  , _dsprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -216,11 +219,12 @@ describeScalingPoliciesResponse
     :: Int -- ^ 'dsprsResponseStatus'
     -> DescribeScalingPoliciesResponse
 describeScalingPoliciesResponse pResponseStatus_ =
-    DescribeScalingPoliciesResponse'
-    { _dsprsNextToken = Nothing
-    , _dsprsScalingPolicies = Nothing
-    , _dsprsResponseStatus = pResponseStatus_
-    }
+  DescribeScalingPoliciesResponse'
+  { _dsprsNextToken = Nothing
+  , _dsprsScalingPolicies = Nothing
+  , _dsprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dsprsNextToken :: Lens' DescribeScalingPoliciesResponse (Maybe Text)
@@ -234,4 +238,4 @@ dsprsScalingPolicies = lens _dsprsScalingPolicies (\ s a -> s{_dsprsScalingPolic
 dsprsResponseStatus :: Lens' DescribeScalingPoliciesResponse Int
 dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
 
-instance NFData DescribeScalingPoliciesResponse
+instance NFData DescribeScalingPoliciesResponse where

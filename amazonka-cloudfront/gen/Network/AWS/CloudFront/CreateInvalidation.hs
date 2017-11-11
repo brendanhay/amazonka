@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateInvalidation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFront.CreateInvalidation
     , cirsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create an invalidation.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createInvalidation' smart constructor.
 data CreateInvalidation = CreateInvalidation'
-    { _ciDistributionId    :: !Text
-    , _ciInvalidationBatch :: !InvalidationBatch
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciDistributionId    :: {-# NOUNPACK #-}!Text
+  , _ciInvalidationBatch :: {-# NOUNPACK #-}!InvalidationBatch
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInvalidation' with the minimum fields required to make a request.
 --
@@ -68,10 +69,11 @@ createInvalidation
     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
     -> CreateInvalidation
 createInvalidation pDistributionId_ pInvalidationBatch_ =
-    CreateInvalidation'
-    { _ciDistributionId = pDistributionId_
-    , _ciInvalidationBatch = pInvalidationBatch_
-    }
+  CreateInvalidation'
+  { _ciDistributionId = pDistributionId_
+  , _ciInvalidationBatch = pInvalidationBatch_
+  }
+
 
 -- | The distribution's id.
 ciDistributionId :: Lens' CreateInvalidation Text
@@ -92,9 +94,9 @@ instance AWSRequest CreateInvalidation where
                    (parseXML x) <*> (h .#? "Location") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateInvalidation
+instance Hashable CreateInvalidation where
 
-instance NFData CreateInvalidation
+instance NFData CreateInvalidation where
 
 instance ToElement CreateInvalidation where
         toElement
@@ -121,10 +123,11 @@ instance ToQuery CreateInvalidation where
 --
 -- /See:/ 'createInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
-    { _cirsInvalidation   :: !(Maybe Invalidation)
-    , _cirsLocation       :: !(Maybe Text)
-    , _cirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cirsInvalidation   :: {-# NOUNPACK #-}!(Maybe Invalidation)
+  , _cirsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInvalidationResponse' with the minimum fields required to make a request.
 --
@@ -139,11 +142,12 @@ createInvalidationResponse
     :: Int -- ^ 'cirsResponseStatus'
     -> CreateInvalidationResponse
 createInvalidationResponse pResponseStatus_ =
-    CreateInvalidationResponse'
-    { _cirsInvalidation = Nothing
-    , _cirsLocation = Nothing
-    , _cirsResponseStatus = pResponseStatus_
-    }
+  CreateInvalidationResponse'
+  { _cirsInvalidation = Nothing
+  , _cirsLocation = Nothing
+  , _cirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The invalidation's information.
 cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
@@ -157,4 +161,4 @@ cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 cirsResponseStatus :: Lens' CreateInvalidationResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
 
-instance NFData CreateInvalidationResponse
+instance NFData CreateInvalidationResponse where

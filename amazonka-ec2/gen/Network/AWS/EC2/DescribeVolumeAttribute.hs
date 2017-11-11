@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumeAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     , dvarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeVolumeAttribute.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeVolumeAttribute' smart constructor.
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
-    { _dvaAttribute :: !(Maybe VolumeAttributeName)
-    , _dvaDryRun    :: !(Maybe Bool)
-    , _dvaVolumeId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvaAttribute :: {-# NOUNPACK #-}!(Maybe VolumeAttributeName)
+  , _dvaDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvaVolumeId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumeAttribute' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ describeVolumeAttribute
     :: Text -- ^ 'dvaVolumeId'
     -> DescribeVolumeAttribute
 describeVolumeAttribute pVolumeId_ =
-    DescribeVolumeAttribute'
-    { _dvaAttribute = Nothing
-    , _dvaDryRun = Nothing
-    , _dvaVolumeId = pVolumeId_
-    }
+  DescribeVolumeAttribute'
+  {_dvaAttribute = Nothing, _dvaDryRun = Nothing, _dvaVolumeId = pVolumeId_}
+
 
 -- | The attribute of the volume. This parameter is required.
 dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
@@ -106,9 +105,9 @@ instance AWSRequest DescribeVolumeAttribute where
                      <*> (x .@? "autoEnableIO")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVolumeAttribute
+instance Hashable DescribeVolumeAttribute where
 
-instance NFData DescribeVolumeAttribute
+instance NFData DescribeVolumeAttribute where
 
 instance ToHeaders DescribeVolumeAttribute where
         toHeaders = const mempty
@@ -131,11 +130,12 @@ instance ToQuery DescribeVolumeAttribute where
 --
 -- /See:/ 'describeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-    { _dvarsVolumeId       :: !(Maybe Text)
-    , _dvarsProductCodes   :: !(Maybe [ProductCode])
-    , _dvarsAutoEnableIO   :: !(Maybe AttributeBooleanValue)
-    , _dvarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvarsVolumeId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvarsProductCodes   :: {-# NOUNPACK #-}!(Maybe [ProductCode])
+  , _dvarsAutoEnableIO   :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _dvarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumeAttributeResponse' with the minimum fields required to make a request.
 --
@@ -152,12 +152,13 @@ describeVolumeAttributeResponse
     :: Int -- ^ 'dvarsResponseStatus'
     -> DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse pResponseStatus_ =
-    DescribeVolumeAttributeResponse'
-    { _dvarsVolumeId = Nothing
-    , _dvarsProductCodes = Nothing
-    , _dvarsAutoEnableIO = Nothing
-    , _dvarsResponseStatus = pResponseStatus_
-    }
+  DescribeVolumeAttributeResponse'
+  { _dvarsVolumeId = Nothing
+  , _dvarsProductCodes = Nothing
+  , _dvarsAutoEnableIO = Nothing
+  , _dvarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the volume.
 dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
@@ -175,4 +176,4 @@ dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a})
 dvarsResponseStatus :: Lens' DescribeVolumeAttributeResponse Int
 dvarsResponseStatus = lens _dvarsResponseStatus (\ s a -> s{_dvarsResponseStatus = a});
 
-instance NFData DescribeVolumeAttributeResponse
+instance NFData DescribeVolumeAttributeResponse where

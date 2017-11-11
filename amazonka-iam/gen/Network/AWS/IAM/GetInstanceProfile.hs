@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetInstanceProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.IAM.GetInstanceProfile
     , giprsInstanceProfile
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getInstanceProfile' smart constructor.
 newtype GetInstanceProfile = GetInstanceProfile'
-    { _gipInstanceProfileName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gipInstanceProfileName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceProfile' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getInstanceProfile
     :: Text -- ^ 'gipInstanceProfileName'
     -> GetInstanceProfile
 getInstanceProfile pInstanceProfileName_ =
-    GetInstanceProfile'
-    { _gipInstanceProfileName = pInstanceProfileName_
-    }
+  GetInstanceProfile' {_gipInstanceProfileName = pInstanceProfileName_}
+
 
 -- | The name of the instance profile to get information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
@@ -76,9 +76,9 @@ instance AWSRequest GetInstanceProfile where
                  GetInstanceProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "InstanceProfile"))
 
-instance Hashable GetInstanceProfile
+instance Hashable GetInstanceProfile where
 
-instance NFData GetInstanceProfile
+instance NFData GetInstanceProfile where
 
 instance ToHeaders GetInstanceProfile where
         toHeaders = const mempty
@@ -99,9 +99,10 @@ instance ToQuery GetInstanceProfile where
 --
 -- /See:/ 'getInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-    { _giprsResponseStatus  :: !Int
-    , _giprsInstanceProfile :: !InstanceProfile
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _giprsInstanceProfile :: {-# NOUNPACK #-}!InstanceProfile
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceProfileResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +116,11 @@ getInstanceProfileResponse
     -> InstanceProfile -- ^ 'giprsInstanceProfile'
     -> GetInstanceProfileResponse
 getInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
-    GetInstanceProfileResponse'
-    { _giprsResponseStatus = pResponseStatus_
-    , _giprsInstanceProfile = pInstanceProfile_
-    }
+  GetInstanceProfileResponse'
+  { _giprsResponseStatus = pResponseStatus_
+  , _giprsInstanceProfile = pInstanceProfile_
+  }
+
 
 -- | -- | The response status code.
 giprsResponseStatus :: Lens' GetInstanceProfileResponse Int
@@ -128,4 +130,4 @@ giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus
 giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprsInstanceProfile = lens _giprsInstanceProfile (\ s a -> s{_giprsInstanceProfile = a});
 
-instance NFData GetInstanceProfileResponse
+instance NFData GetInstanceProfileResponse where

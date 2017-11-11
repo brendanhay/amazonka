@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Firehose.Types.Product where
 
-import           Network.AWS.Firehose.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Firehose.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Describes hints for the buffering to perform before delivering data to the destination. Please note that these options are treated as hints, and therefore Firehose may choose to use different values when it is optimal.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'bufferingHints' smart constructor.
 data BufferingHints = BufferingHints'
-    { _bhSizeInMBs         :: !(Maybe Nat)
-    , _bhIntervalInSeconds :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bhSizeInMBs         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _bhIntervalInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BufferingHints' with the minimum fields required to make a request.
 --
@@ -41,10 +42,8 @@ data BufferingHints = BufferingHints'
 bufferingHints
     :: BufferingHints
 bufferingHints =
-    BufferingHints'
-    { _bhSizeInMBs = Nothing
-    , _bhIntervalInSeconds = Nothing
-    }
+  BufferingHints' {_bhSizeInMBs = Nothing, _bhIntervalInSeconds = Nothing}
+
 
 -- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 bhSizeInMBs :: Lens' BufferingHints (Maybe Natural)
@@ -61,9 +60,9 @@ instance FromJSON BufferingHints where
                  BufferingHints' <$>
                    (x .:? "SizeInMBs") <*> (x .:? "IntervalInSeconds"))
 
-instance Hashable BufferingHints
+instance Hashable BufferingHints where
 
-instance NFData BufferingHints
+instance NFData BufferingHints where
 
 instance ToJSON BufferingHints where
         toJSON BufferingHints'{..}
@@ -78,10 +77,11 @@ instance ToJSON BufferingHints where
 --
 -- /See:/ 'cloudWatchLoggingOptions' smart constructor.
 data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
-    { _cwloEnabled       :: !(Maybe Bool)
-    , _cwloLogGroupName  :: !(Maybe Text)
-    , _cwloLogStreamName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwloEnabled       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cwloLogGroupName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cwloLogStreamName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudWatchLoggingOptions' with the minimum fields required to make a request.
 --
@@ -95,11 +95,12 @@ data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
 cloudWatchLoggingOptions
     :: CloudWatchLoggingOptions
 cloudWatchLoggingOptions =
-    CloudWatchLoggingOptions'
-    { _cwloEnabled = Nothing
-    , _cwloLogGroupName = Nothing
-    , _cwloLogStreamName = Nothing
-    }
+  CloudWatchLoggingOptions'
+  { _cwloEnabled = Nothing
+  , _cwloLogGroupName = Nothing
+  , _cwloLogStreamName = Nothing
+  }
+
 
 -- | Enables or disables CloudWatch logging.
 cwloEnabled :: Lens' CloudWatchLoggingOptions (Maybe Bool)
@@ -121,9 +122,9 @@ instance FromJSON CloudWatchLoggingOptions where
                    (x .:? "Enabled") <*> (x .:? "LogGroupName") <*>
                      (x .:? "LogStreamName"))
 
-instance Hashable CloudWatchLoggingOptions
+instance Hashable CloudWatchLoggingOptions where
 
-instance NFData CloudWatchLoggingOptions
+instance NFData CloudWatchLoggingOptions where
 
 instance ToJSON CloudWatchLoggingOptions where
         toJSON CloudWatchLoggingOptions'{..}
@@ -139,10 +140,11 @@ instance ToJSON CloudWatchLoggingOptions where
 --
 -- /See:/ 'copyCommand' smart constructor.
 data CopyCommand = CopyCommand'
-    { _ccCopyOptions      :: !(Maybe Text)
-    , _ccDataTableColumns :: !(Maybe Text)
-    , _ccDataTableName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccCopyOptions      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccDataTableColumns :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccDataTableName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyCommand' with the minimum fields required to make a request.
 --
@@ -157,11 +159,12 @@ copyCommand
     :: Text -- ^ 'ccDataTableName'
     -> CopyCommand
 copyCommand pDataTableName_ =
-    CopyCommand'
-    { _ccCopyOptions = Nothing
-    , _ccDataTableColumns = Nothing
-    , _ccDataTableName = pDataTableName_
-    }
+  CopyCommand'
+  { _ccCopyOptions = Nothing
+  , _ccDataTableColumns = Nothing
+  , _ccDataTableName = pDataTableName_
+  }
+
 
 -- | Optional parameters to use with the Amazon Redshift @COPY@ command. For more information, see the "Optional Parameters" section of <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html Amazon Redshift COPY command> . Some possible examples that would apply to Firehose are as follows: @delimiter '\t' lzop;@ - fields are delimited with "\t" (TAB character) and compressed using lzop. @delimiter '|@ - fields are delimited with "|" (this is the default delimiter). @delimiter '|' escape@ - the delimiter should be escaped. @fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'@ - fields are fixed width in the source, with each width specified after every column in the table. @JSON 's3://mybucket/jsonpaths.txt'@ - data is in JSON format, and the path specified is the format of the data. For more examples, see <http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples> .
 ccCopyOptions :: Lens' CopyCommand (Maybe Text)
@@ -183,9 +186,9 @@ instance FromJSON CopyCommand where
                    (x .:? "CopyOptions") <*> (x .:? "DataTableColumns")
                      <*> (x .: "DataTableName"))
 
-instance Hashable CopyCommand
+instance Hashable CopyCommand where
 
-instance NFData CopyCommand
+instance NFData CopyCommand where
 
 instance ToJSON CopyCommand where
         toJSON CopyCommand'{..}
@@ -201,15 +204,16 @@ instance ToJSON CopyCommand where
 --
 -- /See:/ 'deliveryStreamDescription' smart constructor.
 data DeliveryStreamDescription = DeliveryStreamDescription'
-    { _dsdCreateTimestamp      :: !(Maybe POSIX)
-    , _dsdLastUpdateTimestamp  :: !(Maybe POSIX)
-    , _dsdDeliveryStreamName   :: !Text
-    , _dsdDeliveryStreamARN    :: !Text
-    , _dsdDeliveryStreamStatus :: !DeliveryStreamStatus
-    , _dsdVersionId            :: !Text
-    , _dsdDestinations         :: ![DestinationDescription]
-    , _dsdHasMoreDestinations  :: !Bool
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dsdCreateTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dsdLastUpdateTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dsdDeliveryStreamName   :: {-# NOUNPACK #-}!Text
+  , _dsdDeliveryStreamARN    :: {-# NOUNPACK #-}!Text
+  , _dsdDeliveryStreamStatus :: {-# NOUNPACK #-}!DeliveryStreamStatus
+  , _dsdVersionId            :: {-# NOUNPACK #-}!Text
+  , _dsdDestinations         :: {-# NOUNPACK #-}![DestinationDescription]
+  , _dsdHasMoreDestinations  :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeliveryStreamDescription' with the minimum fields required to make a request.
 --
@@ -238,16 +242,17 @@ deliveryStreamDescription
     -> Bool -- ^ 'dsdHasMoreDestinations'
     -> DeliveryStreamDescription
 deliveryStreamDescription pDeliveryStreamName_ pDeliveryStreamARN_ pDeliveryStreamStatus_ pVersionId_ pHasMoreDestinations_ =
-    DeliveryStreamDescription'
-    { _dsdCreateTimestamp = Nothing
-    , _dsdLastUpdateTimestamp = Nothing
-    , _dsdDeliveryStreamName = pDeliveryStreamName_
-    , _dsdDeliveryStreamARN = pDeliveryStreamARN_
-    , _dsdDeliveryStreamStatus = pDeliveryStreamStatus_
-    , _dsdVersionId = pVersionId_
-    , _dsdDestinations = mempty
-    , _dsdHasMoreDestinations = pHasMoreDestinations_
-    }
+  DeliveryStreamDescription'
+  { _dsdCreateTimestamp = Nothing
+  , _dsdLastUpdateTimestamp = Nothing
+  , _dsdDeliveryStreamName = pDeliveryStreamName_
+  , _dsdDeliveryStreamARN = pDeliveryStreamARN_
+  , _dsdDeliveryStreamStatus = pDeliveryStreamStatus_
+  , _dsdVersionId = pVersionId_
+  , _dsdDestinations = mempty
+  , _dsdHasMoreDestinations = pHasMoreDestinations_
+  }
+
 
 -- | The date and time that the delivery stream was created.
 dsdCreateTimestamp :: Lens' DeliveryStreamDescription (Maybe UTCTime)
@@ -295,9 +300,9 @@ instance FromJSON DeliveryStreamDescription where
                      <*> (x .:? "Destinations" .!= mempty)
                      <*> (x .: "HasMoreDestinations"))
 
-instance Hashable DeliveryStreamDescription
+instance Hashable DeliveryStreamDescription where
 
-instance NFData DeliveryStreamDescription
+instance NFData DeliveryStreamDescription where
 
 -- | Describes the destination for a delivery stream.
 --
@@ -305,12 +310,13 @@ instance NFData DeliveryStreamDescription
 --
 -- /See:/ 'destinationDescription' smart constructor.
 data DestinationDescription = DestinationDescription'
-    { _ddS3DestinationDescription            :: !(Maybe S3DestinationDescription)
-    , _ddExtendedS3DestinationDescription    :: !(Maybe ExtendedS3DestinationDescription)
-    , _ddElasticsearchDestinationDescription :: !(Maybe ElasticsearchDestinationDescription)
-    , _ddRedshiftDestinationDescription      :: !(Maybe RedshiftDestinationDescription)
-    , _ddDestinationId                       :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ddS3DestinationDescription :: {-# NOUNPACK #-}!(Maybe S3DestinationDescription)
+  , _ddExtendedS3DestinationDescription :: {-# NOUNPACK #-}!(Maybe ExtendedS3DestinationDescription)
+  , _ddElasticsearchDestinationDescription :: {-# NOUNPACK #-}!(Maybe ElasticsearchDestinationDescription)
+  , _ddRedshiftDestinationDescription :: {-# NOUNPACK #-}!(Maybe RedshiftDestinationDescription)
+  , _ddDestinationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DestinationDescription' with the minimum fields required to make a request.
 --
@@ -329,13 +335,14 @@ destinationDescription
     :: Text -- ^ 'ddDestinationId'
     -> DestinationDescription
 destinationDescription pDestinationId_ =
-    DestinationDescription'
-    { _ddS3DestinationDescription = Nothing
-    , _ddExtendedS3DestinationDescription = Nothing
-    , _ddElasticsearchDestinationDescription = Nothing
-    , _ddRedshiftDestinationDescription = Nothing
-    , _ddDestinationId = pDestinationId_
-    }
+  DestinationDescription'
+  { _ddS3DestinationDescription = Nothing
+  , _ddExtendedS3DestinationDescription = Nothing
+  , _ddElasticsearchDestinationDescription = Nothing
+  , _ddRedshiftDestinationDescription = Nothing
+  , _ddDestinationId = pDestinationId_
+  }
+
 
 -- | [Deprecated] The destination in Amazon S3.
 ddS3DestinationDescription :: Lens' DestinationDescription (Maybe S3DestinationDescription)
@@ -368,9 +375,9 @@ instance FromJSON DestinationDescription where
                      <*> (x .:? "RedshiftDestinationDescription")
                      <*> (x .: "DestinationId"))
 
-instance Hashable DestinationDescription
+instance Hashable DestinationDescription where
 
-instance NFData DestinationDescription
+instance NFData DestinationDescription where
 
 -- | Describes the buffering to perform before delivering data to the Amazon ES destination.
 --
@@ -378,9 +385,10 @@ instance NFData DestinationDescription
 --
 -- /See:/ 'elasticsearchBufferingHints' smart constructor.
 data ElasticsearchBufferingHints = ElasticsearchBufferingHints'
-    { _ebhSizeInMBs         :: !(Maybe Nat)
-    , _ebhIntervalInSeconds :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ebhSizeInMBs         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ebhIntervalInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchBufferingHints' with the minimum fields required to make a request.
 --
@@ -392,10 +400,9 @@ data ElasticsearchBufferingHints = ElasticsearchBufferingHints'
 elasticsearchBufferingHints
     :: ElasticsearchBufferingHints
 elasticsearchBufferingHints =
-    ElasticsearchBufferingHints'
-    { _ebhSizeInMBs = Nothing
-    , _ebhIntervalInSeconds = Nothing
-    }
+  ElasticsearchBufferingHints'
+  {_ebhSizeInMBs = Nothing, _ebhIntervalInSeconds = Nothing}
+
 
 -- | Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 ebhSizeInMBs :: Lens' ElasticsearchBufferingHints (Maybe Natural)
@@ -412,9 +419,9 @@ instance FromJSON ElasticsearchBufferingHints where
                  ElasticsearchBufferingHints' <$>
                    (x .:? "SizeInMBs") <*> (x .:? "IntervalInSeconds"))
 
-instance Hashable ElasticsearchBufferingHints
+instance Hashable ElasticsearchBufferingHints where
 
-instance NFData ElasticsearchBufferingHints
+instance NFData ElasticsearchBufferingHints where
 
 instance ToJSON ElasticsearchBufferingHints where
         toJSON ElasticsearchBufferingHints'{..}
@@ -429,18 +436,19 @@ instance ToJSON ElasticsearchBufferingHints where
 --
 -- /See:/ 'elasticsearchDestinationConfiguration' smart constructor.
 data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfiguration'
-    { _edcIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
-    , _edcS3BackupMode             :: !(Maybe ElasticsearchS3BackupMode)
-    , _edcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _edcBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
-    , _edcRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
-    , _edcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _edcRoleARN                  :: !Text
-    , _edcDomainARN                :: !Text
-    , _edcIndexName                :: !Text
-    , _edcTypeName                 :: !Text
-    , _edcS3Configuration          :: !S3DestinationConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edcIndexRotationPeriod :: {-# NOUNPACK #-}!(Maybe ElasticsearchIndexRotationPeriod)
+  , _edcS3BackupMode :: {-# NOUNPACK #-}!(Maybe ElasticsearchS3BackupMode)
+  , _edcCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _edcBufferingHints :: {-# NOUNPACK #-}!(Maybe ElasticsearchBufferingHints)
+  , _edcRetryOptions :: {-# NOUNPACK #-}!(Maybe ElasticsearchRetryOptions)
+  , _edcProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _edcRoleARN :: {-# NOUNPACK #-}!Text
+  , _edcDomainARN :: {-# NOUNPACK #-}!Text
+  , _edcIndexName :: {-# NOUNPACK #-}!Text
+  , _edcTypeName :: {-# NOUNPACK #-}!Text
+  , _edcS3Configuration :: {-# NOUNPACK #-}!S3DestinationConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchDestinationConfiguration' with the minimum fields required to make a request.
 --
@@ -475,19 +483,20 @@ elasticsearchDestinationConfiguration
     -> S3DestinationConfiguration -- ^ 'edcS3Configuration'
     -> ElasticsearchDestinationConfiguration
 elasticsearchDestinationConfiguration pRoleARN_ pDomainARN_ pIndexName_ pTypeName_ pS3Configuration_ =
-    ElasticsearchDestinationConfiguration'
-    { _edcIndexRotationPeriod = Nothing
-    , _edcS3BackupMode = Nothing
-    , _edcCloudWatchLoggingOptions = Nothing
-    , _edcBufferingHints = Nothing
-    , _edcRetryOptions = Nothing
-    , _edcProcessingConfiguration = Nothing
-    , _edcRoleARN = pRoleARN_
-    , _edcDomainARN = pDomainARN_
-    , _edcIndexName = pIndexName_
-    , _edcTypeName = pTypeName_
-    , _edcS3Configuration = pS3Configuration_
-    }
+  ElasticsearchDestinationConfiguration'
+  { _edcIndexRotationPeriod = Nothing
+  , _edcS3BackupMode = Nothing
+  , _edcCloudWatchLoggingOptions = Nothing
+  , _edcBufferingHints = Nothing
+  , _edcRetryOptions = Nothing
+  , _edcProcessingConfiguration = Nothing
+  , _edcRoleARN = pRoleARN_
+  , _edcDomainARN = pDomainARN_
+  , _edcIndexName = pIndexName_
+  , _edcTypeName = pTypeName_
+  , _edcS3Configuration = pS3Configuration_
+  }
+
 
 -- | The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate expiration of old data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for Amazon Elasticsearch Service Destination> . The default value is @OneDay@ .
 edcIndexRotationPeriod :: Lens' ElasticsearchDestinationConfiguration (Maybe ElasticsearchIndexRotationPeriod)
@@ -534,9 +543,11 @@ edcS3Configuration :: Lens' ElasticsearchDestinationConfiguration S3DestinationC
 edcS3Configuration = lens _edcS3Configuration (\ s a -> s{_edcS3Configuration = a});
 
 instance Hashable
-         ElasticsearchDestinationConfiguration
+           ElasticsearchDestinationConfiguration
+         where
 
 instance NFData ElasticsearchDestinationConfiguration
+         where
 
 instance ToJSON ElasticsearchDestinationConfiguration
          where
@@ -564,18 +575,19 @@ instance ToJSON ElasticsearchDestinationConfiguration
 --
 -- /See:/ 'elasticsearchDestinationDescription' smart constructor.
 data ElasticsearchDestinationDescription = ElasticsearchDestinationDescription'
-    { _eddIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
-    , _eddTypeName                 :: !(Maybe Text)
-    , _eddS3BackupMode             :: !(Maybe ElasticsearchS3BackupMode)
-    , _eddDomainARN                :: !(Maybe Text)
-    , _eddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _eddS3DestinationDescription :: !(Maybe S3DestinationDescription)
-    , _eddBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
-    , _eddRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
-    , _eddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _eddRoleARN                  :: !(Maybe Text)
-    , _eddIndexName                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eddIndexRotationPeriod :: {-# NOUNPACK #-}!(Maybe ElasticsearchIndexRotationPeriod)
+  , _eddTypeName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eddS3BackupMode :: {-# NOUNPACK #-}!(Maybe ElasticsearchS3BackupMode)
+  , _eddDomainARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eddCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _eddS3DestinationDescription :: {-# NOUNPACK #-}!(Maybe S3DestinationDescription)
+  , _eddBufferingHints :: {-# NOUNPACK #-}!(Maybe ElasticsearchBufferingHints)
+  , _eddRetryOptions :: {-# NOUNPACK #-}!(Maybe ElasticsearchRetryOptions)
+  , _eddProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _eddRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eddIndexName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchDestinationDescription' with the minimum fields required to make a request.
 --
@@ -605,19 +617,20 @@ data ElasticsearchDestinationDescription = ElasticsearchDestinationDescription'
 elasticsearchDestinationDescription
     :: ElasticsearchDestinationDescription
 elasticsearchDestinationDescription =
-    ElasticsearchDestinationDescription'
-    { _eddIndexRotationPeriod = Nothing
-    , _eddTypeName = Nothing
-    , _eddS3BackupMode = Nothing
-    , _eddDomainARN = Nothing
-    , _eddCloudWatchLoggingOptions = Nothing
-    , _eddS3DestinationDescription = Nothing
-    , _eddBufferingHints = Nothing
-    , _eddRetryOptions = Nothing
-    , _eddProcessingConfiguration = Nothing
-    , _eddRoleARN = Nothing
-    , _eddIndexName = Nothing
-    }
+  ElasticsearchDestinationDescription'
+  { _eddIndexRotationPeriod = Nothing
+  , _eddTypeName = Nothing
+  , _eddS3BackupMode = Nothing
+  , _eddDomainARN = Nothing
+  , _eddCloudWatchLoggingOptions = Nothing
+  , _eddS3DestinationDescription = Nothing
+  , _eddBufferingHints = Nothing
+  , _eddRetryOptions = Nothing
+  , _eddProcessingConfiguration = Nothing
+  , _eddRoleARN = Nothing
+  , _eddIndexName = Nothing
+  }
+
 
 -- | The Elasticsearch index rotation period
 eddIndexRotationPeriod :: Lens' ElasticsearchDestinationDescription (Maybe ElasticsearchIndexRotationPeriod)
@@ -681,8 +694,10 @@ instance FromJSON ElasticsearchDestinationDescription
                      <*> (x .:? "IndexName"))
 
 instance Hashable ElasticsearchDestinationDescription
+         where
 
 instance NFData ElasticsearchDestinationDescription
+         where
 
 -- | Describes an update for a destination in Amazon ES.
 --
@@ -690,17 +705,18 @@ instance NFData ElasticsearchDestinationDescription
 --
 -- /See:/ 'elasticsearchDestinationUpdate' smart constructor.
 data ElasticsearchDestinationUpdate = ElasticsearchDestinationUpdate'
-    { _eduIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
-    , _eduTypeName                 :: !(Maybe Text)
-    , _eduDomainARN                :: !(Maybe Text)
-    , _eduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _eduS3Update                 :: !(Maybe S3DestinationUpdate)
-    , _eduBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
-    , _eduRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
-    , _eduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _eduRoleARN                  :: !(Maybe Text)
-    , _eduIndexName                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eduIndexRotationPeriod :: {-# NOUNPACK #-}!(Maybe ElasticsearchIndexRotationPeriod)
+  , _eduTypeName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eduDomainARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eduCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _eduS3Update :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
+  , _eduBufferingHints :: {-# NOUNPACK #-}!(Maybe ElasticsearchBufferingHints)
+  , _eduRetryOptions :: {-# NOUNPACK #-}!(Maybe ElasticsearchRetryOptions)
+  , _eduProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _eduRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eduIndexName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchDestinationUpdate' with the minimum fields required to make a request.
 --
@@ -728,18 +744,19 @@ data ElasticsearchDestinationUpdate = ElasticsearchDestinationUpdate'
 elasticsearchDestinationUpdate
     :: ElasticsearchDestinationUpdate
 elasticsearchDestinationUpdate =
-    ElasticsearchDestinationUpdate'
-    { _eduIndexRotationPeriod = Nothing
-    , _eduTypeName = Nothing
-    , _eduDomainARN = Nothing
-    , _eduCloudWatchLoggingOptions = Nothing
-    , _eduS3Update = Nothing
-    , _eduBufferingHints = Nothing
-    , _eduRetryOptions = Nothing
-    , _eduProcessingConfiguration = Nothing
-    , _eduRoleARN = Nothing
-    , _eduIndexName = Nothing
-    }
+  ElasticsearchDestinationUpdate'
+  { _eduIndexRotationPeriod = Nothing
+  , _eduTypeName = Nothing
+  , _eduDomainARN = Nothing
+  , _eduCloudWatchLoggingOptions = Nothing
+  , _eduS3Update = Nothing
+  , _eduBufferingHints = Nothing
+  , _eduRetryOptions = Nothing
+  , _eduProcessingConfiguration = Nothing
+  , _eduRoleARN = Nothing
+  , _eduIndexName = Nothing
+  }
+
 
 -- | The Elasticsearch index rotation period. Index rotation appends a timestamp to IndexName to facilitate the expiration of old data. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for Amazon Elasticsearch Service Destination> . Default value is @OneDay@ .
 eduIndexRotationPeriod :: Lens' ElasticsearchDestinationUpdate (Maybe ElasticsearchIndexRotationPeriod)
@@ -782,8 +799,9 @@ eduIndexName :: Lens' ElasticsearchDestinationUpdate (Maybe Text)
 eduIndexName = lens _eduIndexName (\ s a -> s{_eduIndexName = a});
 
 instance Hashable ElasticsearchDestinationUpdate
+         where
 
-instance NFData ElasticsearchDestinationUpdate
+instance NFData ElasticsearchDestinationUpdate where
 
 instance ToJSON ElasticsearchDestinationUpdate where
         toJSON ElasticsearchDestinationUpdate'{..}
@@ -809,8 +827,9 @@ instance ToJSON ElasticsearchDestinationUpdate where
 --
 -- /See:/ 'elasticsearchRetryOptions' smart constructor.
 newtype ElasticsearchRetryOptions = ElasticsearchRetryOptions'
-    { _eroDurationInSeconds :: Maybe Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eroDurationInSeconds :: Maybe Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchRetryOptions' with the minimum fields required to make a request.
 --
@@ -820,9 +839,8 @@ newtype ElasticsearchRetryOptions = ElasticsearchRetryOptions'
 elasticsearchRetryOptions
     :: ElasticsearchRetryOptions
 elasticsearchRetryOptions =
-    ElasticsearchRetryOptions'
-    { _eroDurationInSeconds = Nothing
-    }
+  ElasticsearchRetryOptions' {_eroDurationInSeconds = Nothing}
+
 
 -- | After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
 eroDurationInSeconds :: Lens' ElasticsearchRetryOptions (Maybe Natural)
@@ -835,9 +853,9 @@ instance FromJSON ElasticsearchRetryOptions where
                  ElasticsearchRetryOptions' <$>
                    (x .:? "DurationInSeconds"))
 
-instance Hashable ElasticsearchRetryOptions
+instance Hashable ElasticsearchRetryOptions where
 
-instance NFData ElasticsearchRetryOptions
+instance NFData ElasticsearchRetryOptions where
 
 instance ToJSON ElasticsearchRetryOptions where
         toJSON ElasticsearchRetryOptions'{..}
@@ -851,9 +869,10 @@ instance ToJSON ElasticsearchRetryOptions where
 --
 -- /See:/ 'encryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-    { _ecNoEncryptionConfig  :: !(Maybe NoEncryptionConfig)
-    , _ecKMSEncryptionConfig :: !(Maybe KMSEncryptionConfig)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecNoEncryptionConfig  :: {-# NOUNPACK #-}!(Maybe NoEncryptionConfig)
+  , _ecKMSEncryptionConfig :: {-# NOUNPACK #-}!(Maybe KMSEncryptionConfig)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
 --
@@ -865,10 +884,9 @@ data EncryptionConfiguration = EncryptionConfiguration'
 encryptionConfiguration
     :: EncryptionConfiguration
 encryptionConfiguration =
-    EncryptionConfiguration'
-    { _ecNoEncryptionConfig = Nothing
-    , _ecKMSEncryptionConfig = Nothing
-    }
+  EncryptionConfiguration'
+  {_ecNoEncryptionConfig = Nothing, _ecKMSEncryptionConfig = Nothing}
+
 
 -- | Specifically override existing encryption information to ensure no encryption is used.
 ecNoEncryptionConfig :: Lens' EncryptionConfiguration (Maybe NoEncryptionConfig)
@@ -886,9 +904,9 @@ instance FromJSON EncryptionConfiguration where
                    (x .:? "NoEncryptionConfig") <*>
                      (x .:? "KMSEncryptionConfig"))
 
-instance Hashable EncryptionConfiguration
+instance Hashable EncryptionConfiguration where
 
-instance NFData EncryptionConfiguration
+instance NFData EncryptionConfiguration where
 
 instance ToJSON EncryptionConfiguration where
         toJSON EncryptionConfiguration'{..}
@@ -904,17 +922,18 @@ instance ToJSON EncryptionConfiguration where
 --
 -- /See:/ 'extendedS3DestinationConfiguration' smart constructor.
 data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
-    { _esdcS3BackupMode             :: !(Maybe S3BackupMode)
-    , _esdcPrefix                   :: !(Maybe Text)
-    , _esdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _esdcS3BackupConfiguration    :: !(Maybe S3DestinationConfiguration)
-    , _esdcEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
-    , _esdcCompressionFormat        :: !(Maybe CompressionFormat)
-    , _esdcBufferingHints           :: !(Maybe BufferingHints)
-    , _esdcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _esdcRoleARN                  :: !Text
-    , _esdcBucketARN                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esdcS3BackupMode :: {-# NOUNPACK #-}!(Maybe S3BackupMode)
+  , _esdcPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esdcCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _esdcS3BackupConfiguration :: {-# NOUNPACK #-}!(Maybe S3DestinationConfiguration)
+  , _esdcEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
+  , _esdcCompressionFormat :: {-# NOUNPACK #-}!(Maybe CompressionFormat)
+  , _esdcBufferingHints :: {-# NOUNPACK #-}!(Maybe BufferingHints)
+  , _esdcProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _esdcRoleARN :: {-# NOUNPACK #-}!Text
+  , _esdcBucketARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExtendedS3DestinationConfiguration' with the minimum fields required to make a request.
 --
@@ -944,18 +963,19 @@ extendedS3DestinationConfiguration
     -> Text -- ^ 'esdcBucketARN'
     -> ExtendedS3DestinationConfiguration
 extendedS3DestinationConfiguration pRoleARN_ pBucketARN_ =
-    ExtendedS3DestinationConfiguration'
-    { _esdcS3BackupMode = Nothing
-    , _esdcPrefix = Nothing
-    , _esdcCloudWatchLoggingOptions = Nothing
-    , _esdcS3BackupConfiguration = Nothing
-    , _esdcEncryptionConfiguration = Nothing
-    , _esdcCompressionFormat = Nothing
-    , _esdcBufferingHints = Nothing
-    , _esdcProcessingConfiguration = Nothing
-    , _esdcRoleARN = pRoleARN_
-    , _esdcBucketARN = pBucketARN_
-    }
+  ExtendedS3DestinationConfiguration'
+  { _esdcS3BackupMode = Nothing
+  , _esdcPrefix = Nothing
+  , _esdcCloudWatchLoggingOptions = Nothing
+  , _esdcS3BackupConfiguration = Nothing
+  , _esdcEncryptionConfiguration = Nothing
+  , _esdcCompressionFormat = Nothing
+  , _esdcBufferingHints = Nothing
+  , _esdcProcessingConfiguration = Nothing
+  , _esdcRoleARN = pRoleARN_
+  , _esdcBucketARN = pBucketARN_
+  }
+
 
 -- | The Amazon S3 backup mode.
 esdcS3BackupMode :: Lens' ExtendedS3DestinationConfiguration (Maybe S3BackupMode)
@@ -998,8 +1018,10 @@ esdcBucketARN :: Lens' ExtendedS3DestinationConfiguration Text
 esdcBucketARN = lens _esdcBucketARN (\ s a -> s{_esdcBucketARN = a});
 
 instance Hashable ExtendedS3DestinationConfiguration
+         where
 
 instance NFData ExtendedS3DestinationConfiguration
+         where
 
 instance ToJSON ExtendedS3DestinationConfiguration
          where
@@ -1027,17 +1049,18 @@ instance ToJSON ExtendedS3DestinationConfiguration
 --
 -- /See:/ 'extendedS3DestinationDescription' smart constructor.
 data ExtendedS3DestinationDescription = ExtendedS3DestinationDescription'
-    { _esddS3BackupMode             :: !(Maybe S3BackupMode)
-    , _esddS3BackupDescription      :: !(Maybe S3DestinationDescription)
-    , _esddPrefix                   :: !(Maybe Text)
-    , _esddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _esddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _esddRoleARN                  :: !Text
-    , _esddBucketARN                :: !Text
-    , _esddBufferingHints           :: !BufferingHints
-    , _esddCompressionFormat        :: !CompressionFormat
-    , _esddEncryptionConfiguration  :: !EncryptionConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esddS3BackupMode :: {-# NOUNPACK #-}!(Maybe S3BackupMode)
+  , _esddS3BackupDescription :: {-# NOUNPACK #-}!(Maybe S3DestinationDescription)
+  , _esddPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esddCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _esddProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _esddRoleARN :: {-# NOUNPACK #-}!Text
+  , _esddBucketARN :: {-# NOUNPACK #-}!Text
+  , _esddBufferingHints :: {-# NOUNPACK #-}!BufferingHints
+  , _esddCompressionFormat :: {-# NOUNPACK #-}!CompressionFormat
+  , _esddEncryptionConfiguration :: {-# NOUNPACK #-}!EncryptionConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExtendedS3DestinationDescription' with the minimum fields required to make a request.
 --
@@ -1070,18 +1093,19 @@ extendedS3DestinationDescription
     -> EncryptionConfiguration -- ^ 'esddEncryptionConfiguration'
     -> ExtendedS3DestinationDescription
 extendedS3DestinationDescription pRoleARN_ pBucketARN_ pBufferingHints_ pCompressionFormat_ pEncryptionConfiguration_ =
-    ExtendedS3DestinationDescription'
-    { _esddS3BackupMode = Nothing
-    , _esddS3BackupDescription = Nothing
-    , _esddPrefix = Nothing
-    , _esddCloudWatchLoggingOptions = Nothing
-    , _esddProcessingConfiguration = Nothing
-    , _esddRoleARN = pRoleARN_
-    , _esddBucketARN = pBucketARN_
-    , _esddBufferingHints = pBufferingHints_
-    , _esddCompressionFormat = pCompressionFormat_
-    , _esddEncryptionConfiguration = pEncryptionConfiguration_
-    }
+  ExtendedS3DestinationDescription'
+  { _esddS3BackupMode = Nothing
+  , _esddS3BackupDescription = Nothing
+  , _esddPrefix = Nothing
+  , _esddCloudWatchLoggingOptions = Nothing
+  , _esddProcessingConfiguration = Nothing
+  , _esddRoleARN = pRoleARN_
+  , _esddBucketARN = pBucketARN_
+  , _esddBufferingHints = pBufferingHints_
+  , _esddCompressionFormat = pCompressionFormat_
+  , _esddEncryptionConfiguration = pEncryptionConfiguration_
+  }
+
 
 -- | The Amazon S3 backup mode.
 esddS3BackupMode :: Lens' ExtendedS3DestinationDescription (Maybe S3BackupMode)
@@ -1141,8 +1165,10 @@ instance FromJSON ExtendedS3DestinationDescription
                      <*> (x .: "EncryptionConfiguration"))
 
 instance Hashable ExtendedS3DestinationDescription
+         where
 
 instance NFData ExtendedS3DestinationDescription
+         where
 
 -- | Describes an update for a destination in Amazon S3.
 --
@@ -1150,17 +1176,18 @@ instance NFData ExtendedS3DestinationDescription
 --
 -- /See:/ 'extendedS3DestinationUpdate' smart constructor.
 data ExtendedS3DestinationUpdate = ExtendedS3DestinationUpdate'
-    { _esduS3BackupMode             :: !(Maybe S3BackupMode)
-    , _esduPrefix                   :: !(Maybe Text)
-    , _esduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _esduS3BackupUpdate           :: !(Maybe S3DestinationUpdate)
-    , _esduEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
-    , _esduCompressionFormat        :: !(Maybe CompressionFormat)
-    , _esduBufferingHints           :: !(Maybe BufferingHints)
-    , _esduBucketARN                :: !(Maybe Text)
-    , _esduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _esduRoleARN                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esduS3BackupMode :: {-# NOUNPACK #-}!(Maybe S3BackupMode)
+  , _esduPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esduCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _esduS3BackupUpdate :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
+  , _esduEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
+  , _esduCompressionFormat :: {-# NOUNPACK #-}!(Maybe CompressionFormat)
+  , _esduBufferingHints :: {-# NOUNPACK #-}!(Maybe BufferingHints)
+  , _esduBucketARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esduProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _esduRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExtendedS3DestinationUpdate' with the minimum fields required to make a request.
 --
@@ -1188,18 +1215,19 @@ data ExtendedS3DestinationUpdate = ExtendedS3DestinationUpdate'
 extendedS3DestinationUpdate
     :: ExtendedS3DestinationUpdate
 extendedS3DestinationUpdate =
-    ExtendedS3DestinationUpdate'
-    { _esduS3BackupMode = Nothing
-    , _esduPrefix = Nothing
-    , _esduCloudWatchLoggingOptions = Nothing
-    , _esduS3BackupUpdate = Nothing
-    , _esduEncryptionConfiguration = Nothing
-    , _esduCompressionFormat = Nothing
-    , _esduBufferingHints = Nothing
-    , _esduBucketARN = Nothing
-    , _esduProcessingConfiguration = Nothing
-    , _esduRoleARN = Nothing
-    }
+  ExtendedS3DestinationUpdate'
+  { _esduS3BackupMode = Nothing
+  , _esduPrefix = Nothing
+  , _esduCloudWatchLoggingOptions = Nothing
+  , _esduS3BackupUpdate = Nothing
+  , _esduEncryptionConfiguration = Nothing
+  , _esduCompressionFormat = Nothing
+  , _esduBufferingHints = Nothing
+  , _esduBucketARN = Nothing
+  , _esduProcessingConfiguration = Nothing
+  , _esduRoleARN = Nothing
+  }
+
 
 -- | Enables or disables Amazon S3 backup mode.
 esduS3BackupMode :: Lens' ExtendedS3DestinationUpdate (Maybe S3BackupMode)
@@ -1241,9 +1269,9 @@ esduProcessingConfiguration = lens _esduProcessingConfiguration (\ s a -> s{_esd
 esduRoleARN :: Lens' ExtendedS3DestinationUpdate (Maybe Text)
 esduRoleARN = lens _esduRoleARN (\ s a -> s{_esduRoleARN = a});
 
-instance Hashable ExtendedS3DestinationUpdate
+instance Hashable ExtendedS3DestinationUpdate where
 
-instance NFData ExtendedS3DestinationUpdate
+instance NFData ExtendedS3DestinationUpdate where
 
 instance ToJSON ExtendedS3DestinationUpdate where
         toJSON ExtendedS3DestinationUpdate'{..}
@@ -1269,8 +1297,9 @@ instance ToJSON ExtendedS3DestinationUpdate where
 --
 -- /See:/ 'kmsEncryptionConfig' smart constructor.
 newtype KMSEncryptionConfig = KMSEncryptionConfig'
-    { _kecAWSKMSKeyARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kecAWSKMSKeyARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KMSEncryptionConfig' with the minimum fields required to make a request.
 --
@@ -1281,9 +1310,8 @@ kmsEncryptionConfig
     :: Text -- ^ 'kecAWSKMSKeyARN'
     -> KMSEncryptionConfig
 kmsEncryptionConfig pAWSKMSKeyARN_ =
-    KMSEncryptionConfig'
-    { _kecAWSKMSKeyARN = pAWSKMSKeyARN_
-    }
+  KMSEncryptionConfig' {_kecAWSKMSKeyARN = pAWSKMSKeyARN_}
+
 
 -- | The ARN of the encryption key. Must belong to the same region as the destination Amazon S3 bucket.
 kecAWSKMSKeyARN :: Lens' KMSEncryptionConfig Text
@@ -1295,9 +1323,9 @@ instance FromJSON KMSEncryptionConfig where
               (\ x ->
                  KMSEncryptionConfig' <$> (x .: "AWSKMSKeyARN"))
 
-instance Hashable KMSEncryptionConfig
+instance Hashable KMSEncryptionConfig where
 
-instance NFData KMSEncryptionConfig
+instance NFData KMSEncryptionConfig where
 
 instance ToJSON KMSEncryptionConfig where
         toJSON KMSEncryptionConfig'{..}
@@ -1311,9 +1339,10 @@ instance ToJSON KMSEncryptionConfig where
 --
 -- /See:/ 'processingConfiguration' smart constructor.
 data ProcessingConfiguration = ProcessingConfiguration'
-    { _pcEnabled    :: !(Maybe Bool)
-    , _pcProcessors :: !(Maybe [Processor])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pcProcessors :: {-# NOUNPACK #-}!(Maybe [Processor])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProcessingConfiguration' with the minimum fields required to make a request.
 --
@@ -1325,10 +1354,8 @@ data ProcessingConfiguration = ProcessingConfiguration'
 processingConfiguration
     :: ProcessingConfiguration
 processingConfiguration =
-    ProcessingConfiguration'
-    { _pcEnabled = Nothing
-    , _pcProcessors = Nothing
-    }
+  ProcessingConfiguration' {_pcEnabled = Nothing, _pcProcessors = Nothing}
+
 
 -- | Enables or disables data processing.
 pcEnabled :: Lens' ProcessingConfiguration (Maybe Bool)
@@ -1346,9 +1373,9 @@ instance FromJSON ProcessingConfiguration where
                    (x .:? "Enabled") <*>
                      (x .:? "Processors" .!= mempty))
 
-instance Hashable ProcessingConfiguration
+instance Hashable ProcessingConfiguration where
 
-instance NFData ProcessingConfiguration
+instance NFData ProcessingConfiguration where
 
 instance ToJSON ProcessingConfiguration where
         toJSON ProcessingConfiguration'{..}
@@ -1363,9 +1390,10 @@ instance ToJSON ProcessingConfiguration where
 --
 -- /See:/ 'processor' smart constructor.
 data Processor = Processor'
-    { _pParameters :: !(Maybe [ProcessorParameter])
-    , _pType       :: !ProcessorType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pParameters :: {-# NOUNPACK #-}!(Maybe [ProcessorParameter])
+  , _pType       :: {-# NOUNPACK #-}!ProcessorType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Processor' with the minimum fields required to make a request.
 --
@@ -1377,11 +1405,8 @@ data Processor = Processor'
 processor
     :: ProcessorType -- ^ 'pType'
     -> Processor
-processor pType_ =
-    Processor'
-    { _pParameters = Nothing
-    , _pType = pType_
-    }
+processor pType_ = Processor' {_pParameters = Nothing, _pType = pType_}
+
 
 -- | The processor parameters.
 pParameters :: Lens' Processor [ProcessorParameter]
@@ -1398,9 +1423,9 @@ instance FromJSON Processor where
                  Processor' <$>
                    (x .:? "Parameters" .!= mempty) <*> (x .: "Type"))
 
-instance Hashable Processor
+instance Hashable Processor where
 
-instance NFData Processor
+instance NFData Processor where
 
 instance ToJSON Processor where
         toJSON Processor'{..}
@@ -1415,9 +1440,10 @@ instance ToJSON Processor where
 --
 -- /See:/ 'processorParameter' smart constructor.
 data ProcessorParameter = ProcessorParameter'
-    { _ppParameterName  :: !ProcessorParameterName
-    , _ppParameterValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppParameterName  :: {-# NOUNPACK #-}!ProcessorParameterName
+  , _ppParameterValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProcessorParameter' with the minimum fields required to make a request.
 --
@@ -1431,10 +1457,9 @@ processorParameter
     -> Text -- ^ 'ppParameterValue'
     -> ProcessorParameter
 processorParameter pParameterName_ pParameterValue_ =
-    ProcessorParameter'
-    { _ppParameterName = pParameterName_
-    , _ppParameterValue = pParameterValue_
-    }
+  ProcessorParameter'
+  {_ppParameterName = pParameterName_, _ppParameterValue = pParameterValue_}
+
 
 -- | The name of the parameter.
 ppParameterName :: Lens' ProcessorParameter ProcessorParameterName
@@ -1451,9 +1476,9 @@ instance FromJSON ProcessorParameter where
                  ProcessorParameter' <$>
                    (x .: "ParameterName") <*> (x .: "ParameterValue"))
 
-instance Hashable ProcessorParameter
+instance Hashable ProcessorParameter where
 
-instance NFData ProcessorParameter
+instance NFData ProcessorParameter where
 
 instance ToJSON ProcessorParameter where
         toJSON ProcessorParameter'{..}
@@ -1468,10 +1493,11 @@ instance ToJSON ProcessorParameter where
 --
 -- /See:/ 'putRecordBatchResponseEntry' smart constructor.
 data PutRecordBatchResponseEntry = PutRecordBatchResponseEntry'
-    { _prbreRecordId     :: !(Maybe Text)
-    , _prbreErrorCode    :: !(Maybe Text)
-    , _prbreErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prbreRecordId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prbreErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prbreErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecordBatchResponseEntry' with the minimum fields required to make a request.
 --
@@ -1485,11 +1511,12 @@ data PutRecordBatchResponseEntry = PutRecordBatchResponseEntry'
 putRecordBatchResponseEntry
     :: PutRecordBatchResponseEntry
 putRecordBatchResponseEntry =
-    PutRecordBatchResponseEntry'
-    { _prbreRecordId = Nothing
-    , _prbreErrorCode = Nothing
-    , _prbreErrorMessage = Nothing
-    }
+  PutRecordBatchResponseEntry'
+  { _prbreRecordId = Nothing
+  , _prbreErrorCode = Nothing
+  , _prbreErrorMessage = Nothing
+  }
+
 
 -- | The ID of the record.
 prbreRecordId :: Lens' PutRecordBatchResponseEntry (Maybe Text)
@@ -1511,9 +1538,9 @@ instance FromJSON PutRecordBatchResponseEntry where
                    (x .:? "RecordId") <*> (x .:? "ErrorCode") <*>
                      (x .:? "ErrorMessage"))
 
-instance Hashable PutRecordBatchResponseEntry
+instance Hashable PutRecordBatchResponseEntry where
 
-instance NFData PutRecordBatchResponseEntry
+instance NFData PutRecordBatchResponseEntry where
 
 -- | The unit of data in a delivery stream.
 --
@@ -1521,8 +1548,9 @@ instance NFData PutRecordBatchResponseEntry
 --
 -- /See:/ 'record' smart constructor.
 newtype Record = Record'
-    { _rData :: Base64
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rData :: Base64
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
@@ -1532,18 +1560,16 @@ newtype Record = Record'
 record
     :: ByteString -- ^ 'rData'
     -> Record
-record pData_ =
-    Record'
-    { _rData = _Base64 # pData_
-    }
+record pData_ = Record' {_rData = _Base64 # pData_}
+
 
 -- | The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KB.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rData :: Lens' Record ByteString
 rData = lens _rData (\ s a -> s{_rData = a}) . _Base64;
 
-instance Hashable Record
+instance Hashable Record where
 
-instance NFData Record
+instance NFData Record where
 
 instance ToJSON Record where
         toJSON Record'{..}
@@ -1555,18 +1581,19 @@ instance ToJSON Record where
 --
 -- /See:/ 'redshiftDestinationConfiguration' smart constructor.
 data RedshiftDestinationConfiguration = RedshiftDestinationConfiguration'
-    { _rdcS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
-    , _rdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _rdcS3BackupConfiguration    :: !(Maybe S3DestinationConfiguration)
-    , _rdcRetryOptions             :: !(Maybe RedshiftRetryOptions)
-    , _rdcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _rdcRoleARN                  :: !Text
-    , _rdcClusterJDBCURL           :: !Text
-    , _rdcCopyCommand              :: !CopyCommand
-    , _rdcUsername                 :: !(Sensitive Text)
-    , _rdcPassword                 :: !(Sensitive Text)
-    , _rdcS3Configuration          :: !S3DestinationConfiguration
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rdcS3BackupMode :: {-# NOUNPACK #-}!(Maybe RedshiftS3BackupMode)
+  , _rdcCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _rdcS3BackupConfiguration :: {-# NOUNPACK #-}!(Maybe S3DestinationConfiguration)
+  , _rdcRetryOptions :: {-# NOUNPACK #-}!(Maybe RedshiftRetryOptions)
+  , _rdcProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _rdcRoleARN :: {-# NOUNPACK #-}!Text
+  , _rdcClusterJDBCURL :: {-# NOUNPACK #-}!Text
+  , _rdcCopyCommand :: {-# NOUNPACK #-}!CopyCommand
+  , _rdcUsername :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _rdcPassword :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _rdcS3Configuration :: {-# NOUNPACK #-}!S3DestinationConfiguration
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDestinationConfiguration' with the minimum fields required to make a request.
 --
@@ -1602,19 +1629,20 @@ redshiftDestinationConfiguration
     -> S3DestinationConfiguration -- ^ 'rdcS3Configuration'
     -> RedshiftDestinationConfiguration
 redshiftDestinationConfiguration pRoleARN_ pClusterJDBCURL_ pCopyCommand_ pUsername_ pPassword_ pS3Configuration_ =
-    RedshiftDestinationConfiguration'
-    { _rdcS3BackupMode = Nothing
-    , _rdcCloudWatchLoggingOptions = Nothing
-    , _rdcS3BackupConfiguration = Nothing
-    , _rdcRetryOptions = Nothing
-    , _rdcProcessingConfiguration = Nothing
-    , _rdcRoleARN = pRoleARN_
-    , _rdcClusterJDBCURL = pClusterJDBCURL_
-    , _rdcCopyCommand = pCopyCommand_
-    , _rdcUsername = _Sensitive # pUsername_
-    , _rdcPassword = _Sensitive # pPassword_
-    , _rdcS3Configuration = pS3Configuration_
-    }
+  RedshiftDestinationConfiguration'
+  { _rdcS3BackupMode = Nothing
+  , _rdcCloudWatchLoggingOptions = Nothing
+  , _rdcS3BackupConfiguration = Nothing
+  , _rdcRetryOptions = Nothing
+  , _rdcProcessingConfiguration = Nothing
+  , _rdcRoleARN = pRoleARN_
+  , _rdcClusterJDBCURL = pClusterJDBCURL_
+  , _rdcCopyCommand = pCopyCommand_
+  , _rdcUsername = _Sensitive # pUsername_
+  , _rdcPassword = _Sensitive # pPassword_
+  , _rdcS3Configuration = pS3Configuration_
+  }
+
 
 -- | The Amazon S3 backup mode.
 rdcS3BackupMode :: Lens' RedshiftDestinationConfiguration (Maybe RedshiftS3BackupMode)
@@ -1661,8 +1689,10 @@ rdcS3Configuration :: Lens' RedshiftDestinationConfiguration S3DestinationConfig
 rdcS3Configuration = lens _rdcS3Configuration (\ s a -> s{_rdcS3Configuration = a});
 
 instance Hashable RedshiftDestinationConfiguration
+         where
 
 instance NFData RedshiftDestinationConfiguration
+         where
 
 instance ToJSON RedshiftDestinationConfiguration
          where
@@ -1690,17 +1720,18 @@ instance ToJSON RedshiftDestinationConfiguration
 --
 -- /See:/ 'redshiftDestinationDescription' smart constructor.
 data RedshiftDestinationDescription = RedshiftDestinationDescription'
-    { _rddS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
-    , _rddS3BackupDescription      :: !(Maybe S3DestinationDescription)
-    , _rddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _rddRetryOptions             :: !(Maybe RedshiftRetryOptions)
-    , _rddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _rddRoleARN                  :: !Text
-    , _rddClusterJDBCURL           :: !Text
-    , _rddCopyCommand              :: !CopyCommand
-    , _rddUsername                 :: !(Sensitive Text)
-    , _rddS3DestinationDescription :: !S3DestinationDescription
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rddS3BackupMode :: {-# NOUNPACK #-}!(Maybe RedshiftS3BackupMode)
+  , _rddS3BackupDescription :: {-# NOUNPACK #-}!(Maybe S3DestinationDescription)
+  , _rddCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _rddRetryOptions :: {-# NOUNPACK #-}!(Maybe RedshiftRetryOptions)
+  , _rddProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _rddRoleARN :: {-# NOUNPACK #-}!Text
+  , _rddClusterJDBCURL :: {-# NOUNPACK #-}!Text
+  , _rddCopyCommand :: {-# NOUNPACK #-}!CopyCommand
+  , _rddUsername :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _rddS3DestinationDescription :: {-# NOUNPACK #-}!S3DestinationDescription
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDestinationDescription' with the minimum fields required to make a request.
 --
@@ -1733,18 +1764,19 @@ redshiftDestinationDescription
     -> S3DestinationDescription -- ^ 'rddS3DestinationDescription'
     -> RedshiftDestinationDescription
 redshiftDestinationDescription pRoleARN_ pClusterJDBCURL_ pCopyCommand_ pUsername_ pS3DestinationDescription_ =
-    RedshiftDestinationDescription'
-    { _rddS3BackupMode = Nothing
-    , _rddS3BackupDescription = Nothing
-    , _rddCloudWatchLoggingOptions = Nothing
-    , _rddRetryOptions = Nothing
-    , _rddProcessingConfiguration = Nothing
-    , _rddRoleARN = pRoleARN_
-    , _rddClusterJDBCURL = pClusterJDBCURL_
-    , _rddCopyCommand = pCopyCommand_
-    , _rddUsername = _Sensitive # pUsername_
-    , _rddS3DestinationDescription = pS3DestinationDescription_
-    }
+  RedshiftDestinationDescription'
+  { _rddS3BackupMode = Nothing
+  , _rddS3BackupDescription = Nothing
+  , _rddCloudWatchLoggingOptions = Nothing
+  , _rddRetryOptions = Nothing
+  , _rddProcessingConfiguration = Nothing
+  , _rddRoleARN = pRoleARN_
+  , _rddClusterJDBCURL = pClusterJDBCURL_
+  , _rddCopyCommand = pCopyCommand_
+  , _rddUsername = _Sensitive # pUsername_
+  , _rddS3DestinationDescription = pS3DestinationDescription_
+  }
+
 
 -- | The Amazon S3 backup mode.
 rddS3BackupMode :: Lens' RedshiftDestinationDescription (Maybe RedshiftS3BackupMode)
@@ -1804,8 +1836,9 @@ instance FromJSON RedshiftDestinationDescription
                      <*> (x .: "S3DestinationDescription"))
 
 instance Hashable RedshiftDestinationDescription
+         where
 
-instance NFData RedshiftDestinationDescription
+instance NFData RedshiftDestinationDescription where
 
 -- | Describes an update for a destination in Amazon Redshift.
 --
@@ -1813,18 +1846,19 @@ instance NFData RedshiftDestinationDescription
 --
 -- /See:/ 'redshiftDestinationUpdate' smart constructor.
 data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
-    { _rduS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
-    , _rduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _rduUsername                 :: !(Maybe (Sensitive Text))
-    , _rduS3Update                 :: !(Maybe S3DestinationUpdate)
-    , _rduPassword                 :: !(Maybe (Sensitive Text))
-    , _rduS3BackupUpdate           :: !(Maybe S3DestinationUpdate)
-    , _rduCopyCommand              :: !(Maybe CopyCommand)
-    , _rduRetryOptions             :: !(Maybe RedshiftRetryOptions)
-    , _rduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
-    , _rduClusterJDBCURL           :: !(Maybe Text)
-    , _rduRoleARN                  :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rduS3BackupMode :: {-# NOUNPACK #-}!(Maybe RedshiftS3BackupMode)
+  , _rduCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _rduUsername :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _rduS3Update :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
+  , _rduPassword :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _rduS3BackupUpdate :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
+  , _rduCopyCommand :: {-# NOUNPACK #-}!(Maybe CopyCommand)
+  , _rduRetryOptions :: {-# NOUNPACK #-}!(Maybe RedshiftRetryOptions)
+  , _rduProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
+  , _rduClusterJDBCURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rduRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDestinationUpdate' with the minimum fields required to make a request.
 --
@@ -1854,19 +1888,20 @@ data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
 redshiftDestinationUpdate
     :: RedshiftDestinationUpdate
 redshiftDestinationUpdate =
-    RedshiftDestinationUpdate'
-    { _rduS3BackupMode = Nothing
-    , _rduCloudWatchLoggingOptions = Nothing
-    , _rduUsername = Nothing
-    , _rduS3Update = Nothing
-    , _rduPassword = Nothing
-    , _rduS3BackupUpdate = Nothing
-    , _rduCopyCommand = Nothing
-    , _rduRetryOptions = Nothing
-    , _rduProcessingConfiguration = Nothing
-    , _rduClusterJDBCURL = Nothing
-    , _rduRoleARN = Nothing
-    }
+  RedshiftDestinationUpdate'
+  { _rduS3BackupMode = Nothing
+  , _rduCloudWatchLoggingOptions = Nothing
+  , _rduUsername = Nothing
+  , _rduS3Update = Nothing
+  , _rduPassword = Nothing
+  , _rduS3BackupUpdate = Nothing
+  , _rduCopyCommand = Nothing
+  , _rduRetryOptions = Nothing
+  , _rduProcessingConfiguration = Nothing
+  , _rduClusterJDBCURL = Nothing
+  , _rduRoleARN = Nothing
+  }
+
 
 -- | The Amazon S3 backup mode.
 rduS3BackupMode :: Lens' RedshiftDestinationUpdate (Maybe RedshiftS3BackupMode)
@@ -1912,9 +1947,9 @@ rduClusterJDBCURL = lens _rduClusterJDBCURL (\ s a -> s{_rduClusterJDBCURL = a})
 rduRoleARN :: Lens' RedshiftDestinationUpdate (Maybe Text)
 rduRoleARN = lens _rduRoleARN (\ s a -> s{_rduRoleARN = a});
 
-instance Hashable RedshiftDestinationUpdate
+instance Hashable RedshiftDestinationUpdate where
 
-instance NFData RedshiftDestinationUpdate
+instance NFData RedshiftDestinationUpdate where
 
 instance ToJSON RedshiftDestinationUpdate where
         toJSON RedshiftDestinationUpdate'{..}
@@ -1940,8 +1975,9 @@ instance ToJSON RedshiftDestinationUpdate where
 --
 -- /See:/ 'redshiftRetryOptions' smart constructor.
 newtype RedshiftRetryOptions = RedshiftRetryOptions'
-    { _rroDurationInSeconds :: Maybe Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rroDurationInSeconds :: Maybe Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftRetryOptions' with the minimum fields required to make a request.
 --
@@ -1950,10 +1986,8 @@ newtype RedshiftRetryOptions = RedshiftRetryOptions'
 -- * 'rroDurationInSeconds' - The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of @DurationInSeconds@ is 0 (zero) or if the first delivery attempt takes longer than the current value.
 redshiftRetryOptions
     :: RedshiftRetryOptions
-redshiftRetryOptions =
-    RedshiftRetryOptions'
-    { _rroDurationInSeconds = Nothing
-    }
+redshiftRetryOptions = RedshiftRetryOptions' {_rroDurationInSeconds = Nothing}
+
 
 -- | The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of @DurationInSeconds@ is 0 (zero) or if the first delivery attempt takes longer than the current value.
 rroDurationInSeconds :: Lens' RedshiftRetryOptions (Maybe Natural)
@@ -1966,9 +2000,9 @@ instance FromJSON RedshiftRetryOptions where
                  RedshiftRetryOptions' <$>
                    (x .:? "DurationInSeconds"))
 
-instance Hashable RedshiftRetryOptions
+instance Hashable RedshiftRetryOptions where
 
-instance NFData RedshiftRetryOptions
+instance NFData RedshiftRetryOptions where
 
 instance ToJSON RedshiftRetryOptions where
         toJSON RedshiftRetryOptions'{..}
@@ -1982,14 +2016,15 @@ instance ToJSON RedshiftRetryOptions where
 --
 -- /See:/ 's3DestinationConfiguration' smart constructor.
 data S3DestinationConfiguration = S3DestinationConfiguration'
-    { _sdcPrefix                   :: !(Maybe Text)
-    , _sdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _sdcEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
-    , _sdcCompressionFormat        :: !(Maybe CompressionFormat)
-    , _sdcBufferingHints           :: !(Maybe BufferingHints)
-    , _sdcRoleARN                  :: !Text
-    , _sdcBucketARN                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdcPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdcCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _sdcEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
+  , _sdcCompressionFormat :: {-# NOUNPACK #-}!(Maybe CompressionFormat)
+  , _sdcBufferingHints :: {-# NOUNPACK #-}!(Maybe BufferingHints)
+  , _sdcRoleARN :: {-# NOUNPACK #-}!Text
+  , _sdcBucketARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3DestinationConfiguration' with the minimum fields required to make a request.
 --
@@ -2013,15 +2048,16 @@ s3DestinationConfiguration
     -> Text -- ^ 'sdcBucketARN'
     -> S3DestinationConfiguration
 s3DestinationConfiguration pRoleARN_ pBucketARN_ =
-    S3DestinationConfiguration'
-    { _sdcPrefix = Nothing
-    , _sdcCloudWatchLoggingOptions = Nothing
-    , _sdcEncryptionConfiguration = Nothing
-    , _sdcCompressionFormat = Nothing
-    , _sdcBufferingHints = Nothing
-    , _sdcRoleARN = pRoleARN_
-    , _sdcBucketARN = pBucketARN_
-    }
+  S3DestinationConfiguration'
+  { _sdcPrefix = Nothing
+  , _sdcCloudWatchLoggingOptions = Nothing
+  , _sdcEncryptionConfiguration = Nothing
+  , _sdcCompressionFormat = Nothing
+  , _sdcBufferingHints = Nothing
+  , _sdcRoleARN = pRoleARN_
+  , _sdcBucketARN = pBucketARN_
+  }
+
 
 -- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 sdcPrefix :: Lens' S3DestinationConfiguration (Maybe Text)
@@ -2051,9 +2087,9 @@ sdcRoleARN = lens _sdcRoleARN (\ s a -> s{_sdcRoleARN = a});
 sdcBucketARN :: Lens' S3DestinationConfiguration Text
 sdcBucketARN = lens _sdcBucketARN (\ s a -> s{_sdcBucketARN = a});
 
-instance Hashable S3DestinationConfiguration
+instance Hashable S3DestinationConfiguration where
 
-instance NFData S3DestinationConfiguration
+instance NFData S3DestinationConfiguration where
 
 instance ToJSON S3DestinationConfiguration where
         toJSON S3DestinationConfiguration'{..}
@@ -2075,14 +2111,15 @@ instance ToJSON S3DestinationConfiguration where
 --
 -- /See:/ 's3DestinationDescription' smart constructor.
 data S3DestinationDescription = S3DestinationDescription'
-    { _sddPrefix                   :: !(Maybe Text)
-    , _sddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _sddRoleARN                  :: !Text
-    , _sddBucketARN                :: !Text
-    , _sddBufferingHints           :: !BufferingHints
-    , _sddCompressionFormat        :: !CompressionFormat
-    , _sddEncryptionConfiguration  :: !EncryptionConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sddPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sddCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _sddRoleARN :: {-# NOUNPACK #-}!Text
+  , _sddBucketARN :: {-# NOUNPACK #-}!Text
+  , _sddBufferingHints :: {-# NOUNPACK #-}!BufferingHints
+  , _sddCompressionFormat :: {-# NOUNPACK #-}!CompressionFormat
+  , _sddEncryptionConfiguration :: {-# NOUNPACK #-}!EncryptionConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3DestinationDescription' with the minimum fields required to make a request.
 --
@@ -2109,15 +2146,16 @@ s3DestinationDescription
     -> EncryptionConfiguration -- ^ 'sddEncryptionConfiguration'
     -> S3DestinationDescription
 s3DestinationDescription pRoleARN_ pBucketARN_ pBufferingHints_ pCompressionFormat_ pEncryptionConfiguration_ =
-    S3DestinationDescription'
-    { _sddPrefix = Nothing
-    , _sddCloudWatchLoggingOptions = Nothing
-    , _sddRoleARN = pRoleARN_
-    , _sddBucketARN = pBucketARN_
-    , _sddBufferingHints = pBufferingHints_
-    , _sddCompressionFormat = pCompressionFormat_
-    , _sddEncryptionConfiguration = pEncryptionConfiguration_
-    }
+  S3DestinationDescription'
+  { _sddPrefix = Nothing
+  , _sddCloudWatchLoggingOptions = Nothing
+  , _sddRoleARN = pRoleARN_
+  , _sddBucketARN = pBucketARN_
+  , _sddBufferingHints = pBufferingHints_
+  , _sddCompressionFormat = pCompressionFormat_
+  , _sddEncryptionConfiguration = pEncryptionConfiguration_
+  }
+
 
 -- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 sddPrefix :: Lens' S3DestinationDescription (Maybe Text)
@@ -2160,9 +2198,9 @@ instance FromJSON S3DestinationDescription where
                      <*> (x .: "CompressionFormat")
                      <*> (x .: "EncryptionConfiguration"))
 
-instance Hashable S3DestinationDescription
+instance Hashable S3DestinationDescription where
 
-instance NFData S3DestinationDescription
+instance NFData S3DestinationDescription where
 
 -- | Describes an update for a destination in Amazon S3.
 --
@@ -2170,14 +2208,15 @@ instance NFData S3DestinationDescription
 --
 -- /See:/ 's3DestinationUpdate' smart constructor.
 data S3DestinationUpdate = S3DestinationUpdate'
-    { _sduPrefix                   :: !(Maybe Text)
-    , _sduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
-    , _sduEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
-    , _sduCompressionFormat        :: !(Maybe CompressionFormat)
-    , _sduBufferingHints           :: !(Maybe BufferingHints)
-    , _sduBucketARN                :: !(Maybe Text)
-    , _sduRoleARN                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sduPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sduCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
+  , _sduEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
+  , _sduCompressionFormat :: {-# NOUNPACK #-}!(Maybe CompressionFormat)
+  , _sduBufferingHints :: {-# NOUNPACK #-}!(Maybe BufferingHints)
+  , _sduBucketARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sduRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3DestinationUpdate' with the minimum fields required to make a request.
 --
@@ -2199,15 +2238,16 @@ data S3DestinationUpdate = S3DestinationUpdate'
 s3DestinationUpdate
     :: S3DestinationUpdate
 s3DestinationUpdate =
-    S3DestinationUpdate'
-    { _sduPrefix = Nothing
-    , _sduCloudWatchLoggingOptions = Nothing
-    , _sduEncryptionConfiguration = Nothing
-    , _sduCompressionFormat = Nothing
-    , _sduBufferingHints = Nothing
-    , _sduBucketARN = Nothing
-    , _sduRoleARN = Nothing
-    }
+  S3DestinationUpdate'
+  { _sduPrefix = Nothing
+  , _sduCloudWatchLoggingOptions = Nothing
+  , _sduEncryptionConfiguration = Nothing
+  , _sduCompressionFormat = Nothing
+  , _sduBufferingHints = Nothing
+  , _sduBucketARN = Nothing
+  , _sduRoleARN = Nothing
+  }
+
 
 -- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html Amazon S3 Object Name Format> in the /Amazon Kinesis Firehose Developer Guide/ .
 sduPrefix :: Lens' S3DestinationUpdate (Maybe Text)
@@ -2237,9 +2277,9 @@ sduBucketARN = lens _sduBucketARN (\ s a -> s{_sduBucketARN = a});
 sduRoleARN :: Lens' S3DestinationUpdate (Maybe Text)
 sduRoleARN = lens _sduRoleARN (\ s a -> s{_sduRoleARN = a});
 
-instance Hashable S3DestinationUpdate
+instance Hashable S3DestinationUpdate where
 
-instance NFData S3DestinationUpdate
+instance NFData S3DestinationUpdate where
 
 instance ToJSON S3DestinationUpdate where
         toJSON S3DestinationUpdate'{..}

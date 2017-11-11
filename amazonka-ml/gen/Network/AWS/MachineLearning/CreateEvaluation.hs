@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateEvaluation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.MachineLearning.CreateEvaluation
     , cersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createEvaluation' smart constructor.
 data CreateEvaluation = CreateEvaluation'
-    { _ceEvaluationName         :: !(Maybe Text)
-    , _ceEvaluationId           :: !Text
-    , _ceMLModelId              :: !Text
-    , _ceEvaluationDataSourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ceEvaluationName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceEvaluationId           :: {-# NOUNPACK #-}!Text
+  , _ceMLModelId              :: {-# NOUNPACK #-}!Text
+  , _ceEvaluationDataSourceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateEvaluation' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ createEvaluation
     -> Text -- ^ 'ceEvaluationDataSourceId'
     -> CreateEvaluation
 createEvaluation pEvaluationId_ pMLModelId_ pEvaluationDataSourceId_ =
-    CreateEvaluation'
-    { _ceEvaluationName = Nothing
-    , _ceEvaluationId = pEvaluationId_
-    , _ceMLModelId = pMLModelId_
-    , _ceEvaluationDataSourceId = pEvaluationDataSourceId_
-    }
+  CreateEvaluation'
+  { _ceEvaluationName = Nothing
+  , _ceEvaluationId = pEvaluationId_
+  , _ceMLModelId = pMLModelId_
+  , _ceEvaluationDataSourceId = pEvaluationDataSourceId_
+  }
+
 
 -- | A user-supplied name or description of the @Evaluation@ .
 ceEvaluationName :: Lens' CreateEvaluation (Maybe Text)
@@ -108,9 +110,9 @@ instance AWSRequest CreateEvaluation where
                  CreateEvaluationResponse' <$>
                    (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateEvaluation
+instance Hashable CreateEvaluation where
 
-instance NFData CreateEvaluation
+instance NFData CreateEvaluation where
 
 instance ToHeaders CreateEvaluation where
         toHeaders
@@ -146,9 +148,10 @@ instance ToQuery CreateEvaluation where
 --
 -- /See:/ 'createEvaluationResponse' smart constructor.
 data CreateEvaluationResponse = CreateEvaluationResponse'
-    { _cersEvaluationId   :: !(Maybe Text)
-    , _cersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cersEvaluationId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateEvaluationResponse' with the minimum fields required to make a request.
 --
@@ -161,10 +164,9 @@ createEvaluationResponse
     :: Int -- ^ 'cersResponseStatus'
     -> CreateEvaluationResponse
 createEvaluationResponse pResponseStatus_ =
-    CreateEvaluationResponse'
-    { _cersEvaluationId = Nothing
-    , _cersResponseStatus = pResponseStatus_
-    }
+  CreateEvaluationResponse'
+  {_cersEvaluationId = Nothing, _cersResponseStatus = pResponseStatus_}
+
 
 -- | The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 cersEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
@@ -174,4 +176,4 @@ cersEvaluationId = lens _cersEvaluationId (\ s a -> s{_cersEvaluationId = a});
 cersResponseStatus :: Lens' CreateEvaluationResponse Int
 cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a});
 
-instance NFData CreateEvaluationResponse
+instance NFData CreateEvaluationResponse where

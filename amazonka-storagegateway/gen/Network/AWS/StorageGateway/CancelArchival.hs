@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CancelArchival
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.StorageGateway.CancelArchival
     , carsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | CancelArchivalInput
 --
@@ -51,9 +51,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'cancelArchival' smart constructor.
 data CancelArchival = CancelArchival'
-    { _caGatewayARN :: !Text
-    , _caTapeARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caGatewayARN :: {-# NOUNPACK #-}!Text
+  , _caTapeARN    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelArchival' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ cancelArchival
     -> Text -- ^ 'caTapeARN'
     -> CancelArchival
 cancelArchival pGatewayARN_ pTapeARN_ =
-    CancelArchival'
-    { _caGatewayARN = pGatewayARN_
-    , _caTapeARN = pTapeARN_
-    }
+  CancelArchival' {_caGatewayARN = pGatewayARN_, _caTapeARN = pTapeARN_}
+
 
 -- | Undocumented member.
 caGatewayARN :: Lens' CancelArchival Text
@@ -89,9 +88,9 @@ instance AWSRequest CancelArchival where
                  CancelArchivalResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
-instance Hashable CancelArchival
+instance Hashable CancelArchival where
 
-instance NFData CancelArchival
+instance NFData CancelArchival where
 
 instance ToHeaders CancelArchival where
         toHeaders
@@ -122,9 +121,10 @@ instance ToQuery CancelArchival where
 --
 -- /See:/ 'cancelArchivalResponse' smart constructor.
 data CancelArchivalResponse = CancelArchivalResponse'
-    { _carsTapeARN        :: !(Maybe Text)
-    , _carsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carsTapeARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelArchivalResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +137,9 @@ cancelArchivalResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CancelArchivalResponse
 cancelArchivalResponse pResponseStatus_ =
-    CancelArchivalResponse'
-    { _carsTapeARN = Nothing
-    , _carsResponseStatus = pResponseStatus_
-    }
+  CancelArchivalResponse'
+  {_carsTapeARN = Nothing, _carsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled.
 carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
@@ -150,4 +149,4 @@ carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
 carsResponseStatus :: Lens' CancelArchivalResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 
-instance NFData CancelArchivalResponse
+instance NFData CancelArchivalResponse where

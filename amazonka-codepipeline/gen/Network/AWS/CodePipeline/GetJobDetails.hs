@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.GetJobDetails
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CodePipeline.GetJobDetails
     , gjdrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get job details action.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getJobDetails' smart constructor.
 newtype GetJobDetails = GetJobDetails'
-    { _gjdJobId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjdJobId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobDetails' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ newtype GetJobDetails = GetJobDetails'
 getJobDetails
     :: Text -- ^ 'gjdJobId'
     -> GetJobDetails
-getJobDetails pJobId_ =
-    GetJobDetails'
-    { _gjdJobId = pJobId_
-    }
+getJobDetails pJobId_ = GetJobDetails' {_gjdJobId = pJobId_}
+
 
 -- | The unique system-generated ID for the job.
 gjdJobId :: Lens' GetJobDetails Text
@@ -81,9 +80,9 @@ instance AWSRequest GetJobDetails where
                  GetJobDetailsResponse' <$>
                    (x .?> "jobDetails") <*> (pure (fromEnum s)))
 
-instance Hashable GetJobDetails
+instance Hashable GetJobDetails where
 
-instance NFData GetJobDetails
+instance NFData GetJobDetails where
 
 instance ToHeaders GetJobDetails where
         toHeaders
@@ -111,9 +110,10 @@ instance ToQuery GetJobDetails where
 --
 -- /See:/ 'getJobDetailsResponse' smart constructor.
 data GetJobDetailsResponse = GetJobDetailsResponse'
-    { _gjdrsJobDetails     :: !(Maybe JobDetails)
-    , _gjdrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gjdrsJobDetails     :: {-# NOUNPACK #-}!(Maybe JobDetails)
+  , _gjdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobDetailsResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +126,9 @@ getJobDetailsResponse
     :: Int -- ^ 'gjdrsResponseStatus'
     -> GetJobDetailsResponse
 getJobDetailsResponse pResponseStatus_ =
-    GetJobDetailsResponse'
-    { _gjdrsJobDetails = Nothing
-    , _gjdrsResponseStatus = pResponseStatus_
-    }
+  GetJobDetailsResponse'
+  {_gjdrsJobDetails = Nothing, _gjdrsResponseStatus = pResponseStatus_}
+
 
 -- | The details of the job.
 gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
@@ -139,4 +138,4 @@ gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 gjdrsResponseStatus :: Lens' GetJobDetailsResponse Int
 gjdrsResponseStatus = lens _gjdrsResponseStatus (\ s a -> s{_gjdrsResponseStatus = a});
 
-instance NFData GetJobDetailsResponse
+instance NFData GetJobDetailsResponse where

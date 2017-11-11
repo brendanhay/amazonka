@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListRules
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.WAFRegional.ListRules
     , lrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listRules' smart constructor.
 data ListRules = ListRules'
-    { _lrNextMarker :: !(Maybe Text)
-    , _lrLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRules' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data ListRules = ListRules'
 -- * 'lrLimit' - Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 listRules
     :: ListRules
-listRules =
-    ListRules'
-    { _lrNextMarker = Nothing
-    , _lrLimit = Nothing
-    }
+listRules = ListRules' {_lrNextMarker = Nothing, _lrLimit = Nothing}
+
 
 -- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
 lrNextMarker :: Lens' ListRules (Maybe Text)
@@ -85,9 +83,9 @@ instance AWSRequest ListRules where
                    (x .?> "Rules" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListRules
+instance Hashable ListRules where
 
-instance NFData ListRules
+instance NFData ListRules where
 
 instance ToHeaders ListRules where
         toHeaders
@@ -113,10 +111,11 @@ instance ToQuery ListRules where
 
 -- | /See:/ 'listRulesResponse' smart constructor.
 data ListRulesResponse = ListRulesResponse'
-    { _lrrsRules          :: !(Maybe [RuleSummary])
-    , _lrrsNextMarker     :: !(Maybe Text)
-    , _lrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsRules          :: {-# NOUNPACK #-}!(Maybe [RuleSummary])
+  , _lrrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRulesResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +130,12 @@ listRulesResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListRulesResponse
 listRulesResponse pResponseStatus_ =
-    ListRulesResponse'
-    { _lrrsRules = Nothing
-    , _lrrsNextMarker = Nothing
-    , _lrrsResponseStatus = pResponseStatus_
-    }
+  ListRulesResponse'
+  { _lrrsRules = Nothing
+  , _lrrsNextMarker = Nothing
+  , _lrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of 'RuleSummary' objects.
 lrrsRules :: Lens' ListRulesResponse [RuleSummary]
@@ -149,4 +149,4 @@ lrrsNextMarker = lens _lrrsNextMarker (\ s a -> s{_lrrsNextMarker = a});
 lrrsResponseStatus :: Lens' ListRulesResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 
-instance NFData ListRulesResponse
+instance NFData ListRulesResponse where

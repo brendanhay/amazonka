@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetTopicRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.IoT.GetTopicRule
     , gtrrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the GetTopicRule operation.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getTopicRule' smart constructor.
 newtype GetTopicRule = GetTopicRule'
-    { _gtrRuleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtrRuleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTopicRule' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype GetTopicRule = GetTopicRule'
 getTopicRule
     :: Text -- ^ 'gtrRuleName'
     -> GetTopicRule
-getTopicRule pRuleName_ =
-    GetTopicRule'
-    { _gtrRuleName = pRuleName_
-    }
+getTopicRule pRuleName_ = GetTopicRule' {_gtrRuleName = pRuleName_}
+
 
 -- | The name of the rule.
 gtrRuleName :: Lens' GetTopicRule Text
@@ -81,9 +80,9 @@ instance AWSRequest GetTopicRule where
                    (x .?> "rule") <*> (x .?> "ruleArn") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetTopicRule
+instance Hashable GetTopicRule where
 
-instance NFData GetTopicRule
+instance NFData GetTopicRule where
 
 instance ToHeaders GetTopicRule where
         toHeaders = const mempty
@@ -101,10 +100,11 @@ instance ToQuery GetTopicRule where
 --
 -- /See:/ 'getTopicRuleResponse' smart constructor.
 data GetTopicRuleResponse = GetTopicRuleResponse'
-    { _gtrrsRule           :: !(Maybe TopicRule)
-    , _gtrrsRuleARN        :: !(Maybe Text)
-    , _gtrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtrrsRule           :: {-# NOUNPACK #-}!(Maybe TopicRule)
+  , _gtrrsRuleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTopicRuleResponse' with the minimum fields required to make a request.
 --
@@ -119,11 +119,12 @@ getTopicRuleResponse
     :: Int -- ^ 'gtrrsResponseStatus'
     -> GetTopicRuleResponse
 getTopicRuleResponse pResponseStatus_ =
-    GetTopicRuleResponse'
-    { _gtrrsRule = Nothing
-    , _gtrrsRuleARN = Nothing
-    , _gtrrsResponseStatus = pResponseStatus_
-    }
+  GetTopicRuleResponse'
+  { _gtrrsRule = Nothing
+  , _gtrrsRuleARN = Nothing
+  , _gtrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The rule.
 gtrrsRule :: Lens' GetTopicRuleResponse (Maybe TopicRule)
@@ -137,4 +138,4 @@ gtrrsRuleARN = lens _gtrrsRuleARN (\ s a -> s{_gtrrsRuleARN = a});
 gtrrsResponseStatus :: Lens' GetTopicRuleResponse Int
 gtrrsResponseStatus = lens _gtrrsResponseStatus (\ s a -> s{_gtrrsResponseStatus = a});
 
-instance NFData GetTopicRuleResponse
+instance NFData GetTopicRuleResponse where

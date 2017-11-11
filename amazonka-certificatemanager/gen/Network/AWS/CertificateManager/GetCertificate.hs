@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.GetCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.CertificateManager.GetCertificate
     , gcrsResponseStatus
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCertificate' smart constructor.
 newtype GetCertificate = GetCertificate'
-    { _gcCertificateARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcCertificateARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCertificate' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ getCertificate
     :: Text -- ^ 'gcCertificateARN'
     -> GetCertificate
 getCertificate pCertificateARN_ =
-    GetCertificate'
-    { _gcCertificateARN = pCertificateARN_
-    }
+  GetCertificate' {_gcCertificateARN = pCertificateARN_}
+
 
 -- | String that contains a certificate ARN in the following format: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 gcCertificateARN :: Lens' GetCertificate Text
@@ -77,9 +77,9 @@ instance AWSRequest GetCertificate where
                    (x .?> "Certificate") <*> (x .?> "CertificateChain")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetCertificate
+instance Hashable GetCertificate where
 
-instance NFData GetCertificate
+instance NFData GetCertificate where
 
 instance ToHeaders GetCertificate where
         toHeaders
@@ -104,10 +104,11 @@ instance ToQuery GetCertificate where
 
 -- | /See:/ 'getCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
-    { _gcrsCertificate      :: !(Maybe Text)
-    , _gcrsCertificateChain :: !(Maybe Text)
-    , _gcrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrsCertificate      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcrsCertificateChain :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCertificateResponse' with the minimum fields required to make a request.
 --
@@ -122,11 +123,12 @@ getCertificateResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> GetCertificateResponse
 getCertificateResponse pResponseStatus_ =
-    GetCertificateResponse'
-    { _gcrsCertificate = Nothing
-    , _gcrsCertificateChain = Nothing
-    , _gcrsResponseStatus = pResponseStatus_
-    }
+  GetCertificateResponse'
+  { _gcrsCertificate = Nothing
+  , _gcrsCertificateChain = Nothing
+  , _gcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | String that contains the ACM Certificate represented by the ARN specified at input.
 gcrsCertificate :: Lens' GetCertificateResponse (Maybe Text)
@@ -140,4 +142,4 @@ gcrsCertificateChain = lens _gcrsCertificateChain (\ s a -> s{_gcrsCertificateCh
 gcrsResponseStatus :: Lens' GetCertificateResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 
-instance NFData GetCertificateResponse
+instance NFData GetCertificateResponse where

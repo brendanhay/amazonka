@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisassociateIAMInstanceProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.EC2.DisassociateIAMInstanceProfile
     , diaprsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateIAMInstanceProfile' smart constructor.
 newtype DisassociateIAMInstanceProfile = DisassociateIAMInstanceProfile'
-    { _diapAssociationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diapAssociationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateIAMInstanceProfile' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ disassociateIAMInstanceProfile
     :: Text -- ^ 'diapAssociationId'
     -> DisassociateIAMInstanceProfile
 disassociateIAMInstanceProfile pAssociationId_ =
-    DisassociateIAMInstanceProfile'
-    { _diapAssociationId = pAssociationId_
-    }
+  DisassociateIAMInstanceProfile' {_diapAssociationId = pAssociationId_}
+
 
 -- | The ID of the IAM instance profile association.
 diapAssociationId :: Lens' DisassociateIAMInstanceProfile Text
@@ -81,8 +81,9 @@ instance AWSRequest DisassociateIAMInstanceProfile
                      (pure (fromEnum s)))
 
 instance Hashable DisassociateIAMInstanceProfile
+         where
 
-instance NFData DisassociateIAMInstanceProfile
+instance NFData DisassociateIAMInstanceProfile where
 
 instance ToHeaders DisassociateIAMInstanceProfile
          where
@@ -101,9 +102,10 @@ instance ToQuery DisassociateIAMInstanceProfile where
 
 -- | /See:/ 'disassociateIAMInstanceProfileResponse' smart constructor.
 data DisassociateIAMInstanceProfileResponse = DisassociateIAMInstanceProfileResponse'
-    { _diaprsIAMInstanceProfileAssociation :: !(Maybe IAMInstanceProfileAssociation)
-    , _diaprsResponseStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diaprsIAMInstanceProfileAssociation :: {-# NOUNPACK #-}!(Maybe IAMInstanceProfileAssociation)
+  , _diaprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateIAMInstanceProfileResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +118,11 @@ disassociateIAMInstanceProfileResponse
     :: Int -- ^ 'diaprsResponseStatus'
     -> DisassociateIAMInstanceProfileResponse
 disassociateIAMInstanceProfileResponse pResponseStatus_ =
-    DisassociateIAMInstanceProfileResponse'
-    { _diaprsIAMInstanceProfileAssociation = Nothing
-    , _diaprsResponseStatus = pResponseStatus_
-    }
+  DisassociateIAMInstanceProfileResponse'
+  { _diaprsIAMInstanceProfileAssociation = Nothing
+  , _diaprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the IAM instance profile association.
 diaprsIAMInstanceProfileAssociation :: Lens' DisassociateIAMInstanceProfileResponse (Maybe IAMInstanceProfileAssociation)
@@ -130,4 +133,5 @@ diaprsResponseStatus :: Lens' DisassociateIAMInstanceProfileResponse Int
 diaprsResponseStatus = lens _diaprsResponseStatus (\ s a -> s{_diaprsResponseStatus = a});
 
 instance NFData
-         DisassociateIAMInstanceProfileResponse
+           DisassociateIAMInstanceProfileResponse
+         where

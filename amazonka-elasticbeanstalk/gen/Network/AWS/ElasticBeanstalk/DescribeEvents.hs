@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,13 +51,13 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     , dersResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to retrieve a list of events for an environment.
 --
@@ -65,19 +65,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-    { _deRequestId       :: !(Maybe Text)
-    , _deTemplateName    :: !(Maybe Text)
-    , _deStartTime       :: !(Maybe ISO8601)
-    , _deSeverity        :: !(Maybe EventSeverity)
-    , _deNextToken       :: !(Maybe Text)
-    , _deVersionLabel    :: !(Maybe Text)
-    , _dePlatformARN     :: !(Maybe Text)
-    , _deEnvironmentName :: !(Maybe Text)
-    , _deMaxRecords      :: !(Maybe Nat)
-    , _deEndTime         :: !(Maybe ISO8601)
-    , _deApplicationName :: !(Maybe Text)
-    , _deEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deRequestId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deTemplateName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deStartTime       :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _deSeverity        :: {-# NOUNPACK #-}!(Maybe EventSeverity)
+  , _deNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deVersionLabel    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dePlatformARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deMaxRecords      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _deEndTime         :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _deApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
@@ -109,20 +110,21 @@ data DescribeEvents = DescribeEvents'
 describeEvents
     :: DescribeEvents
 describeEvents =
-    DescribeEvents'
-    { _deRequestId = Nothing
-    , _deTemplateName = Nothing
-    , _deStartTime = Nothing
-    , _deSeverity = Nothing
-    , _deNextToken = Nothing
-    , _deVersionLabel = Nothing
-    , _dePlatformARN = Nothing
-    , _deEnvironmentName = Nothing
-    , _deMaxRecords = Nothing
-    , _deEndTime = Nothing
-    , _deApplicationName = Nothing
-    , _deEnvironmentId = Nothing
-    }
+  DescribeEvents'
+  { _deRequestId = Nothing
+  , _deTemplateName = Nothing
+  , _deStartTime = Nothing
+  , _deSeverity = Nothing
+  , _deNextToken = Nothing
+  , _deVersionLabel = Nothing
+  , _dePlatformARN = Nothing
+  , _deEnvironmentName = Nothing
+  , _deMaxRecords = Nothing
+  , _deEndTime = Nothing
+  , _deApplicationName = Nothing
+  , _deEnvironmentId = Nothing
+  }
+
 
 -- | If specified, AWS Elastic Beanstalk restricts the described events to include only those associated with this request ID.
 deRequestId :: Lens' DescribeEvents (Maybe Text)
@@ -191,9 +193,9 @@ instance AWSRequest DescribeEvents where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEvents
+instance Hashable DescribeEvents where
 
-instance NFData DescribeEvents
+instance NFData DescribeEvents where
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
@@ -225,10 +227,11 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersNextToken      :: !(Maybe Text)
-    , _dersEvents         :: !(Maybe [EventDescription])
-    , _dersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dersEvents         :: {-# NOUNPACK #-}!(Maybe [EventDescription])
+  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
@@ -243,11 +246,12 @@ describeEventsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
-    DescribeEventsResponse'
-    { _dersNextToken = Nothing
-    , _dersEvents = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DescribeEventsResponse'
+  { _dersNextToken = Nothing
+  , _dersEvents = Nothing
+  , _dersResponseStatus = pResponseStatus_
+  }
+
 
 -- | If returned, this indicates that there are more results to obtain. Use this token in the next 'DescribeEvents' call to get the next batch of events.
 dersNextToken :: Lens' DescribeEventsResponse (Maybe Text)
@@ -261,4 +265,4 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 dersResponseStatus :: Lens' DescribeEventsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DescribeEventsResponse
+instance NFData DescribeEventsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.DescribeBackups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.CloudHSMv2.DescribeBackups
     , dbrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSMv2.Types
-import           Network.AWS.CloudHSMv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSMv2.Types
+import Network.AWS.CloudHSMv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeBackups' smart constructor.
 data DescribeBackups = DescribeBackups'
-    { _dbFilters    :: !(Maybe (Map Text [Text]))
-    , _dbNextToken  :: !(Maybe Text)
-    , _dbMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbFilters    :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _dbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBackups' with the minimum fields required to make a request.
 --
@@ -68,11 +69,9 @@ data DescribeBackups = DescribeBackups'
 describeBackups
     :: DescribeBackups
 describeBackups =
-    DescribeBackups'
-    { _dbFilters = Nothing
-    , _dbNextToken = Nothing
-    , _dbMaxResults = Nothing
-    }
+  DescribeBackups'
+  {_dbFilters = Nothing, _dbNextToken = Nothing, _dbMaxResults = Nothing}
+
 
 -- | One or more filters to limit the items returned in the response. Use the @backupIds@ filter to return only the specified backups. Specify backups by their backup identifier (ID). Use the @clusterIds@ filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID). Use the @states@ filter to return only backups that match the specified state.
 dbFilters :: Lens' DescribeBackups (HashMap Text [Text])
@@ -96,9 +95,9 @@ instance AWSRequest DescribeBackups where
                    (x .?> "Backups" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeBackups
+instance Hashable DescribeBackups where
 
-instance NFData DescribeBackups
+instance NFData DescribeBackups where
 
 instance ToHeaders DescribeBackups where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery DescribeBackups where
 
 -- | /See:/ 'describeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
-    { _dbrsBackups        :: !(Maybe [Backup])
-    , _dbrsNextToken      :: !(Maybe Text)
-    , _dbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbrsBackups        :: {-# NOUNPACK #-}!(Maybe [Backup])
+  , _dbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBackupsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ describeBackupsResponse
     :: Int -- ^ 'dbrsResponseStatus'
     -> DescribeBackupsResponse
 describeBackupsResponse pResponseStatus_ =
-    DescribeBackupsResponse'
-    { _dbrsBackups = Nothing
-    , _dbrsNextToken = Nothing
-    , _dbrsResponseStatus = pResponseStatus_
-    }
+  DescribeBackupsResponse'
+  { _dbrsBackups = Nothing
+  , _dbrsNextToken = Nothing
+  , _dbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of backups.
 dbrsBackups :: Lens' DescribeBackupsResponse [Backup]
@@ -161,4 +162,4 @@ dbrsNextToken = lens _dbrsNextToken (\ s a -> s{_dbrsNextToken = a});
 dbrsResponseStatus :: Lens' DescribeBackupsResponse Int
 dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
 
-instance NFData DescribeBackupsResponse
+instance NFData DescribeBackupsResponse where

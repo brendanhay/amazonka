@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.CreateHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.CloudHSM.CreateHSM
     , chrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'CreateHsm' operation.
 --
@@ -61,15 +61,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createHSM' smart constructor.
 data CreateHSM = CreateHSM'
-    { _chClientToken      :: !(Maybe Text)
-    , _chSyslogIP         :: !(Maybe Text)
-    , _chExternalId       :: !(Maybe Text)
-    , _chEniIP            :: !(Maybe Text)
-    , _chSubnetId         :: !Text
-    , _chSSHKey           :: !Text
-    , _chIAMRoleARN       :: !Text
-    , _chSubscriptionType :: !SubscriptionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chClientToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chSyslogIP         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chExternalId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chEniIP            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chSubnetId         :: {-# NOUNPACK #-}!Text
+  , _chSSHKey           :: {-# NOUNPACK #-}!Text
+  , _chIAMRoleARN       :: {-# NOUNPACK #-}!Text
+  , _chSubscriptionType :: {-# NOUNPACK #-}!SubscriptionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSM' with the minimum fields required to make a request.
 --
@@ -97,16 +98,17 @@ createHSM
     -> SubscriptionType -- ^ 'chSubscriptionType'
     -> CreateHSM
 createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
-    CreateHSM'
-    { _chClientToken = Nothing
-    , _chSyslogIP = Nothing
-    , _chExternalId = Nothing
-    , _chEniIP = Nothing
-    , _chSubnetId = pSubnetId_
-    , _chSSHKey = pSSHKey_
-    , _chIAMRoleARN = pIAMRoleARN_
-    , _chSubscriptionType = pSubscriptionType_
-    }
+  CreateHSM'
+  { _chClientToken = Nothing
+  , _chSyslogIP = Nothing
+  , _chExternalId = Nothing
+  , _chEniIP = Nothing
+  , _chSubnetId = pSubnetId_
+  , _chSSHKey = pSSHKey_
+  , _chIAMRoleARN = pIAMRoleARN_
+  , _chSubscriptionType = pSubscriptionType_
+  }
+
 
 -- | A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.
 chClientToken :: Lens' CreateHSM (Maybe Text)
@@ -149,9 +151,9 @@ instance AWSRequest CreateHSM where
                  CreateHSMResponse' <$>
                    (x .?> "HsmArn") <*> (pure (fromEnum s)))
 
-instance Hashable CreateHSM
+instance Hashable CreateHSM where
 
-instance NFData CreateHSM
+instance NFData CreateHSM where
 
 instance ToHeaders CreateHSM where
         toHeaders
@@ -187,9 +189,10 @@ instance ToQuery CreateHSM where
 --
 -- /See:/ 'createHSMResponse' smart constructor.
 data CreateHSMResponse = CreateHSMResponse'
-    { _chrsHSMARN         :: !(Maybe Text)
-    , _chrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chrsHSMARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSMResponse' with the minimum fields required to make a request.
 --
@@ -202,10 +205,9 @@ createHSMResponse
     :: Int -- ^ 'chrsResponseStatus'
     -> CreateHSMResponse
 createHSMResponse pResponseStatus_ =
-    CreateHSMResponse'
-    { _chrsHSMARN = Nothing
-    , _chrsResponseStatus = pResponseStatus_
-    }
+  CreateHSMResponse'
+  {_chrsHSMARN = Nothing, _chrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the HSM.
 chrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
@@ -215,4 +217,4 @@ chrsHSMARN = lens _chrsHSMARN (\ s a -> s{_chrsHSMARN = a});
 chrsResponseStatus :: Lens' CreateHSMResponse Int
 chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a});
 
-instance NFData CreateHSMResponse
+instance NFData CreateHSMResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,23 +47,24 @@ module Network.AWS.SSM.CreateAssociation
     , crsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociation' smart constructor.
 data CreateAssociation = CreateAssociation'
-    { _caInstanceId         :: !(Maybe Text)
-    , _caScheduleExpression :: !(Maybe Text)
-    , _caOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
-    , _caTargets            :: !(Maybe [Target])
-    , _caParameters         :: !(Maybe (Map Text [Text]))
-    , _caDocumentVersion    :: !(Maybe Text)
-    , _caName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caOutputLocation :: {-# NOUNPACK #-}!(Maybe InstanceAssociationOutputLocation)
+  , _caTargets :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _caParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _caDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAssociation' with the minimum fields required to make a request.
 --
@@ -86,15 +87,16 @@ createAssociation
     :: Text -- ^ 'caName'
     -> CreateAssociation
 createAssociation pName_ =
-    CreateAssociation'
-    { _caInstanceId = Nothing
-    , _caScheduleExpression = Nothing
-    , _caOutputLocation = Nothing
-    , _caTargets = Nothing
-    , _caParameters = Nothing
-    , _caDocumentVersion = Nothing
-    , _caName = pName_
-    }
+  CreateAssociation'
+  { _caInstanceId = Nothing
+  , _caScheduleExpression = Nothing
+  , _caOutputLocation = Nothing
+  , _caTargets = Nothing
+  , _caParameters = Nothing
+  , _caDocumentVersion = Nothing
+  , _caName = pName_
+  }
+
 
 -- | The instance ID.
 caInstanceId :: Lens' CreateAssociation (Maybe Text)
@@ -134,9 +136,9 @@ instance AWSRequest CreateAssociation where
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateAssociation
+instance Hashable CreateAssociation where
 
-instance NFData CreateAssociation
+instance NFData CreateAssociation where
 
 instance ToHeaders CreateAssociation where
         toHeaders
@@ -167,9 +169,10 @@ instance ToQuery CreateAssociation where
 
 -- | /See:/ 'createAssociationResponse' smart constructor.
 data CreateAssociationResponse = CreateAssociationResponse'
-    { _crsAssociationDescription :: !(Maybe AssociationDescription)
-    , _crsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsAssociationDescription :: {-# NOUNPACK #-}!(Maybe AssociationDescription)
+  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAssociationResponse' with the minimum fields required to make a request.
 --
@@ -182,10 +185,9 @@ createAssociationResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateAssociationResponse
 createAssociationResponse pResponseStatus_ =
-    CreateAssociationResponse'
-    { _crsAssociationDescription = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CreateAssociationResponse'
+  {_crsAssociationDescription = Nothing, _crsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the association.
 crsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
@@ -195,4 +197,4 @@ crsAssociationDescription = lens _crsAssociationDescription (\ s a -> s{_crsAsso
 crsResponseStatus :: Lens' CreateAssociationResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CreateAssociationResponse
+instance NFData CreateAssociationResponse where

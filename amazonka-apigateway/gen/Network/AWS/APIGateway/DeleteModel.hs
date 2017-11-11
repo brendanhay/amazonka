@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteModel
     , DeleteModelResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to delete an existing model in an existing 'RestApi' resource.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteModel' smart constructor.
 data DeleteModel = DeleteModel'
-    { _dRestAPIId :: !Text
-    , _dModelName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dRestAPIId :: {-# NOUNPACK #-}!Text
+  , _dModelName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteModel' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ deleteModel
     -> Text -- ^ 'dModelName'
     -> DeleteModel
 deleteModel pRestAPIId_ pModelName_ =
-    DeleteModel'
-    { _dRestAPIId = pRestAPIId_
-    , _dModelName = pModelName_
-    }
+  DeleteModel' {_dRestAPIId = pRestAPIId_, _dModelName = pModelName_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 dRestAPIId :: Lens' DeleteModel Text
@@ -82,9 +81,9 @@ instance AWSRequest DeleteModel where
         request = delete apiGateway
         response = receiveNull DeleteModelResponse'
 
-instance Hashable DeleteModel
+instance Hashable DeleteModel where
 
-instance NFData DeleteModel
+instance NFData DeleteModel where
 
 instance ToHeaders DeleteModel where
         toHeaders
@@ -103,8 +102,9 @@ instance ToQuery DeleteModel where
 
 -- | /See:/ 'deleteModelResponse' smart constructor.
 data DeleteModelResponse =
-    DeleteModelResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteModelResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteModelResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +112,5 @@ deleteModelResponse
     :: DeleteModelResponse
 deleteModelResponse = DeleteModelResponse'
 
-instance NFData DeleteModelResponse
+
+instance NFData DeleteModelResponse where

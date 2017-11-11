@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.PutLifecycleHook
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -63,12 +63,12 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     , plhrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PutLifecycleHook.
 --
@@ -76,15 +76,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putLifecycleHook' smart constructor.
 data PutLifecycleHook = PutLifecycleHook'
-    { _plhDefaultResult         :: !(Maybe Text)
-    , _plhHeartbeatTimeout      :: !(Maybe Int)
-    , _plhNotificationMetadata  :: !(Maybe Text)
-    , _plhNotificationTargetARN :: !(Maybe Text)
-    , _plhLifecycleTransition   :: !(Maybe Text)
-    , _plhRoleARN               :: !(Maybe Text)
-    , _plhLifecycleHookName     :: !Text
-    , _plhAutoScalingGroupName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _plhDefaultResult         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _plhHeartbeatTimeout      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _plhNotificationMetadata  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _plhNotificationTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _plhLifecycleTransition   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _plhRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _plhLifecycleHookName     :: {-# NOUNPACK #-}!Text
+  , _plhAutoScalingGroupName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutLifecycleHook' with the minimum fields required to make a request.
 --
@@ -110,16 +111,17 @@ putLifecycleHook
     -> Text -- ^ 'plhAutoScalingGroupName'
     -> PutLifecycleHook
 putLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
-    PutLifecycleHook'
-    { _plhDefaultResult = Nothing
-    , _plhHeartbeatTimeout = Nothing
-    , _plhNotificationMetadata = Nothing
-    , _plhNotificationTargetARN = Nothing
-    , _plhLifecycleTransition = Nothing
-    , _plhRoleARN = Nothing
-    , _plhLifecycleHookName = pLifecycleHookName_
-    , _plhAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  PutLifecycleHook'
+  { _plhDefaultResult = Nothing
+  , _plhHeartbeatTimeout = Nothing
+  , _plhNotificationMetadata = Nothing
+  , _plhNotificationTargetARN = Nothing
+  , _plhLifecycleTransition = Nothing
+  , _plhRoleARN = Nothing
+  , _plhLifecycleHookName = pLifecycleHookName_
+  , _plhAutoScalingGroupName = pAutoScalingGroupName_
+  }
+
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. This parameter can be either @CONTINUE@ or @ABANDON@ . The default value is @ABANDON@ .
 plhDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
@@ -161,9 +163,9 @@ instance AWSRequest PutLifecycleHook where
               (\ s h x ->
                  PutLifecycleHookResponse' <$> (pure (fromEnum s)))
 
-instance Hashable PutLifecycleHook
+instance Hashable PutLifecycleHook where
 
-instance NFData PutLifecycleHook
+instance NFData PutLifecycleHook where
 
 instance ToHeaders PutLifecycleHook where
         toHeaders = const mempty
@@ -191,8 +193,9 @@ instance ToQuery PutLifecycleHook where
 --
 -- /See:/ 'putLifecycleHookResponse' smart constructor.
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
-    { _plhrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _plhrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutLifecycleHookResponse' with the minimum fields required to make a request.
 --
@@ -203,12 +206,11 @@ putLifecycleHookResponse
     :: Int -- ^ 'plhrsResponseStatus'
     -> PutLifecycleHookResponse
 putLifecycleHookResponse pResponseStatus_ =
-    PutLifecycleHookResponse'
-    { _plhrsResponseStatus = pResponseStatus_
-    }
+  PutLifecycleHookResponse' {_plhrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 plhrsResponseStatus :: Lens' PutLifecycleHookResponse Int
 plhrsResponseStatus = lens _plhrsResponseStatus (\ s a -> s{_plhrsResponseStatus = a});
 
-instance NFData PutLifecycleHookResponse
+instance NFData PutLifecycleHookResponse where

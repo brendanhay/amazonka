@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudFormation.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AccountGateStatus
-    = AGSFailed
-    | AGSSkipped
-    | AGSSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AGSFailed
+  | AGSSkipped
+  | AGSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AccountGateStatus where
     parser = takeLowerText >>= \case
@@ -49,9 +50,10 @@ instance FromXML AccountGateStatus where
     parseXML = parseXMLText "AccountGateStatus"
 
 data Capability
-    = CapabilityIAM
-    | CapabilityNamedIAM
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CapabilityIAM
+  | CapabilityNamedIAM
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Capability where
     parser = takeLowerText >>= \case
@@ -75,10 +77,11 @@ instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
 data ChangeAction
-    = Add
-    | Modify
-    | Remove
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Add
+  | Modify
+  | Remove
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -104,12 +107,13 @@ instance FromXML ChangeAction where
     parseXML = parseXMLText "ChangeAction"
 
 data ChangeSetStatus
-    = CSSCreateComplete
-    | CSSCreateInProgress
-    | CSSCreatePending
-    | CSSDeleteComplete
-    | CSSFailed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSSCreateComplete
+  | CSSCreateInProgress
+  | CSSCreatePending
+  | CSSDeleteComplete
+  | CSSFailed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeSetStatus where
     parser = takeLowerText >>= \case
@@ -139,9 +143,10 @@ instance FromXML ChangeSetStatus where
     parseXML = parseXMLText "ChangeSetStatus"
 
 data ChangeSetType
-    = Create
-    | Update
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Create
+  | Update
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeSetType where
     parser = takeLowerText >>= \case
@@ -162,12 +167,13 @@ instance ToQuery      ChangeSetType
 instance ToHeader     ChangeSetType
 
 data ChangeSource
-    = Automatic
-    | DirectModification
-    | ParameterReference
-    | ResourceAttribute
-    | ResourceReference
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Automatic
+  | DirectModification
+  | ParameterReference
+  | ResourceAttribute
+  | ResourceReference
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeSource where
     parser = takeLowerText >>= \case
@@ -197,8 +203,9 @@ instance FromXML ChangeSource where
     parseXML = parseXMLText "ChangeSource"
 
 data ChangeType =
-    Resource
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Resource
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeType where
     parser = takeLowerText >>= \case
@@ -220,9 +227,10 @@ instance FromXML ChangeType where
     parseXML = parseXMLText "ChangeType"
 
 data EvaluationType
-    = Dynamic
-    | Static
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Dynamic
+  | Static
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EvaluationType where
     parser = takeLowerText >>= \case
@@ -246,13 +254,14 @@ instance FromXML EvaluationType where
     parseXML = parseXMLText "EvaluationType"
 
 data ExecutionStatus
-    = Available
-    | ExecuteComplete
-    | ExecuteFailed
-    | ExecuteInProgress
-    | Obsolete
-    | Unavailable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | ExecuteComplete
+  | ExecuteFailed
+  | ExecuteInProgress
+  | Obsolete
+  | Unavailable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
@@ -284,10 +293,11 @@ instance FromXML ExecutionStatus where
     parseXML = parseXMLText "ExecutionStatus"
 
 data OnFailure
-    = Delete
-    | DoNothing
-    | Rollback
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Delete
+  | DoNothing
+  | Rollback
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OnFailure where
     parser = takeLowerText >>= \case
@@ -310,10 +320,11 @@ instance ToQuery      OnFailure
 instance ToHeader     OnFailure
 
 data Replacement
-    = Conditional
-    | False'
-    | True'
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Conditional
+  | False'
+  | True'
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Replacement where
     parser = takeLowerText >>= \case
@@ -339,10 +350,11 @@ instance FromXML Replacement where
     parseXML = parseXMLText "Replacement"
 
 data RequiresRecreation
-    = Always
-    | Conditionally
-    | Never
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Always
+  | Conditionally
+  | Never
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RequiresRecreation where
     parser = takeLowerText >>= \case
@@ -368,13 +380,14 @@ instance FromXML RequiresRecreation where
     parseXML = parseXMLText "RequiresRecreation"
 
 data ResourceAttribute
-    = CreationPolicy
-    | DeletionPolicy
-    | Metadata
-    | Properties
-    | Tags
-    | UpdatePolicy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreationPolicy
+  | DeletionPolicy
+  | Metadata
+  | Properties
+  | Tags
+  | UpdatePolicy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceAttribute where
     parser = takeLowerText >>= \case
@@ -406,9 +419,10 @@ instance FromXML ResourceAttribute where
     parseXML = parseXMLText "ResourceAttribute"
 
 data ResourceSignalStatus
-    = Failure
-    | Success
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failure
+  | Success
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceSignalStatus where
     parser = takeLowerText >>= \case
@@ -429,17 +443,18 @@ instance ToQuery      ResourceSignalStatus
 instance ToHeader     ResourceSignalStatus
 
 data ResourceStatus
-    = CreateComplete
-    | CreateFailed
-    | CreateInProgress
-    | DeleteComplete
-    | DeleteFailed
-    | DeleteInProgress
-    | DeleteSkipped
-    | UpdateComplete
-    | UpdateFailed
-    | UpdateInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreateComplete
+  | CreateFailed
+  | CreateInProgress
+  | DeleteComplete
+  | DeleteFailed
+  | DeleteInProgress
+  | DeleteSkipped
+  | UpdateComplete
+  | UpdateFailed
+  | UpdateInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceStatus where
     parser = takeLowerText >>= \case
@@ -479,10 +494,11 @@ instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
 data StackInstanceStatus
-    = Current
-    | Inoperable
-    | Outdated
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Current
+  | Inoperable
+  | Outdated
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackInstanceStatus where
     parser = takeLowerText >>= \case
@@ -508,10 +524,11 @@ instance FromXML StackInstanceStatus where
     parseXML = parseXMLText "StackInstanceStatus"
 
 data StackSetOperationAction
-    = SSOACreate
-    | SSOADelete
-    | SSOAUpdate
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSOACreate
+  | SSOADelete
+  | SSOAUpdate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackSetOperationAction where
     parser = takeLowerText >>= \case
@@ -537,12 +554,13 @@ instance FromXML StackSetOperationAction where
     parseXML = parseXMLText "StackSetOperationAction"
 
 data StackSetOperationResultStatus
-    = Cancelled
-    | Failed
-    | Pending
-    | Running
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cancelled
+  | Failed
+  | Pending
+  | Running
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackSetOperationResultStatus where
     parser = takeLowerText >>= \case
@@ -572,12 +590,13 @@ instance FromXML StackSetOperationResultStatus where
     parseXML = parseXMLText "StackSetOperationResultStatus"
 
 data StackSetOperationStatus
-    = SSOSFailed
-    | SSOSRunning
-    | SSOSStopped
-    | SSOSStopping
-    | SSOSSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSOSFailed
+  | SSOSRunning
+  | SSOSStopped
+  | SSOSStopping
+  | SSOSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackSetOperationStatus where
     parser = takeLowerText >>= \case
@@ -607,9 +626,10 @@ instance FromXML StackSetOperationStatus where
     parseXML = parseXMLText "StackSetOperationStatus"
 
 data StackSetStatus
-    = Active
-    | Deleted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Deleted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackSetStatus where
     parser = takeLowerText >>= \case
@@ -633,24 +653,25 @@ instance FromXML StackSetStatus where
     parseXML = parseXMLText "StackSetStatus"
 
 data StackStatus
-    = SSCreateComplete
-    | SSCreateFailed
-    | SSCreateInProgress
-    | SSDeleteComplete
-    | SSDeleteFailed
-    | SSDeleteInProgress
-    | SSReviewInProgress
-    | SSRollbackComplete
-    | SSRollbackFailed
-    | SSRollbackInProgress
-    | SSUpdateComplete
-    | SSUpdateCompleteCleanupInProgress
-    | SSUpdateInProgress
-    | SSUpdateRollbackComplete
-    | SSUpdateRollbackCompleteCleanupInProgress
-    | SSUpdateRollbackFailed
-    | SSUpdateRollbackInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSCreateComplete
+  | SSCreateFailed
+  | SSCreateInProgress
+  | SSDeleteComplete
+  | SSDeleteFailed
+  | SSDeleteInProgress
+  | SSReviewInProgress
+  | SSRollbackComplete
+  | SSRollbackFailed
+  | SSRollbackInProgress
+  | SSUpdateComplete
+  | SSUpdateCompleteCleanupInProgress
+  | SSUpdateInProgress
+  | SSUpdateRollbackComplete
+  | SSUpdateRollbackCompleteCleanupInProgress
+  | SSUpdateRollbackFailed
+  | SSUpdateRollbackInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackStatus where
     parser = takeLowerText >>= \case
@@ -704,9 +725,10 @@ instance FromXML StackStatus where
     parseXML = parseXMLText "StackStatus"
 
 data TemplateStage
-    = Original
-    | Processed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Original
+  | Processed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TemplateStage where
     parser = takeLowerText >>= \case

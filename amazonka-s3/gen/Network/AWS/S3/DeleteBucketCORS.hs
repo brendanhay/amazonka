@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketCORS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -32,17 +32,18 @@ module Network.AWS.S3.DeleteBucketCORS
     , DeleteBucketCORSResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketCORS' smart constructor.
 newtype DeleteBucketCORS = DeleteBucketCORS'
-    { _dbcBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbcBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketCORS' with the minimum fields required to make a request.
 --
@@ -52,10 +53,8 @@ newtype DeleteBucketCORS = DeleteBucketCORS'
 deleteBucketCORS
     :: BucketName -- ^ 'dbcBucket'
     -> DeleteBucketCORS
-deleteBucketCORS pBucket_ =
-    DeleteBucketCORS'
-    { _dbcBucket = pBucket_
-    }
+deleteBucketCORS pBucket_ = DeleteBucketCORS' {_dbcBucket = pBucket_}
+
 
 -- | Undocumented member.
 dbcBucket :: Lens' DeleteBucketCORS BucketName
@@ -66,9 +65,9 @@ instance AWSRequest DeleteBucketCORS where
         request = delete s3
         response = receiveNull DeleteBucketCORSResponse'
 
-instance Hashable DeleteBucketCORS
+instance Hashable DeleteBucketCORS where
 
-instance NFData DeleteBucketCORS
+instance NFData DeleteBucketCORS where
 
 instance ToHeaders DeleteBucketCORS where
         toHeaders = const mempty
@@ -82,8 +81,9 @@ instance ToQuery DeleteBucketCORS where
 
 -- | /See:/ 'deleteBucketCORSResponse' smart constructor.
 data DeleteBucketCORSResponse =
-    DeleteBucketCORSResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketCORSResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketCORSResponse' with the minimum fields required to make a request.
 --
@@ -91,4 +91,5 @@ deleteBucketCORSResponse
     :: DeleteBucketCORSResponse
 deleteBucketCORSResponse = DeleteBucketCORSResponse'
 
-instance NFData DeleteBucketCORSResponse
+
+instance NFData DeleteBucketCORSResponse where

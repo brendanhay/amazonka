@@ -9,25 +9,26 @@
 
 -- |
 -- Module      : Network.AWS.S3.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.S3.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.S3.Internal
-import           Network.AWS.S3.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.S3.Internal
+import Network.AWS.S3.Types.Sum
 
 -- | Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
 --
 -- /See:/ 'abortIncompleteMultipartUpload' smart constructor.
 newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
-    { _aimuDaysAfterInitiation :: Maybe Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aimuDaysAfterInitiation :: Maybe Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortIncompleteMultipartUpload' with the minimum fields required to make a request.
 --
@@ -37,9 +38,8 @@ newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
 abortIncompleteMultipartUpload
     :: AbortIncompleteMultipartUpload
 abortIncompleteMultipartUpload =
-    AbortIncompleteMultipartUpload'
-    { _aimuDaysAfterInitiation = Nothing
-    }
+  AbortIncompleteMultipartUpload' {_aimuDaysAfterInitiation = Nothing}
+
 
 -- | Indicates the number of days that must pass since initiation for Lifecycle to abort an Incomplete Multipart Upload.
 aimuDaysAfterInitiation :: Lens' AbortIncompleteMultipartUpload (Maybe Int)
@@ -51,8 +51,9 @@ instance FromXML AbortIncompleteMultipartUpload where
               (x .@? "DaysAfterInitiation")
 
 instance Hashable AbortIncompleteMultipartUpload
+         where
 
-instance NFData AbortIncompleteMultipartUpload
+instance NFData AbortIncompleteMultipartUpload where
 
 instance ToXML AbortIncompleteMultipartUpload where
         toXML AbortIncompleteMultipartUpload'{..}
@@ -61,8 +62,9 @@ instance ToXML AbortIncompleteMultipartUpload where
 
 -- | /See:/ 'accelerateConfiguration' smart constructor.
 newtype AccelerateConfiguration = AccelerateConfiguration'
-    { _acStatus :: Maybe BucketAccelerateStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acStatus :: Maybe BucketAccelerateStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccelerateConfiguration' with the minimum fields required to make a request.
 --
@@ -71,18 +73,16 @@ newtype AccelerateConfiguration = AccelerateConfiguration'
 -- * 'acStatus' - The accelerate configuration of the bucket.
 accelerateConfiguration
     :: AccelerateConfiguration
-accelerateConfiguration =
-    AccelerateConfiguration'
-    { _acStatus = Nothing
-    }
+accelerateConfiguration = AccelerateConfiguration' {_acStatus = Nothing}
+
 
 -- | The accelerate configuration of the bucket.
 acStatus :: Lens' AccelerateConfiguration (Maybe BucketAccelerateStatus)
 acStatus = lens _acStatus (\ s a -> s{_acStatus = a});
 
-instance Hashable AccelerateConfiguration
+instance Hashable AccelerateConfiguration where
 
-instance NFData AccelerateConfiguration
+instance NFData AccelerateConfiguration where
 
 instance ToXML AccelerateConfiguration where
         toXML AccelerateConfiguration'{..}
@@ -90,9 +90,10 @@ instance ToXML AccelerateConfiguration where
 
 -- | /See:/ 'accessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
-    { _acpGrants :: !(Maybe [Grant])
-    , _acpOwner  :: !(Maybe Owner)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acpGrants :: {-# NOUNPACK #-}!(Maybe [Grant])
+  , _acpOwner  :: {-# NOUNPACK #-}!(Maybe Owner)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccessControlPolicy' with the minimum fields required to make a request.
 --
@@ -104,10 +105,8 @@ data AccessControlPolicy = AccessControlPolicy'
 accessControlPolicy
     :: AccessControlPolicy
 accessControlPolicy =
-    AccessControlPolicy'
-    { _acpGrants = Nothing
-    , _acpOwner = Nothing
-    }
+  AccessControlPolicy' {_acpGrants = Nothing, _acpOwner = Nothing}
+
 
 -- | A list of grants.
 acpGrants :: Lens' AccessControlPolicy [Grant]
@@ -117,9 +116,9 @@ acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a}) . _Default . _Coerce;
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\ s a -> s{_acpOwner = a});
 
-instance Hashable AccessControlPolicy
+instance Hashable AccessControlPolicy where
 
-instance NFData AccessControlPolicy
+instance NFData AccessControlPolicy where
 
 instance ToXML AccessControlPolicy where
         toXML AccessControlPolicy'{..}
@@ -130,9 +129,10 @@ instance ToXML AccessControlPolicy where
 
 -- | /See:/ 'analyticsAndOperator' smart constructor.
 data AnalyticsAndOperator = AnalyticsAndOperator'
-    { _aaoPrefix :: !(Maybe Text)
-    , _aaoTags   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aaoPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aaoTags   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnalyticsAndOperator' with the minimum fields required to make a request.
 --
@@ -144,10 +144,8 @@ data AnalyticsAndOperator = AnalyticsAndOperator'
 analyticsAndOperator
     :: AnalyticsAndOperator
 analyticsAndOperator =
-    AnalyticsAndOperator'
-    { _aaoPrefix = Nothing
-    , _aaoTags = Nothing
-    }
+  AnalyticsAndOperator' {_aaoPrefix = Nothing, _aaoTags = Nothing}
+
 
 -- | The prefix to use when evaluating an AND predicate.
 aaoPrefix :: Lens' AnalyticsAndOperator (Maybe Text)
@@ -163,9 +161,9 @@ instance FromXML AnalyticsAndOperator where
               (x .@? "Prefix") <*>
                 (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
 
-instance Hashable AnalyticsAndOperator
+instance Hashable AnalyticsAndOperator where
 
-instance NFData AnalyticsAndOperator
+instance NFData AnalyticsAndOperator where
 
 instance ToXML AnalyticsAndOperator where
         toXML AnalyticsAndOperator'{..}
@@ -175,10 +173,11 @@ instance ToXML AnalyticsAndOperator where
 
 -- | /See:/ 'analyticsConfiguration' smart constructor.
 data AnalyticsConfiguration = AnalyticsConfiguration'
-    { _acFilter               :: !(Maybe AnalyticsFilter)
-    , _acId                   :: !Text
-    , _acStorageClassAnalysis :: !StorageClassAnalysis
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acFilter               :: {-# NOUNPACK #-}!(Maybe AnalyticsFilter)
+  , _acId                   :: {-# NOUNPACK #-}!Text
+  , _acStorageClassAnalysis :: {-# NOUNPACK #-}!StorageClassAnalysis
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnalyticsConfiguration' with the minimum fields required to make a request.
 --
@@ -194,11 +193,12 @@ analyticsConfiguration
     -> StorageClassAnalysis -- ^ 'acStorageClassAnalysis'
     -> AnalyticsConfiguration
 analyticsConfiguration pId_ pStorageClassAnalysis_ =
-    AnalyticsConfiguration'
-    { _acFilter = Nothing
-    , _acId = pId_
-    , _acStorageClassAnalysis = pStorageClassAnalysis_
-    }
+  AnalyticsConfiguration'
+  { _acFilter = Nothing
+  , _acId = pId_
+  , _acStorageClassAnalysis = pStorageClassAnalysis_
+  }
+
 
 -- | The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
 acFilter :: Lens' AnalyticsConfiguration (Maybe AnalyticsFilter)
@@ -218,9 +218,9 @@ instance FromXML AnalyticsConfiguration where
               (x .@? "Filter") <*> (x .@ "Id") <*>
                 (x .@ "StorageClassAnalysis")
 
-instance Hashable AnalyticsConfiguration
+instance Hashable AnalyticsConfiguration where
 
-instance NFData AnalyticsConfiguration
+instance NFData AnalyticsConfiguration where
 
 instance ToXML AnalyticsConfiguration where
         toXML AnalyticsConfiguration'{..}
@@ -230,8 +230,9 @@ instance ToXML AnalyticsConfiguration where
 
 -- | /See:/ 'analyticsExportDestination' smart constructor.
 newtype AnalyticsExportDestination = AnalyticsExportDestination'
-    { _aedS3BucketDestination :: AnalyticsS3BucketDestination
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aedS3BucketDestination :: AnalyticsS3BucketDestination
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnalyticsExportDestination' with the minimum fields required to make a request.
 --
@@ -242,9 +243,8 @@ analyticsExportDestination
     :: AnalyticsS3BucketDestination -- ^ 'aedS3BucketDestination'
     -> AnalyticsExportDestination
 analyticsExportDestination pS3BucketDestination_ =
-    AnalyticsExportDestination'
-    { _aedS3BucketDestination = pS3BucketDestination_
-    }
+  AnalyticsExportDestination' {_aedS3BucketDestination = pS3BucketDestination_}
+
 
 -- | A destination signifying output to an S3 bucket.
 aedS3BucketDestination :: Lens' AnalyticsExportDestination AnalyticsS3BucketDestination
@@ -255,9 +255,9 @@ instance FromXML AnalyticsExportDestination where
           = AnalyticsExportDestination' <$>
               (x .@ "S3BucketDestination")
 
-instance Hashable AnalyticsExportDestination
+instance Hashable AnalyticsExportDestination where
 
-instance NFData AnalyticsExportDestination
+instance NFData AnalyticsExportDestination where
 
 instance ToXML AnalyticsExportDestination where
         toXML AnalyticsExportDestination'{..}
@@ -266,10 +266,11 @@ instance ToXML AnalyticsExportDestination where
 
 -- | /See:/ 'analyticsFilter' smart constructor.
 data AnalyticsFilter = AnalyticsFilter'
-    { _afTag    :: !(Maybe Tag)
-    , _afPrefix :: !(Maybe Text)
-    , _afAnd    :: !(Maybe AnalyticsAndOperator)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _afTag    :: {-# NOUNPACK #-}!(Maybe Tag)
+  , _afPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _afAnd    :: {-# NOUNPACK #-}!(Maybe AnalyticsAndOperator)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnalyticsFilter' with the minimum fields required to make a request.
 --
@@ -283,11 +284,8 @@ data AnalyticsFilter = AnalyticsFilter'
 analyticsFilter
     :: AnalyticsFilter
 analyticsFilter =
-    AnalyticsFilter'
-    { _afTag = Nothing
-    , _afPrefix = Nothing
-    , _afAnd = Nothing
-    }
+  AnalyticsFilter' {_afTag = Nothing, _afPrefix = Nothing, _afAnd = Nothing}
+
 
 -- | The tag to use when evaluating an analytics filter.
 afTag :: Lens' AnalyticsFilter (Maybe Tag)
@@ -306,9 +304,9 @@ instance FromXML AnalyticsFilter where
           = AnalyticsFilter' <$>
               (x .@? "Tag") <*> (x .@? "Prefix") <*> (x .@? "And")
 
-instance Hashable AnalyticsFilter
+instance Hashable AnalyticsFilter where
 
-instance NFData AnalyticsFilter
+instance NFData AnalyticsFilter where
 
 instance ToXML AnalyticsFilter where
         toXML AnalyticsFilter'{..}
@@ -318,11 +316,12 @@ instance ToXML AnalyticsFilter where
 
 -- | /See:/ 'analyticsS3BucketDestination' smart constructor.
 data AnalyticsS3BucketDestination = AnalyticsS3BucketDestination'
-    { _asbdBucketAccountId :: !(Maybe Text)
-    , _asbdPrefix          :: !(Maybe Text)
-    , _asbdFormat          :: !AnalyticsS3ExportFileFormat
-    , _asbdBucket          :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asbdBucketAccountId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asbdPrefix          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asbdFormat          :: {-# NOUNPACK #-}!AnalyticsS3ExportFileFormat
+  , _asbdBucket          :: {-# NOUNPACK #-}!BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnalyticsS3BucketDestination' with the minimum fields required to make a request.
 --
@@ -340,12 +339,13 @@ analyticsS3BucketDestination
     -> BucketName -- ^ 'asbdBucket'
     -> AnalyticsS3BucketDestination
 analyticsS3BucketDestination pFormat_ pBucket_ =
-    AnalyticsS3BucketDestination'
-    { _asbdBucketAccountId = Nothing
-    , _asbdPrefix = Nothing
-    , _asbdFormat = pFormat_
-    , _asbdBucket = pBucket_
-    }
+  AnalyticsS3BucketDestination'
+  { _asbdBucketAccountId = Nothing
+  , _asbdPrefix = Nothing
+  , _asbdFormat = pFormat_
+  , _asbdBucket = pBucket_
+  }
+
 
 -- | The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.
 asbdBucketAccountId :: Lens' AnalyticsS3BucketDestination (Maybe Text)
@@ -370,9 +370,9 @@ instance FromXML AnalyticsS3BucketDestination where
                 (x .@ "Format")
                 <*> (x .@ "Bucket")
 
-instance Hashable AnalyticsS3BucketDestination
+instance Hashable AnalyticsS3BucketDestination where
 
-instance NFData AnalyticsS3BucketDestination
+instance NFData AnalyticsS3BucketDestination where
 
 instance ToXML AnalyticsS3BucketDestination where
         toXML AnalyticsS3BucketDestination'{..}
@@ -383,9 +383,10 @@ instance ToXML AnalyticsS3BucketDestination where
 
 -- | /See:/ 'bucket' smart constructor.
 data Bucket = Bucket'
-    { _bCreationDate :: !RFC822
-    , _bName         :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bCreationDate :: {-# NOUNPACK #-}!RFC822
+  , _bName         :: {-# NOUNPACK #-}!BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Bucket' with the minimum fields required to make a request.
 --
@@ -399,10 +400,8 @@ bucket
     -> BucketName -- ^ 'bName'
     -> Bucket
 bucket pCreationDate_ pName_ =
-    Bucket'
-    { _bCreationDate = _Time # pCreationDate_
-    , _bName = pName_
-    }
+  Bucket' {_bCreationDate = _Time # pCreationDate_, _bName = pName_}
+
 
 -- | Date the bucket was created.
 bCreationDate :: Lens' Bucket UTCTime
@@ -416,14 +415,15 @@ instance FromXML Bucket where
         parseXML x
           = Bucket' <$> (x .@ "CreationDate") <*> (x .@ "Name")
 
-instance Hashable Bucket
+instance Hashable Bucket where
 
-instance NFData Bucket
+instance NFData Bucket where
 
 -- | /See:/ 'bucketLifecycleConfiguration' smart constructor.
 newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
-    { _blcRules :: [LifecycleRule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blcRules :: [LifecycleRule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BucketLifecycleConfiguration' with the minimum fields required to make a request.
 --
@@ -433,17 +433,16 @@ newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
 bucketLifecycleConfiguration
     :: BucketLifecycleConfiguration
 bucketLifecycleConfiguration =
-    BucketLifecycleConfiguration'
-    { _blcRules = mempty
-    }
+  BucketLifecycleConfiguration' {_blcRules = mempty}
+
 
 -- | Undocumented member.
 blcRules :: Lens' BucketLifecycleConfiguration [LifecycleRule]
 blcRules = lens _blcRules (\ s a -> s{_blcRules = a}) . _Coerce;
 
-instance Hashable BucketLifecycleConfiguration
+instance Hashable BucketLifecycleConfiguration where
 
-instance NFData BucketLifecycleConfiguration
+instance NFData BucketLifecycleConfiguration where
 
 instance ToXML BucketLifecycleConfiguration where
         toXML BucketLifecycleConfiguration'{..}
@@ -451,8 +450,9 @@ instance ToXML BucketLifecycleConfiguration where
 
 -- | /See:/ 'bucketLoggingStatus' smart constructor.
 newtype BucketLoggingStatus = BucketLoggingStatus'
-    { _blsLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blsLoggingEnabled :: Maybe LoggingEnabled
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BucketLoggingStatus' with the minimum fields required to make a request.
 --
@@ -461,18 +461,16 @@ newtype BucketLoggingStatus = BucketLoggingStatus'
 -- * 'blsLoggingEnabled' - Undocumented member.
 bucketLoggingStatus
     :: BucketLoggingStatus
-bucketLoggingStatus =
-    BucketLoggingStatus'
-    { _blsLoggingEnabled = Nothing
-    }
+bucketLoggingStatus = BucketLoggingStatus' {_blsLoggingEnabled = Nothing}
+
 
 -- | Undocumented member.
 blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
 blsLoggingEnabled = lens _blsLoggingEnabled (\ s a -> s{_blsLoggingEnabled = a});
 
-instance Hashable BucketLoggingStatus
+instance Hashable BucketLoggingStatus where
 
-instance NFData BucketLoggingStatus
+instance NFData BucketLoggingStatus where
 
 instance ToXML BucketLoggingStatus where
         toXML BucketLoggingStatus'{..}
@@ -480,8 +478,9 @@ instance ToXML BucketLoggingStatus where
 
 -- | /See:/ 'corsConfiguration' smart constructor.
 newtype CORSConfiguration = CORSConfiguration'
-    { _ccCORSRules :: [CORSRule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccCORSRules :: [CORSRule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CORSConfiguration' with the minimum fields required to make a request.
 --
@@ -490,18 +489,16 @@ newtype CORSConfiguration = CORSConfiguration'
 -- * 'ccCORSRules' - Undocumented member.
 corsConfiguration
     :: CORSConfiguration
-corsConfiguration =
-    CORSConfiguration'
-    { _ccCORSRules = mempty
-    }
+corsConfiguration = CORSConfiguration' {_ccCORSRules = mempty}
+
 
 -- | Undocumented member.
 ccCORSRules :: Lens' CORSConfiguration [CORSRule]
 ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Coerce;
 
-instance Hashable CORSConfiguration
+instance Hashable CORSConfiguration where
 
-instance NFData CORSConfiguration
+instance NFData CORSConfiguration where
 
 instance ToXML CORSConfiguration where
         toXML CORSConfiguration'{..}
@@ -509,12 +506,13 @@ instance ToXML CORSConfiguration where
 
 -- | /See:/ 'corsRule' smart constructor.
 data CORSRule = CORSRule'
-    { _crMaxAgeSeconds  :: !(Maybe Int)
-    , _crAllowedHeaders :: !(Maybe [Text])
-    , _crExposeHeaders  :: !(Maybe [Text])
-    , _crAllowedMethods :: ![Text]
-    , _crAllowedOrigins :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crMaxAgeSeconds  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _crAllowedHeaders :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _crExposeHeaders  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _crAllowedMethods :: {-# NOUNPACK #-}![Text]
+  , _crAllowedOrigins :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CORSRule' with the minimum fields required to make a request.
 --
@@ -532,13 +530,14 @@ data CORSRule = CORSRule'
 corsRule
     :: CORSRule
 corsRule =
-    CORSRule'
-    { _crMaxAgeSeconds = Nothing
-    , _crAllowedHeaders = Nothing
-    , _crExposeHeaders = Nothing
-    , _crAllowedMethods = mempty
-    , _crAllowedOrigins = mempty
-    }
+  CORSRule'
+  { _crMaxAgeSeconds = Nothing
+  , _crAllowedHeaders = Nothing
+  , _crExposeHeaders = Nothing
+  , _crAllowedMethods = mempty
+  , _crAllowedOrigins = mempty
+  }
+
 
 -- | The time in seconds that your browser is to cache the preflight response for the specified resource.
 crMaxAgeSeconds :: Lens' CORSRule (Maybe Int)
@@ -569,9 +568,9 @@ instance FromXML CORSRule where
                 <*> (parseXMLList "AllowedMethod" x)
                 <*> (parseXMLList "AllowedOrigin" x)
 
-instance Hashable CORSRule
+instance Hashable CORSRule where
 
-instance NFData CORSRule
+instance NFData CORSRule where
 
 instance ToXML CORSRule where
         toXML CORSRule'{..}
@@ -586,8 +585,9 @@ instance ToXML CORSRule where
 
 -- | /See:/ 'commonPrefix' smart constructor.
 newtype CommonPrefix = CommonPrefix'
-    { _cpPrefix :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpPrefix :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CommonPrefix' with the minimum fields required to make a request.
 --
@@ -596,10 +596,8 @@ newtype CommonPrefix = CommonPrefix'
 -- * 'cpPrefix' - Undocumented member.
 commonPrefix
     :: CommonPrefix
-commonPrefix =
-    CommonPrefix'
-    { _cpPrefix = Nothing
-    }
+commonPrefix = CommonPrefix' {_cpPrefix = Nothing}
+
 
 -- | Undocumented member.
 cpPrefix :: Lens' CommonPrefix (Maybe Text)
@@ -608,14 +606,15 @@ cpPrefix = lens _cpPrefix (\ s a -> s{_cpPrefix = a});
 instance FromXML CommonPrefix where
         parseXML x = CommonPrefix' <$> (x .@? "Prefix")
 
-instance Hashable CommonPrefix
+instance Hashable CommonPrefix where
 
-instance NFData CommonPrefix
+instance NFData CommonPrefix where
 
 -- | /See:/ 'completedMultipartUpload' smart constructor.
 newtype CompletedMultipartUpload = CompletedMultipartUpload'
-    { _cmuParts :: Maybe (List1 CompletedPart)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmuParts :: Maybe (List1 CompletedPart)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompletedMultipartUpload' with the minimum fields required to make a request.
 --
@@ -624,18 +623,16 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload'
 -- * 'cmuParts' - Undocumented member.
 completedMultipartUpload
     :: CompletedMultipartUpload
-completedMultipartUpload =
-    CompletedMultipartUpload'
-    { _cmuParts = Nothing
-    }
+completedMultipartUpload = CompletedMultipartUpload' {_cmuParts = Nothing}
+
 
 -- | Undocumented member.
 cmuParts :: Lens' CompletedMultipartUpload (Maybe (NonEmpty CompletedPart))
 cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . mapping _List1;
 
-instance Hashable CompletedMultipartUpload
+instance Hashable CompletedMultipartUpload where
 
-instance NFData CompletedMultipartUpload
+instance NFData CompletedMultipartUpload where
 
 instance ToXML CompletedMultipartUpload where
         toXML CompletedMultipartUpload'{..}
@@ -643,9 +640,10 @@ instance ToXML CompletedMultipartUpload where
 
 -- | /See:/ 'completedPart' smart constructor.
 data CompletedPart = CompletedPart'
-    { _cpPartNumber :: !Int
-    , _cpETag       :: !ETag
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpPartNumber :: {-# NOUNPACK #-}!Int
+  , _cpETag       :: {-# NOUNPACK #-}!ETag
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompletedPart' with the minimum fields required to make a request.
 --
@@ -659,10 +657,8 @@ completedPart
     -> ETag -- ^ 'cpETag'
     -> CompletedPart
 completedPart pPartNumber_ pETag_ =
-    CompletedPart'
-    { _cpPartNumber = pPartNumber_
-    , _cpETag = pETag_
-    }
+  CompletedPart' {_cpPartNumber = pPartNumber_, _cpETag = pETag_}
+
 
 -- | Part number that identifies the part. This is a positive integer between 1 and 10,000.
 cpPartNumber :: Lens' CompletedPart Int
@@ -672,9 +668,9 @@ cpPartNumber = lens _cpPartNumber (\ s a -> s{_cpPartNumber = a});
 cpETag :: Lens' CompletedPart ETag
 cpETag = lens _cpETag (\ s a -> s{_cpETag = a});
 
-instance Hashable CompletedPart
+instance Hashable CompletedPart where
 
-instance NFData CompletedPart
+instance NFData CompletedPart where
 
 instance ToXML CompletedPart where
         toXML CompletedPart'{..}
@@ -683,9 +679,10 @@ instance ToXML CompletedPart where
 
 -- | /See:/ 'condition' smart constructor.
 data Condition = Condition'
-    { _cKeyPrefixEquals             :: !(Maybe Text)
-    , _cHTTPErrorCodeReturnedEquals :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cKeyPrefixEquals             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cHTTPErrorCodeReturnedEquals :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
@@ -697,10 +694,9 @@ data Condition = Condition'
 condition
     :: Condition
 condition =
-    Condition'
-    { _cKeyPrefixEquals = Nothing
-    , _cHTTPErrorCodeReturnedEquals = Nothing
-    }
+  Condition'
+  {_cKeyPrefixEquals = Nothing, _cHTTPErrorCodeReturnedEquals = Nothing}
+
 
 -- | The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.
 cKeyPrefixEquals :: Lens' Condition (Maybe Text)
@@ -716,9 +712,9 @@ instance FromXML Condition where
               (x .@? "KeyPrefixEquals") <*>
                 (x .@? "HttpErrorCodeReturnedEquals")
 
-instance Hashable Condition
+instance Hashable Condition where
 
-instance NFData Condition
+instance NFData Condition where
 
 instance ToXML Condition where
         toXML Condition'{..}
@@ -729,9 +725,10 @@ instance ToXML Condition where
 
 -- | /See:/ 'copyObjectResult' smart constructor.
 data CopyObjectResult = CopyObjectResult'
-    { _corETag         :: !(Maybe ETag)
-    , _corLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _corETag         :: {-# NOUNPACK #-}!(Maybe ETag)
+  , _corLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyObjectResult' with the minimum fields required to make a request.
 --
@@ -743,10 +740,8 @@ data CopyObjectResult = CopyObjectResult'
 copyObjectResult
     :: CopyObjectResult
 copyObjectResult =
-    CopyObjectResult'
-    { _corETag = Nothing
-    , _corLastModified = Nothing
-    }
+  CopyObjectResult' {_corETag = Nothing, _corLastModified = Nothing}
+
 
 -- | Undocumented member.
 corETag :: Lens' CopyObjectResult (Maybe ETag)
@@ -761,15 +756,16 @@ instance FromXML CopyObjectResult where
           = CopyObjectResult' <$>
               (x .@? "ETag") <*> (x .@? "LastModified")
 
-instance Hashable CopyObjectResult
+instance Hashable CopyObjectResult where
 
-instance NFData CopyObjectResult
+instance NFData CopyObjectResult where
 
 -- | /See:/ 'copyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
-    { _cprETag         :: !(Maybe ETag)
-    , _cprLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprETag         :: {-# NOUNPACK #-}!(Maybe ETag)
+  , _cprLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyPartResult' with the minimum fields required to make a request.
 --
@@ -781,10 +777,8 @@ data CopyPartResult = CopyPartResult'
 copyPartResult
     :: CopyPartResult
 copyPartResult =
-    CopyPartResult'
-    { _cprETag = Nothing
-    , _cprLastModified = Nothing
-    }
+  CopyPartResult' {_cprETag = Nothing, _cprLastModified = Nothing}
+
 
 -- | Entity tag of the object.
 cprETag :: Lens' CopyPartResult (Maybe ETag)
@@ -799,14 +793,15 @@ instance FromXML CopyPartResult where
           = CopyPartResult' <$>
               (x .@? "ETag") <*> (x .@? "LastModified")
 
-instance Hashable CopyPartResult
+instance Hashable CopyPartResult where
 
-instance NFData CopyPartResult
+instance NFData CopyPartResult where
 
 -- | /See:/ 'createBucketConfiguration' smart constructor.
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
-    { _cbcLocationConstraint :: Maybe LocationConstraint
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbcLocationConstraint :: Maybe LocationConstraint
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBucketConfiguration' with the minimum fields required to make a request.
 --
@@ -816,17 +811,16 @@ newtype CreateBucketConfiguration = CreateBucketConfiguration'
 createBucketConfiguration
     :: CreateBucketConfiguration
 createBucketConfiguration =
-    CreateBucketConfiguration'
-    { _cbcLocationConstraint = Nothing
-    }
+  CreateBucketConfiguration' {_cbcLocationConstraint = Nothing}
+
 
 -- | Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
 cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe LocationConstraint)
 cbcLocationConstraint = lens _cbcLocationConstraint (\ s a -> s{_cbcLocationConstraint = a});
 
-instance Hashable CreateBucketConfiguration
+instance Hashable CreateBucketConfiguration where
 
-instance NFData CreateBucketConfiguration
+instance NFData CreateBucketConfiguration where
 
 instance ToXML CreateBucketConfiguration where
         toXML CreateBucketConfiguration'{..}
@@ -835,9 +829,10 @@ instance ToXML CreateBucketConfiguration where
 
 -- | /See:/ 'delete'' smart constructor.
 data Delete = Delete'
-    { _dQuiet   :: !(Maybe Bool)
-    , _dObjects :: ![ObjectIdentifier]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dQuiet   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dObjects :: {-# NOUNPACK #-}![ObjectIdentifier]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Delete' with the minimum fields required to make a request.
 --
@@ -848,11 +843,8 @@ data Delete = Delete'
 -- * 'dObjects' - Undocumented member.
 delete'
     :: Delete
-delete' =
-    Delete'
-    { _dQuiet = Nothing
-    , _dObjects = mempty
-    }
+delete' = Delete' {_dQuiet = Nothing, _dObjects = mempty}
+
 
 -- | Element to enable quiet mode for the request. When you add this element, you must set its value to true.
 dQuiet :: Lens' Delete (Maybe Bool)
@@ -862,9 +854,9 @@ dQuiet = lens _dQuiet (\ s a -> s{_dQuiet = a});
 dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\ s a -> s{_dObjects = a}) . _Coerce;
 
-instance Hashable Delete
+instance Hashable Delete where
 
-instance NFData Delete
+instance NFData Delete where
 
 instance ToXML Delete where
         toXML Delete'{..}
@@ -873,12 +865,13 @@ instance ToXML Delete where
 
 -- | /See:/ 'deleteMarkerEntry' smart constructor.
 data DeleteMarkerEntry = DeleteMarkerEntry'
-    { _dmeVersionId    :: !(Maybe ObjectVersionId)
-    , _dmeIsLatest     :: !(Maybe Bool)
-    , _dmeOwner        :: !(Maybe Owner)
-    , _dmeKey          :: !(Maybe ObjectKey)
-    , _dmeLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmeVersionId    :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _dmeIsLatest     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dmeOwner        :: {-# NOUNPACK #-}!(Maybe Owner)
+  , _dmeKey          :: {-# NOUNPACK #-}!(Maybe ObjectKey)
+  , _dmeLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMarkerEntry' with the minimum fields required to make a request.
 --
@@ -896,13 +889,14 @@ data DeleteMarkerEntry = DeleteMarkerEntry'
 deleteMarkerEntry
     :: DeleteMarkerEntry
 deleteMarkerEntry =
-    DeleteMarkerEntry'
-    { _dmeVersionId = Nothing
-    , _dmeIsLatest = Nothing
-    , _dmeOwner = Nothing
-    , _dmeKey = Nothing
-    , _dmeLastModified = Nothing
-    }
+  DeleteMarkerEntry'
+  { _dmeVersionId = Nothing
+  , _dmeIsLatest = Nothing
+  , _dmeOwner = Nothing
+  , _dmeKey = Nothing
+  , _dmeLastModified = Nothing
+  }
+
 
 -- | Version ID of an object.
 dmeVersionId :: Lens' DeleteMarkerEntry (Maybe ObjectVersionId)
@@ -932,17 +926,18 @@ instance FromXML DeleteMarkerEntry where
                 <*> (x .@? "Key")
                 <*> (x .@? "LastModified")
 
-instance Hashable DeleteMarkerEntry
+instance Hashable DeleteMarkerEntry where
 
-instance NFData DeleteMarkerEntry
+instance NFData DeleteMarkerEntry where
 
 -- | /See:/ 'deletedObject' smart constructor.
 data DeletedObject = DeletedObject'
-    { _dVersionId             :: !(Maybe ObjectVersionId)
-    , _dDeleteMarker          :: !(Maybe Bool)
-    , _dDeleteMarkerVersionId :: !(Maybe Text)
-    , _dKey                   :: !(Maybe ObjectKey)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dVersionId             :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _dDeleteMarker          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dDeleteMarkerVersionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dKey                   :: {-# NOUNPACK #-}!(Maybe ObjectKey)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletedObject' with the minimum fields required to make a request.
 --
@@ -958,12 +953,13 @@ data DeletedObject = DeletedObject'
 deletedObject
     :: DeletedObject
 deletedObject =
-    DeletedObject'
-    { _dVersionId = Nothing
-    , _dDeleteMarker = Nothing
-    , _dDeleteMarkerVersionId = Nothing
-    , _dKey = Nothing
-    }
+  DeletedObject'
+  { _dVersionId = Nothing
+  , _dDeleteMarker = Nothing
+  , _dDeleteMarkerVersionId = Nothing
+  , _dKey = Nothing
+  }
+
 
 -- | Undocumented member.
 dVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
@@ -988,15 +984,16 @@ instance FromXML DeletedObject where
                 (x .@? "DeleteMarkerVersionId")
                 <*> (x .@? "Key")
 
-instance Hashable DeletedObject
+instance Hashable DeletedObject where
 
-instance NFData DeletedObject
+instance NFData DeletedObject where
 
 -- | /See:/ 'destination' smart constructor.
 data Destination = Destination'
-    { _dStorageClass :: !(Maybe StorageClass)
-    , _dBucket       :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
+  , _dBucket       :: {-# NOUNPACK #-}!BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
@@ -1009,10 +1006,8 @@ destination
     :: BucketName -- ^ 'dBucket'
     -> Destination
 destination pBucket_ =
-    Destination'
-    { _dStorageClass = Nothing
-    , _dBucket = pBucket_
-    }
+  Destination' {_dStorageClass = Nothing, _dBucket = pBucket_}
+
 
 -- | The class of storage used to store the object.
 dStorageClass :: Lens' Destination (Maybe StorageClass)
@@ -1027,9 +1022,9 @@ instance FromXML Destination where
           = Destination' <$>
               (x .@? "StorageClass") <*> (x .@ "Bucket")
 
-instance Hashable Destination
+instance Hashable Destination where
 
-instance NFData Destination
+instance NFData Destination where
 
 instance ToXML Destination where
         toXML Destination'{..}
@@ -1039,8 +1034,9 @@ instance ToXML Destination where
 
 -- | /See:/ 'errorDocument' smart constructor.
 newtype ErrorDocument = ErrorDocument'
-    { _edKey :: ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edKey :: ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ErrorDocument' with the minimum fields required to make a request.
 --
@@ -1050,10 +1046,8 @@ newtype ErrorDocument = ErrorDocument'
 errorDocument
     :: ObjectKey -- ^ 'edKey'
     -> ErrorDocument
-errorDocument pKey_ =
-    ErrorDocument'
-    { _edKey = pKey_
-    }
+errorDocument pKey_ = ErrorDocument' {_edKey = pKey_}
+
 
 -- | The object key name to use when a 4XX class error occurs.
 edKey :: Lens' ErrorDocument ObjectKey
@@ -1062,9 +1056,9 @@ edKey = lens _edKey (\ s a -> s{_edKey = a});
 instance FromXML ErrorDocument where
         parseXML x = ErrorDocument' <$> (x .@ "Key")
 
-instance Hashable ErrorDocument
+instance Hashable ErrorDocument where
 
-instance NFData ErrorDocument
+instance NFData ErrorDocument where
 
 instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
@@ -1073,9 +1067,10 @@ instance ToXML ErrorDocument where
 --
 -- /See:/ 'filterRule' smart constructor.
 data FilterRule = FilterRule'
-    { _frValue :: !(Maybe Text)
-    , _frName  :: !(Maybe FilterRuleName)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _frValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _frName  :: {-# NOUNPACK #-}!(Maybe FilterRuleName)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FilterRule' with the minimum fields required to make a request.
 --
@@ -1086,11 +1081,8 @@ data FilterRule = FilterRule'
 -- * 'frName' - <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
 filterRule
     :: FilterRule
-filterRule =
-    FilterRule'
-    { _frValue = Nothing
-    , _frName = Nothing
-    }
+filterRule = FilterRule' {_frValue = Nothing, _frName = Nothing}
+
 
 -- | Undocumented member.
 frValue :: Lens' FilterRule (Maybe Text)
@@ -1104,9 +1096,9 @@ instance FromXML FilterRule where
         parseXML x
           = FilterRule' <$> (x .@? "Value") <*> (x .@? "Name")
 
-instance Hashable FilterRule
+instance Hashable FilterRule where
 
-instance NFData FilterRule
+instance NFData FilterRule where
 
 instance ToXML FilterRule where
         toXML FilterRule'{..}
@@ -1114,8 +1106,9 @@ instance ToXML FilterRule where
 
 -- | /See:/ 'glacierJobParameters' smart constructor.
 newtype GlacierJobParameters = GlacierJobParameters'
-    { _gjpTier :: Tier
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjpTier :: Tier
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlacierJobParameters' with the minimum fields required to make a request.
 --
@@ -1125,18 +1118,16 @@ newtype GlacierJobParameters = GlacierJobParameters'
 glacierJobParameters
     :: Tier -- ^ 'gjpTier'
     -> GlacierJobParameters
-glacierJobParameters pTier_ =
-    GlacierJobParameters'
-    { _gjpTier = pTier_
-    }
+glacierJobParameters pTier_ = GlacierJobParameters' {_gjpTier = pTier_}
+
 
 -- | Glacier retrieval tier at which the restore will be processed.
 gjpTier :: Lens' GlacierJobParameters Tier
 gjpTier = lens _gjpTier (\ s a -> s{_gjpTier = a});
 
-instance Hashable GlacierJobParameters
+instance Hashable GlacierJobParameters where
 
-instance NFData GlacierJobParameters
+instance NFData GlacierJobParameters where
 
 instance ToXML GlacierJobParameters where
         toXML GlacierJobParameters'{..}
@@ -1144,9 +1135,10 @@ instance ToXML GlacierJobParameters where
 
 -- | /See:/ 'grant' smart constructor.
 data Grant = Grant'
-    { _gPermission :: !(Maybe Permission)
-    , _gGrantee    :: !(Maybe Grantee)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gPermission :: {-# NOUNPACK #-}!(Maybe Permission)
+  , _gGrantee    :: {-# NOUNPACK #-}!(Maybe Grantee)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Grant' with the minimum fields required to make a request.
 --
@@ -1157,11 +1149,8 @@ data Grant = Grant'
 -- * 'gGrantee' - Undocumented member.
 grant
     :: Grant
-grant =
-    Grant'
-    { _gPermission = Nothing
-    , _gGrantee = Nothing
-    }
+grant = Grant' {_gPermission = Nothing, _gGrantee = Nothing}
+
 
 -- | Specifies the permission given to the grantee.
 gPermission :: Lens' Grant (Maybe Permission)
@@ -1176,9 +1165,9 @@ instance FromXML Grant where
           = Grant' <$>
               (x .@? "Permission") <*> (x .@? "Grantee")
 
-instance Hashable Grant
+instance Hashable Grant where
 
-instance NFData Grant
+instance NFData Grant where
 
 instance ToXML Grant where
         toXML Grant'{..}
@@ -1188,12 +1177,13 @@ instance ToXML Grant where
 
 -- | /See:/ 'grantee' smart constructor.
 data Grantee = Grantee'
-    { _gURI          :: !(Maybe Text)
-    , _gEmailAddress :: !(Maybe Text)
-    , _gDisplayName  :: !(Maybe Text)
-    , _gId           :: !(Maybe Text)
-    , _gType         :: !Type
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gURI          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gEmailAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gType         :: {-# NOUNPACK #-}!Type
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Grantee' with the minimum fields required to make a request.
 --
@@ -1212,13 +1202,14 @@ grantee
     :: Type -- ^ 'gType'
     -> Grantee
 grantee pType_ =
-    Grantee'
-    { _gURI = Nothing
-    , _gEmailAddress = Nothing
-    , _gDisplayName = Nothing
-    , _gId = Nothing
-    , _gType = pType_
-    }
+  Grantee'
+  { _gURI = Nothing
+  , _gEmailAddress = Nothing
+  , _gDisplayName = Nothing
+  , _gId = Nothing
+  , _gType = pType_
+  }
+
 
 -- | URI of the grantee group.
 gURI :: Lens' Grantee (Maybe Text)
@@ -1248,9 +1239,9 @@ instance FromXML Grantee where
                 <*> (x .@? "ID")
                 <*> (x .@ "xsi:type")
 
-instance Hashable Grantee
+instance Hashable Grantee where
 
-instance NFData Grantee
+instance NFData Grantee where
 
 instance ToXML Grantee where
         toXML Grantee'{..}
@@ -1261,8 +1252,9 @@ instance ToXML Grantee where
 
 -- | /See:/ 'indexDocument' smart constructor.
 newtype IndexDocument = IndexDocument'
-    { _idSuffix :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _idSuffix :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IndexDocument' with the minimum fields required to make a request.
 --
@@ -1272,10 +1264,8 @@ newtype IndexDocument = IndexDocument'
 indexDocument
     :: Text -- ^ 'idSuffix'
     -> IndexDocument
-indexDocument pSuffix_ =
-    IndexDocument'
-    { _idSuffix = pSuffix_
-    }
+indexDocument pSuffix_ = IndexDocument' {_idSuffix = pSuffix_}
+
 
 -- | A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
 idSuffix :: Lens' IndexDocument Text
@@ -1284,9 +1274,9 @@ idSuffix = lens _idSuffix (\ s a -> s{_idSuffix = a});
 instance FromXML IndexDocument where
         parseXML x = IndexDocument' <$> (x .@ "Suffix")
 
-instance Hashable IndexDocument
+instance Hashable IndexDocument where
 
-instance NFData IndexDocument
+instance NFData IndexDocument where
 
 instance ToXML IndexDocument where
         toXML IndexDocument'{..}
@@ -1294,9 +1284,10 @@ instance ToXML IndexDocument where
 
 -- | /See:/ 'initiator' smart constructor.
 data Initiator = Initiator'
-    { _iDisplayName :: !(Maybe Text)
-    , _iId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iDisplayName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Initiator' with the minimum fields required to make a request.
 --
@@ -1307,11 +1298,8 @@ data Initiator = Initiator'
 -- * 'iId' - If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
 initiator
     :: Initiator
-initiator =
-    Initiator'
-    { _iDisplayName = Nothing
-    , _iId = Nothing
-    }
+initiator = Initiator' {_iDisplayName = Nothing, _iId = Nothing}
+
 
 -- | Name of the Principal.
 iDisplayName :: Lens' Initiator (Maybe Text)
@@ -1326,20 +1314,21 @@ instance FromXML Initiator where
           = Initiator' <$>
               (x .@? "DisplayName") <*> (x .@? "ID")
 
-instance Hashable Initiator
+instance Hashable Initiator where
 
-instance NFData Initiator
+instance NFData Initiator where
 
 -- | /See:/ 'inventoryConfiguration' smart constructor.
 data InventoryConfiguration = InventoryConfiguration'
-    { _icOptionalFields         :: !(Maybe [InventoryOptionalField])
-    , _icFilter                 :: !(Maybe InventoryFilter)
-    , _icDestination            :: !InventoryDestination
-    , _icIsEnabled              :: !Bool
-    , _icId                     :: !Text
-    , _icIncludedObjectVersions :: !InventoryIncludedObjectVersions
-    , _icSchedule               :: !InventorySchedule
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _icOptionalFields :: {-# NOUNPACK #-}!(Maybe [InventoryOptionalField])
+  , _icFilter :: {-# NOUNPACK #-}!(Maybe InventoryFilter)
+  , _icDestination :: {-# NOUNPACK #-}!InventoryDestination
+  , _icIsEnabled :: {-# NOUNPACK #-}!Bool
+  , _icId :: {-# NOUNPACK #-}!Text
+  , _icIncludedObjectVersions :: {-# NOUNPACK #-}!InventoryIncludedObjectVersions
+  , _icSchedule :: {-# NOUNPACK #-}!InventorySchedule
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryConfiguration' with the minimum fields required to make a request.
 --
@@ -1366,15 +1355,16 @@ inventoryConfiguration
     -> InventorySchedule -- ^ 'icSchedule'
     -> InventoryConfiguration
 inventoryConfiguration pDestination_ pIsEnabled_ pId_ pIncludedObjectVersions_ pSchedule_ =
-    InventoryConfiguration'
-    { _icOptionalFields = Nothing
-    , _icFilter = Nothing
-    , _icDestination = pDestination_
-    , _icIsEnabled = pIsEnabled_
-    , _icId = pId_
-    , _icIncludedObjectVersions = pIncludedObjectVersions_
-    , _icSchedule = pSchedule_
-    }
+  InventoryConfiguration'
+  { _icOptionalFields = Nothing
+  , _icFilter = Nothing
+  , _icDestination = pDestination_
+  , _icIsEnabled = pIsEnabled_
+  , _icId = pId_
+  , _icIncludedObjectVersions = pIncludedObjectVersions_
+  , _icSchedule = pSchedule_
+  }
+
 
 -- | Contains the optional fields that are included in the inventory results.
 icOptionalFields :: Lens' InventoryConfiguration [InventoryOptionalField]
@@ -1416,9 +1406,9 @@ instance FromXML InventoryConfiguration where
                 <*> (x .@ "IncludedObjectVersions")
                 <*> (x .@ "Schedule")
 
-instance Hashable InventoryConfiguration
+instance Hashable InventoryConfiguration where
 
-instance NFData InventoryConfiguration
+instance NFData InventoryConfiguration where
 
 instance ToXML InventoryConfiguration where
         toXML InventoryConfiguration'{..}
@@ -1434,8 +1424,9 @@ instance ToXML InventoryConfiguration where
 
 -- | /See:/ 'inventoryDestination' smart constructor.
 newtype InventoryDestination = InventoryDestination'
-    { _idS3BucketDestination :: InventoryS3BucketDestination
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _idS3BucketDestination :: InventoryS3BucketDestination
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryDestination' with the minimum fields required to make a request.
 --
@@ -1446,9 +1437,8 @@ inventoryDestination
     :: InventoryS3BucketDestination -- ^ 'idS3BucketDestination'
     -> InventoryDestination
 inventoryDestination pS3BucketDestination_ =
-    InventoryDestination'
-    { _idS3BucketDestination = pS3BucketDestination_
-    }
+  InventoryDestination' {_idS3BucketDestination = pS3BucketDestination_}
+
 
 -- | Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
 idS3BucketDestination :: Lens' InventoryDestination InventoryS3BucketDestination
@@ -1459,9 +1449,9 @@ instance FromXML InventoryDestination where
           = InventoryDestination' <$>
               (x .@ "S3BucketDestination")
 
-instance Hashable InventoryDestination
+instance Hashable InventoryDestination where
 
-instance NFData InventoryDestination
+instance NFData InventoryDestination where
 
 instance ToXML InventoryDestination where
         toXML InventoryDestination'{..}
@@ -1470,8 +1460,9 @@ instance ToXML InventoryDestination where
 
 -- | /See:/ 'inventoryFilter' smart constructor.
 newtype InventoryFilter = InventoryFilter'
-    { _ifPrefix :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifPrefix :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryFilter' with the minimum fields required to make a request.
 --
@@ -1481,10 +1472,8 @@ newtype InventoryFilter = InventoryFilter'
 inventoryFilter
     :: Text -- ^ 'ifPrefix'
     -> InventoryFilter
-inventoryFilter pPrefix_ =
-    InventoryFilter'
-    { _ifPrefix = pPrefix_
-    }
+inventoryFilter pPrefix_ = InventoryFilter' {_ifPrefix = pPrefix_}
+
 
 -- | The prefix that an object must have to be included in the inventory results.
 ifPrefix :: Lens' InventoryFilter Text
@@ -1493,9 +1482,9 @@ ifPrefix = lens _ifPrefix (\ s a -> s{_ifPrefix = a});
 instance FromXML InventoryFilter where
         parseXML x = InventoryFilter' <$> (x .@ "Prefix")
 
-instance Hashable InventoryFilter
+instance Hashable InventoryFilter where
 
-instance NFData InventoryFilter
+instance NFData InventoryFilter where
 
 instance ToXML InventoryFilter where
         toXML InventoryFilter'{..}
@@ -1503,11 +1492,12 @@ instance ToXML InventoryFilter where
 
 -- | /See:/ 'inventoryS3BucketDestination' smart constructor.
 data InventoryS3BucketDestination = InventoryS3BucketDestination'
-    { _isbdPrefix    :: !(Maybe Text)
-    , _isbdAccountId :: !(Maybe Text)
-    , _isbdBucket    :: !BucketName
-    , _isbdFormat    :: !InventoryFormat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isbdPrefix    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isbdAccountId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isbdBucket    :: {-# NOUNPACK #-}!BucketName
+  , _isbdFormat    :: {-# NOUNPACK #-}!InventoryFormat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventoryS3BucketDestination' with the minimum fields required to make a request.
 --
@@ -1525,12 +1515,13 @@ inventoryS3BucketDestination
     -> InventoryFormat -- ^ 'isbdFormat'
     -> InventoryS3BucketDestination
 inventoryS3BucketDestination pBucket_ pFormat_ =
-    InventoryS3BucketDestination'
-    { _isbdPrefix = Nothing
-    , _isbdAccountId = Nothing
-    , _isbdBucket = pBucket_
-    , _isbdFormat = pFormat_
-    }
+  InventoryS3BucketDestination'
+  { _isbdPrefix = Nothing
+  , _isbdAccountId = Nothing
+  , _isbdBucket = pBucket_
+  , _isbdFormat = pFormat_
+  }
+
 
 -- | The prefix that is prepended to all inventory results.
 isbdPrefix :: Lens' InventoryS3BucketDestination (Maybe Text)
@@ -1555,9 +1546,9 @@ instance FromXML InventoryS3BucketDestination where
                 (x .@ "Bucket")
                 <*> (x .@ "Format")
 
-instance Hashable InventoryS3BucketDestination
+instance Hashable InventoryS3BucketDestination where
 
-instance NFData InventoryS3BucketDestination
+instance NFData InventoryS3BucketDestination where
 
 instance ToXML InventoryS3BucketDestination where
         toXML InventoryS3BucketDestination'{..}
@@ -1568,8 +1559,9 @@ instance ToXML InventoryS3BucketDestination where
 
 -- | /See:/ 'inventorySchedule' smart constructor.
 newtype InventorySchedule = InventorySchedule'
-    { _isFrequency :: InventoryFrequency
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isFrequency :: InventoryFrequency
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InventorySchedule' with the minimum fields required to make a request.
 --
@@ -1579,10 +1571,8 @@ newtype InventorySchedule = InventorySchedule'
 inventorySchedule
     :: InventoryFrequency -- ^ 'isFrequency'
     -> InventorySchedule
-inventorySchedule pFrequency_ =
-    InventorySchedule'
-    { _isFrequency = pFrequency_
-    }
+inventorySchedule pFrequency_ = InventorySchedule' {_isFrequency = pFrequency_}
+
 
 -- | Specifies how frequently inventory results are produced.
 isFrequency :: Lens' InventorySchedule InventoryFrequency
@@ -1592,9 +1582,9 @@ instance FromXML InventorySchedule where
         parseXML x
           = InventorySchedule' <$> (x .@ "Frequency")
 
-instance Hashable InventorySchedule
+instance Hashable InventorySchedule where
 
-instance NFData InventorySchedule
+instance NFData InventorySchedule where
 
 instance ToXML InventorySchedule where
         toXML InventorySchedule'{..}
@@ -1604,11 +1594,12 @@ instance ToXML InventorySchedule where
 --
 -- /See:/ 'lambdaFunctionConfiguration' smart constructor.
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
-    { _lfcId                :: !(Maybe Text)
-    , _lfcFilter            :: !(Maybe NotificationConfigurationFilter)
-    , _lfcLambdaFunctionARN :: !Text
-    , _lfcEvents            :: ![Event]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfcId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfcFilter :: {-# NOUNPACK #-}!(Maybe NotificationConfigurationFilter)
+  , _lfcLambdaFunctionARN :: {-# NOUNPACK #-}!Text
+  , _lfcEvents :: {-# NOUNPACK #-}![Event]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionConfiguration' with the minimum fields required to make a request.
 --
@@ -1625,12 +1616,13 @@ lambdaFunctionConfiguration
     :: Text -- ^ 'lfcLambdaFunctionARN'
     -> LambdaFunctionConfiguration
 lambdaFunctionConfiguration pLambdaFunctionARN_ =
-    LambdaFunctionConfiguration'
-    { _lfcId = Nothing
-    , _lfcFilter = Nothing
-    , _lfcLambdaFunctionARN = pLambdaFunctionARN_
-    , _lfcEvents = mempty
-    }
+  LambdaFunctionConfiguration'
+  { _lfcId = Nothing
+  , _lfcFilter = Nothing
+  , _lfcLambdaFunctionARN = pLambdaFunctionARN_
+  , _lfcEvents = mempty
+  }
+
 
 -- | Undocumented member.
 lfcId :: Lens' LambdaFunctionConfiguration (Maybe Text)
@@ -1655,9 +1647,9 @@ instance FromXML LambdaFunctionConfiguration where
                 (x .@ "CloudFunction")
                 <*> (parseXMLList "Event" x)
 
-instance Hashable LambdaFunctionConfiguration
+instance Hashable LambdaFunctionConfiguration where
 
-instance NFData LambdaFunctionConfiguration
+instance NFData LambdaFunctionConfiguration where
 
 instance ToXML LambdaFunctionConfiguration where
         toXML LambdaFunctionConfiguration'{..}
@@ -1668,10 +1660,11 @@ instance ToXML LambdaFunctionConfiguration where
 
 -- | /See:/ 'lifecycleExpiration' smart constructor.
 data LifecycleExpiration = LifecycleExpiration'
-    { _leDays                      :: !(Maybe Int)
-    , _leDate                      :: !(Maybe RFC822)
-    , _leExpiredObjectDeleteMarker :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _leDays                      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _leDate                      :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _leExpiredObjectDeleteMarker :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LifecycleExpiration' with the minimum fields required to make a request.
 --
@@ -1685,11 +1678,9 @@ data LifecycleExpiration = LifecycleExpiration'
 lifecycleExpiration
     :: LifecycleExpiration
 lifecycleExpiration =
-    LifecycleExpiration'
-    { _leDays = Nothing
-    , _leDate = Nothing
-    , _leExpiredObjectDeleteMarker = Nothing
-    }
+  LifecycleExpiration'
+  {_leDays = Nothing, _leDate = Nothing, _leExpiredObjectDeleteMarker = Nothing}
+
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 leDays :: Lens' LifecycleExpiration (Maybe Int)
@@ -1709,9 +1700,9 @@ instance FromXML LifecycleExpiration where
               (x .@? "Days") <*> (x .@? "Date") <*>
                 (x .@? "ExpiredObjectDeleteMarker")
 
-instance Hashable LifecycleExpiration
+instance Hashable LifecycleExpiration where
 
-instance NFData LifecycleExpiration
+instance NFData LifecycleExpiration where
 
 instance ToXML LifecycleExpiration where
         toXML LifecycleExpiration'{..}
@@ -1722,16 +1713,17 @@ instance ToXML LifecycleExpiration where
 
 -- | /See:/ 'lifecycleRule' smart constructor.
 data LifecycleRule = LifecycleRule'
-    { _lrTransitions                    :: !(Maybe [Transition])
-    , _lrNoncurrentVersionExpiration    :: !(Maybe NoncurrentVersionExpiration)
-    , _lrPrefix                         :: !(Maybe Text)
-    , _lrNoncurrentVersionTransitions   :: !(Maybe [NoncurrentVersionTransition])
-    , _lrExpiration                     :: !(Maybe LifecycleExpiration)
-    , _lrId                             :: !(Maybe Text)
-    , _lrFilter                         :: !(Maybe LifecycleRuleFilter)
-    , _lrAbortIncompleteMultipartUpload :: !(Maybe AbortIncompleteMultipartUpload)
-    , _lrStatus                         :: !ExpirationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrTransitions :: {-# NOUNPACK #-}!(Maybe [Transition])
+  , _lrNoncurrentVersionExpiration :: {-# NOUNPACK #-}!(Maybe NoncurrentVersionExpiration)
+  , _lrPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrNoncurrentVersionTransitions :: {-# NOUNPACK #-}!(Maybe [NoncurrentVersionTransition])
+  , _lrExpiration :: {-# NOUNPACK #-}!(Maybe LifecycleExpiration)
+  , _lrId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrFilter :: {-# NOUNPACK #-}!(Maybe LifecycleRuleFilter)
+  , _lrAbortIncompleteMultipartUpload :: {-# NOUNPACK #-}!(Maybe AbortIncompleteMultipartUpload)
+  , _lrStatus :: {-# NOUNPACK #-}!ExpirationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LifecycleRule' with the minimum fields required to make a request.
 --
@@ -1758,17 +1750,18 @@ lifecycleRule
     :: ExpirationStatus -- ^ 'lrStatus'
     -> LifecycleRule
 lifecycleRule pStatus_ =
-    LifecycleRule'
-    { _lrTransitions = Nothing
-    , _lrNoncurrentVersionExpiration = Nothing
-    , _lrPrefix = Nothing
-    , _lrNoncurrentVersionTransitions = Nothing
-    , _lrExpiration = Nothing
-    , _lrId = Nothing
-    , _lrFilter = Nothing
-    , _lrAbortIncompleteMultipartUpload = Nothing
-    , _lrStatus = pStatus_
-    }
+  LifecycleRule'
+  { _lrTransitions = Nothing
+  , _lrNoncurrentVersionExpiration = Nothing
+  , _lrPrefix = Nothing
+  , _lrNoncurrentVersionTransitions = Nothing
+  , _lrExpiration = Nothing
+  , _lrId = Nothing
+  , _lrFilter = Nothing
+  , _lrAbortIncompleteMultipartUpload = Nothing
+  , _lrStatus = pStatus_
+  }
+
 
 -- | Undocumented member.
 lrTransitions :: Lens' LifecycleRule [Transition]
@@ -1820,9 +1813,9 @@ instance FromXML LifecycleRule where
                 <*> (x .@? "AbortIncompleteMultipartUpload")
                 <*> (x .@ "Status")
 
-instance Hashable LifecycleRule
+instance Hashable LifecycleRule where
 
-instance NFData LifecycleRule
+instance NFData LifecycleRule where
 
 instance ToXML LifecycleRule where
         toXML LifecycleRule'{..}
@@ -1844,9 +1837,10 @@ instance ToXML LifecycleRule where
 --
 -- /See:/ 'lifecycleRuleAndOperator' smart constructor.
 data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
-    { _lraoPrefix :: !(Maybe Text)
-    , _lraoTags   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lraoPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lraoTags   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LifecycleRuleAndOperator' with the minimum fields required to make a request.
 --
@@ -1858,10 +1852,8 @@ data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
 lifecycleRuleAndOperator
     :: LifecycleRuleAndOperator
 lifecycleRuleAndOperator =
-    LifecycleRuleAndOperator'
-    { _lraoPrefix = Nothing
-    , _lraoTags = Nothing
-    }
+  LifecycleRuleAndOperator' {_lraoPrefix = Nothing, _lraoTags = Nothing}
+
 
 -- | Undocumented member.
 lraoPrefix :: Lens' LifecycleRuleAndOperator (Maybe Text)
@@ -1877,9 +1869,9 @@ instance FromXML LifecycleRuleAndOperator where
               (x .@? "Prefix") <*>
                 (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
 
-instance Hashable LifecycleRuleAndOperator
+instance Hashable LifecycleRuleAndOperator where
 
-instance NFData LifecycleRuleAndOperator
+instance NFData LifecycleRuleAndOperator where
 
 instance ToXML LifecycleRuleAndOperator where
         toXML LifecycleRuleAndOperator'{..}
@@ -1891,10 +1883,11 @@ instance ToXML LifecycleRuleAndOperator where
 --
 -- /See:/ 'lifecycleRuleFilter' smart constructor.
 data LifecycleRuleFilter = LifecycleRuleFilter'
-    { _lrfTag    :: !(Maybe Tag)
-    , _lrfPrefix :: !(Maybe Text)
-    , _lrfAnd    :: !(Maybe LifecycleRuleAndOperator)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrfTag    :: {-# NOUNPACK #-}!(Maybe Tag)
+  , _lrfPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrfAnd    :: {-# NOUNPACK #-}!(Maybe LifecycleRuleAndOperator)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LifecycleRuleFilter' with the minimum fields required to make a request.
 --
@@ -1908,11 +1901,9 @@ data LifecycleRuleFilter = LifecycleRuleFilter'
 lifecycleRuleFilter
     :: LifecycleRuleFilter
 lifecycleRuleFilter =
-    LifecycleRuleFilter'
-    { _lrfTag = Nothing
-    , _lrfPrefix = Nothing
-    , _lrfAnd = Nothing
-    }
+  LifecycleRuleFilter'
+  {_lrfTag = Nothing, _lrfPrefix = Nothing, _lrfAnd = Nothing}
+
 
 -- | This tag must exist in the object's tag set in order for the rule to apply.
 lrfTag :: Lens' LifecycleRuleFilter (Maybe Tag)
@@ -1931,9 +1922,9 @@ instance FromXML LifecycleRuleFilter where
           = LifecycleRuleFilter' <$>
               (x .@? "Tag") <*> (x .@? "Prefix") <*> (x .@? "And")
 
-instance Hashable LifecycleRuleFilter
+instance Hashable LifecycleRuleFilter where
 
-instance NFData LifecycleRuleFilter
+instance NFData LifecycleRuleFilter where
 
 instance ToXML LifecycleRuleFilter where
         toXML LifecycleRuleFilter'{..}
@@ -1943,10 +1934,11 @@ instance ToXML LifecycleRuleFilter where
 
 -- | /See:/ 'loggingEnabled' smart constructor.
 data LoggingEnabled = LoggingEnabled'
-    { _leTargetBucket :: !(Maybe Text)
-    , _leTargetGrants :: !(Maybe [TargetGrant])
-    , _leTargetPrefix :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _leTargetBucket :: {-# NOUNPACK #-}!(Maybe Text)
+  , _leTargetGrants :: {-# NOUNPACK #-}!(Maybe [TargetGrant])
+  , _leTargetPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoggingEnabled' with the minimum fields required to make a request.
 --
@@ -1960,11 +1952,12 @@ data LoggingEnabled = LoggingEnabled'
 loggingEnabled
     :: LoggingEnabled
 loggingEnabled =
-    LoggingEnabled'
-    { _leTargetBucket = Nothing
-    , _leTargetGrants = Nothing
-    , _leTargetPrefix = Nothing
-    }
+  LoggingEnabled'
+  { _leTargetBucket = Nothing
+  , _leTargetGrants = Nothing
+  , _leTargetPrefix = Nothing
+  }
+
 
 -- | Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.
 leTargetBucket :: Lens' LoggingEnabled (Maybe Text)
@@ -1986,9 +1979,9 @@ instance FromXML LoggingEnabled where
                    may (parseXMLList "Grant"))
                 <*> (x .@? "TargetPrefix")
 
-instance Hashable LoggingEnabled
+instance Hashable LoggingEnabled where
 
-instance NFData LoggingEnabled
+instance NFData LoggingEnabled where
 
 instance ToXML LoggingEnabled where
         toXML LoggingEnabled'{..}
@@ -2000,9 +1993,10 @@ instance ToXML LoggingEnabled where
 
 -- | /See:/ 'metricsAndOperator' smart constructor.
 data MetricsAndOperator = MetricsAndOperator'
-    { _maoPrefix :: !(Maybe Text)
-    , _maoTags   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _maoPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maoTags   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricsAndOperator' with the minimum fields required to make a request.
 --
@@ -2014,10 +2008,8 @@ data MetricsAndOperator = MetricsAndOperator'
 metricsAndOperator
     :: MetricsAndOperator
 metricsAndOperator =
-    MetricsAndOperator'
-    { _maoPrefix = Nothing
-    , _maoTags = Nothing
-    }
+  MetricsAndOperator' {_maoPrefix = Nothing, _maoTags = Nothing}
+
 
 -- | The prefix used when evaluating an AND predicate.
 maoPrefix :: Lens' MetricsAndOperator (Maybe Text)
@@ -2033,9 +2025,9 @@ instance FromXML MetricsAndOperator where
               (x .@? "Prefix") <*>
                 (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
 
-instance Hashable MetricsAndOperator
+instance Hashable MetricsAndOperator where
 
-instance NFData MetricsAndOperator
+instance NFData MetricsAndOperator where
 
 instance ToXML MetricsAndOperator where
         toXML MetricsAndOperator'{..}
@@ -2045,9 +2037,10 @@ instance ToXML MetricsAndOperator where
 
 -- | /See:/ 'metricsConfiguration' smart constructor.
 data MetricsConfiguration = MetricsConfiguration'
-    { _mcFilter :: !(Maybe MetricsFilter)
-    , _mcId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcFilter :: {-# NOUNPACK #-}!(Maybe MetricsFilter)
+  , _mcId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricsConfiguration' with the minimum fields required to make a request.
 --
@@ -2060,10 +2053,8 @@ metricsConfiguration
     :: Text -- ^ 'mcId'
     -> MetricsConfiguration
 metricsConfiguration pId_ =
-    MetricsConfiguration'
-    { _mcFilter = Nothing
-    , _mcId = pId_
-    }
+  MetricsConfiguration' {_mcFilter = Nothing, _mcId = pId_}
+
 
 -- | Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
 mcFilter :: Lens' MetricsConfiguration (Maybe MetricsFilter)
@@ -2078,9 +2069,9 @@ instance FromXML MetricsConfiguration where
           = MetricsConfiguration' <$>
               (x .@? "Filter") <*> (x .@ "Id")
 
-instance Hashable MetricsConfiguration
+instance Hashable MetricsConfiguration where
 
-instance NFData MetricsConfiguration
+instance NFData MetricsConfiguration where
 
 instance ToXML MetricsConfiguration where
         toXML MetricsConfiguration'{..}
@@ -2088,10 +2079,11 @@ instance ToXML MetricsConfiguration where
 
 -- | /See:/ 'metricsFilter' smart constructor.
 data MetricsFilter = MetricsFilter'
-    { _mfTag    :: !(Maybe Tag)
-    , _mfPrefix :: !(Maybe Text)
-    , _mfAnd    :: !(Maybe MetricsAndOperator)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mfTag    :: {-# NOUNPACK #-}!(Maybe Tag)
+  , _mfPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mfAnd    :: {-# NOUNPACK #-}!(Maybe MetricsAndOperator)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricsFilter' with the minimum fields required to make a request.
 --
@@ -2105,11 +2097,8 @@ data MetricsFilter = MetricsFilter'
 metricsFilter
     :: MetricsFilter
 metricsFilter =
-    MetricsFilter'
-    { _mfTag = Nothing
-    , _mfPrefix = Nothing
-    , _mfAnd = Nothing
-    }
+  MetricsFilter' {_mfTag = Nothing, _mfPrefix = Nothing, _mfAnd = Nothing}
+
 
 -- | The tag used when evaluating a metrics filter.
 mfTag :: Lens' MetricsFilter (Maybe Tag)
@@ -2128,9 +2117,9 @@ instance FromXML MetricsFilter where
           = MetricsFilter' <$>
               (x .@? "Tag") <*> (x .@? "Prefix") <*> (x .@? "And")
 
-instance Hashable MetricsFilter
+instance Hashable MetricsFilter where
 
-instance NFData MetricsFilter
+instance NFData MetricsFilter where
 
 instance ToXML MetricsFilter where
         toXML MetricsFilter'{..}
@@ -2140,13 +2129,14 @@ instance ToXML MetricsFilter where
 
 -- | /See:/ 'multipartUpload' smart constructor.
 data MultipartUpload = MultipartUpload'
-    { _muInitiated    :: !(Maybe RFC822)
-    , _muInitiator    :: !(Maybe Initiator)
-    , _muOwner        :: !(Maybe Owner)
-    , _muKey          :: !(Maybe ObjectKey)
-    , _muStorageClass :: !(Maybe StorageClass)
-    , _muUploadId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _muInitiated    :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _muInitiator    :: {-# NOUNPACK #-}!(Maybe Initiator)
+  , _muOwner        :: {-# NOUNPACK #-}!(Maybe Owner)
+  , _muKey          :: {-# NOUNPACK #-}!(Maybe ObjectKey)
+  , _muStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
+  , _muUploadId     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MultipartUpload' with the minimum fields required to make a request.
 --
@@ -2166,14 +2156,15 @@ data MultipartUpload = MultipartUpload'
 multipartUpload
     :: MultipartUpload
 multipartUpload =
-    MultipartUpload'
-    { _muInitiated = Nothing
-    , _muInitiator = Nothing
-    , _muOwner = Nothing
-    , _muKey = Nothing
-    , _muStorageClass = Nothing
-    , _muUploadId = Nothing
-    }
+  MultipartUpload'
+  { _muInitiated = Nothing
+  , _muInitiator = Nothing
+  , _muOwner = Nothing
+  , _muKey = Nothing
+  , _muStorageClass = Nothing
+  , _muUploadId = Nothing
+  }
+
 
 -- | Date and time at which the multipart upload was initiated.
 muInitiated :: Lens' MultipartUpload (Maybe UTCTime)
@@ -2208,16 +2199,17 @@ instance FromXML MultipartUpload where
                 <*> (x .@? "StorageClass")
                 <*> (x .@? "UploadId")
 
-instance Hashable MultipartUpload
+instance Hashable MultipartUpload where
 
-instance NFData MultipartUpload
+instance NFData MultipartUpload where
 
 -- | Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
 --
 -- /See:/ 'noncurrentVersionExpiration' smart constructor.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
-    { _nveNoncurrentDays :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nveNoncurrentDays :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NoncurrentVersionExpiration' with the minimum fields required to make a request.
 --
@@ -2228,9 +2220,8 @@ noncurrentVersionExpiration
     :: Int -- ^ 'nveNoncurrentDays'
     -> NoncurrentVersionExpiration
 noncurrentVersionExpiration pNoncurrentDays_ =
-    NoncurrentVersionExpiration'
-    { _nveNoncurrentDays = pNoncurrentDays_
-    }
+  NoncurrentVersionExpiration' {_nveNoncurrentDays = pNoncurrentDays_}
+
 
 -- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
 nveNoncurrentDays :: Lens' NoncurrentVersionExpiration Int
@@ -2241,9 +2232,9 @@ instance FromXML NoncurrentVersionExpiration where
           = NoncurrentVersionExpiration' <$>
               (x .@ "NoncurrentDays")
 
-instance Hashable NoncurrentVersionExpiration
+instance Hashable NoncurrentVersionExpiration where
 
-instance NFData NoncurrentVersionExpiration
+instance NFData NoncurrentVersionExpiration where
 
 instance ToXML NoncurrentVersionExpiration where
         toXML NoncurrentVersionExpiration'{..}
@@ -2253,9 +2244,10 @@ instance ToXML NoncurrentVersionExpiration where
 --
 -- /See:/ 'noncurrentVersionTransition' smart constructor.
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
-    { _nvtNoncurrentDays :: !Int
-    , _nvtStorageClass   :: !TransitionStorageClass
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nvtNoncurrentDays :: {-# NOUNPACK #-}!Int
+  , _nvtStorageClass   :: {-# NOUNPACK #-}!TransitionStorageClass
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NoncurrentVersionTransition' with the minimum fields required to make a request.
 --
@@ -2269,10 +2261,9 @@ noncurrentVersionTransition
     -> TransitionStorageClass -- ^ 'nvtStorageClass'
     -> NoncurrentVersionTransition
 noncurrentVersionTransition pNoncurrentDays_ pStorageClass_ =
-    NoncurrentVersionTransition'
-    { _nvtNoncurrentDays = pNoncurrentDays_
-    , _nvtStorageClass = pStorageClass_
-    }
+  NoncurrentVersionTransition'
+  {_nvtNoncurrentDays = pNoncurrentDays_, _nvtStorageClass = pStorageClass_}
+
 
 -- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
 nvtNoncurrentDays :: Lens' NoncurrentVersionTransition Int
@@ -2287,9 +2278,9 @@ instance FromXML NoncurrentVersionTransition where
           = NoncurrentVersionTransition' <$>
               (x .@ "NoncurrentDays") <*> (x .@ "StorageClass")
 
-instance Hashable NoncurrentVersionTransition
+instance Hashable NoncurrentVersionTransition where
 
-instance NFData NoncurrentVersionTransition
+instance NFData NoncurrentVersionTransition where
 
 instance ToXML NoncurrentVersionTransition where
         toXML NoncurrentVersionTransition'{..}
@@ -2301,10 +2292,11 @@ instance ToXML NoncurrentVersionTransition where
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-    { _ncQueueConfigurations          :: !(Maybe [QueueConfiguration])
-    , _ncTopicConfigurations          :: !(Maybe [TopicConfiguration])
-    , _ncLambdaFunctionConfigurations :: !(Maybe [LambdaFunctionConfiguration])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ncQueueConfigurations :: {-# NOUNPACK #-}!(Maybe [QueueConfiguration])
+  , _ncTopicConfigurations :: {-# NOUNPACK #-}!(Maybe [TopicConfiguration])
+  , _ncLambdaFunctionConfigurations :: {-# NOUNPACK #-}!(Maybe [LambdaFunctionConfiguration])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
 --
@@ -2318,11 +2310,12 @@ data NotificationConfiguration = NotificationConfiguration'
 notificationConfiguration
     :: NotificationConfiguration
 notificationConfiguration =
-    NotificationConfiguration'
-    { _ncQueueConfigurations = Nothing
-    , _ncTopicConfigurations = Nothing
-    , _ncLambdaFunctionConfigurations = Nothing
-    }
+  NotificationConfiguration'
+  { _ncQueueConfigurations = Nothing
+  , _ncTopicConfigurations = Nothing
+  , _ncLambdaFunctionConfigurations = Nothing
+  }
+
 
 -- | Undocumented member.
 ncQueueConfigurations :: Lens' NotificationConfiguration [QueueConfiguration]
@@ -2344,9 +2337,9 @@ instance FromXML NotificationConfiguration where
                 <*>
                 (may (parseXMLList "CloudFunctionConfiguration") x)
 
-instance Hashable NotificationConfiguration
+instance Hashable NotificationConfiguration where
 
-instance NFData NotificationConfiguration
+instance NFData NotificationConfiguration where
 
 instance ToXML NotificationConfiguration where
         toXML NotificationConfiguration'{..}
@@ -2365,8 +2358,9 @@ instance ToXML NotificationConfiguration where
 --
 -- /See:/ 'notificationConfigurationFilter' smart constructor.
 newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
-    { _ncfKey :: Maybe S3KeyFilter
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ncfKey :: Maybe S3KeyFilter
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotificationConfigurationFilter' with the minimum fields required to make a request.
 --
@@ -2376,9 +2370,8 @@ newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
 notificationConfigurationFilter
     :: NotificationConfigurationFilter
 notificationConfigurationFilter =
-    NotificationConfigurationFilter'
-    { _ncfKey = Nothing
-    }
+  NotificationConfigurationFilter' {_ncfKey = Nothing}
+
 
 -- | Undocumented member.
 ncfKey :: Lens' NotificationConfigurationFilter (Maybe S3KeyFilter)
@@ -2391,8 +2384,9 @@ instance FromXML NotificationConfigurationFilter
               (x .@? "S3Key")
 
 instance Hashable NotificationConfigurationFilter
+         where
 
-instance NFData NotificationConfigurationFilter
+instance NFData NotificationConfigurationFilter where
 
 instance ToXML NotificationConfigurationFilter where
         toXML NotificationConfigurationFilter'{..}
@@ -2400,13 +2394,14 @@ instance ToXML NotificationConfigurationFilter where
 
 -- | /See:/ 'object'' smart constructor.
 data Object = Object'
-    { _oOwner        :: !(Maybe Owner)
-    , _oETag         :: !ETag
-    , _oSize         :: !Int
-    , _oKey          :: !ObjectKey
-    , _oStorageClass :: !ObjectStorageClass
-    , _oLastModified :: !RFC822
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oOwner        :: {-# NOUNPACK #-}!(Maybe Owner)
+  , _oETag         :: {-# NOUNPACK #-}!ETag
+  , _oSize         :: {-# NOUNPACK #-}!Int
+  , _oKey          :: {-# NOUNPACK #-}!ObjectKey
+  , _oStorageClass :: {-# NOUNPACK #-}!ObjectStorageClass
+  , _oLastModified :: {-# NOUNPACK #-}!RFC822
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Object' with the minimum fields required to make a request.
 --
@@ -2431,14 +2426,15 @@ object'
     -> UTCTime -- ^ 'oLastModified'
     -> Object
 object' pETag_ pSize_ pKey_ pStorageClass_ pLastModified_ =
-    Object'
-    { _oOwner = Nothing
-    , _oETag = pETag_
-    , _oSize = pSize_
-    , _oKey = pKey_
-    , _oStorageClass = pStorageClass_
-    , _oLastModified = _Time # pLastModified_
-    }
+  Object'
+  { _oOwner = Nothing
+  , _oETag = pETag_
+  , _oSize = pSize_
+  , _oKey = pKey_
+  , _oStorageClass = pStorageClass_
+  , _oLastModified = _Time # pLastModified_
+  }
+
 
 -- | Undocumented member.
 oOwner :: Lens' Object (Maybe Owner)
@@ -2472,15 +2468,16 @@ instance FromXML Object where
                 <*> (x .@ "StorageClass")
                 <*> (x .@ "LastModified")
 
-instance Hashable Object
+instance Hashable Object where
 
-instance NFData Object
+instance NFData Object where
 
 -- | /See:/ 'objectIdentifier' smart constructor.
 data ObjectIdentifier = ObjectIdentifier'
-    { _oiVersionId :: !(Maybe ObjectVersionId)
-    , _oiKey       :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oiVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _oiKey       :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ObjectIdentifier' with the minimum fields required to make a request.
 --
@@ -2493,10 +2490,8 @@ objectIdentifier
     :: ObjectKey -- ^ 'oiKey'
     -> ObjectIdentifier
 objectIdentifier pKey_ =
-    ObjectIdentifier'
-    { _oiVersionId = Nothing
-    , _oiKey = pKey_
-    }
+  ObjectIdentifier' {_oiVersionId = Nothing, _oiKey = pKey_}
+
 
 -- | VersionId for the specific version of the object to delete.
 oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
@@ -2506,9 +2501,9 @@ oiVersionId = lens _oiVersionId (\ s a -> s{_oiVersionId = a});
 oiKey :: Lens' ObjectIdentifier ObjectKey
 oiKey = lens _oiKey (\ s a -> s{_oiKey = a});
 
-instance Hashable ObjectIdentifier
+instance Hashable ObjectIdentifier where
 
-instance NFData ObjectIdentifier
+instance NFData ObjectIdentifier where
 
 instance ToXML ObjectIdentifier where
         toXML ObjectIdentifier'{..}
@@ -2517,15 +2512,16 @@ instance ToXML ObjectIdentifier where
 
 -- | /See:/ 'objectVersion' smart constructor.
 data ObjectVersion = ObjectVersion'
-    { _ovETag         :: !(Maybe ETag)
-    , _ovVersionId    :: !(Maybe ObjectVersionId)
-    , _ovSize         :: !(Maybe Int)
-    , _ovIsLatest     :: !(Maybe Bool)
-    , _ovOwner        :: !(Maybe Owner)
-    , _ovKey          :: !(Maybe ObjectKey)
-    , _ovStorageClass :: !(Maybe ObjectVersionStorageClass)
-    , _ovLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ovETag         :: {-# NOUNPACK #-}!(Maybe ETag)
+  , _ovVersionId    :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _ovSize         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ovIsLatest     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ovOwner        :: {-# NOUNPACK #-}!(Maybe Owner)
+  , _ovKey          :: {-# NOUNPACK #-}!(Maybe ObjectKey)
+  , _ovStorageClass :: {-# NOUNPACK #-}!(Maybe ObjectVersionStorageClass)
+  , _ovLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ObjectVersion' with the minimum fields required to make a request.
 --
@@ -2549,16 +2545,17 @@ data ObjectVersion = ObjectVersion'
 objectVersion
     :: ObjectVersion
 objectVersion =
-    ObjectVersion'
-    { _ovETag = Nothing
-    , _ovVersionId = Nothing
-    , _ovSize = Nothing
-    , _ovIsLatest = Nothing
-    , _ovOwner = Nothing
-    , _ovKey = Nothing
-    , _ovStorageClass = Nothing
-    , _ovLastModified = Nothing
-    }
+  ObjectVersion'
+  { _ovETag = Nothing
+  , _ovVersionId = Nothing
+  , _ovSize = Nothing
+  , _ovIsLatest = Nothing
+  , _ovOwner = Nothing
+  , _ovKey = Nothing
+  , _ovStorageClass = Nothing
+  , _ovLastModified = Nothing
+  }
+
 
 -- | Undocumented member.
 ovETag :: Lens' ObjectVersion (Maybe ETag)
@@ -2603,15 +2600,16 @@ instance FromXML ObjectVersion where
                 <*> (x .@? "StorageClass")
                 <*> (x .@? "LastModified")
 
-instance Hashable ObjectVersion
+instance Hashable ObjectVersion where
 
-instance NFData ObjectVersion
+instance NFData ObjectVersion where
 
 -- | /See:/ 'owner' smart constructor.
 data Owner = Owner'
-    { _oDisplayName :: !(Maybe Text)
-    , _oId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oDisplayName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Owner' with the minimum fields required to make a request.
 --
@@ -2622,11 +2620,8 @@ data Owner = Owner'
 -- * 'oId' - Undocumented member.
 owner
     :: Owner
-owner =
-    Owner'
-    { _oDisplayName = Nothing
-    , _oId = Nothing
-    }
+owner = Owner' {_oDisplayName = Nothing, _oId = Nothing}
+
 
 -- | Undocumented member.
 oDisplayName :: Lens' Owner (Maybe Text)
@@ -2640,9 +2635,9 @@ instance FromXML Owner where
         parseXML x
           = Owner' <$> (x .@? "DisplayName") <*> (x .@? "ID")
 
-instance Hashable Owner
+instance Hashable Owner where
 
-instance NFData Owner
+instance NFData Owner where
 
 instance ToXML Owner where
         toXML Owner'{..}
@@ -2651,11 +2646,12 @@ instance ToXML Owner where
 
 -- | /See:/ 'part' smart constructor.
 data Part = Part'
-    { _pETag         :: !(Maybe ETag)
-    , _pSize         :: !(Maybe Int)
-    , _pPartNumber   :: !(Maybe Int)
-    , _pLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pETag         :: {-# NOUNPACK #-}!(Maybe ETag)
+  , _pSize         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pPartNumber   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Part' with the minimum fields required to make a request.
 --
@@ -2671,12 +2667,13 @@ data Part = Part'
 part
     :: Part
 part =
-    Part'
-    { _pETag = Nothing
-    , _pSize = Nothing
-    , _pPartNumber = Nothing
-    , _pLastModified = Nothing
-    }
+  Part'
+  { _pETag = Nothing
+  , _pSize = Nothing
+  , _pPartNumber = Nothing
+  , _pLastModified = Nothing
+  }
+
 
 -- | Entity tag returned when the part was uploaded.
 pETag :: Lens' Part (Maybe ETag)
@@ -2701,19 +2698,20 @@ instance FromXML Part where
                 (x .@? "PartNumber")
                 <*> (x .@? "LastModified")
 
-instance Hashable Part
+instance Hashable Part where
 
-instance NFData Part
+instance NFData Part where
 
 -- | Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue.
 --
 -- /See:/ 'queueConfiguration' smart constructor.
 data QueueConfiguration = QueueConfiguration'
-    { _qcId       :: !(Maybe Text)
-    , _qcFilter   :: !(Maybe NotificationConfigurationFilter)
-    , _qcQueueARN :: !Text
-    , _qcEvents   :: ![Event]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qcId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qcFilter   :: {-# NOUNPACK #-}!(Maybe NotificationConfigurationFilter)
+  , _qcQueueARN :: {-# NOUNPACK #-}!Text
+  , _qcEvents   :: {-# NOUNPACK #-}![Event]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueueConfiguration' with the minimum fields required to make a request.
 --
@@ -2730,12 +2728,13 @@ queueConfiguration
     :: Text -- ^ 'qcQueueARN'
     -> QueueConfiguration
 queueConfiguration pQueueARN_ =
-    QueueConfiguration'
-    { _qcId = Nothing
-    , _qcFilter = Nothing
-    , _qcQueueARN = pQueueARN_
-    , _qcEvents = mempty
-    }
+  QueueConfiguration'
+  { _qcId = Nothing
+  , _qcFilter = Nothing
+  , _qcQueueARN = pQueueARN_
+  , _qcEvents = mempty
+  }
+
 
 -- | Undocumented member.
 qcId :: Lens' QueueConfiguration (Maybe Text)
@@ -2759,9 +2758,9 @@ instance FromXML QueueConfiguration where
               (x .@? "Id") <*> (x .@? "Filter") <*> (x .@ "Queue")
                 <*> (parseXMLList "Event" x)
 
-instance Hashable QueueConfiguration
+instance Hashable QueueConfiguration where
 
-instance NFData QueueConfiguration
+instance NFData QueueConfiguration where
 
 instance ToXML QueueConfiguration where
         toXML QueueConfiguration'{..}
@@ -2771,12 +2770,13 @@ instance ToXML QueueConfiguration where
 
 -- | /See:/ 'redirect' smart constructor.
 data Redirect = Redirect'
-    { _rHostName             :: !(Maybe Text)
-    , _rProtocol             :: !(Maybe Protocol)
-    , _rHTTPRedirectCode     :: !(Maybe Text)
-    , _rReplaceKeyWith       :: !(Maybe Text)
-    , _rReplaceKeyPrefixWith :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rHostName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rProtocol             :: {-# NOUNPACK #-}!(Maybe Protocol)
+  , _rHTTPRedirectCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rReplaceKeyWith       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rReplaceKeyPrefixWith :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Redirect' with the minimum fields required to make a request.
 --
@@ -2794,13 +2794,14 @@ data Redirect = Redirect'
 redirect
     :: Redirect
 redirect =
-    Redirect'
-    { _rHostName = Nothing
-    , _rProtocol = Nothing
-    , _rHTTPRedirectCode = Nothing
-    , _rReplaceKeyWith = Nothing
-    , _rReplaceKeyPrefixWith = Nothing
-    }
+  Redirect'
+  { _rHostName = Nothing
+  , _rProtocol = Nothing
+  , _rHTTPRedirectCode = Nothing
+  , _rReplaceKeyWith = Nothing
+  , _rReplaceKeyPrefixWith = Nothing
+  }
+
 
 -- | The host name to use in the redirect request.
 rHostName :: Lens' Redirect (Maybe Text)
@@ -2830,9 +2831,9 @@ instance FromXML Redirect where
                 <*> (x .@? "ReplaceKeyWith")
                 <*> (x .@? "ReplaceKeyPrefixWith")
 
-instance Hashable Redirect
+instance Hashable Redirect where
 
-instance NFData Redirect
+instance NFData Redirect where
 
 instance ToXML Redirect where
         toXML Redirect'{..}
@@ -2844,9 +2845,10 @@ instance ToXML Redirect where
 
 -- | /See:/ 'redirectAllRequestsTo' smart constructor.
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
-    { _rartProtocol :: !(Maybe Protocol)
-    , _rartHostName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rartProtocol :: {-# NOUNPACK #-}!(Maybe Protocol)
+  , _rartHostName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedirectAllRequestsTo' with the minimum fields required to make a request.
 --
@@ -2859,10 +2861,8 @@ redirectAllRequestsTo
     :: Text -- ^ 'rartHostName'
     -> RedirectAllRequestsTo
 redirectAllRequestsTo pHostName_ =
-    RedirectAllRequestsTo'
-    { _rartProtocol = Nothing
-    , _rartHostName = pHostName_
-    }
+  RedirectAllRequestsTo' {_rartProtocol = Nothing, _rartHostName = pHostName_}
+
 
 -- | Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
 rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
@@ -2877,9 +2877,9 @@ instance FromXML RedirectAllRequestsTo where
           = RedirectAllRequestsTo' <$>
               (x .@? "Protocol") <*> (x .@ "HostName")
 
-instance Hashable RedirectAllRequestsTo
+instance Hashable RedirectAllRequestsTo where
 
-instance NFData RedirectAllRequestsTo
+instance NFData RedirectAllRequestsTo where
 
 instance ToXML RedirectAllRequestsTo where
         toXML RedirectAllRequestsTo'{..}
@@ -2891,9 +2891,10 @@ instance ToXML RedirectAllRequestsTo where
 --
 -- /See:/ 'replicationConfiguration' smart constructor.
 data ReplicationConfiguration = ReplicationConfiguration'
-    { _rcRole  :: !Text
-    , _rcRules :: ![ReplicationRule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcRole  :: {-# NOUNPACK #-}!Text
+  , _rcRules :: {-# NOUNPACK #-}![ReplicationRule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationConfiguration' with the minimum fields required to make a request.
 --
@@ -2906,10 +2907,8 @@ replicationConfiguration
     :: Text -- ^ 'rcRole'
     -> ReplicationConfiguration
 replicationConfiguration pRole_ =
-    ReplicationConfiguration'
-    { _rcRole = pRole_
-    , _rcRules = mempty
-    }
+  ReplicationConfiguration' {_rcRole = pRole_, _rcRules = mempty}
+
 
 -- | Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects.
 rcRole :: Lens' ReplicationConfiguration Text
@@ -2924,9 +2923,9 @@ instance FromXML ReplicationConfiguration where
           = ReplicationConfiguration' <$>
               (x .@ "Role") <*> (parseXMLList "Rule" x)
 
-instance Hashable ReplicationConfiguration
+instance Hashable ReplicationConfiguration where
 
-instance NFData ReplicationConfiguration
+instance NFData ReplicationConfiguration where
 
 instance ToXML ReplicationConfiguration where
         toXML ReplicationConfiguration'{..}
@@ -2935,11 +2934,12 @@ instance ToXML ReplicationConfiguration where
 
 -- | /See:/ 'replicationRule' smart constructor.
 data ReplicationRule = ReplicationRule'
-    { _rrId          :: !(Maybe Text)
-    , _rrPrefix      :: !Text
-    , _rrStatus      :: !ReplicationRuleStatus
-    , _rrDestination :: !Destination
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrPrefix      :: {-# NOUNPACK #-}!Text
+  , _rrStatus      :: {-# NOUNPACK #-}!ReplicationRuleStatus
+  , _rrDestination :: {-# NOUNPACK #-}!Destination
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationRule' with the minimum fields required to make a request.
 --
@@ -2958,12 +2958,13 @@ replicationRule
     -> Destination -- ^ 'rrDestination'
     -> ReplicationRule
 replicationRule pPrefix_ pStatus_ pDestination_ =
-    ReplicationRule'
-    { _rrId = Nothing
-    , _rrPrefix = pPrefix_
-    , _rrStatus = pStatus_
-    , _rrDestination = pDestination_
-    }
+  ReplicationRule'
+  { _rrId = Nothing
+  , _rrPrefix = pPrefix_
+  , _rrStatus = pStatus_
+  , _rrDestination = pDestination_
+  }
+
 
 -- | Unique identifier for the rule. The value cannot be longer than 255 characters.
 rrId :: Lens' ReplicationRule (Maybe Text)
@@ -2987,9 +2988,9 @@ instance FromXML ReplicationRule where
               (x .@? "ID") <*> (x .@ "Prefix") <*> (x .@ "Status")
                 <*> (x .@ "Destination")
 
-instance Hashable ReplicationRule
+instance Hashable ReplicationRule where
 
-instance NFData ReplicationRule
+instance NFData ReplicationRule where
 
 instance ToXML ReplicationRule where
         toXML ReplicationRule'{..}
@@ -3000,8 +3001,9 @@ instance ToXML ReplicationRule where
 
 -- | /See:/ 'requestPaymentConfiguration' smart constructor.
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
-    { _rpcPayer :: Payer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpcPayer :: Payer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestPaymentConfiguration' with the minimum fields required to make a request.
 --
@@ -3012,17 +3014,16 @@ requestPaymentConfiguration
     :: Payer -- ^ 'rpcPayer'
     -> RequestPaymentConfiguration
 requestPaymentConfiguration pPayer_ =
-    RequestPaymentConfiguration'
-    { _rpcPayer = pPayer_
-    }
+  RequestPaymentConfiguration' {_rpcPayer = pPayer_}
+
 
 -- | Specifies who pays for the download and request fees.
 rpcPayer :: Lens' RequestPaymentConfiguration Payer
 rpcPayer = lens _rpcPayer (\ s a -> s{_rpcPayer = a});
 
-instance Hashable RequestPaymentConfiguration
+instance Hashable RequestPaymentConfiguration where
 
-instance NFData RequestPaymentConfiguration
+instance NFData RequestPaymentConfiguration where
 
 instance ToXML RequestPaymentConfiguration where
         toXML RequestPaymentConfiguration'{..}
@@ -3030,9 +3031,10 @@ instance ToXML RequestPaymentConfiguration where
 
 -- | /See:/ 'restoreRequest' smart constructor.
 data RestoreRequest = RestoreRequest'
-    { _rrGlacierJobParameters :: !(Maybe GlacierJobParameters)
-    , _rrDays                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrGlacierJobParameters :: {-# NOUNPACK #-}!(Maybe GlacierJobParameters)
+  , _rrDays                 :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreRequest' with the minimum fields required to make a request.
 --
@@ -3045,10 +3047,8 @@ restoreRequest
     :: Int -- ^ 'rrDays'
     -> RestoreRequest
 restoreRequest pDays_ =
-    RestoreRequest'
-    { _rrGlacierJobParameters = Nothing
-    , _rrDays = pDays_
-    }
+  RestoreRequest' {_rrGlacierJobParameters = Nothing, _rrDays = pDays_}
+
 
 -- | Glacier related prameters pertaining to this job.
 rrGlacierJobParameters :: Lens' RestoreRequest (Maybe GlacierJobParameters)
@@ -3058,9 +3058,9 @@ rrGlacierJobParameters = lens _rrGlacierJobParameters (\ s a -> s{_rrGlacierJobP
 rrDays :: Lens' RestoreRequest Int
 rrDays = lens _rrDays (\ s a -> s{_rrDays = a});
 
-instance Hashable RestoreRequest
+instance Hashable RestoreRequest where
 
-instance NFData RestoreRequest
+instance NFData RestoreRequest where
 
 instance ToXML RestoreRequest where
         toXML RestoreRequest'{..}
@@ -3070,9 +3070,10 @@ instance ToXML RestoreRequest where
 
 -- | /See:/ 'routingRule' smart constructor.
 data RoutingRule = RoutingRule'
-    { _rrCondition :: !(Maybe Condition)
-    , _rrRedirect  :: !Redirect
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrCondition :: {-# NOUNPACK #-}!(Maybe Condition)
+  , _rrRedirect  :: {-# NOUNPACK #-}!Redirect
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RoutingRule' with the minimum fields required to make a request.
 --
@@ -3085,10 +3086,8 @@ routingRule
     :: Redirect -- ^ 'rrRedirect'
     -> RoutingRule
 routingRule pRedirect_ =
-    RoutingRule'
-    { _rrCondition = Nothing
-    , _rrRedirect = pRedirect_
-    }
+  RoutingRule' {_rrCondition = Nothing, _rrRedirect = pRedirect_}
+
 
 -- | A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
 rrCondition :: Lens' RoutingRule (Maybe Condition)
@@ -3103,9 +3102,9 @@ instance FromXML RoutingRule where
           = RoutingRule' <$>
               (x .@? "Condition") <*> (x .@ "Redirect")
 
-instance Hashable RoutingRule
+instance Hashable RoutingRule where
 
-instance NFData RoutingRule
+instance NFData RoutingRule where
 
 instance ToXML RoutingRule where
         toXML RoutingRule'{..}
@@ -3117,8 +3116,9 @@ instance ToXML RoutingRule where
 --
 -- /See:/ 's3KeyFilter' smart constructor.
 newtype S3KeyFilter = S3KeyFilter'
-    { _skfFilterRules :: Maybe [FilterRule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _skfFilterRules :: Maybe [FilterRule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3KeyFilter' with the minimum fields required to make a request.
 --
@@ -3127,10 +3127,8 @@ newtype S3KeyFilter = S3KeyFilter'
 -- * 'skfFilterRules' - Undocumented member.
 s3KeyFilter
     :: S3KeyFilter
-s3KeyFilter =
-    S3KeyFilter'
-    { _skfFilterRules = Nothing
-    }
+s3KeyFilter = S3KeyFilter' {_skfFilterRules = Nothing}
+
 
 -- | Undocumented member.
 skfFilterRules :: Lens' S3KeyFilter [FilterRule]
@@ -3141,9 +3139,9 @@ instance FromXML S3KeyFilter where
           = S3KeyFilter' <$>
               (may (parseXMLList "FilterRule") x)
 
-instance Hashable S3KeyFilter
+instance Hashable S3KeyFilter where
 
-instance NFData S3KeyFilter
+instance NFData S3KeyFilter where
 
 instance ToXML S3KeyFilter where
         toXML S3KeyFilter'{..}
@@ -3152,11 +3150,12 @@ instance ToXML S3KeyFilter where
 
 -- | /See:/ 's3ServiceError' smart constructor.
 data S3ServiceError = S3ServiceError'
-    { _sseVersionId :: !(Maybe ObjectVersionId)
-    , _sseKey       :: !(Maybe ObjectKey)
-    , _sseCode      :: !(Maybe Text)
-    , _sseMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sseVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _sseKey       :: {-# NOUNPACK #-}!(Maybe ObjectKey)
+  , _sseCode      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sseMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3ServiceError' with the minimum fields required to make a request.
 --
@@ -3172,12 +3171,13 @@ data S3ServiceError = S3ServiceError'
 s3ServiceError
     :: S3ServiceError
 s3ServiceError =
-    S3ServiceError'
-    { _sseVersionId = Nothing
-    , _sseKey = Nothing
-    , _sseCode = Nothing
-    , _sseMessage = Nothing
-    }
+  S3ServiceError'
+  { _sseVersionId = Nothing
+  , _sseKey = Nothing
+  , _sseCode = Nothing
+  , _sseMessage = Nothing
+  }
+
 
 -- | Undocumented member.
 sseVersionId :: Lens' S3ServiceError (Maybe ObjectVersionId)
@@ -3202,14 +3202,15 @@ instance FromXML S3ServiceError where
                 (x .@? "Code")
                 <*> (x .@? "Message")
 
-instance Hashable S3ServiceError
+instance Hashable S3ServiceError where
 
-instance NFData S3ServiceError
+instance NFData S3ServiceError where
 
 -- | /See:/ 'storageClassAnalysis' smart constructor.
 newtype StorageClassAnalysis = StorageClassAnalysis'
-    { _scaDataExport :: Maybe StorageClassAnalysisDataExport
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scaDataExport :: Maybe StorageClassAnalysisDataExport
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StorageClassAnalysis' with the minimum fields required to make a request.
 --
@@ -3218,10 +3219,8 @@ newtype StorageClassAnalysis = StorageClassAnalysis'
 -- * 'scaDataExport' - A container used to describe how data related to the storage class analysis should be exported.
 storageClassAnalysis
     :: StorageClassAnalysis
-storageClassAnalysis =
-    StorageClassAnalysis'
-    { _scaDataExport = Nothing
-    }
+storageClassAnalysis = StorageClassAnalysis' {_scaDataExport = Nothing}
+
 
 -- | A container used to describe how data related to the storage class analysis should be exported.
 scaDataExport :: Lens' StorageClassAnalysis (Maybe StorageClassAnalysisDataExport)
@@ -3231,9 +3230,9 @@ instance FromXML StorageClassAnalysis where
         parseXML x
           = StorageClassAnalysis' <$> (x .@? "DataExport")
 
-instance Hashable StorageClassAnalysis
+instance Hashable StorageClassAnalysis where
 
-instance NFData StorageClassAnalysis
+instance NFData StorageClassAnalysis where
 
 instance ToXML StorageClassAnalysis where
         toXML StorageClassAnalysis'{..}
@@ -3241,9 +3240,10 @@ instance ToXML StorageClassAnalysis where
 
 -- | /See:/ 'storageClassAnalysisDataExport' smart constructor.
 data StorageClassAnalysisDataExport = StorageClassAnalysisDataExport'
-    { _scadeOutputSchemaVersion :: !StorageClassAnalysisSchemaVersion
-    , _scadeDestination         :: !AnalyticsExportDestination
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scadeOutputSchemaVersion :: {-# NOUNPACK #-}!StorageClassAnalysisSchemaVersion
+  , _scadeDestination :: {-# NOUNPACK #-}!AnalyticsExportDestination
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StorageClassAnalysisDataExport' with the minimum fields required to make a request.
 --
@@ -3257,10 +3257,11 @@ storageClassAnalysisDataExport
     -> AnalyticsExportDestination -- ^ 'scadeDestination'
     -> StorageClassAnalysisDataExport
 storageClassAnalysisDataExport pOutputSchemaVersion_ pDestination_ =
-    StorageClassAnalysisDataExport'
-    { _scadeOutputSchemaVersion = pOutputSchemaVersion_
-    , _scadeDestination = pDestination_
-    }
+  StorageClassAnalysisDataExport'
+  { _scadeOutputSchemaVersion = pOutputSchemaVersion_
+  , _scadeDestination = pDestination_
+  }
+
 
 -- | The version of the output schema to use when exporting data. Must be V_1.
 scadeOutputSchemaVersion :: Lens' StorageClassAnalysisDataExport StorageClassAnalysisSchemaVersion
@@ -3276,8 +3277,9 @@ instance FromXML StorageClassAnalysisDataExport where
               (x .@ "OutputSchemaVersion") <*> (x .@ "Destination")
 
 instance Hashable StorageClassAnalysisDataExport
+         where
 
-instance NFData StorageClassAnalysisDataExport
+instance NFData StorageClassAnalysisDataExport where
 
 instance ToXML StorageClassAnalysisDataExport where
         toXML StorageClassAnalysisDataExport'{..}
@@ -3287,9 +3289,10 @@ instance ToXML StorageClassAnalysisDataExport where
 
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !ObjectKey
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!ObjectKey
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -3302,11 +3305,8 @@ tag
     :: ObjectKey -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | Name of the tag.
 tagKey :: Lens' Tag ObjectKey
@@ -3319,9 +3319,9 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 instance FromXML Tag where
         parseXML x = Tag' <$> (x .@ "Key") <*> (x .@ "Value")
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -3329,8 +3329,9 @@ instance ToXML Tag where
 
 -- | /See:/ 'tagging' smart constructor.
 newtype Tagging = Tagging'
-    { _tTagSet :: [Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tTagSet :: [Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tagging' with the minimum fields required to make a request.
 --
@@ -3339,18 +3340,16 @@ newtype Tagging = Tagging'
 -- * 'tTagSet' - Undocumented member.
 tagging
     :: Tagging
-tagging =
-    Tagging'
-    { _tTagSet = mempty
-    }
+tagging = Tagging' {_tTagSet = mempty}
+
 
 -- | Undocumented member.
 tTagSet :: Lens' Tagging [Tag]
 tTagSet = lens _tTagSet (\ s a -> s{_tTagSet = a}) . _Coerce;
 
-instance Hashable Tagging
+instance Hashable Tagging where
 
-instance NFData Tagging
+instance NFData Tagging where
 
 instance ToXML Tagging where
         toXML Tagging'{..}
@@ -3358,9 +3357,10 @@ instance ToXML Tagging where
 
 -- | /See:/ 'targetGrant' smart constructor.
 data TargetGrant = TargetGrant'
-    { _tgPermission :: !(Maybe BucketLogsPermission)
-    , _tgGrantee    :: !(Maybe Grantee)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tgPermission :: {-# NOUNPACK #-}!(Maybe BucketLogsPermission)
+  , _tgGrantee    :: {-# NOUNPACK #-}!(Maybe Grantee)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TargetGrant' with the minimum fields required to make a request.
 --
@@ -3371,11 +3371,8 @@ data TargetGrant = TargetGrant'
 -- * 'tgGrantee' - Undocumented member.
 targetGrant
     :: TargetGrant
-targetGrant =
-    TargetGrant'
-    { _tgPermission = Nothing
-    , _tgGrantee = Nothing
-    }
+targetGrant = TargetGrant' {_tgPermission = Nothing, _tgGrantee = Nothing}
+
 
 -- | Logging permissions assigned to the Grantee for the bucket.
 tgPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
@@ -3390,9 +3387,9 @@ instance FromXML TargetGrant where
           = TargetGrant' <$>
               (x .@? "Permission") <*> (x .@? "Grantee")
 
-instance Hashable TargetGrant
+instance Hashable TargetGrant where
 
-instance NFData TargetGrant
+instance NFData TargetGrant where
 
 instance ToXML TargetGrant where
         toXML TargetGrant'{..}
@@ -3404,11 +3401,12 @@ instance ToXML TargetGrant where
 --
 -- /See:/ 'topicConfiguration' smart constructor.
 data TopicConfiguration = TopicConfiguration'
-    { _tcId       :: !(Maybe Text)
-    , _tcFilter   :: !(Maybe NotificationConfigurationFilter)
-    , _tcTopicARN :: !Text
-    , _tcEvents   :: ![Event]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tcId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tcFilter   :: {-# NOUNPACK #-}!(Maybe NotificationConfigurationFilter)
+  , _tcTopicARN :: {-# NOUNPACK #-}!Text
+  , _tcEvents   :: {-# NOUNPACK #-}![Event]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TopicConfiguration' with the minimum fields required to make a request.
 --
@@ -3425,12 +3423,13 @@ topicConfiguration
     :: Text -- ^ 'tcTopicARN'
     -> TopicConfiguration
 topicConfiguration pTopicARN_ =
-    TopicConfiguration'
-    { _tcId = Nothing
-    , _tcFilter = Nothing
-    , _tcTopicARN = pTopicARN_
-    , _tcEvents = mempty
-    }
+  TopicConfiguration'
+  { _tcId = Nothing
+  , _tcFilter = Nothing
+  , _tcTopicARN = pTopicARN_
+  , _tcEvents = mempty
+  }
+
 
 -- | Undocumented member.
 tcId :: Lens' TopicConfiguration (Maybe Text)
@@ -3454,9 +3453,9 @@ instance FromXML TopicConfiguration where
               (x .@? "Id") <*> (x .@? "Filter") <*> (x .@ "Topic")
                 <*> (parseXMLList "Event" x)
 
-instance Hashable TopicConfiguration
+instance Hashable TopicConfiguration where
 
-instance NFData TopicConfiguration
+instance NFData TopicConfiguration where
 
 instance ToXML TopicConfiguration where
         toXML TopicConfiguration'{..}
@@ -3466,10 +3465,11 @@ instance ToXML TopicConfiguration where
 
 -- | /See:/ 'transition' smart constructor.
 data Transition = Transition'
-    { _tDays         :: !(Maybe Int)
-    , _tDate         :: !(Maybe RFC822)
-    , _tStorageClass :: !(Maybe TransitionStorageClass)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tDays         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _tDate         :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _tStorageClass :: {-# NOUNPACK #-}!(Maybe TransitionStorageClass)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Transition' with the minimum fields required to make a request.
 --
@@ -3483,11 +3483,8 @@ data Transition = Transition'
 transition
     :: Transition
 transition =
-    Transition'
-    { _tDays = Nothing
-    , _tDate = Nothing
-    , _tStorageClass = Nothing
-    }
+  Transition' {_tDays = Nothing, _tDate = Nothing, _tStorageClass = Nothing}
+
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 tDays :: Lens' Transition (Maybe Int)
@@ -3507,9 +3504,9 @@ instance FromXML Transition where
               (x .@? "Days") <*> (x .@? "Date") <*>
                 (x .@? "StorageClass")
 
-instance Hashable Transition
+instance Hashable Transition where
 
-instance NFData Transition
+instance NFData Transition where
 
 instance ToXML Transition where
         toXML Transition'{..}
@@ -3519,9 +3516,10 @@ instance ToXML Transition where
 
 -- | /See:/ 'versioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'
-    { _vcStatus    :: !(Maybe BucketVersioningStatus)
-    , _vcMFADelete :: !(Maybe MFADelete)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcStatus    :: {-# NOUNPACK #-}!(Maybe BucketVersioningStatus)
+  , _vcMFADelete :: {-# NOUNPACK #-}!(Maybe MFADelete)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VersioningConfiguration' with the minimum fields required to make a request.
 --
@@ -3533,10 +3531,8 @@ data VersioningConfiguration = VersioningConfiguration'
 versioningConfiguration
     :: VersioningConfiguration
 versioningConfiguration =
-    VersioningConfiguration'
-    { _vcStatus = Nothing
-    , _vcMFADelete = Nothing
-    }
+  VersioningConfiguration' {_vcStatus = Nothing, _vcMFADelete = Nothing}
+
 
 -- | The versioning state of the bucket.
 vcStatus :: Lens' VersioningConfiguration (Maybe BucketVersioningStatus)
@@ -3546,9 +3542,9 @@ vcStatus = lens _vcStatus (\ s a -> s{_vcStatus = a});
 vcMFADelete :: Lens' VersioningConfiguration (Maybe MFADelete)
 vcMFADelete = lens _vcMFADelete (\ s a -> s{_vcMFADelete = a});
 
-instance Hashable VersioningConfiguration
+instance Hashable VersioningConfiguration where
 
-instance NFData VersioningConfiguration
+instance NFData VersioningConfiguration where
 
 instance ToXML VersioningConfiguration where
         toXML VersioningConfiguration'{..}
@@ -3557,11 +3553,12 @@ instance ToXML VersioningConfiguration where
 
 -- | /See:/ 'websiteConfiguration' smart constructor.
 data WebsiteConfiguration = WebsiteConfiguration'
-    { _wcRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
-    , _wcErrorDocument         :: !(Maybe ErrorDocument)
-    , _wcIndexDocument         :: !(Maybe IndexDocument)
-    , _wcRoutingRules          :: !(Maybe [RoutingRule])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wcRedirectAllRequestsTo :: {-# NOUNPACK #-}!(Maybe RedirectAllRequestsTo)
+  , _wcErrorDocument         :: {-# NOUNPACK #-}!(Maybe ErrorDocument)
+  , _wcIndexDocument         :: {-# NOUNPACK #-}!(Maybe IndexDocument)
+  , _wcRoutingRules          :: {-# NOUNPACK #-}!(Maybe [RoutingRule])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WebsiteConfiguration' with the minimum fields required to make a request.
 --
@@ -3577,12 +3574,13 @@ data WebsiteConfiguration = WebsiteConfiguration'
 websiteConfiguration
     :: WebsiteConfiguration
 websiteConfiguration =
-    WebsiteConfiguration'
-    { _wcRedirectAllRequestsTo = Nothing
-    , _wcErrorDocument = Nothing
-    , _wcIndexDocument = Nothing
-    , _wcRoutingRules = Nothing
-    }
+  WebsiteConfiguration'
+  { _wcRedirectAllRequestsTo = Nothing
+  , _wcErrorDocument = Nothing
+  , _wcIndexDocument = Nothing
+  , _wcRoutingRules = Nothing
+  }
+
 
 -- | Undocumented member.
 wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
@@ -3600,9 +3598,9 @@ wcIndexDocument = lens _wcIndexDocument (\ s a -> s{_wcIndexDocument = a});
 wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
 wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default . _Coerce;
 
-instance Hashable WebsiteConfiguration
+instance Hashable WebsiteConfiguration where
 
-instance NFData WebsiteConfiguration
+instance NFData WebsiteConfiguration where
 
 instance ToXML WebsiteConfiguration where
         toXML WebsiteConfiguration'{..}

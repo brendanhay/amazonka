@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListTypedLinkFacetNames
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudDirectory.ListTypedLinkFacetNames
     , ltlfnrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTypedLinkFacetNames' smart constructor.
 data ListTypedLinkFacetNames = ListTypedLinkFacetNames'
-    { _ltlfnNextToken  :: !(Maybe Text)
-    , _ltlfnMaxResults :: !(Maybe Nat)
-    , _ltlfnSchemaARN  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltlfnNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltlfnMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ltlfnSchemaARN  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTypedLinkFacetNames' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listTypedLinkFacetNames
     :: Text -- ^ 'ltlfnSchemaARN'
     -> ListTypedLinkFacetNames
 listTypedLinkFacetNames pSchemaARN_ =
-    ListTypedLinkFacetNames'
-    { _ltlfnNextToken = Nothing
-    , _ltlfnMaxResults = Nothing
-    , _ltlfnSchemaARN = pSchemaARN_
-    }
+  ListTypedLinkFacetNames'
+  { _ltlfnNextToken = Nothing
+  , _ltlfnMaxResults = Nothing
+  , _ltlfnSchemaARN = pSchemaARN_
+  }
+
 
 -- | The pagination token.
 ltlfnNextToken :: Lens' ListTypedLinkFacetNames (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest ListTypedLinkFacetNames where
                      (x .?> "FacetNames" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTypedLinkFacetNames
+instance Hashable ListTypedLinkFacetNames where
 
-instance NFData ListTypedLinkFacetNames
+instance NFData ListTypedLinkFacetNames where
 
 instance ToHeaders ListTypedLinkFacetNames where
         toHeaders ListTypedLinkFacetNames'{..}
@@ -122,10 +124,11 @@ instance ToQuery ListTypedLinkFacetNames where
 
 -- | /See:/ 'listTypedLinkFacetNamesResponse' smart constructor.
 data ListTypedLinkFacetNamesResponse = ListTypedLinkFacetNamesResponse'
-    { _ltlfnrsNextToken      :: !(Maybe Text)
-    , _ltlfnrsFacetNames     :: !(Maybe [Text])
-    , _ltlfnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltlfnrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltlfnrsFacetNames     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ltlfnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTypedLinkFacetNamesResponse' with the minimum fields required to make a request.
 --
@@ -140,11 +143,12 @@ listTypedLinkFacetNamesResponse
     :: Int -- ^ 'ltlfnrsResponseStatus'
     -> ListTypedLinkFacetNamesResponse
 listTypedLinkFacetNamesResponse pResponseStatus_ =
-    ListTypedLinkFacetNamesResponse'
-    { _ltlfnrsNextToken = Nothing
-    , _ltlfnrsFacetNames = Nothing
-    , _ltlfnrsResponseStatus = pResponseStatus_
-    }
+  ListTypedLinkFacetNamesResponse'
+  { _ltlfnrsNextToken = Nothing
+  , _ltlfnrsFacetNames = Nothing
+  , _ltlfnrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 ltlfnrsNextToken :: Lens' ListTypedLinkFacetNamesResponse (Maybe Text)
@@ -158,4 +162,4 @@ ltlfnrsFacetNames = lens _ltlfnrsFacetNames (\ s a -> s{_ltlfnrsFacetNames = a})
 ltlfnrsResponseStatus :: Lens' ListTypedLinkFacetNamesResponse Int
 ltlfnrsResponseStatus = lens _ltlfnrsResponseStatus (\ s a -> s{_ltlfnrsResponseStatus = a});
 
-instance NFData ListTypedLinkFacetNamesResponse
+instance NFData ListTypedLinkFacetNamesResponse where

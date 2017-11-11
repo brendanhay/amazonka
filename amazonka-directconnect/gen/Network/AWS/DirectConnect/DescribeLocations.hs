@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeLocations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.DirectConnect.DescribeLocations
     , dlsrsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLocations' smart constructor.
 data DescribeLocations =
-    DescribeLocations'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeLocations'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLocations' with the minimum fields required to make a request.
 --
 describeLocations
     :: DescribeLocations
 describeLocations = DescribeLocations'
+
 
 instance AWSRequest DescribeLocations where
         type Rs DescribeLocations = DescribeLocationsResponse
@@ -63,9 +65,9 @@ instance AWSRequest DescribeLocations where
                    (x .?> "locations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeLocations
+instance Hashable DescribeLocations where
 
-instance NFData DescribeLocations
+instance NFData DescribeLocations where
 
 instance ToHeaders DescribeLocations where
         toHeaders
@@ -91,9 +93,10 @@ instance ToQuery DescribeLocations where
 --
 -- /See:/ 'describeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
-    { _dlsrsLocations      :: !(Maybe [Location])
-    , _dlsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlsrsLocations      :: {-# NOUNPACK #-}!(Maybe [Location])
+  , _dlsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLocationsResponse' with the minimum fields required to make a request.
 --
@@ -106,10 +109,9 @@ describeLocationsResponse
     :: Int -- ^ 'dlsrsResponseStatus'
     -> DescribeLocationsResponse
 describeLocationsResponse pResponseStatus_ =
-    DescribeLocationsResponse'
-    { _dlsrsLocations = Nothing
-    , _dlsrsResponseStatus = pResponseStatus_
-    }
+  DescribeLocationsResponse'
+  {_dlsrsLocations = Nothing, _dlsrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
 dlsrsLocations :: Lens' DescribeLocationsResponse [Location]
@@ -119,4 +121,4 @@ dlsrsLocations = lens _dlsrsLocations (\ s a -> s{_dlsrsLocations = a}) . _Defau
 dlsrsResponseStatus :: Lens' DescribeLocationsResponse Int
 dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});
 
-instance NFData DescribeLocationsResponse
+instance NFData DescribeLocationsResponse where

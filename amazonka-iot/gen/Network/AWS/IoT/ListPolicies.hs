@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.IoT.ListPolicies
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListPolicies operation.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-    { _lpMarker         :: !(Maybe Text)
-    , _lpAscendingOrder :: !(Maybe Bool)
-    , _lpPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lpPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ data ListPolicies = ListPolicies'
 listPolicies
     :: ListPolicies
 listPolicies =
-    ListPolicies'
-    { _lpMarker = Nothing
-    , _lpAscendingOrder = Nothing
-    , _lpPageSize = Nothing
-    }
+  ListPolicies'
+  {_lpMarker = Nothing, _lpAscendingOrder = Nothing, _lpPageSize = Nothing}
+
 
 -- | The marker for the next set of results.
 lpMarker :: Lens' ListPolicies (Maybe Text)
@@ -109,9 +108,9 @@ instance AWSRequest ListPolicies where
                      (x .?> "policies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPolicies
+instance Hashable ListPolicies where
 
-instance NFData ListPolicies
+instance NFData ListPolicies where
 
 instance ToHeaders ListPolicies where
         toHeaders = const mempty
@@ -132,10 +131,11 @@ instance ToQuery ListPolicies where
 --
 -- /See:/ 'listPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-    { _lprsNextMarker     :: !(Maybe Text)
-    , _lprsPolicies       :: !(Maybe [Policy])
-    , _lprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsPolicies       :: {-# NOUNPACK #-}!(Maybe [Policy])
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -150,11 +150,12 @@ listPoliciesResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPoliciesResponse
 listPoliciesResponse pResponseStatus_ =
-    ListPoliciesResponse'
-    { _lprsNextMarker = Nothing
-    , _lprsPolicies = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPoliciesResponse'
+  { _lprsNextMarker = Nothing
+  , _lprsPolicies = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker for the next set of results, or null if there are no additional results.
 lprsNextMarker :: Lens' ListPoliciesResponse (Maybe Text)
@@ -168,4 +169,4 @@ lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _
 lprsResponseStatus :: Lens' ListPoliciesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPoliciesResponse
+instance NFData ListPoliciesResponse where

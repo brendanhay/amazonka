@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainNameservers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     , udnrsOperationId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | Replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'updateDomainNameservers' smart constructor.
 data UpdateDomainNameservers = UpdateDomainNameservers'
-    { _udnFIAuthKey   :: !(Maybe Text)
-    , _udnDomainName  :: !Text
-    , _udnNameservers :: ![Nameserver]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udnFIAuthKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udnDomainName  :: {-# NOUNPACK #-}!Text
+  , _udnNameservers :: {-# NOUNPACK #-}![Nameserver]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDomainNameservers' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ updateDomainNameservers
     :: Text -- ^ 'udnDomainName'
     -> UpdateDomainNameservers
 updateDomainNameservers pDomainName_ =
-    UpdateDomainNameservers'
-    { _udnFIAuthKey = Nothing
-    , _udnDomainName = pDomainName_
-    , _udnNameservers = mempty
-    }
+  UpdateDomainNameservers'
+  { _udnFIAuthKey = Nothing
+  , _udnDomainName = pDomainName_
+  , _udnNameservers = mempty
+  }
+
 
 -- | The authorization key for .fi domains
 udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest UpdateDomainNameservers where
                  UpdateDomainNameserversResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
-instance Hashable UpdateDomainNameservers
+instance Hashable UpdateDomainNameservers where
 
-instance NFData UpdateDomainNameservers
+instance NFData UpdateDomainNameservers where
 
 instance ToHeaders UpdateDomainNameservers where
         toHeaders
@@ -136,9 +138,10 @@ instance ToQuery UpdateDomainNameservers where
 --
 -- /See:/ 'updateDomainNameserversResponse' smart constructor.
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
-    { _udnrsResponseStatus :: !Int
-    , _udnrsOperationId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _udnrsOperationId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDomainNameserversResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,9 @@ updateDomainNameserversResponse
     -> Text -- ^ 'udnrsOperationId'
     -> UpdateDomainNameserversResponse
 updateDomainNameserversResponse pResponseStatus_ pOperationId_ =
-    UpdateDomainNameserversResponse'
-    { _udnrsResponseStatus = pResponseStatus_
-    , _udnrsOperationId = pOperationId_
-    }
+  UpdateDomainNameserversResponse'
+  {_udnrsResponseStatus = pResponseStatus_, _udnrsOperationId = pOperationId_}
+
 
 -- | -- | The response status code.
 udnrsResponseStatus :: Lens' UpdateDomainNameserversResponse Int
@@ -165,4 +167,4 @@ udnrsResponseStatus = lens _udnrsResponseStatus (\ s a -> s{_udnrsResponseStatus
 udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrsOperationId = lens _udnrsOperationId (\ s a -> s{_udnrsOperationId = a});
 
-instance NFData UpdateDomainNameserversResponse
+instance NFData UpdateDomainNameserversResponse where

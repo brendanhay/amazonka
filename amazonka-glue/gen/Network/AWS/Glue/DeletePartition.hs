@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeletePartition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.Glue.DeletePartition
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deletePartition' smart constructor.
 data DeletePartition = DeletePartition'
-    { _dpCatalogId       :: !(Maybe Text)
-    , _dpDatabaseName    :: !Text
-    , _dpTableName       :: !Text
-    , _dpPartitionValues :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpDatabaseName    :: {-# NOUNPACK #-}!Text
+  , _dpTableName       :: {-# NOUNPACK #-}!Text
+  , _dpPartitionValues :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePartition' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ deletePartition
     -> Text -- ^ 'dpTableName'
     -> DeletePartition
 deletePartition pDatabaseName_ pTableName_ =
-    DeletePartition'
-    { _dpCatalogId = Nothing
-    , _dpDatabaseName = pDatabaseName_
-    , _dpTableName = pTableName_
-    , _dpPartitionValues = mempty
-    }
+  DeletePartition'
+  { _dpCatalogId = Nothing
+  , _dpDatabaseName = pDatabaseName_
+  , _dpTableName = pTableName_
+  , _dpPartitionValues = mempty
+  }
+
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If none is supplied, the AWS account ID is used by default.
 dpCatalogId :: Lens' DeletePartition (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest DeletePartition where
               (\ s h x ->
                  DeletePartitionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeletePartition
+instance Hashable DeletePartition where
 
-instance NFData DeletePartition
+instance NFData DeletePartition where
 
 instance ToHeaders DeletePartition where
         toHeaders
@@ -131,8 +133,9 @@ instance ToQuery DeletePartition where
 
 -- | /See:/ 'deletePartitionResponse' smart constructor.
 newtype DeletePartitionResponse = DeletePartitionResponse'
-    { _dprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePartitionResponse' with the minimum fields required to make a request.
 --
@@ -143,12 +146,11 @@ deletePartitionResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DeletePartitionResponse
 deletePartitionResponse pResponseStatus_ =
-    DeletePartitionResponse'
-    { _dprsResponseStatus = pResponseStatus_
-    }
+  DeletePartitionResponse' {_dprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DeletePartitionResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DeletePartitionResponse
+instance NFData DeletePartitionResponse where

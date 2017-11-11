@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.RebootInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.RebootInstance
     , rirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'rebootInstance' smart constructor.
 newtype RebootInstance = RebootInstance'
-    { _riInstanceName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riInstanceName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootInstance' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ rebootInstance
     :: Text -- ^ 'riInstanceName'
     -> RebootInstance
 rebootInstance pInstanceName_ =
-    RebootInstance'
-    { _riInstanceName = pInstanceName_
-    }
+  RebootInstance' {_riInstanceName = pInstanceName_}
+
 
 -- | The name of the instance to reboot.
 riInstanceName :: Lens' RebootInstance Text
@@ -76,9 +76,9 @@ instance AWSRequest RebootInstance where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable RebootInstance
+instance Hashable RebootInstance where
 
-instance NFData RebootInstance
+instance NFData RebootInstance where
 
 instance ToHeaders RebootInstance where
         toHeaders
@@ -103,9 +103,10 @@ instance ToQuery RebootInstance where
 
 -- | /See:/ 'rebootInstanceResponse' smart constructor.
 data RebootInstanceResponse = RebootInstanceResponse'
-    { _rirsOperations     :: !(Maybe [Operation])
-    , _rirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _rirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootInstanceResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +119,9 @@ rebootInstanceResponse
     :: Int -- ^ 'rirsResponseStatus'
     -> RebootInstanceResponse
 rebootInstanceResponse pResponseStatus_ =
-    RebootInstanceResponse'
-    { _rirsOperations = Nothing
-    , _rirsResponseStatus = pResponseStatus_
-    }
+  RebootInstanceResponse'
+  {_rirsOperations = Nothing, _rirsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the request operation.
 rirsOperations :: Lens' RebootInstanceResponse [Operation]
@@ -131,4 +131,4 @@ rirsOperations = lens _rirsOperations (\ s a -> s{_rirsOperations = a}) . _Defau
 rirsResponseStatus :: Lens' RebootInstanceResponse Int
 rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
 
-instance NFData RebootInstanceResponse
+instance NFData RebootInstanceResponse where

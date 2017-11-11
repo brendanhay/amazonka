@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.DeviceFarm.CreateProject
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the create project operation.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-    { _cpDefaultJobTimeoutMinutes :: !(Maybe Int)
-    , _cpName                     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpDefaultJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cpName                     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ createProject
     :: Text -- ^ 'cpName'
     -> CreateProject
 createProject pName_ =
-    CreateProject'
-    { _cpDefaultJobTimeoutMinutes = Nothing
-    , _cpName = pName_
-    }
+  CreateProject' {_cpDefaultJobTimeoutMinutes = Nothing, _cpName = pName_}
+
 
 -- | Sets the execution timeout value (in minutes) for a project. All test runs in this project will use the specified execution timeout value unless overridden when scheduling a run.
 cpDefaultJobTimeoutMinutes :: Lens' CreateProject (Maybe Int)
@@ -88,9 +87,9 @@ instance AWSRequest CreateProject where
                  CreateProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
 
-instance Hashable CreateProject
+instance Hashable CreateProject where
 
-instance NFData CreateProject
+instance NFData CreateProject where
 
 instance ToHeaders CreateProject where
         toHeaders
@@ -121,9 +120,10 @@ instance ToQuery CreateProject where
 --
 -- /See:/ 'createProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-    { _cprsProject        :: !(Maybe Project)
-    , _cprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsProject        :: {-# NOUNPACK #-}!(Maybe Project)
+  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +136,9 @@ createProjectResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreateProjectResponse
 createProjectResponse pResponseStatus_ =
-    CreateProjectResponse'
-    { _cprsProject = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreateProjectResponse'
+  {_cprsProject = Nothing, _cprsResponseStatus = pResponseStatus_}
+
 
 -- | The newly created project.
 cprsProject :: Lens' CreateProjectResponse (Maybe Project)
@@ -149,4 +148,4 @@ cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
 cprsResponseStatus :: Lens' CreateProjectResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreateProjectResponse
+instance NFData CreateProjectResponse where

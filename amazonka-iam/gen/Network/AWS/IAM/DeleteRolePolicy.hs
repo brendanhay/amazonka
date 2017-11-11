@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteRolePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.DeleteRolePolicy
     , DeleteRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteRolePolicy' smart constructor.
 data DeleteRolePolicy = DeleteRolePolicy'
-    { _delRoleName   :: !Text
-    , _delPolicyName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delRoleName   :: {-# NOUNPACK #-}!Text
+  , _delPolicyName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRolePolicy' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteRolePolicy
     -> Text -- ^ 'delPolicyName'
     -> DeleteRolePolicy
 deleteRolePolicy pRoleName_ pPolicyName_ =
-    DeleteRolePolicy'
-    { _delRoleName = pRoleName_
-    , _delPolicyName = pPolicyName_
-    }
+  DeleteRolePolicy' {_delRoleName = pRoleName_, _delPolicyName = pPolicyName_}
+
 
 -- | The name (friendly name, not ARN) identifying the role that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 delRoleName :: Lens' DeleteRolePolicy Text
@@ -80,9 +79,9 @@ instance AWSRequest DeleteRolePolicy where
         request = postQuery iam
         response = receiveNull DeleteRolePolicyResponse'
 
-instance Hashable DeleteRolePolicy
+instance Hashable DeleteRolePolicy where
 
-instance NFData DeleteRolePolicy
+instance NFData DeleteRolePolicy where
 
 instance ToHeaders DeleteRolePolicy where
         toHeaders = const mempty
@@ -100,8 +99,9 @@ instance ToQuery DeleteRolePolicy where
 
 -- | /See:/ 'deleteRolePolicyResponse' smart constructor.
 data DeleteRolePolicyResponse =
-    DeleteRolePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteRolePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRolePolicyResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +109,5 @@ deleteRolePolicyResponse
     :: DeleteRolePolicyResponse
 deleteRolePolicyResponse = DeleteRolePolicyResponse'
 
-instance NFData DeleteRolePolicyResponse
+
+instance NFData DeleteRolePolicyResponse where

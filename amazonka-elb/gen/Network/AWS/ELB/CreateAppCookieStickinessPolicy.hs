@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateAppCookieStickinessPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     , cacsprsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateAppCookieStickinessPolicy.
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createAppCookieStickinessPolicy' smart constructor.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
-    { _cacspLoadBalancerName :: !Text
-    , _cacspPolicyName       :: !Text
-    , _cacspCookieName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cacspLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _cacspPolicyName       :: {-# NOUNPACK #-}!Text
+  , _cacspCookieName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAppCookieStickinessPolicy' with the minimum fields required to make a request.
 --
@@ -77,11 +78,12 @@ createAppCookieStickinessPolicy
     -> Text -- ^ 'cacspCookieName'
     -> CreateAppCookieStickinessPolicy
 createAppCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ pCookieName_ =
-    CreateAppCookieStickinessPolicy'
-    { _cacspLoadBalancerName = pLoadBalancerName_
-    , _cacspPolicyName = pPolicyName_
-    , _cacspCookieName = pCookieName_
-    }
+  CreateAppCookieStickinessPolicy'
+  { _cacspLoadBalancerName = pLoadBalancerName_
+  , _cacspPolicyName = pPolicyName_
+  , _cacspCookieName = pCookieName_
+  }
+
 
 -- | The name of the load balancer.
 cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
@@ -108,8 +110,9 @@ instance AWSRequest CreateAppCookieStickinessPolicy
                    (pure (fromEnum s)))
 
 instance Hashable CreateAppCookieStickinessPolicy
+         where
 
-instance NFData CreateAppCookieStickinessPolicy
+instance NFData CreateAppCookieStickinessPolicy where
 
 instance ToHeaders CreateAppCookieStickinessPolicy
          where
@@ -135,8 +138,9 @@ instance ToQuery CreateAppCookieStickinessPolicy
 --
 -- /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
-    { _cacsprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cacsprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAppCookieStickinessPolicyResponse' with the minimum fields required to make a request.
 --
@@ -147,13 +151,14 @@ createAppCookieStickinessPolicyResponse
     :: Int -- ^ 'cacsprsResponseStatus'
     -> CreateAppCookieStickinessPolicyResponse
 createAppCookieStickinessPolicyResponse pResponseStatus_ =
-    CreateAppCookieStickinessPolicyResponse'
-    { _cacsprsResponseStatus = pResponseStatus_
-    }
+  CreateAppCookieStickinessPolicyResponse'
+  {_cacsprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cacsprsResponseStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
 cacsprsResponseStatus = lens _cacsprsResponseStatus (\ s a -> s{_cacsprsResponseStatus = a});
 
 instance NFData
-         CreateAppCookieStickinessPolicyResponse
+           CreateAppCookieStickinessPolicyResponse
+         where

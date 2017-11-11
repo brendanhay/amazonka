@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DescribeIdentityPool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the DescribeIdentityPool action.
 --
@@ -58,8 +58,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeIdentityPool' smart constructor.
 newtype DescribeIdentityPool = DescribeIdentityPool'
-    { _dipIdentityPoolId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dipIdentityPoolId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIdentityPool' with the minimum fields required to make a request.
 --
@@ -70,9 +71,8 @@ describeIdentityPool
     :: Text -- ^ 'dipIdentityPoolId'
     -> DescribeIdentityPool
 describeIdentityPool pIdentityPoolId_ =
-    DescribeIdentityPool'
-    { _dipIdentityPoolId = pIdentityPoolId_
-    }
+  DescribeIdentityPool' {_dipIdentityPoolId = pIdentityPoolId_}
+
 
 -- | An identity pool ID in the format REGION:GUID.
 dipIdentityPoolId :: Lens' DescribeIdentityPool Text
@@ -83,9 +83,9 @@ instance AWSRequest DescribeIdentityPool where
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable DescribeIdentityPool
+instance Hashable DescribeIdentityPool where
 
-instance NFData DescribeIdentityPool
+instance NFData DescribeIdentityPool where
 
 instance ToHeaders DescribeIdentityPool where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetContextKeysForPrincipalPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,18 +43,19 @@ module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
     , gckfpContextKeyNames
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getContextKeysForPrincipalPolicy' smart constructor.
 data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
-    { _gckfppPolicyInputList :: !(Maybe [Text])
-    , _gckfppPolicySourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gckfppPolicyInputList :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gckfppPolicySourceARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetContextKeysForPrincipalPolicy' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ getContextKeysForPrincipalPolicy
     :: Text -- ^ 'gckfppPolicySourceARN'
     -> GetContextKeysForPrincipalPolicy
 getContextKeysForPrincipalPolicy pPolicySourceARN_ =
-    GetContextKeysForPrincipalPolicy'
-    { _gckfppPolicyInputList = Nothing
-    , _gckfppPolicySourceARN = pPolicySourceARN_
-    }
+  GetContextKeysForPrincipalPolicy'
+  {_gckfppPolicyInputList = Nothing, _gckfppPolicySourceARN = pPolicySourceARN_}
+
 
 -- | An optional list of additional policies for which you want the list of context keys that are referenced. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 gckfppPolicyInputList :: Lens' GetContextKeysForPrincipalPolicy [Text]
@@ -91,8 +91,10 @@ instance AWSRequest GetContextKeysForPrincipalPolicy
               (\ s h x -> parseXML x)
 
 instance Hashable GetContextKeysForPrincipalPolicy
+         where
 
 instance NFData GetContextKeysForPrincipalPolicy
+         where
 
 instance ToHeaders GetContextKeysForPrincipalPolicy
          where

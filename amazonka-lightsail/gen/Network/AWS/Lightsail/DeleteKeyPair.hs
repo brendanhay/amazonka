@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteKeyPair
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.DeleteKeyPair
     , dkprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteKeyPair' smart constructor.
 newtype DeleteKeyPair = DeleteKeyPair'
-    { _dkpKeyPairName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dkpKeyPairName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteKeyPair' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DeleteKeyPair = DeleteKeyPair'
 deleteKeyPair
     :: Text -- ^ 'dkpKeyPairName'
     -> DeleteKeyPair
-deleteKeyPair pKeyPairName_ =
-    DeleteKeyPair'
-    { _dkpKeyPairName = pKeyPairName_
-    }
+deleteKeyPair pKeyPairName_ = DeleteKeyPair' {_dkpKeyPairName = pKeyPairName_}
+
 
 -- | The name of the key pair to delete.
 dkpKeyPairName :: Lens' DeleteKeyPair Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteKeyPair where
                  DeleteKeyPairResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteKeyPair
+instance Hashable DeleteKeyPair where
 
-instance NFData DeleteKeyPair
+instance NFData DeleteKeyPair where
 
 instance ToHeaders DeleteKeyPair where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery DeleteKeyPair where
 
 -- | /See:/ 'deleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse = DeleteKeyPairResponse'
-    { _dkprsOperation      :: !(Maybe Operation)
-    , _dkprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dkprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _dkprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteKeyPairResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ deleteKeyPairResponse
     :: Int -- ^ 'dkprsResponseStatus'
     -> DeleteKeyPairResponse
 deleteKeyPairResponse pResponseStatus_ =
-    DeleteKeyPairResponse'
-    { _dkprsOperation = Nothing
-    , _dkprsResponseStatus = pResponseStatus_
-    }
+  DeleteKeyPairResponse'
+  {_dkprsOperation = Nothing, _dkprsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your delete key pair request.
 dkprsOperation :: Lens' DeleteKeyPairResponse (Maybe Operation)
@@ -129,4 +128,4 @@ dkprsOperation = lens _dkprsOperation (\ s a -> s{_dkprsOperation = a});
 dkprsResponseStatus :: Lens' DeleteKeyPairResponse Int
 dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a});
 
-instance NFData DeleteKeyPairResponse
+instance NFData DeleteKeyPairResponse where

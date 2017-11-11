@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHookTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     , dlhtrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLifecycleHookTypes' smart constructor.
 data DescribeLifecycleHookTypes =
-    DescribeLifecycleHookTypes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeLifecycleHookTypes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLifecycleHookTypes' with the minimum fields required to make a request.
 --
 describeLifecycleHookTypes
     :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes'
+
 
 instance AWSRequest DescribeLifecycleHookTypes where
         type Rs DescribeLifecycleHookTypes =
@@ -66,9 +68,9 @@ instance AWSRequest DescribeLifecycleHookTypes where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLifecycleHookTypes
+instance Hashable DescribeLifecycleHookTypes where
 
-instance NFData DescribeLifecycleHookTypes
+instance NFData DescribeLifecycleHookTypes where
 
 instance ToHeaders DescribeLifecycleHookTypes where
         toHeaders = const mempty
@@ -90,9 +92,10 @@ instance ToQuery DescribeLifecycleHookTypes where
 --
 -- /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
-    { _dlhtrsLifecycleHookTypes :: !(Maybe [Text])
-    , _dlhtrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlhtrsLifecycleHookTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dlhtrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLifecycleHookTypesResponse' with the minimum fields required to make a request.
 --
@@ -105,10 +108,11 @@ describeLifecycleHookTypesResponse
     :: Int -- ^ 'dlhtrsResponseStatus'
     -> DescribeLifecycleHookTypesResponse
 describeLifecycleHookTypesResponse pResponseStatus_ =
-    DescribeLifecycleHookTypesResponse'
-    { _dlhtrsLifecycleHookTypes = Nothing
-    , _dlhtrsResponseStatus = pResponseStatus_
-    }
+  DescribeLifecycleHookTypesResponse'
+  { _dlhtrsLifecycleHookTypes = Nothing
+  , _dlhtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The lifecycle hook types.
 dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
@@ -119,3 +123,4 @@ dlhtrsResponseStatus :: Lens' DescribeLifecycleHookTypesResponse Int
 dlhtrsResponseStatus = lens _dlhtrsResponseStatus (\ s a -> s{_dlhtrsResponseStatus = a});
 
 instance NFData DescribeLifecycleHookTypesResponse
+         where

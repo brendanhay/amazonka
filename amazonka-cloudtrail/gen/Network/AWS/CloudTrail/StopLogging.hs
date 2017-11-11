@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.StopLogging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.CloudTrail.StopLogging
     , slrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Passes the request to CloudTrail to stop logging AWS API calls for the specified account.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'stopLogging' smart constructor.
 newtype StopLogging = StopLogging'
-    { _slName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopLogging' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype StopLogging = StopLogging'
 stopLogging
     :: Text -- ^ 'slName'
     -> StopLogging
-stopLogging pName_ =
-    StopLogging'
-    { _slName = pName_
-    }
+stopLogging pName_ = StopLogging' {_slName = pName_}
+
 
 -- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 slName :: Lens' StopLogging Text
@@ -77,9 +76,9 @@ instance AWSRequest StopLogging where
               (\ s h x ->
                  StopLoggingResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StopLogging
+instance Hashable StopLogging where
 
-instance NFData StopLogging
+instance NFData StopLogging where
 
 instance ToHeaders StopLogging where
         toHeaders
@@ -107,8 +106,9 @@ instance ToQuery StopLogging where
 --
 -- /See:/ 'stopLoggingResponse' smart constructor.
 newtype StopLoggingResponse = StopLoggingResponse'
-    { _slrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopLoggingResponse' with the minimum fields required to make a request.
 --
@@ -119,12 +119,11 @@ stopLoggingResponse
     :: Int -- ^ 'slrsResponseStatus'
     -> StopLoggingResponse
 stopLoggingResponse pResponseStatus_ =
-    StopLoggingResponse'
-    { _slrsResponseStatus = pResponseStatus_
-    }
+  StopLoggingResponse' {_slrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 slrsResponseStatus :: Lens' StopLoggingResponse Int
 slrsResponseStatus = lens _slrsResponseStatus (\ s a -> s{_slrsResponseStatus = a});
 
-instance NFData StopLoggingResponse
+instance NFData StopLoggingResponse where

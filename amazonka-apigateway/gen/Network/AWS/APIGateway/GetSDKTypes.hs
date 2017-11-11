@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetSDKTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.GetSDKTypes
     , gstrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Get the 'SdkTypes' collection.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getSDKTypes' smart constructor.
 data GetSDKTypes = GetSDKTypes'
-    { _gstLimit    :: !(Maybe Int)
-    , _gstPosition :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gstLimit    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gstPosition :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSDKTypes' with the minimum fields required to make a request.
 --
@@ -63,11 +64,8 @@ data GetSDKTypes = GetSDKTypes'
 -- * 'gstPosition' - The current pagination position in the paged result set.
 getSDKTypes
     :: GetSDKTypes
-getSDKTypes =
-    GetSDKTypes'
-    { _gstLimit = Nothing
-    , _gstPosition = Nothing
-    }
+getSDKTypes = GetSDKTypes' {_gstLimit = Nothing, _gstPosition = Nothing}
+
 
 -- | The maximum number of returned results per page.
 gstLimit :: Lens' GetSDKTypes (Maybe Int)
@@ -87,9 +85,9 @@ instance AWSRequest GetSDKTypes where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetSDKTypes
+instance Hashable GetSDKTypes where
 
-instance NFData GetSDKTypes
+instance NFData GetSDKTypes where
 
 instance ToHeaders GetSDKTypes where
         toHeaders
@@ -111,10 +109,11 @@ instance ToQuery GetSDKTypes where
 --
 -- /See:/ 'getSDKTypesResponse' smart constructor.
 data GetSDKTypesResponse = GetSDKTypesResponse'
-    { _gstrsItems          :: !(Maybe [SDKType])
-    , _gstrsPosition       :: !(Maybe Text)
-    , _gstrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gstrsItems          :: {-# NOUNPACK #-}!(Maybe [SDKType])
+  , _gstrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSDKTypesResponse' with the minimum fields required to make a request.
 --
@@ -129,11 +128,12 @@ getSDKTypesResponse
     :: Int -- ^ 'gstrsResponseStatus'
     -> GetSDKTypesResponse
 getSDKTypesResponse pResponseStatus_ =
-    GetSDKTypesResponse'
-    { _gstrsItems = Nothing
-    , _gstrsPosition = Nothing
-    , _gstrsResponseStatus = pResponseStatus_
-    }
+  GetSDKTypesResponse'
+  { _gstrsItems = Nothing
+  , _gstrsPosition = Nothing
+  , _gstrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 gstrsItems :: Lens' GetSDKTypesResponse [SDKType]
@@ -147,4 +147,4 @@ gstrsPosition = lens _gstrsPosition (\ s a -> s{_gstrsPosition = a});
 gstrsResponseStatus :: Lens' GetSDKTypesResponse Int
 gstrsResponseStatus = lens _gstrsResponseStatus (\ s a -> s{_gstrsResponseStatus = a});
 
-instance NFData GetSDKTypesResponse
+instance NFData GetSDKTypesResponse where

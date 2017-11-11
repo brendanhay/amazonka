@@ -9,32 +9,33 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CostAndUsageReport.Types.Product where
 
-import           Network.AWS.CostAndUsageReport.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CostAndUsageReport.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | The definition of AWS Cost and Usage Report. Customer can specify the report name, time unit, report format, compression format, S3 bucket and additional artifacts and schema elements in the definition.
 --
 -- /See:/ 'reportDefinition' smart constructor.
 data ReportDefinition = ReportDefinition'
-    { _rdAdditionalArtifacts      :: !(Maybe [AdditionalArtifact])
-    , _rdReportName               :: !Text
-    , _rdTimeUnit                 :: !TimeUnit
-    , _rdFormat                   :: !ReportFormat
-    , _rdCompression              :: !CompressionFormat
-    , _rdAdditionalSchemaElements :: ![SchemaElement]
-    , _rdS3Bucket                 :: !Text
-    , _rdS3Prefix                 :: !Text
-    , _rdS3Region                 :: !AWSRegion
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdAdditionalArtifacts      :: {-# NOUNPACK #-}!(Maybe [AdditionalArtifact])
+  , _rdReportName               :: {-# NOUNPACK #-}!Text
+  , _rdTimeUnit                 :: {-# NOUNPACK #-}!TimeUnit
+  , _rdFormat                   :: {-# NOUNPACK #-}!ReportFormat
+  , _rdCompression              :: {-# NOUNPACK #-}!CompressionFormat
+  , _rdAdditionalSchemaElements :: {-# NOUNPACK #-}![SchemaElement]
+  , _rdS3Bucket                 :: {-# NOUNPACK #-}!Text
+  , _rdS3Prefix                 :: {-# NOUNPACK #-}!Text
+  , _rdS3Region                 :: {-# NOUNPACK #-}!AWSRegion
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReportDefinition' with the minimum fields required to make a request.
 --
@@ -67,17 +68,18 @@ reportDefinition
     -> AWSRegion -- ^ 'rdS3Region'
     -> ReportDefinition
 reportDefinition pReportName_ pTimeUnit_ pFormat_ pCompression_ pS3Bucket_ pS3Prefix_ pS3Region_ =
-    ReportDefinition'
-    { _rdAdditionalArtifacts = Nothing
-    , _rdReportName = pReportName_
-    , _rdTimeUnit = pTimeUnit_
-    , _rdFormat = pFormat_
-    , _rdCompression = pCompression_
-    , _rdAdditionalSchemaElements = mempty
-    , _rdS3Bucket = pS3Bucket_
-    , _rdS3Prefix = pS3Prefix_
-    , _rdS3Region = pS3Region_
-    }
+  ReportDefinition'
+  { _rdAdditionalArtifacts = Nothing
+  , _rdReportName = pReportName_
+  , _rdTimeUnit = pTimeUnit_
+  , _rdFormat = pFormat_
+  , _rdCompression = pCompression_
+  , _rdAdditionalSchemaElements = mempty
+  , _rdS3Bucket = pS3Bucket_
+  , _rdS3Prefix = pS3Prefix_
+  , _rdS3Region = pS3Region_
+  }
+
 
 -- | Undocumented member.
 rdAdditionalArtifacts :: Lens' ReportDefinition [AdditionalArtifact]
@@ -130,9 +132,9 @@ instance FromJSON ReportDefinition where
                      <*> (x .: "S3Prefix")
                      <*> (x .: "S3Region"))
 
-instance Hashable ReportDefinition
+instance Hashable ReportDefinition where
 
-instance NFData ReportDefinition
+instance NFData ReportDefinition where
 
 instance ToJSON ReportDefinition where
         toJSON ReportDefinition'{..}

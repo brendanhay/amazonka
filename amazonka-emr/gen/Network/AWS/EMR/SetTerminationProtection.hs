@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.SetTerminationProtection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EMR.SetTerminationProtection
     , SetTerminationProtectionResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input argument to the 'TerminationProtection' operation.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setTerminationProtection' smart constructor.
 data SetTerminationProtection = SetTerminationProtection'
-    { _stpJobFlowIds           :: ![Text]
-    , _stpTerminationProtected :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stpJobFlowIds           :: {-# NOUNPACK #-}![Text]
+  , _stpTerminationProtected :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetTerminationProtection' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ setTerminationProtection
     :: Bool -- ^ 'stpTerminationProtected'
     -> SetTerminationProtection
 setTerminationProtection pTerminationProtected_ =
-    SetTerminationProtection'
-    { _stpJobFlowIds = mempty
-    , _stpTerminationProtected = pTerminationProtected_
-    }
+  SetTerminationProtection'
+  {_stpJobFlowIds = mempty, _stpTerminationProtected = pTerminationProtected_}
+
 
 -- | A list of strings that uniquely identify the clusters to protect. This identifier is returned by 'RunJobFlow' and can also be obtained from 'DescribeJobFlows' .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
@@ -89,9 +89,9 @@ instance AWSRequest SetTerminationProtection where
         response
           = receiveNull SetTerminationProtectionResponse'
 
-instance Hashable SetTerminationProtection
+instance Hashable SetTerminationProtection where
 
-instance NFData SetTerminationProtection
+instance NFData SetTerminationProtection where
 
 instance ToHeaders SetTerminationProtection where
         toHeaders
@@ -120,8 +120,9 @@ instance ToQuery SetTerminationProtection where
 
 -- | /See:/ 'setTerminationProtectionResponse' smart constructor.
 data SetTerminationProtectionResponse =
-    SetTerminationProtectionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetTerminationProtectionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetTerminationProtectionResponse' with the minimum fields required to make a request.
 --
@@ -129,4 +130,6 @@ setTerminationProtectionResponse
     :: SetTerminationProtectionResponse
 setTerminationProtectionResponse = SetTerminationProtectionResponse'
 
+
 instance NFData SetTerminationProtectionResponse
+         where

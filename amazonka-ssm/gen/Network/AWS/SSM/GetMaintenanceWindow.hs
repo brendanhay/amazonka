@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetMaintenanceWindow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,17 +46,18 @@ module Network.AWS.SSM.GetMaintenanceWindow
     , gmwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getMaintenanceWindow' smart constructor.
 newtype GetMaintenanceWindow = GetMaintenanceWindow'
-    { _gmwWindowId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmwWindowId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMaintenanceWindow' with the minimum fields required to make a request.
 --
@@ -67,9 +68,8 @@ getMaintenanceWindow
     :: Text -- ^ 'gmwWindowId'
     -> GetMaintenanceWindow
 getMaintenanceWindow pWindowId_ =
-    GetMaintenanceWindow'
-    { _gmwWindowId = pWindowId_
-    }
+  GetMaintenanceWindow' {_gmwWindowId = pWindowId_}
+
 
 -- | The ID of the desired Maintenance Window.
 gmwWindowId :: Lens' GetMaintenanceWindow Text
@@ -94,9 +94,9 @@ instance AWSRequest GetMaintenanceWindow where
                      <*> (x .?> "WindowId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetMaintenanceWindow
+instance Hashable GetMaintenanceWindow where
 
-instance NFData GetMaintenanceWindow
+instance NFData GetMaintenanceWindow where
 
 instance ToHeaders GetMaintenanceWindow where
         toHeaders
@@ -120,18 +120,19 @@ instance ToQuery GetMaintenanceWindow where
 
 -- | /See:/ 'getMaintenanceWindowResponse' smart constructor.
 data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
-    { _gmwrsEnabled                  :: !(Maybe Bool)
-    , _gmwrsSchedule                 :: !(Maybe Text)
-    , _gmwrsCreatedDate              :: !(Maybe POSIX)
-    , _gmwrsName                     :: !(Maybe Text)
-    , _gmwrsModifiedDate             :: !(Maybe POSIX)
-    , _gmwrsCutoff                   :: !(Maybe Nat)
-    , _gmwrsAllowUnassociatedTargets :: !(Maybe Bool)
-    , _gmwrsDescription              :: !(Maybe (Sensitive Text))
-    , _gmwrsDuration                 :: !(Maybe Nat)
-    , _gmwrsWindowId                 :: !(Maybe Text)
-    , _gmwrsResponseStatus           :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gmwrsEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gmwrsSchedule                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwrsCreatedDate              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmwrsName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwrsModifiedDate             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmwrsCutoff                   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gmwrsAllowUnassociatedTargets :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gmwrsDescription              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gmwrsDuration                 :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gmwrsWindowId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
@@ -162,19 +163,20 @@ getMaintenanceWindowResponse
     :: Int -- ^ 'gmwrsResponseStatus'
     -> GetMaintenanceWindowResponse
 getMaintenanceWindowResponse pResponseStatus_ =
-    GetMaintenanceWindowResponse'
-    { _gmwrsEnabled = Nothing
-    , _gmwrsSchedule = Nothing
-    , _gmwrsCreatedDate = Nothing
-    , _gmwrsName = Nothing
-    , _gmwrsModifiedDate = Nothing
-    , _gmwrsCutoff = Nothing
-    , _gmwrsAllowUnassociatedTargets = Nothing
-    , _gmwrsDescription = Nothing
-    , _gmwrsDuration = Nothing
-    , _gmwrsWindowId = Nothing
-    , _gmwrsResponseStatus = pResponseStatus_
-    }
+  GetMaintenanceWindowResponse'
+  { _gmwrsEnabled = Nothing
+  , _gmwrsSchedule = Nothing
+  , _gmwrsCreatedDate = Nothing
+  , _gmwrsName = Nothing
+  , _gmwrsModifiedDate = Nothing
+  , _gmwrsCutoff = Nothing
+  , _gmwrsAllowUnassociatedTargets = Nothing
+  , _gmwrsDescription = Nothing
+  , _gmwrsDuration = Nothing
+  , _gmwrsWindowId = Nothing
+  , _gmwrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Whether the Maintenance Windows is enabled.
 gmwrsEnabled :: Lens' GetMaintenanceWindowResponse (Maybe Bool)
@@ -220,4 +222,4 @@ gmwrsWindowId = lens _gmwrsWindowId (\ s a -> s{_gmwrsWindowId = a});
 gmwrsResponseStatus :: Lens' GetMaintenanceWindowResponse Int
 gmwrsResponseStatus = lens _gmwrsResponseStatus (\ s a -> s{_gmwrsResponseStatus = a});
 
-instance NFData GetMaintenanceWindowResponse
+instance NFData GetMaintenanceWindowResponse where

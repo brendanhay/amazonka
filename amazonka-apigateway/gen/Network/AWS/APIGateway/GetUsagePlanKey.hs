@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsagePlanKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GetUsagePlanKey
     , upkType
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The GET request to get a usage plan key of a given key identifier.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getUsagePlanKey' smart constructor.
 data GetUsagePlanKey = GetUsagePlanKey'
-    { _gUsagePlanId :: !Text
-    , _gKeyId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gUsagePlanId :: {-# NOUNPACK #-}!Text
+  , _gKeyId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUsagePlanKey' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ getUsagePlanKey
     -> Text -- ^ 'gKeyId'
     -> GetUsagePlanKey
 getUsagePlanKey pUsagePlanId_ pKeyId_ =
-    GetUsagePlanKey'
-    { _gUsagePlanId = pUsagePlanId_
-    , _gKeyId = pKeyId_
-    }
+  GetUsagePlanKey' {_gUsagePlanId = pUsagePlanId_, _gKeyId = pKeyId_}
+
 
 -- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 gUsagePlanId :: Lens' GetUsagePlanKey Text
@@ -87,9 +86,9 @@ instance AWSRequest GetUsagePlanKey where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetUsagePlanKey
+instance Hashable GetUsagePlanKey where
 
-instance NFData GetUsagePlanKey
+instance NFData GetUsagePlanKey where
 
 instance ToHeaders GetUsagePlanKey where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteGameSessionQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.GameLift.DeleteGameSessionQueue
     , dgsqrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -61,8 +61,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteGameSessionQueue' smart constructor.
 newtype DeleteGameSessionQueue = DeleteGameSessionQueue'
-    { _dgsqName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgsqName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGameSessionQueue' with the minimum fields required to make a request.
 --
@@ -72,10 +73,8 @@ newtype DeleteGameSessionQueue = DeleteGameSessionQueue'
 deleteGameSessionQueue
     :: Text -- ^ 'dgsqName'
     -> DeleteGameSessionQueue
-deleteGameSessionQueue pName_ =
-    DeleteGameSessionQueue'
-    { _dgsqName = pName_
-    }
+deleteGameSessionQueue pName_ = DeleteGameSessionQueue' {_dgsqName = pName_}
+
 
 -- | Descriptive label that is associated with game session queue. Queue names must be unique within each region.
 dgsqName :: Lens' DeleteGameSessionQueue Text
@@ -91,9 +90,9 @@ instance AWSRequest DeleteGameSessionQueue where
                  DeleteGameSessionQueueResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteGameSessionQueue
+instance Hashable DeleteGameSessionQueue where
 
-instance NFData DeleteGameSessionQueue
+instance NFData DeleteGameSessionQueue where
 
 instance ToHeaders DeleteGameSessionQueue where
         toHeaders
@@ -116,8 +115,9 @@ instance ToQuery DeleteGameSessionQueue where
 
 -- | /See:/ 'deleteGameSessionQueueResponse' smart constructor.
 newtype DeleteGameSessionQueueResponse = DeleteGameSessionQueueResponse'
-    { _dgsqrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgsqrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGameSessionQueueResponse' with the minimum fields required to make a request.
 --
@@ -128,12 +128,11 @@ deleteGameSessionQueueResponse
     :: Int -- ^ 'dgsqrsResponseStatus'
     -> DeleteGameSessionQueueResponse
 deleteGameSessionQueueResponse pResponseStatus_ =
-    DeleteGameSessionQueueResponse'
-    { _dgsqrsResponseStatus = pResponseStatus_
-    }
+  DeleteGameSessionQueueResponse' {_dgsqrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dgsqrsResponseStatus :: Lens' DeleteGameSessionQueueResponse Int
 dgsqrsResponseStatus = lens _dgsqrsResponseStatus (\ s a -> s{_dgsqrsResponseStatus = a});
 
-instance NFData DeleteGameSessionQueueResponse
+instance NFData DeleteGameSessionQueueResponse where

@@ -9,52 +9,53 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ElasticSearch.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ESPartitionInstanceType
-    = C4_2XLarge_Elasticsearch
-    | C4_4XLarge_Elasticsearch
-    | C4_8XLarge_Elasticsearch
-    | C4_Large_Elasticsearch
-    | C4_XLarge_Elasticsearch
-    | D2_2XLarge_Elasticsearch
-    | D2_4XLarge_Elasticsearch
-    | D2_8XLarge_Elasticsearch
-    | D2_XLarge_Elasticsearch
-    | I2_2XLarge_Elasticsearch
-    | I2_XLarge_Elasticsearch
-    | M3_2XLarge_Elasticsearch
-    | M3_Large_Elasticsearch
-    | M3_Medium_Elasticsearch
-    | M3_XLarge_Elasticsearch
-    | M4_10XLarge_Elasticsearch
-    | M4_2XLarge_Elasticsearch
-    | M4_4XLarge_Elasticsearch
-    | M4_Large_Elasticsearch
-    | M4_XLarge_Elasticsearch
-    | R3_2XLarge_Elasticsearch
-    | R3_4XLarge_Elasticsearch
-    | R3_8XLarge_Elasticsearch
-    | R3_Large_Elasticsearch
-    | R3_XLarge_Elasticsearch
-    | R4_16XLarge_Elasticsearch
-    | R4_2XLarge_Elasticsearch
-    | R4_4XLarge_Elasticsearch
-    | R4_8XLarge_Elasticsearch
-    | R4_Large_Elasticsearch
-    | R4_XLarge_Elasticsearch
-    | T2_Medium_Elasticsearch
-    | T2_Micro_Elasticsearch
-    | T2_Small_Elasticsearch
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = C4_2XLarge_Elasticsearch
+  | C4_4XLarge_Elasticsearch
+  | C4_8XLarge_Elasticsearch
+  | C4_Large_Elasticsearch
+  | C4_XLarge_Elasticsearch
+  | D2_2XLarge_Elasticsearch
+  | D2_4XLarge_Elasticsearch
+  | D2_8XLarge_Elasticsearch
+  | D2_XLarge_Elasticsearch
+  | I2_2XLarge_Elasticsearch
+  | I2_XLarge_Elasticsearch
+  | M3_2XLarge_Elasticsearch
+  | M3_Large_Elasticsearch
+  | M3_Medium_Elasticsearch
+  | M3_XLarge_Elasticsearch
+  | M4_10XLarge_Elasticsearch
+  | M4_2XLarge_Elasticsearch
+  | M4_4XLarge_Elasticsearch
+  | M4_Large_Elasticsearch
+  | M4_XLarge_Elasticsearch
+  | R3_2XLarge_Elasticsearch
+  | R3_4XLarge_Elasticsearch
+  | R3_8XLarge_Elasticsearch
+  | R3_Large_Elasticsearch
+  | R3_XLarge_Elasticsearch
+  | R4_16XLarge_Elasticsearch
+  | R4_2XLarge_Elasticsearch
+  | R4_4XLarge_Elasticsearch
+  | R4_8XLarge_Elasticsearch
+  | R4_Large_Elasticsearch
+  | R4_XLarge_Elasticsearch
+  | T2_Medium_Elasticsearch
+  | T2_Micro_Elasticsearch
+  | T2_Small_Elasticsearch
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ESPartitionInstanceType where
     parser = takeLowerText >>= \case
@@ -150,10 +151,11 @@ instance FromJSON ESPartitionInstanceType where
 --     * Processing: The request change is still in-process.    * Active: The request change is processed and deployed to the Elasticsearch domain.
 --
 data OptionState
-    = Active
-    | Processing
-    | RequiresIndexDocuments
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Processing
+  | RequiresIndexDocuments
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OptionState where
     parser = takeLowerText >>= \case
@@ -182,10 +184,11 @@ instance FromJSON OptionState where
 --
 --
 data VolumeType
-    = GP2
-    | IO1
-    | Standard
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GP2
+  | IO1
+  | Standard
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreatePlatformEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     , cpersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for CreatePlatformEndpoint action.
 --
@@ -55,11 +55,12 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'createPlatformEndpoint' smart constructor.
 data CreatePlatformEndpoint = CreatePlatformEndpoint'
-    { _cpeCustomUserData         :: !(Maybe Text)
-    , _cpeAttributes             :: !(Maybe (Map Text Text))
-    , _cpePlatformApplicationARN :: !Text
-    , _cpeToken                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpeCustomUserData         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpeAttributes             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cpePlatformApplicationARN :: {-# NOUNPACK #-}!Text
+  , _cpeToken                  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlatformEndpoint' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ createPlatformEndpoint
     -> Text -- ^ 'cpeToken'
     -> CreatePlatformEndpoint
 createPlatformEndpoint pPlatformApplicationARN_ pToken_ =
-    CreatePlatformEndpoint'
-    { _cpeCustomUserData = Nothing
-    , _cpeAttributes = Nothing
-    , _cpePlatformApplicationARN = pPlatformApplicationARN_
-    , _cpeToken = pToken_
-    }
+  CreatePlatformEndpoint'
+  { _cpeCustomUserData = Nothing
+  , _cpeAttributes = Nothing
+  , _cpePlatformApplicationARN = pPlatformApplicationARN_
+  , _cpeToken = pToken_
+  }
+
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
 cpeCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
@@ -110,9 +112,9 @@ instance AWSRequest CreatePlatformEndpoint where
                  CreatePlatformEndpointResponse' <$>
                    (x .@? "EndpointArn") <*> (pure (fromEnum s)))
 
-instance Hashable CreatePlatformEndpoint
+instance Hashable CreatePlatformEndpoint where
 
-instance NFData CreatePlatformEndpoint
+instance NFData CreatePlatformEndpoint where
 
 instance ToHeaders CreatePlatformEndpoint where
         toHeaders = const mempty
@@ -141,9 +143,10 @@ instance ToQuery CreatePlatformEndpoint where
 --
 -- /See:/ 'createPlatformEndpointResponse' smart constructor.
 data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
-    { _cpersEndpointARN    :: !(Maybe Text)
-    , _cpersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpersEndpointARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlatformEndpointResponse' with the minimum fields required to make a request.
 --
@@ -156,10 +159,9 @@ createPlatformEndpointResponse
     :: Int -- ^ 'cpersResponseStatus'
     -> CreatePlatformEndpointResponse
 createPlatformEndpointResponse pResponseStatus_ =
-    CreatePlatformEndpointResponse'
-    { _cpersEndpointARN = Nothing
-    , _cpersResponseStatus = pResponseStatus_
-    }
+  CreatePlatformEndpointResponse'
+  {_cpersEndpointARN = Nothing, _cpersResponseStatus = pResponseStatus_}
+
 
 -- | EndpointArn returned from CreateEndpoint action.
 cpersEndpointARN :: Lens' CreatePlatformEndpointResponse (Maybe Text)
@@ -169,4 +171,4 @@ cpersEndpointARN = lens _cpersEndpointARN (\ s a -> s{_cpersEndpointARN = a});
 cpersResponseStatus :: Lens' CreatePlatformEndpointResponse Int
 cpersResponseStatus = lens _cpersResponseStatus (\ s a -> s{_cpersResponseStatus = a});
 
-instance NFData CreatePlatformEndpointResponse
+instance NFData CreatePlatformEndpointResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.ListDiscoveredResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.MigrationHub.ListDiscoveredResources
     , ldrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listDiscoveredResources' smart constructor.
 data ListDiscoveredResources = ListDiscoveredResources'
-    { _ldrNextToken            :: !(Maybe Text)
-    , _ldrMaxResults           :: !(Maybe Nat)
-    , _ldrProgressUpdateStream :: !Text
-    , _ldrMigrationTaskName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrMaxResults           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ldrProgressUpdateStream :: {-# NOUNPACK #-}!Text
+  , _ldrMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDiscoveredResources' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ listDiscoveredResources
     -> Text -- ^ 'ldrMigrationTaskName'
     -> ListDiscoveredResources
 listDiscoveredResources pProgressUpdateStream_ pMigrationTaskName_ =
-    ListDiscoveredResources'
-    { _ldrNextToken = Nothing
-    , _ldrMaxResults = Nothing
-    , _ldrProgressUpdateStream = pProgressUpdateStream_
-    , _ldrMigrationTaskName = pMigrationTaskName_
-    }
+  ListDiscoveredResources'
+  { _ldrNextToken = Nothing
+  , _ldrMaxResults = Nothing
+  , _ldrProgressUpdateStream = pProgressUpdateStream_
+  , _ldrMigrationTaskName = pMigrationTaskName_
+  }
+
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 ldrNextToken :: Lens' ListDiscoveredResources (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest ListDiscoveredResources where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDiscoveredResources
+instance Hashable ListDiscoveredResources where
 
-instance NFData ListDiscoveredResources
+instance NFData ListDiscoveredResources where
 
 instance ToHeaders ListDiscoveredResources where
         toHeaders
@@ -139,10 +141,11 @@ instance ToQuery ListDiscoveredResources where
 
 -- | /See:/ 'listDiscoveredResourcesResponse' smart constructor.
 data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
-    { _ldrrsDiscoveredResourceList :: !(Maybe [DiscoveredResource])
-    , _ldrrsNextToken              :: !(Maybe Text)
-    , _ldrrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrrsDiscoveredResourceList :: {-# NOUNPACK #-}!(Maybe [DiscoveredResource])
+  , _ldrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDiscoveredResourcesResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +160,12 @@ listDiscoveredResourcesResponse
     :: Int -- ^ 'ldrrsResponseStatus'
     -> ListDiscoveredResourcesResponse
 listDiscoveredResourcesResponse pResponseStatus_ =
-    ListDiscoveredResourcesResponse'
-    { _ldrrsDiscoveredResourceList = Nothing
-    , _ldrrsNextToken = Nothing
-    , _ldrrsResponseStatus = pResponseStatus_
-    }
+  ListDiscoveredResourcesResponse'
+  { _ldrrsDiscoveredResourceList = Nothing
+  , _ldrrsNextToken = Nothing
+  , _ldrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Returned list of discovered resources associated with the given MigrationTask.
 ldrrsDiscoveredResourceList :: Lens' ListDiscoveredResourcesResponse [DiscoveredResource]
@@ -175,4 +179,4 @@ ldrrsNextToken = lens _ldrrsNextToken (\ s a -> s{_ldrrsNextToken = a});
 ldrrsResponseStatus :: Lens' ListDiscoveredResourcesResponse Int
 ldrrsResponseStatus = lens _ldrrsResponseStatus (\ s a -> s{_ldrrsResponseStatus = a});
 
-instance NFData ListDiscoveredResourcesResponse
+instance NFData ListDiscoveredResourcesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateAPNSChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.UpdateAPNSChannel
     , uacrsAPNSChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAPNSChannel' smart constructor.
 data UpdateAPNSChannel = UpdateAPNSChannel'
-    { _uacApplicationId      :: !Text
-    , _uacAPNSChannelRequest :: !APNSChannelRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uacApplicationId      :: {-# NOUNPACK #-}!Text
+  , _uacAPNSChannelRequest :: {-# NOUNPACK #-}!APNSChannelRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAPNSChannel' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ updateAPNSChannel
     -> APNSChannelRequest -- ^ 'uacAPNSChannelRequest'
     -> UpdateAPNSChannel
 updateAPNSChannel pApplicationId_ pAPNSChannelRequest_ =
-    UpdateAPNSChannel'
-    { _uacApplicationId = pApplicationId_
-    , _uacAPNSChannelRequest = pAPNSChannelRequest_
-    }
+  UpdateAPNSChannel'
+  { _uacApplicationId = pApplicationId_
+  , _uacAPNSChannelRequest = pAPNSChannelRequest_
+  }
+
 
 -- | Undocumented member.
 uacApplicationId :: Lens' UpdateAPNSChannel Text
@@ -83,9 +85,9 @@ instance AWSRequest UpdateAPNSChannel where
                  UpdateAPNSChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateAPNSChannel
+instance Hashable UpdateAPNSChannel where
 
-instance NFData UpdateAPNSChannel
+instance NFData UpdateAPNSChannel where
 
 instance ToHeaders UpdateAPNSChannel where
         toHeaders
@@ -112,9 +114,10 @@ instance ToQuery UpdateAPNSChannel where
 
 -- | /See:/ 'updateAPNSChannelResponse' smart constructor.
 data UpdateAPNSChannelResponse = UpdateAPNSChannelResponse'
-    { _uacrsResponseStatus      :: !Int
-    , _uacrsAPNSChannelResponse :: !APNSChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uacrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _uacrsAPNSChannelResponse :: {-# NOUNPACK #-}!APNSChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAPNSChannelResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +131,11 @@ updateAPNSChannelResponse
     -> APNSChannelResponse -- ^ 'uacrsAPNSChannelResponse'
     -> UpdateAPNSChannelResponse
 updateAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
-    UpdateAPNSChannelResponse'
-    { _uacrsResponseStatus = pResponseStatus_
-    , _uacrsAPNSChannelResponse = pAPNSChannelResponse_
-    }
+  UpdateAPNSChannelResponse'
+  { _uacrsResponseStatus = pResponseStatus_
+  , _uacrsAPNSChannelResponse = pAPNSChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 uacrsResponseStatus :: Lens' UpdateAPNSChannelResponse Int
@@ -141,4 +145,4 @@ uacrsResponseStatus = lens _uacrsResponseStatus (\ s a -> s{_uacrsResponseStatus
 uacrsAPNSChannelResponse :: Lens' UpdateAPNSChannelResponse APNSChannelResponse
 uacrsAPNSChannelResponse = lens _uacrsAPNSChannelResponse (\ s a -> s{_uacrsAPNSChannelResponse = a});
 
-instance NFData UpdateAPNSChannelResponse
+instance NFData UpdateAPNSChannelResponse where

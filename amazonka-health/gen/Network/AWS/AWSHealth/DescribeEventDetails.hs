@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEventDetails
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.AWSHealth.DescribeEventDetails
     , dedrsResponseStatus
     ) where
 
-import           Network.AWS.AWSHealth.Types
-import           Network.AWS.AWSHealth.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AWSHealth.Types
+import Network.AWS.AWSHealth.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEventDetails' smart constructor.
 data DescribeEventDetails = DescribeEventDetails'
-    { _dedLocale    :: !(Maybe Text)
-    , _dedEventARNs :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedLocale    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dedEventARNs :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventDetails' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ describeEventDetails
     :: NonEmpty Text -- ^ 'dedEventARNs'
     -> DescribeEventDetails
 describeEventDetails pEventARNs_ =
-    DescribeEventDetails'
-    { _dedLocale = Nothing
-    , _dedEventARNs = _List1 # pEventARNs_
-    }
+  DescribeEventDetails'
+  {_dedLocale = Nothing, _dedEventARNs = _List1 # pEventARNs_}
+
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 dedLocale :: Lens' DescribeEventDetails (Maybe Text)
@@ -90,9 +90,9 @@ instance AWSRequest DescribeEventDetails where
                      (x .?> "failedSet" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEventDetails
+instance Hashable DescribeEventDetails where
 
-instance NFData DescribeEventDetails
+instance NFData DescribeEventDetails where
 
 instance ToHeaders DescribeEventDetails where
         toHeaders
@@ -119,10 +119,11 @@ instance ToQuery DescribeEventDetails where
 
 -- | /See:/ 'describeEventDetailsResponse' smart constructor.
 data DescribeEventDetailsResponse = DescribeEventDetailsResponse'
-    { _dedrsSuccessfulSet  :: !(Maybe [EventDetails])
-    , _dedrsFailedSet      :: !(Maybe [EventDetailsErrorItem])
-    , _dedrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedrsSuccessfulSet  :: {-# NOUNPACK #-}!(Maybe [EventDetails])
+  , _dedrsFailedSet      :: {-# NOUNPACK #-}!(Maybe [EventDetailsErrorItem])
+  , _dedrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventDetailsResponse' with the minimum fields required to make a request.
 --
@@ -137,11 +138,12 @@ describeEventDetailsResponse
     :: Int -- ^ 'dedrsResponseStatus'
     -> DescribeEventDetailsResponse
 describeEventDetailsResponse pResponseStatus_ =
-    DescribeEventDetailsResponse'
-    { _dedrsSuccessfulSet = Nothing
-    , _dedrsFailedSet = Nothing
-    , _dedrsResponseStatus = pResponseStatus_
-    }
+  DescribeEventDetailsResponse'
+  { _dedrsSuccessfulSet = Nothing
+  , _dedrsFailedSet = Nothing
+  , _dedrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the events that could be retrieved.
 dedrsSuccessfulSet :: Lens' DescribeEventDetailsResponse [EventDetails]
@@ -155,4 +157,4 @@ dedrsFailedSet = lens _dedrsFailedSet (\ s a -> s{_dedrsFailedSet = a}) . _Defau
 dedrsResponseStatus :: Lens' DescribeEventDetailsResponse Int
 dedrsResponseStatus = lens _dedrsResponseStatus (\ s a -> s{_dedrsResponseStatus = a});
 
-instance NFData DescribeEventDetailsResponse
+instance NFData DescribeEventDetailsResponse where

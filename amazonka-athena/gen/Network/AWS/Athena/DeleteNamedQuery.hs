@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.DeleteNamedQuery
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Athena.DeleteNamedQuery
     , dnqrsResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteNamedQuery' smart constructor.
 newtype DeleteNamedQuery = DeleteNamedQuery'
-    { _dnqNamedQueryId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnqNamedQueryId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNamedQuery' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteNamedQuery
     :: Text -- ^ 'dnqNamedQueryId'
     -> DeleteNamedQuery
 deleteNamedQuery pNamedQueryId_ =
-    DeleteNamedQuery'
-    { _dnqNamedQueryId = pNamedQueryId_
-    }
+  DeleteNamedQuery' {_dnqNamedQueryId = pNamedQueryId_}
+
 
 -- | The unique ID of the query to delete.
 dnqNamedQueryId :: Lens' DeleteNamedQuery Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteNamedQuery where
               (\ s h x ->
                  DeleteNamedQueryResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteNamedQuery
+instance Hashable DeleteNamedQuery where
 
-instance NFData DeleteNamedQuery
+instance NFData DeleteNamedQuery where
 
 instance ToHeaders DeleteNamedQuery where
         toHeaders
@@ -102,8 +102,9 @@ instance ToQuery DeleteNamedQuery where
 
 -- | /See:/ 'deleteNamedQueryResponse' smart constructor.
 newtype DeleteNamedQueryResponse = DeleteNamedQueryResponse'
-    { _dnqrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnqrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNamedQueryResponse' with the minimum fields required to make a request.
 --
@@ -114,12 +115,11 @@ deleteNamedQueryResponse
     :: Int -- ^ 'dnqrsResponseStatus'
     -> DeleteNamedQueryResponse
 deleteNamedQueryResponse pResponseStatus_ =
-    DeleteNamedQueryResponse'
-    { _dnqrsResponseStatus = pResponseStatus_
-    }
+  DeleteNamedQueryResponse' {_dnqrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dnqrsResponseStatus :: Lens' DeleteNamedQueryResponse Int
 dnqrsResponseStatus = lens _dnqrsResponseStatus (\ s a -> s{_dnqrsResponseStatus = a});
 
-instance NFData DeleteNamedQueryResponse
+instance NFData DeleteNamedQueryResponse where

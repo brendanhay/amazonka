@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListOfferingPromotions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.DeviceFarm.ListOfferingPromotions
     , loprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listOfferingPromotions' smart constructor.
 newtype ListOfferingPromotions = ListOfferingPromotions'
-    { _lopNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lopNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOfferingPromotions' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype ListOfferingPromotions = ListOfferingPromotions'
 -- * 'lopNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listOfferingPromotions
     :: ListOfferingPromotions
-listOfferingPromotions =
-    ListOfferingPromotions'
-    { _lopNextToken = Nothing
-    }
+listOfferingPromotions = ListOfferingPromotions' {_lopNextToken = Nothing}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lopNextToken :: Lens' ListOfferingPromotions (Maybe Text)
@@ -78,9 +77,9 @@ instance AWSRequest ListOfferingPromotions where
                      (x .?> "offeringPromotions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListOfferingPromotions
+instance Hashable ListOfferingPromotions where
 
-instance NFData ListOfferingPromotions
+instance NFData ListOfferingPromotions where
 
 instance ToHeaders ListOfferingPromotions where
         toHeaders
@@ -105,10 +104,11 @@ instance ToQuery ListOfferingPromotions where
 
 -- | /See:/ 'listOfferingPromotionsResponse' smart constructor.
 data ListOfferingPromotionsResponse = ListOfferingPromotionsResponse'
-    { _loprsNextToken          :: !(Maybe Text)
-    , _loprsOfferingPromotions :: !(Maybe [OfferingPromotion])
-    , _loprsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loprsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loprsOfferingPromotions :: {-# NOUNPACK #-}!(Maybe [OfferingPromotion])
+  , _loprsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOfferingPromotionsResponse' with the minimum fields required to make a request.
 --
@@ -123,11 +123,12 @@ listOfferingPromotionsResponse
     :: Int -- ^ 'loprsResponseStatus'
     -> ListOfferingPromotionsResponse
 listOfferingPromotionsResponse pResponseStatus_ =
-    ListOfferingPromotionsResponse'
-    { _loprsNextToken = Nothing
-    , _loprsOfferingPromotions = Nothing
-    , _loprsResponseStatus = pResponseStatus_
-    }
+  ListOfferingPromotionsResponse'
+  { _loprsNextToken = Nothing
+  , _loprsOfferingPromotions = Nothing
+  , _loprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An identifier to be used in the next call to this operation, to return the next set of items in the list.
 loprsNextToken :: Lens' ListOfferingPromotionsResponse (Maybe Text)
@@ -141,4 +142,4 @@ loprsOfferingPromotions = lens _loprsOfferingPromotions (\ s a -> s{_loprsOfferi
 loprsResponseStatus :: Lens' ListOfferingPromotionsResponse Int
 loprsResponseStatus = lens _loprsResponseStatus (\ s a -> s{_loprsResponseStatus = a});
 
-instance NFData ListOfferingPromotionsResponse
+instance NFData ListOfferingPromotionsResponse where

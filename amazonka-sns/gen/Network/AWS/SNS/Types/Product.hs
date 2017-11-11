@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SNS.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.SNS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.SNS.Types.Sum
 
 -- | Endpoint for mobile app and device.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.SNS.Types.Sum
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-    { _eAttributes  :: !(Maybe (Map Text Text))
-    , _eEndpointARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eAttributes  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _eEndpointARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
@@ -40,11 +41,8 @@ data Endpoint = Endpoint'
 -- * 'eEndpointARN' - EndpointArn for mobile app and device.
 endpoint
     :: Endpoint
-endpoint =
-    Endpoint'
-    { _eAttributes = Nothing
-    , _eEndpointARN = Nothing
-    }
+endpoint = Endpoint' {_eAttributes = Nothing, _eEndpointARN = Nothing}
+
 
 -- | Attributes for endpoint.
 eAttributes :: Lens' Endpoint (HashMap Text Text)
@@ -61,9 +59,9 @@ instance FromXML Endpoint where
                  may (parseXMLMap "entry" "key" "value"))
                 <*> (x .@? "EndpointArn")
 
-instance Hashable Endpoint
+instance Hashable Endpoint where
 
-instance NFData Endpoint
+instance NFData Endpoint where
 
 -- | The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish> .
 --
@@ -73,10 +71,11 @@ instance NFData Endpoint
 --
 -- /See:/ 'messageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
-    { _mavBinaryValue :: !(Maybe Base64)
-    , _mavStringValue :: !(Maybe Text)
-    , _mavDataType    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mavBinaryValue :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _mavStringValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mavDataType    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageAttributeValue' with the minimum fields required to make a request.
 --
@@ -91,11 +90,12 @@ messageAttributeValue
     :: Text -- ^ 'mavDataType'
     -> MessageAttributeValue
 messageAttributeValue pDataType_ =
-    MessageAttributeValue'
-    { _mavBinaryValue = Nothing
-    , _mavStringValue = Nothing
-    , _mavDataType = pDataType_
-    }
+  MessageAttributeValue'
+  { _mavBinaryValue = Nothing
+  , _mavStringValue = Nothing
+  , _mavDataType = pDataType_
+  }
+
 
 -- | Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
@@ -109,9 +109,9 @@ mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a});
 
-instance Hashable MessageAttributeValue
+instance Hashable MessageAttributeValue where
 
-instance NFData MessageAttributeValue
+instance NFData MessageAttributeValue where
 
 instance ToQuery MessageAttributeValue where
         toQuery MessageAttributeValue'{..}
@@ -126,9 +126,10 @@ instance ToQuery MessageAttributeValue where
 --
 -- /See:/ 'platformApplication' smart constructor.
 data PlatformApplication = PlatformApplication'
-    { _paPlatformApplicationARN :: !(Maybe Text)
-    , _paAttributes             :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _paPlatformApplicationARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paAttributes             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlatformApplication' with the minimum fields required to make a request.
 --
@@ -140,10 +141,9 @@ data PlatformApplication = PlatformApplication'
 platformApplication
     :: PlatformApplication
 platformApplication =
-    PlatformApplication'
-    { _paPlatformApplicationARN = Nothing
-    , _paAttributes = Nothing
-    }
+  PlatformApplication'
+  {_paPlatformApplicationARN = Nothing, _paAttributes = Nothing}
+
 
 -- | PlatformApplicationArn for platform application object.
 paPlatformApplicationARN :: Lens' PlatformApplication (Maybe Text)
@@ -160,9 +160,9 @@ instance FromXML PlatformApplication where
                 (x .@? "Attributes" .!@ mempty >>=
                    may (parseXMLMap "entry" "key" "value"))
 
-instance Hashable PlatformApplication
+instance Hashable PlatformApplication where
 
-instance NFData PlatformApplication
+instance NFData PlatformApplication where
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 --
@@ -170,12 +170,13 @@ instance NFData PlatformApplication
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-    { _sProtocol        :: !(Maybe Text)
-    , _sOwner           :: !(Maybe Text)
-    , _sTopicARN        :: !(Maybe Text)
-    , _sEndpoint        :: !(Maybe Text)
-    , _sSubscriptionARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sProtocol        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sOwner           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sEndpoint        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubscriptionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
@@ -193,13 +194,14 @@ data Subscription = Subscription'
 subscription
     :: Subscription
 subscription =
-    Subscription'
-    { _sProtocol = Nothing
-    , _sOwner = Nothing
-    , _sTopicARN = Nothing
-    , _sEndpoint = Nothing
-    , _sSubscriptionARN = Nothing
-    }
+  Subscription'
+  { _sProtocol = Nothing
+  , _sOwner = Nothing
+  , _sTopicARN = Nothing
+  , _sEndpoint = Nothing
+  , _sSubscriptionARN = Nothing
+  }
+
 
 -- | The subscription's protocol.
 sProtocol :: Lens' Subscription (Maybe Text)
@@ -229,9 +231,9 @@ instance FromXML Subscription where
                 <*> (x .@? "Endpoint")
                 <*> (x .@? "SubscriptionArn")
 
-instance Hashable Subscription
+instance Hashable Subscription where
 
-instance NFData Subscription
+instance NFData Subscription where
 
 -- | A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use @GetTopicAttributes@ .
 --
@@ -239,8 +241,9 @@ instance NFData Subscription
 --
 -- /See:/ 'topic' smart constructor.
 newtype Topic = Topic'
-    { _tTopicARN :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tTopicARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Topic' with the minimum fields required to make a request.
 --
@@ -249,10 +252,8 @@ newtype Topic = Topic'
 -- * 'tTopicARN' - The topic's ARN.
 topic
     :: Topic
-topic =
-    Topic'
-    { _tTopicARN = Nothing
-    }
+topic = Topic' {_tTopicARN = Nothing}
+
 
 -- | The topic's ARN.
 tTopicARN :: Lens' Topic (Maybe Text)
@@ -261,6 +262,6 @@ tTopicARN = lens _tTopicARN (\ s a -> s{_tTopicARN = a});
 instance FromXML Topic where
         parseXML x = Topic' <$> (x .@? "TopicArn")
 
-instance Hashable Topic
+instance Hashable Topic where
 
-instance NFData Topic
+instance NFData Topic where

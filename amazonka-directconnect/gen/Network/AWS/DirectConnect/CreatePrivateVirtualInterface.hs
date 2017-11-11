@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreatePrivateVirtualInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the CreatePrivateVirtualInterface operation.
 --
@@ -66,9 +66,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createPrivateVirtualInterface' smart constructor.
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
-    { _creConnectionId               :: !Text
-    , _creNewPrivateVirtualInterface :: !NewPrivateVirtualInterface
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _creConnectionId :: {-# NOUNPACK #-}!Text
+  , _creNewPrivateVirtualInterface :: {-# NOUNPACK #-}!NewPrivateVirtualInterface
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePrivateVirtualInterface' with the minimum fields required to make a request.
 --
@@ -82,10 +83,11 @@ createPrivateVirtualInterface
     -> NewPrivateVirtualInterface -- ^ 'creNewPrivateVirtualInterface'
     -> CreatePrivateVirtualInterface
 createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ =
-    CreatePrivateVirtualInterface'
-    { _creConnectionId = pConnectionId_
-    , _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface_
-    }
+  CreatePrivateVirtualInterface'
+  { _creConnectionId = pConnectionId_
+  , _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface_
+  }
+
 
 -- | Undocumented member.
 creConnectionId :: Lens' CreatePrivateVirtualInterface Text
@@ -102,9 +104,9 @@ instance AWSRequest CreatePrivateVirtualInterface
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreatePrivateVirtualInterface
+instance Hashable CreatePrivateVirtualInterface where
 
-instance NFData CreatePrivateVirtualInterface
+instance NFData CreatePrivateVirtualInterface where
 
 instance ToHeaders CreatePrivateVirtualInterface
          where

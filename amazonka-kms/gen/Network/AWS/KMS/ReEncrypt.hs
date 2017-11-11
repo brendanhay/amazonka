@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ReEncrypt
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.KMS.ReEncrypt
     , rersResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'reEncrypt' smart constructor.
 data ReEncrypt = ReEncrypt'
-    { _reDestinationEncryptionContext :: !(Maybe (Map Text Text))
-    , _reSourceEncryptionContext      :: !(Maybe (Map Text Text))
-    , _reGrantTokens                  :: !(Maybe [Text])
-    , _reCiphertextBlob               :: !Base64
-    , _reDestinationKeyId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _reDestinationEncryptionContext :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _reSourceEncryptionContext      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _reGrantTokens                  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _reCiphertextBlob               :: {-# NOUNPACK #-}!Base64
+  , _reDestinationKeyId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReEncrypt' with the minimum fields required to make a request.
 --
@@ -79,13 +80,14 @@ reEncrypt
     -> Text -- ^ 'reDestinationKeyId'
     -> ReEncrypt
 reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
-    ReEncrypt'
-    { _reDestinationEncryptionContext = Nothing
-    , _reSourceEncryptionContext = Nothing
-    , _reGrantTokens = Nothing
-    , _reCiphertextBlob = _Base64 # pCiphertextBlob_
-    , _reDestinationKeyId = pDestinationKeyId_
-    }
+  ReEncrypt'
+  { _reDestinationEncryptionContext = Nothing
+  , _reSourceEncryptionContext = Nothing
+  , _reGrantTokens = Nothing
+  , _reCiphertextBlob = _Base64 # pCiphertextBlob_
+  , _reDestinationKeyId = pDestinationKeyId_
+  }
+
 
 -- | Encryption context to use when the data is reencrypted.
 reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
@@ -118,9 +120,9 @@ instance AWSRequest ReEncrypt where
                      (x .?> "CiphertextBlob")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ReEncrypt
+instance Hashable ReEncrypt where
 
-instance NFData ReEncrypt
+instance NFData ReEncrypt where
 
 instance ToHeaders ReEncrypt where
         toHeaders
@@ -151,11 +153,12 @@ instance ToQuery ReEncrypt where
 
 -- | /See:/ 'reEncryptResponse' smart constructor.
 data ReEncryptResponse = ReEncryptResponse'
-    { _rersSourceKeyId    :: !(Maybe Text)
-    , _rersKeyId          :: !(Maybe Text)
-    , _rersCiphertextBlob :: !(Maybe Base64)
-    , _rersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rersSourceKeyId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rersKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rersCiphertextBlob :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _rersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReEncryptResponse' with the minimum fields required to make a request.
 --
@@ -172,12 +175,13 @@ reEncryptResponse
     :: Int -- ^ 'rersResponseStatus'
     -> ReEncryptResponse
 reEncryptResponse pResponseStatus_ =
-    ReEncryptResponse'
-    { _rersSourceKeyId = Nothing
-    , _rersKeyId = Nothing
-    , _rersCiphertextBlob = Nothing
-    , _rersResponseStatus = pResponseStatus_
-    }
+  ReEncryptResponse'
+  { _rersSourceKeyId = Nothing
+  , _rersKeyId = Nothing
+  , _rersCiphertextBlob = Nothing
+  , _rersResponseStatus = pResponseStatus_
+  }
+
 
 -- | Unique identifier of the CMK used to originally encrypt the data.
 rersSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
@@ -195,4 +199,4 @@ rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = 
 rersResponseStatus :: Lens' ReEncryptResponse Int
 rersResponseStatus = lens _rersResponseStatus (\ s a -> s{_rersResponseStatus = a});
 
-instance NFData ReEncryptResponse
+instance NFData ReEncryptResponse where

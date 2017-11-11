@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.DMS.DescribeEvents
     , deersResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -59,16 +59,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-    { _deStartTime        :: !(Maybe POSIX)
-    , _deSourceType       :: !(Maybe SourceType)
-    , _deFilters          :: !(Maybe [Filter])
-    , _deSourceIdentifier :: !(Maybe Text)
-    , _deEventCategories  :: !(Maybe [Text])
-    , _deMarker           :: !(Maybe Text)
-    , _deMaxRecords       :: !(Maybe Int)
-    , _deEndTime          :: !(Maybe POSIX)
-    , _deDuration         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _deSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _deFilters          :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _deSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _deMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deMaxRecords       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _deEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _deDuration         :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
@@ -94,17 +95,18 @@ data DescribeEvents = DescribeEvents'
 describeEvents
     :: DescribeEvents
 describeEvents =
-    DescribeEvents'
-    { _deStartTime = Nothing
-    , _deSourceType = Nothing
-    , _deFilters = Nothing
-    , _deSourceIdentifier = Nothing
-    , _deEventCategories = Nothing
-    , _deMarker = Nothing
-    , _deMaxRecords = Nothing
-    , _deEndTime = Nothing
-    , _deDuration = Nothing
-    }
+  DescribeEvents'
+  { _deStartTime = Nothing
+  , _deSourceType = Nothing
+  , _deFilters = Nothing
+  , _deSourceIdentifier = Nothing
+  , _deEventCategories = Nothing
+  , _deMarker = Nothing
+  , _deMaxRecords = Nothing
+  , _deEndTime = Nothing
+  , _deDuration = Nothing
+  }
+
 
 -- | The start time for the events to be listed.
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
@@ -152,9 +154,9 @@ instance AWSRequest DescribeEvents where
                    (x .?> "Events" .!@ mempty) <*> (x .?> "Marker") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeEvents
+instance Hashable DescribeEvents where
 
-instance NFData DescribeEvents
+instance NFData DescribeEvents where
 
 instance ToHeaders DescribeEvents where
         toHeaders
@@ -191,10 +193,11 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _deersEvents         :: !(Maybe [Event])
-    , _deersMarker         :: !(Maybe Text)
-    , _deersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
+  , _deersMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
@@ -209,11 +212,12 @@ describeEventsResponse
     :: Int -- ^ 'deersResponseStatus'
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
-    DescribeEventsResponse'
-    { _deersEvents = Nothing
-    , _deersMarker = Nothing
-    , _deersResponseStatus = pResponseStatus_
-    }
+  DescribeEventsResponse'
+  { _deersEvents = Nothing
+  , _deersMarker = Nothing
+  , _deersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The events described.
 deersEvents :: Lens' DescribeEventsResponse [Event]
@@ -227,4 +231,4 @@ deersMarker = lens _deersMarker (\ s a -> s{_deersMarker = a});
 deersResponseStatus :: Lens' DescribeEventsResponse Int
 deersResponseStatus = lens _deersResponseStatus (\ s a -> s{_deersResponseStatus = a});
 
-instance NFData DescribeEventsResponse
+instance NFData DescribeEventsResponse where

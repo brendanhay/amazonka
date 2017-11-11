@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeletePlacementGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DeletePlacementGroup
     , DeletePlacementGroupResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeletePlacementGroup.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deletePlacementGroup' smart constructor.
 data DeletePlacementGroup = DeletePlacementGroup'
-    { _dpgDryRun    :: !(Maybe Bool)
-    , _dpgGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dpgGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePlacementGroup' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ deletePlacementGroup
     :: Text -- ^ 'dpgGroupName'
     -> DeletePlacementGroup
 deletePlacementGroup pGroupName_ =
-    DeletePlacementGroup'
-    { _dpgDryRun = Nothing
-    , _dpgGroupName = pGroupName_
-    }
+  DeletePlacementGroup' {_dpgDryRun = Nothing, _dpgGroupName = pGroupName_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dpgDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
@@ -82,9 +81,9 @@ instance AWSRequest DeletePlacementGroup where
         request = postQuery ec2
         response = receiveNull DeletePlacementGroupResponse'
 
-instance Hashable DeletePlacementGroup
+instance Hashable DeletePlacementGroup where
 
-instance NFData DeletePlacementGroup
+instance NFData DeletePlacementGroup where
 
 instance ToHeaders DeletePlacementGroup where
         toHeaders = const mempty
@@ -101,8 +100,9 @@ instance ToQuery DeletePlacementGroup where
 
 -- | /See:/ 'deletePlacementGroupResponse' smart constructor.
 data DeletePlacementGroupResponse =
-    DeletePlacementGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePlacementGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePlacementGroupResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +110,5 @@ deletePlacementGroupResponse
     :: DeletePlacementGroupResponse
 deletePlacementGroupResponse = DeletePlacementGroupResponse'
 
-instance NFData DeletePlacementGroupResponse
+
+instance NFData DeletePlacementGroupResponse where

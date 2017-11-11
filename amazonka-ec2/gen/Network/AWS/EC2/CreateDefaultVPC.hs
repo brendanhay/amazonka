@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateDefaultVPC
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.CreateDefaultVPC
     , cdvrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateDefaultVpc.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDefaultVPC' smart constructor.
 newtype CreateDefaultVPC = CreateDefaultVPC'
-    { _cdvDryRun :: Maybe Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdvDryRun :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDefaultVPC' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ newtype CreateDefaultVPC = CreateDefaultVPC'
 -- * 'cdvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 createDefaultVPC
     :: CreateDefaultVPC
-createDefaultVPC =
-    CreateDefaultVPC'
-    { _cdvDryRun = Nothing
-    }
+createDefaultVPC = CreateDefaultVPC' {_cdvDryRun = Nothing}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cdvDryRun :: Lens' CreateDefaultVPC (Maybe Bool)
@@ -82,9 +81,9 @@ instance AWSRequest CreateDefaultVPC where
                  CreateDefaultVPCResponse' <$>
                    (x .@? "vpc") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDefaultVPC
+instance Hashable CreateDefaultVPC where
 
-instance NFData CreateDefaultVPC
+instance NFData CreateDefaultVPC where
 
 instance ToHeaders CreateDefaultVPC where
         toHeaders = const mempty
@@ -105,9 +104,10 @@ instance ToQuery CreateDefaultVPC where
 --
 -- /See:/ 'createDefaultVPCResponse' smart constructor.
 data CreateDefaultVPCResponse = CreateDefaultVPCResponse'
-    { _cdvrsVPC            :: !(Maybe VPC)
-    , _cdvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdvrsVPC            :: {-# NOUNPACK #-}!(Maybe VPC)
+  , _cdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDefaultVPCResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +120,9 @@ createDefaultVPCResponse
     :: Int -- ^ 'cdvrsResponseStatus'
     -> CreateDefaultVPCResponse
 createDefaultVPCResponse pResponseStatus_ =
-    CreateDefaultVPCResponse'
-    { _cdvrsVPC = Nothing
-    , _cdvrsResponseStatus = pResponseStatus_
-    }
+  CreateDefaultVPCResponse'
+  {_cdvrsVPC = Nothing, _cdvrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the VPC.
 cdvrsVPC :: Lens' CreateDefaultVPCResponse (Maybe VPC)
@@ -133,4 +132,4 @@ cdvrsVPC = lens _cdvrsVPC (\ s a -> s{_cdvrsVPC = a});
 cdvrsResponseStatus :: Lens' CreateDefaultVPCResponse Int
 cdvrsResponseStatus = lens _cdvrsResponseStatus (\ s a -> s{_cdvrsResponseStatus = a});
 
-instance NFData CreateDefaultVPCResponse
+instance NFData CreateDefaultVPCResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListBucketAnalyticsConfigurations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.S3.ListBucketAnalyticsConfigurations
     , lbacrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listBucketAnalyticsConfigurations' smart constructor.
 data ListBucketAnalyticsConfigurations = ListBucketAnalyticsConfigurations'
-    { _lbacContinuationToken :: !(Maybe Text)
-    , _lbacBucket            :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbacContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbacBucket            :: {-# NOUNPACK #-}!BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBucketAnalyticsConfigurations' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ listBucketAnalyticsConfigurations
     :: BucketName -- ^ 'lbacBucket'
     -> ListBucketAnalyticsConfigurations
 listBucketAnalyticsConfigurations pBucket_ =
-    ListBucketAnalyticsConfigurations'
-    { _lbacContinuationToken = Nothing
-    , _lbacBucket = pBucket_
-    }
+  ListBucketAnalyticsConfigurations'
+  {_lbacContinuationToken = Nothing, _lbacBucket = pBucket_}
+
 
 -- | The ContinuationToken that represents a placeholder from where this request should begin.
 lbacContinuationToken :: Lens' ListBucketAnalyticsConfigurations (Maybe Text)
@@ -92,8 +92,10 @@ instance AWSRequest ListBucketAnalyticsConfigurations
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListBucketAnalyticsConfigurations
+         where
 
 instance NFData ListBucketAnalyticsConfigurations
+         where
 
 instance ToHeaders ListBucketAnalyticsConfigurations
          where
@@ -113,12 +115,13 @@ instance ToQuery ListBucketAnalyticsConfigurations
 
 -- | /See:/ 'listBucketAnalyticsConfigurationsResponse' smart constructor.
 data ListBucketAnalyticsConfigurationsResponse = ListBucketAnalyticsConfigurationsResponse'
-    { _lbacrsAnalyticsConfigurationList :: !(Maybe [AnalyticsConfiguration])
-    , _lbacrsContinuationToken          :: !(Maybe Text)
-    , _lbacrsNextContinuationToken      :: !(Maybe Text)
-    , _lbacrsIsTruncated                :: !(Maybe Bool)
-    , _lbacrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbacrsAnalyticsConfigurationList :: {-# NOUNPACK #-}!(Maybe [AnalyticsConfiguration])
+  , _lbacrsContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbacrsNextContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbacrsIsTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lbacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBucketAnalyticsConfigurationsResponse' with the minimum fields required to make a request.
 --
@@ -137,13 +140,14 @@ listBucketAnalyticsConfigurationsResponse
     :: Int -- ^ 'lbacrsResponseStatus'
     -> ListBucketAnalyticsConfigurationsResponse
 listBucketAnalyticsConfigurationsResponse pResponseStatus_ =
-    ListBucketAnalyticsConfigurationsResponse'
-    { _lbacrsAnalyticsConfigurationList = Nothing
-    , _lbacrsContinuationToken = Nothing
-    , _lbacrsNextContinuationToken = Nothing
-    , _lbacrsIsTruncated = Nothing
-    , _lbacrsResponseStatus = pResponseStatus_
-    }
+  ListBucketAnalyticsConfigurationsResponse'
+  { _lbacrsAnalyticsConfigurationList = Nothing
+  , _lbacrsContinuationToken = Nothing
+  , _lbacrsNextContinuationToken = Nothing
+  , _lbacrsIsTruncated = Nothing
+  , _lbacrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of analytics configurations for a bucket.
 lbacrsAnalyticsConfigurationList :: Lens' ListBucketAnalyticsConfigurationsResponse [AnalyticsConfiguration]
@@ -166,4 +170,5 @@ lbacrsResponseStatus :: Lens' ListBucketAnalyticsConfigurationsResponse Int
 lbacrsResponseStatus = lens _lbacrsResponseStatus (\ s a -> s{_lbacrsResponseStatus = a});
 
 instance NFData
-         ListBucketAnalyticsConfigurationsResponse
+           ListBucketAnalyticsConfigurationsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualInterfaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     , dvisrsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DescribeVirtualInterfaces operation.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeVirtualInterfaces' smart constructor.
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
-    { _dviConnectionId       :: !(Maybe Text)
-    , _dviVirtualInterfaceId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dviConnectionId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dviVirtualInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVirtualInterfaces' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
 describeVirtualInterfaces
     :: DescribeVirtualInterfaces
 describeVirtualInterfaces =
-    DescribeVirtualInterfaces'
-    { _dviConnectionId = Nothing
-    , _dviVirtualInterfaceId = Nothing
-    }
+  DescribeVirtualInterfaces'
+  {_dviConnectionId = Nothing, _dviVirtualInterfaceId = Nothing}
+
 
 -- | Undocumented member.
 dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
@@ -91,9 +91,9 @@ instance AWSRequest DescribeVirtualInterfaces where
                    (x .?> "virtualInterfaces" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeVirtualInterfaces
+instance Hashable DescribeVirtualInterfaces where
 
-instance NFData DescribeVirtualInterfaces
+instance NFData DescribeVirtualInterfaces where
 
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
@@ -125,9 +125,10 @@ instance ToQuery DescribeVirtualInterfaces where
 --
 -- /See:/ 'describeVirtualInterfacesResponse' smart constructor.
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
-    { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
-    , _dvisrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvisrsVirtualInterfaces :: {-# NOUNPACK #-}!(Maybe [VirtualInterface])
+  , _dvisrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVirtualInterfacesResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +141,9 @@ describeVirtualInterfacesResponse
     :: Int -- ^ 'dvisrsResponseStatus'
     -> DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse pResponseStatus_ =
-    DescribeVirtualInterfacesResponse'
-    { _dvisrsVirtualInterfaces = Nothing
-    , _dvisrsResponseStatus = pResponseStatus_
-    }
+  DescribeVirtualInterfacesResponse'
+  {_dvisrsVirtualInterfaces = Nothing, _dvisrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of virtual interfaces.
 dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
@@ -154,3 +154,4 @@ dvisrsResponseStatus :: Lens' DescribeVirtualInterfacesResponse Int
 dvisrsResponseStatus = lens _dvisrsResponseStatus (\ s a -> s{_dvisrsResponseStatus = a});
 
 instance NFData DescribeVirtualInterfacesResponse
+         where

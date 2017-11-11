@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Rekognition.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data Attribute
-    = All
-    | Default
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = All
+  | Default
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Attribute where
     parser = takeLowerText >>= \case
@@ -46,15 +47,16 @@ instance ToJSON Attribute where
     toJSON = toJSONText
 
 data EmotionName
-    = Angry
-    | Calm
-    | Confused
-    | Disgusted
-    | Happy
-    | Sad
-    | Surprised
-    | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Angry
+  | Calm
+  | Confused
+  | Disgusted
+  | Happy
+  | Sad
+  | Surprised
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EmotionName where
     parser = takeLowerText >>= \case
@@ -90,9 +92,10 @@ instance FromJSON EmotionName where
     parseJSON = parseJSONText "EmotionName"
 
 data GenderType
-    = Female
-    | Male
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Female
+  | Male
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText GenderType where
     parser = takeLowerText >>= \case
@@ -116,32 +119,33 @@ instance FromJSON GenderType where
     parseJSON = parseJSONText "GenderType"
 
 data LandmarkType
-    = EyeLeft
-    | EyeRight
-    | LeftEyeDown
-    | LeftEyeLeft
-    | LeftEyeRight
-    | LeftEyeUp
-    | LeftEyebrowLeft
-    | LeftEyebrowRight
-    | LeftEyebrowUp
-    | LeftPupil
-    | MouthDown
-    | MouthLeft
-    | MouthRight
-    | MouthUp
-    | Nose
-    | NoseLeft
-    | NoseRight
-    | RightEyeDown
-    | RightEyeLeft
-    | RightEyeRight
-    | RightEyeUp
-    | RightEyebrowLeft
-    | RightEyebrowRight
-    | RightEyebrowUp
-    | RightPupil
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EyeLeft
+  | EyeRight
+  | LeftEyeDown
+  | LeftEyeLeft
+  | LeftEyeRight
+  | LeftEyeUp
+  | LeftEyebrowLeft
+  | LeftEyebrowRight
+  | LeftEyebrowUp
+  | LeftPupil
+  | MouthDown
+  | MouthLeft
+  | MouthRight
+  | MouthUp
+  | Nose
+  | NoseLeft
+  | NoseRight
+  | RightEyeDown
+  | RightEyeLeft
+  | RightEyeRight
+  | RightEyeUp
+  | RightEyebrowLeft
+  | RightEyebrowRight
+  | RightEyebrowUp
+  | RightPupil
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LandmarkType where
     parser = takeLowerText >>= \case
@@ -211,11 +215,12 @@ instance FromJSON LandmarkType where
     parseJSON = parseJSONText "LandmarkType"
 
 data OrientationCorrection
-    = Rotate0
-    | Rotate180
-    | Rotate270
-    | Rotate90
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Rotate0
+  | Rotate180
+  | Rotate270
+  | Rotate90
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OrientationCorrection where
     parser = takeLowerText >>= \case

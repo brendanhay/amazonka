@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateNFSFileShare
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,12 +58,12 @@ module Network.AWS.StorageGateway.UpdateNFSFileShare
     , unfsfsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | UpdateNFSFileShareInput
 --
@@ -71,15 +71,16 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateNFSFileShare' smart constructor.
 data UpdateNFSFileShare = UpdateNFSFileShare'
-    { _unfsfsKMSKey               :: !(Maybe Text)
-    , _unfsfsKMSEncrypted         :: !(Maybe Bool)
-    , _unfsfsDefaultStorageClass  :: !(Maybe Text)
-    , _unfsfsSquash               :: !(Maybe Text)
-    , _unfsfsNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
-    , _unfsfsClientList           :: !(Maybe (List1 Text))
-    , _unfsfsReadOnly             :: !(Maybe Bool)
-    , _unfsfsFileShareARN         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unfsfsKMSKey               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _unfsfsKMSEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _unfsfsDefaultStorageClass  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _unfsfsSquash               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _unfsfsNFSFileShareDefaults :: {-# NOUNPACK #-}!(Maybe NFSFileShareDefaults)
+  , _unfsfsClientList           :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _unfsfsReadOnly             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _unfsfsFileShareARN         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNFSFileShare' with the minimum fields required to make a request.
 --
@@ -104,16 +105,17 @@ updateNFSFileShare
     :: Text -- ^ 'unfsfsFileShareARN'
     -> UpdateNFSFileShare
 updateNFSFileShare pFileShareARN_ =
-    UpdateNFSFileShare'
-    { _unfsfsKMSKey = Nothing
-    , _unfsfsKMSEncrypted = Nothing
-    , _unfsfsDefaultStorageClass = Nothing
-    , _unfsfsSquash = Nothing
-    , _unfsfsNFSFileShareDefaults = Nothing
-    , _unfsfsClientList = Nothing
-    , _unfsfsReadOnly = Nothing
-    , _unfsfsFileShareARN = pFileShareARN_
-    }
+  UpdateNFSFileShare'
+  { _unfsfsKMSKey = Nothing
+  , _unfsfsKMSEncrypted = Nothing
+  , _unfsfsDefaultStorageClass = Nothing
+  , _unfsfsSquash = Nothing
+  , _unfsfsNFSFileShareDefaults = Nothing
+  , _unfsfsClientList = Nothing
+  , _unfsfsReadOnly = Nothing
+  , _unfsfsFileShareARN = pFileShareARN_
+  }
+
 
 -- | The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional.
 unfsfsKMSKey :: Lens' UpdateNFSFileShare (Maybe Text)
@@ -157,9 +159,9 @@ instance AWSRequest UpdateNFSFileShare where
                  UpdateNFSFileShareResponse' <$>
                    (x .?> "FileShareARN") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateNFSFileShare
+instance Hashable UpdateNFSFileShare where
 
-instance NFData UpdateNFSFileShare
+instance NFData UpdateNFSFileShare where
 
 instance ToHeaders UpdateNFSFileShare where
         toHeaders
@@ -198,9 +200,10 @@ instance ToQuery UpdateNFSFileShare where
 --
 -- /See:/ 'updateNFSFileShareResponse' smart constructor.
 data UpdateNFSFileShareResponse = UpdateNFSFileShareResponse'
-    { _unfsfsrsFileShareARN   :: !(Maybe Text)
-    , _unfsfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unfsfsrsFileShareARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _unfsfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNFSFileShareResponse' with the minimum fields required to make a request.
 --
@@ -213,10 +216,9 @@ updateNFSFileShareResponse
     :: Int -- ^ 'unfsfsrsResponseStatus'
     -> UpdateNFSFileShareResponse
 updateNFSFileShareResponse pResponseStatus_ =
-    UpdateNFSFileShareResponse'
-    { _unfsfsrsFileShareARN = Nothing
-    , _unfsfsrsResponseStatus = pResponseStatus_
-    }
+  UpdateNFSFileShareResponse'
+  {_unfsfsrsFileShareARN = Nothing, _unfsfsrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the updated file share.
 unfsfsrsFileShareARN :: Lens' UpdateNFSFileShareResponse (Maybe Text)
@@ -226,4 +228,4 @@ unfsfsrsFileShareARN = lens _unfsfsrsFileShareARN (\ s a -> s{_unfsfsrsFileShare
 unfsfsrsResponseStatus :: Lens' UpdateNFSFileShareResponse Int
 unfsfsrsResponseStatus = lens _unfsfsrsResponseStatus (\ s a -> s{_unfsfsrsResponseStatus = a});
 
-instance NFData UpdateNFSFileShareResponse
+instance NFData UpdateNFSFileShareResponse where

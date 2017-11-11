@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeMovingAddresses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribeMovingAddresses
     , dmarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeMovingAddresses.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeMovingAddresses' smart constructor.
 data DescribeMovingAddresses = DescribeMovingAddresses'
-    { _dmaFilters    :: !(Maybe [Filter])
-    , _dmaPublicIPs  :: !(Maybe [Text])
-    , _dmaNextToken  :: !(Maybe Text)
-    , _dmaDryRun     :: !(Maybe Bool)
-    , _dmaMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmaFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dmaPublicIPs  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dmaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmaDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dmaMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMovingAddresses' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
 describeMovingAddresses
     :: DescribeMovingAddresses
 describeMovingAddresses =
-    DescribeMovingAddresses'
-    { _dmaFilters = Nothing
-    , _dmaPublicIPs = Nothing
-    , _dmaNextToken = Nothing
-    , _dmaDryRun = Nothing
-    , _dmaMaxResults = Nothing
-    }
+  DescribeMovingAddresses'
+  { _dmaFilters = Nothing
+  , _dmaPublicIPs = Nothing
+  , _dmaNextToken = Nothing
+  , _dmaDryRun = Nothing
+  , _dmaMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @moving-status@ - The status of the Elastic IP address (@MovingToVpc@ | @RestoringToClassic@ ).
 dmaFilters :: Lens' DescribeMovingAddresses [Filter]
@@ -119,9 +121,9 @@ instance AWSRequest DescribeMovingAddresses where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeMovingAddresses
+instance Hashable DescribeMovingAddresses where
 
-instance NFData DescribeMovingAddresses
+instance NFData DescribeMovingAddresses where
 
 instance ToHeaders DescribeMovingAddresses where
         toHeaders = const mempty
@@ -146,10 +148,11 @@ instance ToQuery DescribeMovingAddresses where
 --
 -- /See:/ 'describeMovingAddressesResponse' smart constructor.
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
-    { _dmarsMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
-    , _dmarsNextToken             :: !(Maybe Text)
-    , _dmarsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmarsMovingAddressStatuses :: {-# NOUNPACK #-}!(Maybe [MovingAddressStatus])
+  , _dmarsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMovingAddressesResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ describeMovingAddressesResponse
     :: Int -- ^ 'dmarsResponseStatus'
     -> DescribeMovingAddressesResponse
 describeMovingAddressesResponse pResponseStatus_ =
-    DescribeMovingAddressesResponse'
-    { _dmarsMovingAddressStatuses = Nothing
-    , _dmarsNextToken = Nothing
-    , _dmarsResponseStatus = pResponseStatus_
-    }
+  DescribeMovingAddressesResponse'
+  { _dmarsMovingAddressStatuses = Nothing
+  , _dmarsNextToken = Nothing
+  , _dmarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status for each Elastic IP address.
 dmarsMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddressStatus]
@@ -182,4 +186,4 @@ dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a});
 dmarsResponseStatus :: Lens' DescribeMovingAddressesResponse Int
 dmarsResponseStatus = lens _dmarsResponseStatus (\ s a -> s{_dmarsResponseStatus = a});
 
-instance NFData DescribeMovingAddressesResponse
+instance NFData DescribeMovingAddressesResponse where

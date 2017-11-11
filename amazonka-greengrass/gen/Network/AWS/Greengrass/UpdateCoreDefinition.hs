@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateCoreDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.Greengrass.UpdateCoreDefinition
     , ucdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateCoreDefinition' smart constructor.
 data UpdateCoreDefinition = UpdateCoreDefinition'
-    { _ucdName             :: !(Maybe Text)
-    , _ucdCoreDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucdName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucdCoreDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCoreDefinition' with the minimum fields required to make a request.
 --
@@ -59,10 +60,9 @@ updateCoreDefinition
     :: Text -- ^ 'ucdCoreDefinitionId'
     -> UpdateCoreDefinition
 updateCoreDefinition pCoreDefinitionId_ =
-    UpdateCoreDefinition'
-    { _ucdName = Nothing
-    , _ucdCoreDefinitionId = pCoreDefinitionId_
-    }
+  UpdateCoreDefinition'
+  {_ucdName = Nothing, _ucdCoreDefinitionId = pCoreDefinitionId_}
+
 
 -- | name of the definition
 ucdName :: Lens' UpdateCoreDefinition (Maybe Text)
@@ -82,9 +82,9 @@ instance AWSRequest UpdateCoreDefinition where
                  UpdateCoreDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateCoreDefinition
+instance Hashable UpdateCoreDefinition where
 
-instance NFData UpdateCoreDefinition
+instance NFData UpdateCoreDefinition where
 
 instance ToHeaders UpdateCoreDefinition where
         toHeaders
@@ -108,8 +108,9 @@ instance ToQuery UpdateCoreDefinition where
 
 -- | /See:/ 'updateCoreDefinitionResponse' smart constructor.
 newtype UpdateCoreDefinitionResponse = UpdateCoreDefinitionResponse'
-    { _ucdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCoreDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +121,11 @@ updateCoreDefinitionResponse
     :: Int -- ^ 'ucdrsResponseStatus'
     -> UpdateCoreDefinitionResponse
 updateCoreDefinitionResponse pResponseStatus_ =
-    UpdateCoreDefinitionResponse'
-    { _ucdrsResponseStatus = pResponseStatus_
-    }
+  UpdateCoreDefinitionResponse' {_ucdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ucdrsResponseStatus :: Lens' UpdateCoreDefinitionResponse Int
 ucdrsResponseStatus = lens _ucdrsResponseStatus (\ s a -> s{_ucdrsResponseStatus = a});
 
-instance NFData UpdateCoreDefinitionResponse
+instance NFData UpdateCoreDefinitionResponse where

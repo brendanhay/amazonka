@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Organizations.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types.Sum
+import Network.AWS.Prelude
 
 -- | Contains information about an AWS account that is a member of an organization.
 --
@@ -27,14 +27,15 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'account' smart constructor.
 data Account = Account'
-    { _aStatus          :: !(Maybe AccountStatus)
-    , _aJoinedMethod    :: !(Maybe AccountJoinedMethod)
-    , _aEmail           :: !(Maybe (Sensitive Text))
-    , _aARN             :: !(Maybe Text)
-    , _aJoinedTimestamp :: !(Maybe POSIX)
-    , _aName            :: !(Maybe (Sensitive Text))
-    , _aId              :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _aStatus          :: {-# NOUNPACK #-}!(Maybe AccountStatus)
+  , _aJoinedMethod    :: {-# NOUNPACK #-}!(Maybe AccountJoinedMethod)
+  , _aEmail           :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _aARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aJoinedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aName            :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _aId              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Account' with the minimum fields required to make a request.
 --
@@ -56,15 +57,16 @@ data Account = Account'
 account
     :: Account
 account =
-    Account'
-    { _aStatus = Nothing
-    , _aJoinedMethod = Nothing
-    , _aEmail = Nothing
-    , _aARN = Nothing
-    , _aJoinedTimestamp = Nothing
-    , _aName = Nothing
-    , _aId = Nothing
-    }
+  Account'
+  { _aStatus = Nothing
+  , _aJoinedMethod = Nothing
+  , _aEmail = Nothing
+  , _aARN = Nothing
+  , _aJoinedTimestamp = Nothing
+  , _aName = Nothing
+  , _aId = Nothing
+  }
+
 
 -- | The status of the account in the organization.
 aStatus :: Lens' Account (Maybe AccountStatus)
@@ -106,9 +108,9 @@ instance FromJSON Account where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
-instance Hashable Account
+instance Hashable Account where
 
-instance NFData Account
+instance NFData Account where
 
 -- | Contains a list of child entities, either OUs or accounts.
 --
@@ -116,9 +118,10 @@ instance NFData Account
 --
 -- /See:/ 'child' smart constructor.
 data Child = Child'
-    { _cId   :: !(Maybe Text)
-    , _cType :: !(Maybe ChildType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cType :: {-# NOUNPACK #-}!(Maybe ChildType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Child' with the minimum fields required to make a request.
 --
@@ -129,11 +132,8 @@ data Child = Child'
 -- * 'cType' - The type of this child entity.
 child
     :: Child
-child =
-    Child'
-    { _cId = Nothing
-    , _cType = Nothing
-    }
+child = Child' {_cId = Nothing, _cType = Nothing}
+
 
 -- | The unique identifier (ID) of this child entity. The <http://wikipedia.org/wiki/regex regex pattern> for a child ID string requires one of the following:     * Account: a string that consists of exactly 12 digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 cId :: Lens' Child (Maybe Text)
@@ -148,9 +148,9 @@ instance FromJSON Child where
           = withObject "Child"
               (\ x -> Child' <$> (x .:? "Id") <*> (x .:? "Type"))
 
-instance Hashable Child
+instance Hashable Child where
 
-instance NFData Child
+instance NFData Child where
 
 -- | Contains the status about a 'CreateAccount' request to create an AWS account in an organization.
 --
@@ -158,14 +158,15 @@ instance NFData Child
 --
 -- /See:/ 'createAccountStatus' smart constructor.
 data CreateAccountStatus = CreateAccountStatus'
-    { _casFailureReason      :: !(Maybe CreateAccountFailureReason)
-    , _casState              :: !(Maybe CreateAccountState)
-    , _casCompletedTimestamp :: !(Maybe POSIX)
-    , _casAccountName        :: !(Maybe (Sensitive Text))
-    , _casAccountId          :: !(Maybe Text)
-    , _casId                 :: !(Maybe Text)
-    , _casRequestedTimestamp :: !(Maybe POSIX)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _casFailureReason :: {-# NOUNPACK #-}!(Maybe CreateAccountFailureReason)
+  , _casState :: {-# NOUNPACK #-}!(Maybe CreateAccountState)
+  , _casCompletedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _casAccountName :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _casAccountId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _casId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _casRequestedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAccountStatus' with the minimum fields required to make a request.
 --
@@ -187,15 +188,16 @@ data CreateAccountStatus = CreateAccountStatus'
 createAccountStatus
     :: CreateAccountStatus
 createAccountStatus =
-    CreateAccountStatus'
-    { _casFailureReason = Nothing
-    , _casState = Nothing
-    , _casCompletedTimestamp = Nothing
-    , _casAccountName = Nothing
-    , _casAccountId = Nothing
-    , _casId = Nothing
-    , _casRequestedTimestamp = Nothing
-    }
+  CreateAccountStatus'
+  { _casFailureReason = Nothing
+  , _casState = Nothing
+  , _casCompletedTimestamp = Nothing
+  , _casAccountName = Nothing
+  , _casAccountId = Nothing
+  , _casId = Nothing
+  , _casRequestedTimestamp = Nothing
+  }
+
 
 -- | If the request failed, a description of the reason for the failure.     * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization.     * EMAIL_ALREADY_EXISTS: The account could not be created because another AWS account with that email address already exists.     * INVALID_ADDRESS: The account could not be created because the address you provided is not valid.     * INVALID_EMAIL: The account could not be created because the email address you provided is not valid.     * INTERNAL_FAILURE: The account could not be created because of an internal failure. Try again later. If the problem persists, contact Customer Support.
 casFailureReason :: Lens' CreateAccountStatus (Maybe CreateAccountFailureReason)
@@ -237,9 +239,9 @@ instance FromJSON CreateAccountStatus where
                      <*> (x .:? "Id")
                      <*> (x .:? "RequestedTimestamp"))
 
-instance Hashable CreateAccountStatus
+instance Hashable CreateAccountStatus where
 
-instance NFData CreateAccountStatus
+instance NFData CreateAccountStatus where
 
 -- | Contains information that must be exchanged to securely establish a relationship between two accounts (an /originator/ and a /recipient/ ). For example, when a master account (the originator) invites another account (the recipient) to join its organization, the two accounts exchange information as a series of handshake requests and responses.
 --
@@ -249,15 +251,16 @@ instance NFData CreateAccountStatus
 --
 -- /See:/ 'handshake' smart constructor.
 data Handshake = Handshake'
-    { _hState               :: !(Maybe HandshakeState)
-    , _hARN                 :: !(Maybe Text)
-    , _hAction              :: !(Maybe ActionType)
-    , _hResources           :: !(Maybe [HandshakeResource])
-    , _hId                  :: !(Maybe Text)
-    , _hExpirationTimestamp :: !(Maybe POSIX)
-    , _hParties             :: !(Maybe [HandshakeParty])
-    , _hRequestedTimestamp  :: !(Maybe POSIX)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _hState               :: {-# NOUNPACK #-}!(Maybe HandshakeState)
+  , _hARN                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hAction              :: {-# NOUNPACK #-}!(Maybe ActionType)
+  , _hResources           :: {-# NOUNPACK #-}!(Maybe [HandshakeResource])
+  , _hId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hExpirationTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _hParties             :: {-# NOUNPACK #-}!(Maybe [HandshakeParty])
+  , _hRequestedTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Handshake' with the minimum fields required to make a request.
 --
@@ -281,16 +284,17 @@ data Handshake = Handshake'
 handshake
     :: Handshake
 handshake =
-    Handshake'
-    { _hState = Nothing
-    , _hARN = Nothing
-    , _hAction = Nothing
-    , _hResources = Nothing
-    , _hId = Nothing
-    , _hExpirationTimestamp = Nothing
-    , _hParties = Nothing
-    , _hRequestedTimestamp = Nothing
-    }
+  Handshake'
+  { _hState = Nothing
+  , _hARN = Nothing
+  , _hAction = Nothing
+  , _hResources = Nothing
+  , _hId = Nothing
+  , _hExpirationTimestamp = Nothing
+  , _hParties = Nothing
+  , _hRequestedTimestamp = Nothing
+  }
+
 
 -- | The current state of the handshake. Use the state to trace the flow of the handshake through the process from its creation to its acceptance. The meaning of each of the valid values is as follows:     * __REQUESTED__ : This handshake was sent to multiple recipients (applicable to only some handshake types) and not all recipients have responded yet. The request stays in this state until all recipients respond.     * __OPEN__ : This handshake was sent to multiple recipients (applicable to only some policy types) and all recipients have responded, allowing the originator to complete the handshake action.     * __CANCELED__ : This handshake is no longer active because it was canceled by the originating account.     * __ACCEPTED__ : This handshake is complete because it has been accepted by the recipient.     * __DECLINED__ : This handshake is no longer active because it was declined by the recipient account.     * __EXPIRED__ : This handshake is no longer active because the originator did not receive a response of any kind from the recipient before the expiration time (15 days).
 hState :: Lens' Handshake (Maybe HandshakeState)
@@ -337,9 +341,9 @@ instance FromJSON Handshake where
                      <*> (x .:? "Parties" .!= mempty)
                      <*> (x .:? "RequestedTimestamp"))
 
-instance Hashable Handshake
+instance Hashable Handshake where
 
-instance NFData Handshake
+instance NFData Handshake where
 
 -- | Specifies the criteria that are used to select the handshakes for the operation.
 --
@@ -347,9 +351,10 @@ instance NFData Handshake
 --
 -- /See:/ 'handshakeFilter' smart constructor.
 data HandshakeFilter = HandshakeFilter'
-    { _hfParentHandshakeId :: !(Maybe Text)
-    , _hfActionType        :: !(Maybe ActionType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hfParentHandshakeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hfActionType        :: {-# NOUNPACK #-}!(Maybe ActionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HandshakeFilter' with the minimum fields required to make a request.
 --
@@ -361,10 +366,8 @@ data HandshakeFilter = HandshakeFilter'
 handshakeFilter
     :: HandshakeFilter
 handshakeFilter =
-    HandshakeFilter'
-    { _hfParentHandshakeId = Nothing
-    , _hfActionType = Nothing
-    }
+  HandshakeFilter' {_hfParentHandshakeId = Nothing, _hfActionType = Nothing}
+
 
 -- | Specifies the parent handshake. Only used for handshake types that are a child of another type. If you specify @ParentHandshakeId@ , you cannot also specify @ActionType@ . The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
 hfParentHandshakeId :: Lens' HandshakeFilter (Maybe Text)
@@ -374,9 +377,9 @@ hfParentHandshakeId = lens _hfParentHandshakeId (\ s a -> s{_hfParentHandshakeId
 hfActionType :: Lens' HandshakeFilter (Maybe ActionType)
 hfActionType = lens _hfActionType (\ s a -> s{_hfActionType = a});
 
-instance Hashable HandshakeFilter
+instance Hashable HandshakeFilter where
 
-instance NFData HandshakeFilter
+instance NFData HandshakeFilter where
 
 instance ToJSON HandshakeFilter where
         toJSON HandshakeFilter'{..}
@@ -391,9 +394,10 @@ instance ToJSON HandshakeFilter where
 --
 -- /See:/ 'handshakeParty' smart constructor.
 data HandshakeParty = HandshakeParty'
-    { _hpId   :: !(Maybe (Sensitive Text))
-    , _hpType :: !(Maybe HandshakePartyType)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _hpId   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _hpType :: {-# NOUNPACK #-}!(Maybe HandshakePartyType)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HandshakeParty' with the minimum fields required to make a request.
 --
@@ -404,11 +408,8 @@ data HandshakeParty = HandshakeParty'
 -- * 'hpType' - The type of party.
 handshakeParty
     :: HandshakeParty
-handshakeParty =
-    HandshakeParty'
-    { _hpId = Nothing
-    , _hpType = Nothing
-    }
+handshakeParty = HandshakeParty' {_hpId = Nothing, _hpType = Nothing}
+
 
 -- | The unique identifier (ID) for the party. The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
 hpId :: Lens' HandshakeParty (Maybe Text)
@@ -424,9 +425,9 @@ instance FromJSON HandshakeParty where
               (\ x ->
                  HandshakeParty' <$> (x .:? "Id") <*> (x .:? "Type"))
 
-instance Hashable HandshakeParty
+instance Hashable HandshakeParty where
 
-instance NFData HandshakeParty
+instance NFData HandshakeParty where
 
 instance ToJSON HandshakeParty where
         toJSON HandshakeParty'{..}
@@ -440,10 +441,11 @@ instance ToJSON HandshakeParty where
 --
 -- /See:/ 'handshakeResource' smart constructor.
 data HandshakeResource = HandshakeResource'
-    { _hrValue     :: !(Maybe (Sensitive Text))
-    , _hrResources :: !(Maybe [HandshakeResource])
-    , _hrType      :: !(Maybe HandshakeResourceType)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _hrValue     :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _hrResources :: {-# NOUNPACK #-}!(Maybe [HandshakeResource])
+  , _hrType      :: {-# NOUNPACK #-}!(Maybe HandshakeResourceType)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HandshakeResource' with the minimum fields required to make a request.
 --
@@ -457,11 +459,9 @@ data HandshakeResource = HandshakeResource'
 handshakeResource
     :: HandshakeResource
 handshakeResource =
-    HandshakeResource'
-    { _hrValue = Nothing
-    , _hrResources = Nothing
-    , _hrType = Nothing
-    }
+  HandshakeResource'
+  {_hrValue = Nothing, _hrResources = Nothing, _hrType = Nothing}
+
 
 -- | The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
 hrValue :: Lens' HandshakeResource (Maybe Text)
@@ -483,9 +483,9 @@ instance FromJSON HandshakeResource where
                    (x .:? "Value") <*> (x .:? "Resources" .!= mempty)
                      <*> (x .:? "Type"))
 
-instance Hashable HandshakeResource
+instance Hashable HandshakeResource where
 
-instance NFData HandshakeResource
+instance NFData HandshakeResource where
 
 -- | Contains details about an organization. An organization is a collection of accounts that are centrally managed together using consolidated billing, organized hierarchically with organizational units (OUs), and controlled with policies .
 --
@@ -493,14 +493,15 @@ instance NFData HandshakeResource
 --
 -- /See:/ 'organization' smart constructor.
 data Organization = Organization'
-    { _oARN                  :: !(Maybe Text)
-    , _oMasterAccountId      :: !(Maybe Text)
-    , _oMasterAccountARN     :: !(Maybe Text)
-    , _oMasterAccountEmail   :: !(Maybe (Sensitive Text))
-    , _oAvailablePolicyTypes :: !(Maybe [PolicyTypeSummary])
-    , _oId                   :: !(Maybe Text)
-    , _oFeatureSet           :: !(Maybe OrganizationFeatureSet)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _oARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oMasterAccountId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oMasterAccountARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oMasterAccountEmail   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _oAvailablePolicyTypes :: {-# NOUNPACK #-}!(Maybe [PolicyTypeSummary])
+  , _oId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oFeatureSet           :: {-# NOUNPACK #-}!(Maybe OrganizationFeatureSet)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Organization' with the minimum fields required to make a request.
 --
@@ -522,15 +523,16 @@ data Organization = Organization'
 organization
     :: Organization
 organization =
-    Organization'
-    { _oARN = Nothing
-    , _oMasterAccountId = Nothing
-    , _oMasterAccountARN = Nothing
-    , _oMasterAccountEmail = Nothing
-    , _oAvailablePolicyTypes = Nothing
-    , _oId = Nothing
-    , _oFeatureSet = Nothing
-    }
+  Organization'
+  { _oARN = Nothing
+  , _oMasterAccountId = Nothing
+  , _oMasterAccountARN = Nothing
+  , _oMasterAccountEmail = Nothing
+  , _oAvailablePolicyTypes = Nothing
+  , _oId = Nothing
+  , _oFeatureSet = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of an organization. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 oARN :: Lens' Organization (Maybe Text)
@@ -572,9 +574,9 @@ instance FromJSON Organization where
                      <*> (x .:? "Id")
                      <*> (x .:? "FeatureSet"))
 
-instance Hashable Organization
+instance Hashable Organization where
 
-instance NFData Organization
+instance NFData Organization where
 
 -- | Contains details about an organizational unit (OU). An OU is a container of AWS accounts within a root of an organization. Policies that are attached to an OU apply to all accounts contained in that OU and in any child OUs.
 --
@@ -582,10 +584,11 @@ instance NFData Organization
 --
 -- /See:/ 'organizationalUnit' smart constructor.
 data OrganizationalUnit = OrganizationalUnit'
-    { _ouARN  :: !(Maybe Text)
-    , _ouName :: !(Maybe Text)
-    , _ouId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ouARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ouName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ouId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OrganizationalUnit' with the minimum fields required to make a request.
 --
@@ -599,11 +602,8 @@ data OrganizationalUnit = OrganizationalUnit'
 organizationalUnit
     :: OrganizationalUnit
 organizationalUnit =
-    OrganizationalUnit'
-    { _ouARN = Nothing
-    , _ouName = Nothing
-    , _ouId = Nothing
-    }
+  OrganizationalUnit' {_ouARN = Nothing, _ouName = Nothing, _ouId = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) of this OU. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 ouARN :: Lens' OrganizationalUnit (Maybe Text)
@@ -624,9 +624,9 @@ instance FromJSON OrganizationalUnit where
                  OrganizationalUnit' <$>
                    (x .:? "Arn") <*> (x .:? "Name") <*> (x .:? "Id"))
 
-instance Hashable OrganizationalUnit
+instance Hashable OrganizationalUnit where
 
-instance NFData OrganizationalUnit
+instance NFData OrganizationalUnit where
 
 -- | Contains information about either a root or an organizational unit (OU) that can contain OUs or accounts in an organization.
 --
@@ -634,9 +634,10 @@ instance NFData OrganizationalUnit
 --
 -- /See:/ 'parent' smart constructor.
 data Parent = Parent'
-    { _pId   :: !(Maybe Text)
-    , _pType :: !(Maybe ParentType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pType :: {-# NOUNPACK #-}!(Maybe ParentType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Parent' with the minimum fields required to make a request.
 --
@@ -647,11 +648,8 @@ data Parent = Parent'
 -- * 'pType' - The type of the parent entity.
 parent
     :: Parent
-parent =
-    Parent'
-    { _pId = Nothing
-    , _pType = Nothing
-    }
+parent = Parent' {_pId = Nothing, _pType = Nothing}
+
 
 -- | The unique identifier (ID) of the parent entity. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 pId :: Lens' Parent (Maybe Text)
@@ -666,9 +664,9 @@ instance FromJSON Parent where
           = withObject "Parent"
               (\ x -> Parent' <$> (x .:? "Id") <*> (x .:? "Type"))
 
-instance Hashable Parent
+instance Hashable Parent where
 
-instance NFData Parent
+instance NFData Parent where
 
 -- | Contains rules to be applied to the affected accounts. Policies can be attached directly to accounts, or to roots and OUs to affect all accounts in those hierarchies.
 --
@@ -676,9 +674,10 @@ instance NFData Parent
 --
 -- /See:/ 'policy' smart constructor.
 data Policy = Policy'
-    { _pContent       :: !(Maybe Text)
-    , _pPolicySummary :: !(Maybe PolicySummary)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pContent       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pPolicySummary :: {-# NOUNPACK #-}!(Maybe PolicySummary)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Policy' with the minimum fields required to make a request.
 --
@@ -689,11 +688,8 @@ data Policy = Policy'
 -- * 'pPolicySummary' - A structure that contains additional details about the policy.
 policy
     :: Policy
-policy =
-    Policy'
-    { _pContent = Nothing
-    , _pPolicySummary = Nothing
-    }
+policy = Policy' {_pContent = Nothing, _pPolicySummary = Nothing}
+
 
 -- | The text content of the policy.
 pContent :: Lens' Policy (Maybe Text)
@@ -710,9 +706,9 @@ instance FromJSON Policy where
                  Policy' <$>
                    (x .:? "Content") <*> (x .:? "PolicySummary"))
 
-instance Hashable Policy
+instance Hashable Policy where
 
-instance NFData Policy
+instance NFData Policy where
 
 -- | Contains information about a policy, but does not include the content. To see the content of a policy, see 'DescribePolicy' .
 --
@@ -720,13 +716,14 @@ instance NFData Policy
 --
 -- /See:/ 'policySummary' smart constructor.
 data PolicySummary = PolicySummary'
-    { _psARN         :: !(Maybe Text)
-    , _psName        :: !(Maybe Text)
-    , _psId          :: !(Maybe Text)
-    , _psAWSManaged  :: !(Maybe Bool)
-    , _psType        :: !(Maybe PolicyType)
-    , _psDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psAWSManaged  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _psType        :: {-# NOUNPACK #-}!(Maybe PolicyType)
+  , _psDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PolicySummary' with the minimum fields required to make a request.
 --
@@ -746,14 +743,15 @@ data PolicySummary = PolicySummary'
 policySummary
     :: PolicySummary
 policySummary =
-    PolicySummary'
-    { _psARN = Nothing
-    , _psName = Nothing
-    , _psId = Nothing
-    , _psAWSManaged = Nothing
-    , _psType = Nothing
-    , _psDescription = Nothing
-    }
+  PolicySummary'
+  { _psARN = Nothing
+  , _psName = Nothing
+  , _psId = Nothing
+  , _psAWSManaged = Nothing
+  , _psType = Nothing
+  , _psDescription = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the policy. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 psARN :: Lens' PolicySummary (Maybe Text)
@@ -789,9 +787,9 @@ instance FromJSON PolicySummary where
                      <*> (x .:? "Type")
                      <*> (x .:? "Description"))
 
-instance Hashable PolicySummary
+instance Hashable PolicySummary where
 
-instance NFData PolicySummary
+instance NFData PolicySummary where
 
 -- | Contains information about a root, OU, or account that a policy is attached to.
 --
@@ -799,11 +797,12 @@ instance NFData PolicySummary
 --
 -- /See:/ 'policyTargetSummary' smart constructor.
 data PolicyTargetSummary = PolicyTargetSummary'
-    { _polTargetId :: !(Maybe Text)
-    , _polARN      :: !(Maybe Text)
-    , _polName     :: !(Maybe Text)
-    , _polType     :: !(Maybe TargetType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _polTargetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _polARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _polName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _polType     :: {-# NOUNPACK #-}!(Maybe TargetType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PolicyTargetSummary' with the minimum fields required to make a request.
 --
@@ -819,12 +818,13 @@ data PolicyTargetSummary = PolicyTargetSummary'
 policyTargetSummary
     :: PolicyTargetSummary
 policyTargetSummary =
-    PolicyTargetSummary'
-    { _polTargetId = Nothing
-    , _polARN = Nothing
-    , _polName = Nothing
-    , _polType = Nothing
-    }
+  PolicyTargetSummary'
+  { _polTargetId = Nothing
+  , _polARN = Nothing
+  , _polName = Nothing
+  , _polType = Nothing
+  }
+
 
 -- | The unique identifier (ID) of the policy target. The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Account: a string that consists of exactly 12 digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 polTargetId :: Lens' PolicyTargetSummary (Maybe Text)
@@ -851,9 +851,9 @@ instance FromJSON PolicyTargetSummary where
                      (x .:? "Name")
                      <*> (x .:? "Type"))
 
-instance Hashable PolicyTargetSummary
+instance Hashable PolicyTargetSummary where
 
-instance NFData PolicyTargetSummary
+instance NFData PolicyTargetSummary where
 
 -- | Contains information about a policy type and its status in the associated root.
 --
@@ -861,9 +861,10 @@ instance NFData PolicyTargetSummary
 --
 -- /See:/ 'policyTypeSummary' smart constructor.
 data PolicyTypeSummary = PolicyTypeSummary'
-    { _ptsStatus :: !(Maybe PolicyTypeStatus)
-    , _ptsType   :: !(Maybe PolicyType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptsStatus :: {-# NOUNPACK #-}!(Maybe PolicyTypeStatus)
+  , _ptsType   :: {-# NOUNPACK #-}!(Maybe PolicyType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PolicyTypeSummary' with the minimum fields required to make a request.
 --
@@ -875,10 +876,8 @@ data PolicyTypeSummary = PolicyTypeSummary'
 policyTypeSummary
     :: PolicyTypeSummary
 policyTypeSummary =
-    PolicyTypeSummary'
-    { _ptsStatus = Nothing
-    , _ptsType = Nothing
-    }
+  PolicyTypeSummary' {_ptsStatus = Nothing, _ptsType = Nothing}
+
 
 -- | The status of the policy type as it relates to the associated root. To attach a policy of the specified type to a root or to an OU or account in that root, it must be available in the organization and enabled for that root.
 ptsStatus :: Lens' PolicyTypeSummary (Maybe PolicyTypeStatus)
@@ -895,9 +894,9 @@ instance FromJSON PolicyTypeSummary where
                  PolicyTypeSummary' <$>
                    (x .:? "Status") <*> (x .:? "Type"))
 
-instance Hashable PolicyTypeSummary
+instance Hashable PolicyTypeSummary where
 
-instance NFData PolicyTypeSummary
+instance NFData PolicyTypeSummary where
 
 -- | Contains details about a root. A root is a top-level parent node in the hierarchy of an organization that can contain organizational units (OUs) and accounts. Every root contains every AWS account in the organization. Each root enables the accounts to be organized in a different way and to have different policy types enabled for use in that root.
 --
@@ -905,11 +904,12 @@ instance NFData PolicyTypeSummary
 --
 -- /See:/ 'root' smart constructor.
 data Root = Root'
-    { _rARN         :: !(Maybe Text)
-    , _rName        :: !(Maybe Text)
-    , _rId          :: !(Maybe Text)
-    , _rPolicyTypes :: !(Maybe [PolicyTypeSummary])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rPolicyTypes :: {-# NOUNPACK #-}!(Maybe [PolicyTypeSummary])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Root' with the minimum fields required to make a request.
 --
@@ -925,12 +925,9 @@ data Root = Root'
 root
     :: Root
 root =
-    Root'
-    { _rARN = Nothing
-    , _rName = Nothing
-    , _rId = Nothing
-    , _rPolicyTypes = Nothing
-    }
+  Root'
+  {_rARN = Nothing, _rName = Nothing, _rId = Nothing, _rPolicyTypes = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) of the root. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 rARN :: Lens' Root (Maybe Text)
@@ -956,6 +953,6 @@ instance FromJSON Root where
                    (x .:? "Arn") <*> (x .:? "Name") <*> (x .:? "Id") <*>
                      (x .:? "PolicyTypes" .!= mempty))
 
-instance Hashable Root
+instance Hashable Root where
 
-instance NFData Root
+instance NFData Root where

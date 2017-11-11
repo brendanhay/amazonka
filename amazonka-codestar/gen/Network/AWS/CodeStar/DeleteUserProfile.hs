@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.DeleteUserProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CodeStar.DeleteUserProfile
     , delrsUserARN
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteUserProfile' smart constructor.
 newtype DeleteUserProfile = DeleteUserProfile'
-    { _dUserARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dUserARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DeleteUserProfile = DeleteUserProfile'
 deleteUserProfile
     :: Text -- ^ 'dUserARN'
     -> DeleteUserProfile
-deleteUserProfile pUserARN_ =
-    DeleteUserProfile'
-    { _dUserARN = pUserARN_
-    }
+deleteUserProfile pUserARN_ = DeleteUserProfile' {_dUserARN = pUserARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
 dUserARN :: Lens' DeleteUserProfile Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteUserProfile where
                  DeleteUserProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "userArn"))
 
-instance Hashable DeleteUserProfile
+instance Hashable DeleteUserProfile where
 
-instance NFData DeleteUserProfile
+instance NFData DeleteUserProfile where
 
 instance ToHeaders DeleteUserProfile where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery DeleteUserProfile where
 
 -- | /See:/ 'deleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
-    { _delrsResponseStatus :: !Int
-    , _delrsUserARN        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _delrsUserARN        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ deleteUserProfileResponse
     -> Text -- ^ 'delrsUserARN'
     -> DeleteUserProfileResponse
 deleteUserProfileResponse pResponseStatus_ pUserARN_ =
-    DeleteUserProfileResponse'
-    { _delrsResponseStatus = pResponseStatus_
-    , _delrsUserARN = pUserARN_
-    }
+  DeleteUserProfileResponse'
+  {_delrsResponseStatus = pResponseStatus_, _delrsUserARN = pUserARN_}
+
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteUserProfileResponse Int
@@ -130,4 +129,4 @@ delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus
 delrsUserARN :: Lens' DeleteUserProfileResponse Text
 delrsUserARN = lens _delrsUserARN (\ s a -> s{_delrsUserARN = a});
 
-instance NFData DeleteUserProfileResponse
+instance NFData DeleteUserProfileResponse where

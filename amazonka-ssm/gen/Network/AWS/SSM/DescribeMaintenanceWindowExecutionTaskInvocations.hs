@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
     , dmwetirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeMaintenanceWindowExecutionTaskInvocations' smart constructor.
 data DescribeMaintenanceWindowExecutionTaskInvocations = DescribeMaintenanceWindowExecutionTaskInvocations'
-    { _dmwetiFilters           :: !(Maybe [MaintenanceWindowFilter])
-    , _dmwetiNextToken         :: !(Maybe Text)
-    , _dmwetiMaxResults        :: !(Maybe Nat)
-    , _dmwetiWindowExecutionId :: !Text
-    , _dmwetiTaskId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmwetiFilters :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowFilter])
+  , _dmwetiNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwetiMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dmwetiWindowExecutionId :: {-# NOUNPACK #-}!Text
+  , _dmwetiTaskId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutionTaskInvocations' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ describeMaintenanceWindowExecutionTaskInvocations
     -> Text -- ^ 'dmwetiTaskId'
     -> DescribeMaintenanceWindowExecutionTaskInvocations
 describeMaintenanceWindowExecutionTaskInvocations pWindowExecutionId_ pTaskId_ =
-    DescribeMaintenanceWindowExecutionTaskInvocations'
-    { _dmwetiFilters = Nothing
-    , _dmwetiNextToken = Nothing
-    , _dmwetiMaxResults = Nothing
-    , _dmwetiWindowExecutionId = pWindowExecutionId_
-    , _dmwetiTaskId = pTaskId_
-    }
+  DescribeMaintenanceWindowExecutionTaskInvocations'
+  { _dmwetiFilters = Nothing
+  , _dmwetiNextToken = Nothing
+  , _dmwetiMaxResults = Nothing
+  , _dmwetiWindowExecutionId = pWindowExecutionId_
+  , _dmwetiTaskId = pTaskId_
+  }
+
 
 -- | Optional filters used to scope down the returned task invocations. The supported filter key is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT, CANCELLING, and CANCELLED.
 dmwetiFilters :: Lens' DescribeMaintenanceWindowExecutionTaskInvocations [MaintenanceWindowFilter]
@@ -105,7 +107,7 @@ dmwetiTaskId :: Lens' DescribeMaintenanceWindowExecutionTaskInvocations Text
 dmwetiTaskId = lens _dmwetiTaskId (\ s a -> s{_dmwetiTaskId = a});
 
 instance AWSRequest
-         DescribeMaintenanceWindowExecutionTaskInvocations
+           DescribeMaintenanceWindowExecutionTaskInvocations
          where
         type Rs
                DescribeMaintenanceWindowExecutionTaskInvocations
@@ -123,13 +125,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeMaintenanceWindowExecutionTaskInvocations
+           DescribeMaintenanceWindowExecutionTaskInvocations
+         where
 
 instance NFData
-         DescribeMaintenanceWindowExecutionTaskInvocations
+           DescribeMaintenanceWindowExecutionTaskInvocations
+         where
 
 instance ToHeaders
-         DescribeMaintenanceWindowExecutionTaskInvocations
+           DescribeMaintenanceWindowExecutionTaskInvocations
          where
         toHeaders
           = const
@@ -141,7 +145,7 @@ instance ToHeaders
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON
-         DescribeMaintenanceWindowExecutionTaskInvocations
+           DescribeMaintenanceWindowExecutionTaskInvocations
          where
         toJSON
           DescribeMaintenanceWindowExecutionTaskInvocations'{..}
@@ -155,21 +159,22 @@ instance ToJSON
                   Just ("TaskId" .= _dmwetiTaskId)])
 
 instance ToPath
-         DescribeMaintenanceWindowExecutionTaskInvocations
+           DescribeMaintenanceWindowExecutionTaskInvocations
          where
         toPath = const "/"
 
 instance ToQuery
-         DescribeMaintenanceWindowExecutionTaskInvocations
+           DescribeMaintenanceWindowExecutionTaskInvocations
          where
         toQuery = const mempty
 
 -- | /See:/ 'describeMaintenanceWindowExecutionTaskInvocationsResponse' smart constructor.
 data DescribeMaintenanceWindowExecutionTaskInvocationsResponse = DescribeMaintenanceWindowExecutionTaskInvocationsResponse'
-    { _dmwetirsWindowExecutionTaskInvocationIdentities :: !(Maybe [MaintenanceWindowExecutionTaskInvocationIdentity])
-    , _dmwetirsNextToken                               :: !(Maybe Text)
-    , _dmwetirsResponseStatus                          :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dmwetirsWindowExecutionTaskInvocationIdentities :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowExecutionTaskInvocationIdentity])
+  , _dmwetirsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwetirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutionTaskInvocationsResponse' with the minimum fields required to make a request.
 --
@@ -184,11 +189,12 @@ describeMaintenanceWindowExecutionTaskInvocationsResponse
     :: Int -- ^ 'dmwetirsResponseStatus'
     -> DescribeMaintenanceWindowExecutionTaskInvocationsResponse
 describeMaintenanceWindowExecutionTaskInvocationsResponse pResponseStatus_ =
-    DescribeMaintenanceWindowExecutionTaskInvocationsResponse'
-    { _dmwetirsWindowExecutionTaskInvocationIdentities = Nothing
-    , _dmwetirsNextToken = Nothing
-    , _dmwetirsResponseStatus = pResponseStatus_
-    }
+  DescribeMaintenanceWindowExecutionTaskInvocationsResponse'
+  { _dmwetirsWindowExecutionTaskInvocationIdentities = Nothing
+  , _dmwetirsNextToken = Nothing
+  , _dmwetirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the task invocation results per invocation.
 dmwetirsWindowExecutionTaskInvocationIdentities :: Lens' DescribeMaintenanceWindowExecutionTaskInvocationsResponse [MaintenanceWindowExecutionTaskInvocationIdentity]
@@ -203,4 +209,5 @@ dmwetirsResponseStatus :: Lens' DescribeMaintenanceWindowExecutionTaskInvocation
 dmwetirsResponseStatus = lens _dmwetirsResponseStatus (\ s a -> s{_dmwetirsResponseStatus = a});
 
 instance NFData
-         DescribeMaintenanceWindowExecutionTaskInvocationsResponse
+           DescribeMaintenanceWindowExecutionTaskInvocationsResponse
+         where

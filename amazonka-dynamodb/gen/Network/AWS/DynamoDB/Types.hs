@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -285,45 +285,43 @@ module Network.AWS.DynamoDB.Types
     , wrPutRequest
     ) where
 
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.DynamoDB.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.DynamoDB.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2012-08-10@ of the Amazon DynamoDB SDK configuration.
 dynamoDB :: Service
 dynamoDB =
-    Service
-    { _svcAbbrev = "DynamoDB"
-    , _svcSigner = v4
-    , _svcPrefix = "dynamodb"
-    , _svcVersion = "2012-08-10"
-    , _svcEndpoint = defaultEndpoint dynamoDB
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "DynamoDB"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "DynamoDB"
+  , _svcSigner = v4
+  , _svcPrefix = "dynamodb"
+  , _svcVersion = "2012-08-10"
+  , _svcEndpoint = defaultEndpoint dynamoDB
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "DynamoDB"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-           (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
-           e =
-          Just "throughput_exceeded"
+      | has (hasCode "ProvisionedThroughputExceededException" . hasStatus 400) e =
+        Just "throughput_exceeded"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
@@ -331,26 +329,30 @@ dynamoDB =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff Error Retries and Exponential Backoff> in the /Amazon DynamoDB Developer Guide/ .
 --
 --
 _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ProvisionedThroughputExceededException =
-    _MatchServiceError dynamoDB "ProvisionedThroughputExceededException"
+  _MatchServiceError dynamoDB "ProvisionedThroughputExceededException"
+
 
 -- | A condition specified in the operation could not be evaluated.
 --
 --
 _ConditionalCheckFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConditionalCheckFailedException =
-    _MatchServiceError dynamoDB "ConditionalCheckFailedException"
+  _MatchServiceError dynamoDB "ConditionalCheckFailedException"
+
 
 -- | An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.
 --
 --
 _ItemCollectionSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ItemCollectionSizeLimitExceededException =
-    _MatchServiceError dynamoDB "ItemCollectionSizeLimitExceededException"
+  _MatchServiceError dynamoDB "ItemCollectionSizeLimitExceededException"
+
 
 -- | An error occurred on the server side.
 --
@@ -358,12 +360,14 @@ _ItemCollectionSizeLimitExceededException =
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _MatchServiceError dynamoDB "InternalServerError"
 
+
 -- | The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be @ACTIVE@ .
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _MatchServiceError dynamoDB "ResourceNotFoundException"
+  _MatchServiceError dynamoDB "ResourceNotFoundException"
+
 
 -- | The number of concurrent table requests (cumulative number of tables in the @CREATING@ , @DELETING@ or @UPDATING@ state) exceeds the maximum allowed of 10.
 --
@@ -375,8 +379,10 @@ _ResourceNotFoundException =
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _MatchServiceError dynamoDB "LimitExceededException"
 
+
 -- | The operation conflicts with the resource's availability. For example, you attempted to recreate an existing table, or tried to delete a table currently in the @CREATING@ state.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _MatchServiceError dynamoDB "ResourceInUseException"
+

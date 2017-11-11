@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.CognitoIdentityProvider.ListGroups
     , lgrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listGroups' smart constructor.
 data ListGroups = ListGroups'
-    { _lgNextToken  :: !(Maybe Text)
-    , _lgLimit      :: !(Maybe Nat)
-    , _lgUserPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lgUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
@@ -69,11 +70,9 @@ listGroups
     :: Text -- ^ 'lgUserPoolId'
     -> ListGroups
 listGroups pUserPoolId_ =
-    ListGroups'
-    { _lgNextToken = Nothing
-    , _lgLimit = Nothing
-    , _lgUserPoolId = pUserPoolId_
-    }
+  ListGroups'
+  {_lgNextToken = Nothing, _lgLimit = Nothing, _lgUserPoolId = pUserPoolId_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lgNextToken :: Lens' ListGroups (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest ListGroups where
                    (x .?> "Groups" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListGroups
+instance Hashable ListGroups where
 
-instance NFData ListGroups
+instance NFData ListGroups where
 
 instance ToHeaders ListGroups where
         toHeaders
@@ -127,10 +126,11 @@ instance ToQuery ListGroups where
 
 -- | /See:/ 'listGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-    { _lgrsGroups         :: !(Maybe [GroupType])
-    , _lgrsNextToken      :: !(Maybe Text)
-    , _lgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgrsGroups         :: {-# NOUNPACK #-}!(Maybe [GroupType])
+  , _lgrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ listGroupsResponse
     :: Int -- ^ 'lgrsResponseStatus'
     -> ListGroupsResponse
 listGroupsResponse pResponseStatus_ =
-    ListGroupsResponse'
-    { _lgrsGroups = Nothing
-    , _lgrsNextToken = Nothing
-    , _lgrsResponseStatus = pResponseStatus_
-    }
+  ListGroupsResponse'
+  { _lgrsGroups = Nothing
+  , _lgrsNextToken = Nothing
+  , _lgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The group objects for the groups.
 lgrsGroups :: Lens' ListGroupsResponse [GroupType]
@@ -163,4 +164,4 @@ lgrsNextToken = lens _lgrsNextToken (\ s a -> s{_lgrsNextToken = a});
 lgrsResponseStatus :: Lens' ListGroupsResponse Int
 lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
 
-instance NFData ListGroupsResponse
+instance NFData ListGroupsResponse where

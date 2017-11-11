@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetStage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.APIGateway.GetStage
     , sDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to get information about a 'Stage' resource.
 --
@@ -61,9 +61,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getStage' smart constructor.
 data GetStage = GetStage'
-    { _gssRestAPIId :: !Text
-    , _gssStageName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gssRestAPIId :: {-# NOUNPACK #-}!Text
+  , _gssStageName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStage' with the minimum fields required to make a request.
 --
@@ -77,10 +78,8 @@ getStage
     -> Text -- ^ 'gssStageName'
     -> GetStage
 getStage pRestAPIId_ pStageName_ =
-    GetStage'
-    { _gssRestAPIId = pRestAPIId_
-    , _gssStageName = pStageName_
-    }
+  GetStage' {_gssRestAPIId = pRestAPIId_, _gssStageName = pStageName_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 gssRestAPIId :: Lens' GetStage Text
@@ -95,9 +94,9 @@ instance AWSRequest GetStage where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetStage
+instance Hashable GetStage where
 
-instance NFData GetStage
+instance NFData GetStage where
 
 instance ToHeaders GetStage where
         toHeaders

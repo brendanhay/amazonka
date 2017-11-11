@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteSegment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.DeleteSegment
     , dsrsSegmentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSegment' smart constructor.
 data DeleteSegment = DeleteSegment'
-    { _dsSegmentId     :: !Text
-    , _dsApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsSegmentId     :: {-# NOUNPACK #-}!Text
+  , _dsApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSegment' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ deleteSegment
     -> Text -- ^ 'dsApplicationId'
     -> DeleteSegment
 deleteSegment pSegmentId_ pApplicationId_ =
-    DeleteSegment'
-    { _dsSegmentId = pSegmentId_
-    , _dsApplicationId = pApplicationId_
-    }
+  DeleteSegment'
+  {_dsSegmentId = pSegmentId_, _dsApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 dsSegmentId :: Lens' DeleteSegment Text
@@ -83,9 +83,9 @@ instance AWSRequest DeleteSegment where
                  DeleteSegmentResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteSegment
+instance Hashable DeleteSegment where
 
-instance NFData DeleteSegment
+instance NFData DeleteSegment where
 
 instance ToHeaders DeleteSegment where
         toHeaders
@@ -105,9 +105,10 @@ instance ToQuery DeleteSegment where
 
 -- | /See:/ 'deleteSegmentResponse' smart constructor.
 data DeleteSegmentResponse = DeleteSegmentResponse'
-    { _dsrsResponseStatus  :: !Int
-    , _dsrsSegmentResponse :: !SegmentResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _dsrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSegmentResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,11 @@ deleteSegmentResponse
     -> SegmentResponse -- ^ 'dsrsSegmentResponse'
     -> DeleteSegmentResponse
 deleteSegmentResponse pResponseStatus_ pSegmentResponse_ =
-    DeleteSegmentResponse'
-    { _dsrsResponseStatus = pResponseStatus_
-    , _dsrsSegmentResponse = pSegmentResponse_
-    }
+  DeleteSegmentResponse'
+  { _dsrsResponseStatus = pResponseStatus_
+  , _dsrsSegmentResponse = pSegmentResponse_
+  }
+
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSegmentResponse Int
@@ -134,4 +136,4 @@ dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = 
 dsrsSegmentResponse :: Lens' DeleteSegmentResponse SegmentResponse
 dsrsSegmentResponse = lens _dsrsSegmentResponse (\ s a -> s{_dsrsSegmentResponse = a});
 
-instance NFData DeleteSegmentResponse
+instance NFData DeleteSegmentResponse where

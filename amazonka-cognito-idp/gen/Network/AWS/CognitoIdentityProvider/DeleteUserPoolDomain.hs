@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserPoolDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CognitoIdentityProvider.DeleteUserPoolDomain
     , dupdrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteUserPoolDomain' smart constructor.
 data DeleteUserPoolDomain = DeleteUserPoolDomain'
-    { _dupdDomain     :: !Text
-    , _dupdUserPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupdDomain     :: {-# NOUNPACK #-}!Text
+  , _dupdUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserPoolDomain' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteUserPoolDomain
     -> Text -- ^ 'dupdUserPoolId'
     -> DeleteUserPoolDomain
 deleteUserPoolDomain pDomain_ pUserPoolId_ =
-    DeleteUserPoolDomain'
-    { _dupdDomain = pDomain_
-    , _dupdUserPoolId = pUserPoolId_
-    }
+  DeleteUserPoolDomain' {_dupdDomain = pDomain_, _dupdUserPoolId = pUserPoolId_}
+
 
 -- | The domain string.
 dupdDomain :: Lens' DeleteUserPoolDomain Text
@@ -85,9 +84,9 @@ instance AWSRequest DeleteUserPoolDomain where
                  DeleteUserPoolDomainResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteUserPoolDomain
+instance Hashable DeleteUserPoolDomain where
 
-instance NFData DeleteUserPoolDomain
+instance NFData DeleteUserPoolDomain where
 
 instance ToHeaders DeleteUserPoolDomain where
         toHeaders
@@ -114,8 +113,9 @@ instance ToQuery DeleteUserPoolDomain where
 
 -- | /See:/ 'deleteUserPoolDomainResponse' smart constructor.
 newtype DeleteUserPoolDomainResponse = DeleteUserPoolDomainResponse'
-    { _dupdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserPoolDomainResponse' with the minimum fields required to make a request.
 --
@@ -126,12 +126,11 @@ deleteUserPoolDomainResponse
     :: Int -- ^ 'dupdrsResponseStatus'
     -> DeleteUserPoolDomainResponse
 deleteUserPoolDomainResponse pResponseStatus_ =
-    DeleteUserPoolDomainResponse'
-    { _dupdrsResponseStatus = pResponseStatus_
-    }
+  DeleteUserPoolDomainResponse' {_dupdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dupdrsResponseStatus :: Lens' DeleteUserPoolDomainResponse Int
 dupdrsResponseStatus = lens _dupdrsResponseStatus (\ s a -> s{_dupdrsResponseStatus = a});
 
-instance NFData DeleteUserPoolDomainResponse
+instance NFData DeleteUserPoolDomainResponse where

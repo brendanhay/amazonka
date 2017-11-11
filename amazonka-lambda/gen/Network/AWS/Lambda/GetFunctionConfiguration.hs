@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetFunctionConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,12 +58,12 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , fcMasterARN
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -71,9 +71,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getFunctionConfiguration' smart constructor.
 data GetFunctionConfiguration = GetFunctionConfiguration'
-    { _gfcQualifier    :: !(Maybe Text)
-    , _gfcFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfcQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfcFunctionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFunctionConfiguration' with the minimum fields required to make a request.
 --
@@ -86,10 +87,9 @@ getFunctionConfiguration
     :: Text -- ^ 'gfcFunctionName'
     -> GetFunctionConfiguration
 getFunctionConfiguration pFunctionName_ =
-    GetFunctionConfiguration'
-    { _gfcQualifier = Nothing
-    , _gfcFunctionName = pFunctionName_
-    }
+  GetFunctionConfiguration'
+  {_gfcQualifier = Nothing, _gfcFunctionName = pFunctionName_}
+
 
 -- | Using this optional parameter you can specify a function version or an alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't specify this parameter, the API uses unqualified function ARN, and returns information about the @> LATEST@ function version.
 gfcQualifier :: Lens' GetFunctionConfiguration (Maybe Text)
@@ -105,9 +105,9 @@ instance AWSRequest GetFunctionConfiguration where
         request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetFunctionConfiguration
+instance Hashable GetFunctionConfiguration where
 
-instance NFData GetFunctionConfiguration
+instance NFData GetFunctionConfiguration where
 
 instance ToHeaders GetFunctionConfiguration where
         toHeaders = const mempty

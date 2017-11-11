@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.Predict
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.MachineLearning.Predict
     , prsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'predict' smart constructor.
 data Predict = Predict'
-    { _pMLModelId       :: !Text
-    , _pRecord          :: !(Map Text Text)
-    , _pPredictEndpoint :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pMLModelId       :: {-# NOUNPACK #-}!Text
+  , _pRecord          :: {-# NOUNPACK #-}!(Map Text Text)
+  , _pPredictEndpoint :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Predict' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ predict
     -> Text -- ^ 'pPredictEndpoint'
     -> Predict
 predict pMLModelId_ pPredictEndpoint_ =
-    Predict'
-    { _pMLModelId = pMLModelId_
-    , _pRecord = mempty
-    , _pPredictEndpoint = pPredictEndpoint_
-    }
+  Predict'
+  { _pMLModelId = pMLModelId_
+  , _pRecord = mempty
+  , _pPredictEndpoint = pPredictEndpoint_
+  }
+
 
 -- | A unique identifier of the @MLModel@ .
 pMLModelId :: Lens' Predict Text
@@ -94,9 +96,9 @@ instance AWSRequest Predict where
                  PredictResponse' <$>
                    (x .?> "Prediction") <*> (pure (fromEnum s)))
 
-instance Hashable Predict
+instance Hashable Predict where
 
-instance NFData Predict
+instance NFData Predict where
 
 instance ToHeaders Predict where
         toHeaders
@@ -123,9 +125,10 @@ instance ToQuery Predict where
 
 -- | /See:/ 'predictResponse' smart constructor.
 data PredictResponse = PredictResponse'
-    { _prsPrediction     :: !(Maybe Prediction)
-    , _prsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prsPrediction     :: {-# NOUNPACK #-}!(Maybe Prediction)
+  , _prsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PredictResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,9 @@ predictResponse
     :: Int -- ^ 'prsResponseStatus'
     -> PredictResponse
 predictResponse pResponseStatus_ =
-    PredictResponse'
-    { _prsPrediction = Nothing
-    , _prsResponseStatus = pResponseStatus_
-    }
+  PredictResponse'
+  {_prsPrediction = Nothing, _prsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 prsPrediction :: Lens' PredictResponse (Maybe Prediction)
@@ -151,4 +153,4 @@ prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a});
 prsResponseStatus :: Lens' PredictResponse Int
 prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
 
-instance NFData PredictResponse
+instance NFData PredictResponse where

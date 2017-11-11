@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetTables
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.Glue.GetTables
     , gtsrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getTables' smart constructor.
 data GetTables = GetTables'
-    { _gtCatalogId    :: !(Maybe Text)
-    , _gtNextToken    :: !(Maybe Text)
-    , _gtExpression   :: !(Maybe Text)
-    , _gtMaxResults   :: !(Maybe Nat)
-    , _gtDatabaseName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtExpression   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gtDatabaseName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTables' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ getTables
     :: Text -- ^ 'gtDatabaseName'
     -> GetTables
 getTables pDatabaseName_ =
-    GetTables'
-    { _gtCatalogId = Nothing
-    , _gtNextToken = Nothing
-    , _gtExpression = Nothing
-    , _gtMaxResults = Nothing
-    , _gtDatabaseName = pDatabaseName_
-    }
+  GetTables'
+  { _gtCatalogId = Nothing
+  , _gtNextToken = Nothing
+  , _gtExpression = Nothing
+  , _gtMaxResults = Nothing
+  , _gtDatabaseName = pDatabaseName_
+  }
+
 
 -- | The ID of the Data Catalog where the tables reside. If none is supplied, the AWS account ID is used by default.
 gtCatalogId :: Lens' GetTables (Maybe Text)
@@ -114,9 +116,9 @@ instance AWSRequest GetTables where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTables
+instance Hashable GetTables where
 
-instance NFData GetTables
+instance NFData GetTables where
 
 instance ToHeaders GetTables where
         toHeaders
@@ -145,10 +147,11 @@ instance ToQuery GetTables where
 
 -- | /See:/ 'getTablesResponse' smart constructor.
 data GetTablesResponse = GetTablesResponse'
-    { _gtsrsTableList      :: !(Maybe [Table])
-    , _gtsrsNextToken      :: !(Maybe Text)
-    , _gtsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtsrsTableList      :: {-# NOUNPACK #-}!(Maybe [Table])
+  , _gtsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTablesResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +166,12 @@ getTablesResponse
     :: Int -- ^ 'gtsrsResponseStatus'
     -> GetTablesResponse
 getTablesResponse pResponseStatus_ =
-    GetTablesResponse'
-    { _gtsrsTableList = Nothing
-    , _gtsrsNextToken = Nothing
-    , _gtsrsResponseStatus = pResponseStatus_
-    }
+  GetTablesResponse'
+  { _gtsrsTableList = Nothing
+  , _gtsrsNextToken = Nothing
+  , _gtsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the requested @Table@ objects.
 gtsrsTableList :: Lens' GetTablesResponse [Table]
@@ -181,4 +185,4 @@ gtsrsNextToken = lens _gtsrsNextToken (\ s a -> s{_gtsrsNextToken = a});
 gtsrsResponseStatus :: Lens' GetTablesResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
 
-instance NFData GetTablesResponse
+instance NFData GetTablesResponse where

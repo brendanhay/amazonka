@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ScheduleKeyDeletion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,18 +43,19 @@ module Network.AWS.KMS.ScheduleKeyDeletion
     , skdrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'scheduleKeyDeletion' smart constructor.
 data ScheduleKeyDeletion = ScheduleKeyDeletion'
-    { _skdPendingWindowInDays :: !(Maybe Nat)
-    , _skdKeyId               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _skdPendingWindowInDays :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _skdKeyId               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScheduleKeyDeletion' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ scheduleKeyDeletion
     :: Text -- ^ 'skdKeyId'
     -> ScheduleKeyDeletion
 scheduleKeyDeletion pKeyId_ =
-    ScheduleKeyDeletion'
-    { _skdPendingWindowInDays = Nothing
-    , _skdKeyId = pKeyId_
-    }
+  ScheduleKeyDeletion' {_skdPendingWindowInDays = Nothing, _skdKeyId = pKeyId_}
+
 
 -- | The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the customer master key (CMK). This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30.
 skdPendingWindowInDays :: Lens' ScheduleKeyDeletion (Maybe Natural)
@@ -91,9 +90,9 @@ instance AWSRequest ScheduleKeyDeletion where
                    (x .?> "KeyId") <*> (x .?> "DeletionDate") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ScheduleKeyDeletion
+instance Hashable ScheduleKeyDeletion where
 
-instance NFData ScheduleKeyDeletion
+instance NFData ScheduleKeyDeletion where
 
 instance ToHeaders ScheduleKeyDeletion where
         toHeaders
@@ -120,10 +119,11 @@ instance ToQuery ScheduleKeyDeletion where
 
 -- | /See:/ 'scheduleKeyDeletionResponse' smart constructor.
 data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
-    { _skdrsKeyId          :: !(Maybe Text)
-    , _skdrsDeletionDate   :: !(Maybe POSIX)
-    , _skdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _skdrsKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _skdrsDeletionDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _skdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScheduleKeyDeletionResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +138,12 @@ scheduleKeyDeletionResponse
     :: Int -- ^ 'skdrsResponseStatus'
     -> ScheduleKeyDeletionResponse
 scheduleKeyDeletionResponse pResponseStatus_ =
-    ScheduleKeyDeletionResponse'
-    { _skdrsKeyId = Nothing
-    , _skdrsDeletionDate = Nothing
-    , _skdrsResponseStatus = pResponseStatus_
-    }
+  ScheduleKeyDeletionResponse'
+  { _skdrsKeyId = Nothing
+  , _skdrsDeletionDate = Nothing
+  , _skdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The unique identifier of the customer master key (CMK) for which deletion is scheduled.
 skdrsKeyId :: Lens' ScheduleKeyDeletionResponse (Maybe Text)
@@ -156,4 +157,4 @@ skdrsDeletionDate = lens _skdrsDeletionDate (\ s a -> s{_skdrsDeletionDate = a})
 skdrsResponseStatus :: Lens' ScheduleKeyDeletionResponse Int
 skdrsResponseStatus = lens _skdrsResponseStatus (\ s a -> s{_skdrsResponseStatus = a});
 
-instance NFData ScheduleKeyDeletionResponse
+instance NFData ScheduleKeyDeletionResponse where

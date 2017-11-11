@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.CreateProtection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Shield.CreateProtection
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'createProtection' smart constructor.
 data CreateProtection = CreateProtection'
-    { _cpName        :: !Text
-    , _cpResourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpName        :: {-# NOUNPACK #-}!Text
+  , _cpResourceARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProtection' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ createProtection
     -> Text -- ^ 'cpResourceARN'
     -> CreateProtection
 createProtection pName_ pResourceARN_ =
-    CreateProtection'
-    { _cpName = pName_
-    , _cpResourceARN = pResourceARN_
-    }
+  CreateProtection' {_cpName = pName_, _cpResourceARN = pResourceARN_}
+
 
 -- | Friendly name for the @Protection@ you are creating.
 cpName :: Lens' CreateProtection Text
@@ -85,9 +84,9 @@ instance AWSRequest CreateProtection where
                  CreateProtectionResponse' <$>
                    (x .?> "ProtectionId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateProtection
+instance Hashable CreateProtection where
 
-instance NFData CreateProtection
+instance NFData CreateProtection where
 
 instance ToHeaders CreateProtection where
         toHeaders
@@ -114,9 +113,10 @@ instance ToQuery CreateProtection where
 
 -- | /See:/ 'createProtectionResponse' smart constructor.
 data CreateProtectionResponse = CreateProtectionResponse'
-    { _cprsProtectionId   :: !(Maybe Text)
-    , _cprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsProtectionId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProtectionResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ createProtectionResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreateProtectionResponse
 createProtectionResponse pResponseStatus_ =
-    CreateProtectionResponse'
-    { _cprsProtectionId = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreateProtectionResponse'
+  {_cprsProtectionId = Nothing, _cprsResponseStatus = pResponseStatus_}
+
 
 -- | The unique identifier (ID) for the 'Protection' object that is created.
 cprsProtectionId :: Lens' CreateProtectionResponse (Maybe Text)
@@ -142,4 +141,4 @@ cprsProtectionId = lens _cprsProtectionId (\ s a -> s{_cprsProtectionId = a});
 cprsResponseStatus :: Lens' CreateProtectionResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreateProtectionResponse
+instance NFData CreateProtectionResponse where

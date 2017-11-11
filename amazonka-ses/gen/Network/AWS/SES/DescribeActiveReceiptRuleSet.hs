@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.DescribeActiveReceiptRuleSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.SES.DescribeActiveReceiptRuleSet
     , darrsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to return the metadata and receipt rules for the receipt rule set that is currently active. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
@@ -53,14 +53,16 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'describeActiveReceiptRuleSet' smart constructor.
 data DescribeActiveReceiptRuleSet =
-    DescribeActiveReceiptRuleSet'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeActiveReceiptRuleSet'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActiveReceiptRuleSet' with the minimum fields required to make a request.
 --
 describeActiveReceiptRuleSet
     :: DescribeActiveReceiptRuleSet
 describeActiveReceiptRuleSet = DescribeActiveReceiptRuleSet'
+
 
 instance AWSRequest DescribeActiveReceiptRuleSet
          where
@@ -77,9 +79,9 @@ instance AWSRequest DescribeActiveReceiptRuleSet
                      <*> (x .@? "Metadata")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeActiveReceiptRuleSet
+instance Hashable DescribeActiveReceiptRuleSet where
 
-instance NFData DescribeActiveReceiptRuleSet
+instance NFData DescribeActiveReceiptRuleSet where
 
 instance ToHeaders DescribeActiveReceiptRuleSet where
         toHeaders = const mempty
@@ -101,10 +103,11 @@ instance ToQuery DescribeActiveReceiptRuleSet where
 --
 -- /See:/ 'describeActiveReceiptRuleSetResponse' smart constructor.
 data DescribeActiveReceiptRuleSetResponse = DescribeActiveReceiptRuleSetResponse'
-    { _darrsrsRules          :: !(Maybe [ReceiptRule])
-    , _darrsrsMetadata       :: !(Maybe ReceiptRuleSetMetadata)
-    , _darrsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darrsrsRules          :: {-# NOUNPACK #-}!(Maybe [ReceiptRule])
+  , _darrsrsMetadata       :: {-# NOUNPACK #-}!(Maybe ReceiptRuleSetMetadata)
+  , _darrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActiveReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
@@ -119,11 +122,12 @@ describeActiveReceiptRuleSetResponse
     :: Int -- ^ 'darrsrsResponseStatus'
     -> DescribeActiveReceiptRuleSetResponse
 describeActiveReceiptRuleSetResponse pResponseStatus_ =
-    DescribeActiveReceiptRuleSetResponse'
-    { _darrsrsRules = Nothing
-    , _darrsrsMetadata = Nothing
-    , _darrsrsResponseStatus = pResponseStatus_
-    }
+  DescribeActiveReceiptRuleSetResponse'
+  { _darrsrsRules = Nothing
+  , _darrsrsMetadata = Nothing
+  , _darrsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The receipt rules that belong to the active rule set.
 darrsrsRules :: Lens' DescribeActiveReceiptRuleSetResponse [ReceiptRule]
@@ -138,3 +142,4 @@ darrsrsResponseStatus :: Lens' DescribeActiveReceiptRuleSetResponse Int
 darrsrsResponseStatus = lens _darrsrsResponseStatus (\ s a -> s{_darrsrsResponseStatus = a});
 
 instance NFData DescribeActiveReceiptRuleSetResponse
+         where

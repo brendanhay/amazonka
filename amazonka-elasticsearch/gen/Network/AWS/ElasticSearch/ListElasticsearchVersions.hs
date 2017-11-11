@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.ListElasticsearchVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.ElasticSearch.ListElasticsearchVersions
     , levrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'ListElasticsearchVersions' @ operation. Use @'MaxResults' @ to control the maximum number of results to retrieve in a single call.
 --
@@ -56,9 +56,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listElasticsearchVersions' smart constructor.
 data ListElasticsearchVersions = ListElasticsearchVersions'
-    { _levNextToken  :: !(Maybe Text)
-    , _levMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _levNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _levMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListElasticsearchVersions' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ data ListElasticsearchVersions = ListElasticsearchVersions'
 listElasticsearchVersions
     :: ListElasticsearchVersions
 listElasticsearchVersions =
-    ListElasticsearchVersions'
-    { _levNextToken = Nothing
-    , _levMaxResults = Nothing
-    }
+  ListElasticsearchVersions' {_levNextToken = Nothing, _levMaxResults = Nothing}
+
 
 -- | Undocumented member.
 levNextToken :: Lens' ListElasticsearchVersions (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest ListElasticsearchVersions where
                      (x .?> "ElasticsearchVersions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListElasticsearchVersions
+instance Hashable ListElasticsearchVersions where
 
-instance NFData ListElasticsearchVersions
+instance NFData ListElasticsearchVersions where
 
 instance ToHeaders ListElasticsearchVersions where
         toHeaders = const mempty
@@ -117,10 +116,11 @@ instance ToQuery ListElasticsearchVersions where
 --
 -- /See:/ 'listElasticsearchVersionsResponse' smart constructor.
 data ListElasticsearchVersionsResponse = ListElasticsearchVersionsResponse'
-    { _levrsNextToken             :: !(Maybe Text)
-    , _levrsElasticsearchVersions :: !(Maybe [Text])
-    , _levrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _levrsNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _levrsElasticsearchVersions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _levrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListElasticsearchVersionsResponse' with the minimum fields required to make a request.
 --
@@ -135,11 +135,12 @@ listElasticsearchVersionsResponse
     :: Int -- ^ 'levrsResponseStatus'
     -> ListElasticsearchVersionsResponse
 listElasticsearchVersionsResponse pResponseStatus_ =
-    ListElasticsearchVersionsResponse'
-    { _levrsNextToken = Nothing
-    , _levrsElasticsearchVersions = Nothing
-    , _levrsResponseStatus = pResponseStatus_
-    }
+  ListElasticsearchVersionsResponse'
+  { _levrsNextToken = Nothing
+  , _levrsElasticsearchVersions = Nothing
+  , _levrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 levrsNextToken :: Lens' ListElasticsearchVersionsResponse (Maybe Text)
@@ -154,3 +155,4 @@ levrsResponseStatus :: Lens' ListElasticsearchVersionsResponse Int
 levrsResponseStatus = lens _levrsResponseStatus (\ s a -> s{_levrsResponseStatus = a});
 
 instance NFData ListElasticsearchVersionsResponse
+         where

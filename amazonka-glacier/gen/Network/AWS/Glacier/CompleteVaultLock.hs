@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.CompleteVaultLock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Glacier.CompleteVaultLock
     , CompleteVaultLockResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input values for @CompleteVaultLock@ .
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'completeVaultLock' smart constructor.
 data CompleteVaultLock = CompleteVaultLock'
-    { _cvlAccountId :: !Text
-    , _cvlVaultName :: !Text
-    , _cvlLockId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvlAccountId :: {-# NOUNPACK #-}!Text
+  , _cvlVaultName :: {-# NOUNPACK #-}!Text
+  , _cvlLockId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteVaultLock' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ completeVaultLock
     -> Text -- ^ 'cvlLockId'
     -> CompleteVaultLock
 completeVaultLock pAccountId_ pVaultName_ pLockId_ =
-    CompleteVaultLock'
-    { _cvlAccountId = pAccountId_
-    , _cvlVaultName = pVaultName_
-    , _cvlLockId = pLockId_
-    }
+  CompleteVaultLock'
+  { _cvlAccountId = pAccountId_
+  , _cvlVaultName = pVaultName_
+  , _cvlLockId = pLockId_
+  }
+
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 cvlAccountId :: Lens' CompleteVaultLock Text
@@ -96,9 +98,9 @@ instance AWSRequest CompleteVaultLock where
         request = postJSON glacier
         response = receiveNull CompleteVaultLockResponse'
 
-instance Hashable CompleteVaultLock
+instance Hashable CompleteVaultLock where
 
-instance NFData CompleteVaultLock
+instance NFData CompleteVaultLock where
 
 instance ToHeaders CompleteVaultLock where
         toHeaders = const mempty
@@ -117,8 +119,9 @@ instance ToQuery CompleteVaultLock where
 
 -- | /See:/ 'completeVaultLockResponse' smart constructor.
 data CompleteVaultLockResponse =
-    CompleteVaultLockResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CompleteVaultLockResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteVaultLockResponse' with the minimum fields required to make a request.
 --
@@ -126,4 +129,5 @@ completeVaultLockResponse
     :: CompleteVaultLockResponse
 completeVaultLockResponse = CompleteVaultLockResponse'
 
-instance NFData CompleteVaultLockResponse
+
+instance NFData CompleteVaultLockResponse where

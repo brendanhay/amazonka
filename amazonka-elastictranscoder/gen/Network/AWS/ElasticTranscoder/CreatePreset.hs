@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CreatePreset
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @CreatePresetRequest@ structure.
 --
@@ -60,13 +60,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createPreset' smart constructor.
 data CreatePreset = CreatePreset'
-    { _cpVideo       :: !(Maybe VideoParameters)
-    , _cpThumbnails  :: !(Maybe Thumbnails)
-    , _cpDescription :: !(Maybe Text)
-    , _cpAudio       :: !(Maybe AudioParameters)
-    , _cpName        :: !Text
-    , _cpContainer   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpVideo       :: {-# NOUNPACK #-}!(Maybe VideoParameters)
+  , _cpThumbnails  :: {-# NOUNPACK #-}!(Maybe Thumbnails)
+  , _cpDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpAudio       :: {-# NOUNPACK #-}!(Maybe AudioParameters)
+  , _cpName        :: {-# NOUNPACK #-}!Text
+  , _cpContainer   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePreset' with the minimum fields required to make a request.
 --
@@ -88,14 +89,15 @@ createPreset
     -> Text -- ^ 'cpContainer'
     -> CreatePreset
 createPreset pName_ pContainer_ =
-    CreatePreset'
-    { _cpVideo = Nothing
-    , _cpThumbnails = Nothing
-    , _cpDescription = Nothing
-    , _cpAudio = Nothing
-    , _cpName = pName_
-    , _cpContainer = pContainer_
-    }
+  CreatePreset'
+  { _cpVideo = Nothing
+  , _cpThumbnails = Nothing
+  , _cpDescription = Nothing
+  , _cpAudio = Nothing
+  , _cpName = pName_
+  , _cpContainer = pContainer_
+  }
+
 
 -- | A section of the request body that specifies the video parameters.
 cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
@@ -131,9 +133,9 @@ instance AWSRequest CreatePreset where
                    (x .?> "Warning") <*> (x .?> "Preset") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreatePreset
+instance Hashable CreatePreset where
 
-instance NFData CreatePreset
+instance NFData CreatePreset where
 
 instance ToHeaders CreatePreset where
         toHeaders = const mempty
@@ -160,10 +162,11 @@ instance ToQuery CreatePreset where
 --
 -- /See:/ 'createPresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
-    { _cprsWarning        :: !(Maybe Text)
-    , _cprsPreset         :: !(Maybe Preset)
-    , _cprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsWarning        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cprsPreset         :: {-# NOUNPACK #-}!(Maybe Preset)
+  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePresetResponse' with the minimum fields required to make a request.
 --
@@ -178,11 +181,12 @@ createPresetResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePresetResponse
 createPresetResponse pResponseStatus_ =
-    CreatePresetResponse'
-    { _cprsWarning = Nothing
-    , _cprsPreset = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreatePresetResponse'
+  { _cprsWarning = Nothing
+  , _cprsPreset = Nothing
+  , _cprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
 cprsWarning :: Lens' CreatePresetResponse (Maybe Text)
@@ -196,4 +200,4 @@ cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
 cprsResponseStatus :: Lens' CreatePresetResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreatePresetResponse
+instance NFData CreatePresetResponse where

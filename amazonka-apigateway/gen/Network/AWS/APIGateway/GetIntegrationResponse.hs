@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetIntegrationResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.GetIntegrationResponse
     , intResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a get integration response request.
 --
@@ -56,11 +56,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-    { _giiRestAPIId  :: !Text
-    , _giiResourceId :: !Text
-    , _giiHttpMethod :: !Text
-    , _giiStatusCode :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giiRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _giiResourceId :: {-# NOUNPACK #-}!Text
+  , _giiHttpMethod :: {-# NOUNPACK #-}!Text
+  , _giiStatusCode :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntegrationResponse' with the minimum fields required to make a request.
 --
@@ -80,12 +81,13 @@ getIntegrationResponse
     -> Text -- ^ 'giiStatusCode'
     -> GetIntegrationResponse
 getIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    GetIntegrationResponse'
-    { _giiRestAPIId = pRestAPIId_
-    , _giiResourceId = pResourceId_
-    , _giiHttpMethod = pHttpMethod_
-    , _giiStatusCode = pStatusCode_
-    }
+  GetIntegrationResponse'
+  { _giiRestAPIId = pRestAPIId_
+  , _giiResourceId = pResourceId_
+  , _giiHttpMethod = pHttpMethod_
+  , _giiStatusCode = pStatusCode_
+  }
+
 
 -- | The string identifier of the associated 'RestApi' .
 giiRestAPIId :: Lens' GetIntegrationResponse Text
@@ -108,9 +110,9 @@ instance AWSRequest GetIntegrationResponse where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetIntegrationResponse
+instance Hashable GetIntegrationResponse where
 
-instance NFData GetIntegrationResponse
+instance NFData GetIntegrationResponse where
 
 instance ToHeaders GetIntegrationResponse where
         toHeaders

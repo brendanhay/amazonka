@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeTagOption
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.ServiceCatalog.DescribeTagOption
     , dtorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeTagOption' smart constructor.
 newtype DescribeTagOption = DescribeTagOption'
-    { _dtoId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtoId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagOption' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DescribeTagOption = DescribeTagOption'
 describeTagOption
     :: Text -- ^ 'dtoId'
     -> DescribeTagOption
-describeTagOption pId_ =
-    DescribeTagOption'
-    { _dtoId = pId_
-    }
+describeTagOption pId_ = DescribeTagOption' {_dtoId = pId_}
+
 
 -- | The identifier of the TagOption.
 dtoId :: Lens' DescribeTagOption Text
@@ -75,9 +74,9 @@ instance AWSRequest DescribeTagOption where
                  DescribeTagOptionResponse' <$>
                    (x .?> "TagOptionDetail") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTagOption
+instance Hashable DescribeTagOption where
 
-instance NFData DescribeTagOption
+instance NFData DescribeTagOption where
 
 instance ToHeaders DescribeTagOption where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery DescribeTagOption where
 
 -- | /See:/ 'describeTagOptionResponse' smart constructor.
 data DescribeTagOptionResponse = DescribeTagOptionResponse'
-    { _dtorsTagOptionDetail :: !(Maybe TagOptionDetail)
-    , _dtorsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtorsTagOptionDetail :: {-# NOUNPACK #-}!(Maybe TagOptionDetail)
+  , _dtorsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagOptionResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ describeTagOptionResponse
     :: Int -- ^ 'dtorsResponseStatus'
     -> DescribeTagOptionResponse
 describeTagOptionResponse pResponseStatus_ =
-    DescribeTagOptionResponse'
-    { _dtorsTagOptionDetail = Nothing
-    , _dtorsResponseStatus = pResponseStatus_
-    }
+  DescribeTagOptionResponse'
+  {_dtorsTagOptionDetail = Nothing, _dtorsResponseStatus = pResponseStatus_}
+
 
 -- | The resulting detailed TagOption information.
 dtorsTagOptionDetail :: Lens' DescribeTagOptionResponse (Maybe TagOptionDetail)
@@ -129,4 +128,4 @@ dtorsTagOptionDetail = lens _dtorsTagOptionDetail (\ s a -> s{_dtorsTagOptionDet
 dtorsResponseStatus :: Lens' DescribeTagOptionResponse Int
 dtorsResponseStatus = lens _dtorsResponseStatus (\ s a -> s{_dtorsResponseStatus = a});
 
-instance NFData DescribeTagOptionResponse
+instance NFData DescribeTagOptionResponse where

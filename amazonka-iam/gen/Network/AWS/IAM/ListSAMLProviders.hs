@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListSAMLProviders
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.IAM.ListSAMLProviders
     , lsamlprsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listSAMLProviders' smart constructor.
 data ListSAMLProviders =
-    ListSAMLProviders'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ListSAMLProviders'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSAMLProviders' with the minimum fields required to make a request.
 --
 listSAMLProviders
     :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders'
+
 
 instance AWSRequest ListSAMLProviders where
         type Rs ListSAMLProviders = ListSAMLProvidersResponse
@@ -64,9 +66,9 @@ instance AWSRequest ListSAMLProviders where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListSAMLProviders
+instance Hashable ListSAMLProviders where
 
-instance NFData ListSAMLProviders
+instance NFData ListSAMLProviders where
 
 instance ToHeaders ListSAMLProviders where
         toHeaders = const mempty
@@ -87,9 +89,10 @@ instance ToQuery ListSAMLProviders where
 --
 -- /See:/ 'listSAMLProvidersResponse' smart constructor.
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
-    { _lsamlprsSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
-    , _lsamlprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsamlprsSAMLProviderList :: {-# NOUNPACK #-}!(Maybe [SAMLProviderListEntry])
+  , _lsamlprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSAMLProvidersResponse' with the minimum fields required to make a request.
 --
@@ -102,10 +105,11 @@ listSAMLProvidersResponse
     :: Int -- ^ 'lsamlprsResponseStatus'
     -> ListSAMLProvidersResponse
 listSAMLProvidersResponse pResponseStatus_ =
-    ListSAMLProvidersResponse'
-    { _lsamlprsSAMLProviderList = Nothing
-    , _lsamlprsResponseStatus = pResponseStatus_
-    }
+  ListSAMLProvidersResponse'
+  { _lsamlprsSAMLProviderList = Nothing
+  , _lsamlprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of SAML provider resource objects defined in IAM for this AWS account.
 lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
@@ -115,4 +119,4 @@ lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsS
 lsamlprsResponseStatus :: Lens' ListSAMLProvidersResponse Int
 lsamlprsResponseStatus = lens _lsamlprsResponseStatus (\ s a -> s{_lsamlprsResponseStatus = a});
 
-instance NFData ListSAMLProvidersResponse
+instance NFData ListSAMLProvidersResponse where

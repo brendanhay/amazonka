@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetCommandInvocation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,19 +53,20 @@ module Network.AWS.SSM.GetCommandInvocation
     , gcirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getCommandInvocation' smart constructor.
 data GetCommandInvocation = GetCommandInvocation'
-    { _gciPluginName :: !(Maybe Text)
-    , _gciCommandId  :: !Text
-    , _gciInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gciPluginName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gciCommandId  :: {-# NOUNPACK #-}!Text
+  , _gciInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCommandInvocation' with the minimum fields required to make a request.
 --
@@ -81,11 +82,12 @@ getCommandInvocation
     -> Text -- ^ 'gciInstanceId'
     -> GetCommandInvocation
 getCommandInvocation pCommandId_ pInstanceId_ =
-    GetCommandInvocation'
-    { _gciPluginName = Nothing
-    , _gciCommandId = pCommandId_
-    , _gciInstanceId = pInstanceId_
-    }
+  GetCommandInvocation'
+  { _gciPluginName = Nothing
+  , _gciCommandId = pCommandId_
+  , _gciInstanceId = pInstanceId_
+  }
+
 
 -- | (Optional) The name of the plugin for which you want detailed results. If the document contains only one plugin, the name can be omitted and the details will be returned.
 gciPluginName :: Lens' GetCommandInvocation (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest GetCommandInvocation where
                      <*> (x .?> "PluginName")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetCommandInvocation
+instance Hashable GetCommandInvocation where
 
-instance NFData GetCommandInvocation
+instance NFData GetCommandInvocation where
 
 instance ToHeaders GetCommandInvocation where
         toHeaders
@@ -152,23 +154,24 @@ instance ToQuery GetCommandInvocation where
 
 -- | /See:/ 'getCommandInvocationResponse' smart constructor.
 data GetCommandInvocationResponse = GetCommandInvocationResponse'
-    { _gcirsInstanceId             :: !(Maybe Text)
-    , _gcirsStatus                 :: !(Maybe CommandInvocationStatus)
-    , _gcirsStandardErrorContent   :: !(Maybe Text)
-    , _gcirsExecutionElapsedTime   :: !(Maybe Text)
-    , _gcirsDocumentName           :: !(Maybe Text)
-    , _gcirsStandardErrorURL       :: !(Maybe Text)
-    , _gcirsExecutionStartDateTime :: !(Maybe Text)
-    , _gcirsResponseCode           :: !(Maybe Int)
-    , _gcirsStatusDetails          :: !(Maybe Text)
-    , _gcirsExecutionEndDateTime   :: !(Maybe Text)
-    , _gcirsStandardOutputURL      :: !(Maybe Text)
-    , _gcirsCommandId              :: !(Maybe Text)
-    , _gcirsStandardOutputContent  :: !(Maybe Text)
-    , _gcirsComment                :: !(Maybe Text)
-    , _gcirsPluginName             :: !(Maybe Text)
-    , _gcirsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcirsInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsStatus :: {-# NOUNPACK #-}!(Maybe CommandInvocationStatus)
+  , _gcirsStandardErrorContent :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsExecutionElapsedTime :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsDocumentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsStandardErrorURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsExecutionStartDateTime :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsResponseCode :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gcirsStatusDetails :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsExecutionEndDateTime :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsStandardOutputURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsCommandId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsStandardOutputContent :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsComment :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsPluginName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCommandInvocationResponse' with the minimum fields required to make a request.
 --
@@ -209,24 +212,25 @@ getCommandInvocationResponse
     :: Int -- ^ 'gcirsResponseStatus'
     -> GetCommandInvocationResponse
 getCommandInvocationResponse pResponseStatus_ =
-    GetCommandInvocationResponse'
-    { _gcirsInstanceId = Nothing
-    , _gcirsStatus = Nothing
-    , _gcirsStandardErrorContent = Nothing
-    , _gcirsExecutionElapsedTime = Nothing
-    , _gcirsDocumentName = Nothing
-    , _gcirsStandardErrorURL = Nothing
-    , _gcirsExecutionStartDateTime = Nothing
-    , _gcirsResponseCode = Nothing
-    , _gcirsStatusDetails = Nothing
-    , _gcirsExecutionEndDateTime = Nothing
-    , _gcirsStandardOutputURL = Nothing
-    , _gcirsCommandId = Nothing
-    , _gcirsStandardOutputContent = Nothing
-    , _gcirsComment = Nothing
-    , _gcirsPluginName = Nothing
-    , _gcirsResponseStatus = pResponseStatus_
-    }
+  GetCommandInvocationResponse'
+  { _gcirsInstanceId = Nothing
+  , _gcirsStatus = Nothing
+  , _gcirsStandardErrorContent = Nothing
+  , _gcirsExecutionElapsedTime = Nothing
+  , _gcirsDocumentName = Nothing
+  , _gcirsStandardErrorURL = Nothing
+  , _gcirsExecutionStartDateTime = Nothing
+  , _gcirsResponseCode = Nothing
+  , _gcirsStatusDetails = Nothing
+  , _gcirsExecutionEndDateTime = Nothing
+  , _gcirsStandardOutputURL = Nothing
+  , _gcirsCommandId = Nothing
+  , _gcirsStandardOutputContent = Nothing
+  , _gcirsComment = Nothing
+  , _gcirsPluginName = Nothing
+  , _gcirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the managed instance targeted by the command. A managed instance can be an Amazon EC2 instance or an instance in your hybrid environment that is configured for Systems Manager.
 gcirsInstanceId :: Lens' GetCommandInvocationResponse (Maybe Text)
@@ -292,4 +296,4 @@ gcirsPluginName = lens _gcirsPluginName (\ s a -> s{_gcirsPluginName = a});
 gcirsResponseStatus :: Lens' GetCommandInvocationResponse Int
 gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a});
 
-instance NFData GetCommandInvocationResponse
+instance NFData GetCommandInvocationResponse where

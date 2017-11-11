@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapeArchives
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     , dtarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeTapeArchivesInput
 --
@@ -58,10 +58,11 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeTapeArchives' smart constructor.
 data DescribeTapeArchives = DescribeTapeArchives'
-    { _dtaMarker   :: !(Maybe Text)
-    , _dtaLimit    :: !(Maybe Nat)
-    , _dtaTapeARNs :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtaMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtaLimit    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dtaTapeARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTapeArchives' with the minimum fields required to make a request.
 --
@@ -75,11 +76,9 @@ data DescribeTapeArchives = DescribeTapeArchives'
 describeTapeArchives
     :: DescribeTapeArchives
 describeTapeArchives =
-    DescribeTapeArchives'
-    { _dtaMarker = Nothing
-    , _dtaLimit = Nothing
-    , _dtaTapeARNs = Nothing
-    }
+  DescribeTapeArchives'
+  {_dtaMarker = Nothing, _dtaLimit = Nothing, _dtaTapeARNs = Nothing}
+
 
 -- | An opaque string that indicates the position at which to begin describing virtual tapes.
 dtaMarker :: Lens' DescribeTapeArchives (Maybe Text)
@@ -112,9 +111,9 @@ instance AWSRequest DescribeTapeArchives where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTapeArchives
+instance Hashable DescribeTapeArchives where
 
-instance NFData DescribeTapeArchives
+instance NFData DescribeTapeArchives where
 
 instance ToHeaders DescribeTapeArchives where
         toHeaders
@@ -146,10 +145,11 @@ instance ToQuery DescribeTapeArchives where
 --
 -- /See:/ 'describeTapeArchivesResponse' smart constructor.
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
-    { _dtarsTapeArchives   :: !(Maybe [TapeArchive])
-    , _dtarsMarker         :: !(Maybe Text)
-    , _dtarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtarsTapeArchives   :: {-# NOUNPACK #-}!(Maybe [TapeArchive])
+  , _dtarsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTapeArchivesResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +164,12 @@ describeTapeArchivesResponse
     :: Int -- ^ 'dtarsResponseStatus'
     -> DescribeTapeArchivesResponse
 describeTapeArchivesResponse pResponseStatus_ =
-    DescribeTapeArchivesResponse'
-    { _dtarsTapeArchives = Nothing
-    , _dtarsMarker = Nothing
-    , _dtarsResponseStatus = pResponseStatus_
-    }
+  DescribeTapeArchivesResponse'
+  { _dtarsTapeArchives = Nothing
+  , _dtarsMarker = Nothing
+  , _dtarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode.
 dtarsTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
@@ -182,4 +183,4 @@ dtarsMarker = lens _dtarsMarker (\ s a -> s{_dtarsMarker = a});
 dtarsResponseStatus :: Lens' DescribeTapeArchivesResponse Int
 dtarsResponseStatus = lens _dtarsResponseStatus (\ s a -> s{_dtarsResponseStatus = a});
 
-instance NFData DescribeTapeArchivesResponse
+instance NFData DescribeTapeArchivesResponse where

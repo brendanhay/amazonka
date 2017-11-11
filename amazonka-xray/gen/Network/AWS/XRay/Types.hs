@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.XRay.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -182,40 +182,40 @@ module Network.AWS.XRay.Types
     , vwsiAnnotationValue
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
-import           Network.AWS.XRay.Types.Product
-import           Network.AWS.XRay.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
+import Network.AWS.XRay.Types.Product
+import Network.AWS.XRay.Types.Sum
 
 -- | API version @2016-04-12@ of the Amazon X-Ray SDK configuration.
 xRay :: Service
 xRay =
-    Service
-    { _svcAbbrev = "XRay"
-    , _svcSigner = v4
-    , _svcPrefix = "xray"
-    , _svcVersion = "2016-04-12"
-    , _svcEndpoint = defaultEndpoint xRay
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "XRay"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "XRay"
+  , _svcSigner = v4
+  , _svcPrefix = "xray"
+  , _svcVersion = "2016-04-12"
+  , _svcEndpoint = defaultEndpoint xRay
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "XRay"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -224,15 +224,18 @@ xRay =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The request is missing required parameters or has invalid parameters.
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _MatchServiceError xRay "InvalidRequestException"
 
+
 -- | The request exceeds the maximum number of requests per second.
 --
 --
 _ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottledException =
-    _MatchServiceError xRay "ThrottledException" . hasStatus 429
+  _MatchServiceError xRay "ThrottledException" . hasStatus 429
+

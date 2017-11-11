@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteXSSMatchSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.WAFRegional.DeleteXSSMatchSet
     , dxmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | A request to delete an 'XssMatchSet' from AWS WAF.
 --
@@ -63,9 +63,10 @@ import           Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'deleteXSSMatchSet' smart constructor.
 data DeleteXSSMatchSet = DeleteXSSMatchSet'
-    { _dxmsXSSMatchSetId :: !Text
-    , _dxmsChangeToken   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dxmsXSSMatchSetId :: {-# NOUNPACK #-}!Text
+  , _dxmsChangeToken   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteXSSMatchSet' with the minimum fields required to make a request.
 --
@@ -79,10 +80,9 @@ deleteXSSMatchSet
     -> Text -- ^ 'dxmsChangeToken'
     -> DeleteXSSMatchSet
 deleteXSSMatchSet pXSSMatchSetId_ pChangeToken_ =
-    DeleteXSSMatchSet'
-    { _dxmsXSSMatchSetId = pXSSMatchSetId_
-    , _dxmsChangeToken = pChangeToken_
-    }
+  DeleteXSSMatchSet'
+  {_dxmsXSSMatchSetId = pXSSMatchSetId_, _dxmsChangeToken = pChangeToken_}
+
 
 -- | The @XssMatchSetId@ of the 'XssMatchSet' that you want to delete. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 dxmsXSSMatchSetId :: Lens' DeleteXSSMatchSet Text
@@ -101,9 +101,9 @@ instance AWSRequest DeleteXSSMatchSet where
                  DeleteXSSMatchSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteXSSMatchSet
+instance Hashable DeleteXSSMatchSet where
 
-instance NFData DeleteXSSMatchSet
+instance NFData DeleteXSSMatchSet where
 
 instance ToHeaders DeleteXSSMatchSet where
         toHeaders
@@ -134,9 +134,10 @@ instance ToQuery DeleteXSSMatchSet where
 --
 -- /See:/ 'deleteXSSMatchSetResponse' smart constructor.
 data DeleteXSSMatchSetResponse = DeleteXSSMatchSetResponse'
-    { _dxmsrsChangeToken    :: !(Maybe Text)
-    , _dxmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dxmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteXSSMatchSetResponse' with the minimum fields required to make a request.
 --
@@ -149,10 +150,9 @@ deleteXSSMatchSetResponse
     :: Int -- ^ 'dxmsrsResponseStatus'
     -> DeleteXSSMatchSetResponse
 deleteXSSMatchSetResponse pResponseStatus_ =
-    DeleteXSSMatchSetResponse'
-    { _dxmsrsChangeToken = Nothing
-    , _dxmsrsResponseStatus = pResponseStatus_
-    }
+  DeleteXSSMatchSetResponse'
+  {_dxmsrsChangeToken = Nothing, _dxmsrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dxmsrsChangeToken :: Lens' DeleteXSSMatchSetResponse (Maybe Text)
@@ -162,4 +162,4 @@ dxmsrsChangeToken = lens _dxmsrsChangeToken (\ s a -> s{_dxmsrsChangeToken = a})
 dxmsrsResponseStatus :: Lens' DeleteXSSMatchSetResponse Int
 dxmsrsResponseStatus = lens _dxmsrsResponseStatus (\ s a -> s{_dxmsrsResponseStatus = a});
 
-instance NFData DeleteXSSMatchSetResponse
+instance NFData DeleteXSSMatchSetResponse where

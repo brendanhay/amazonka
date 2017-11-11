@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteSizeConstraintSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,18 +50,19 @@ module Network.AWS.WAFRegional.DeleteSizeConstraintSet
     , dscsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteSizeConstraintSet' smart constructor.
 data DeleteSizeConstraintSet = DeleteSizeConstraintSet'
-    { _dscsSizeConstraintSetId :: !Text
-    , _dscsChangeToken         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscsSizeConstraintSetId :: {-# NOUNPACK #-}!Text
+  , _dscsChangeToken         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSizeConstraintSet' with the minimum fields required to make a request.
 --
@@ -75,10 +76,11 @@ deleteSizeConstraintSet
     -> Text -- ^ 'dscsChangeToken'
     -> DeleteSizeConstraintSet
 deleteSizeConstraintSet pSizeConstraintSetId_ pChangeToken_ =
-    DeleteSizeConstraintSet'
-    { _dscsSizeConstraintSetId = pSizeConstraintSetId_
-    , _dscsChangeToken = pChangeToken_
-    }
+  DeleteSizeConstraintSet'
+  { _dscsSizeConstraintSetId = pSizeConstraintSetId_
+  , _dscsChangeToken = pChangeToken_
+  }
+
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to delete. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 dscsSizeConstraintSetId :: Lens' DeleteSizeConstraintSet Text
@@ -98,9 +100,9 @@ instance AWSRequest DeleteSizeConstraintSet where
                  DeleteSizeConstraintSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteSizeConstraintSet
+instance Hashable DeleteSizeConstraintSet where
 
-instance NFData DeleteSizeConstraintSet
+instance NFData DeleteSizeConstraintSet where
 
 instance ToHeaders DeleteSizeConstraintSet where
         toHeaders
@@ -128,9 +130,10 @@ instance ToQuery DeleteSizeConstraintSet where
 
 -- | /See:/ 'deleteSizeConstraintSetResponse' smart constructor.
 data DeleteSizeConstraintSetResponse = DeleteSizeConstraintSetResponse'
-    { _dscsrsChangeToken    :: !(Maybe Text)
-    , _dscsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dscsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSizeConstraintSetResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +146,9 @@ deleteSizeConstraintSetResponse
     :: Int -- ^ 'dscsrsResponseStatus'
     -> DeleteSizeConstraintSetResponse
 deleteSizeConstraintSetResponse pResponseStatus_ =
-    DeleteSizeConstraintSetResponse'
-    { _dscsrsChangeToken = Nothing
-    , _dscsrsResponseStatus = pResponseStatus_
-    }
+  DeleteSizeConstraintSetResponse'
+  {_dscsrsChangeToken = Nothing, _dscsrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dscsrsChangeToken :: Lens' DeleteSizeConstraintSetResponse (Maybe Text)
@@ -156,4 +158,4 @@ dscsrsChangeToken = lens _dscsrsChangeToken (\ s a -> s{_dscsrsChangeToken = a})
 dscsrsResponseStatus :: Lens' DeleteSizeConstraintSetResponse Int
 dscsrsResponseStatus = lens _dscsrsResponseStatus (\ s a -> s{_dscsrsResponseStatus = a});
 
-instance NFData DeleteSizeConstraintSetResponse
+instance NFData DeleteSizeConstraintSetResponse where

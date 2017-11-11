@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetChangeTokenStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,17 +45,18 @@ module Network.AWS.WAFRegional.GetChangeTokenStatus
     , gctsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'getChangeTokenStatus' smart constructor.
 newtype GetChangeTokenStatus = GetChangeTokenStatus'
-    { _gctsChangeToken :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gctsChangeToken :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetChangeTokenStatus' with the minimum fields required to make a request.
 --
@@ -66,9 +67,8 @@ getChangeTokenStatus
     :: Text -- ^ 'gctsChangeToken'
     -> GetChangeTokenStatus
 getChangeTokenStatus pChangeToken_ =
-    GetChangeTokenStatus'
-    { _gctsChangeToken = pChangeToken_
-    }
+  GetChangeTokenStatus' {_gctsChangeToken = pChangeToken_}
+
 
 -- | The change token for which you want to get the status. This change token was previously returned in the @GetChangeToken@ response.
 gctsChangeToken :: Lens' GetChangeTokenStatus Text
@@ -84,9 +84,9 @@ instance AWSRequest GetChangeTokenStatus where
                  GetChangeTokenStatusResponse' <$>
                    (x .?> "ChangeTokenStatus") <*> (pure (fromEnum s)))
 
-instance Hashable GetChangeTokenStatus
+instance Hashable GetChangeTokenStatus where
 
-instance NFData GetChangeTokenStatus
+instance NFData GetChangeTokenStatus where
 
 instance ToHeaders GetChangeTokenStatus where
         toHeaders
@@ -112,9 +112,10 @@ instance ToQuery GetChangeTokenStatus where
 
 -- | /See:/ 'getChangeTokenStatusResponse' smart constructor.
 data GetChangeTokenStatusResponse = GetChangeTokenStatusResponse'
-    { _gctsrsChangeTokenStatus :: !(Maybe ChangeTokenStatus)
-    , _gctsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gctsrsChangeTokenStatus :: {-# NOUNPACK #-}!(Maybe ChangeTokenStatus)
+  , _gctsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetChangeTokenStatusResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ getChangeTokenStatusResponse
     :: Int -- ^ 'gctsrsResponseStatus'
     -> GetChangeTokenStatusResponse
 getChangeTokenStatusResponse pResponseStatus_ =
-    GetChangeTokenStatusResponse'
-    { _gctsrsChangeTokenStatus = Nothing
-    , _gctsrsResponseStatus = pResponseStatus_
-    }
+  GetChangeTokenStatusResponse'
+  {_gctsrsChangeTokenStatus = Nothing, _gctsrsResponseStatus = pResponseStatus_}
+
 
 -- | The status of the change token.
 gctsrsChangeTokenStatus :: Lens' GetChangeTokenStatusResponse (Maybe ChangeTokenStatus)
@@ -140,4 +140,4 @@ gctsrsChangeTokenStatus = lens _gctsrsChangeTokenStatus (\ s a -> s{_gctsrsChang
 gctsrsResponseStatus :: Lens' GetChangeTokenStatusResponse Int
 gctsrsResponseStatus = lens _gctsrsResponseStatus (\ s a -> s{_gctsrsResponseStatus = a});
 
-instance NFData GetChangeTokenStatusResponse
+instance NFData GetChangeTokenStatusResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     , ldirsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a ListDeploymentInstances operation.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listDeploymentInstances' smart constructor.
 data ListDeploymentInstances = ListDeploymentInstances'
-    { _lInstanceStatusFilter :: !(Maybe [InstanceStatus])
-    , _lNextToken            :: !(Maybe Text)
-    , _lInstanceTypeFilter   :: !(Maybe [InstanceType])
-    , _lDeploymentId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lInstanceStatusFilter :: {-# NOUNPACK #-}!(Maybe [InstanceStatus])
+  , _lNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lInstanceTypeFilter   :: {-# NOUNPACK #-}!(Maybe [InstanceType])
+  , _lDeploymentId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeploymentInstances' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ listDeploymentInstances
     :: Text -- ^ 'lDeploymentId'
     -> ListDeploymentInstances
 listDeploymentInstances pDeploymentId_ =
-    ListDeploymentInstances'
-    { _lInstanceStatusFilter = Nothing
-    , _lNextToken = Nothing
-    , _lInstanceTypeFilter = Nothing
-    , _lDeploymentId = pDeploymentId_
-    }
+  ListDeploymentInstances'
+  { _lInstanceStatusFilter = Nothing
+  , _lNextToken = Nothing
+  , _lInstanceTypeFilter = Nothing
+  , _lDeploymentId = pDeploymentId_
+  }
+
 
 -- | A subset of instances to list by status:     * Pending: Include those instance with pending deployments.     * InProgress: Include those instance where deployments are still in progress.     * Succeeded: Include those instances with successful deployments.     * Failed: Include those instance with failed deployments.     * Skipped: Include those instance with skipped deployments.     * Unknown: Include those instance with deployments in an unknown state.
 lInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
@@ -120,9 +122,9 @@ instance AWSRequest ListDeploymentInstances where
                      (x .?> "instancesList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDeploymentInstances
+instance Hashable ListDeploymentInstances where
 
-instance NFData ListDeploymentInstances
+instance NFData ListDeploymentInstances where
 
 instance ToHeaders ListDeploymentInstances where
         toHeaders
@@ -156,10 +158,11 @@ instance ToQuery ListDeploymentInstances where
 --
 -- /See:/ 'listDeploymentInstancesResponse' smart constructor.
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
-    { _ldirsNextToken      :: !(Maybe Text)
-    , _ldirsInstancesList  :: !(Maybe [Text])
-    , _ldirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldirsInstancesList  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ldirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeploymentInstancesResponse' with the minimum fields required to make a request.
 --
@@ -174,11 +177,12 @@ listDeploymentInstancesResponse
     :: Int -- ^ 'ldirsResponseStatus'
     -> ListDeploymentInstancesResponse
 listDeploymentInstancesResponse pResponseStatus_ =
-    ListDeploymentInstancesResponse'
-    { _ldirsNextToken = Nothing
-    , _ldirsInstancesList = Nothing
-    , _ldirsResponseStatus = pResponseStatus_
-    }
+  ListDeploymentInstancesResponse'
+  { _ldirsNextToken = Nothing
+  , _ldirsInstancesList = Nothing
+  , _ldirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment instances call to return the next set of deployment instances in the list.
 ldirsNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
@@ -192,4 +196,4 @@ ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = 
 ldirsResponseStatus :: Lens' ListDeploymentInstancesResponse Int
 ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});
 
-instance NFData ListDeploymentInstancesResponse
+instance NFData ListDeploymentInstancesResponse where

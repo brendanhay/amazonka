@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateServiceSpecificCredential
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,18 +46,19 @@ module Network.AWS.IAM.CreateServiceSpecificCredential
     , csscrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createServiceSpecificCredential' smart constructor.
 data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
-    { _csscUserName    :: !Text
-    , _csscServiceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csscUserName    :: {-# NOUNPACK #-}!Text
+  , _csscServiceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateServiceSpecificCredential' with the minimum fields required to make a request.
 --
@@ -71,10 +72,9 @@ createServiceSpecificCredential
     -> Text -- ^ 'csscServiceName'
     -> CreateServiceSpecificCredential
 createServiceSpecificCredential pUserName_ pServiceName_ =
-    CreateServiceSpecificCredential'
-    { _csscUserName = pUserName_
-    , _csscServiceName = pServiceName_
-    }
+  CreateServiceSpecificCredential'
+  {_csscUserName = pUserName_, _csscServiceName = pServiceName_}
+
 
 -- | The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 csscUserName :: Lens' CreateServiceSpecificCredential Text
@@ -98,8 +98,9 @@ instance AWSRequest CreateServiceSpecificCredential
                      (pure (fromEnum s)))
 
 instance Hashable CreateServiceSpecificCredential
+         where
 
-instance NFData CreateServiceSpecificCredential
+instance NFData CreateServiceSpecificCredential where
 
 instance ToHeaders CreateServiceSpecificCredential
          where
@@ -120,9 +121,10 @@ instance ToQuery CreateServiceSpecificCredential
 
 -- | /See:/ 'createServiceSpecificCredentialResponse' smart constructor.
 data CreateServiceSpecificCredentialResponse = CreateServiceSpecificCredentialResponse'
-    { _csscrsServiceSpecificCredential :: !(Maybe ServiceSpecificCredential)
-    , _csscrsResponseStatus            :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _csscrsServiceSpecificCredential :: {-# NOUNPACK #-}!(Maybe ServiceSpecificCredential)
+  , _csscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateServiceSpecificCredentialResponse' with the minimum fields required to make a request.
 --
@@ -135,10 +137,11 @@ createServiceSpecificCredentialResponse
     :: Int -- ^ 'csscrsResponseStatus'
     -> CreateServiceSpecificCredentialResponse
 createServiceSpecificCredentialResponse pResponseStatus_ =
-    CreateServiceSpecificCredentialResponse'
-    { _csscrsServiceSpecificCredential = Nothing
-    , _csscrsResponseStatus = pResponseStatus_
-    }
+  CreateServiceSpecificCredentialResponse'
+  { _csscrsServiceSpecificCredential = Nothing
+  , _csscrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A structure that contains information about the newly created service-specific credential. /Important:/ This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you will have to reset the password with 'ResetServiceSpecificCredential' .
 csscrsServiceSpecificCredential :: Lens' CreateServiceSpecificCredentialResponse (Maybe ServiceSpecificCredential)
@@ -149,4 +152,5 @@ csscrsResponseStatus :: Lens' CreateServiceSpecificCredentialResponse Int
 csscrsResponseStatus = lens _csscrsResponseStatus (\ s a -> s{_csscrsResponseStatus = a});
 
 instance NFData
-         CreateServiceSpecificCredentialResponse
+           CreateServiceSpecificCredentialResponse
+         where

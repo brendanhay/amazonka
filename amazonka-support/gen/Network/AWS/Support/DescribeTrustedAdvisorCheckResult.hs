@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,12 +58,12 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     , dtacrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- |
 --
@@ -71,9 +71,10 @@ import           Network.AWS.Support.Types.Product
 --
 -- /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
-    { _dtacrLanguage :: !(Maybe Text)
-    , _dtacrCheckId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtacrLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtacrCheckId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckResult' with the minimum fields required to make a request.
 --
@@ -86,10 +87,9 @@ describeTrustedAdvisorCheckResult
     :: Text -- ^ 'dtacrCheckId'
     -> DescribeTrustedAdvisorCheckResult
 describeTrustedAdvisorCheckResult pCheckId_ =
-    DescribeTrustedAdvisorCheckResult'
-    { _dtacrLanguage = Nothing
-    , _dtacrCheckId = pCheckId_
-    }
+  DescribeTrustedAdvisorCheckResult'
+  {_dtacrLanguage = Nothing, _dtacrCheckId = pCheckId_}
+
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
@@ -111,8 +111,10 @@ instance AWSRequest DescribeTrustedAdvisorCheckResult
                    (x .?> "result") <*> (pure (fromEnum s)))
 
 instance Hashable DescribeTrustedAdvisorCheckResult
+         where
 
 instance NFData DescribeTrustedAdvisorCheckResult
+         where
 
 instance ToHeaders DescribeTrustedAdvisorCheckResult
          where
@@ -147,9 +149,10 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 --
 -- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
-    { _dtacrrsResult         :: !(Maybe TrustedAdvisorCheckResult)
-    , _dtacrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtacrrsResult         :: {-# NOUNPACK #-}!(Maybe TrustedAdvisorCheckResult)
+  , _dtacrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckResultResponse' with the minimum fields required to make a request.
 --
@@ -162,10 +165,9 @@ describeTrustedAdvisorCheckResultResponse
     :: Int -- ^ 'dtacrrsResponseStatus'
     -> DescribeTrustedAdvisorCheckResultResponse
 describeTrustedAdvisorCheckResultResponse pResponseStatus_ =
-    DescribeTrustedAdvisorCheckResultResponse'
-    { _dtacrrsResult = Nothing
-    , _dtacrrsResponseStatus = pResponseStatus_
-    }
+  DescribeTrustedAdvisorCheckResultResponse'
+  {_dtacrrsResult = Nothing, _dtacrrsResponseStatus = pResponseStatus_}
+
 
 -- | The detailed results of the Trusted Advisor check.
 dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
@@ -176,4 +178,5 @@ dtacrrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
 dtacrrsResponseStatus = lens _dtacrrsResponseStatus (\ s a -> s{_dtacrrsResponseStatus = a});
 
 instance NFData
-         DescribeTrustedAdvisorCheckResultResponse
+           DescribeTrustedAdvisorCheckResultResponse
+         where

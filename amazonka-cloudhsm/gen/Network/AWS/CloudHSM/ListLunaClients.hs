@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListLunaClients
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.CloudHSM.ListLunaClients
     , llcrsClientList
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listLunaClients' smart constructor.
 newtype ListLunaClients = ListLunaClients'
-    { _llcNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _llcNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLunaClients' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ newtype ListLunaClients = ListLunaClients'
 -- * 'llcNextToken' - The /NextToken/ value from a previous call to 'ListLunaClients' . Pass null if this is the first call.
 listLunaClients
     :: ListLunaClients
-listLunaClients =
-    ListLunaClients'
-    { _llcNextToken = Nothing
-    }
+listLunaClients = ListLunaClients' {_llcNextToken = Nothing}
+
 
 -- | The /NextToken/ value from a previous call to 'ListLunaClients' . Pass null if this is the first call.
 llcNextToken :: Lens' ListLunaClients (Maybe Text)
@@ -78,9 +77,9 @@ instance AWSRequest ListLunaClients where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "ClientList" .!@ mempty))
 
-instance Hashable ListLunaClients
+instance Hashable ListLunaClients where
 
-instance NFData ListLunaClients
+instance NFData ListLunaClients where
 
 instance ToHeaders ListLunaClients where
         toHeaders
@@ -105,10 +104,11 @@ instance ToQuery ListLunaClients where
 
 -- | /See:/ 'listLunaClientsResponse' smart constructor.
 data ListLunaClientsResponse = ListLunaClientsResponse'
-    { _llcrsNextToken      :: !(Maybe Text)
-    , _llcrsResponseStatus :: !Int
-    , _llcrsClientList     :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _llcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _llcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _llcrsClientList     :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLunaClientsResponse' with the minimum fields required to make a request.
 --
@@ -123,11 +123,12 @@ listLunaClientsResponse
     :: Int -- ^ 'llcrsResponseStatus'
     -> ListLunaClientsResponse
 listLunaClientsResponse pResponseStatus_ =
-    ListLunaClientsResponse'
-    { _llcrsNextToken = Nothing
-    , _llcrsResponseStatus = pResponseStatus_
-    , _llcrsClientList = mempty
-    }
+  ListLunaClientsResponse'
+  { _llcrsNextToken = Nothing
+  , _llcrsResponseStatus = pResponseStatus_
+  , _llcrsClientList = mempty
+  }
+
 
 -- | If not null, more results are available. Pass this to 'ListLunaClients' to retrieve the next set of items.
 llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
@@ -141,4 +142,4 @@ llcrsResponseStatus = lens _llcrsResponseStatus (\ s a -> s{_llcrsResponseStatus
 llcrsClientList :: Lens' ListLunaClientsResponse [Text]
 llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a}) . _Coerce;
 
-instance NFData ListLunaClientsResponse
+instance NFData ListLunaClientsResponse where

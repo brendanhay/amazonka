@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DetachPrincipalPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.IoT.DetachPrincipalPolicy
     , DetachPrincipalPolicyResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DetachPrincipalPolicy operation.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachPrincipalPolicy' smart constructor.
 data DetachPrincipalPolicy = DetachPrincipalPolicy'
-    { _dppPolicyName :: !Text
-    , _dppPrincipal  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dppPolicyName :: {-# NOUNPACK #-}!Text
+  , _dppPrincipal  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachPrincipalPolicy' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ detachPrincipalPolicy
     -> Text -- ^ 'dppPrincipal'
     -> DetachPrincipalPolicy
 detachPrincipalPolicy pPolicyName_ pPrincipal_ =
-    DetachPrincipalPolicy'
-    { _dppPolicyName = pPolicyName_
-    , _dppPrincipal = pPrincipal_
-    }
+  DetachPrincipalPolicy'
+  {_dppPolicyName = pPolicyName_, _dppPrincipal = pPrincipal_}
+
 
 -- | The name of the policy to detach.
 dppPolicyName :: Lens' DetachPrincipalPolicy Text
@@ -83,9 +83,9 @@ instance AWSRequest DetachPrincipalPolicy where
         request = delete ioT
         response = receiveNull DetachPrincipalPolicyResponse'
 
-instance Hashable DetachPrincipalPolicy
+instance Hashable DetachPrincipalPolicy where
 
-instance NFData DetachPrincipalPolicy
+instance NFData DetachPrincipalPolicy where
 
 instance ToHeaders DetachPrincipalPolicy where
         toHeaders DetachPrincipalPolicy'{..}
@@ -101,8 +101,9 @@ instance ToQuery DetachPrincipalPolicy where
 
 -- | /See:/ 'detachPrincipalPolicyResponse' smart constructor.
 data DetachPrincipalPolicyResponse =
-    DetachPrincipalPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachPrincipalPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachPrincipalPolicyResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,5 @@ detachPrincipalPolicyResponse
     :: DetachPrincipalPolicyResponse
 detachPrincipalPolicyResponse = DetachPrincipalPolicyResponse'
 
-instance NFData DetachPrincipalPolicyResponse
+
+instance NFData DetachPrincipalPolicyResponse where

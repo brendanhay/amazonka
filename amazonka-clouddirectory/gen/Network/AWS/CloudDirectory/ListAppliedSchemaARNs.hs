@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListAppliedSchemaARNs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudDirectory.ListAppliedSchemaARNs
     , lasarsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAppliedSchemaARNs' smart constructor.
 data ListAppliedSchemaARNs = ListAppliedSchemaARNs'
-    { _lasaNextToken    :: !(Maybe Text)
-    , _lasaMaxResults   :: !(Maybe Nat)
-    , _lasaDirectoryARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lasaNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lasaMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lasaDirectoryARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAppliedSchemaARNs' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listAppliedSchemaARNs
     :: Text -- ^ 'lasaDirectoryARN'
     -> ListAppliedSchemaARNs
 listAppliedSchemaARNs pDirectoryARN_ =
-    ListAppliedSchemaARNs'
-    { _lasaNextToken = Nothing
-    , _lasaMaxResults = Nothing
-    , _lasaDirectoryARN = pDirectoryARN_
-    }
+  ListAppliedSchemaARNs'
+  { _lasaNextToken = Nothing
+  , _lasaMaxResults = Nothing
+  , _lasaDirectoryARN = pDirectoryARN_
+  }
+
 
 -- | The pagination token.
 lasaNextToken :: Lens' ListAppliedSchemaARNs (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest ListAppliedSchemaARNs where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAppliedSchemaARNs
+instance Hashable ListAppliedSchemaARNs where
 
-instance NFData ListAppliedSchemaARNs
+instance NFData ListAppliedSchemaARNs where
 
 instance ToHeaders ListAppliedSchemaARNs where
         toHeaders = const mempty
@@ -122,10 +124,11 @@ instance ToQuery ListAppliedSchemaARNs where
 
 -- | /See:/ 'listAppliedSchemaARNsResponse' smart constructor.
 data ListAppliedSchemaARNsResponse = ListAppliedSchemaARNsResponse'
-    { _lasarsSchemaARNs     :: !(Maybe [Text])
-    , _lasarsNextToken      :: !(Maybe Text)
-    , _lasarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lasarsSchemaARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lasarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lasarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAppliedSchemaARNsResponse' with the minimum fields required to make a request.
 --
@@ -140,11 +143,12 @@ listAppliedSchemaARNsResponse
     :: Int -- ^ 'lasarsResponseStatus'
     -> ListAppliedSchemaARNsResponse
 listAppliedSchemaARNsResponse pResponseStatus_ =
-    ListAppliedSchemaARNsResponse'
-    { _lasarsSchemaARNs = Nothing
-    , _lasarsNextToken = Nothing
-    , _lasarsResponseStatus = pResponseStatus_
-    }
+  ListAppliedSchemaARNsResponse'
+  { _lasarsSchemaARNs = Nothing
+  , _lasarsNextToken = Nothing
+  , _lasarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARNs of schemas that are applied to the directory.
 lasarsSchemaARNs :: Lens' ListAppliedSchemaARNsResponse [Text]
@@ -158,4 +162,4 @@ lasarsNextToken = lens _lasarsNextToken (\ s a -> s{_lasarsNextToken = a});
 lasarsResponseStatus :: Lens' ListAppliedSchemaARNsResponse Int
 lasarsResponseStatus = lens _lasarsResponseStatus (\ s a -> s{_lasarsResponseStatus = a});
 
-instance NFData ListAppliedSchemaARNsResponse
+instance NFData ListAppliedSchemaARNsResponse where

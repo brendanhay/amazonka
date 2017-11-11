@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateWorkerBlock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.MechanicalTurk.CreateWorkerBlock
     , cwbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createWorkerBlock' smart constructor.
 data CreateWorkerBlock = CreateWorkerBlock'
-    { _cwbWorkerId :: !Text
-    , _cwbReason   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwbWorkerId :: {-# NOUNPACK #-}!Text
+  , _cwbReason   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateWorkerBlock' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ createWorkerBlock
     -> Text -- ^ 'cwbReason'
     -> CreateWorkerBlock
 createWorkerBlock pWorkerId_ pReason_ =
-    CreateWorkerBlock'
-    { _cwbWorkerId = pWorkerId_
-    , _cwbReason = pReason_
-    }
+  CreateWorkerBlock' {_cwbWorkerId = pWorkerId_, _cwbReason = pReason_}
+
 
 -- | The ID of the Worker to block.
 cwbWorkerId :: Lens' CreateWorkerBlock Text
@@ -83,9 +82,9 @@ instance AWSRequest CreateWorkerBlock where
               (\ s h x ->
                  CreateWorkerBlockResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateWorkerBlock
+instance Hashable CreateWorkerBlock where
 
-instance NFData CreateWorkerBlock
+instance NFData CreateWorkerBlock where
 
 instance ToHeaders CreateWorkerBlock where
         toHeaders
@@ -112,8 +111,9 @@ instance ToQuery CreateWorkerBlock where
 
 -- | /See:/ 'createWorkerBlockResponse' smart constructor.
 newtype CreateWorkerBlockResponse = CreateWorkerBlockResponse'
-    { _cwbrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwbrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateWorkerBlockResponse' with the minimum fields required to make a request.
 --
@@ -124,12 +124,11 @@ createWorkerBlockResponse
     :: Int -- ^ 'cwbrsResponseStatus'
     -> CreateWorkerBlockResponse
 createWorkerBlockResponse pResponseStatus_ =
-    CreateWorkerBlockResponse'
-    { _cwbrsResponseStatus = pResponseStatus_
-    }
+  CreateWorkerBlockResponse' {_cwbrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cwbrsResponseStatus :: Lens' CreateWorkerBlockResponse Int
 cwbrsResponseStatus = lens _cwbrsResponseStatus (\ s a -> s{_cwbrsResponseStatus = a});
 
-instance NFData CreateWorkerBlockResponse
+instance NFData CreateWorkerBlockResponse where

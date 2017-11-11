@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListEntitiesForPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,22 +51,23 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     , lefprsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listEntitiesForPolicy' smart constructor.
 data ListEntitiesForPolicy = ListEntitiesForPolicy'
-    { _lefpPathPrefix   :: !(Maybe Text)
-    , _lefpEntityFilter :: !(Maybe EntityType)
-    , _lefpMarker       :: !(Maybe Text)
-    , _lefpMaxItems     :: !(Maybe Nat)
-    , _lefpPolicyARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lefpPathPrefix   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lefpEntityFilter :: {-# NOUNPACK #-}!(Maybe EntityType)
+  , _lefpMarker       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lefpMaxItems     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lefpPolicyARN    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListEntitiesForPolicy' with the minimum fields required to make a request.
 --
@@ -85,13 +86,14 @@ listEntitiesForPolicy
     :: Text -- ^ 'lefpPolicyARN'
     -> ListEntitiesForPolicy
 listEntitiesForPolicy pPolicyARN_ =
-    ListEntitiesForPolicy'
-    { _lefpPathPrefix = Nothing
-    , _lefpEntityFilter = Nothing
-    , _lefpMarker = Nothing
-    , _lefpMaxItems = Nothing
-    , _lefpPolicyARN = pPolicyARN_
-    }
+  ListEntitiesForPolicy'
+  { _lefpPathPrefix = Nothing
+  , _lefpEntityFilter = Nothing
+  , _lefpMarker = Nothing
+  , _lefpMaxItems = Nothing
+  , _lefpPolicyARN = pPolicyARN_
+  }
+
 
 -- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all entities. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lefpPathPrefix :: Lens' ListEntitiesForPolicy (Maybe Text)
@@ -140,9 +142,9 @@ instance AWSRequest ListEntitiesForPolicy where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListEntitiesForPolicy
+instance Hashable ListEntitiesForPolicy where
 
-instance NFData ListEntitiesForPolicy
+instance NFData ListEntitiesForPolicy where
 
 instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
@@ -166,13 +168,14 @@ instance ToQuery ListEntitiesForPolicy where
 --
 -- /See:/ 'listEntitiesForPolicyResponse' smart constructor.
 data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
-    { _lefprsPolicyGroups   :: !(Maybe [PolicyGroup])
-    , _lefprsPolicyRoles    :: !(Maybe [PolicyRole])
-    , _lefprsMarker         :: !(Maybe Text)
-    , _lefprsPolicyUsers    :: !(Maybe [PolicyUser])
-    , _lefprsIsTruncated    :: !(Maybe Bool)
-    , _lefprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lefprsPolicyGroups   :: {-# NOUNPACK #-}!(Maybe [PolicyGroup])
+  , _lefprsPolicyRoles    :: {-# NOUNPACK #-}!(Maybe [PolicyRole])
+  , _lefprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lefprsPolicyUsers    :: {-# NOUNPACK #-}!(Maybe [PolicyUser])
+  , _lefprsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lefprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListEntitiesForPolicyResponse' with the minimum fields required to make a request.
 --
@@ -193,14 +196,15 @@ listEntitiesForPolicyResponse
     :: Int -- ^ 'lefprsResponseStatus'
     -> ListEntitiesForPolicyResponse
 listEntitiesForPolicyResponse pResponseStatus_ =
-    ListEntitiesForPolicyResponse'
-    { _lefprsPolicyGroups = Nothing
-    , _lefprsPolicyRoles = Nothing
-    , _lefprsMarker = Nothing
-    , _lefprsPolicyUsers = Nothing
-    , _lefprsIsTruncated = Nothing
-    , _lefprsResponseStatus = pResponseStatus_
-    }
+  ListEntitiesForPolicyResponse'
+  { _lefprsPolicyGroups = Nothing
+  , _lefprsPolicyRoles = Nothing
+  , _lefprsMarker = Nothing
+  , _lefprsPolicyUsers = Nothing
+  , _lefprsIsTruncated = Nothing
+  , _lefprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of IAM groups that the policy is attached to.
 lefprsPolicyGroups :: Lens' ListEntitiesForPolicyResponse [PolicyGroup]
@@ -226,4 +230,4 @@ lefprsIsTruncated = lens _lefprsIsTruncated (\ s a -> s{_lefprsIsTruncated = a})
 lefprsResponseStatus :: Lens' ListEntitiesForPolicyResponse Int
 lefprsResponseStatus = lens _lefprsResponseStatus (\ s a -> s{_lefprsResponseStatus = a});
 
-instance NFData ListEntitiesForPolicyResponse
+instance NFData ListEntitiesForPolicyResponse where

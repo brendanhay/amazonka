@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     , diflbrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeregisterInstancesFromLoadBalancer.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
-    { _diflbLoadBalancerName :: !Text
-    , _diflbInstances        :: ![Instance]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diflbLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _diflbInstances        :: {-# NOUNPACK #-}![Instance]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterInstancesFromLoadBalancer' with the minimum fields required to make a request.
 --
@@ -70,10 +71,9 @@ deregisterInstancesFromLoadBalancer
     :: Text -- ^ 'diflbLoadBalancerName'
     -> DeregisterInstancesFromLoadBalancer
 deregisterInstancesFromLoadBalancer pLoadBalancerName_ =
-    DeregisterInstancesFromLoadBalancer'
-    { _diflbLoadBalancerName = pLoadBalancerName_
-    , _diflbInstances = mempty
-    }
+  DeregisterInstancesFromLoadBalancer'
+  {_diflbLoadBalancerName = pLoadBalancerName_, _diflbInstances = mempty}
+
 
 -- | The name of the load balancer.
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
@@ -84,7 +84,8 @@ diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
 diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a}) . _Coerce;
 
 instance AWSRequest
-         DeregisterInstancesFromLoadBalancer where
+           DeregisterInstancesFromLoadBalancer
+         where
         type Rs DeregisterInstancesFromLoadBalancer =
              DeregisterInstancesFromLoadBalancerResponse
         request = postQuery elb
@@ -98,11 +99,14 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DeregisterInstancesFromLoadBalancer
+         where
 
 instance NFData DeregisterInstancesFromLoadBalancer
+         where
 
 instance ToHeaders
-         DeregisterInstancesFromLoadBalancer where
+           DeregisterInstancesFromLoadBalancer
+         where
         toHeaders = const mempty
 
 instance ToPath DeregisterInstancesFromLoadBalancer
@@ -126,9 +130,10 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 --
 -- /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
-    { _diflbrsInstances      :: !(Maybe [Instance])
-    , _diflbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diflbrsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
+  , _diflbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +146,9 @@ deregisterInstancesFromLoadBalancerResponse
     :: Int -- ^ 'diflbrsResponseStatus'
     -> DeregisterInstancesFromLoadBalancerResponse
 deregisterInstancesFromLoadBalancerResponse pResponseStatus_ =
-    DeregisterInstancesFromLoadBalancerResponse'
-    { _diflbrsInstances = Nothing
-    , _diflbrsResponseStatus = pResponseStatus_
-    }
+  DeregisterInstancesFromLoadBalancerResponse'
+  {_diflbrsInstances = Nothing, _diflbrsResponseStatus = pResponseStatus_}
+
 
 -- | The remaining instances registered with the load balancer.
 diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
@@ -155,4 +159,5 @@ diflbrsResponseStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
 diflbrsResponseStatus = lens _diflbrsResponseStatus (\ s a -> s{_diflbrsResponseStatus = a});
 
 instance NFData
-         DeregisterInstancesFromLoadBalancerResponse
+           DeregisterInstancesFromLoadBalancerResponse
+         where

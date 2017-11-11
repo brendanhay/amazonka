@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumesModifications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,21 +46,22 @@ module Network.AWS.EC2.DescribeVolumesModifications
     , dvmrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVolumesModifications' smart constructor.
 data DescribeVolumesModifications = DescribeVolumesModifications'
-    { _dvmFilters    :: !(Maybe [Filter])
-    , _dvmVolumeIds  :: !(Maybe [Text])
-    , _dvmNextToken  :: !(Maybe Text)
-    , _dvmDryRun     :: !(Maybe Bool)
-    , _dvmMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvmFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dvmVolumeIds  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dvmNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvmDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvmMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumesModifications' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ data DescribeVolumesModifications = DescribeVolumesModifications'
 describeVolumesModifications
     :: DescribeVolumesModifications
 describeVolumesModifications =
-    DescribeVolumesModifications'
-    { _dvmFilters = Nothing
-    , _dvmVolumeIds = Nothing
-    , _dvmNextToken = Nothing
-    , _dvmDryRun = Nothing
-    , _dvmMaxResults = Nothing
-    }
+  DescribeVolumesModifications'
+  { _dvmFilters = Nothing
+  , _dvmVolumeIds = Nothing
+  , _dvmNextToken = Nothing
+  , _dvmDryRun = Nothing
+  , _dvmMaxResults = Nothing
+  }
+
 
 -- | One or more filters. Supported filters: @volume-id@ , @modification-state@ , @target-size@ , @target-iops@ , @target-volume-type@ , @original-size@ , @original-iops@ , @original-volume-type@ , @start-time@ .
 dvmFilters :: Lens' DescribeVolumesModifications [Filter]
@@ -120,9 +122,9 @@ instance AWSRequest DescribeVolumesModifications
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVolumesModifications
+instance Hashable DescribeVolumesModifications where
 
-instance NFData DescribeVolumesModifications
+instance NFData DescribeVolumesModifications where
 
 instance ToHeaders DescribeVolumesModifications where
         toHeaders = const mempty
@@ -143,10 +145,11 @@ instance ToQuery DescribeVolumesModifications where
 
 -- | /See:/ 'describeVolumesModificationsResponse' smart constructor.
 data DescribeVolumesModificationsResponse = DescribeVolumesModificationsResponse'
-    { _dvmrsVolumesModifications :: !(Maybe [VolumeModification])
-    , _dvmrsNextToken            :: !(Maybe Text)
-    , _dvmrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvmrsVolumesModifications :: {-# NOUNPACK #-}!(Maybe [VolumeModification])
+  , _dvmrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvmrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumesModificationsResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +164,12 @@ describeVolumesModificationsResponse
     :: Int -- ^ 'dvmrsResponseStatus'
     -> DescribeVolumesModificationsResponse
 describeVolumesModificationsResponse pResponseStatus_ =
-    DescribeVolumesModificationsResponse'
-    { _dvmrsVolumesModifications = Nothing
-    , _dvmrsNextToken = Nothing
-    , _dvmrsResponseStatus = pResponseStatus_
-    }
+  DescribeVolumesModificationsResponse'
+  { _dvmrsVolumesModifications = Nothing
+  , _dvmrsNextToken = Nothing
+  , _dvmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of returned 'VolumeModification' objects.
 dvmrsVolumesModifications :: Lens' DescribeVolumesModificationsResponse [VolumeModification]
@@ -180,3 +184,4 @@ dvmrsResponseStatus :: Lens' DescribeVolumesModificationsResponse Int
 dvmrsResponseStatus = lens _dvmrsResponseStatus (\ s a -> s{_dvmrsResponseStatus = a});
 
 instance NFData DescribeVolumesModificationsResponse
+         where

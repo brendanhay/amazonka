@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteCustomMetadata
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,21 +40,22 @@ module Network.AWS.WorkDocs.DeleteCustomMetadata
     , dcmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteCustomMetadata' smart constructor.
 data DeleteCustomMetadata = DeleteCustomMetadata'
-    { _dcmVersionId           :: !(Maybe Text)
-    , _dcmDeleteAll           :: !(Maybe Bool)
-    , _dcmAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _dcmKeys                :: !(Maybe [Text])
-    , _dcmResourceId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dcmVersionId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcmDeleteAll           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcmAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _dcmKeys                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcmResourceId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCustomMetadata' with the minimum fields required to make a request.
 --
@@ -73,13 +74,14 @@ deleteCustomMetadata
     :: Text -- ^ 'dcmResourceId'
     -> DeleteCustomMetadata
 deleteCustomMetadata pResourceId_ =
-    DeleteCustomMetadata'
-    { _dcmVersionId = Nothing
-    , _dcmDeleteAll = Nothing
-    , _dcmAuthenticationToken = Nothing
-    , _dcmKeys = Nothing
-    , _dcmResourceId = pResourceId_
-    }
+  DeleteCustomMetadata'
+  { _dcmVersionId = Nothing
+  , _dcmDeleteAll = Nothing
+  , _dcmAuthenticationToken = Nothing
+  , _dcmKeys = Nothing
+  , _dcmResourceId = pResourceId_
+  }
+
 
 -- | The ID of the version, if the custom metadata is being deleted from a document version.
 dcmVersionId :: Lens' DeleteCustomMetadata (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest DeleteCustomMetadata where
                  DeleteCustomMetadataResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteCustomMetadata
+instance Hashable DeleteCustomMetadata where
 
-instance NFData DeleteCustomMetadata
+instance NFData DeleteCustomMetadata where
 
 instance ToHeaders DeleteCustomMetadata where
         toHeaders DeleteCustomMetadata'{..}
@@ -138,8 +140,9 @@ instance ToQuery DeleteCustomMetadata where
 
 -- | /See:/ 'deleteCustomMetadataResponse' smart constructor.
 newtype DeleteCustomMetadataResponse = DeleteCustomMetadataResponse'
-    { _dcmrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcmrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCustomMetadataResponse' with the minimum fields required to make a request.
 --
@@ -150,12 +153,11 @@ deleteCustomMetadataResponse
     :: Int -- ^ 'dcmrsResponseStatus'
     -> DeleteCustomMetadataResponse
 deleteCustomMetadataResponse pResponseStatus_ =
-    DeleteCustomMetadataResponse'
-    { _dcmrsResponseStatus = pResponseStatus_
-    }
+  DeleteCustomMetadataResponse' {_dcmrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dcmrsResponseStatus :: Lens' DeleteCustomMetadataResponse Int
 dcmrsResponseStatus = lens _dcmrsResponseStatus (\ s a -> s{_dcmrsResponseStatus = a});
 
-instance NFData DeleteCustomMetadataResponse
+instance NFData DeleteCustomMetadataResponse where

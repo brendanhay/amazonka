@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.EnableRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.CloudWatchEvents.EnableRule
     , EnableRuleResponse
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableRule' smart constructor.
 newtype EnableRule = EnableRule'
-    { _erName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _erName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableRule' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype EnableRule = EnableRule'
 enableRule
     :: Text -- ^ 'erName'
     -> EnableRule
-enableRule pName_ =
-    EnableRule'
-    { _erName = pName_
-    }
+enableRule pName_ = EnableRule' {_erName = pName_}
+
 
 -- | The name of the rule.
 erName :: Lens' EnableRule Text
@@ -70,9 +69,9 @@ instance AWSRequest EnableRule where
         request = postJSON cloudWatchEvents
         response = receiveNull EnableRuleResponse'
 
-instance Hashable EnableRule
+instance Hashable EnableRule where
 
-instance NFData EnableRule
+instance NFData EnableRule where
 
 instance ToHeaders EnableRule where
         toHeaders
@@ -95,8 +94,9 @@ instance ToQuery EnableRule where
 
 -- | /See:/ 'enableRuleResponse' smart constructor.
 data EnableRuleResponse =
-    EnableRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableRuleResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ enableRuleResponse
     :: EnableRuleResponse
 enableRuleResponse = EnableRuleResponse'
 
-instance NFData EnableRuleResponse
+
+instance NFData EnableRuleResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GlobalSignOut
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.CognitoIdentityProvider.GlobalSignOut
     , gsorsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to sign out all devices.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'globalSignOut' smart constructor.
 newtype GlobalSignOut = GlobalSignOut'
-    { _gsoAccessToken :: Sensitive Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gsoAccessToken :: Sensitive Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlobalSignOut' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ globalSignOut
     :: Text -- ^ 'gsoAccessToken'
     -> GlobalSignOut
 globalSignOut pAccessToken_ =
-    GlobalSignOut'
-    { _gsoAccessToken = _Sensitive # pAccessToken_
-    }
+  GlobalSignOut' {_gsoAccessToken = _Sensitive # pAccessToken_}
+
 
 -- | The access token.
 gsoAccessToken :: Lens' GlobalSignOut Text
@@ -77,9 +77,9 @@ instance AWSRequest GlobalSignOut where
               (\ s h x ->
                  GlobalSignOutResponse' <$> (pure (fromEnum s)))
 
-instance Hashable GlobalSignOut
+instance Hashable GlobalSignOut where
 
-instance NFData GlobalSignOut
+instance NFData GlobalSignOut where
 
 instance ToHeaders GlobalSignOut where
         toHeaders
@@ -108,8 +108,9 @@ instance ToQuery GlobalSignOut where
 --
 -- /See:/ 'globalSignOutResponse' smart constructor.
 newtype GlobalSignOutResponse = GlobalSignOutResponse'
-    { _gsorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlobalSignOutResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +121,11 @@ globalSignOutResponse
     :: Int -- ^ 'gsorsResponseStatus'
     -> GlobalSignOutResponse
 globalSignOutResponse pResponseStatus_ =
-    GlobalSignOutResponse'
-    { _gsorsResponseStatus = pResponseStatus_
-    }
+  GlobalSignOutResponse' {_gsorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 gsorsResponseStatus :: Lens' GlobalSignOutResponse Int
 gsorsResponseStatus = lens _gsorsResponseStatus (\ s a -> s{_gsorsResponseStatus = a});
 
-instance NFData GlobalSignOutResponse
+instance NFData GlobalSignOutResponse where

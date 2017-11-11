@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.ListTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElasticSearch.ListTags
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'ListTags' @ operation. Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view are attached.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listTags' smart constructor.
 newtype ListTags = ListTags'
-    { _ltARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype ListTags = ListTags'
 listTags
     :: Text -- ^ 'ltARN'
     -> ListTags
-listTags pARN_ =
-    ListTags'
-    { _ltARN = pARN_
-    }
+listTags pARN_ = ListTags' {_ltARN = pARN_}
+
 
 -- | Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view.
 ltARN :: Lens' ListTags Text
@@ -79,9 +78,9 @@ instance AWSRequest ListTags where
                  ListTagsResponse' <$>
                    (x .?> "TagList" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable ListTags
+instance Hashable ListTags where
 
-instance NFData ListTags
+instance NFData ListTags where
 
 instance ToHeaders ListTags where
         toHeaders = const mempty
@@ -98,9 +97,10 @@ instance ToQuery ListTags where
 --
 -- /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-    { _ltrsTagList        :: !(Maybe [Tag])
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsTagList        :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
@@ -113,10 +113,9 @@ listTagsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTagsResponse
 listTagsResponse pResponseStatus_ =
-    ListTagsResponse'
-    { _ltrsTagList = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTagsResponse'
+  {_ltrsTagList = Nothing, _ltrsResponseStatus = pResponseStatus_}
+
 
 -- | List of @Tag@ for the requested Elasticsearch domain.
 ltrsTagList :: Lens' ListTagsResponse [Tag]
@@ -126,4 +125,4 @@ ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _Default . _Coe
 ltrsResponseStatus :: Lens' ListTagsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTagsResponse
+instance NFData ListTagsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.TagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CloudHSMv2.TagResource
     , trrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSMv2.Types
-import           Network.AWS.CloudHSMv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSMv2.Types
+import Network.AWS.CloudHSMv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
-    { _trResourceId :: !Text
-    , _trTagList    :: !(List1 Tag)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trResourceId :: {-# NOUNPACK #-}!Text
+  , _trTagList    :: {-# NOUNPACK #-}!(List1 Tag)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ tagResource
     -> NonEmpty Tag -- ^ 'trTagList'
     -> TagResource
 tagResource pResourceId_ pTagList_ =
-    TagResource'
-    { _trResourceId = pResourceId_
-    , _trTagList = _List1 # pTagList_
-    }
+  TagResource' {_trResourceId = pResourceId_, _trTagList = _List1 # pTagList_}
+
 
 -- | The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use 'DescribeClusters' .
 trResourceId :: Lens' TagResource Text
@@ -83,9 +82,9 @@ instance AWSRequest TagResource where
               (\ s h x ->
                  TagResourceResponse' <$> (pure (fromEnum s)))
 
-instance Hashable TagResource
+instance Hashable TagResource where
 
-instance NFData TagResource
+instance NFData TagResource where
 
 instance ToHeaders TagResource where
         toHeaders
@@ -111,8 +110,9 @@ instance ToQuery TagResource where
 
 -- | /See:/ 'tagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-    { _trrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
@@ -123,12 +123,11 @@ tagResourceResponse
     :: Int -- ^ 'trrsResponseStatus'
     -> TagResourceResponse
 tagResourceResponse pResponseStatus_ =
-    TagResourceResponse'
-    { _trrsResponseStatus = pResponseStatus_
-    }
+  TagResourceResponse' {_trrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 trrsResponseStatus :: Lens' TagResourceResponse Int
 trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
 
-instance NFData TagResourceResponse
+instance NFData TagResourceResponse where

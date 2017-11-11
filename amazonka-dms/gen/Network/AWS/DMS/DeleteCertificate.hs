@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.DMS.DeleteCertificate
     , dccrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCertificate' smart constructor.
 newtype DeleteCertificate = DeleteCertificate'
-    { _dcCertificateARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcCertificateARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCertificate' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deleteCertificate
     :: Text -- ^ 'dcCertificateARN'
     -> DeleteCertificate
 deleteCertificate pCertificateARN_ =
-    DeleteCertificate'
-    { _dcCertificateARN = pCertificateARN_
-    }
+  DeleteCertificate' {_dcCertificateARN = pCertificateARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the deleted certificate.
 dcCertificateARN :: Lens' DeleteCertificate Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteCertificate where
                  DeleteCertificateResponse' <$>
                    (x .?> "Certificate") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteCertificate
+instance Hashable DeleteCertificate where
 
-instance NFData DeleteCertificate
+instance NFData DeleteCertificate where
 
 instance ToHeaders DeleteCertificate where
         toHeaders
@@ -103,9 +103,10 @@ instance ToQuery DeleteCertificate where
 
 -- | /See:/ 'deleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
-    { _dccrsCertificate    :: !(Maybe Certificate)
-    , _dccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dccrsCertificate    :: {-# NOUNPACK #-}!(Maybe Certificate)
+  , _dccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +119,9 @@ deleteCertificateResponse
     :: Int -- ^ 'dccrsResponseStatus'
     -> DeleteCertificateResponse
 deleteCertificateResponse pResponseStatus_ =
-    DeleteCertificateResponse'
-    { _dccrsCertificate = Nothing
-    , _dccrsResponseStatus = pResponseStatus_
-    }
+  DeleteCertificateResponse'
+  {_dccrsCertificate = Nothing, _dccrsResponseStatus = pResponseStatus_}
+
 
 -- | The Secure Sockets Layer (SSL) certificate.
 dccrsCertificate :: Lens' DeleteCertificateResponse (Maybe Certificate)
@@ -131,4 +131,4 @@ dccrsCertificate = lens _dccrsCertificate (\ s a -> s{_dccrsCertificate = a});
 dccrsResponseStatus :: Lens' DeleteCertificateResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
 
-instance NFData DeleteCertificateResponse
+instance NFData DeleteCertificateResponse where

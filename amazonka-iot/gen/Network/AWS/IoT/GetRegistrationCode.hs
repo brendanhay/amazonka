@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetRegistrationCode
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.IoT.GetRegistrationCode
     , grcrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the GetRegistrationCode operation.
 --
@@ -48,14 +48,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRegistrationCode' smart constructor.
 data GetRegistrationCode =
-    GetRegistrationCode'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetRegistrationCode'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRegistrationCode' with the minimum fields required to make a request.
 --
 getRegistrationCode
     :: GetRegistrationCode
 getRegistrationCode = GetRegistrationCode'
+
 
 instance AWSRequest GetRegistrationCode where
         type Rs GetRegistrationCode =
@@ -67,9 +69,9 @@ instance AWSRequest GetRegistrationCode where
                  GetRegistrationCodeResponse' <$>
                    (x .?> "registrationCode") <*> (pure (fromEnum s)))
 
-instance Hashable GetRegistrationCode
+instance Hashable GetRegistrationCode where
 
-instance NFData GetRegistrationCode
+instance NFData GetRegistrationCode where
 
 instance ToHeaders GetRegistrationCode where
         toHeaders = const mempty
@@ -86,9 +88,10 @@ instance ToQuery GetRegistrationCode where
 --
 -- /See:/ 'getRegistrationCodeResponse' smart constructor.
 data GetRegistrationCodeResponse = GetRegistrationCodeResponse'
-    { _grcrsRegistrationCode :: !(Maybe Text)
-    , _grcrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grcrsRegistrationCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grcrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRegistrationCodeResponse' with the minimum fields required to make a request.
 --
@@ -101,10 +104,9 @@ getRegistrationCodeResponse
     :: Int -- ^ 'grcrsResponseStatus'
     -> GetRegistrationCodeResponse
 getRegistrationCodeResponse pResponseStatus_ =
-    GetRegistrationCodeResponse'
-    { _grcrsRegistrationCode = Nothing
-    , _grcrsResponseStatus = pResponseStatus_
-    }
+  GetRegistrationCodeResponse'
+  {_grcrsRegistrationCode = Nothing, _grcrsResponseStatus = pResponseStatus_}
+
 
 -- | The CA certificate registration code.
 grcrsRegistrationCode :: Lens' GetRegistrationCodeResponse (Maybe Text)
@@ -114,4 +116,4 @@ grcrsRegistrationCode = lens _grcrsRegistrationCode (\ s a -> s{_grcrsRegistrati
 grcrsResponseStatus :: Lens' GetRegistrationCodeResponse Int
 grcrsResponseStatus = lens _grcrsResponseStatus (\ s a -> s{_grcrsResponseStatus = a});
 
-instance NFData GetRegistrationCodeResponse
+instance NFData GetRegistrationCodeResponse where

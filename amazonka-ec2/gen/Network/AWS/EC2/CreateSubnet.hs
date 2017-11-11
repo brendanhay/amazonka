@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateSubnet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.EC2.CreateSubnet
     , crsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateSubnet.
 --
@@ -66,12 +66,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createSubnet' smart constructor.
 data CreateSubnet = CreateSubnet'
-    { _cssIPv6CidrBlock    :: !(Maybe Text)
-    , _cssAvailabilityZone :: !(Maybe Text)
-    , _cssDryRun           :: !(Maybe Bool)
-    , _cssCidrBlock        :: !Text
-    , _cssVPCId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cssIPv6CidrBlock    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cssAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cssDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cssCidrBlock        :: {-# NOUNPACK #-}!Text
+  , _cssVPCId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubnet' with the minimum fields required to make a request.
 --
@@ -91,13 +92,14 @@ createSubnet
     -> Text -- ^ 'cssVPCId'
     -> CreateSubnet
 createSubnet pCidrBlock_ pVPCId_ =
-    CreateSubnet'
-    { _cssIPv6CidrBlock = Nothing
-    , _cssAvailabilityZone = Nothing
-    , _cssDryRun = Nothing
-    , _cssCidrBlock = pCidrBlock_
-    , _cssVPCId = pVPCId_
-    }
+  CreateSubnet'
+  { _cssIPv6CidrBlock = Nothing
+  , _cssAvailabilityZone = Nothing
+  , _cssDryRun = Nothing
+  , _cssCidrBlock = pCidrBlock_
+  , _cssVPCId = pVPCId_
+  }
+
 
 -- | The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
 cssIPv6CidrBlock :: Lens' CreateSubnet (Maybe Text)
@@ -128,9 +130,9 @@ instance AWSRequest CreateSubnet where
                  CreateSubnetResponse' <$>
                    (x .@? "subnet") <*> (pure (fromEnum s)))
 
-instance Hashable CreateSubnet
+instance Hashable CreateSubnet where
 
-instance NFData CreateSubnet
+instance NFData CreateSubnet where
 
 instance ToHeaders CreateSubnet where
         toHeaders = const mempty
@@ -154,9 +156,10 @@ instance ToQuery CreateSubnet where
 --
 -- /See:/ 'createSubnetResponse' smart constructor.
 data CreateSubnetResponse = CreateSubnetResponse'
-    { _crsSubnet         :: !(Maybe Subnet)
-    , _crsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsSubnet         :: {-# NOUNPACK #-}!(Maybe Subnet)
+  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubnetResponse' with the minimum fields required to make a request.
 --
@@ -169,10 +172,9 @@ createSubnetResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateSubnetResponse
 createSubnetResponse pResponseStatus_ =
-    CreateSubnetResponse'
-    { _crsSubnet = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CreateSubnetResponse'
+  {_crsSubnet = Nothing, _crsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the subnet.
 crsSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
@@ -182,4 +184,4 @@ crsSubnet = lens _crsSubnet (\ s a -> s{_crsSubnet = a});
 crsResponseStatus :: Lens' CreateSubnetResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CreateSubnetResponse
+instance NFData CreateSubnetResponse where

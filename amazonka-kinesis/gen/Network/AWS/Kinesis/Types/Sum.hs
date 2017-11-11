@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Kinesis.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data EncryptionType
-    = KMS
-    | None
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = KMS
+  | None
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EncryptionType where
     parser = takeLowerText >>= \case
@@ -49,15 +50,16 @@ instance FromJSON EncryptionType where
     parseJSON = parseJSONText "EncryptionType"
 
 data MetricsName
-    = All
-    | IncomingBytes
-    | IncomingRecords
-    | IteratorAgeMilliseconds
-    | OutgoingBytes
-    | OutgoingRecords
-    | ReadProvisionedThroughputExceeded
-    | WriteProvisionedThroughputExceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = All
+  | IncomingBytes
+  | IncomingRecords
+  | IteratorAgeMilliseconds
+  | OutgoingBytes
+  | OutgoingRecords
+  | ReadProvisionedThroughputExceeded
+  | WriteProvisionedThroughputExceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricsName where
     parser = takeLowerText >>= \case
@@ -96,8 +98,9 @@ instance FromJSON MetricsName where
     parseJSON = parseJSONText "MetricsName"
 
 data ScalingType =
-    UniformScaling
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  UniformScaling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScalingType where
     parser = takeLowerText >>= \case
@@ -119,12 +122,13 @@ instance ToJSON ScalingType where
     toJSON = toJSONText
 
 data ShardIteratorType
-    = AfterSequenceNumber
-    | AtSequenceNumber
-    | AtTimestamp
-    | Latest
-    | TrimHorizon
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AfterSequenceNumber
+  | AtSequenceNumber
+  | AtTimestamp
+  | Latest
+  | TrimHorizon
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ShardIteratorType where
     parser = takeLowerText >>= \case
@@ -154,11 +158,12 @@ instance ToJSON ShardIteratorType where
     toJSON = toJSONText
 
 data StreamStatus
-    = Active
-    | Creating
-    | Deleting
-    | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Creating
+  | Deleting
+  | Updating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StreamStatus where
     parser = takeLowerText >>= \case

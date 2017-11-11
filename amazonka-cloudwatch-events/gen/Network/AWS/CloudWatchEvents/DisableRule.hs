@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.DisableRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.CloudWatchEvents.DisableRule
     , DisableRuleResponse
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableRule' smart constructor.
 newtype DisableRule = DisableRule'
-    { _dName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableRule' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DisableRule = DisableRule'
 disableRule
     :: Text -- ^ 'dName'
     -> DisableRule
-disableRule pName_ =
-    DisableRule'
-    { _dName = pName_
-    }
+disableRule pName_ = DisableRule' {_dName = pName_}
+
 
 -- | The name of the rule.
 dName :: Lens' DisableRule Text
@@ -70,9 +69,9 @@ instance AWSRequest DisableRule where
         request = postJSON cloudWatchEvents
         response = receiveNull DisableRuleResponse'
 
-instance Hashable DisableRule
+instance Hashable DisableRule where
 
-instance NFData DisableRule
+instance NFData DisableRule where
 
 instance ToHeaders DisableRule where
         toHeaders
@@ -95,8 +94,9 @@ instance ToQuery DisableRule where
 
 -- | /See:/ 'disableRuleResponse' smart constructor.
 data DisableRuleResponse =
-    DisableRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisableRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableRuleResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ disableRuleResponse
     :: DisableRuleResponse
 disableRuleResponse = DisableRuleResponse'
 
-instance NFData DisableRuleResponse
+
+instance NFData DisableRuleResponse where

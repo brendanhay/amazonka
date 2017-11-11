@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteThing
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.IoT.DeleteThing
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeleteThing operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteThing' smart constructor.
 data DeleteThing = DeleteThing'
-    { _dtExpectedVersion :: !(Maybe Integer)
-    , _dtThingName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtExpectedVersion :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dtThingName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteThing' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ deleteThing
     :: Text -- ^ 'dtThingName'
     -> DeleteThing
 deleteThing pThingName_ =
-    DeleteThing'
-    { _dtExpectedVersion = Nothing
-    , _dtThingName = pThingName_
-    }
+  DeleteThing' {_dtExpectedVersion = Nothing, _dtThingName = pThingName_}
+
 
 -- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @DeleteThing@ request is rejected with a @VersionConflictException@ .
 dtExpectedVersion :: Lens' DeleteThing (Maybe Integer)
@@ -86,9 +85,9 @@ instance AWSRequest DeleteThing where
               (\ s h x ->
                  DeleteThingResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteThing
+instance Hashable DeleteThing where
 
-instance NFData DeleteThing
+instance NFData DeleteThing where
 
 instance ToHeaders DeleteThing where
         toHeaders = const mempty
@@ -107,8 +106,9 @@ instance ToQuery DeleteThing where
 --
 -- /See:/ 'deleteThingResponse' smart constructor.
 newtype DeleteThingResponse = DeleteThingResponse'
-    { _delrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteThingResponse' with the minimum fields required to make a request.
 --
@@ -119,12 +119,11 @@ deleteThingResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteThingResponse
 deleteThingResponse pResponseStatus_ =
-    DeleteThingResponse'
-    { _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteThingResponse' {_delrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteThingResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteThingResponse
+instance NFData DeleteThingResponse where

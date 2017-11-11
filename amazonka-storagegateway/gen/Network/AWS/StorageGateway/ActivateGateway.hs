@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ActivateGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.StorageGateway.ActivateGateway
     , agrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -72,14 +72,15 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'activateGateway' smart constructor.
 data ActivateGateway = ActivateGateway'
-    { _agMediumChangerType :: !(Maybe Text)
-    , _agTapeDriveType     :: !(Maybe Text)
-    , _agGatewayType       :: !(Maybe Text)
-    , _agActivationKey     :: !Text
-    , _agGatewayName       :: !Text
-    , _agGatewayTimezone   :: !Text
-    , _agGatewayRegion     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _agMediumChangerType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _agTapeDriveType     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _agGatewayType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _agActivationKey     :: {-# NOUNPACK #-}!Text
+  , _agGatewayName       :: {-# NOUNPACK #-}!Text
+  , _agGatewayTimezone   :: {-# NOUNPACK #-}!Text
+  , _agGatewayRegion     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivateGateway' with the minimum fields required to make a request.
 --
@@ -105,15 +106,16 @@ activateGateway
     -> Text -- ^ 'agGatewayRegion'
     -> ActivateGateway
 activateGateway pActivationKey_ pGatewayName_ pGatewayTimezone_ pGatewayRegion_ =
-    ActivateGateway'
-    { _agMediumChangerType = Nothing
-    , _agTapeDriveType = Nothing
-    , _agGatewayType = Nothing
-    , _agActivationKey = pActivationKey_
-    , _agGatewayName = pGatewayName_
-    , _agGatewayTimezone = pGatewayTimezone_
-    , _agGatewayRegion = pGatewayRegion_
-    }
+  ActivateGateway'
+  { _agMediumChangerType = Nothing
+  , _agTapeDriveType = Nothing
+  , _agGatewayType = Nothing
+  , _agActivationKey = pActivationKey_
+  , _agGatewayName = pGatewayName_
+  , _agGatewayTimezone = pGatewayTimezone_
+  , _agGatewayRegion = pGatewayRegion_
+  }
+
 
 -- | The value that indicates the type of medium changer to use for tape gateway. This field is optional. Valid Values: "STK-L700", "AWS-Gateway-VTL"
 agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
@@ -152,9 +154,9 @@ instance AWSRequest ActivateGateway where
                  ActivateGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable ActivateGateway
+instance Hashable ActivateGateway where
 
-instance NFData ActivateGateway
+instance NFData ActivateGateway where
 
 instance ToHeaders ActivateGateway where
         toHeaders
@@ -190,9 +192,10 @@ instance ToQuery ActivateGateway where
 --
 -- /See:/ 'activateGatewayResponse' smart constructor.
 data ActivateGatewayResponse = ActivateGatewayResponse'
-    { _agrsGatewayARN     :: !(Maybe Text)
-    , _agrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _agrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _agrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivateGatewayResponse' with the minimum fields required to make a request.
 --
@@ -205,10 +208,9 @@ activateGatewayResponse
     :: Int -- ^ 'agrsResponseStatus'
     -> ActivateGatewayResponse
 activateGatewayResponse pResponseStatus_ =
-    ActivateGatewayResponse'
-    { _agrsGatewayARN = Nothing
-    , _agrsResponseStatus = pResponseStatus_
-    }
+  ActivateGatewayResponse'
+  {_agrsGatewayARN = Nothing, _agrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 agrsGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
@@ -218,4 +220,4 @@ agrsGatewayARN = lens _agrsGatewayARN (\ s a -> s{_agrsGatewayARN = a});
 agrsResponseStatus :: Lens' ActivateGatewayResponse Int
 agrsResponseStatus = lens _agrsResponseStatus (\ s a -> s{_agrsResponseStatus = a});
 
-instance NFData ActivateGatewayResponse
+instance NFData ActivateGatewayResponse where

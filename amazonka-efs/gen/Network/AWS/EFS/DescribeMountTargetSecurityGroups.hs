@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeMountTargetSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     , dmtsgrsSecurityGroups
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,8 +58,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeMountTargetSecurityGroups' smart constructor.
 newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
-    { _dmtsgMountTargetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmtsgMountTargetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMountTargetSecurityGroups' with the minimum fields required to make a request.
 --
@@ -70,9 +71,8 @@ describeMountTargetSecurityGroups
     :: Text -- ^ 'dmtsgMountTargetId'
     -> DescribeMountTargetSecurityGroups
 describeMountTargetSecurityGroups pMountTargetId_ =
-    DescribeMountTargetSecurityGroups'
-    { _dmtsgMountTargetId = pMountTargetId_
-    }
+  DescribeMountTargetSecurityGroups' {_dmtsgMountTargetId = pMountTargetId_}
+
 
 -- | ID of the mount target whose security groups you want to retrieve.
 dmtsgMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
@@ -91,8 +91,10 @@ instance AWSRequest DescribeMountTargetSecurityGroups
                      (x .?> "SecurityGroups" .!@ mempty))
 
 instance Hashable DescribeMountTargetSecurityGroups
+         where
 
 instance NFData DescribeMountTargetSecurityGroups
+         where
 
 instance ToHeaders DescribeMountTargetSecurityGroups
          where
@@ -111,9 +113,10 @@ instance ToQuery DescribeMountTargetSecurityGroups
 
 -- | /See:/ 'describeMountTargetSecurityGroupsResponse' smart constructor.
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrsResponseStatus :: !Int
-    , _dmtsgrsSecurityGroups :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmtsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dmtsgrsSecurityGroups :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +129,9 @@ describeMountTargetSecurityGroupsResponse
     :: Int -- ^ 'dmtsgrsResponseStatus'
     -> DescribeMountTargetSecurityGroupsResponse
 describeMountTargetSecurityGroupsResponse pResponseStatus_ =
-    DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrsResponseStatus = pResponseStatus_
-    , _dmtsgrsSecurityGroups = mempty
-    }
+  DescribeMountTargetSecurityGroupsResponse'
+  {_dmtsgrsResponseStatus = pResponseStatus_, _dmtsgrsSecurityGroups = mempty}
+
 
 -- | -- | The response status code.
 dmtsgrsResponseStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
@@ -140,4 +142,5 @@ dmtsgrsSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
 dmtsgrsSecurityGroups = lens _dmtsgrsSecurityGroups (\ s a -> s{_dmtsgrsSecurityGroups = a}) . _Coerce;
 
 instance NFData
-         DescribeMountTargetSecurityGroupsResponse
+           DescribeMountTargetSecurityGroupsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetBasePathMapping
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.APIGateway.GetBasePathMapping
     , bpmRestAPIId
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe a 'BasePathMapping' resource.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getBasePathMapping' smart constructor.
 data GetBasePathMapping = GetBasePathMapping'
-    { _gbpmDomainName :: !Text
-    , _gbpmBasePath   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbpmDomainName :: {-# NOUNPACK #-}!Text
+  , _gbpmBasePath   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBasePathMapping' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ getBasePathMapping
     -> Text -- ^ 'gbpmBasePath'
     -> GetBasePathMapping
 getBasePathMapping pDomainName_ pBasePath_ =
-    GetBasePathMapping'
-    { _gbpmDomainName = pDomainName_
-    , _gbpmBasePath = pBasePath_
-    }
+  GetBasePathMapping'
+  {_gbpmDomainName = pDomainName_, _gbpmBasePath = pBasePath_}
+
 
 -- | The domain name of the 'BasePathMapping' resource to be described.
 gbpmDomainName :: Lens' GetBasePathMapping Text
@@ -86,9 +86,9 @@ instance AWSRequest GetBasePathMapping where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetBasePathMapping
+instance Hashable GetBasePathMapping where
 
-instance NFData GetBasePathMapping
+instance NFData GetBasePathMapping where
 
 instance ToHeaders GetBasePathMapping where
         toHeaders

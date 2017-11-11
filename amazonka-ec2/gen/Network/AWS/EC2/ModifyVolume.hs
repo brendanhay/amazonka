@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.EC2.ModifyVolume
     , mvrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyVolume' smart constructor.
 data ModifyVolume = ModifyVolume'
-    { _mvSize       :: !(Maybe Int)
-    , _mvIOPS       :: !(Maybe Int)
-    , _mvVolumeType :: !(Maybe VolumeType)
-    , _mvDryRun     :: !(Maybe Bool)
-    , _mvVolumeId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mvSize       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mvIOPS       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mvVolumeType :: {-# NOUNPACK #-}!(Maybe VolumeType)
+  , _mvDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mvVolumeId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVolume' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ modifyVolume
     :: Text -- ^ 'mvVolumeId'
     -> ModifyVolume
 modifyVolume pVolumeId_ =
-    ModifyVolume'
-    { _mvSize = Nothing
-    , _mvIOPS = Nothing
-    , _mvVolumeType = Nothing
-    , _mvDryRun = Nothing
-    , _mvVolumeId = pVolumeId_
-    }
+  ModifyVolume'
+  { _mvSize = Nothing
+  , _mvIOPS = Nothing
+  , _mvVolumeType = Nothing
+  , _mvDryRun = Nothing
+  , _mvVolumeId = pVolumeId_
+  }
+
 
 -- | Target size in GiB of the volume to be modified. Target volume size must be greater than or equal to than the existing size of the volume. For information about available EBS volume sizes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html> . Default: If no size is specified, the existing size is retained.
 mvSize :: Lens' ModifyVolume (Maybe Int)
@@ -115,9 +117,9 @@ instance AWSRequest ModifyVolume where
                  ModifyVolumeResponse' <$>
                    (x .@? "volumeModification") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyVolume
+instance Hashable ModifyVolume where
 
-instance NFData ModifyVolume
+instance NFData ModifyVolume where
 
 instance ToHeaders ModifyVolume where
         toHeaders = const mempty
@@ -136,9 +138,10 @@ instance ToQuery ModifyVolume where
 
 -- | /See:/ 'modifyVolumeResponse' smart constructor.
 data ModifyVolumeResponse = ModifyVolumeResponse'
-    { _mvrsVolumeModification :: !(Maybe VolumeModification)
-    , _mvrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mvrsVolumeModification :: {-# NOUNPACK #-}!(Maybe VolumeModification)
+  , _mvrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVolumeResponse' with the minimum fields required to make a request.
 --
@@ -151,10 +154,9 @@ modifyVolumeResponse
     :: Int -- ^ 'mvrsResponseStatus'
     -> ModifyVolumeResponse
 modifyVolumeResponse pResponseStatus_ =
-    ModifyVolumeResponse'
-    { _mvrsVolumeModification = Nothing
-    , _mvrsResponseStatus = pResponseStatus_
-    }
+  ModifyVolumeResponse'
+  {_mvrsVolumeModification = Nothing, _mvrsResponseStatus = pResponseStatus_}
+
 
 -- | A 'VolumeModification' object.
 mvrsVolumeModification :: Lens' ModifyVolumeResponse (Maybe VolumeModification)
@@ -164,4 +166,4 @@ mvrsVolumeModification = lens _mvrsVolumeModification (\ s a -> s{_mvrsVolumeMod
 mvrsResponseStatus :: Lens' ModifyVolumeResponse Int
 mvrsResponseStatus = lens _mvrsResponseStatus (\ s a -> s{_mvrsResponseStatus = a});
 
-instance NFData ModifyVolumeResponse
+instance NFData ModifyVolumeResponse where

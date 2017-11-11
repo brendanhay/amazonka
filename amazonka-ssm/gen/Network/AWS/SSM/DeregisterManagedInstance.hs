@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeregisterManagedInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.SSM.DeregisterManagedInstance
     , dmirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deregisterManagedInstance' smart constructor.
 newtype DeregisterManagedInstance = DeregisterManagedInstance'
-    { _dmiInstanceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmiInstanceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterManagedInstance' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deregisterManagedInstance
     :: Text -- ^ 'dmiInstanceId'
     -> DeregisterManagedInstance
 deregisterManagedInstance pInstanceId_ =
-    DeregisterManagedInstance'
-    { _dmiInstanceId = pInstanceId_
-    }
+  DeregisterManagedInstance' {_dmiInstanceId = pInstanceId_}
+
 
 -- | The ID assigned to the managed instance when you registered it using the activation process.
 dmiInstanceId :: Lens' DeregisterManagedInstance Text
@@ -75,9 +75,9 @@ instance AWSRequest DeregisterManagedInstance where
                  DeregisterManagedInstanceResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeregisterManagedInstance
+instance Hashable DeregisterManagedInstance where
 
-instance NFData DeregisterManagedInstance
+instance NFData DeregisterManagedInstance where
 
 instance ToHeaders DeregisterManagedInstance where
         toHeaders
@@ -102,8 +102,9 @@ instance ToQuery DeregisterManagedInstance where
 
 -- | /See:/ 'deregisterManagedInstanceResponse' smart constructor.
 newtype DeregisterManagedInstanceResponse = DeregisterManagedInstanceResponse'
-    { _dmirsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmirsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterManagedInstanceResponse' with the minimum fields required to make a request.
 --
@@ -114,12 +115,12 @@ deregisterManagedInstanceResponse
     :: Int -- ^ 'dmirsResponseStatus'
     -> DeregisterManagedInstanceResponse
 deregisterManagedInstanceResponse pResponseStatus_ =
-    DeregisterManagedInstanceResponse'
-    { _dmirsResponseStatus = pResponseStatus_
-    }
+  DeregisterManagedInstanceResponse' {_dmirsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dmirsResponseStatus :: Lens' DeregisterManagedInstanceResponse Int
 dmirsResponseStatus = lens _dmirsResponseStatus (\ s a -> s{_dmirsResponseStatus = a});
 
 instance NFData DeregisterManagedInstanceResponse
+         where

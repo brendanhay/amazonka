@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateTagOption
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.ServiceCatalog.UpdateTagOption
     , utorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateTagOption' smart constructor.
 data UpdateTagOption = UpdateTagOption'
-    { _utoValue  :: !(Maybe Text)
-    , _utoActive :: !(Maybe Bool)
-    , _utoId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utoValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utoActive :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utoId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTagOption' with the minimum fields required to make a request.
 --
@@ -66,11 +67,8 @@ updateTagOption
     :: Text -- ^ 'utoId'
     -> UpdateTagOption
 updateTagOption pId_ =
-    UpdateTagOption'
-    { _utoValue = Nothing
-    , _utoActive = Nothing
-    , _utoId = pId_
-    }
+  UpdateTagOption' {_utoValue = Nothing, _utoActive = Nothing, _utoId = pId_}
+
 
 -- | The updated value.
 utoValue :: Lens' UpdateTagOption (Maybe Text)
@@ -93,9 +91,9 @@ instance AWSRequest UpdateTagOption where
                  UpdateTagOptionResponse' <$>
                    (x .?> "TagOptionDetail") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateTagOption
+instance Hashable UpdateTagOption where
 
-instance NFData UpdateTagOption
+instance NFData UpdateTagOption where
 
 instance ToHeaders UpdateTagOption where
         toHeaders
@@ -122,9 +120,10 @@ instance ToQuery UpdateTagOption where
 
 -- | /See:/ 'updateTagOptionResponse' smart constructor.
 data UpdateTagOptionResponse = UpdateTagOptionResponse'
-    { _utorsTagOptionDetail :: !(Maybe TagOptionDetail)
-    , _utorsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utorsTagOptionDetail :: {-# NOUNPACK #-}!(Maybe TagOptionDetail)
+  , _utorsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTagOptionResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +136,9 @@ updateTagOptionResponse
     :: Int -- ^ 'utorsResponseStatus'
     -> UpdateTagOptionResponse
 updateTagOptionResponse pResponseStatus_ =
-    UpdateTagOptionResponse'
-    { _utorsTagOptionDetail = Nothing
-    , _utorsResponseStatus = pResponseStatus_
-    }
+  UpdateTagOptionResponse'
+  {_utorsTagOptionDetail = Nothing, _utorsResponseStatus = pResponseStatus_}
+
 
 -- | The resulting detailed TagOption information.
 utorsTagOptionDetail :: Lens' UpdateTagOptionResponse (Maybe TagOptionDetail)
@@ -150,4 +148,4 @@ utorsTagOptionDetail = lens _utorsTagOptionDetail (\ s a -> s{_utorsTagOptionDet
 utorsResponseStatus :: Lens' UpdateTagOptionResponse Int
 utorsResponseStatus = lens _utorsResponseStatus (\ s a -> s{_utorsResponseStatus = a});
 
-instance NFData UpdateTagOptionResponse
+instance NFData UpdateTagOptionResponse where

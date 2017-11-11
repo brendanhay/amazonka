@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteDatabase
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Glue.DeleteDatabase
     , ddrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDatabase' smart constructor.
 data DeleteDatabase = DeleteDatabase'
-    { _ddCatalogId :: !(Maybe Text)
-    , _ddName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddCatalogId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDatabase' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ deleteDatabase
     :: Text -- ^ 'ddName'
     -> DeleteDatabase
 deleteDatabase pName_ =
-    DeleteDatabase'
-    { _ddCatalogId = Nothing
-    , _ddName = pName_
-    }
+  DeleteDatabase' {_ddCatalogId = Nothing, _ddName = pName_}
+
 
 -- | The ID of the Data Catalog in which the database resides. If none is supplied, the AWS account ID is used by default.
 ddCatalogId :: Lens' DeleteDatabase (Maybe Text)
@@ -82,9 +81,9 @@ instance AWSRequest DeleteDatabase where
               (\ s h x ->
                  DeleteDatabaseResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteDatabase
+instance Hashable DeleteDatabase where
 
-instance NFData DeleteDatabase
+instance NFData DeleteDatabase where
 
 instance ToHeaders DeleteDatabase where
         toHeaders
@@ -110,8 +109,9 @@ instance ToQuery DeleteDatabase where
 
 -- | /See:/ 'deleteDatabaseResponse' smart constructor.
 newtype DeleteDatabaseResponse = DeleteDatabaseResponse'
-    { _ddrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDatabaseResponse' with the minimum fields required to make a request.
 --
@@ -122,12 +122,11 @@ deleteDatabaseResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DeleteDatabaseResponse
 deleteDatabaseResponse pResponseStatus_ =
-    DeleteDatabaseResponse'
-    { _ddrsResponseStatus = pResponseStatus_
-    }
+  DeleteDatabaseResponse' {_ddrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDatabaseResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
-instance NFData DeleteDatabaseResponse
+instance NFData DeleteDatabaseResponse where

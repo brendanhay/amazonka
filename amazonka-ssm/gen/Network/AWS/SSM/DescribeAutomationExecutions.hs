@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeAutomationExecutions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.DescribeAutomationExecutions
     , daersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAutomationExecutions' smart constructor.
 data DescribeAutomationExecutions = DescribeAutomationExecutions'
-    { _daeFilters    :: !(Maybe (List1 AutomationExecutionFilter))
-    , _daeNextToken  :: !(Maybe Text)
-    , _daeMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daeFilters    :: {-# NOUNPACK #-}!(Maybe (List1 AutomationExecutionFilter))
+  , _daeNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daeMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAutomationExecutions' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DescribeAutomationExecutions = DescribeAutomationExecutions'
 describeAutomationExecutions
     :: DescribeAutomationExecutions
 describeAutomationExecutions =
-    DescribeAutomationExecutions'
-    { _daeFilters = Nothing
-    , _daeNextToken = Nothing
-    , _daeMaxResults = Nothing
-    }
+  DescribeAutomationExecutions'
+  {_daeFilters = Nothing, _daeNextToken = Nothing, _daeMaxResults = Nothing}
+
 
 -- | Filters used to limit the scope of executions that are requested.
 daeFilters :: Lens' DescribeAutomationExecutions (Maybe (NonEmpty AutomationExecutionFilter))
@@ -97,9 +96,9 @@ instance AWSRequest DescribeAutomationExecutions
                      (x .?> "AutomationExecutionMetadataList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAutomationExecutions
+instance Hashable DescribeAutomationExecutions where
 
-instance NFData DescribeAutomationExecutions
+instance NFData DescribeAutomationExecutions where
 
 instance ToHeaders DescribeAutomationExecutions where
         toHeaders
@@ -127,10 +126,11 @@ instance ToQuery DescribeAutomationExecutions where
 
 -- | /See:/ 'describeAutomationExecutionsResponse' smart constructor.
 data DescribeAutomationExecutionsResponse = DescribeAutomationExecutionsResponse'
-    { _daersNextToken                       :: !(Maybe Text)
-    , _daersAutomationExecutionMetadataList :: !(Maybe [AutomationExecutionMetadata])
-    , _daersResponseStatus                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daersNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daersAutomationExecutionMetadataList :: {-# NOUNPACK #-}!(Maybe [AutomationExecutionMetadata])
+  , _daersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAutomationExecutionsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ describeAutomationExecutionsResponse
     :: Int -- ^ 'daersResponseStatus'
     -> DescribeAutomationExecutionsResponse
 describeAutomationExecutionsResponse pResponseStatus_ =
-    DescribeAutomationExecutionsResponse'
-    { _daersNextToken = Nothing
-    , _daersAutomationExecutionMetadataList = Nothing
-    , _daersResponseStatus = pResponseStatus_
-    }
+  DescribeAutomationExecutionsResponse'
+  { _daersNextToken = Nothing
+  , _daersAutomationExecutionMetadataList = Nothing
+  , _daersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 daersNextToken :: Lens' DescribeAutomationExecutionsResponse (Maybe Text)
@@ -164,3 +165,4 @@ daersResponseStatus :: Lens' DescribeAutomationExecutionsResponse Int
 daersResponseStatus = lens _daersResponseStatus (\ s a -> s{_daersResponseStatus = a});
 
 instance NFData DescribeAutomationExecutionsResponse
+         where

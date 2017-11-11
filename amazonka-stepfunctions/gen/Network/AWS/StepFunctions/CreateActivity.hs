@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.CreateActivity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.StepFunctions.CreateActivity
     , carsCreationDate
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'createActivity' smart constructor.
 newtype CreateActivity = CreateActivity'
-    { _caName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateActivity' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype CreateActivity = CreateActivity'
 createActivity
     :: Text -- ^ 'caName'
     -> CreateActivity
-createActivity pName_ =
-    CreateActivity'
-    { _caName = pName_
-    }
+createActivity pName_ = CreateActivity' {_caName = pName_}
+
 
 -- | The name of the activity to create. This name must be unique for your AWS account and region.
 caName :: Lens' CreateActivity Text
@@ -77,9 +76,9 @@ instance AWSRequest CreateActivity where
                    (pure (fromEnum s)) <*> (x .:> "activityArn") <*>
                      (x .:> "creationDate"))
 
-instance Hashable CreateActivity
+instance Hashable CreateActivity where
 
-instance NFData CreateActivity
+instance NFData CreateActivity where
 
 instance ToHeaders CreateActivity where
         toHeaders
@@ -102,10 +101,11 @@ instance ToQuery CreateActivity where
 
 -- | /See:/ 'createActivityResponse' smart constructor.
 data CreateActivityResponse = CreateActivityResponse'
-    { _carsResponseStatus :: !Int
-    , _carsActivityARN    :: !Text
-    , _carsCreationDate   :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _carsActivityARN    :: {-# NOUNPACK #-}!Text
+  , _carsCreationDate   :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateActivityResponse' with the minimum fields required to make a request.
 --
@@ -122,11 +122,12 @@ createActivityResponse
     -> UTCTime -- ^ 'carsCreationDate'
     -> CreateActivityResponse
 createActivityResponse pResponseStatus_ pActivityARN_ pCreationDate_ =
-    CreateActivityResponse'
-    { _carsResponseStatus = pResponseStatus_
-    , _carsActivityARN = pActivityARN_
-    , _carsCreationDate = _Time # pCreationDate_
-    }
+  CreateActivityResponse'
+  { _carsResponseStatus = pResponseStatus_
+  , _carsActivityARN = pActivityARN_
+  , _carsCreationDate = _Time # pCreationDate_
+  }
+
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateActivityResponse Int
@@ -140,4 +141,4 @@ carsActivityARN = lens _carsActivityARN (\ s a -> s{_carsActivityARN = a});
 carsCreationDate :: Lens' CreateActivityResponse UTCTime
 carsCreationDate = lens _carsCreationDate (\ s a -> s{_carsCreationDate = a}) . _Time;
 
-instance NFData CreateActivityResponse
+instance NFData CreateActivityResponse where

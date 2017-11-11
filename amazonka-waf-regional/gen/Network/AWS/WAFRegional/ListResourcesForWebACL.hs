@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListResourcesForWebACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.WAFRegional.ListResourcesForWebACL
     , lrfwarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listResourcesForWebACL' smart constructor.
 newtype ListResourcesForWebACL = ListResourcesForWebACL'
-    { _lrfwaWebACLId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrfwaWebACLId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourcesForWebACL' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ listResourcesForWebACL
     :: Text -- ^ 'lrfwaWebACLId'
     -> ListResourcesForWebACL
 listResourcesForWebACL pWebACLId_ =
-    ListResourcesForWebACL'
-    { _lrfwaWebACLId = pWebACLId_
-    }
+  ListResourcesForWebACL' {_lrfwaWebACLId = pWebACLId_}
+
 
 -- | The unique identifier (ID) of the web ACL for which to list the associated resources.
 lrfwaWebACLId :: Lens' ListResourcesForWebACL Text
@@ -77,9 +77,9 @@ instance AWSRequest ListResourcesForWebACL where
                    (x .?> "ResourceArns" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListResourcesForWebACL
+instance Hashable ListResourcesForWebACL where
 
-instance NFData ListResourcesForWebACL
+instance NFData ListResourcesForWebACL where
 
 instance ToHeaders ListResourcesForWebACL where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery ListResourcesForWebACL where
 
 -- | /See:/ 'listResourcesForWebACLResponse' smart constructor.
 data ListResourcesForWebACLResponse = ListResourcesForWebACLResponse'
-    { _lrfwarsResourceARNs   :: !(Maybe [Text])
-    , _lrfwarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrfwarsResourceARNs   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lrfwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourcesForWebACLResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ listResourcesForWebACLResponse
     :: Int -- ^ 'lrfwarsResponseStatus'
     -> ListResourcesForWebACLResponse
 listResourcesForWebACLResponse pResponseStatus_ =
-    ListResourcesForWebACLResponse'
-    { _lrfwarsResourceARNs = Nothing
-    , _lrfwarsResponseStatus = pResponseStatus_
-    }
+  ListResourcesForWebACLResponse'
+  {_lrfwarsResourceARNs = Nothing, _lrfwarsResponseStatus = pResponseStatus_}
+
 
 -- | An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.
 lrfwarsResourceARNs :: Lens' ListResourcesForWebACLResponse [Text]
@@ -132,4 +132,4 @@ lrfwarsResourceARNs = lens _lrfwarsResourceARNs (\ s a -> s{_lrfwarsResourceARNs
 lrfwarsResponseStatus :: Lens' ListResourcesForWebACLResponse Int
 lrfwarsResponseStatus = lens _lrfwarsResponseStatus (\ s a -> s{_lrfwarsResponseStatus = a});
 
-instance NFData ListResourcesForWebACLResponse
+instance NFData ListResourcesForWebACLResponse where

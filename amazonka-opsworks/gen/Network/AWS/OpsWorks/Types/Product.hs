@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.OpsWorks.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types.Sum
+import Network.AWS.Prelude
 
 -- | Describes an agent version.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'agentVersion' smart constructor.
 data AgentVersion = AgentVersion'
-    { _avVersion              :: !(Maybe Text)
-    , _avConfigurationManager :: !(Maybe StackConfigurationManager)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AgentVersion' with the minimum fields required to make a request.
 --
@@ -41,10 +42,8 @@ data AgentVersion = AgentVersion'
 agentVersion
     :: AgentVersion
 agentVersion =
-    AgentVersion'
-    { _avVersion = Nothing
-    , _avConfigurationManager = Nothing
-    }
+  AgentVersion' {_avVersion = Nothing, _avConfigurationManager = Nothing}
+
 
 -- | The agent version.
 avVersion :: Lens' AgentVersion (Maybe Text)
@@ -61,9 +60,9 @@ instance FromJSON AgentVersion where
                  AgentVersion' <$>
                    (x .:? "Version") <*> (x .:? "ConfigurationManager"))
 
-instance Hashable AgentVersion
+instance Hashable AgentVersion where
 
-instance NFData AgentVersion
+instance NFData AgentVersion where
 
 -- | A description of the app.
 --
@@ -71,21 +70,22 @@ instance NFData AgentVersion
 --
 -- /See:/ 'app' smart constructor.
 data App = App'
-    { _appSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _appEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _appEnableSSL        :: !(Maybe Bool)
-    , _appCreatedAt        :: !(Maybe Text)
-    , _appShortname        :: !(Maybe Text)
-    , _appDataSources      :: !(Maybe [DataSource])
-    , _appAppSource        :: !(Maybe Source)
-    , _appAppId            :: !(Maybe Text)
-    , _appAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _appName             :: !(Maybe Text)
-    , _appType             :: !(Maybe AppType)
-    , _appStackId          :: !(Maybe Text)
-    , _appDomains          :: !(Maybe [Text])
-    , _appDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _appSSLConfiguration :: {-# NOUNPACK #-}!(Maybe SSLConfiguration)
+  , _appEnvironment :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
+  , _appEnableSSL :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _appCreatedAt :: {-# NOUNPACK #-}!(Maybe Text)
+  , _appShortname :: {-# NOUNPACK #-}!(Maybe Text)
+  , _appDataSources :: {-# NOUNPACK #-}!(Maybe [DataSource])
+  , _appAppSource :: {-# NOUNPACK #-}!(Maybe Source)
+  , _appAppId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _appAttributes :: {-# NOUNPACK #-}!(Maybe (Map AppAttributesKeys Text))
+  , _appName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _appType :: {-# NOUNPACK #-}!(Maybe AppType)
+  , _appStackId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _appDomains :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _appDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'App' with the minimum fields required to make a request.
 --
@@ -121,22 +121,23 @@ data App = App'
 app
     :: App
 app =
-    App'
-    { _appSSLConfiguration = Nothing
-    , _appEnvironment = Nothing
-    , _appEnableSSL = Nothing
-    , _appCreatedAt = Nothing
-    , _appShortname = Nothing
-    , _appDataSources = Nothing
-    , _appAppSource = Nothing
-    , _appAppId = Nothing
-    , _appAttributes = Nothing
-    , _appName = Nothing
-    , _appType = Nothing
-    , _appStackId = Nothing
-    , _appDomains = Nothing
-    , _appDescription = Nothing
-    }
+  App'
+  { _appSSLConfiguration = Nothing
+  , _appEnvironment = Nothing
+  , _appEnableSSL = Nothing
+  , _appCreatedAt = Nothing
+  , _appShortname = Nothing
+  , _appDataSources = Nothing
+  , _appAppSource = Nothing
+  , _appAppId = Nothing
+  , _appAttributes = Nothing
+  , _appName = Nothing
+  , _appType = Nothing
+  , _appStackId = Nothing
+  , _appDomains = Nothing
+  , _appDescription = Nothing
+  }
+
 
 -- | An @SslConfiguration@ object with the SSL configuration.
 appSSLConfiguration :: Lens' App (Maybe SSLConfiguration)
@@ -214,9 +215,9 @@ instance FromJSON App where
                      <*> (x .:? "Domains" .!= mempty)
                      <*> (x .:? "Description"))
 
-instance Hashable App
+instance Hashable App where
 
-instance NFData App
+instance NFData App where
 
 -- | Describes a load-based auto scaling upscaling or downscaling threshold configuration, which specifies when AWS OpsWorks Stacks starts or stops load-based instances.
 --
@@ -224,14 +225,15 @@ instance NFData App
 --
 -- /See:/ 'autoScalingThresholds' smart constructor.
 data AutoScalingThresholds = AutoScalingThresholds'
-    { _astInstanceCount      :: !(Maybe Int)
-    , _astIgnoreMetricsTime  :: !(Maybe Nat)
-    , _astLoadThreshold      :: !(Maybe Double)
-    , _astThresholdsWaitTime :: !(Maybe Nat)
-    , _astAlarms             :: !(Maybe [Text])
-    , _astMemoryThreshold    :: !(Maybe Double)
-    , _astCPUThreshold       :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _astInstanceCount      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _astIgnoreMetricsTime  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _astLoadThreshold      :: {-# NOUNPACK #-}!(Maybe Double)
+  , _astThresholdsWaitTime :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _astAlarms             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _astMemoryThreshold    :: {-# NOUNPACK #-}!(Maybe Double)
+  , _astCPUThreshold       :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingThresholds' with the minimum fields required to make a request.
 --
@@ -253,15 +255,16 @@ data AutoScalingThresholds = AutoScalingThresholds'
 autoScalingThresholds
     :: AutoScalingThresholds
 autoScalingThresholds =
-    AutoScalingThresholds'
-    { _astInstanceCount = Nothing
-    , _astIgnoreMetricsTime = Nothing
-    , _astLoadThreshold = Nothing
-    , _astThresholdsWaitTime = Nothing
-    , _astAlarms = Nothing
-    , _astMemoryThreshold = Nothing
-    , _astCPUThreshold = Nothing
-    }
+  AutoScalingThresholds'
+  { _astInstanceCount = Nothing
+  , _astIgnoreMetricsTime = Nothing
+  , _astLoadThreshold = Nothing
+  , _astThresholdsWaitTime = Nothing
+  , _astAlarms = Nothing
+  , _astMemoryThreshold = Nothing
+  , _astCPUThreshold = Nothing
+  }
+
 
 -- | The number of instances to add or remove when the load exceeds a threshold.
 astInstanceCount :: Lens' AutoScalingThresholds (Maybe Int)
@@ -304,9 +307,9 @@ instance FromJSON AutoScalingThresholds where
                      <*> (x .:? "MemoryThreshold")
                      <*> (x .:? "CpuThreshold"))
 
-instance Hashable AutoScalingThresholds
+instance Hashable AutoScalingThresholds where
 
-instance NFData AutoScalingThresholds
+instance NFData AutoScalingThresholds where
 
 instance ToJSON AutoScalingThresholds where
         toJSON AutoScalingThresholds'{..}
@@ -326,11 +329,12 @@ instance ToJSON AutoScalingThresholds where
 --
 -- /See:/ 'blockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-    { _bdmVirtualName :: !(Maybe Text)
-    , _bdmNoDevice    :: !(Maybe Text)
-    , _bdmEBS         :: !(Maybe EBSBlockDevice)
-    , _bdmDeviceName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdmVirtualName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bdmNoDevice    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bdmEBS         :: {-# NOUNPACK #-}!(Maybe EBSBlockDevice)
+  , _bdmDeviceName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
@@ -346,12 +350,13 @@ data BlockDeviceMapping = BlockDeviceMapping'
 blockDeviceMapping
     :: BlockDeviceMapping
 blockDeviceMapping =
-    BlockDeviceMapping'
-    { _bdmVirtualName = Nothing
-    , _bdmNoDevice = Nothing
-    , _bdmEBS = Nothing
-    , _bdmDeviceName = Nothing
-    }
+  BlockDeviceMapping'
+  { _bdmVirtualName = Nothing
+  , _bdmNoDevice = Nothing
+  , _bdmEBS = Nothing
+  , _bdmDeviceName = Nothing
+  }
+
 
 -- | The virtual device name. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping> .
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
@@ -378,9 +383,9 @@ instance FromJSON BlockDeviceMapping where
                      (x .:? "Ebs")
                      <*> (x .:? "DeviceName"))
 
-instance Hashable BlockDeviceMapping
+instance Hashable BlockDeviceMapping where
 
-instance NFData BlockDeviceMapping
+instance NFData BlockDeviceMapping where
 
 instance ToJSON BlockDeviceMapping where
         toJSON BlockDeviceMapping'{..}
@@ -397,9 +402,10 @@ instance ToJSON BlockDeviceMapping where
 --
 -- /See:/ 'chefConfiguration' smart constructor.
 data ChefConfiguration = ChefConfiguration'
-    { _ccBerkshelfVersion :: !(Maybe Text)
-    , _ccManageBerkshelf  :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccBerkshelfVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccManageBerkshelf  :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChefConfiguration' with the minimum fields required to make a request.
 --
@@ -411,10 +417,9 @@ data ChefConfiguration = ChefConfiguration'
 chefConfiguration
     :: ChefConfiguration
 chefConfiguration =
-    ChefConfiguration'
-    { _ccBerkshelfVersion = Nothing
-    , _ccManageBerkshelf = Nothing
-    }
+  ChefConfiguration'
+  {_ccBerkshelfVersion = Nothing, _ccManageBerkshelf = Nothing}
+
 
 -- | The Berkshelf version.
 ccBerkshelfVersion :: Lens' ChefConfiguration (Maybe Text)
@@ -432,9 +437,9 @@ instance FromJSON ChefConfiguration where
                    (x .:? "BerkshelfVersion") <*>
                      (x .:? "ManageBerkshelf"))
 
-instance Hashable ChefConfiguration
+instance Hashable ChefConfiguration where
 
-instance NFData ChefConfiguration
+instance NFData ChefConfiguration where
 
 instance ToJSON ChefConfiguration where
         toJSON ChefConfiguration'{..}
@@ -449,9 +454,10 @@ instance ToJSON ChefConfiguration where
 --
 -- /See:/ 'cloudWatchLogsConfiguration' smart constructor.
 data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
-    { _cwlcEnabled    :: !(Maybe Bool)
-    , _cwlcLogStreams :: !(Maybe [CloudWatchLogsLogStream])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwlcEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cwlcLogStreams :: {-# NOUNPACK #-}!(Maybe [CloudWatchLogsLogStream])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudWatchLogsConfiguration' with the minimum fields required to make a request.
 --
@@ -463,10 +469,9 @@ data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
 cloudWatchLogsConfiguration
     :: CloudWatchLogsConfiguration
 cloudWatchLogsConfiguration =
-    CloudWatchLogsConfiguration'
-    { _cwlcEnabled = Nothing
-    , _cwlcLogStreams = Nothing
-    }
+  CloudWatchLogsConfiguration'
+  {_cwlcEnabled = Nothing, _cwlcLogStreams = Nothing}
+
 
 -- | Whether CloudWatch Logs is enabled for a layer.
 cwlcEnabled :: Lens' CloudWatchLogsConfiguration (Maybe Bool)
@@ -484,9 +489,9 @@ instance FromJSON CloudWatchLogsConfiguration where
                    (x .:? "Enabled") <*>
                      (x .:? "LogStreams" .!= mempty))
 
-instance Hashable CloudWatchLogsConfiguration
+instance Hashable CloudWatchLogsConfiguration where
 
-instance NFData CloudWatchLogsConfiguration
+instance NFData CloudWatchLogsConfiguration where
 
 instance ToJSON CloudWatchLogsConfiguration where
         toJSON CloudWatchLogsConfiguration'{..}
@@ -501,18 +506,19 @@ instance ToJSON CloudWatchLogsConfiguration where
 --
 -- /See:/ 'cloudWatchLogsLogStream' smart constructor.
 data CloudWatchLogsLogStream = CloudWatchLogsLogStream'
-    { _cwllsBatchCount            :: !(Maybe Int)
-    , _cwllsFileFingerprintLines  :: !(Maybe Text)
-    , _cwllsBufferDuration        :: !(Maybe Int)
-    , _cwllsBatchSize             :: !(Maybe Int)
-    , _cwllsLogGroupName          :: !(Maybe Text)
-    , _cwllsMultiLineStartPattern :: !(Maybe Text)
-    , _cwllsInitialPosition       :: !(Maybe CloudWatchLogsInitialPosition)
-    , _cwllsDatetimeFormat        :: !(Maybe Text)
-    , _cwllsEncoding              :: !(Maybe CloudWatchLogsEncoding)
-    , _cwllsTimeZone              :: !(Maybe CloudWatchLogsTimeZone)
-    , _cwllsFile                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwllsBatchCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cwllsFileFingerprintLines :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cwllsBufferDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cwllsBatchSize :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cwllsLogGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cwllsMultiLineStartPattern :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cwllsInitialPosition :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsInitialPosition)
+  , _cwllsDatetimeFormat :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cwllsEncoding :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsEncoding)
+  , _cwllsTimeZone :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsTimeZone)
+  , _cwllsFile :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudWatchLogsLogStream' with the minimum fields required to make a request.
 --
@@ -542,19 +548,20 @@ data CloudWatchLogsLogStream = CloudWatchLogsLogStream'
 cloudWatchLogsLogStream
     :: CloudWatchLogsLogStream
 cloudWatchLogsLogStream =
-    CloudWatchLogsLogStream'
-    { _cwllsBatchCount = Nothing
-    , _cwllsFileFingerprintLines = Nothing
-    , _cwllsBufferDuration = Nothing
-    , _cwllsBatchSize = Nothing
-    , _cwllsLogGroupName = Nothing
-    , _cwllsMultiLineStartPattern = Nothing
-    , _cwllsInitialPosition = Nothing
-    , _cwllsDatetimeFormat = Nothing
-    , _cwllsEncoding = Nothing
-    , _cwllsTimeZone = Nothing
-    , _cwllsFile = Nothing
-    }
+  CloudWatchLogsLogStream'
+  { _cwllsBatchCount = Nothing
+  , _cwllsFileFingerprintLines = Nothing
+  , _cwllsBufferDuration = Nothing
+  , _cwllsBatchSize = Nothing
+  , _cwllsLogGroupName = Nothing
+  , _cwllsMultiLineStartPattern = Nothing
+  , _cwllsInitialPosition = Nothing
+  , _cwllsDatetimeFormat = Nothing
+  , _cwllsEncoding = Nothing
+  , _cwllsTimeZone = Nothing
+  , _cwllsFile = Nothing
+  }
+
 
 -- | Specifies the max number of log events in a batch, up to 10000. The default value is 1000.
 cwllsBatchCount :: Lens' CloudWatchLogsLogStream (Maybe Int)
@@ -617,9 +624,9 @@ instance FromJSON CloudWatchLogsLogStream where
                      <*> (x .:? "TimeZone")
                      <*> (x .:? "File"))
 
-instance Hashable CloudWatchLogsLogStream
+instance Hashable CloudWatchLogsLogStream where
 
-instance NFData CloudWatchLogsLogStream
+instance NFData CloudWatchLogsLogStream where
 
 instance ToJSON CloudWatchLogsLogStream where
         toJSON CloudWatchLogsLogStream'{..}
@@ -645,17 +652,18 @@ instance ToJSON CloudWatchLogsLogStream where
 --
 -- /See:/ 'command' smart constructor.
 data Command = Command'
-    { _cDeploymentId   :: !(Maybe Text)
-    , _cInstanceId     :: !(Maybe Text)
-    , _cStatus         :: !(Maybe Text)
-    , _cLogURL         :: !(Maybe Text)
-    , _cCreatedAt      :: !(Maybe Text)
-    , _cCommandId      :: !(Maybe Text)
-    , _cExitCode       :: !(Maybe Int)
-    , _cType           :: !(Maybe Text)
-    , _cCompletedAt    :: !(Maybe Text)
-    , _cAcknowledgedAt :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cDeploymentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cStatus         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cLogURL         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCreatedAt      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCommandId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cExitCode       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cType           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCompletedAt    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cAcknowledgedAt :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
@@ -683,18 +691,19 @@ data Command = Command'
 command
     :: Command
 command =
-    Command'
-    { _cDeploymentId = Nothing
-    , _cInstanceId = Nothing
-    , _cStatus = Nothing
-    , _cLogURL = Nothing
-    , _cCreatedAt = Nothing
-    , _cCommandId = Nothing
-    , _cExitCode = Nothing
-    , _cType = Nothing
-    , _cCompletedAt = Nothing
-    , _cAcknowledgedAt = Nothing
-    }
+  Command'
+  { _cDeploymentId = Nothing
+  , _cInstanceId = Nothing
+  , _cStatus = Nothing
+  , _cLogURL = Nothing
+  , _cCreatedAt = Nothing
+  , _cCommandId = Nothing
+  , _cExitCode = Nothing
+  , _cType = Nothing
+  , _cCompletedAt = Nothing
+  , _cAcknowledgedAt = Nothing
+  }
+
 
 -- | The command deployment ID.
 cDeploymentId :: Lens' Command (Maybe Text)
@@ -751,9 +760,9 @@ instance FromJSON Command where
                      <*> (x .:? "CompletedAt")
                      <*> (x .:? "AcknowledgedAt"))
 
-instance Hashable Command
+instance Hashable Command where
 
-instance NFData Command
+instance NFData Command where
 
 -- | Describes an app's data source.
 --
@@ -761,10 +770,11 @@ instance NFData Command
 --
 -- /See:/ 'dataSource' smart constructor.
 data DataSource = DataSource'
-    { _dsARN          :: !(Maybe Text)
-    , _dsDatabaseName :: !(Maybe Text)
-    , _dsType         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsType         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DataSource' with the minimum fields required to make a request.
 --
@@ -778,11 +788,8 @@ data DataSource = DataSource'
 dataSource
     :: DataSource
 dataSource =
-    DataSource'
-    { _dsARN = Nothing
-    , _dsDatabaseName = Nothing
-    , _dsType = Nothing
-    }
+  DataSource' {_dsARN = Nothing, _dsDatabaseName = Nothing, _dsType = Nothing}
+
 
 -- | The data source's ARN.
 dsARN :: Lens' DataSource (Maybe Text)
@@ -804,9 +811,9 @@ instance FromJSON DataSource where
                    (x .:? "Arn") <*> (x .:? "DatabaseName") <*>
                      (x .:? "Type"))
 
-instance Hashable DataSource
+instance Hashable DataSource where
 
-instance NFData DataSource
+instance NFData DataSource where
 
 instance ToJSON DataSource where
         toJSON DataSource'{..}
@@ -822,19 +829,20 @@ instance ToJSON DataSource where
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-    { _dDeploymentId :: !(Maybe Text)
-    , _dStatus       :: !(Maybe Text)
-    , _dCommand      :: !(Maybe DeploymentCommand)
-    , _dCreatedAt    :: !(Maybe Text)
-    , _dCustomJSON   :: !(Maybe Text)
-    , _dIAMUserARN   :: !(Maybe Text)
-    , _dAppId        :: !(Maybe Text)
-    , _dInstanceIds  :: !(Maybe [Text])
-    , _dCompletedAt  :: !(Maybe Text)
-    , _dStackId      :: !(Maybe Text)
-    , _dComment      :: !(Maybe Text)
-    , _dDuration     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dStatus       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCommand      :: {-# NOUNPACK #-}!(Maybe DeploymentCommand)
+  , _dCreatedAt    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCustomJSON   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dIAMUserARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dAppId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dInstanceIds  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dCompletedAt  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dStackId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dComment      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDuration     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
@@ -866,20 +874,21 @@ data Deployment = Deployment'
 deployment
     :: Deployment
 deployment =
-    Deployment'
-    { _dDeploymentId = Nothing
-    , _dStatus = Nothing
-    , _dCommand = Nothing
-    , _dCreatedAt = Nothing
-    , _dCustomJSON = Nothing
-    , _dIAMUserARN = Nothing
-    , _dAppId = Nothing
-    , _dInstanceIds = Nothing
-    , _dCompletedAt = Nothing
-    , _dStackId = Nothing
-    , _dComment = Nothing
-    , _dDuration = Nothing
-    }
+  Deployment'
+  { _dDeploymentId = Nothing
+  , _dStatus = Nothing
+  , _dCommand = Nothing
+  , _dCreatedAt = Nothing
+  , _dCustomJSON = Nothing
+  , _dIAMUserARN = Nothing
+  , _dAppId = Nothing
+  , _dInstanceIds = Nothing
+  , _dCompletedAt = Nothing
+  , _dStackId = Nothing
+  , _dComment = Nothing
+  , _dDuration = Nothing
+  }
+
 
 -- | The deployment ID.
 dDeploymentId :: Lens' Deployment (Maybe Text)
@@ -946,9 +955,9 @@ instance FromJSON Deployment where
                      <*> (x .:? "Comment")
                      <*> (x .:? "Duration"))
 
-instance Hashable Deployment
+instance Hashable Deployment where
 
-instance NFData Deployment
+instance NFData Deployment where
 
 -- | Used to specify a stack or deployment command.
 --
@@ -956,9 +965,10 @@ instance NFData Deployment
 --
 -- /See:/ 'deploymentCommand' smart constructor.
 data DeploymentCommand = DeploymentCommand'
-    { _dcArgs :: !(Maybe (Map Text [Text]))
-    , _dcName :: !DeploymentCommandName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcArgs :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _dcName :: {-# NOUNPACK #-}!DeploymentCommandName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeploymentCommand' with the minimum fields required to make a request.
 --
@@ -971,10 +981,8 @@ deploymentCommand
     :: DeploymentCommandName -- ^ 'dcName'
     -> DeploymentCommand
 deploymentCommand pName_ =
-    DeploymentCommand'
-    { _dcArgs = Nothing
-    , _dcName = pName_
-    }
+  DeploymentCommand' {_dcArgs = Nothing, _dcName = pName_}
+
 
 -- | The arguments of those commands that take arguments. It should be set to a JSON object with the following format: @{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...], ...}@  The @update_dependencies@ command takes two arguments:     * @upgrade_os_to@ - Specifies the desired Amazon Linux version for instances whose OS you want to upgrade, such as @Amazon Linux 2016.09@ . You must also set the @allow_reboot@ argument to true.     * @allow_reboot@ - Specifies whether to allow AWS OpsWorks Stacks to reboot the instances if necessary, after installing the updates. This argument can be set to either @true@ or @false@ . The default value is @false@ . For example, to upgrade an instance to Amazon Linux 2016.09, set @Args@ to the following. @{ "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } @
 dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
@@ -991,9 +999,9 @@ instance FromJSON DeploymentCommand where
                  DeploymentCommand' <$>
                    (x .:? "Args" .!= mempty) <*> (x .: "Name"))
 
-instance Hashable DeploymentCommand
+instance Hashable DeploymentCommand where
 
-instance NFData DeploymentCommand
+instance NFData DeploymentCommand where
 
 instance ToJSON DeploymentCommand where
         toJSON DeploymentCommand'{..}
@@ -1007,12 +1015,13 @@ instance ToJSON DeploymentCommand where
 --
 -- /See:/ 'ebsBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
-    { _ebdDeleteOnTermination :: !(Maybe Bool)
-    , _ebdVolumeSize          :: !(Maybe Int)
-    , _ebdIOPS                :: !(Maybe Int)
-    , _ebdVolumeType          :: !(Maybe VolumeType)
-    , _ebdSnapshotId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ebdDeleteOnTermination :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ebdVolumeSize          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ebdIOPS                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ebdVolumeType          :: {-# NOUNPACK #-}!(Maybe VolumeType)
+  , _ebdSnapshotId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.
 --
@@ -1030,13 +1039,14 @@ data EBSBlockDevice = EBSBlockDevice'
 ebsBlockDevice
     :: EBSBlockDevice
 ebsBlockDevice =
-    EBSBlockDevice'
-    { _ebdDeleteOnTermination = Nothing
-    , _ebdVolumeSize = Nothing
-    , _ebdIOPS = Nothing
-    , _ebdVolumeType = Nothing
-    , _ebdSnapshotId = Nothing
-    }
+  EBSBlockDevice'
+  { _ebdDeleteOnTermination = Nothing
+  , _ebdVolumeSize = Nothing
+  , _ebdIOPS = Nothing
+  , _ebdVolumeType = Nothing
+  , _ebdSnapshotId = Nothing
+  }
+
 
 -- | Whether the volume is deleted on instance termination.
 ebdDeleteOnTermination :: Lens' EBSBlockDevice (Maybe Bool)
@@ -1069,9 +1079,9 @@ instance FromJSON EBSBlockDevice where
                      <*> (x .:? "VolumeType")
                      <*> (x .:? "SnapshotId"))
 
-instance Hashable EBSBlockDevice
+instance Hashable EBSBlockDevice where
 
-instance NFData EBSBlockDevice
+instance NFData EBSBlockDevice where
 
 instance ToJSON EBSBlockDevice where
         toJSON EBSBlockDevice'{..}
@@ -1090,11 +1100,12 @@ instance ToJSON EBSBlockDevice where
 --
 -- /See:/ 'ecsCluster' smart constructor.
 data EcsCluster = EcsCluster'
-    { _ecEcsClusterARN  :: !(Maybe Text)
-    , _ecEcsClusterName :: !(Maybe Text)
-    , _ecRegisteredAt   :: !(Maybe Text)
-    , _ecStackId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecEcsClusterARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecEcsClusterName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecRegisteredAt   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EcsCluster' with the minimum fields required to make a request.
 --
@@ -1110,12 +1121,13 @@ data EcsCluster = EcsCluster'
 ecsCluster
     :: EcsCluster
 ecsCluster =
-    EcsCluster'
-    { _ecEcsClusterARN = Nothing
-    , _ecEcsClusterName = Nothing
-    , _ecRegisteredAt = Nothing
-    , _ecStackId = Nothing
-    }
+  EcsCluster'
+  { _ecEcsClusterARN = Nothing
+  , _ecEcsClusterName = Nothing
+  , _ecRegisteredAt = Nothing
+  , _ecStackId = Nothing
+  }
+
 
 -- | The cluster's ARN.
 ecEcsClusterARN :: Lens' EcsCluster (Maybe Text)
@@ -1142,9 +1154,9 @@ instance FromJSON EcsCluster where
                      <*> (x .:? "RegisteredAt")
                      <*> (x .:? "StackId"))
 
-instance Hashable EcsCluster
+instance Hashable EcsCluster where
 
-instance NFData EcsCluster
+instance NFData EcsCluster where
 
 -- | Describes an Elastic IP address.
 --
@@ -1152,12 +1164,13 @@ instance NFData EcsCluster
 --
 -- /See:/ 'elasticIP' smart constructor.
 data ElasticIP = ElasticIP'
-    { _eiInstanceId :: !(Maybe Text)
-    , _eiDomain     :: !(Maybe Text)
-    , _eiIP         :: !(Maybe Text)
-    , _eiName       :: !(Maybe Text)
-    , _eiRegion     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eiInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiDomain     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiIP         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiRegion     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticIP' with the minimum fields required to make a request.
 --
@@ -1175,13 +1188,14 @@ data ElasticIP = ElasticIP'
 elasticIP
     :: ElasticIP
 elasticIP =
-    ElasticIP'
-    { _eiInstanceId = Nothing
-    , _eiDomain = Nothing
-    , _eiIP = Nothing
-    , _eiName = Nothing
-    , _eiRegion = Nothing
-    }
+  ElasticIP'
+  { _eiInstanceId = Nothing
+  , _eiDomain = Nothing
+  , _eiIP = Nothing
+  , _eiName = Nothing
+  , _eiRegion = Nothing
+  }
+
 
 -- | The ID of the instance that the address is attached to.
 eiInstanceId :: Lens' ElasticIP (Maybe Text)
@@ -1213,9 +1227,9 @@ instance FromJSON ElasticIP where
                      <*> (x .:? "Name")
                      <*> (x .:? "Region"))
 
-instance Hashable ElasticIP
+instance Hashable ElasticIP where
 
-instance NFData ElasticIP
+instance NFData ElasticIP where
 
 -- | Describes an Elastic Load Balancing instance.
 --
@@ -1223,16 +1237,17 @@ instance NFData ElasticIP
 --
 -- /See:/ 'elasticLoadBalancer' smart constructor.
 data ElasticLoadBalancer = ElasticLoadBalancer'
-    { _elbSubnetIds               :: !(Maybe [Text])
-    , _elbVPCId                   :: !(Maybe Text)
-    , _elbAvailabilityZones       :: !(Maybe [Text])
-    , _elbRegion                  :: !(Maybe Text)
-    , _elbElasticLoadBalancerName :: !(Maybe Text)
-    , _elbStackId                 :: !(Maybe Text)
-    , _elbEC2InstanceIds          :: !(Maybe [Text])
-    , _elbLayerId                 :: !(Maybe Text)
-    , _elbDNSName                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _elbSubnetIds               :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _elbVPCId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elbAvailabilityZones       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _elbRegion                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elbElasticLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elbStackId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elbEC2InstanceIds          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _elbLayerId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elbDNSName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticLoadBalancer' with the minimum fields required to make a request.
 --
@@ -1258,17 +1273,18 @@ data ElasticLoadBalancer = ElasticLoadBalancer'
 elasticLoadBalancer
     :: ElasticLoadBalancer
 elasticLoadBalancer =
-    ElasticLoadBalancer'
-    { _elbSubnetIds = Nothing
-    , _elbVPCId = Nothing
-    , _elbAvailabilityZones = Nothing
-    , _elbRegion = Nothing
-    , _elbElasticLoadBalancerName = Nothing
-    , _elbStackId = Nothing
-    , _elbEC2InstanceIds = Nothing
-    , _elbLayerId = Nothing
-    , _elbDNSName = Nothing
-    }
+  ElasticLoadBalancer'
+  { _elbSubnetIds = Nothing
+  , _elbVPCId = Nothing
+  , _elbAvailabilityZones = Nothing
+  , _elbRegion = Nothing
+  , _elbElasticLoadBalancerName = Nothing
+  , _elbStackId = Nothing
+  , _elbEC2InstanceIds = Nothing
+  , _elbLayerId = Nothing
+  , _elbDNSName = Nothing
+  }
+
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
 elbSubnetIds :: Lens' ElasticLoadBalancer [Text]
@@ -1320,9 +1336,9 @@ instance FromJSON ElasticLoadBalancer where
                      <*> (x .:? "LayerId")
                      <*> (x .:? "DnsName"))
 
-instance Hashable ElasticLoadBalancer
+instance Hashable ElasticLoadBalancer where
 
-instance NFData ElasticLoadBalancer
+instance NFData ElasticLoadBalancer where
 
 -- | Represents an app's environment variable.
 --
@@ -1330,10 +1346,11 @@ instance NFData ElasticLoadBalancer
 --
 -- /See:/ 'environmentVariable' smart constructor.
 data EnvironmentVariable = EnvironmentVariable'
-    { _evSecure :: !(Maybe Bool)
-    , _evKey    :: !Text
-    , _evValue  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evSecure :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _evKey    :: {-# NOUNPACK #-}!Text
+  , _evValue  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentVariable' with the minimum fields required to make a request.
 --
@@ -1349,11 +1366,8 @@ environmentVariable
     -> Text -- ^ 'evValue'
     -> EnvironmentVariable
 environmentVariable pKey_ pValue_ =
-    EnvironmentVariable'
-    { _evSecure = Nothing
-    , _evKey = pKey_
-    , _evValue = pValue_
-    }
+  EnvironmentVariable' {_evSecure = Nothing, _evKey = pKey_, _evValue = pValue_}
+
 
 -- | (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
 evSecure :: Lens' EnvironmentVariable (Maybe Bool)
@@ -1374,9 +1388,9 @@ instance FromJSON EnvironmentVariable where
                  EnvironmentVariable' <$>
                    (x .:? "Secure") <*> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable EnvironmentVariable
+instance Hashable EnvironmentVariable where
 
-instance NFData EnvironmentVariable
+instance NFData EnvironmentVariable where
 
 instance ToJSON EnvironmentVariable where
         toJSON EnvironmentVariable'{..}
@@ -1391,48 +1405,49 @@ instance ToJSON EnvironmentVariable where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-    { _iPrivateDNS               :: !(Maybe Text)
-    , _iReportedAgentVersion     :: !(Maybe Text)
-    , _iInstanceId               :: !(Maybe Text)
-    , _iStatus                   :: !(Maybe Text)
-    , _iPrivateIP                :: !(Maybe Text)
-    , _iInstallUpdatesOnBoot     :: !(Maybe Bool)
-    , _iVirtualizationType       :: !(Maybe VirtualizationType)
-    , _iInstanceProfileARN       :: !(Maybe Text)
-    , _iPlatform                 :: !(Maybe Text)
-    , _iHostname                 :: !(Maybe Text)
-    , _iSSHHostRsaKeyFingerprint :: !(Maybe Text)
-    , _iSecurityGroupIds         :: !(Maybe [Text])
-    , _iEcsClusterARN            :: !(Maybe Text)
-    , _iARN                      :: !(Maybe Text)
-    , _iCreatedAt                :: !(Maybe Text)
-    , _iEC2InstanceId            :: !(Maybe Text)
-    , _iSSHKeyName               :: !(Maybe Text)
-    , _iAgentVersion             :: !(Maybe Text)
-    , _iRootDeviceVolumeId       :: !(Maybe Text)
-    , _iSubnetId                 :: !(Maybe Text)
-    , _iInfrastructureClass      :: !(Maybe Text)
-    , _iSSHHostDsaKeyFingerprint :: !(Maybe Text)
-    , _iInstanceType             :: !(Maybe Text)
-    , _iEBSOptimized             :: !(Maybe Bool)
-    , _iElasticIP                :: !(Maybe Text)
-    , _iOS                       :: !(Maybe Text)
-    , _iAvailabilityZone         :: !(Maybe Text)
-    , _iLastServiceErrorId       :: !(Maybe Text)
-    , _iTenancy                  :: !(Maybe Text)
-    , _iAutoScalingType          :: !(Maybe AutoScalingType)
-    , _iLayerIds                 :: !(Maybe [Text])
-    , _iArchitecture             :: !(Maybe Architecture)
-    , _iPublicDNS                :: !(Maybe Text)
-    , _iAMIId                    :: !(Maybe Text)
-    , _iPublicIP                 :: !(Maybe Text)
-    , _iReportedOS               :: !(Maybe ReportedOS)
-    , _iRegisteredBy             :: !(Maybe Text)
-    , _iStackId                  :: !(Maybe Text)
-    , _iRootDeviceType           :: !(Maybe RootDeviceType)
-    , _iEcsContainerInstanceARN  :: !(Maybe Text)
-    , _iBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iPrivateDNS               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iReportedAgentVersion     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInstanceId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iPrivateIP                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInstallUpdatesOnBoot     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iVirtualizationType       :: {-# NOUNPACK #-}!(Maybe VirtualizationType)
+  , _iInstanceProfileARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iPlatform                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iHostname                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iSSHHostRsaKeyFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iSecurityGroupIds         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _iEcsClusterARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iARN                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iCreatedAt                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iEC2InstanceId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iSSHKeyName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iAgentVersion             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iRootDeviceVolumeId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iSubnetId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInfrastructureClass      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iSSHHostDsaKeyFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInstanceType             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iEBSOptimized             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iElasticIP                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iOS                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iAvailabilityZone         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iLastServiceErrorId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iTenancy                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iAutoScalingType          :: {-# NOUNPACK #-}!(Maybe AutoScalingType)
+  , _iLayerIds                 :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _iArchitecture             :: {-# NOUNPACK #-}!(Maybe Architecture)
+  , _iPublicDNS                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iAMIId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iPublicIP                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iReportedOS               :: {-# NOUNPACK #-}!(Maybe ReportedOS)
+  , _iRegisteredBy             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iStackId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iRootDeviceType           :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
+  , _iEcsContainerInstanceARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iBlockDeviceMappings      :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
@@ -1522,49 +1537,50 @@ data Instance = Instance'
 instance'
     :: Instance
 instance' =
-    Instance'
-    { _iPrivateDNS = Nothing
-    , _iReportedAgentVersion = Nothing
-    , _iInstanceId = Nothing
-    , _iStatus = Nothing
-    , _iPrivateIP = Nothing
-    , _iInstallUpdatesOnBoot = Nothing
-    , _iVirtualizationType = Nothing
-    , _iInstanceProfileARN = Nothing
-    , _iPlatform = Nothing
-    , _iHostname = Nothing
-    , _iSSHHostRsaKeyFingerprint = Nothing
-    , _iSecurityGroupIds = Nothing
-    , _iEcsClusterARN = Nothing
-    , _iARN = Nothing
-    , _iCreatedAt = Nothing
-    , _iEC2InstanceId = Nothing
-    , _iSSHKeyName = Nothing
-    , _iAgentVersion = Nothing
-    , _iRootDeviceVolumeId = Nothing
-    , _iSubnetId = Nothing
-    , _iInfrastructureClass = Nothing
-    , _iSSHHostDsaKeyFingerprint = Nothing
-    , _iInstanceType = Nothing
-    , _iEBSOptimized = Nothing
-    , _iElasticIP = Nothing
-    , _iOS = Nothing
-    , _iAvailabilityZone = Nothing
-    , _iLastServiceErrorId = Nothing
-    , _iTenancy = Nothing
-    , _iAutoScalingType = Nothing
-    , _iLayerIds = Nothing
-    , _iArchitecture = Nothing
-    , _iPublicDNS = Nothing
-    , _iAMIId = Nothing
-    , _iPublicIP = Nothing
-    , _iReportedOS = Nothing
-    , _iRegisteredBy = Nothing
-    , _iStackId = Nothing
-    , _iRootDeviceType = Nothing
-    , _iEcsContainerInstanceARN = Nothing
-    , _iBlockDeviceMappings = Nothing
-    }
+  Instance'
+  { _iPrivateDNS = Nothing
+  , _iReportedAgentVersion = Nothing
+  , _iInstanceId = Nothing
+  , _iStatus = Nothing
+  , _iPrivateIP = Nothing
+  , _iInstallUpdatesOnBoot = Nothing
+  , _iVirtualizationType = Nothing
+  , _iInstanceProfileARN = Nothing
+  , _iPlatform = Nothing
+  , _iHostname = Nothing
+  , _iSSHHostRsaKeyFingerprint = Nothing
+  , _iSecurityGroupIds = Nothing
+  , _iEcsClusterARN = Nothing
+  , _iARN = Nothing
+  , _iCreatedAt = Nothing
+  , _iEC2InstanceId = Nothing
+  , _iSSHKeyName = Nothing
+  , _iAgentVersion = Nothing
+  , _iRootDeviceVolumeId = Nothing
+  , _iSubnetId = Nothing
+  , _iInfrastructureClass = Nothing
+  , _iSSHHostDsaKeyFingerprint = Nothing
+  , _iInstanceType = Nothing
+  , _iEBSOptimized = Nothing
+  , _iElasticIP = Nothing
+  , _iOS = Nothing
+  , _iAvailabilityZone = Nothing
+  , _iLastServiceErrorId = Nothing
+  , _iTenancy = Nothing
+  , _iAutoScalingType = Nothing
+  , _iLayerIds = Nothing
+  , _iArchitecture = Nothing
+  , _iPublicDNS = Nothing
+  , _iAMIId = Nothing
+  , _iPublicIP = Nothing
+  , _iReportedOS = Nothing
+  , _iRegisteredBy = Nothing
+  , _iStackId = Nothing
+  , _iRootDeviceType = Nothing
+  , _iEcsContainerInstanceARN = Nothing
+  , _iBlockDeviceMappings = Nothing
+  }
+
 
 -- | The instance's private DNS name.
 iPrivateDNS :: Lens' Instance (Maybe Text)
@@ -1777,9 +1793,9 @@ instance FromJSON Instance where
                      <*> (x .:? "EcsContainerInstanceArn")
                      <*> (x .:? "BlockDeviceMappings" .!= mempty))
 
-instance Hashable Instance
+instance Hashable Instance where
 
-instance NFData Instance
+instance NFData Instance where
 
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2 metadata service. For more information, see <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html Instance Metadata and User Data> .
 --
@@ -1787,9 +1803,10 @@ instance NFData Instance
 --
 -- /See:/ 'instanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-    { _iiSignature :: !(Maybe Text)
-    , _iiDocument  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiSignature :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiDocument  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceIdentity' with the minimum fields required to make a request.
 --
@@ -1801,10 +1818,8 @@ data InstanceIdentity = InstanceIdentity'
 instanceIdentity
     :: InstanceIdentity
 instanceIdentity =
-    InstanceIdentity'
-    { _iiSignature = Nothing
-    , _iiDocument = Nothing
-    }
+  InstanceIdentity' {_iiSignature = Nothing, _iiDocument = Nothing}
+
 
 -- | A signature that can be used to verify the document's accuracy and authenticity.
 iiSignature :: Lens' InstanceIdentity (Maybe Text)
@@ -1814,9 +1829,9 @@ iiSignature = lens _iiSignature (\ s a -> s{_iiSignature = a});
 iiDocument :: Lens' InstanceIdentity (Maybe Text)
 iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a});
 
-instance Hashable InstanceIdentity
+instance Hashable InstanceIdentity where
 
-instance NFData InstanceIdentity
+instance NFData InstanceIdentity where
 
 instance ToJSON InstanceIdentity where
         toJSON InstanceIdentity'{..}
@@ -1831,26 +1846,27 @@ instance ToJSON InstanceIdentity where
 --
 -- /See:/ 'instancesCount' smart constructor.
 data InstancesCount = InstancesCount'
-    { _icTerminating    :: !(Maybe Int)
-    , _icPending        :: !(Maybe Int)
-    , _icOnline         :: !(Maybe Int)
-    , _icUnassigning    :: !(Maybe Int)
-    , _icDeregistering  :: !(Maybe Int)
-    , _icRunningSetup   :: !(Maybe Int)
-    , _icRequested      :: !(Maybe Int)
-    , _icBooting        :: !(Maybe Int)
-    , _icStopped        :: !(Maybe Int)
-    , _icRebooting      :: !(Maybe Int)
-    , _icAssigning      :: !(Maybe Int)
-    , _icShuttingDown   :: !(Maybe Int)
-    , _icSetupFailed    :: !(Maybe Int)
-    , _icConnectionLost :: !(Maybe Int)
-    , _icTerminated     :: !(Maybe Int)
-    , _icStopping       :: !(Maybe Int)
-    , _icRegistered     :: !(Maybe Int)
-    , _icStartFailed    :: !(Maybe Int)
-    , _icRegistering    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _icTerminating    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icPending        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icOnline         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icUnassigning    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icDeregistering  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icRunningSetup   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icRequested      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icBooting        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icStopped        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icRebooting      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icAssigning      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icShuttingDown   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icSetupFailed    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icConnectionLost :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icTerminated     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icStopping       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icRegistered     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icStartFailed    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _icRegistering    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstancesCount' with the minimum fields required to make a request.
 --
@@ -1896,27 +1912,28 @@ data InstancesCount = InstancesCount'
 instancesCount
     :: InstancesCount
 instancesCount =
-    InstancesCount'
-    { _icTerminating = Nothing
-    , _icPending = Nothing
-    , _icOnline = Nothing
-    , _icUnassigning = Nothing
-    , _icDeregistering = Nothing
-    , _icRunningSetup = Nothing
-    , _icRequested = Nothing
-    , _icBooting = Nothing
-    , _icStopped = Nothing
-    , _icRebooting = Nothing
-    , _icAssigning = Nothing
-    , _icShuttingDown = Nothing
-    , _icSetupFailed = Nothing
-    , _icConnectionLost = Nothing
-    , _icTerminated = Nothing
-    , _icStopping = Nothing
-    , _icRegistered = Nothing
-    , _icStartFailed = Nothing
-    , _icRegistering = Nothing
-    }
+  InstancesCount'
+  { _icTerminating = Nothing
+  , _icPending = Nothing
+  , _icOnline = Nothing
+  , _icUnassigning = Nothing
+  , _icDeregistering = Nothing
+  , _icRunningSetup = Nothing
+  , _icRequested = Nothing
+  , _icBooting = Nothing
+  , _icStopped = Nothing
+  , _icRebooting = Nothing
+  , _icAssigning = Nothing
+  , _icShuttingDown = Nothing
+  , _icSetupFailed = Nothing
+  , _icConnectionLost = Nothing
+  , _icTerminated = Nothing
+  , _icStopping = Nothing
+  , _icRegistered = Nothing
+  , _icStartFailed = Nothing
+  , _icRegistering = Nothing
+  }
+
 
 -- | The number of instances with @terminating@ status.
 icTerminating :: Lens' InstancesCount (Maybe Int)
@@ -2018,9 +2035,9 @@ instance FromJSON InstancesCount where
                      <*> (x .:? "StartFailed")
                      <*> (x .:? "Registering"))
 
-instance Hashable InstancesCount
+instance Hashable InstancesCount where
 
-instance NFData InstancesCount
+instance NFData InstancesCount where
 
 -- | Describes a layer.
 --
@@ -2028,30 +2045,31 @@ instance NFData InstancesCount
 --
 -- /See:/ 'layer' smart constructor.
 data Layer = Layer'
-    { _lCustomInstanceProfileARN    :: !(Maybe Text)
-    , _lCustomSecurityGroupIds      :: !(Maybe [Text])
-    , _lInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _lCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
-    , _lLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _lARN                         :: !(Maybe Text)
-    , _lCreatedAt                   :: !(Maybe Text)
-    , _lShortname                   :: !(Maybe Text)
-    , _lDefaultRecipes              :: !(Maybe Recipes)
-    , _lCustomRecipes               :: !(Maybe Recipes)
-    , _lCustomJSON                  :: !(Maybe Text)
-    , _lVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _lEnableAutoHealing           :: !(Maybe Bool)
-    , _lPackages                    :: !(Maybe [Text])
-    , _lAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _lName                        :: !(Maybe Text)
-    , _lAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _lType                        :: !(Maybe LayerType)
-    , _lUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _lStackId                     :: !(Maybe Text)
-    , _lLayerId                     :: !(Maybe Text)
-    , _lDefaultSecurityGroupNames   :: !(Maybe [Text])
-    , _lAutoAssignElasticIPs        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lCustomInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lCustomSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lCloudWatchLogsConfiguration :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsConfiguration)
+  , _lLifecycleEventConfiguration :: {-# NOUNPACK #-}!(Maybe LifecycleEventConfiguration)
+  , _lARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lCreatedAt :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lShortname :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lDefaultRecipes :: {-# NOUNPACK #-}!(Maybe Recipes)
+  , _lCustomRecipes :: {-# NOUNPACK #-}!(Maybe Recipes)
+  , _lCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lVolumeConfigurations :: {-# NOUNPACK #-}!(Maybe [VolumeConfiguration])
+  , _lEnableAutoHealing :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lPackages :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lAttributes :: {-# NOUNPACK #-}!(Maybe (Map LayerAttributesKeys Text))
+  , _lName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lAutoAssignPublicIPs :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lType :: {-# NOUNPACK #-}!(Maybe LayerType)
+  , _lUseEBSOptimizedInstances :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lStackId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lLayerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lDefaultSecurityGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lAutoAssignElasticIPs :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Layer' with the minimum fields required to make a request.
 --
@@ -2105,31 +2123,32 @@ data Layer = Layer'
 layer
     :: Layer
 layer =
-    Layer'
-    { _lCustomInstanceProfileARN = Nothing
-    , _lCustomSecurityGroupIds = Nothing
-    , _lInstallUpdatesOnBoot = Nothing
-    , _lCloudWatchLogsConfiguration = Nothing
-    , _lLifecycleEventConfiguration = Nothing
-    , _lARN = Nothing
-    , _lCreatedAt = Nothing
-    , _lShortname = Nothing
-    , _lDefaultRecipes = Nothing
-    , _lCustomRecipes = Nothing
-    , _lCustomJSON = Nothing
-    , _lVolumeConfigurations = Nothing
-    , _lEnableAutoHealing = Nothing
-    , _lPackages = Nothing
-    , _lAttributes = Nothing
-    , _lName = Nothing
-    , _lAutoAssignPublicIPs = Nothing
-    , _lType = Nothing
-    , _lUseEBSOptimizedInstances = Nothing
-    , _lStackId = Nothing
-    , _lLayerId = Nothing
-    , _lDefaultSecurityGroupNames = Nothing
-    , _lAutoAssignElasticIPs = Nothing
-    }
+  Layer'
+  { _lCustomInstanceProfileARN = Nothing
+  , _lCustomSecurityGroupIds = Nothing
+  , _lInstallUpdatesOnBoot = Nothing
+  , _lCloudWatchLogsConfiguration = Nothing
+  , _lLifecycleEventConfiguration = Nothing
+  , _lARN = Nothing
+  , _lCreatedAt = Nothing
+  , _lShortname = Nothing
+  , _lDefaultRecipes = Nothing
+  , _lCustomRecipes = Nothing
+  , _lCustomJSON = Nothing
+  , _lVolumeConfigurations = Nothing
+  , _lEnableAutoHealing = Nothing
+  , _lPackages = Nothing
+  , _lAttributes = Nothing
+  , _lName = Nothing
+  , _lAutoAssignPublicIPs = Nothing
+  , _lType = Nothing
+  , _lUseEBSOptimizedInstances = Nothing
+  , _lStackId = Nothing
+  , _lLayerId = Nothing
+  , _lDefaultSecurityGroupNames = Nothing
+  , _lAutoAssignElasticIPs = Nothing
+  }
+
 
 -- | The ARN of the default IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 lCustomInstanceProfileARN :: Lens' Layer (Maybe Text)
@@ -2252,9 +2271,9 @@ instance FromJSON Layer where
                      <*> (x .:? "DefaultSecurityGroupNames" .!= mempty)
                      <*> (x .:? "AutoAssignElasticIps"))
 
-instance Hashable Layer
+instance Hashable Layer where
 
-instance NFData Layer
+instance NFData Layer where
 
 -- | Specifies the lifecycle event configuration
 --
@@ -2262,8 +2281,9 @@ instance NFData Layer
 --
 -- /See:/ 'lifecycleEventConfiguration' smart constructor.
 newtype LifecycleEventConfiguration = LifecycleEventConfiguration'
-    { _lecShutdown :: Maybe ShutdownEventConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lecShutdown :: Maybe ShutdownEventConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LifecycleEventConfiguration' with the minimum fields required to make a request.
 --
@@ -2273,9 +2293,8 @@ newtype LifecycleEventConfiguration = LifecycleEventConfiguration'
 lifecycleEventConfiguration
     :: LifecycleEventConfiguration
 lifecycleEventConfiguration =
-    LifecycleEventConfiguration'
-    { _lecShutdown = Nothing
-    }
+  LifecycleEventConfiguration' {_lecShutdown = Nothing}
+
 
 -- | A @ShutdownEventConfiguration@ object that specifies the Shutdown event configuration.
 lecShutdown :: Lens' LifecycleEventConfiguration (Maybe ShutdownEventConfiguration)
@@ -2287,9 +2306,9 @@ instance FromJSON LifecycleEventConfiguration where
               (\ x ->
                  LifecycleEventConfiguration' <$> (x .:? "Shutdown"))
 
-instance Hashable LifecycleEventConfiguration
+instance Hashable LifecycleEventConfiguration where
 
-instance NFData LifecycleEventConfiguration
+instance NFData LifecycleEventConfiguration where
 
 instance ToJSON LifecycleEventConfiguration where
         toJSON LifecycleEventConfiguration'{..}
@@ -2302,11 +2321,12 @@ instance ToJSON LifecycleEventConfiguration where
 --
 -- /See:/ 'loadBasedAutoScalingConfiguration' smart constructor.
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
-    { _lbascUpScaling   :: !(Maybe AutoScalingThresholds)
-    , _lbascEnable      :: !(Maybe Bool)
-    , _lbascDownScaling :: !(Maybe AutoScalingThresholds)
-    , _lbascLayerId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbascUpScaling   :: {-# NOUNPACK #-}!(Maybe AutoScalingThresholds)
+  , _lbascEnable      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lbascDownScaling :: {-# NOUNPACK #-}!(Maybe AutoScalingThresholds)
+  , _lbascLayerId     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoadBasedAutoScalingConfiguration' with the minimum fields required to make a request.
 --
@@ -2322,12 +2342,13 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
 loadBasedAutoScalingConfiguration
     :: LoadBasedAutoScalingConfiguration
 loadBasedAutoScalingConfiguration =
-    LoadBasedAutoScalingConfiguration'
-    { _lbascUpScaling = Nothing
-    , _lbascEnable = Nothing
-    , _lbascDownScaling = Nothing
-    , _lbascLayerId = Nothing
-    }
+  LoadBasedAutoScalingConfiguration'
+  { _lbascUpScaling = Nothing
+  , _lbascEnable = Nothing
+  , _lbascDownScaling = Nothing
+  , _lbascLayerId = Nothing
+  }
+
 
 -- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
@@ -2356,8 +2377,10 @@ instance FromJSON LoadBasedAutoScalingConfiguration
                      <*> (x .:? "LayerId"))
 
 instance Hashable LoadBasedAutoScalingConfiguration
+         where
 
 instance NFData LoadBasedAutoScalingConfiguration
+         where
 
 -- | Describes stack or user permissions.
 --
@@ -2365,12 +2388,13 @@ instance NFData LoadBasedAutoScalingConfiguration
 --
 -- /See:/ 'permission' smart constructor.
 data Permission = Permission'
-    { _pIAMUserARN :: !(Maybe Text)
-    , _pAllowSudo  :: !(Maybe Bool)
-    , _pStackId    :: !(Maybe Text)
-    , _pLevel      :: !(Maybe Text)
-    , _pAllowSSH   :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pIAMUserARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pAllowSudo  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pStackId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pLevel      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pAllowSSH   :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Permission' with the minimum fields required to make a request.
 --
@@ -2388,13 +2412,14 @@ data Permission = Permission'
 permission
     :: Permission
 permission =
-    Permission'
-    { _pIAMUserARN = Nothing
-    , _pAllowSudo = Nothing
-    , _pStackId = Nothing
-    , _pLevel = Nothing
-    , _pAllowSSH = Nothing
-    }
+  Permission'
+  { _pIAMUserARN = Nothing
+  , _pAllowSudo = Nothing
+  , _pStackId = Nothing
+  , _pLevel = Nothing
+  , _pAllowSSH = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 pIAMUserARN :: Lens' Permission (Maybe Text)
@@ -2426,9 +2451,9 @@ instance FromJSON Permission where
                      <*> (x .:? "Level")
                      <*> (x .:? "AllowSsh"))
 
-instance Hashable Permission
+instance Hashable Permission where
 
-instance NFData Permission
+instance NFData Permission where
 
 -- | Describes an instance's RAID array.
 --
@@ -2436,20 +2461,21 @@ instance NFData Permission
 --
 -- /See:/ 'rAIdArray' smart constructor.
 data RAIdArray = RAIdArray'
-    { _raiaInstanceId       :: !(Maybe Text)
-    , _raiaSize             :: !(Maybe Int)
-    , _raiaIOPS             :: !(Maybe Int)
-    , _raiaCreatedAt        :: !(Maybe Text)
-    , _raiaRAIdLevel        :: !(Maybe Int)
-    , _raiaDevice           :: !(Maybe Text)
-    , _raiaNumberOfDisks    :: !(Maybe Int)
-    , _raiaAvailabilityZone :: !(Maybe Text)
-    , _raiaName             :: !(Maybe Text)
-    , _raiaRAIdArrayId      :: !(Maybe Text)
-    , _raiaVolumeType       :: !(Maybe Text)
-    , _raiaStackId          :: !(Maybe Text)
-    , _raiaMountPoint       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raiaInstanceId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raiaSize             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _raiaIOPS             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _raiaCreatedAt        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raiaRAIdLevel        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _raiaDevice           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raiaNumberOfDisks    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _raiaAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raiaName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raiaRAIdArrayId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raiaVolumeType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raiaStackId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raiaMountPoint       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RAIdArray' with the minimum fields required to make a request.
 --
@@ -2483,21 +2509,22 @@ data RAIdArray = RAIdArray'
 rAIdArray
     :: RAIdArray
 rAIdArray =
-    RAIdArray'
-    { _raiaInstanceId = Nothing
-    , _raiaSize = Nothing
-    , _raiaIOPS = Nothing
-    , _raiaCreatedAt = Nothing
-    , _raiaRAIdLevel = Nothing
-    , _raiaDevice = Nothing
-    , _raiaNumberOfDisks = Nothing
-    , _raiaAvailabilityZone = Nothing
-    , _raiaName = Nothing
-    , _raiaRAIdArrayId = Nothing
-    , _raiaVolumeType = Nothing
-    , _raiaStackId = Nothing
-    , _raiaMountPoint = Nothing
-    }
+  RAIdArray'
+  { _raiaInstanceId = Nothing
+  , _raiaSize = Nothing
+  , _raiaIOPS = Nothing
+  , _raiaCreatedAt = Nothing
+  , _raiaRAIdLevel = Nothing
+  , _raiaDevice = Nothing
+  , _raiaNumberOfDisks = Nothing
+  , _raiaAvailabilityZone = Nothing
+  , _raiaName = Nothing
+  , _raiaRAIdArrayId = Nothing
+  , _raiaVolumeType = Nothing
+  , _raiaStackId = Nothing
+  , _raiaMountPoint = Nothing
+  }
+
 
 -- | The instance ID.
 raiaInstanceId :: Lens' RAIdArray (Maybe Text)
@@ -2569,9 +2596,9 @@ instance FromJSON RAIdArray where
                      <*> (x .:? "StackId")
                      <*> (x .:? "MountPoint"))
 
-instance Hashable RAIdArray
+instance Hashable RAIdArray where
 
-instance NFData RAIdArray
+instance NFData RAIdArray where
 
 -- | Describes an Amazon RDS instance.
 --
@@ -2579,16 +2606,17 @@ instance NFData RAIdArray
 --
 -- /See:/ 'rdsDBInstance' smart constructor.
 data RDSDBInstance = RDSDBInstance'
-    { _rdiRDSDBInstanceARN     :: !(Maybe Text)
-    , _rdiDBUser               :: !(Maybe Text)
-    , _rdiMissingOnRDS         :: !(Maybe Bool)
-    , _rdiEngine               :: !(Maybe Text)
-    , _rdiAddress              :: !(Maybe Text)
-    , _rdiDBInstanceIdentifier :: !(Maybe Text)
-    , _rdiRegion               :: !(Maybe Text)
-    , _rdiStackId              :: !(Maybe Text)
-    , _rdiDBPassword           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdiRDSDBInstanceARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiDBUser               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiMissingOnRDS         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdiEngine               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiAddress              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiRegion               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiStackId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiDBPassword           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RDSDBInstance' with the minimum fields required to make a request.
 --
@@ -2614,17 +2642,18 @@ data RDSDBInstance = RDSDBInstance'
 rdsDBInstance
     :: RDSDBInstance
 rdsDBInstance =
-    RDSDBInstance'
-    { _rdiRDSDBInstanceARN = Nothing
-    , _rdiDBUser = Nothing
-    , _rdiMissingOnRDS = Nothing
-    , _rdiEngine = Nothing
-    , _rdiAddress = Nothing
-    , _rdiDBInstanceIdentifier = Nothing
-    , _rdiRegion = Nothing
-    , _rdiStackId = Nothing
-    , _rdiDBPassword = Nothing
-    }
+  RDSDBInstance'
+  { _rdiRDSDBInstanceARN = Nothing
+  , _rdiDBUser = Nothing
+  , _rdiMissingOnRDS = Nothing
+  , _rdiEngine = Nothing
+  , _rdiAddress = Nothing
+  , _rdiDBInstanceIdentifier = Nothing
+  , _rdiRegion = Nothing
+  , _rdiStackId = Nothing
+  , _rdiDBPassword = Nothing
+  }
+
 
 -- | The instance's ARN.
 rdiRDSDBInstanceARN :: Lens' RDSDBInstance (Maybe Text)
@@ -2676,9 +2705,9 @@ instance FromJSON RDSDBInstance where
                      <*> (x .:? "StackId")
                      <*> (x .:? "DbPassword"))
 
-instance Hashable RDSDBInstance
+instance Hashable RDSDBInstance where
 
-instance NFData RDSDBInstance
+instance NFData RDSDBInstance where
 
 -- | AWS OpsWorks Stacks supports five lifecycle events: __setup__ , __configuration__ , __deploy__ , __undeploy__ , and __shutdown__ . For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. In addition, you can provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. @LayerCustomRecipes@ specifies the custom recipes for a particular layer to be run in response to each of the five events.
 --
@@ -2688,12 +2717,13 @@ instance NFData RDSDBInstance
 --
 -- /See:/ 'recipes' smart constructor.
 data Recipes = Recipes'
-    { _rSetup     :: !(Maybe [Text])
-    , _rShutdown  :: !(Maybe [Text])
-    , _rUndeploy  :: !(Maybe [Text])
-    , _rConfigure :: !(Maybe [Text])
-    , _rDeploy    :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rSetup     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rShutdown  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rUndeploy  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rConfigure :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rDeploy    :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Recipes' with the minimum fields required to make a request.
 --
@@ -2711,13 +2741,14 @@ data Recipes = Recipes'
 recipes
     :: Recipes
 recipes =
-    Recipes'
-    { _rSetup = Nothing
-    , _rShutdown = Nothing
-    , _rUndeploy = Nothing
-    , _rConfigure = Nothing
-    , _rDeploy = Nothing
-    }
+  Recipes'
+  { _rSetup = Nothing
+  , _rShutdown = Nothing
+  , _rUndeploy = Nothing
+  , _rConfigure = Nothing
+  , _rDeploy = Nothing
+  }
+
 
 -- | An array of custom recipe names to be run following a @setup@ event.
 rSetup :: Lens' Recipes [Text]
@@ -2750,9 +2781,9 @@ instance FromJSON Recipes where
                      <*> (x .:? "Configure" .!= mempty)
                      <*> (x .:? "Deploy" .!= mempty))
 
-instance Hashable Recipes
+instance Hashable Recipes where
 
-instance NFData Recipes
+instance NFData Recipes where
 
 instance ToJSON Recipes where
         toJSON Recipes'{..}
@@ -2770,10 +2801,11 @@ instance ToJSON Recipes where
 --
 -- /See:/ 'reportedOS' smart constructor.
 data ReportedOS = ReportedOS'
-    { _roFamily  :: !(Maybe Text)
-    , _roName    :: !(Maybe Text)
-    , _roVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _roFamily  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _roName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _roVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReportedOS' with the minimum fields required to make a request.
 --
@@ -2787,11 +2819,8 @@ data ReportedOS = ReportedOS'
 reportedOS
     :: ReportedOS
 reportedOS =
-    ReportedOS'
-    { _roFamily = Nothing
-    , _roName = Nothing
-    , _roVersion = Nothing
-    }
+  ReportedOS' {_roFamily = Nothing, _roName = Nothing, _roVersion = Nothing}
+
 
 -- | The operating system family.
 roFamily :: Lens' ReportedOS (Maybe Text)
@@ -2813,9 +2842,9 @@ instance FromJSON ReportedOS where
                    (x .:? "Family") <*> (x .:? "Name") <*>
                      (x .:? "Version"))
 
-instance Hashable ReportedOS
+instance Hashable ReportedOS where
 
-instance NFData ReportedOS
+instance NFData ReportedOS where
 
 -- | Describes an app's SSL configuration.
 --
@@ -2823,10 +2852,11 @@ instance NFData ReportedOS
 --
 -- /See:/ 'sslConfiguration' smart constructor.
 data SSLConfiguration = SSLConfiguration'
-    { _scChain       :: !(Maybe Text)
-    , _scCertificate :: !Text
-    , _scPrivateKey  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scChain       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scCertificate :: {-# NOUNPACK #-}!Text
+  , _scPrivateKey  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SSLConfiguration' with the minimum fields required to make a request.
 --
@@ -2842,11 +2872,12 @@ sslConfiguration
     -> Text -- ^ 'scPrivateKey'
     -> SSLConfiguration
 sslConfiguration pCertificate_ pPrivateKey_ =
-    SSLConfiguration'
-    { _scChain = Nothing
-    , _scCertificate = pCertificate_
-    , _scPrivateKey = pPrivateKey_
-    }
+  SSLConfiguration'
+  { _scChain = Nothing
+  , _scCertificate = pCertificate_
+  , _scPrivateKey = pPrivateKey_
+  }
+
 
 -- | Optional. Can be used to specify an intermediate certificate authority key or client authentication.
 scChain :: Lens' SSLConfiguration (Maybe Text)
@@ -2868,9 +2899,9 @@ instance FromJSON SSLConfiguration where
                    (x .:? "Chain") <*> (x .: "Certificate") <*>
                      (x .: "PrivateKey"))
 
-instance Hashable SSLConfiguration
+instance Hashable SSLConfiguration where
 
-instance NFData SSLConfiguration
+instance NFData SSLConfiguration where
 
 instance ToJSON SSLConfiguration where
         toJSON SSLConfiguration'{..}
@@ -2886,11 +2917,12 @@ instance ToJSON SSLConfiguration where
 --
 -- /See:/ 'selfUserProfile' smart constructor.
 data SelfUserProfile = SelfUserProfile'
-    { _supSSHPublicKey :: !(Maybe Text)
-    , _supSSHUsername  :: !(Maybe Text)
-    , _supIAMUserARN   :: !(Maybe Text)
-    , _supName         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _supSSHPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _supSSHUsername  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _supIAMUserARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _supName         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SelfUserProfile' with the minimum fields required to make a request.
 --
@@ -2906,12 +2938,13 @@ data SelfUserProfile = SelfUserProfile'
 selfUserProfile
     :: SelfUserProfile
 selfUserProfile =
-    SelfUserProfile'
-    { _supSSHPublicKey = Nothing
-    , _supSSHUsername = Nothing
-    , _supIAMUserARN = Nothing
-    , _supName = Nothing
-    }
+  SelfUserProfile'
+  { _supSSHPublicKey = Nothing
+  , _supSSHUsername = Nothing
+  , _supIAMUserARN = Nothing
+  , _supName = Nothing
+  }
+
 
 -- | The user's SSH public key.
 supSSHPublicKey :: Lens' SelfUserProfile (Maybe Text)
@@ -2938,9 +2971,9 @@ instance FromJSON SelfUserProfile where
                      (x .:? "IamUserArn")
                      <*> (x .:? "Name"))
 
-instance Hashable SelfUserProfile
+instance Hashable SelfUserProfile where
 
-instance NFData SelfUserProfile
+instance NFData SelfUserProfile where
 
 -- | Describes an AWS OpsWorks Stacks service error.
 --
@@ -2948,13 +2981,14 @@ instance NFData SelfUserProfile
 --
 -- /See:/ 'serviceError'' smart constructor.
 data ServiceError' = ServiceError''
-    { _seInstanceId     :: !(Maybe Text)
-    , _seCreatedAt      :: !(Maybe Text)
-    , _seServiceErrorId :: !(Maybe Text)
-    , _seType           :: !(Maybe Text)
-    , _seStackId        :: !(Maybe Text)
-    , _seMessage        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seCreatedAt      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seServiceErrorId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seType           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seMessage        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ServiceError'' with the minimum fields required to make a request.
 --
@@ -2974,14 +3008,15 @@ data ServiceError' = ServiceError''
 serviceError'
     :: ServiceError'
 serviceError' =
-    ServiceError''
-    { _seInstanceId = Nothing
-    , _seCreatedAt = Nothing
-    , _seServiceErrorId = Nothing
-    , _seType = Nothing
-    , _seStackId = Nothing
-    , _seMessage = Nothing
-    }
+  ServiceError''
+  { _seInstanceId = Nothing
+  , _seCreatedAt = Nothing
+  , _seServiceErrorId = Nothing
+  , _seType = Nothing
+  , _seStackId = Nothing
+  , _seMessage = Nothing
+  }
+
 
 -- | The instance ID.
 seInstanceId :: Lens' ServiceError' (Maybe Text)
@@ -3018,9 +3053,9 @@ instance FromJSON ServiceError' where
                      <*> (x .:? "StackId")
                      <*> (x .:? "Message"))
 
-instance Hashable ServiceError'
+instance Hashable ServiceError' where
 
-instance NFData ServiceError'
+instance NFData ServiceError' where
 
 -- | The Shutdown event configuration.
 --
@@ -3028,9 +3063,10 @@ instance NFData ServiceError'
 --
 -- /See:/ 'shutdownEventConfiguration' smart constructor.
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
-    { _secExecutionTimeout                :: !(Maybe Int)
-    , _secDelayUntilElbConnectionsDrained :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _secExecutionTimeout                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _secDelayUntilElbConnectionsDrained :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ShutdownEventConfiguration' with the minimum fields required to make a request.
 --
@@ -3042,10 +3078,11 @@ data ShutdownEventConfiguration = ShutdownEventConfiguration'
 shutdownEventConfiguration
     :: ShutdownEventConfiguration
 shutdownEventConfiguration =
-    ShutdownEventConfiguration'
-    { _secExecutionTimeout = Nothing
-    , _secDelayUntilElbConnectionsDrained = Nothing
-    }
+  ShutdownEventConfiguration'
+  { _secExecutionTimeout = Nothing
+  , _secDelayUntilElbConnectionsDrained = Nothing
+  }
+
 
 -- | The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
 secExecutionTimeout :: Lens' ShutdownEventConfiguration (Maybe Int)
@@ -3063,9 +3100,9 @@ instance FromJSON ShutdownEventConfiguration where
                    (x .:? "ExecutionTimeout") <*>
                      (x .:? "DelayUntilElbConnectionsDrained"))
 
-instance Hashable ShutdownEventConfiguration
+instance Hashable ShutdownEventConfiguration where
 
-instance NFData ShutdownEventConfiguration
+instance NFData ShutdownEventConfiguration where
 
 instance ToJSON ShutdownEventConfiguration where
         toJSON ShutdownEventConfiguration'{..}
@@ -3081,13 +3118,14 @@ instance ToJSON ShutdownEventConfiguration where
 --
 -- /See:/ 'source' smart constructor.
 data Source = Source'
-    { _sURL      :: !(Maybe Text)
-    , _sUsername :: !(Maybe Text)
-    , _sSSHKey   :: !(Maybe Text)
-    , _sPassword :: !(Maybe Text)
-    , _sType     :: !(Maybe SourceType)
-    , _sRevision :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sURL      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sUsername :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSSHKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sPassword :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sType     :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _sRevision :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Source' with the minimum fields required to make a request.
 --
@@ -3107,14 +3145,15 @@ data Source = Source'
 source
     :: Source
 source =
-    Source'
-    { _sURL = Nothing
-    , _sUsername = Nothing
-    , _sSSHKey = Nothing
-    , _sPassword = Nothing
-    , _sType = Nothing
-    , _sRevision = Nothing
-    }
+  Source'
+  { _sURL = Nothing
+  , _sUsername = Nothing
+  , _sSSHKey = Nothing
+  , _sPassword = Nothing
+  , _sType = Nothing
+  , _sRevision = Nothing
+  }
+
 
 -- | The source URL. The following is an example of an Amazon S3 source URL: @https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz@ .
 sURL :: Lens' Source (Maybe Text)
@@ -3151,9 +3190,9 @@ instance FromJSON Source where
                      <*> (x .:? "Type")
                      <*> (x .:? "Revision"))
 
-instance Hashable Source
+instance Hashable Source where
 
-instance NFData Source
+instance NFData Source where
 
 instance ToJSON Source where
         toJSON Source'{..}
@@ -3172,29 +3211,30 @@ instance ToJSON Source where
 --
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
-    { _sDefaultInstanceProfileARN :: !(Maybe Text)
-    , _sServiceRoleARN            :: !(Maybe Text)
-    , _sDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _sARN                       :: !(Maybe Text)
-    , _sCreatedAt                 :: !(Maybe Text)
-    , _sVPCId                     :: !(Maybe Text)
-    , _sChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _sAgentVersion              :: !(Maybe Text)
-    , _sDefaultSSHKeyName         :: !(Maybe Text)
-    , _sCustomJSON                :: !(Maybe Text)
-    , _sCustomCookbooksSource     :: !(Maybe Source)
-    , _sDefaultAvailabilityZone   :: !(Maybe Text)
-    , _sAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _sName                      :: !(Maybe Text)
-    , _sDefaultOS                 :: !(Maybe Text)
-    , _sUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _sUseCustomCookbooks        :: !(Maybe Bool)
-    , _sDefaultSubnetId           :: !(Maybe Text)
-    , _sRegion                    :: !(Maybe Text)
-    , _sConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _sStackId                   :: !(Maybe Text)
-    , _sHostnameTheme             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sDefaultInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sDefaultRootDeviceType :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
+  , _sARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCreatedAt :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sChefConfiguration :: {-# NOUNPACK #-}!(Maybe ChefConfiguration)
+  , _sAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sDefaultSSHKeyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCustomCookbooksSource :: {-# NOUNPACK #-}!(Maybe Source)
+  , _sDefaultAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sAttributes :: {-# NOUNPACK #-}!(Maybe (Map StackAttributesKeys Text))
+  , _sName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sDefaultOS :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sUseOpsworksSecurityGroups :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sUseCustomCookbooks :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sDefaultSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sRegion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
+  , _sStackId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sHostnameTheme :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Stack' with the minimum fields required to make a request.
 --
@@ -3246,30 +3286,31 @@ data Stack = Stack'
 stack
     :: Stack
 stack =
-    Stack'
-    { _sDefaultInstanceProfileARN = Nothing
-    , _sServiceRoleARN = Nothing
-    , _sDefaultRootDeviceType = Nothing
-    , _sARN = Nothing
-    , _sCreatedAt = Nothing
-    , _sVPCId = Nothing
-    , _sChefConfiguration = Nothing
-    , _sAgentVersion = Nothing
-    , _sDefaultSSHKeyName = Nothing
-    , _sCustomJSON = Nothing
-    , _sCustomCookbooksSource = Nothing
-    , _sDefaultAvailabilityZone = Nothing
-    , _sAttributes = Nothing
-    , _sName = Nothing
-    , _sDefaultOS = Nothing
-    , _sUseOpsworksSecurityGroups = Nothing
-    , _sUseCustomCookbooks = Nothing
-    , _sDefaultSubnetId = Nothing
-    , _sRegion = Nothing
-    , _sConfigurationManager = Nothing
-    , _sStackId = Nothing
-    , _sHostnameTheme = Nothing
-    }
+  Stack'
+  { _sDefaultInstanceProfileARN = Nothing
+  , _sServiceRoleARN = Nothing
+  , _sDefaultRootDeviceType = Nothing
+  , _sARN = Nothing
+  , _sCreatedAt = Nothing
+  , _sVPCId = Nothing
+  , _sChefConfiguration = Nothing
+  , _sAgentVersion = Nothing
+  , _sDefaultSSHKeyName = Nothing
+  , _sCustomJSON = Nothing
+  , _sCustomCookbooksSource = Nothing
+  , _sDefaultAvailabilityZone = Nothing
+  , _sAttributes = Nothing
+  , _sName = Nothing
+  , _sDefaultOS = Nothing
+  , _sUseOpsworksSecurityGroups = Nothing
+  , _sUseCustomCookbooks = Nothing
+  , _sDefaultSubnetId = Nothing
+  , _sRegion = Nothing
+  , _sConfigurationManager = Nothing
+  , _sStackId = Nothing
+  , _sHostnameTheme = Nothing
+  }
+
 
 -- | The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 sDefaultInstanceProfileARN :: Lens' Stack (Maybe Text)
@@ -3387,9 +3428,9 @@ instance FromJSON Stack where
                      <*> (x .:? "StackId")
                      <*> (x .:? "HostnameTheme"))
 
-instance Hashable Stack
+instance Hashable Stack where
 
-instance NFData Stack
+instance NFData Stack where
 
 -- | Describes the configuration manager.
 --
@@ -3397,9 +3438,10 @@ instance NFData Stack
 --
 -- /See:/ 'stackConfigurationManager' smart constructor.
 data StackConfigurationManager = StackConfigurationManager'
-    { _scmName    :: !(Maybe Text)
-    , _scmVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scmName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scmVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StackConfigurationManager' with the minimum fields required to make a request.
 --
@@ -3411,10 +3453,8 @@ data StackConfigurationManager = StackConfigurationManager'
 stackConfigurationManager
     :: StackConfigurationManager
 stackConfigurationManager =
-    StackConfigurationManager'
-    { _scmName = Nothing
-    , _scmVersion = Nothing
-    }
+  StackConfigurationManager' {_scmName = Nothing, _scmVersion = Nothing}
+
 
 -- | The name. This parameter must be set to "Chef".
 scmName :: Lens' StackConfigurationManager (Maybe Text)
@@ -3431,9 +3471,9 @@ instance FromJSON StackConfigurationManager where
                  StackConfigurationManager' <$>
                    (x .:? "Name") <*> (x .:? "Version"))
 
-instance Hashable StackConfigurationManager
+instance Hashable StackConfigurationManager where
 
-instance NFData StackConfigurationManager
+instance NFData StackConfigurationManager where
 
 instance ToJSON StackConfigurationManager where
         toJSON StackConfigurationManager'{..}
@@ -3448,13 +3488,14 @@ instance ToJSON StackConfigurationManager where
 --
 -- /See:/ 'stackSummary' smart constructor.
 data StackSummary = StackSummary'
-    { _ssARN            :: !(Maybe Text)
-    , _ssAppsCount      :: !(Maybe Int)
-    , _ssName           :: !(Maybe Text)
-    , _ssStackId        :: !(Maybe Text)
-    , _ssLayersCount    :: !(Maybe Int)
-    , _ssInstancesCount :: !(Maybe InstancesCount)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssAppsCount      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ssName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssLayersCount    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ssInstancesCount :: {-# NOUNPACK #-}!(Maybe InstancesCount)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StackSummary' with the minimum fields required to make a request.
 --
@@ -3474,14 +3515,15 @@ data StackSummary = StackSummary'
 stackSummary
     :: StackSummary
 stackSummary =
-    StackSummary'
-    { _ssARN = Nothing
-    , _ssAppsCount = Nothing
-    , _ssName = Nothing
-    , _ssStackId = Nothing
-    , _ssLayersCount = Nothing
-    , _ssInstancesCount = Nothing
-    }
+  StackSummary'
+  { _ssARN = Nothing
+  , _ssAppsCount = Nothing
+  , _ssName = Nothing
+  , _ssStackId = Nothing
+  , _ssLayersCount = Nothing
+  , _ssInstancesCount = Nothing
+  }
+
 
 -- | The stack's ARN.
 ssARN :: Lens' StackSummary (Maybe Text)
@@ -3518,9 +3560,9 @@ instance FromJSON StackSummary where
                      <*> (x .:? "LayersCount")
                      <*> (x .:? "InstancesCount"))
 
-instance Hashable StackSummary
+instance Hashable StackSummary where
 
-instance NFData StackSummary
+instance NFData StackSummary where
 
 -- | Contains the data needed by RDP clients such as the Microsoft Remote Desktop Connection to log in to the instance.
 --
@@ -3528,11 +3570,12 @@ instance NFData StackSummary
 --
 -- /See:/ 'temporaryCredential' smart constructor.
 data TemporaryCredential = TemporaryCredential'
-    { _tcInstanceId        :: !(Maybe Text)
-    , _tcUsername          :: !(Maybe Text)
-    , _tcPassword          :: !(Maybe Text)
-    , _tcValidForInMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tcInstanceId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tcUsername          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tcPassword          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tcValidForInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TemporaryCredential' with the minimum fields required to make a request.
 --
@@ -3548,12 +3591,13 @@ data TemporaryCredential = TemporaryCredential'
 temporaryCredential
     :: TemporaryCredential
 temporaryCredential =
-    TemporaryCredential'
-    { _tcInstanceId = Nothing
-    , _tcUsername = Nothing
-    , _tcPassword = Nothing
-    , _tcValidForInMinutes = Nothing
-    }
+  TemporaryCredential'
+  { _tcInstanceId = Nothing
+  , _tcUsername = Nothing
+  , _tcPassword = Nothing
+  , _tcValidForInMinutes = Nothing
+  }
+
 
 -- | The instance's AWS OpsWorks Stacks ID.
 tcInstanceId :: Lens' TemporaryCredential (Maybe Text)
@@ -3580,9 +3624,9 @@ instance FromJSON TemporaryCredential where
                      (x .:? "Password")
                      <*> (x .:? "ValidForInMinutes"))
 
-instance Hashable TemporaryCredential
+instance Hashable TemporaryCredential where
 
-instance NFData TemporaryCredential
+instance NFData TemporaryCredential where
 
 -- | Describes an instance's time-based auto scaling configuration.
 --
@@ -3590,9 +3634,10 @@ instance NFData TemporaryCredential
 --
 -- /See:/ 'timeBasedAutoScalingConfiguration' smart constructor.
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
-    { _tbascInstanceId          :: !(Maybe Text)
-    , _tbascAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tbascInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tbascAutoScalingSchedule :: {-# NOUNPACK #-}!(Maybe WeeklyAutoScalingSchedule)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TimeBasedAutoScalingConfiguration' with the minimum fields required to make a request.
 --
@@ -3604,10 +3649,9 @@ data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
 timeBasedAutoScalingConfiguration
     :: TimeBasedAutoScalingConfiguration
 timeBasedAutoScalingConfiguration =
-    TimeBasedAutoScalingConfiguration'
-    { _tbascInstanceId = Nothing
-    , _tbascAutoScalingSchedule = Nothing
-    }
+  TimeBasedAutoScalingConfiguration'
+  {_tbascInstanceId = Nothing, _tbascAutoScalingSchedule = Nothing}
+
 
 -- | The instance ID.
 tbascInstanceId :: Lens' TimeBasedAutoScalingConfiguration (Maybe Text)
@@ -3627,8 +3671,10 @@ instance FromJSON TimeBasedAutoScalingConfiguration
                      (x .:? "AutoScalingSchedule"))
 
 instance Hashable TimeBasedAutoScalingConfiguration
+         where
 
 instance NFData TimeBasedAutoScalingConfiguration
+         where
 
 -- | Describes a user's SSH information.
 --
@@ -3636,12 +3682,13 @@ instance NFData TimeBasedAutoScalingConfiguration
 --
 -- /See:/ 'userProfile' smart constructor.
 data UserProfile = UserProfile'
-    { _upAllowSelfManagement :: !(Maybe Bool)
-    , _upSSHPublicKey        :: !(Maybe Text)
-    , _upSSHUsername         :: !(Maybe Text)
-    , _upIAMUserARN          :: !(Maybe Text)
-    , _upName                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upAllowSelfManagement :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _upSSHPublicKey        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upSSHUsername         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upIAMUserARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upName                :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserProfile' with the minimum fields required to make a request.
 --
@@ -3659,13 +3706,14 @@ data UserProfile = UserProfile'
 userProfile
     :: UserProfile
 userProfile =
-    UserProfile'
-    { _upAllowSelfManagement = Nothing
-    , _upSSHPublicKey = Nothing
-    , _upSSHUsername = Nothing
-    , _upIAMUserARN = Nothing
-    , _upName = Nothing
-    }
+  UserProfile'
+  { _upAllowSelfManagement = Nothing
+  , _upSSHPublicKey = Nothing
+  , _upSSHUsername = Nothing
+  , _upIAMUserARN = Nothing
+  , _upName = Nothing
+  }
+
 
 -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
 upAllowSelfManagement :: Lens' UserProfile (Maybe Bool)
@@ -3698,9 +3746,9 @@ instance FromJSON UserProfile where
                      <*> (x .:? "IamUserArn")
                      <*> (x .:? "Name"))
 
-instance Hashable UserProfile
+instance Hashable UserProfile where
 
-instance NFData UserProfile
+instance NFData UserProfile where
 
 -- | Describes an instance's Amazon EBS volume.
 --
@@ -3708,20 +3756,21 @@ instance NFData UserProfile
 --
 -- /See:/ 'volume' smart constructor.
 data Volume = Volume'
-    { _vInstanceId       :: !(Maybe Text)
-    , _vStatus           :: !(Maybe Text)
-    , _vSize             :: !(Maybe Int)
-    , _vIOPS             :: !(Maybe Int)
-    , _vDevice           :: !(Maybe Text)
-    , _vAvailabilityZone :: !(Maybe Text)
-    , _vName             :: !(Maybe Text)
-    , _vRAIdArrayId      :: !(Maybe Text)
-    , _vVolumeId         :: !(Maybe Text)
-    , _vRegion           :: !(Maybe Text)
-    , _vVolumeType       :: !(Maybe Text)
-    , _vEC2VolumeId      :: !(Maybe Text)
-    , _vMountPoint       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vInstanceId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vSize             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _vIOPS             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _vDevice           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vRAIdArrayId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vVolumeId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vRegion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vVolumeType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vEC2VolumeId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vMountPoint       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Volume' with the minimum fields required to make a request.
 --
@@ -3755,21 +3804,22 @@ data Volume = Volume'
 volume
     :: Volume
 volume =
-    Volume'
-    { _vInstanceId = Nothing
-    , _vStatus = Nothing
-    , _vSize = Nothing
-    , _vIOPS = Nothing
-    , _vDevice = Nothing
-    , _vAvailabilityZone = Nothing
-    , _vName = Nothing
-    , _vRAIdArrayId = Nothing
-    , _vVolumeId = Nothing
-    , _vRegion = Nothing
-    , _vVolumeType = Nothing
-    , _vEC2VolumeId = Nothing
-    , _vMountPoint = Nothing
-    }
+  Volume'
+  { _vInstanceId = Nothing
+  , _vStatus = Nothing
+  , _vSize = Nothing
+  , _vIOPS = Nothing
+  , _vDevice = Nothing
+  , _vAvailabilityZone = Nothing
+  , _vName = Nothing
+  , _vRAIdArrayId = Nothing
+  , _vVolumeId = Nothing
+  , _vRegion = Nothing
+  , _vVolumeType = Nothing
+  , _vEC2VolumeId = Nothing
+  , _vMountPoint = Nothing
+  }
+
 
 -- | The instance ID.
 vInstanceId :: Lens' Volume (Maybe Text)
@@ -3841,9 +3891,9 @@ instance FromJSON Volume where
                      <*> (x .:? "Ec2VolumeId")
                      <*> (x .:? "MountPoint"))
 
-instance Hashable Volume
+instance Hashable Volume where
 
-instance NFData Volume
+instance NFData Volume where
 
 -- | Describes an Amazon EBS volume configuration.
 --
@@ -3851,13 +3901,14 @@ instance NFData Volume
 --
 -- /See:/ 'volumeConfiguration' smart constructor.
 data VolumeConfiguration = VolumeConfiguration'
-    { _vcIOPS          :: !(Maybe Int)
-    , _vcRAIdLevel     :: !(Maybe Int)
-    , _vcVolumeType    :: !(Maybe Text)
-    , _vcMountPoint    :: !Text
-    , _vcNumberOfDisks :: !Int
-    , _vcSize          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcIOPS          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _vcRAIdLevel     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _vcVolumeType    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vcMountPoint    :: {-# NOUNPACK #-}!Text
+  , _vcNumberOfDisks :: {-# NOUNPACK #-}!Int
+  , _vcSize          :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VolumeConfiguration' with the minimum fields required to make a request.
 --
@@ -3880,14 +3931,15 @@ volumeConfiguration
     -> Int -- ^ 'vcSize'
     -> VolumeConfiguration
 volumeConfiguration pMountPoint_ pNumberOfDisks_ pSize_ =
-    VolumeConfiguration'
-    { _vcIOPS = Nothing
-    , _vcRAIdLevel = Nothing
-    , _vcVolumeType = Nothing
-    , _vcMountPoint = pMountPoint_
-    , _vcNumberOfDisks = pNumberOfDisks_
-    , _vcSize = pSize_
-    }
+  VolumeConfiguration'
+  { _vcIOPS = Nothing
+  , _vcRAIdLevel = Nothing
+  , _vcVolumeType = Nothing
+  , _vcMountPoint = pMountPoint_
+  , _vcNumberOfDisks = pNumberOfDisks_
+  , _vcSize = pSize_
+  }
+
 
 -- | For PIOPS volumes, the IOPS per disk.
 vcIOPS :: Lens' VolumeConfiguration (Maybe Int)
@@ -3924,9 +3976,9 @@ instance FromJSON VolumeConfiguration where
                      <*> (x .: "NumberOfDisks")
                      <*> (x .: "Size"))
 
-instance Hashable VolumeConfiguration
+instance Hashable VolumeConfiguration where
 
-instance NFData VolumeConfiguration
+instance NFData VolumeConfiguration where
 
 instance ToJSON VolumeConfiguration where
         toJSON VolumeConfiguration'{..}
@@ -3957,14 +4009,15 @@ instance ToJSON VolumeConfiguration where
 --
 -- /See:/ 'weeklyAutoScalingSchedule' smart constructor.
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
-    { _wassThursday  :: !(Maybe (Map Text Text))
-    , _wassWednesday :: !(Maybe (Map Text Text))
-    , _wassSaturday  :: !(Maybe (Map Text Text))
-    , _wassMonday    :: !(Maybe (Map Text Text))
-    , _wassFriday    :: !(Maybe (Map Text Text))
-    , _wassSunday    :: !(Maybe (Map Text Text))
-    , _wassTuesday   :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wassThursday  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _wassWednesday :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _wassSaturday  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _wassMonday    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _wassFriday    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _wassSunday    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _wassTuesday   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WeeklyAutoScalingSchedule' with the minimum fields required to make a request.
 --
@@ -3986,15 +4039,16 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
 weeklyAutoScalingSchedule
     :: WeeklyAutoScalingSchedule
 weeklyAutoScalingSchedule =
-    WeeklyAutoScalingSchedule'
-    { _wassThursday = Nothing
-    , _wassWednesday = Nothing
-    , _wassSaturday = Nothing
-    , _wassMonday = Nothing
-    , _wassFriday = Nothing
-    , _wassSunday = Nothing
-    , _wassTuesday = Nothing
-    }
+  WeeklyAutoScalingSchedule'
+  { _wassThursday = Nothing
+  , _wassWednesday = Nothing
+  , _wassSaturday = Nothing
+  , _wassMonday = Nothing
+  , _wassFriday = Nothing
+  , _wassSunday = Nothing
+  , _wassTuesday = Nothing
+  }
+
 
 -- | The schedule for Thursday.
 wassThursday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
@@ -4037,9 +4091,9 @@ instance FromJSON WeeklyAutoScalingSchedule where
                      <*> (x .:? "Sunday" .!= mempty)
                      <*> (x .:? "Tuesday" .!= mempty))
 
-instance Hashable WeeklyAutoScalingSchedule
+instance Hashable WeeklyAutoScalingSchedule where
 
-instance NFData WeeklyAutoScalingSchedule
+instance NFData WeeklyAutoScalingSchedule where
 
 instance ToJSON WeeklyAutoScalingSchedule where
         toJSON WeeklyAutoScalingSchedule'{..}

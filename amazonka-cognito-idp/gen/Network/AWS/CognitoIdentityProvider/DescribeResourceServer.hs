@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeResourceServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CognitoIdentityProvider.DescribeResourceServer
     , drsrsResourceServer
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeResourceServer' smart constructor.
 data DescribeResourceServer = DescribeResourceServer'
-    { _desUserPoolId :: !Text
-    , _desIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desUserPoolId :: {-# NOUNPACK #-}!Text
+  , _desIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeResourceServer' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ describeResourceServer
     -> Text -- ^ 'desIdentifier'
     -> DescribeResourceServer
 describeResourceServer pUserPoolId_ pIdentifier_ =
-    DescribeResourceServer'
-    { _desUserPoolId = pUserPoolId_
-    , _desIdentifier = pIdentifier_
-    }
+  DescribeResourceServer'
+  {_desUserPoolId = pUserPoolId_, _desIdentifier = pIdentifier_}
+
 
 -- | The user pool ID for the user pool that hosts the resource server.
 desUserPoolId :: Lens' DescribeResourceServer Text
@@ -86,9 +86,9 @@ instance AWSRequest DescribeResourceServer where
                  DescribeResourceServerResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "ResourceServer"))
 
-instance Hashable DescribeResourceServer
+instance Hashable DescribeResourceServer where
 
-instance NFData DescribeResourceServer
+instance NFData DescribeResourceServer where
 
 instance ToHeaders DescribeResourceServer where
         toHeaders
@@ -115,9 +115,10 @@ instance ToQuery DescribeResourceServer where
 
 -- | /See:/ 'describeResourceServerResponse' smart constructor.
 data DescribeResourceServerResponse = DescribeResourceServerResponse'
-    { _drsrsResponseStatus :: !Int
-    , _drsrsResourceServer :: !ResourceServerType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _drsrsResourceServer :: {-# NOUNPACK #-}!ResourceServerType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeResourceServerResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,11 @@ describeResourceServerResponse
     -> ResourceServerType -- ^ 'drsrsResourceServer'
     -> DescribeResourceServerResponse
 describeResourceServerResponse pResponseStatus_ pResourceServer_ =
-    DescribeResourceServerResponse'
-    { _drsrsResponseStatus = pResponseStatus_
-    , _drsrsResourceServer = pResourceServer_
-    }
+  DescribeResourceServerResponse'
+  { _drsrsResponseStatus = pResponseStatus_
+  , _drsrsResourceServer = pResourceServer_
+  }
+
 
 -- | -- | The response status code.
 drsrsResponseStatus :: Lens' DescribeResourceServerResponse Int
@@ -144,4 +146,4 @@ drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus
 drsrsResourceServer :: Lens' DescribeResourceServerResponse ResourceServerType
 drsrsResourceServer = lens _drsrsResourceServer (\ s a -> s{_drsrsResourceServer = a});
 
-instance NFData DescribeResourceServerResponse
+instance NFData DescribeResourceServerResponse where

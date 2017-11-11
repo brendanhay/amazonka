@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,22 +43,23 @@ module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
     , rstrsResponseStatus
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerScalableTarget' smart constructor.
 data RegisterScalableTarget = RegisterScalableTarget'
-    { _rstMaxCapacity       :: !(Maybe Int)
-    , _rstMinCapacity       :: !(Maybe Int)
-    , _rstRoleARN           :: !(Maybe Text)
-    , _rstServiceNamespace  :: !ServiceNamespace
-    , _rstResourceId        :: !Text
-    , _rstScalableDimension :: !ScalableDimension
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rstMaxCapacity       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rstMinCapacity       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rstRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rstServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  , _rstResourceId        :: {-# NOUNPACK #-}!Text
+  , _rstScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterScalableTarget' with the minimum fields required to make a request.
 --
@@ -81,14 +82,15 @@ registerScalableTarget
     -> ScalableDimension -- ^ 'rstScalableDimension'
     -> RegisterScalableTarget
 registerScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
-    RegisterScalableTarget'
-    { _rstMaxCapacity = Nothing
-    , _rstMinCapacity = Nothing
-    , _rstRoleARN = Nothing
-    , _rstServiceNamespace = pServiceNamespace_
-    , _rstResourceId = pResourceId_
-    , _rstScalableDimension = pScalableDimension_
-    }
+  RegisterScalableTarget'
+  { _rstMaxCapacity = Nothing
+  , _rstMinCapacity = Nothing
+  , _rstRoleARN = Nothing
+  , _rstServiceNamespace = pServiceNamespace_
+  , _rstResourceId = pResourceId_
+  , _rstScalableDimension = pScalableDimension_
+  }
+
 
 -- | The maximum value to scale to in response to a scale out event. This parameter is required if you are registering a scalable target and optional if you are updating one.
 rstMaxCapacity :: Lens' RegisterScalableTarget (Maybe Int)
@@ -124,9 +126,9 @@ instance AWSRequest RegisterScalableTarget where
                  RegisterScalableTargetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable RegisterScalableTarget
+instance Hashable RegisterScalableTarget where
 
-instance NFData RegisterScalableTarget
+instance NFData RegisterScalableTarget where
 
 instance ToHeaders RegisterScalableTarget where
         toHeaders
@@ -157,8 +159,9 @@ instance ToQuery RegisterScalableTarget where
 
 -- | /See:/ 'registerScalableTargetResponse' smart constructor.
 newtype RegisterScalableTargetResponse = RegisterScalableTargetResponse'
-    { _rstrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rstrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterScalableTargetResponse' with the minimum fields required to make a request.
 --
@@ -169,12 +172,11 @@ registerScalableTargetResponse
     :: Int -- ^ 'rstrsResponseStatus'
     -> RegisterScalableTargetResponse
 registerScalableTargetResponse pResponseStatus_ =
-    RegisterScalableTargetResponse'
-    { _rstrsResponseStatus = pResponseStatus_
-    }
+  RegisterScalableTargetResponse' {_rstrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rstrsResponseStatus :: Lens' RegisterScalableTargetResponse Int
 rstrsResponseStatus = lens _rstrsResponseStatus (\ s a -> s{_rstrsResponseStatus = a});
 
-instance NFData RegisterScalableTargetResponse
+instance NFData RegisterScalableTargetResponse where

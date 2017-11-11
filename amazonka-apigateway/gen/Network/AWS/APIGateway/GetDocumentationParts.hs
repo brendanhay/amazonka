@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationParts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.GetDocumentationParts
     , gdprsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Gets the documentation parts of an API. The result may be filtered by the type, name, or path of API entities (targets).
 --
@@ -54,13 +54,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDocumentationParts' smart constructor.
 data GetDocumentationParts = GetDocumentationParts'
-    { _gdpPath      :: !(Maybe Text)
-    , _gdpNameQuery :: !(Maybe Text)
-    , _gdpLimit     :: !(Maybe Int)
-    , _gdpType      :: !(Maybe DocumentationPartType)
-    , _gdpPosition  :: !(Maybe Text)
-    , _gdpRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdpPath      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpNameQuery :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gdpType      :: {-# NOUNPACK #-}!(Maybe DocumentationPartType)
+  , _gdpPosition  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpRestAPIId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentationParts' with the minimum fields required to make a request.
 --
@@ -81,14 +82,15 @@ getDocumentationParts
     :: Text -- ^ 'gdpRestAPIId'
     -> GetDocumentationParts
 getDocumentationParts pRestAPIId_ =
-    GetDocumentationParts'
-    { _gdpPath = Nothing
-    , _gdpNameQuery = Nothing
-    , _gdpLimit = Nothing
-    , _gdpType = Nothing
-    , _gdpPosition = Nothing
-    , _gdpRestAPIId = pRestAPIId_
-    }
+  GetDocumentationParts'
+  { _gdpPath = Nothing
+  , _gdpNameQuery = Nothing
+  , _gdpLimit = Nothing
+  , _gdpType = Nothing
+  , _gdpPosition = Nothing
+  , _gdpRestAPIId = pRestAPIId_
+  }
+
 
 -- | The path of API entities of the to-be-retrieved documentation parts.
 gdpPath :: Lens' GetDocumentationParts (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest GetDocumentationParts where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetDocumentationParts
+instance Hashable GetDocumentationParts where
 
-instance NFData GetDocumentationParts
+instance NFData GetDocumentationParts where
 
 instance ToHeaders GetDocumentationParts where
         toHeaders
@@ -155,10 +157,11 @@ instance ToQuery GetDocumentationParts where
 --
 -- /See:/ 'getDocumentationPartsResponse' smart constructor.
 data GetDocumentationPartsResponse = GetDocumentationPartsResponse'
-    { _gdprsItems          :: !(Maybe [DocumentationPart])
-    , _gdprsPosition       :: !(Maybe Text)
-    , _gdprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdprsItems          :: {-# NOUNPACK #-}!(Maybe [DocumentationPart])
+  , _gdprsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentationPartsResponse' with the minimum fields required to make a request.
 --
@@ -173,11 +176,12 @@ getDocumentationPartsResponse
     :: Int -- ^ 'gdprsResponseStatus'
     -> GetDocumentationPartsResponse
 getDocumentationPartsResponse pResponseStatus_ =
-    GetDocumentationPartsResponse'
-    { _gdprsItems = Nothing
-    , _gdprsPosition = Nothing
-    , _gdprsResponseStatus = pResponseStatus_
-    }
+  GetDocumentationPartsResponse'
+  { _gdprsItems = Nothing
+  , _gdprsPosition = Nothing
+  , _gdprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 gdprsItems :: Lens' GetDocumentationPartsResponse [DocumentationPart]
@@ -191,4 +195,4 @@ gdprsPosition = lens _gdprsPosition (\ s a -> s{_gdprsPosition = a});
 gdprsResponseStatus :: Lens' GetDocumentationPartsResponse Int
 gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});
 
-instance NFData GetDocumentationPartsResponse
+instance NFData GetDocumentationPartsResponse where

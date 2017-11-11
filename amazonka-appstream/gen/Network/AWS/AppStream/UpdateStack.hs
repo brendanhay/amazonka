@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.UpdateStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.AppStream.UpdateStack
     , usrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-    { _usDeleteStorageConnectors :: !(Maybe Bool)
-    , _usStorageConnectors       :: !(Maybe [StorageConnector])
-    , _usDisplayName             :: !(Maybe Text)
-    , _usDescription             :: !(Maybe Text)
-    , _usName                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usDeleteStorageConnectors :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _usStorageConnectors       :: {-# NOUNPACK #-}!(Maybe [StorageConnector])
+  , _usDisplayName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usDescription             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usName                    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStack' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ updateStack
     :: Text -- ^ 'usName'
     -> UpdateStack
 updateStack pName_ =
-    UpdateStack'
-    { _usDeleteStorageConnectors = Nothing
-    , _usStorageConnectors = Nothing
-    , _usDisplayName = Nothing
-    , _usDescription = Nothing
-    , _usName = pName_
-    }
+  UpdateStack'
+  { _usDeleteStorageConnectors = Nothing
+  , _usStorageConnectors = Nothing
+  , _usDisplayName = Nothing
+  , _usDescription = Nothing
+  , _usName = pName_
+  }
+
 
 -- | Remove all the storage connectors currently enabled for the stack.
 usDeleteStorageConnectors :: Lens' UpdateStack (Maybe Bool)
@@ -111,9 +113,9 @@ instance AWSRequest UpdateStack where
                  UpdateStackResponse' <$>
                    (x .?> "Stack") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateStack
+instance Hashable UpdateStack where
 
-instance NFData UpdateStack
+instance NFData UpdateStack where
 
 instance ToHeaders UpdateStack where
         toHeaders
@@ -144,9 +146,10 @@ instance ToQuery UpdateStack where
 
 -- | /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
-    { _usrsStack          :: !(Maybe Stack)
-    , _usrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usrsStack          :: {-# NOUNPACK #-}!(Maybe Stack)
+  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStackResponse' with the minimum fields required to make a request.
 --
@@ -159,10 +162,9 @@ updateStackResponse
     :: Int -- ^ 'usrsResponseStatus'
     -> UpdateStackResponse
 updateStackResponse pResponseStatus_ =
-    UpdateStackResponse'
-    { _usrsStack = Nothing
-    , _usrsResponseStatus = pResponseStatus_
-    }
+  UpdateStackResponse'
+  {_usrsStack = Nothing, _usrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of stack details.
 usrsStack :: Lens' UpdateStackResponse (Maybe Stack)
@@ -172,4 +174,4 @@ usrsStack = lens _usrsStack (\ s a -> s{_usrsStack = a});
 usrsResponseStatus :: Lens' UpdateStackResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
 
-instance NFData UpdateStackResponse
+instance NFData UpdateStackResponse where

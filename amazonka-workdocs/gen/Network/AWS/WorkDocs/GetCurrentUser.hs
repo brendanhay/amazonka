@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetCurrentUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.WorkDocs.GetCurrentUser
     , gcursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getCurrentUser' smart constructor.
 newtype GetCurrentUser = GetCurrentUser'
-    { _gcuAuthenticationToken :: Sensitive Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gcuAuthenticationToken :: Sensitive Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCurrentUser' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getCurrentUser
     :: Text -- ^ 'gcuAuthenticationToken'
     -> GetCurrentUser
 getCurrentUser pAuthenticationToken_ =
-    GetCurrentUser'
-    { _gcuAuthenticationToken = _Sensitive # pAuthenticationToken_
-    }
+  GetCurrentUser' {_gcuAuthenticationToken = _Sensitive # pAuthenticationToken_}
+
 
 -- | Amazon WorkDocs authentication token.
 gcuAuthenticationToken :: Lens' GetCurrentUser Text
@@ -75,9 +75,9 @@ instance AWSRequest GetCurrentUser where
                  GetCurrentUserResponse' <$>
                    (x .?> "User") <*> (pure (fromEnum s)))
 
-instance Hashable GetCurrentUser
+instance Hashable GetCurrentUser where
 
-instance NFData GetCurrentUser
+instance NFData GetCurrentUser where
 
 instance ToHeaders GetCurrentUser where
         toHeaders GetCurrentUser'{..}
@@ -94,9 +94,10 @@ instance ToQuery GetCurrentUser where
 
 -- | /See:/ 'getCurrentUserResponse' smart constructor.
 data GetCurrentUserResponse = GetCurrentUserResponse'
-    { _gcursUser           :: !(Maybe User)
-    , _gcursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcursUser           :: {-# NOUNPACK #-}!(Maybe User)
+  , _gcursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCurrentUserResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +110,9 @@ getCurrentUserResponse
     :: Int -- ^ 'gcursResponseStatus'
     -> GetCurrentUserResponse
 getCurrentUserResponse pResponseStatus_ =
-    GetCurrentUserResponse'
-    { _gcursUser = Nothing
-    , _gcursResponseStatus = pResponseStatus_
-    }
+  GetCurrentUserResponse'
+  {_gcursUser = Nothing, _gcursResponseStatus = pResponseStatus_}
+
 
 -- | Metadata of the user.
 gcursUser :: Lens' GetCurrentUserResponse (Maybe User)
@@ -122,4 +122,4 @@ gcursUser = lens _gcursUser (\ s a -> s{_gcursUser = a});
 gcursResponseStatus :: Lens' GetCurrentUserResponse Int
 gcursResponseStatus = lens _gcursResponseStatus (\ s a -> s{_gcursResponseStatus = a});
 
-instance NFData GetCurrentUserResponse
+instance NFData GetCurrentUserResponse where

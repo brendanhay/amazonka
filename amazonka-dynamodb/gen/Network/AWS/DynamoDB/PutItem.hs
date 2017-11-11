@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.PutItem
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -76,12 +76,12 @@ module Network.AWS.DynamoDB.PutItem
     , pirsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @PutItem@ operation.
 --
@@ -89,17 +89,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putItem' smart constructor.
 data PutItem = PutItem'
-    { _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _piReturnValues                :: !(Maybe ReturnValue)
-    , _piExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _piReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _piConditionExpression         :: !(Maybe Text)
-    , _piConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _piTableName                   :: !Text
-    , _piItem                        :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _piExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _piReturnValues :: {-# NOUNPACK #-}!(Maybe ReturnValue)
+  , _piExpressionAttributeValues :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _piReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
+  , _piReturnItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ReturnItemCollectionMetrics)
+  , _piConditionExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _piConditionalOperator :: {-# NOUNPACK #-}!(Maybe ConditionalOperator)
+  , _piExpected :: {-# NOUNPACK #-}!(Maybe (Map Text ExpectedAttributeValue))
+  , _piTableName :: {-# NOUNPACK #-}!Text
+  , _piItem :: {-# NOUNPACK #-}!(Map Text AttributeValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutItem' with the minimum fields required to make a request.
 --
@@ -128,18 +129,19 @@ putItem
     :: Text -- ^ 'piTableName'
     -> PutItem
 putItem pTableName_ =
-    PutItem'
-    { _piExpressionAttributeNames = Nothing
-    , _piReturnValues = Nothing
-    , _piExpressionAttributeValues = Nothing
-    , _piReturnConsumedCapacity = Nothing
-    , _piReturnItemCollectionMetrics = Nothing
-    , _piConditionExpression = Nothing
-    , _piConditionalOperator = Nothing
-    , _piExpected = Nothing
-    , _piTableName = pTableName_
-    , _piItem = mempty
-    }
+  PutItem'
+  { _piExpressionAttributeNames = Nothing
+  , _piReturnValues = Nothing
+  , _piExpressionAttributeValues = Nothing
+  , _piReturnConsumedCapacity = Nothing
+  , _piReturnItemCollectionMetrics = Nothing
+  , _piConditionExpression = Nothing
+  , _piConditionalOperator = Nothing
+  , _piExpected = Nothing
+  , _piTableName = pTableName_
+  , _piItem = mempty
+  }
+
 
 -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :     * To access an attribute whose name conflicts with a DynamoDB reserved word.     * To create a placeholder for repeating occurrences of an attribute name in an expression.     * To prevent special characters in an attribute name from being misinterpreted in an expression. Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:     * @Percentile@  The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :     * @{"#P":"Percentile"}@  You could then use this substitution in an expression, as in this example:     * @#P = :val@  For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
@@ -193,9 +195,9 @@ instance AWSRequest PutItem where
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutItem
+instance Hashable PutItem where
 
-instance NFData PutItem
+instance NFData PutItem where
 
 instance ToHeaders PutItem where
         toHeaders
@@ -239,11 +241,12 @@ instance ToQuery PutItem where
 --
 -- /See:/ 'putItemResponse' smart constructor.
 data PutItemResponse = PutItemResponse'
-    { _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _pirsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pirsItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ItemCollectionMetrics)
+  , _pirsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
+  , _pirsAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _pirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutItemResponse' with the minimum fields required to make a request.
 --
@@ -260,12 +263,13 @@ putItemResponse
     :: Int -- ^ 'pirsResponseStatus'
     -> PutItemResponse
 putItemResponse pResponseStatus_ =
-    PutItemResponse'
-    { _pirsItemCollectionMetrics = Nothing
-    , _pirsConsumedCapacity = Nothing
-    , _pirsAttributes = Nothing
-    , _pirsResponseStatus = pResponseStatus_
-    }
+  PutItemResponse'
+  { _pirsItemCollectionMetrics = Nothing
+  , _pirsConsumedCapacity = Nothing
+  , _pirsAttributes = Nothing
+  , _pirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about item collections, if any, that were affected by the @PutItem@ operation. @ItemCollectionMetrics@ is only returned if the @ReturnItemCollectionMetrics@ parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response. Each @ItemCollectionMetrics@ element consists of:     * @ItemCollectionKey@ - The partition key value of the item collection. This is the same as the partition key value of the item itself.     * @SizeEstimateRange@ - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit. The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
 pirsItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
@@ -283,4 +287,4 @@ pirsAttributes = lens _pirsAttributes (\ s a -> s{_pirsAttributes = a}) . _Defau
 pirsResponseStatus :: Lens' PutItemResponse Int
 pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});
 
-instance NFData PutItemResponse
+instance NFData PutItemResponse where

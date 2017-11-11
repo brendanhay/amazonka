@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.GetShippingLabel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,28 +47,29 @@ module Network.AWS.ImportExport.GetShippingLabel
     , gslrsResponseStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.ImportExport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getShippingLabel' smart constructor.
 data GetShippingLabel = GetShippingLabel'
-    { _gslStreet3         :: !(Maybe Text)
-    , _gslAPIVersion      :: !(Maybe Text)
-    , _gslCountry         :: !(Maybe Text)
-    , _gslStateOrProvince :: !(Maybe Text)
-    , _gslPostalCode      :: !(Maybe Text)
-    , _gslStreet2         :: !(Maybe Text)
-    , _gslName            :: !(Maybe Text)
-    , _gslCompany         :: !(Maybe Text)
-    , _gslPhoneNumber     :: !(Maybe Text)
-    , _gslCity            :: !(Maybe Text)
-    , _gslStreet1         :: !(Maybe Text)
-    , _gslJobIds          :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gslStreet3         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslAPIVersion      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslCountry         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslStateOrProvince :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslPostalCode      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslStreet2         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslCompany         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslPhoneNumber     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslCity            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslStreet1         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslJobIds          :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetShippingLabel' with the minimum fields required to make a request.
 --
@@ -100,20 +101,21 @@ data GetShippingLabel = GetShippingLabel'
 getShippingLabel
     :: GetShippingLabel
 getShippingLabel =
-    GetShippingLabel'
-    { _gslStreet3 = Nothing
-    , _gslAPIVersion = Nothing
-    , _gslCountry = Nothing
-    , _gslStateOrProvince = Nothing
-    , _gslPostalCode = Nothing
-    , _gslStreet2 = Nothing
-    , _gslName = Nothing
-    , _gslCompany = Nothing
-    , _gslPhoneNumber = Nothing
-    , _gslCity = Nothing
-    , _gslStreet1 = Nothing
-    , _gslJobIds = mempty
-    }
+  GetShippingLabel'
+  { _gslStreet3 = Nothing
+  , _gslAPIVersion = Nothing
+  , _gslCountry = Nothing
+  , _gslStateOrProvince = Nothing
+  , _gslPostalCode = Nothing
+  , _gslStreet2 = Nothing
+  , _gslName = Nothing
+  , _gslCompany = Nothing
+  , _gslPhoneNumber = Nothing
+  , _gslCity = Nothing
+  , _gslStreet1 = Nothing
+  , _gslJobIds = mempty
+  }
+
 
 -- | Undocumented member.
 gslStreet3 :: Lens' GetShippingLabel (Maybe Text)
@@ -173,9 +175,9 @@ instance AWSRequest GetShippingLabel where
                    (x .@? "ShippingLabelURL") <*> (x .@? "Warning") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetShippingLabel
+instance Hashable GetShippingLabel where
 
-instance NFData GetShippingLabel
+instance NFData GetShippingLabel where
 
 instance ToHeaders GetShippingLabel where
         toHeaders = const mempty
@@ -202,10 +204,11 @@ instance ToQuery GetShippingLabel where
 
 -- | /See:/ 'getShippingLabelResponse' smart constructor.
 data GetShippingLabelResponse = GetShippingLabelResponse'
-    { _gslrsShippingLabelURL :: !(Maybe Text)
-    , _gslrsWarning          :: !(Maybe Text)
-    , _gslrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gslrsShippingLabelURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslrsWarning          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gslrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetShippingLabelResponse' with the minimum fields required to make a request.
 --
@@ -220,11 +223,12 @@ getShippingLabelResponse
     :: Int -- ^ 'gslrsResponseStatus'
     -> GetShippingLabelResponse
 getShippingLabelResponse pResponseStatus_ =
-    GetShippingLabelResponse'
-    { _gslrsShippingLabelURL = Nothing
-    , _gslrsWarning = Nothing
-    , _gslrsResponseStatus = pResponseStatus_
-    }
+  GetShippingLabelResponse'
+  { _gslrsShippingLabelURL = Nothing
+  , _gslrsWarning = Nothing
+  , _gslrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gslrsShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
@@ -238,4 +242,4 @@ gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
 gslrsResponseStatus :: Lens' GetShippingLabelResponse Int
 gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});
 
-instance NFData GetShippingLabelResponse
+instance NFData GetShippingLabelResponse where

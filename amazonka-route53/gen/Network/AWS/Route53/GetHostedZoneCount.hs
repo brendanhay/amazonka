@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHostedZoneCount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.Route53.GetHostedZoneCount
     , ghzcrsHostedZoneCount
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to retrieve a count of all the hosted zones that are associated with the current AWS account.
 --
@@ -48,14 +48,16 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =
-    GetHostedZoneCount'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetHostedZoneCount'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHostedZoneCount' with the minimum fields required to make a request.
 --
 getHostedZoneCount
     :: GetHostedZoneCount
 getHostedZoneCount = GetHostedZoneCount'
+
 
 instance AWSRequest GetHostedZoneCount where
         type Rs GetHostedZoneCount =
@@ -67,9 +69,9 @@ instance AWSRequest GetHostedZoneCount where
                  GetHostedZoneCountResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HostedZoneCount"))
 
-instance Hashable GetHostedZoneCount
+instance Hashable GetHostedZoneCount where
 
-instance NFData GetHostedZoneCount
+instance NFData GetHostedZoneCount where
 
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
@@ -86,9 +88,10 @@ instance ToQuery GetHostedZoneCount where
 --
 -- /See:/ 'getHostedZoneCountResponse' smart constructor.
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
-    { _ghzcrsResponseStatus  :: !Int
-    , _ghzcrsHostedZoneCount :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghzcrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _ghzcrsHostedZoneCount :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHostedZoneCountResponse' with the minimum fields required to make a request.
 --
@@ -102,10 +105,11 @@ getHostedZoneCountResponse
     -> Integer -- ^ 'ghzcrsHostedZoneCount'
     -> GetHostedZoneCountResponse
 getHostedZoneCountResponse pResponseStatus_ pHostedZoneCount_ =
-    GetHostedZoneCountResponse'
-    { _ghzcrsResponseStatus = pResponseStatus_
-    , _ghzcrsHostedZoneCount = pHostedZoneCount_
-    }
+  GetHostedZoneCountResponse'
+  { _ghzcrsResponseStatus = pResponseStatus_
+  , _ghzcrsHostedZoneCount = pHostedZoneCount_
+  }
+
 
 -- | -- | The response status code.
 ghzcrsResponseStatus :: Lens' GetHostedZoneCountResponse Int
@@ -115,4 +119,4 @@ ghzcrsResponseStatus = lens _ghzcrsResponseStatus (\ s a -> s{_ghzcrsResponseSta
 ghzcrsHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
 ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\ s a -> s{_ghzcrsHostedZoneCount = a});
 
-instance NFData GetHostedZoneCountResponse
+instance NFData GetHostedZoneCountResponse where

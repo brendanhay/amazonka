@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyClusterIAMRoles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Redshift.ModifyClusterIAMRoles
     , mcirrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyClusterIAMRoles' smart constructor.
 data ModifyClusterIAMRoles = ModifyClusterIAMRoles'
-    { _mcirRemoveIAMRoles    :: !(Maybe [Text])
-    , _mcirAddIAMRoles       :: !(Maybe [Text])
-    , _mcirClusterIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcirRemoveIAMRoles    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mcirAddIAMRoles       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mcirClusterIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyClusterIAMRoles' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ modifyClusterIAMRoles
     :: Text -- ^ 'mcirClusterIdentifier'
     -> ModifyClusterIAMRoles
 modifyClusterIAMRoles pClusterIdentifier_ =
-    ModifyClusterIAMRoles'
-    { _mcirRemoveIAMRoles = Nothing
-    , _mcirAddIAMRoles = Nothing
-    , _mcirClusterIdentifier = pClusterIdentifier_
-    }
+  ModifyClusterIAMRoles'
+  { _mcirRemoveIAMRoles = Nothing
+  , _mcirAddIAMRoles = Nothing
+  , _mcirClusterIdentifier = pClusterIdentifier_
+  }
+
 
 -- | Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
 mcirRemoveIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
@@ -100,9 +102,9 @@ instance AWSRequest ModifyClusterIAMRoles where
                  ModifyClusterIAMRolesResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyClusterIAMRoles
+instance Hashable ModifyClusterIAMRoles where
 
-instance NFData ModifyClusterIAMRoles
+instance NFData ModifyClusterIAMRoles where
 
 instance ToHeaders ModifyClusterIAMRoles where
         toHeaders = const mempty
@@ -125,9 +127,10 @@ instance ToQuery ModifyClusterIAMRoles where
 
 -- | /See:/ 'modifyClusterIAMRolesResponse' smart constructor.
 data ModifyClusterIAMRolesResponse = ModifyClusterIAMRolesResponse'
-    { _mcirrsCluster        :: !(Maybe Cluster)
-    , _mcirrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcirrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _mcirrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyClusterIAMRolesResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +143,9 @@ modifyClusterIAMRolesResponse
     :: Int -- ^ 'mcirrsResponseStatus'
     -> ModifyClusterIAMRolesResponse
 modifyClusterIAMRolesResponse pResponseStatus_ =
-    ModifyClusterIAMRolesResponse'
-    { _mcirrsCluster = Nothing
-    , _mcirrsResponseStatus = pResponseStatus_
-    }
+  ModifyClusterIAMRolesResponse'
+  {_mcirrsCluster = Nothing, _mcirrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mcirrsCluster :: Lens' ModifyClusterIAMRolesResponse (Maybe Cluster)
@@ -153,4 +155,4 @@ mcirrsCluster = lens _mcirrsCluster (\ s a -> s{_mcirrsCluster = a});
 mcirrsResponseStatus :: Lens' ModifyClusterIAMRolesResponse Int
 mcirrsResponseStatus = lens _mcirrsResponseStatus (\ s a -> s{_mcirrsResponseStatus = a});
 
-instance NFData ModifyClusterIAMRolesResponse
+instance NFData ModifyClusterIAMRolesResponse where

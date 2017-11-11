@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DataPipeline.Types.Product where
 
-import           Network.AWS.DataPipeline.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DataPipeline.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (@StringValue@ ) or a reference to another object (@RefValue@ ) but not as both.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'field' smart constructor.
 data Field = Field'
-    { _fRefValue    :: !(Maybe Text)
-    , _fStringValue :: !(Maybe Text)
-    , _fKey         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fRefValue    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fStringValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fKey         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Field' with the minimum fields required to make a request.
 --
@@ -45,11 +46,8 @@ field
     :: Text -- ^ 'fKey'
     -> Field
 field pKey_ =
-    Field'
-    { _fRefValue = Nothing
-    , _fStringValue = Nothing
-    , _fKey = pKey_
-    }
+  Field' {_fRefValue = Nothing, _fStringValue = Nothing, _fKey = pKey_}
+
 
 -- | The field value, expressed as the identifier of another object.
 fRefValue :: Lens' Field (Maybe Text)
@@ -71,9 +69,9 @@ instance FromJSON Field where
                    (x .:? "refValue") <*> (x .:? "stringValue") <*>
                      (x .: "key"))
 
-instance Hashable Field
+instance Hashable Field where
 
-instance NFData Field
+instance NFData Field where
 
 instance ToJSON Field where
         toJSON Field'{..}
@@ -91,9 +89,10 @@ instance ToJSON Field where
 --
 -- /See:/ 'instanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-    { _iiSignature :: !(Maybe Text)
-    , _iiDocument  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiSignature :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiDocument  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceIdentity' with the minimum fields required to make a request.
 --
@@ -105,10 +104,8 @@ data InstanceIdentity = InstanceIdentity'
 instanceIdentity
     :: InstanceIdentity
 instanceIdentity =
-    InstanceIdentity'
-    { _iiSignature = Nothing
-    , _iiDocument = Nothing
-    }
+  InstanceIdentity' {_iiSignature = Nothing, _iiDocument = Nothing}
+
 
 -- | A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.
 iiSignature :: Lens' InstanceIdentity (Maybe Text)
@@ -118,9 +115,9 @@ iiSignature = lens _iiSignature (\ s a -> s{_iiSignature = a});
 iiDocument :: Lens' InstanceIdentity (Maybe Text)
 iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a});
 
-instance Hashable InstanceIdentity
+instance Hashable InstanceIdentity where
 
-instance NFData InstanceIdentity
+instance NFData InstanceIdentity where
 
 instance ToJSON InstanceIdentity where
         toJSON InstanceIdentity'{..}
@@ -135,9 +132,10 @@ instance ToJSON InstanceIdentity where
 --
 -- /See:/ 'operator' smart constructor.
 data Operator = Operator'
-    { _oValues :: !(Maybe [Text])
-    , _oType   :: !(Maybe OperatorType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _oType   :: {-# NOUNPACK #-}!(Maybe OperatorType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Operator' with the minimum fields required to make a request.
 --
@@ -148,11 +146,8 @@ data Operator = Operator'
 -- * 'oType' - The logical operation to be performed: equal (@EQ@ ), equal reference (@REF_EQ@ ), less than or equal (@LE@ ), greater than or equal (@GE@ ), or between (@BETWEEN@ ). Equal reference (@REF_EQ@ ) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.  The comparison operators EQ and REF_EQ act on the following fields:      * name    * @sphere    * parent    * @componentParent    * @instanceParent    * @status    * @scheduledStartTime    * @scheduledEndTime    * @actualStartTime    * @actualEndTime The comparison operators @GE@ , @LE@ , and @BETWEEN@ act on the following fields:      * @scheduledStartTime    * @scheduledEndTime    * @actualStartTime    * @actualEndTime Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".
 operator
     :: Operator
-operator =
-    Operator'
-    { _oValues = Nothing
-    , _oType = Nothing
-    }
+operator = Operator' {_oValues = Nothing, _oType = Nothing}
+
 
 -- | The value that the actual field value will be compared with.
 oValues :: Lens' Operator [Text]
@@ -162,9 +157,9 @@ oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default . _Coerce;
 oType :: Lens' Operator (Maybe OperatorType)
 oType = lens _oType (\ s a -> s{_oType = a});
 
-instance Hashable Operator
+instance Hashable Operator where
 
-instance NFData Operator
+instance NFData Operator where
 
 instance ToJSON Operator where
         toJSON Operator'{..}
@@ -178,9 +173,10 @@ instance ToJSON Operator where
 --
 -- /See:/ 'parameterAttribute' smart constructor.
 data ParameterAttribute = ParameterAttribute'
-    { _paKey         :: !Text
-    , _paStringValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _paKey         :: {-# NOUNPACK #-}!Text
+  , _paStringValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterAttribute' with the minimum fields required to make a request.
 --
@@ -194,10 +190,8 @@ parameterAttribute
     -> Text -- ^ 'paStringValue'
     -> ParameterAttribute
 parameterAttribute pKey_ pStringValue_ =
-    ParameterAttribute'
-    { _paKey = pKey_
-    , _paStringValue = pStringValue_
-    }
+  ParameterAttribute' {_paKey = pKey_, _paStringValue = pStringValue_}
+
 
 -- | The field identifier.
 paKey :: Lens' ParameterAttribute Text
@@ -214,9 +208,9 @@ instance FromJSON ParameterAttribute where
                  ParameterAttribute' <$>
                    (x .: "key") <*> (x .: "stringValue"))
 
-instance Hashable ParameterAttribute
+instance Hashable ParameterAttribute where
 
-instance NFData ParameterAttribute
+instance NFData ParameterAttribute where
 
 instance ToJSON ParameterAttribute where
         toJSON ParameterAttribute'{..}
@@ -231,9 +225,10 @@ instance ToJSON ParameterAttribute where
 --
 -- /See:/ 'parameterObject' smart constructor.
 data ParameterObject = ParameterObject'
-    { _poId         :: !Text
-    , _poAttributes :: ![ParameterAttribute]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _poId         :: {-# NOUNPACK #-}!Text
+  , _poAttributes :: {-# NOUNPACK #-}![ParameterAttribute]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterObject' with the minimum fields required to make a request.
 --
@@ -245,11 +240,8 @@ data ParameterObject = ParameterObject'
 parameterObject
     :: Text -- ^ 'poId'
     -> ParameterObject
-parameterObject pId_ =
-    ParameterObject'
-    { _poId = pId_
-    , _poAttributes = mempty
-    }
+parameterObject pId_ = ParameterObject' {_poId = pId_, _poAttributes = mempty}
+
 
 -- | The ID of the parameter object.
 poId :: Lens' ParameterObject Text
@@ -266,9 +258,9 @@ instance FromJSON ParameterObject where
                  ParameterObject' <$>
                    (x .: "id") <*> (x .:? "attributes" .!= mempty))
 
-instance Hashable ParameterObject
+instance Hashable ParameterObject where
 
-instance NFData ParameterObject
+instance NFData ParameterObject where
 
 instance ToJSON ParameterObject where
         toJSON ParameterObject'{..}
@@ -283,9 +275,10 @@ instance ToJSON ParameterObject where
 --
 -- /See:/ 'parameterValue' smart constructor.
 data ParameterValue = ParameterValue'
-    { _pvId          :: !Text
-    , _pvStringValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pvId          :: {-# NOUNPACK #-}!Text
+  , _pvStringValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterValue' with the minimum fields required to make a request.
 --
@@ -299,10 +292,8 @@ parameterValue
     -> Text -- ^ 'pvStringValue'
     -> ParameterValue
 parameterValue pId_ pStringValue_ =
-    ParameterValue'
-    { _pvId = pId_
-    , _pvStringValue = pStringValue_
-    }
+  ParameterValue' {_pvId = pId_, _pvStringValue = pStringValue_}
+
 
 -- | The ID of the parameter value.
 pvId :: Lens' ParameterValue Text
@@ -319,9 +310,9 @@ instance FromJSON ParameterValue where
                  ParameterValue' <$>
                    (x .: "id") <*> (x .: "stringValue"))
 
-instance Hashable ParameterValue
+instance Hashable ParameterValue where
 
-instance NFData ParameterValue
+instance NFData ParameterValue where
 
 instance ToJSON ParameterValue where
         toJSON ParameterValue'{..}
@@ -336,12 +327,13 @@ instance ToJSON ParameterValue where
 --
 -- /See:/ 'pipelineDescription' smart constructor.
 data PipelineDescription = PipelineDescription'
-    { _pdDescription :: !(Maybe Text)
-    , _pdTags        :: !(Maybe [Tag])
-    , _pdPipelineId  :: !Text
-    , _pdName        :: !Text
-    , _pdFields      :: ![Field]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdTags        :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _pdPipelineId  :: {-# NOUNPACK #-}!Text
+  , _pdName        :: {-# NOUNPACK #-}!Text
+  , _pdFields      :: {-# NOUNPACK #-}![Field]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PipelineDescription' with the minimum fields required to make a request.
 --
@@ -361,13 +353,14 @@ pipelineDescription
     -> Text -- ^ 'pdName'
     -> PipelineDescription
 pipelineDescription pPipelineId_ pName_ =
-    PipelineDescription'
-    { _pdDescription = Nothing
-    , _pdTags = Nothing
-    , _pdPipelineId = pPipelineId_
-    , _pdName = pName_
-    , _pdFields = mempty
-    }
+  PipelineDescription'
+  { _pdDescription = Nothing
+  , _pdTags = Nothing
+  , _pdPipelineId = pPipelineId_
+  , _pdName = pName_
+  , _pdFields = mempty
+  }
+
 
 -- | Description of the pipeline.
 pdDescription :: Lens' PipelineDescription (Maybe Text)
@@ -399,9 +392,9 @@ instance FromJSON PipelineDescription where
                      <*> (x .: "name")
                      <*> (x .:? "fields" .!= mempty))
 
-instance Hashable PipelineDescription
+instance Hashable PipelineDescription where
 
-instance NFData PipelineDescription
+instance NFData PipelineDescription where
 
 -- | Contains the name and identifier of a pipeline.
 --
@@ -409,9 +402,10 @@ instance NFData PipelineDescription
 --
 -- /See:/ 'pipelineIdName' smart constructor.
 data PipelineIdName = PipelineIdName'
-    { _pinName :: !(Maybe Text)
-    , _pinId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pinName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pinId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PipelineIdName' with the minimum fields required to make a request.
 --
@@ -422,11 +416,8 @@ data PipelineIdName = PipelineIdName'
 -- * 'pinId' - The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 pipelineIdName
     :: PipelineIdName
-pipelineIdName =
-    PipelineIdName'
-    { _pinName = Nothing
-    , _pinId = Nothing
-    }
+pipelineIdName = PipelineIdName' {_pinName = Nothing, _pinId = Nothing}
+
 
 -- | The name of the pipeline.
 pinName :: Lens' PipelineIdName (Maybe Text)
@@ -442,9 +433,9 @@ instance FromJSON PipelineIdName where
               (\ x ->
                  PipelineIdName' <$> (x .:? "name") <*> (x .:? "id"))
 
-instance Hashable PipelineIdName
+instance Hashable PipelineIdName where
 
-instance NFData PipelineIdName
+instance NFData PipelineIdName where
 
 -- | Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.
 --
@@ -452,10 +443,11 @@ instance NFData PipelineIdName
 --
 -- /See:/ 'pipelineObject' smart constructor.
 data PipelineObject = PipelineObject'
-    { _pId     :: !Text
-    , _pName   :: !Text
-    , _pFields :: ![Field]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pId     :: {-# NOUNPACK #-}!Text
+  , _pName   :: {-# NOUNPACK #-}!Text
+  , _pFields :: {-# NOUNPACK #-}![Field]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PipelineObject' with the minimum fields required to make a request.
 --
@@ -471,11 +463,8 @@ pipelineObject
     -> Text -- ^ 'pName'
     -> PipelineObject
 pipelineObject pId_ pName_ =
-    PipelineObject'
-    { _pId = pId_
-    , _pName = pName_
-    , _pFields = mempty
-    }
+  PipelineObject' {_pId = pId_, _pName = pName_, _pFields = mempty}
+
 
 -- | The ID of the object.
 pId :: Lens' PipelineObject Text
@@ -497,9 +486,9 @@ instance FromJSON PipelineObject where
                    (x .: "id") <*> (x .: "name") <*>
                      (x .:? "fields" .!= mempty))
 
-instance Hashable PipelineObject
+instance Hashable PipelineObject where
 
-instance NFData PipelineObject
+instance NFData PipelineObject where
 
 instance ToJSON PipelineObject where
         toJSON PipelineObject'{..}
@@ -514,8 +503,9 @@ instance ToJSON PipelineObject where
 --
 -- /See:/ 'query' smart constructor.
 newtype Query = Query'
-    { _qSelectors :: Maybe [Selector]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qSelectors :: Maybe [Selector]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Query' with the minimum fields required to make a request.
 --
@@ -524,18 +514,16 @@ newtype Query = Query'
 -- * 'qSelectors' - List of selectors that define the query. An object must satisfy all of the selectors to match the query.
 query
     :: Query
-query =
-    Query'
-    { _qSelectors = Nothing
-    }
+query = Query' {_qSelectors = Nothing}
+
 
 -- | List of selectors that define the query. An object must satisfy all of the selectors to match the query.
 qSelectors :: Lens' Query [Selector]
 qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default . _Coerce;
 
-instance Hashable Query
+instance Hashable Query where
 
-instance NFData Query
+instance NFData Query where
 
 instance ToJSON Query where
         toJSON Query'{..}
@@ -548,9 +536,10 @@ instance ToJSON Query where
 --
 -- /See:/ 'selector' smart constructor.
 data Selector = Selector'
-    { _sOperator  :: !(Maybe Operator)
-    , _sFieldName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sOperator  :: {-# NOUNPACK #-}!(Maybe Operator)
+  , _sFieldName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Selector' with the minimum fields required to make a request.
 --
@@ -561,11 +550,8 @@ data Selector = Selector'
 -- * 'sFieldName' - The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
 selector
     :: Selector
-selector =
-    Selector'
-    { _sOperator = Nothing
-    , _sFieldName = Nothing
-    }
+selector = Selector' {_sOperator = Nothing, _sFieldName = Nothing}
+
 
 -- | Undocumented member.
 sOperator :: Lens' Selector (Maybe Operator)
@@ -575,9 +561,9 @@ sOperator = lens _sOperator (\ s a -> s{_sOperator = a});
 sFieldName :: Lens' Selector (Maybe Text)
 sFieldName = lens _sFieldName (\ s a -> s{_sFieldName = a});
 
-instance Hashable Selector
+instance Hashable Selector where
 
-instance NFData Selector
+instance NFData Selector where
 
 instance ToJSON Selector where
         toJSON Selector'{..}
@@ -592,9 +578,10 @@ instance ToJSON Selector where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -607,11 +594,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 tagKey :: Lens' Tag Text
@@ -626,9 +610,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "key") <*> (x .: "value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -643,11 +627,12 @@ instance ToJSON Tag where
 --
 -- /See:/ 'taskObject' smart constructor.
 data TaskObject = TaskObject'
-    { _toPipelineId :: !(Maybe Text)
-    , _toAttemptId  :: !(Maybe Text)
-    , _toTaskId     :: !(Maybe Text)
-    , _toObjects    :: !(Maybe (Map Text PipelineObject))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _toPipelineId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _toAttemptId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _toTaskId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _toObjects    :: {-# NOUNPACK #-}!(Maybe (Map Text PipelineObject))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TaskObject' with the minimum fields required to make a request.
 --
@@ -663,12 +648,13 @@ data TaskObject = TaskObject'
 taskObject
     :: TaskObject
 taskObject =
-    TaskObject'
-    { _toPipelineId = Nothing
-    , _toAttemptId = Nothing
-    , _toTaskId = Nothing
-    , _toObjects = Nothing
-    }
+  TaskObject'
+  { _toPipelineId = Nothing
+  , _toAttemptId = Nothing
+  , _toTaskId = Nothing
+  , _toObjects = Nothing
+  }
+
 
 -- | The ID of the pipeline that provided the task.
 toPipelineId :: Lens' TaskObject (Maybe Text)
@@ -695,9 +681,9 @@ instance FromJSON TaskObject where
                      (x .:? "taskId")
                      <*> (x .:? "objects" .!= mempty))
 
-instance Hashable TaskObject
+instance Hashable TaskObject where
 
-instance NFData TaskObject
+instance NFData TaskObject where
 
 -- | Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.
 --
@@ -705,9 +691,10 @@ instance NFData TaskObject
 --
 -- /See:/ 'validationError' smart constructor.
 data ValidationError = ValidationError'
-    { _veId     :: !(Maybe Text)
-    , _veErrors :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _veId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _veErrors :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidationError' with the minimum fields required to make a request.
 --
@@ -718,11 +705,8 @@ data ValidationError = ValidationError'
 -- * 'veErrors' - A description of the validation error.
 validationError
     :: ValidationError
-validationError =
-    ValidationError'
-    { _veId = Nothing
-    , _veErrors = Nothing
-    }
+validationError = ValidationError' {_veId = Nothing, _veErrors = Nothing}
+
 
 -- | The identifier of the object that contains the validation error.
 veId :: Lens' ValidationError (Maybe Text)
@@ -739,9 +723,9 @@ instance FromJSON ValidationError where
                  ValidationError' <$>
                    (x .:? "id") <*> (x .:? "errors" .!= mempty))
 
-instance Hashable ValidationError
+instance Hashable ValidationError where
 
-instance NFData ValidationError
+instance NFData ValidationError where
 
 -- | Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.
 --
@@ -749,9 +733,10 @@ instance NFData ValidationError
 --
 -- /See:/ 'validationWarning' smart constructor.
 data ValidationWarning = ValidationWarning'
-    { _vwWarnings :: !(Maybe [Text])
-    , _vwId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vwWarnings :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _vwId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidationWarning' with the minimum fields required to make a request.
 --
@@ -762,11 +747,8 @@ data ValidationWarning = ValidationWarning'
 -- * 'vwId' - The identifier of the object that contains the validation warning.
 validationWarning
     :: ValidationWarning
-validationWarning =
-    ValidationWarning'
-    { _vwWarnings = Nothing
-    , _vwId = Nothing
-    }
+validationWarning = ValidationWarning' {_vwWarnings = Nothing, _vwId = Nothing}
+
 
 -- | A description of the validation warning.
 vwWarnings :: Lens' ValidationWarning [Text]
@@ -783,6 +765,6 @@ instance FromJSON ValidationWarning where
                  ValidationWarning' <$>
                    (x .:? "warnings" .!= mempty) <*> (x .:? "id"))
 
-instance Hashable ValidationWarning
+instance Hashable ValidationWarning where
 
-instance NFData ValidationWarning
+instance NFData ValidationWarning where

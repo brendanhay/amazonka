@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DeleteNotification
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,21 +36,22 @@ module Network.AWS.Budgets.DeleteNotification
     , dnrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DeleteNotification
 --
 -- /See:/ 'deleteNotification' smart constructor.
 data DeleteNotification = DeleteNotification'
-    { _dnAccountId    :: !Text
-    , _dnBudgetName   :: !Text
-    , _dnNotification :: !Notification
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnAccountId    :: {-# NOUNPACK #-}!Text
+  , _dnBudgetName   :: {-# NOUNPACK #-}!Text
+  , _dnNotification :: {-# NOUNPACK #-}!Notification
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNotification' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ deleteNotification
     -> Notification -- ^ 'dnNotification'
     -> DeleteNotification
 deleteNotification pAccountId_ pBudgetName_ pNotification_ =
-    DeleteNotification'
-    { _dnAccountId = pAccountId_
-    , _dnBudgetName = pBudgetName_
-    , _dnNotification = pNotification_
-    }
+  DeleteNotification'
+  { _dnAccountId = pAccountId_
+  , _dnBudgetName = pBudgetName_
+  , _dnNotification = pNotification_
+  }
+
 
 -- | Undocumented member.
 dnAccountId :: Lens' DeleteNotification Text
@@ -94,9 +96,9 @@ instance AWSRequest DeleteNotification where
               (\ s h x ->
                  DeleteNotificationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteNotification
+instance Hashable DeleteNotification where
 
-instance NFData DeleteNotification
+instance NFData DeleteNotification where
 
 instance ToHeaders DeleteNotification where
         toHeaders
@@ -126,8 +128,9 @@ instance ToQuery DeleteNotification where
 --
 -- /See:/ 'deleteNotificationResponse' smart constructor.
 newtype DeleteNotificationResponse = DeleteNotificationResponse'
-    { _dnrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNotificationResponse' with the minimum fields required to make a request.
 --
@@ -138,12 +141,11 @@ deleteNotificationResponse
     :: Int -- ^ 'dnrsResponseStatus'
     -> DeleteNotificationResponse
 deleteNotificationResponse pResponseStatus_ =
-    DeleteNotificationResponse'
-    { _dnrsResponseStatus = pResponseStatus_
-    }
+  DeleteNotificationResponse' {_dnrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dnrsResponseStatus :: Lens' DeleteNotificationResponse Int
 dnrsResponseStatus = lens _dnrsResponseStatus (\ s a -> s{_dnrsResponseStatus = a});
 
-instance NFData DeleteNotificationResponse
+instance NFData DeleteNotificationResponse where

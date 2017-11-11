@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetObjectInformation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudDirectory.GetObjectInformation
     , goirsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getObjectInformation' smart constructor.
 data GetObjectInformation = GetObjectInformation'
-    { _goiConsistencyLevel :: !(Maybe ConsistencyLevel)
-    , _goiDirectoryARN     :: !Text
-    , _goiObjectReference  :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goiConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
+  , _goiDirectoryARN     :: {-# NOUNPACK #-}!Text
+  , _goiObjectReference  :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetObjectInformation' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ getObjectInformation
     -> ObjectReference -- ^ 'goiObjectReference'
     -> GetObjectInformation
 getObjectInformation pDirectoryARN_ pObjectReference_ =
-    GetObjectInformation'
-    { _goiConsistencyLevel = Nothing
-    , _goiDirectoryARN = pDirectoryARN_
-    , _goiObjectReference = pObjectReference_
-    }
+  GetObjectInformation'
+  { _goiConsistencyLevel = Nothing
+  , _goiDirectoryARN = pDirectoryARN_
+  , _goiObjectReference = pObjectReference_
+  }
+
 
 -- | The consistency level at which to retrieve the object information.
 goiConsistencyLevel :: Lens' GetObjectInformation (Maybe ConsistencyLevel)
@@ -98,9 +100,9 @@ instance AWSRequest GetObjectInformation where
                      (x .?> "SchemaFacets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetObjectInformation
+instance Hashable GetObjectInformation where
 
-instance NFData GetObjectInformation
+instance NFData GetObjectInformation where
 
 instance ToHeaders GetObjectInformation where
         toHeaders GetObjectInformation'{..}
@@ -124,10 +126,11 @@ instance ToQuery GetObjectInformation where
 
 -- | /See:/ 'getObjectInformationResponse' smart constructor.
 data GetObjectInformationResponse = GetObjectInformationResponse'
-    { _goirsObjectIdentifier :: !(Maybe Text)
-    , _goirsSchemaFacets     :: !(Maybe [SchemaFacet])
-    , _goirsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goirsObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goirsSchemaFacets     :: {-# NOUNPACK #-}!(Maybe [SchemaFacet])
+  , _goirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetObjectInformationResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +145,12 @@ getObjectInformationResponse
     :: Int -- ^ 'goirsResponseStatus'
     -> GetObjectInformationResponse
 getObjectInformationResponse pResponseStatus_ =
-    GetObjectInformationResponse'
-    { _goirsObjectIdentifier = Nothing
-    , _goirsSchemaFacets = Nothing
-    , _goirsResponseStatus = pResponseStatus_
-    }
+  GetObjectInformationResponse'
+  { _goirsObjectIdentifier = Nothing
+  , _goirsSchemaFacets = Nothing
+  , _goirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @ObjectIdentifier@ of the specified object.
 goirsObjectIdentifier :: Lens' GetObjectInformationResponse (Maybe Text)
@@ -160,4 +164,4 @@ goirsSchemaFacets = lens _goirsSchemaFacets (\ s a -> s{_goirsSchemaFacets = a})
 goirsResponseStatus :: Lens' GetObjectInformationResponse Int
 goirsResponseStatus = lens _goirsResponseStatus (\ s a -> s{_goirsResponseStatus = a});
 
-instance NFData GetObjectInformationResponse
+instance NFData GetObjectInformationResponse where

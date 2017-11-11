@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.UntagLogGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CloudWatchLogs.UntagLogGroup
     , UntagLogGroupResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'untagLogGroup' smart constructor.
 data UntagLogGroup = UntagLogGroup'
-    { _ulgLogGroupName :: !Text
-    , _ulgTags         :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ulgLogGroupName :: {-# NOUNPACK #-}!Text
+  , _ulgTags         :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagLogGroup' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ untagLogGroup
     -> NonEmpty Text -- ^ 'ulgTags'
     -> UntagLogGroup
 untagLogGroup pLogGroupName_ pTags_ =
-    UntagLogGroup'
-    { _ulgLogGroupName = pLogGroupName_
-    , _ulgTags = _List1 # pTags_
-    }
+  UntagLogGroup' {_ulgLogGroupName = pLogGroupName_, _ulgTags = _List1 # pTags_}
+
 
 -- | The name of the log group.
 ulgLogGroupName :: Lens' UntagLogGroup Text
@@ -80,9 +79,9 @@ instance AWSRequest UntagLogGroup where
         request = postJSON cloudWatchLogs
         response = receiveNull UntagLogGroupResponse'
 
-instance Hashable UntagLogGroup
+instance Hashable UntagLogGroup where
 
-instance NFData UntagLogGroup
+instance NFData UntagLogGroup where
 
 instance ToHeaders UntagLogGroup where
         toHeaders
@@ -108,8 +107,9 @@ instance ToQuery UntagLogGroup where
 
 -- | /See:/ 'untagLogGroupResponse' smart constructor.
 data UntagLogGroupResponse =
-    UntagLogGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UntagLogGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagLogGroupResponse' with the minimum fields required to make a request.
 --
@@ -117,4 +117,5 @@ untagLogGroupResponse
     :: UntagLogGroupResponse
 untagLogGroupResponse = UntagLogGroupResponse'
 
-instance NFData UntagLogGroupResponse
+
+instance NFData UntagLogGroupResponse where

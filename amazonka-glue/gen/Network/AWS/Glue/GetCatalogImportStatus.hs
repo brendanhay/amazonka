@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetCatalogImportStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.GetCatalogImportStatus
     , gcisrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCatalogImportStatus' smart constructor.
 newtype GetCatalogImportStatus = GetCatalogImportStatus'
-    { _gcisCatalogId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcisCatalogId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCatalogImportStatus' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype GetCatalogImportStatus = GetCatalogImportStatus'
 -- * 'gcisCatalogId' - The ID of the catalog to migrate. Currently, this should be the AWS account ID.
 getCatalogImportStatus
     :: GetCatalogImportStatus
-getCatalogImportStatus =
-    GetCatalogImportStatus'
-    { _gcisCatalogId = Nothing
-    }
+getCatalogImportStatus = GetCatalogImportStatus' {_gcisCatalogId = Nothing}
+
 
 -- | The ID of the catalog to migrate. Currently, this should be the AWS account ID.
 gcisCatalogId :: Lens' GetCatalogImportStatus (Maybe Text)
@@ -75,9 +74,9 @@ instance AWSRequest GetCatalogImportStatus where
                  GetCatalogImportStatusResponse' <$>
                    (x .?> "ImportStatus") <*> (pure (fromEnum s)))
 
-instance Hashable GetCatalogImportStatus
+instance Hashable GetCatalogImportStatus where
 
-instance NFData GetCatalogImportStatus
+instance NFData GetCatalogImportStatus where
 
 instance ToHeaders GetCatalogImportStatus where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery GetCatalogImportStatus where
 
 -- | /See:/ 'getCatalogImportStatusResponse' smart constructor.
 data GetCatalogImportStatusResponse = GetCatalogImportStatusResponse'
-    { _gcisrsImportStatus   :: !(Maybe CatalogImportStatus)
-    , _gcisrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcisrsImportStatus   :: {-# NOUNPACK #-}!(Maybe CatalogImportStatus)
+  , _gcisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCatalogImportStatusResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ getCatalogImportStatusResponse
     :: Int -- ^ 'gcisrsResponseStatus'
     -> GetCatalogImportStatusResponse
 getCatalogImportStatusResponse pResponseStatus_ =
-    GetCatalogImportStatusResponse'
-    { _gcisrsImportStatus = Nothing
-    , _gcisrsResponseStatus = pResponseStatus_
-    }
+  GetCatalogImportStatusResponse'
+  {_gcisrsImportStatus = Nothing, _gcisrsResponseStatus = pResponseStatus_}
+
 
 -- | The status of the specified catalog migration.
 gcisrsImportStatus :: Lens' GetCatalogImportStatusResponse (Maybe CatalogImportStatus)
@@ -129,4 +128,4 @@ gcisrsImportStatus = lens _gcisrsImportStatus (\ s a -> s{_gcisrsImportStatus = 
 gcisrsResponseStatus :: Lens' GetCatalogImportStatusResponse Int
 gcisrsResponseStatus = lens _gcisrsResponseStatus (\ s a -> s{_gcisrsResponseStatus = a});
 
-instance NFData GetCatalogImportStatusResponse
+instance NFData GetCatalogImportStatusResponse where

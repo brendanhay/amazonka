@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowExecutions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutions
     , dmwersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeMaintenanceWindowExecutions' smart constructor.
 data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
-    { _dmweFilters    :: !(Maybe [MaintenanceWindowFilter])
-    , _dmweNextToken  :: !(Maybe Text)
-    , _dmweMaxResults :: !(Maybe Nat)
-    , _dmweWindowId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmweFilters    :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowFilter])
+  , _dmweNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmweMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dmweWindowId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutions' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeMaintenanceWindowExecutions
     :: Text -- ^ 'dmweWindowId'
     -> DescribeMaintenanceWindowExecutions
 describeMaintenanceWindowExecutions pWindowId_ =
-    DescribeMaintenanceWindowExecutions'
-    { _dmweFilters = Nothing
-    , _dmweNextToken = Nothing
-    , _dmweMaxResults = Nothing
-    , _dmweWindowId = pWindowId_
-    }
+  DescribeMaintenanceWindowExecutions'
+  { _dmweFilters = Nothing
+  , _dmweNextToken = Nothing
+  , _dmweMaxResults = Nothing
+  , _dmweWindowId = pWindowId_
+  }
+
 
 -- | Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string is between 1 and 256 characters) The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
 dmweFilters :: Lens' DescribeMaintenanceWindowExecutions [MaintenanceWindowFilter]
@@ -95,7 +97,8 @@ dmweWindowId :: Lens' DescribeMaintenanceWindowExecutions Text
 dmweWindowId = lens _dmweWindowId (\ s a -> s{_dmweWindowId = a});
 
 instance AWSRequest
-         DescribeMaintenanceWindowExecutions where
+           DescribeMaintenanceWindowExecutions
+         where
         type Rs DescribeMaintenanceWindowExecutions =
              DescribeMaintenanceWindowExecutionsResponse
         request = postJSON ssm
@@ -108,11 +111,14 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeMaintenanceWindowExecutions
+         where
 
 instance NFData DescribeMaintenanceWindowExecutions
+         where
 
 instance ToHeaders
-         DescribeMaintenanceWindowExecutions where
+           DescribeMaintenanceWindowExecutions
+         where
         toHeaders
           = const
               (mconcat
@@ -142,10 +148,11 @@ instance ToQuery DescribeMaintenanceWindowExecutions
 
 -- | /See:/ 'describeMaintenanceWindowExecutionsResponse' smart constructor.
 data DescribeMaintenanceWindowExecutionsResponse = DescribeMaintenanceWindowExecutionsResponse'
-    { _dmwersWindowExecutions :: !(Maybe [MaintenanceWindowExecution])
-    , _dmwersNextToken        :: !(Maybe Text)
-    , _dmwersResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmwersWindowExecutions :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowExecution])
+  , _dmwersNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutionsResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +167,12 @@ describeMaintenanceWindowExecutionsResponse
     :: Int -- ^ 'dmwersResponseStatus'
     -> DescribeMaintenanceWindowExecutionsResponse
 describeMaintenanceWindowExecutionsResponse pResponseStatus_ =
-    DescribeMaintenanceWindowExecutionsResponse'
-    { _dmwersWindowExecutions = Nothing
-    , _dmwersNextToken = Nothing
-    , _dmwersResponseStatus = pResponseStatus_
-    }
+  DescribeMaintenanceWindowExecutionsResponse'
+  { _dmwersWindowExecutions = Nothing
+  , _dmwersNextToken = Nothing
+  , _dmwersResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the Maintenance Windows execution.
 dmwersWindowExecutions :: Lens' DescribeMaintenanceWindowExecutionsResponse [MaintenanceWindowExecution]
@@ -179,4 +187,5 @@ dmwersResponseStatus :: Lens' DescribeMaintenanceWindowExecutionsResponse Int
 dmwersResponseStatus = lens _dmwersResponseStatus (\ s a -> s{_dmwersResponseStatus = a});
 
 instance NFData
-         DescribeMaintenanceWindowExecutionsResponse
+           DescribeMaintenanceWindowExecutionsResponse
+         where

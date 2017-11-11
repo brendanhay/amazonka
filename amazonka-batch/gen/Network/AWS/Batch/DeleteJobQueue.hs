@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DeleteJobQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Batch.DeleteJobQueue
     , djqrsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteJobQueue' smart constructor.
 newtype DeleteJobQueue = DeleteJobQueue'
-    { _djqJobQueue :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djqJobQueue :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteJobQueue' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteJobQueue = DeleteJobQueue'
 deleteJobQueue
     :: Text -- ^ 'djqJobQueue'
     -> DeleteJobQueue
-deleteJobQueue pJobQueue_ =
-    DeleteJobQueue'
-    { _djqJobQueue = pJobQueue_
-    }
+deleteJobQueue pJobQueue_ = DeleteJobQueue' {_djqJobQueue = pJobQueue_}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the queue to delete.
 djqJobQueue :: Lens' DeleteJobQueue Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteJobQueue where
               (\ s h x ->
                  DeleteJobQueueResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteJobQueue
+instance Hashable DeleteJobQueue where
 
-instance NFData DeleteJobQueue
+instance NFData DeleteJobQueue where
 
 instance ToHeaders DeleteJobQueue where
         toHeaders
@@ -99,8 +98,9 @@ instance ToQuery DeleteJobQueue where
 
 -- | /See:/ 'deleteJobQueueResponse' smart constructor.
 newtype DeleteJobQueueResponse = DeleteJobQueueResponse'
-    { _djqrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djqrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteJobQueueResponse' with the minimum fields required to make a request.
 --
@@ -111,12 +111,11 @@ deleteJobQueueResponse
     :: Int -- ^ 'djqrsResponseStatus'
     -> DeleteJobQueueResponse
 deleteJobQueueResponse pResponseStatus_ =
-    DeleteJobQueueResponse'
-    { _djqrsResponseStatus = pResponseStatus_
-    }
+  DeleteJobQueueResponse' {_djqrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 djqrsResponseStatus :: Lens' DeleteJobQueueResponse Int
 djqrsResponseStatus = lens _djqrsResponseStatus (\ s a -> s{_djqrsResponseStatus = a});
 
-instance NFData DeleteJobQueueResponse
+instance NFData DeleteJobQueueResponse where

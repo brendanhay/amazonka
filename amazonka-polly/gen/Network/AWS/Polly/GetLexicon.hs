@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Polly.GetLexicon
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Polly.GetLexicon
     , glrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Polly.Types
-import           Network.AWS.Polly.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Polly.Types
+import Network.AWS.Polly.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getLexicon' smart constructor.
 newtype GetLexicon = GetLexicon'
-    { _glName :: Sensitive Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _glName :: Sensitive Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLexicon' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype GetLexicon = GetLexicon'
 getLexicon
     :: Text -- ^ 'glName'
     -> GetLexicon
-getLexicon pName_ =
-    GetLexicon'
-    { _glName = _Sensitive # pName_
-    }
+getLexicon pName_ = GetLexicon' {_glName = _Sensitive # pName_}
+
 
 -- | Name of the lexicon.
 glName :: Lens' GetLexicon Text
@@ -77,9 +76,9 @@ instance AWSRequest GetLexicon where
                    (x .?> "LexiconAttributes") <*> (x .?> "Lexicon") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetLexicon
+instance Hashable GetLexicon where
 
-instance NFData GetLexicon
+instance NFData GetLexicon where
 
 instance ToHeaders GetLexicon where
         toHeaders = const mempty
@@ -93,10 +92,11 @@ instance ToQuery GetLexicon where
 
 -- | /See:/ 'getLexiconResponse' smart constructor.
 data GetLexiconResponse = GetLexiconResponse'
-    { _glrsLexiconAttributes :: !(Maybe LexiconAttributes)
-    , _glrsLexicon           :: !(Maybe Lexicon)
-    , _glrsResponseStatus    :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _glrsLexiconAttributes :: {-# NOUNPACK #-}!(Maybe LexiconAttributes)
+  , _glrsLexicon           :: {-# NOUNPACK #-}!(Maybe Lexicon)
+  , _glrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLexiconResponse' with the minimum fields required to make a request.
 --
@@ -111,11 +111,12 @@ getLexiconResponse
     :: Int -- ^ 'glrsResponseStatus'
     -> GetLexiconResponse
 getLexiconResponse pResponseStatus_ =
-    GetLexiconResponse'
-    { _glrsLexiconAttributes = Nothing
-    , _glrsLexicon = Nothing
-    , _glrsResponseStatus = pResponseStatus_
-    }
+  GetLexiconResponse'
+  { _glrsLexiconAttributes = Nothing
+  , _glrsLexicon = Nothing
+  , _glrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
 glrsLexiconAttributes :: Lens' GetLexiconResponse (Maybe LexiconAttributes)
@@ -129,4 +130,4 @@ glrsLexicon = lens _glrsLexicon (\ s a -> s{_glrsLexicon = a});
 glrsResponseStatus :: Lens' GetLexiconResponse Int
 glrsResponseStatus = lens _glrsResponseStatus (\ s a -> s{_glrsResponseStatus = a});
 
-instance NFData GetLexiconResponse
+instance NFData GetLexiconResponse where

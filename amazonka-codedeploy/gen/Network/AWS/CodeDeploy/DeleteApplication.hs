@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.CodeDeploy.DeleteApplication
     , DeleteApplicationResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a DeleteApplication operation.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteApplication' smart constructor.
 newtype DeleteApplication = DeleteApplication'
-    { _daApplicationName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daApplicationName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteApplication
     :: Text -- ^ 'daApplicationName'
     -> DeleteApplication
 deleteApplication pApplicationName_ =
-    DeleteApplication'
-    { _daApplicationName = pApplicationName_
-    }
+  DeleteApplication' {_daApplicationName = pApplicationName_}
+
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 daApplicationName :: Lens' DeleteApplication Text
@@ -72,9 +72,9 @@ instance AWSRequest DeleteApplication where
         request = postJSON codeDeploy
         response = receiveNull DeleteApplicationResponse'
 
-instance Hashable DeleteApplication
+instance Hashable DeleteApplication where
 
-instance NFData DeleteApplication
+instance NFData DeleteApplication where
 
 instance ToHeaders DeleteApplication where
         toHeaders
@@ -100,8 +100,9 @@ instance ToQuery DeleteApplication where
 
 -- | /See:/ 'deleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse =
-    DeleteApplicationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteApplicationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +110,5 @@ deleteApplicationResponse
     :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse'
 
-instance NFData DeleteApplicationResponse
+
+instance NFData DeleteApplicationResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteUserDefinedFunction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Glue.DeleteUserDefinedFunction
     , dudfrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteUserDefinedFunction' smart constructor.
 data DeleteUserDefinedFunction = DeleteUserDefinedFunction'
-    { _dudfCatalogId    :: !(Maybe Text)
-    , _dudfDatabaseName :: !Text
-    , _dudfFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dudfCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dudfDatabaseName :: {-# NOUNPACK #-}!Text
+  , _dudfFunctionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserDefinedFunction' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ deleteUserDefinedFunction
     -> Text -- ^ 'dudfFunctionName'
     -> DeleteUserDefinedFunction
 deleteUserDefinedFunction pDatabaseName_ pFunctionName_ =
-    DeleteUserDefinedFunction'
-    { _dudfCatalogId = Nothing
-    , _dudfDatabaseName = pDatabaseName_
-    , _dudfFunctionName = pFunctionName_
-    }
+  DeleteUserDefinedFunction'
+  { _dudfCatalogId = Nothing
+  , _dudfDatabaseName = pDatabaseName_
+  , _dudfFunctionName = pFunctionName_
+  }
+
 
 -- | The ID of the Data Catalog where the function to be deleted is located. If none is supplied, the AWS account ID is used by default.
 dudfCatalogId :: Lens' DeleteUserDefinedFunction (Maybe Text)
@@ -94,9 +96,9 @@ instance AWSRequest DeleteUserDefinedFunction where
                  DeleteUserDefinedFunctionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteUserDefinedFunction
+instance Hashable DeleteUserDefinedFunction where
 
-instance NFData DeleteUserDefinedFunction
+instance NFData DeleteUserDefinedFunction where
 
 instance ToHeaders DeleteUserDefinedFunction where
         toHeaders
@@ -123,8 +125,9 @@ instance ToQuery DeleteUserDefinedFunction where
 
 -- | /See:/ 'deleteUserDefinedFunctionResponse' smart constructor.
 newtype DeleteUserDefinedFunctionResponse = DeleteUserDefinedFunctionResponse'
-    { _dudfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dudfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserDefinedFunctionResponse' with the minimum fields required to make a request.
 --
@@ -135,12 +138,12 @@ deleteUserDefinedFunctionResponse
     :: Int -- ^ 'dudfrsResponseStatus'
     -> DeleteUserDefinedFunctionResponse
 deleteUserDefinedFunctionResponse pResponseStatus_ =
-    DeleteUserDefinedFunctionResponse'
-    { _dudfrsResponseStatus = pResponseStatus_
-    }
+  DeleteUserDefinedFunctionResponse' {_dudfrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dudfrsResponseStatus :: Lens' DeleteUserDefinedFunctionResponse Int
 dudfrsResponseStatus = lens _dudfrsResponseStatus (\ s a -> s{_dudfrsResponseStatus = a});
 
 instance NFData DeleteUserDefinedFunctionResponse
+         where

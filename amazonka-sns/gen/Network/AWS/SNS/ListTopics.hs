@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListTopics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.SNS.ListTopics
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'listTopics' smart constructor.
 newtype ListTopics = ListTopics'
-    { _ltNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTopics' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype ListTopics = ListTopics'
 -- * 'ltNextToken' - Token returned by the previous @ListTopics@ request.
 listTopics
     :: ListTopics
-listTopics =
-    ListTopics'
-    { _ltNextToken = Nothing
-    }
+listTopics = ListTopics' {_ltNextToken = Nothing}
+
 
 -- | Token returned by the previous @ListTopics@ request.
 ltNextToken :: Lens' ListTopics (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest ListTopics where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTopics
+instance Hashable ListTopics where
 
-instance NFData ListTopics
+instance NFData ListTopics where
 
 instance ToHeaders ListTopics where
         toHeaders = const mempty
@@ -111,10 +110,11 @@ instance ToQuery ListTopics where
 --
 -- /See:/ 'listTopicsResponse' smart constructor.
 data ListTopicsResponse = ListTopicsResponse'
-    { _ltrsTopics         :: !(Maybe [Topic])
-    , _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsTopics         :: {-# NOUNPACK #-}!(Maybe [Topic])
+  , _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTopicsResponse' with the minimum fields required to make a request.
 --
@@ -129,11 +129,12 @@ listTopicsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTopicsResponse
 listTopicsResponse pResponseStatus_ =
-    ListTopicsResponse'
-    { _ltrsTopics = Nothing
-    , _ltrsNextToken = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTopicsResponse'
+  { _ltrsTopics = Nothing
+  , _ltrsNextToken = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of topic ARNs.
 ltrsTopics :: Lens' ListTopicsResponse [Topic]
@@ -147,4 +148,4 @@ ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 ltrsResponseStatus :: Lens' ListTopicsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTopicsResponse
+instance NFData ListTopicsResponse where

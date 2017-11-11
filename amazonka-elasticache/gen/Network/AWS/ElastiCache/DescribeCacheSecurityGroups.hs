@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     , dcsgsrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DescribeCacheSecurityGroups@ operation.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCacheSecurityGroups' smart constructor.
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
-    { _dcsgsCacheSecurityGroupName :: !(Maybe Text)
-    , _dcsgsMarker                 :: !(Maybe Text)
-    , _dcsgsMaxRecords             :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsgsCacheSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgsMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgsMaxRecords             :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheSecurityGroups' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
 describeCacheSecurityGroups
     :: DescribeCacheSecurityGroups
 describeCacheSecurityGroups =
-    DescribeCacheSecurityGroups'
-    { _dcsgsCacheSecurityGroupName = Nothing
-    , _dcsgsMarker = Nothing
-    , _dcsgsMaxRecords = Nothing
-    }
+  DescribeCacheSecurityGroups'
+  { _dcsgsCacheSecurityGroupName = Nothing
+  , _dcsgsMarker = Nothing
+  , _dcsgsMaxRecords = Nothing
+  }
+
 
 -- | The name of the cache security group to return details for.
 dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
@@ -112,9 +114,9 @@ instance AWSRequest DescribeCacheSecurityGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCacheSecurityGroups
+instance Hashable DescribeCacheSecurityGroups where
 
-instance NFData DescribeCacheSecurityGroups
+instance NFData DescribeCacheSecurityGroups where
 
 instance ToHeaders DescribeCacheSecurityGroups where
         toHeaders = const mempty
@@ -139,10 +141,11 @@ instance ToQuery DescribeCacheSecurityGroups where
 --
 -- /See:/ 'describeCacheSecurityGroupsResponse' smart constructor.
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
-    { _dcsgsrsCacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
-    , _dcsgsrsMarker              :: !(Maybe Text)
-    , _dcsgsrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsgsrsCacheSecurityGroups :: {-# NOUNPACK #-}!(Maybe [CacheSecurityGroup])
+  , _dcsgsrsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgsrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheSecurityGroupsResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +160,12 @@ describeCacheSecurityGroupsResponse
     :: Int -- ^ 'dcsgsrsResponseStatus'
     -> DescribeCacheSecurityGroupsResponse
 describeCacheSecurityGroupsResponse pResponseStatus_ =
-    DescribeCacheSecurityGroupsResponse'
-    { _dcsgsrsCacheSecurityGroups = Nothing
-    , _dcsgsrsMarker = Nothing
-    , _dcsgsrsResponseStatus = pResponseStatus_
-    }
+  DescribeCacheSecurityGroupsResponse'
+  { _dcsgsrsCacheSecurityGroups = Nothing
+  , _dcsgsrsMarker = Nothing
+  , _dcsgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of cache security groups. Each element in the list contains detailed information about one group.
 dcsgsrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
@@ -176,3 +180,4 @@ dcsgsrsResponseStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
 dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\ s a -> s{_dcsgsrsResponseStatus = a});
 
 instance NFData DescribeCacheSecurityGroupsResponse
+         where

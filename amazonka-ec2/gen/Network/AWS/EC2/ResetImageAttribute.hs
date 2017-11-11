@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetImageAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.EC2.ResetImageAttribute
     , ResetImageAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ResetImageAttribute.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'resetImageAttribute' smart constructor.
 data ResetImageAttribute = ResetImageAttribute'
-    { _resDryRun    :: !(Maybe Bool)
-    , _resAttribute :: !ResetImageAttributeName
-    , _resImageId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _resDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _resAttribute :: {-# NOUNPACK #-}!ResetImageAttributeName
+  , _resImageId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetImageAttribute' with the minimum fields required to make a request.
 --
@@ -68,11 +69,9 @@ resetImageAttribute
     -> Text -- ^ 'resImageId'
     -> ResetImageAttribute
 resetImageAttribute pAttribute_ pImageId_ =
-    ResetImageAttribute'
-    { _resDryRun = Nothing
-    , _resAttribute = pAttribute_
-    , _resImageId = pImageId_
-    }
+  ResetImageAttribute'
+  {_resDryRun = Nothing, _resAttribute = pAttribute_, _resImageId = pImageId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
@@ -92,9 +91,9 @@ instance AWSRequest ResetImageAttribute where
         request = postQuery ec2
         response = receiveNull ResetImageAttributeResponse'
 
-instance Hashable ResetImageAttribute
+instance Hashable ResetImageAttribute where
 
-instance NFData ResetImageAttribute
+instance NFData ResetImageAttribute where
 
 instance ToHeaders ResetImageAttribute where
         toHeaders = const mempty
@@ -112,8 +111,9 @@ instance ToQuery ResetImageAttribute where
 
 -- | /See:/ 'resetImageAttributeResponse' smart constructor.
 data ResetImageAttributeResponse =
-    ResetImageAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ResetImageAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetImageAttributeResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +121,5 @@ resetImageAttributeResponse
     :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse'
 
-instance NFData ResetImageAttributeResponse
+
+instance NFData ResetImageAttributeResponse where

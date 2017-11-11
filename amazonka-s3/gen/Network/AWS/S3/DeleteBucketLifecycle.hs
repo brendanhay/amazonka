@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketLifecycle
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -32,17 +32,18 @@ module Network.AWS.S3.DeleteBucketLifecycle
     , DeleteBucketLifecycleResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketLifecycle' smart constructor.
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
-    { _dblBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dblBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketLifecycle' with the minimum fields required to make a request.
 --
@@ -52,10 +53,8 @@ newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
 deleteBucketLifecycle
     :: BucketName -- ^ 'dblBucket'
     -> DeleteBucketLifecycle
-deleteBucketLifecycle pBucket_ =
-    DeleteBucketLifecycle'
-    { _dblBucket = pBucket_
-    }
+deleteBucketLifecycle pBucket_ = DeleteBucketLifecycle' {_dblBucket = pBucket_}
+
 
 -- | Undocumented member.
 dblBucket :: Lens' DeleteBucketLifecycle BucketName
@@ -67,9 +66,9 @@ instance AWSRequest DeleteBucketLifecycle where
         request = delete s3
         response = receiveNull DeleteBucketLifecycleResponse'
 
-instance Hashable DeleteBucketLifecycle
+instance Hashable DeleteBucketLifecycle where
 
-instance NFData DeleteBucketLifecycle
+instance NFData DeleteBucketLifecycle where
 
 instance ToHeaders DeleteBucketLifecycle where
         toHeaders = const mempty
@@ -83,8 +82,9 @@ instance ToQuery DeleteBucketLifecycle where
 
 -- | /See:/ 'deleteBucketLifecycleResponse' smart constructor.
 data DeleteBucketLifecycleResponse =
-    DeleteBucketLifecycleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketLifecycleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketLifecycleResponse' with the minimum fields required to make a request.
 --
@@ -92,4 +92,5 @@ deleteBucketLifecycleResponse
     :: DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'
 
-instance NFData DeleteBucketLifecycleResponse
+
+instance NFData DeleteBucketLifecycleResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateConnectivityInfo
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,20 +37,21 @@ module Network.AWS.Greengrass.UpdateConnectivityInfo
     , ucirsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | connectivity info request
 --
 -- /See:/ 'updateConnectivityInfo' smart constructor.
 data UpdateConnectivityInfo = UpdateConnectivityInfo'
-    { _uciConnectivityInfo :: !(Maybe [ConnectivityInfo])
-    , _uciThingName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uciConnectivityInfo :: {-# NOUNPACK #-}!(Maybe [ConnectivityInfo])
+  , _uciThingName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConnectivityInfo' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ updateConnectivityInfo
     :: Text -- ^ 'uciThingName'
     -> UpdateConnectivityInfo
 updateConnectivityInfo pThingName_ =
-    UpdateConnectivityInfo'
-    { _uciConnectivityInfo = Nothing
-    , _uciThingName = pThingName_
-    }
+  UpdateConnectivityInfo'
+  {_uciConnectivityInfo = Nothing, _uciThingName = pThingName_}
+
 
 -- | Connectivity info array
 uciConnectivityInfo :: Lens' UpdateConnectivityInfo [ConnectivityInfo]
@@ -87,9 +87,9 @@ instance AWSRequest UpdateConnectivityInfo where
                    (x .?> "Version") <*> (x .?> "message") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateConnectivityInfo
+instance Hashable UpdateConnectivityInfo where
 
-instance NFData UpdateConnectivityInfo
+instance NFData UpdateConnectivityInfo where
 
 instance ToHeaders UpdateConnectivityInfo where
         toHeaders
@@ -115,10 +115,11 @@ instance ToQuery UpdateConnectivityInfo where
 
 -- | /See:/ 'updateConnectivityInfoResponse' smart constructor.
 data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
-    { _ucirsVersion        :: !(Maybe Text)
-    , _ucirsMessage        :: !(Maybe Text)
-    , _ucirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucirsVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucirsMessage        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConnectivityInfoResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +134,12 @@ updateConnectivityInfoResponse
     :: Int -- ^ 'ucirsResponseStatus'
     -> UpdateConnectivityInfoResponse
 updateConnectivityInfoResponse pResponseStatus_ =
-    UpdateConnectivityInfoResponse'
-    { _ucirsVersion = Nothing
-    , _ucirsMessage = Nothing
-    , _ucirsResponseStatus = pResponseStatus_
-    }
+  UpdateConnectivityInfoResponse'
+  { _ucirsVersion = Nothing
+  , _ucirsMessage = Nothing
+  , _ucirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | New Version
 ucirsVersion :: Lens' UpdateConnectivityInfoResponse (Maybe Text)
@@ -151,4 +153,4 @@ ucirsMessage = lens _ucirsMessage (\ s a -> s{_ucirsMessage = a});
 ucirsResponseStatus :: Lens' UpdateConnectivityInfoResponse Int
 ucirsResponseStatus = lens _ucirsResponseStatus (\ s a -> s{_ucirsResponseStatus = a});
 
-instance NFData UpdateConnectivityInfoResponse
+instance NFData UpdateConnectivityInfoResponse where

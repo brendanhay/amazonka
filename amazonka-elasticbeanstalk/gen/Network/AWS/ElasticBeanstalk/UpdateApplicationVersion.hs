@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     , avdmApplicationVersion
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateApplicationVersion' smart constructor.
 data UpdateApplicationVersion = UpdateApplicationVersion'
-    { _uavDescription     :: !(Maybe Text)
-    , _uavApplicationName :: !Text
-    , _uavVersionLabel    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uavDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uavApplicationName :: {-# NOUNPACK #-}!Text
+  , _uavVersionLabel    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplicationVersion' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ updateApplicationVersion
     -> Text -- ^ 'uavVersionLabel'
     -> UpdateApplicationVersion
 updateApplicationVersion pApplicationName_ pVersionLabel_ =
-    UpdateApplicationVersion'
-    { _uavDescription = Nothing
-    , _uavApplicationName = pApplicationName_
-    , _uavVersionLabel = pVersionLabel_
-    }
+  UpdateApplicationVersion'
+  { _uavDescription = Nothing
+  , _uavApplicationName = pApplicationName_
+  , _uavVersionLabel = pVersionLabel_
+  }
+
 
 -- | A new description for this version.
 uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest UpdateApplicationVersion where
           = receiveXMLWrapper "UpdateApplicationVersionResult"
               (\ s h x -> parseXML x)
 
-instance Hashable UpdateApplicationVersion
+instance Hashable UpdateApplicationVersion where
 
-instance NFData UpdateApplicationVersion
+instance NFData UpdateApplicationVersion where
 
 instance ToHeaders UpdateApplicationVersion where
         toHeaders = const mempty

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.DetectLabels
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -64,19 +64,20 @@ module Network.AWS.Rekognition.DetectLabels
     , dlrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detectLabels' smart constructor.
 data DetectLabels = DetectLabels'
-    { _dlMinConfidence :: !(Maybe Double)
-    , _dlMaxLabels     :: !(Maybe Nat)
-    , _dlImage         :: !Image
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlMinConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dlMaxLabels     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlImage         :: {-# NOUNPACK #-}!Image
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetectLabels' with the minimum fields required to make a request.
 --
@@ -91,11 +92,9 @@ detectLabels
     :: Image -- ^ 'dlImage'
     -> DetectLabels
 detectLabels pImage_ =
-    DetectLabels'
-    { _dlMinConfidence = Nothing
-    , _dlMaxLabels = Nothing
-    , _dlImage = pImage_
-    }
+  DetectLabels'
+  {_dlMinConfidence = Nothing, _dlMaxLabels = Nothing, _dlImage = pImage_}
+
 
 -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.
 dlMinConfidence :: Lens' DetectLabels (Maybe Double)
@@ -120,9 +119,9 @@ instance AWSRequest DetectLabels where
                      (x .?> "OrientationCorrection")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DetectLabels
+instance Hashable DetectLabels where
 
-instance NFData DetectLabels
+instance NFData DetectLabels where
 
 instance ToHeaders DetectLabels where
         toHeaders
@@ -149,10 +148,11 @@ instance ToQuery DetectLabels where
 
 -- | /See:/ 'detectLabelsResponse' smart constructor.
 data DetectLabelsResponse = DetectLabelsResponse'
-    { _dlrsLabels                :: !(Maybe [Label])
-    , _dlrsOrientationCorrection :: !(Maybe OrientationCorrection)
-    , _dlrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlrsLabels                :: {-# NOUNPACK #-}!(Maybe [Label])
+  , _dlrsOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
+  , _dlrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetectLabelsResponse' with the minimum fields required to make a request.
 --
@@ -167,11 +167,12 @@ detectLabelsResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DetectLabelsResponse
 detectLabelsResponse pResponseStatus_ =
-    DetectLabelsResponse'
-    { _dlrsLabels = Nothing
-    , _dlrsOrientationCorrection = Nothing
-    , _dlrsResponseStatus = pResponseStatus_
-    }
+  DetectLabelsResponse'
+  { _dlrsLabels = Nothing
+  , _dlrsOrientationCorrection = Nothing
+  , _dlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of labels for the real-world objects detected.
 dlrsLabels :: Lens' DetectLabelsResponse [Label]
@@ -185,4 +186,4 @@ dlrsOrientationCorrection = lens _dlrsOrientationCorrection (\ s a -> s{_dlrsOri
 dlrsResponseStatus :: Lens' DetectLabelsResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 
-instance NFData DetectLabelsResponse
+instance NFData DetectLabelsResponse where

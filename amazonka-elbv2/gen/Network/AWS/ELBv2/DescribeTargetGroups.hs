@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeTargetGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,22 +46,23 @@ module Network.AWS.ELBv2.DescribeTargetGroups
     , dtgsrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTargetGroups' smart constructor.
 data DescribeTargetGroups = DescribeTargetGroups'
-    { _dtgTargetGroupARNs :: !(Maybe [Text])
-    , _dtgNames           :: !(Maybe [Text])
-    , _dtgLoadBalancerARN :: !(Maybe Text)
-    , _dtgMarker          :: !(Maybe Text)
-    , _dtgPageSize        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtgTargetGroupARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dtgNames           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dtgLoadBalancerARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtgMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtgPageSize        :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTargetGroups' with the minimum fields required to make a request.
 --
@@ -79,13 +80,14 @@ data DescribeTargetGroups = DescribeTargetGroups'
 describeTargetGroups
     :: DescribeTargetGroups
 describeTargetGroups =
-    DescribeTargetGroups'
-    { _dtgTargetGroupARNs = Nothing
-    , _dtgNames = Nothing
-    , _dtgLoadBalancerARN = Nothing
-    , _dtgMarker = Nothing
-    , _dtgPageSize = Nothing
-    }
+  DescribeTargetGroups'
+  { _dtgTargetGroupARNs = Nothing
+  , _dtgNames = Nothing
+  , _dtgLoadBalancerARN = Nothing
+  , _dtgMarker = Nothing
+  , _dtgPageSize = Nothing
+  }
+
 
 -- | The Amazon Resource Names (ARN) of the target groups.
 dtgTargetGroupARNs :: Lens' DescribeTargetGroups [Text]
@@ -127,9 +129,9 @@ instance AWSRequest DescribeTargetGroups where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTargetGroups
+instance Hashable DescribeTargetGroups where
 
-instance NFData DescribeTargetGroups
+instance NFData DescribeTargetGroups where
 
 instance ToHeaders DescribeTargetGroups where
         toHeaders = const mempty
@@ -152,10 +154,11 @@ instance ToQuery DescribeTargetGroups where
 
 -- | /See:/ 'describeTargetGroupsResponse' smart constructor.
 data DescribeTargetGroupsResponse = DescribeTargetGroupsResponse'
-    { _dtgsrsNextMarker     :: !(Maybe Text)
-    , _dtgsrsTargetGroups   :: !(Maybe [TargetGroup])
-    , _dtgsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtgsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtgsrsTargetGroups   :: {-# NOUNPACK #-}!(Maybe [TargetGroup])
+  , _dtgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTargetGroupsResponse' with the minimum fields required to make a request.
 --
@@ -170,11 +173,12 @@ describeTargetGroupsResponse
     :: Int -- ^ 'dtgsrsResponseStatus'
     -> DescribeTargetGroupsResponse
 describeTargetGroupsResponse pResponseStatus_ =
-    DescribeTargetGroupsResponse'
-    { _dtgsrsNextMarker = Nothing
-    , _dtgsrsTargetGroups = Nothing
-    , _dtgsrsResponseStatus = pResponseStatus_
-    }
+  DescribeTargetGroupsResponse'
+  { _dtgsrsNextMarker = Nothing
+  , _dtgsrsTargetGroups = Nothing
+  , _dtgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dtgsrsNextMarker :: Lens' DescribeTargetGroupsResponse (Maybe Text)
@@ -188,4 +192,4 @@ dtgsrsTargetGroups = lens _dtgsrsTargetGroups (\ s a -> s{_dtgsrsTargetGroups = 
 dtgsrsResponseStatus :: Lens' DescribeTargetGroupsResponse Int
 dtgsrsResponseStatus = lens _dtgsrsResponseStatus (\ s a -> s{_dtgsrsResponseStatus = a});
 
-instance NFData DescribeTargetGroupsResponse
+instance NFData DescribeTargetGroupsResponse where

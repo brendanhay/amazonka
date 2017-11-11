@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.DescribeRepositories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.ECR.DescribeRepositories
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeRepositories' smart constructor.
 data DescribeRepositories = DescribeRepositories'
-    { _drRegistryId      :: !(Maybe Text)
-    , _drRepositoryNames :: !(Maybe (List1 Text))
-    , _drNextToken       :: !(Maybe Text)
-    , _drMaxResults      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drRegistryId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drRepositoryNames :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _drNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRepositories' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ data DescribeRepositories = DescribeRepositories'
 describeRepositories
     :: DescribeRepositories
 describeRepositories =
-    DescribeRepositories'
-    { _drRegistryId = Nothing
-    , _drRepositoryNames = Nothing
-    , _drNextToken = Nothing
-    , _drMaxResults = Nothing
-    }
+  DescribeRepositories'
+  { _drRegistryId = Nothing
+  , _drRepositoryNames = Nothing
+  , _drNextToken = Nothing
+  , _drMaxResults = Nothing
+  }
+
 
 -- | The AWS account ID associated with the registry that contains the repositories to be described. If you do not specify a registry, the default registry is assumed.
 drRegistryId :: Lens' DescribeRepositories (Maybe Text)
@@ -115,9 +117,9 @@ instance AWSRequest DescribeRepositories where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeRepositories
+instance Hashable DescribeRepositories where
 
-instance NFData DescribeRepositories
+instance NFData DescribeRepositories where
 
 instance ToHeaders DescribeRepositories where
         toHeaders
@@ -146,10 +148,11 @@ instance ToQuery DescribeRepositories where
 
 -- | /See:/ 'describeRepositoriesResponse' smart constructor.
 data DescribeRepositoriesResponse = DescribeRepositoriesResponse'
-    { _drrsRepositories   :: !(Maybe [Repository])
-    , _drrsNextToken      :: !(Maybe Text)
-    , _drrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsRepositories   :: {-# NOUNPACK #-}!(Maybe [Repository])
+  , _drrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRepositoriesResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ describeRepositoriesResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DescribeRepositoriesResponse
 describeRepositoriesResponse pResponseStatus_ =
-    DescribeRepositoriesResponse'
-    { _drrsRepositories = Nothing
-    , _drrsNextToken = Nothing
-    , _drrsResponseStatus = pResponseStatus_
-    }
+  DescribeRepositoriesResponse'
+  { _drrsRepositories = Nothing
+  , _drrsNextToken = Nothing
+  , _drrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of repository objects corresponding to valid repositories.
 drrsRepositories :: Lens' DescribeRepositoriesResponse [Repository]
@@ -182,4 +186,4 @@ drrsNextToken = lens _drrsNextToken (\ s a -> s{_drrsNextToken = a});
 drrsResponseStatus :: Lens' DescribeRepositoriesResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DescribeRepositoriesResponse
+instance NFData DescribeRepositoriesResponse where

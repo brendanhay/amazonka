@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.AuthorizeSnapshotAccess
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     , asarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'authorizeSnapshotAccess' smart constructor.
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
-    { _asaSnapshotClusterIdentifier :: !(Maybe Text)
-    , _asaSnapshotIdentifier        :: !Text
-    , _asaAccountWithRestoreAccess  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asaSnapshotClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asaSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
+  , _asaAccountWithRestoreAccess  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeSnapshotAccess' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ authorizeSnapshotAccess
     -> Text -- ^ 'asaAccountWithRestoreAccess'
     -> AuthorizeSnapshotAccess
 authorizeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
-    AuthorizeSnapshotAccess'
-    { _asaSnapshotClusterIdentifier = Nothing
-    , _asaSnapshotIdentifier = pSnapshotIdentifier_
-    , _asaAccountWithRestoreAccess = pAccountWithRestoreAccess_
-    }
+  AuthorizeSnapshotAccess'
+  { _asaSnapshotClusterIdentifier = Nothing
+  , _asaSnapshotIdentifier = pSnapshotIdentifier_
+  , _asaAccountWithRestoreAccess = pAccountWithRestoreAccess_
+  }
+
 
 -- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest AuthorizeSnapshotAccess where
                  AuthorizeSnapshotAccessResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
-instance Hashable AuthorizeSnapshotAccess
+instance Hashable AuthorizeSnapshotAccess where
 
-instance NFData AuthorizeSnapshotAccess
+instance NFData AuthorizeSnapshotAccess where
 
 instance ToHeaders AuthorizeSnapshotAccess where
         toHeaders = const mempty
@@ -125,9 +127,10 @@ instance ToQuery AuthorizeSnapshotAccess where
 
 -- | /See:/ 'authorizeSnapshotAccessResponse' smart constructor.
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
-    { _asarsSnapshot       :: !(Maybe Snapshot)
-    , _asarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asarsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
+  , _asarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeSnapshotAccessResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +143,9 @@ authorizeSnapshotAccessResponse
     :: Int -- ^ 'asarsResponseStatus'
     -> AuthorizeSnapshotAccessResponse
 authorizeSnapshotAccessResponse pResponseStatus_ =
-    AuthorizeSnapshotAccessResponse'
-    { _asarsSnapshot = Nothing
-    , _asarsResponseStatus = pResponseStatus_
-    }
+  AuthorizeSnapshotAccessResponse'
+  {_asarsSnapshot = Nothing, _asarsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
@@ -153,4 +155,4 @@ asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a});
 asarsResponseStatus :: Lens' AuthorizeSnapshotAccessResponse Int
 asarsResponseStatus = lens _asarsResponseStatus (\ s a -> s{_asarsResponseStatus = a});
 
-instance NFData AuthorizeSnapshotAccessResponse
+instance NFData AuthorizeSnapshotAccessResponse where

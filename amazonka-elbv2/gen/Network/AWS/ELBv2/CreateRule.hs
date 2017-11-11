@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.CreateRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.ELBv2.CreateRule
     , crrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createRule' smart constructor.
 data CreateRule = CreateRule'
-    { _crListenerARN :: !Text
-    , _crConditions  :: ![RuleCondition]
-    , _crPriority    :: !Nat
-    , _crActions     :: ![Action]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crListenerARN :: {-# NOUNPACK #-}!Text
+  , _crConditions  :: {-# NOUNPACK #-}![RuleCondition]
+  , _crPriority    :: {-# NOUNPACK #-}!Nat
+  , _crActions     :: {-# NOUNPACK #-}![Action]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRule' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ createRule
     -> Natural -- ^ 'crPriority'
     -> CreateRule
 createRule pListenerARN_ pPriority_ =
-    CreateRule'
-    { _crListenerARN = pListenerARN_
-    , _crConditions = mempty
-    , _crPriority = _Nat # pPriority_
-    , _crActions = mempty
-    }
+  CreateRule'
+  { _crListenerARN = pListenerARN_
+  , _crConditions = mempty
+  , _crPriority = _Nat # pPriority_
+  , _crActions = mempty
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the listener.
 crListenerARN :: Lens' CreateRule Text
@@ -109,9 +111,9 @@ instance AWSRequest CreateRule where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateRule
+instance Hashable CreateRule where
 
-instance NFData CreateRule
+instance NFData CreateRule where
 
 instance ToHeaders CreateRule where
         toHeaders = const mempty
@@ -131,9 +133,10 @@ instance ToQuery CreateRule where
 
 -- | /See:/ 'createRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
-    { _crrsRules          :: !(Maybe [Rule])
-    , _crrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsRules          :: {-# NOUNPACK #-}!(Maybe [Rule])
+  , _crrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRuleResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +149,9 @@ createRuleResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRuleResponse
 createRuleResponse pResponseStatus_ =
-    CreateRuleResponse'
-    { _crrsRules = Nothing
-    , _crrsResponseStatus = pResponseStatus_
-    }
+  CreateRuleResponse'
+  {_crrsRules = Nothing, _crrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the rule.
 crrsRules :: Lens' CreateRuleResponse [Rule]
@@ -159,4 +161,4 @@ crrsRules = lens _crrsRules (\ s a -> s{_crrsRules = a}) . _Default . _Coerce;
 crrsResponseStatus :: Lens' CreateRuleResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 
-instance NFData CreateRuleResponse
+instance NFData CreateRuleResponse where

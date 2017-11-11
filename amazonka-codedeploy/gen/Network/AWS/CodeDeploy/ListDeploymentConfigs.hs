@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentConfigs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,13 +40,13 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
     , ldcrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a ListDeploymentConfigs operation.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listDeploymentConfigs' smart constructor.
 newtype ListDeploymentConfigs = ListDeploymentConfigs'
-    { _ldcNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldcNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeploymentConfigs' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ newtype ListDeploymentConfigs = ListDeploymentConfigs'
 -- * 'ldcNextToken' - An identifier returned from the previous list deployment configurations call. It can be used to return the next set of deployment configurations in the list.
 listDeploymentConfigs
     :: ListDeploymentConfigs
-listDeploymentConfigs =
-    ListDeploymentConfigs'
-    { _ldcNextToken = Nothing
-    }
+listDeploymentConfigs = ListDeploymentConfigs' {_ldcNextToken = Nothing}
+
 
 -- | An identifier returned from the previous list deployment configurations call. It can be used to return the next set of deployment configurations in the list.
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
@@ -92,9 +91,9 @@ instance AWSRequest ListDeploymentConfigs where
                      (x .?> "deploymentConfigsList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDeploymentConfigs
+instance Hashable ListDeploymentConfigs where
 
-instance NFData ListDeploymentConfigs
+instance NFData ListDeploymentConfigs where
 
 instance ToHeaders ListDeploymentConfigs where
         toHeaders
@@ -123,10 +122,11 @@ instance ToQuery ListDeploymentConfigs where
 --
 -- /See:/ 'listDeploymentConfigsResponse' smart constructor.
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
-    { _ldcrsNextToken             :: !(Maybe Text)
-    , _ldcrsDeploymentConfigsList :: !(Maybe [Text])
-    , _ldcrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldcrsNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldcrsDeploymentConfigsList :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ldcrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeploymentConfigsResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +141,12 @@ listDeploymentConfigsResponse
     :: Int -- ^ 'ldcrsResponseStatus'
     -> ListDeploymentConfigsResponse
 listDeploymentConfigsResponse pResponseStatus_ =
-    ListDeploymentConfigsResponse'
-    { _ldcrsNextToken = Nothing
-    , _ldcrsDeploymentConfigsList = Nothing
-    , _ldcrsResponseStatus = pResponseStatus_
-    }
+  ListDeploymentConfigsResponse'
+  { _ldcrsNextToken = Nothing
+  , _ldcrsDeploymentConfigsList = Nothing
+  , _ldcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list.
 ldcrsNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
@@ -159,4 +160,4 @@ ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrs
 ldcrsResponseStatus :: Lens' ListDeploymentConfigsResponse Int
 ldcrsResponseStatus = lens _ldcrsResponseStatus (\ s a -> s{_ldcrsResponseStatus = a});
 
-instance NFData ListDeploymentConfigsResponse
+instance NFData ListDeploymentConfigsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeEventSubscriptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEventSubscriptions' smart constructor.
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-    { _dessSubscriptionName :: !(Maybe Text)
-    , _dessMarker           :: !(Maybe Text)
-    , _dessMaxRecords       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dessSubscriptionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dessMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dessMaxRecords       :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventSubscriptions' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 describeEventSubscriptions
     :: DescribeEventSubscriptions
 describeEventSubscriptions =
-    DescribeEventSubscriptions'
-    { _dessSubscriptionName = Nothing
-    , _dessMarker = Nothing
-    , _dessMaxRecords = Nothing
-    }
+  DescribeEventSubscriptions'
+  { _dessSubscriptionName = Nothing
+  , _dessMarker = Nothing
+  , _dessMaxRecords = Nothing
+  }
+
 
 -- | The name of the Amazon Redshift event notification subscription to be described.
 dessSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
@@ -112,9 +114,9 @@ instance AWSRequest DescribeEventSubscriptions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEventSubscriptions
+instance Hashable DescribeEventSubscriptions where
 
-instance NFData DescribeEventSubscriptions
+instance NFData DescribeEventSubscriptions where
 
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
@@ -138,10 +140,11 @@ instance ToQuery DescribeEventSubscriptions where
 --
 -- /See:/ 'describeEventSubscriptionsResponse' smart constructor.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-    { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
-    , _desrsMarker                 :: !(Maybe Text)
-    , _desrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsEventSubscriptionsList :: {-# NOUNPACK #-}!(Maybe [EventSubscription])
+  , _desrsMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventSubscriptionsResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +159,12 @@ describeEventSubscriptionsResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pResponseStatus_ =
-    DescribeEventSubscriptionsResponse'
-    { _desrsEventSubscriptionsList = Nothing
-    , _desrsMarker = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeEventSubscriptionsResponse'
+  { _desrsEventSubscriptionsList = Nothing
+  , _desrsMarker = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of event subscriptions.
 desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
@@ -175,3 +179,4 @@ desrsResponseStatus :: Lens' DescribeEventSubscriptionsResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
 instance NFData DescribeEventSubscriptionsResponse
+         where

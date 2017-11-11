@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Lightsail.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AccessDirection
-    = Inbound
-    | Outbound
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Inbound
+  | Outbound
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AccessDirection where
     parser = takeLowerText >>= \case
@@ -46,9 +47,10 @@ instance FromJSON AccessDirection where
     parseJSON = parseJSONText "AccessDirection"
 
 data BlueprintType
-    = App
-    | OS
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = App
+  | OS
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BlueprintType where
     parser = takeLowerText >>= \case
@@ -72,9 +74,10 @@ instance FromJSON BlueprintType where
     parseJSON = parseJSONText "BlueprintType"
 
 data InstanceAccessProtocol
-    = Rdp
-    | SSH
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Rdp
+  | SSH
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceAccessProtocol where
     parser = takeLowerText >>= \case
@@ -101,13 +104,14 @@ instance FromJSON InstanceAccessProtocol where
     parseJSON = parseJSONText "InstanceAccessProtocol"
 
 data InstanceMetricName
-    = CPUUtilization
-    | NetworkIn
-    | NetworkOut
-    | StatusCheckFailed
-    | StatusCheckFailedInstance
-    | StatusCheckFailedSystem
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CPUUtilization
+  | NetworkIn
+  | NetworkOut
+  | StatusCheckFailed
+  | StatusCheckFailedInstance
+  | StatusCheckFailedSystem
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceMetricName where
     parser = takeLowerText >>= \case
@@ -142,10 +146,11 @@ instance FromJSON InstanceMetricName where
     parseJSON = parseJSONText "InstanceMetricName"
 
 data InstanceSnapshotState
-    = Available
-    | Error'
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | Error'
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceSnapshotState where
     parser = takeLowerText >>= \case
@@ -171,12 +176,13 @@ instance FromJSON InstanceSnapshotState where
     parseJSON = parseJSONText "InstanceSnapshotState"
 
 data MetricStatistic
-    = Average
-    | Maximum
-    | Minimum
-    | SampleCount
-    | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Average
+  | Maximum
+  | Minimum
+  | SampleCount
+  | Sum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricStatistic where
     parser = takeLowerText >>= \case
@@ -206,34 +212,35 @@ instance ToJSON MetricStatistic where
     toJSON = toJSONText
 
 data MetricUnit
-    = Bits
-    | BitsSecond
-    | Bytes
-    | BytesSecond
-    | Count
-    | CountSecond
-    | Gigabits
-    | GigabitsSecond
-    | Gigabytes
-    | GigabytesSecond
-    | Kilobits
-    | KilobitsSecond
-    | Kilobytes
-    | KilobytesSecond
-    | Megabits
-    | MegabitsSecond
-    | Megabytes
-    | MegabytesSecond
-    | Microseconds
-    | Milliseconds
-    | None
-    | Percent
-    | Seconds
-    | Terabits
-    | TerabitsSecond
-    | Terabytes
-    | TerabytesSecond
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Bits
+  | BitsSecond
+  | Bytes
+  | BytesSecond
+  | Count
+  | CountSecond
+  | Gigabits
+  | GigabitsSecond
+  | Gigabytes
+  | GigabytesSecond
+  | Kilobits
+  | KilobitsSecond
+  | Kilobytes
+  | KilobytesSecond
+  | Megabits
+  | MegabitsSecond
+  | Megabytes
+  | MegabytesSecond
+  | Microseconds
+  | Milliseconds
+  | None
+  | Percent
+  | Seconds
+  | Terabits
+  | TerabitsSecond
+  | Terabytes
+  | TerabytesSecond
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricUnit where
     parser = takeLowerText >>= \case
@@ -310,10 +317,11 @@ instance FromJSON MetricUnit where
     parseJSON = parseJSONText "MetricUnit"
 
 data NetworkProtocol
-    = All
-    | TCP
-    | Udp
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = All
+  | TCP
+  | Udp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NetworkProtocol where
     parser = takeLowerText >>= \case
@@ -342,11 +350,12 @@ instance FromJSON NetworkProtocol where
     parseJSON = parseJSONText "NetworkProtocol"
 
 data OperationStatus
-    = Completed
-    | Failed
-    | NotStarted
-    | Started
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Completed
+  | Failed
+  | NotStarted
+  | Started
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OperationStatus where
     parser = takeLowerText >>= \case
@@ -374,26 +383,27 @@ instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
 
 data OperationType
-    = AllocateStaticIP
-    | AttachStaticIP
-    | CloseInstancePublicPorts
-    | CreateDomain
-    | CreateInstance
-    | CreateInstanceSnapshot
-    | CreateInstancesFromSnapshot
-    | DeleteDomain
-    | DeleteDomainEntry
-    | DeleteInstance
-    | DeleteInstanceSnapshot
-    | DetachStaticIP
-    | OpenInstancePublicPorts
-    | PutInstancePublicPorts
-    | RebootInstance
-    | ReleaseStaticIP
-    | StartInstance
-    | StopInstance
-    | UpdateDomainEntry
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AllocateStaticIP
+  | AttachStaticIP
+  | CloseInstancePublicPorts
+  | CreateDomain
+  | CreateInstance
+  | CreateInstanceSnapshot
+  | CreateInstancesFromSnapshot
+  | DeleteDomain
+  | DeleteDomainEntry
+  | DeleteInstance
+  | DeleteInstanceSnapshot
+  | DetachStaticIP
+  | OpenInstancePublicPorts
+  | PutInstancePublicPorts
+  | RebootInstance
+  | ReleaseStaticIP
+  | StartInstance
+  | StopInstance
+  | UpdateDomainEntry
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
@@ -451,9 +461,10 @@ instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"
 
 data PortAccessType
-    = Private
-    | Public
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Private
+  | Public
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PortAccessType where
     parser = takeLowerText >>= \case
@@ -477,9 +488,10 @@ instance FromJSON PortAccessType where
     parseJSON = parseJSONText "PortAccessType"
 
 data PortState
-    = Closed
-    | Open
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Closed
+  | Open
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PortState where
     parser = takeLowerText >>= \case
@@ -503,18 +515,19 @@ instance FromJSON PortState where
     parseJSON = parseJSONText "PortState"
 
 data RegionName
-    = ApNortheast1
-    | ApNortheast2
-    | ApSouth1
-    | ApSoutheast1
-    | ApSoutheast2
-    | EuCentral1
-    | EuWest1
-    | UsEast1
-    | UsEast2
-    | UsWest1
-    | UsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ApNortheast1
+  | ApNortheast2
+  | ApSouth1
+  | ApSoutheast1
+  | ApSoutheast2
+  | EuCentral1
+  | EuWest1
+  | UsEast1
+  | UsEast2
+  | UsWest1
+  | UsWest2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RegionName where
     parser = takeLowerText >>= \case
@@ -556,13 +569,14 @@ instance FromJSON RegionName where
     parseJSON = parseJSONText "RegionName"
 
 data ResourceType
-    = Domain
-    | Instance
-    | InstanceSnapshot
-    | KeyPair
-    | PeeredVPC
-    | StaticIP
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Domain
+  | Instance
+  | InstanceSnapshot
+  | KeyPair
+  | PeeredVPC
+  | StaticIP
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case

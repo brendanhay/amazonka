@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.TestMetricFilter
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     , tmfrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'testMetricFilter' smart constructor.
 data TestMetricFilter = TestMetricFilter'
-    { _tmfFilterPattern    :: !Text
-    , _tmfLogEventMessages :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tmfFilterPattern    :: {-# NOUNPACK #-}!Text
+  , _tmfLogEventMessages :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestMetricFilter' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ testMetricFilter
     -> NonEmpty Text -- ^ 'tmfLogEventMessages'
     -> TestMetricFilter
 testMetricFilter pFilterPattern_ pLogEventMessages_ =
-    TestMetricFilter'
-    { _tmfFilterPattern = pFilterPattern_
-    , _tmfLogEventMessages = _List1 # pLogEventMessages_
-    }
+  TestMetricFilter'
+  { _tmfFilterPattern = pFilterPattern_
+  , _tmfLogEventMessages = _List1 # pLogEventMessages_
+  }
+
 
 -- | Undocumented member.
 tmfFilterPattern :: Lens' TestMetricFilter Text
@@ -85,9 +87,9 @@ instance AWSRequest TestMetricFilter where
                  TestMetricFilterResponse' <$>
                    (x .?> "matches" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable TestMetricFilter
+instance Hashable TestMetricFilter where
 
-instance NFData TestMetricFilter
+instance NFData TestMetricFilter where
 
 instance ToHeaders TestMetricFilter where
         toHeaders
@@ -113,9 +115,10 @@ instance ToQuery TestMetricFilter where
 
 -- | /See:/ 'testMetricFilterResponse' smart constructor.
 data TestMetricFilterResponse = TestMetricFilterResponse'
-    { _tmfrsMatches        :: !(Maybe [MetricFilterMatchRecord])
-    , _tmfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tmfrsMatches        :: {-# NOUNPACK #-}!(Maybe [MetricFilterMatchRecord])
+  , _tmfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestMetricFilterResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +131,9 @@ testMetricFilterResponse
     :: Int -- ^ 'tmfrsResponseStatus'
     -> TestMetricFilterResponse
 testMetricFilterResponse pResponseStatus_ =
-    TestMetricFilterResponse'
-    { _tmfrsMatches = Nothing
-    , _tmfrsResponseStatus = pResponseStatus_
-    }
+  TestMetricFilterResponse'
+  {_tmfrsMatches = Nothing, _tmfrsResponseStatus = pResponseStatus_}
+
 
 -- | The matched events.
 tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
@@ -141,4 +143,4 @@ tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _
 tmfrsResponseStatus :: Lens' TestMetricFilterResponse Int
 tmfrsResponseStatus = lens _tmfrsResponseStatus (\ s a -> s{_tmfrsResponseStatus = a});
 
-instance NFData TestMetricFilterResponse
+instance NFData TestMetricFilterResponse where

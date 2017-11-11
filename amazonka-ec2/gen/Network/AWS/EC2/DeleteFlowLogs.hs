@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteFlowLogs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DeleteFlowLogs
     , dflrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteFlowLogs.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteFlowLogs' smart constructor.
 newtype DeleteFlowLogs = DeleteFlowLogs'
-    { _dflFlowLogIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dflFlowLogIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFlowLogs' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype DeleteFlowLogs = DeleteFlowLogs'
 -- * 'dflFlowLogIds' - One or more flow log IDs.
 deleteFlowLogs
     :: DeleteFlowLogs
-deleteFlowLogs =
-    DeleteFlowLogs'
-    { _dflFlowLogIds = mempty
-    }
+deleteFlowLogs = DeleteFlowLogs' {_dflFlowLogIds = mempty}
+
 
 -- | One or more flow log IDs.
 dflFlowLogIds :: Lens' DeleteFlowLogs [Text]
@@ -80,9 +79,9 @@ instance AWSRequest DeleteFlowLogs where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DeleteFlowLogs
+instance Hashable DeleteFlowLogs where
 
-instance NFData DeleteFlowLogs
+instance NFData DeleteFlowLogs where
 
 instance ToHeaders DeleteFlowLogs where
         toHeaders = const mempty
@@ -103,9 +102,10 @@ instance ToQuery DeleteFlowLogs where
 --
 -- /See:/ 'deleteFlowLogsResponse' smart constructor.
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
-    { _dflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
-    , _dflrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dflrsUnsuccessful   :: {-# NOUNPACK #-}!(Maybe [UnsuccessfulItem])
+  , _dflrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFlowLogsResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +118,9 @@ deleteFlowLogsResponse
     :: Int -- ^ 'dflrsResponseStatus'
     -> DeleteFlowLogsResponse
 deleteFlowLogsResponse pResponseStatus_ =
-    DeleteFlowLogsResponse'
-    { _dflrsUnsuccessful = Nothing
-    , _dflrsResponseStatus = pResponseStatus_
-    }
+  DeleteFlowLogsResponse'
+  {_dflrsUnsuccessful = Nothing, _dflrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the flow logs that could not be deleted successfully.
 dflrsUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
@@ -131,4 +130,4 @@ dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a})
 dflrsResponseStatus :: Lens' DeleteFlowLogsResponse Int
 dflrsResponseStatus = lens _dflrsResponseStatus (\ s a -> s{_dflrsResponseStatus = a});
 
-instance NFData DeleteFlowLogsResponse
+instance NFData DeleteFlowLogsResponse where

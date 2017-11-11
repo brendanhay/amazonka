@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudSearch.DeleteDomain
     , ddrsResponseStatus
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DeleteDomain' @ operation. Specifies the name of the domain you want to delete.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDomain' smart constructor.
 newtype DeleteDomain = DeleteDomain'
-    { _dddDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dddDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype DeleteDomain = DeleteDomain'
 deleteDomain
     :: Text -- ^ 'dddDomainName'
     -> DeleteDomain
-deleteDomain pDomainName_ =
-    DeleteDomain'
-    { _dddDomainName = pDomainName_
-    }
+deleteDomain pDomainName_ = DeleteDomain' {_dddDomainName = pDomainName_}
+
 
 -- | The name of the domain you want to permanently delete.
 dddDomainName :: Lens' DeleteDomain Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteDomain where
                  DeleteDomainResponse' <$>
                    (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteDomain
+instance Hashable DeleteDomain where
 
-instance NFData DeleteDomain
+instance NFData DeleteDomain where
 
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty
@@ -102,9 +101,10 @@ instance ToQuery DeleteDomain where
 --
 -- /See:/ 'deleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-    { _ddrsDomainStatus   :: !(Maybe DomainStatus)
-    , _ddrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsDomainStatus   :: {-# NOUNPACK #-}!(Maybe DomainStatus)
+  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ deleteDomainResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DeleteDomainResponse
 deleteDomainResponse pResponseStatus_ =
-    DeleteDomainResponse'
-    { _ddrsDomainStatus = Nothing
-    , _ddrsResponseStatus = pResponseStatus_
-    }
+  DeleteDomainResponse'
+  {_ddrsDomainStatus = Nothing, _ddrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
@@ -130,4 +129,4 @@ ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a});
 ddrsResponseStatus :: Lens' DeleteDomainResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
-instance NFData DeleteDomainResponse
+instance NFData DeleteDomainResponse where

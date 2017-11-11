@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Lightsail.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types.Sum
+import Network.AWS.Prelude
 
 -- | Describes an Availability Zone.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'availabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-    { _azState    :: !(Maybe Text)
-    , _azZoneName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _azState    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _azZoneName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
@@ -40,11 +41,8 @@ data AvailabilityZone = AvailabilityZone'
 -- * 'azZoneName' - The name of the Availability Zone. The format is @us-east-1a@ (case-sensitive).
 availabilityZone
     :: AvailabilityZone
-availabilityZone =
-    AvailabilityZone'
-    { _azState = Nothing
-    , _azZoneName = Nothing
-    }
+availabilityZone = AvailabilityZone' {_azState = Nothing, _azZoneName = Nothing}
+
 
 -- | The state of the Availability Zone.
 azState :: Lens' AvailabilityZone (Maybe Text)
@@ -61,9 +59,9 @@ instance FromJSON AvailabilityZone where
                  AvailabilityZone' <$>
                    (x .:? "state") <*> (x .:? "zoneName"))
 
-instance Hashable AvailabilityZone
+instance Hashable AvailabilityZone where
 
-instance NFData AvailabilityZone
+instance NFData AvailabilityZone where
 
 -- | Describes a blueprint (a virtual private server image).
 --
@@ -71,18 +69,19 @@ instance NFData AvailabilityZone
 --
 -- /See:/ 'blueprint' smart constructor.
 data Blueprint = Blueprint'
-    { _bVersionCode :: !(Maybe Text)
-    , _bGroup       :: !(Maybe Text)
-    , _bMinPower    :: !(Maybe Int)
-    , _bProductURL  :: !(Maybe Text)
-    , _bLicenseURL  :: !(Maybe Text)
-    , _bName        :: !(Maybe Text)
-    , _bVersion     :: !(Maybe Text)
-    , _bBlueprintId :: !(Maybe Text)
-    , _bType        :: !(Maybe BlueprintType)
-    , _bIsActive    :: !(Maybe Bool)
-    , _bDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bVersionCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bGroup       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bMinPower    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bProductURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bLicenseURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bVersion     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bBlueprintId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bType        :: {-# NOUNPACK #-}!(Maybe BlueprintType)
+  , _bIsActive    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _bDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Blueprint' with the minimum fields required to make a request.
 --
@@ -112,19 +111,20 @@ data Blueprint = Blueprint'
 blueprint
     :: Blueprint
 blueprint =
-    Blueprint'
-    { _bVersionCode = Nothing
-    , _bGroup = Nothing
-    , _bMinPower = Nothing
-    , _bProductURL = Nothing
-    , _bLicenseURL = Nothing
-    , _bName = Nothing
-    , _bVersion = Nothing
-    , _bBlueprintId = Nothing
-    , _bType = Nothing
-    , _bIsActive = Nothing
-    , _bDescription = Nothing
-    }
+  Blueprint'
+  { _bVersionCode = Nothing
+  , _bGroup = Nothing
+  , _bMinPower = Nothing
+  , _bProductURL = Nothing
+  , _bLicenseURL = Nothing
+  , _bName = Nothing
+  , _bVersion = Nothing
+  , _bBlueprintId = Nothing
+  , _bType = Nothing
+  , _bIsActive = Nothing
+  , _bDescription = Nothing
+  }
+
 
 -- | The version code.
 bVersionCode :: Lens' Blueprint (Maybe Text)
@@ -186,9 +186,9 @@ instance FromJSON Blueprint where
                      <*> (x .:? "isActive")
                      <*> (x .:? "description"))
 
-instance Hashable Blueprint
+instance Hashable Blueprint where
 
-instance NFData Blueprint
+instance NFData Blueprint where
 
 -- | Describes a bundle, which is a set of specs describing your virtual private server (or /instance/ ).
 --
@@ -196,17 +196,18 @@ instance NFData Blueprint
 --
 -- /See:/ 'bundle' smart constructor.
 data Bundle = Bundle'
-    { _bunCpuCount             :: !(Maybe Int)
-    , _bunTransferPerMonthInGb :: !(Maybe Int)
-    , _bunBundleId             :: !(Maybe Text)
-    , _bunInstanceType         :: !(Maybe Text)
-    , _bunName                 :: !(Maybe Text)
-    , _bunPower                :: !(Maybe Int)
-    , _bunDiskSizeInGb         :: !(Maybe Int)
-    , _bunPrice                :: !(Maybe Double)
-    , _bunIsActive             :: !(Maybe Bool)
-    , _bunRamSizeInGb          :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bunCpuCount             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bunTransferPerMonthInGb :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bunBundleId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bunInstanceType         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bunName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bunPower                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bunDiskSizeInGb         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bunPrice                :: {-# NOUNPACK #-}!(Maybe Double)
+  , _bunIsActive             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _bunRamSizeInGb          :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Bundle' with the minimum fields required to make a request.
 --
@@ -234,18 +235,19 @@ data Bundle = Bundle'
 bundle
     :: Bundle
 bundle =
-    Bundle'
-    { _bunCpuCount = Nothing
-    , _bunTransferPerMonthInGb = Nothing
-    , _bunBundleId = Nothing
-    , _bunInstanceType = Nothing
-    , _bunName = Nothing
-    , _bunPower = Nothing
-    , _bunDiskSizeInGb = Nothing
-    , _bunPrice = Nothing
-    , _bunIsActive = Nothing
-    , _bunRamSizeInGb = Nothing
-    }
+  Bundle'
+  { _bunCpuCount = Nothing
+  , _bunTransferPerMonthInGb = Nothing
+  , _bunBundleId = Nothing
+  , _bunInstanceType = Nothing
+  , _bunName = Nothing
+  , _bunPower = Nothing
+  , _bunDiskSizeInGb = Nothing
+  , _bunPrice = Nothing
+  , _bunIsActive = Nothing
+  , _bunRamSizeInGb = Nothing
+  }
+
 
 -- | The number of vCPUs included in the bundle (e.g., @2@ ).
 bunCpuCount :: Lens' Bundle (Maybe Int)
@@ -302,9 +304,9 @@ instance FromJSON Bundle where
                      <*> (x .:? "isActive")
                      <*> (x .:? "ramSizeInGb"))
 
-instance Hashable Bundle
+instance Hashable Bundle where
 
-instance NFData Bundle
+instance NFData Bundle where
 
 -- | Describes the hard disk (an SSD).
 --
@@ -312,21 +314,22 @@ instance NFData Bundle
 --
 -- /See:/ 'disk' smart constructor.
 data Disk = Disk'
-    { _dResourceType    :: !(Maybe ResourceType)
-    , _dArn             :: !(Maybe Text)
-    , _dPath            :: !(Maybe Text)
-    , _dCreatedAt       :: !(Maybe POSIX)
-    , _dLocation        :: !(Maybe ResourceLocation)
-    , _dIops            :: !(Maybe Int)
-    , _dIsAttached      :: !(Maybe Bool)
-    , _dAttachmentState :: !(Maybe Text)
-    , _dName            :: !(Maybe Text)
-    , _dSizeInGb        :: !(Maybe Int)
-    , _dSupportCode     :: !(Maybe Text)
-    , _dIsSystemDisk    :: !(Maybe Bool)
-    , _dAttachedTo      :: !(Maybe Text)
-    , _dGbInUse         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dResourceType    :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _dArn             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dPath            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCreatedAt       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dLocation        :: {-# NOUNPACK #-}!(Maybe ResourceLocation)
+  , _dIops            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dIsAttached      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dAttachmentState :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dSizeInGb        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dSupportCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dIsSystemDisk    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dAttachedTo      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dGbInUse         :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Disk' with the minimum fields required to make a request.
 --
@@ -362,22 +365,23 @@ data Disk = Disk'
 disk
     :: Disk
 disk =
-    Disk'
-    { _dResourceType = Nothing
-    , _dArn = Nothing
-    , _dPath = Nothing
-    , _dCreatedAt = Nothing
-    , _dLocation = Nothing
-    , _dIops = Nothing
-    , _dIsAttached = Nothing
-    , _dAttachmentState = Nothing
-    , _dName = Nothing
-    , _dSizeInGb = Nothing
-    , _dSupportCode = Nothing
-    , _dIsSystemDisk = Nothing
-    , _dAttachedTo = Nothing
-    , _dGbInUse = Nothing
-    }
+  Disk'
+  { _dResourceType = Nothing
+  , _dArn = Nothing
+  , _dPath = Nothing
+  , _dCreatedAt = Nothing
+  , _dLocation = Nothing
+  , _dIops = Nothing
+  , _dIsAttached = Nothing
+  , _dAttachmentState = Nothing
+  , _dName = Nothing
+  , _dSizeInGb = Nothing
+  , _dSupportCode = Nothing
+  , _dIsSystemDisk = Nothing
+  , _dAttachedTo = Nothing
+  , _dGbInUse = Nothing
+  }
+
 
 -- | The resource type of the disk.
 dResourceType :: Lens' Disk (Maybe ResourceType)
@@ -454,9 +458,9 @@ instance FromJSON Disk where
                      <*> (x .:? "attachedTo")
                      <*> (x .:? "gbInUse"))
 
-instance Hashable Disk
+instance Hashable Disk where
 
-instance NFData Disk
+instance NFData Disk where
 
 -- | Describes a domain where you are storing recordsets in Lightsail.
 --
@@ -464,14 +468,15 @@ instance NFData Disk
 --
 -- /See:/ 'domain' smart constructor.
 data Domain = Domain'
-    { _domResourceType  :: !(Maybe ResourceType)
-    , _domDomainEntries :: !(Maybe [DomainEntry])
-    , _domArn           :: !(Maybe Text)
-    , _domCreatedAt     :: !(Maybe POSIX)
-    , _domLocation      :: !(Maybe ResourceLocation)
-    , _domName          :: !(Maybe Text)
-    , _domSupportCode   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _domResourceType  :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _domDomainEntries :: {-# NOUNPACK #-}!(Maybe [DomainEntry])
+  , _domArn           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _domCreatedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _domLocation      :: {-# NOUNPACK #-}!(Maybe ResourceLocation)
+  , _domName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _domSupportCode   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Domain' with the minimum fields required to make a request.
 --
@@ -493,15 +498,16 @@ data Domain = Domain'
 domain
     :: Domain
 domain =
-    Domain'
-    { _domResourceType = Nothing
-    , _domDomainEntries = Nothing
-    , _domArn = Nothing
-    , _domCreatedAt = Nothing
-    , _domLocation = Nothing
-    , _domName = Nothing
-    , _domSupportCode = Nothing
-    }
+  Domain'
+  { _domResourceType = Nothing
+  , _domDomainEntries = Nothing
+  , _domArn = Nothing
+  , _domCreatedAt = Nothing
+  , _domLocation = Nothing
+  , _domName = Nothing
+  , _domSupportCode = Nothing
+  }
+
 
 -- | The resource type.
 domResourceType :: Lens' Domain (Maybe ResourceType)
@@ -544,9 +550,9 @@ instance FromJSON Domain where
                      <*> (x .:? "name")
                      <*> (x .:? "supportCode"))
 
-instance Hashable Domain
+instance Hashable Domain where
 
-instance NFData Domain
+instance NFData Domain where
 
 -- | Describes a domain recordset entry.
 --
@@ -554,12 +560,13 @@ instance NFData Domain
 --
 -- /See:/ 'domainEntry' smart constructor.
 data DomainEntry = DomainEntry'
-    { _deName    :: !(Maybe Text)
-    , _deId      :: !(Maybe Text)
-    , _deOptions :: !(Maybe (Map Text Text))
-    , _deType    :: !(Maybe Text)
-    , _deTarget  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _deType    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deTarget  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainEntry' with the minimum fields required to make a request.
 --
@@ -577,13 +584,14 @@ data DomainEntry = DomainEntry'
 domainEntry
     :: DomainEntry
 domainEntry =
-    DomainEntry'
-    { _deName = Nothing
-    , _deId = Nothing
-    , _deOptions = Nothing
-    , _deType = Nothing
-    , _deTarget = Nothing
-    }
+  DomainEntry'
+  { _deName = Nothing
+  , _deId = Nothing
+  , _deOptions = Nothing
+  , _deType = Nothing
+  , _deTarget = Nothing
+  }
+
 
 -- | The name of the domain.
 deName :: Lens' DomainEntry (Maybe Text)
@@ -615,9 +623,9 @@ instance FromJSON DomainEntry where
                      <*> (x .:? "type")
                      <*> (x .:? "target"))
 
-instance Hashable DomainEntry
+instance Hashable DomainEntry where
 
-instance NFData DomainEntry
+instance NFData DomainEntry where
 
 instance ToJSON DomainEntry where
         toJSON DomainEntry'{..}
@@ -634,25 +642,26 @@ instance ToJSON DomainEntry where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-    { _iState            :: !(Maybe InstanceState)
-    , _iIpv6Address      :: !(Maybe Text)
-    , _iResourceType     :: !(Maybe ResourceType)
-    , _iArn              :: !(Maybe Text)
-    , _iCreatedAt        :: !(Maybe POSIX)
-    , _iLocation         :: !(Maybe ResourceLocation)
-    , _iSshKeyName       :: !(Maybe Text)
-    , _iUsername         :: !(Maybe Text)
-    , _iNetworking       :: !(Maybe InstanceNetworking)
-    , _iBundleId         :: !(Maybe Text)
-    , _iName             :: !(Maybe Text)
-    , _iSupportCode      :: !(Maybe Text)
-    , _iBlueprintId      :: !(Maybe Text)
-    , _iPrivateIPAddress :: !(Maybe Text)
-    , _iBlueprintName    :: !(Maybe Text)
-    , _iIsStaticIP       :: !(Maybe Bool)
-    , _iPublicIPAddress  :: !(Maybe Text)
-    , _iHardware         :: !(Maybe InstanceHardware)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iState            :: {-# NOUNPACK #-}!(Maybe InstanceState)
+  , _iIpv6Address      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iResourceType     :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _iArn              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iCreatedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iLocation         :: {-# NOUNPACK #-}!(Maybe ResourceLocation)
+  , _iSshKeyName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iUsername         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iNetworking       :: {-# NOUNPACK #-}!(Maybe InstanceNetworking)
+  , _iBundleId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iSupportCode      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iBlueprintId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iPrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iBlueprintName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iIsStaticIP       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iPublicIPAddress  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iHardware         :: {-# NOUNPACK #-}!(Maybe InstanceHardware)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
@@ -696,26 +705,27 @@ data Instance = Instance'
 instance'
     :: Instance
 instance' =
-    Instance'
-    { _iState = Nothing
-    , _iIpv6Address = Nothing
-    , _iResourceType = Nothing
-    , _iArn = Nothing
-    , _iCreatedAt = Nothing
-    , _iLocation = Nothing
-    , _iSshKeyName = Nothing
-    , _iUsername = Nothing
-    , _iNetworking = Nothing
-    , _iBundleId = Nothing
-    , _iName = Nothing
-    , _iSupportCode = Nothing
-    , _iBlueprintId = Nothing
-    , _iPrivateIPAddress = Nothing
-    , _iBlueprintName = Nothing
-    , _iIsStaticIP = Nothing
-    , _iPublicIPAddress = Nothing
-    , _iHardware = Nothing
-    }
+  Instance'
+  { _iState = Nothing
+  , _iIpv6Address = Nothing
+  , _iResourceType = Nothing
+  , _iArn = Nothing
+  , _iCreatedAt = Nothing
+  , _iLocation = Nothing
+  , _iSshKeyName = Nothing
+  , _iUsername = Nothing
+  , _iNetworking = Nothing
+  , _iBundleId = Nothing
+  , _iName = Nothing
+  , _iSupportCode = Nothing
+  , _iBlueprintId = Nothing
+  , _iPrivateIPAddress = Nothing
+  , _iBlueprintName = Nothing
+  , _iIsStaticIP = Nothing
+  , _iPublicIPAddress = Nothing
+  , _iHardware = Nothing
+  }
+
 
 -- | The status code and the state (e.g., @running@ ) for the instance.
 iState :: Lens' Instance (Maybe InstanceState)
@@ -812,9 +822,9 @@ instance FromJSON Instance where
                      <*> (x .:? "publicIpAddress")
                      <*> (x .:? "hardware"))
 
-instance Hashable Instance
+instance Hashable Instance where
 
-instance NFData Instance
+instance NFData Instance where
 
 -- | The parameters for gaining temporary access to one of your Amazon Lightsail instances.
 --
@@ -822,15 +832,16 @@ instance NFData Instance
 --
 -- /See:/ 'instanceAccessDetails' smart constructor.
 data InstanceAccessDetails = InstanceAccessDetails'
-    { _iadCertKey      :: !(Maybe Text)
-    , _iadIpAddress    :: !(Maybe Text)
-    , _iadPrivateKey   :: !(Maybe Text)
-    , _iadExpiresAt    :: !(Maybe POSIX)
-    , _iadUsername     :: !(Maybe Text)
-    , _iadProtocol     :: !(Maybe InstanceAccessProtocol)
-    , _iadPassword     :: !(Maybe Text)
-    , _iadInstanceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iadCertKey      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iadIpAddress    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iadPrivateKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iadExpiresAt    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iadUsername     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iadProtocol     :: {-# NOUNPACK #-}!(Maybe InstanceAccessProtocol)
+  , _iadPassword     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iadInstanceName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceAccessDetails' with the minimum fields required to make a request.
 --
@@ -854,16 +865,17 @@ data InstanceAccessDetails = InstanceAccessDetails'
 instanceAccessDetails
     :: InstanceAccessDetails
 instanceAccessDetails =
-    InstanceAccessDetails'
-    { _iadCertKey = Nothing
-    , _iadIpAddress = Nothing
-    , _iadPrivateKey = Nothing
-    , _iadExpiresAt = Nothing
-    , _iadUsername = Nothing
-    , _iadProtocol = Nothing
-    , _iadPassword = Nothing
-    , _iadInstanceName = Nothing
-    }
+  InstanceAccessDetails'
+  { _iadCertKey = Nothing
+  , _iadIpAddress = Nothing
+  , _iadPrivateKey = Nothing
+  , _iadExpiresAt = Nothing
+  , _iadUsername = Nothing
+  , _iadProtocol = Nothing
+  , _iadPassword = Nothing
+  , _iadInstanceName = Nothing
+  }
+
 
 -- | For SSH access, the public key to use when accessing your instance For OpenSSH clients (e.g., command line SSH), you should save this value to @tempkey-cert.pub@ .
 iadCertKey :: Lens' InstanceAccessDetails (Maybe Text)
@@ -910,9 +922,9 @@ instance FromJSON InstanceAccessDetails where
                      <*> (x .:? "password")
                      <*> (x .:? "instanceName"))
 
-instance Hashable InstanceAccessDetails
+instance Hashable InstanceAccessDetails where
 
-instance NFData InstanceAccessDetails
+instance NFData InstanceAccessDetails where
 
 -- | Describes the hardware for the instance.
 --
@@ -920,10 +932,11 @@ instance NFData InstanceAccessDetails
 --
 -- /See:/ 'instanceHardware' smart constructor.
 data InstanceHardware = InstanceHardware'
-    { _ihCpuCount    :: !(Maybe Int)
-    , _ihDisks       :: !(Maybe [Disk])
-    , _ihRamSizeInGb :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ihCpuCount    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ihDisks       :: {-# NOUNPACK #-}!(Maybe [Disk])
+  , _ihRamSizeInGb :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceHardware' with the minimum fields required to make a request.
 --
@@ -937,11 +950,9 @@ data InstanceHardware = InstanceHardware'
 instanceHardware
     :: InstanceHardware
 instanceHardware =
-    InstanceHardware'
-    { _ihCpuCount = Nothing
-    , _ihDisks = Nothing
-    , _ihRamSizeInGb = Nothing
-    }
+  InstanceHardware'
+  {_ihCpuCount = Nothing, _ihDisks = Nothing, _ihRamSizeInGb = Nothing}
+
 
 -- | The number of vCPUs the instance has.
 ihCpuCount :: Lens' InstanceHardware (Maybe Int)
@@ -963,9 +974,9 @@ instance FromJSON InstanceHardware where
                    (x .:? "cpuCount") <*> (x .:? "disks" .!= mempty) <*>
                      (x .:? "ramSizeInGb"))
 
-instance Hashable InstanceHardware
+instance Hashable InstanceHardware where
 
-instance NFData InstanceHardware
+instance NFData InstanceHardware where
 
 -- | Describes monthly data transfer rates and port information for an instance.
 --
@@ -973,9 +984,10 @@ instance NFData InstanceHardware
 --
 -- /See:/ 'instanceNetworking' smart constructor.
 data InstanceNetworking = InstanceNetworking'
-    { _inMonthlyTransfer :: !(Maybe MonthlyTransfer)
-    , _inPorts           :: !(Maybe [InstancePortInfo])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _inMonthlyTransfer :: {-# NOUNPACK #-}!(Maybe MonthlyTransfer)
+  , _inPorts           :: {-# NOUNPACK #-}!(Maybe [InstancePortInfo])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceNetworking' with the minimum fields required to make a request.
 --
@@ -987,10 +999,8 @@ data InstanceNetworking = InstanceNetworking'
 instanceNetworking
     :: InstanceNetworking
 instanceNetworking =
-    InstanceNetworking'
-    { _inMonthlyTransfer = Nothing
-    , _inPorts = Nothing
-    }
+  InstanceNetworking' {_inMonthlyTransfer = Nothing, _inPorts = Nothing}
+
 
 -- | The amount of data in GB allocated for monthly data transfers.
 inMonthlyTransfer :: Lens' InstanceNetworking (Maybe MonthlyTransfer)
@@ -1008,9 +1018,9 @@ instance FromJSON InstanceNetworking where
                    (x .:? "monthlyTransfer") <*>
                      (x .:? "ports" .!= mempty))
 
-instance Hashable InstanceNetworking
+instance Hashable InstanceNetworking where
 
-instance NFData InstanceNetworking
+instance NFData InstanceNetworking where
 
 -- | Describes information about the instance ports.
 --
@@ -1018,14 +1028,15 @@ instance NFData InstanceNetworking
 --
 -- /See:/ 'instancePortInfo' smart constructor.
 data InstancePortInfo = InstancePortInfo'
-    { _ipiFromPort        :: !(Maybe Nat)
-    , _ipiCommonName      :: !(Maybe Text)
-    , _ipiProtocol        :: !(Maybe NetworkProtocol)
-    , _ipiAccessDirection :: !(Maybe AccessDirection)
-    , _ipiAccessType      :: !(Maybe PortAccessType)
-    , _ipiToPort          :: !(Maybe Nat)
-    , _ipiAccessFrom      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ipiFromPort        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ipiCommonName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ipiProtocol        :: {-# NOUNPACK #-}!(Maybe NetworkProtocol)
+  , _ipiAccessDirection :: {-# NOUNPACK #-}!(Maybe AccessDirection)
+  , _ipiAccessType      :: {-# NOUNPACK #-}!(Maybe PortAccessType)
+  , _ipiToPort          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ipiAccessFrom      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstancePortInfo' with the minimum fields required to make a request.
 --
@@ -1047,15 +1058,16 @@ data InstancePortInfo = InstancePortInfo'
 instancePortInfo
     :: InstancePortInfo
 instancePortInfo =
-    InstancePortInfo'
-    { _ipiFromPort = Nothing
-    , _ipiCommonName = Nothing
-    , _ipiProtocol = Nothing
-    , _ipiAccessDirection = Nothing
-    , _ipiAccessType = Nothing
-    , _ipiToPort = Nothing
-    , _ipiAccessFrom = Nothing
-    }
+  InstancePortInfo'
+  { _ipiFromPort = Nothing
+  , _ipiCommonName = Nothing
+  , _ipiProtocol = Nothing
+  , _ipiAccessDirection = Nothing
+  , _ipiAccessType = Nothing
+  , _ipiToPort = Nothing
+  , _ipiAccessFrom = Nothing
+  }
+
 
 -- | The first port in the range.
 ipiFromPort :: Lens' InstancePortInfo (Maybe Natural)
@@ -1097,9 +1109,9 @@ instance FromJSON InstancePortInfo where
                      <*> (x .:? "toPort")
                      <*> (x .:? "accessFrom"))
 
-instance Hashable InstancePortInfo
+instance Hashable InstancePortInfo where
 
-instance NFData InstancePortInfo
+instance NFData InstancePortInfo where
 
 -- | Describes the port state.
 --
@@ -1107,11 +1119,12 @@ instance NFData InstancePortInfo
 --
 -- /See:/ 'instancePortState' smart constructor.
 data InstancePortState = InstancePortState'
-    { _ipsFromPort :: !(Maybe Nat)
-    , _ipsState    :: !(Maybe PortState)
-    , _ipsProtocol :: !(Maybe NetworkProtocol)
-    , _ipsToPort   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ipsFromPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ipsState    :: {-# NOUNPACK #-}!(Maybe PortState)
+  , _ipsProtocol :: {-# NOUNPACK #-}!(Maybe NetworkProtocol)
+  , _ipsToPort   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstancePortState' with the minimum fields required to make a request.
 --
@@ -1127,12 +1140,13 @@ data InstancePortState = InstancePortState'
 instancePortState
     :: InstancePortState
 instancePortState =
-    InstancePortState'
-    { _ipsFromPort = Nothing
-    , _ipsState = Nothing
-    , _ipsProtocol = Nothing
-    , _ipsToPort = Nothing
-    }
+  InstancePortState'
+  { _ipsFromPort = Nothing
+  , _ipsState = Nothing
+  , _ipsProtocol = Nothing
+  , _ipsToPort = Nothing
+  }
+
 
 -- | The first port in the range.
 ipsFromPort :: Lens' InstancePortState (Maybe Natural)
@@ -1159,9 +1173,9 @@ instance FromJSON InstancePortState where
                      (x .:? "protocol")
                      <*> (x .:? "toPort"))
 
-instance Hashable InstancePortState
+instance Hashable InstancePortState where
 
-instance NFData InstancePortState
+instance NFData InstancePortState where
 
 -- | Describes the snapshot of the virtual private server, or /instance/ .
 --
@@ -1169,20 +1183,21 @@ instance NFData InstancePortState
 --
 -- /See:/ 'instanceSnapshot' smart constructor.
 data InstanceSnapshot = InstanceSnapshot'
-    { _insFromBlueprintId  :: !(Maybe Text)
-    , _insState            :: !(Maybe InstanceSnapshotState)
-    , _insResourceType     :: !(Maybe ResourceType)
-    , _insArn              :: !(Maybe Text)
-    , _insCreatedAt        :: !(Maybe POSIX)
-    , _insLocation         :: !(Maybe ResourceLocation)
-    , _insProgress         :: !(Maybe Text)
-    , _insName             :: !(Maybe Text)
-    , _insFromBundleId     :: !(Maybe Text)
-    , _insSizeInGb         :: !(Maybe Int)
-    , _insSupportCode      :: !(Maybe Text)
-    , _insFromInstanceARN  :: !(Maybe Text)
-    , _insFromInstanceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _insFromBlueprintId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _insState            :: {-# NOUNPACK #-}!(Maybe InstanceSnapshotState)
+  , _insResourceType     :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _insArn              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _insCreatedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _insLocation         :: {-# NOUNPACK #-}!(Maybe ResourceLocation)
+  , _insProgress         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _insName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _insFromBundleId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _insSizeInGb         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _insSupportCode      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _insFromInstanceARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _insFromInstanceName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceSnapshot' with the minimum fields required to make a request.
 --
@@ -1216,21 +1231,22 @@ data InstanceSnapshot = InstanceSnapshot'
 instanceSnapshot
     :: InstanceSnapshot
 instanceSnapshot =
-    InstanceSnapshot'
-    { _insFromBlueprintId = Nothing
-    , _insState = Nothing
-    , _insResourceType = Nothing
-    , _insArn = Nothing
-    , _insCreatedAt = Nothing
-    , _insLocation = Nothing
-    , _insProgress = Nothing
-    , _insName = Nothing
-    , _insFromBundleId = Nothing
-    , _insSizeInGb = Nothing
-    , _insSupportCode = Nothing
-    , _insFromInstanceARN = Nothing
-    , _insFromInstanceName = Nothing
-    }
+  InstanceSnapshot'
+  { _insFromBlueprintId = Nothing
+  , _insState = Nothing
+  , _insResourceType = Nothing
+  , _insArn = Nothing
+  , _insCreatedAt = Nothing
+  , _insLocation = Nothing
+  , _insProgress = Nothing
+  , _insName = Nothing
+  , _insFromBundleId = Nothing
+  , _insSizeInGb = Nothing
+  , _insSupportCode = Nothing
+  , _insFromInstanceARN = Nothing
+  , _insFromInstanceName = Nothing
+  }
+
 
 -- | The blueprint ID from which you created the snapshot (e.g., @os_debian_8_3@ ). A blueprint is a virtual private server (or /instance/ ) image used to create instances quickly.
 insFromBlueprintId :: Lens' InstanceSnapshot (Maybe Text)
@@ -1302,9 +1318,9 @@ instance FromJSON InstanceSnapshot where
                      <*> (x .:? "fromInstanceArn")
                      <*> (x .:? "fromInstanceName"))
 
-instance Hashable InstanceSnapshot
+instance Hashable InstanceSnapshot where
 
-instance NFData InstanceSnapshot
+instance NFData InstanceSnapshot where
 
 -- | Describes the virtual private server (or /instance/ ) status.
 --
@@ -1312,9 +1328,10 @@ instance NFData InstanceSnapshot
 --
 -- /See:/ 'instanceState' smart constructor.
 data InstanceState = InstanceState'
-    { _isName :: !(Maybe Text)
-    , _isCode :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isCode :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceState' with the minimum fields required to make a request.
 --
@@ -1325,11 +1342,8 @@ data InstanceState = InstanceState'
 -- * 'isCode' - The status code for the instance.
 instanceState
     :: InstanceState
-instanceState =
-    InstanceState'
-    { _isName = Nothing
-    , _isCode = Nothing
-    }
+instanceState = InstanceState' {_isName = Nothing, _isCode = Nothing}
+
 
 -- | The state of the instance (e.g., @running@ or @pending@ ).
 isName :: Lens' InstanceState (Maybe Text)
@@ -1345,9 +1359,9 @@ instance FromJSON InstanceState where
               (\ x ->
                  InstanceState' <$> (x .:? "name") <*> (x .:? "code"))
 
-instance Hashable InstanceState
+instance Hashable InstanceState where
 
-instance NFData InstanceState
+instance NFData InstanceState where
 
 -- | Describes the SSH key pair.
 --
@@ -1355,14 +1369,15 @@ instance NFData InstanceState
 --
 -- /See:/ 'keyPair' smart constructor.
 data KeyPair = KeyPair'
-    { _kpResourceType :: !(Maybe ResourceType)
-    , _kpArn          :: !(Maybe Text)
-    , _kpCreatedAt    :: !(Maybe POSIX)
-    , _kpLocation     :: !(Maybe ResourceLocation)
-    , _kpFingerprint  :: !(Maybe Text)
-    , _kpName         :: !(Maybe Text)
-    , _kpSupportCode  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kpResourceType :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _kpArn          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kpCreatedAt    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _kpLocation     :: {-# NOUNPACK #-}!(Maybe ResourceLocation)
+  , _kpFingerprint  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kpName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kpSupportCode  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyPair' with the minimum fields required to make a request.
 --
@@ -1384,15 +1399,16 @@ data KeyPair = KeyPair'
 keyPair
     :: KeyPair
 keyPair =
-    KeyPair'
-    { _kpResourceType = Nothing
-    , _kpArn = Nothing
-    , _kpCreatedAt = Nothing
-    , _kpLocation = Nothing
-    , _kpFingerprint = Nothing
-    , _kpName = Nothing
-    , _kpSupportCode = Nothing
-    }
+  KeyPair'
+  { _kpResourceType = Nothing
+  , _kpArn = Nothing
+  , _kpCreatedAt = Nothing
+  , _kpLocation = Nothing
+  , _kpFingerprint = Nothing
+  , _kpName = Nothing
+  , _kpSupportCode = Nothing
+  }
+
 
 -- | The resource type (usually @KeyPair@ ).
 kpResourceType :: Lens' KeyPair (Maybe ResourceType)
@@ -1434,9 +1450,9 @@ instance FromJSON KeyPair where
                      <*> (x .:? "name")
                      <*> (x .:? "supportCode"))
 
-instance Hashable KeyPair
+instance Hashable KeyPair where
 
-instance NFData KeyPair
+instance NFData KeyPair where
 
 -- | Describes the metric data point.
 --
@@ -1444,14 +1460,15 @@ instance NFData KeyPair
 --
 -- /See:/ 'metricDatapoint' smart constructor.
 data MetricDatapoint = MetricDatapoint'
-    { _mdSampleCount :: !(Maybe Double)
-    , _mdMaximum     :: !(Maybe Double)
-    , _mdAverage     :: !(Maybe Double)
-    , _mdMinimum     :: !(Maybe Double)
-    , _mdSum         :: !(Maybe Double)
-    , _mdTimestamp   :: !(Maybe POSIX)
-    , _mdUnit        :: !(Maybe MetricUnit)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdSampleCount :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mdMaximum     :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mdAverage     :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mdMinimum     :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mdSum         :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mdTimestamp   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mdUnit        :: {-# NOUNPACK #-}!(Maybe MetricUnit)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricDatapoint' with the minimum fields required to make a request.
 --
@@ -1473,15 +1490,16 @@ data MetricDatapoint = MetricDatapoint'
 metricDatapoint
     :: MetricDatapoint
 metricDatapoint =
-    MetricDatapoint'
-    { _mdSampleCount = Nothing
-    , _mdMaximum = Nothing
-    , _mdAverage = Nothing
-    , _mdMinimum = Nothing
-    , _mdSum = Nothing
-    , _mdTimestamp = Nothing
-    , _mdUnit = Nothing
-    }
+  MetricDatapoint'
+  { _mdSampleCount = Nothing
+  , _mdMaximum = Nothing
+  , _mdAverage = Nothing
+  , _mdMinimum = Nothing
+  , _mdSum = Nothing
+  , _mdTimestamp = Nothing
+  , _mdUnit = Nothing
+  }
+
 
 -- | The sample count.
 mdSampleCount :: Lens' MetricDatapoint (Maybe Double)
@@ -1523,9 +1541,9 @@ instance FromJSON MetricDatapoint where
                      <*> (x .:? "timestamp")
                      <*> (x .:? "unit"))
 
-instance Hashable MetricDatapoint
+instance Hashable MetricDatapoint where
 
-instance NFData MetricDatapoint
+instance NFData MetricDatapoint where
 
 -- | Describes the monthly data transfer in and out of your virtual private server (or /instance/ ).
 --
@@ -1533,8 +1551,9 @@ instance NFData MetricDatapoint
 --
 -- /See:/ 'monthlyTransfer' smart constructor.
 newtype MonthlyTransfer = MonthlyTransfer'
-    { _mtGbPerMonthAllocated :: Maybe Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtGbPerMonthAllocated :: Maybe Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MonthlyTransfer' with the minimum fields required to make a request.
 --
@@ -1543,10 +1562,8 @@ newtype MonthlyTransfer = MonthlyTransfer'
 -- * 'mtGbPerMonthAllocated' - The amount allocated per month (in GB).
 monthlyTransfer
     :: MonthlyTransfer
-monthlyTransfer =
-    MonthlyTransfer'
-    { _mtGbPerMonthAllocated = Nothing
-    }
+monthlyTransfer = MonthlyTransfer' {_mtGbPerMonthAllocated = Nothing}
+
 
 -- | The amount allocated per month (in GB).
 mtGbPerMonthAllocated :: Lens' MonthlyTransfer (Maybe Int)
@@ -1558,9 +1575,9 @@ instance FromJSON MonthlyTransfer where
               (\ x ->
                  MonthlyTransfer' <$> (x .:? "gbPerMonthAllocated"))
 
-instance Hashable MonthlyTransfer
+instance Hashable MonthlyTransfer where
 
-instance NFData MonthlyTransfer
+instance NFData MonthlyTransfer where
 
 -- | Describes the API operation.
 --
@@ -1568,19 +1585,20 @@ instance NFData MonthlyTransfer
 --
 -- /See:/ 'operation' smart constructor.
 data Operation = Operation'
-    { _oStatus           :: !(Maybe OperationStatus)
-    , _oOperationDetails :: !(Maybe Text)
-    , _oResourceType     :: !(Maybe ResourceType)
-    , _oCreatedAt        :: !(Maybe POSIX)
-    , _oResourceName     :: !(Maybe Text)
-    , _oLocation         :: !(Maybe ResourceLocation)
-    , _oStatusChangedAt  :: !(Maybe POSIX)
-    , _oErrorDetails     :: !(Maybe Text)
-    , _oErrorCode        :: !(Maybe Text)
-    , _oId               :: !(Maybe Text)
-    , _oOperationType    :: !(Maybe OperationType)
-    , _oIsTerminal       :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oStatus           :: {-# NOUNPACK #-}!(Maybe OperationStatus)
+  , _oOperationDetails :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oResourceType     :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _oCreatedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _oResourceName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oLocation         :: {-# NOUNPACK #-}!(Maybe ResourceLocation)
+  , _oStatusChangedAt  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _oErrorDetails     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oErrorCode        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oOperationType    :: {-# NOUNPACK #-}!(Maybe OperationType)
+  , _oIsTerminal       :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Operation' with the minimum fields required to make a request.
 --
@@ -1612,20 +1630,21 @@ data Operation = Operation'
 operation
     :: Operation
 operation =
-    Operation'
-    { _oStatus = Nothing
-    , _oOperationDetails = Nothing
-    , _oResourceType = Nothing
-    , _oCreatedAt = Nothing
-    , _oResourceName = Nothing
-    , _oLocation = Nothing
-    , _oStatusChangedAt = Nothing
-    , _oErrorDetails = Nothing
-    , _oErrorCode = Nothing
-    , _oId = Nothing
-    , _oOperationType = Nothing
-    , _oIsTerminal = Nothing
-    }
+  Operation'
+  { _oStatus = Nothing
+  , _oOperationDetails = Nothing
+  , _oResourceType = Nothing
+  , _oCreatedAt = Nothing
+  , _oResourceName = Nothing
+  , _oLocation = Nothing
+  , _oStatusChangedAt = Nothing
+  , _oErrorDetails = Nothing
+  , _oErrorCode = Nothing
+  , _oId = Nothing
+  , _oOperationType = Nothing
+  , _oIsTerminal = Nothing
+  }
+
 
 -- | The status of the operation.
 oStatus :: Lens' Operation (Maybe OperationStatus)
@@ -1692,9 +1711,9 @@ instance FromJSON Operation where
                      <*> (x .:? "operationType")
                      <*> (x .:? "isTerminal"))
 
-instance Hashable Operation
+instance Hashable Operation where
 
-instance NFData Operation
+instance NFData Operation where
 
 -- | Describes information about the ports on your virtual private server (or /instance/ ).
 --
@@ -1702,10 +1721,11 @@ instance NFData Operation
 --
 -- /See:/ 'portInfo' smart constructor.
 data PortInfo = PortInfo'
-    { _piFromPort :: !(Maybe Nat)
-    , _piProtocol :: !(Maybe NetworkProtocol)
-    , _piToPort   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _piFromPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _piProtocol :: {-# NOUNPACK #-}!(Maybe NetworkProtocol)
+  , _piToPort   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PortInfo' with the minimum fields required to make a request.
 --
@@ -1719,11 +1739,8 @@ data PortInfo = PortInfo'
 portInfo
     :: PortInfo
 portInfo =
-    PortInfo'
-    { _piFromPort = Nothing
-    , _piProtocol = Nothing
-    , _piToPort = Nothing
-    }
+  PortInfo' {_piFromPort = Nothing, _piProtocol = Nothing, _piToPort = Nothing}
+
 
 -- | The first port in the range.
 piFromPort :: Lens' PortInfo (Maybe Natural)
@@ -1737,9 +1754,9 @@ piProtocol = lens _piProtocol (\ s a -> s{_piProtocol = a});
 piToPort :: Lens' PortInfo (Maybe Natural)
 piToPort = lens _piToPort (\ s a -> s{_piToPort = a}) . mapping _Nat;
 
-instance Hashable PortInfo
+instance Hashable PortInfo where
 
-instance NFData PortInfo
+instance NFData PortInfo where
 
 instance ToJSON PortInfo where
         toJSON PortInfo'{..}
@@ -1755,12 +1772,13 @@ instance ToJSON PortInfo where
 --
 -- /See:/ 'regionInfo' smart constructor.
 data RegionInfo = RegionInfo'
-    { _riAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _riName              :: !(Maybe RegionName)
-    , _riDisplayName       :: !(Maybe Text)
-    , _riContinentCode     :: !(Maybe Text)
-    , _riDescription       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
+  , _riName              :: {-# NOUNPACK #-}!(Maybe RegionName)
+  , _riDisplayName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riContinentCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegionInfo' with the minimum fields required to make a request.
 --
@@ -1778,13 +1796,14 @@ data RegionInfo = RegionInfo'
 regionInfo
     :: RegionInfo
 regionInfo =
-    RegionInfo'
-    { _riAvailabilityZones = Nothing
-    , _riName = Nothing
-    , _riDisplayName = Nothing
-    , _riContinentCode = Nothing
-    , _riDescription = Nothing
-    }
+  RegionInfo'
+  { _riAvailabilityZones = Nothing
+  , _riName = Nothing
+  , _riDisplayName = Nothing
+  , _riContinentCode = Nothing
+  , _riDescription = Nothing
+  }
+
 
 -- | The Availability Zones. Follows the format @us-east-1a@ (case-sensitive).
 riAvailabilityZones :: Lens' RegionInfo [AvailabilityZone]
@@ -1817,9 +1836,9 @@ instance FromJSON RegionInfo where
                      <*> (x .:? "continentCode")
                      <*> (x .:? "description"))
 
-instance Hashable RegionInfo
+instance Hashable RegionInfo where
 
-instance NFData RegionInfo
+instance NFData RegionInfo where
 
 -- | Describes the resource location.
 --
@@ -1827,9 +1846,10 @@ instance NFData RegionInfo
 --
 -- /See:/ 'resourceLocation' smart constructor.
 data ResourceLocation = ResourceLocation'
-    { _rlRegionName       :: !(Maybe RegionName)
-    , _rlAvailabilityZone :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rlRegionName       :: {-# NOUNPACK #-}!(Maybe RegionName)
+  , _rlAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceLocation' with the minimum fields required to make a request.
 --
@@ -1841,10 +1861,8 @@ data ResourceLocation = ResourceLocation'
 resourceLocation
     :: ResourceLocation
 resourceLocation =
-    ResourceLocation'
-    { _rlRegionName = Nothing
-    , _rlAvailabilityZone = Nothing
-    }
+  ResourceLocation' {_rlRegionName = Nothing, _rlAvailabilityZone = Nothing}
+
 
 -- | The AWS Region name.
 rlRegionName :: Lens' ResourceLocation (Maybe RegionName)
@@ -1861,9 +1879,9 @@ instance FromJSON ResourceLocation where
                  ResourceLocation' <$>
                    (x .:? "regionName") <*> (x .:? "availabilityZone"))
 
-instance Hashable ResourceLocation
+instance Hashable ResourceLocation where
 
-instance NFData ResourceLocation
+instance NFData ResourceLocation where
 
 -- | Describes the static IP.
 --
@@ -1871,16 +1889,17 @@ instance NFData ResourceLocation
 --
 -- /See:/ 'staticIP' smart constructor.
 data StaticIP = StaticIP'
-    { _siIpAddress    :: !(Maybe Text)
-    , _siResourceType :: !(Maybe ResourceType)
-    , _siArn          :: !(Maybe Text)
-    , _siCreatedAt    :: !(Maybe POSIX)
-    , _siLocation     :: !(Maybe ResourceLocation)
-    , _siIsAttached   :: !(Maybe Bool)
-    , _siName         :: !(Maybe Text)
-    , _siSupportCode  :: !(Maybe Text)
-    , _siAttachedTo   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siIpAddress    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _siResourceType :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _siArn          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _siCreatedAt    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _siLocation     :: {-# NOUNPACK #-}!(Maybe ResourceLocation)
+  , _siIsAttached   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _siName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _siSupportCode  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _siAttachedTo   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StaticIP' with the minimum fields required to make a request.
 --
@@ -1906,17 +1925,18 @@ data StaticIP = StaticIP'
 staticIP
     :: StaticIP
 staticIP =
-    StaticIP'
-    { _siIpAddress = Nothing
-    , _siResourceType = Nothing
-    , _siArn = Nothing
-    , _siCreatedAt = Nothing
-    , _siLocation = Nothing
-    , _siIsAttached = Nothing
-    , _siName = Nothing
-    , _siSupportCode = Nothing
-    , _siAttachedTo = Nothing
-    }
+  StaticIP'
+  { _siIpAddress = Nothing
+  , _siResourceType = Nothing
+  , _siArn = Nothing
+  , _siCreatedAt = Nothing
+  , _siLocation = Nothing
+  , _siIsAttached = Nothing
+  , _siName = Nothing
+  , _siSupportCode = Nothing
+  , _siAttachedTo = Nothing
+  }
+
 
 -- | The static IP address.
 siIpAddress :: Lens' StaticIP (Maybe Text)
@@ -1968,6 +1988,6 @@ instance FromJSON StaticIP where
                      <*> (x .:? "supportCode")
                      <*> (x .:? "attachedTo"))
 
-instance Hashable StaticIP
+instance Hashable StaticIP where
 
-instance NFData StaticIP
+instance NFData StaticIP where

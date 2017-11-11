@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CreateStackSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,24 +44,25 @@ module Network.AWS.CloudFormation.CreateStackSet
     , cssrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createStackSet' smart constructor.
 data CreateStackSet = CreateStackSet'
-    { _cssParameters         :: !(Maybe [Parameter])
-    , _cssTemplateBody       :: !(Maybe Text)
-    , _cssTemplateURL        :: !(Maybe Text)
-    , _cssClientRequestToken :: !(Maybe Text)
-    , _cssDescription        :: !(Maybe Text)
-    , _cssCapabilities       :: !(Maybe [Capability])
-    , _cssTags               :: !(Maybe [Tag])
-    , _cssStackSetName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cssParameters         :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _cssTemplateBody       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cssTemplateURL        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cssClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cssDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cssCapabilities       :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _cssTags               :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cssStackSetName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStackSet' with the minimum fields required to make a request.
 --
@@ -86,16 +87,17 @@ createStackSet
     :: Text -- ^ 'cssStackSetName'
     -> CreateStackSet
 createStackSet pStackSetName_ =
-    CreateStackSet'
-    { _cssParameters = Nothing
-    , _cssTemplateBody = Nothing
-    , _cssTemplateURL = Nothing
-    , _cssClientRequestToken = Nothing
-    , _cssDescription = Nothing
-    , _cssCapabilities = Nothing
-    , _cssTags = Nothing
-    , _cssStackSetName = pStackSetName_
-    }
+  CreateStackSet'
+  { _cssParameters = Nothing
+  , _cssTemplateBody = Nothing
+  , _cssTemplateURL = Nothing
+  , _cssClientRequestToken = Nothing
+  , _cssDescription = Nothing
+  , _cssCapabilities = Nothing
+  , _cssTags = Nothing
+  , _cssStackSetName = pStackSetName_
+  }
+
 
 -- | The input parameters for the stack set template.
 cssParameters :: Lens' CreateStackSet [Parameter]
@@ -138,9 +140,9 @@ instance AWSRequest CreateStackSet where
                  CreateStackSetResponse' <$>
                    (x .@? "StackSetId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateStackSet
+instance Hashable CreateStackSet where
 
-instance NFData CreateStackSet
+instance NFData CreateStackSet where
 
 instance ToHeaders CreateStackSet where
         toHeaders = const mempty
@@ -167,9 +169,10 @@ instance ToQuery CreateStackSet where
 
 -- | /See:/ 'createStackSetResponse' smart constructor.
 data CreateStackSetResponse = CreateStackSetResponse'
-    { _cssrsStackSetId     :: !(Maybe Text)
-    , _cssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cssrsStackSetId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStackSetResponse' with the minimum fields required to make a request.
 --
@@ -182,10 +185,9 @@ createStackSetResponse
     :: Int -- ^ 'cssrsResponseStatus'
     -> CreateStackSetResponse
 createStackSetResponse pResponseStatus_ =
-    CreateStackSetResponse'
-    { _cssrsStackSetId = Nothing
-    , _cssrsResponseStatus = pResponseStatus_
-    }
+  CreateStackSetResponse'
+  {_cssrsStackSetId = Nothing, _cssrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the stack set that you're creating.
 cssrsStackSetId :: Lens' CreateStackSetResponse (Maybe Text)
@@ -195,4 +197,4 @@ cssrsStackSetId = lens _cssrsStackSetId (\ s a -> s{_cssrsStackSetId = a});
 cssrsResponseStatus :: Lens' CreateStackSetResponse Int
 cssrsResponseStatus = lens _cssrsResponseStatus (\ s a -> s{_cssrsResponseStatus = a});
 
-instance NFData CreateStackSetResponse
+instance NFData CreateStackSetResponse where

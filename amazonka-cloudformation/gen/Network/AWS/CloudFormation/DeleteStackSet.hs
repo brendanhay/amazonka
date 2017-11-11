@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DeleteStackSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.CloudFormation.DeleteStackSet
     , dssrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteStackSet' smart constructor.
 newtype DeleteStackSet = DeleteStackSet'
-    { _dssStackSetName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssStackSetName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStackSet' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deleteStackSet
     :: Text -- ^ 'dssStackSetName'
     -> DeleteStackSet
 deleteStackSet pStackSetName_ =
-    DeleteStackSet'
-    { _dssStackSetName = pStackSetName_
-    }
+  DeleteStackSet' {_dssStackSetName = pStackSetName_}
+
 
 -- | The name or unique ID of the stack set that you're deleting. You can obtain this value by running 'ListStackSets' .
 dssStackSetName :: Lens' DeleteStackSet Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteStackSet where
               (\ s h x ->
                  DeleteStackSetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteStackSet
+instance Hashable DeleteStackSet where
 
-instance NFData DeleteStackSet
+instance NFData DeleteStackSet where
 
 instance ToHeaders DeleteStackSet where
         toHeaders = const mempty
@@ -92,8 +92,9 @@ instance ToQuery DeleteStackSet where
 
 -- | /See:/ 'deleteStackSetResponse' smart constructor.
 newtype DeleteStackSetResponse = DeleteStackSetResponse'
-    { _dssrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStackSetResponse' with the minimum fields required to make a request.
 --
@@ -104,12 +105,11 @@ deleteStackSetResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DeleteStackSetResponse
 deleteStackSetResponse pResponseStatus_ =
-    DeleteStackSetResponse'
-    { _dssrsResponseStatus = pResponseStatus_
-    }
+  DeleteStackSetResponse' {_dssrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DeleteStackSetResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 
-instance NFData DeleteStackSetResponse
+instance NFData DeleteStackSetResponse where

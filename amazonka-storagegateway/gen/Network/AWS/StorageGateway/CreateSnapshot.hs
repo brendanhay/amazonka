@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.StorageGateway.CreateSnapshot
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -64,9 +64,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-    { _csVolumeARN           :: !Text
-    , _csSnapshotDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csVolumeARN           :: {-# NOUNPACK #-}!Text
+  , _csSnapshotDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
 --
@@ -80,10 +81,9 @@ createSnapshot
     -> Text -- ^ 'csSnapshotDescription'
     -> CreateSnapshot
 createSnapshot pVolumeARN_ pSnapshotDescription_ =
-    CreateSnapshot'
-    { _csVolumeARN = pVolumeARN_
-    , _csSnapshotDescription = pSnapshotDescription_
-    }
+  CreateSnapshot'
+  {_csVolumeARN = pVolumeARN_, _csSnapshotDescription = pSnapshotDescription_}
+
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 csVolumeARN :: Lens' CreateSnapshot Text
@@ -103,9 +103,9 @@ instance AWSRequest CreateSnapshot where
                    (x .?> "VolumeARN") <*> (x .?> "SnapshotId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateSnapshot
+instance Hashable CreateSnapshot where
 
-instance NFData CreateSnapshot
+instance NFData CreateSnapshot where
 
 instance ToHeaders CreateSnapshot where
         toHeaders
@@ -137,10 +137,11 @@ instance ToQuery CreateSnapshot where
 --
 -- /See:/ 'createSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _csrsVolumeARN      :: !(Maybe Text)
-    , _csrsSnapshotId     :: !(Maybe Text)
-    , _csrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsVolumeARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csrsSnapshotId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +156,12 @@ createSnapshotResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateSnapshotResponse
 createSnapshotResponse pResponseStatus_ =
-    CreateSnapshotResponse'
-    { _csrsVolumeARN = Nothing
-    , _csrsSnapshotId = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  CreateSnapshotResponse'
+  { _csrsVolumeARN = Nothing
+  , _csrsSnapshotId = Nothing
+  , _csrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was taken.
 csrsVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
@@ -173,4 +175,4 @@ csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 csrsResponseStatus :: Lens' CreateSnapshotResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CreateSnapshotResponse
+instance NFData CreateSnapshotResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.StopRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DeviceFarm.StopRun
     , srsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to stop a specific run.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'stopRun' smart constructor.
 newtype StopRun = StopRun'
-    { _srArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopRun' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype StopRun = StopRun'
 stopRun
     :: Text -- ^ 'srArn'
     -> StopRun
-stopRun pArn_ =
-    StopRun'
-    { _srArn = pArn_
-    }
+stopRun pArn_ = StopRun' {_srArn = pArn_}
+
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm run you wish to stop.
 srArn :: Lens' StopRun Text
@@ -79,9 +78,9 @@ instance AWSRequest StopRun where
                  StopRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
 
-instance Hashable StopRun
+instance Hashable StopRun where
 
-instance NFData StopRun
+instance NFData StopRun where
 
 instance ToHeaders StopRun where
         toHeaders
@@ -108,9 +107,10 @@ instance ToQuery StopRun where
 --
 -- /See:/ 'stopRunResponse' smart constructor.
 data StopRunResponse = StopRunResponse'
-    { _srsRun            :: !(Maybe Run)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsRun            :: {-# NOUNPACK #-}!(Maybe Run)
+  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopRunResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +123,8 @@ stopRunResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopRunResponse
 stopRunResponse pResponseStatus_ =
-    StopRunResponse'
-    { _srsRun = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  StopRunResponse' {_srsRun = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | The run that was stopped.
 srsRun :: Lens' StopRunResponse (Maybe Run)
@@ -136,4 +134,4 @@ srsRun = lens _srsRun (\ s a -> s{_srsRun = a});
 srsResponseStatus :: Lens' StopRunResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StopRunResponse
+instance NFData StopRunResponse where

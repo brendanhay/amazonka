@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -88,12 +88,12 @@ module Network.AWS.GameLift.DeleteFleet
     , DeleteFleetResponse
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -101,8 +101,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteFleet' smart constructor.
 newtype DeleteFleet = DeleteFleet'
-    { _dfFleetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfFleetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFleet' with the minimum fields required to make a request.
 --
@@ -112,10 +113,8 @@ newtype DeleteFleet = DeleteFleet'
 deleteFleet
     :: Text -- ^ 'dfFleetId'
     -> DeleteFleet
-deleteFleet pFleetId_ =
-    DeleteFleet'
-    { _dfFleetId = pFleetId_
-    }
+deleteFleet pFleetId_ = DeleteFleet' {_dfFleetId = pFleetId_}
+
 
 -- | Unique identifier for a fleet to be deleted.
 dfFleetId :: Lens' DeleteFleet Text
@@ -126,9 +125,9 @@ instance AWSRequest DeleteFleet where
         request = postJSON gameLift
         response = receiveNull DeleteFleetResponse'
 
-instance Hashable DeleteFleet
+instance Hashable DeleteFleet where
 
-instance NFData DeleteFleet
+instance NFData DeleteFleet where
 
 instance ToHeaders DeleteFleet where
         toHeaders
@@ -151,8 +150,9 @@ instance ToQuery DeleteFleet where
 
 -- | /See:/ 'deleteFleetResponse' smart constructor.
 data DeleteFleetResponse =
-    DeleteFleetResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteFleetResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFleetResponse' with the minimum fields required to make a request.
 --
@@ -160,4 +160,5 @@ deleteFleetResponse
     :: DeleteFleetResponse
 deleteFleetResponse = DeleteFleetResponse'
 
-instance NFData DeleteFleetResponse
+
+instance NFData DeleteFleetResponse where

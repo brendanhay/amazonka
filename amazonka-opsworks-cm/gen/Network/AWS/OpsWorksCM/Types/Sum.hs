@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.OpsWorksCM.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data BackupStatus
-    = BSDeleting
-    | BSFailed
-    | BSInProgress
-    | BSOK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BSDeleting
+  | BSFailed
+  | BSInProgress
+  | BSOK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BackupStatus where
     parser = takeLowerText >>= \case
@@ -52,9 +53,10 @@ instance FromJSON BackupStatus where
     parseJSON = parseJSONText "BackupStatus"
 
 data BackupType
-    = Automated
-    | Manual
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Automated
+  | Manual
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BackupType where
     parser = takeLowerText >>= \case
@@ -78,9 +80,10 @@ instance FromJSON BackupType where
     parseJSON = parseJSONText "BackupType"
 
 data MaintenanceStatus
-    = MSFailed
-    | MSSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = MSFailed
+  | MSSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MaintenanceStatus where
     parser = takeLowerText >>= \case
@@ -117,10 +120,11 @@ instance FromJSON MaintenanceStatus where
 --
 --
 data NodeAssociationStatus
-    = NASFailed
-    | NASInProgress
-    | NASSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NASFailed
+  | NASInProgress
+  | NASSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NodeAssociationStatus where
     parser = takeLowerText >>= \case
@@ -146,20 +150,21 @@ instance FromJSON NodeAssociationStatus where
     parseJSON = parseJSONText "NodeAssociationStatus"
 
 data ServerStatus
-    = BackingUp
-    | ConnectionLost
-    | Creating
-    | Deleting
-    | Failed
-    | Healthy
-    | Modifying
-    | Restoring
-    | Running
-    | Setup
-    | Terminated
-    | UnderMaintenance
-    | Unhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BackingUp
+  | ConnectionLost
+  | Creating
+  | Deleting
+  | Failed
+  | Healthy
+  | Modifying
+  | Restoring
+  | Running
+  | Setup
+  | Terminated
+  | UnderMaintenance
+  | Unhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ServerStatus where
     parser = takeLowerText >>= \case

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListHSMs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.CloudHSM.ListHSMs
     , lhsmrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listHSMs' smart constructor.
 newtype ListHSMs = ListHSMs'
-    { _lhsmNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhsmNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHSMs' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ newtype ListHSMs = ListHSMs'
 -- * 'lhsmNextToken' - The /NextToken/ value from a previous call to 'ListHsms' . Pass null if this is the first call.
 listHSMs
     :: ListHSMs
-listHSMs =
-    ListHSMs'
-    { _lhsmNextToken = Nothing
-    }
+listHSMs = ListHSMs' {_lhsmNextToken = Nothing}
+
 
 -- | The /NextToken/ value from a previous call to 'ListHsms' . Pass null if this is the first call.
 lhsmNextToken :: Lens' ListHSMs (Maybe Text)
@@ -78,9 +77,9 @@ instance AWSRequest ListHSMs where
                    (x .?> "NextToken") <*> (x .?> "HsmList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListHSMs
+instance Hashable ListHSMs where
 
-instance NFData ListHSMs
+instance NFData ListHSMs where
 
 instance ToHeaders ListHSMs where
         toHeaders
@@ -108,10 +107,11 @@ instance ToQuery ListHSMs where
 --
 -- /See:/ 'listHSMsResponse' smart constructor.
 data ListHSMsResponse = ListHSMsResponse'
-    { _lhsmrsNextToken      :: !(Maybe Text)
-    , _lhsmrsHSMList        :: !(Maybe [Text])
-    , _lhsmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhsmrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhsmrsHSMList        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lhsmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHSMsResponse' with the minimum fields required to make a request.
 --
@@ -126,11 +126,12 @@ listHSMsResponse
     :: Int -- ^ 'lhsmrsResponseStatus'
     -> ListHSMsResponse
 listHSMsResponse pResponseStatus_ =
-    ListHSMsResponse'
-    { _lhsmrsNextToken = Nothing
-    , _lhsmrsHSMList = Nothing
-    , _lhsmrsResponseStatus = pResponseStatus_
-    }
+  ListHSMsResponse'
+  { _lhsmrsNextToken = Nothing
+  , _lhsmrsHSMList = Nothing
+  , _lhsmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If not null, more results are available. Pass this value to 'ListHsms' to retrieve the next set of items.
 lhsmrsNextToken :: Lens' ListHSMsResponse (Maybe Text)
@@ -144,4 +145,4 @@ lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default 
 lhsmrsResponseStatus :: Lens' ListHSMsResponse Int
 lhsmrsResponseStatus = lens _lhsmrsResponseStatus (\ s a -> s{_lhsmrsResponseStatus = a});
 
-instance NFData ListHSMsResponse
+instance NFData ListHSMsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetPartition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.Glue.GetPartition
     , gprsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getPartition' smart constructor.
 data GetPartition = GetPartition'
-    { _gpCatalogId       :: !(Maybe Text)
-    , _gpDatabaseName    :: !Text
-    , _gpTableName       :: !Text
-    , _gpPartitionValues :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpDatabaseName    :: {-# NOUNPACK #-}!Text
+  , _gpTableName       :: {-# NOUNPACK #-}!Text
+  , _gpPartitionValues :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPartition' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ getPartition
     -> Text -- ^ 'gpTableName'
     -> GetPartition
 getPartition pDatabaseName_ pTableName_ =
-    GetPartition'
-    { _gpCatalogId = Nothing
-    , _gpDatabaseName = pDatabaseName_
-    , _gpTableName = pTableName_
-    , _gpPartitionValues = mempty
-    }
+  GetPartition'
+  { _gpCatalogId = Nothing
+  , _gpDatabaseName = pDatabaseName_
+  , _gpTableName = pTableName_
+  , _gpPartitionValues = mempty
+  }
+
 
 -- | The ID of the Data Catalog where the partition in question resides. If none is supplied, the AWS account ID is used by default.
 gpCatalogId :: Lens' GetPartition (Maybe Text)
@@ -103,9 +105,9 @@ instance AWSRequest GetPartition where
                  GetPartitionResponse' <$>
                    (x .?> "Partition") <*> (pure (fromEnum s)))
 
-instance Hashable GetPartition
+instance Hashable GetPartition where
 
-instance NFData GetPartition
+instance NFData GetPartition where
 
 instance ToHeaders GetPartition where
         toHeaders
@@ -133,9 +135,10 @@ instance ToQuery GetPartition where
 
 -- | /See:/ 'getPartitionResponse' smart constructor.
 data GetPartitionResponse = GetPartitionResponse'
-    { _gprsPartition      :: !(Maybe Partition)
-    , _gprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gprsPartition      :: {-# NOUNPACK #-}!(Maybe Partition)
+  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPartitionResponse' with the minimum fields required to make a request.
 --
@@ -148,10 +151,9 @@ getPartitionResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetPartitionResponse
 getPartitionResponse pResponseStatus_ =
-    GetPartitionResponse'
-    { _gprsPartition = Nothing
-    , _gprsResponseStatus = pResponseStatus_
-    }
+  GetPartitionResponse'
+  {_gprsPartition = Nothing, _gprsResponseStatus = pResponseStatus_}
+
 
 -- | The requested information, in the form of a @Partition@ object.
 gprsPartition :: Lens' GetPartitionResponse (Maybe Partition)
@@ -161,4 +163,4 @@ gprsPartition = lens _gprsPartition (\ s a -> s{_gprsPartition = a});
 gprsResponseStatus :: Lens' GetPartitionResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 
-instance NFData GetPartitionResponse
+instance NFData GetPartitionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DeleteTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.WorkSpaces.DeleteTags
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | The request of the 'DeleteTags' operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-    { _dResourceId :: !Text
-    , _dTagKeys    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dResourceId :: {-# NOUNPACK #-}!Text
+  , _dTagKeys    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ deleteTags
     :: Text -- ^ 'dResourceId'
     -> DeleteTags
 deleteTags pResourceId_ =
-    DeleteTags'
-    { _dResourceId = pResourceId_
-    , _dTagKeys = mempty
-    }
+  DeleteTags' {_dResourceId = pResourceId_, _dTagKeys = mempty}
+
 
 -- | The resource ID of the request.
 dResourceId :: Lens' DeleteTags Text
@@ -86,9 +85,9 @@ instance AWSRequest DeleteTags where
               (\ s h x ->
                  DeleteTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteTags
+instance Hashable DeleteTags where
 
-instance NFData DeleteTags
+instance NFData DeleteTags where
 
 instance ToHeaders DeleteTags where
         toHeaders
@@ -118,8 +117,9 @@ instance ToQuery DeleteTags where
 --
 -- /See:/ 'deleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
 --
@@ -130,12 +130,11 @@ deleteTagsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteTagsResponse
 deleteTagsResponse pResponseStatus_ =
-    DeleteTagsResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteTagsResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTagsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteTagsResponse
+instance NFData DeleteTagsResponse where

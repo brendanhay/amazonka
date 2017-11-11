@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeScalingActivities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     , dsasrsActivities
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeScalingActivities.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
-    { _desNextToken            :: !(Maybe Text)
-    , _desAutoScalingGroupName :: !(Maybe Text)
-    , _desMaxRecords           :: !(Maybe Int)
-    , _desActivityIds          :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _desActivityIds          :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingActivities' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data DescribeScalingActivities = DescribeScalingActivities'
 describeScalingActivities
     :: DescribeScalingActivities
 describeScalingActivities =
-    DescribeScalingActivities'
-    { _desNextToken = Nothing
-    , _desAutoScalingGroupName = Nothing
-    , _desMaxRecords = Nothing
-    , _desActivityIds = Nothing
-    }
+  DescribeScalingActivities'
+  { _desNextToken = Nothing
+  , _desAutoScalingGroupName = Nothing
+  , _desMaxRecords = Nothing
+  , _desActivityIds = Nothing
+  }
+
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 desNextToken :: Lens' DescribeScalingActivities (Maybe Text)
@@ -119,9 +121,9 @@ instance AWSRequest DescribeScalingActivities where
                      (x .@? "Activities" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable DescribeScalingActivities
+instance Hashable DescribeScalingActivities where
 
-instance NFData DescribeScalingActivities
+instance NFData DescribeScalingActivities where
 
 instance ToHeaders DescribeScalingActivities where
         toHeaders = const mempty
@@ -147,10 +149,11 @@ instance ToQuery DescribeScalingActivities where
 --
 -- /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-    { _dsasrsNextToken      :: !(Maybe Text)
-    , _dsasrsResponseStatus :: !Int
-    , _dsasrsActivities     :: ![Activity]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsasrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dsasrsActivities     :: {-# NOUNPACK #-}![Activity]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingActivitiesResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ describeScalingActivitiesResponse
     :: Int -- ^ 'dsasrsResponseStatus'
     -> DescribeScalingActivitiesResponse
 describeScalingActivitiesResponse pResponseStatus_ =
-    DescribeScalingActivitiesResponse'
-    { _dsasrsNextToken = Nothing
-    , _dsasrsResponseStatus = pResponseStatus_
-    , _dsasrsActivities = mempty
-    }
+  DescribeScalingActivitiesResponse'
+  { _dsasrsNextToken = Nothing
+  , _dsasrsResponseStatus = pResponseStatus_
+  , _dsasrsActivities = mempty
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dsasrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
@@ -184,3 +188,4 @@ dsasrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
 dsasrsActivities = lens _dsasrsActivities (\ s a -> s{_dsasrsActivities = a}) . _Coerce;
 
 instance NFData DescribeScalingActivitiesResponse
+         where

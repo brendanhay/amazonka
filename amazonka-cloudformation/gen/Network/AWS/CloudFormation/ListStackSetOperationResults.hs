@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStackSetOperationResults
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.CloudFormation.ListStackSetOperationResults
     , lssorrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listStackSetOperationResults' smart constructor.
 data ListStackSetOperationResults = ListStackSetOperationResults'
-    { _lssorNextToken    :: !(Maybe Text)
-    , _lssorMaxResults   :: !(Maybe Nat)
-    , _lssorStackSetName :: !Text
-    , _lssorOperationId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lssorNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lssorMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lssorStackSetName :: {-# NOUNPACK #-}!Text
+  , _lssorOperationId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStackSetOperationResults' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ listStackSetOperationResults
     -> Text -- ^ 'lssorOperationId'
     -> ListStackSetOperationResults
 listStackSetOperationResults pStackSetName_ pOperationId_ =
-    ListStackSetOperationResults'
-    { _lssorNextToken = Nothing
-    , _lssorMaxResults = Nothing
-    , _lssorStackSetName = pStackSetName_
-    , _lssorOperationId = pOperationId_
-    }
+  ListStackSetOperationResults'
+  { _lssorNextToken = Nothing
+  , _lssorMaxResults = Nothing
+  , _lssorStackSetName = pStackSetName_
+  , _lssorOperationId = pOperationId_
+  }
+
 
 -- | If the previous request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackSetOperationResults@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 lssorNextToken :: Lens' ListStackSetOperationResults (Maybe Text)
@@ -110,9 +112,9 @@ instance AWSRequest ListStackSetOperationResults
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListStackSetOperationResults
+instance Hashable ListStackSetOperationResults where
 
-instance NFData ListStackSetOperationResults
+instance NFData ListStackSetOperationResults where
 
 instance ToHeaders ListStackSetOperationResults where
         toHeaders = const mempty
@@ -133,10 +135,11 @@ instance ToQuery ListStackSetOperationResults where
 
 -- | /See:/ 'listStackSetOperationResultsResponse' smart constructor.
 data ListStackSetOperationResultsResponse = ListStackSetOperationResultsResponse'
-    { _lssorrsNextToken      :: !(Maybe Text)
-    , _lssorrsSummaries      :: !(Maybe [StackSetOperationResultSummary])
-    , _lssorrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lssorrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lssorrsSummaries :: {-# NOUNPACK #-}!(Maybe [StackSetOperationResultSummary])
+  , _lssorrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStackSetOperationResultsResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +154,12 @@ listStackSetOperationResultsResponse
     :: Int -- ^ 'lssorrsResponseStatus'
     -> ListStackSetOperationResultsResponse
 listStackSetOperationResultsResponse pResponseStatus_ =
-    ListStackSetOperationResultsResponse'
-    { _lssorrsNextToken = Nothing
-    , _lssorrsSummaries = Nothing
-    , _lssorrsResponseStatus = pResponseStatus_
-    }
+  ListStackSetOperationResultsResponse'
+  { _lssorrsNextToken = Nothing
+  , _lssorrsSummaries = Nothing
+  , _lssorrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the request doesn't return all results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListOperationResults@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, @NextToken@ is set to @null@ .
 lssorrsNextToken :: Lens' ListStackSetOperationResultsResponse (Maybe Text)
@@ -170,3 +174,4 @@ lssorrsResponseStatus :: Lens' ListStackSetOperationResultsResponse Int
 lssorrsResponseStatus = lens _lssorrsResponseStatus (\ s a -> s{_lssorrsResponseStatus = a});
 
 instance NFData ListStackSetOperationResultsResponse
+         where

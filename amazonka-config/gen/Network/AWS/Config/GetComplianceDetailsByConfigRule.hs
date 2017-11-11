@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetComplianceDetailsByConfigRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.Config.GetComplianceDetailsByConfigRule
     , gcdbcrrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getComplianceDetailsByConfigRule' smart constructor.
 data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
-    { _gcdbcrComplianceTypes :: !(Maybe [ComplianceType])
-    , _gcdbcrNextToken       :: !(Maybe Text)
-    , _gcdbcrLimit           :: !(Maybe Nat)
-    , _gcdbcrConfigRuleName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcdbcrComplianceTypes :: {-# NOUNPACK #-}!(Maybe [ComplianceType])
+  , _gcdbcrNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdbcrLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gcdbcrConfigRuleName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetComplianceDetailsByConfigRule' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ getComplianceDetailsByConfigRule
     :: Text -- ^ 'gcdbcrConfigRuleName'
     -> GetComplianceDetailsByConfigRule
 getComplianceDetailsByConfigRule pConfigRuleName_ =
-    GetComplianceDetailsByConfigRule'
-    { _gcdbcrComplianceTypes = Nothing
-    , _gcdbcrNextToken = Nothing
-    , _gcdbcrLimit = Nothing
-    , _gcdbcrConfigRuleName = pConfigRuleName_
-    }
+  GetComplianceDetailsByConfigRule'
+  { _gcdbcrComplianceTypes = Nothing
+  , _gcdbcrNextToken = Nothing
+  , _gcdbcrLimit = Nothing
+  , _gcdbcrConfigRuleName = pConfigRuleName_
+  }
+
 
 -- | Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
 gcdbcrComplianceTypes :: Lens' GetComplianceDetailsByConfigRule [ComplianceType]
@@ -124,8 +126,10 @@ instance AWSRequest GetComplianceDetailsByConfigRule
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetComplianceDetailsByConfigRule
+         where
 
 instance NFData GetComplianceDetailsByConfigRule
+         where
 
 instance ToHeaders GetComplianceDetailsByConfigRule
          where
@@ -162,10 +166,11 @@ instance ToQuery GetComplianceDetailsByConfigRule
 --
 -- /See:/ 'getComplianceDetailsByConfigRuleResponse' smart constructor.
 data GetComplianceDetailsByConfigRuleResponse = GetComplianceDetailsByConfigRuleResponse'
-    { _gcdbcrrsEvaluationResults :: !(Maybe [EvaluationResult])
-    , _gcdbcrrsNextToken         :: !(Maybe Text)
-    , _gcdbcrrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcdbcrrsEvaluationResults :: {-# NOUNPACK #-}!(Maybe [EvaluationResult])
+  , _gcdbcrrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdbcrrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetComplianceDetailsByConfigRuleResponse' with the minimum fields required to make a request.
 --
@@ -180,11 +185,12 @@ getComplianceDetailsByConfigRuleResponse
     :: Int -- ^ 'gcdbcrrsResponseStatus'
     -> GetComplianceDetailsByConfigRuleResponse
 getComplianceDetailsByConfigRuleResponse pResponseStatus_ =
-    GetComplianceDetailsByConfigRuleResponse'
-    { _gcdbcrrsEvaluationResults = Nothing
-    , _gcdbcrrsNextToken = Nothing
-    , _gcdbcrrsResponseStatus = pResponseStatus_
-    }
+  GetComplianceDetailsByConfigRuleResponse'
+  { _gcdbcrrsEvaluationResults = Nothing
+  , _gcdbcrrsNextToken = Nothing
+  , _gcdbcrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Indicates whether the AWS resource complies with the specified AWS Config rule.
 gcdbcrrsEvaluationResults :: Lens' GetComplianceDetailsByConfigRuleResponse [EvaluationResult]
@@ -199,4 +205,5 @@ gcdbcrrsResponseStatus :: Lens' GetComplianceDetailsByConfigRuleResponse Int
 gcdbcrrsResponseStatus = lens _gcdbcrrsResponseStatus (\ s a -> s{_gcdbcrrsResponseStatus = a});
 
 instance NFData
-         GetComplianceDetailsByConfigRuleResponse
+           GetComplianceDetailsByConfigRuleResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,22 +48,23 @@ module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
     , dsarsResponseStatus
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
-    { _dsaScalableDimension :: !(Maybe ScalableDimension)
-    , _dsaResourceId        :: !(Maybe Text)
-    , _dsaNextToken         :: !(Maybe Text)
-    , _dsaMaxResults        :: !(Maybe Int)
-    , _dsaServiceNamespace  :: !ServiceNamespace
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsaScalableDimension :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
+  , _dsaResourceId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsaNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsaMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsaServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingActivities' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ describeScalingActivities
     :: ServiceNamespace -- ^ 'dsaServiceNamespace'
     -> DescribeScalingActivities
 describeScalingActivities pServiceNamespace_ =
-    DescribeScalingActivities'
-    { _dsaScalableDimension = Nothing
-    , _dsaResourceId = Nothing
-    , _dsaNextToken = Nothing
-    , _dsaMaxResults = Nothing
-    , _dsaServiceNamespace = pServiceNamespace_
-    }
+  DescribeScalingActivities'
+  { _dsaScalableDimension = Nothing
+  , _dsaResourceId = Nothing
+  , _dsaNextToken = Nothing
+  , _dsaMaxResults = Nothing
+  , _dsaServiceNamespace = pServiceNamespace_
+  }
+
 
 -- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property. If you specify a scalable dimension, you must also specify a resource ID.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 dsaScalableDimension :: Lens' DescribeScalingActivities (Maybe ScalableDimension)
@@ -129,9 +131,9 @@ instance AWSRequest DescribeScalingActivities where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeScalingActivities
+instance Hashable DescribeScalingActivities where
 
-instance NFData DescribeScalingActivities
+instance NFData DescribeScalingActivities where
 
 instance ToHeaders DescribeScalingActivities where
         toHeaders
@@ -161,10 +163,11 @@ instance ToQuery DescribeScalingActivities where
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-    { _dsarsScalingActivities :: !(Maybe [ScalingActivity])
-    , _dsarsNextToken         :: !(Maybe Text)
-    , _dsarsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsarsScalingActivities :: {-# NOUNPACK #-}!(Maybe [ScalingActivity])
+  , _dsarsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsarsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingActivitiesResponse' with the minimum fields required to make a request.
 --
@@ -179,11 +182,12 @@ describeScalingActivitiesResponse
     :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeScalingActivitiesResponse
 describeScalingActivitiesResponse pResponseStatus_ =
-    DescribeScalingActivitiesResponse'
-    { _dsarsScalingActivities = Nothing
-    , _dsarsNextToken = Nothing
-    , _dsarsResponseStatus = pResponseStatus_
-    }
+  DescribeScalingActivitiesResponse'
+  { _dsarsScalingActivities = Nothing
+  , _dsarsNextToken = Nothing
+  , _dsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of scaling activity objects.
 dsarsScalingActivities :: Lens' DescribeScalingActivitiesResponse [ScalingActivity]
@@ -198,3 +202,4 @@ dsarsResponseStatus :: Lens' DescribeScalingActivitiesResponse Int
 dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
 
 instance NFData DescribeScalingActivitiesResponse
+         where

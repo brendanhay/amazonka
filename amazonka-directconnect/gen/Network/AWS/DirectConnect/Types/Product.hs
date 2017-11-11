@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DirectConnect.Types.Product where
 
-import           Network.AWS.DirectConnect.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DirectConnect.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A structure containing information about a BGP peer.
 --
@@ -27,14 +27,15 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'bgpPeer' smart constructor.
 data BGPPeer = BGPPeer'
-    { _bpCustomerAddress :: !(Maybe Text)
-    , _bpAmazonAddress   :: !(Maybe Text)
-    , _bpAddressFamily   :: !(Maybe AddressFamily)
-    , _bpBgpStatus       :: !(Maybe BGPStatus)
-    , _bpAsn             :: !(Maybe Int)
-    , _bpAuthKey         :: !(Maybe Text)
-    , _bpBgpPeerState    :: !(Maybe BGPPeerState)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bpCustomerAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpAmazonAddress   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpAddressFamily   :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _bpBgpStatus       :: {-# NOUNPACK #-}!(Maybe BGPStatus)
+  , _bpAsn             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bpAuthKey         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpBgpPeerState    :: {-# NOUNPACK #-}!(Maybe BGPPeerState)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BGPPeer' with the minimum fields required to make a request.
 --
@@ -56,15 +57,16 @@ data BGPPeer = BGPPeer'
 bgpPeer
     :: BGPPeer
 bgpPeer =
-    BGPPeer'
-    { _bpCustomerAddress = Nothing
-    , _bpAmazonAddress = Nothing
-    , _bpAddressFamily = Nothing
-    , _bpBgpStatus = Nothing
-    , _bpAsn = Nothing
-    , _bpAuthKey = Nothing
-    , _bpBgpPeerState = Nothing
-    }
+  BGPPeer'
+  { _bpCustomerAddress = Nothing
+  , _bpAmazonAddress = Nothing
+  , _bpAddressFamily = Nothing
+  , _bpBgpStatus = Nothing
+  , _bpAsn = Nothing
+  , _bpAuthKey = Nothing
+  , _bpBgpPeerState = Nothing
+  }
+
 
 -- | Undocumented member.
 bpCustomerAddress :: Lens' BGPPeer (Maybe Text)
@@ -106,9 +108,9 @@ instance FromJSON BGPPeer where
                      <*> (x .:? "authKey")
                      <*> (x .:? "bgpPeerState"))
 
-instance Hashable BGPPeer
+instance Hashable BGPPeer where
 
-instance NFData BGPPeer
+instance NFData BGPPeer where
 
 -- | A connection represents the physical network connection between the AWS Direct Connect location and the customer.
 --
@@ -116,19 +118,20 @@ instance NFData BGPPeer
 --
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
-    { _cLagId           :: !(Maybe Text)
-    , _cVlan            :: !(Maybe Int)
-    , _cLocation        :: !(Maybe Text)
-    , _cAwsDevice       :: !(Maybe Text)
-    , _cConnectionId    :: !(Maybe Text)
-    , _cLoaIssueTime    :: !(Maybe POSIX)
-    , _cPartnerName     :: !(Maybe Text)
-    , _cConnectionName  :: !(Maybe Text)
-    , _cBandwidth       :: !(Maybe Text)
-    , _cOwnerAccount    :: !(Maybe Text)
-    , _cRegion          :: !(Maybe Text)
-    , _cConnectionState :: !(Maybe ConnectionState)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cLagId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cVlan            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cLocation        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cAwsDevice       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cConnectionId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cLoaIssueTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cPartnerName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cConnectionName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cBandwidth       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cOwnerAccount    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cRegion          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cConnectionState :: {-# NOUNPACK #-}!(Maybe ConnectionState)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Connection' with the minimum fields required to make a request.
 --
@@ -160,20 +163,21 @@ data Connection = Connection'
 connection
     :: Connection
 connection =
-    Connection'
-    { _cLagId = Nothing
-    , _cVlan = Nothing
-    , _cLocation = Nothing
-    , _cAwsDevice = Nothing
-    , _cConnectionId = Nothing
-    , _cLoaIssueTime = Nothing
-    , _cPartnerName = Nothing
-    , _cConnectionName = Nothing
-    , _cBandwidth = Nothing
-    , _cOwnerAccount = Nothing
-    , _cRegion = Nothing
-    , _cConnectionState = Nothing
-    }
+  Connection'
+  { _cLagId = Nothing
+  , _cVlan = Nothing
+  , _cLocation = Nothing
+  , _cAwsDevice = Nothing
+  , _cConnectionId = Nothing
+  , _cLoaIssueTime = Nothing
+  , _cPartnerName = Nothing
+  , _cConnectionName = Nothing
+  , _cBandwidth = Nothing
+  , _cOwnerAccount = Nothing
+  , _cRegion = Nothing
+  , _cConnectionState = Nothing
+  }
+
 
 -- | Undocumented member.
 cLagId :: Lens' Connection (Maybe Text)
@@ -240,9 +244,9 @@ instance FromJSON Connection where
                      <*> (x .:? "region")
                      <*> (x .:? "connectionState"))
 
-instance Hashable Connection
+instance Hashable Connection where
 
-instance NFData Connection
+instance NFData Connection where
 
 -- | A structure containing a list of connections.
 --
@@ -250,8 +254,9 @@ instance NFData Connection
 --
 -- /See:/ 'connections' smart constructor.
 newtype Connections = Connections'
-    { _cConnections :: Maybe [Connection]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cConnections :: Maybe [Connection]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Connections' with the minimum fields required to make a request.
 --
@@ -260,10 +265,8 @@ newtype Connections = Connections'
 -- * 'cConnections' - A list of connections.
 connections
     :: Connections
-connections =
-    Connections'
-    { _cConnections = Nothing
-    }
+connections = Connections' {_cConnections = Nothing}
+
 
 -- | A list of connections.
 cConnections :: Lens' Connections [Connection]
@@ -275,9 +278,9 @@ instance FromJSON Connections where
               (\ x ->
                  Connections' <$> (x .:? "connections" .!= mempty))
 
-instance Hashable Connections
+instance Hashable Connections where
 
-instance NFData Connections
+instance NFData Connections where
 
 -- | An interconnect is a connection that can host other connections.
 --
@@ -289,16 +292,17 @@ instance NFData Connections
 --
 -- /See:/ 'interconnect' smart constructor.
 data Interconnect = Interconnect'
-    { _iLagId             :: !(Maybe Text)
-    , _iInterconnectId    :: !(Maybe Text)
-    , _iLocation          :: !(Maybe Text)
-    , _iInterconnectName  :: !(Maybe Text)
-    , _iAwsDevice         :: !(Maybe Text)
-    , _iLoaIssueTime      :: !(Maybe POSIX)
-    , _iBandwidth         :: !(Maybe Text)
-    , _iInterconnectState :: !(Maybe InterconnectState)
-    , _iRegion            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iLagId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInterconnectId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iLocation          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInterconnectName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iAwsDevice         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iLoaIssueTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iBandwidth         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInterconnectState :: {-# NOUNPACK #-}!(Maybe InterconnectState)
+  , _iRegion            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Interconnect' with the minimum fields required to make a request.
 --
@@ -324,17 +328,18 @@ data Interconnect = Interconnect'
 interconnect
     :: Interconnect
 interconnect =
-    Interconnect'
-    { _iLagId = Nothing
-    , _iInterconnectId = Nothing
-    , _iLocation = Nothing
-    , _iInterconnectName = Nothing
-    , _iAwsDevice = Nothing
-    , _iLoaIssueTime = Nothing
-    , _iBandwidth = Nothing
-    , _iInterconnectState = Nothing
-    , _iRegion = Nothing
-    }
+  Interconnect'
+  { _iLagId = Nothing
+  , _iInterconnectId = Nothing
+  , _iLocation = Nothing
+  , _iInterconnectName = Nothing
+  , _iAwsDevice = Nothing
+  , _iLoaIssueTime = Nothing
+  , _iBandwidth = Nothing
+  , _iInterconnectState = Nothing
+  , _iRegion = Nothing
+  }
+
 
 -- | Undocumented member.
 iLagId :: Lens' Interconnect (Maybe Text)
@@ -386,9 +391,9 @@ instance FromJSON Interconnect where
                      <*> (x .:? "interconnectState")
                      <*> (x .:? "region"))
 
-instance Hashable Interconnect
+instance Hashable Interconnect where
 
-instance NFData Interconnect
+instance NFData Interconnect where
 
 -- | Describes a link aggregation group (LAG). A LAG is a connection that uses the Link Aggregation Control Protocol (LACP) to logically aggregate a bundle of physical connections. Like an interconnect, it can host other connections. All connections in a LAG must terminate on the same physical AWS Direct Connect endpoint, and must be the same bandwidth.
 --
@@ -396,19 +401,20 @@ instance NFData Interconnect
 --
 -- /See:/ 'lag' smart constructor.
 data Lag = Lag'
-    { _lagLagId                   :: !(Maybe Text)
-    , _lagConnectionsBandwidth    :: !(Maybe Text)
-    , _lagMinimumLinks            :: !(Maybe Int)
-    , _lagLagName                 :: !(Maybe Text)
-    , _lagLocation                :: !(Maybe Text)
-    , _lagConnections             :: !(Maybe [Connection])
-    , _lagAwsDevice               :: !(Maybe Text)
-    , _lagAllowsHostedConnections :: !(Maybe Bool)
-    , _lagNumberOfConnections     :: !(Maybe Int)
-    , _lagLagState                :: !(Maybe LagState)
-    , _lagOwnerAccount            :: !(Maybe Text)
-    , _lagRegion                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lagLagId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagConnectionsBandwidth    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagMinimumLinks            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lagLagName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagLocation                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagConnections             :: {-# NOUNPACK #-}!(Maybe [Connection])
+  , _lagAwsDevice               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagAllowsHostedConnections :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lagNumberOfConnections     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lagLagState                :: {-# NOUNPACK #-}!(Maybe LagState)
+  , _lagOwnerAccount            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lagRegion                  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Lag' with the minimum fields required to make a request.
 --
@@ -440,20 +446,21 @@ data Lag = Lag'
 lag
     :: Lag
 lag =
-    Lag'
-    { _lagLagId = Nothing
-    , _lagConnectionsBandwidth = Nothing
-    , _lagMinimumLinks = Nothing
-    , _lagLagName = Nothing
-    , _lagLocation = Nothing
-    , _lagConnections = Nothing
-    , _lagAwsDevice = Nothing
-    , _lagAllowsHostedConnections = Nothing
-    , _lagNumberOfConnections = Nothing
-    , _lagLagState = Nothing
-    , _lagOwnerAccount = Nothing
-    , _lagRegion = Nothing
-    }
+  Lag'
+  { _lagLagId = Nothing
+  , _lagConnectionsBandwidth = Nothing
+  , _lagMinimumLinks = Nothing
+  , _lagLagName = Nothing
+  , _lagLocation = Nothing
+  , _lagConnections = Nothing
+  , _lagAwsDevice = Nothing
+  , _lagAllowsHostedConnections = Nothing
+  , _lagNumberOfConnections = Nothing
+  , _lagLagState = Nothing
+  , _lagOwnerAccount = Nothing
+  , _lagRegion = Nothing
+  }
+
 
 -- | Undocumented member.
 lagLagId :: Lens' Lag (Maybe Text)
@@ -520,9 +527,9 @@ instance FromJSON Lag where
                      <*> (x .:? "ownerAccount")
                      <*> (x .:? "region"))
 
-instance Hashable Lag
+instance Hashable Lag where
 
-instance NFData Lag
+instance NFData Lag where
 
 -- | An AWS Direct Connect location where connections and interconnects can be requested.
 --
@@ -530,9 +537,10 @@ instance NFData Lag
 --
 -- /See:/ 'location' smart constructor.
 data Location = Location'
-    { _lLocationName :: !(Maybe Text)
-    , _lLocationCode :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lLocationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lLocationCode :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Location' with the minimum fields required to make a request.
 --
@@ -543,11 +551,8 @@ data Location = Location'
 -- * 'lLocationCode' - The code used to indicate the AWS Direct Connect location.
 location
     :: Location
-location =
-    Location'
-    { _lLocationName = Nothing
-    , _lLocationCode = Nothing
-    }
+location = Location' {_lLocationName = Nothing, _lLocationCode = Nothing}
+
 
 -- | The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site of the lit building.
 lLocationName :: Lens' Location (Maybe Text)
@@ -564,9 +569,9 @@ instance FromJSON Location where
                  Location' <$>
                    (x .:? "locationName") <*> (x .:? "locationCode"))
 
-instance Hashable Location
+instance Hashable Location where
 
-instance NFData Location
+instance NFData Location where
 
 -- | A structure containing information about a new BGP peer.
 --
@@ -574,12 +579,13 @@ instance NFData Location
 --
 -- /See:/ 'newBGPPeer' smart constructor.
 data NewBGPPeer = NewBGPPeer'
-    { _nbpCustomerAddress :: !(Maybe Text)
-    , _nbpAmazonAddress   :: !(Maybe Text)
-    , _nbpAddressFamily   :: !(Maybe AddressFamily)
-    , _nbpAsn             :: !(Maybe Int)
-    , _nbpAuthKey         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nbpCustomerAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nbpAmazonAddress   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nbpAddressFamily   :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _nbpAsn             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _nbpAuthKey         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NewBGPPeer' with the minimum fields required to make a request.
 --
@@ -597,13 +603,14 @@ data NewBGPPeer = NewBGPPeer'
 newBGPPeer
     :: NewBGPPeer
 newBGPPeer =
-    NewBGPPeer'
-    { _nbpCustomerAddress = Nothing
-    , _nbpAmazonAddress = Nothing
-    , _nbpAddressFamily = Nothing
-    , _nbpAsn = Nothing
-    , _nbpAuthKey = Nothing
-    }
+  NewBGPPeer'
+  { _nbpCustomerAddress = Nothing
+  , _nbpAmazonAddress = Nothing
+  , _nbpAddressFamily = Nothing
+  , _nbpAsn = Nothing
+  , _nbpAuthKey = Nothing
+  }
+
 
 -- | Undocumented member.
 nbpCustomerAddress :: Lens' NewBGPPeer (Maybe Text)
@@ -625,9 +632,9 @@ nbpAsn = lens _nbpAsn (\ s a -> s{_nbpAsn = a});
 nbpAuthKey :: Lens' NewBGPPeer (Maybe Text)
 nbpAuthKey = lens _nbpAuthKey (\ s a -> s{_nbpAuthKey = a});
 
-instance Hashable NewBGPPeer
+instance Hashable NewBGPPeer where
 
-instance NFData NewBGPPeer
+instance NFData NewBGPPeer where
 
 instance ToJSON NewBGPPeer where
         toJSON NewBGPPeer'{..}
@@ -645,15 +652,16 @@ instance ToJSON NewBGPPeer where
 --
 -- /See:/ 'newPrivateVirtualInterface' smart constructor.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
-    { _nCustomerAddress      :: !(Maybe Text)
-    , _nAmazonAddress        :: !(Maybe Text)
-    , _nAddressFamily        :: !(Maybe AddressFamily)
-    , _nAuthKey              :: !(Maybe Text)
-    , _nVirtualInterfaceName :: !Text
-    , _nVlan                 :: !Int
-    , _nAsn                  :: !Int
-    , _nVirtualGatewayId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nCustomerAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nAmazonAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nAddressFamily        :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _nAuthKey              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nVirtualInterfaceName :: {-# NOUNPACK #-}!Text
+  , _nVlan                 :: {-# NOUNPACK #-}!Int
+  , _nAsn                  :: {-# NOUNPACK #-}!Int
+  , _nVirtualGatewayId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NewPrivateVirtualInterface' with the minimum fields required to make a request.
 --
@@ -681,16 +689,17 @@ newPrivateVirtualInterface
     -> Text -- ^ 'nVirtualGatewayId'
     -> NewPrivateVirtualInterface
 newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pVirtualGatewayId_ =
-    NewPrivateVirtualInterface'
-    { _nCustomerAddress = Nothing
-    , _nAmazonAddress = Nothing
-    , _nAddressFamily = Nothing
-    , _nAuthKey = Nothing
-    , _nVirtualInterfaceName = pVirtualInterfaceName_
-    , _nVlan = pVlan_
-    , _nAsn = pAsn_
-    , _nVirtualGatewayId = pVirtualGatewayId_
-    }
+  NewPrivateVirtualInterface'
+  { _nCustomerAddress = Nothing
+  , _nAmazonAddress = Nothing
+  , _nAddressFamily = Nothing
+  , _nAuthKey = Nothing
+  , _nVirtualInterfaceName = pVirtualInterfaceName_
+  , _nVlan = pVlan_
+  , _nAsn = pAsn_
+  , _nVirtualGatewayId = pVirtualGatewayId_
+  }
+
 
 -- | Undocumented member.
 nCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
@@ -724,9 +733,9 @@ nAsn = lens _nAsn (\ s a -> s{_nAsn = a});
 nVirtualGatewayId :: Lens' NewPrivateVirtualInterface Text
 nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a});
 
-instance Hashable NewPrivateVirtualInterface
+instance Hashable NewPrivateVirtualInterface where
 
-instance NFData NewPrivateVirtualInterface
+instance NFData NewPrivateVirtualInterface where
 
 instance ToJSON NewPrivateVirtualInterface where
         toJSON NewPrivateVirtualInterface'{..}
@@ -747,14 +756,15 @@ instance ToJSON NewPrivateVirtualInterface where
 --
 -- /See:/ 'newPrivateVirtualInterfaceAllocation' smart constructor.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
-    { _npviaCustomerAddress      :: !(Maybe Text)
-    , _npviaAmazonAddress        :: !(Maybe Text)
-    , _npviaAddressFamily        :: !(Maybe AddressFamily)
-    , _npviaAuthKey              :: !(Maybe Text)
-    , _npviaVirtualInterfaceName :: !Text
-    , _npviaVlan                 :: !Int
-    , _npviaAsn                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _npviaCustomerAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npviaAmazonAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npviaAddressFamily        :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _npviaAuthKey              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npviaVirtualInterfaceName :: {-# NOUNPACK #-}!Text
+  , _npviaVlan                 :: {-# NOUNPACK #-}!Int
+  , _npviaAsn                  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NewPrivateVirtualInterfaceAllocation' with the minimum fields required to make a request.
 --
@@ -779,15 +789,16 @@ newPrivateVirtualInterfaceAllocation
     -> Int -- ^ 'npviaAsn'
     -> NewPrivateVirtualInterfaceAllocation
 newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
-    NewPrivateVirtualInterfaceAllocation'
-    { _npviaCustomerAddress = Nothing
-    , _npviaAmazonAddress = Nothing
-    , _npviaAddressFamily = Nothing
-    , _npviaAuthKey = Nothing
-    , _npviaVirtualInterfaceName = pVirtualInterfaceName_
-    , _npviaVlan = pVlan_
-    , _npviaAsn = pAsn_
-    }
+  NewPrivateVirtualInterfaceAllocation'
+  { _npviaCustomerAddress = Nothing
+  , _npviaAmazonAddress = Nothing
+  , _npviaAddressFamily = Nothing
+  , _npviaAuthKey = Nothing
+  , _npviaVirtualInterfaceName = pVirtualInterfaceName_
+  , _npviaVlan = pVlan_
+  , _npviaAsn = pAsn_
+  }
+
 
 -- | Undocumented member.
 npviaCustomerAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
@@ -818,9 +829,11 @@ npviaAsn :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaAsn = lens _npviaAsn (\ s a -> s{_npviaAsn = a});
 
 instance Hashable
-         NewPrivateVirtualInterfaceAllocation
+           NewPrivateVirtualInterfaceAllocation
+         where
 
 instance NFData NewPrivateVirtualInterfaceAllocation
+         where
 
 instance ToJSON NewPrivateVirtualInterfaceAllocation
          where
@@ -843,15 +856,16 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 --
 -- /See:/ 'newPublicVirtualInterface' smart constructor.
 data NewPublicVirtualInterface = NewPublicVirtualInterface'
-    { _npviRouteFilterPrefixes  :: !(Maybe [RouteFilterPrefix])
-    , _npviCustomerAddress      :: !(Maybe Text)
-    , _npviAmazonAddress        :: !(Maybe Text)
-    , _npviAddressFamily        :: !(Maybe AddressFamily)
-    , _npviAuthKey              :: !(Maybe Text)
-    , _npviVirtualInterfaceName :: !Text
-    , _npviVlan                 :: !Int
-    , _npviAsn                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _npviRouteFilterPrefixes  :: {-# NOUNPACK #-}!(Maybe [RouteFilterPrefix])
+  , _npviCustomerAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npviAmazonAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npviAddressFamily        :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _npviAuthKey              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _npviVirtualInterfaceName :: {-# NOUNPACK #-}!Text
+  , _npviVlan                 :: {-# NOUNPACK #-}!Int
+  , _npviAsn                  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NewPublicVirtualInterface' with the minimum fields required to make a request.
 --
@@ -878,16 +892,17 @@ newPublicVirtualInterface
     -> Int -- ^ 'npviAsn'
     -> NewPublicVirtualInterface
 newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
-    NewPublicVirtualInterface'
-    { _npviRouteFilterPrefixes = Nothing
-    , _npviCustomerAddress = Nothing
-    , _npviAmazonAddress = Nothing
-    , _npviAddressFamily = Nothing
-    , _npviAuthKey = Nothing
-    , _npviVirtualInterfaceName = pVirtualInterfaceName_
-    , _npviVlan = pVlan_
-    , _npviAsn = pAsn_
-    }
+  NewPublicVirtualInterface'
+  { _npviRouteFilterPrefixes = Nothing
+  , _npviCustomerAddress = Nothing
+  , _npviAmazonAddress = Nothing
+  , _npviAddressFamily = Nothing
+  , _npviAuthKey = Nothing
+  , _npviVirtualInterfaceName = pVirtualInterfaceName_
+  , _npviVlan = pVlan_
+  , _npviAsn = pAsn_
+  }
+
 
 -- | Undocumented member.
 npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
@@ -921,9 +936,9 @@ npviVlan = lens _npviVlan (\ s a -> s{_npviVlan = a});
 npviAsn :: Lens' NewPublicVirtualInterface Int
 npviAsn = lens _npviAsn (\ s a -> s{_npviAsn = a});
 
-instance Hashable NewPublicVirtualInterface
+instance Hashable NewPublicVirtualInterface where
 
-instance NFData NewPublicVirtualInterface
+instance NFData NewPublicVirtualInterface where
 
 instance ToJSON NewPublicVirtualInterface where
         toJSON NewPublicVirtualInterface'{..}
@@ -947,15 +962,16 @@ instance ToJSON NewPublicVirtualInterface where
 --
 -- /See:/ 'newPublicVirtualInterfaceAllocation' smart constructor.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-    { _newRouteFilterPrefixes  :: !(Maybe [RouteFilterPrefix])
-    , _newCustomerAddress      :: !(Maybe Text)
-    , _newAmazonAddress        :: !(Maybe Text)
-    , _newAddressFamily        :: !(Maybe AddressFamily)
-    , _newAuthKey              :: !(Maybe Text)
-    , _newVirtualInterfaceName :: !Text
-    , _newVlan                 :: !Int
-    , _newAsn                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _newRouteFilterPrefixes  :: {-# NOUNPACK #-}!(Maybe [RouteFilterPrefix])
+  , _newCustomerAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _newAmazonAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _newAddressFamily        :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _newAuthKey              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _newVirtualInterfaceName :: {-# NOUNPACK #-}!Text
+  , _newVlan                 :: {-# NOUNPACK #-}!Int
+  , _newAsn                  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NewPublicVirtualInterfaceAllocation' with the minimum fields required to make a request.
 --
@@ -982,16 +998,17 @@ newPublicVirtualInterfaceAllocation
     -> Int -- ^ 'newAsn'
     -> NewPublicVirtualInterfaceAllocation
 newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
-    NewPublicVirtualInterfaceAllocation'
-    { _newRouteFilterPrefixes = Nothing
-    , _newCustomerAddress = Nothing
-    , _newAmazonAddress = Nothing
-    , _newAddressFamily = Nothing
-    , _newAuthKey = Nothing
-    , _newVirtualInterfaceName = pVirtualInterfaceName_
-    , _newVlan = pVlan_
-    , _newAsn = pAsn_
-    }
+  NewPublicVirtualInterfaceAllocation'
+  { _newRouteFilterPrefixes = Nothing
+  , _newCustomerAddress = Nothing
+  , _newAmazonAddress = Nothing
+  , _newAddressFamily = Nothing
+  , _newAuthKey = Nothing
+  , _newVirtualInterfaceName = pVirtualInterfaceName_
+  , _newVlan = pVlan_
+  , _newAsn = pAsn_
+  }
+
 
 -- | Undocumented member.
 newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
@@ -1026,8 +1043,10 @@ newAsn :: Lens' NewPublicVirtualInterfaceAllocation Int
 newAsn = lens _newAsn (\ s a -> s{_newAsn = a});
 
 instance Hashable NewPublicVirtualInterfaceAllocation
+         where
 
 instance NFData NewPublicVirtualInterfaceAllocation
+         where
 
 instance ToJSON NewPublicVirtualInterfaceAllocation
          where
@@ -1050,9 +1069,10 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 --
 -- /See:/ 'resourceTag' smart constructor.
 data ResourceTag = ResourceTag'
-    { _rtResourceARN :: !(Maybe Text)
-    , _rtTags        :: !(Maybe (List1 Tag))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtTags        :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
 --
@@ -1063,11 +1083,8 @@ data ResourceTag = ResourceTag'
 -- * 'rtTags' - The tags.
 resourceTag
     :: ResourceTag
-resourceTag =
-    ResourceTag'
-    { _rtResourceARN = Nothing
-    , _rtTags = Nothing
-    }
+resourceTag = ResourceTag' {_rtResourceARN = Nothing, _rtTags = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) of the Direct Connect resource.
 rtResourceARN :: Lens' ResourceTag (Maybe Text)
@@ -1084,9 +1101,9 @@ instance FromJSON ResourceTag where
                  ResourceTag' <$>
                    (x .:? "resourceArn") <*> (x .:? "tags"))
 
-instance Hashable ResourceTag
+instance Hashable ResourceTag where
 
-instance NFData ResourceTag
+instance NFData ResourceTag where
 
 -- | A route filter prefix that the customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
 --
@@ -1094,8 +1111,9 @@ instance NFData ResourceTag
 --
 -- /See:/ 'routeFilterPrefix' smart constructor.
 newtype RouteFilterPrefix = RouteFilterPrefix'
-    { _rfpCidr :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rfpCidr :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RouteFilterPrefix' with the minimum fields required to make a request.
 --
@@ -1104,10 +1122,8 @@ newtype RouteFilterPrefix = RouteFilterPrefix'
 -- * 'rfpCidr' - CIDR notation for the advertised route. Multiple routes are separated by commas. IPv6 CIDRs must be at least a /64 or shorter Example: 10.10.10.0/24,10.10.11.0/24,2001:db8::/64
 routeFilterPrefix
     :: RouteFilterPrefix
-routeFilterPrefix =
-    RouteFilterPrefix'
-    { _rfpCidr = Nothing
-    }
+routeFilterPrefix = RouteFilterPrefix' {_rfpCidr = Nothing}
+
 
 -- | CIDR notation for the advertised route. Multiple routes are separated by commas. IPv6 CIDRs must be at least a /64 or shorter Example: 10.10.10.0/24,10.10.11.0/24,2001:db8::/64
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
@@ -1118,9 +1134,9 @@ instance FromJSON RouteFilterPrefix where
           = withObject "RouteFilterPrefix"
               (\ x -> RouteFilterPrefix' <$> (x .:? "cidr"))
 
-instance Hashable RouteFilterPrefix
+instance Hashable RouteFilterPrefix where
 
-instance NFData RouteFilterPrefix
+instance NFData RouteFilterPrefix where
 
 instance ToJSON RouteFilterPrefix where
         toJSON RouteFilterPrefix'{..}
@@ -1132,9 +1148,10 @@ instance ToJSON RouteFilterPrefix where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -1146,11 +1163,8 @@ data Tag = Tag'
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
-tag pKey_ =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = pKey_
-    }
+tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
+
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -1165,9 +1179,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "value") <*> (x .: "key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1184,9 +1198,10 @@ instance ToJSON Tag where
 --
 -- /See:/ 'virtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
-    { _vgVirtualGatewayId    :: !(Maybe Text)
-    , _vgVirtualGatewayState :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vgVirtualGatewayId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vgVirtualGatewayState :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VirtualGateway' with the minimum fields required to make a request.
 --
@@ -1198,10 +1213,9 @@ data VirtualGateway = VirtualGateway'
 virtualGateway
     :: VirtualGateway
 virtualGateway =
-    VirtualGateway'
-    { _vgVirtualGatewayId = Nothing
-    , _vgVirtualGatewayState = Nothing
-    }
+  VirtualGateway'
+  {_vgVirtualGatewayId = Nothing, _vgVirtualGatewayState = Nothing}
+
 
 -- | Undocumented member.
 vgVirtualGatewayId :: Lens' VirtualGateway (Maybe Text)
@@ -1219,9 +1233,9 @@ instance FromJSON VirtualGateway where
                    (x .:? "virtualGatewayId") <*>
                      (x .:? "virtualGatewayState"))
 
-instance Hashable VirtualGateway
+instance Hashable VirtualGateway where
 
-instance NFData VirtualGateway
+instance NFData VirtualGateway where
 
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.
 --
@@ -1229,24 +1243,25 @@ instance NFData VirtualGateway
 --
 -- /See:/ 'virtualInterface' smart constructor.
 data VirtualInterface = VirtualInterface'
-    { _viBgpPeers              :: !(Maybe [BGPPeer])
-    , _viVirtualGatewayId      :: !(Maybe Text)
-    , _viRouteFilterPrefixes   :: !(Maybe [RouteFilterPrefix])
-    , _viCustomerAddress       :: !(Maybe Text)
-    , _viVlan                  :: !(Maybe Int)
-    , _viLocation              :: !(Maybe Text)
-    , _viAmazonAddress         :: !(Maybe Text)
-    , _viAddressFamily         :: !(Maybe AddressFamily)
-    , _viVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _viConnectionId          :: !(Maybe Text)
-    , _viVirtualInterfaceType  :: !(Maybe Text)
-    , _viAsn                   :: !(Maybe Int)
-    , _viAuthKey               :: !(Maybe Text)
-    , _viCustomerRouterConfig  :: !(Maybe Text)
-    , _viOwnerAccount          :: !(Maybe Text)
-    , _viVirtualInterfaceName  :: !(Maybe Text)
-    , _viVirtualInterfaceId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _viBgpPeers              :: {-# NOUNPACK #-}!(Maybe [BGPPeer])
+  , _viVirtualGatewayId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viRouteFilterPrefixes   :: {-# NOUNPACK #-}!(Maybe [RouteFilterPrefix])
+  , _viCustomerAddress       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVlan                  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _viLocation              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viAmazonAddress         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viAddressFamily         :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _viVirtualInterfaceState :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
+  , _viConnectionId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVirtualInterfaceType  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viAsn                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _viAuthKey               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viCustomerRouterConfig  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viOwnerAccount          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVirtualInterfaceName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVirtualInterfaceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VirtualInterface' with the minimum fields required to make a request.
 --
@@ -1288,25 +1303,26 @@ data VirtualInterface = VirtualInterface'
 virtualInterface
     :: VirtualInterface
 virtualInterface =
-    VirtualInterface'
-    { _viBgpPeers = Nothing
-    , _viVirtualGatewayId = Nothing
-    , _viRouteFilterPrefixes = Nothing
-    , _viCustomerAddress = Nothing
-    , _viVlan = Nothing
-    , _viLocation = Nothing
-    , _viAmazonAddress = Nothing
-    , _viAddressFamily = Nothing
-    , _viVirtualInterfaceState = Nothing
-    , _viConnectionId = Nothing
-    , _viVirtualInterfaceType = Nothing
-    , _viAsn = Nothing
-    , _viAuthKey = Nothing
-    , _viCustomerRouterConfig = Nothing
-    , _viOwnerAccount = Nothing
-    , _viVirtualInterfaceName = Nothing
-    , _viVirtualInterfaceId = Nothing
-    }
+  VirtualInterface'
+  { _viBgpPeers = Nothing
+  , _viVirtualGatewayId = Nothing
+  , _viRouteFilterPrefixes = Nothing
+  , _viCustomerAddress = Nothing
+  , _viVlan = Nothing
+  , _viLocation = Nothing
+  , _viAmazonAddress = Nothing
+  , _viAddressFamily = Nothing
+  , _viVirtualInterfaceState = Nothing
+  , _viConnectionId = Nothing
+  , _viVirtualInterfaceType = Nothing
+  , _viAsn = Nothing
+  , _viAuthKey = Nothing
+  , _viCustomerRouterConfig = Nothing
+  , _viOwnerAccount = Nothing
+  , _viVirtualInterfaceName = Nothing
+  , _viVirtualInterfaceId = Nothing
+  }
+
 
 -- | Undocumented member.
 viBgpPeers :: Lens' VirtualInterface [BGPPeer]
@@ -1399,6 +1415,6 @@ instance FromJSON VirtualInterface where
                      <*> (x .:? "virtualInterfaceName")
                      <*> (x .:? "virtualInterfaceId"))
 
-instance Hashable VirtualInterface
+instance Hashable VirtualInterface where
 
-instance NFData VirtualInterface
+instance NFData VirtualInterface where

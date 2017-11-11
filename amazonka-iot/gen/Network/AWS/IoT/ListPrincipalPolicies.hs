@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPrincipalPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.IoT.ListPrincipalPolicies
     , lpprsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListPrincipalPolicies operation.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listPrincipalPolicies' smart constructor.
 data ListPrincipalPolicies = ListPrincipalPolicies'
-    { _lppMarker         :: !(Maybe Text)
-    , _lppAscendingOrder :: !(Maybe Bool)
-    , _lppPageSize       :: !(Maybe Nat)
-    , _lppPrincipal      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lppMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lppAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lppPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lppPrincipal      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPrincipalPolicies' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ listPrincipalPolicies
     :: Text -- ^ 'lppPrincipal'
     -> ListPrincipalPolicies
 listPrincipalPolicies pPrincipal_ =
-    ListPrincipalPolicies'
-    { _lppMarker = Nothing
-    , _lppAscendingOrder = Nothing
-    , _lppPageSize = Nothing
-    , _lppPrincipal = pPrincipal_
-    }
+  ListPrincipalPolicies'
+  { _lppMarker = Nothing
+  , _lppAscendingOrder = Nothing
+  , _lppPageSize = Nothing
+  , _lppPrincipal = pPrincipal_
+  }
+
 
 -- | The marker for the next set of results.
 lppMarker :: Lens' ListPrincipalPolicies (Maybe Text)
@@ -120,9 +122,9 @@ instance AWSRequest ListPrincipalPolicies where
                      (x .?> "policies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPrincipalPolicies
+instance Hashable ListPrincipalPolicies where
 
-instance NFData ListPrincipalPolicies
+instance NFData ListPrincipalPolicies where
 
 instance ToHeaders ListPrincipalPolicies where
         toHeaders ListPrincipalPolicies'{..}
@@ -144,10 +146,11 @@ instance ToQuery ListPrincipalPolicies where
 --
 -- /See:/ 'listPrincipalPoliciesResponse' smart constructor.
 data ListPrincipalPoliciesResponse = ListPrincipalPoliciesResponse'
-    { _lpprsNextMarker     :: !(Maybe Text)
-    , _lpprsPolicies       :: !(Maybe [Policy])
-    , _lpprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpprsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpprsPolicies       :: {-# NOUNPACK #-}!(Maybe [Policy])
+  , _lpprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPrincipalPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ listPrincipalPoliciesResponse
     :: Int -- ^ 'lpprsResponseStatus'
     -> ListPrincipalPoliciesResponse
 listPrincipalPoliciesResponse pResponseStatus_ =
-    ListPrincipalPoliciesResponse'
-    { _lpprsNextMarker = Nothing
-    , _lpprsPolicies = Nothing
-    , _lpprsResponseStatus = pResponseStatus_
-    }
+  ListPrincipalPoliciesResponse'
+  { _lpprsNextMarker = Nothing
+  , _lpprsPolicies = Nothing
+  , _lpprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker for the next set of results, or null if there are no additional results.
 lpprsNextMarker :: Lens' ListPrincipalPoliciesResponse (Maybe Text)
@@ -180,4 +184,4 @@ lpprsPolicies = lens _lpprsPolicies (\ s a -> s{_lpprsPolicies = a}) . _Default 
 lpprsResponseStatus :: Lens' ListPrincipalPoliciesResponse Int
 lpprsResponseStatus = lens _lpprsResponseStatus (\ s a -> s{_lpprsResponseStatus = a});
 
-instance NFData ListPrincipalPoliciesResponse
+instance NFData ListPrincipalPoliciesResponse where

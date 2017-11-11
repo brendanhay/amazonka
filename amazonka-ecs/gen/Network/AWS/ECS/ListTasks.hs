@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,25 +49,26 @@ module Network.AWS.ECS.ListTasks
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTasks' smart constructor.
 data ListTasks = ListTasks'
-    { _ltDesiredStatus     :: !(Maybe DesiredStatus)
-    , _ltCluster           :: !(Maybe Text)
-    , _ltFamily            :: !(Maybe Text)
-    , _ltNextToken         :: !(Maybe Text)
-    , _ltStartedBy         :: !(Maybe Text)
-    , _ltServiceName       :: !(Maybe Text)
-    , _ltContainerInstance :: !(Maybe Text)
-    , _ltMaxResults        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltDesiredStatus     :: {-# NOUNPACK #-}!(Maybe DesiredStatus)
+  , _ltCluster           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltFamily            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltStartedBy         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltServiceName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltContainerInstance :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTasks' with the minimum fields required to make a request.
 --
@@ -91,16 +92,17 @@ data ListTasks = ListTasks'
 listTasks
     :: ListTasks
 listTasks =
-    ListTasks'
-    { _ltDesiredStatus = Nothing
-    , _ltCluster = Nothing
-    , _ltFamily = Nothing
-    , _ltNextToken = Nothing
-    , _ltStartedBy = Nothing
-    , _ltServiceName = Nothing
-    , _ltContainerInstance = Nothing
-    , _ltMaxResults = Nothing
-    }
+  ListTasks'
+  { _ltDesiredStatus = Nothing
+  , _ltCluster = Nothing
+  , _ltFamily = Nothing
+  , _ltNextToken = Nothing
+  , _ltStartedBy = Nothing
+  , _ltServiceName = Nothing
+  , _ltContainerInstance = Nothing
+  , _ltMaxResults = Nothing
+  }
+
 
 -- | The task desired status with which to filter the @ListTasks@ results. Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks that ECS has set the desired status to @STOPPED@ , which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is @RUNNING@ , which shows tasks that ECS has set the desired status to @RUNNING@ .
 ltDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
@@ -151,9 +153,9 @@ instance AWSRequest ListTasks where
                    (x .?> "nextToken") <*> (x .?> "taskArns" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTasks
+instance Hashable ListTasks where
 
-instance NFData ListTasks
+instance NFData ListTasks where
 
 instance ToHeaders ListTasks where
         toHeaders
@@ -186,10 +188,11 @@ instance ToQuery ListTasks where
 
 -- | /See:/ 'listTasksResponse' smart constructor.
 data ListTasksResponse = ListTasksResponse'
-    { _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsTaskARNs       :: !(Maybe [Text])
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltrsTaskARNs       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTasksResponse' with the minimum fields required to make a request.
 --
@@ -204,11 +207,12 @@ listTasksResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTasksResponse
 listTasksResponse pResponseStatus_ =
-    ListTasksResponse'
-    { _ltrsNextToken = Nothing
-    , _ltrsTaskARNs = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTasksResponse'
+  { _ltrsNextToken = Nothing
+  , _ltrsTaskARNs = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @nextToken@ value to include in a future @ListTasks@ request. When the results of a @ListTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 ltrsNextToken :: Lens' ListTasksResponse (Maybe Text)
@@ -222,4 +226,4 @@ ltrsTaskARNs = lens _ltrsTaskARNs (\ s a -> s{_ltrsTaskARNs = a}) . _Default . _
 ltrsResponseStatus :: Lens' ListTasksResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTasksResponse
+instance NFData ListTasksResponse where

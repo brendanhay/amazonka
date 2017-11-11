@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateSnapshotSchedule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     , ussrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -67,11 +67,12 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-    { _ussDescription       :: !(Maybe Text)
-    , _ussVolumeARN         :: !Text
-    , _ussStartAt           :: !Nat
-    , _ussRecurrenceInHours :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ussDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ussVolumeARN         :: {-# NOUNPACK #-}!Text
+  , _ussStartAt           :: {-# NOUNPACK #-}!Nat
+  , _ussRecurrenceInHours :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSnapshotSchedule' with the minimum fields required to make a request.
 --
@@ -90,12 +91,13 @@ updateSnapshotSchedule
     -> Natural -- ^ 'ussRecurrenceInHours'
     -> UpdateSnapshotSchedule
 updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
-    UpdateSnapshotSchedule'
-    { _ussDescription = Nothing
-    , _ussVolumeARN = pVolumeARN_
-    , _ussStartAt = _Nat # pStartAt_
-    , _ussRecurrenceInHours = _Nat # pRecurrenceInHours_
-    }
+  UpdateSnapshotSchedule'
+  { _ussDescription = Nothing
+  , _ussVolumeARN = pVolumeARN_
+  , _ussStartAt = _Nat # pStartAt_
+  , _ussRecurrenceInHours = _Nat # pRecurrenceInHours_
+  }
+
 
 -- | Optional description of the snapshot that overwrites the existing description.
 ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest UpdateSnapshotSchedule where
                  UpdateSnapshotScheduleResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateSnapshotSchedule
+instance Hashable UpdateSnapshotSchedule where
 
-instance NFData UpdateSnapshotSchedule
+instance NFData UpdateSnapshotSchedule where
 
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders
@@ -158,9 +160,10 @@ instance ToQuery UpdateSnapshotSchedule where
 --
 -- /See:/ 'updateSnapshotScheduleResponse' smart constructor.
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
-    { _ussrsVolumeARN      :: !(Maybe Text)
-    , _ussrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ussrsVolumeARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ussrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
@@ -173,10 +176,9 @@ updateSnapshotScheduleResponse
     :: Int -- ^ 'ussrsResponseStatus'
     -> UpdateSnapshotScheduleResponse
 updateSnapshotScheduleResponse pResponseStatus_ =
-    UpdateSnapshotScheduleResponse'
-    { _ussrsVolumeARN = Nothing
-    , _ussrsResponseStatus = pResponseStatus_
-    }
+  UpdateSnapshotScheduleResponse'
+  {_ussrsVolumeARN = Nothing, _ussrsResponseStatus = pResponseStatus_}
+
 
 -- |
 ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
@@ -186,4 +188,4 @@ ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 ussrsResponseStatus :: Lens' UpdateSnapshotScheduleResponse Int
 ussrsResponseStatus = lens _ussrsResponseStatus (\ s a -> s{_ussrsResponseStatus = a});
 
-instance NFData UpdateSnapshotScheduleResponse
+instance NFData UpdateSnapshotScheduleResponse where

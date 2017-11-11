@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.IoT.UpdateCertificate
     , UpdateCertificateResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the UpdateCertificate operation.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateCertificate' smart constructor.
 data UpdateCertificate = UpdateCertificate'
-    { _ucCertificateId :: !Text
-    , _ucNewStatus     :: !CertificateStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucCertificateId :: {-# NOUNPACK #-}!Text
+  , _ucNewStatus     :: {-# NOUNPACK #-}!CertificateStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCertificate' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ updateCertificate
     -> CertificateStatus -- ^ 'ucNewStatus'
     -> UpdateCertificate
 updateCertificate pCertificateId_ pNewStatus_ =
-    UpdateCertificate'
-    { _ucCertificateId = pCertificateId_
-    , _ucNewStatus = pNewStatus_
-    }
+  UpdateCertificate'
+  {_ucCertificateId = pCertificateId_, _ucNewStatus = pNewStatus_}
+
 
 -- | The ID of the certificate.
 ucCertificateId :: Lens' UpdateCertificate Text
@@ -86,9 +86,9 @@ instance AWSRequest UpdateCertificate where
         request = putJSON ioT
         response = receiveNull UpdateCertificateResponse'
 
-instance Hashable UpdateCertificate
+instance Hashable UpdateCertificate where
 
-instance NFData UpdateCertificate
+instance NFData UpdateCertificate where
 
 instance ToHeaders UpdateCertificate where
         toHeaders = const mempty
@@ -106,8 +106,9 @@ instance ToQuery UpdateCertificate where
 
 -- | /See:/ 'updateCertificateResponse' smart constructor.
 data UpdateCertificateResponse =
-    UpdateCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCertificateResponse' with the minimum fields required to make a request.
 --
@@ -115,4 +116,5 @@ updateCertificateResponse
     :: UpdateCertificateResponse
 updateCertificateResponse = UpdateCertificateResponse'
 
-instance NFData UpdateCertificateResponse
+
+instance NFData UpdateCertificateResponse where

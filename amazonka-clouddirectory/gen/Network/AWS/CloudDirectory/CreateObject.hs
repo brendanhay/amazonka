@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.CloudDirectory.CreateObject
     , corsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createObject' smart constructor.
 data CreateObject = CreateObject'
-    { _coParentReference     :: !(Maybe ObjectReference)
-    , _coObjectAttributeList :: !(Maybe [AttributeKeyAndValue])
-    , _coLinkName            :: !(Maybe Text)
-    , _coDirectoryARN        :: !Text
-    , _coSchemaFacets        :: ![SchemaFacet]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _coParentReference     :: {-# NOUNPACK #-}!(Maybe ObjectReference)
+  , _coObjectAttributeList :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
+  , _coLinkName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _coDirectoryARN        :: {-# NOUNPACK #-}!Text
+  , _coSchemaFacets        :: {-# NOUNPACK #-}![SchemaFacet]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateObject' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ createObject
     :: Text -- ^ 'coDirectoryARN'
     -> CreateObject
 createObject pDirectoryARN_ =
-    CreateObject'
-    { _coParentReference = Nothing
-    , _coObjectAttributeList = Nothing
-    , _coLinkName = Nothing
-    , _coDirectoryARN = pDirectoryARN_
-    , _coSchemaFacets = mempty
-    }
+  CreateObject'
+  { _coParentReference = Nothing
+  , _coObjectAttributeList = Nothing
+  , _coLinkName = Nothing
+  , _coDirectoryARN = pDirectoryARN_
+  , _coSchemaFacets = mempty
+  }
+
 
 -- | If specified, the parent reference to which this object will be attached.
 coParentReference :: Lens' CreateObject (Maybe ObjectReference)
@@ -111,9 +113,9 @@ instance AWSRequest CreateObject where
                  CreateObjectResponse' <$>
                    (x .?> "ObjectIdentifier") <*> (pure (fromEnum s)))
 
-instance Hashable CreateObject
+instance Hashable CreateObject where
 
-instance NFData CreateObject
+instance NFData CreateObject where
 
 instance ToHeaders CreateObject where
         toHeaders CreateObject'{..}
@@ -138,9 +140,10 @@ instance ToQuery CreateObject where
 
 -- | /See:/ 'createObjectResponse' smart constructor.
 data CreateObjectResponse = CreateObjectResponse'
-    { _corsObjectIdentifier :: !(Maybe Text)
-    , _corsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _corsObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _corsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateObjectResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +156,9 @@ createObjectResponse
     :: Int -- ^ 'corsResponseStatus'
     -> CreateObjectResponse
 createObjectResponse pResponseStatus_ =
-    CreateObjectResponse'
-    { _corsObjectIdentifier = Nothing
-    , _corsResponseStatus = pResponseStatus_
-    }
+  CreateObjectResponse'
+  {_corsObjectIdentifier = Nothing, _corsResponseStatus = pResponseStatus_}
+
 
 -- | The identifier that is associated with the object.
 corsObjectIdentifier :: Lens' CreateObjectResponse (Maybe Text)
@@ -166,4 +168,4 @@ corsObjectIdentifier = lens _corsObjectIdentifier (\ s a -> s{_corsObjectIdentif
 corsResponseStatus :: Lens' CreateObjectResponse Int
 corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a});
 
-instance NFData CreateObjectResponse
+instance NFData CreateObjectResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateDevicePool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DeviceFarm.UpdateDevicePool
     , udprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the update device pool operation.
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateDevicePool' smart constructor.
 data UpdateDevicePool = UpdateDevicePool'
-    { _udpRules       :: !(Maybe [Rule])
-    , _udpName        :: !(Maybe Text)
-    , _udpDescription :: !(Maybe Text)
-    , _udpArn         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udpRules       :: {-# NOUNPACK #-}!(Maybe [Rule])
+  , _udpName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udpDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udpArn         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDevicePool' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ updateDevicePool
     :: Text -- ^ 'udpArn'
     -> UpdateDevicePool
 updateDevicePool pArn_ =
-    UpdateDevicePool'
-    { _udpRules = Nothing
-    , _udpName = Nothing
-    , _udpDescription = Nothing
-    , _udpArn = pArn_
-    }
+  UpdateDevicePool'
+  { _udpRules = Nothing
+  , _udpName = Nothing
+  , _udpDescription = Nothing
+  , _udpArn = pArn_
+  }
+
 
 -- | Represents the rules you wish to modify for the device pool. Updating rules is optional; however, if you choose to update rules for your request, the update will replace the existing rules.
 udpRules :: Lens' UpdateDevicePool [Rule]
@@ -106,9 +108,9 @@ instance AWSRequest UpdateDevicePool where
                  UpdateDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateDevicePool
+instance Hashable UpdateDevicePool where
 
-instance NFData UpdateDevicePool
+instance NFData UpdateDevicePool where
 
 instance ToHeaders UpdateDevicePool where
         toHeaders
@@ -141,9 +143,10 @@ instance ToQuery UpdateDevicePool where
 --
 -- /See:/ 'updateDevicePoolResponse' smart constructor.
 data UpdateDevicePoolResponse = UpdateDevicePoolResponse'
-    { _udprsDevicePool     :: !(Maybe DevicePool)
-    , _udprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udprsDevicePool     :: {-# NOUNPACK #-}!(Maybe DevicePool)
+  , _udprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDevicePoolResponse' with the minimum fields required to make a request.
 --
@@ -156,10 +159,9 @@ updateDevicePoolResponse
     :: Int -- ^ 'udprsResponseStatus'
     -> UpdateDevicePoolResponse
 updateDevicePoolResponse pResponseStatus_ =
-    UpdateDevicePoolResponse'
-    { _udprsDevicePool = Nothing
-    , _udprsResponseStatus = pResponseStatus_
-    }
+  UpdateDevicePoolResponse'
+  {_udprsDevicePool = Nothing, _udprsResponseStatus = pResponseStatus_}
+
 
 -- | The device pool you just updated.
 udprsDevicePool :: Lens' UpdateDevicePoolResponse (Maybe DevicePool)
@@ -169,4 +171,4 @@ udprsDevicePool = lens _udprsDevicePool (\ s a -> s{_udprsDevicePool = a});
 udprsResponseStatus :: Lens' UpdateDevicePoolResponse Int
 udprsResponseStatus = lens _udprsResponseStatus (\ s a -> s{_udprsResponseStatus = a});
 
-instance NFData UpdateDevicePoolResponse
+instance NFData UpdateDevicePoolResponse where

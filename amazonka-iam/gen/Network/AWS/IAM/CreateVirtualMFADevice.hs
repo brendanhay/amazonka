@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateVirtualMFADevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,18 +42,19 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     , cvmdrsVirtualMFADevice
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createVirtualMFADevice' smart constructor.
 data CreateVirtualMFADevice = CreateVirtualMFADevice'
-    { _cvmdPath                 :: !(Maybe Text)
-    , _cvmdVirtualMFADeviceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvmdPath                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvmdVirtualMFADeviceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVirtualMFADevice' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ createVirtualMFADevice
     :: Text -- ^ 'cvmdVirtualMFADeviceName'
     -> CreateVirtualMFADevice
 createVirtualMFADevice pVirtualMFADeviceName_ =
-    CreateVirtualMFADevice'
-    { _cvmdPath = Nothing
-    , _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_
-    }
+  CreateVirtualMFADevice'
+  {_cvmdPath = Nothing, _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_}
+
 
 -- | The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cvmdPath :: Lens' CreateVirtualMFADevice (Maybe Text)
@@ -89,9 +89,9 @@ instance AWSRequest CreateVirtualMFADevice where
                  CreateVirtualMFADeviceResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "VirtualMFADevice"))
 
-instance Hashable CreateVirtualMFADevice
+instance Hashable CreateVirtualMFADevice where
 
-instance NFData CreateVirtualMFADevice
+instance NFData CreateVirtualMFADevice where
 
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
@@ -114,9 +114,10 @@ instance ToQuery CreateVirtualMFADevice where
 --
 -- /See:/ 'createVirtualMFADeviceResponse' smart constructor.
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
-    { _cvmdrsResponseStatus   :: !Int
-    , _cvmdrsVirtualMFADevice :: !VirtualMFADevice
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cvmdrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _cvmdrsVirtualMFADevice :: {-# NOUNPACK #-}!VirtualMFADevice
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVirtualMFADeviceResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,11 @@ createVirtualMFADeviceResponse
     -> VirtualMFADevice -- ^ 'cvmdrsVirtualMFADevice'
     -> CreateVirtualMFADeviceResponse
 createVirtualMFADeviceResponse pResponseStatus_ pVirtualMFADevice_ =
-    CreateVirtualMFADeviceResponse'
-    { _cvmdrsResponseStatus = pResponseStatus_
-    , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
-    }
+  CreateVirtualMFADeviceResponse'
+  { _cvmdrsResponseStatus = pResponseStatus_
+  , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
+  }
+
 
 -- | -- | The response status code.
 cvmdrsResponseStatus :: Lens' CreateVirtualMFADeviceResponse Int
@@ -143,4 +145,4 @@ cvmdrsResponseStatus = lens _cvmdrsResponseStatus (\ s a -> s{_cvmdrsResponseSta
 cvmdrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmdrsVirtualMFADevice = lens _cvmdrsVirtualMFADevice (\ s a -> s{_cvmdrsVirtualMFADevice = a});
 
-instance NFData CreateVirtualMFADeviceResponse
+instance NFData CreateVirtualMFADeviceResponse where

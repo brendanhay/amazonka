@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AssociateHostedConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.DirectConnect.AssociateHostedConnection
     , cConnectionState
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the AssociateHostedConnection operation.
 --
@@ -61,9 +61,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'associateHostedConnection' smart constructor.
 data AssociateHostedConnection = AssociateHostedConnection'
-    { _assConnectionId       :: !Text
-    , _assParentConnectionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _assConnectionId       :: {-# NOUNPACK #-}!Text
+  , _assParentConnectionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateHostedConnection' with the minimum fields required to make a request.
 --
@@ -77,10 +78,11 @@ associateHostedConnection
     -> Text -- ^ 'assParentConnectionId'
     -> AssociateHostedConnection
 associateHostedConnection pConnectionId_ pParentConnectionId_ =
-    AssociateHostedConnection'
-    { _assConnectionId = pConnectionId_
-    , _assParentConnectionId = pParentConnectionId_
-    }
+  AssociateHostedConnection'
+  { _assConnectionId = pConnectionId_
+  , _assParentConnectionId = pParentConnectionId_
+  }
+
 
 -- | The ID of the hosted connection. Example: dxcon-abc123 Default: None
 assConnectionId :: Lens' AssociateHostedConnection Text
@@ -95,9 +97,9 @@ instance AWSRequest AssociateHostedConnection where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable AssociateHostedConnection
+instance Hashable AssociateHostedConnection where
 
-instance NFData AssociateHostedConnection
+instance NFData AssociateHostedConnection where
 
 instance ToHeaders AssociateHostedConnection where
         toHeaders

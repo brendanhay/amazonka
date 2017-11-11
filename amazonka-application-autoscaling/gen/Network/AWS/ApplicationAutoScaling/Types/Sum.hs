@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ApplicationAutoScaling.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AdjustmentType
-    = ChangeInCapacity
-    | ExactCapacity
-    | PercentChangeInCapacity
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ChangeInCapacity
+  | ExactCapacity
+  | PercentChangeInCapacity
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AdjustmentType where
     parser = takeLowerText >>= \case
@@ -52,10 +53,11 @@ instance FromJSON AdjustmentType where
     parseJSON = parseJSONText "AdjustmentType"
 
 data MetricAggregationType
-    = MATAverage
-    | MATMaximum
-    | MATMinimum
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = MATAverage
+  | MATMaximum
+  | MATMinimum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricAggregationType where
     parser = takeLowerText >>= \case
@@ -84,12 +86,13 @@ instance FromJSON MetricAggregationType where
     parseJSON = parseJSONText "MetricAggregationType"
 
 data MetricStatistic
-    = Average
-    | Maximum
-    | Minimum
-    | SampleCount
-    | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Average
+  | Maximum
+  | Minimum
+  | SampleCount
+  | Sum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricStatistic where
     parser = takeLowerText >>= \case
@@ -122,9 +125,10 @@ instance FromJSON MetricStatistic where
     parseJSON = parseJSONText "MetricStatistic"
 
 data MetricType
-    = DynamoDBReadCapacityUtilization
-    | DynamoDBWriteCapacityUtilization
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DynamoDBReadCapacityUtilization
+  | DynamoDBWriteCapacityUtilization
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MetricType where
     parser = takeLowerText >>= \case
@@ -151,9 +155,10 @@ instance FromJSON MetricType where
     parseJSON = parseJSONText "MetricType"
 
 data PolicyType
-    = StepScaling
-    | TargetTrackingScaling
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = StepScaling
+  | TargetTrackingScaling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PolicyType where
     parser = takeLowerText >>= \case
@@ -180,15 +185,16 @@ instance FromJSON PolicyType where
     parseJSON = parseJSONText "PolicyType"
 
 data ScalableDimension
-    = AppstreamFleetDesiredCapacity
-    | DynamodbIndexReadCapacityUnits
-    | DynamodbIndexWriteCapacityUnits
-    | DynamodbTableReadCapacityUnits
-    | DynamodbTableWriteCapacityUnits
-    | EC2SpotFleetRequestTargetCapacity
-    | EcsServiceDesiredCount
-    | ElasticmapreduceInstancegroupInstanceCount
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AppstreamFleetDesiredCapacity
+  | DynamodbIndexReadCapacityUnits
+  | DynamodbIndexWriteCapacityUnits
+  | DynamodbTableReadCapacityUnits
+  | DynamodbTableWriteCapacityUnits
+  | EC2SpotFleetRequestTargetCapacity
+  | EcsServiceDesiredCount
+  | ElasticmapreduceInstancegroupInstanceCount
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScalableDimension where
     parser = takeLowerText >>= \case
@@ -227,13 +233,14 @@ instance FromJSON ScalableDimension where
     parseJSON = parseJSONText "ScalableDimension"
 
 data ScalingActivityStatusCode
-    = Failed
-    | InProgress
-    | Overridden
-    | Pending
-    | Successful
-    | Unfulfilled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | InProgress
+  | Overridden
+  | Pending
+  | Successful
+  | Unfulfilled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScalingActivityStatusCode where
     parser = takeLowerText >>= \case
@@ -265,12 +272,13 @@ instance FromJSON ScalingActivityStatusCode where
     parseJSON = parseJSONText "ScalingActivityStatusCode"
 
 data ServiceNamespace
-    = Appstream
-    | Dynamodb
-    | EC2
-    | Ecs
-    | Elasticmapreduce
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Appstream
+  | Dynamodb
+  | EC2
+  | Ecs
+  | Elasticmapreduce
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ServiceNamespace where
     parser = takeLowerText >>= \case

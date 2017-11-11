@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUserPoolClients
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CognitoIdentityProvider.ListUserPoolClients
     , lupcrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to list the user pool clients.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listUserPoolClients' smart constructor.
 data ListUserPoolClients = ListUserPoolClients'
-    { _lupcNextToken  :: !(Maybe Text)
-    , _lupcMaxResults :: !(Maybe Nat)
-    , _lupcUserPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lupcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lupcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lupcUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserPoolClients' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ listUserPoolClients
     :: Text -- ^ 'lupcUserPoolId'
     -> ListUserPoolClients
 listUserPoolClients pUserPoolId_ =
-    ListUserPoolClients'
-    { _lupcNextToken = Nothing
-    , _lupcMaxResults = Nothing
-    , _lupcUserPoolId = pUserPoolId_
-    }
+  ListUserPoolClients'
+  { _lupcNextToken = Nothing
+  , _lupcMaxResults = Nothing
+  , _lupcUserPoolId = pUserPoolId_
+  }
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupcNextToken :: Lens' ListUserPoolClients (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest ListUserPoolClients where
                      (x .?> "UserPoolClients" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListUserPoolClients
+instance Hashable ListUserPoolClients where
 
-instance NFData ListUserPoolClients
+instance NFData ListUserPoolClients where
 
 instance ToHeaders ListUserPoolClients where
         toHeaders
@@ -135,10 +137,11 @@ instance ToQuery ListUserPoolClients where
 --
 -- /See:/ 'listUserPoolClientsResponse' smart constructor.
 data ListUserPoolClientsResponse = ListUserPoolClientsResponse'
-    { _lupcrsNextToken       :: !(Maybe Text)
-    , _lupcrsUserPoolClients :: !(Maybe [UserPoolClientDescription])
-    , _lupcrsResponseStatus  :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lupcrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lupcrsUserPoolClients :: {-# NOUNPACK #-}!(Maybe [UserPoolClientDescription])
+  , _lupcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserPoolClientsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ listUserPoolClientsResponse
     :: Int -- ^ 'lupcrsResponseStatus'
     -> ListUserPoolClientsResponse
 listUserPoolClientsResponse pResponseStatus_ =
-    ListUserPoolClientsResponse'
-    { _lupcrsNextToken = Nothing
-    , _lupcrsUserPoolClients = Nothing
-    , _lupcrsResponseStatus = pResponseStatus_
-    }
+  ListUserPoolClientsResponse'
+  { _lupcrsNextToken = Nothing
+  , _lupcrsUserPoolClients = Nothing
+  , _lupcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupcrsNextToken :: Lens' ListUserPoolClientsResponse (Maybe Text)
@@ -171,4 +175,4 @@ lupcrsUserPoolClients = lens _lupcrsUserPoolClients (\ s a -> s{_lupcrsUserPoolC
 lupcrsResponseStatus :: Lens' ListUserPoolClientsResponse Int
 lupcrsResponseStatus = lens _lupcrsResponseStatus (\ s a -> s{_lupcrsResponseStatus = a});
 
-instance NFData ListUserPoolClientsResponse
+instance NFData ListUserPoolClientsResponse where

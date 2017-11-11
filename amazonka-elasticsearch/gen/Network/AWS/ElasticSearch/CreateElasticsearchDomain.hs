@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.CreateElasticsearchDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     , cedrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createElasticsearchDomain' smart constructor.
 data CreateElasticsearchDomain = CreateElasticsearchDomain'
-    { _cedEBSOptions                 :: !(Maybe EBSOptions)
-    , _cedAccessPolicies             :: !(Maybe Text)
-    , _cedElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfig)
-    , _cedSnapshotOptions            :: !(Maybe SnapshotOptions)
-    , _cedAdvancedOptions            :: !(Maybe (Map Text Text))
-    , _cedElasticsearchVersion       :: !(Maybe Text)
-    , _cedDomainName                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cedEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
+  , _cedAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cedElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfig)
+  , _cedSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
+  , _cedAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cedElasticsearchVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cedDomainName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateElasticsearchDomain' with the minimum fields required to make a request.
 --
@@ -82,15 +83,16 @@ createElasticsearchDomain
     :: Text -- ^ 'cedDomainName'
     -> CreateElasticsearchDomain
 createElasticsearchDomain pDomainName_ =
-    CreateElasticsearchDomain'
-    { _cedEBSOptions = Nothing
-    , _cedAccessPolicies = Nothing
-    , _cedElasticsearchClusterConfig = Nothing
-    , _cedSnapshotOptions = Nothing
-    , _cedAdvancedOptions = Nothing
-    , _cedElasticsearchVersion = Nothing
-    , _cedDomainName = pDomainName_
-    }
+  CreateElasticsearchDomain'
+  { _cedEBSOptions = Nothing
+  , _cedAccessPolicies = Nothing
+  , _cedElasticsearchClusterConfig = Nothing
+  , _cedSnapshotOptions = Nothing
+  , _cedAdvancedOptions = Nothing
+  , _cedElasticsearchVersion = Nothing
+  , _cedDomainName = pDomainName_
+  }
+
 
 -- | Options to enable, disable and specify the type and size of EBS storage volumes.
 cedEBSOptions :: Lens' CreateElasticsearchDomain (Maybe EBSOptions)
@@ -130,9 +132,9 @@ instance AWSRequest CreateElasticsearchDomain where
                  CreateElasticsearchDomainResponse' <$>
                    (x .?> "DomainStatus") <*> (pure (fromEnum s)))
 
-instance Hashable CreateElasticsearchDomain
+instance Hashable CreateElasticsearchDomain where
 
-instance NFData CreateElasticsearchDomain
+instance NFData CreateElasticsearchDomain where
 
 instance ToHeaders CreateElasticsearchDomain where
         toHeaders = const mempty
@@ -163,9 +165,10 @@ instance ToQuery CreateElasticsearchDomain where
 --
 -- /See:/ 'createElasticsearchDomainResponse' smart constructor.
 data CreateElasticsearchDomainResponse = CreateElasticsearchDomainResponse'
-    { _cedrsDomainStatus   :: !(Maybe ElasticsearchDomainStatus)
-    , _cedrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cedrsDomainStatus   :: {-# NOUNPACK #-}!(Maybe ElasticsearchDomainStatus)
+  , _cedrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateElasticsearchDomainResponse' with the minimum fields required to make a request.
 --
@@ -178,10 +181,9 @@ createElasticsearchDomainResponse
     :: Int -- ^ 'cedrsResponseStatus'
     -> CreateElasticsearchDomainResponse
 createElasticsearchDomainResponse pResponseStatus_ =
-    CreateElasticsearchDomainResponse'
-    { _cedrsDomainStatus = Nothing
-    , _cedrsResponseStatus = pResponseStatus_
-    }
+  CreateElasticsearchDomainResponse'
+  {_cedrsDomainStatus = Nothing, _cedrsResponseStatus = pResponseStatus_}
+
 
 -- | The status of the newly created Elasticsearch domain.
 cedrsDomainStatus :: Lens' CreateElasticsearchDomainResponse (Maybe ElasticsearchDomainStatus)
@@ -192,3 +194,4 @@ cedrsResponseStatus :: Lens' CreateElasticsearchDomainResponse Int
 cedrsResponseStatus = lens _cedrsResponseStatus (\ s a -> s{_cedrsResponseStatus = a});
 
 instance NFData CreateElasticsearchDomainResponse
+         where

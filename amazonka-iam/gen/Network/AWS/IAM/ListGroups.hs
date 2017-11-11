@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.IAM.ListGroups
     , lgrsGroups
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listGroups' smart constructor.
 data ListGroups = ListGroups'
-    { _lgPathPrefix :: !(Maybe Text)
-    , _lgMarker     :: !(Maybe Text)
-    , _lgMaxItems   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ data ListGroups = ListGroups'
 listGroups
     :: ListGroups
 listGroups =
-    ListGroups'
-    { _lgPathPrefix = Nothing
-    , _lgMarker = Nothing
-    , _lgMaxItems = Nothing
-    }
+  ListGroups'
+  {_lgPathPrefix = Nothing, _lgMarker = Nothing, _lgMaxItems = Nothing}
+
 
 -- | The path prefix for filtering the results. For example, the prefix @/division_abc/subdivision_xyz/@ gets all groups whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all groups. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lgPathPrefix :: Lens' ListGroups (Maybe Text)
@@ -110,9 +109,9 @@ instance AWSRequest ListGroups where
                      (x .@? "Groups" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListGroups
+instance Hashable ListGroups where
 
-instance NFData ListGroups
+instance NFData ListGroups where
 
 instance ToHeaders ListGroups where
         toHeaders = const mempty
@@ -134,11 +133,12 @@ instance ToQuery ListGroups where
 --
 -- /See:/ 'listGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-    { _lgrsMarker         :: !(Maybe Text)
-    , _lgrsIsTruncated    :: !(Maybe Bool)
-    , _lgrsResponseStatus :: !Int
-    , _lgrsGroups         :: ![Group]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lgrsGroups         :: {-# NOUNPACK #-}![Group]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
 --
@@ -155,12 +155,13 @@ listGroupsResponse
     :: Int -- ^ 'lgrsResponseStatus'
     -> ListGroupsResponse
 listGroupsResponse pResponseStatus_ =
-    ListGroupsResponse'
-    { _lgrsMarker = Nothing
-    , _lgrsIsTruncated = Nothing
-    , _lgrsResponseStatus = pResponseStatus_
-    , _lgrsGroups = mempty
-    }
+  ListGroupsResponse'
+  { _lgrsMarker = Nothing
+  , _lgrsIsTruncated = Nothing
+  , _lgrsResponseStatus = pResponseStatus_
+  , _lgrsGroups = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lgrsMarker :: Lens' ListGroupsResponse (Maybe Text)
@@ -178,4 +179,4 @@ lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = 
 lgrsGroups :: Lens' ListGroupsResponse [Group]
 lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a}) . _Coerce;
 
-instance NFData ListGroupsResponse
+instance NFData ListGroupsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDomainName
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.UpdateDomainName
     , dnDistributionDomainName
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to change information about the 'DomainName' resource.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateDomainName' smart constructor.
 data UpdateDomainName = UpdateDomainName'
-    { _udnPatchOperations :: !(Maybe [PatchOperation])
-    , _udnDomainName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udnPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _udnDomainName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDomainName' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ updateDomainName
     :: Text -- ^ 'udnDomainName'
     -> UpdateDomainName
 updateDomainName pDomainName_ =
-    UpdateDomainName'
-    { _udnPatchOperations = Nothing
-    , _udnDomainName = pDomainName_
-    }
+  UpdateDomainName'
+  {_udnPatchOperations = Nothing, _udnDomainName = pDomainName_}
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udnPatchOperations :: Lens' UpdateDomainName [PatchOperation]
@@ -87,9 +87,9 @@ instance AWSRequest UpdateDomainName where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateDomainName
+instance Hashable UpdateDomainName where
 
-instance NFData UpdateDomainName
+instance NFData UpdateDomainName where
 
 instance ToHeaders UpdateDomainName where
         toHeaders

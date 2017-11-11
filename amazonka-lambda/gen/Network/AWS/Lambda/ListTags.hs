@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lambda.ListTags
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTags' smart constructor.
 newtype ListTags = ListTags'
-    { _ltResource :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltResource :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype ListTags = ListTags'
 listTags
     :: Text -- ^ 'ltResource'
     -> ListTags
-listTags pResource_ =
-    ListTags'
-    { _ltResource = pResource_
-    }
+listTags pResource_ = ListTags' {_ltResource = pResource_}
+
 
 -- | The ARN (Amazon Resource Name) of the function.
 ltResource :: Lens' ListTags Text
@@ -75,9 +74,9 @@ instance AWSRequest ListTags where
                  ListTagsResponse' <$>
                    (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable ListTags
+instance Hashable ListTags where
 
-instance NFData ListTags
+instance NFData ListTags where
 
 instance ToHeaders ListTags where
         toHeaders = const mempty
@@ -91,9 +90,10 @@ instance ToQuery ListTags where
 
 -- | /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-    { _ltrsTags           :: !(Maybe (Map Text Text))
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
@@ -106,10 +106,9 @@ listTagsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTagsResponse
 listTagsResponse pResponseStatus_ =
-    ListTagsResponse'
-    { _ltrsTags = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTagsResponse'
+  {_ltrsTags = Nothing, _ltrsResponseStatus = pResponseStatus_}
+
 
 -- | The list of tags assigned to the function.
 ltrsTags :: Lens' ListTagsResponse (HashMap Text Text)
@@ -119,4 +118,4 @@ ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Map;
 ltrsResponseStatus :: Lens' ListTagsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTagsResponse
+instance NFData ListTagsResponse where

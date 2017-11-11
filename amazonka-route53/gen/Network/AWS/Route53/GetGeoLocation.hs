@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetGeoLocation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.Route53.GetGeoLocation
     , gglrsGeoLocationDetails
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request for information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.
 --
@@ -64,10 +64,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getGeoLocation' smart constructor.
 data GetGeoLocation = GetGeoLocation'
-    { _gglSubdivisionCode :: !(Maybe Text)
-    , _gglCountryCode     :: !(Maybe Text)
-    , _gglContinentCode   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gglSubdivisionCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gglCountryCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gglContinentCode   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGeoLocation' with the minimum fields required to make a request.
 --
@@ -81,11 +82,12 @@ data GetGeoLocation = GetGeoLocation'
 getGeoLocation
     :: GetGeoLocation
 getGeoLocation =
-    GetGeoLocation'
-    { _gglSubdivisionCode = Nothing
-    , _gglCountryCode = Nothing
-    , _gglContinentCode = Nothing
-    }
+  GetGeoLocation'
+  { _gglSubdivisionCode = Nothing
+  , _gglCountryCode = Nothing
+  , _gglContinentCode = Nothing
+  }
+
 
 -- | Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> . Amazon Route 53 doesn't support subdivision codes for all countries. If you specify @SubdivisionCode@ , you must also specify @CountryCode@ .
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
@@ -108,9 +110,9 @@ instance AWSRequest GetGeoLocation where
                  GetGeoLocationResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "GeoLocationDetails"))
 
-instance Hashable GetGeoLocation
+instance Hashable GetGeoLocation where
 
-instance NFData GetGeoLocation
+instance NFData GetGeoLocation where
 
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty
@@ -131,9 +133,10 @@ instance ToQuery GetGeoLocation where
 --
 -- /See:/ 'getGeoLocationResponse' smart constructor.
 data GetGeoLocationResponse = GetGeoLocationResponse'
-    { _gglrsResponseStatus     :: !Int
-    , _gglrsGeoLocationDetails :: !GeoLocationDetails
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gglrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _gglrsGeoLocationDetails :: {-# NOUNPACK #-}!GeoLocationDetails
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGeoLocationResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +150,11 @@ getGeoLocationResponse
     -> GeoLocationDetails -- ^ 'gglrsGeoLocationDetails'
     -> GetGeoLocationResponse
 getGeoLocationResponse pResponseStatus_ pGeoLocationDetails_ =
-    GetGeoLocationResponse'
-    { _gglrsResponseStatus = pResponseStatus_
-    , _gglrsGeoLocationDetails = pGeoLocationDetails_
-    }
+  GetGeoLocationResponse'
+  { _gglrsResponseStatus = pResponseStatus_
+  , _gglrsGeoLocationDetails = pGeoLocationDetails_
+  }
+
 
 -- | -- | The response status code.
 gglrsResponseStatus :: Lens' GetGeoLocationResponse Int
@@ -160,4 +164,4 @@ gglrsResponseStatus = lens _gglrsResponseStatus (\ s a -> s{_gglrsResponseStatus
 gglrsGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrsGeoLocationDetails = lens _gglrsGeoLocationDetails (\ s a -> s{_gglrsGeoLocationDetails = a});
 
-instance NFData GetGeoLocationResponse
+instance NFData GetGeoLocationResponse where

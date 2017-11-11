@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SDB.BatchPutAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,18 +47,19 @@ module Network.AWS.SDB.BatchPutAttributes
     , BatchPutAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'batchPutAttributes' smart constructor.
 data BatchPutAttributes = BatchPutAttributes'
-    { _bpaDomainName :: !Text
-    , _bpaItems      :: ![ReplaceableItem]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bpaDomainName :: {-# NOUNPACK #-}!Text
+  , _bpaItems      :: {-# NOUNPACK #-}![ReplaceableItem]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchPutAttributes' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ batchPutAttributes
     :: Text -- ^ 'bpaDomainName'
     -> BatchPutAttributes
 batchPutAttributes pDomainName_ =
-    BatchPutAttributes'
-    { _bpaDomainName = pDomainName_
-    , _bpaItems = mempty
-    }
+  BatchPutAttributes' {_bpaDomainName = pDomainName_, _bpaItems = mempty}
+
 
 -- | The name of the domain in which the attributes are being stored.
 bpaDomainName :: Lens' BatchPutAttributes Text
@@ -90,9 +89,9 @@ instance AWSRequest BatchPutAttributes where
         request = postQuery sdb
         response = receiveNull BatchPutAttributesResponse'
 
-instance Hashable BatchPutAttributes
+instance Hashable BatchPutAttributes where
 
-instance NFData BatchPutAttributes
+instance NFData BatchPutAttributes where
 
 instance ToHeaders BatchPutAttributes where
         toHeaders = const mempty
@@ -110,8 +109,9 @@ instance ToQuery BatchPutAttributes where
 
 -- | /See:/ 'batchPutAttributesResponse' smart constructor.
 data BatchPutAttributesResponse =
-    BatchPutAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  BatchPutAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchPutAttributesResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +119,5 @@ batchPutAttributesResponse
     :: BatchPutAttributesResponse
 batchPutAttributesResponse = BatchPutAttributesResponse'
 
-instance NFData BatchPutAttributesResponse
+
+instance NFData BatchPutAttributesResponse where

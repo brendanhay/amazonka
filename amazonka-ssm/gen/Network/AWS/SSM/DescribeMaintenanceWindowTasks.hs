@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.DescribeMaintenanceWindowTasks
     , dmwtsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeMaintenanceWindowTasks' smart constructor.
 data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
-    { _dFilters    :: !(Maybe [MaintenanceWindowFilter])
-    , _dNextToken  :: !(Maybe Text)
-    , _dMaxResults :: !(Maybe Nat)
-    , _dWindowId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dFilters    :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowFilter])
+  , _dNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dWindowId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowTasks' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeMaintenanceWindowTasks
     :: Text -- ^ 'dWindowId'
     -> DescribeMaintenanceWindowTasks
 describeMaintenanceWindowTasks pWindowId_ =
-    DescribeMaintenanceWindowTasks'
-    { _dFilters = Nothing
-    , _dNextToken = Nothing
-    , _dMaxResults = Nothing
-    , _dWindowId = pWindowId_
-    }
+  DescribeMaintenanceWindowTasks'
+  { _dFilters = Nothing
+  , _dNextToken = Nothing
+  , _dMaxResults = Nothing
+  , _dWindowId = pWindowId_
+  }
+
 
 -- | Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType.
 dFilters :: Lens' DescribeMaintenanceWindowTasks [MaintenanceWindowFilter]
@@ -107,8 +109,9 @@ instance AWSRequest DescribeMaintenanceWindowTasks
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeMaintenanceWindowTasks
+         where
 
-instance NFData DescribeMaintenanceWindowTasks
+instance NFData DescribeMaintenanceWindowTasks where
 
 instance ToHeaders DescribeMaintenanceWindowTasks
          where
@@ -138,10 +141,11 @@ instance ToQuery DescribeMaintenanceWindowTasks where
 
 -- | /See:/ 'describeMaintenanceWindowTasksResponse' smart constructor.
 data DescribeMaintenanceWindowTasksResponse = DescribeMaintenanceWindowTasksResponse'
-    { _dmwtsrsTasks          :: !(Maybe [MaintenanceWindowTask])
-    , _dmwtsrsNextToken      :: !(Maybe Text)
-    , _dmwtsrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dmwtsrsTasks          :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowTask])
+  , _dmwtsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwtsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowTasksResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +160,12 @@ describeMaintenanceWindowTasksResponse
     :: Int -- ^ 'dmwtsrsResponseStatus'
     -> DescribeMaintenanceWindowTasksResponse
 describeMaintenanceWindowTasksResponse pResponseStatus_ =
-    DescribeMaintenanceWindowTasksResponse'
-    { _dmwtsrsTasks = Nothing
-    , _dmwtsrsNextToken = Nothing
-    , _dmwtsrsResponseStatus = pResponseStatus_
-    }
+  DescribeMaintenanceWindowTasksResponse'
+  { _dmwtsrsTasks = Nothing
+  , _dmwtsrsNextToken = Nothing
+  , _dmwtsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the tasks in the Maintenance Window.
 dmwtsrsTasks :: Lens' DescribeMaintenanceWindowTasksResponse [MaintenanceWindowTask]
@@ -175,4 +180,5 @@ dmwtsrsResponseStatus :: Lens' DescribeMaintenanceWindowTasksResponse Int
 dmwtsrsResponseStatus = lens _dmwtsrsResponseStatus (\ s a -> s{_dmwtsrsResponseStatus = a});
 
 instance NFData
-         DescribeMaintenanceWindowTasksResponse
+           DescribeMaintenanceWindowTasksResponse
+         where

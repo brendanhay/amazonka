@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -213,15 +213,15 @@ module Network.AWS.ApplicationAutoScaling
     , ttspcTargetValue
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
-import           Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
-import           Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
-import           Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
-import           Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
-import           Network.AWS.ApplicationAutoScaling.PutScalingPolicy
-import           Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Waiters
+import Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
+import Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
+import Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
+import Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
+import Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+import Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+import Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

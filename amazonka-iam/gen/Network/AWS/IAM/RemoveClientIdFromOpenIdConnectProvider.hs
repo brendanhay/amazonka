@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
     , RemoveClientIdFromOpenIdConnectProviderResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeClientIdFromOpenIdConnectProvider' smart constructor.
 data RemoveClientIdFromOpenIdConnectProvider = RemoveClientIdFromOpenIdConnectProvider'
-    { _rcifoicpOpenIdConnectProviderARN :: !Text
-    , _rcifoicpClientId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcifoicpOpenIdConnectProviderARN :: {-# NOUNPACK #-}!Text
+  , _rcifoicpClientId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveClientIdFromOpenIdConnectProvider' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ removeClientIdFromOpenIdConnectProvider
     -> Text -- ^ 'rcifoicpClientId'
     -> RemoveClientIdFromOpenIdConnectProvider
 removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
-    RemoveClientIdFromOpenIdConnectProvider'
-    { _rcifoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
-    , _rcifoicpClientId = pClientId_
-    }
+  RemoveClientIdFromOpenIdConnectProvider'
+  { _rcifoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+  , _rcifoicpClientId = pClientId_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' action. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 rcifoicpOpenIdConnectProviderARN :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
@@ -76,7 +78,8 @@ rcifoicpClientId :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
 rcifoicpClientId = lens _rcifoicpClientId (\ s a -> s{_rcifoicpClientId = a});
 
 instance AWSRequest
-         RemoveClientIdFromOpenIdConnectProvider where
+           RemoveClientIdFromOpenIdConnectProvider
+         where
         type Rs RemoveClientIdFromOpenIdConnectProvider =
              RemoveClientIdFromOpenIdConnectProviderResponse
         request = postQuery iam
@@ -85,21 +88,26 @@ instance AWSRequest
               RemoveClientIdFromOpenIdConnectProviderResponse'
 
 instance Hashable
-         RemoveClientIdFromOpenIdConnectProvider
+           RemoveClientIdFromOpenIdConnectProvider
+         where
 
 instance NFData
-         RemoveClientIdFromOpenIdConnectProvider
+           RemoveClientIdFromOpenIdConnectProvider
+         where
 
 instance ToHeaders
-         RemoveClientIdFromOpenIdConnectProvider where
+           RemoveClientIdFromOpenIdConnectProvider
+         where
         toHeaders = const mempty
 
 instance ToPath
-         RemoveClientIdFromOpenIdConnectProvider where
+           RemoveClientIdFromOpenIdConnectProvider
+         where
         toPath = const "/"
 
 instance ToQuery
-         RemoveClientIdFromOpenIdConnectProvider where
+           RemoveClientIdFromOpenIdConnectProvider
+         where
         toQuery RemoveClientIdFromOpenIdConnectProvider'{..}
           = mconcat
               ["Action" =:
@@ -112,15 +120,18 @@ instance ToQuery
 
 -- | /See:/ 'removeClientIdFromOpenIdConnectProviderResponse' smart constructor.
 data RemoveClientIdFromOpenIdConnectProviderResponse =
-    RemoveClientIdFromOpenIdConnectProviderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveClientIdFromOpenIdConnectProviderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveClientIdFromOpenIdConnectProviderResponse' with the minimum fields required to make a request.
 --
 removeClientIdFromOpenIdConnectProviderResponse
     :: RemoveClientIdFromOpenIdConnectProviderResponse
 removeClientIdFromOpenIdConnectProviderResponse =
-    RemoveClientIdFromOpenIdConnectProviderResponse'
+  RemoveClientIdFromOpenIdConnectProviderResponse'
+
 
 instance NFData
-         RemoveClientIdFromOpenIdConnectProviderResponse
+           RemoveClientIdFromOpenIdConnectProviderResponse
+         where

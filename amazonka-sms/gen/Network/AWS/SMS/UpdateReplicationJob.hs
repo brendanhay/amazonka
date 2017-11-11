@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.UpdateReplicationJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,22 +39,23 @@ module Network.AWS.SMS.UpdateReplicationJob
     , urjrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'updateReplicationJob' smart constructor.
 data UpdateReplicationJob = UpdateReplicationJob'
-    { _urjFrequency                   :: !(Maybe Int)
-    , _urjLicenseType                 :: !(Maybe LicenseType)
-    , _urjRoleName                    :: !(Maybe Text)
-    , _urjNextReplicationRunStartTime :: !(Maybe POSIX)
-    , _urjDescription                 :: !(Maybe Text)
-    , _urjReplicationJobId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urjFrequency                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _urjLicenseType                 :: {-# NOUNPACK #-}!(Maybe LicenseType)
+  , _urjRoleName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _urjNextReplicationRunStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _urjDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _urjReplicationJobId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateReplicationJob' with the minimum fields required to make a request.
 --
@@ -75,14 +76,15 @@ updateReplicationJob
     :: Text -- ^ 'urjReplicationJobId'
     -> UpdateReplicationJob
 updateReplicationJob pReplicationJobId_ =
-    UpdateReplicationJob'
-    { _urjFrequency = Nothing
-    , _urjLicenseType = Nothing
-    , _urjRoleName = Nothing
-    , _urjNextReplicationRunStartTime = Nothing
-    , _urjDescription = Nothing
-    , _urjReplicationJobId = pReplicationJobId_
-    }
+  UpdateReplicationJob'
+  { _urjFrequency = Nothing
+  , _urjLicenseType = Nothing
+  , _urjRoleName = Nothing
+  , _urjNextReplicationRunStartTime = Nothing
+  , _urjDescription = Nothing
+  , _urjReplicationJobId = pReplicationJobId_
+  }
+
 
 -- | Undocumented member.
 urjFrequency :: Lens' UpdateReplicationJob (Maybe Int)
@@ -118,9 +120,9 @@ instance AWSRequest UpdateReplicationJob where
                  UpdateReplicationJobResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateReplicationJob
+instance Hashable UpdateReplicationJob where
 
-instance NFData UpdateReplicationJob
+instance NFData UpdateReplicationJob where
 
 instance ToHeaders UpdateReplicationJob where
         toHeaders
@@ -152,8 +154,9 @@ instance ToQuery UpdateReplicationJob where
 
 -- | /See:/ 'updateReplicationJobResponse' smart constructor.
 newtype UpdateReplicationJobResponse = UpdateReplicationJobResponse'
-    { _urjrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urjrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateReplicationJobResponse' with the minimum fields required to make a request.
 --
@@ -164,12 +167,11 @@ updateReplicationJobResponse
     :: Int -- ^ 'urjrsResponseStatus'
     -> UpdateReplicationJobResponse
 updateReplicationJobResponse pResponseStatus_ =
-    UpdateReplicationJobResponse'
-    { _urjrsResponseStatus = pResponseStatus_
-    }
+  UpdateReplicationJobResponse' {_urjrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 urjrsResponseStatus :: Lens' UpdateReplicationJobResponse Int
 urjrsResponseStatus = lens _urjrsResponseStatus (\ s a -> s{_urjrsResponseStatus = a});
 
-instance NFData UpdateReplicationJobResponse
+instance NFData UpdateReplicationJobResponse where

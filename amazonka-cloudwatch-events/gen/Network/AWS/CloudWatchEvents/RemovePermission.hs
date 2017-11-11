@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.RemovePermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.CloudWatchEvents.RemovePermission
     , RemovePermissionResponse
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removePermission' smart constructor.
 newtype RemovePermission = RemovePermission'
-    { _rpStatementId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpStatementId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ removePermission
     :: Text -- ^ 'rpStatementId'
     -> RemovePermission
 removePermission pStatementId_ =
-    RemovePermission'
-    { _rpStatementId = pStatementId_
-    }
+  RemovePermission' {_rpStatementId = pStatementId_}
+
 
 -- | The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
 rpStatementId :: Lens' RemovePermission Text
@@ -68,9 +68,9 @@ instance AWSRequest RemovePermission where
         request = postJSON cloudWatchEvents
         response = receiveNull RemovePermissionResponse'
 
-instance Hashable RemovePermission
+instance Hashable RemovePermission where
 
-instance NFData RemovePermission
+instance NFData RemovePermission where
 
 instance ToHeaders RemovePermission where
         toHeaders
@@ -94,8 +94,9 @@ instance ToQuery RemovePermission where
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =
-    RemovePermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemovePermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
 --
@@ -103,4 +104,5 @@ removePermissionResponse
     :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse'
 
-instance NFData RemovePermissionResponse
+
+instance NFData RemovePermissionResponse where

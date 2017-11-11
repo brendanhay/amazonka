@@ -7,45 +7,51 @@
 
 -- |
 -- Module      : Network.AWS.ELB.Waiters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ELB.Waiters where
 
-import           Network.AWS.ELB.DescribeInstanceHealth
-import           Network.AWS.ELB.DescribeInstanceHealth
-import           Network.AWS.ELB.Types
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.ELB.DescribeInstanceHealth
+import Network.AWS.ELB.DescribeInstanceHealth
+import Network.AWS.ELB.Types
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 anyInstanceInService :: Wait DescribeInstanceHealth
 anyInstanceInService =
-    Wait
-    { _waitName = "AnyInstanceInService"
-    , _waitAttempts = 40
-    , _waitDelay = 15
-    , _waitAcceptors = [ matchAny
-                             "InService"
-                             AcceptSuccess
-                             (folding (concatOf dihrsInstanceStates) .
-                              isState . _Just . to toTextCI)]
-    }
+  Wait
+  { _waitName = "AnyInstanceInService"
+  , _waitAttempts = 40
+  , _waitDelay = 15
+  , _waitAcceptors =
+      [ matchAny
+          "InService"
+          AcceptSuccess
+          (folding (concatOf dihrsInstanceStates) .
+           isState . _Just . to toTextCI)
+      ]
+  }
+
 
 -- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceInService :: Wait DescribeInstanceHealth
 instanceInService =
-    Wait
-    { _waitName = "InstanceInService"
-    , _waitAttempts = 40
-    , _waitDelay = 15
-    , _waitAcceptors = [ matchAll
-                             "InService"
-                             AcceptSuccess
-                             (folding (concatOf dihrsInstanceStates) .
-                              isState . _Just . to toTextCI)]
-    }
+  Wait
+  { _waitName = "InstanceInService"
+  , _waitAttempts = 40
+  , _waitDelay = 15
+  , _waitAcceptors =
+      [ matchAll
+          "InService"
+          AcceptSuccess
+          (folding (concatOf dihrsInstanceStates) .
+           isState . _Just . to toTextCI)
+      ]
+  }
+

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -439,70 +439,70 @@ module Network.AWS.StorageGateway
     , vscsiaNetworkInterfacePort
     ) where
 
-import           Network.AWS.StorageGateway.ActivateGateway
-import           Network.AWS.StorageGateway.AddCache
-import           Network.AWS.StorageGateway.AddTagsToResource
-import           Network.AWS.StorageGateway.AddUploadBuffer
-import           Network.AWS.StorageGateway.AddWorkingStorage
-import           Network.AWS.StorageGateway.CancelArchival
-import           Network.AWS.StorageGateway.CancelRetrieval
-import           Network.AWS.StorageGateway.CreateCachediSCSIVolume
-import           Network.AWS.StorageGateway.CreateNFSFileShare
-import           Network.AWS.StorageGateway.CreateSnapshot
-import           Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
-import           Network.AWS.StorageGateway.CreateStorediSCSIVolume
-import           Network.AWS.StorageGateway.CreateTapes
-import           Network.AWS.StorageGateway.CreateTapeWithBarcode
-import           Network.AWS.StorageGateway.DeleteBandwidthRateLimit
-import           Network.AWS.StorageGateway.DeleteChapCredentials
-import           Network.AWS.StorageGateway.DeleteFileShare
-import           Network.AWS.StorageGateway.DeleteGateway
-import           Network.AWS.StorageGateway.DeleteSnapshotSchedule
-import           Network.AWS.StorageGateway.DeleteTape
-import           Network.AWS.StorageGateway.DeleteTapeArchive
-import           Network.AWS.StorageGateway.DeleteVolume
-import           Network.AWS.StorageGateway.DescribeBandwidthRateLimit
-import           Network.AWS.StorageGateway.DescribeCache
-import           Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
-import           Network.AWS.StorageGateway.DescribeChapCredentials
-import           Network.AWS.StorageGateway.DescribeGatewayInformation
-import           Network.AWS.StorageGateway.DescribeMaintenanceStartTime
-import           Network.AWS.StorageGateway.DescribeNFSFileShares
-import           Network.AWS.StorageGateway.DescribeSnapshotSchedule
-import           Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
-import           Network.AWS.StorageGateway.DescribeTapeArchives
-import           Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
-import           Network.AWS.StorageGateway.DescribeTapes
-import           Network.AWS.StorageGateway.DescribeUploadBuffer
-import           Network.AWS.StorageGateway.DescribeVTLDevices
-import           Network.AWS.StorageGateway.DescribeWorkingStorage
-import           Network.AWS.StorageGateway.DisableGateway
-import           Network.AWS.StorageGateway.ListFileShares
-import           Network.AWS.StorageGateway.ListGateways
-import           Network.AWS.StorageGateway.ListLocalDisks
-import           Network.AWS.StorageGateway.ListTagsForResource
-import           Network.AWS.StorageGateway.ListTapes
-import           Network.AWS.StorageGateway.ListVolumeInitiators
-import           Network.AWS.StorageGateway.ListVolumeRecoveryPoints
-import           Network.AWS.StorageGateway.ListVolumes
-import           Network.AWS.StorageGateway.RefreshCache
-import           Network.AWS.StorageGateway.RemoveTagsFromResource
-import           Network.AWS.StorageGateway.ResetCache
-import           Network.AWS.StorageGateway.RetrieveTapeArchive
-import           Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
-import           Network.AWS.StorageGateway.SetLocalConsolePassword
-import           Network.AWS.StorageGateway.ShutdownGateway
-import           Network.AWS.StorageGateway.StartGateway
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.UpdateBandwidthRateLimit
-import           Network.AWS.StorageGateway.UpdateChapCredentials
-import           Network.AWS.StorageGateway.UpdateGatewayInformation
-import           Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
-import           Network.AWS.StorageGateway.UpdateMaintenanceStartTime
-import           Network.AWS.StorageGateway.UpdateNFSFileShare
-import           Network.AWS.StorageGateway.UpdateSnapshotSchedule
-import           Network.AWS.StorageGateway.UpdateVTLDeviceType
-import           Network.AWS.StorageGateway.Waiters
+import Network.AWS.StorageGateway.ActivateGateway
+import Network.AWS.StorageGateway.AddCache
+import Network.AWS.StorageGateway.AddTagsToResource
+import Network.AWS.StorageGateway.AddUploadBuffer
+import Network.AWS.StorageGateway.AddWorkingStorage
+import Network.AWS.StorageGateway.CancelArchival
+import Network.AWS.StorageGateway.CancelRetrieval
+import Network.AWS.StorageGateway.CreateCachediSCSIVolume
+import Network.AWS.StorageGateway.CreateNFSFileShare
+import Network.AWS.StorageGateway.CreateSnapshot
+import Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
+import Network.AWS.StorageGateway.CreateStorediSCSIVolume
+import Network.AWS.StorageGateway.CreateTapes
+import Network.AWS.StorageGateway.CreateTapeWithBarcode
+import Network.AWS.StorageGateway.DeleteBandwidthRateLimit
+import Network.AWS.StorageGateway.DeleteChapCredentials
+import Network.AWS.StorageGateway.DeleteFileShare
+import Network.AWS.StorageGateway.DeleteGateway
+import Network.AWS.StorageGateway.DeleteSnapshotSchedule
+import Network.AWS.StorageGateway.DeleteTape
+import Network.AWS.StorageGateway.DeleteTapeArchive
+import Network.AWS.StorageGateway.DeleteVolume
+import Network.AWS.StorageGateway.DescribeBandwidthRateLimit
+import Network.AWS.StorageGateway.DescribeCache
+import Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
+import Network.AWS.StorageGateway.DescribeChapCredentials
+import Network.AWS.StorageGateway.DescribeGatewayInformation
+import Network.AWS.StorageGateway.DescribeMaintenanceStartTime
+import Network.AWS.StorageGateway.DescribeNFSFileShares
+import Network.AWS.StorageGateway.DescribeSnapshotSchedule
+import Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
+import Network.AWS.StorageGateway.DescribeTapeArchives
+import Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
+import Network.AWS.StorageGateway.DescribeTapes
+import Network.AWS.StorageGateway.DescribeUploadBuffer
+import Network.AWS.StorageGateway.DescribeVTLDevices
+import Network.AWS.StorageGateway.DescribeWorkingStorage
+import Network.AWS.StorageGateway.DisableGateway
+import Network.AWS.StorageGateway.ListFileShares
+import Network.AWS.StorageGateway.ListGateways
+import Network.AWS.StorageGateway.ListLocalDisks
+import Network.AWS.StorageGateway.ListTagsForResource
+import Network.AWS.StorageGateway.ListTapes
+import Network.AWS.StorageGateway.ListVolumeInitiators
+import Network.AWS.StorageGateway.ListVolumeRecoveryPoints
+import Network.AWS.StorageGateway.ListVolumes
+import Network.AWS.StorageGateway.RefreshCache
+import Network.AWS.StorageGateway.RemoveTagsFromResource
+import Network.AWS.StorageGateway.ResetCache
+import Network.AWS.StorageGateway.RetrieveTapeArchive
+import Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
+import Network.AWS.StorageGateway.SetLocalConsolePassword
+import Network.AWS.StorageGateway.ShutdownGateway
+import Network.AWS.StorageGateway.StartGateway
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.UpdateBandwidthRateLimit
+import Network.AWS.StorageGateway.UpdateChapCredentials
+import Network.AWS.StorageGateway.UpdateGatewayInformation
+import Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
+import Network.AWS.StorageGateway.UpdateMaintenanceStartTime
+import Network.AWS.StorageGateway.UpdateNFSFileShare
+import Network.AWS.StorageGateway.UpdateSnapshotSchedule
+import Network.AWS.StorageGateway.UpdateVTLDeviceType
+import Network.AWS.StorageGateway.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

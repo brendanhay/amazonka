@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateRequestValidator
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.CreateRequestValidator
     , rvId
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Creates a 'RequestValidator' of a given 'RestApi' .
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createRequestValidator' smart constructor.
 data CreateRequestValidator = CreateRequestValidator'
-    { _crvValidateRequestParameters :: !(Maybe Bool)
-    , _crvName                      :: !(Maybe Text)
-    , _crvValidateRequestBody       :: !(Maybe Bool)
-    , _crvRestAPIId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crvValidateRequestParameters :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _crvName                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crvValidateRequestBody       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _crvRestAPIId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRequestValidator' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ createRequestValidator
     :: Text -- ^ 'crvRestAPIId'
     -> CreateRequestValidator
 createRequestValidator pRestAPIId_ =
-    CreateRequestValidator'
-    { _crvValidateRequestParameters = Nothing
-    , _crvName = Nothing
-    , _crvValidateRequestBody = Nothing
-    , _crvRestAPIId = pRestAPIId_
-    }
+  CreateRequestValidator'
+  { _crvValidateRequestParameters = Nothing
+  , _crvName = Nothing
+  , _crvValidateRequestBody = Nothing
+  , _crvRestAPIId = pRestAPIId_
+  }
+
 
 -- | A Boolean flag to indicate whether to validate request parameters, @true@ , or not @false@ .
 crvValidateRequestParameters :: Lens' CreateRequestValidator (Maybe Bool)
@@ -104,9 +106,9 @@ instance AWSRequest CreateRequestValidator where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateRequestValidator
+instance Hashable CreateRequestValidator where
 
-instance NFData CreateRequestValidator
+instance NFData CreateRequestValidator where
 
 instance ToHeaders CreateRequestValidator where
         toHeaders

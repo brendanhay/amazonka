@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateHealthCheck
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.Route53.CreateHealthCheck
     , chcrsLocation
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains the health check request information.
 --
@@ -70,9 +70,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createHealthCheck' smart constructor.
 data CreateHealthCheck = CreateHealthCheck'
-    { _chcCallerReference   :: !Text
-    , _chcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcCallerReference   :: {-# NOUNPACK #-}!Text
+  , _chcHealthCheckConfig :: {-# NOUNPACK #-}!HealthCheckConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHealthCheck' with the minimum fields required to make a request.
 --
@@ -86,10 +87,11 @@ createHealthCheck
     -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
     -> CreateHealthCheck
 createHealthCheck pCallerReference_ pHealthCheckConfig_ =
-    CreateHealthCheck'
-    { _chcCallerReference = pCallerReference_
-    , _chcHealthCheckConfig = pHealthCheckConfig_
-    }
+  CreateHealthCheck'
+  { _chcCallerReference = pCallerReference_
+  , _chcHealthCheckConfig = pHealthCheckConfig_
+  }
+
 
 -- | A unique string that identifies the request and that allows you to retry a failed @CreateHealthCheck@ request without the risk of creating two identical health checks:     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ and settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health check does exist, Amazon Route 53 returns the settings for the existing health check.     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as a deleted health check, regardless of the settings, Amazon Route 53 returns a @HealthCheckAlreadyExists@ error.     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as an existing health check but with different settings, Amazon Route 53 returns a @HealthCheckAlreadyExists@ error.     * If you send a @CreateHealthCheck@ request with a unique @CallerReference@ but settings identical to an existing health check, Amazon Route 53 creates the health check.
 chcCallerReference :: Lens' CreateHealthCheck Text
@@ -109,9 +111,9 @@ instance AWSRequest CreateHealthCheck where
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck") <*>
                      (h .# "Location"))
 
-instance Hashable CreateHealthCheck
+instance Hashable CreateHealthCheck where
 
-instance NFData CreateHealthCheck
+instance NFData CreateHealthCheck where
 
 instance ToElement CreateHealthCheck where
         toElement
@@ -139,10 +141,11 @@ instance ToXML CreateHealthCheck where
 --
 -- /See:/ 'createHealthCheckResponse' smart constructor.
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
-    { _chcrsResponseStatus :: !Int
-    , _chcrsHealthCheck    :: !HealthCheck
-    , _chcrsLocation       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _chcrsHealthCheck    :: {-# NOUNPACK #-}!HealthCheck
+  , _chcrsLocation       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHealthCheckResponse' with the minimum fields required to make a request.
 --
@@ -159,11 +162,12 @@ createHealthCheckResponse
     -> Text -- ^ 'chcrsLocation'
     -> CreateHealthCheckResponse
 createHealthCheckResponse pResponseStatus_ pHealthCheck_ pLocation_ =
-    CreateHealthCheckResponse'
-    { _chcrsResponseStatus = pResponseStatus_
-    , _chcrsHealthCheck = pHealthCheck_
-    , _chcrsLocation = pLocation_
-    }
+  CreateHealthCheckResponse'
+  { _chcrsResponseStatus = pResponseStatus_
+  , _chcrsHealthCheck = pHealthCheck_
+  , _chcrsLocation = pLocation_
+  }
+
 
 -- | -- | The response status code.
 chcrsResponseStatus :: Lens' CreateHealthCheckResponse Int
@@ -177,4 +181,4 @@ chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 chcrsLocation :: Lens' CreateHealthCheckResponse Text
 chcrsLocation = lens _chcrsLocation (\ s a -> s{_chcrsLocation = a});
 
-instance NFData CreateHealthCheckResponse
+instance NFData CreateHealthCheckResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Route53.GetHealthCheckStatus
     , ghcsrsHealthCheckObservations
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to get the status for a health check.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getHealthCheckStatus' smart constructor.
 newtype GetHealthCheckStatus = GetHealthCheckStatus'
-    { _ghcsHealthCheckId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghcsHealthCheckId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHealthCheckStatus' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getHealthCheckStatus
     :: Text -- ^ 'ghcsHealthCheckId'
     -> GetHealthCheckStatus
 getHealthCheckStatus pHealthCheckId_ =
-    GetHealthCheckStatus'
-    { _ghcsHealthCheckId = pHealthCheckId_
-    }
+  GetHealthCheckStatus' {_ghcsHealthCheckId = pHealthCheckId_}
+
 
 -- | The ID for the health check that you want the current status for. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
 ghcsHealthCheckId :: Lens' GetHealthCheckStatus Text
@@ -82,9 +82,9 @@ instance AWSRequest GetHealthCheckStatus where
                      (x .@? "HealthCheckObservations" .!@ mempty >>=
                         parseXMLList "HealthCheckObservation"))
 
-instance Hashable GetHealthCheckStatus
+instance Hashable GetHealthCheckStatus where
 
-instance NFData GetHealthCheckStatus
+instance NFData GetHealthCheckStatus where
 
 instance ToHeaders GetHealthCheckStatus where
         toHeaders = const mempty
@@ -104,9 +104,10 @@ instance ToQuery GetHealthCheckStatus where
 --
 -- /See:/ 'getHealthCheckStatusResponse' smart constructor.
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
-    { _ghcsrsResponseStatus          :: !Int
-    , _ghcsrsHealthCheckObservations :: ![HealthCheckObservation]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghcsrsResponseStatus          :: {-# NOUNPACK #-}!Int
+  , _ghcsrsHealthCheckObservations :: {-# NOUNPACK #-}![HealthCheckObservation]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHealthCheckStatusResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,11 @@ getHealthCheckStatusResponse
     :: Int -- ^ 'ghcsrsResponseStatus'
     -> GetHealthCheckStatusResponse
 getHealthCheckStatusResponse pResponseStatus_ =
-    GetHealthCheckStatusResponse'
-    { _ghcsrsResponseStatus = pResponseStatus_
-    , _ghcsrsHealthCheckObservations = mempty
-    }
+  GetHealthCheckStatusResponse'
+  { _ghcsrsResponseStatus = pResponseStatus_
+  , _ghcsrsHealthCheckObservations = mempty
+  }
+
 
 -- | -- | The response status code.
 ghcsrsResponseStatus :: Lens' GetHealthCheckStatusResponse Int
@@ -132,4 +134,4 @@ ghcsrsResponseStatus = lens _ghcsrsResponseStatus (\ s a -> s{_ghcsrsResponseSta
 ghcsrsHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
 ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a}) . _Coerce;
 
-instance NFData GetHealthCheckStatusResponse
+instance NFData GetHealthCheckStatusResponse where

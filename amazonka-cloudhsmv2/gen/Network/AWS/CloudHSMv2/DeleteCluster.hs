@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.DeleteCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CloudHSMv2.DeleteCluster
     , drsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSMv2.Types
-import           Network.AWS.CloudHSMv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSMv2.Types
+import Network.AWS.CloudHSMv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCluster' smart constructor.
 newtype DeleteCluster = DeleteCluster'
-    { _dcClusterId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcClusterId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DeleteCluster = DeleteCluster'
 deleteCluster
     :: Text -- ^ 'dcClusterId'
     -> DeleteCluster
-deleteCluster pClusterId_ =
-    DeleteCluster'
-    { _dcClusterId = pClusterId_
-    }
+deleteCluster pClusterId_ = DeleteCluster' {_dcClusterId = pClusterId_}
+
 
 -- | The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use 'DescribeClusters' .
 dcClusterId :: Lens' DeleteCluster Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteCluster where
                  DeleteClusterResponse' <$>
                    (x .?> "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteCluster
+instance Hashable DeleteCluster where
 
-instance NFData DeleteCluster
+instance NFData DeleteCluster where
 
 instance ToHeaders DeleteCluster where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery DeleteCluster where
 
 -- | /See:/ 'deleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
-    { _drsCluster        :: !(Maybe Cluster)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ deleteClusterResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteClusterResponse
 deleteClusterResponse pResponseStatus_ =
-    DeleteClusterResponse'
-    { _drsCluster = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteClusterResponse'
+  {_drsCluster = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the cluster that was deleted.
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
@@ -129,4 +128,4 @@ drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 drsResponseStatus :: Lens' DeleteClusterResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteClusterResponse
+instance NFData DeleteClusterResponse where

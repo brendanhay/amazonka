@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteHealthCheck
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Route53.DeleteHealthCheck
     , dhcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | This action deletes a health check.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'deleteHealthCheck' smart constructor.
 newtype DeleteHealthCheck = DeleteHealthCheck'
-    { _dhcHealthCheckId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhcHealthCheckId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHealthCheck' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ deleteHealthCheck
     :: Text -- ^ 'dhcHealthCheckId'
     -> DeleteHealthCheck
 deleteHealthCheck pHealthCheckId_ =
-    DeleteHealthCheck'
-    { _dhcHealthCheckId = pHealthCheckId_
-    }
+  DeleteHealthCheck' {_dhcHealthCheckId = pHealthCheckId_}
+
 
 -- | The ID of the health check that you want to delete.
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
@@ -79,9 +79,9 @@ instance AWSRequest DeleteHealthCheck where
               (\ s h x ->
                  DeleteHealthCheckResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteHealthCheck
+instance Hashable DeleteHealthCheck where
 
-instance NFData DeleteHealthCheck
+instance NFData DeleteHealthCheck where
 
 instance ToHeaders DeleteHealthCheck where
         toHeaders = const mempty
@@ -100,8 +100,9 @@ instance ToQuery DeleteHealthCheck where
 --
 -- /See:/ 'deleteHealthCheckResponse' smart constructor.
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
-    { _dhcrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhcrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHealthCheckResponse' with the minimum fields required to make a request.
 --
@@ -112,12 +113,11 @@ deleteHealthCheckResponse
     :: Int -- ^ 'dhcrsResponseStatus'
     -> DeleteHealthCheckResponse
 deleteHealthCheckResponse pResponseStatus_ =
-    DeleteHealthCheckResponse'
-    { _dhcrsResponseStatus = pResponseStatus_
-    }
+  DeleteHealthCheckResponse' {_dhcrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dhcrsResponseStatus :: Lens' DeleteHealthCheckResponse Int
 dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});
 
-instance NFData DeleteHealthCheckResponse
+instance NFData DeleteHealthCheckResponse where

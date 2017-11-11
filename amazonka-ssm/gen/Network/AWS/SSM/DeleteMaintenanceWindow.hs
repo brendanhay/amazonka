@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteMaintenanceWindow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.SSM.DeleteMaintenanceWindow
     , dmwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteMaintenanceWindow' smart constructor.
 newtype DeleteMaintenanceWindow = DeleteMaintenanceWindow'
-    { _dmwWindowId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmwWindowId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMaintenanceWindow' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deleteMaintenanceWindow
     :: Text -- ^ 'dmwWindowId'
     -> DeleteMaintenanceWindow
 deleteMaintenanceWindow pWindowId_ =
-    DeleteMaintenanceWindow'
-    { _dmwWindowId = pWindowId_
-    }
+  DeleteMaintenanceWindow' {_dmwWindowId = pWindowId_}
+
 
 -- | The ID of the Maintenance Window to delete.
 dmwWindowId :: Lens' DeleteMaintenanceWindow Text
@@ -76,9 +76,9 @@ instance AWSRequest DeleteMaintenanceWindow where
                  DeleteMaintenanceWindowResponse' <$>
                    (x .?> "WindowId") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteMaintenanceWindow
+instance Hashable DeleteMaintenanceWindow where
 
-instance NFData DeleteMaintenanceWindow
+instance NFData DeleteMaintenanceWindow where
 
 instance ToHeaders DeleteMaintenanceWindow where
         toHeaders
@@ -102,9 +102,10 @@ instance ToQuery DeleteMaintenanceWindow where
 
 -- | /See:/ 'deleteMaintenanceWindowResponse' smart constructor.
 data DeleteMaintenanceWindowResponse = DeleteMaintenanceWindowResponse'
-    { _dmwrsWindowId       :: !(Maybe Text)
-    , _dmwrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmwrsWindowId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ deleteMaintenanceWindowResponse
     :: Int -- ^ 'dmwrsResponseStatus'
     -> DeleteMaintenanceWindowResponse
 deleteMaintenanceWindowResponse pResponseStatus_ =
-    DeleteMaintenanceWindowResponse'
-    { _dmwrsWindowId = Nothing
-    , _dmwrsResponseStatus = pResponseStatus_
-    }
+  DeleteMaintenanceWindowResponse'
+  {_dmwrsWindowId = Nothing, _dmwrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the deleted Maintenance Window.
 dmwrsWindowId :: Lens' DeleteMaintenanceWindowResponse (Maybe Text)
@@ -130,4 +130,4 @@ dmwrsWindowId = lens _dmwrsWindowId (\ s a -> s{_dmwrsWindowId = a});
 dmwrsResponseStatus :: Lens' DeleteMaintenanceWindowResponse Int
 dmwrsResponseStatus = lens _dmwrsResponseStatus (\ s a -> s{_dmwrsResponseStatus = a});
 
-instance NFData DeleteMaintenanceWindowResponse
+instance NFData DeleteMaintenanceWindowResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,13 +40,13 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     , lcfoairsCloudFrontOriginAccessIdentityList
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list origin access identities.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listCloudFrontOriginAccessIdentities' smart constructor.
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
-    { _lcfoaiMarker   :: !(Maybe Text)
-    , _lcfoaiMaxItems :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcfoaiMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcfoaiMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCloudFrontOriginAccessIdentities' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 listCloudFrontOriginAccessIdentities
     :: ListCloudFrontOriginAccessIdentities
 listCloudFrontOriginAccessIdentities =
-    ListCloudFrontOriginAccessIdentities'
-    { _lcfoaiMarker = Nothing
-    , _lcfoaiMaxItems = Nothing
-    }
+  ListCloudFrontOriginAccessIdentities'
+  {_lcfoaiMarker = Nothing, _lcfoaiMaxItems = Nothing}
+
 
 -- | Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last identity on that page).
 lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
@@ -82,7 +82,8 @@ lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\ s a -> s{_lcfoaiMaxItems = a});
 
 instance AWSPager
-         ListCloudFrontOriginAccessIdentities where
+           ListCloudFrontOriginAccessIdentities
+         where
         page rq rs
           | stop
               (rs ^.
@@ -102,7 +103,8 @@ instance AWSPager
                     cfoailNextMarker . _Just
 
 instance AWSRequest
-         ListCloudFrontOriginAccessIdentities where
+           ListCloudFrontOriginAccessIdentities
+         where
         type Rs ListCloudFrontOriginAccessIdentities =
              ListCloudFrontOriginAccessIdentitiesResponse
         request = get cloudFront
@@ -113,12 +115,15 @@ instance AWSRequest
                    (pure (fromEnum s)) <*> (parseXML x))
 
 instance Hashable
-         ListCloudFrontOriginAccessIdentities
+           ListCloudFrontOriginAccessIdentities
+         where
 
 instance NFData ListCloudFrontOriginAccessIdentities
+         where
 
 instance ToHeaders
-         ListCloudFrontOriginAccessIdentities where
+           ListCloudFrontOriginAccessIdentities
+         where
         toHeaders = const mempty
 
 instance ToPath ListCloudFrontOriginAccessIdentities
@@ -140,9 +145,10 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 --
 -- /See:/ 'listCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairsResponseStatus                     :: !Int
-    , _lcfoairsCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcfoairsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lcfoairsCloudFrontOriginAccessIdentityList :: {-# NOUNPACK #-}!CloudFrontOriginAccessIdentityList
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCloudFrontOriginAccessIdentitiesResponse' with the minimum fields required to make a request.
 --
@@ -156,10 +162,12 @@ listCloudFrontOriginAccessIdentitiesResponse
     -> CloudFrontOriginAccessIdentityList -- ^ 'lcfoairsCloudFrontOriginAccessIdentityList'
     -> ListCloudFrontOriginAccessIdentitiesResponse
 listCloudFrontOriginAccessIdentitiesResponse pResponseStatus_ pCloudFrontOriginAccessIdentityList_ =
-    ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairsResponseStatus = pResponseStatus_
-    , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList_
-    }
+  ListCloudFrontOriginAccessIdentitiesResponse'
+  { _lcfoairsResponseStatus = pResponseStatus_
+  , _lcfoairsCloudFrontOriginAccessIdentityList =
+      pCloudFrontOriginAccessIdentityList_
+  }
+
 
 -- | -- | The response status code.
 lcfoairsResponseStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
@@ -170,4 +178,5 @@ lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessId
 lcfoairsCloudFrontOriginAccessIdentityList = lens _lcfoairsCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairsCloudFrontOriginAccessIdentityList = a});
 
 instance NFData
-         ListCloudFrontOriginAccessIdentitiesResponse
+           ListCloudFrontOriginAccessIdentitiesResponse
+         where

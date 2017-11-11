@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.SSM.UpdateDocument
     , udrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-    { _udDocumentVersion :: !(Maybe Text)
-    , _udContent         :: !Text
-    , _udName            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udContent         :: {-# NOUNPACK #-}!Text
+  , _udName            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocument' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ updateDocument
     -> Text -- ^ 'udName'
     -> UpdateDocument
 updateDocument pContent_ pName_ =
-    UpdateDocument'
-    { _udDocumentVersion = Nothing
-    , _udContent = pContent_
-    , _udName = pName_
-    }
+  UpdateDocument'
+  {_udDocumentVersion = Nothing, _udContent = pContent_, _udName = pName_}
+
 
 -- | The version of the document that you want to update.
 udDocumentVersion :: Lens' UpdateDocument (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest UpdateDocument where
                    (x .?> "DocumentDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateDocument
+instance Hashable UpdateDocument where
 
-instance NFData UpdateDocument
+instance NFData UpdateDocument where
 
 instance ToHeaders UpdateDocument where
         toHeaders
@@ -124,9 +123,10 @@ instance ToQuery UpdateDocument where
 
 -- | /See:/ 'updateDocumentResponse' smart constructor.
 data UpdateDocumentResponse = UpdateDocumentResponse'
-    { _udrsDocumentDescription :: !(Maybe DocumentDescription)
-    , _udrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udrsDocumentDescription :: {-# NOUNPACK #-}!(Maybe DocumentDescription)
+  , _udrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocumentResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +139,9 @@ updateDocumentResponse
     :: Int -- ^ 'udrsResponseStatus'
     -> UpdateDocumentResponse
 updateDocumentResponse pResponseStatus_ =
-    UpdateDocumentResponse'
-    { _udrsDocumentDescription = Nothing
-    , _udrsResponseStatus = pResponseStatus_
-    }
+  UpdateDocumentResponse'
+  {_udrsDocumentDescription = Nothing, _udrsResponseStatus = pResponseStatus_}
+
 
 -- | A description of the document that was updated.
 udrsDocumentDescription :: Lens' UpdateDocumentResponse (Maybe DocumentDescription)
@@ -152,4 +151,4 @@ udrsDocumentDescription = lens _udrsDocumentDescription (\ s a -> s{_udrsDocumen
 udrsResponseStatus :: Lens' UpdateDocumentResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
 
-instance NFData UpdateDocumentResponse
+instance NFData UpdateDocumentResponse where

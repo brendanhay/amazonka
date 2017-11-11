@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.GetRecords
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.DynamoDBStreams.GetRecords
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDBStreams.Types
-import           Network.AWS.DynamoDBStreams.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDBStreams.Types
+import Network.AWS.DynamoDBStreams.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @GetRecords@ operation.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRecords' smart constructor.
 data GetRecords = GetRecords'
-    { _grLimit         :: !(Maybe Nat)
-    , _grShardIterator :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _grShardIterator :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRecords' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ getRecords
     :: Text -- ^ 'grShardIterator'
     -> GetRecords
 getRecords pShardIterator_ =
-    GetRecords'
-    { _grLimit = Nothing
-    , _grShardIterator = pShardIterator_
-    }
+  GetRecords' {_grLimit = Nothing, _grShardIterator = pShardIterator_}
+
 
 -- | The maximum number of records to return from the shard. The upper limit is 1000.
 grLimit :: Lens' GetRecords (Maybe Natural)
@@ -93,9 +92,9 @@ instance AWSRequest GetRecords where
                      (x .?> "NextShardIterator")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetRecords
+instance Hashable GetRecords where
 
-instance NFData GetRecords
+instance NFData GetRecords where
 
 instance ToHeaders GetRecords where
         toHeaders
@@ -126,10 +125,11 @@ instance ToQuery GetRecords where
 --
 -- /See:/ 'getRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-    { _grrsRecords           :: !(Maybe [Record])
-    , _grrsNextShardIterator :: !(Maybe Text)
-    , _grrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsRecords           :: {-# NOUNPACK #-}!(Maybe [Record])
+  , _grrsNextShardIterator :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +144,12 @@ getRecordsResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRecordsResponse
 getRecordsResponse pResponseStatus_ =
-    GetRecordsResponse'
-    { _grrsRecords = Nothing
-    , _grrsNextShardIterator = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GetRecordsResponse'
+  { _grrsRecords = Nothing
+  , _grrsNextShardIterator = Nothing
+  , _grrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The stream records from the shard, which were retrieved using the shard iterator.
 grrsRecords :: Lens' GetRecordsResponse [Record]
@@ -162,4 +163,4 @@ grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIt
 grrsResponseStatus :: Lens' GetRecordsResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GetRecordsResponse
+instance NFData GetRecordsResponse where

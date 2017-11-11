@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DisassociateCreatedArtifact
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,20 +47,21 @@ module Network.AWS.MigrationHub.DisassociateCreatedArtifact
     , dcarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateCreatedArtifact' smart constructor.
 data DisassociateCreatedArtifact = DisassociateCreatedArtifact'
-    { _dcaDryRun               :: !(Maybe Bool)
-    , _dcaProgressUpdateStream :: !Text
-    , _dcaMigrationTaskName    :: !Text
-    , _dcaCreatedArtifactName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcaDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcaProgressUpdateStream :: {-# NOUNPACK #-}!Text
+  , _dcaMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  , _dcaCreatedArtifactName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateCreatedArtifact' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ disassociateCreatedArtifact
     -> Text -- ^ 'dcaCreatedArtifactName'
     -> DisassociateCreatedArtifact
 disassociateCreatedArtifact pProgressUpdateStream_ pMigrationTaskName_ pCreatedArtifactName_ =
-    DisassociateCreatedArtifact'
-    { _dcaDryRun = Nothing
-    , _dcaProgressUpdateStream = pProgressUpdateStream_
-    , _dcaMigrationTaskName = pMigrationTaskName_
-    , _dcaCreatedArtifactName = pCreatedArtifactName_
-    }
+  DisassociateCreatedArtifact'
+  { _dcaDryRun = Nothing
+  , _dcaProgressUpdateStream = pProgressUpdateStream_
+  , _dcaMigrationTaskName = pMigrationTaskName_
+  , _dcaCreatedArtifactName = pCreatedArtifactName_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 dcaDryRun :: Lens' DisassociateCreatedArtifact (Maybe Bool)
@@ -112,9 +114,9 @@ instance AWSRequest DisassociateCreatedArtifact where
                  DisassociateCreatedArtifactResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DisassociateCreatedArtifact
+instance Hashable DisassociateCreatedArtifact where
 
-instance NFData DisassociateCreatedArtifact
+instance NFData DisassociateCreatedArtifact where
 
 instance ToHeaders DisassociateCreatedArtifact where
         toHeaders
@@ -145,8 +147,9 @@ instance ToQuery DisassociateCreatedArtifact where
 
 -- | /See:/ 'disassociateCreatedArtifactResponse' smart constructor.
 newtype DisassociateCreatedArtifactResponse = DisassociateCreatedArtifactResponse'
-    { _dcarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateCreatedArtifactResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +160,12 @@ disassociateCreatedArtifactResponse
     :: Int -- ^ 'dcarsResponseStatus'
     -> DisassociateCreatedArtifactResponse
 disassociateCreatedArtifactResponse pResponseStatus_ =
-    DisassociateCreatedArtifactResponse'
-    { _dcarsResponseStatus = pResponseStatus_
-    }
+  DisassociateCreatedArtifactResponse' {_dcarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dcarsResponseStatus :: Lens' DisassociateCreatedArtifactResponse Int
 dcarsResponseStatus = lens _dcarsResponseStatus (\ s a -> s{_dcarsResponseStatus = a});
 
 instance NFData DisassociateCreatedArtifactResponse
+         where

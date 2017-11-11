@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RestoreDBClusterFromSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     , rdbcfsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -64,20 +64,21 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreDBClusterFromSnapshot' smart constructor.
 data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
-    { _rdbcfsEngineVersion                   :: !(Maybe Text)
-    , _rdbcfsDBSubnetGroupName               :: !(Maybe Text)
-    , _rdbcfsAvailabilityZones               :: !(Maybe [Text])
-    , _rdbcfsKMSKeyId                        :: !(Maybe Text)
-    , _rdbcfsVPCSecurityGroupIds             :: !(Maybe [Text])
-    , _rdbcfsDatabaseName                    :: !(Maybe Text)
-    , _rdbcfsOptionGroupName                 :: !(Maybe Text)
-    , _rdbcfsTags                            :: !(Maybe [Tag])
-    , _rdbcfsPort                            :: !(Maybe Int)
-    , _rdbcfsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _rdbcfsDBClusterIdentifier             :: !Text
-    , _rdbcfsSnapshotIdentifier              :: !Text
-    , _rdbcfsEngine                          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdbcfsEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdbcfsDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdbcfsAvailabilityZones               :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rdbcfsKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdbcfsVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rdbcfsDatabaseName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdbcfsOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdbcfsTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _rdbcfsPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rdbcfsEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdbcfsDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
+  , _rdbcfsSnapshotIdentifier              :: {-# NOUNPACK #-}!Text
+  , _rdbcfsEngine                          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBClusterFromSnapshot' with the minimum fields required to make a request.
 --
@@ -114,21 +115,22 @@ restoreDBClusterFromSnapshot
     -> Text -- ^ 'rdbcfsEngine'
     -> RestoreDBClusterFromSnapshot
 restoreDBClusterFromSnapshot pDBClusterIdentifier_ pSnapshotIdentifier_ pEngine_ =
-    RestoreDBClusterFromSnapshot'
-    { _rdbcfsEngineVersion = Nothing
-    , _rdbcfsDBSubnetGroupName = Nothing
-    , _rdbcfsAvailabilityZones = Nothing
-    , _rdbcfsKMSKeyId = Nothing
-    , _rdbcfsVPCSecurityGroupIds = Nothing
-    , _rdbcfsDatabaseName = Nothing
-    , _rdbcfsOptionGroupName = Nothing
-    , _rdbcfsTags = Nothing
-    , _rdbcfsPort = Nothing
-    , _rdbcfsEnableIAMDatabaseAuthentication = Nothing
-    , _rdbcfsDBClusterIdentifier = pDBClusterIdentifier_
-    , _rdbcfsSnapshotIdentifier = pSnapshotIdentifier_
-    , _rdbcfsEngine = pEngine_
-    }
+  RestoreDBClusterFromSnapshot'
+  { _rdbcfsEngineVersion = Nothing
+  , _rdbcfsDBSubnetGroupName = Nothing
+  , _rdbcfsAvailabilityZones = Nothing
+  , _rdbcfsKMSKeyId = Nothing
+  , _rdbcfsVPCSecurityGroupIds = Nothing
+  , _rdbcfsDatabaseName = Nothing
+  , _rdbcfsOptionGroupName = Nothing
+  , _rdbcfsTags = Nothing
+  , _rdbcfsPort = Nothing
+  , _rdbcfsEnableIAMDatabaseAuthentication = Nothing
+  , _rdbcfsDBClusterIdentifier = pDBClusterIdentifier_
+  , _rdbcfsSnapshotIdentifier = pSnapshotIdentifier_
+  , _rdbcfsEngine = pEngine_
+  }
+
 
 -- | The version of the database engine to use for the new DB cluster.
 rdbcfsEngineVersion :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
@@ -194,9 +196,9 @@ instance AWSRequest RestoreDBClusterFromSnapshot
                  RestoreDBClusterFromSnapshotResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
-instance Hashable RestoreDBClusterFromSnapshot
+instance Hashable RestoreDBClusterFromSnapshot where
 
-instance NFData RestoreDBClusterFromSnapshot
+instance NFData RestoreDBClusterFromSnapshot where
 
 instance ToHeaders RestoreDBClusterFromSnapshot where
         toHeaders = const mempty
@@ -234,9 +236,10 @@ instance ToQuery RestoreDBClusterFromSnapshot where
 
 -- | /See:/ 'restoreDBClusterFromSnapshotResponse' smart constructor.
 data RestoreDBClusterFromSnapshotResponse = RestoreDBClusterFromSnapshotResponse'
-    { _rdbcfsrsDBCluster      :: !(Maybe DBCluster)
-    , _rdbcfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdbcfsrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
+  , _rdbcfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBClusterFromSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -249,10 +252,9 @@ restoreDBClusterFromSnapshotResponse
     :: Int -- ^ 'rdbcfsrsResponseStatus'
     -> RestoreDBClusterFromSnapshotResponse
 restoreDBClusterFromSnapshotResponse pResponseStatus_ =
-    RestoreDBClusterFromSnapshotResponse'
-    { _rdbcfsrsDBCluster = Nothing
-    , _rdbcfsrsResponseStatus = pResponseStatus_
-    }
+  RestoreDBClusterFromSnapshotResponse'
+  {_rdbcfsrsDBCluster = Nothing, _rdbcfsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rdbcfsrsDBCluster :: Lens' RestoreDBClusterFromSnapshotResponse (Maybe DBCluster)
@@ -263,3 +265,4 @@ rdbcfsrsResponseStatus :: Lens' RestoreDBClusterFromSnapshotResponse Int
 rdbcfsrsResponseStatus = lens _rdbcfsrsResponseStatus (\ s a -> s{_rdbcfsrsResponseStatus = a});
 
 instance NFData RestoreDBClusterFromSnapshotResponse
+         where

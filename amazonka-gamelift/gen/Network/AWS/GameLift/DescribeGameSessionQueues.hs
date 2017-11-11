@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeGameSessionQueues
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.GameLift.DescribeGameSessionQueues
     , drsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -65,10 +65,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeGameSessionQueues' smart constructor.
 data DescribeGameSessionQueues = DescribeGameSessionQueues'
-    { _dgsqNextToken :: !(Maybe Text)
-    , _dgsqNames     :: !(Maybe [Text])
-    , _dgsqLimit     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgsqNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgsqNames     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dgsqLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGameSessionQueues' with the minimum fields required to make a request.
 --
@@ -82,11 +83,9 @@ data DescribeGameSessionQueues = DescribeGameSessionQueues'
 describeGameSessionQueues
     :: DescribeGameSessionQueues
 describeGameSessionQueues =
-    DescribeGameSessionQueues'
-    { _dgsqNextToken = Nothing
-    , _dgsqNames = Nothing
-    , _dgsqLimit = Nothing
-    }
+  DescribeGameSessionQueues'
+  {_dgsqNextToken = Nothing, _dgsqNames = Nothing, _dgsqLimit = Nothing}
+
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dgsqNextToken :: Lens' DescribeGameSessionQueues (Maybe Text)
@@ -112,9 +111,9 @@ instance AWSRequest DescribeGameSessionQueues where
                      (x .?> "GameSessionQueues" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeGameSessionQueues
+instance Hashable DescribeGameSessionQueues where
 
-instance NFData DescribeGameSessionQueues
+instance NFData DescribeGameSessionQueues where
 
 instance ToHeaders DescribeGameSessionQueues where
         toHeaders
@@ -145,10 +144,11 @@ instance ToQuery DescribeGameSessionQueues where
 --
 -- /See:/ 'describeGameSessionQueuesResponse' smart constructor.
 data DescribeGameSessionQueuesResponse = DescribeGameSessionQueuesResponse'
-    { _drsNextToken         :: !(Maybe Text)
-    , _drsGameSessionQueues :: !(Maybe [GameSessionQueue])
-    , _drsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsGameSessionQueues :: {-# NOUNPACK #-}!(Maybe [GameSessionQueue])
+  , _drsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGameSessionQueuesResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +163,12 @@ describeGameSessionQueuesResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeGameSessionQueuesResponse
 describeGameSessionQueuesResponse pResponseStatus_ =
-    DescribeGameSessionQueuesResponse'
-    { _drsNextToken = Nothing
-    , _drsGameSessionQueues = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeGameSessionQueuesResponse'
+  { _drsNextToken = Nothing
+  , _drsGameSessionQueues = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 drsNextToken :: Lens' DescribeGameSessionQueuesResponse (Maybe Text)
@@ -182,3 +183,4 @@ drsResponseStatus :: Lens' DescribeGameSessionQueuesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 instance NFData DescribeGameSessionQueuesResponse
+         where

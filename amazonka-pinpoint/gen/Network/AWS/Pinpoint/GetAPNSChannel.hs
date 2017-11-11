@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetAPNSChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.GetAPNSChannel
     , gacrsAPNSChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAPNSChannel' smart constructor.
 newtype GetAPNSChannel = GetAPNSChannel'
-    { _gacApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gacApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPNSChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ getAPNSChannel
     :: Text -- ^ 'gacApplicationId'
     -> GetAPNSChannel
 getAPNSChannel pApplicationId_ =
-    GetAPNSChannel'
-    { _gacApplicationId = pApplicationId_
-    }
+  GetAPNSChannel' {_gacApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 gacApplicationId :: Lens' GetAPNSChannel Text
@@ -73,9 +73,9 @@ instance AWSRequest GetAPNSChannel where
                  GetAPNSChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetAPNSChannel
+instance Hashable GetAPNSChannel where
 
-instance NFData GetAPNSChannel
+instance NFData GetAPNSChannel where
 
 instance ToHeaders GetAPNSChannel where
         toHeaders
@@ -95,9 +95,10 @@ instance ToQuery GetAPNSChannel where
 
 -- | /See:/ 'getAPNSChannelResponse' smart constructor.
 data GetAPNSChannelResponse = GetAPNSChannelResponse'
-    { _gacrsResponseStatus      :: !Int
-    , _gacrsAPNSChannelResponse :: !APNSChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gacrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _gacrsAPNSChannelResponse :: {-# NOUNPACK #-}!APNSChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPNSChannelResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +112,11 @@ getAPNSChannelResponse
     -> APNSChannelResponse -- ^ 'gacrsAPNSChannelResponse'
     -> GetAPNSChannelResponse
 getAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
-    GetAPNSChannelResponse'
-    { _gacrsResponseStatus = pResponseStatus_
-    , _gacrsAPNSChannelResponse = pAPNSChannelResponse_
-    }
+  GetAPNSChannelResponse'
+  { _gacrsResponseStatus = pResponseStatus_
+  , _gacrsAPNSChannelResponse = pAPNSChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 gacrsResponseStatus :: Lens' GetAPNSChannelResponse Int
@@ -124,4 +126,4 @@ gacrsResponseStatus = lens _gacrsResponseStatus (\ s a -> s{_gacrsResponseStatus
 gacrsAPNSChannelResponse :: Lens' GetAPNSChannelResponse APNSChannelResponse
 gacrsAPNSChannelResponse = lens _gacrsAPNSChannelResponse (\ s a -> s{_gacrsAPNSChannelResponse = a});
 
-instance NFData GetAPNSChannelResponse
+instance NFData GetAPNSChannelResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdatePatchBaseline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,24 +54,25 @@ module Network.AWS.SSM.UpdatePatchBaseline
     , upbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updatePatchBaseline' smart constructor.
 data UpdatePatchBaseline = UpdatePatchBaseline'
-    { _upbApprovalRules                  :: !(Maybe PatchRuleGroup)
-    , _upbGlobalFilters                  :: !(Maybe PatchFilterGroup)
-    , _upbApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
-    , _upbApprovedPatches                :: !(Maybe [Text])
-    , _upbRejectedPatches                :: !(Maybe [Text])
-    , _upbName                           :: !(Maybe Text)
-    , _upbDescription                    :: !(Maybe Text)
-    , _upbBaselineId                     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upbApprovalRules :: {-# NOUNPACK #-}!(Maybe PatchRuleGroup)
+  , _upbGlobalFilters :: {-# NOUNPACK #-}!(Maybe PatchFilterGroup)
+  , _upbApprovedPatchesComplianceLevel :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
+  , _upbApprovedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upbRejectedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upbName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upbDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upbBaselineId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePatchBaseline' with the minimum fields required to make a request.
 --
@@ -96,16 +97,17 @@ updatePatchBaseline
     :: Text -- ^ 'upbBaselineId'
     -> UpdatePatchBaseline
 updatePatchBaseline pBaselineId_ =
-    UpdatePatchBaseline'
-    { _upbApprovalRules = Nothing
-    , _upbGlobalFilters = Nothing
-    , _upbApprovedPatchesComplianceLevel = Nothing
-    , _upbApprovedPatches = Nothing
-    , _upbRejectedPatches = Nothing
-    , _upbName = Nothing
-    , _upbDescription = Nothing
-    , _upbBaselineId = pBaselineId_
-    }
+  UpdatePatchBaseline'
+  { _upbApprovalRules = Nothing
+  , _upbGlobalFilters = Nothing
+  , _upbApprovedPatchesComplianceLevel = Nothing
+  , _upbApprovedPatches = Nothing
+  , _upbRejectedPatches = Nothing
+  , _upbName = Nothing
+  , _upbDescription = Nothing
+  , _upbBaselineId = pBaselineId_
+  }
+
 
 -- | A set of rules used to include patches in the baseline.
 upbApprovalRules :: Lens' UpdatePatchBaseline (Maybe PatchRuleGroup)
@@ -159,9 +161,9 @@ instance AWSRequest UpdatePatchBaseline where
                      <*> (x .?> "BaselineId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdatePatchBaseline
+instance Hashable UpdatePatchBaseline where
 
-instance NFData UpdatePatchBaseline
+instance NFData UpdatePatchBaseline where
 
 instance ToHeaders UpdatePatchBaseline where
         toHeaders
@@ -194,19 +196,20 @@ instance ToQuery UpdatePatchBaseline where
 
 -- | /See:/ 'updatePatchBaselineResponse' smart constructor.
 data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
-    { _upbrsApprovalRules                  :: !(Maybe PatchRuleGroup)
-    , _upbrsOperatingSystem                :: !(Maybe OperatingSystem)
-    , _upbrsGlobalFilters                  :: !(Maybe PatchFilterGroup)
-    , _upbrsApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
-    , _upbrsApprovedPatches                :: !(Maybe [Text])
-    , _upbrsRejectedPatches                :: !(Maybe [Text])
-    , _upbrsCreatedDate                    :: !(Maybe POSIX)
-    , _upbrsName                           :: !(Maybe Text)
-    , _upbrsModifiedDate                   :: !(Maybe POSIX)
-    , _upbrsDescription                    :: !(Maybe Text)
-    , _upbrsBaselineId                     :: !(Maybe Text)
-    , _upbrsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upbrsApprovalRules :: {-# NOUNPACK #-}!(Maybe PatchRuleGroup)
+  , _upbrsOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _upbrsGlobalFilters :: {-# NOUNPACK #-}!(Maybe PatchFilterGroup)
+  , _upbrsApprovedPatchesComplianceLevel :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
+  , _upbrsApprovedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upbrsRejectedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _upbrsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _upbrsName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upbrsModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _upbrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upbrsBaselineId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePatchBaselineResponse' with the minimum fields required to make a request.
 --
@@ -239,20 +242,21 @@ updatePatchBaselineResponse
     :: Int -- ^ 'upbrsResponseStatus'
     -> UpdatePatchBaselineResponse
 updatePatchBaselineResponse pResponseStatus_ =
-    UpdatePatchBaselineResponse'
-    { _upbrsApprovalRules = Nothing
-    , _upbrsOperatingSystem = Nothing
-    , _upbrsGlobalFilters = Nothing
-    , _upbrsApprovedPatchesComplianceLevel = Nothing
-    , _upbrsApprovedPatches = Nothing
-    , _upbrsRejectedPatches = Nothing
-    , _upbrsCreatedDate = Nothing
-    , _upbrsName = Nothing
-    , _upbrsModifiedDate = Nothing
-    , _upbrsDescription = Nothing
-    , _upbrsBaselineId = Nothing
-    , _upbrsResponseStatus = pResponseStatus_
-    }
+  UpdatePatchBaselineResponse'
+  { _upbrsApprovalRules = Nothing
+  , _upbrsOperatingSystem = Nothing
+  , _upbrsGlobalFilters = Nothing
+  , _upbrsApprovedPatchesComplianceLevel = Nothing
+  , _upbrsApprovedPatches = Nothing
+  , _upbrsRejectedPatches = Nothing
+  , _upbrsCreatedDate = Nothing
+  , _upbrsName = Nothing
+  , _upbrsModifiedDate = Nothing
+  , _upbrsDescription = Nothing
+  , _upbrsBaselineId = Nothing
+  , _upbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A set of rules used to include patches in the baseline.
 upbrsApprovalRules :: Lens' UpdatePatchBaselineResponse (Maybe PatchRuleGroup)
@@ -302,4 +306,4 @@ upbrsBaselineId = lens _upbrsBaselineId (\ s a -> s{_upbrsBaselineId = a});
 upbrsResponseStatus :: Lens' UpdatePatchBaselineResponse Int
 upbrsResponseStatus = lens _upbrsResponseStatus (\ s a -> s{_upbrsResponseStatus = a});
 
-instance NFData UpdatePatchBaselineResponse
+instance NFData UpdatePatchBaselineResponse where

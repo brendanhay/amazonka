@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.GetEvaluation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,17 +51,18 @@ module Network.AWS.MachineLearning.GetEvaluation
     , gersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getEvaluation' smart constructor.
 newtype GetEvaluation = GetEvaluation'
-    { _geEvaluationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _geEvaluationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEvaluation' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ newtype GetEvaluation = GetEvaluation'
 getEvaluation
     :: Text -- ^ 'geEvaluationId'
     -> GetEvaluation
-getEvaluation pEvaluationId_ =
-    GetEvaluation'
-    { _geEvaluationId = pEvaluationId_
-    }
+getEvaluation pEvaluationId_ = GetEvaluation' {_geEvaluationId = pEvaluationId_}
+
 
 -- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@ is recorded and cataloged. The ID provides the means to access the information.
 geEvaluationId :: Lens' GetEvaluation Text
@@ -103,9 +102,9 @@ instance AWSRequest GetEvaluation where
                      <*> (x .?> "EvaluationDataSourceId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetEvaluation
+instance Hashable GetEvaluation where
 
-instance NFData GetEvaluation
+instance NFData GetEvaluation where
 
 instance ToHeaders GetEvaluation where
         toHeaders
@@ -134,23 +133,24 @@ instance ToQuery GetEvaluation where
 --
 -- /See:/ 'getEvaluationResponse' smart constructor.
 data GetEvaluationResponse = GetEvaluationResponse'
-    { _gersStatus                 :: !(Maybe EntityStatus)
-    , _gersPerformanceMetrics     :: !(Maybe PerformanceMetrics)
-    , _gersLastUpdatedAt          :: !(Maybe POSIX)
-    , _gersCreatedAt              :: !(Maybe POSIX)
-    , _gersComputeTime            :: !(Maybe Integer)
-    , _gersInputDataLocationS3    :: !(Maybe Text)
-    , _gersMLModelId              :: !(Maybe Text)
-    , _gersStartedAt              :: !(Maybe POSIX)
-    , _gersFinishedAt             :: !(Maybe POSIX)
-    , _gersCreatedByIAMUser       :: !(Maybe Text)
-    , _gersName                   :: !(Maybe Text)
-    , _gersLogURI                 :: !(Maybe Text)
-    , _gersEvaluationId           :: !(Maybe Text)
-    , _gersMessage                :: !(Maybe Text)
-    , _gersEvaluationDataSourceId :: !(Maybe Text)
-    , _gersResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gersStatus                 :: {-# NOUNPACK #-}!(Maybe EntityStatus)
+  , _gersPerformanceMetrics     :: {-# NOUNPACK #-}!(Maybe PerformanceMetrics)
+  , _gersLastUpdatedAt          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gersCreatedAt              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gersComputeTime            :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gersInputDataLocationS3    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersMLModelId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersStartedAt              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gersFinishedAt             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gersCreatedByIAMUser       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersName                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersLogURI                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersEvaluationId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersMessage                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersEvaluationDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEvaluationResponse' with the minimum fields required to make a request.
 --
@@ -191,24 +191,25 @@ getEvaluationResponse
     :: Int -- ^ 'gersResponseStatus'
     -> GetEvaluationResponse
 getEvaluationResponse pResponseStatus_ =
-    GetEvaluationResponse'
-    { _gersStatus = Nothing
-    , _gersPerformanceMetrics = Nothing
-    , _gersLastUpdatedAt = Nothing
-    , _gersCreatedAt = Nothing
-    , _gersComputeTime = Nothing
-    , _gersInputDataLocationS3 = Nothing
-    , _gersMLModelId = Nothing
-    , _gersStartedAt = Nothing
-    , _gersFinishedAt = Nothing
-    , _gersCreatedByIAMUser = Nothing
-    , _gersName = Nothing
-    , _gersLogURI = Nothing
-    , _gersEvaluationId = Nothing
-    , _gersMessage = Nothing
-    , _gersEvaluationDataSourceId = Nothing
-    , _gersResponseStatus = pResponseStatus_
-    }
+  GetEvaluationResponse'
+  { _gersStatus = Nothing
+  , _gersPerformanceMetrics = Nothing
+  , _gersLastUpdatedAt = Nothing
+  , _gersCreatedAt = Nothing
+  , _gersComputeTime = Nothing
+  , _gersInputDataLocationS3 = Nothing
+  , _gersMLModelId = Nothing
+  , _gersStartedAt = Nothing
+  , _gersFinishedAt = Nothing
+  , _gersCreatedByIAMUser = Nothing
+  , _gersName = Nothing
+  , _gersLogURI = Nothing
+  , _gersEvaluationId = Nothing
+  , _gersMessage = Nothing
+  , _gersEvaluationDataSourceId = Nothing
+  , _gersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the evaluation. This element can have one of the following values:     * @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request to evaluate an @MLModel@ .    * @INPROGRESS@ - The evaluation is underway.    * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.    * @COMPLETED@ - The evaluation process completed successfully.    * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 gersStatus :: Lens' GetEvaluationResponse (Maybe EntityStatus)
@@ -274,4 +275,4 @@ gersEvaluationDataSourceId = lens _gersEvaluationDataSourceId (\ s a -> s{_gersE
 gersResponseStatus :: Lens' GetEvaluationResponse Int
 gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
 
-instance NFData GetEvaluationResponse
+instance NFData GetEvaluationResponse where

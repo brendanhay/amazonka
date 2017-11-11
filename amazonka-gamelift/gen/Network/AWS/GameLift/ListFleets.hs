@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ListFleets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -92,12 +92,12 @@ module Network.AWS.GameLift.ListFleets
     , lfrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -105,10 +105,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listFleets' smart constructor.
 data ListFleets = ListFleets'
-    { _lfBuildId   :: !(Maybe Text)
-    , _lfNextToken :: !(Maybe Text)
-    , _lfLimit     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfBuildId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFleets' with the minimum fields required to make a request.
 --
@@ -122,11 +123,8 @@ data ListFleets = ListFleets'
 listFleets
     :: ListFleets
 listFleets =
-    ListFleets'
-    { _lfBuildId = Nothing
-    , _lfNextToken = Nothing
-    , _lfLimit = Nothing
-    }
+  ListFleets' {_lfBuildId = Nothing, _lfNextToken = Nothing, _lfLimit = Nothing}
+
 
 -- | Unique identifier for a build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
 lfBuildId :: Lens' ListFleets (Maybe Text)
@@ -150,9 +148,9 @@ instance AWSRequest ListFleets where
                    (x .?> "NextToken") <*> (x .?> "FleetIds") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListFleets
+instance Hashable ListFleets where
 
-instance NFData ListFleets
+instance NFData ListFleets where
 
 instance ToHeaders ListFleets where
         toHeaders
@@ -183,10 +181,11 @@ instance ToQuery ListFleets where
 --
 -- /See:/ 'listFleetsResponse' smart constructor.
 data ListFleetsResponse = ListFleetsResponse'
-    { _lfrsNextToken      :: !(Maybe Text)
-    , _lfrsFleetIds       :: !(Maybe (List1 Text))
-    , _lfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfrsFleetIds       :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _lfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFleetsResponse' with the minimum fields required to make a request.
 --
@@ -201,11 +200,12 @@ listFleetsResponse
     :: Int -- ^ 'lfrsResponseStatus'
     -> ListFleetsResponse
 listFleetsResponse pResponseStatus_ =
-    ListFleetsResponse'
-    { _lfrsNextToken = Nothing
-    , _lfrsFleetIds = Nothing
-    , _lfrsResponseStatus = pResponseStatus_
-    }
+  ListFleetsResponse'
+  { _lfrsNextToken = Nothing
+  , _lfrsFleetIds = Nothing
+  , _lfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 lfrsNextToken :: Lens' ListFleetsResponse (Maybe Text)
@@ -219,4 +219,4 @@ lfrsFleetIds = lens _lfrsFleetIds (\ s a -> s{_lfrsFleetIds = a}) . mapping _Lis
 lfrsResponseStatus :: Lens' ListFleetsResponse Int
 lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
 
-instance NFData ListFleetsResponse
+instance NFData ListFleetsResponse where

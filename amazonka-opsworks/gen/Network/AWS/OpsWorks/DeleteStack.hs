@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.DeleteStack
     , DeleteStackResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteStack' smart constructor.
 newtype DeleteStack = DeleteStack'
-    { _dsStackId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsStackId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteStack = DeleteStack'
 deleteStack
     :: Text -- ^ 'dsStackId'
     -> DeleteStack
-deleteStack pStackId_ =
-    DeleteStack'
-    { _dsStackId = pStackId_
-    }
+deleteStack pStackId_ = DeleteStack' {_dsStackId = pStackId_}
+
 
 -- | The stack ID.
 dsStackId :: Lens' DeleteStack Text
@@ -70,9 +69,9 @@ instance AWSRequest DeleteStack where
         request = postJSON opsWorks
         response = receiveNull DeleteStackResponse'
 
-instance Hashable DeleteStack
+instance Hashable DeleteStack where
 
-instance NFData DeleteStack
+instance NFData DeleteStack where
 
 instance ToHeaders DeleteStack where
         toHeaders
@@ -95,8 +94,9 @@ instance ToQuery DeleteStack where
 
 -- | /See:/ 'deleteStackResponse' smart constructor.
 data DeleteStackResponse =
-    DeleteStackResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteStackResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ deleteStackResponse
     :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse'
 
-instance NFData DeleteStackResponse
+
+instance NFData DeleteStackResponse where

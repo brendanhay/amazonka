@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeListeners
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.ELBv2.DescribeListeners
     , dlsrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeListeners' smart constructor.
 data DescribeListeners = DescribeListeners'
-    { _dlListenerARNs    :: !(Maybe [Text])
-    , _dlLoadBalancerARN :: !(Maybe Text)
-    , _dlMarker          :: !(Maybe Text)
-    , _dlPageSize        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlListenerARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dlLoadBalancerARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlPageSize        :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeListeners' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ data DescribeListeners = DescribeListeners'
 describeListeners
     :: DescribeListeners
 describeListeners =
-    DescribeListeners'
-    { _dlListenerARNs = Nothing
-    , _dlLoadBalancerARN = Nothing
-    , _dlMarker = Nothing
-    , _dlPageSize = Nothing
-    }
+  DescribeListeners'
+  { _dlListenerARNs = Nothing
+  , _dlLoadBalancerARN = Nothing
+  , _dlMarker = Nothing
+  , _dlPageSize = Nothing
+  }
+
 
 -- | The Amazon Resource Names (ARN) of the listeners.
 dlListenerARNs :: Lens' DescribeListeners [Text]
@@ -115,9 +117,9 @@ instance AWSRequest DescribeListeners where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeListeners
+instance Hashable DescribeListeners where
 
-instance NFData DescribeListeners
+instance NFData DescribeListeners where
 
 instance ToHeaders DescribeListeners where
         toHeaders = const mempty
@@ -137,10 +139,11 @@ instance ToQuery DescribeListeners where
 
 -- | /See:/ 'describeListenersResponse' smart constructor.
 data DescribeListenersResponse = DescribeListenersResponse'
-    { _dlsrsNextMarker     :: !(Maybe Text)
-    , _dlsrsListeners      :: !(Maybe [Listener])
-    , _dlsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlsrsListeners      :: {-# NOUNPACK #-}!(Maybe [Listener])
+  , _dlsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeListenersResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +158,12 @@ describeListenersResponse
     :: Int -- ^ 'dlsrsResponseStatus'
     -> DescribeListenersResponse
 describeListenersResponse pResponseStatus_ =
-    DescribeListenersResponse'
-    { _dlsrsNextMarker = Nothing
-    , _dlsrsListeners = Nothing
-    , _dlsrsResponseStatus = pResponseStatus_
-    }
+  DescribeListenersResponse'
+  { _dlsrsNextMarker = Nothing
+  , _dlsrsListeners = Nothing
+  , _dlsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dlsrsNextMarker :: Lens' DescribeListenersResponse (Maybe Text)
@@ -173,4 +177,4 @@ dlsrsListeners = lens _dlsrsListeners (\ s a -> s{_dlsrsListeners = a}) . _Defau
 dlsrsResponseStatus :: Lens' DescribeListenersResponse Int
 dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});
 
-instance NFData DescribeListenersResponse
+instance NFData DescribeListenersResponse where

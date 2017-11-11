@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeRules
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.ELBv2.DescribeRules
     , drsrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeRules' smart constructor.
 data DescribeRules = DescribeRules'
-    { _drListenerARN :: !(Maybe Text)
-    , _drMarker      :: !(Maybe Text)
-    , _drRuleARNs    :: !(Maybe [Text])
-    , _drPageSize    :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drListenerARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drMarker      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drRuleARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drPageSize    :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRules' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data DescribeRules = DescribeRules'
 describeRules
     :: DescribeRules
 describeRules =
-    DescribeRules'
-    { _drListenerARN = Nothing
-    , _drMarker = Nothing
-    , _drRuleARNs = Nothing
-    , _drPageSize = Nothing
-    }
+  DescribeRules'
+  { _drListenerARN = Nothing
+  , _drMarker = Nothing
+  , _drRuleARNs = Nothing
+  , _drPageSize = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the listener.
 drListenerARN :: Lens' DescribeRules (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest DescribeRules where
                      <*> (x .@? "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeRules
+instance Hashable DescribeRules where
 
-instance NFData DescribeRules
+instance NFData DescribeRules where
 
 instance ToHeaders DescribeRules where
         toHeaders = const mempty
@@ -128,10 +130,11 @@ instance ToQuery DescribeRules where
 
 -- | /See:/ 'describeRulesResponse' smart constructor.
 data DescribeRulesResponse = DescribeRulesResponse'
-    { _drsrsRules          :: !(Maybe [Rule])
-    , _drsrsNextMarker     :: !(Maybe Text)
-    , _drsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsrsRules          :: {-# NOUNPACK #-}!(Maybe [Rule])
+  , _drsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRulesResponse' with the minimum fields required to make a request.
 --
@@ -146,11 +149,12 @@ describeRulesResponse
     :: Int -- ^ 'drsrsResponseStatus'
     -> DescribeRulesResponse
 describeRulesResponse pResponseStatus_ =
-    DescribeRulesResponse'
-    { _drsrsRules = Nothing
-    , _drsrsNextMarker = Nothing
-    , _drsrsResponseStatus = pResponseStatus_
-    }
+  DescribeRulesResponse'
+  { _drsrsRules = Nothing
+  , _drsrsNextMarker = Nothing
+  , _drsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the rules.
 drsrsRules :: Lens' DescribeRulesResponse [Rule]
@@ -164,4 +168,4 @@ drsrsNextMarker = lens _drsrsNextMarker (\ s a -> s{_drsrsNextMarker = a});
 drsrsResponseStatus :: Lens' DescribeRulesResponse Int
 drsrsResponseStatus = lens _drsrsResponseStatus (\ s a -> s{_drsrsResponseStatus = a});
 
-instance NFData DescribeRulesResponse
+instance NFData DescribeRulesResponse where

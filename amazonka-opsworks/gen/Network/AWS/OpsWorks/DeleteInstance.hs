@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.OpsWorks.DeleteInstance
     , DeleteInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteInstance' smart constructor.
 data DeleteInstance = DeleteInstance'
-    { _diDeleteVolumes   :: !(Maybe Bool)
-    , _diDeleteElasticIP :: !(Maybe Bool)
-    , _diInstanceId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diDeleteVolumes   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diDeleteElasticIP :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diInstanceId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInstance' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ deleteInstance
     :: Text -- ^ 'diInstanceId'
     -> DeleteInstance
 deleteInstance pInstanceId_ =
-    DeleteInstance'
-    { _diDeleteVolumes = Nothing
-    , _diDeleteElasticIP = Nothing
-    , _diInstanceId = pInstanceId_
-    }
+  DeleteInstance'
+  { _diDeleteVolumes = Nothing
+  , _diDeleteElasticIP = Nothing
+  , _diInstanceId = pInstanceId_
+  }
+
 
 -- | Whether to delete the instance's Amazon EBS volumes.
 diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
@@ -90,9 +92,9 @@ instance AWSRequest DeleteInstance where
         request = postJSON opsWorks
         response = receiveNull DeleteInstanceResponse'
 
-instance Hashable DeleteInstance
+instance Hashable DeleteInstance where
 
-instance NFData DeleteInstance
+instance NFData DeleteInstance where
 
 instance ToHeaders DeleteInstance where
         toHeaders
@@ -119,8 +121,9 @@ instance ToQuery DeleteInstance where
 
 -- | /See:/ 'deleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse =
-    DeleteInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInstanceResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +131,5 @@ deleteInstanceResponse
     :: DeleteInstanceResponse
 deleteInstanceResponse = DeleteInstanceResponse'
 
-instance NFData DeleteInstanceResponse
+
+instance NFData DeleteInstanceResponse where

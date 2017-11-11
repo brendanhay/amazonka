@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.GetMetricStatistics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -76,25 +76,26 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     , gmsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getMetricStatistics' smart constructor.
 data GetMetricStatistics = GetMetricStatistics'
-    { _gmsExtendedStatistics :: !(Maybe (List1 Text))
-    , _gmsStatistics         :: !(Maybe (List1 Statistic))
-    , _gmsDimensions         :: !(Maybe [Dimension])
-    , _gmsUnit               :: !(Maybe StandardUnit)
-    , _gmsNamespace          :: !Text
-    , _gmsMetricName         :: !Text
-    , _gmsStartTime          :: !ISO8601
-    , _gmsEndTime            :: !ISO8601
-    , _gmsPeriod             :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmsExtendedStatistics :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _gmsStatistics         :: {-# NOUNPACK #-}!(Maybe (List1 Statistic))
+  , _gmsDimensions         :: {-# NOUNPACK #-}!(Maybe [Dimension])
+  , _gmsUnit               :: {-# NOUNPACK #-}!(Maybe StandardUnit)
+  , _gmsNamespace          :: {-# NOUNPACK #-}!Text
+  , _gmsMetricName         :: {-# NOUNPACK #-}!Text
+  , _gmsStartTime          :: {-# NOUNPACK #-}!ISO8601
+  , _gmsEndTime            :: {-# NOUNPACK #-}!ISO8601
+  , _gmsPeriod             :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMetricStatistics' with the minimum fields required to make a request.
 --
@@ -125,17 +126,18 @@ getMetricStatistics
     -> Natural -- ^ 'gmsPeriod'
     -> GetMetricStatistics
 getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ =
-    GetMetricStatistics'
-    { _gmsExtendedStatistics = Nothing
-    , _gmsStatistics = Nothing
-    , _gmsDimensions = Nothing
-    , _gmsUnit = Nothing
-    , _gmsNamespace = pNamespace_
-    , _gmsMetricName = pMetricName_
-    , _gmsStartTime = _Time # pStartTime_
-    , _gmsEndTime = _Time # pEndTime_
-    , _gmsPeriod = _Nat # pPeriod_
-    }
+  GetMetricStatistics'
+  { _gmsExtendedStatistics = Nothing
+  , _gmsStatistics = Nothing
+  , _gmsDimensions = Nothing
+  , _gmsUnit = Nothing
+  , _gmsNamespace = pNamespace_
+  , _gmsMetricName = pMetricName_
+  , _gmsStartTime = _Time # pStartTime_
+  , _gmsEndTime = _Time # pEndTime_
+  , _gmsPeriod = _Nat # pPeriod_
+  }
+
 
 -- | The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
 gmsExtendedStatistics :: Lens' GetMetricStatistics (Maybe (NonEmpty Text))
@@ -186,9 +188,9 @@ instance AWSRequest GetMetricStatistics where
                      <*> (x .@? "Label")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetMetricStatistics
+instance Hashable GetMetricStatistics where
 
-instance NFData GetMetricStatistics
+instance NFData GetMetricStatistics where
 
 instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
@@ -215,10 +217,11 @@ instance ToQuery GetMetricStatistics where
 
 -- | /See:/ 'getMetricStatisticsResponse' smart constructor.
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
-    { _gmsrsDatapoints     :: !(Maybe [Datapoint])
-    , _gmsrsLabel          :: !(Maybe Text)
-    , _gmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmsrsDatapoints     :: {-# NOUNPACK #-}!(Maybe [Datapoint])
+  , _gmsrsLabel          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMetricStatisticsResponse' with the minimum fields required to make a request.
 --
@@ -233,11 +236,12 @@ getMetricStatisticsResponse
     :: Int -- ^ 'gmsrsResponseStatus'
     -> GetMetricStatisticsResponse
 getMetricStatisticsResponse pResponseStatus_ =
-    GetMetricStatisticsResponse'
-    { _gmsrsDatapoints = Nothing
-    , _gmsrsLabel = Nothing
-    , _gmsrsResponseStatus = pResponseStatus_
-    }
+  GetMetricStatisticsResponse'
+  { _gmsrsDatapoints = Nothing
+  , _gmsrsLabel = Nothing
+  , _gmsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The data points for the specified metric.
 gmsrsDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
@@ -251,4 +255,4 @@ gmsrsLabel = lens _gmsrsLabel (\ s a -> s{_gmsrsLabel = a});
 gmsrsResponseStatus :: Lens' GetMetricStatisticsResponse Int
 gmsrsResponseStatus = lens _gmsrsResponseStatus (\ s a -> s{_gmsrsResponseStatus = a});
 
-instance NFData GetMetricStatisticsResponse
+instance NFData GetMetricStatisticsResponse where

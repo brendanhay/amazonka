@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.CreateProgressUpdateStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.MigrationHub.CreateProgressUpdateStream
     , cpusrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createProgressUpdateStream' smart constructor.
 data CreateProgressUpdateStream = CreateProgressUpdateStream'
-    { _cpusDryRun                   :: !(Maybe Bool)
-    , _cpusProgressUpdateStreamName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpusDryRun                   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cpusProgressUpdateStreamName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProgressUpdateStream' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ createProgressUpdateStream
     :: Text -- ^ 'cpusProgressUpdateStreamName'
     -> CreateProgressUpdateStream
 createProgressUpdateStream pProgressUpdateStreamName_ =
-    CreateProgressUpdateStream'
-    { _cpusDryRun = Nothing
-    , _cpusProgressUpdateStreamName = pProgressUpdateStreamName_
-    }
+  CreateProgressUpdateStream'
+  { _cpusDryRun = Nothing
+  , _cpusProgressUpdateStreamName = pProgressUpdateStreamName_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 cpusDryRun :: Lens' CreateProgressUpdateStream (Maybe Bool)
@@ -84,9 +86,9 @@ instance AWSRequest CreateProgressUpdateStream where
                  CreateProgressUpdateStreamResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateProgressUpdateStream
+instance Hashable CreateProgressUpdateStream where
 
-instance NFData CreateProgressUpdateStream
+instance NFData CreateProgressUpdateStream where
 
 instance ToHeaders CreateProgressUpdateStream where
         toHeaders
@@ -115,8 +117,9 @@ instance ToQuery CreateProgressUpdateStream where
 
 -- | /See:/ 'createProgressUpdateStreamResponse' smart constructor.
 newtype CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
-    { _cpusrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpusrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProgressUpdateStreamResponse' with the minimum fields required to make a request.
 --
@@ -127,12 +130,12 @@ createProgressUpdateStreamResponse
     :: Int -- ^ 'cpusrsResponseStatus'
     -> CreateProgressUpdateStreamResponse
 createProgressUpdateStreamResponse pResponseStatus_ =
-    CreateProgressUpdateStreamResponse'
-    { _cpusrsResponseStatus = pResponseStatus_
-    }
+  CreateProgressUpdateStreamResponse' {_cpusrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cpusrsResponseStatus :: Lens' CreateProgressUpdateStreamResponse Int
 cpusrsResponseStatus = lens _cpusrsResponseStatus (\ s a -> s{_cpusrsResponseStatus = a});
 
 instance NFData CreateProgressUpdateStreamResponse
+         where

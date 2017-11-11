@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.PutRecord
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,12 +59,12 @@ module Network.AWS.Kinesis.PutRecord
     , prrsSequenceNumber
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @PutRecord@ .
 --
@@ -72,12 +72,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putRecord' smart constructor.
 data PutRecord = PutRecord'
-    { _prExplicitHashKey           :: !(Maybe Text)
-    , _prSequenceNumberForOrdering :: !(Maybe Text)
-    , _prStreamName                :: !Text
-    , _prData                      :: !Base64
-    , _prPartitionKey              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prExplicitHashKey           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prSequenceNumberForOrdering :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prStreamName                :: {-# NOUNPACK #-}!Text
+  , _prData                      :: {-# NOUNPACK #-}!Base64
+  , _prPartitionKey              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecord' with the minimum fields required to make a request.
 --
@@ -98,13 +99,14 @@ putRecord
     -> Text -- ^ 'prPartitionKey'
     -> PutRecord
 putRecord pStreamName_ pData_ pPartitionKey_ =
-    PutRecord'
-    { _prExplicitHashKey = Nothing
-    , _prSequenceNumberForOrdering = Nothing
-    , _prStreamName = pStreamName_
-    , _prData = _Base64 # pData_
-    , _prPartitionKey = pPartitionKey_
-    }
+  PutRecord'
+  { _prExplicitHashKey = Nothing
+  , _prSequenceNumberForOrdering = Nothing
+  , _prStreamName = pStreamName_
+  , _prData = _Base64 # pData_
+  , _prPartitionKey = pPartitionKey_
+  }
+
 
 -- | The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.
 prExplicitHashKey :: Lens' PutRecord (Maybe Text)
@@ -137,9 +139,9 @@ instance AWSRequest PutRecord where
                      (x .:> "ShardId")
                      <*> (x .:> "SequenceNumber"))
 
-instance Hashable PutRecord
+instance Hashable PutRecord where
 
-instance NFData PutRecord
+instance NFData PutRecord where
 
 instance ToHeaders PutRecord where
         toHeaders
@@ -173,11 +175,12 @@ instance ToQuery PutRecord where
 --
 -- /See:/ 'putRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
-    { _prrsEncryptionType :: !(Maybe EncryptionType)
-    , _prrsResponseStatus :: !Int
-    , _prrsShardId        :: !Text
-    , _prrsSequenceNumber :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prrsEncryptionType :: {-# NOUNPACK #-}!(Maybe EncryptionType)
+  , _prrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _prrsShardId        :: {-# NOUNPACK #-}!Text
+  , _prrsSequenceNumber :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecordResponse' with the minimum fields required to make a request.
 --
@@ -196,12 +199,13 @@ putRecordResponse
     -> Text -- ^ 'prrsSequenceNumber'
     -> PutRecordResponse
 putRecordResponse pResponseStatus_ pShardId_ pSequenceNumber_ =
-    PutRecordResponse'
-    { _prrsEncryptionType = Nothing
-    , _prrsResponseStatus = pResponseStatus_
-    , _prrsShardId = pShardId_
-    , _prrsSequenceNumber = pSequenceNumber_
-    }
+  PutRecordResponse'
+  { _prrsEncryptionType = Nothing
+  , _prrsResponseStatus = pResponseStatus_
+  , _prrsShardId = pShardId_
+  , _prrsSequenceNumber = pSequenceNumber_
+  }
+
 
 -- | The encryption type to use on the record. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records in the stream.     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed KMS key.
 prrsEncryptionType :: Lens' PutRecordResponse (Maybe EncryptionType)
@@ -219,4 +223,4 @@ prrsShardId = lens _prrsShardId (\ s a -> s{_prrsShardId = a});
 prrsSequenceNumber :: Lens' PutRecordResponse Text
 prrsSequenceNumber = lens _prrsSequenceNumber (\ s a -> s{_prrsSequenceNumber = a});
 
-instance NFData PutRecordResponse
+instance NFData PutRecordResponse where

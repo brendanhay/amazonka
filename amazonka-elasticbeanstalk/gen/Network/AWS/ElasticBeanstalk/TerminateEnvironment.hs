@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.TerminateEnvironment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,12 +58,12 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     , eDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to terminate an environment.
 --
@@ -71,11 +71,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'terminateEnvironment' smart constructor.
 data TerminateEnvironment = TerminateEnvironment'
-    { _teForceTerminate     :: !(Maybe Bool)
-    , _teTerminateResources :: !(Maybe Bool)
-    , _teEnvironmentName    :: !(Maybe Text)
-    , _teEnvironmentId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _teForceTerminate     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _teTerminateResources :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _teEnvironmentName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _teEnvironmentId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateEnvironment' with the minimum fields required to make a request.
 --
@@ -91,12 +92,13 @@ data TerminateEnvironment = TerminateEnvironment'
 terminateEnvironment
     :: TerminateEnvironment
 terminateEnvironment =
-    TerminateEnvironment'
-    { _teForceTerminate = Nothing
-    , _teTerminateResources = Nothing
-    , _teEnvironmentName = Nothing
-    , _teEnvironmentId = Nothing
-    }
+  TerminateEnvironment'
+  { _teForceTerminate = Nothing
+  , _teTerminateResources = Nothing
+  , _teEnvironmentName = Nothing
+  , _teEnvironmentId = Nothing
+  }
+
 
 -- | Terminates the target environment even if another environment in the same group is dependent on it.
 teForceTerminate :: Lens' TerminateEnvironment (Maybe Bool)
@@ -121,9 +123,9 @@ instance AWSRequest TerminateEnvironment where
           = receiveXMLWrapper "TerminateEnvironmentResult"
               (\ s h x -> parseXML x)
 
-instance Hashable TerminateEnvironment
+instance Hashable TerminateEnvironment where
 
-instance NFData TerminateEnvironment
+instance NFData TerminateEnvironment where
 
 instance ToHeaders TerminateEnvironment where
         toHeaders = const mempty

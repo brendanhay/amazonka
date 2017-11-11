@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.LexModels.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ChannelType
-    = Facebook
-    | Slack
-    | TwilioSms
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Facebook
+  | Slack
+  | TwilioSms
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChannelType where
     parser = takeLowerText >>= \case
@@ -49,9 +50,10 @@ instance FromJSON ChannelType where
     parseJSON = parseJSONText "ChannelType"
 
 data ContentType
-    = PlainText
-    | Ssml
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = PlainText
+  | Ssml
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ContentType where
     parser = takeLowerText >>= \case
@@ -78,9 +80,10 @@ instance FromJSON ContentType where
     parseJSON = parseJSONText "ContentType"
 
 data FulfillmentActivityType
-    = CodeHook
-    | ReturnIntent
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CodeHook
+  | ReturnIntent
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FulfillmentActivityType where
     parser = takeLowerText >>= \case
@@ -107,11 +110,12 @@ instance FromJSON FulfillmentActivityType where
     parseJSON = parseJSONText "FulfillmentActivityType"
 
 data LexStatus
-    = Building
-    | Failed
-    | NotBuilt
-    | Ready
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Building
+  | Failed
+  | NotBuilt
+  | Ready
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LexStatus where
     parser = takeLowerText >>= \case
@@ -139,8 +143,9 @@ instance FromJSON LexStatus where
     parseJSON = parseJSONText "LexStatus"
 
 data Locale =
-    EnUs
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  EnUs
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Locale where
     parser = takeLowerText >>= \case
@@ -165,9 +170,10 @@ instance FromJSON Locale where
     parseJSON = parseJSONText "Locale"
 
 data ProcessBehavior
-    = Build
-    | Save
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Build
+  | Save
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProcessBehavior where
     parser = takeLowerText >>= \case
@@ -191,9 +197,10 @@ instance ToJSON ProcessBehavior where
     toJSON = toJSONText
 
 data SlotConstraint
-    = Optional
-    | Required
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Optional
+  | Required
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SlotConstraint where
     parser = takeLowerText >>= \case
@@ -220,9 +227,10 @@ instance FromJSON SlotConstraint where
     parseJSON = parseJSONText "SlotConstraint"
 
 data StatusType
-    = Detected
-    | Missed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Detected
+  | Missed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case

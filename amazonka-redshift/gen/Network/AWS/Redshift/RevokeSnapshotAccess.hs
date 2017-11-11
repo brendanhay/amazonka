@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RevokeSnapshotAccess
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     , rsarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'revokeSnapshotAccess' smart constructor.
 data RevokeSnapshotAccess = RevokeSnapshotAccess'
-    { _rsaSnapshotClusterIdentifier :: !(Maybe Text)
-    , _rsaSnapshotIdentifier        :: !Text
-    , _rsaAccountWithRestoreAccess  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsaSnapshotClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsaSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
+  , _rsaAccountWithRestoreAccess  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeSnapshotAccess' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ revokeSnapshotAccess
     -> Text -- ^ 'rsaAccountWithRestoreAccess'
     -> RevokeSnapshotAccess
 revokeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
-    RevokeSnapshotAccess'
-    { _rsaSnapshotClusterIdentifier = Nothing
-    , _rsaSnapshotIdentifier = pSnapshotIdentifier_
-    , _rsaAccountWithRestoreAccess = pAccountWithRestoreAccess_
-    }
+  RevokeSnapshotAccess'
+  { _rsaSnapshotClusterIdentifier = Nothing
+  , _rsaSnapshotIdentifier = pSnapshotIdentifier_
+  , _rsaAccountWithRestoreAccess = pAccountWithRestoreAccess_
+  }
+
 
 -- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 rsaSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest RevokeSnapshotAccess where
                  RevokeSnapshotAccessResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
-instance Hashable RevokeSnapshotAccess
+instance Hashable RevokeSnapshotAccess where
 
-instance NFData RevokeSnapshotAccess
+instance NFData RevokeSnapshotAccess where
 
 instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty
@@ -124,9 +126,10 @@ instance ToQuery RevokeSnapshotAccess where
 
 -- | /See:/ 'revokeSnapshotAccessResponse' smart constructor.
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
-    { _rsarsSnapshot       :: !(Maybe Snapshot)
-    , _rsarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsarsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
+  , _rsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevokeSnapshotAccessResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ revokeSnapshotAccessResponse
     :: Int -- ^ 'rsarsResponseStatus'
     -> RevokeSnapshotAccessResponse
 revokeSnapshotAccessResponse pResponseStatus_ =
-    RevokeSnapshotAccessResponse'
-    { _rsarsSnapshot = Nothing
-    , _rsarsResponseStatus = pResponseStatus_
-    }
+  RevokeSnapshotAccessResponse'
+  {_rsarsSnapshot = Nothing, _rsarsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
@@ -152,4 +154,4 @@ rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a});
 rsarsResponseStatus :: Lens' RevokeSnapshotAccessResponse Int
 rsarsResponseStatus = lens _rsarsResponseStatus (\ s a -> s{_rsarsResponseStatus = a});
 
-instance NFData RevokeSnapshotAccessResponse
+instance NFData RevokeSnapshotAccessResponse where

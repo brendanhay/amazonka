@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.SSM.DescribeDocument
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeDocument' smart constructor.
 data DescribeDocument = DescribeDocument'
-    { _ddDocumentVersion :: !(Maybe Text)
-    , _ddName            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddName            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDocument' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ describeDocument
     :: Text -- ^ 'ddName'
     -> DescribeDocument
 describeDocument pName_ =
-    DescribeDocument'
-    { _ddDocumentVersion = Nothing
-    , _ddName = pName_
-    }
+  DescribeDocument' {_ddDocumentVersion = Nothing, _ddName = pName_}
+
 
 -- | The document version for which you want information. Can be a specific version or the default version.
 ddDocumentVersion :: Lens' DescribeDocument (Maybe Text)
@@ -84,9 +83,9 @@ instance AWSRequest DescribeDocument where
                  DescribeDocumentResponse' <$>
                    (x .?> "Document") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDocument
+instance Hashable DescribeDocument where
 
-instance NFData DescribeDocument
+instance NFData DescribeDocument where
 
 instance ToHeaders DescribeDocument where
         toHeaders
@@ -112,9 +111,10 @@ instance ToQuery DescribeDocument where
 
 -- | /See:/ 'describeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
-    { _desrsDocument       :: !(Maybe DocumentDescription)
-    , _desrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsDocument       :: {-# NOUNPACK #-}!(Maybe DocumentDescription)
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDocumentResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +127,9 @@ describeDocumentResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeDocumentResponse
 describeDocumentResponse pResponseStatus_ =
-    DescribeDocumentResponse'
-    { _desrsDocument = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeDocumentResponse'
+  {_desrsDocument = Nothing, _desrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the SSM document.
 desrsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
@@ -140,4 +139,4 @@ desrsDocument = lens _desrsDocument (\ s a -> s{_desrsDocument = a});
 desrsResponseStatus :: Lens' DescribeDocumentResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeDocumentResponse
+instance NFData DescribeDocumentResponse where

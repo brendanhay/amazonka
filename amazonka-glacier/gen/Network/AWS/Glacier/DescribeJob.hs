@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DescribeJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,12 +61,12 @@ module Network.AWS.Glacier.DescribeJob
     , gjdStatusCode
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving a job description.
 --
@@ -74,10 +74,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeJob' smart constructor.
 data DescribeJob = DescribeJob'
-    { _djAccountId :: !Text
-    , _djVaultName :: !Text
-    , _djJobId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djAccountId :: {-# NOUNPACK #-}!Text
+  , _djVaultName :: {-# NOUNPACK #-}!Text
+  , _djJobId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeJob' with the minimum fields required to make a request.
 --
@@ -94,11 +95,9 @@ describeJob
     -> Text -- ^ 'djJobId'
     -> DescribeJob
 describeJob pAccountId_ pVaultName_ pJobId_ =
-    DescribeJob'
-    { _djAccountId = pAccountId_
-    , _djVaultName = pVaultName_
-    , _djJobId = pJobId_
-    }
+  DescribeJob'
+  {_djAccountId = pAccountId_, _djVaultName = pVaultName_, _djJobId = pJobId_}
+
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 djAccountId :: Lens' DescribeJob Text
@@ -117,9 +116,9 @@ instance AWSRequest DescribeJob where
         request = get glacier
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable DescribeJob
+instance Hashable DescribeJob where
 
-instance NFData DescribeJob
+instance NFData DescribeJob where
 
 instance ToHeaders DescribeJob where
         toHeaders = const mempty

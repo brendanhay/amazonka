@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeTableRestoreStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Redshift.DescribeTableRestoreStatus
     , dtrsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTableRestoreStatus' smart constructor.
 data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
-    { _dtrssTableRestoreRequestId :: !(Maybe Text)
-    , _dtrssClusterIdentifier     :: !(Maybe Text)
-    , _dtrssMarker                :: !(Maybe Text)
-    , _dtrssMaxRecords            :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrssTableRestoreRequestId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrssClusterIdentifier     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrssMarker                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrssMaxRecords            :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTableRestoreStatus' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
 describeTableRestoreStatus
     :: DescribeTableRestoreStatus
 describeTableRestoreStatus =
-    DescribeTableRestoreStatus'
-    { _dtrssTableRestoreRequestId = Nothing
-    , _dtrssClusterIdentifier = Nothing
-    , _dtrssMarker = Nothing
-    , _dtrssMaxRecords = Nothing
-    }
+  DescribeTableRestoreStatus'
+  { _dtrssTableRestoreRequestId = Nothing
+  , _dtrssClusterIdentifier = Nothing
+  , _dtrssMarker = Nothing
+  , _dtrssMaxRecords = Nothing
+  }
+
 
 -- | The identifier of the table restore request to return status for. If you don't specify a @TableRestoreRequestId@ value, then @DescribeTableRestoreStatus@ returns the status of all in-progress table restore requests.
 dtrssTableRestoreRequestId :: Lens' DescribeTableRestoreStatus (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest DescribeTableRestoreStatus where
                         may (parseXMLList "TableRestoreStatus"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTableRestoreStatus
+instance Hashable DescribeTableRestoreStatus where
 
-instance NFData DescribeTableRestoreStatus
+instance NFData DescribeTableRestoreStatus where
 
 instance ToHeaders DescribeTableRestoreStatus where
         toHeaders = const mempty
@@ -139,10 +141,11 @@ instance ToQuery DescribeTableRestoreStatus where
 --
 -- /See:/ 'describeTableRestoreStatusResponse' smart constructor.
 data DescribeTableRestoreStatusResponse = DescribeTableRestoreStatusResponse'
-    { _dtrsrsMarker                    :: !(Maybe Text)
-    , _dtrsrsTableRestoreStatusDetails :: !(Maybe [TableRestoreStatus])
-    , _dtrsrsResponseStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsrsTableRestoreStatusDetails :: {-# NOUNPACK #-}!(Maybe [TableRestoreStatus])
+  , _dtrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTableRestoreStatusResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +160,12 @@ describeTableRestoreStatusResponse
     :: Int -- ^ 'dtrsrsResponseStatus'
     -> DescribeTableRestoreStatusResponse
 describeTableRestoreStatusResponse pResponseStatus_ =
-    DescribeTableRestoreStatusResponse'
-    { _dtrsrsMarker = Nothing
-    , _dtrsrsTableRestoreStatusDetails = Nothing
-    , _dtrsrsResponseStatus = pResponseStatus_
-    }
+  DescribeTableRestoreStatusResponse'
+  { _dtrsrsMarker = Nothing
+  , _dtrsrsTableRestoreStatusDetails = Nothing
+  , _dtrsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A pagination token that can be used in a subsequent 'DescribeTableRestoreStatus' request.
 dtrsrsMarker :: Lens' DescribeTableRestoreStatusResponse (Maybe Text)
@@ -176,3 +180,4 @@ dtrsrsResponseStatus :: Lens' DescribeTableRestoreStatusResponse Int
 dtrsrsResponseStatus = lens _dtrsrsResponseStatus (\ s a -> s{_dtrsrsResponseStatus = a});
 
 instance NFData DescribeTableRestoreStatusResponse
+         where

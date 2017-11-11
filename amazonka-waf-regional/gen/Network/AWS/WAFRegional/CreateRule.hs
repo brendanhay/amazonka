@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -66,19 +66,20 @@ module Network.AWS.WAFRegional.CreateRule
     , crrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'createRule' smart constructor.
 data CreateRule = CreateRule'
-    { _crName        :: !Text
-    , _crMetricName  :: !Text
-    , _crChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crName        :: {-# NOUNPACK #-}!Text
+  , _crMetricName  :: {-# NOUNPACK #-}!Text
+  , _crChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRule' with the minimum fields required to make a request.
 --
@@ -95,11 +96,12 @@ createRule
     -> Text -- ^ 'crChangeToken'
     -> CreateRule
 createRule pName_ pMetricName_ pChangeToken_ =
-    CreateRule'
-    { _crName = pName_
-    , _crMetricName = pMetricName_
-    , _crChangeToken = pChangeToken_
-    }
+  CreateRule'
+  { _crName = pName_
+  , _crMetricName = pMetricName_
+  , _crChangeToken = pChangeToken_
+  }
+
 
 -- | A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
 crName :: Lens' CreateRule Text
@@ -123,9 +125,9 @@ instance AWSRequest CreateRule where
                    (x .?> "Rule") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateRule
+instance Hashable CreateRule where
 
-instance NFData CreateRule
+instance NFData CreateRule where
 
 instance ToHeaders CreateRule where
         toHeaders
@@ -153,10 +155,11 @@ instance ToQuery CreateRule where
 
 -- | /See:/ 'createRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
-    { _crrsRule           :: !(Maybe Rule)
-    , _crrsChangeToken    :: !(Maybe Text)
-    , _crrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsRule           :: {-# NOUNPACK #-}!(Maybe Rule)
+  , _crrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRuleResponse' with the minimum fields required to make a request.
 --
@@ -171,11 +174,12 @@ createRuleResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRuleResponse
 createRuleResponse pResponseStatus_ =
-    CreateRuleResponse'
-    { _crrsRule = Nothing
-    , _crrsChangeToken = Nothing
-    , _crrsResponseStatus = pResponseStatus_
-    }
+  CreateRuleResponse'
+  { _crrsRule = Nothing
+  , _crrsChangeToken = Nothing
+  , _crrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The 'Rule' returned in the @CreateRule@ response.
 crrsRule :: Lens' CreateRuleResponse (Maybe Rule)
@@ -189,4 +193,4 @@ crrsChangeToken = lens _crrsChangeToken (\ s a -> s{_crrsChangeToken = a});
 crrsResponseStatus :: Lens' CreateRuleResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 
-instance NFData CreateRuleResponse
+instance NFData CreateRuleResponse where

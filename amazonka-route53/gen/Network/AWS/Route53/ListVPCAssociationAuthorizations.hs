@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListVPCAssociationAuthorizations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.Route53.ListVPCAssociationAuthorizations
     , lvaarsVPCs
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about that can be associated with your hosted zone.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listVPCAssociationAuthorizations' smart constructor.
 data ListVPCAssociationAuthorizations = ListVPCAssociationAuthorizations'
-    { _lvaaNextToken    :: !(Maybe Text)
-    , _lvaaMaxResults   :: !(Maybe Text)
-    , _lvaaHostedZoneId :: !ResourceId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvaaNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvaaMaxResults   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvaaHostedZoneId :: {-# NOUNPACK #-}!ResourceId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVPCAssociationAuthorizations' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ listVPCAssociationAuthorizations
     :: ResourceId -- ^ 'lvaaHostedZoneId'
     -> ListVPCAssociationAuthorizations
 listVPCAssociationAuthorizations pHostedZoneId_ =
-    ListVPCAssociationAuthorizations'
-    { _lvaaNextToken = Nothing
-    , _lvaaMaxResults = Nothing
-    , _lvaaHostedZoneId = pHostedZoneId_
-    }
+  ListVPCAssociationAuthorizations'
+  { _lvaaNextToken = Nothing
+  , _lvaaMaxResults = Nothing
+  , _lvaaHostedZoneId = pHostedZoneId_
+  }
+
 
 -- | /Optional/ : If a response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of results, submit another request, and include the value of @NextToken@ from the response in the @nexttoken@ parameter in another @ListVPCAssociationAuthorizations@ request.
 lvaaNextToken :: Lens' ListVPCAssociationAuthorizations (Maybe Text)
@@ -107,8 +109,10 @@ instance AWSRequest ListVPCAssociationAuthorizations
                      (x .@? "VPCs" .!@ mempty >>= parseXMLList1 "VPC"))
 
 instance Hashable ListVPCAssociationAuthorizations
+         where
 
 instance NFData ListVPCAssociationAuthorizations
+         where
 
 instance ToHeaders ListVPCAssociationAuthorizations
          where
@@ -134,11 +138,12 @@ instance ToQuery ListVPCAssociationAuthorizations
 --
 -- /See:/ 'listVPCAssociationAuthorizationsResponse' smart constructor.
 data ListVPCAssociationAuthorizationsResponse = ListVPCAssociationAuthorizationsResponse'
-    { _lvaarsNextToken      :: !(Maybe Text)
-    , _lvaarsResponseStatus :: !Int
-    , _lvaarsHostedZoneId   :: !ResourceId
-    , _lvaarsVPCs           :: !(List1 VPC)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvaarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvaarsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lvaarsHostedZoneId   :: {-# NOUNPACK #-}!ResourceId
+  , _lvaarsVPCs           :: {-# NOUNPACK #-}!(List1 VPC)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVPCAssociationAuthorizationsResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +162,13 @@ listVPCAssociationAuthorizationsResponse
     -> NonEmpty VPC -- ^ 'lvaarsVPCs'
     -> ListVPCAssociationAuthorizationsResponse
 listVPCAssociationAuthorizationsResponse pResponseStatus_ pHostedZoneId_ pVPCs_ =
-    ListVPCAssociationAuthorizationsResponse'
-    { _lvaarsNextToken = Nothing
-    , _lvaarsResponseStatus = pResponseStatus_
-    , _lvaarsHostedZoneId = pHostedZoneId_
-    , _lvaarsVPCs = _List1 # pVPCs_
-    }
+  ListVPCAssociationAuthorizationsResponse'
+  { _lvaarsNextToken = Nothing
+  , _lvaarsResponseStatus = pResponseStatus_
+  , _lvaarsHostedZoneId = pHostedZoneId_
+  , _lvaarsVPCs = _List1 # pVPCs_
+  }
+
 
 -- | When the response includes a @NextToken@ element, there are more VPCs that can be associated with the specified hosted zone. To get the next page of VPCs, submit another @ListVPCAssociationAuthorizations@ request, and include the value of the @NextToken@ element from the response in the @nexttoken@ request parameter.
 lvaarsNextToken :: Lens' ListVPCAssociationAuthorizationsResponse (Maybe Text)
@@ -181,4 +187,5 @@ lvaarsVPCs :: Lens' ListVPCAssociationAuthorizationsResponse (NonEmpty VPC)
 lvaarsVPCs = lens _lvaarsVPCs (\ s a -> s{_lvaarsVPCs = a}) . _List1;
 
 instance NFData
-         ListVPCAssociationAuthorizationsResponse
+           ListVPCAssociationAuthorizationsResponse
+         where

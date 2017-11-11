@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeHostReservations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.EC2.DescribeHostReservations
     , dhrrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeHostReservations' smart constructor.
 data DescribeHostReservations = DescribeHostReservations'
-    { _dhrNextToken            :: !(Maybe Text)
-    , _dhrHostReservationIdSet :: !(Maybe [Text])
-    , _dhrFilter               :: !(Maybe [Filter])
-    , _dhrMaxResults           :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhrHostReservationIdSet :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhrFilter               :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dhrMaxResults           :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHostReservations' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data DescribeHostReservations = DescribeHostReservations'
 describeHostReservations
     :: DescribeHostReservations
 describeHostReservations =
-    DescribeHostReservations'
-    { _dhrNextToken = Nothing
-    , _dhrHostReservationIdSet = Nothing
-    , _dhrFilter = Nothing
-    , _dhrMaxResults = Nothing
-    }
+  DescribeHostReservations'
+  { _dhrNextToken = Nothing
+  , _dhrHostReservationIdSet = Nothing
+  , _dhrFilter = Nothing
+  , _dhrMaxResults = Nothing
+  }
+
 
 -- | The token to use to retrieve the next page of results.
 dhrNextToken :: Lens' DescribeHostReservations (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest DescribeHostReservations where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHostReservations
+instance Hashable DescribeHostReservations where
 
-instance NFData DescribeHostReservations
+instance NFData DescribeHostReservations where
 
 instance ToHeaders DescribeHostReservations where
         toHeaders = const mempty
@@ -131,10 +133,11 @@ instance ToQuery DescribeHostReservations where
 
 -- | /See:/ 'describeHostReservationsResponse' smart constructor.
 data DescribeHostReservationsResponse = DescribeHostReservationsResponse'
-    { _dhrrsNextToken          :: !(Maybe Text)
-    , _dhrrsHostReservationSet :: !(Maybe [HostReservation])
-    , _dhrrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhrrsHostReservationSet :: {-# NOUNPACK #-}!(Maybe [HostReservation])
+  , _dhrrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHostReservationsResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +152,12 @@ describeHostReservationsResponse
     :: Int -- ^ 'dhrrsResponseStatus'
     -> DescribeHostReservationsResponse
 describeHostReservationsResponse pResponseStatus_ =
-    DescribeHostReservationsResponse'
-    { _dhrrsNextToken = Nothing
-    , _dhrrsHostReservationSet = Nothing
-    , _dhrrsResponseStatus = pResponseStatus_
-    }
+  DescribeHostReservationsResponse'
+  { _dhrrsNextToken = Nothing
+  , _dhrrsHostReservationSet = Nothing
+  , _dhrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dhrrsNextToken :: Lens' DescribeHostReservationsResponse (Maybe Text)
@@ -168,3 +172,4 @@ dhrrsResponseStatus :: Lens' DescribeHostReservationsResponse Int
 dhrrsResponseStatus = lens _dhrrsResponseStatus (\ s a -> s{_dhrrsResponseStatus = a});
 
 instance NFData DescribeHostReservationsResponse
+         where

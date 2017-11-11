@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudHSM.Types.Product where
 
-import           Network.AWS.CloudHSM.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudHSM.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A key-value pair that identifies or specifies metadata about an AWS CloudHSM resource.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -42,11 +43,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | The key of the tag.
 tagKey :: Lens' Tag Text
@@ -61,9 +59,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

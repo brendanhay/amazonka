@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.Pinpoint.UpdateEndpoint
     , uersMessageBody
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'
-    { _ueApplicationId   :: !Text
-    , _ueEndpointId      :: !Text
-    , _ueEndpointRequest :: !EndpointRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ueApplicationId   :: {-# NOUNPACK #-}!Text
+  , _ueEndpointId      :: {-# NOUNPACK #-}!Text
+  , _ueEndpointRequest :: {-# NOUNPACK #-}!EndpointRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEndpoint' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ updateEndpoint
     -> EndpointRequest -- ^ 'ueEndpointRequest'
     -> UpdateEndpoint
 updateEndpoint pApplicationId_ pEndpointId_ pEndpointRequest_ =
-    UpdateEndpoint'
-    { _ueApplicationId = pApplicationId_
-    , _ueEndpointId = pEndpointId_
-    , _ueEndpointRequest = pEndpointRequest_
-    }
+  UpdateEndpoint'
+  { _ueApplicationId = pApplicationId_
+  , _ueEndpointId = pEndpointId_
+  , _ueEndpointRequest = pEndpointRequest_
+  }
+
 
 -- | Undocumented member.
 ueApplicationId :: Lens' UpdateEndpoint Text
@@ -93,9 +95,9 @@ instance AWSRequest UpdateEndpoint where
                  UpdateEndpointResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateEndpoint
+instance Hashable UpdateEndpoint where
 
-instance NFData UpdateEndpoint
+instance NFData UpdateEndpoint where
 
 instance ToHeaders UpdateEndpoint where
         toHeaders
@@ -121,9 +123,10 @@ instance ToQuery UpdateEndpoint where
 
 -- | /See:/ 'updateEndpointResponse' smart constructor.
 data UpdateEndpointResponse = UpdateEndpointResponse'
-    { _uersResponseStatus :: !Int
-    , _uersMessageBody    :: !MessageBody
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uersResponseStatus :: {-# NOUNPACK #-}!Int
+  , _uersMessageBody    :: {-# NOUNPACK #-}!MessageBody
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEndpointResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,9 @@ updateEndpointResponse
     -> MessageBody -- ^ 'uersMessageBody'
     -> UpdateEndpointResponse
 updateEndpointResponse pResponseStatus_ pMessageBody_ =
-    UpdateEndpointResponse'
-    { _uersResponseStatus = pResponseStatus_
-    , _uersMessageBody = pMessageBody_
-    }
+  UpdateEndpointResponse'
+  {_uersResponseStatus = pResponseStatus_, _uersMessageBody = pMessageBody_}
+
 
 -- | -- | The response status code.
 uersResponseStatus :: Lens' UpdateEndpointResponse Int
@@ -150,4 +152,4 @@ uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = 
 uersMessageBody :: Lens' UpdateEndpointResponse MessageBody
 uersMessageBody = lens _uersMessageBody (\ s a -> s{_uersMessageBody = a});
 
-instance NFData UpdateEndpointResponse
+instance NFData UpdateEndpointResponse where

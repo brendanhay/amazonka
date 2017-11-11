@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeRuntimeConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -89,12 +89,12 @@ module Network.AWS.GameLift.DescribeRuntimeConfiguration
     , drcrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -102,8 +102,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeRuntimeConfiguration' smart constructor.
 newtype DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
-    { _drcFleetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drcFleetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRuntimeConfiguration' with the minimum fields required to make a request.
 --
@@ -114,9 +115,8 @@ describeRuntimeConfiguration
     :: Text -- ^ 'drcFleetId'
     -> DescribeRuntimeConfiguration
 describeRuntimeConfiguration pFleetId_ =
-    DescribeRuntimeConfiguration'
-    { _drcFleetId = pFleetId_
-    }
+  DescribeRuntimeConfiguration' {_drcFleetId = pFleetId_}
+
 
 -- | Unique identifier for a fleet to get the run-time configuration for.
 drcFleetId :: Lens' DescribeRuntimeConfiguration Text
@@ -134,9 +134,9 @@ instance AWSRequest DescribeRuntimeConfiguration
                    (x .?> "RuntimeConfiguration") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeRuntimeConfiguration
+instance Hashable DescribeRuntimeConfiguration where
 
-instance NFData DescribeRuntimeConfiguration
+instance NFData DescribeRuntimeConfiguration where
 
 instance ToHeaders DescribeRuntimeConfiguration where
         toHeaders
@@ -165,9 +165,10 @@ instance ToQuery DescribeRuntimeConfiguration where
 --
 -- /See:/ 'describeRuntimeConfigurationResponse' smart constructor.
 data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse'
-    { _drcrsRuntimeConfiguration :: !(Maybe RuntimeConfiguration)
-    , _drcrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drcrsRuntimeConfiguration :: {-# NOUNPACK #-}!(Maybe RuntimeConfiguration)
+  , _drcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRuntimeConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -180,10 +181,11 @@ describeRuntimeConfigurationResponse
     :: Int -- ^ 'drcrsResponseStatus'
     -> DescribeRuntimeConfigurationResponse
 describeRuntimeConfigurationResponse pResponseStatus_ =
-    DescribeRuntimeConfigurationResponse'
-    { _drcrsRuntimeConfiguration = Nothing
-    , _drcrsResponseStatus = pResponseStatus_
-    }
+  DescribeRuntimeConfigurationResponse'
+  { _drcrsRuntimeConfiguration = Nothing
+  , _drcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Instructions describing how server processes should be launched and maintained on each instance in the fleet.
 drcrsRuntimeConfiguration :: Lens' DescribeRuntimeConfigurationResponse (Maybe RuntimeConfiguration)
@@ -194,3 +196,4 @@ drcrsResponseStatus :: Lens' DescribeRuntimeConfigurationResponse Int
 drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a});
 
 instance NFData DescribeRuntimeConfigurationResponse
+         where

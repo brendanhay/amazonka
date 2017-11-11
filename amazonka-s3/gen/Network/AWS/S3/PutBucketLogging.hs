@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketLogging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,19 +34,20 @@ module Network.AWS.S3.PutBucketLogging
     , PutBucketLoggingResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketLogging' smart constructor.
 data PutBucketLogging = PutBucketLogging'
-    { _pblContentMD5          :: !(Maybe Text)
-    , _pblBucket              :: !BucketName
-    , _pblBucketLoggingStatus :: !BucketLoggingStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pblContentMD5          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pblBucket              :: {-# NOUNPACK #-}!BucketName
+  , _pblBucketLoggingStatus :: {-# NOUNPACK #-}!BucketLoggingStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketLogging' with the minimum fields required to make a request.
 --
@@ -62,11 +63,12 @@ putBucketLogging
     -> BucketLoggingStatus -- ^ 'pblBucketLoggingStatus'
     -> PutBucketLogging
 putBucketLogging pBucket_ pBucketLoggingStatus_ =
-    PutBucketLogging'
-    { _pblContentMD5 = Nothing
-    , _pblBucket = pBucket_
-    , _pblBucketLoggingStatus = pBucketLoggingStatus_
-    }
+  PutBucketLogging'
+  { _pblContentMD5 = Nothing
+  , _pblBucket = pBucket_
+  , _pblBucketLoggingStatus = pBucketLoggingStatus_
+  }
+
 
 -- | Undocumented member.
 pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
@@ -85,9 +87,9 @@ instance AWSRequest PutBucketLogging where
         request = putXML s3
         response = receiveNull PutBucketLoggingResponse'
 
-instance Hashable PutBucketLogging
+instance Hashable PutBucketLogging where
 
-instance NFData PutBucketLogging
+instance NFData PutBucketLogging where
 
 instance ToElement PutBucketLogging where
         toElement
@@ -109,8 +111,9 @@ instance ToQuery PutBucketLogging where
 
 -- | /See:/ 'putBucketLoggingResponse' smart constructor.
 data PutBucketLoggingResponse =
-    PutBucketLoggingResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketLoggingResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketLoggingResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +121,5 @@ putBucketLoggingResponse
     :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse'
 
-instance NFData PutBucketLoggingResponse
+
+instance NFData PutBucketLoggingResponse where

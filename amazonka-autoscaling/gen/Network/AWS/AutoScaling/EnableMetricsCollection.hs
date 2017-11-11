@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.EnableMetricsCollection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     , EnableMetricsCollectionResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for EnableMetricsCollection.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableMetricsCollection' smart constructor.
 data EnableMetricsCollection = EnableMetricsCollection'
-    { _emcMetrics              :: !(Maybe [Text])
-    , _emcAutoScalingGroupName :: !Text
-    , _emcGranularity          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _emcMetrics              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _emcAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _emcGranularity          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableMetricsCollection' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ enableMetricsCollection
     -> Text -- ^ 'emcGranularity'
     -> EnableMetricsCollection
 enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
-    EnableMetricsCollection'
-    { _emcMetrics = Nothing
-    , _emcAutoScalingGroupName = pAutoScalingGroupName_
-    , _emcGranularity = pGranularity_
-    }
+  EnableMetricsCollection'
+  { _emcMetrics = Nothing
+  , _emcAutoScalingGroupName = pAutoScalingGroupName_
+  , _emcGranularity = pGranularity_
+  }
+
 
 -- | One or more of the following metrics. If you omit this parameter, all metrics are enabled.     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 emcMetrics :: Lens' EnableMetricsCollection [Text]
@@ -93,9 +95,9 @@ instance AWSRequest EnableMetricsCollection where
         response
           = receiveNull EnableMetricsCollectionResponse'
 
-instance Hashable EnableMetricsCollection
+instance Hashable EnableMetricsCollection where
 
-instance NFData EnableMetricsCollection
+instance NFData EnableMetricsCollection where
 
 instance ToHeaders EnableMetricsCollection where
         toHeaders = const mempty
@@ -116,8 +118,9 @@ instance ToQuery EnableMetricsCollection where
 
 -- | /See:/ 'enableMetricsCollectionResponse' smart constructor.
 data EnableMetricsCollectionResponse =
-    EnableMetricsCollectionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableMetricsCollectionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableMetricsCollectionResponse' with the minimum fields required to make a request.
 --
@@ -125,4 +128,5 @@ enableMetricsCollectionResponse
     :: EnableMetricsCollectionResponse
 enableMetricsCollectionResponse = EnableMetricsCollectionResponse'
 
-instance NFData EnableMetricsCollectionResponse
+
+instance NFData EnableMetricsCollectionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.TerminateJobFlows
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.EMR.TerminateJobFlows
     , TerminateJobFlowsResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the 'TerminateJobFlows' operation.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'terminateJobFlows' smart constructor.
 newtype TerminateJobFlows = TerminateJobFlows'
-    { _tjfJobFlowIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tjfJobFlowIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateJobFlows' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ newtype TerminateJobFlows = TerminateJobFlows'
 -- * 'tjfJobFlowIds' - A list of job flows to be shutdown.
 terminateJobFlows
     :: TerminateJobFlows
-terminateJobFlows =
-    TerminateJobFlows'
-    { _tjfJobFlowIds = mempty
-    }
+terminateJobFlows = TerminateJobFlows' {_tjfJobFlowIds = mempty}
+
 
 -- | A list of job flows to be shutdown.
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
@@ -73,9 +72,9 @@ instance AWSRequest TerminateJobFlows where
         request = postJSON emr
         response = receiveNull TerminateJobFlowsResponse'
 
-instance Hashable TerminateJobFlows
+instance Hashable TerminateJobFlows where
 
-instance NFData TerminateJobFlows
+instance NFData TerminateJobFlows where
 
 instance ToHeaders TerminateJobFlows where
         toHeaders
@@ -99,8 +98,9 @@ instance ToQuery TerminateJobFlows where
 
 -- | /See:/ 'terminateJobFlowsResponse' smart constructor.
 data TerminateJobFlowsResponse =
-    TerminateJobFlowsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  TerminateJobFlowsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateJobFlowsResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +108,5 @@ terminateJobFlowsResponse
     :: TerminateJobFlowsResponse
 terminateJobFlowsResponse = TerminateJobFlowsResponse'
 
-instance NFData TerminateJobFlowsResponse
+
+instance NFData TerminateJobFlowsResponse where

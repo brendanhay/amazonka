@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
     , ugccrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateGroupCertificateConfiguration' smart constructor.
 data UpdateGroupCertificateConfiguration = UpdateGroupCertificateConfiguration'
-    { _ugccCertificateExpiryInMilliseconds :: !(Maybe Text)
-    , _ugccGroupId                         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugccCertificateExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugccGroupId                         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGroupCertificateConfiguration' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ updateGroupCertificateConfiguration
     :: Text -- ^ 'ugccGroupId'
     -> UpdateGroupCertificateConfiguration
 updateGroupCertificateConfiguration pGroupId_ =
-    UpdateGroupCertificateConfiguration'
-    { _ugccCertificateExpiryInMilliseconds = Nothing
-    , _ugccGroupId = pGroupId_
-    }
+  UpdateGroupCertificateConfiguration'
+  {_ugccCertificateExpiryInMilliseconds = Nothing, _ugccGroupId = pGroupId_}
+
 
 -- | Amount of time when the certificate expires in milliseconds.
 ugccCertificateExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfiguration (Maybe Text)
@@ -76,7 +76,8 @@ ugccGroupId :: Lens' UpdateGroupCertificateConfiguration Text
 ugccGroupId = lens _ugccGroupId (\ s a -> s{_ugccGroupId = a});
 
 instance AWSRequest
-         UpdateGroupCertificateConfiguration where
+           UpdateGroupCertificateConfiguration
+         where
         type Rs UpdateGroupCertificateConfiguration =
              UpdateGroupCertificateConfigurationResponse
         request = putJSON greengrass
@@ -90,11 +91,14 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable UpdateGroupCertificateConfiguration
+         where
 
 instance NFData UpdateGroupCertificateConfiguration
+         where
 
 instance ToHeaders
-         UpdateGroupCertificateConfiguration where
+           UpdateGroupCertificateConfiguration
+         where
         toHeaders
           = const
               (mconcat
@@ -122,11 +126,12 @@ instance ToQuery UpdateGroupCertificateConfiguration
 
 -- | /See:/ 'updateGroupCertificateConfigurationResponse' smart constructor.
 data UpdateGroupCertificateConfigurationResponse = UpdateGroupCertificateConfigurationResponse'
-    { _ugccrsCertificateAuthorityExpiryInMilliseconds :: !(Maybe Text)
-    , _ugccrsGroupId                                  :: !(Maybe Text)
-    , _ugccrsCertificateExpiryInMilliseconds          :: !(Maybe Text)
-    , _ugccrsResponseStatus                           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugccrsCertificateAuthorityExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugccrsGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugccrsCertificateExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGroupCertificateConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -143,12 +148,13 @@ updateGroupCertificateConfigurationResponse
     :: Int -- ^ 'ugccrsResponseStatus'
     -> UpdateGroupCertificateConfigurationResponse
 updateGroupCertificateConfigurationResponse pResponseStatus_ =
-    UpdateGroupCertificateConfigurationResponse'
-    { _ugccrsCertificateAuthorityExpiryInMilliseconds = Nothing
-    , _ugccrsGroupId = Nothing
-    , _ugccrsCertificateExpiryInMilliseconds = Nothing
-    , _ugccrsResponseStatus = pResponseStatus_
-    }
+  UpdateGroupCertificateConfigurationResponse'
+  { _ugccrsCertificateAuthorityExpiryInMilliseconds = Nothing
+  , _ugccrsGroupId = Nothing
+  , _ugccrsCertificateExpiryInMilliseconds = Nothing
+  , _ugccrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Amount of time when the certificate authority expires in milliseconds.
 ugccrsCertificateAuthorityExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfigurationResponse (Maybe Text)
@@ -167,4 +173,5 @@ ugccrsResponseStatus :: Lens' UpdateGroupCertificateConfigurationResponse Int
 ugccrsResponseStatus = lens _ugccrsResponseStatus (\ s a -> s{_ugccrsResponseStatus = a});
 
 instance NFData
-         UpdateGroupCertificateConfigurationResponse
+           UpdateGroupCertificateConfigurationResponse
+         where

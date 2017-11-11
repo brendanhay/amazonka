@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.UpdateFunctionConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -68,12 +68,12 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcMasterARN
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -81,19 +81,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-    { _ufcMemorySize       :: !(Maybe Nat)
-    , _ufcRuntime          :: !(Maybe Runtime)
-    , _ufcKMSKeyARN        :: !(Maybe Text)
-    , _ufcEnvironment      :: !(Maybe Environment)
-    , _ufcDeadLetterConfig :: !(Maybe DeadLetterConfig)
-    , _ufcRole             :: !(Maybe Text)
-    , _ufcVPCConfig        :: !(Maybe VPCConfig)
-    , _ufcHandler          :: !(Maybe Text)
-    , _ufcTimeout          :: !(Maybe Nat)
-    , _ufcTracingConfig    :: !(Maybe TracingConfig)
-    , _ufcDescription      :: !(Maybe Text)
-    , _ufcFunctionName     :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ufcMemorySize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ufcRuntime          :: {-# NOUNPACK #-}!(Maybe Runtime)
+  , _ufcKMSKeyARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufcEnvironment      :: {-# NOUNPACK #-}!(Maybe Environment)
+  , _ufcDeadLetterConfig :: {-# NOUNPACK #-}!(Maybe DeadLetterConfig)
+  , _ufcRole             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufcVPCConfig        :: {-# NOUNPACK #-}!(Maybe VPCConfig)
+  , _ufcHandler          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufcTimeout          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ufcTracingConfig    :: {-# NOUNPACK #-}!(Maybe TracingConfig)
+  , _ufcDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufcFunctionName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFunctionConfiguration' with the minimum fields required to make a request.
 --
@@ -126,20 +127,21 @@ updateFunctionConfiguration
     :: Text -- ^ 'ufcFunctionName'
     -> UpdateFunctionConfiguration
 updateFunctionConfiguration pFunctionName_ =
-    UpdateFunctionConfiguration'
-    { _ufcMemorySize = Nothing
-    , _ufcRuntime = Nothing
-    , _ufcKMSKeyARN = Nothing
-    , _ufcEnvironment = Nothing
-    , _ufcDeadLetterConfig = Nothing
-    , _ufcRole = Nothing
-    , _ufcVPCConfig = Nothing
-    , _ufcHandler = Nothing
-    , _ufcTimeout = Nothing
-    , _ufcTracingConfig = Nothing
-    , _ufcDescription = Nothing
-    , _ufcFunctionName = pFunctionName_
-    }
+  UpdateFunctionConfiguration'
+  { _ufcMemorySize = Nothing
+  , _ufcRuntime = Nothing
+  , _ufcKMSKeyARN = Nothing
+  , _ufcEnvironment = Nothing
+  , _ufcDeadLetterConfig = Nothing
+  , _ufcRole = Nothing
+  , _ufcVPCConfig = Nothing
+  , _ufcHandler = Nothing
+  , _ufcTimeout = Nothing
+  , _ufcTracingConfig = Nothing
+  , _ufcDescription = Nothing
+  , _ufcFunctionName = pFunctionName_
+  }
+
 
 -- | The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory size to infer the amount of CPU allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
 ufcMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
@@ -195,9 +197,9 @@ instance AWSRequest UpdateFunctionConfiguration where
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateFunctionConfiguration
+instance Hashable UpdateFunctionConfiguration where
 
-instance NFData UpdateFunctionConfiguration
+instance NFData UpdateFunctionConfiguration where
 
 instance ToHeaders UpdateFunctionConfiguration where
         toHeaders = const mempty

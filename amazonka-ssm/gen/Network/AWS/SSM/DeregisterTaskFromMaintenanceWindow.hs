@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
     , derrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deregisterTaskFromMaintenanceWindow' smart constructor.
 data DeregisterTaskFromMaintenanceWindow = DeregisterTaskFromMaintenanceWindow'
-    { _derWindowId     :: !Text
-    , _derWindowTaskId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derWindowId     :: {-# NOUNPACK #-}!Text
+  , _derWindowTaskId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterTaskFromMaintenanceWindow' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ deregisterTaskFromMaintenanceWindow
     -> Text -- ^ 'derWindowTaskId'
     -> DeregisterTaskFromMaintenanceWindow
 deregisterTaskFromMaintenanceWindow pWindowId_ pWindowTaskId_ =
-    DeregisterTaskFromMaintenanceWindow'
-    { _derWindowId = pWindowId_
-    , _derWindowTaskId = pWindowTaskId_
-    }
+  DeregisterTaskFromMaintenanceWindow'
+  {_derWindowId = pWindowId_, _derWindowTaskId = pWindowTaskId_}
+
 
 -- | The ID of the Maintenance Window the task should be removed from.
 derWindowId :: Lens' DeregisterTaskFromMaintenanceWindow Text
@@ -78,7 +78,8 @@ derWindowTaskId :: Lens' DeregisterTaskFromMaintenanceWindow Text
 derWindowTaskId = lens _derWindowTaskId (\ s a -> s{_derWindowTaskId = a});
 
 instance AWSRequest
-         DeregisterTaskFromMaintenanceWindow where
+           DeregisterTaskFromMaintenanceWindow
+         where
         type Rs DeregisterTaskFromMaintenanceWindow =
              DeregisterTaskFromMaintenanceWindowResponse
         request = postJSON ssm
@@ -90,11 +91,14 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable DeregisterTaskFromMaintenanceWindow
+         where
 
 instance NFData DeregisterTaskFromMaintenanceWindow
+         where
 
 instance ToHeaders
-         DeregisterTaskFromMaintenanceWindow where
+           DeregisterTaskFromMaintenanceWindow
+         where
         toHeaders
           = const
               (mconcat
@@ -122,10 +126,11 @@ instance ToQuery DeregisterTaskFromMaintenanceWindow
 
 -- | /See:/ 'deregisterTaskFromMaintenanceWindowResponse' smart constructor.
 data DeregisterTaskFromMaintenanceWindowResponse = DeregisterTaskFromMaintenanceWindowResponse'
-    { _derrsWindowTaskId   :: !(Maybe Text)
-    , _derrsWindowId       :: !(Maybe Text)
-    , _derrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derrsWindowTaskId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _derrsWindowId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _derrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterTaskFromMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
@@ -140,11 +145,12 @@ deregisterTaskFromMaintenanceWindowResponse
     :: Int -- ^ 'derrsResponseStatus'
     -> DeregisterTaskFromMaintenanceWindowResponse
 deregisterTaskFromMaintenanceWindowResponse pResponseStatus_ =
-    DeregisterTaskFromMaintenanceWindowResponse'
-    { _derrsWindowTaskId = Nothing
-    , _derrsWindowId = Nothing
-    , _derrsResponseStatus = pResponseStatus_
-    }
+  DeregisterTaskFromMaintenanceWindowResponse'
+  { _derrsWindowTaskId = Nothing
+  , _derrsWindowId = Nothing
+  , _derrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the task removed from the Maintenance Window.
 derrsWindowTaskId :: Lens' DeregisterTaskFromMaintenanceWindowResponse (Maybe Text)
@@ -159,4 +165,5 @@ derrsResponseStatus :: Lens' DeregisterTaskFromMaintenanceWindowResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
 
 instance NFData
-         DeregisterTaskFromMaintenanceWindowResponse
+           DeregisterTaskFromMaintenanceWindowResponse
+         where

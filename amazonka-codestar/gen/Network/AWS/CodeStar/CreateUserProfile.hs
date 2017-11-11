@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.CreateUserProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.CodeStar.CreateUserProfile
     , cuprsUserARN
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-    { _cupSshPublicKey :: !(Maybe Text)
-    , _cupUserARN      :: !Text
-    , _cupDisplayName  :: !Text
-    , _cupEmailAddress :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cupSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cupUserARN      :: {-# NOUNPACK #-}!Text
+  , _cupDisplayName  :: {-# NOUNPACK #-}!Text
+  , _cupEmailAddress :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserProfile' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ createUserProfile
     -> Text -- ^ 'cupEmailAddress'
     -> CreateUserProfile
 createUserProfile pUserARN_ pDisplayName_ pEmailAddress_ =
-    CreateUserProfile'
-    { _cupSshPublicKey = Nothing
-    , _cupUserARN = pUserARN_
-    , _cupDisplayName = pDisplayName_
-    , _cupEmailAddress = pEmailAddress_
-    }
+  CreateUserProfile'
+  { _cupSshPublicKey = Nothing
+  , _cupUserARN = pUserARN_
+  , _cupDisplayName = pDisplayName_
+  , _cupEmailAddress = pEmailAddress_
+  }
+
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
 cupSshPublicKey :: Lens' CreateUserProfile (Maybe Text)
@@ -115,9 +117,9 @@ instance AWSRequest CreateUserProfile where
                      <*> (pure (fromEnum s))
                      <*> (x .:> "userArn"))
 
-instance Hashable CreateUserProfile
+instance Hashable CreateUserProfile where
 
-instance NFData CreateUserProfile
+instance NFData CreateUserProfile where
 
 instance ToHeaders CreateUserProfile where
         toHeaders
@@ -146,14 +148,15 @@ instance ToQuery CreateUserProfile where
 
 -- | /See:/ 'createUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-    { _cuprsLastModifiedTimestamp :: !(Maybe POSIX)
-    , _cuprsSshPublicKey          :: !(Maybe Text)
-    , _cuprsEmailAddress          :: !(Maybe Text)
-    , _cuprsDisplayName           :: !(Maybe Text)
-    , _cuprsCreatedTimestamp      :: !(Maybe POSIX)
-    , _cuprsResponseStatus        :: !Int
-    , _cuprsUserARN               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cuprsLastModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cuprsSshPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuprsDisplayName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuprsCreatedTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cuprsResponseStatus        :: {-# NOUNPACK #-}!Int
+  , _cuprsUserARN               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
 --
@@ -177,15 +180,16 @@ createUserProfileResponse
     -> Text -- ^ 'cuprsUserARN'
     -> CreateUserProfileResponse
 createUserProfileResponse pResponseStatus_ pUserARN_ =
-    CreateUserProfileResponse'
-    { _cuprsLastModifiedTimestamp = Nothing
-    , _cuprsSshPublicKey = Nothing
-    , _cuprsEmailAddress = Nothing
-    , _cuprsDisplayName = Nothing
-    , _cuprsCreatedTimestamp = Nothing
-    , _cuprsResponseStatus = pResponseStatus_
-    , _cuprsUserARN = pUserARN_
-    }
+  CreateUserProfileResponse'
+  { _cuprsLastModifiedTimestamp = Nothing
+  , _cuprsSshPublicKey = Nothing
+  , _cuprsEmailAddress = Nothing
+  , _cuprsDisplayName = Nothing
+  , _cuprsCreatedTimestamp = Nothing
+  , _cuprsResponseStatus = pResponseStatus_
+  , _cuprsUserARN = pUserARN_
+  }
+
 
 -- | The date the user profile was last modified, in timestamp format.
 cuprsLastModifiedTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
@@ -215,4 +219,4 @@ cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus
 cuprsUserARN :: Lens' CreateUserProfileResponse Text
 cuprsUserARN = lens _cuprsUserARN (\ s a -> s{_cuprsUserARN = a});
 
-instance NFData CreateUserProfileResponse
+instance NFData CreateUserProfileResponse where

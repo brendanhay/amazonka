@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
     , ltpibprsMaxItems
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains the information about the request to list your traffic policy instances.
 --
@@ -62,13 +62,14 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTrafficPolicyInstancesByPolicy' smart constructor.
 data ListTrafficPolicyInstancesByPolicy = ListTrafficPolicyInstancesByPolicy'
-    { _ltpibpTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
-    , _ltpibpMaxItems                        :: !(Maybe Text)
-    , _ltpibpHostedZoneIdMarker              :: !(Maybe ResourceId)
-    , _ltpibpTrafficPolicyInstanceNameMarker :: !(Maybe Text)
-    , _ltpibpTrafficPolicyId                 :: !Text
-    , _ltpibpTrafficPolicyVersion            :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltpibpTrafficPolicyInstanceTypeMarker :: {-# NOUNPACK #-}!(Maybe RecordType)
+  , _ltpibpMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltpibpHostedZoneIdMarker :: {-# NOUNPACK #-}!(Maybe ResourceId)
+  , _ltpibpTrafficPolicyInstanceNameMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltpibpTrafficPolicyId :: {-# NOUNPACK #-}!Text
+  , _ltpibpTrafficPolicyVersion :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTrafficPolicyInstancesByPolicy' with the minimum fields required to make a request.
 --
@@ -90,14 +91,15 @@ listTrafficPolicyInstancesByPolicy
     -> Natural -- ^ 'ltpibpTrafficPolicyVersion'
     -> ListTrafficPolicyInstancesByPolicy
 listTrafficPolicyInstancesByPolicy pTrafficPolicyId_ pTrafficPolicyVersion_ =
-    ListTrafficPolicyInstancesByPolicy'
-    { _ltpibpTrafficPolicyInstanceTypeMarker = Nothing
-    , _ltpibpMaxItems = Nothing
-    , _ltpibpHostedZoneIdMarker = Nothing
-    , _ltpibpTrafficPolicyInstanceNameMarker = Nothing
-    , _ltpibpTrafficPolicyId = pTrafficPolicyId_
-    , _ltpibpTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
-    }
+  ListTrafficPolicyInstancesByPolicy'
+  { _ltpibpTrafficPolicyInstanceTypeMarker = Nothing
+  , _ltpibpMaxItems = Nothing
+  , _ltpibpHostedZoneIdMarker = Nothing
+  , _ltpibpTrafficPolicyInstanceNameMarker = Nothing
+  , _ltpibpTrafficPolicyId = pTrafficPolicyId_
+  , _ltpibpTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
+  }
+
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstancesByPolicy@ request. For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the name of the first traffic policy instance that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 ltpibpTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe RecordType)
@@ -124,7 +126,8 @@ ltpibpTrafficPolicyVersion :: Lens' ListTrafficPolicyInstancesByPolicy Natural
 ltpibpTrafficPolicyVersion = lens _ltpibpTrafficPolicyVersion (\ s a -> s{_ltpibpTrafficPolicyVersion = a}) . _Nat;
 
 instance AWSRequest
-         ListTrafficPolicyInstancesByPolicy where
+           ListTrafficPolicyInstancesByPolicy
+         where
         type Rs ListTrafficPolicyInstancesByPolicy =
              ListTrafficPolicyInstancesByPolicyResponse
         request = get route53
@@ -143,8 +146,10 @@ instance AWSRequest
                      <*> (x .@ "MaxItems"))
 
 instance Hashable ListTrafficPolicyInstancesByPolicy
+         where
 
 instance NFData ListTrafficPolicyInstancesByPolicy
+         where
 
 instance ToHeaders ListTrafficPolicyInstancesByPolicy
          where
@@ -175,14 +180,15 @@ instance ToQuery ListTrafficPolicyInstancesByPolicy
 --
 -- /See:/ 'listTrafficPolicyInstancesByPolicyResponse' smart constructor.
 data ListTrafficPolicyInstancesByPolicyResponse = ListTrafficPolicyInstancesByPolicyResponse'
-    { _ltpibprsTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
-    , _ltpibprsHostedZoneIdMarker              :: !(Maybe ResourceId)
-    , _ltpibprsTrafficPolicyInstanceNameMarker :: !(Maybe Text)
-    , _ltpibprsResponseStatus                  :: !Int
-    , _ltpibprsTrafficPolicyInstances          :: ![TrafficPolicyInstance]
-    , _ltpibprsIsTruncated                     :: !Bool
-    , _ltpibprsMaxItems                        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltpibprsTrafficPolicyInstanceTypeMarker :: {-# NOUNPACK #-}!(Maybe RecordType)
+  , _ltpibprsHostedZoneIdMarker :: {-# NOUNPACK #-}!(Maybe ResourceId)
+  , _ltpibprsTrafficPolicyInstanceNameMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltpibprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ltpibprsTrafficPolicyInstances :: {-# NOUNPACK #-}![TrafficPolicyInstance]
+  , _ltpibprsIsTruncated :: {-# NOUNPACK #-}!Bool
+  , _ltpibprsMaxItems :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTrafficPolicyInstancesByPolicyResponse' with the minimum fields required to make a request.
 --
@@ -207,15 +213,16 @@ listTrafficPolicyInstancesByPolicyResponse
     -> Text -- ^ 'ltpibprsMaxItems'
     -> ListTrafficPolicyInstancesByPolicyResponse
 listTrafficPolicyInstancesByPolicyResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
-    ListTrafficPolicyInstancesByPolicyResponse'
-    { _ltpibprsTrafficPolicyInstanceTypeMarker = Nothing
-    , _ltpibprsHostedZoneIdMarker = Nothing
-    , _ltpibprsTrafficPolicyInstanceNameMarker = Nothing
-    , _ltpibprsResponseStatus = pResponseStatus_
-    , _ltpibprsTrafficPolicyInstances = mempty
-    , _ltpibprsIsTruncated = pIsTruncated_
-    , _ltpibprsMaxItems = pMaxItems_
-    }
+  ListTrafficPolicyInstancesByPolicyResponse'
+  { _ltpibprsTrafficPolicyInstanceTypeMarker = Nothing
+  , _ltpibprsHostedZoneIdMarker = Nothing
+  , _ltpibprsTrafficPolicyInstanceNameMarker = Nothing
+  , _ltpibprsResponseStatus = pResponseStatus_
+  , _ltpibprsTrafficPolicyInstances = mempty
+  , _ltpibprsIsTruncated = pIsTruncated_
+  , _ltpibprsMaxItems = pMaxItems_
+  }
+
 
 -- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
 ltpibprsTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe RecordType)
@@ -246,4 +253,5 @@ ltpibprsMaxItems :: Lens' ListTrafficPolicyInstancesByPolicyResponse Text
 ltpibprsMaxItems = lens _ltpibprsMaxItems (\ s a -> s{_ltpibprsMaxItems = a});
 
 instance NFData
-         ListTrafficPolicyInstancesByPolicyResponse
+           ListTrafficPolicyInstancesByPolicyResponse
+         where

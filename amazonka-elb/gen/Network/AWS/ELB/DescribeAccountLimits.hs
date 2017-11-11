@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeAccountLimits
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.ELB.DescribeAccountLimits
     , dalrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
-    { _dalMarker   :: !(Maybe Text)
-    , _dalPageSize :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dalMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dalPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ data DescribeAccountLimits = DescribeAccountLimits'
 describeAccountLimits
     :: DescribeAccountLimits
 describeAccountLimits =
-    DescribeAccountLimits'
-    { _dalMarker = Nothing
-    , _dalPageSize = Nothing
-    }
+  DescribeAccountLimits' {_dalMarker = Nothing, _dalPageSize = Nothing}
+
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 dalMarker :: Lens' DescribeAccountLimits (Maybe Text)
@@ -90,9 +89,9 @@ instance AWSRequest DescribeAccountLimits where
                      <*> (x .@? "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAccountLimits
+instance Hashable DescribeAccountLimits where
 
-instance NFData DescribeAccountLimits
+instance NFData DescribeAccountLimits where
 
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
@@ -109,10 +108,11 @@ instance ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-    { _dalrsLimits         :: !(Maybe [Limit])
-    , _dalrsNextMarker     :: !(Maybe Text)
-    , _dalrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dalrsLimits         :: {-# NOUNPACK #-}!(Maybe [Limit])
+  , _dalrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dalrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
 --
@@ -127,11 +127,12 @@ describeAccountLimitsResponse
     :: Int -- ^ 'dalrsResponseStatus'
     -> DescribeAccountLimitsResponse
 describeAccountLimitsResponse pResponseStatus_ =
-    DescribeAccountLimitsResponse'
-    { _dalrsLimits = Nothing
-    , _dalrsNextMarker = Nothing
-    , _dalrsResponseStatus = pResponseStatus_
-    }
+  DescribeAccountLimitsResponse'
+  { _dalrsLimits = Nothing
+  , _dalrsNextMarker = Nothing
+  , _dalrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the limits.
 dalrsLimits :: Lens' DescribeAccountLimitsResponse [Limit]
@@ -145,4 +146,4 @@ dalrsNextMarker = lens _dalrsNextMarker (\ s a -> s{_dalrsNextMarker = a});
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
 dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
 
-instance NFData DescribeAccountLimitsResponse
+instance NFData DescribeAccountLimitsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.AddTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudTrail.AddTags
     , atrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Specifies the tags to add to a trail.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
-    { _atTagsList   :: !(Maybe [Tag])
-    , _atResourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atTagsList   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _atResourceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ addTags
     :: Text -- ^ 'atResourceId'
     -> AddTags
 addTags pResourceId_ =
-    AddTags'
-    { _atTagsList = Nothing
-    , _atResourceId = pResourceId_
-    }
+  AddTags' {_atTagsList = Nothing, _atResourceId = pResourceId_}
+
 
 -- | Contains a list of CloudTrail tags, up to a limit of 50
 atTagsList :: Lens' AddTags [Tag]
@@ -85,9 +84,9 @@ instance AWSRequest AddTags where
           = receiveEmpty
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AddTags
+instance Hashable AddTags where
 
-instance NFData AddTags
+instance NFData AddTags where
 
 instance ToHeaders AddTags where
         toHeaders
@@ -118,8 +117,9 @@ instance ToQuery AddTags where
 --
 -- /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-    { _atrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
@@ -130,12 +130,11 @@ addTagsResponse
     :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
 addTagsResponse pResponseStatus_ =
-    AddTagsResponse'
-    { _atrsResponseStatus = pResponseStatus_
-    }
+  AddTagsResponse' {_atrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
 
-instance NFData AddTagsResponse
+instance NFData AddTagsResponse where

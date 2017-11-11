@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Batch.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Batch.Types.Product where
 
-import           Network.AWS.Batch.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Batch.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | An object representing the details of a container that is part of a job attempt.
 --
@@ -27,12 +27,13 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'attemptContainerDetail' smart constructor.
 data AttemptContainerDetail = AttemptContainerDetail'
-    { _acdTaskARN              :: !(Maybe Text)
-    , _acdContainerInstanceARN :: !(Maybe Text)
-    , _acdReason               :: !(Maybe Text)
-    , _acdLogStreamName        :: !(Maybe Text)
-    , _acdExitCode             :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acdTaskARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acdContainerInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acdReason               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acdLogStreamName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acdExitCode             :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttemptContainerDetail' with the minimum fields required to make a request.
 --
@@ -50,13 +51,14 @@ data AttemptContainerDetail = AttemptContainerDetail'
 attemptContainerDetail
     :: AttemptContainerDetail
 attemptContainerDetail =
-    AttemptContainerDetail'
-    { _acdTaskARN = Nothing
-    , _acdContainerInstanceARN = Nothing
-    , _acdReason = Nothing
-    , _acdLogStreamName = Nothing
-    , _acdExitCode = Nothing
-    }
+  AttemptContainerDetail'
+  { _acdTaskARN = Nothing
+  , _acdContainerInstanceARN = Nothing
+  , _acdReason = Nothing
+  , _acdLogStreamName = Nothing
+  , _acdExitCode = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt.
 acdTaskARN :: Lens' AttemptContainerDetail (Maybe Text)
@@ -88,9 +90,9 @@ instance FromJSON AttemptContainerDetail where
                      <*> (x .:? "logStreamName")
                      <*> (x .:? "exitCode"))
 
-instance Hashable AttemptContainerDetail
+instance Hashable AttemptContainerDetail where
 
-instance NFData AttemptContainerDetail
+instance NFData AttemptContainerDetail where
 
 -- | An object representing a job attempt.
 --
@@ -98,11 +100,12 @@ instance NFData AttemptContainerDetail
 --
 -- /See:/ 'attemptDetail' smart constructor.
 data AttemptDetail = AttemptDetail'
-    { _adStoppedAt    :: !(Maybe Integer)
-    , _adStartedAt    :: !(Maybe Integer)
-    , _adContainer    :: !(Maybe AttemptContainerDetail)
-    , _adStatusReason :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adStoppedAt    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _adStartedAt    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _adContainer    :: {-# NOUNPACK #-}!(Maybe AttemptContainerDetail)
+  , _adStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttemptDetail' with the minimum fields required to make a request.
 --
@@ -118,12 +121,13 @@ data AttemptDetail = AttemptDetail'
 attemptDetail
     :: AttemptDetail
 attemptDetail =
-    AttemptDetail'
-    { _adStoppedAt = Nothing
-    , _adStartedAt = Nothing
-    , _adContainer = Nothing
-    , _adStatusReason = Nothing
-    }
+  AttemptDetail'
+  { _adStoppedAt = Nothing
+  , _adStartedAt = Nothing
+  , _adContainer = Nothing
+  , _adStatusReason = Nothing
+  }
+
 
 -- | The Unix timestamp for when the attempt was stopped (when the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
 adStoppedAt :: Lens' AttemptDetail (Maybe Integer)
@@ -150,9 +154,9 @@ instance FromJSON AttemptDetail where
                      (x .:? "container")
                      <*> (x .:? "statusReason"))
 
-instance Hashable AttemptDetail
+instance Hashable AttemptDetail where
 
-instance NFData AttemptDetail
+instance NFData AttemptDetail where
 
 -- | An object representing an AWS Batch compute environment.
 --
@@ -160,16 +164,17 @@ instance NFData AttemptDetail
 --
 -- /See:/ 'computeEnvironmentDetail' smart constructor.
 data ComputeEnvironmentDetail = ComputeEnvironmentDetail'
-    { _cedStatus                 :: !(Maybe CEStatus)
-    , _cedState                  :: !(Maybe CEState)
-    , _cedComputeResources       :: !(Maybe ComputeResource)
-    , _cedStatusReason           :: !(Maybe Text)
-    , _cedType                   :: !(Maybe CEType)
-    , _cedServiceRole            :: !(Maybe Text)
-    , _cedComputeEnvironmentName :: !Text
-    , _cedComputeEnvironmentARN  :: !Text
-    , _cedEcsClusterARN          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cedStatus                 :: {-# NOUNPACK #-}!(Maybe CEStatus)
+  , _cedState                  :: {-# NOUNPACK #-}!(Maybe CEState)
+  , _cedComputeResources       :: {-# NOUNPACK #-}!(Maybe ComputeResource)
+  , _cedStatusReason           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cedType                   :: {-# NOUNPACK #-}!(Maybe CEType)
+  , _cedServiceRole            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cedComputeEnvironmentName :: {-# NOUNPACK #-}!Text
+  , _cedComputeEnvironmentARN  :: {-# NOUNPACK #-}!Text
+  , _cedEcsClusterARN          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComputeEnvironmentDetail' with the minimum fields required to make a request.
 --
@@ -198,17 +203,18 @@ computeEnvironmentDetail
     -> Text -- ^ 'cedEcsClusterARN'
     -> ComputeEnvironmentDetail
 computeEnvironmentDetail pComputeEnvironmentName_ pComputeEnvironmentARN_ pEcsClusterARN_ =
-    ComputeEnvironmentDetail'
-    { _cedStatus = Nothing
-    , _cedState = Nothing
-    , _cedComputeResources = Nothing
-    , _cedStatusReason = Nothing
-    , _cedType = Nothing
-    , _cedServiceRole = Nothing
-    , _cedComputeEnvironmentName = pComputeEnvironmentName_
-    , _cedComputeEnvironmentARN = pComputeEnvironmentARN_
-    , _cedEcsClusterARN = pEcsClusterARN_
-    }
+  ComputeEnvironmentDetail'
+  { _cedStatus = Nothing
+  , _cedState = Nothing
+  , _cedComputeResources = Nothing
+  , _cedStatusReason = Nothing
+  , _cedType = Nothing
+  , _cedServiceRole = Nothing
+  , _cedComputeEnvironmentName = pComputeEnvironmentName_
+  , _cedComputeEnvironmentARN = pComputeEnvironmentARN_
+  , _cedEcsClusterARN = pEcsClusterARN_
+  }
+
 
 -- | The current status of the compute environment (for example, @CREATING@ or @VALID@ ).
 cedStatus :: Lens' ComputeEnvironmentDetail (Maybe CEStatus)
@@ -260,9 +266,9 @@ instance FromJSON ComputeEnvironmentDetail where
                      <*> (x .: "computeEnvironmentArn")
                      <*> (x .: "ecsClusterArn"))
 
-instance Hashable ComputeEnvironmentDetail
+instance Hashable ComputeEnvironmentDetail where
 
-instance NFData ComputeEnvironmentDetail
+instance NFData ComputeEnvironmentDetail where
 
 -- | The order in which compute environments are tried for job placement within a queue. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
 --
@@ -270,9 +276,10 @@ instance NFData ComputeEnvironmentDetail
 --
 -- /See:/ 'computeEnvironmentOrder' smart constructor.
 data ComputeEnvironmentOrder = ComputeEnvironmentOrder'
-    { _ceoOrder              :: !Int
-    , _ceoComputeEnvironment :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ceoOrder              :: {-# NOUNPACK #-}!Int
+  , _ceoComputeEnvironment :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComputeEnvironmentOrder' with the minimum fields required to make a request.
 --
@@ -286,10 +293,9 @@ computeEnvironmentOrder
     -> Text -- ^ 'ceoComputeEnvironment'
     -> ComputeEnvironmentOrder
 computeEnvironmentOrder pOrder_ pComputeEnvironment_ =
-    ComputeEnvironmentOrder'
-    { _ceoOrder = pOrder_
-    , _ceoComputeEnvironment = pComputeEnvironment_
-    }
+  ComputeEnvironmentOrder'
+  {_ceoOrder = pOrder_, _ceoComputeEnvironment = pComputeEnvironment_}
+
 
 -- | The order of the compute environment.
 ceoOrder :: Lens' ComputeEnvironmentOrder Int
@@ -306,9 +312,9 @@ instance FromJSON ComputeEnvironmentOrder where
                  ComputeEnvironmentOrder' <$>
                    (x .: "order") <*> (x .: "computeEnvironment"))
 
-instance Hashable ComputeEnvironmentOrder
+instance Hashable ComputeEnvironmentOrder where
 
-instance NFData ComputeEnvironmentOrder
+instance NFData ComputeEnvironmentOrder where
 
 instance ToJSON ComputeEnvironmentOrder where
         toJSON ComputeEnvironmentOrder'{..}
@@ -324,20 +330,21 @@ instance ToJSON ComputeEnvironmentOrder where
 --
 -- /See:/ 'computeResource' smart constructor.
 data ComputeResource = ComputeResource'
-    { _crEc2KeyPair       :: !(Maybe Text)
-    , _crBidPercentage    :: !(Maybe Int)
-    , _crSpotIAMFleetRole :: !(Maybe Text)
-    , _crImageId          :: !(Maybe Text)
-    , _crDesiredvCPUs     :: !(Maybe Int)
-    , _crTags             :: !(Maybe (Map Text Text))
-    , _crType             :: !CRType
-    , _crMinvCPUs         :: !Int
-    , _crMaxvCPUs         :: !Int
-    , _crInstanceTypes    :: ![Text]
-    , _crSubnets          :: ![Text]
-    , _crSecurityGroupIds :: ![Text]
-    , _crInstanceRole     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crEc2KeyPair       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crBidPercentage    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _crSpotIAMFleetRole :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crImageId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crDesiredvCPUs     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _crTags             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _crType             :: {-# NOUNPACK #-}!CRType
+  , _crMinvCPUs         :: {-# NOUNPACK #-}!Int
+  , _crMaxvCPUs         :: {-# NOUNPACK #-}!Int
+  , _crInstanceTypes    :: {-# NOUNPACK #-}![Text]
+  , _crSubnets          :: {-# NOUNPACK #-}![Text]
+  , _crSecurityGroupIds :: {-# NOUNPACK #-}![Text]
+  , _crInstanceRole     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComputeResource' with the minimum fields required to make a request.
 --
@@ -375,21 +382,22 @@ computeResource
     -> Text -- ^ 'crInstanceRole'
     -> ComputeResource
 computeResource pType_ pMinvCPUs_ pMaxvCPUs_ pInstanceRole_ =
-    ComputeResource'
-    { _crEc2KeyPair = Nothing
-    , _crBidPercentage = Nothing
-    , _crSpotIAMFleetRole = Nothing
-    , _crImageId = Nothing
-    , _crDesiredvCPUs = Nothing
-    , _crTags = Nothing
-    , _crType = pType_
-    , _crMinvCPUs = pMinvCPUs_
-    , _crMaxvCPUs = pMaxvCPUs_
-    , _crInstanceTypes = mempty
-    , _crSubnets = mempty
-    , _crSecurityGroupIds = mempty
-    , _crInstanceRole = pInstanceRole_
-    }
+  ComputeResource'
+  { _crEc2KeyPair = Nothing
+  , _crBidPercentage = Nothing
+  , _crSpotIAMFleetRole = Nothing
+  , _crImageId = Nothing
+  , _crDesiredvCPUs = Nothing
+  , _crTags = Nothing
+  , _crType = pType_
+  , _crMinvCPUs = pMinvCPUs_
+  , _crMaxvCPUs = pMaxvCPUs_
+  , _crInstanceTypes = mempty
+  , _crSubnets = mempty
+  , _crSecurityGroupIds = mempty
+  , _crInstanceRole = pInstanceRole_
+  }
+
 
 -- | The EC2 key pair that is used for instances launched in the compute environment.
 crEc2KeyPair :: Lens' ComputeResource (Maybe Text)
@@ -461,9 +469,9 @@ instance FromJSON ComputeResource where
                      <*> (x .:? "securityGroupIds" .!= mempty)
                      <*> (x .: "instanceRole"))
 
-instance Hashable ComputeResource
+instance Hashable ComputeResource where
 
-instance NFData ComputeResource
+instance NFData ComputeResource where
 
 instance ToJSON ComputeResource where
         toJSON ComputeResource'{..}
@@ -488,10 +496,11 @@ instance ToJSON ComputeResource where
 --
 -- /See:/ 'computeResourceUpdate' smart constructor.
 data ComputeResourceUpdate = ComputeResourceUpdate'
-    { _cruMinvCPUs     :: !(Maybe Int)
-    , _cruMaxvCPUs     :: !(Maybe Int)
-    , _cruDesiredvCPUs :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cruMinvCPUs     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cruMaxvCPUs     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cruDesiredvCPUs :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComputeResourceUpdate' with the minimum fields required to make a request.
 --
@@ -505,11 +514,9 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 computeResourceUpdate
     :: ComputeResourceUpdate
 computeResourceUpdate =
-    ComputeResourceUpdate'
-    { _cruMinvCPUs = Nothing
-    , _cruMaxvCPUs = Nothing
-    , _cruDesiredvCPUs = Nothing
-    }
+  ComputeResourceUpdate'
+  {_cruMinvCPUs = Nothing, _cruMaxvCPUs = Nothing, _cruDesiredvCPUs = Nothing}
+
 
 -- | The minimum number of EC2 vCPUs that an environment should maintain.
 cruMinvCPUs :: Lens' ComputeResourceUpdate (Maybe Int)
@@ -523,9 +530,9 @@ cruMaxvCPUs = lens _cruMaxvCPUs (\ s a -> s{_cruMaxvCPUs = a});
 cruDesiredvCPUs :: Lens' ComputeResourceUpdate (Maybe Int)
 cruDesiredvCPUs = lens _cruDesiredvCPUs (\ s a -> s{_cruDesiredvCPUs = a});
 
-instance Hashable ComputeResourceUpdate
+instance Hashable ComputeResourceUpdate where
 
-instance NFData ComputeResourceUpdate
+instance NFData ComputeResourceUpdate where
 
 instance ToJSON ComputeResourceUpdate where
         toJSON ComputeResourceUpdate'{..}
@@ -541,24 +548,25 @@ instance ToJSON ComputeResourceUpdate where
 --
 -- /See:/ 'containerDetail' smart constructor.
 data ContainerDetail = ContainerDetail'
-    { _cdImage                  :: !(Maybe Text)
-    , _cdCommand                :: !(Maybe [Text])
-    , _cdEnvironment            :: !(Maybe [KeyValuePair])
-    , _cdTaskARN                :: !(Maybe Text)
-    , _cdUlimits                :: !(Maybe [Ulimit])
-    , _cdContainerInstanceARN   :: !(Maybe Text)
-    , _cdPrivileged             :: !(Maybe Bool)
-    , _cdJobRoleARN             :: !(Maybe Text)
-    , _cdMemory                 :: !(Maybe Int)
-    , _cdUser                   :: !(Maybe Text)
-    , _cdReason                 :: !(Maybe Text)
-    , _cdLogStreamName          :: !(Maybe Text)
-    , _cdMountPoints            :: !(Maybe [MountPoint])
-    , _cdExitCode               :: !(Maybe Int)
-    , _cdVcpus                  :: !(Maybe Int)
-    , _cdReadonlyRootFilesystem :: !(Maybe Bool)
-    , _cdVolumes                :: !(Maybe [Volume])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdImage                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdCommand                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdEnvironment            :: {-# NOUNPACK #-}!(Maybe [KeyValuePair])
+  , _cdTaskARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdUlimits                :: {-# NOUNPACK #-}!(Maybe [Ulimit])
+  , _cdContainerInstanceARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdPrivileged             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdJobRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdMemory                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdUser                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdReason                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdLogStreamName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdMountPoints            :: {-# NOUNPACK #-}!(Maybe [MountPoint])
+  , _cdExitCode               :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdVcpus                  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdReadonlyRootFilesystem :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdVolumes                :: {-# NOUNPACK #-}!(Maybe [Volume])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContainerDetail' with the minimum fields required to make a request.
 --
@@ -600,25 +608,26 @@ data ContainerDetail = ContainerDetail'
 containerDetail
     :: ContainerDetail
 containerDetail =
-    ContainerDetail'
-    { _cdImage = Nothing
-    , _cdCommand = Nothing
-    , _cdEnvironment = Nothing
-    , _cdTaskARN = Nothing
-    , _cdUlimits = Nothing
-    , _cdContainerInstanceARN = Nothing
-    , _cdPrivileged = Nothing
-    , _cdJobRoleARN = Nothing
-    , _cdMemory = Nothing
-    , _cdUser = Nothing
-    , _cdReason = Nothing
-    , _cdLogStreamName = Nothing
-    , _cdMountPoints = Nothing
-    , _cdExitCode = Nothing
-    , _cdVcpus = Nothing
-    , _cdReadonlyRootFilesystem = Nothing
-    , _cdVolumes = Nothing
-    }
+  ContainerDetail'
+  { _cdImage = Nothing
+  , _cdCommand = Nothing
+  , _cdEnvironment = Nothing
+  , _cdTaskARN = Nothing
+  , _cdUlimits = Nothing
+  , _cdContainerInstanceARN = Nothing
+  , _cdPrivileged = Nothing
+  , _cdJobRoleARN = Nothing
+  , _cdMemory = Nothing
+  , _cdUser = Nothing
+  , _cdReason = Nothing
+  , _cdLogStreamName = Nothing
+  , _cdMountPoints = Nothing
+  , _cdExitCode = Nothing
+  , _cdVcpus = Nothing
+  , _cdReadonlyRootFilesystem = Nothing
+  , _cdVolumes = Nothing
+  }
+
 
 -- | The image used to start the container.
 cdImage :: Lens' ContainerDetail (Maybe Text)
@@ -710,9 +719,9 @@ instance FromJSON ContainerDetail where
                      <*> (x .:? "readonlyRootFilesystem")
                      <*> (x .:? "volumes" .!= mempty))
 
-instance Hashable ContainerDetail
+instance Hashable ContainerDetail where
 
-instance NFData ContainerDetail
+instance NFData ContainerDetail where
 
 -- | The overrides that should be sent to a container.
 --
@@ -720,11 +729,12 @@ instance NFData ContainerDetail
 --
 -- /See:/ 'containerOverrides' smart constructor.
 data ContainerOverrides = ContainerOverrides'
-    { _coCommand     :: !(Maybe [Text])
-    , _coEnvironment :: !(Maybe [KeyValuePair])
-    , _coMemory      :: !(Maybe Int)
-    , _coVcpus       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _coCommand     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _coEnvironment :: {-# NOUNPACK #-}!(Maybe [KeyValuePair])
+  , _coMemory      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _coVcpus       :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContainerOverrides' with the minimum fields required to make a request.
 --
@@ -740,12 +750,13 @@ data ContainerOverrides = ContainerOverrides'
 containerOverrides
     :: ContainerOverrides
 containerOverrides =
-    ContainerOverrides'
-    { _coCommand = Nothing
-    , _coEnvironment = Nothing
-    , _coMemory = Nothing
-    , _coVcpus = Nothing
-    }
+  ContainerOverrides'
+  { _coCommand = Nothing
+  , _coEnvironment = Nothing
+  , _coMemory = Nothing
+  , _coVcpus = Nothing
+  }
+
 
 -- | The command to send to the container that overrides the default command from the Docker image or the job definition.
 coCommand :: Lens' ContainerOverrides [Text]
@@ -763,9 +774,9 @@ coMemory = lens _coMemory (\ s a -> s{_coMemory = a});
 coVcpus :: Lens' ContainerOverrides (Maybe Int)
 coVcpus = lens _coVcpus (\ s a -> s{_coVcpus = a});
 
-instance Hashable ContainerOverrides
+instance Hashable ContainerOverrides where
 
-instance NFData ContainerOverrides
+instance NFData ContainerOverrides where
 
 instance ToJSON ContainerOverrides where
         toJSON ContainerOverrides'{..}
@@ -782,19 +793,20 @@ instance ToJSON ContainerOverrides where
 --
 -- /See:/ 'containerProperties' smart constructor.
 data ContainerProperties = ContainerProperties'
-    { _cpCommand                :: !(Maybe [Text])
-    , _cpEnvironment            :: !(Maybe [KeyValuePair])
-    , _cpUlimits                :: !(Maybe [Ulimit])
-    , _cpPrivileged             :: !(Maybe Bool)
-    , _cpJobRoleARN             :: !(Maybe Text)
-    , _cpUser                   :: !(Maybe Text)
-    , _cpMountPoints            :: !(Maybe [MountPoint])
-    , _cpReadonlyRootFilesystem :: !(Maybe Bool)
-    , _cpVolumes                :: !(Maybe [Volume])
-    , _cpImage                  :: !Text
-    , _cpVcpus                  :: !Int
-    , _cpMemory                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpCommand                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cpEnvironment            :: {-# NOUNPACK #-}!(Maybe [KeyValuePair])
+  , _cpUlimits                :: {-# NOUNPACK #-}!(Maybe [Ulimit])
+  , _cpPrivileged             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cpJobRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpUser                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpMountPoints            :: {-# NOUNPACK #-}!(Maybe [MountPoint])
+  , _cpReadonlyRootFilesystem :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cpVolumes                :: {-# NOUNPACK #-}!(Maybe [Volume])
+  , _cpImage                  :: {-# NOUNPACK #-}!Text
+  , _cpVcpus                  :: {-# NOUNPACK #-}!Int
+  , _cpMemory                 :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContainerProperties' with the minimum fields required to make a request.
 --
@@ -829,20 +841,21 @@ containerProperties
     -> Int -- ^ 'cpMemory'
     -> ContainerProperties
 containerProperties pImage_ pVcpus_ pMemory_ =
-    ContainerProperties'
-    { _cpCommand = Nothing
-    , _cpEnvironment = Nothing
-    , _cpUlimits = Nothing
-    , _cpPrivileged = Nothing
-    , _cpJobRoleARN = Nothing
-    , _cpUser = Nothing
-    , _cpMountPoints = Nothing
-    , _cpReadonlyRootFilesystem = Nothing
-    , _cpVolumes = Nothing
-    , _cpImage = pImage_
-    , _cpVcpus = pVcpus_
-    , _cpMemory = pMemory_
-    }
+  ContainerProperties'
+  { _cpCommand = Nothing
+  , _cpEnvironment = Nothing
+  , _cpUlimits = Nothing
+  , _cpPrivileged = Nothing
+  , _cpJobRoleARN = Nothing
+  , _cpUser = Nothing
+  , _cpMountPoints = Nothing
+  , _cpReadonlyRootFilesystem = Nothing
+  , _cpVolumes = Nothing
+  , _cpImage = pImage_
+  , _cpVcpus = pVcpus_
+  , _cpMemory = pMemory_
+  }
+
 
 -- | The command that is passed to the container. This parameter maps to @Cmd@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @COMMAND@ parameter to <https://docs.docker.com/engine/reference/run/ docker run> . For more information, see <https://docs.docker.com/engine/reference/builder/#cmd https://docs.docker.com/engine/reference/builder/#cmd> .
 cpCommand :: Lens' ContainerProperties [Text]
@@ -910,9 +923,9 @@ instance FromJSON ContainerProperties where
                      <*> (x .: "vcpus")
                      <*> (x .: "memory"))
 
-instance Hashable ContainerProperties
+instance Hashable ContainerProperties where
 
-instance NFData ContainerProperties
+instance NFData ContainerProperties where
 
 instance ToJSON ContainerProperties where
         toJSON ContainerProperties'{..}
@@ -938,8 +951,9 @@ instance ToJSON ContainerProperties where
 --
 -- /See:/ 'host' smart constructor.
 newtype Host = Host'
-    { _hSourcePath :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hSourcePath :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Host' with the minimum fields required to make a request.
 --
@@ -948,10 +962,8 @@ newtype Host = Host'
 -- * 'hSourcePath' - The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the @host@ parameter contains a @sourcePath@ file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the @sourcePath@ value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
 host
     :: Host
-host =
-    Host'
-    { _hSourcePath = Nothing
-    }
+host = Host' {_hSourcePath = Nothing}
+
 
 -- | The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the @host@ parameter contains a @sourcePath@ file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the @sourcePath@ value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
 hSourcePath :: Lens' Host (Maybe Text)
@@ -962,9 +974,9 @@ instance FromJSON Host where
           = withObject "Host"
               (\ x -> Host' <$> (x .:? "sourcePath"))
 
-instance Hashable Host
+instance Hashable Host where
 
-instance NFData Host
+instance NFData Host where
 
 instance ToJSON Host where
         toJSON Host'{..}
@@ -977,15 +989,16 @@ instance ToJSON Host where
 --
 -- /See:/ 'jobDefinition' smart constructor.
 data JobDefinition = JobDefinition'
-    { _jStatus              :: !(Maybe Text)
-    , _jRetryStrategy       :: !(Maybe RetryStrategy)
-    , _jParameters          :: !(Maybe (Map Text Text))
-    , _jContainerProperties :: !(Maybe ContainerProperties)
-    , _jJobDefinitionName   :: !Text
-    , _jJobDefinitionARN    :: !Text
-    , _jRevision            :: !Int
-    , _jType                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jStatus              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jRetryStrategy       :: {-# NOUNPACK #-}!(Maybe RetryStrategy)
+  , _jParameters          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _jContainerProperties :: {-# NOUNPACK #-}!(Maybe ContainerProperties)
+  , _jJobDefinitionName   :: {-# NOUNPACK #-}!Text
+  , _jJobDefinitionARN    :: {-# NOUNPACK #-}!Text
+  , _jRevision            :: {-# NOUNPACK #-}!Int
+  , _jType                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobDefinition' with the minimum fields required to make a request.
 --
@@ -1013,16 +1026,17 @@ jobDefinition
     -> Text -- ^ 'jType'
     -> JobDefinition
 jobDefinition pJobDefinitionName_ pJobDefinitionARN_ pRevision_ pType_ =
-    JobDefinition'
-    { _jStatus = Nothing
-    , _jRetryStrategy = Nothing
-    , _jParameters = Nothing
-    , _jContainerProperties = Nothing
-    , _jJobDefinitionName = pJobDefinitionName_
-    , _jJobDefinitionARN = pJobDefinitionARN_
-    , _jRevision = pRevision_
-    , _jType = pType_
-    }
+  JobDefinition'
+  { _jStatus = Nothing
+  , _jRetryStrategy = Nothing
+  , _jParameters = Nothing
+  , _jContainerProperties = Nothing
+  , _jJobDefinitionName = pJobDefinitionName_
+  , _jJobDefinitionARN = pJobDefinitionARN_
+  , _jRevision = pRevision_
+  , _jType = pType_
+  }
+
 
 -- | The status of the job definition.
 jStatus :: Lens' JobDefinition (Maybe Text)
@@ -1069,9 +1083,9 @@ instance FromJSON JobDefinition where
                      <*> (x .: "revision")
                      <*> (x .: "type"))
 
-instance Hashable JobDefinition
+instance Hashable JobDefinition where
 
-instance NFData JobDefinition
+instance NFData JobDefinition where
 
 -- | An object representing an AWS Batch job dependency.
 --
@@ -1079,8 +1093,9 @@ instance NFData JobDefinition
 --
 -- /See:/ 'jobDependency' smart constructor.
 newtype JobDependency = JobDependency'
-    { _jJobId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jJobId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobDependency' with the minimum fields required to make a request.
 --
@@ -1089,10 +1104,8 @@ newtype JobDependency = JobDependency'
 -- * 'jJobId' - The job ID of the AWS Batch job associated with this dependency.
 jobDependency
     :: JobDependency
-jobDependency =
-    JobDependency'
-    { _jJobId = Nothing
-    }
+jobDependency = JobDependency' {_jJobId = Nothing}
+
 
 -- | The job ID of the AWS Batch job associated with this dependency.
 jJobId :: Lens' JobDependency (Maybe Text)
@@ -1103,9 +1116,9 @@ instance FromJSON JobDependency where
           = withObject "JobDependency"
               (\ x -> JobDependency' <$> (x .:? "jobId"))
 
-instance Hashable JobDependency
+instance Hashable JobDependency where
 
-instance NFData JobDependency
+instance NFData JobDependency where
 
 instance ToJSON JobDependency where
         toJSON JobDependency'{..}
@@ -1117,21 +1130,22 @@ instance ToJSON JobDependency where
 --
 -- /See:/ 'jobDetail' smart constructor.
 data JobDetail = JobDetail'
-    { _jdStoppedAt     :: !(Maybe Integer)
-    , _jdCreatedAt     :: !(Maybe Integer)
-    , _jdRetryStrategy :: !(Maybe RetryStrategy)
-    , _jdAttempts      :: !(Maybe [AttemptDetail])
-    , _jdDependsOn     :: !(Maybe [JobDependency])
-    , _jdContainer     :: !(Maybe ContainerDetail)
-    , _jdParameters    :: !(Maybe (Map Text Text))
-    , _jdStatusReason  :: !(Maybe Text)
-    , _jdJobName       :: !Text
-    , _jdJobId         :: !Text
-    , _jdJobQueue      :: !Text
-    , _jdStatus        :: !JobStatus
-    , _jdStartedAt     :: !Integer
-    , _jdJobDefinition :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jdStoppedAt     :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _jdCreatedAt     :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _jdRetryStrategy :: {-# NOUNPACK #-}!(Maybe RetryStrategy)
+  , _jdAttempts      :: {-# NOUNPACK #-}!(Maybe [AttemptDetail])
+  , _jdDependsOn     :: {-# NOUNPACK #-}!(Maybe [JobDependency])
+  , _jdContainer     :: {-# NOUNPACK #-}!(Maybe ContainerDetail)
+  , _jdParameters    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _jdStatusReason  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jdJobName       :: {-# NOUNPACK #-}!Text
+  , _jdJobId         :: {-# NOUNPACK #-}!Text
+  , _jdJobQueue      :: {-# NOUNPACK #-}!Text
+  , _jdStatus        :: {-# NOUNPACK #-}!JobStatus
+  , _jdStartedAt     :: {-# NOUNPACK #-}!Integer
+  , _jdJobDefinition :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobDetail' with the minimum fields required to make a request.
 --
@@ -1173,22 +1187,23 @@ jobDetail
     -> Text -- ^ 'jdJobDefinition'
     -> JobDetail
 jobDetail pJobName_ pJobId_ pJobQueue_ pStatus_ pStartedAt_ pJobDefinition_ =
-    JobDetail'
-    { _jdStoppedAt = Nothing
-    , _jdCreatedAt = Nothing
-    , _jdRetryStrategy = Nothing
-    , _jdAttempts = Nothing
-    , _jdDependsOn = Nothing
-    , _jdContainer = Nothing
-    , _jdParameters = Nothing
-    , _jdStatusReason = Nothing
-    , _jdJobName = pJobName_
-    , _jdJobId = pJobId_
-    , _jdJobQueue = pJobQueue_
-    , _jdStatus = pStatus_
-    , _jdStartedAt = pStartedAt_
-    , _jdJobDefinition = pJobDefinition_
-    }
+  JobDetail'
+  { _jdStoppedAt = Nothing
+  , _jdCreatedAt = Nothing
+  , _jdRetryStrategy = Nothing
+  , _jdAttempts = Nothing
+  , _jdDependsOn = Nothing
+  , _jdContainer = Nothing
+  , _jdParameters = Nothing
+  , _jdStatusReason = Nothing
+  , _jdJobName = pJobName_
+  , _jdJobId = pJobId_
+  , _jdJobQueue = pJobQueue_
+  , _jdStatus = pStatus_
+  , _jdStartedAt = pStartedAt_
+  , _jdJobDefinition = pJobDefinition_
+  }
+
 
 -- | The Unix timestamp for when the job was stopped (when the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
 jdStoppedAt :: Lens' JobDetail (Maybe Integer)
@@ -1265,9 +1280,9 @@ instance FromJSON JobDetail where
                      <*> (x .: "startedAt")
                      <*> (x .: "jobDefinition"))
 
-instance Hashable JobDetail
+instance Hashable JobDetail where
 
-instance NFData JobDetail
+instance NFData JobDetail where
 
 -- | An object representing the details of an AWS Batch job queue.
 --
@@ -1275,14 +1290,15 @@ instance NFData JobDetail
 --
 -- /See:/ 'jobQueueDetail' smart constructor.
 data JobQueueDetail = JobQueueDetail'
-    { _jqdStatus                  :: !(Maybe JQStatus)
-    , _jqdStatusReason            :: !(Maybe Text)
-    , _jqdJobQueueName            :: !Text
-    , _jqdJobQueueARN             :: !Text
-    , _jqdState                   :: !JQState
-    , _jqdPriority                :: !Int
-    , _jqdComputeEnvironmentOrder :: ![ComputeEnvironmentOrder]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jqdStatus                  :: {-# NOUNPACK #-}!(Maybe JQStatus)
+  , _jqdStatusReason            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jqdJobQueueName            :: {-# NOUNPACK #-}!Text
+  , _jqdJobQueueARN             :: {-# NOUNPACK #-}!Text
+  , _jqdState                   :: {-# NOUNPACK #-}!JQState
+  , _jqdPriority                :: {-# NOUNPACK #-}!Int
+  , _jqdComputeEnvironmentOrder :: {-# NOUNPACK #-}![ComputeEnvironmentOrder]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobQueueDetail' with the minimum fields required to make a request.
 --
@@ -1308,15 +1324,16 @@ jobQueueDetail
     -> Int -- ^ 'jqdPriority'
     -> JobQueueDetail
 jobQueueDetail pJobQueueName_ pJobQueueARN_ pState_ pPriority_ =
-    JobQueueDetail'
-    { _jqdStatus = Nothing
-    , _jqdStatusReason = Nothing
-    , _jqdJobQueueName = pJobQueueName_
-    , _jqdJobQueueARN = pJobQueueARN_
-    , _jqdState = pState_
-    , _jqdPriority = pPriority_
-    , _jqdComputeEnvironmentOrder = mempty
-    }
+  JobQueueDetail'
+  { _jqdStatus = Nothing
+  , _jqdStatusReason = Nothing
+  , _jqdJobQueueName = pJobQueueName_
+  , _jqdJobQueueARN = pJobQueueARN_
+  , _jqdState = pState_
+  , _jqdPriority = pPriority_
+  , _jqdComputeEnvironmentOrder = mempty
+  }
+
 
 -- | The status of the job queue (for example, @CREATING@ or @VALID@ ).
 jqdStatus :: Lens' JobQueueDetail (Maybe JQStatus)
@@ -1358,9 +1375,9 @@ instance FromJSON JobQueueDetail where
                      <*> (x .: "priority")
                      <*> (x .:? "computeEnvironmentOrder" .!= mempty))
 
-instance Hashable JobQueueDetail
+instance Hashable JobQueueDetail where
 
-instance NFData JobQueueDetail
+instance NFData JobQueueDetail where
 
 -- | An object representing summary details of a job.
 --
@@ -1368,9 +1385,10 @@ instance NFData JobQueueDetail
 --
 -- /See:/ 'jobSummary' smart constructor.
 data JobSummary = JobSummary'
-    { _jsJobId   :: !Text
-    , _jsJobName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jsJobId   :: {-# NOUNPACK #-}!Text
+  , _jsJobName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobSummary' with the minimum fields required to make a request.
 --
@@ -1384,10 +1402,8 @@ jobSummary
     -> Text -- ^ 'jsJobName'
     -> JobSummary
 jobSummary pJobId_ pJobName_ =
-    JobSummary'
-    { _jsJobId = pJobId_
-    , _jsJobName = pJobName_
-    }
+  JobSummary' {_jsJobId = pJobId_, _jsJobName = pJobName_}
+
 
 -- | The ID of the job.
 jsJobId :: Lens' JobSummary Text
@@ -1403,9 +1419,9 @@ instance FromJSON JobSummary where
               (\ x ->
                  JobSummary' <$> (x .: "jobId") <*> (x .: "jobName"))
 
-instance Hashable JobSummary
+instance Hashable JobSummary where
 
-instance NFData JobSummary
+instance NFData JobSummary where
 
 -- | A key-value pair object.
 --
@@ -1413,9 +1429,10 @@ instance NFData JobSummary
 --
 -- /See:/ 'keyValuePair' smart constructor.
 data KeyValuePair = KeyValuePair'
-    { _kvpValue :: !(Maybe Text)
-    , _kvpName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kvpValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kvpName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyValuePair' with the minimum fields required to make a request.
 --
@@ -1426,11 +1443,8 @@ data KeyValuePair = KeyValuePair'
 -- * 'kvpName' - The name of the key value pair. For environment variables, this is the name of the environment variable.
 keyValuePair
     :: KeyValuePair
-keyValuePair =
-    KeyValuePair'
-    { _kvpValue = Nothing
-    , _kvpName = Nothing
-    }
+keyValuePair = KeyValuePair' {_kvpValue = Nothing, _kvpName = Nothing}
+
 
 -- | The value of the key value pair. For environment variables, this is the value of the environment variable.
 kvpValue :: Lens' KeyValuePair (Maybe Text)
@@ -1446,9 +1460,9 @@ instance FromJSON KeyValuePair where
               (\ x ->
                  KeyValuePair' <$> (x .:? "value") <*> (x .:? "name"))
 
-instance Hashable KeyValuePair
+instance Hashable KeyValuePair where
 
-instance NFData KeyValuePair
+instance NFData KeyValuePair where
 
 instance ToJSON KeyValuePair where
         toJSON KeyValuePair'{..}
@@ -1463,10 +1477,11 @@ instance ToJSON KeyValuePair where
 --
 -- /See:/ 'mountPoint' smart constructor.
 data MountPoint = MountPoint'
-    { _mpContainerPath :: !(Maybe Text)
-    , _mpSourceVolume  :: !(Maybe Text)
-    , _mpReadOnly      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mpContainerPath :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mpSourceVolume  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mpReadOnly      :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MountPoint' with the minimum fields required to make a request.
 --
@@ -1480,11 +1495,9 @@ data MountPoint = MountPoint'
 mountPoint
     :: MountPoint
 mountPoint =
-    MountPoint'
-    { _mpContainerPath = Nothing
-    , _mpSourceVolume = Nothing
-    , _mpReadOnly = Nothing
-    }
+  MountPoint'
+  {_mpContainerPath = Nothing, _mpSourceVolume = Nothing, _mpReadOnly = Nothing}
+
 
 -- | The path on the container at which to mount the host volume.
 mpContainerPath :: Lens' MountPoint (Maybe Text)
@@ -1506,9 +1519,9 @@ instance FromJSON MountPoint where
                    (x .:? "containerPath") <*> (x .:? "sourceVolume")
                      <*> (x .:? "readOnly"))
 
-instance Hashable MountPoint
+instance Hashable MountPoint where
 
-instance NFData MountPoint
+instance NFData MountPoint where
 
 instance ToJSON MountPoint where
         toJSON MountPoint'{..}
@@ -1524,8 +1537,9 @@ instance ToJSON MountPoint where
 --
 -- /See:/ 'retryStrategy' smart constructor.
 newtype RetryStrategy = RetryStrategy'
-    { _rsAttempts :: Maybe Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsAttempts :: Maybe Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RetryStrategy' with the minimum fields required to make a request.
 --
@@ -1534,10 +1548,8 @@ newtype RetryStrategy = RetryStrategy'
 -- * 'rsAttempts' - The number of times to move a job to the @RUNNABLE@ status. You may specify between 1 and 10 attempts. If @attempts@ is greater than one, the job is retried if it fails until it has moved to @RUNNABLE@ that many times.
 retryStrategy
     :: RetryStrategy
-retryStrategy =
-    RetryStrategy'
-    { _rsAttempts = Nothing
-    }
+retryStrategy = RetryStrategy' {_rsAttempts = Nothing}
+
 
 -- | The number of times to move a job to the @RUNNABLE@ status. You may specify between 1 and 10 attempts. If @attempts@ is greater than one, the job is retried if it fails until it has moved to @RUNNABLE@ that many times.
 rsAttempts :: Lens' RetryStrategy (Maybe Int)
@@ -1548,9 +1560,9 @@ instance FromJSON RetryStrategy where
           = withObject "RetryStrategy"
               (\ x -> RetryStrategy' <$> (x .:? "attempts"))
 
-instance Hashable RetryStrategy
+instance Hashable RetryStrategy where
 
-instance NFData RetryStrategy
+instance NFData RetryStrategy where
 
 instance ToJSON RetryStrategy where
         toJSON RetryStrategy'{..}
@@ -1563,10 +1575,11 @@ instance ToJSON RetryStrategy where
 --
 -- /See:/ 'ulimit' smart constructor.
 data Ulimit = Ulimit'
-    { _uHardLimit :: !Int
-    , _uName      :: !Text
-    , _uSoftLimit :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uHardLimit :: {-# NOUNPACK #-}!Int
+  , _uName      :: {-# NOUNPACK #-}!Text
+  , _uSoftLimit :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Ulimit' with the minimum fields required to make a request.
 --
@@ -1583,11 +1596,9 @@ ulimit
     -> Int -- ^ 'uSoftLimit'
     -> Ulimit
 ulimit pHardLimit_ pName_ pSoftLimit_ =
-    Ulimit'
-    { _uHardLimit = pHardLimit_
-    , _uName = pName_
-    , _uSoftLimit = pSoftLimit_
-    }
+  Ulimit'
+  {_uHardLimit = pHardLimit_, _uName = pName_, _uSoftLimit = pSoftLimit_}
+
 
 -- | The hard limit for the @ulimit@ type.
 uHardLimit :: Lens' Ulimit Int
@@ -1609,9 +1620,9 @@ instance FromJSON Ulimit where
                    (x .: "hardLimit") <*> (x .: "name") <*>
                      (x .: "softLimit"))
 
-instance Hashable Ulimit
+instance Hashable Ulimit where
 
-instance NFData Ulimit
+instance NFData Ulimit where
 
 instance ToJSON Ulimit where
         toJSON Ulimit'{..}
@@ -1627,9 +1638,10 @@ instance ToJSON Ulimit where
 --
 -- /See:/ 'volume' smart constructor.
 data Volume = Volume'
-    { _vName :: !(Maybe Text)
-    , _vHost :: !(Maybe Host)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vHost :: {-# NOUNPACK #-}!(Maybe Host)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Volume' with the minimum fields required to make a request.
 --
@@ -1640,11 +1652,8 @@ data Volume = Volume'
 -- * 'vHost' - The contents of the @host@ parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data is not guaranteed to persist after the containers associated with it stop running.
 volume
     :: Volume
-volume =
-    Volume'
-    { _vName = Nothing
-    , _vHost = Nothing
-    }
+volume = Volume' {_vName = Nothing, _vHost = Nothing}
+
 
 -- | The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
 vName :: Lens' Volume (Maybe Text)
@@ -1660,9 +1669,9 @@ instance FromJSON Volume where
               (\ x ->
                  Volume' <$> (x .:? "name") <*> (x .:? "host"))
 
-instance Hashable Volume
+instance Hashable Volume where
 
-instance NFData Volume
+instance NFData Volume where
 
 instance ToJSON Volume where
         toJSON Volume'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.NotifyWorkers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.MechanicalTurk.NotifyWorkers
     , nwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'notifyWorkers' smart constructor.
 data NotifyWorkers = NotifyWorkers'
-    { _nwSubject     :: !Text
-    , _nwMessageText :: !Text
-    , _nwWorkerIds   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nwSubject     :: {-# NOUNPACK #-}!Text
+  , _nwMessageText :: {-# NOUNPACK #-}!Text
+  , _nwWorkerIds   :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotifyWorkers' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ notifyWorkers
     -> Text -- ^ 'nwMessageText'
     -> NotifyWorkers
 notifyWorkers pSubject_ pMessageText_ =
-    NotifyWorkers'
-    { _nwSubject = pSubject_
-    , _nwMessageText = pMessageText_
-    , _nwWorkerIds = mempty
-    }
+  NotifyWorkers'
+  { _nwSubject = pSubject_
+  , _nwMessageText = pMessageText_
+  , _nwWorkerIds = mempty
+  }
+
 
 -- | The subject line of the email message to send. Can include up to 200 characters.
 nwSubject :: Lens' NotifyWorkers Text
@@ -95,9 +97,9 @@ instance AWSRequest NotifyWorkers where
                    (x .?> "NotifyWorkersFailureStatuses" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable NotifyWorkers
+instance Hashable NotifyWorkers where
 
-instance NFData NotifyWorkers
+instance NFData NotifyWorkers where
 
 instance ToHeaders NotifyWorkers where
         toHeaders
@@ -125,9 +127,10 @@ instance ToQuery NotifyWorkers where
 
 -- | /See:/ 'notifyWorkersResponse' smart constructor.
 data NotifyWorkersResponse = NotifyWorkersResponse'
-    { _nwrsNotifyWorkersFailureStatuses :: !(Maybe [NotifyWorkersFailureStatus])
-    , _nwrsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nwrsNotifyWorkersFailureStatuses :: {-# NOUNPACK #-}!(Maybe [NotifyWorkersFailureStatus])
+  , _nwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotifyWorkersResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +143,11 @@ notifyWorkersResponse
     :: Int -- ^ 'nwrsResponseStatus'
     -> NotifyWorkersResponse
 notifyWorkersResponse pResponseStatus_ =
-    NotifyWorkersResponse'
-    { _nwrsNotifyWorkersFailureStatuses = Nothing
-    , _nwrsResponseStatus = pResponseStatus_
-    }
+  NotifyWorkersResponse'
+  { _nwrsNotifyWorkersFailureStatuses = Nothing
+  , _nwrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects.
 nwrsNotifyWorkersFailureStatuses :: Lens' NotifyWorkersResponse [NotifyWorkersFailureStatus]
@@ -153,4 +157,4 @@ nwrsNotifyWorkersFailureStatuses = lens _nwrsNotifyWorkersFailureStatuses (\ s a
 nwrsResponseStatus :: Lens' NotifyWorkersResponse Int
 nwrsResponseStatus = lens _nwrsResponseStatus (\ s a -> s{_nwrsResponseStatus = a});
 
-instance NFData NotifyWorkersResponse
+instance NFData NotifyWorkersResponse where

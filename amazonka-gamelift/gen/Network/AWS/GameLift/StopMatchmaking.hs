@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.StopMatchmaking
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.GameLift.StopMatchmaking
     , smrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -61,8 +61,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'stopMatchmaking' smart constructor.
 newtype StopMatchmaking = StopMatchmaking'
-    { _smTicketId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smTicketId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopMatchmaking' with the minimum fields required to make a request.
 --
@@ -72,10 +73,8 @@ newtype StopMatchmaking = StopMatchmaking'
 stopMatchmaking
     :: Text -- ^ 'smTicketId'
     -> StopMatchmaking
-stopMatchmaking pTicketId_ =
-    StopMatchmaking'
-    { _smTicketId = pTicketId_
-    }
+stopMatchmaking pTicketId_ = StopMatchmaking' {_smTicketId = pTicketId_}
+
 
 -- | Unique identifier for a matchmaking ticket.
 smTicketId :: Lens' StopMatchmaking Text
@@ -89,9 +88,9 @@ instance AWSRequest StopMatchmaking where
               (\ s h x ->
                  StopMatchmakingResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StopMatchmaking
+instance Hashable StopMatchmaking where
 
-instance NFData StopMatchmaking
+instance NFData StopMatchmaking where
 
 instance ToHeaders StopMatchmaking where
         toHeaders
@@ -115,8 +114,9 @@ instance ToQuery StopMatchmaking where
 
 -- | /See:/ 'stopMatchmakingResponse' smart constructor.
 newtype StopMatchmakingResponse = StopMatchmakingResponse'
-    { _smrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopMatchmakingResponse' with the minimum fields required to make a request.
 --
@@ -127,12 +127,11 @@ stopMatchmakingResponse
     :: Int -- ^ 'smrsResponseStatus'
     -> StopMatchmakingResponse
 stopMatchmakingResponse pResponseStatus_ =
-    StopMatchmakingResponse'
-    { _smrsResponseStatus = pResponseStatus_
-    }
+  StopMatchmakingResponse' {_smrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 smrsResponseStatus :: Lens' StopMatchmakingResponse Int
 smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a});
 
-instance NFData StopMatchmakingResponse
+instance NFData StopMatchmakingResponse where

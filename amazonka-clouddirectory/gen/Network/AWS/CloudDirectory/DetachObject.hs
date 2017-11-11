@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.CloudDirectory.DetachObject
     , detrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachObject' smart constructor.
 data DetachObject = DetachObject'
-    { _detDirectoryARN    :: !Text
-    , _detParentReference :: !ObjectReference
-    , _detLinkName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detDirectoryARN    :: {-# NOUNPACK #-}!Text
+  , _detParentReference :: {-# NOUNPACK #-}!ObjectReference
+  , _detLinkName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachObject' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ detachObject
     -> Text -- ^ 'detLinkName'
     -> DetachObject
 detachObject pDirectoryARN_ pParentReference_ pLinkName_ =
-    DetachObject'
-    { _detDirectoryARN = pDirectoryARN_
-    , _detParentReference = pParentReference_
-    , _detLinkName = pLinkName_
-    }
+  DetachObject'
+  { _detDirectoryARN = pDirectoryARN_
+  , _detParentReference = pParentReference_
+  , _detLinkName = pLinkName_
+  }
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 detDirectoryARN :: Lens' DetachObject Text
@@ -96,9 +98,9 @@ instance AWSRequest DetachObject where
                    (x .?> "DetachedObjectIdentifier") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DetachObject
+instance Hashable DetachObject where
 
-instance NFData DetachObject
+instance NFData DetachObject where
 
 instance ToHeaders DetachObject where
         toHeaders DetachObject'{..}
@@ -122,9 +124,10 @@ instance ToQuery DetachObject where
 
 -- | /See:/ 'detachObjectResponse' smart constructor.
 data DetachObjectResponse = DetachObjectResponse'
-    { _detrsDetachedObjectIdentifier :: !(Maybe Text)
-    , _detrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detrsDetachedObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachObjectResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,11 @@ detachObjectResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DetachObjectResponse
 detachObjectResponse pResponseStatus_ =
-    DetachObjectResponse'
-    { _detrsDetachedObjectIdentifier = Nothing
-    , _detrsResponseStatus = pResponseStatus_
-    }
+  DetachObjectResponse'
+  { _detrsDetachedObjectIdentifier = Nothing
+  , _detrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @ObjectIdentifier@ that was detached from the object.
 detrsDetachedObjectIdentifier :: Lens' DetachObjectResponse (Maybe Text)
@@ -150,4 +154,4 @@ detrsDetachedObjectIdentifier = lens _detrsDetachedObjectIdentifier (\ s a -> s{
 detrsResponseStatus :: Lens' DetachObjectResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 
-instance NFData DetachObjectResponse
+instance NFData DetachObjectResponse where

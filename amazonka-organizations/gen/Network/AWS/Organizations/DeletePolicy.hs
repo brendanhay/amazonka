@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DeletePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Organizations.DeletePolicy
     , DeletePolicyResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deletePolicy' smart constructor.
 newtype DeletePolicy = DeletePolicy'
-    { _dPolicyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dPolicyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeletePolicy = DeletePolicy'
 deletePolicy
     :: Text -- ^ 'dPolicyId'
     -> DeletePolicy
-deletePolicy pPolicyId_ =
-    DeletePolicy'
-    { _dPolicyId = pPolicyId_
-    }
+deletePolicy pPolicyId_ = DeletePolicy' {_dPolicyId = pPolicyId_}
+
 
 -- | The unique identifier (ID) of the policy that you want to delete. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 dPolicyId :: Lens' DeletePolicy Text
@@ -70,9 +69,9 @@ instance AWSRequest DeletePolicy where
         request = postJSON organizations
         response = receiveNull DeletePolicyResponse'
 
-instance Hashable DeletePolicy
+instance Hashable DeletePolicy where
 
-instance NFData DeletePolicy
+instance NFData DeletePolicy where
 
 instance ToHeaders DeletePolicy where
         toHeaders
@@ -97,8 +96,9 @@ instance ToQuery DeletePolicy where
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
 data DeletePolicyResponse =
-    DeletePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +106,5 @@ deletePolicyResponse
     :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse'
 
-instance NFData DeletePolicyResponse
+
+instance NFData DeletePolicyResponse where

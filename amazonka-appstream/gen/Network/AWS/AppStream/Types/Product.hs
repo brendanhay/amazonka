@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.AppStream.Types.Product where
 
-import           Network.AWS.AppStream.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.AppStream.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | An entry for a single application in the application catalog.
 --
@@ -27,14 +27,15 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'application' smart constructor.
 data Application = Application'
-    { _aEnabled          :: !(Maybe Bool)
-    , _aLaunchPath       :: !(Maybe Text)
-    , _aLaunchParameters :: !(Maybe Text)
-    , _aName             :: !(Maybe Text)
-    , _aDisplayName      :: !(Maybe Text)
-    , _aMetadata         :: !(Maybe (Map Text Text))
-    , _aIconURL          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aLaunchPath       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aLaunchParameters :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aDisplayName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aMetadata         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _aIconURL          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Application' with the minimum fields required to make a request.
 --
@@ -56,15 +57,16 @@ data Application = Application'
 application
     :: Application
 application =
-    Application'
-    { _aEnabled = Nothing
-    , _aLaunchPath = Nothing
-    , _aLaunchParameters = Nothing
-    , _aName = Nothing
-    , _aDisplayName = Nothing
-    , _aMetadata = Nothing
-    , _aIconURL = Nothing
-    }
+  Application'
+  { _aEnabled = Nothing
+  , _aLaunchPath = Nothing
+  , _aLaunchParameters = Nothing
+  , _aName = Nothing
+  , _aDisplayName = Nothing
+  , _aMetadata = Nothing
+  , _aIconURL = Nothing
+  }
+
 
 -- | If there is a problem, an application can be disabled after image creation.
 aEnabled :: Lens' Application (Maybe Bool)
@@ -106,9 +108,9 @@ instance FromJSON Application where
                      <*> (x .:? "Metadata" .!= mempty)
                      <*> (x .:? "IconURL"))
 
-instance Hashable Application
+instance Hashable Application where
 
-instance NFData Application
+instance NFData Application where
 
 -- | The capacity configuration for the fleet.
 --
@@ -116,8 +118,9 @@ instance NFData Application
 --
 -- /See:/ 'computeCapacity' smart constructor.
 newtype ComputeCapacity = ComputeCapacity'
-    { _ccDesiredInstances :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccDesiredInstances :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComputeCapacity' with the minimum fields required to make a request.
 --
@@ -128,17 +131,16 @@ computeCapacity
     :: Int -- ^ 'ccDesiredInstances'
     -> ComputeCapacity
 computeCapacity pDesiredInstances_ =
-    ComputeCapacity'
-    { _ccDesiredInstances = pDesiredInstances_
-    }
+  ComputeCapacity' {_ccDesiredInstances = pDesiredInstances_}
+
 
 -- | The desired number of streaming instances.
 ccDesiredInstances :: Lens' ComputeCapacity Int
 ccDesiredInstances = lens _ccDesiredInstances (\ s a -> s{_ccDesiredInstances = a});
 
-instance Hashable ComputeCapacity
+instance Hashable ComputeCapacity where
 
-instance NFData ComputeCapacity
+instance NFData ComputeCapacity where
 
 instance ToJSON ComputeCapacity where
         toJSON ComputeCapacity'{..}
@@ -152,11 +154,12 @@ instance ToJSON ComputeCapacity where
 --
 -- /See:/ 'computeCapacityStatus' smart constructor.
 data ComputeCapacityStatus = ComputeCapacityStatus'
-    { _ccsInUse     :: !(Maybe Int)
-    , _ccsRunning   :: !(Maybe Int)
-    , _ccsAvailable :: !(Maybe Int)
-    , _ccsDesired   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsInUse     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ccsRunning   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ccsAvailable :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ccsDesired   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComputeCapacityStatus' with the minimum fields required to make a request.
 --
@@ -173,12 +176,13 @@ computeCapacityStatus
     :: Int -- ^ 'ccsDesired'
     -> ComputeCapacityStatus
 computeCapacityStatus pDesired_ =
-    ComputeCapacityStatus'
-    { _ccsInUse = Nothing
-    , _ccsRunning = Nothing
-    , _ccsAvailable = Nothing
-    , _ccsDesired = pDesired_
-    }
+  ComputeCapacityStatus'
+  { _ccsInUse = Nothing
+  , _ccsRunning = Nothing
+  , _ccsAvailable = Nothing
+  , _ccsDesired = pDesired_
+  }
+
 
 -- | The number of instances that are being used for streaming.
 ccsInUse :: Lens' ComputeCapacityStatus (Maybe Int)
@@ -205,9 +209,9 @@ instance FromJSON ComputeCapacityStatus where
                      (x .:? "Available")
                      <*> (x .: "Desired"))
 
-instance Hashable ComputeCapacityStatus
+instance Hashable ComputeCapacityStatus where
 
-instance NFData ComputeCapacityStatus
+instance NFData ComputeCapacityStatus where
 
 -- | Full directory configuration details, which are used to join domains for the AppStream 2.0 streaming instances.
 --
@@ -215,11 +219,12 @@ instance NFData ComputeCapacityStatus
 --
 -- /See:/ 'directoryConfig' smart constructor.
 data DirectoryConfig = DirectoryConfig'
-    { _dcCreatedTime                          :: !(Maybe POSIX)
-    , _dcServiceAccountCredentials            :: !(Maybe ServiceAccountCredentials)
-    , _dcOrganizationalUnitDistinguishedNames :: !(Maybe [Text])
-    , _dcDirectoryName                        :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dcCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dcServiceAccountCredentials :: {-# NOUNPACK #-}!(Maybe ServiceAccountCredentials)
+  , _dcOrganizationalUnitDistinguishedNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcDirectoryName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DirectoryConfig' with the minimum fields required to make a request.
 --
@@ -236,12 +241,13 @@ directoryConfig
     :: Text -- ^ 'dcDirectoryName'
     -> DirectoryConfig
 directoryConfig pDirectoryName_ =
-    DirectoryConfig'
-    { _dcCreatedTime = Nothing
-    , _dcServiceAccountCredentials = Nothing
-    , _dcOrganizationalUnitDistinguishedNames = Nothing
-    , _dcDirectoryName = pDirectoryName_
-    }
+  DirectoryConfig'
+  { _dcCreatedTime = Nothing
+  , _dcServiceAccountCredentials = Nothing
+  , _dcOrganizationalUnitDistinguishedNames = Nothing
+  , _dcDirectoryName = pDirectoryName_
+  }
+
 
 -- | The time stamp when the directory configuration was created within AppStream 2.0.
 dcCreatedTime :: Lens' DirectoryConfig (Maybe UTCTime)
@@ -271,9 +277,9 @@ instance FromJSON DirectoryConfig where
                         mempty)
                      <*> (x .: "DirectoryName"))
 
-instance Hashable DirectoryConfig
+instance Hashable DirectoryConfig where
 
-instance NFData DirectoryConfig
+instance NFData DirectoryConfig where
 
 -- | The /DirectoryName/ and /OrganizationalUnitDistinguishedName/ values, which are used to join domains for the AppStream 2.0 streaming instances.
 --
@@ -281,9 +287,10 @@ instance NFData DirectoryConfig
 --
 -- /See:/ 'domainJoinInfo' smart constructor.
 data DomainJoinInfo = DomainJoinInfo'
-    { _djiOrganizationalUnitDistinguishedName :: !(Maybe Text)
-    , _djiDirectoryName                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djiOrganizationalUnitDistinguishedName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _djiDirectoryName                       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainJoinInfo' with the minimum fields required to make a request.
 --
@@ -295,10 +302,11 @@ data DomainJoinInfo = DomainJoinInfo'
 domainJoinInfo
     :: DomainJoinInfo
 domainJoinInfo =
-    DomainJoinInfo'
-    { _djiOrganizationalUnitDistinguishedName = Nothing
-    , _djiDirectoryName = Nothing
-    }
+  DomainJoinInfo'
+  { _djiOrganizationalUnitDistinguishedName = Nothing
+  , _djiDirectoryName = Nothing
+  }
+
 
 -- | The distinguished name of the organizational unit to place the computer account in.
 djiOrganizationalUnitDistinguishedName :: Lens' DomainJoinInfo (Maybe Text)
@@ -316,9 +324,9 @@ instance FromJSON DomainJoinInfo where
                    (x .:? "OrganizationalUnitDistinguishedName") <*>
                      (x .:? "DirectoryName"))
 
-instance Hashable DomainJoinInfo
+instance Hashable DomainJoinInfo where
 
-instance NFData DomainJoinInfo
+instance NFData DomainJoinInfo where
 
 instance ToJSON DomainJoinInfo where
         toJSON DomainJoinInfo'{..}
@@ -334,22 +342,23 @@ instance ToJSON DomainJoinInfo where
 --
 -- /See:/ 'fleet' smart constructor.
 data Fleet = Fleet'
-    { _fDomainJoinInfo              :: !(Maybe DomainJoinInfo)
-    , _fDisconnectTimeoutInSeconds  :: !(Maybe Int)
-    , _fMaxUserDurationInSeconds    :: !(Maybe Int)
-    , _fCreatedTime                 :: !(Maybe POSIX)
-    , _fVPCConfig                   :: !(Maybe VPCConfig)
-    , _fFleetErrors                 :: !(Maybe [FleetError])
-    , _fDisplayName                 :: !(Maybe Text)
-    , _fEnableDefaultInternetAccess :: !(Maybe Bool)
-    , _fDescription                 :: !(Maybe Text)
-    , _fARN                         :: !Text
-    , _fName                        :: !Text
-    , _fImageName                   :: !Text
-    , _fInstanceType                :: !Text
-    , _fComputeCapacityStatus       :: !ComputeCapacityStatus
-    , _fState                       :: !FleetState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fDomainJoinInfo              :: {-# NOUNPACK #-}!(Maybe DomainJoinInfo)
+  , _fDisconnectTimeoutInSeconds  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _fMaxUserDurationInSeconds    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _fCreatedTime                 :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _fVPCConfig                   :: {-# NOUNPACK #-}!(Maybe VPCConfig)
+  , _fFleetErrors                 :: {-# NOUNPACK #-}!(Maybe [FleetError])
+  , _fDisplayName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fEnableDefaultInternetAccess :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _fDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fARN                         :: {-# NOUNPACK #-}!Text
+  , _fName                        :: {-# NOUNPACK #-}!Text
+  , _fImageName                   :: {-# NOUNPACK #-}!Text
+  , _fInstanceType                :: {-# NOUNPACK #-}!Text
+  , _fComputeCapacityStatus       :: {-# NOUNPACK #-}!ComputeCapacityStatus
+  , _fState                       :: {-# NOUNPACK #-}!FleetState
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Fleet' with the minimum fields required to make a request.
 --
@@ -393,23 +402,24 @@ fleet
     -> FleetState -- ^ 'fState'
     -> Fleet
 fleet pARN_ pName_ pImageName_ pInstanceType_ pComputeCapacityStatus_ pState_ =
-    Fleet'
-    { _fDomainJoinInfo = Nothing
-    , _fDisconnectTimeoutInSeconds = Nothing
-    , _fMaxUserDurationInSeconds = Nothing
-    , _fCreatedTime = Nothing
-    , _fVPCConfig = Nothing
-    , _fFleetErrors = Nothing
-    , _fDisplayName = Nothing
-    , _fEnableDefaultInternetAccess = Nothing
-    , _fDescription = Nothing
-    , _fARN = pARN_
-    , _fName = pName_
-    , _fImageName = pImageName_
-    , _fInstanceType = pInstanceType_
-    , _fComputeCapacityStatus = pComputeCapacityStatus_
-    , _fState = pState_
-    }
+  Fleet'
+  { _fDomainJoinInfo = Nothing
+  , _fDisconnectTimeoutInSeconds = Nothing
+  , _fMaxUserDurationInSeconds = Nothing
+  , _fCreatedTime = Nothing
+  , _fVPCConfig = Nothing
+  , _fFleetErrors = Nothing
+  , _fDisplayName = Nothing
+  , _fEnableDefaultInternetAccess = Nothing
+  , _fDescription = Nothing
+  , _fARN = pARN_
+  , _fName = pName_
+  , _fImageName = pImageName_
+  , _fInstanceType = pInstanceType_
+  , _fComputeCapacityStatus = pComputeCapacityStatus_
+  , _fState = pState_
+  }
+
 
 -- | The /DirectoryName/ and /OrganizationalUnitDistinguishedName/ values, which are used to join domains for the AppStream 2.0 streaming instances.
 fDomainJoinInfo :: Lens' Fleet (Maybe DomainJoinInfo)
@@ -492,9 +502,9 @@ instance FromJSON Fleet where
                      <*> (x .: "ComputeCapacityStatus")
                      <*> (x .: "State"))
 
-instance Hashable Fleet
+instance Hashable Fleet where
 
-instance NFData Fleet
+instance NFData Fleet where
 
 -- | The details of the fleet error.
 --
@@ -502,9 +512,10 @@ instance NFData Fleet
 --
 -- /See:/ 'fleetError' smart constructor.
 data FleetError = FleetError'
-    { _feErrorCode    :: !(Maybe FleetErrorCode)
-    , _feErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _feErrorCode    :: {-# NOUNPACK #-}!(Maybe FleetErrorCode)
+  , _feErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FleetError' with the minimum fields required to make a request.
 --
@@ -515,11 +526,8 @@ data FleetError = FleetError'
 -- * 'feErrorMessage' - The error message generated when the fleet has errors.
 fleetError
     :: FleetError
-fleetError =
-    FleetError'
-    { _feErrorCode = Nothing
-    , _feErrorMessage = Nothing
-    }
+fleetError = FleetError' {_feErrorCode = Nothing, _feErrorMessage = Nothing}
+
 
 -- | The error code for the fleet error.
 feErrorCode :: Lens' FleetError (Maybe FleetErrorCode)
@@ -536,9 +544,9 @@ instance FromJSON FleetError where
                  FleetError' <$>
                    (x .:? "ErrorCode") <*> (x .:? "ErrorMessage"))
 
-instance Hashable FleetError
+instance Hashable FleetError where
 
-instance NFData FleetError
+instance NFData FleetError where
 
 -- | New streaming instances are booted from images. The image stores the application catalog and is connected to fleets.
 --
@@ -546,20 +554,21 @@ instance NFData FleetError
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
-    { _iState                       :: !(Maybe ImageState)
-    , _iPlatform                    :: !(Maybe PlatformType)
-    , _iPublicBaseImageReleasedDate :: !(Maybe POSIX)
-    , _iStateChangeReason           :: !(Maybe ImageStateChangeReason)
-    , _iARN                         :: !(Maybe Text)
-    , _iCreatedTime                 :: !(Maybe POSIX)
-    , _iImageBuilderSupported       :: !(Maybe Bool)
-    , _iVisibility                  :: !(Maybe VisibilityType)
-    , _iBaseImageARN                :: !(Maybe Text)
-    , _iDisplayName                 :: !(Maybe Text)
-    , _iDescription                 :: !(Maybe Text)
-    , _iApplications                :: !(Maybe [Application])
-    , _iName                        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iState :: {-# NOUNPACK #-}!(Maybe ImageState)
+  , _iPlatform :: {-# NOUNPACK #-}!(Maybe PlatformType)
+  , _iPublicBaseImageReleasedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iStateChangeReason :: {-# NOUNPACK #-}!(Maybe ImageStateChangeReason)
+  , _iARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iImageBuilderSupported :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iVisibility :: {-# NOUNPACK #-}!(Maybe VisibilityType)
+  , _iBaseImageARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iDisplayName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iApplications :: {-# NOUNPACK #-}!(Maybe [Application])
+  , _iName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
@@ -594,21 +603,22 @@ image
     :: Text -- ^ 'iName'
     -> Image
 image pName_ =
-    Image'
-    { _iState = Nothing
-    , _iPlatform = Nothing
-    , _iPublicBaseImageReleasedDate = Nothing
-    , _iStateChangeReason = Nothing
-    , _iARN = Nothing
-    , _iCreatedTime = Nothing
-    , _iImageBuilderSupported = Nothing
-    , _iVisibility = Nothing
-    , _iBaseImageARN = Nothing
-    , _iDisplayName = Nothing
-    , _iDescription = Nothing
-    , _iApplications = Nothing
-    , _iName = pName_
-    }
+  Image'
+  { _iState = Nothing
+  , _iPlatform = Nothing
+  , _iPublicBaseImageReleasedDate = Nothing
+  , _iStateChangeReason = Nothing
+  , _iARN = Nothing
+  , _iCreatedTime = Nothing
+  , _iImageBuilderSupported = Nothing
+  , _iVisibility = Nothing
+  , _iBaseImageARN = Nothing
+  , _iDisplayName = Nothing
+  , _iDescription = Nothing
+  , _iApplications = Nothing
+  , _iName = pName_
+  }
+
 
 -- | The image starts in the __PENDING__ state. If image creation succeeds, it moves to __AVAILABLE__ . If image creation fails, it moves to __FAILED__ .
 iState :: Lens' Image (Maybe ImageState)
@@ -680,9 +690,9 @@ instance FromJSON Image where
                      <*> (x .:? "Applications" .!= mempty)
                      <*> (x .: "Name"))
 
-instance Hashable Image
+instance Hashable Image where
 
-instance NFData Image
+instance NFData Image where
 
 -- | The reason why the last state change occurred.
 --
@@ -690,9 +700,10 @@ instance NFData Image
 --
 -- /See:/ 'imageStateChangeReason' smart constructor.
 data ImageStateChangeReason = ImageStateChangeReason'
-    { _iscrCode    :: !(Maybe ImageStateChangeReasonCode)
-    , _iscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iscrCode    :: {-# NOUNPACK #-}!(Maybe ImageStateChangeReasonCode)
+  , _iscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImageStateChangeReason' with the minimum fields required to make a request.
 --
@@ -704,10 +715,8 @@ data ImageStateChangeReason = ImageStateChangeReason'
 imageStateChangeReason
     :: ImageStateChangeReason
 imageStateChangeReason =
-    ImageStateChangeReason'
-    { _iscrCode = Nothing
-    , _iscrMessage = Nothing
-    }
+  ImageStateChangeReason' {_iscrCode = Nothing, _iscrMessage = Nothing}
+
 
 -- | The state change reason code of the image.
 iscrCode :: Lens' ImageStateChangeReason (Maybe ImageStateChangeReasonCode)
@@ -724,9 +733,9 @@ instance FromJSON ImageStateChangeReason where
                  ImageStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
-instance Hashable ImageStateChangeReason
+instance Hashable ImageStateChangeReason where
 
-instance NFData ImageStateChangeReason
+instance NFData ImageStateChangeReason where
 
 -- | The /AccountName/ and /AccountPassword/ of the service account, to be used by the streaming instance to connect to the directory.
 --
@@ -734,9 +743,10 @@ instance NFData ImageStateChangeReason
 --
 -- /See:/ 'serviceAccountCredentials' smart constructor.
 data ServiceAccountCredentials = ServiceAccountCredentials'
-    { _sacAccountName     :: !(Sensitive Text)
-    , _sacAccountPassword :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _sacAccountName     :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _sacAccountPassword :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ServiceAccountCredentials' with the minimum fields required to make a request.
 --
@@ -750,10 +760,11 @@ serviceAccountCredentials
     -> Text -- ^ 'sacAccountPassword'
     -> ServiceAccountCredentials
 serviceAccountCredentials pAccountName_ pAccountPassword_ =
-    ServiceAccountCredentials'
-    { _sacAccountName = _Sensitive # pAccountName_
-    , _sacAccountPassword = _Sensitive # pAccountPassword_
-    }
+  ServiceAccountCredentials'
+  { _sacAccountName = _Sensitive # pAccountName_
+  , _sacAccountPassword = _Sensitive # pAccountPassword_
+  }
+
 
 -- | The user name of an account in the directory that is used by AppStream 2.0 streaming instances to connect to the directory. This account must have the following privileges: create computer objects, join computers to the domain, change/reset the password on descendant computer objects for the organizational units specified.
 sacAccountName :: Lens' ServiceAccountCredentials Text
@@ -770,9 +781,9 @@ instance FromJSON ServiceAccountCredentials where
                  ServiceAccountCredentials' <$>
                    (x .: "AccountName") <*> (x .: "AccountPassword"))
 
-instance Hashable ServiceAccountCredentials
+instance Hashable ServiceAccountCredentials where
 
-instance NFData ServiceAccountCredentials
+instance NFData ServiceAccountCredentials where
 
 instance ToJSON ServiceAccountCredentials where
         toJSON ServiceAccountCredentials'{..}
@@ -787,13 +798,14 @@ instance ToJSON ServiceAccountCredentials where
 --
 -- /See:/ 'session' smart constructor.
 data Session = Session'
-    { _sAuthenticationType :: !(Maybe AuthenticationType)
-    , _sId                 :: !Text
-    , _sUserId             :: !Text
-    , _sStackName          :: !Text
-    , _sFleetName          :: !Text
-    , _sState              :: !SessionState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sAuthenticationType :: {-# NOUNPACK #-}!(Maybe AuthenticationType)
+  , _sId                 :: {-# NOUNPACK #-}!Text
+  , _sUserId             :: {-# NOUNPACK #-}!Text
+  , _sStackName          :: {-# NOUNPACK #-}!Text
+  , _sFleetName          :: {-# NOUNPACK #-}!Text
+  , _sState              :: {-# NOUNPACK #-}!SessionState
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Session' with the minimum fields required to make a request.
 --
@@ -818,14 +830,15 @@ session
     -> SessionState -- ^ 'sState'
     -> Session
 session pId_ pUserId_ pStackName_ pFleetName_ pState_ =
-    Session'
-    { _sAuthenticationType = Nothing
-    , _sId = pId_
-    , _sUserId = pUserId_
-    , _sStackName = pStackName_
-    , _sFleetName = pFleetName_
-    , _sState = pState_
-    }
+  Session'
+  { _sAuthenticationType = Nothing
+  , _sId = pId_
+  , _sUserId = pUserId_
+  , _sStackName = pStackName_
+  , _sFleetName = pFleetName_
+  , _sState = pState_
+  }
+
 
 -- | The authentication method of the user for whom the session was created. It can be @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user.
 sAuthenticationType :: Lens' Session (Maybe AuthenticationType)
@@ -862,9 +875,9 @@ instance FromJSON Session where
                      <*> (x .: "FleetName")
                      <*> (x .: "State"))
 
-instance Hashable Session
+instance Hashable Session where
 
-instance NFData Session
+instance NFData Session where
 
 -- | Details about a stack.
 --
@@ -872,14 +885,15 @@ instance NFData Session
 --
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
-    { _sARN               :: !(Maybe Text)
-    , _sCreatedTime       :: !(Maybe POSIX)
-    , _sStorageConnectors :: !(Maybe [StorageConnector])
-    , _sDisplayName       :: !(Maybe Text)
-    , _sStackErrors       :: !(Maybe [StackError])
-    , _sDescription       :: !(Maybe Text)
-    , _sName              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCreatedTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _sStorageConnectors :: {-# NOUNPACK #-}!(Maybe [StorageConnector])
+  , _sDisplayName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sStackErrors       :: {-# NOUNPACK #-}!(Maybe [StackError])
+  , _sDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sName              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Stack' with the minimum fields required to make a request.
 --
@@ -902,15 +916,16 @@ stack
     :: Text -- ^ 'sName'
     -> Stack
 stack pName_ =
-    Stack'
-    { _sARN = Nothing
-    , _sCreatedTime = Nothing
-    , _sStorageConnectors = Nothing
-    , _sDisplayName = Nothing
-    , _sStackErrors = Nothing
-    , _sDescription = Nothing
-    , _sName = pName_
-    }
+  Stack'
+  { _sARN = Nothing
+  , _sCreatedTime = Nothing
+  , _sStorageConnectors = Nothing
+  , _sDisplayName = Nothing
+  , _sStackErrors = Nothing
+  , _sDescription = Nothing
+  , _sName = pName_
+  }
+
 
 -- | The ARN of the stack.
 sARN :: Lens' Stack (Maybe Text)
@@ -952,9 +967,9 @@ instance FromJSON Stack where
                      <*> (x .:? "Description")
                      <*> (x .: "Name"))
 
-instance Hashable Stack
+instance Hashable Stack where
 
-instance NFData Stack
+instance NFData Stack where
 
 -- | Contains the parameters for a stack error.
 --
@@ -962,9 +977,10 @@ instance NFData Stack
 --
 -- /See:/ 'stackError' smart constructor.
 data StackError = StackError'
-    { _seErrorCode    :: !(Maybe StackErrorCode)
-    , _seErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seErrorCode    :: {-# NOUNPACK #-}!(Maybe StackErrorCode)
+  , _seErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StackError' with the minimum fields required to make a request.
 --
@@ -975,11 +991,8 @@ data StackError = StackError'
 -- * 'seErrorMessage' - The error message of a stack error.
 stackError
     :: StackError
-stackError =
-    StackError'
-    { _seErrorCode = Nothing
-    , _seErrorMessage = Nothing
-    }
+stackError = StackError' {_seErrorCode = Nothing, _seErrorMessage = Nothing}
+
 
 -- | The error code of a stack error.
 seErrorCode :: Lens' StackError (Maybe StackErrorCode)
@@ -996,9 +1009,9 @@ instance FromJSON StackError where
                  StackError' <$>
                    (x .:? "ErrorCode") <*> (x .:? "ErrorMessage"))
 
-instance Hashable StackError
+instance Hashable StackError where
 
-instance NFData StackError
+instance NFData StackError where
 
 -- | Contains the parameters for a storage connector.
 --
@@ -1006,9 +1019,10 @@ instance NFData StackError
 --
 -- /See:/ 'storageConnector' smart constructor.
 data StorageConnector = StorageConnector'
-    { _scResourceIdentifier :: !(Maybe Text)
-    , _scConnectorType      :: !StorageConnectorType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scResourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scConnectorType      :: {-# NOUNPACK #-}!StorageConnectorType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StorageConnector' with the minimum fields required to make a request.
 --
@@ -1021,10 +1035,9 @@ storageConnector
     :: StorageConnectorType -- ^ 'scConnectorType'
     -> StorageConnector
 storageConnector pConnectorType_ =
-    StorageConnector'
-    { _scResourceIdentifier = Nothing
-    , _scConnectorType = pConnectorType_
-    }
+  StorageConnector'
+  {_scResourceIdentifier = Nothing, _scConnectorType = pConnectorType_}
+
 
 -- | The ARN associated with the storage connector.
 scResourceIdentifier :: Lens' StorageConnector (Maybe Text)
@@ -1042,9 +1055,9 @@ instance FromJSON StorageConnector where
                    (x .:? "ResourceIdentifier") <*>
                      (x .: "ConnectorType"))
 
-instance Hashable StorageConnector
+instance Hashable StorageConnector where
 
-instance NFData StorageConnector
+instance NFData StorageConnector where
 
 instance ToJSON StorageConnector where
         toJSON StorageConnector'{..}
@@ -1059,9 +1072,10 @@ instance ToJSON StorageConnector where
 --
 -- /See:/ 'vpcConfig' smart constructor.
 data VPCConfig = VPCConfig'
-    { _vcSecurityGroupIds :: !(Maybe [Text])
-    , _vcSubnetIds        :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _vcSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.
 --
@@ -1072,11 +1086,8 @@ data VPCConfig = VPCConfig'
 -- * 'vcSubnetIds' - The list of subnets to which a network interface is established from the fleet instance.
 vpcConfig
     :: VPCConfig
-vpcConfig =
-    VPCConfig'
-    { _vcSecurityGroupIds = Nothing
-    , _vcSubnetIds = Nothing
-    }
+vpcConfig = VPCConfig' {_vcSecurityGroupIds = Nothing, _vcSubnetIds = Nothing}
+
 
 -- | Security groups associated with the fleet.
 vcSecurityGroupIds :: Lens' VPCConfig [Text]
@@ -1094,9 +1105,9 @@ instance FromJSON VPCConfig where
                    (x .:? "SecurityGroupIds" .!= mempty) <*>
                      (x .:? "SubnetIds" .!= mempty))
 
-instance Hashable VPCConfig
+instance Hashable VPCConfig where
 
-instance NFData VPCConfig
+instance NFData VPCConfig where
 
 instance ToJSON VPCConfig where
         toJSON VPCConfig'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
     , diaparsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeIAMInstanceProfileAssociations' smart constructor.
 data DescribeIAMInstanceProfileAssociations = DescribeIAMInstanceProfileAssociations'
-    { _diapaFilters        :: !(Maybe [Filter])
-    , _diapaNextToken      :: !(Maybe Text)
-    , _diapaAssociationIds :: !(Maybe [Text])
-    , _diapaMaxResults     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diapaFilters        :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _diapaNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diapaAssociationIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _diapaMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIAMInstanceProfileAssociations' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data DescribeIAMInstanceProfileAssociations = DescribeIAMInstanceProfileAssociat
 describeIAMInstanceProfileAssociations
     :: DescribeIAMInstanceProfileAssociations
 describeIAMInstanceProfileAssociations =
-    DescribeIAMInstanceProfileAssociations'
-    { _diapaFilters = Nothing
-    , _diapaNextToken = Nothing
-    , _diapaAssociationIds = Nothing
-    , _diapaMaxResults = Nothing
-    }
+  DescribeIAMInstanceProfileAssociations'
+  { _diapaFilters = Nothing
+  , _diapaNextToken = Nothing
+  , _diapaAssociationIds = Nothing
+  , _diapaMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @instance-id@ - The ID of the instance.     * @state@ - The state of the association (@associating@ | @associated@ | @disassociating@ | @disassociated@ ).
 diapaFilters :: Lens' DescribeIAMInstanceProfileAssociations [Filter]
@@ -94,7 +96,8 @@ diapaMaxResults :: Lens' DescribeIAMInstanceProfileAssociations (Maybe Natural)
 diapaMaxResults = lens _diapaMaxResults (\ s a -> s{_diapaMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest
-         DescribeIAMInstanceProfileAssociations where
+           DescribeIAMInstanceProfileAssociations
+         where
         type Rs DescribeIAMInstanceProfileAssociations =
              DescribeIAMInstanceProfileAssociationsResponse
         request = postQuery ec2
@@ -108,21 +111,26 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeIAMInstanceProfileAssociations
+           DescribeIAMInstanceProfileAssociations
+         where
 
 instance NFData
-         DescribeIAMInstanceProfileAssociations
+           DescribeIAMInstanceProfileAssociations
+         where
 
 instance ToHeaders
-         DescribeIAMInstanceProfileAssociations where
+           DescribeIAMInstanceProfileAssociations
+         where
         toHeaders = const mempty
 
 instance ToPath
-         DescribeIAMInstanceProfileAssociations where
+           DescribeIAMInstanceProfileAssociations
+         where
         toPath = const "/"
 
 instance ToQuery
-         DescribeIAMInstanceProfileAssociations where
+           DescribeIAMInstanceProfileAssociations
+         where
         toQuery DescribeIAMInstanceProfileAssociations'{..}
           = mconcat
               ["Action" =:
@@ -138,10 +146,11 @@ instance ToQuery
 
 -- | /See:/ 'describeIAMInstanceProfileAssociationsResponse' smart constructor.
 data DescribeIAMInstanceProfileAssociationsResponse = DescribeIAMInstanceProfileAssociationsResponse'
-    { _diaparsIAMInstanceProfileAssociations :: !(Maybe [IAMInstanceProfileAssociation])
-    , _diaparsNextToken                      :: !(Maybe Text)
-    , _diaparsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diaparsIAMInstanceProfileAssociations :: {-# NOUNPACK #-}!(Maybe [IAMInstanceProfileAssociation])
+  , _diaparsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diaparsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIAMInstanceProfileAssociationsResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +165,12 @@ describeIAMInstanceProfileAssociationsResponse
     :: Int -- ^ 'diaparsResponseStatus'
     -> DescribeIAMInstanceProfileAssociationsResponse
 describeIAMInstanceProfileAssociationsResponse pResponseStatus_ =
-    DescribeIAMInstanceProfileAssociationsResponse'
-    { _diaparsIAMInstanceProfileAssociations = Nothing
-    , _diaparsNextToken = Nothing
-    , _diaparsResponseStatus = pResponseStatus_
-    }
+  DescribeIAMInstanceProfileAssociationsResponse'
+  { _diaparsIAMInstanceProfileAssociations = Nothing
+  , _diaparsNextToken = Nothing
+  , _diaparsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about one or more IAM instance profile associations.
 diaparsIAMInstanceProfileAssociations :: Lens' DescribeIAMInstanceProfileAssociationsResponse [IAMInstanceProfileAssociation]
@@ -175,4 +185,5 @@ diaparsResponseStatus :: Lens' DescribeIAMInstanceProfileAssociationsResponse In
 diaparsResponseStatus = lens _diaparsResponseStatus (\ s a -> s{_diaparsResponseStatus = a});
 
 instance NFData
-         DescribeIAMInstanceProfileAssociationsResponse
+           DescribeIAMInstanceProfileAssociationsResponse
+         where

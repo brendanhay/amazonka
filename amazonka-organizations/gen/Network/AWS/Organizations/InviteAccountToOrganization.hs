@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.InviteAccountToOrganization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,18 +42,19 @@ module Network.AWS.Organizations.InviteAccountToOrganization
     , iatorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'inviteAccountToOrganization' smart constructor.
 data InviteAccountToOrganization = InviteAccountToOrganization'
-    { _iatoNotes  :: !(Maybe (Sensitive Text))
-    , _iatoTarget :: !HandshakeParty
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _iatoNotes  :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _iatoTarget :: {-# NOUNPACK #-}!HandshakeParty
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InviteAccountToOrganization' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ inviteAccountToOrganization
     :: HandshakeParty -- ^ 'iatoTarget'
     -> InviteAccountToOrganization
 inviteAccountToOrganization pTarget_ =
-    InviteAccountToOrganization'
-    { _iatoNotes = Nothing
-    , _iatoTarget = pTarget_
-    }
+  InviteAccountToOrganization' {_iatoNotes = Nothing, _iatoTarget = pTarget_}
+
 
 -- | Additional information that you want to include in the generated email to the recipient account owner.
 iatoNotes :: Lens' InviteAccountToOrganization (Maybe Text)
@@ -89,9 +88,9 @@ instance AWSRequest InviteAccountToOrganization where
                  InviteAccountToOrganizationResponse' <$>
                    (x .?> "Handshake") <*> (pure (fromEnum s)))
 
-instance Hashable InviteAccountToOrganization
+instance Hashable InviteAccountToOrganization where
 
-instance NFData InviteAccountToOrganization
+instance NFData InviteAccountToOrganization where
 
 instance ToHeaders InviteAccountToOrganization where
         toHeaders
@@ -118,9 +117,10 @@ instance ToQuery InviteAccountToOrganization where
 
 -- | /See:/ 'inviteAccountToOrganizationResponse' smart constructor.
 data InviteAccountToOrganizationResponse = InviteAccountToOrganizationResponse'
-    { _iatorsHandshake      :: !(Maybe Handshake)
-    , _iatorsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _iatorsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
+  , _iatorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InviteAccountToOrganizationResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +133,9 @@ inviteAccountToOrganizationResponse
     :: Int -- ^ 'iatorsResponseStatus'
     -> InviteAccountToOrganizationResponse
 inviteAccountToOrganizationResponse pResponseStatus_ =
-    InviteAccountToOrganizationResponse'
-    { _iatorsHandshake = Nothing
-    , _iatorsResponseStatus = pResponseStatus_
-    }
+  InviteAccountToOrganizationResponse'
+  {_iatorsHandshake = Nothing, _iatorsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the handshake that is created to support this invitation request.
 iatorsHandshake :: Lens' InviteAccountToOrganizationResponse (Maybe Handshake)
@@ -147,3 +146,4 @@ iatorsResponseStatus :: Lens' InviteAccountToOrganizationResponse Int
 iatorsResponseStatus = lens _iatorsResponseStatus (\ s a -> s{_iatorsResponseStatus = a});
 
 instance NFData InviteAccountToOrganizationResponse
+         where

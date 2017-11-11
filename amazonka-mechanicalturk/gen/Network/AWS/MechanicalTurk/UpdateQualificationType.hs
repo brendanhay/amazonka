@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateQualificationType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,25 +57,26 @@ module Network.AWS.MechanicalTurk.UpdateQualificationType
     , uqtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateQualificationType' smart constructor.
 data UpdateQualificationType = UpdateQualificationType'
-    { _uqtTestDurationInSeconds   :: !(Maybe Integer)
-    , _uqtQualificationTypeStatus :: !(Maybe QualificationTypeStatus)
-    , _uqtAnswerKey               :: !(Maybe Text)
-    , _uqtTest                    :: !(Maybe Text)
-    , _uqtAutoGranted             :: !(Maybe Bool)
-    , _uqtAutoGrantedValue        :: !(Maybe Int)
-    , _uqtDescription             :: !(Maybe Text)
-    , _uqtRetryDelayInSeconds     :: !(Maybe Integer)
-    , _uqtQualificationTypeId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uqtTestDurationInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _uqtQualificationTypeStatus :: {-# NOUNPACK #-}!(Maybe QualificationTypeStatus)
+  , _uqtAnswerKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uqtTest :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uqtAutoGranted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uqtAutoGrantedValue :: {-# NOUNPACK #-}!(Maybe Int)
+  , _uqtDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uqtRetryDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _uqtQualificationTypeId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateQualificationType' with the minimum fields required to make a request.
 --
@@ -102,17 +103,18 @@ updateQualificationType
     :: Text -- ^ 'uqtQualificationTypeId'
     -> UpdateQualificationType
 updateQualificationType pQualificationTypeId_ =
-    UpdateQualificationType'
-    { _uqtTestDurationInSeconds = Nothing
-    , _uqtQualificationTypeStatus = Nothing
-    , _uqtAnswerKey = Nothing
-    , _uqtTest = Nothing
-    , _uqtAutoGranted = Nothing
-    , _uqtAutoGrantedValue = Nothing
-    , _uqtDescription = Nothing
-    , _uqtRetryDelayInSeconds = Nothing
-    , _uqtQualificationTypeId = pQualificationTypeId_
-    }
+  UpdateQualificationType'
+  { _uqtTestDurationInSeconds = Nothing
+  , _uqtQualificationTypeStatus = Nothing
+  , _uqtAnswerKey = Nothing
+  , _uqtTest = Nothing
+  , _uqtAutoGranted = Nothing
+  , _uqtAutoGrantedValue = Nothing
+  , _uqtDescription = Nothing
+  , _uqtRetryDelayInSeconds = Nothing
+  , _uqtQualificationTypeId = pQualificationTypeId_
+  }
+
 
 -- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
 uqtTestDurationInSeconds :: Lens' UpdateQualificationType (Maybe Integer)
@@ -160,9 +162,9 @@ instance AWSRequest UpdateQualificationType where
                  UpdateQualificationTypeResponse' <$>
                    (x .?> "QualificationType") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateQualificationType
+instance Hashable UpdateQualificationType where
 
-instance NFData UpdateQualificationType
+instance NFData UpdateQualificationType where
 
 instance ToHeaders UpdateQualificationType where
         toHeaders
@@ -200,9 +202,10 @@ instance ToQuery UpdateQualificationType where
 
 -- | /See:/ 'updateQualificationTypeResponse' smart constructor.
 data UpdateQualificationTypeResponse = UpdateQualificationTypeResponse'
-    { _uqtrsQualificationType :: !(Maybe QualificationType)
-    , _uqtrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uqtrsQualificationType :: {-# NOUNPACK #-}!(Maybe QualificationType)
+  , _uqtrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateQualificationTypeResponse' with the minimum fields required to make a request.
 --
@@ -215,10 +218,9 @@ updateQualificationTypeResponse
     :: Int -- ^ 'uqtrsResponseStatus'
     -> UpdateQualificationTypeResponse
 updateQualificationTypeResponse pResponseStatus_ =
-    UpdateQualificationTypeResponse'
-    { _uqtrsQualificationType = Nothing
-    , _uqtrsResponseStatus = pResponseStatus_
-    }
+  UpdateQualificationTypeResponse'
+  {_uqtrsQualificationType = Nothing, _uqtrsResponseStatus = pResponseStatus_}
+
 
 -- | Contains a QualificationType data structure.
 uqtrsQualificationType :: Lens' UpdateQualificationTypeResponse (Maybe QualificationType)
@@ -228,4 +230,4 @@ uqtrsQualificationType = lens _uqtrsQualificationType (\ s a -> s{_uqtrsQualific
 uqtrsResponseStatus :: Lens' UpdateQualificationTypeResponse Int
 uqtrsResponseStatus = lens _uqtrsResponseStatus (\ s a -> s{_uqtrsResponseStatus = a});
 
-instance NFData UpdateQualificationTypeResponse
+instance NFData UpdateQualificationTypeResponse where

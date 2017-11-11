@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeleteAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.ECS.DeleteAttributes
     , darsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-    { _daCluster    :: !(Maybe Text)
-    , _daAttributes :: ![Attribute]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daCluster    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daAttributes :: {-# NOUNPACK #-}![Attribute]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ data DeleteAttributes = DeleteAttributes'
 deleteAttributes
     :: DeleteAttributes
 deleteAttributes =
-    DeleteAttributes'
-    { _daCluster = Nothing
-    , _daAttributes = mempty
-    }
+  DeleteAttributes' {_daCluster = Nothing, _daAttributes = mempty}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete attributes. If you do not specify a cluster, the default cluster is assumed.
 daCluster :: Lens' DeleteAttributes (Maybe Text)
@@ -84,9 +83,9 @@ instance AWSRequest DeleteAttributes where
                    (x .?> "attributes" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DeleteAttributes
+instance Hashable DeleteAttributes where
 
-instance NFData DeleteAttributes
+instance NFData DeleteAttributes where
 
 instance ToHeaders DeleteAttributes where
         toHeaders
@@ -113,9 +112,10 @@ instance ToQuery DeleteAttributes where
 
 -- | /See:/ 'deleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse = DeleteAttributesResponse'
-    { _darsAttributes     :: !(Maybe [Attribute])
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsAttributes     :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +128,9 @@ deleteAttributesResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DeleteAttributesResponse
 deleteAttributesResponse pResponseStatus_ =
-    DeleteAttributesResponse'
-    { _darsAttributes = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DeleteAttributesResponse'
+  {_darsAttributes = Nothing, _darsResponseStatus = pResponseStatus_}
+
 
 -- | A list of attribute objects that were successfully deleted from your resource.
 darsAttributes :: Lens' DeleteAttributesResponse [Attribute]
@@ -141,4 +140,4 @@ darsAttributes = lens _darsAttributes (\ s a -> s{_darsAttributes = a}) . _Defau
 darsResponseStatus :: Lens' DeleteAttributesResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DeleteAttributesResponse
+instance NFData DeleteAttributesResponse where

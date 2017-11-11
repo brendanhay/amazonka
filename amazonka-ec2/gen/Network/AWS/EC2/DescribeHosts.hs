@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeHosts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.DescribeHosts
     , dhrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeHosts.
 --
@@ -56,11 +56,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeHosts' smart constructor.
 data DescribeHosts = DescribeHosts'
-    { _dhNextToken  :: !(Maybe Text)
-    , _dhFilter     :: !(Maybe [Filter])
-    , _dhHostIds    :: !(Maybe [Text])
-    , _dhMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhFilter     :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dhHostIds    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHosts' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ data DescribeHosts = DescribeHosts'
 describeHosts
     :: DescribeHosts
 describeHosts =
-    DescribeHosts'
-    { _dhNextToken = Nothing
-    , _dhFilter = Nothing
-    , _dhHostIds = Nothing
-    , _dhMaxResults = Nothing
-    }
+  DescribeHosts'
+  { _dhNextToken = Nothing
+  , _dhFilter = Nothing
+  , _dhHostIds = Nothing
+  , _dhMaxResults = Nothing
+  }
+
 
 -- | The token to retrieve the next page of results.
 dhNextToken :: Lens' DescribeHosts (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest DescribeHosts where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHosts
+instance Hashable DescribeHosts where
 
-instance NFData DescribeHosts
+instance NFData DescribeHosts where
 
 instance ToHeaders DescribeHosts where
         toHeaders = const mempty
@@ -137,10 +139,11 @@ instance ToQuery DescribeHosts where
 --
 -- /See:/ 'describeHostsResponse' smart constructor.
 data DescribeHostsResponse = DescribeHostsResponse'
-    { _dhrsHosts          :: !(Maybe [Host])
-    , _dhrsNextToken      :: !(Maybe Text)
-    , _dhrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrsHosts          :: {-# NOUNPACK #-}!(Maybe [Host])
+  , _dhrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHostsResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +158,12 @@ describeHostsResponse
     :: Int -- ^ 'dhrsResponseStatus'
     -> DescribeHostsResponse
 describeHostsResponse pResponseStatus_ =
-    DescribeHostsResponse'
-    { _dhrsHosts = Nothing
-    , _dhrsNextToken = Nothing
-    , _dhrsResponseStatus = pResponseStatus_
-    }
+  DescribeHostsResponse'
+  { _dhrsHosts = Nothing
+  , _dhrsNextToken = Nothing
+  , _dhrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the Dedicated Hosts.
 dhrsHosts :: Lens' DescribeHostsResponse [Host]
@@ -173,4 +177,4 @@ dhrsNextToken = lens _dhrsNextToken (\ s a -> s{_dhrsNextToken = a});
 dhrsResponseStatus :: Lens' DescribeHostsResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
 
-instance NFData DescribeHostsResponse
+instance NFData DescribeHostsResponse where

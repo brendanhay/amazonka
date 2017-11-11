@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.RDS.DeleteDBParameterGroup
     , DeleteDBParameterGroupResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDBParameterGroup' smart constructor.
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
-    { _ddbpgDBParameterGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbpgDBParameterGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBParameterGroup' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteDBParameterGroup
     :: Text -- ^ 'ddbpgDBParameterGroupName'
     -> DeleteDBParameterGroup
 deleteDBParameterGroup pDBParameterGroupName_ =
-    DeleteDBParameterGroup'
-    { _ddbpgDBParameterGroupName = pDBParameterGroupName_
-    }
+  DeleteDBParameterGroup' {_ddbpgDBParameterGroupName = pDBParameterGroupName_}
+
 
 -- | The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * You cannot delete a default DB parameter group     * Cannot be associated with any DB instances
 ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
@@ -74,9 +74,9 @@ instance AWSRequest DeleteDBParameterGroup where
         response
           = receiveNull DeleteDBParameterGroupResponse'
 
-instance Hashable DeleteDBParameterGroup
+instance Hashable DeleteDBParameterGroup where
 
-instance NFData DeleteDBParameterGroup
+instance NFData DeleteDBParameterGroup where
 
 instance ToHeaders DeleteDBParameterGroup where
         toHeaders = const mempty
@@ -94,8 +94,9 @@ instance ToQuery DeleteDBParameterGroup where
 
 -- | /See:/ 'deleteDBParameterGroupResponse' smart constructor.
 data DeleteDBParameterGroupResponse =
-    DeleteDBParameterGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDBParameterGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -103,4 +104,5 @@ deleteDBParameterGroupResponse
     :: DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'
 
-instance NFData DeleteDBParameterGroupResponse
+
+instance NFData DeleteDBParameterGroupResponse where

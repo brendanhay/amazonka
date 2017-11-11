@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.STS.AssumeRoleWithSAML
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -74,21 +74,22 @@ module Network.AWS.STS.AssumeRoleWithSAML
     , arwsamlrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.STS.Types
-import           Network.AWS.STS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.STS.Types
+import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'assumeRoleWithSAML' smart constructor.
 data AssumeRoleWithSAML = AssumeRoleWithSAML'
-    { _arwsamlDurationSeconds :: !(Maybe Nat)
-    , _arwsamlPolicy          :: !(Maybe Text)
-    , _arwsamlRoleARN         :: !Text
-    , _arwsamlPrincipalARN    :: !Text
-    , _arwsamlSAMLAssertion   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arwsamlDurationSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _arwsamlPolicy          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwsamlRoleARN         :: {-# NOUNPACK #-}!Text
+  , _arwsamlPrincipalARN    :: {-# NOUNPACK #-}!Text
+  , _arwsamlSAMLAssertion   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssumeRoleWithSAML' with the minimum fields required to make a request.
 --
@@ -109,13 +110,14 @@ assumeRoleWithSAML
     -> Text -- ^ 'arwsamlSAMLAssertion'
     -> AssumeRoleWithSAML
 assumeRoleWithSAML pRoleARN_ pPrincipalARN_ pSAMLAssertion_ =
-    AssumeRoleWithSAML'
-    { _arwsamlDurationSeconds = Nothing
-    , _arwsamlPolicy = Nothing
-    , _arwsamlRoleARN = pRoleARN_
-    , _arwsamlPrincipalARN = pPrincipalARN_
-    , _arwsamlSAMLAssertion = pSAMLAssertion_
-    }
+  AssumeRoleWithSAML'
+  { _arwsamlDurationSeconds = Nothing
+  , _arwsamlPolicy = Nothing
+  , _arwsamlRoleARN = pRoleARN_
+  , _arwsamlPrincipalARN = pPrincipalARN_
+  , _arwsamlSAMLAssertion = pSAMLAssertion_
+  }
+
 
 -- | The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds. An expiration can also be specified in the SAML authentication response's @SessionNotOnOrAfter@ value. The actual expiration time is whichever value is shorter.
 arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
@@ -154,9 +156,9 @@ instance AWSRequest AssumeRoleWithSAML where
                      <*> (x .@? "Issuer")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AssumeRoleWithSAML
+instance Hashable AssumeRoleWithSAML where
 
-instance NFData AssumeRoleWithSAML
+instance NFData AssumeRoleWithSAML where
 
 instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty
@@ -181,16 +183,17 @@ instance ToQuery AssumeRoleWithSAML where
 --
 -- /See:/ 'assumeRoleWithSAMLResponse' smart constructor.
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-    { _arwsamlrsSubject          :: !(Maybe Text)
-    , _arwsamlrsAudience         :: !(Maybe Text)
-    , _arwsamlrsPackedPolicySize :: !(Maybe Nat)
-    , _arwsamlrsCredentials      :: !(Maybe AuthEnv)
-    , _arwsamlrsSubjectType      :: !(Maybe Text)
-    , _arwsamlrsNameQualifier    :: !(Maybe Text)
-    , _arwsamlrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
-    , _arwsamlrsIssuer           :: !(Maybe Text)
-    , _arwsamlrsResponseStatus   :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _arwsamlrsSubject          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwsamlrsAudience         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwsamlrsPackedPolicySize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _arwsamlrsCredentials      :: {-# NOUNPACK #-}!(Maybe AuthEnv)
+  , _arwsamlrsSubjectType      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwsamlrsNameQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwsamlrsAssumedRoleUser  :: {-# NOUNPACK #-}!(Maybe AssumedRoleUser)
+  , _arwsamlrsIssuer           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwsamlrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssumeRoleWithSAMLResponse' with the minimum fields required to make a request.
 --
@@ -217,17 +220,18 @@ assumeRoleWithSAMLResponse
     :: Int -- ^ 'arwsamlrsResponseStatus'
     -> AssumeRoleWithSAMLResponse
 assumeRoleWithSAMLResponse pResponseStatus_ =
-    AssumeRoleWithSAMLResponse'
-    { _arwsamlrsSubject = Nothing
-    , _arwsamlrsAudience = Nothing
-    , _arwsamlrsPackedPolicySize = Nothing
-    , _arwsamlrsCredentials = Nothing
-    , _arwsamlrsSubjectType = Nothing
-    , _arwsamlrsNameQualifier = Nothing
-    , _arwsamlrsAssumedRoleUser = Nothing
-    , _arwsamlrsIssuer = Nothing
-    , _arwsamlrsResponseStatus = pResponseStatus_
-    }
+  AssumeRoleWithSAMLResponse'
+  { _arwsamlrsSubject = Nothing
+  , _arwsamlrsAudience = Nothing
+  , _arwsamlrsPackedPolicySize = Nothing
+  , _arwsamlrsCredentials = Nothing
+  , _arwsamlrsSubjectType = Nothing
+  , _arwsamlrsNameQualifier = Nothing
+  , _arwsamlrsAssumedRoleUser = Nothing
+  , _arwsamlrsIssuer = Nothing
+  , _arwsamlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The value of the @NameID@ element in the @Subject@ element of the SAML assertion.
 arwsamlrsSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
@@ -265,4 +269,4 @@ arwsamlrsIssuer = lens _arwsamlrsIssuer (\ s a -> s{_arwsamlrsIssuer = a});
 arwsamlrsResponseStatus :: Lens' AssumeRoleWithSAMLResponse Int
 arwsamlrsResponseStatus = lens _arwsamlrsResponseStatus (\ s a -> s{_arwsamlrsResponseStatus = a});
 
-instance NFData AssumeRoleWithSAMLResponse
+instance NFData AssumeRoleWithSAMLResponse where

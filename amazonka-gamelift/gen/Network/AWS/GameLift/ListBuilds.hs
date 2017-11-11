@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ListBuilds
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.GameLift.ListBuilds
     , lbrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -67,10 +67,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-    { _lbStatus    :: !(Maybe BuildStatus)
-    , _lbNextToken :: !(Maybe Text)
-    , _lbLimit     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbStatus    :: {-# NOUNPACK #-}!(Maybe BuildStatus)
+  , _lbNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBuilds' with the minimum fields required to make a request.
 --
@@ -84,11 +85,8 @@ data ListBuilds = ListBuilds'
 listBuilds
     :: ListBuilds
 listBuilds =
-    ListBuilds'
-    { _lbStatus = Nothing
-    , _lbNextToken = Nothing
-    , _lbLimit = Nothing
-    }
+  ListBuilds' {_lbStatus = Nothing, _lbNextToken = Nothing, _lbLimit = Nothing}
+
 
 -- | Build status to filter results by. To retrieve all builds, leave this parameter empty. Possible build statuses include the following:     * __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.      * __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.     * __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
 lbStatus :: Lens' ListBuilds (Maybe BuildStatus)
@@ -112,9 +110,9 @@ instance AWSRequest ListBuilds where
                    (x .?> "Builds" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListBuilds
+instance Hashable ListBuilds where
 
-instance NFData ListBuilds
+instance NFData ListBuilds where
 
 instance ToHeaders ListBuilds where
         toHeaders
@@ -145,10 +143,11 @@ instance ToQuery ListBuilds where
 --
 -- /See:/ 'listBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-    { _lbrsBuilds         :: !(Maybe [Build])
-    , _lbrsNextToken      :: !(Maybe Text)
-    , _lbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbrsBuilds         :: {-# NOUNPACK #-}!(Maybe [Build])
+  , _lbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBuildsResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +162,12 @@ listBuildsResponse
     :: Int -- ^ 'lbrsResponseStatus'
     -> ListBuildsResponse
 listBuildsResponse pResponseStatus_ =
-    ListBuildsResponse'
-    { _lbrsBuilds = Nothing
-    , _lbrsNextToken = Nothing
-    , _lbrsResponseStatus = pResponseStatus_
-    }
+  ListBuildsResponse'
+  { _lbrsBuilds = Nothing
+  , _lbrsNextToken = Nothing
+  , _lbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Collection of build records that match the request.
 lbrsBuilds :: Lens' ListBuildsResponse [Build]
@@ -181,4 +181,4 @@ lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 lbrsResponseStatus :: Lens' ListBuildsResponse Int
 lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
 
-instance NFData ListBuildsResponse
+instance NFData ListBuildsResponse where

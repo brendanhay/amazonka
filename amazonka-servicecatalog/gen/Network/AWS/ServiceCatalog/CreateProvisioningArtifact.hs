@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreateProvisioningArtifact
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.ServiceCatalog.CreateProvisioningArtifact
     , cparsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createProvisioningArtifact' smart constructor.
 data CreateProvisioningArtifact = CreateProvisioningArtifact'
-    { _cpaAcceptLanguage   :: !(Maybe Text)
-    , _cpaProductId        :: !Text
-    , _cpaParameters       :: !ProvisioningArtifactProperties
-    , _cpaIdempotencyToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpaAcceptLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpaProductId        :: {-# NOUNPACK #-}!Text
+  , _cpaParameters       :: {-# NOUNPACK #-}!ProvisioningArtifactProperties
+  , _cpaIdempotencyToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProvisioningArtifact' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ createProvisioningArtifact
     -> Text -- ^ 'cpaIdempotencyToken'
     -> CreateProvisioningArtifact
 createProvisioningArtifact pProductId_ pParameters_ pIdempotencyToken_ =
-    CreateProvisioningArtifact'
-    { _cpaAcceptLanguage = Nothing
-    , _cpaProductId = pProductId_
-    , _cpaParameters = pParameters_
-    , _cpaIdempotencyToken = pIdempotencyToken_
-    }
+  CreateProvisioningArtifact'
+  { _cpaAcceptLanguage = Nothing
+  , _cpaProductId = pProductId_
+  , _cpaParameters = pParameters_
+  , _cpaIdempotencyToken = pIdempotencyToken_
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 cpaAcceptLanguage :: Lens' CreateProvisioningArtifact (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest CreateProvisioningArtifact where
                      (x .?> "ProvisioningArtifactDetail")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateProvisioningArtifact
+instance Hashable CreateProvisioningArtifact where
 
-instance NFData CreateProvisioningArtifact
+instance NFData CreateProvisioningArtifact where
 
 instance ToHeaders CreateProvisioningArtifact where
         toHeaders
@@ -142,11 +144,12 @@ instance ToQuery CreateProvisioningArtifact where
 
 -- | /See:/ 'createProvisioningArtifactResponse' smart constructor.
 data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
-    { _cparsStatus                     :: !(Maybe RequestStatus)
-    , _cparsInfo                       :: !(Maybe (Map Text Text))
-    , _cparsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
-    , _cparsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cparsStatus :: {-# NOUNPACK #-}!(Maybe RequestStatus)
+  , _cparsInfo :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cparsProvisioningArtifactDetail :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactDetail)
+  , _cparsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
@@ -163,12 +166,13 @@ createProvisioningArtifactResponse
     :: Int -- ^ 'cparsResponseStatus'
     -> CreateProvisioningArtifactResponse
 createProvisioningArtifactResponse pResponseStatus_ =
-    CreateProvisioningArtifactResponse'
-    { _cparsStatus = Nothing
-    , _cparsInfo = Nothing
-    , _cparsProvisioningArtifactDetail = Nothing
-    , _cparsResponseStatus = pResponseStatus_
-    }
+  CreateProvisioningArtifactResponse'
+  { _cparsStatus = Nothing
+  , _cparsInfo = Nothing
+  , _cparsProvisioningArtifactDetail = Nothing
+  , _cparsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the current request.
 cparsStatus :: Lens' CreateProvisioningArtifactResponse (Maybe RequestStatus)
@@ -187,3 +191,4 @@ cparsResponseStatus :: Lens' CreateProvisioningArtifactResponse Int
 cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a});
 
 instance NFData CreateProvisioningArtifactResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.AddJobFlowSteps
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EMR.AddJobFlowSteps
     , ajfsrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input argument to the 'AddJobFlowSteps' operation.
 --
@@ -59,9 +59,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addJobFlowSteps' smart constructor.
 data AddJobFlowSteps = AddJobFlowSteps'
-    { _ajfsJobFlowId :: !Text
-    , _ajfsSteps     :: ![StepConfig]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ajfsJobFlowId :: {-# NOUNPACK #-}!Text
+  , _ajfsSteps     :: {-# NOUNPACK #-}![StepConfig]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddJobFlowSteps' with the minimum fields required to make a request.
 --
@@ -74,10 +75,8 @@ addJobFlowSteps
     :: Text -- ^ 'ajfsJobFlowId'
     -> AddJobFlowSteps
 addJobFlowSteps pJobFlowId_ =
-    AddJobFlowSteps'
-    { _ajfsJobFlowId = pJobFlowId_
-    , _ajfsSteps = mempty
-    }
+  AddJobFlowSteps' {_ajfsJobFlowId = pJobFlowId_, _ajfsSteps = mempty}
+
 
 -- | A string that uniquely identifies the job flow. This identifier is returned by 'RunJobFlow' and can also be obtained from 'ListClusters' .
 ajfsJobFlowId :: Lens' AddJobFlowSteps Text
@@ -96,9 +95,9 @@ instance AWSRequest AddJobFlowSteps where
                  AddJobFlowStepsResponse' <$>
                    (x .?> "StepIds" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable AddJobFlowSteps
+instance Hashable AddJobFlowSteps where
 
-instance NFData AddJobFlowSteps
+instance NFData AddJobFlowSteps where
 
 instance ToHeaders AddJobFlowSteps where
         toHeaders
@@ -128,9 +127,10 @@ instance ToQuery AddJobFlowSteps where
 --
 -- /See:/ 'addJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
-    { _ajfsrsStepIds        :: !(Maybe [Text])
-    , _ajfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ajfsrsStepIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ajfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddJobFlowStepsResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +143,9 @@ addJobFlowStepsResponse
     :: Int -- ^ 'ajfsrsResponseStatus'
     -> AddJobFlowStepsResponse
 addJobFlowStepsResponse pResponseStatus_ =
-    AddJobFlowStepsResponse'
-    { _ajfsrsStepIds = Nothing
-    , _ajfsrsResponseStatus = pResponseStatus_
-    }
+  AddJobFlowStepsResponse'
+  {_ajfsrsStepIds = Nothing, _ajfsrsResponseStatus = pResponseStatus_}
+
 
 -- | The identifiers of the list of steps added to the job flow.
 ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
@@ -156,4 +155,4 @@ ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default 
 ajfsrsResponseStatus :: Lens' AddJobFlowStepsResponse Int
 ajfsrsResponseStatus = lens _ajfsrsResponseStatus (\ s a -> s{_ajfsrsResponseStatus = a});
 
-instance NFData AddJobFlowStepsResponse
+instance NFData AddJobFlowStepsResponse where

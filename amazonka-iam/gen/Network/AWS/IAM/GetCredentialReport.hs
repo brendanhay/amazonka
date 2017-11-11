@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetCredentialReport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,23 +37,25 @@ module Network.AWS.IAM.GetCredentialReport
     , grsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCredentialReport' smart constructor.
 data GetCredentialReport =
-    GetCredentialReport'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetCredentialReport'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCredentialReport' with the minimum fields required to make a request.
 --
 getCredentialReport
     :: GetCredentialReport
 getCredentialReport = GetCredentialReport'
+
 
 instance AWSRequest GetCredentialReport where
         type Rs GetCredentialReport =
@@ -67,9 +69,9 @@ instance AWSRequest GetCredentialReport where
                      (x .@? "ReportFormat")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetCredentialReport
+instance Hashable GetCredentialReport where
 
-instance NFData GetCredentialReport
+instance NFData GetCredentialReport where
 
 instance ToHeaders GetCredentialReport where
         toHeaders = const mempty
@@ -90,11 +92,12 @@ instance ToQuery GetCredentialReport where
 --
 -- /See:/ 'getCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'
-    { _grsContent        :: !(Maybe Base64)
-    , _grsGeneratedTime  :: !(Maybe ISO8601)
-    , _grsReportFormat   :: !(Maybe ReportFormatType)
-    , _grsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsContent        :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _grsGeneratedTime  :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _grsReportFormat   :: {-# NOUNPACK #-}!(Maybe ReportFormatType)
+  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCredentialReportResponse' with the minimum fields required to make a request.
 --
@@ -111,12 +114,13 @@ getCredentialReportResponse
     :: Int -- ^ 'grsResponseStatus'
     -> GetCredentialReportResponse
 getCredentialReportResponse pResponseStatus_ =
-    GetCredentialReportResponse'
-    { _grsContent = Nothing
-    , _grsGeneratedTime = Nothing
-    , _grsReportFormat = Nothing
-    , _grsResponseStatus = pResponseStatus_
-    }
+  GetCredentialReportResponse'
+  { _grsContent = Nothing
+  , _grsGeneratedTime = Nothing
+  , _grsReportFormat = Nothing
+  , _grsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains the credential report. The report is Base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 grsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
@@ -134,4 +138,4 @@ grsReportFormat = lens _grsReportFormat (\ s a -> s{_grsReportFormat = a});
 grsResponseStatus :: Lens' GetCredentialReportResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
-instance NFData GetCredentialReportResponse
+instance NFData GetCredentialReportResponse where

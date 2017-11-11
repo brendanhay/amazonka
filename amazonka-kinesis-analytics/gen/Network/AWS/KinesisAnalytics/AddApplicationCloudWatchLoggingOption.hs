@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
     , aacwlorsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addApplicationCloudWatchLoggingOption' smart constructor.
 data AddApplicationCloudWatchLoggingOption = AddApplicationCloudWatchLoggingOption'
-    { _aacwloApplicationName             :: !Text
-    , _aacwloCurrentApplicationVersionId :: !Nat
-    , _aacwloCloudWatchLoggingOption     :: !CloudWatchLoggingOption
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aacwloApplicationName :: {-# NOUNPACK #-}!Text
+  , _aacwloCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
+  , _aacwloCloudWatchLoggingOption :: {-# NOUNPACK #-}!CloudWatchLoggingOption
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddApplicationCloudWatchLoggingOption' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ addApplicationCloudWatchLoggingOption
     -> CloudWatchLoggingOption -- ^ 'aacwloCloudWatchLoggingOption'
     -> AddApplicationCloudWatchLoggingOption
 addApplicationCloudWatchLoggingOption pApplicationName_ pCurrentApplicationVersionId_ pCloudWatchLoggingOption_ =
-    AddApplicationCloudWatchLoggingOption'
-    { _aacwloApplicationName = pApplicationName_
-    , _aacwloCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _aacwloCloudWatchLoggingOption = pCloudWatchLoggingOption_
-    }
+  AddApplicationCloudWatchLoggingOption'
+  { _aacwloApplicationName = pApplicationName_
+  , _aacwloCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+  , _aacwloCloudWatchLoggingOption = pCloudWatchLoggingOption_
+  }
+
 
 -- | The Kinesis Analytics application name.
 aacwloApplicationName :: Lens' AddApplicationCloudWatchLoggingOption Text
@@ -86,7 +88,8 @@ aacwloCloudWatchLoggingOption :: Lens' AddApplicationCloudWatchLoggingOption Clo
 aacwloCloudWatchLoggingOption = lens _aacwloCloudWatchLoggingOption (\ s a -> s{_aacwloCloudWatchLoggingOption = a});
 
 instance AWSRequest
-         AddApplicationCloudWatchLoggingOption where
+           AddApplicationCloudWatchLoggingOption
+         where
         type Rs AddApplicationCloudWatchLoggingOption =
              AddApplicationCloudWatchLoggingOptionResponse
         request = postJSON kinesisAnalytics
@@ -97,12 +100,15 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         AddApplicationCloudWatchLoggingOption
+           AddApplicationCloudWatchLoggingOption
+         where
 
 instance NFData AddApplicationCloudWatchLoggingOption
+         where
 
 instance ToHeaders
-         AddApplicationCloudWatchLoggingOption where
+           AddApplicationCloudWatchLoggingOption
+         where
         toHeaders
           = const
               (mconcat
@@ -130,13 +136,15 @@ instance ToPath AddApplicationCloudWatchLoggingOption
         toPath = const "/"
 
 instance ToQuery
-         AddApplicationCloudWatchLoggingOption where
+           AddApplicationCloudWatchLoggingOption
+         where
         toQuery = const mempty
 
 -- | /See:/ 'addApplicationCloudWatchLoggingOptionResponse' smart constructor.
 newtype AddApplicationCloudWatchLoggingOptionResponse = AddApplicationCloudWatchLoggingOptionResponse'
-    { _aacwlorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aacwlorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddApplicationCloudWatchLoggingOptionResponse' with the minimum fields required to make a request.
 --
@@ -147,13 +155,14 @@ addApplicationCloudWatchLoggingOptionResponse
     :: Int -- ^ 'aacwlorsResponseStatus'
     -> AddApplicationCloudWatchLoggingOptionResponse
 addApplicationCloudWatchLoggingOptionResponse pResponseStatus_ =
-    AddApplicationCloudWatchLoggingOptionResponse'
-    { _aacwlorsResponseStatus = pResponseStatus_
-    }
+  AddApplicationCloudWatchLoggingOptionResponse'
+  {_aacwlorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aacwlorsResponseStatus :: Lens' AddApplicationCloudWatchLoggingOptionResponse Int
 aacwlorsResponseStatus = lens _aacwlorsResponseStatus (\ s a -> s{_aacwlorsResponseStatus = a});
 
 instance NFData
-         AddApplicationCloudWatchLoggingOptionResponse
+           AddApplicationCloudWatchLoggingOptionResponse
+         where

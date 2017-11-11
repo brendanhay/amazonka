@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeReplicationSubnetGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DMS.DescribeReplicationSubnetGroups
     , drsgsrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReplicationSubnetGroups' smart constructor.
 data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
-    { _drsgFilters    :: !(Maybe [Filter])
-    , _drsgMarker     :: !(Maybe Text)
-    , _drsgMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsgFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _drsgMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsgMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReplicationSubnetGroups' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
 describeReplicationSubnetGroups
     :: DescribeReplicationSubnetGroups
 describeReplicationSubnetGroups =
-    DescribeReplicationSubnetGroups'
-    { _drsgFilters = Nothing
-    , _drsgMarker = Nothing
-    , _drsgMaxRecords = Nothing
-    }
+  DescribeReplicationSubnetGroups'
+  {_drsgFilters = Nothing, _drsgMarker = Nothing, _drsgMaxRecords = Nothing}
+
 
 -- | Filters applied to the describe action.
 drsgFilters :: Lens' DescribeReplicationSubnetGroups [Filter]
@@ -102,8 +101,9 @@ instance AWSRequest DescribeReplicationSubnetGroups
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeReplicationSubnetGroups
+         where
 
-instance NFData DescribeReplicationSubnetGroups
+instance NFData DescribeReplicationSubnetGroups where
 
 instance ToHeaders DescribeReplicationSubnetGroups
          where
@@ -137,10 +137,11 @@ instance ToQuery DescribeReplicationSubnetGroups
 --
 -- /See:/ 'describeReplicationSubnetGroupsResponse' smart constructor.
 data DescribeReplicationSubnetGroupsResponse = DescribeReplicationSubnetGroupsResponse'
-    { _drsgsrsMarker                  :: !(Maybe Text)
-    , _drsgsrsReplicationSubnetGroups :: !(Maybe [ReplicationSubnetGroup])
-    , _drsgsrsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsgsrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsgsrsReplicationSubnetGroups :: {-# NOUNPACK #-}!(Maybe [ReplicationSubnetGroup])
+  , _drsgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReplicationSubnetGroupsResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +156,12 @@ describeReplicationSubnetGroupsResponse
     :: Int -- ^ 'drsgsrsResponseStatus'
     -> DescribeReplicationSubnetGroupsResponse
 describeReplicationSubnetGroupsResponse pResponseStatus_ =
-    DescribeReplicationSubnetGroupsResponse'
-    { _drsgsrsMarker = Nothing
-    , _drsgsrsReplicationSubnetGroups = Nothing
-    , _drsgsrsResponseStatus = pResponseStatus_
-    }
+  DescribeReplicationSubnetGroupsResponse'
+  { _drsgsrsMarker = Nothing
+  , _drsgsrsReplicationSubnetGroups = Nothing
+  , _drsgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drsgsrsMarker :: Lens' DescribeReplicationSubnetGroupsResponse (Maybe Text)
@@ -174,4 +176,5 @@ drsgsrsResponseStatus :: Lens' DescribeReplicationSubnetGroupsResponse Int
 drsgsrsResponseStatus = lens _drsgsrsResponseStatus (\ s a -> s{_drsgsrsResponseStatus = a});
 
 instance NFData
-         DescribeReplicationSubnetGroupsResponse
+           DescribeReplicationSubnetGroupsResponse
+         where

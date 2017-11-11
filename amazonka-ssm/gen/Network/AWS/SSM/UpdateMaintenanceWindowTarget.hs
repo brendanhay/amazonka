@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateMaintenanceWindowTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -62,23 +62,24 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTarget
     , ursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateMaintenanceWindowTarget' smart constructor.
 data UpdateMaintenanceWindowTarget = UpdateMaintenanceWindowTarget'
-    { _uReplace          :: !(Maybe Bool)
-    , _uOwnerInformation :: !(Maybe (Sensitive Text))
-    , _uName             :: !(Maybe Text)
-    , _uTargets          :: !(Maybe [Target])
-    , _uDescription      :: !(Maybe (Sensitive Text))
-    , _uWindowId         :: !Text
-    , _uWindowTargetId   :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uReplace          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _uName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uTargets          :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _uDescription      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _uWindowId         :: {-# NOUNPACK #-}!Text
+  , _uWindowTargetId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMaintenanceWindowTarget' with the minimum fields required to make a request.
 --
@@ -102,15 +103,16 @@ updateMaintenanceWindowTarget
     -> Text -- ^ 'uWindowTargetId'
     -> UpdateMaintenanceWindowTarget
 updateMaintenanceWindowTarget pWindowId_ pWindowTargetId_ =
-    UpdateMaintenanceWindowTarget'
-    { _uReplace = Nothing
-    , _uOwnerInformation = Nothing
-    , _uName = Nothing
-    , _uTargets = Nothing
-    , _uDescription = Nothing
-    , _uWindowId = pWindowId_
-    , _uWindowTargetId = pWindowTargetId_
-    }
+  UpdateMaintenanceWindowTarget'
+  { _uReplace = Nothing
+  , _uOwnerInformation = Nothing
+  , _uName = Nothing
+  , _uTargets = Nothing
+  , _uDescription = Nothing
+  , _uWindowId = pWindowId_
+  , _uWindowTargetId = pWindowTargetId_
+  }
+
 
 -- | If you specify True, then all fields that are required by the RegisterTargetWithMaintenanceWindow API are also required for this API request. Optional fields that are not specified will be set to null.
 uReplace :: Lens' UpdateMaintenanceWindowTarget (Maybe Bool)
@@ -157,9 +159,9 @@ instance AWSRequest UpdateMaintenanceWindowTarget
                      <*> (x .?> "WindowId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateMaintenanceWindowTarget
+instance Hashable UpdateMaintenanceWindowTarget where
 
-instance NFData UpdateMaintenanceWindowTarget
+instance NFData UpdateMaintenanceWindowTarget where
 
 instance ToHeaders UpdateMaintenanceWindowTarget
          where
@@ -191,14 +193,15 @@ instance ToQuery UpdateMaintenanceWindowTarget where
 
 -- | /See:/ 'updateMaintenanceWindowTargetResponse' smart constructor.
 data UpdateMaintenanceWindowTargetResponse = UpdateMaintenanceWindowTargetResponse'
-    { _ursOwnerInformation :: !(Maybe (Sensitive Text))
-    , _ursWindowTargetId   :: !(Maybe Text)
-    , _ursName             :: !(Maybe Text)
-    , _ursTargets          :: !(Maybe [Target])
-    , _ursDescription      :: !(Maybe (Sensitive Text))
-    , _ursWindowId         :: !(Maybe Text)
-    , _ursResponseStatus   :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ursOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ursWindowTargetId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ursName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ursTargets          :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _ursDescription      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ursWindowId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ursResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMaintenanceWindowTargetResponse' with the minimum fields required to make a request.
 --
@@ -221,15 +224,16 @@ updateMaintenanceWindowTargetResponse
     :: Int -- ^ 'ursResponseStatus'
     -> UpdateMaintenanceWindowTargetResponse
 updateMaintenanceWindowTargetResponse pResponseStatus_ =
-    UpdateMaintenanceWindowTargetResponse'
-    { _ursOwnerInformation = Nothing
-    , _ursWindowTargetId = Nothing
-    , _ursName = Nothing
-    , _ursTargets = Nothing
-    , _ursDescription = Nothing
-    , _ursWindowId = Nothing
-    , _ursResponseStatus = pResponseStatus_
-    }
+  UpdateMaintenanceWindowTargetResponse'
+  { _ursOwnerInformation = Nothing
+  , _ursWindowTargetId = Nothing
+  , _ursName = Nothing
+  , _ursTargets = Nothing
+  , _ursDescription = Nothing
+  , _ursWindowId = Nothing
+  , _ursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The updated owner.
 ursOwnerInformation :: Lens' UpdateMaintenanceWindowTargetResponse (Maybe Text)
@@ -260,3 +264,4 @@ ursResponseStatus :: Lens' UpdateMaintenanceWindowTargetResponse Int
 ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
 
 instance NFData UpdateMaintenanceWindowTargetResponse
+         where

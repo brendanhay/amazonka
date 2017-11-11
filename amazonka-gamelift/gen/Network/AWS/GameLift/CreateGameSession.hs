@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateGameSession
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -83,12 +83,12 @@ module Network.AWS.GameLift.CreateGameSession
     , cgsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -96,16 +96,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createGameSession' smart constructor.
 data CreateGameSession = CreateGameSession'
-    { _cgsIdempotencyToken          :: !(Maybe Text)
-    , _cgsGameProperties            :: !(Maybe [GameProperty])
-    , _cgsGameSessionId             :: !(Maybe Text)
-    , _cgsAliasId                   :: !(Maybe Text)
-    , _cgsName                      :: !(Maybe Text)
-    , _cgsGameSessionData           :: !(Maybe Text)
-    , _cgsFleetId                   :: !(Maybe Text)
-    , _cgsCreatorId                 :: !(Maybe Text)
-    , _cgsMaximumPlayerSessionCount :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgsIdempotencyToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgsGameProperties            :: {-# NOUNPACK #-}!(Maybe [GameProperty])
+  , _cgsGameSessionId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgsAliasId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgsName                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgsGameSessionData           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgsFleetId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgsCreatorId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgsMaximumPlayerSessionCount :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGameSession' with the minimum fields required to make a request.
 --
@@ -132,17 +133,18 @@ createGameSession
     :: Natural -- ^ 'cgsMaximumPlayerSessionCount'
     -> CreateGameSession
 createGameSession pMaximumPlayerSessionCount_ =
-    CreateGameSession'
-    { _cgsIdempotencyToken = Nothing
-    , _cgsGameProperties = Nothing
-    , _cgsGameSessionId = Nothing
-    , _cgsAliasId = Nothing
-    , _cgsName = Nothing
-    , _cgsGameSessionData = Nothing
-    , _cgsFleetId = Nothing
-    , _cgsCreatorId = Nothing
-    , _cgsMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
-    }
+  CreateGameSession'
+  { _cgsIdempotencyToken = Nothing
+  , _cgsGameProperties = Nothing
+  , _cgsGameSessionId = Nothing
+  , _cgsAliasId = Nothing
+  , _cgsName = Nothing
+  , _cgsGameSessionData = Nothing
+  , _cgsFleetId = Nothing
+  , _cgsCreatorId = Nothing
+  , _cgsMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
+  }
+
 
 -- | Custom string that uniquely identifies a request for a new game session. Maximum token length is 48 characters. If provided, this string is included in the new game session's ID. (A game session ID has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .) Idempotency tokens remain in use for 30 days after a game session has ended; game session objects are retained for this time period and then deleted.
 cgsIdempotencyToken :: Lens' CreateGameSession (Maybe Text)
@@ -189,9 +191,9 @@ instance AWSRequest CreateGameSession where
                  CreateGameSessionResponse' <$>
                    (x .?> "GameSession") <*> (pure (fromEnum s)))
 
-instance Hashable CreateGameSession
+instance Hashable CreateGameSession where
 
-instance NFData CreateGameSession
+instance NFData CreateGameSession where
 
 instance ToHeaders CreateGameSession where
         toHeaders
@@ -230,9 +232,10 @@ instance ToQuery CreateGameSession where
 --
 -- /See:/ 'createGameSessionResponse' smart constructor.
 data CreateGameSessionResponse = CreateGameSessionResponse'
-    { _cgsrsGameSession    :: !(Maybe GameSession)
-    , _cgsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgsrsGameSession    :: {-# NOUNPACK #-}!(Maybe GameSession)
+  , _cgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGameSessionResponse' with the minimum fields required to make a request.
 --
@@ -245,10 +248,9 @@ createGameSessionResponse
     :: Int -- ^ 'cgsrsResponseStatus'
     -> CreateGameSessionResponse
 createGameSessionResponse pResponseStatus_ =
-    CreateGameSessionResponse'
-    { _cgsrsGameSession = Nothing
-    , _cgsrsResponseStatus = pResponseStatus_
-    }
+  CreateGameSessionResponse'
+  {_cgsrsGameSession = Nothing, _cgsrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that describes the newly created game session record.
 cgsrsGameSession :: Lens' CreateGameSessionResponse (Maybe GameSession)
@@ -258,4 +260,4 @@ cgsrsGameSession = lens _cgsrsGameSession (\ s a -> s{_cgsrsGameSession = a});
 cgsrsResponseStatus :: Lens' CreateGameSessionResponse Int
 cgsrsResponseStatus = lens _cgsrsResponseStatus (\ s a -> s{_cgsrsResponseStatus = a});
 
-instance NFData CreateGameSessionResponse
+instance NFData CreateGameSessionResponse where

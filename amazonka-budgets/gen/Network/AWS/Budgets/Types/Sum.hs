@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Budgets.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 -- | The type of a budget. It should be COST, USAGE, or RI_UTILIZATION.
 data BudgetType
-    = Cost
-    | RiUtilization
-    | Usage
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Cost
+  | RiUtilization
+  | Usage
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BudgetType where
     parser = takeLowerText >>= \case
@@ -54,10 +55,11 @@ instance FromJSON BudgetType where
 
 -- | The comparison operator of a notification. Currently we support less than, equal to and greater than.
 data ComparisonOperator
-    = EqualTo
-    | GreaterThan
-    | LessThan
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EqualTo
+  | GreaterThan
+  | LessThan
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -87,9 +89,10 @@ instance FromJSON ComparisonOperator where
 
 -- | The type of a notification. It should be ACTUAL or FORECASTED.
 data NotificationType
-    = Actual
-    | Forecasted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Actual
+  | Forecasted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NotificationType where
     parser = takeLowerText >>= \case
@@ -117,9 +120,10 @@ instance FromJSON NotificationType where
 
 -- | The subscription type of the subscriber. It can be SMS or EMAIL.
 data SubscriptionType
-    = Email
-    | SNS
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Email
+  | SNS
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SubscriptionType where
     parser = takeLowerText >>= \case
@@ -147,11 +151,12 @@ instance FromJSON SubscriptionType where
 
 -- | The time unit of the budget. e.g. MONTHLY, QUARTERLY, etc.
 data TimeUnit
-    = Annually
-    | Daily
-    | Monthly
-    | Quarterly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Annually
+  | Daily
+  | Monthly
+  | Quarterly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TimeUnit where
     parser = takeLowerText >>= \case

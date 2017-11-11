@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.CreateFunction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -71,12 +71,12 @@ module Network.AWS.Lambda.CreateFunction
     , fcMasterARN
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -84,22 +84,23 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createFunction' smart constructor.
 data CreateFunction = CreateFunction'
-    { _cfMemorySize       :: !(Maybe Nat)
-    , _cfKMSKeyARN        :: !(Maybe Text)
-    , _cfEnvironment      :: !(Maybe Environment)
-    , _cfDeadLetterConfig :: !(Maybe DeadLetterConfig)
-    , _cfVPCConfig        :: !(Maybe VPCConfig)
-    , _cfTimeout          :: !(Maybe Nat)
-    , _cfTracingConfig    :: !(Maybe TracingConfig)
-    , _cfDescription      :: !(Maybe Text)
-    , _cfTags             :: !(Maybe (Map Text Text))
-    , _cfPublish          :: !(Maybe Bool)
-    , _cfFunctionName     :: !Text
-    , _cfRuntime          :: !Runtime
-    , _cfRole             :: !Text
-    , _cfHandler          :: !Text
-    , _cfCode             :: !FunctionCode
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cfMemorySize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cfKMSKeyARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfEnvironment      :: {-# NOUNPACK #-}!(Maybe Environment)
+  , _cfDeadLetterConfig :: {-# NOUNPACK #-}!(Maybe DeadLetterConfig)
+  , _cfVPCConfig        :: {-# NOUNPACK #-}!(Maybe VPCConfig)
+  , _cfTimeout          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cfTracingConfig    :: {-# NOUNPACK #-}!(Maybe TracingConfig)
+  , _cfDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfTags             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cfPublish          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cfFunctionName     :: {-# NOUNPACK #-}!Text
+  , _cfRuntime          :: {-# NOUNPACK #-}!Runtime
+  , _cfRole             :: {-# NOUNPACK #-}!Text
+  , _cfHandler          :: {-# NOUNPACK #-}!Text
+  , _cfCode             :: {-# NOUNPACK #-}!FunctionCode
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFunction' with the minimum fields required to make a request.
 --
@@ -142,23 +143,24 @@ createFunction
     -> FunctionCode -- ^ 'cfCode'
     -> CreateFunction
 createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
-    CreateFunction'
-    { _cfMemorySize = Nothing
-    , _cfKMSKeyARN = Nothing
-    , _cfEnvironment = Nothing
-    , _cfDeadLetterConfig = Nothing
-    , _cfVPCConfig = Nothing
-    , _cfTimeout = Nothing
-    , _cfTracingConfig = Nothing
-    , _cfDescription = Nothing
-    , _cfTags = Nothing
-    , _cfPublish = Nothing
-    , _cfFunctionName = pFunctionName_
-    , _cfRuntime = pRuntime_
-    , _cfRole = pRole_
-    , _cfHandler = pHandler_
-    , _cfCode = pCode_
-    }
+  CreateFunction'
+  { _cfMemorySize = Nothing
+  , _cfKMSKeyARN = Nothing
+  , _cfEnvironment = Nothing
+  , _cfDeadLetterConfig = Nothing
+  , _cfVPCConfig = Nothing
+  , _cfTimeout = Nothing
+  , _cfTracingConfig = Nothing
+  , _cfDescription = Nothing
+  , _cfTags = Nothing
+  , _cfPublish = Nothing
+  , _cfFunctionName = pFunctionName_
+  , _cfRuntime = pRuntime_
+  , _cfRole = pRole_
+  , _cfHandler = pHandler_
+  , _cfCode = pCode_
+  }
+
 
 -- | The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
 cfMemorySize :: Lens' CreateFunction (Maybe Natural)
@@ -225,9 +227,9 @@ instance AWSRequest CreateFunction where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateFunction
+instance Hashable CreateFunction where
 
-instance NFData CreateFunction
+instance NFData CreateFunction where
 
 instance ToHeaders CreateFunction where
         toHeaders = const mempty

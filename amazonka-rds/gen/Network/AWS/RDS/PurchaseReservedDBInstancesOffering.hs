@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.PurchaseReservedDBInstancesOffering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     , prdiorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'purchaseReservedDBInstancesOffering' smart constructor.
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
-    { _prdioDBInstanceCount               :: !(Maybe Int)
-    , _prdioReservedDBInstanceId          :: !(Maybe Text)
-    , _prdioTags                          :: !(Maybe [Tag])
-    , _prdioReservedDBInstancesOfferingId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prdioDBInstanceCount               :: {-# NOUNPACK #-}!(Maybe Int)
+  , _prdioReservedDBInstanceId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prdioTags                          :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _prdioReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedDBInstancesOffering' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ purchaseReservedDBInstancesOffering
     :: Text -- ^ 'prdioReservedDBInstancesOfferingId'
     -> PurchaseReservedDBInstancesOffering
 purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId_ =
-    PurchaseReservedDBInstancesOffering'
-    { _prdioDBInstanceCount = Nothing
-    , _prdioReservedDBInstanceId = Nothing
-    , _prdioTags = Nothing
-    , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
-    }
+  PurchaseReservedDBInstancesOffering'
+  { _prdioDBInstanceCount = Nothing
+  , _prdioReservedDBInstanceId = Nothing
+  , _prdioTags = Nothing
+  , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
+  }
+
 
 -- | The number of instances to reserve. Default: @1@
 prdioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
@@ -98,7 +100,8 @@ prdioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering 
 prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\ s a -> s{_prdioReservedDBInstancesOfferingId = a});
 
 instance AWSRequest
-         PurchaseReservedDBInstancesOffering where
+           PurchaseReservedDBInstancesOffering
+         where
         type Rs PurchaseReservedDBInstancesOffering =
              PurchaseReservedDBInstancesOfferingResponse
         request = postQuery rds
@@ -110,11 +113,14 @@ instance AWSRequest
                    (x .@? "ReservedDBInstance") <*> (pure (fromEnum s)))
 
 instance Hashable PurchaseReservedDBInstancesOffering
+         where
 
 instance NFData PurchaseReservedDBInstancesOffering
+         where
 
 instance ToHeaders
-         PurchaseReservedDBInstancesOffering where
+           PurchaseReservedDBInstancesOffering
+         where
         toHeaders = const mempty
 
 instance ToPath PurchaseReservedDBInstancesOffering
@@ -137,9 +143,10 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 
 -- | /See:/ 'purchaseReservedDBInstancesOfferingResponse' smart constructor.
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
-    { _prdiorsReservedDBInstance :: !(Maybe ReservedDBInstance)
-    , _prdiorsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prdiorsReservedDBInstance :: {-# NOUNPACK #-}!(Maybe ReservedDBInstance)
+  , _prdiorsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedDBInstancesOfferingResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +159,11 @@ purchaseReservedDBInstancesOfferingResponse
     :: Int -- ^ 'prdiorsResponseStatus'
     -> PurchaseReservedDBInstancesOfferingResponse
 purchaseReservedDBInstancesOfferingResponse pResponseStatus_ =
-    PurchaseReservedDBInstancesOfferingResponse'
-    { _prdiorsReservedDBInstance = Nothing
-    , _prdiorsResponseStatus = pResponseStatus_
-    }
+  PurchaseReservedDBInstancesOfferingResponse'
+  { _prdiorsReservedDBInstance = Nothing
+  , _prdiorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 prdiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
@@ -166,4 +174,5 @@ prdiorsResponseStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
 prdiorsResponseStatus = lens _prdiorsResponseStatus (\ s a -> s{_prdiorsResponseStatus = a});
 
 instance NFData
-         PurchaseReservedDBInstancesOfferingResponse
+           PurchaseReservedDBInstancesOfferingResponse
+         where

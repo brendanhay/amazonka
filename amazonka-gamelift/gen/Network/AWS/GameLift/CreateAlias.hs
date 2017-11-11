@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,12 +59,12 @@ module Network.AWS.GameLift.CreateAlias
     , carsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -72,10 +72,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
-    { _caDescription     :: !(Maybe Text)
-    , _caName            :: !Text
-    , _caRoutingStrategy :: !RoutingStrategy
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caName            :: {-# NOUNPACK #-}!Text
+  , _caRoutingStrategy :: {-# NOUNPACK #-}!RoutingStrategy
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
@@ -91,11 +92,12 @@ createAlias
     -> RoutingStrategy -- ^ 'caRoutingStrategy'
     -> CreateAlias
 createAlias pName_ pRoutingStrategy_ =
-    CreateAlias'
-    { _caDescription = Nothing
-    , _caName = pName_
-    , _caRoutingStrategy = pRoutingStrategy_
-    }
+  CreateAlias'
+  { _caDescription = Nothing
+  , _caName = pName_
+  , _caRoutingStrategy = pRoutingStrategy_
+  }
+
 
 -- | Human-readable description of an alias.
 caDescription :: Lens' CreateAlias (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest CreateAlias where
                  CreateAliasResponse' <$>
                    (x .?> "Alias") <*> (pure (fromEnum s)))
 
-instance Hashable CreateAlias
+instance Hashable CreateAlias where
 
-instance NFData CreateAlias
+instance NFData CreateAlias where
 
 instance ToHeaders CreateAlias where
         toHeaders
@@ -151,9 +153,10 @@ instance ToQuery CreateAlias where
 --
 -- /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
-    { _carsAlias          :: !(Maybe Alias)
-    , _carsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carsAlias          :: {-# NOUNPACK #-}!(Maybe Alias)
+  , _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
 --
@@ -166,10 +169,9 @@ createAliasResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CreateAliasResponse
 createAliasResponse pResponseStatus_ =
-    CreateAliasResponse'
-    { _carsAlias = Nothing
-    , _carsResponseStatus = pResponseStatus_
-    }
+  CreateAliasResponse'
+  {_carsAlias = Nothing, _carsResponseStatus = pResponseStatus_}
+
 
 -- | Object that describes the newly created alias record.
 carsAlias :: Lens' CreateAliasResponse (Maybe Alias)
@@ -179,4 +181,4 @@ carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 carsResponseStatus :: Lens' CreateAliasResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 
-instance NFData CreateAliasResponse
+instance NFData CreateAliasResponse where

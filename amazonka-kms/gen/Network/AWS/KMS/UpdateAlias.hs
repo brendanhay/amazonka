@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.UpdateAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.KMS.UpdateAlias
     , UpdateAliasResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-    { _uaAliasName   :: !Text
-    , _uaTargetKeyId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaAliasName   :: {-# NOUNPACK #-}!Text
+  , _uaTargetKeyId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAlias' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ updateAlias
     -> Text -- ^ 'uaTargetKeyId'
     -> UpdateAlias
 updateAlias pAliasName_ pTargetKeyId_ =
-    UpdateAlias'
-    { _uaAliasName = pAliasName_
-    , _uaTargetKeyId = pTargetKeyId_
-    }
+  UpdateAlias' {_uaAliasName = pAliasName_, _uaTargetKeyId = pTargetKeyId_}
+
 
 -- | String that contains the name of the alias to be modified. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
 uaAliasName :: Lens' UpdateAlias Text
@@ -84,9 +83,9 @@ instance AWSRequest UpdateAlias where
         request = postJSON kms
         response = receiveNull UpdateAliasResponse'
 
-instance Hashable UpdateAlias
+instance Hashable UpdateAlias where
 
-instance NFData UpdateAlias
+instance NFData UpdateAlias where
 
 instance ToHeaders UpdateAlias where
         toHeaders
@@ -112,8 +111,9 @@ instance ToQuery UpdateAlias where
 
 -- | /See:/ 'updateAliasResponse' smart constructor.
 data UpdateAliasResponse =
-    UpdateAliasResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateAliasResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAliasResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +121,5 @@ updateAliasResponse
     :: UpdateAliasResponse
 updateAliasResponse = UpdateAliasResponse'
 
-instance NFData UpdateAliasResponse
+
+instance NFData UpdateAliasResponse where

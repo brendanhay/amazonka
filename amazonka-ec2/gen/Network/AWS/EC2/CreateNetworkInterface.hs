@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.EC2.CreateNetworkInterface
     , cnirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateNetworkInterface.
 --
@@ -60,16 +60,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createNetworkInterface' smart constructor.
 data CreateNetworkInterface = CreateNetworkInterface'
-    { _cniGroups                         :: !(Maybe [Text])
-    , _cniPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
-    , _cniIPv6AddressCount               :: !(Maybe Int)
-    , _cniPrivateIPAddress               :: !(Maybe Text)
-    , _cniSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _cniDescription                    :: !(Maybe Text)
-    , _cniDryRun                         :: !(Maybe Bool)
-    , _cniIPv6Addresses                  :: !(Maybe [InstanceIPv6Address])
-    , _cniSubnetId                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cniGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cniPrivateIPAddresses :: {-# NOUNPACK #-}!(Maybe [PrivateIPAddressSpecification])
+  , _cniIPv6AddressCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cniPrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cniSecondaryPrivateIPAddressCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cniDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cniDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cniIPv6Addresses :: {-# NOUNPACK #-}!(Maybe [InstanceIPv6Address])
+  , _cniSubnetId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNetworkInterface' with the minimum fields required to make a request.
 --
@@ -96,17 +97,18 @@ createNetworkInterface
     :: Text -- ^ 'cniSubnetId'
     -> CreateNetworkInterface
 createNetworkInterface pSubnetId_ =
-    CreateNetworkInterface'
-    { _cniGroups = Nothing
-    , _cniPrivateIPAddresses = Nothing
-    , _cniIPv6AddressCount = Nothing
-    , _cniPrivateIPAddress = Nothing
-    , _cniSecondaryPrivateIPAddressCount = Nothing
-    , _cniDescription = Nothing
-    , _cniDryRun = Nothing
-    , _cniIPv6Addresses = Nothing
-    , _cniSubnetId = pSubnetId_
-    }
+  CreateNetworkInterface'
+  { _cniGroups = Nothing
+  , _cniPrivateIPAddresses = Nothing
+  , _cniIPv6AddressCount = Nothing
+  , _cniPrivateIPAddress = Nothing
+  , _cniSecondaryPrivateIPAddressCount = Nothing
+  , _cniDescription = Nothing
+  , _cniDryRun = Nothing
+  , _cniIPv6Addresses = Nothing
+  , _cniSubnetId = pSubnetId_
+  }
+
 
 -- | The IDs of one or more security groups.
 cniGroups :: Lens' CreateNetworkInterface [Text]
@@ -154,9 +156,9 @@ instance AWSRequest CreateNetworkInterface where
                  CreateNetworkInterfaceResponse' <$>
                    (x .@? "networkInterface") <*> (pure (fromEnum s)))
 
-instance Hashable CreateNetworkInterface
+instance Hashable CreateNetworkInterface where
 
-instance NFData CreateNetworkInterface
+instance NFData CreateNetworkInterface where
 
 instance ToHeaders CreateNetworkInterface where
         toHeaders = const mempty
@@ -191,9 +193,10 @@ instance ToQuery CreateNetworkInterface where
 --
 -- /See:/ 'createNetworkInterfaceResponse' smart constructor.
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
-    { _cnirsNetworkInterface :: !(Maybe NetworkInterface)
-    , _cnirsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnirsNetworkInterface :: {-# NOUNPACK #-}!(Maybe NetworkInterface)
+  , _cnirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNetworkInterfaceResponse' with the minimum fields required to make a request.
 --
@@ -206,10 +209,9 @@ createNetworkInterfaceResponse
     :: Int -- ^ 'cnirsResponseStatus'
     -> CreateNetworkInterfaceResponse
 createNetworkInterfaceResponse pResponseStatus_ =
-    CreateNetworkInterfaceResponse'
-    { _cnirsNetworkInterface = Nothing
-    , _cnirsResponseStatus = pResponseStatus_
-    }
+  CreateNetworkInterfaceResponse'
+  {_cnirsNetworkInterface = Nothing, _cnirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the network interface.
 cnirsNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
@@ -219,4 +221,4 @@ cnirsNetworkInterface = lens _cnirsNetworkInterface (\ s a -> s{_cnirsNetworkInt
 cnirsResponseStatus :: Lens' CreateNetworkInterfaceResponse Int
 cnirsResponseStatus = lens _cnirsResponseStatus (\ s a -> s{_cnirsResponseStatus = a});
 
-instance NFData CreateNetworkInterfaceResponse
+instance NFData CreateNetworkInterfaceResponse where

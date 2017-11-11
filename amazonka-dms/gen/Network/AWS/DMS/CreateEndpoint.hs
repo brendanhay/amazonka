@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.CreateEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.DMS.CreateEndpoint
     , cersResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -65,23 +65,24 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-    { _ceServerName                :: !(Maybe Text)
-    , _ceCertificateARN            :: !(Maybe Text)
-    , _ceExtraConnectionAttributes :: !(Maybe Text)
-    , _ceUsername                  :: !(Maybe Text)
-    , _ceKMSKeyId                  :: !(Maybe Text)
-    , _ceMongoDBSettings           :: !(Maybe MongoDBSettings)
-    , _ceSSLMode                   :: !(Maybe DmsSSLModeValue)
-    , _cePassword                  :: !(Maybe (Sensitive Text))
-    , _ceDatabaseName              :: !(Maybe Text)
-    , _ceS3Settings                :: !(Maybe S3Settings)
-    , _ceDynamoDBSettings          :: !(Maybe DynamoDBSettings)
-    , _ceTags                      :: !(Maybe [Tag])
-    , _cePort                      :: !(Maybe Int)
-    , _ceEndpointIdentifier        :: !Text
-    , _ceEndpointType              :: !ReplicationEndpointTypeValue
-    , _ceEngineName                :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ceServerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceExtraConnectionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceUsername :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceMongoDBSettings :: {-# NOUNPACK #-}!(Maybe MongoDBSettings)
+  , _ceSSLMode :: {-# NOUNPACK #-}!(Maybe DmsSSLModeValue)
+  , _cePassword :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ceDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceS3Settings :: {-# NOUNPACK #-}!(Maybe S3Settings)
+  , _ceDynamoDBSettings :: {-# NOUNPACK #-}!(Maybe DynamoDBSettings)
+  , _ceTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cePort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ceEndpointIdentifier :: {-# NOUNPACK #-}!Text
+  , _ceEndpointType :: {-# NOUNPACK #-}!ReplicationEndpointTypeValue
+  , _ceEngineName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateEndpoint' with the minimum fields required to make a request.
 --
@@ -124,24 +125,25 @@ createEndpoint
     -> Text -- ^ 'ceEngineName'
     -> CreateEndpoint
 createEndpoint pEndpointIdentifier_ pEndpointType_ pEngineName_ =
-    CreateEndpoint'
-    { _ceServerName = Nothing
-    , _ceCertificateARN = Nothing
-    , _ceExtraConnectionAttributes = Nothing
-    , _ceUsername = Nothing
-    , _ceKMSKeyId = Nothing
-    , _ceMongoDBSettings = Nothing
-    , _ceSSLMode = Nothing
-    , _cePassword = Nothing
-    , _ceDatabaseName = Nothing
-    , _ceS3Settings = Nothing
-    , _ceDynamoDBSettings = Nothing
-    , _ceTags = Nothing
-    , _cePort = Nothing
-    , _ceEndpointIdentifier = pEndpointIdentifier_
-    , _ceEndpointType = pEndpointType_
-    , _ceEngineName = pEngineName_
-    }
+  CreateEndpoint'
+  { _ceServerName = Nothing
+  , _ceCertificateARN = Nothing
+  , _ceExtraConnectionAttributes = Nothing
+  , _ceUsername = Nothing
+  , _ceKMSKeyId = Nothing
+  , _ceMongoDBSettings = Nothing
+  , _ceSSLMode = Nothing
+  , _cePassword = Nothing
+  , _ceDatabaseName = Nothing
+  , _ceS3Settings = Nothing
+  , _ceDynamoDBSettings = Nothing
+  , _ceTags = Nothing
+  , _cePort = Nothing
+  , _ceEndpointIdentifier = pEndpointIdentifier_
+  , _ceEndpointType = pEndpointType_
+  , _ceEngineName = pEngineName_
+  }
+
 
 -- | The name of the server where the endpoint database resides.
 ceServerName :: Lens' CreateEndpoint (Maybe Text)
@@ -216,9 +218,9 @@ instance AWSRequest CreateEndpoint where
                  CreateEndpointResponse' <$>
                    (x .?> "Endpoint") <*> (pure (fromEnum s)))
 
-instance Hashable CreateEndpoint
+instance Hashable CreateEndpoint where
 
-instance NFData CreateEndpoint
+instance NFData CreateEndpoint where
 
 instance ToHeaders CreateEndpoint where
         toHeaders
@@ -262,9 +264,10 @@ instance ToQuery CreateEndpoint where
 --
 -- /See:/ 'createEndpointResponse' smart constructor.
 data CreateEndpointResponse = CreateEndpointResponse'
-    { _cersEndpoint       :: !(Maybe Endpoint)
-    , _cersResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cersEndpoint       :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _cersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateEndpointResponse' with the minimum fields required to make a request.
 --
@@ -277,10 +280,9 @@ createEndpointResponse
     :: Int -- ^ 'cersResponseStatus'
     -> CreateEndpointResponse
 createEndpointResponse pResponseStatus_ =
-    CreateEndpointResponse'
-    { _cersEndpoint = Nothing
-    , _cersResponseStatus = pResponseStatus_
-    }
+  CreateEndpointResponse'
+  {_cersEndpoint = Nothing, _cersResponseStatus = pResponseStatus_}
+
 
 -- | The endpoint that was created.
 cersEndpoint :: Lens' CreateEndpointResponse (Maybe Endpoint)
@@ -290,4 +292,4 @@ cersEndpoint = lens _cersEndpoint (\ s a -> s{_cersEndpoint = a});
 cersResponseStatus :: Lens' CreateEndpointResponse Int
 cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a});
 
-instance NFData CreateEndpointResponse
+instance NFData CreateEndpointResponse where

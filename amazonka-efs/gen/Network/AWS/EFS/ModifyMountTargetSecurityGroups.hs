@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.ModifyMountTargetSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     , ModifyMountTargetSecurityGroupsResponse
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,9 +58,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
-    { _mmtsgSecurityGroups :: !(Maybe [Text])
-    , _mmtsgMountTargetId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mmtsgSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mmtsgMountTargetId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyMountTargetSecurityGroups' with the minimum fields required to make a request.
 --
@@ -73,10 +74,9 @@ modifyMountTargetSecurityGroups
     :: Text -- ^ 'mmtsgMountTargetId'
     -> ModifyMountTargetSecurityGroups
 modifyMountTargetSecurityGroups pMountTargetId_ =
-    ModifyMountTargetSecurityGroups'
-    { _mmtsgSecurityGroups = Nothing
-    , _mmtsgMountTargetId = pMountTargetId_
-    }
+  ModifyMountTargetSecurityGroups'
+  {_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId_}
+
 
 -- | Array of up to five VPC security group IDs.
 mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
@@ -96,8 +96,9 @@ instance AWSRequest ModifyMountTargetSecurityGroups
               ModifyMountTargetSecurityGroupsResponse'
 
 instance Hashable ModifyMountTargetSecurityGroups
+         where
 
-instance NFData ModifyMountTargetSecurityGroups
+instance NFData ModifyMountTargetSecurityGroups where
 
 instance ToHeaders ModifyMountTargetSecurityGroups
          where
@@ -121,15 +122,18 @@ instance ToQuery ModifyMountTargetSecurityGroups
 
 -- | /See:/ 'modifyMountTargetSecurityGroupsResponse' smart constructor.
 data ModifyMountTargetSecurityGroupsResponse =
-    ModifyMountTargetSecurityGroupsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyMountTargetSecurityGroupsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
 --
 modifyMountTargetSecurityGroupsResponse
     :: ModifyMountTargetSecurityGroupsResponse
 modifyMountTargetSecurityGroupsResponse =
-    ModifyMountTargetSecurityGroupsResponse'
+  ModifyMountTargetSecurityGroupsResponse'
+
 
 instance NFData
-         ModifyMountTargetSecurityGroupsResponse
+           ModifyMountTargetSecurityGroupsResponse
+         where

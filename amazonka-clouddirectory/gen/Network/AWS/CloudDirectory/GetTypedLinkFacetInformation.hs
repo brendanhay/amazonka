@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
     , gtlfirsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getTypedLinkFacetInformation' smart constructor.
 data GetTypedLinkFacetInformation = GetTypedLinkFacetInformation'
-    { _gtlfiSchemaARN :: !Text
-    , _gtlfiName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtlfiSchemaARN :: {-# NOUNPACK #-}!Text
+  , _gtlfiName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTypedLinkFacetInformation' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ getTypedLinkFacetInformation
     -> Text -- ^ 'gtlfiName'
     -> GetTypedLinkFacetInformation
 getTypedLinkFacetInformation pSchemaARN_ pName_ =
-    GetTypedLinkFacetInformation'
-    { _gtlfiSchemaARN = pSchemaARN_
-    , _gtlfiName = pName_
-    }
+  GetTypedLinkFacetInformation'
+  {_gtlfiSchemaARN = pSchemaARN_, _gtlfiName = pName_}
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 gtlfiSchemaARN :: Lens' GetTypedLinkFacetInformation Text
@@ -88,9 +88,9 @@ instance AWSRequest GetTypedLinkFacetInformation
                    (x .?> "IdentityAttributeOrder" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetTypedLinkFacetInformation
+instance Hashable GetTypedLinkFacetInformation where
 
-instance NFData GetTypedLinkFacetInformation
+instance NFData GetTypedLinkFacetInformation where
 
 instance ToHeaders GetTypedLinkFacetInformation where
         toHeaders GetTypedLinkFacetInformation'{..}
@@ -110,9 +110,10 @@ instance ToQuery GetTypedLinkFacetInformation where
 
 -- | /See:/ 'getTypedLinkFacetInformationResponse' smart constructor.
 data GetTypedLinkFacetInformationResponse = GetTypedLinkFacetInformationResponse'
-    { _gtlfirsIdentityAttributeOrder :: !(Maybe [Text])
-    , _gtlfirsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtlfirsIdentityAttributeOrder :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gtlfirsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTypedLinkFacetInformationResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +126,11 @@ getTypedLinkFacetInformationResponse
     :: Int -- ^ 'gtlfirsResponseStatus'
     -> GetTypedLinkFacetInformationResponse
 getTypedLinkFacetInformationResponse pResponseStatus_ =
-    GetTypedLinkFacetInformationResponse'
-    { _gtlfirsIdentityAttributeOrder = Nothing
-    , _gtlfirsResponseStatus = pResponseStatus_
-    }
+  GetTypedLinkFacetInformationResponse'
+  { _gtlfirsIdentityAttributeOrder = Nothing
+  , _gtlfirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
 gtlfirsIdentityAttributeOrder :: Lens' GetTypedLinkFacetInformationResponse [Text]
@@ -139,3 +141,4 @@ gtlfirsResponseStatus :: Lens' GetTypedLinkFacetInformationResponse Int
 gtlfirsResponseStatus = lens _gtlfirsResponseStatus (\ s a -> s{_gtlfirsResponseStatus = a});
 
 instance NFData GetTypedLinkFacetInformationResponse
+         where

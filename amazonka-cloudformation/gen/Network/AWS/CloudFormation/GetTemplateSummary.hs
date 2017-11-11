@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.GetTemplateSummary
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , gtsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'GetTemplateSummary' action.
 --
@@ -64,11 +64,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getTemplateSummary' smart constructor.
 data GetTemplateSummary = GetTemplateSummary'
-    { _gtsTemplateBody :: !(Maybe Text)
-    , _gtsTemplateURL  :: !(Maybe Text)
-    , _gtsStackSetName :: !(Maybe Text)
-    , _gtsStackName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtsTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsTemplateURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsStackSetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsStackName    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTemplateSummary' with the minimum fields required to make a request.
 --
@@ -84,12 +85,13 @@ data GetTemplateSummary = GetTemplateSummary'
 getTemplateSummary
     :: GetTemplateSummary
 getTemplateSummary =
-    GetTemplateSummary'
-    { _gtsTemplateBody = Nothing
-    , _gtsTemplateURL = Nothing
-    , _gtsStackSetName = Nothing
-    , _gtsStackName = Nothing
-    }
+  GetTemplateSummary'
+  { _gtsTemplateBody = Nothing
+  , _gtsTemplateURL = Nothing
+  , _gtsStackSetName = Nothing
+  , _gtsStackName = Nothing
+  }
+
 
 -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
@@ -132,9 +134,9 @@ instance AWSRequest GetTemplateSummary where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTemplateSummary
+instance Hashable GetTemplateSummary where
 
-instance NFData GetTemplateSummary
+instance NFData GetTemplateSummary where
 
 instance ToHeaders GetTemplateSummary where
         toHeaders = const mempty
@@ -158,16 +160,17 @@ instance ToQuery GetTemplateSummary where
 --
 -- /See:/ 'getTemplateSummaryResponse' smart constructor.
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-    { _gtsrsDeclaredTransforms :: !(Maybe [Text])
-    , _gtsrsVersion            :: !(Maybe Text)
-    , _gtsrsCapabilitiesReason :: !(Maybe Text)
-    , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
-    , _gtsrsMetadata           :: !(Maybe Text)
-    , _gtsrsDescription        :: !(Maybe Text)
-    , _gtsrsCapabilities       :: !(Maybe [Capability])
-    , _gtsrsResourceTypes      :: !(Maybe [Text])
-    , _gtsrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtsrsDeclaredTransforms :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gtsrsVersion            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsCapabilitiesReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsParameters         :: {-# NOUNPACK #-}!(Maybe [ParameterDeclaration])
+  , _gtsrsMetadata           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsCapabilities       :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _gtsrsResourceTypes      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gtsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTemplateSummaryResponse' with the minimum fields required to make a request.
 --
@@ -194,17 +197,18 @@ getTemplateSummaryResponse
     :: Int -- ^ 'gtsrsResponseStatus'
     -> GetTemplateSummaryResponse
 getTemplateSummaryResponse pResponseStatus_ =
-    GetTemplateSummaryResponse'
-    { _gtsrsDeclaredTransforms = Nothing
-    , _gtsrsVersion = Nothing
-    , _gtsrsCapabilitiesReason = Nothing
-    , _gtsrsParameters = Nothing
-    , _gtsrsMetadata = Nothing
-    , _gtsrsDescription = Nothing
-    , _gtsrsCapabilities = Nothing
-    , _gtsrsResourceTypes = Nothing
-    , _gtsrsResponseStatus = pResponseStatus_
-    }
+  GetTemplateSummaryResponse'
+  { _gtsrsDeclaredTransforms = Nothing
+  , _gtsrsVersion = Nothing
+  , _gtsrsCapabilitiesReason = Nothing
+  , _gtsrsParameters = Nothing
+  , _gtsrsMetadata = Nothing
+  , _gtsrsDescription = Nothing
+  , _gtsrsCapabilities = Nothing
+  , _gtsrsResourceTypes = Nothing
+  , _gtsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the transforms that are declared in the template.
 gtsrsDeclaredTransforms :: Lens' GetTemplateSummaryResponse [Text]
@@ -242,4 +246,4 @@ gtsrsResourceTypes = lens _gtsrsResourceTypes (\ s a -> s{_gtsrsResourceTypes = 
 gtsrsResponseStatus :: Lens' GetTemplateSummaryResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
 
-instance NFData GetTemplateSummaryResponse
+instance NFData GetTemplateSummaryResponse where

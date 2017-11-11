@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.StartConfigRulesEvaluation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.Config.StartConfigRulesEvaluation
     , scrersResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -67,8 +67,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startConfigRulesEvaluation' smart constructor.
 newtype StartConfigRulesEvaluation = StartConfigRulesEvaluation'
-    { _screConfigRuleNames :: Maybe (List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _screConfigRuleNames :: Maybe (List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartConfigRulesEvaluation' with the minimum fields required to make a request.
 --
@@ -78,9 +79,8 @@ newtype StartConfigRulesEvaluation = StartConfigRulesEvaluation'
 startConfigRulesEvaluation
     :: StartConfigRulesEvaluation
 startConfigRulesEvaluation =
-    StartConfigRulesEvaluation'
-    { _screConfigRuleNames = Nothing
-    }
+  StartConfigRulesEvaluation' {_screConfigRuleNames = Nothing}
+
 
 -- | The list of names of Config rules that you want to run evaluations for.
 screConfigRuleNames :: Lens' StartConfigRulesEvaluation (Maybe (NonEmpty Text))
@@ -96,9 +96,9 @@ instance AWSRequest StartConfigRulesEvaluation where
                  StartConfigRulesEvaluationResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable StartConfigRulesEvaluation
+instance Hashable StartConfigRulesEvaluation where
 
-instance NFData StartConfigRulesEvaluation
+instance NFData StartConfigRulesEvaluation where
 
 instance ToHeaders StartConfigRulesEvaluation where
         toHeaders
@@ -128,8 +128,9 @@ instance ToQuery StartConfigRulesEvaluation where
 --
 -- /See:/ 'startConfigRulesEvaluationResponse' smart constructor.
 newtype StartConfigRulesEvaluationResponse = StartConfigRulesEvaluationResponse'
-    { _scrersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scrersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartConfigRulesEvaluationResponse' with the minimum fields required to make a request.
 --
@@ -140,12 +141,12 @@ startConfigRulesEvaluationResponse
     :: Int -- ^ 'scrersResponseStatus'
     -> StartConfigRulesEvaluationResponse
 startConfigRulesEvaluationResponse pResponseStatus_ =
-    StartConfigRulesEvaluationResponse'
-    { _scrersResponseStatus = pResponseStatus_
-    }
+  StartConfigRulesEvaluationResponse' {_scrersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 scrersResponseStatus :: Lens' StartConfigRulesEvaluationResponse Int
 scrersResponseStatus = lens _scrersResponseStatus (\ s a -> s{_scrersResponseStatus = a});
 
 instance NFData StartConfigRulesEvaluationResponse
+         where

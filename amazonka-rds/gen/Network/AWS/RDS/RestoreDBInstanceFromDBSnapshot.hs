@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -62,12 +62,12 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdifdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -75,29 +75,30 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreDBInstanceFromDBSnapshot' smart constructor.
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
-    { _rdifdsPubliclyAccessible              :: !(Maybe Bool)
-    , _rdifdsAutoMinorVersionUpgrade         :: !(Maybe Bool)
-    , _rdifdsDBSubnetGroupName               :: !(Maybe Text)
-    , _rdifdsIOPS                            :: !(Maybe Int)
-    , _rdifdsDomain                          :: !(Maybe Text)
-    , _rdifdsEngine                          :: !(Maybe Text)
-    , _rdifdsTDECredentialPassword           :: !(Maybe Text)
-    , _rdifdsDBInstanceClass                 :: !(Maybe Text)
-    , _rdifdsLicenseModel                    :: !(Maybe Text)
-    , _rdifdsAvailabilityZone                :: !(Maybe Text)
-    , _rdifdsMultiAZ                         :: !(Maybe Bool)
-    , _rdifdsOptionGroupName                 :: !(Maybe Text)
-    , _rdifdsCopyTagsToSnapshot              :: !(Maybe Bool)
-    , _rdifdsTDECredentialARN                :: !(Maybe Text)
-    , _rdifdsDomainIAMRoleName               :: !(Maybe Text)
-    , _rdifdsTags                            :: !(Maybe [Tag])
-    , _rdifdsPort                            :: !(Maybe Int)
-    , _rdifdsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _rdifdsStorageType                     :: !(Maybe Text)
-    , _rdifdsDBName                          :: !(Maybe Text)
-    , _rdifdsDBInstanceIdentifier            :: !Text
-    , _rdifdsDBSnapshotIdentifier            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdifdsPubliclyAccessible              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdifdsAutoMinorVersionUpgrade         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdifdsDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsIOPS                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rdifdsDomain                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsEngine                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsTDECredentialPassword           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsDBInstanceClass                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsLicenseModel                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsAvailabilityZone                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsMultiAZ                         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdifdsOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsCopyTagsToSnapshot              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdifdsTDECredentialARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsDomainIAMRoleName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _rdifdsPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rdifdsEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdifdsStorageType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsDBName                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdifdsDBInstanceIdentifier            :: {-# NOUNPACK #-}!Text
+  , _rdifdsDBSnapshotIdentifier            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBInstanceFromDBSnapshot' with the minimum fields required to make a request.
 --
@@ -151,30 +152,31 @@ restoreDBInstanceFromDBSnapshot
     -> Text -- ^ 'rdifdsDBSnapshotIdentifier'
     -> RestoreDBInstanceFromDBSnapshot
 restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
-    RestoreDBInstanceFromDBSnapshot'
-    { _rdifdsPubliclyAccessible = Nothing
-    , _rdifdsAutoMinorVersionUpgrade = Nothing
-    , _rdifdsDBSubnetGroupName = Nothing
-    , _rdifdsIOPS = Nothing
-    , _rdifdsDomain = Nothing
-    , _rdifdsEngine = Nothing
-    , _rdifdsTDECredentialPassword = Nothing
-    , _rdifdsDBInstanceClass = Nothing
-    , _rdifdsLicenseModel = Nothing
-    , _rdifdsAvailabilityZone = Nothing
-    , _rdifdsMultiAZ = Nothing
-    , _rdifdsOptionGroupName = Nothing
-    , _rdifdsCopyTagsToSnapshot = Nothing
-    , _rdifdsTDECredentialARN = Nothing
-    , _rdifdsDomainIAMRoleName = Nothing
-    , _rdifdsTags = Nothing
-    , _rdifdsPort = Nothing
-    , _rdifdsEnableIAMDatabaseAuthentication = Nothing
-    , _rdifdsStorageType = Nothing
-    , _rdifdsDBName = Nothing
-    , _rdifdsDBInstanceIdentifier = pDBInstanceIdentifier_
-    , _rdifdsDBSnapshotIdentifier = pDBSnapshotIdentifier_
-    }
+  RestoreDBInstanceFromDBSnapshot'
+  { _rdifdsPubliclyAccessible = Nothing
+  , _rdifdsAutoMinorVersionUpgrade = Nothing
+  , _rdifdsDBSubnetGroupName = Nothing
+  , _rdifdsIOPS = Nothing
+  , _rdifdsDomain = Nothing
+  , _rdifdsEngine = Nothing
+  , _rdifdsTDECredentialPassword = Nothing
+  , _rdifdsDBInstanceClass = Nothing
+  , _rdifdsLicenseModel = Nothing
+  , _rdifdsAvailabilityZone = Nothing
+  , _rdifdsMultiAZ = Nothing
+  , _rdifdsOptionGroupName = Nothing
+  , _rdifdsCopyTagsToSnapshot = Nothing
+  , _rdifdsTDECredentialARN = Nothing
+  , _rdifdsDomainIAMRoleName = Nothing
+  , _rdifdsTags = Nothing
+  , _rdifdsPort = Nothing
+  , _rdifdsEnableIAMDatabaseAuthentication = Nothing
+  , _rdifdsStorageType = Nothing
+  , _rdifdsDBName = Nothing
+  , _rdifdsDBInstanceIdentifier = pDBInstanceIdentifier_
+  , _rdifdsDBSnapshotIdentifier = pDBSnapshotIdentifier_
+  }
+
 
 -- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
 rdifdsPubliclyAccessible :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
@@ -277,8 +279,9 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance Hashable RestoreDBInstanceFromDBSnapshot
+         where
 
-instance NFData RestoreDBInstanceFromDBSnapshot
+instance NFData RestoreDBInstanceFromDBSnapshot where
 
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
          where
@@ -324,9 +327,10 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
 
 -- | /See:/ 'restoreDBInstanceFromDBSnapshotResponse' smart constructor.
 data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'
-    { _rdifdsrsDBInstance     :: !(Maybe DBInstance)
-    , _rdifdsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdifdsrsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _rdifdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBInstanceFromDBSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -339,10 +343,9 @@ restoreDBInstanceFromDBSnapshotResponse
     :: Int -- ^ 'rdifdsrsResponseStatus'
     -> RestoreDBInstanceFromDBSnapshotResponse
 restoreDBInstanceFromDBSnapshotResponse pResponseStatus_ =
-    RestoreDBInstanceFromDBSnapshotResponse'
-    { _rdifdsrsDBInstance = Nothing
-    , _rdifdsrsResponseStatus = pResponseStatus_
-    }
+  RestoreDBInstanceFromDBSnapshotResponse'
+  {_rdifdsrsDBInstance = Nothing, _rdifdsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rdifdsrsDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
@@ -353,4 +356,5 @@ rdifdsrsResponseStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
 rdifdsrsResponseStatus = lens _rdifdsrsResponseStatus (\ s a -> s{_rdifdsrsResponseStatus = a});
 
 instance NFData
-         RestoreDBInstanceFromDBSnapshotResponse
+           RestoreDBInstanceFromDBSnapshotResponse
+         where

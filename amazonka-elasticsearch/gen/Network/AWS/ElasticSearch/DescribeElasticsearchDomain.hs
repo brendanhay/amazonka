@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchDomain
     , dedrsDomainStatus
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DescribeElasticsearchDomain' @ operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeElasticsearchDomain' smart constructor.
 newtype DescribeElasticsearchDomain = DescribeElasticsearchDomain'
-    { _dedDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticsearchDomain' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ describeElasticsearchDomain
     :: Text -- ^ 'dedDomainName'
     -> DescribeElasticsearchDomain
 describeElasticsearchDomain pDomainName_ =
-    DescribeElasticsearchDomain'
-    { _dedDomainName = pDomainName_
-    }
+  DescribeElasticsearchDomain' {_dedDomainName = pDomainName_}
+
 
 -- | The name of the Elasticsearch domain for which you want information.
 dedDomainName :: Lens' DescribeElasticsearchDomain Text
@@ -80,9 +80,9 @@ instance AWSRequest DescribeElasticsearchDomain where
                  DescribeElasticsearchDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DomainStatus"))
 
-instance Hashable DescribeElasticsearchDomain
+instance Hashable DescribeElasticsearchDomain where
 
-instance NFData DescribeElasticsearchDomain
+instance NFData DescribeElasticsearchDomain where
 
 instance ToHeaders DescribeElasticsearchDomain where
         toHeaders = const mempty
@@ -101,9 +101,10 @@ instance ToQuery DescribeElasticsearchDomain where
 --
 -- /See:/ 'describeElasticsearchDomainResponse' smart constructor.
 data DescribeElasticsearchDomainResponse = DescribeElasticsearchDomainResponse'
-    { _dedrsResponseStatus :: !Int
-    , _dedrsDomainStatus   :: !ElasticsearchDomainStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dedrsDomainStatus   :: {-# NOUNPACK #-}!ElasticsearchDomainStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticsearchDomainResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ describeElasticsearchDomainResponse
     -> ElasticsearchDomainStatus -- ^ 'dedrsDomainStatus'
     -> DescribeElasticsearchDomainResponse
 describeElasticsearchDomainResponse pResponseStatus_ pDomainStatus_ =
-    DescribeElasticsearchDomainResponse'
-    { _dedrsResponseStatus = pResponseStatus_
-    , _dedrsDomainStatus = pDomainStatus_
-    }
+  DescribeElasticsearchDomainResponse'
+  {_dedrsResponseStatus = pResponseStatus_, _dedrsDomainStatus = pDomainStatus_}
+
 
 -- | -- | The response status code.
 dedrsResponseStatus :: Lens' DescribeElasticsearchDomainResponse Int
@@ -131,3 +131,4 @@ dedrsDomainStatus :: Lens' DescribeElasticsearchDomainResponse ElasticsearchDoma
 dedrsDomainStatus = lens _dedrsDomainStatus (\ s a -> s{_dedrsDomainStatus = a});
 
 instance NFData DescribeElasticsearchDomainResponse
+         where

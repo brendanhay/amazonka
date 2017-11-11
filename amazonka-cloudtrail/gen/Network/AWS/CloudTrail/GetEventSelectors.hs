@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.GetEventSelectors
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,17 +48,18 @@ module Network.AWS.CloudTrail.GetEventSelectors
     , gesrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getEventSelectors' smart constructor.
 newtype GetEventSelectors = GetEventSelectors'
-    { _gesTrailName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gesTrailName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEventSelectors' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ newtype GetEventSelectors = GetEventSelectors'
 getEventSelectors
     :: Text -- ^ 'gesTrailName'
     -> GetEventSelectors
-getEventSelectors pTrailName_ =
-    GetEventSelectors'
-    { _gesTrailName = pTrailName_
-    }
+getEventSelectors pTrailName_ = GetEventSelectors' {_gesTrailName = pTrailName_}
+
 
 -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If you specify a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 gesTrailName :: Lens' GetEventSelectors Text
@@ -88,9 +87,9 @@ instance AWSRequest GetEventSelectors where
                      (x .?> "EventSelectors" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetEventSelectors
+instance Hashable GetEventSelectors where
 
-instance NFData GetEventSelectors
+instance NFData GetEventSelectors where
 
 instance ToHeaders GetEventSelectors where
         toHeaders
@@ -115,10 +114,11 @@ instance ToQuery GetEventSelectors where
 
 -- | /See:/ 'getEventSelectorsResponse' smart constructor.
 data GetEventSelectorsResponse = GetEventSelectorsResponse'
-    { _gesrsTrailARN       :: !(Maybe Text)
-    , _gesrsEventSelectors :: !(Maybe [EventSelector])
-    , _gesrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gesrsTrailARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gesrsEventSelectors :: {-# NOUNPACK #-}!(Maybe [EventSelector])
+  , _gesrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEventSelectorsResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +133,12 @@ getEventSelectorsResponse
     :: Int -- ^ 'gesrsResponseStatus'
     -> GetEventSelectorsResponse
 getEventSelectorsResponse pResponseStatus_ =
-    GetEventSelectorsResponse'
-    { _gesrsTrailARN = Nothing
-    , _gesrsEventSelectors = Nothing
-    , _gesrsResponseStatus = pResponseStatus_
-    }
+  GetEventSelectorsResponse'
+  { _gesrsTrailARN = Nothing
+  , _gesrsEventSelectors = Nothing
+  , _gesrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The specified trail ARN that has the event selectors.
 gesrsTrailARN :: Lens' GetEventSelectorsResponse (Maybe Text)
@@ -151,4 +152,4 @@ gesrsEventSelectors = lens _gesrsEventSelectors (\ s a -> s{_gesrsEventSelectors
 gesrsResponseStatus :: Lens' GetEventSelectorsResponse Int
 gesrsResponseStatus = lens _gesrsResponseStatus (\ s a -> s{_gesrsResponseStatus = a});
 
-instance NFData GetEventSelectorsResponse
+instance NFData GetEventSelectorsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeCustomerGateways
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeCustomerGateways
     , dcgrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeCustomerGateways.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCustomerGateways' smart constructor.
 data DescribeCustomerGateways = DescribeCustomerGateways'
-    { _dcgCustomerGatewayIds :: !(Maybe [Text])
-    , _dcgFilters            :: !(Maybe [Filter])
-    , _dcgDryRun             :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcgCustomerGatewayIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcgFilters            :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dcgDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCustomerGateways' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
 describeCustomerGateways
     :: DescribeCustomerGateways
 describeCustomerGateways =
-    DescribeCustomerGateways'
-    { _dcgCustomerGatewayIds = Nothing
-    , _dcgFilters = Nothing
-    , _dcgDryRun = Nothing
-    }
+  DescribeCustomerGateways'
+  { _dcgCustomerGatewayIds = Nothing
+  , _dcgFilters = Nothing
+  , _dcgDryRun = Nothing
+  }
+
 
 -- | One or more customer gateway IDs. Default: Describes all your customer gateways.
 dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
@@ -101,9 +103,9 @@ instance AWSRequest DescribeCustomerGateways where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCustomerGateways
+instance Hashable DescribeCustomerGateways where
 
-instance NFData DescribeCustomerGateways
+instance NFData DescribeCustomerGateways where
 
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty
@@ -129,9 +131,10 @@ instance ToQuery DescribeCustomerGateways where
 --
 -- /See:/ 'describeCustomerGatewaysResponse' smart constructor.
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
-    { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
-    , _dcgrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcgrsCustomerGateways :: {-# NOUNPACK #-}!(Maybe [CustomerGateway])
+  , _dcgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCustomerGatewaysResponse' with the minimum fields required to make a request.
 --
@@ -144,10 +147,9 @@ describeCustomerGatewaysResponse
     :: Int -- ^ 'dcgrsResponseStatus'
     -> DescribeCustomerGatewaysResponse
 describeCustomerGatewaysResponse pResponseStatus_ =
-    DescribeCustomerGatewaysResponse'
-    { _dcgrsCustomerGateways = Nothing
-    , _dcgrsResponseStatus = pResponseStatus_
-    }
+  DescribeCustomerGatewaysResponse'
+  {_dcgrsCustomerGateways = Nothing, _dcgrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more customer gateways.
 dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
@@ -158,3 +160,4 @@ dcgrsResponseStatus :: Lens' DescribeCustomerGatewaysResponse Int
 dcgrsResponseStatus = lens _dcgrsResponseStatus (\ s a -> s{_dcgrsResponseStatus = a});
 
 instance NFData DescribeCustomerGatewaysResponse
+         where

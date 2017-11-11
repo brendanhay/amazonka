@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeleteSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DirectoryService.DeleteSnapshot
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DeleteSnapshot' operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteSnapshot' smart constructor.
 newtype DeleteSnapshot = DeleteSnapshot'
-    { _dsSnapshotId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsSnapshotId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype DeleteSnapshot = DeleteSnapshot'
 deleteSnapshot
     :: Text -- ^ 'dsSnapshotId'
     -> DeleteSnapshot
-deleteSnapshot pSnapshotId_ =
-    DeleteSnapshot'
-    { _dsSnapshotId = pSnapshotId_
-    }
+deleteSnapshot pSnapshotId_ = DeleteSnapshot' {_dsSnapshotId = pSnapshotId_}
+
 
 -- | The identifier of the directory snapshot to be deleted.
 dsSnapshotId :: Lens' DeleteSnapshot Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteSnapshot where
                  DeleteSnapshotResponse' <$>
                    (x .?> "SnapshotId") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteSnapshot
+instance Hashable DeleteSnapshot where
 
-instance NFData DeleteSnapshot
+instance NFData DeleteSnapshot where
 
 instance ToHeaders DeleteSnapshot where
         toHeaders
@@ -110,9 +109,10 @@ instance ToQuery DeleteSnapshot where
 --
 -- /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-    { _dsrsSnapshotId     :: !(Maybe Text)
-    , _dsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsSnapshotId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +125,9 @@ deleteSnapshotResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteSnapshotResponse
 deleteSnapshotResponse pResponseStatus_ =
-    DeleteSnapshotResponse'
-    { _dsrsSnapshotId = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DeleteSnapshotResponse'
+  {_dsrsSnapshotId = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | The identifier of the directory snapshot that was deleted.
 dsrsSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
@@ -138,4 +137,4 @@ dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a});
 dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DeleteSnapshotResponse
+instance NFData DeleteSnapshotResponse where

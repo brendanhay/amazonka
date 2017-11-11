@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.CognitoIdentityProvider.CreateGroup
     , cgrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createGroup' smart constructor.
 data CreateGroup = CreateGroup'
-    { _cgPrecedence  :: !(Maybe Nat)
-    , _cgDescription :: !(Maybe Text)
-    , _cgRoleARN     :: !(Maybe Text)
-    , _cgGroupName   :: !Text
-    , _cgUserPoolId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgPrecedence  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cgDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgGroupName   :: {-# NOUNPACK #-}!Text
+  , _cgUserPoolId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ createGroup
     -> Text -- ^ 'cgUserPoolId'
     -> CreateGroup
 createGroup pGroupName_ pUserPoolId_ =
-    CreateGroup'
-    { _cgPrecedence = Nothing
-    , _cgDescription = Nothing
-    , _cgRoleARN = Nothing
-    , _cgGroupName = pGroupName_
-    , _cgUserPoolId = pUserPoolId_
-    }
+  CreateGroup'
+  { _cgPrecedence = Nothing
+  , _cgDescription = Nothing
+  , _cgRoleARN = Nothing
+  , _cgGroupName = pGroupName_
+  , _cgUserPoolId = pUserPoolId_
+  }
+
 
 -- | A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower @Precedence@ values take precedence over groups with higher or null @Precedence@ values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens. Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens. The default @Precedence@ value is null.
 cgPrecedence :: Lens' CreateGroup (Maybe Natural)
@@ -114,9 +116,9 @@ instance AWSRequest CreateGroup where
                  CreateGroupResponse' <$>
                    (x .?> "Group") <*> (pure (fromEnum s)))
 
-instance Hashable CreateGroup
+instance Hashable CreateGroup where
 
-instance NFData CreateGroup
+instance NFData CreateGroup where
 
 instance ToHeaders CreateGroup where
         toHeaders
@@ -146,9 +148,10 @@ instance ToQuery CreateGroup where
 
 -- | /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-    { _cgrsGroup          :: !(Maybe GroupType)
-    , _cgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgrsGroup          :: {-# NOUNPACK #-}!(Maybe GroupType)
+  , _cgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
 --
@@ -161,10 +164,9 @@ createGroupResponse
     :: Int -- ^ 'cgrsResponseStatus'
     -> CreateGroupResponse
 createGroupResponse pResponseStatus_ =
-    CreateGroupResponse'
-    { _cgrsGroup = Nothing
-    , _cgrsResponseStatus = pResponseStatus_
-    }
+  CreateGroupResponse'
+  {_cgrsGroup = Nothing, _cgrsResponseStatus = pResponseStatus_}
+
 
 -- | The group object for the group.
 cgrsGroup :: Lens' CreateGroupResponse (Maybe GroupType)
@@ -174,4 +176,4 @@ cgrsGroup = lens _cgrsGroup (\ s a -> s{_cgrsGroup = a});
 cgrsResponseStatus :: Lens' CreateGroupResponse Int
 cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});
 
-instance NFData CreateGroupResponse
+instance NFData CreateGroupResponse where

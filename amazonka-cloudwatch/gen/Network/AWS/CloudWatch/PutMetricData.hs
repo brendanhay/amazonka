@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.PutMetricData
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,18 +51,19 @@ module Network.AWS.CloudWatch.PutMetricData
     , PutMetricDataResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putMetricData' smart constructor.
 data PutMetricData = PutMetricData'
-    { _pmdNamespace  :: !Text
-    , _pmdMetricData :: ![MetricDatum]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmdNamespace  :: {-# NOUNPACK #-}!Text
+  , _pmdMetricData :: {-# NOUNPACK #-}![MetricDatum]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMetricData' with the minimum fields required to make a request.
 --
@@ -75,10 +76,8 @@ putMetricData
     :: Text -- ^ 'pmdNamespace'
     -> PutMetricData
 putMetricData pNamespace_ =
-    PutMetricData'
-    { _pmdNamespace = pNamespace_
-    , _pmdMetricData = mempty
-    }
+  PutMetricData' {_pmdNamespace = pNamespace_, _pmdMetricData = mempty}
+
 
 -- | The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products.
 pmdNamespace :: Lens' PutMetricData Text
@@ -93,9 +92,9 @@ instance AWSRequest PutMetricData where
         request = postQuery cloudWatch
         response = receiveNull PutMetricDataResponse'
 
-instance Hashable PutMetricData
+instance Hashable PutMetricData where
 
-instance NFData PutMetricData
+instance NFData PutMetricData where
 
 instance ToHeaders PutMetricData where
         toHeaders = const mempty
@@ -113,8 +112,9 @@ instance ToQuery PutMetricData where
 
 -- | /See:/ 'putMetricDataResponse' smart constructor.
 data PutMetricDataResponse =
-    PutMetricDataResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutMetricDataResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMetricDataResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +122,5 @@ putMetricDataResponse
     :: PutMetricDataResponse
 putMetricDataResponse = PutMetricDataResponse'
 
-instance NFData PutMetricDataResponse
+
+instance NFData PutMetricDataResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteCoreDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.Greengrass.DeleteCoreDefinition
     , dcdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCoreDefinition' smart constructor.
 newtype DeleteCoreDefinition = DeleteCoreDefinition'
-    { _dcdCoreDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcdCoreDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCoreDefinition' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ deleteCoreDefinition
     :: Text -- ^ 'dcdCoreDefinitionId'
     -> DeleteCoreDefinition
 deleteCoreDefinition pCoreDefinitionId_ =
-    DeleteCoreDefinition'
-    { _dcdCoreDefinitionId = pCoreDefinitionId_
-    }
+  DeleteCoreDefinition' {_dcdCoreDefinitionId = pCoreDefinitionId_}
+
 
 -- | core definition Id
 dcdCoreDefinitionId :: Lens' DeleteCoreDefinition Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteCoreDefinition where
                  DeleteCoreDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteCoreDefinition
+instance Hashable DeleteCoreDefinition where
 
-instance NFData DeleteCoreDefinition
+instance NFData DeleteCoreDefinition where
 
 instance ToHeaders DeleteCoreDefinition where
         toHeaders
@@ -95,8 +95,9 @@ instance ToQuery DeleteCoreDefinition where
 
 -- | /See:/ 'deleteCoreDefinitionResponse' smart constructor.
 newtype DeleteCoreDefinitionResponse = DeleteCoreDefinitionResponse'
-    { _dcdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCoreDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -107,12 +108,11 @@ deleteCoreDefinitionResponse
     :: Int -- ^ 'dcdrsResponseStatus'
     -> DeleteCoreDefinitionResponse
 deleteCoreDefinitionResponse pResponseStatus_ =
-    DeleteCoreDefinitionResponse'
-    { _dcdrsResponseStatus = pResponseStatus_
-    }
+  DeleteCoreDefinitionResponse' {_dcdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dcdrsResponseStatus :: Lens' DeleteCoreDefinitionResponse Int
 dcdrsResponseStatus = lens _dcdrsResponseStatus (\ s a -> s{_dcdrsResponseStatus = a});
 
-instance NFData DeleteCoreDefinitionResponse
+instance NFData DeleteCoreDefinitionResponse where

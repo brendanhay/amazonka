@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     , dcscsivrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'describeCachediSCSIVolumes' smart constructor.
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
-    { _dcscsivVolumeARNs :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcscsivVolumeARNs :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCachediSCSIVolumes' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
 describeCachediSCSIVolumes
     :: DescribeCachediSCSIVolumes
 describeCachediSCSIVolumes =
-    DescribeCachediSCSIVolumes'
-    { _dcscsivVolumeARNs = mempty
-    }
+  DescribeCachediSCSIVolumes' {_dcscsivVolumeARNs = mempty}
+
 
 -- | Undocumented member.
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
@@ -78,9 +78,9 @@ instance AWSRequest DescribeCachediSCSIVolumes where
                    (x .?> "CachediSCSIVolumes" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeCachediSCSIVolumes
+instance Hashable DescribeCachediSCSIVolumes where
 
-instance NFData DescribeCachediSCSIVolumes
+instance NFData DescribeCachediSCSIVolumes where
 
 instance ToHeaders DescribeCachediSCSIVolumes where
         toHeaders
@@ -110,9 +110,10 @@ instance ToQuery DescribeCachediSCSIVolumes where
 --
 -- /See:/ 'describeCachediSCSIVolumesResponse' smart constructor.
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
-    { _dcscsivrsCachediSCSIVolumes :: !(Maybe [CachediSCSIVolume])
-    , _dcscsivrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcscsivrsCachediSCSIVolumes :: {-# NOUNPACK #-}!(Maybe [CachediSCSIVolume])
+  , _dcscsivrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCachediSCSIVolumesResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +126,11 @@ describeCachediSCSIVolumesResponse
     :: Int -- ^ 'dcscsivrsResponseStatus'
     -> DescribeCachediSCSIVolumesResponse
 describeCachediSCSIVolumesResponse pResponseStatus_ =
-    DescribeCachediSCSIVolumesResponse'
-    { _dcscsivrsCachediSCSIVolumes = Nothing
-    , _dcscsivrsResponseStatus = pResponseStatus_
-    }
+  DescribeCachediSCSIVolumesResponse'
+  { _dcscsivrsCachediSCSIVolumes = Nothing
+  , _dcscsivrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of objects where each object contains metadata about one cached volume.
 dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
@@ -139,3 +141,4 @@ dcscsivrsResponseStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
 dcscsivrsResponseStatus = lens _dcscsivrsResponseStatus (\ s a -> s{_dcscsivrsResponseStatus = a});
 
 instance NFData DescribeCachediSCSIVolumesResponse
+         where

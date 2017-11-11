@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.AddAttachmentsToSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Support.AddAttachmentsToSet
     , aatsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- |
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Support.Types.Product
 --
 -- /See:/ 'addAttachmentsToSet' smart constructor.
 data AddAttachmentsToSet = AddAttachmentsToSet'
-    { _aatsAttachmentSetId :: !(Maybe Text)
-    , _aatsAttachments     :: ![Attachment]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aatsAttachmentSetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aatsAttachments     :: {-# NOUNPACK #-}![Attachment]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddAttachmentsToSet' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ data AddAttachmentsToSet = AddAttachmentsToSet'
 addAttachmentsToSet
     :: AddAttachmentsToSet
 addAttachmentsToSet =
-    AddAttachmentsToSet'
-    { _aatsAttachmentSetId = Nothing
-    , _aatsAttachments = mempty
-    }
+  AddAttachmentsToSet'
+  {_aatsAttachmentSetId = Nothing, _aatsAttachments = mempty}
+
 
 -- | The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
 aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
@@ -92,9 +92,9 @@ instance AWSRequest AddAttachmentsToSet where
                    (x .?> "expiryTime") <*> (x .?> "attachmentSetId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AddAttachmentsToSet
+instance Hashable AddAttachmentsToSet where
 
-instance NFData AddAttachmentsToSet
+instance NFData AddAttachmentsToSet where
 
 instance ToHeaders AddAttachmentsToSet where
         toHeaders
@@ -125,10 +125,11 @@ instance ToQuery AddAttachmentsToSet where
 --
 -- /See:/ 'addAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
-    { _aatsrsExpiryTime      :: !(Maybe Text)
-    , _aatsrsAttachmentSetId :: !(Maybe Text)
-    , _aatsrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aatsrsExpiryTime      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aatsrsAttachmentSetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aatsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddAttachmentsToSetResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +144,12 @@ addAttachmentsToSetResponse
     :: Int -- ^ 'aatsrsResponseStatus'
     -> AddAttachmentsToSetResponse
 addAttachmentsToSetResponse pResponseStatus_ =
-    AddAttachmentsToSetResponse'
-    { _aatsrsExpiryTime = Nothing
-    , _aatsrsAttachmentSetId = Nothing
-    , _aatsrsResponseStatus = pResponseStatus_
-    }
+  AddAttachmentsToSetResponse'
+  { _aatsrsExpiryTime = Nothing
+  , _aatsrsAttachmentSetId = Nothing
+  , _aatsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The time and date when the attachment set expires.
 aatsrsExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
@@ -161,4 +163,4 @@ aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmen
 aatsrsResponseStatus :: Lens' AddAttachmentsToSetResponse Int
 aatsrsResponseStatus = lens _aatsrsResponseStatus (\ s a -> s{_aatsrsResponseStatus = a});
 
-instance NFData AddAttachmentsToSetResponse
+instance NFData AddAttachmentsToSetResponse where

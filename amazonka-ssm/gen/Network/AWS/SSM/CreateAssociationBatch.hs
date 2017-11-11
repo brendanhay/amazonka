@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateAssociationBatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,17 +42,18 @@ module Network.AWS.SSM.CreateAssociationBatch
     , cabrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociationBatch' smart constructor.
 newtype CreateAssociationBatch = CreateAssociationBatch'
-    { _cabEntries :: List1 CreateAssociationBatchRequestEntry
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cabEntries :: List1 CreateAssociationBatchRequestEntry
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAssociationBatch' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ createAssociationBatch
     :: NonEmpty CreateAssociationBatchRequestEntry -- ^ 'cabEntries'
     -> CreateAssociationBatch
 createAssociationBatch pEntries_ =
-    CreateAssociationBatch'
-    { _cabEntries = _List1 # pEntries_
-    }
+  CreateAssociationBatch' {_cabEntries = _List1 # pEntries_}
+
 
 -- | One or more associations.
 cabEntries :: Lens' CreateAssociationBatch (NonEmpty CreateAssociationBatchRequestEntry)
@@ -83,9 +83,9 @@ instance AWSRequest CreateAssociationBatch where
                      (x .?> "Failed" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateAssociationBatch
+instance Hashable CreateAssociationBatch where
 
-instance NFData CreateAssociationBatch
+instance NFData CreateAssociationBatch where
 
 instance ToHeaders CreateAssociationBatch where
         toHeaders
@@ -109,10 +109,11 @@ instance ToQuery CreateAssociationBatch where
 
 -- | /See:/ 'createAssociationBatchResponse' smart constructor.
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
-    { _cabrsSuccessful     :: !(Maybe [AssociationDescription])
-    , _cabrsFailed         :: !(Maybe [FailedCreateAssociation])
-    , _cabrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cabrsSuccessful     :: {-# NOUNPACK #-}!(Maybe [AssociationDescription])
+  , _cabrsFailed         :: {-# NOUNPACK #-}!(Maybe [FailedCreateAssociation])
+  , _cabrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAssociationBatchResponse' with the minimum fields required to make a request.
 --
@@ -127,11 +128,12 @@ createAssociationBatchResponse
     :: Int -- ^ 'cabrsResponseStatus'
     -> CreateAssociationBatchResponse
 createAssociationBatchResponse pResponseStatus_ =
-    CreateAssociationBatchResponse'
-    { _cabrsSuccessful = Nothing
-    , _cabrsFailed = Nothing
-    , _cabrsResponseStatus = pResponseStatus_
-    }
+  CreateAssociationBatchResponse'
+  { _cabrsSuccessful = Nothing
+  , _cabrsFailed = Nothing
+  , _cabrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the associations that succeeded.
 cabrsSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
@@ -145,4 +147,4 @@ cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coe
 cabrsResponseStatus :: Lens' CreateAssociationBatchResponse Int
 cabrsResponseStatus = lens _cabrsResponseStatus (\ s a -> s{_cabrsResponseStatus = a});
 
-instance NFData CreateAssociationBatchResponse
+instance NFData CreateAssociationBatchResponse where

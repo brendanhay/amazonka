@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteDocumentationVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,12 +33,12 @@ module Network.AWS.APIGateway.DeleteDocumentationVersion
     , DeleteDocumentationVersionResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Deletes an existing documentation version of an API.
 --
@@ -46,9 +46,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDocumentationVersion' smart constructor.
 data DeleteDocumentationVersion = DeleteDocumentationVersion'
-    { _ddvRestAPIId            :: !Text
-    , _ddvDocumentationVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddvRestAPIId            :: {-# NOUNPACK #-}!Text
+  , _ddvDocumentationVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDocumentationVersion' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ deleteDocumentationVersion
     -> Text -- ^ 'ddvDocumentationVersion'
     -> DeleteDocumentationVersion
 deleteDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
-    DeleteDocumentationVersion'
-    { _ddvRestAPIId = pRestAPIId_
-    , _ddvDocumentationVersion = pDocumentationVersion_
-    }
+  DeleteDocumentationVersion'
+  { _ddvRestAPIId = pRestAPIId_
+  , _ddvDocumentationVersion = pDocumentationVersion_
+  }
+
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 ddvRestAPIId :: Lens' DeleteDocumentationVersion Text
@@ -82,9 +84,9 @@ instance AWSRequest DeleteDocumentationVersion where
         response
           = receiveNull DeleteDocumentationVersionResponse'
 
-instance Hashable DeleteDocumentationVersion
+instance Hashable DeleteDocumentationVersion where
 
-instance NFData DeleteDocumentationVersion
+instance NFData DeleteDocumentationVersion where
 
 instance ToHeaders DeleteDocumentationVersion where
         toHeaders
@@ -104,8 +106,9 @@ instance ToQuery DeleteDocumentationVersion where
 
 -- | /See:/ 'deleteDocumentationVersionResponse' smart constructor.
 data DeleteDocumentationVersionResponse =
-    DeleteDocumentationVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDocumentationVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDocumentationVersionResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +116,6 @@ deleteDocumentationVersionResponse
     :: DeleteDocumentationVersionResponse
 deleteDocumentationVersionResponse = DeleteDocumentationVersionResponse'
 
+
 instance NFData DeleteDocumentationVersionResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.STS.GetFederationToken
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -71,19 +71,20 @@ module Network.AWS.STS.GetFederationToken
     , gftrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.STS.Types
-import           Network.AWS.STS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.STS.Types
+import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'getFederationToken' smart constructor.
 data GetFederationToken = GetFederationToken'
-    { _gftDurationSeconds :: !(Maybe Nat)
-    , _gftPolicy          :: !(Maybe Text)
-    , _gftName            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gftDurationSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gftPolicy          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gftName            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFederationToken' with the minimum fields required to make a request.
 --
@@ -98,11 +99,9 @@ getFederationToken
     :: Text -- ^ 'gftName'
     -> GetFederationToken
 getFederationToken pName_ =
-    GetFederationToken'
-    { _gftDurationSeconds = Nothing
-    , _gftPolicy = Nothing
-    , _gftName = pName_
-    }
+  GetFederationToken'
+  {_gftDurationSeconds = Nothing, _gftPolicy = Nothing, _gftName = pName_}
+
 
 -- | The duration, in seconds, that the session should last. Acceptable durations for federation sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions obtained using AWS account (root) credentials are restricted to a maximum of 3600 seconds (one hour). If the specified duration is longer than one hour, the session obtained by using AWS account (root) credentials defaults to one hour.
 gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
@@ -128,9 +127,9 @@ instance AWSRequest GetFederationToken where
                      <*> (x .@? "FederatedUser")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetFederationToken
+instance Hashable GetFederationToken where
 
-instance NFData GetFederationToken
+instance NFData GetFederationToken where
 
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty
@@ -152,11 +151,12 @@ instance ToQuery GetFederationToken where
 --
 -- /See:/ 'getFederationTokenResponse' smart constructor.
 data GetFederationTokenResponse = GetFederationTokenResponse'
-    { _gftrsPackedPolicySize :: !(Maybe Nat)
-    , _gftrsCredentials      :: !(Maybe AuthEnv)
-    , _gftrsFederatedUser    :: !(Maybe FederatedUser)
-    , _gftrsResponseStatus   :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gftrsPackedPolicySize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gftrsCredentials      :: {-# NOUNPACK #-}!(Maybe AuthEnv)
+  , _gftrsFederatedUser    :: {-# NOUNPACK #-}!(Maybe FederatedUser)
+  , _gftrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFederationTokenResponse' with the minimum fields required to make a request.
 --
@@ -173,12 +173,13 @@ getFederationTokenResponse
     :: Int -- ^ 'gftrsResponseStatus'
     -> GetFederationTokenResponse
 getFederationTokenResponse pResponseStatus_ =
-    GetFederationTokenResponse'
-    { _gftrsPackedPolicySize = Nothing
-    , _gftrsCredentials = Nothing
-    , _gftrsFederatedUser = Nothing
-    , _gftrsResponseStatus = pResponseStatus_
-    }
+  GetFederationTokenResponse'
+  { _gftrsPackedPolicySize = Nothing
+  , _gftrsCredentials = Nothing
+  , _gftrsFederatedUser = Nothing
+  , _gftrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A percentage value indicating the size of the policy in packed form. The service rejects policies for which the packed size is greater than 100 percent of the allowed value.
 gftrsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
@@ -196,4 +197,4 @@ gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = 
 gftrsResponseStatus :: Lens' GetFederationTokenResponse Int
 gftrsResponseStatus = lens _gftrsResponseStatus (\ s a -> s{_gftrsResponseStatus = a});
 
-instance NFData GetFederationTokenResponse
+instance NFData GetFederationTokenResponse where

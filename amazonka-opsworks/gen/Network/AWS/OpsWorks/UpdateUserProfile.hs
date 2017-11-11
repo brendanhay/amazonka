@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateUserProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     , UpdateUserProfileResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-    { _uupAllowSelfManagement :: !(Maybe Bool)
-    , _uupSSHPublicKey        :: !(Maybe Text)
-    , _uupSSHUsername         :: !(Maybe Text)
-    , _uupIAMUserARN          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uupAllowSelfManagement :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uupSSHPublicKey        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupSSHUsername         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupIAMUserARN          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserProfile' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ updateUserProfile
     :: Text -- ^ 'uupIAMUserARN'
     -> UpdateUserProfile
 updateUserProfile pIAMUserARN_ =
-    UpdateUserProfile'
-    { _uupAllowSelfManagement = Nothing
-    , _uupSSHPublicKey = Nothing
-    , _uupSSHUsername = Nothing
-    , _uupIAMUserARN = pIAMUserARN_
-    }
+  UpdateUserProfile'
+  { _uupAllowSelfManagement = Nothing
+  , _uupSSHPublicKey = Nothing
+  , _uupSSHUsername = Nothing
+  , _uupIAMUserARN = pIAMUserARN_
+  }
+
 
 -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
 uupAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
@@ -97,9 +99,9 @@ instance AWSRequest UpdateUserProfile where
         request = postJSON opsWorks
         response = receiveNull UpdateUserProfileResponse'
 
-instance Hashable UpdateUserProfile
+instance Hashable UpdateUserProfile where
 
-instance NFData UpdateUserProfile
+instance NFData UpdateUserProfile where
 
 instance ToHeaders UpdateUserProfile where
         toHeaders
@@ -129,8 +131,9 @@ instance ToQuery UpdateUserProfile where
 
 -- | /See:/ 'updateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse =
-    UpdateUserProfileResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateUserProfileResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserProfileResponse' with the minimum fields required to make a request.
 --
@@ -138,4 +141,5 @@ updateUserProfileResponse
     :: UpdateUserProfileResponse
 updateUserProfileResponse = UpdateUserProfileResponse'
 
-instance NFData UpdateUserProfileResponse
+
+instance NFData UpdateUserProfileResponse where

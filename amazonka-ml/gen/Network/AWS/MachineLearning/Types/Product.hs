@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MachineLearning.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types.Sum
+import Network.AWS.Prelude
 
 -- | Represents the output of a @GetBatchPrediction@ operation.
 --
@@ -29,23 +29,24 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'batchPrediction' smart constructor.
 data BatchPrediction = BatchPrediction'
-    { _bpStatus                      :: !(Maybe EntityStatus)
-    , _bpLastUpdatedAt               :: !(Maybe POSIX)
-    , _bpCreatedAt                   :: !(Maybe POSIX)
-    , _bpComputeTime                 :: !(Maybe Integer)
-    , _bpInputDataLocationS3         :: !(Maybe Text)
-    , _bpMLModelId                   :: !(Maybe Text)
-    , _bpBatchPredictionDataSourceId :: !(Maybe Text)
-    , _bpTotalRecordCount            :: !(Maybe Integer)
-    , _bpStartedAt                   :: !(Maybe POSIX)
-    , _bpBatchPredictionId           :: !(Maybe Text)
-    , _bpFinishedAt                  :: !(Maybe POSIX)
-    , _bpInvalidRecordCount          :: !(Maybe Integer)
-    , _bpCreatedByIAMUser            :: !(Maybe Text)
-    , _bpName                        :: !(Maybe Text)
-    , _bpMessage                     :: !(Maybe Text)
-    , _bpOutputURI                   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bpStatus                      :: {-# NOUNPACK #-}!(Maybe EntityStatus)
+  , _bpLastUpdatedAt               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bpCreatedAt                   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bpComputeTime                 :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _bpInputDataLocationS3         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpMLModelId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpBatchPredictionDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpTotalRecordCount            :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _bpStartedAt                   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bpBatchPredictionId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpFinishedAt                  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bpInvalidRecordCount          :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _bpCreatedByIAMUser            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpName                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpMessage                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpOutputURI                   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchPrediction' with the minimum fields required to make a request.
 --
@@ -85,24 +86,25 @@ data BatchPrediction = BatchPrediction'
 batchPrediction
     :: BatchPrediction
 batchPrediction =
-    BatchPrediction'
-    { _bpStatus = Nothing
-    , _bpLastUpdatedAt = Nothing
-    , _bpCreatedAt = Nothing
-    , _bpComputeTime = Nothing
-    , _bpInputDataLocationS3 = Nothing
-    , _bpMLModelId = Nothing
-    , _bpBatchPredictionDataSourceId = Nothing
-    , _bpTotalRecordCount = Nothing
-    , _bpStartedAt = Nothing
-    , _bpBatchPredictionId = Nothing
-    , _bpFinishedAt = Nothing
-    , _bpInvalidRecordCount = Nothing
-    , _bpCreatedByIAMUser = Nothing
-    , _bpName = Nothing
-    , _bpMessage = Nothing
-    , _bpOutputURI = Nothing
-    }
+  BatchPrediction'
+  { _bpStatus = Nothing
+  , _bpLastUpdatedAt = Nothing
+  , _bpCreatedAt = Nothing
+  , _bpComputeTime = Nothing
+  , _bpInputDataLocationS3 = Nothing
+  , _bpMLModelId = Nothing
+  , _bpBatchPredictionDataSourceId = Nothing
+  , _bpTotalRecordCount = Nothing
+  , _bpStartedAt = Nothing
+  , _bpBatchPredictionId = Nothing
+  , _bpFinishedAt = Nothing
+  , _bpInvalidRecordCount = Nothing
+  , _bpCreatedByIAMUser = Nothing
+  , _bpName = Nothing
+  , _bpMessage = Nothing
+  , _bpOutputURI = Nothing
+  }
+
 
 -- | The status of the @BatchPrediction@ . This element can have one of the following values:     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to generate predictions for a batch of observations.    * @INPROGRESS@ - The process is underway.    * @FAILED@ - The request to perform a batch prediction did not run to completion. It is not usable.    * @COMPLETED@ - The batch prediction process completed successfully.    * @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not usable.
 bpStatus :: Lens' BatchPrediction (Maybe EntityStatus)
@@ -189,9 +191,9 @@ instance FromJSON BatchPrediction where
                      <*> (x .:? "Message")
                      <*> (x .:? "OutputUri"))
 
-instance Hashable BatchPrediction
+instance Hashable BatchPrediction where
 
-instance NFData BatchPrediction
+instance NFData BatchPrediction where
 
 -- | Represents the output of the @GetDataSource@ operation.
 --
@@ -201,25 +203,26 @@ instance NFData BatchPrediction
 --
 -- /See:/ 'dataSource' smart constructor.
 data DataSource = DataSource'
-    { _dsStatus            :: !(Maybe EntityStatus)
-    , _dsNumberOfFiles     :: !(Maybe Integer)
-    , _dsLastUpdatedAt     :: !(Maybe POSIX)
-    , _dsCreatedAt         :: !(Maybe POSIX)
-    , _dsComputeTime       :: !(Maybe Integer)
-    , _dsDataSourceId      :: !(Maybe Text)
-    , _dsRDSMetadata       :: !(Maybe RDSMetadata)
-    , _dsDataSizeInBytes   :: !(Maybe Integer)
-    , _dsStartedAt         :: !(Maybe POSIX)
-    , _dsFinishedAt        :: !(Maybe POSIX)
-    , _dsCreatedByIAMUser  :: !(Maybe Text)
-    , _dsName              :: !(Maybe Text)
-    , _dsDataLocationS3    :: !(Maybe Text)
-    , _dsComputeStatistics :: !(Maybe Bool)
-    , _dsMessage           :: !(Maybe Text)
-    , _dsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
-    , _dsDataRearrangement :: !(Maybe Text)
-    , _dsRoleARN           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsStatus            :: {-# NOUNPACK #-}!(Maybe EntityStatus)
+  , _dsNumberOfFiles     :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dsLastUpdatedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dsCreatedAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dsComputeTime       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dsDataSourceId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsRDSMetadata       :: {-# NOUNPACK #-}!(Maybe RDSMetadata)
+  , _dsDataSizeInBytes   :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dsStartedAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dsFinishedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dsCreatedByIAMUser  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsDataLocationS3    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsMessage           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsRedshiftMetadata  :: {-# NOUNPACK #-}!(Maybe RedshiftMetadata)
+  , _dsDataRearrangement :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DataSource' with the minimum fields required to make a request.
 --
@@ -263,26 +266,27 @@ data DataSource = DataSource'
 dataSource
     :: DataSource
 dataSource =
-    DataSource'
-    { _dsStatus = Nothing
-    , _dsNumberOfFiles = Nothing
-    , _dsLastUpdatedAt = Nothing
-    , _dsCreatedAt = Nothing
-    , _dsComputeTime = Nothing
-    , _dsDataSourceId = Nothing
-    , _dsRDSMetadata = Nothing
-    , _dsDataSizeInBytes = Nothing
-    , _dsStartedAt = Nothing
-    , _dsFinishedAt = Nothing
-    , _dsCreatedByIAMUser = Nothing
-    , _dsName = Nothing
-    , _dsDataLocationS3 = Nothing
-    , _dsComputeStatistics = Nothing
-    , _dsMessage = Nothing
-    , _dsRedshiftMetadata = Nothing
-    , _dsDataRearrangement = Nothing
-    , _dsRoleARN = Nothing
-    }
+  DataSource'
+  { _dsStatus = Nothing
+  , _dsNumberOfFiles = Nothing
+  , _dsLastUpdatedAt = Nothing
+  , _dsCreatedAt = Nothing
+  , _dsComputeTime = Nothing
+  , _dsDataSourceId = Nothing
+  , _dsRDSMetadata = Nothing
+  , _dsDataSizeInBytes = Nothing
+  , _dsStartedAt = Nothing
+  , _dsFinishedAt = Nothing
+  , _dsCreatedByIAMUser = Nothing
+  , _dsName = Nothing
+  , _dsDataLocationS3 = Nothing
+  , _dsComputeStatistics = Nothing
+  , _dsMessage = Nothing
+  , _dsRedshiftMetadata = Nothing
+  , _dsDataRearrangement = Nothing
+  , _dsRoleARN = Nothing
+  }
+
 
 -- | The current status of the @DataSource@ . This element can have one of the following values:      * PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a @DataSource@ .    * INPROGRESS - The creation process is underway.    * FAILED - The request to create a @DataSource@ did not run to completion. It is not usable.    * COMPLETED - The creation process completed successfully.    * DELETED - The @DataSource@ is marked as deleted. It is not usable.
 dsStatus :: Lens' DataSource (Maybe EntityStatus)
@@ -379,9 +383,9 @@ instance FromJSON DataSource where
                      <*> (x .:? "DataRearrangement")
                      <*> (x .:? "RoleARN"))
 
-instance Hashable DataSource
+instance Hashable DataSource where
 
-instance NFData DataSource
+instance NFData DataSource where
 
 -- | Represents the output of @GetEvaluation@ operation.
 --
@@ -391,21 +395,22 @@ instance NFData DataSource
 --
 -- /See:/ 'evaluation' smart constructor.
 data Evaluation = Evaluation'
-    { _eStatus                 :: !(Maybe EntityStatus)
-    , _ePerformanceMetrics     :: !(Maybe PerformanceMetrics)
-    , _eLastUpdatedAt          :: !(Maybe POSIX)
-    , _eCreatedAt              :: !(Maybe POSIX)
-    , _eComputeTime            :: !(Maybe Integer)
-    , _eInputDataLocationS3    :: !(Maybe Text)
-    , _eMLModelId              :: !(Maybe Text)
-    , _eStartedAt              :: !(Maybe POSIX)
-    , _eFinishedAt             :: !(Maybe POSIX)
-    , _eCreatedByIAMUser       :: !(Maybe Text)
-    , _eName                   :: !(Maybe Text)
-    , _eEvaluationId           :: !(Maybe Text)
-    , _eMessage                :: !(Maybe Text)
-    , _eEvaluationDataSourceId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eStatus                 :: {-# NOUNPACK #-}!(Maybe EntityStatus)
+  , _ePerformanceMetrics     :: {-# NOUNPACK #-}!(Maybe PerformanceMetrics)
+  , _eLastUpdatedAt          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eCreatedAt              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eComputeTime            :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _eInputDataLocationS3    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eMLModelId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eStartedAt              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eFinishedAt             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eCreatedByIAMUser       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eName                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEvaluationId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eMessage                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEvaluationDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
 --
@@ -441,22 +446,23 @@ data Evaluation = Evaluation'
 evaluation
     :: Evaluation
 evaluation =
-    Evaluation'
-    { _eStatus = Nothing
-    , _ePerformanceMetrics = Nothing
-    , _eLastUpdatedAt = Nothing
-    , _eCreatedAt = Nothing
-    , _eComputeTime = Nothing
-    , _eInputDataLocationS3 = Nothing
-    , _eMLModelId = Nothing
-    , _eStartedAt = Nothing
-    , _eFinishedAt = Nothing
-    , _eCreatedByIAMUser = Nothing
-    , _eName = Nothing
-    , _eEvaluationId = Nothing
-    , _eMessage = Nothing
-    , _eEvaluationDataSourceId = Nothing
-    }
+  Evaluation'
+  { _eStatus = Nothing
+  , _ePerformanceMetrics = Nothing
+  , _eLastUpdatedAt = Nothing
+  , _eCreatedAt = Nothing
+  , _eComputeTime = Nothing
+  , _eInputDataLocationS3 = Nothing
+  , _eMLModelId = Nothing
+  , _eStartedAt = Nothing
+  , _eFinishedAt = Nothing
+  , _eCreatedByIAMUser = Nothing
+  , _eName = Nothing
+  , _eEvaluationId = Nothing
+  , _eMessage = Nothing
+  , _eEvaluationDataSourceId = Nothing
+  }
+
 
 -- | The status of the evaluation. This element can have one of the following values:     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an @MLModel@ .    * @INPROGRESS@ - The evaluation is underway.    * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.    * @COMPLETED@ - The evaluation process completed successfully.    * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 eStatus :: Lens' Evaluation (Maybe EntityStatus)
@@ -533,9 +539,9 @@ instance FromJSON Evaluation where
                      <*> (x .:? "Message")
                      <*> (x .:? "EvaluationDataSourceId"))
 
-instance Hashable Evaluation
+instance Hashable Evaluation where
 
-instance NFData Evaluation
+instance NFData Evaluation where
 
 -- | Represents the output of a @GetMLModel@ operation.
 --
@@ -545,26 +551,27 @@ instance NFData Evaluation
 --
 -- /See:/ 'mLModel' smart constructor.
 data MLModel = MLModel'
-    { _mlmStatus                      :: !(Maybe EntityStatus)
-    , _mlmLastUpdatedAt               :: !(Maybe POSIX)
-    , _mlmTrainingParameters          :: !(Maybe (Map Text Text))
-    , _mlmScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
-    , _mlmCreatedAt                   :: !(Maybe POSIX)
-    , _mlmComputeTime                 :: !(Maybe Integer)
-    , _mlmInputDataLocationS3         :: !(Maybe Text)
-    , _mlmMLModelId                   :: !(Maybe Text)
-    , _mlmSizeInBytes                 :: !(Maybe Integer)
-    , _mlmStartedAt                   :: !(Maybe POSIX)
-    , _mlmScoreThreshold              :: !(Maybe Double)
-    , _mlmFinishedAt                  :: !(Maybe POSIX)
-    , _mlmAlgorithm                   :: !(Maybe Algorithm)
-    , _mlmCreatedByIAMUser            :: !(Maybe Text)
-    , _mlmName                        :: !(Maybe Text)
-    , _mlmEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
-    , _mlmTrainingDataSourceId        :: !(Maybe Text)
-    , _mlmMessage                     :: !(Maybe Text)
-    , _mlmMLModelType                 :: !(Maybe MLModelType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlmStatus :: {-# NOUNPACK #-}!(Maybe EntityStatus)
+  , _mlmLastUpdatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mlmTrainingParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _mlmScoreThresholdLastUpdatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mlmCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mlmComputeTime :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _mlmInputDataLocationS3 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlmMLModelId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlmSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _mlmStartedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mlmScoreThreshold :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mlmFinishedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mlmAlgorithm :: {-# NOUNPACK #-}!(Maybe Algorithm)
+  , _mlmCreatedByIAMUser :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlmName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlmEndpointInfo :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointInfo)
+  , _mlmTrainingDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlmMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlmMLModelType :: {-# NOUNPACK #-}!(Maybe MLModelType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MLModel' with the minimum fields required to make a request.
 --
@@ -610,27 +617,28 @@ data MLModel = MLModel'
 mLModel
     :: MLModel
 mLModel =
-    MLModel'
-    { _mlmStatus = Nothing
-    , _mlmLastUpdatedAt = Nothing
-    , _mlmTrainingParameters = Nothing
-    , _mlmScoreThresholdLastUpdatedAt = Nothing
-    , _mlmCreatedAt = Nothing
-    , _mlmComputeTime = Nothing
-    , _mlmInputDataLocationS3 = Nothing
-    , _mlmMLModelId = Nothing
-    , _mlmSizeInBytes = Nothing
-    , _mlmStartedAt = Nothing
-    , _mlmScoreThreshold = Nothing
-    , _mlmFinishedAt = Nothing
-    , _mlmAlgorithm = Nothing
-    , _mlmCreatedByIAMUser = Nothing
-    , _mlmName = Nothing
-    , _mlmEndpointInfo = Nothing
-    , _mlmTrainingDataSourceId = Nothing
-    , _mlmMessage = Nothing
-    , _mlmMLModelType = Nothing
-    }
+  MLModel'
+  { _mlmStatus = Nothing
+  , _mlmLastUpdatedAt = Nothing
+  , _mlmTrainingParameters = Nothing
+  , _mlmScoreThresholdLastUpdatedAt = Nothing
+  , _mlmCreatedAt = Nothing
+  , _mlmComputeTime = Nothing
+  , _mlmInputDataLocationS3 = Nothing
+  , _mlmMLModelId = Nothing
+  , _mlmSizeInBytes = Nothing
+  , _mlmStartedAt = Nothing
+  , _mlmScoreThreshold = Nothing
+  , _mlmFinishedAt = Nothing
+  , _mlmAlgorithm = Nothing
+  , _mlmCreatedByIAMUser = Nothing
+  , _mlmName = Nothing
+  , _mlmEndpointInfo = Nothing
+  , _mlmTrainingDataSourceId = Nothing
+  , _mlmMessage = Nothing
+  , _mlmMLModelType = Nothing
+  }
+
 
 -- | The current status of an @MLModel@ . This element can have one of the following values:      * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to create an @MLModel@ .    * @INPROGRESS@ - The creation process is underway.    * @FAILED@ - The request to create an @MLModel@ didn't run to completion. The model isn't usable.    * @COMPLETED@ - The creation process completed successfully.    * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
 mlmStatus :: Lens' MLModel (Maybe EntityStatus)
@@ -732,9 +740,9 @@ instance FromJSON MLModel where
                      <*> (x .:? "Message")
                      <*> (x .:? "MLModelType"))
 
-instance Hashable MLModel
+instance Hashable MLModel where
 
-instance NFData MLModel
+instance NFData MLModel where
 
 -- | Measurements of how well the @MLModel@ performed on known observations. One of the following metrics is returned, based on the type of the @MLModel@ :
 --
@@ -752,8 +760,9 @@ instance NFData MLModel
 --
 -- /See:/ 'performanceMetrics' smart constructor.
 newtype PerformanceMetrics = PerformanceMetrics'
-    { _pmProperties :: Maybe (Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmProperties :: Maybe (Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PerformanceMetrics' with the minimum fields required to make a request.
 --
@@ -762,10 +771,8 @@ newtype PerformanceMetrics = PerformanceMetrics'
 -- * 'pmProperties' - Undocumented member.
 performanceMetrics
     :: PerformanceMetrics
-performanceMetrics =
-    PerformanceMetrics'
-    { _pmProperties = Nothing
-    }
+performanceMetrics = PerformanceMetrics' {_pmProperties = Nothing}
+
 
 -- | Undocumented member.
 pmProperties :: Lens' PerformanceMetrics (HashMap Text Text)
@@ -778,9 +785,9 @@ instance FromJSON PerformanceMetrics where
                  PerformanceMetrics' <$>
                    (x .:? "Properties" .!= mempty))
 
-instance Hashable PerformanceMetrics
+instance Hashable PerformanceMetrics where
 
-instance NFData PerformanceMetrics
+instance NFData PerformanceMetrics where
 
 -- | The output from a @Predict@ operation:
 --
@@ -798,11 +805,12 @@ instance NFData PerformanceMetrics
 --
 -- /See:/ 'prediction' smart constructor.
 data Prediction = Prediction'
-    { _pPredictedValue  :: !(Maybe Double)
-    , _pPredictedLabel  :: !(Maybe Text)
-    , _pPredictedScores :: !(Maybe (Map Text Double))
-    , _pDetails         :: !(Maybe (Map DetailsAttributes Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pPredictedValue  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _pPredictedLabel  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pPredictedScores :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
+  , _pDetails         :: {-# NOUNPACK #-}!(Maybe (Map DetailsAttributes Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Prediction' with the minimum fields required to make a request.
 --
@@ -818,12 +826,13 @@ data Prediction = Prediction'
 prediction
     :: Prediction
 prediction =
-    Prediction'
-    { _pPredictedValue = Nothing
-    , _pPredictedLabel = Nothing
-    , _pPredictedScores = Nothing
-    , _pDetails = Nothing
-    }
+  Prediction'
+  { _pPredictedValue = Nothing
+  , _pPredictedLabel = Nothing
+  , _pPredictedScores = Nothing
+  , _pDetails = Nothing
+  }
+
 
 -- | The prediction value for @REGRESSION@ @MLModel@ .
 pPredictedValue :: Lens' Prediction (Maybe Double)
@@ -850,9 +859,9 @@ instance FromJSON Prediction where
                      <*> (x .:? "predictedScores" .!= mempty)
                      <*> (x .:? "details" .!= mempty))
 
-instance Hashable Prediction
+instance Hashable Prediction where
 
-instance NFData Prediction
+instance NFData Prediction where
 
 -- | The data specification of an Amazon Relational Database Service (Amazon RDS) @DataSource@ .
 --
@@ -860,18 +869,19 @@ instance NFData Prediction
 --
 -- /See:/ 'rdsDataSpec' smart constructor.
 data RDSDataSpec = RDSDataSpec'
-    { _rdsdsDataSchemaURI       :: !(Maybe Text)
-    , _rdsdsDataSchema          :: !(Maybe Text)
-    , _rdsdsDataRearrangement   :: !(Maybe Text)
-    , _rdsdsDatabaseInformation :: !RDSDatabase
-    , _rdsdsSelectSqlQuery      :: !Text
-    , _rdsdsDatabaseCredentials :: !RDSDatabaseCredentials
-    , _rdsdsS3StagingLocation   :: !Text
-    , _rdsdsResourceRole        :: !Text
-    , _rdsdsServiceRole         :: !Text
-    , _rdsdsSubnetId            :: !Text
-    , _rdsdsSecurityGroupIds    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdsdsDataSchemaURI       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdsdsDataSchema          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdsdsDataRearrangement   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdsdsDatabaseInformation :: {-# NOUNPACK #-}!RDSDatabase
+  , _rdsdsSelectSqlQuery      :: {-# NOUNPACK #-}!Text
+  , _rdsdsDatabaseCredentials :: {-# NOUNPACK #-}!RDSDatabaseCredentials
+  , _rdsdsS3StagingLocation   :: {-# NOUNPACK #-}!Text
+  , _rdsdsResourceRole        :: {-# NOUNPACK #-}!Text
+  , _rdsdsServiceRole         :: {-# NOUNPACK #-}!Text
+  , _rdsdsSubnetId            :: {-# NOUNPACK #-}!Text
+  , _rdsdsSecurityGroupIds    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RDSDataSpec' with the minimum fields required to make a request.
 --
@@ -908,19 +918,20 @@ rdsDataSpec
     -> Text -- ^ 'rdsdsSubnetId'
     -> RDSDataSpec
 rdsDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS3StagingLocation_ pResourceRole_ pServiceRole_ pSubnetId_ =
-    RDSDataSpec'
-    { _rdsdsDataSchemaURI = Nothing
-    , _rdsdsDataSchema = Nothing
-    , _rdsdsDataRearrangement = Nothing
-    , _rdsdsDatabaseInformation = pDatabaseInformation_
-    , _rdsdsSelectSqlQuery = pSelectSqlQuery_
-    , _rdsdsDatabaseCredentials = pDatabaseCredentials_
-    , _rdsdsS3StagingLocation = pS3StagingLocation_
-    , _rdsdsResourceRole = pResourceRole_
-    , _rdsdsServiceRole = pServiceRole_
-    , _rdsdsSubnetId = pSubnetId_
-    , _rdsdsSecurityGroupIds = mempty
-    }
+  RDSDataSpec'
+  { _rdsdsDataSchemaURI = Nothing
+  , _rdsdsDataSchema = Nothing
+  , _rdsdsDataRearrangement = Nothing
+  , _rdsdsDatabaseInformation = pDatabaseInformation_
+  , _rdsdsSelectSqlQuery = pSelectSqlQuery_
+  , _rdsdsDatabaseCredentials = pDatabaseCredentials_
+  , _rdsdsS3StagingLocation = pS3StagingLocation_
+  , _rdsdsResourceRole = pResourceRole_
+  , _rdsdsServiceRole = pServiceRole_
+  , _rdsdsSubnetId = pSubnetId_
+  , _rdsdsSecurityGroupIds = mempty
+  }
+
 
 -- | The Amazon S3 location of the @DataSchema@ .
 rdsdsDataSchemaURI :: Lens' RDSDataSpec (Maybe Text)
@@ -966,9 +977,9 @@ rdsdsSubnetId = lens _rdsdsSubnetId (\ s a -> s{_rdsdsSubnetId = a});
 rdsdsSecurityGroupIds :: Lens' RDSDataSpec [Text]
 rdsdsSecurityGroupIds = lens _rdsdsSecurityGroupIds (\ s a -> s{_rdsdsSecurityGroupIds = a}) . _Coerce;
 
-instance Hashable RDSDataSpec
+instance Hashable RDSDataSpec where
 
-instance NFData RDSDataSpec
+instance NFData RDSDataSpec where
 
 instance ToJSON RDSDataSpec where
         toJSON RDSDataSpec'{..}
@@ -995,9 +1006,10 @@ instance ToJSON RDSDataSpec where
 --
 -- /See:/ 'rdsDatabase' smart constructor.
 data RDSDatabase = RDSDatabase'
-    { _rdsdInstanceIdentifier :: !Text
-    , _rdsdDatabaseName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdsdInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  , _rdsdDatabaseName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RDSDatabase' with the minimum fields required to make a request.
 --
@@ -1011,10 +1023,11 @@ rdsDatabase
     -> Text -- ^ 'rdsdDatabaseName'
     -> RDSDatabase
 rdsDatabase pInstanceIdentifier_ pDatabaseName_ =
-    RDSDatabase'
-    { _rdsdInstanceIdentifier = pInstanceIdentifier_
-    , _rdsdDatabaseName = pDatabaseName_
-    }
+  RDSDatabase'
+  { _rdsdInstanceIdentifier = pInstanceIdentifier_
+  , _rdsdDatabaseName = pDatabaseName_
+  }
+
 
 -- | The ID of an RDS DB instance.
 rdsdInstanceIdentifier :: Lens' RDSDatabase Text
@@ -1032,9 +1045,9 @@ instance FromJSON RDSDatabase where
                    (x .: "InstanceIdentifier") <*>
                      (x .: "DatabaseName"))
 
-instance Hashable RDSDatabase
+instance Hashable RDSDatabase where
 
-instance NFData RDSDatabase
+instance NFData RDSDatabase where
 
 instance ToJSON RDSDatabase where
         toJSON RDSDatabase'{..}
@@ -1050,9 +1063,10 @@ instance ToJSON RDSDatabase where
 --
 -- /See:/ 'rdsDatabaseCredentials' smart constructor.
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-    { _rdsdcUsername :: !Text
-    , _rdsdcPassword :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdsdcUsername :: {-# NOUNPACK #-}!Text
+  , _rdsdcPassword :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RDSDatabaseCredentials' with the minimum fields required to make a request.
 --
@@ -1066,10 +1080,9 @@ rdsDatabaseCredentials
     -> Text -- ^ 'rdsdcPassword'
     -> RDSDatabaseCredentials
 rdsDatabaseCredentials pUsername_ pPassword_ =
-    RDSDatabaseCredentials'
-    { _rdsdcUsername = pUsername_
-    , _rdsdcPassword = pPassword_
-    }
+  RDSDatabaseCredentials'
+  {_rdsdcUsername = pUsername_, _rdsdcPassword = pPassword_}
+
 
 -- | Undocumented member.
 rdsdcUsername :: Lens' RDSDatabaseCredentials Text
@@ -1079,9 +1092,9 @@ rdsdcUsername = lens _rdsdcUsername (\ s a -> s{_rdsdcUsername = a});
 rdsdcPassword :: Lens' RDSDatabaseCredentials Text
 rdsdcPassword = lens _rdsdcPassword (\ s a -> s{_rdsdcPassword = a});
 
-instance Hashable RDSDatabaseCredentials
+instance Hashable RDSDatabaseCredentials where
 
-instance NFData RDSDatabaseCredentials
+instance NFData RDSDatabaseCredentials where
 
 instance ToJSON RDSDatabaseCredentials where
         toJSON RDSDatabaseCredentials'{..}
@@ -1096,13 +1109,14 @@ instance ToJSON RDSDatabaseCredentials where
 --
 -- /See:/ 'rdsMetadata' smart constructor.
 data RDSMetadata = RDSMetadata'
-    { _rmSelectSqlQuery   :: !(Maybe Text)
-    , _rmDataPipelineId   :: !(Maybe Text)
-    , _rmDatabase         :: !(Maybe RDSDatabase)
-    , _rmDatabaseUserName :: !(Maybe Text)
-    , _rmResourceRole     :: !(Maybe Text)
-    , _rmServiceRole      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rmSelectSqlQuery   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmDataPipelineId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmDatabase         :: {-# NOUNPACK #-}!(Maybe RDSDatabase)
+  , _rmDatabaseUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmResourceRole     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmServiceRole      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RDSMetadata' with the minimum fields required to make a request.
 --
@@ -1122,14 +1136,15 @@ data RDSMetadata = RDSMetadata'
 rdsMetadata
     :: RDSMetadata
 rdsMetadata =
-    RDSMetadata'
-    { _rmSelectSqlQuery = Nothing
-    , _rmDataPipelineId = Nothing
-    , _rmDatabase = Nothing
-    , _rmDatabaseUserName = Nothing
-    , _rmResourceRole = Nothing
-    , _rmServiceRole = Nothing
-    }
+  RDSMetadata'
+  { _rmSelectSqlQuery = Nothing
+  , _rmDataPipelineId = Nothing
+  , _rmDatabase = Nothing
+  , _rmDatabaseUserName = Nothing
+  , _rmResourceRole = Nothing
+  , _rmServiceRole = Nothing
+  }
+
 
 -- | The SQL query that is supplied during 'CreateDataSourceFromRDS' . Returns only if @Verbose@ is true in @GetDataSourceInput@ .
 rmSelectSqlQuery :: Lens' RDSMetadata (Maybe Text)
@@ -1166,9 +1181,9 @@ instance FromJSON RDSMetadata where
                      <*> (x .:? "ResourceRole")
                      <*> (x .:? "ServiceRole"))
 
-instance Hashable RDSMetadata
+instance Hashable RDSMetadata where
 
-instance NFData RDSMetadata
+instance NFData RDSMetadata where
 
 -- | Describes the real-time endpoint information for an @MLModel@ .
 --
@@ -1176,11 +1191,12 @@ instance NFData RDSMetadata
 --
 -- /See:/ 'realtimeEndpointInfo' smart constructor.
 data RealtimeEndpointInfo = RealtimeEndpointInfo'
-    { _reiCreatedAt             :: !(Maybe POSIX)
-    , _reiEndpointURL           :: !(Maybe Text)
-    , _reiEndpointStatus        :: !(Maybe RealtimeEndpointStatus)
-    , _reiPeakRequestsPerSecond :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _reiCreatedAt             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _reiEndpointURL           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _reiEndpointStatus        :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointStatus)
+  , _reiPeakRequestsPerSecond :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RealtimeEndpointInfo' with the minimum fields required to make a request.
 --
@@ -1196,12 +1212,13 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
 realtimeEndpointInfo
     :: RealtimeEndpointInfo
 realtimeEndpointInfo =
-    RealtimeEndpointInfo'
-    { _reiCreatedAt = Nothing
-    , _reiEndpointURL = Nothing
-    , _reiEndpointStatus = Nothing
-    , _reiPeakRequestsPerSecond = Nothing
-    }
+  RealtimeEndpointInfo'
+  { _reiCreatedAt = Nothing
+  , _reiEndpointURL = Nothing
+  , _reiEndpointStatus = Nothing
+  , _reiPeakRequestsPerSecond = Nothing
+  }
+
 
 -- | The time that the request to create the real-time endpoint for the @MLModel@ was received. The time is expressed in epoch time.
 reiCreatedAt :: Lens' RealtimeEndpointInfo (Maybe UTCTime)
@@ -1228,9 +1245,9 @@ instance FromJSON RealtimeEndpointInfo where
                      (x .:? "EndpointStatus")
                      <*> (x .:? "PeakRequestsPerSecond"))
 
-instance Hashable RealtimeEndpointInfo
+instance Hashable RealtimeEndpointInfo where
 
-instance NFData RealtimeEndpointInfo
+instance NFData RealtimeEndpointInfo where
 
 -- | Describes the data specification of an Amazon Redshift @DataSource@ .
 --
@@ -1238,14 +1255,15 @@ instance NFData RealtimeEndpointInfo
 --
 -- /See:/ 'redshiftDataSpec' smart constructor.
 data RedshiftDataSpec = RedshiftDataSpec'
-    { _rDataSchemaURI       :: !(Maybe Text)
-    , _rDataSchema          :: !(Maybe Text)
-    , _rDataRearrangement   :: !(Maybe Text)
-    , _rDatabaseInformation :: !RedshiftDatabase
-    , _rSelectSqlQuery      :: !Text
-    , _rDatabaseCredentials :: !RedshiftDatabaseCredentials
-    , _rS3StagingLocation   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rDataSchemaURI       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDataSchema          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDataRearrangement   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDatabaseInformation :: {-# NOUNPACK #-}!RedshiftDatabase
+  , _rSelectSqlQuery      :: {-# NOUNPACK #-}!Text
+  , _rDatabaseCredentials :: {-# NOUNPACK #-}!RedshiftDatabaseCredentials
+  , _rS3StagingLocation   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDataSpec' with the minimum fields required to make a request.
 --
@@ -1271,15 +1289,16 @@ redshiftDataSpec
     -> Text -- ^ 'rS3StagingLocation'
     -> RedshiftDataSpec
 redshiftDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS3StagingLocation_ =
-    RedshiftDataSpec'
-    { _rDataSchemaURI = Nothing
-    , _rDataSchema = Nothing
-    , _rDataRearrangement = Nothing
-    , _rDatabaseInformation = pDatabaseInformation_
-    , _rSelectSqlQuery = pSelectSqlQuery_
-    , _rDatabaseCredentials = pDatabaseCredentials_
-    , _rS3StagingLocation = pS3StagingLocation_
-    }
+  RedshiftDataSpec'
+  { _rDataSchemaURI = Nothing
+  , _rDataSchema = Nothing
+  , _rDataRearrangement = Nothing
+  , _rDatabaseInformation = pDatabaseInformation_
+  , _rSelectSqlQuery = pSelectSqlQuery_
+  , _rDatabaseCredentials = pDatabaseCredentials_
+  , _rS3StagingLocation = pS3StagingLocation_
+  }
+
 
 -- | Describes the schema location for an Amazon Redshift @DataSource@ .
 rDataSchemaURI :: Lens' RedshiftDataSpec (Maybe Text)
@@ -1309,9 +1328,9 @@ rDatabaseCredentials = lens _rDatabaseCredentials (\ s a -> s{_rDatabaseCredenti
 rS3StagingLocation :: Lens' RedshiftDataSpec Text
 rS3StagingLocation = lens _rS3StagingLocation (\ s a -> s{_rS3StagingLocation = a});
 
-instance Hashable RedshiftDataSpec
+instance Hashable RedshiftDataSpec where
 
-instance NFData RedshiftDataSpec
+instance NFData RedshiftDataSpec where
 
 instance ToJSON RedshiftDataSpec where
         toJSON RedshiftDataSpec'{..}
@@ -1333,9 +1352,10 @@ instance ToJSON RedshiftDataSpec where
 --
 -- /See:/ 'redshiftDatabase' smart constructor.
 data RedshiftDatabase = RedshiftDatabase'
-    { _rdDatabaseName      :: !Text
-    , _rdClusterIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdDatabaseName      :: {-# NOUNPACK #-}!Text
+  , _rdClusterIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDatabase' with the minimum fields required to make a request.
 --
@@ -1349,10 +1369,9 @@ redshiftDatabase
     -> Text -- ^ 'rdClusterIdentifier'
     -> RedshiftDatabase
 redshiftDatabase pDatabaseName_ pClusterIdentifier_ =
-    RedshiftDatabase'
-    { _rdDatabaseName = pDatabaseName_
-    , _rdClusterIdentifier = pClusterIdentifier_
-    }
+  RedshiftDatabase'
+  {_rdDatabaseName = pDatabaseName_, _rdClusterIdentifier = pClusterIdentifier_}
+
 
 -- | Undocumented member.
 rdDatabaseName :: Lens' RedshiftDatabase Text
@@ -1369,9 +1388,9 @@ instance FromJSON RedshiftDatabase where
                  RedshiftDatabase' <$>
                    (x .: "DatabaseName") <*> (x .: "ClusterIdentifier"))
 
-instance Hashable RedshiftDatabase
+instance Hashable RedshiftDatabase where
 
-instance NFData RedshiftDatabase
+instance NFData RedshiftDatabase where
 
 instance ToJSON RedshiftDatabase where
         toJSON RedshiftDatabase'{..}
@@ -1386,9 +1405,10 @@ instance ToJSON RedshiftDatabase where
 --
 -- /See:/ 'redshiftDatabaseCredentials' smart constructor.
 data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
-    { _rdcUsername :: !Text
-    , _rdcPassword :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdcUsername :: {-# NOUNPACK #-}!Text
+  , _rdcPassword :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftDatabaseCredentials' with the minimum fields required to make a request.
 --
@@ -1402,10 +1422,9 @@ redshiftDatabaseCredentials
     -> Text -- ^ 'rdcPassword'
     -> RedshiftDatabaseCredentials
 redshiftDatabaseCredentials pUsername_ pPassword_ =
-    RedshiftDatabaseCredentials'
-    { _rdcUsername = pUsername_
-    , _rdcPassword = pPassword_
-    }
+  RedshiftDatabaseCredentials'
+  {_rdcUsername = pUsername_, _rdcPassword = pPassword_}
+
 
 -- | Undocumented member.
 rdcUsername :: Lens' RedshiftDatabaseCredentials Text
@@ -1415,9 +1434,9 @@ rdcUsername = lens _rdcUsername (\ s a -> s{_rdcUsername = a});
 rdcPassword :: Lens' RedshiftDatabaseCredentials Text
 rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a});
 
-instance Hashable RedshiftDatabaseCredentials
+instance Hashable RedshiftDatabaseCredentials where
 
-instance NFData RedshiftDatabaseCredentials
+instance NFData RedshiftDatabaseCredentials where
 
 instance ToJSON RedshiftDatabaseCredentials where
         toJSON RedshiftDatabaseCredentials'{..}
@@ -1432,10 +1451,11 @@ instance ToJSON RedshiftDatabaseCredentials where
 --
 -- /See:/ 'redshiftMetadata' smart constructor.
 data RedshiftMetadata = RedshiftMetadata'
-    { _redSelectSqlQuery   :: !(Maybe Text)
-    , _redRedshiftDatabase :: !(Maybe RedshiftDatabase)
-    , _redDatabaseUserName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _redSelectSqlQuery   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _redRedshiftDatabase :: {-# NOUNPACK #-}!(Maybe RedshiftDatabase)
+  , _redDatabaseUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RedshiftMetadata' with the minimum fields required to make a request.
 --
@@ -1449,11 +1469,12 @@ data RedshiftMetadata = RedshiftMetadata'
 redshiftMetadata
     :: RedshiftMetadata
 redshiftMetadata =
-    RedshiftMetadata'
-    { _redSelectSqlQuery = Nothing
-    , _redRedshiftDatabase = Nothing
-    , _redDatabaseUserName = Nothing
-    }
+  RedshiftMetadata'
+  { _redSelectSqlQuery = Nothing
+  , _redRedshiftDatabase = Nothing
+  , _redDatabaseUserName = Nothing
+  }
+
 
 -- | The SQL query that is specified during 'CreateDataSourceFromRedshift' . Returns only if @Verbose@ is true in GetDataSourceInput.
 redSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
@@ -1476,9 +1497,9 @@ instance FromJSON RedshiftMetadata where
                      (x .:? "RedshiftDatabase")
                      <*> (x .:? "DatabaseUserName"))
 
-instance Hashable RedshiftMetadata
+instance Hashable RedshiftMetadata where
 
-instance NFData RedshiftMetadata
+instance NFData RedshiftMetadata where
 
 -- | Describes the data specification of a @DataSource@ .
 --
@@ -1486,11 +1507,12 @@ instance NFData RedshiftMetadata
 --
 -- /See:/ 's3DataSpec' smart constructor.
 data S3DataSpec = S3DataSpec'
-    { _sdsDataSchema           :: !(Maybe Text)
-    , _sdsDataSchemaLocationS3 :: !(Maybe Text)
-    , _sdsDataRearrangement    :: !(Maybe Text)
-    , _sdsDataLocationS3       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdsDataSchema           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdsDataSchemaLocationS3 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdsDataRearrangement    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdsDataLocationS3       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3DataSpec' with the minimum fields required to make a request.
 --
@@ -1507,12 +1529,13 @@ s3DataSpec
     :: Text -- ^ 'sdsDataLocationS3'
     -> S3DataSpec
 s3DataSpec pDataLocationS3_ =
-    S3DataSpec'
-    { _sdsDataSchema = Nothing
-    , _sdsDataSchemaLocationS3 = Nothing
-    , _sdsDataRearrangement = Nothing
-    , _sdsDataLocationS3 = pDataLocationS3_
-    }
+  S3DataSpec'
+  { _sdsDataSchema = Nothing
+  , _sdsDataSchemaLocationS3 = Nothing
+  , _sdsDataRearrangement = Nothing
+  , _sdsDataLocationS3 = pDataLocationS3_
+  }
+
 
 -- | A JSON string that represents the schema for an Amazon S3 @DataSource@ . The @DataSchema@ defines the structure of the observation data in the data file(s) referenced in the @DataSource@ . You must provide either the @DataSchema@ or the @DataSchemaLocationS3@ . Define your @DataSchema@ as a series of key-value pairs. @attributes@ and @excludedVariableNames@ have an array of key-value pairs for their value. Use the following format to define your @DataSchema@ . { "version": "1.0", "recordAnnotationFieldName": "F1", "recordWeightFieldName": "F2", "targetFieldName": "F3", "dataFormat": "CSV", "dataFileContainsHeader": true, "attributes": [ { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ], "excludedVariableNames": [ "F6" ] }
 sdsDataSchema :: Lens' S3DataSpec (Maybe Text)
@@ -1530,9 +1553,9 @@ sdsDataRearrangement = lens _sdsDataRearrangement (\ s a -> s{_sdsDataRearrangem
 sdsDataLocationS3 :: Lens' S3DataSpec Text
 sdsDataLocationS3 = lens _sdsDataLocationS3 (\ s a -> s{_sdsDataLocationS3 = a});
 
-instance Hashable S3DataSpec
+instance Hashable S3DataSpec where
 
-instance NFData S3DataSpec
+instance NFData S3DataSpec where
 
 instance ToJSON S3DataSpec where
         toJSON S3DataSpec'{..}
@@ -1550,9 +1573,10 @@ instance ToJSON S3DataSpec where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -1563,11 +1587,8 @@ data Tag = Tag'
 -- * 'tagKey' - A unique identifier for the tag. Valid characters include Unicode letters, digits, white space, _, ., /, =, +, -, %, and @.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | An optional string, typically used to describe or define the tag. Valid characters include Unicode letters, digits, white space, _, ., /, =, +, -, %, and @.
 tagValue :: Lens' Tag (Maybe Text)
@@ -1582,9 +1603,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

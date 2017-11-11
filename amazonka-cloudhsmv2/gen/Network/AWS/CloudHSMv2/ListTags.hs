@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.ListTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.CloudHSMv2.ListTags
     , ltrsTagList
     ) where
 
-import           Network.AWS.CloudHSMv2.Types
-import           Network.AWS.CloudHSMv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSMv2.Types
+import Network.AWS.CloudHSMv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTags' smart constructor.
 data ListTags = ListTags'
-    { _ltNextToken  :: !(Maybe Text)
-    , _ltMaxResults :: !(Maybe Nat)
-    , _ltResourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ltResourceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ listTags
     :: Text -- ^ 'ltResourceId'
     -> ListTags
 listTags pResourceId_ =
-    ListTags'
-    { _ltNextToken = Nothing
-    , _ltMaxResults = Nothing
-    , _ltResourceId = pResourceId_
-    }
+  ListTags'
+  { _ltNextToken = Nothing
+  , _ltMaxResults = Nothing
+  , _ltResourceId = pResourceId_
+  }
+
 
 -- | The @NextToken@ value that you received in the previous response. Use this value to get more tags.
 ltNextToken :: Lens' ListTags (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest ListTags where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .:> "TagList"))
 
-instance Hashable ListTags
+instance Hashable ListTags where
 
-instance NFData ListTags
+instance NFData ListTags where
 
 instance ToHeaders ListTags where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery ListTags where
 
 -- | /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-    { _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsResponseStatus :: !Int
-    , _ltrsTagList        :: !(List1 Tag)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ltrsTagList        :: {-# NOUNPACK #-}!(List1 Tag)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +148,12 @@ listTagsResponse
     -> NonEmpty Tag -- ^ 'ltrsTagList'
     -> ListTagsResponse
 listTagsResponse pResponseStatus_ pTagList_ =
-    ListTagsResponse'
-    { _ltrsNextToken = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    , _ltrsTagList = _List1 # pTagList_
-    }
+  ListTagsResponse'
+  { _ltrsNextToken = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  , _ltrsTagList = _List1 # pTagList_
+  }
+
 
 -- | An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent @ListTags@ request to get more tags.
 ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
@@ -163,4 +167,4 @@ ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = 
 ltrsTagList :: Lens' ListTagsResponse (NonEmpty Tag)
 ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _List1;
 
-instance NFData ListTagsResponse
+instance NFData ListTagsResponse where

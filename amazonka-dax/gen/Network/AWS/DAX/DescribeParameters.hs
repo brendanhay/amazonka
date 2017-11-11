@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.DAX.DescribeParameters
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-    { _dpNextToken          :: !(Maybe Text)
-    , _dpSource             :: !(Maybe Text)
-    , _dpMaxResults         :: !(Maybe Int)
-    , _dpParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpSource             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpMaxResults         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpParameterGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeParameters' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeParameters
     :: Text -- ^ 'dpParameterGroupName'
     -> DescribeParameters
 describeParameters pParameterGroupName_ =
-    DescribeParameters'
-    { _dpNextToken = Nothing
-    , _dpSource = Nothing
-    , _dpMaxResults = Nothing
-    , _dpParameterGroupName = pParameterGroupName_
-    }
+  DescribeParameters'
+  { _dpNextToken = Nothing
+  , _dpSource = Nothing
+  , _dpMaxResults = Nothing
+  , _dpParameterGroupName = pParameterGroupName_
+  }
+
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 dpNextToken :: Lens' DescribeParameters (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest DescribeParameters where
                      (x .?> "Parameters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeParameters
+instance Hashable DescribeParameters where
 
-instance NFData DescribeParameters
+instance NFData DescribeParameters where
 
 instance ToHeaders DescribeParameters where
         toHeaders
@@ -137,10 +139,11 @@ instance ToQuery DescribeParameters where
 
 -- | /See:/ 'describeParametersResponse' smart constructor.
 data DescribeParametersResponse = DescribeParametersResponse'
-    { _dprsNextToken      :: !(Maybe Text)
-    , _dprsParameters     :: !(Maybe [Parameter])
-    , _dprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeParametersResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +158,12 @@ describeParametersResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribeParametersResponse
 describeParametersResponse pResponseStatus_ =
-    DescribeParametersResponse'
-    { _dprsNextToken = Nothing
-    , _dprsParameters = Nothing
-    , _dprsResponseStatus = pResponseStatus_
-    }
+  DescribeParametersResponse'
+  { _dprsNextToken = Nothing
+  , _dprsParameters = Nothing
+  , _dprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dprsNextToken :: Lens' DescribeParametersResponse (Maybe Text)
@@ -173,4 +177,4 @@ dprsParameters = lens _dprsParameters (\ s a -> s{_dprsParameters = a}) . _Defau
 dprsResponseStatus :: Lens' DescribeParametersResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DescribeParametersResponse
+instance NFData DescribeParametersResponse where

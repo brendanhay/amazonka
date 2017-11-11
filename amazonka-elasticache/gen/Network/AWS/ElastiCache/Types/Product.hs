@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ElastiCache.Types.Product where
 
-import           Network.AWS.ElastiCache.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.ElastiCache.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Describes an Availability Zone in which the cache cluster is launched.
 --
@@ -27,8 +27,9 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
-    { _azName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _azName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
@@ -37,10 +38,8 @@ newtype AvailabilityZone = AvailabilityZone'
 -- * 'azName' - The name of the Availability Zone.
 availabilityZone
     :: AvailabilityZone
-availabilityZone =
-    AvailabilityZone'
-    { _azName = Nothing
-    }
+availabilityZone = AvailabilityZone' {_azName = Nothing}
+
 
 -- | The name of the Availability Zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
@@ -49,9 +48,9 @@ azName = lens _azName (\ s a -> s{_azName = a});
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
-instance Hashable AvailabilityZone
+instance Hashable AvailabilityZone where
 
-instance NFData AvailabilityZone
+instance NFData AvailabilityZone where
 
 -- | Contains all of the attributes of a specific cache cluster.
 --
@@ -59,29 +58,30 @@ instance NFData AvailabilityZone
 --
 -- /See:/ 'cacheCluster' smart constructor.
 data CacheCluster = CacheCluster'
-    { _ccEngineVersion              :: !(Maybe Text)
-    , _ccCacheNodeType              :: !(Maybe Text)
-    , _ccCacheNodes                 :: !(Maybe [CacheNode])
-    , _ccCacheClusterCreateTime     :: !(Maybe ISO8601)
-    , _ccAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _ccSecurityGroups             :: !(Maybe [SecurityGroupMembership])
-    , _ccNotificationConfiguration  :: !(Maybe NotificationConfiguration)
-    , _ccSnapshotWindow             :: !(Maybe Text)
-    , _ccCacheClusterId             :: !(Maybe Text)
-    , _ccConfigurationEndpoint      :: !(Maybe Endpoint)
-    , _ccEngine                     :: !(Maybe Text)
-    , _ccCacheSecurityGroups        :: !(Maybe [CacheSecurityGroupMembership])
-    , _ccClientDownloadLandingPage  :: !(Maybe Text)
-    , _ccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _ccCacheSubnetGroupName       :: !(Maybe Text)
-    , _ccPreferredAvailabilityZone  :: !(Maybe Text)
-    , _ccCacheParameterGroup        :: !(Maybe CacheParameterGroupStatus)
-    , _ccCacheClusterStatus         :: !(Maybe Text)
-    , _ccSnapshotRetentionLimit     :: !(Maybe Int)
-    , _ccReplicationGroupId         :: !(Maybe Text)
-    , _ccPendingModifiedValues      :: !(Maybe PendingModifiedValues)
-    , _ccNumCacheNodes              :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccCacheNodes :: {-# NOUNPACK #-}!(Maybe [CacheNode])
+  , _ccCacheClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _ccAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccSecurityGroups :: {-# NOUNPACK #-}!(Maybe [SecurityGroupMembership])
+  , _ccNotificationConfiguration :: {-# NOUNPACK #-}!(Maybe NotificationConfiguration)
+  , _ccSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccCacheClusterId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccConfigurationEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _ccEngine :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccCacheSecurityGroups :: {-# NOUNPACK #-}!(Maybe [CacheSecurityGroupMembership])
+  , _ccClientDownloadLandingPage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccCacheSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccPreferredAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccCacheParameterGroup :: {-# NOUNPACK #-}!(Maybe CacheParameterGroupStatus)
+  , _ccCacheClusterStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ccReplicationGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe PendingModifiedValues)
+  , _ccNumCacheNodes :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheCluster' with the minimum fields required to make a request.
 --
@@ -133,30 +133,31 @@ data CacheCluster = CacheCluster'
 cacheCluster
     :: CacheCluster
 cacheCluster =
-    CacheCluster'
-    { _ccEngineVersion = Nothing
-    , _ccCacheNodeType = Nothing
-    , _ccCacheNodes = Nothing
-    , _ccCacheClusterCreateTime = Nothing
-    , _ccAutoMinorVersionUpgrade = Nothing
-    , _ccSecurityGroups = Nothing
-    , _ccNotificationConfiguration = Nothing
-    , _ccSnapshotWindow = Nothing
-    , _ccCacheClusterId = Nothing
-    , _ccConfigurationEndpoint = Nothing
-    , _ccEngine = Nothing
-    , _ccCacheSecurityGroups = Nothing
-    , _ccClientDownloadLandingPage = Nothing
-    , _ccPreferredMaintenanceWindow = Nothing
-    , _ccCacheSubnetGroupName = Nothing
-    , _ccPreferredAvailabilityZone = Nothing
-    , _ccCacheParameterGroup = Nothing
-    , _ccCacheClusterStatus = Nothing
-    , _ccSnapshotRetentionLimit = Nothing
-    , _ccReplicationGroupId = Nothing
-    , _ccPendingModifiedValues = Nothing
-    , _ccNumCacheNodes = Nothing
-    }
+  CacheCluster'
+  { _ccEngineVersion = Nothing
+  , _ccCacheNodeType = Nothing
+  , _ccCacheNodes = Nothing
+  , _ccCacheClusterCreateTime = Nothing
+  , _ccAutoMinorVersionUpgrade = Nothing
+  , _ccSecurityGroups = Nothing
+  , _ccNotificationConfiguration = Nothing
+  , _ccSnapshotWindow = Nothing
+  , _ccCacheClusterId = Nothing
+  , _ccConfigurationEndpoint = Nothing
+  , _ccEngine = Nothing
+  , _ccCacheSecurityGroups = Nothing
+  , _ccClientDownloadLandingPage = Nothing
+  , _ccPreferredMaintenanceWindow = Nothing
+  , _ccCacheSubnetGroupName = Nothing
+  , _ccPreferredAvailabilityZone = Nothing
+  , _ccCacheParameterGroup = Nothing
+  , _ccCacheClusterStatus = Nothing
+  , _ccSnapshotRetentionLimit = Nothing
+  , _ccReplicationGroupId = Nothing
+  , _ccPendingModifiedValues = Nothing
+  , _ccNumCacheNodes = Nothing
+  }
+
 
 -- | The version of the cache engine that is used in this cache cluster.
 ccEngineVersion :: Lens' CacheCluster (Maybe Text)
@@ -277,9 +278,9 @@ instance FromXML CacheCluster where
                 <*> (x .@? "PendingModifiedValues")
                 <*> (x .@? "NumCacheNodes")
 
-instance Hashable CacheCluster
+instance Hashable CacheCluster where
 
-instance NFData CacheCluster
+instance NFData CacheCluster where
 
 -- | Provides all of the details about a particular cache engine version.
 --
@@ -287,12 +288,13 @@ instance NFData CacheCluster
 --
 -- /See:/ 'cacheEngineVersion' smart constructor.
 data CacheEngineVersion = CacheEngineVersion'
-    { _cevEngineVersion                 :: !(Maybe Text)
-    , _cevCacheParameterGroupFamily     :: !(Maybe Text)
-    , _cevCacheEngineDescription        :: !(Maybe Text)
-    , _cevEngine                        :: !(Maybe Text)
-    , _cevCacheEngineVersionDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cevEngineVersion                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cevCacheParameterGroupFamily     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cevCacheEngineDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cevEngine                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cevCacheEngineVersionDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheEngineVersion' with the minimum fields required to make a request.
 --
@@ -310,13 +312,14 @@ data CacheEngineVersion = CacheEngineVersion'
 cacheEngineVersion
     :: CacheEngineVersion
 cacheEngineVersion =
-    CacheEngineVersion'
-    { _cevEngineVersion = Nothing
-    , _cevCacheParameterGroupFamily = Nothing
-    , _cevCacheEngineDescription = Nothing
-    , _cevEngine = Nothing
-    , _cevCacheEngineVersionDescription = Nothing
-    }
+  CacheEngineVersion'
+  { _cevEngineVersion = Nothing
+  , _cevCacheParameterGroupFamily = Nothing
+  , _cevCacheEngineDescription = Nothing
+  , _cevEngine = Nothing
+  , _cevCacheEngineVersionDescription = Nothing
+  }
+
 
 -- | The version number of the cache engine.
 cevEngineVersion :: Lens' CacheEngineVersion (Maybe Text)
@@ -347,9 +350,9 @@ instance FromXML CacheEngineVersion where
                 <*> (x .@? "Engine")
                 <*> (x .@? "CacheEngineVersionDescription")
 
-instance Hashable CacheEngineVersion
+instance Hashable CacheEngineVersion where
 
-instance NFData CacheEngineVersion
+instance NFData CacheEngineVersion where
 
 -- | Represents an individual cache node within a cache cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
 --
@@ -391,14 +394,15 @@ instance NFData CacheEngineVersion
 --
 -- /See:/ 'cacheNode' smart constructor.
 data CacheNode = CacheNode'
-    { _cnSourceCacheNodeId        :: !(Maybe Text)
-    , _cnParameterGroupStatus     :: !(Maybe Text)
-    , _cnCacheNodeCreateTime      :: !(Maybe ISO8601)
-    , _cnCustomerAvailabilityZone :: !(Maybe Text)
-    , _cnCacheNodeId              :: !(Maybe Text)
-    , _cnCacheNodeStatus          :: !(Maybe Text)
-    , _cnEndpoint                 :: !(Maybe Endpoint)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnSourceCacheNodeId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnParameterGroupStatus     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnCacheNodeCreateTime      :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _cnCustomerAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnCacheNodeId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnCacheNodeStatus          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnEndpoint                 :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheNode' with the minimum fields required to make a request.
 --
@@ -420,15 +424,16 @@ data CacheNode = CacheNode'
 cacheNode
     :: CacheNode
 cacheNode =
-    CacheNode'
-    { _cnSourceCacheNodeId = Nothing
-    , _cnParameterGroupStatus = Nothing
-    , _cnCacheNodeCreateTime = Nothing
-    , _cnCustomerAvailabilityZone = Nothing
-    , _cnCacheNodeId = Nothing
-    , _cnCacheNodeStatus = Nothing
-    , _cnEndpoint = Nothing
-    }
+  CacheNode'
+  { _cnSourceCacheNodeId = Nothing
+  , _cnParameterGroupStatus = Nothing
+  , _cnCacheNodeCreateTime = Nothing
+  , _cnCustomerAvailabilityZone = Nothing
+  , _cnCacheNodeId = Nothing
+  , _cnCacheNodeStatus = Nothing
+  , _cnEndpoint = Nothing
+  }
+
 
 -- | The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cache cluster.
 cnSourceCacheNodeId :: Lens' CacheNode (Maybe Text)
@@ -469,9 +474,9 @@ instance FromXML CacheNode where
                 <*> (x .@? "CacheNodeStatus")
                 <*> (x .@? "Endpoint")
 
-instance Hashable CacheNode
+instance Hashable CacheNode where
 
-instance NFData CacheNode
+instance NFData CacheNode where
 
 -- | A parameter that has a different value for each cache node type it is applied to. For example, in a Redis cache cluster, a @cache.m1.large@ cache node type would have a larger @maxmemory@ value than a @cache.m1.small@ type.
 --
@@ -479,16 +484,17 @@ instance NFData CacheNode
 --
 -- /See:/ 'cacheNodeTypeSpecificParameter' smart constructor.
 data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
-    { _cntspCacheNodeTypeSpecificValues :: !(Maybe [CacheNodeTypeSpecificValue])
-    , _cntspMinimumEngineVersion        :: !(Maybe Text)
-    , _cntspSource                      :: !(Maybe Text)
-    , _cntspIsModifiable                :: !(Maybe Bool)
-    , _cntspDataType                    :: !(Maybe Text)
-    , _cntspAllowedValues               :: !(Maybe Text)
-    , _cntspParameterName               :: !(Maybe Text)
-    , _cntspDescription                 :: !(Maybe Text)
-    , _cntspChangeType                  :: !(Maybe ChangeType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cntspCacheNodeTypeSpecificValues :: {-# NOUNPACK #-}!(Maybe [CacheNodeTypeSpecificValue])
+  , _cntspMinimumEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cntspSource :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cntspIsModifiable :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cntspDataType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cntspAllowedValues :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cntspParameterName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cntspDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cntspChangeType :: {-# NOUNPACK #-}!(Maybe ChangeType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheNodeTypeSpecificParameter' with the minimum fields required to make a request.
 --
@@ -514,17 +520,18 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
 cacheNodeTypeSpecificParameter
     :: CacheNodeTypeSpecificParameter
 cacheNodeTypeSpecificParameter =
-    CacheNodeTypeSpecificParameter'
-    { _cntspCacheNodeTypeSpecificValues = Nothing
-    , _cntspMinimumEngineVersion = Nothing
-    , _cntspSource = Nothing
-    , _cntspIsModifiable = Nothing
-    , _cntspDataType = Nothing
-    , _cntspAllowedValues = Nothing
-    , _cntspParameterName = Nothing
-    , _cntspDescription = Nothing
-    , _cntspChangeType = Nothing
-    }
+  CacheNodeTypeSpecificParameter'
+  { _cntspCacheNodeTypeSpecificValues = Nothing
+  , _cntspMinimumEngineVersion = Nothing
+  , _cntspSource = Nothing
+  , _cntspIsModifiable = Nothing
+  , _cntspDataType = Nothing
+  , _cntspAllowedValues = Nothing
+  , _cntspParameterName = Nothing
+  , _cntspDescription = Nothing
+  , _cntspChangeType = Nothing
+  }
+
 
 -- | A list of cache node types and their corresponding values for this parameter.
 cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter [CacheNodeTypeSpecificValue]
@@ -577,8 +584,9 @@ instance FromXML CacheNodeTypeSpecificParameter where
                 <*> (x .@? "ChangeType")
 
 instance Hashable CacheNodeTypeSpecificParameter
+         where
 
-instance NFData CacheNodeTypeSpecificParameter
+instance NFData CacheNodeTypeSpecificParameter where
 
 -- | A value that applies only to a certain cache node type.
 --
@@ -586,9 +594,10 @@ instance NFData CacheNodeTypeSpecificParameter
 --
 -- /See:/ 'cacheNodeTypeSpecificValue' smart constructor.
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
-    { _cntsvCacheNodeType :: !(Maybe Text)
-    , _cntsvValue         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cntsvCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cntsvValue         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheNodeTypeSpecificValue' with the minimum fields required to make a request.
 --
@@ -600,10 +609,9 @@ data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
 cacheNodeTypeSpecificValue
     :: CacheNodeTypeSpecificValue
 cacheNodeTypeSpecificValue =
-    CacheNodeTypeSpecificValue'
-    { _cntsvCacheNodeType = Nothing
-    , _cntsvValue = Nothing
-    }
+  CacheNodeTypeSpecificValue'
+  {_cntsvCacheNodeType = Nothing, _cntsvValue = Nothing}
+
 
 -- | The cache node type for which this value applies.
 cntsvCacheNodeType :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
@@ -618,9 +626,9 @@ instance FromXML CacheNodeTypeSpecificValue where
           = CacheNodeTypeSpecificValue' <$>
               (x .@? "CacheNodeType") <*> (x .@? "Value")
 
-instance Hashable CacheNodeTypeSpecificValue
+instance Hashable CacheNodeTypeSpecificValue where
 
-instance NFData CacheNodeTypeSpecificValue
+instance NFData CacheNodeTypeSpecificValue where
 
 -- | Represents the output of a @CreateCacheParameterGroup@ operation.
 --
@@ -628,10 +636,11 @@ instance NFData CacheNodeTypeSpecificValue
 --
 -- /See:/ 'cacheParameterGroup' smart constructor.
 data CacheParameterGroup = CacheParameterGroup'
-    { _cpgCacheParameterGroupFamily :: !(Maybe Text)
-    , _cpgCacheParameterGroupName   :: !(Maybe Text)
-    , _cpgDescription               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgCacheParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpgCacheParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpgDescription               :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheParameterGroup' with the minimum fields required to make a request.
 --
@@ -645,11 +654,12 @@ data CacheParameterGroup = CacheParameterGroup'
 cacheParameterGroup
     :: CacheParameterGroup
 cacheParameterGroup =
-    CacheParameterGroup'
-    { _cpgCacheParameterGroupFamily = Nothing
-    , _cpgCacheParameterGroupName = Nothing
-    , _cpgDescription = Nothing
-    }
+  CacheParameterGroup'
+  { _cpgCacheParameterGroupFamily = Nothing
+  , _cpgCacheParameterGroupName = Nothing
+  , _cpgDescription = Nothing
+  }
+
 
 -- | The name of the cache parameter group family that this cache parameter group is compatible with. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@ | @redis3.2@
 cpgCacheParameterGroupFamily :: Lens' CacheParameterGroup (Maybe Text)
@@ -670,9 +680,9 @@ instance FromXML CacheParameterGroup where
                 (x .@? "CacheParameterGroupName")
                 <*> (x .@? "Description")
 
-instance Hashable CacheParameterGroup
+instance Hashable CacheParameterGroup where
 
-instance NFData CacheParameterGroup
+instance NFData CacheParameterGroup where
 
 -- | Represents the output of one of the following operations:
 --
@@ -686,8 +696,9 @@ instance NFData CacheParameterGroup
 --
 -- /See:/ 'cacheParameterGroupNameMessage' smart constructor.
 newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
-    { _cpgnmCacheParameterGroupName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgnmCacheParameterGroupName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheParameterGroupNameMessage' with the minimum fields required to make a request.
 --
@@ -697,9 +708,8 @@ newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
 cacheParameterGroupNameMessage
     :: CacheParameterGroupNameMessage
 cacheParameterGroupNameMessage =
-    CacheParameterGroupNameMessage'
-    { _cpgnmCacheParameterGroupName = Nothing
-    }
+  CacheParameterGroupNameMessage' {_cpgnmCacheParameterGroupName = Nothing}
+
 
 -- | The name of the cache parameter group.
 cpgnmCacheParameterGroupName :: Lens' CacheParameterGroupNameMessage (Maybe Text)
@@ -711,8 +721,9 @@ instance FromXML CacheParameterGroupNameMessage where
               (x .@? "CacheParameterGroupName")
 
 instance Hashable CacheParameterGroupNameMessage
+         where
 
-instance NFData CacheParameterGroupNameMessage
+instance NFData CacheParameterGroupNameMessage where
 
 -- | Status of the cache parameter group.
 --
@@ -720,10 +731,11 @@ instance NFData CacheParameterGroupNameMessage
 --
 -- /See:/ 'cacheParameterGroupStatus' smart constructor.
 data CacheParameterGroupStatus = CacheParameterGroupStatus'
-    { _cpgsCacheParameterGroupName :: !(Maybe Text)
-    , _cpgsCacheNodeIdsToReboot    :: !(Maybe [Text])
-    , _cpgsParameterApplyStatus    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgsCacheParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpgsCacheNodeIdsToReboot    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cpgsParameterApplyStatus    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheParameterGroupStatus' with the minimum fields required to make a request.
 --
@@ -737,11 +749,12 @@ data CacheParameterGroupStatus = CacheParameterGroupStatus'
 cacheParameterGroupStatus
     :: CacheParameterGroupStatus
 cacheParameterGroupStatus =
-    CacheParameterGroupStatus'
-    { _cpgsCacheParameterGroupName = Nothing
-    , _cpgsCacheNodeIdsToReboot = Nothing
-    , _cpgsParameterApplyStatus = Nothing
-    }
+  CacheParameterGroupStatus'
+  { _cpgsCacheParameterGroupName = Nothing
+  , _cpgsCacheNodeIdsToReboot = Nothing
+  , _cpgsParameterApplyStatus = Nothing
+  }
+
 
 -- | The name of the cache parameter group.
 cpgsCacheParameterGroupName :: Lens' CacheParameterGroupStatus (Maybe Text)
@@ -763,9 +776,9 @@ instance FromXML CacheParameterGroupStatus where
                    may (parseXMLList "CacheNodeId"))
                 <*> (x .@? "ParameterApplyStatus")
 
-instance Hashable CacheParameterGroupStatus
+instance Hashable CacheParameterGroupStatus where
 
-instance NFData CacheParameterGroupStatus
+instance NFData CacheParameterGroupStatus where
 
 -- | Represents the output of one of the following operations:
 --
@@ -781,11 +794,12 @@ instance NFData CacheParameterGroupStatus
 --
 -- /See:/ 'cacheSecurityGroup' smart constructor.
 data CacheSecurityGroup = CacheSecurityGroup'
-    { _csgCacheSecurityGroupName :: !(Maybe Text)
-    , _csgOwnerId                :: !(Maybe Text)
-    , _csgEC2SecurityGroups      :: !(Maybe [EC2SecurityGroup])
-    , _csgDescription            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgCacheSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgOwnerId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgEC2SecurityGroups      :: {-# NOUNPACK #-}!(Maybe [EC2SecurityGroup])
+  , _csgDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheSecurityGroup' with the minimum fields required to make a request.
 --
@@ -801,12 +815,13 @@ data CacheSecurityGroup = CacheSecurityGroup'
 cacheSecurityGroup
     :: CacheSecurityGroup
 cacheSecurityGroup =
-    CacheSecurityGroup'
-    { _csgCacheSecurityGroupName = Nothing
-    , _csgOwnerId = Nothing
-    , _csgEC2SecurityGroups = Nothing
-    , _csgDescription = Nothing
-    }
+  CacheSecurityGroup'
+  { _csgCacheSecurityGroupName = Nothing
+  , _csgOwnerId = Nothing
+  , _csgEC2SecurityGroups = Nothing
+  , _csgDescription = Nothing
+  }
+
 
 -- | The name of the cache security group.
 csgCacheSecurityGroupName :: Lens' CacheSecurityGroup (Maybe Text)
@@ -834,9 +849,9 @@ instance FromXML CacheSecurityGroup where
                    may (parseXMLList "EC2SecurityGroup"))
                 <*> (x .@? "Description")
 
-instance Hashable CacheSecurityGroup
+instance Hashable CacheSecurityGroup where
 
-instance NFData CacheSecurityGroup
+instance NFData CacheSecurityGroup where
 
 -- | Represents a cache cluster's status within a particular cache security group.
 --
@@ -844,9 +859,10 @@ instance NFData CacheSecurityGroup
 --
 -- /See:/ 'cacheSecurityGroupMembership' smart constructor.
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
-    { _csgmStatus                 :: !(Maybe Text)
-    , _csgmCacheSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgmStatus                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgmCacheSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheSecurityGroupMembership' with the minimum fields required to make a request.
 --
@@ -858,10 +874,9 @@ data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
 cacheSecurityGroupMembership
     :: CacheSecurityGroupMembership
 cacheSecurityGroupMembership =
-    CacheSecurityGroupMembership'
-    { _csgmStatus = Nothing
-    , _csgmCacheSecurityGroupName = Nothing
-    }
+  CacheSecurityGroupMembership'
+  {_csgmStatus = Nothing, _csgmCacheSecurityGroupName = Nothing}
+
 
 -- | The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cache cluster are modified.
 csgmStatus :: Lens' CacheSecurityGroupMembership (Maybe Text)
@@ -876,9 +891,9 @@ instance FromXML CacheSecurityGroupMembership where
           = CacheSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "CacheSecurityGroupName")
 
-instance Hashable CacheSecurityGroupMembership
+instance Hashable CacheSecurityGroupMembership where
 
-instance NFData CacheSecurityGroupMembership
+instance NFData CacheSecurityGroupMembership where
 
 -- | Represents the output of one of the following operations:
 --
@@ -892,11 +907,12 @@ instance NFData CacheSecurityGroupMembership
 --
 -- /See:/ 'cacheSubnetGroup' smart constructor.
 data CacheSubnetGroup = CacheSubnetGroup'
-    { _csgVPCId                       :: !(Maybe Text)
-    , _csgSubnets                     :: !(Maybe [Subnet])
-    , _csgCacheSubnetGroupName        :: !(Maybe Text)
-    , _csgCacheSubnetGroupDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgVPCId                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgSubnets                     :: {-# NOUNPACK #-}!(Maybe [Subnet])
+  , _csgCacheSubnetGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgCacheSubnetGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheSubnetGroup' with the minimum fields required to make a request.
 --
@@ -912,12 +928,13 @@ data CacheSubnetGroup = CacheSubnetGroup'
 cacheSubnetGroup
     :: CacheSubnetGroup
 cacheSubnetGroup =
-    CacheSubnetGroup'
-    { _csgVPCId = Nothing
-    , _csgSubnets = Nothing
-    , _csgCacheSubnetGroupName = Nothing
-    , _csgCacheSubnetGroupDescription = Nothing
-    }
+  CacheSubnetGroup'
+  { _csgVPCId = Nothing
+  , _csgSubnets = Nothing
+  , _csgCacheSubnetGroupName = Nothing
+  , _csgCacheSubnetGroupDescription = Nothing
+  }
+
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
 csgVPCId :: Lens' CacheSubnetGroup (Maybe Text)
@@ -944,9 +961,9 @@ instance FromXML CacheSubnetGroup where
                 <*> (x .@? "CacheSubnetGroupName")
                 <*> (x .@? "CacheSubnetGroupDescription")
 
-instance Hashable CacheSubnetGroup
+instance Hashable CacheSubnetGroup where
 
-instance NFData CacheSubnetGroup
+instance NFData CacheSubnetGroup where
 
 -- | Provides ownership and status information for an Amazon EC2 security group.
 --
@@ -954,10 +971,11 @@ instance NFData CacheSubnetGroup
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-    { _esgStatus                  :: !(Maybe Text)
-    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _esgEC2SecurityGroupName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esgStatus                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esgEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esgEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
@@ -971,11 +989,12 @@ data EC2SecurityGroup = EC2SecurityGroup'
 ec2SecurityGroup
     :: EC2SecurityGroup
 ec2SecurityGroup =
-    EC2SecurityGroup'
-    { _esgStatus = Nothing
-    , _esgEC2SecurityGroupOwnerId = Nothing
-    , _esgEC2SecurityGroupName = Nothing
-    }
+  EC2SecurityGroup'
+  { _esgStatus = Nothing
+  , _esgEC2SecurityGroupOwnerId = Nothing
+  , _esgEC2SecurityGroupName = Nothing
+  }
+
 
 -- | The status of the Amazon EC2 security group.
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
@@ -996,9 +1015,9 @@ instance FromXML EC2SecurityGroup where
                 (x .@? "EC2SecurityGroupOwnerId")
                 <*> (x .@? "EC2SecurityGroupName")
 
-instance Hashable EC2SecurityGroup
+instance Hashable EC2SecurityGroup where
 
-instance NFData EC2SecurityGroup
+instance NFData EC2SecurityGroup where
 
 -- | Represents the information required for client programs to connect to a cache node.
 --
@@ -1006,9 +1025,10 @@ instance NFData EC2SecurityGroup
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-    { _eAddress :: !(Maybe Text)
-    , _ePort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ePort    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
@@ -1019,11 +1039,8 @@ data Endpoint = Endpoint'
 -- * 'ePort' - The port number that the cache engine is listening on.
 endpoint
     :: Endpoint
-endpoint =
-    Endpoint'
-    { _eAddress = Nothing
-    , _ePort = Nothing
-    }
+endpoint = Endpoint' {_eAddress = Nothing, _ePort = Nothing}
+
 
 -- | The DNS hostname of the cache node.
 eAddress :: Lens' Endpoint (Maybe Text)
@@ -1037,9 +1054,9 @@ instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
-instance Hashable Endpoint
+instance Hashable Endpoint where
 
-instance NFData Endpoint
+instance NFData Endpoint where
 
 -- | Represents the output of a @DescribeEngineDefaultParameters@ operation.
 --
@@ -1047,11 +1064,12 @@ instance NFData Endpoint
 --
 -- /See:/ 'engineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
-    { _edCacheParameterGroupFamily       :: !(Maybe Text)
-    , _edCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
-    , _edMarker                          :: !(Maybe Text)
-    , _edParameters                      :: !(Maybe [Parameter])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edCacheParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edCacheNodeTypeSpecificParameters :: {-# NOUNPACK #-}!(Maybe [CacheNodeTypeSpecificParameter])
+  , _edMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EngineDefaults' with the minimum fields required to make a request.
 --
@@ -1067,12 +1085,13 @@ data EngineDefaults = EngineDefaults'
 engineDefaults
     :: EngineDefaults
 engineDefaults =
-    EngineDefaults'
-    { _edCacheParameterGroupFamily = Nothing
-    , _edCacheNodeTypeSpecificParameters = Nothing
-    , _edMarker = Nothing
-    , _edParameters = Nothing
-    }
+  EngineDefaults'
+  { _edCacheParameterGroupFamily = Nothing
+  , _edCacheNodeTypeSpecificParameters = Nothing
+  , _edMarker = Nothing
+  , _edParameters = Nothing
+  }
+
 
 -- | Specifies the name of the cache parameter group family to which the engine default parameters apply. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@ | @redis3.2@
 edCacheParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
@@ -1102,9 +1121,9 @@ instance FromXML EngineDefaults where
                 (x .@? "Parameters" .!@ mempty >>=
                    may (parseXMLList "Parameter"))
 
-instance Hashable EngineDefaults
+instance Hashable EngineDefaults where
 
-instance NFData EngineDefaults
+instance NFData EngineDefaults where
 
 -- | Represents a single occurrence of something interesting within the system. Some examples of events are creating a cache cluster, adding or removing a cache node, or rebooting a node.
 --
@@ -1112,11 +1131,12 @@ instance NFData EngineDefaults
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eSourceType       :: !(Maybe SourceType)
-    , _eSourceIdentifier :: !(Maybe Text)
-    , _eDate             :: !(Maybe ISO8601)
-    , _eMessage          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _eSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eDate             :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _eMessage          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
@@ -1132,12 +1152,13 @@ data Event = Event'
 event
     :: Event
 event =
-    Event'
-    { _eSourceType = Nothing
-    , _eSourceIdentifier = Nothing
-    , _eDate = Nothing
-    , _eMessage = Nothing
-    }
+  Event'
+  { _eSourceType = Nothing
+  , _eSourceIdentifier = Nothing
+  , _eDate = Nothing
+  , _eMessage = Nothing
+  }
+
 
 -- | Specifies the origin of this event - a cache cluster, a parameter group, a security group, etc.
 eSourceType :: Lens' Event (Maybe SourceType)
@@ -1162,9 +1183,9 @@ instance FromXML Event where
                 <*> (x .@? "Date")
                 <*> (x .@? "Message")
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- | Represents a collection of cache nodes in a replication group. One node in the node group is the read/write primary node. All the other nodes are read-only Replica nodes.
 --
@@ -1172,12 +1193,13 @@ instance NFData Event
 --
 -- /See:/ 'nodeGroup' smart constructor.
 data NodeGroup = NodeGroup'
-    { _ngStatus           :: !(Maybe Text)
-    , _ngPrimaryEndpoint  :: !(Maybe Endpoint)
-    , _ngSlots            :: !(Maybe Text)
-    , _ngNodeGroupMembers :: !(Maybe [NodeGroupMember])
-    , _ngNodeGroupId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ngStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ngPrimaryEndpoint  :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _ngSlots            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ngNodeGroupMembers :: {-# NOUNPACK #-}!(Maybe [NodeGroupMember])
+  , _ngNodeGroupId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NodeGroup' with the minimum fields required to make a request.
 --
@@ -1195,13 +1217,14 @@ data NodeGroup = NodeGroup'
 nodeGroup
     :: NodeGroup
 nodeGroup =
-    NodeGroup'
-    { _ngStatus = Nothing
-    , _ngPrimaryEndpoint = Nothing
-    , _ngSlots = Nothing
-    , _ngNodeGroupMembers = Nothing
-    , _ngNodeGroupId = Nothing
-    }
+  NodeGroup'
+  { _ngStatus = Nothing
+  , _ngPrimaryEndpoint = Nothing
+  , _ngSlots = Nothing
+  , _ngNodeGroupMembers = Nothing
+  , _ngNodeGroupId = Nothing
+  }
+
 
 -- | The current state of this replication group - @creating@ , @available@ , etc.
 ngStatus :: Lens' NodeGroup (Maybe Text)
@@ -1233,9 +1256,9 @@ instance FromXML NodeGroup where
                    may (parseXMLList "NodeGroupMember"))
                 <*> (x .@? "NodeGroupId")
 
-instance Hashable NodeGroup
+instance Hashable NodeGroup where
 
-instance NFData NodeGroup
+instance NFData NodeGroup where
 
 -- | node group (shard) configuration options. Each node group (shard) configuration has the following: @Slots@ , @PrimaryAvailabilityZone@ , @ReplicaAvailabilityZones@ , @ReplicaCount@ .
 --
@@ -1243,11 +1266,12 @@ instance NFData NodeGroup
 --
 -- /See:/ 'nodeGroupConfiguration' smart constructor.
 data NodeGroupConfiguration = NodeGroupConfiguration'
-    { _ngcSlots                    :: !(Maybe Text)
-    , _ngcReplicaCount             :: !(Maybe Int)
-    , _ngcPrimaryAvailabilityZone  :: !(Maybe Text)
-    , _ngcReplicaAvailabilityZones :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ngcSlots                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ngcReplicaCount             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ngcPrimaryAvailabilityZone  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ngcReplicaAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NodeGroupConfiguration' with the minimum fields required to make a request.
 --
@@ -1263,12 +1287,13 @@ data NodeGroupConfiguration = NodeGroupConfiguration'
 nodeGroupConfiguration
     :: NodeGroupConfiguration
 nodeGroupConfiguration =
-    NodeGroupConfiguration'
-    { _ngcSlots = Nothing
-    , _ngcReplicaCount = Nothing
-    , _ngcPrimaryAvailabilityZone = Nothing
-    , _ngcReplicaAvailabilityZones = Nothing
-    }
+  NodeGroupConfiguration'
+  { _ngcSlots = Nothing
+  , _ngcReplicaCount = Nothing
+  , _ngcPrimaryAvailabilityZone = Nothing
+  , _ngcReplicaAvailabilityZones = Nothing
+  }
+
 
 -- | A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ . Example: @"0-3999"@
 ngcSlots :: Lens' NodeGroupConfiguration (Maybe Text)
@@ -1295,9 +1320,9 @@ instance FromXML NodeGroupConfiguration where
                 (x .@? "ReplicaAvailabilityZones" .!@ mempty >>=
                    may (parseXMLList "AvailabilityZone"))
 
-instance Hashable NodeGroupConfiguration
+instance Hashable NodeGroupConfiguration where
 
-instance NFData NodeGroupConfiguration
+instance NFData NodeGroupConfiguration where
 
 instance ToQuery NodeGroupConfiguration where
         toQuery NodeGroupConfiguration'{..}
@@ -1317,12 +1342,13 @@ instance ToQuery NodeGroupConfiguration where
 --
 -- /See:/ 'nodeGroupMember' smart constructor.
 data NodeGroupMember = NodeGroupMember'
-    { _ngmCacheClusterId            :: !(Maybe Text)
-    , _ngmCacheNodeId               :: !(Maybe Text)
-    , _ngmPreferredAvailabilityZone :: !(Maybe Text)
-    , _ngmCurrentRole               :: !(Maybe Text)
-    , _ngmReadEndpoint              :: !(Maybe Endpoint)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ngmCacheClusterId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ngmCacheNodeId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ngmPreferredAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ngmCurrentRole               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ngmReadEndpoint              :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NodeGroupMember' with the minimum fields required to make a request.
 --
@@ -1340,13 +1366,14 @@ data NodeGroupMember = NodeGroupMember'
 nodeGroupMember
     :: NodeGroupMember
 nodeGroupMember =
-    NodeGroupMember'
-    { _ngmCacheClusterId = Nothing
-    , _ngmCacheNodeId = Nothing
-    , _ngmPreferredAvailabilityZone = Nothing
-    , _ngmCurrentRole = Nothing
-    , _ngmReadEndpoint = Nothing
-    }
+  NodeGroupMember'
+  { _ngmCacheClusterId = Nothing
+  , _ngmCacheNodeId = Nothing
+  , _ngmPreferredAvailabilityZone = Nothing
+  , _ngmCurrentRole = Nothing
+  , _ngmReadEndpoint = Nothing
+  }
+
 
 -- | The ID of the cache cluster to which the node belongs.
 ngmCacheClusterId :: Lens' NodeGroupMember (Maybe Text)
@@ -1376,9 +1403,9 @@ instance FromXML NodeGroupMember where
                 <*> (x .@? "CurrentRole")
                 <*> (x .@? "ReadEndpoint")
 
-instance Hashable NodeGroupMember
+instance Hashable NodeGroupMember where
 
-instance NFData NodeGroupMember
+instance NFData NodeGroupMember where
 
 -- | Represents an individual cache node in a snapshot of a cache cluster.
 --
@@ -1386,14 +1413,15 @@ instance NFData NodeGroupMember
 --
 -- /See:/ 'nodeSnapshot' smart constructor.
 data NodeSnapshot = NodeSnapshot'
-    { _nsNodeGroupConfiguration :: !(Maybe NodeGroupConfiguration)
-    , _nsCacheNodeCreateTime    :: !(Maybe ISO8601)
-    , _nsCacheClusterId         :: !(Maybe Text)
-    , _nsCacheNodeId            :: !(Maybe Text)
-    , _nsNodeGroupId            :: !(Maybe Text)
-    , _nsSnapshotCreateTime     :: !(Maybe ISO8601)
-    , _nsCacheSize              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nsNodeGroupConfiguration :: {-# NOUNPACK #-}!(Maybe NodeGroupConfiguration)
+  , _nsCacheNodeCreateTime    :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _nsCacheClusterId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nsCacheNodeId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nsNodeGroupId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nsSnapshotCreateTime     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _nsCacheSize              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NodeSnapshot' with the minimum fields required to make a request.
 --
@@ -1415,15 +1443,16 @@ data NodeSnapshot = NodeSnapshot'
 nodeSnapshot
     :: NodeSnapshot
 nodeSnapshot =
-    NodeSnapshot'
-    { _nsNodeGroupConfiguration = Nothing
-    , _nsCacheNodeCreateTime = Nothing
-    , _nsCacheClusterId = Nothing
-    , _nsCacheNodeId = Nothing
-    , _nsNodeGroupId = Nothing
-    , _nsSnapshotCreateTime = Nothing
-    , _nsCacheSize = Nothing
-    }
+  NodeSnapshot'
+  { _nsNodeGroupConfiguration = Nothing
+  , _nsCacheNodeCreateTime = Nothing
+  , _nsCacheClusterId = Nothing
+  , _nsCacheNodeId = Nothing
+  , _nsNodeGroupId = Nothing
+  , _nsSnapshotCreateTime = Nothing
+  , _nsCacheSize = Nothing
+  }
+
 
 -- | The configuration for the source node group (shard).
 nsNodeGroupConfiguration :: Lens' NodeSnapshot (Maybe NodeGroupConfiguration)
@@ -1464,9 +1493,9 @@ instance FromXML NodeSnapshot where
                 <*> (x .@? "SnapshotCreateTime")
                 <*> (x .@? "CacheSize")
 
-instance Hashable NodeSnapshot
+instance Hashable NodeSnapshot where
 
-instance NFData NodeSnapshot
+instance NFData NodeSnapshot where
 
 -- | Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
 --
@@ -1474,9 +1503,10 @@ instance NFData NodeSnapshot
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-    { _ncTopicStatus :: !(Maybe Text)
-    , _ncTopicARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ncTopicStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ncTopicARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
 --
@@ -1488,10 +1518,8 @@ data NotificationConfiguration = NotificationConfiguration'
 notificationConfiguration
     :: NotificationConfiguration
 notificationConfiguration =
-    NotificationConfiguration'
-    { _ncTopicStatus = Nothing
-    , _ncTopicARN = Nothing
-    }
+  NotificationConfiguration' {_ncTopicStatus = Nothing, _ncTopicARN = Nothing}
+
 
 -- | The current state of the topic.
 ncTopicStatus :: Lens' NotificationConfiguration (Maybe Text)
@@ -1506,9 +1534,9 @@ instance FromXML NotificationConfiguration where
           = NotificationConfiguration' <$>
               (x .@? "TopicStatus") <*> (x .@? "TopicArn")
 
-instance Hashable NotificationConfiguration
+instance Hashable NotificationConfiguration where
 
-instance NFData NotificationConfiguration
+instance NFData NotificationConfiguration where
 
 -- | Describes an individual setting that controls some aspect of ElastiCache behavior.
 --
@@ -1516,16 +1544,17 @@ instance NFData NotificationConfiguration
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-    { _pParameterValue       :: !(Maybe Text)
-    , _pMinimumEngineVersion :: !(Maybe Text)
-    , _pSource               :: !(Maybe Text)
-    , _pIsModifiable         :: !(Maybe Bool)
-    , _pDataType             :: !(Maybe Text)
-    , _pAllowedValues        :: !(Maybe Text)
-    , _pParameterName        :: !(Maybe Text)
-    , _pDescription          :: !(Maybe Text)
-    , _pChangeType           :: !(Maybe ChangeType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pParameterValue       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pMinimumEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pSource               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pIsModifiable         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pDataType             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pAllowedValues        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pParameterName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pChangeType           :: {-# NOUNPACK #-}!(Maybe ChangeType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
@@ -1551,17 +1580,18 @@ data Parameter = Parameter'
 parameter
     :: Parameter
 parameter =
-    Parameter'
-    { _pParameterValue = Nothing
-    , _pMinimumEngineVersion = Nothing
-    , _pSource = Nothing
-    , _pIsModifiable = Nothing
-    , _pDataType = Nothing
-    , _pAllowedValues = Nothing
-    , _pParameterName = Nothing
-    , _pDescription = Nothing
-    , _pChangeType = Nothing
-    }
+  Parameter'
+  { _pParameterValue = Nothing
+  , _pMinimumEngineVersion = Nothing
+  , _pSource = Nothing
+  , _pIsModifiable = Nothing
+  , _pDataType = Nothing
+  , _pAllowedValues = Nothing
+  , _pParameterName = Nothing
+  , _pDescription = Nothing
+  , _pChangeType = Nothing
+  }
+
 
 -- | The value of the parameter.
 pParameterValue :: Lens' Parameter (Maybe Text)
@@ -1612,9 +1642,9 @@ instance FromXML Parameter where
                 <*> (x .@? "Description")
                 <*> (x .@? "ChangeType")
 
-instance Hashable Parameter
+instance Hashable Parameter where
 
-instance NFData Parameter
+instance NFData Parameter where
 
 -- | Describes a name-value pair that is used to update the value of a parameter.
 --
@@ -1622,9 +1652,10 @@ instance NFData Parameter
 --
 -- /See:/ 'parameterNameValue' smart constructor.
 data ParameterNameValue = ParameterNameValue'
-    { _pnvParameterValue :: !(Maybe Text)
-    , _pnvParameterName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pnvParameterValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pnvParameterName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterNameValue' with the minimum fields required to make a request.
 --
@@ -1636,10 +1667,9 @@ data ParameterNameValue = ParameterNameValue'
 parameterNameValue
     :: ParameterNameValue
 parameterNameValue =
-    ParameterNameValue'
-    { _pnvParameterValue = Nothing
-    , _pnvParameterName = Nothing
-    }
+  ParameterNameValue'
+  {_pnvParameterValue = Nothing, _pnvParameterName = Nothing}
+
 
 -- | The value of the parameter.
 pnvParameterValue :: Lens' ParameterNameValue (Maybe Text)
@@ -1649,9 +1679,9 @@ pnvParameterValue = lens _pnvParameterValue (\ s a -> s{_pnvParameterValue = a})
 pnvParameterName :: Lens' ParameterNameValue (Maybe Text)
 pnvParameterName = lens _pnvParameterName (\ s a -> s{_pnvParameterName = a});
 
-instance Hashable ParameterNameValue
+instance Hashable ParameterNameValue where
 
-instance NFData ParameterNameValue
+instance NFData ParameterNameValue where
 
 instance ToQuery ParameterNameValue where
         toQuery ParameterNameValue'{..}
@@ -1665,11 +1695,12 @@ instance ToQuery ParameterNameValue where
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-    { _pmvEngineVersion        :: !(Maybe Text)
-    , _pmvCacheNodeType        :: !(Maybe Text)
-    , _pmvCacheNodeIdsToRemove :: !(Maybe [Text])
-    , _pmvNumCacheNodes        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmvEngineVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvCacheNodeType        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvCacheNodeIdsToRemove :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pmvNumCacheNodes        :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
@@ -1685,12 +1716,13 @@ data PendingModifiedValues = PendingModifiedValues'
 pendingModifiedValues
     :: PendingModifiedValues
 pendingModifiedValues =
-    PendingModifiedValues'
-    { _pmvEngineVersion = Nothing
-    , _pmvCacheNodeType = Nothing
-    , _pmvCacheNodeIdsToRemove = Nothing
-    , _pmvNumCacheNodes = Nothing
-    }
+  PendingModifiedValues'
+  { _pmvEngineVersion = Nothing
+  , _pmvCacheNodeType = Nothing
+  , _pmvCacheNodeIdsToRemove = Nothing
+  , _pmvNumCacheNodes = Nothing
+  }
+
 
 -- | The new cache engine version that the cache cluster runs.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
@@ -1717,9 +1749,9 @@ instance FromXML PendingModifiedValues where
                    may (parseXMLList "CacheNodeId"))
                 <*> (x .@? "NumCacheNodes")
 
-instance Hashable PendingModifiedValues
+instance Hashable PendingModifiedValues where
 
-instance NFData PendingModifiedValues
+instance NFData PendingModifiedValues where
 
 -- | Contains the specific price and frequency of a recurring charges for a reserved cache node, or for a reserved cache node offering.
 --
@@ -1727,9 +1759,10 @@ instance NFData PendingModifiedValues
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-    { _rcRecurringChargeFrequency :: !(Maybe Text)
-    , _rcRecurringChargeAmount    :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcRecurringChargeFrequency :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcRecurringChargeAmount    :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
@@ -1741,10 +1774,9 @@ data RecurringCharge = RecurringCharge'
 recurringCharge
     :: RecurringCharge
 recurringCharge =
-    RecurringCharge'
-    { _rcRecurringChargeFrequency = Nothing
-    , _rcRecurringChargeAmount = Nothing
-    }
+  RecurringCharge'
+  {_rcRecurringChargeFrequency = Nothing, _rcRecurringChargeAmount = Nothing}
+
 
 -- | The frequency of the recurring charge.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
@@ -1760,9 +1792,9 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
-instance Hashable RecurringCharge
+instance Hashable RecurringCharge where
 
-instance NFData RecurringCharge
+instance NFData RecurringCharge where
 
 -- | Contains all of the attributes of a specific Redis replication group.
 --
@@ -1770,20 +1802,21 @@ instance NFData RecurringCharge
 --
 -- /See:/ 'replicationGroup' smart constructor.
 data ReplicationGroup = ReplicationGroup'
-    { _rgStatus                 :: !(Maybe Text)
-    , _rgCacheNodeType          :: !(Maybe Text)
-    , _rgNodeGroups             :: !(Maybe [NodeGroup])
-    , _rgSnapshottingClusterId  :: !(Maybe Text)
-    , _rgClusterEnabled         :: !(Maybe Bool)
-    , _rgSnapshotWindow         :: !(Maybe Text)
-    , _rgConfigurationEndpoint  :: !(Maybe Endpoint)
-    , _rgMemberClusters         :: !(Maybe [Text])
-    , _rgSnapshotRetentionLimit :: !(Maybe Int)
-    , _rgDescription            :: !(Maybe Text)
-    , _rgReplicationGroupId     :: !(Maybe Text)
-    , _rgPendingModifiedValues  :: !(Maybe ReplicationGroupPendingModifiedValues)
-    , _rgAutomaticFailover      :: !(Maybe AutomaticFailoverStatus)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rgStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rgCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rgNodeGroups :: {-# NOUNPACK #-}!(Maybe [NodeGroup])
+  , _rgSnapshottingClusterId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rgClusterEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rgSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rgConfigurationEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _rgMemberClusters :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rgSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rgDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rgReplicationGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rgPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe ReplicationGroupPendingModifiedValues)
+  , _rgAutomaticFailover :: {-# NOUNPACK #-}!(Maybe AutomaticFailoverStatus)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationGroup' with the minimum fields required to make a request.
 --
@@ -1817,21 +1850,22 @@ data ReplicationGroup = ReplicationGroup'
 replicationGroup
     :: ReplicationGroup
 replicationGroup =
-    ReplicationGroup'
-    { _rgStatus = Nothing
-    , _rgCacheNodeType = Nothing
-    , _rgNodeGroups = Nothing
-    , _rgSnapshottingClusterId = Nothing
-    , _rgClusterEnabled = Nothing
-    , _rgSnapshotWindow = Nothing
-    , _rgConfigurationEndpoint = Nothing
-    , _rgMemberClusters = Nothing
-    , _rgSnapshotRetentionLimit = Nothing
-    , _rgDescription = Nothing
-    , _rgReplicationGroupId = Nothing
-    , _rgPendingModifiedValues = Nothing
-    , _rgAutomaticFailover = Nothing
-    }
+  ReplicationGroup'
+  { _rgStatus = Nothing
+  , _rgCacheNodeType = Nothing
+  , _rgNodeGroups = Nothing
+  , _rgSnapshottingClusterId = Nothing
+  , _rgClusterEnabled = Nothing
+  , _rgSnapshotWindow = Nothing
+  , _rgConfigurationEndpoint = Nothing
+  , _rgMemberClusters = Nothing
+  , _rgSnapshotRetentionLimit = Nothing
+  , _rgDescription = Nothing
+  , _rgReplicationGroupId = Nothing
+  , _rgPendingModifiedValues = Nothing
+  , _rgAutomaticFailover = Nothing
+  }
+
 
 -- | The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ , @create-failed@ , @snapshotting@ .
 rgStatus :: Lens' ReplicationGroup (Maybe Text)
@@ -1904,9 +1938,9 @@ instance FromXML ReplicationGroup where
                 <*> (x .@? "PendingModifiedValues")
                 <*> (x .@? "AutomaticFailover")
 
-instance Hashable ReplicationGroup
+instance Hashable ReplicationGroup where
 
-instance NFData ReplicationGroup
+instance NFData ReplicationGroup where
 
 -- | The settings to be applied to the Redis replication group, either immediately or during the next maintenance window.
 --
@@ -1914,9 +1948,10 @@ instance NFData ReplicationGroup
 --
 -- /See:/ 'replicationGroupPendingModifiedValues' smart constructor.
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'
-    { _rgpmvPrimaryClusterId        :: !(Maybe Text)
-    , _rgpmvAutomaticFailoverStatus :: !(Maybe PendingAutomaticFailoverStatus)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rgpmvPrimaryClusterId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rgpmvAutomaticFailoverStatus :: {-# NOUNPACK #-}!(Maybe PendingAutomaticFailoverStatus)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationGroupPendingModifiedValues' with the minimum fields required to make a request.
 --
@@ -1928,10 +1963,9 @@ data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValu
 replicationGroupPendingModifiedValues
     :: ReplicationGroupPendingModifiedValues
 replicationGroupPendingModifiedValues =
-    ReplicationGroupPendingModifiedValues'
-    { _rgpmvPrimaryClusterId = Nothing
-    , _rgpmvAutomaticFailoverStatus = Nothing
-    }
+  ReplicationGroupPendingModifiedValues'
+  {_rgpmvPrimaryClusterId = Nothing, _rgpmvAutomaticFailoverStatus = Nothing}
+
 
 -- | The primary cluster ID that is applied immediately (if @--apply-immediately@ was specified), or during the next maintenance window.
 rgpmvPrimaryClusterId :: Lens' ReplicationGroupPendingModifiedValues (Maybe Text)
@@ -1942,16 +1976,19 @@ rgpmvAutomaticFailoverStatus :: Lens' ReplicationGroupPendingModifiedValues (May
 rgpmvAutomaticFailoverStatus = lens _rgpmvAutomaticFailoverStatus (\ s a -> s{_rgpmvAutomaticFailoverStatus = a});
 
 instance FromXML
-         ReplicationGroupPendingModifiedValues where
+           ReplicationGroupPendingModifiedValues
+         where
         parseXML x
           = ReplicationGroupPendingModifiedValues' <$>
               (x .@? "PrimaryClusterId") <*>
                 (x .@? "AutomaticFailoverStatus")
 
 instance Hashable
-         ReplicationGroupPendingModifiedValues
+           ReplicationGroupPendingModifiedValues
+         where
 
 instance NFData ReplicationGroupPendingModifiedValues
+         where
 
 -- | Represents the output of a @PurchaseReservedCacheNodesOffering@ operation.
 --
@@ -1959,19 +1996,20 @@ instance NFData ReplicationGroupPendingModifiedValues
 --
 -- /See:/ 'reservedCacheNode' smart constructor.
 data ReservedCacheNode = ReservedCacheNode'
-    { _rcnCacheNodeType                :: !(Maybe Text)
-    , _rcnState                        :: !(Maybe Text)
-    , _rcnStartTime                    :: !(Maybe ISO8601)
-    , _rcnProductDescription           :: !(Maybe Text)
-    , _rcnCacheNodeCount               :: !(Maybe Int)
-    , _rcnReservedCacheNodeId          :: !(Maybe Text)
-    , _rcnRecurringCharges             :: !(Maybe [RecurringCharge])
-    , _rcnOfferingType                 :: !(Maybe Text)
-    , _rcnUsagePrice                   :: !(Maybe Double)
-    , _rcnFixedPrice                   :: !(Maybe Double)
-    , _rcnDuration                     :: !(Maybe Int)
-    , _rcnReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcnCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcnState :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcnStartTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _rcnProductDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcnCacheNodeCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rcnReservedCacheNodeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcnRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
+  , _rcnOfferingType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcnUsagePrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rcnFixedPrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rcnDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rcnReservedCacheNodesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReservedCacheNode' with the minimum fields required to make a request.
 --
@@ -2003,20 +2041,21 @@ data ReservedCacheNode = ReservedCacheNode'
 reservedCacheNode
     :: ReservedCacheNode
 reservedCacheNode =
-    ReservedCacheNode'
-    { _rcnCacheNodeType = Nothing
-    , _rcnState = Nothing
-    , _rcnStartTime = Nothing
-    , _rcnProductDescription = Nothing
-    , _rcnCacheNodeCount = Nothing
-    , _rcnReservedCacheNodeId = Nothing
-    , _rcnRecurringCharges = Nothing
-    , _rcnOfferingType = Nothing
-    , _rcnUsagePrice = Nothing
-    , _rcnFixedPrice = Nothing
-    , _rcnDuration = Nothing
-    , _rcnReservedCacheNodesOfferingId = Nothing
-    }
+  ReservedCacheNode'
+  { _rcnCacheNodeType = Nothing
+  , _rcnState = Nothing
+  , _rcnStartTime = Nothing
+  , _rcnProductDescription = Nothing
+  , _rcnCacheNodeCount = Nothing
+  , _rcnReservedCacheNodeId = Nothing
+  , _rcnRecurringCharges = Nothing
+  , _rcnOfferingType = Nothing
+  , _rcnUsagePrice = Nothing
+  , _rcnFixedPrice = Nothing
+  , _rcnDuration = Nothing
+  , _rcnReservedCacheNodesOfferingId = Nothing
+  }
+
 
 -- | The cache node type for the reserved cache nodes. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 rcnCacheNodeType :: Lens' ReservedCacheNode (Maybe Text)
@@ -2083,9 +2122,9 @@ instance FromXML ReservedCacheNode where
                 <*> (x .@? "Duration")
                 <*> (x .@? "ReservedCacheNodesOfferingId")
 
-instance Hashable ReservedCacheNode
+instance Hashable ReservedCacheNode where
 
-instance NFData ReservedCacheNode
+instance NFData ReservedCacheNode where
 
 -- | Describes all of the attributes of a reserved cache node offering.
 --
@@ -2093,15 +2132,16 @@ instance NFData ReservedCacheNode
 --
 -- /See:/ 'reservedCacheNodesOffering' smart constructor.
 data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
-    { _rcnoCacheNodeType                :: !(Maybe Text)
-    , _rcnoProductDescription           :: !(Maybe Text)
-    , _rcnoRecurringCharges             :: !(Maybe [RecurringCharge])
-    , _rcnoOfferingType                 :: !(Maybe Text)
-    , _rcnoUsagePrice                   :: !(Maybe Double)
-    , _rcnoFixedPrice                   :: !(Maybe Double)
-    , _rcnoDuration                     :: !(Maybe Int)
-    , _rcnoReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcnoCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcnoProductDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcnoRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
+  , _rcnoOfferingType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcnoUsagePrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rcnoFixedPrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rcnoDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rcnoReservedCacheNodesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReservedCacheNodesOffering' with the minimum fields required to make a request.
 --
@@ -2125,16 +2165,17 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
 reservedCacheNodesOffering
     :: ReservedCacheNodesOffering
 reservedCacheNodesOffering =
-    ReservedCacheNodesOffering'
-    { _rcnoCacheNodeType = Nothing
-    , _rcnoProductDescription = Nothing
-    , _rcnoRecurringCharges = Nothing
-    , _rcnoOfferingType = Nothing
-    , _rcnoUsagePrice = Nothing
-    , _rcnoFixedPrice = Nothing
-    , _rcnoDuration = Nothing
-    , _rcnoReservedCacheNodesOfferingId = Nothing
-    }
+  ReservedCacheNodesOffering'
+  { _rcnoCacheNodeType = Nothing
+  , _rcnoProductDescription = Nothing
+  , _rcnoRecurringCharges = Nothing
+  , _rcnoOfferingType = Nothing
+  , _rcnoUsagePrice = Nothing
+  , _rcnoFixedPrice = Nothing
+  , _rcnoDuration = Nothing
+  , _rcnoReservedCacheNodesOfferingId = Nothing
+  }
+
 
 -- | The cache node type for the reserved cache node. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 rcnoCacheNodeType :: Lens' ReservedCacheNodesOffering (Maybe Text)
@@ -2182,9 +2223,9 @@ instance FromXML ReservedCacheNodesOffering where
                 <*> (x .@? "Duration")
                 <*> (x .@? "ReservedCacheNodesOfferingId")
 
-instance Hashable ReservedCacheNodesOffering
+instance Hashable ReservedCacheNodesOffering where
 
-instance NFData ReservedCacheNodesOffering
+instance NFData ReservedCacheNodesOffering where
 
 -- | Represents a single cache security group and its status.
 --
@@ -2192,9 +2233,10 @@ instance NFData ReservedCacheNodesOffering
 --
 -- /See:/ 'securityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
-    { _sgmStatus          :: !(Maybe Text)
-    , _sgmSecurityGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgmStatus          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgmSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SecurityGroupMembership' with the minimum fields required to make a request.
 --
@@ -2206,10 +2248,8 @@ data SecurityGroupMembership = SecurityGroupMembership'
 securityGroupMembership
     :: SecurityGroupMembership
 securityGroupMembership =
-    SecurityGroupMembership'
-    { _sgmStatus = Nothing
-    , _sgmSecurityGroupId = Nothing
-    }
+  SecurityGroupMembership' {_sgmStatus = Nothing, _sgmSecurityGroupId = Nothing}
+
 
 -- | The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cache cluster are modified.
 sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
@@ -2224,9 +2264,9 @@ instance FromXML SecurityGroupMembership where
           = SecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "SecurityGroupId")
 
-instance Hashable SecurityGroupMembership
+instance Hashable SecurityGroupMembership where
 
-instance NFData SecurityGroupMembership
+instance NFData SecurityGroupMembership where
 
 -- | Represents a copy of an entire Redis cache cluster as of the time when the snapshot was taken.
 --
@@ -2234,31 +2274,32 @@ instance NFData SecurityGroupMembership
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-    { _sEngineVersion               :: !(Maybe Text)
-    , _sCacheNodeType               :: !(Maybe Text)
-    , _sCacheClusterCreateTime      :: !(Maybe ISO8601)
-    , _sAutoMinorVersionUpgrade     :: !(Maybe Bool)
-    , _sCacheParameterGroupName     :: !(Maybe Text)
-    , _sReplicationGroupDescription :: !(Maybe Text)
-    , _sVPCId                       :: !(Maybe Text)
-    , _sSnapshotStatus              :: !(Maybe Text)
-    , _sSnapshotWindow              :: !(Maybe Text)
-    , _sCacheClusterId              :: !(Maybe Text)
-    , _sEngine                      :: !(Maybe Text)
-    , _sPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _sTopicARN                    :: !(Maybe Text)
-    , _sNodeSnapshots               :: !(Maybe [NodeSnapshot])
-    , _sCacheSubnetGroupName        :: !(Maybe Text)
-    , _sPreferredAvailabilityZone   :: !(Maybe Text)
-    , _sNumNodeGroups               :: !(Maybe Int)
-    , _sSnapshotRetentionLimit      :: !(Maybe Int)
-    , _sSnapshotName                :: !(Maybe Text)
-    , _sReplicationGroupId          :: !(Maybe Text)
-    , _sNumCacheNodes               :: !(Maybe Int)
-    , _sPort                        :: !(Maybe Int)
-    , _sAutomaticFailover           :: !(Maybe AutomaticFailoverStatus)
-    , _sSnapshotSource              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCacheClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _sAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sCacheParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sReplicationGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSnapshotStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCacheClusterId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sEngine :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sNodeSnapshots :: {-# NOUNPACK #-}!(Maybe [NodeSnapshot])
+  , _sCacheSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sPreferredAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sNumNodeGroups :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sSnapshotName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sReplicationGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sNumCacheNodes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sPort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sAutomaticFailover :: {-# NOUNPACK #-}!(Maybe AutomaticFailoverStatus)
+  , _sSnapshotSource :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
@@ -2314,32 +2355,33 @@ data Snapshot = Snapshot'
 snapshot
     :: Snapshot
 snapshot =
-    Snapshot'
-    { _sEngineVersion = Nothing
-    , _sCacheNodeType = Nothing
-    , _sCacheClusterCreateTime = Nothing
-    , _sAutoMinorVersionUpgrade = Nothing
-    , _sCacheParameterGroupName = Nothing
-    , _sReplicationGroupDescription = Nothing
-    , _sVPCId = Nothing
-    , _sSnapshotStatus = Nothing
-    , _sSnapshotWindow = Nothing
-    , _sCacheClusterId = Nothing
-    , _sEngine = Nothing
-    , _sPreferredMaintenanceWindow = Nothing
-    , _sTopicARN = Nothing
-    , _sNodeSnapshots = Nothing
-    , _sCacheSubnetGroupName = Nothing
-    , _sPreferredAvailabilityZone = Nothing
-    , _sNumNodeGroups = Nothing
-    , _sSnapshotRetentionLimit = Nothing
-    , _sSnapshotName = Nothing
-    , _sReplicationGroupId = Nothing
-    , _sNumCacheNodes = Nothing
-    , _sPort = Nothing
-    , _sAutomaticFailover = Nothing
-    , _sSnapshotSource = Nothing
-    }
+  Snapshot'
+  { _sEngineVersion = Nothing
+  , _sCacheNodeType = Nothing
+  , _sCacheClusterCreateTime = Nothing
+  , _sAutoMinorVersionUpgrade = Nothing
+  , _sCacheParameterGroupName = Nothing
+  , _sReplicationGroupDescription = Nothing
+  , _sVPCId = Nothing
+  , _sSnapshotStatus = Nothing
+  , _sSnapshotWindow = Nothing
+  , _sCacheClusterId = Nothing
+  , _sEngine = Nothing
+  , _sPreferredMaintenanceWindow = Nothing
+  , _sTopicARN = Nothing
+  , _sNodeSnapshots = Nothing
+  , _sCacheSubnetGroupName = Nothing
+  , _sPreferredAvailabilityZone = Nothing
+  , _sNumNodeGroups = Nothing
+  , _sSnapshotRetentionLimit = Nothing
+  , _sSnapshotName = Nothing
+  , _sReplicationGroupId = Nothing
+  , _sNumCacheNodes = Nothing
+  , _sPort = Nothing
+  , _sAutomaticFailover = Nothing
+  , _sSnapshotSource = Nothing
+  }
+
 
 -- | The version of the cache engine version that is used by the source cache cluster.
 sEngineVersion :: Lens' Snapshot (Maybe Text)
@@ -2466,9 +2508,9 @@ instance FromXML Snapshot where
                 <*> (x .@? "AutomaticFailover")
                 <*> (x .@? "SnapshotSource")
 
-instance Hashable Snapshot
+instance Hashable Snapshot where
 
-instance NFData Snapshot
+instance NFData Snapshot where
 
 -- | Represents the subnet associated with a cache cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with ElastiCache.
 --
@@ -2476,9 +2518,10 @@ instance NFData Snapshot
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-    { _sSubnetIdentifier       :: !(Maybe Text)
-    , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSubnetIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubnetAvailabilityZone :: {-# NOUNPACK #-}!(Maybe AvailabilityZone)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
@@ -2490,10 +2533,8 @@ data Subnet = Subnet'
 subnet
     :: Subnet
 subnet =
-    Subnet'
-    { _sSubnetIdentifier = Nothing
-    , _sSubnetAvailabilityZone = Nothing
-    }
+  Subnet' {_sSubnetIdentifier = Nothing, _sSubnetAvailabilityZone = Nothing}
+
 
 -- | The unique identifier for the subnet.
 sSubnetIdentifier :: Lens' Subnet (Maybe Text)
@@ -2509,9 +2550,9 @@ instance FromXML Subnet where
               (x .@? "SubnetIdentifier") <*>
                 (x .@? "SubnetAvailabilityZone")
 
-instance Hashable Subnet
+instance Hashable Subnet where
 
-instance NFData Subnet
+instance NFData Subnet where
 
 -- | A cost allocation Tag that can be added to an ElastiCache cluster or replication group. Tags are composed of a Key/Value pair. A tag with a null Value is permitted.
 --
@@ -2519,9 +2560,10 @@ instance NFData Subnet
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -2532,11 +2574,8 @@ data Tag = Tag'
 -- * 'tagKey' - The key for the tag. May not be null.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The tag's value. May be null.
 tagValue :: Lens' Tag (Maybe Text)
@@ -2550,9 +2589,9 @@ instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -2564,8 +2603,9 @@ instance ToQuery Tag where
 --
 -- /See:/ 'tagListMessage' smart constructor.
 newtype TagListMessage = TagListMessage'
-    { _tlmTagList :: Maybe [Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tlmTagList :: Maybe [Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagListMessage' with the minimum fields required to make a request.
 --
@@ -2574,10 +2614,8 @@ newtype TagListMessage = TagListMessage'
 -- * 'tlmTagList' - A list of cost allocation tags as key-value pairs.
 tagListMessage
     :: TagListMessage
-tagListMessage =
-    TagListMessage'
-    { _tlmTagList = Nothing
-    }
+tagListMessage = TagListMessage' {_tlmTagList = Nothing}
+
 
 -- | A list of cost allocation tags as key-value pairs.
 tlmTagList :: Lens' TagListMessage [Tag]
@@ -2589,6 +2627,6 @@ instance FromXML TagListMessage where
               (x .@? "TagList" .!@ mempty >>=
                  may (parseXMLList "Tag"))
 
-instance Hashable TagListMessage
+instance Hashable TagListMessage where
 
-instance NFData TagListMessage
+instance NFData TagListMessage where

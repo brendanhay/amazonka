@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDeployments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.APIGateway.GetDeployments
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to get information about a 'Deployments' collection.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDeployments' smart constructor.
 data GetDeployments = GetDeployments'
-    { _gdLimit     :: !(Maybe Int)
-    , _gdPosition  :: !(Maybe Text)
-    , _gdRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gdPosition  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdRestAPIId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeployments' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ getDeployments
     :: Text -- ^ 'gdRestAPIId'
     -> GetDeployments
 getDeployments pRestAPIId_ =
-    GetDeployments'
-    { _gdLimit = Nothing
-    , _gdPosition = Nothing
-    , _gdRestAPIId = pRestAPIId_
-    }
+  GetDeployments'
+  {_gdLimit = Nothing, _gdPosition = Nothing, _gdRestAPIId = pRestAPIId_}
+
 
 -- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gdLimit :: Lens' GetDeployments (Maybe Int)
@@ -109,9 +108,9 @@ instance AWSRequest GetDeployments where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetDeployments
+instance Hashable GetDeployments where
 
-instance NFData GetDeployments
+instance NFData GetDeployments where
 
 instance ToHeaders GetDeployments where
         toHeaders
@@ -136,10 +135,11 @@ instance ToQuery GetDeployments where
 --
 -- /See:/ 'getDeploymentsResponse' smart constructor.
 data GetDeploymentsResponse = GetDeploymentsResponse'
-    { _gdrsItems          :: !(Maybe [Deployment])
-    , _gdrsPosition       :: !(Maybe Text)
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsItems          :: {-# NOUNPACK #-}!(Maybe [Deployment])
+  , _gdrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeploymentsResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +154,12 @@ getDeploymentsResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDeploymentsResponse
 getDeploymentsResponse pResponseStatus_ =
-    GetDeploymentsResponse'
-    { _gdrsItems = Nothing
-    , _gdrsPosition = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDeploymentsResponse'
+  { _gdrsItems = Nothing
+  , _gdrsPosition = Nothing
+  , _gdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 gdrsItems :: Lens' GetDeploymentsResponse [Deployment]
@@ -172,4 +173,4 @@ gdrsPosition = lens _gdrsPosition (\ s a -> s{_gdrsPosition = a});
 gdrsResponseStatus :: Lens' GetDeploymentsResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDeploymentsResponse
+instance NFData GetDeploymentsResponse where

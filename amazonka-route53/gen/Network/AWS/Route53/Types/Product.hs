@@ -9,18 +9,18 @@
 
 -- |
 -- Module      : Network.AWS.Route53.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Route53.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Route53.Internal
-import           Network.AWS.Route53.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Route53.Internal
+import Network.AWS.Route53.Types.Sum
 
 -- | A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
 --
@@ -28,9 +28,10 @@ import           Network.AWS.Route53.Types.Sum
 --
 -- /See:/ 'alarmIdentifier' smart constructor.
 data AlarmIdentifier = AlarmIdentifier'
-    { _aiRegion :: !CloudWatchRegion
-    , _aiName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiRegion :: {-# NOUNPACK #-}!CloudWatchRegion
+  , _aiName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AlarmIdentifier' with the minimum fields required to make a request.
 --
@@ -44,10 +45,8 @@ alarmIdentifier
     -> Text -- ^ 'aiName'
     -> AlarmIdentifier
 alarmIdentifier pRegion_ pName_ =
-    AlarmIdentifier'
-    { _aiRegion = pRegion_
-    , _aiName = pName_
-    }
+  AlarmIdentifier' {_aiRegion = pRegion_, _aiName = pName_}
+
 
 -- | A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy. For the current list of CloudWatch regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region Amazon CloudWatch> in the /AWS Regions and Endpoints/ chapter of the /Amazon Web Services General Reference/ .
 aiRegion :: Lens' AlarmIdentifier CloudWatchRegion
@@ -62,9 +61,9 @@ instance FromXML AlarmIdentifier where
           = AlarmIdentifier' <$>
               (x .@ "Region") <*> (x .@ "Name")
 
-instance Hashable AlarmIdentifier
+instance Hashable AlarmIdentifier where
 
-instance NFData AlarmIdentifier
+instance NFData AlarmIdentifier where
 
 instance ToXML AlarmIdentifier where
         toXML AlarmIdentifier'{..}
@@ -86,10 +85,11 @@ instance ToXML AlarmIdentifier where
 --
 -- /See:/ 'aliasTarget' smart constructor.
 data AliasTarget = AliasTarget'
-    { _atHostedZoneId         :: !ResourceId
-    , _atDNSName              :: !Text
-    , _atEvaluateTargetHealth :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atHostedZoneId         :: {-# NOUNPACK #-}!ResourceId
+  , _atDNSName              :: {-# NOUNPACK #-}!Text
+  , _atEvaluateTargetHealth :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AliasTarget' with the minimum fields required to make a request.
 --
@@ -106,11 +106,12 @@ aliasTarget
     -> Bool -- ^ 'atEvaluateTargetHealth'
     -> AliasTarget
 aliasTarget pHostedZoneId_ pDNSName_ pEvaluateTargetHealth_ =
-    AliasTarget'
-    { _atHostedZoneId = pHostedZoneId_
-    , _atDNSName = pDNSName_
-    , _atEvaluateTargetHealth = pEvaluateTargetHealth_
-    }
+  AliasTarget'
+  { _atHostedZoneId = pHostedZoneId_
+  , _atDNSName = pDNSName_
+  , _atEvaluateTargetHealth = pEvaluateTargetHealth_
+  }
+
 
 -- | /Alias resource records sets only/ : The value used depends on where you want to route traffic:     * CloudFront distribution    * Specify @Z2FDTNDATAQYW2@ .     * Elastic Beanstalk environment    * Specify the hosted zone ID for the region in which you created the environment. The environment must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region AWS Elastic Beanstalk> in the "AWS Regions and Endpoints" chapter of the /Amazon Web Services General Reference/ .     * ELB load balancer    * Specify the value of the hosted zone ID for the load balancer. Use the following methods to get the hosted zone ID:     * <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Elastic Load Balancing> table in the "AWS Regions and Endpoints" chapter of the /Amazon Web Services General Reference/ : Use the value in the "Amazon Route 53 Hosted Zone ID" column that corresponds with the region that you created your load balancer in.     * __AWS Management Console__ : Go to the Amazon EC2 page, click __Load Balancers__ in the navigation pane, select the load balancer, and get the value of the __Hosted zone__ field on the __Description__ tab.     * __Elastic Load Balancing API__ : Use @DescribeLoadBalancers@ to get the value of @CanonicalHostedZoneNameId@ . For more information, see the applicable guide:     * Classic Load Balancer: <http://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancers.html DescribeLoadBalancers>      * Application Load Balancer: <http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html DescribeLoadBalancers>      * __AWS CLI__ : Use @<http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html describe-load-balancers> @ to get the value of @CanonicalHostedZoneNameID@ .     * An Amazon S3 bucket configured as a static website    * Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Amazon Simple Storage Service Website Endpoints> table in the "AWS Regions and Endpoints" chapter of the /Amazon Web Services General Reference/ .     * Another Amazon Route 53 resource record set in your hosted zone    * Specify the hosted zone ID of your hosted zone. (An alias resource record set can't reference a resource record set in a different hosted zone.)
 atHostedZoneId :: Lens' AliasTarget ResourceId
@@ -130,9 +131,9 @@ instance FromXML AliasTarget where
               (x .@ "HostedZoneId") <*> (x .@ "DNSName") <*>
                 (x .@ "EvaluateTargetHealth")
 
-instance Hashable AliasTarget
+instance Hashable AliasTarget where
 
-instance NFData AliasTarget
+instance NFData AliasTarget where
 
 instance ToXML AliasTarget where
         toXML AliasTarget'{..}
@@ -147,9 +148,10 @@ instance ToXML AliasTarget where
 --
 -- /See:/ 'change' smart constructor.
 data Change = Change'
-    { _cAction            :: !ChangeAction
-    , _cResourceRecordSet :: !ResourceRecordSet
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cAction            :: {-# NOUNPACK #-}!ChangeAction
+  , _cResourceRecordSet :: {-# NOUNPACK #-}!ResourceRecordSet
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Change' with the minimum fields required to make a request.
 --
@@ -163,10 +165,8 @@ change
     -> ResourceRecordSet -- ^ 'cResourceRecordSet'
     -> Change
 change pAction_ pResourceRecordSet_ =
-    Change'
-    { _cAction = pAction_
-    , _cResourceRecordSet = pResourceRecordSet_
-    }
+  Change' {_cAction = pAction_, _cResourceRecordSet = pResourceRecordSet_}
+
 
 -- | The action to perform:     * @CREATE@ : Creates a resource record set that has the specified values.     * @DELETE@ : Deletes a existing resource record set. /Important:/ To delete the resource record set that is associated with a traffic policy instance, use @'DeleteTrafficPolicyInstance' @ . Amazon Route 53 will delete the resource record set automatically. If you delete the resource record set by using @ChangeResourceRecordSets@ , Amazon Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it even though it's no longer in use.      * @UPSERT@ : If a resource record set doesn't already exist, Amazon Route 53 creates it. If a resource record set does exist, Amazon Route 53 updates it with the values in the request. The values that you need to include in the request depend on the type of resource record set that you're creating, deleting, or updating: __Basic resource record sets (excluding alias, failover, geolocation, latency, and weighted resource record sets)__      * @Name@      * @Type@      * @TTL@  __Failover, geolocation, latency, or weighted resource record sets (excluding alias resource record sets)__      * @Name@      * @Type@      * @TTL@      * @SetIdentifier@  __Alias resource record sets (including failover alias, geolocation alias, latency alias, and weighted alias resource record sets)__      * @Name@      * @Type@      * @AliasTarget@ (includes @DNSName@ , @EvaluateTargetHealth@ , and @HostedZoneId@ )     * @SetIdentifier@ (for failover, geolocation, latency, and weighted resource record sets)
 cAction :: Lens' Change ChangeAction
@@ -176,9 +176,9 @@ cAction = lens _cAction (\ s a -> s{_cAction = a});
 cResourceRecordSet :: Lens' Change ResourceRecordSet
 cResourceRecordSet = lens _cResourceRecordSet (\ s a -> s{_cResourceRecordSet = a});
 
-instance Hashable Change
+instance Hashable Change where
 
-instance NFData Change
+instance NFData Change where
 
 instance ToXML Change where
         toXML Change'{..}
@@ -192,9 +192,10 @@ instance ToXML Change where
 --
 -- /See:/ 'changeBatch' smart constructor.
 data ChangeBatch = ChangeBatch'
-    { _cbComment :: !(Maybe Text)
-    , _cbChanges :: !(List1 Change)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbComment :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbChanges :: {-# NOUNPACK #-}!(List1 Change)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeBatch' with the minimum fields required to make a request.
 --
@@ -207,10 +208,8 @@ changeBatch
     :: NonEmpty Change -- ^ 'cbChanges'
     -> ChangeBatch
 changeBatch pChanges_ =
-    ChangeBatch'
-    { _cbComment = Nothing
-    , _cbChanges = _List1 # pChanges_
-    }
+  ChangeBatch' {_cbComment = Nothing, _cbChanges = _List1 # pChanges_}
+
 
 -- | /Optional:/ Any comments you want to include about a change batch request.
 cbComment :: Lens' ChangeBatch (Maybe Text)
@@ -220,9 +219,9 @@ cbComment = lens _cbComment (\ s a -> s{_cbComment = a});
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\ s a -> s{_cbChanges = a}) . _List1;
 
-instance Hashable ChangeBatch
+instance Hashable ChangeBatch where
 
-instance NFData ChangeBatch
+instance NFData ChangeBatch where
 
 instance ToXML ChangeBatch where
         toXML ChangeBatch'{..}
@@ -236,11 +235,12 @@ instance ToXML ChangeBatch where
 --
 -- /See:/ 'changeInfo' smart constructor.
 data ChangeInfo = ChangeInfo'
-    { _ciComment     :: !(Maybe Text)
-    , _ciId          :: !ResourceId
-    , _ciStatus      :: !ChangeStatus
-    , _ciSubmittedAt :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciComment     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciId          :: {-# NOUNPACK #-}!ResourceId
+  , _ciStatus      :: {-# NOUNPACK #-}!ChangeStatus
+  , _ciSubmittedAt :: {-# NOUNPACK #-}!ISO8601
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeInfo' with the minimum fields required to make a request.
 --
@@ -259,12 +259,13 @@ changeInfo
     -> UTCTime -- ^ 'ciSubmittedAt'
     -> ChangeInfo
 changeInfo pId_ pStatus_ pSubmittedAt_ =
-    ChangeInfo'
-    { _ciComment = Nothing
-    , _ciId = pId_
-    , _ciStatus = pStatus_
-    , _ciSubmittedAt = _Time # pSubmittedAt_
-    }
+  ChangeInfo'
+  { _ciComment = Nothing
+  , _ciId = pId_
+  , _ciStatus = pStatus_
+  , _ciSubmittedAt = _Time # pSubmittedAt_
+  }
+
 
 -- | A complex type that describes change information about changes made to your hosted zone. This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
 ciComment :: Lens' ChangeInfo (Maybe Text)
@@ -288,9 +289,9 @@ instance FromXML ChangeInfo where
               (x .@? "Comment") <*> (x .@ "Id") <*> (x .@ "Status")
                 <*> (x .@ "SubmittedAt")
 
-instance Hashable ChangeInfo
+instance Hashable ChangeInfo where
 
-instance NFData ChangeInfo
+instance NFData ChangeInfo where
 
 -- | A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.
 --
@@ -298,15 +299,16 @@ instance NFData ChangeInfo
 --
 -- /See:/ 'cloudWatchAlarmConfiguration' smart constructor.
 data CloudWatchAlarmConfiguration = CloudWatchAlarmConfiguration'
-    { _cwacDimensions         :: !(Maybe [Dimension])
-    , _cwacEvaluationPeriods  :: !Nat
-    , _cwacThreshold          :: !Double
-    , _cwacComparisonOperator :: !ComparisonOperator
-    , _cwacPeriod             :: !Nat
-    , _cwacMetricName         :: !Text
-    , _cwacNamespace          :: !Text
-    , _cwacStatistic          :: !Statistic
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwacDimensions         :: {-# NOUNPACK #-}!(Maybe [Dimension])
+  , _cwacEvaluationPeriods  :: {-# NOUNPACK #-}!Nat
+  , _cwacThreshold          :: {-# NOUNPACK #-}!Double
+  , _cwacComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
+  , _cwacPeriod             :: {-# NOUNPACK #-}!Nat
+  , _cwacMetricName         :: {-# NOUNPACK #-}!Text
+  , _cwacNamespace          :: {-# NOUNPACK #-}!Text
+  , _cwacStatistic          :: {-# NOUNPACK #-}!Statistic
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudWatchAlarmConfiguration' with the minimum fields required to make a request.
 --
@@ -337,16 +339,17 @@ cloudWatchAlarmConfiguration
     -> Statistic -- ^ 'cwacStatistic'
     -> CloudWatchAlarmConfiguration
 cloudWatchAlarmConfiguration pEvaluationPeriods_ pThreshold_ pComparisonOperator_ pPeriod_ pMetricName_ pNamespace_ pStatistic_ =
-    CloudWatchAlarmConfiguration'
-    { _cwacDimensions = Nothing
-    , _cwacEvaluationPeriods = _Nat # pEvaluationPeriods_
-    , _cwacThreshold = pThreshold_
-    , _cwacComparisonOperator = pComparisonOperator_
-    , _cwacPeriod = _Nat # pPeriod_
-    , _cwacMetricName = pMetricName_
-    , _cwacNamespace = pNamespace_
-    , _cwacStatistic = pStatistic_
-    }
+  CloudWatchAlarmConfiguration'
+  { _cwacDimensions = Nothing
+  , _cwacEvaluationPeriods = _Nat # pEvaluationPeriods_
+  , _cwacThreshold = pThreshold_
+  , _cwacComparisonOperator = pComparisonOperator_
+  , _cwacPeriod = _Nat # pPeriod_
+  , _cwacMetricName = pMetricName_
+  , _cwacNamespace = pNamespace_
+  , _cwacStatistic = pStatistic_
+  }
+
 
 -- | For the metric that the CloudWatch alarm is associated with, a complex type that contains information about the dimensions for the metric. For information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference> in the /Amazon CloudWatch User Guide/ .
 cwacDimensions :: Lens' CloudWatchAlarmConfiguration [Dimension]
@@ -393,9 +396,9 @@ instance FromXML CloudWatchAlarmConfiguration where
                 <*> (x .@ "Namespace")
                 <*> (x .@ "Statistic")
 
-instance Hashable CloudWatchAlarmConfiguration
+instance Hashable CloudWatchAlarmConfiguration where
 
-instance NFData CloudWatchAlarmConfiguration
+instance NFData CloudWatchAlarmConfiguration where
 
 -- | A complex type that lists the name servers in a delegation set, as well as the @CallerReference@ and the @ID@ for the delegation set.
 --
@@ -403,10 +406,11 @@ instance NFData CloudWatchAlarmConfiguration
 --
 -- /See:/ 'delegationSet' smart constructor.
 data DelegationSet = DelegationSet'
-    { _dsId              :: !(Maybe ResourceId)
-    , _dsCallerReference :: !(Maybe Text)
-    , _dsNameServers     :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsId              :: {-# NOUNPACK #-}!(Maybe ResourceId)
+  , _dsCallerReference :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsNameServers     :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DelegationSet' with the minimum fields required to make a request.
 --
@@ -421,11 +425,12 @@ delegationSet
     :: NonEmpty Text -- ^ 'dsNameServers'
     -> DelegationSet
 delegationSet pNameServers_ =
-    DelegationSet'
-    { _dsId = Nothing
-    , _dsCallerReference = Nothing
-    , _dsNameServers = _List1 # pNameServers_
-    }
+  DelegationSet'
+  { _dsId = Nothing
+  , _dsCallerReference = Nothing
+  , _dsNameServers = _List1 # pNameServers_
+  }
+
 
 -- | The ID that Amazon Route 53 assigns to a reusable delegation set.
 dsId :: Lens' DelegationSet (Maybe ResourceId)
@@ -446,9 +451,9 @@ instance FromXML DelegationSet where
                 (x .@? "NameServers" .!@ mempty >>=
                    parseXMLList1 "NameServer")
 
-instance Hashable DelegationSet
+instance Hashable DelegationSet where
 
-instance NFData DelegationSet
+instance NFData DelegationSet where
 
 -- | For the metric that the CloudWatch alarm is associated with, a complex type that contains information about one dimension.
 --
@@ -456,9 +461,10 @@ instance NFData DelegationSet
 --
 -- /See:/ 'dimension' smart constructor.
 data Dimension = Dimension'
-    { _dName  :: !Text
-    , _dValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dName  :: {-# NOUNPACK #-}!Text
+  , _dValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Dimension' with the minimum fields required to make a request.
 --
@@ -471,11 +477,8 @@ dimension
     :: Text -- ^ 'dName'
     -> Text -- ^ 'dValue'
     -> Dimension
-dimension pName_ pValue_ =
-    Dimension'
-    { _dName = pName_
-    , _dValue = pValue_
-    }
+dimension pName_ pValue_ = Dimension' {_dName = pName_, _dValue = pValue_}
+
 
 -- | For the metric that the CloudWatch alarm is associated with, the name of one dimension.
 dName :: Lens' Dimension Text
@@ -489,9 +492,9 @@ instance FromXML Dimension where
         parseXML x
           = Dimension' <$> (x .@ "Name") <*> (x .@ "Value")
 
-instance Hashable Dimension
+instance Hashable Dimension where
 
-instance NFData Dimension
+instance NFData Dimension where
 
 -- | A complex type that contains information about a geo location.
 --
@@ -499,10 +502,11 @@ instance NFData Dimension
 --
 -- /See:/ 'geoLocation' smart constructor.
 data GeoLocation = GeoLocation'
-    { _glSubdivisionCode :: !(Maybe Text)
-    , _glCountryCode     :: !(Maybe Text)
-    , _glContinentCode   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _glSubdivisionCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _glCountryCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _glContinentCode   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GeoLocation' with the minimum fields required to make a request.
 --
@@ -516,11 +520,12 @@ data GeoLocation = GeoLocation'
 geoLocation
     :: GeoLocation
 geoLocation =
-    GeoLocation'
-    { _glSubdivisionCode = Nothing
-    , _glCountryCode = Nothing
-    , _glContinentCode = Nothing
-    }
+  GeoLocation'
+  { _glSubdivisionCode = Nothing
+  , _glCountryCode = Nothing
+  , _glContinentCode = Nothing
+  }
+
 
 -- | The code for the subdivision, for example, a state in the United States or a province in Canada.
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
@@ -540,9 +545,9 @@ instance FromXML GeoLocation where
               (x .@? "SubdivisionCode") <*> (x .@? "CountryCode")
                 <*> (x .@? "ContinentCode")
 
-instance Hashable GeoLocation
+instance Hashable GeoLocation where
 
-instance NFData GeoLocation
+instance NFData GeoLocation where
 
 instance ToXML GeoLocation where
         toXML GeoLocation'{..}
@@ -557,13 +562,14 @@ instance ToXML GeoLocation where
 --
 -- /See:/ 'geoLocationDetails' smart constructor.
 data GeoLocationDetails = GeoLocationDetails'
-    { _gldSubdivisionName :: !(Maybe Text)
-    , _gldSubdivisionCode :: !(Maybe Text)
-    , _gldCountryName     :: !(Maybe Text)
-    , _gldCountryCode     :: !(Maybe Text)
-    , _gldContinentCode   :: !(Maybe Text)
-    , _gldContinentName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gldSubdivisionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldSubdivisionCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldCountryName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldCountryCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldContinentCode   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldContinentName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GeoLocationDetails' with the minimum fields required to make a request.
 --
@@ -583,14 +589,15 @@ data GeoLocationDetails = GeoLocationDetails'
 geoLocationDetails
     :: GeoLocationDetails
 geoLocationDetails =
-    GeoLocationDetails'
-    { _gldSubdivisionName = Nothing
-    , _gldSubdivisionCode = Nothing
-    , _gldCountryName = Nothing
-    , _gldCountryCode = Nothing
-    , _gldContinentCode = Nothing
-    , _gldContinentName = Nothing
-    }
+  GeoLocationDetails'
+  { _gldSubdivisionName = Nothing
+  , _gldSubdivisionCode = Nothing
+  , _gldCountryName = Nothing
+  , _gldCountryCode = Nothing
+  , _gldContinentCode = Nothing
+  , _gldContinentName = Nothing
+  }
+
 
 -- | The full name of the subdivision, for example, a state in the United States or a province in Canada.
 gldSubdivisionName :: Lens' GeoLocationDetails (Maybe Text)
@@ -626,9 +633,9 @@ instance FromXML GeoLocationDetails where
                 <*> (x .@? "ContinentCode")
                 <*> (x .@? "ContinentName")
 
-instance Hashable GeoLocationDetails
+instance Hashable GeoLocationDetails where
 
-instance NFData GeoLocationDetails
+instance NFData GeoLocationDetails where
 
 -- | A complex type that contains information about one health check that is associated with the current AWS account.
 --
@@ -636,12 +643,13 @@ instance NFData GeoLocationDetails
 --
 -- /See:/ 'healthCheck' smart constructor.
 data HealthCheck = HealthCheck'
-    { _hcCloudWatchAlarmConfiguration :: !(Maybe CloudWatchAlarmConfiguration)
-    , _hcId                           :: !Text
-    , _hcCallerReference              :: !Text
-    , _hcHealthCheckConfig            :: !HealthCheckConfig
-    , _hcHealthCheckVersion           :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hcCloudWatchAlarmConfiguration :: {-# NOUNPACK #-}!(Maybe CloudWatchAlarmConfiguration)
+  , _hcId :: {-# NOUNPACK #-}!Text
+  , _hcCallerReference :: {-# NOUNPACK #-}!Text
+  , _hcHealthCheckConfig :: {-# NOUNPACK #-}!HealthCheckConfig
+  , _hcHealthCheckVersion :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HealthCheck' with the minimum fields required to make a request.
 --
@@ -663,13 +671,14 @@ healthCheck
     -> Natural -- ^ 'hcHealthCheckVersion'
     -> HealthCheck
 healthCheck pId_ pCallerReference_ pHealthCheckConfig_ pHealthCheckVersion_ =
-    HealthCheck'
-    { _hcCloudWatchAlarmConfiguration = Nothing
-    , _hcId = pId_
-    , _hcCallerReference = pCallerReference_
-    , _hcHealthCheckConfig = pHealthCheckConfig_
-    , _hcHealthCheckVersion = _Nat # pHealthCheckVersion_
-    }
+  HealthCheck'
+  { _hcCloudWatchAlarmConfiguration = Nothing
+  , _hcId = pId_
+  , _hcCallerReference = pCallerReference_
+  , _hcHealthCheckConfig = pHealthCheckConfig_
+  , _hcHealthCheckVersion = _Nat # pHealthCheckVersion_
+  }
+
 
 -- | A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.
 hcCloudWatchAlarmConfiguration :: Lens' HealthCheck (Maybe CloudWatchAlarmConfiguration)
@@ -700,9 +709,9 @@ instance FromXML HealthCheck where
                 <*> (x .@ "HealthCheckConfig")
                 <*> (x .@ "HealthCheckVersion")
 
-instance Hashable HealthCheck
+instance Hashable HealthCheck where
 
-instance NFData HealthCheck
+instance NFData HealthCheck where
 
 -- | A complex type that contains information about the health check.
 --
@@ -710,23 +719,24 @@ instance NFData HealthCheck
 --
 -- /See:/ 'healthCheckConfig' smart constructor.
 data HealthCheckConfig = HealthCheckConfig'
-    { _hccFailureThreshold             :: !(Maybe Nat)
-    , _hccIPAddress                    :: !(Maybe Text)
-    , _hccEnableSNI                    :: !(Maybe Bool)
-    , _hccSearchString                 :: !(Maybe Text)
-    , _hccHealthThreshold              :: !(Maybe Nat)
-    , _hccRegions                      :: !(Maybe (List1 HealthCheckRegion))
-    , _hccResourcePath                 :: !(Maybe Text)
-    , _hccInsufficientDataHealthStatus :: !(Maybe InsufficientDataHealthStatus)
-    , _hccAlarmIdentifier              :: !(Maybe AlarmIdentifier)
-    , _hccMeasureLatency               :: !(Maybe Bool)
-    , _hccInverted                     :: !(Maybe Bool)
-    , _hccFullyQualifiedDomainName     :: !(Maybe Text)
-    , _hccChildHealthChecks            :: !(Maybe [Text])
-    , _hccRequestInterval              :: !(Maybe Nat)
-    , _hccPort                         :: !(Maybe Nat)
-    , _hccType                         :: !HealthCheckType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hccFailureThreshold :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _hccIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hccEnableSNI :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _hccSearchString :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hccHealthThreshold :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _hccRegions :: {-# NOUNPACK #-}!(Maybe (List1 HealthCheckRegion))
+  , _hccResourcePath :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hccInsufficientDataHealthStatus :: {-# NOUNPACK #-}!(Maybe InsufficientDataHealthStatus)
+  , _hccAlarmIdentifier :: {-# NOUNPACK #-}!(Maybe AlarmIdentifier)
+  , _hccMeasureLatency :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _hccInverted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _hccFullyQualifiedDomainName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hccChildHealthChecks :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _hccRequestInterval :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _hccPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _hccType :: {-# NOUNPACK #-}!HealthCheckType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HealthCheckConfig' with the minimum fields required to make a request.
 --
@@ -767,24 +777,25 @@ healthCheckConfig
     :: HealthCheckType -- ^ 'hccType'
     -> HealthCheckConfig
 healthCheckConfig pType_ =
-    HealthCheckConfig'
-    { _hccFailureThreshold = Nothing
-    , _hccIPAddress = Nothing
-    , _hccEnableSNI = Nothing
-    , _hccSearchString = Nothing
-    , _hccHealthThreshold = Nothing
-    , _hccRegions = Nothing
-    , _hccResourcePath = Nothing
-    , _hccInsufficientDataHealthStatus = Nothing
-    , _hccAlarmIdentifier = Nothing
-    , _hccMeasureLatency = Nothing
-    , _hccInverted = Nothing
-    , _hccFullyQualifiedDomainName = Nothing
-    , _hccChildHealthChecks = Nothing
-    , _hccRequestInterval = Nothing
-    , _hccPort = Nothing
-    , _hccType = pType_
-    }
+  HealthCheckConfig'
+  { _hccFailureThreshold = Nothing
+  , _hccIPAddress = Nothing
+  , _hccEnableSNI = Nothing
+  , _hccSearchString = Nothing
+  , _hccHealthThreshold = Nothing
+  , _hccRegions = Nothing
+  , _hccResourcePath = Nothing
+  , _hccInsufficientDataHealthStatus = Nothing
+  , _hccAlarmIdentifier = Nothing
+  , _hccMeasureLatency = Nothing
+  , _hccInverted = Nothing
+  , _hccFullyQualifiedDomainName = Nothing
+  , _hccChildHealthChecks = Nothing
+  , _hccRequestInterval = Nothing
+  , _hccPort = Nothing
+  , _hccType = pType_
+  }
+
 
 -- | The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Amazon Route 53 Determines Whether an Endpoint Is Healthy> in the /Amazon Route 53 Developer Guide/ . If you don't specify a value for @FailureThreshold@ , the default value is three health checks.
 hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Natural)
@@ -873,9 +884,9 @@ instance FromXML HealthCheckConfig where
                 <*> (x .@? "Port")
                 <*> (x .@ "Type")
 
-instance Hashable HealthCheckConfig
+instance Hashable HealthCheckConfig where
 
-instance NFData HealthCheckConfig
+instance NFData HealthCheckConfig where
 
 instance ToXML HealthCheckConfig where
         toXML HealthCheckConfig'{..}
@@ -908,10 +919,11 @@ instance ToXML HealthCheckConfig where
 --
 -- /See:/ 'healthCheckObservation' smart constructor.
 data HealthCheckObservation = HealthCheckObservation'
-    { _hcoIPAddress    :: !(Maybe Text)
-    , _hcoStatusReport :: !(Maybe StatusReport)
-    , _hcoRegion       :: !(Maybe HealthCheckRegion)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hcoIPAddress    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcoStatusReport :: {-# NOUNPACK #-}!(Maybe StatusReport)
+  , _hcoRegion       :: {-# NOUNPACK #-}!(Maybe HealthCheckRegion)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HealthCheckObservation' with the minimum fields required to make a request.
 --
@@ -925,11 +937,9 @@ data HealthCheckObservation = HealthCheckObservation'
 healthCheckObservation
     :: HealthCheckObservation
 healthCheckObservation =
-    HealthCheckObservation'
-    { _hcoIPAddress = Nothing
-    , _hcoStatusReport = Nothing
-    , _hcoRegion = Nothing
-    }
+  HealthCheckObservation'
+  {_hcoIPAddress = Nothing, _hcoStatusReport = Nothing, _hcoRegion = Nothing}
+
 
 -- | The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
 hcoIPAddress :: Lens' HealthCheckObservation (Maybe Text)
@@ -949,9 +959,9 @@ instance FromXML HealthCheckObservation where
               (x .@? "IPAddress") <*> (x .@? "StatusReport") <*>
                 (x .@? "Region")
 
-instance Hashable HealthCheckObservation
+instance Hashable HealthCheckObservation where
 
-instance NFData HealthCheckObservation
+instance NFData HealthCheckObservation where
 
 -- | A complex type that contains general information about the hosted zone.
 --
@@ -959,12 +969,13 @@ instance NFData HealthCheckObservation
 --
 -- /See:/ 'hostedZone' smart constructor.
 data HostedZone = HostedZone'
-    { _hzConfig                 :: !(Maybe HostedZoneConfig)
-    , _hzResourceRecordSetCount :: !(Maybe Integer)
-    , _hzId                     :: !ResourceId
-    , _hzName                   :: !Text
-    , _hzCallerReference        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hzConfig                 :: {-# NOUNPACK #-}!(Maybe HostedZoneConfig)
+  , _hzResourceRecordSetCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _hzId                     :: {-# NOUNPACK #-}!ResourceId
+  , _hzName                   :: {-# NOUNPACK #-}!Text
+  , _hzCallerReference        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HostedZone' with the minimum fields required to make a request.
 --
@@ -985,13 +996,14 @@ hostedZone
     -> Text -- ^ 'hzCallerReference'
     -> HostedZone
 hostedZone pId_ pName_ pCallerReference_ =
-    HostedZone'
-    { _hzConfig = Nothing
-    , _hzResourceRecordSetCount = Nothing
-    , _hzId = pId_
-    , _hzName = pName_
-    , _hzCallerReference = pCallerReference_
-    }
+  HostedZone'
+  { _hzConfig = Nothing
+  , _hzResourceRecordSetCount = Nothing
+  , _hzId = pId_
+  , _hzName = pName_
+  , _hzCallerReference = pCallerReference_
+  }
+
 
 -- | A complex type that includes the @Comment@ and @PrivateZone@ elements. If you omitted the @HostedZoneConfig@ and @Comment@ elements from the request, the @Config@ and @Comment@ elements don't appear in the response.
 hzConfig :: Lens' HostedZone (Maybe HostedZoneConfig)
@@ -1021,9 +1033,9 @@ instance FromXML HostedZone where
                 <*> (x .@ "Name")
                 <*> (x .@ "CallerReference")
 
-instance Hashable HostedZone
+instance Hashable HostedZone where
 
-instance NFData HostedZone
+instance NFData HostedZone where
 
 -- | A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the @HostedZoneConfig@ and @Comment@ elements.
 --
@@ -1031,9 +1043,10 @@ instance NFData HostedZone
 --
 -- /See:/ 'hostedZoneConfig' smart constructor.
 data HostedZoneConfig = HostedZoneConfig'
-    { _hzcPrivateZone :: !(Maybe Bool)
-    , _hzcComment     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hzcPrivateZone :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _hzcComment     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HostedZoneConfig' with the minimum fields required to make a request.
 --
@@ -1045,10 +1058,8 @@ data HostedZoneConfig = HostedZoneConfig'
 hostedZoneConfig
     :: HostedZoneConfig
 hostedZoneConfig =
-    HostedZoneConfig'
-    { _hzcPrivateZone = Nothing
-    , _hzcComment = Nothing
-    }
+  HostedZoneConfig' {_hzcPrivateZone = Nothing, _hzcComment = Nothing}
+
 
 -- | A value that indicates whether this is a private hosted zone.
 hzcPrivateZone :: Lens' HostedZoneConfig (Maybe Bool)
@@ -1063,9 +1074,9 @@ instance FromXML HostedZoneConfig where
           = HostedZoneConfig' <$>
               (x .@? "PrivateZone") <*> (x .@? "Comment")
 
-instance Hashable HostedZoneConfig
+instance Hashable HostedZoneConfig where
 
-instance NFData HostedZoneConfig
+instance NFData HostedZoneConfig where
 
 instance ToXML HostedZoneConfig where
         toXML HostedZoneConfig'{..}
@@ -1079,8 +1090,9 @@ instance ToXML HostedZoneConfig where
 --
 -- /See:/ 'resourceRecord' smart constructor.
 newtype ResourceRecord = ResourceRecord'
-    { _rrValue :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrValue :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceRecord' with the minimum fields required to make a request.
 --
@@ -1090,10 +1102,8 @@ newtype ResourceRecord = ResourceRecord'
 resourceRecord
     :: Text -- ^ 'rrValue'
     -> ResourceRecord
-resourceRecord pValue_ =
-    ResourceRecord'
-    { _rrValue = pValue_
-    }
+resourceRecord pValue_ = ResourceRecord' {_rrValue = pValue_}
+
 
 -- | The current or new DNS record value, not to exceed 4,000 characters. In the case of a @DELETE@ action, if the current value does not match the actual value, an error is returned. For descriptions about how to format @Value@ for different record types, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html Supported DNS Resource Record Types> in the /Amazon Route 53 Developer Guide/ . You can specify more than one value for all record types except @CNAME@ and @SOA@ .
 rrValue :: Lens' ResourceRecord Text
@@ -1102,9 +1112,9 @@ rrValue = lens _rrValue (\ s a -> s{_rrValue = a});
 instance FromXML ResourceRecord where
         parseXML x = ResourceRecord' <$> (x .@ "Value")
 
-instance Hashable ResourceRecord
+instance Hashable ResourceRecord where
 
-instance NFData ResourceRecord
+instance NFData ResourceRecord where
 
 instance ToXML ResourceRecord where
         toXML ResourceRecord'{..}
@@ -1116,20 +1126,21 @@ instance ToXML ResourceRecord where
 --
 -- /See:/ 'resourceRecordSet' smart constructor.
 data ResourceRecordSet = ResourceRecordSet'
-    { _rrsTTL                     :: !(Maybe Nat)
-    , _rrsResourceRecords         :: !(Maybe (List1 ResourceRecord))
-    , _rrsAliasTarget             :: !(Maybe AliasTarget)
-    , _rrsWeight                  :: !(Maybe Nat)
-    , _rrsTrafficPolicyInstanceId :: !(Maybe Text)
-    , _rrsSetIdentifier           :: !(Maybe Text)
-    , _rrsFailover                :: !(Maybe Failover)
-    , _rrsHealthCheckId           :: !(Maybe Text)
-    , _rrsRegion                  :: !(Maybe Region)
-    , _rrsGeoLocation             :: !(Maybe GeoLocation)
-    , _rrsMultiValueAnswer        :: !(Maybe Bool)
-    , _rrsName                    :: !Text
-    , _rrsType                    :: !RecordType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsTTL :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _rrsResourceRecords :: {-# NOUNPACK #-}!(Maybe (List1 ResourceRecord))
+  , _rrsAliasTarget :: {-# NOUNPACK #-}!(Maybe AliasTarget)
+  , _rrsWeight :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _rrsTrafficPolicyInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrsSetIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrsFailover :: {-# NOUNPACK #-}!(Maybe Failover)
+  , _rrsHealthCheckId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrsRegion :: {-# NOUNPACK #-}!(Maybe Region)
+  , _rrsGeoLocation :: {-# NOUNPACK #-}!(Maybe GeoLocation)
+  , _rrsMultiValueAnswer :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rrsName :: {-# NOUNPACK #-}!Text
+  , _rrsType :: {-# NOUNPACK #-}!RecordType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceRecordSet' with the minimum fields required to make a request.
 --
@@ -1165,21 +1176,22 @@ resourceRecordSet
     -> RecordType -- ^ 'rrsType'
     -> ResourceRecordSet
 resourceRecordSet pName_ pType_ =
-    ResourceRecordSet'
-    { _rrsTTL = Nothing
-    , _rrsResourceRecords = Nothing
-    , _rrsAliasTarget = Nothing
-    , _rrsWeight = Nothing
-    , _rrsTrafficPolicyInstanceId = Nothing
-    , _rrsSetIdentifier = Nothing
-    , _rrsFailover = Nothing
-    , _rrsHealthCheckId = Nothing
-    , _rrsRegion = Nothing
-    , _rrsGeoLocation = Nothing
-    , _rrsMultiValueAnswer = Nothing
-    , _rrsName = pName_
-    , _rrsType = pType_
-    }
+  ResourceRecordSet'
+  { _rrsTTL = Nothing
+  , _rrsResourceRecords = Nothing
+  , _rrsAliasTarget = Nothing
+  , _rrsWeight = Nothing
+  , _rrsTrafficPolicyInstanceId = Nothing
+  , _rrsSetIdentifier = Nothing
+  , _rrsFailover = Nothing
+  , _rrsHealthCheckId = Nothing
+  , _rrsRegion = Nothing
+  , _rrsGeoLocation = Nothing
+  , _rrsMultiValueAnswer = Nothing
+  , _rrsName = pName_
+  , _rrsType = pType_
+  }
+
 
 -- | The resource record cache time to live (TTL), in seconds. Note the following:     * If you're creating or updating an alias resource record set, omit @TTL@ . Amazon Route 53 uses the value of @TTL@ for the alias target.      * If you're associating this resource record set with a health check (if you're adding a @HealthCheckId@ element), we recommend that you specify a @TTL@ of 60 seconds or less so clients respond quickly to changes in health status.     * All of the resource record sets in a group of weighted resource record sets must have the same value for @TTL@ .     * If a group of weighted resource record sets includes one or more weighted alias resource record sets for which the alias target is an ELB load balancer, we recommend that you specify a @TTL@ of 60 seconds for all of the non-alias weighted resource record sets that have the same name and type. Values other than 60 seconds (the TTL for load balancers) will change the effect of the values that you specify for @Weight@ .
 rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
@@ -1251,9 +1263,9 @@ instance FromXML ResourceRecordSet where
                 <*> (x .@ "Name")
                 <*> (x .@ "Type")
 
-instance Hashable ResourceRecordSet
+instance Hashable ResourceRecordSet where
 
-instance NFData ResourceRecordSet
+instance NFData ResourceRecordSet where
 
 instance ToXML ResourceRecordSet where
         toXML ResourceRecordSet'{..}
@@ -1280,10 +1292,11 @@ instance ToXML ResourceRecordSet where
 --
 -- /See:/ 'resourceTagSet' smart constructor.
 data ResourceTagSet = ResourceTagSet'
-    { _rtsResourceId   :: !(Maybe Text)
-    , _rtsResourceType :: !(Maybe TagResourceType)
-    , _rtsTags         :: !(Maybe (List1 Tag))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtsResourceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtsResourceType :: {-# NOUNPACK #-}!(Maybe TagResourceType)
+  , _rtsTags         :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceTagSet' with the minimum fields required to make a request.
 --
@@ -1297,11 +1310,9 @@ data ResourceTagSet = ResourceTagSet'
 resourceTagSet
     :: ResourceTagSet
 resourceTagSet =
-    ResourceTagSet'
-    { _rtsResourceId = Nothing
-    , _rtsResourceType = Nothing
-    , _rtsTags = Nothing
-    }
+  ResourceTagSet'
+  {_rtsResourceId = Nothing, _rtsResourceType = Nothing, _rtsTags = Nothing}
+
 
 -- | The ID for the specified resource.
 rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
@@ -1322,9 +1333,9 @@ instance FromXML ResourceTagSet where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList1 "Tag"))
 
-instance Hashable ResourceTagSet
+instance Hashable ResourceTagSet where
 
-instance NFData ResourceTagSet
+instance NFData ResourceTagSet where
 
 -- | A complex type that contains the status that one Amazon Route 53 health checker reports and the time of the health check.
 --
@@ -1332,9 +1343,10 @@ instance NFData ResourceTagSet
 --
 -- /See:/ 'statusReport' smart constructor.
 data StatusReport = StatusReport'
-    { _srStatus      :: !(Maybe Text)
-    , _srCheckedTime :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srStatus      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srCheckedTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StatusReport' with the minimum fields required to make a request.
 --
@@ -1345,11 +1357,8 @@ data StatusReport = StatusReport'
 -- * 'srCheckedTime' - The date and time that the health checker performed the health check in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
 statusReport
     :: StatusReport
-statusReport =
-    StatusReport'
-    { _srStatus = Nothing
-    , _srCheckedTime = Nothing
-    }
+statusReport = StatusReport' {_srStatus = Nothing, _srCheckedTime = Nothing}
+
 
 -- | A description of the status of the health check endpoint as reported by one of the Amazon Route 53 health checkers.
 srStatus :: Lens' StatusReport (Maybe Text)
@@ -1364,9 +1373,9 @@ instance FromXML StatusReport where
           = StatusReport' <$>
               (x .@? "Status") <*> (x .@? "CheckedTime")
 
-instance Hashable StatusReport
+instance Hashable StatusReport where
 
-instance NFData StatusReport
+instance NFData StatusReport where
 
 -- | A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
 --
@@ -1374,9 +1383,10 @@ instance NFData StatusReport
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -1387,11 +1397,8 @@ data Tag = Tag'
 -- * 'tagKey' - The value of @Key@ depends on the operation that you want to perform:     * __Add a tag to a health check or hosted zone__ : @Key@ is the name that you want to give the new tag.     * __Edit a tag__ : @Key@ is the name of the tag that you want to change the @Value@ for.     * __Delete a key__ : @Key@ is the name of the tag you want to remove.     * __Give a name to a health check__ : Edit the default @Name@ tag. In the Amazon Route 53 console, the list of your health checks includes a __Name__ column that lets you see the name that you've given to each health check.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The value of @Value@ depends on the operation that you want to perform:     * __Add a tag to a health check or hosted zone__ : @Value@ is the value that you want to give the new tag.     * __Edit a tag__ : @Value@ is the new value that you want to assign the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -1405,9 +1412,9 @@ instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -1419,13 +1426,14 @@ instance ToXML Tag where
 --
 -- /See:/ 'trafficPolicy' smart constructor.
 data TrafficPolicy = TrafficPolicy'
-    { _tpComment  :: !(Maybe Text)
-    , _tpId       :: !Text
-    , _tpVersion  :: !Nat
-    , _tpName     :: !Text
-    , _tpType     :: !RecordType
-    , _tpDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tpComment  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tpId       :: {-# NOUNPACK #-}!Text
+  , _tpVersion  :: {-# NOUNPACK #-}!Nat
+  , _tpName     :: {-# NOUNPACK #-}!Text
+  , _tpType     :: {-# NOUNPACK #-}!RecordType
+  , _tpDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrafficPolicy' with the minimum fields required to make a request.
 --
@@ -1450,14 +1458,15 @@ trafficPolicy
     -> Text -- ^ 'tpDocument'
     -> TrafficPolicy
 trafficPolicy pId_ pVersion_ pName_ pType_ pDocument_ =
-    TrafficPolicy'
-    { _tpComment = Nothing
-    , _tpId = pId_
-    , _tpVersion = _Nat # pVersion_
-    , _tpName = pName_
-    , _tpType = pType_
-    , _tpDocument = pDocument_
-    }
+  TrafficPolicy'
+  { _tpComment = Nothing
+  , _tpId = pId_
+  , _tpVersion = _Nat # pVersion_
+  , _tpName = pName_
+  , _tpType = pType_
+  , _tpDocument = pDocument_
+  }
+
 
 -- | The comment that you specify in the @CreateTrafficPolicy@ request, if any.
 tpComment :: Lens' TrafficPolicy (Maybe Text)
@@ -1492,9 +1501,9 @@ instance FromXML TrafficPolicy where
                 <*> (x .@ "Type")
                 <*> (x .@ "Document")
 
-instance Hashable TrafficPolicy
+instance Hashable TrafficPolicy where
 
-instance NFData TrafficPolicy
+instance NFData TrafficPolicy where
 
 -- | A complex type that contains settings for the new traffic policy instance.
 --
@@ -1502,16 +1511,17 @@ instance NFData TrafficPolicy
 --
 -- /See:/ 'trafficPolicyInstance' smart constructor.
 data TrafficPolicyInstance = TrafficPolicyInstance'
-    { _tpiId                   :: !Text
-    , _tpiHostedZoneId         :: !ResourceId
-    , _tpiName                 :: !Text
-    , _tpiTTL                  :: !Nat
-    , _tpiState                :: !Text
-    , _tpiMessage              :: !Text
-    , _tpiTrafficPolicyId      :: !Text
-    , _tpiTrafficPolicyVersion :: !Nat
-    , _tpiTrafficPolicyType    :: !RecordType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tpiId                   :: {-# NOUNPACK #-}!Text
+  , _tpiHostedZoneId         :: {-# NOUNPACK #-}!ResourceId
+  , _tpiName                 :: {-# NOUNPACK #-}!Text
+  , _tpiTTL                  :: {-# NOUNPACK #-}!Nat
+  , _tpiState                :: {-# NOUNPACK #-}!Text
+  , _tpiMessage              :: {-# NOUNPACK #-}!Text
+  , _tpiTrafficPolicyId      :: {-# NOUNPACK #-}!Text
+  , _tpiTrafficPolicyVersion :: {-# NOUNPACK #-}!Nat
+  , _tpiTrafficPolicyType    :: {-# NOUNPACK #-}!RecordType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrafficPolicyInstance' with the minimum fields required to make a request.
 --
@@ -1546,17 +1556,18 @@ trafficPolicyInstance
     -> RecordType -- ^ 'tpiTrafficPolicyType'
     -> TrafficPolicyInstance
 trafficPolicyInstance pId_ pHostedZoneId_ pName_ pTTL_ pState_ pMessage_ pTrafficPolicyId_ pTrafficPolicyVersion_ pTrafficPolicyType_ =
-    TrafficPolicyInstance'
-    { _tpiId = pId_
-    , _tpiHostedZoneId = pHostedZoneId_
-    , _tpiName = pName_
-    , _tpiTTL = _Nat # pTTL_
-    , _tpiState = pState_
-    , _tpiMessage = pMessage_
-    , _tpiTrafficPolicyId = pTrafficPolicyId_
-    , _tpiTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
-    , _tpiTrafficPolicyType = pTrafficPolicyType_
-    }
+  TrafficPolicyInstance'
+  { _tpiId = pId_
+  , _tpiHostedZoneId = pHostedZoneId_
+  , _tpiName = pName_
+  , _tpiTTL = _Nat # pTTL_
+  , _tpiState = pState_
+  , _tpiMessage = pMessage_
+  , _tpiTrafficPolicyId = pTrafficPolicyId_
+  , _tpiTrafficPolicyVersion = _Nat # pTrafficPolicyVersion_
+  , _tpiTrafficPolicyType = pTrafficPolicyType_
+  }
+
 
 -- | The ID that Amazon Route 53 assigned to the new traffic policy instance.
 tpiId :: Lens' TrafficPolicyInstance Text
@@ -1606,9 +1617,9 @@ instance FromXML TrafficPolicyInstance where
                 <*> (x .@ "TrafficPolicyVersion")
                 <*> (x .@ "TrafficPolicyType")
 
-instance Hashable TrafficPolicyInstance
+instance Hashable TrafficPolicyInstance where
 
-instance NFData TrafficPolicyInstance
+instance NFData TrafficPolicyInstance where
 
 -- | A complex type that contains information about the latest version of one traffic policy that is associated with the current AWS account.
 --
@@ -1616,12 +1627,13 @@ instance NFData TrafficPolicyInstance
 --
 -- /See:/ 'trafficPolicySummary' smart constructor.
 data TrafficPolicySummary = TrafficPolicySummary'
-    { _tpsId                 :: !Text
-    , _tpsName               :: !Text
-    , _tpsType               :: !RecordType
-    , _tpsLatestVersion      :: !Nat
-    , _tpsTrafficPolicyCount :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tpsId                 :: {-# NOUNPACK #-}!Text
+  , _tpsName               :: {-# NOUNPACK #-}!Text
+  , _tpsType               :: {-# NOUNPACK #-}!RecordType
+  , _tpsLatestVersion      :: {-# NOUNPACK #-}!Nat
+  , _tpsTrafficPolicyCount :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrafficPolicySummary' with the minimum fields required to make a request.
 --
@@ -1644,13 +1656,14 @@ trafficPolicySummary
     -> Natural -- ^ 'tpsTrafficPolicyCount'
     -> TrafficPolicySummary
 trafficPolicySummary pId_ pName_ pType_ pLatestVersion_ pTrafficPolicyCount_ =
-    TrafficPolicySummary'
-    { _tpsId = pId_
-    , _tpsName = pName_
-    , _tpsType = pType_
-    , _tpsLatestVersion = _Nat # pLatestVersion_
-    , _tpsTrafficPolicyCount = _Nat # pTrafficPolicyCount_
-    }
+  TrafficPolicySummary'
+  { _tpsId = pId_
+  , _tpsName = pName_
+  , _tpsType = pType_
+  , _tpsLatestVersion = _Nat # pLatestVersion_
+  , _tpsTrafficPolicyCount = _Nat # pTrafficPolicyCount_
+  }
+
 
 -- | The ID that Amazon Route 53 assigned to the traffic policy when you created it.
 tpsId :: Lens' TrafficPolicySummary Text
@@ -1679,9 +1692,9 @@ instance FromXML TrafficPolicySummary where
                 (x .@ "LatestVersion")
                 <*> (x .@ "TrafficPolicyCount")
 
-instance Hashable TrafficPolicySummary
+instance Hashable TrafficPolicySummary where
 
-instance NFData TrafficPolicySummary
+instance NFData TrafficPolicySummary where
 
 -- | (Private hosted zones only) A complex type that contains information about an Amazon VPC.
 --
@@ -1689,9 +1702,10 @@ instance NFData TrafficPolicySummary
 --
 -- /See:/ 'vpc' smart constructor.
 data VPC = VPC'
-    { _vpcVPCRegion :: !(Maybe VPCRegion)
-    , _vpcVPCId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vpcVPCRegion :: {-# NOUNPACK #-}!(Maybe VPCRegion)
+  , _vpcVPCId     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VPC' with the minimum fields required to make a request.
 --
@@ -1702,11 +1716,8 @@ data VPC = VPC'
 -- * 'vpcVPCId' - Undocumented member.
 vpc
     :: VPC
-vpc =
-    VPC'
-    { _vpcVPCRegion = Nothing
-    , _vpcVPCId = Nothing
-    }
+vpc = VPC' {_vpcVPCRegion = Nothing, _vpcVPCId = Nothing}
+
 
 -- | (Private hosted zones only) The region in which you created an Amazon VPC.
 vpcVPCRegion :: Lens' VPC (Maybe VPCRegion)
@@ -1720,9 +1731,9 @@ instance FromXML VPC where
         parseXML x
           = VPC' <$> (x .@? "VPCRegion") <*> (x .@? "VPCId")
 
-instance Hashable VPC
+instance Hashable VPC where
 
-instance NFData VPC
+instance NFData VPC where
 
 instance ToXML VPC where
         toXML VPC'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,25 +45,26 @@ module Network.AWS.WorkDocs.CreateUser
     , cursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createUser' smart constructor.
 data CreateUser = CreateUser'
-    { _cuAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _cuStorageRule         :: !(Maybe StorageRuleType)
-    , _cuEmailAddress        :: !(Maybe Text)
-    , _cuTimeZoneId          :: !(Maybe Text)
-    , _cuOrganizationId      :: !(Maybe Text)
-    , _cuUsername            :: !Text
-    , _cuGivenName           :: !Text
-    , _cuSurname             :: !Text
-    , _cuPassword            :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cuAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _cuStorageRule         :: {-# NOUNPACK #-}!(Maybe StorageRuleType)
+  , _cuEmailAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuTimeZoneId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuOrganizationId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuUsername            :: {-# NOUNPACK #-}!Text
+  , _cuGivenName           :: {-# NOUNPACK #-}!Text
+  , _cuSurname             :: {-# NOUNPACK #-}!Text
+  , _cuPassword            :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
@@ -93,17 +94,18 @@ createUser
     -> Text -- ^ 'cuPassword'
     -> CreateUser
 createUser pUsername_ pGivenName_ pSurname_ pPassword_ =
-    CreateUser'
-    { _cuAuthenticationToken = Nothing
-    , _cuStorageRule = Nothing
-    , _cuEmailAddress = Nothing
-    , _cuTimeZoneId = Nothing
-    , _cuOrganizationId = Nothing
-    , _cuUsername = pUsername_
-    , _cuGivenName = pGivenName_
-    , _cuSurname = pSurname_
-    , _cuPassword = _Sensitive # pPassword_
-    }
+  CreateUser'
+  { _cuAuthenticationToken = Nothing
+  , _cuStorageRule = Nothing
+  , _cuEmailAddress = Nothing
+  , _cuTimeZoneId = Nothing
+  , _cuOrganizationId = Nothing
+  , _cuUsername = pUsername_
+  , _cuGivenName = pGivenName_
+  , _cuSurname = pSurname_
+  , _cuPassword = _Sensitive # pPassword_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 cuAuthenticationToken :: Lens' CreateUser (Maybe Text)
@@ -150,9 +152,9 @@ instance AWSRequest CreateUser where
                  CreateUserResponse' <$>
                    (x .?> "User") <*> (pure (fromEnum s)))
 
-instance Hashable CreateUser
+instance Hashable CreateUser where
 
-instance NFData CreateUser
+instance NFData CreateUser where
 
 instance ToHeaders CreateUser where
         toHeaders CreateUser'{..}
@@ -182,9 +184,10 @@ instance ToQuery CreateUser where
 
 -- | /See:/ 'createUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-    { _cursUser           :: !(Maybe User)
-    , _cursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cursUser           :: {-# NOUNPACK #-}!(Maybe User)
+  , _cursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
 --
@@ -197,10 +200,9 @@ createUserResponse
     :: Int -- ^ 'cursResponseStatus'
     -> CreateUserResponse
 createUserResponse pResponseStatus_ =
-    CreateUserResponse'
-    { _cursUser = Nothing
-    , _cursResponseStatus = pResponseStatus_
-    }
+  CreateUserResponse'
+  {_cursUser = Nothing, _cursResponseStatus = pResponseStatus_}
+
 
 -- | The user information.
 cursUser :: Lens' CreateUserResponse (Maybe User)
@@ -210,4 +212,4 @@ cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 cursResponseStatus :: Lens' CreateUserResponse Int
 cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});
 
-instance NFData CreateUserResponse
+instance NFData CreateUserResponse where

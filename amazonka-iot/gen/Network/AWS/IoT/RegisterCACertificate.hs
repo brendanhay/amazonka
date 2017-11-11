@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.RegisterCACertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.IoT.RegisterCACertificate
     , rcacrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the RegisterCACertificate operation.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'registerCACertificate' smart constructor.
 data RegisterCACertificate = RegisterCACertificate'
-    { _rcacSetAsActive             :: !(Maybe Bool)
-    , _rcacAllowAutoRegistration   :: !(Maybe Bool)
-    , _rcacCaCertificate           :: !Text
-    , _rcacVerificationCertificate :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcacSetAsActive             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rcacAllowAutoRegistration   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rcacCaCertificate           :: {-# NOUNPACK #-}!Text
+  , _rcacVerificationCertificate :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterCACertificate' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ registerCACertificate
     -> Text -- ^ 'rcacVerificationCertificate'
     -> RegisterCACertificate
 registerCACertificate pCaCertificate_ pVerificationCertificate_ =
-    RegisterCACertificate'
-    { _rcacSetAsActive = Nothing
-    , _rcacAllowAutoRegistration = Nothing
-    , _rcacCaCertificate = pCaCertificate_
-    , _rcacVerificationCertificate = pVerificationCertificate_
-    }
+  RegisterCACertificate'
+  { _rcacSetAsActive = Nothing
+  , _rcacAllowAutoRegistration = Nothing
+  , _rcacCaCertificate = pCaCertificate_
+  , _rcacVerificationCertificate = pVerificationCertificate_
+  }
+
 
 -- | A boolean value that specifies if the CA certificate is set to active.
 rcacSetAsActive :: Lens' RegisterCACertificate (Maybe Bool)
@@ -110,9 +112,9 @@ instance AWSRequest RegisterCACertificate where
                    (x .?> "certificateArn") <*> (x .?> "certificateId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable RegisterCACertificate
+instance Hashable RegisterCACertificate where
 
-instance NFData RegisterCACertificate
+instance NFData RegisterCACertificate where
 
 instance ToHeaders RegisterCACertificate where
         toHeaders = const mempty
@@ -142,10 +144,11 @@ instance ToQuery RegisterCACertificate where
 --
 -- /See:/ 'registerCACertificateResponse' smart constructor.
 data RegisterCACertificateResponse = RegisterCACertificateResponse'
-    { _rcacrsCertificateARN :: !(Maybe Text)
-    , _rcacrsCertificateId  :: !(Maybe Text)
-    , _rcacrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcacrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcacrsCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterCACertificateResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +163,12 @@ registerCACertificateResponse
     :: Int -- ^ 'rcacrsResponseStatus'
     -> RegisterCACertificateResponse
 registerCACertificateResponse pResponseStatus_ =
-    RegisterCACertificateResponse'
-    { _rcacrsCertificateARN = Nothing
-    , _rcacrsCertificateId = Nothing
-    , _rcacrsResponseStatus = pResponseStatus_
-    }
+  RegisterCACertificateResponse'
+  { _rcacrsCertificateARN = Nothing
+  , _rcacrsCertificateId = Nothing
+  , _rcacrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The CA certificate ARN.
 rcacrsCertificateARN :: Lens' RegisterCACertificateResponse (Maybe Text)
@@ -178,4 +182,4 @@ rcacrsCertificateId = lens _rcacrsCertificateId (\ s a -> s{_rcacrsCertificateId
 rcacrsResponseStatus :: Lens' RegisterCACertificateResponse Int
 rcacrsResponseStatus = lens _rcacrsResponseStatus (\ s a -> s{_rcacrsResponseStatus = a});
 
-instance NFData RegisterCACertificateResponse
+instance NFData RegisterCACertificateResponse where

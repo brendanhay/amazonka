@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MigrationHub.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ApplicationStatus
-    = ASCompleted
-    | ASInProgress
-    | ASNotStarted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ASCompleted
+  | ASInProgress
+  | ASNotStarted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ApplicationStatus where
     parser = takeLowerText >>= \case
@@ -52,11 +53,12 @@ instance FromJSON ApplicationStatus where
     parseJSON = parseJSONText "ApplicationStatus"
 
 data MigrationStatus
-    = Completed
-    | Failed
-    | InProgress
-    | NotStarted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Completed
+  | Failed
+  | InProgress
+  | NotStarted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MigrationStatus where
     parser = takeLowerText >>= \case
@@ -87,18 +89,19 @@ instance FromJSON MigrationStatus where
     parseJSON = parseJSONText "MigrationStatus"
 
 data ResourceAttributeType
-    = BiosId
-    | Fqdn
-    | IPV4Address
-    | IPV6Address
-    | Label
-    | MACAddress
-    | MotherboardSerialNumber
-    | VMManagedObjectReference
-    | VMManagerId
-    | VMName
-    | VMPath
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BiosId
+  | Fqdn
+  | IPV4Address
+  | IPV6Address
+  | Label
+  | MACAddress
+  | MotherboardSerialNumber
+  | VMManagedObjectReference
+  | VMManagerId
+  | VMName
+  | VMPath
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceAttributeType where
     parser = takeLowerText >>= \case

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     , DeleteApplicationVersionResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to delete an application version.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteApplicationVersion' smart constructor.
 data DeleteApplicationVersion = DeleteApplicationVersion'
-    { _davDeleteSourceBundle :: !(Maybe Bool)
-    , _davApplicationName    :: !Text
-    , _davVersionLabel       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _davDeleteSourceBundle :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _davApplicationName    :: {-# NOUNPACK #-}!Text
+  , _davVersionLabel       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationVersion' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ deleteApplicationVersion
     -> Text -- ^ 'davVersionLabel'
     -> DeleteApplicationVersion
 deleteApplicationVersion pApplicationName_ pVersionLabel_ =
-    DeleteApplicationVersion'
-    { _davDeleteSourceBundle = Nothing
-    , _davApplicationName = pApplicationName_
-    , _davVersionLabel = pVersionLabel_
-    }
+  DeleteApplicationVersion'
+  { _davDeleteSourceBundle = Nothing
+  , _davApplicationName = pApplicationName_
+  , _davVersionLabel = pVersionLabel_
+  }
+
 
 -- | Set to @true@ to delete the source bundle from your storage bucket. Otherwise, the application version is deleted only from Elastic Beanstalk and the source bundle remains in Amazon S3.
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
@@ -93,9 +95,9 @@ instance AWSRequest DeleteApplicationVersion where
         response
           = receiveNull DeleteApplicationVersionResponse'
 
-instance Hashable DeleteApplicationVersion
+instance Hashable DeleteApplicationVersion where
 
-instance NFData DeleteApplicationVersion
+instance NFData DeleteApplicationVersion where
 
 instance ToHeaders DeleteApplicationVersion where
         toHeaders = const mempty
@@ -115,8 +117,9 @@ instance ToQuery DeleteApplicationVersion where
 
 -- | /See:/ 'deleteApplicationVersionResponse' smart constructor.
 data DeleteApplicationVersionResponse =
-    DeleteApplicationVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteApplicationVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationVersionResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +127,6 @@ deleteApplicationVersionResponse
     :: DeleteApplicationVersionResponse
 deleteApplicationVersionResponse = DeleteApplicationVersionResponse'
 
+
 instance NFData DeleteApplicationVersionResponse
+         where

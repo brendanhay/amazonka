@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTaskDefinitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,22 +44,23 @@ module Network.AWS.ECS.ListTaskDefinitions
     , ltdrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTaskDefinitions' smart constructor.
 data ListTaskDefinitions = ListTaskDefinitions'
-    { _ltdStatus       :: !(Maybe TaskDefinitionStatus)
-    , _ltdFamilyPrefix :: !(Maybe Text)
-    , _ltdNextToken    :: !(Maybe Text)
-    , _ltdSort         :: !(Maybe SortOrder)
-    , _ltdMaxResults   :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltdStatus       :: {-# NOUNPACK #-}!(Maybe TaskDefinitionStatus)
+  , _ltdFamilyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltdNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltdSort         :: {-# NOUNPACK #-}!(Maybe SortOrder)
+  , _ltdMaxResults   :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTaskDefinitions' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ data ListTaskDefinitions = ListTaskDefinitions'
 listTaskDefinitions
     :: ListTaskDefinitions
 listTaskDefinitions =
-    ListTaskDefinitions'
-    { _ltdStatus = Nothing
-    , _ltdFamilyPrefix = Nothing
-    , _ltdNextToken = Nothing
-    , _ltdSort = Nothing
-    , _ltdMaxResults = Nothing
-    }
+  ListTaskDefinitions'
+  { _ltdStatus = Nothing
+  , _ltdFamilyPrefix = Nothing
+  , _ltdNextToken = Nothing
+  , _ltdSort = Nothing
+  , _ltdMaxResults = Nothing
+  }
+
 
 -- | The task definition status with which to filter the @ListTaskDefinitions@ results. By default, only @ACTIVE@ task definitions are listed. By setting this parameter to @INACTIVE@ , you can view task definitions that are @INACTIVE@ as long as an active task or service still references them. If you paginate the resulting output, be sure to keep the @status@ value constant in each subsequent request.
 ltdStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
@@ -124,9 +126,9 @@ instance AWSRequest ListTaskDefinitions where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTaskDefinitions
+instance Hashable ListTaskDefinitions where
 
-instance NFData ListTaskDefinitions
+instance NFData ListTaskDefinitions where
 
 instance ToHeaders ListTaskDefinitions where
         toHeaders
@@ -156,10 +158,11 @@ instance ToQuery ListTaskDefinitions where
 
 -- | /See:/ 'listTaskDefinitionsResponse' smart constructor.
 data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
-    { _ltdrsTaskDefinitionARNs :: !(Maybe [Text])
-    , _ltdrsNextToken          :: !(Maybe Text)
-    , _ltdrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltdrsTaskDefinitionARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ltdrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltdrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTaskDefinitionsResponse' with the minimum fields required to make a request.
 --
@@ -174,11 +177,12 @@ listTaskDefinitionsResponse
     :: Int -- ^ 'ltdrsResponseStatus'
     -> ListTaskDefinitionsResponse
 listTaskDefinitionsResponse pResponseStatus_ =
-    ListTaskDefinitionsResponse'
-    { _ltdrsTaskDefinitionARNs = Nothing
-    , _ltdrsNextToken = Nothing
-    , _ltdrsResponseStatus = pResponseStatus_
-    }
+  ListTaskDefinitionsResponse'
+  { _ltdrsTaskDefinitionARNs = Nothing
+  , _ltdrsNextToken = Nothing
+  , _ltdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the @ListTaskDefinitions@ request.
 ltdrsTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
@@ -192,4 +196,4 @@ ltdrsNextToken = lens _ltdrsNextToken (\ s a -> s{_ltdrsNextToken = a});
 ltdrsResponseStatus :: Lens' ListTaskDefinitionsResponse Int
 ltdrsResponseStatus = lens _ltdrsResponseStatus (\ s a -> s{_ltdrsResponseStatus = a});
 
-instance NFData ListTaskDefinitionsResponse
+instance NFData ListTaskDefinitionsResponse where

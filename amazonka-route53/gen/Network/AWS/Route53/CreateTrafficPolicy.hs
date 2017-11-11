@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateTrafficPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Route53.CreateTrafficPolicy
     , ctprsLocation
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the traffic policy that you want to create.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createTrafficPolicy' smart constructor.
 data CreateTrafficPolicy = CreateTrafficPolicy'
-    { _ctpComment  :: !(Maybe Text)
-    , _ctpName     :: !Text
-    , _ctpDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctpComment  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctpName     :: {-# NOUNPACK #-}!Text
+  , _ctpDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrafficPolicy' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ createTrafficPolicy
     -> Text -- ^ 'ctpDocument'
     -> CreateTrafficPolicy
 createTrafficPolicy pName_ pDocument_ =
-    CreateTrafficPolicy'
-    { _ctpComment = Nothing
-    , _ctpName = pName_
-    , _ctpDocument = pDocument_
-    }
+  CreateTrafficPolicy'
+  {_ctpComment = Nothing, _ctpName = pName_, _ctpDocument = pDocument_}
+
 
 -- | (Optional) Any comments that you want to include about the traffic policy.
 ctpComment :: Lens' CreateTrafficPolicy (Maybe Text)
@@ -101,9 +100,9 @@ instance AWSRequest CreateTrafficPolicy where
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy") <*>
                      (h .# "Location"))
 
-instance Hashable CreateTrafficPolicy
+instance Hashable CreateTrafficPolicy where
 
-instance NFData CreateTrafficPolicy
+instance NFData CreateTrafficPolicy where
 
 instance ToElement CreateTrafficPolicy where
         toElement
@@ -131,10 +130,11 @@ instance ToXML CreateTrafficPolicy where
 --
 -- /See:/ 'createTrafficPolicyResponse' smart constructor.
 data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'
-    { _ctprsResponseStatus :: !Int
-    , _ctprsTrafficPolicy  :: !TrafficPolicy
-    , _ctprsLocation       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ctprsTrafficPolicy  :: {-# NOUNPACK #-}!TrafficPolicy
+  , _ctprsLocation       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrafficPolicyResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +151,12 @@ createTrafficPolicyResponse
     -> Text -- ^ 'ctprsLocation'
     -> CreateTrafficPolicyResponse
 createTrafficPolicyResponse pResponseStatus_ pTrafficPolicy_ pLocation_ =
-    CreateTrafficPolicyResponse'
-    { _ctprsResponseStatus = pResponseStatus_
-    , _ctprsTrafficPolicy = pTrafficPolicy_
-    , _ctprsLocation = pLocation_
-    }
+  CreateTrafficPolicyResponse'
+  { _ctprsResponseStatus = pResponseStatus_
+  , _ctprsTrafficPolicy = pTrafficPolicy_
+  , _ctprsLocation = pLocation_
+  }
+
 
 -- | -- | The response status code.
 ctprsResponseStatus :: Lens' CreateTrafficPolicyResponse Int
@@ -169,4 +170,4 @@ ctprsTrafficPolicy = lens _ctprsTrafficPolicy (\ s a -> s{_ctprsTrafficPolicy = 
 ctprsLocation :: Lens' CreateTrafficPolicyResponse Text
 ctprsLocation = lens _ctprsLocation (\ s a -> s{_ctprsLocation = a});
 
-instance NFData CreateTrafficPolicyResponse
+instance NFData CreateTrafficPolicyResponse where

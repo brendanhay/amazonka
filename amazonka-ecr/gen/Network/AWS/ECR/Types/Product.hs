@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.ECR.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ECR.Types.Product where
 
-import           Network.AWS.ECR.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.ECR.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | An object representing authorization data for an Amazon ECR registry.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'authorizationData' smart constructor.
 data AuthorizationData = AuthorizationData'
-    { _adExpiresAt          :: !(Maybe POSIX)
-    , _adProxyEndpoint      :: !(Maybe Text)
-    , _adAuthorizationToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adExpiresAt          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _adProxyEndpoint      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adAuthorizationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizationData' with the minimum fields required to make a request.
 --
@@ -44,11 +45,12 @@ data AuthorizationData = AuthorizationData'
 authorizationData
     :: AuthorizationData
 authorizationData =
-    AuthorizationData'
-    { _adExpiresAt = Nothing
-    , _adProxyEndpoint = Nothing
-    , _adAuthorizationToken = Nothing
-    }
+  AuthorizationData'
+  { _adExpiresAt = Nothing
+  , _adProxyEndpoint = Nothing
+  , _adAuthorizationToken = Nothing
+  }
+
 
 -- | The Unix time in seconds and milliseconds when the authorization token expires. Authorization tokens are valid for 12 hours.
 adExpiresAt :: Lens' AuthorizationData (Maybe UTCTime)
@@ -70,9 +72,9 @@ instance FromJSON AuthorizationData where
                    (x .:? "expiresAt") <*> (x .:? "proxyEndpoint") <*>
                      (x .:? "authorizationToken"))
 
-instance Hashable AuthorizationData
+instance Hashable AuthorizationData where
 
-instance NFData AuthorizationData
+instance NFData AuthorizationData where
 
 -- | An object representing a filter on a 'DescribeImages' operation.
 --
@@ -80,8 +82,9 @@ instance NFData AuthorizationData
 --
 -- /See:/ 'describeImagesFilter' smart constructor.
 newtype DescribeImagesFilter = DescribeImagesFilter'
-    { _difTagStatus :: Maybe TagStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _difTagStatus :: Maybe TagStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImagesFilter' with the minimum fields required to make a request.
 --
@@ -90,18 +93,16 @@ newtype DescribeImagesFilter = DescribeImagesFilter'
 -- * 'difTagStatus' - The tag status with which to filter your 'DescribeImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 describeImagesFilter
     :: DescribeImagesFilter
-describeImagesFilter =
-    DescribeImagesFilter'
-    { _difTagStatus = Nothing
-    }
+describeImagesFilter = DescribeImagesFilter' {_difTagStatus = Nothing}
+
 
 -- | The tag status with which to filter your 'DescribeImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 difTagStatus :: Lens' DescribeImagesFilter (Maybe TagStatus)
 difTagStatus = lens _difTagStatus (\ s a -> s{_difTagStatus = a});
 
-instance Hashable DescribeImagesFilter
+instance Hashable DescribeImagesFilter where
 
-instance NFData DescribeImagesFilter
+instance NFData DescribeImagesFilter where
 
 instance ToJSON DescribeImagesFilter where
         toJSON DescribeImagesFilter'{..}
@@ -114,11 +115,12 @@ instance ToJSON DescribeImagesFilter where
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
-    { _iRegistryId     :: !(Maybe Text)
-    , _iImageId        :: !(Maybe ImageIdentifier)
-    , _iRepositoryName :: !(Maybe Text)
-    , _iImageManifest  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iImageId        :: {-# NOUNPACK #-}!(Maybe ImageIdentifier)
+  , _iRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iImageManifest  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
@@ -134,12 +136,13 @@ data Image = Image'
 image
     :: Image
 image =
-    Image'
-    { _iRegistryId = Nothing
-    , _iImageId = Nothing
-    , _iRepositoryName = Nothing
-    , _iImageManifest = Nothing
-    }
+  Image'
+  { _iRegistryId = Nothing
+  , _iImageId = Nothing
+  , _iRepositoryName = Nothing
+  , _iImageManifest = Nothing
+  }
+
 
 -- | The AWS account ID associated with the registry containing the image.
 iRegistryId :: Lens' Image (Maybe Text)
@@ -166,9 +169,9 @@ instance FromJSON Image where
                      (x .:? "repositoryName")
                      <*> (x .:? "imageManifest"))
 
-instance Hashable Image
+instance Hashable Image where
 
-instance NFData Image
+instance NFData Image where
 
 -- | An object that describes an image returned by a 'DescribeImages' operation.
 --
@@ -176,13 +179,14 @@ instance NFData Image
 --
 -- /See:/ 'imageDetail' smart constructor.
 data ImageDetail = ImageDetail'
-    { _idRegistryId       :: !(Maybe Text)
-    , _idImageTags        :: !(Maybe [Text])
-    , _idImageSizeInBytes :: !(Maybe Integer)
-    , _idImageDigest      :: !(Maybe Text)
-    , _idImagePushedAt    :: !(Maybe POSIX)
-    , _idRepositoryName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _idRegistryId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _idImageTags        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _idImageSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _idImageDigest      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _idImagePushedAt    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _idRepositoryName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImageDetail' with the minimum fields required to make a request.
 --
@@ -202,14 +206,15 @@ data ImageDetail = ImageDetail'
 imageDetail
     :: ImageDetail
 imageDetail =
-    ImageDetail'
-    { _idRegistryId = Nothing
-    , _idImageTags = Nothing
-    , _idImageSizeInBytes = Nothing
-    , _idImageDigest = Nothing
-    , _idImagePushedAt = Nothing
-    , _idRepositoryName = Nothing
-    }
+  ImageDetail'
+  { _idRegistryId = Nothing
+  , _idImageTags = Nothing
+  , _idImageSizeInBytes = Nothing
+  , _idImageDigest = Nothing
+  , _idImagePushedAt = Nothing
+  , _idRepositoryName = Nothing
+  }
+
 
 -- | The AWS account ID associated with the registry to which this image belongs.
 idRegistryId :: Lens' ImageDetail (Maybe Text)
@@ -247,9 +252,9 @@ instance FromJSON ImageDetail where
                      <*> (x .:? "imagePushedAt")
                      <*> (x .:? "repositoryName"))
 
-instance Hashable ImageDetail
+instance Hashable ImageDetail where
 
-instance NFData ImageDetail
+instance NFData ImageDetail where
 
 -- | An object representing an Amazon ECR image failure.
 --
@@ -257,10 +262,11 @@ instance NFData ImageDetail
 --
 -- /See:/ 'imageFailure' smart constructor.
 data ImageFailure = ImageFailure'
-    { _ifFailureReason :: !(Maybe Text)
-    , _ifFailureCode   :: !(Maybe ImageFailureCode)
-    , _ifImageId       :: !(Maybe ImageIdentifier)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifFailureReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ifFailureCode   :: {-# NOUNPACK #-}!(Maybe ImageFailureCode)
+  , _ifImageId       :: {-# NOUNPACK #-}!(Maybe ImageIdentifier)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImageFailure' with the minimum fields required to make a request.
 --
@@ -274,11 +280,9 @@ data ImageFailure = ImageFailure'
 imageFailure
     :: ImageFailure
 imageFailure =
-    ImageFailure'
-    { _ifFailureReason = Nothing
-    , _ifFailureCode = Nothing
-    , _ifImageId = Nothing
-    }
+  ImageFailure'
+  {_ifFailureReason = Nothing, _ifFailureCode = Nothing, _ifImageId = Nothing}
+
 
 -- | The reason for the failure.
 ifFailureReason :: Lens' ImageFailure (Maybe Text)
@@ -300,9 +304,9 @@ instance FromJSON ImageFailure where
                    (x .:? "failureReason") <*> (x .:? "failureCode") <*>
                      (x .:? "imageId"))
 
-instance Hashable ImageFailure
+instance Hashable ImageFailure where
 
-instance NFData ImageFailure
+instance NFData ImageFailure where
 
 -- | An object with identifying information for an Amazon ECR image.
 --
@@ -310,9 +314,10 @@ instance NFData ImageFailure
 --
 -- /See:/ 'imageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
-    { _iiImageDigest :: !(Maybe Text)
-    , _iiImageTag    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiImageDigest :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiImageTag    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImageIdentifier' with the minimum fields required to make a request.
 --
@@ -324,10 +329,8 @@ data ImageIdentifier = ImageIdentifier'
 imageIdentifier
     :: ImageIdentifier
 imageIdentifier =
-    ImageIdentifier'
-    { _iiImageDigest = Nothing
-    , _iiImageTag = Nothing
-    }
+  ImageIdentifier' {_iiImageDigest = Nothing, _iiImageTag = Nothing}
+
 
 -- | The @sha256@ digest of the image manifest.
 iiImageDigest :: Lens' ImageIdentifier (Maybe Text)
@@ -344,9 +347,9 @@ instance FromJSON ImageIdentifier where
                  ImageIdentifier' <$>
                    (x .:? "imageDigest") <*> (x .:? "imageTag"))
 
-instance Hashable ImageIdentifier
+instance Hashable ImageIdentifier where
 
-instance NFData ImageIdentifier
+instance NFData ImageIdentifier where
 
 instance ToJSON ImageIdentifier where
         toJSON ImageIdentifier'{..}
@@ -361,11 +364,12 @@ instance ToJSON ImageIdentifier where
 --
 -- /See:/ 'layer' smart constructor.
 data Layer = Layer'
-    { _lMediaType         :: !(Maybe Text)
-    , _lLayerDigest       :: !(Maybe Text)
-    , _lLayerSize         :: !(Maybe Integer)
-    , _lLayerAvailability :: !(Maybe LayerAvailability)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lMediaType         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lLayerDigest       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lLayerSize         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _lLayerAvailability :: {-# NOUNPACK #-}!(Maybe LayerAvailability)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Layer' with the minimum fields required to make a request.
 --
@@ -381,12 +385,13 @@ data Layer = Layer'
 layer
     :: Layer
 layer =
-    Layer'
-    { _lMediaType = Nothing
-    , _lLayerDigest = Nothing
-    , _lLayerSize = Nothing
-    , _lLayerAvailability = Nothing
-    }
+  Layer'
+  { _lMediaType = Nothing
+  , _lLayerDigest = Nothing
+  , _lLayerSize = Nothing
+  , _lLayerAvailability = Nothing
+  }
+
 
 -- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
 lMediaType :: Lens' Layer (Maybe Text)
@@ -413,9 +418,9 @@ instance FromJSON Layer where
                      (x .:? "layerSize")
                      <*> (x .:? "layerAvailability"))
 
-instance Hashable Layer
+instance Hashable Layer where
 
-instance NFData Layer
+instance NFData Layer where
 
 -- | An object representing an Amazon ECR image layer failure.
 --
@@ -423,10 +428,11 @@ instance NFData Layer
 --
 -- /See:/ 'layerFailure' smart constructor.
 data LayerFailure = LayerFailure'
-    { _lfFailureReason :: !(Maybe Text)
-    , _lfFailureCode   :: !(Maybe LayerFailureCode)
-    , _lfLayerDigest   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfFailureReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfFailureCode   :: {-# NOUNPACK #-}!(Maybe LayerFailureCode)
+  , _lfLayerDigest   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LayerFailure' with the minimum fields required to make a request.
 --
@@ -440,11 +446,12 @@ data LayerFailure = LayerFailure'
 layerFailure
     :: LayerFailure
 layerFailure =
-    LayerFailure'
-    { _lfFailureReason = Nothing
-    , _lfFailureCode = Nothing
-    , _lfLayerDigest = Nothing
-    }
+  LayerFailure'
+  { _lfFailureReason = Nothing
+  , _lfFailureCode = Nothing
+  , _lfLayerDigest = Nothing
+  }
+
 
 -- | The reason for the failure.
 lfFailureReason :: Lens' LayerFailure (Maybe Text)
@@ -466,9 +473,9 @@ instance FromJSON LayerFailure where
                    (x .:? "failureReason") <*> (x .:? "failureCode") <*>
                      (x .:? "layerDigest"))
 
-instance Hashable LayerFailure
+instance Hashable LayerFailure where
 
-instance NFData LayerFailure
+instance NFData LayerFailure where
 
 -- | An object representing a filter on a 'ListImages' operation.
 --
@@ -476,8 +483,9 @@ instance NFData LayerFailure
 --
 -- /See:/ 'listImagesFilter' smart constructor.
 newtype ListImagesFilter = ListImagesFilter'
-    { _lifTagStatus :: Maybe TagStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lifTagStatus :: Maybe TagStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListImagesFilter' with the minimum fields required to make a request.
 --
@@ -486,18 +494,16 @@ newtype ListImagesFilter = ListImagesFilter'
 -- * 'lifTagStatus' - The tag status with which to filter your 'ListImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 listImagesFilter
     :: ListImagesFilter
-listImagesFilter =
-    ListImagesFilter'
-    { _lifTagStatus = Nothing
-    }
+listImagesFilter = ListImagesFilter' {_lifTagStatus = Nothing}
+
 
 -- | The tag status with which to filter your 'ListImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
 lifTagStatus :: Lens' ListImagesFilter (Maybe TagStatus)
 lifTagStatus = lens _lifTagStatus (\ s a -> s{_lifTagStatus = a});
 
-instance Hashable ListImagesFilter
+instance Hashable ListImagesFilter where
 
-instance NFData ListImagesFilter
+instance NFData ListImagesFilter where
 
 instance ToJSON ListImagesFilter where
         toJSON ListImagesFilter'{..}
@@ -510,12 +516,13 @@ instance ToJSON ListImagesFilter where
 --
 -- /See:/ 'repository' smart constructor.
 data Repository = Repository'
-    { _rRepositoryARN  :: !(Maybe Text)
-    , _rCreatedAt      :: !(Maybe POSIX)
-    , _rRegistryId     :: !(Maybe Text)
-    , _rRepositoryURI  :: !(Maybe Text)
-    , _rRepositoryName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rRepositoryARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rCreatedAt      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rRepositoryURI  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Repository' with the minimum fields required to make a request.
 --
@@ -533,13 +540,14 @@ data Repository = Repository'
 repository
     :: Repository
 repository =
-    Repository'
-    { _rRepositoryARN = Nothing
-    , _rCreatedAt = Nothing
-    , _rRegistryId = Nothing
-    , _rRepositoryURI = Nothing
-    , _rRepositoryName = Nothing
-    }
+  Repository'
+  { _rRepositoryARN = Nothing
+  , _rCreatedAt = Nothing
+  , _rRegistryId = Nothing
+  , _rRepositoryURI = Nothing
+  , _rRepositoryName = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
 rRepositoryARN :: Lens' Repository (Maybe Text)
@@ -571,6 +579,6 @@ instance FromJSON Repository where
                      <*> (x .:? "repositoryUri")
                      <*> (x .:? "repositoryName"))
 
-instance Hashable Repository
+instance Hashable Repository where
 
-instance NFData Repository
+instance NFData Repository where

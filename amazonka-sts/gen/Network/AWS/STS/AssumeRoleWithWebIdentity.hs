@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.STS.AssumeRoleWithWebIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -73,22 +73,23 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     , arwwirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.STS.Types
-import           Network.AWS.STS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.STS.Types
+import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'assumeRoleWithWebIdentity' smart constructor.
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
-    { _arwwiProviderId       :: !(Maybe Text)
-    , _arwwiDurationSeconds  :: !(Maybe Nat)
-    , _arwwiPolicy           :: !(Maybe Text)
-    , _arwwiRoleARN          :: !Text
-    , _arwwiRoleSessionName  :: !Text
-    , _arwwiWebIdentityToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arwwiProviderId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwwiDurationSeconds  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _arwwiPolicy           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwwiRoleARN          :: {-# NOUNPACK #-}!Text
+  , _arwwiRoleSessionName  :: {-# NOUNPACK #-}!Text
+  , _arwwiWebIdentityToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssumeRoleWithWebIdentity' with the minimum fields required to make a request.
 --
@@ -111,14 +112,15 @@ assumeRoleWithWebIdentity
     -> Text -- ^ 'arwwiWebIdentityToken'
     -> AssumeRoleWithWebIdentity
 assumeRoleWithWebIdentity pRoleARN_ pRoleSessionName_ pWebIdentityToken_ =
-    AssumeRoleWithWebIdentity'
-    { _arwwiProviderId = Nothing
-    , _arwwiDurationSeconds = Nothing
-    , _arwwiPolicy = Nothing
-    , _arwwiRoleARN = pRoleARN_
-    , _arwwiRoleSessionName = pRoleSessionName_
-    , _arwwiWebIdentityToken = pWebIdentityToken_
-    }
+  AssumeRoleWithWebIdentity'
+  { _arwwiProviderId = Nothing
+  , _arwwiDurationSeconds = Nothing
+  , _arwwiPolicy = Nothing
+  , _arwwiRoleARN = pRoleARN_
+  , _arwwiRoleSessionName = pRoleSessionName_
+  , _arwwiWebIdentityToken = pWebIdentityToken_
+  }
+
 
 -- | The fully qualified host component of the domain name of the identity provider. Specify this value only for OAuth 2.0 access tokens. Currently @www.amazon.com@ and @graph.facebook.com@ are the only supported identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port numbers. Do not specify this value for OpenID Connect ID tokens.
 arwwiProviderId :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
@@ -160,9 +162,9 @@ instance AWSRequest AssumeRoleWithWebIdentity where
                      <*> (x .@? "Provider")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AssumeRoleWithWebIdentity
+instance Hashable AssumeRoleWithWebIdentity where
 
-instance NFData AssumeRoleWithWebIdentity
+instance NFData AssumeRoleWithWebIdentity where
 
 instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty
@@ -188,14 +190,15 @@ instance ToQuery AssumeRoleWithWebIdentity where
 --
 -- /See:/ 'assumeRoleWithWebIdentityResponse' smart constructor.
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
-    { _arwwirsAudience                    :: !(Maybe Text)
-    , _arwwirsSubjectFromWebIdentityToken :: !(Maybe Text)
-    , _arwwirsPackedPolicySize            :: !(Maybe Nat)
-    , _arwwirsCredentials                 :: !(Maybe AuthEnv)
-    , _arwwirsAssumedRoleUser             :: !(Maybe AssumedRoleUser)
-    , _arwwirsProvider                    :: !(Maybe Text)
-    , _arwwirsResponseStatus              :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _arwwirsAudience :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwwirsSubjectFromWebIdentityToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwwirsPackedPolicySize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _arwwirsCredentials :: {-# NOUNPACK #-}!(Maybe AuthEnv)
+  , _arwwirsAssumedRoleUser :: {-# NOUNPACK #-}!(Maybe AssumedRoleUser)
+  , _arwwirsProvider :: {-# NOUNPACK #-}!(Maybe Text)
+  , _arwwirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssumeRoleWithWebIdentityResponse' with the minimum fields required to make a request.
 --
@@ -218,15 +221,16 @@ assumeRoleWithWebIdentityResponse
     :: Int -- ^ 'arwwirsResponseStatus'
     -> AssumeRoleWithWebIdentityResponse
 assumeRoleWithWebIdentityResponse pResponseStatus_ =
-    AssumeRoleWithWebIdentityResponse'
-    { _arwwirsAudience = Nothing
-    , _arwwirsSubjectFromWebIdentityToken = Nothing
-    , _arwwirsPackedPolicySize = Nothing
-    , _arwwirsCredentials = Nothing
-    , _arwwirsAssumedRoleUser = Nothing
-    , _arwwirsProvider = Nothing
-    , _arwwirsResponseStatus = pResponseStatus_
-    }
+  AssumeRoleWithWebIdentityResponse'
+  { _arwwirsAudience = Nothing
+  , _arwwirsSubjectFromWebIdentityToken = Nothing
+  , _arwwirsPackedPolicySize = Nothing
+  , _arwwirsCredentials = Nothing
+  , _arwwirsAssumedRoleUser = Nothing
+  , _arwwirsProvider = Nothing
+  , _arwwirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The intended audience (also known as client ID) of the web identity token. This is traditionally the client identifier issued to the application that requested the web identity token.
 arwwirsAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
@@ -257,3 +261,4 @@ arwwirsResponseStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
 arwwirsResponseStatus = lens _arwwirsResponseStatus (\ s a -> s{_arwwirsResponseStatus = a});
 
 instance NFData AssumeRoleWithWebIdentityResponse
+         where

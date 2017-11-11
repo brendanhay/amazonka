@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RotateEncryptionKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Redshift.RotateEncryptionKey
     , rekrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'rotateEncryptionKey' smart constructor.
 newtype RotateEncryptionKey = RotateEncryptionKey'
-    { _rekClusterIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rekClusterIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RotateEncryptionKey' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ rotateEncryptionKey
     :: Text -- ^ 'rekClusterIdentifier'
     -> RotateEncryptionKey
 rotateEncryptionKey pClusterIdentifier_ =
-    RotateEncryptionKey'
-    { _rekClusterIdentifier = pClusterIdentifier_
-    }
+  RotateEncryptionKey' {_rekClusterIdentifier = pClusterIdentifier_}
+
 
 -- | The unique identifier of the cluster that you want to rotate the encryption keys for. Constraints: Must be the name of valid cluster that has encryption enabled.
 rekClusterIdentifier :: Lens' RotateEncryptionKey Text
@@ -80,9 +80,9 @@ instance AWSRequest RotateEncryptionKey where
                  RotateEncryptionKeyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable RotateEncryptionKey
+instance Hashable RotateEncryptionKey where
 
-instance NFData RotateEncryptionKey
+instance NFData RotateEncryptionKey where
 
 instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty
@@ -99,9 +99,10 @@ instance ToQuery RotateEncryptionKey where
 
 -- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
-    { _rekrsCluster        :: !(Maybe Cluster)
-    , _rekrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rekrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _rekrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RotateEncryptionKeyResponse' with the minimum fields required to make a request.
 --
@@ -114,10 +115,9 @@ rotateEncryptionKeyResponse
     :: Int -- ^ 'rekrsResponseStatus'
     -> RotateEncryptionKeyResponse
 rotateEncryptionKeyResponse pResponseStatus_ =
-    RotateEncryptionKeyResponse'
-    { _rekrsCluster = Nothing
-    , _rekrsResponseStatus = pResponseStatus_
-    }
+  RotateEncryptionKeyResponse'
+  {_rekrsCluster = Nothing, _rekrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
@@ -127,4 +127,4 @@ rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
 rekrsResponseStatus :: Lens' RotateEncryptionKeyResponse Int
 rekrsResponseStatus = lens _rekrsResponseStatus (\ s a -> s{_rekrsResponseStatus = a});
 
-instance NFData RotateEncryptionKeyResponse
+instance NFData RotateEncryptionKeyResponse where

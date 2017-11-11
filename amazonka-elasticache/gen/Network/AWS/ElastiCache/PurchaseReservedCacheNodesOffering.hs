@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     , prcnorsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @PurchaseReservedCacheNodesOffering@ operation.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'purchaseReservedCacheNodesOffering' smart constructor.
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
-    { _prcnoCacheNodeCount               :: !(Maybe Int)
-    , _prcnoReservedCacheNodeId          :: !(Maybe Text)
-    , _prcnoReservedCacheNodesOfferingId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prcnoCacheNodeCount               :: {-# NOUNPACK #-}!(Maybe Int)
+  , _prcnoReservedCacheNodeId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prcnoReservedCacheNodesOfferingId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedCacheNodesOffering' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ purchaseReservedCacheNodesOffering
     :: Text -- ^ 'prcnoReservedCacheNodesOfferingId'
     -> PurchaseReservedCacheNodesOffering
 purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ =
-    PurchaseReservedCacheNodesOffering'
-    { _prcnoCacheNodeCount = Nothing
-    , _prcnoReservedCacheNodeId = Nothing
-    , _prcnoReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId_
-    }
+  PurchaseReservedCacheNodesOffering'
+  { _prcnoCacheNodeCount = Nothing
+  , _prcnoReservedCacheNodeId = Nothing
+  , _prcnoReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId_
+  }
+
 
 -- | The number of cache node instances to reserve. Default: @1@
 prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
@@ -89,7 +91,8 @@ prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Te
 prcnoReservedCacheNodesOfferingId = lens _prcnoReservedCacheNodesOfferingId (\ s a -> s{_prcnoReservedCacheNodesOfferingId = a});
 
 instance AWSRequest
-         PurchaseReservedCacheNodesOffering where
+           PurchaseReservedCacheNodesOffering
+         where
         type Rs PurchaseReservedCacheNodesOffering =
              PurchaseReservedCacheNodesOfferingResponse
         request = postQuery elastiCache
@@ -101,8 +104,10 @@ instance AWSRequest
                    (x .@? "ReservedCacheNode") <*> (pure (fromEnum s)))
 
 instance Hashable PurchaseReservedCacheNodesOffering
+         where
 
 instance NFData PurchaseReservedCacheNodesOffering
+         where
 
 instance ToHeaders PurchaseReservedCacheNodesOffering
          where
@@ -126,9 +131,10 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 
 -- | /See:/ 'purchaseReservedCacheNodesOfferingResponse' smart constructor.
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
-    { _prcnorsReservedCacheNode :: !(Maybe ReservedCacheNode)
-    , _prcnorsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prcnorsReservedCacheNode :: {-# NOUNPACK #-}!(Maybe ReservedCacheNode)
+  , _prcnorsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedCacheNodesOfferingResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +147,11 @@ purchaseReservedCacheNodesOfferingResponse
     :: Int -- ^ 'prcnorsResponseStatus'
     -> PurchaseReservedCacheNodesOfferingResponse
 purchaseReservedCacheNodesOfferingResponse pResponseStatus_ =
-    PurchaseReservedCacheNodesOfferingResponse'
-    { _prcnorsReservedCacheNode = Nothing
-    , _prcnorsResponseStatus = pResponseStatus_
-    }
+  PurchaseReservedCacheNodesOfferingResponse'
+  { _prcnorsReservedCacheNode = Nothing
+  , _prcnorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 prcnorsReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
@@ -155,4 +162,5 @@ prcnorsResponseStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
 prcnorsResponseStatus = lens _prcnorsResponseStatus (\ s a -> s{_prcnorsResponseStatus = a});
 
 instance NFData
-         PurchaseReservedCacheNodesOfferingResponse
+           PurchaseReservedCacheNodesOfferingResponse
+         where

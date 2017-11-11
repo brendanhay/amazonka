@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -271,19 +271,19 @@ module Network.AWS.CodeBuild
     , tagKey
     ) where
 
-import           Network.AWS.CodeBuild.BatchGetBuilds
-import           Network.AWS.CodeBuild.BatchGetProjects
-import           Network.AWS.CodeBuild.CreateProject
-import           Network.AWS.CodeBuild.DeleteProject
-import           Network.AWS.CodeBuild.ListBuilds
-import           Network.AWS.CodeBuild.ListBuildsForProject
-import           Network.AWS.CodeBuild.ListCuratedEnvironmentImages
-import           Network.AWS.CodeBuild.ListProjects
-import           Network.AWS.CodeBuild.StartBuild
-import           Network.AWS.CodeBuild.StopBuild
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.UpdateProject
-import           Network.AWS.CodeBuild.Waiters
+import Network.AWS.CodeBuild.BatchGetBuilds
+import Network.AWS.CodeBuild.BatchGetProjects
+import Network.AWS.CodeBuild.CreateProject
+import Network.AWS.CodeBuild.DeleteProject
+import Network.AWS.CodeBuild.ListBuilds
+import Network.AWS.CodeBuild.ListBuildsForProject
+import Network.AWS.CodeBuild.ListCuratedEnvironmentImages
+import Network.AWS.CodeBuild.ListProjects
+import Network.AWS.CodeBuild.StartBuild
+import Network.AWS.CodeBuild.StopBuild
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.UpdateProject
+import Network.AWS.CodeBuild.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

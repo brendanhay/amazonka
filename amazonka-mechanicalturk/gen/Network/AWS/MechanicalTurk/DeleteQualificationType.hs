@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.DeleteQualificationType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.MechanicalTurk.DeleteQualificationType
     , dqtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteQualificationType' smart constructor.
 newtype DeleteQualificationType = DeleteQualificationType'
-    { _dqtQualificationTypeId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dqtQualificationTypeId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteQualificationType' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteQualificationType
     :: Text -- ^ 'dqtQualificationTypeId'
     -> DeleteQualificationType
 deleteQualificationType pQualificationTypeId_ =
-    DeleteQualificationType'
-    { _dqtQualificationTypeId = pQualificationTypeId_
-    }
+  DeleteQualificationType' {_dqtQualificationTypeId = pQualificationTypeId_}
+
 
 -- | The ID of the QualificationType to dispose.
 dqtQualificationTypeId :: Lens' DeleteQualificationType Text
@@ -77,9 +77,9 @@ instance AWSRequest DeleteQualificationType where
                  DeleteQualificationTypeResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteQualificationType
+instance Hashable DeleteQualificationType where
 
-instance NFData DeleteQualificationType
+instance NFData DeleteQualificationType where
 
 instance ToHeaders DeleteQualificationType where
         toHeaders
@@ -106,8 +106,9 @@ instance ToQuery DeleteQualificationType where
 
 -- | /See:/ 'deleteQualificationTypeResponse' smart constructor.
 newtype DeleteQualificationTypeResponse = DeleteQualificationTypeResponse'
-    { _dqtrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dqtrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteQualificationTypeResponse' with the minimum fields required to make a request.
 --
@@ -118,12 +119,11 @@ deleteQualificationTypeResponse
     :: Int -- ^ 'dqtrsResponseStatus'
     -> DeleteQualificationTypeResponse
 deleteQualificationTypeResponse pResponseStatus_ =
-    DeleteQualificationTypeResponse'
-    { _dqtrsResponseStatus = pResponseStatus_
-    }
+  DeleteQualificationTypeResponse' {_dqtrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dqtrsResponseStatus :: Lens' DeleteQualificationTypeResponse Int
 dqtrsResponseStatus = lens _dqtrsResponseStatus (\ s a -> s{_dqtrsResponseStatus = a});
 
-instance NFData DeleteQualificationTypeResponse
+instance NFData DeleteQualificationTypeResponse where

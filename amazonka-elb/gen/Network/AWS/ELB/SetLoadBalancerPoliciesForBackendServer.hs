@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     , slbpfbsrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for SetLoadBalancerPoliciesForBackendServer.
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setLoadBalancerPoliciesForBackendServer' smart constructor.
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
-    { _slbpfbsLoadBalancerName :: !Text
-    , _slbpfbsInstancePort     :: !Int
-    , _slbpfbsPolicyNames      :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slbpfbsLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _slbpfbsInstancePort     :: {-# NOUNPACK #-}!Int
+  , _slbpfbsPolicyNames      :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetLoadBalancerPoliciesForBackendServer' with the minimum fields required to make a request.
 --
@@ -76,11 +77,12 @@ setLoadBalancerPoliciesForBackendServer
     -> Int -- ^ 'slbpfbsInstancePort'
     -> SetLoadBalancerPoliciesForBackendServer
 setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ =
-    SetLoadBalancerPoliciesForBackendServer'
-    { _slbpfbsLoadBalancerName = pLoadBalancerName_
-    , _slbpfbsInstancePort = pInstancePort_
-    , _slbpfbsPolicyNames = mempty
-    }
+  SetLoadBalancerPoliciesForBackendServer'
+  { _slbpfbsLoadBalancerName = pLoadBalancerName_
+  , _slbpfbsInstancePort = pInstancePort_
+  , _slbpfbsPolicyNames = mempty
+  }
+
 
 -- | The name of the load balancer.
 slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
@@ -95,7 +97,8 @@ slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a}) . _Coerce;
 
 instance AWSRequest
-         SetLoadBalancerPoliciesForBackendServer where
+           SetLoadBalancerPoliciesForBackendServer
+         where
         type Rs SetLoadBalancerPoliciesForBackendServer =
              SetLoadBalancerPoliciesForBackendServerResponse
         request = postQuery elb
@@ -107,21 +110,26 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         SetLoadBalancerPoliciesForBackendServer
+           SetLoadBalancerPoliciesForBackendServer
+         where
 
 instance NFData
-         SetLoadBalancerPoliciesForBackendServer
+           SetLoadBalancerPoliciesForBackendServer
+         where
 
 instance ToHeaders
-         SetLoadBalancerPoliciesForBackendServer where
+           SetLoadBalancerPoliciesForBackendServer
+         where
         toHeaders = const mempty
 
 instance ToPath
-         SetLoadBalancerPoliciesForBackendServer where
+           SetLoadBalancerPoliciesForBackendServer
+         where
         toPath = const "/"
 
 instance ToQuery
-         SetLoadBalancerPoliciesForBackendServer where
+           SetLoadBalancerPoliciesForBackendServer
+         where
         toQuery SetLoadBalancerPoliciesForBackendServer'{..}
           = mconcat
               ["Action" =:
@@ -139,8 +147,9 @@ instance ToQuery
 --
 -- /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
-    { _slbpfbsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slbpfbsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetLoadBalancerPoliciesForBackendServerResponse' with the minimum fields required to make a request.
 --
@@ -151,13 +160,14 @@ setLoadBalancerPoliciesForBackendServerResponse
     :: Int -- ^ 'slbpfbsrsResponseStatus'
     -> SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServerResponse pResponseStatus_ =
-    SetLoadBalancerPoliciesForBackendServerResponse'
-    { _slbpfbsrsResponseStatus = pResponseStatus_
-    }
+  SetLoadBalancerPoliciesForBackendServerResponse'
+  {_slbpfbsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 slbpfbsrsResponseStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
 slbpfbsrsResponseStatus = lens _slbpfbsrsResponseStatus (\ s a -> s{_slbpfbsrsResponseStatus = a});
 
 instance NFData
-         SetLoadBalancerPoliciesForBackendServerResponse
+           SetLoadBalancerPoliciesForBackendServerResponse
+         where

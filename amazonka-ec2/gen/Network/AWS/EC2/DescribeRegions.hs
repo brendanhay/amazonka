@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeRegions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeRegions
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeRegions.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
-    { _drsRegionNames :: !(Maybe [Text])
-    , _drsFilters     :: !(Maybe [Filter])
-    , _drsDryRun      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsRegionNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drsFilters     :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _drsDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRegions' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ data DescribeRegions = DescribeRegions'
 describeRegions
     :: DescribeRegions
 describeRegions =
-    DescribeRegions'
-    { _drsRegionNames = Nothing
-    , _drsFilters = Nothing
-    , _drsDryRun = Nothing
-    }
+  DescribeRegions'
+  {_drsRegionNames = Nothing, _drsFilters = Nothing, _drsDryRun = Nothing}
+
 
 -- | The names of one or more regions.
 drsRegionNames :: Lens' DescribeRegions [Text]
@@ -100,9 +99,9 @@ instance AWSRequest DescribeRegions where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeRegions
+instance Hashable DescribeRegions where
 
-instance NFData DescribeRegions
+instance NFData DescribeRegions where
 
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty
@@ -126,9 +125,10 @@ instance ToQuery DescribeRegions where
 --
 -- /See:/ 'describeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
-    { _drrsRegions        :: !(Maybe [RegionInfo])
-    , _drrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsRegions        :: {-# NOUNPACK #-}!(Maybe [RegionInfo])
+  , _drrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRegionsResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +141,9 @@ describeRegionsResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DescribeRegionsResponse
 describeRegionsResponse pResponseStatus_ =
-    DescribeRegionsResponse'
-    { _drrsRegions = Nothing
-    , _drrsResponseStatus = pResponseStatus_
-    }
+  DescribeRegionsResponse'
+  {_drrsRegions = Nothing, _drrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more regions.
 drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
@@ -154,4 +153,4 @@ drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coe
 drrsResponseStatus :: Lens' DescribeRegionsResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DescribeRegionsResponse
+instance NFData DescribeRegionsResponse where

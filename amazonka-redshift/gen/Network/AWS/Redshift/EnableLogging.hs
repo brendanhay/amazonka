@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.EnableLogging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.Redshift.EnableLogging
     , lsLastFailureMessage
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableLogging' smart constructor.
 data EnableLogging = EnableLogging'
-    { _elS3KeyPrefix       :: !(Maybe Text)
-    , _elClusterIdentifier :: !Text
-    , _elBucketName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _elS3KeyPrefix       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elClusterIdentifier :: {-# NOUNPACK #-}!Text
+  , _elBucketName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableLogging' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ enableLogging
     -> Text -- ^ 'elBucketName'
     -> EnableLogging
 enableLogging pClusterIdentifier_ pBucketName_ =
-    EnableLogging'
-    { _elS3KeyPrefix = Nothing
-    , _elClusterIdentifier = pClusterIdentifier_
-    , _elBucketName = pBucketName_
-    }
+  EnableLogging'
+  { _elS3KeyPrefix = Nothing
+  , _elClusterIdentifier = pClusterIdentifier_
+  , _elBucketName = pBucketName_
+  }
+
 
 -- | The prefix applied to the log file names. Constraints:     * Cannot exceed 512 characters     * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:      * x00 to x20     * x22     * x27     * x5c     * x7f or larger
 elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest EnableLogging where
           = receiveXMLWrapper "EnableLoggingResult"
               (\ s h x -> parseXML x)
 
-instance Hashable EnableLogging
+instance Hashable EnableLogging where
 
-instance NFData EnableLogging
+instance NFData EnableLogging where
 
 instance ToHeaders EnableLogging where
         toHeaders = const mempty

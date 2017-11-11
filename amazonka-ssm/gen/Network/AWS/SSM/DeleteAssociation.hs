@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.DeleteAssociation
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-    { _daaAssociationId :: !(Maybe Text)
-    , _daaInstanceId    :: !(Maybe Text)
-    , _daaName          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daaAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daaInstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daaName          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssociation' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DeleteAssociation = DeleteAssociation'
 deleteAssociation
     :: DeleteAssociation
 deleteAssociation =
-    DeleteAssociation'
-    { _daaAssociationId = Nothing
-    , _daaInstanceId = Nothing
-    , _daaName = Nothing
-    }
+  DeleteAssociation'
+  {_daaAssociationId = Nothing, _daaInstanceId = Nothing, _daaName = Nothing}
+
 
 -- | The association ID that you want to delete.
 daaAssociationId :: Lens' DeleteAssociation (Maybe Text)
@@ -92,9 +91,9 @@ instance AWSRequest DeleteAssociation where
               (\ s h x ->
                  DeleteAssociationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteAssociation
+instance Hashable DeleteAssociation where
 
-instance NFData DeleteAssociation
+instance NFData DeleteAssociation where
 
 instance ToHeaders DeleteAssociation where
         toHeaders
@@ -121,8 +120,9 @@ instance ToQuery DeleteAssociation where
 
 -- | /See:/ 'deleteAssociationResponse' smart constructor.
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
-    { _delrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAssociationResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +133,11 @@ deleteAssociationResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteAssociationResponse
 deleteAssociationResponse pResponseStatus_ =
-    DeleteAssociationResponse'
-    { _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteAssociationResponse' {_delrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteAssociationResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteAssociationResponse
+instance NFData DeleteAssociationResponse where

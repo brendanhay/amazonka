@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteFileShare
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.StorageGateway.DeleteFileShare
     , dfsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DeleteFileShareInput
 --
@@ -51,9 +51,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'deleteFileShare' smart constructor.
 data DeleteFileShare = DeleteFileShare'
-    { _dfsForceDelete  :: !(Maybe Bool)
-    , _dfsFileShareARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfsForceDelete  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dfsFileShareARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFileShare' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ deleteFileShare
     :: Text -- ^ 'dfsFileShareARN'
     -> DeleteFileShare
 deleteFileShare pFileShareARN_ =
-    DeleteFileShare'
-    { _dfsForceDelete = Nothing
-    , _dfsFileShareARN = pFileShareARN_
-    }
+  DeleteFileShare'
+  {_dfsForceDelete = Nothing, _dfsFileShareARN = pFileShareARN_}
+
 
 -- | If set to true, deletes a file share immediately and aborts all data uploads to AWS. Otherwise the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process and the file share enters the FORCE_DELETING status.
 dfsForceDelete :: Lens' DeleteFileShare (Maybe Bool)
@@ -88,9 +88,9 @@ instance AWSRequest DeleteFileShare where
                  DeleteFileShareResponse' <$>
                    (x .?> "FileShareARN") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteFileShare
+instance Hashable DeleteFileShare where
 
-instance NFData DeleteFileShare
+instance NFData DeleteFileShare where
 
 instance ToHeaders DeleteFileShare where
         toHeaders
@@ -121,9 +121,10 @@ instance ToQuery DeleteFileShare where
 --
 -- /See:/ 'deleteFileShareResponse' smart constructor.
 data DeleteFileShareResponse = DeleteFileShareResponse'
-    { _dfsrsFileShareARN   :: !(Maybe Text)
-    , _dfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfsrsFileShareARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFileShareResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +137,9 @@ deleteFileShareResponse
     :: Int -- ^ 'dfsrsResponseStatus'
     -> DeleteFileShareResponse
 deleteFileShareResponse pResponseStatus_ =
-    DeleteFileShareResponse'
-    { _dfsrsFileShareARN = Nothing
-    , _dfsrsResponseStatus = pResponseStatus_
-    }
+  DeleteFileShareResponse'
+  {_dfsrsFileShareARN = Nothing, _dfsrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the deleted file share.
 dfsrsFileShareARN :: Lens' DeleteFileShareResponse (Maybe Text)
@@ -149,4 +149,4 @@ dfsrsFileShareARN = lens _dfsrsFileShareARN (\ s a -> s{_dfsrsFileShareARN = a})
 dfsrsResponseStatus :: Lens' DeleteFileShareResponse Int
 dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a});
 
-instance NFData DeleteFileShareResponse
+instance NFData DeleteFileShareResponse where

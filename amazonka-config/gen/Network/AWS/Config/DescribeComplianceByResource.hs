@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeComplianceByResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,13 +56,13 @@ module Network.AWS.Config.DescribeComplianceByResource
     , dcbrrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -70,12 +70,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeComplianceByResource' smart constructor.
 data DescribeComplianceByResource = DescribeComplianceByResource'
-    { _dcbrResourceId      :: !(Maybe Text)
-    , _dcbrResourceType    :: !(Maybe Text)
-    , _dcbrComplianceTypes :: !(Maybe [ComplianceType])
-    , _dcbrNextToken       :: !(Maybe Text)
-    , _dcbrLimit           :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcbrResourceId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcbrResourceType    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcbrComplianceTypes :: {-# NOUNPACK #-}!(Maybe [ComplianceType])
+  , _dcbrNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcbrLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeComplianceByResource' with the minimum fields required to make a request.
 --
@@ -93,13 +94,14 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
 describeComplianceByResource
     :: DescribeComplianceByResource
 describeComplianceByResource =
-    DescribeComplianceByResource'
-    { _dcbrResourceId = Nothing
-    , _dcbrResourceType = Nothing
-    , _dcbrComplianceTypes = Nothing
-    , _dcbrNextToken = Nothing
-    , _dcbrLimit = Nothing
-    }
+  DescribeComplianceByResource'
+  { _dcbrResourceId = Nothing
+  , _dcbrResourceType = Nothing
+  , _dcbrComplianceTypes = Nothing
+  , _dcbrNextToken = Nothing
+  , _dcbrLimit = Nothing
+  }
+
 
 -- | The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
 dcbrResourceId :: Lens' DescribeComplianceByResource (Maybe Text)
@@ -141,9 +143,9 @@ instance AWSRequest DescribeComplianceByResource
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeComplianceByResource
+instance Hashable DescribeComplianceByResource where
 
-instance NFData DescribeComplianceByResource
+instance NFData DescribeComplianceByResource where
 
 instance ToHeaders DescribeComplianceByResource where
         toHeaders
@@ -177,10 +179,11 @@ instance ToQuery DescribeComplianceByResource where
 --
 -- /See:/ 'describeComplianceByResourceResponse' smart constructor.
 data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse'
-    { _dcbrrsComplianceByResources :: !(Maybe [ComplianceByResource])
-    , _dcbrrsNextToken             :: !(Maybe Text)
-    , _dcbrrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcbrrsComplianceByResources :: {-# NOUNPACK #-}!(Maybe [ComplianceByResource])
+  , _dcbrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeComplianceByResourceResponse' with the minimum fields required to make a request.
 --
@@ -195,11 +198,12 @@ describeComplianceByResourceResponse
     :: Int -- ^ 'dcbrrsResponseStatus'
     -> DescribeComplianceByResourceResponse
 describeComplianceByResourceResponse pResponseStatus_ =
-    DescribeComplianceByResourceResponse'
-    { _dcbrrsComplianceByResources = Nothing
-    , _dcbrrsNextToken = Nothing
-    , _dcbrrsResponseStatus = pResponseStatus_
-    }
+  DescribeComplianceByResourceResponse'
+  { _dcbrrsComplianceByResources = Nothing
+  , _dcbrrsNextToken = Nothing
+  , _dcbrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
 dcbrrsComplianceByResources :: Lens' DescribeComplianceByResourceResponse [ComplianceByResource]
@@ -214,3 +218,4 @@ dcbrrsResponseStatus :: Lens' DescribeComplianceByResourceResponse Int
 dcbrrsResponseStatus = lens _dcbrrsResponseStatus (\ s a -> s{_dcbrrsResponseStatus = a});
 
 instance NFData DescribeComplianceByResourceResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribeHandshake
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Organizations.DescribeHandshake
     , dhrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeHandshake' smart constructor.
 newtype DescribeHandshake = DescribeHandshake'
-    { _dhHandshakeId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhHandshakeId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHandshake' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ describeHandshake
     :: Text -- ^ 'dhHandshakeId'
     -> DescribeHandshake
 describeHandshake pHandshakeId_ =
-    DescribeHandshake'
-    { _dhHandshakeId = pHandshakeId_
-    }
+  DescribeHandshake' {_dhHandshakeId = pHandshakeId_}
+
 
 -- | The unique identifier (ID) of the handshake that you want information about. You can get the ID from the original call to 'InviteAccountToOrganization' , or from a call to 'ListHandshakesForAccount' or 'ListHandshakesForOrganization' . The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
 dhHandshakeId :: Lens' DescribeHandshake Text
@@ -79,9 +79,9 @@ instance AWSRequest DescribeHandshake where
                  DescribeHandshakeResponse' <$>
                    (x .?> "Handshake") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHandshake
+instance Hashable DescribeHandshake where
 
-instance NFData DescribeHandshake
+instance NFData DescribeHandshake where
 
 instance ToHeaders DescribeHandshake where
         toHeaders
@@ -106,9 +106,10 @@ instance ToQuery DescribeHandshake where
 
 -- | /See:/ 'describeHandshakeResponse' smart constructor.
 data DescribeHandshakeResponse = DescribeHandshakeResponse'
-    { _dhrsHandshake      :: !(Maybe Handshake)
-    , _dhrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dhrsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
+  , _dhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHandshakeResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,9 @@ describeHandshakeResponse
     :: Int -- ^ 'dhrsResponseStatus'
     -> DescribeHandshakeResponse
 describeHandshakeResponse pResponseStatus_ =
-    DescribeHandshakeResponse'
-    { _dhrsHandshake = Nothing
-    , _dhrsResponseStatus = pResponseStatus_
-    }
+  DescribeHandshakeResponse'
+  {_dhrsHandshake = Nothing, _dhrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains information about the specified handshake.
 dhrsHandshake :: Lens' DescribeHandshakeResponse (Maybe Handshake)
@@ -134,4 +134,4 @@ dhrsHandshake = lens _dhrsHandshake (\ s a -> s{_dhrsHandshake = a});
 dhrsResponseStatus :: Lens' DescribeHandshakeResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
 
-instance NFData DescribeHandshakeResponse
+instance NFData DescribeHandshakeResponse where

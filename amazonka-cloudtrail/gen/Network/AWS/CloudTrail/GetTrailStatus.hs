@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.GetTrailStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.CloudTrail.GetTrailStatus
     , gtsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The name of a trail about which you want the current status.
 --
@@ -66,8 +66,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getTrailStatus' smart constructor.
 newtype GetTrailStatus = GetTrailStatus'
-    { _gtsName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtsName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTrailStatus' with the minimum fields required to make a request.
 --
@@ -77,10 +78,8 @@ newtype GetTrailStatus = GetTrailStatus'
 getTrailStatus
     :: Text -- ^ 'gtsName'
     -> GetTrailStatus
-getTrailStatus pName_ =
-    GetTrailStatus'
-    { _gtsName = pName_
-    }
+getTrailStatus pName_ = GetTrailStatus' {_gtsName = pName_}
+
 
 -- | Specifies the name or the CloudTrail ARN of the trail for which you are requesting status. To get the status of a shadow trail (a replication of the trail in another region), you must specify its ARN. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 gtsName :: Lens' GetTrailStatus Text
@@ -112,9 +111,9 @@ instance AWSRequest GetTrailStatus where
                      <*> (x .?> "StopLoggingTime")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTrailStatus
+instance Hashable GetTrailStatus where
 
-instance NFData GetTrailStatus
+instance NFData GetTrailStatus where
 
 instance ToHeaders GetTrailStatus where
         toHeaders
@@ -142,25 +141,26 @@ instance ToQuery GetTrailStatus where
 --
 -- /See:/ 'getTrailStatusResponse' smart constructor.
 data GetTrailStatusResponse = GetTrailStatusResponse'
-    { _gtsrsTimeLoggingStopped                 :: !(Maybe Text)
-    , _gtsrsLatestDeliveryError                :: !(Maybe Text)
-    , _gtsrsLatestDigestDeliveryTime           :: !(Maybe POSIX)
-    , _gtsrsLatestNotificationAttemptSucceeded :: !(Maybe Text)
-    , _gtsrsStartLoggingTime                   :: !(Maybe POSIX)
-    , _gtsrsLatestNotificationError            :: !(Maybe Text)
-    , _gtsrsLatestDeliveryAttemptSucceeded     :: !(Maybe Text)
-    , _gtsrsIsLogging                          :: !(Maybe Bool)
-    , _gtsrsTimeLoggingStarted                 :: !(Maybe Text)
-    , _gtsrsLatestDigestDeliveryError          :: !(Maybe Text)
-    , _gtsrsLatestDeliveryAttemptTime          :: !(Maybe Text)
-    , _gtsrsLatestDeliveryTime                 :: !(Maybe POSIX)
-    , _gtsrsLatestCloudWatchLogsDeliveryTime   :: !(Maybe POSIX)
-    , _gtsrsLatestCloudWatchLogsDeliveryError  :: !(Maybe Text)
-    , _gtsrsLatestNotificationTime             :: !(Maybe POSIX)
-    , _gtsrsLatestNotificationAttemptTime      :: !(Maybe Text)
-    , _gtsrsStopLoggingTime                    :: !(Maybe POSIX)
-    , _gtsrsResponseStatus                     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtsrsTimeLoggingStopped                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsLatestDeliveryError                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsLatestDigestDeliveryTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtsrsLatestNotificationAttemptSucceeded :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsStartLoggingTime                   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtsrsLatestNotificationError            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsLatestDeliveryAttemptSucceeded     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsIsLogging                          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gtsrsTimeLoggingStarted                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsLatestDigestDeliveryError          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsLatestDeliveryAttemptTime          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsLatestDeliveryTime                 :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtsrsLatestCloudWatchLogsDeliveryTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtsrsLatestCloudWatchLogsDeliveryError  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsLatestNotificationTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtsrsLatestNotificationAttemptTime      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtsrsStopLoggingTime                    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gtsrsResponseStatus                     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTrailStatusResponse' with the minimum fields required to make a request.
 --
@@ -205,26 +205,27 @@ getTrailStatusResponse
     :: Int -- ^ 'gtsrsResponseStatus'
     -> GetTrailStatusResponse
 getTrailStatusResponse pResponseStatus_ =
-    GetTrailStatusResponse'
-    { _gtsrsTimeLoggingStopped = Nothing
-    , _gtsrsLatestDeliveryError = Nothing
-    , _gtsrsLatestDigestDeliveryTime = Nothing
-    , _gtsrsLatestNotificationAttemptSucceeded = Nothing
-    , _gtsrsStartLoggingTime = Nothing
-    , _gtsrsLatestNotificationError = Nothing
-    , _gtsrsLatestDeliveryAttemptSucceeded = Nothing
-    , _gtsrsIsLogging = Nothing
-    , _gtsrsTimeLoggingStarted = Nothing
-    , _gtsrsLatestDigestDeliveryError = Nothing
-    , _gtsrsLatestDeliveryAttemptTime = Nothing
-    , _gtsrsLatestDeliveryTime = Nothing
-    , _gtsrsLatestCloudWatchLogsDeliveryTime = Nothing
-    , _gtsrsLatestCloudWatchLogsDeliveryError = Nothing
-    , _gtsrsLatestNotificationTime = Nothing
-    , _gtsrsLatestNotificationAttemptTime = Nothing
-    , _gtsrsStopLoggingTime = Nothing
-    , _gtsrsResponseStatus = pResponseStatus_
-    }
+  GetTrailStatusResponse'
+  { _gtsrsTimeLoggingStopped = Nothing
+  , _gtsrsLatestDeliveryError = Nothing
+  , _gtsrsLatestDigestDeliveryTime = Nothing
+  , _gtsrsLatestNotificationAttemptSucceeded = Nothing
+  , _gtsrsStartLoggingTime = Nothing
+  , _gtsrsLatestNotificationError = Nothing
+  , _gtsrsLatestDeliveryAttemptSucceeded = Nothing
+  , _gtsrsIsLogging = Nothing
+  , _gtsrsTimeLoggingStarted = Nothing
+  , _gtsrsLatestDigestDeliveryError = Nothing
+  , _gtsrsLatestDeliveryAttemptTime = Nothing
+  , _gtsrsLatestDeliveryTime = Nothing
+  , _gtsrsLatestCloudWatchLogsDeliveryTime = Nothing
+  , _gtsrsLatestCloudWatchLogsDeliveryError = Nothing
+  , _gtsrsLatestNotificationTime = Nothing
+  , _gtsrsLatestNotificationAttemptTime = Nothing
+  , _gtsrsStopLoggingTime = Nothing
+  , _gtsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | This field is deprecated.
 gtsrsTimeLoggingStopped :: Lens' GetTrailStatusResponse (Maybe Text)
@@ -298,4 +299,4 @@ gtsrsStopLoggingTime = lens _gtsrsStopLoggingTime (\ s a -> s{_gtsrsStopLoggingT
 gtsrsResponseStatus :: Lens' GetTrailStatusResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
 
-instance NFData GetTrailStatusResponse
+instance NFData GetTrailStatusResponse where

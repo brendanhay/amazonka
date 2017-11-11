@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetInstanceAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.ResetInstanceAttribute
     , ResetInstanceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ResetInstanceAttribute.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'resetInstanceAttribute' smart constructor.
 data ResetInstanceAttribute = ResetInstanceAttribute'
-    { _riaDryRun     :: !(Maybe Bool)
-    , _riaAttribute  :: !InstanceAttributeName
-    , _riaInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riaDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _riaAttribute  :: {-# NOUNPACK #-}!InstanceAttributeName
+  , _riaInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetInstanceAttribute' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ resetInstanceAttribute
     -> Text -- ^ 'riaInstanceId'
     -> ResetInstanceAttribute
 resetInstanceAttribute pAttribute_ pInstanceId_ =
-    ResetInstanceAttribute'
-    { _riaDryRun = Nothing
-    , _riaAttribute = pAttribute_
-    , _riaInstanceId = pInstanceId_
-    }
+  ResetInstanceAttribute'
+  { _riaDryRun = Nothing
+  , _riaAttribute = pAttribute_
+  , _riaInstanceId = pInstanceId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
@@ -95,9 +97,9 @@ instance AWSRequest ResetInstanceAttribute where
         response
           = receiveNull ResetInstanceAttributeResponse'
 
-instance Hashable ResetInstanceAttribute
+instance Hashable ResetInstanceAttribute where
 
-instance NFData ResetInstanceAttribute
+instance NFData ResetInstanceAttribute where
 
 instance ToHeaders ResetInstanceAttribute where
         toHeaders = const mempty
@@ -116,8 +118,9 @@ instance ToQuery ResetInstanceAttribute where
 
 -- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse =
-    ResetInstanceAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ResetInstanceAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetInstanceAttributeResponse' with the minimum fields required to make a request.
 --
@@ -125,4 +128,5 @@ resetInstanceAttributeResponse
     :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse'
 
-instance NFData ResetInstanceAttributeResponse
+
+instance NFData ResetInstanceAttributeResponse where

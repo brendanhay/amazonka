@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     , acsgirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -59,11 +59,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'authorizeClusterSecurityGroupIngress' smart constructor.
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
-    { _acsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
-    , _acsgiEC2SecurityGroupName     :: !(Maybe Text)
-    , _acsgiCIdRIP                   :: !(Maybe Text)
-    , _acsgiClusterSecurityGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acsgiEC2SecurityGroupOwnerId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acsgiEC2SecurityGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acsgiCIdRIP                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acsgiClusterSecurityGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeClusterSecurityGroupIngress' with the minimum fields required to make a request.
 --
@@ -80,12 +81,13 @@ authorizeClusterSecurityGroupIngress
     :: Text -- ^ 'acsgiClusterSecurityGroupName'
     -> AuthorizeClusterSecurityGroupIngress
 authorizeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
-    AuthorizeClusterSecurityGroupIngress'
-    { _acsgiEC2SecurityGroupOwnerId = Nothing
-    , _acsgiEC2SecurityGroupName = Nothing
-    , _acsgiCIdRIP = Nothing
-    , _acsgiClusterSecurityGroupName = pClusterSecurityGroupName_
-    }
+  AuthorizeClusterSecurityGroupIngress'
+  { _acsgiEC2SecurityGroupOwnerId = Nothing
+  , _acsgiEC2SecurityGroupName = Nothing
+  , _acsgiCIdRIP = Nothing
+  , _acsgiClusterSecurityGroupName = pClusterSecurityGroupName_
+  }
+
 
 -- | The AWS account number of the owner of the security group specified by the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an acceptable value.  Example: @111122223333@
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
@@ -104,7 +106,8 @@ acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
 acsgiClusterSecurityGroupName = lens _acsgiClusterSecurityGroupName (\ s a -> s{_acsgiClusterSecurityGroupName = a});
 
 instance AWSRequest
-         AuthorizeClusterSecurityGroupIngress where
+           AuthorizeClusterSecurityGroupIngress
+         where
         type Rs AuthorizeClusterSecurityGroupIngress =
              AuthorizeClusterSecurityGroupIngressResponse
         request = postQuery redshift
@@ -117,12 +120,15 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable
-         AuthorizeClusterSecurityGroupIngress
+           AuthorizeClusterSecurityGroupIngress
+         where
 
 instance NFData AuthorizeClusterSecurityGroupIngress
+         where
 
 instance ToHeaders
-         AuthorizeClusterSecurityGroupIngress where
+           AuthorizeClusterSecurityGroupIngress
+         where
         toHeaders = const mempty
 
 instance ToPath AuthorizeClusterSecurityGroupIngress
@@ -146,9 +152,10 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
 
 -- | /See:/ 'authorizeClusterSecurityGroupIngressResponse' smart constructor.
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
-    { _acsgirsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _acsgirsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acsgirsClusterSecurityGroup :: {-# NOUNPACK #-}!(Maybe ClusterSecurityGroup)
+  , _acsgirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeClusterSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
@@ -161,10 +168,11 @@ authorizeClusterSecurityGroupIngressResponse
     :: Int -- ^ 'acsgirsResponseStatus'
     -> AuthorizeClusterSecurityGroupIngressResponse
 authorizeClusterSecurityGroupIngressResponse pResponseStatus_ =
-    AuthorizeClusterSecurityGroupIngressResponse'
-    { _acsgirsClusterSecurityGroup = Nothing
-    , _acsgirsResponseStatus = pResponseStatus_
-    }
+  AuthorizeClusterSecurityGroupIngressResponse'
+  { _acsgirsClusterSecurityGroup = Nothing
+  , _acsgirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
@@ -175,4 +183,5 @@ acsgirsResponseStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
 acsgirsResponseStatus = lens _acsgirsResponseStatus (\ s a -> s{_acsgirsResponseStatus = a});
 
 instance NFData
-         AuthorizeClusterSecurityGroupIngressResponse
+           AuthorizeClusterSecurityGroupIngressResponse
+         where

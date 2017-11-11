@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateServiceSpecificCredential
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,19 +36,20 @@ module Network.AWS.IAM.UpdateServiceSpecificCredential
     , UpdateServiceSpecificCredentialResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateServiceSpecificCredential' smart constructor.
 data UpdateServiceSpecificCredential = UpdateServiceSpecificCredential'
-    { _usscUserName                    :: !(Maybe Text)
-    , _usscServiceSpecificCredentialId :: !Text
-    , _usscStatus                      :: !StatusType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usscUserName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usscServiceSpecificCredentialId :: {-# NOUNPACK #-}!Text
+  , _usscStatus                      :: {-# NOUNPACK #-}!StatusType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServiceSpecificCredential' with the minimum fields required to make a request.
 --
@@ -64,11 +65,12 @@ updateServiceSpecificCredential
     -> StatusType -- ^ 'usscStatus'
     -> UpdateServiceSpecificCredential
 updateServiceSpecificCredential pServiceSpecificCredentialId_ pStatus_ =
-    UpdateServiceSpecificCredential'
-    { _usscUserName = Nothing
-    , _usscServiceSpecificCredentialId = pServiceSpecificCredentialId_
-    , _usscStatus = pStatus_
-    }
+  UpdateServiceSpecificCredential'
+  { _usscUserName = Nothing
+  , _usscServiceSpecificCredentialId = pServiceSpecificCredentialId_
+  , _usscStatus = pStatus_
+  }
+
 
 -- | The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 usscUserName :: Lens' UpdateServiceSpecificCredential (Maybe Text)
@@ -92,8 +94,9 @@ instance AWSRequest UpdateServiceSpecificCredential
               UpdateServiceSpecificCredentialResponse'
 
 instance Hashable UpdateServiceSpecificCredential
+         where
 
-instance NFData UpdateServiceSpecificCredential
+instance NFData UpdateServiceSpecificCredential where
 
 instance ToHeaders UpdateServiceSpecificCredential
          where
@@ -116,15 +119,18 @@ instance ToQuery UpdateServiceSpecificCredential
 
 -- | /See:/ 'updateServiceSpecificCredentialResponse' smart constructor.
 data UpdateServiceSpecificCredentialResponse =
-    UpdateServiceSpecificCredentialResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateServiceSpecificCredentialResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServiceSpecificCredentialResponse' with the minimum fields required to make a request.
 --
 updateServiceSpecificCredentialResponse
     :: UpdateServiceSpecificCredentialResponse
 updateServiceSpecificCredentialResponse =
-    UpdateServiceSpecificCredentialResponse'
+  UpdateServiceSpecificCredentialResponse'
+
 
 instance NFData
-         UpdateServiceSpecificCredentialResponse
+           UpdateServiceSpecificCredentialResponse
+         where

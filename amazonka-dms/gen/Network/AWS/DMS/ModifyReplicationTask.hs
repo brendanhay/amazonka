@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ModifyReplicationTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.DMS.ModifyReplicationTask
     , mrtrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -59,13 +59,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyReplicationTask' smart constructor.
 data ModifyReplicationTask = ModifyReplicationTask'
-    { _mrtReplicationTaskSettings   :: !(Maybe Text)
-    , _mrtReplicationTaskIdentifier :: !(Maybe Text)
-    , _mrtTableMappings             :: !(Maybe Text)
-    , _mrtMigrationType             :: !(Maybe MigrationTypeValue)
-    , _mrtCdcStartTime              :: !(Maybe POSIX)
-    , _mrtReplicationTaskARN        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrtReplicationTaskSettings   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrtReplicationTaskIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrtTableMappings             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrtMigrationType             :: {-# NOUNPACK #-}!(Maybe MigrationTypeValue)
+  , _mrtCdcStartTime              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mrtReplicationTaskARN        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyReplicationTask' with the minimum fields required to make a request.
 --
@@ -86,14 +87,15 @@ modifyReplicationTask
     :: Text -- ^ 'mrtReplicationTaskARN'
     -> ModifyReplicationTask
 modifyReplicationTask pReplicationTaskARN_ =
-    ModifyReplicationTask'
-    { _mrtReplicationTaskSettings = Nothing
-    , _mrtReplicationTaskIdentifier = Nothing
-    , _mrtTableMappings = Nothing
-    , _mrtMigrationType = Nothing
-    , _mrtCdcStartTime = Nothing
-    , _mrtReplicationTaskARN = pReplicationTaskARN_
-    }
+  ModifyReplicationTask'
+  { _mrtReplicationTaskSettings = Nothing
+  , _mrtReplicationTaskIdentifier = Nothing
+  , _mrtTableMappings = Nothing
+  , _mrtMigrationType = Nothing
+  , _mrtCdcStartTime = Nothing
+  , _mrtReplicationTaskARN = pReplicationTaskARN_
+  }
+
 
 -- | JSON file that contains settings for the task, such as target metadata settings.
 mrtReplicationTaskSettings :: Lens' ModifyReplicationTask (Maybe Text)
@@ -129,9 +131,9 @@ instance AWSRequest ModifyReplicationTask where
                  ModifyReplicationTaskResponse' <$>
                    (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyReplicationTask
+instance Hashable ModifyReplicationTask where
 
-instance NFData ModifyReplicationTask
+instance NFData ModifyReplicationTask where
 
 instance ToHeaders ModifyReplicationTask where
         toHeaders
@@ -169,9 +171,10 @@ instance ToQuery ModifyReplicationTask where
 --
 -- /See:/ 'modifyReplicationTaskResponse' smart constructor.
 data ModifyReplicationTaskResponse = ModifyReplicationTaskResponse'
-    { _mrtrsReplicationTask :: !(Maybe ReplicationTask)
-    , _mrtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrtrsReplicationTask :: {-# NOUNPACK #-}!(Maybe ReplicationTask)
+  , _mrtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyReplicationTaskResponse' with the minimum fields required to make a request.
 --
@@ -184,10 +187,9 @@ modifyReplicationTaskResponse
     :: Int -- ^ 'mrtrsResponseStatus'
     -> ModifyReplicationTaskResponse
 modifyReplicationTaskResponse pResponseStatus_ =
-    ModifyReplicationTaskResponse'
-    { _mrtrsReplicationTask = Nothing
-    , _mrtrsResponseStatus = pResponseStatus_
-    }
+  ModifyReplicationTaskResponse'
+  {_mrtrsReplicationTask = Nothing, _mrtrsResponseStatus = pResponseStatus_}
+
 
 -- | The replication task that was modified.
 mrtrsReplicationTask :: Lens' ModifyReplicationTaskResponse (Maybe ReplicationTask)
@@ -197,4 +199,4 @@ mrtrsReplicationTask = lens _mrtrsReplicationTask (\ s a -> s{_mrtrsReplicationT
 mrtrsResponseStatus :: Lens' ModifyReplicationTaskResponse Int
 mrtrsResponseStatus = lens _mrtrsResponseStatus (\ s a -> s{_mrtrsResponseStatus = a});
 
-instance NFData ModifyReplicationTaskResponse
+instance NFData ModifyReplicationTaskResponse where

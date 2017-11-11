@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.GetNamedQuery
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Athena.GetNamedQuery
     , gnqrsResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getNamedQuery' smart constructor.
 newtype GetNamedQuery = GetNamedQuery'
-    { _gnqNamedQueryId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gnqNamedQueryId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetNamedQuery' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getNamedQuery
     :: Text -- ^ 'gnqNamedQueryId'
     -> GetNamedQuery
 getNamedQuery pNamedQueryId_ =
-    GetNamedQuery'
-    { _gnqNamedQueryId = pNamedQueryId_
-    }
+  GetNamedQuery' {_gnqNamedQueryId = pNamedQueryId_}
+
 
 -- | The unique ID of the query. Use 'ListNamedQueries' to get query IDs.
 gnqNamedQueryId :: Lens' GetNamedQuery Text
@@ -75,9 +75,9 @@ instance AWSRequest GetNamedQuery where
                  GetNamedQueryResponse' <$>
                    (x .?> "NamedQuery") <*> (pure (fromEnum s)))
 
-instance Hashable GetNamedQuery
+instance Hashable GetNamedQuery where
 
-instance NFData GetNamedQuery
+instance NFData GetNamedQuery where
 
 instance ToHeaders GetNamedQuery where
         toHeaders
@@ -102,9 +102,10 @@ instance ToQuery GetNamedQuery where
 
 -- | /See:/ 'getNamedQueryResponse' smart constructor.
 data GetNamedQueryResponse = GetNamedQueryResponse'
-    { _gnqrsNamedQuery     :: !(Maybe NamedQuery)
-    , _gnqrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gnqrsNamedQuery     :: {-# NOUNPACK #-}!(Maybe NamedQuery)
+  , _gnqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetNamedQueryResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ getNamedQueryResponse
     :: Int -- ^ 'gnqrsResponseStatus'
     -> GetNamedQueryResponse
 getNamedQueryResponse pResponseStatus_ =
-    GetNamedQueryResponse'
-    { _gnqrsNamedQuery = Nothing
-    , _gnqrsResponseStatus = pResponseStatus_
-    }
+  GetNamedQueryResponse'
+  {_gnqrsNamedQuery = Nothing, _gnqrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the query.
 gnqrsNamedQuery :: Lens' GetNamedQueryResponse (Maybe NamedQuery)
@@ -130,4 +130,4 @@ gnqrsNamedQuery = lens _gnqrsNamedQuery (\ s a -> s{_gnqrsNamedQuery = a});
 gnqrsResponseStatus :: Lens' GetNamedQueryResponse Int
 gnqrsResponseStatus = lens _gnqrsResponseStatus (\ s a -> s{_gnqrsResponseStatus = a});
 
-instance NFData GetNamedQueryResponse
+instance NFData GetNamedQueryResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CompleteLifecycleAction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,12 +56,12 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     , clarsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CompleteLifecycleAction.
 --
@@ -69,12 +69,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'completeLifecycleAction' smart constructor.
 data CompleteLifecycleAction = CompleteLifecycleAction'
-    { _claInstanceId            :: !(Maybe Text)
-    , _claLifecycleActionToken  :: !(Maybe Text)
-    , _claLifecycleHookName     :: !Text
-    , _claAutoScalingGroupName  :: !Text
-    , _claLifecycleActionResult :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _claInstanceId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _claLifecycleActionToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _claLifecycleHookName     :: {-# NOUNPACK #-}!Text
+  , _claAutoScalingGroupName  :: {-# NOUNPACK #-}!Text
+  , _claLifecycleActionResult :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteLifecycleAction' with the minimum fields required to make a request.
 --
@@ -95,13 +96,14 @@ completeLifecycleAction
     -> Text -- ^ 'claLifecycleActionResult'
     -> CompleteLifecycleAction
 completeLifecycleAction pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionResult_ =
-    CompleteLifecycleAction'
-    { _claInstanceId = Nothing
-    , _claLifecycleActionToken = Nothing
-    , _claLifecycleHookName = pLifecycleHookName_
-    , _claAutoScalingGroupName = pAutoScalingGroupName_
-    , _claLifecycleActionResult = pLifecycleActionResult_
-    }
+  CompleteLifecycleAction'
+  { _claInstanceId = Nothing
+  , _claLifecycleActionToken = Nothing
+  , _claLifecycleHookName = pLifecycleHookName_
+  , _claAutoScalingGroupName = pAutoScalingGroupName_
+  , _claLifecycleActionResult = pLifecycleActionResult_
+  }
+
 
 -- | The ID of the instance.
 claInstanceId :: Lens' CompleteLifecycleAction (Maybe Text)
@@ -133,9 +135,9 @@ instance AWSRequest CompleteLifecycleAction where
                  CompleteLifecycleActionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CompleteLifecycleAction
+instance Hashable CompleteLifecycleAction where
 
-instance NFData CompleteLifecycleAction
+instance NFData CompleteLifecycleAction where
 
 instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty
@@ -161,8 +163,9 @@ instance ToQuery CompleteLifecycleAction where
 --
 -- /See:/ 'completeLifecycleActionResponse' smart constructor.
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
-    { _clarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompleteLifecycleActionResponse' with the minimum fields required to make a request.
 --
@@ -173,12 +176,11 @@ completeLifecycleActionResponse
     :: Int -- ^ 'clarsResponseStatus'
     -> CompleteLifecycleActionResponse
 completeLifecycleActionResponse pResponseStatus_ =
-    CompleteLifecycleActionResponse'
-    { _clarsResponseStatus = pResponseStatus_
-    }
+  CompleteLifecycleActionResponse' {_clarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 clarsResponseStatus :: Lens' CompleteLifecycleActionResponse Int
 clarsResponseStatus = lens _clarsResponseStatus (\ s a -> s{_clarsResponseStatus = a});
 
-instance NFData CompleteLifecycleActionResponse
+instance NFData CompleteLifecycleActionResponse where

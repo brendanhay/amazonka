@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DeleteSubscriber
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,22 +37,23 @@ module Network.AWS.Budgets.DeleteSubscriber
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DeleteSubscriber
 --
 -- /See:/ 'deleteSubscriber' smart constructor.
 data DeleteSubscriber = DeleteSubscriber'
-    { _dsAccountId    :: !Text
-    , _dsBudgetName   :: !Text
-    , _dsNotification :: !Notification
-    , _dsSubscriber   :: !Subscriber
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsAccountId    :: {-# NOUNPACK #-}!Text
+  , _dsBudgetName   :: {-# NOUNPACK #-}!Text
+  , _dsNotification :: {-# NOUNPACK #-}!Notification
+  , _dsSubscriber   :: {-# NOUNPACK #-}!Subscriber
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubscriber' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ deleteSubscriber
     -> Subscriber -- ^ 'dsSubscriber'
     -> DeleteSubscriber
 deleteSubscriber pAccountId_ pBudgetName_ pNotification_ pSubscriber_ =
-    DeleteSubscriber'
-    { _dsAccountId = pAccountId_
-    , _dsBudgetName = pBudgetName_
-    , _dsNotification = pNotification_
-    , _dsSubscriber = pSubscriber_
-    }
+  DeleteSubscriber'
+  { _dsAccountId = pAccountId_
+  , _dsBudgetName = pBudgetName_
+  , _dsNotification = pNotification_
+  , _dsSubscriber = pSubscriber_
+  }
+
 
 -- | Undocumented member.
 dsAccountId :: Lens' DeleteSubscriber Text
@@ -103,9 +105,9 @@ instance AWSRequest DeleteSubscriber where
               (\ s h x ->
                  DeleteSubscriberResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteSubscriber
+instance Hashable DeleteSubscriber where
 
-instance NFData DeleteSubscriber
+instance NFData DeleteSubscriber where
 
 instance ToHeaders DeleteSubscriber where
         toHeaders
@@ -136,8 +138,9 @@ instance ToQuery DeleteSubscriber where
 --
 -- /See:/ 'deleteSubscriberResponse' smart constructor.
 newtype DeleteSubscriberResponse = DeleteSubscriberResponse'
-    { _dsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubscriberResponse' with the minimum fields required to make a request.
 --
@@ -148,12 +151,11 @@ deleteSubscriberResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteSubscriberResponse
 deleteSubscriberResponse pResponseStatus_ =
-    DeleteSubscriberResponse'
-    { _dsrsResponseStatus = pResponseStatus_
-    }
+  DeleteSubscriberResponse' {_dsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSubscriberResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DeleteSubscriberResponse
+instance NFData DeleteSubscriberResponse where

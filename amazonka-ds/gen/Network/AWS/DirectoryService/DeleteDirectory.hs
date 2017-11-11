@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeleteDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DirectoryService.DeleteDirectory
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DeleteDirectory' operation.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDirectory' smart constructor.
 newtype DeleteDirectory = DeleteDirectory'
-    { _dddDirectoryId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dddDirectoryId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDirectory' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ deleteDirectory
     :: Text -- ^ 'dddDirectoryId'
     -> DeleteDirectory
 deleteDirectory pDirectoryId_ =
-    DeleteDirectory'
-    { _dddDirectoryId = pDirectoryId_
-    }
+  DeleteDirectory' {_dddDirectoryId = pDirectoryId_}
+
 
 -- | The identifier of the directory to delete.
 dddDirectoryId :: Lens' DeleteDirectory Text
@@ -81,9 +81,9 @@ instance AWSRequest DeleteDirectory where
                  DeleteDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteDirectory
+instance Hashable DeleteDirectory where
 
-instance NFData DeleteDirectory
+instance NFData DeleteDirectory where
 
 instance ToHeaders DeleteDirectory where
         toHeaders
@@ -112,9 +112,10 @@ instance ToQuery DeleteDirectory where
 --
 -- /See:/ 'deleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-    { _delrsDirectoryId    :: !(Maybe Text)
-    , _delrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsDirectoryId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDirectoryResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ deleteDirectoryResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteDirectoryResponse
 deleteDirectoryResponse pResponseStatus_ =
-    DeleteDirectoryResponse'
-    { _delrsDirectoryId = Nothing
-    , _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteDirectoryResponse'
+  {_delrsDirectoryId = Nothing, _delrsResponseStatus = pResponseStatus_}
+
 
 -- | The directory identifier.
 delrsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
@@ -140,4 +140,4 @@ delrsDirectoryId = lens _delrsDirectoryId (\ s a -> s{_delrsDirectoryId = a});
 delrsResponseStatus :: Lens' DeleteDirectoryResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteDirectoryResponse
+instance NFData DeleteDirectoryResponse where

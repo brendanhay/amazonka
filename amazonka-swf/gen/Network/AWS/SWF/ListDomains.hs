@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.ListDomains
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,21 +57,22 @@ module Network.AWS.SWF.ListDomains
     , ldrsDomainInfos
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listDomains' smart constructor.
 data ListDomains = ListDomains'
-    { _ldNextPageToken      :: !(Maybe Text)
-    , _ldReverseOrder       :: !(Maybe Bool)
-    , _ldMaximumPageSize    :: !(Maybe Nat)
-    , _ldRegistrationStatus :: !RegistrationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldNextPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldReverseOrder       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ldMaximumPageSize    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ldRegistrationStatus :: {-# NOUNPACK #-}!RegistrationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
 --
@@ -88,12 +89,13 @@ listDomains
     :: RegistrationStatus -- ^ 'ldRegistrationStatus'
     -> ListDomains
 listDomains pRegistrationStatus_ =
-    ListDomains'
-    { _ldNextPageToken = Nothing
-    , _ldReverseOrder = Nothing
-    , _ldMaximumPageSize = Nothing
-    , _ldRegistrationStatus = pRegistrationStatus_
-    }
+  ListDomains'
+  { _ldNextPageToken = Nothing
+  , _ldReverseOrder = Nothing
+  , _ldMaximumPageSize = Nothing
+  , _ldRegistrationStatus = pRegistrationStatus_
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 ldNextPageToken :: Lens' ListDomains (Maybe Text)
@@ -129,9 +131,9 @@ instance AWSRequest ListDomains where
                    (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "domainInfos" .!@ mempty))
 
-instance Hashable ListDomains
+instance Hashable ListDomains where
 
-instance NFData ListDomains
+instance NFData ListDomains where
 
 instance ToHeaders ListDomains where
         toHeaders
@@ -164,10 +166,11 @@ instance ToQuery ListDomains where
 --
 -- /See:/ 'listDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-    { _ldrsNextPageToken  :: !(Maybe Text)
-    , _ldrsResponseStatus :: !Int
-    , _ldrsDomainInfos    :: ![DomainInfo]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ldrsDomainInfos    :: {-# NOUNPACK #-}![DomainInfo]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
 --
@@ -182,11 +185,12 @@ listDomainsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDomainsResponse
 listDomainsResponse pResponseStatus_ =
-    ListDomainsResponse'
-    { _ldrsNextPageToken = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    , _ldrsDomainInfos = mempty
-    }
+  ListDomainsResponse'
+  { _ldrsNextPageToken = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  , _ldrsDomainInfos = mempty
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 ldrsNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
@@ -200,4 +204,4 @@ ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = 
 ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
 ldrsDomainInfos = lens _ldrsDomainInfos (\ s a -> s{_ldrsDomainInfos = a}) . _Coerce;
 
-instance NFData ListDomainsResponse
+instance NFData ListDomainsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetOperation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.GetOperation
     , gorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getOperation' smart constructor.
 newtype GetOperation = GetOperation'
-    { _goOperationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goOperationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOperation' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetOperation = GetOperation'
 getOperation
     :: Text -- ^ 'goOperationId'
     -> GetOperation
-getOperation pOperationId_ =
-    GetOperation'
-    { _goOperationId = pOperationId_
-    }
+getOperation pOperationId_ = GetOperation' {_goOperationId = pOperationId_}
+
 
 -- | A GUID used to identify the operation.
 goOperationId :: Lens' GetOperation Text
@@ -75,9 +74,9 @@ instance AWSRequest GetOperation where
                  GetOperationResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable GetOperation
+instance Hashable GetOperation where
 
-instance NFData GetOperation
+instance NFData GetOperation where
 
 instance ToHeaders GetOperation where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery GetOperation where
 
 -- | /See:/ 'getOperationResponse' smart constructor.
 data GetOperationResponse = GetOperationResponse'
-    { _gorsOperation      :: !(Maybe Operation)
-    , _gorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gorsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _gorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOperationResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ getOperationResponse
     :: Int -- ^ 'gorsResponseStatus'
     -> GetOperationResponse
 getOperationResponse pResponseStatus_ =
-    GetOperationResponse'
-    { _gorsOperation = Nothing
-    , _gorsResponseStatus = pResponseStatus_
-    }
+  GetOperationResponse'
+  {_gorsOperation = Nothing, _gorsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your get operation request.
 gorsOperation :: Lens' GetOperationResponse (Maybe Operation)
@@ -129,4 +128,4 @@ gorsOperation = lens _gorsOperation (\ s a -> s{_gorsOperation = a});
 gorsResponseStatus :: Lens' GetOperationResponse Int
 gorsResponseStatus = lens _gorsResponseStatus (\ s a -> s{_gorsResponseStatus = a});
 
-instance NFData GetOperationResponse
+instance NFData GetOperationResponse where

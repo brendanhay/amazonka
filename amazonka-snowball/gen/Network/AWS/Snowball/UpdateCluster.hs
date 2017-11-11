@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.UpdateCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,24 +43,25 @@ module Network.AWS.Snowball.UpdateCluster
     , ucrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'updateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-    { _ucNotification        :: !(Maybe Notification)
-    , _ucForwardingAddressId :: !(Maybe Text)
-    , _ucAddressId           :: !(Maybe Text)
-    , _ucShippingOption      :: !(Maybe ShippingOption)
-    , _ucResources           :: !(Maybe JobResource)
-    , _ucDescription         :: !(Maybe Text)
-    , _ucRoleARN             :: !(Maybe Text)
-    , _ucClusterId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucNotification        :: {-# NOUNPACK #-}!(Maybe Notification)
+  , _ucForwardingAddressId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucAddressId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucShippingOption      :: {-# NOUNPACK #-}!(Maybe ShippingOption)
+  , _ucResources           :: {-# NOUNPACK #-}!(Maybe JobResource)
+  , _ucDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucClusterId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCluster' with the minimum fields required to make a request.
 --
@@ -85,16 +86,17 @@ updateCluster
     :: Text -- ^ 'ucClusterId'
     -> UpdateCluster
 updateCluster pClusterId_ =
-    UpdateCluster'
-    { _ucNotification = Nothing
-    , _ucForwardingAddressId = Nothing
-    , _ucAddressId = Nothing
-    , _ucShippingOption = Nothing
-    , _ucResources = Nothing
-    , _ucDescription = Nothing
-    , _ucRoleARN = Nothing
-    , _ucClusterId = pClusterId_
-    }
+  UpdateCluster'
+  { _ucNotification = Nothing
+  , _ucForwardingAddressId = Nothing
+  , _ucAddressId = Nothing
+  , _ucShippingOption = Nothing
+  , _ucResources = Nothing
+  , _ucDescription = Nothing
+  , _ucRoleARN = Nothing
+  , _ucClusterId = pClusterId_
+  }
+
 
 -- | The new or updated 'Notification' object.
 ucNotification :: Lens' UpdateCluster (Maybe Notification)
@@ -136,9 +138,9 @@ instance AWSRequest UpdateCluster where
               (\ s h x ->
                  UpdateClusterResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateCluster
+instance Hashable UpdateCluster where
 
-instance NFData UpdateCluster
+instance NFData UpdateCluster where
 
 instance ToHeaders UpdateCluster where
         toHeaders
@@ -172,8 +174,9 @@ instance ToQuery UpdateCluster where
 
 -- | /See:/ 'updateClusterResponse' smart constructor.
 newtype UpdateClusterResponse = UpdateClusterResponse'
-    { _ucrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateClusterResponse' with the minimum fields required to make a request.
 --
@@ -184,12 +187,11 @@ updateClusterResponse
     :: Int -- ^ 'ucrsResponseStatus'
     -> UpdateClusterResponse
 updateClusterResponse pResponseStatus_ =
-    UpdateClusterResponse'
-    { _ucrsResponseStatus = pResponseStatus_
-    }
+  UpdateClusterResponse' {_ucrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ucrsResponseStatus :: Lens' UpdateClusterResponse Int
 ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
 
-instance NFData UpdateClusterResponse
+instance NFData UpdateClusterResponse where

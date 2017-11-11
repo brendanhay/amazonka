@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.DescribeImages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,23 +45,24 @@ module Network.AWS.ECR.DescribeImages
     , dirsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeImages' smart constructor.
 data DescribeImages = DescribeImages'
-    { _diRegistryId     :: !(Maybe Text)
-    , _diImageIds       :: !(Maybe [ImageIdentifier])
-    , _diNextToken      :: !(Maybe Text)
-    , _diFilter         :: !(Maybe DescribeImagesFilter)
-    , _diMaxResults     :: !(Maybe Nat)
-    , _diRepositoryName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diImageIds       :: {-# NOUNPACK #-}!(Maybe [ImageIdentifier])
+  , _diNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diFilter         :: {-# NOUNPACK #-}!(Maybe DescribeImagesFilter)
+  , _diMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _diRepositoryName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImages' with the minimum fields required to make a request.
 --
@@ -82,14 +83,15 @@ describeImages
     :: Text -- ^ 'diRepositoryName'
     -> DescribeImages
 describeImages pRepositoryName_ =
-    DescribeImages'
-    { _diRegistryId = Nothing
-    , _diImageIds = Nothing
-    , _diNextToken = Nothing
-    , _diFilter = Nothing
-    , _diMaxResults = Nothing
-    , _diRepositoryName = pRepositoryName_
-    }
+  DescribeImages'
+  { _diRegistryId = Nothing
+  , _diImageIds = Nothing
+  , _diNextToken = Nothing
+  , _diFilter = Nothing
+  , _diMaxResults = Nothing
+  , _diRepositoryName = pRepositoryName_
+  }
+
 
 -- | The AWS account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.
 diRegistryId :: Lens' DescribeImages (Maybe Text)
@@ -133,9 +135,9 @@ instance AWSRequest DescribeImages where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeImages
+instance Hashable DescribeImages where
 
-instance NFData DescribeImages
+instance NFData DescribeImages where
 
 instance ToHeaders DescribeImages where
         toHeaders
@@ -166,10 +168,11 @@ instance ToQuery DescribeImages where
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _dirsImageDetails   :: !(Maybe [ImageDetail])
-    , _dirsNextToken      :: !(Maybe Text)
-    , _dirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dirsImageDetails   :: {-# NOUNPACK #-}!(Maybe [ImageDetail])
+  , _dirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
 --
@@ -184,11 +187,12 @@ describeImagesResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DescribeImagesResponse
 describeImagesResponse pResponseStatus_ =
-    DescribeImagesResponse'
-    { _dirsImageDetails = Nothing
-    , _dirsNextToken = Nothing
-    , _dirsResponseStatus = pResponseStatus_
-    }
+  DescribeImagesResponse'
+  { _dirsImageDetails = Nothing
+  , _dirsNextToken = Nothing
+  , _dirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'ImageDetail' objects that contain data about the image.
 dirsImageDetails :: Lens' DescribeImagesResponse [ImageDetail]
@@ -202,4 +206,4 @@ dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
 dirsResponseStatus :: Lens' DescribeImagesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 
-instance NFData DescribeImagesResponse
+instance NFData DescribeImagesResponse where

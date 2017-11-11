@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     , dtptrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTerminationPolicyTypes' smart constructor.
 data DescribeTerminationPolicyTypes =
-    DescribeTerminationPolicyTypes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeTerminationPolicyTypes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTerminationPolicyTypes' with the minimum fields required to make a request.
 --
 describeTerminationPolicyTypes
     :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
+
 
 instance AWSRequest DescribeTerminationPolicyTypes
          where
@@ -68,8 +70,9 @@ instance AWSRequest DescribeTerminationPolicyTypes
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeTerminationPolicyTypes
+         where
 
-instance NFData DescribeTerminationPolicyTypes
+instance NFData DescribeTerminationPolicyTypes where
 
 instance ToHeaders DescribeTerminationPolicyTypes
          where
@@ -92,9 +95,10 @@ instance ToQuery DescribeTerminationPolicyTypes where
 --
 -- /See:/ 'describeTerminationPolicyTypesResponse' smart constructor.
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
-    { _dtptrsTerminationPolicyTypes :: !(Maybe [Text])
-    , _dtptrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtptrsTerminationPolicyTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dtptrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTerminationPolicyTypesResponse' with the minimum fields required to make a request.
 --
@@ -107,10 +111,11 @@ describeTerminationPolicyTypesResponse
     :: Int -- ^ 'dtptrsResponseStatus'
     -> DescribeTerminationPolicyTypesResponse
 describeTerminationPolicyTypesResponse pResponseStatus_ =
-    DescribeTerminationPolicyTypesResponse'
-    { _dtptrsTerminationPolicyTypes = Nothing
-    , _dtptrsResponseStatus = pResponseStatus_
-    }
+  DescribeTerminationPolicyTypesResponse'
+  { _dtptrsTerminationPolicyTypes = Nothing
+  , _dtptrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The termination policies supported by Auto Scaling (@OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , and @Default@ ).
 dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
@@ -121,4 +126,5 @@ dtptrsResponseStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
 dtptrsResponseStatus = lens _dtptrsResponseStatus (\ s a -> s{_dtptrsResponseStatus = a});
 
 instance NFData
-         DescribeTerminationPolicyTypesResponse
+           DescribeTerminationPolicyTypesResponse
+         where

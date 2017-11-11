@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSnapshots
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,13 +47,13 @@ module Network.AWS.RDS.DescribeDBSnapshots
     , ddsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,15 +61,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBSnapshots' smart constructor.
 data DescribeDBSnapshots = DescribeDBSnapshots'
-    { _ddsIncludeShared        :: !(Maybe Bool)
-    , _ddsFilters              :: !(Maybe [Filter])
-    , _ddsDBSnapshotIdentifier :: !(Maybe Text)
-    , _ddsSnapshotType         :: !(Maybe Text)
-    , _ddsDBInstanceIdentifier :: !(Maybe Text)
-    , _ddsMarker               :: !(Maybe Text)
-    , _ddsMaxRecords           :: !(Maybe Int)
-    , _ddsIncludePublic        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsIncludeShared        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddsFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddsDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsSnapshotType         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsMarker               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ddsIncludePublic        :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSnapshots' with the minimum fields required to make a request.
 --
@@ -93,16 +94,17 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 describeDBSnapshots
     :: DescribeDBSnapshots
 describeDBSnapshots =
-    DescribeDBSnapshots'
-    { _ddsIncludeShared = Nothing
-    , _ddsFilters = Nothing
-    , _ddsDBSnapshotIdentifier = Nothing
-    , _ddsSnapshotType = Nothing
-    , _ddsDBInstanceIdentifier = Nothing
-    , _ddsMarker = Nothing
-    , _ddsMaxRecords = Nothing
-    , _ddsIncludePublic = Nothing
-    }
+  DescribeDBSnapshots'
+  { _ddsIncludeShared = Nothing
+  , _ddsFilters = Nothing
+  , _ddsDBSnapshotIdentifier = Nothing
+  , _ddsSnapshotType = Nothing
+  , _ddsDBInstanceIdentifier = Nothing
+  , _ddsMarker = Nothing
+  , _ddsMaxRecords = Nothing
+  , _ddsIncludePublic = Nothing
+  }
+
 
 -- | Set this value to @true@ to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to @false@ . The default is @false@ . You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the 'ModifyDBSnapshotAttribute' API action.
 ddsIncludeShared :: Lens' DescribeDBSnapshots (Maybe Bool)
@@ -156,9 +158,9 @@ instance AWSRequest DescribeDBSnapshots where
                         may (parseXMLList "DBSnapshot"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBSnapshots
+instance Hashable DescribeDBSnapshots where
 
-instance NFData DescribeDBSnapshots
+instance NFData DescribeDBSnapshots where
 
 instance ToHeaders DescribeDBSnapshots where
         toHeaders = const mempty
@@ -187,10 +189,11 @@ instance ToQuery DescribeDBSnapshots where
 --
 -- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
-    { _ddsrsMarker         :: !(Maybe Text)
-    , _ddsrsDBSnapshots    :: !(Maybe [DBSnapshot])
-    , _ddsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsrsDBSnapshots    :: {-# NOUNPACK #-}!(Maybe [DBSnapshot])
+  , _ddsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSnapshotsResponse' with the minimum fields required to make a request.
 --
@@ -205,11 +208,12 @@ describeDBSnapshotsResponse
     :: Int -- ^ 'ddsrsResponseStatus'
     -> DescribeDBSnapshotsResponse
 describeDBSnapshotsResponse pResponseStatus_ =
-    DescribeDBSnapshotsResponse'
-    { _ddsrsMarker = Nothing
-    , _ddsrsDBSnapshots = Nothing
-    , _ddsrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBSnapshotsResponse'
+  { _ddsrsMarker = Nothing
+  , _ddsrsDBSnapshots = Nothing
+  , _ddsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddsrsMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
@@ -223,4 +227,4 @@ ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . 
 ddsrsResponseStatus :: Lens' DescribeDBSnapshotsResponse Int
 ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
 
-instance NFData DescribeDBSnapshotsResponse
+instance NFData DescribeDBSnapshotsResponse where

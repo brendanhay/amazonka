@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetTrigger
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.GetTrigger
     , gtrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getTrigger' smart constructor.
 newtype GetTrigger = GetTrigger'
-    { _gtName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTrigger' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetTrigger = GetTrigger'
 getTrigger
     :: Text -- ^ 'gtName'
     -> GetTrigger
-getTrigger pName_ =
-    GetTrigger'
-    { _gtName = pName_
-    }
+getTrigger pName_ = GetTrigger' {_gtName = pName_}
+
 
 -- | The name of the trigger to retrieve.
 gtName :: Lens' GetTrigger Text
@@ -75,9 +74,9 @@ instance AWSRequest GetTrigger where
                  GetTriggerResponse' <$>
                    (x .?> "Trigger") <*> (pure (fromEnum s)))
 
-instance Hashable GetTrigger
+instance Hashable GetTrigger where
 
-instance NFData GetTrigger
+instance NFData GetTrigger where
 
 instance ToHeaders GetTrigger where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery GetTrigger where
 
 -- | /See:/ 'getTriggerResponse' smart constructor.
 data GetTriggerResponse = GetTriggerResponse'
-    { _gtrsTrigger        :: !(Maybe Trigger)
-    , _gtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtrsTrigger        :: {-# NOUNPACK #-}!(Maybe Trigger)
+  , _gtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTriggerResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ getTriggerResponse
     :: Int -- ^ 'gtrsResponseStatus'
     -> GetTriggerResponse
 getTriggerResponse pResponseStatus_ =
-    GetTriggerResponse'
-    { _gtrsTrigger = Nothing
-    , _gtrsResponseStatus = pResponseStatus_
-    }
+  GetTriggerResponse'
+  {_gtrsTrigger = Nothing, _gtrsResponseStatus = pResponseStatus_}
+
 
 -- | The requested trigger definition.
 gtrsTrigger :: Lens' GetTriggerResponse (Maybe Trigger)
@@ -128,4 +127,4 @@ gtrsTrigger = lens _gtrsTrigger (\ s a -> s{_gtrsTrigger = a});
 gtrsResponseStatus :: Lens' GetTriggerResponse Int
 gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
 
-instance NFData GetTriggerResponse
+instance NFData GetTriggerResponse where

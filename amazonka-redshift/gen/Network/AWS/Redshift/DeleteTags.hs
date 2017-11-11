@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.Redshift.DeleteTags
     , DeleteTagsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the output from the @DeleteTags@ action.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-    { _dtsResourceName :: !Text
-    , _dtsTagKeys      :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtsResourceName :: {-# NOUNPACK #-}!Text
+  , _dtsTagKeys      :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ deleteTags
     :: Text -- ^ 'dtsResourceName'
     -> DeleteTags
 deleteTags pResourceName_ =
-    DeleteTags'
-    { _dtsResourceName = pResourceName_
-    , _dtsTagKeys = mempty
-    }
+  DeleteTags' {_dtsResourceName = pResourceName_, _dtsTagKeys = mempty}
+
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 dtsResourceName :: Lens' DeleteTags Text
@@ -81,9 +80,9 @@ instance AWSRequest DeleteTags where
         request = postQuery redshift
         response = receiveNull DeleteTagsResponse'
 
-instance Hashable DeleteTags
+instance Hashable DeleteTags where
 
-instance NFData DeleteTags
+instance NFData DeleteTags where
 
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
@@ -101,8 +100,9 @@ instance ToQuery DeleteTags where
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =
-    DeleteTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +110,5 @@ deleteTagsResponse
     :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'
 
-instance NFData DeleteTagsResponse
+
+instance NFData DeleteTagsResponse where

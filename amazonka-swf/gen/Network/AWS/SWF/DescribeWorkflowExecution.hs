@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeWorkflowExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,18 +56,19 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     , dwersOpenCounts
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeWorkflowExecution' smart constructor.
 data DescribeWorkflowExecution = DescribeWorkflowExecution'
-    { _dweDomain    :: !Text
-    , _dweExecution :: !WorkflowExecution
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dweDomain    :: {-# NOUNPACK #-}!Text
+  , _dweExecution :: {-# NOUNPACK #-}!WorkflowExecution
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkflowExecution' with the minimum fields required to make a request.
 --
@@ -81,10 +82,9 @@ describeWorkflowExecution
     -> WorkflowExecution -- ^ 'dweExecution'
     -> DescribeWorkflowExecution
 describeWorkflowExecution pDomain_ pExecution_ =
-    DescribeWorkflowExecution'
-    { _dweDomain = pDomain_
-    , _dweExecution = pExecution_
-    }
+  DescribeWorkflowExecution'
+  {_dweDomain = pDomain_, _dweExecution = pExecution_}
+
 
 -- | The name of the domain containing the workflow execution.
 dweDomain :: Lens' DescribeWorkflowExecution Text
@@ -109,9 +109,9 @@ instance AWSRequest DescribeWorkflowExecution where
                      <*> (x .:> "executionConfiguration")
                      <*> (x .:> "openCounts"))
 
-instance Hashable DescribeWorkflowExecution
+instance Hashable DescribeWorkflowExecution where
 
-instance NFData DescribeWorkflowExecution
+instance NFData DescribeWorkflowExecution where
 
 instance ToHeaders DescribeWorkflowExecution where
         toHeaders
@@ -142,13 +142,14 @@ instance ToQuery DescribeWorkflowExecution where
 --
 -- /See:/ 'describeWorkflowExecutionResponse' smart constructor.
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
-    { _dwersLatestActivityTaskTimestamp :: !(Maybe POSIX)
-    , _dwersLatestExecutionContext      :: !(Maybe Text)
-    , _dwersResponseStatus              :: !Int
-    , _dwersExecutionInfo               :: !WorkflowExecutionInfo
-    , _dwersExecutionConfiguration      :: !WorkflowExecutionConfiguration
-    , _dwersOpenCounts                  :: !WorkflowExecutionOpenCounts
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwersLatestActivityTaskTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dwersLatestExecutionContext :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwersResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dwersExecutionInfo :: {-# NOUNPACK #-}!WorkflowExecutionInfo
+  , _dwersExecutionConfiguration :: {-# NOUNPACK #-}!WorkflowExecutionConfiguration
+  , _dwersOpenCounts :: {-# NOUNPACK #-}!WorkflowExecutionOpenCounts
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkflowExecutionResponse' with the minimum fields required to make a request.
 --
@@ -172,14 +173,15 @@ describeWorkflowExecutionResponse
     -> WorkflowExecutionOpenCounts -- ^ 'dwersOpenCounts'
     -> DescribeWorkflowExecutionResponse
 describeWorkflowExecutionResponse pResponseStatus_ pExecutionInfo_ pExecutionConfiguration_ pOpenCounts_ =
-    DescribeWorkflowExecutionResponse'
-    { _dwersLatestActivityTaskTimestamp = Nothing
-    , _dwersLatestExecutionContext = Nothing
-    , _dwersResponseStatus = pResponseStatus_
-    , _dwersExecutionInfo = pExecutionInfo_
-    , _dwersExecutionConfiguration = pExecutionConfiguration_
-    , _dwersOpenCounts = pOpenCounts_
-    }
+  DescribeWorkflowExecutionResponse'
+  { _dwersLatestActivityTaskTimestamp = Nothing
+  , _dwersLatestExecutionContext = Nothing
+  , _dwersResponseStatus = pResponseStatus_
+  , _dwersExecutionInfo = pExecutionInfo_
+  , _dwersExecutionConfiguration = pExecutionConfiguration_
+  , _dwersOpenCounts = pOpenCounts_
+  }
+
 
 -- | The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
 dwersLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe UTCTime)
@@ -206,3 +208,4 @@ dwersOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpen
 dwersOpenCounts = lens _dwersOpenCounts (\ s a -> s{_dwersOpenCounts = a});
 
 instance NFData DescribeWorkflowExecutionResponse
+         where

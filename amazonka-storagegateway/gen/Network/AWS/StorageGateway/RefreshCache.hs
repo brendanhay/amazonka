@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RefreshCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.StorageGateway.RefreshCache
     , rcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'refreshCache' smart constructor.
 newtype RefreshCache = RefreshCache'
-    { _rcFileShareARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcFileShareARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RefreshCache' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype RefreshCache = RefreshCache'
 refreshCache
     :: Text -- ^ 'rcFileShareARN'
     -> RefreshCache
-refreshCache pFileShareARN_ =
-    RefreshCache'
-    { _rcFileShareARN = pFileShareARN_
-    }
+refreshCache pFileShareARN_ = RefreshCache' {_rcFileShareARN = pFileShareARN_}
+
 
 -- | Undocumented member.
 rcFileShareARN :: Lens' RefreshCache Text
@@ -75,9 +74,9 @@ instance AWSRequest RefreshCache where
                  RefreshCacheResponse' <$>
                    (x .?> "FileShareARN") <*> (pure (fromEnum s)))
 
-instance Hashable RefreshCache
+instance Hashable RefreshCache where
 
-instance NFData RefreshCache
+instance NFData RefreshCache where
 
 instance ToHeaders RefreshCache where
         toHeaders
@@ -103,9 +102,10 @@ instance ToQuery RefreshCache where
 
 -- | /See:/ 'refreshCacheResponse' smart constructor.
 data RefreshCacheResponse = RefreshCacheResponse'
-    { _rcrsFileShareARN   :: !(Maybe Text)
-    , _rcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcrsFileShareARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RefreshCacheResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +118,9 @@ refreshCacheResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RefreshCacheResponse
 refreshCacheResponse pResponseStatus_ =
-    RefreshCacheResponse'
-    { _rcrsFileShareARN = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
-    }
+  RefreshCacheResponse'
+  {_rcrsFileShareARN = Nothing, _rcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rcrsFileShareARN :: Lens' RefreshCacheResponse (Maybe Text)
@@ -131,4 +130,4 @@ rcrsFileShareARN = lens _rcrsFileShareARN (\ s a -> s{_rcrsFileShareARN = a});
 rcrsResponseStatus :: Lens' RefreshCacheResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 
-instance NFData RefreshCacheResponse
+instance NFData RefreshCacheResponse where

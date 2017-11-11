@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.RDS.CreateDBSnapshot
     , cdbsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDBSnapshot' smart constructor.
 data CreateDBSnapshot = CreateDBSnapshot'
-    { _cdbsTags                 :: !(Maybe [Tag])
-    , _cdbsDBSnapshotIdentifier :: !Text
-    , _cdbsDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdbsTags                 :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdbsDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  , _cdbsDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBSnapshot' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ createDBSnapshot
     -> Text -- ^ 'cdbsDBInstanceIdentifier'
     -> CreateDBSnapshot
 createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
-    CreateDBSnapshot'
-    { _cdbsTags = Nothing
-    , _cdbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
-    , _cdbsDBInstanceIdentifier = pDBInstanceIdentifier_
-    }
+  CreateDBSnapshot'
+  { _cdbsTags = Nothing
+  , _cdbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
+  , _cdbsDBInstanceIdentifier = pDBInstanceIdentifier_
+  }
+
 
 -- | Undocumented member.
 cdbsTags :: Lens' CreateDBSnapshot [Tag]
@@ -98,9 +100,9 @@ instance AWSRequest CreateDBSnapshot where
                  CreateDBSnapshotResponse' <$>
                    (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDBSnapshot
+instance Hashable CreateDBSnapshot where
 
-instance NFData CreateDBSnapshot
+instance NFData CreateDBSnapshot where
 
 instance ToHeaders CreateDBSnapshot where
         toHeaders = const mempty
@@ -119,9 +121,10 @@ instance ToQuery CreateDBSnapshot where
 
 -- | /See:/ 'createDBSnapshotResponse' smart constructor.
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
-    { _cdbsrsDBSnapshot     :: !(Maybe DBSnapshot)
-    , _cdbsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdbsrsDBSnapshot     :: {-# NOUNPACK #-}!(Maybe DBSnapshot)
+  , _cdbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +137,9 @@ createDBSnapshotResponse
     :: Int -- ^ 'cdbsrsResponseStatus'
     -> CreateDBSnapshotResponse
 createDBSnapshotResponse pResponseStatus_ =
-    CreateDBSnapshotResponse'
-    { _cdbsrsDBSnapshot = Nothing
-    , _cdbsrsResponseStatus = pResponseStatus_
-    }
+  CreateDBSnapshotResponse'
+  {_cdbsrsDBSnapshot = Nothing, _cdbsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cdbsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
@@ -147,4 +149,4 @@ cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
 cdbsrsResponseStatus :: Lens' CreateDBSnapshotResponse Int
 cdbsrsResponseStatus = lens _cdbsrsResponseStatus (\ s a -> s{_cdbsrsResponseStatus = a});
 
-instance NFData CreateDBSnapshotResponse
+instance NFData CreateDBSnapshotResponse where

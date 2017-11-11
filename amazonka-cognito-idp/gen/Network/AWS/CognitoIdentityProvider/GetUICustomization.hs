@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetUICustomization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CognitoIdentityProvider.GetUICustomization
     , guicrsUICustomization
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getUICustomization' smart constructor.
 data GetUICustomization = GetUICustomization'
-    { _guicClientId   :: !(Maybe (Sensitive Text))
-    , _guicUserPoolId :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _guicClientId   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _guicUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUICustomization' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ getUICustomization
     :: Text -- ^ 'guicUserPoolId'
     -> GetUICustomization
 getUICustomization pUserPoolId_ =
-    GetUICustomization'
-    { _guicClientId = Nothing
-    , _guicUserPoolId = pUserPoolId_
-    }
+  GetUICustomization' {_guicClientId = Nothing, _guicUserPoolId = pUserPoolId_}
+
 
 -- | The client ID for the client app.
 guicClientId :: Lens' GetUICustomization (Maybe Text)
@@ -85,9 +84,9 @@ instance AWSRequest GetUICustomization where
                  GetUICustomizationResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "UICustomization"))
 
-instance Hashable GetUICustomization
+instance Hashable GetUICustomization where
 
-instance NFData GetUICustomization
+instance NFData GetUICustomization where
 
 instance ToHeaders GetUICustomization where
         toHeaders
@@ -114,9 +113,10 @@ instance ToQuery GetUICustomization where
 
 -- | /See:/ 'getUICustomizationResponse' smart constructor.
 data GetUICustomizationResponse = GetUICustomizationResponse'
-    { _guicrsResponseStatus  :: !Int
-    , _guicrsUICustomization :: !UICustomizationType
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _guicrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _guicrsUICustomization :: {-# NOUNPACK #-}!UICustomizationType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUICustomizationResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +130,11 @@ getUICustomizationResponse
     -> UICustomizationType -- ^ 'guicrsUICustomization'
     -> GetUICustomizationResponse
 getUICustomizationResponse pResponseStatus_ pUICustomization_ =
-    GetUICustomizationResponse'
-    { _guicrsResponseStatus = pResponseStatus_
-    , _guicrsUICustomization = pUICustomization_
-    }
+  GetUICustomizationResponse'
+  { _guicrsResponseStatus = pResponseStatus_
+  , _guicrsUICustomization = pUICustomization_
+  }
+
 
 -- | -- | The response status code.
 guicrsResponseStatus :: Lens' GetUICustomizationResponse Int
@@ -143,4 +144,4 @@ guicrsResponseStatus = lens _guicrsResponseStatus (\ s a -> s{_guicrsResponseSta
 guicrsUICustomization :: Lens' GetUICustomizationResponse UICustomizationType
 guicrsUICustomization = lens _guicrsUICustomization (\ s a -> s{_guicrsUICustomization = a});
 
-instance NFData GetUICustomizationResponse
+instance NFData GetUICustomizationResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListServiceSpecificCredentials
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.IAM.ListServiceSpecificCredentials
     , lsscrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listServiceSpecificCredentials' smart constructor.
 data ListServiceSpecificCredentials = ListServiceSpecificCredentials'
-    { _lsscUserName    :: !(Maybe Text)
-    , _lsscServiceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsscUserName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsscServiceName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListServiceSpecificCredentials' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ data ListServiceSpecificCredentials = ListServiceSpecificCredentials'
 listServiceSpecificCredentials
     :: ListServiceSpecificCredentials
 listServiceSpecificCredentials =
-    ListServiceSpecificCredentials'
-    { _lsscUserName = Nothing
-    , _lsscServiceName = Nothing
-    }
+  ListServiceSpecificCredentials'
+  {_lsscUserName = Nothing, _lsscServiceName = Nothing}
+
 
 -- | The name of the user whose service-specific credentials you want information about. If this value is not specified then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 lsscUserName :: Lens' ListServiceSpecificCredentials (Maybe Text)
@@ -89,8 +89,9 @@ instance AWSRequest ListServiceSpecificCredentials
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListServiceSpecificCredentials
+         where
 
-instance NFData ListServiceSpecificCredentials
+instance NFData ListServiceSpecificCredentials where
 
 instance ToHeaders ListServiceSpecificCredentials
          where
@@ -110,9 +111,10 @@ instance ToQuery ListServiceSpecificCredentials where
 
 -- | /See:/ 'listServiceSpecificCredentialsResponse' smart constructor.
 data ListServiceSpecificCredentialsResponse = ListServiceSpecificCredentialsResponse'
-    { _lsscrsServiceSpecificCredentials :: !(Maybe [ServiceSpecificCredentialMetadata])
-    , _lsscrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsscrsServiceSpecificCredentials :: {-# NOUNPACK #-}!(Maybe [ServiceSpecificCredentialMetadata])
+  , _lsscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListServiceSpecificCredentialsResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +127,11 @@ listServiceSpecificCredentialsResponse
     :: Int -- ^ 'lsscrsResponseStatus'
     -> ListServiceSpecificCredentialsResponse
 listServiceSpecificCredentialsResponse pResponseStatus_ =
-    ListServiceSpecificCredentialsResponse'
-    { _lsscrsServiceSpecificCredentials = Nothing
-    , _lsscrsResponseStatus = pResponseStatus_
-    }
+  ListServiceSpecificCredentialsResponse'
+  { _lsscrsServiceSpecificCredentials = Nothing
+  , _lsscrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of structures that each contain details about a service-specific credential.
 lsscrsServiceSpecificCredentials :: Lens' ListServiceSpecificCredentialsResponse [ServiceSpecificCredentialMetadata]
@@ -139,4 +142,5 @@ lsscrsResponseStatus :: Lens' ListServiceSpecificCredentialsResponse Int
 lsscrsResponseStatus = lens _lsscrsResponseStatus (\ s a -> s{_lsscrsResponseStatus = a});
 
 instance NFData
-         ListServiceSpecificCredentialsResponse
+           ListServiceSpecificCredentialsResponse
+         where

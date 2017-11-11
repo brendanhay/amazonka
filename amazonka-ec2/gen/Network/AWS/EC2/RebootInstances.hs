@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RebootInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.RebootInstances
     , RebootInstancesResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RebootInstances.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'rebootInstances' smart constructor.
 data RebootInstances = RebootInstances'
-    { _rebDryRun      :: !(Maybe Bool)
-    , _rebInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rebDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rebInstanceIds :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootInstances' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ data RebootInstances = RebootInstances'
 rebootInstances
     :: RebootInstances
 rebootInstances =
-    RebootInstances'
-    { _rebDryRun = Nothing
-    , _rebInstanceIds = mempty
-    }
+  RebootInstances' {_rebDryRun = Nothing, _rebInstanceIds = mempty}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rebDryRun :: Lens' RebootInstances (Maybe Bool)
@@ -84,9 +83,9 @@ instance AWSRequest RebootInstances where
         request = postQuery ec2
         response = receiveNull RebootInstancesResponse'
 
-instance Hashable RebootInstances
+instance Hashable RebootInstances where
 
-instance NFData RebootInstances
+instance NFData RebootInstances where
 
 instance ToHeaders RebootInstances where
         toHeaders = const mempty
@@ -104,8 +103,9 @@ instance ToQuery RebootInstances where
 
 -- | /See:/ 'rebootInstancesResponse' smart constructor.
 data RebootInstancesResponse =
-    RebootInstancesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RebootInstancesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootInstancesResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +113,5 @@ rebootInstancesResponse
     :: RebootInstancesResponse
 rebootInstancesResponse = RebootInstancesResponse'
 
-instance NFData RebootInstancesResponse
+
+instance NFData RebootInstancesResponse where

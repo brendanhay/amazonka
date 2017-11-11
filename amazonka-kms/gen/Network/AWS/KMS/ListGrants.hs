@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListGrants
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.KMS.ListGrants
     , lgNextMarker
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listGrants' smart constructor.
 data ListGrants = ListGrants'
-    { _lgMarker :: !(Maybe Text)
-    , _lgLimit  :: !(Maybe Nat)
-    , _lgKeyId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lgKeyId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGrants' with the minimum fields required to make a request.
 --
@@ -70,11 +71,8 @@ listGrants
     :: Text -- ^ 'lgKeyId'
     -> ListGrants
 listGrants pKeyId_ =
-    ListGrants'
-    { _lgMarker = Nothing
-    , _lgLimit = Nothing
-    , _lgKeyId = pKeyId_
-    }
+  ListGrants' {_lgMarker = Nothing, _lgLimit = Nothing, _lgKeyId = pKeyId_}
+
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lgMarker :: Lens' ListGrants (Maybe Text)
@@ -100,9 +98,9 @@ instance AWSRequest ListGrants where
         request = postJSON kms
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable ListGrants
+instance Hashable ListGrants where
 
-instance NFData ListGrants
+instance NFData ListGrants where
 
 instance ToHeaders ListGrants where
         toHeaders

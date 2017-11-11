@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.StopExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.StepFunctions.StopExecution
     , sersStopDate
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'stopExecution' smart constructor.
 data StopExecution = StopExecution'
-    { _seError        :: !(Maybe Text)
-    , _seCause        :: !(Maybe Text)
-    , _seExecutionARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seError        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seCause        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seExecutionARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopExecution' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ stopExecution
     :: Text -- ^ 'seExecutionARN'
     -> StopExecution
 stopExecution pExecutionARN_ =
-    StopExecution'
-    { _seError = Nothing
-    , _seCause = Nothing
-    , _seExecutionARN = pExecutionARN_
-    }
+  StopExecution'
+  {_seError = Nothing, _seCause = Nothing, _seExecutionARN = pExecutionARN_}
+
 
 -- | An arbitrary error code that identifies the cause of the termination.
 seError :: Lens' StopExecution (Maybe Text)
@@ -93,9 +92,9 @@ instance AWSRequest StopExecution where
                  StopExecutionResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "stopDate"))
 
-instance Hashable StopExecution
+instance Hashable StopExecution where
 
-instance NFData StopExecution
+instance NFData StopExecution where
 
 instance ToHeaders StopExecution where
         toHeaders
@@ -122,9 +121,10 @@ instance ToQuery StopExecution where
 
 -- | /See:/ 'stopExecutionResponse' smart constructor.
 data StopExecutionResponse = StopExecutionResponse'
-    { _sersResponseStatus :: !Int
-    , _sersStopDate       :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sersResponseStatus :: {-# NOUNPACK #-}!Int
+  , _sersStopDate       :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopExecutionResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +138,9 @@ stopExecutionResponse
     -> UTCTime -- ^ 'sersStopDate'
     -> StopExecutionResponse
 stopExecutionResponse pResponseStatus_ pStopDate_ =
-    StopExecutionResponse'
-    { _sersResponseStatus = pResponseStatus_
-    , _sersStopDate = _Time # pStopDate_
-    }
+  StopExecutionResponse'
+  {_sersResponseStatus = pResponseStatus_, _sersStopDate = _Time # pStopDate_}
+
 
 -- | -- | The response status code.
 sersResponseStatus :: Lens' StopExecutionResponse Int
@@ -151,4 +150,4 @@ sersResponseStatus = lens _sersResponseStatus (\ s a -> s{_sersResponseStatus = 
 sersStopDate :: Lens' StopExecutionResponse UTCTime
 sersStopDate = lens _sersStopDate (\ s a -> s{_sersStopDate = a}) . _Time;
 
-instance NFData StopExecutionResponse
+instance NFData StopExecutionResponse where

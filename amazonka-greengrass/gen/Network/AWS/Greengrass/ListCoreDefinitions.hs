@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListCoreDefinitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Greengrass.ListCoreDefinitions
     , lcdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listCoreDefinitions' smart constructor.
 data ListCoreDefinitions = ListCoreDefinitions'
-    { _lcdNextToken  :: !(Maybe Text)
-    , _lcdMaxResults :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcdNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcdMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCoreDefinitions' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ data ListCoreDefinitions = ListCoreDefinitions'
 listCoreDefinitions
     :: ListCoreDefinitions
 listCoreDefinitions =
-    ListCoreDefinitions'
-    { _lcdNextToken = Nothing
-    , _lcdMaxResults = Nothing
-    }
+  ListCoreDefinitions' {_lcdNextToken = Nothing, _lcdMaxResults = Nothing}
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lcdNextToken :: Lens' ListCoreDefinitions (Maybe Text)
@@ -85,9 +84,9 @@ instance AWSRequest ListCoreDefinitions where
                      (x .?> "Definitions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCoreDefinitions
+instance Hashable ListCoreDefinitions where
 
-instance NFData ListCoreDefinitions
+instance NFData ListCoreDefinitions where
 
 instance ToHeaders ListCoreDefinitions where
         toHeaders
@@ -107,10 +106,11 @@ instance ToQuery ListCoreDefinitions where
 
 -- | /See:/ 'listCoreDefinitionsResponse' smart constructor.
 data ListCoreDefinitionsResponse = ListCoreDefinitionsResponse'
-    { _lcdrsNextToken      :: !(Maybe Text)
-    , _lcdrsDefinitions    :: !(Maybe [DefinitionInformation])
-    , _lcdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcdrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
+  , _lcdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCoreDefinitionsResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +125,12 @@ listCoreDefinitionsResponse
     :: Int -- ^ 'lcdrsResponseStatus'
     -> ListCoreDefinitionsResponse
 listCoreDefinitionsResponse pResponseStatus_ =
-    ListCoreDefinitionsResponse'
-    { _lcdrsNextToken = Nothing
-    , _lcdrsDefinitions = Nothing
-    , _lcdrsResponseStatus = pResponseStatus_
-    }
+  ListCoreDefinitionsResponse'
+  { _lcdrsNextToken = Nothing
+  , _lcdrsDefinitions = Nothing
+  , _lcdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lcdrsNextToken :: Lens' ListCoreDefinitionsResponse (Maybe Text)
@@ -143,4 +144,4 @@ lcdrsDefinitions = lens _lcdrsDefinitions (\ s a -> s{_lcdrsDefinitions = a}) . 
 lcdrsResponseStatus :: Lens' ListCoreDefinitionsResponse Int
 lcdrsResponseStatus = lens _lcdrsResponseStatus (\ s a -> s{_lcdrsResponseStatus = a});
 
-instance NFData ListCoreDefinitionsResponse
+instance NFData ListCoreDefinitionsResponse where

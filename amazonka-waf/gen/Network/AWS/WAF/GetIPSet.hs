@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetIPSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.WAF.GetIPSet
     , gisrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'getIPSet' smart constructor.
 newtype GetIPSet = GetIPSet'
-    { _gisIPSetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisIPSetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIPSet' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetIPSet = GetIPSet'
 getIPSet
     :: Text -- ^ 'gisIPSetId'
     -> GetIPSet
-getIPSet pIPSetId_ =
-    GetIPSet'
-    { _gisIPSetId = pIPSetId_
-    }
+getIPSet pIPSetId_ = GetIPSet' {_gisIPSetId = pIPSetId_}
+
 
 -- | The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 gisIPSetId :: Lens' GetIPSet Text
@@ -75,9 +74,9 @@ instance AWSRequest GetIPSet where
                  GetIPSetResponse' <$>
                    (x .?> "IPSet") <*> (pure (fromEnum s)))
 
-instance Hashable GetIPSet
+instance Hashable GetIPSet where
 
-instance NFData GetIPSet
+instance NFData GetIPSet where
 
 instance ToHeaders GetIPSet where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery GetIPSet where
 
 -- | /See:/ 'getIPSetResponse' smart constructor.
 data GetIPSetResponse = GetIPSetResponse'
-    { _gisrsIPSet          :: !(Maybe IPSet)
-    , _gisrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisrsIPSet          :: {-# NOUNPACK #-}!(Maybe IPSet)
+  , _gisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIPSetResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ getIPSetResponse
     :: Int -- ^ 'gisrsResponseStatus'
     -> GetIPSetResponse
 getIPSetResponse pResponseStatus_ =
-    GetIPSetResponse'
-    { _gisrsIPSet = Nothing
-    , _gisrsResponseStatus = pResponseStatus_
-    }
+  GetIPSetResponse'
+  {_gisrsIPSet = Nothing, _gisrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@      * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
 gisrsIPSet :: Lens' GetIPSetResponse (Maybe IPSet)
@@ -129,4 +128,4 @@ gisrsIPSet = lens _gisrsIPSet (\ s a -> s{_gisrsIPSet = a});
 gisrsResponseStatus :: Lens' GetIPSetResponse Int
 gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
 
-instance NFData GetIPSetResponse
+instance NFData GetIPSetResponse where

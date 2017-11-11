@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     , ucfoairsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to update an origin access identity.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateCloudFrontOriginAccessIdentity' smart constructor.
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
-    { _ucfoaiIfMatch                              :: !(Maybe Text)
-    , _ucfoaiCloudFrontOriginAccessIdentityConfig :: !CloudFrontOriginAccessIdentityConfig
-    , _ucfoaiId                                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucfoaiIfMatch :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucfoaiCloudFrontOriginAccessIdentityConfig :: {-# NOUNPACK #-}!CloudFrontOriginAccessIdentityConfig
+  , _ucfoaiId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
@@ -72,11 +73,13 @@ updateCloudFrontOriginAccessIdentity
     -> Text -- ^ 'ucfoaiId'
     -> UpdateCloudFrontOriginAccessIdentity
 updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_ =
-    UpdateCloudFrontOriginAccessIdentity'
-    { _ucfoaiIfMatch = Nothing
-    , _ucfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
-    , _ucfoaiId = pId_
-    }
+  UpdateCloudFrontOriginAccessIdentity'
+  { _ucfoaiIfMatch = Nothing
+  , _ucfoaiCloudFrontOriginAccessIdentityConfig =
+      pCloudFrontOriginAccessIdentityConfig_
+  , _ucfoaiId = pId_
+  }
+
 
 -- | The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
 ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
@@ -91,7 +94,8 @@ ucfoaiId :: Lens' UpdateCloudFrontOriginAccessIdentity Text
 ucfoaiId = lens _ucfoaiId (\ s a -> s{_ucfoaiId = a});
 
 instance AWSRequest
-         UpdateCloudFrontOriginAccessIdentity where
+           UpdateCloudFrontOriginAccessIdentity
+         where
         type Rs UpdateCloudFrontOriginAccessIdentity =
              UpdateCloudFrontOriginAccessIdentityResponse
         request = putXML cloudFront
@@ -103,12 +107,15 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable
-         UpdateCloudFrontOriginAccessIdentity
+           UpdateCloudFrontOriginAccessIdentity
+         where
 
 instance NFData UpdateCloudFrontOriginAccessIdentity
+         where
 
 instance ToElement
-         UpdateCloudFrontOriginAccessIdentity where
+           UpdateCloudFrontOriginAccessIdentity
+         where
         toElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2017-03-25/}CloudFrontOriginAccessIdentityConfig"
@@ -116,7 +123,8 @@ instance ToElement
               _ucfoaiCloudFrontOriginAccessIdentityConfig
 
 instance ToHeaders
-         UpdateCloudFrontOriginAccessIdentity where
+           UpdateCloudFrontOriginAccessIdentity
+         where
         toHeaders UpdateCloudFrontOriginAccessIdentity'{..}
           = mconcat ["If-Match" =# _ucfoaiIfMatch]
 
@@ -137,10 +145,11 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
 --
 -- /See:/ 'updateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
-    { _ucfoairsETag                           :: !(Maybe Text)
-    , _ucfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ucfoairsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucfoairsETag :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucfoairsCloudFrontOriginAccessIdentity :: {-# NOUNPACK #-}!(Maybe CloudFrontOriginAccessIdentity)
+  , _ucfoairsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +164,12 @@ updateCloudFrontOriginAccessIdentityResponse
     :: Int -- ^ 'ucfoairsResponseStatus'
     -> UpdateCloudFrontOriginAccessIdentityResponse
 updateCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
-    UpdateCloudFrontOriginAccessIdentityResponse'
-    { _ucfoairsETag = Nothing
-    , _ucfoairsCloudFrontOriginAccessIdentity = Nothing
-    , _ucfoairsResponseStatus = pResponseStatus_
-    }
+  UpdateCloudFrontOriginAccessIdentityResponse'
+  { _ucfoairsETag = Nothing
+  , _ucfoairsCloudFrontOriginAccessIdentity = Nothing
+  , _ucfoairsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 ucfoairsETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
@@ -174,4 +184,5 @@ ucfoairsResponseStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
 ucfoairsResponseStatus = lens _ucfoairsResponseStatus (\ s a -> s{_ucfoairsResponseStatus = a});
 
 instance NFData
-         UpdateCloudFrontOriginAccessIdentityResponse
+           UpdateCloudFrontOriginAccessIdentityResponse
+         where

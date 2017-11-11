@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.StartOnDemandReplicationRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.SMS.StartOnDemandReplicationRun
     , sodrrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'startOnDemandReplicationRun' smart constructor.
 data StartOnDemandReplicationRun = StartOnDemandReplicationRun'
-    { _sodrrDescription      :: !(Maybe Text)
-    , _sodrrReplicationJobId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sodrrDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sodrrReplicationJobId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartOnDemandReplicationRun' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ startOnDemandReplicationRun
     :: Text -- ^ 'sodrrReplicationJobId'
     -> StartOnDemandReplicationRun
 startOnDemandReplicationRun pReplicationJobId_ =
-    StartOnDemandReplicationRun'
-    { _sodrrDescription = Nothing
-    , _sodrrReplicationJobId = pReplicationJobId_
-    }
+  StartOnDemandReplicationRun'
+  {_sodrrDescription = Nothing, _sodrrReplicationJobId = pReplicationJobId_}
+
 
 -- | Undocumented member.
 sodrrDescription :: Lens' StartOnDemandReplicationRun (Maybe Text)
@@ -83,9 +83,9 @@ instance AWSRequest StartOnDemandReplicationRun where
                  StartOnDemandReplicationRunResponse' <$>
                    (x .?> "replicationRunId") <*> (pure (fromEnum s)))
 
-instance Hashable StartOnDemandReplicationRun
+instance Hashable StartOnDemandReplicationRun where
 
-instance NFData StartOnDemandReplicationRun
+instance NFData StartOnDemandReplicationRun where
 
 instance ToHeaders StartOnDemandReplicationRun where
         toHeaders
@@ -112,9 +112,10 @@ instance ToQuery StartOnDemandReplicationRun where
 
 -- | /See:/ 'startOnDemandReplicationRunResponse' smart constructor.
 data StartOnDemandReplicationRunResponse = StartOnDemandReplicationRunResponse'
-    { _sodrrrsReplicationRunId :: !(Maybe Text)
-    , _sodrrrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sodrrrsReplicationRunId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sodrrrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartOnDemandReplicationRunResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,11 @@ startOnDemandReplicationRunResponse
     :: Int -- ^ 'sodrrrsResponseStatus'
     -> StartOnDemandReplicationRunResponse
 startOnDemandReplicationRunResponse pResponseStatus_ =
-    StartOnDemandReplicationRunResponse'
-    { _sodrrrsReplicationRunId = Nothing
-    , _sodrrrsResponseStatus = pResponseStatus_
-    }
+  StartOnDemandReplicationRunResponse'
+  { _sodrrrsReplicationRunId = Nothing
+  , _sodrrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 sodrrrsReplicationRunId :: Lens' StartOnDemandReplicationRunResponse (Maybe Text)
@@ -141,3 +143,4 @@ sodrrrsResponseStatus :: Lens' StartOnDemandReplicationRunResponse Int
 sodrrrsResponseStatus = lens _sodrrrsResponseStatus (\ s a -> s{_sodrrrsResponseStatus = a});
 
 instance NFData StartOnDemandReplicationRunResponse
+         where

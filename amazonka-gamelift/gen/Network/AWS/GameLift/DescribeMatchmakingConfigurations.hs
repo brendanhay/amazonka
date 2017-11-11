@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeMatchmakingConfigurations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,12 +59,12 @@ module Network.AWS.GameLift.DescribeMatchmakingConfigurations
     , dmcsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -72,11 +72,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeMatchmakingConfigurations' smart constructor.
 data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
-    { _dmcRuleSetName :: !(Maybe Text)
-    , _dmcNextToken   :: !(Maybe Text)
-    , _dmcNames       :: !(Maybe [Text])
-    , _dmcLimit       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmcRuleSetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmcNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmcNames       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dmcLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMatchmakingConfigurations' with the minimum fields required to make a request.
 --
@@ -92,12 +93,13 @@ data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
 describeMatchmakingConfigurations
     :: DescribeMatchmakingConfigurations
 describeMatchmakingConfigurations =
-    DescribeMatchmakingConfigurations'
-    { _dmcRuleSetName = Nothing
-    , _dmcNextToken = Nothing
-    , _dmcNames = Nothing
-    , _dmcLimit = Nothing
-    }
+  DescribeMatchmakingConfigurations'
+  { _dmcRuleSetName = Nothing
+  , _dmcNextToken = Nothing
+  , _dmcNames = Nothing
+  , _dmcLimit = Nothing
+  }
+
 
 -- | Unique identifier for a matchmaking rule set. Use this parameter to retrieve all matchmaking configurations that use this rule set.
 dmcRuleSetName :: Lens' DescribeMatchmakingConfigurations (Maybe Text)
@@ -129,8 +131,10 @@ instance AWSRequest DescribeMatchmakingConfigurations
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeMatchmakingConfigurations
+         where
 
 instance NFData DescribeMatchmakingConfigurations
+         where
 
 instance ToHeaders DescribeMatchmakingConfigurations
          where
@@ -167,10 +171,11 @@ instance ToQuery DescribeMatchmakingConfigurations
 --
 -- /See:/ 'describeMatchmakingConfigurationsResponse' smart constructor.
 data DescribeMatchmakingConfigurationsResponse = DescribeMatchmakingConfigurationsResponse'
-    { _dmcsrsConfigurations :: !(Maybe [MatchmakingConfiguration])
-    , _dmcsrsNextToken      :: !(Maybe Text)
-    , _dmcsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmcsrsConfigurations :: {-# NOUNPACK #-}!(Maybe [MatchmakingConfiguration])
+  , _dmcsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMatchmakingConfigurationsResponse' with the minimum fields required to make a request.
 --
@@ -185,11 +190,12 @@ describeMatchmakingConfigurationsResponse
     :: Int -- ^ 'dmcsrsResponseStatus'
     -> DescribeMatchmakingConfigurationsResponse
 describeMatchmakingConfigurationsResponse pResponseStatus_ =
-    DescribeMatchmakingConfigurationsResponse'
-    { _dmcsrsConfigurations = Nothing
-    , _dmcsrsNextToken = Nothing
-    , _dmcsrsResponseStatus = pResponseStatus_
-    }
+  DescribeMatchmakingConfigurationsResponse'
+  { _dmcsrsConfigurations = Nothing
+  , _dmcsrsNextToken = Nothing
+  , _dmcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Collection of requested matchmaking configuration objects.
 dmcsrsConfigurations :: Lens' DescribeMatchmakingConfigurationsResponse [MatchmakingConfiguration]
@@ -204,4 +210,5 @@ dmcsrsResponseStatus :: Lens' DescribeMatchmakingConfigurationsResponse Int
 dmcsrsResponseStatus = lens _dmcsrsResponseStatus (\ s a -> s{_dmcsrsResponseStatus = a});
 
 instance NFData
-         DescribeMatchmakingConfigurationsResponse
+           DescribeMatchmakingConfigurationsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSnapshotAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , dsarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSnapshotAttribute.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSnapshotAttribute' smart constructor.
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
-    { _dsaDryRun     :: !(Maybe Bool)
-    , _dsaAttribute  :: !SnapshotAttributeName
-    , _dsaSnapshotId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsaDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsaAttribute  :: {-# NOUNPACK #-}!SnapshotAttributeName
+  , _dsaSnapshotId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotAttribute' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ describeSnapshotAttribute
     -> Text -- ^ 'dsaSnapshotId'
     -> DescribeSnapshotAttribute
 describeSnapshotAttribute pAttribute_ pSnapshotId_ =
-    DescribeSnapshotAttribute'
-    { _dsaDryRun = Nothing
-    , _dsaAttribute = pAttribute_
-    , _dsaSnapshotId = pSnapshotId_
-    }
+  DescribeSnapshotAttribute'
+  { _dsaDryRun = Nothing
+  , _dsaAttribute = pAttribute_
+  , _dsaSnapshotId = pSnapshotId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
@@ -109,9 +111,9 @@ instance AWSRequest DescribeSnapshotAttribute where
                      <*> (x .@? "snapshotId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSnapshotAttribute
+instance Hashable DescribeSnapshotAttribute where
 
-instance NFData DescribeSnapshotAttribute
+instance NFData DescribeSnapshotAttribute where
 
 instance ToHeaders DescribeSnapshotAttribute where
         toHeaders = const mempty
@@ -134,11 +136,12 @@ instance ToQuery DescribeSnapshotAttribute where
 --
 -- /See:/ 'describeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-    { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
-    , _dsarsProductCodes            :: !(Maybe [ProductCode])
-    , _dsarsSnapshotId              :: !(Maybe Text)
-    , _dsarsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsarsCreateVolumePermissions :: {-# NOUNPACK #-}!(Maybe [CreateVolumePermission])
+  , _dsarsProductCodes :: {-# NOUNPACK #-}!(Maybe [ProductCode])
+  , _dsarsSnapshotId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
@@ -155,12 +158,13 @@ describeSnapshotAttributeResponse
     :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeSnapshotAttributeResponse
 describeSnapshotAttributeResponse pResponseStatus_ =
-    DescribeSnapshotAttributeResponse'
-    { _dsarsCreateVolumePermissions = Nothing
-    , _dsarsProductCodes = Nothing
-    , _dsarsSnapshotId = Nothing
-    , _dsarsResponseStatus = pResponseStatus_
-    }
+  DescribeSnapshotAttributeResponse'
+  { _dsarsCreateVolumePermissions = Nothing
+  , _dsarsProductCodes = Nothing
+  , _dsarsSnapshotId = Nothing
+  , _dsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of permissions for creating volumes from the snapshot.
 dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
@@ -179,3 +183,4 @@ dsarsResponseStatus :: Lens' DescribeSnapshotAttributeResponse Int
 dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
 
 instance NFData DescribeSnapshotAttributeResponse
+         where

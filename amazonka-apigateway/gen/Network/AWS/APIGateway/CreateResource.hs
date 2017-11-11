@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.CreateResource
     , rParentId
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to create a 'Resource' resource.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createResource' smart constructor.
 data CreateResource = CreateResource'
-    { _crRestAPIId :: !Text
-    , _crParentId  :: !Text
-    , _crPathPart  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crRestAPIId :: {-# NOUNPACK #-}!Text
+  , _crParentId  :: {-# NOUNPACK #-}!Text
+  , _crPathPart  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateResource' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ createResource
     -> Text -- ^ 'crPathPart'
     -> CreateResource
 createResource pRestAPIId_ pParentId_ pPathPart_ =
-    CreateResource'
-    { _crRestAPIId = pRestAPIId_
-    , _crParentId = pParentId_
-    , _crPathPart = pPathPart_
-    }
+  CreateResource'
+  { _crRestAPIId = pRestAPIId_
+  , _crParentId = pParentId_
+  , _crPathPart = pPathPart_
+  }
+
 
 -- | The string identifier of the associated 'RestApi' .
 crRestAPIId :: Lens' CreateResource Text
@@ -98,9 +100,9 @@ instance AWSRequest CreateResource where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateResource
+instance Hashable CreateResource where
 
-instance NFData CreateResource
+instance NFData CreateResource where
 
 instance ToHeaders CreateResource where
         toHeaders

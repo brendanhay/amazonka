@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeExportTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.CloudWatchLogs.DescribeExportTasks
     , detrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-    { _detTaskId     :: !(Maybe Text)
-    , _detNextToken  :: !(Maybe Text)
-    , _detLimit      :: !(Maybe Nat)
-    , _detStatusCode :: !(Maybe ExportTaskStatusCode)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detTaskId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _detStatusCode :: {-# NOUNPACK #-}!(Maybe ExportTaskStatusCode)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data DescribeExportTasks = DescribeExportTasks'
 describeExportTasks
     :: DescribeExportTasks
 describeExportTasks =
-    DescribeExportTasks'
-    { _detTaskId = Nothing
-    , _detNextToken = Nothing
-    , _detLimit = Nothing
-    , _detStatusCode = Nothing
-    }
+  DescribeExportTasks'
+  { _detTaskId = Nothing
+  , _detNextToken = Nothing
+  , _detLimit = Nothing
+  , _detStatusCode = Nothing
+  }
+
 
 -- | The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
 detTaskId :: Lens' DescribeExportTasks (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest DescribeExportTasks where
                      (x .?> "exportTasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeExportTasks
+instance Hashable DescribeExportTasks where
 
-instance NFData DescribeExportTasks
+instance NFData DescribeExportTasks where
 
 instance ToHeaders DescribeExportTasks where
         toHeaders
@@ -135,10 +137,11 @@ instance ToQuery DescribeExportTasks where
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-    { _detrsNextToken      :: !(Maybe Text)
-    , _detrsExportTasks    :: !(Maybe [ExportTask])
-    , _detrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detrsExportTasks    :: {-# NOUNPACK #-}!(Maybe [ExportTask])
+  , _detrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ describeExportTasksResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DescribeExportTasksResponse
 describeExportTasksResponse pResponseStatus_ =
-    DescribeExportTasksResponse'
-    { _detrsNextToken = Nothing
-    , _detrsExportTasks = Nothing
-    , _detrsResponseStatus = pResponseStatus_
-    }
+  DescribeExportTasksResponse'
+  { _detrsNextToken = Nothing
+  , _detrsExportTasks = Nothing
+  , _detrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
@@ -171,4 +175,4 @@ detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . 
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 
-instance NFData DescribeExportTasksResponse
+instance NFData DescribeExportTasksResponse where

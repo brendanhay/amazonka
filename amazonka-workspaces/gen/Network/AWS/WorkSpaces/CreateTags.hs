@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.CreateTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.WorkSpaces.CreateTags
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | The request of the 'CreateTags' operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
-    { _ctResourceId :: !Text
-    , _ctTags       :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctResourceId :: {-# NOUNPACK #-}!Text
+  , _ctTags       :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ createTags
     :: Text -- ^ 'ctResourceId'
     -> CreateTags
 createTags pResourceId_ =
-    CreateTags'
-    { _ctResourceId = pResourceId_
-    , _ctTags = mempty
-    }
+  CreateTags' {_ctResourceId = pResourceId_, _ctTags = mempty}
+
 
 -- | The resource ID of the request.
 ctResourceId :: Lens' CreateTags Text
@@ -86,9 +85,9 @@ instance AWSRequest CreateTags where
               (\ s h x ->
                  CreateTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateTags
+instance Hashable CreateTags where
 
-instance NFData CreateTags
+instance NFData CreateTags where
 
 instance ToHeaders CreateTags where
         toHeaders
@@ -118,8 +117,9 @@ instance ToQuery CreateTags where
 --
 -- /See:/ 'createTagsResponse' smart constructor.
 newtype CreateTagsResponse = CreateTagsResponse'
-    { _ctrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
 --
@@ -130,12 +130,11 @@ createTagsResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTagsResponse
 createTagsResponse pResponseStatus_ =
-    CreateTagsResponse'
-    { _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTagsResponse' {_ctrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTagsResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTagsResponse
+instance NFData CreateTagsResponse where

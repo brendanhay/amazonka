@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeSourceRegions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.RDS.DescribeSourceRegions
     , dsrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSourceRegions' smart constructor.
 data DescribeSourceRegions = DescribeSourceRegions'
-    { _dsrRegionName :: !(Maybe Text)
-    , _dsrFilters    :: !(Maybe [Filter])
-    , _dsrMarker     :: !(Maybe Text)
-    , _dsrMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrRegionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsrFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dsrMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsrMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSourceRegions' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribeSourceRegions = DescribeSourceRegions'
 describeSourceRegions
     :: DescribeSourceRegions
 describeSourceRegions =
-    DescribeSourceRegions'
-    { _dsrRegionName = Nothing
-    , _dsrFilters = Nothing
-    , _dsrMarker = Nothing
-    , _dsrMaxRecords = Nothing
-    }
+  DescribeSourceRegions'
+  { _dsrRegionName = Nothing
+  , _dsrFilters = Nothing
+  , _dsrMarker = Nothing
+  , _dsrMaxRecords = Nothing
+  }
+
 
 -- | The source AWS Region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
 dsrRegionName :: Lens' DescribeSourceRegions (Maybe Text)
@@ -110,9 +112,9 @@ instance AWSRequest DescribeSourceRegions where
                         may (parseXMLList "SourceRegion"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSourceRegions
+instance Hashable DescribeSourceRegions where
 
-instance NFData DescribeSourceRegions
+instance NFData DescribeSourceRegions where
 
 instance ToHeaders DescribeSourceRegions where
         toHeaders = const mempty
@@ -137,10 +139,11 @@ instance ToQuery DescribeSourceRegions where
 --
 -- /See:/ 'describeSourceRegionsResponse' smart constructor.
 data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
-    { _dsrrsMarker         :: !(Maybe Text)
-    , _dsrrsSourceRegions  :: !(Maybe [SourceRegion])
-    , _dsrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsrrsSourceRegions  :: {-# NOUNPACK #-}!(Maybe [SourceRegion])
+  , _dsrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSourceRegionsResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +158,12 @@ describeSourceRegionsResponse
     :: Int -- ^ 'dsrrsResponseStatus'
     -> DescribeSourceRegionsResponse
 describeSourceRegionsResponse pResponseStatus_ =
-    DescribeSourceRegionsResponse'
-    { _dsrrsMarker = Nothing
-    , _dsrrsSourceRegions = Nothing
-    , _dsrrsResponseStatus = pResponseStatus_
-    }
+  DescribeSourceRegionsResponse'
+  { _dsrrsMarker = Nothing
+  , _dsrrsSourceRegions = Nothing
+  , _dsrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsrrsMarker :: Lens' DescribeSourceRegionsResponse (Maybe Text)
@@ -173,4 +177,4 @@ dsrrsSourceRegions = lens _dsrrsSourceRegions (\ s a -> s{_dsrrsSourceRegions = 
 dsrrsResponseStatus :: Lens' DescribeSourceRegionsResponse Int
 dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});
 
-instance NFData DescribeSourceRegionsResponse
+instance NFData DescribeSourceRegionsResponse where

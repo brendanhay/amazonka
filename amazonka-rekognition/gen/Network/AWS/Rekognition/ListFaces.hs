@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.ListFaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Rekognition.ListFaces
     , lfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listFaces' smart constructor.
 data ListFaces = ListFaces'
-    { _lfNextToken    :: !(Maybe Text)
-    , _lfMaxResults   :: !(Maybe Nat)
-    , _lfCollectionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lfCollectionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFaces' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ listFaces
     :: Text -- ^ 'lfCollectionId'
     -> ListFaces
 listFaces pCollectionId_ =
-    ListFaces'
-    { _lfNextToken = Nothing
-    , _lfMaxResults = Nothing
-    , _lfCollectionId = pCollectionId_
-    }
+  ListFaces'
+  { _lfNextToken = Nothing
+  , _lfMaxResults = Nothing
+  , _lfCollectionId = pCollectionId_
+  }
+
 
 -- | If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
 lfNextToken :: Lens' ListFaces (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest ListFaces where
                    (x .?> "NextToken") <*> (x .?> "Faces" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListFaces
+instance Hashable ListFaces where
 
-instance NFData ListFaces
+instance NFData ListFaces where
 
 instance ToHeaders ListFaces where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery ListFaces where
 
 -- | /See:/ 'listFacesResponse' smart constructor.
 data ListFacesResponse = ListFacesResponse'
-    { _lfrsNextToken      :: !(Maybe Text)
-    , _lfrsFaces          :: !(Maybe [Face])
-    , _lfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfrsFaces          :: {-# NOUNPACK #-}!(Maybe [Face])
+  , _lfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFacesResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ listFacesResponse
     :: Int -- ^ 'lfrsResponseStatus'
     -> ListFacesResponse
 listFacesResponse pResponseStatus_ =
-    ListFacesResponse'
-    { _lfrsNextToken = Nothing
-    , _lfrsFaces = Nothing
-    , _lfrsResponseStatus = pResponseStatus_
-    }
+  ListFacesResponse'
+  { _lfrsNextToken = Nothing
+  , _lfrsFaces = Nothing
+  , _lfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
 lfrsNextToken :: Lens' ListFacesResponse (Maybe Text)
@@ -172,4 +176,4 @@ lfrsFaces = lens _lfrsFaces (\ s a -> s{_lfrsFaces = a}) . _Default . _Coerce;
 lfrsResponseStatus :: Lens' ListFacesResponse Int
 lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
 
-instance NFData ListFacesResponse
+instance NFData ListFacesResponse where

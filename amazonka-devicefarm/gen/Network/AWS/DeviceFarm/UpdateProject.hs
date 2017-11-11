@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DeviceFarm.UpdateProject
     , uprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the update project operation.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
-    { _upName                     :: !(Maybe Text)
-    , _upDefaultJobTimeoutMinutes :: !(Maybe Int)
-    , _upArn                      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upDefaultJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _upArn                      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ updateProject
     :: Text -- ^ 'upArn'
     -> UpdateProject
 updateProject pArn_ =
-    UpdateProject'
-    { _upName = Nothing
-    , _upDefaultJobTimeoutMinutes = Nothing
-    , _upArn = pArn_
-    }
+  UpdateProject'
+  {_upName = Nothing, _upDefaultJobTimeoutMinutes = Nothing, _upArn = pArn_}
+
 
 -- | A string representing the new name of the project that you are updating.
 upName :: Lens' UpdateProject (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest UpdateProject where
                  UpdateProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateProject
+instance Hashable UpdateProject where
 
-instance NFData UpdateProject
+instance NFData UpdateProject where
 
 instance ToHeaders UpdateProject where
         toHeaders
@@ -131,9 +130,10 @@ instance ToQuery UpdateProject where
 --
 -- /See:/ 'updateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
-    { _uprsProject        :: !(Maybe Project)
-    , _uprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uprsProject        :: {-# NOUNPACK #-}!(Maybe Project)
+  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +146,9 @@ updateProjectResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UpdateProjectResponse
 updateProjectResponse pResponseStatus_ =
-    UpdateProjectResponse'
-    { _uprsProject = Nothing
-    , _uprsResponseStatus = pResponseStatus_
-    }
+  UpdateProjectResponse'
+  {_uprsProject = Nothing, _uprsResponseStatus = pResponseStatus_}
+
 
 -- | The project you wish to update.
 uprsProject :: Lens' UpdateProjectResponse (Maybe Project)
@@ -159,4 +158,4 @@ uprsProject = lens _uprsProject (\ s a -> s{_uprsProject = a});
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 
-instance NFData UpdateProjectResponse
+instance NFData UpdateProjectResponse where

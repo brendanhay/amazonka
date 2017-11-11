@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListDevices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CognitoIdentityProvider.ListDevices
     , ldrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to list the devices.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listDevices' smart constructor.
 data ListDevices = ListDevices'
-    { _ldPaginationToken :: !(Maybe Text)
-    , _ldLimit           :: !(Maybe Nat)
-    , _ldAccessToken     :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ldPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ldAccessToken     :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDevices' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ listDevices
     :: Text -- ^ 'ldAccessToken'
     -> ListDevices
 listDevices pAccessToken_ =
-    ListDevices'
-    { _ldPaginationToken = Nothing
-    , _ldLimit = Nothing
-    , _ldAccessToken = _Sensitive # pAccessToken_
-    }
+  ListDevices'
+  { _ldPaginationToken = Nothing
+  , _ldLimit = Nothing
+  , _ldAccessToken = _Sensitive # pAccessToken_
+  }
+
 
 -- | The pagination token for the list request.
 ldPaginationToken :: Lens' ListDevices (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest ListDevices where
                      (x .?> "Devices" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDevices
+instance Hashable ListDevices where
 
-instance NFData ListDevices
+instance NFData ListDevices where
 
 instance ToHeaders ListDevices where
         toHeaders
@@ -134,10 +136,11 @@ instance ToQuery ListDevices where
 --
 -- /See:/ 'listDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-    { _ldrsPaginationToken :: !(Maybe Text)
-    , _ldrsDevices         :: !(Maybe [DeviceType])
-    , _ldrsResponseStatus  :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ldrsPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrsDevices         :: {-# NOUNPACK #-}!(Maybe [DeviceType])
+  , _ldrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDevicesResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +155,12 @@ listDevicesResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDevicesResponse
 listDevicesResponse pResponseStatus_ =
-    ListDevicesResponse'
-    { _ldrsPaginationToken = Nothing
-    , _ldrsDevices = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    }
+  ListDevicesResponse'
+  { _ldrsPaginationToken = Nothing
+  , _ldrsDevices = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token for the list device response.
 ldrsPaginationToken :: Lens' ListDevicesResponse (Maybe Text)
@@ -170,4 +174,4 @@ ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coe
 ldrsResponseStatus :: Lens' ListDevicesResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
-instance NFData ListDevicesResponse
+instance NFData ListDevicesResponse where

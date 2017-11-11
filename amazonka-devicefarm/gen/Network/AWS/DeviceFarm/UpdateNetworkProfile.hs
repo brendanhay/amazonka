@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateNetworkProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,28 +48,29 @@ module Network.AWS.DeviceFarm.UpdateNetworkProfile
     , unprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateNetworkProfile' smart constructor.
 data UpdateNetworkProfile = UpdateNetworkProfile'
-    { _unpUplinkJitterMs        :: !(Maybe Integer)
-    , _unpUplinkLossPercent     :: !(Maybe Nat)
-    , _unpDownlinkJitterMs      :: !(Maybe Integer)
-    , _unpName                  :: !(Maybe Text)
-    , _unpDownlinkLossPercent   :: !(Maybe Nat)
-    , _unpType                  :: !(Maybe NetworkProfileType)
-    , _unpUplinkDelayMs         :: !(Maybe Integer)
-    , _unpUplinkBandwidthBits   :: !(Maybe Integer)
-    , _unpDescription           :: !(Maybe Text)
-    , _unpDownlinkDelayMs       :: !(Maybe Integer)
-    , _unpDownlinkBandwidthBits :: !(Maybe Integer)
-    , _unpArn                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unpUplinkJitterMs        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _unpUplinkLossPercent     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _unpDownlinkJitterMs      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _unpName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _unpDownlinkLossPercent   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _unpType                  :: {-# NOUNPACK #-}!(Maybe NetworkProfileType)
+  , _unpUplinkDelayMs         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _unpUplinkBandwidthBits   :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _unpDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _unpDownlinkDelayMs       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _unpDownlinkBandwidthBits :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _unpArn                   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNetworkProfile' with the minimum fields required to make a request.
 --
@@ -102,20 +103,21 @@ updateNetworkProfile
     :: Text -- ^ 'unpArn'
     -> UpdateNetworkProfile
 updateNetworkProfile pArn_ =
-    UpdateNetworkProfile'
-    { _unpUplinkJitterMs = Nothing
-    , _unpUplinkLossPercent = Nothing
-    , _unpDownlinkJitterMs = Nothing
-    , _unpName = Nothing
-    , _unpDownlinkLossPercent = Nothing
-    , _unpType = Nothing
-    , _unpUplinkDelayMs = Nothing
-    , _unpUplinkBandwidthBits = Nothing
-    , _unpDescription = Nothing
-    , _unpDownlinkDelayMs = Nothing
-    , _unpDownlinkBandwidthBits = Nothing
-    , _unpArn = pArn_
-    }
+  UpdateNetworkProfile'
+  { _unpUplinkJitterMs = Nothing
+  , _unpUplinkLossPercent = Nothing
+  , _unpDownlinkJitterMs = Nothing
+  , _unpName = Nothing
+  , _unpDownlinkLossPercent = Nothing
+  , _unpType = Nothing
+  , _unpUplinkDelayMs = Nothing
+  , _unpUplinkBandwidthBits = Nothing
+  , _unpDescription = Nothing
+  , _unpDownlinkDelayMs = Nothing
+  , _unpDownlinkBandwidthBits = Nothing
+  , _unpArn = pArn_
+  }
+
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 unpUplinkJitterMs :: Lens' UpdateNetworkProfile (Maybe Integer)
@@ -175,9 +177,9 @@ instance AWSRequest UpdateNetworkProfile where
                  UpdateNetworkProfileResponse' <$>
                    (x .?> "networkProfile") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateNetworkProfile
+instance Hashable UpdateNetworkProfile where
 
-instance NFData UpdateNetworkProfile
+instance NFData UpdateNetworkProfile where
 
 instance ToHeaders UpdateNetworkProfile where
         toHeaders
@@ -217,9 +219,10 @@ instance ToQuery UpdateNetworkProfile where
 
 -- | /See:/ 'updateNetworkProfileResponse' smart constructor.
 data UpdateNetworkProfileResponse = UpdateNetworkProfileResponse'
-    { _unprsNetworkProfile :: !(Maybe NetworkProfile)
-    , _unprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unprsNetworkProfile :: {-# NOUNPACK #-}!(Maybe NetworkProfile)
+  , _unprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNetworkProfileResponse' with the minimum fields required to make a request.
 --
@@ -232,10 +235,9 @@ updateNetworkProfileResponse
     :: Int -- ^ 'unprsResponseStatus'
     -> UpdateNetworkProfileResponse
 updateNetworkProfileResponse pResponseStatus_ =
-    UpdateNetworkProfileResponse'
-    { _unprsNetworkProfile = Nothing
-    , _unprsResponseStatus = pResponseStatus_
-    }
+  UpdateNetworkProfileResponse'
+  {_unprsNetworkProfile = Nothing, _unprsResponseStatus = pResponseStatus_}
+
 
 -- | A list of the available network profiles.
 unprsNetworkProfile :: Lens' UpdateNetworkProfileResponse (Maybe NetworkProfile)
@@ -245,4 +247,4 @@ unprsNetworkProfile = lens _unprsNetworkProfile (\ s a -> s{_unprsNetworkProfile
 unprsResponseStatus :: Lens' UpdateNetworkProfileResponse Int
 unprsResponseStatus = lens _unprsResponseStatus (\ s a -> s{_unprsResponseStatus = a});
 
-instance NFData UpdateNetworkProfileResponse
+instance NFData UpdateNetworkProfileResponse where

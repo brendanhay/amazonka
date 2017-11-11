@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DescribeJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Batch.DescribeJobs
     , djrsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeJobs' smart constructor.
 newtype DescribeJobs = DescribeJobs'
-    { _djJobs :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djJobs :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeJobs' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DescribeJobs = DescribeJobs'
 -- * 'djJobs' - A space-separated list of up to 100 job IDs.
 describeJobs
     :: DescribeJobs
-describeJobs =
-    DescribeJobs'
-    { _djJobs = mempty
-    }
+describeJobs = DescribeJobs' {_djJobs = mempty}
+
 
 -- | A space-separated list of up to 100 job IDs.
 djJobs :: Lens' DescribeJobs [Text]
@@ -74,9 +73,9 @@ instance AWSRequest DescribeJobs where
                  DescribeJobsResponse' <$>
                    (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable DescribeJobs
+instance Hashable DescribeJobs where
 
-instance NFData DescribeJobs
+instance NFData DescribeJobs where
 
 instance ToHeaders DescribeJobs where
         toHeaders
@@ -97,9 +96,10 @@ instance ToQuery DescribeJobs where
 
 -- | /See:/ 'describeJobsResponse' smart constructor.
 data DescribeJobsResponse = DescribeJobsResponse'
-    { _djrsJobs           :: !(Maybe [JobDetail])
-    , _djrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djrsJobs           :: {-# NOUNPACK #-}!(Maybe [JobDetail])
+  , _djrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeJobsResponse' with the minimum fields required to make a request.
 --
@@ -112,10 +112,9 @@ describeJobsResponse
     :: Int -- ^ 'djrsResponseStatus'
     -> DescribeJobsResponse
 describeJobsResponse pResponseStatus_ =
-    DescribeJobsResponse'
-    { _djrsJobs = Nothing
-    , _djrsResponseStatus = pResponseStatus_
-    }
+  DescribeJobsResponse'
+  {_djrsJobs = Nothing, _djrsResponseStatus = pResponseStatus_}
+
 
 -- | The list of jobs.
 djrsJobs :: Lens' DescribeJobsResponse [JobDetail]
@@ -125,4 +124,4 @@ djrsJobs = lens _djrsJobs (\ s a -> s{_djrsJobs = a}) . _Default . _Coerce;
 djrsResponseStatus :: Lens' DescribeJobsResponse Int
 djrsResponseStatus = lens _djrsResponseStatus (\ s a -> s{_djrsResponseStatus = a});
 
-instance NFData DescribeJobsResponse
+instance NFData DescribeJobsResponse where

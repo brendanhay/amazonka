@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateUsage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.UpdateUsage
     , uPosition
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUsage' smart constructor.
 data UpdateUsage = UpdateUsage'
-    { _uuPatchOperations :: !(Maybe [PatchOperation])
-    , _uuUsagePlanId     :: !Text
-    , _uuKeyId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uuPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _uuUsagePlanId     :: {-# NOUNPACK #-}!Text
+  , _uuKeyId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUsage' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ updateUsage
     -> Text -- ^ 'uuKeyId'
     -> UpdateUsage
 updateUsage pUsagePlanId_ pKeyId_ =
-    UpdateUsage'
-    { _uuPatchOperations = Nothing
-    , _uuUsagePlanId = pUsagePlanId_
-    , _uuKeyId = pKeyId_
-    }
+  UpdateUsage'
+  { _uuPatchOperations = Nothing
+  , _uuUsagePlanId = pUsagePlanId_
+  , _uuKeyId = pKeyId_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uuPatchOperations :: Lens' UpdateUsage [PatchOperation]
@@ -97,9 +99,9 @@ instance AWSRequest UpdateUsage where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateUsage
+instance Hashable UpdateUsage where
 
-instance NFData UpdateUsage
+instance NFData UpdateUsage where
 
 instance ToHeaders UpdateUsage where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateCoreDefinitionVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Greengrass.CreateCoreDefinitionVersion
     , ccdvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createCoreDefinitionVersion' smart constructor.
 data CreateCoreDefinitionVersion = CreateCoreDefinitionVersion'
-    { _ccdvAmznClientToken  :: !(Maybe Text)
-    , _ccdvCores            :: !(Maybe [Core])
-    , _ccdvCoreDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccdvAmznClientToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdvCores            :: {-# NOUNPACK #-}!(Maybe [Core])
+  , _ccdvCoreDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCoreDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ createCoreDefinitionVersion
     :: Text -- ^ 'ccdvCoreDefinitionId'
     -> CreateCoreDefinitionVersion
 createCoreDefinitionVersion pCoreDefinitionId_ =
-    CreateCoreDefinitionVersion'
-    { _ccdvAmznClientToken = Nothing
-    , _ccdvCores = Nothing
-    , _ccdvCoreDefinitionId = pCoreDefinitionId_
-    }
+  CreateCoreDefinitionVersion'
+  { _ccdvAmznClientToken = Nothing
+  , _ccdvCores = Nothing
+  , _ccdvCoreDefinitionId = pCoreDefinitionId_
+  }
+
 
 -- | The client token used to request idempotent operations.
 ccdvAmznClientToken :: Lens' CreateCoreDefinitionVersion (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest CreateCoreDefinitionVersion where
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateCoreDefinitionVersion
+instance Hashable CreateCoreDefinitionVersion where
 
-instance NFData CreateCoreDefinitionVersion
+instance NFData CreateCoreDefinitionVersion where
 
 instance ToHeaders CreateCoreDefinitionVersion where
         toHeaders CreateCoreDefinitionVersion'{..}
@@ -124,12 +126,13 @@ instance ToQuery CreateCoreDefinitionVersion where
 
 -- | /See:/ 'createCoreDefinitionVersionResponse' smart constructor.
 data CreateCoreDefinitionVersionResponse = CreateCoreDefinitionVersionResponse'
-    { _ccdvrsARN               :: !(Maybe Text)
-    , _ccdvrsCreationTimestamp :: !(Maybe Text)
-    , _ccdvrsVersion           :: !(Maybe Text)
-    , _ccdvrsId                :: !(Maybe Text)
-    , _ccdvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccdvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCoreDefinitionVersionResponse' with the minimum fields required to make a request.
 --
@@ -148,13 +151,14 @@ createCoreDefinitionVersionResponse
     :: Int -- ^ 'ccdvrsResponseStatus'
     -> CreateCoreDefinitionVersionResponse
 createCoreDefinitionVersionResponse pResponseStatus_ =
-    CreateCoreDefinitionVersionResponse'
-    { _ccdvrsARN = Nothing
-    , _ccdvrsCreationTimestamp = Nothing
-    , _ccdvrsVersion = Nothing
-    , _ccdvrsId = Nothing
-    , _ccdvrsResponseStatus = pResponseStatus_
-    }
+  CreateCoreDefinitionVersionResponse'
+  { _ccdvrsARN = Nothing
+  , _ccdvrsCreationTimestamp = Nothing
+  , _ccdvrsVersion = Nothing
+  , _ccdvrsId = Nothing
+  , _ccdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Arn of the version.
 ccdvrsARN :: Lens' CreateCoreDefinitionVersionResponse (Maybe Text)
@@ -177,3 +181,4 @@ ccdvrsResponseStatus :: Lens' CreateCoreDefinitionVersionResponse Int
 ccdvrsResponseStatus = lens _ccdvrsResponseStatus (\ s a -> s{_ccdvrsResponseStatus = a});
 
 instance NFData CreateCoreDefinitionVersionResponse
+         where

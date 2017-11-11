@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DeleteFacet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CloudDirectory.DeleteFacet
     , dfrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteFacet' smart constructor.
 data DeleteFacet = DeleteFacet'
-    { _dfSchemaARN :: !Text
-    , _dfName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfSchemaARN :: {-# NOUNPACK #-}!Text
+  , _dfName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFacet' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteFacet
     -> Text -- ^ 'dfName'
     -> DeleteFacet
 deleteFacet pSchemaARN_ pName_ =
-    DeleteFacet'
-    { _dfSchemaARN = pSchemaARN_
-    , _dfName = pName_
-    }
+  DeleteFacet' {_dfSchemaARN = pSchemaARN_, _dfName = pName_}
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 dfSchemaARN :: Lens' DeleteFacet Text
@@ -83,9 +82,9 @@ instance AWSRequest DeleteFacet where
               (\ s h x ->
                  DeleteFacetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteFacet
+instance Hashable DeleteFacet where
 
-instance NFData DeleteFacet
+instance NFData DeleteFacet where
 
 instance ToHeaders DeleteFacet where
         toHeaders DeleteFacet'{..}
@@ -105,8 +104,9 @@ instance ToQuery DeleteFacet where
 
 -- | /See:/ 'deleteFacetResponse' smart constructor.
 newtype DeleteFacetResponse = DeleteFacetResponse'
-    { _dfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFacetResponse' with the minimum fields required to make a request.
 --
@@ -117,12 +117,11 @@ deleteFacetResponse
     :: Int -- ^ 'dfrsResponseStatus'
     -> DeleteFacetResponse
 deleteFacetResponse pResponseStatus_ =
-    DeleteFacetResponse'
-    { _dfrsResponseStatus = pResponseStatus_
-    }
+  DeleteFacetResponse' {_dfrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dfrsResponseStatus :: Lens' DeleteFacetResponse Int
 dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a});
 
-instance NFData DeleteFacetResponse
+instance NFData DeleteFacetResponse where

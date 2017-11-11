@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNatGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.EC2.CreateNatGateway
     , cngrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateNatGateway.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
-    { _cngClientToken  :: !(Maybe Text)
-    , _cngAllocationId :: !Text
-    , _cngSubnetId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cngClientToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cngAllocationId :: {-# NOUNPACK #-}!Text
+  , _cngSubnetId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNatGateway' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ createNatGateway
     -> Text -- ^ 'cngSubnetId'
     -> CreateNatGateway
 createNatGateway pAllocationId_ pSubnetId_ =
-    CreateNatGateway'
-    { _cngClientToken = Nothing
-    , _cngAllocationId = pAllocationId_
-    , _cngSubnetId = pSubnetId_
-    }
+  CreateNatGateway'
+  { _cngClientToken = Nothing
+  , _cngAllocationId = pAllocationId_
+  , _cngSubnetId = pSubnetId_
+  }
+
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> . Constraint: Maximum 64 ASCII characters.
 cngClientToken :: Lens' CreateNatGateway (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest CreateNatGateway where
                    (x .@? "clientToken") <*> (x .@? "natGateway") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateNatGateway
+instance Hashable CreateNatGateway where
 
-instance NFData CreateNatGateway
+instance NFData CreateNatGateway where
 
 instance ToHeaders CreateNatGateway where
         toHeaders = const mempty
@@ -125,10 +127,11 @@ instance ToQuery CreateNatGateway where
 --
 -- /See:/ 'createNatGatewayResponse' smart constructor.
 data CreateNatGatewayResponse = CreateNatGatewayResponse'
-    { _cngrsClientToken    :: !(Maybe Text)
-    , _cngrsNatGateway     :: !(Maybe NatGateway)
-    , _cngrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cngrsClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cngrsNatGateway     :: {-# NOUNPACK #-}!(Maybe NatGateway)
+  , _cngrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNatGatewayResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +146,12 @@ createNatGatewayResponse
     :: Int -- ^ 'cngrsResponseStatus'
     -> CreateNatGatewayResponse
 createNatGatewayResponse pResponseStatus_ =
-    CreateNatGatewayResponse'
-    { _cngrsClientToken = Nothing
-    , _cngrsNatGateway = Nothing
-    , _cngrsResponseStatus = pResponseStatus_
-    }
+  CreateNatGatewayResponse'
+  { _cngrsClientToken = Nothing
+  , _cngrsNatGateway = Nothing
+  , _cngrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.
 cngrsClientToken :: Lens' CreateNatGatewayResponse (Maybe Text)
@@ -161,4 +165,4 @@ cngrsNatGateway = lens _cngrsNatGateway (\ s a -> s{_cngrsNatGateway = a});
 cngrsResponseStatus :: Lens' CreateNatGatewayResponse Int
 cngrsResponseStatus = lens _cngrsResponseStatus (\ s a -> s{_cngrsResponseStatus = a});
 
-instance NFData CreateNatGatewayResponse
+instance NFData CreateNatGatewayResponse where

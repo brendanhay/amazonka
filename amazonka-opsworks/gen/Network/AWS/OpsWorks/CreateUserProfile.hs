@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateUserProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.OpsWorks.CreateUserProfile
     , cuprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-    { _cupAllowSelfManagement :: !(Maybe Bool)
-    , _cupSSHPublicKey        :: !(Maybe Text)
-    , _cupSSHUsername         :: !(Maybe Text)
-    , _cupIAMUserARN          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cupAllowSelfManagement :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cupSSHPublicKey        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cupSSHUsername         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cupIAMUserARN          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserProfile' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ createUserProfile
     :: Text -- ^ 'cupIAMUserARN'
     -> CreateUserProfile
 createUserProfile pIAMUserARN_ =
-    CreateUserProfile'
-    { _cupAllowSelfManagement = Nothing
-    , _cupSSHPublicKey = Nothing
-    , _cupSSHUsername = Nothing
-    , _cupIAMUserARN = pIAMUserARN_
-    }
+  CreateUserProfile'
+  { _cupAllowSelfManagement = Nothing
+  , _cupSSHPublicKey = Nothing
+  , _cupSSHUsername = Nothing
+  , _cupIAMUserARN = pIAMUserARN_
+  }
+
 
 -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key> .
 cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
@@ -104,9 +106,9 @@ instance AWSRequest CreateUserProfile where
                  CreateUserProfileResponse' <$>
                    (x .?> "IamUserArn") <*> (pure (fromEnum s)))
 
-instance Hashable CreateUserProfile
+instance Hashable CreateUserProfile where
 
-instance NFData CreateUserProfile
+instance NFData CreateUserProfile where
 
 instance ToHeaders CreateUserProfile where
         toHeaders
@@ -140,9 +142,10 @@ instance ToQuery CreateUserProfile where
 --
 -- /See:/ 'createUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-    { _cuprsIAMUserARN     :: !(Maybe Text)
-    , _cuprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cuprsIAMUserARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
 --
@@ -155,10 +158,9 @@ createUserProfileResponse
     :: Int -- ^ 'cuprsResponseStatus'
     -> CreateUserProfileResponse
 createUserProfileResponse pResponseStatus_ =
-    CreateUserProfileResponse'
-    { _cuprsIAMUserARN = Nothing
-    , _cuprsResponseStatus = pResponseStatus_
-    }
+  CreateUserProfileResponse'
+  {_cuprsIAMUserARN = Nothing, _cuprsResponseStatus = pResponseStatus_}
+
 
 -- | The user's IAM ARN.
 cuprsIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
@@ -168,4 +170,4 @@ cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
 cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
 cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});
 
-instance NFData CreateUserProfileResponse
+instance NFData CreateUserProfileResponse where

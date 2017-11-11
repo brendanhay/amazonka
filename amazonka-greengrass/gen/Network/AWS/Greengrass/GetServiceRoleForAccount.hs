@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetServiceRoleForAccount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,23 +34,25 @@ module Network.AWS.Greengrass.GetServiceRoleForAccount
     , gsrfarsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getServiceRoleForAccount' smart constructor.
 data GetServiceRoleForAccount =
-    GetServiceRoleForAccount'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetServiceRoleForAccount'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetServiceRoleForAccount' with the minimum fields required to make a request.
 --
 getServiceRoleForAccount
     :: GetServiceRoleForAccount
 getServiceRoleForAccount = GetServiceRoleForAccount'
+
 
 instance AWSRequest GetServiceRoleForAccount where
         type Rs GetServiceRoleForAccount =
@@ -63,9 +65,9 @@ instance AWSRequest GetServiceRoleForAccount where
                    (x .?> "AssociatedAt") <*> (x .?> "RoleArn") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetServiceRoleForAccount
+instance Hashable GetServiceRoleForAccount where
 
-instance NFData GetServiceRoleForAccount
+instance NFData GetServiceRoleForAccount where
 
 instance ToHeaders GetServiceRoleForAccount where
         toHeaders
@@ -82,10 +84,11 @@ instance ToQuery GetServiceRoleForAccount where
 
 -- | /See:/ 'getServiceRoleForAccountResponse' smart constructor.
 data GetServiceRoleForAccountResponse = GetServiceRoleForAccountResponse'
-    { _gsrfarsAssociatedAt   :: !(Maybe Text)
-    , _gsrfarsRoleARN        :: !(Maybe Text)
-    , _gsrfarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsrfarsAssociatedAt   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsrfarsRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsrfarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetServiceRoleForAccountResponse' with the minimum fields required to make a request.
 --
@@ -100,11 +103,12 @@ getServiceRoleForAccountResponse
     :: Int -- ^ 'gsrfarsResponseStatus'
     -> GetServiceRoleForAccountResponse
 getServiceRoleForAccountResponse pResponseStatus_ =
-    GetServiceRoleForAccountResponse'
-    { _gsrfarsAssociatedAt = Nothing
-    , _gsrfarsRoleARN = Nothing
-    , _gsrfarsResponseStatus = pResponseStatus_
-    }
+  GetServiceRoleForAccountResponse'
+  { _gsrfarsAssociatedAt = Nothing
+  , _gsrfarsRoleARN = Nothing
+  , _gsrfarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Time when the service role was associated to the account.
 gsrfarsAssociatedAt :: Lens' GetServiceRoleForAccountResponse (Maybe Text)
@@ -119,3 +123,4 @@ gsrfarsResponseStatus :: Lens' GetServiceRoleForAccountResponse Int
 gsrfarsResponseStatus = lens _gsrfarsResponseStatus (\ s a -> s{_gsrfarsResponseStatus = a});
 
 instance NFData GetServiceRoleForAccountResponse
+         where

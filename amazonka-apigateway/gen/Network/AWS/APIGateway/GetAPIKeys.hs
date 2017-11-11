@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAPIKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.APIGateway.GetAPIKeys
     , gakrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to get information about the current 'ApiKeys' resource.
 --
@@ -59,12 +59,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
-    { _gakIncludeValues :: !(Maybe Bool)
-    , _gakCustomerId    :: !(Maybe Text)
-    , _gakNameQuery     :: !(Maybe Text)
-    , _gakLimit         :: !(Maybe Int)
-    , _gakPosition      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gakIncludeValues :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gakCustomerId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gakNameQuery     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gakLimit         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gakPosition      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPIKeys' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ data GetAPIKeys = GetAPIKeys'
 getAPIKeys
     :: GetAPIKeys
 getAPIKeys =
-    GetAPIKeys'
-    { _gakIncludeValues = Nothing
-    , _gakCustomerId = Nothing
-    , _gakNameQuery = Nothing
-    , _gakLimit = Nothing
-    , _gakPosition = Nothing
-    }
+  GetAPIKeys'
+  { _gakIncludeValues = Nothing
+  , _gakCustomerId = Nothing
+  , _gakNameQuery = Nothing
+  , _gakLimit = Nothing
+  , _gakPosition = Nothing
+  }
+
 
 -- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 gakIncludeValues :: Lens' GetAPIKeys (Maybe Bool)
@@ -129,9 +131,9 @@ instance AWSRequest GetAPIKeys where
                      <*> (x .?> "position")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetAPIKeys
+instance Hashable GetAPIKeys where
 
-instance NFData GetAPIKeys
+instance NFData GetAPIKeys where
 
 instance ToHeaders GetAPIKeys where
         toHeaders
@@ -157,11 +159,12 @@ instance ToQuery GetAPIKeys where
 --
 -- /See:/ 'getAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
-    { _gakrsItems          :: !(Maybe [APIKey])
-    , _gakrsWarnings       :: !(Maybe [Text])
-    , _gakrsPosition       :: !(Maybe Text)
-    , _gakrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gakrsItems          :: {-# NOUNPACK #-}!(Maybe [APIKey])
+  , _gakrsWarnings       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gakrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gakrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAPIKeysResponse' with the minimum fields required to make a request.
 --
@@ -178,12 +181,13 @@ getAPIKeysResponse
     :: Int -- ^ 'gakrsResponseStatus'
     -> GetAPIKeysResponse
 getAPIKeysResponse pResponseStatus_ =
-    GetAPIKeysResponse'
-    { _gakrsItems = Nothing
-    , _gakrsWarnings = Nothing
-    , _gakrsPosition = Nothing
-    , _gakrsResponseStatus = pResponseStatus_
-    }
+  GetAPIKeysResponse'
+  { _gakrsItems = Nothing
+  , _gakrsWarnings = Nothing
+  , _gakrsPosition = Nothing
+  , _gakrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
@@ -201,4 +205,4 @@ gakrsPosition = lens _gakrsPosition (\ s a -> s{_gakrsPosition = a});
 gakrsResponseStatus :: Lens' GetAPIKeysResponse Int
 gakrsResponseStatus = lens _gakrsResponseStatus (\ s a -> s{_gakrsResponseStatus = a});
 
-instance NFData GetAPIKeysResponse
+instance NFData GetAPIKeysResponse where

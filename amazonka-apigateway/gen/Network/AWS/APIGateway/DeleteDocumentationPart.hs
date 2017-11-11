@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteDocumentationPart
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,12 +33,12 @@ module Network.AWS.APIGateway.DeleteDocumentationPart
     , DeleteDocumentationPartResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Deletes an existing documentation part of an API.
 --
@@ -46,9 +46,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDocumentationPart' smart constructor.
 data DeleteDocumentationPart = DeleteDocumentationPart'
-    { _ddpRestAPIId           :: !Text
-    , _ddpDocumentationPartId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddpRestAPIId           :: {-# NOUNPACK #-}!Text
+  , _ddpDocumentationPartId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDocumentationPart' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ deleteDocumentationPart
     -> Text -- ^ 'ddpDocumentationPartId'
     -> DeleteDocumentationPart
 deleteDocumentationPart pRestAPIId_ pDocumentationPartId_ =
-    DeleteDocumentationPart'
-    { _ddpRestAPIId = pRestAPIId_
-    , _ddpDocumentationPartId = pDocumentationPartId_
-    }
+  DeleteDocumentationPart'
+  {_ddpRestAPIId = pRestAPIId_, _ddpDocumentationPartId = pDocumentationPartId_}
+
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 ddpRestAPIId :: Lens' DeleteDocumentationPart Text
@@ -82,9 +82,9 @@ instance AWSRequest DeleteDocumentationPart where
         response
           = receiveNull DeleteDocumentationPartResponse'
 
-instance Hashable DeleteDocumentationPart
+instance Hashable DeleteDocumentationPart where
 
-instance NFData DeleteDocumentationPart
+instance NFData DeleteDocumentationPart where
 
 instance ToHeaders DeleteDocumentationPart where
         toHeaders
@@ -104,8 +104,9 @@ instance ToQuery DeleteDocumentationPart where
 
 -- | /See:/ 'deleteDocumentationPartResponse' smart constructor.
 data DeleteDocumentationPartResponse =
-    DeleteDocumentationPartResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDocumentationPartResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDocumentationPartResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +114,5 @@ deleteDocumentationPartResponse
     :: DeleteDocumentationPartResponse
 deleteDocumentationPartResponse = DeleteDocumentationPartResponse'
 
-instance NFData DeleteDocumentationPartResponse
+
+instance NFData DeleteDocumentationPartResponse where

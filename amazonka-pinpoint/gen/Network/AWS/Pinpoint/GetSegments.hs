@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.Pinpoint.GetSegments
     , gsrsSegmentsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSegments' smart constructor.
 data GetSegments = GetSegments'
-    { _gssToken         :: !(Maybe Text)
-    , _gssPageSize      :: !(Maybe Text)
-    , _gssApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gssToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gssPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gssApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegments' with the minimum fields required to make a request.
 --
@@ -64,11 +65,12 @@ getSegments
     :: Text -- ^ 'gssApplicationId'
     -> GetSegments
 getSegments pApplicationId_ =
-    GetSegments'
-    { _gssToken = Nothing
-    , _gssPageSize = Nothing
-    , _gssApplicationId = pApplicationId_
-    }
+  GetSegments'
+  { _gssToken = Nothing
+  , _gssPageSize = Nothing
+  , _gssApplicationId = pApplicationId_
+  }
+
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gssToken :: Lens' GetSegments (Maybe Text)
@@ -91,9 +93,9 @@ instance AWSRequest GetSegments where
                  GetSegmentsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetSegments
+instance Hashable GetSegments where
 
-instance NFData GetSegments
+instance NFData GetSegments where
 
 instance ToHeaders GetSegments where
         toHeaders
@@ -114,9 +116,10 @@ instance ToQuery GetSegments where
 
 -- | /See:/ 'getSegmentsResponse' smart constructor.
 data GetSegmentsResponse = GetSegmentsResponse'
-    { _gsrsResponseStatus   :: !Int
-    , _gsrsSegmentsResponse :: !SegmentsResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _gsrsSegmentsResponse :: {-# NOUNPACK #-}!SegmentsResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegmentsResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +133,11 @@ getSegmentsResponse
     -> SegmentsResponse -- ^ 'gsrsSegmentsResponse'
     -> GetSegmentsResponse
 getSegmentsResponse pResponseStatus_ pSegmentsResponse_ =
-    GetSegmentsResponse'
-    { _gsrsResponseStatus = pResponseStatus_
-    , _gsrsSegmentsResponse = pSegmentsResponse_
-    }
+  GetSegmentsResponse'
+  { _gsrsResponseStatus = pResponseStatus_
+  , _gsrsSegmentsResponse = pSegmentsResponse_
+  }
+
 
 -- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetSegmentsResponse Int
@@ -143,4 +147,4 @@ gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = 
 gsrsSegmentsResponse :: Lens' GetSegmentsResponse SegmentsResponse
 gsrsSegmentsResponse = lens _gsrsSegmentsResponse (\ s a -> s{_gsrsSegmentsResponse = a});
 
-instance NFData GetSegmentsResponse
+instance NFData GetSegmentsResponse where

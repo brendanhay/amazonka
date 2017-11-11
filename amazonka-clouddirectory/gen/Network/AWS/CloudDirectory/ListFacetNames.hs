@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListFacetNames
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudDirectory.ListFacetNames
     , lfnrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listFacetNames' smart constructor.
 data ListFacetNames = ListFacetNames'
-    { _lfnNextToken  :: !(Maybe Text)
-    , _lfnMaxResults :: !(Maybe Nat)
-    , _lfnSchemaARN  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfnNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfnMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lfnSchemaARN  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFacetNames' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listFacetNames
     :: Text -- ^ 'lfnSchemaARN'
     -> ListFacetNames
 listFacetNames pSchemaARN_ =
-    ListFacetNames'
-    { _lfnNextToken = Nothing
-    , _lfnMaxResults = Nothing
-    , _lfnSchemaARN = pSchemaARN_
-    }
+  ListFacetNames'
+  { _lfnNextToken = Nothing
+  , _lfnMaxResults = Nothing
+  , _lfnSchemaARN = pSchemaARN_
+  }
+
 
 -- | The pagination token.
 lfnNextToken :: Lens' ListFacetNames (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest ListFacetNames where
                      (x .?> "FacetNames" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListFacetNames
+instance Hashable ListFacetNames where
 
-instance NFData ListFacetNames
+instance NFData ListFacetNames where
 
 instance ToHeaders ListFacetNames where
         toHeaders ListFacetNames'{..}
@@ -120,10 +122,11 @@ instance ToQuery ListFacetNames where
 
 -- | /See:/ 'listFacetNamesResponse' smart constructor.
 data ListFacetNamesResponse = ListFacetNamesResponse'
-    { _lfnrsNextToken      :: !(Maybe Text)
-    , _lfnrsFacetNames     :: !(Maybe [Text])
-    , _lfnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfnrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfnrsFacetNames     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lfnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFacetNamesResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +141,12 @@ listFacetNamesResponse
     :: Int -- ^ 'lfnrsResponseStatus'
     -> ListFacetNamesResponse
 listFacetNamesResponse pResponseStatus_ =
-    ListFacetNamesResponse'
-    { _lfnrsNextToken = Nothing
-    , _lfnrsFacetNames = Nothing
-    , _lfnrsResponseStatus = pResponseStatus_
-    }
+  ListFacetNamesResponse'
+  { _lfnrsNextToken = Nothing
+  , _lfnrsFacetNames = Nothing
+  , _lfnrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 lfnrsNextToken :: Lens' ListFacetNamesResponse (Maybe Text)
@@ -156,4 +160,4 @@ lfnrsFacetNames = lens _lfnrsFacetNames (\ s a -> s{_lfnrsFacetNames = a}) . _De
 lfnrsResponseStatus :: Lens' ListFacetNamesResponse Int
 lfnrsResponseStatus = lens _lfnrsResponseStatus (\ s a -> s{_lfnrsResponseStatus = a});
 
-instance NFData ListFacetNamesResponse
+instance NFData ListFacetNamesResponse where

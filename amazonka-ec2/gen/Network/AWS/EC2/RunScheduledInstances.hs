@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RunScheduledInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.EC2.RunScheduledInstances
     , rrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RunScheduledInstances.
 --
@@ -58,12 +58,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'runScheduledInstances' smart constructor.
 data RunScheduledInstances = RunScheduledInstances'
-    { _rsiClientToken         :: !(Maybe Text)
-    , _rsiInstanceCount       :: !(Maybe Int)
-    , _rsiDryRun              :: !(Maybe Bool)
-    , _rsiLaunchSpecification :: !ScheduledInstancesLaunchSpecification
-    , _rsiScheduledInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsiClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsiInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rsiDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rsiLaunchSpecification :: {-# NOUNPACK #-}!ScheduledInstancesLaunchSpecification
+  , _rsiScheduledInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunScheduledInstances' with the minimum fields required to make a request.
 --
@@ -83,13 +84,14 @@ runScheduledInstances
     -> Text -- ^ 'rsiScheduledInstanceId'
     -> RunScheduledInstances
 runScheduledInstances pLaunchSpecification_ pScheduledInstanceId_ =
-    RunScheduledInstances'
-    { _rsiClientToken = Nothing
-    , _rsiInstanceCount = Nothing
-    , _rsiDryRun = Nothing
-    , _rsiLaunchSpecification = pLaunchSpecification_
-    , _rsiScheduledInstanceId = pScheduledInstanceId_
-    }
+  RunScheduledInstances'
+  { _rsiClientToken = Nothing
+  , _rsiInstanceCount = Nothing
+  , _rsiDryRun = Nothing
+  , _rsiLaunchSpecification = pLaunchSpecification_
+  , _rsiScheduledInstanceId = pScheduledInstanceId_
+  }
+
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 rsiClientToken :: Lens' RunScheduledInstances (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest RunScheduledInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable RunScheduledInstances
+instance Hashable RunScheduledInstances where
 
-instance NFData RunScheduledInstances
+instance NFData RunScheduledInstances where
 
 instance ToHeaders RunScheduledInstances where
         toHeaders = const mempty
@@ -150,9 +152,10 @@ instance ToQuery RunScheduledInstances where
 --
 -- /See:/ 'runScheduledInstancesResponse' smart constructor.
 data RunScheduledInstancesResponse = RunScheduledInstancesResponse'
-    { _rrsInstanceIdSet  :: !(Maybe [Text])
-    , _rrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsInstanceIdSet  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunScheduledInstancesResponse' with the minimum fields required to make a request.
 --
@@ -165,10 +168,9 @@ runScheduledInstancesResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> RunScheduledInstancesResponse
 runScheduledInstancesResponse pResponseStatus_ =
-    RunScheduledInstancesResponse'
-    { _rrsInstanceIdSet = Nothing
-    , _rrsResponseStatus = pResponseStatus_
-    }
+  RunScheduledInstancesResponse'
+  {_rrsInstanceIdSet = Nothing, _rrsResponseStatus = pResponseStatus_}
+
 
 -- | The IDs of the newly launched instances.
 rrsInstanceIdSet :: Lens' RunScheduledInstancesResponse [Text]
@@ -178,4 +180,4 @@ rrsInstanceIdSet = lens _rrsInstanceIdSet (\ s a -> s{_rrsInstanceIdSet = a}) . 
 rrsResponseStatus :: Lens' RunScheduledInstancesResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 
-instance NFData RunScheduledInstancesResponse
+instance NFData RunScheduledInstancesResponse where

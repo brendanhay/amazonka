@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudDirectory.ListTagsForResource
     , ltfrrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrNextToken   :: !(Maybe Text)
-    , _ltfrMaxResults  :: !(Maybe Nat)
-    , _ltfrResourceARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltfrMaxResults  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ltfrResourceARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
 listTagsForResource pResourceARN_ =
-    ListTagsForResource'
-    { _ltfrNextToken = Nothing
-    , _ltfrMaxResults = Nothing
-    , _ltfrResourceARN = pResourceARN_
-    }
+  ListTagsForResource'
+  { _ltfrNextToken = Nothing
+  , _ltfrMaxResults = Nothing
+  , _ltfrResourceARN = pResourceARN_
+  }
+
 
 -- | The pagination token. This is for future use. Currently pagination is not supported for tagging.
 ltfrNextToken :: Lens' ListTagsForResource (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest ListTagsForResource where
                    (x .?> "NextToken") <*> (x .?> "Tags" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
@@ -120,10 +122,11 @@ instance ToQuery ListTagsForResource where
 
 -- | /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsNextToken      :: !(Maybe Text)
-    , _ltfrrsTags           :: !(Maybe [Tag])
-    , _ltfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltfrrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ltfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +141,12 @@ listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
-    ListTagsForResourceResponse'
-    { _ltfrrsNextToken = Nothing
-    , _ltfrrsTags = Nothing
-    , _ltfrrsResponseStatus = pResponseStatus_
-    }
+  ListTagsForResourceResponse'
+  { _ltfrrsNextToken = Nothing
+  , _ltfrrsTags = Nothing
+  , _ltfrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to retrieve the next page of results. This value is null when there are no more results to return.
 ltfrrsNextToken :: Lens' ListTagsForResourceResponse (Maybe Text)
@@ -156,4 +160,4 @@ ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
-instance NFData ListTagsForResourceResponse
+instance NFData ListTagsForResourceResponse where

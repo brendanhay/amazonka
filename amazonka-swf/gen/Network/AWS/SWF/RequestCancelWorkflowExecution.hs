@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RequestCancelWorkflowExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,19 +50,20 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
     , RequestCancelWorkflowExecutionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'requestCancelWorkflowExecution' smart constructor.
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
-    { _rcweRunId      :: !(Maybe Text)
-    , _rcweDomain     :: !Text
-    , _rcweWorkflowId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcweRunId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcweDomain     :: {-# NOUNPACK #-}!Text
+  , _rcweWorkflowId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestCancelWorkflowExecution' with the minimum fields required to make a request.
 --
@@ -78,11 +79,9 @@ requestCancelWorkflowExecution
     -> Text -- ^ 'rcweWorkflowId'
     -> RequestCancelWorkflowExecution
 requestCancelWorkflowExecution pDomain_ pWorkflowId_ =
-    RequestCancelWorkflowExecution'
-    { _rcweRunId = Nothing
-    , _rcweDomain = pDomain_
-    , _rcweWorkflowId = pWorkflowId_
-    }
+  RequestCancelWorkflowExecution'
+  {_rcweRunId = Nothing, _rcweDomain = pDomain_, _rcweWorkflowId = pWorkflowId_}
+
 
 -- | The runId of the workflow execution to cancel.
 rcweRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
@@ -105,8 +104,9 @@ instance AWSRequest RequestCancelWorkflowExecution
           = receiveNull RequestCancelWorkflowExecutionResponse'
 
 instance Hashable RequestCancelWorkflowExecution
+         where
 
-instance NFData RequestCancelWorkflowExecution
+instance NFData RequestCancelWorkflowExecution where
 
 instance ToHeaders RequestCancelWorkflowExecution
          where
@@ -135,15 +135,17 @@ instance ToQuery RequestCancelWorkflowExecution where
 
 -- | /See:/ 'requestCancelWorkflowExecutionResponse' smart constructor.
 data RequestCancelWorkflowExecutionResponse =
-    RequestCancelWorkflowExecutionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RequestCancelWorkflowExecutionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestCancelWorkflowExecutionResponse' with the minimum fields required to make a request.
 --
 requestCancelWorkflowExecutionResponse
     :: RequestCancelWorkflowExecutionResponse
-requestCancelWorkflowExecutionResponse =
-    RequestCancelWorkflowExecutionResponse'
+requestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse'
+
 
 instance NFData
-         RequestCancelWorkflowExecutionResponse
+           RequestCancelWorkflowExecutionResponse
+         where

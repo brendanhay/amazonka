@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.RemovePermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.Lambda.RemovePermission
     , RemovePermissionResponse
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
-    { _rpQualifier    :: !(Maybe Text)
-    , _rpFunctionName :: !Text
-    , _rpStatementId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpFunctionName :: {-# NOUNPACK #-}!Text
+  , _rpStatementId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ removePermission
     -> Text -- ^ 'rpStatementId'
     -> RemovePermission
 removePermission pFunctionName_ pStatementId_ =
-    RemovePermission'
-    { _rpQualifier = Nothing
-    , _rpFunctionName = pFunctionName_
-    , _rpStatementId = pStatementId_
-    }
+  RemovePermission'
+  { _rpQualifier = Nothing
+  , _rpFunctionName = pFunctionName_
+  , _rpStatementId = pStatementId_
+  }
+
 
 -- | You can specify this optional parameter to remove permission associated with a specific function version or function alias. If you don't specify this parameter, the API removes permission associated with the unqualified function ARN.
 rpQualifier :: Lens' RemovePermission (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest RemovePermission where
         request = delete lambda
         response = receiveNull RemovePermissionResponse'
 
-instance Hashable RemovePermission
+instance Hashable RemovePermission where
 
-instance NFData RemovePermission
+instance NFData RemovePermission where
 
 instance ToHeaders RemovePermission where
         toHeaders = const mempty
@@ -116,8 +118,9 @@ instance ToQuery RemovePermission where
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =
-    RemovePermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemovePermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
 --
@@ -125,4 +128,5 @@ removePermissionResponse
     :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse'
 
-instance NFData RemovePermissionResponse
+
+instance NFData RemovePermissionResponse where

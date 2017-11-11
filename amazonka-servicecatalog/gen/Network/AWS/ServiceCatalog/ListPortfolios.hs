@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListPortfolios
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.ServiceCatalog.ListPortfolios
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listPortfolios' smart constructor.
 data ListPortfolios = ListPortfolios'
-    { _lpAcceptLanguage :: !(Maybe Text)
-    , _lpPageToken      :: !(Maybe Text)
-    , _lpPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPortfolios' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data ListPortfolios = ListPortfolios'
 listPortfolios
     :: ListPortfolios
 listPortfolios =
-    ListPortfolios'
-    { _lpAcceptLanguage = Nothing
-    , _lpPageToken = Nothing
-    , _lpPageSize = Nothing
-    }
+  ListPortfolios'
+  {_lpAcceptLanguage = Nothing, _lpPageToken = Nothing, _lpPageSize = Nothing}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 lpAcceptLanguage :: Lens' ListPortfolios (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest ListPortfolios where
                      (x .?> "PortfolioDetails" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPortfolios
+instance Hashable ListPortfolios where
 
-instance NFData ListPortfolios
+instance NFData ListPortfolios where
 
 instance ToHeaders ListPortfolios where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery ListPortfolios where
 
 -- | /See:/ 'listPortfoliosResponse' smart constructor.
 data ListPortfoliosResponse = ListPortfoliosResponse'
-    { _lprsNextPageToken    :: !(Maybe Text)
-    , _lprsPortfolioDetails :: !(Maybe [PortfolioDetail])
-    , _lprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsNextPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsPortfolioDetails :: {-# NOUNPACK #-}!(Maybe [PortfolioDetail])
+  , _lprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPortfoliosResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ listPortfoliosResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPortfoliosResponse
 listPortfoliosResponse pResponseStatus_ =
-    ListPortfoliosResponse'
-    { _lprsNextPageToken = Nothing
-    , _lprsPortfolioDetails = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPortfoliosResponse'
+  { _lprsNextPageToken = Nothing
+  , _lprsPortfolioDetails = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 lprsNextPageToken :: Lens' ListPortfoliosResponse (Maybe Text)
@@ -161,4 +162,4 @@ lprsPortfolioDetails = lens _lprsPortfolioDetails (\ s a -> s{_lprsPortfolioDeta
 lprsResponseStatus :: Lens' ListPortfoliosResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPortfoliosResponse
+instance NFData ListPortfoliosResponse where

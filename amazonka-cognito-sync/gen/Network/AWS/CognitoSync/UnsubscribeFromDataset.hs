@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.UnsubscribeFromDataset
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
     , ufdrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to UnsubscribeFromDataset.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'unsubscribeFromDataset' smart constructor.
 data UnsubscribeFromDataset = UnsubscribeFromDataset'
-    { _ufdIdentityPoolId :: !Text
-    , _ufdIdentityId     :: !Text
-    , _ufdDatasetName    :: !Text
-    , _ufdDeviceId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufdIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _ufdIdentityId     :: {-# NOUNPACK #-}!Text
+  , _ufdDatasetName    :: {-# NOUNPACK #-}!Text
+  , _ufdDeviceId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnsubscribeFromDataset' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ unsubscribeFromDataset
     -> Text -- ^ 'ufdDeviceId'
     -> UnsubscribeFromDataset
 unsubscribeFromDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
-    UnsubscribeFromDataset'
-    { _ufdIdentityPoolId = pIdentityPoolId_
-    , _ufdIdentityId = pIdentityId_
-    , _ufdDatasetName = pDatasetName_
-    , _ufdDeviceId = pDeviceId_
-    }
+  UnsubscribeFromDataset'
+  { _ufdIdentityPoolId = pIdentityPoolId_
+  , _ufdIdentityId = pIdentityId_
+  , _ufdDatasetName = pDatasetName_
+  , _ufdDeviceId = pDeviceId_
+  }
+
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.
 ufdIdentityPoolId :: Lens' UnsubscribeFromDataset Text
@@ -111,9 +113,9 @@ instance AWSRequest UnsubscribeFromDataset where
                  UnsubscribeFromDatasetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UnsubscribeFromDataset
+instance Hashable UnsubscribeFromDataset where
 
-instance NFData UnsubscribeFromDataset
+instance NFData UnsubscribeFromDataset where
 
 instance ToHeaders UnsubscribeFromDataset where
         toHeaders
@@ -139,8 +141,9 @@ instance ToQuery UnsubscribeFromDataset where
 --
 -- /See:/ 'unsubscribeFromDatasetResponse' smart constructor.
 newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
-    { _ufdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnsubscribeFromDatasetResponse' with the minimum fields required to make a request.
 --
@@ -151,12 +154,11 @@ unsubscribeFromDatasetResponse
     :: Int -- ^ 'ufdrsResponseStatus'
     -> UnsubscribeFromDatasetResponse
 unsubscribeFromDatasetResponse pResponseStatus_ =
-    UnsubscribeFromDatasetResponse'
-    { _ufdrsResponseStatus = pResponseStatus_
-    }
+  UnsubscribeFromDatasetResponse' {_ufdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ufdrsResponseStatus :: Lens' UnsubscribeFromDatasetResponse Int
 ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a});
 
-instance NFData UnsubscribeFromDatasetResponse
+instance NFData UnsubscribeFromDatasetResponse where

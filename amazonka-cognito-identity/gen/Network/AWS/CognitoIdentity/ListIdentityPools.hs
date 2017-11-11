@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentityPools
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     , liprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the ListIdentityPools action.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listIdentityPools' smart constructor.
 data ListIdentityPools = ListIdentityPools'
-    { _lipNextToken  :: !(Maybe Text)
-    , _lipMaxResults :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lipMaxResults :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityPools' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ listIdentityPools
     :: Natural -- ^ 'lipMaxResults'
     -> ListIdentityPools
 listIdentityPools pMaxResults_ =
-    ListIdentityPools'
-    { _lipNextToken = Nothing
-    , _lipMaxResults = _Nat # pMaxResults_
-    }
+  ListIdentityPools'
+  {_lipNextToken = Nothing, _lipMaxResults = _Nat # pMaxResults_}
+
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityPools (Maybe Text)
@@ -93,9 +93,9 @@ instance AWSRequest ListIdentityPools where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListIdentityPools
+instance Hashable ListIdentityPools where
 
-instance NFData ListIdentityPools
+instance NFData ListIdentityPools where
 
 instance ToHeaders ListIdentityPools where
         toHeaders
@@ -126,10 +126,11 @@ instance ToQuery ListIdentityPools where
 --
 -- /See:/ 'listIdentityPoolsResponse' smart constructor.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
-    { _liprsIdentityPools  :: !(Maybe [IdentityPoolShortDescription])
-    , _liprsNextToken      :: !(Maybe Text)
-    , _liprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liprsIdentityPools :: {-# NOUNPACK #-}!(Maybe [IdentityPoolShortDescription])
+  , _liprsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityPoolsResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +145,12 @@ listIdentityPoolsResponse
     :: Int -- ^ 'liprsResponseStatus'
     -> ListIdentityPoolsResponse
 listIdentityPoolsResponse pResponseStatus_ =
-    ListIdentityPoolsResponse'
-    { _liprsIdentityPools = Nothing
-    , _liprsNextToken = Nothing
-    , _liprsResponseStatus = pResponseStatus_
-    }
+  ListIdentityPoolsResponse'
+  { _liprsIdentityPools = Nothing
+  , _liprsNextToken = Nothing
+  , _liprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The identity pools returned by the ListIdentityPools action.
 liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
@@ -162,4 +164,4 @@ liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 liprsResponseStatus :: Lens' ListIdentityPoolsResponse Int
 liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
 
-instance NFData ListIdentityPoolsResponse
+instance NFData ListIdentityPoolsResponse where

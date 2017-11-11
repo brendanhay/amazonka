@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.CreateOrganization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Organizations.CreateOrganization
     , corsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createOrganization' smart constructor.
 newtype CreateOrganization = CreateOrganization'
-    { _coFeatureSet :: Maybe OrganizationFeatureSet
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _coFeatureSet :: Maybe OrganizationFeatureSet
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateOrganization' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype CreateOrganization = CreateOrganization'
 -- * 'coFeatureSet' - Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.     * /CONSOLIDATED_BILLING/ : All member accounts have their bills consolidated to and paid by the master account. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated Billing> in the /AWS Organizations User Guide/ .     * /ALL/ : In addition to all the features supported by the consolidated billing feature set, the master account can also apply any type of policy to any member account in the organization. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features> in the /AWS Organizations User Guide/ .
 createOrganization
     :: CreateOrganization
-createOrganization =
-    CreateOrganization'
-    { _coFeatureSet = Nothing
-    }
+createOrganization = CreateOrganization' {_coFeatureSet = Nothing}
+
 
 -- | Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.     * /CONSOLIDATED_BILLING/ : All member accounts have their bills consolidated to and paid by the master account. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated Billing> in the /AWS Organizations User Guide/ .     * /ALL/ : In addition to all the features supported by the consolidated billing feature set, the master account can also apply any type of policy to any member account in the organization. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features> in the /AWS Organizations User Guide/ .
 coFeatureSet :: Lens' CreateOrganization (Maybe OrganizationFeatureSet)
@@ -79,9 +78,9 @@ instance AWSRequest CreateOrganization where
                  CreateOrganizationResponse' <$>
                    (x .?> "Organization") <*> (pure (fromEnum s)))
 
-instance Hashable CreateOrganization
+instance Hashable CreateOrganization where
 
-instance NFData CreateOrganization
+instance NFData CreateOrganization where
 
 instance ToHeaders CreateOrganization where
         toHeaders
@@ -106,9 +105,10 @@ instance ToQuery CreateOrganization where
 
 -- | /See:/ 'createOrganizationResponse' smart constructor.
 data CreateOrganizationResponse = CreateOrganizationResponse'
-    { _corsOrganization   :: !(Maybe Organization)
-    , _corsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _corsOrganization   :: {-# NOUNPACK #-}!(Maybe Organization)
+  , _corsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateOrganizationResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +121,9 @@ createOrganizationResponse
     :: Int -- ^ 'corsResponseStatus'
     -> CreateOrganizationResponse
 createOrganizationResponse pResponseStatus_ =
-    CreateOrganizationResponse'
-    { _corsOrganization = Nothing
-    , _corsResponseStatus = pResponseStatus_
-    }
+  CreateOrganizationResponse'
+  {_corsOrganization = Nothing, _corsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the newly created organization.
 corsOrganization :: Lens' CreateOrganizationResponse (Maybe Organization)
@@ -134,4 +133,4 @@ corsOrganization = lens _corsOrganization (\ s a -> s{_corsOrganization = a});
 corsResponseStatus :: Lens' CreateOrganizationResponse Int
 corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a});
 
-instance NFData CreateOrganizationResponse
+instance NFData CreateOrganizationResponse where

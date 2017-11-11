@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListEventSourceMappings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,13 +49,13 @@ module Network.AWS.Lambda.ListEventSourceMappings
     , lesmrsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -63,11 +63,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listEventSourceMappings' smart constructor.
 data ListEventSourceMappings = ListEventSourceMappings'
-    { _lesmEventSourceARN :: !(Maybe Text)
-    , _lesmMarker         :: !(Maybe Text)
-    , _lesmMaxItems       :: !(Maybe Nat)
-    , _lesmFunctionName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lesmEventSourceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lesmMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lesmMaxItems       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lesmFunctionName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListEventSourceMappings' with the minimum fields required to make a request.
 --
@@ -83,12 +84,13 @@ data ListEventSourceMappings = ListEventSourceMappings'
 listEventSourceMappings
     :: ListEventSourceMappings
 listEventSourceMappings =
-    ListEventSourceMappings'
-    { _lesmEventSourceARN = Nothing
-    , _lesmMarker = Nothing
-    , _lesmMaxItems = Nothing
-    , _lesmFunctionName = Nothing
-    }
+  ListEventSourceMappings'
+  { _lesmEventSourceARN = Nothing
+  , _lesmMarker = Nothing
+  , _lesmMaxItems = Nothing
+  , _lesmFunctionName = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
 lesmEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest ListEventSourceMappings where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListEventSourceMappings
+instance Hashable ListEventSourceMappings where
 
-instance NFData ListEventSourceMappings
+instance NFData ListEventSourceMappings where
 
 instance ToHeaders ListEventSourceMappings where
         toHeaders = const mempty
@@ -148,10 +150,11 @@ instance ToQuery ListEventSourceMappings where
 --
 -- /See:/ 'listEventSourceMappingsResponse' smart constructor.
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
-    { _lesmrsEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
-    , _lesmrsNextMarker          :: !(Maybe Text)
-    , _lesmrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lesmrsEventSourceMappings :: {-# NOUNPACK #-}!(Maybe [EventSourceMappingConfiguration])
+  , _lesmrsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lesmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListEventSourceMappingsResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ listEventSourceMappingsResponse
     :: Int -- ^ 'lesmrsResponseStatus'
     -> ListEventSourceMappingsResponse
 listEventSourceMappingsResponse pResponseStatus_ =
-    ListEventSourceMappingsResponse'
-    { _lesmrsEventSourceMappings = Nothing
-    , _lesmrsNextMarker = Nothing
-    , _lesmrsResponseStatus = pResponseStatus_
-    }
+  ListEventSourceMappingsResponse'
+  { _lesmrsEventSourceMappings = Nothing
+  , _lesmrsNextMarker = Nothing
+  , _lesmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of @EventSourceMappingConfiguration@ objects.
 lesmrsEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
@@ -184,4 +188,4 @@ lesmrsNextMarker = lens _lesmrsNextMarker (\ s a -> s{_lesmrsNextMarker = a});
 lesmrsResponseStatus :: Lens' ListEventSourceMappingsResponse Int
 lesmrsResponseStatus = lens _lesmrsResponseStatus (\ s a -> s{_lesmrsResponseStatus = a});
 
-instance NFData ListEventSourceMappingsResponse
+instance NFData ListEventSourceMappingsResponse where

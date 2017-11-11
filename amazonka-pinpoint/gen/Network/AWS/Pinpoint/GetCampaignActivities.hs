@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaignActivities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,20 +38,21 @@ module Network.AWS.Pinpoint.GetCampaignActivities
     , gcarsActivitiesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCampaignActivities' smart constructor.
 data GetCampaignActivities = GetCampaignActivities'
-    { _gcaToken         :: !(Maybe Text)
-    , _gcaPageSize      :: !(Maybe Text)
-    , _gcaApplicationId :: !Text
-    , _gcaCampaignId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcaToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcaPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcaApplicationId :: {-# NOUNPACK #-}!Text
+  , _gcaCampaignId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCampaignActivities' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ getCampaignActivities
     -> Text -- ^ 'gcaCampaignId'
     -> GetCampaignActivities
 getCampaignActivities pApplicationId_ pCampaignId_ =
-    GetCampaignActivities'
-    { _gcaToken = Nothing
-    , _gcaPageSize = Nothing
-    , _gcaApplicationId = pApplicationId_
-    , _gcaCampaignId = pCampaignId_
-    }
+  GetCampaignActivities'
+  { _gcaToken = Nothing
+  , _gcaPageSize = Nothing
+  , _gcaApplicationId = pApplicationId_
+  , _gcaCampaignId = pCampaignId_
+  }
+
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gcaToken :: Lens' GetCampaignActivities (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest GetCampaignActivities where
                  GetCampaignActivitiesResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetCampaignActivities
+instance Hashable GetCampaignActivities where
 
-instance NFData GetCampaignActivities
+instance NFData GetCampaignActivities where
 
 instance ToHeaders GetCampaignActivities where
         toHeaders
@@ -126,9 +128,10 @@ instance ToQuery GetCampaignActivities where
 
 -- | /See:/ 'getCampaignActivitiesResponse' smart constructor.
 data GetCampaignActivitiesResponse = GetCampaignActivitiesResponse'
-    { _gcarsResponseStatus     :: !Int
-    , _gcarsActivitiesResponse :: !ActivitiesResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcarsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _gcarsActivitiesResponse :: {-# NOUNPACK #-}!ActivitiesResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCampaignActivitiesResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,11 @@ getCampaignActivitiesResponse
     -> ActivitiesResponse -- ^ 'gcarsActivitiesResponse'
     -> GetCampaignActivitiesResponse
 getCampaignActivitiesResponse pResponseStatus_ pActivitiesResponse_ =
-    GetCampaignActivitiesResponse'
-    { _gcarsResponseStatus = pResponseStatus_
-    , _gcarsActivitiesResponse = pActivitiesResponse_
-    }
+  GetCampaignActivitiesResponse'
+  { _gcarsResponseStatus = pResponseStatus_
+  , _gcarsActivitiesResponse = pActivitiesResponse_
+  }
+
 
 -- | -- | The response status code.
 gcarsResponseStatus :: Lens' GetCampaignActivitiesResponse Int
@@ -155,4 +159,4 @@ gcarsResponseStatus = lens _gcarsResponseStatus (\ s a -> s{_gcarsResponseStatus
 gcarsActivitiesResponse :: Lens' GetCampaignActivitiesResponse ActivitiesResponse
 gcarsActivitiesResponse = lens _gcarsActivitiesResponse (\ s a -> s{_gcarsActivitiesResponse = a});
 
-instance NFData GetCampaignActivitiesResponse
+instance NFData GetCampaignActivitiesResponse where

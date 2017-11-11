@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.ReleaseStaticIP
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.ReleaseStaticIP
     , rsirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'releaseStaticIP' smart constructor.
 newtype ReleaseStaticIP = ReleaseStaticIP'
-    { _rsiStaticIPName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsiStaticIPName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReleaseStaticIP' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ releaseStaticIP
     :: Text -- ^ 'rsiStaticIPName'
     -> ReleaseStaticIP
 releaseStaticIP pStaticIPName_ =
-    ReleaseStaticIP'
-    { _rsiStaticIPName = pStaticIPName_
-    }
+  ReleaseStaticIP' {_rsiStaticIPName = pStaticIPName_}
+
 
 -- | The name of the static IP to delete.
 rsiStaticIPName :: Lens' ReleaseStaticIP Text
@@ -76,9 +76,9 @@ instance AWSRequest ReleaseStaticIP where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ReleaseStaticIP
+instance Hashable ReleaseStaticIP where
 
-instance NFData ReleaseStaticIP
+instance NFData ReleaseStaticIP where
 
 instance ToHeaders ReleaseStaticIP where
         toHeaders
@@ -103,9 +103,10 @@ instance ToQuery ReleaseStaticIP where
 
 -- | /See:/ 'releaseStaticIPResponse' smart constructor.
 data ReleaseStaticIPResponse = ReleaseStaticIPResponse'
-    { _rsirsOperations     :: !(Maybe [Operation])
-    , _rsirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _rsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReleaseStaticIPResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +119,9 @@ releaseStaticIPResponse
     :: Int -- ^ 'rsirsResponseStatus'
     -> ReleaseStaticIPResponse
 releaseStaticIPResponse pResponseStatus_ =
-    ReleaseStaticIPResponse'
-    { _rsirsOperations = Nothing
-    , _rsirsResponseStatus = pResponseStatus_
-    }
+  ReleaseStaticIPResponse'
+  {_rsirsOperations = Nothing, _rsirsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the request operation.
 rsirsOperations :: Lens' ReleaseStaticIPResponse [Operation]
@@ -131,4 +131,4 @@ rsirsOperations = lens _rsirsOperations (\ s a -> s{_rsirsOperations = a}) . _De
 rsirsResponseStatus :: Lens' ReleaseStaticIPResponse Int
 rsirsResponseStatus = lens _rsirsResponseStatus (\ s a -> s{_rsirsResponseStatus = a});
 
-instance NFData ReleaseStaticIPResponse
+instance NFData ReleaseStaticIPResponse where

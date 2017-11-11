@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.RemoveAutoScalingPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.EMR.RemoveAutoScalingPolicy
     , rasprsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeAutoScalingPolicy' smart constructor.
 data RemoveAutoScalingPolicy = RemoveAutoScalingPolicy'
-    { _raspClusterId       :: !Text
-    , _raspInstanceGroupId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raspClusterId       :: {-# NOUNPACK #-}!Text
+  , _raspInstanceGroupId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveAutoScalingPolicy' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ removeAutoScalingPolicy
     -> Text -- ^ 'raspInstanceGroupId'
     -> RemoveAutoScalingPolicy
 removeAutoScalingPolicy pClusterId_ pInstanceGroupId_ =
-    RemoveAutoScalingPolicy'
-    { _raspClusterId = pClusterId_
-    , _raspInstanceGroupId = pInstanceGroupId_
-    }
+  RemoveAutoScalingPolicy'
+  {_raspClusterId = pClusterId_, _raspInstanceGroupId = pInstanceGroupId_}
+
 
 -- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
 raspClusterId :: Lens' RemoveAutoScalingPolicy Text
@@ -85,9 +85,9 @@ instance AWSRequest RemoveAutoScalingPolicy where
                  RemoveAutoScalingPolicyResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable RemoveAutoScalingPolicy
+instance Hashable RemoveAutoScalingPolicy where
 
-instance NFData RemoveAutoScalingPolicy
+instance NFData RemoveAutoScalingPolicy where
 
 instance ToHeaders RemoveAutoScalingPolicy where
         toHeaders
@@ -114,8 +114,9 @@ instance ToQuery RemoveAutoScalingPolicy where
 
 -- | /See:/ 'removeAutoScalingPolicyResponse' smart constructor.
 newtype RemoveAutoScalingPolicyResponse = RemoveAutoScalingPolicyResponse'
-    { _rasprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rasprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveAutoScalingPolicyResponse' with the minimum fields required to make a request.
 --
@@ -126,12 +127,11 @@ removeAutoScalingPolicyResponse
     :: Int -- ^ 'rasprsResponseStatus'
     -> RemoveAutoScalingPolicyResponse
 removeAutoScalingPolicyResponse pResponseStatus_ =
-    RemoveAutoScalingPolicyResponse'
-    { _rasprsResponseStatus = pResponseStatus_
-    }
+  RemoveAutoScalingPolicyResponse' {_rasprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rasprsResponseStatus :: Lens' RemoveAutoScalingPolicyResponse Int
 rasprsResponseStatus = lens _rasprsResponseStatus (\ s a -> s{_rasprsResponseStatus = a});
 
-instance NFData RemoveAutoScalingPolicyResponse
+instance NFData RemoveAutoScalingPolicyResponse where

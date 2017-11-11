@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateHITType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.MechanicalTurk.CreateHITType
     , chittrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createHITType' smart constructor.
 data CreateHITType = CreateHITType'
-    { _chittAutoApprovalDelayInSeconds  :: !(Maybe Integer)
-    , _chittKeywords                    :: !(Maybe Text)
-    , _chittQualificationRequirements   :: !(Maybe [QualificationRequirement])
-    , _chittAssignmentDurationInSeconds :: !Integer
-    , _chittReward                      :: !Text
-    , _chittTitle                       :: !Text
-    , _chittDescription                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chittAutoApprovalDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _chittKeywords :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chittQualificationRequirements :: {-# NOUNPACK #-}!(Maybe [QualificationRequirement])
+  , _chittAssignmentDurationInSeconds :: {-# NOUNPACK #-}!Integer
+  , _chittReward :: {-# NOUNPACK #-}!Text
+  , _chittTitle :: {-# NOUNPACK #-}!Text
+  , _chittDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHITType' with the minimum fields required to make a request.
 --
@@ -85,15 +86,16 @@ createHITType
     -> Text -- ^ 'chittDescription'
     -> CreateHITType
 createHITType pAssignmentDurationInSeconds_ pReward_ pTitle_ pDescription_ =
-    CreateHITType'
-    { _chittAutoApprovalDelayInSeconds = Nothing
-    , _chittKeywords = Nothing
-    , _chittQualificationRequirements = Nothing
-    , _chittAssignmentDurationInSeconds = pAssignmentDurationInSeconds_
-    , _chittReward = pReward_
-    , _chittTitle = pTitle_
-    , _chittDescription = pDescription_
-    }
+  CreateHITType'
+  { _chittAutoApprovalDelayInSeconds = Nothing
+  , _chittKeywords = Nothing
+  , _chittQualificationRequirements = Nothing
+  , _chittAssignmentDurationInSeconds = pAssignmentDurationInSeconds_
+  , _chittReward = pReward_
+  , _chittTitle = pTitle_
+  , _chittDescription = pDescription_
+  }
+
 
 -- | The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it.
 chittAutoApprovalDelayInSeconds :: Lens' CreateHITType (Maybe Integer)
@@ -132,9 +134,9 @@ instance AWSRequest CreateHITType where
                  CreateHITTypeResponse' <$>
                    (x .?> "HITTypeId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateHITType
+instance Hashable CreateHITType where
 
-instance NFData CreateHITType
+instance NFData CreateHITType where
 
 instance ToHeaders CreateHITType where
         toHeaders
@@ -170,9 +172,10 @@ instance ToQuery CreateHITType where
 
 -- | /See:/ 'createHITTypeResponse' smart constructor.
 data CreateHITTypeResponse = CreateHITTypeResponse'
-    { _chittrsHITTypeId      :: !(Maybe Text)
-    , _chittrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chittrsHITTypeId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chittrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHITTypeResponse' with the minimum fields required to make a request.
 --
@@ -185,10 +188,9 @@ createHITTypeResponse
     :: Int -- ^ 'chittrsResponseStatus'
     -> CreateHITTypeResponse
 createHITTypeResponse pResponseStatus_ =
-    CreateHITTypeResponse'
-    { _chittrsHITTypeId = Nothing
-    , _chittrsResponseStatus = pResponseStatus_
-    }
+  CreateHITTypeResponse'
+  {_chittrsHITTypeId = Nothing, _chittrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the newly registered HIT type.
 chittrsHITTypeId :: Lens' CreateHITTypeResponse (Maybe Text)
@@ -198,4 +200,4 @@ chittrsHITTypeId = lens _chittrsHITTypeId (\ s a -> s{_chittrsHITTypeId = a});
 chittrsResponseStatus :: Lens' CreateHITTypeResponse Int
 chittrsResponseStatus = lens _chittrsResponseStatus (\ s a -> s{_chittrsResponseStatus = a});
 
-instance NFData CreateHITTypeResponse
+instance NFData CreateHITTypeResponse where

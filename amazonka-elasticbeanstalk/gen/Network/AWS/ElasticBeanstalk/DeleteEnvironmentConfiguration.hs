@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     , DeleteEnvironmentConfigurationResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to delete a draft environment configuration.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteEnvironmentConfiguration' smart constructor.
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
-    { _decApplicationName :: !Text
-    , _decEnvironmentName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decApplicationName :: {-# NOUNPACK #-}!Text
+  , _decEnvironmentName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEnvironmentConfiguration' with the minimum fields required to make a request.
 --
@@ -66,10 +67,11 @@ deleteEnvironmentConfiguration
     -> Text -- ^ 'decEnvironmentName'
     -> DeleteEnvironmentConfiguration
 deleteEnvironmentConfiguration pApplicationName_ pEnvironmentName_ =
-    DeleteEnvironmentConfiguration'
-    { _decApplicationName = pApplicationName_
-    , _decEnvironmentName = pEnvironmentName_
-    }
+  DeleteEnvironmentConfiguration'
+  { _decApplicationName = pApplicationName_
+  , _decEnvironmentName = pEnvironmentName_
+  }
+
 
 -- | The name of the application the environment is associated with.
 decApplicationName :: Lens' DeleteEnvironmentConfiguration Text
@@ -88,8 +90,9 @@ instance AWSRequest DeleteEnvironmentConfiguration
           = receiveNull DeleteEnvironmentConfigurationResponse'
 
 instance Hashable DeleteEnvironmentConfiguration
+         where
 
-instance NFData DeleteEnvironmentConfiguration
+instance NFData DeleteEnvironmentConfiguration where
 
 instance ToHeaders DeleteEnvironmentConfiguration
          where
@@ -109,15 +112,17 @@ instance ToQuery DeleteEnvironmentConfiguration where
 
 -- | /See:/ 'deleteEnvironmentConfigurationResponse' smart constructor.
 data DeleteEnvironmentConfigurationResponse =
-    DeleteEnvironmentConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteEnvironmentConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEnvironmentConfigurationResponse' with the minimum fields required to make a request.
 --
 deleteEnvironmentConfigurationResponse
     :: DeleteEnvironmentConfigurationResponse
-deleteEnvironmentConfigurationResponse =
-    DeleteEnvironmentConfigurationResponse'
+deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse'
+
 
 instance NFData
-         DeleteEnvironmentConfigurationResponse
+           DeleteEnvironmentConfigurationResponse
+         where

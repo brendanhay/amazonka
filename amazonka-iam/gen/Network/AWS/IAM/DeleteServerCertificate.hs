@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteServerCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.IAM.DeleteServerCertificate
     , DeleteServerCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteServerCertificate' smart constructor.
 newtype DeleteServerCertificate = DeleteServerCertificate'
-    { _dscServerCertificateName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscServerCertificateName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteServerCertificate' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteServerCertificate
     :: Text -- ^ 'dscServerCertificateName'
     -> DeleteServerCertificate
 deleteServerCertificate pServerCertificateName_ =
-    DeleteServerCertificate'
-    { _dscServerCertificateName = pServerCertificateName_
-    }
+  DeleteServerCertificate' {_dscServerCertificateName = pServerCertificateName_}
+
 
 -- | The name of the server certificate you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dscServerCertificateName :: Lens' DeleteServerCertificate Text
@@ -74,9 +74,9 @@ instance AWSRequest DeleteServerCertificate where
         response
           = receiveNull DeleteServerCertificateResponse'
 
-instance Hashable DeleteServerCertificate
+instance Hashable DeleteServerCertificate where
 
-instance NFData DeleteServerCertificate
+instance NFData DeleteServerCertificate where
 
 instance ToHeaders DeleteServerCertificate where
         toHeaders = const mempty
@@ -94,8 +94,9 @@ instance ToQuery DeleteServerCertificate where
 
 -- | /See:/ 'deleteServerCertificateResponse' smart constructor.
 data DeleteServerCertificateResponse =
-    DeleteServerCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteServerCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteServerCertificateResponse' with the minimum fields required to make a request.
 --
@@ -103,4 +104,5 @@ deleteServerCertificateResponse
     :: DeleteServerCertificateResponse
 deleteServerCertificateResponse = DeleteServerCertificateResponse'
 
-instance NFData DeleteServerCertificateResponse
+
+instance NFData DeleteServerCertificateResponse where

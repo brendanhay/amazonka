@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPC
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EC2.CreateVPC
     , cvrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateVpc.
 --
@@ -59,11 +59,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createVPC' smart constructor.
 data CreateVPC = CreateVPC'
-    { _cvAmazonProvidedIPv6CidrBlock :: !(Maybe Bool)
-    , _cvInstanceTenancy             :: !(Maybe Tenancy)
-    , _cvDryRun                      :: !(Maybe Bool)
-    , _cvCidrBlock                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvAmazonProvidedIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cvInstanceTenancy             :: {-# NOUNPACK #-}!(Maybe Tenancy)
+  , _cvDryRun                      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cvCidrBlock                   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPC' with the minimum fields required to make a request.
 --
@@ -80,12 +81,13 @@ createVPC
     :: Text -- ^ 'cvCidrBlock'
     -> CreateVPC
 createVPC pCidrBlock_ =
-    CreateVPC'
-    { _cvAmazonProvidedIPv6CidrBlock = Nothing
-    , _cvInstanceTenancy = Nothing
-    , _cvDryRun = Nothing
-    , _cvCidrBlock = pCidrBlock_
-    }
+  CreateVPC'
+  { _cvAmazonProvidedIPv6CidrBlock = Nothing
+  , _cvInstanceTenancy = Nothing
+  , _cvDryRun = Nothing
+  , _cvCidrBlock = pCidrBlock_
+  }
+
 
 -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block.
 cvAmazonProvidedIPv6CidrBlock :: Lens' CreateVPC (Maybe Bool)
@@ -112,9 +114,9 @@ instance AWSRequest CreateVPC where
                  CreateVPCResponse' <$>
                    (x .@? "vpc") <*> (pure (fromEnum s)))
 
-instance Hashable CreateVPC
+instance Hashable CreateVPC where
 
-instance NFData CreateVPC
+instance NFData CreateVPC where
 
 instance ToHeaders CreateVPC where
         toHeaders = const mempty
@@ -138,9 +140,10 @@ instance ToQuery CreateVPC where
 --
 -- /See:/ 'createVPCResponse' smart constructor.
 data CreateVPCResponse = CreateVPCResponse'
-    { _cvrsVPC            :: !(Maybe VPC)
-    , _cvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvrsVPC            :: {-# NOUNPACK #-}!(Maybe VPC)
+  , _cvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPCResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +156,9 @@ createVPCResponse
     :: Int -- ^ 'cvrsResponseStatus'
     -> CreateVPCResponse
 createVPCResponse pResponseStatus_ =
-    CreateVPCResponse'
-    { _cvrsVPC = Nothing
-    , _cvrsResponseStatus = pResponseStatus_
-    }
+  CreateVPCResponse'
+  {_cvrsVPC = Nothing, _cvrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the VPC.
 cvrsVPC :: Lens' CreateVPCResponse (Maybe VPC)
@@ -166,4 +168,4 @@ cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 cvrsResponseStatus :: Lens' CreateVPCResponse Int
 cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
 
-instance NFData CreateVPCResponse
+instance NFData CreateVPCResponse where

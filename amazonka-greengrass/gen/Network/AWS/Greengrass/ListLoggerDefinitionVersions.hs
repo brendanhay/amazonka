@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListLoggerDefinitionVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Greengrass.ListLoggerDefinitionVersions
     , lldvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listLoggerDefinitionVersions' smart constructor.
 data ListLoggerDefinitionVersions = ListLoggerDefinitionVersions'
-    { _lldvNextToken          :: !(Maybe Text)
-    , _lldvMaxResults         :: !(Maybe Text)
-    , _lldvLoggerDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lldvNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lldvMaxResults         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lldvLoggerDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLoggerDefinitionVersions' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ listLoggerDefinitionVersions
     :: Text -- ^ 'lldvLoggerDefinitionId'
     -> ListLoggerDefinitionVersions
 listLoggerDefinitionVersions pLoggerDefinitionId_ =
-    ListLoggerDefinitionVersions'
-    { _lldvNextToken = Nothing
-    , _lldvMaxResults = Nothing
-    , _lldvLoggerDefinitionId = pLoggerDefinitionId_
-    }
+  ListLoggerDefinitionVersions'
+  { _lldvNextToken = Nothing
+  , _lldvMaxResults = Nothing
+  , _lldvLoggerDefinitionId = pLoggerDefinitionId_
+  }
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lldvNextToken :: Lens' ListLoggerDefinitionVersions (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest ListLoggerDefinitionVersions
                    (x .?> "Versions" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListLoggerDefinitionVersions
+instance Hashable ListLoggerDefinitionVersions where
 
-instance NFData ListLoggerDefinitionVersions
+instance NFData ListLoggerDefinitionVersions where
 
 instance ToHeaders ListLoggerDefinitionVersions where
         toHeaders
@@ -120,10 +122,11 @@ instance ToQuery ListLoggerDefinitionVersions where
 
 -- | /See:/ 'listLoggerDefinitionVersionsResponse' smart constructor.
 data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse'
-    { _lldvrsVersions       :: !(Maybe [VersionInformation])
-    , _lldvrsNextToken      :: !(Maybe Text)
-    , _lldvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lldvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
+  , _lldvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lldvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLoggerDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +141,12 @@ listLoggerDefinitionVersionsResponse
     :: Int -- ^ 'lldvrsResponseStatus'
     -> ListLoggerDefinitionVersionsResponse
 listLoggerDefinitionVersionsResponse pResponseStatus_ =
-    ListLoggerDefinitionVersionsResponse'
-    { _lldvrsVersions = Nothing
-    , _lldvrsNextToken = Nothing
-    , _lldvrsResponseStatus = pResponseStatus_
-    }
+  ListLoggerDefinitionVersionsResponse'
+  { _lldvrsVersions = Nothing
+  , _lldvrsNextToken = Nothing
+  , _lldvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Versions
 lldvrsVersions :: Lens' ListLoggerDefinitionVersionsResponse [VersionInformation]
@@ -157,3 +161,4 @@ lldvrsResponseStatus :: Lens' ListLoggerDefinitionVersionsResponse Int
 lldvrsResponseStatus = lens _lldvrsResponseStatus (\ s a -> s{_lldvrsResponseStatus = a});
 
 instance NFData ListLoggerDefinitionVersionsResponse
+         where

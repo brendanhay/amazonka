@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListClusters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.EMR.ListClusters
     , lcrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines how the ListClusters action filters the list of clusters that it returns.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listClusters' smart constructor.
 data ListClusters = ListClusters'
-    { _lcCreatedAfter  :: !(Maybe POSIX)
-    , _lcMarker        :: !(Maybe Text)
-    , _lcClusterStates :: !(Maybe [ClusterState])
-    , _lcCreatedBefore :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcCreatedAfter  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _lcMarker        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcClusterStates :: {-# NOUNPACK #-}!(Maybe [ClusterState])
+  , _lcCreatedBefore :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data ListClusters = ListClusters'
 listClusters
     :: ListClusters
 listClusters =
-    ListClusters'
-    { _lcCreatedAfter = Nothing
-    , _lcMarker = Nothing
-    , _lcClusterStates = Nothing
-    , _lcCreatedBefore = Nothing
-    }
+  ListClusters'
+  { _lcCreatedAfter = Nothing
+  , _lcMarker = Nothing
+  , _lcClusterStates = Nothing
+  , _lcCreatedBefore = Nothing
+  }
+
 
 -- | The creation date and time beginning value filter for listing clusters.
 lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
@@ -117,9 +119,9 @@ instance AWSRequest ListClusters where
                    (x .?> "Marker") <*> (x .?> "Clusters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListClusters
+instance Hashable ListClusters where
 
-instance NFData ListClusters
+instance NFData ListClusters where
 
 instance ToHeaders ListClusters where
         toHeaders
@@ -151,10 +153,11 @@ instance ToQuery ListClusters where
 --
 -- /See:/ 'listClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-    { _lcrsMarker         :: !(Maybe Text)
-    , _lcrsClusters       :: !(Maybe [ClusterSummary])
-    , _lcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcrsClusters       :: {-# NOUNPACK #-}!(Maybe [ClusterSummary])
+  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
 --
@@ -169,11 +172,12 @@ listClustersResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListClustersResponse
 listClustersResponse pResponseStatus_ =
-    ListClustersResponse'
-    { _lcrsMarker = Nothing
-    , _lcrsClusters = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
-    }
+  ListClustersResponse'
+  { _lcrsMarker = Nothing
+  , _lcrsClusters = Nothing
+  , _lcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcrsMarker :: Lens' ListClustersResponse (Maybe Text)
@@ -187,4 +191,4 @@ lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _
 lcrsResponseStatus :: Lens' ListClustersResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 
-instance NFData ListClustersResponse
+instance NFData ListClustersResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.ListActivities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.StepFunctions.ListActivities
     , larsActivities
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'listActivities' smart constructor.
 data ListActivities = ListActivities'
-    { _laNextToken  :: !(Maybe Text)
-    , _laMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListActivities' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data ListActivities = ListActivities'
 listActivities
     :: ListActivities
 listActivities =
-    ListActivities'
-    { _laNextToken = Nothing
-    , _laMaxResults = Nothing
-    }
+  ListActivities' {_laNextToken = Nothing, _laMaxResults = Nothing}
+
 
 -- | If a @nextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 laNextToken :: Lens' ListActivities (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest ListActivities where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "activities" .!@ mempty))
 
-instance Hashable ListActivities
+instance Hashable ListActivities where
 
-instance NFData ListActivities
+instance NFData ListActivities where
 
 instance ToHeaders ListActivities where
         toHeaders
@@ -123,10 +122,11 @@ instance ToQuery ListActivities where
 
 -- | /See:/ 'listActivitiesResponse' smart constructor.
 data ListActivitiesResponse = ListActivitiesResponse'
-    { _larsNextToken      :: !(Maybe Text)
-    , _larsResponseStatus :: !Int
-    , _larsActivities     :: ![ActivityListItem]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _larsActivities     :: {-# NOUNPACK #-}![ActivityListItem]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListActivitiesResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +141,12 @@ listActivitiesResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListActivitiesResponse
 listActivitiesResponse pResponseStatus_ =
-    ListActivitiesResponse'
-    { _larsNextToken = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    , _larsActivities = mempty
-    }
+  ListActivitiesResponse'
+  { _larsNextToken = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  , _larsActivities = mempty
+  }
+
 
 -- | If a @nextToken@ is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 larsNextToken :: Lens' ListActivitiesResponse (Maybe Text)
@@ -159,4 +160,4 @@ larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = 
 larsActivities :: Lens' ListActivitiesResponse [ActivityListItem]
 larsActivities = lens _larsActivities (\ s a -> s{_larsActivities = a}) . _Coerce;
 
-instance NFData ListActivitiesResponse
+instance NFData ListActivitiesResponse where

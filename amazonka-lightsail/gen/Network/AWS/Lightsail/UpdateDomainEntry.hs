@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.UpdateDomainEntry
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.UpdateDomainEntry
     , udersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateDomainEntry' smart constructor.
 data UpdateDomainEntry = UpdateDomainEntry'
-    { _udeDomainName  :: !Text
-    , _udeDomainEntry :: !DomainEntry
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udeDomainName  :: {-# NOUNPACK #-}!Text
+  , _udeDomainEntry :: {-# NOUNPACK #-}!DomainEntry
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDomainEntry' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ updateDomainEntry
     -> DomainEntry -- ^ 'udeDomainEntry'
     -> UpdateDomainEntry
 updateDomainEntry pDomainName_ pDomainEntry_ =
-    UpdateDomainEntry'
-    { _udeDomainName = pDomainName_
-    , _udeDomainEntry = pDomainEntry_
-    }
+  UpdateDomainEntry'
+  {_udeDomainName = pDomainName_, _udeDomainEntry = pDomainEntry_}
+
 
 -- | The name of the domain recordset to update.
 udeDomainName :: Lens' UpdateDomainEntry Text
@@ -86,9 +86,9 @@ instance AWSRequest UpdateDomainEntry where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateDomainEntry
+instance Hashable UpdateDomainEntry where
 
-instance NFData UpdateDomainEntry
+instance NFData UpdateDomainEntry where
 
 instance ToHeaders UpdateDomainEntry where
         toHeaders
@@ -115,9 +115,10 @@ instance ToQuery UpdateDomainEntry where
 
 -- | /See:/ 'updateDomainEntryResponse' smart constructor.
 data UpdateDomainEntryResponse = UpdateDomainEntryResponse'
-    { _udersOperations     :: !(Maybe [Operation])
-    , _udersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udersOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _udersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDomainEntryResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,9 @@ updateDomainEntryResponse
     :: Int -- ^ 'udersResponseStatus'
     -> UpdateDomainEntryResponse
 updateDomainEntryResponse pResponseStatus_ =
-    UpdateDomainEntryResponse'
-    { _udersOperations = Nothing
-    , _udersResponseStatus = pResponseStatus_
-    }
+  UpdateDomainEntryResponse'
+  {_udersOperations = Nothing, _udersResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the request operation.
 udersOperations :: Lens' UpdateDomainEntryResponse [Operation]
@@ -143,4 +143,4 @@ udersOperations = lens _udersOperations (\ s a -> s{_udersOperations = a}) . _De
 udersResponseStatus :: Lens' UpdateDomainEntryResponse Int
 udersResponseStatus = lens _udersResponseStatus (\ s a -> s{_udersResponseStatus = a});
 
-instance NFData UpdateDomainEntryResponse
+instance NFData UpdateDomainEntryResponse where

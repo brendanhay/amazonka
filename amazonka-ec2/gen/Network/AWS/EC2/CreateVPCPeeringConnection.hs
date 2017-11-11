@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPCPeeringConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     , cvpcrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateVpcPeeringConnection.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-    { _cvpcPeerVPCId   :: !(Maybe Text)
-    , _cvpcVPCId       :: !(Maybe Text)
-    , _cvpcPeerOwnerId :: !(Maybe Text)
-    , _cvpcDryRun      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvpcPeerVPCId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvpcVPCId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvpcPeerOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvpcDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPCPeeringConnection' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
 createVPCPeeringConnection
     :: CreateVPCPeeringConnection
 createVPCPeeringConnection =
-    CreateVPCPeeringConnection'
-    { _cvpcPeerVPCId = Nothing
-    , _cvpcVPCId = Nothing
-    , _cvpcPeerOwnerId = Nothing
-    , _cvpcDryRun = Nothing
-    }
+  CreateVPCPeeringConnection'
+  { _cvpcPeerVPCId = Nothing
+  , _cvpcVPCId = Nothing
+  , _cvpcPeerOwnerId = Nothing
+  , _cvpcDryRun = Nothing
+  }
+
 
 -- | The ID of the VPC with which you are creating the VPC peering connection.
 cvpcPeerVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest CreateVPCPeeringConnection where
                    (x .@? "vpcPeeringConnection") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateVPCPeeringConnection
+instance Hashable CreateVPCPeeringConnection where
 
-instance NFData CreateVPCPeeringConnection
+instance NFData CreateVPCPeeringConnection where
 
 instance ToHeaders CreateVPCPeeringConnection where
         toHeaders = const mempty
@@ -137,9 +139,10 @@ instance ToQuery CreateVPCPeeringConnection where
 --
 -- /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
-    { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _cvpcrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvpcrsVPCPeeringConnection :: {-# NOUNPACK #-}!(Maybe VPCPeeringConnection)
+  , _cvpcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,11 @@ createVPCPeeringConnectionResponse
     :: Int -- ^ 'cvpcrsResponseStatus'
     -> CreateVPCPeeringConnectionResponse
 createVPCPeeringConnectionResponse pResponseStatus_ =
-    CreateVPCPeeringConnectionResponse'
-    { _cvpcrsVPCPeeringConnection = Nothing
-    , _cvpcrsResponseStatus = pResponseStatus_
-    }
+  CreateVPCPeeringConnectionResponse'
+  { _cvpcrsVPCPeeringConnection = Nothing
+  , _cvpcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the VPC peering connection.
 cvpcrsVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
@@ -166,3 +170,4 @@ cvpcrsResponseStatus :: Lens' CreateVPCPeeringConnectionResponse Int
 cvpcrsResponseStatus = lens _cvpcrsResponseStatus (\ s a -> s{_cvpcrsResponseStatus = a});
 
 instance NFData CreateVPCPeeringConnectionResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SDB.PutAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,20 +49,21 @@ module Network.AWS.SDB.PutAttributes
     , PutAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'putAttributes' smart constructor.
 data PutAttributes = PutAttributes'
-    { _paExpected   :: !(Maybe UpdateCondition)
-    , _paDomainName :: !Text
-    , _paItemName   :: !Text
-    , _paAttributes :: ![ReplaceableAttribute]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _paExpected   :: {-# NOUNPACK #-}!(Maybe UpdateCondition)
+  , _paDomainName :: {-# NOUNPACK #-}!Text
+  , _paItemName   :: {-# NOUNPACK #-}!Text
+  , _paAttributes :: {-# NOUNPACK #-}![ReplaceableAttribute]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutAttributes' with the minimum fields required to make a request.
 --
@@ -80,12 +81,13 @@ putAttributes
     -> Text -- ^ 'paItemName'
     -> PutAttributes
 putAttributes pDomainName_ pItemName_ =
-    PutAttributes'
-    { _paExpected = Nothing
-    , _paDomainName = pDomainName_
-    , _paItemName = pItemName_
-    , _paAttributes = mempty
-    }
+  PutAttributes'
+  { _paExpected = Nothing
+  , _paDomainName = pDomainName_
+  , _paItemName = pItemName_
+  , _paAttributes = mempty
+  }
+
 
 -- | The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.
 paExpected :: Lens' PutAttributes (Maybe UpdateCondition)
@@ -108,9 +110,9 @@ instance AWSRequest PutAttributes where
         request = postQuery sdb
         response = receiveNull PutAttributesResponse'
 
-instance Hashable PutAttributes
+instance Hashable PutAttributes where
 
-instance NFData PutAttributes
+instance NFData PutAttributes where
 
 instance ToHeaders PutAttributes where
         toHeaders = const mempty
@@ -130,8 +132,9 @@ instance ToQuery PutAttributes where
 
 -- | /See:/ 'putAttributesResponse' smart constructor.
 data PutAttributesResponse =
-    PutAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutAttributesResponse' with the minimum fields required to make a request.
 --
@@ -139,4 +142,5 @@ putAttributesResponse
     :: PutAttributesResponse
 putAttributesResponse = PutAttributesResponse'
 
-instance NFData PutAttributesResponse
+
+instance NFData PutAttributesResponse where

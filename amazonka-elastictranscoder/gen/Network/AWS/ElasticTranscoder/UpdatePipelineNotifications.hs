@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     , upnrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @UpdatePipelineNotificationsRequest@ structure.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updatePipelineNotifications' smart constructor.
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
-    { _upnId            :: !Text
-    , _upnNotifications :: !Notifications
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upnId            :: {-# NOUNPACK #-}!Text
+  , _upnNotifications :: {-# NOUNPACK #-}!Notifications
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePipelineNotifications' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ updatePipelineNotifications
     -> Notifications -- ^ 'upnNotifications'
     -> UpdatePipelineNotifications
 updatePipelineNotifications pId_ pNotifications_ =
-    UpdatePipelineNotifications'
-    { _upnId = pId_
-    , _upnNotifications = pNotifications_
-    }
+  UpdatePipelineNotifications'
+  {_upnId = pId_, _upnNotifications = pNotifications_}
+
 
 -- | The identifier of the pipeline for which you want to change notification settings.
 upnId :: Lens' UpdatePipelineNotifications Text
@@ -92,9 +92,9 @@ instance AWSRequest UpdatePipelineNotifications where
                  UpdatePipelineNotificationsResponse' <$>
                    (x .?> "Pipeline") <*> (pure (fromEnum s)))
 
-instance Hashable UpdatePipelineNotifications
+instance Hashable UpdatePipelineNotifications where
 
-instance NFData UpdatePipelineNotifications
+instance NFData UpdatePipelineNotifications where
 
 instance ToHeaders UpdatePipelineNotifications where
         toHeaders = const mempty
@@ -120,9 +120,10 @@ instance ToQuery UpdatePipelineNotifications where
 --
 -- /See:/ 'updatePipelineNotificationsResponse' smart constructor.
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
-    { _upnrsPipeline       :: !(Maybe Pipeline)
-    , _upnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upnrsPipeline       :: {-# NOUNPACK #-}!(Maybe Pipeline)
+  , _upnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePipelineNotificationsResponse' with the minimum fields required to make a request.
 --
@@ -135,10 +136,9 @@ updatePipelineNotificationsResponse
     :: Int -- ^ 'upnrsResponseStatus'
     -> UpdatePipelineNotificationsResponse
 updatePipelineNotificationsResponse pResponseStatus_ =
-    UpdatePipelineNotificationsResponse'
-    { _upnrsPipeline = Nothing
-    , _upnrsResponseStatus = pResponseStatus_
-    }
+  UpdatePipelineNotificationsResponse'
+  {_upnrsPipeline = Nothing, _upnrsResponseStatus = pResponseStatus_}
+
 
 -- | A section of the response body that provides information about the pipeline associated with this notification.
 upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
@@ -149,3 +149,4 @@ upnrsResponseStatus :: Lens' UpdatePipelineNotificationsResponse Int
 upnrsResponseStatus = lens _upnrsResponseStatus (\ s a -> s{_upnrsResponseStatus = a});
 
 instance NFData UpdatePipelineNotificationsResponse
+         where

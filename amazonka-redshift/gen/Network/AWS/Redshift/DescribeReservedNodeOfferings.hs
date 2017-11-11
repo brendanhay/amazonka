@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeReservedNodeOfferings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     , drnorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,10 +58,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReservedNodeOfferings' smart constructor.
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
-    { _drnoReservedNodeOfferingId :: !(Maybe Text)
-    , _drnoMarker                 :: !(Maybe Text)
-    , _drnoMaxRecords             :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drnoReservedNodeOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drnoMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drnoMaxRecords             :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedNodeOfferings' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
 describeReservedNodeOfferings
     :: DescribeReservedNodeOfferings
 describeReservedNodeOfferings =
-    DescribeReservedNodeOfferings'
-    { _drnoReservedNodeOfferingId = Nothing
-    , _drnoMarker = Nothing
-    , _drnoMaxRecords = Nothing
-    }
+  DescribeReservedNodeOfferings'
+  { _drnoReservedNodeOfferingId = Nothing
+  , _drnoMarker = Nothing
+  , _drnoMaxRecords = Nothing
+  }
+
 
 -- | The unique identifier for the offering.
 drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
@@ -115,9 +117,9 @@ instance AWSRequest DescribeReservedNodeOfferings
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeReservedNodeOfferings
+instance Hashable DescribeReservedNodeOfferings where
 
-instance NFData DescribeReservedNodeOfferings
+instance NFData DescribeReservedNodeOfferings where
 
 instance ToHeaders DescribeReservedNodeOfferings
          where
@@ -143,10 +145,11 @@ instance ToQuery DescribeReservedNodeOfferings where
 --
 -- /See:/ 'describeReservedNodeOfferingsResponse' smart constructor.
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'
-    { _drnorsReservedNodeOfferings :: !(Maybe [ReservedNodeOffering])
-    , _drnorsMarker                :: !(Maybe Text)
-    , _drnorsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drnorsReservedNodeOfferings :: {-# NOUNPACK #-}!(Maybe [ReservedNodeOffering])
+  , _drnorsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drnorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedNodeOfferingsResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +164,12 @@ describeReservedNodeOfferingsResponse
     :: Int -- ^ 'drnorsResponseStatus'
     -> DescribeReservedNodeOfferingsResponse
 describeReservedNodeOfferingsResponse pResponseStatus_ =
-    DescribeReservedNodeOfferingsResponse'
-    { _drnorsReservedNodeOfferings = Nothing
-    , _drnorsMarker = Nothing
-    , _drnorsResponseStatus = pResponseStatus_
-    }
+  DescribeReservedNodeOfferingsResponse'
+  { _drnorsReservedNodeOfferings = Nothing
+  , _drnorsMarker = Nothing
+  , _drnorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of @ReservedNodeOffering@ objects.
 drnorsReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
@@ -180,3 +184,4 @@ drnorsResponseStatus :: Lens' DescribeReservedNodeOfferingsResponse Int
 drnorsResponseStatus = lens _drnorsResponseStatus (\ s a -> s{_drnorsResponseStatus = a});
 
 instance NFData DescribeReservedNodeOfferingsResponse
+         where

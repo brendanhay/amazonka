@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetMethod
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.APIGateway.GetMethod
     , mMethodIntegration
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe an existing 'Method' resource.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getMethod' smart constructor.
 data GetMethod = GetMethod'
-    { _gmmRestAPIId  :: !Text
-    , _gmmResourceId :: !Text
-    , _gmmHttpMethod :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmmRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _gmmResourceId :: {-# NOUNPACK #-}!Text
+  , _gmmHttpMethod :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMethod' with the minimum fields required to make a request.
 --
@@ -80,11 +81,12 @@ getMethod
     -> Text -- ^ 'gmmHttpMethod'
     -> GetMethod
 getMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
-    GetMethod'
-    { _gmmRestAPIId = pRestAPIId_
-    , _gmmResourceId = pResourceId_
-    , _gmmHttpMethod = pHttpMethod_
-    }
+  GetMethod'
+  { _gmmRestAPIId = pRestAPIId_
+  , _gmmResourceId = pResourceId_
+  , _gmmHttpMethod = pHttpMethod_
+  }
+
 
 -- | The string identifier of the associated 'RestApi' .
 gmmRestAPIId :: Lens' GetMethod Text
@@ -103,9 +105,9 @@ instance AWSRequest GetMethod where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetMethod
+instance Hashable GetMethod where
 
-instance NFData GetMethod
+instance NFData GetMethod where
 
 instance ToHeaders GetMethod where
         toHeaders

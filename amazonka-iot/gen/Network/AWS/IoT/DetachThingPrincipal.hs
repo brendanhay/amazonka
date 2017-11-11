@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DetachThingPrincipal
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.IoT.DetachThingPrincipal
     , dtprsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DetachThingPrincipal operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachThingPrincipal' smart constructor.
 data DetachThingPrincipal = DetachThingPrincipal'
-    { _dtpThingName :: !Text
-    , _dtpPrincipal :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtpThingName :: {-# NOUNPACK #-}!Text
+  , _dtpPrincipal :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachThingPrincipal' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ detachThingPrincipal
     -> Text -- ^ 'dtpPrincipal'
     -> DetachThingPrincipal
 detachThingPrincipal pThingName_ pPrincipal_ =
-    DetachThingPrincipal'
-    { _dtpThingName = pThingName_
-    , _dtpPrincipal = pPrincipal_
-    }
+  DetachThingPrincipal'
+  {_dtpThingName = pThingName_, _dtpPrincipal = pPrincipal_}
+
 
 -- | The name of the thing.
 dtpThingName :: Lens' DetachThingPrincipal Text
@@ -89,9 +89,9 @@ instance AWSRequest DetachThingPrincipal where
                  DetachThingPrincipalResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DetachThingPrincipal
+instance Hashable DetachThingPrincipal where
 
-instance NFData DetachThingPrincipal
+instance NFData DetachThingPrincipal where
 
 instance ToHeaders DetachThingPrincipal where
         toHeaders DetachThingPrincipal'{..}
@@ -111,8 +111,9 @@ instance ToQuery DetachThingPrincipal where
 --
 -- /See:/ 'detachThingPrincipalResponse' smart constructor.
 newtype DetachThingPrincipalResponse = DetachThingPrincipalResponse'
-    { _dtprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachThingPrincipalResponse' with the minimum fields required to make a request.
 --
@@ -123,12 +124,11 @@ detachThingPrincipalResponse
     :: Int -- ^ 'dtprsResponseStatus'
     -> DetachThingPrincipalResponse
 detachThingPrincipalResponse pResponseStatus_ =
-    DetachThingPrincipalResponse'
-    { _dtprsResponseStatus = pResponseStatus_
-    }
+  DetachThingPrincipalResponse' {_dtprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dtprsResponseStatus :: Lens' DetachThingPrincipalResponse Int
 dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
 
-instance NFData DetachThingPrincipalResponse
+instance NFData DetachThingPrincipalResponse where

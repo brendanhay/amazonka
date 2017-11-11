@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.UpdateJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,25 +44,26 @@ module Network.AWS.Snowball.UpdateJob
     , ujrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'updateJob' smart constructor.
 data UpdateJob = UpdateJob'
-    { _ujNotification               :: !(Maybe Notification)
-    , _ujForwardingAddressId        :: !(Maybe Text)
-    , _ujAddressId                  :: !(Maybe Text)
-    , _ujShippingOption             :: !(Maybe ShippingOption)
-    , _ujResources                  :: !(Maybe JobResource)
-    , _ujDescription                :: !(Maybe Text)
-    , _ujRoleARN                    :: !(Maybe Text)
-    , _ujSnowballCapacityPreference :: !(Maybe SnowballCapacity)
-    , _ujJobId                      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ujNotification               :: {-# NOUNPACK #-}!(Maybe Notification)
+  , _ujForwardingAddressId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ujAddressId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ujShippingOption             :: {-# NOUNPACK #-}!(Maybe ShippingOption)
+  , _ujResources                  :: {-# NOUNPACK #-}!(Maybe JobResource)
+  , _ujDescription                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ujRoleARN                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ujSnowballCapacityPreference :: {-# NOUNPACK #-}!(Maybe SnowballCapacity)
+  , _ujJobId                      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
@@ -89,17 +90,18 @@ updateJob
     :: Text -- ^ 'ujJobId'
     -> UpdateJob
 updateJob pJobId_ =
-    UpdateJob'
-    { _ujNotification = Nothing
-    , _ujForwardingAddressId = Nothing
-    , _ujAddressId = Nothing
-    , _ujShippingOption = Nothing
-    , _ujResources = Nothing
-    , _ujDescription = Nothing
-    , _ujRoleARN = Nothing
-    , _ujSnowballCapacityPreference = Nothing
-    , _ujJobId = pJobId_
-    }
+  UpdateJob'
+  { _ujNotification = Nothing
+  , _ujForwardingAddressId = Nothing
+  , _ujAddressId = Nothing
+  , _ujShippingOption = Nothing
+  , _ujResources = Nothing
+  , _ujDescription = Nothing
+  , _ujRoleARN = Nothing
+  , _ujSnowballCapacityPreference = Nothing
+  , _ujJobId = pJobId_
+  }
+
 
 -- | The new or updated 'Notification' object.
 ujNotification :: Lens' UpdateJob (Maybe Notification)
@@ -145,9 +147,9 @@ instance AWSRequest UpdateJob where
               (\ s h x ->
                  UpdateJobResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateJob
+instance Hashable UpdateJob where
 
-instance NFData UpdateJob
+instance NFData UpdateJob where
 
 instance ToHeaders UpdateJob where
         toHeaders
@@ -183,8 +185,9 @@ instance ToQuery UpdateJob where
 
 -- | /See:/ 'updateJobResponse' smart constructor.
 newtype UpdateJobResponse = UpdateJobResponse'
-    { _ujrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ujrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
 --
@@ -195,12 +198,11 @@ updateJobResponse
     :: Int -- ^ 'ujrsResponseStatus'
     -> UpdateJobResponse
 updateJobResponse pResponseStatus_ =
-    UpdateJobResponse'
-    { _ujrsResponseStatus = pResponseStatus_
-    }
+  UpdateJobResponse' {_ujrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
 ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
 
-instance NFData UpdateJobResponse
+instance NFData UpdateJobResponse where

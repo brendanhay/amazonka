@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetRemoteAccessSession
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DeviceFarm.GetRemoteAccessSession
     , grasrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to get information about the specified remote access session.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRemoteAccessSession' smart constructor.
 newtype GetRemoteAccessSession = GetRemoteAccessSession'
-    { _grasArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grasArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRemoteAccessSession' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetRemoteAccessSession = GetRemoteAccessSession'
 getRemoteAccessSession
     :: Text -- ^ 'grasArn'
     -> GetRemoteAccessSession
-getRemoteAccessSession pArn_ =
-    GetRemoteAccessSession'
-    { _grasArn = pArn_
-    }
+getRemoteAccessSession pArn_ = GetRemoteAccessSession' {_grasArn = pArn_}
+
 
 -- | The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
 grasArn :: Lens' GetRemoteAccessSession Text
@@ -81,9 +80,9 @@ instance AWSRequest GetRemoteAccessSession where
                    (x .?> "remoteAccessSession") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetRemoteAccessSession
+instance Hashable GetRemoteAccessSession where
 
-instance NFData GetRemoteAccessSession
+instance NFData GetRemoteAccessSession where
 
 instance ToHeaders GetRemoteAccessSession where
         toHeaders
@@ -111,9 +110,10 @@ instance ToQuery GetRemoteAccessSession where
 --
 -- /See:/ 'getRemoteAccessSessionResponse' smart constructor.
 data GetRemoteAccessSessionResponse = GetRemoteAccessSessionResponse'
-    { _grasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
-    , _grasrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grasrsRemoteAccessSession :: {-# NOUNPACK #-}!(Maybe RemoteAccessSession)
+  , _grasrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRemoteAccessSessionResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +126,11 @@ getRemoteAccessSessionResponse
     :: Int -- ^ 'grasrsResponseStatus'
     -> GetRemoteAccessSessionResponse
 getRemoteAccessSessionResponse pResponseStatus_ =
-    GetRemoteAccessSessionResponse'
-    { _grasrsRemoteAccessSession = Nothing
-    , _grasrsResponseStatus = pResponseStatus_
-    }
+  GetRemoteAccessSessionResponse'
+  { _grasrsRemoteAccessSession = Nothing
+  , _grasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A container that lists detailed information about the remote access session.
 grasrsRemoteAccessSession :: Lens' GetRemoteAccessSessionResponse (Maybe RemoteAccessSession)
@@ -139,4 +140,4 @@ grasrsRemoteAccessSession = lens _grasrsRemoteAccessSession (\ s a -> s{_grasrsR
 grasrsResponseStatus :: Lens' GetRemoteAccessSessionResponse Int
 grasrsResponseStatus = lens _grasrsResponseStatus (\ s a -> s{_grasrsResponseStatus = a});
 
-instance NFData GetRemoteAccessSessionResponse
+instance NFData GetRemoteAccessSessionResponse where

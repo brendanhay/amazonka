@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RegisterWorkflowType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -69,26 +69,27 @@ module Network.AWS.SWF.RegisterWorkflowType
     , RegisterWorkflowTypeResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'registerWorkflowType' smart constructor.
 data RegisterWorkflowType = RegisterWorkflowType'
-    { _rwtDefaultLambdaRole                   :: !(Maybe Text)
-    , _rwtDefaultChildPolicy                  :: !(Maybe ChildPolicy)
-    , _rwtDefaultTaskList                     :: !(Maybe TaskList)
-    , _rwtDefaultTaskPriority                 :: !(Maybe Text)
-    , _rwtDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
-    , _rwtDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
-    , _rwtDescription                         :: !(Maybe Text)
-    , _rwtDomain                              :: !Text
-    , _rwtName                                :: !Text
-    , _rwtVersion                             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rwtDefaultLambdaRole :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rwtDefaultChildPolicy :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
+  , _rwtDefaultTaskList :: {-# NOUNPACK #-}!(Maybe TaskList)
+  , _rwtDefaultTaskPriority :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rwtDefaultExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rwtDefaultTaskStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rwtDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rwtDomain :: {-# NOUNPACK #-}!Text
+  , _rwtName :: {-# NOUNPACK #-}!Text
+  , _rwtVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterWorkflowType' with the minimum fields required to make a request.
 --
@@ -119,18 +120,19 @@ registerWorkflowType
     -> Text -- ^ 'rwtVersion'
     -> RegisterWorkflowType
 registerWorkflowType pDomain_ pName_ pVersion_ =
-    RegisterWorkflowType'
-    { _rwtDefaultLambdaRole = Nothing
-    , _rwtDefaultChildPolicy = Nothing
-    , _rwtDefaultTaskList = Nothing
-    , _rwtDefaultTaskPriority = Nothing
-    , _rwtDefaultExecutionStartToCloseTimeout = Nothing
-    , _rwtDefaultTaskStartToCloseTimeout = Nothing
-    , _rwtDescription = Nothing
-    , _rwtDomain = pDomain_
-    , _rwtName = pName_
-    , _rwtVersion = pVersion_
-    }
+  RegisterWorkflowType'
+  { _rwtDefaultLambdaRole = Nothing
+  , _rwtDefaultChildPolicy = Nothing
+  , _rwtDefaultTaskList = Nothing
+  , _rwtDefaultTaskPriority = Nothing
+  , _rwtDefaultExecutionStartToCloseTimeout = Nothing
+  , _rwtDefaultTaskStartToCloseTimeout = Nothing
+  , _rwtDescription = Nothing
+  , _rwtDomain = pDomain_
+  , _rwtName = pName_
+  , _rwtVersion = pVersion_
+  }
+
 
 -- | The default IAM role attached to this workflow type.
 rwtDefaultLambdaRole :: Lens' RegisterWorkflowType (Maybe Text)
@@ -178,9 +180,9 @@ instance AWSRequest RegisterWorkflowType where
         request = postJSON swf
         response = receiveNull RegisterWorkflowTypeResponse'
 
-instance Hashable RegisterWorkflowType
+instance Hashable RegisterWorkflowType where
 
-instance NFData RegisterWorkflowType
+instance NFData RegisterWorkflowType where
 
 instance ToHeaders RegisterWorkflowType where
         toHeaders
@@ -218,8 +220,9 @@ instance ToQuery RegisterWorkflowType where
 
 -- | /See:/ 'registerWorkflowTypeResponse' smart constructor.
 data RegisterWorkflowTypeResponse =
-    RegisterWorkflowTypeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RegisterWorkflowTypeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterWorkflowTypeResponse' with the minimum fields required to make a request.
 --
@@ -227,4 +230,5 @@ registerWorkflowTypeResponse
     :: RegisterWorkflowTypeResponse
 registerWorkflowTypeResponse = RegisterWorkflowTypeResponse'
 
-instance NFData RegisterWorkflowTypeResponse
+
+instance NFData RegisterWorkflowTypeResponse where

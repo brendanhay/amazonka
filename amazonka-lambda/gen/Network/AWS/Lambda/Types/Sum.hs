@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Lambda.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data EventSourcePosition
-    = AtTimestamp
-    | Latest
-    | TrimHorizon
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AtTimestamp
+  | Latest
+  | TrimHorizon
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventSourcePosition where
     parser = takeLowerText >>= \case
@@ -49,8 +50,9 @@ instance ToJSON EventSourcePosition where
     toJSON = toJSONText
 
 data FunctionVersion =
-    All
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  All
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FunctionVersion where
     parser = takeLowerText >>= \case
@@ -72,10 +74,11 @@ instance ToJSON FunctionVersion where
     toJSON = toJSONText
 
 data InvocationType
-    = DryRun
-    | Event
-    | RequestResponse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DryRun
+  | Event
+  | RequestResponse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InvocationType where
     parser = takeLowerText >>= \case
@@ -101,9 +104,10 @@ instance ToJSON InvocationType where
     toJSON = toJSONText
 
 data LogType
-    = None
-    | Tail
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = None
+  | Tail
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LogType where
     parser = takeLowerText >>= \case
@@ -127,15 +131,16 @@ instance ToJSON LogType where
     toJSON = toJSONText
 
 data Runtime
-    = DOTNETCORE1_0
-    | JAVA8
-    | NODEJS4_3
-    | NODEJS4_3Edge
-    | NODEJS6_10
-    | Nodejs
-    | PYTHON2_7
-    | PYTHON3_6
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DOTNETCORE1_0
+  | JAVA8
+  | NODEJS4_3
+  | NODEJS4_3Edge
+  | NODEJS6_10
+  | Nodejs
+  | PYTHON2_7
+  | PYTHON3_6
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case
@@ -174,9 +179,10 @@ instance FromJSON Runtime where
     parseJSON = parseJSONText "Runtime"
 
 data TracingMode
-    = Active
-    | PassThrough
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | PassThrough
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TracingMode where
     parser = takeLowerText >>= \case

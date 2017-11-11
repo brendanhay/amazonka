@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AcceptVPCPeeringConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.AcceptVPCPeeringConnection
     , avpcrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AcceptVpcPeeringConnection.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'acceptVPCPeeringConnection' smart constructor.
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
-    { _avpcVPCPeeringConnectionId :: !(Maybe Text)
-    , _avpcDryRun                 :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avpcVPCPeeringConnectionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avpcDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptVPCPeeringConnection' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
 acceptVPCPeeringConnection
     :: AcceptVPCPeeringConnection
 acceptVPCPeeringConnection =
-    AcceptVPCPeeringConnection'
-    { _avpcVPCPeeringConnectionId = Nothing
-    , _avpcDryRun = Nothing
-    }
+  AcceptVPCPeeringConnection'
+  {_avpcVPCPeeringConnectionId = Nothing, _avpcDryRun = Nothing}
+
 
 -- | The ID of the VPC peering connection.
 avpcVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
@@ -89,9 +89,9 @@ instance AWSRequest AcceptVPCPeeringConnection where
                    (x .@? "vpcPeeringConnection") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AcceptVPCPeeringConnection
+instance Hashable AcceptVPCPeeringConnection where
 
-instance NFData AcceptVPCPeeringConnection
+instance NFData AcceptVPCPeeringConnection where
 
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty
@@ -115,9 +115,10 @@ instance ToQuery AcceptVPCPeeringConnection where
 --
 -- /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
-    { _avpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _avpcrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avpcrsVPCPeeringConnection :: {-# NOUNPACK #-}!(Maybe VPCPeeringConnection)
+  , _avpcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,11 @@ acceptVPCPeeringConnectionResponse
     :: Int -- ^ 'avpcrsResponseStatus'
     -> AcceptVPCPeeringConnectionResponse
 acceptVPCPeeringConnectionResponse pResponseStatus_ =
-    AcceptVPCPeeringConnectionResponse'
-    { _avpcrsVPCPeeringConnection = Nothing
-    , _avpcrsResponseStatus = pResponseStatus_
-    }
+  AcceptVPCPeeringConnectionResponse'
+  { _avpcrsVPCPeeringConnection = Nothing
+  , _avpcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the VPC peering connection.
 avpcrsVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
@@ -144,3 +146,4 @@ avpcrsResponseStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
 avpcrsResponseStatus = lens _avpcrsResponseStatus (\ s a -> s{_avpcrsResponseStatus = a});
 
 instance NFData AcceptVPCPeeringConnectionResponse
+         where

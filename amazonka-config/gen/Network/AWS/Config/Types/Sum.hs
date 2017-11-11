@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Config.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Config.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ChronologicalOrder
-    = Forward
-    | Reverse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Forward
+  | Reverse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChronologicalOrder where
     parser = takeLowerText >>= \case
@@ -46,11 +47,12 @@ instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
 
 data ComplianceType
-    = Compliant
-    | InsufficientData
-    | NonCompliant
-    | NotApplicable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Compliant
+  | InsufficientData
+  | NonCompliant
+  | NotApplicable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComplianceType where
     parser = takeLowerText >>= \case
@@ -81,11 +83,12 @@ instance FromJSON ComplianceType where
     parseJSON = parseJSONText "ComplianceType"
 
 data ConfigRuleState
-    = Active
-    | Deleting
-    | DeletingResults
-    | Evaluating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Deleting
+  | DeletingResults
+  | Evaluating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConfigRuleState where
     parser = takeLowerText >>= \case
@@ -116,11 +119,12 @@ instance FromJSON ConfigRuleState where
     parseJSON = parseJSONText "ConfigRuleState"
 
 data ConfigurationItemStatus
-    = Deleted
-    | Discovered
-    | Failed
-    | OK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Deleted
+  | Discovered
+  | Failed
+  | OK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConfigurationItemStatus where
     parser = takeLowerText >>= \case
@@ -148,10 +152,11 @@ instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
 
 data DeliveryStatus
-    = DSFailure
-    | DSNotApplicable
-    | DSSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DSFailure
+  | DSNotApplicable
+  | DSSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
@@ -177,8 +182,9 @@ instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
 
 data EventSource =
-    AWS_Config
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  AWS_Config
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventSource where
     parser = takeLowerText >>= \case
@@ -203,12 +209,13 @@ instance FromJSON EventSource where
     parseJSON = parseJSONText "EventSource"
 
 data MaximumExecutionFrequency
-    = OneHour
-    | SixHours
-    | ThreeHours
-    | TwelveHours
-    | TwentyFourHours
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = OneHour
+  | SixHours
+  | ThreeHours
+  | TwelveHours
+  | TwentyFourHours
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MaximumExecutionFrequency where
     parser = takeLowerText >>= \case
@@ -241,11 +248,12 @@ instance FromJSON MaximumExecutionFrequency where
     parseJSON = parseJSONText "MaximumExecutionFrequency"
 
 data MessageType
-    = ConfigurationItemChangeNotification
-    | ConfigurationSnapshotDeliveryCompleted
-    | OversizedConfigurationItemChangeNotification
-    | ScheduledNotification
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ConfigurationItemChangeNotification
+  | ConfigurationSnapshotDeliveryCompleted
+  | OversizedConfigurationItemChangeNotification
+  | ScheduledNotification
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MessageType where
     parser = takeLowerText >>= \case
@@ -276,9 +284,10 @@ instance FromJSON MessageType where
     parseJSON = parseJSONText "MessageType"
 
 data Owner
-    = AWS
-    | CustomLambda
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWS
+  | CustomLambda
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Owner where
     parser = takeLowerText >>= \case
@@ -305,10 +314,11 @@ instance FromJSON Owner where
     parseJSON = parseJSONText "Owner"
 
 data RecorderStatus
-    = Failure
-    | Pending
-    | Success
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failure
+  | Pending
+  | Success
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
@@ -334,43 +344,44 @@ instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"
 
 data ResourceType
-    = AWSAcmCertificate
-    | AWSCloudFormationStack
-    | AWSCloudTrailTrail
-    | AWSCloudWatchAlarm
-    | AWSEC2CustomerGateway
-    | AWSEC2EIP
-    | AWSEC2Host
-    | AWSEC2Instance
-    | AWSEC2InternetGateway
-    | AWSEC2NetworkACL
-    | AWSEC2NetworkInterface
-    | AWSEC2RouteTable
-    | AWSEC2SecurityGroup
-    | AWSEC2Subnet
-    | AWSEC2VPC
-    | AWSEC2VPNConnection
-    | AWSEC2VPNGateway
-    | AWSEC2Volume
-    | AWSELASTICLOADBALANCINGV2LoadBalancer
-    | AWSIAMGroup
-    | AWSIAMPolicy
-    | AWSIAMRole
-    | AWSIAMUser
-    | AWSRDSDBInstance
-    | AWSRDSDBSecurityGroup
-    | AWSRDSDBSnapshot
-    | AWSRDSDBSubnetGroup
-    | AWSRDSEventSubscription
-    | AWSRedshiftCluster
-    | AWSRedshiftClusterParameterGroup
-    | AWSRedshiftClusterSecurityGroup
-    | AWSRedshiftClusterSnapshot
-    | AWSRedshiftClusterSubnetGroup
-    | AWSRedshiftEventSubscription
-    | AWSS3Bucket
-    | AWSSsmManagedInstanceInventory
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWSAcmCertificate
+  | AWSCloudFormationStack
+  | AWSCloudTrailTrail
+  | AWSCloudWatchAlarm
+  | AWSEC2CustomerGateway
+  | AWSEC2EIP
+  | AWSEC2Host
+  | AWSEC2Instance
+  | AWSEC2InternetGateway
+  | AWSEC2NetworkACL
+  | AWSEC2NetworkInterface
+  | AWSEC2RouteTable
+  | AWSEC2SecurityGroup
+  | AWSEC2Subnet
+  | AWSEC2VPC
+  | AWSEC2VPNConnection
+  | AWSEC2VPNGateway
+  | AWSEC2Volume
+  | AWSELASTICLOADBALANCINGV2LoadBalancer
+  | AWSIAMGroup
+  | AWSIAMPolicy
+  | AWSIAMRole
+  | AWSIAMUser
+  | AWSRDSDBInstance
+  | AWSRDSDBSecurityGroup
+  | AWSRDSDBSnapshot
+  | AWSRDSDBSubnetGroup
+  | AWSRDSEventSubscription
+  | AWSRedshiftCluster
+  | AWSRedshiftClusterParameterGroup
+  | AWSRedshiftClusterSecurityGroup
+  | AWSRedshiftClusterSnapshot
+  | AWSRedshiftClusterSubnetGroup
+  | AWSRedshiftEventSubscription
+  | AWSS3Bucket
+  | AWSSsmManagedInstanceInventory
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case

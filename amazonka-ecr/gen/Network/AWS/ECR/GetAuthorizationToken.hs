@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.GetAuthorizationToken
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.ECR.GetAuthorizationToken
     , gatrsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAuthorizationToken' smart constructor.
 newtype GetAuthorizationToken = GetAuthorizationToken'
-    { _gatRegistryIds :: Maybe (List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gatRegistryIds :: Maybe (List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAuthorizationToken' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype GetAuthorizationToken = GetAuthorizationToken'
 -- * 'gatRegistryIds' - A list of AWS account IDs that are associated with the registries for which to get authorization tokens. If you do not specify a registry, the default registry is assumed.
 getAuthorizationToken
     :: GetAuthorizationToken
-getAuthorizationToken =
-    GetAuthorizationToken'
-    { _gatRegistryIds = Nothing
-    }
+getAuthorizationToken = GetAuthorizationToken' {_gatRegistryIds = Nothing}
+
 
 -- | A list of AWS account IDs that are associated with the registries for which to get authorization tokens. If you do not specify a registry, the default registry is assumed.
 gatRegistryIds :: Lens' GetAuthorizationToken (Maybe (NonEmpty Text))
@@ -78,9 +77,9 @@ instance AWSRequest GetAuthorizationToken where
                    (x .?> "authorizationData" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetAuthorizationToken
+instance Hashable GetAuthorizationToken where
 
-instance NFData GetAuthorizationToken
+instance NFData GetAuthorizationToken where
 
 instance ToHeaders GetAuthorizationToken where
         toHeaders
@@ -105,9 +104,10 @@ instance ToQuery GetAuthorizationToken where
 
 -- | /See:/ 'getAuthorizationTokenResponse' smart constructor.
 data GetAuthorizationTokenResponse = GetAuthorizationTokenResponse'
-    { _gatrsAuthorizationData :: !(Maybe [AuthorizationData])
-    , _gatrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gatrsAuthorizationData :: {-# NOUNPACK #-}!(Maybe [AuthorizationData])
+  , _gatrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAuthorizationTokenResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +120,9 @@ getAuthorizationTokenResponse
     :: Int -- ^ 'gatrsResponseStatus'
     -> GetAuthorizationTokenResponse
 getAuthorizationTokenResponse pResponseStatus_ =
-    GetAuthorizationTokenResponse'
-    { _gatrsAuthorizationData = Nothing
-    , _gatrsResponseStatus = pResponseStatus_
-    }
+  GetAuthorizationTokenResponse'
+  {_gatrsAuthorizationData = Nothing, _gatrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of authorization token data objects that correspond to the @registryIds@ values in the request.
 gatrsAuthorizationData :: Lens' GetAuthorizationTokenResponse [AuthorizationData]
@@ -133,4 +132,4 @@ gatrsAuthorizationData = lens _gatrsAuthorizationData (\ s a -> s{_gatrsAuthoriz
 gatrsResponseStatus :: Lens' GetAuthorizationTokenResponse Int
 gatrsResponseStatus = lens _gatrsResponseStatus (\ s a -> s{_gatrsResponseStatus = a});
 
-instance NFData GetAuthorizationTokenResponse
+instance NFData GetAuthorizationTokenResponse where

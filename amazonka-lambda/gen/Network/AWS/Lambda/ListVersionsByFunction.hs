@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListVersionsByFunction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Lambda.ListVersionsByFunction
     , lvbfrsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
-    { _lvbfMarker       :: !(Maybe Text)
-    , _lvbfMaxItems     :: !(Maybe Nat)
-    , _lvbfFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvbfMarker       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvbfMaxItems     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lvbfFunctionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVersionsByFunction' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ listVersionsByFunction
     :: Text -- ^ 'lvbfFunctionName'
     -> ListVersionsByFunction
 listVersionsByFunction pFunctionName_ =
-    ListVersionsByFunction'
-    { _lvbfMarker = Nothing
-    , _lvbfMaxItems = Nothing
-    , _lvbfFunctionName = pFunctionName_
-    }
+  ListVersionsByFunction'
+  { _lvbfMarker = Nothing
+  , _lvbfMaxItems = Nothing
+  , _lvbfFunctionName = pFunctionName_
+  }
+
 
 -- | Optional string. An opaque pagination token returned from a previous @ListVersionsByFunction@ operation. If present, indicates where to continue the listing.
 lvbfMarker :: Lens' ListVersionsByFunction (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest ListVersionsByFunction where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListVersionsByFunction
+instance Hashable ListVersionsByFunction where
 
-instance NFData ListVersionsByFunction
+instance NFData ListVersionsByFunction where
 
 instance ToHeaders ListVersionsByFunction where
         toHeaders = const mempty
@@ -126,10 +128,11 @@ instance ToQuery ListVersionsByFunction where
 --
 -- /See:/ 'listVersionsByFunctionResponse' smart constructor.
 data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
-    { _lvbfrsVersions       :: !(Maybe [FunctionConfiguration])
-    , _lvbfrsNextMarker     :: !(Maybe Text)
-    , _lvbfrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lvbfrsVersions       :: {-# NOUNPACK #-}!(Maybe [FunctionConfiguration])
+  , _lvbfrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvbfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVersionsByFunctionResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ listVersionsByFunctionResponse
     :: Int -- ^ 'lvbfrsResponseStatus'
     -> ListVersionsByFunctionResponse
 listVersionsByFunctionResponse pResponseStatus_ =
-    ListVersionsByFunctionResponse'
-    { _lvbfrsVersions = Nothing
-    , _lvbfrsNextMarker = Nothing
-    , _lvbfrsResponseStatus = pResponseStatus_
-    }
+  ListVersionsByFunctionResponse'
+  { _lvbfrsVersions = Nothing
+  , _lvbfrsNextMarker = Nothing
+  , _lvbfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of Lambda function versions.
 lvbfrsVersions :: Lens' ListVersionsByFunctionResponse [FunctionConfiguration]
@@ -162,4 +166,4 @@ lvbfrsNextMarker = lens _lvbfrsNextMarker (\ s a -> s{_lvbfrsNextMarker = a});
 lvbfrsResponseStatus :: Lens' ListVersionsByFunctionResponse Int
 lvbfrsResponseStatus = lens _lvbfrsResponseStatus (\ s a -> s{_lvbfrsResponseStatus = a});
 
-instance NFData ListVersionsByFunctionResponse
+instance NFData ListVersionsByFunctionResponse where

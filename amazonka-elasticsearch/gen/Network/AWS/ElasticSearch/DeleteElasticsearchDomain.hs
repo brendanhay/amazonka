@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DeleteElasticsearchDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DeleteElasticsearchDomain' @ operation. Specifies the name of the Elasticsearch domain that you want to delete.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteElasticsearchDomain' smart constructor.
 newtype DeleteElasticsearchDomain = DeleteElasticsearchDomain'
-    { _dDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteElasticsearchDomain' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ deleteElasticsearchDomain
     :: Text -- ^ 'dDomainName'
     -> DeleteElasticsearchDomain
 deleteElasticsearchDomain pDomainName_ =
-    DeleteElasticsearchDomain'
-    { _dDomainName = pDomainName_
-    }
+  DeleteElasticsearchDomain' {_dDomainName = pDomainName_}
+
 
 -- | The name of the Elasticsearch domain that you want to permanently delete.
 dDomainName :: Lens' DeleteElasticsearchDomain Text
@@ -80,9 +80,9 @@ instance AWSRequest DeleteElasticsearchDomain where
                  DeleteElasticsearchDomainResponse' <$>
                    (x .?> "DomainStatus") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteElasticsearchDomain
+instance Hashable DeleteElasticsearchDomain where
 
-instance NFData DeleteElasticsearchDomain
+instance NFData DeleteElasticsearchDomain where
 
 instance ToHeaders DeleteElasticsearchDomain where
         toHeaders = const mempty
@@ -101,9 +101,10 @@ instance ToQuery DeleteElasticsearchDomain where
 --
 -- /See:/ 'deleteElasticsearchDomainResponse' smart constructor.
 data DeleteElasticsearchDomainResponse = DeleteElasticsearchDomainResponse'
-    { _delrsDomainStatus   :: !(Maybe ElasticsearchDomainStatus)
-    , _delrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsDomainStatus   :: {-# NOUNPACK #-}!(Maybe ElasticsearchDomainStatus)
+  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteElasticsearchDomainResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +117,9 @@ deleteElasticsearchDomainResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteElasticsearchDomainResponse
 deleteElasticsearchDomainResponse pResponseStatus_ =
-    DeleteElasticsearchDomainResponse'
-    { _delrsDomainStatus = Nothing
-    , _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteElasticsearchDomainResponse'
+  {_delrsDomainStatus = Nothing, _delrsResponseStatus = pResponseStatus_}
+
 
 -- | The status of the Elasticsearch domain being deleted.
 delrsDomainStatus :: Lens' DeleteElasticsearchDomainResponse (Maybe ElasticsearchDomainStatus)
@@ -130,3 +130,4 @@ delrsResponseStatus :: Lens' DeleteElasticsearchDomainResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
 instance NFData DeleteElasticsearchDomainResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.CreateDeliveryStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,21 +61,22 @@ module Network.AWS.Firehose.CreateDeliveryStream
     , cdsrsResponseStatus
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDeliveryStream' smart constructor.
 data CreateDeliveryStream = CreateDeliveryStream'
-    { _cdsS3DestinationConfiguration            :: !(Maybe S3DestinationConfiguration)
-    , _cdsRedshiftDestinationConfiguration      :: !(Maybe RedshiftDestinationConfiguration)
-    , _cdsElasticsearchDestinationConfiguration :: !(Maybe ElasticsearchDestinationConfiguration)
-    , _cdsExtendedS3DestinationConfiguration    :: !(Maybe ExtendedS3DestinationConfiguration)
-    , _cdsDeliveryStreamName                    :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cdsS3DestinationConfiguration :: {-# NOUNPACK #-}!(Maybe S3DestinationConfiguration)
+  , _cdsRedshiftDestinationConfiguration :: {-# NOUNPACK #-}!(Maybe RedshiftDestinationConfiguration)
+  , _cdsElasticsearchDestinationConfiguration :: {-# NOUNPACK #-}!(Maybe ElasticsearchDestinationConfiguration)
+  , _cdsExtendedS3DestinationConfiguration :: {-# NOUNPACK #-}!(Maybe ExtendedS3DestinationConfiguration)
+  , _cdsDeliveryStreamName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeliveryStream' with the minimum fields required to make a request.
 --
@@ -94,13 +95,14 @@ createDeliveryStream
     :: Text -- ^ 'cdsDeliveryStreamName'
     -> CreateDeliveryStream
 createDeliveryStream pDeliveryStreamName_ =
-    CreateDeliveryStream'
-    { _cdsS3DestinationConfiguration = Nothing
-    , _cdsRedshiftDestinationConfiguration = Nothing
-    , _cdsElasticsearchDestinationConfiguration = Nothing
-    , _cdsExtendedS3DestinationConfiguration = Nothing
-    , _cdsDeliveryStreamName = pDeliveryStreamName_
-    }
+  CreateDeliveryStream'
+  { _cdsS3DestinationConfiguration = Nothing
+  , _cdsRedshiftDestinationConfiguration = Nothing
+  , _cdsElasticsearchDestinationConfiguration = Nothing
+  , _cdsExtendedS3DestinationConfiguration = Nothing
+  , _cdsDeliveryStreamName = pDeliveryStreamName_
+  }
+
 
 -- | [Deprecated] The destination in Amazon S3. You can specify only one destination.
 cdsS3DestinationConfiguration :: Lens' CreateDeliveryStream (Maybe S3DestinationConfiguration)
@@ -132,9 +134,9 @@ instance AWSRequest CreateDeliveryStream where
                  CreateDeliveryStreamResponse' <$>
                    (x .?> "DeliveryStreamARN") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDeliveryStream
+instance Hashable CreateDeliveryStream where
 
-instance NFData CreateDeliveryStream
+instance NFData CreateDeliveryStream where
 
 instance ToHeaders CreateDeliveryStream where
         toHeaders
@@ -169,9 +171,10 @@ instance ToQuery CreateDeliveryStream where
 
 -- | /See:/ 'createDeliveryStreamResponse' smart constructor.
 data CreateDeliveryStreamResponse = CreateDeliveryStreamResponse'
-    { _cdsrsDeliveryStreamARN :: !(Maybe Text)
-    , _cdsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsrsDeliveryStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeliveryStreamResponse' with the minimum fields required to make a request.
 --
@@ -184,10 +187,9 @@ createDeliveryStreamResponse
     :: Int -- ^ 'cdsrsResponseStatus'
     -> CreateDeliveryStreamResponse
 createDeliveryStreamResponse pResponseStatus_ =
-    CreateDeliveryStreamResponse'
-    { _cdsrsDeliveryStreamARN = Nothing
-    , _cdsrsResponseStatus = pResponseStatus_
-    }
+  CreateDeliveryStreamResponse'
+  {_cdsrsDeliveryStreamARN = Nothing, _cdsrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the delivery stream.
 cdsrsDeliveryStreamARN :: Lens' CreateDeliveryStreamResponse (Maybe Text)
@@ -197,4 +199,4 @@ cdsrsDeliveryStreamARN = lens _cdsrsDeliveryStreamARN (\ s a -> s{_cdsrsDelivery
 cdsrsResponseStatus :: Lens' CreateDeliveryStreamResponse Int
 cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a});
 
-instance NFData CreateDeliveryStreamResponse
+instance NFData CreateDeliveryStreamResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeEC2InstanceLimits
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -97,12 +97,12 @@ module Network.AWS.GameLift.DescribeEC2InstanceLimits
     , deilrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -110,8 +110,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEC2InstanceLimits' smart constructor.
 newtype DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
-    { _deilEC2InstanceType :: Maybe EC2InstanceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deilEC2InstanceType :: Maybe EC2InstanceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEC2InstanceLimits' with the minimum fields required to make a request.
 --
@@ -121,9 +122,8 @@ newtype DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
 describeEC2InstanceLimits
     :: DescribeEC2InstanceLimits
 describeEC2InstanceLimits =
-    DescribeEC2InstanceLimits'
-    { _deilEC2InstanceType = Nothing
-    }
+  DescribeEC2InstanceLimits' {_deilEC2InstanceType = Nothing}
+
 
 -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions. Leave this parameter blank to retrieve limits for all types.
 deilEC2InstanceType :: Lens' DescribeEC2InstanceLimits (Maybe EC2InstanceType)
@@ -140,9 +140,9 @@ instance AWSRequest DescribeEC2InstanceLimits where
                    (x .?> "EC2InstanceLimits" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeEC2InstanceLimits
+instance Hashable DescribeEC2InstanceLimits where
 
-instance NFData DescribeEC2InstanceLimits
+instance NFData DescribeEC2InstanceLimits where
 
 instance ToHeaders DescribeEC2InstanceLimits where
         toHeaders
@@ -171,9 +171,10 @@ instance ToQuery DescribeEC2InstanceLimits where
 --
 -- /See:/ 'describeEC2InstanceLimitsResponse' smart constructor.
 data DescribeEC2InstanceLimitsResponse = DescribeEC2InstanceLimitsResponse'
-    { _deilrsEC2InstanceLimits :: !(Maybe [EC2InstanceLimit])
-    , _deilrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deilrsEC2InstanceLimits :: {-# NOUNPACK #-}!(Maybe [EC2InstanceLimit])
+  , _deilrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEC2InstanceLimitsResponse' with the minimum fields required to make a request.
 --
@@ -186,10 +187,9 @@ describeEC2InstanceLimitsResponse
     :: Int -- ^ 'deilrsResponseStatus'
     -> DescribeEC2InstanceLimitsResponse
 describeEC2InstanceLimitsResponse pResponseStatus_ =
-    DescribeEC2InstanceLimitsResponse'
-    { _deilrsEC2InstanceLimits = Nothing
-    , _deilrsResponseStatus = pResponseStatus_
-    }
+  DescribeEC2InstanceLimitsResponse'
+  {_deilrsEC2InstanceLimits = Nothing, _deilrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that contains the maximum number of instances for the specified instance type.
 deilrsEC2InstanceLimits :: Lens' DescribeEC2InstanceLimitsResponse [EC2InstanceLimit]
@@ -200,3 +200,4 @@ deilrsResponseStatus :: Lens' DescribeEC2InstanceLimitsResponse Int
 deilrsResponseStatus = lens _deilrsResponseStatus (\ s a -> s{_deilrsResponseStatus = a});
 
 instance NFData DescribeEC2InstanceLimitsResponse
+         where

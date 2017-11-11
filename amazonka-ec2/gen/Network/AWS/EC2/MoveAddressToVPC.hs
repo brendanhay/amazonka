@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.MoveAddressToVPC
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.MoveAddressToVPC
     , matvrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for MoveAddressToVpc.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'moveAddressToVPC' smart constructor.
 data MoveAddressToVPC = MoveAddressToVPC'
-    { _matvDryRun   :: !(Maybe Bool)
-    , _matvPublicIP :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _matvDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _matvPublicIP :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MoveAddressToVPC' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ moveAddressToVPC
     :: Text -- ^ 'matvPublicIP'
     -> MoveAddressToVPC
 moveAddressToVPC pPublicIP_ =
-    MoveAddressToVPC'
-    { _matvDryRun = Nothing
-    , _matvPublicIP = pPublicIP_
-    }
+  MoveAddressToVPC' {_matvDryRun = Nothing, _matvPublicIP = pPublicIP_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 matvDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
@@ -90,9 +89,9 @@ instance AWSRequest MoveAddressToVPC where
                    (x .@? "status") <*> (x .@? "allocationId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable MoveAddressToVPC
+instance Hashable MoveAddressToVPC where
 
-instance NFData MoveAddressToVPC
+instance NFData MoveAddressToVPC where
 
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty
@@ -113,10 +112,11 @@ instance ToQuery MoveAddressToVPC where
 --
 -- /See:/ 'moveAddressToVPCResponse' smart constructor.
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
-    { _matvrsStatus         :: !(Maybe AddressStatus)
-    , _matvrsAllocationId   :: !(Maybe Text)
-    , _matvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _matvrsStatus         :: {-# NOUNPACK #-}!(Maybe AddressStatus)
+  , _matvrsAllocationId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _matvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MoveAddressToVPCResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +131,12 @@ moveAddressToVPCResponse
     :: Int -- ^ 'matvrsResponseStatus'
     -> MoveAddressToVPCResponse
 moveAddressToVPCResponse pResponseStatus_ =
-    MoveAddressToVPCResponse'
-    { _matvrsStatus = Nothing
-    , _matvrsAllocationId = Nothing
-    , _matvrsResponseStatus = pResponseStatus_
-    }
+  MoveAddressToVPCResponse'
+  { _matvrsStatus = Nothing
+  , _matvrsAllocationId = Nothing
+  , _matvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the move of the IP address.
 matvrsStatus :: Lens' MoveAddressToVPCResponse (Maybe AddressStatus)
@@ -149,4 +150,4 @@ matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = 
 matvrsResponseStatus :: Lens' MoveAddressToVPCResponse Int
 matvrsResponseStatus = lens _matvrsResponseStatus (\ s a -> s{_matvrsResponseStatus = a});
 
-instance NFData MoveAddressToVPCResponse
+instance NFData MoveAddressToVPCResponse where

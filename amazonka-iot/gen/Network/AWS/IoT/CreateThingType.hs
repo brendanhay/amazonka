@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateThingType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.IoT.CreateThingType
     , cttrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreateThingType operation.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createThingType' smart constructor.
 data CreateThingType = CreateThingType'
-    { _cttThingTypeProperties :: !(Maybe ThingTypeProperties)
-    , _cttThingTypeName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cttThingTypeProperties :: {-# NOUNPACK #-}!(Maybe ThingTypeProperties)
+  , _cttThingTypeName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateThingType' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ createThingType
     :: Text -- ^ 'cttThingTypeName'
     -> CreateThingType
 createThingType pThingTypeName_ =
-    CreateThingType'
-    { _cttThingTypeProperties = Nothing
-    , _cttThingTypeName = pThingTypeName_
-    }
+  CreateThingType'
+  {_cttThingTypeProperties = Nothing, _cttThingTypeName = pThingTypeName_}
+
 
 -- | The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
 cttThingTypeProperties :: Lens' CreateThingType (Maybe ThingTypeProperties)
@@ -90,9 +90,9 @@ instance AWSRequest CreateThingType where
                    (x .?> "thingTypeName") <*> (x .?> "thingTypeArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateThingType
+instance Hashable CreateThingType where
 
-instance NFData CreateThingType
+instance NFData CreateThingType where
 
 instance ToHeaders CreateThingType where
         toHeaders = const mempty
@@ -117,10 +117,11 @@ instance ToQuery CreateThingType where
 --
 -- /See:/ 'createThingTypeResponse' smart constructor.
 data CreateThingTypeResponse = CreateThingTypeResponse'
-    { _cttrsThingTypeName  :: !(Maybe Text)
-    , _cttrsThingTypeARN   :: !(Maybe Text)
-    , _cttrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cttrsThingTypeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cttrsThingTypeARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cttrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateThingTypeResponse' with the minimum fields required to make a request.
 --
@@ -135,11 +136,12 @@ createThingTypeResponse
     :: Int -- ^ 'cttrsResponseStatus'
     -> CreateThingTypeResponse
 createThingTypeResponse pResponseStatus_ =
-    CreateThingTypeResponse'
-    { _cttrsThingTypeName = Nothing
-    , _cttrsThingTypeARN = Nothing
-    , _cttrsResponseStatus = pResponseStatus_
-    }
+  CreateThingTypeResponse'
+  { _cttrsThingTypeName = Nothing
+  , _cttrsThingTypeARN = Nothing
+  , _cttrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the thing type.
 cttrsThingTypeName :: Lens' CreateThingTypeResponse (Maybe Text)
@@ -153,4 +155,4 @@ cttrsThingTypeARN = lens _cttrsThingTypeARN (\ s a -> s{_cttrsThingTypeARN = a})
 cttrsResponseStatus :: Lens' CreateThingTypeResponse Int
 cttrsResponseStatus = lens _cttrsResponseStatus (\ s a -> s{_cttrsResponseStatus = a});
 
-instance NFData CreateThingTypeResponse
+instance NFData CreateThingTypeResponse where

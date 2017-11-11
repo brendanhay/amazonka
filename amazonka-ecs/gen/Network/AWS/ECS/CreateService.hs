@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.CreateService
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -68,26 +68,27 @@ module Network.AWS.ECS.CreateService
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createService' smart constructor.
 data CreateService = CreateService'
-    { _cCluster                 :: !(Maybe Text)
-    , _cClientToken             :: !(Maybe Text)
-    , _cLoadBalancers           :: !(Maybe [LoadBalancer])
-    , _cRole                    :: !(Maybe Text)
-    , _cPlacementConstraints    :: !(Maybe [PlacementConstraint])
-    , _cPlacementStrategy       :: !(Maybe [PlacementStrategy])
-    , _cDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
-    , _cServiceName             :: !Text
-    , _cTaskDefinition          :: !Text
-    , _cDesiredCount            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cCluster :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cLoadBalancers :: {-# NOUNPACK #-}!(Maybe [LoadBalancer])
+  , _cRole :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [PlacementConstraint])
+  , _cPlacementStrategy :: {-# NOUNPACK #-}!(Maybe [PlacementStrategy])
+  , _cDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe DeploymentConfiguration)
+  , _cServiceName :: {-# NOUNPACK #-}!Text
+  , _cTaskDefinition :: {-# NOUNPACK #-}!Text
+  , _cDesiredCount :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateService' with the minimum fields required to make a request.
 --
@@ -118,18 +119,19 @@ createService
     -> Int -- ^ 'cDesiredCount'
     -> CreateService
 createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
-    CreateService'
-    { _cCluster = Nothing
-    , _cClientToken = Nothing
-    , _cLoadBalancers = Nothing
-    , _cRole = Nothing
-    , _cPlacementConstraints = Nothing
-    , _cPlacementStrategy = Nothing
-    , _cDeploymentConfiguration = Nothing
-    , _cServiceName = pServiceName_
-    , _cTaskDefinition = pTaskDefinition_
-    , _cDesiredCount = pDesiredCount_
-    }
+  CreateService'
+  { _cCluster = Nothing
+  , _cClientToken = Nothing
+  , _cLoadBalancers = Nothing
+  , _cRole = Nothing
+  , _cPlacementConstraints = Nothing
+  , _cPlacementStrategy = Nothing
+  , _cDeploymentConfiguration = Nothing
+  , _cServiceName = pServiceName_
+  , _cTaskDefinition = pTaskDefinition_
+  , _cDesiredCount = pDesiredCount_
+  }
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster on which to run your service. If you do not specify a cluster, the default cluster is assumed.
 cCluster :: Lens' CreateService (Maybe Text)
@@ -180,9 +182,9 @@ instance AWSRequest CreateService where
                  CreateServiceResponse' <$>
                    (x .?> "service") <*> (pure (fromEnum s)))
 
-instance Hashable CreateService
+instance Hashable CreateService where
 
-instance NFData CreateService
+instance NFData CreateService where
 
 instance ToHeaders CreateService where
         toHeaders
@@ -219,9 +221,10 @@ instance ToQuery CreateService where
 
 -- | /See:/ 'createServiceResponse' smart constructor.
 data CreateServiceResponse = CreateServiceResponse'
-    { _csrsService        :: !(Maybe ContainerService)
-    , _csrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsService        :: {-# NOUNPACK #-}!(Maybe ContainerService)
+  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateServiceResponse' with the minimum fields required to make a request.
 --
@@ -234,10 +237,9 @@ createServiceResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateServiceResponse
 createServiceResponse pResponseStatus_ =
-    CreateServiceResponse'
-    { _csrsService = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  CreateServiceResponse'
+  {_csrsService = Nothing, _csrsResponseStatus = pResponseStatus_}
+
 
 -- | The full description of your service following the create call.
 csrsService :: Lens' CreateServiceResponse (Maybe ContainerService)
@@ -247,4 +249,4 @@ csrsService = lens _csrsService (\ s a -> s{_csrsService = a});
 csrsResponseStatus :: Lens' CreateServiceResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CreateServiceResponse
+instance NFData CreateServiceResponse where

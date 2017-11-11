@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribePrefixLists
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribePrefixLists
     , dplrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribePrefixLists.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describePrefixLists' smart constructor.
 data DescribePrefixLists = DescribePrefixLists'
-    { _dplFilters       :: !(Maybe [Filter])
-    , _dplPrefixListIds :: !(Maybe [Text])
-    , _dplNextToken     :: !(Maybe Text)
-    , _dplDryRun        :: !(Maybe Bool)
-    , _dplMaxResults    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dplFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dplPrefixListIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dplNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dplDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dplMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePrefixLists' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ data DescribePrefixLists = DescribePrefixLists'
 describePrefixLists
     :: DescribePrefixLists
 describePrefixLists =
-    DescribePrefixLists'
-    { _dplFilters = Nothing
-    , _dplPrefixListIds = Nothing
-    , _dplNextToken = Nothing
-    , _dplDryRun = Nothing
-    , _dplMaxResults = Nothing
-    }
+  DescribePrefixLists'
+  { _dplFilters = Nothing
+  , _dplPrefixListIds = Nothing
+  , _dplNextToken = Nothing
+  , _dplDryRun = Nothing
+  , _dplMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @prefix-list-id@ : The ID of a prefix list.     * @prefix-list-name@ : The name of a prefix list.
 dplFilters :: Lens' DescribePrefixLists [Filter]
@@ -119,9 +121,9 @@ instance AWSRequest DescribePrefixLists where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribePrefixLists
+instance Hashable DescribePrefixLists where
 
-instance NFData DescribePrefixLists
+instance NFData DescribePrefixLists where
 
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
@@ -146,10 +148,11 @@ instance ToQuery DescribePrefixLists where
 --
 -- /See:/ 'describePrefixListsResponse' smart constructor.
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
-    { _dplrsNextToken      :: !(Maybe Text)
-    , _dplrsPrefixLists    :: !(Maybe [PrefixList])
-    , _dplrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dplrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dplrsPrefixLists    :: {-# NOUNPACK #-}!(Maybe [PrefixList])
+  , _dplrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePrefixListsResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ describePrefixListsResponse
     :: Int -- ^ 'dplrsResponseStatus'
     -> DescribePrefixListsResponse
 describePrefixListsResponse pResponseStatus_ =
-    DescribePrefixListsResponse'
-    { _dplrsNextToken = Nothing
-    , _dplrsPrefixLists = Nothing
-    , _dplrsResponseStatus = pResponseStatus_
-    }
+  DescribePrefixListsResponse'
+  { _dplrsNextToken = Nothing
+  , _dplrsPrefixLists = Nothing
+  , _dplrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dplrsNextToken :: Lens' DescribePrefixListsResponse (Maybe Text)
@@ -182,4 +186,4 @@ dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . 
 dplrsResponseStatus :: Lens' DescribePrefixListsResponse Int
 dplrsResponseStatus = lens _dplrsResponseStatus (\ s a -> s{_dplrsResponseStatus = a});
 
-instance NFData DescribePrefixListsResponse
+instance NFData DescribePrefixListsResponse where

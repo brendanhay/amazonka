@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.SignalResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudFormation.SignalResource
     , SignalResourceResponse
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'SignalResource' action.
 --
@@ -50,11 +50,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'signalResource' smart constructor.
 data SignalResource = SignalResource'
-    { _sigStackName         :: !Text
-    , _sigLogicalResourceId :: !Text
-    , _sigUniqueId          :: !Text
-    , _sigStatus            :: !ResourceSignalStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sigStackName         :: {-# NOUNPACK #-}!Text
+  , _sigLogicalResourceId :: {-# NOUNPACK #-}!Text
+  , _sigUniqueId          :: {-# NOUNPACK #-}!Text
+  , _sigStatus            :: {-# NOUNPACK #-}!ResourceSignalStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignalResource' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ signalResource
     -> ResourceSignalStatus -- ^ 'sigStatus'
     -> SignalResource
 signalResource pStackName_ pLogicalResourceId_ pUniqueId_ pStatus_ =
-    SignalResource'
-    { _sigStackName = pStackName_
-    , _sigLogicalResourceId = pLogicalResourceId_
-    , _sigUniqueId = pUniqueId_
-    , _sigStatus = pStatus_
-    }
+  SignalResource'
+  { _sigStackName = pStackName_
+  , _sigLogicalResourceId = pLogicalResourceId_
+  , _sigUniqueId = pUniqueId_
+  , _sigStatus = pStatus_
+  }
+
 
 -- | The stack name or unique stack ID that includes the resource that you want to signal.
 sigStackName :: Lens' SignalResource Text
@@ -102,9 +104,9 @@ instance AWSRequest SignalResource where
         request = postQuery cloudFormation
         response = receiveNull SignalResourceResponse'
 
-instance Hashable SignalResource
+instance Hashable SignalResource where
 
-instance NFData SignalResource
+instance NFData SignalResource where
 
 instance ToHeaders SignalResource where
         toHeaders = const mempty
@@ -123,8 +125,9 @@ instance ToQuery SignalResource where
 
 -- | /See:/ 'signalResourceResponse' smart constructor.
 data SignalResourceResponse =
-    SignalResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SignalResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignalResourceResponse' with the minimum fields required to make a request.
 --
@@ -132,4 +135,5 @@ signalResourceResponse
     :: SignalResourceResponse
 signalResourceResponse = SignalResourceResponse'
 
-instance NFData SignalResourceResponse
+
+instance NFData SignalResourceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeFlowLogs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeFlowLogs
     , dflsrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeFlowLogs.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
-    { _dNextToken  :: !(Maybe Text)
-    , _dFlowLogIds :: !(Maybe [Text])
-    , _dFilter     :: !(Maybe [Filter])
-    , _dMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dFlowLogIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dFilter     :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFlowLogs' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribeFlowLogs = DescribeFlowLogs'
 describeFlowLogs
     :: DescribeFlowLogs
 describeFlowLogs =
-    DescribeFlowLogs'
-    { _dNextToken = Nothing
-    , _dFlowLogIds = Nothing
-    , _dFilter = Nothing
-    , _dMaxResults = Nothing
-    }
+  DescribeFlowLogs'
+  { _dNextToken = Nothing
+  , _dFlowLogIds = Nothing
+  , _dFilter = Nothing
+  , _dMaxResults = Nothing
+  }
+
 
 -- | The token to retrieve the next page of results.
 dNextToken :: Lens' DescribeFlowLogs (Maybe Text)
@@ -109,9 +111,9 @@ instance AWSRequest DescribeFlowLogs where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeFlowLogs
+instance Hashable DescribeFlowLogs where
 
-instance NFData DescribeFlowLogs
+instance NFData DescribeFlowLogs where
 
 instance ToHeaders DescribeFlowLogs where
         toHeaders = const mempty
@@ -135,10 +137,11 @@ instance ToQuery DescribeFlowLogs where
 --
 -- /See:/ 'describeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-    { _dflsrsNextToken      :: !(Maybe Text)
-    , _dflsrsFlowLogs       :: !(Maybe [FlowLog])
-    , _dflsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dflsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dflsrsFlowLogs       :: {-# NOUNPACK #-}!(Maybe [FlowLog])
+  , _dflsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFlowLogsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ describeFlowLogsResponse
     :: Int -- ^ 'dflsrsResponseStatus'
     -> DescribeFlowLogsResponse
 describeFlowLogsResponse pResponseStatus_ =
-    DescribeFlowLogsResponse'
-    { _dflsrsNextToken = Nothing
-    , _dflsrsFlowLogs = Nothing
-    , _dflsrsResponseStatus = pResponseStatus_
-    }
+  DescribeFlowLogsResponse'
+  { _dflsrsNextToken = Nothing
+  , _dflsrsFlowLogs = Nothing
+  , _dflsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dflsrsNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
@@ -171,4 +175,4 @@ dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Defau
 dflsrsResponseStatus :: Lens' DescribeFlowLogsResponse Int
 dflsrsResponseStatus = lens _dflsrsResponseStatus (\ s a -> s{_dflsrsResponseStatus = a});
 
-instance NFData DescribeFlowLogsResponse
+instance NFData DescribeFlowLogsResponse where

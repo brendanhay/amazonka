@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -182,23 +182,23 @@ module Network.AWS.CodeStar
     , upsDisplayName
     ) where
 
-import           Network.AWS.CodeStar.AssociateTeamMember
-import           Network.AWS.CodeStar.CreateProject
-import           Network.AWS.CodeStar.CreateUserProfile
-import           Network.AWS.CodeStar.DeleteProject
-import           Network.AWS.CodeStar.DeleteUserProfile
-import           Network.AWS.CodeStar.DescribeProject
-import           Network.AWS.CodeStar.DescribeUserProfile
-import           Network.AWS.CodeStar.DisassociateTeamMember
-import           Network.AWS.CodeStar.ListProjects
-import           Network.AWS.CodeStar.ListResources
-import           Network.AWS.CodeStar.ListTeamMembers
-import           Network.AWS.CodeStar.ListUserProfiles
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.UpdateProject
-import           Network.AWS.CodeStar.UpdateTeamMember
-import           Network.AWS.CodeStar.UpdateUserProfile
-import           Network.AWS.CodeStar.Waiters
+import Network.AWS.CodeStar.AssociateTeamMember
+import Network.AWS.CodeStar.CreateProject
+import Network.AWS.CodeStar.CreateUserProfile
+import Network.AWS.CodeStar.DeleteProject
+import Network.AWS.CodeStar.DeleteUserProfile
+import Network.AWS.CodeStar.DescribeProject
+import Network.AWS.CodeStar.DescribeUserProfile
+import Network.AWS.CodeStar.DisassociateTeamMember
+import Network.AWS.CodeStar.ListProjects
+import Network.AWS.CodeStar.ListResources
+import Network.AWS.CodeStar.ListTeamMembers
+import Network.AWS.CodeStar.ListUserProfiles
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.UpdateProject
+import Network.AWS.CodeStar.UpdateTeamMember
+import Network.AWS.CodeStar.UpdateUserProfile
+import Network.AWS.CodeStar.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

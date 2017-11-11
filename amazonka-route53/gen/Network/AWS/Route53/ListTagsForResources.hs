@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTagsForResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Route53.ListTagsForResources
     , lrsResourceTagSets
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the health checks or hosted zones for which you want to list tags.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTagsForResources' smart constructor.
 data ListTagsForResources = ListTagsForResources'
-    { _lResourceType :: !TagResourceType
-    , _lResourceIds  :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lResourceType :: {-# NOUNPACK #-}!TagResourceType
+  , _lResourceIds  :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResources' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ listTagsForResources
     -> NonEmpty Text -- ^ 'lResourceIds'
     -> ListTagsForResources
 listTagsForResources pResourceType_ pResourceIds_ =
-    ListTagsForResources'
-    { _lResourceType = pResourceType_
-    , _lResourceIds = _List1 # pResourceIds_
-    }
+  ListTagsForResources'
+  {_lResourceType = pResourceType_, _lResourceIds = _List1 # pResourceIds_}
+
 
 -- | The type of the resources.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 lResourceType :: Lens' ListTagsForResources TagResourceType
@@ -94,9 +94,9 @@ instance AWSRequest ListTagsForResources where
                      (x .@? "ResourceTagSets" .!@ mempty >>=
                         parseXMLList "ResourceTagSet"))
 
-instance Hashable ListTagsForResources
+instance Hashable ListTagsForResources where
 
-instance NFData ListTagsForResources
+instance NFData ListTagsForResources where
 
 instance ToElement ListTagsForResources where
         toElement
@@ -125,9 +125,10 @@ instance ToXML ListTagsForResources where
 --
 -- /See:/ 'listTagsForResourcesResponse' smart constructor.
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
-    { _lrsResponseStatus  :: !Int
-    , _lrsResourceTagSets :: ![ResourceTagSet]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _lrsResourceTagSets :: {-# NOUNPACK #-}![ResourceTagSet]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourcesResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +141,9 @@ listTagsForResourcesResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListTagsForResourcesResponse
 listTagsForResourcesResponse pResponseStatus_ =
-    ListTagsForResourcesResponse'
-    { _lrsResponseStatus = pResponseStatus_
-    , _lrsResourceTagSets = mempty
-    }
+  ListTagsForResourcesResponse'
+  {_lrsResponseStatus = pResponseStatus_, _lrsResourceTagSets = mempty}
+
 
 -- | -- | The response status code.
 lrsResponseStatus :: Lens' ListTagsForResourcesResponse Int
@@ -153,4 +153,4 @@ lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 lrsResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a}) . _Coerce;
 
-instance NFData ListTagsForResourcesResponse
+instance NFData ListTagsForResourcesResponse where

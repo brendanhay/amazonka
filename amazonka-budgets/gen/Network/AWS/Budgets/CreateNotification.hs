@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.CreateNotification
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,22 +37,23 @@ module Network.AWS.Budgets.CreateNotification
     , cnrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of CreateNotification
 --
 -- /See:/ 'createNotification' smart constructor.
 data CreateNotification = CreateNotification'
-    { _cnAccountId    :: !Text
-    , _cnBudgetName   :: !Text
-    , _cnNotification :: !Notification
-    , _cnSubscribers  :: !(List1 Subscriber)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnAccountId    :: {-# NOUNPACK #-}!Text
+  , _cnBudgetName   :: {-# NOUNPACK #-}!Text
+  , _cnNotification :: {-# NOUNPACK #-}!Notification
+  , _cnSubscribers  :: {-# NOUNPACK #-}!(List1 Subscriber)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNotification' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ createNotification
     -> NonEmpty Subscriber -- ^ 'cnSubscribers'
     -> CreateNotification
 createNotification pAccountId_ pBudgetName_ pNotification_ pSubscribers_ =
-    CreateNotification'
-    { _cnAccountId = pAccountId_
-    , _cnBudgetName = pBudgetName_
-    , _cnNotification = pNotification_
-    , _cnSubscribers = _List1 # pSubscribers_
-    }
+  CreateNotification'
+  { _cnAccountId = pAccountId_
+  , _cnBudgetName = pBudgetName_
+  , _cnNotification = pNotification_
+  , _cnSubscribers = _List1 # pSubscribers_
+  }
+
 
 -- | Undocumented member.
 cnAccountId :: Lens' CreateNotification Text
@@ -104,9 +106,9 @@ instance AWSRequest CreateNotification where
               (\ s h x ->
                  CreateNotificationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateNotification
+instance Hashable CreateNotification where
 
-instance NFData CreateNotification
+instance NFData CreateNotification where
 
 instance ToHeaders CreateNotification where
         toHeaders
@@ -137,8 +139,9 @@ instance ToQuery CreateNotification where
 --
 -- /See:/ 'createNotificationResponse' smart constructor.
 newtype CreateNotificationResponse = CreateNotificationResponse'
-    { _cnrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNotificationResponse' with the minimum fields required to make a request.
 --
@@ -149,12 +152,11 @@ createNotificationResponse
     :: Int -- ^ 'cnrsResponseStatus'
     -> CreateNotificationResponse
 createNotificationResponse pResponseStatus_ =
-    CreateNotificationResponse'
-    { _cnrsResponseStatus = pResponseStatus_
-    }
+  CreateNotificationResponse' {_cnrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cnrsResponseStatus :: Lens' CreateNotificationResponse Int
 cnrsResponseStatus = lens _cnrsResponseStatus (\ s a -> s{_cnrsResponseStatus = a});
 
-instance NFData CreateNotificationResponse
+instance NFData CreateNotificationResponse where

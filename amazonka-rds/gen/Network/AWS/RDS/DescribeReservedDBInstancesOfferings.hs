@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstancesOfferings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,13 +48,13 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     , drdiorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -62,16 +62,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReservedDBInstancesOfferings' smart constructor.
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'
-    { _drdioProductDescription            :: !(Maybe Text)
-    , _drdioFilters                       :: !(Maybe [Filter])
-    , _drdioDBInstanceClass               :: !(Maybe Text)
-    , _drdioMarker                        :: !(Maybe Text)
-    , _drdioMaxRecords                    :: !(Maybe Int)
-    , _drdioMultiAZ                       :: !(Maybe Bool)
-    , _drdioReservedDBInstancesOfferingId :: !(Maybe Text)
-    , _drdioOfferingType                  :: !(Maybe Text)
-    , _drdioDuration                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdioProductDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdioFilters                       :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _drdioDBInstanceClass               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdioMarker                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdioMaxRecords                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _drdioMultiAZ                       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _drdioReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdioOfferingType                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdioDuration                      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedDBInstancesOfferings' with the minimum fields required to make a request.
 --
@@ -97,17 +98,18 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
 describeReservedDBInstancesOfferings
     :: DescribeReservedDBInstancesOfferings
 describeReservedDBInstancesOfferings =
-    DescribeReservedDBInstancesOfferings'
-    { _drdioProductDescription = Nothing
-    , _drdioFilters = Nothing
-    , _drdioDBInstanceClass = Nothing
-    , _drdioMarker = Nothing
-    , _drdioMaxRecords = Nothing
-    , _drdioMultiAZ = Nothing
-    , _drdioReservedDBInstancesOfferingId = Nothing
-    , _drdioOfferingType = Nothing
-    , _drdioDuration = Nothing
-    }
+  DescribeReservedDBInstancesOfferings'
+  { _drdioProductDescription = Nothing
+  , _drdioFilters = Nothing
+  , _drdioDBInstanceClass = Nothing
+  , _drdioMarker = Nothing
+  , _drdioMaxRecords = Nothing
+  , _drdioMultiAZ = Nothing
+  , _drdioReservedDBInstancesOfferingId = Nothing
+  , _drdioOfferingType = Nothing
+  , _drdioDuration = Nothing
+  }
+
 
 -- | Product description filter value. Specify this parameter to show only the available offerings matching the specified product description.
 drdioProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
@@ -146,7 +148,8 @@ drdioDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdioDuration = lens _drdioDuration (\ s a -> s{_drdioDuration = a});
 
 instance AWSPager
-         DescribeReservedDBInstancesOfferings where
+           DescribeReservedDBInstancesOfferings
+         where
         page rq rs
           | stop (rs ^. drdiorsMarker) = Nothing
           | stop (rs ^. drdiorsReservedDBInstancesOfferings) =
@@ -155,7 +158,8 @@ instance AWSPager
             Just $ rq & drdioMarker .~ rs ^. drdiorsMarker
 
 instance AWSRequest
-         DescribeReservedDBInstancesOfferings where
+           DescribeReservedDBInstancesOfferings
+         where
         type Rs DescribeReservedDBInstancesOfferings =
              DescribeReservedDBInstancesOfferingsResponse
         request = postQuery rds
@@ -170,12 +174,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeReservedDBInstancesOfferings
+           DescribeReservedDBInstancesOfferings
+         where
 
 instance NFData DescribeReservedDBInstancesOfferings
+         where
 
 instance ToHeaders
-         DescribeReservedDBInstancesOfferings where
+           DescribeReservedDBInstancesOfferings
+         where
         toHeaders = const mempty
 
 instance ToPath DescribeReservedDBInstancesOfferings
@@ -208,10 +215,11 @@ instance ToQuery DescribeReservedDBInstancesOfferings
 --
 -- /See:/ 'describeReservedDBInstancesOfferingsResponse' smart constructor.
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'
-    { _drdiorsMarker                       :: !(Maybe Text)
-    , _drdiorsReservedDBInstancesOfferings :: !(Maybe [ReservedDBInstancesOffering])
-    , _drdiorsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdiorsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdiorsReservedDBInstancesOfferings :: {-# NOUNPACK #-}!(Maybe [ReservedDBInstancesOffering])
+  , _drdiorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedDBInstancesOfferingsResponse' with the minimum fields required to make a request.
 --
@@ -226,11 +234,12 @@ describeReservedDBInstancesOfferingsResponse
     :: Int -- ^ 'drdiorsResponseStatus'
     -> DescribeReservedDBInstancesOfferingsResponse
 describeReservedDBInstancesOfferingsResponse pResponseStatus_ =
-    DescribeReservedDBInstancesOfferingsResponse'
-    { _drdiorsMarker = Nothing
-    , _drdiorsReservedDBInstancesOfferings = Nothing
-    , _drdiorsResponseStatus = pResponseStatus_
-    }
+  DescribeReservedDBInstancesOfferingsResponse'
+  { _drdiorsMarker = Nothing
+  , _drdiorsReservedDBInstancesOfferings = Nothing
+  , _drdiorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drdiorsMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
@@ -245,4 +254,5 @@ drdiorsResponseStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
 drdiorsResponseStatus = lens _drdiorsResponseStatus (\ s a -> s{_drdiorsResponseStatus = a});
 
 instance NFData
-         DescribeReservedDBInstancesOfferingsResponse
+           DescribeReservedDBInstancesOfferingsResponse
+         where

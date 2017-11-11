@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateSecurityGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.EC2.CreateSecurityGroup
     , csgrsGroupId
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateSecurityGroup.
 --
@@ -65,11 +65,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createSecurityGroup' smart constructor.
 data CreateSecurityGroup = CreateSecurityGroup'
-    { _csgVPCId       :: !(Maybe Text)
-    , _csgDryRun      :: !(Maybe Bool)
-    , _csgDescription :: !Text
-    , _csgGroupName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgVPCId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csgDescription :: {-# NOUNPACK #-}!Text
+  , _csgGroupName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSecurityGroup' with the minimum fields required to make a request.
 --
@@ -87,12 +88,13 @@ createSecurityGroup
     -> Text -- ^ 'csgGroupName'
     -> CreateSecurityGroup
 createSecurityGroup pDescription_ pGroupName_ =
-    CreateSecurityGroup'
-    { _csgVPCId = Nothing
-    , _csgDryRun = Nothing
-    , _csgDescription = pDescription_
-    , _csgGroupName = pGroupName_
-    }
+  CreateSecurityGroup'
+  { _csgVPCId = Nothing
+  , _csgDryRun = Nothing
+  , _csgDescription = pDescription_
+  , _csgGroupName = pGroupName_
+  }
+
 
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 csgVPCId :: Lens' CreateSecurityGroup (Maybe Text)
@@ -120,9 +122,9 @@ instance AWSRequest CreateSecurityGroup where
                  CreateSecurityGroupResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "groupId"))
 
-instance Hashable CreateSecurityGroup
+instance Hashable CreateSecurityGroup where
 
-instance NFData CreateSecurityGroup
+instance NFData CreateSecurityGroup where
 
 instance ToHeaders CreateSecurityGroup where
         toHeaders = const mempty
@@ -145,9 +147,10 @@ instance ToQuery CreateSecurityGroup where
 --
 -- /See:/ 'createSecurityGroupResponse' smart constructor.
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
-    { _csgrsResponseStatus :: !Int
-    , _csgrsGroupId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _csgrsGroupId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSecurityGroupResponse' with the minimum fields required to make a request.
 --
@@ -161,10 +164,9 @@ createSecurityGroupResponse
     -> Text -- ^ 'csgrsGroupId'
     -> CreateSecurityGroupResponse
 createSecurityGroupResponse pResponseStatus_ pGroupId_ =
-    CreateSecurityGroupResponse'
-    { _csgrsResponseStatus = pResponseStatus_
-    , _csgrsGroupId = pGroupId_
-    }
+  CreateSecurityGroupResponse'
+  {_csgrsResponseStatus = pResponseStatus_, _csgrsGroupId = pGroupId_}
+
 
 -- | -- | The response status code.
 csgrsResponseStatus :: Lens' CreateSecurityGroupResponse Int
@@ -174,4 +176,4 @@ csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus
 csgrsGroupId :: Lens' CreateSecurityGroupResponse Text
 csgrsGroupId = lens _csgrsGroupId (\ s a -> s{_csgrsGroupId = a});
 
-instance NFData CreateSecurityGroupResponse
+instance NFData CreateSecurityGroupResponse where

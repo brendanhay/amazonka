@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.WAFRegional.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.WAFRegional.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.WAFRegional.Types.Sum
 
 -- | The @ActivatedRule@ object in an 'UpdateWebACL' request specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
 --
@@ -29,11 +29,12 @@ import           Network.AWS.WAFRegional.Types.Sum
 --
 -- /See:/ 'activatedRule' smart constructor.
 data ActivatedRule = ActivatedRule'
-    { _arType     :: !(Maybe WafRuleType)
-    , _arPriority :: !Int
-    , _arRuleId   :: !Text
-    , _arAction   :: !WafAction
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arType     :: {-# NOUNPACK #-}!(Maybe WafRuleType)
+  , _arPriority :: {-# NOUNPACK #-}!Int
+  , _arRuleId   :: {-# NOUNPACK #-}!Text
+  , _arAction   :: {-# NOUNPACK #-}!WafAction
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivatedRule' with the minimum fields required to make a request.
 --
@@ -52,12 +53,13 @@ activatedRule
     -> WafAction -- ^ 'arAction'
     -> ActivatedRule
 activatedRule pPriority_ pRuleId_ pAction_ =
-    ActivatedRule'
-    { _arType = Nothing
-    , _arPriority = pPriority_
-    , _arRuleId = pRuleId_
-    , _arAction = pAction_
-    }
+  ActivatedRule'
+  { _arType = Nothing
+  , _arPriority = pPriority_
+  , _arRuleId = pRuleId_
+  , _arAction = pAction_
+  }
+
 
 -- | The rule type, either @REGULAR@ , as defined by 'Rule' , or @RATE_BASED@ , as defined by 'RateBasedRule' . The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the 'UpdateWebACL' request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist.
 arType :: Lens' ActivatedRule (Maybe WafRuleType)
@@ -84,9 +86,9 @@ instance FromJSON ActivatedRule where
                      (x .: "RuleId")
                      <*> (x .: "Action"))
 
-instance Hashable ActivatedRule
+instance Hashable ActivatedRule where
 
-instance NFData ActivatedRule
+instance NFData ActivatedRule where
 
 instance ToJSON ActivatedRule where
         toJSON ActivatedRule'{..}
@@ -105,10 +107,11 @@ instance ToJSON ActivatedRule where
 --
 -- /See:/ 'byteMatchSet' smart constructor.
 data ByteMatchSet = ByteMatchSet'
-    { _bmsName            :: !(Maybe Text)
-    , _bmsByteMatchSetId  :: !Text
-    , _bmsByteMatchTuples :: ![ByteMatchTuple]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bmsName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bmsByteMatchSetId  :: {-# NOUNPACK #-}!Text
+  , _bmsByteMatchTuples :: {-# NOUNPACK #-}![ByteMatchTuple]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ByteMatchSet' with the minimum fields required to make a request.
 --
@@ -123,11 +126,12 @@ byteMatchSet
     :: Text -- ^ 'bmsByteMatchSetId'
     -> ByteMatchSet
 byteMatchSet pByteMatchSetId_ =
-    ByteMatchSet'
-    { _bmsName = Nothing
-    , _bmsByteMatchSetId = pByteMatchSetId_
-    , _bmsByteMatchTuples = mempty
-    }
+  ByteMatchSet'
+  { _bmsName = Nothing
+  , _bmsByteMatchSetId = pByteMatchSetId_
+  , _bmsByteMatchTuples = mempty
+  }
+
 
 -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
 bmsName :: Lens' ByteMatchSet (Maybe Text)
@@ -149,9 +153,9 @@ instance FromJSON ByteMatchSet where
                    (x .:? "Name") <*> (x .: "ByteMatchSetId") <*>
                      (x .:? "ByteMatchTuples" .!= mempty))
 
-instance Hashable ByteMatchSet
+instance Hashable ByteMatchSet where
 
-instance NFData ByteMatchSet
+instance NFData ByteMatchSet where
 
 -- | Returned by 'ListByteMatchSets' . Each @ByteMatchSetSummary@ object includes the @Name@ and @ByteMatchSetId@ for one 'ByteMatchSet' .
 --
@@ -159,9 +163,10 @@ instance NFData ByteMatchSet
 --
 -- /See:/ 'byteMatchSetSummary' smart constructor.
 data ByteMatchSetSummary = ByteMatchSetSummary'
-    { _bmssByteMatchSetId :: !Text
-    , _bmssName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bmssByteMatchSetId :: {-# NOUNPACK #-}!Text
+  , _bmssName           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ByteMatchSetSummary' with the minimum fields required to make a request.
 --
@@ -175,10 +180,9 @@ byteMatchSetSummary
     -> Text -- ^ 'bmssName'
     -> ByteMatchSetSummary
 byteMatchSetSummary pByteMatchSetId_ pName_ =
-    ByteMatchSetSummary'
-    { _bmssByteMatchSetId = pByteMatchSetId_
-    , _bmssName = pName_
-    }
+  ByteMatchSetSummary'
+  {_bmssByteMatchSetId = pByteMatchSetId_, _bmssName = pName_}
+
 
 -- | The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 bmssByteMatchSetId :: Lens' ByteMatchSetSummary Text
@@ -195,9 +199,9 @@ instance FromJSON ByteMatchSetSummary where
                  ByteMatchSetSummary' <$>
                    (x .: "ByteMatchSetId") <*> (x .: "Name"))
 
-instance Hashable ByteMatchSetSummary
+instance Hashable ByteMatchSetSummary where
 
-instance NFData ByteMatchSetSummary
+instance NFData ByteMatchSetSummary where
 
 -- | In an 'UpdateByteMatchSet' request, @ByteMatchSetUpdate@ specifies whether to insert or delete a 'ByteMatchTuple' and includes the settings for the @ByteMatchTuple@ .
 --
@@ -205,9 +209,10 @@ instance NFData ByteMatchSetSummary
 --
 -- /See:/ 'byteMatchSetUpdate' smart constructor.
 data ByteMatchSetUpdate = ByteMatchSetUpdate'
-    { _bmsuAction         :: !ChangeAction
-    , _bmsuByteMatchTuple :: !ByteMatchTuple
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bmsuAction         :: {-# NOUNPACK #-}!ChangeAction
+  , _bmsuByteMatchTuple :: {-# NOUNPACK #-}!ByteMatchTuple
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ByteMatchSetUpdate' with the minimum fields required to make a request.
 --
@@ -221,10 +226,9 @@ byteMatchSetUpdate
     -> ByteMatchTuple -- ^ 'bmsuByteMatchTuple'
     -> ByteMatchSetUpdate
 byteMatchSetUpdate pAction_ pByteMatchTuple_ =
-    ByteMatchSetUpdate'
-    { _bmsuAction = pAction_
-    , _bmsuByteMatchTuple = pByteMatchTuple_
-    }
+  ByteMatchSetUpdate'
+  {_bmsuAction = pAction_, _bmsuByteMatchTuple = pByteMatchTuple_}
+
 
 -- | Specifies whether to insert or delete a 'ByteMatchTuple' .
 bmsuAction :: Lens' ByteMatchSetUpdate ChangeAction
@@ -234,9 +238,9 @@ bmsuAction = lens _bmsuAction (\ s a -> s{_bmsuAction = a});
 bmsuByteMatchTuple :: Lens' ByteMatchSetUpdate ByteMatchTuple
 bmsuByteMatchTuple = lens _bmsuByteMatchTuple (\ s a -> s{_bmsuByteMatchTuple = a});
 
-instance Hashable ByteMatchSetUpdate
+instance Hashable ByteMatchSetUpdate where
 
-instance NFData ByteMatchSetUpdate
+instance NFData ByteMatchSetUpdate where
 
 instance ToJSON ByteMatchSetUpdate where
         toJSON ByteMatchSetUpdate'{..}
@@ -251,11 +255,12 @@ instance ToJSON ByteMatchSetUpdate where
 --
 -- /See:/ 'byteMatchTuple' smart constructor.
 data ByteMatchTuple = ByteMatchTuple'
-    { _bmtFieldToMatch         :: !FieldToMatch
-    , _bmtTargetString         :: !Base64
-    , _bmtTextTransformation   :: !TextTransformation
-    , _bmtPositionalConstraint :: !PositionalConstraint
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bmtFieldToMatch         :: {-# NOUNPACK #-}!FieldToMatch
+  , _bmtTargetString         :: {-# NOUNPACK #-}!Base64
+  , _bmtTextTransformation   :: {-# NOUNPACK #-}!TextTransformation
+  , _bmtPositionalConstraint :: {-# NOUNPACK #-}!PositionalConstraint
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ByteMatchTuple' with the minimum fields required to make a request.
 --
@@ -275,12 +280,13 @@ byteMatchTuple
     -> PositionalConstraint -- ^ 'bmtPositionalConstraint'
     -> ByteMatchTuple
 byteMatchTuple pFieldToMatch_ pTargetString_ pTextTransformation_ pPositionalConstraint_ =
-    ByteMatchTuple'
-    { _bmtFieldToMatch = pFieldToMatch_
-    , _bmtTargetString = _Base64 # pTargetString_
-    , _bmtTextTransformation = pTextTransformation_
-    , _bmtPositionalConstraint = pPositionalConstraint_
-    }
+  ByteMatchTuple'
+  { _bmtFieldToMatch = pFieldToMatch_
+  , _bmtTargetString = _Base64 # pTargetString_
+  , _bmtTextTransformation = pTextTransformation_
+  , _bmtPositionalConstraint = pPositionalConstraint_
+  }
+
 
 -- | The part of a web request that you want AWS WAF to search, such as a specified header or a query string. For more information, see 'FieldToMatch' .
 bmtFieldToMatch :: Lens' ByteMatchTuple FieldToMatch
@@ -307,9 +313,9 @@ instance FromJSON ByteMatchTuple where
                      (x .: "TextTransformation")
                      <*> (x .: "PositionalConstraint"))
 
-instance Hashable ByteMatchTuple
+instance Hashable ByteMatchTuple where
 
-instance NFData ByteMatchTuple
+instance NFData ByteMatchTuple where
 
 instance ToJSON ByteMatchTuple where
         toJSON ByteMatchTuple'{..}
@@ -329,9 +335,10 @@ instance ToJSON ByteMatchTuple where
 --
 -- /See:/ 'fieldToMatch' smart constructor.
 data FieldToMatch = FieldToMatch'
-    { _ftmData :: !(Maybe Text)
-    , _ftmType :: !MatchFieldType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ftmData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ftmType :: {-# NOUNPACK #-}!MatchFieldType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FieldToMatch' with the minimum fields required to make a request.
 --
@@ -343,11 +350,8 @@ data FieldToMatch = FieldToMatch'
 fieldToMatch
     :: MatchFieldType -- ^ 'ftmType'
     -> FieldToMatch
-fieldToMatch pType_ =
-    FieldToMatch'
-    { _ftmData = Nothing
-    , _ftmType = pType_
-    }
+fieldToMatch pType_ = FieldToMatch' {_ftmData = Nothing, _ftmType = pType_}
+
 
 -- | When the value of @Type@ is @HEADER@ , enter the name of the header that you want AWS WAF to search, for example, @User-Agent@ or @Referer@ . If the value of @Type@ is any other value, omit @Data@ . The name of the header is not case sensitive.
 ftmData :: Lens' FieldToMatch (Maybe Text)
@@ -363,9 +367,9 @@ instance FromJSON FieldToMatch where
               (\ x ->
                  FieldToMatch' <$> (x .:? "Data") <*> (x .: "Type"))
 
-instance Hashable FieldToMatch
+instance Hashable FieldToMatch where
 
-instance NFData FieldToMatch
+instance NFData FieldToMatch where
 
 instance ToJSON FieldToMatch where
         toJSON FieldToMatch'{..}
@@ -380,9 +384,10 @@ instance ToJSON FieldToMatch where
 --
 -- /See:/ 'hTTPHeader' smart constructor.
 data HTTPHeader = HTTPHeader'
-    { _httphValue :: !(Maybe Text)
-    , _httphName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _httphValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _httphName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HTTPHeader' with the minimum fields required to make a request.
 --
@@ -393,11 +398,8 @@ data HTTPHeader = HTTPHeader'
 -- * 'httphName' - The name of one of the headers in the sampled web request.
 hTTPHeader
     :: HTTPHeader
-hTTPHeader =
-    HTTPHeader'
-    { _httphValue = Nothing
-    , _httphName = Nothing
-    }
+hTTPHeader = HTTPHeader' {_httphValue = Nothing, _httphName = Nothing}
+
 
 -- | The value of one of the headers in the sampled web request.
 httphValue :: Lens' HTTPHeader (Maybe Text)
@@ -413,9 +415,9 @@ instance FromJSON HTTPHeader where
               (\ x ->
                  HTTPHeader' <$> (x .:? "Value") <*> (x .:? "Name"))
 
-instance Hashable HTTPHeader
+instance Hashable HTTPHeader where
 
-instance NFData HTTPHeader
+instance NFData HTTPHeader where
 
 -- | The response from a 'GetSampledRequests' request includes an @HTTPRequest@ complex type that appears as @Request@ in the response syntax. @HTTPRequest@ contains information about one of the web requests that were returned by @GetSampledRequests@ .
 --
@@ -423,13 +425,14 @@ instance NFData HTTPHeader
 --
 -- /See:/ 'hTTPRequest' smart constructor.
 data HTTPRequest = HTTPRequest'
-    { _httprHTTPVersion :: !(Maybe Text)
-    , _httprCountry     :: !(Maybe Text)
-    , _httprURI         :: !(Maybe Text)
-    , _httprHeaders     :: !(Maybe [HTTPHeader])
-    , _httprMethod      :: !(Maybe Text)
-    , _httprClientIP    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _httprHTTPVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _httprCountry     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _httprURI         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _httprHeaders     :: {-# NOUNPACK #-}!(Maybe [HTTPHeader])
+  , _httprMethod      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _httprClientIP    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HTTPRequest' with the minimum fields required to make a request.
 --
@@ -449,14 +452,15 @@ data HTTPRequest = HTTPRequest'
 hTTPRequest
     :: HTTPRequest
 hTTPRequest =
-    HTTPRequest'
-    { _httprHTTPVersion = Nothing
-    , _httprCountry = Nothing
-    , _httprURI = Nothing
-    , _httprHeaders = Nothing
-    , _httprMethod = Nothing
-    , _httprClientIP = Nothing
-    }
+  HTTPRequest'
+  { _httprHTTPVersion = Nothing
+  , _httprCountry = Nothing
+  , _httprURI = Nothing
+  , _httprHeaders = Nothing
+  , _httprMethod = Nothing
+  , _httprClientIP = Nothing
+  }
+
 
 -- | The HTTP version specified in the sampled web request, for example, @HTTP/1.1@ .
 httprHTTPVersion :: Lens' HTTPRequest (Maybe Text)
@@ -493,9 +497,9 @@ instance FromJSON HTTPRequest where
                      <*> (x .:? "Method")
                      <*> (x .:? "ClientIP"))
 
-instance Hashable HTTPRequest
+instance Hashable HTTPRequest where
 
-instance NFData HTTPRequest
+instance NFData HTTPRequest where
 
 -- | Contains one or more IP addresses or blocks of IP addresses specified in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6.
 --
@@ -505,10 +509,11 @@ instance NFData HTTPRequest
 --
 -- /See:/ 'ipSet' smart constructor.
 data IPSet = IPSet'
-    { _isName             :: !(Maybe Text)
-    , _isIPSetId          :: !Text
-    , _isIPSetDescriptors :: ![IPSetDescriptor]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isIPSetId          :: {-# NOUNPACK #-}!Text
+  , _isIPSetDescriptors :: {-# NOUNPACK #-}![IPSetDescriptor]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPSet' with the minimum fields required to make a request.
 --
@@ -523,11 +528,9 @@ ipSet
     :: Text -- ^ 'isIPSetId'
     -> IPSet
 ipSet pIPSetId_ =
-    IPSet'
-    { _isName = Nothing
-    , _isIPSetId = pIPSetId_
-    , _isIPSetDescriptors = mempty
-    }
+  IPSet'
+  {_isName = Nothing, _isIPSetId = pIPSetId_, _isIPSetDescriptors = mempty}
+
 
 -- | A friendly name or description of the 'IPSet' . You can't change the name of an @IPSet@ after you create it.
 isName :: Lens' IPSet (Maybe Text)
@@ -549,9 +552,9 @@ instance FromJSON IPSet where
                    (x .:? "Name") <*> (x .: "IPSetId") <*>
                      (x .:? "IPSetDescriptors" .!= mempty))
 
-instance Hashable IPSet
+instance Hashable IPSet where
 
-instance NFData IPSet
+instance NFData IPSet where
 
 -- | Specifies the IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR format) that web requests originate from.
 --
@@ -559,9 +562,10 @@ instance NFData IPSet
 --
 -- /See:/ 'ipSetDescriptor' smart constructor.
 data IPSetDescriptor = IPSetDescriptor'
-    { _isdType  :: !IPSetDescriptorType
-    , _isdValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isdType  :: {-# NOUNPACK #-}!IPSetDescriptorType
+  , _isdValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPSetDescriptor' with the minimum fields required to make a request.
 --
@@ -575,10 +579,8 @@ ipSetDescriptor
     -> Text -- ^ 'isdValue'
     -> IPSetDescriptor
 ipSetDescriptor pType_ pValue_ =
-    IPSetDescriptor'
-    { _isdType = pType_
-    , _isdValue = pValue_
-    }
+  IPSetDescriptor' {_isdType = pType_, _isdValue = pValue_}
+
 
 -- | Specify @IPV4@ or @IPV6@ .
 isdType :: Lens' IPSetDescriptor IPSetDescriptorType
@@ -595,9 +597,9 @@ instance FromJSON IPSetDescriptor where
                  IPSetDescriptor' <$>
                    (x .: "Type") <*> (x .: "Value"))
 
-instance Hashable IPSetDescriptor
+instance Hashable IPSetDescriptor where
 
-instance NFData IPSetDescriptor
+instance NFData IPSetDescriptor where
 
 instance ToJSON IPSetDescriptor where
         toJSON IPSetDescriptor'{..}
@@ -612,9 +614,10 @@ instance ToJSON IPSetDescriptor where
 --
 -- /See:/ 'ipSetSummary' smart constructor.
 data IPSetSummary = IPSetSummary'
-    { _issIPSetId :: !Text
-    , _issName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _issIPSetId :: {-# NOUNPACK #-}!Text
+  , _issName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPSetSummary' with the minimum fields required to make a request.
 --
@@ -628,10 +631,8 @@ ipSetSummary
     -> Text -- ^ 'issName'
     -> IPSetSummary
 ipSetSummary pIPSetId_ pName_ =
-    IPSetSummary'
-    { _issIPSetId = pIPSetId_
-    , _issName = pName_
-    }
+  IPSetSummary' {_issIPSetId = pIPSetId_, _issName = pName_}
+
 
 -- | The @IPSetId@ for an 'IPSet' . You can use @IPSetId@ in a 'GetIPSet' request to get detailed information about an 'IPSet' .
 issIPSetId :: Lens' IPSetSummary Text
@@ -647,9 +648,9 @@ instance FromJSON IPSetSummary where
               (\ x ->
                  IPSetSummary' <$> (x .: "IPSetId") <*> (x .: "Name"))
 
-instance Hashable IPSetSummary
+instance Hashable IPSetSummary where
 
-instance NFData IPSetSummary
+instance NFData IPSetSummary where
 
 -- | Specifies the type of update to perform to an 'IPSet' with 'UpdateIPSet' .
 --
@@ -657,9 +658,10 @@ instance NFData IPSetSummary
 --
 -- /See:/ 'ipSetUpdate' smart constructor.
 data IPSetUpdate = IPSetUpdate'
-    { _isuAction          :: !ChangeAction
-    , _isuIPSetDescriptor :: !IPSetDescriptor
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isuAction          :: {-# NOUNPACK #-}!ChangeAction
+  , _isuIPSetDescriptor :: {-# NOUNPACK #-}!IPSetDescriptor
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPSetUpdate' with the minimum fields required to make a request.
 --
@@ -673,10 +675,8 @@ ipSetUpdate
     -> IPSetDescriptor -- ^ 'isuIPSetDescriptor'
     -> IPSetUpdate
 ipSetUpdate pAction_ pIPSetDescriptor_ =
-    IPSetUpdate'
-    { _isuAction = pAction_
-    , _isuIPSetDescriptor = pIPSetDescriptor_
-    }
+  IPSetUpdate' {_isuAction = pAction_, _isuIPSetDescriptor = pIPSetDescriptor_}
+
 
 -- | Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
 isuAction :: Lens' IPSetUpdate ChangeAction
@@ -686,9 +686,9 @@ isuAction = lens _isuAction (\ s a -> s{_isuAction = a});
 isuIPSetDescriptor :: Lens' IPSetUpdate IPSetDescriptor
 isuIPSetDescriptor = lens _isuIPSetDescriptor (\ s a -> s{_isuIPSetDescriptor = a});
 
-instance Hashable IPSetUpdate
+instance Hashable IPSetUpdate where
 
-instance NFData IPSetUpdate
+instance NFData IPSetUpdate where
 
 instance ToJSON IPSetUpdate where
         toJSON IPSetUpdate'{..}
@@ -703,10 +703,11 @@ instance ToJSON IPSetUpdate where
 --
 -- /See:/ 'predicate' smart constructor.
 data Predicate = Predicate'
-    { _pNegated :: !Bool
-    , _pType    :: !PredicateType
-    , _pDataId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pNegated :: {-# NOUNPACK #-}!Bool
+  , _pType    :: {-# NOUNPACK #-}!PredicateType
+  , _pDataId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Predicate' with the minimum fields required to make a request.
 --
@@ -723,11 +724,8 @@ predicate
     -> Text -- ^ 'pDataId'
     -> Predicate
 predicate pNegated_ pType_ pDataId_ =
-    Predicate'
-    { _pNegated = pNegated_
-    , _pType = pType_
-    , _pDataId = pDataId_
-    }
+  Predicate' {_pNegated = pNegated_, _pType = pType_, _pDataId = pDataId_}
+
 
 -- | Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address. Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
 pNegated :: Lens' Predicate Bool
@@ -749,9 +747,9 @@ instance FromJSON Predicate where
                    (x .: "Negated") <*> (x .: "Type") <*>
                      (x .: "DataId"))
 
-instance Hashable Predicate
+instance Hashable Predicate where
 
-instance NFData Predicate
+instance NFData Predicate where
 
 instance ToJSON Predicate where
         toJSON Predicate'{..}
@@ -777,13 +775,14 @@ instance ToJSON Predicate where
 --
 -- /See:/ 'rateBasedRule' smart constructor.
 data RateBasedRule = RateBasedRule'
-    { _rbrMetricName      :: !(Maybe Text)
-    , _rbrName            :: !(Maybe Text)
-    , _rbrRuleId          :: !Text
-    , _rbrMatchPredicates :: ![Predicate]
-    , _rbrRateKey         :: !RateKey
-    , _rbrRateLimit       :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rbrMetricName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rbrName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rbrRuleId          :: {-# NOUNPACK #-}!Text
+  , _rbrMatchPredicates :: {-# NOUNPACK #-}![Predicate]
+  , _rbrRateKey         :: {-# NOUNPACK #-}!RateKey
+  , _rbrRateLimit       :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RateBasedRule' with the minimum fields required to make a request.
 --
@@ -806,14 +805,15 @@ rateBasedRule
     -> Natural -- ^ 'rbrRateLimit'
     -> RateBasedRule
 rateBasedRule pRuleId_ pRateKey_ pRateLimit_ =
-    RateBasedRule'
-    { _rbrMetricName = Nothing
-    , _rbrName = Nothing
-    , _rbrRuleId = pRuleId_
-    , _rbrMatchPredicates = mempty
-    , _rbrRateKey = pRateKey_
-    , _rbrRateLimit = _Nat # pRateLimit_
-    }
+  RateBasedRule'
+  { _rbrMetricName = Nothing
+  , _rbrName = Nothing
+  , _rbrRuleId = pRuleId_
+  , _rbrMatchPredicates = mempty
+  , _rbrRateKey = pRateKey_
+  , _rbrRateLimit = _Nat # pRateLimit_
+  }
+
 
 -- | A friendly name or description for the metrics for a @RateBasedRule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the @RateBasedRule@ .
 rbrMetricName :: Lens' RateBasedRule (Maybe Text)
@@ -850,9 +850,9 @@ instance FromJSON RateBasedRule where
                      <*> (x .: "RateKey")
                      <*> (x .: "RateLimit"))
 
-instance Hashable RateBasedRule
+instance Hashable RateBasedRule where
 
-instance NFData RateBasedRule
+instance NFData RateBasedRule where
 
 -- | A combination of 'ByteMatchSet' , 'IPSet' , and/or 'SqlInjectionMatchSet' objects that identify the web requests that you want to allow, block, or count. For example, you might create a @Rule@ that includes the following predicates:
 --
@@ -868,11 +868,12 @@ instance NFData RateBasedRule
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-    { _rMetricName :: !(Maybe Text)
-    , _rName       :: !(Maybe Text)
-    , _rRuleId     :: !Text
-    , _rPredicates :: ![Predicate]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rMetricName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rRuleId     :: {-# NOUNPACK #-}!Text
+  , _rPredicates :: {-# NOUNPACK #-}![Predicate]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Rule' with the minimum fields required to make a request.
 --
@@ -889,12 +890,13 @@ rule
     :: Text -- ^ 'rRuleId'
     -> Rule
 rule pRuleId_ =
-    Rule'
-    { _rMetricName = Nothing
-    , _rName = Nothing
-    , _rRuleId = pRuleId_
-    , _rPredicates = mempty
-    }
+  Rule'
+  { _rMetricName = Nothing
+  , _rName = Nothing
+  , _rRuleId = pRuleId_
+  , _rPredicates = mempty
+  }
+
 
 -- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @Rule@ .
 rMetricName :: Lens' Rule (Maybe Text)
@@ -921,9 +923,9 @@ instance FromJSON Rule where
                      (x .: "RuleId")
                      <*> (x .:? "Predicates" .!= mempty))
 
-instance Hashable Rule
+instance Hashable Rule where
 
-instance NFData Rule
+instance NFData Rule where
 
 -- | Contains the identifier and the friendly name or description of the @Rule@ .
 --
@@ -931,9 +933,10 @@ instance NFData Rule
 --
 -- /See:/ 'ruleSummary' smart constructor.
 data RuleSummary = RuleSummary'
-    { _rsRuleId :: !Text
-    , _rsName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsRuleId :: {-# NOUNPACK #-}!Text
+  , _rsName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RuleSummary' with the minimum fields required to make a request.
 --
@@ -947,10 +950,8 @@ ruleSummary
     -> Text -- ^ 'rsName'
     -> RuleSummary
 ruleSummary pRuleId_ pName_ =
-    RuleSummary'
-    { _rsRuleId = pRuleId_
-    , _rsName = pName_
-    }
+  RuleSummary' {_rsRuleId = pRuleId_, _rsName = pName_}
+
 
 -- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ). @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 rsRuleId :: Lens' RuleSummary Text
@@ -966,9 +967,9 @@ instance FromJSON RuleSummary where
               (\ x ->
                  RuleSummary' <$> (x .: "RuleId") <*> (x .: "Name"))
 
-instance Hashable RuleSummary
+instance Hashable RuleSummary where
 
-instance NFData RuleSummary
+instance NFData RuleSummary where
 
 -- | Specifies a @Predicate@ (such as an @IPSet@ ) and indicates whether you want to add it to a @Rule@ or delete it from a @Rule@ .
 --
@@ -976,9 +977,10 @@ instance NFData RuleSummary
 --
 -- /See:/ 'ruleUpdate' smart constructor.
 data RuleUpdate = RuleUpdate'
-    { _ruAction    :: !ChangeAction
-    , _ruPredicate :: !Predicate
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ruAction    :: {-# NOUNPACK #-}!ChangeAction
+  , _ruPredicate :: {-# NOUNPACK #-}!Predicate
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RuleUpdate' with the minimum fields required to make a request.
 --
@@ -992,10 +994,8 @@ ruleUpdate
     -> Predicate -- ^ 'ruPredicate'
     -> RuleUpdate
 ruleUpdate pAction_ pPredicate_ =
-    RuleUpdate'
-    { _ruAction = pAction_
-    , _ruPredicate = pPredicate_
-    }
+  RuleUpdate' {_ruAction = pAction_, _ruPredicate = pPredicate_}
+
 
 -- | Specify @INSERT@ to add a @Predicate@ to a @Rule@ . Use @DELETE@ to remove a @Predicate@ from a @Rule@ .
 ruAction :: Lens' RuleUpdate ChangeAction
@@ -1005,9 +1005,9 @@ ruAction = lens _ruAction (\ s a -> s{_ruAction = a});
 ruPredicate :: Lens' RuleUpdate Predicate
 ruPredicate = lens _ruPredicate (\ s a -> s{_ruPredicate = a});
 
-instance Hashable RuleUpdate
+instance Hashable RuleUpdate where
 
-instance NFData RuleUpdate
+instance NFData RuleUpdate where
 
 instance ToJSON RuleUpdate where
         toJSON RuleUpdate'{..}
@@ -1022,11 +1022,12 @@ instance ToJSON RuleUpdate where
 --
 -- /See:/ 'sampledHTTPRequest' smart constructor.
 data SampledHTTPRequest = SampledHTTPRequest'
-    { _shttprAction    :: !(Maybe Text)
-    , _shttprTimestamp :: !(Maybe POSIX)
-    , _shttprRequest   :: !HTTPRequest
-    , _shttprWeight    :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _shttprAction    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _shttprTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _shttprRequest   :: {-# NOUNPACK #-}!HTTPRequest
+  , _shttprWeight    :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SampledHTTPRequest' with the minimum fields required to make a request.
 --
@@ -1044,12 +1045,13 @@ sampledHTTPRequest
     -> Natural -- ^ 'shttprWeight'
     -> SampledHTTPRequest
 sampledHTTPRequest pRequest_ pWeight_ =
-    SampledHTTPRequest'
-    { _shttprAction = Nothing
-    , _shttprTimestamp = Nothing
-    , _shttprRequest = pRequest_
-    , _shttprWeight = _Nat # pWeight_
-    }
+  SampledHTTPRequest'
+  { _shttprAction = Nothing
+  , _shttprTimestamp = Nothing
+  , _shttprRequest = pRequest_
+  , _shttprWeight = _Nat # pWeight_
+  }
+
 
 -- | The action for the @Rule@ that the request matched: @ALLOW@ , @BLOCK@ , or @COUNT@ .
 shttprAction :: Lens' SampledHTTPRequest (Maybe Text)
@@ -1076,9 +1078,9 @@ instance FromJSON SampledHTTPRequest where
                      (x .: "Request")
                      <*> (x .: "Weight"))
 
-instance Hashable SampledHTTPRequest
+instance Hashable SampledHTTPRequest where
 
-instance NFData SampledHTTPRequest
+instance NFData SampledHTTPRequest where
 
 -- | Specifies a constraint on the size of a part of the web request. AWS WAF uses the @Size@ , @ComparisonOperator@ , and @FieldToMatch@ to build an expression in the form of "@Size@ @ComparisonOperator@ size in bytes of @FieldToMatch@ ". If that expression is true, the @SizeConstraint@ is considered to match.
 --
@@ -1086,11 +1088,12 @@ instance NFData SampledHTTPRequest
 --
 -- /See:/ 'sizeConstraint' smart constructor.
 data SizeConstraint = SizeConstraint'
-    { _scFieldToMatch       :: !FieldToMatch
-    , _scTextTransformation :: !TextTransformation
-    , _scComparisonOperator :: !ComparisonOperator
-    , _scSize               :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scFieldToMatch       :: {-# NOUNPACK #-}!FieldToMatch
+  , _scTextTransformation :: {-# NOUNPACK #-}!TextTransformation
+  , _scComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
+  , _scSize               :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SizeConstraint' with the minimum fields required to make a request.
 --
@@ -1110,12 +1113,13 @@ sizeConstraint
     -> Natural -- ^ 'scSize'
     -> SizeConstraint
 sizeConstraint pFieldToMatch_ pTextTransformation_ pComparisonOperator_ pSize_ =
-    SizeConstraint'
-    { _scFieldToMatch = pFieldToMatch_
-    , _scTextTransformation = pTextTransformation_
-    , _scComparisonOperator = pComparisonOperator_
-    , _scSize = _Nat # pSize_
-    }
+  SizeConstraint'
+  { _scFieldToMatch = pFieldToMatch_
+  , _scTextTransformation = pTextTransformation_
+  , _scComparisonOperator = pComparisonOperator_
+  , _scSize = _Nat # pSize_
+  }
+
 
 -- | Specifies where in a web request to look for the size constraint.
 scFieldToMatch :: Lens' SizeConstraint FieldToMatch
@@ -1142,9 +1146,9 @@ instance FromJSON SizeConstraint where
                      <*> (x .: "ComparisonOperator")
                      <*> (x .: "Size"))
 
-instance Hashable SizeConstraint
+instance Hashable SizeConstraint where
 
-instance NFData SizeConstraint
+instance NFData SizeConstraint where
 
 instance ToJSON SizeConstraint where
         toJSON SizeConstraint'{..}
@@ -1161,10 +1165,11 @@ instance ToJSON SizeConstraint where
 --
 -- /See:/ 'sizeConstraintSet' smart constructor.
 data SizeConstraintSet = SizeConstraintSet'
-    { _scsName                :: !(Maybe Text)
-    , _scsSizeConstraintSetId :: !Text
-    , _scsSizeConstraints     :: ![SizeConstraint]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scsName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scsSizeConstraintSetId :: {-# NOUNPACK #-}!Text
+  , _scsSizeConstraints     :: {-# NOUNPACK #-}![SizeConstraint]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SizeConstraintSet' with the minimum fields required to make a request.
 --
@@ -1179,11 +1184,12 @@ sizeConstraintSet
     :: Text -- ^ 'scsSizeConstraintSetId'
     -> SizeConstraintSet
 sizeConstraintSet pSizeConstraintSetId_ =
-    SizeConstraintSet'
-    { _scsName = Nothing
-    , _scsSizeConstraintSetId = pSizeConstraintSetId_
-    , _scsSizeConstraints = mempty
-    }
+  SizeConstraintSet'
+  { _scsName = Nothing
+  , _scsSizeConstraintSetId = pSizeConstraintSetId_
+  , _scsSizeConstraints = mempty
+  }
+
 
 -- | The name, if any, of the @SizeConstraintSet@ .
 scsName :: Lens' SizeConstraintSet (Maybe Text)
@@ -1205,9 +1211,9 @@ instance FromJSON SizeConstraintSet where
                    (x .:? "Name") <*> (x .: "SizeConstraintSetId") <*>
                      (x .:? "SizeConstraints" .!= mempty))
 
-instance Hashable SizeConstraintSet
+instance Hashable SizeConstraintSet where
 
-instance NFData SizeConstraintSet
+instance NFData SizeConstraintSet where
 
 -- | The @Id@ and @Name@ of a @SizeConstraintSet@ .
 --
@@ -1215,9 +1221,10 @@ instance NFData SizeConstraintSet
 --
 -- /See:/ 'sizeConstraintSetSummary' smart constructor.
 data SizeConstraintSetSummary = SizeConstraintSetSummary'
-    { _scssSizeConstraintSetId :: !Text
-    , _scssName                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scssSizeConstraintSetId :: {-# NOUNPACK #-}!Text
+  , _scssName                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SizeConstraintSetSummary' with the minimum fields required to make a request.
 --
@@ -1231,10 +1238,9 @@ sizeConstraintSetSummary
     -> Text -- ^ 'scssName'
     -> SizeConstraintSetSummary
 sizeConstraintSetSummary pSizeConstraintSetId_ pName_ =
-    SizeConstraintSetSummary'
-    { _scssSizeConstraintSetId = pSizeConstraintSetId_
-    , _scssName = pName_
-    }
+  SizeConstraintSetSummary'
+  {_scssSizeConstraintSetId = pSizeConstraintSetId_, _scssName = pName_}
+
 
 -- | A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ). @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 scssSizeConstraintSetId :: Lens' SizeConstraintSetSummary Text
@@ -1251,9 +1257,9 @@ instance FromJSON SizeConstraintSetSummary where
                  SizeConstraintSetSummary' <$>
                    (x .: "SizeConstraintSetId") <*> (x .: "Name"))
 
-instance Hashable SizeConstraintSetSummary
+instance Hashable SizeConstraintSetSummary where
 
-instance NFData SizeConstraintSetSummary
+instance NFData SizeConstraintSetSummary where
 
 -- | Specifies the part of a web request that you want to inspect the size of and indicates whether you want to add the specification to a 'SizeConstraintSet' or delete it from a @SizeConstraintSet@ .
 --
@@ -1261,9 +1267,10 @@ instance NFData SizeConstraintSetSummary
 --
 -- /See:/ 'sizeConstraintSetUpdate' smart constructor.
 data SizeConstraintSetUpdate = SizeConstraintSetUpdate'
-    { _scsuAction         :: !ChangeAction
-    , _scsuSizeConstraint :: !SizeConstraint
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scsuAction         :: {-# NOUNPACK #-}!ChangeAction
+  , _scsuSizeConstraint :: {-# NOUNPACK #-}!SizeConstraint
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SizeConstraintSetUpdate' with the minimum fields required to make a request.
 --
@@ -1277,10 +1284,9 @@ sizeConstraintSetUpdate
     -> SizeConstraint -- ^ 'scsuSizeConstraint'
     -> SizeConstraintSetUpdate
 sizeConstraintSetUpdate pAction_ pSizeConstraint_ =
-    SizeConstraintSetUpdate'
-    { _scsuAction = pAction_
-    , _scsuSizeConstraint = pSizeConstraint_
-    }
+  SizeConstraintSetUpdate'
+  {_scsuAction = pAction_, _scsuSizeConstraint = pSizeConstraint_}
+
 
 -- | Specify @INSERT@ to add a 'SizeConstraintSetUpdate' to a 'SizeConstraintSet' . Use @DELETE@ to remove a @SizeConstraintSetUpdate@ from a @SizeConstraintSet@ .
 scsuAction :: Lens' SizeConstraintSetUpdate ChangeAction
@@ -1290,9 +1296,9 @@ scsuAction = lens _scsuAction (\ s a -> s{_scsuAction = a});
 scsuSizeConstraint :: Lens' SizeConstraintSetUpdate SizeConstraint
 scsuSizeConstraint = lens _scsuSizeConstraint (\ s a -> s{_scsuSizeConstraint = a});
 
-instance Hashable SizeConstraintSetUpdate
+instance Hashable SizeConstraintSetUpdate where
 
-instance NFData SizeConstraintSetUpdate
+instance NFData SizeConstraintSetUpdate where
 
 instance ToJSON SizeConstraintSetUpdate where
         toJSON SizeConstraintSetUpdate'{..}
@@ -1307,10 +1313,11 @@ instance ToJSON SizeConstraintSetUpdate where
 --
 -- /See:/ 'sqlInjectionMatchSet' smart constructor.
 data SqlInjectionMatchSet = SqlInjectionMatchSet'
-    { _simsName                    :: !(Maybe Text)
-    , _simsSqlInjectionMatchSetId  :: !Text
-    , _simsSqlInjectionMatchTuples :: ![SqlInjectionMatchTuple]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _simsName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _simsSqlInjectionMatchSetId  :: {-# NOUNPACK #-}!Text
+  , _simsSqlInjectionMatchTuples :: {-# NOUNPACK #-}![SqlInjectionMatchTuple]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SqlInjectionMatchSet' with the minimum fields required to make a request.
 --
@@ -1325,11 +1332,12 @@ sqlInjectionMatchSet
     :: Text -- ^ 'simsSqlInjectionMatchSetId'
     -> SqlInjectionMatchSet
 sqlInjectionMatchSet pSqlInjectionMatchSetId_ =
-    SqlInjectionMatchSet'
-    { _simsName = Nothing
-    , _simsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
-    , _simsSqlInjectionMatchTuples = mempty
-    }
+  SqlInjectionMatchSet'
+  { _simsName = Nothing
+  , _simsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
+  , _simsSqlInjectionMatchTuples = mempty
+  }
+
 
 -- | The name, if any, of the @SqlInjectionMatchSet@ .
 simsName :: Lens' SqlInjectionMatchSet (Maybe Text)
@@ -1351,9 +1359,9 @@ instance FromJSON SqlInjectionMatchSet where
                    (x .:? "Name") <*> (x .: "SqlInjectionMatchSetId")
                      <*> (x .:? "SqlInjectionMatchTuples" .!= mempty))
 
-instance Hashable SqlInjectionMatchSet
+instance Hashable SqlInjectionMatchSet where
 
-instance NFData SqlInjectionMatchSet
+instance NFData SqlInjectionMatchSet where
 
 -- | The @Id@ and @Name@ of a @SqlInjectionMatchSet@ .
 --
@@ -1361,9 +1369,10 @@ instance NFData SqlInjectionMatchSet
 --
 -- /See:/ 'sqlInjectionMatchSetSummary' smart constructor.
 data SqlInjectionMatchSetSummary = SqlInjectionMatchSetSummary'
-    { _simssSqlInjectionMatchSetId :: !Text
-    , _simssName                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _simssSqlInjectionMatchSetId :: {-# NOUNPACK #-}!Text
+  , _simssName                   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SqlInjectionMatchSetSummary' with the minimum fields required to make a request.
 --
@@ -1377,10 +1386,9 @@ sqlInjectionMatchSetSummary
     -> Text -- ^ 'simssName'
     -> SqlInjectionMatchSetSummary
 sqlInjectionMatchSetSummary pSqlInjectionMatchSetId_ pName_ =
-    SqlInjectionMatchSetSummary'
-    { _simssSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
-    , _simssName = pName_
-    }
+  SqlInjectionMatchSetSummary'
+  {_simssSqlInjectionMatchSetId = pSqlInjectionMatchSetId_, _simssName = pName_}
+
 
 -- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ). @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 simssSqlInjectionMatchSetId :: Lens' SqlInjectionMatchSetSummary Text
@@ -1397,9 +1405,9 @@ instance FromJSON SqlInjectionMatchSetSummary where
                  SqlInjectionMatchSetSummary' <$>
                    (x .: "SqlInjectionMatchSetId") <*> (x .: "Name"))
 
-instance Hashable SqlInjectionMatchSetSummary
+instance Hashable SqlInjectionMatchSetSummary where
 
-instance NFData SqlInjectionMatchSetSummary
+instance NFData SqlInjectionMatchSetSummary where
 
 -- | Specifies the part of a web request that you want to inspect for snippets of malicious SQL code and indicates whether you want to add the specification to a 'SqlInjectionMatchSet' or delete it from a @SqlInjectionMatchSet@ .
 --
@@ -1407,9 +1415,10 @@ instance NFData SqlInjectionMatchSetSummary
 --
 -- /See:/ 'sqlInjectionMatchSetUpdate' smart constructor.
 data SqlInjectionMatchSetUpdate = SqlInjectionMatchSetUpdate'
-    { _simsuAction                 :: !ChangeAction
-    , _simsuSqlInjectionMatchTuple :: !SqlInjectionMatchTuple
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _simsuAction                 :: {-# NOUNPACK #-}!ChangeAction
+  , _simsuSqlInjectionMatchTuple :: {-# NOUNPACK #-}!SqlInjectionMatchTuple
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SqlInjectionMatchSetUpdate' with the minimum fields required to make a request.
 --
@@ -1423,10 +1432,11 @@ sqlInjectionMatchSetUpdate
     -> SqlInjectionMatchTuple -- ^ 'simsuSqlInjectionMatchTuple'
     -> SqlInjectionMatchSetUpdate
 sqlInjectionMatchSetUpdate pAction_ pSqlInjectionMatchTuple_ =
-    SqlInjectionMatchSetUpdate'
-    { _simsuAction = pAction_
-    , _simsuSqlInjectionMatchTuple = pSqlInjectionMatchTuple_
-    }
+  SqlInjectionMatchSetUpdate'
+  { _simsuAction = pAction_
+  , _simsuSqlInjectionMatchTuple = pSqlInjectionMatchTuple_
+  }
+
 
 -- | Specify @INSERT@ to add a 'SqlInjectionMatchSetUpdate' to a 'SqlInjectionMatchSet' . Use @DELETE@ to remove a @SqlInjectionMatchSetUpdate@ from a @SqlInjectionMatchSet@ .
 simsuAction :: Lens' SqlInjectionMatchSetUpdate ChangeAction
@@ -1436,9 +1446,9 @@ simsuAction = lens _simsuAction (\ s a -> s{_simsuAction = a});
 simsuSqlInjectionMatchTuple :: Lens' SqlInjectionMatchSetUpdate SqlInjectionMatchTuple
 simsuSqlInjectionMatchTuple = lens _simsuSqlInjectionMatchTuple (\ s a -> s{_simsuSqlInjectionMatchTuple = a});
 
-instance Hashable SqlInjectionMatchSetUpdate
+instance Hashable SqlInjectionMatchSetUpdate where
 
-instance NFData SqlInjectionMatchSetUpdate
+instance NFData SqlInjectionMatchSetUpdate where
 
 instance ToJSON SqlInjectionMatchSetUpdate where
         toJSON SqlInjectionMatchSetUpdate'{..}
@@ -1455,9 +1465,10 @@ instance ToJSON SqlInjectionMatchSetUpdate where
 --
 -- /See:/ 'sqlInjectionMatchTuple' smart constructor.
 data SqlInjectionMatchTuple = SqlInjectionMatchTuple'
-    { _simtFieldToMatch       :: !FieldToMatch
-    , _simtTextTransformation :: !TextTransformation
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _simtFieldToMatch       :: {-# NOUNPACK #-}!FieldToMatch
+  , _simtTextTransformation :: {-# NOUNPACK #-}!TextTransformation
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SqlInjectionMatchTuple' with the minimum fields required to make a request.
 --
@@ -1471,10 +1482,11 @@ sqlInjectionMatchTuple
     -> TextTransformation -- ^ 'simtTextTransformation'
     -> SqlInjectionMatchTuple
 sqlInjectionMatchTuple pFieldToMatch_ pTextTransformation_ =
-    SqlInjectionMatchTuple'
-    { _simtFieldToMatch = pFieldToMatch_
-    , _simtTextTransformation = pTextTransformation_
-    }
+  SqlInjectionMatchTuple'
+  { _simtFieldToMatch = pFieldToMatch_
+  , _simtTextTransformation = pTextTransformation_
+  }
+
 
 -- | Specifies where in a web request to look for snippets of malicious SQL code.
 simtFieldToMatch :: Lens' SqlInjectionMatchTuple FieldToMatch
@@ -1492,9 +1504,9 @@ instance FromJSON SqlInjectionMatchTuple where
                    (x .: "FieldToMatch") <*>
                      (x .: "TextTransformation"))
 
-instance Hashable SqlInjectionMatchTuple
+instance Hashable SqlInjectionMatchTuple where
 
-instance NFData SqlInjectionMatchTuple
+instance NFData SqlInjectionMatchTuple where
 
 instance ToJSON SqlInjectionMatchTuple where
         toJSON SqlInjectionMatchTuple'{..}
@@ -1512,9 +1524,10 @@ instance ToJSON SqlInjectionMatchTuple where
 --
 -- /See:/ 'timeWindow' smart constructor.
 data TimeWindow = TimeWindow'
-    { _twStartTime :: !POSIX
-    , _twEndTime   :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _twStartTime :: {-# NOUNPACK #-}!POSIX
+  , _twEndTime   :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TimeWindow' with the minimum fields required to make a request.
 --
@@ -1528,10 +1541,9 @@ timeWindow
     -> UTCTime -- ^ 'twEndTime'
     -> TimeWindow
 timeWindow pStartTime_ pEndTime_ =
-    TimeWindow'
-    { _twStartTime = _Time # pStartTime_
-    , _twEndTime = _Time # pEndTime_
-    }
+  TimeWindow'
+  {_twStartTime = _Time # pStartTime_, _twEndTime = _Time # pEndTime_}
+
 
 -- | The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 twStartTime :: Lens' TimeWindow UTCTime
@@ -1548,9 +1560,9 @@ instance FromJSON TimeWindow where
                  TimeWindow' <$>
                    (x .: "StartTime") <*> (x .: "EndTime"))
 
-instance Hashable TimeWindow
+instance Hashable TimeWindow where
 
-instance NFData TimeWindow
+instance NFData TimeWindow where
 
 instance ToJSON TimeWindow where
         toJSON TimeWindow'{..}
@@ -1565,8 +1577,9 @@ instance ToJSON TimeWindow where
 --
 -- /See:/ 'wafAction' smart constructor.
 newtype WafAction = WafAction'
-    { _waType :: WafActionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _waType :: WafActionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WafAction' with the minimum fields required to make a request.
 --
@@ -1576,10 +1589,8 @@ newtype WafAction = WafAction'
 wafAction
     :: WafActionType -- ^ 'waType'
     -> WafAction
-wafAction pType_ =
-    WafAction'
-    { _waType = pType_
-    }
+wafAction pType_ = WafAction' {_waType = pType_}
+
 
 -- | Specifies how you want AWS WAF to respond to requests that match the settings in a @Rule@ . Valid settings include the following:     * @ALLOW@ : AWS WAF allows requests     * @BLOCK@ : AWS WAF blocks requests     * @COUNT@ : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify @COUNT@ for the default action for a @WebACL@ .
 waType :: Lens' WafAction WafActionType
@@ -1590,9 +1601,9 @@ instance FromJSON WafAction where
           = withObject "WafAction"
               (\ x -> WafAction' <$> (x .: "Type"))
 
-instance Hashable WafAction
+instance Hashable WafAction where
 
-instance NFData WafAction
+instance NFData WafAction where
 
 instance ToJSON WafAction where
         toJSON WafAction'{..}
@@ -1604,12 +1615,13 @@ instance ToJSON WafAction where
 --
 -- /See:/ 'webACL' smart constructor.
 data WebACL = WebACL'
-    { _waMetricName    :: !(Maybe Text)
-    , _waName          :: !(Maybe Text)
-    , _waWebACLId      :: !Text
-    , _waDefaultAction :: !WafAction
-    , _waRules         :: ![ActivatedRule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _waMetricName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _waName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _waWebACLId      :: {-# NOUNPACK #-}!Text
+  , _waDefaultAction :: {-# NOUNPACK #-}!WafAction
+  , _waRules         :: {-# NOUNPACK #-}![ActivatedRule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WebACL' with the minimum fields required to make a request.
 --
@@ -1629,13 +1641,14 @@ webACL
     -> WafAction -- ^ 'waDefaultAction'
     -> WebACL
 webACL pWebACLId_ pDefaultAction_ =
-    WebACL'
-    { _waMetricName = Nothing
-    , _waName = Nothing
-    , _waWebACLId = pWebACLId_
-    , _waDefaultAction = pDefaultAction_
-    , _waRules = mempty
-    }
+  WebACL'
+  { _waMetricName = Nothing
+  , _waName = Nothing
+  , _waWebACLId = pWebACLId_
+  , _waDefaultAction = pDefaultAction_
+  , _waRules = mempty
+  }
+
 
 -- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
 waMetricName :: Lens' WebACL (Maybe Text)
@@ -1667,9 +1680,9 @@ instance FromJSON WebACL where
                      <*> (x .: "DefaultAction")
                      <*> (x .:? "Rules" .!= mempty))
 
-instance Hashable WebACL
+instance Hashable WebACL where
 
-instance NFData WebACL
+instance NFData WebACL where
 
 -- | Contains the identifier and the name or description of the 'WebACL' .
 --
@@ -1677,9 +1690,10 @@ instance NFData WebACL
 --
 -- /See:/ 'webACLSummary' smart constructor.
 data WebACLSummary = WebACLSummary'
-    { _wasWebACLId :: !Text
-    , _wasName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wasWebACLId :: {-# NOUNPACK #-}!Text
+  , _wasName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WebACLSummary' with the minimum fields required to make a request.
 --
@@ -1693,10 +1707,8 @@ webACLSummary
     -> Text -- ^ 'wasName'
     -> WebACLSummary
 webACLSummary pWebACLId_ pName_ =
-    WebACLSummary'
-    { _wasWebACLId = pWebACLId_
-    , _wasName = pName_
-    }
+  WebACLSummary' {_wasWebACLId = pWebACLId_, _wasName = pName_}
+
 
 -- | A unique identifier for a @WebACL@ . You use @WebACLId@ to get information about a @WebACL@ (see 'GetWebACL' ), update a @WebACL@ (see 'UpdateWebACL' ), and delete a @WebACL@ from AWS WAF (see 'DeleteWebACL' ). @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 wasWebACLId :: Lens' WebACLSummary Text
@@ -1713,9 +1725,9 @@ instance FromJSON WebACLSummary where
                  WebACLSummary' <$>
                    (x .: "WebACLId") <*> (x .: "Name"))
 
-instance Hashable WebACLSummary
+instance Hashable WebACLSummary where
 
-instance NFData WebACLSummary
+instance NFData WebACLSummary where
 
 -- | Specifies whether to insert a @Rule@ into or delete a @Rule@ from a @WebACL@ .
 --
@@ -1723,9 +1735,10 @@ instance NFData WebACLSummary
 --
 -- /See:/ 'webACLUpdate' smart constructor.
 data WebACLUpdate = WebACLUpdate'
-    { _wauAction        :: !ChangeAction
-    , _wauActivatedRule :: !ActivatedRule
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wauAction        :: {-# NOUNPACK #-}!ChangeAction
+  , _wauActivatedRule :: {-# NOUNPACK #-}!ActivatedRule
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WebACLUpdate' with the minimum fields required to make a request.
 --
@@ -1739,10 +1752,8 @@ webACLUpdate
     -> ActivatedRule -- ^ 'wauActivatedRule'
     -> WebACLUpdate
 webACLUpdate pAction_ pActivatedRule_ =
-    WebACLUpdate'
-    { _wauAction = pAction_
-    , _wauActivatedRule = pActivatedRule_
-    }
+  WebACLUpdate' {_wauAction = pAction_, _wauActivatedRule = pActivatedRule_}
+
 
 -- | Specifies whether to insert a @Rule@ into or delete a @Rule@ from a @WebACL@ .
 wauAction :: Lens' WebACLUpdate ChangeAction
@@ -1752,9 +1763,9 @@ wauAction = lens _wauAction (\ s a -> s{_wauAction = a});
 wauActivatedRule :: Lens' WebACLUpdate ActivatedRule
 wauActivatedRule = lens _wauActivatedRule (\ s a -> s{_wauActivatedRule = a});
 
-instance Hashable WebACLUpdate
+instance Hashable WebACLUpdate where
 
-instance NFData WebACLUpdate
+instance NFData WebACLUpdate where
 
 instance ToJSON WebACLUpdate where
         toJSON WebACLUpdate'{..}
@@ -1769,10 +1780,11 @@ instance ToJSON WebACLUpdate where
 --
 -- /See:/ 'xssMatchSet' smart constructor.
 data XSSMatchSet = XSSMatchSet'
-    { _xmsName           :: !(Maybe Text)
-    , _xmsXSSMatchSetId  :: !Text
-    , _xmsXSSMatchTuples :: ![XSSMatchTuple]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _xmsName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _xmsXSSMatchSetId  :: {-# NOUNPACK #-}!Text
+  , _xmsXSSMatchTuples :: {-# NOUNPACK #-}![XSSMatchTuple]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'XSSMatchSet' with the minimum fields required to make a request.
 --
@@ -1787,11 +1799,12 @@ xssMatchSet
     :: Text -- ^ 'xmsXSSMatchSetId'
     -> XSSMatchSet
 xssMatchSet pXSSMatchSetId_ =
-    XSSMatchSet'
-    { _xmsName = Nothing
-    , _xmsXSSMatchSetId = pXSSMatchSetId_
-    , _xmsXSSMatchTuples = mempty
-    }
+  XSSMatchSet'
+  { _xmsName = Nothing
+  , _xmsXSSMatchSetId = pXSSMatchSetId_
+  , _xmsXSSMatchTuples = mempty
+  }
+
 
 -- | The name, if any, of the @XssMatchSet@ .
 xmsName :: Lens' XSSMatchSet (Maybe Text)
@@ -1813,9 +1826,9 @@ instance FromJSON XSSMatchSet where
                    (x .:? "Name") <*> (x .: "XssMatchSetId") <*>
                      (x .:? "XssMatchTuples" .!= mempty))
 
-instance Hashable XSSMatchSet
+instance Hashable XSSMatchSet where
 
-instance NFData XSSMatchSet
+instance NFData XSSMatchSet where
 
 -- | The @Id@ and @Name@ of an @XssMatchSet@ .
 --
@@ -1823,9 +1836,10 @@ instance NFData XSSMatchSet
 --
 -- /See:/ 'xssMatchSetSummary' smart constructor.
 data XSSMatchSetSummary = XSSMatchSetSummary'
-    { _xmssXSSMatchSetId :: !Text
-    , _xmssName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _xmssXSSMatchSetId :: {-# NOUNPACK #-}!Text
+  , _xmssName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'XSSMatchSetSummary' with the minimum fields required to make a request.
 --
@@ -1839,10 +1853,8 @@ xssMatchSetSummary
     -> Text -- ^ 'xmssName'
     -> XSSMatchSetSummary
 xssMatchSetSummary pXSSMatchSetId_ pName_ =
-    XSSMatchSetSummary'
-    { _xmssXSSMatchSetId = pXSSMatchSetId_
-    , _xmssName = pName_
-    }
+  XSSMatchSetSummary' {_xmssXSSMatchSetId = pXSSMatchSetId_, _xmssName = pName_}
+
 
 -- | A unique identifier for an @XssMatchSet@ . You use @XssMatchSetId@ to get information about a @XssMatchSet@ (see 'GetXssMatchSet' ), update an @XssMatchSet@ (see 'UpdateXssMatchSet' ), insert an @XssMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @XssMatchSet@ from AWS WAF (see 'DeleteXssMatchSet' ). @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 xmssXSSMatchSetId :: Lens' XSSMatchSetSummary Text
@@ -1859,9 +1871,9 @@ instance FromJSON XSSMatchSetSummary where
                  XSSMatchSetSummary' <$>
                    (x .: "XssMatchSetId") <*> (x .: "Name"))
 
-instance Hashable XSSMatchSetSummary
+instance Hashable XSSMatchSetSummary where
 
-instance NFData XSSMatchSetSummary
+instance NFData XSSMatchSetSummary where
 
 -- | Specifies the part of a web request that you want to inspect for cross-site scripting attacks and indicates whether you want to add the specification to an 'XssMatchSet' or delete it from an @XssMatchSet@ .
 --
@@ -1869,9 +1881,10 @@ instance NFData XSSMatchSetSummary
 --
 -- /See:/ 'xssMatchSetUpdate' smart constructor.
 data XSSMatchSetUpdate = XSSMatchSetUpdate'
-    { _xmsuAction        :: !ChangeAction
-    , _xmsuXSSMatchTuple :: !XSSMatchTuple
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _xmsuAction        :: {-# NOUNPACK #-}!ChangeAction
+  , _xmsuXSSMatchTuple :: {-# NOUNPACK #-}!XSSMatchTuple
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'XSSMatchSetUpdate' with the minimum fields required to make a request.
 --
@@ -1885,10 +1898,9 @@ xssMatchSetUpdate
     -> XSSMatchTuple -- ^ 'xmsuXSSMatchTuple'
     -> XSSMatchSetUpdate
 xssMatchSetUpdate pAction_ pXSSMatchTuple_ =
-    XSSMatchSetUpdate'
-    { _xmsuAction = pAction_
-    , _xmsuXSSMatchTuple = pXSSMatchTuple_
-    }
+  XSSMatchSetUpdate'
+  {_xmsuAction = pAction_, _xmsuXSSMatchTuple = pXSSMatchTuple_}
+
 
 -- | Specify @INSERT@ to add a 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove a @XssMatchSetUpdate@ from an @XssMatchSet@ .
 xmsuAction :: Lens' XSSMatchSetUpdate ChangeAction
@@ -1898,9 +1910,9 @@ xmsuAction = lens _xmsuAction (\ s a -> s{_xmsuAction = a});
 xmsuXSSMatchTuple :: Lens' XSSMatchSetUpdate XSSMatchTuple
 xmsuXSSMatchTuple = lens _xmsuXSSMatchTuple (\ s a -> s{_xmsuXSSMatchTuple = a});
 
-instance Hashable XSSMatchSetUpdate
+instance Hashable XSSMatchSetUpdate where
 
-instance NFData XSSMatchSetUpdate
+instance NFData XSSMatchSetUpdate where
 
 instance ToJSON XSSMatchSetUpdate where
         toJSON XSSMatchSetUpdate'{..}
@@ -1915,9 +1927,10 @@ instance ToJSON XSSMatchSetUpdate where
 --
 -- /See:/ 'xssMatchTuple' smart constructor.
 data XSSMatchTuple = XSSMatchTuple'
-    { _xmtFieldToMatch       :: !FieldToMatch
-    , _xmtTextTransformation :: !TextTransformation
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _xmtFieldToMatch       :: {-# NOUNPACK #-}!FieldToMatch
+  , _xmtTextTransformation :: {-# NOUNPACK #-}!TextTransformation
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'XSSMatchTuple' with the minimum fields required to make a request.
 --
@@ -1931,10 +1944,11 @@ xssMatchTuple
     -> TextTransformation -- ^ 'xmtTextTransformation'
     -> XSSMatchTuple
 xssMatchTuple pFieldToMatch_ pTextTransformation_ =
-    XSSMatchTuple'
-    { _xmtFieldToMatch = pFieldToMatch_
-    , _xmtTextTransformation = pTextTransformation_
-    }
+  XSSMatchTuple'
+  { _xmtFieldToMatch = pFieldToMatch_
+  , _xmtTextTransformation = pTextTransformation_
+  }
+
 
 -- | Specifies where in a web request to look for cross-site scripting attacks.
 xmtFieldToMatch :: Lens' XSSMatchTuple FieldToMatch
@@ -1952,9 +1966,9 @@ instance FromJSON XSSMatchTuple where
                    (x .: "FieldToMatch") <*>
                      (x .: "TextTransformation"))
 
-instance Hashable XSSMatchTuple
+instance Hashable XSSMatchTuple where
 
-instance NFData XSSMatchTuple
+instance NFData XSSMatchTuple where
 
 instance ToJSON XSSMatchTuple where
         toJSON XSSMatchTuple'{..}

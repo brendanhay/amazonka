@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DetachRolePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.DetachRolePolicy
     , DetachRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachRolePolicy' smart constructor.
 data DetachRolePolicy = DetachRolePolicy'
-    { _drpRoleName  :: !Text
-    , _drpPolicyARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drpRoleName  :: {-# NOUNPACK #-}!Text
+  , _drpPolicyARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachRolePolicy' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ detachRolePolicy
     -> Text -- ^ 'drpPolicyARN'
     -> DetachRolePolicy
 detachRolePolicy pRoleName_ pPolicyARN_ =
-    DetachRolePolicy'
-    { _drpRoleName = pRoleName_
-    , _drpPolicyARN = pPolicyARN_
-    }
+  DetachRolePolicy' {_drpRoleName = pRoleName_, _drpPolicyARN = pPolicyARN_}
+
 
 -- | The name (friendly name, not ARN) of the IAM role to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 drpRoleName :: Lens' DetachRolePolicy Text
@@ -80,9 +79,9 @@ instance AWSRequest DetachRolePolicy where
         request = postQuery iam
         response = receiveNull DetachRolePolicyResponse'
 
-instance Hashable DetachRolePolicy
+instance Hashable DetachRolePolicy where
 
-instance NFData DetachRolePolicy
+instance NFData DetachRolePolicy where
 
 instance ToHeaders DetachRolePolicy where
         toHeaders = const mempty
@@ -100,8 +99,9 @@ instance ToQuery DetachRolePolicy where
 
 -- | /See:/ 'detachRolePolicyResponse' smart constructor.
 data DetachRolePolicyResponse =
-    DetachRolePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachRolePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachRolePolicyResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +109,5 @@ detachRolePolicyResponse
     :: DetachRolePolicyResponse
 detachRolePolicyResponse = DetachRolePolicyResponse'
 
-instance NFData DetachRolePolicyResponse
+
+instance NFData DetachRolePolicyResponse where

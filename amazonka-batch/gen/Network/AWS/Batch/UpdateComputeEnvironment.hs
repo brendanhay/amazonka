@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.UpdateComputeEnvironment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Batch.UpdateComputeEnvironment
     , ucersResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateComputeEnvironment' smart constructor.
 data UpdateComputeEnvironment = UpdateComputeEnvironment'
-    { _uceState              :: !(Maybe CEState)
-    , _uceComputeResources   :: !(Maybe ComputeResourceUpdate)
-    , _uceServiceRole        :: !(Maybe Text)
-    , _uceComputeEnvironment :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uceState              :: {-# NOUNPACK #-}!(Maybe CEState)
+  , _uceComputeResources   :: {-# NOUNPACK #-}!(Maybe ComputeResourceUpdate)
+  , _uceServiceRole        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uceComputeEnvironment :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateComputeEnvironment' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ updateComputeEnvironment
     :: Text -- ^ 'uceComputeEnvironment'
     -> UpdateComputeEnvironment
 updateComputeEnvironment pComputeEnvironment_ =
-    UpdateComputeEnvironment'
-    { _uceState = Nothing
-    , _uceComputeResources = Nothing
-    , _uceServiceRole = Nothing
-    , _uceComputeEnvironment = pComputeEnvironment_
-    }
+  UpdateComputeEnvironment'
+  { _uceState = Nothing
+  , _uceComputeResources = Nothing
+  , _uceServiceRole = Nothing
+  , _uceComputeEnvironment = pComputeEnvironment_
+  }
+
 
 -- | The state of the compute environment. Compute environments in the @ENABLED@ state can accept jobs from a queue and scale in or out automatically based on the workload demand of its associated queues.
 uceState :: Lens' UpdateComputeEnvironment (Maybe CEState)
@@ -106,9 +108,9 @@ instance AWSRequest UpdateComputeEnvironment where
                      (x .?> "computeEnvironmentArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateComputeEnvironment
+instance Hashable UpdateComputeEnvironment where
 
-instance NFData UpdateComputeEnvironment
+instance NFData UpdateComputeEnvironment where
 
 instance ToHeaders UpdateComputeEnvironment where
         toHeaders
@@ -135,10 +137,11 @@ instance ToQuery UpdateComputeEnvironment where
 
 -- | /See:/ 'updateComputeEnvironmentResponse' smart constructor.
 data UpdateComputeEnvironmentResponse = UpdateComputeEnvironmentResponse'
-    { _ucersComputeEnvironmentName :: !(Maybe Text)
-    , _ucersComputeEnvironmentARN  :: !(Maybe Text)
-    , _ucersResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucersComputeEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucersComputeEnvironmentARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucersResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateComputeEnvironmentResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ updateComputeEnvironmentResponse
     :: Int -- ^ 'ucersResponseStatus'
     -> UpdateComputeEnvironmentResponse
 updateComputeEnvironmentResponse pResponseStatus_ =
-    UpdateComputeEnvironmentResponse'
-    { _ucersComputeEnvironmentName = Nothing
-    , _ucersComputeEnvironmentARN = Nothing
-    , _ucersResponseStatus = pResponseStatus_
-    }
+  UpdateComputeEnvironmentResponse'
+  { _ucersComputeEnvironmentName = Nothing
+  , _ucersComputeEnvironmentARN = Nothing
+  , _ucersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of compute environment.
 ucersComputeEnvironmentName :: Lens' UpdateComputeEnvironmentResponse (Maybe Text)
@@ -172,3 +176,4 @@ ucersResponseStatus :: Lens' UpdateComputeEnvironmentResponse Int
 ucersResponseStatus = lens _ucersResponseStatus (\ s a -> s{_ucersResponseStatus = a});
 
 instance NFData UpdateComputeEnvironmentResponse
+         where

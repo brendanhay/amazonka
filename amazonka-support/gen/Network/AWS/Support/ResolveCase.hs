@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.ResolveCase
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Support.ResolveCase
     , rcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- |
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Support.Types.Product
 --
 -- /See:/ 'resolveCase' smart constructor.
 newtype ResolveCase = ResolveCase'
-    { _rcCaseId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcCaseId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResolveCase' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype ResolveCase = ResolveCase'
 -- * 'rcCaseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 resolveCase
     :: ResolveCase
-resolveCase =
-    ResolveCase'
-    { _rcCaseId = Nothing
-    }
+resolveCase = ResolveCase' {_rcCaseId = Nothing}
+
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 rcCaseId :: Lens' ResolveCase (Maybe Text)
@@ -81,9 +80,9 @@ instance AWSRequest ResolveCase where
                      (x .?> "finalCaseStatus")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ResolveCase
+instance Hashable ResolveCase where
 
-instance NFData ResolveCase
+instance NFData ResolveCase where
 
 instance ToHeaders ResolveCase where
         toHeaders
@@ -110,10 +109,11 @@ instance ToQuery ResolveCase where
 --
 -- /See:/ 'resolveCaseResponse' smart constructor.
 data ResolveCaseResponse = ResolveCaseResponse'
-    { _rcrsInitialCaseStatus :: !(Maybe Text)
-    , _rcrsFinalCaseStatus   :: !(Maybe Text)
-    , _rcrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcrsInitialCaseStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcrsFinalCaseStatus   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResolveCaseResponse' with the minimum fields required to make a request.
 --
@@ -128,11 +128,12 @@ resolveCaseResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> ResolveCaseResponse
 resolveCaseResponse pResponseStatus_ =
-    ResolveCaseResponse'
-    { _rcrsInitialCaseStatus = Nothing
-    , _rcrsFinalCaseStatus = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
-    }
+  ResolveCaseResponse'
+  { _rcrsInitialCaseStatus = Nothing
+  , _rcrsFinalCaseStatus = Nothing
+  , _rcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the case when the 'ResolveCase' request was sent.
 rcrsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
@@ -146,4 +147,4 @@ rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus
 rcrsResponseStatus :: Lens' ResolveCaseResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 
-instance NFData ResolveCaseResponse
+instance NFData ResolveCaseResponse where

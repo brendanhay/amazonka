@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DetachElasticLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     , DetachElasticLoadBalancerResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachElasticLoadBalancer' smart constructor.
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
-    { _delbElasticLoadBalancerName :: !Text
-    , _delbLayerId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delbElasticLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _delbLayerId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachElasticLoadBalancer' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ detachElasticLoadBalancer
     -> Text -- ^ 'delbLayerId'
     -> DetachElasticLoadBalancer
 detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
-    DetachElasticLoadBalancer'
-    { _delbElasticLoadBalancerName = pElasticLoadBalancerName_
-    , _delbLayerId = pLayerId_
-    }
+  DetachElasticLoadBalancer'
+  { _delbElasticLoadBalancerName = pElasticLoadBalancerName_
+  , _delbLayerId = pLayerId_
+  }
+
 
 -- | The Elastic Load Balancing instance's name.
 delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
@@ -82,9 +84,9 @@ instance AWSRequest DetachElasticLoadBalancer where
         response
           = receiveNull DetachElasticLoadBalancerResponse'
 
-instance Hashable DetachElasticLoadBalancer
+instance Hashable DetachElasticLoadBalancer where
 
-instance NFData DetachElasticLoadBalancer
+instance NFData DetachElasticLoadBalancer where
 
 instance ToHeaders DetachElasticLoadBalancer where
         toHeaders
@@ -113,8 +115,9 @@ instance ToQuery DetachElasticLoadBalancer where
 
 -- | /See:/ 'detachElasticLoadBalancerResponse' smart constructor.
 data DetachElasticLoadBalancerResponse =
-    DetachElasticLoadBalancerResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachElasticLoadBalancerResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachElasticLoadBalancerResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +125,6 @@ detachElasticLoadBalancerResponse
     :: DetachElasticLoadBalancerResponse
 detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse'
 
+
 instance NFData DetachElasticLoadBalancerResponse
+         where

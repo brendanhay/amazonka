@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetTrafficPolicyInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Route53.GetTrafficPolicyInstance
     , gtpirsTrafficPolicyInstance
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | Gets information about a specified traffic policy instance.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getTrafficPolicyInstance' smart constructor.
 newtype GetTrafficPolicyInstance = GetTrafficPolicyInstance'
-    { _gtpiId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtpiId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTrafficPolicyInstance' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetTrafficPolicyInstance = GetTrafficPolicyInstance'
 getTrafficPolicyInstance
     :: Text -- ^ 'gtpiId'
     -> GetTrafficPolicyInstance
-getTrafficPolicyInstance pId_ =
-    GetTrafficPolicyInstance'
-    { _gtpiId = pId_
-    }
+getTrafficPolicyInstance pId_ = GetTrafficPolicyInstance' {_gtpiId = pId_}
+
 
 -- | The ID of the traffic policy instance that you want to get information about.
 gtpiId :: Lens' GetTrafficPolicyInstance Text
@@ -81,9 +80,9 @@ instance AWSRequest GetTrafficPolicyInstance where
                    (pure (fromEnum s)) <*>
                      (x .@ "TrafficPolicyInstance"))
 
-instance Hashable GetTrafficPolicyInstance
+instance Hashable GetTrafficPolicyInstance where
 
-instance NFData GetTrafficPolicyInstance
+instance NFData GetTrafficPolicyInstance where
 
 instance ToHeaders GetTrafficPolicyInstance where
         toHeaders = const mempty
@@ -102,9 +101,10 @@ instance ToQuery GetTrafficPolicyInstance where
 --
 -- /See:/ 'getTrafficPolicyInstanceResponse' smart constructor.
 data GetTrafficPolicyInstanceResponse = GetTrafficPolicyInstanceResponse'
-    { _gtpirsResponseStatus        :: !Int
-    , _gtpirsTrafficPolicyInstance :: !TrafficPolicyInstance
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtpirsResponseStatus        :: {-# NOUNPACK #-}!Int
+  , _gtpirsTrafficPolicyInstance :: {-# NOUNPACK #-}!TrafficPolicyInstance
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTrafficPolicyInstanceResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +118,11 @@ getTrafficPolicyInstanceResponse
     -> TrafficPolicyInstance -- ^ 'gtpirsTrafficPolicyInstance'
     -> GetTrafficPolicyInstanceResponse
 getTrafficPolicyInstanceResponse pResponseStatus_ pTrafficPolicyInstance_ =
-    GetTrafficPolicyInstanceResponse'
-    { _gtpirsResponseStatus = pResponseStatus_
-    , _gtpirsTrafficPolicyInstance = pTrafficPolicyInstance_
-    }
+  GetTrafficPolicyInstanceResponse'
+  { _gtpirsResponseStatus = pResponseStatus_
+  , _gtpirsTrafficPolicyInstance = pTrafficPolicyInstance_
+  }
+
 
 -- | -- | The response status code.
 gtpirsResponseStatus :: Lens' GetTrafficPolicyInstanceResponse Int
@@ -132,3 +133,4 @@ gtpirsTrafficPolicyInstance :: Lens' GetTrafficPolicyInstanceResponse TrafficPol
 gtpirsTrafficPolicyInstance = lens _gtpirsTrafficPolicyInstance (\ s a -> s{_gtpirsTrafficPolicyInstance = a});
 
 instance NFData GetTrafficPolicyInstanceResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribePlacementGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.DescribePlacementGroups
     , dpgrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribePlacementGroups.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
-    { _dpgsFilters    :: !(Maybe [Filter])
-    , _dpgsGroupNames :: !(Maybe [Text])
-    , _dpgsDryRun     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgsFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dpgsGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dpgsDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePlacementGroups' with the minimum fields required to make a request.
 --
@@ -69,11 +70,9 @@ data DescribePlacementGroups = DescribePlacementGroups'
 describePlacementGroups
     :: DescribePlacementGroups
 describePlacementGroups =
-    DescribePlacementGroups'
-    { _dpgsFilters = Nothing
-    , _dpgsGroupNames = Nothing
-    , _dpgsDryRun = Nothing
-    }
+  DescribePlacementGroups'
+  {_dpgsFilters = Nothing, _dpgsGroupNames = Nothing, _dpgsDryRun = Nothing}
+
 
 -- | One or more filters.     * @group-name@ - The name of the placement group.     * @state@ - The state of the placement group (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @strategy@ - The strategy of the placement group (@cluster@ ).
 dpgsFilters :: Lens' DescribePlacementGroups [Filter]
@@ -99,9 +98,9 @@ instance AWSRequest DescribePlacementGroups where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribePlacementGroups
+instance Hashable DescribePlacementGroups where
 
-instance NFData DescribePlacementGroups
+instance NFData DescribePlacementGroups where
 
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty
@@ -126,9 +125,10 @@ instance ToQuery DescribePlacementGroups where
 --
 -- /See:/ 'describePlacementGroupsResponse' smart constructor.
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
-    { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
-    , _dpgrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgrsPlacementGroups :: {-# NOUNPACK #-}!(Maybe [PlacementGroup])
+  , _dpgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePlacementGroupsResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +141,9 @@ describePlacementGroupsResponse
     :: Int -- ^ 'dpgrsResponseStatus'
     -> DescribePlacementGroupsResponse
 describePlacementGroupsResponse pResponseStatus_ =
-    DescribePlacementGroupsResponse'
-    { _dpgrsPlacementGroups = Nothing
-    , _dpgrsResponseStatus = pResponseStatus_
-    }
+  DescribePlacementGroupsResponse'
+  {_dpgrsPlacementGroups = Nothing, _dpgrsResponseStatus = pResponseStatus_}
+
 
 -- | One or more placement groups.
 dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
@@ -154,4 +153,4 @@ dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGro
 dpgrsResponseStatus :: Lens' DescribePlacementGroupsResponse Int
 dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a});
 
-instance NFData DescribePlacementGroupsResponse
+instance NFData DescribePlacementGroupsResponse where

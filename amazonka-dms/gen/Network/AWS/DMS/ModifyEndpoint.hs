@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ModifyEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.DMS.ModifyEndpoint
     , mersResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -64,22 +64,23 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyEndpoint' smart constructor.
 data ModifyEndpoint = ModifyEndpoint'
-    { _meServerName                :: !(Maybe Text)
-    , _meCertificateARN            :: !(Maybe Text)
-    , _meExtraConnectionAttributes :: !(Maybe Text)
-    , _meEndpointType              :: !(Maybe ReplicationEndpointTypeValue)
-    , _meUsername                  :: !(Maybe Text)
-    , _meEngineName                :: !(Maybe Text)
-    , _meMongoDBSettings           :: !(Maybe MongoDBSettings)
-    , _meSSLMode                   :: !(Maybe DmsSSLModeValue)
-    , _mePassword                  :: !(Maybe (Sensitive Text))
-    , _meDatabaseName              :: !(Maybe Text)
-    , _meS3Settings                :: !(Maybe S3Settings)
-    , _meEndpointIdentifier        :: !(Maybe Text)
-    , _meDynamoDBSettings          :: !(Maybe DynamoDBSettings)
-    , _mePort                      :: !(Maybe Int)
-    , _meEndpointARN               :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _meServerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _meCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _meExtraConnectionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  , _meEndpointType :: {-# NOUNPACK #-}!(Maybe ReplicationEndpointTypeValue)
+  , _meUsername :: {-# NOUNPACK #-}!(Maybe Text)
+  , _meEngineName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _meMongoDBSettings :: {-# NOUNPACK #-}!(Maybe MongoDBSettings)
+  , _meSSLMode :: {-# NOUNPACK #-}!(Maybe DmsSSLModeValue)
+  , _mePassword :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _meDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _meS3Settings :: {-# NOUNPACK #-}!(Maybe S3Settings)
+  , _meEndpointIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _meDynamoDBSettings :: {-# NOUNPACK #-}!(Maybe DynamoDBSettings)
+  , _mePort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _meEndpointARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyEndpoint' with the minimum fields required to make a request.
 --
@@ -118,23 +119,24 @@ modifyEndpoint
     :: Text -- ^ 'meEndpointARN'
     -> ModifyEndpoint
 modifyEndpoint pEndpointARN_ =
-    ModifyEndpoint'
-    { _meServerName = Nothing
-    , _meCertificateARN = Nothing
-    , _meExtraConnectionAttributes = Nothing
-    , _meEndpointType = Nothing
-    , _meUsername = Nothing
-    , _meEngineName = Nothing
-    , _meMongoDBSettings = Nothing
-    , _meSSLMode = Nothing
-    , _mePassword = Nothing
-    , _meDatabaseName = Nothing
-    , _meS3Settings = Nothing
-    , _meEndpointIdentifier = Nothing
-    , _meDynamoDBSettings = Nothing
-    , _mePort = Nothing
-    , _meEndpointARN = pEndpointARN_
-    }
+  ModifyEndpoint'
+  { _meServerName = Nothing
+  , _meCertificateARN = Nothing
+  , _meExtraConnectionAttributes = Nothing
+  , _meEndpointType = Nothing
+  , _meUsername = Nothing
+  , _meEngineName = Nothing
+  , _meMongoDBSettings = Nothing
+  , _meSSLMode = Nothing
+  , _mePassword = Nothing
+  , _meDatabaseName = Nothing
+  , _meS3Settings = Nothing
+  , _meEndpointIdentifier = Nothing
+  , _meDynamoDBSettings = Nothing
+  , _mePort = Nothing
+  , _meEndpointARN = pEndpointARN_
+  }
+
 
 -- | The name of the server where the endpoint database resides.
 meServerName :: Lens' ModifyEndpoint (Maybe Text)
@@ -205,9 +207,9 @@ instance AWSRequest ModifyEndpoint where
                  ModifyEndpointResponse' <$>
                    (x .?> "Endpoint") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyEndpoint
+instance Hashable ModifyEndpoint where
 
-instance NFData ModifyEndpoint
+instance NFData ModifyEndpoint where
 
 instance ToHeaders ModifyEndpoint where
         toHeaders
@@ -251,9 +253,10 @@ instance ToQuery ModifyEndpoint where
 --
 -- /See:/ 'modifyEndpointResponse' smart constructor.
 data ModifyEndpointResponse = ModifyEndpointResponse'
-    { _mersEndpoint       :: !(Maybe Endpoint)
-    , _mersResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _mersEndpoint       :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _mersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyEndpointResponse' with the minimum fields required to make a request.
 --
@@ -266,10 +269,9 @@ modifyEndpointResponse
     :: Int -- ^ 'mersResponseStatus'
     -> ModifyEndpointResponse
 modifyEndpointResponse pResponseStatus_ =
-    ModifyEndpointResponse'
-    { _mersEndpoint = Nothing
-    , _mersResponseStatus = pResponseStatus_
-    }
+  ModifyEndpointResponse'
+  {_mersEndpoint = Nothing, _mersResponseStatus = pResponseStatus_}
+
 
 -- | The modified endpoint.
 mersEndpoint :: Lens' ModifyEndpointResponse (Maybe Endpoint)
@@ -279,4 +281,4 @@ mersEndpoint = lens _mersEndpoint (\ s a -> s{_mersEndpoint = a});
 mersResponseStatus :: Lens' ModifyEndpointResponse Int
 mersResponseStatus = lens _mersResponseStatus (\ s a -> s{_mersResponseStatus = a});
 
-instance NFData ModifyEndpointResponse
+instance NFData ModifyEndpointResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.RequestUploadCredentials
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.GameLift.RequestUploadCredentials
     , rucrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'requestUploadCredentials' smart constructor.
 newtype RequestUploadCredentials = RequestUploadCredentials'
-    { _rucBuildId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rucBuildId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestUploadCredentials' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ requestUploadCredentials
     :: Text -- ^ 'rucBuildId'
     -> RequestUploadCredentials
 requestUploadCredentials pBuildId_ =
-    RequestUploadCredentials'
-    { _rucBuildId = pBuildId_
-    }
+  RequestUploadCredentials' {_rucBuildId = pBuildId_}
+
 
 -- | Unique identifier for a build to get credentials for.
 rucBuildId :: Lens' RequestUploadCredentials Text
@@ -83,9 +83,9 @@ instance AWSRequest RequestUploadCredentials where
                      (x .?> "UploadCredentials")
                      <*> (pure (fromEnum s)))
 
-instance Hashable RequestUploadCredentials
+instance Hashable RequestUploadCredentials where
 
-instance NFData RequestUploadCredentials
+instance NFData RequestUploadCredentials where
 
 instance ToHeaders RequestUploadCredentials where
         toHeaders
@@ -113,10 +113,11 @@ instance ToQuery RequestUploadCredentials where
 --
 -- /See:/ 'requestUploadCredentialsResponse' smart constructor.
 data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
-    { _rucrsStorageLocation   :: !(Maybe S3Location)
-    , _rucrsUploadCredentials :: !(Maybe (Sensitive AWSCredentials))
-    , _rucrsResponseStatus    :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rucrsStorageLocation :: {-# NOUNPACK #-}!(Maybe S3Location)
+  , _rucrsUploadCredentials :: {-# NOUNPACK #-}!(Maybe (Sensitive AWSCredentials))
+  , _rucrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestUploadCredentialsResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +132,12 @@ requestUploadCredentialsResponse
     :: Int -- ^ 'rucrsResponseStatus'
     -> RequestUploadCredentialsResponse
 requestUploadCredentialsResponse pResponseStatus_ =
-    RequestUploadCredentialsResponse'
-    { _rucrsStorageLocation = Nothing
-    , _rucrsUploadCredentials = Nothing
-    , _rucrsResponseStatus = pResponseStatus_
-    }
+  RequestUploadCredentialsResponse'
+  { _rucrsStorageLocation = Nothing
+  , _rucrsUploadCredentials = Nothing
+  , _rucrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Amazon S3 path and key, identifying where the game build files are stored.
 rucrsStorageLocation :: Lens' RequestUploadCredentialsResponse (Maybe S3Location)
@@ -150,3 +152,4 @@ rucrsResponseStatus :: Lens' RequestUploadCredentialsResponse Int
 rucrsResponseStatus = lens _rucrsResponseStatus (\ s a -> s{_rucrsResponseStatus = a});
 
 instance NFData RequestUploadCredentialsResponse
+         where

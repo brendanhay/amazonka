@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkInterfacePermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.CreateNetworkInterfacePermission
     , cniprsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateNetworkInterfacePermission.
 --
@@ -56,12 +56,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createNetworkInterfacePermission' smart constructor.
 data CreateNetworkInterfacePermission = CreateNetworkInterfacePermission'
-    { _cnipAWSAccountId       :: !(Maybe Text)
-    , _cnipAWSService         :: !(Maybe Text)
-    , _cnipDryRun             :: !(Maybe Bool)
-    , _cnipNetworkInterfaceId :: !Text
-    , _cnipPermission         :: !InterfacePermissionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnipAWSAccountId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnipAWSService         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnipDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cnipNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  , _cnipPermission         :: {-# NOUNPACK #-}!InterfacePermissionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNetworkInterfacePermission' with the minimum fields required to make a request.
 --
@@ -81,13 +82,14 @@ createNetworkInterfacePermission
     -> InterfacePermissionType -- ^ 'cnipPermission'
     -> CreateNetworkInterfacePermission
 createNetworkInterfacePermission pNetworkInterfaceId_ pPermission_ =
-    CreateNetworkInterfacePermission'
-    { _cnipAWSAccountId = Nothing
-    , _cnipAWSService = Nothing
-    , _cnipDryRun = Nothing
-    , _cnipNetworkInterfaceId = pNetworkInterfaceId_
-    , _cnipPermission = pPermission_
-    }
+  CreateNetworkInterfacePermission'
+  { _cnipAWSAccountId = Nothing
+  , _cnipAWSService = Nothing
+  , _cnipDryRun = Nothing
+  , _cnipNetworkInterfaceId = pNetworkInterfaceId_
+  , _cnipPermission = pPermission_
+  }
+
 
 -- | The AWS account ID.
 cnipAWSAccountId :: Lens' CreateNetworkInterfacePermission (Maybe Text)
@@ -122,8 +124,10 @@ instance AWSRequest CreateNetworkInterfacePermission
                      (pure (fromEnum s)))
 
 instance Hashable CreateNetworkInterfacePermission
+         where
 
 instance NFData CreateNetworkInterfacePermission
+         where
 
 instance ToHeaders CreateNetworkInterfacePermission
          where
@@ -152,9 +156,10 @@ instance ToQuery CreateNetworkInterfacePermission
 --
 -- /See:/ 'createNetworkInterfacePermissionResponse' smart constructor.
 data CreateNetworkInterfacePermissionResponse = CreateNetworkInterfacePermissionResponse'
-    { _cniprsInterfacePermission :: !(Maybe NetworkInterfacePermission)
-    , _cniprsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cniprsInterfacePermission :: {-# NOUNPACK #-}!(Maybe NetworkInterfacePermission)
+  , _cniprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNetworkInterfacePermissionResponse' with the minimum fields required to make a request.
 --
@@ -167,10 +172,11 @@ createNetworkInterfacePermissionResponse
     :: Int -- ^ 'cniprsResponseStatus'
     -> CreateNetworkInterfacePermissionResponse
 createNetworkInterfacePermissionResponse pResponseStatus_ =
-    CreateNetworkInterfacePermissionResponse'
-    { _cniprsInterfacePermission = Nothing
-    , _cniprsResponseStatus = pResponseStatus_
-    }
+  CreateNetworkInterfacePermissionResponse'
+  { _cniprsInterfacePermission = Nothing
+  , _cniprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the permission for the network interface.
 cniprsInterfacePermission :: Lens' CreateNetworkInterfacePermissionResponse (Maybe NetworkInterfacePermission)
@@ -181,4 +187,5 @@ cniprsResponseStatus :: Lens' CreateNetworkInterfacePermissionResponse Int
 cniprsResponseStatus = lens _cniprsResponseStatus (\ s a -> s{_cniprsResponseStatus = a});
 
 instance NFData
-         CreateNetworkInterfacePermissionResponse
+           CreateNetworkInterfacePermissionResponse
+         where

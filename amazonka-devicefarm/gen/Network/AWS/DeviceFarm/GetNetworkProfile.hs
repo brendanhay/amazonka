@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetNetworkProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.DeviceFarm.GetNetworkProfile
     , gnprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getNetworkProfile' smart constructor.
 newtype GetNetworkProfile = GetNetworkProfile'
-    { _gnpArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gnpArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetNetworkProfile' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetNetworkProfile = GetNetworkProfile'
 getNetworkProfile
     :: Text -- ^ 'gnpArn'
     -> GetNetworkProfile
-getNetworkProfile pArn_ =
-    GetNetworkProfile'
-    { _gnpArn = pArn_
-    }
+getNetworkProfile pArn_ = GetNetworkProfile' {_gnpArn = pArn_}
+
 
 -- | The Amazon Resource Name (ARN) of the network profile you want to return information about.
 gnpArn :: Lens' GetNetworkProfile Text
@@ -75,9 +74,9 @@ instance AWSRequest GetNetworkProfile where
                  GetNetworkProfileResponse' <$>
                    (x .?> "networkProfile") <*> (pure (fromEnum s)))
 
-instance Hashable GetNetworkProfile
+instance Hashable GetNetworkProfile where
 
-instance NFData GetNetworkProfile
+instance NFData GetNetworkProfile where
 
 instance ToHeaders GetNetworkProfile where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery GetNetworkProfile where
 
 -- | /See:/ 'getNetworkProfileResponse' smart constructor.
 data GetNetworkProfileResponse = GetNetworkProfileResponse'
-    { _gnprsNetworkProfile :: !(Maybe NetworkProfile)
-    , _gnprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gnprsNetworkProfile :: {-# NOUNPACK #-}!(Maybe NetworkProfile)
+  , _gnprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetNetworkProfileResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ getNetworkProfileResponse
     :: Int -- ^ 'gnprsResponseStatus'
     -> GetNetworkProfileResponse
 getNetworkProfileResponse pResponseStatus_ =
-    GetNetworkProfileResponse'
-    { _gnprsNetworkProfile = Nothing
-    , _gnprsResponseStatus = pResponseStatus_
-    }
+  GetNetworkProfileResponse'
+  {_gnprsNetworkProfile = Nothing, _gnprsResponseStatus = pResponseStatus_}
+
 
 -- | The network profile.
 gnprsNetworkProfile :: Lens' GetNetworkProfileResponse (Maybe NetworkProfile)
@@ -129,4 +128,4 @@ gnprsNetworkProfile = lens _gnprsNetworkProfile (\ s a -> s{_gnprsNetworkProfile
 gnprsResponseStatus :: Lens' GetNetworkProfileResponse Int
 gnprsResponseStatus = lens _gnprsResponseStatus (\ s a -> s{_gnprsResponseStatus = a});
 
-instance NFData GetNetworkProfileResponse
+instance NFData GetNetworkProfileResponse where

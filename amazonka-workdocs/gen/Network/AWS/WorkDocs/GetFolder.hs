@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetFolder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.WorkDocs.GetFolder
     , gfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getFolder' smart constructor.
 data GetFolder = GetFolder'
-    { _gfAuthenticationToken   :: !(Maybe (Sensitive Text))
-    , _gfIncludeCustomMetadata :: !(Maybe Bool)
-    , _gfFolderId              :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gfAuthenticationToken   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gfIncludeCustomMetadata :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gfFolderId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFolder' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ getFolder
     :: Text -- ^ 'gfFolderId'
     -> GetFolder
 getFolder pFolderId_ =
-    GetFolder'
-    { _gfAuthenticationToken = Nothing
-    , _gfIncludeCustomMetadata = Nothing
-    , _gfFolderId = pFolderId_
-    }
+  GetFolder'
+  { _gfAuthenticationToken = Nothing
+  , _gfIncludeCustomMetadata = Nothing
+  , _gfFolderId = pFolderId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 gfAuthenticationToken :: Lens' GetFolder (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest GetFolder where
                      (x .?> "Metadata")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetFolder
+instance Hashable GetFolder where
 
-instance NFData GetFolder
+instance NFData GetFolder where
 
 instance ToHeaders GetFolder where
         toHeaders GetFolder'{..}
@@ -118,10 +120,11 @@ instance ToQuery GetFolder where
 
 -- | /See:/ 'getFolderResponse' smart constructor.
 data GetFolderResponse = GetFolderResponse'
-    { _gfrsCustomMetadata :: !(Maybe (Map Text Text))
-    , _gfrsMetadata       :: !(Maybe FolderMetadata)
-    , _gfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfrsCustomMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gfrsMetadata       :: {-# NOUNPACK #-}!(Maybe FolderMetadata)
+  , _gfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFolderResponse' with the minimum fields required to make a request.
 --
@@ -136,11 +139,12 @@ getFolderResponse
     :: Int -- ^ 'gfrsResponseStatus'
     -> GetFolderResponse
 getFolderResponse pResponseStatus_ =
-    GetFolderResponse'
-    { _gfrsCustomMetadata = Nothing
-    , _gfrsMetadata = Nothing
-    , _gfrsResponseStatus = pResponseStatus_
-    }
+  GetFolderResponse'
+  { _gfrsCustomMetadata = Nothing
+  , _gfrsMetadata = Nothing
+  , _gfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The custom metadata on the folder.
 gfrsCustomMetadata :: Lens' GetFolderResponse (HashMap Text Text)
@@ -154,4 +158,4 @@ gfrsMetadata = lens _gfrsMetadata (\ s a -> s{_gfrsMetadata = a});
 gfrsResponseStatus :: Lens' GetFolderResponse Int
 gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a});
 
-instance NFData GetFolderResponse
+instance NFData GetFolderResponse where

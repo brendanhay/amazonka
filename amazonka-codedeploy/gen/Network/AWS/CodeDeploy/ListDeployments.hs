@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListDeployments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.CodeDeploy.ListDeployments
     , ldrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a ListDeployments operation.
 --
@@ -58,12 +58,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-    { _ldCreateTimeRange     :: !(Maybe TimeRange)
-    , _ldNextToken           :: !(Maybe Text)
-    , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
-    , _ldApplicationName     :: !(Maybe Text)
-    , _ldDeploymentGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldCreateTimeRange     :: {-# NOUNPACK #-}!(Maybe TimeRange)
+  , _ldNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldIncludeOnlyStatuses :: {-# NOUNPACK #-}!(Maybe [DeploymentStatus])
+  , _ldApplicationName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeployments' with the minimum fields required to make a request.
 --
@@ -81,13 +82,14 @@ data ListDeployments = ListDeployments'
 listDeployments
     :: ListDeployments
 listDeployments =
-    ListDeployments'
-    { _ldCreateTimeRange = Nothing
-    , _ldNextToken = Nothing
-    , _ldIncludeOnlyStatuses = Nothing
-    , _ldApplicationName = Nothing
-    , _ldDeploymentGroupName = Nothing
-    }
+  ListDeployments'
+  { _ldCreateTimeRange = Nothing
+  , _ldNextToken = Nothing
+  , _ldIncludeOnlyStatuses = Nothing
+  , _ldApplicationName = Nothing
+  , _ldDeploymentGroupName = Nothing
+  }
+
 
 -- | A time range (start and end) for returning a subset of the list of deployments.
 ldCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
@@ -127,9 +129,9 @@ instance AWSRequest ListDeployments where
                      (x .?> "deployments" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDeployments
+instance Hashable ListDeployments where
 
-instance NFData ListDeployments
+instance NFData ListDeployments where
 
 instance ToHeaders ListDeployments where
         toHeaders
@@ -165,10 +167,11 @@ instance ToQuery ListDeployments where
 --
 -- /See:/ 'listDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-    { _ldrsNextToken      :: !(Maybe Text)
-    , _ldrsDeployments    :: !(Maybe [Text])
-    , _ldrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrsDeployments    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeploymentsResponse' with the minimum fields required to make a request.
 --
@@ -183,11 +186,12 @@ listDeploymentsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDeploymentsResponse
 listDeploymentsResponse pResponseStatus_ =
-    ListDeploymentsResponse'
-    { _ldrsNextToken = Nothing
-    , _ldrsDeployments = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    }
+  ListDeploymentsResponse'
+  { _ldrsNextToken = Nothing
+  , _ldrsDeployments = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list.
 ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
@@ -201,4 +205,4 @@ ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _De
 ldrsResponseStatus :: Lens' ListDeploymentsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
-instance NFData ListDeploymentsResponse
+instance NFData ListDeploymentsResponse where

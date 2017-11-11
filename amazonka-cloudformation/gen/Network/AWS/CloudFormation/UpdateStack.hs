@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.UpdateStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.CloudFormation.UpdateStack
     , usrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for an 'UpdateStack' action.
 --
@@ -68,22 +68,23 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-    { _usUsePreviousTemplate         :: !(Maybe Bool)
-    , _usNotificationARNs            :: !(Maybe [Text])
-    , _usStackPolicyBody             :: !(Maybe Text)
-    , _usStackPolicyDuringUpdateBody :: !(Maybe Text)
-    , _usStackPolicyDuringUpdateURL  :: !(Maybe Text)
-    , _usParameters                  :: !(Maybe [Parameter])
-    , _usStackPolicyURL              :: !(Maybe Text)
-    , _usTemplateBody                :: !(Maybe Text)
-    , _usTemplateURL                 :: !(Maybe Text)
-    , _usClientRequestToken          :: !(Maybe Text)
-    , _usCapabilities                :: !(Maybe [Capability])
-    , _usResourceTypes               :: !(Maybe [Text])
-    , _usTags                        :: !(Maybe [Tag])
-    , _usRoleARN                     :: !(Maybe Text)
-    , _usStackName                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usUsePreviousTemplate         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _usNotificationARNs            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _usStackPolicyBody             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usStackPolicyDuringUpdateBody :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usStackPolicyDuringUpdateURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usParameters                  :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _usStackPolicyURL              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usTemplateBody                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usTemplateURL                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usClientRequestToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usCapabilities                :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _usResourceTypes               :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _usTags                        :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _usRoleARN                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usStackName                   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStack' with the minimum fields required to make a request.
 --
@@ -122,23 +123,24 @@ updateStack
     :: Text -- ^ 'usStackName'
     -> UpdateStack
 updateStack pStackName_ =
-    UpdateStack'
-    { _usUsePreviousTemplate = Nothing
-    , _usNotificationARNs = Nothing
-    , _usStackPolicyBody = Nothing
-    , _usStackPolicyDuringUpdateBody = Nothing
-    , _usStackPolicyDuringUpdateURL = Nothing
-    , _usParameters = Nothing
-    , _usStackPolicyURL = Nothing
-    , _usTemplateBody = Nothing
-    , _usTemplateURL = Nothing
-    , _usClientRequestToken = Nothing
-    , _usCapabilities = Nothing
-    , _usResourceTypes = Nothing
-    , _usTags = Nothing
-    , _usRoleARN = Nothing
-    , _usStackName = pStackName_
-    }
+  UpdateStack'
+  { _usUsePreviousTemplate = Nothing
+  , _usNotificationARNs = Nothing
+  , _usStackPolicyBody = Nothing
+  , _usStackPolicyDuringUpdateBody = Nothing
+  , _usStackPolicyDuringUpdateURL = Nothing
+  , _usParameters = Nothing
+  , _usStackPolicyURL = Nothing
+  , _usTemplateBody = Nothing
+  , _usTemplateURL = Nothing
+  , _usClientRequestToken = Nothing
+  , _usCapabilities = Nothing
+  , _usResourceTypes = Nothing
+  , _usTags = Nothing
+  , _usRoleARN = Nothing
+  , _usStackName = pStackName_
+  }
+
 
 -- | Reuse the existing template that is associated with the stack that you are updating. Conditional: You must specify only one of the following parameters: @TemplateBody@ , @TemplateURL@ , or set the @UsePreviousTemplate@ to @true@ .
 usUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
@@ -209,9 +211,9 @@ instance AWSRequest UpdateStack where
                  UpdateStackResponse' <$>
                    (x .@? "StackId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateStack
+instance Hashable UpdateStack where
 
-instance NFData UpdateStack
+instance NFData UpdateStack where
 
 instance ToHeaders UpdateStack where
         toHeaders = const mempty
@@ -252,9 +254,10 @@ instance ToQuery UpdateStack where
 --
 -- /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
-    { _usrsStackId        :: !(Maybe Text)
-    , _usrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usrsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStackResponse' with the minimum fields required to make a request.
 --
@@ -267,10 +270,9 @@ updateStackResponse
     :: Int -- ^ 'usrsResponseStatus'
     -> UpdateStackResponse
 updateStackResponse pResponseStatus_ =
-    UpdateStackResponse'
-    { _usrsStackId = Nothing
-    , _usrsResponseStatus = pResponseStatus_
-    }
+  UpdateStackResponse'
+  {_usrsStackId = Nothing, _usrsResponseStatus = pResponseStatus_}
+
 
 -- | Unique identifier of the stack.
 usrsStackId :: Lens' UpdateStackResponse (Maybe Text)
@@ -280,4 +282,4 @@ usrsStackId = lens _usrsStackId (\ s a -> s{_usrsStackId = a});
 usrsResponseStatus :: Lens' UpdateStackResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
 
-instance NFData UpdateStackResponse
+instance NFData UpdateStackResponse where

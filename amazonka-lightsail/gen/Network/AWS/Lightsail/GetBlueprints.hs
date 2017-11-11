@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetBlueprints
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.Lightsail.GetBlueprints
     , gbsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBlueprints' smart constructor.
 data GetBlueprints = GetBlueprints'
-    { _gbIncludeInactive :: !(Maybe Bool)
-    , _gbPageToken       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbIncludeInactive :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gbPageToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBlueprints' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data GetBlueprints = GetBlueprints'
 getBlueprints
     :: GetBlueprints
 getBlueprints =
-    GetBlueprints'
-    { _gbIncludeInactive = Nothing
-    , _gbPageToken = Nothing
-    }
+  GetBlueprints' {_gbIncludeInactive = Nothing, _gbPageToken = Nothing}
+
 
 -- | A Boolean value indicating whether to include inactive results in your request.
 gbIncludeInactive :: Lens' GetBlueprints (Maybe Bool)
@@ -96,9 +95,9 @@ instance AWSRequest GetBlueprints where
                      (x .?> "nextPageToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBlueprints
+instance Hashable GetBlueprints where
 
-instance NFData GetBlueprints
+instance NFData GetBlueprints where
 
 instance ToHeaders GetBlueprints where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery GetBlueprints where
 
 -- | /See:/ 'getBlueprintsResponse' smart constructor.
 data GetBlueprintsResponse = GetBlueprintsResponse'
-    { _gbsrsBlueprints     :: !(Maybe [Blueprint])
-    , _gbsrsNextPageToken  :: !(Maybe Text)
-    , _gbsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbsrsBlueprints     :: {-# NOUNPACK #-}!(Maybe [Blueprint])
+  , _gbsrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBlueprintsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ getBlueprintsResponse
     :: Int -- ^ 'gbsrsResponseStatus'
     -> GetBlueprintsResponse
 getBlueprintsResponse pResponseStatus_ =
-    GetBlueprintsResponse'
-    { _gbsrsBlueprints = Nothing
-    , _gbsrsNextPageToken = Nothing
-    , _gbsrsResponseStatus = pResponseStatus_
-    }
+  GetBlueprintsResponse'
+  { _gbsrsBlueprints = Nothing
+  , _gbsrsNextPageToken = Nothing
+  , _gbsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of key-value pairs that contains information about the available blueprints.
 gbsrsBlueprints :: Lens' GetBlueprintsResponse [Blueprint]
@@ -160,4 +161,4 @@ gbsrsNextPageToken = lens _gbsrsNextPageToken (\ s a -> s{_gbsrsNextPageToken = 
 gbsrsResponseStatus :: Lens' GetBlueprintsResponse Int
 gbsrsResponseStatus = lens _gbsrsResponseStatus (\ s a -> s{_gbsrsResponseStatus = a});
 
-instance NFData GetBlueprintsResponse
+instance NFData GetBlueprintsResponse where

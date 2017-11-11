@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.TestEventPattern
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.CloudWatchEvents.TestEventPattern
     , teprsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'testEventPattern' smart constructor.
 data TestEventPattern = TestEventPattern'
-    { _tepEventPattern :: !Text
-    , _tepEvent        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tepEventPattern :: {-# NOUNPACK #-}!Text
+  , _tepEvent        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestEventPattern' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ testEventPattern
     -> Text -- ^ 'tepEvent'
     -> TestEventPattern
 testEventPattern pEventPattern_ pEvent_ =
-    TestEventPattern'
-    { _tepEventPattern = pEventPattern_
-    , _tepEvent = pEvent_
-    }
+  TestEventPattern' {_tepEventPattern = pEventPattern_, _tepEvent = pEvent_}
+
 
 -- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 tepEventPattern :: Lens' TestEventPattern Text
@@ -87,9 +86,9 @@ instance AWSRequest TestEventPattern where
                  TestEventPatternResponse' <$>
                    (x .?> "Result") <*> (pure (fromEnum s)))
 
-instance Hashable TestEventPattern
+instance Hashable TestEventPattern where
 
-instance NFData TestEventPattern
+instance NFData TestEventPattern where
 
 instance ToHeaders TestEventPattern where
         toHeaders
@@ -115,9 +114,10 @@ instance ToQuery TestEventPattern where
 
 -- | /See:/ 'testEventPatternResponse' smart constructor.
 data TestEventPatternResponse = TestEventPatternResponse'
-    { _teprsResult         :: !(Maybe Bool)
-    , _teprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _teprsResult         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _teprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestEventPatternResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +130,9 @@ testEventPatternResponse
     :: Int -- ^ 'teprsResponseStatus'
     -> TestEventPatternResponse
 testEventPatternResponse pResponseStatus_ =
-    TestEventPatternResponse'
-    { _teprsResult = Nothing
-    , _teprsResponseStatus = pResponseStatus_
-    }
+  TestEventPatternResponse'
+  {_teprsResult = Nothing, _teprsResponseStatus = pResponseStatus_}
+
 
 -- | Indicates whether the event matches the event pattern.
 teprsResult :: Lens' TestEventPatternResponse (Maybe Bool)
@@ -143,4 +142,4 @@ teprsResult = lens _teprsResult (\ s a -> s{_teprsResult = a});
 teprsResponseStatus :: Lens' TestEventPatternResponse Int
 teprsResponseStatus = lens _teprsResponseStatus (\ s a -> s{_teprsResponseStatus = a});
 
-instance NFData TestEventPatternResponse
+instance NFData TestEventPatternResponse where

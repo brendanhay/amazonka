@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,12 +61,12 @@ module Network.AWS.EC2.CreateSnapshot
     , sEncrypted
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateSnapshot.
 --
@@ -74,10 +74,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-    { _ccDescription :: !(Maybe Text)
-    , _ccDryRun      :: !(Maybe Bool)
-    , _ccVolumeId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccVolumeId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
 --
@@ -92,11 +93,9 @@ createSnapshot
     :: Text -- ^ 'ccVolumeId'
     -> CreateSnapshot
 createSnapshot pVolumeId_ =
-    CreateSnapshot'
-    { _ccDescription = Nothing
-    , _ccDryRun = Nothing
-    , _ccVolumeId = pVolumeId_
-    }
+  CreateSnapshot'
+  {_ccDescription = Nothing, _ccDryRun = Nothing, _ccVolumeId = pVolumeId_}
+
 
 -- | A description for the snapshot.
 ccDescription :: Lens' CreateSnapshot (Maybe Text)
@@ -115,9 +114,9 @@ instance AWSRequest CreateSnapshot where
         request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
-instance Hashable CreateSnapshot
+instance Hashable CreateSnapshot where
 
-instance NFData CreateSnapshot
+instance NFData CreateSnapshot where
 
 instance ToHeaders CreateSnapshot where
         toHeaders = const mempty

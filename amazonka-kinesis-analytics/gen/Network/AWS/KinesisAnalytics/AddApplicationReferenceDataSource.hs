@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
     , aardsrsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addApplicationReferenceDataSource' smart constructor.
 data AddApplicationReferenceDataSource = AddApplicationReferenceDataSource'
-    { _aardsApplicationName             :: !Text
-    , _aardsCurrentApplicationVersionId :: !Nat
-    , _aardsReferenceDataSource         :: !ReferenceDataSource
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aardsApplicationName             :: {-# NOUNPACK #-}!Text
+  , _aardsCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
+  , _aardsReferenceDataSource         :: {-# NOUNPACK #-}!ReferenceDataSource
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddApplicationReferenceDataSource' with the minimum fields required to make a request.
 --
@@ -77,11 +78,12 @@ addApplicationReferenceDataSource
     -> ReferenceDataSource -- ^ 'aardsReferenceDataSource'
     -> AddApplicationReferenceDataSource
 addApplicationReferenceDataSource pApplicationName_ pCurrentApplicationVersionId_ pReferenceDataSource_ =
-    AddApplicationReferenceDataSource'
-    { _aardsApplicationName = pApplicationName_
-    , _aardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _aardsReferenceDataSource = pReferenceDataSource_
-    }
+  AddApplicationReferenceDataSource'
+  { _aardsApplicationName = pApplicationName_
+  , _aardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+  , _aardsReferenceDataSource = pReferenceDataSource_
+  }
+
 
 -- | Name of an existing application.
 aardsApplicationName :: Lens' AddApplicationReferenceDataSource Text
@@ -107,8 +109,10 @@ instance AWSRequest AddApplicationReferenceDataSource
                    (pure (fromEnum s)))
 
 instance Hashable AddApplicationReferenceDataSource
+         where
 
 instance NFData AddApplicationReferenceDataSource
+         where
 
 instance ToHeaders AddApplicationReferenceDataSource
          where
@@ -148,8 +152,9 @@ instance ToQuery AddApplicationReferenceDataSource
 --
 -- /See:/ 'addApplicationReferenceDataSourceResponse' smart constructor.
 newtype AddApplicationReferenceDataSourceResponse = AddApplicationReferenceDataSourceResponse'
-    { _aardsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aardsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddApplicationReferenceDataSourceResponse' with the minimum fields required to make a request.
 --
@@ -160,13 +165,14 @@ addApplicationReferenceDataSourceResponse
     :: Int -- ^ 'aardsrsResponseStatus'
     -> AddApplicationReferenceDataSourceResponse
 addApplicationReferenceDataSourceResponse pResponseStatus_ =
-    AddApplicationReferenceDataSourceResponse'
-    { _aardsrsResponseStatus = pResponseStatus_
-    }
+  AddApplicationReferenceDataSourceResponse'
+  {_aardsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aardsrsResponseStatus :: Lens' AddApplicationReferenceDataSourceResponse Int
 aardsrsResponseStatus = lens _aardsrsResponseStatus (\ s a -> s{_aardsrsResponseStatus = a});
 
 instance NFData
-         AddApplicationReferenceDataSourceResponse
+           AddApplicationReferenceDataSourceResponse
+         where

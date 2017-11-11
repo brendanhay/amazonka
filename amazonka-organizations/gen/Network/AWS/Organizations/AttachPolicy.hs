@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.AttachPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,18 +55,19 @@ module Network.AWS.Organizations.AttachPolicy
     , AttachPolicyResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachPolicy' smart constructor.
 data AttachPolicy = AttachPolicy'
-    { _apPolicyId :: !Text
-    , _apTargetId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apPolicyId :: {-# NOUNPACK #-}!Text
+  , _apTargetId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachPolicy' with the minimum fields required to make a request.
 --
@@ -80,10 +81,8 @@ attachPolicy
     -> Text -- ^ 'apTargetId'
     -> AttachPolicy
 attachPolicy pPolicyId_ pTargetId_ =
-    AttachPolicy'
-    { _apPolicyId = pPolicyId_
-    , _apTargetId = pTargetId_
-    }
+  AttachPolicy' {_apPolicyId = pPolicyId_, _apTargetId = pTargetId_}
+
 
 -- | The unique identifier (ID) of the policy that you want to attach to the target. You can get the ID for the policy by calling the 'ListPolicies' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 apPolicyId :: Lens' AttachPolicy Text
@@ -98,9 +97,9 @@ instance AWSRequest AttachPolicy where
         request = postJSON organizations
         response = receiveNull AttachPolicyResponse'
 
-instance Hashable AttachPolicy
+instance Hashable AttachPolicy where
 
-instance NFData AttachPolicy
+instance NFData AttachPolicy where
 
 instance ToHeaders AttachPolicy where
         toHeaders
@@ -127,8 +126,9 @@ instance ToQuery AttachPolicy where
 
 -- | /See:/ 'attachPolicyResponse' smart constructor.
 data AttachPolicyResponse =
-    AttachPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachPolicyResponse' with the minimum fields required to make a request.
 --
@@ -136,4 +136,5 @@ attachPolicyResponse
     :: AttachPolicyResponse
 attachPolicyResponse = AttachPolicyResponse'
 
-instance NFData AttachPolicyResponse
+
+instance NFData AttachPolicyResponse where

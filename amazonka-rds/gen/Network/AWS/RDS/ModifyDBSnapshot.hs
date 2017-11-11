@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.RDS.ModifyDBSnapshot
     , mdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyDBSnapshot' smart constructor.
 data ModifyDBSnapshot = ModifyDBSnapshot'
-    { _mdsEngineVersion        :: !(Maybe Text)
-    , _mdsDBSnapshotIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdsEngineVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdsDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBSnapshot' with the minimum fields required to make a request.
 --
@@ -64,10 +65,11 @@ modifyDBSnapshot
     :: Text -- ^ 'mdsDBSnapshotIdentifier'
     -> ModifyDBSnapshot
 modifyDBSnapshot pDBSnapshotIdentifier_ =
-    ModifyDBSnapshot'
-    { _mdsEngineVersion = Nothing
-    , _mdsDBSnapshotIdentifier = pDBSnapshotIdentifier_
-    }
+  ModifyDBSnapshot'
+  { _mdsEngineVersion = Nothing
+  , _mdsDBSnapshotIdentifier = pDBSnapshotIdentifier_
+  }
+
 
 -- | The engine version to update the DB snapshot to.
 mdsEngineVersion :: Lens' ModifyDBSnapshot (Maybe Text)
@@ -86,9 +88,9 @@ instance AWSRequest ModifyDBSnapshot where
                  ModifyDBSnapshotResponse' <$>
                    (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyDBSnapshot
+instance Hashable ModifyDBSnapshot where
 
-instance NFData ModifyDBSnapshot
+instance NFData ModifyDBSnapshot where
 
 instance ToHeaders ModifyDBSnapshot where
         toHeaders = const mempty
@@ -106,9 +108,10 @@ instance ToQuery ModifyDBSnapshot where
 
 -- | /See:/ 'modifyDBSnapshotResponse' smart constructor.
 data ModifyDBSnapshotResponse = ModifyDBSnapshotResponse'
-    { _mdsrsDBSnapshot     :: !(Maybe DBSnapshot)
-    , _mdsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdsrsDBSnapshot     :: {-# NOUNPACK #-}!(Maybe DBSnapshot)
+  , _mdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +124,9 @@ modifyDBSnapshotResponse
     :: Int -- ^ 'mdsrsResponseStatus'
     -> ModifyDBSnapshotResponse
 modifyDBSnapshotResponse pResponseStatus_ =
-    ModifyDBSnapshotResponse'
-    { _mdsrsDBSnapshot = Nothing
-    , _mdsrsResponseStatus = pResponseStatus_
-    }
+  ModifyDBSnapshotResponse'
+  {_mdsrsDBSnapshot = Nothing, _mdsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mdsrsDBSnapshot :: Lens' ModifyDBSnapshotResponse (Maybe DBSnapshot)
@@ -134,4 +136,4 @@ mdsrsDBSnapshot = lens _mdsrsDBSnapshot (\ s a -> s{_mdsrsDBSnapshot = a});
 mdsrsResponseStatus :: Lens' ModifyDBSnapshotResponse Int
 mdsrsResponseStatus = lens _mdsrsResponseStatus (\ s a -> s{_mdsrsResponseStatus = a});
 
-instance NFData ModifyDBSnapshotResponse
+instance NFData ModifyDBSnapshotResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.SendMessageBatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.SQS.SendMessageBatch
     , smbrsFailed
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -64,9 +64,10 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'sendMessageBatch' smart constructor.
 data SendMessageBatch = SendMessageBatch'
-    { _smbQueueURL :: !Text
-    , _smbEntries  :: ![SendMessageBatchRequestEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smbQueueURL :: {-# NOUNPACK #-}!Text
+  , _smbEntries  :: {-# NOUNPACK #-}![SendMessageBatchRequestEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendMessageBatch' with the minimum fields required to make a request.
 --
@@ -79,10 +80,8 @@ sendMessageBatch
     :: Text -- ^ 'smbQueueURL'
     -> SendMessageBatch
 sendMessageBatch pQueueURL_ =
-    SendMessageBatch'
-    { _smbQueueURL = pQueueURL_
-    , _smbEntries = mempty
-    }
+  SendMessageBatch' {_smbQueueURL = pQueueURL_, _smbEntries = mempty}
+
 
 -- | The URL of the Amazon SQS queue to which batched messages are sent. Queue URLs are case-sensitive.
 smbQueueURL :: Lens' SendMessageBatch Text
@@ -103,9 +102,9 @@ instance AWSRequest SendMessageBatch where
                      (parseXMLList "SendMessageBatchResultEntry" x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
-instance Hashable SendMessageBatch
+instance Hashable SendMessageBatch where
 
-instance NFData SendMessageBatch
+instance NFData SendMessageBatch where
 
 instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
@@ -128,10 +127,11 @@ instance ToQuery SendMessageBatch where
 --
 -- /See:/ 'sendMessageBatchResponse' smart constructor.
 data SendMessageBatchResponse = SendMessageBatchResponse'
-    { _smbrsResponseStatus :: !Int
-    , _smbrsSuccessful     :: ![SendMessageBatchResultEntry]
-    , _smbrsFailed         :: ![BatchResultErrorEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _smbrsSuccessful     :: {-# NOUNPACK #-}![SendMessageBatchResultEntry]
+  , _smbrsFailed         :: {-# NOUNPACK #-}![BatchResultErrorEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendMessageBatchResponse' with the minimum fields required to make a request.
 --
@@ -146,11 +146,12 @@ sendMessageBatchResponse
     :: Int -- ^ 'smbrsResponseStatus'
     -> SendMessageBatchResponse
 sendMessageBatchResponse pResponseStatus_ =
-    SendMessageBatchResponse'
-    { _smbrsResponseStatus = pResponseStatus_
-    , _smbrsSuccessful = mempty
-    , _smbrsFailed = mempty
-    }
+  SendMessageBatchResponse'
+  { _smbrsResponseStatus = pResponseStatus_
+  , _smbrsSuccessful = mempty
+  , _smbrsFailed = mempty
+  }
+
 
 -- | -- | The response status code.
 smbrsResponseStatus :: Lens' SendMessageBatchResponse Int
@@ -164,4 +165,4 @@ smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a}) . _Co
 smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a}) . _Coerce;
 
-instance NFData SendMessageBatchResponse
+instance NFData SendMessageBatchResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateGCMChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.UpdateGCMChannel
     , ugcrsGCMChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateGCMChannel' smart constructor.
 data UpdateGCMChannel = UpdateGCMChannel'
-    { _ugcApplicationId     :: !Text
-    , _ugcGCMChannelRequest :: !GCMChannelRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugcApplicationId     :: {-# NOUNPACK #-}!Text
+  , _ugcGCMChannelRequest :: {-# NOUNPACK #-}!GCMChannelRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGCMChannel' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ updateGCMChannel
     -> GCMChannelRequest -- ^ 'ugcGCMChannelRequest'
     -> UpdateGCMChannel
 updateGCMChannel pApplicationId_ pGCMChannelRequest_ =
-    UpdateGCMChannel'
-    { _ugcApplicationId = pApplicationId_
-    , _ugcGCMChannelRequest = pGCMChannelRequest_
-    }
+  UpdateGCMChannel'
+  { _ugcApplicationId = pApplicationId_
+  , _ugcGCMChannelRequest = pGCMChannelRequest_
+  }
+
 
 -- | Undocumented member.
 ugcApplicationId :: Lens' UpdateGCMChannel Text
@@ -83,9 +85,9 @@ instance AWSRequest UpdateGCMChannel where
                  UpdateGCMChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateGCMChannel
+instance Hashable UpdateGCMChannel where
 
-instance NFData UpdateGCMChannel
+instance NFData UpdateGCMChannel where
 
 instance ToHeaders UpdateGCMChannel where
         toHeaders
@@ -112,9 +114,10 @@ instance ToQuery UpdateGCMChannel where
 
 -- | /See:/ 'updateGCMChannelResponse' smart constructor.
 data UpdateGCMChannelResponse = UpdateGCMChannelResponse'
-    { _ugcrsResponseStatus     :: !Int
-    , _ugcrsGCMChannelResponse :: !GCMChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _ugcrsGCMChannelResponse :: {-# NOUNPACK #-}!GCMChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGCMChannelResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +131,11 @@ updateGCMChannelResponse
     -> GCMChannelResponse -- ^ 'ugcrsGCMChannelResponse'
     -> UpdateGCMChannelResponse
 updateGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
-    UpdateGCMChannelResponse'
-    { _ugcrsResponseStatus = pResponseStatus_
-    , _ugcrsGCMChannelResponse = pGCMChannelResponse_
-    }
+  UpdateGCMChannelResponse'
+  { _ugcrsResponseStatus = pResponseStatus_
+  , _ugcrsGCMChannelResponse = pGCMChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 ugcrsResponseStatus :: Lens' UpdateGCMChannelResponse Int
@@ -141,4 +145,4 @@ ugcrsResponseStatus = lens _ugcrsResponseStatus (\ s a -> s{_ugcrsResponseStatus
 ugcrsGCMChannelResponse :: Lens' UpdateGCMChannelResponse GCMChannelResponse
 ugcrsGCMChannelResponse = lens _ugcrsGCMChannelResponse (\ s a -> s{_ugcrsGCMChannelResponse = a});
 
-instance NFData UpdateGCMChannelResponse
+instance NFData UpdateGCMChannelResponse where

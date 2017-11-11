@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.UpdateUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,24 +44,25 @@ module Network.AWS.WorkDocs.UpdateUser
     , uursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateUser' smart constructor.
 data UpdateUser = UpdateUser'
-    { _uuGivenName           :: !(Maybe Text)
-    , _uuLocale              :: !(Maybe LocaleType)
-    , _uuAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _uuStorageRule         :: !(Maybe StorageRuleType)
-    , _uuType                :: !(Maybe UserType)
-    , _uuSurname             :: !(Maybe Text)
-    , _uuTimeZoneId          :: !(Maybe Text)
-    , _uuUserId              :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uuGivenName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uuLocale              :: {-# NOUNPACK #-}!(Maybe LocaleType)
+  , _uuAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _uuStorageRule         :: {-# NOUNPACK #-}!(Maybe StorageRuleType)
+  , _uuType                :: {-# NOUNPACK #-}!(Maybe UserType)
+  , _uuSurname             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uuTimeZoneId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uuUserId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
 --
@@ -86,16 +87,17 @@ updateUser
     :: Text -- ^ 'uuUserId'
     -> UpdateUser
 updateUser pUserId_ =
-    UpdateUser'
-    { _uuGivenName = Nothing
-    , _uuLocale = Nothing
-    , _uuAuthenticationToken = Nothing
-    , _uuStorageRule = Nothing
-    , _uuType = Nothing
-    , _uuSurname = Nothing
-    , _uuTimeZoneId = Nothing
-    , _uuUserId = pUserId_
-    }
+  UpdateUser'
+  { _uuGivenName = Nothing
+  , _uuLocale = Nothing
+  , _uuAuthenticationToken = Nothing
+  , _uuStorageRule = Nothing
+  , _uuType = Nothing
+  , _uuSurname = Nothing
+  , _uuTimeZoneId = Nothing
+  , _uuUserId = pUserId_
+  }
+
 
 -- | The given name of the user.
 uuGivenName :: Lens' UpdateUser (Maybe Text)
@@ -138,9 +140,9 @@ instance AWSRequest UpdateUser where
                  UpdateUserResponse' <$>
                    (x .?> "User") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateUser
+instance Hashable UpdateUser where
 
-instance NFData UpdateUser
+instance NFData UpdateUser where
 
 instance ToHeaders UpdateUser where
         toHeaders UpdateUser'{..}
@@ -169,9 +171,10 @@ instance ToQuery UpdateUser where
 
 -- | /See:/ 'updateUserResponse' smart constructor.
 data UpdateUserResponse = UpdateUserResponse'
-    { _uursUser           :: !(Maybe User)
-    , _uursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uursUser           :: {-# NOUNPACK #-}!(Maybe User)
+  , _uursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.
 --
@@ -184,10 +187,9 @@ updateUserResponse
     :: Int -- ^ 'uursResponseStatus'
     -> UpdateUserResponse
 updateUserResponse pResponseStatus_ =
-    UpdateUserResponse'
-    { _uursUser = Nothing
-    , _uursResponseStatus = pResponseStatus_
-    }
+  UpdateUserResponse'
+  {_uursUser = Nothing, _uursResponseStatus = pResponseStatus_}
+
 
 -- | The user information.
 uursUser :: Lens' UpdateUserResponse (Maybe User)
@@ -197,4 +199,4 @@ uursUser = lens _uursUser (\ s a -> s{_uursUser = a});
 uursResponseStatus :: Lens' UpdateUserResponse Int
 uursResponseStatus = lens _uursResponseStatus (\ s a -> s{_uursResponseStatus = a});
 
-instance NFData UpdateUserResponse
+instance NFData UpdateUserResponse where

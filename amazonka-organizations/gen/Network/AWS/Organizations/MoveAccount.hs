@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.MoveAccount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Organizations.MoveAccount
     , MoveAccountResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'moveAccount' smart constructor.
 data MoveAccount = MoveAccount'
-    { _maAccountId           :: !Text
-    , _maSourceParentId      :: !Text
-    , _maDestinationParentId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _maAccountId           :: {-# NOUNPACK #-}!Text
+  , _maSourceParentId      :: {-# NOUNPACK #-}!Text
+  , _maDestinationParentId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MoveAccount' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ moveAccount
     -> Text -- ^ 'maDestinationParentId'
     -> MoveAccount
 moveAccount pAccountId_ pSourceParentId_ pDestinationParentId_ =
-    MoveAccount'
-    { _maAccountId = pAccountId_
-    , _maSourceParentId = pSourceParentId_
-    , _maDestinationParentId = pDestinationParentId_
-    }
+  MoveAccount'
+  { _maAccountId = pAccountId_
+  , _maSourceParentId = pSourceParentId_
+  , _maDestinationParentId = pDestinationParentId_
+  }
+
 
 -- | The unique identifier (ID) of the account that you want to move. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 maAccountId :: Lens' MoveAccount Text
@@ -90,9 +92,9 @@ instance AWSRequest MoveAccount where
         request = postJSON organizations
         response = receiveNull MoveAccountResponse'
 
-instance Hashable MoveAccount
+instance Hashable MoveAccount where
 
-instance NFData MoveAccount
+instance NFData MoveAccount where
 
 instance ToHeaders MoveAccount where
         toHeaders
@@ -121,8 +123,9 @@ instance ToQuery MoveAccount where
 
 -- | /See:/ 'moveAccountResponse' smart constructor.
 data MoveAccountResponse =
-    MoveAccountResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  MoveAccountResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MoveAccountResponse' with the minimum fields required to make a request.
 --
@@ -130,4 +133,5 @@ moveAccountResponse
     :: MoveAccountResponse
 moveAccountResponse = MoveAccountResponse'
 
-instance NFData MoveAccountResponse
+
+instance NFData MoveAccountResponse where

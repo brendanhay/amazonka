@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeAffectedEntities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.AWSHealth.DescribeAffectedEntities
     , daersResponseStatus
     ) where
 
-import           Network.AWS.AWSHealth.Types
-import           Network.AWS.AWSHealth.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AWSHealth.Types
+import Network.AWS.AWSHealth.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAffectedEntities' smart constructor.
 data DescribeAffectedEntities = DescribeAffectedEntities'
-    { _daeLocale     :: !(Maybe Text)
-    , _daeNextToken  :: !(Maybe Text)
-    , _daeMaxResults :: !(Maybe Nat)
-    , _daeFilter     :: !EntityFilter
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daeLocale     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daeNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daeMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _daeFilter     :: {-# NOUNPACK #-}!EntityFilter
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAffectedEntities' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ describeAffectedEntities
     :: EntityFilter -- ^ 'daeFilter'
     -> DescribeAffectedEntities
 describeAffectedEntities pFilter_ =
-    DescribeAffectedEntities'
-    { _daeLocale = Nothing
-    , _daeNextToken = Nothing
-    , _daeMaxResults = Nothing
-    , _daeFilter = pFilter_
-    }
+  DescribeAffectedEntities'
+  { _daeLocale = Nothing
+  , _daeNextToken = Nothing
+  , _daeMaxResults = Nothing
+  , _daeFilter = pFilter_
+  }
+
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 daeLocale :: Lens' DescribeAffectedEntities (Maybe Text)
@@ -117,9 +119,9 @@ instance AWSRequest DescribeAffectedEntities where
                    (x .?> "entities" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAffectedEntities
+instance Hashable DescribeAffectedEntities where
 
-instance NFData DescribeAffectedEntities
+instance NFData DescribeAffectedEntities where
 
 instance ToHeaders DescribeAffectedEntities where
         toHeaders
@@ -148,10 +150,11 @@ instance ToQuery DescribeAffectedEntities where
 
 -- | /See:/ 'describeAffectedEntitiesResponse' smart constructor.
 data DescribeAffectedEntitiesResponse = DescribeAffectedEntitiesResponse'
-    { _daersEntities       :: !(Maybe [AffectedEntity])
-    , _daersNextToken      :: !(Maybe Text)
-    , _daersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daersEntities       :: {-# NOUNPACK #-}!(Maybe [AffectedEntity])
+  , _daersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAffectedEntitiesResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ describeAffectedEntitiesResponse
     :: Int -- ^ 'daersResponseStatus'
     -> DescribeAffectedEntitiesResponse
 describeAffectedEntitiesResponse pResponseStatus_ =
-    DescribeAffectedEntitiesResponse'
-    { _daersEntities = Nothing
-    , _daersNextToken = Nothing
-    , _daersResponseStatus = pResponseStatus_
-    }
+  DescribeAffectedEntitiesResponse'
+  { _daersEntities = Nothing
+  , _daersNextToken = Nothing
+  , _daersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The entities that match the filter criteria.
 daersEntities :: Lens' DescribeAffectedEntitiesResponse [AffectedEntity]
@@ -185,3 +189,4 @@ daersResponseStatus :: Lens' DescribeAffectedEntitiesResponse Int
 daersResponseStatus = lens _daersResponseStatus (\ s a -> s{_daersResponseStatus = a});
 
 instance NFData DescribeAffectedEntitiesResponse
+         where

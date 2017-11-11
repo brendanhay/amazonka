@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListBootstrapActions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.EMR.ListBootstrapActions
     , lbarsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which bootstrap actions to retrieve.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listBootstrapActions' smart constructor.
 data ListBootstrapActions = ListBootstrapActions'
-    { _lbaMarker    :: !(Maybe Text)
-    , _lbaClusterId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbaMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbaClusterId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBootstrapActions' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ listBootstrapActions
     :: Text -- ^ 'lbaClusterId'
     -> ListBootstrapActions
 listBootstrapActions pClusterId_ =
-    ListBootstrapActions'
-    { _lbaMarker = Nothing
-    , _lbaClusterId = pClusterId_
-    }
+  ListBootstrapActions' {_lbaMarker = Nothing, _lbaClusterId = pClusterId_}
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
@@ -102,9 +101,9 @@ instance AWSRequest ListBootstrapActions where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListBootstrapActions
+instance Hashable ListBootstrapActions where
 
-instance NFData ListBootstrapActions
+instance NFData ListBootstrapActions where
 
 instance ToHeaders ListBootstrapActions where
         toHeaders
@@ -135,10 +134,11 @@ instance ToQuery ListBootstrapActions where
 --
 -- /See:/ 'listBootstrapActionsResponse' smart constructor.
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
-    { _lbarsBootstrapActions :: !(Maybe [Command])
-    , _lbarsMarker           :: !(Maybe Text)
-    , _lbarsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbarsBootstrapActions :: {-# NOUNPACK #-}!(Maybe [Command])
+  , _lbarsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbarsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBootstrapActionsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +153,12 @@ listBootstrapActionsResponse
     :: Int -- ^ 'lbarsResponseStatus'
     -> ListBootstrapActionsResponse
 listBootstrapActionsResponse pResponseStatus_ =
-    ListBootstrapActionsResponse'
-    { _lbarsBootstrapActions = Nothing
-    , _lbarsMarker = Nothing
-    , _lbarsResponseStatus = pResponseStatus_
-    }
+  ListBootstrapActionsResponse'
+  { _lbarsBootstrapActions = Nothing
+  , _lbarsMarker = Nothing
+  , _lbarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The bootstrap actions associated with the cluster.
 lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
@@ -171,4 +172,4 @@ lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 lbarsResponseStatus :: Lens' ListBootstrapActionsResponse Int
 lbarsResponseStatus = lens _lbarsResponseStatus (\ s a -> s{_lbarsResponseStatus = a});
 
-instance NFData ListBootstrapActionsResponse
+instance NFData ListBootstrapActionsResponse where

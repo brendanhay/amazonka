@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodeBuild.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ArtifactNamespace
-    = ANBuildId
-    | ANNone
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ANBuildId
+  | ANNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ArtifactNamespace where
     parser = takeLowerText >>= \case
@@ -49,9 +50,10 @@ instance FromJSON ArtifactNamespace where
     parseJSON = parseJSONText "ArtifactNamespace"
 
 data ArtifactPackaging
-    = None
-    | Zip
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = None
+  | Zip
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ArtifactPackaging where
     parser = takeLowerText >>= \case
@@ -78,10 +80,11 @@ instance FromJSON ArtifactPackaging where
     parseJSON = parseJSONText "ArtifactPackaging"
 
 data ArtifactsType
-    = Codepipeline
-    | NoArtifacts
-    | S3
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Codepipeline
+  | NoArtifacts
+  | S3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ArtifactsType where
     parser = takeLowerText >>= \case
@@ -110,17 +113,18 @@ instance FromJSON ArtifactsType where
     parseJSON = parseJSONText "ArtifactsType"
 
 data BuildPhaseType
-    = Build
-    | Completed
-    | DownloadSource
-    | Finalizing
-    | Install
-    | PostBuild
-    | PreBuild
-    | Provisioning
-    | Submitted
-    | UploadArtifacts
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Build
+  | Completed
+  | DownloadSource
+  | Finalizing
+  | Install
+  | PostBuild
+  | PreBuild
+  | Provisioning
+  | Submitted
+  | UploadArtifacts
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BuildPhaseType where
     parser = takeLowerText >>= \case
@@ -160,10 +164,11 @@ instance FromJSON BuildPhaseType where
     parseJSON = parseJSONText "BuildPhaseType"
 
 data ComputeType
-    = BuildGENERAL1Large
-    | BuildGENERAL1Medium
-    | BuildGENERAL1Small
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BuildGENERAL1Large
+  | BuildGENERAL1Medium
+  | BuildGENERAL1Small
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComputeType where
     parser = takeLowerText >>= \case
@@ -192,8 +197,9 @@ instance FromJSON ComputeType where
     parseJSON = parseJSONText "ComputeType"
 
 data EnvironmentType =
-    LinuxContainer
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  LinuxContainer
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EnvironmentType where
     parser = takeLowerText >>= \case
@@ -218,16 +224,17 @@ instance FromJSON EnvironmentType where
     parseJSON = parseJSONText "EnvironmentType"
 
 data LanguageType
-    = Android
-    | Base
-    | Docker
-    | Dotnet
-    | Golang
-    | Java
-    | NodeJs
-    | Python
-    | Ruby
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Android
+  | Base
+  | Docker
+  | Dotnet
+  | Golang
+  | Java
+  | NodeJs
+  | Python
+  | Ruby
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LanguageType where
     parser = takeLowerText >>= \case
@@ -265,10 +272,11 @@ instance FromJSON LanguageType where
     parseJSON = parseJSONText "LanguageType"
 
 data PlatformType
-    = AmazonLinux
-    | Debian
-    | Ubuntu
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AmazonLinux
+  | Debian
+  | Ubuntu
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PlatformType where
     parser = takeLowerText >>= \case
@@ -294,10 +302,11 @@ instance FromJSON PlatformType where
     parseJSON = parseJSONText "PlatformType"
 
 data ProjectSortByType
-    = CreatedTime
-    | LastModifiedTime
-    | Name
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreatedTime
+  | LastModifiedTime
+  | Name
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProjectSortByType where
     parser = takeLowerText >>= \case
@@ -323,9 +332,10 @@ instance ToJSON ProjectSortByType where
     toJSON = toJSONText
 
 data SortOrderType
-    = Ascending
-    | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Ascending
+  | Descending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SortOrderType where
     parser = takeLowerText >>= \case
@@ -349,8 +359,9 @@ instance ToJSON SortOrderType where
     toJSON = toJSONText
 
 data SourceAuthType =
-    Oauth
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Oauth
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SourceAuthType where
     parser = takeLowerText >>= \case
@@ -375,12 +386,13 @@ instance FromJSON SourceAuthType where
     parseJSON = parseJSONText "SourceAuthType"
 
 data SourceType
-    = STBitbucket
-    | STCodecommit
-    | STCodepipeline
-    | STGithub
-    | STS3
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = STBitbucket
+  | STCodecommit
+  | STCodepipeline
+  | STGithub
+  | STS3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -413,13 +425,14 @@ instance FromJSON SourceType where
     parseJSON = parseJSONText "SourceType"
 
 data StatusType
-    = Failed
-    | Fault
-    | InProgress
-    | Stopped
-    | Succeeded
-    | TimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | Fault
+  | InProgress
+  | Stopped
+  | Succeeded
+  | TimedOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case

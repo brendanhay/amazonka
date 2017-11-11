@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DisableDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CloudDirectory.DisableDirectory
     , drsDirectoryARN
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableDirectory' smart constructor.
 newtype DisableDirectory = DisableDirectory'
-    { _ddDirectoryARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddDirectoryARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableDirectory' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ disableDirectory
     :: Text -- ^ 'ddDirectoryARN'
     -> DisableDirectory
 disableDirectory pDirectoryARN_ =
-    DisableDirectory'
-    { _ddDirectoryARN = pDirectoryARN_
-    }
+  DisableDirectory' {_ddDirectoryARN = pDirectoryARN_}
+
 
 -- | The ARN of the directory to disable.
 ddDirectoryARN :: Lens' DisableDirectory Text
@@ -75,9 +75,9 @@ instance AWSRequest DisableDirectory where
                  DisableDirectoryResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DirectoryArn"))
 
-instance Hashable DisableDirectory
+instance Hashable DisableDirectory where
 
-instance NFData DisableDirectory
+instance NFData DisableDirectory where
 
 instance ToHeaders DisableDirectory where
         toHeaders DisableDirectory'{..}
@@ -96,9 +96,10 @@ instance ToQuery DisableDirectory where
 
 -- | /See:/ 'disableDirectoryResponse' smart constructor.
 data DisableDirectoryResponse = DisableDirectoryResponse'
-    { _drsResponseStatus :: !Int
-    , _drsDirectoryARN   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _drsDirectoryARN   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableDirectoryResponse' with the minimum fields required to make a request.
 --
@@ -112,10 +113,9 @@ disableDirectoryResponse
     -> Text -- ^ 'drsDirectoryARN'
     -> DisableDirectoryResponse
 disableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
-    DisableDirectoryResponse'
-    { _drsResponseStatus = pResponseStatus_
-    , _drsDirectoryARN = pDirectoryARN_
-    }
+  DisableDirectoryResponse'
+  {_drsResponseStatus = pResponseStatus_, _drsDirectoryARN = pDirectoryARN_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DisableDirectoryResponse Int
@@ -125,4 +125,4 @@ drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 drsDirectoryARN :: Lens' DisableDirectoryResponse Text
 drsDirectoryARN = lens _drsDirectoryARN (\ s a -> s{_drsDirectoryARN = a});
 
-instance NFData DisableDirectoryResponse
+instance NFData DisableDirectoryResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DescribeJobDefinitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.Batch.DescribeJobDefinitions
     , djdrsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeJobDefinitions' smart constructor.
 data DescribeJobDefinitions = DescribeJobDefinitions'
-    { _djdStatus            :: !(Maybe Text)
-    , _djdJobDefinitionName :: !(Maybe Text)
-    , _djdJobDefinitions    :: !(Maybe [Text])
-    , _djdNextToken         :: !(Maybe Text)
-    , _djdMaxResults        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djdStatus            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _djdJobDefinitionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _djdJobDefinitions    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _djdNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _djdMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeJobDefinitions' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
 describeJobDefinitions
     :: DescribeJobDefinitions
 describeJobDefinitions =
-    DescribeJobDefinitions'
-    { _djdStatus = Nothing
-    , _djdJobDefinitionName = Nothing
-    , _djdJobDefinitions = Nothing
-    , _djdNextToken = Nothing
-    , _djdMaxResults = Nothing
-    }
+  DescribeJobDefinitions'
+  { _djdStatus = Nothing
+  , _djdJobDefinitionName = Nothing
+  , _djdJobDefinitions = Nothing
+  , _djdNextToken = Nothing
+  , _djdMaxResults = Nothing
+  }
+
 
 -- | The status with which to filter job definitions.
 djdStatus :: Lens' DescribeJobDefinitions (Maybe Text)
@@ -114,9 +116,9 @@ instance AWSRequest DescribeJobDefinitions where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeJobDefinitions
+instance Hashable DescribeJobDefinitions where
 
-instance NFData DescribeJobDefinitions
+instance NFData DescribeJobDefinitions where
 
 instance ToHeaders DescribeJobDefinitions where
         toHeaders
@@ -143,10 +145,11 @@ instance ToQuery DescribeJobDefinitions where
 
 -- | /See:/ 'describeJobDefinitionsResponse' smart constructor.
 data DescribeJobDefinitionsResponse = DescribeJobDefinitionsResponse'
-    { _djdrsJobDefinitions :: !(Maybe [JobDefinition])
-    , _djdrsNextToken      :: !(Maybe Text)
-    , _djdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djdrsJobDefinitions :: {-# NOUNPACK #-}!(Maybe [JobDefinition])
+  , _djdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _djdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeJobDefinitionsResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +164,12 @@ describeJobDefinitionsResponse
     :: Int -- ^ 'djdrsResponseStatus'
     -> DescribeJobDefinitionsResponse
 describeJobDefinitionsResponse pResponseStatus_ =
-    DescribeJobDefinitionsResponse'
-    { _djdrsJobDefinitions = Nothing
-    , _djdrsNextToken = Nothing
-    , _djdrsResponseStatus = pResponseStatus_
-    }
+  DescribeJobDefinitionsResponse'
+  { _djdrsJobDefinitions = Nothing
+  , _djdrsNextToken = Nothing
+  , _djdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of job definitions.
 djdrsJobDefinitions :: Lens' DescribeJobDefinitionsResponse [JobDefinition]
@@ -179,4 +183,4 @@ djdrsNextToken = lens _djdrsNextToken (\ s a -> s{_djdrsNextToken = a});
 djdrsResponseStatus :: Lens' DescribeJobDefinitionsResponse Int
 djdrsResponseStatus = lens _djdrsResponseStatus (\ s a -> s{_djdrsResponseStatus = a});
 
-instance NFData DescribeJobDefinitionsResponse
+instance NFData DescribeJobDefinitionsResponse where

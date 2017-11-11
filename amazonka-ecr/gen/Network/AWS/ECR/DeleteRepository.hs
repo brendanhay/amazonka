@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.DeleteRepository
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.ECR.DeleteRepository
     , drsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-    { _dForce          :: !(Maybe Bool)
-    , _dRegistryId     :: !(Maybe Text)
-    , _dRepositoryName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dForce          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dRepositoryName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRepository' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ deleteRepository
     :: Text -- ^ 'dRepositoryName'
     -> DeleteRepository
 deleteRepository pRepositoryName_ =
-    DeleteRepository'
-    { _dForce = Nothing
-    , _dRegistryId = Nothing
-    , _dRepositoryName = pRepositoryName_
-    }
+  DeleteRepository'
+  { _dForce = Nothing
+  , _dRegistryId = Nothing
+  , _dRepositoryName = pRepositoryName_
+  }
+
 
 -- | Force the deletion of the repository if it contains images.
 dForce :: Lens' DeleteRepository (Maybe Bool)
@@ -93,9 +95,9 @@ instance AWSRequest DeleteRepository where
                  DeleteRepositoryResponse' <$>
                    (x .?> "repository") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteRepository
+instance Hashable DeleteRepository where
 
-instance NFData DeleteRepository
+instance NFData DeleteRepository where
 
 instance ToHeaders DeleteRepository where
         toHeaders
@@ -123,9 +125,10 @@ instance ToQuery DeleteRepository where
 
 -- | /See:/ 'deleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
-    { _drsRepository     :: !(Maybe Repository)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsRepository     :: {-# NOUNPACK #-}!(Maybe Repository)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRepositoryResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,9 @@ deleteRepositoryResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteRepositoryResponse
 deleteRepositoryResponse pResponseStatus_ =
-    DeleteRepositoryResponse'
-    { _drsRepository = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteRepositoryResponse'
+  {_drsRepository = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | The repository that was deleted.
 drsRepository :: Lens' DeleteRepositoryResponse (Maybe Repository)
@@ -151,4 +153,4 @@ drsRepository = lens _drsRepository (\ s a -> s{_drsRepository = a});
 drsResponseStatus :: Lens' DeleteRepositoryResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteRepositoryResponse
+instance NFData DeleteRepositoryResponse where

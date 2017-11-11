@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.Greengrass.DeleteGroup
     , dgrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteGroup' smart constructor.
 newtype DeleteGroup = DeleteGroup'
-    { _dgGroupId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgGroupId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
 --
@@ -54,10 +55,8 @@ newtype DeleteGroup = DeleteGroup'
 deleteGroup
     :: Text -- ^ 'dgGroupId'
     -> DeleteGroup
-deleteGroup pGroupId_ =
-    DeleteGroup'
-    { _dgGroupId = pGroupId_
-    }
+deleteGroup pGroupId_ = DeleteGroup' {_dgGroupId = pGroupId_}
+
 
 -- | The unique Id of the AWS Greengrass Group
 dgGroupId :: Lens' DeleteGroup Text
@@ -71,9 +70,9 @@ instance AWSRequest DeleteGroup where
               (\ s h x ->
                  DeleteGroupResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteGroup
+instance Hashable DeleteGroup where
 
-instance NFData DeleteGroup
+instance NFData DeleteGroup where
 
 instance ToHeaders DeleteGroup where
         toHeaders
@@ -91,8 +90,9 @@ instance ToQuery DeleteGroup where
 
 -- | /See:/ 'deleteGroupResponse' smart constructor.
 newtype DeleteGroupResponse = DeleteGroupResponse'
-    { _dgrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
 --
@@ -103,12 +103,11 @@ deleteGroupResponse
     :: Int -- ^ 'dgrsResponseStatus'
     -> DeleteGroupResponse
 deleteGroupResponse pResponseStatus_ =
-    DeleteGroupResponse'
-    { _dgrsResponseStatus = pResponseStatus_
-    }
+  DeleteGroupResponse' {_dgrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dgrsResponseStatus :: Lens' DeleteGroupResponse Int
 dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a});
 
-instance NFData DeleteGroupResponse
+instance NFData DeleteGroupResponse where

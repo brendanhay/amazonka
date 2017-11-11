@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UntagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.OpsWorks.UntagResource
     , UntagResourceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'untagResource' smart constructor.
 data UntagResource = UntagResource'
-    { _urResourceARN :: !Text
-    , _urTagKeys     :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urResourceARN :: {-# NOUNPACK #-}!Text
+  , _urTagKeys     :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ untagResource
     :: Text -- ^ 'urResourceARN'
     -> UntagResource
 untagResource pResourceARN_ =
-    UntagResource'
-    { _urResourceARN = pResourceARN_
-    , _urTagKeys = mempty
-    }
+  UntagResource' {_urResourceARN = pResourceARN_, _urTagKeys = mempty}
+
 
 -- | The stack or layer's Amazon Resource Number (ARN).
 urResourceARN :: Lens' UntagResource Text
@@ -77,9 +76,9 @@ instance AWSRequest UntagResource where
         request = postJSON opsWorks
         response = receiveNull UntagResourceResponse'
 
-instance Hashable UntagResource
+instance Hashable UntagResource where
 
-instance NFData UntagResource
+instance NFData UntagResource where
 
 instance ToHeaders UntagResource where
         toHeaders
@@ -105,8 +104,9 @@ instance ToQuery UntagResource where
 
 -- | /See:/ 'untagResourceResponse' smart constructor.
 data UntagResourceResponse =
-    UntagResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UntagResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +114,5 @@ untagResourceResponse
     :: UntagResourceResponse
 untagResourceResponse = UntagResourceResponse'
 
-instance NFData UntagResourceResponse
+
+instance NFData UntagResourceResponse where

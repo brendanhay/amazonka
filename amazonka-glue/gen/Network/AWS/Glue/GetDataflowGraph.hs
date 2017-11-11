@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetDataflowGraph
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Glue.GetDataflowGraph
     , gdgrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDataflowGraph' smart constructor.
 newtype GetDataflowGraph = GetDataflowGraph'
-    { _gdgPythonScript :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdgPythonScript :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDataflowGraph' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetDataflowGraph = GetDataflowGraph'
 -- * 'gdgPythonScript' - The Python script to transform.
 getDataflowGraph
     :: GetDataflowGraph
-getDataflowGraph =
-    GetDataflowGraph'
-    { _gdgPythonScript = Nothing
-    }
+getDataflowGraph = GetDataflowGraph' {_gdgPythonScript = Nothing}
+
 
 -- | The Python script to transform.
 gdgPythonScript :: Lens' GetDataflowGraph (Maybe Text)
@@ -77,9 +76,9 @@ instance AWSRequest GetDataflowGraph where
                      (x .?> "DagNodes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDataflowGraph
+instance Hashable GetDataflowGraph where
 
-instance NFData GetDataflowGraph
+instance NFData GetDataflowGraph where
 
 instance ToHeaders GetDataflowGraph where
         toHeaders
@@ -104,10 +103,11 @@ instance ToQuery GetDataflowGraph where
 
 -- | /See:/ 'getDataflowGraphResponse' smart constructor.
 data GetDataflowGraphResponse = GetDataflowGraphResponse'
-    { _gdgrsDagEdges       :: !(Maybe [CodeGenEdge])
-    , _gdgrsDagNodes       :: !(Maybe [CodeGenNode])
-    , _gdgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdgrsDagEdges       :: {-# NOUNPACK #-}!(Maybe [CodeGenEdge])
+  , _gdgrsDagNodes       :: {-# NOUNPACK #-}!(Maybe [CodeGenNode])
+  , _gdgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDataflowGraphResponse' with the minimum fields required to make a request.
 --
@@ -122,11 +122,12 @@ getDataflowGraphResponse
     :: Int -- ^ 'gdgrsResponseStatus'
     -> GetDataflowGraphResponse
 getDataflowGraphResponse pResponseStatus_ =
-    GetDataflowGraphResponse'
-    { _gdgrsDagEdges = Nothing
-    , _gdgrsDagNodes = Nothing
-    , _gdgrsResponseStatus = pResponseStatus_
-    }
+  GetDataflowGraphResponse'
+  { _gdgrsDagEdges = Nothing
+  , _gdgrsDagNodes = Nothing
+  , _gdgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the edges in the resulting DAG.
 gdgrsDagEdges :: Lens' GetDataflowGraphResponse [CodeGenEdge]
@@ -140,4 +141,4 @@ gdgrsDagNodes = lens _gdgrsDagNodes (\ s a -> s{_gdgrsDagNodes = a}) . _Default 
 gdgrsResponseStatus :: Lens' GetDataflowGraphResponse Int
 gdgrsResponseStatus = lens _gdgrsResponseStatus (\ s a -> s{_gdgrsResponseStatus = a});
 
-instance NFData GetDataflowGraphResponse
+instance NFData GetDataflowGraphResponse where

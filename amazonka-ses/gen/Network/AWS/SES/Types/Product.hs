@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.SES.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SES.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.SES.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.SES.Types.Sum
 
 -- | When included in a receipt rule, this action adds a header to the received email.
 --
@@ -29,9 +29,10 @@ import           Network.AWS.SES.Types.Sum
 --
 -- /See:/ 'addHeaderAction' smart constructor.
 data AddHeaderAction = AddHeaderAction'
-    { _ahaHeaderName  :: !Text
-    , _ahaHeaderValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ahaHeaderName  :: {-# NOUNPACK #-}!Text
+  , _ahaHeaderValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddHeaderAction' with the minimum fields required to make a request.
 --
@@ -45,10 +46,9 @@ addHeaderAction
     -> Text -- ^ 'ahaHeaderValue'
     -> AddHeaderAction
 addHeaderAction pHeaderName_ pHeaderValue_ =
-    AddHeaderAction'
-    { _ahaHeaderName = pHeaderName_
-    , _ahaHeaderValue = pHeaderValue_
-    }
+  AddHeaderAction'
+  {_ahaHeaderName = pHeaderName_, _ahaHeaderValue = pHeaderValue_}
+
 
 -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 ahaHeaderName :: Lens' AddHeaderAction Text
@@ -63,9 +63,9 @@ instance FromXML AddHeaderAction where
           = AddHeaderAction' <$>
               (x .@ "HeaderName") <*> (x .@ "HeaderValue")
 
-instance Hashable AddHeaderAction
+instance Hashable AddHeaderAction where
 
-instance NFData AddHeaderAction
+instance NFData AddHeaderAction where
 
 instance ToQuery AddHeaderAction where
         toQuery AddHeaderAction'{..}
@@ -79,9 +79,10 @@ instance ToQuery AddHeaderAction where
 --
 -- /See:/ 'body' smart constructor.
 data Body = Body'
-    { _bText :: !(Maybe Content)
-    , _bHTML :: !(Maybe Content)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bText :: {-# NOUNPACK #-}!(Maybe Content)
+  , _bHTML :: {-# NOUNPACK #-}!(Maybe Content)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Body' with the minimum fields required to make a request.
 --
@@ -92,11 +93,8 @@ data Body = Body'
 -- * 'bHTML' - The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
 body
     :: Body
-body =
-    Body'
-    { _bText = Nothing
-    , _bHTML = Nothing
-    }
+body = Body' {_bText = Nothing, _bHTML = Nothing}
+
 
 -- | The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
 bText :: Lens' Body (Maybe Content)
@@ -106,9 +104,9 @@ bText = lens _bText (\ s a -> s{_bText = a});
 bHTML :: Lens' Body (Maybe Content)
 bHTML = lens _bHTML (\ s a -> s{_bHTML = a});
 
-instance Hashable Body
+instance Hashable Body where
 
-instance NFData Body
+instance NFData Body where
 
 instance ToQuery Body where
         toQuery Body'{..}
@@ -122,12 +120,13 @@ instance ToQuery Body where
 --
 -- /See:/ 'bounceAction' smart constructor.
 data BounceAction = BounceAction'
-    { _baTopicARN      :: !(Maybe Text)
-    , _baStatusCode    :: !(Maybe Text)
-    , _baSmtpReplyCode :: !Text
-    , _baMessage       :: !Text
-    , _baSender        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _baTopicARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _baStatusCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _baSmtpReplyCode :: {-# NOUNPACK #-}!Text
+  , _baMessage       :: {-# NOUNPACK #-}!Text
+  , _baSender        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BounceAction' with the minimum fields required to make a request.
 --
@@ -148,13 +147,14 @@ bounceAction
     -> Text -- ^ 'baSender'
     -> BounceAction
 bounceAction pSmtpReplyCode_ pMessage_ pSender_ =
-    BounceAction'
-    { _baTopicARN = Nothing
-    , _baStatusCode = Nothing
-    , _baSmtpReplyCode = pSmtpReplyCode_
-    , _baMessage = pMessage_
-    , _baSender = pSender_
-    }
+  BounceAction'
+  { _baTopicARN = Nothing
+  , _baStatusCode = Nothing
+  , _baSmtpReplyCode = pSmtpReplyCode_
+  , _baMessage = pMessage_
+  , _baSender = pSender_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 baTopicARN :: Lens' BounceAction (Maybe Text)
@@ -184,9 +184,9 @@ instance FromXML BounceAction where
                 <*> (x .@ "Message")
                 <*> (x .@ "Sender")
 
-instance Hashable BounceAction
+instance Hashable BounceAction where
 
-instance NFData BounceAction
+instance NFData BounceAction where
 
 instance ToQuery BounceAction where
         toQuery BounceAction'{..}
@@ -204,11 +204,12 @@ instance ToQuery BounceAction where
 --
 -- /See:/ 'bouncedRecipientInfo' smart constructor.
 data BouncedRecipientInfo = BouncedRecipientInfo'
-    { _briBounceType         :: !(Maybe BounceType)
-    , _briRecipientDsnFields :: !(Maybe RecipientDsnFields)
-    , _briRecipientARN       :: !(Maybe Text)
-    , _briRecipient          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _briBounceType         :: {-# NOUNPACK #-}!(Maybe BounceType)
+  , _briRecipientDsnFields :: {-# NOUNPACK #-}!(Maybe RecipientDsnFields)
+  , _briRecipientARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _briRecipient          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BouncedRecipientInfo' with the minimum fields required to make a request.
 --
@@ -225,12 +226,13 @@ bouncedRecipientInfo
     :: Text -- ^ 'briRecipient'
     -> BouncedRecipientInfo
 bouncedRecipientInfo pRecipient_ =
-    BouncedRecipientInfo'
-    { _briBounceType = Nothing
-    , _briRecipientDsnFields = Nothing
-    , _briRecipientARN = Nothing
-    , _briRecipient = pRecipient_
-    }
+  BouncedRecipientInfo'
+  { _briBounceType = Nothing
+  , _briRecipientDsnFields = Nothing
+  , _briRecipientARN = Nothing
+  , _briRecipient = pRecipient_
+  }
+
 
 -- | The reason for the bounce. You must provide either this parameter or @RecipientDsnFields@ .
 briBounceType :: Lens' BouncedRecipientInfo (Maybe BounceType)
@@ -248,9 +250,9 @@ briRecipientARN = lens _briRecipientARN (\ s a -> s{_briRecipientARN = a});
 briRecipient :: Lens' BouncedRecipientInfo Text
 briRecipient = lens _briRecipient (\ s a -> s{_briRecipient = a});
 
-instance Hashable BouncedRecipientInfo
+instance Hashable BouncedRecipientInfo where
 
-instance NFData BouncedRecipientInfo
+instance NFData BouncedRecipientInfo where
 
 instance ToQuery BouncedRecipientInfo where
         toQuery BouncedRecipientInfo'{..}
@@ -268,8 +270,9 @@ instance ToQuery BouncedRecipientInfo where
 --
 -- /See:/ 'cloudWatchDestination' smart constructor.
 newtype CloudWatchDestination = CloudWatchDestination'
-    { _cwdDimensionConfigurations :: [CloudWatchDimensionConfiguration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwdDimensionConfigurations :: [CloudWatchDimensionConfiguration]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudWatchDestination' with the minimum fields required to make a request.
 --
@@ -279,9 +282,8 @@ newtype CloudWatchDestination = CloudWatchDestination'
 cloudWatchDestination
     :: CloudWatchDestination
 cloudWatchDestination =
-    CloudWatchDestination'
-    { _cwdDimensionConfigurations = mempty
-    }
+  CloudWatchDestination' {_cwdDimensionConfigurations = mempty}
+
 
 -- | A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
 cwdDimensionConfigurations :: Lens' CloudWatchDestination [CloudWatchDimensionConfiguration]
@@ -293,9 +295,9 @@ instance FromXML CloudWatchDestination where
               (x .@? "DimensionConfigurations" .!@ mempty >>=
                  parseXMLList "member")
 
-instance Hashable CloudWatchDestination
+instance Hashable CloudWatchDestination where
 
-instance NFData CloudWatchDestination
+instance NFData CloudWatchDestination where
 
 instance ToQuery CloudWatchDestination where
         toQuery CloudWatchDestination'{..}
@@ -311,10 +313,11 @@ instance ToQuery CloudWatchDestination where
 --
 -- /See:/ 'cloudWatchDimensionConfiguration' smart constructor.
 data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
-    { _cwdcDimensionName         :: !Text
-    , _cwdcDimensionValueSource  :: !DimensionValueSource
-    , _cwdcDefaultDimensionValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwdcDimensionName         :: {-# NOUNPACK #-}!Text
+  , _cwdcDimensionValueSource  :: {-# NOUNPACK #-}!DimensionValueSource
+  , _cwdcDefaultDimensionValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudWatchDimensionConfiguration' with the minimum fields required to make a request.
 --
@@ -331,11 +334,12 @@ cloudWatchDimensionConfiguration
     -> Text -- ^ 'cwdcDefaultDimensionValue'
     -> CloudWatchDimensionConfiguration
 cloudWatchDimensionConfiguration pDimensionName_ pDimensionValueSource_ pDefaultDimensionValue_ =
-    CloudWatchDimensionConfiguration'
-    { _cwdcDimensionName = pDimensionName_
-    , _cwdcDimensionValueSource = pDimensionValueSource_
-    , _cwdcDefaultDimensionValue = pDefaultDimensionValue_
-    }
+  CloudWatchDimensionConfiguration'
+  { _cwdcDimensionName = pDimensionName_
+  , _cwdcDimensionValueSource = pDimensionValueSource_
+  , _cwdcDefaultDimensionValue = pDefaultDimensionValue_
+  }
+
 
 -- | The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
 cwdcDimensionName :: Lens' CloudWatchDimensionConfiguration Text
@@ -358,8 +362,10 @@ instance FromXML CloudWatchDimensionConfiguration
                 <*> (x .@ "DefaultDimensionValue")
 
 instance Hashable CloudWatchDimensionConfiguration
+         where
 
 instance NFData CloudWatchDimensionConfiguration
+         where
 
 instance ToQuery CloudWatchDimensionConfiguration
          where
@@ -378,8 +384,9 @@ instance ToQuery CloudWatchDimensionConfiguration
 --
 -- /See:/ 'configurationSet' smart constructor.
 newtype ConfigurationSet = ConfigurationSet'
-    { _csName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigurationSet' with the minimum fields required to make a request.
 --
@@ -389,10 +396,8 @@ newtype ConfigurationSet = ConfigurationSet'
 configurationSet
     :: Text -- ^ 'csName'
     -> ConfigurationSet
-configurationSet pName_ =
-    ConfigurationSet'
-    { _csName = pName_
-    }
+configurationSet pName_ = ConfigurationSet' {_csName = pName_}
+
 
 -- | The name of the configuration set. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
 csName :: Lens' ConfigurationSet Text
@@ -401,9 +406,9 @@ csName = lens _csName (\ s a -> s{_csName = a});
 instance FromXML ConfigurationSet where
         parseXML x = ConfigurationSet' <$> (x .@ "Name")
 
-instance Hashable ConfigurationSet
+instance Hashable ConfigurationSet where
 
-instance NFData ConfigurationSet
+instance NFData ConfigurationSet where
 
 instance ToQuery ConfigurationSet where
         toQuery ConfigurationSet'{..}
@@ -417,9 +422,10 @@ instance ToQuery ConfigurationSet where
 --
 -- /See:/ 'content' smart constructor.
 data Content = Content'
-    { _cCharset :: !(Maybe Text)
-    , _cData    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cCharset :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cData    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Content' with the minimum fields required to make a request.
 --
@@ -431,11 +437,8 @@ data Content = Content'
 content
     :: Text -- ^ 'cData'
     -> Content
-content pData_ =
-    Content'
-    { _cCharset = Nothing
-    , _cData = pData_
-    }
+content pData_ = Content' {_cCharset = Nothing, _cData = pData_}
+
 
 -- | The character set of the content.
 cCharset :: Lens' Content (Maybe Text)
@@ -445,9 +448,9 @@ cCharset = lens _cCharset (\ s a -> s{_cCharset = a});
 cData :: Lens' Content Text
 cData = lens _cData (\ s a -> s{_cData = a});
 
-instance Hashable Content
+instance Hashable Content where
 
-instance NFData Content
+instance NFData Content where
 
 instance ToQuery Content where
         toQuery Content'{..}
@@ -461,10 +464,11 @@ instance ToQuery Content where
 --
 -- /See:/ 'destination' smart constructor.
 data Destination = Destination'
-    { _dBCCAddresses :: !(Maybe [Text])
-    , _dCCAddresses  :: !(Maybe [Text])
-    , _dToAddresses  :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dBCCAddresses :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dCCAddresses  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dToAddresses  :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
@@ -478,11 +482,9 @@ data Destination = Destination'
 destination
     :: Destination
 destination =
-    Destination'
-    { _dBCCAddresses = Nothing
-    , _dCCAddresses = Nothing
-    , _dToAddresses = Nothing
-    }
+  Destination'
+  {_dBCCAddresses = Nothing, _dCCAddresses = Nothing, _dToAddresses = Nothing}
+
 
 -- | The BCC: field(s) of the message.
 dBCCAddresses :: Lens' Destination [Text]
@@ -496,9 +498,9 @@ dCCAddresses = lens _dCCAddresses (\ s a -> s{_dCCAddresses = a}) . _Default . _
 dToAddresses :: Lens' Destination [Text]
 dToAddresses = lens _dToAddresses (\ s a -> s{_dToAddresses = a}) . _Default . _Coerce;
 
-instance Hashable Destination
+instance Hashable Destination where
 
-instance NFData Destination
+instance NFData Destination where
 
 instance ToQuery Destination where
         toQuery Destination'{..}
@@ -518,13 +520,14 @@ instance ToQuery Destination where
 --
 -- /See:/ 'eventDestination' smart constructor.
 data EventDestination = EventDestination'
-    { _edEnabled                    :: !(Maybe Bool)
-    , _edKinesisFirehoseDestination :: !(Maybe KinesisFirehoseDestination)
-    , _edCloudWatchDestination      :: !(Maybe CloudWatchDestination)
-    , _edSNSDestination             :: !(Maybe SNSDestination)
-    , _edName                       :: !Text
-    , _edMatchingEventTypes         :: ![EventType]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _edKinesisFirehoseDestination :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseDestination)
+  , _edCloudWatchDestination :: {-# NOUNPACK #-}!(Maybe CloudWatchDestination)
+  , _edSNSDestination :: {-# NOUNPACK #-}!(Maybe SNSDestination)
+  , _edName :: {-# NOUNPACK #-}!Text
+  , _edMatchingEventTypes :: {-# NOUNPACK #-}![EventType]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventDestination' with the minimum fields required to make a request.
 --
@@ -545,14 +548,15 @@ eventDestination
     :: Text -- ^ 'edName'
     -> EventDestination
 eventDestination pName_ =
-    EventDestination'
-    { _edEnabled = Nothing
-    , _edKinesisFirehoseDestination = Nothing
-    , _edCloudWatchDestination = Nothing
-    , _edSNSDestination = Nothing
-    , _edName = pName_
-    , _edMatchingEventTypes = mempty
-    }
+  EventDestination'
+  { _edEnabled = Nothing
+  , _edKinesisFirehoseDestination = Nothing
+  , _edCloudWatchDestination = Nothing
+  , _edSNSDestination = Nothing
+  , _edName = pName_
+  , _edMatchingEventTypes = mempty
+  }
+
 
 -- | Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to @true@ to enable publishing to this destination; set to @false@ to prevent publishing to this destination. The default value is @false@ .
 edEnabled :: Lens' EventDestination (Maybe Bool)
@@ -590,9 +594,9 @@ instance FromXML EventDestination where
                 (x .@? "MatchingEventTypes" .!@ mempty >>=
                    parseXMLList "member")
 
-instance Hashable EventDestination
+instance Hashable EventDestination where
 
-instance NFData EventDestination
+instance NFData EventDestination where
 
 instance ToQuery EventDestination where
         toQuery EventDestination'{..}
@@ -614,9 +618,10 @@ instance ToQuery EventDestination where
 --
 -- /See:/ 'extensionField' smart constructor.
 data ExtensionField = ExtensionField'
-    { _efName  :: !Text
-    , _efValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _efName  :: {-# NOUNPACK #-}!Text
+  , _efValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExtensionField' with the minimum fields required to make a request.
 --
@@ -630,10 +635,8 @@ extensionField
     -> Text -- ^ 'efValue'
     -> ExtensionField
 extensionField pName_ pValue_ =
-    ExtensionField'
-    { _efName = pName_
-    , _efValue = pValue_
-    }
+  ExtensionField' {_efName = pName_, _efValue = pValue_}
+
 
 -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 efName :: Lens' ExtensionField Text
@@ -643,9 +646,9 @@ efName = lens _efName (\ s a -> s{_efName = a});
 efValue :: Lens' ExtensionField Text
 efValue = lens _efValue (\ s a -> s{_efValue = a});
 
-instance Hashable ExtensionField
+instance Hashable ExtensionField where
 
-instance NFData ExtensionField
+instance NFData ExtensionField where
 
 instance ToQuery ExtensionField where
         toQuery ExtensionField'{..}
@@ -657,10 +660,11 @@ instance ToQuery ExtensionField where
 --
 -- /See:/ 'identityDkimAttributes' smart constructor.
 data IdentityDkimAttributes = IdentityDkimAttributes'
-    { _idaDkimTokens             :: !(Maybe [Text])
-    , _idaDkimEnabled            :: !Bool
-    , _idaDkimVerificationStatus :: !VerificationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _idaDkimTokens             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _idaDkimEnabled            :: {-# NOUNPACK #-}!Bool
+  , _idaDkimVerificationStatus :: {-# NOUNPACK #-}!VerificationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityDkimAttributes' with the minimum fields required to make a request.
 --
@@ -676,11 +680,12 @@ identityDkimAttributes
     -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
     -> IdentityDkimAttributes
 identityDkimAttributes pDkimEnabled_ pDkimVerificationStatus_ =
-    IdentityDkimAttributes'
-    { _idaDkimTokens = Nothing
-    , _idaDkimEnabled = pDkimEnabled_
-    , _idaDkimVerificationStatus = pDkimVerificationStatus_
-    }
+  IdentityDkimAttributes'
+  { _idaDkimTokens = Nothing
+  , _idaDkimEnabled = pDkimEnabled_
+  , _idaDkimVerificationStatus = pDkimVerificationStatus_
+  }
+
 
 -- | A set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.) For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide> .
 idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
@@ -702,9 +707,9 @@ instance FromXML IdentityDkimAttributes where
                 <*> (x .@ "DkimEnabled")
                 <*> (x .@ "DkimVerificationStatus")
 
-instance Hashable IdentityDkimAttributes
+instance Hashable IdentityDkimAttributes where
 
-instance NFData IdentityDkimAttributes
+instance NFData IdentityDkimAttributes where
 
 -- | Represents the custom MAIL FROM domain attributes of a verified identity (email address or domain).
 --
@@ -712,10 +717,11 @@ instance NFData IdentityDkimAttributes
 --
 -- /See:/ 'identityMailFromDomainAttributes' smart constructor.
 data IdentityMailFromDomainAttributes = IdentityMailFromDomainAttributes'
-    { _imfdaMailFromDomain       :: !Text
-    , _imfdaMailFromDomainStatus :: !CustomMailFromStatus
-    , _imfdaBehaviorOnMXFailure  :: !BehaviorOnMXFailure
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _imfdaMailFromDomain       :: {-# NOUNPACK #-}!Text
+  , _imfdaMailFromDomainStatus :: {-# NOUNPACK #-}!CustomMailFromStatus
+  , _imfdaBehaviorOnMXFailure  :: {-# NOUNPACK #-}!BehaviorOnMXFailure
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityMailFromDomainAttributes' with the minimum fields required to make a request.
 --
@@ -732,11 +738,12 @@ identityMailFromDomainAttributes
     -> BehaviorOnMXFailure -- ^ 'imfdaBehaviorOnMXFailure'
     -> IdentityMailFromDomainAttributes
 identityMailFromDomainAttributes pMailFromDomain_ pMailFromDomainStatus_ pBehaviorOnMXFailure_ =
-    IdentityMailFromDomainAttributes'
-    { _imfdaMailFromDomain = pMailFromDomain_
-    , _imfdaMailFromDomainStatus = pMailFromDomainStatus_
-    , _imfdaBehaviorOnMXFailure = pBehaviorOnMXFailure_
-    }
+  IdentityMailFromDomainAttributes'
+  { _imfdaMailFromDomain = pMailFromDomain_
+  , _imfdaMailFromDomainStatus = pMailFromDomainStatus_
+  , _imfdaBehaviorOnMXFailure = pBehaviorOnMXFailure_
+  }
+
 
 -- | The custom MAIL FROM domain that the identity is configured to use.
 imfdaMailFromDomain :: Lens' IdentityMailFromDomainAttributes Text
@@ -759,8 +766,10 @@ instance FromXML IdentityMailFromDomainAttributes
                 <*> (x .@ "BehaviorOnMXFailure")
 
 instance Hashable IdentityMailFromDomainAttributes
+         where
 
 instance NFData IdentityMailFromDomainAttributes
+         where
 
 -- | Represents the notification attributes of an identity, including whether an identity has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and/or delivery notifications, and whether feedback forwarding is enabled for bounce and complaint notifications.
 --
@@ -768,14 +777,15 @@ instance NFData IdentityMailFromDomainAttributes
 --
 -- /See:/ 'identityNotificationAttributes' smart constructor.
 data IdentityNotificationAttributes = IdentityNotificationAttributes'
-    { _inaHeadersInDeliveryNotificationsEnabled  :: !(Maybe Bool)
-    , _inaHeadersInComplaintNotificationsEnabled :: !(Maybe Bool)
-    , _inaHeadersInBounceNotificationsEnabled    :: !(Maybe Bool)
-    , _inaBounceTopic                            :: !Text
-    , _inaComplaintTopic                         :: !Text
-    , _inaDeliveryTopic                          :: !Text
-    , _inaForwardingEnabled                      :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _inaHeadersInDeliveryNotificationsEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _inaHeadersInComplaintNotificationsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _inaHeadersInBounceNotificationsEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _inaBounceTopic                            :: {-# NOUNPACK #-}!Text
+  , _inaComplaintTopic                         :: {-# NOUNPACK #-}!Text
+  , _inaDeliveryTopic                          :: {-# NOUNPACK #-}!Text
+  , _inaForwardingEnabled                      :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityNotificationAttributes' with the minimum fields required to make a request.
 --
@@ -801,15 +811,16 @@ identityNotificationAttributes
     -> Bool -- ^ 'inaForwardingEnabled'
     -> IdentityNotificationAttributes
 identityNotificationAttributes pBounceTopic_ pComplaintTopic_ pDeliveryTopic_ pForwardingEnabled_ =
-    IdentityNotificationAttributes'
-    { _inaHeadersInDeliveryNotificationsEnabled = Nothing
-    , _inaHeadersInComplaintNotificationsEnabled = Nothing
-    , _inaHeadersInBounceNotificationsEnabled = Nothing
-    , _inaBounceTopic = pBounceTopic_
-    , _inaComplaintTopic = pComplaintTopic_
-    , _inaDeliveryTopic = pDeliveryTopic_
-    , _inaForwardingEnabled = pForwardingEnabled_
-    }
+  IdentityNotificationAttributes'
+  { _inaHeadersInDeliveryNotificationsEnabled = Nothing
+  , _inaHeadersInComplaintNotificationsEnabled = Nothing
+  , _inaHeadersInBounceNotificationsEnabled = Nothing
+  , _inaBounceTopic = pBounceTopic_
+  , _inaComplaintTopic = pComplaintTopic_
+  , _inaDeliveryTopic = pDeliveryTopic_
+  , _inaForwardingEnabled = pForwardingEnabled_
+  }
+
 
 -- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Delivery@ . A value of @true@ specifies that Amazon SES will include headers in delivery notifications, and a value of @false@ specifies that Amazon SES will not include headers in delivery notifications.
 inaHeadersInDeliveryNotificationsEnabled :: Lens' IdentityNotificationAttributes (Maybe Bool)
@@ -851,8 +862,9 @@ instance FromXML IdentityNotificationAttributes where
                 <*> (x .@ "ForwardingEnabled")
 
 instance Hashable IdentityNotificationAttributes
+         where
 
-instance NFData IdentityNotificationAttributes
+instance NFData IdentityNotificationAttributes where
 
 -- | Represents the verification attributes of a single identity.
 --
@@ -860,9 +872,10 @@ instance NFData IdentityNotificationAttributes
 --
 -- /See:/ 'identityVerificationAttributes' smart constructor.
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
-    { _ivaVerificationToken  :: !(Maybe Text)
-    , _ivaVerificationStatus :: !VerificationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ivaVerificationToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ivaVerificationStatus :: {-# NOUNPACK #-}!VerificationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityVerificationAttributes' with the minimum fields required to make a request.
 --
@@ -875,10 +888,11 @@ identityVerificationAttributes
     :: VerificationStatus -- ^ 'ivaVerificationStatus'
     -> IdentityVerificationAttributes
 identityVerificationAttributes pVerificationStatus_ =
-    IdentityVerificationAttributes'
-    { _ivaVerificationToken = Nothing
-    , _ivaVerificationStatus = pVerificationStatus_
-    }
+  IdentityVerificationAttributes'
+  { _ivaVerificationToken = Nothing
+  , _ivaVerificationStatus = pVerificationStatus_
+  }
+
 
 -- | The verification token for a domain identity. Null for email address identities.
 ivaVerificationToken :: Lens' IdentityVerificationAttributes (Maybe Text)
@@ -895,8 +909,9 @@ instance FromXML IdentityVerificationAttributes where
                 (x .@ "VerificationStatus")
 
 instance Hashable IdentityVerificationAttributes
+         where
 
-instance NFData IdentityVerificationAttributes
+instance NFData IdentityVerificationAttributes where
 
 -- | Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 --
@@ -906,9 +921,10 @@ instance NFData IdentityVerificationAttributes
 --
 -- /See:/ 'kinesisFirehoseDestination' smart constructor.
 data KinesisFirehoseDestination = KinesisFirehoseDestination'
-    { _kfdIAMRoleARN        :: !Text
-    , _kfdDeliveryStreamARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kfdIAMRoleARN        :: {-# NOUNPACK #-}!Text
+  , _kfdDeliveryStreamARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KinesisFirehoseDestination' with the minimum fields required to make a request.
 --
@@ -922,10 +938,9 @@ kinesisFirehoseDestination
     -> Text -- ^ 'kfdDeliveryStreamARN'
     -> KinesisFirehoseDestination
 kinesisFirehoseDestination pIAMRoleARN_ pDeliveryStreamARN_ =
-    KinesisFirehoseDestination'
-    { _kfdIAMRoleARN = pIAMRoleARN_
-    , _kfdDeliveryStreamARN = pDeliveryStreamARN_
-    }
+  KinesisFirehoseDestination'
+  {_kfdIAMRoleARN = pIAMRoleARN_, _kfdDeliveryStreamARN = pDeliveryStreamARN_}
+
 
 -- | The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
 kfdIAMRoleARN :: Lens' KinesisFirehoseDestination Text
@@ -940,9 +955,9 @@ instance FromXML KinesisFirehoseDestination where
           = KinesisFirehoseDestination' <$>
               (x .@ "IAMRoleARN") <*> (x .@ "DeliveryStreamARN")
 
-instance Hashable KinesisFirehoseDestination
+instance Hashable KinesisFirehoseDestination where
 
-instance NFData KinesisFirehoseDestination
+instance NFData KinesisFirehoseDestination where
 
 instance ToQuery KinesisFirehoseDestination where
         toQuery KinesisFirehoseDestination'{..}
@@ -960,10 +975,11 @@ instance ToQuery KinesisFirehoseDestination where
 --
 -- /See:/ 'lambdaAction' smart constructor.
 data LambdaAction = LambdaAction'
-    { _laInvocationType :: !(Maybe InvocationType)
-    , _laTopicARN       :: !(Maybe Text)
-    , _laFunctionARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laInvocationType :: {-# NOUNPACK #-}!(Maybe InvocationType)
+  , _laTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laFunctionARN    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaAction' with the minimum fields required to make a request.
 --
@@ -978,11 +994,12 @@ lambdaAction
     :: Text -- ^ 'laFunctionARN'
     -> LambdaAction
 lambdaAction pFunctionARN_ =
-    LambdaAction'
-    { _laInvocationType = Nothing
-    , _laTopicARN = Nothing
-    , _laFunctionARN = pFunctionARN_
-    }
+  LambdaAction'
+  { _laInvocationType = Nothing
+  , _laTopicARN = Nothing
+  , _laFunctionARN = pFunctionARN_
+  }
+
 
 -- | The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> . /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
 laInvocationType :: Lens' LambdaAction (Maybe InvocationType)
@@ -1002,9 +1019,9 @@ instance FromXML LambdaAction where
               (x .@? "InvocationType") <*> (x .@? "TopicArn") <*>
                 (x .@ "FunctionArn")
 
-instance Hashable LambdaAction
+instance Hashable LambdaAction where
 
-instance NFData LambdaAction
+instance NFData LambdaAction where
 
 instance ToQuery LambdaAction where
         toQuery LambdaAction'{..}
@@ -1019,9 +1036,10 @@ instance ToQuery LambdaAction where
 --
 -- /See:/ 'message' smart constructor.
 data Message = Message'
-    { _mSubject :: !Content
-    , _mBody    :: !Body
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mSubject :: {-# NOUNPACK #-}!Content
+  , _mBody    :: {-# NOUNPACK #-}!Body
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
@@ -1034,11 +1052,8 @@ message
     :: Content -- ^ 'mSubject'
     -> Body -- ^ 'mBody'
     -> Message
-message pSubject_ pBody_ =
-    Message'
-    { _mSubject = pSubject_
-    , _mBody = pBody_
-    }
+message pSubject_ pBody_ = Message' {_mSubject = pSubject_, _mBody = pBody_}
+
 
 -- | The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
 mSubject :: Lens' Message Content
@@ -1048,9 +1063,9 @@ mSubject = lens _mSubject (\ s a -> s{_mSubject = a});
 mBody :: Lens' Message Body
 mBody = lens _mBody (\ s a -> s{_mBody = a});
 
-instance Hashable Message
+instance Hashable Message where
 
-instance NFData Message
+instance NFData Message where
 
 instance ToQuery Message where
         toQuery Message'{..}
@@ -1064,10 +1079,11 @@ instance ToQuery Message where
 --
 -- /See:/ 'messageDsn' smart constructor.
 data MessageDsn = MessageDsn'
-    { _mdArrivalDate     :: !(Maybe ISO8601)
-    , _mdExtensionFields :: !(Maybe [ExtensionField])
-    , _mdReportingMta    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdArrivalDate     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _mdExtensionFields :: {-# NOUNPACK #-}!(Maybe [ExtensionField])
+  , _mdReportingMta    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageDsn' with the minimum fields required to make a request.
 --
@@ -1082,11 +1098,12 @@ messageDsn
     :: Text -- ^ 'mdReportingMta'
     -> MessageDsn
 messageDsn pReportingMta_ =
-    MessageDsn'
-    { _mdArrivalDate = Nothing
-    , _mdExtensionFields = Nothing
-    , _mdReportingMta = pReportingMta_
-    }
+  MessageDsn'
+  { _mdArrivalDate = Nothing
+  , _mdExtensionFields = Nothing
+  , _mdReportingMta = pReportingMta_
+  }
+
 
 -- | When the message was received by the reporting mail transfer agent (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 mdArrivalDate :: Lens' MessageDsn (Maybe UTCTime)
@@ -1100,9 +1117,9 @@ mdExtensionFields = lens _mdExtensionFields (\ s a -> s{_mdExtensionFields = a})
 mdReportingMta :: Lens' MessageDsn Text
 mdReportingMta = lens _mdReportingMta (\ s a -> s{_mdReportingMta = a});
 
-instance Hashable MessageDsn
+instance Hashable MessageDsn where
 
-instance NFData MessageDsn
+instance NFData MessageDsn where
 
 instance ToQuery MessageDsn where
         toQuery MessageDsn'{..}
@@ -1121,9 +1138,10 @@ instance ToQuery MessageDsn where
 --
 -- /See:/ 'messageTag' smart constructor.
 data MessageTag = MessageTag'
-    { _mtName  :: !Text
-    , _mtValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtName  :: {-# NOUNPACK #-}!Text
+  , _mtValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageTag' with the minimum fields required to make a request.
 --
@@ -1136,11 +1154,8 @@ messageTag
     :: Text -- ^ 'mtName'
     -> Text -- ^ 'mtValue'
     -> MessageTag
-messageTag pName_ pValue_ =
-    MessageTag'
-    { _mtName = pName_
-    , _mtValue = pValue_
-    }
+messageTag pName_ pValue_ = MessageTag' {_mtName = pName_, _mtValue = pValue_}
+
 
 -- | The name of the tag. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
 mtName :: Lens' MessageTag Text
@@ -1150,9 +1165,9 @@ mtName = lens _mtName (\ s a -> s{_mtName = a});
 mtValue :: Lens' MessageTag Text
 mtValue = lens _mtValue (\ s a -> s{_mtValue = a});
 
-instance Hashable MessageTag
+instance Hashable MessageTag where
 
-instance NFData MessageTag
+instance NFData MessageTag where
 
 instance ToQuery MessageTag where
         toQuery MessageTag'{..}
@@ -1164,8 +1179,9 @@ instance ToQuery MessageTag where
 --
 -- /See:/ 'rawMessage' smart constructor.
 newtype RawMessage = RawMessage'
-    { _rmData :: Base64
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rmData :: Base64
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RawMessage' with the minimum fields required to make a request.
 --
@@ -1175,18 +1191,16 @@ newtype RawMessage = RawMessage'
 rawMessage
     :: ByteString -- ^ 'rmData'
     -> RawMessage
-rawMessage pData_ =
-    RawMessage'
-    { _rmData = _Base64 # pData_
-    }
+rawMessage pData_ = RawMessage' {_rmData = _Base64 # pData_}
+
 
 -- | The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rmData :: Lens' RawMessage ByteString
 rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
 
-instance Hashable RawMessage
+instance Hashable RawMessage where
 
-instance NFData RawMessage
+instance NFData RawMessage where
 
 instance ToQuery RawMessage where
         toQuery RawMessage'{..} = mconcat ["Data" =: _rmData]
@@ -1199,14 +1213,15 @@ instance ToQuery RawMessage where
 --
 -- /See:/ 'receiptAction' smart constructor.
 data ReceiptAction = ReceiptAction'
-    { _raAddHeaderAction :: !(Maybe AddHeaderAction)
-    , _raSNSAction       :: !(Maybe SNSAction)
-    , _raWorkmailAction  :: !(Maybe WorkmailAction)
-    , _raBounceAction    :: !(Maybe BounceAction)
-    , _raLambdaAction    :: !(Maybe LambdaAction)
-    , _raStopAction      :: !(Maybe StopAction)
-    , _raS3Action        :: !(Maybe S3Action)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raAddHeaderAction :: {-# NOUNPACK #-}!(Maybe AddHeaderAction)
+  , _raSNSAction       :: {-# NOUNPACK #-}!(Maybe SNSAction)
+  , _raWorkmailAction  :: {-# NOUNPACK #-}!(Maybe WorkmailAction)
+  , _raBounceAction    :: {-# NOUNPACK #-}!(Maybe BounceAction)
+  , _raLambdaAction    :: {-# NOUNPACK #-}!(Maybe LambdaAction)
+  , _raStopAction      :: {-# NOUNPACK #-}!(Maybe StopAction)
+  , _raS3Action        :: {-# NOUNPACK #-}!(Maybe S3Action)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReceiptAction' with the minimum fields required to make a request.
 --
@@ -1228,15 +1243,16 @@ data ReceiptAction = ReceiptAction'
 receiptAction
     :: ReceiptAction
 receiptAction =
-    ReceiptAction'
-    { _raAddHeaderAction = Nothing
-    , _raSNSAction = Nothing
-    , _raWorkmailAction = Nothing
-    , _raBounceAction = Nothing
-    , _raLambdaAction = Nothing
-    , _raStopAction = Nothing
-    , _raS3Action = Nothing
-    }
+  ReceiptAction'
+  { _raAddHeaderAction = Nothing
+  , _raSNSAction = Nothing
+  , _raWorkmailAction = Nothing
+  , _raBounceAction = Nothing
+  , _raLambdaAction = Nothing
+  , _raStopAction = Nothing
+  , _raS3Action = Nothing
+  }
+
 
 -- | Adds a header to the received email.
 raAddHeaderAction :: Lens' ReceiptAction (Maybe AddHeaderAction)
@@ -1276,9 +1292,9 @@ instance FromXML ReceiptAction where
                 <*> (x .@? "StopAction")
                 <*> (x .@? "S3Action")
 
-instance Hashable ReceiptAction
+instance Hashable ReceiptAction where
 
-instance NFData ReceiptAction
+instance NFData ReceiptAction where
 
 instance ToQuery ReceiptAction where
         toQuery ReceiptAction'{..}
@@ -1299,9 +1315,10 @@ instance ToQuery ReceiptAction where
 --
 -- /See:/ 'receiptFilter' smart constructor.
 data ReceiptFilter = ReceiptFilter'
-    { _rfName     :: !Text
-    , _rfIPFilter :: !ReceiptIPFilter
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rfName     :: {-# NOUNPACK #-}!Text
+  , _rfIPFilter :: {-# NOUNPACK #-}!ReceiptIPFilter
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReceiptFilter' with the minimum fields required to make a request.
 --
@@ -1315,10 +1332,8 @@ receiptFilter
     -> ReceiptIPFilter -- ^ 'rfIPFilter'
     -> ReceiptFilter
 receiptFilter pName_ pIPFilter_ =
-    ReceiptFilter'
-    { _rfName = pName_
-    , _rfIPFilter = pIPFilter_
-    }
+  ReceiptFilter' {_rfName = pName_, _rfIPFilter = pIPFilter_}
+
 
 -- | The name of the IP address filter. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 rfName :: Lens' ReceiptFilter Text
@@ -1333,9 +1348,9 @@ instance FromXML ReceiptFilter where
           = ReceiptFilter' <$>
               (x .@ "Name") <*> (x .@ "IpFilter")
 
-instance Hashable ReceiptFilter
+instance Hashable ReceiptFilter where
 
-instance NFData ReceiptFilter
+instance NFData ReceiptFilter where
 
 instance ToQuery ReceiptFilter where
         toQuery ReceiptFilter'{..}
@@ -1350,9 +1365,10 @@ instance ToQuery ReceiptFilter where
 --
 -- /See:/ 'receiptIPFilter' smart constructor.
 data ReceiptIPFilter = ReceiptIPFilter'
-    { _rifPolicy :: !ReceiptFilterPolicy
-    , _rifCidr   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rifPolicy :: {-# NOUNPACK #-}!ReceiptFilterPolicy
+  , _rifCidr   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReceiptIPFilter' with the minimum fields required to make a request.
 --
@@ -1366,10 +1382,8 @@ receiptIPFilter
     -> Text -- ^ 'rifCidr'
     -> ReceiptIPFilter
 receiptIPFilter pPolicy_ pCidr_ =
-    ReceiptIPFilter'
-    { _rifPolicy = pPolicy_
-    , _rifCidr = pCidr_
-    }
+  ReceiptIPFilter' {_rifPolicy = pPolicy_, _rifCidr = pCidr_}
+
 
 -- | Indicates whether to block or allow incoming mail from the specified IP addresses.
 rifPolicy :: Lens' ReceiptIPFilter ReceiptFilterPolicy
@@ -1384,9 +1398,9 @@ instance FromXML ReceiptIPFilter where
           = ReceiptIPFilter' <$>
               (x .@ "Policy") <*> (x .@ "Cidr")
 
-instance Hashable ReceiptIPFilter
+instance Hashable ReceiptIPFilter where
 
-instance NFData ReceiptIPFilter
+instance NFData ReceiptIPFilter where
 
 instance ToQuery ReceiptIPFilter where
         toQuery ReceiptIPFilter'{..}
@@ -1403,13 +1417,14 @@ instance ToQuery ReceiptIPFilter where
 --
 -- /See:/ 'receiptRule' smart constructor.
 data ReceiptRule = ReceiptRule'
-    { _rrScanEnabled :: !(Maybe Bool)
-    , _rrEnabled     :: !(Maybe Bool)
-    , _rrActions     :: !(Maybe [ReceiptAction])
-    , _rrRecipients  :: !(Maybe [Text])
-    , _rrTLSPolicy   :: !(Maybe TLSPolicy)
-    , _rrName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrScanEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rrEnabled     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rrActions     :: {-# NOUNPACK #-}!(Maybe [ReceiptAction])
+  , _rrRecipients  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rrTLSPolicy   :: {-# NOUNPACK #-}!(Maybe TLSPolicy)
+  , _rrName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReceiptRule' with the minimum fields required to make a request.
 --
@@ -1430,14 +1445,15 @@ receiptRule
     :: Text -- ^ 'rrName'
     -> ReceiptRule
 receiptRule pName_ =
-    ReceiptRule'
-    { _rrScanEnabled = Nothing
-    , _rrEnabled = Nothing
-    , _rrActions = Nothing
-    , _rrRecipients = Nothing
-    , _rrTLSPolicy = Nothing
-    , _rrName = pName_
-    }
+  ReceiptRule'
+  { _rrScanEnabled = Nothing
+  , _rrEnabled = Nothing
+  , _rrActions = Nothing
+  , _rrRecipients = Nothing
+  , _rrTLSPolicy = Nothing
+  , _rrName = pName_
+  }
+
 
 -- | If @true@ , then messages to which this receipt rule applies are scanned for spam and viruses. The default value is @false@ .
 rrScanEnabled :: Lens' ReceiptRule (Maybe Bool)
@@ -1475,9 +1491,9 @@ instance FromXML ReceiptRule where
                 <*> (x .@? "TlsPolicy")
                 <*> (x .@ "Name")
 
-instance Hashable ReceiptRule
+instance Hashable ReceiptRule where
 
-instance NFData ReceiptRule
+instance NFData ReceiptRule where
 
 instance ToQuery ReceiptRule where
         toQuery ReceiptRule'{..}
@@ -1500,9 +1516,10 @@ instance ToQuery ReceiptRule where
 --
 -- /See:/ 'receiptRuleSetMetadata' smart constructor.
 data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
-    { _rrsmName             :: !(Maybe Text)
-    , _rrsmCreatedTimestamp :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsmName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrsmCreatedTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReceiptRuleSetMetadata' with the minimum fields required to make a request.
 --
@@ -1514,10 +1531,8 @@ data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
 receiptRuleSetMetadata
     :: ReceiptRuleSetMetadata
 receiptRuleSetMetadata =
-    ReceiptRuleSetMetadata'
-    { _rrsmName = Nothing
-    , _rrsmCreatedTimestamp = Nothing
-    }
+  ReceiptRuleSetMetadata' {_rrsmName = Nothing, _rrsmCreatedTimestamp = Nothing}
+
 
 -- | The name of the receipt rule set. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 rrsmName :: Lens' ReceiptRuleSetMetadata (Maybe Text)
@@ -1532,9 +1547,9 @@ instance FromXML ReceiptRuleSetMetadata where
           = ReceiptRuleSetMetadata' <$>
               (x .@? "Name") <*> (x .@? "CreatedTimestamp")
 
-instance Hashable ReceiptRuleSetMetadata
+instance Hashable ReceiptRuleSetMetadata where
 
-instance NFData ReceiptRuleSetMetadata
+instance NFData ReceiptRuleSetMetadata where
 
 -- | Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
@@ -1544,14 +1559,15 @@ instance NFData ReceiptRuleSetMetadata
 --
 -- /See:/ 'recipientDsnFields' smart constructor.
 data RecipientDsnFields = RecipientDsnFields'
-    { _rdfDiagnosticCode  :: !(Maybe Text)
-    , _rdfRemoteMta       :: !(Maybe Text)
-    , _rdfFinalRecipient  :: !(Maybe Text)
-    , _rdfExtensionFields :: !(Maybe [ExtensionField])
-    , _rdfLastAttemptDate :: !(Maybe ISO8601)
-    , _rdfAction          :: !DsnAction
-    , _rdfStatus          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdfDiagnosticCode  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdfRemoteMta       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdfFinalRecipient  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdfExtensionFields :: {-# NOUNPACK #-}!(Maybe [ExtensionField])
+  , _rdfLastAttemptDate :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _rdfAction          :: {-# NOUNPACK #-}!DsnAction
+  , _rdfStatus          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecipientDsnFields' with the minimum fields required to make a request.
 --
@@ -1575,15 +1591,16 @@ recipientDsnFields
     -> Text -- ^ 'rdfStatus'
     -> RecipientDsnFields
 recipientDsnFields pAction_ pStatus_ =
-    RecipientDsnFields'
-    { _rdfDiagnosticCode = Nothing
-    , _rdfRemoteMta = Nothing
-    , _rdfFinalRecipient = Nothing
-    , _rdfExtensionFields = Nothing
-    , _rdfLastAttemptDate = Nothing
-    , _rdfAction = pAction_
-    , _rdfStatus = pStatus_
-    }
+  RecipientDsnFields'
+  { _rdfDiagnosticCode = Nothing
+  , _rdfRemoteMta = Nothing
+  , _rdfFinalRecipient = Nothing
+  , _rdfExtensionFields = Nothing
+  , _rdfLastAttemptDate = Nothing
+  , _rdfAction = pAction_
+  , _rdfStatus = pStatus_
+  }
+
 
 -- | An extended explanation of what went wrong; this is usually an SMTP response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the correct formatting of this parameter.
 rdfDiagnosticCode :: Lens' RecipientDsnFields (Maybe Text)
@@ -1613,9 +1630,9 @@ rdfAction = lens _rdfAction (\ s a -> s{_rdfAction = a});
 rdfStatus :: Lens' RecipientDsnFields Text
 rdfStatus = lens _rdfStatus (\ s a -> s{_rdfStatus = a});
 
-instance Hashable RecipientDsnFields
+instance Hashable RecipientDsnFields where
 
-instance NFData RecipientDsnFields
+instance NFData RecipientDsnFields where
 
 instance ToQuery RecipientDsnFields where
         toQuery RecipientDsnFields'{..}
@@ -1639,11 +1656,12 @@ instance ToQuery RecipientDsnFields where
 --
 -- /See:/ 's3Action' smart constructor.
 data S3Action = S3Action'
-    { _s3KMSKeyARN       :: !(Maybe Text)
-    , _s3TopicARN        :: !(Maybe Text)
-    , _s3ObjectKeyPrefix :: !(Maybe Text)
-    , _s3BucketName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _s3KMSKeyARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _s3TopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _s3ObjectKeyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _s3BucketName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Action' with the minimum fields required to make a request.
 --
@@ -1660,12 +1678,13 @@ s3Action
     :: Text -- ^ 's3BucketName'
     -> S3Action
 s3Action pBucketName_ =
-    S3Action'
-    { _s3KMSKeyARN = Nothing
-    , _s3TopicARN = Nothing
-    , _s3ObjectKeyPrefix = Nothing
-    , _s3BucketName = pBucketName_
-    }
+  S3Action'
+  { _s3KMSKeyARN = Nothing
+  , _s3TopicARN = Nothing
+  , _s3ObjectKeyPrefix = Nothing
+  , _s3BucketName = pBucketName_
+  }
+
 
 -- | The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:     * To use the default master key, provide an ARN in the form of @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses@ . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be @arn:aws:kms:us-west-2:123456789012:alias/aws/ses@ . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.     * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> . For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide> . If you do not specify a master key, Amazon SES will not encrypt your emails. /Important:/ Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide> .
 s3KMSKeyARN :: Lens' S3Action (Maybe Text)
@@ -1690,9 +1709,9 @@ instance FromXML S3Action where
                 (x .@? "ObjectKeyPrefix")
                 <*> (x .@ "BucketName")
 
-instance Hashable S3Action
+instance Hashable S3Action where
 
-instance NFData S3Action
+instance NFData S3Action where
 
 instance ToQuery S3Action where
         toQuery S3Action'{..}
@@ -1714,9 +1733,10 @@ instance ToQuery S3Action where
 --
 -- /See:/ 'snsAction' smart constructor.
 data SNSAction = SNSAction'
-    { _saEncoding :: !(Maybe SNSActionEncoding)
-    , _saTopicARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saEncoding :: {-# NOUNPACK #-}!(Maybe SNSActionEncoding)
+  , _saTopicARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SNSAction' with the minimum fields required to make a request.
 --
@@ -1729,10 +1749,8 @@ snsAction
     :: Text -- ^ 'saTopicARN'
     -> SNSAction
 snsAction pTopicARN_ =
-    SNSAction'
-    { _saEncoding = Nothing
-    , _saTopicARN = pTopicARN_
-    }
+  SNSAction' {_saEncoding = Nothing, _saTopicARN = pTopicARN_}
+
 
 -- | The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.
 saEncoding :: Lens' SNSAction (Maybe SNSActionEncoding)
@@ -1747,9 +1765,9 @@ instance FromXML SNSAction where
           = SNSAction' <$>
               (x .@? "Encoding") <*> (x .@ "TopicArn")
 
-instance Hashable SNSAction
+instance Hashable SNSAction where
 
-instance NFData SNSAction
+instance NFData SNSAction where
 
 instance ToQuery SNSAction where
         toQuery SNSAction'{..}
@@ -1765,8 +1783,9 @@ instance ToQuery SNSAction where
 --
 -- /See:/ 'snsDestination' smart constructor.
 newtype SNSDestination = SNSDestination'
-    { _sdTopicARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdTopicARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SNSDestination' with the minimum fields required to make a request.
 --
@@ -1776,10 +1795,8 @@ newtype SNSDestination = SNSDestination'
 snsDestination
     :: Text -- ^ 'sdTopicARN'
     -> SNSDestination
-snsDestination pTopicARN_ =
-    SNSDestination'
-    { _sdTopicARN = pTopicARN_
-    }
+snsDestination pTopicARN_ = SNSDestination' {_sdTopicARN = pTopicARN_}
+
 
 -- | The ARN of the Amazon SNS topic to which you want to publish email sending events. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/http:/alpha-docs-aws.amazon.com/sns/latest/dg/CreateTopic.html /Amazon SNS Developer Guide/ > .
 sdTopicARN :: Lens' SNSDestination Text
@@ -1788,9 +1805,9 @@ sdTopicARN = lens _sdTopicARN (\ s a -> s{_sdTopicARN = a});
 instance FromXML SNSDestination where
         parseXML x = SNSDestination' <$> (x .@ "TopicARN")
 
-instance Hashable SNSDestination
+instance Hashable SNSDestination where
 
-instance NFData SNSDestination
+instance NFData SNSDestination where
 
 instance ToQuery SNSDestination where
         toQuery SNSDestination'{..}
@@ -1802,12 +1819,13 @@ instance ToQuery SNSDestination where
 --
 -- /See:/ 'sendDataPoint' smart constructor.
 data SendDataPoint = SendDataPoint'
-    { _sdpRejects          :: !(Maybe Integer)
-    , _sdpComplaints       :: !(Maybe Integer)
-    , _sdpDeliveryAttempts :: !(Maybe Integer)
-    , _sdpBounces          :: !(Maybe Integer)
-    , _sdpTimestamp        :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdpRejects          :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _sdpComplaints       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _sdpDeliveryAttempts :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _sdpBounces          :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _sdpTimestamp        :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendDataPoint' with the minimum fields required to make a request.
 --
@@ -1825,13 +1843,14 @@ data SendDataPoint = SendDataPoint'
 sendDataPoint
     :: SendDataPoint
 sendDataPoint =
-    SendDataPoint'
-    { _sdpRejects = Nothing
-    , _sdpComplaints = Nothing
-    , _sdpDeliveryAttempts = Nothing
-    , _sdpBounces = Nothing
-    , _sdpTimestamp = Nothing
-    }
+  SendDataPoint'
+  { _sdpRejects = Nothing
+  , _sdpComplaints = Nothing
+  , _sdpDeliveryAttempts = Nothing
+  , _sdpBounces = Nothing
+  , _sdpTimestamp = Nothing
+  }
+
 
 -- | Number of emails rejected by Amazon SES.
 sdpRejects :: Lens' SendDataPoint (Maybe Integer)
@@ -1861,9 +1880,9 @@ instance FromXML SendDataPoint where
                 <*> (x .@? "Bounces")
                 <*> (x .@? "Timestamp")
 
-instance Hashable SendDataPoint
+instance Hashable SendDataPoint where
 
-instance NFData SendDataPoint
+instance NFData SendDataPoint where
 
 -- | When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
@@ -1873,9 +1892,10 @@ instance NFData SendDataPoint
 --
 -- /See:/ 'stopAction' smart constructor.
 data StopAction = StopAction'
-    { _sTopicARN :: !(Maybe Text)
-    , _sScope    :: !StopScope
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sScope    :: {-# NOUNPACK #-}!StopScope
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopAction' with the minimum fields required to make a request.
 --
@@ -1887,11 +1907,8 @@ data StopAction = StopAction'
 stopAction
     :: StopScope -- ^ 'sScope'
     -> StopAction
-stopAction pScope_ =
-    StopAction'
-    { _sTopicARN = Nothing
-    , _sScope = pScope_
-    }
+stopAction pScope_ = StopAction' {_sTopicARN = Nothing, _sScope = pScope_}
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 sTopicARN :: Lens' StopAction (Maybe Text)
@@ -1906,9 +1923,9 @@ instance FromXML StopAction where
           = StopAction' <$>
               (x .@? "TopicArn") <*> (x .@ "Scope")
 
-instance Hashable StopAction
+instance Hashable StopAction where
 
-instance NFData StopAction
+instance NFData StopAction where
 
 instance ToQuery StopAction where
         toQuery StopAction'{..}
@@ -1923,9 +1940,10 @@ instance ToQuery StopAction where
 --
 -- /See:/ 'workmailAction' smart constructor.
 data WorkmailAction = WorkmailAction'
-    { _waTopicARN        :: !(Maybe Text)
-    , _waOrganizationARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _waTopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _waOrganizationARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkmailAction' with the minimum fields required to make a request.
 --
@@ -1938,10 +1956,9 @@ workmailAction
     :: Text -- ^ 'waOrganizationARN'
     -> WorkmailAction
 workmailAction pOrganizationARN_ =
-    WorkmailAction'
-    { _waTopicARN = Nothing
-    , _waOrganizationARN = pOrganizationARN_
-    }
+  WorkmailAction'
+  {_waTopicARN = Nothing, _waOrganizationARN = pOrganizationARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 waTopicARN :: Lens' WorkmailAction (Maybe Text)
@@ -1956,9 +1973,9 @@ instance FromXML WorkmailAction where
           = WorkmailAction' <$>
               (x .@? "TopicArn") <*> (x .@ "OrganizationArn")
 
-instance Hashable WorkmailAction
+instance Hashable WorkmailAction where
 
-instance NFData WorkmailAction
+instance NFData WorkmailAction where
 
 instance ToQuery WorkmailAction where
         toQuery WorkmailAction'{..}

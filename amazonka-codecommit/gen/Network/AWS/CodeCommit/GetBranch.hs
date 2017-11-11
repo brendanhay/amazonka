@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetBranch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodeCommit.GetBranch
     , grsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get branch operation.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getBranch' smart constructor.
 data GetBranch = GetBranch'
-    { _gbBranchName     :: !(Maybe Text)
-    , _gbRepositoryName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbBranchName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBranch' with the minimum fields required to make a request.
 --
@@ -64,11 +65,8 @@ data GetBranch = GetBranch'
 -- * 'gbRepositoryName' - The name of the repository that contains the branch for which you want to retrieve information.
 getBranch
     :: GetBranch
-getBranch =
-    GetBranch'
-    { _gbBranchName = Nothing
-    , _gbRepositoryName = Nothing
-    }
+getBranch = GetBranch' {_gbBranchName = Nothing, _gbRepositoryName = Nothing}
+
 
 -- | The name of the branch for which you want to retrieve information.
 gbBranchName :: Lens' GetBranch (Maybe Text)
@@ -87,9 +85,9 @@ instance AWSRequest GetBranch where
                  GetBranchResponse' <$>
                    (x .?> "branch") <*> (pure (fromEnum s)))
 
-instance Hashable GetBranch
+instance Hashable GetBranch where
 
-instance NFData GetBranch
+instance NFData GetBranch where
 
 instance ToHeaders GetBranch where
         toHeaders
@@ -119,9 +117,10 @@ instance ToQuery GetBranch where
 --
 -- /See:/ 'getBranchResponse' smart constructor.
 data GetBranchResponse = GetBranchResponse'
-    { _grsBranch         :: !(Maybe BranchInfo)
-    , _grsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsBranch         :: {-# NOUNPACK #-}!(Maybe BranchInfo)
+  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBranchResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +133,9 @@ getBranchResponse
     :: Int -- ^ 'grsResponseStatus'
     -> GetBranchResponse
 getBranchResponse pResponseStatus_ =
-    GetBranchResponse'
-    { _grsBranch = Nothing
-    , _grsResponseStatus = pResponseStatus_
-    }
+  GetBranchResponse'
+  {_grsBranch = Nothing, _grsResponseStatus = pResponseStatus_}
+
 
 -- | The name of the branch.
 grsBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
@@ -147,4 +145,4 @@ grsBranch = lens _grsBranch (\ s a -> s{_grsBranch = a});
 grsResponseStatus :: Lens' GetBranchResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
-instance NFData GetBranchResponse
+instance NFData GetBranchResponse where

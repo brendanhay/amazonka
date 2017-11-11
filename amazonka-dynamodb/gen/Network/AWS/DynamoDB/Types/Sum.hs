@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DynamoDB.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AttributeAction
-    = Add
-    | Delete
-    | Put
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Add
+  | Delete
+  | Put
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AttributeAction where
     parser = takeLowerText >>= \case
@@ -49,20 +50,21 @@ instance ToJSON AttributeAction where
     toJSON = toJSONText
 
 data ComparisonOperator
-    = BeginsWith
-    | Between
-    | Contains
-    | EQ'
-    | GE
-    | GT'
-    | IN
-    | LE
-    | LT'
-    | NE
-    | NotContains
-    | NotNull
-    | Null
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BeginsWith
+  | Between
+  | Contains
+  | EQ'
+  | GE
+  | GT'
+  | IN
+  | LE
+  | LT'
+  | NE
+  | NotContains
+  | NotNull
+  | Null
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -108,9 +110,10 @@ instance ToJSON ComparisonOperator where
     toJSON = toJSONText
 
 data ConditionalOperator
-    = And
-    | OR
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = And
+  | OR
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConditionalOperator where
     parser = takeLowerText >>= \case
@@ -134,11 +137,12 @@ instance ToJSON ConditionalOperator where
     toJSON = toJSONText
 
 data IndexStatus
-    = ISActive
-    | ISCreating
-    | ISDeleting
-    | ISUpdating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISActive
+  | ISCreating
+  | ISDeleting
+  | ISUpdating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IndexStatus where
     parser = takeLowerText >>= \case
@@ -166,9 +170,10 @@ instance FromJSON IndexStatus where
     parseJSON = parseJSONText "IndexStatus"
 
 data KeyType
-    = Hash
-    | Range
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Hash
+  | Range
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText KeyType where
     parser = takeLowerText >>= \case
@@ -195,10 +200,11 @@ instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
 
 data ProjectionType
-    = All
-    | Include
-    | KeysOnly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = All
+  | Include
+  | KeysOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProjectionType where
     parser = takeLowerText >>= \case
@@ -240,10 +246,11 @@ instance FromJSON ProjectionType where
 --
 --
 data ReturnConsumedCapacity
-    = RCCIndexes
-    | RCCNone
-    | RCCTotal
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RCCIndexes
+  | RCCNone
+  | RCCTotal
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReturnConsumedCapacity where
     parser = takeLowerText >>= \case
@@ -269,9 +276,10 @@ instance ToJSON ReturnConsumedCapacity where
     toJSON = toJSONText
 
 data ReturnItemCollectionMetrics
-    = RICMNone
-    | RICMSize
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RICMNone
+  | RICMSize
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReturnItemCollectionMetrics where
     parser = takeLowerText >>= \case
@@ -295,12 +303,13 @@ instance ToJSON ReturnItemCollectionMetrics where
     toJSON = toJSONText
 
 data ReturnValue
-    = AllNew
-    | AllOld
-    | None
-    | UpdatedNew
-    | UpdatedOld
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AllNew
+  | AllOld
+  | None
+  | UpdatedNew
+  | UpdatedOld
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReturnValue where
     parser = takeLowerText >>= \case
@@ -330,10 +339,11 @@ instance ToJSON ReturnValue where
     toJSON = toJSONText
 
 data ScalarAttributeType
-    = B
-    | N
-    | S
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = B
+  | N
+  | S
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScalarAttributeType where
     parser = takeLowerText >>= \case
@@ -362,11 +372,12 @@ instance FromJSON ScalarAttributeType where
     parseJSON = parseJSONText "ScalarAttributeType"
 
 data Select
-    = AllAttributes
-    | AllProjectedAttributes
-    | Count
-    | SpecificAttributes
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AllAttributes
+  | AllProjectedAttributes
+  | Count
+  | SpecificAttributes
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Select where
     parser = takeLowerText >>= \case
@@ -394,11 +405,12 @@ instance ToJSON Select where
     toJSON = toJSONText
 
 data StreamViewType
-    = SVTKeysOnly
-    | SVTNewAndOldImages
-    | SVTNewImage
-    | SVTOldImage
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SVTKeysOnly
+  | SVTNewAndOldImages
+  | SVTNewImage
+  | SVTOldImage
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StreamViewType where
     parser = takeLowerText >>= \case
@@ -429,11 +441,12 @@ instance FromJSON StreamViewType where
     parseJSON = parseJSONText "StreamViewType"
 
 data TableStatus
-    = Active
-    | Creating
-    | Deleting
-    | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Creating
+  | Deleting
+  | Updating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TableStatus where
     parser = takeLowerText >>= \case
@@ -461,11 +474,12 @@ instance FromJSON TableStatus where
     parseJSON = parseJSONText "TableStatus"
 
 data TimeToLiveStatus
-    = Disabled
-    | Disabling
-    | Enabled
-    | Enabling
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disabled
+  | Disabling
+  | Enabled
+  | Enabling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TimeToLiveStatus where
     parser = takeLowerText >>= \case

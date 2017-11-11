@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssignIPv6Addresses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.EC2.AssignIPv6Addresses
     , aiarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'assignIPv6Addresses' smart constructor.
 data AssignIPv6Addresses = AssignIPv6Addresses'
-    { _aiaIPv6AddressCount   :: !(Maybe Int)
-    , _aiaIPv6Addresses      :: !(Maybe [Text])
-    , _aiaNetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiaIPv6AddressCount   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _aiaIPv6Addresses      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _aiaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssignIPv6Addresses' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ assignIPv6Addresses
     :: Text -- ^ 'aiaNetworkInterfaceId'
     -> AssignIPv6Addresses
 assignIPv6Addresses pNetworkInterfaceId_ =
-    AssignIPv6Addresses'
-    { _aiaIPv6AddressCount = Nothing
-    , _aiaIPv6Addresses = Nothing
-    , _aiaNetworkInterfaceId = pNetworkInterfaceId_
-    }
+  AssignIPv6Addresses'
+  { _aiaIPv6AddressCount = Nothing
+  , _aiaIPv6Addresses = Nothing
+  , _aiaNetworkInterfaceId = pNetworkInterfaceId_
+  }
+
 
 -- | The number of IPv6 addresses to assign to the network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
 aiaIPv6AddressCount :: Lens' AssignIPv6Addresses (Maybe Int)
@@ -98,9 +100,9 @@ instance AWSRequest AssignIPv6Addresses where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable AssignIPv6Addresses
+instance Hashable AssignIPv6Addresses where
 
-instance NFData AssignIPv6Addresses
+instance NFData AssignIPv6Addresses where
 
 instance ToHeaders AssignIPv6Addresses where
         toHeaders = const mempty
@@ -120,10 +122,11 @@ instance ToQuery AssignIPv6Addresses where
 
 -- | /See:/ 'assignIPv6AddressesResponse' smart constructor.
 data AssignIPv6AddressesResponse = AssignIPv6AddressesResponse'
-    { _aiarsNetworkInterfaceId    :: !(Maybe Text)
-    , _aiarsAssignedIPv6Addresses :: !(Maybe [Text])
-    , _aiarsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiarsNetworkInterfaceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiarsAssignedIPv6Addresses :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _aiarsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssignIPv6AddressesResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +141,12 @@ assignIPv6AddressesResponse
     :: Int -- ^ 'aiarsResponseStatus'
     -> AssignIPv6AddressesResponse
 assignIPv6AddressesResponse pResponseStatus_ =
-    AssignIPv6AddressesResponse'
-    { _aiarsNetworkInterfaceId = Nothing
-    , _aiarsAssignedIPv6Addresses = Nothing
-    , _aiarsResponseStatus = pResponseStatus_
-    }
+  AssignIPv6AddressesResponse'
+  { _aiarsNetworkInterfaceId = Nothing
+  , _aiarsAssignedIPv6Addresses = Nothing
+  , _aiarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the network interface.
 aiarsNetworkInterfaceId :: Lens' AssignIPv6AddressesResponse (Maybe Text)
@@ -156,4 +160,4 @@ aiarsAssignedIPv6Addresses = lens _aiarsAssignedIPv6Addresses (\ s a -> s{_aiars
 aiarsResponseStatus :: Lens' AssignIPv6AddressesResponse Int
 aiarsResponseStatus = lens _aiarsResponseStatus (\ s a -> s{_aiarsResponseStatus = a});
 
-instance NFData AssignIPv6AddressesResponse
+instance NFData AssignIPv6AddressesResponse where

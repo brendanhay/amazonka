@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateVPCCidrBlock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.EC2.AssociateVPCCidrBlock
     , avcbrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateVPCCidrBlock' smart constructor.
 data AssociateVPCCidrBlock = AssociateVPCCidrBlock'
-    { _avcbAmazonProvidedIPv6CidrBlock :: !(Maybe Bool)
-    , _avcbVPCId                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avcbAmazonProvidedIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _avcbVPCId                       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateVPCCidrBlock' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ associateVPCCidrBlock
     :: Text -- ^ 'avcbVPCId'
     -> AssociateVPCCidrBlock
 associateVPCCidrBlock pVPCId_ =
-    AssociateVPCCidrBlock'
-    { _avcbAmazonProvidedIPv6CidrBlock = Nothing
-    , _avcbVPCId = pVPCId_
-    }
+  AssociateVPCCidrBlock'
+  {_avcbAmazonProvidedIPv6CidrBlock = Nothing, _avcbVPCId = pVPCId_}
+
 
 -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
 avcbAmazonProvidedIPv6CidrBlock :: Lens' AssociateVPCCidrBlock (Maybe Bool)
@@ -88,9 +88,9 @@ instance AWSRequest AssociateVPCCidrBlock where
                      (x .@? "ipv6CidrBlockAssociation")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AssociateVPCCidrBlock
+instance Hashable AssociateVPCCidrBlock where
 
-instance NFData AssociateVPCCidrBlock
+instance NFData AssociateVPCCidrBlock where
 
 instance ToHeaders AssociateVPCCidrBlock where
         toHeaders = const mempty
@@ -109,10 +109,11 @@ instance ToQuery AssociateVPCCidrBlock where
 
 -- | /See:/ 'associateVPCCidrBlockResponse' smart constructor.
 data AssociateVPCCidrBlockResponse = AssociateVPCCidrBlockResponse'
-    { _avcbrsVPCId                    :: !(Maybe Text)
-    , _avcbrsIPv6CidrBlockAssociation :: !(Maybe VPCIPv6CidrBlockAssociation)
-    , _avcbrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avcbrsVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avcbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCIPv6CidrBlockAssociation)
+  , _avcbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateVPCCidrBlockResponse' with the minimum fields required to make a request.
 --
@@ -127,11 +128,12 @@ associateVPCCidrBlockResponse
     :: Int -- ^ 'avcbrsResponseStatus'
     -> AssociateVPCCidrBlockResponse
 associateVPCCidrBlockResponse pResponseStatus_ =
-    AssociateVPCCidrBlockResponse'
-    { _avcbrsVPCId = Nothing
-    , _avcbrsIPv6CidrBlockAssociation = Nothing
-    , _avcbrsResponseStatus = pResponseStatus_
-    }
+  AssociateVPCCidrBlockResponse'
+  { _avcbrsVPCId = Nothing
+  , _avcbrsIPv6CidrBlockAssociation = Nothing
+  , _avcbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the VPC.
 avcbrsVPCId :: Lens' AssociateVPCCidrBlockResponse (Maybe Text)
@@ -145,4 +147,4 @@ avcbrsIPv6CidrBlockAssociation = lens _avcbrsIPv6CidrBlockAssociation (\ s a -> 
 avcbrsResponseStatus :: Lens' AssociateVPCCidrBlockResponse Int
 avcbrsResponseStatus = lens _avcbrsResponseStatus (\ s a -> s{_avcbrsResponseStatus = a});
 
-instance NFData AssociateVPCCidrBlockResponse
+instance NFData AssociateVPCCidrBlockResponse where

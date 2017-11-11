@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateByteMatchSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,18 +53,19 @@ module Network.AWS.WAF.CreateByteMatchSet
     , cbmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'createByteMatchSet' smart constructor.
 data CreateByteMatchSet = CreateByteMatchSet'
-    { _cbmsName        :: !Text
-    , _cbmsChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbmsName        :: {-# NOUNPACK #-}!Text
+  , _cbmsChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateByteMatchSet' with the minimum fields required to make a request.
 --
@@ -78,10 +79,8 @@ createByteMatchSet
     -> Text -- ^ 'cbmsChangeToken'
     -> CreateByteMatchSet
 createByteMatchSet pName_ pChangeToken_ =
-    CreateByteMatchSet'
-    { _cbmsName = pName_
-    , _cbmsChangeToken = pChangeToken_
-    }
+  CreateByteMatchSet' {_cbmsName = pName_, _cbmsChangeToken = pChangeToken_}
+
 
 -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
 cbmsName :: Lens' CreateByteMatchSet Text
@@ -102,9 +101,9 @@ instance AWSRequest CreateByteMatchSet where
                    (x .?> "ByteMatchSet") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateByteMatchSet
+instance Hashable CreateByteMatchSet where
 
-instance NFData CreateByteMatchSet
+instance NFData CreateByteMatchSet where
 
 instance ToHeaders CreateByteMatchSet where
         toHeaders
@@ -130,10 +129,11 @@ instance ToQuery CreateByteMatchSet where
 
 -- | /See:/ 'createByteMatchSetResponse' smart constructor.
 data CreateByteMatchSetResponse = CreateByteMatchSetResponse'
-    { _cbmsrsByteMatchSet   :: !(Maybe ByteMatchSet)
-    , _cbmsrsChangeToken    :: !(Maybe Text)
-    , _cbmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbmsrsByteMatchSet   :: {-# NOUNPACK #-}!(Maybe ByteMatchSet)
+  , _cbmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateByteMatchSetResponse' with the minimum fields required to make a request.
 --
@@ -148,11 +148,12 @@ createByteMatchSetResponse
     :: Int -- ^ 'cbmsrsResponseStatus'
     -> CreateByteMatchSetResponse
 createByteMatchSetResponse pResponseStatus_ =
-    CreateByteMatchSetResponse'
-    { _cbmsrsByteMatchSet = Nothing
-    , _cbmsrsChangeToken = Nothing
-    , _cbmsrsResponseStatus = pResponseStatus_
-    }
+  CreateByteMatchSetResponse'
+  { _cbmsrsByteMatchSet = Nothing
+  , _cbmsrsChangeToken = Nothing
+  , _cbmsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A 'ByteMatchSet' that contains no @ByteMatchTuple@ objects.
 cbmsrsByteMatchSet :: Lens' CreateByteMatchSetResponse (Maybe ByteMatchSet)
@@ -166,4 +167,4 @@ cbmsrsChangeToken = lens _cbmsrsChangeToken (\ s a -> s{_cbmsrsChangeToken = a})
 cbmsrsResponseStatus :: Lens' CreateByteMatchSetResponse Int
 cbmsrsResponseStatus = lens _cbmsrsResponseStatus (\ s a -> s{_cbmsrsResponseStatus = a});
 
-instance NFData CreateByteMatchSetResponse
+instance NFData CreateByteMatchSetResponse where

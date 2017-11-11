@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodeBuild.Types.Product where
 
-import           Network.AWS.CodeBuild.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CodeBuild.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Information about a build.
 --
@@ -27,23 +27,24 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'build' smart constructor.
 data Build = Build'
-    { _bPhases           :: !(Maybe [BuildPhase])
-    , _bBuildComplete    :: !(Maybe Bool)
-    , _bArn              :: !(Maybe Text)
-    , _bStartTime        :: !(Maybe POSIX)
-    , _bArtifacts        :: !(Maybe BuildArtifacts)
-    , _bEnvironment      :: !(Maybe ProjectEnvironment)
-    , _bInitiator        :: !(Maybe Text)
-    , _bCurrentPhase     :: !(Maybe Text)
-    , _bSourceVersion    :: !(Maybe Text)
-    , _bLogs             :: !(Maybe LogsLocation)
-    , _bEndTime          :: !(Maybe POSIX)
-    , _bProjectName      :: !(Maybe Text)
-    , _bBuildStatus      :: !(Maybe StatusType)
-    , _bSource           :: !(Maybe ProjectSource)
-    , _bId               :: !(Maybe Text)
-    , _bTimeoutInMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bPhases           :: {-# NOUNPACK #-}!(Maybe [BuildPhase])
+  , _bBuildComplete    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _bArn              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bArtifacts        :: {-# NOUNPACK #-}!(Maybe BuildArtifacts)
+  , _bEnvironment      :: {-# NOUNPACK #-}!(Maybe ProjectEnvironment)
+  , _bInitiator        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bCurrentPhase     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bSourceVersion    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bLogs             :: {-# NOUNPACK #-}!(Maybe LogsLocation)
+  , _bEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bProjectName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bBuildStatus      :: {-# NOUNPACK #-}!(Maybe StatusType)
+  , _bSource           :: {-# NOUNPACK #-}!(Maybe ProjectSource)
+  , _bId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Build' with the minimum fields required to make a request.
 --
@@ -83,24 +84,25 @@ data Build = Build'
 build
     :: Build
 build =
-    Build'
-    { _bPhases = Nothing
-    , _bBuildComplete = Nothing
-    , _bArn = Nothing
-    , _bStartTime = Nothing
-    , _bArtifacts = Nothing
-    , _bEnvironment = Nothing
-    , _bInitiator = Nothing
-    , _bCurrentPhase = Nothing
-    , _bSourceVersion = Nothing
-    , _bLogs = Nothing
-    , _bEndTime = Nothing
-    , _bProjectName = Nothing
-    , _bBuildStatus = Nothing
-    , _bSource = Nothing
-    , _bId = Nothing
-    , _bTimeoutInMinutes = Nothing
-    }
+  Build'
+  { _bPhases = Nothing
+  , _bBuildComplete = Nothing
+  , _bArn = Nothing
+  , _bStartTime = Nothing
+  , _bArtifacts = Nothing
+  , _bEnvironment = Nothing
+  , _bInitiator = Nothing
+  , _bCurrentPhase = Nothing
+  , _bSourceVersion = Nothing
+  , _bLogs = Nothing
+  , _bEndTime = Nothing
+  , _bProjectName = Nothing
+  , _bBuildStatus = Nothing
+  , _bSource = Nothing
+  , _bId = Nothing
+  , _bTimeoutInMinutes = Nothing
+  }
+
 
 -- | Information about all previous build phases that are completed and information about any current build phase that is not yet complete.
 bPhases :: Lens' Build [BuildPhase]
@@ -188,9 +190,9 @@ instance FromJSON Build where
                      <*> (x .:? "id")
                      <*> (x .:? "timeoutInMinutes"))
 
-instance Hashable Build
+instance Hashable Build where
 
-instance NFData Build
+instance NFData Build where
 
 -- | Information about build output artifacts.
 --
@@ -198,10 +200,11 @@ instance NFData Build
 --
 -- /See:/ 'buildArtifacts' smart constructor.
 data BuildArtifacts = BuildArtifacts'
-    { _baLocation  :: !(Maybe Text)
-    , _baMd5sum    :: !(Maybe Text)
-    , _baSha256sum :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _baLocation  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _baMd5sum    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _baSha256sum :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BuildArtifacts' with the minimum fields required to make a request.
 --
@@ -215,11 +218,9 @@ data BuildArtifacts = BuildArtifacts'
 buildArtifacts
     :: BuildArtifacts
 buildArtifacts =
-    BuildArtifacts'
-    { _baLocation = Nothing
-    , _baMd5sum = Nothing
-    , _baSha256sum = Nothing
-    }
+  BuildArtifacts'
+  {_baLocation = Nothing, _baMd5sum = Nothing, _baSha256sum = Nothing}
+
 
 -- | Information about the location of the build artifacts.
 baLocation :: Lens' BuildArtifacts (Maybe Text)
@@ -241,9 +242,9 @@ instance FromJSON BuildArtifacts where
                    (x .:? "location") <*> (x .:? "md5sum") <*>
                      (x .:? "sha256sum"))
 
-instance Hashable BuildArtifacts
+instance Hashable BuildArtifacts where
 
-instance NFData BuildArtifacts
+instance NFData BuildArtifacts where
 
 -- | Information about a stage for a build.
 --
@@ -251,13 +252,14 @@ instance NFData BuildArtifacts
 --
 -- /See:/ 'buildPhase' smart constructor.
 data BuildPhase = BuildPhase'
-    { _bpContexts          :: !(Maybe [PhaseContext])
-    , _bpStartTime         :: !(Maybe POSIX)
-    , _bpPhaseStatus       :: !(Maybe StatusType)
-    , _bpPhaseType         :: !(Maybe BuildPhaseType)
-    , _bpEndTime           :: !(Maybe POSIX)
-    , _bpDurationInSeconds :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bpContexts          :: {-# NOUNPACK #-}!(Maybe [PhaseContext])
+  , _bpStartTime         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bpPhaseStatus       :: {-# NOUNPACK #-}!(Maybe StatusType)
+  , _bpPhaseType         :: {-# NOUNPACK #-}!(Maybe BuildPhaseType)
+  , _bpEndTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bpDurationInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BuildPhase' with the minimum fields required to make a request.
 --
@@ -277,14 +279,15 @@ data BuildPhase = BuildPhase'
 buildPhase
     :: BuildPhase
 buildPhase =
-    BuildPhase'
-    { _bpContexts = Nothing
-    , _bpStartTime = Nothing
-    , _bpPhaseStatus = Nothing
-    , _bpPhaseType = Nothing
-    , _bpEndTime = Nothing
-    , _bpDurationInSeconds = Nothing
-    }
+  BuildPhase'
+  { _bpContexts = Nothing
+  , _bpStartTime = Nothing
+  , _bpPhaseStatus = Nothing
+  , _bpPhaseType = Nothing
+  , _bpEndTime = Nothing
+  , _bpDurationInSeconds = Nothing
+  }
+
 
 -- | Additional information about a build phase, especially to help troubleshoot a failed build.
 bpContexts :: Lens' BuildPhase [PhaseContext]
@@ -321,9 +324,9 @@ instance FromJSON BuildPhase where
                      <*> (x .:? "endTime")
                      <*> (x .:? "durationInSeconds"))
 
-instance Hashable BuildPhase
+instance Hashable BuildPhase where
 
-instance NFData BuildPhase
+instance NFData BuildPhase where
 
 -- | Information about a Docker image that is managed by AWS CodeBuild.
 --
@@ -331,9 +334,10 @@ instance NFData BuildPhase
 --
 -- /See:/ 'environmentImage' smart constructor.
 data EnvironmentImage = EnvironmentImage'
-    { _eiName        :: !(Maybe Text)
-    , _eiDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eiName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentImage' with the minimum fields required to make a request.
 --
@@ -345,10 +349,8 @@ data EnvironmentImage = EnvironmentImage'
 environmentImage
     :: EnvironmentImage
 environmentImage =
-    EnvironmentImage'
-    { _eiName = Nothing
-    , _eiDescription = Nothing
-    }
+  EnvironmentImage' {_eiName = Nothing, _eiDescription = Nothing}
+
 
 -- | The name of the Docker image.
 eiName :: Lens' EnvironmentImage (Maybe Text)
@@ -365,9 +367,9 @@ instance FromJSON EnvironmentImage where
                  EnvironmentImage' <$>
                    (x .:? "name") <*> (x .:? "description"))
 
-instance Hashable EnvironmentImage
+instance Hashable EnvironmentImage where
 
-instance NFData EnvironmentImage
+instance NFData EnvironmentImage where
 
 -- | A set of Docker images that are related by programming language and are managed by AWS CodeBuild.
 --
@@ -375,9 +377,10 @@ instance NFData EnvironmentImage
 --
 -- /See:/ 'environmentLanguage' smart constructor.
 data EnvironmentLanguage = EnvironmentLanguage'
-    { _elImages   :: !(Maybe [EnvironmentImage])
-    , _elLanguage :: !(Maybe LanguageType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _elImages   :: {-# NOUNPACK #-}!(Maybe [EnvironmentImage])
+  , _elLanguage :: {-# NOUNPACK #-}!(Maybe LanguageType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentLanguage' with the minimum fields required to make a request.
 --
@@ -389,10 +392,8 @@ data EnvironmentLanguage = EnvironmentLanguage'
 environmentLanguage
     :: EnvironmentLanguage
 environmentLanguage =
-    EnvironmentLanguage'
-    { _elImages = Nothing
-    , _elLanguage = Nothing
-    }
+  EnvironmentLanguage' {_elImages = Nothing, _elLanguage = Nothing}
+
 
 -- | The list of Docker images that are related by the specified programming language.
 elImages :: Lens' EnvironmentLanguage [EnvironmentImage]
@@ -409,9 +410,9 @@ instance FromJSON EnvironmentLanguage where
                  EnvironmentLanguage' <$>
                    (x .:? "images" .!= mempty) <*> (x .:? "language"))
 
-instance Hashable EnvironmentLanguage
+instance Hashable EnvironmentLanguage where
 
-instance NFData EnvironmentLanguage
+instance NFData EnvironmentLanguage where
 
 -- | A set of Docker images that are related by platform and are managed by AWS CodeBuild.
 --
@@ -419,9 +420,10 @@ instance NFData EnvironmentLanguage
 --
 -- /See:/ 'environmentPlatform' smart constructor.
 data EnvironmentPlatform = EnvironmentPlatform'
-    { _epPlatform  :: !(Maybe PlatformType)
-    , _epLanguages :: !(Maybe [EnvironmentLanguage])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _epPlatform  :: {-# NOUNPACK #-}!(Maybe PlatformType)
+  , _epLanguages :: {-# NOUNPACK #-}!(Maybe [EnvironmentLanguage])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentPlatform' with the minimum fields required to make a request.
 --
@@ -433,10 +435,8 @@ data EnvironmentPlatform = EnvironmentPlatform'
 environmentPlatform
     :: EnvironmentPlatform
 environmentPlatform =
-    EnvironmentPlatform'
-    { _epPlatform = Nothing
-    , _epLanguages = Nothing
-    }
+  EnvironmentPlatform' {_epPlatform = Nothing, _epLanguages = Nothing}
+
 
 -- | The platform's name.
 epPlatform :: Lens' EnvironmentPlatform (Maybe PlatformType)
@@ -454,9 +454,9 @@ instance FromJSON EnvironmentPlatform where
                    (x .:? "platform") <*>
                      (x .:? "languages" .!= mempty))
 
-instance Hashable EnvironmentPlatform
+instance Hashable EnvironmentPlatform where
 
-instance NFData EnvironmentPlatform
+instance NFData EnvironmentPlatform where
 
 -- | Information about an environment variable for a build project or a build.
 --
@@ -464,9 +464,10 @@ instance NFData EnvironmentPlatform
 --
 -- /See:/ 'environmentVariable' smart constructor.
 data EnvironmentVariable = EnvironmentVariable'
-    { _evName  :: !Text
-    , _evValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evName  :: {-# NOUNPACK #-}!Text
+  , _evValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentVariable' with the minimum fields required to make a request.
 --
@@ -480,10 +481,8 @@ environmentVariable
     -> Text -- ^ 'evValue'
     -> EnvironmentVariable
 environmentVariable pName_ pValue_ =
-    EnvironmentVariable'
-    { _evName = pName_
-    , _evValue = pValue_
-    }
+  EnvironmentVariable' {_evName = pName_, _evValue = pValue_}
+
 
 -- | The name or key of the environment variable.
 evName :: Lens' EnvironmentVariable Text
@@ -500,9 +499,9 @@ instance FromJSON EnvironmentVariable where
                  EnvironmentVariable' <$>
                    (x .: "name") <*> (x .: "value"))
 
-instance Hashable EnvironmentVariable
+instance Hashable EnvironmentVariable where
 
-instance NFData EnvironmentVariable
+instance NFData EnvironmentVariable where
 
 instance ToJSON EnvironmentVariable where
         toJSON EnvironmentVariable'{..}
@@ -517,10 +516,11 @@ instance ToJSON EnvironmentVariable where
 --
 -- /See:/ 'logsLocation' smart constructor.
 data LogsLocation = LogsLocation'
-    { _llDeepLink   :: !(Maybe Text)
-    , _llGroupName  :: !(Maybe Text)
-    , _llStreamName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _llDeepLink   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _llGroupName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _llStreamName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LogsLocation' with the minimum fields required to make a request.
 --
@@ -534,11 +534,9 @@ data LogsLocation = LogsLocation'
 logsLocation
     :: LogsLocation
 logsLocation =
-    LogsLocation'
-    { _llDeepLink = Nothing
-    , _llGroupName = Nothing
-    , _llStreamName = Nothing
-    }
+  LogsLocation'
+  {_llDeepLink = Nothing, _llGroupName = Nothing, _llStreamName = Nothing}
+
 
 -- | The URL to an individual build log in Amazon CloudWatch Logs.
 llDeepLink :: Lens' LogsLocation (Maybe Text)
@@ -560,9 +558,9 @@ instance FromJSON LogsLocation where
                    (x .:? "deepLink") <*> (x .:? "groupName") <*>
                      (x .:? "streamName"))
 
-instance Hashable LogsLocation
+instance Hashable LogsLocation where
 
-instance NFData LogsLocation
+instance NFData LogsLocation where
 
 -- | Additional information about a build phase that has an error. You can use this information to help troubleshoot a failed build.
 --
@@ -570,9 +568,10 @@ instance NFData LogsLocation
 --
 -- /See:/ 'phaseContext' smart constructor.
 data PhaseContext = PhaseContext'
-    { _pcMessage    :: !(Maybe Text)
-    , _pcStatusCode :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcStatusCode :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PhaseContext' with the minimum fields required to make a request.
 --
@@ -583,11 +582,8 @@ data PhaseContext = PhaseContext'
 -- * 'pcStatusCode' - The status code for the context of the build phase.
 phaseContext
     :: PhaseContext
-phaseContext =
-    PhaseContext'
-    { _pcMessage = Nothing
-    , _pcStatusCode = Nothing
-    }
+phaseContext = PhaseContext' {_pcMessage = Nothing, _pcStatusCode = Nothing}
+
 
 -- | An explanation of the build phase's context. This explanation might include a command ID and an exit code.
 pcMessage :: Lens' PhaseContext (Maybe Text)
@@ -604,9 +600,9 @@ instance FromJSON PhaseContext where
                  PhaseContext' <$>
                    (x .:? "message") <*> (x .:? "statusCode"))
 
-instance Hashable PhaseContext
+instance Hashable PhaseContext where
 
-instance NFData PhaseContext
+instance NFData PhaseContext where
 
 -- | Information about a build project.
 --
@@ -614,19 +610,20 @@ instance NFData PhaseContext
 --
 -- /See:/ 'project' smart constructor.
 data Project = Project'
-    { _pArn              :: !(Maybe Text)
-    , _pArtifacts        :: !(Maybe ProjectArtifacts)
-    , _pEnvironment      :: !(Maybe ProjectEnvironment)
-    , _pCreated          :: !(Maybe POSIX)
-    , _pName             :: !(Maybe Text)
-    , _pSource           :: !(Maybe ProjectSource)
-    , _pEncryptionKey    :: !(Maybe Text)
-    , _pLastModified     :: !(Maybe POSIX)
-    , _pDescription      :: !(Maybe Text)
-    , _pServiceRole      :: !(Maybe Text)
-    , _pTags             :: !(Maybe [Tag])
-    , _pTimeoutInMinutes :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pArn              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pArtifacts        :: {-# NOUNPACK #-}!(Maybe ProjectArtifacts)
+  , _pEnvironment      :: {-# NOUNPACK #-}!(Maybe ProjectEnvironment)
+  , _pCreated          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pSource           :: {-# NOUNPACK #-}!(Maybe ProjectSource)
+  , _pEncryptionKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pLastModified     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pServiceRole      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _pTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Project' with the minimum fields required to make a request.
 --
@@ -658,20 +655,21 @@ data Project = Project'
 project
     :: Project
 project =
-    Project'
-    { _pArn = Nothing
-    , _pArtifacts = Nothing
-    , _pEnvironment = Nothing
-    , _pCreated = Nothing
-    , _pName = Nothing
-    , _pSource = Nothing
-    , _pEncryptionKey = Nothing
-    , _pLastModified = Nothing
-    , _pDescription = Nothing
-    , _pServiceRole = Nothing
-    , _pTags = Nothing
-    , _pTimeoutInMinutes = Nothing
-    }
+  Project'
+  { _pArn = Nothing
+  , _pArtifacts = Nothing
+  , _pEnvironment = Nothing
+  , _pCreated = Nothing
+  , _pName = Nothing
+  , _pSource = Nothing
+  , _pEncryptionKey = Nothing
+  , _pLastModified = Nothing
+  , _pDescription = Nothing
+  , _pServiceRole = Nothing
+  , _pTags = Nothing
+  , _pTimeoutInMinutes = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the build project.
 pArn :: Lens' Project (Maybe Text)
@@ -738,9 +736,9 @@ instance FromJSON Project where
                      <*> (x .:? "tags" .!= mempty)
                      <*> (x .:? "timeoutInMinutes"))
 
-instance Hashable Project
+instance Hashable Project where
 
-instance NFData Project
+instance NFData Project where
 
 -- | Information about the build output artifacts for the build project.
 --
@@ -748,13 +746,14 @@ instance NFData Project
 --
 -- /See:/ 'projectArtifacts' smart constructor.
 data ProjectArtifacts = ProjectArtifacts'
-    { _paPackaging     :: !(Maybe ArtifactPackaging)
-    , _paPath          :: !(Maybe Text)
-    , _paLocation      :: !(Maybe Text)
-    , _paName          :: !(Maybe Text)
-    , _paNamespaceType :: !(Maybe ArtifactNamespace)
-    , _paType          :: !ArtifactsType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _paPackaging     :: {-# NOUNPACK #-}!(Maybe ArtifactPackaging)
+  , _paPath          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paLocation      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paNamespaceType :: {-# NOUNPACK #-}!(Maybe ArtifactNamespace)
+  , _paType          :: {-# NOUNPACK #-}!ArtifactsType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProjectArtifacts' with the minimum fields required to make a request.
 --
@@ -775,14 +774,15 @@ projectArtifacts
     :: ArtifactsType -- ^ 'paType'
     -> ProjectArtifacts
 projectArtifacts pType_ =
-    ProjectArtifacts'
-    { _paPackaging = Nothing
-    , _paPath = Nothing
-    , _paLocation = Nothing
-    , _paName = Nothing
-    , _paNamespaceType = Nothing
-    , _paType = pType_
-    }
+  ProjectArtifacts'
+  { _paPackaging = Nothing
+  , _paPath = Nothing
+  , _paLocation = Nothing
+  , _paName = Nothing
+  , _paNamespaceType = Nothing
+  , _paType = pType_
+  }
+
 
 -- | The type of build output artifact to create, as follows:     * If @type@ is set to @CODEPIPELINE@ , then AWS CodePipeline will ignore this value if specified. This is because AWS CodePipeline manages its build output artifacts instead of AWS CodeBuild.     * If @type@ is set to @NO_ARTIFACTS@ , then this value will be ignored if specified, because no build output will be produced.     * If @type@ is set to @S3@ , valid values include:     * @NONE@ : AWS CodeBuild will create in the output bucket a folder containing the build output. This is the default if @packaging@ is not specified.     * @ZIP@ : AWS CodeBuild will create in the output bucket a ZIP file containing the build output.
 paPackaging :: Lens' ProjectArtifacts (Maybe ArtifactPackaging)
@@ -819,9 +819,9 @@ instance FromJSON ProjectArtifacts where
                      <*> (x .:? "namespaceType")
                      <*> (x .: "type"))
 
-instance Hashable ProjectArtifacts
+instance Hashable ProjectArtifacts where
 
-instance NFData ProjectArtifacts
+instance NFData ProjectArtifacts where
 
 instance ToJSON ProjectArtifacts where
         toJSON ProjectArtifacts'{..}
@@ -840,12 +840,13 @@ instance ToJSON ProjectArtifacts where
 --
 -- /See:/ 'projectEnvironment' smart constructor.
 data ProjectEnvironment = ProjectEnvironment'
-    { _pePrivilegedMode       :: !(Maybe Bool)
-    , _peEnvironmentVariables :: !(Maybe [EnvironmentVariable])
-    , _peType                 :: !EnvironmentType
-    , _peImage                :: !Text
-    , _peComputeType          :: !ComputeType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pePrivilegedMode       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _peEnvironmentVariables :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
+  , _peType                 :: {-# NOUNPACK #-}!EnvironmentType
+  , _peImage                :: {-# NOUNPACK #-}!Text
+  , _peComputeType          :: {-# NOUNPACK #-}!ComputeType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProjectEnvironment' with the minimum fields required to make a request.
 --
@@ -866,13 +867,14 @@ projectEnvironment
     -> ComputeType -- ^ 'peComputeType'
     -> ProjectEnvironment
 projectEnvironment pType_ pImage_ pComputeType_ =
-    ProjectEnvironment'
-    { _pePrivilegedMode = Nothing
-    , _peEnvironmentVariables = Nothing
-    , _peType = pType_
-    , _peImage = pImage_
-    , _peComputeType = pComputeType_
-    }
+  ProjectEnvironment'
+  { _pePrivilegedMode = Nothing
+  , _peEnvironmentVariables = Nothing
+  , _peType = pType_
+  , _peImage = pImage_
+  , _peComputeType = pComputeType_
+  }
+
 
 -- | If set to true, enables running the Docker daemon inside a Docker container; otherwise, false or not specified (the default). This value must be set to true only if this build project will be used to build Docker images, and the specified build environment image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that your builds can interact with it as needed. One way to do this is to initialize the Docker daemon in the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.) @- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=vfs& - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"@
 pePrivilegedMode :: Lens' ProjectEnvironment (Maybe Bool)
@@ -905,9 +907,9 @@ instance FromJSON ProjectEnvironment where
                      <*> (x .: "image")
                      <*> (x .: "computeType"))
 
-instance Hashable ProjectEnvironment
+instance Hashable ProjectEnvironment where
 
-instance NFData ProjectEnvironment
+instance NFData ProjectEnvironment where
 
 instance ToJSON ProjectEnvironment where
         toJSON ProjectEnvironment'{..}
@@ -925,11 +927,12 @@ instance ToJSON ProjectEnvironment where
 --
 -- /See:/ 'projectSource' smart constructor.
 data ProjectSource = ProjectSource'
-    { _psLocation  :: !(Maybe Text)
-    , _psAuth      :: !(Maybe SourceAuth)
-    , _psBuildspec :: !(Maybe Text)
-    , _psType      :: !SourceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psLocation  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psAuth      :: {-# NOUNPACK #-}!(Maybe SourceAuth)
+  , _psBuildspec :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psType      :: {-# NOUNPACK #-}!SourceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProjectSource' with the minimum fields required to make a request.
 --
@@ -946,12 +949,13 @@ projectSource
     :: SourceType -- ^ 'psType'
     -> ProjectSource
 projectSource pType_ =
-    ProjectSource'
-    { _psLocation = Nothing
-    , _psAuth = Nothing
-    , _psBuildspec = Nothing
-    , _psType = pType_
-    }
+  ProjectSource'
+  { _psLocation = Nothing
+  , _psAuth = Nothing
+  , _psBuildspec = Nothing
+  , _psType = pType_
+  }
+
 
 -- | Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub __Authorize application__ page that displays, for __Organization access__ , choose __Request access__ next to each repository you want to allow AWS CodeBuild to have access to. Then choose __Authorize application__ . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
 psLocation :: Lens' ProjectSource (Maybe Text)
@@ -978,9 +982,9 @@ instance FromJSON ProjectSource where
                      (x .:? "buildspec")
                      <*> (x .: "type"))
 
-instance Hashable ProjectSource
+instance Hashable ProjectSource where
 
-instance NFData ProjectSource
+instance NFData ProjectSource where
 
 instance ToJSON ProjectSource where
         toJSON ProjectSource'{..}
@@ -999,9 +1003,10 @@ instance ToJSON ProjectSource where
 --
 -- /See:/ 'sourceAuth' smart constructor.
 data SourceAuth = SourceAuth'
-    { _saResource :: !(Maybe Text)
-    , _saType     :: !SourceAuthType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saResource :: {-# NOUNPACK #-}!(Maybe Text)
+  , _saType     :: {-# NOUNPACK #-}!SourceAuthType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SourceAuth' with the minimum fields required to make a request.
 --
@@ -1013,11 +1018,8 @@ data SourceAuth = SourceAuth'
 sourceAuth
     :: SourceAuthType -- ^ 'saType'
     -> SourceAuth
-sourceAuth pType_ =
-    SourceAuth'
-    { _saResource = Nothing
-    , _saType = pType_
-    }
+sourceAuth pType_ = SourceAuth' {_saResource = Nothing, _saType = pType_}
+
 
 -- | The resource value that applies to the specified authorization type.
 saResource :: Lens' SourceAuth (Maybe Text)
@@ -1033,9 +1035,9 @@ instance FromJSON SourceAuth where
               (\ x ->
                  SourceAuth' <$> (x .:? "resource") <*> (x .: "type"))
 
-instance Hashable SourceAuth
+instance Hashable SourceAuth where
 
-instance NFData SourceAuth
+instance NFData SourceAuth where
 
 instance ToJSON SourceAuth where
         toJSON SourceAuth'{..}
@@ -1052,9 +1054,10 @@ instance ToJSON SourceAuth where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -1065,11 +1068,8 @@ data Tag = Tag'
 -- * 'tagKey' - The tag's key.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The tag's value.
 tagValue :: Lens' Tag (Maybe Text)
@@ -1084,9 +1084,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "value") <*> (x .:? "key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

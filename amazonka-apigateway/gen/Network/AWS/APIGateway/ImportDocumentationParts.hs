@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.ImportDocumentationParts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.APIGateway.ImportDocumentationParts
     , idprsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Import documentation parts from an external (e.g., Swagger) definition file.
 --
@@ -52,11 +52,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'importDocumentationParts' smart constructor.
 data ImportDocumentationParts = ImportDocumentationParts'
-    { _idpMode           :: !(Maybe PutMode)
-    , _idpFailOnWarnings :: !(Maybe Bool)
-    , _idpRestAPIId      :: !Text
-    , _idpBody           :: !(HashMap Text Value)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _idpMode           :: {-# NOUNPACK #-}!(Maybe PutMode)
+  , _idpFailOnWarnings :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _idpRestAPIId      :: {-# NOUNPACK #-}!Text
+  , _idpBody           :: {-# NOUNPACK #-}!(HashMap Text Value)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportDocumentationParts' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ importDocumentationParts
     -> HashMap Text Value -- ^ 'idpBody'
     -> ImportDocumentationParts
 importDocumentationParts pRestAPIId_ pBody_ =
-    ImportDocumentationParts'
-    { _idpMode = Nothing
-    , _idpFailOnWarnings = Nothing
-    , _idpRestAPIId = pRestAPIId_
-    , _idpBody = pBody_
-    }
+  ImportDocumentationParts'
+  { _idpMode = Nothing
+  , _idpFailOnWarnings = Nothing
+  , _idpRestAPIId = pRestAPIId_
+  , _idpBody = pBody_
+  }
+
 
 -- | A query parameter to indicate whether to overwrite (@OVERWRITE@ ) any existing 'DocumentationParts' definition or to merge (@MERGE@ ) the new definition into the existing one. The default value is @MERGE@ .
 idpMode :: Lens' ImportDocumentationParts (Maybe PutMode)
@@ -109,9 +111,9 @@ instance AWSRequest ImportDocumentationParts where
                      (x .?> "warnings" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ImportDocumentationParts
+instance Hashable ImportDocumentationParts where
 
-instance NFData ImportDocumentationParts
+instance NFData ImportDocumentationParts where
 
 instance ToBody ImportDocumentationParts where
         toBody = toBody . _idpBody
@@ -141,10 +143,11 @@ instance ToQuery ImportDocumentationParts where
 --
 -- /See:/ 'importDocumentationPartsResponse' smart constructor.
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
-    { _idprsIds            :: !(Maybe [Text])
-    , _idprsWarnings       :: !(Maybe [Text])
-    , _idprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _idprsIds            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _idprsWarnings       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _idprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportDocumentationPartsResponse' with the minimum fields required to make a request.
 --
@@ -159,11 +162,12 @@ importDocumentationPartsResponse
     :: Int -- ^ 'idprsResponseStatus'
     -> ImportDocumentationPartsResponse
 importDocumentationPartsResponse pResponseStatus_ =
-    ImportDocumentationPartsResponse'
-    { _idprsIds = Nothing
-    , _idprsWarnings = Nothing
-    , _idprsResponseStatus = pResponseStatus_
-    }
+  ImportDocumentationPartsResponse'
+  { _idprsIds = Nothing
+  , _idprsWarnings = Nothing
+  , _idprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the returned documentation part identifiers.
 idprsIds :: Lens' ImportDocumentationPartsResponse [Text]
@@ -178,3 +182,4 @@ idprsResponseStatus :: Lens' ImportDocumentationPartsResponse Int
 idprsResponseStatus = lens _idprsResponseStatus (\ s a -> s{_idprsResponseStatus = a});
 
 instance NFData ImportDocumentationPartsResponse
+         where

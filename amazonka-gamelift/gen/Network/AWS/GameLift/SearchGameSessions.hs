@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.SearchGameSessions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -87,12 +87,12 @@ module Network.AWS.GameLift.SearchGameSessions
     , sgsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -100,13 +100,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'searchGameSessions' smart constructor.
 data SearchGameSessions = SearchGameSessions'
-    { _sgsFilterExpression :: !(Maybe Text)
-    , _sgsSortExpression   :: !(Maybe Text)
-    , _sgsAliasId          :: !(Maybe Text)
-    , _sgsNextToken        :: !(Maybe Text)
-    , _sgsLimit            :: !(Maybe Nat)
-    , _sgsFleetId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgsFilterExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgsSortExpression   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgsAliasId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgsLimit            :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sgsFleetId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchGameSessions' with the minimum fields required to make a request.
 --
@@ -126,14 +127,15 @@ data SearchGameSessions = SearchGameSessions'
 searchGameSessions
     :: SearchGameSessions
 searchGameSessions =
-    SearchGameSessions'
-    { _sgsFilterExpression = Nothing
-    , _sgsSortExpression = Nothing
-    , _sgsAliasId = Nothing
-    , _sgsNextToken = Nothing
-    , _sgsLimit = Nothing
-    , _sgsFleetId = Nothing
-    }
+  SearchGameSessions'
+  { _sgsFilterExpression = Nothing
+  , _sgsSortExpression = Nothing
+  , _sgsAliasId = Nothing
+  , _sgsNextToken = Nothing
+  , _sgsLimit = Nothing
+  , _sgsFleetId = Nothing
+  }
+
 
 -- | String containing the search criteria for the session search. If no filter expression is included, the request returns results for all game sessions in the fleet that are in @ACTIVE@ status. A filter expression can contain one or multiple conditions. Each condition consists of the following:     * __Operand__ -- Name of a game session attribute. Valid values are @gameSessionName@ , @gameSessionId@ , @creationTimeMillis@ , @playerSessionCount@ , @maximumSessions@ , @hasAvailablePlayerSessions@ .     * __Comparator__ -- Valid comparators are: @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@ .      * __Value__ -- Value to be searched for. Values can be numbers, boolean values (true/false) or strings. String values are case sensitive, enclosed in single quotes. Special characters must be escaped. Boolean and string values can only be used with the comparators @=@ and @<>@ . For example, the following filter expression searches on @gameSessionName@ : "@FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game 1'"@ .  To chain multiple conditions in a single expression, use the logical keywords @AND@ , @OR@ , and @NOT@ and parentheses as needed. For example: @x AND y AND NOT z@ , @NOT (x OR y)@ . Session search evaluates conditions from left to right using the following precedence rules:     * @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@      * Parentheses     * NOT     * AND     * OR For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: @"maximumSessions>=10 AND hasAvailablePlayerSessions=true"@ .
 sgsFilterExpression :: Lens' SearchGameSessions (Maybe Text)
@@ -171,9 +173,9 @@ instance AWSRequest SearchGameSessions where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable SearchGameSessions
+instance Hashable SearchGameSessions where
 
-instance NFData SearchGameSessions
+instance NFData SearchGameSessions where
 
 instance ToHeaders SearchGameSessions where
         toHeaders
@@ -207,10 +209,11 @@ instance ToQuery SearchGameSessions where
 --
 -- /See:/ 'searchGameSessionsResponse' smart constructor.
 data SearchGameSessionsResponse = SearchGameSessionsResponse'
-    { _sgsrsGameSessions   :: !(Maybe [GameSession])
-    , _sgsrsNextToken      :: !(Maybe Text)
-    , _sgsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgsrsGameSessions   :: {-# NOUNPACK #-}!(Maybe [GameSession])
+  , _sgsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchGameSessionsResponse' with the minimum fields required to make a request.
 --
@@ -225,11 +228,12 @@ searchGameSessionsResponse
     :: Int -- ^ 'sgsrsResponseStatus'
     -> SearchGameSessionsResponse
 searchGameSessionsResponse pResponseStatus_ =
-    SearchGameSessionsResponse'
-    { _sgsrsGameSessions = Nothing
-    , _sgsrsNextToken = Nothing
-    , _sgsrsResponseStatus = pResponseStatus_
-    }
+  SearchGameSessionsResponse'
+  { _sgsrsGameSessions = Nothing
+  , _sgsrsNextToken = Nothing
+  , _sgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Collection of objects containing game session properties for each session matching the request.
 sgsrsGameSessions :: Lens' SearchGameSessionsResponse [GameSession]
@@ -243,4 +247,4 @@ sgsrsNextToken = lens _sgsrsNextToken (\ s a -> s{_sgsrsNextToken = a});
 sgsrsResponseStatus :: Lens' SearchGameSessionsResponse Int
 sgsrsResponseStatus = lens _sgsrsResponseStatus (\ s a -> s{_sgsrsResponseStatus = a});
 
-instance NFData SearchGameSessionsResponse
+instance NFData SearchGameSessionsResponse where

@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodeDeploy.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ApplicationRevisionSortBy
-    = FirstUsedTime
-    | LastUsedTime
-    | RegisterTime
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FirstUsedTime
+  | LastUsedTime
+  | RegisterTime
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ApplicationRevisionSortBy where
     parser = takeLowerText >>= \case
@@ -49,10 +50,11 @@ instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
 
 data AutoRollbackEvent
-    = AREDeploymentFailure
-    | AREDeploymentStopOnAlarm
-    | AREDeploymentStopOnRequest
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AREDeploymentFailure
+  | AREDeploymentStopOnAlarm
+  | AREDeploymentStopOnRequest
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AutoRollbackEvent where
     parser = takeLowerText >>= \case
@@ -81,10 +83,11 @@ instance FromJSON AutoRollbackEvent where
     parseJSON = parseJSONText "AutoRollbackEvent"
 
 data BundleType
-    = TAR
-    | TGZ
-    | Zip
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TAR
+  | TGZ
+  | Zip
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BundleType where
     parser = takeLowerText >>= \case
@@ -113,25 +116,26 @@ instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
 
 data DeployErrorCode
-    = AgentIssue
-    | AlarmActive
-    | ApplicationMissing
-    | AutoScalingConfiguration
-    | AutoScalingIAMRolePermissions
-    | DeploymentGroupMissing
-    | HealthConstraints
-    | HealthConstraintsInvalid
-    | IAMRoleMissing
-    | IAMRolePermissions
-    | InternalError
-    | ManualStop
-    | NoEC2Subscription
-    | NoInstances
-    | OverMaxInstances
-    | RevisionMissing
-    | Throttled
-    | Timeout
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AgentIssue
+  | AlarmActive
+  | ApplicationMissing
+  | AutoScalingConfiguration
+  | AutoScalingIAMRolePermissions
+  | DeploymentGroupMissing
+  | HealthConstraints
+  | HealthConstraintsInvalid
+  | IAMRoleMissing
+  | IAMRolePermissions
+  | InternalError
+  | ManualStop
+  | NoEC2Subscription
+  | NoInstances
+  | OverMaxInstances
+  | RevisionMissing
+  | Throttled
+  | Timeout
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeployErrorCode where
     parser = takeLowerText >>= \case
@@ -187,10 +191,11 @@ instance FromJSON DeployErrorCode where
     parseJSON = parseJSONText "DeployErrorCode"
 
 data DeploymentCreator
-    = Autoscaling
-    | CodeDeployRollback
-    | User
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Autoscaling
+  | CodeDeployRollback
+  | User
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeploymentCreator where
     parser = takeLowerText >>= \case
@@ -216,9 +221,10 @@ instance FromJSON DeploymentCreator where
     parseJSON = parseJSONText "DeploymentCreator"
 
 data DeploymentOption
-    = WithTrafficControl
-    | WithoutTrafficControl
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = WithTrafficControl
+  | WithoutTrafficControl
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeploymentOption where
     parser = takeLowerText >>= \case
@@ -245,9 +251,10 @@ instance FromJSON DeploymentOption where
     parseJSON = parseJSONText "DeploymentOption"
 
 data DeploymentReadyAction
-    = ContinueDeployment
-    | StopDeployment
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ContinueDeployment
+  | StopDeployment
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeploymentReadyAction where
     parser = takeLowerText >>= \case
@@ -274,14 +281,15 @@ instance FromJSON DeploymentReadyAction where
     parseJSON = parseJSONText "DeploymentReadyAction"
 
 data DeploymentStatus
-    = Created
-    | Failed
-    | InProgress
-    | Queued
-    | Ready
-    | Stopped
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Created
+  | Failed
+  | InProgress
+  | Queued
+  | Ready
+  | Stopped
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeploymentStatus where
     parser = takeLowerText >>= \case
@@ -318,9 +326,10 @@ instance FromJSON DeploymentStatus where
     parseJSON = parseJSONText "DeploymentStatus"
 
 data DeploymentType
-    = BlueGreen
-    | InPlace
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BlueGreen
+  | InPlace
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeploymentType where
     parser = takeLowerText >>= \case
@@ -347,10 +356,11 @@ instance FromJSON DeploymentType where
     parseJSON = parseJSONText "DeploymentType"
 
 data EC2TagFilterType
-    = KeyAndValue
-    | KeyOnly
-    | ValueOnly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = KeyAndValue
+  | KeyOnly
+  | ValueOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EC2TagFilterType where
     parser = takeLowerText >>= \case
@@ -379,10 +389,11 @@ instance FromJSON EC2TagFilterType where
     parseJSON = parseJSONText "EC2TagFilterType"
 
 data FileExistsBehavior
-    = Disallow
-    | Overwrite
-    | Retain
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disallow
+  | Overwrite
+  | Retain
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FileExistsBehavior where
     parser = takeLowerText >>= \case
@@ -411,9 +422,10 @@ instance FromJSON FileExistsBehavior where
     parseJSON = parseJSONText "FileExistsBehavior"
 
 data GreenFleetProvisioningAction
-    = CopyAutoScalingGroup
-    | DiscoverExisting
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CopyAutoScalingGroup
+  | DiscoverExisting
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText GreenFleetProvisioningAction where
     parser = takeLowerText >>= \case
@@ -440,9 +452,10 @@ instance FromJSON GreenFleetProvisioningAction where
     parseJSON = parseJSONText "GreenFleetProvisioningAction"
 
 data InstanceAction
-    = KeepAlive
-    | Terminate
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = KeepAlive
+  | Terminate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceAction where
     parser = takeLowerText >>= \case
@@ -469,14 +482,15 @@ instance FromJSON InstanceAction where
     parseJSON = parseJSONText "InstanceAction"
 
 data InstanceStatus
-    = ISFailed
-    | ISInProgress
-    | ISPending
-    | ISReady
-    | ISSkipped
-    | ISSucceeded
-    | ISUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISFailed
+  | ISInProgress
+  | ISPending
+  | ISReady
+  | ISSkipped
+  | ISSucceeded
+  | ISUnknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceStatus where
     parser = takeLowerText >>= \case
@@ -513,9 +527,10 @@ instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
 
 data InstanceType
-    = Blue
-    | Green
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Blue
+  | Green
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceType where
     parser = takeLowerText >>= \case
@@ -542,13 +557,14 @@ instance FromJSON InstanceType where
     parseJSON = parseJSONText "InstanceType"
 
 data LifecycleErrorCode
-    = ScriptFailed
-    | ScriptMissing
-    | ScriptNotExecutable
-    | ScriptTimedOut
-    | Success
-    | UnknownError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ScriptFailed
+  | ScriptMissing
+  | ScriptNotExecutable
+  | ScriptTimedOut
+  | Success
+  | UnknownError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LifecycleErrorCode where
     parser = takeLowerText >>= \case
@@ -580,13 +596,14 @@ instance FromJSON LifecycleErrorCode where
     parseJSON = parseJSONText "LifecycleErrorCode"
 
 data LifecycleEventStatus
-    = LESFailed
-    | LESInProgress
-    | LESPending
-    | LESSkipped
-    | LESSucceeded
-    | LESUnknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LESFailed
+  | LESInProgress
+  | LESPending
+  | LESSkipped
+  | LESSucceeded
+  | LESUnknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LifecycleEventStatus where
     parser = takeLowerText >>= \case
@@ -618,10 +635,11 @@ instance FromJSON LifecycleEventStatus where
     parseJSON = parseJSONText "LifecycleEventStatus"
 
 data ListStateFilterAction
-    = Exclude
-    | Ignore
-    | Include
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Exclude
+  | Ignore
+  | Include
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ListStateFilterAction where
     parser = takeLowerText >>= \case
@@ -647,9 +665,10 @@ instance ToJSON ListStateFilterAction where
     toJSON = toJSONText
 
 data MinimumHealthyHostsType
-    = FleetPercent
-    | HostCount
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FleetPercent
+  | HostCount
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MinimumHealthyHostsType where
     parser = takeLowerText >>= \case
@@ -676,9 +695,10 @@ instance FromJSON MinimumHealthyHostsType where
     parseJSON = parseJSONText "MinimumHealthyHostsType"
 
 data RegistrationStatus
-    = Deregistered
-    | Registered
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Deregistered
+  | Registered
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RegistrationStatus where
     parser = takeLowerText >>= \case
@@ -702,9 +722,10 @@ instance ToJSON RegistrationStatus where
     toJSON = toJSONText
 
 data RevisionLocationType
-    = GitHub
-    | S3
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GitHub
+  | S3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RevisionLocationType where
     parser = takeLowerText >>= \case
@@ -731,9 +752,10 @@ instance FromJSON RevisionLocationType where
     parseJSON = parseJSONText "RevisionLocationType"
 
 data SortOrder
-    = Ascending
-    | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Ascending
+  | Descending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -757,9 +779,10 @@ instance ToJSON SortOrder where
     toJSON = toJSONText
 
 data StopStatus
-    = SSPending
-    | SSSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSPending
+  | SSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StopStatus where
     parser = takeLowerText >>= \case
@@ -783,10 +806,11 @@ instance FromJSON StopStatus where
     parseJSON = parseJSONText "StopStatus"
 
 data TagFilterType
-    = TFTKeyAndValue
-    | TFTKeyOnly
-    | TFTValueOnly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TFTKeyAndValue
+  | TFTKeyOnly
+  | TFTValueOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TagFilterType where
     parser = takeLowerText >>= \case
@@ -815,17 +839,18 @@ instance FromJSON TagFilterType where
     parseJSON = parseJSONText "TagFilterType"
 
 data TriggerEventType
-    = DeploymentFailure
-    | DeploymentReady
-    | DeploymentRollback
-    | DeploymentStart
-    | DeploymentStop
-    | DeploymentSuccess
-    | InstanceFailure
-    | InstanceReady
-    | InstanceStart
-    | InstanceSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DeploymentFailure
+  | DeploymentReady
+  | DeploymentRollback
+  | DeploymentStart
+  | DeploymentStop
+  | DeploymentSuccess
+  | InstanceFailure
+  | InstanceReady
+  | InstanceStart
+  | InstanceSuccess
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TriggerEventType where
     parser = takeLowerText >>= \case

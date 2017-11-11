@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeStep
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EMR.DescribeStep
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which step to describe.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeStep' smart constructor.
 data DescribeStep = DescribeStep'
-    { _dsClusterId :: !Text
-    , _dsStepId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsClusterId :: {-# NOUNPACK #-}!Text
+  , _dsStepId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStep' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ describeStep
     -> Text -- ^ 'dsStepId'
     -> DescribeStep
 describeStep pClusterId_ pStepId_ =
-    DescribeStep'
-    { _dsClusterId = pClusterId_
-    , _dsStepId = pStepId_
-    }
+  DescribeStep' {_dsClusterId = pClusterId_, _dsStepId = pStepId_}
+
 
 -- | The identifier of the cluster with steps to describe.
 dsClusterId :: Lens' DescribeStep Text
@@ -89,9 +88,9 @@ instance AWSRequest DescribeStep where
                  DescribeStepResponse' <$>
                    (x .?> "Step") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeStep
+instance Hashable DescribeStep where
 
-instance NFData DescribeStep
+instance NFData DescribeStep where
 
 instance ToHeaders DescribeStep where
         toHeaders
@@ -121,9 +120,10 @@ instance ToQuery DescribeStep where
 --
 -- /See:/ 'describeStepResponse' smart constructor.
 data DescribeStepResponse = DescribeStepResponse'
-    { _dsrsStep           :: !(Maybe Step)
-    , _dsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsStep           :: {-# NOUNPACK #-}!(Maybe Step)
+  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStepResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +136,9 @@ describeStepResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStepResponse
 describeStepResponse pResponseStatus_ =
-    DescribeStepResponse'
-    { _dsrsStep = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DescribeStepResponse'
+  {_dsrsStep = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | The step details for the requested step identifier.
 dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
@@ -149,4 +148,4 @@ dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
 dsrsResponseStatus :: Lens' DescribeStepResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DescribeStepResponse
+instance NFData DescribeStepResponse where

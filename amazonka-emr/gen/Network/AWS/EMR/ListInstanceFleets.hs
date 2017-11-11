@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstanceFleets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.EMR.ListInstanceFleets
     , lifrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listInstanceFleets' smart constructor.
 data ListInstanceFleets = ListInstanceFleets'
-    { _lifMarker    :: !(Maybe Text)
-    , _lifClusterId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lifMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lifClusterId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceFleets' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ listInstanceFleets
     :: Text -- ^ 'lifClusterId'
     -> ListInstanceFleets
 listInstanceFleets pClusterId_ =
-    ListInstanceFleets'
-    { _lifMarker = Nothing
-    , _lifClusterId = pClusterId_
-    }
+  ListInstanceFleets' {_lifMarker = Nothing, _lifClusterId = pClusterId_}
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lifMarker :: Lens' ListInstanceFleets (Maybe Text)
@@ -98,9 +97,9 @@ instance AWSRequest ListInstanceFleets where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListInstanceFleets
+instance Hashable ListInstanceFleets where
 
-instance NFData ListInstanceFleets
+instance NFData ListInstanceFleets where
 
 instance ToHeaders ListInstanceFleets where
         toHeaders
@@ -127,10 +126,11 @@ instance ToQuery ListInstanceFleets where
 
 -- | /See:/ 'listInstanceFleetsResponse' smart constructor.
 data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
-    { _lifrsInstanceFleets :: !(Maybe [InstanceFleet])
-    , _lifrsMarker         :: !(Maybe Text)
-    , _lifrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lifrsInstanceFleets :: {-# NOUNPACK #-}!(Maybe [InstanceFleet])
+  , _lifrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lifrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceFleetsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ listInstanceFleetsResponse
     :: Int -- ^ 'lifrsResponseStatus'
     -> ListInstanceFleetsResponse
 listInstanceFleetsResponse pResponseStatus_ =
-    ListInstanceFleetsResponse'
-    { _lifrsInstanceFleets = Nothing
-    , _lifrsMarker = Nothing
-    , _lifrsResponseStatus = pResponseStatus_
-    }
+  ListInstanceFleetsResponse'
+  { _lifrsInstanceFleets = Nothing
+  , _lifrsMarker = Nothing
+  , _lifrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of instance fleets for the cluster and given filters.
 lifrsInstanceFleets :: Lens' ListInstanceFleetsResponse [InstanceFleet]
@@ -163,4 +164,4 @@ lifrsMarker = lens _lifrsMarker (\ s a -> s{_lifrsMarker = a});
 lifrsResponseStatus :: Lens' ListInstanceFleetsResponse Int
 lifrsResponseStatus = lens _lifrsResponseStatus (\ s a -> s{_lifrsResponseStatus = a});
 
-instance NFData ListInstanceFleetsResponse
+instance NFData ListInstanceFleetsResponse where

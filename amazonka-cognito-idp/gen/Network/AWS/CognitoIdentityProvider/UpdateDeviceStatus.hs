@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
     , udsrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to update the device status.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateDeviceStatus' smart constructor.
 data UpdateDeviceStatus = UpdateDeviceStatus'
-    { _udsDeviceRememberedStatus :: !(Maybe DeviceRememberedStatusType)
-    , _udsAccessToken            :: !(Sensitive Text)
-    , _udsDeviceKey              :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _udsDeviceRememberedStatus :: {-# NOUNPACK #-}!(Maybe DeviceRememberedStatusType)
+  , _udsAccessToken :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _udsDeviceKey :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDeviceStatus' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ updateDeviceStatus
     -> Text -- ^ 'udsDeviceKey'
     -> UpdateDeviceStatus
 updateDeviceStatus pAccessToken_ pDeviceKey_ =
-    UpdateDeviceStatus'
-    { _udsDeviceRememberedStatus = Nothing
-    , _udsAccessToken = _Sensitive # pAccessToken_
-    , _udsDeviceKey = pDeviceKey_
-    }
+  UpdateDeviceStatus'
+  { _udsDeviceRememberedStatus = Nothing
+  , _udsAccessToken = _Sensitive # pAccessToken_
+  , _udsDeviceKey = pDeviceKey_
+  }
+
 
 -- | The status of whether a device is remembered.
 udsDeviceRememberedStatus :: Lens' UpdateDeviceStatus (Maybe DeviceRememberedStatusType)
@@ -97,9 +99,9 @@ instance AWSRequest UpdateDeviceStatus where
               (\ s h x ->
                  UpdateDeviceStatusResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateDeviceStatus
+instance Hashable UpdateDeviceStatus where
 
-instance NFData UpdateDeviceStatus
+instance NFData UpdateDeviceStatus where
 
 instance ToHeaders UpdateDeviceStatus where
         toHeaders
@@ -132,8 +134,9 @@ instance ToQuery UpdateDeviceStatus where
 --
 -- /See:/ 'updateDeviceStatusResponse' smart constructor.
 newtype UpdateDeviceStatusResponse = UpdateDeviceStatusResponse'
-    { _udsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDeviceStatusResponse' with the minimum fields required to make a request.
 --
@@ -144,12 +147,11 @@ updateDeviceStatusResponse
     :: Int -- ^ 'udsrsResponseStatus'
     -> UpdateDeviceStatusResponse
 updateDeviceStatusResponse pResponseStatus_ =
-    UpdateDeviceStatusResponse'
-    { _udsrsResponseStatus = pResponseStatus_
-    }
+  UpdateDeviceStatusResponse' {_udsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 udsrsResponseStatus :: Lens' UpdateDeviceStatusResponse Int
 udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a});
 
-instance NFData UpdateDeviceStatusResponse
+instance NFData UpdateDeviceStatusResponse where

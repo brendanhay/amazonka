@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.GetSegment
     , getrsSegmentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSegment' smart constructor.
 data GetSegment = GetSegment'
-    { _gsSegmentId     :: !Text
-    , _gsApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsSegmentId     :: {-# NOUNPACK #-}!Text
+  , _gsApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegment' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ getSegment
     -> Text -- ^ 'gsApplicationId'
     -> GetSegment
 getSegment pSegmentId_ pApplicationId_ =
-    GetSegment'
-    { _gsSegmentId = pSegmentId_
-    , _gsApplicationId = pApplicationId_
-    }
+  GetSegment' {_gsSegmentId = pSegmentId_, _gsApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 gsSegmentId :: Lens' GetSegment Text
@@ -83,9 +82,9 @@ instance AWSRequest GetSegment where
                  GetSegmentResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetSegment
+instance Hashable GetSegment where
 
-instance NFData GetSegment
+instance NFData GetSegment where
 
 instance ToHeaders GetSegment where
         toHeaders
@@ -105,9 +104,10 @@ instance ToQuery GetSegment where
 
 -- | /See:/ 'getSegmentResponse' smart constructor.
 data GetSegmentResponse = GetSegmentResponse'
-    { _getrsResponseStatus  :: !Int
-    , _getrsSegmentResponse :: !SegmentResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _getrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _getrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegmentResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +121,11 @@ getSegmentResponse
     -> SegmentResponse -- ^ 'getrsSegmentResponse'
     -> GetSegmentResponse
 getSegmentResponse pResponseStatus_ pSegmentResponse_ =
-    GetSegmentResponse'
-    { _getrsResponseStatus = pResponseStatus_
-    , _getrsSegmentResponse = pSegmentResponse_
-    }
+  GetSegmentResponse'
+  { _getrsResponseStatus = pResponseStatus_
+  , _getrsSegmentResponse = pSegmentResponse_
+  }
+
 
 -- | -- | The response status code.
 getrsResponseStatus :: Lens' GetSegmentResponse Int
@@ -134,4 +135,4 @@ getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus
 getrsSegmentResponse :: Lens' GetSegmentResponse SegmentResponse
 getrsSegmentResponse = lens _getrsSegmentResponse (\ s a -> s{_getrsSegmentResponse = a});
 
-instance NFData GetSegmentResponse
+instance NFData GetSegmentResponse where

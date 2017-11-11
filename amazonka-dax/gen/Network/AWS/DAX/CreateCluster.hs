@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.CreateCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,28 +48,29 @@ module Network.AWS.DAX.CreateCluster
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-    { _ccSecurityGroupIds           :: !(Maybe [Text])
-    , _ccSubnetGroupName            :: !(Maybe Text)
-    , _ccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _ccAvailabilityZones          :: !(Maybe [Text])
-    , _ccDescription                :: !(Maybe Text)
-    , _ccNotificationTopicARN       :: !(Maybe Text)
-    , _ccTags                       :: !(Maybe [Tag])
-    , _ccParameterGroupName         :: !(Maybe Text)
-    , _ccClusterName                :: !Text
-    , _ccNodeType                   :: !Text
-    , _ccReplicationFactor          :: !Int
-    , _ccIAMRoleARN                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccSubnetGroupName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccAvailabilityZones          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccDescription                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccNotificationTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ccParameterGroupName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccClusterName                :: {-# NOUNPACK #-}!Text
+  , _ccNodeType                   :: {-# NOUNPACK #-}!Text
+  , _ccReplicationFactor          :: {-# NOUNPACK #-}!Int
+  , _ccIAMRoleARN                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
@@ -105,20 +106,21 @@ createCluster
     -> Text -- ^ 'ccIAMRoleARN'
     -> CreateCluster
 createCluster pClusterName_ pNodeType_ pReplicationFactor_ pIAMRoleARN_ =
-    CreateCluster'
-    { _ccSecurityGroupIds = Nothing
-    , _ccSubnetGroupName = Nothing
-    , _ccPreferredMaintenanceWindow = Nothing
-    , _ccAvailabilityZones = Nothing
-    , _ccDescription = Nothing
-    , _ccNotificationTopicARN = Nothing
-    , _ccTags = Nothing
-    , _ccParameterGroupName = Nothing
-    , _ccClusterName = pClusterName_
-    , _ccNodeType = pNodeType_
-    , _ccReplicationFactor = pReplicationFactor_
-    , _ccIAMRoleARN = pIAMRoleARN_
-    }
+  CreateCluster'
+  { _ccSecurityGroupIds = Nothing
+  , _ccSubnetGroupName = Nothing
+  , _ccPreferredMaintenanceWindow = Nothing
+  , _ccAvailabilityZones = Nothing
+  , _ccDescription = Nothing
+  , _ccNotificationTopicARN = Nothing
+  , _ccTags = Nothing
+  , _ccParameterGroupName = Nothing
+  , _ccClusterName = pClusterName_
+  , _ccNodeType = pNodeType_
+  , _ccReplicationFactor = pReplicationFactor_
+  , _ccIAMRoleARN = pIAMRoleARN_
+  }
+
 
 -- | A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.) If this parameter is not specified, DAX assigns the default VPC security group to each node.
 ccSecurityGroupIds :: Lens' CreateCluster [Text]
@@ -177,9 +179,9 @@ instance AWSRequest CreateCluster where
                  CreateClusterResponse' <$>
                    (x .?> "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable CreateCluster
+instance Hashable CreateCluster where
 
-instance NFData CreateCluster
+instance NFData CreateCluster where
 
 instance ToHeaders CreateCluster where
         toHeaders
@@ -217,9 +219,10 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-    { _ccrsCluster        :: !(Maybe Cluster)
-    , _ccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
 --
@@ -232,10 +235,9 @@ createClusterResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CreateClusterResponse
 createClusterResponse pResponseStatus_ =
-    CreateClusterResponse'
-    { _ccrsCluster = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
-    }
+  CreateClusterResponse'
+  {_ccrsCluster = Nothing, _ccrsResponseStatus = pResponseStatus_}
+
 
 -- | A description of the DAX cluster that you have created.
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
@@ -245,4 +247,4 @@ ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 ccrsResponseStatus :: Lens' CreateClusterResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData CreateClusterResponse
+instance NFData CreateClusterResponse where

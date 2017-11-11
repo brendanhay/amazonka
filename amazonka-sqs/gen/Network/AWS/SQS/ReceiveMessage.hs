@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ReceiveMessage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -67,12 +67,12 @@ module Network.AWS.SQS.ReceiveMessage
     , rmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -80,14 +80,15 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'receiveMessage' smart constructor.
 data ReceiveMessage = ReceiveMessage'
-    { _rmReceiveRequestAttemptId :: !(Maybe Text)
-    , _rmVisibilityTimeout       :: !(Maybe Int)
-    , _rmMessageAttributeNames   :: !(Maybe [Text])
-    , _rmWaitTimeSeconds         :: !(Maybe Int)
-    , _rmAttributeNames          :: !(Maybe [MessageAttribute])
-    , _rmMaxNumberOfMessages     :: !(Maybe Int)
-    , _rmQueueURL                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rmReceiveRequestAttemptId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmVisibilityTimeout       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rmMessageAttributeNames   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rmWaitTimeSeconds         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rmAttributeNames          :: {-# NOUNPACK #-}!(Maybe [MessageAttribute])
+  , _rmMaxNumberOfMessages     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rmQueueURL                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReceiveMessage' with the minimum fields required to make a request.
 --
@@ -110,15 +111,16 @@ receiveMessage
     :: Text -- ^ 'rmQueueURL'
     -> ReceiveMessage
 receiveMessage pQueueURL_ =
-    ReceiveMessage'
-    { _rmReceiveRequestAttemptId = Nothing
-    , _rmVisibilityTimeout = Nothing
-    , _rmMessageAttributeNames = Nothing
-    , _rmWaitTimeSeconds = Nothing
-    , _rmAttributeNames = Nothing
-    , _rmMaxNumberOfMessages = Nothing
-    , _rmQueueURL = pQueueURL_
-    }
+  ReceiveMessage'
+  { _rmReceiveRequestAttemptId = Nothing
+  , _rmVisibilityTimeout = Nothing
+  , _rmMessageAttributeNames = Nothing
+  , _rmWaitTimeSeconds = Nothing
+  , _rmAttributeNames = Nothing
+  , _rmMaxNumberOfMessages = Nothing
+  , _rmQueueURL = pQueueURL_
+  }
+
 
 -- | This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of @ReceiveMessage@ calls. If a networking issue occurs after a @ReceiveMessage@ action, and instead of a response you receive a generic error, you can retry the same action with an identical @ReceiveRequestAttemptId@ to retrieve the same set of messages, even if their visibility timeout has not yet expired.     * You can use @ReceiveRequestAttemptId@ only for 5 minutes after a @ReceiveMessage@ action.     * When you set @FifoQueue@ , a caller of the @ReceiveMessage@ action can provide a @ReceiveRequestAttemptId@ explicitly.     * If a caller of the @ReceiveMessage@ action doesn't provide a @ReceiveRequestAttemptId@ , Amazon SQS generates a @ReceiveRequestAttemptId@ .     * You can retry the @ReceiveMessage@ action with the same @ReceiveRequestAttemptId@ if none of the messages have been modified (deleted or had their visibility changes).     * During a visibility timeout, subsequent calls with the same @ReceiveRequestAttemptId@ return the same messages and receipt handles. If a retry occurs within the deduplication interval, it resets the visibility timeout. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout> in the /Amazon Simple Queue Service Developer Guide/ . /Important:/ If a caller of the @ReceiveMessage@ action is still processing messages when the visibility timeout expires and messages become visible, another worker reading from the same queue can receive the same messages and therefore process duplicates. Also, if a reader whose message processing time is longer than the visibility timeout tries to delete the processed messages, the action fails with an error. To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.     * While messages with a particular @MessageGroupId@ are invisible, no more messages belonging to the same @MessageGroupId@ are returned until the visibility timeout expires. You can still receive messages with another @MessageGroupId@ as long as it is also visible.     * If a caller of @ReceiveMessage@ can't track the @ReceiveRequestAttemptId@ , no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order. The length of @ReceiveRequestAttemptId@ is 128 characters. @ReceiveRequestAttemptId@ can contain alphanumeric characters (@a-z@ , @A-Z@ , @0-9@ ) and punctuation (@!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~@ ). For best practices of using @ReceiveRequestAttemptId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-receiverequestattemptid-request-parameter Using the ReceiveRequestAttemptId Request Parameter> in the /Amazon Simple Queue Service Developer Guide/ .
 rmReceiveRequestAttemptId :: Lens' ReceiveMessage (Maybe Text)
@@ -158,9 +160,9 @@ instance AWSRequest ReceiveMessage where
                    (may (parseXMLList "Message") x) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ReceiveMessage
+instance Hashable ReceiveMessage where
 
-instance NFData ReceiveMessage
+instance NFData ReceiveMessage where
 
 instance ToHeaders ReceiveMessage where
         toHeaders = const mempty
@@ -191,9 +193,10 @@ instance ToQuery ReceiveMessage where
 --
 -- /See:/ 'receiveMessageResponse' smart constructor.
 data ReceiveMessageResponse = ReceiveMessageResponse'
-    { _rmrsMessages       :: !(Maybe [Message])
-    , _rmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rmrsMessages       :: {-# NOUNPACK #-}!(Maybe [Message])
+  , _rmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReceiveMessageResponse' with the minimum fields required to make a request.
 --
@@ -206,10 +209,9 @@ receiveMessageResponse
     :: Int -- ^ 'rmrsResponseStatus'
     -> ReceiveMessageResponse
 receiveMessageResponse pResponseStatus_ =
-    ReceiveMessageResponse'
-    { _rmrsMessages = Nothing
-    , _rmrsResponseStatus = pResponseStatus_
-    }
+  ReceiveMessageResponse'
+  {_rmrsMessages = Nothing, _rmrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of messages.
 rmrsMessages :: Lens' ReceiveMessageResponse [Message]
@@ -219,4 +221,4 @@ rmrsMessages = lens _rmrsMessages (\ s a -> s{_rmrsMessages = a}) . _Default . _
 rmrsResponseStatus :: Lens' ReceiveMessageResponse Int
 rmrsResponseStatus = lens _rmrsResponseStatus (\ s a -> s{_rmrsResponseStatus = a});
 
-instance NFData ReceiveMessageResponse
+instance NFData ReceiveMessageResponse where

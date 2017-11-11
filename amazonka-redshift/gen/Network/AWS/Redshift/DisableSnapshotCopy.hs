@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DisableSnapshotCopy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     , dscrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableSnapshotCopy' smart constructor.
 newtype DisableSnapshotCopy = DisableSnapshotCopy'
-    { _dscClusterIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscClusterIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableSnapshotCopy' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ disableSnapshotCopy
     :: Text -- ^ 'dscClusterIdentifier'
     -> DisableSnapshotCopy
 disableSnapshotCopy pClusterIdentifier_ =
-    DisableSnapshotCopy'
-    { _dscClusterIdentifier = pClusterIdentifier_
-    }
+  DisableSnapshotCopy' {_dscClusterIdentifier = pClusterIdentifier_}
+
 
 -- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region. Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
@@ -82,9 +82,9 @@ instance AWSRequest DisableSnapshotCopy where
                  DisableSnapshotCopyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable DisableSnapshotCopy
+instance Hashable DisableSnapshotCopy where
 
-instance NFData DisableSnapshotCopy
+instance NFData DisableSnapshotCopy where
 
 instance ToHeaders DisableSnapshotCopy where
         toHeaders = const mempty
@@ -101,9 +101,10 @@ instance ToQuery DisableSnapshotCopy where
 
 -- | /See:/ 'disableSnapshotCopyResponse' smart constructor.
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
-    { _dscrsCluster        :: !(Maybe Cluster)
-    , _dscrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _dscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableSnapshotCopyResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +117,9 @@ disableSnapshotCopyResponse
     :: Int -- ^ 'dscrsResponseStatus'
     -> DisableSnapshotCopyResponse
 disableSnapshotCopyResponse pResponseStatus_ =
-    DisableSnapshotCopyResponse'
-    { _dscrsCluster = Nothing
-    , _dscrsResponseStatus = pResponseStatus_
-    }
+  DisableSnapshotCopyResponse'
+  {_dscrsCluster = Nothing, _dscrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
@@ -129,4 +129,4 @@ dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a});
 dscrsResponseStatus :: Lens' DisableSnapshotCopyResponse Int
 dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
 
-instance NFData DisableSnapshotCopyResponse
+instance NFData DisableSnapshotCopyResponse where

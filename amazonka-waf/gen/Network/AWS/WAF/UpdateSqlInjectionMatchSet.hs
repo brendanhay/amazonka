@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateSqlInjectionMatchSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,12 +61,12 @@ module Network.AWS.WAF.UpdateSqlInjectionMatchSet
     , usimsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | A request to update a 'SqlInjectionMatchSet' .
 --
@@ -74,10 +74,11 @@ import           Network.AWS.WAF.Types.Product
 --
 -- /See:/ 'updateSqlInjectionMatchSet' smart constructor.
 data UpdateSqlInjectionMatchSet = UpdateSqlInjectionMatchSet'
-    { _usimsSqlInjectionMatchSetId :: !Text
-    , _usimsChangeToken            :: !Text
-    , _usimsUpdates                :: ![SqlInjectionMatchSetUpdate]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usimsSqlInjectionMatchSetId :: {-# NOUNPACK #-}!Text
+  , _usimsChangeToken :: {-# NOUNPACK #-}!Text
+  , _usimsUpdates :: {-# NOUNPACK #-}![SqlInjectionMatchSetUpdate]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSqlInjectionMatchSet' with the minimum fields required to make a request.
 --
@@ -93,11 +94,12 @@ updateSqlInjectionMatchSet
     -> Text -- ^ 'usimsChangeToken'
     -> UpdateSqlInjectionMatchSet
 updateSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ =
-    UpdateSqlInjectionMatchSet'
-    { _usimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
-    , _usimsChangeToken = pChangeToken_
-    , _usimsUpdates = mempty
-    }
+  UpdateSqlInjectionMatchSet'
+  { _usimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
+  , _usimsChangeToken = pChangeToken_
+  , _usimsUpdates = mempty
+  }
+
 
 -- | The @SqlInjectionMatchSetId@ of the @SqlInjectionMatchSet@ that you want to update. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 usimsSqlInjectionMatchSetId :: Lens' UpdateSqlInjectionMatchSet Text
@@ -121,9 +123,9 @@ instance AWSRequest UpdateSqlInjectionMatchSet where
                  UpdateSqlInjectionMatchSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateSqlInjectionMatchSet
+instance Hashable UpdateSqlInjectionMatchSet where
 
-instance NFData UpdateSqlInjectionMatchSet
+instance NFData UpdateSqlInjectionMatchSet where
 
 instance ToHeaders UpdateSqlInjectionMatchSet where
         toHeaders
@@ -157,9 +159,10 @@ instance ToQuery UpdateSqlInjectionMatchSet where
 --
 -- /See:/ 'updateSqlInjectionMatchSetResponse' smart constructor.
 data UpdateSqlInjectionMatchSetResponse = UpdateSqlInjectionMatchSetResponse'
-    { _usimsrsChangeToken    :: !(Maybe Text)
-    , _usimsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usimsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usimsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSqlInjectionMatchSetResponse' with the minimum fields required to make a request.
 --
@@ -172,10 +175,9 @@ updateSqlInjectionMatchSetResponse
     :: Int -- ^ 'usimsrsResponseStatus'
     -> UpdateSqlInjectionMatchSetResponse
 updateSqlInjectionMatchSetResponse pResponseStatus_ =
-    UpdateSqlInjectionMatchSetResponse'
-    { _usimsrsChangeToken = Nothing
-    , _usimsrsResponseStatus = pResponseStatus_
-    }
+  UpdateSqlInjectionMatchSetResponse'
+  {_usimsrsChangeToken = Nothing, _usimsrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @UpdateSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 usimsrsChangeToken :: Lens' UpdateSqlInjectionMatchSetResponse (Maybe Text)
@@ -186,3 +188,4 @@ usimsrsResponseStatus :: Lens' UpdateSqlInjectionMatchSetResponse Int
 usimsrsResponseStatus = lens _usimsrsResponseStatus (\ s a -> s{_usimsrsResponseStatus = a});
 
 instance NFData UpdateSqlInjectionMatchSetResponse
+         where

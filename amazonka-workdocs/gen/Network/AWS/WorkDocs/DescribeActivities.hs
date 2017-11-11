@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeActivities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,23 +44,24 @@ module Network.AWS.WorkDocs.DescribeActivities
     , darsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeActivities' smart constructor.
 data DescribeActivities = DescribeActivities'
-    { _daStartTime           :: !(Maybe POSIX)
-    , _daAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _daUserId              :: !(Maybe Text)
-    , _daMarker              :: !(Maybe Text)
-    , _daEndTime             :: !(Maybe POSIX)
-    , _daLimit               :: !(Maybe Nat)
-    , _daOrganizationId      :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _daStartTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _daAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _daUserId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daEndTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _daLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _daOrganizationId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivities' with the minimum fields required to make a request.
 --
@@ -82,15 +83,16 @@ data DescribeActivities = DescribeActivities'
 describeActivities
     :: DescribeActivities
 describeActivities =
-    DescribeActivities'
-    { _daStartTime = Nothing
-    , _daAuthenticationToken = Nothing
-    , _daUserId = Nothing
-    , _daMarker = Nothing
-    , _daEndTime = Nothing
-    , _daLimit = Nothing
-    , _daOrganizationId = Nothing
-    }
+  DescribeActivities'
+  { _daStartTime = Nothing
+  , _daAuthenticationToken = Nothing
+  , _daUserId = Nothing
+  , _daMarker = Nothing
+  , _daEndTime = Nothing
+  , _daLimit = Nothing
+  , _daOrganizationId = Nothing
+  }
+
 
 -- | The timestamp that determines the starting time of the activities; the response includes the activities performed after the specified timestamp.
 daStartTime :: Lens' DescribeActivities (Maybe UTCTime)
@@ -132,9 +134,9 @@ instance AWSRequest DescribeActivities where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeActivities
+instance Hashable DescribeActivities where
 
-instance NFData DescribeActivities
+instance NFData DescribeActivities where
 
 instance ToHeaders DescribeActivities where
         toHeaders DescribeActivities'{..}
@@ -156,10 +158,11 @@ instance ToQuery DescribeActivities where
 
 -- | /See:/ 'describeActivitiesResponse' smart constructor.
 data DescribeActivitiesResponse = DescribeActivitiesResponse'
-    { _darsUserActivities :: !(Maybe [Activity])
-    , _darsMarker         :: !(Maybe Text)
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsUserActivities :: {-# NOUNPACK #-}!(Maybe [Activity])
+  , _darsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivitiesResponse' with the minimum fields required to make a request.
 --
@@ -174,11 +177,12 @@ describeActivitiesResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeActivitiesResponse
 describeActivitiesResponse pResponseStatus_ =
-    DescribeActivitiesResponse'
-    { _darsUserActivities = Nothing
-    , _darsMarker = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeActivitiesResponse'
+  { _darsUserActivities = Nothing
+  , _darsMarker = Nothing
+  , _darsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of activities for the specified user and time period.
 darsUserActivities :: Lens' DescribeActivitiesResponse [Activity]
@@ -192,4 +196,4 @@ darsMarker = lens _darsMarker (\ s a -> s{_darsMarker = a});
 darsResponseStatus :: Lens' DescribeActivitiesResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeActivitiesResponse
+instance NFData DescribeActivitiesResponse where

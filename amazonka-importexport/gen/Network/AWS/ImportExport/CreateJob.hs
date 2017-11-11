@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.CreateJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,23 +44,24 @@ module Network.AWS.ImportExport.CreateJob
     , cjrsResponseStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.ImportExport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input structure for the CreateJob operation.
 --
 -- /See:/ 'createJob' smart constructor.
 data CreateJob = CreateJob'
-    { _cjAPIVersion       :: !(Maybe Text)
-    , _cjManifestAddendum :: !(Maybe Text)
-    , _cjJobType          :: !JobType
-    , _cjManifest         :: !Text
-    , _cjValidateOnly     :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjAPIVersion       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjManifestAddendum :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjJobType          :: {-# NOUNPACK #-}!JobType
+  , _cjManifest         :: {-# NOUNPACK #-}!Text
+  , _cjValidateOnly     :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
@@ -81,13 +82,14 @@ createJob
     -> Bool -- ^ 'cjValidateOnly'
     -> CreateJob
 createJob pJobType_ pManifest_ pValidateOnly_ =
-    CreateJob'
-    { _cjAPIVersion = Nothing
-    , _cjManifestAddendum = Nothing
-    , _cjJobType = pJobType_
-    , _cjManifest = pManifest_
-    , _cjValidateOnly = pValidateOnly_
-    }
+  CreateJob'
+  { _cjAPIVersion = Nothing
+  , _cjManifestAddendum = Nothing
+  , _cjJobType = pJobType_
+  , _cjManifest = pManifest_
+  , _cjValidateOnly = pValidateOnly_
+  }
+
 
 -- | Undocumented member.
 cjAPIVersion :: Lens' CreateJob (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest CreateJob where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateJob
+instance Hashable CreateJob where
 
-instance NFData CreateJob
+instance NFData CreateJob where
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty
@@ -150,14 +152,15 @@ instance ToQuery CreateJob where
 --
 -- /See:/ 'createJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-    { _cjrsSignature             :: !(Maybe Text)
-    , _cjrsJobType               :: !(Maybe JobType)
-    , _cjrsJobId                 :: !(Maybe Text)
-    , _cjrsSignatureFileContents :: !(Maybe Text)
-    , _cjrsWarningMessage        :: !(Maybe Text)
-    , _cjrsArtifactList          :: !(Maybe [Artifact])
-    , _cjrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjrsSignature             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjrsJobType               :: {-# NOUNPACK #-}!(Maybe JobType)
+  , _cjrsJobId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjrsSignatureFileContents :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjrsWarningMessage        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjrsArtifactList          :: {-# NOUNPACK #-}!(Maybe [Artifact])
+  , _cjrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
 --
@@ -180,15 +183,16 @@ createJobResponse
     :: Int -- ^ 'cjrsResponseStatus'
     -> CreateJobResponse
 createJobResponse pResponseStatus_ =
-    CreateJobResponse'
-    { _cjrsSignature = Nothing
-    , _cjrsJobType = Nothing
-    , _cjrsJobId = Nothing
-    , _cjrsSignatureFileContents = Nothing
-    , _cjrsWarningMessage = Nothing
-    , _cjrsArtifactList = Nothing
-    , _cjrsResponseStatus = pResponseStatus_
-    }
+  CreateJobResponse'
+  { _cjrsSignature = Nothing
+  , _cjrsJobType = Nothing
+  , _cjrsJobId = Nothing
+  , _cjrsSignatureFileContents = Nothing
+  , _cjrsWarningMessage = Nothing
+  , _cjrsArtifactList = Nothing
+  , _cjrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 cjrsSignature :: Lens' CreateJobResponse (Maybe Text)
@@ -218,4 +222,4 @@ cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . 
 cjrsResponseStatus :: Lens' CreateJobResponse Int
 cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
 
-instance NFData CreateJobResponse
+instance NFData CreateJobResponse where

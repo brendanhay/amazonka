@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.PublishSchema
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.CloudDirectory.PublishSchema
     , psrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'publishSchema' smart constructor.
 data PublishSchema = PublishSchema'
-    { _psName                 :: !(Maybe Text)
-    , _psDevelopmentSchemaARN :: !Text
-    , _psVersion              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psDevelopmentSchemaARN :: {-# NOUNPACK #-}!Text
+  , _psVersion              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PublishSchema' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ publishSchema
     -> Text -- ^ 'psVersion'
     -> PublishSchema
 publishSchema pDevelopmentSchemaARN_ pVersion_ =
-    PublishSchema'
-    { _psName = Nothing
-    , _psDevelopmentSchemaARN = pDevelopmentSchemaARN_
-    , _psVersion = pVersion_
-    }
+  PublishSchema'
+  { _psName = Nothing
+  , _psDevelopmentSchemaARN = pDevelopmentSchemaARN_
+  , _psVersion = pVersion_
+  }
+
 
 -- | The new name under which the schema will be published. If this is not provided, the development schema is considered.
 psName :: Lens' PublishSchema (Maybe Text)
@@ -94,9 +96,9 @@ instance AWSRequest PublishSchema where
                  PublishSchemaResponse' <$>
                    (x .?> "PublishedSchemaArn") <*> (pure (fromEnum s)))
 
-instance Hashable PublishSchema
+instance Hashable PublishSchema where
 
-instance NFData PublishSchema
+instance NFData PublishSchema where
 
 instance ToHeaders PublishSchema where
         toHeaders PublishSchema'{..}
@@ -120,9 +122,10 @@ instance ToQuery PublishSchema where
 
 -- | /See:/ 'publishSchemaResponse' smart constructor.
 data PublishSchemaResponse = PublishSchemaResponse'
-    { _psrsPublishedSchemaARN :: !(Maybe Text)
-    , _psrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psrsPublishedSchemaARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PublishSchemaResponse' with the minimum fields required to make a request.
 --
@@ -135,10 +138,9 @@ publishSchemaResponse
     :: Int -- ^ 'psrsResponseStatus'
     -> PublishSchemaResponse
 publishSchemaResponse pResponseStatus_ =
-    PublishSchemaResponse'
-    { _psrsPublishedSchemaARN = Nothing
-    , _psrsResponseStatus = pResponseStatus_
-    }
+  PublishSchemaResponse'
+  {_psrsPublishedSchemaARN = Nothing, _psrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN that is associated with the published schema. For more information, see 'arns' .
 psrsPublishedSchemaARN :: Lens' PublishSchemaResponse (Maybe Text)
@@ -148,4 +150,4 @@ psrsPublishedSchemaARN = lens _psrsPublishedSchemaARN (\ s a -> s{_psrsPublished
 psrsResponseStatus :: Lens' PublishSchemaResponse Int
 psrsResponseStatus = lens _psrsResponseStatus (\ s a -> s{_psrsResponseStatus = a});
 
-instance NFData PublishSchemaResponse
+instance NFData PublishSchemaResponse where

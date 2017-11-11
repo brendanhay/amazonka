@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.WAFRegional.GetRule
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'getRule' smart constructor.
 newtype GetRule = GetRule'
-    { _grRuleId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grRuleId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRule' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetRule = GetRule'
 getRule
     :: Text -- ^ 'grRuleId'
     -> GetRule
-getRule pRuleId_ =
-    GetRule'
-    { _grRuleId = pRuleId_
-    }
+getRule pRuleId_ = GetRule' {_grRuleId = pRuleId_}
+
 
 -- | The @RuleId@ of the 'Rule' that you want to get. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 grRuleId :: Lens' GetRule Text
@@ -75,9 +74,9 @@ instance AWSRequest GetRule where
                  GetRuleResponse' <$>
                    (x .?> "Rule") <*> (pure (fromEnum s)))
 
-instance Hashable GetRule
+instance Hashable GetRule where
 
-instance NFData GetRule
+instance NFData GetRule where
 
 instance ToHeaders GetRule where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery GetRule where
 
 -- | /See:/ 'getRuleResponse' smart constructor.
 data GetRuleResponse = GetRuleResponse'
-    { _grrsRule           :: !(Maybe Rule)
-    , _grrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsRule           :: {-# NOUNPACK #-}!(Maybe Rule)
+  , _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRuleResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,8 @@ getRuleResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRuleResponse
 getRuleResponse pResponseStatus_ =
-    GetRuleResponse'
-    { _grrsRule = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GetRuleResponse' {_grrsRule = Nothing, _grrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@      * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
 grrsRule :: Lens' GetRuleResponse (Maybe Rule)
@@ -128,4 +126,4 @@ grrsRule = lens _grrsRule (\ s a -> s{_grrsRule = a});
 grrsResponseStatus :: Lens' GetRuleResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GetRuleResponse
+instance NFData GetRuleResponse where

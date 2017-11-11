@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeFolderContents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,25 +50,26 @@ module Network.AWS.WorkDocs.DescribeFolderContents
     , dfcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeFolderContents' smart constructor.
 data DescribeFolderContents = DescribeFolderContents'
-    { _dfcsInclude             :: !(Maybe Text)
-    , _dfcsAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _dfcsSort                :: !(Maybe ResourceSortType)
-    , _dfcsMarker              :: !(Maybe Text)
-    , _dfcsLimit               :: !(Maybe Nat)
-    , _dfcsType                :: !(Maybe FolderContentType)
-    , _dfcsOrder               :: !(Maybe OrderType)
-    , _dfcsFolderId            :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dfcsInclude             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfcsAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _dfcsSort                :: {-# NOUNPACK #-}!(Maybe ResourceSortType)
+  , _dfcsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfcsLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dfcsType                :: {-# NOUNPACK #-}!(Maybe FolderContentType)
+  , _dfcsOrder               :: {-# NOUNPACK #-}!(Maybe OrderType)
+  , _dfcsFolderId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFolderContents' with the minimum fields required to make a request.
 --
@@ -93,16 +94,17 @@ describeFolderContents
     :: Text -- ^ 'dfcsFolderId'
     -> DescribeFolderContents
 describeFolderContents pFolderId_ =
-    DescribeFolderContents'
-    { _dfcsInclude = Nothing
-    , _dfcsAuthenticationToken = Nothing
-    , _dfcsSort = Nothing
-    , _dfcsMarker = Nothing
-    , _dfcsLimit = Nothing
-    , _dfcsType = Nothing
-    , _dfcsOrder = Nothing
-    , _dfcsFolderId = pFolderId_
-    }
+  DescribeFolderContents'
+  { _dfcsInclude = Nothing
+  , _dfcsAuthenticationToken = Nothing
+  , _dfcsSort = Nothing
+  , _dfcsMarker = Nothing
+  , _dfcsLimit = Nothing
+  , _dfcsType = Nothing
+  , _dfcsOrder = Nothing
+  , _dfcsFolderId = pFolderId_
+  }
+
 
 -- | The contents to include. Specify "INITIALIZED" to include initialized documents.
 dfcsInclude :: Lens' DescribeFolderContents (Maybe Text)
@@ -157,9 +159,9 @@ instance AWSRequest DescribeFolderContents where
                      <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeFolderContents
+instance Hashable DescribeFolderContents where
 
-instance NFData DescribeFolderContents
+instance NFData DescribeFolderContents where
 
 instance ToHeaders DescribeFolderContents where
         toHeaders DescribeFolderContents'{..}
@@ -182,11 +184,12 @@ instance ToQuery DescribeFolderContents where
 
 -- | /See:/ 'describeFolderContentsResponse' smart constructor.
 data DescribeFolderContentsResponse = DescribeFolderContentsResponse'
-    { _dfcrsFolders        :: !(Maybe [FolderMetadata])
-    , _dfcrsDocuments      :: !(Maybe [DocumentMetadata])
-    , _dfcrsMarker         :: !(Maybe Text)
-    , _dfcrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dfcrsFolders        :: {-# NOUNPACK #-}!(Maybe [FolderMetadata])
+  , _dfcrsDocuments      :: {-# NOUNPACK #-}!(Maybe [DocumentMetadata])
+  , _dfcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFolderContentsResponse' with the minimum fields required to make a request.
 --
@@ -203,12 +206,13 @@ describeFolderContentsResponse
     :: Int -- ^ 'dfcrsResponseStatus'
     -> DescribeFolderContentsResponse
 describeFolderContentsResponse pResponseStatus_ =
-    DescribeFolderContentsResponse'
-    { _dfcrsFolders = Nothing
-    , _dfcrsDocuments = Nothing
-    , _dfcrsMarker = Nothing
-    , _dfcrsResponseStatus = pResponseStatus_
-    }
+  DescribeFolderContentsResponse'
+  { _dfcrsFolders = Nothing
+  , _dfcrsDocuments = Nothing
+  , _dfcrsMarker = Nothing
+  , _dfcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The subfolders in the specified folder.
 dfcrsFolders :: Lens' DescribeFolderContentsResponse [FolderMetadata]
@@ -226,4 +230,4 @@ dfcrsMarker = lens _dfcrsMarker (\ s a -> s{_dfcrsMarker = a});
 dfcrsResponseStatus :: Lens' DescribeFolderContentsResponse Int
 dfcrsResponseStatus = lens _dfcrsResponseStatus (\ s a -> s{_dfcrsResponseStatus = a});
 
-instance NFData DescribeFolderContentsResponse
+instance NFData DescribeFolderContentsResponse where

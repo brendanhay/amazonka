@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.CreateImportJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.CreateImportJob
     , cijrsImportJobResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createImportJob' smart constructor.
 data CreateImportJob = CreateImportJob'
-    { _cijApplicationId    :: !Text
-    , _cijImportJobRequest :: !ImportJobRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cijApplicationId    :: {-# NOUNPACK #-}!Text
+  , _cijImportJobRequest :: {-# NOUNPACK #-}!ImportJobRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateImportJob' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ createImportJob
     -> ImportJobRequest -- ^ 'cijImportJobRequest'
     -> CreateImportJob
 createImportJob pApplicationId_ pImportJobRequest_ =
-    CreateImportJob'
-    { _cijApplicationId = pApplicationId_
-    , _cijImportJobRequest = pImportJobRequest_
-    }
+  CreateImportJob'
+  { _cijApplicationId = pApplicationId_
+  , _cijImportJobRequest = pImportJobRequest_
+  }
+
 
 -- | Undocumented member.
 cijApplicationId :: Lens' CreateImportJob Text
@@ -83,9 +85,9 @@ instance AWSRequest CreateImportJob where
                  CreateImportJobResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable CreateImportJob
+instance Hashable CreateImportJob where
 
-instance NFData CreateImportJob
+instance NFData CreateImportJob where
 
 instance ToHeaders CreateImportJob where
         toHeaders
@@ -110,9 +112,10 @@ instance ToQuery CreateImportJob where
 
 -- | /See:/ 'createImportJobResponse' smart constructor.
 data CreateImportJobResponse = CreateImportJobResponse'
-    { _cijrsResponseStatus    :: !Int
-    , _cijrsImportJobResponse :: !ImportJobResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cijrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _cijrsImportJobResponse :: {-# NOUNPACK #-}!ImportJobResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateImportJobResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +129,11 @@ createImportJobResponse
     -> ImportJobResponse -- ^ 'cijrsImportJobResponse'
     -> CreateImportJobResponse
 createImportJobResponse pResponseStatus_ pImportJobResponse_ =
-    CreateImportJobResponse'
-    { _cijrsResponseStatus = pResponseStatus_
-    , _cijrsImportJobResponse = pImportJobResponse_
-    }
+  CreateImportJobResponse'
+  { _cijrsResponseStatus = pResponseStatus_
+  , _cijrsImportJobResponse = pImportJobResponse_
+  }
+
 
 -- | -- | The response status code.
 cijrsResponseStatus :: Lens' CreateImportJobResponse Int
@@ -139,4 +143,4 @@ cijrsResponseStatus = lens _cijrsResponseStatus (\ s a -> s{_cijrsResponseStatus
 cijrsImportJobResponse :: Lens' CreateImportJobResponse ImportJobResponse
 cijrsImportJobResponse = lens _cijrsImportJobResponse (\ s a -> s{_cijrsImportJobResponse = a});
 
-instance NFData CreateImportJobResponse
+instance NFData CreateImportJobResponse where

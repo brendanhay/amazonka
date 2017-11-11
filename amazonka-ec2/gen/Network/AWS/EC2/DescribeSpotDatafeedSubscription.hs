@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotDatafeedSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     , dsdsrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotDatafeedSubscription.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSpotDatafeedSubscription' smart constructor.
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
-    { _dsdsDryRun :: Maybe Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsdsDryRun :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSpotDatafeedSubscription' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
 describeSpotDatafeedSubscription
     :: DescribeSpotDatafeedSubscription
 describeSpotDatafeedSubscription =
-    DescribeSpotDatafeedSubscription'
-    { _dsdsDryRun = Nothing
-    }
+  DescribeSpotDatafeedSubscription' {_dsdsDryRun = Nothing}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
@@ -82,8 +82,10 @@ instance AWSRequest DescribeSpotDatafeedSubscription
                      (pure (fromEnum s)))
 
 instance Hashable DescribeSpotDatafeedSubscription
+         where
 
 instance NFData DescribeSpotDatafeedSubscription
+         where
 
 instance ToHeaders DescribeSpotDatafeedSubscription
          where
@@ -108,9 +110,10 @@ instance ToQuery DescribeSpotDatafeedSubscription
 --
 -- /See:/ 'describeSpotDatafeedSubscriptionResponse' smart constructor.
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
-    { _dsdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
-    , _dsdsrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsdsrsSpotDatafeedSubscription :: {-# NOUNPACK #-}!(Maybe SpotDatafeedSubscription)
+  , _dsdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +126,11 @@ describeSpotDatafeedSubscriptionResponse
     :: Int -- ^ 'dsdsrsResponseStatus'
     -> DescribeSpotDatafeedSubscriptionResponse
 describeSpotDatafeedSubscriptionResponse pResponseStatus_ =
-    DescribeSpotDatafeedSubscriptionResponse'
-    { _dsdsrsSpotDatafeedSubscription = Nothing
-    , _dsdsrsResponseStatus = pResponseStatus_
-    }
+  DescribeSpotDatafeedSubscriptionResponse'
+  { _dsdsrsSpotDatafeedSubscription = Nothing
+  , _dsdsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Spot instance data feed subscription.
 dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
@@ -137,4 +141,5 @@ dsdsrsResponseStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
 dsdsrsResponseStatus = lens _dsdsrsResponseStatus (\ s a -> s{_dsdsrsResponseStatus = a});
 
 instance NFData
-         DescribeSpotDatafeedSubscriptionResponse
+           DescribeSpotDatafeedSubscriptionResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetDeviceDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Greengrass.GetDeviceDefinition
     , gddrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDeviceDefinition' smart constructor.
 newtype GetDeviceDefinition = GetDeviceDefinition'
-    { _gddDeviceDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gddDeviceDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeviceDefinition' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getDeviceDefinition
     :: Text -- ^ 'gddDeviceDefinitionId'
     -> GetDeviceDefinition
 getDeviceDefinition pDeviceDefinitionId_ =
-    GetDeviceDefinition'
-    { _gddDeviceDefinitionId = pDeviceDefinitionId_
-    }
+  GetDeviceDefinition' {_gddDeviceDefinitionId = pDeviceDefinitionId_}
+
 
 -- | device definition Id
 gddDeviceDefinitionId :: Lens' GetDeviceDefinition Text
@@ -86,9 +86,9 @@ instance AWSRequest GetDeviceDefinition where
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDeviceDefinition
+instance Hashable GetDeviceDefinition where
 
-instance NFData GetDeviceDefinition
+instance NFData GetDeviceDefinition where
 
 instance ToHeaders GetDeviceDefinition where
         toHeaders
@@ -108,15 +108,16 @@ instance ToQuery GetDeviceDefinition where
 
 -- | /See:/ 'getDeviceDefinitionResponse' smart constructor.
 data GetDeviceDefinitionResponse = GetDeviceDefinitionResponse'
-    { _gddrsLatestVersionARN     :: !(Maybe Text)
-    , _gddrsARN                  :: !(Maybe Text)
-    , _gddrsName                 :: !(Maybe Text)
-    , _gddrsCreationTimestamp    :: !(Maybe Text)
-    , _gddrsId                   :: !(Maybe Text)
-    , _gddrsLatestVersion        :: !(Maybe Text)
-    , _gddrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _gddrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gddrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeviceDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -141,16 +142,17 @@ getDeviceDefinitionResponse
     :: Int -- ^ 'gddrsResponseStatus'
     -> GetDeviceDefinitionResponse
 getDeviceDefinitionResponse pResponseStatus_ =
-    GetDeviceDefinitionResponse'
-    { _gddrsLatestVersionARN = Nothing
-    , _gddrsARN = Nothing
-    , _gddrsName = Nothing
-    , _gddrsCreationTimestamp = Nothing
-    , _gddrsId = Nothing
-    , _gddrsLatestVersion = Nothing
-    , _gddrsLastUpdatedTimestamp = Nothing
-    , _gddrsResponseStatus = pResponseStatus_
-    }
+  GetDeviceDefinitionResponse'
+  { _gddrsLatestVersionARN = Nothing
+  , _gddrsARN = Nothing
+  , _gddrsName = Nothing
+  , _gddrsCreationTimestamp = Nothing
+  , _gddrsId = Nothing
+  , _gddrsLatestVersion = Nothing
+  , _gddrsLastUpdatedTimestamp = Nothing
+  , _gddrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 gddrsLatestVersionARN :: Lens' GetDeviceDefinitionResponse (Maybe Text)
@@ -184,4 +186,4 @@ gddrsLastUpdatedTimestamp = lens _gddrsLastUpdatedTimestamp (\ s a -> s{_gddrsLa
 gddrsResponseStatus :: Lens' GetDeviceDefinitionResponse Int
 gddrsResponseStatus = lens _gddrsResponseStatus (\ s a -> s{_gddrsResponseStatus = a});
 
-instance NFData GetDeviceDefinitionResponse
+instance NFData GetDeviceDefinitionResponse where

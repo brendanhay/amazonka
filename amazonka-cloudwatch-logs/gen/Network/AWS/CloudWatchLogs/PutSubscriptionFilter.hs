@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutSubscriptionFilter
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,22 +51,23 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     , PutSubscriptionFilterResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putSubscriptionFilter' smart constructor.
 data PutSubscriptionFilter = PutSubscriptionFilter'
-    { _psfDistribution   :: !(Maybe Distribution)
-    , _psfRoleARN        :: !(Maybe Text)
-    , _psfLogGroupName   :: !Text
-    , _psfFilterName     :: !Text
-    , _psfFilterPattern  :: !Text
-    , _psfDestinationARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psfDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
+  , _psfRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psfLogGroupName   :: {-# NOUNPACK #-}!Text
+  , _psfFilterName     :: {-# NOUNPACK #-}!Text
+  , _psfFilterPattern  :: {-# NOUNPACK #-}!Text
+  , _psfDestinationARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutSubscriptionFilter' with the minimum fields required to make a request.
 --
@@ -90,14 +91,15 @@ putSubscriptionFilter
     -> Text -- ^ 'psfDestinationARN'
     -> PutSubscriptionFilter
 putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ =
-    PutSubscriptionFilter'
-    { _psfDistribution = Nothing
-    , _psfRoleARN = Nothing
-    , _psfLogGroupName = pLogGroupName_
-    , _psfFilterName = pFilterName_
-    , _psfFilterPattern = pFilterPattern_
-    , _psfDestinationARN = pDestinationARN_
-    }
+  PutSubscriptionFilter'
+  { _psfDistribution = Nothing
+  , _psfRoleARN = Nothing
+  , _psfLogGroupName = pLogGroupName_
+  , _psfFilterName = pFilterName_
+  , _psfFilterPattern = pFilterPattern_
+  , _psfDestinationARN = pDestinationARN_
+  }
+
 
 -- | The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream. By default, log data is grouped by log stream. For a more even distribution, you can group log data randomly.
 psfDistribution :: Lens' PutSubscriptionFilter (Maybe Distribution)
@@ -129,9 +131,9 @@ instance AWSRequest PutSubscriptionFilter where
         request = postJSON cloudWatchLogs
         response = receiveNull PutSubscriptionFilterResponse'
 
-instance Hashable PutSubscriptionFilter
+instance Hashable PutSubscriptionFilter where
 
-instance NFData PutSubscriptionFilter
+instance NFData PutSubscriptionFilter where
 
 instance ToHeaders PutSubscriptionFilter where
         toHeaders
@@ -162,8 +164,9 @@ instance ToQuery PutSubscriptionFilter where
 
 -- | /See:/ 'putSubscriptionFilterResponse' smart constructor.
 data PutSubscriptionFilterResponse =
-    PutSubscriptionFilterResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutSubscriptionFilterResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutSubscriptionFilterResponse' with the minimum fields required to make a request.
 --
@@ -171,4 +174,5 @@ putSubscriptionFilterResponse
     :: PutSubscriptionFilterResponse
 putSubscriptionFilterResponse = PutSubscriptionFilterResponse'
 
-instance NFData PutSubscriptionFilterResponse
+
+instance NFData PutSubscriptionFilterResponse where

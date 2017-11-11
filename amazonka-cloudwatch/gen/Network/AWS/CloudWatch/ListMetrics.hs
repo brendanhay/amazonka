@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.ListMetrics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,21 +47,22 @@ module Network.AWS.CloudWatch.ListMetrics
     , lmrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listMetrics' smart constructor.
 data ListMetrics = ListMetrics'
-    { _lmMetricName :: !(Maybe Text)
-    , _lmNamespace  :: !(Maybe Text)
-    , _lmNextToken  :: !(Maybe Text)
-    , _lmDimensions :: !(Maybe [DimensionFilter])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lmMetricName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmNamespace  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmDimensions :: {-# NOUNPACK #-}!(Maybe [DimensionFilter])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListMetrics' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data ListMetrics = ListMetrics'
 listMetrics
     :: ListMetrics
 listMetrics =
-    ListMetrics'
-    { _lmMetricName = Nothing
-    , _lmNamespace = Nothing
-    , _lmNextToken = Nothing
-    , _lmDimensions = Nothing
-    }
+  ListMetrics'
+  { _lmMetricName = Nothing
+  , _lmNamespace = Nothing
+  , _lmNextToken = Nothing
+  , _lmDimensions = Nothing
+  }
+
 
 -- | The name of the metric to filter against.
 lmMetricName :: Lens' ListMetrics (Maybe Text)
@@ -119,9 +121,9 @@ instance AWSRequest ListMetrics where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListMetrics
+instance Hashable ListMetrics where
 
-instance NFData ListMetrics
+instance NFData ListMetrics where
 
 instance ToHeaders ListMetrics where
         toHeaders = const mempty
@@ -142,10 +144,11 @@ instance ToQuery ListMetrics where
 
 -- | /See:/ 'listMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'
-    { _lmrsMetrics        :: !(Maybe [Metric])
-    , _lmrsNextToken      :: !(Maybe Text)
-    , _lmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lmrsMetrics        :: {-# NOUNPACK #-}!(Maybe [Metric])
+  , _lmrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListMetricsResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +163,12 @@ listMetricsResponse
     :: Int -- ^ 'lmrsResponseStatus'
     -> ListMetricsResponse
 listMetricsResponse pResponseStatus_ =
-    ListMetricsResponse'
-    { _lmrsMetrics = Nothing
-    , _lmrsNextToken = Nothing
-    , _lmrsResponseStatus = pResponseStatus_
-    }
+  ListMetricsResponse'
+  { _lmrsMetrics = Nothing
+  , _lmrsNextToken = Nothing
+  , _lmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The metrics.
 lmrsMetrics :: Lens' ListMetricsResponse [Metric]
@@ -178,4 +182,4 @@ lmrsNextToken = lens _lmrsNextToken (\ s a -> s{_lmrsNextToken = a});
 lmrsResponseStatus :: Lens' ListMetricsResponse Int
 lmrsResponseStatus = lens _lmrsResponseStatus (\ s a -> s{_lmrsResponseStatus = a});
 
-instance NFData ListMetricsResponse
+instance NFData ListMetricsResponse where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -155,12 +155,12 @@ module Network.AWS.DynamoDBStreams
     , srNewImage
     ) where
 
-import           Network.AWS.DynamoDBStreams.DescribeStream
-import           Network.AWS.DynamoDBStreams.GetRecords
-import           Network.AWS.DynamoDBStreams.GetShardIterator
-import           Network.AWS.DynamoDBStreams.ListStreams
-import           Network.AWS.DynamoDBStreams.Types
-import           Network.AWS.DynamoDBStreams.Waiters
+import Network.AWS.DynamoDBStreams.DescribeStream
+import Network.AWS.DynamoDBStreams.GetRecords
+import Network.AWS.DynamoDBStreams.GetShardIterator
+import Network.AWS.DynamoDBStreams.ListStreams
+import Network.AWS.DynamoDBStreams.Types
+import Network.AWS.DynamoDBStreams.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

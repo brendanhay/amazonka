@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexRuntime.PostContent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -83,23 +83,24 @@ module Network.AWS.LexRuntime.PostContent
     , pcrsAudioStream
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexRuntime.Types
-import           Network.AWS.LexRuntime.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexRuntime.Types
+import Network.AWS.LexRuntime.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'postContent' smart constructor.
 data PostContent = PostContent'
-    { _pcAccept            :: !(Maybe Text)
-    , _pcSessionAttributes :: !(Maybe Text)
-    , _pcBotName           :: !Text
-    , _pcBotAlias          :: !Text
-    , _pcUserId            :: !Text
-    , _pcContentType       :: !Text
-    , _pcInputStream       :: !HashedBody
-    } deriving (Show,Generic)
+  { _pcAccept            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcSessionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcBotName           :: {-# NOUNPACK #-}!Text
+  , _pcBotAlias          :: {-# NOUNPACK #-}!Text
+  , _pcUserId            :: {-# NOUNPACK #-}!Text
+  , _pcContentType       :: {-# NOUNPACK #-}!Text
+  , _pcInputStream       :: {-# NOUNPACK #-}!HashedBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'PostContent' with the minimum fields required to make a request.
 --
@@ -126,15 +127,16 @@ postContent
     -> HashedBody -- ^ 'pcInputStream'
     -> PostContent
 postContent pBotName_ pBotAlias_ pUserId_ pContentType_ pInputStream_ =
-    PostContent'
-    { _pcAccept = Nothing
-    , _pcSessionAttributes = Nothing
-    , _pcBotName = pBotName_
-    , _pcBotAlias = pBotAlias_
-    , _pcUserId = pUserId_
-    , _pcContentType = pContentType_
-    , _pcInputStream = pInputStream_
-    }
+  PostContent'
+  { _pcAccept = Nothing
+  , _pcSessionAttributes = Nothing
+  , _pcBotName = pBotName_
+  , _pcBotAlias = pBotAlias_
+  , _pcUserId = pUserId_
+  , _pcContentType = pContentType_
+  , _pcInputStream = pInputStream_
+  }
+
 
 -- | You pass this value as the @Accept@ HTTP header.  The message Amazon Lex returns in the response can be either text or speech based on the @Accept@ HTTP header value in the request.      * If the value is @text/plain; charset=utf-8@ , Amazon Lex returns text in the response.      * If the value begins with @audio/@ , Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech (using the configuration you specified in the @Accept@ header). For example, if you specify @audio/mpeg@ as the value, Amazon Lex returns speech in the MPEG format. The following are the accepted values:     * audio/mpeg     * audio/ogg     * audio/pcm     * text/plain; charset=utf-8     * audio/* (defaults to mpeg)
 pcAccept :: Lens' PostContent (Maybe Text)
@@ -207,17 +209,18 @@ instance ToQuery PostContent where
 
 -- | /See:/ 'postContentResponse' smart constructor.
 data PostContentResponse = PostContentResponse'
-    { _pcrsSlots             :: !(Maybe Text)
-    , _pcrsIntentName        :: !(Maybe Text)
-    , _pcrsDialogState       :: !(Maybe DialogState)
-    , _pcrsInputTranscript   :: !(Maybe Text)
-    , _pcrsMessage           :: !(Maybe Text)
-    , _pcrsSlotToElicit      :: !(Maybe Text)
-    , _pcrsContentType       :: !(Maybe Text)
-    , _pcrsSessionAttributes :: !(Maybe Text)
-    , _pcrsResponseStatus    :: !Int
-    , _pcrsAudioStream       :: !RsBody
-    } deriving (Show,Generic)
+  { _pcrsSlots             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcrsIntentName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcrsDialogState       :: {-# NOUNPACK #-}!(Maybe DialogState)
+  , _pcrsInputTranscript   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcrsMessage           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcrsSlotToElicit      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcrsContentType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcrsSessionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _pcrsAudioStream       :: {-# NOUNPACK #-}!RsBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'PostContentResponse' with the minimum fields required to make a request.
 --
@@ -247,18 +250,19 @@ postContentResponse
     -> RsBody -- ^ 'pcrsAudioStream'
     -> PostContentResponse
 postContentResponse pResponseStatus_ pAudioStream_ =
-    PostContentResponse'
-    { _pcrsSlots = Nothing
-    , _pcrsIntentName = Nothing
-    , _pcrsDialogState = Nothing
-    , _pcrsInputTranscript = Nothing
-    , _pcrsMessage = Nothing
-    , _pcrsSlotToElicit = Nothing
-    , _pcrsContentType = Nothing
-    , _pcrsSessionAttributes = Nothing
-    , _pcrsResponseStatus = pResponseStatus_
-    , _pcrsAudioStream = pAudioStream_
-    }
+  PostContentResponse'
+  { _pcrsSlots = Nothing
+  , _pcrsIntentName = Nothing
+  , _pcrsDialogState = Nothing
+  , _pcrsInputTranscript = Nothing
+  , _pcrsMessage = Nothing
+  , _pcrsSlotToElicit = Nothing
+  , _pcrsContentType = Nothing
+  , _pcrsSessionAttributes = Nothing
+  , _pcrsResponseStatus = pResponseStatus_
+  , _pcrsAudioStream = pAudioStream_
+  }
+
 
 -- | Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input during the conversation.
 pcrsSlots :: Lens' PostContentResponse (Maybe Text)

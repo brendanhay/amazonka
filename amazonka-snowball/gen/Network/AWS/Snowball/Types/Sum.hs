@@ -9,23 +9,24 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Snowball.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ClusterState
-    = AwaitingQuorum
-    | Cancelled
-    | Complete
-    | InUse
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AwaitingQuorum
+  | Cancelled
+  | Complete
+  | InUse
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ClusterState where
     parser = takeLowerText >>= \case
@@ -55,19 +56,20 @@ instance FromJSON ClusterState where
     parseJSON = parseJSONText "ClusterState"
 
 data JobState
-    = JSCancelled
-    | JSComplete
-    | JSInProgress
-    | JSInTransitToAWS
-    | JSInTransitToCustomer
-    | JSListing
-    | JSNew
-    | JSPending
-    | JSPreparingAppliance
-    | JSPreparingShipment
-    | JSWithAWS
-    | JSWithCustomer
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = JSCancelled
+  | JSComplete
+  | JSInProgress
+  | JSInTransitToAWS
+  | JSInTransitToCustomer
+  | JSListing
+  | JSNew
+  | JSPending
+  | JSPreparingAppliance
+  | JSPreparingShipment
+  | JSWithAWS
+  | JSWithCustomer
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JobState where
     parser = takeLowerText >>= \case
@@ -114,10 +116,11 @@ instance FromJSON JobState where
     parseJSON = parseJSONText "JobState"
 
 data JobType
-    = Export
-    | Import
-    | LocalUse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Export
+  | Import
+  | LocalUse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JobType where
     parser = takeLowerText >>= \case
@@ -146,11 +149,12 @@ instance FromJSON JobType where
     parseJSON = parseJSONText "JobType"
 
 data ShippingOption
-    = SOExpress
-    | SONextDay
-    | SOSecondDay
-    | SOStandard
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SOExpress
+  | SONextDay
+  | SOSecondDay
+  | SOStandard
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ShippingOption where
     parser = takeLowerText >>= \case
@@ -181,11 +185,12 @@ instance FromJSON ShippingOption where
     parseJSON = parseJSONText "ShippingOption"
 
 data SnowballCapacity
-    = NoPreference
-    | T100
-    | T50
-    | T80
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NoPreference
+  | T100
+  | T50
+  | T80
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SnowballCapacity where
     parser = takeLowerText >>= \case
@@ -216,9 +221,10 @@ instance FromJSON SnowballCapacity where
     parseJSON = parseJSONText "SnowballCapacity"
 
 data SnowballType
-    = Edge
-    | Standard
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Edge
+  | Standard
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SnowballType where
     parser = takeLowerText >>= \case

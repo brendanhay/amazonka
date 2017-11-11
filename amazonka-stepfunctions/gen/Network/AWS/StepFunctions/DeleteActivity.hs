@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.DeleteActivity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.StepFunctions.DeleteActivity
     , darsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'deleteActivity' smart constructor.
 newtype DeleteActivity = DeleteActivity'
-    { _daActivityARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daActivityARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteActivity' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteActivity = DeleteActivity'
 deleteActivity
     :: Text -- ^ 'daActivityARN'
     -> DeleteActivity
-deleteActivity pActivityARN_ =
-    DeleteActivity'
-    { _daActivityARN = pActivityARN_
-    }
+deleteActivity pActivityARN_ = DeleteActivity' {_daActivityARN = pActivityARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the activity to delete.
 daActivityARN :: Lens' DeleteActivity Text
@@ -73,9 +72,9 @@ instance AWSRequest DeleteActivity where
               (\ s h x ->
                  DeleteActivityResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteActivity
+instance Hashable DeleteActivity where
 
-instance NFData DeleteActivity
+instance NFData DeleteActivity where
 
 instance ToHeaders DeleteActivity where
         toHeaders
@@ -99,8 +98,9 @@ instance ToQuery DeleteActivity where
 
 -- | /See:/ 'deleteActivityResponse' smart constructor.
 newtype DeleteActivityResponse = DeleteActivityResponse'
-    { _darsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteActivityResponse' with the minimum fields required to make a request.
 --
@@ -111,12 +111,11 @@ deleteActivityResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DeleteActivityResponse
 deleteActivityResponse pResponseStatus_ =
-    DeleteActivityResponse'
-    { _darsResponseStatus = pResponseStatus_
-    }
+  DeleteActivityResponse' {_darsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DeleteActivityResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DeleteActivityResponse
+instance NFData DeleteActivityResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.ListIdentityPoolUsage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     , lipursResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for usage information on an identity pool.
 --
 -- /See:/ 'listIdentityPoolUsage' smart constructor.
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
-    { _lipuNextToken  :: !(Maybe Text)
-    , _lipuMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipuNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lipuMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityPoolUsage' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ data ListIdentityPoolUsage = ListIdentityPoolUsage'
 listIdentityPoolUsage
     :: ListIdentityPoolUsage
 listIdentityPoolUsage =
-    ListIdentityPoolUsage'
-    { _lipuNextToken = Nothing
-    , _lipuMaxResults = Nothing
-    }
+  ListIdentityPoolUsage' {_lipuNextToken = Nothing, _lipuMaxResults = Nothing}
+
 
 -- | A pagination token for obtaining the next page of results.
 lipuNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest ListIdentityPoolUsage where
                      <*> (x .?> "MaxResults")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListIdentityPoolUsage
+instance Hashable ListIdentityPoolUsage where
 
-instance NFData ListIdentityPoolUsage
+instance NFData ListIdentityPoolUsage where
 
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders
@@ -119,12 +118,13 @@ instance ToQuery ListIdentityPoolUsage where
 --
 -- /See:/ 'listIdentityPoolUsageResponse' smart constructor.
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
-    { _lipursIdentityPoolUsages :: !(Maybe [IdentityPoolUsage])
-    , _lipursCount              :: !(Maybe Int)
-    , _lipursNextToken          :: !(Maybe Text)
-    , _lipursMaxResults         :: !(Maybe Int)
-    , _lipursResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipursIdentityPoolUsages :: {-# NOUNPACK #-}!(Maybe [IdentityPoolUsage])
+  , _lipursCount              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lipursNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lipursMaxResults         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lipursResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityPoolUsageResponse' with the minimum fields required to make a request.
 --
@@ -143,13 +143,14 @@ listIdentityPoolUsageResponse
     :: Int -- ^ 'lipursResponseStatus'
     -> ListIdentityPoolUsageResponse
 listIdentityPoolUsageResponse pResponseStatus_ =
-    ListIdentityPoolUsageResponse'
-    { _lipursIdentityPoolUsages = Nothing
-    , _lipursCount = Nothing
-    , _lipursNextToken = Nothing
-    , _lipursMaxResults = Nothing
-    , _lipursResponseStatus = pResponseStatus_
-    }
+  ListIdentityPoolUsageResponse'
+  { _lipursIdentityPoolUsages = Nothing
+  , _lipursCount = Nothing
+  , _lipursNextToken = Nothing
+  , _lipursMaxResults = Nothing
+  , _lipursResponseStatus = pResponseStatus_
+  }
+
 
 -- | Usage information for the identity pools.
 lipursIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
@@ -171,4 +172,4 @@ lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
 lipursResponseStatus :: Lens' ListIdentityPoolUsageResponse Int
 lipursResponseStatus = lens _lipursResponseStatus (\ s a -> s{_lipursResponseStatus = a});
 
-instance NFData ListIdentityPoolUsageResponse
+instance NFData ListIdentityPoolUsageResponse where

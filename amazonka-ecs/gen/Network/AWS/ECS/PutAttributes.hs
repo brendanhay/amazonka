@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.PutAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.ECS.PutAttributes
     , parsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putAttributes' smart constructor.
 data PutAttributes = PutAttributes'
-    { _paCluster    :: !(Maybe Text)
-    , _paAttributes :: ![Attribute]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _paCluster    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paAttributes :: {-# NOUNPACK #-}![Attribute]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutAttributes' with the minimum fields required to make a request.
 --
@@ -60,11 +61,8 @@ data PutAttributes = PutAttributes'
 -- * 'paAttributes' - The attributes to apply to your resource. You can specify up to 10 custom attributes per resource. You can specify up to 10 attributes in a single call.
 putAttributes
     :: PutAttributes
-putAttributes =
-    PutAttributes'
-    { _paCluster = Nothing
-    , _paAttributes = mempty
-    }
+putAttributes = PutAttributes' {_paCluster = Nothing, _paAttributes = mempty}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply attributes. If you do not specify a cluster, the default cluster is assumed.
 paCluster :: Lens' PutAttributes (Maybe Text)
@@ -84,9 +82,9 @@ instance AWSRequest PutAttributes where
                    (x .?> "attributes" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable PutAttributes
+instance Hashable PutAttributes where
 
-instance NFData PutAttributes
+instance NFData PutAttributes where
 
 instance ToHeaders PutAttributes where
         toHeaders
@@ -113,9 +111,10 @@ instance ToQuery PutAttributes where
 
 -- | /See:/ 'putAttributesResponse' smart constructor.
 data PutAttributesResponse = PutAttributesResponse'
-    { _parsAttributes     :: !(Maybe [Attribute])
-    , _parsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _parsAttributes     :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _parsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutAttributesResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +127,9 @@ putAttributesResponse
     :: Int -- ^ 'parsResponseStatus'
     -> PutAttributesResponse
 putAttributesResponse pResponseStatus_ =
-    PutAttributesResponse'
-    { _parsAttributes = Nothing
-    , _parsResponseStatus = pResponseStatus_
-    }
+  PutAttributesResponse'
+  {_parsAttributes = Nothing, _parsResponseStatus = pResponseStatus_}
+
 
 -- | The attributes applied to your resource.
 parsAttributes :: Lens' PutAttributesResponse [Attribute]
@@ -141,4 +139,4 @@ parsAttributes = lens _parsAttributes (\ s a -> s{_parsAttributes = a}) . _Defau
 parsResponseStatus :: Lens' PutAttributesResponse Int
 parsResponseStatus = lens _parsResponseStatus (\ s a -> s{_parsResponseStatus = a});
 
-instance NFData PutAttributesResponse
+instance NFData PutAttributesResponse where

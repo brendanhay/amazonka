@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DeleteStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.Kinesis.DeleteStream
     , DeleteStreamResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for 'DeleteStream' .
 --
@@ -57,8 +57,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteStream' smart constructor.
 newtype DeleteStream = DeleteStream'
-    { _dsStreamName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsStreamName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ newtype DeleteStream = DeleteStream'
 deleteStream
     :: Text -- ^ 'dsStreamName'
     -> DeleteStream
-deleteStream pStreamName_ =
-    DeleteStream'
-    { _dsStreamName = pStreamName_
-    }
+deleteStream pStreamName_ = DeleteStream' {_dsStreamName = pStreamName_}
+
 
 -- | The name of the stream to delete.
 dsStreamName :: Lens' DeleteStream Text
@@ -82,9 +81,9 @@ instance AWSRequest DeleteStream where
         request = postJSON kinesis
         response = receiveNull DeleteStreamResponse'
 
-instance Hashable DeleteStream
+instance Hashable DeleteStream where
 
-instance NFData DeleteStream
+instance NFData DeleteStream where
 
 instance ToHeaders DeleteStream where
         toHeaders
@@ -108,8 +107,9 @@ instance ToQuery DeleteStream where
 
 -- | /See:/ 'deleteStreamResponse' smart constructor.
 data DeleteStreamResponse =
-    DeleteStreamResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteStreamResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.
 --
@@ -117,4 +117,5 @@ deleteStreamResponse
     :: DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse'
 
-instance NFData DeleteStreamResponse
+
+instance NFData DeleteStreamResponse where

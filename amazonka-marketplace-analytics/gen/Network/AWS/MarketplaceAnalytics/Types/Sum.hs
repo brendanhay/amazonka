@@ -9,39 +9,40 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceAnalytics.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MarketplaceAnalytics.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data DataSetType
-    = CustomerProfileByGeography
-    | CustomerProfileByIndustry
-    | CustomerProfileByRevenue
-    | CustomerSubscriberAnnualSubscriptions
-    | CustomerSubscriberHourlyMonthlySubscriptions
-    | DailyBusinessCanceledProductSubscribers
-    | DailyBusinessFees
-    | DailyBusinessFreeTrialConversions
-    | DailyBusinessNewInstances
-    | DailyBusinessNewProductSubscribers
-    | DailyBusinessUsageByInstanceType
-    | DisbursedAmountByAgeOfDisbursedFunds
-    | DisbursedAmountByAgeOfUncollectedFunds
-    | DisbursedAmountByCustomerGeo
-    | DisbursedAmountByInstanceHours
-    | DisbursedAmountByProduct
-    | DisbursedAmountByProductWithUncollectedFunds
-    | MonthlyRevenueAnnualSubscriptions
-    | MonthlyRevenueBillingAndRevenueData
-    | SalesCompensationBilledRevenue
-    | UsSalesAndUseTaxRecords
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CustomerProfileByGeography
+  | CustomerProfileByIndustry
+  | CustomerProfileByRevenue
+  | CustomerSubscriberAnnualSubscriptions
+  | CustomerSubscriberHourlyMonthlySubscriptions
+  | DailyBusinessCanceledProductSubscribers
+  | DailyBusinessFees
+  | DailyBusinessFreeTrialConversions
+  | DailyBusinessNewInstances
+  | DailyBusinessNewProductSubscribers
+  | DailyBusinessUsageByInstanceType
+  | DisbursedAmountByAgeOfDisbursedFunds
+  | DisbursedAmountByAgeOfUncollectedFunds
+  | DisbursedAmountByCustomerGeo
+  | DisbursedAmountByInstanceHours
+  | DisbursedAmountByProduct
+  | DisbursedAmountByProductWithUncollectedFunds
+  | MonthlyRevenueAnnualSubscriptions
+  | MonthlyRevenueBillingAndRevenueData
+  | SalesCompensationBilledRevenue
+  | UsSalesAndUseTaxRecords
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DataSetType where
     parser = takeLowerText >>= \case
@@ -103,9 +104,10 @@ instance ToJSON DataSetType where
     toJSON = toJSONText
 
 data SupportDataSetType
-    = CustomerSupportContactsData
-    | TestCustomerSupportContactsData
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CustomerSupportContactsData
+  | TestCustomerSupportContactsData
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SupportDataSetType where
     parser = takeLowerText >>= \case

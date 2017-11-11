@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceSnapshots
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Lightsail.GetInstanceSnapshots
     , gissrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getInstanceSnapshots' smart constructor.
 newtype GetInstanceSnapshots = GetInstanceSnapshots'
-    { _gisPageToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisPageToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceSnapshots' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetInstanceSnapshots = GetInstanceSnapshots'
 -- * 'gisPageToken' - A token used for advancing to the next page of results from your get instance snapshots request.
 getInstanceSnapshots
     :: GetInstanceSnapshots
-getInstanceSnapshots =
-    GetInstanceSnapshots'
-    { _gisPageToken = Nothing
-    }
+getInstanceSnapshots = GetInstanceSnapshots' {_gisPageToken = Nothing}
+
 
 -- | A token used for advancing to the next page of results from your get instance snapshots request.
 gisPageToken :: Lens' GetInstanceSnapshots (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest GetInstanceSnapshots where
                      (x .?> "instanceSnapshots" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetInstanceSnapshots
+instance Hashable GetInstanceSnapshots where
 
-instance NFData GetInstanceSnapshots
+instance NFData GetInstanceSnapshots where
 
 instance ToHeaders GetInstanceSnapshots where
         toHeaders
@@ -115,10 +114,11 @@ instance ToQuery GetInstanceSnapshots where
 
 -- | /See:/ 'getInstanceSnapshotsResponse' smart constructor.
 data GetInstanceSnapshotsResponse = GetInstanceSnapshotsResponse'
-    { _gissrsNextPageToken     :: !(Maybe Text)
-    , _gissrsInstanceSnapshots :: !(Maybe [InstanceSnapshot])
-    , _gissrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gissrsNextPageToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gissrsInstanceSnapshots :: {-# NOUNPACK #-}!(Maybe [InstanceSnapshot])
+  , _gissrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceSnapshotsResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +133,12 @@ getInstanceSnapshotsResponse
     :: Int -- ^ 'gissrsResponseStatus'
     -> GetInstanceSnapshotsResponse
 getInstanceSnapshotsResponse pResponseStatus_ =
-    GetInstanceSnapshotsResponse'
-    { _gissrsNextPageToken = Nothing
-    , _gissrsInstanceSnapshots = Nothing
-    , _gissrsResponseStatus = pResponseStatus_
-    }
+  GetInstanceSnapshotsResponse'
+  { _gissrsNextPageToken = Nothing
+  , _gissrsInstanceSnapshots = Nothing
+  , _gissrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token used for advancing to the next page of results from your get instance snapshots request.
 gissrsNextPageToken :: Lens' GetInstanceSnapshotsResponse (Maybe Text)
@@ -151,4 +152,4 @@ gissrsInstanceSnapshots = lens _gissrsInstanceSnapshots (\ s a -> s{_gissrsInsta
 gissrsResponseStatus :: Lens' GetInstanceSnapshotsResponse Int
 gissrsResponseStatus = lens _gissrsResponseStatus (\ s a -> s{_gissrsResponseStatus = a});
 
-instance NFData GetInstanceSnapshotsResponse
+instance NFData GetInstanceSnapshotsResponse where

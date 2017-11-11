@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.UnassignIPv6Addresses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.EC2.UnassignIPv6Addresses
     , uiarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'unassignIPv6Addresses' smart constructor.
 data UnassignIPv6Addresses = UnassignIPv6Addresses'
-    { _uiaIPv6Addresses      :: ![Text]
-    , _uiaNetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiaIPv6Addresses      :: {-# NOUNPACK #-}![Text]
+  , _uiaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnassignIPv6Addresses' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ unassignIPv6Addresses
     :: Text -- ^ 'uiaNetworkInterfaceId'
     -> UnassignIPv6Addresses
 unassignIPv6Addresses pNetworkInterfaceId_ =
-    UnassignIPv6Addresses'
-    { _uiaIPv6Addresses = mempty
-    , _uiaNetworkInterfaceId = pNetworkInterfaceId_
-    }
+  UnassignIPv6Addresses'
+  {_uiaIPv6Addresses = mempty, _uiaNetworkInterfaceId = pNetworkInterfaceId_}
+
 
 -- | The IPv6 addresses to unassign from the network interface.
 uiaIPv6Addresses :: Lens' UnassignIPv6Addresses [Text]
@@ -89,9 +89,9 @@ instance AWSRequest UnassignIPv6Addresses where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable UnassignIPv6Addresses
+instance Hashable UnassignIPv6Addresses where
 
-instance NFData UnassignIPv6Addresses
+instance NFData UnassignIPv6Addresses where
 
 instance ToHeaders UnassignIPv6Addresses where
         toHeaders = const mempty
@@ -109,10 +109,11 @@ instance ToQuery UnassignIPv6Addresses where
 
 -- | /See:/ 'unassignIPv6AddressesResponse' smart constructor.
 data UnassignIPv6AddressesResponse = UnassignIPv6AddressesResponse'
-    { _uiarsNetworkInterfaceId      :: !(Maybe Text)
-    , _uiarsUnassignedIPv6Addresses :: !(Maybe [Text])
-    , _uiarsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiarsNetworkInterfaceId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiarsUnassignedIPv6Addresses :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uiarsResponseStatus          :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnassignIPv6AddressesResponse' with the minimum fields required to make a request.
 --
@@ -127,11 +128,12 @@ unassignIPv6AddressesResponse
     :: Int -- ^ 'uiarsResponseStatus'
     -> UnassignIPv6AddressesResponse
 unassignIPv6AddressesResponse pResponseStatus_ =
-    UnassignIPv6AddressesResponse'
-    { _uiarsNetworkInterfaceId = Nothing
-    , _uiarsUnassignedIPv6Addresses = Nothing
-    , _uiarsResponseStatus = pResponseStatus_
-    }
+  UnassignIPv6AddressesResponse'
+  { _uiarsNetworkInterfaceId = Nothing
+  , _uiarsUnassignedIPv6Addresses = Nothing
+  , _uiarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the network interface.
 uiarsNetworkInterfaceId :: Lens' UnassignIPv6AddressesResponse (Maybe Text)
@@ -145,4 +147,4 @@ uiarsUnassignedIPv6Addresses = lens _uiarsUnassignedIPv6Addresses (\ s a -> s{_u
 uiarsResponseStatus :: Lens' UnassignIPv6AddressesResponse Int
 uiarsResponseStatus = lens _uiarsResponseStatus (\ s a -> s{_uiarsResponseStatus = a});
 
-instance NFData UnassignIPv6AddressesResponse
+instance NFData UnassignIPv6AddressesResponse where

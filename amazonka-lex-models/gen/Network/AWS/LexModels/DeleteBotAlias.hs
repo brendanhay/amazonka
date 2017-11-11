@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteBotAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.LexModels.DeleteBotAlias
     , DeleteBotAliasResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteBotAlias' smart constructor.
 data DeleteBotAlias = DeleteBotAlias'
-    { _dbaName    :: !Text
-    , _dbaBotName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbaName    :: {-# NOUNPACK #-}!Text
+  , _dbaBotName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBotAlias' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteBotAlias
     -> Text -- ^ 'dbaBotName'
     -> DeleteBotAlias
 deleteBotAlias pName_ pBotName_ =
-    DeleteBotAlias'
-    { _dbaName = pName_
-    , _dbaBotName = pBotName_
-    }
+  DeleteBotAlias' {_dbaName = pName_, _dbaBotName = pBotName_}
+
 
 -- | The name of the alias to delete. The name is case sensitive.
 dbaName :: Lens' DeleteBotAlias Text
@@ -80,9 +79,9 @@ instance AWSRequest DeleteBotAlias where
         request = delete lexModels
         response = receiveNull DeleteBotAliasResponse'
 
-instance Hashable DeleteBotAlias
+instance Hashable DeleteBotAlias where
 
-instance NFData DeleteBotAlias
+instance NFData DeleteBotAlias where
 
 instance ToHeaders DeleteBotAlias where
         toHeaders
@@ -102,8 +101,9 @@ instance ToQuery DeleteBotAlias where
 
 -- | /See:/ 'deleteBotAliasResponse' smart constructor.
 data DeleteBotAliasResponse =
-    DeleteBotAliasResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBotAliasResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBotAliasResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ deleteBotAliasResponse
     :: DeleteBotAliasResponse
 deleteBotAliasResponse = DeleteBotAliasResponse'
 
-instance NFData DeleteBotAliasResponse
+
+instance NFData DeleteBotAliasResponse where

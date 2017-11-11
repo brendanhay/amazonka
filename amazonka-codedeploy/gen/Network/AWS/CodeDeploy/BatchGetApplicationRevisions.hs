@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetApplicationRevisions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CodeDeploy.BatchGetApplicationRevisions
     , bgarrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a BatchGetApplicationRevisions operation.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'batchGetApplicationRevisions' smart constructor.
 data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
-    { _bgarApplicationName :: !Text
-    , _bgarRevisions       :: ![RevisionLocation]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgarApplicationName :: {-# NOUNPACK #-}!Text
+  , _bgarRevisions       :: {-# NOUNPACK #-}![RevisionLocation]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetApplicationRevisions' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ batchGetApplicationRevisions
     :: Text -- ^ 'bgarApplicationName'
     -> BatchGetApplicationRevisions
 batchGetApplicationRevisions pApplicationName_ =
-    BatchGetApplicationRevisions'
-    { _bgarApplicationName = pApplicationName_
-    , _bgarRevisions = mempty
-    }
+  BatchGetApplicationRevisions'
+  {_bgarApplicationName = pApplicationName_, _bgarRevisions = mempty}
+
 
 -- | The name of an AWS CodeDeploy application about which to get revision information.
 bgarApplicationName :: Lens' BatchGetApplicationRevisions Text
@@ -95,9 +95,9 @@ instance AWSRequest BatchGetApplicationRevisions
                      <*> (x .?> "errorMessage")
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetApplicationRevisions
+instance Hashable BatchGetApplicationRevisions where
 
-instance NFData BatchGetApplicationRevisions
+instance NFData BatchGetApplicationRevisions where
 
 instance ToHeaders BatchGetApplicationRevisions where
         toHeaders
@@ -128,11 +128,12 @@ instance ToQuery BatchGetApplicationRevisions where
 --
 -- /See:/ 'batchGetApplicationRevisionsResponse' smart constructor.
 data BatchGetApplicationRevisionsResponse = BatchGetApplicationRevisionsResponse'
-    { _bgarrsApplicationName :: !(Maybe Text)
-    , _bgarrsRevisions       :: !(Maybe [RevisionInfo])
-    , _bgarrsErrorMessage    :: !(Maybe Text)
-    , _bgarrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgarrsApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bgarrsRevisions       :: {-# NOUNPACK #-}!(Maybe [RevisionInfo])
+  , _bgarrsErrorMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bgarrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetApplicationRevisionsResponse' with the minimum fields required to make a request.
 --
@@ -149,12 +150,13 @@ batchGetApplicationRevisionsResponse
     :: Int -- ^ 'bgarrsResponseStatus'
     -> BatchGetApplicationRevisionsResponse
 batchGetApplicationRevisionsResponse pResponseStatus_ =
-    BatchGetApplicationRevisionsResponse'
-    { _bgarrsApplicationName = Nothing
-    , _bgarrsRevisions = Nothing
-    , _bgarrsErrorMessage = Nothing
-    , _bgarrsResponseStatus = pResponseStatus_
-    }
+  BatchGetApplicationRevisionsResponse'
+  { _bgarrsApplicationName = Nothing
+  , _bgarrsRevisions = Nothing
+  , _bgarrsErrorMessage = Nothing
+  , _bgarrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the application that corresponds to the revisions.
 bgarrsApplicationName :: Lens' BatchGetApplicationRevisionsResponse (Maybe Text)
@@ -173,3 +175,4 @@ bgarrsResponseStatus :: Lens' BatchGetApplicationRevisionsResponse Int
 bgarrsResponseStatus = lens _bgarrsResponseStatus (\ s a -> s{_bgarrsResponseStatus = a});
 
 instance NFData BatchGetApplicationRevisionsResponse
+         where

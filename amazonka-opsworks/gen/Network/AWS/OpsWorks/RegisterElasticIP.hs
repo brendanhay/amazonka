@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterElasticIP
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.OpsWorks.RegisterElasticIP
     , reirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerElasticIP' smart constructor.
 data RegisterElasticIP = RegisterElasticIP'
-    { _reiElasticIP :: !Text
-    , _reiStackId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _reiElasticIP :: {-# NOUNPACK #-}!Text
+  , _reiStackId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterElasticIP' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ registerElasticIP
     -> Text -- ^ 'reiStackId'
     -> RegisterElasticIP
 registerElasticIP pElasticIP_ pStackId_ =
-    RegisterElasticIP'
-    { _reiElasticIP = pElasticIP_
-    , _reiStackId = pStackId_
-    }
+  RegisterElasticIP' {_reiElasticIP = pElasticIP_, _reiStackId = pStackId_}
+
 
 -- | The Elastic IP address.
 reiElasticIP :: Lens' RegisterElasticIP Text
@@ -87,9 +86,9 @@ instance AWSRequest RegisterElasticIP where
                  RegisterElasticIPResponse' <$>
                    (x .?> "ElasticIp") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterElasticIP
+instance Hashable RegisterElasticIP where
 
-instance NFData RegisterElasticIP
+instance NFData RegisterElasticIP where
 
 instance ToHeaders RegisterElasticIP where
         toHeaders
@@ -120,9 +119,10 @@ instance ToQuery RegisterElasticIP where
 --
 -- /See:/ 'registerElasticIPResponse' smart constructor.
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
-    { _reirsElasticIP      :: !(Maybe Text)
-    , _reirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _reirsElasticIP      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _reirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterElasticIPResponse' with the minimum fields required to make a request.
 --
@@ -135,10 +135,9 @@ registerElasticIPResponse
     :: Int -- ^ 'reirsResponseStatus'
     -> RegisterElasticIPResponse
 registerElasticIPResponse pResponseStatus_ =
-    RegisterElasticIPResponse'
-    { _reirsElasticIP = Nothing
-    , _reirsResponseStatus = pResponseStatus_
-    }
+  RegisterElasticIPResponse'
+  {_reirsElasticIP = Nothing, _reirsResponseStatus = pResponseStatus_}
+
 
 -- | The Elastic IP address.
 reirsElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
@@ -148,4 +147,4 @@ reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a});
 reirsResponseStatus :: Lens' RegisterElasticIPResponse Int
 reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});
 
-instance NFData RegisterElasticIPResponse
+instance NFData RegisterElasticIPResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStacks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.CloudFormation.ListStacks
     , lsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for 'ListStacks' action.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listStacks' smart constructor.
 data ListStacks = ListStacks'
-    { _lsNextToken         :: !(Maybe Text)
-    , _lsStackStatusFilter :: !(Maybe [StackStatus])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsStackStatusFilter :: {-# NOUNPACK #-}!(Maybe [StackStatus])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStacks' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ data ListStacks = ListStacks'
 listStacks
     :: ListStacks
 listStacks =
-    ListStacks'
-    { _lsNextToken = Nothing
-    , _lsStackStatusFilter = Nothing
-    }
+  ListStacks' {_lsNextToken = Nothing, _lsStackStatusFilter = Nothing}
+
 
 -- | A string that identifies the next page of stacks that you want to retrieve.
 lsNextToken :: Lens' ListStacks (Maybe Text)
@@ -101,9 +100,9 @@ instance AWSRequest ListStacks where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListStacks
+instance Hashable ListStacks where
 
-instance NFData ListStacks
+instance NFData ListStacks where
 
 instance ToHeaders ListStacks where
         toHeaders = const mempty
@@ -127,10 +126,11 @@ instance ToQuery ListStacks where
 --
 -- /See:/ 'listStacksResponse' smart constructor.
 data ListStacksResponse = ListStacksResponse'
-    { _lsrsNextToken      :: !(Maybe Text)
-    , _lsrsStackSummaries :: !(Maybe [StackSummary])
-    , _lsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsrsStackSummaries :: {-# NOUNPACK #-}!(Maybe [StackSummary])
+  , _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStacksResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ listStacksResponse
     :: Int -- ^ 'lsrsResponseStatus'
     -> ListStacksResponse
 listStacksResponse pResponseStatus_ =
-    ListStacksResponse'
-    { _lsrsNextToken = Nothing
-    , _lsrsStackSummaries = Nothing
-    , _lsrsResponseStatus = pResponseStatus_
-    }
+  ListStacksResponse'
+  { _lsrsNextToken = Nothing
+  , _lsrsStackSummaries = Nothing
+  , _lsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
 lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
@@ -163,4 +164,4 @@ lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = 
 lsrsResponseStatus :: Lens' ListStacksResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 
-instance NFData ListStacksResponse
+instance NFData ListStacksResponse where

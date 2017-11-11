@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
     , lantmrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input parameters for the @ListAllowedNodeTypeModifications@ operation.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listAllowedNodeTypeModifications' smart constructor.
 data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
-    { _lantmCacheClusterId     :: !(Maybe Text)
-    , _lantmReplicationGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lantmCacheClusterId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lantmReplicationGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAllowedNodeTypeModifications' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
 listAllowedNodeTypeModifications
     :: ListAllowedNodeTypeModifications
 listAllowedNodeTypeModifications =
-    ListAllowedNodeTypeModifications'
-    { _lantmCacheClusterId = Nothing
-    , _lantmReplicationGroupId = Nothing
-    }
+  ListAllowedNodeTypeModifications'
+  {_lantmCacheClusterId = Nothing, _lantmReplicationGroupId = Nothing}
+
 
 -- | The name of the cache cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
 lantmCacheClusterId :: Lens' ListAllowedNodeTypeModifications (Maybe Text)
@@ -95,8 +95,10 @@ instance AWSRequest ListAllowedNodeTypeModifications
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListAllowedNodeTypeModifications
+         where
 
 instance NFData ListAllowedNodeTypeModifications
+         where
 
 instance ToHeaders ListAllowedNodeTypeModifications
          where
@@ -122,9 +124,10 @@ instance ToQuery ListAllowedNodeTypeModifications
 --
 -- /See:/ 'listAllowedNodeTypeModificationsResponse' smart constructor.
 data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModificationsResponse'
-    { _lantmrsScaleUpModifications :: !(Maybe [Text])
-    , _lantmrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lantmrsScaleUpModifications :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lantmrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAllowedNodeTypeModificationsResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,11 @@ listAllowedNodeTypeModificationsResponse
     :: Int -- ^ 'lantmrsResponseStatus'
     -> ListAllowedNodeTypeModificationsResponse
 listAllowedNodeTypeModificationsResponse pResponseStatus_ =
-    ListAllowedNodeTypeModificationsResponse'
-    { _lantmrsScaleUpModifications = Nothing
-    , _lantmrsResponseStatus = pResponseStatus_
-    }
+  ListAllowedNodeTypeModificationsResponse'
+  { _lantmrsScaleUpModifications = Nothing
+  , _lantmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A string list, each element of which specifies a cache node type which you can use to scale your cache cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
 lantmrsScaleUpModifications :: Lens' ListAllowedNodeTypeModificationsResponse [Text]
@@ -151,4 +155,5 @@ lantmrsResponseStatus :: Lens' ListAllowedNodeTypeModificationsResponse Int
 lantmrsResponseStatus = lens _lantmrsResponseStatus (\ s a -> s{_lantmrsResponseStatus = a});
 
 instance NFData
-         ListAllowedNodeTypeModificationsResponse
+           ListAllowedNodeTypeModificationsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.GetJobUnlockCode
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Snowball.GetJobUnlockCode
     , gjucrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'getJobUnlockCode' smart constructor.
 newtype GetJobUnlockCode = GetJobUnlockCode'
-    { _gjucJobId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjucJobId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobUnlockCode' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetJobUnlockCode = GetJobUnlockCode'
 getJobUnlockCode
     :: Text -- ^ 'gjucJobId'
     -> GetJobUnlockCode
-getJobUnlockCode pJobId_ =
-    GetJobUnlockCode'
-    { _gjucJobId = pJobId_
-    }
+getJobUnlockCode pJobId_ = GetJobUnlockCode' {_gjucJobId = pJobId_}
+
 
 -- | The ID for the job that you want to get the @UnlockCode@ value for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 gjucJobId :: Lens' GetJobUnlockCode Text
@@ -79,9 +78,9 @@ instance AWSRequest GetJobUnlockCode where
                  GetJobUnlockCodeResponse' <$>
                    (x .?> "UnlockCode") <*> (pure (fromEnum s)))
 
-instance Hashable GetJobUnlockCode
+instance Hashable GetJobUnlockCode where
 
-instance NFData GetJobUnlockCode
+instance NFData GetJobUnlockCode where
 
 instance ToHeaders GetJobUnlockCode where
         toHeaders
@@ -105,9 +104,10 @@ instance ToQuery GetJobUnlockCode where
 
 -- | /See:/ 'getJobUnlockCodeResponse' smart constructor.
 data GetJobUnlockCodeResponse = GetJobUnlockCodeResponse'
-    { _gjucrsUnlockCode     :: !(Maybe Text)
-    , _gjucrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjucrsUnlockCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjucrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobUnlockCodeResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +120,9 @@ getJobUnlockCodeResponse
     :: Int -- ^ 'gjucrsResponseStatus'
     -> GetJobUnlockCodeResponse
 getJobUnlockCodeResponse pResponseStatus_ =
-    GetJobUnlockCodeResponse'
-    { _gjucrsUnlockCode = Nothing
-    , _gjucrsResponseStatus = pResponseStatus_
-    }
+  GetJobUnlockCodeResponse'
+  {_gjucrsUnlockCode = Nothing, _gjucrsResponseStatus = pResponseStatus_}
+
 
 -- | The @UnlockCode@ value for the specified job. The @UnlockCode@ value can be accessed for up to 90 days after the job has been created.
 gjucrsUnlockCode :: Lens' GetJobUnlockCodeResponse (Maybe Text)
@@ -133,4 +132,4 @@ gjucrsUnlockCode = lens _gjucrsUnlockCode (\ s a -> s{_gjucrsUnlockCode = a});
 gjucrsResponseStatus :: Lens' GetJobUnlockCodeResponse Int
 gjucrsResponseStatus = lens _gjucrsResponseStatus (\ s a -> s{_gjucrsResponseStatus = a});
 
-instance NFData GetJobUnlockCodeResponse
+instance NFData GetJobUnlockCodeResponse where

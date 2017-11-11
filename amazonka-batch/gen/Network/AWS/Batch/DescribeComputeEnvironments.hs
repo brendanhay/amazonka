@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DescribeComputeEnvironments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.Batch.DescribeComputeEnvironments
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeComputeEnvironments' smart constructor.
 data DescribeComputeEnvironments = DescribeComputeEnvironments'
-    { _dceComputeEnvironments :: !(Maybe [Text])
-    , _dceNextToken           :: !(Maybe Text)
-    , _dceMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dceComputeEnvironments :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dceNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dceMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeComputeEnvironments' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ data DescribeComputeEnvironments = DescribeComputeEnvironments'
 describeComputeEnvironments
     :: DescribeComputeEnvironments
 describeComputeEnvironments =
-    DescribeComputeEnvironments'
-    { _dceComputeEnvironments = Nothing
-    , _dceNextToken = Nothing
-    , _dceMaxResults = Nothing
-    }
+  DescribeComputeEnvironments'
+  { _dceComputeEnvironments = Nothing
+  , _dceNextToken = Nothing
+  , _dceMaxResults = Nothing
+  }
+
 
 -- | A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.
 dceComputeEnvironments :: Lens' DescribeComputeEnvironments [Text]
@@ -98,9 +100,9 @@ instance AWSRequest DescribeComputeEnvironments where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeComputeEnvironments
+instance Hashable DescribeComputeEnvironments where
 
-instance NFData DescribeComputeEnvironments
+instance NFData DescribeComputeEnvironments where
 
 instance ToHeaders DescribeComputeEnvironments where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery DescribeComputeEnvironments where
 
 -- | /See:/ 'describeComputeEnvironmentsResponse' smart constructor.
 data DescribeComputeEnvironmentsResponse = DescribeComputeEnvironmentsResponse'
-    { _drsComputeEnvironments :: !(Maybe [ComputeEnvironmentDetail])
-    , _drsNextToken           :: !(Maybe Text)
-    , _drsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsComputeEnvironments :: {-# NOUNPACK #-}!(Maybe [ComputeEnvironmentDetail])
+  , _drsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeComputeEnvironmentsResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ describeComputeEnvironmentsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeComputeEnvironmentsResponse
 describeComputeEnvironmentsResponse pResponseStatus_ =
-    DescribeComputeEnvironmentsResponse'
-    { _drsComputeEnvironments = Nothing
-    , _drsNextToken = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeComputeEnvironmentsResponse'
+  { _drsComputeEnvironments = Nothing
+  , _drsNextToken = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of compute environments.
 drsComputeEnvironments :: Lens' DescribeComputeEnvironmentsResponse [ComputeEnvironmentDetail]
@@ -163,3 +167,4 @@ drsResponseStatus :: Lens' DescribeComputeEnvironmentsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 instance NFData DescribeComputeEnvironmentsResponse
+         where

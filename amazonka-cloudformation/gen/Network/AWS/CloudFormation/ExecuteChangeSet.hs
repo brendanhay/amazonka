@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ExecuteChangeSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.CloudFormation.ExecuteChangeSet
     , ecsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'ExecuteChangeSet' action.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'executeChangeSet' smart constructor.
 data ExecuteChangeSet = ExecuteChangeSet'
-    { _ecsClientRequestToken :: !(Maybe Text)
-    , _ecsStackName          :: !(Maybe Text)
-    , _ecsChangeSetName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecsStackName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecsChangeSetName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecuteChangeSet' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ executeChangeSet
     :: Text -- ^ 'ecsChangeSetName'
     -> ExecuteChangeSet
 executeChangeSet pChangeSetName_ =
-    ExecuteChangeSet'
-    { _ecsClientRequestToken = Nothing
-    , _ecsStackName = Nothing
-    , _ecsChangeSetName = pChangeSetName_
-    }
+  ExecuteChangeSet'
+  { _ecsClientRequestToken = Nothing
+  , _ecsStackName = Nothing
+  , _ecsChangeSetName = pChangeSetName_
+  }
+
 
 -- | A unique identifier for this @ExecuteChangeSet@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to execute a change set to update a stack with the same name. You might retry @ExecuteChangeSet@ requests to ensure that AWS CloudFormation successfully received them.
 ecsClientRequestToken :: Lens' ExecuteChangeSet (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest ExecuteChangeSet where
               (\ s h x ->
                  ExecuteChangeSetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable ExecuteChangeSet
+instance Hashable ExecuteChangeSet where
 
-instance NFData ExecuteChangeSet
+instance NFData ExecuteChangeSet where
 
 instance ToHeaders ExecuteChangeSet where
         toHeaders = const mempty
@@ -124,8 +126,9 @@ instance ToQuery ExecuteChangeSet where
 --
 -- /See:/ 'executeChangeSetResponse' smart constructor.
 newtype ExecuteChangeSetResponse = ExecuteChangeSetResponse'
-    { _ecsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecuteChangeSetResponse' with the minimum fields required to make a request.
 --
@@ -136,12 +139,11 @@ executeChangeSetResponse
     :: Int -- ^ 'ecsrsResponseStatus'
     -> ExecuteChangeSetResponse
 executeChangeSetResponse pResponseStatus_ =
-    ExecuteChangeSetResponse'
-    { _ecsrsResponseStatus = pResponseStatus_
-    }
+  ExecuteChangeSetResponse' {_ecsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ecsrsResponseStatus :: Lens' ExecuteChangeSetResponse Int
 ecsrsResponseStatus = lens _ecsrsResponseStatus (\ s a -> s{_ecsrsResponseStatus = a});
 
-instance NFData ExecuteChangeSetResponse
+instance NFData ExecuteChangeSetResponse where

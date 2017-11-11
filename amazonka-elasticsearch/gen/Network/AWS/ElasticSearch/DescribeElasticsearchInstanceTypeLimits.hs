@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
     , deitlrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to @'DescribeElasticsearchInstanceTypeLimits' @ operation.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeElasticsearchInstanceTypeLimits' smart constructor.
 data DescribeElasticsearchInstanceTypeLimits = DescribeElasticsearchInstanceTypeLimits'
-    { _deitlDomainName           :: !(Maybe Text)
-    , _deitlInstanceType         :: !ESPartitionInstanceType
-    , _deitlElasticsearchVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deitlDomainName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deitlInstanceType         :: {-# NOUNPACK #-}!ESPartitionInstanceType
+  , _deitlElasticsearchVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticsearchInstanceTypeLimits' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ describeElasticsearchInstanceTypeLimits
     -> Text -- ^ 'deitlElasticsearchVersion'
     -> DescribeElasticsearchInstanceTypeLimits
 describeElasticsearchInstanceTypeLimits pInstanceType_ pElasticsearchVersion_ =
-    DescribeElasticsearchInstanceTypeLimits'
-    { _deitlDomainName = Nothing
-    , _deitlInstanceType = pInstanceType_
-    , _deitlElasticsearchVersion = pElasticsearchVersion_
-    }
+  DescribeElasticsearchInstanceTypeLimits'
+  { _deitlDomainName = Nothing
+  , _deitlInstanceType = pInstanceType_
+  , _deitlElasticsearchVersion = pElasticsearchVersion_
+  }
+
 
 -- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
 deitlDomainName :: Lens' DescribeElasticsearchInstanceTypeLimits (Maybe Text)
@@ -90,7 +92,8 @@ deitlElasticsearchVersion :: Lens' DescribeElasticsearchInstanceTypeLimits Text
 deitlElasticsearchVersion = lens _deitlElasticsearchVersion (\ s a -> s{_deitlElasticsearchVersion = a});
 
 instance AWSRequest
-         DescribeElasticsearchInstanceTypeLimits where
+           DescribeElasticsearchInstanceTypeLimits
+         where
         type Rs DescribeElasticsearchInstanceTypeLimits =
              DescribeElasticsearchInstanceTypeLimitsResponse
         request = get elasticSearch
@@ -102,17 +105,21 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable
-         DescribeElasticsearchInstanceTypeLimits
+           DescribeElasticsearchInstanceTypeLimits
+         where
 
 instance NFData
-         DescribeElasticsearchInstanceTypeLimits
+           DescribeElasticsearchInstanceTypeLimits
+         where
 
 instance ToHeaders
-         DescribeElasticsearchInstanceTypeLimits where
+           DescribeElasticsearchInstanceTypeLimits
+         where
         toHeaders = const mempty
 
 instance ToPath
-         DescribeElasticsearchInstanceTypeLimits where
+           DescribeElasticsearchInstanceTypeLimits
+         where
         toPath DescribeElasticsearchInstanceTypeLimits'{..}
           = mconcat
               ["/2015-01-01/es/instanceTypeLimits/",
@@ -120,7 +127,8 @@ instance ToPath
                toBS _deitlInstanceType]
 
 instance ToQuery
-         DescribeElasticsearchInstanceTypeLimits where
+           DescribeElasticsearchInstanceTypeLimits
+         where
         toQuery DescribeElasticsearchInstanceTypeLimits'{..}
           = mconcat ["domainName" =: _deitlDomainName]
 
@@ -130,9 +138,10 @@ instance ToQuery
 --
 -- /See:/ 'describeElasticsearchInstanceTypeLimitsResponse' smart constructor.
 data DescribeElasticsearchInstanceTypeLimitsResponse = DescribeElasticsearchInstanceTypeLimitsResponse'
-    { _deitlrsLimitsByRole   :: !(Maybe (Map Text Limits))
-    , _deitlrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deitlrsLimitsByRole   :: {-# NOUNPACK #-}!(Maybe (Map Text Limits))
+  , _deitlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticsearchInstanceTypeLimitsResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +154,9 @@ describeElasticsearchInstanceTypeLimitsResponse
     :: Int -- ^ 'deitlrsResponseStatus'
     -> DescribeElasticsearchInstanceTypeLimitsResponse
 describeElasticsearchInstanceTypeLimitsResponse pResponseStatus_ =
-    DescribeElasticsearchInstanceTypeLimitsResponse'
-    { _deitlrsLimitsByRole = Nothing
-    , _deitlrsResponseStatus = pResponseStatus_
-    }
+  DescribeElasticsearchInstanceTypeLimitsResponse'
+  {_deitlrsLimitsByRole = Nothing, _deitlrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 deitlrsLimitsByRole :: Lens' DescribeElasticsearchInstanceTypeLimitsResponse (HashMap Text Limits)
@@ -159,4 +167,5 @@ deitlrsResponseStatus :: Lens' DescribeElasticsearchInstanceTypeLimitsResponse I
 deitlrsResponseStatus = lens _deitlrsResponseStatus (\ s a -> s{_deitlrsResponseStatus = a});
 
 instance NFData
-         DescribeElasticsearchInstanceTypeLimitsResponse
+           DescribeElasticsearchInstanceTypeLimitsResponse
+         where

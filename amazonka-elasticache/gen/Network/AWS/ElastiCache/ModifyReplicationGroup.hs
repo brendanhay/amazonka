@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyReplicationGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,12 +56,12 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , mrgrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @ModifyReplicationGroups@ operation.
 --
@@ -69,25 +69,26 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyReplicationGroup' smart constructor.
 data ModifyReplicationGroup = ModifyReplicationGroup'
-    { _mrgAutomaticFailoverEnabled    :: !(Maybe Bool)
-    , _mrgEngineVersion               :: !(Maybe Text)
-    , _mrgCacheNodeType               :: !(Maybe Text)
-    , _mrgSnapshottingClusterId       :: !(Maybe Text)
-    , _mrgSecurityGroupIds            :: !(Maybe [Text])
-    , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
-    , _mrgCacheParameterGroupName     :: !(Maybe Text)
-    , _mrgReplicationGroupDescription :: !(Maybe Text)
-    , _mrgSnapshotWindow              :: !(Maybe Text)
-    , _mrgPrimaryClusterId            :: !(Maybe Text)
-    , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _mrgNodeGroupId                 :: !(Maybe Text)
-    , _mrgSnapshotRetentionLimit      :: !(Maybe Int)
-    , _mrgNotificationTopicStatus     :: !(Maybe Text)
-    , _mrgApplyImmediately            :: !(Maybe Bool)
-    , _mrgNotificationTopicARN        :: !(Maybe Text)
-    , _mrgCacheSecurityGroupNames     :: !(Maybe [Text])
-    , _mrgReplicationGroupId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrgAutomaticFailoverEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mrgEngineVersion               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgCacheNodeType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgSnapshottingClusterId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgSecurityGroupIds            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mrgAutoMinorVersionUpgrade     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mrgCacheParameterGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgReplicationGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgSnapshotWindow              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgPrimaryClusterId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgPreferredMaintenanceWindow  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgNodeGroupId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgSnapshotRetentionLimit      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mrgNotificationTopicStatus     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgApplyImmediately            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mrgNotificationTopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrgCacheSecurityGroupNames     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mrgReplicationGroupId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyReplicationGroup' with the minimum fields required to make a request.
 --
@@ -132,26 +133,27 @@ modifyReplicationGroup
     :: Text -- ^ 'mrgReplicationGroupId'
     -> ModifyReplicationGroup
 modifyReplicationGroup pReplicationGroupId_ =
-    ModifyReplicationGroup'
-    { _mrgAutomaticFailoverEnabled = Nothing
-    , _mrgEngineVersion = Nothing
-    , _mrgCacheNodeType = Nothing
-    , _mrgSnapshottingClusterId = Nothing
-    , _mrgSecurityGroupIds = Nothing
-    , _mrgAutoMinorVersionUpgrade = Nothing
-    , _mrgCacheParameterGroupName = Nothing
-    , _mrgReplicationGroupDescription = Nothing
-    , _mrgSnapshotWindow = Nothing
-    , _mrgPrimaryClusterId = Nothing
-    , _mrgPreferredMaintenanceWindow = Nothing
-    , _mrgNodeGroupId = Nothing
-    , _mrgSnapshotRetentionLimit = Nothing
-    , _mrgNotificationTopicStatus = Nothing
-    , _mrgApplyImmediately = Nothing
-    , _mrgNotificationTopicARN = Nothing
-    , _mrgCacheSecurityGroupNames = Nothing
-    , _mrgReplicationGroupId = pReplicationGroupId_
-    }
+  ModifyReplicationGroup'
+  { _mrgAutomaticFailoverEnabled = Nothing
+  , _mrgEngineVersion = Nothing
+  , _mrgCacheNodeType = Nothing
+  , _mrgSnapshottingClusterId = Nothing
+  , _mrgSecurityGroupIds = Nothing
+  , _mrgAutoMinorVersionUpgrade = Nothing
+  , _mrgCacheParameterGroupName = Nothing
+  , _mrgReplicationGroupDescription = Nothing
+  , _mrgSnapshotWindow = Nothing
+  , _mrgPrimaryClusterId = Nothing
+  , _mrgPreferredMaintenanceWindow = Nothing
+  , _mrgNodeGroupId = Nothing
+  , _mrgSnapshotRetentionLimit = Nothing
+  , _mrgNotificationTopicStatus = Nothing
+  , _mrgApplyImmediately = Nothing
+  , _mrgNotificationTopicARN = Nothing
+  , _mrgCacheSecurityGroupNames = Nothing
+  , _mrgReplicationGroupId = pReplicationGroupId_
+  }
+
 
 -- | Determines whether a read replica is automatically promoted to read/write primary if the existing primary encounters a failure. Valid values: @true@ | @false@
 mrgAutomaticFailoverEnabled :: Lens' ModifyReplicationGroup (Maybe Bool)
@@ -235,9 +237,9 @@ instance AWSRequest ModifyReplicationGroup where
                  ModifyReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyReplicationGroup
+instance Hashable ModifyReplicationGroup where
 
-instance NFData ModifyReplicationGroup
+instance NFData ModifyReplicationGroup where
 
 instance ToHeaders ModifyReplicationGroup where
         toHeaders = const mempty
@@ -285,9 +287,10 @@ instance ToQuery ModifyReplicationGroup where
 
 -- | /See:/ 'modifyReplicationGroupResponse' smart constructor.
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
-    { _mrgrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _mrgrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrgrsReplicationGroup :: {-# NOUNPACK #-}!(Maybe ReplicationGroup)
+  , _mrgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyReplicationGroupResponse' with the minimum fields required to make a request.
 --
@@ -300,10 +303,9 @@ modifyReplicationGroupResponse
     :: Int -- ^ 'mrgrsResponseStatus'
     -> ModifyReplicationGroupResponse
 modifyReplicationGroupResponse pResponseStatus_ =
-    ModifyReplicationGroupResponse'
-    { _mrgrsReplicationGroup = Nothing
-    , _mrgrsResponseStatus = pResponseStatus_
-    }
+  ModifyReplicationGroupResponse'
+  {_mrgrsReplicationGroup = Nothing, _mrgrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mrgrsReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
@@ -313,4 +315,4 @@ mrgrsReplicationGroup = lens _mrgrsReplicationGroup (\ s a -> s{_mrgrsReplicatio
 mrgrsResponseStatus :: Lens' ModifyReplicationGroupResponse Int
 mrgrsResponseStatus = lens _mrgrsResponseStatus (\ s a -> s{_mrgrsResponseStatus = a});
 
-instance NFData ModifyReplicationGroupResponse
+instance NFData ModifyReplicationGroupResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBSecurityGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
     , DeleteDBSecurityGroupResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDBSecurityGroup' smart constructor.
 newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
-    { _ddsgDBSecurityGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsgDBSecurityGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBSecurityGroup' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteDBSecurityGroup
     :: Text -- ^ 'ddsgDBSecurityGroupName'
     -> DeleteDBSecurityGroup
 deleteDBSecurityGroup pDBSecurityGroupName_ =
-    DeleteDBSecurityGroup'
-    { _ddsgDBSecurityGroupName = pDBSecurityGroupName_
-    }
+  DeleteDBSecurityGroup' {_ddsgDBSecurityGroupName = pDBSecurityGroupName_}
+
 
 -- | The name of the DB security group to delete. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default"
 ddsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteDBSecurityGroup where
         request = postQuery rds
         response = receiveNull DeleteDBSecurityGroupResponse'
 
-instance Hashable DeleteDBSecurityGroup
+instance Hashable DeleteDBSecurityGroup where
 
-instance NFData DeleteDBSecurityGroup
+instance NFData DeleteDBSecurityGroup where
 
 instance ToHeaders DeleteDBSecurityGroup where
         toHeaders = const mempty
@@ -92,8 +92,9 @@ instance ToQuery DeleteDBSecurityGroup where
 
 -- | /See:/ 'deleteDBSecurityGroupResponse' smart constructor.
 data DeleteDBSecurityGroupResponse =
-    DeleteDBSecurityGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDBSecurityGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBSecurityGroupResponse' with the minimum fields required to make a request.
 --
@@ -101,4 +102,5 @@ deleteDBSecurityGroupResponse
     :: DeleteDBSecurityGroupResponse
 deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'
 
-instance NFData DeleteDBSecurityGroupResponse
+
+instance NFData DeleteDBSecurityGroupResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteFunctionDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.Greengrass.DeleteFunctionDefinition
     , dfdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteFunctionDefinition' smart constructor.
 newtype DeleteFunctionDefinition = DeleteFunctionDefinition'
-    { _dfdFunctionDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfdFunctionDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFunctionDefinition' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ deleteFunctionDefinition
     :: Text -- ^ 'dfdFunctionDefinitionId'
     -> DeleteFunctionDefinition
 deleteFunctionDefinition pFunctionDefinitionId_ =
-    DeleteFunctionDefinition'
-    { _dfdFunctionDefinitionId = pFunctionDefinitionId_
-    }
+  DeleteFunctionDefinition' {_dfdFunctionDefinitionId = pFunctionDefinitionId_}
+
 
 -- | the unique Id of the lambda definition
 dfdFunctionDefinitionId :: Lens' DeleteFunctionDefinition Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteFunctionDefinition where
                  DeleteFunctionDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteFunctionDefinition
+instance Hashable DeleteFunctionDefinition where
 
-instance NFData DeleteFunctionDefinition
+instance NFData DeleteFunctionDefinition where
 
 instance ToHeaders DeleteFunctionDefinition where
         toHeaders
@@ -95,8 +95,9 @@ instance ToQuery DeleteFunctionDefinition where
 
 -- | /See:/ 'deleteFunctionDefinitionResponse' smart constructor.
 newtype DeleteFunctionDefinitionResponse = DeleteFunctionDefinitionResponse'
-    { _dfdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFunctionDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -107,12 +108,12 @@ deleteFunctionDefinitionResponse
     :: Int -- ^ 'dfdrsResponseStatus'
     -> DeleteFunctionDefinitionResponse
 deleteFunctionDefinitionResponse pResponseStatus_ =
-    DeleteFunctionDefinitionResponse'
-    { _dfdrsResponseStatus = pResponseStatus_
-    }
+  DeleteFunctionDefinitionResponse' {_dfdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dfdrsResponseStatus :: Lens' DeleteFunctionDefinitionResponse Int
 dfdrsResponseStatus = lens _dfdrsResponseStatus (\ s a -> s{_dfdrsResponseStatus = a});
 
 instance NFData DeleteFunctionDefinitionResponse
+         where

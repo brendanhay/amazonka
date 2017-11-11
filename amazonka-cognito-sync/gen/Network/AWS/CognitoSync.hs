@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -198,25 +198,25 @@ module Network.AWS.CognitoSync
     , rpSyncCount
     ) where
 
-import           Network.AWS.CognitoSync.BulkPublish
-import           Network.AWS.CognitoSync.DeleteDataset
-import           Network.AWS.CognitoSync.DescribeDataset
-import           Network.AWS.CognitoSync.DescribeIdentityPoolUsage
-import           Network.AWS.CognitoSync.DescribeIdentityUsage
-import           Network.AWS.CognitoSync.GetBulkPublishDetails
-import           Network.AWS.CognitoSync.GetCognitoEvents
-import           Network.AWS.CognitoSync.GetIdentityPoolConfiguration
-import           Network.AWS.CognitoSync.ListDatasets
-import           Network.AWS.CognitoSync.ListIdentityPoolUsage
-import           Network.AWS.CognitoSync.ListRecords
-import           Network.AWS.CognitoSync.RegisterDevice
-import           Network.AWS.CognitoSync.SetCognitoEvents
-import           Network.AWS.CognitoSync.SetIdentityPoolConfiguration
-import           Network.AWS.CognitoSync.SubscribeToDataset
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.UnsubscribeFromDataset
-import           Network.AWS.CognitoSync.UpdateRecords
-import           Network.AWS.CognitoSync.Waiters
+import Network.AWS.CognitoSync.BulkPublish
+import Network.AWS.CognitoSync.DeleteDataset
+import Network.AWS.CognitoSync.DescribeDataset
+import Network.AWS.CognitoSync.DescribeIdentityPoolUsage
+import Network.AWS.CognitoSync.DescribeIdentityUsage
+import Network.AWS.CognitoSync.GetBulkPublishDetails
+import Network.AWS.CognitoSync.GetCognitoEvents
+import Network.AWS.CognitoSync.GetIdentityPoolConfiguration
+import Network.AWS.CognitoSync.ListDatasets
+import Network.AWS.CognitoSync.ListIdentityPoolUsage
+import Network.AWS.CognitoSync.ListRecords
+import Network.AWS.CognitoSync.RegisterDevice
+import Network.AWS.CognitoSync.SetCognitoEvents
+import Network.AWS.CognitoSync.SetIdentityPoolConfiguration
+import Network.AWS.CognitoSync.SubscribeToDataset
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.UnsubscribeFromDataset
+import Network.AWS.CognitoSync.UpdateRecords
+import Network.AWS.CognitoSync.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

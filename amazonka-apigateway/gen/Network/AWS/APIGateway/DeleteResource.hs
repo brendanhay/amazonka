@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteResource
     , DeleteResourceResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to delete a 'Resource' .
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteResource' smart constructor.
 data DeleteResource = DeleteResource'
-    { _drRestAPIId  :: !Text
-    , _drResourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _drResourceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteResource' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ deleteResource
     -> Text -- ^ 'drResourceId'
     -> DeleteResource
 deleteResource pRestAPIId_ pResourceId_ =
-    DeleteResource'
-    { _drRestAPIId = pRestAPIId_
-    , _drResourceId = pResourceId_
-    }
+  DeleteResource' {_drRestAPIId = pRestAPIId_, _drResourceId = pResourceId_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 drRestAPIId :: Lens' DeleteResource Text
@@ -82,9 +81,9 @@ instance AWSRequest DeleteResource where
         request = delete apiGateway
         response = receiveNull DeleteResourceResponse'
 
-instance Hashable DeleteResource
+instance Hashable DeleteResource where
 
-instance NFData DeleteResource
+instance NFData DeleteResource where
 
 instance ToHeaders DeleteResource where
         toHeaders
@@ -103,8 +102,9 @@ instance ToQuery DeleteResource where
 
 -- | /See:/ 'deleteResourceResponse' smart constructor.
 data DeleteResourceResponse =
-    DeleteResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteResourceResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +112,5 @@ deleteResourceResponse
     :: DeleteResourceResponse
 deleteResourceResponse = DeleteResourceResponse'
 
-instance NFData DeleteResourceResponse
+
+instance NFData DeleteResourceResponse where

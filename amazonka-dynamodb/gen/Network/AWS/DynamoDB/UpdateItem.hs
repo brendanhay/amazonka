@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.UpdateItem
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.DynamoDB.UpdateItem
     , uirsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an @UpdateItem@ operation.
 --
@@ -65,19 +65,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateItem' smart constructor.
 data UpdateItem = UpdateItem'
-    { _uiExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _uiReturnValues                :: !(Maybe ReturnValue)
-    , _uiUpdateExpression            :: !(Maybe Text)
-    , _uiExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _uiAttributeUpdates            :: !(Maybe (Map Text AttributeValueUpdate))
-    , _uiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _uiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _uiConditionExpression         :: !(Maybe Text)
-    , _uiConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _uiExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _uiTableName                   :: !Text
-    , _uiKey                         :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _uiReturnValues :: {-# NOUNPACK #-}!(Maybe ReturnValue)
+  , _uiUpdateExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiExpressionAttributeValues :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _uiAttributeUpdates :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValueUpdate))
+  , _uiReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
+  , _uiReturnItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ReturnItemCollectionMetrics)
+  , _uiConditionExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiConditionalOperator :: {-# NOUNPACK #-}!(Maybe ConditionalOperator)
+  , _uiExpected :: {-# NOUNPACK #-}!(Maybe (Map Text ExpectedAttributeValue))
+  , _uiTableName :: {-# NOUNPACK #-}!Text
+  , _uiKey :: {-# NOUNPACK #-}!(Map Text AttributeValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateItem' with the minimum fields required to make a request.
 --
@@ -110,20 +111,21 @@ updateItem
     :: Text -- ^ 'uiTableName'
     -> UpdateItem
 updateItem pTableName_ =
-    UpdateItem'
-    { _uiExpressionAttributeNames = Nothing
-    , _uiReturnValues = Nothing
-    , _uiUpdateExpression = Nothing
-    , _uiExpressionAttributeValues = Nothing
-    , _uiAttributeUpdates = Nothing
-    , _uiReturnConsumedCapacity = Nothing
-    , _uiReturnItemCollectionMetrics = Nothing
-    , _uiConditionExpression = Nothing
-    , _uiConditionalOperator = Nothing
-    , _uiExpected = Nothing
-    , _uiTableName = pTableName_
-    , _uiKey = mempty
-    }
+  UpdateItem'
+  { _uiExpressionAttributeNames = Nothing
+  , _uiReturnValues = Nothing
+  , _uiUpdateExpression = Nothing
+  , _uiExpressionAttributeValues = Nothing
+  , _uiAttributeUpdates = Nothing
+  , _uiReturnConsumedCapacity = Nothing
+  , _uiReturnItemCollectionMetrics = Nothing
+  , _uiConditionExpression = Nothing
+  , _uiConditionalOperator = Nothing
+  , _uiExpected = Nothing
+  , _uiTableName = pTableName_
+  , _uiKey = mempty
+  }
+
 
 -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :     * To access an attribute whose name conflicts with a DynamoDB reserved word.     * To create a placeholder for repeating occurrences of an attribute name in an expression.     * To prevent special characters in an attribute name from being misinterpreted in an expression. Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:     * @Percentile@  The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :     * @{"#P":"Percentile"}@  You could then use this substitution in an expression, as in this example:     * @#P = :val@  For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 uiExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
@@ -185,9 +187,9 @@ instance AWSRequest UpdateItem where
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateItem
+instance Hashable UpdateItem where
 
-instance NFData UpdateItem
+instance NFData UpdateItem where
 
 instance ToHeaders UpdateItem where
         toHeaders
@@ -233,11 +235,12 @@ instance ToQuery UpdateItem where
 --
 -- /See:/ 'updateItemResponse' smart constructor.
 data UpdateItemResponse = UpdateItemResponse'
-    { _uirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _uirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _uirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _uirsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uirsItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ItemCollectionMetrics)
+  , _uirsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
+  , _uirsAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _uirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateItemResponse' with the minimum fields required to make a request.
 --
@@ -254,12 +257,13 @@ updateItemResponse
     :: Int -- ^ 'uirsResponseStatus'
     -> UpdateItemResponse
 updateItemResponse pResponseStatus_ =
-    UpdateItemResponse'
-    { _uirsItemCollectionMetrics = Nothing
-    , _uirsConsumedCapacity = Nothing
-    , _uirsAttributes = Nothing
-    , _uirsResponseStatus = pResponseStatus_
-    }
+  UpdateItemResponse'
+  { _uirsItemCollectionMetrics = Nothing
+  , _uirsConsumedCapacity = Nothing
+  , _uirsAttributes = Nothing
+  , _uirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about item collections, if any, that were affected by the @UpdateItem@ operation. @ItemCollectionMetrics@ is only returned if the @ReturnItemCollectionMetrics@ parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response. Each @ItemCollectionMetrics@ element consists of:     * @ItemCollectionKey@ - The partition key value of the item collection. This is the same as the partition key value of the item itself.     * @SizeEstimateRange@ - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit. The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
 uirsItemCollectionMetrics :: Lens' UpdateItemResponse (Maybe ItemCollectionMetrics)
@@ -277,4 +281,4 @@ uirsAttributes = lens _uirsAttributes (\ s a -> s{_uirsAttributes = a}) . _Defau
 uirsResponseStatus :: Lens' UpdateItemResponse Int
 uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});
 
-instance NFData UpdateItemResponse
+instance NFData UpdateItemResponse where

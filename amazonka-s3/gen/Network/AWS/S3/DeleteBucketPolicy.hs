@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -32,17 +32,18 @@ module Network.AWS.S3.DeleteBucketPolicy
     , DeleteBucketPolicyResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketPolicy' smart constructor.
 newtype DeleteBucketPolicy = DeleteBucketPolicy'
-    { _dbpBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbpBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketPolicy' with the minimum fields required to make a request.
 --
@@ -52,10 +53,8 @@ newtype DeleteBucketPolicy = DeleteBucketPolicy'
 deleteBucketPolicy
     :: BucketName -- ^ 'dbpBucket'
     -> DeleteBucketPolicy
-deleteBucketPolicy pBucket_ =
-    DeleteBucketPolicy'
-    { _dbpBucket = pBucket_
-    }
+deleteBucketPolicy pBucket_ = DeleteBucketPolicy' {_dbpBucket = pBucket_}
+
 
 -- | Undocumented member.
 dbpBucket :: Lens' DeleteBucketPolicy BucketName
@@ -67,9 +66,9 @@ instance AWSRequest DeleteBucketPolicy where
         request = delete s3
         response = receiveNull DeleteBucketPolicyResponse'
 
-instance Hashable DeleteBucketPolicy
+instance Hashable DeleteBucketPolicy where
 
-instance NFData DeleteBucketPolicy
+instance NFData DeleteBucketPolicy where
 
 instance ToHeaders DeleteBucketPolicy where
         toHeaders = const mempty
@@ -83,8 +82,9 @@ instance ToQuery DeleteBucketPolicy where
 
 -- | /See:/ 'deleteBucketPolicyResponse' smart constructor.
 data DeleteBucketPolicyResponse =
-    DeleteBucketPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketPolicyResponse' with the minimum fields required to make a request.
 --
@@ -92,4 +92,5 @@ deleteBucketPolicyResponse
     :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse'
 
-instance NFData DeleteBucketPolicyResponse
+
+instance NFData DeleteBucketPolicyResponse where

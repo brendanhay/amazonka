@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.LexRuntime.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.LexRuntime.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexRuntime.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.LexRuntime.Types.Sum
+import Network.AWS.Prelude
 
 -- | Represents an option to be shown on the client platform (Facebook, Slack, etc.)
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'button' smart constructor.
 data Button = Button'
-    { _bText  :: !Text
-    , _bValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bText  :: {-# NOUNPACK #-}!Text
+  , _bValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Button' with the minimum fields required to make a request.
 --
@@ -42,11 +43,8 @@ button
     :: Text -- ^ 'bText'
     -> Text -- ^ 'bValue'
     -> Button
-button pText_ pValue_ =
-    Button'
-    { _bText = pText_
-    , _bValue = pValue_
-    }
+button pText_ pValue_ = Button' {_bText = pText_, _bValue = pValue_}
+
 
 -- | Text that is visible to the user on the button.
 bText :: Lens' Button Text
@@ -61,9 +59,9 @@ instance FromJSON Button where
           = withObject "Button"
               (\ x -> Button' <$> (x .: "text") <*> (x .: "value"))
 
-instance Hashable Button
+instance Hashable Button where
 
-instance NFData Button
+instance NFData Button where
 
 -- | Represents an option rendered to the user when a prompt is shown. It could be an image, a button, a link, or text.
 --
@@ -71,12 +69,13 @@ instance NFData Button
 --
 -- /See:/ 'genericAttachment' smart constructor.
 data GenericAttachment = GenericAttachment'
-    { _gaButtons           :: !(Maybe [Button])
-    , _gaSubTitle          :: !(Maybe Text)
-    , _gaImageURL          :: !(Maybe Text)
-    , _gaAttachmentLinkURL :: !(Maybe Text)
-    , _gaTitle             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaButtons           :: {-# NOUNPACK #-}!(Maybe [Button])
+  , _gaSubTitle          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gaImageURL          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gaAttachmentLinkURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gaTitle             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenericAttachment' with the minimum fields required to make a request.
 --
@@ -94,13 +93,14 @@ data GenericAttachment = GenericAttachment'
 genericAttachment
     :: GenericAttachment
 genericAttachment =
-    GenericAttachment'
-    { _gaButtons = Nothing
-    , _gaSubTitle = Nothing
-    , _gaImageURL = Nothing
-    , _gaAttachmentLinkURL = Nothing
-    , _gaTitle = Nothing
-    }
+  GenericAttachment'
+  { _gaButtons = Nothing
+  , _gaSubTitle = Nothing
+  , _gaImageURL = Nothing
+  , _gaAttachmentLinkURL = Nothing
+  , _gaTitle = Nothing
+  }
+
 
 -- | The list of options to show to the user.
 gaButtons :: Lens' GenericAttachment [Button]
@@ -132,9 +132,9 @@ instance FromJSON GenericAttachment where
                      <*> (x .:? "attachmentLinkUrl")
                      <*> (x .:? "title"))
 
-instance Hashable GenericAttachment
+instance Hashable GenericAttachment where
 
-instance NFData GenericAttachment
+instance NFData GenericAttachment where
 
 -- | If you configure a response card when creating your bots, Amazon Lex substitutes the session attributes and slot values that are available, and then returns it. The response card can also come from a Lambda function ( @dialogCodeHook@ and @fulfillmentActivity@ on an intent).
 --
@@ -142,10 +142,11 @@ instance NFData GenericAttachment
 --
 -- /See:/ 'responseCard' smart constructor.
 data ResponseCard = ResponseCard'
-    { _rcGenericAttachments :: !(Maybe [GenericAttachment])
-    , _rcVersion            :: !(Maybe Text)
-    , _rcContentType        :: !(Maybe ContentType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcGenericAttachments :: {-# NOUNPACK #-}!(Maybe [GenericAttachment])
+  , _rcVersion            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcContentType        :: {-# NOUNPACK #-}!(Maybe ContentType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResponseCard' with the minimum fields required to make a request.
 --
@@ -159,11 +160,12 @@ data ResponseCard = ResponseCard'
 responseCard
     :: ResponseCard
 responseCard =
-    ResponseCard'
-    { _rcGenericAttachments = Nothing
-    , _rcVersion = Nothing
-    , _rcContentType = Nothing
-    }
+  ResponseCard'
+  { _rcGenericAttachments = Nothing
+  , _rcVersion = Nothing
+  , _rcContentType = Nothing
+  }
+
 
 -- | An array of attachment objects representing options.
 rcGenericAttachments :: Lens' ResponseCard [GenericAttachment]
@@ -186,6 +188,6 @@ instance FromJSON ResponseCard where
                      (x .:? "version")
                      <*> (x .:? "contentType"))
 
-instance Hashable ResponseCard
+instance Hashable ResponseCard where
 
-instance NFData ResponseCard
+instance NFData ResponseCard where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CreateChangeSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.CloudFormation.CreateChangeSet
     , ccsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'CreateChangeSet' action.
 --
@@ -68,21 +68,22 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createChangeSet' smart constructor.
 data CreateChangeSet = CreateChangeSet'
-    { _ccsChangeSetType       :: !(Maybe ChangeSetType)
-    , _ccsUsePreviousTemplate :: !(Maybe Bool)
-    , _ccsClientToken         :: !(Maybe Text)
-    , _ccsNotificationARNs    :: !(Maybe [Text])
-    , _ccsParameters          :: !(Maybe [Parameter])
-    , _ccsTemplateBody        :: !(Maybe Text)
-    , _ccsTemplateURL         :: !(Maybe Text)
-    , _ccsDescription         :: !(Maybe Text)
-    , _ccsCapabilities        :: !(Maybe [Capability])
-    , _ccsResourceTypes       :: !(Maybe [Text])
-    , _ccsTags                :: !(Maybe [Tag])
-    , _ccsRoleARN             :: !(Maybe Text)
-    , _ccsStackName           :: !Text
-    , _ccsChangeSetName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsChangeSetType       :: {-# NOUNPACK #-}!(Maybe ChangeSetType)
+  , _ccsUsePreviousTemplate :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccsClientToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsNotificationARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccsParameters          :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _ccsTemplateBody        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsTemplateURL         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsCapabilities        :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _ccsResourceTypes       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccsTags                :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ccsRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsStackName           :: {-# NOUNPACK #-}!Text
+  , _ccsChangeSetName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateChangeSet' with the minimum fields required to make a request.
 --
@@ -120,22 +121,23 @@ createChangeSet
     -> Text -- ^ 'ccsChangeSetName'
     -> CreateChangeSet
 createChangeSet pStackName_ pChangeSetName_ =
-    CreateChangeSet'
-    { _ccsChangeSetType = Nothing
-    , _ccsUsePreviousTemplate = Nothing
-    , _ccsClientToken = Nothing
-    , _ccsNotificationARNs = Nothing
-    , _ccsParameters = Nothing
-    , _ccsTemplateBody = Nothing
-    , _ccsTemplateURL = Nothing
-    , _ccsDescription = Nothing
-    , _ccsCapabilities = Nothing
-    , _ccsResourceTypes = Nothing
-    , _ccsTags = Nothing
-    , _ccsRoleARN = Nothing
-    , _ccsStackName = pStackName_
-    , _ccsChangeSetName = pChangeSetName_
-    }
+  CreateChangeSet'
+  { _ccsChangeSetType = Nothing
+  , _ccsUsePreviousTemplate = Nothing
+  , _ccsClientToken = Nothing
+  , _ccsNotificationARNs = Nothing
+  , _ccsParameters = Nothing
+  , _ccsTemplateBody = Nothing
+  , _ccsTemplateURL = Nothing
+  , _ccsDescription = Nothing
+  , _ccsCapabilities = Nothing
+  , _ccsResourceTypes = Nothing
+  , _ccsTags = Nothing
+  , _ccsRoleARN = Nothing
+  , _ccsStackName = pStackName_
+  , _ccsChangeSetName = pChangeSetName_
+  }
+
 
 -- | The type of change set operation. To create a change set for a new stack, specify @CREATE@ . To create a change set for an existing stack, specify @UPDATE@ . If you create a change set for a new stack, AWS Cloudformation creates a stack with a unique stack ID, but no template or resources. The stack will be in the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995 @REVIEW_IN_PROGRESS@ > state until you execute the change set. By default, AWS CloudFormation specifies @UPDATE@ . You can't use the @UPDATE@ type to create a change set for a new stack or the @CREATE@ type to create a change set for an existing stack.
 ccsChangeSetType :: Lens' CreateChangeSet (Maybe ChangeSetType)
@@ -203,9 +205,9 @@ instance AWSRequest CreateChangeSet where
                    (x .@? "Id") <*> (x .@? "StackId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateChangeSet
+instance Hashable CreateChangeSet where
 
-instance NFData CreateChangeSet
+instance NFData CreateChangeSet where
 
 instance ToHeaders CreateChangeSet where
         toHeaders = const mempty
@@ -245,10 +247,11 @@ instance ToQuery CreateChangeSet where
 --
 -- /See:/ 'createChangeSetResponse' smart constructor.
 data CreateChangeSetResponse = CreateChangeSetResponse'
-    { _ccsrsId             :: !(Maybe Text)
-    , _ccsrsStackId        :: !(Maybe Text)
-    , _ccsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsrsId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsrsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateChangeSetResponse' with the minimum fields required to make a request.
 --
@@ -263,11 +266,12 @@ createChangeSetResponse
     :: Int -- ^ 'ccsrsResponseStatus'
     -> CreateChangeSetResponse
 createChangeSetResponse pResponseStatus_ =
-    CreateChangeSetResponse'
-    { _ccsrsId = Nothing
-    , _ccsrsStackId = Nothing
-    , _ccsrsResponseStatus = pResponseStatus_
-    }
+  CreateChangeSetResponse'
+  { _ccsrsId = Nothing
+  , _ccsrsStackId = Nothing
+  , _ccsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the change set.
 ccsrsId :: Lens' CreateChangeSetResponse (Maybe Text)
@@ -281,4 +285,4 @@ ccsrsStackId = lens _ccsrsStackId (\ s a -> s{_ccsrsStackId = a});
 ccsrsResponseStatus :: Lens' CreateChangeSetResponse Int
 ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});
 
-instance NFData CreateChangeSetResponse
+instance NFData CreateChangeSetResponse where

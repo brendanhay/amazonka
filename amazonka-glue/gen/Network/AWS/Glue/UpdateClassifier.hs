@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateClassifier
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.UpdateClassifier
     , ursResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateClassifier' smart constructor.
 newtype UpdateClassifier = UpdateClassifier'
-    { _ucGrokClassifier :: Maybe UpdateGrokClassifierRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucGrokClassifier :: Maybe UpdateGrokClassifierRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateClassifier' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype UpdateClassifier = UpdateClassifier'
 -- * 'ucGrokClassifier' - A @GrokClassifier@ object with updated fields.
 updateClassifier
     :: UpdateClassifier
-updateClassifier =
-    UpdateClassifier'
-    { _ucGrokClassifier = Nothing
-    }
+updateClassifier = UpdateClassifier' {_ucGrokClassifier = Nothing}
+
 
 -- | A @GrokClassifier@ object with updated fields.
 ucGrokClassifier :: Lens' UpdateClassifier (Maybe UpdateGrokClassifierRequest)
@@ -72,9 +71,9 @@ instance AWSRequest UpdateClassifier where
               (\ s h x ->
                  UpdateClassifierResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateClassifier
+instance Hashable UpdateClassifier where
 
-instance NFData UpdateClassifier
+instance NFData UpdateClassifier where
 
 instance ToHeaders UpdateClassifier where
         toHeaders
@@ -99,8 +98,9 @@ instance ToQuery UpdateClassifier where
 
 -- | /See:/ 'updateClassifierResponse' smart constructor.
 newtype UpdateClassifierResponse = UpdateClassifierResponse'
-    { _ursResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ursResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateClassifierResponse' with the minimum fields required to make a request.
 --
@@ -111,12 +111,11 @@ updateClassifierResponse
     :: Int -- ^ 'ursResponseStatus'
     -> UpdateClassifierResponse
 updateClassifierResponse pResponseStatus_ =
-    UpdateClassifierResponse'
-    { _ursResponseStatus = pResponseStatus_
-    }
+  UpdateClassifierResponse' {_ursResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ursResponseStatus :: Lens' UpdateClassifierResponse Int
 ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
 
-instance NFData UpdateClassifierResponse
+instance NFData UpdateClassifierResponse where

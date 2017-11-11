@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.ImportRestAPI
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.APIGateway.ImportRestAPI
     , raDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A POST request to import an API to Amazon API Gateway using an input of an API definition file.
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'importRestAPI' smart constructor.
 data ImportRestAPI = ImportRestAPI'
-    { _iraFailOnWarnings :: !(Maybe Bool)
-    , _iraParameters     :: !(Maybe (Map Text Text))
-    , _iraBody           :: !(HashMap Text Value)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _iraFailOnWarnings :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iraParameters     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _iraBody           :: {-# NOUNPACK #-}!(HashMap Text Value)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportRestAPI' with the minimum fields required to make a request.
 --
@@ -75,11 +76,9 @@ importRestAPI
     :: HashMap Text Value -- ^ 'iraBody'
     -> ImportRestAPI
 importRestAPI pBody_ =
-    ImportRestAPI'
-    { _iraFailOnWarnings = Nothing
-    , _iraParameters = Nothing
-    , _iraBody = pBody_
-    }
+  ImportRestAPI'
+  {_iraFailOnWarnings = Nothing, _iraParameters = Nothing, _iraBody = pBody_}
+
 
 -- | A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 iraFailOnWarnings :: Lens' ImportRestAPI (Maybe Bool)
@@ -98,9 +97,9 @@ instance AWSRequest ImportRestAPI where
         request = postBody apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable ImportRestAPI
+instance Hashable ImportRestAPI where
 
-instance NFData ImportRestAPI
+instance NFData ImportRestAPI where
 
 instance ToBody ImportRestAPI where
         toBody = toBody . _iraBody

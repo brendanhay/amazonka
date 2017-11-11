@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
     , dupcrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to describe a user pool client.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
-    { _dupcuUserPoolId :: !Text
-    , _dupcuClientId   :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dupcuUserPoolId :: {-# NOUNPACK #-}!Text
+  , _dupcuClientId   :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserPoolClient' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ describeUserPoolClient
     -> Text -- ^ 'dupcuClientId'
     -> DescribeUserPoolClient
 describeUserPoolClient pUserPoolId_ pClientId_ =
-    DescribeUserPoolClient'
-    { _dupcuUserPoolId = pUserPoolId_
-    , _dupcuClientId = _Sensitive # pClientId_
-    }
+  DescribeUserPoolClient'
+  {_dupcuUserPoolId = pUserPoolId_, _dupcuClientId = _Sensitive # pClientId_}
+
 
 -- | The user pool ID for the user pool you want to describe.
 dupcuUserPoolId :: Lens' DescribeUserPoolClient Text
@@ -90,9 +90,9 @@ instance AWSRequest DescribeUserPoolClient where
                  DescribeUserPoolClientResponse' <$>
                    (x .?> "UserPoolClient") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeUserPoolClient
+instance Hashable DescribeUserPoolClient where
 
-instance NFData DescribeUserPoolClient
+instance NFData DescribeUserPoolClient where
 
 instance ToHeaders DescribeUserPoolClient where
         toHeaders
@@ -123,9 +123,10 @@ instance ToQuery DescribeUserPoolClient where
 --
 -- /See:/ 'describeUserPoolClientResponse' smart constructor.
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
-    { _dupcrsUserPoolClient :: !(Maybe UserPoolClientType)
-    , _dupcrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dupcrsUserPoolClient :: {-# NOUNPACK #-}!(Maybe UserPoolClientType)
+  , _dupcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserPoolClientResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +139,9 @@ describeUserPoolClientResponse
     :: Int -- ^ 'dupcrsResponseStatus'
     -> DescribeUserPoolClientResponse
 describeUserPoolClientResponse pResponseStatus_ =
-    DescribeUserPoolClientResponse'
-    { _dupcrsUserPoolClient = Nothing
-    , _dupcrsResponseStatus = pResponseStatus_
-    }
+  DescribeUserPoolClientResponse'
+  {_dupcrsUserPoolClient = Nothing, _dupcrsResponseStatus = pResponseStatus_}
+
 
 -- | The user pool client from a server response to describe the user pool client.
 dupcrsUserPoolClient :: Lens' DescribeUserPoolClientResponse (Maybe UserPoolClientType)
@@ -151,4 +151,4 @@ dupcrsUserPoolClient = lens _dupcrsUserPoolClient (\ s a -> s{_dupcrsUserPoolCli
 dupcrsResponseStatus :: Lens' DescribeUserPoolClientResponse Int
 dupcrsResponseStatus = lens _dupcrsResponseStatus (\ s a -> s{_dupcrsResponseStatus = a});
 
-instance NFData DescribeUserPoolClientResponse
+instance NFData DescribeUserPoolClientResponse where

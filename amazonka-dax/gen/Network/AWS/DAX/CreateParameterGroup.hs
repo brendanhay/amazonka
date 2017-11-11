@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.CreateParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.DAX.CreateParameterGroup
     , cpgrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createParameterGroup' smart constructor.
 data CreateParameterGroup = CreateParameterGroup'
-    { _cpgDescription        :: !(Maybe Text)
-    , _cpgParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpgParameterGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateParameterGroup' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ createParameterGroup
     :: Text -- ^ 'cpgParameterGroupName'
     -> CreateParameterGroup
 createParameterGroup pParameterGroupName_ =
-    CreateParameterGroup'
-    { _cpgDescription = Nothing
-    , _cpgParameterGroupName = pParameterGroupName_
-    }
+  CreateParameterGroup'
+  {_cpgDescription = Nothing, _cpgParameterGroupName = pParameterGroupName_}
+
 
 -- | A description of the parameter group.
 cpgDescription :: Lens' CreateParameterGroup (Maybe Text)
@@ -85,9 +85,9 @@ instance AWSRequest CreateParameterGroup where
                  CreateParameterGroupResponse' <$>
                    (x .?> "ParameterGroup") <*> (pure (fromEnum s)))
 
-instance Hashable CreateParameterGroup
+instance Hashable CreateParameterGroup where
 
-instance NFData CreateParameterGroup
+instance NFData CreateParameterGroup where
 
 instance ToHeaders CreateParameterGroup where
         toHeaders
@@ -114,9 +114,10 @@ instance ToQuery CreateParameterGroup where
 
 -- | /See:/ 'createParameterGroupResponse' smart constructor.
 data CreateParameterGroupResponse = CreateParameterGroupResponse'
-    { _cpgrsParameterGroup :: !(Maybe ParameterGroup)
-    , _cpgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgrsParameterGroup :: {-# NOUNPACK #-}!(Maybe ParameterGroup)
+  , _cpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ createParameterGroupResponse
     :: Int -- ^ 'cpgrsResponseStatus'
     -> CreateParameterGroupResponse
 createParameterGroupResponse pResponseStatus_ =
-    CreateParameterGroupResponse'
-    { _cpgrsParameterGroup = Nothing
-    , _cpgrsResponseStatus = pResponseStatus_
-    }
+  CreateParameterGroupResponse'
+  {_cpgrsParameterGroup = Nothing, _cpgrsResponseStatus = pResponseStatus_}
+
 
 -- | Represents the output of a /CreateParameterGroup/ action.
 cpgrsParameterGroup :: Lens' CreateParameterGroupResponse (Maybe ParameterGroup)
@@ -142,4 +142,4 @@ cpgrsParameterGroup = lens _cpgrsParameterGroup (\ s a -> s{_cpgrsParameterGroup
 cpgrsResponseStatus :: Lens' CreateParameterGroupResponse Int
 cpgrsResponseStatus = lens _cpgrsResponseStatus (\ s a -> s{_cpgrsResponseStatus = a});
 
-instance NFData CreateParameterGroupResponse
+instance NFData CreateParameterGroupResponse where

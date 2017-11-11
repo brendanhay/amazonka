@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListPipelines
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @ListPipelineRequest@ structure.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listPipelines' smart constructor.
 data ListPipelines = ListPipelines'
-    { _lpAscending :: !(Maybe Text)
-    , _lpPageToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpAscending :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
 --
@@ -68,11 +69,8 @@ data ListPipelines = ListPipelines'
 -- * 'lpPageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 listPipelines
     :: ListPipelines
-listPipelines =
-    ListPipelines'
-    { _lpAscending = Nothing
-    , _lpPageToken = Nothing
-    }
+listPipelines = ListPipelines' {_lpAscending = Nothing, _lpPageToken = Nothing}
+
 
 -- | To list pipelines in chronological order by the date and time that they were created, enter @true@ . To list pipelines in reverse chronological order, enter @false@ .
 lpAscending :: Lens' ListPipelines (Maybe Text)
@@ -100,9 +98,9 @@ instance AWSRequest ListPipelines where
                      (x .?> "Pipelines" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPipelines
+instance Hashable ListPipelines where
 
-instance NFData ListPipelines
+instance NFData ListPipelines where
 
 instance ToHeaders ListPipelines where
         toHeaders = const mempty
@@ -122,10 +120,11 @@ instance ToQuery ListPipelines where
 --
 -- /See:/ 'listPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprsNextPageToken  :: !(Maybe Text)
-    , _lprsPipelines      :: !(Maybe [Pipeline])
-    , _lprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsPipelines      :: {-# NOUNPACK #-}!(Maybe [Pipeline])
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
 --
@@ -140,11 +139,12 @@ listPipelinesResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPipelinesResponse
 listPipelinesResponse pResponseStatus_ =
-    ListPipelinesResponse'
-    { _lprsNextPageToken = Nothing
-    , _lprsPipelines = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPipelinesResponse'
+  { _lprsNextPageToken = Nothing
+  , _lprsPipelines = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 lprsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
@@ -158,4 +158,4 @@ lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default 
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPipelinesResponse
+instance NFData ListPipelinesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListObjectChildren
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.CloudDirectory.ListObjectChildren
     , locrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listObjectChildren' smart constructor.
 data ListObjectChildren = ListObjectChildren'
-    { _locConsistencyLevel :: !(Maybe ConsistencyLevel)
-    , _locNextToken        :: !(Maybe Text)
-    , _locMaxResults       :: !(Maybe Nat)
-    , _locDirectoryARN     :: !Text
-    , _locObjectReference  :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _locConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
+  , _locNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _locMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _locDirectoryARN     :: {-# NOUNPACK #-}!Text
+  , _locObjectReference  :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectChildren' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ listObjectChildren
     -> ObjectReference -- ^ 'locObjectReference'
     -> ListObjectChildren
 listObjectChildren pDirectoryARN_ pObjectReference_ =
-    ListObjectChildren'
-    { _locConsistencyLevel = Nothing
-    , _locNextToken = Nothing
-    , _locMaxResults = Nothing
-    , _locDirectoryARN = pDirectoryARN_
-    , _locObjectReference = pObjectReference_
-    }
+  ListObjectChildren'
+  { _locConsistencyLevel = Nothing
+  , _locNextToken = Nothing
+  , _locMaxResults = Nothing
+  , _locDirectoryARN = pDirectoryARN_
+  , _locObjectReference = pObjectReference_
+  }
+
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 locConsistencyLevel :: Lens' ListObjectChildren (Maybe ConsistencyLevel)
@@ -115,9 +117,9 @@ instance AWSRequest ListObjectChildren where
                    (x .?> "Children" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListObjectChildren
+instance Hashable ListObjectChildren where
 
-instance NFData ListObjectChildren
+instance NFData ListObjectChildren where
 
 instance ToHeaders ListObjectChildren where
         toHeaders ListObjectChildren'{..}
@@ -143,10 +145,11 @@ instance ToQuery ListObjectChildren where
 
 -- | /See:/ 'listObjectChildrenResponse' smart constructor.
 data ListObjectChildrenResponse = ListObjectChildrenResponse'
-    { _locrsChildren       :: !(Maybe (Map Text Text))
-    , _locrsNextToken      :: !(Maybe Text)
-    , _locrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _locrsChildren       :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _locrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _locrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectChildrenResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +164,12 @@ listObjectChildrenResponse
     :: Int -- ^ 'locrsResponseStatus'
     -> ListObjectChildrenResponse
 listObjectChildrenResponse pResponseStatus_ =
-    ListObjectChildrenResponse'
-    { _locrsChildren = Nothing
-    , _locrsNextToken = Nothing
-    , _locrsResponseStatus = pResponseStatus_
-    }
+  ListObjectChildrenResponse'
+  { _locrsChildren = Nothing
+  , _locrsNextToken = Nothing
+  , _locrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
 locrsChildren :: Lens' ListObjectChildrenResponse (HashMap Text Text)
@@ -179,4 +183,4 @@ locrsNextToken = lens _locrsNextToken (\ s a -> s{_locrsNextToken = a});
 locrsResponseStatus :: Lens' ListObjectChildrenResponse Int
 locrsResponseStatus = lens _locrsResponseStatus (\ s a -> s{_locrsResponseStatus = a});
 
-instance NFData ListObjectChildrenResponse
+instance NFData ListObjectChildrenResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetChange
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.Route53.GetChange
     , gcrsChangeInfo
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | The input for a GetChange request.
 --
@@ -56,8 +56,9 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getChange' smart constructor.
 newtype GetChange = GetChange'
-    { _gcId :: ResourceId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcId :: ResourceId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetChange' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ newtype GetChange = GetChange'
 getChange
     :: ResourceId -- ^ 'gcId'
     -> GetChange
-getChange pId_ =
-    GetChange'
-    { _gcId = pId_
-    }
+getChange pId_ = GetChange' {_gcId = pId_}
+
 
 -- | The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the @Id@ element when you submitted the request.
 gcId :: Lens' GetChange ResourceId
@@ -85,9 +84,9 @@ instance AWSRequest GetChange where
                  GetChangeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
-instance Hashable GetChange
+instance Hashable GetChange where
 
-instance NFData GetChange
+instance NFData GetChange where
 
 instance ToHeaders GetChange where
         toHeaders = const mempty
@@ -105,9 +104,10 @@ instance ToQuery GetChange where
 --
 -- /See:/ 'getChangeResponse' smart constructor.
 data GetChangeResponse = GetChangeResponse'
-    { _gcrsResponseStatus :: !Int
-    , _gcrsChangeInfo     :: !ChangeInfo
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gcrsChangeInfo     :: {-# NOUNPACK #-}!ChangeInfo
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetChangeResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +121,9 @@ getChangeResponse
     -> ChangeInfo -- ^ 'gcrsChangeInfo'
     -> GetChangeResponse
 getChangeResponse pResponseStatus_ pChangeInfo_ =
-    GetChangeResponse'
-    { _gcrsResponseStatus = pResponseStatus_
-    , _gcrsChangeInfo = pChangeInfo_
-    }
+  GetChangeResponse'
+  {_gcrsResponseStatus = pResponseStatus_, _gcrsChangeInfo = pChangeInfo_}
+
 
 -- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetChangeResponse Int
@@ -134,4 +133,4 @@ gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = 
 gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrsChangeInfo = lens _gcrsChangeInfo (\ s a -> s{_gcrsChangeInfo = a});
 
-instance NFData GetChangeResponse
+instance NFData GetChangeResponse where

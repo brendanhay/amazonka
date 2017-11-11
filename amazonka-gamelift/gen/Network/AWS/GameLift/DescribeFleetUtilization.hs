@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetUtilization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -92,12 +92,12 @@ module Network.AWS.GameLift.DescribeFleetUtilization
     , dfursResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -105,10 +105,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeFleetUtilization' smart constructor.
 data DescribeFleetUtilization = DescribeFleetUtilization'
-    { _dfuNextToken :: !(Maybe Text)
-    , _dfuLimit     :: !(Maybe Nat)
-    , _dfuFleetIds  :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfuNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfuLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dfuFleetIds  :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetUtilization' with the minimum fields required to make a request.
 --
@@ -122,11 +123,9 @@ data DescribeFleetUtilization = DescribeFleetUtilization'
 describeFleetUtilization
     :: DescribeFleetUtilization
 describeFleetUtilization =
-    DescribeFleetUtilization'
-    { _dfuNextToken = Nothing
-    , _dfuLimit = Nothing
-    , _dfuFleetIds = Nothing
-    }
+  DescribeFleetUtilization'
+  {_dfuNextToken = Nothing, _dfuLimit = Nothing, _dfuFleetIds = Nothing}
+
 
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfuNextToken :: Lens' DescribeFleetUtilization (Maybe Text)
@@ -152,9 +151,9 @@ instance AWSRequest DescribeFleetUtilization where
                      (x .?> "FleetUtilization" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeFleetUtilization
+instance Hashable DescribeFleetUtilization where
 
-instance NFData DescribeFleetUtilization
+instance NFData DescribeFleetUtilization where
 
 instance ToHeaders DescribeFleetUtilization where
         toHeaders
@@ -185,10 +184,11 @@ instance ToQuery DescribeFleetUtilization where
 --
 -- /See:/ 'describeFleetUtilizationResponse' smart constructor.
 data DescribeFleetUtilizationResponse = DescribeFleetUtilizationResponse'
-    { _dfursNextToken        :: !(Maybe Text)
-    , _dfursFleetUtilization :: !(Maybe [FleetUtilization])
-    , _dfursResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfursNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfursFleetUtilization :: {-# NOUNPACK #-}!(Maybe [FleetUtilization])
+  , _dfursResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetUtilizationResponse' with the minimum fields required to make a request.
 --
@@ -203,11 +203,12 @@ describeFleetUtilizationResponse
     :: Int -- ^ 'dfursResponseStatus'
     -> DescribeFleetUtilizationResponse
 describeFleetUtilizationResponse pResponseStatus_ =
-    DescribeFleetUtilizationResponse'
-    { _dfursNextToken = Nothing
-    , _dfursFleetUtilization = Nothing
-    , _dfursResponseStatus = pResponseStatus_
-    }
+  DescribeFleetUtilizationResponse'
+  { _dfursNextToken = Nothing
+  , _dfursFleetUtilization = Nothing
+  , _dfursResponseStatus = pResponseStatus_
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfursNextToken :: Lens' DescribeFleetUtilizationResponse (Maybe Text)
@@ -222,3 +223,4 @@ dfursResponseStatus :: Lens' DescribeFleetUtilizationResponse Int
 dfursResponseStatus = lens _dfursResponseStatus (\ s a -> s{_dfursResponseStatus = a});
 
 instance NFData DescribeFleetUtilizationResponse
+         where

@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DynamoDBStreams.Types.Product where
 
-import           Network.AWS.DynamoDBStreams.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DynamoDBStreams.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Represents the data for an attribute. You can set one, and only one, of the elements.
 --
@@ -29,17 +29,18 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-    { _avL    :: !(Maybe [AttributeValue])
-    , _avNS   :: !(Maybe [Text])
-    , _avM    :: !(Maybe (Map Text AttributeValue))
-    , _avNULL :: !(Maybe Bool)
-    , _avN    :: !(Maybe Text)
-    , _avBS   :: !(Maybe [Base64])
-    , _avB    :: !(Maybe Base64)
-    , _avSS   :: !(Maybe [Text])
-    , _avS    :: !(Maybe Text)
-    , _avBOOL :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avL    :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
+  , _avNS   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _avM    :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _avNULL :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _avN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avBS   :: {-# NOUNPACK #-}!(Maybe [Base64])
+  , _avB    :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _avSS   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _avS    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avBOOL :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
@@ -67,18 +68,19 @@ data AttributeValue = AttributeValue'
 attributeValue
     :: AttributeValue
 attributeValue =
-    AttributeValue'
-    { _avL = Nothing
-    , _avNS = Nothing
-    , _avM = Nothing
-    , _avNULL = Nothing
-    , _avN = Nothing
-    , _avBS = Nothing
-    , _avB = Nothing
-    , _avSS = Nothing
-    , _avS = Nothing
-    , _avBOOL = Nothing
-    }
+  AttributeValue'
+  { _avL = Nothing
+  , _avNS = Nothing
+  , _avM = Nothing
+  , _avNULL = Nothing
+  , _avN = Nothing
+  , _avBS = Nothing
+  , _avB = Nothing
+  , _avSS = Nothing
+  , _avS = Nothing
+  , _avBOOL = Nothing
+  }
+
 
 -- | A List data type.
 avL :: Lens' AttributeValue [AttributeValue]
@@ -135,9 +137,9 @@ instance FromJSON AttributeValue where
                      <*> (x .:? "S")
                      <*> (x .:? "BOOL"))
 
-instance Hashable AttributeValue
+instance Hashable AttributeValue where
 
-instance NFData AttributeValue
+instance NFData AttributeValue where
 
 -- | Contains details about the type of identity that made the request.
 --
@@ -145,9 +147,10 @@ instance NFData AttributeValue
 --
 -- /See:/ 'identity' smart constructor.
 data Identity = Identity'
-    { _iPrincipalId :: !(Maybe Text)
-    , _iType        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iPrincipalId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iType        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Identity' with the minimum fields required to make a request.
 --
@@ -158,11 +161,8 @@ data Identity = Identity'
 -- * 'iType' - The type of the identity. For Time To Live, the type is "Service".
 identity
     :: Identity
-identity =
-    Identity'
-    { _iPrincipalId = Nothing
-    , _iType = Nothing
-    }
+identity = Identity' {_iPrincipalId = Nothing, _iType = Nothing}
+
 
 -- | A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
 iPrincipalId :: Lens' Identity (Maybe Text)
@@ -179,9 +179,9 @@ instance FromJSON Identity where
                  Identity' <$>
                    (x .:? "PrincipalId") <*> (x .:? "Type"))
 
-instance Hashable Identity
+instance Hashable Identity where
 
-instance NFData Identity
+instance NFData Identity where
 
 -- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
@@ -191,9 +191,10 @@ instance NFData Identity
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-    { _kseAttributeName :: !Text
-    , _kseKeyType       :: !KeyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kseAttributeName :: {-# NOUNPACK #-}!Text
+  , _kseKeyType       :: {-# NOUNPACK #-}!KeyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
 --
@@ -207,10 +208,9 @@ keySchemaElement
     -> KeyType -- ^ 'kseKeyType'
     -> KeySchemaElement
 keySchemaElement pAttributeName_ pKeyType_ =
-    KeySchemaElement'
-    { _kseAttributeName = pAttributeName_
-    , _kseKeyType = pKeyType_
-    }
+  KeySchemaElement'
+  {_kseAttributeName = pAttributeName_, _kseKeyType = pKeyType_}
+
 
 -- | The name of a key attribute.
 kseAttributeName :: Lens' KeySchemaElement Text
@@ -227,9 +227,9 @@ instance FromJSON KeySchemaElement where
                  KeySchemaElement' <$>
                    (x .: "AttributeName") <*> (x .: "KeyType"))
 
-instance Hashable KeySchemaElement
+instance Hashable KeySchemaElement where
 
-instance NFData KeySchemaElement
+instance NFData KeySchemaElement where
 
 -- | A description of a unique event within a stream.
 --
@@ -237,14 +237,15 @@ instance NFData KeySchemaElement
 --
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-    { _rUserIdentity :: !(Maybe Identity)
-    , _rEventVersion :: !(Maybe Text)
-    , _rDynamodb     :: !(Maybe StreamRecord)
-    , _rAwsRegion    :: !(Maybe Text)
-    , _rEventName    :: !(Maybe OperationType)
-    , _rEventSource  :: !(Maybe Text)
-    , _rEventId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rUserIdentity :: {-# NOUNPACK #-}!(Maybe Identity)
+  , _rEventVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDynamodb     :: {-# NOUNPACK #-}!(Maybe StreamRecord)
+  , _rAwsRegion    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rEventName    :: {-# NOUNPACK #-}!(Maybe OperationType)
+  , _rEventSource  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rEventId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
@@ -266,15 +267,16 @@ data Record = Record'
 record
     :: Record
 record =
-    Record'
-    { _rUserIdentity = Nothing
-    , _rEventVersion = Nothing
-    , _rDynamodb = Nothing
-    , _rAwsRegion = Nothing
-    , _rEventName = Nothing
-    , _rEventSource = Nothing
-    , _rEventId = Nothing
-    }
+  Record'
+  { _rUserIdentity = Nothing
+  , _rEventVersion = Nothing
+  , _rDynamodb = Nothing
+  , _rAwsRegion = Nothing
+  , _rEventName = Nothing
+  , _rEventSource = Nothing
+  , _rEventId = Nothing
+  }
+
 
 -- | Items that are deleted by the Time to Live process after expiration have the following fields:      * Records[].userIdentity.type "Service"     * Records[].userIdentity.principalId "dynamodb.amazonaws.com"
 rUserIdentity :: Lens' Record (Maybe Identity)
@@ -316,9 +318,9 @@ instance FromJSON Record where
                      <*> (x .:? "eventSource")
                      <*> (x .:? "eventID"))
 
-instance Hashable Record
+instance Hashable Record where
 
-instance NFData Record
+instance NFData Record where
 
 -- | The beginning and ending sequence numbers for the stream records contained within a shard.
 --
@@ -326,9 +328,10 @@ instance NFData Record
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-    { _snrStartingSequenceNumber :: !(Maybe Text)
-    , _snrEndingSequenceNumber   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _snrStartingSequenceNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  , _snrEndingSequenceNumber   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
 --
@@ -340,10 +343,9 @@ data SequenceNumberRange = SequenceNumberRange'
 sequenceNumberRange
     :: SequenceNumberRange
 sequenceNumberRange =
-    SequenceNumberRange'
-    { _snrStartingSequenceNumber = Nothing
-    , _snrEndingSequenceNumber = Nothing
-    }
+  SequenceNumberRange'
+  {_snrStartingSequenceNumber = Nothing, _snrEndingSequenceNumber = Nothing}
+
 
 -- | The first sequence number.
 snrStartingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
@@ -361,9 +363,9 @@ instance FromJSON SequenceNumberRange where
                    (x .:? "StartingSequenceNumber") <*>
                      (x .:? "EndingSequenceNumber"))
 
-instance Hashable SequenceNumberRange
+instance Hashable SequenceNumberRange where
 
-instance NFData SequenceNumberRange
+instance NFData SequenceNumberRange where
 
 -- | A uniquely identified group of stream records within a stream.
 --
@@ -371,10 +373,11 @@ instance NFData SequenceNumberRange
 --
 -- /See:/ 'shard' smart constructor.
 data Shard = Shard'
-    { _sParentShardId       :: !(Maybe Text)
-    , _sSequenceNumberRange :: !(Maybe SequenceNumberRange)
-    , _sShardId             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sParentShardId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSequenceNumberRange :: {-# NOUNPACK #-}!(Maybe SequenceNumberRange)
+  , _sShardId             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Shard' with the minimum fields required to make a request.
 --
@@ -388,11 +391,12 @@ data Shard = Shard'
 shard
     :: Shard
 shard =
-    Shard'
-    { _sParentShardId = Nothing
-    , _sSequenceNumberRange = Nothing
-    , _sShardId = Nothing
-    }
+  Shard'
+  { _sParentShardId = Nothing
+  , _sSequenceNumberRange = Nothing
+  , _sShardId = Nothing
+  }
+
 
 -- | The shard ID of the current shard's parent.
 sParentShardId :: Lens' Shard (Maybe Text)
@@ -415,9 +419,9 @@ instance FromJSON Shard where
                      (x .:? "SequenceNumberRange")
                      <*> (x .:? "ShardId"))
 
-instance Hashable Shard
+instance Hashable Shard where
 
-instance NFData Shard
+instance NFData Shard where
 
 -- | Represents all of the data describing a particular stream.
 --
@@ -425,10 +429,11 @@ instance NFData Shard
 --
 -- /See:/ 'stream' smart constructor.
 data Stream = Stream'
-    { _sStreamLabel :: !(Maybe Text)
-    , _sStreamARN   :: !(Maybe Text)
-    , _sTableName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStreamLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sStreamARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTableName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Stream' with the minimum fields required to make a request.
 --
@@ -442,11 +447,9 @@ data Stream = Stream'
 stream
     :: Stream
 stream =
-    Stream'
-    { _sStreamLabel = Nothing
-    , _sStreamARN = Nothing
-    , _sTableName = Nothing
-    }
+  Stream'
+  {_sStreamLabel = Nothing, _sStreamARN = Nothing, _sTableName = Nothing}
+
 
 -- | A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 sStreamLabel :: Lens' Stream (Maybe Text)
@@ -468,9 +471,9 @@ instance FromJSON Stream where
                    (x .:? "StreamLabel") <*> (x .:? "StreamArn") <*>
                      (x .:? "TableName"))
 
-instance Hashable Stream
+instance Hashable Stream where
 
-instance NFData Stream
+instance NFData Stream where
 
 -- | Represents all of the data describing a particular stream.
 --
@@ -478,16 +481,17 @@ instance NFData Stream
 --
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-    { _sdLastEvaluatedShardId    :: !(Maybe Text)
-    , _sdStreamLabel             :: !(Maybe Text)
-    , _sdStreamStatus            :: !(Maybe StreamStatus)
-    , _sdKeySchema               :: !(Maybe (List1 KeySchemaElement))
-    , _sdStreamViewType          :: !(Maybe StreamViewType)
-    , _sdStreamARN               :: !(Maybe Text)
-    , _sdShards                  :: !(Maybe [Shard])
-    , _sdTableName               :: !(Maybe Text)
-    , _sdCreationRequestDateTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdLastEvaluatedShardId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdStreamLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdStreamStatus :: {-# NOUNPACK #-}!(Maybe StreamStatus)
+  , _sdKeySchema :: {-# NOUNPACK #-}!(Maybe (List1 KeySchemaElement))
+  , _sdStreamViewType :: {-# NOUNPACK #-}!(Maybe StreamViewType)
+  , _sdStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdShards :: {-# NOUNPACK #-}!(Maybe [Shard])
+  , _sdTableName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdCreationRequestDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
 --
@@ -513,17 +517,18 @@ data StreamDescription = StreamDescription'
 streamDescription
     :: StreamDescription
 streamDescription =
-    StreamDescription'
-    { _sdLastEvaluatedShardId = Nothing
-    , _sdStreamLabel = Nothing
-    , _sdStreamStatus = Nothing
-    , _sdKeySchema = Nothing
-    , _sdStreamViewType = Nothing
-    , _sdStreamARN = Nothing
-    , _sdShards = Nothing
-    , _sdTableName = Nothing
-    , _sdCreationRequestDateTime = Nothing
-    }
+  StreamDescription'
+  { _sdLastEvaluatedShardId = Nothing
+  , _sdStreamLabel = Nothing
+  , _sdStreamStatus = Nothing
+  , _sdKeySchema = Nothing
+  , _sdStreamViewType = Nothing
+  , _sdStreamARN = Nothing
+  , _sdShards = Nothing
+  , _sdTableName = Nothing
+  , _sdCreationRequestDateTime = Nothing
+  }
+
 
 -- | The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If @LastEvaluatedShardId@ is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved. If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
 sdLastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
@@ -576,9 +581,9 @@ instance FromJSON StreamDescription where
                      <*> (x .:? "TableName")
                      <*> (x .:? "CreationRequestDateTime"))
 
-instance Hashable StreamDescription
+instance Hashable StreamDescription where
 
-instance NFData StreamDescription
+instance NFData StreamDescription where
 
 -- | A description of a single data modification that was performed on an item in a DynamoDB table.
 --
@@ -586,14 +591,15 @@ instance NFData StreamDescription
 --
 -- /See:/ 'streamRecord' smart constructor.
 data StreamRecord = StreamRecord'
-    { _srSizeBytes                   :: !(Maybe Nat)
-    , _srSequenceNumber              :: !(Maybe Text)
-    , _srApproximateCreationDateTime :: !(Maybe POSIX)
-    , _srStreamViewType              :: !(Maybe StreamViewType)
-    , _srKeys                        :: !(Maybe (Map Text AttributeValue))
-    , _srOldImage                    :: !(Maybe (Map Text AttributeValue))
-    , _srNewImage                    :: !(Maybe (Map Text AttributeValue))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srSizeBytes :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _srSequenceNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srApproximateCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _srStreamViewType :: {-# NOUNPACK #-}!(Maybe StreamViewType)
+  , _srKeys :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _srOldImage :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _srNewImage :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamRecord' with the minimum fields required to make a request.
 --
@@ -615,15 +621,16 @@ data StreamRecord = StreamRecord'
 streamRecord
     :: StreamRecord
 streamRecord =
-    StreamRecord'
-    { _srSizeBytes = Nothing
-    , _srSequenceNumber = Nothing
-    , _srApproximateCreationDateTime = Nothing
-    , _srStreamViewType = Nothing
-    , _srKeys = Nothing
-    , _srOldImage = Nothing
-    , _srNewImage = Nothing
-    }
+  StreamRecord'
+  { _srSizeBytes = Nothing
+  , _srSequenceNumber = Nothing
+  , _srApproximateCreationDateTime = Nothing
+  , _srStreamViewType = Nothing
+  , _srKeys = Nothing
+  , _srOldImage = Nothing
+  , _srNewImage = Nothing
+  }
+
 
 -- | The size of the stream record, in bytes.
 srSizeBytes :: Lens' StreamRecord (Maybe Natural)
@@ -665,6 +672,6 @@ instance FromJSON StreamRecord where
                      <*> (x .:? "OldImage" .!= mempty)
                      <*> (x .:? "NewImage" .!= mempty))
 
-instance Hashable StreamRecord
+instance Hashable StreamRecord where
 
-instance NFData StreamRecord
+instance NFData StreamRecord where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -206,26 +206,26 @@ module Network.AWS.CognitoIdentity
     , uiiIdentityId
     ) where
 
-import           Network.AWS.CognitoIdentity.CreateIdentityPool
-import           Network.AWS.CognitoIdentity.DeleteIdentities
-import           Network.AWS.CognitoIdentity.DeleteIdentityPool
-import           Network.AWS.CognitoIdentity.DescribeIdentity
-import           Network.AWS.CognitoIdentity.DescribeIdentityPool
-import           Network.AWS.CognitoIdentity.GetCredentialsForIdentity
-import           Network.AWS.CognitoIdentity.GetId
-import           Network.AWS.CognitoIdentity.GetIdentityPoolRoles
-import           Network.AWS.CognitoIdentity.GetOpenIdToken
-import           Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
-import           Network.AWS.CognitoIdentity.ListIdentities
-import           Network.AWS.CognitoIdentity.ListIdentityPools
-import           Network.AWS.CognitoIdentity.LookupDeveloperIdentity
-import           Network.AWS.CognitoIdentity.MergeDeveloperIdentities
-import           Network.AWS.CognitoIdentity.SetIdentityPoolRoles
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
-import           Network.AWS.CognitoIdentity.UnlinkIdentity
-import           Network.AWS.CognitoIdentity.UpdateIdentityPool
-import           Network.AWS.CognitoIdentity.Waiters
+import Network.AWS.CognitoIdentity.CreateIdentityPool
+import Network.AWS.CognitoIdentity.DeleteIdentities
+import Network.AWS.CognitoIdentity.DeleteIdentityPool
+import Network.AWS.CognitoIdentity.DescribeIdentity
+import Network.AWS.CognitoIdentity.DescribeIdentityPool
+import Network.AWS.CognitoIdentity.GetCredentialsForIdentity
+import Network.AWS.CognitoIdentity.GetId
+import Network.AWS.CognitoIdentity.GetIdentityPoolRoles
+import Network.AWS.CognitoIdentity.GetOpenIdToken
+import Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
+import Network.AWS.CognitoIdentity.ListIdentities
+import Network.AWS.CognitoIdentity.ListIdentityPools
+import Network.AWS.CognitoIdentity.LookupDeveloperIdentity
+import Network.AWS.CognitoIdentity.MergeDeveloperIdentities
+import Network.AWS.CognitoIdentity.SetIdentityPoolRoles
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
+import Network.AWS.CognitoIdentity.UnlinkIdentity
+import Network.AWS.CognitoIdentity.UpdateIdentityPool
+import Network.AWS.CognitoIdentity.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

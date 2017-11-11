@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.IAM.UpdateUser
     , UpdateUserResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateUser' smart constructor.
 data UpdateUser = UpdateUser'
-    { _uuNewUserName :: !(Maybe Text)
-    , _uuNewPath     :: !(Maybe Text)
-    , _uuUserName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uuNewUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uuNewPath     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uuUserName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
 --
@@ -65,11 +66,9 @@ updateUser
     :: Text -- ^ 'uuUserName'
     -> UpdateUser
 updateUser pUserName_ =
-    UpdateUser'
-    { _uuNewUserName = Nothing
-    , _uuNewPath = Nothing
-    , _uuUserName = pUserName_
-    }
+  UpdateUser'
+  {_uuNewUserName = Nothing, _uuNewPath = Nothing, _uuUserName = pUserName_}
+
 
 -- | New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uuNewUserName :: Lens' UpdateUser (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest UpdateUser where
         request = postQuery iam
         response = receiveNull UpdateUserResponse'
 
-instance Hashable UpdateUser
+instance Hashable UpdateUser where
 
-instance NFData UpdateUser
+instance NFData UpdateUser where
 
 instance ToHeaders UpdateUser where
         toHeaders = const mempty
@@ -108,8 +107,9 @@ instance ToQuery UpdateUser where
 
 -- | /See:/ 'updateUserResponse' smart constructor.
 data UpdateUserResponse =
-    UpdateUserResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateUserResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.
 --
@@ -117,4 +117,5 @@ updateUserResponse
     :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse'
 
-instance NFData UpdateUserResponse
+
+instance NFData UpdateUserResponse where

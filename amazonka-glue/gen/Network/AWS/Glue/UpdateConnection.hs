@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Glue.UpdateConnection
     , ucrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateConnection' smart constructor.
 data UpdateConnection = UpdateConnection'
-    { _ucCatalogId       :: !(Maybe Text)
-    , _ucName            :: !Text
-    , _ucConnectionInput :: !ConnectionInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucName            :: {-# NOUNPACK #-}!Text
+  , _ucConnectionInput :: {-# NOUNPACK #-}!ConnectionInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConnection' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ updateConnection
     -> ConnectionInput -- ^ 'ucConnectionInput'
     -> UpdateConnection
 updateConnection pName_ pConnectionInput_ =
-    UpdateConnection'
-    { _ucCatalogId = Nothing
-    , _ucName = pName_
-    , _ucConnectionInput = pConnectionInput_
-    }
+  UpdateConnection'
+  { _ucCatalogId = Nothing
+  , _ucName = pName_
+  , _ucConnectionInput = pConnectionInput_
+  }
+
 
 -- | The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.
 ucCatalogId :: Lens' UpdateConnection (Maybe Text)
@@ -92,9 +94,9 @@ instance AWSRequest UpdateConnection where
               (\ s h x ->
                  UpdateConnectionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateConnection
+instance Hashable UpdateConnection where
 
-instance NFData UpdateConnection
+instance NFData UpdateConnection where
 
 instance ToHeaders UpdateConnection where
         toHeaders
@@ -121,8 +123,9 @@ instance ToQuery UpdateConnection where
 
 -- | /See:/ 'updateConnectionResponse' smart constructor.
 newtype UpdateConnectionResponse = UpdateConnectionResponse'
-    { _ucrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConnectionResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +136,11 @@ updateConnectionResponse
     :: Int -- ^ 'ucrsResponseStatus'
     -> UpdateConnectionResponse
 updateConnectionResponse pResponseStatus_ =
-    UpdateConnectionResponse'
-    { _ucrsResponseStatus = pResponseStatus_
-    }
+  UpdateConnectionResponse' {_ucrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ucrsResponseStatus :: Lens' UpdateConnectionResponse Int
 ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
 
-instance NFData UpdateConnectionResponse
+instance NFData UpdateConnectionResponse where

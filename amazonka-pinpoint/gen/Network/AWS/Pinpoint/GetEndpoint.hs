@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.GetEndpoint
     , gersEndpointResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getEndpoint' smart constructor.
 data GetEndpoint = GetEndpoint'
-    { _geApplicationId :: !Text
-    , _geEndpointId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _geApplicationId :: {-# NOUNPACK #-}!Text
+  , _geEndpointId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEndpoint' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ getEndpoint
     -> Text -- ^ 'geEndpointId'
     -> GetEndpoint
 getEndpoint pApplicationId_ pEndpointId_ =
-    GetEndpoint'
-    { _geApplicationId = pApplicationId_
-    , _geEndpointId = pEndpointId_
-    }
+  GetEndpoint'
+  {_geApplicationId = pApplicationId_, _geEndpointId = pEndpointId_}
+
 
 -- | Undocumented member.
 geApplicationId :: Lens' GetEndpoint Text
@@ -83,9 +83,9 @@ instance AWSRequest GetEndpoint where
                  GetEndpointResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetEndpoint
+instance Hashable GetEndpoint where
 
-instance NFData GetEndpoint
+instance NFData GetEndpoint where
 
 instance ToHeaders GetEndpoint where
         toHeaders
@@ -105,9 +105,10 @@ instance ToQuery GetEndpoint where
 
 -- | /See:/ 'getEndpointResponse' smart constructor.
 data GetEndpointResponse = GetEndpointResponse'
-    { _gersResponseStatus   :: !Int
-    , _gersEndpointResponse :: !EndpointResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gersResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _gersEndpointResponse :: {-# NOUNPACK #-}!EndpointResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEndpointResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,11 @@ getEndpointResponse
     -> EndpointResponse -- ^ 'gersEndpointResponse'
     -> GetEndpointResponse
 getEndpointResponse pResponseStatus_ pEndpointResponse_ =
-    GetEndpointResponse'
-    { _gersResponseStatus = pResponseStatus_
-    , _gersEndpointResponse = pEndpointResponse_
-    }
+  GetEndpointResponse'
+  { _gersResponseStatus = pResponseStatus_
+  , _gersEndpointResponse = pEndpointResponse_
+  }
+
 
 -- | -- | The response status code.
 gersResponseStatus :: Lens' GetEndpointResponse Int
@@ -134,4 +136,4 @@ gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = 
 gersEndpointResponse :: Lens' GetEndpointResponse EndpointResponse
 gersEndpointResponse = lens _gersEndpointResponse (\ s a -> s{_gersEndpointResponse = a});
 
-instance NFData GetEndpointResponse
+instance NFData GetEndpointResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,22 +47,23 @@ module Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
     , lrprfhitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listReviewPolicyResultsForHIT' smart constructor.
 data ListReviewPolicyResultsForHIT = ListReviewPolicyResultsForHIT'
-    { _lrprfhitRetrieveResults :: !(Maybe Bool)
-    , _lrprfhitPolicyLevels    :: !(Maybe [ReviewPolicyLevel])
-    , _lrprfhitRetrieveActions :: !(Maybe Bool)
-    , _lrprfhitNextToken       :: !(Maybe Text)
-    , _lrprfhitMaxResults      :: !(Maybe Nat)
-    , _lrprfhitHITId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrprfhitRetrieveResults :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lrprfhitPolicyLevels    :: {-# NOUNPACK #-}!(Maybe [ReviewPolicyLevel])
+  , _lrprfhitRetrieveActions :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lrprfhitNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrprfhitMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lrprfhitHITId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListReviewPolicyResultsForHIT' with the minimum fields required to make a request.
 --
@@ -83,14 +84,15 @@ listReviewPolicyResultsForHIT
     :: Text -- ^ 'lrprfhitHITId'
     -> ListReviewPolicyResultsForHIT
 listReviewPolicyResultsForHIT pHITId_ =
-    ListReviewPolicyResultsForHIT'
-    { _lrprfhitRetrieveResults = Nothing
-    , _lrprfhitPolicyLevels = Nothing
-    , _lrprfhitRetrieveActions = Nothing
-    , _lrprfhitNextToken = Nothing
-    , _lrprfhitMaxResults = Nothing
-    , _lrprfhitHITId = pHITId_
-    }
+  ListReviewPolicyResultsForHIT'
+  { _lrprfhitRetrieveResults = Nothing
+  , _lrprfhitPolicyLevels = Nothing
+  , _lrprfhitRetrieveActions = Nothing
+  , _lrprfhitNextToken = Nothing
+  , _lrprfhitMaxResults = Nothing
+  , _lrprfhitHITId = pHITId_
+  }
+
 
 -- | Specify if the operation should retrieve a list of the results computed by the Review Policies.
 lrprfhitRetrieveResults :: Lens' ListReviewPolicyResultsForHIT (Maybe Bool)
@@ -133,9 +135,9 @@ instance AWSRequest ListReviewPolicyResultsForHIT
                      <*> (x .?> "AssignmentReviewPolicy")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListReviewPolicyResultsForHIT
+instance Hashable ListReviewPolicyResultsForHIT where
 
-instance NFData ListReviewPolicyResultsForHIT
+instance NFData ListReviewPolicyResultsForHIT where
 
 instance ToHeaders ListReviewPolicyResultsForHIT
          where
@@ -167,14 +169,15 @@ instance ToQuery ListReviewPolicyResultsForHIT where
 
 -- | /See:/ 'listReviewPolicyResultsForHITResponse' smart constructor.
 data ListReviewPolicyResultsForHITResponse = ListReviewPolicyResultsForHITResponse'
-    { _lrprfhitrsHITReviewPolicy        :: !(Maybe ReviewPolicy)
-    , _lrprfhitrsHITReviewReport        :: !(Maybe ReviewReport)
-    , _lrprfhitrsNextToken              :: !(Maybe Text)
-    , _lrprfhitrsAssignmentReviewReport :: !(Maybe ReviewReport)
-    , _lrprfhitrsHITId                  :: !(Maybe Text)
-    , _lrprfhitrsAssignmentReviewPolicy :: !(Maybe ReviewPolicy)
-    , _lrprfhitrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrprfhitrsHITReviewPolicy        :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
+  , _lrprfhitrsHITReviewReport        :: {-# NOUNPACK #-}!(Maybe ReviewReport)
+  , _lrprfhitrsNextToken              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrprfhitrsAssignmentReviewReport :: {-# NOUNPACK #-}!(Maybe ReviewReport)
+  , _lrprfhitrsHITId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrprfhitrsAssignmentReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
+  , _lrprfhitrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListReviewPolicyResultsForHITResponse' with the minimum fields required to make a request.
 --
@@ -197,15 +200,16 @@ listReviewPolicyResultsForHITResponse
     :: Int -- ^ 'lrprfhitrsResponseStatus'
     -> ListReviewPolicyResultsForHITResponse
 listReviewPolicyResultsForHITResponse pResponseStatus_ =
-    ListReviewPolicyResultsForHITResponse'
-    { _lrprfhitrsHITReviewPolicy = Nothing
-    , _lrprfhitrsHITReviewReport = Nothing
-    , _lrprfhitrsNextToken = Nothing
-    , _lrprfhitrsAssignmentReviewReport = Nothing
-    , _lrprfhitrsHITId = Nothing
-    , _lrprfhitrsAssignmentReviewPolicy = Nothing
-    , _lrprfhitrsResponseStatus = pResponseStatus_
-    }
+  ListReviewPolicyResultsForHITResponse'
+  { _lrprfhitrsHITReviewPolicy = Nothing
+  , _lrprfhitrsHITReviewReport = Nothing
+  , _lrprfhitrsNextToken = Nothing
+  , _lrprfhitrsAssignmentReviewReport = Nothing
+  , _lrprfhitrsHITId = Nothing
+  , _lrprfhitrsAssignmentReviewPolicy = Nothing
+  , _lrprfhitrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the HIT-level Review Policy. This contains only the PolicyName element.
 lrprfhitrsHITReviewPolicy :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewPolicy)
@@ -236,3 +240,4 @@ lrprfhitrsResponseStatus :: Lens' ListReviewPolicyResultsForHITResponse Int
 lrprfhitrsResponseStatus = lens _lrprfhitrsResponseStatus (\ s a -> s{_lrprfhitrsResponseStatus = a});
 
 instance NFData ListReviewPolicyResultsForHITResponse
+         where

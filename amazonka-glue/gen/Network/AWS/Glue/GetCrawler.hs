@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetCrawler
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.GetCrawler
     , getersResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCrawler' smart constructor.
 newtype GetCrawler = GetCrawler'
-    { _gccName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gccName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCrawler' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetCrawler = GetCrawler'
 getCrawler
     :: Text -- ^ 'gccName'
     -> GetCrawler
-getCrawler pName_ =
-    GetCrawler'
-    { _gccName = pName_
-    }
+getCrawler pName_ = GetCrawler' {_gccName = pName_}
+
 
 -- | Name of the @Crawler@ to retrieve metadata for.
 gccName :: Lens' GetCrawler Text
@@ -75,9 +74,9 @@ instance AWSRequest GetCrawler where
                  GetCrawlerResponse' <$>
                    (x .?> "Crawler") <*> (pure (fromEnum s)))
 
-instance Hashable GetCrawler
+instance Hashable GetCrawler where
 
-instance NFData GetCrawler
+instance NFData GetCrawler where
 
 instance ToHeaders GetCrawler where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery GetCrawler where
 
 -- | /See:/ 'getCrawlerResponse' smart constructor.
 data GetCrawlerResponse = GetCrawlerResponse'
-    { _getersCrawler        :: !(Maybe Crawler)
-    , _getersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _getersCrawler        :: {-# NOUNPACK #-}!(Maybe Crawler)
+  , _getersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCrawlerResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ getCrawlerResponse
     :: Int -- ^ 'getersResponseStatus'
     -> GetCrawlerResponse
 getCrawlerResponse pResponseStatus_ =
-    GetCrawlerResponse'
-    { _getersCrawler = Nothing
-    , _getersResponseStatus = pResponseStatus_
-    }
+  GetCrawlerResponse'
+  {_getersCrawler = Nothing, _getersResponseStatus = pResponseStatus_}
+
 
 -- | The metadata for the specified @Crawler@ .
 getersCrawler :: Lens' GetCrawlerResponse (Maybe Crawler)
@@ -128,4 +127,4 @@ getersCrawler = lens _getersCrawler (\ s a -> s{_getersCrawler = a});
 getersResponseStatus :: Lens' GetCrawlerResponse Int
 getersResponseStatus = lens _getersResponseStatus (\ s a -> s{_getersResponseStatus = a});
 
-instance NFData GetCrawlerResponse
+instance NFData GetCrawlerResponse where

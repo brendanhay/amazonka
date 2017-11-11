@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.Suggest
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.CloudSearchDomains.Suggest
     , srsResponseStatus
     ) where
 
-import           Network.AWS.CloudSearchDomains.Types
-import           Network.AWS.CloudSearchDomains.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.CloudSearchDomains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @Suggest@ request.
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'suggest' smart constructor.
 data Suggest = Suggest'
-    { _sSize      :: !(Maybe Integer)
-    , _sQuery     :: !Text
-    , _sSuggester :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSize      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _sQuery     :: {-# NOUNPACK #-}!Text
+  , _sSuggester :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Suggest' with the minimum fields required to make a request.
 --
@@ -76,11 +77,8 @@ suggest
     -> Text -- ^ 'sSuggester'
     -> Suggest
 suggest pQuery_ pSuggester_ =
-    Suggest'
-    { _sSize = Nothing
-    , _sQuery = pQuery_
-    , _sSuggester = pSuggester_
-    }
+  Suggest' {_sSize = Nothing, _sQuery = pQuery_, _sSuggester = pSuggester_}
+
 
 -- | Specifies the maximum number of suggestions to return.
 sSize :: Lens' Suggest (Maybe Integer)
@@ -104,9 +102,9 @@ instance AWSRequest Suggest where
                    (x .?> "suggest") <*> (x .?> "status") <*>
                      (pure (fromEnum s)))
 
-instance Hashable Suggest
+instance Hashable Suggest where
 
-instance NFData Suggest
+instance NFData Suggest where
 
 instance ToHeaders Suggest where
         toHeaders
@@ -130,10 +128,11 @@ instance ToQuery Suggest where
 --
 -- /See:/ 'suggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
-    { _srsSuggest        :: !(Maybe SuggestModel)
-    , _srsStatus         :: !(Maybe SuggestStatus)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsSuggest        :: {-# NOUNPACK #-}!(Maybe SuggestModel)
+  , _srsStatus         :: {-# NOUNPACK #-}!(Maybe SuggestStatus)
+  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SuggestResponse' with the minimum fields required to make a request.
 --
@@ -148,11 +147,12 @@ suggestResponse
     :: Int -- ^ 'srsResponseStatus'
     -> SuggestResponse
 suggestResponse pResponseStatus_ =
-    SuggestResponse'
-    { _srsSuggest = Nothing
-    , _srsStatus = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  SuggestResponse'
+  { _srsSuggest = Nothing
+  , _srsStatus = Nothing
+  , _srsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Container for the matching search suggestion information.
 srsSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
@@ -166,4 +166,4 @@ srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
 srsResponseStatus :: Lens' SuggestResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData SuggestResponse
+instance NFData SuggestResponse where

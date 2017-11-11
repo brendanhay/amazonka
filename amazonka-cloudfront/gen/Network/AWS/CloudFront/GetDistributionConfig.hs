@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetDistributionConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudFront.GetDistributionConfig
     , gdcrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to get a distribution configuration.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDistributionConfig' smart constructor.
 newtype GetDistributionConfig = GetDistributionConfig'
-    { _gdcId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdcId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDistributionConfig' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype GetDistributionConfig = GetDistributionConfig'
 getDistributionConfig
     :: Text -- ^ 'gdcId'
     -> GetDistributionConfig
-getDistributionConfig pId_ =
-    GetDistributionConfig'
-    { _gdcId = pId_
-    }
+getDistributionConfig pId_ = GetDistributionConfig' {_gdcId = pId_}
+
 
 -- | The distribution's ID.
 gdcId :: Lens' GetDistributionConfig Text
@@ -82,9 +81,9 @@ instance AWSRequest GetDistributionConfig where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetDistributionConfig
+instance Hashable GetDistributionConfig where
 
-instance NFData GetDistributionConfig
+instance NFData GetDistributionConfig where
 
 instance ToHeaders GetDistributionConfig where
         toHeaders = const mempty
@@ -103,10 +102,11 @@ instance ToQuery GetDistributionConfig where
 --
 -- /See:/ 'getDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-    { _gdcrsETag               :: !(Maybe Text)
-    , _gdcrsDistributionConfig :: !(Maybe DistributionConfig)
-    , _gdcrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdcrsETag               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdcrsDistributionConfig :: {-# NOUNPACK #-}!(Maybe DistributionConfig)
+  , _gdcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDistributionConfigResponse' with the minimum fields required to make a request.
 --
@@ -121,11 +121,12 @@ getDistributionConfigResponse
     :: Int -- ^ 'gdcrsResponseStatus'
     -> GetDistributionConfigResponse
 getDistributionConfigResponse pResponseStatus_ =
-    GetDistributionConfigResponse'
-    { _gdcrsETag = Nothing
-    , _gdcrsDistributionConfig = Nothing
-    , _gdcrsResponseStatus = pResponseStatus_
-    }
+  GetDistributionConfigResponse'
+  { _gdcrsETag = Nothing
+  , _gdcrsDistributionConfig = Nothing
+  , _gdcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
@@ -139,4 +140,4 @@ gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistri
 gdcrsResponseStatus :: Lens' GetDistributionConfigResponse Int
 gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});
 
-instance NFData GetDistributionConfigResponse
+instance NFData GetDistributionConfigResponse where

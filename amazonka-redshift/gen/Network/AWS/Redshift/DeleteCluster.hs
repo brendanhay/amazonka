@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.Redshift.DeleteCluster
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteCluster' smart constructor.
 data DeleteCluster = DeleteCluster'
-    { _delSkipFinalClusterSnapshot       :: !(Maybe Bool)
-    , _delFinalClusterSnapshotIdentifier :: !(Maybe Text)
-    , _delClusterIdentifier              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delSkipFinalClusterSnapshot       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _delFinalClusterSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _delClusterIdentifier              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ deleteCluster
     :: Text -- ^ 'delClusterIdentifier'
     -> DeleteCluster
 deleteCluster pClusterIdentifier_ =
-    DeleteCluster'
-    { _delSkipFinalClusterSnapshot = Nothing
-    , _delFinalClusterSnapshotIdentifier = Nothing
-    , _delClusterIdentifier = pClusterIdentifier_
-    }
+  DeleteCluster'
+  { _delSkipFinalClusterSnapshot = Nothing
+  , _delFinalClusterSnapshotIdentifier = Nothing
+  , _delClusterIdentifier = pClusterIdentifier_
+  }
+
 
 -- | Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If @true@ , a final cluster snapshot is not created. If @false@ , a final cluster snapshot is created before the cluster is deleted.  Default: @false@
 delSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
@@ -101,9 +103,9 @@ instance AWSRequest DeleteCluster where
                  DeleteClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteCluster
+instance Hashable DeleteCluster where
 
-instance NFData DeleteCluster
+instance NFData DeleteCluster where
 
 instance ToHeaders DeleteCluster where
         toHeaders = const mempty
@@ -124,9 +126,10 @@ instance ToQuery DeleteCluster where
 
 -- | /See:/ 'deleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
-    { _drsCluster        :: !(Maybe Cluster)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ deleteClusterResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteClusterResponse
 deleteClusterResponse pResponseStatus_ =
-    DeleteClusterResponse'
-    { _drsCluster = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteClusterResponse'
+  {_drsCluster = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
@@ -152,4 +154,4 @@ drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 drsResponseStatus :: Lens' DeleteClusterResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteClusterResponse
+instance NFData DeleteClusterResponse where

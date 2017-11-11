@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
     , grbrmkrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'getRateBasedRuleManagedKeys' smart constructor.
 data GetRateBasedRuleManagedKeys = GetRateBasedRuleManagedKeys'
-    { _grbrmkNextMarker :: !(Maybe Text)
-    , _grbrmkRuleId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grbrmkNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grbrmkRuleId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRateBasedRuleManagedKeys' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ getRateBasedRuleManagedKeys
     :: Text -- ^ 'grbrmkRuleId'
     -> GetRateBasedRuleManagedKeys
 getRateBasedRuleManagedKeys pRuleId_ =
-    GetRateBasedRuleManagedKeys'
-    { _grbrmkNextMarker = Nothing
-    , _grbrmkRuleId = pRuleId_
-    }
+  GetRateBasedRuleManagedKeys'
+  {_grbrmkNextMarker = Nothing, _grbrmkRuleId = pRuleId_}
+
 
 -- | A null value and not currently used. Do not include this in your request.
 grbrmkNextMarker :: Lens' GetRateBasedRuleManagedKeys (Maybe Text)
@@ -88,9 +88,9 @@ instance AWSRequest GetRateBasedRuleManagedKeys where
                      (x .?> "ManagedKeys" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetRateBasedRuleManagedKeys
+instance Hashable GetRateBasedRuleManagedKeys where
 
-instance NFData GetRateBasedRuleManagedKeys
+instance NFData GetRateBasedRuleManagedKeys where
 
 instance ToHeaders GetRateBasedRuleManagedKeys where
         toHeaders
@@ -117,10 +117,11 @@ instance ToQuery GetRateBasedRuleManagedKeys where
 
 -- | /See:/ 'getRateBasedRuleManagedKeysResponse' smart constructor.
 data GetRateBasedRuleManagedKeysResponse = GetRateBasedRuleManagedKeysResponse'
-    { _grbrmkrsNextMarker     :: !(Maybe Text)
-    , _grbrmkrsManagedKeys    :: !(Maybe [Text])
-    , _grbrmkrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grbrmkrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grbrmkrsManagedKeys    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _grbrmkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRateBasedRuleManagedKeysResponse' with the minimum fields required to make a request.
 --
@@ -135,11 +136,12 @@ getRateBasedRuleManagedKeysResponse
     :: Int -- ^ 'grbrmkrsResponseStatus'
     -> GetRateBasedRuleManagedKeysResponse
 getRateBasedRuleManagedKeysResponse pResponseStatus_ =
-    GetRateBasedRuleManagedKeysResponse'
-    { _grbrmkrsNextMarker = Nothing
-    , _grbrmkrsManagedKeys = Nothing
-    , _grbrmkrsResponseStatus = pResponseStatus_
-    }
+  GetRateBasedRuleManagedKeysResponse'
+  { _grbrmkrsNextMarker = Nothing
+  , _grbrmkrsManagedKeys = Nothing
+  , _grbrmkrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A null value and not currently used.
 grbrmkrsNextMarker :: Lens' GetRateBasedRuleManagedKeysResponse (Maybe Text)
@@ -154,3 +156,4 @@ grbrmkrsResponseStatus :: Lens' GetRateBasedRuleManagedKeysResponse Int
 grbrmkrsResponseStatus = lens _grbrmkrsResponseStatus (\ s a -> s{_grbrmkrsResponseStatus = a});
 
 instance NFData GetRateBasedRuleManagedKeysResponse
+         where

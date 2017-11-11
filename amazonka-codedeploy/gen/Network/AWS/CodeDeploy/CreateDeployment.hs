@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.CreateDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a CreateDeployment operation.
 --
@@ -59,17 +59,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-    { _cdDeploymentConfigName          :: !(Maybe Text)
-    , _cdFileExistsBehavior            :: !(Maybe FileExistsBehavior)
-    , _cdTargetInstances               :: !(Maybe TargetInstances)
-    , _cdRevision                      :: !(Maybe RevisionLocation)
-    , _cdDescription                   :: !(Maybe Text)
-    , _cdAutoRollbackConfiguration     :: !(Maybe AutoRollbackConfiguration)
-    , _cdUpdateOutdatedInstancesOnly   :: !(Maybe Bool)
-    , _cdDeploymentGroupName           :: !(Maybe Text)
-    , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
-    , _cdApplicationName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdFileExistsBehavior :: {-# NOUNPACK #-}!(Maybe FileExistsBehavior)
+  , _cdTargetInstances :: {-# NOUNPACK #-}!(Maybe TargetInstances)
+  , _cdRevision :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
+  , _cdDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
+  , _cdUpdateOutdatedInstancesOnly :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdIgnoreApplicationStopFailures :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdApplicationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
@@ -98,18 +99,19 @@ createDeployment
     :: Text -- ^ 'cdApplicationName'
     -> CreateDeployment
 createDeployment pApplicationName_ =
-    CreateDeployment'
-    { _cdDeploymentConfigName = Nothing
-    , _cdFileExistsBehavior = Nothing
-    , _cdTargetInstances = Nothing
-    , _cdRevision = Nothing
-    , _cdDescription = Nothing
-    , _cdAutoRollbackConfiguration = Nothing
-    , _cdUpdateOutdatedInstancesOnly = Nothing
-    , _cdDeploymentGroupName = Nothing
-    , _cdIgnoreApplicationStopFailures = Nothing
-    , _cdApplicationName = pApplicationName_
-    }
+  CreateDeployment'
+  { _cdDeploymentConfigName = Nothing
+  , _cdFileExistsBehavior = Nothing
+  , _cdTargetInstances = Nothing
+  , _cdRevision = Nothing
+  , _cdDescription = Nothing
+  , _cdAutoRollbackConfiguration = Nothing
+  , _cdUpdateOutdatedInstancesOnly = Nothing
+  , _cdDeploymentGroupName = Nothing
+  , _cdIgnoreApplicationStopFailures = Nothing
+  , _cdApplicationName = pApplicationName_
+  }
+
 
 -- | The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
 cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
@@ -160,9 +162,9 @@ instance AWSRequest CreateDeployment where
                  CreateDeploymentResponse' <$>
                    (x .?> "deploymentId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDeployment
+instance Hashable CreateDeployment where
 
-instance NFData CreateDeployment
+instance NFData CreateDeployment where
 
 instance ToHeaders CreateDeployment where
         toHeaders
@@ -206,9 +208,10 @@ instance ToQuery CreateDeployment where
 --
 -- /See:/ 'createDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-    { _cdrsDeploymentId   :: !(Maybe Text)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsDeploymentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
 --
@@ -221,10 +224,9 @@ createDeploymentResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDeploymentResponse
 createDeploymentResponse pResponseStatus_ =
-    CreateDeploymentResponse'
-    { _cdrsDeploymentId = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDeploymentResponse'
+  {_cdrsDeploymentId = Nothing, _cdrsResponseStatus = pResponseStatus_}
+
 
 -- | A unique deployment ID.
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
@@ -234,4 +236,4 @@ cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDeploymentResponse
+instance NFData CreateDeploymentResponse where

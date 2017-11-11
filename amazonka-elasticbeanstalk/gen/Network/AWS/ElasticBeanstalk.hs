@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -712,49 +712,49 @@ module Network.AWS.ElasticBeanstalk
     , vmMessage
     ) where
 
-import           Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
-import           Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
-import           Network.AWS.ElasticBeanstalk.CheckDNSAvailability
-import           Network.AWS.ElasticBeanstalk.ComposeEnvironments
-import           Network.AWS.ElasticBeanstalk.CreateApplication
-import           Network.AWS.ElasticBeanstalk.CreateApplicationVersion
-import           Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.CreateEnvironment
-import           Network.AWS.ElasticBeanstalk.CreatePlatformVersion
-import           Network.AWS.ElasticBeanstalk.CreateStorageLocation
-import           Network.AWS.ElasticBeanstalk.DeleteApplication
-import           Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
-import           Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
-import           Network.AWS.ElasticBeanstalk.DeletePlatformVersion
-import           Network.AWS.ElasticBeanstalk.DescribeApplications
-import           Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
-import           Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
-import           Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
-import           Network.AWS.ElasticBeanstalk.DescribeEnvironments
-import           Network.AWS.ElasticBeanstalk.DescribeEvents
-import           Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
-import           Network.AWS.ElasticBeanstalk.DescribePlatformVersion
-import           Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-import           Network.AWS.ElasticBeanstalk.ListPlatformVersions
-import           Network.AWS.ElasticBeanstalk.RebuildEnvironment
-import           Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
-import           Network.AWS.ElasticBeanstalk.RestartAppServer
-import           Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
-import           Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
-import           Network.AWS.ElasticBeanstalk.TerminateEnvironment
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.UpdateApplication
-import           Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
-import           Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-import           Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
-import           Network.AWS.ElasticBeanstalk.UpdateEnvironment
-import           Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
-import           Network.AWS.ElasticBeanstalk.Waiters
+import Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
+import Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
+import Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+import Network.AWS.ElasticBeanstalk.ComposeEnvironments
+import Network.AWS.ElasticBeanstalk.CreateApplication
+import Network.AWS.ElasticBeanstalk.CreateApplicationVersion
+import Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.CreateEnvironment
+import Network.AWS.ElasticBeanstalk.CreatePlatformVersion
+import Network.AWS.ElasticBeanstalk.CreateStorageLocation
+import Network.AWS.ElasticBeanstalk.DeleteApplication
+import Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
+import Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+import Network.AWS.ElasticBeanstalk.DeletePlatformVersion
+import Network.AWS.ElasticBeanstalk.DescribeApplications
+import Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
+import Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
+import Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
+import Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
+import Network.AWS.ElasticBeanstalk.DescribeEnvironments
+import Network.AWS.ElasticBeanstalk.DescribeEvents
+import Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
+import Network.AWS.ElasticBeanstalk.DescribePlatformVersion
+import Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
+import Network.AWS.ElasticBeanstalk.ListPlatformVersions
+import Network.AWS.ElasticBeanstalk.RebuildEnvironment
+import Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
+import Network.AWS.ElasticBeanstalk.RestartAppServer
+import Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+import Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
+import Network.AWS.ElasticBeanstalk.TerminateEnvironment
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.UpdateApplication
+import Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
+import Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
+import Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+import Network.AWS.ElasticBeanstalk.UpdateEnvironment
+import Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
+import Network.AWS.ElasticBeanstalk.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteDomainName
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.APIGateway.DeleteDomainName
     , DeleteDomainNameResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to delete the 'DomainName' resource.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDomainName' smart constructor.
 newtype DeleteDomainName = DeleteDomainName'
-    { _ddnDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddnDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDomainName' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteDomainName
     :: Text -- ^ 'ddnDomainName'
     -> DeleteDomainName
 deleteDomainName pDomainName_ =
-    DeleteDomainName'
-    { _ddnDomainName = pDomainName_
-    }
+  DeleteDomainName' {_ddnDomainName = pDomainName_}
+
 
 -- | The name of the 'DomainName' resource to be deleted.
 ddnDomainName :: Lens' DeleteDomainName Text
@@ -72,9 +72,9 @@ instance AWSRequest DeleteDomainName where
         request = delete apiGateway
         response = receiveNull DeleteDomainNameResponse'
 
-instance Hashable DeleteDomainName
+instance Hashable DeleteDomainName where
 
-instance NFData DeleteDomainName
+instance NFData DeleteDomainName where
 
 instance ToHeaders DeleteDomainName where
         toHeaders
@@ -91,8 +91,9 @@ instance ToQuery DeleteDomainName where
 
 -- | /See:/ 'deleteDomainNameResponse' smart constructor.
 data DeleteDomainNameResponse =
-    DeleteDomainNameResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDomainNameResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDomainNameResponse' with the minimum fields required to make a request.
 --
@@ -100,4 +101,5 @@ deleteDomainNameResponse
     :: DeleteDomainNameResponse
 deleteDomainNameResponse = DeleteDomainNameResponse'
 
-instance NFData DeleteDomainNameResponse
+
+instance NFData DeleteDomainNameResponse where

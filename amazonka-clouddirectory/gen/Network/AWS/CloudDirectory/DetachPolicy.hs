@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.CloudDirectory.DetachPolicy
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
-    { _dpDirectoryARN    :: !Text
-    , _dpPolicyReference :: !ObjectReference
-    , _dpObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpDirectoryARN    :: {-# NOUNPACK #-}!Text
+  , _dpPolicyReference :: {-# NOUNPACK #-}!ObjectReference
+  , _dpObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachPolicy' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ detachPolicy
     -> ObjectReference -- ^ 'dpObjectReference'
     -> DetachPolicy
 detachPolicy pDirectoryARN_ pPolicyReference_ pObjectReference_ =
-    DetachPolicy'
-    { _dpDirectoryARN = pDirectoryARN_
-    , _dpPolicyReference = pPolicyReference_
-    , _dpObjectReference = pObjectReference_
-    }
+  DetachPolicy'
+  { _dpDirectoryARN = pDirectoryARN_
+  , _dpPolicyReference = pPolicyReference_
+  , _dpObjectReference = pObjectReference_
+  }
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 dpDirectoryARN :: Lens' DetachPolicy Text
@@ -93,9 +95,9 @@ instance AWSRequest DetachPolicy where
               (\ s h x ->
                  DetachPolicyResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DetachPolicy
+instance Hashable DetachPolicy where
 
-instance NFData DetachPolicy
+instance NFData DetachPolicy where
 
 instance ToHeaders DetachPolicy where
         toHeaders DetachPolicy'{..}
@@ -118,8 +120,9 @@ instance ToQuery DetachPolicy where
 
 -- | /See:/ 'detachPolicyResponse' smart constructor.
 newtype DetachPolicyResponse = DetachPolicyResponse'
-    { _dprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachPolicyResponse' with the minimum fields required to make a request.
 --
@@ -130,12 +133,11 @@ detachPolicyResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DetachPolicyResponse
 detachPolicyResponse pResponseStatus_ =
-    DetachPolicyResponse'
-    { _dprsResponseStatus = pResponseStatus_
-    }
+  DetachPolicyResponse' {_dprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DetachPolicyResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DetachPolicyResponse
+instance NFData DetachPolicyResponse where

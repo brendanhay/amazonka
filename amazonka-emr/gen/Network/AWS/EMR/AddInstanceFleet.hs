@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.AddInstanceFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.EMR.AddInstanceFleet
     , aifrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addInstanceFleet' smart constructor.
 data AddInstanceFleet = AddInstanceFleet'
-    { _aifClusterId     :: !Text
-    , _aifInstanceFleet :: !InstanceFleetConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aifClusterId     :: {-# NOUNPACK #-}!Text
+  , _aifInstanceFleet :: {-# NOUNPACK #-}!InstanceFleetConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddInstanceFleet' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ addInstanceFleet
     -> InstanceFleetConfig -- ^ 'aifInstanceFleet'
     -> AddInstanceFleet
 addInstanceFleet pClusterId_ pInstanceFleet_ =
-    AddInstanceFleet'
-    { _aifClusterId = pClusterId_
-    , _aifInstanceFleet = pInstanceFleet_
-    }
+  AddInstanceFleet'
+  {_aifClusterId = pClusterId_, _aifInstanceFleet = pInstanceFleet_}
+
 
 -- | The unique identifier of the cluster.
 aifClusterId :: Lens' AddInstanceFleet Text
@@ -87,9 +87,9 @@ instance AWSRequest AddInstanceFleet where
                    (x .?> "ClusterId") <*> (x .?> "InstanceFleetId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AddInstanceFleet
+instance Hashable AddInstanceFleet where
 
-instance NFData AddInstanceFleet
+instance NFData AddInstanceFleet where
 
 instance ToHeaders AddInstanceFleet where
         toHeaders
@@ -115,10 +115,11 @@ instance ToQuery AddInstanceFleet where
 
 -- | /See:/ 'addInstanceFleetResponse' smart constructor.
 data AddInstanceFleetResponse = AddInstanceFleetResponse'
-    { _aifrsClusterId       :: !(Maybe Text)
-    , _aifrsInstanceFleetId :: !(Maybe Text)
-    , _aifrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aifrsClusterId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aifrsInstanceFleetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aifrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddInstanceFleetResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +134,12 @@ addInstanceFleetResponse
     :: Int -- ^ 'aifrsResponseStatus'
     -> AddInstanceFleetResponse
 addInstanceFleetResponse pResponseStatus_ =
-    AddInstanceFleetResponse'
-    { _aifrsClusterId = Nothing
-    , _aifrsInstanceFleetId = Nothing
-    , _aifrsResponseStatus = pResponseStatus_
-    }
+  AddInstanceFleetResponse'
+  { _aifrsClusterId = Nothing
+  , _aifrsInstanceFleetId = Nothing
+  , _aifrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The unique identifier of the cluster.
 aifrsClusterId :: Lens' AddInstanceFleetResponse (Maybe Text)
@@ -151,4 +153,4 @@ aifrsInstanceFleetId = lens _aifrsInstanceFleetId (\ s a -> s{_aifrsInstanceFlee
 aifrsResponseStatus :: Lens' AddInstanceFleetResponse Int
 aifrsResponseStatus = lens _aifrsResponseStatus (\ s a -> s{_aifrsResponseStatus = a});
 
-instance NFData AddInstanceFleetResponse
+instance NFData AddInstanceFleetResponse where

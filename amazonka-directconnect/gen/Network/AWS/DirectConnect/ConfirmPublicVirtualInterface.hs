@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     , crsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmPublicVirtualInterface operation.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'confirmPublicVirtualInterface' smart constructor.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
-    { _cVirtualInterfaceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cVirtualInterfaceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmPublicVirtualInterface' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ confirmPublicVirtualInterface
     :: Text -- ^ 'cVirtualInterfaceId'
     -> ConfirmPublicVirtualInterface
 confirmPublicVirtualInterface pVirtualInterfaceId_ =
-    ConfirmPublicVirtualInterface'
-    { _cVirtualInterfaceId = pVirtualInterfaceId_
-    }
+  ConfirmPublicVirtualInterface' {_cVirtualInterfaceId = pVirtualInterfaceId_}
+
 
 -- | Undocumented member.
 cVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
@@ -84,9 +84,9 @@ instance AWSRequest ConfirmPublicVirtualInterface
                    (x .?> "virtualInterfaceState") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ConfirmPublicVirtualInterface
+instance Hashable ConfirmPublicVirtualInterface where
 
-instance NFData ConfirmPublicVirtualInterface
+instance NFData ConfirmPublicVirtualInterface where
 
 instance ToHeaders ConfirmPublicVirtualInterface
          where
@@ -118,9 +118,10 @@ instance ToQuery ConfirmPublicVirtualInterface where
 --
 -- /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
-    { _crsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _crsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsVirtualInterfaceState :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
+  , _crsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmPublicVirtualInterfaceResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +134,9 @@ confirmPublicVirtualInterfaceResponse
     :: Int -- ^ 'crsResponseStatus'
     -> ConfirmPublicVirtualInterfaceResponse
 confirmPublicVirtualInterfaceResponse pResponseStatus_ =
-    ConfirmPublicVirtualInterfaceResponse'
-    { _crsVirtualInterfaceState = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  ConfirmPublicVirtualInterfaceResponse'
+  {_crsVirtualInterfaceState = Nothing, _crsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 crsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
@@ -147,3 +147,4 @@ crsResponseStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
 instance NFData ConfirmPublicVirtualInterfaceResponse
+         where

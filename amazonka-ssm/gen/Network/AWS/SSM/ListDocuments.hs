@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListDocuments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.SSM.ListDocuments
     , ldrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listDocuments' smart constructor.
 data ListDocuments = ListDocuments'
-    { _ldDocumentFilterList :: !(Maybe (List1 DocumentFilter))
-    , _ldNextToken          :: !(Maybe Text)
-    , _ldMaxResults         :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldDocumentFilterList :: {-# NOUNPACK #-}!(Maybe (List1 DocumentFilter))
+  , _ldNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldMaxResults         :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDocuments' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data ListDocuments = ListDocuments'
 listDocuments
     :: ListDocuments
 listDocuments =
-    ListDocuments'
-    { _ldDocumentFilterList = Nothing
-    , _ldNextToken = Nothing
-    , _ldMaxResults = Nothing
-    }
+  ListDocuments'
+  { _ldDocumentFilterList = Nothing
+  , _ldNextToken = Nothing
+  , _ldMaxResults = Nothing
+  }
+
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 ldDocumentFilterList :: Lens' ListDocuments (Maybe (NonEmpty DocumentFilter))
@@ -105,9 +107,9 @@ instance AWSRequest ListDocuments where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDocuments
+instance Hashable ListDocuments where
 
-instance NFData ListDocuments
+instance NFData ListDocuments where
 
 instance ToHeaders ListDocuments where
         toHeaders
@@ -134,10 +136,11 @@ instance ToQuery ListDocuments where
 
 -- | /See:/ 'listDocumentsResponse' smart constructor.
 data ListDocumentsResponse = ListDocumentsResponse'
-    { _ldrsDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
-    , _ldrsNextToken           :: !(Maybe Text)
-    , _ldrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsDocumentIdentifiers :: {-# NOUNPACK #-}!(Maybe [DocumentIdentifier])
+  , _ldrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDocumentsResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +155,12 @@ listDocumentsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDocumentsResponse
 listDocumentsResponse pResponseStatus_ =
-    ListDocumentsResponse'
-    { _ldrsDocumentIdentifiers = Nothing
-    , _ldrsNextToken = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    }
+  ListDocumentsResponse'
+  { _ldrsDocumentIdentifiers = Nothing
+  , _ldrsNextToken = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The names of the SSM documents.
 ldrsDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
@@ -170,4 +174,4 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsResponseStatus :: Lens' ListDocumentsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
-instance NFData ListDocumentsResponse
+instance NFData ListDocumentsResponse where

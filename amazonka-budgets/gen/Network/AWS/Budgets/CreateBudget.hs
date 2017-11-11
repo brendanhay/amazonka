@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.CreateBudget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,21 +36,22 @@ module Network.AWS.Budgets.CreateBudget
     , cbrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of CreateBudget
 --
 -- /See:/ 'createBudget' smart constructor.
 data CreateBudget = CreateBudget'
-    { _cbNotificationsWithSubscribers :: !(Maybe [NotificationWithSubscribers])
-    , _cbAccountId                    :: !Text
-    , _cbBudget                       :: !Budget
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbNotificationsWithSubscribers :: {-# NOUNPACK #-}!(Maybe [NotificationWithSubscribers])
+  , _cbAccountId :: {-# NOUNPACK #-}!Text
+  , _cbBudget :: {-# NOUNPACK #-}!Budget
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBudget' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ createBudget
     -> Budget -- ^ 'cbBudget'
     -> CreateBudget
 createBudget pAccountId_ pBudget_ =
-    CreateBudget'
-    { _cbNotificationsWithSubscribers = Nothing
-    , _cbAccountId = pAccountId_
-    , _cbBudget = pBudget_
-    }
+  CreateBudget'
+  { _cbNotificationsWithSubscribers = Nothing
+  , _cbAccountId = pAccountId_
+  , _cbBudget = pBudget_
+  }
+
 
 -- | Undocumented member.
 cbNotificationsWithSubscribers :: Lens' CreateBudget [NotificationWithSubscribers]
@@ -92,9 +94,9 @@ instance AWSRequest CreateBudget where
               (\ s h x ->
                  CreateBudgetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateBudget
+instance Hashable CreateBudget where
 
-instance NFData CreateBudget
+instance NFData CreateBudget where
 
 instance ToHeaders CreateBudget where
         toHeaders
@@ -125,8 +127,9 @@ instance ToQuery CreateBudget where
 --
 -- /See:/ 'createBudgetResponse' smart constructor.
 newtype CreateBudgetResponse = CreateBudgetResponse'
-    { _cbrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBudgetResponse' with the minimum fields required to make a request.
 --
@@ -137,12 +140,11 @@ createBudgetResponse
     :: Int -- ^ 'cbrsResponseStatus'
     -> CreateBudgetResponse
 createBudgetResponse pResponseStatus_ =
-    CreateBudgetResponse'
-    { _cbrsResponseStatus = pResponseStatus_
-    }
+  CreateBudgetResponse' {_cbrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cbrsResponseStatus :: Lens' CreateBudgetResponse Int
 cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
 
-instance NFData CreateBudgetResponse
+instance NFData CreateBudgetResponse where

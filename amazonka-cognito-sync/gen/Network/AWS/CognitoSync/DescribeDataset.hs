@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DescribeDataset
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.CognitoSync.DescribeDataset
     , ddrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request for meta data about a dataset (creation date, number of records, size) by owner and dataset name.
 --
 -- /See:/ 'describeDataset' smart constructor.
 data DescribeDataset = DescribeDataset'
-    { _ddIdentityPoolId :: !Text
-    , _ddIdentityId     :: !Text
-    , _ddDatasetName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _ddIdentityId     :: {-# NOUNPACK #-}!Text
+  , _ddDatasetName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDataset' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ describeDataset
     -> Text -- ^ 'ddDatasetName'
     -> DescribeDataset
 describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
-    DescribeDataset'
-    { _ddIdentityPoolId = pIdentityPoolId_
-    , _ddIdentityId = pIdentityId_
-    , _ddDatasetName = pDatasetName_
-    }
+  DescribeDataset'
+  { _ddIdentityPoolId = pIdentityPoolId_
+  , _ddIdentityId = pIdentityId_
+  , _ddDatasetName = pDatasetName_
+  }
+
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 ddIdentityPoolId :: Lens' DescribeDataset Text
@@ -99,9 +101,9 @@ instance AWSRequest DescribeDataset where
                  DescribeDatasetResponse' <$>
                    (x .?> "Dataset") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDataset
+instance Hashable DescribeDataset where
 
-instance NFData DescribeDataset
+instance NFData DescribeDataset where
 
 instance ToHeaders DescribeDataset where
         toHeaders
@@ -124,9 +126,10 @@ instance ToQuery DescribeDataset where
 --
 -- /See:/ 'describeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-    { _ddrsDataset        :: !(Maybe Dataset)
-    , _ddrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsDataset        :: {-# NOUNPACK #-}!(Maybe Dataset)
+  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ describeDatasetResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDatasetResponse
 describeDatasetResponse pResponseStatus_ =
-    DescribeDatasetResponse'
-    { _ddrsDataset = Nothing
-    , _ddrsResponseStatus = pResponseStatus_
-    }
+  DescribeDatasetResponse'
+  {_ddrsDataset = Nothing, _ddrsResponseStatus = pResponseStatus_}
+
 
 -- | Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
@@ -152,4 +154,4 @@ ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
 ddrsResponseStatus :: Lens' DescribeDatasetResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
-instance NFData DescribeDatasetResponse
+instance NFData DescribeDatasetResponse where

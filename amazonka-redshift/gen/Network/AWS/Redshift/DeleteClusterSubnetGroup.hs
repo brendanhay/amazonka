@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
     , DeleteClusterSubnetGroupResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteClusterSubnetGroup' smart constructor.
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
-    { _dcsgClusterSubnetGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsgClusterSubnetGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClusterSubnetGroup' with the minimum fields required to make a request.
 --
@@ -59,9 +60,9 @@ deleteClusterSubnetGroup
     :: Text -- ^ 'dcsgClusterSubnetGroupName'
     -> DeleteClusterSubnetGroup
 deleteClusterSubnetGroup pClusterSubnetGroupName_ =
-    DeleteClusterSubnetGroup'
-    { _dcsgClusterSubnetGroupName = pClusterSubnetGroupName_
-    }
+  DeleteClusterSubnetGroup'
+  {_dcsgClusterSubnetGroupName = pClusterSubnetGroupName_}
+
 
 -- | The name of the cluster subnet group name to be deleted.
 dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
@@ -74,9 +75,9 @@ instance AWSRequest DeleteClusterSubnetGroup where
         response
           = receiveNull DeleteClusterSubnetGroupResponse'
 
-instance Hashable DeleteClusterSubnetGroup
+instance Hashable DeleteClusterSubnetGroup where
 
-instance NFData DeleteClusterSubnetGroup
+instance NFData DeleteClusterSubnetGroup where
 
 instance ToHeaders DeleteClusterSubnetGroup where
         toHeaders = const mempty
@@ -95,8 +96,9 @@ instance ToQuery DeleteClusterSubnetGroup where
 
 -- | /See:/ 'deleteClusterSubnetGroupResponse' smart constructor.
 data DeleteClusterSubnetGroupResponse =
-    DeleteClusterSubnetGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteClusterSubnetGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClusterSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +106,6 @@ deleteClusterSubnetGroupResponse
     :: DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse'
 
+
 instance NFData DeleteClusterSubnetGroupResponse
+         where

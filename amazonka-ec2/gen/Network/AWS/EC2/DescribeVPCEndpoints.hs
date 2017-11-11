@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPCEndpoints
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribeVPCEndpoints
     , dvpcersResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeVpcEndpoints.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeVPCEndpoints' smart constructor.
 data DescribeVPCEndpoints = DescribeVPCEndpoints'
-    { _dvpceFilters        :: !(Maybe [Filter])
-    , _dvpceNextToken      :: !(Maybe Text)
-    , _dvpceVPCEndpointIds :: !(Maybe [Text])
-    , _dvpceDryRun         :: !(Maybe Bool)
-    , _dvpceMaxResults     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpceFilters        :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dvpceNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvpceVPCEndpointIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dvpceDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvpceMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVPCEndpoints' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ data DescribeVPCEndpoints = DescribeVPCEndpoints'
 describeVPCEndpoints
     :: DescribeVPCEndpoints
 describeVPCEndpoints =
-    DescribeVPCEndpoints'
-    { _dvpceFilters = Nothing
-    , _dvpceNextToken = Nothing
-    , _dvpceVPCEndpointIds = Nothing
-    , _dvpceDryRun = Nothing
-    , _dvpceMaxResults = Nothing
-    }
+  DescribeVPCEndpoints'
+  { _dvpceFilters = Nothing
+  , _dvpceNextToken = Nothing
+  , _dvpceVPCEndpointIds = Nothing
+  , _dvpceDryRun = Nothing
+  , _dvpceMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @service-name@ : The name of the AWS service.     * @vpc-id@ : The ID of the VPC in which the endpoint resides.     * @vpc-endpoint-id@ : The ID of the endpoint.     * @vpc-endpoint-state@ : The state of the endpoint. (@pending@ | @available@ | @deleting@ | @deleted@ )
 dvpceFilters :: Lens' DescribeVPCEndpoints [Filter]
@@ -119,9 +121,9 @@ instance AWSRequest DescribeVPCEndpoints where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVPCEndpoints
+instance Hashable DescribeVPCEndpoints where
 
-instance NFData DescribeVPCEndpoints
+instance NFData DescribeVPCEndpoints where
 
 instance ToHeaders DescribeVPCEndpoints where
         toHeaders = const mempty
@@ -148,10 +150,11 @@ instance ToQuery DescribeVPCEndpoints where
 --
 -- /See:/ 'describeVPCEndpointsResponse' smart constructor.
 data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
-    { _dvpcersNextToken      :: !(Maybe Text)
-    , _dvpcersVPCEndpoints   :: !(Maybe [VPCEndpoint])
-    , _dvpcersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpcersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvpcersVPCEndpoints   :: {-# NOUNPACK #-}!(Maybe [VPCEndpoint])
+  , _dvpcersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVPCEndpointsResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ describeVPCEndpointsResponse
     :: Int -- ^ 'dvpcersResponseStatus'
     -> DescribeVPCEndpointsResponse
 describeVPCEndpointsResponse pResponseStatus_ =
-    DescribeVPCEndpointsResponse'
-    { _dvpcersNextToken = Nothing
-    , _dvpcersVPCEndpoints = Nothing
-    , _dvpcersResponseStatus = pResponseStatus_
-    }
+  DescribeVPCEndpointsResponse'
+  { _dvpcersNextToken = Nothing
+  , _dvpcersVPCEndpoints = Nothing
+  , _dvpcersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dvpcersNextToken :: Lens' DescribeVPCEndpointsResponse (Maybe Text)
@@ -184,4 +188,4 @@ dvpcersVPCEndpoints = lens _dvpcersVPCEndpoints (\ s a -> s{_dvpcersVPCEndpoints
 dvpcersResponseStatus :: Lens' DescribeVPCEndpointsResponse Int
 dvpcersResponseStatus = lens _dvpcersResponseStatus (\ s a -> s{_dvpcersResponseStatus = a});
 
-instance NFData DescribeVPCEndpointsResponse
+instance NFData DescribeVPCEndpointsResponse where

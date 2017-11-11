@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListSubscriptionDefinitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Greengrass.ListSubscriptionDefinitions
     , lsdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listSubscriptionDefinitions' smart constructor.
 data ListSubscriptionDefinitions = ListSubscriptionDefinitions'
-    { _lsdNextToken  :: !(Maybe Text)
-    , _lsdMaxResults :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsdNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsdMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSubscriptionDefinitions' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ data ListSubscriptionDefinitions = ListSubscriptionDefinitions'
 listSubscriptionDefinitions
     :: ListSubscriptionDefinitions
 listSubscriptionDefinitions =
-    ListSubscriptionDefinitions'
-    { _lsdNextToken = Nothing
-    , _lsdMaxResults = Nothing
-    }
+  ListSubscriptionDefinitions'
+  {_lsdNextToken = Nothing, _lsdMaxResults = Nothing}
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lsdNextToken :: Lens' ListSubscriptionDefinitions (Maybe Text)
@@ -85,9 +85,9 @@ instance AWSRequest ListSubscriptionDefinitions where
                      (x .?> "Definitions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListSubscriptionDefinitions
+instance Hashable ListSubscriptionDefinitions where
 
-instance NFData ListSubscriptionDefinitions
+instance NFData ListSubscriptionDefinitions where
 
 instance ToHeaders ListSubscriptionDefinitions where
         toHeaders
@@ -107,10 +107,11 @@ instance ToQuery ListSubscriptionDefinitions where
 
 -- | /See:/ 'listSubscriptionDefinitionsResponse' smart constructor.
 data ListSubscriptionDefinitionsResponse = ListSubscriptionDefinitionsResponse'
-    { _lsdrsNextToken      :: !(Maybe Text)
-    , _lsdrsDefinitions    :: !(Maybe [DefinitionInformation])
-    , _lsdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsdrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
+  , _lsdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSubscriptionDefinitionsResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +126,12 @@ listSubscriptionDefinitionsResponse
     :: Int -- ^ 'lsdrsResponseStatus'
     -> ListSubscriptionDefinitionsResponse
 listSubscriptionDefinitionsResponse pResponseStatus_ =
-    ListSubscriptionDefinitionsResponse'
-    { _lsdrsNextToken = Nothing
-    , _lsdrsDefinitions = Nothing
-    , _lsdrsResponseStatus = pResponseStatus_
-    }
+  ListSubscriptionDefinitionsResponse'
+  { _lsdrsNextToken = Nothing
+  , _lsdrsDefinitions = Nothing
+  , _lsdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lsdrsNextToken :: Lens' ListSubscriptionDefinitionsResponse (Maybe Text)
@@ -144,3 +146,4 @@ lsdrsResponseStatus :: Lens' ListSubscriptionDefinitionsResponse Int
 lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus = a});
 
 instance NFData ListSubscriptionDefinitionsResponse
+         where

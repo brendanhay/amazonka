@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetOperationsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Lightsail.GetOperationsForResource
     , gofrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getOperationsForResource' smart constructor.
 data GetOperationsForResource = GetOperationsForResource'
-    { _gofrPageToken    :: !(Maybe Text)
-    , _gofrResourceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gofrPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gofrResourceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOperationsForResource' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ getOperationsForResource
     :: Text -- ^ 'gofrResourceName'
     -> GetOperationsForResource
 getOperationsForResource pResourceName_ =
-    GetOperationsForResource'
-    { _gofrPageToken = Nothing
-    , _gofrResourceName = pResourceName_
-    }
+  GetOperationsForResource'
+  {_gofrPageToken = Nothing, _gofrResourceName = pResourceName_}
+
 
 -- | A token used for advancing to the next page of results from your get operations for resource request.
 gofrPageToken :: Lens' GetOperationsForResource (Maybe Text)
@@ -89,9 +89,9 @@ instance AWSRequest GetOperationsForResource where
                      <*> (x .?> "operations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetOperationsForResource
+instance Hashable GetOperationsForResource where
 
-instance NFData GetOperationsForResource
+instance NFData GetOperationsForResource where
 
 instance ToHeaders GetOperationsForResource where
         toHeaders
@@ -118,11 +118,12 @@ instance ToQuery GetOperationsForResource where
 
 -- | /See:/ 'getOperationsForResourceResponse' smart constructor.
 data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
-    { _gofrrsNextPageCount  :: !(Maybe Text)
-    , _gofrrsNextPageToken  :: !(Maybe Text)
-    , _gofrrsOperations     :: !(Maybe [Operation])
-    , _gofrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gofrrsNextPageCount  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gofrrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gofrrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _gofrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOperationsForResourceResponse' with the minimum fields required to make a request.
 --
@@ -139,12 +140,13 @@ getOperationsForResourceResponse
     :: Int -- ^ 'gofrrsResponseStatus'
     -> GetOperationsForResourceResponse
 getOperationsForResourceResponse pResponseStatus_ =
-    GetOperationsForResourceResponse'
-    { _gofrrsNextPageCount = Nothing
-    , _gofrrsNextPageToken = Nothing
-    , _gofrrsOperations = Nothing
-    , _gofrrsResponseStatus = pResponseStatus_
-    }
+  GetOperationsForResourceResponse'
+  { _gofrrsNextPageCount = Nothing
+  , _gofrrsNextPageToken = Nothing
+  , _gofrrsOperations = Nothing
+  , _gofrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | (Deprecated) Returns the number of pages of results that remain.
 gofrrsNextPageCount :: Lens' GetOperationsForResourceResponse (Maybe Text)
@@ -163,3 +165,4 @@ gofrrsResponseStatus :: Lens' GetOperationsForResourceResponse Int
 gofrrsResponseStatus = lens _gofrrsResponseStatus (\ s a -> s{_gofrrsResponseStatus = a});
 
 instance NFData GetOperationsForResourceResponse
+         where

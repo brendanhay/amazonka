@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.ListJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,22 +40,23 @@ module Network.AWS.ImportExport.ListJobs
     , ljrsResponseStatus
     ) where
 
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.ImportExport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input structure for the ListJobs operation.
 --
 -- /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
-    { _ljAPIVersion :: !(Maybe Text)
-    , _ljMarker     :: !(Maybe Text)
-    , _ljMaxJobs    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljAPIVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljMaxJobs    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
@@ -69,11 +70,8 @@ data ListJobs = ListJobs'
 listJobs
     :: ListJobs
 listJobs =
-    ListJobs'
-    { _ljAPIVersion = Nothing
-    , _ljMarker = Nothing
-    , _ljMaxJobs = Nothing
-    }
+  ListJobs' {_ljAPIVersion = Nothing, _ljMarker = Nothing, _ljMaxJobs = Nothing}
+
 
 -- | Undocumented member.
 ljAPIVersion :: Lens' ListJobs (Maybe Text)
@@ -108,9 +106,9 @@ instance AWSRequest ListJobs where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListJobs
+instance Hashable ListJobs where
 
-instance NFData ListJobs
+instance NFData ListJobs where
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -131,10 +129,11 @@ instance ToQuery ListJobs where
 --
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsJobs           :: !(Maybe [Job])
-    , _ljrsIsTruncated    :: !(Maybe Bool)
-    , _ljrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljrsJobs           :: {-# NOUNPACK #-}!(Maybe [Job])
+  , _ljrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ljrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +148,12 @@ listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
-    ListJobsResponse'
-    { _ljrsJobs = Nothing
-    , _ljrsIsTruncated = Nothing
-    , _ljrsResponseStatus = pResponseStatus_
-    }
+  ListJobsResponse'
+  { _ljrsJobs = Nothing
+  , _ljrsIsTruncated = Nothing
+  , _ljrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 ljrsJobs :: Lens' ListJobsResponse [Job]
@@ -167,4 +167,4 @@ ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
 
-instance NFData ListJobsResponse
+instance NFData ListJobsResponse where

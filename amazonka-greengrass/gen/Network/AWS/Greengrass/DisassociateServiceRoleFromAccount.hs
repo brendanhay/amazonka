@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,17 +33,18 @@ module Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
     , dsrfarsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateServiceRoleFromAccount' smart constructor.
 data DisassociateServiceRoleFromAccount =
-    DisassociateServiceRoleFromAccount'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisassociateServiceRoleFromAccount'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateServiceRoleFromAccount' with the minimum fields required to make a request.
 --
@@ -51,8 +52,10 @@ disassociateServiceRoleFromAccount
     :: DisassociateServiceRoleFromAccount
 disassociateServiceRoleFromAccount = DisassociateServiceRoleFromAccount'
 
+
 instance AWSRequest
-         DisassociateServiceRoleFromAccount where
+           DisassociateServiceRoleFromAccount
+         where
         type Rs DisassociateServiceRoleFromAccount =
              DisassociateServiceRoleFromAccountResponse
         request = delete greengrass
@@ -63,8 +66,10 @@ instance AWSRequest
                    (x .?> "DisassociatedAt") <*> (pure (fromEnum s)))
 
 instance Hashable DisassociateServiceRoleFromAccount
+         where
 
 instance NFData DisassociateServiceRoleFromAccount
+         where
 
 instance ToHeaders DisassociateServiceRoleFromAccount
          where
@@ -84,9 +89,10 @@ instance ToQuery DisassociateServiceRoleFromAccount
 
 -- | /See:/ 'disassociateServiceRoleFromAccountResponse' smart constructor.
 data DisassociateServiceRoleFromAccountResponse = DisassociateServiceRoleFromAccountResponse'
-    { _dsrfarsDisassociatedAt :: !(Maybe Text)
-    , _dsrfarsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrfarsDisassociatedAt :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsrfarsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateServiceRoleFromAccountResponse' with the minimum fields required to make a request.
 --
@@ -99,10 +105,9 @@ disassociateServiceRoleFromAccountResponse
     :: Int -- ^ 'dsrfarsResponseStatus'
     -> DisassociateServiceRoleFromAccountResponse
 disassociateServiceRoleFromAccountResponse pResponseStatus_ =
-    DisassociateServiceRoleFromAccountResponse'
-    { _dsrfarsDisassociatedAt = Nothing
-    , _dsrfarsResponseStatus = pResponseStatus_
-    }
+  DisassociateServiceRoleFromAccountResponse'
+  {_dsrfarsDisassociatedAt = Nothing, _dsrfarsResponseStatus = pResponseStatus_}
+
 
 -- | Time when the service role was disassociated from the account.
 dsrfarsDisassociatedAt :: Lens' DisassociateServiceRoleFromAccountResponse (Maybe Text)
@@ -113,4 +118,5 @@ dsrfarsResponseStatus :: Lens' DisassociateServiceRoleFromAccountResponse Int
 dsrfarsResponseStatus = lens _dsrfarsResponseStatus (\ s a -> s{_dsrfarsResponseStatus = a});
 
 instance NFData
-         DisassociateServiceRoleFromAccountResponse
+           DisassociateServiceRoleFromAccountResponse
+         where

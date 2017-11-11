@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ModifyEventSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.DMS.ModifyEventSubscription
     , mesrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,12 +54,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyEventSubscription' smart constructor.
 data ModifyEventSubscription = ModifyEventSubscription'
-    { _mesSNSTopicARN      :: !(Maybe Text)
-    , _mesEnabled          :: !(Maybe Bool)
-    , _mesSourceType       :: !(Maybe Text)
-    , _mesEventCategories  :: !(Maybe [Text])
-    , _mesSubscriptionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mesSNSTopicARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mesEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mesSourceType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mesEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mesSubscriptionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyEventSubscription' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ modifyEventSubscription
     :: Text -- ^ 'mesSubscriptionName'
     -> ModifyEventSubscription
 modifyEventSubscription pSubscriptionName_ =
-    ModifyEventSubscription'
-    { _mesSNSTopicARN = Nothing
-    , _mesEnabled = Nothing
-    , _mesSourceType = Nothing
-    , _mesEventCategories = Nothing
-    , _mesSubscriptionName = pSubscriptionName_
-    }
+  ModifyEventSubscription'
+  { _mesSNSTopicARN = Nothing
+  , _mesEnabled = Nothing
+  , _mesSourceType = Nothing
+  , _mesEventCategories = Nothing
+  , _mesSubscriptionName = pSubscriptionName_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 mesSNSTopicARN :: Lens' ModifyEventSubscription (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest ModifyEventSubscription where
                  ModifyEventSubscriptionResponse' <$>
                    (x .?> "EventSubscription") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyEventSubscription
+instance Hashable ModifyEventSubscription where
 
-instance NFData ModifyEventSubscription
+instance NFData ModifyEventSubscription where
 
 instance ToHeaders ModifyEventSubscription where
         toHeaders
@@ -152,9 +154,10 @@ instance ToQuery ModifyEventSubscription where
 --
 -- /See:/ 'modifyEventSubscriptionResponse' smart constructor.
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
-    { _mesrsEventSubscription :: !(Maybe EventSubscription)
-    , _mesrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mesrsEventSubscription :: {-# NOUNPACK #-}!(Maybe EventSubscription)
+  , _mesrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyEventSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -167,10 +170,9 @@ modifyEventSubscriptionResponse
     :: Int -- ^ 'mesrsResponseStatus'
     -> ModifyEventSubscriptionResponse
 modifyEventSubscriptionResponse pResponseStatus_ =
-    ModifyEventSubscriptionResponse'
-    { _mesrsEventSubscription = Nothing
-    , _mesrsResponseStatus = pResponseStatus_
-    }
+  ModifyEventSubscriptionResponse'
+  {_mesrsEventSubscription = Nothing, _mesrsResponseStatus = pResponseStatus_}
+
 
 -- | The modified event subscription.
 mesrsEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
@@ -180,4 +182,4 @@ mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSub
 mesrsResponseStatus :: Lens' ModifyEventSubscriptionResponse Int
 mesrsResponseStatus = lens _mesrsResponseStatus (\ s a -> s{_mesrsResponseStatus = a});
 
-instance NFData ModifyEventSubscriptionResponse
+instance NFData ModifyEventSubscriptionResponse where

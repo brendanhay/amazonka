@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetIntent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,18 +54,19 @@ module Network.AWS.LexModels.GetIntent
     , girsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getIntent' smart constructor.
 data GetIntent = GetIntent'
-    { _giName    :: !Text
-    , _giVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giName    :: {-# NOUNPACK #-}!Text
+  , _giVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntent' with the minimum fields required to make a request.
 --
@@ -79,10 +80,8 @@ getIntent
     -> Text -- ^ 'giVersion'
     -> GetIntent
 getIntent pName_ pVersion_ =
-    GetIntent'
-    { _giName = pName_
-    , _giVersion = pVersion_
-    }
+  GetIntent' {_giName = pName_, _giVersion = pVersion_}
+
 
 -- | The name of the intent. The name is case sensitive.
 giName :: Lens' GetIntent Text
@@ -116,9 +115,9 @@ instance AWSRequest GetIntent where
                      <*> (x .?> "description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetIntent
+instance Hashable GetIntent where
 
-instance NFData GetIntent
+instance NFData GetIntent where
 
 instance ToHeaders GetIntent where
         toHeaders
@@ -138,23 +137,24 @@ instance ToQuery GetIntent where
 
 -- | /See:/ 'getIntentResponse' smart constructor.
 data GetIntentResponse = GetIntentResponse'
-    { _girsFulfillmentActivity   :: !(Maybe FulfillmentActivity)
-    , _girsSlots                 :: !(Maybe [Slot])
-    , _girsRejectionStatement    :: !(Maybe Statement)
-    , _girsChecksum              :: !(Maybe Text)
-    , _girsConclusionStatement   :: !(Maybe Statement)
-    , _girsSampleUtterances      :: !(Maybe [Text])
-    , _girsParentIntentSignature :: !(Maybe Text)
-    , _girsCreatedDate           :: !(Maybe POSIX)
-    , _girsName                  :: !(Maybe Text)
-    , _girsVersion               :: !(Maybe Text)
-    , _girsFollowUpPrompt        :: !(Maybe FollowUpPrompt)
-    , _girsLastUpdatedDate       :: !(Maybe POSIX)
-    , _girsConfirmationPrompt    :: !(Maybe Prompt)
-    , _girsDialogCodeHook        :: !(Maybe CodeHook)
-    , _girsDescription           :: !(Maybe Text)
-    , _girsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _girsFulfillmentActivity   :: {-# NOUNPACK #-}!(Maybe FulfillmentActivity)
+  , _girsSlots                 :: {-# NOUNPACK #-}!(Maybe [Slot])
+  , _girsRejectionStatement    :: {-# NOUNPACK #-}!(Maybe Statement)
+  , _girsChecksum              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _girsConclusionStatement   :: {-# NOUNPACK #-}!(Maybe Statement)
+  , _girsSampleUtterances      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _girsParentIntentSignature :: {-# NOUNPACK #-}!(Maybe Text)
+  , _girsCreatedDate           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _girsName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _girsVersion               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _girsFollowUpPrompt        :: {-# NOUNPACK #-}!(Maybe FollowUpPrompt)
+  , _girsLastUpdatedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _girsConfirmationPrompt    :: {-# NOUNPACK #-}!(Maybe Prompt)
+  , _girsDialogCodeHook        :: {-# NOUNPACK #-}!(Maybe CodeHook)
+  , _girsDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _girsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIntentResponse' with the minimum fields required to make a request.
 --
@@ -195,24 +195,25 @@ getIntentResponse
     :: Int -- ^ 'girsResponseStatus'
     -> GetIntentResponse
 getIntentResponse pResponseStatus_ =
-    GetIntentResponse'
-    { _girsFulfillmentActivity = Nothing
-    , _girsSlots = Nothing
-    , _girsRejectionStatement = Nothing
-    , _girsChecksum = Nothing
-    , _girsConclusionStatement = Nothing
-    , _girsSampleUtterances = Nothing
-    , _girsParentIntentSignature = Nothing
-    , _girsCreatedDate = Nothing
-    , _girsName = Nothing
-    , _girsVersion = Nothing
-    , _girsFollowUpPrompt = Nothing
-    , _girsLastUpdatedDate = Nothing
-    , _girsConfirmationPrompt = Nothing
-    , _girsDialogCodeHook = Nothing
-    , _girsDescription = Nothing
-    , _girsResponseStatus = pResponseStatus_
-    }
+  GetIntentResponse'
+  { _girsFulfillmentActivity = Nothing
+  , _girsSlots = Nothing
+  , _girsRejectionStatement = Nothing
+  , _girsChecksum = Nothing
+  , _girsConclusionStatement = Nothing
+  , _girsSampleUtterances = Nothing
+  , _girsParentIntentSignature = Nothing
+  , _girsCreatedDate = Nothing
+  , _girsName = Nothing
+  , _girsVersion = Nothing
+  , _girsFollowUpPrompt = Nothing
+  , _girsLastUpdatedDate = Nothing
+  , _girsConfirmationPrompt = Nothing
+  , _girsDialogCodeHook = Nothing
+  , _girsDescription = Nothing
+  , _girsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Describes how the intent is fulfilled. For more information, see 'PutIntent' .
 girsFulfillmentActivity :: Lens' GetIntentResponse (Maybe FulfillmentActivity)
@@ -278,4 +279,4 @@ girsDescription = lens _girsDescription (\ s a -> s{_girsDescription = a});
 girsResponseStatus :: Lens' GetIntentResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
 
-instance NFData GetIntentResponse
+instance NFData GetIntentResponse where

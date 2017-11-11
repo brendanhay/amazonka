@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListProjects
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CodeBuild.ListProjects
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listProjects' smart constructor.
 data ListProjects = ListProjects'
-    { _lpSortOrder :: !(Maybe SortOrderType)
-    , _lpNextToken :: !(Maybe Text)
-    , _lpSortBy    :: !(Maybe ProjectSortByType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpSortOrder :: {-# NOUNPACK #-}!(Maybe SortOrderType)
+  , _lpNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpSortBy    :: {-# NOUNPACK #-}!(Maybe ProjectSortByType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data ListProjects = ListProjects'
 listProjects
     :: ListProjects
 listProjects =
-    ListProjects'
-    { _lpSortOrder = Nothing
-    , _lpNextToken = Nothing
-    , _lpSortBy = Nothing
-    }
+  ListProjects'
+  {_lpSortOrder = Nothing, _lpNextToken = Nothing, _lpSortBy = Nothing}
+
 
 -- | The order in which to list build projects. Valid values include:     * @ASCENDING@ : List the build project names in ascending order.     * @DESCENDING@ : List the build project names in descending order. Use @sortBy@ to specify the criterion to be used to list build project names.
 lpSortOrder :: Lens' ListProjects (Maybe SortOrderType)
@@ -94,9 +93,9 @@ instance AWSRequest ListProjects where
                    (x .?> "nextToken") <*> (x .?> "projects") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListProjects
+instance Hashable ListProjects where
 
-instance NFData ListProjects
+instance NFData ListProjects where
 
 instance ToHeaders ListProjects where
         toHeaders
@@ -123,10 +122,11 @@ instance ToQuery ListProjects where
 
 -- | /See:/ 'listProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-    { _lprsNextToken      :: !(Maybe Text)
-    , _lprsProjects       :: !(Maybe (List1 Text))
-    , _lprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsProjects       :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +141,12 @@ listProjectsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListProjectsResponse
 listProjectsResponse pResponseStatus_ =
-    ListProjectsResponse'
-    { _lprsNextToken = Nothing
-    , _lprsProjects = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListProjectsResponse'
+  { _lprsNextToken = Nothing
+  , _lprsProjects = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
 lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
@@ -159,4 +160,4 @@ lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . mapping _Lis
 lprsResponseStatus :: Lens' ListProjectsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListProjectsResponse
+instance NFData ListProjectsResponse where

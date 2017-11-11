@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListTests
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.DeviceFarm.ListTests
     , ltrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list tests operation.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listTests' smart constructor.
 data ListTests = ListTests'
-    { _ltNextToken :: !(Maybe Text)
-    , _ltArn       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltArn       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTests' with the minimum fields required to make a request.
 --
@@ -69,11 +70,8 @@ data ListTests = ListTests'
 listTests
     :: Text -- ^ 'ltArn'
     -> ListTests
-listTests pArn_ =
-    ListTests'
-    { _ltNextToken = Nothing
-    , _ltArn = pArn_
-    }
+listTests pArn_ = ListTests' {_ltNextToken = Nothing, _ltArn = pArn_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ltNextToken :: Lens' ListTests (Maybe Text)
@@ -100,9 +98,9 @@ instance AWSRequest ListTests where
                    (x .?> "tests" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTests
+instance Hashable ListTests where
 
-instance NFData ListTests
+instance NFData ListTests where
 
 instance ToHeaders ListTests where
         toHeaders
@@ -132,10 +130,11 @@ instance ToQuery ListTests where
 --
 -- /See:/ 'listTestsResponse' smart constructor.
 data ListTestsResponse = ListTestsResponse'
-    { _ltrsTests          :: !(Maybe [Test])
-    , _ltrsNextToken      :: !(Maybe Text)
-    , _ltrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltrsTests          :: {-# NOUNPACK #-}!(Maybe [Test])
+  , _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTestsResponse' with the minimum fields required to make a request.
 --
@@ -150,11 +149,12 @@ listTestsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTestsResponse
 listTestsResponse pResponseStatus_ =
-    ListTestsResponse'
-    { _ltrsTests = Nothing
-    , _ltrsNextToken = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    }
+  ListTestsResponse'
+  { _ltrsTests = Nothing
+  , _ltrsNextToken = Nothing
+  , _ltrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the tests.
 ltrsTests :: Lens' ListTestsResponse [Test]
@@ -168,4 +168,4 @@ ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 ltrsResponseStatus :: Lens' ListTestsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 
-instance NFData ListTestsResponse
+instance NFData ListTestsResponse where

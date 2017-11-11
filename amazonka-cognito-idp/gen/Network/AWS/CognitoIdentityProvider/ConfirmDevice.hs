@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ConfirmDevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CognitoIdentityProvider.ConfirmDevice
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Confirms the device request.
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'confirmDevice' smart constructor.
 data ConfirmDevice = ConfirmDevice'
-    { _cdDeviceSecretVerifierConfig :: !(Maybe DeviceSecretVerifierConfigType)
-    , _cdDeviceName                 :: !(Maybe Text)
-    , _cdAccessToken                :: !(Sensitive Text)
-    , _cdDeviceKey                  :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cdDeviceSecretVerifierConfig :: {-# NOUNPACK #-}!(Maybe DeviceSecretVerifierConfigType)
+  , _cdDeviceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdAccessToken :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _cdDeviceKey :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmDevice' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ confirmDevice
     -> Text -- ^ 'cdDeviceKey'
     -> ConfirmDevice
 confirmDevice pAccessToken_ pDeviceKey_ =
-    ConfirmDevice'
-    { _cdDeviceSecretVerifierConfig = Nothing
-    , _cdDeviceName = Nothing
-    , _cdAccessToken = _Sensitive # pAccessToken_
-    , _cdDeviceKey = pDeviceKey_
-    }
+  ConfirmDevice'
+  { _cdDeviceSecretVerifierConfig = Nothing
+  , _cdDeviceName = Nothing
+  , _cdAccessToken = _Sensitive # pAccessToken_
+  , _cdDeviceKey = pDeviceKey_
+  }
+
 
 -- | The configuration of the device secret verifier.
 cdDeviceSecretVerifierConfig :: Lens' ConfirmDevice (Maybe DeviceSecretVerifierConfigType)
@@ -108,9 +110,9 @@ instance AWSRequest ConfirmDevice where
                    (x .?> "UserConfirmationNecessary") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ConfirmDevice
+instance Hashable ConfirmDevice where
 
-instance NFData ConfirmDevice
+instance NFData ConfirmDevice where
 
 instance ToHeaders ConfirmDevice where
         toHeaders
@@ -144,9 +146,10 @@ instance ToQuery ConfirmDevice where
 --
 -- /See:/ 'confirmDeviceResponse' smart constructor.
 data ConfirmDeviceResponse = ConfirmDeviceResponse'
-    { _cdrsUserConfirmationNecessary :: !(Maybe Bool)
-    , _cdrsResponseStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsUserConfirmationNecessary :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdrsResponseStatus            :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmDeviceResponse' with the minimum fields required to make a request.
 --
@@ -159,10 +162,11 @@ confirmDeviceResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> ConfirmDeviceResponse
 confirmDeviceResponse pResponseStatus_ =
-    ConfirmDeviceResponse'
-    { _cdrsUserConfirmationNecessary = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  ConfirmDeviceResponse'
+  { _cdrsUserConfirmationNecessary = Nothing
+  , _cdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Indicates whether the user confirmation is necessary to confirm the device response.
 cdrsUserConfirmationNecessary :: Lens' ConfirmDeviceResponse (Maybe Bool)
@@ -172,4 +176,4 @@ cdrsUserConfirmationNecessary = lens _cdrsUserConfirmationNecessary (\ s a -> s{
 cdrsResponseStatus :: Lens' ConfirmDeviceResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData ConfirmDeviceResponse
+instance NFData ConfirmDeviceResponse where

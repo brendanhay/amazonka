@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ChangeResourceRecordSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -78,12 +78,12 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     , crrsrsChangeInfo
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains change information for the resource record set.
 --
@@ -91,9 +91,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'changeResourceRecordSets' smart constructor.
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
-    { _crrsHostedZoneId :: !ResourceId
-    , _crrsChangeBatch  :: !ChangeBatch
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsHostedZoneId :: {-# NOUNPACK #-}!ResourceId
+  , _crrsChangeBatch  :: {-# NOUNPACK #-}!ChangeBatch
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeResourceRecordSets' with the minimum fields required to make a request.
 --
@@ -107,10 +108,9 @@ changeResourceRecordSets
     -> ChangeBatch -- ^ 'crrsChangeBatch'
     -> ChangeResourceRecordSets
 changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
-    ChangeResourceRecordSets'
-    { _crrsHostedZoneId = pHostedZoneId_
-    , _crrsChangeBatch = pChangeBatch_
-    }
+  ChangeResourceRecordSets'
+  {_crrsHostedZoneId = pHostedZoneId_, _crrsChangeBatch = pChangeBatch_}
+
 
 -- | The ID of the hosted zone that contains the resource record sets that you want to change.
 crrsHostedZoneId :: Lens' ChangeResourceRecordSets ResourceId
@@ -130,9 +130,9 @@ instance AWSRequest ChangeResourceRecordSets where
                  ChangeResourceRecordSetsResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
-instance Hashable ChangeResourceRecordSets
+instance Hashable ChangeResourceRecordSets where
 
-instance NFData ChangeResourceRecordSets
+instance NFData ChangeResourceRecordSets where
 
 instance ToElement ChangeResourceRecordSets where
         toElement
@@ -161,9 +161,10 @@ instance ToXML ChangeResourceRecordSets where
 --
 -- /See:/ 'changeResourceRecordSetsResponse' smart constructor.
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
-    { _crrsrsResponseStatus :: !Int
-    , _crrsrsChangeInfo     :: !ChangeInfo
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _crrsrsChangeInfo     :: {-# NOUNPACK #-}!ChangeInfo
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeResourceRecordSetsResponse' with the minimum fields required to make a request.
 --
@@ -177,10 +178,9 @@ changeResourceRecordSetsResponse
     -> ChangeInfo -- ^ 'crrsrsChangeInfo'
     -> ChangeResourceRecordSetsResponse
 changeResourceRecordSetsResponse pResponseStatus_ pChangeInfo_ =
-    ChangeResourceRecordSetsResponse'
-    { _crrsrsResponseStatus = pResponseStatus_
-    , _crrsrsChangeInfo = pChangeInfo_
-    }
+  ChangeResourceRecordSetsResponse'
+  {_crrsrsResponseStatus = pResponseStatus_, _crrsrsChangeInfo = pChangeInfo_}
+
 
 -- | -- | The response status code.
 crrsrsResponseStatus :: Lens' ChangeResourceRecordSetsResponse Int
@@ -191,3 +191,4 @@ crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a});
 
 instance NFData ChangeResourceRecordSetsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyDBParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.RDS.CopyDBParameterGroup
     , cdbpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'copyDBParameterGroup' smart constructor.
 data CopyDBParameterGroup = CopyDBParameterGroup'
-    { _cdpgTags                              :: !(Maybe [Tag])
-    , _cdpgSourceDBParameterGroupIdentifier  :: !Text
-    , _cdpgTargetDBParameterGroupIdentifier  :: !Text
-    , _cdpgTargetDBParameterGroupDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdpgTags                              :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdpgSourceDBParameterGroupIdentifier  :: {-# NOUNPACK #-}!Text
+  , _cdpgTargetDBParameterGroupIdentifier  :: {-# NOUNPACK #-}!Text
+  , _cdpgTargetDBParameterGroupDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyDBParameterGroup' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ copyDBParameterGroup
     -> Text -- ^ 'cdpgTargetDBParameterGroupDescription'
     -> CopyDBParameterGroup
 copyDBParameterGroup pSourceDBParameterGroupIdentifier_ pTargetDBParameterGroupIdentifier_ pTargetDBParameterGroupDescription_ =
-    CopyDBParameterGroup'
-    { _cdpgTags = Nothing
-    , _cdpgSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier_
-    , _cdpgTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier_
-    , _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription_
-    }
+  CopyDBParameterGroup'
+  { _cdpgTags = Nothing
+  , _cdpgSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier_
+  , _cdpgTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier_
+  , _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription_
+  }
+
 
 -- | Undocumented member.
 cdpgTags :: Lens' CopyDBParameterGroup [Tag]
@@ -109,9 +111,9 @@ instance AWSRequest CopyDBParameterGroup where
                  CopyDBParameterGroupResponse' <$>
                    (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
 
-instance Hashable CopyDBParameterGroup
+instance Hashable CopyDBParameterGroup where
 
-instance NFData CopyDBParameterGroup
+instance NFData CopyDBParameterGroup where
 
 instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty
@@ -134,9 +136,10 @@ instance ToQuery CopyDBParameterGroup where
 
 -- | /See:/ 'copyDBParameterGroupResponse' smart constructor.
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
-    { _cdbpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _cdbpgrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdbpgrsDBParameterGroup :: {-# NOUNPACK #-}!(Maybe DBParameterGroup)
+  , _cdbpgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyDBParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -149,10 +152,11 @@ copyDBParameterGroupResponse
     :: Int -- ^ 'cdbpgrsResponseStatus'
     -> CopyDBParameterGroupResponse
 copyDBParameterGroupResponse pResponseStatus_ =
-    CopyDBParameterGroupResponse'
-    { _cdbpgrsDBParameterGroup = Nothing
-    , _cdbpgrsResponseStatus = pResponseStatus_
-    }
+  CopyDBParameterGroupResponse'
+  { _cdbpgrsDBParameterGroup = Nothing
+  , _cdbpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 cdbpgrsDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
@@ -162,4 +166,4 @@ cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\ s a -> s{_cdbpgrsDBPa
 cdbpgrsResponseStatus :: Lens' CopyDBParameterGroupResponse Int
 cdbpgrsResponseStatus = lens _cdbpgrsResponseStatus (\ s a -> s{_cdbpgrsResponseStatus = a});
 
-instance NFData CopyDBParameterGroupResponse
+instance NFData CopyDBParameterGroupResponse where

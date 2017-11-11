@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEventTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.AWSHealth.DescribeEventTypes
     , detrsResponseStatus
     ) where
 
-import           Network.AWS.AWSHealth.Types
-import           Network.AWS.AWSHealth.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AWSHealth.Types
+import Network.AWS.AWSHealth.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEventTypes' smart constructor.
 data DescribeEventTypes = DescribeEventTypes'
-    { _detLocale     :: !(Maybe Text)
-    , _detNextToken  :: !(Maybe Text)
-    , _detFilter     :: !(Maybe EventTypeFilter)
-    , _detMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detLocale     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detFilter     :: {-# NOUNPACK #-}!(Maybe EventTypeFilter)
+  , _detMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventTypes' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ data DescribeEventTypes = DescribeEventTypes'
 describeEventTypes
     :: DescribeEventTypes
 describeEventTypes =
-    DescribeEventTypes'
-    { _detLocale = Nothing
-    , _detNextToken = Nothing
-    , _detFilter = Nothing
-    , _detMaxResults = Nothing
-    }
+  DescribeEventTypes'
+  { _detLocale = Nothing
+  , _detNextToken = Nothing
+  , _detFilter = Nothing
+  , _detMaxResults = Nothing
+  }
+
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 detLocale :: Lens' DescribeEventTypes (Maybe Text)
@@ -115,9 +117,9 @@ instance AWSRequest DescribeEventTypes where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEventTypes
+instance Hashable DescribeEventTypes where
 
-instance NFData DescribeEventTypes
+instance NFData DescribeEventTypes where
 
 instance ToHeaders DescribeEventTypes where
         toHeaders
@@ -146,10 +148,11 @@ instance ToQuery DescribeEventTypes where
 
 -- | /See:/ 'describeEventTypesResponse' smart constructor.
 data DescribeEventTypesResponse = DescribeEventTypesResponse'
-    { _detrsEventTypes     :: !(Maybe [EventType])
-    , _detrsNextToken      :: !(Maybe Text)
-    , _detrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detrsEventTypes     :: {-# NOUNPACK #-}!(Maybe [EventType])
+  , _detrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventTypesResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ describeEventTypesResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DescribeEventTypesResponse
 describeEventTypesResponse pResponseStatus_ =
-    DescribeEventTypesResponse'
-    { _detrsEventTypes = Nothing
-    , _detrsNextToken = Nothing
-    , _detrsResponseStatus = pResponseStatus_
-    }
+  DescribeEventTypesResponse'
+  { _detrsEventTypes = Nothing
+  , _detrsNextToken = Nothing
+  , _detrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
 detrsEventTypes :: Lens' DescribeEventTypesResponse [EventType]
@@ -182,4 +186,4 @@ detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a});
 detrsResponseStatus :: Lens' DescribeEventTypesResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 
-instance NFData DescribeEventTypesResponse
+instance NFData DescribeEventTypesResponse where

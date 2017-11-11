@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetSendStatistics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,23 +39,25 @@ module Network.AWS.SES.GetSendStatistics
     , gssrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | /See:/ 'getSendStatistics' smart constructor.
 data GetSendStatistics =
-    GetSendStatistics'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetSendStatistics'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSendStatistics' with the minimum fields required to make a request.
 --
 getSendStatistics
     :: GetSendStatistics
 getSendStatistics = GetSendStatistics'
+
 
 instance AWSRequest GetSendStatistics where
         type Rs GetSendStatistics = GetSendStatisticsResponse
@@ -68,9 +70,9 @@ instance AWSRequest GetSendStatistics where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSendStatistics
+instance Hashable GetSendStatistics where
 
-instance NFData GetSendStatistics
+instance NFData GetSendStatistics where
 
 instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
@@ -91,9 +93,10 @@ instance ToQuery GetSendStatistics where
 --
 -- /See:/ 'getSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
-    { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
-    , _gssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gssrsSendDataPoints :: {-# NOUNPACK #-}!(Maybe [SendDataPoint])
+  , _gssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSendStatisticsResponse' with the minimum fields required to make a request.
 --
@@ -106,10 +109,9 @@ getSendStatisticsResponse
     :: Int -- ^ 'gssrsResponseStatus'
     -> GetSendStatisticsResponse
 getSendStatisticsResponse pResponseStatus_ =
-    GetSendStatisticsResponse'
-    { _gssrsSendDataPoints = Nothing
-    , _gssrsResponseStatus = pResponseStatus_
-    }
+  GetSendStatisticsResponse'
+  {_gssrsSendDataPoints = Nothing, _gssrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
@@ -119,4 +121,4 @@ gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints
 gssrsResponseStatus :: Lens' GetSendStatisticsResponse Int
 gssrsResponseStatus = lens _gssrsResponseStatus (\ s a -> s{_gssrsResponseStatus = a});
 
-instance NFData GetSendStatisticsResponse
+instance NFData GetSendStatisticsResponse where

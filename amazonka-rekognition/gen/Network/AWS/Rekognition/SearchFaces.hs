@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.SearchFaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,20 +47,21 @@ module Network.AWS.Rekognition.SearchFaces
     , sfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'searchFaces' smart constructor.
 data SearchFaces = SearchFaces'
-    { _sfFaceMatchThreshold :: !(Maybe Double)
-    , _sfMaxFaces           :: !(Maybe Nat)
-    , _sfCollectionId       :: !Text
-    , _sfFaceId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sfFaceMatchThreshold :: {-# NOUNPACK #-}!(Maybe Double)
+  , _sfMaxFaces           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sfCollectionId       :: {-# NOUNPACK #-}!Text
+  , _sfFaceId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchFaces' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ searchFaces
     -> Text -- ^ 'sfFaceId'
     -> SearchFaces
 searchFaces pCollectionId_ pFaceId_ =
-    SearchFaces'
-    { _sfFaceMatchThreshold = Nothing
-    , _sfMaxFaces = Nothing
-    , _sfCollectionId = pCollectionId_
-    , _sfFaceId = pFaceId_
-    }
+  SearchFaces'
+  { _sfFaceMatchThreshold = Nothing
+  , _sfMaxFaces = Nothing
+  , _sfCollectionId = pCollectionId_
+  , _sfFaceId = pFaceId_
+  }
+
 
 -- | Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%.
 sfFaceMatchThreshold :: Lens' SearchFaces (Maybe Double)
@@ -112,9 +114,9 @@ instance AWSRequest SearchFaces where
                      (x .?> "SearchedFaceId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable SearchFaces
+instance Hashable SearchFaces where
 
-instance NFData SearchFaces
+instance NFData SearchFaces where
 
 instance ToHeaders SearchFaces where
         toHeaders
@@ -142,10 +144,11 @@ instance ToQuery SearchFaces where
 
 -- | /See:/ 'searchFacesResponse' smart constructor.
 data SearchFacesResponse = SearchFacesResponse'
-    { _sfrsFaceMatches    :: !(Maybe [FaceMatch])
-    , _sfrsSearchedFaceId :: !(Maybe Text)
-    , _sfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sfrsFaceMatches    :: {-# NOUNPACK #-}!(Maybe [FaceMatch])
+  , _sfrsSearchedFaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchFacesResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +163,12 @@ searchFacesResponse
     :: Int -- ^ 'sfrsResponseStatus'
     -> SearchFacesResponse
 searchFacesResponse pResponseStatus_ =
-    SearchFacesResponse'
-    { _sfrsFaceMatches = Nothing
-    , _sfrsSearchedFaceId = Nothing
-    , _sfrsResponseStatus = pResponseStatus_
-    }
+  SearchFacesResponse'
+  { _sfrsFaceMatches = Nothing
+  , _sfrsSearchedFaceId = Nothing
+  , _sfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of faces that matched the input face, along with the confidence in the match.
 sfrsFaceMatches :: Lens' SearchFacesResponse [FaceMatch]
@@ -178,4 +182,4 @@ sfrsSearchedFaceId = lens _sfrsSearchedFaceId (\ s a -> s{_sfrsSearchedFaceId = 
 sfrsResponseStatus :: Lens' SearchFacesResponse Int
 sfrsResponseStatus = lens _sfrsResponseStatus (\ s a -> s{_sfrsResponseStatus = a});
 
-instance NFData SearchFacesResponse
+instance NFData SearchFacesResponse where

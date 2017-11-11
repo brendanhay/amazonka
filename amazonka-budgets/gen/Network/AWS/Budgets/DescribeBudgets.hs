@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.DescribeBudgets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,21 +38,22 @@ module Network.AWS.Budgets.DescribeBudgets
     , dbrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DescribeBudgets
 --
 -- /See:/ 'describeBudgets' smart constructor.
 data DescribeBudgets = DescribeBudgets'
-    { _dbNextToken  :: !(Maybe Text)
-    , _dbMaxResults :: !(Maybe Nat)
-    , _dbAccountId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dbAccountId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBudgets' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ describeBudgets
     :: Text -- ^ 'dbAccountId'
     -> DescribeBudgets
 describeBudgets pAccountId_ =
-    DescribeBudgets'
-    { _dbNextToken = Nothing
-    , _dbMaxResults = Nothing
-    , _dbAccountId = pAccountId_
-    }
+  DescribeBudgets'
+  {_dbNextToken = Nothing, _dbMaxResults = Nothing, _dbAccountId = pAccountId_}
+
 
 -- | Undocumented member.
 dbNextToken :: Lens' DescribeBudgets (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest DescribeBudgets where
                    (x .?> "NextToken") <*> (x .?> "Budgets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeBudgets
+instance Hashable DescribeBudgets where
 
-instance NFData DescribeBudgets
+instance NFData DescribeBudgets where
 
 instance ToHeaders DescribeBudgets where
         toHeaders
@@ -127,10 +126,11 @@ instance ToQuery DescribeBudgets where
 --
 -- /See:/ 'describeBudgetsResponse' smart constructor.
 data DescribeBudgetsResponse = DescribeBudgetsResponse'
-    { _dbrsNextToken      :: !(Maybe Text)
-    , _dbrsBudgets        :: !(Maybe [Budget])
-    , _dbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbrsBudgets        :: {-# NOUNPACK #-}!(Maybe [Budget])
+  , _dbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBudgetsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ describeBudgetsResponse
     :: Int -- ^ 'dbrsResponseStatus'
     -> DescribeBudgetsResponse
 describeBudgetsResponse pResponseStatus_ =
-    DescribeBudgetsResponse'
-    { _dbrsNextToken = Nothing
-    , _dbrsBudgets = Nothing
-    , _dbrsResponseStatus = pResponseStatus_
-    }
+  DescribeBudgetsResponse'
+  { _dbrsNextToken = Nothing
+  , _dbrsBudgets = Nothing
+  , _dbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dbrsNextToken :: Lens' DescribeBudgetsResponse (Maybe Text)
@@ -163,4 +164,4 @@ dbrsBudgets = lens _dbrsBudgets (\ s a -> s{_dbrsBudgets = a}) . _Default . _Coe
 dbrsResponseStatus :: Lens' DescribeBudgetsResponse Int
 dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
 
-instance NFData DescribeBudgetsResponse
+instance NFData DescribeBudgetsResponse where

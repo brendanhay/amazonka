@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -229,23 +229,23 @@ module Network.AWS.CloudWatch
     , ssMaximum
     ) where
 
-import           Network.AWS.CloudWatch.DeleteAlarms
-import           Network.AWS.CloudWatch.DeleteDashboards
-import           Network.AWS.CloudWatch.DescribeAlarmHistory
-import           Network.AWS.CloudWatch.DescribeAlarms
-import           Network.AWS.CloudWatch.DescribeAlarmsForMetric
-import           Network.AWS.CloudWatch.DisableAlarmActions
-import           Network.AWS.CloudWatch.EnableAlarmActions
-import           Network.AWS.CloudWatch.GetDashboard
-import           Network.AWS.CloudWatch.GetMetricStatistics
-import           Network.AWS.CloudWatch.ListDashboards
-import           Network.AWS.CloudWatch.ListMetrics
-import           Network.AWS.CloudWatch.PutDashboard
-import           Network.AWS.CloudWatch.PutMetricAlarm
-import           Network.AWS.CloudWatch.PutMetricData
-import           Network.AWS.CloudWatch.SetAlarmState
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Waiters
+import Network.AWS.CloudWatch.DeleteAlarms
+import Network.AWS.CloudWatch.DeleteDashboards
+import Network.AWS.CloudWatch.DescribeAlarmHistory
+import Network.AWS.CloudWatch.DescribeAlarms
+import Network.AWS.CloudWatch.DescribeAlarmsForMetric
+import Network.AWS.CloudWatch.DisableAlarmActions
+import Network.AWS.CloudWatch.EnableAlarmActions
+import Network.AWS.CloudWatch.GetDashboard
+import Network.AWS.CloudWatch.GetMetricStatistics
+import Network.AWS.CloudWatch.ListDashboards
+import Network.AWS.CloudWatch.ListMetrics
+import Network.AWS.CloudWatch.PutDashboard
+import Network.AWS.CloudWatch.PutMetricAlarm
+import Network.AWS.CloudWatch.PutMetricData
+import Network.AWS.CloudWatch.SetAlarmState
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

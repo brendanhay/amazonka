@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AttachUserPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.IAM.AttachUserPolicy
     , AttachUserPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachUserPolicy' smart constructor.
 data AttachUserPolicy = AttachUserPolicy'
-    { _aupUserName  :: !Text
-    , _aupPolicyARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aupUserName  :: {-# NOUNPACK #-}!Text
+  , _aupPolicyARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachUserPolicy' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ attachUserPolicy
     -> Text -- ^ 'aupPolicyARN'
     -> AttachUserPolicy
 attachUserPolicy pUserName_ pPolicyARN_ =
-    AttachUserPolicy'
-    { _aupUserName = pUserName_
-    , _aupPolicyARN = pPolicyARN_
-    }
+  AttachUserPolicy' {_aupUserName = pUserName_, _aupPolicyARN = pPolicyARN_}
+
 
 -- | The name (friendly name, not ARN) of the IAM user to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 aupUserName :: Lens' AttachUserPolicy Text
@@ -82,9 +81,9 @@ instance AWSRequest AttachUserPolicy where
         request = postQuery iam
         response = receiveNull AttachUserPolicyResponse'
 
-instance Hashable AttachUserPolicy
+instance Hashable AttachUserPolicy where
 
-instance NFData AttachUserPolicy
+instance NFData AttachUserPolicy where
 
 instance ToHeaders AttachUserPolicy where
         toHeaders = const mempty
@@ -102,8 +101,9 @@ instance ToQuery AttachUserPolicy where
 
 -- | /See:/ 'attachUserPolicyResponse' smart constructor.
 data AttachUserPolicyResponse =
-    AttachUserPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachUserPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachUserPolicyResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ attachUserPolicyResponse
     :: AttachUserPolicyResponse
 attachUserPolicyResponse = AttachUserPolicyResponse'
 
-instance NFData AttachUserPolicyResponse
+
+instance NFData AttachUserPolicyResponse where

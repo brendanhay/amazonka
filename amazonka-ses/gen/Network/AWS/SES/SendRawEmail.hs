@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.SendRawEmail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -76,12 +76,12 @@ module Network.AWS.SES.SendRawEmail
     , srersMessageId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to send a single raw email using Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> .
 --
@@ -89,15 +89,16 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendRawEmail' smart constructor.
 data SendRawEmail = SendRawEmail'
-    { _sreConfigurationSetName :: !(Maybe Text)
-    , _sreSourceARN            :: !(Maybe Text)
-    , _sreDestinations         :: !(Maybe [Text])
-    , _sreReturnPathARN        :: !(Maybe Text)
-    , _sreSource               :: !(Maybe Text)
-    , _sreFromARN              :: !(Maybe Text)
-    , _sreTags                 :: !(Maybe [MessageTag])
-    , _sreRawMessage           :: !RawMessage
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sreConfigurationSetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sreSourceARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sreDestinations         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sreReturnPathARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sreSource               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sreFromARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sreTags                 :: {-# NOUNPACK #-}!(Maybe [MessageTag])
+  , _sreRawMessage           :: {-# NOUNPACK #-}!RawMessage
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendRawEmail' with the minimum fields required to make a request.
 --
@@ -122,16 +123,17 @@ sendRawEmail
     :: RawMessage -- ^ 'sreRawMessage'
     -> SendRawEmail
 sendRawEmail pRawMessage_ =
-    SendRawEmail'
-    { _sreConfigurationSetName = Nothing
-    , _sreSourceARN = Nothing
-    , _sreDestinations = Nothing
-    , _sreReturnPathARN = Nothing
-    , _sreSource = Nothing
-    , _sreFromARN = Nothing
-    , _sreTags = Nothing
-    , _sreRawMessage = pRawMessage_
-    }
+  SendRawEmail'
+  { _sreConfigurationSetName = Nothing
+  , _sreSourceARN = Nothing
+  , _sreDestinations = Nothing
+  , _sreReturnPathARN = Nothing
+  , _sreSource = Nothing
+  , _sreFromARN = Nothing
+  , _sreTags = Nothing
+  , _sreRawMessage = pRawMessage_
+  }
+
 
 -- | The name of the configuration set to use when you send an email using @SendRawEmail@ .
 sreConfigurationSetName :: Lens' SendRawEmail (Maybe Text)
@@ -174,9 +176,9 @@ instance AWSRequest SendRawEmail where
                  SendRawEmailResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "MessageId"))
 
-instance Hashable SendRawEmail
+instance Hashable SendRawEmail where
 
-instance NFData SendRawEmail
+instance NFData SendRawEmail where
 
 instance ToHeaders SendRawEmail where
         toHeaders = const mempty
@@ -205,9 +207,10 @@ instance ToQuery SendRawEmail where
 --
 -- /See:/ 'sendRawEmailResponse' smart constructor.
 data SendRawEmailResponse = SendRawEmailResponse'
-    { _srersResponseStatus :: !Int
-    , _srersMessageId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srersResponseStatus :: {-# NOUNPACK #-}!Int
+  , _srersMessageId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendRawEmailResponse' with the minimum fields required to make a request.
 --
@@ -221,10 +224,9 @@ sendRawEmailResponse
     -> Text -- ^ 'srersMessageId'
     -> SendRawEmailResponse
 sendRawEmailResponse pResponseStatus_ pMessageId_ =
-    SendRawEmailResponse'
-    { _srersResponseStatus = pResponseStatus_
-    , _srersMessageId = pMessageId_
-    }
+  SendRawEmailResponse'
+  {_srersResponseStatus = pResponseStatus_, _srersMessageId = pMessageId_}
+
 
 -- | -- | The response status code.
 srersResponseStatus :: Lens' SendRawEmailResponse Int
@@ -234,4 +236,4 @@ srersResponseStatus = lens _srersResponseStatus (\ s a -> s{_srersResponseStatus
 srersMessageId :: Lens' SendRawEmailResponse Text
 srersMessageId = lens _srersMessageId (\ s a -> s{_srersMessageId = a});
 
-instance NFData SendRawEmailResponse
+instance NFData SendRawEmailResponse where

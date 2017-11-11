@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetSlotTypeVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,19 +46,20 @@ module Network.AWS.LexModels.GetSlotTypeVersions
     , gstvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSlotTypeVersions' smart constructor.
 data GetSlotTypeVersions = GetSlotTypeVersions'
-    { _gstvNextToken  :: !(Maybe Text)
-    , _gstvMaxResults :: !(Maybe Nat)
-    , _gstvName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gstvNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gstvMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gstvName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSlotTypeVersions' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ getSlotTypeVersions
     :: Text -- ^ 'gstvName'
     -> GetSlotTypeVersions
 getSlotTypeVersions pName_ =
-    GetSlotTypeVersions'
-    { _gstvNextToken = Nothing
-    , _gstvMaxResults = Nothing
-    , _gstvName = pName_
-    }
+  GetSlotTypeVersions'
+  {_gstvNextToken = Nothing, _gstvMaxResults = Nothing, _gstvName = pName_}
+
 
 -- | A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
 gstvNextToken :: Lens' GetSlotTypeVersions (Maybe Text)
@@ -103,9 +102,9 @@ instance AWSRequest GetSlotTypeVersions where
                      (x .?> "slotTypes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSlotTypeVersions
+instance Hashable GetSlotTypeVersions where
 
-instance NFData GetSlotTypeVersions
+instance NFData GetSlotTypeVersions where
 
 instance ToHeaders GetSlotTypeVersions where
         toHeaders
@@ -127,10 +126,11 @@ instance ToQuery GetSlotTypeVersions where
 
 -- | /See:/ 'getSlotTypeVersionsResponse' smart constructor.
 data GetSlotTypeVersionsResponse = GetSlotTypeVersionsResponse'
-    { _gstvrsNextToken      :: !(Maybe Text)
-    , _gstvrsSlotTypes      :: !(Maybe [SlotTypeMetadata])
-    , _gstvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gstvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gstvrsSlotTypes      :: {-# NOUNPACK #-}!(Maybe [SlotTypeMetadata])
+  , _gstvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSlotTypeVersionsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ getSlotTypeVersionsResponse
     :: Int -- ^ 'gstvrsResponseStatus'
     -> GetSlotTypeVersionsResponse
 getSlotTypeVersionsResponse pResponseStatus_ =
-    GetSlotTypeVersionsResponse'
-    { _gstvrsNextToken = Nothing
-    , _gstvrsSlotTypes = Nothing
-    , _gstvrsResponseStatus = pResponseStatus_
-    }
+  GetSlotTypeVersionsResponse'
+  { _gstvrsNextToken = Nothing
+  , _gstvrsSlotTypes = Nothing
+  , _gstvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
 gstvrsNextToken :: Lens' GetSlotTypeVersionsResponse (Maybe Text)
@@ -163,4 +164,4 @@ gstvrsSlotTypes = lens _gstvrsSlotTypes (\ s a -> s{_gstvrsSlotTypes = a}) . _De
 gstvrsResponseStatus :: Lens' GetSlotTypeVersionsResponse Int
 gstvrsResponseStatus = lens _gstvrsResponseStatus (\ s a -> s{_gstvrsResponseStatus = a});
 
-instance NFData GetSlotTypeVersionsResponse
+instance NFData GetSlotTypeVersionsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteDHCPOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DeleteDHCPOptions
     , DeleteDHCPOptionsResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteDhcpOptions.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDHCPOptions' smart constructor.
 data DeleteDHCPOptions = DeleteDHCPOptions'
-    { _ddhcpoDryRun        :: !(Maybe Bool)
-    , _ddhcpoDHCPOptionsId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddhcpoDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddhcpoDHCPOptionsId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDHCPOptions' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ deleteDHCPOptions
     :: Text -- ^ 'ddhcpoDHCPOptionsId'
     -> DeleteDHCPOptions
 deleteDHCPOptions pDHCPOptionsId_ =
-    DeleteDHCPOptions'
-    { _ddhcpoDryRun = Nothing
-    , _ddhcpoDHCPOptionsId = pDHCPOptionsId_
-    }
+  DeleteDHCPOptions'
+  {_ddhcpoDryRun = Nothing, _ddhcpoDHCPOptionsId = pDHCPOptionsId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ddhcpoDryRun :: Lens' DeleteDHCPOptions (Maybe Bool)
@@ -81,9 +81,9 @@ instance AWSRequest DeleteDHCPOptions where
         request = postQuery ec2
         response = receiveNull DeleteDHCPOptionsResponse'
 
-instance Hashable DeleteDHCPOptions
+instance Hashable DeleteDHCPOptions where
 
-instance NFData DeleteDHCPOptions
+instance NFData DeleteDHCPOptions where
 
 instance ToHeaders DeleteDHCPOptions where
         toHeaders = const mempty
@@ -101,8 +101,9 @@ instance ToQuery DeleteDHCPOptions where
 
 -- | /See:/ 'deleteDHCPOptionsResponse' smart constructor.
 data DeleteDHCPOptionsResponse =
-    DeleteDHCPOptionsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDHCPOptionsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDHCPOptionsResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,5 @@ deleteDHCPOptionsResponse
     :: DeleteDHCPOptionsResponse
 deleteDHCPOptionsResponse = DeleteDHCPOptionsResponse'
 
-instance NFData DeleteDHCPOptionsResponse
+
+instance NFData DeleteDHCPOptionsResponse where

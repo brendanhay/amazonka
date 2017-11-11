@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeResourcePermissions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.WorkDocs.DescribeResourcePermissions
     , drprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeResourcePermissions' smart constructor.
 data DescribeResourcePermissions = DescribeResourcePermissions'
-    { _drpAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _drpMarker              :: !(Maybe Text)
-    , _drpLimit               :: !(Maybe Nat)
-    , _drpResourceId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _drpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _drpMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drpLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _drpResourceId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeResourcePermissions' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeResourcePermissions
     :: Text -- ^ 'drpResourceId'
     -> DescribeResourcePermissions
 describeResourcePermissions pResourceId_ =
-    DescribeResourcePermissions'
-    { _drpAuthenticationToken = Nothing
-    , _drpMarker = Nothing
-    , _drpLimit = Nothing
-    , _drpResourceId = pResourceId_
-    }
+  DescribeResourcePermissions'
+  { _drpAuthenticationToken = Nothing
+  , _drpMarker = Nothing
+  , _drpLimit = Nothing
+  , _drpResourceId = pResourceId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 drpAuthenticationToken :: Lens' DescribeResourcePermissions (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest DescribeResourcePermissions where
                    (x .?> "Principals" .!@ mempty) <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeResourcePermissions
+instance Hashable DescribeResourcePermissions where
 
-instance NFData DescribeResourcePermissions
+instance NFData DescribeResourcePermissions where
 
 instance ToHeaders DescribeResourcePermissions where
         toHeaders DescribeResourcePermissions'{..}
@@ -129,10 +131,11 @@ instance ToQuery DescribeResourcePermissions where
 
 -- | /See:/ 'describeResourcePermissionsResponse' smart constructor.
 data DescribeResourcePermissionsResponse = DescribeResourcePermissionsResponse'
-    { _drprsPrincipals     :: !(Maybe [Principal])
-    , _drprsMarker         :: !(Maybe Text)
-    , _drprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drprsPrincipals     :: {-# NOUNPACK #-}!(Maybe [Principal])
+  , _drprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeResourcePermissionsResponse' with the minimum fields required to make a request.
 --
@@ -147,11 +150,12 @@ describeResourcePermissionsResponse
     :: Int -- ^ 'drprsResponseStatus'
     -> DescribeResourcePermissionsResponse
 describeResourcePermissionsResponse pResponseStatus_ =
-    DescribeResourcePermissionsResponse'
-    { _drprsPrincipals = Nothing
-    , _drprsMarker = Nothing
-    , _drprsResponseStatus = pResponseStatus_
-    }
+  DescribeResourcePermissionsResponse'
+  { _drprsPrincipals = Nothing
+  , _drprsMarker = Nothing
+  , _drprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The principals.
 drprsPrincipals :: Lens' DescribeResourcePermissionsResponse [Principal]
@@ -166,3 +170,4 @@ drprsResponseStatus :: Lens' DescribeResourcePermissionsResponse Int
 drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
 
 instance NFData DescribeResourcePermissionsResponse
+         where

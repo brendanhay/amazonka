@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchDeleteConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Glue.BatchDeleteConnection
     , bdcrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchDeleteConnection' smart constructor.
 data BatchDeleteConnection = BatchDeleteConnection'
-    { _bdcCatalogId          :: !(Maybe Text)
-    , _bdcConnectionNameList :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdcCatalogId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bdcConnectionNameList :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteConnection' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ data BatchDeleteConnection = BatchDeleteConnection'
 batchDeleteConnection
     :: BatchDeleteConnection
 batchDeleteConnection =
-    BatchDeleteConnection'
-    { _bdcCatalogId = Nothing
-    , _bdcConnectionNameList = mempty
-    }
+  BatchDeleteConnection'
+  {_bdcCatalogId = Nothing, _bdcConnectionNameList = mempty}
+
 
 -- | The ID of the Data Catalog in which the connections reside. If none is supplied, the AWS account ID is used by default.
 bdcCatalogId :: Lens' BatchDeleteConnection (Maybe Text)
@@ -87,9 +87,9 @@ instance AWSRequest BatchDeleteConnection where
                      (x .?> "Errors" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchDeleteConnection
+instance Hashable BatchDeleteConnection where
 
-instance NFData BatchDeleteConnection
+instance NFData BatchDeleteConnection where
 
 instance ToHeaders BatchDeleteConnection where
         toHeaders
@@ -116,10 +116,11 @@ instance ToQuery BatchDeleteConnection where
 
 -- | /See:/ 'batchDeleteConnectionResponse' smart constructor.
 data BatchDeleteConnectionResponse = BatchDeleteConnectionResponse'
-    { _bdcrsSucceeded      :: !(Maybe [Text])
-    , _bdcrsErrors         :: !(Maybe (Map Text ErrorDetail))
-    , _bdcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdcrsSucceeded      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _bdcrsErrors         :: {-# NOUNPACK #-}!(Maybe (Map Text ErrorDetail))
+  , _bdcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteConnectionResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +135,12 @@ batchDeleteConnectionResponse
     :: Int -- ^ 'bdcrsResponseStatus'
     -> BatchDeleteConnectionResponse
 batchDeleteConnectionResponse pResponseStatus_ =
-    BatchDeleteConnectionResponse'
-    { _bdcrsSucceeded = Nothing
-    , _bdcrsErrors = Nothing
-    , _bdcrsResponseStatus = pResponseStatus_
-    }
+  BatchDeleteConnectionResponse'
+  { _bdcrsSucceeded = Nothing
+  , _bdcrsErrors = Nothing
+  , _bdcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of names of the connection definitions that were successfully deleted.
 bdcrsSucceeded :: Lens' BatchDeleteConnectionResponse [Text]
@@ -152,4 +154,4 @@ bdcrsErrors = lens _bdcrsErrors (\ s a -> s{_bdcrsErrors = a}) . _Default . _Map
 bdcrsResponseStatus :: Lens' BatchDeleteConnectionResponse Int
 bdcrsResponseStatus = lens _bdcrsResponseStatus (\ s a -> s{_bdcrsResponseStatus = a});
 
-instance NFData BatchDeleteConnectionResponse
+instance NFData BatchDeleteConnectionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteMetricFilter
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     , DeleteMetricFilterResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteMetricFilter' smart constructor.
 data DeleteMetricFilter = DeleteMetricFilter'
-    { _delLogGroupName :: !Text
-    , _delFilterName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delLogGroupName :: {-# NOUNPACK #-}!Text
+  , _delFilterName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMetricFilter' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ deleteMetricFilter
     -> Text -- ^ 'delFilterName'
     -> DeleteMetricFilter
 deleteMetricFilter pLogGroupName_ pFilterName_ =
-    DeleteMetricFilter'
-    { _delLogGroupName = pLogGroupName_
-    , _delFilterName = pFilterName_
-    }
+  DeleteMetricFilter'
+  {_delLogGroupName = pLogGroupName_, _delFilterName = pFilterName_}
+
 
 -- | The name of the log group.
 delLogGroupName :: Lens' DeleteMetricFilter Text
@@ -79,9 +79,9 @@ instance AWSRequest DeleteMetricFilter where
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteMetricFilterResponse'
 
-instance Hashable DeleteMetricFilter
+instance Hashable DeleteMetricFilter where
 
-instance NFData DeleteMetricFilter
+instance NFData DeleteMetricFilter where
 
 instance ToHeaders DeleteMetricFilter where
         toHeaders
@@ -107,8 +107,9 @@ instance ToQuery DeleteMetricFilter where
 
 -- | /See:/ 'deleteMetricFilterResponse' smart constructor.
 data DeleteMetricFilterResponse =
-    DeleteMetricFilterResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteMetricFilterResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMetricFilterResponse' with the minimum fields required to make a request.
 --
@@ -116,4 +117,5 @@ deleteMetricFilterResponse
     :: DeleteMetricFilterResponse
 deleteMetricFilterResponse = DeleteMetricFilterResponse'
 
-instance NFData DeleteMetricFilterResponse
+
+instance NFData DeleteMetricFilterResponse where

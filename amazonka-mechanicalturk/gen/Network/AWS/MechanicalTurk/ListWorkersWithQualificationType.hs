@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
     , lwwqtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listWorkersWithQualificationType' smart constructor.
 data ListWorkersWithQualificationType = ListWorkersWithQualificationType'
-    { _lwwqtStatus              :: !(Maybe QualificationStatus)
-    , _lwwqtNextToken           :: !(Maybe Text)
-    , _lwwqtMaxResults          :: !(Maybe Nat)
-    , _lwwqtQualificationTypeId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lwwqtStatus              :: {-# NOUNPACK #-}!(Maybe QualificationStatus)
+  , _lwwqtNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lwwqtMaxResults          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lwwqtQualificationTypeId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListWorkersWithQualificationType' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ listWorkersWithQualificationType
     :: Text -- ^ 'lwwqtQualificationTypeId'
     -> ListWorkersWithQualificationType
 listWorkersWithQualificationType pQualificationTypeId_ =
-    ListWorkersWithQualificationType'
-    { _lwwqtStatus = Nothing
-    , _lwwqtNextToken = Nothing
-    , _lwwqtMaxResults = Nothing
-    , _lwwqtQualificationTypeId = pQualificationTypeId_
-    }
+  ListWorkersWithQualificationType'
+  { _lwwqtStatus = Nothing
+  , _lwwqtNextToken = Nothing
+  , _lwwqtMaxResults = Nothing
+  , _lwwqtQualificationTypeId = pQualificationTypeId_
+  }
+
 
 -- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
 lwwqtStatus :: Lens' ListWorkersWithQualificationType (Maybe QualificationStatus)
@@ -109,8 +111,10 @@ instance AWSRequest ListWorkersWithQualificationType
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListWorkersWithQualificationType
+         where
 
 instance NFData ListWorkersWithQualificationType
+         where
 
 instance ToHeaders ListWorkersWithQualificationType
          where
@@ -145,11 +149,12 @@ instance ToQuery ListWorkersWithQualificationType
 
 -- | /See:/ 'listWorkersWithQualificationTypeResponse' smart constructor.
 data ListWorkersWithQualificationTypeResponse = ListWorkersWithQualificationTypeResponse'
-    { _lwwqtrsNextToken      :: !(Maybe Text)
-    , _lwwqtrsNumResults     :: !(Maybe Int)
-    , _lwwqtrsQualifications :: !(Maybe [Qualification])
-    , _lwwqtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lwwqtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lwwqtrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lwwqtrsQualifications :: {-# NOUNPACK #-}!(Maybe [Qualification])
+  , _lwwqtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListWorkersWithQualificationTypeResponse' with the minimum fields required to make a request.
 --
@@ -166,12 +171,13 @@ listWorkersWithQualificationTypeResponse
     :: Int -- ^ 'lwwqtrsResponseStatus'
     -> ListWorkersWithQualificationTypeResponse
 listWorkersWithQualificationTypeResponse pResponseStatus_ =
-    ListWorkersWithQualificationTypeResponse'
-    { _lwwqtrsNextToken = Nothing
-    , _lwwqtrsNumResults = Nothing
-    , _lwwqtrsQualifications = Nothing
-    , _lwwqtrsResponseStatus = pResponseStatus_
-    }
+  ListWorkersWithQualificationTypeResponse'
+  { _lwwqtrsNextToken = Nothing
+  , _lwwqtrsNumResults = Nothing
+  , _lwwqtrsQualifications = Nothing
+  , _lwwqtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lwwqtrsNextToken :: Lens' ListWorkersWithQualificationTypeResponse (Maybe Text)
@@ -190,4 +196,5 @@ lwwqtrsResponseStatus :: Lens' ListWorkersWithQualificationTypeResponse Int
 lwwqtrsResponseStatus = lens _lwwqtrsResponseStatus (\ s a -> s{_lwwqtrsResponseStatus = a});
 
 instance NFData
-         ListWorkersWithQualificationTypeResponse
+           ListWorkersWithQualificationTypeResponse
+         where

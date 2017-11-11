@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ListDeadLetterSourceQueues
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     , ldlsqrsQueueURLs
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -52,8 +52,9 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'listDeadLetterSourceQueues' smart constructor.
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
-    { _ldlsqQueueURL :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldlsqQueueURL :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeadLetterSourceQueues' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ listDeadLetterSourceQueues
     :: Text -- ^ 'ldlsqQueueURL'
     -> ListDeadLetterSourceQueues
 listDeadLetterSourceQueues pQueueURL_ =
-    ListDeadLetterSourceQueues'
-    { _ldlsqQueueURL = pQueueURL_
-    }
+  ListDeadLetterSourceQueues' {_ldlsqQueueURL = pQueueURL_}
+
 
 -- | The URL of a dead letter queue. Queue URLs are case-sensitive.
 ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
@@ -83,9 +83,9 @@ instance AWSRequest ListDeadLetterSourceQueues where
                  ListDeadLetterSourceQueuesResponse' <$>
                    (pure (fromEnum s)) <*> (parseXMLList "QueueUrl" x))
 
-instance Hashable ListDeadLetterSourceQueues
+instance Hashable ListDeadLetterSourceQueues where
 
-instance NFData ListDeadLetterSourceQueues
+instance NFData ListDeadLetterSourceQueues where
 
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty
@@ -107,9 +107,10 @@ instance ToQuery ListDeadLetterSourceQueues where
 --
 -- /See:/ 'listDeadLetterSourceQueuesResponse' smart constructor.
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrsResponseStatus :: !Int
-    , _ldlsqrsQueueURLs      :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldlsqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ldlsqrsQueueURLs      :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeadLetterSourceQueuesResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +123,9 @@ listDeadLetterSourceQueuesResponse
     :: Int -- ^ 'ldlsqrsResponseStatus'
     -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse pResponseStatus_ =
-    ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrsResponseStatus = pResponseStatus_
-    , _ldlsqrsQueueURLs = mempty
-    }
+  ListDeadLetterSourceQueuesResponse'
+  {_ldlsqrsResponseStatus = pResponseStatus_, _ldlsqrsQueueURLs = mempty}
+
 
 -- | -- | The response status code.
 ldlsqrsResponseStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
@@ -136,3 +136,4 @@ ldlsqrsQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrsQueueURLs = lens _ldlsqrsQueueURLs (\ s a -> s{_ldlsqrsQueueURLs = a}) . _Coerce;
 
 instance NFData ListDeadLetterSourceQueuesResponse
+         where

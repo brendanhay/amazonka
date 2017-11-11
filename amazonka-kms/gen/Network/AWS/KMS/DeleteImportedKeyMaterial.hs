@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DeleteImportedKeyMaterial
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.KMS.DeleteImportedKeyMaterial
     , DeleteImportedKeyMaterialResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteImportedKeyMaterial' smart constructor.
 newtype DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
-    { _dikmKeyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dikmKeyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteImportedKeyMaterial' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteImportedKeyMaterial
     :: Text -- ^ 'dikmKeyId'
     -> DeleteImportedKeyMaterial
 deleteImportedKeyMaterial pKeyId_ =
-    DeleteImportedKeyMaterial'
-    { _dikmKeyId = pKeyId_
-    }
+  DeleteImportedKeyMaterial' {_dikmKeyId = pKeyId_}
+
 
 -- | The identifier of the CMK whose key material to delete. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 dikmKeyId :: Lens' DeleteImportedKeyMaterial Text
@@ -74,9 +74,9 @@ instance AWSRequest DeleteImportedKeyMaterial where
         response
           = receiveNull DeleteImportedKeyMaterialResponse'
 
-instance Hashable DeleteImportedKeyMaterial
+instance Hashable DeleteImportedKeyMaterial where
 
-instance NFData DeleteImportedKeyMaterial
+instance NFData DeleteImportedKeyMaterial where
 
 instance ToHeaders DeleteImportedKeyMaterial where
         toHeaders
@@ -100,8 +100,9 @@ instance ToQuery DeleteImportedKeyMaterial where
 
 -- | /See:/ 'deleteImportedKeyMaterialResponse' smart constructor.
 data DeleteImportedKeyMaterialResponse =
-    DeleteImportedKeyMaterialResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteImportedKeyMaterialResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteImportedKeyMaterialResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +110,6 @@ deleteImportedKeyMaterialResponse
     :: DeleteImportedKeyMaterialResponse
 deleteImportedKeyMaterialResponse = DeleteImportedKeyMaterialResponse'
 
+
 instance NFData DeleteImportedKeyMaterialResponse
+         where

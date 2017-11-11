@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.UpdateRuntimeConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -94,12 +94,12 @@ module Network.AWS.GameLift.UpdateRuntimeConfiguration
     , urcrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -107,9 +107,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateRuntimeConfiguration' smart constructor.
 data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
-    { _urcFleetId              :: !Text
-    , _urcRuntimeConfiguration :: !RuntimeConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urcFleetId              :: {-# NOUNPACK #-}!Text
+  , _urcRuntimeConfiguration :: {-# NOUNPACK #-}!RuntimeConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRuntimeConfiguration' with the minimum fields required to make a request.
 --
@@ -123,10 +124,9 @@ updateRuntimeConfiguration
     -> RuntimeConfiguration -- ^ 'urcRuntimeConfiguration'
     -> UpdateRuntimeConfiguration
 updateRuntimeConfiguration pFleetId_ pRuntimeConfiguration_ =
-    UpdateRuntimeConfiguration'
-    { _urcFleetId = pFleetId_
-    , _urcRuntimeConfiguration = pRuntimeConfiguration_
-    }
+  UpdateRuntimeConfiguration'
+  {_urcFleetId = pFleetId_, _urcRuntimeConfiguration = pRuntimeConfiguration_}
+
 
 -- | Unique identifier for a fleet to update run-time configuration for.
 urcFleetId :: Lens' UpdateRuntimeConfiguration Text
@@ -147,9 +147,9 @@ instance AWSRequest UpdateRuntimeConfiguration where
                    (x .?> "RuntimeConfiguration") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateRuntimeConfiguration
+instance Hashable UpdateRuntimeConfiguration where
 
-instance NFData UpdateRuntimeConfiguration
+instance NFData UpdateRuntimeConfiguration where
 
 instance ToHeaders UpdateRuntimeConfiguration where
         toHeaders
@@ -182,9 +182,10 @@ instance ToQuery UpdateRuntimeConfiguration where
 --
 -- /See:/ 'updateRuntimeConfigurationResponse' smart constructor.
 data UpdateRuntimeConfigurationResponse = UpdateRuntimeConfigurationResponse'
-    { _urcrsRuntimeConfiguration :: !(Maybe RuntimeConfiguration)
-    , _urcrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urcrsRuntimeConfiguration :: {-# NOUNPACK #-}!(Maybe RuntimeConfiguration)
+  , _urcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRuntimeConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -197,10 +198,11 @@ updateRuntimeConfigurationResponse
     :: Int -- ^ 'urcrsResponseStatus'
     -> UpdateRuntimeConfigurationResponse
 updateRuntimeConfigurationResponse pResponseStatus_ =
-    UpdateRuntimeConfigurationResponse'
-    { _urcrsRuntimeConfiguration = Nothing
-    , _urcrsResponseStatus = pResponseStatus_
-    }
+  UpdateRuntimeConfigurationResponse'
+  { _urcrsRuntimeConfiguration = Nothing
+  , _urcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The run-time configuration currently in force. If the update was successful, this object matches the one in the request.
 urcrsRuntimeConfiguration :: Lens' UpdateRuntimeConfigurationResponse (Maybe RuntimeConfiguration)
@@ -211,3 +213,4 @@ urcrsResponseStatus :: Lens' UpdateRuntimeConfigurationResponse Int
 urcrsResponseStatus = lens _urcrsResponseStatus (\ s a -> s{_urcrsResponseStatus = a});
 
 instance NFData UpdateRuntimeConfigurationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListPortfolioAccess
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.ServiceCatalog.ListPortfolioAccess
     , lparsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listPortfolioAccess' smart constructor.
 data ListPortfolioAccess = ListPortfolioAccess'
-    { _lAcceptLanguage :: !(Maybe Text)
-    , _lPortfolioId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lPortfolioId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPortfolioAccess' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ listPortfolioAccess
     :: Text -- ^ 'lPortfolioId'
     -> ListPortfolioAccess
 listPortfolioAccess pPortfolioId_ =
-    ListPortfolioAccess'
-    { _lAcceptLanguage = Nothing
-    , _lPortfolioId = pPortfolioId_
-    }
+  ListPortfolioAccess'
+  {_lAcceptLanguage = Nothing, _lPortfolioId = pPortfolioId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 lAcceptLanguage :: Lens' ListPortfolioAccess (Maybe Text)
@@ -88,9 +88,9 @@ instance AWSRequest ListPortfolioAccess where
                      (x .?> "AccountIds" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPortfolioAccess
+instance Hashable ListPortfolioAccess where
 
-instance NFData ListPortfolioAccess
+instance NFData ListPortfolioAccess where
 
 instance ToHeaders ListPortfolioAccess where
         toHeaders
@@ -117,10 +117,11 @@ instance ToQuery ListPortfolioAccess where
 
 -- | /See:/ 'listPortfolioAccessResponse' smart constructor.
 data ListPortfolioAccessResponse = ListPortfolioAccessResponse'
-    { _lparsNextPageToken  :: !(Maybe Text)
-    , _lparsAccountIds     :: !(Maybe [Text])
-    , _lparsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lparsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lparsAccountIds     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lparsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPortfolioAccessResponse' with the minimum fields required to make a request.
 --
@@ -135,11 +136,12 @@ listPortfolioAccessResponse
     :: Int -- ^ 'lparsResponseStatus'
     -> ListPortfolioAccessResponse
 listPortfolioAccessResponse pResponseStatus_ =
-    ListPortfolioAccessResponse'
-    { _lparsNextPageToken = Nothing
-    , _lparsAccountIds = Nothing
-    , _lparsResponseStatus = pResponseStatus_
-    }
+  ListPortfolioAccessResponse'
+  { _lparsNextPageToken = Nothing
+  , _lparsAccountIds = Nothing
+  , _lparsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 lparsNextPageToken :: Lens' ListPortfolioAccessResponse (Maybe Text)
@@ -153,4 +155,4 @@ lparsAccountIds = lens _lparsAccountIds (\ s a -> s{_lparsAccountIds = a}) . _De
 lparsResponseStatus :: Lens' ListPortfolioAccessResponse Int
 lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a});
 
-instance NFData ListPortfolioAccessResponse
+instance NFData ListPortfolioAccessResponse where

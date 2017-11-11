@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.AssociateRoleToGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Greengrass.AssociateRoleToGroup
     , artgrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateRoleToGroup' smart constructor.
 data AssociateRoleToGroup = AssociateRoleToGroup'
-    { _artgRoleARN :: !(Maybe Text)
-    , _artgGroupId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _artgRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _artgGroupId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateRoleToGroup' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ associateRoleToGroup
     :: Text -- ^ 'artgGroupId'
     -> AssociateRoleToGroup
 associateRoleToGroup pGroupId_ =
-    AssociateRoleToGroup'
-    { _artgRoleARN = Nothing
-    , _artgGroupId = pGroupId_
-    }
+  AssociateRoleToGroup' {_artgRoleARN = Nothing, _artgGroupId = pGroupId_}
+
 
 -- | Role arn you wish to associate with this group.
 artgRoleARN :: Lens' AssociateRoleToGroup (Maybe Text)
@@ -83,9 +82,9 @@ instance AWSRequest AssociateRoleToGroup where
                  AssociateRoleToGroupResponse' <$>
                    (x .?> "AssociatedAt") <*> (pure (fromEnum s)))
 
-instance Hashable AssociateRoleToGroup
+instance Hashable AssociateRoleToGroup where
 
-instance NFData AssociateRoleToGroup
+instance NFData AssociateRoleToGroup where
 
 instance ToHeaders AssociateRoleToGroup where
         toHeaders
@@ -109,9 +108,10 @@ instance ToQuery AssociateRoleToGroup where
 
 -- | /See:/ 'associateRoleToGroupResponse' smart constructor.
 data AssociateRoleToGroupResponse = AssociateRoleToGroupResponse'
-    { _artgrsAssociatedAt   :: !(Maybe Text)
-    , _artgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _artgrsAssociatedAt   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _artgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateRoleToGroupResponse' with the minimum fields required to make a request.
 --
@@ -124,10 +124,9 @@ associateRoleToGroupResponse
     :: Int -- ^ 'artgrsResponseStatus'
     -> AssociateRoleToGroupResponse
 associateRoleToGroupResponse pResponseStatus_ =
-    AssociateRoleToGroupResponse'
-    { _artgrsAssociatedAt = Nothing
-    , _artgrsResponseStatus = pResponseStatus_
-    }
+  AssociateRoleToGroupResponse'
+  {_artgrsAssociatedAt = Nothing, _artgrsResponseStatus = pResponseStatus_}
+
 
 -- | Time the role arn was associated to your group.
 artgrsAssociatedAt :: Lens' AssociateRoleToGroupResponse (Maybe Text)
@@ -137,4 +136,4 @@ artgrsAssociatedAt = lens _artgrsAssociatedAt (\ s a -> s{_artgrsAssociatedAt = 
 artgrsResponseStatus :: Lens' AssociateRoleToGroupResponse Int
 artgrsResponseStatus = lens _artgrsResponseStatus (\ s a -> s{_artgrsResponseStatus = a});
 
-instance NFData AssociateRoleToGroupResponse
+instance NFData AssociateRoleToGroupResponse where

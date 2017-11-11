@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteResourceServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.CognitoIdentityProvider.DeleteResourceServer
     , DeleteResourceServerResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteResourceServer' smart constructor.
 data DeleteResourceServer = DeleteResourceServer'
-    { _drsUserPoolId :: !Text
-    , _drsIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsUserPoolId :: {-# NOUNPACK #-}!Text
+  , _drsIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteResourceServer' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ deleteResourceServer
     -> Text -- ^ 'drsIdentifier'
     -> DeleteResourceServer
 deleteResourceServer pUserPoolId_ pIdentifier_ =
-    DeleteResourceServer'
-    { _drsUserPoolId = pUserPoolId_
-    , _drsIdentifier = pIdentifier_
-    }
+  DeleteResourceServer'
+  {_drsUserPoolId = pUserPoolId_, _drsIdentifier = pIdentifier_}
+
 
 -- | The user pool ID for the user pool that hosts the resource server.
 drsUserPoolId :: Lens' DeleteResourceServer Text
@@ -79,9 +79,9 @@ instance AWSRequest DeleteResourceServer where
         request = postJSON cognitoIdentityProvider
         response = receiveNull DeleteResourceServerResponse'
 
-instance Hashable DeleteResourceServer
+instance Hashable DeleteResourceServer where
 
-instance NFData DeleteResourceServer
+instance NFData DeleteResourceServer where
 
 instance ToHeaders DeleteResourceServer where
         toHeaders
@@ -108,8 +108,9 @@ instance ToQuery DeleteResourceServer where
 
 -- | /See:/ 'deleteResourceServerResponse' smart constructor.
 data DeleteResourceServerResponse =
-    DeleteResourceServerResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteResourceServerResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteResourceServerResponse' with the minimum fields required to make a request.
 --
@@ -117,4 +118,5 @@ deleteResourceServerResponse
     :: DeleteResourceServerResponse
 deleteResourceServerResponse = DeleteResourceServerResponse'
 
-instance NFData DeleteResourceServerResponse
+
+instance NFData DeleteResourceServerResponse where

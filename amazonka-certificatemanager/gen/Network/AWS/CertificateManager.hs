@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -169,18 +169,18 @@ module Network.AWS.CertificateManager
     , tagKey
     ) where
 
-import           Network.AWS.CertificateManager.AddTagsToCertificate
-import           Network.AWS.CertificateManager.DeleteCertificate
-import           Network.AWS.CertificateManager.DescribeCertificate
-import           Network.AWS.CertificateManager.GetCertificate
-import           Network.AWS.CertificateManager.ImportCertificate
-import           Network.AWS.CertificateManager.ListCertificates
-import           Network.AWS.CertificateManager.ListTagsForCertificate
-import           Network.AWS.CertificateManager.RemoveTagsFromCertificate
-import           Network.AWS.CertificateManager.RequestCertificate
-import           Network.AWS.CertificateManager.ResendValidationEmail
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Waiters
+import Network.AWS.CertificateManager.AddTagsToCertificate
+import Network.AWS.CertificateManager.DeleteCertificate
+import Network.AWS.CertificateManager.DescribeCertificate
+import Network.AWS.CertificateManager.GetCertificate
+import Network.AWS.CertificateManager.ImportCertificate
+import Network.AWS.CertificateManager.ListCertificates
+import Network.AWS.CertificateManager.ListTagsForCertificate
+import Network.AWS.CertificateManager.RemoveTagsFromCertificate
+import Network.AWS.CertificateManager.RequestCertificate
+import Network.AWS.CertificateManager.ResendValidationEmail
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

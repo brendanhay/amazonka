@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetDomainSuggestions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.Route53Domains.GetDomainSuggestions
     , gdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | /See:/ 'getDomainSuggestions' smart constructor.
 data GetDomainSuggestions = GetDomainSuggestions'
-    { _gdsDomainName      :: !Text
-    , _gdsSuggestionCount :: !Int
-    , _gdsOnlyAvailable   :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsDomainName      :: {-# NOUNPACK #-}!Text
+  , _gdsSuggestionCount :: {-# NOUNPACK #-}!Int
+  , _gdsOnlyAvailable   :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainSuggestions' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ getDomainSuggestions
     -> Bool -- ^ 'gdsOnlyAvailable'
     -> GetDomainSuggestions
 getDomainSuggestions pDomainName_ pSuggestionCount_ pOnlyAvailable_ =
-    GetDomainSuggestions'
-    { _gdsDomainName = pDomainName_
-    , _gdsSuggestionCount = pSuggestionCount_
-    , _gdsOnlyAvailable = pOnlyAvailable_
-    }
+  GetDomainSuggestions'
+  { _gdsDomainName = pDomainName_
+  , _gdsSuggestionCount = pSuggestionCount_
+  , _gdsOnlyAvailable = pOnlyAvailable_
+  }
+
 
 -- | A domain name that you want to use as the basis for a list of possible domain names. The domain name must contain a top-level domain (TLD), such as .com, that Amazon Route 53 supports. For a list of TLDs, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 gdsDomainName :: Lens' GetDomainSuggestions Text
@@ -97,9 +99,9 @@ instance AWSRequest GetDomainSuggestions where
                    (x .?> "SuggestionsList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetDomainSuggestions
+instance Hashable GetDomainSuggestions where
 
-instance NFData GetDomainSuggestions
+instance NFData GetDomainSuggestions where
 
 instance ToHeaders GetDomainSuggestions where
         toHeaders
@@ -127,9 +129,10 @@ instance ToQuery GetDomainSuggestions where
 
 -- | /See:/ 'getDomainSuggestionsResponse' smart constructor.
 data GetDomainSuggestionsResponse = GetDomainSuggestionsResponse'
-    { _gdsrsSuggestionsList :: !(Maybe [DomainSuggestion])
-    , _gdsrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsrsSuggestionsList :: {-# NOUNPACK #-}!(Maybe [DomainSuggestion])
+  , _gdsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainSuggestionsResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,9 @@ getDomainSuggestionsResponse
     :: Int -- ^ 'gdsrsResponseStatus'
     -> GetDomainSuggestionsResponse
 getDomainSuggestionsResponse pResponseStatus_ =
-    GetDomainSuggestionsResponse'
-    { _gdsrsSuggestionsList = Nothing
-    , _gdsrsResponseStatus = pResponseStatus_
-    }
+  GetDomainSuggestionsResponse'
+  {_gdsrsSuggestionsList = Nothing, _gdsrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of possible domain names. If you specified @true@ for @OnlyAvailable@ in the request, the list contains only domains that are available for registration.
 gdsrsSuggestionsList :: Lens' GetDomainSuggestionsResponse [DomainSuggestion]
@@ -155,4 +157,4 @@ gdsrsSuggestionsList = lens _gdsrsSuggestionsList (\ s a -> s{_gdsrsSuggestionsL
 gdsrsResponseStatus :: Lens' GetDomainSuggestionsResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
 
-instance NFData GetDomainSuggestionsResponse
+instance NFData GetDomainSuggestionsResponse where

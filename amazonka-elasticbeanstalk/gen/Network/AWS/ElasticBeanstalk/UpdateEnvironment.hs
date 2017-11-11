@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateEnvironment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -70,12 +70,12 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , eDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to update an environment.
 --
@@ -83,19 +83,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-    { _ueTemplateName      :: !(Maybe Text)
-    , _ueOptionsToRemove   :: !(Maybe [OptionSpecification])
-    , _ueOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _ueVersionLabel      :: !(Maybe Text)
-    , _uePlatformARN       :: !(Maybe Text)
-    , _ueTier              :: !(Maybe EnvironmentTier)
-    , _ueEnvironmentName   :: !(Maybe Text)
-    , _ueApplicationName   :: !(Maybe Text)
-    , _ueSolutionStackName :: !(Maybe Text)
-    , _ueEnvironmentId     :: !(Maybe Text)
-    , _ueGroupName         :: !(Maybe Text)
-    , _ueDescription       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ueTemplateName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ueOptionsToRemove :: {-# NOUNPACK #-}!(Maybe [OptionSpecification])
+  , _ueOptionSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
+  , _ueVersionLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uePlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ueTier :: {-# NOUNPACK #-}!(Maybe EnvironmentTier)
+  , _ueEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ueApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ueSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ueEnvironmentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ueGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ueDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEnvironment' with the minimum fields required to make a request.
 --
@@ -127,20 +128,21 @@ data UpdateEnvironment = UpdateEnvironment'
 updateEnvironment
     :: UpdateEnvironment
 updateEnvironment =
-    UpdateEnvironment'
-    { _ueTemplateName = Nothing
-    , _ueOptionsToRemove = Nothing
-    , _ueOptionSettings = Nothing
-    , _ueVersionLabel = Nothing
-    , _uePlatformARN = Nothing
-    , _ueTier = Nothing
-    , _ueEnvironmentName = Nothing
-    , _ueApplicationName = Nothing
-    , _ueSolutionStackName = Nothing
-    , _ueEnvironmentId = Nothing
-    , _ueGroupName = Nothing
-    , _ueDescription = Nothing
-    }
+  UpdateEnvironment'
+  { _ueTemplateName = Nothing
+  , _ueOptionsToRemove = Nothing
+  , _ueOptionSettings = Nothing
+  , _ueVersionLabel = Nothing
+  , _uePlatformARN = Nothing
+  , _ueTier = Nothing
+  , _ueEnvironmentName = Nothing
+  , _ueApplicationName = Nothing
+  , _ueSolutionStackName = Nothing
+  , _ueEnvironmentId = Nothing
+  , _ueGroupName = Nothing
+  , _ueDescription = Nothing
+  }
+
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 ueTemplateName :: Lens' UpdateEnvironment (Maybe Text)
@@ -197,9 +199,9 @@ instance AWSRequest UpdateEnvironment where
           = receiveXMLWrapper "UpdateEnvironmentResult"
               (\ s h x -> parseXML x)
 
-instance Hashable UpdateEnvironment
+instance Hashable UpdateEnvironment where
 
-instance NFData UpdateEnvironment
+instance NFData UpdateEnvironment where
 
 instance ToHeaders UpdateEnvironment where
         toHeaders = const mempty

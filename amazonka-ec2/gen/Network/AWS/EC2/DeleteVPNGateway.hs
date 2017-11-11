@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPNGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DeleteVPNGateway
     , DeleteVPNGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpnGateway.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteVPNGateway' smart constructor.
 data DeleteVPNGateway = DeleteVPNGateway'
-    { _dvgDryRun       :: !(Maybe Bool)
-    , _dvgVPNGatewayId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvgDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvgVPNGatewayId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPNGateway' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ deleteVPNGateway
     :: Text -- ^ 'dvgVPNGatewayId'
     -> DeleteVPNGateway
 deleteVPNGateway pVPNGatewayId_ =
-    DeleteVPNGateway'
-    { _dvgDryRun = Nothing
-    , _dvgVPNGatewayId = pVPNGatewayId_
-    }
+  DeleteVPNGateway' {_dvgDryRun = Nothing, _dvgVPNGatewayId = pVPNGatewayId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvgDryRun :: Lens' DeleteVPNGateway (Maybe Bool)
@@ -81,9 +80,9 @@ instance AWSRequest DeleteVPNGateway where
         request = postQuery ec2
         response = receiveNull DeleteVPNGatewayResponse'
 
-instance Hashable DeleteVPNGateway
+instance Hashable DeleteVPNGateway where
 
-instance NFData DeleteVPNGateway
+instance NFData DeleteVPNGateway where
 
 instance ToHeaders DeleteVPNGateway where
         toHeaders = const mempty
@@ -101,8 +100,9 @@ instance ToQuery DeleteVPNGateway where
 
 -- | /See:/ 'deleteVPNGatewayResponse' smart constructor.
 data DeleteVPNGatewayResponse =
-    DeleteVPNGatewayResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteVPNGatewayResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPNGatewayResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +110,5 @@ deleteVPNGatewayResponse
     :: DeleteVPNGatewayResponse
 deleteVPNGatewayResponse = DeleteVPNGatewayResponse'
 
-instance NFData DeleteVPNGatewayResponse
+
+instance NFData DeleteVPNGatewayResponse where

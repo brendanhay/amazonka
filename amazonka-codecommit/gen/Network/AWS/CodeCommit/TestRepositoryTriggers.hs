@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.TestRepositoryTriggers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CodeCommit.TestRepositoryTriggers
     , trtrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a test repository triggers operation.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'testRepositoryTriggers' smart constructor.
 data TestRepositoryTriggers = TestRepositoryTriggers'
-    { _trtRepositoryName :: !Text
-    , _trtTriggers       :: ![RepositoryTrigger]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trtRepositoryName :: {-# NOUNPACK #-}!Text
+  , _trtTriggers       :: {-# NOUNPACK #-}![RepositoryTrigger]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestRepositoryTriggers' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ testRepositoryTriggers
     :: Text -- ^ 'trtRepositoryName'
     -> TestRepositoryTriggers
 testRepositoryTriggers pRepositoryName_ =
-    TestRepositoryTriggers'
-    { _trtRepositoryName = pRepositoryName_
-    , _trtTriggers = mempty
-    }
+  TestRepositoryTriggers'
+  {_trtRepositoryName = pRepositoryName_, _trtTriggers = mempty}
+
 
 -- | The name of the repository in which to test the triggers.
 trtRepositoryName :: Lens' TestRepositoryTriggers Text
@@ -92,9 +92,9 @@ instance AWSRequest TestRepositoryTriggers where
                      (x .?> "successfulExecutions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable TestRepositoryTriggers
+instance Hashable TestRepositoryTriggers where
 
-instance NFData TestRepositoryTriggers
+instance NFData TestRepositoryTriggers where
 
 instance ToHeaders TestRepositoryTriggers where
         toHeaders
@@ -125,10 +125,11 @@ instance ToQuery TestRepositoryTriggers where
 --
 -- /See:/ 'testRepositoryTriggersResponse' smart constructor.
 data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
-    { _trtrsFailedExecutions     :: !(Maybe [RepositoryTriggerExecutionFailure])
-    , _trtrsSuccessfulExecutions :: !(Maybe [Text])
-    , _trtrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trtrsFailedExecutions :: {-# NOUNPACK #-}!(Maybe [RepositoryTriggerExecutionFailure])
+  , _trtrsSuccessfulExecutions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _trtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestRepositoryTriggersResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +144,12 @@ testRepositoryTriggersResponse
     :: Int -- ^ 'trtrsResponseStatus'
     -> TestRepositoryTriggersResponse
 testRepositoryTriggersResponse pResponseStatus_ =
-    TestRepositoryTriggersResponse'
-    { _trtrsFailedExecutions = Nothing
-    , _trtrsSuccessfulExecutions = Nothing
-    , _trtrsResponseStatus = pResponseStatus_
-    }
+  TestRepositoryTriggersResponse'
+  { _trtrsFailedExecutions = Nothing
+  , _trtrsSuccessfulExecutions = Nothing
+  , _trtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of triggers that were not able to be tested. This list provides the names of the triggers that could not be tested, separated by commas.
 trtrsFailedExecutions :: Lens' TestRepositoryTriggersResponse [RepositoryTriggerExecutionFailure]
@@ -161,4 +163,4 @@ trtrsSuccessfulExecutions = lens _trtrsSuccessfulExecutions (\ s a -> s{_trtrsSu
 trtrsResponseStatus :: Lens' TestRepositoryTriggersResponse Int
 trtrsResponseStatus = lens _trtrsResponseStatus (\ s a -> s{_trtrsResponseStatus = a});
 
-instance NFData TestRepositoryTriggersResponse
+instance NFData TestRepositoryTriggersResponse where

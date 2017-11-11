@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -64,12 +64,12 @@ module Network.AWS.EC2.AttachVolume
     , volAttachTime
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachVolume.
 --
@@ -77,11 +77,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'attachVolume' smart constructor.
 data AttachVolume = AttachVolume'
-    { _avDryRun     :: !(Maybe Bool)
-    , _avDevice     :: !Text
-    , _avInstanceId :: !Text
-    , _avVolumeId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _avDevice     :: {-# NOUNPACK #-}!Text
+  , _avInstanceId :: {-# NOUNPACK #-}!Text
+  , _avVolumeId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachVolume' with the minimum fields required to make a request.
 --
@@ -100,12 +101,13 @@ attachVolume
     -> Text -- ^ 'avVolumeId'
     -> AttachVolume
 attachVolume pDevice_ pInstanceId_ pVolumeId_ =
-    AttachVolume'
-    { _avDryRun = Nothing
-    , _avDevice = pDevice_
-    , _avInstanceId = pInstanceId_
-    , _avVolumeId = pVolumeId_
-    }
+  AttachVolume'
+  { _avDryRun = Nothing
+  , _avDevice = pDevice_
+  , _avInstanceId = pInstanceId_
+  , _avVolumeId = pVolumeId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avDryRun :: Lens' AttachVolume (Maybe Bool)
@@ -128,9 +130,9 @@ instance AWSRequest AttachVolume where
         request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
-instance Hashable AttachVolume
+instance Hashable AttachVolume where
 
-instance NFData AttachVolume
+instance NFData AttachVolume where
 
 instance ToHeaders AttachVolume where
         toHeaders = const mempty

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.Redshift.DescribeClusterVersions
     , dcvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeClusterVersions' smart constructor.
 data DescribeClusterVersions = DescribeClusterVersions'
-    { _dcvClusterParameterGroupFamily :: !(Maybe Text)
-    , _dcvMarker                      :: !(Maybe Text)
-    , _dcvMaxRecords                  :: !(Maybe Int)
-    , _dcvClusterVersion              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcvClusterParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcvMarker                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcvMaxRecords                  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcvClusterVersion              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterVersions' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data DescribeClusterVersions = DescribeClusterVersions'
 describeClusterVersions
     :: DescribeClusterVersions
 describeClusterVersions =
-    DescribeClusterVersions'
-    { _dcvClusterParameterGroupFamily = Nothing
-    , _dcvMarker = Nothing
-    , _dcvMaxRecords = Nothing
-    , _dcvClusterVersion = Nothing
-    }
+  DescribeClusterVersions'
+  { _dcvClusterParameterGroupFamily = Nothing
+  , _dcvMarker = Nothing
+  , _dcvMaxRecords = Nothing
+  , _dcvClusterVersion = Nothing
+  }
+
 
 -- | The name of a specific cluster parameter group family to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 dcvClusterParameterGroupFamily :: Lens' DescribeClusterVersions (Maybe Text)
@@ -120,9 +122,9 @@ instance AWSRequest DescribeClusterVersions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeClusterVersions
+instance Hashable DescribeClusterVersions where
 
-instance NFData DescribeClusterVersions
+instance NFData DescribeClusterVersions where
 
 instance ToHeaders DescribeClusterVersions where
         toHeaders = const mempty
@@ -148,10 +150,11 @@ instance ToQuery DescribeClusterVersions where
 --
 -- /See:/ 'describeClusterVersionsResponse' smart constructor.
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
-    { _dcvrsClusterVersions :: !(Maybe [ClusterVersion])
-    , _dcvrsMarker          :: !(Maybe Text)
-    , _dcvrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcvrsClusterVersions :: {-# NOUNPACK #-}!(Maybe [ClusterVersion])
+  , _dcvrsMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterVersionsResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ describeClusterVersionsResponse
     :: Int -- ^ 'dcvrsResponseStatus'
     -> DescribeClusterVersionsResponse
 describeClusterVersionsResponse pResponseStatus_ =
-    DescribeClusterVersionsResponse'
-    { _dcvrsClusterVersions = Nothing
-    , _dcvrsMarker = Nothing
-    , _dcvrsResponseStatus = pResponseStatus_
-    }
+  DescribeClusterVersionsResponse'
+  { _dcvrsClusterVersions = Nothing
+  , _dcvrsMarker = Nothing
+  , _dcvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of @Version@ elements.
 dcvrsClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
@@ -184,4 +188,4 @@ dcvrsMarker = lens _dcvrsMarker (\ s a -> s{_dcvrsMarker = a});
 dcvrsResponseStatus :: Lens' DescribeClusterVersionsResponse Int
 dcvrsResponseStatus = lens _dcvrsResponseStatus (\ s a -> s{_dcvrsResponseStatus = a});
 
-instance NFData DescribeClusterVersionsResponse
+instance NFData DescribeClusterVersionsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.TerminateJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Batch.TerminateJob
     , tjrsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'terminateJob' smart constructor.
 data TerminateJob = TerminateJob'
-    { _tjJobId  :: !Text
-    , _tjReason :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tjJobId  :: {-# NOUNPACK #-}!Text
+  , _tjReason :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateJob' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ terminateJob
     -> Text -- ^ 'tjReason'
     -> TerminateJob
 terminateJob pJobId_ pReason_ =
-    TerminateJob'
-    { _tjJobId = pJobId_
-    , _tjReason = pReason_
-    }
+  TerminateJob' {_tjJobId = pJobId_, _tjReason = pReason_}
+
 
 -- | Job IDs to be terminated. Up to 100 jobs can be specified.
 tjJobId :: Lens' TerminateJob Text
@@ -83,9 +82,9 @@ instance AWSRequest TerminateJob where
               (\ s h x ->
                  TerminateJobResponse' <$> (pure (fromEnum s)))
 
-instance Hashable TerminateJob
+instance Hashable TerminateJob where
 
-instance NFData TerminateJob
+instance NFData TerminateJob where
 
 instance ToHeaders TerminateJob where
         toHeaders
@@ -109,8 +108,9 @@ instance ToQuery TerminateJob where
 
 -- | /See:/ 'terminateJobResponse' smart constructor.
 newtype TerminateJobResponse = TerminateJobResponse'
-    { _tjrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tjrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateJobResponse' with the minimum fields required to make a request.
 --
@@ -121,12 +121,11 @@ terminateJobResponse
     :: Int -- ^ 'tjrsResponseStatus'
     -> TerminateJobResponse
 terminateJobResponse pResponseStatus_ =
-    TerminateJobResponse'
-    { _tjrsResponseStatus = pResponseStatus_
-    }
+  TerminateJobResponse' {_tjrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 tjrsResponseStatus :: Lens' TerminateJobResponse Int
 tjrsResponseStatus = lens _tjrsResponseStatus (\ s a -> s{_tjrsResponseStatus = a});
 
-instance NFData TerminateJobResponse
+instance NFData TerminateJobResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.PurchaseReservedInstancesOffering
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , priorsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PurchaseReservedInstancesOffering.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'purchaseReservedInstancesOffering' smart constructor.
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
-    { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
-    , _prioDryRun                      :: !(Maybe Bool)
-    , _prioInstanceCount               :: !Int
-    , _prioReservedInstancesOfferingId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prioLimitPrice :: {-# NOUNPACK #-}!(Maybe ReservedInstanceLimitPrice)
+  , _prioDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _prioInstanceCount :: {-# NOUNPACK #-}!Int
+  , _prioReservedInstancesOfferingId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedInstancesOffering' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ purchaseReservedInstancesOffering
     -> Text -- ^ 'prioReservedInstancesOfferingId'
     -> PurchaseReservedInstancesOffering
 purchaseReservedInstancesOffering pInstanceCount_ pReservedInstancesOfferingId_ =
-    PurchaseReservedInstancesOffering'
-    { _prioLimitPrice = Nothing
-    , _prioDryRun = Nothing
-    , _prioInstanceCount = pInstanceCount_
-    , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
-    }
+  PurchaseReservedInstancesOffering'
+  { _prioLimitPrice = Nothing
+  , _prioDryRun = Nothing
+  , _prioInstanceCount = pInstanceCount_
+  , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
+  }
+
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
@@ -115,8 +117,10 @@ instance AWSRequest PurchaseReservedInstancesOffering
                      (pure (fromEnum s)))
 
 instance Hashable PurchaseReservedInstancesOffering
+         where
 
 instance NFData PurchaseReservedInstancesOffering
+         where
 
 instance ToHeaders PurchaseReservedInstancesOffering
          where
@@ -145,9 +149,10 @@ instance ToQuery PurchaseReservedInstancesOffering
 --
 -- /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
-    { _priorsReservedInstancesId :: !(Maybe Text)
-    , _priorsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _priorsReservedInstancesId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _priorsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurchaseReservedInstancesOfferingResponse' with the minimum fields required to make a request.
 --
@@ -160,10 +165,11 @@ purchaseReservedInstancesOfferingResponse
     :: Int -- ^ 'priorsResponseStatus'
     -> PurchaseReservedInstancesOfferingResponse
 purchaseReservedInstancesOfferingResponse pResponseStatus_ =
-    PurchaseReservedInstancesOfferingResponse'
-    { _priorsReservedInstancesId = Nothing
-    , _priorsResponseStatus = pResponseStatus_
-    }
+  PurchaseReservedInstancesOfferingResponse'
+  { _priorsReservedInstancesId = Nothing
+  , _priorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The IDs of the purchased Reserved Instances.
 priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
@@ -174,4 +180,5 @@ priorsResponseStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
 priorsResponseStatus = lens _priorsResponseStatus (\ s a -> s{_priorsResponseStatus = a});
 
 instance NFData
-         PurchaseReservedInstancesOfferingResponse
+           PurchaseReservedInstancesOfferingResponse
+         where

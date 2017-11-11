@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
     , UpdateOpenIdConnectProviderThumbprintResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateOpenIdConnectProviderThumbprint' smart constructor.
 data UpdateOpenIdConnectProviderThumbprint = UpdateOpenIdConnectProviderThumbprint'
-    { _uoicptOpenIdConnectProviderARN :: !Text
-    , _uoicptThumbprintList           :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uoicptOpenIdConnectProviderARN :: {-# NOUNPACK #-}!Text
+  , _uoicptThumbprintList           :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateOpenIdConnectProviderThumbprint' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ updateOpenIdConnectProviderThumbprint
     :: Text -- ^ 'uoicptOpenIdConnectProviderARN'
     -> UpdateOpenIdConnectProviderThumbprint
 updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN_ =
-    UpdateOpenIdConnectProviderThumbprint'
-    { _uoicptOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
-    , _uoicptThumbprintList = mempty
-    }
+  UpdateOpenIdConnectProviderThumbprint'
+  { _uoicptOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+  , _uoicptThumbprintList = mempty
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' action. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 uoicptOpenIdConnectProviderARN :: Lens' UpdateOpenIdConnectProviderThumbprint Text
@@ -77,7 +79,8 @@ uoicptThumbprintList :: Lens' UpdateOpenIdConnectProviderThumbprint [Text]
 uoicptThumbprintList = lens _uoicptThumbprintList (\ s a -> s{_uoicptThumbprintList = a}) . _Coerce;
 
 instance AWSRequest
-         UpdateOpenIdConnectProviderThumbprint where
+           UpdateOpenIdConnectProviderThumbprint
+         where
         type Rs UpdateOpenIdConnectProviderThumbprint =
              UpdateOpenIdConnectProviderThumbprintResponse
         request = postQuery iam
@@ -86,12 +89,15 @@ instance AWSRequest
               UpdateOpenIdConnectProviderThumbprintResponse'
 
 instance Hashable
-         UpdateOpenIdConnectProviderThumbprint
+           UpdateOpenIdConnectProviderThumbprint
+         where
 
 instance NFData UpdateOpenIdConnectProviderThumbprint
+         where
 
 instance ToHeaders
-         UpdateOpenIdConnectProviderThumbprint where
+           UpdateOpenIdConnectProviderThumbprint
+         where
         toHeaders = const mempty
 
 instance ToPath UpdateOpenIdConnectProviderThumbprint
@@ -99,7 +105,8 @@ instance ToPath UpdateOpenIdConnectProviderThumbprint
         toPath = const "/"
 
 instance ToQuery
-         UpdateOpenIdConnectProviderThumbprint where
+           UpdateOpenIdConnectProviderThumbprint
+         where
         toQuery UpdateOpenIdConnectProviderThumbprint'{..}
           = mconcat
               ["Action" =:
@@ -113,15 +120,18 @@ instance ToQuery
 
 -- | /See:/ 'updateOpenIdConnectProviderThumbprintResponse' smart constructor.
 data UpdateOpenIdConnectProviderThumbprintResponse =
-    UpdateOpenIdConnectProviderThumbprintResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateOpenIdConnectProviderThumbprintResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateOpenIdConnectProviderThumbprintResponse' with the minimum fields required to make a request.
 --
 updateOpenIdConnectProviderThumbprintResponse
     :: UpdateOpenIdConnectProviderThumbprintResponse
 updateOpenIdConnectProviderThumbprintResponse =
-    UpdateOpenIdConnectProviderThumbprintResponse'
+  UpdateOpenIdConnectProviderThumbprintResponse'
+
 
 instance NFData
-         UpdateOpenIdConnectProviderThumbprintResponse
+           UpdateOpenIdConnectProviderThumbprintResponse
+         where

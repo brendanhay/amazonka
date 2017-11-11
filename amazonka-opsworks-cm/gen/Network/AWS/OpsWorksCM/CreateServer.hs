@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.CreateServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,33 +61,34 @@ module Network.AWS.OpsWorksCM.CreateServer
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createServer' smart constructor.
 data CreateServer = CreateServer'
-    { _csEngineVersion              :: !(Maybe Text)
-    , _csDisableAutomatedBackup     :: !(Maybe Bool)
-    , _csSecurityGroupIds           :: !(Maybe [Text])
-    , _csAssociatePublicIPAddress   :: !(Maybe Bool)
-    , _csSubnetIds                  :: !(Maybe [Text])
-    , _csKeyPair                    :: !(Maybe Text)
-    , _csBackupId                   :: !(Maybe Text)
-    , _csEngine                     :: !(Maybe Text)
-    , _csEngineModel                :: !(Maybe Text)
-    , _csEngineAttributes           :: !(Maybe [EngineAttribute])
-    , _csPreferredMaintenanceWindow :: !(Maybe Text)
-    , _csPreferredBackupWindow      :: !(Maybe Text)
-    , _csBackupRetentionCount       :: !(Maybe Nat)
-    , _csServerName                 :: !Text
-    , _csInstanceProfileARN         :: !Text
-    , _csInstanceType               :: !Text
-    , _csServiceRoleARN             :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _csEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csDisableAutomatedBackup     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _csAssociatePublicIPAddress   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csSubnetIds                  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _csKeyPair                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csBackupId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csEngine                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csEngineModel                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csEngineAttributes           :: {-# NOUNPACK #-}!(Maybe [EngineAttribute])
+  , _csPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csPreferredBackupWindow      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csBackupRetentionCount       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _csServerName                 :: {-# NOUNPACK #-}!Text
+  , _csInstanceProfileARN         :: {-# NOUNPACK #-}!Text
+  , _csInstanceType               :: {-# NOUNPACK #-}!Text
+  , _csServiceRoleARN             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateServer' with the minimum fields required to make a request.
 --
@@ -133,25 +134,26 @@ createServer
     -> Text -- ^ 'csServiceRoleARN'
     -> CreateServer
 createServer pServerName_ pInstanceProfileARN_ pInstanceType_ pServiceRoleARN_ =
-    CreateServer'
-    { _csEngineVersion = Nothing
-    , _csDisableAutomatedBackup = Nothing
-    , _csSecurityGroupIds = Nothing
-    , _csAssociatePublicIPAddress = Nothing
-    , _csSubnetIds = Nothing
-    , _csKeyPair = Nothing
-    , _csBackupId = Nothing
-    , _csEngine = Nothing
-    , _csEngineModel = Nothing
-    , _csEngineAttributes = Nothing
-    , _csPreferredMaintenanceWindow = Nothing
-    , _csPreferredBackupWindow = Nothing
-    , _csBackupRetentionCount = Nothing
-    , _csServerName = pServerName_
-    , _csInstanceProfileARN = pInstanceProfileARN_
-    , _csInstanceType = pInstanceType_
-    , _csServiceRoleARN = pServiceRoleARN_
-    }
+  CreateServer'
+  { _csEngineVersion = Nothing
+  , _csDisableAutomatedBackup = Nothing
+  , _csSecurityGroupIds = Nothing
+  , _csAssociatePublicIPAddress = Nothing
+  , _csSubnetIds = Nothing
+  , _csKeyPair = Nothing
+  , _csBackupId = Nothing
+  , _csEngine = Nothing
+  , _csEngineModel = Nothing
+  , _csEngineAttributes = Nothing
+  , _csPreferredMaintenanceWindow = Nothing
+  , _csPreferredBackupWindow = Nothing
+  , _csBackupRetentionCount = Nothing
+  , _csServerName = pServerName_
+  , _csInstanceProfileARN = pInstanceProfileARN_
+  , _csInstanceType = pInstanceType_
+  , _csServiceRoleARN = pServiceRoleARN_
+  }
+
 
 -- | The major release version of the engine that you want to use. Values depend on the engine that you choose.
 csEngineVersion :: Lens' CreateServer (Maybe Text)
@@ -230,9 +232,9 @@ instance AWSRequest CreateServer where
                  CreateServerResponse' <$>
                    (x .?> "Server") <*> (pure (fromEnum s)))
 
-instance Hashable CreateServer
+instance Hashable CreateServer where
 
-instance NFData CreateServer
+instance NFData CreateServer where
 
 instance ToHeaders CreateServer where
         toHeaders
@@ -279,9 +281,10 @@ instance ToQuery CreateServer where
 
 -- | /See:/ 'createServerResponse' smart constructor.
 data CreateServerResponse = CreateServerResponse'
-    { _csrsServer         :: !(Maybe Server)
-    , _csrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _csrsServer         :: {-# NOUNPACK #-}!(Maybe Server)
+  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateServerResponse' with the minimum fields required to make a request.
 --
@@ -294,10 +297,9 @@ createServerResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateServerResponse
 createServerResponse pResponseStatus_ =
-    CreateServerResponse'
-    { _csrsServer = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  CreateServerResponse'
+  {_csrsServer = Nothing, _csrsResponseStatus = pResponseStatus_}
+
 
 -- | The server that is created by the request.
 csrsServer :: Lens' CreateServerResponse (Maybe Server)
@@ -307,4 +309,4 @@ csrsServer = lens _csrsServer (\ s a -> s{_csrsServer = a});
 csrsResponseStatus :: Lens' CreateServerResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CreateServerResponse
+instance NFData CreateServerResponse where

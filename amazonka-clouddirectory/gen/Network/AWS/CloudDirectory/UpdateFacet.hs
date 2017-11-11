@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateFacet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,20 +47,21 @@ module Network.AWS.CloudDirectory.UpdateFacet
     , ufrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateFacet' smart constructor.
 data UpdateFacet = UpdateFacet'
-    { _ufObjectType       :: !(Maybe ObjectType)
-    , _ufAttributeUpdates :: !(Maybe [FacetAttributeUpdate])
-    , _ufSchemaARN        :: !Text
-    , _ufName             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufObjectType       :: {-# NOUNPACK #-}!(Maybe ObjectType)
+  , _ufAttributeUpdates :: {-# NOUNPACK #-}!(Maybe [FacetAttributeUpdate])
+  , _ufSchemaARN        :: {-# NOUNPACK #-}!Text
+  , _ufName             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFacet' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ updateFacet
     -> Text -- ^ 'ufName'
     -> UpdateFacet
 updateFacet pSchemaARN_ pName_ =
-    UpdateFacet'
-    { _ufObjectType = Nothing
-    , _ufAttributeUpdates = Nothing
-    , _ufSchemaARN = pSchemaARN_
-    , _ufName = pName_
-    }
+  UpdateFacet'
+  { _ufObjectType = Nothing
+  , _ufAttributeUpdates = Nothing
+  , _ufSchemaARN = pSchemaARN_
+  , _ufName = pName_
+  }
+
 
 -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
 ufObjectType :: Lens' UpdateFacet (Maybe ObjectType)
@@ -109,9 +111,9 @@ instance AWSRequest UpdateFacet where
               (\ s h x ->
                  UpdateFacetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateFacet
+instance Hashable UpdateFacet where
 
-instance NFData UpdateFacet
+instance NFData UpdateFacet where
 
 instance ToHeaders UpdateFacet where
         toHeaders UpdateFacet'{..}
@@ -134,8 +136,9 @@ instance ToQuery UpdateFacet where
 
 -- | /See:/ 'updateFacetResponse' smart constructor.
 newtype UpdateFacetResponse = UpdateFacetResponse'
-    { _ufrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFacetResponse' with the minimum fields required to make a request.
 --
@@ -146,12 +149,11 @@ updateFacetResponse
     :: Int -- ^ 'ufrsResponseStatus'
     -> UpdateFacetResponse
 updateFacetResponse pResponseStatus_ =
-    UpdateFacetResponse'
-    { _ufrsResponseStatus = pResponseStatus_
-    }
+  UpdateFacetResponse' {_ufrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ufrsResponseStatus :: Lens' UpdateFacetResponse Int
 ufrsResponseStatus = lens _ufrsResponseStatus (\ s a -> s{_ufrsResponseStatus = a});
 
-instance NFData UpdateFacetResponse
+instance NFData UpdateFacetResponse where

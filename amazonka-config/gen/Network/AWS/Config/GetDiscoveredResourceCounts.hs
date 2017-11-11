@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetDiscoveredResourceCounts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,19 +61,20 @@ module Network.AWS.Config.GetDiscoveredResourceCounts
     , gdrcrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDiscoveredResourceCounts' smart constructor.
 data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
-    { _gdrcNextToken     :: !(Maybe Text)
-    , _gdrcLimit         :: !(Maybe Nat)
-    , _gdrcResourceTypes :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrcNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrcLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gdrcResourceTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDiscoveredResourceCounts' with the minimum fields required to make a request.
 --
@@ -87,11 +88,9 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
 getDiscoveredResourceCounts
     :: GetDiscoveredResourceCounts
 getDiscoveredResourceCounts =
-    GetDiscoveredResourceCounts'
-    { _gdrcNextToken = Nothing
-    , _gdrcLimit = Nothing
-    , _gdrcResourceTypes = Nothing
-    }
+  GetDiscoveredResourceCounts'
+  {_gdrcNextToken = Nothing, _gdrcLimit = Nothing, _gdrcResourceTypes = Nothing}
+
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 gdrcNextToken :: Lens' GetDiscoveredResourceCounts (Maybe Text)
@@ -118,9 +117,9 @@ instance AWSRequest GetDiscoveredResourceCounts where
                      <*> (x .?> "resourceCounts" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDiscoveredResourceCounts
+instance Hashable GetDiscoveredResourceCounts where
 
-instance NFData GetDiscoveredResourceCounts
+instance NFData GetDiscoveredResourceCounts where
 
 instance ToHeaders GetDiscoveredResourceCounts where
         toHeaders
@@ -148,11 +147,12 @@ instance ToQuery GetDiscoveredResourceCounts where
 
 -- | /See:/ 'getDiscoveredResourceCountsResponse' smart constructor.
 data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
-    { _gdrcrsTotalDiscoveredResources :: !(Maybe Integer)
-    , _gdrcrsNextToken                :: !(Maybe Text)
-    , _gdrcrsResourceCounts           :: !(Maybe [ResourceCount])
-    , _gdrcrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrcrsTotalDiscoveredResources :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gdrcrsNextToken                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrcrsResourceCounts           :: {-# NOUNPACK #-}!(Maybe [ResourceCount])
+  , _gdrcrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDiscoveredResourceCountsResponse' with the minimum fields required to make a request.
 --
@@ -169,12 +169,13 @@ getDiscoveredResourceCountsResponse
     :: Int -- ^ 'gdrcrsResponseStatus'
     -> GetDiscoveredResourceCountsResponse
 getDiscoveredResourceCountsResponse pResponseStatus_ =
-    GetDiscoveredResourceCountsResponse'
-    { _gdrcrsTotalDiscoveredResources = Nothing
-    , _gdrcrsNextToken = Nothing
-    , _gdrcrsResourceCounts = Nothing
-    , _gdrcrsResponseStatus = pResponseStatus_
-    }
+  GetDiscoveredResourceCountsResponse'
+  { _gdrcrsTotalDiscoveredResources = Nothing
+  , _gdrcrsNextToken = Nothing
+  , _gdrcrsResourceCounts = Nothing
+  , _gdrcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The total number of resources that AWS Config is recording in the region for your account. If you specify resource types in the request, AWS Config returns only the total number of resources for those resource types. __Example__      * AWS Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.     * You make a call to the @GetDiscoveredResourceCounts@ action and specify the resource type, @"AWS::EC2::Instances"@ in the request.     * AWS Config returns 25 for @totalDiscoveredResources@ .
 gdrcrsTotalDiscoveredResources :: Lens' GetDiscoveredResourceCountsResponse (Maybe Integer)
@@ -193,3 +194,4 @@ gdrcrsResponseStatus :: Lens' GetDiscoveredResourceCountsResponse Int
 gdrcrsResponseStatus = lens _gdrcrsResponseStatus (\ s a -> s{_gdrcrsResponseStatus = a});
 
 instance NFData GetDiscoveredResourceCountsResponse
+         where

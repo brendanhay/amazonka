@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeReplicationInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DMS.DescribeReplicationInstances
     , drisrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReplicationInstances' smart constructor.
 data DescribeReplicationInstances = DescribeReplicationInstances'
-    { _driFilters    :: !(Maybe [Filter])
-    , _driMarker     :: !(Maybe Text)
-    , _driMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _driFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _driMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _driMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReplicationInstances' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data DescribeReplicationInstances = DescribeReplicationInstances'
 describeReplicationInstances
     :: DescribeReplicationInstances
 describeReplicationInstances =
-    DescribeReplicationInstances'
-    { _driFilters = Nothing
-    , _driMarker = Nothing
-    , _driMaxRecords = Nothing
-    }
+  DescribeReplicationInstances'
+  {_driFilters = Nothing, _driMarker = Nothing, _driMaxRecords = Nothing}
+
 
 -- | Filters applied to the describe action. Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version
 driFilters :: Lens' DescribeReplicationInstances [Filter]
@@ -101,9 +100,9 @@ instance AWSRequest DescribeReplicationInstances
                      (x .?> "ReplicationInstances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeReplicationInstances
+instance Hashable DescribeReplicationInstances where
 
-instance NFData DescribeReplicationInstances
+instance NFData DescribeReplicationInstances where
 
 instance ToHeaders DescribeReplicationInstances where
         toHeaders
@@ -135,10 +134,11 @@ instance ToQuery DescribeReplicationInstances where
 --
 -- /See:/ 'describeReplicationInstancesResponse' smart constructor.
 data DescribeReplicationInstancesResponse = DescribeReplicationInstancesResponse'
-    { _drisrsMarker               :: !(Maybe Text)
-    , _drisrsReplicationInstances :: !(Maybe [ReplicationInstance])
-    , _drisrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drisrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drisrsReplicationInstances :: {-# NOUNPACK #-}!(Maybe [ReplicationInstance])
+  , _drisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReplicationInstancesResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +153,12 @@ describeReplicationInstancesResponse
     :: Int -- ^ 'drisrsResponseStatus'
     -> DescribeReplicationInstancesResponse
 describeReplicationInstancesResponse pResponseStatus_ =
-    DescribeReplicationInstancesResponse'
-    { _drisrsMarker = Nothing
-    , _drisrsReplicationInstances = Nothing
-    , _drisrsResponseStatus = pResponseStatus_
-    }
+  DescribeReplicationInstancesResponse'
+  { _drisrsMarker = Nothing
+  , _drisrsReplicationInstances = Nothing
+  , _drisrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drisrsMarker :: Lens' DescribeReplicationInstancesResponse (Maybe Text)
@@ -172,3 +173,4 @@ drisrsResponseStatus :: Lens' DescribeReplicationInstancesResponse Int
 drisrsResponseStatus = lens _drisrsResponseStatus (\ s a -> s{_drisrsResponseStatus = a});
 
 instance NFData DescribeReplicationInstancesResponse
+         where

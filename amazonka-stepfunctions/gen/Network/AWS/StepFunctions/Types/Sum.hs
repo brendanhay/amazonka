@@ -9,23 +9,24 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.StepFunctions.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ExecutionStatus
-    = Aborted
-    | Failed
-    | Running
-    | Succeeded
-    | TimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Aborted
+  | Failed
+  | Running
+  | Succeeded
+  | TimedOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
@@ -58,38 +59,39 @@ instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
 
 data HistoryEventType
-    = ActivityFailed
-    | ActivityScheduleFailed
-    | ActivityScheduled
-    | ActivityStarted
-    | ActivitySucceeded
-    | ActivityTimedOut
-    | ChoiceStateEntered
-    | ChoiceStateExited
-    | ExecutionAborted
-    | ExecutionFailed
-    | ExecutionStarted
-    | ExecutionSucceeded
-    | ExecutionTimedOut
-    | FailStateEntered
-    | LambdaFunctionFailed
-    | LambdaFunctionScheduleFailed
-    | LambdaFunctionScheduled
-    | LambdaFunctionStartFailed
-    | LambdaFunctionStarted
-    | LambdaFunctionSucceeded
-    | LambdaFunctionTimedOut
-    | ParallelStateEntered
-    | ParallelStateExited
-    | PassStateEntered
-    | PassStateExited
-    | SucceedStateEntered
-    | SucceedStateExited
-    | TaskStateEntered
-    | TaskStateExited
-    | WaitStateEntered
-    | WaitStateExited
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ActivityFailed
+  | ActivityScheduleFailed
+  | ActivityScheduled
+  | ActivityStarted
+  | ActivitySucceeded
+  | ActivityTimedOut
+  | ChoiceStateEntered
+  | ChoiceStateExited
+  | ExecutionAborted
+  | ExecutionFailed
+  | ExecutionStarted
+  | ExecutionSucceeded
+  | ExecutionTimedOut
+  | FailStateEntered
+  | LambdaFunctionFailed
+  | LambdaFunctionScheduleFailed
+  | LambdaFunctionScheduled
+  | LambdaFunctionStartFailed
+  | LambdaFunctionStarted
+  | LambdaFunctionSucceeded
+  | LambdaFunctionTimedOut
+  | ParallelStateEntered
+  | ParallelStateExited
+  | PassStateEntered
+  | PassStateExited
+  | SucceedStateEntered
+  | SucceedStateExited
+  | TaskStateEntered
+  | TaskStateExited
+  | WaitStateEntered
+  | WaitStateExited
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HistoryEventType where
     parser = takeLowerText >>= \case
@@ -171,9 +173,10 @@ instance FromJSON HistoryEventType where
     parseJSON = parseJSONText "HistoryEventType"
 
 data StateMachineStatus
-    = Active
-    | Deleting
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Deleting
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StateMachineStatus where
     parser = takeLowerText >>= \case

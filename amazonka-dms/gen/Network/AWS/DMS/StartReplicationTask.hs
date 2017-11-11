@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.StartReplicationTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.DMS.StartReplicationTask
     , srtrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startReplicationTask' smart constructor.
 data StartReplicationTask = StartReplicationTask'
-    { _srtCdcStartTime             :: !(Maybe POSIX)
-    , _srtReplicationTaskARN       :: !Text
-    , _srtStartReplicationTaskType :: !StartReplicationTaskTypeValue
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srtCdcStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _srtReplicationTaskARN :: {-# NOUNPACK #-}!Text
+  , _srtStartReplicationTaskType :: {-# NOUNPACK #-}!StartReplicationTaskTypeValue
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartReplicationTask' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ startReplicationTask
     -> StartReplicationTaskTypeValue -- ^ 'srtStartReplicationTaskType'
     -> StartReplicationTask
 startReplicationTask pReplicationTaskARN_ pStartReplicationTaskType_ =
-    StartReplicationTask'
-    { _srtCdcStartTime = Nothing
-    , _srtReplicationTaskARN = pReplicationTaskARN_
-    , _srtStartReplicationTaskType = pStartReplicationTaskType_
-    }
+  StartReplicationTask'
+  { _srtCdcStartTime = Nothing
+  , _srtReplicationTaskARN = pReplicationTaskARN_
+  , _srtStartReplicationTaskType = pStartReplicationTaskType_
+  }
+
 
 -- | The start time for the Change Data Capture (CDC) operation.
 srtCdcStartTime :: Lens' StartReplicationTask (Maybe UTCTime)
@@ -101,9 +103,9 @@ instance AWSRequest StartReplicationTask where
                  StartReplicationTaskResponse' <$>
                    (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
 
-instance Hashable StartReplicationTask
+instance Hashable StartReplicationTask where
 
-instance NFData StartReplicationTask
+instance NFData StartReplicationTask where
 
 instance ToHeaders StartReplicationTask where
         toHeaders
@@ -138,9 +140,10 @@ instance ToQuery StartReplicationTask where
 --
 -- /See:/ 'startReplicationTaskResponse' smart constructor.
 data StartReplicationTaskResponse = StartReplicationTaskResponse'
-    { _srtrsReplicationTask :: !(Maybe ReplicationTask)
-    , _srtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srtrsReplicationTask :: {-# NOUNPACK #-}!(Maybe ReplicationTask)
+  , _srtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartReplicationTaskResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +156,9 @@ startReplicationTaskResponse
     :: Int -- ^ 'srtrsResponseStatus'
     -> StartReplicationTaskResponse
 startReplicationTaskResponse pResponseStatus_ =
-    StartReplicationTaskResponse'
-    { _srtrsReplicationTask = Nothing
-    , _srtrsResponseStatus = pResponseStatus_
-    }
+  StartReplicationTaskResponse'
+  {_srtrsReplicationTask = Nothing, _srtrsResponseStatus = pResponseStatus_}
+
 
 -- | The replication task started.
 srtrsReplicationTask :: Lens' StartReplicationTaskResponse (Maybe ReplicationTask)
@@ -166,4 +168,4 @@ srtrsReplicationTask = lens _srtrsReplicationTask (\ s a -> s{_srtrsReplicationT
 srtrsResponseStatus :: Lens' StartReplicationTaskResponse Int
 srtrsResponseStatus = lens _srtrsResponseStatus (\ s a -> s{_srtrsResponseStatus = a});
 
-instance NFData StartReplicationTaskResponse
+instance NFData StartReplicationTaskResponse where

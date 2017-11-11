@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyIdentityIdFormat
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.ModifyIdentityIdFormat
     , ModifyIdentityIdFormatResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters of ModifyIdentityIdFormat.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyIdentityIdFormat' smart constructor.
 data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
-    { _miifPrincipalARN :: !Text
-    , _miifResource     :: !Text
-    , _miifUseLongIds   :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _miifPrincipalARN :: {-# NOUNPACK #-}!Text
+  , _miifResource     :: {-# NOUNPACK #-}!Text
+  , _miifUseLongIds   :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyIdentityIdFormat' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ modifyIdentityIdFormat
     -> Bool -- ^ 'miifUseLongIds'
     -> ModifyIdentityIdFormat
 modifyIdentityIdFormat pPrincipalARN_ pResource_ pUseLongIds_ =
-    ModifyIdentityIdFormat'
-    { _miifPrincipalARN = pPrincipalARN_
-    , _miifResource = pResource_
-    , _miifUseLongIds = pUseLongIds_
-    }
+  ModifyIdentityIdFormat'
+  { _miifPrincipalARN = pPrincipalARN_
+  , _miifResource = pResource_
+  , _miifUseLongIds = pUseLongIds_
+  }
+
 
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify @all@ to modify the ID format for all IAM users, IAM roles, and the root user of the account.
 miifPrincipalARN :: Lens' ModifyIdentityIdFormat Text
@@ -100,9 +102,9 @@ instance AWSRequest ModifyIdentityIdFormat where
         response
           = receiveNull ModifyIdentityIdFormatResponse'
 
-instance Hashable ModifyIdentityIdFormat
+instance Hashable ModifyIdentityIdFormat where
 
-instance NFData ModifyIdentityIdFormat
+instance NFData ModifyIdentityIdFormat where
 
 instance ToHeaders ModifyIdentityIdFormat where
         toHeaders = const mempty
@@ -122,8 +124,9 @@ instance ToQuery ModifyIdentityIdFormat where
 
 -- | /See:/ 'modifyIdentityIdFormatResponse' smart constructor.
 data ModifyIdentityIdFormatResponse =
-    ModifyIdentityIdFormatResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyIdentityIdFormatResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyIdentityIdFormatResponse' with the minimum fields required to make a request.
 --
@@ -131,4 +134,5 @@ modifyIdentityIdFormatResponse
     :: ModifyIdentityIdFormatResponse
 modifyIdentityIdFormatResponse = ModifyIdentityIdFormatResponse'
 
-instance NFData ModifyIdentityIdFormatResponse
+
+instance NFData ModifyIdentityIdFormatResponse where

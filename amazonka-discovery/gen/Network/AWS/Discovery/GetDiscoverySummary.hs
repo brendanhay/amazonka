@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.GetDiscoverySummary
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,23 +40,25 @@ module Network.AWS.Discovery.GetDiscoverySummary
     , gdsrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDiscoverySummary' smart constructor.
 data GetDiscoverySummary =
-    GetDiscoverySummary'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetDiscoverySummary'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDiscoverySummary' with the minimum fields required to make a request.
 --
 getDiscoverySummary
     :: GetDiscoverySummary
 getDiscoverySummary = GetDiscoverySummary'
+
 
 instance AWSRequest GetDiscoverySummary where
         type Rs GetDiscoverySummary =
@@ -73,9 +75,9 @@ instance AWSRequest GetDiscoverySummary where
                      <*> (x .?> "applications")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDiscoverySummary
+instance Hashable GetDiscoverySummary where
 
-instance NFData GetDiscoverySummary
+instance NFData GetDiscoverySummary where
 
 instance ToHeaders GetDiscoverySummary where
         toHeaders
@@ -98,14 +100,15 @@ instance ToQuery GetDiscoverySummary where
 
 -- | /See:/ 'getDiscoverySummaryResponse' smart constructor.
 data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
-    { _gdsrsServers                     :: !(Maybe Integer)
-    , _gdsrsServersMappedtoTags         :: !(Maybe Integer)
-    , _gdsrsServersMappedToApplications :: !(Maybe Integer)
-    , _gdsrsConnectorSummary            :: !(Maybe CustomerConnectorInfo)
-    , _gdsrsAgentSummary                :: !(Maybe CustomerAgentInfo)
-    , _gdsrsApplications                :: !(Maybe Integer)
-    , _gdsrsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsrsServers :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gdsrsServersMappedtoTags :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gdsrsServersMappedToApplications :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gdsrsConnectorSummary :: {-# NOUNPACK #-}!(Maybe CustomerConnectorInfo)
+  , _gdsrsAgentSummary :: {-# NOUNPACK #-}!(Maybe CustomerAgentInfo)
+  , _gdsrsApplications :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDiscoverySummaryResponse' with the minimum fields required to make a request.
 --
@@ -128,15 +131,16 @@ getDiscoverySummaryResponse
     :: Int -- ^ 'gdsrsResponseStatus'
     -> GetDiscoverySummaryResponse
 getDiscoverySummaryResponse pResponseStatus_ =
-    GetDiscoverySummaryResponse'
-    { _gdsrsServers = Nothing
-    , _gdsrsServersMappedtoTags = Nothing
-    , _gdsrsServersMappedToApplications = Nothing
-    , _gdsrsConnectorSummary = Nothing
-    , _gdsrsAgentSummary = Nothing
-    , _gdsrsApplications = Nothing
-    , _gdsrsResponseStatus = pResponseStatus_
-    }
+  GetDiscoverySummaryResponse'
+  { _gdsrsServers = Nothing
+  , _gdsrsServersMappedtoTags = Nothing
+  , _gdsrsServersMappedToApplications = Nothing
+  , _gdsrsConnectorSummary = Nothing
+  , _gdsrsAgentSummary = Nothing
+  , _gdsrsApplications = Nothing
+  , _gdsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of servers discovered.
 gdsrsServers :: Lens' GetDiscoverySummaryResponse (Maybe Integer)
@@ -166,4 +170,4 @@ gdsrsApplications = lens _gdsrsApplications (\ s a -> s{_gdsrsApplications = a})
 gdsrsResponseStatus :: Lens' GetDiscoverySummaryResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
 
-instance NFData GetDiscoverySummaryResponse
+instance NFData GetDiscoverySummaryResponse where

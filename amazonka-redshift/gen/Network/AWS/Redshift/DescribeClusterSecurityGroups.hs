@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,13 +50,13 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     , dcsgsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -64,12 +64,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeClusterSecurityGroups' smart constructor.
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
-    { _dcsgTagValues                :: !(Maybe [Text])
-    , _dcsgTagKeys                  :: !(Maybe [Text])
-    , _dcsgClusterSecurityGroupName :: !(Maybe Text)
-    , _dcsgMarker                   :: !(Maybe Text)
-    , _dcsgMaxRecords               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsgTagValues                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcsgTagKeys                  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcsgClusterSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgMarker                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgMaxRecords               :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterSecurityGroups' with the minimum fields required to make a request.
 --
@@ -87,13 +88,14 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 describeClusterSecurityGroups
     :: DescribeClusterSecurityGroups
 describeClusterSecurityGroups =
-    DescribeClusterSecurityGroups'
-    { _dcsgTagValues = Nothing
-    , _dcsgTagKeys = Nothing
-    , _dcsgClusterSecurityGroupName = Nothing
-    , _dcsgMarker = Nothing
-    , _dcsgMaxRecords = Nothing
-    }
+  DescribeClusterSecurityGroups'
+  { _dcsgTagValues = Nothing
+  , _dcsgTagKeys = Nothing
+  , _dcsgClusterSecurityGroupName = Nothing
+  , _dcsgMarker = Nothing
+  , _dcsgMaxRecords = Nothing
+  }
+
 
 -- | A tag value or values for which you want to return all matching cluster security groups that are associated with the specified tag value or values. For example, suppose that you have security groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag values associated with them.
 dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
@@ -137,9 +139,9 @@ instance AWSRequest DescribeClusterSecurityGroups
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeClusterSecurityGroups
+instance Hashable DescribeClusterSecurityGroups where
 
-instance NFData DescribeClusterSecurityGroups
+instance NFData DescribeClusterSecurityGroups where
 
 instance ToHeaders DescribeClusterSecurityGroups
          where
@@ -169,10 +171,11 @@ instance ToQuery DescribeClusterSecurityGroups where
 --
 -- /See:/ 'describeClusterSecurityGroupsResponse' smart constructor.
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
-    { _dcsgsrsClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
-    , _dcsgsrsMarker                :: !(Maybe Text)
-    , _dcsgsrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsgsrsClusterSecurityGroups :: {-# NOUNPACK #-}!(Maybe [ClusterSecurityGroup])
+  , _dcsgsrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterSecurityGroupsResponse' with the minimum fields required to make a request.
 --
@@ -187,11 +190,12 @@ describeClusterSecurityGroupsResponse
     :: Int -- ^ 'dcsgsrsResponseStatus'
     -> DescribeClusterSecurityGroupsResponse
 describeClusterSecurityGroupsResponse pResponseStatus_ =
-    DescribeClusterSecurityGroupsResponse'
-    { _dcsgsrsClusterSecurityGroups = Nothing
-    , _dcsgsrsMarker = Nothing
-    , _dcsgsrsResponseStatus = pResponseStatus_
-    }
+  DescribeClusterSecurityGroupsResponse'
+  { _dcsgsrsClusterSecurityGroups = Nothing
+  , _dcsgsrsMarker = Nothing
+  , _dcsgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'ClusterSecurityGroup' instances.
 dcsgsrsClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
@@ -206,3 +210,4 @@ dcsgsrsResponseStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
 dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\ s a -> s{_dcsgsrsResponseStatus = a});
 
 instance NFData DescribeClusterSecurityGroupsResponse
+         where

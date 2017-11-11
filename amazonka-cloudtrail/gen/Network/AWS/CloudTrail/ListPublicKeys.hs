@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.ListPublicKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CloudTrail.ListPublicKeys
     , lpkrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests the public keys for a specified time range.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
-    { _lpkStartTime :: !(Maybe POSIX)
-    , _lpkNextToken :: !(Maybe Text)
-    , _lpkEndTime   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpkStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _lpkNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpkEndTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPublicKeys' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data ListPublicKeys = ListPublicKeys'
 listPublicKeys
     :: ListPublicKeys
 listPublicKeys =
-    ListPublicKeys'
-    { _lpkStartTime = Nothing
-    , _lpkNextToken = Nothing
-    , _lpkEndTime = Nothing
-    }
+  ListPublicKeys'
+  {_lpkStartTime = Nothing, _lpkNextToken = Nothing, _lpkEndTime = Nothing}
+
 
 -- | Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
 lpkStartTime :: Lens' ListPublicKeys (Maybe UTCTime)
@@ -99,9 +98,9 @@ instance AWSRequest ListPublicKeys where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPublicKeys
+instance Hashable ListPublicKeys where
 
-instance NFData ListPublicKeys
+instance NFData ListPublicKeys where
 
 instance ToHeaders ListPublicKeys where
         toHeaders
@@ -133,10 +132,11 @@ instance ToQuery ListPublicKeys where
 --
 -- /See:/ 'listPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'
-    { _lpkrsPublicKeyList  :: !(Maybe [PublicKey])
-    , _lpkrsNextToken      :: !(Maybe Text)
-    , _lpkrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpkrsPublicKeyList  :: {-# NOUNPACK #-}!(Maybe [PublicKey])
+  , _lpkrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPublicKeysResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +151,12 @@ listPublicKeysResponse
     :: Int -- ^ 'lpkrsResponseStatus'
     -> ListPublicKeysResponse
 listPublicKeysResponse pResponseStatus_ =
-    ListPublicKeysResponse'
-    { _lpkrsPublicKeyList = Nothing
-    , _lpkrsNextToken = Nothing
-    , _lpkrsResponseStatus = pResponseStatus_
-    }
+  ListPublicKeysResponse'
+  { _lpkrsPublicKeyList = Nothing
+  , _lpkrsNextToken = Nothing
+  , _lpkrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains an array of PublicKey objects.
 lpkrsPublicKeyList :: Lens' ListPublicKeysResponse [PublicKey]
@@ -169,4 +170,4 @@ lpkrsNextToken = lens _lpkrsNextToken (\ s a -> s{_lpkrsNextToken = a});
 lpkrsResponseStatus :: Lens' ListPublicKeysResponse Int
 lpkrsResponseStatus = lens _lpkrsResponseStatus (\ s a -> s{_lpkrsResponseStatus = a});
 
-instance NFData ListPublicKeysResponse
+instance NFData ListPublicKeysResponse where

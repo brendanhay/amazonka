@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaignVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,20 +38,21 @@ module Network.AWS.Pinpoint.GetCampaignVersions
     , gcvrsCampaignsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCampaignVersions' smart constructor.
 data GetCampaignVersions = GetCampaignVersions'
-    { _gcvToken         :: !(Maybe Text)
-    , _gcvPageSize      :: !(Maybe Text)
-    , _gcvApplicationId :: !Text
-    , _gcvCampaignId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcvToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcvPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcvApplicationId :: {-# NOUNPACK #-}!Text
+  , _gcvCampaignId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCampaignVersions' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ getCampaignVersions
     -> Text -- ^ 'gcvCampaignId'
     -> GetCampaignVersions
 getCampaignVersions pApplicationId_ pCampaignId_ =
-    GetCampaignVersions'
-    { _gcvToken = Nothing
-    , _gcvPageSize = Nothing
-    , _gcvApplicationId = pApplicationId_
-    , _gcvCampaignId = pCampaignId_
-    }
+  GetCampaignVersions'
+  { _gcvToken = Nothing
+  , _gcvPageSize = Nothing
+  , _gcvApplicationId = pApplicationId_
+  , _gcvCampaignId = pCampaignId_
+  }
+
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gcvToken :: Lens' GetCampaignVersions (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest GetCampaignVersions where
                  GetCampaignVersionsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetCampaignVersions
+instance Hashable GetCampaignVersions where
 
-instance NFData GetCampaignVersions
+instance NFData GetCampaignVersions where
 
 instance ToHeaders GetCampaignVersions where
         toHeaders
@@ -126,9 +128,10 @@ instance ToQuery GetCampaignVersions where
 
 -- | /See:/ 'getCampaignVersionsResponse' smart constructor.
 data GetCampaignVersionsResponse = GetCampaignVersionsResponse'
-    { _gcvrsResponseStatus    :: !Int
-    , _gcvrsCampaignsResponse :: !CampaignsResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _gcvrsCampaignsResponse :: {-# NOUNPACK #-}!CampaignsResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCampaignVersionsResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,11 @@ getCampaignVersionsResponse
     -> CampaignsResponse -- ^ 'gcvrsCampaignsResponse'
     -> GetCampaignVersionsResponse
 getCampaignVersionsResponse pResponseStatus_ pCampaignsResponse_ =
-    GetCampaignVersionsResponse'
-    { _gcvrsResponseStatus = pResponseStatus_
-    , _gcvrsCampaignsResponse = pCampaignsResponse_
-    }
+  GetCampaignVersionsResponse'
+  { _gcvrsResponseStatus = pResponseStatus_
+  , _gcvrsCampaignsResponse = pCampaignsResponse_
+  }
+
 
 -- | -- | The response status code.
 gcvrsResponseStatus :: Lens' GetCampaignVersionsResponse Int
@@ -155,4 +159,4 @@ gcvrsResponseStatus = lens _gcvrsResponseStatus (\ s a -> s{_gcvrsResponseStatus
 gcvrsCampaignsResponse :: Lens' GetCampaignVersionsResponse CampaignsResponse
 gcvrsCampaignsResponse = lens _gcvrsCampaignsResponse (\ s a -> s{_gcvrsCampaignsResponse = a});
 
-instance NFData GetCampaignVersionsResponse
+instance NFData GetCampaignVersionsResponse where

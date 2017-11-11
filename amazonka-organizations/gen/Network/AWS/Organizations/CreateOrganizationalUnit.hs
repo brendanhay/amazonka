@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.CreateOrganizationalUnit
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,18 +42,19 @@ module Network.AWS.Organizations.CreateOrganizationalUnit
     , coursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createOrganizationalUnit' smart constructor.
 data CreateOrganizationalUnit = CreateOrganizationalUnit'
-    { _couParentId :: !Text
-    , _couName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _couParentId :: {-# NOUNPACK #-}!Text
+  , _couName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateOrganizationalUnit' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ createOrganizationalUnit
     -> Text -- ^ 'couName'
     -> CreateOrganizationalUnit
 createOrganizationalUnit pParentId_ pName_ =
-    CreateOrganizationalUnit'
-    { _couParentId = pParentId_
-    , _couName = pName_
-    }
+  CreateOrganizationalUnit' {_couParentId = pParentId_, _couName = pName_}
+
 
 -- | The unique identifier (ID) of the parent root or OU in which you want to create the new OU. The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 couParentId :: Lens' CreateOrganizationalUnit Text
@@ -90,9 +89,9 @@ instance AWSRequest CreateOrganizationalUnit where
                  CreateOrganizationalUnitResponse' <$>
                    (x .?> "OrganizationalUnit") <*> (pure (fromEnum s)))
 
-instance Hashable CreateOrganizationalUnit
+instance Hashable CreateOrganizationalUnit where
 
-instance NFData CreateOrganizationalUnit
+instance NFData CreateOrganizationalUnit where
 
 instance ToHeaders CreateOrganizationalUnit where
         toHeaders
@@ -119,9 +118,10 @@ instance ToQuery CreateOrganizationalUnit where
 
 -- | /See:/ 'createOrganizationalUnitResponse' smart constructor.
 data CreateOrganizationalUnitResponse = CreateOrganizationalUnitResponse'
-    { _coursOrganizationalUnit :: !(Maybe OrganizationalUnit)
-    , _coursResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _coursOrganizationalUnit :: {-# NOUNPACK #-}!(Maybe OrganizationalUnit)
+  , _coursResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateOrganizationalUnitResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +134,9 @@ createOrganizationalUnitResponse
     :: Int -- ^ 'coursResponseStatus'
     -> CreateOrganizationalUnitResponse
 createOrganizationalUnitResponse pResponseStatus_ =
-    CreateOrganizationalUnitResponse'
-    { _coursOrganizationalUnit = Nothing
-    , _coursResponseStatus = pResponseStatus_
-    }
+  CreateOrganizationalUnitResponse'
+  {_coursOrganizationalUnit = Nothing, _coursResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the newly created OU.
 coursOrganizationalUnit :: Lens' CreateOrganizationalUnitResponse (Maybe OrganizationalUnit)
@@ -148,3 +147,4 @@ coursResponseStatus :: Lens' CreateOrganizationalUnitResponse Int
 coursResponseStatus = lens _coursResponseStatus (\ s a -> s{_coursResponseStatus = a});
 
 instance NFData CreateOrganizationalUnitResponse
+         where

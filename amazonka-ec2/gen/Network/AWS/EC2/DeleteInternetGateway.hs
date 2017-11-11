@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteInternetGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DeleteInternetGateway
     , DeleteInternetGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteInternetGateway.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteInternetGateway' smart constructor.
 data DeleteInternetGateway = DeleteInternetGateway'
-    { _digiDryRun            :: !(Maybe Bool)
-    , _digiInternetGatewayId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _digiDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _digiInternetGatewayId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInternetGateway' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ deleteInternetGateway
     :: Text -- ^ 'digiInternetGatewayId'
     -> DeleteInternetGateway
 deleteInternetGateway pInternetGatewayId_ =
-    DeleteInternetGateway'
-    { _digiDryRun = Nothing
-    , _digiInternetGatewayId = pInternetGatewayId_
-    }
+  DeleteInternetGateway'
+  {_digiDryRun = Nothing, _digiInternetGatewayId = pInternetGatewayId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 digiDryRun :: Lens' DeleteInternetGateway (Maybe Bool)
@@ -82,9 +82,9 @@ instance AWSRequest DeleteInternetGateway where
         request = postQuery ec2
         response = receiveNull DeleteInternetGatewayResponse'
 
-instance Hashable DeleteInternetGateway
+instance Hashable DeleteInternetGateway where
 
-instance NFData DeleteInternetGateway
+instance NFData DeleteInternetGateway where
 
 instance ToHeaders DeleteInternetGateway where
         toHeaders = const mempty
@@ -102,8 +102,9 @@ instance ToQuery DeleteInternetGateway where
 
 -- | /See:/ 'deleteInternetGatewayResponse' smart constructor.
 data DeleteInternetGatewayResponse =
-    DeleteInternetGatewayResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteInternetGatewayResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInternetGatewayResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +112,5 @@ deleteInternetGatewayResponse
     :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse'
 
-instance NFData DeleteInternetGatewayResponse
+
+instance NFData DeleteInternetGatewayResponse where

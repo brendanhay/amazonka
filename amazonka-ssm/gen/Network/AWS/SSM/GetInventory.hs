@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetInventory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.GetInventory
     , girsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getInventory' smart constructor.
 data GetInventory = GetInventory'
-    { _giFilters          :: !(Maybe (List1 InventoryFilter))
-    , _giResultAttributes :: !(Maybe (List1 ResultAttribute))
-    , _giNextToken        :: !(Maybe Text)
-    , _giMaxResults       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giFilters          :: {-# NOUNPACK #-}!(Maybe (List1 InventoryFilter))
+  , _giResultAttributes :: {-# NOUNPACK #-}!(Maybe (List1 ResultAttribute))
+  , _giNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInventory' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data GetInventory = GetInventory'
 getInventory
     :: GetInventory
 getInventory =
-    GetInventory'
-    { _giFilters = Nothing
-    , _giResultAttributes = Nothing
-    , _giNextToken = Nothing
-    , _giMaxResults = Nothing
-    }
+  GetInventory'
+  { _giFilters = Nothing
+  , _giResultAttributes = Nothing
+  , _giNextToken = Nothing
+  , _giMaxResults = Nothing
+  }
+
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 giFilters :: Lens' GetInventory (Maybe (NonEmpty InventoryFilter))
@@ -103,9 +105,9 @@ instance AWSRequest GetInventory where
                    (x .?> "Entities" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetInventory
+instance Hashable GetInventory where
 
-instance NFData GetInventory
+instance NFData GetInventory where
 
 instance ToHeaders GetInventory where
         toHeaders
@@ -133,10 +135,11 @@ instance ToQuery GetInventory where
 
 -- | /See:/ 'getInventoryResponse' smart constructor.
 data GetInventoryResponse = GetInventoryResponse'
-    { _girsEntities       :: !(Maybe [InventoryResultEntity])
-    , _girsNextToken      :: !(Maybe Text)
-    , _girsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _girsEntities       :: {-# NOUNPACK #-}!(Maybe [InventoryResultEntity])
+  , _girsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _girsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInventoryResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +154,12 @@ getInventoryResponse
     :: Int -- ^ 'girsResponseStatus'
     -> GetInventoryResponse
 getInventoryResponse pResponseStatus_ =
-    GetInventoryResponse'
-    { _girsEntities = Nothing
-    , _girsNextToken = Nothing
-    , _girsResponseStatus = pResponseStatus_
-    }
+  GetInventoryResponse'
+  { _girsEntities = Nothing
+  , _girsNextToken = Nothing
+  , _girsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Collection of inventory entities such as a collection of instance inventory.
 girsEntities :: Lens' GetInventoryResponse [InventoryResultEntity]
@@ -169,4 +173,4 @@ girsNextToken = lens _girsNextToken (\ s a -> s{_girsNextToken = a});
 girsResponseStatus :: Lens' GetInventoryResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
 
-instance NFData GetInventoryResponse
+instance NFData GetInventoryResponse where

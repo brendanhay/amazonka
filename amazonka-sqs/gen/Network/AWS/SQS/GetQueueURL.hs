@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.GetQueueURL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.SQS.GetQueueURL
     , gqursQueueURL
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -53,9 +53,10 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'getQueueURL' smart constructor.
 data GetQueueURL = GetQueueURL'
-    { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
-    , _gquQueueName              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gquQueueOwnerAWSAccountId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gquQueueName              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQueueURL' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ getQueueURL
     :: Text -- ^ 'gquQueueName'
     -> GetQueueURL
 getQueueURL pQueueName_ =
-    GetQueueURL'
-    { _gquQueueOwnerAWSAccountId = Nothing
-    , _gquQueueName = pQueueName_
-    }
+  GetQueueURL'
+  {_gquQueueOwnerAWSAccountId = Nothing, _gquQueueName = pQueueName_}
+
 
 -- | The AWS account ID of the account that created the queue.
 gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
@@ -90,9 +90,9 @@ instance AWSRequest GetQueueURL where
                  GetQueueURLResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "QueueUrl"))
 
-instance Hashable GetQueueURL
+instance Hashable GetQueueURL where
 
-instance NFData GetQueueURL
+instance NFData GetQueueURL where
 
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty
@@ -115,9 +115,10 @@ instance ToQuery GetQueueURL where
 --
 -- /See:/ 'getQueueURLResponse' smart constructor.
 data GetQueueURLResponse = GetQueueURLResponse'
-    { _gqursResponseStatus :: !Int
-    , _gqursQueueURL       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gqursResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gqursQueueURL       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQueueURLResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ getQueueURLResponse
     -> Text -- ^ 'gqursQueueURL'
     -> GetQueueURLResponse
 getQueueURLResponse pResponseStatus_ pQueueURL_ =
-    GetQueueURLResponse'
-    { _gqursResponseStatus = pResponseStatus_
-    , _gqursQueueURL = pQueueURL_
-    }
+  GetQueueURLResponse'
+  {_gqursResponseStatus = pResponseStatus_, _gqursQueueURL = pQueueURL_}
+
 
 -- | -- | The response status code.
 gqursResponseStatus :: Lens' GetQueueURLResponse Int
@@ -144,4 +144,4 @@ gqursResponseStatus = lens _gqursResponseStatus (\ s a -> s{_gqursResponseStatus
 gqursQueueURL :: Lens' GetQueueURLResponse Text
 gqursQueueURL = lens _gqursQueueURL (\ s a -> s{_gqursQueueURL = a});
 
-instance NFData GetQueueURLResponse
+instance NFData GetQueueURLResponse where

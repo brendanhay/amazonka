@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddWorkingStorage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     , awsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -57,9 +57,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'addWorkingStorage' smart constructor.
 data AddWorkingStorage = AddWorkingStorage'
-    { _awsGatewayARN :: !Text
-    , _awsDiskIds    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _awsGatewayARN :: {-# NOUNPACK #-}!Text
+  , _awsDiskIds    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddWorkingStorage' with the minimum fields required to make a request.
 --
@@ -72,10 +73,8 @@ addWorkingStorage
     :: Text -- ^ 'awsGatewayARN'
     -> AddWorkingStorage
 addWorkingStorage pGatewayARN_ =
-    AddWorkingStorage'
-    { _awsGatewayARN = pGatewayARN_
-    , _awsDiskIds = mempty
-    }
+  AddWorkingStorage' {_awsGatewayARN = pGatewayARN_, _awsDiskIds = mempty}
+
 
 -- | Undocumented member.
 awsGatewayARN :: Lens' AddWorkingStorage Text
@@ -94,9 +93,9 @@ instance AWSRequest AddWorkingStorage where
                  AddWorkingStorageResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable AddWorkingStorage
+instance Hashable AddWorkingStorage where
 
-instance NFData AddWorkingStorage
+instance NFData AddWorkingStorage where
 
 instance ToHeaders AddWorkingStorage where
         toHeaders
@@ -127,9 +126,10 @@ instance ToQuery AddWorkingStorage where
 --
 -- /See:/ 'addWorkingStorageResponse' smart constructor.
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
-    { _awsrsGatewayARN     :: !(Maybe Text)
-    , _awsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _awsrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _awsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddWorkingStorageResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +142,9 @@ addWorkingStorageResponse
     :: Int -- ^ 'awsrsResponseStatus'
     -> AddWorkingStorageResponse
 addWorkingStorageResponse pResponseStatus_ =
-    AddWorkingStorageResponse'
-    { _awsrsGatewayARN = Nothing
-    , _awsrsResponseStatus = pResponseStatus_
-    }
+  AddWorkingStorageResponse'
+  {_awsrsGatewayARN = Nothing, _awsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
@@ -155,4 +154,4 @@ awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
 awsrsResponseStatus :: Lens' AddWorkingStorageResponse Int
 awsrsResponseStatus = lens _awsrsResponseStatus (\ s a -> s{_awsrsResponseStatus = a});
 
-instance NFData AddWorkingStorageResponse
+instance NFData AddWorkingStorageResponse where

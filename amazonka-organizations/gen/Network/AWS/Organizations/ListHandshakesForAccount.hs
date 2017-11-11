@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListHandshakesForAccount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,20 +46,21 @@ module Network.AWS.Organizations.ListHandshakesForAccount
     , lhfarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listHandshakesForAccount' smart constructor.
 data ListHandshakesForAccount = ListHandshakesForAccount'
-    { _lhfaNextToken  :: !(Maybe Text)
-    , _lhfaFilter     :: !(Maybe HandshakeFilter)
-    , _lhfaMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhfaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhfaFilter     :: {-# NOUNPACK #-}!(Maybe HandshakeFilter)
+  , _lhfaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHandshakesForAccount' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ data ListHandshakesForAccount = ListHandshakesForAccount'
 listHandshakesForAccount
     :: ListHandshakesForAccount
 listHandshakesForAccount =
-    ListHandshakesForAccount'
-    { _lhfaNextToken = Nothing
-    , _lhfaFilter = Nothing
-    , _lhfaMaxResults = Nothing
-    }
+  ListHandshakesForAccount'
+  {_lhfaNextToken = Nothing, _lhfaFilter = Nothing, _lhfaMaxResults = Nothing}
+
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 lhfaNextToken :: Lens' ListHandshakesForAccount (Maybe Text)
@@ -110,9 +109,9 @@ instance AWSRequest ListHandshakesForAccount where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListHandshakesForAccount
+instance Hashable ListHandshakesForAccount where
 
-instance NFData ListHandshakesForAccount
+instance NFData ListHandshakesForAccount where
 
 instance ToHeaders ListHandshakesForAccount where
         toHeaders
@@ -140,10 +139,11 @@ instance ToQuery ListHandshakesForAccount where
 
 -- | /See:/ 'listHandshakesForAccountResponse' smart constructor.
 data ListHandshakesForAccountResponse = ListHandshakesForAccountResponse'
-    { _lhfarsHandshakes     :: !(Maybe [Handshake])
-    , _lhfarsNextToken      :: !(Maybe Text)
-    , _lhfarsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lhfarsHandshakes     :: {-# NOUNPACK #-}!(Maybe [Handshake])
+  , _lhfarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhfarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHandshakesForAccountResponse' with the minimum fields required to make a request.
 --
@@ -158,11 +158,12 @@ listHandshakesForAccountResponse
     :: Int -- ^ 'lhfarsResponseStatus'
     -> ListHandshakesForAccountResponse
 listHandshakesForAccountResponse pResponseStatus_ =
-    ListHandshakesForAccountResponse'
-    { _lhfarsHandshakes = Nothing
-    , _lhfarsNextToken = Nothing
-    , _lhfarsResponseStatus = pResponseStatus_
-    }
+  ListHandshakesForAccountResponse'
+  { _lhfarsHandshakes = Nothing
+  , _lhfarsNextToken = Nothing
+  , _lhfarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'Handshake' objects with details about each of the handshakes that is associated with the specified account.
 lhfarsHandshakes :: Lens' ListHandshakesForAccountResponse [Handshake]
@@ -177,3 +178,4 @@ lhfarsResponseStatus :: Lens' ListHandshakesForAccountResponse Int
 lhfarsResponseStatus = lens _lhfarsResponseStatus (\ s a -> s{_lhfarsResponseStatus = a});
 
 instance NFData ListHandshakesForAccountResponse
+         where

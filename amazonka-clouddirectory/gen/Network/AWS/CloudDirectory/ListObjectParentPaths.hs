@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListObjectParentPaths
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.CloudDirectory.ListObjectParentPaths
     , lopprsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listObjectParentPaths' smart constructor.
 data ListObjectParentPaths = ListObjectParentPaths'
-    { _loppNextToken       :: !(Maybe Text)
-    , _loppMaxResults      :: !(Maybe Nat)
-    , _loppDirectoryARN    :: !Text
-    , _loppObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loppNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loppMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _loppDirectoryARN    :: {-# NOUNPACK #-}!Text
+  , _loppObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectParentPaths' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ listObjectParentPaths
     -> ObjectReference -- ^ 'loppObjectReference'
     -> ListObjectParentPaths
 listObjectParentPaths pDirectoryARN_ pObjectReference_ =
-    ListObjectParentPaths'
-    { _loppNextToken = Nothing
-    , _loppMaxResults = Nothing
-    , _loppDirectoryARN = pDirectoryARN_
-    , _loppObjectReference = pObjectReference_
-    }
+  ListObjectParentPaths'
+  { _loppNextToken = Nothing
+  , _loppMaxResults = Nothing
+  , _loppDirectoryARN = pDirectoryARN_
+  , _loppObjectReference = pObjectReference_
+  }
+
 
 -- | The pagination token.
 loppNextToken :: Lens' ListObjectParentPaths (Maybe Text)
@@ -109,9 +111,9 @@ instance AWSRequest ListObjectParentPaths where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListObjectParentPaths
+instance Hashable ListObjectParentPaths where
 
-instance NFData ListObjectParentPaths
+instance NFData ListObjectParentPaths where
 
 instance ToHeaders ListObjectParentPaths where
         toHeaders ListObjectParentPaths'{..}
@@ -136,10 +138,11 @@ instance ToQuery ListObjectParentPaths where
 
 -- | /See:/ 'listObjectParentPathsResponse' smart constructor.
 data ListObjectParentPathsResponse = ListObjectParentPathsResponse'
-    { _lopprsPathToObjectIdentifiersList :: !(Maybe [PathToObjectIdentifiers])
-    , _lopprsNextToken                   :: !(Maybe Text)
-    , _lopprsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lopprsPathToObjectIdentifiersList :: {-# NOUNPACK #-}!(Maybe [PathToObjectIdentifiers])
+  , _lopprsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lopprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectParentPathsResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ listObjectParentPathsResponse
     :: Int -- ^ 'lopprsResponseStatus'
     -> ListObjectParentPathsResponse
 listObjectParentPathsResponse pResponseStatus_ =
-    ListObjectParentPathsResponse'
-    { _lopprsPathToObjectIdentifiersList = Nothing
-    , _lopprsNextToken = Nothing
-    , _lopprsResponseStatus = pResponseStatus_
-    }
+  ListObjectParentPathsResponse'
+  { _lopprsPathToObjectIdentifiersList = Nothing
+  , _lopprsNextToken = Nothing
+  , _lopprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
 lopprsPathToObjectIdentifiersList :: Lens' ListObjectParentPathsResponse [PathToObjectIdentifiers]
@@ -172,4 +176,4 @@ lopprsNextToken = lens _lopprsNextToken (\ s a -> s{_lopprsNextToken = a});
 lopprsResponseStatus :: Lens' ListObjectParentPathsResponse Int
 lopprsResponseStatus = lens _lopprsResponseStatus (\ s a -> s{_lopprsResponseStatus = a});
 
-instance NFData ListObjectParentPathsResponse
+instance NFData ListObjectParentPathsResponse where

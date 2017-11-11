@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVPCAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.EC2.ModifyVPCAttribute
     , ModifyVPCAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyVpcAttribute.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyVPCAttribute' smart constructor.
 data ModifyVPCAttribute = ModifyVPCAttribute'
-    { _mvaEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
-    , _mvaEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
-    , _mvaVPCId              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mvaEnableDNSHostnames :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _mvaEnableDNSSupport   :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _mvaVPCId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVPCAttribute' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ modifyVPCAttribute
     :: Text -- ^ 'mvaVPCId'
     -> ModifyVPCAttribute
 modifyVPCAttribute pVPCId_ =
-    ModifyVPCAttribute'
-    { _mvaEnableDNSHostnames = Nothing
-    , _mvaEnableDNSSupport = Nothing
-    , _mvaVPCId = pVPCId_
-    }
+  ModifyVPCAttribute'
+  { _mvaEnableDNSHostnames = Nothing
+  , _mvaEnableDNSSupport = Nothing
+  , _mvaVPCId = pVPCId_
+  }
+
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.
 mvaEnableDNSHostnames :: Lens' ModifyVPCAttribute (Maybe AttributeBooleanValue)
@@ -91,9 +93,9 @@ instance AWSRequest ModifyVPCAttribute where
         request = postQuery ec2
         response = receiveNull ModifyVPCAttributeResponse'
 
-instance Hashable ModifyVPCAttribute
+instance Hashable ModifyVPCAttribute where
 
-instance NFData ModifyVPCAttribute
+instance NFData ModifyVPCAttribute where
 
 instance ToHeaders ModifyVPCAttribute where
         toHeaders = const mempty
@@ -112,8 +114,9 @@ instance ToQuery ModifyVPCAttribute where
 
 -- | /See:/ 'modifyVPCAttributeResponse' smart constructor.
 data ModifyVPCAttributeResponse =
-    ModifyVPCAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyVPCAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVPCAttributeResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +124,5 @@ modifyVPCAttributeResponse
     :: ModifyVPCAttributeResponse
 modifyVPCAttributeResponse = ModifyVPCAttributeResponse'
 
-instance NFData ModifyVPCAttributeResponse
+
+instance NFData ModifyVPCAttributeResponse where

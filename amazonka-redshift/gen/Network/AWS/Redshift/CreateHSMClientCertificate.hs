@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateHSMClientCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Redshift.CreateHSMClientCertificate
     , chccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createHSMClientCertificate' smart constructor.
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
-    { _chccTags                           :: !(Maybe [Tag])
-    , _chccHSMClientCertificateIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chccTags                           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _chccHSMClientCertificateIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSMClientCertificate' with the minimum fields required to make a request.
 --
@@ -68,10 +69,11 @@ createHSMClientCertificate
     :: Text -- ^ 'chccHSMClientCertificateIdentifier'
     -> CreateHSMClientCertificate
 createHSMClientCertificate pHSMClientCertificateIdentifier_ =
-    CreateHSMClientCertificate'
-    { _chccTags = Nothing
-    , _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
-    }
+  CreateHSMClientCertificate'
+  { _chccTags = Nothing
+  , _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
+  }
+
 
 -- | A list of tag instances.
 chccTags :: Lens' CreateHSMClientCertificate [Tag]
@@ -93,9 +95,9 @@ instance AWSRequest CreateHSMClientCertificate where
                    (x .@? "HsmClientCertificate") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateHSMClientCertificate
+instance Hashable CreateHSMClientCertificate where
 
-instance NFData CreateHSMClientCertificate
+instance NFData CreateHSMClientCertificate where
 
 instance ToHeaders CreateHSMClientCertificate where
         toHeaders = const mempty
@@ -115,9 +117,10 @@ instance ToQuery CreateHSMClientCertificate where
 
 -- | /See:/ 'createHSMClientCertificateResponse' smart constructor.
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
-    { _chccrsHSMClientCertificate :: !(Maybe HSMClientCertificate)
-    , _chccrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chccrsHSMClientCertificate :: {-# NOUNPACK #-}!(Maybe HSMClientCertificate)
+  , _chccrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSMClientCertificateResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +133,11 @@ createHSMClientCertificateResponse
     :: Int -- ^ 'chccrsResponseStatus'
     -> CreateHSMClientCertificateResponse
 createHSMClientCertificateResponse pResponseStatus_ =
-    CreateHSMClientCertificateResponse'
-    { _chccrsHSMClientCertificate = Nothing
-    , _chccrsResponseStatus = pResponseStatus_
-    }
+  CreateHSMClientCertificateResponse'
+  { _chccrsHSMClientCertificate = Nothing
+  , _chccrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 chccrsHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
@@ -144,3 +148,4 @@ chccrsResponseStatus :: Lens' CreateHSMClientCertificateResponse Int
 chccrsResponseStatus = lens _chccrsResponseStatus (\ s a -> s{_chccrsResponseStatus = a});
 
 instance NFData CreateHSMClientCertificateResponse
+         where

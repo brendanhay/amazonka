@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.DescribeConfigurationSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.SES.DescribeConfigurationSet
     , dcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to return the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
@@ -56,9 +56,10 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'describeConfigurationSet' smart constructor.
 data DescribeConfigurationSet = DescribeConfigurationSet'
-    { _dcsConfigurationSetAttributeNames :: !(Maybe [ConfigurationSetAttribute])
-    , _dcsConfigurationSetName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsConfigurationSetAttributeNames :: {-# NOUNPACK #-}!(Maybe [ConfigurationSetAttribute])
+  , _dcsConfigurationSetName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationSet' with the minimum fields required to make a request.
 --
@@ -71,10 +72,11 @@ describeConfigurationSet
     :: Text -- ^ 'dcsConfigurationSetName'
     -> DescribeConfigurationSet
 describeConfigurationSet pConfigurationSetName_ =
-    DescribeConfigurationSet'
-    { _dcsConfigurationSetAttributeNames = Nothing
-    , _dcsConfigurationSetName = pConfigurationSetName_
-    }
+  DescribeConfigurationSet'
+  { _dcsConfigurationSetAttributeNames = Nothing
+  , _dcsConfigurationSetName = pConfigurationSetName_
+  }
+
 
 -- | A list of configuration set attributes to return.
 dcsConfigurationSetAttributeNames :: Lens' DescribeConfigurationSet [ConfigurationSetAttribute]
@@ -97,9 +99,9 @@ instance AWSRequest DescribeConfigurationSet where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeConfigurationSet
+instance Hashable DescribeConfigurationSet where
 
-instance NFData DescribeConfigurationSet
+instance NFData DescribeConfigurationSet where
 
 instance ToHeaders DescribeConfigurationSet where
         toHeaders = const mempty
@@ -125,10 +127,11 @@ instance ToQuery DescribeConfigurationSet where
 --
 -- /See:/ 'describeConfigurationSetResponse' smart constructor.
 data DescribeConfigurationSetResponse = DescribeConfigurationSetResponse'
-    { _dcsrsConfigurationSet  :: !(Maybe ConfigurationSet)
-    , _dcsrsEventDestinations :: !(Maybe [EventDestination])
-    , _dcsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsrsConfigurationSet  :: {-# NOUNPACK #-}!(Maybe ConfigurationSet)
+  , _dcsrsEventDestinations :: {-# NOUNPACK #-}!(Maybe [EventDestination])
+  , _dcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationSetResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +146,12 @@ describeConfigurationSetResponse
     :: Int -- ^ 'dcsrsResponseStatus'
     -> DescribeConfigurationSetResponse
 describeConfigurationSetResponse pResponseStatus_ =
-    DescribeConfigurationSetResponse'
-    { _dcsrsConfigurationSet = Nothing
-    , _dcsrsEventDestinations = Nothing
-    , _dcsrsResponseStatus = pResponseStatus_
-    }
+  DescribeConfigurationSetResponse'
+  { _dcsrsConfigurationSet = Nothing
+  , _dcsrsEventDestinations = Nothing
+  , _dcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The configuration set object associated with the specified configuration set.
 dcsrsConfigurationSet :: Lens' DescribeConfigurationSetResponse (Maybe ConfigurationSet)
@@ -162,3 +166,4 @@ dcsrsResponseStatus :: Lens' DescribeConfigurationSetResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
 
 instance NFData DescribeConfigurationSetResponse
+         where

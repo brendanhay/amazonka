@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AddTagsToVault
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.Glacier.AddTagsToVault
     , AddTagsToVaultResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input values for @AddTagsToVault@ .
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addTagsToVault' smart constructor.
 data AddTagsToVault = AddTagsToVault'
-    { _attvTags      :: !(Maybe (Map Text Text))
-    , _attvAccountId :: !Text
-    , _attvVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _attvTags      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _attvAccountId :: {-# NOUNPACK #-}!Text
+  , _attvVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToVault' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ addTagsToVault
     -> Text -- ^ 'attvVaultName'
     -> AddTagsToVault
 addTagsToVault pAccountId_ pVaultName_ =
-    AddTagsToVault'
-    { _attvTags = Nothing
-    , _attvAccountId = pAccountId_
-    , _attvVaultName = pVaultName_
-    }
+  AddTagsToVault'
+  { _attvTags = Nothing
+  , _attvAccountId = pAccountId_
+  , _attvVaultName = pVaultName_
+  }
+
 
 -- | The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
 attvTags :: Lens' AddTagsToVault (HashMap Text Text)
@@ -91,9 +93,9 @@ instance AWSRequest AddTagsToVault where
         request = postJSON glacier
         response = receiveNull AddTagsToVaultResponse'
 
-instance Hashable AddTagsToVault
+instance Hashable AddTagsToVault where
 
-instance NFData AddTagsToVault
+instance NFData AddTagsToVault where
 
 instance ToHeaders AddTagsToVault where
         toHeaders = const mempty
@@ -113,8 +115,9 @@ instance ToQuery AddTagsToVault where
 
 -- | /See:/ 'addTagsToVaultResponse' smart constructor.
 data AddTagsToVaultResponse =
-    AddTagsToVaultResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddTagsToVaultResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToVaultResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +125,5 @@ addTagsToVaultResponse
     :: AddTagsToVaultResponse
 addTagsToVaultResponse = AddTagsToVaultResponse'
 
-instance NFData AddTagsToVaultResponse
+
+instance NFData AddTagsToVaultResponse where

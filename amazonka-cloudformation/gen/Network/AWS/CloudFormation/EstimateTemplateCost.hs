@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.EstimateTemplateCost
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     , etcrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for an 'EstimateTemplateCost' action.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'estimateTemplateCost' smart constructor.
 data EstimateTemplateCost = EstimateTemplateCost'
-    { _etcParameters   :: !(Maybe [Parameter])
-    , _etcTemplateBody :: !(Maybe Text)
-    , _etcTemplateURL  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etcParameters   :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _etcTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etcTemplateURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EstimateTemplateCost' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data EstimateTemplateCost = EstimateTemplateCost'
 estimateTemplateCost
     :: EstimateTemplateCost
 estimateTemplateCost =
-    EstimateTemplateCost'
-    { _etcParameters = Nothing
-    , _etcTemplateBody = Nothing
-    , _etcTemplateURL = Nothing
-    }
+  EstimateTemplateCost'
+  { _etcParameters = Nothing
+  , _etcTemplateBody = Nothing
+  , _etcTemplateURL = Nothing
+  }
+
 
 -- | A list of @Parameter@ structures that specify input parameters.
 etcParameters :: Lens' EstimateTemplateCost [Parameter]
@@ -97,9 +99,9 @@ instance AWSRequest EstimateTemplateCost where
                  EstimateTemplateCostResponse' <$>
                    (x .@? "Url") <*> (pure (fromEnum s)))
 
-instance Hashable EstimateTemplateCost
+instance Hashable EstimateTemplateCost where
 
-instance NFData EstimateTemplateCost
+instance NFData EstimateTemplateCost where
 
 instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
@@ -123,9 +125,10 @@ instance ToQuery EstimateTemplateCost where
 --
 -- /See:/ 'estimateTemplateCostResponse' smart constructor.
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
-    { _etcrsURL            :: !(Maybe Text)
-    , _etcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etcrsURL            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EstimateTemplateCostResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,9 @@ estimateTemplateCostResponse
     :: Int -- ^ 'etcrsResponseStatus'
     -> EstimateTemplateCostResponse
 estimateTemplateCostResponse pResponseStatus_ =
-    EstimateTemplateCostResponse'
-    { _etcrsURL = Nothing
-    , _etcrsResponseStatus = pResponseStatus_
-    }
+  EstimateTemplateCostResponse'
+  {_etcrsURL = Nothing, _etcrsResponseStatus = pResponseStatus_}
+
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
 etcrsURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
@@ -151,4 +153,4 @@ etcrsURL = lens _etcrsURL (\ s a -> s{_etcrsURL = a});
 etcrsResponseStatus :: Lens' EstimateTemplateCostResponse Int
 etcrsResponseStatus = lens _etcrsResponseStatus (\ s a -> s{_etcrsResponseStatus = a});
 
-instance NFData EstimateTemplateCostResponse
+instance NFData EstimateTemplateCostResponse where

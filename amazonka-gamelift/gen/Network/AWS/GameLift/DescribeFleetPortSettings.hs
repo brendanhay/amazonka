@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetPortSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -89,12 +89,12 @@ module Network.AWS.GameLift.DescribeFleetPortSettings
     , dfpsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -102,8 +102,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeFleetPortSettings' smart constructor.
 newtype DescribeFleetPortSettings = DescribeFleetPortSettings'
-    { _dfpsFleetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfpsFleetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetPortSettings' with the minimum fields required to make a request.
 --
@@ -114,9 +115,8 @@ describeFleetPortSettings
     :: Text -- ^ 'dfpsFleetId'
     -> DescribeFleetPortSettings
 describeFleetPortSettings pFleetId_ =
-    DescribeFleetPortSettings'
-    { _dfpsFleetId = pFleetId_
-    }
+  DescribeFleetPortSettings' {_dfpsFleetId = pFleetId_}
+
 
 -- | Unique identifier for a fleet to retrieve port settings for.
 dfpsFleetId :: Lens' DescribeFleetPortSettings Text
@@ -133,9 +133,9 @@ instance AWSRequest DescribeFleetPortSettings where
                    (x .?> "InboundPermissions" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeFleetPortSettings
+instance Hashable DescribeFleetPortSettings where
 
-instance NFData DescribeFleetPortSettings
+instance NFData DescribeFleetPortSettings where
 
 instance ToHeaders DescribeFleetPortSettings where
         toHeaders
@@ -163,9 +163,10 @@ instance ToQuery DescribeFleetPortSettings where
 --
 -- /See:/ 'describeFleetPortSettingsResponse' smart constructor.
 data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
-    { _dfpsrsInboundPermissions :: !(Maybe [IPPermission])
-    , _dfpsrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfpsrsInboundPermissions :: {-# NOUNPACK #-}!(Maybe [IPPermission])
+  , _dfpsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetPortSettingsResponse' with the minimum fields required to make a request.
 --
@@ -178,10 +179,11 @@ describeFleetPortSettingsResponse
     :: Int -- ^ 'dfpsrsResponseStatus'
     -> DescribeFleetPortSettingsResponse
 describeFleetPortSettingsResponse pResponseStatus_ =
-    DescribeFleetPortSettingsResponse'
-    { _dfpsrsInboundPermissions = Nothing
-    , _dfpsrsResponseStatus = pResponseStatus_
-    }
+  DescribeFleetPortSettingsResponse'
+  { _dfpsrsInboundPermissions = Nothing
+  , _dfpsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Object that contains port settings for the requested fleet ID.
 dfpsrsInboundPermissions :: Lens' DescribeFleetPortSettingsResponse [IPPermission]
@@ -192,3 +194,4 @@ dfpsrsResponseStatus :: Lens' DescribeFleetPortSettingsResponse Int
 dfpsrsResponseStatus = lens _dfpsrsResponseStatus (\ s a -> s{_dfpsrsResponseStatus = a});
 
 instance NFData DescribeFleetPortSettingsResponse
+         where

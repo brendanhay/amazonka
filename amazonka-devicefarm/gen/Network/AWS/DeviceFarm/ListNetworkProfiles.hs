@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListNetworkProfiles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.DeviceFarm.ListNetworkProfiles
     , lnprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listNetworkProfiles' smart constructor.
 data ListNetworkProfiles = ListNetworkProfiles'
-    { _lnpNextToken :: !(Maybe Text)
-    , _lnpType      :: !(Maybe NetworkProfileType)
-    , _lnpArn       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lnpNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lnpType      :: {-# NOUNPACK #-}!(Maybe NetworkProfileType)
+  , _lnpArn       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListNetworkProfiles' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ listNetworkProfiles
     :: Text -- ^ 'lnpArn'
     -> ListNetworkProfiles
 listNetworkProfiles pArn_ =
-    ListNetworkProfiles'
-    { _lnpNextToken = Nothing
-    , _lnpType = Nothing
-    , _lnpArn = pArn_
-    }
+  ListNetworkProfiles'
+  {_lnpNextToken = Nothing, _lnpType = Nothing, _lnpArn = pArn_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lnpNextToken :: Lens' ListNetworkProfiles (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest ListNetworkProfiles where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListNetworkProfiles
+instance Hashable ListNetworkProfiles where
 
-instance NFData ListNetworkProfiles
+instance NFData ListNetworkProfiles where
 
 instance ToHeaders ListNetworkProfiles where
         toHeaders
@@ -126,10 +125,11 @@ instance ToQuery ListNetworkProfiles where
 
 -- | /See:/ 'listNetworkProfilesResponse' smart constructor.
 data ListNetworkProfilesResponse = ListNetworkProfilesResponse'
-    { _lnprsNetworkProfiles :: !(Maybe [NetworkProfile])
-    , _lnprsNextToken       :: !(Maybe Text)
-    , _lnprsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lnprsNetworkProfiles :: {-# NOUNPACK #-}!(Maybe [NetworkProfile])
+  , _lnprsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lnprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListNetworkProfilesResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +144,12 @@ listNetworkProfilesResponse
     :: Int -- ^ 'lnprsResponseStatus'
     -> ListNetworkProfilesResponse
 listNetworkProfilesResponse pResponseStatus_ =
-    ListNetworkProfilesResponse'
-    { _lnprsNetworkProfiles = Nothing
-    , _lnprsNextToken = Nothing
-    , _lnprsResponseStatus = pResponseStatus_
-    }
+  ListNetworkProfilesResponse'
+  { _lnprsNetworkProfiles = Nothing
+  , _lnprsNextToken = Nothing
+  , _lnprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the available network profiles.
 lnprsNetworkProfiles :: Lens' ListNetworkProfilesResponse [NetworkProfile]
@@ -162,4 +163,4 @@ lnprsNextToken = lens _lnprsNextToken (\ s a -> s{_lnprsNextToken = a});
 lnprsResponseStatus :: Lens' ListNetworkProfilesResponse Int
 lnprsResponseStatus = lens _lnprsResponseStatus (\ s a -> s{_lnprsResponseStatus = a});
 
-instance NFData ListNetworkProfilesResponse
+instance NFData ListNetworkProfilesResponse where

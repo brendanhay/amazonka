@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.PutEventStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,20 +36,21 @@ module Network.AWS.Pinpoint.PutEventStream
     , pesrsEventStream
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | PutEventStream Request
 --
 -- /See:/ 'putEventStream' smart constructor.
 data PutEventStream = PutEventStream'
-    { _pesApplicationId    :: !Text
-    , _pesWriteEventStream :: !WriteEventStream
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pesApplicationId    :: {-# NOUNPACK #-}!Text
+  , _pesWriteEventStream :: {-# NOUNPACK #-}!WriteEventStream
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEventStream' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ putEventStream
     -> WriteEventStream -- ^ 'pesWriteEventStream'
     -> PutEventStream
 putEventStream pApplicationId_ pWriteEventStream_ =
-    PutEventStream'
-    { _pesApplicationId = pApplicationId_
-    , _pesWriteEventStream = pWriteEventStream_
-    }
+  PutEventStream'
+  { _pesApplicationId = pApplicationId_
+  , _pesWriteEventStream = pWriteEventStream_
+  }
+
 
 -- | ApplicationId
 pesApplicationId :: Lens' PutEventStream Text
@@ -85,9 +87,9 @@ instance AWSRequest PutEventStream where
                  PutEventStreamResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable PutEventStream
+instance Hashable PutEventStream where
 
-instance NFData PutEventStream
+instance NFData PutEventStream where
 
 instance ToHeaders PutEventStream where
         toHeaders
@@ -112,9 +114,10 @@ instance ToQuery PutEventStream where
 
 -- | /See:/ 'putEventStreamResponse' smart constructor.
 data PutEventStreamResponse = PutEventStreamResponse'
-    { _pesrsResponseStatus :: !Int
-    , _pesrsEventStream    :: !EventStream
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pesrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _pesrsEventStream    :: {-# NOUNPACK #-}!EventStream
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEventStreamResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +131,9 @@ putEventStreamResponse
     -> EventStream -- ^ 'pesrsEventStream'
     -> PutEventStreamResponse
 putEventStreamResponse pResponseStatus_ pEventStream_ =
-    PutEventStreamResponse'
-    { _pesrsResponseStatus = pResponseStatus_
-    , _pesrsEventStream = pEventStream_
-    }
+  PutEventStreamResponse'
+  {_pesrsResponseStatus = pResponseStatus_, _pesrsEventStream = pEventStream_}
+
 
 -- | -- | The response status code.
 pesrsResponseStatus :: Lens' PutEventStreamResponse Int
@@ -141,4 +143,4 @@ pesrsResponseStatus = lens _pesrsResponseStatus (\ s a -> s{_pesrsResponseStatus
 pesrsEventStream :: Lens' PutEventStreamResponse EventStream
 pesrsEventStream = lens _pesrsEventStream (\ s a -> s{_pesrsEventStream = a});
 
-instance NFData PutEventStreamResponse
+instance NFData PutEventStreamResponse where

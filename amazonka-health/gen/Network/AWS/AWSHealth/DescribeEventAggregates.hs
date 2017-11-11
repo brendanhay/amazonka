@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEventAggregates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.AWSHealth.DescribeEventAggregates
     , drsResponseStatus
     ) where
 
-import           Network.AWS.AWSHealth.Types
-import           Network.AWS.AWSHealth.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AWSHealth.Types
+import Network.AWS.AWSHealth.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEventAggregates' smart constructor.
 data DescribeEventAggregates = DescribeEventAggregates'
-    { _deaNextToken      :: !(Maybe Text)
-    , _deaFilter         :: !(Maybe EventFilter)
-    , _deaMaxResults     :: !(Maybe Nat)
-    , _deaAggregateField :: !EventAggregateField
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deaNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deaFilter         :: {-# NOUNPACK #-}!(Maybe EventFilter)
+  , _deaMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _deaAggregateField :: {-# NOUNPACK #-}!EventAggregateField
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventAggregates' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ describeEventAggregates
     :: EventAggregateField -- ^ 'deaAggregateField'
     -> DescribeEventAggregates
 describeEventAggregates pAggregateField_ =
-    DescribeEventAggregates'
-    { _deaNextToken = Nothing
-    , _deaFilter = Nothing
-    , _deaMaxResults = Nothing
-    , _deaAggregateField = pAggregateField_
-    }
+  DescribeEventAggregates'
+  { _deaNextToken = Nothing
+  , _deaFilter = Nothing
+  , _deaMaxResults = Nothing
+  , _deaAggregateField = pAggregateField_
+  }
+
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 deaNextToken :: Lens' DescribeEventAggregates (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest DescribeEventAggregates where
                      (x .?> "eventAggregates" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEventAggregates
+instance Hashable DescribeEventAggregates where
 
-instance NFData DescribeEventAggregates
+instance NFData DescribeEventAggregates where
 
 instance ToHeaders DescribeEventAggregates where
         toHeaders
@@ -147,10 +149,11 @@ instance ToQuery DescribeEventAggregates where
 
 -- | /See:/ 'describeEventAggregatesResponse' smart constructor.
 data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
-    { _drsNextToken       :: !(Maybe Text)
-    , _drsEventAggregates :: !(Maybe [EventAggregate])
-    , _drsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsEventAggregates :: {-# NOUNPACK #-}!(Maybe [EventAggregate])
+  , _drsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventAggregatesResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ describeEventAggregatesResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeEventAggregatesResponse
 describeEventAggregatesResponse pResponseStatus_ =
-    DescribeEventAggregatesResponse'
-    { _drsNextToken = Nothing
-    , _drsEventAggregates = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeEventAggregatesResponse'
+  { _drsNextToken = Nothing
+  , _drsEventAggregates = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 drsNextToken :: Lens' DescribeEventAggregatesResponse (Maybe Text)
@@ -183,4 +187,4 @@ drsEventAggregates = lens _drsEventAggregates (\ s a -> s{_drsEventAggregates = 
 drsResponseStatus :: Lens' DescribeEventAggregatesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeEventAggregatesResponse
+instance NFData DescribeEventAggregatesResponse where

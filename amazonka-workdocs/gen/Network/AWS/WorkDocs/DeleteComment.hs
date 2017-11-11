@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteComment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,20 +37,21 @@ module Network.AWS.WorkDocs.DeleteComment
     , DeleteCommentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteComment' smart constructor.
 data DeleteComment = DeleteComment'
-    { _delAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _delDocumentId          :: !Text
-    , _delVersionId           :: !Text
-    , _delCommentId           :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _delAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _delDocumentId          :: {-# NOUNPACK #-}!Text
+  , _delVersionId           :: {-# NOUNPACK #-}!Text
+  , _delCommentId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteComment' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ deleteComment
     -> Text -- ^ 'delCommentId'
     -> DeleteComment
 deleteComment pDocumentId_ pVersionId_ pCommentId_ =
-    DeleteComment'
-    { _delAuthenticationToken = Nothing
-    , _delDocumentId = pDocumentId_
-    , _delVersionId = pVersionId_
-    , _delCommentId = pCommentId_
-    }
+  DeleteComment'
+  { _delAuthenticationToken = Nothing
+  , _delDocumentId = pDocumentId_
+  , _delVersionId = pVersionId_
+  , _delCommentId = pCommentId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 delAuthenticationToken :: Lens' DeleteComment (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest DeleteComment where
         request = delete workDocs
         response = receiveNull DeleteCommentResponse'
 
-instance Hashable DeleteComment
+instance Hashable DeleteComment where
 
-instance NFData DeleteComment
+instance NFData DeleteComment where
 
 instance ToHeaders DeleteComment where
         toHeaders DeleteComment'{..}
@@ -120,8 +122,9 @@ instance ToQuery DeleteComment where
 
 -- | /See:/ 'deleteCommentResponse' smart constructor.
 data DeleteCommentResponse =
-    DeleteCommentResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteCommentResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCommentResponse' with the minimum fields required to make a request.
 --
@@ -129,4 +132,5 @@ deleteCommentResponse
     :: DeleteCommentResponse
 deleteCommentResponse = DeleteCommentResponse'
 
-instance NFData DeleteCommentResponse
+
+instance NFData DeleteCommentResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.CreateRepository
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodeCommit.CreateRepository
     , crrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create repository operation.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createRepository' smart constructor.
 data CreateRepository = CreateRepository'
-    { _crRepositoryDescription :: !(Maybe Text)
-    , _crRepositoryName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crRepositoryDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crRepositoryName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRepository' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ createRepository
     :: Text -- ^ 'crRepositoryName'
     -> CreateRepository
 createRepository pRepositoryName_ =
-    CreateRepository'
-    { _crRepositoryDescription = Nothing
-    , _crRepositoryName = pRepositoryName_
-    }
+  CreateRepository'
+  {_crRepositoryDescription = Nothing, _crRepositoryName = pRepositoryName_}
+
 
 -- | A comment or description about the new repository.
 crRepositoryDescription :: Lens' CreateRepository (Maybe Text)
@@ -88,9 +88,9 @@ instance AWSRequest CreateRepository where
                  CreateRepositoryResponse' <$>
                    (x .?> "repositoryMetadata") <*> (pure (fromEnum s)))
 
-instance Hashable CreateRepository
+instance Hashable CreateRepository where
 
-instance NFData CreateRepository
+instance NFData CreateRepository where
 
 instance ToHeaders CreateRepository where
         toHeaders
@@ -122,9 +122,10 @@ instance ToQuery CreateRepository where
 --
 -- /See:/ 'createRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
-    { _crrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
-    , _crrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsRepositoryMetadata :: {-# NOUNPACK #-}!(Maybe RepositoryMetadata)
+  , _crrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRepositoryResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +138,9 @@ createRepositoryResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRepositoryResponse
 createRepositoryResponse pResponseStatus_ =
-    CreateRepositoryResponse'
-    { _crrsRepositoryMetadata = Nothing
-    , _crrsResponseStatus = pResponseStatus_
-    }
+  CreateRepositoryResponse'
+  {_crrsRepositoryMetadata = Nothing, _crrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the newly created repository.
 crrsRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetadata)
@@ -150,4 +150,4 @@ crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositor
 crrsResponseStatus :: Lens' CreateRepositoryResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 
-instance NFData CreateRepositoryResponse
+instance NFData CreateRepositoryResponse where

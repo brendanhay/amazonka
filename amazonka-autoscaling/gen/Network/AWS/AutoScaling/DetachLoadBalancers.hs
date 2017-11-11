@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DetachLoadBalancers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     , dlbsrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachLoadBalancers.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'
-    { _dAutoScalingGroupName :: !Text
-    , _dLoadBalancerNames    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _dLoadBalancerNames    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachLoadBalancers' with the minimum fields required to make a request.
 --
@@ -69,10 +70,11 @@ detachLoadBalancers
     :: Text -- ^ 'dAutoScalingGroupName'
     -> DetachLoadBalancers
 detachLoadBalancers pAutoScalingGroupName_ =
-    DetachLoadBalancers'
-    { _dAutoScalingGroupName = pAutoScalingGroupName_
-    , _dLoadBalancerNames = mempty
-    }
+  DetachLoadBalancers'
+  { _dAutoScalingGroupName = pAutoScalingGroupName_
+  , _dLoadBalancerNames = mempty
+  }
+
 
 -- | The name of the Auto Scaling group.
 dAutoScalingGroupName :: Lens' DetachLoadBalancers Text
@@ -91,9 +93,9 @@ instance AWSRequest DetachLoadBalancers where
               (\ s h x ->
                  DetachLoadBalancersResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DetachLoadBalancers
+instance Hashable DetachLoadBalancers where
 
-instance NFData DetachLoadBalancers
+instance NFData DetachLoadBalancers where
 
 instance ToHeaders DetachLoadBalancers where
         toHeaders = const mempty
@@ -116,8 +118,9 @@ instance ToQuery DetachLoadBalancers where
 --
 -- /See:/ 'detachLoadBalancersResponse' smart constructor.
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
-    { _dlbsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachLoadBalancersResponse' with the minimum fields required to make a request.
 --
@@ -128,12 +131,11 @@ detachLoadBalancersResponse
     :: Int -- ^ 'dlbsrsResponseStatus'
     -> DetachLoadBalancersResponse
 detachLoadBalancersResponse pResponseStatus_ =
-    DetachLoadBalancersResponse'
-    { _dlbsrsResponseStatus = pResponseStatus_
-    }
+  DetachLoadBalancersResponse' {_dlbsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dlbsrsResponseStatus :: Lens' DetachLoadBalancersResponse Int
 dlbsrsResponseStatus = lens _dlbsrsResponseStatus (\ s a -> s{_dlbsrsResponseStatus = a});
 
-instance NFData DetachLoadBalancersResponse
+instance NFData DetachLoadBalancersResponse where

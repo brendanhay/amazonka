@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.GetIdentityPoolConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     , gipcrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the GetIdentityPoolConfiguration operation.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getIdentityPoolConfiguration' smart constructor.
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
-    { _gipcIdentityPoolId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gipcIdentityPoolId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdentityPoolConfiguration' with the minimum fields required to make a request.
 --
@@ -66,9 +67,8 @@ getIdentityPoolConfiguration
     :: Text -- ^ 'gipcIdentityPoolId'
     -> GetIdentityPoolConfiguration
 getIdentityPoolConfiguration pIdentityPoolId_ =
-    GetIdentityPoolConfiguration'
-    { _gipcIdentityPoolId = pIdentityPoolId_
-    }
+  GetIdentityPoolConfiguration' {_gipcIdentityPoolId = pIdentityPoolId_}
+
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
 gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
@@ -87,9 +87,9 @@ instance AWSRequest GetIdentityPoolConfiguration
                      <*> (x .?> "PushSync")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetIdentityPoolConfiguration
+instance Hashable GetIdentityPoolConfiguration where
 
-instance NFData GetIdentityPoolConfiguration
+instance NFData GetIdentityPoolConfiguration where
 
 instance ToHeaders GetIdentityPoolConfiguration where
         toHeaders
@@ -113,11 +113,12 @@ instance ToQuery GetIdentityPoolConfiguration where
 --
 -- /See:/ 'getIdentityPoolConfigurationResponse' smart constructor.
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
-    { _gipcrsIdentityPoolId :: !(Maybe Text)
-    , _gipcrsCognitoStreams :: !(Maybe CognitoStreams)
-    , _gipcrsPushSync       :: !(Maybe PushSync)
-    , _gipcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gipcrsIdentityPoolId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gipcrsCognitoStreams :: {-# NOUNPACK #-}!(Maybe CognitoStreams)
+  , _gipcrsPushSync       :: {-# NOUNPACK #-}!(Maybe PushSync)
+  , _gipcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdentityPoolConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -134,12 +135,13 @@ getIdentityPoolConfigurationResponse
     :: Int -- ^ 'gipcrsResponseStatus'
     -> GetIdentityPoolConfigurationResponse
 getIdentityPoolConfigurationResponse pResponseStatus_ =
-    GetIdentityPoolConfigurationResponse'
-    { _gipcrsIdentityPoolId = Nothing
-    , _gipcrsCognitoStreams = Nothing
-    , _gipcrsPushSync = Nothing
-    , _gipcrsResponseStatus = pResponseStatus_
-    }
+  GetIdentityPoolConfigurationResponse'
+  { _gipcrsIdentityPoolId = Nothing
+  , _gipcrsCognitoStreams = Nothing
+  , _gipcrsPushSync = Nothing
+  , _gipcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 gipcrsIdentityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
@@ -158,3 +160,4 @@ gipcrsResponseStatus :: Lens' GetIdentityPoolConfigurationResponse Int
 gipcrsResponseStatus = lens _gipcrsResponseStatus (\ s a -> s{_gipcrsResponseStatus = a});
 
 instance NFData GetIdentityPoolConfigurationResponse
+         where

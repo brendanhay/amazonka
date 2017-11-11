@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListFileShares
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.StorageGateway.ListFileShares
     , lfsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | ListFileShareInput
 --
@@ -54,10 +54,11 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listFileShares' smart constructor.
 data ListFileShares = ListFileShares'
-    { _lfsGatewayARN :: !(Maybe Text)
-    , _lfsMarker     :: !(Maybe Text)
-    , _lfsLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfsGatewayARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfsMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFileShares' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ data ListFileShares = ListFileShares'
 listFileShares
     :: ListFileShares
 listFileShares =
-    ListFileShares'
-    { _lfsGatewayARN = Nothing
-    , _lfsMarker = Nothing
-    , _lfsLimit = Nothing
-    }
+  ListFileShares'
+  {_lfsGatewayARN = Nothing, _lfsMarker = Nothing, _lfsLimit = Nothing}
+
 
 -- | The Amazon resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
 lfsGatewayARN :: Lens' ListFileShares (Maybe Text)
@@ -101,9 +100,9 @@ instance AWSRequest ListFileShares where
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListFileShares
+instance Hashable ListFileShares where
 
-instance NFData ListFileShares
+instance NFData ListFileShares where
 
 instance ToHeaders ListFileShares where
         toHeaders
@@ -135,11 +134,12 @@ instance ToQuery ListFileShares where
 --
 -- /See:/ 'listFileSharesResponse' smart constructor.
 data ListFileSharesResponse = ListFileSharesResponse'
-    { _lfsrsFileShareInfoList :: !(Maybe [FileShareInfo])
-    , _lfsrsMarker            :: !(Maybe Text)
-    , _lfsrsNextMarker        :: !(Maybe Text)
-    , _lfsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfsrsFileShareInfoList :: {-# NOUNPACK #-}!(Maybe [FileShareInfo])
+  , _lfsrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfsrsNextMarker        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFileSharesResponse' with the minimum fields required to make a request.
 --
@@ -156,12 +156,13 @@ listFileSharesResponse
     :: Int -- ^ 'lfsrsResponseStatus'
     -> ListFileSharesResponse
 listFileSharesResponse pResponseStatus_ =
-    ListFileSharesResponse'
-    { _lfsrsFileShareInfoList = Nothing
-    , _lfsrsMarker = Nothing
-    , _lfsrsNextMarker = Nothing
-    , _lfsrsResponseStatus = pResponseStatus_
-    }
+  ListFileSharesResponse'
+  { _lfsrsFileShareInfoList = Nothing
+  , _lfsrsMarker = Nothing
+  , _lfsrsNextMarker = Nothing
+  , _lfsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of information about the file gateway's file shares.
 lfsrsFileShareInfoList :: Lens' ListFileSharesResponse [FileShareInfo]
@@ -179,4 +180,4 @@ lfsrsNextMarker = lens _lfsrsNextMarker (\ s a -> s{_lfsrsNextMarker = a});
 lfsrsResponseStatus :: Lens' ListFileSharesResponse Int
 lfsrsResponseStatus = lens _lfsrsResponseStatus (\ s a -> s{_lfsrsResponseStatus = a});
 
-instance NFData ListFileSharesResponse
+instance NFData ListFileSharesResponse where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Support
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -257,22 +257,22 @@ module Network.AWS.Support
     , tarsResourcesSuppressed
     ) where
 
-import           Network.AWS.Support.AddAttachmentsToSet
-import           Network.AWS.Support.AddCommunicationToCase
-import           Network.AWS.Support.CreateCase
-import           Network.AWS.Support.DescribeAttachment
-import           Network.AWS.Support.DescribeCases
-import           Network.AWS.Support.DescribeCommunications
-import           Network.AWS.Support.DescribeServices
-import           Network.AWS.Support.DescribeSeverityLevels
-import           Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
-import           Network.AWS.Support.DescribeTrustedAdvisorCheckResult
-import           Network.AWS.Support.DescribeTrustedAdvisorChecks
-import           Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
-import           Network.AWS.Support.RefreshTrustedAdvisorCheck
-import           Network.AWS.Support.ResolveCase
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Waiters
+import Network.AWS.Support.AddAttachmentsToSet
+import Network.AWS.Support.AddCommunicationToCase
+import Network.AWS.Support.CreateCase
+import Network.AWS.Support.DescribeAttachment
+import Network.AWS.Support.DescribeCases
+import Network.AWS.Support.DescribeCommunications
+import Network.AWS.Support.DescribeServices
+import Network.AWS.Support.DescribeSeverityLevels
+import Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
+import Network.AWS.Support.DescribeTrustedAdvisorCheckResult
+import Network.AWS.Support.DescribeTrustedAdvisorChecks
+import Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
+import Network.AWS.Support.RefreshTrustedAdvisorCheck
+import Network.AWS.Support.ResolveCase
+import Network.AWS.Support.Types
+import Network.AWS.Support.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

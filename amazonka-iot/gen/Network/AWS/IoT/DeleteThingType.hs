@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteThingType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.IoT.DeleteThingType
     , dttrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeleteThingType operation.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteThingType' smart constructor.
 newtype DeleteThingType = DeleteThingType'
-    { _dttThingTypeName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dttThingTypeName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteThingType' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ deleteThingType
     :: Text -- ^ 'dttThingTypeName'
     -> DeleteThingType
 deleteThingType pThingTypeName_ =
-    DeleteThingType'
-    { _dttThingTypeName = pThingTypeName_
-    }
+  DeleteThingType' {_dttThingTypeName = pThingTypeName_}
+
 
 -- | The name of the thing type.
 dttThingTypeName :: Lens' DeleteThingType Text
@@ -77,9 +77,9 @@ instance AWSRequest DeleteThingType where
               (\ s h x ->
                  DeleteThingTypeResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteThingType
+instance Hashable DeleteThingType where
 
-instance NFData DeleteThingType
+instance NFData DeleteThingType where
 
 instance ToHeaders DeleteThingType where
         toHeaders = const mempty
@@ -97,8 +97,9 @@ instance ToQuery DeleteThingType where
 --
 -- /See:/ 'deleteThingTypeResponse' smart constructor.
 newtype DeleteThingTypeResponse = DeleteThingTypeResponse'
-    { _dttrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dttrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteThingTypeResponse' with the minimum fields required to make a request.
 --
@@ -109,12 +110,11 @@ deleteThingTypeResponse
     :: Int -- ^ 'dttrsResponseStatus'
     -> DeleteThingTypeResponse
 deleteThingTypeResponse pResponseStatus_ =
-    DeleteThingTypeResponse'
-    { _dttrsResponseStatus = pResponseStatus_
-    }
+  DeleteThingTypeResponse' {_dttrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dttrsResponseStatus :: Lens' DeleteThingTypeResponse Int
 dttrsResponseStatus = lens _dttrsResponseStatus (\ s a -> s{_dttrsResponseStatus = a});
 
-instance NFData DeleteThingTypeResponse
+instance NFData DeleteThingTypeResponse where

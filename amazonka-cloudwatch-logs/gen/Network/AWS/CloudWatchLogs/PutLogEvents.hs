@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutLogEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,20 +59,21 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     , plersResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putLogEvents' smart constructor.
 data PutLogEvents = PutLogEvents'
-    { _pleSequenceToken :: !(Maybe Text)
-    , _pleLogGroupName  :: !Text
-    , _pleLogStreamName :: !Text
-    , _pleLogEvents     :: !(List1 InputLogEvent)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pleSequenceToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pleLogGroupName  :: {-# NOUNPACK #-}!Text
+  , _pleLogStreamName :: {-# NOUNPACK #-}!Text
+  , _pleLogEvents     :: {-# NOUNPACK #-}!(List1 InputLogEvent)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutLogEvents' with the minimum fields required to make a request.
 --
@@ -91,12 +92,13 @@ putLogEvents
     -> NonEmpty InputLogEvent -- ^ 'pleLogEvents'
     -> PutLogEvents
 putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
-    PutLogEvents'
-    { _pleSequenceToken = Nothing
-    , _pleLogGroupName = pLogGroupName_
-    , _pleLogStreamName = pLogStreamName_
-    , _pleLogEvents = _List1 # pLogEvents_
-    }
+  PutLogEvents'
+  { _pleSequenceToken = Nothing
+  , _pleLogGroupName = pLogGroupName_
+  , _pleLogStreamName = pLogStreamName_
+  , _pleLogEvents = _List1 # pLogEvents_
+  }
+
 
 -- | The sequence token.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest PutLogEvents where
                      (x .?> "nextSequenceToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutLogEvents
+instance Hashable PutLogEvents where
 
-instance NFData PutLogEvents
+instance NFData PutLogEvents where
 
 instance ToHeaders PutLogEvents where
         toHeaders
@@ -155,10 +157,11 @@ instance ToQuery PutLogEvents where
 
 -- | /See:/ 'putLogEventsResponse' smart constructor.
 data PutLogEventsResponse = PutLogEventsResponse'
-    { _plersRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
-    , _plersNextSequenceToken     :: !(Maybe Text)
-    , _plersResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _plersRejectedLogEventsInfo :: {-# NOUNPACK #-}!(Maybe RejectedLogEventsInfo)
+  , _plersNextSequenceToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _plersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutLogEventsResponse' with the minimum fields required to make a request.
 --
@@ -173,11 +176,12 @@ putLogEventsResponse
     :: Int -- ^ 'plersResponseStatus'
     -> PutLogEventsResponse
 putLogEventsResponse pResponseStatus_ =
-    PutLogEventsResponse'
-    { _plersRejectedLogEventsInfo = Nothing
-    , _plersNextSequenceToken = Nothing
-    , _plersResponseStatus = pResponseStatus_
-    }
+  PutLogEventsResponse'
+  { _plersRejectedLogEventsInfo = Nothing
+  , _plersNextSequenceToken = Nothing
+  , _plersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The rejected events.
 plersRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
@@ -191,4 +195,4 @@ plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequ
 plersResponseStatus :: Lens' PutLogEventsResponse Int
 plersResponseStatus = lens _plersResponseStatus (\ s a -> s{_plersResponseStatus = a});
 
-instance NFData PutLogEventsResponse
+instance NFData PutLogEventsResponse where

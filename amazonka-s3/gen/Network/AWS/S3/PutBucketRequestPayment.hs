@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,19 +34,20 @@ module Network.AWS.S3.PutBucketRequestPayment
     , PutBucketRequestPaymentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketRequestPayment' smart constructor.
 data PutBucketRequestPayment = PutBucketRequestPayment'
-    { _pbrpContentMD5                  :: !(Maybe Text)
-    , _pbrpBucket                      :: !BucketName
-    , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbrpContentMD5 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbrpBucket :: {-# NOUNPACK #-}!BucketName
+  , _pbrpRequestPaymentConfiguration :: {-# NOUNPACK #-}!RequestPaymentConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketRequestPayment' with the minimum fields required to make a request.
 --
@@ -62,11 +63,12 @@ putBucketRequestPayment
     -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
     -> PutBucketRequestPayment
 putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
-    PutBucketRequestPayment'
-    { _pbrpContentMD5 = Nothing
-    , _pbrpBucket = pBucket_
-    , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
-    }
+  PutBucketRequestPayment'
+  { _pbrpContentMD5 = Nothing
+  , _pbrpBucket = pBucket_
+  , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
+  }
+
 
 -- | Undocumented member.
 pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
@@ -87,9 +89,9 @@ instance AWSRequest PutBucketRequestPayment where
         response
           = receiveNull PutBucketRequestPaymentResponse'
 
-instance Hashable PutBucketRequestPayment
+instance Hashable PutBucketRequestPayment where
 
-instance NFData PutBucketRequestPayment
+instance NFData PutBucketRequestPayment where
 
 instance ToElement PutBucketRequestPayment where
         toElement
@@ -111,8 +113,9 @@ instance ToQuery PutBucketRequestPayment where
 
 -- | /See:/ 'putBucketRequestPaymentResponse' smart constructor.
 data PutBucketRequestPaymentResponse =
-    PutBucketRequestPaymentResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketRequestPaymentResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketRequestPaymentResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +123,5 @@ putBucketRequestPaymentResponse
     :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'
 
-instance NFData PutBucketRequestPaymentResponse
+
+instance NFData PutBucketRequestPaymentResponse where

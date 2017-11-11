@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateInstanceSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.CreateInstanceSnapshot
     , cisrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createInstanceSnapshot' smart constructor.
 data CreateInstanceSnapshot = CreateInstanceSnapshot'
-    { _cisInstanceSnapshotName :: !Text
-    , _cisInstanceName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cisInstanceSnapshotName :: {-# NOUNPACK #-}!Text
+  , _cisInstanceName         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstanceSnapshot' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ createInstanceSnapshot
     -> Text -- ^ 'cisInstanceName'
     -> CreateInstanceSnapshot
 createInstanceSnapshot pInstanceSnapshotName_ pInstanceName_ =
-    CreateInstanceSnapshot'
-    { _cisInstanceSnapshotName = pInstanceSnapshotName_
-    , _cisInstanceName = pInstanceName_
-    }
+  CreateInstanceSnapshot'
+  { _cisInstanceSnapshotName = pInstanceSnapshotName_
+  , _cisInstanceName = pInstanceName_
+  }
+
 
 -- | The name for your new snapshot.
 cisInstanceSnapshotName :: Lens' CreateInstanceSnapshot Text
@@ -87,9 +89,9 @@ instance AWSRequest CreateInstanceSnapshot where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateInstanceSnapshot
+instance Hashable CreateInstanceSnapshot where
 
-instance NFData CreateInstanceSnapshot
+instance NFData CreateInstanceSnapshot where
 
 instance ToHeaders CreateInstanceSnapshot where
         toHeaders
@@ -117,9 +119,10 @@ instance ToQuery CreateInstanceSnapshot where
 
 -- | /See:/ 'createInstanceSnapshotResponse' smart constructor.
 data CreateInstanceSnapshotResponse = CreateInstanceSnapshotResponse'
-    { _cisrsOperations     :: !(Maybe [Operation])
-    , _cisrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cisrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _cisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstanceSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -132,10 +135,9 @@ createInstanceSnapshotResponse
     :: Int -- ^ 'cisrsResponseStatus'
     -> CreateInstanceSnapshotResponse
 createInstanceSnapshotResponse pResponseStatus_ =
-    CreateInstanceSnapshotResponse'
-    { _cisrsOperations = Nothing
-    , _cisrsResponseStatus = pResponseStatus_
-    }
+  CreateInstanceSnapshotResponse'
+  {_cisrsOperations = Nothing, _cisrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your create instances snapshot request.
 cisrsOperations :: Lens' CreateInstanceSnapshotResponse [Operation]
@@ -145,4 +147,4 @@ cisrsOperations = lens _cisrsOperations (\ s a -> s{_cisrsOperations = a}) . _De
 cisrsResponseStatus :: Lens' CreateInstanceSnapshotResponse Int
 cisrsResponseStatus = lens _cisrsResponseStatus (\ s a -> s{_cisrsResponseStatus = a});
 
-instance NFData CreateInstanceSnapshotResponse
+instance NFData CreateInstanceSnapshotResponse where

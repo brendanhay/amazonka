@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateRemoteAccessSession
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DeviceFarm.CreateRemoteAccessSession
     , crasrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Creates and submits a request to start a remote access session.
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createRemoteAccessSession' smart constructor.
 data CreateRemoteAccessSession = CreateRemoteAccessSession'
-    { _crasName          :: !(Maybe Text)
-    , _crasConfiguration :: !(Maybe CreateRemoteAccessSessionConfiguration)
-    , _crasProjectARN    :: !Text
-    , _crasDeviceARN     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crasName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crasConfiguration :: {-# NOUNPACK #-}!(Maybe CreateRemoteAccessSessionConfiguration)
+  , _crasProjectARN :: {-# NOUNPACK #-}!Text
+  , _crasDeviceARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRemoteAccessSession' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ createRemoteAccessSession
     -> Text -- ^ 'crasDeviceARN'
     -> CreateRemoteAccessSession
 createRemoteAccessSession pProjectARN_ pDeviceARN_ =
-    CreateRemoteAccessSession'
-    { _crasName = Nothing
-    , _crasConfiguration = Nothing
-    , _crasProjectARN = pProjectARN_
-    , _crasDeviceARN = pDeviceARN_
-    }
+  CreateRemoteAccessSession'
+  { _crasName = Nothing
+  , _crasConfiguration = Nothing
+  , _crasProjectARN = pProjectARN_
+  , _crasDeviceARN = pDeviceARN_
+  }
+
 
 -- | The name of the remote access session that you wish to create.
 crasName :: Lens' CreateRemoteAccessSession (Maybe Text)
@@ -109,9 +111,9 @@ instance AWSRequest CreateRemoteAccessSession where
                    (x .?> "remoteAccessSession") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateRemoteAccessSession
+instance Hashable CreateRemoteAccessSession where
 
-instance NFData CreateRemoteAccessSession
+instance NFData CreateRemoteAccessSession where
 
 instance ToHeaders CreateRemoteAccessSession where
         toHeaders
@@ -144,9 +146,10 @@ instance ToQuery CreateRemoteAccessSession where
 --
 -- /See:/ 'createRemoteAccessSessionResponse' smart constructor.
 data CreateRemoteAccessSessionResponse = CreateRemoteAccessSessionResponse'
-    { _crasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
-    , _crasrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crasrsRemoteAccessSession :: {-# NOUNPACK #-}!(Maybe RemoteAccessSession)
+  , _crasrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRemoteAccessSessionResponse' with the minimum fields required to make a request.
 --
@@ -159,10 +162,11 @@ createRemoteAccessSessionResponse
     :: Int -- ^ 'crasrsResponseStatus'
     -> CreateRemoteAccessSessionResponse
 createRemoteAccessSessionResponse pResponseStatus_ =
-    CreateRemoteAccessSessionResponse'
-    { _crasrsRemoteAccessSession = Nothing
-    , _crasrsResponseStatus = pResponseStatus_
-    }
+  CreateRemoteAccessSessionResponse'
+  { _crasrsRemoteAccessSession = Nothing
+  , _crasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A container that describes the remote access session when the request to create a remote access session is sent.
 crasrsRemoteAccessSession :: Lens' CreateRemoteAccessSessionResponse (Maybe RemoteAccessSession)
@@ -173,3 +177,4 @@ crasrsResponseStatus :: Lens' CreateRemoteAccessSessionResponse Int
 crasrsResponseStatus = lens _crasrsResponseStatus (\ s a -> s{_crasrsResponseStatus = a});
 
 instance NFData CreateRemoteAccessSessionResponse
+         where

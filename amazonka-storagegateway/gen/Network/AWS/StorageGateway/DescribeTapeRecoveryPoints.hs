@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     , dtrprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeTapeRecoveryPointsInput
 --
@@ -59,10 +59,11 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeTapeRecoveryPoints' smart constructor.
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
-    { _dtrpMarker     :: !(Maybe Text)
-    , _dtrpLimit      :: !(Maybe Nat)
-    , _dtrpGatewayARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrpMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrpLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dtrpGatewayARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTapeRecoveryPoints' with the minimum fields required to make a request.
 --
@@ -77,11 +78,9 @@ describeTapeRecoveryPoints
     :: Text -- ^ 'dtrpGatewayARN'
     -> DescribeTapeRecoveryPoints
 describeTapeRecoveryPoints pGatewayARN_ =
-    DescribeTapeRecoveryPoints'
-    { _dtrpMarker = Nothing
-    , _dtrpLimit = Nothing
-    , _dtrpGatewayARN = pGatewayARN_
-    }
+  DescribeTapeRecoveryPoints'
+  {_dtrpMarker = Nothing, _dtrpLimit = Nothing, _dtrpGatewayARN = pGatewayARN_}
+
 
 -- | An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
 dtrpMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
@@ -115,9 +114,9 @@ instance AWSRequest DescribeTapeRecoveryPoints where
                      <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTapeRecoveryPoints
+instance Hashable DescribeTapeRecoveryPoints where
 
-instance NFData DescribeTapeRecoveryPoints
+instance NFData DescribeTapeRecoveryPoints where
 
 instance ToHeaders DescribeTapeRecoveryPoints where
         toHeaders
@@ -149,11 +148,12 @@ instance ToQuery DescribeTapeRecoveryPoints where
 --
 -- /See:/ 'describeTapeRecoveryPointsResponse' smart constructor.
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
-    { _dtrprsTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
-    , _dtrprsGatewayARN             :: !(Maybe Text)
-    , _dtrprsMarker                 :: !(Maybe Text)
-    , _dtrprsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrprsTapeRecoveryPointInfos :: {-# NOUNPACK #-}!(Maybe [TapeRecoveryPointInfo])
+  , _dtrprsGatewayARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrprsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTapeRecoveryPointsResponse' with the minimum fields required to make a request.
 --
@@ -170,12 +170,13 @@ describeTapeRecoveryPointsResponse
     :: Int -- ^ 'dtrprsResponseStatus'
     -> DescribeTapeRecoveryPointsResponse
 describeTapeRecoveryPointsResponse pResponseStatus_ =
-    DescribeTapeRecoveryPointsResponse'
-    { _dtrprsTapeRecoveryPointInfos = Nothing
-    , _dtrprsGatewayARN = Nothing
-    , _dtrprsMarker = Nothing
-    , _dtrprsResponseStatus = pResponseStatus_
-    }
+  DescribeTapeRecoveryPointsResponse'
+  { _dtrprsTapeRecoveryPointInfos = Nothing
+  , _dtrprsGatewayARN = Nothing
+  , _dtrprsMarker = Nothing
+  , _dtrprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified gateway.
 dtrprsTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
@@ -194,3 +195,4 @@ dtrprsResponseStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
 dtrprsResponseStatus = lens _dtrprsResponseStatus (\ s a -> s{_dtrprsResponseStatus = a});
 
 instance NFData DescribeTapeRecoveryPointsResponse
+         where

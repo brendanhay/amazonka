@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeregisterImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DeregisterImage
     , DeregisterImageResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeregisterImage.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deregisterImage' smart constructor.
 data DeregisterImage = DeregisterImage'
-    { _diDryRun  :: !(Maybe Bool)
-    , _diImageId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diDryRun  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diImageId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterImage' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ deregisterImage
     :: Text -- ^ 'diImageId'
     -> DeregisterImage
 deregisterImage pImageId_ =
-    DeregisterImage'
-    { _diDryRun = Nothing
-    , _diImageId = pImageId_
-    }
+  DeregisterImage' {_diDryRun = Nothing, _diImageId = pImageId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diDryRun :: Lens' DeregisterImage (Maybe Bool)
@@ -83,9 +82,9 @@ instance AWSRequest DeregisterImage where
         request = postQuery ec2
         response = receiveNull DeregisterImageResponse'
 
-instance Hashable DeregisterImage
+instance Hashable DeregisterImage where
 
-instance NFData DeregisterImage
+instance NFData DeregisterImage where
 
 instance ToHeaders DeregisterImage where
         toHeaders = const mempty
@@ -102,8 +101,9 @@ instance ToQuery DeregisterImage where
 
 -- | /See:/ 'deregisterImageResponse' smart constructor.
 data DeregisterImageResponse =
-    DeregisterImageResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeregisterImageResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterImageResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ deregisterImageResponse
     :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse'
 
-instance NFData DeregisterImageResponse
+
+instance NFData DeregisterImageResponse where

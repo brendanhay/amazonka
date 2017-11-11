@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSnapshots
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -68,13 +68,13 @@ module Network.AWS.EC2.DescribeSnapshots
     , dssrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSnapshots.
 --
@@ -82,14 +82,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-    { _dssOwnerIds            :: !(Maybe [Text])
-    , _dssFilters             :: !(Maybe [Filter])
-    , _dssNextToken           :: !(Maybe Text)
-    , _dssSnapshotIds         :: !(Maybe [Text])
-    , _dssRestorableByUserIds :: !(Maybe [Text])
-    , _dssDryRun              :: !(Maybe Bool)
-    , _dssMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssOwnerIds            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dssFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dssNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssSnapshotIds         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dssRestorableByUserIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dssDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dssMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshots' with the minimum fields required to make a request.
 --
@@ -111,15 +112,16 @@ data DescribeSnapshots = DescribeSnapshots'
 describeSnapshots
     :: DescribeSnapshots
 describeSnapshots =
-    DescribeSnapshots'
-    { _dssOwnerIds = Nothing
-    , _dssFilters = Nothing
-    , _dssNextToken = Nothing
-    , _dssSnapshotIds = Nothing
-    , _dssRestorableByUserIds = Nothing
-    , _dssDryRun = Nothing
-    , _dssMaxResults = Nothing
-    }
+  DescribeSnapshots'
+  { _dssOwnerIds = Nothing
+  , _dssFilters = Nothing
+  , _dssNextToken = Nothing
+  , _dssSnapshotIds = Nothing
+  , _dssRestorableByUserIds = Nothing
+  , _dssDryRun = Nothing
+  , _dssMaxResults = Nothing
+  }
+
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be specified.
 dssOwnerIds :: Lens' DescribeSnapshots [Text]
@@ -168,9 +170,9 @@ instance AWSRequest DescribeSnapshots where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSnapshots
+instance Hashable DescribeSnapshots where
 
-instance NFData DescribeSnapshots
+instance NFData DescribeSnapshots where
 
 instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty
@@ -200,10 +202,11 @@ instance ToQuery DescribeSnapshots where
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dssrsNextToken      :: !(Maybe Text)
-    , _dssrsSnapshots      :: !(Maybe [Snapshot])
-    , _dssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssrsSnapshots      :: {-# NOUNPACK #-}!(Maybe [Snapshot])
+  , _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotsResponse' with the minimum fields required to make a request.
 --
@@ -218,11 +221,12 @@ describeSnapshotsResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSnapshotsResponse
 describeSnapshotsResponse pResponseStatus_ =
-    DescribeSnapshotsResponse'
-    { _dssrsNextToken = Nothing
-    , _dssrsSnapshots = Nothing
-    , _dssrsResponseStatus = pResponseStatus_
-    }
+  DescribeSnapshotsResponse'
+  { _dssrsNextToken = Nothing
+  , _dssrsSnapshots = Nothing
+  , _dssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @NextToken@ value to include in a future @DescribeSnapshots@ request. When the results of a @DescribeSnapshots@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dssrsNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
@@ -236,4 +240,4 @@ dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Defau
 dssrsResponseStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 
-instance NFData DescribeSnapshotsResponse
+instance NFData DescribeSnapshotsResponse where

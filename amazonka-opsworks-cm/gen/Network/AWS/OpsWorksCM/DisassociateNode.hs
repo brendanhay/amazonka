@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DisassociateNode
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.OpsWorksCM.DisassociateNode
     , dnrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateNode' smart constructor.
 data DisassociateNode = DisassociateNode'
-    { _dnEngineAttributes :: !(Maybe [EngineAttribute])
-    , _dnServerName       :: !Text
-    , _dnNodeName         :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dnEngineAttributes :: {-# NOUNPACK #-}!(Maybe [EngineAttribute])
+  , _dnServerName       :: {-# NOUNPACK #-}!Text
+  , _dnNodeName         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateNode' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ disassociateNode
     -> Text -- ^ 'dnNodeName'
     -> DisassociateNode
 disassociateNode pServerName_ pNodeName_ =
-    DisassociateNode'
-    { _dnEngineAttributes = Nothing
-    , _dnServerName = pServerName_
-    , _dnNodeName = pNodeName_
-    }
+  DisassociateNode'
+  { _dnEngineAttributes = Nothing
+  , _dnServerName = pServerName_
+  , _dnNodeName = pNodeName_
+  }
+
 
 -- | Engine attributes used for disassociating the node.  __Attributes accepted in a DisassociateNode request:__      * @CHEF_ORGANIZATION@ : The Chef organization with which the node was associated. By default only one organization named @default@ can exist.
 dnEngineAttributes :: Lens' DisassociateNode [EngineAttribute]
@@ -97,9 +99,9 @@ instance AWSRequest DisassociateNode where
                    (x .?> "NodeAssociationStatusToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DisassociateNode
+instance Hashable DisassociateNode where
 
-instance NFData DisassociateNode
+instance NFData DisassociateNode where
 
 instance ToHeaders DisassociateNode where
         toHeaders
@@ -127,9 +129,10 @@ instance ToQuery DisassociateNode where
 
 -- | /See:/ 'disassociateNodeResponse' smart constructor.
 data DisassociateNodeResponse = DisassociateNodeResponse'
-    { _dnrsNodeAssociationStatusToken :: !(Maybe Text)
-    , _dnrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnrsNodeAssociationStatusToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnrsResponseStatus             :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateNodeResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,11 @@ disassociateNodeResponse
     :: Int -- ^ 'dnrsResponseStatus'
     -> DisassociateNodeResponse
 disassociateNodeResponse pResponseStatus_ =
-    DisassociateNodeResponse'
-    { _dnrsNodeAssociationStatusToken = Nothing
-    , _dnrsResponseStatus = pResponseStatus_
-    }
+  DisassociateNodeResponse'
+  { _dnrsNodeAssociationStatusToken = Nothing
+  , _dnrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the disassociation request.
 dnrsNodeAssociationStatusToken :: Lens' DisassociateNodeResponse (Maybe Text)
@@ -155,4 +159,4 @@ dnrsNodeAssociationStatusToken = lens _dnrsNodeAssociationStatusToken (\ s a -> 
 dnrsResponseStatus :: Lens' DisassociateNodeResponse Int
 dnrsResponseStatus = lens _dnrsResponseStatus (\ s a -> s{_dnrsResponseStatus = a});
 
-instance NFData DisassociateNodeResponse
+instance NFData DisassociateNodeResponse where

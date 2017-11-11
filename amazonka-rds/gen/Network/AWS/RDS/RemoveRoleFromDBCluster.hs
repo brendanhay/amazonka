@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RemoveRoleFromDBCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.RDS.RemoveRoleFromDBCluster
     , RemoveRoleFromDBClusterResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeRoleFromDBCluster' smart constructor.
 data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
-    { _rrfdcDBClusterIdentifier :: !Text
-    , _rrfdcRoleARN             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrfdcDBClusterIdentifier :: {-# NOUNPACK #-}!Text
+  , _rrfdcRoleARN             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveRoleFromDBCluster' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ removeRoleFromDBCluster
     -> Text -- ^ 'rrfdcRoleARN'
     -> RemoveRoleFromDBCluster
 removeRoleFromDBCluster pDBClusterIdentifier_ pRoleARN_ =
-    RemoveRoleFromDBCluster'
-    { _rrfdcDBClusterIdentifier = pDBClusterIdentifier_
-    , _rrfdcRoleARN = pRoleARN_
-    }
+  RemoveRoleFromDBCluster'
+  {_rrfdcDBClusterIdentifier = pDBClusterIdentifier_, _rrfdcRoleARN = pRoleARN_}
+
 
 -- | The name of the DB cluster to disassociate the IAM role from.
 rrfdcDBClusterIdentifier :: Lens' RemoveRoleFromDBCluster Text
@@ -80,9 +80,9 @@ instance AWSRequest RemoveRoleFromDBCluster where
         response
           = receiveNull RemoveRoleFromDBClusterResponse'
 
-instance Hashable RemoveRoleFromDBCluster
+instance Hashable RemoveRoleFromDBCluster where
 
-instance NFData RemoveRoleFromDBCluster
+instance NFData RemoveRoleFromDBCluster where
 
 instance ToHeaders RemoveRoleFromDBCluster where
         toHeaders = const mempty
@@ -101,8 +101,9 @@ instance ToQuery RemoveRoleFromDBCluster where
 
 -- | /See:/ 'removeRoleFromDBClusterResponse' smart constructor.
 data RemoveRoleFromDBClusterResponse =
-    RemoveRoleFromDBClusterResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveRoleFromDBClusterResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveRoleFromDBClusterResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,5 @@ removeRoleFromDBClusterResponse
     :: RemoveRoleFromDBClusterResponse
 removeRoleFromDBClusterResponse = RemoveRoleFromDBClusterResponse'
 
-instance NFData RemoveRoleFromDBClusterResponse
+
+instance NFData RemoveRoleFromDBClusterResponse where

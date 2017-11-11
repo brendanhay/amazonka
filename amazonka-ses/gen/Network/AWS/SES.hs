@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.SES
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -514,57 +514,57 @@ module Network.AWS.SES
     , waOrganizationARN
     ) where
 
-import           Network.AWS.SES.CloneReceiptRuleSet
-import           Network.AWS.SES.CreateConfigurationSet
-import           Network.AWS.SES.CreateConfigurationSetEventDestination
-import           Network.AWS.SES.CreateReceiptFilter
-import           Network.AWS.SES.CreateReceiptRule
-import           Network.AWS.SES.CreateReceiptRuleSet
-import           Network.AWS.SES.DeleteConfigurationSet
-import           Network.AWS.SES.DeleteConfigurationSetEventDestination
-import           Network.AWS.SES.DeleteIdentity
-import           Network.AWS.SES.DeleteIdentityPolicy
-import           Network.AWS.SES.DeleteReceiptFilter
-import           Network.AWS.SES.DeleteReceiptRule
-import           Network.AWS.SES.DeleteReceiptRuleSet
-import           Network.AWS.SES.DeleteVerifiedEmailAddress
-import           Network.AWS.SES.DescribeActiveReceiptRuleSet
-import           Network.AWS.SES.DescribeConfigurationSet
-import           Network.AWS.SES.DescribeReceiptRule
-import           Network.AWS.SES.DescribeReceiptRuleSet
-import           Network.AWS.SES.GetIdentityDkimAttributes
-import           Network.AWS.SES.GetIdentityMailFromDomainAttributes
-import           Network.AWS.SES.GetIdentityNotificationAttributes
-import           Network.AWS.SES.GetIdentityPolicies
-import           Network.AWS.SES.GetIdentityVerificationAttributes
-import           Network.AWS.SES.GetSendQuota
-import           Network.AWS.SES.GetSendStatistics
-import           Network.AWS.SES.ListConfigurationSets
-import           Network.AWS.SES.ListIdentities
-import           Network.AWS.SES.ListIdentityPolicies
-import           Network.AWS.SES.ListReceiptFilters
-import           Network.AWS.SES.ListReceiptRuleSets
-import           Network.AWS.SES.ListVerifiedEmailAddresses
-import           Network.AWS.SES.PutIdentityPolicy
-import           Network.AWS.SES.ReorderReceiptRuleSet
-import           Network.AWS.SES.SendBounce
-import           Network.AWS.SES.SendEmail
-import           Network.AWS.SES.SendRawEmail
-import           Network.AWS.SES.SetActiveReceiptRuleSet
-import           Network.AWS.SES.SetIdentityDkimEnabled
-import           Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
-import           Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
-import           Network.AWS.SES.SetIdentityMailFromDomain
-import           Network.AWS.SES.SetIdentityNotificationTopic
-import           Network.AWS.SES.SetReceiptRulePosition
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.UpdateConfigurationSetEventDestination
-import           Network.AWS.SES.UpdateReceiptRule
-import           Network.AWS.SES.VerifyDomainDkim
-import           Network.AWS.SES.VerifyDomainIdentity
-import           Network.AWS.SES.VerifyEmailAddress
-import           Network.AWS.SES.VerifyEmailIdentity
-import           Network.AWS.SES.Waiters
+import Network.AWS.SES.CloneReceiptRuleSet
+import Network.AWS.SES.CreateConfigurationSet
+import Network.AWS.SES.CreateConfigurationSetEventDestination
+import Network.AWS.SES.CreateReceiptFilter
+import Network.AWS.SES.CreateReceiptRule
+import Network.AWS.SES.CreateReceiptRuleSet
+import Network.AWS.SES.DeleteConfigurationSet
+import Network.AWS.SES.DeleteConfigurationSetEventDestination
+import Network.AWS.SES.DeleteIdentity
+import Network.AWS.SES.DeleteIdentityPolicy
+import Network.AWS.SES.DeleteReceiptFilter
+import Network.AWS.SES.DeleteReceiptRule
+import Network.AWS.SES.DeleteReceiptRuleSet
+import Network.AWS.SES.DeleteVerifiedEmailAddress
+import Network.AWS.SES.DescribeActiveReceiptRuleSet
+import Network.AWS.SES.DescribeConfigurationSet
+import Network.AWS.SES.DescribeReceiptRule
+import Network.AWS.SES.DescribeReceiptRuleSet
+import Network.AWS.SES.GetIdentityDkimAttributes
+import Network.AWS.SES.GetIdentityMailFromDomainAttributes
+import Network.AWS.SES.GetIdentityNotificationAttributes
+import Network.AWS.SES.GetIdentityPolicies
+import Network.AWS.SES.GetIdentityVerificationAttributes
+import Network.AWS.SES.GetSendQuota
+import Network.AWS.SES.GetSendStatistics
+import Network.AWS.SES.ListConfigurationSets
+import Network.AWS.SES.ListIdentities
+import Network.AWS.SES.ListIdentityPolicies
+import Network.AWS.SES.ListReceiptFilters
+import Network.AWS.SES.ListReceiptRuleSets
+import Network.AWS.SES.ListVerifiedEmailAddresses
+import Network.AWS.SES.PutIdentityPolicy
+import Network.AWS.SES.ReorderReceiptRuleSet
+import Network.AWS.SES.SendBounce
+import Network.AWS.SES.SendEmail
+import Network.AWS.SES.SendRawEmail
+import Network.AWS.SES.SetActiveReceiptRuleSet
+import Network.AWS.SES.SetIdentityDkimEnabled
+import Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
+import Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
+import Network.AWS.SES.SetIdentityMailFromDomain
+import Network.AWS.SES.SetIdentityNotificationTopic
+import Network.AWS.SES.SetReceiptRulePosition
+import Network.AWS.SES.Types
+import Network.AWS.SES.UpdateConfigurationSetEventDestination
+import Network.AWS.SES.UpdateReceiptRule
+import Network.AWS.SES.VerifyDomainDkim
+import Network.AWS.SES.VerifyDomainIdentity
+import Network.AWS.SES.VerifyEmailAddress
+import Network.AWS.SES.VerifyEmailIdentity
+import Network.AWS.SES.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

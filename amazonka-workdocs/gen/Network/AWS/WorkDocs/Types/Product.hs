@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.WorkDocs.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.WorkDocs.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.WorkDocs.Types.Sum
 
 -- | Describes the activity information.
 --
@@ -27,15 +27,16 @@ import           Network.AWS.WorkDocs.Types.Sum
 --
 -- /See:/ 'activity' smart constructor.
 data Activity = Activity'
-    { _aResourceMetadata :: !(Maybe ResourceMetadata)
-    , _aInitiator        :: !(Maybe UserMetadata)
-    , _aParticipants     :: !(Maybe Participants)
-    , _aOriginalParent   :: !(Maybe ResourceMetadata)
-    , _aType             :: !(Maybe ActivityType)
-    , _aCommentMetadata  :: !(Maybe CommentMetadata)
-    , _aTimeStamp        :: !(Maybe POSIX)
-    , _aOrganizationId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aResourceMetadata :: {-# NOUNPACK #-}!(Maybe ResourceMetadata)
+  , _aInitiator        :: {-# NOUNPACK #-}!(Maybe UserMetadata)
+  , _aParticipants     :: {-# NOUNPACK #-}!(Maybe Participants)
+  , _aOriginalParent   :: {-# NOUNPACK #-}!(Maybe ResourceMetadata)
+  , _aType             :: {-# NOUNPACK #-}!(Maybe ActivityType)
+  , _aCommentMetadata  :: {-# NOUNPACK #-}!(Maybe CommentMetadata)
+  , _aTimeStamp        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aOrganizationId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Activity' with the minimum fields required to make a request.
 --
@@ -59,16 +60,17 @@ data Activity = Activity'
 activity
     :: Activity
 activity =
-    Activity'
-    { _aResourceMetadata = Nothing
-    , _aInitiator = Nothing
-    , _aParticipants = Nothing
-    , _aOriginalParent = Nothing
-    , _aType = Nothing
-    , _aCommentMetadata = Nothing
-    , _aTimeStamp = Nothing
-    , _aOrganizationId = Nothing
-    }
+  Activity'
+  { _aResourceMetadata = Nothing
+  , _aInitiator = Nothing
+  , _aParticipants = Nothing
+  , _aOriginalParent = Nothing
+  , _aType = Nothing
+  , _aCommentMetadata = Nothing
+  , _aTimeStamp = Nothing
+  , _aOrganizationId = Nothing
+  }
+
 
 -- | The metadata of the resource involved in the user action.
 aResourceMetadata :: Lens' Activity (Maybe ResourceMetadata)
@@ -115,9 +117,9 @@ instance FromJSON Activity where
                      <*> (x .:? "TimeStamp")
                      <*> (x .:? "OrganizationId"))
 
-instance Hashable Activity
+instance Hashable Activity where
 
-instance NFData Activity
+instance NFData Activity where
 
 -- | Describes a comment.
 --
@@ -125,16 +127,17 @@ instance NFData Activity
 --
 -- /See:/ 'comment' smart constructor.
 data Comment = Comment'
-    { _cStatus           :: !(Maybe CommentStatusType)
-    , _cText             :: !(Maybe (Sensitive Text))
-    , _cVisibility       :: !(Maybe CommentVisibilityType)
-    , _cThreadId         :: !(Maybe Text)
-    , _cContributor      :: !(Maybe User)
-    , _cCreatedTimestamp :: !(Maybe POSIX)
-    , _cRecipientId      :: !(Maybe Text)
-    , _cParentId         :: !(Maybe Text)
-    , _cCommentId        :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cStatus           :: {-# NOUNPACK #-}!(Maybe CommentStatusType)
+  , _cText             :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _cVisibility       :: {-# NOUNPACK #-}!(Maybe CommentVisibilityType)
+  , _cThreadId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cContributor      :: {-# NOUNPACK #-}!(Maybe User)
+  , _cCreatedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cRecipientId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cParentId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCommentId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Comment' with the minimum fields required to make a request.
 --
@@ -161,17 +164,18 @@ comment
     :: Text -- ^ 'cCommentId'
     -> Comment
 comment pCommentId_ =
-    Comment'
-    { _cStatus = Nothing
-    , _cText = Nothing
-    , _cVisibility = Nothing
-    , _cThreadId = Nothing
-    , _cContributor = Nothing
-    , _cCreatedTimestamp = Nothing
-    , _cRecipientId = Nothing
-    , _cParentId = Nothing
-    , _cCommentId = pCommentId_
-    }
+  Comment'
+  { _cStatus = Nothing
+  , _cText = Nothing
+  , _cVisibility = Nothing
+  , _cThreadId = Nothing
+  , _cContributor = Nothing
+  , _cCreatedTimestamp = Nothing
+  , _cRecipientId = Nothing
+  , _cParentId = Nothing
+  , _cCommentId = pCommentId_
+  }
+
 
 -- | The status of the comment.
 cStatus :: Lens' Comment (Maybe CommentStatusType)
@@ -223,9 +227,9 @@ instance FromJSON Comment where
                      <*> (x .:? "ParentId")
                      <*> (x .: "CommentId"))
 
-instance Hashable Comment
+instance Hashable Comment where
 
-instance NFData Comment
+instance NFData Comment where
 
 -- | Describes the metadata of a comment.
 --
@@ -233,12 +237,13 @@ instance NFData Comment
 --
 -- /See:/ 'commentMetadata' smart constructor.
 data CommentMetadata = CommentMetadata'
-    { _cmCommentStatus    :: !(Maybe CommentStatusType)
-    , _cmContributor      :: !(Maybe User)
-    , _cmCommentId        :: !(Maybe Text)
-    , _cmCreatedTimestamp :: !(Maybe POSIX)
-    , _cmRecipientId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmCommentStatus    :: {-# NOUNPACK #-}!(Maybe CommentStatusType)
+  , _cmContributor      :: {-# NOUNPACK #-}!(Maybe User)
+  , _cmCommentId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmCreatedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cmRecipientId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CommentMetadata' with the minimum fields required to make a request.
 --
@@ -256,13 +261,14 @@ data CommentMetadata = CommentMetadata'
 commentMetadata
     :: CommentMetadata
 commentMetadata =
-    CommentMetadata'
-    { _cmCommentStatus = Nothing
-    , _cmContributor = Nothing
-    , _cmCommentId = Nothing
-    , _cmCreatedTimestamp = Nothing
-    , _cmRecipientId = Nothing
-    }
+  CommentMetadata'
+  { _cmCommentStatus = Nothing
+  , _cmContributor = Nothing
+  , _cmCommentId = Nothing
+  , _cmCreatedTimestamp = Nothing
+  , _cmRecipientId = Nothing
+  }
+
 
 -- | Undocumented member.
 cmCommentStatus :: Lens' CommentMetadata (Maybe CommentStatusType)
@@ -294,9 +300,9 @@ instance FromJSON CommentMetadata where
                      <*> (x .:? "CreatedTimestamp")
                      <*> (x .:? "RecipientId"))
 
-instance Hashable CommentMetadata
+instance Hashable CommentMetadata where
 
-instance NFData CommentMetadata
+instance NFData CommentMetadata where
 
 -- | Describes the document.
 --
@@ -304,15 +310,16 @@ instance NFData CommentMetadata
 --
 -- /See:/ 'documentMetadata' smart constructor.
 data DocumentMetadata = DocumentMetadata'
-    { _dmLatestVersionMetadata :: !(Maybe DocumentVersionMetadata)
-    , _dmParentFolderId        :: !(Maybe Text)
-    , _dmModifiedTimestamp     :: !(Maybe POSIX)
-    , _dmId                    :: !(Maybe Text)
-    , _dmLabels                :: !(Maybe [Text])
-    , _dmResourceState         :: !(Maybe ResourceStateType)
-    , _dmCreatedTimestamp      :: !(Maybe POSIX)
-    , _dmCreatorId             :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dmLatestVersionMetadata :: {-# NOUNPACK #-}!(Maybe DocumentVersionMetadata)
+  , _dmParentFolderId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmModifiedTimestamp     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dmId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmLabels                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dmResourceState         :: {-# NOUNPACK #-}!(Maybe ResourceStateType)
+  , _dmCreatedTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dmCreatorId             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentMetadata' with the minimum fields required to make a request.
 --
@@ -336,16 +343,17 @@ data DocumentMetadata = DocumentMetadata'
 documentMetadata
     :: DocumentMetadata
 documentMetadata =
-    DocumentMetadata'
-    { _dmLatestVersionMetadata = Nothing
-    , _dmParentFolderId = Nothing
-    , _dmModifiedTimestamp = Nothing
-    , _dmId = Nothing
-    , _dmLabels = Nothing
-    , _dmResourceState = Nothing
-    , _dmCreatedTimestamp = Nothing
-    , _dmCreatorId = Nothing
-    }
+  DocumentMetadata'
+  { _dmLatestVersionMetadata = Nothing
+  , _dmParentFolderId = Nothing
+  , _dmModifiedTimestamp = Nothing
+  , _dmId = Nothing
+  , _dmLabels = Nothing
+  , _dmResourceState = Nothing
+  , _dmCreatedTimestamp = Nothing
+  , _dmCreatorId = Nothing
+  }
+
 
 -- | The latest version of the document.
 dmLatestVersionMetadata :: Lens' DocumentMetadata (Maybe DocumentVersionMetadata)
@@ -393,9 +401,9 @@ instance FromJSON DocumentMetadata where
                      <*> (x .:? "CreatedTimestamp")
                      <*> (x .:? "CreatorId"))
 
-instance Hashable DocumentMetadata
+instance Hashable DocumentMetadata where
 
-instance NFData DocumentMetadata
+instance NFData DocumentMetadata where
 
 -- | Describes a version of a document.
 --
@@ -403,20 +411,21 @@ instance NFData DocumentMetadata
 --
 -- /See:/ 'documentVersionMetadata' smart constructor.
 data DocumentVersionMetadata = DocumentVersionMetadata'
-    { _dvmThumbnail                :: !(Maybe (Map DocumentThumbnailType (Sensitive Text)))
-    , _dvmStatus                   :: !(Maybe DocumentStatusType)
-    , _dvmSignature                :: !(Maybe Text)
-    , _dvmContentCreatedTimestamp  :: !(Maybe POSIX)
-    , _dvmSize                     :: !(Maybe Integer)
-    , _dvmName                     :: !(Maybe Text)
-    , _dvmModifiedTimestamp        :: !(Maybe POSIX)
-    , _dvmSource                   :: !(Maybe (Map DocumentSourceType (Sensitive Text)))
-    , _dvmId                       :: !(Maybe Text)
-    , _dvmCreatedTimestamp         :: !(Maybe POSIX)
-    , _dvmContentModifiedTimestamp :: !(Maybe POSIX)
-    , _dvmCreatorId                :: !(Maybe Text)
-    , _dvmContentType              :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dvmThumbnail :: {-# NOUNPACK #-}!(Maybe (Map DocumentThumbnailType (Sensitive Text)))
+  , _dvmStatus :: {-# NOUNPACK #-}!(Maybe DocumentStatusType)
+  , _dvmSignature :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvmContentCreatedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dvmSize :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dvmName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvmModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dvmSource :: {-# NOUNPACK #-}!(Maybe (Map DocumentSourceType (Sensitive Text)))
+  , _dvmId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvmCreatedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dvmContentModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dvmCreatorId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvmContentType :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentVersionMetadata' with the minimum fields required to make a request.
 --
@@ -450,21 +459,22 @@ data DocumentVersionMetadata = DocumentVersionMetadata'
 documentVersionMetadata
     :: DocumentVersionMetadata
 documentVersionMetadata =
-    DocumentVersionMetadata'
-    { _dvmThumbnail = Nothing
-    , _dvmStatus = Nothing
-    , _dvmSignature = Nothing
-    , _dvmContentCreatedTimestamp = Nothing
-    , _dvmSize = Nothing
-    , _dvmName = Nothing
-    , _dvmModifiedTimestamp = Nothing
-    , _dvmSource = Nothing
-    , _dvmId = Nothing
-    , _dvmCreatedTimestamp = Nothing
-    , _dvmContentModifiedTimestamp = Nothing
-    , _dvmCreatorId = Nothing
-    , _dvmContentType = Nothing
-    }
+  DocumentVersionMetadata'
+  { _dvmThumbnail = Nothing
+  , _dvmStatus = Nothing
+  , _dvmSignature = Nothing
+  , _dvmContentCreatedTimestamp = Nothing
+  , _dvmSize = Nothing
+  , _dvmName = Nothing
+  , _dvmModifiedTimestamp = Nothing
+  , _dvmSource = Nothing
+  , _dvmId = Nothing
+  , _dvmCreatedTimestamp = Nothing
+  , _dvmContentModifiedTimestamp = Nothing
+  , _dvmCreatorId = Nothing
+  , _dvmContentType = Nothing
+  }
+
 
 -- | The thumbnail of the document.
 dvmThumbnail :: Lens' DocumentVersionMetadata (HashMap DocumentThumbnailType Text)
@@ -536,9 +546,9 @@ instance FromJSON DocumentVersionMetadata where
                      <*> (x .:? "CreatorId")
                      <*> (x .:? "ContentType"))
 
-instance Hashable DocumentVersionMetadata
+instance Hashable DocumentVersionMetadata where
 
-instance NFData DocumentVersionMetadata
+instance NFData DocumentVersionMetadata where
 
 -- | Describes a folder.
 --
@@ -546,18 +556,19 @@ instance NFData DocumentVersionMetadata
 --
 -- /See:/ 'folderMetadata' smart constructor.
 data FolderMetadata = FolderMetadata'
-    { _fmSignature         :: !(Maybe Text)
-    , _fmParentFolderId    :: !(Maybe Text)
-    , _fmSize              :: !(Maybe Integer)
-    , _fmLatestVersionSize :: !(Maybe Integer)
-    , _fmName              :: !(Maybe Text)
-    , _fmModifiedTimestamp :: !(Maybe POSIX)
-    , _fmId                :: !(Maybe Text)
-    , _fmLabels            :: !(Maybe [Text])
-    , _fmResourceState     :: !(Maybe ResourceStateType)
-    , _fmCreatedTimestamp  :: !(Maybe POSIX)
-    , _fmCreatorId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fmSignature         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fmParentFolderId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fmSize              :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _fmLatestVersionSize :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _fmName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fmModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _fmId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fmLabels            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _fmResourceState     :: {-# NOUNPACK #-}!(Maybe ResourceStateType)
+  , _fmCreatedTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _fmCreatorId         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FolderMetadata' with the minimum fields required to make a request.
 --
@@ -587,19 +598,20 @@ data FolderMetadata = FolderMetadata'
 folderMetadata
     :: FolderMetadata
 folderMetadata =
-    FolderMetadata'
-    { _fmSignature = Nothing
-    , _fmParentFolderId = Nothing
-    , _fmSize = Nothing
-    , _fmLatestVersionSize = Nothing
-    , _fmName = Nothing
-    , _fmModifiedTimestamp = Nothing
-    , _fmId = Nothing
-    , _fmLabels = Nothing
-    , _fmResourceState = Nothing
-    , _fmCreatedTimestamp = Nothing
-    , _fmCreatorId = Nothing
-    }
+  FolderMetadata'
+  { _fmSignature = Nothing
+  , _fmParentFolderId = Nothing
+  , _fmSize = Nothing
+  , _fmLatestVersionSize = Nothing
+  , _fmName = Nothing
+  , _fmModifiedTimestamp = Nothing
+  , _fmId = Nothing
+  , _fmLabels = Nothing
+  , _fmResourceState = Nothing
+  , _fmCreatedTimestamp = Nothing
+  , _fmCreatorId = Nothing
+  }
+
 
 -- | The unique identifier created from the subfolders and documents of the folder.
 fmSignature :: Lens' FolderMetadata (Maybe Text)
@@ -661,9 +673,9 @@ instance FromJSON FolderMetadata where
                      <*> (x .:? "CreatedTimestamp")
                      <*> (x .:? "CreatorId"))
 
-instance Hashable FolderMetadata
+instance Hashable FolderMetadata where
 
-instance NFData FolderMetadata
+instance NFData FolderMetadata where
 
 -- | Describes the metadata of a user group.
 --
@@ -671,9 +683,10 @@ instance NFData FolderMetadata
 --
 -- /See:/ 'groupMetadata' smart constructor.
 data GroupMetadata = GroupMetadata'
-    { _gmName :: !(Maybe Text)
-    , _gmId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GroupMetadata' with the minimum fields required to make a request.
 --
@@ -684,11 +697,8 @@ data GroupMetadata = GroupMetadata'
 -- * 'gmId' - The ID of the user group.
 groupMetadata
     :: GroupMetadata
-groupMetadata =
-    GroupMetadata'
-    { _gmName = Nothing
-    , _gmId = Nothing
-    }
+groupMetadata = GroupMetadata' {_gmName = Nothing, _gmId = Nothing}
+
 
 -- | The name of the group.
 gmName :: Lens' GroupMetadata (Maybe Text)
@@ -704,9 +714,9 @@ instance FromJSON GroupMetadata where
               (\ x ->
                  GroupMetadata' <$> (x .:? "Name") <*> (x .:? "Id"))
 
-instance Hashable GroupMetadata
+instance Hashable GroupMetadata where
 
-instance NFData GroupMetadata
+instance NFData GroupMetadata where
 
 -- | Describes the users and/or user groups.
 --
@@ -714,9 +724,10 @@ instance NFData GroupMetadata
 --
 -- /See:/ 'participants' smart constructor.
 data Participants = Participants'
-    { _pGroups :: !(Maybe [GroupMetadata])
-    , _pUsers  :: !(Maybe [UserMetadata])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pGroups :: {-# NOUNPACK #-}!(Maybe [GroupMetadata])
+  , _pUsers  :: {-# NOUNPACK #-}!(Maybe [UserMetadata])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Participants' with the minimum fields required to make a request.
 --
@@ -727,11 +738,8 @@ data Participants = Participants'
 -- * 'pUsers' - The list of users.
 participants
     :: Participants
-participants =
-    Participants'
-    { _pGroups = Nothing
-    , _pUsers = Nothing
-    }
+participants = Participants' {_pGroups = Nothing, _pUsers = Nothing}
+
 
 -- | The list of user groups.
 pGroups :: Lens' Participants [GroupMetadata]
@@ -749,9 +757,9 @@ instance FromJSON Participants where
                    (x .:? "Groups" .!= mempty) <*>
                      (x .:? "Users" .!= mempty))
 
-instance Hashable Participants
+instance Hashable Participants where
 
-instance NFData Participants
+instance NFData Participants where
 
 -- | Describes the permissions.
 --
@@ -759,9 +767,10 @@ instance NFData Participants
 --
 -- /See:/ 'permissionInfo' smart constructor.
 data PermissionInfo = PermissionInfo'
-    { _piRole :: !(Maybe RoleType)
-    , _piType :: !(Maybe RolePermissionType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _piRole :: {-# NOUNPACK #-}!(Maybe RoleType)
+  , _piType :: {-# NOUNPACK #-}!(Maybe RolePermissionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PermissionInfo' with the minimum fields required to make a request.
 --
@@ -772,11 +781,8 @@ data PermissionInfo = PermissionInfo'
 -- * 'piType' - The type of permissions.
 permissionInfo
     :: PermissionInfo
-permissionInfo =
-    PermissionInfo'
-    { _piRole = Nothing
-    , _piType = Nothing
-    }
+permissionInfo = PermissionInfo' {_piRole = Nothing, _piType = Nothing}
+
 
 -- | The role of the user.
 piRole :: Lens' PermissionInfo (Maybe RoleType)
@@ -793,9 +799,9 @@ instance FromJSON PermissionInfo where
                  PermissionInfo' <$>
                    (x .:? "Role") <*> (x .:? "Type"))
 
-instance Hashable PermissionInfo
+instance Hashable PermissionInfo where
 
-instance NFData PermissionInfo
+instance NFData PermissionInfo where
 
 -- | Describes a resource.
 --
@@ -803,10 +809,11 @@ instance NFData PermissionInfo
 --
 -- /See:/ 'principal' smart constructor.
 data Principal = Principal'
-    { _pRoles :: !(Maybe [PermissionInfo])
-    , _pId    :: !(Maybe Text)
-    , _pType  :: !(Maybe PrincipalType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pRoles :: {-# NOUNPACK #-}!(Maybe [PermissionInfo])
+  , _pId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pType  :: {-# NOUNPACK #-}!(Maybe PrincipalType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Principal' with the minimum fields required to make a request.
 --
@@ -819,12 +826,8 @@ data Principal = Principal'
 -- * 'pType' - The type of resource.
 principal
     :: Principal
-principal =
-    Principal'
-    { _pRoles = Nothing
-    , _pId = Nothing
-    , _pType = Nothing
-    }
+principal = Principal' {_pRoles = Nothing, _pId = Nothing, _pType = Nothing}
+
 
 -- | The permission information for the resource.
 pRoles :: Lens' Principal [PermissionInfo]
@@ -846,9 +849,9 @@ instance FromJSON Principal where
                    (x .:? "Roles" .!= mempty) <*> (x .:? "Id") <*>
                      (x .:? "Type"))
 
-instance Hashable Principal
+instance Hashable Principal where
 
-instance NFData Principal
+instance NFData Principal where
 
 -- | Describes the metadata of a resource.
 --
@@ -856,14 +859,15 @@ instance NFData Principal
 --
 -- /See:/ 'resourceMetadata' smart constructor.
 data ResourceMetadata = ResourceMetadata'
-    { _rmVersionId    :: !(Maybe Text)
-    , _rmOwner        :: !(Maybe UserMetadata)
-    , _rmName         :: !(Maybe Text)
-    , _rmId           :: !(Maybe Text)
-    , _rmType         :: !(Maybe ResourceType)
-    , _rmOriginalName :: !(Maybe Text)
-    , _rmParentId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rmVersionId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmOwner        :: {-# NOUNPACK #-}!(Maybe UserMetadata)
+  , _rmName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmType         :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _rmOriginalName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmParentId     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceMetadata' with the minimum fields required to make a request.
 --
@@ -885,15 +889,16 @@ data ResourceMetadata = ResourceMetadata'
 resourceMetadata
     :: ResourceMetadata
 resourceMetadata =
-    ResourceMetadata'
-    { _rmVersionId = Nothing
-    , _rmOwner = Nothing
-    , _rmName = Nothing
-    , _rmId = Nothing
-    , _rmType = Nothing
-    , _rmOriginalName = Nothing
-    , _rmParentId = Nothing
-    }
+  ResourceMetadata'
+  { _rmVersionId = Nothing
+  , _rmOwner = Nothing
+  , _rmName = Nothing
+  , _rmId = Nothing
+  , _rmType = Nothing
+  , _rmOriginalName = Nothing
+  , _rmParentId = Nothing
+  }
+
 
 -- | The version ID of the resource. This is an optional field and is filled for action on document version.
 rmVersionId :: Lens' ResourceMetadata (Maybe Text)
@@ -935,9 +940,9 @@ instance FromJSON ResourceMetadata where
                      <*> (x .:? "OriginalName")
                      <*> (x .:? "ParentId"))
 
-instance Hashable ResourceMetadata
+instance Hashable ResourceMetadata where
 
-instance NFData ResourceMetadata
+instance NFData ResourceMetadata where
 
 -- | Describes the path information of a resource.
 --
@@ -945,8 +950,9 @@ instance NFData ResourceMetadata
 --
 -- /See:/ 'resourcePath' smart constructor.
 newtype ResourcePath = ResourcePath'
-    { _rpComponents :: Maybe [ResourcePathComponent]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpComponents :: Maybe [ResourcePathComponent]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourcePath' with the minimum fields required to make a request.
 --
@@ -955,10 +961,8 @@ newtype ResourcePath = ResourcePath'
 -- * 'rpComponents' - The components of the resource path.
 resourcePath
     :: ResourcePath
-resourcePath =
-    ResourcePath'
-    { _rpComponents = Nothing
-    }
+resourcePath = ResourcePath' {_rpComponents = Nothing}
+
 
 -- | The components of the resource path.
 rpComponents :: Lens' ResourcePath [ResourcePathComponent]
@@ -970,9 +974,9 @@ instance FromJSON ResourcePath where
               (\ x ->
                  ResourcePath' <$> (x .:? "Components" .!= mempty))
 
-instance Hashable ResourcePath
+instance Hashable ResourcePath where
 
-instance NFData ResourcePath
+instance NFData ResourcePath where
 
 -- | Describes the resource path.
 --
@@ -980,9 +984,10 @@ instance NFData ResourcePath
 --
 -- /See:/ 'resourcePathComponent' smart constructor.
 data ResourcePathComponent = ResourcePathComponent'
-    { _rpcName :: !(Maybe Text)
-    , _rpcId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpcName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpcId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourcePathComponent' with the minimum fields required to make a request.
 --
@@ -994,10 +999,8 @@ data ResourcePathComponent = ResourcePathComponent'
 resourcePathComponent
     :: ResourcePathComponent
 resourcePathComponent =
-    ResourcePathComponent'
-    { _rpcName = Nothing
-    , _rpcId = Nothing
-    }
+  ResourcePathComponent' {_rpcName = Nothing, _rpcId = Nothing}
+
 
 -- | The name of the resource path.
 rpcName :: Lens' ResourcePathComponent (Maybe Text)
@@ -1014,9 +1017,9 @@ instance FromJSON ResourcePathComponent where
                  ResourcePathComponent' <$>
                    (x .:? "Name") <*> (x .:? "Id"))
 
-instance Hashable ResourcePathComponent
+instance Hashable ResourcePathComponent where
 
-instance NFData ResourcePathComponent
+instance NFData ResourcePathComponent where
 
 -- | Describes the recipient type and ID, if available.
 --
@@ -1024,10 +1027,11 @@ instance NFData ResourcePathComponent
 --
 -- /See:/ 'sharePrincipal' smart constructor.
 data SharePrincipal = SharePrincipal'
-    { _spId   :: !Text
-    , _spType :: !PrincipalType
-    , _spRole :: !RoleType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spId   :: {-# NOUNPACK #-}!Text
+  , _spType :: {-# NOUNPACK #-}!PrincipalType
+  , _spRole :: {-# NOUNPACK #-}!RoleType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SharePrincipal' with the minimum fields required to make a request.
 --
@@ -1044,11 +1048,8 @@ sharePrincipal
     -> RoleType -- ^ 'spRole'
     -> SharePrincipal
 sharePrincipal pId_ pType_ pRole_ =
-    SharePrincipal'
-    { _spId = pId_
-    , _spType = pType_
-    , _spRole = pRole_
-    }
+  SharePrincipal' {_spId = pId_, _spType = pType_, _spRole = pRole_}
+
 
 -- | The ID of the recipient.
 spId :: Lens' SharePrincipal Text
@@ -1062,9 +1063,9 @@ spType = lens _spType (\ s a -> s{_spType = a});
 spRole :: Lens' SharePrincipal RoleType
 spRole = lens _spRole (\ s a -> s{_spRole = a});
 
-instance Hashable SharePrincipal
+instance Hashable SharePrincipal where
 
-instance NFData SharePrincipal
+instance NFData SharePrincipal where
 
 instance ToJSON SharePrincipal where
         toJSON SharePrincipal'{..}
@@ -1079,12 +1080,13 @@ instance ToJSON SharePrincipal where
 --
 -- /See:/ 'shareResult' smart constructor.
 data ShareResult = ShareResult'
-    { _srStatus        :: !(Maybe ShareStatusType)
-    , _srPrincipalId   :: !(Maybe Text)
-    , _srRole          :: !(Maybe RoleType)
-    , _srStatusMessage :: !(Maybe (Sensitive Text))
-    , _srShareId       :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _srStatus        :: {-# NOUNPACK #-}!(Maybe ShareStatusType)
+  , _srPrincipalId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srRole          :: {-# NOUNPACK #-}!(Maybe RoleType)
+  , _srStatusMessage :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _srShareId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ShareResult' with the minimum fields required to make a request.
 --
@@ -1102,13 +1104,14 @@ data ShareResult = ShareResult'
 shareResult
     :: ShareResult
 shareResult =
-    ShareResult'
-    { _srStatus = Nothing
-    , _srPrincipalId = Nothing
-    , _srRole = Nothing
-    , _srStatusMessage = Nothing
-    , _srShareId = Nothing
-    }
+  ShareResult'
+  { _srStatus = Nothing
+  , _srPrincipalId = Nothing
+  , _srRole = Nothing
+  , _srStatusMessage = Nothing
+  , _srShareId = Nothing
+  }
+
 
 -- | The status.
 srStatus :: Lens' ShareResult (Maybe ShareStatusType)
@@ -1140,9 +1143,9 @@ instance FromJSON ShareResult where
                      <*> (x .:? "StatusMessage")
                      <*> (x .:? "ShareId"))
 
-instance Hashable ShareResult
+instance Hashable ShareResult where
 
-instance NFData ShareResult
+instance NFData ShareResult where
 
 -- | Describes the storage for a user.
 --
@@ -1150,9 +1153,10 @@ instance NFData ShareResult
 --
 -- /See:/ 'storageRuleType' smart constructor.
 data StorageRuleType = StorageRuleType'
-    { _srtStorageAllocatedInBytes :: !(Maybe Nat)
-    , _srtStorageType             :: !(Maybe StorageType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srtStorageAllocatedInBytes :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _srtStorageType             :: {-# NOUNPACK #-}!(Maybe StorageType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StorageRuleType' with the minimum fields required to make a request.
 --
@@ -1164,10 +1168,9 @@ data StorageRuleType = StorageRuleType'
 storageRuleType
     :: StorageRuleType
 storageRuleType =
-    StorageRuleType'
-    { _srtStorageAllocatedInBytes = Nothing
-    , _srtStorageType = Nothing
-    }
+  StorageRuleType'
+  {_srtStorageAllocatedInBytes = Nothing, _srtStorageType = Nothing}
+
 
 -- | The amount of storage allocated, in bytes.
 srtStorageAllocatedInBytes :: Lens' StorageRuleType (Maybe Natural)
@@ -1185,9 +1188,9 @@ instance FromJSON StorageRuleType where
                    (x .:? "StorageAllocatedInBytes") <*>
                      (x .:? "StorageType"))
 
-instance Hashable StorageRuleType
+instance Hashable StorageRuleType where
 
-instance NFData StorageRuleType
+instance NFData StorageRuleType where
 
 instance ToJSON StorageRuleType where
         toJSON StorageRuleType'{..}
@@ -1203,10 +1206,11 @@ instance ToJSON StorageRuleType where
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-    { _sProtocol       :: !(Maybe SubscriptionProtocolType)
-    , _sEndPoint       :: !(Maybe Text)
-    , _sSubscriptionId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sProtocol       :: {-# NOUNPACK #-}!(Maybe SubscriptionProtocolType)
+  , _sEndPoint       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubscriptionId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
@@ -1220,11 +1224,9 @@ data Subscription = Subscription'
 subscription
     :: Subscription
 subscription =
-    Subscription'
-    { _sProtocol = Nothing
-    , _sEndPoint = Nothing
-    , _sSubscriptionId = Nothing
-    }
+  Subscription'
+  {_sProtocol = Nothing, _sEndPoint = Nothing, _sSubscriptionId = Nothing}
+
 
 -- | The protocol of the subscription.
 sProtocol :: Lens' Subscription (Maybe SubscriptionProtocolType)
@@ -1246,9 +1248,9 @@ instance FromJSON Subscription where
                    (x .:? "Protocol") <*> (x .:? "EndPoint") <*>
                      (x .:? "SubscriptionId"))
 
-instance Hashable Subscription
+instance Hashable Subscription where
 
-instance NFData Subscription
+instance NFData Subscription where
 
 -- | Describes the upload.
 --
@@ -1256,9 +1258,10 @@ instance NFData Subscription
 --
 -- /See:/ 'uploadMetadata' smart constructor.
 data UploadMetadata = UploadMetadata'
-    { _umUploadURL     :: !(Maybe (Sensitive Text))
-    , _umSignedHeaders :: !(Maybe (Map Text Text))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _umUploadURL     :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _umSignedHeaders :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadMetadata' with the minimum fields required to make a request.
 --
@@ -1270,10 +1273,8 @@ data UploadMetadata = UploadMetadata'
 uploadMetadata
     :: UploadMetadata
 uploadMetadata =
-    UploadMetadata'
-    { _umUploadURL = Nothing
-    , _umSignedHeaders = Nothing
-    }
+  UploadMetadata' {_umUploadURL = Nothing, _umSignedHeaders = Nothing}
+
 
 -- | The URL of the upload.
 umUploadURL :: Lens' UploadMetadata (Maybe Text)
@@ -1291,9 +1292,9 @@ instance FromJSON UploadMetadata where
                    (x .:? "UploadUrl") <*>
                      (x .:? "SignedHeaders" .!= mempty))
 
-instance Hashable UploadMetadata
+instance Hashable UploadMetadata where
 
-instance NFData UploadMetadata
+instance NFData UploadMetadata where
 
 -- | Describes a user.
 --
@@ -1301,22 +1302,23 @@ instance NFData UploadMetadata
 --
 -- /See:/ 'user' smart constructor.
 data User = User'
-    { _uGivenName          :: !(Maybe Text)
-    , _uStatus             :: !(Maybe UserStatusType)
-    , _uLocale             :: !(Maybe LocaleType)
-    , _uUsername           :: !(Maybe Text)
-    , _uStorage            :: !(Maybe UserStorageMetadata)
-    , _uModifiedTimestamp  :: !(Maybe POSIX)
-    , _uEmailAddress       :: !(Maybe Text)
-    , _uId                 :: !(Maybe Text)
-    , _uRootFolderId       :: !(Maybe Text)
-    , _uType               :: !(Maybe UserType)
-    , _uSurname            :: !(Maybe Text)
-    , _uTimeZoneId         :: !(Maybe Text)
-    , _uCreatedTimestamp   :: !(Maybe POSIX)
-    , _uOrganizationId     :: !(Maybe Text)
-    , _uRecycleBinFolderId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uGivenName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uStatus             :: {-# NOUNPACK #-}!(Maybe UserStatusType)
+  , _uLocale             :: {-# NOUNPACK #-}!(Maybe LocaleType)
+  , _uUsername           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uStorage            :: {-# NOUNPACK #-}!(Maybe UserStorageMetadata)
+  , _uModifiedTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uEmailAddress       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uRootFolderId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uType               :: {-# NOUNPACK #-}!(Maybe UserType)
+  , _uSurname            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uTimeZoneId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uCreatedTimestamp   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _uOrganizationId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uRecycleBinFolderId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
@@ -1354,23 +1356,24 @@ data User = User'
 user
     :: User
 user =
-    User'
-    { _uGivenName = Nothing
-    , _uStatus = Nothing
-    , _uLocale = Nothing
-    , _uUsername = Nothing
-    , _uStorage = Nothing
-    , _uModifiedTimestamp = Nothing
-    , _uEmailAddress = Nothing
-    , _uId = Nothing
-    , _uRootFolderId = Nothing
-    , _uType = Nothing
-    , _uSurname = Nothing
-    , _uTimeZoneId = Nothing
-    , _uCreatedTimestamp = Nothing
-    , _uOrganizationId = Nothing
-    , _uRecycleBinFolderId = Nothing
-    }
+  User'
+  { _uGivenName = Nothing
+  , _uStatus = Nothing
+  , _uLocale = Nothing
+  , _uUsername = Nothing
+  , _uStorage = Nothing
+  , _uModifiedTimestamp = Nothing
+  , _uEmailAddress = Nothing
+  , _uId = Nothing
+  , _uRootFolderId = Nothing
+  , _uType = Nothing
+  , _uSurname = Nothing
+  , _uTimeZoneId = Nothing
+  , _uCreatedTimestamp = Nothing
+  , _uOrganizationId = Nothing
+  , _uRecycleBinFolderId = Nothing
+  }
+
 
 -- | The given name of the user.
 uGivenName :: Lens' User (Maybe Text)
@@ -1452,9 +1455,9 @@ instance FromJSON User where
                      <*> (x .:? "OrganizationId")
                      <*> (x .:? "RecycleBinFolderId"))
 
-instance Hashable User
+instance Hashable User where
 
-instance NFData User
+instance NFData User where
 
 -- | Describes the metadata of the user.
 --
@@ -1462,12 +1465,13 @@ instance NFData User
 --
 -- /See:/ 'userMetadata' smart constructor.
 data UserMetadata = UserMetadata'
-    { _umGivenName    :: !(Maybe Text)
-    , _umUsername     :: !(Maybe Text)
-    , _umEmailAddress :: !(Maybe Text)
-    , _umId           :: !(Maybe Text)
-    , _umSurname      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umGivenName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umUsername     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umEmailAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umSurname      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserMetadata' with the minimum fields required to make a request.
 --
@@ -1485,13 +1489,14 @@ data UserMetadata = UserMetadata'
 userMetadata
     :: UserMetadata
 userMetadata =
-    UserMetadata'
-    { _umGivenName = Nothing
-    , _umUsername = Nothing
-    , _umEmailAddress = Nothing
-    , _umId = Nothing
-    , _umSurname = Nothing
-    }
+  UserMetadata'
+  { _umGivenName = Nothing
+  , _umUsername = Nothing
+  , _umEmailAddress = Nothing
+  , _umId = Nothing
+  , _umSurname = Nothing
+  }
+
 
 -- | The given name of the user before a rename operation.
 umGivenName :: Lens' UserMetadata (Maybe Text)
@@ -1523,9 +1528,9 @@ instance FromJSON UserMetadata where
                      <*> (x .:? "Id")
                      <*> (x .:? "Surname"))
 
-instance Hashable UserMetadata
+instance Hashable UserMetadata where
 
-instance NFData UserMetadata
+instance NFData UserMetadata where
 
 -- | Describes the storage for a user.
 --
@@ -1533,9 +1538,10 @@ instance NFData UserMetadata
 --
 -- /See:/ 'userStorageMetadata' smart constructor.
 data UserStorageMetadata = UserStorageMetadata'
-    { _usmStorageUtilizedInBytes :: !(Maybe Integer)
-    , _usmStorageRule            :: !(Maybe StorageRuleType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usmStorageUtilizedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _usmStorageRule            :: {-# NOUNPACK #-}!(Maybe StorageRuleType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserStorageMetadata' with the minimum fields required to make a request.
 --
@@ -1547,10 +1553,9 @@ data UserStorageMetadata = UserStorageMetadata'
 userStorageMetadata
     :: UserStorageMetadata
 userStorageMetadata =
-    UserStorageMetadata'
-    { _usmStorageUtilizedInBytes = Nothing
-    , _usmStorageRule = Nothing
-    }
+  UserStorageMetadata'
+  {_usmStorageUtilizedInBytes = Nothing, _usmStorageRule = Nothing}
+
 
 -- | The amount of storage utilized, in bytes.
 usmStorageUtilizedInBytes :: Lens' UserStorageMetadata (Maybe Integer)
@@ -1568,6 +1573,6 @@ instance FromJSON UserStorageMetadata where
                    (x .:? "StorageUtilizedInBytes") <*>
                      (x .:? "StorageRule"))
 
-instance Hashable UserStorageMetadata
+instance Hashable UserStorageMetadata where
 
-instance NFData UserStorageMetadata
+instance NFData UserStorageMetadata where

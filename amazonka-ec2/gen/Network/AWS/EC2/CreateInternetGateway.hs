@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateInternetGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.CreateInternetGateway
     , cigrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateInternetGateway.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createInternetGateway' smart constructor.
 newtype CreateInternetGateway = CreateInternetGateway'
-    { _cigDryRun :: Maybe Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cigDryRun :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInternetGateway' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype CreateInternetGateway = CreateInternetGateway'
 -- * 'cigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 createInternetGateway
     :: CreateInternetGateway
-createInternetGateway =
-    CreateInternetGateway'
-    { _cigDryRun = Nothing
-    }
+createInternetGateway = CreateInternetGateway' {_cigDryRun = Nothing}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
@@ -81,9 +80,9 @@ instance AWSRequest CreateInternetGateway where
                  CreateInternetGatewayResponse' <$>
                    (x .@? "internetGateway") <*> (pure (fromEnum s)))
 
-instance Hashable CreateInternetGateway
+instance Hashable CreateInternetGateway where
 
-instance NFData CreateInternetGateway
+instance NFData CreateInternetGateway where
 
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty
@@ -104,9 +103,10 @@ instance ToQuery CreateInternetGateway where
 --
 -- /See:/ 'createInternetGatewayResponse' smart constructor.
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
-    { _cigrsInternetGateway :: !(Maybe InternetGateway)
-    , _cigrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cigrsInternetGateway :: {-# NOUNPACK #-}!(Maybe InternetGateway)
+  , _cigrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInternetGatewayResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +119,9 @@ createInternetGatewayResponse
     :: Int -- ^ 'cigrsResponseStatus'
     -> CreateInternetGatewayResponse
 createInternetGatewayResponse pResponseStatus_ =
-    CreateInternetGatewayResponse'
-    { _cigrsInternetGateway = Nothing
-    , _cigrsResponseStatus = pResponseStatus_
-    }
+  CreateInternetGatewayResponse'
+  {_cigrsInternetGateway = Nothing, _cigrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the Internet gateway.
 cigrsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
@@ -132,4 +131,4 @@ cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGate
 cigrsResponseStatus :: Lens' CreateInternetGatewayResponse Int
 cigrsResponseStatus = lens _cigrsResponseStatus (\ s a -> s{_cigrsResponseStatus = a});
 
-instance NFData CreateInternetGatewayResponse
+instance NFData CreateInternetGatewayResponse where

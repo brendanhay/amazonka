@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.DescribeActivity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.StepFunctions.DescribeActivity
     , desrsCreationDate
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'describeActivity' smart constructor.
 newtype DescribeActivity = DescribeActivity'
-    { _dActivityARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dActivityARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivity' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ describeActivity
     :: Text -- ^ 'dActivityARN'
     -> DescribeActivity
 describeActivity pActivityARN_ =
-    DescribeActivity'
-    { _dActivityARN = pActivityARN_
-    }
+  DescribeActivity' {_dActivityARN = pActivityARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the activity to describe.
 dActivityARN :: Lens' DescribeActivity Text
@@ -79,9 +79,9 @@ instance AWSRequest DescribeActivity where
                      (x .:> "name")
                      <*> (x .:> "creationDate"))
 
-instance Hashable DescribeActivity
+instance Hashable DescribeActivity where
 
-instance NFData DescribeActivity
+instance NFData DescribeActivity where
 
 instance ToHeaders DescribeActivity where
         toHeaders
@@ -105,11 +105,12 @@ instance ToQuery DescribeActivity where
 
 -- | /See:/ 'describeActivityResponse' smart constructor.
 data DescribeActivityResponse = DescribeActivityResponse'
-    { _desrsResponseStatus :: !Int
-    , _desrsActivityARN    :: !Text
-    , _desrsName           :: !Text
-    , _desrsCreationDate   :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _desrsActivityARN    :: {-# NOUNPACK #-}!Text
+  , _desrsName           :: {-# NOUNPACK #-}!Text
+  , _desrsCreationDate   :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivityResponse' with the minimum fields required to make a request.
 --
@@ -129,12 +130,13 @@ describeActivityResponse
     -> UTCTime -- ^ 'desrsCreationDate'
     -> DescribeActivityResponse
 describeActivityResponse pResponseStatus_ pActivityARN_ pName_ pCreationDate_ =
-    DescribeActivityResponse'
-    { _desrsResponseStatus = pResponseStatus_
-    , _desrsActivityARN = pActivityARN_
-    , _desrsName = pName_
-    , _desrsCreationDate = _Time # pCreationDate_
-    }
+  DescribeActivityResponse'
+  { _desrsResponseStatus = pResponseStatus_
+  , _desrsActivityARN = pActivityARN_
+  , _desrsName = pName_
+  , _desrsCreationDate = _Time # pCreationDate_
+  }
+
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeActivityResponse Int
@@ -152,4 +154,4 @@ desrsName = lens _desrsName (\ s a -> s{_desrsName = a});
 desrsCreationDate :: Lens' DescribeActivityResponse UTCTime
 desrsCreationDate = lens _desrsCreationDate (\ s a -> s{_desrsCreationDate = a}) . _Time;
 
-instance NFData DescribeActivityResponse
+instance NFData DescribeActivityResponse where

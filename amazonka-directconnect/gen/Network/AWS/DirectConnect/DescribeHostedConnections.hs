@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeHostedConnections
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.DirectConnect.DescribeHostedConnections
     , cConnections
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DescribeHostedConnections operation.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeHostedConnections' smart constructor.
 newtype DescribeHostedConnections = DescribeHostedConnections'
-    { _dhcConnectionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhcConnectionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHostedConnections' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ describeHostedConnections
     :: Text -- ^ 'dhcConnectionId'
     -> DescribeHostedConnections
 describeHostedConnections pConnectionId_ =
-    DescribeHostedConnections'
-    { _dhcConnectionId = pConnectionId_
-    }
+  DescribeHostedConnections' {_dhcConnectionId = pConnectionId_}
+
 
 -- | The ID of the interconnect or LAG on which the hosted connections are provisioned. Example: dxcon-abc123 or dxlag-abc123 Default: None
 dhcConnectionId :: Lens' DescribeHostedConnections Text
@@ -74,9 +74,9 @@ instance AWSRequest DescribeHostedConnections where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable DescribeHostedConnections
+instance Hashable DescribeHostedConnections where
 
-instance NFData DescribeHostedConnections
+instance NFData DescribeHostedConnections where
 
 instance ToHeaders DescribeHostedConnections where
         toHeaders

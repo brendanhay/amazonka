@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigRules
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.Config.DescribeConfigRules
     , dcrrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeConfigRules' smart constructor.
 data DescribeConfigRules = DescribeConfigRules'
-    { _dcrConfigRuleNames :: !(Maybe [Text])
-    , _dcrNextToken       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrConfigRuleNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcrNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigRules' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ data DescribeConfigRules = DescribeConfigRules'
 describeConfigRules
     :: DescribeConfigRules
 describeConfigRules =
-    DescribeConfigRules'
-    { _dcrConfigRuleNames = Nothing
-    , _dcrNextToken = Nothing
-    }
+  DescribeConfigRules' {_dcrConfigRuleNames = Nothing, _dcrNextToken = Nothing}
+
 
 -- | The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
 dcrConfigRuleNames :: Lens' DescribeConfigRules [Text]
@@ -101,9 +100,9 @@ instance AWSRequest DescribeConfigRules where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeConfigRules
+instance Hashable DescribeConfigRules where
 
-instance NFData DescribeConfigRules
+instance NFData DescribeConfigRules where
 
 instance ToHeaders DescribeConfigRules where
         toHeaders
@@ -134,10 +133,11 @@ instance ToQuery DescribeConfigRules where
 --
 -- /See:/ 'describeConfigRulesResponse' smart constructor.
 data DescribeConfigRulesResponse = DescribeConfigRulesResponse'
-    { _dcrrsConfigRules    :: !(Maybe [ConfigRule])
-    , _dcrrsNextToken      :: !(Maybe Text)
-    , _dcrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrrsConfigRules    :: {-# NOUNPACK #-}!(Maybe [ConfigRule])
+  , _dcrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigRulesResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +152,12 @@ describeConfigRulesResponse
     :: Int -- ^ 'dcrrsResponseStatus'
     -> DescribeConfigRulesResponse
 describeConfigRulesResponse pResponseStatus_ =
-    DescribeConfigRulesResponse'
-    { _dcrrsConfigRules = Nothing
-    , _dcrrsNextToken = Nothing
-    , _dcrrsResponseStatus = pResponseStatus_
-    }
+  DescribeConfigRulesResponse'
+  { _dcrrsConfigRules = Nothing
+  , _dcrrsNextToken = Nothing
+  , _dcrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The details about your AWS Config rules.
 dcrrsConfigRules :: Lens' DescribeConfigRulesResponse [ConfigRule]
@@ -170,4 +171,4 @@ dcrrsNextToken = lens _dcrrsNextToken (\ s a -> s{_dcrrsNextToken = a});
 dcrrsResponseStatus :: Lens' DescribeConfigRulesResponse Int
 dcrrsResponseStatus = lens _dcrrsResponseStatus (\ s a -> s{_dcrrsResponseStatus = a});
 
-instance NFData DescribeConfigRulesResponse
+instance NFData DescribeConfigRulesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
     , ltlfarsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTypedLinkFacetAttributes' smart constructor.
 data ListTypedLinkFacetAttributes = ListTypedLinkFacetAttributes'
-    { _ltlfaNextToken  :: !(Maybe Text)
-    , _ltlfaMaxResults :: !(Maybe Nat)
-    , _ltlfaSchemaARN  :: !Text
-    , _ltlfaName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltlfaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltlfaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ltlfaSchemaARN  :: {-# NOUNPACK #-}!Text
+  , _ltlfaName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTypedLinkFacetAttributes' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ listTypedLinkFacetAttributes
     -> Text -- ^ 'ltlfaName'
     -> ListTypedLinkFacetAttributes
 listTypedLinkFacetAttributes pSchemaARN_ pName_ =
-    ListTypedLinkFacetAttributes'
-    { _ltlfaNextToken = Nothing
-    , _ltlfaMaxResults = Nothing
-    , _ltlfaSchemaARN = pSchemaARN_
-    , _ltlfaName = pName_
-    }
+  ListTypedLinkFacetAttributes'
+  { _ltlfaNextToken = Nothing
+  , _ltlfaMaxResults = Nothing
+  , _ltlfaSchemaARN = pSchemaARN_
+  , _ltlfaName = pName_
+  }
+
 
 -- | The pagination token.
 ltlfaNextToken :: Lens' ListTypedLinkFacetAttributes (Maybe Text)
@@ -108,9 +110,9 @@ instance AWSRequest ListTypedLinkFacetAttributes
                      (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTypedLinkFacetAttributes
+instance Hashable ListTypedLinkFacetAttributes where
 
-instance NFData ListTypedLinkFacetAttributes
+instance NFData ListTypedLinkFacetAttributes where
 
 instance ToHeaders ListTypedLinkFacetAttributes where
         toHeaders ListTypedLinkFacetAttributes'{..}
@@ -134,10 +136,11 @@ instance ToQuery ListTypedLinkFacetAttributes where
 
 -- | /See:/ 'listTypedLinkFacetAttributesResponse' smart constructor.
 data ListTypedLinkFacetAttributesResponse = ListTypedLinkFacetAttributesResponse'
-    { _ltlfarsNextToken      :: !(Maybe Text)
-    , _ltlfarsAttributes     :: !(Maybe [TypedLinkAttributeDefinition])
-    , _ltlfarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltlfarsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltlfarsAttributes :: {-# NOUNPACK #-}!(Maybe [TypedLinkAttributeDefinition])
+  , _ltlfarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTypedLinkFacetAttributesResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +155,12 @@ listTypedLinkFacetAttributesResponse
     :: Int -- ^ 'ltlfarsResponseStatus'
     -> ListTypedLinkFacetAttributesResponse
 listTypedLinkFacetAttributesResponse pResponseStatus_ =
-    ListTypedLinkFacetAttributesResponse'
-    { _ltlfarsNextToken = Nothing
-    , _ltlfarsAttributes = Nothing
-    , _ltlfarsResponseStatus = pResponseStatus_
-    }
+  ListTypedLinkFacetAttributesResponse'
+  { _ltlfarsNextToken = Nothing
+  , _ltlfarsAttributes = Nothing
+  , _ltlfarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 ltlfarsNextToken :: Lens' ListTypedLinkFacetAttributesResponse (Maybe Text)
@@ -171,3 +175,4 @@ ltlfarsResponseStatus :: Lens' ListTypedLinkFacetAttributesResponse Int
 ltlfarsResponseStatus = lens _ltlfarsResponseStatus (\ s a -> s{_ltlfarsResponseStatus = a});
 
 instance NFData ListTypedLinkFacetAttributesResponse
+         where

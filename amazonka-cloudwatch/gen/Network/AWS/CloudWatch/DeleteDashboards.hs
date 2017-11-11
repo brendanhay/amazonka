@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DeleteDashboards
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.CloudWatch.DeleteDashboards
     , ddrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDashboards' smart constructor.
 newtype DeleteDashboards = DeleteDashboards'
-    { _ddDashboardNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddDashboardNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDashboards' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype DeleteDashboards = DeleteDashboards'
 -- * 'ddDashboardNames' - The dashboards to be deleted.
 deleteDashboards
     :: DeleteDashboards
-deleteDashboards =
-    DeleteDashboards'
-    { _ddDashboardNames = Nothing
-    }
+deleteDashboards = DeleteDashboards' {_ddDashboardNames = Nothing}
+
 
 -- | The dashboards to be deleted.
 ddDashboardNames :: Lens' DeleteDashboards [Text]
@@ -72,9 +71,9 @@ instance AWSRequest DeleteDashboards where
               (\ s h x ->
                  DeleteDashboardsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteDashboards
+instance Hashable DeleteDashboards where
 
-instance NFData DeleteDashboards
+instance NFData DeleteDashboards where
 
 instance ToHeaders DeleteDashboards where
         toHeaders = const mempty
@@ -92,8 +91,9 @@ instance ToQuery DeleteDashboards where
 
 -- | /See:/ 'deleteDashboardsResponse' smart constructor.
 newtype DeleteDashboardsResponse = DeleteDashboardsResponse'
-    { _ddrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDashboardsResponse' with the minimum fields required to make a request.
 --
@@ -104,12 +104,11 @@ deleteDashboardsResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DeleteDashboardsResponse
 deleteDashboardsResponse pResponseStatus_ =
-    DeleteDashboardsResponse'
-    { _ddrsResponseStatus = pResponseStatus_
-    }
+  DeleteDashboardsResponse' {_ddrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDashboardsResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
-instance NFData DeleteDashboardsResponse
+instance NFData DeleteDashboardsResponse where

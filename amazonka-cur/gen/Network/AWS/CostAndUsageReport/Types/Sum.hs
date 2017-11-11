@@ -9,27 +9,28 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CostAndUsageReport.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 -- | Region of customer S3 bucket.
 data AWSRegion
-    = ApNortheast1
-    | ApSoutheast1
-    | ApSoutheast2
-    | EuCentral1
-    | EuWest1
-    | UsEast1
-    | UsWest1
-    | UsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ApNortheast1
+  | ApSoutheast1
+  | ApSoutheast2
+  | EuCentral1
+  | EuWest1
+  | UsEast1
+  | UsWest1
+  | UsWest2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AWSRegion where
     parser = takeLowerText >>= \case
@@ -69,9 +70,10 @@ instance FromJSON AWSRegion where
 
 -- | Enable support for Redshift and/or QuickSight.
 data AdditionalArtifact
-    = Quicksight
-    | Redshift
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Quicksight
+  | Redshift
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AdditionalArtifact where
     parser = takeLowerText >>= \case
@@ -99,9 +101,10 @@ instance FromJSON AdditionalArtifact where
 
 -- | Preferred compression format for report.
 data CompressionFormat
-    = Gzip
-    | Zip
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Gzip
+  | Zip
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CompressionFormat where
     parser = takeLowerText >>= \case
@@ -129,8 +132,9 @@ instance FromJSON CompressionFormat where
 
 -- | Preferred format for report.
 data ReportFormat =
-    TextORcsv
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  TextORcsv
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReportFormat where
     parser = takeLowerText >>= \case
@@ -156,8 +160,9 @@ instance FromJSON ReportFormat where
 
 -- | Preference of including Resource IDs. You can include additional details about individual resource IDs in your report.
 data SchemaElement =
-    Resources
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Resources
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SchemaElement where
     parser = takeLowerText >>= \case
@@ -183,9 +188,10 @@ instance FromJSON SchemaElement where
 
 -- | The frequency on which report data are measured and displayed.
 data TimeUnit
-    = Daily
-    | Hourly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Daily
+  | Hourly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TimeUnit where
     parser = takeLowerText >>= \case

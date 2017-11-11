@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.GetPipelineExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodePipeline.GetPipelineExecution
     , gpersResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get pipeline execution action.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getPipelineExecution' smart constructor.
 data GetPipelineExecution = GetPipelineExecution'
-    { _gpePipelineName        :: !Text
-    , _gpePipelineExecutionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpePipelineName        :: {-# NOUNPACK #-}!Text
+  , _gpePipelineExecutionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPipelineExecution' with the minimum fields required to make a request.
 --
@@ -67,10 +68,11 @@ getPipelineExecution
     -> Text -- ^ 'gpePipelineExecutionId'
     -> GetPipelineExecution
 getPipelineExecution pPipelineName_ pPipelineExecutionId_ =
-    GetPipelineExecution'
-    { _gpePipelineName = pPipelineName_
-    , _gpePipelineExecutionId = pPipelineExecutionId_
-    }
+  GetPipelineExecution'
+  { _gpePipelineName = pPipelineName_
+  , _gpePipelineExecutionId = pPipelineExecutionId_
+  }
+
 
 -- | The name of the pipeline about which you want to get execution details.
 gpePipelineName :: Lens' GetPipelineExecution Text
@@ -90,9 +92,9 @@ instance AWSRequest GetPipelineExecution where
                  GetPipelineExecutionResponse' <$>
                    (x .?> "pipelineExecution") <*> (pure (fromEnum s)))
 
-instance Hashable GetPipelineExecution
+instance Hashable GetPipelineExecution where
 
-instance NFData GetPipelineExecution
+instance NFData GetPipelineExecution where
 
 instance ToHeaders GetPipelineExecution where
         toHeaders
@@ -124,9 +126,10 @@ instance ToQuery GetPipelineExecution where
 --
 -- /See:/ 'getPipelineExecutionResponse' smart constructor.
 data GetPipelineExecutionResponse = GetPipelineExecutionResponse'
-    { _gpersPipelineExecution :: !(Maybe PipelineExecution)
-    , _gpersResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpersPipelineExecution :: {-# NOUNPACK #-}!(Maybe PipelineExecution)
+  , _gpersResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPipelineExecutionResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ getPipelineExecutionResponse
     :: Int -- ^ 'gpersResponseStatus'
     -> GetPipelineExecutionResponse
 getPipelineExecutionResponse pResponseStatus_ =
-    GetPipelineExecutionResponse'
-    { _gpersPipelineExecution = Nothing
-    , _gpersResponseStatus = pResponseStatus_
-    }
+  GetPipelineExecutionResponse'
+  {_gpersPipelineExecution = Nothing, _gpersResponseStatus = pResponseStatus_}
+
 
 -- | Represents information about the execution of a pipeline.
 gpersPipelineExecution :: Lens' GetPipelineExecutionResponse (Maybe PipelineExecution)
@@ -152,4 +154,4 @@ gpersPipelineExecution = lens _gpersPipelineExecution (\ s a -> s{_gpersPipeline
 gpersResponseStatus :: Lens' GetPipelineExecutionResponse Int
 gpersResponseStatus = lens _gpersResponseStatus (\ s a -> s{_gpersResponseStatus = a});
 
-instance NFData GetPipelineExecutionResponse
+instance NFData GetPipelineExecutionResponse where

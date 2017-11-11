@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetSubscriptionAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     , gsarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for GetSubscriptionAttributes.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'getSubscriptionAttributes' smart constructor.
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
-    { _gsaSubscriptionARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsaSubscriptionARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSubscriptionAttributes' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getSubscriptionAttributes
     :: Text -- ^ 'gsaSubscriptionARN'
     -> GetSubscriptionAttributes
 getSubscriptionAttributes pSubscriptionARN_ =
-    GetSubscriptionAttributes'
-    { _gsaSubscriptionARN = pSubscriptionARN_
-    }
+  GetSubscriptionAttributes' {_gsaSubscriptionARN = pSubscriptionARN_}
+
 
 -- | The ARN of the subscription whose properties you want to get.
 gsaSubscriptionARN :: Lens' GetSubscriptionAttributes Text
@@ -82,9 +82,9 @@ instance AWSRequest GetSubscriptionAttributes where
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSubscriptionAttributes
+instance Hashable GetSubscriptionAttributes where
 
-instance NFData GetSubscriptionAttributes
+instance NFData GetSubscriptionAttributes where
 
 instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty
@@ -106,9 +106,10 @@ instance ToQuery GetSubscriptionAttributes where
 --
 -- /See:/ 'getSubscriptionAttributesResponse' smart constructor.
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
-    { _gsarsAttributes     :: !(Maybe (Map Text Text))
-    , _gsarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsarsAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSubscriptionAttributesResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,9 @@ getSubscriptionAttributesResponse
     :: Int -- ^ 'gsarsResponseStatus'
     -> GetSubscriptionAttributesResponse
 getSubscriptionAttributesResponse pResponseStatus_ =
-    GetSubscriptionAttributesResponse'
-    { _gsarsAttributes = Nothing
-    , _gsarsResponseStatus = pResponseStatus_
-    }
+  GetSubscriptionAttributesResponse'
+  {_gsarsAttributes = Nothing, _gsarsResponseStatus = pResponseStatus_}
+
 
 -- | A map of the subscription's attributes. Attributes in this map include the following:     * @SubscriptionArn@ -- the subscription's ARN     * @TopicArn@ -- the topic ARN that the subscription is associated with     * @Owner@ -- the AWS account ID of the subscription's owner     * @ConfirmationWasAuthenticated@ -- true if the subscription confirmation request was authenticated     * @DeliveryPolicy@ -- the JSON serialization of the subscription's delivery policy     * @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults
 gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
@@ -135,3 +135,4 @@ gsarsResponseStatus :: Lens' GetSubscriptionAttributesResponse Int
 gsarsResponseStatus = lens _gsarsResponseStatus (\ s a -> s{_gsarsResponseStatus = a});
 
 instance NFData GetSubscriptionAttributesResponse
+         where

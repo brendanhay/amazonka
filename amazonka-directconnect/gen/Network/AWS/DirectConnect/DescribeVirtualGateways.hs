@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,23 +37,25 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     , dvgrsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeVirtualGateways' smart constructor.
 data DescribeVirtualGateways =
-    DescribeVirtualGateways'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeVirtualGateways'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVirtualGateways' with the minimum fields required to make a request.
 --
 describeVirtualGateways
     :: DescribeVirtualGateways
 describeVirtualGateways = DescribeVirtualGateways'
+
 
 instance AWSRequest DescribeVirtualGateways where
         type Rs DescribeVirtualGateways =
@@ -66,9 +68,9 @@ instance AWSRequest DescribeVirtualGateways where
                    (x .?> "virtualGateways" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeVirtualGateways
+instance Hashable DescribeVirtualGateways where
 
-instance NFData DescribeVirtualGateways
+instance NFData DescribeVirtualGateways where
 
 instance ToHeaders DescribeVirtualGateways where
         toHeaders
@@ -95,9 +97,10 @@ instance ToQuery DescribeVirtualGateways where
 --
 -- /See:/ 'describeVirtualGatewaysResponse' smart constructor.
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
-    { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
-    , _dvgrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvgrsVirtualGateways :: {-# NOUNPACK #-}!(Maybe [VirtualGateway])
+  , _dvgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVirtualGatewaysResponse' with the minimum fields required to make a request.
 --
@@ -110,10 +113,9 @@ describeVirtualGatewaysResponse
     :: Int -- ^ 'dvgrsResponseStatus'
     -> DescribeVirtualGatewaysResponse
 describeVirtualGatewaysResponse pResponseStatus_ =
-    DescribeVirtualGatewaysResponse'
-    { _dvgrsVirtualGateways = Nothing
-    , _dvgrsResponseStatus = pResponseStatus_
-    }
+  DescribeVirtualGatewaysResponse'
+  {_dvgrsVirtualGateways = Nothing, _dvgrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of virtual private gateways.
 dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
@@ -123,4 +125,4 @@ dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGatew
 dvgrsResponseStatus :: Lens' DescribeVirtualGatewaysResponse Int
 dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a});
 
-instance NFData DescribeVirtualGatewaysResponse
+instance NFData DescribeVirtualGatewaysResponse where

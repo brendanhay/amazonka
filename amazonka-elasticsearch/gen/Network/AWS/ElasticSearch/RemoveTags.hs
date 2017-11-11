@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.RemoveTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.ElasticSearch.RemoveTags
     , RemoveTagsResponse
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'RemoveTags' @ operation. Specify the @ARN@ for the Elasticsearch domain from which you want to remove the specified @TagKey@ .
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
-    { _rtARN     :: !Text
-    , _rtTagKeys :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtARN     :: {-# NOUNPACK #-}!Text
+  , _rtTagKeys :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
 --
@@ -62,11 +63,8 @@ data RemoveTags = RemoveTags'
 removeTags
     :: Text -- ^ 'rtARN'
     -> RemoveTags
-removeTags pARN_ =
-    RemoveTags'
-    { _rtARN = pARN_
-    , _rtTagKeys = mempty
-    }
+removeTags pARN_ = RemoveTags' {_rtARN = pARN_, _rtTagKeys = mempty}
+
 
 -- | Specifies the @ARN@ for the Elasticsearch domain from which you want to delete the specified tags.
 rtARN :: Lens' RemoveTags Text
@@ -81,9 +79,9 @@ instance AWSRequest RemoveTags where
         request = postJSON elasticSearch
         response = receiveNull RemoveTagsResponse'
 
-instance Hashable RemoveTags
+instance Hashable RemoveTags where
 
-instance NFData RemoveTags
+instance NFData RemoveTags where
 
 instance ToHeaders RemoveTags where
         toHeaders = const mempty
@@ -103,8 +101,9 @@ instance ToQuery RemoveTags where
 
 -- | /See:/ 'removeTagsResponse' smart constructor.
 data RemoveTagsResponse =
-    RemoveTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +111,5 @@ removeTagsResponse
     :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse'
 
-instance NFData RemoveTagsResponse
+
+instance NFData RemoveTagsResponse where

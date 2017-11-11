@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.IAM.CreateGroup
     , cgrsGroup
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createGroup' smart constructor.
 data CreateGroup = CreateGroup'
-    { _cgPath      :: !(Maybe Text)
-    , _cgGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgPath      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ createGroup
     :: Text -- ^ 'cgGroupName'
     -> CreateGroup
 createGroup pGroupName_ =
-    CreateGroup'
-    { _cgPath = Nothing
-    , _cgGroupName = pGroupName_
-    }
+  CreateGroup' {_cgPath = Nothing, _cgGroupName = pGroupName_}
+
 
 -- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cgPath :: Lens' CreateGroup (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest CreateGroup where
                  CreateGroupResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Group"))
 
-instance Hashable CreateGroup
+instance Hashable CreateGroup where
 
-instance NFData CreateGroup
+instance NFData CreateGroup where
 
 instance ToHeaders CreateGroup where
         toHeaders = const mempty
@@ -109,9 +108,10 @@ instance ToQuery CreateGroup where
 --
 -- /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-    { _cgrsResponseStatus :: !Int
-    , _cgrsGroup          :: !Group
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _cgrsGroup          :: {-# NOUNPACK #-}!Group
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +125,9 @@ createGroupResponse
     -> Group -- ^ 'cgrsGroup'
     -> CreateGroupResponse
 createGroupResponse pResponseStatus_ pGroup_ =
-    CreateGroupResponse'
-    { _cgrsResponseStatus = pResponseStatus_
-    , _cgrsGroup = pGroup_
-    }
+  CreateGroupResponse'
+  {_cgrsResponseStatus = pResponseStatus_, _cgrsGroup = pGroup_}
+
 
 -- | -- | The response status code.
 cgrsResponseStatus :: Lens' CreateGroupResponse Int
@@ -138,4 +137,4 @@ cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = 
 cgrsGroup :: Lens' CreateGroupResponse Group
 cgrsGroup = lens _cgrsGroup (\ s a -> s{_cgrsGroup = a});
 
-instance NFData CreateGroupResponse
+instance NFData CreateGroupResponse where

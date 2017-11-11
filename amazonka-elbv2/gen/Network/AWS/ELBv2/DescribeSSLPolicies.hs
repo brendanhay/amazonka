@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeSSLPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.ELBv2.DescribeSSLPolicies
     , dsprsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
-    { _dspNames    :: !(Maybe [Text])
-    , _dspMarker   :: !(Maybe Text)
-    , _dspPageSize :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dspNames    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dspMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dspPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSSLPolicies' with the minimum fields required to make a request.
 --
@@ -68,11 +69,9 @@ data DescribeSSLPolicies = DescribeSSLPolicies'
 describeSSLPolicies
     :: DescribeSSLPolicies
 describeSSLPolicies =
-    DescribeSSLPolicies'
-    { _dspNames = Nothing
-    , _dspMarker = Nothing
-    , _dspPageSize = Nothing
-    }
+  DescribeSSLPolicies'
+  {_dspNames = Nothing, _dspMarker = Nothing, _dspPageSize = Nothing}
+
 
 -- | The names of the policies.
 dspNames :: Lens' DescribeSSLPolicies [Text]
@@ -99,9 +98,9 @@ instance AWSRequest DescribeSSLPolicies where
                      <*> (x .@? "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSSLPolicies
+instance Hashable DescribeSSLPolicies where
 
-instance NFData DescribeSSLPolicies
+instance NFData DescribeSSLPolicies where
 
 instance ToHeaders DescribeSSLPolicies where
         toHeaders = const mempty
@@ -120,10 +119,11 @@ instance ToQuery DescribeSSLPolicies where
 
 -- | /See:/ 'describeSSLPoliciesResponse' smart constructor.
 data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
-    { _dsprsSSLPolicies    :: !(Maybe [SSLPolicy])
-    , _dsprsNextMarker     :: !(Maybe Text)
-    , _dsprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsprsSSLPolicies    :: {-# NOUNPACK #-}!(Maybe [SSLPolicy])
+  , _dsprsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSSLPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +138,12 @@ describeSSLPoliciesResponse
     :: Int -- ^ 'dsprsResponseStatus'
     -> DescribeSSLPoliciesResponse
 describeSSLPoliciesResponse pResponseStatus_ =
-    DescribeSSLPoliciesResponse'
-    { _dsprsSSLPolicies = Nothing
-    , _dsprsNextMarker = Nothing
-    , _dsprsResponseStatus = pResponseStatus_
-    }
+  DescribeSSLPoliciesResponse'
+  { _dsprsSSLPolicies = Nothing
+  , _dsprsNextMarker = Nothing
+  , _dsprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the policies.
 dsprsSSLPolicies :: Lens' DescribeSSLPoliciesResponse [SSLPolicy]
@@ -156,4 +157,4 @@ dsprsNextMarker = lens _dsprsNextMarker (\ s a -> s{_dsprsNextMarker = a});
 dsprsResponseStatus :: Lens' DescribeSSLPoliciesResponse Int
 dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
 
-instance NFData DescribeSSLPoliciesResponse
+instance NFData DescribeSSLPoliciesResponse where

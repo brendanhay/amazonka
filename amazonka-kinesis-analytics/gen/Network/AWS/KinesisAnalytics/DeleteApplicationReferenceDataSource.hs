@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
     , dardsrsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteApplicationReferenceDataSource' smart constructor.
 data DeleteApplicationReferenceDataSource = DeleteApplicationReferenceDataSource'
-    { _dardsApplicationName             :: !Text
-    , _dardsCurrentApplicationVersionId :: !Nat
-    , _dardsReferenceId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dardsApplicationName             :: {-# NOUNPACK #-}!Text
+  , _dardsCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
+  , _dardsReferenceId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationReferenceDataSource' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ deleteApplicationReferenceDataSource
     -> Text -- ^ 'dardsReferenceId'
     -> DeleteApplicationReferenceDataSource
 deleteApplicationReferenceDataSource pApplicationName_ pCurrentApplicationVersionId_ pReferenceId_ =
-    DeleteApplicationReferenceDataSource'
-    { _dardsApplicationName = pApplicationName_
-    , _dardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _dardsReferenceId = pReferenceId_
-    }
+  DeleteApplicationReferenceDataSource'
+  { _dardsApplicationName = pApplicationName_
+  , _dardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+  , _dardsReferenceId = pReferenceId_
+  }
+
 
 -- | Name of an existing application.
 dardsApplicationName :: Lens' DeleteApplicationReferenceDataSource Text
@@ -90,7 +92,8 @@ dardsReferenceId :: Lens' DeleteApplicationReferenceDataSource Text
 dardsReferenceId = lens _dardsReferenceId (\ s a -> s{_dardsReferenceId = a});
 
 instance AWSRequest
-         DeleteApplicationReferenceDataSource where
+           DeleteApplicationReferenceDataSource
+         where
         type Rs DeleteApplicationReferenceDataSource =
              DeleteApplicationReferenceDataSourceResponse
         request = postJSON kinesisAnalytics
@@ -101,12 +104,15 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         DeleteApplicationReferenceDataSource
+           DeleteApplicationReferenceDataSource
+         where
 
 instance NFData DeleteApplicationReferenceDataSource
+         where
 
 instance ToHeaders
-         DeleteApplicationReferenceDataSource where
+           DeleteApplicationReferenceDataSource
+         where
         toHeaders
           = const
               (mconcat
@@ -137,8 +143,9 @@ instance ToQuery DeleteApplicationReferenceDataSource
 
 -- | /See:/ 'deleteApplicationReferenceDataSourceResponse' smart constructor.
 newtype DeleteApplicationReferenceDataSourceResponse = DeleteApplicationReferenceDataSourceResponse'
-    { _dardsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dardsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationReferenceDataSourceResponse' with the minimum fields required to make a request.
 --
@@ -149,13 +156,14 @@ deleteApplicationReferenceDataSourceResponse
     :: Int -- ^ 'dardsrsResponseStatus'
     -> DeleteApplicationReferenceDataSourceResponse
 deleteApplicationReferenceDataSourceResponse pResponseStatus_ =
-    DeleteApplicationReferenceDataSourceResponse'
-    { _dardsrsResponseStatus = pResponseStatus_
-    }
+  DeleteApplicationReferenceDataSourceResponse'
+  {_dardsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dardsrsResponseStatus :: Lens' DeleteApplicationReferenceDataSourceResponse Int
 dardsrsResponseStatus = lens _dardsrsResponseStatus (\ s a -> s{_dardsrsResponseStatus = a});
 
 instance NFData
-         DeleteApplicationReferenceDataSourceResponse
+           DeleteApplicationReferenceDataSourceResponse
+         where

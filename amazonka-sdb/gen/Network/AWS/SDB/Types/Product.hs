@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.SDB.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SDB.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.SDB.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.SDB.Types.Sum
 
 -- |
 --
@@ -27,11 +27,12 @@ import           Network.AWS.SDB.Types.Sum
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-    { _aAlternateValueEncoding :: !(Maybe Text)
-    , _aAlternateNameEncoding  :: !(Maybe Text)
-    , _aName                   :: !Text
-    , _aValue                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aAlternateValueEncoding :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAlternateNameEncoding  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aName                   :: {-# NOUNPACK #-}!Text
+  , _aValue                  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
@@ -49,12 +50,13 @@ attribute
     -> Text -- ^ 'aValue'
     -> Attribute
 attribute pName_ pValue_ =
-    Attribute'
-    { _aAlternateValueEncoding = Nothing
-    , _aAlternateNameEncoding = Nothing
-    , _aName = pName_
-    , _aValue = pValue_
-    }
+  Attribute'
+  { _aAlternateValueEncoding = Nothing
+  , _aAlternateNameEncoding = Nothing
+  , _aName = pName_
+  , _aValue = pValue_
+  }
+
 
 -- |
 aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
@@ -80,9 +82,9 @@ instance FromXML Attribute where
                 <*> (x .@ "Name")
                 <*> (x .@ "Value")
 
-instance Hashable Attribute
+instance Hashable Attribute where
 
-instance NFData Attribute
+instance NFData Attribute where
 
 instance ToQuery Attribute where
         toQuery Attribute'{..}
@@ -94,9 +96,10 @@ instance ToQuery Attribute where
 
 -- | /See:/ 'deletableItem' smart constructor.
 data DeletableItem = DeletableItem'
-    { _diAttributes :: !(Maybe [Attribute])
-    , _diName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _diName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletableItem' with the minimum fields required to make a request.
 --
@@ -109,10 +112,8 @@ deletableItem
     :: Text -- ^ 'diName'
     -> DeletableItem
 deletableItem pName_ =
-    DeletableItem'
-    { _diAttributes = Nothing
-    , _diName = pName_
-    }
+  DeletableItem' {_diAttributes = Nothing, _diName = pName_}
+
 
 -- | Undocumented member.
 diAttributes :: Lens' DeletableItem [Attribute]
@@ -122,9 +123,9 @@ diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a}) . _Default . _
 diName :: Lens' DeletableItem Text
 diName = lens _diName (\ s a -> s{_diName = a});
 
-instance Hashable DeletableItem
+instance Hashable DeletableItem where
 
-instance NFData DeletableItem
+instance NFData DeletableItem where
 
 instance ToQuery DeletableItem where
         toQuery DeletableItem'{..}
@@ -138,10 +139,11 @@ instance ToQuery DeletableItem where
 --
 -- /See:/ 'item' smart constructor.
 data Item = Item'
-    { _iAlternateNameEncoding :: !(Maybe Text)
-    , _iName                  :: !Text
-    , _iAttributes            :: ![Attribute]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iAlternateNameEncoding :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iName                  :: {-# NOUNPACK #-}!Text
+  , _iAttributes            :: {-# NOUNPACK #-}![Attribute]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Item' with the minimum fields required to make a request.
 --
@@ -156,11 +158,9 @@ item
     :: Text -- ^ 'iName'
     -> Item
 item pName_ =
-    Item'
-    { _iAlternateNameEncoding = Nothing
-    , _iName = pName_
-    , _iAttributes = mempty
-    }
+  Item'
+  {_iAlternateNameEncoding = Nothing, _iName = pName_, _iAttributes = mempty}
+
 
 -- |
 iAlternateNameEncoding :: Lens' Item (Maybe Text)
@@ -180,9 +180,9 @@ instance FromXML Item where
               (x .@? "AlternateNameEncoding") <*> (x .@ "Name") <*>
                 (parseXMLList "Attribute" x)
 
-instance Hashable Item
+instance Hashable Item where
 
-instance NFData Item
+instance NFData Item where
 
 -- |
 --
@@ -190,10 +190,11 @@ instance NFData Item
 --
 -- /See:/ 'replaceableAttribute' smart constructor.
 data ReplaceableAttribute = ReplaceableAttribute'
-    { _raReplace :: !(Maybe Bool)
-    , _raName    :: !Text
-    , _raValue   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raReplace :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _raName    :: {-# NOUNPACK #-}!Text
+  , _raValue   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceableAttribute' with the minimum fields required to make a request.
 --
@@ -209,11 +210,9 @@ replaceableAttribute
     -> Text -- ^ 'raValue'
     -> ReplaceableAttribute
 replaceableAttribute pName_ pValue_ =
-    ReplaceableAttribute'
-    { _raReplace = Nothing
-    , _raName = pName_
-    , _raValue = pValue_
-    }
+  ReplaceableAttribute'
+  {_raReplace = Nothing, _raName = pName_, _raValue = pValue_}
+
 
 -- | @false@
 raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
@@ -227,9 +226,9 @@ raName = lens _raName (\ s a -> s{_raName = a});
 raValue :: Lens' ReplaceableAttribute Text
 raValue = lens _raValue (\ s a -> s{_raValue = a});
 
-instance Hashable ReplaceableAttribute
+instance Hashable ReplaceableAttribute where
 
-instance NFData ReplaceableAttribute
+instance NFData ReplaceableAttribute where
 
 instance ToQuery ReplaceableAttribute where
         toQuery ReplaceableAttribute'{..}
@@ -243,9 +242,10 @@ instance ToQuery ReplaceableAttribute where
 --
 -- /See:/ 'replaceableItem' smart constructor.
 data ReplaceableItem = ReplaceableItem'
-    { _riName       :: !Text
-    , _riAttributes :: ![ReplaceableAttribute]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riName       :: {-# NOUNPACK #-}!Text
+  , _riAttributes :: {-# NOUNPACK #-}![ReplaceableAttribute]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceableItem' with the minimum fields required to make a request.
 --
@@ -258,10 +258,8 @@ replaceableItem
     :: Text -- ^ 'riName'
     -> ReplaceableItem
 replaceableItem pName_ =
-    ReplaceableItem'
-    { _riName = pName_
-    , _riAttributes = mempty
-    }
+  ReplaceableItem' {_riName = pName_, _riAttributes = mempty}
+
 
 -- | The name of the replaceable item.
 riName :: Lens' ReplaceableItem Text
@@ -271,9 +269,9 @@ riName = lens _riName (\ s a -> s{_riName = a});
 riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
 riAttributes = lens _riAttributes (\ s a -> s{_riAttributes = a}) . _Coerce;
 
-instance Hashable ReplaceableItem
+instance Hashable ReplaceableItem where
 
-instance NFData ReplaceableItem
+instance NFData ReplaceableItem where
 
 instance ToQuery ReplaceableItem where
         toQuery ReplaceableItem'{..}
@@ -287,10 +285,11 @@ instance ToQuery ReplaceableItem where
 --
 -- /See:/ 'updateCondition' smart constructor.
 data UpdateCondition = UpdateCondition'
-    { _ucExists :: !(Maybe Bool)
-    , _ucValue  :: !(Maybe Text)
-    , _ucName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucExists :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ucValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCondition' with the minimum fields required to make a request.
 --
@@ -304,11 +303,8 @@ data UpdateCondition = UpdateCondition'
 updateCondition
     :: UpdateCondition
 updateCondition =
-    UpdateCondition'
-    { _ucExists = Nothing
-    , _ucValue = Nothing
-    , _ucName = Nothing
-    }
+  UpdateCondition' {_ucExists = Nothing, _ucValue = Nothing, _ucName = Nothing}
+
 
 -- | A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
 ucExists :: Lens' UpdateCondition (Maybe Bool)
@@ -322,9 +318,9 @@ ucValue = lens _ucValue (\ s a -> s{_ucValue = a});
 ucName :: Lens' UpdateCondition (Maybe Text)
 ucName = lens _ucName (\ s a -> s{_ucName = a});
 
-instance Hashable UpdateCondition
+instance Hashable UpdateCondition where
 
-instance NFData UpdateCondition
+instance NFData UpdateCondition where
 
 instance ToQuery UpdateCondition where
         toQuery UpdateCondition'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DescribeMigrationTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.MigrationHub.DescribeMigrationTask
     , dmtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMigrationTask' smart constructor.
 data DescribeMigrationTask = DescribeMigrationTask'
-    { _dmtProgressUpdateStream :: !Text
-    , _dmtMigrationTaskName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmtProgressUpdateStream :: {-# NOUNPACK #-}!Text
+  , _dmtMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMigrationTask' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ describeMigrationTask
     -> Text -- ^ 'dmtMigrationTaskName'
     -> DescribeMigrationTask
 describeMigrationTask pProgressUpdateStream_ pMigrationTaskName_ =
-    DescribeMigrationTask'
-    { _dmtProgressUpdateStream = pProgressUpdateStream_
-    , _dmtMigrationTaskName = pMigrationTaskName_
-    }
+  DescribeMigrationTask'
+  { _dmtProgressUpdateStream = pProgressUpdateStream_
+  , _dmtMigrationTaskName = pMigrationTaskName_
+  }
+
 
 -- | The name of the ProgressUpdateStream.
 dmtProgressUpdateStream :: Lens' DescribeMigrationTask Text
@@ -86,9 +88,9 @@ instance AWSRequest DescribeMigrationTask where
                  DescribeMigrationTaskResponse' <$>
                    (x .?> "MigrationTask") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeMigrationTask
+instance Hashable DescribeMigrationTask where
 
-instance NFData DescribeMigrationTask
+instance NFData DescribeMigrationTask where
 
 instance ToHeaders DescribeMigrationTask where
         toHeaders
@@ -116,9 +118,10 @@ instance ToQuery DescribeMigrationTask where
 
 -- | /See:/ 'describeMigrationTaskResponse' smart constructor.
 data DescribeMigrationTaskResponse = DescribeMigrationTaskResponse'
-    { _dmtrsMigrationTask  :: !(Maybe MigrationTask)
-    , _dmtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmtrsMigrationTask  :: {-# NOUNPACK #-}!(Maybe MigrationTask)
+  , _dmtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMigrationTaskResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +134,9 @@ describeMigrationTaskResponse
     :: Int -- ^ 'dmtrsResponseStatus'
     -> DescribeMigrationTaskResponse
 describeMigrationTaskResponse pResponseStatus_ =
-    DescribeMigrationTaskResponse'
-    { _dmtrsMigrationTask = Nothing
-    , _dmtrsResponseStatus = pResponseStatus_
-    }
+  DescribeMigrationTaskResponse'
+  {_dmtrsMigrationTask = Nothing, _dmtrsResponseStatus = pResponseStatus_}
+
 
 -- | Object encapsulating information about the migration task.
 dmtrsMigrationTask :: Lens' DescribeMigrationTaskResponse (Maybe MigrationTask)
@@ -144,4 +146,4 @@ dmtrsMigrationTask = lens _dmtrsMigrationTask (\ s a -> s{_dmtrsMigrationTask = 
 dmtrsResponseStatus :: Lens' DescribeMigrationTaskResponse Int
 dmtrsResponseStatus = lens _dmtrsResponseStatus (\ s a -> s{_dmtrsResponseStatus = a});
 
-instance NFData DescribeMigrationTaskResponse
+instance NFData DescribeMigrationTaskResponse where

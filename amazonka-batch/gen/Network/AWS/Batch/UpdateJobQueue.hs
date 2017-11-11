@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.UpdateJobQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Batch.UpdateJobQueue
     , ujqrsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateJobQueue' smart constructor.
 data UpdateJobQueue = UpdateJobQueue'
-    { _ujqState                   :: !(Maybe JQState)
-    , _ujqPriority                :: !(Maybe Int)
-    , _ujqComputeEnvironmentOrder :: !(Maybe [ComputeEnvironmentOrder])
-    , _ujqJobQueue                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ujqState :: {-# NOUNPACK #-}!(Maybe JQState)
+  , _ujqPriority :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ujqComputeEnvironmentOrder :: {-# NOUNPACK #-}!(Maybe [ComputeEnvironmentOrder])
+  , _ujqJobQueue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateJobQueue' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ updateJobQueue
     :: Text -- ^ 'ujqJobQueue'
     -> UpdateJobQueue
 updateJobQueue pJobQueue_ =
-    UpdateJobQueue'
-    { _ujqState = Nothing
-    , _ujqPriority = Nothing
-    , _ujqComputeEnvironmentOrder = Nothing
-    , _ujqJobQueue = pJobQueue_
-    }
+  UpdateJobQueue'
+  { _ujqState = Nothing
+  , _ujqPriority = Nothing
+  , _ujqComputeEnvironmentOrder = Nothing
+  , _ujqJobQueue = pJobQueue_
+  }
+
 
 -- | Describes the queue's ability to accept new jobs.
 ujqState :: Lens' UpdateJobQueue (Maybe JQState)
@@ -104,9 +106,9 @@ instance AWSRequest UpdateJobQueue where
                    (x .?> "jobQueueArn") <*> (x .?> "jobQueueName") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateJobQueue
+instance Hashable UpdateJobQueue where
 
-instance NFData UpdateJobQueue
+instance NFData UpdateJobQueue where
 
 instance ToHeaders UpdateJobQueue where
         toHeaders
@@ -133,10 +135,11 @@ instance ToQuery UpdateJobQueue where
 
 -- | /See:/ 'updateJobQueueResponse' smart constructor.
 data UpdateJobQueueResponse = UpdateJobQueueResponse'
-    { _ujqrsJobQueueARN    :: !(Maybe Text)
-    , _ujqrsJobQueueName   :: !(Maybe Text)
-    , _ujqrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ujqrsJobQueueARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ujqrsJobQueueName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ujqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateJobQueueResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +154,12 @@ updateJobQueueResponse
     :: Int -- ^ 'ujqrsResponseStatus'
     -> UpdateJobQueueResponse
 updateJobQueueResponse pResponseStatus_ =
-    UpdateJobQueueResponse'
-    { _ujqrsJobQueueARN = Nothing
-    , _ujqrsJobQueueName = Nothing
-    , _ujqrsResponseStatus = pResponseStatus_
-    }
+  UpdateJobQueueResponse'
+  { _ujqrsJobQueueARN = Nothing
+  , _ujqrsJobQueueName = Nothing
+  , _ujqrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the job queue.
 ujqrsJobQueueARN :: Lens' UpdateJobQueueResponse (Maybe Text)
@@ -169,4 +173,4 @@ ujqrsJobQueueName = lens _ujqrsJobQueueName (\ s a -> s{_ujqrsJobQueueName = a})
 ujqrsResponseStatus :: Lens' UpdateJobQueueResponse Int
 ujqrsResponseStatus = lens _ujqrsResponseStatus (\ s a -> s{_ujqrsResponseStatus = a});
 
-instance NFData UpdateJobQueueResponse
+instance NFData UpdateJobQueueResponse where

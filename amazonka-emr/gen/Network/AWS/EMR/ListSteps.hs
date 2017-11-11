@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListSteps
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.EMR.ListSteps
     , lsrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which steps to list.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listSteps' smart constructor.
 data ListSteps = ListSteps'
-    { _lsStepIds    :: !(Maybe [Text])
-    , _lsStepStates :: !(Maybe [StepState])
-    , _lsMarker     :: !(Maybe Text)
-    , _lsClusterId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsStepIds    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lsStepStates :: {-# NOUNPACK #-}!(Maybe [StepState])
+  , _lsMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsClusterId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSteps' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ listSteps
     :: Text -- ^ 'lsClusterId'
     -> ListSteps
 listSteps pClusterId_ =
-    ListSteps'
-    { _lsStepIds = Nothing
-    , _lsStepStates = Nothing
-    , _lsMarker = Nothing
-    , _lsClusterId = pClusterId_
-    }
+  ListSteps'
+  { _lsStepIds = Nothing
+  , _lsStepStates = Nothing
+  , _lsMarker = Nothing
+  , _lsClusterId = pClusterId_
+  }
+
 
 -- | The filter to limit the step list based on the identifier of the steps.
 lsStepIds :: Lens' ListSteps [Text]
@@ -118,9 +120,9 @@ instance AWSRequest ListSteps where
                    (x .?> "Steps" .!@ mempty) <*> (x .?> "Marker") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListSteps
+instance Hashable ListSteps where
 
-instance NFData ListSteps
+instance NFData ListSteps where
 
 instance ToHeaders ListSteps where
         toHeaders
@@ -152,10 +154,11 @@ instance ToQuery ListSteps where
 --
 -- /See:/ 'listStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
-    { _lsrsSteps          :: !(Maybe [StepSummary])
-    , _lsrsMarker         :: !(Maybe Text)
-    , _lsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsrsSteps          :: {-# NOUNPACK #-}!(Maybe [StepSummary])
+  , _lsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStepsResponse' with the minimum fields required to make a request.
 --
@@ -170,11 +173,12 @@ listStepsResponse
     :: Int -- ^ 'lsrsResponseStatus'
     -> ListStepsResponse
 listStepsResponse pResponseStatus_ =
-    ListStepsResponse'
-    { _lsrsSteps = Nothing
-    , _lsrsMarker = Nothing
-    , _lsrsResponseStatus = pResponseStatus_
-    }
+  ListStepsResponse'
+  { _lsrsSteps = Nothing
+  , _lsrsMarker = Nothing
+  , _lsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The filtered list of steps for the cluster.
 lsrsSteps :: Lens' ListStepsResponse [StepSummary]
@@ -188,4 +192,4 @@ lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
 lsrsResponseStatus :: Lens' ListStepsResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 
-instance NFData ListStepsResponse
+instance NFData ListStepsResponse where

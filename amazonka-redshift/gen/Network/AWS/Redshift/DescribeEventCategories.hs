@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeEventCategories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Redshift.DescribeEventCategories
     , decrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEventCategories' smart constructor.
 newtype DescribeEventCategories = DescribeEventCategories'
-    { _decSourceType :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decSourceType :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype DescribeEventCategories = DescribeEventCategories'
 -- * 'decSourceType' - The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
 describeEventCategories
     :: DescribeEventCategories
-describeEventCategories =
-    DescribeEventCategories'
-    { _decSourceType = Nothing
-    }
+describeEventCategories = DescribeEventCategories' {_decSourceType = Nothing}
+
 
 -- | The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
@@ -81,9 +80,9 @@ instance AWSRequest DescribeEventCategories where
                       may (parseXMLList "EventCategoriesMap"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEventCategories
+instance Hashable DescribeEventCategories where
 
-instance NFData DescribeEventCategories
+instance NFData DescribeEventCategories where
 
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
@@ -105,9 +104,10 @@ instance ToQuery DescribeEventCategories where
 --
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-    { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
-    , _decrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decrsEventCategoriesMapList :: {-# NOUNPACK #-}!(Maybe [EventCategoriesMap])
+  , _decrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +120,11 @@ describeEventCategoriesResponse
     :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pResponseStatus_ =
-    DescribeEventCategoriesResponse'
-    { _decrsEventCategoriesMapList = Nothing
-    , _decrsResponseStatus = pResponseStatus_
-    }
+  DescribeEventCategoriesResponse'
+  { _decrsEventCategoriesMapList = Nothing
+  , _decrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of event categories descriptions.
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
@@ -133,4 +134,4 @@ decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_dec
 decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
 
-instance NFData DescribeEventCategoriesResponse
+instance NFData DescribeEventCategoriesResponse where

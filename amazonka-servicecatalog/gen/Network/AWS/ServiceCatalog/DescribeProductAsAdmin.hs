@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProductAsAdmin
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.ServiceCatalog.DescribeProductAsAdmin
     , dpaarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProductAsAdmin' smart constructor.
 data DescribeProductAsAdmin = DescribeProductAsAdmin'
-    { _dpaaAcceptLanguage :: !(Maybe Text)
-    , _dpaaId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpaaAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpaaId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProductAsAdmin' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ describeProductAsAdmin
     :: Text -- ^ 'dpaaId'
     -> DescribeProductAsAdmin
 describeProductAsAdmin pId_ =
-    DescribeProductAsAdmin'
-    { _dpaaAcceptLanguage = Nothing
-    , _dpaaId = pId_
-    }
+  DescribeProductAsAdmin' {_dpaaAcceptLanguage = Nothing, _dpaaId = pId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dpaaAcceptLanguage :: Lens' DescribeProductAsAdmin (Maybe Text)
@@ -93,9 +92,9 @@ instance AWSRequest DescribeProductAsAdmin where
                      <*> (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeProductAsAdmin
+instance Hashable DescribeProductAsAdmin where
 
-instance NFData DescribeProductAsAdmin
+instance NFData DescribeProductAsAdmin where
 
 instance ToHeaders DescribeProductAsAdmin where
         toHeaders
@@ -122,12 +121,13 @@ instance ToQuery DescribeProductAsAdmin where
 
 -- | /See:/ 'describeProductAsAdminResponse' smart constructor.
 data DescribeProductAsAdminResponse = DescribeProductAsAdminResponse'
-    { _dpaarsProductViewDetail             :: !(Maybe ProductViewDetail)
-    , _dpaarsTagOptions                    :: !(Maybe [TagOptionDetail])
-    , _dpaarsProvisioningArtifactSummaries :: !(Maybe [ProvisioningArtifactSummary])
-    , _dpaarsTags                          :: !(Maybe [Tag])
-    , _dpaarsResponseStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpaarsProductViewDetail :: {-# NOUNPACK #-}!(Maybe ProductViewDetail)
+  , _dpaarsTagOptions :: {-# NOUNPACK #-}!(Maybe [TagOptionDetail])
+  , _dpaarsProvisioningArtifactSummaries :: {-# NOUNPACK #-}!(Maybe [ProvisioningArtifactSummary])
+  , _dpaarsTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _dpaarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProductAsAdminResponse' with the minimum fields required to make a request.
 --
@@ -146,13 +146,14 @@ describeProductAsAdminResponse
     :: Int -- ^ 'dpaarsResponseStatus'
     -> DescribeProductAsAdminResponse
 describeProductAsAdminResponse pResponseStatus_ =
-    DescribeProductAsAdminResponse'
-    { _dpaarsProductViewDetail = Nothing
-    , _dpaarsTagOptions = Nothing
-    , _dpaarsProvisioningArtifactSummaries = Nothing
-    , _dpaarsTags = Nothing
-    , _dpaarsResponseStatus = pResponseStatus_
-    }
+  DescribeProductAsAdminResponse'
+  { _dpaarsProductViewDetail = Nothing
+  , _dpaarsTagOptions = Nothing
+  , _dpaarsProvisioningArtifactSummaries = Nothing
+  , _dpaarsTags = Nothing
+  , _dpaarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Detailed product view information.
 dpaarsProductViewDetail :: Lens' DescribeProductAsAdminResponse (Maybe ProductViewDetail)
@@ -174,4 +175,4 @@ dpaarsTags = lens _dpaarsTags (\ s a -> s{_dpaarsTags = a}) . _Default . _Coerce
 dpaarsResponseStatus :: Lens' DescribeProductAsAdminResponse Int
 dpaarsResponseStatus = lens _dpaarsResponseStatus (\ s a -> s{_dpaarsResponseStatus = a});
 
-instance NFData DescribeProductAsAdminResponse
+instance NFData DescribeProductAsAdminResponse where

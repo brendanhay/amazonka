@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetQualificationScore
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,18 +42,19 @@ module Network.AWS.MechanicalTurk.GetQualificationScore
     , gqsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getQualificationScore' smart constructor.
 data GetQualificationScore = GetQualificationScore'
-    { _gqsQualificationTypeId :: !Text
-    , _gqsWorkerId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gqsQualificationTypeId :: {-# NOUNPACK #-}!Text
+  , _gqsWorkerId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQualificationScore' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ getQualificationScore
     -> Text -- ^ 'gqsWorkerId'
     -> GetQualificationScore
 getQualificationScore pQualificationTypeId_ pWorkerId_ =
-    GetQualificationScore'
-    { _gqsQualificationTypeId = pQualificationTypeId_
-    , _gqsWorkerId = pWorkerId_
-    }
+  GetQualificationScore'
+  {_gqsQualificationTypeId = pQualificationTypeId_, _gqsWorkerId = pWorkerId_}
+
 
 -- | The ID of the QualificationType.
 gqsQualificationTypeId :: Lens' GetQualificationScore Text
@@ -90,9 +90,9 @@ instance AWSRequest GetQualificationScore where
                  GetQualificationScoreResponse' <$>
                    (x .?> "Qualification") <*> (pure (fromEnum s)))
 
-instance Hashable GetQualificationScore
+instance Hashable GetQualificationScore where
 
-instance NFData GetQualificationScore
+instance NFData GetQualificationScore where
 
 instance ToHeaders GetQualificationScore where
         toHeaders
@@ -120,9 +120,10 @@ instance ToQuery GetQualificationScore where
 
 -- | /See:/ 'getQualificationScoreResponse' smart constructor.
 data GetQualificationScoreResponse = GetQualificationScoreResponse'
-    { _gqsrsQualification  :: !(Maybe Qualification)
-    , _gqsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gqsrsQualification  :: {-# NOUNPACK #-}!(Maybe Qualification)
+  , _gqsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQualificationScoreResponse' with the minimum fields required to make a request.
 --
@@ -135,10 +136,9 @@ getQualificationScoreResponse
     :: Int -- ^ 'gqsrsResponseStatus'
     -> GetQualificationScoreResponse
 getQualificationScoreResponse pResponseStatus_ =
-    GetQualificationScoreResponse'
-    { _gqsrsQualification = Nothing
-    , _gqsrsResponseStatus = pResponseStatus_
-    }
+  GetQualificationScoreResponse'
+  {_gqsrsQualification = Nothing, _gqsrsResponseStatus = pResponseStatus_}
+
 
 -- | The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score).
 gqsrsQualification :: Lens' GetQualificationScoreResponse (Maybe Qualification)
@@ -148,4 +148,4 @@ gqsrsQualification = lens _gqsrsQualification (\ s a -> s{_gqsrsQualification = 
 gqsrsResponseStatus :: Lens' GetQualificationScoreResponse Int
 gqsrsResponseStatus = lens _gqsrsResponseStatus (\ s a -> s{_gqsrsResponseStatus = a});
 
-instance NFData GetQualificationScoreResponse
+instance NFData GetQualificationScoreResponse where

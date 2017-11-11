@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -116,28 +116,28 @@ module Network.AWS.CloudHSM
     , tagValue
     ) where
 
-import           Network.AWS.CloudHSM.AddTagsToResource
-import           Network.AWS.CloudHSM.CreateHAPG
-import           Network.AWS.CloudHSM.CreateHSM
-import           Network.AWS.CloudHSM.CreateLunaClient
-import           Network.AWS.CloudHSM.DeleteHAPG
-import           Network.AWS.CloudHSM.DeleteHSM
-import           Network.AWS.CloudHSM.DeleteLunaClient
-import           Network.AWS.CloudHSM.DescribeHAPG
-import           Network.AWS.CloudHSM.DescribeHSM
-import           Network.AWS.CloudHSM.DescribeLunaClient
-import           Network.AWS.CloudHSM.GetConfig
-import           Network.AWS.CloudHSM.ListAvailableZones
-import           Network.AWS.CloudHSM.ListHAPGs
-import           Network.AWS.CloudHSM.ListHSMs
-import           Network.AWS.CloudHSM.ListLunaClients
-import           Network.AWS.CloudHSM.ListTagsForResource
-import           Network.AWS.CloudHSM.ModifyHAPG
-import           Network.AWS.CloudHSM.ModifyHSM
-import           Network.AWS.CloudHSM.ModifyLunaClient
-import           Network.AWS.CloudHSM.RemoveTagsFromResource
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Waiters
+import Network.AWS.CloudHSM.AddTagsToResource
+import Network.AWS.CloudHSM.CreateHAPG
+import Network.AWS.CloudHSM.CreateHSM
+import Network.AWS.CloudHSM.CreateLunaClient
+import Network.AWS.CloudHSM.DeleteHAPG
+import Network.AWS.CloudHSM.DeleteHSM
+import Network.AWS.CloudHSM.DeleteLunaClient
+import Network.AWS.CloudHSM.DescribeHAPG
+import Network.AWS.CloudHSM.DescribeHSM
+import Network.AWS.CloudHSM.DescribeLunaClient
+import Network.AWS.CloudHSM.GetConfig
+import Network.AWS.CloudHSM.ListAvailableZones
+import Network.AWS.CloudHSM.ListHAPGs
+import Network.AWS.CloudHSM.ListHSMs
+import Network.AWS.CloudHSM.ListLunaClients
+import Network.AWS.CloudHSM.ListTagsForResource
+import Network.AWS.CloudHSM.ModifyHAPG
+import Network.AWS.CloudHSM.ModifyHSM
+import Network.AWS.CloudHSM.ModifyLunaClient
+import Network.AWS.CloudHSM.RemoveTagsFromResource
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

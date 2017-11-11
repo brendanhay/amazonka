@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddTagsToResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.StorageGateway.AddTagsToResource
     , attrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | AddTagsToResourceInput
 --
@@ -65,9 +65,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'addTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-    { _attrResourceARN :: !Text
-    , _attrTags        :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _attrResourceARN :: {-# NOUNPACK #-}!Text
+  , _attrTags        :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
 --
@@ -80,10 +81,8 @@ addTagsToResource
     :: Text -- ^ 'attrResourceARN'
     -> AddTagsToResource
 addTagsToResource pResourceARN_ =
-    AddTagsToResource'
-    { _attrResourceARN = pResourceARN_
-    , _attrTags = mempty
-    }
+  AddTagsToResource' {_attrResourceARN = pResourceARN_, _attrTags = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
 attrResourceARN :: Lens' AddTagsToResource Text
@@ -102,9 +101,9 @@ instance AWSRequest AddTagsToResource where
                  AddTagsToResourceResponse' <$>
                    (x .?> "ResourceARN") <*> (pure (fromEnum s)))
 
-instance Hashable AddTagsToResource
+instance Hashable AddTagsToResource where
 
-instance NFData AddTagsToResource
+instance NFData AddTagsToResource where
 
 instance ToHeaders AddTagsToResource where
         toHeaders
@@ -135,9 +134,10 @@ instance ToQuery AddTagsToResource where
 --
 -- /See:/ 'addTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
-    { _attrrsResourceARN    :: !(Maybe Text)
-    , _attrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _attrrsResourceARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _attrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.
 --
@@ -150,10 +150,9 @@ addTagsToResourceResponse
     :: Int -- ^ 'attrrsResponseStatus'
     -> AddTagsToResourceResponse
 addTagsToResourceResponse pResponseStatus_ =
-    AddTagsToResourceResponse'
-    { _attrrsResourceARN = Nothing
-    , _attrrsResponseStatus = pResponseStatus_
-    }
+  AddTagsToResourceResponse'
+  {_attrrsResourceARN = Nothing, _attrrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
 attrrsResourceARN :: Lens' AddTagsToResourceResponse (Maybe Text)
@@ -163,4 +162,4 @@ attrrsResourceARN = lens _attrrsResourceARN (\ s a -> s{_attrrsResourceARN = a})
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
 
-instance NFData AddTagsToResourceResponse
+instance NFData AddTagsToResourceResponse where

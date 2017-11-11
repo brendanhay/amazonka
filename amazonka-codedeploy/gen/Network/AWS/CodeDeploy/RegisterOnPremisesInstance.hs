@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RegisterOnPremisesInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
     , RegisterOnPremisesInstanceResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of the register on-premises instance operation.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'registerOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
-    { _ropiIamUserARN    :: !(Maybe Text)
-    , _ropiIamSessionARN :: !(Maybe Text)
-    , _ropiInstanceName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ropiIamUserARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ropiIamSessionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ropiInstanceName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterOnPremisesInstance' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ registerOnPremisesInstance
     :: Text -- ^ 'ropiInstanceName'
     -> RegisterOnPremisesInstance
 registerOnPremisesInstance pInstanceName_ =
-    RegisterOnPremisesInstance'
-    { _ropiIamUserARN = Nothing
-    , _ropiIamSessionARN = Nothing
-    , _ropiInstanceName = pInstanceName_
-    }
+  RegisterOnPremisesInstance'
+  { _ropiIamUserARN = Nothing
+  , _ropiIamSessionARN = Nothing
+  , _ropiInstanceName = pInstanceName_
+  }
+
 
 -- | The ARN of the IAM user to associate with the on-premises instance.
 ropiIamUserARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
@@ -92,9 +94,9 @@ instance AWSRequest RegisterOnPremisesInstance where
         response
           = receiveNull RegisterOnPremisesInstanceResponse'
 
-instance Hashable RegisterOnPremisesInstance
+instance Hashable RegisterOnPremisesInstance where
 
-instance NFData RegisterOnPremisesInstance
+instance NFData RegisterOnPremisesInstance where
 
 instance ToHeaders RegisterOnPremisesInstance where
         toHeaders
@@ -122,8 +124,9 @@ instance ToQuery RegisterOnPremisesInstance where
 
 -- | /See:/ 'registerOnPremisesInstanceResponse' smart constructor.
 data RegisterOnPremisesInstanceResponse =
-    RegisterOnPremisesInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RegisterOnPremisesInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
 --
@@ -131,4 +134,6 @@ registerOnPremisesInstanceResponse
     :: RegisterOnPremisesInstanceResponse
 registerOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'
 
+
 instance NFData RegisterOnPremisesInstanceResponse
+         where

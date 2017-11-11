@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -317,35 +317,35 @@ module Network.AWS.Lambda
     , vcVPCId
     ) where
 
-import           Network.AWS.Lambda.AddPermission
-import           Network.AWS.Lambda.CreateAlias
-import           Network.AWS.Lambda.CreateEventSourceMapping
-import           Network.AWS.Lambda.CreateFunction
-import           Network.AWS.Lambda.DeleteAlias
-import           Network.AWS.Lambda.DeleteEventSourceMapping
-import           Network.AWS.Lambda.DeleteFunction
-import           Network.AWS.Lambda.GetAccountSettings
-import           Network.AWS.Lambda.GetAlias
-import           Network.AWS.Lambda.GetEventSourceMapping
-import           Network.AWS.Lambda.GetFunction
-import           Network.AWS.Lambda.GetFunctionConfiguration
-import           Network.AWS.Lambda.GetPolicy
-import           Network.AWS.Lambda.Invoke
-import           Network.AWS.Lambda.ListAliases
-import           Network.AWS.Lambda.ListEventSourceMappings
-import           Network.AWS.Lambda.ListFunctions
-import           Network.AWS.Lambda.ListTags
-import           Network.AWS.Lambda.ListVersionsByFunction
-import           Network.AWS.Lambda.PublishVersion
-import           Network.AWS.Lambda.RemovePermission
-import           Network.AWS.Lambda.TagResource
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.UntagResource
-import           Network.AWS.Lambda.UpdateAlias
-import           Network.AWS.Lambda.UpdateEventSourceMapping
-import           Network.AWS.Lambda.UpdateFunctionCode
-import           Network.AWS.Lambda.UpdateFunctionConfiguration
-import           Network.AWS.Lambda.Waiters
+import Network.AWS.Lambda.AddPermission
+import Network.AWS.Lambda.CreateAlias
+import Network.AWS.Lambda.CreateEventSourceMapping
+import Network.AWS.Lambda.CreateFunction
+import Network.AWS.Lambda.DeleteAlias
+import Network.AWS.Lambda.DeleteEventSourceMapping
+import Network.AWS.Lambda.DeleteFunction
+import Network.AWS.Lambda.GetAccountSettings
+import Network.AWS.Lambda.GetAlias
+import Network.AWS.Lambda.GetEventSourceMapping
+import Network.AWS.Lambda.GetFunction
+import Network.AWS.Lambda.GetFunctionConfiguration
+import Network.AWS.Lambda.GetPolicy
+import Network.AWS.Lambda.Invoke
+import Network.AWS.Lambda.ListAliases
+import Network.AWS.Lambda.ListEventSourceMappings
+import Network.AWS.Lambda.ListFunctions
+import Network.AWS.Lambda.ListTags
+import Network.AWS.Lambda.ListVersionsByFunction
+import Network.AWS.Lambda.PublishVersion
+import Network.AWS.Lambda.RemovePermission
+import Network.AWS.Lambda.TagResource
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.UntagResource
+import Network.AWS.Lambda.UpdateAlias
+import Network.AWS.Lambda.UpdateEventSourceMapping
+import Network.AWS.Lambda.UpdateFunctionCode
+import Network.AWS.Lambda.UpdateFunctionConfiguration
+import Network.AWS.Lambda.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreatePatchBaseline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,25 +45,26 @@ module Network.AWS.SSM.CreatePatchBaseline
     , cpbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createPatchBaseline' smart constructor.
 data CreatePatchBaseline = CreatePatchBaseline'
-    { _cpbApprovalRules                  :: !(Maybe PatchRuleGroup)
-    , _cpbClientToken                    :: !(Maybe Text)
-    , _cpbOperatingSystem                :: !(Maybe OperatingSystem)
-    , _cpbGlobalFilters                  :: !(Maybe PatchFilterGroup)
-    , _cpbApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
-    , _cpbApprovedPatches                :: !(Maybe [Text])
-    , _cpbRejectedPatches                :: !(Maybe [Text])
-    , _cpbDescription                    :: !(Maybe Text)
-    , _cpbName                           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpbApprovalRules :: {-# NOUNPACK #-}!(Maybe PatchRuleGroup)
+  , _cpbClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpbOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _cpbGlobalFilters :: {-# NOUNPACK #-}!(Maybe PatchFilterGroup)
+  , _cpbApprovedPatchesComplianceLevel :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
+  , _cpbApprovedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cpbRejectedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cpbDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpbName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePatchBaseline' with the minimum fields required to make a request.
 --
@@ -90,17 +91,18 @@ createPatchBaseline
     :: Text -- ^ 'cpbName'
     -> CreatePatchBaseline
 createPatchBaseline pName_ =
-    CreatePatchBaseline'
-    { _cpbApprovalRules = Nothing
-    , _cpbClientToken = Nothing
-    , _cpbOperatingSystem = Nothing
-    , _cpbGlobalFilters = Nothing
-    , _cpbApprovedPatchesComplianceLevel = Nothing
-    , _cpbApprovedPatches = Nothing
-    , _cpbRejectedPatches = Nothing
-    , _cpbDescription = Nothing
-    , _cpbName = pName_
-    }
+  CreatePatchBaseline'
+  { _cpbApprovalRules = Nothing
+  , _cpbClientToken = Nothing
+  , _cpbOperatingSystem = Nothing
+  , _cpbGlobalFilters = Nothing
+  , _cpbApprovedPatchesComplianceLevel = Nothing
+  , _cpbApprovedPatches = Nothing
+  , _cpbRejectedPatches = Nothing
+  , _cpbDescription = Nothing
+  , _cpbName = pName_
+  }
+
 
 -- | A set of rules used to include patches in the baseline.
 cpbApprovalRules :: Lens' CreatePatchBaseline (Maybe PatchRuleGroup)
@@ -148,9 +150,9 @@ instance AWSRequest CreatePatchBaseline where
                  CreatePatchBaselineResponse' <$>
                    (x .?> "BaselineId") <*> (pure (fromEnum s)))
 
-instance Hashable CreatePatchBaseline
+instance Hashable CreatePatchBaseline where
 
-instance NFData CreatePatchBaseline
+instance NFData CreatePatchBaseline where
 
 instance ToHeaders CreatePatchBaseline where
         toHeaders
@@ -184,9 +186,10 @@ instance ToQuery CreatePatchBaseline where
 
 -- | /See:/ 'createPatchBaselineResponse' smart constructor.
 data CreatePatchBaselineResponse = CreatePatchBaselineResponse'
-    { _cpbrsBaselineId     :: !(Maybe Text)
-    , _cpbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpbrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePatchBaselineResponse' with the minimum fields required to make a request.
 --
@@ -199,10 +202,9 @@ createPatchBaselineResponse
     :: Int -- ^ 'cpbrsResponseStatus'
     -> CreatePatchBaselineResponse
 createPatchBaselineResponse pResponseStatus_ =
-    CreatePatchBaselineResponse'
-    { _cpbrsBaselineId = Nothing
-    , _cpbrsResponseStatus = pResponseStatus_
-    }
+  CreatePatchBaselineResponse'
+  {_cpbrsBaselineId = Nothing, _cpbrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the created patch baseline.
 cpbrsBaselineId :: Lens' CreatePatchBaselineResponse (Maybe Text)
@@ -212,4 +214,4 @@ cpbrsBaselineId = lens _cpbrsBaselineId (\ s a -> s{_cpbrsBaselineId = a});
 cpbrsResponseStatus :: Lens' CreatePatchBaselineResponse Int
 cpbrsResponseStatus = lens _cpbrsResponseStatus (\ s a -> s{_cpbrsResponseStatus = a});
 
-instance NFData CreatePatchBaselineResponse
+instance NFData CreatePatchBaselineResponse where

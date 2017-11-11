@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListHAPGs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.CloudHSM.ListHAPGs
     , lhrsHAPGList
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listHAPGs' smart constructor.
 newtype ListHAPGs = ListHAPGs'
-    { _lhNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHAPGs' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ newtype ListHAPGs = ListHAPGs'
 -- * 'lhNextToken' - The /NextToken/ value from a previous call to 'ListHapgs' . Pass null if this is the first call.
 listHAPGs
     :: ListHAPGs
-listHAPGs =
-    ListHAPGs'
-    { _lhNextToken = Nothing
-    }
+listHAPGs = ListHAPGs' {_lhNextToken = Nothing}
+
 
 -- | The /NextToken/ value from a previous call to 'ListHapgs' . Pass null if this is the first call.
 lhNextToken :: Lens' ListHAPGs (Maybe Text)
@@ -78,9 +77,9 @@ instance AWSRequest ListHAPGs where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "HapgList" .!@ mempty))
 
-instance Hashable ListHAPGs
+instance Hashable ListHAPGs where
 
-instance NFData ListHAPGs
+instance NFData ListHAPGs where
 
 instance ToHeaders ListHAPGs where
         toHeaders
@@ -104,10 +103,11 @@ instance ToQuery ListHAPGs where
 
 -- | /See:/ 'listHAPGsResponse' smart constructor.
 data ListHAPGsResponse = ListHAPGsResponse'
-    { _lhrsNextToken      :: !(Maybe Text)
-    , _lhrsResponseStatus :: !Int
-    , _lhrsHAPGList       :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lhrsHAPGList       :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHAPGsResponse' with the minimum fields required to make a request.
 --
@@ -122,11 +122,12 @@ listHAPGsResponse
     :: Int -- ^ 'lhrsResponseStatus'
     -> ListHAPGsResponse
 listHAPGsResponse pResponseStatus_ =
-    ListHAPGsResponse'
-    { _lhrsNextToken = Nothing
-    , _lhrsResponseStatus = pResponseStatus_
-    , _lhrsHAPGList = mempty
-    }
+  ListHAPGsResponse'
+  { _lhrsNextToken = Nothing
+  , _lhrsResponseStatus = pResponseStatus_
+  , _lhrsHAPGList = mempty
+  }
+
 
 -- | If not null, more results are available. Pass this value to 'ListHapgs' to retrieve the next set of items.
 lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
@@ -140,4 +141,4 @@ lhrsResponseStatus = lens _lhrsResponseStatus (\ s a -> s{_lhrsResponseStatus = 
 lhrsHAPGList :: Lens' ListHAPGsResponse [Text]
 lhrsHAPGList = lens _lhrsHAPGList (\ s a -> s{_lhrsHAPGList = a}) . _Coerce;
 
-instance NFData ListHAPGsResponse
+instance NFData ListHAPGsResponse where

@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MechanicalTurk.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types.Sum
+import Network.AWS.Prelude
 
 -- | The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker's efforts to complete the HIT, and contains the results for later retrieval.
 --
@@ -27,19 +27,20 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'assignment' smart constructor.
 data Assignment = Assignment'
-    { _aAcceptTime        :: !(Maybe POSIX)
-    , _aAnswer            :: !(Maybe Text)
-    , _aAssignmentStatus  :: !(Maybe AssignmentStatus)
-    , _aRequesterFeedback :: !(Maybe Text)
-    , _aDeadline          :: !(Maybe POSIX)
-    , _aApprovalTime      :: !(Maybe POSIX)
-    , _aRejectionTime     :: !(Maybe POSIX)
-    , _aAutoApprovalTime  :: !(Maybe POSIX)
-    , _aHITId             :: !(Maybe Text)
-    , _aWorkerId          :: !(Maybe Text)
-    , _aAssignmentId      :: !(Maybe Text)
-    , _aSubmitTime        :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aAcceptTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aAnswer            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAssignmentStatus  :: {-# NOUNPACK #-}!(Maybe AssignmentStatus)
+  , _aRequesterFeedback :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aDeadline          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aApprovalTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aRejectionTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aAutoApprovalTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aHITId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aWorkerId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAssignmentId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aSubmitTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Assignment' with the minimum fields required to make a request.
 --
@@ -71,20 +72,21 @@ data Assignment = Assignment'
 assignment
     :: Assignment
 assignment =
-    Assignment'
-    { _aAcceptTime = Nothing
-    , _aAnswer = Nothing
-    , _aAssignmentStatus = Nothing
-    , _aRequesterFeedback = Nothing
-    , _aDeadline = Nothing
-    , _aApprovalTime = Nothing
-    , _aRejectionTime = Nothing
-    , _aAutoApprovalTime = Nothing
-    , _aHITId = Nothing
-    , _aWorkerId = Nothing
-    , _aAssignmentId = Nothing
-    , _aSubmitTime = Nothing
-    }
+  Assignment'
+  { _aAcceptTime = Nothing
+  , _aAnswer = Nothing
+  , _aAssignmentStatus = Nothing
+  , _aRequesterFeedback = Nothing
+  , _aDeadline = Nothing
+  , _aApprovalTime = Nothing
+  , _aRejectionTime = Nothing
+  , _aAutoApprovalTime = Nothing
+  , _aHITId = Nothing
+  , _aWorkerId = Nothing
+  , _aAssignmentId = Nothing
+  , _aSubmitTime = Nothing
+  }
+
 
 -- | The date and time the Worker accepted the assignment.
 aAcceptTime :: Lens' Assignment (Maybe UTCTime)
@@ -151,9 +153,9 @@ instance FromJSON Assignment where
                      <*> (x .:? "AssignmentId")
                      <*> (x .:? "SubmitTime"))
 
-instance Hashable Assignment
+instance Hashable Assignment where
 
-instance NFData Assignment
+instance NFData Assignment where
 
 -- | An object representing a Bonus payment paid to a Worker.
 --
@@ -161,12 +163,13 @@ instance NFData Assignment
 --
 -- /See:/ 'bonusPayment' smart constructor.
 data BonusPayment = BonusPayment'
-    { _bpReason       :: !(Maybe Text)
-    , _bpGrantTime    :: !(Maybe POSIX)
-    , _bpWorkerId     :: !(Maybe Text)
-    , _bpAssignmentId :: !(Maybe Text)
-    , _bpBonusAmount  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bpReason       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpGrantTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bpWorkerId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpAssignmentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bpBonusAmount  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BonusPayment' with the minimum fields required to make a request.
 --
@@ -184,13 +187,14 @@ data BonusPayment = BonusPayment'
 bonusPayment
     :: BonusPayment
 bonusPayment =
-    BonusPayment'
-    { _bpReason = Nothing
-    , _bpGrantTime = Nothing
-    , _bpWorkerId = Nothing
-    , _bpAssignmentId = Nothing
-    , _bpBonusAmount = Nothing
-    }
+  BonusPayment'
+  { _bpReason = Nothing
+  , _bpGrantTime = Nothing
+  , _bpWorkerId = Nothing
+  , _bpAssignmentId = Nothing
+  , _bpBonusAmount = Nothing
+  }
+
 
 -- | The Reason text given when the bonus was granted, if any.
 bpReason :: Lens' BonusPayment (Maybe Text)
@@ -222,9 +226,9 @@ instance FromJSON BonusPayment where
                      <*> (x .:? "AssignmentId")
                      <*> (x .:? "BonusAmount"))
 
-instance Hashable BonusPayment
+instance Hashable BonusPayment where
 
-instance NFData BonusPayment
+instance NFData BonusPayment where
 
 -- | The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.
 --
@@ -232,28 +236,29 @@ instance NFData BonusPayment
 --
 -- /See:/ 'hIT' smart constructor.
 data HIT = HIT'
-    { _hitCreationTime                 :: !(Maybe POSIX)
-    , _hitHITGroupId                   :: !(Maybe Text)
-    , _hitNumberOfAssignmentsPending   :: !(Maybe Int)
-    , _hitHITTypeId                    :: !(Maybe Text)
-    , _hitExpiration                   :: !(Maybe POSIX)
-    , _hitAutoApprovalDelayInSeconds   :: !(Maybe Integer)
-    , _hitRequesterAnnotation          :: !(Maybe Text)
-    , _hitHITStatus                    :: !(Maybe HITStatus)
-    , _hitMaxAssignments               :: !(Maybe Int)
-    , _hitNumberOfAssignmentsCompleted :: !(Maybe Int)
-    , _hitReward                       :: !(Maybe Text)
-    , _hitKeywords                     :: !(Maybe Text)
-    , _hitHITLayoutId                  :: !(Maybe Text)
-    , _hitQualificationRequirements    :: !(Maybe [QualificationRequirement])
-    , _hitTitle                        :: !(Maybe Text)
-    , _hitHITId                        :: !(Maybe Text)
-    , _hitHITReviewStatus              :: !(Maybe HITReviewStatus)
-    , _hitNumberOfAssignmentsAvailable :: !(Maybe Int)
-    , _hitDescription                  :: !(Maybe Text)
-    , _hitQuestion                     :: !(Maybe Text)
-    , _hitAssignmentDurationInSeconds  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hitCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _hitHITGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitNumberOfAssignmentsPending :: {-# NOUNPACK #-}!(Maybe Int)
+  , _hitHITTypeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitExpiration :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _hitAutoApprovalDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _hitRequesterAnnotation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitHITStatus :: {-# NOUNPACK #-}!(Maybe HITStatus)
+  , _hitMaxAssignments :: {-# NOUNPACK #-}!(Maybe Int)
+  , _hitNumberOfAssignmentsCompleted :: {-# NOUNPACK #-}!(Maybe Int)
+  , _hitReward :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitKeywords :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitHITLayoutId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitQualificationRequirements :: {-# NOUNPACK #-}!(Maybe [QualificationRequirement])
+  , _hitTitle :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitHITId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitHITReviewStatus :: {-# NOUNPACK #-}!(Maybe HITReviewStatus)
+  , _hitNumberOfAssignmentsAvailable :: {-# NOUNPACK #-}!(Maybe Int)
+  , _hitDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitQuestion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitAssignmentDurationInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HIT' with the minimum fields required to make a request.
 --
@@ -303,29 +308,30 @@ data HIT = HIT'
 hIT
     :: HIT
 hIT =
-    HIT'
-    { _hitCreationTime = Nothing
-    , _hitHITGroupId = Nothing
-    , _hitNumberOfAssignmentsPending = Nothing
-    , _hitHITTypeId = Nothing
-    , _hitExpiration = Nothing
-    , _hitAutoApprovalDelayInSeconds = Nothing
-    , _hitRequesterAnnotation = Nothing
-    , _hitHITStatus = Nothing
-    , _hitMaxAssignments = Nothing
-    , _hitNumberOfAssignmentsCompleted = Nothing
-    , _hitReward = Nothing
-    , _hitKeywords = Nothing
-    , _hitHITLayoutId = Nothing
-    , _hitQualificationRequirements = Nothing
-    , _hitTitle = Nothing
-    , _hitHITId = Nothing
-    , _hitHITReviewStatus = Nothing
-    , _hitNumberOfAssignmentsAvailable = Nothing
-    , _hitDescription = Nothing
-    , _hitQuestion = Nothing
-    , _hitAssignmentDurationInSeconds = Nothing
-    }
+  HIT'
+  { _hitCreationTime = Nothing
+  , _hitHITGroupId = Nothing
+  , _hitNumberOfAssignmentsPending = Nothing
+  , _hitHITTypeId = Nothing
+  , _hitExpiration = Nothing
+  , _hitAutoApprovalDelayInSeconds = Nothing
+  , _hitRequesterAnnotation = Nothing
+  , _hitHITStatus = Nothing
+  , _hitMaxAssignments = Nothing
+  , _hitNumberOfAssignmentsCompleted = Nothing
+  , _hitReward = Nothing
+  , _hitKeywords = Nothing
+  , _hitHITLayoutId = Nothing
+  , _hitQualificationRequirements = Nothing
+  , _hitTitle = Nothing
+  , _hitHITId = Nothing
+  , _hitHITReviewStatus = Nothing
+  , _hitNumberOfAssignmentsAvailable = Nothing
+  , _hitDescription = Nothing
+  , _hitQuestion = Nothing
+  , _hitAssignmentDurationInSeconds = Nothing
+  }
+
 
 -- | The date and time the HIT was created.
 hitCreationTime :: Lens' HIT (Maybe UTCTime)
@@ -437,9 +443,9 @@ instance FromJSON HIT where
                      <*> (x .:? "Question")
                      <*> (x .:? "AssignmentDurationInSeconds"))
 
-instance Hashable HIT
+instance Hashable HIT where
 
-instance NFData HIT
+instance NFData HIT where
 
 -- | The HITLayoutParameter data structure defines parameter values used with a HITLayout. A HITLayout is a reusable Amazon Mechanical Turk project template used to provide Human Intelligence Task (HIT) question data for CreateHIT.
 --
@@ -447,9 +453,10 @@ instance NFData HIT
 --
 -- /See:/ 'hITLayoutParameter' smart constructor.
 data HITLayoutParameter = HITLayoutParameter'
-    { _hitlpValue :: !(Maybe Text)
-    , _hitlpName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hitlpValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hitlpName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HITLayoutParameter' with the minimum fields required to make a request.
 --
@@ -461,10 +468,8 @@ data HITLayoutParameter = HITLayoutParameter'
 hITLayoutParameter
     :: HITLayoutParameter
 hITLayoutParameter =
-    HITLayoutParameter'
-    { _hitlpValue = Nothing
-    , _hitlpName = Nothing
-    }
+  HITLayoutParameter' {_hitlpValue = Nothing, _hitlpName = Nothing}
+
 
 -- | The value substituted for the parameter referenced in the HITLayout.
 hitlpValue :: Lens' HITLayoutParameter (Maybe Text)
@@ -474,9 +479,9 @@ hitlpValue = lens _hitlpValue (\ s a -> s{_hitlpValue = a});
 hitlpName :: Lens' HITLayoutParameter (Maybe Text)
 hitlpName = lens _hitlpName (\ s a -> s{_hitlpName = a});
 
-instance Hashable HITLayoutParameter
+instance Hashable HITLayoutParameter where
 
-instance NFData HITLayoutParameter
+instance NFData HITLayoutParameter where
 
 instance ToJSON HITLayoutParameter where
         toJSON HITLayoutParameter'{..}
@@ -491,9 +496,10 @@ instance ToJSON HITLayoutParameter where
 --
 -- /See:/ 'locale' smart constructor.
 data Locale = Locale'
-    { _lSubdivision :: !(Maybe Text)
-    , _lCountry     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lSubdivision :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lCountry     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Locale' with the minimum fields required to make a request.
 --
@@ -505,11 +511,8 @@ data Locale = Locale'
 locale
     :: Text -- ^ 'lCountry'
     -> Locale
-locale pCountry_ =
-    Locale'
-    { _lSubdivision = Nothing
-    , _lCountry = pCountry_
-    }
+locale pCountry_ = Locale' {_lSubdivision = Nothing, _lCountry = pCountry_}
+
 
 -- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
 lSubdivision :: Lens' Locale (Maybe Text)
@@ -526,9 +529,9 @@ instance FromJSON Locale where
                  Locale' <$>
                    (x .:? "Subdivision") <*> (x .: "Country"))
 
-instance Hashable Locale
+instance Hashable Locale where
 
-instance NFData Locale
+instance NFData Locale where
 
 instance ToJSON Locale where
         toJSON Locale'{..}
@@ -543,11 +546,12 @@ instance ToJSON Locale where
 --
 -- /See:/ 'notificationSpecification' smart constructor.
 data NotificationSpecification = NotificationSpecification'
-    { _nsEventTypes  :: !(Maybe [EventType])
-    , _nsVersion     :: !(Maybe Text)
-    , _nsDestination :: !Text
-    , _nsTransport   :: !NotificationTransport
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nsEventTypes  :: {-# NOUNPACK #-}!(Maybe [EventType])
+  , _nsVersion     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nsDestination :: {-# NOUNPACK #-}!Text
+  , _nsTransport   :: {-# NOUNPACK #-}!NotificationTransport
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotificationSpecification' with the minimum fields required to make a request.
 --
@@ -565,12 +569,13 @@ notificationSpecification
     -> NotificationTransport -- ^ 'nsTransport'
     -> NotificationSpecification
 notificationSpecification pDestination_ pTransport_ =
-    NotificationSpecification'
-    { _nsEventTypes = Nothing
-    , _nsVersion = Nothing
-    , _nsDestination = pDestination_
-    , _nsTransport = pTransport_
-    }
+  NotificationSpecification'
+  { _nsEventTypes = Nothing
+  , _nsVersion = Nothing
+  , _nsDestination = pDestination_
+  , _nsTransport = pTransport_
+  }
+
 
 -- | The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
 nsEventTypes :: Lens' NotificationSpecification [EventType]
@@ -588,9 +593,9 @@ nsDestination = lens _nsDestination (\ s a -> s{_nsDestination = a});
 nsTransport :: Lens' NotificationSpecification NotificationTransport
 nsTransport = lens _nsTransport (\ s a -> s{_nsTransport = a});
 
-instance Hashable NotificationSpecification
+instance Hashable NotificationSpecification where
 
-instance NFData NotificationSpecification
+instance NFData NotificationSpecification where
 
 instance ToJSON NotificationSpecification where
         toJSON NotificationSpecification'{..}
@@ -607,10 +612,11 @@ instance ToJSON NotificationSpecification where
 --
 -- /See:/ 'notifyWorkersFailureStatus' smart constructor.
 data NotifyWorkersFailureStatus = NotifyWorkersFailureStatus'
-    { _nwfsNotifyWorkersFailureMessage :: !(Maybe Text)
-    , _nwfsNotifyWorkersFailureCode    :: !(Maybe NotifyWorkersFailureCode)
-    , _nwfsWorkerId                    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nwfsNotifyWorkersFailureMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nwfsNotifyWorkersFailureCode :: {-# NOUNPACK #-}!(Maybe NotifyWorkersFailureCode)
+  , _nwfsWorkerId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotifyWorkersFailureStatus' with the minimum fields required to make a request.
 --
@@ -624,11 +630,12 @@ data NotifyWorkersFailureStatus = NotifyWorkersFailureStatus'
 notifyWorkersFailureStatus
     :: NotifyWorkersFailureStatus
 notifyWorkersFailureStatus =
-    NotifyWorkersFailureStatus'
-    { _nwfsNotifyWorkersFailureMessage = Nothing
-    , _nwfsNotifyWorkersFailureCode = Nothing
-    , _nwfsWorkerId = Nothing
-    }
+  NotifyWorkersFailureStatus'
+  { _nwfsNotifyWorkersFailureMessage = Nothing
+  , _nwfsNotifyWorkersFailureCode = Nothing
+  , _nwfsWorkerId = Nothing
+  }
+
 
 -- | A message detailing the reason the Worker could not be notified.
 nwfsNotifyWorkersFailureMessage :: Lens' NotifyWorkersFailureStatus (Maybe Text)
@@ -651,9 +658,9 @@ instance FromJSON NotifyWorkersFailureStatus where
                      (x .:? "NotifyWorkersFailureCode")
                      <*> (x .:? "WorkerId"))
 
-instance Hashable NotifyWorkersFailureStatus
+instance Hashable NotifyWorkersFailureStatus where
 
-instance NFData NotifyWorkersFailureStatus
+instance NFData NotifyWorkersFailureStatus where
 
 -- | This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
 --
@@ -661,9 +668,10 @@ instance NFData NotifyWorkersFailureStatus
 --
 -- /See:/ 'parameterMapEntry' smart constructor.
 data ParameterMapEntry = ParameterMapEntry'
-    { _pmeValues :: !(Maybe [Text])
-    , _pmeKey    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmeValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pmeKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterMapEntry' with the minimum fields required to make a request.
 --
@@ -674,11 +682,8 @@ data ParameterMapEntry = ParameterMapEntry'
 -- * 'pmeKey' - The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
 parameterMapEntry
     :: ParameterMapEntry
-parameterMapEntry =
-    ParameterMapEntry'
-    { _pmeValues = Nothing
-    , _pmeKey = Nothing
-    }
+parameterMapEntry = ParameterMapEntry' {_pmeValues = Nothing, _pmeKey = Nothing}
+
 
 -- | The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
 pmeValues :: Lens' ParameterMapEntry [Text]
@@ -695,9 +700,9 @@ instance FromJSON ParameterMapEntry where
                  ParameterMapEntry' <$>
                    (x .:? "Values" .!= mempty) <*> (x .:? "Key"))
 
-instance Hashable ParameterMapEntry
+instance Hashable ParameterMapEntry where
 
-instance NFData ParameterMapEntry
+instance NFData ParameterMapEntry where
 
 instance ToJSON ParameterMapEntry where
         toJSON ParameterMapEntry'{..}
@@ -712,10 +717,11 @@ instance ToJSON ParameterMapEntry where
 --
 -- /See:/ 'policyParameter' smart constructor.
 data PolicyParameter = PolicyParameter'
-    { _ppValues     :: !(Maybe [Text])
-    , _ppMapEntries :: !(Maybe [ParameterMapEntry])
-    , _ppKey        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppValues     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ppMapEntries :: {-# NOUNPACK #-}!(Maybe [ParameterMapEntry])
+  , _ppKey        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PolicyParameter' with the minimum fields required to make a request.
 --
@@ -729,11 +735,9 @@ data PolicyParameter = PolicyParameter'
 policyParameter
     :: PolicyParameter
 policyParameter =
-    PolicyParameter'
-    { _ppValues = Nothing
-    , _ppMapEntries = Nothing
-    , _ppKey = Nothing
-    }
+  PolicyParameter'
+  {_ppValues = Nothing, _ppMapEntries = Nothing, _ppKey = Nothing}
+
 
 -- | The list of values of the Parameter
 ppValues :: Lens' PolicyParameter [Text]
@@ -756,9 +760,9 @@ instance FromJSON PolicyParameter where
                      (x .:? "MapEntries" .!= mempty)
                      <*> (x .:? "Key"))
 
-instance Hashable PolicyParameter
+instance Hashable PolicyParameter where
 
-instance NFData PolicyParameter
+instance NFData PolicyParameter where
 
 instance ToJSON PolicyParameter where
         toJSON PolicyParameter'{..}
@@ -774,13 +778,14 @@ instance ToJSON PolicyParameter where
 --
 -- /See:/ 'qualification' smart constructor.
 data Qualification = Qualification'
-    { _qStatus              :: !(Maybe QualificationStatus)
-    , _qIntegerValue        :: !(Maybe Int)
-    , _qLocaleValue         :: !(Maybe Locale)
-    , _qQualificationTypeId :: !(Maybe Text)
-    , _qGrantTime           :: !(Maybe POSIX)
-    , _qWorkerId            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qStatus              :: {-# NOUNPACK #-}!(Maybe QualificationStatus)
+  , _qIntegerValue        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _qLocaleValue         :: {-# NOUNPACK #-}!(Maybe Locale)
+  , _qQualificationTypeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qGrantTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _qWorkerId            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Qualification' with the minimum fields required to make a request.
 --
@@ -800,14 +805,15 @@ data Qualification = Qualification'
 qualification
     :: Qualification
 qualification =
-    Qualification'
-    { _qStatus = Nothing
-    , _qIntegerValue = Nothing
-    , _qLocaleValue = Nothing
-    , _qQualificationTypeId = Nothing
-    , _qGrantTime = Nothing
-    , _qWorkerId = Nothing
-    }
+  Qualification'
+  { _qStatus = Nothing
+  , _qIntegerValue = Nothing
+  , _qLocaleValue = Nothing
+  , _qQualificationTypeId = Nothing
+  , _qGrantTime = Nothing
+  , _qWorkerId = Nothing
+  }
+
 
 -- | The status of the Qualification. Valid values are Granted | Revoked.
 qStatus :: Lens' Qualification (Maybe QualificationStatus)
@@ -844,9 +850,9 @@ instance FromJSON Qualification where
                      <*> (x .:? "GrantTime")
                      <*> (x .:? "WorkerId"))
 
-instance Hashable Qualification
+instance Hashable Qualification where
 
-instance NFData Qualification
+instance NFData Qualification where
 
 -- | The QualificationRequest data structure represents a request a Worker has made for a Qualification.
 --
@@ -854,13 +860,14 @@ instance NFData Qualification
 --
 -- /See:/ 'qualificationRequest' smart constructor.
 data QualificationRequest = QualificationRequest'
-    { _quaQualificationRequestId :: !(Maybe Text)
-    , _quaTest                   :: !(Maybe Text)
-    , _quaQualificationTypeId    :: !(Maybe Text)
-    , _quaAnswer                 :: !(Maybe Text)
-    , _quaWorkerId               :: !(Maybe Text)
-    , _quaSubmitTime             :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _quaQualificationRequestId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _quaTest                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _quaQualificationTypeId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _quaAnswer                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _quaWorkerId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _quaSubmitTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QualificationRequest' with the minimum fields required to make a request.
 --
@@ -880,14 +887,15 @@ data QualificationRequest = QualificationRequest'
 qualificationRequest
     :: QualificationRequest
 qualificationRequest =
-    QualificationRequest'
-    { _quaQualificationRequestId = Nothing
-    , _quaTest = Nothing
-    , _quaQualificationTypeId = Nothing
-    , _quaAnswer = Nothing
-    , _quaWorkerId = Nothing
-    , _quaSubmitTime = Nothing
-    }
+  QualificationRequest'
+  { _quaQualificationRequestId = Nothing
+  , _quaTest = Nothing
+  , _quaQualificationTypeId = Nothing
+  , _quaAnswer = Nothing
+  , _quaWorkerId = Nothing
+  , _quaSubmitTime = Nothing
+  }
+
 
 -- | The ID of the Qualification request, a unique identifier generated when the request was submitted.
 quaQualificationRequestId :: Lens' QualificationRequest (Maybe Text)
@@ -924,9 +932,9 @@ instance FromJSON QualificationRequest where
                      <*> (x .:? "WorkerId")
                      <*> (x .:? "SubmitTime"))
 
-instance Hashable QualificationRequest
+instance Hashable QualificationRequest where
 
-instance NFData QualificationRequest
+instance NFData QualificationRequest where
 
 -- | The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT.
 --
@@ -934,12 +942,13 @@ instance NFData QualificationRequest
 --
 -- /See:/ 'qualificationRequirement' smart constructor.
 data QualificationRequirement = QualificationRequirement'
-    { _qrLocaleValues        :: !(Maybe [Locale])
-    , _qrRequiredToPreview   :: !(Maybe Bool)
-    , _qrIntegerValues       :: !(Maybe [Int])
-    , _qrQualificationTypeId :: !Text
-    , _qrComparator          :: !Comparator
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qrLocaleValues        :: {-# NOUNPACK #-}!(Maybe [Locale])
+  , _qrRequiredToPreview   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _qrIntegerValues       :: {-# NOUNPACK #-}!(Maybe [Int])
+  , _qrQualificationTypeId :: {-# NOUNPACK #-}!Text
+  , _qrComparator          :: {-# NOUNPACK #-}!Comparator
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QualificationRequirement' with the minimum fields required to make a request.
 --
@@ -959,13 +968,14 @@ qualificationRequirement
     -> Comparator -- ^ 'qrComparator'
     -> QualificationRequirement
 qualificationRequirement pQualificationTypeId_ pComparator_ =
-    QualificationRequirement'
-    { _qrLocaleValues = Nothing
-    , _qrRequiredToPreview = Nothing
-    , _qrIntegerValues = Nothing
-    , _qrQualificationTypeId = pQualificationTypeId_
-    , _qrComparator = pComparator_
-    }
+  QualificationRequirement'
+  { _qrLocaleValues = Nothing
+  , _qrRequiredToPreview = Nothing
+  , _qrIntegerValues = Nothing
+  , _qrQualificationTypeId = pQualificationTypeId_
+  , _qrComparator = pComparator_
+  }
+
 
 -- | The locale value to compare against the Qualification's value. The local value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions. LocaleValue can only be used with a Worker_Locale QualificationType ID. LocaleValue can only be used with the EqualTo, NotEqualTo, In, and NotIn comparators. You must only use a single LocaleValue element when using the EqualTo or NotEqualTo comparators. When performing a set comparison by using the In or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement data structure.
 qrLocaleValues :: Lens' QualificationRequirement [Locale]
@@ -998,9 +1008,9 @@ instance FromJSON QualificationRequirement where
                      <*> (x .: "QualificationTypeId")
                      <*> (x .: "Comparator"))
 
-instance Hashable QualificationRequirement
+instance Hashable QualificationRequirement where
 
-instance NFData QualificationRequirement
+instance NFData QualificationRequirement where
 
 instance ToJSON QualificationRequirement where
         toJSON QualificationRequirement'{..}
@@ -1019,20 +1029,21 @@ instance ToJSON QualificationRequirement where
 --
 -- /See:/ 'qualificationType' smart constructor.
 data QualificationType = QualificationType'
-    { _qtCreationTime            :: !(Maybe POSIX)
-    , _qtTestDurationInSeconds   :: !(Maybe Integer)
-    , _qtQualificationTypeStatus :: !(Maybe QualificationTypeStatus)
-    , _qtAnswerKey               :: !(Maybe Text)
-    , _qtTest                    :: !(Maybe Text)
-    , _qtQualificationTypeId     :: !(Maybe Text)
-    , _qtName                    :: !(Maybe Text)
-    , _qtKeywords                :: !(Maybe Text)
-    , _qtAutoGranted             :: !(Maybe Bool)
-    , _qtAutoGrantedValue        :: !(Maybe Int)
-    , _qtDescription             :: !(Maybe Text)
-    , _qtIsRequestable           :: !(Maybe Bool)
-    , _qtRetryDelayInSeconds     :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qtCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _qtTestDurationInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _qtQualificationTypeStatus :: {-# NOUNPACK #-}!(Maybe QualificationTypeStatus)
+  , _qtAnswerKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qtTest :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qtQualificationTypeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qtName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qtKeywords :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qtAutoGranted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _qtAutoGrantedValue :: {-# NOUNPACK #-}!(Maybe Int)
+  , _qtDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qtIsRequestable :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _qtRetryDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QualificationType' with the minimum fields required to make a request.
 --
@@ -1066,21 +1077,22 @@ data QualificationType = QualificationType'
 qualificationType
     :: QualificationType
 qualificationType =
-    QualificationType'
-    { _qtCreationTime = Nothing
-    , _qtTestDurationInSeconds = Nothing
-    , _qtQualificationTypeStatus = Nothing
-    , _qtAnswerKey = Nothing
-    , _qtTest = Nothing
-    , _qtQualificationTypeId = Nothing
-    , _qtName = Nothing
-    , _qtKeywords = Nothing
-    , _qtAutoGranted = Nothing
-    , _qtAutoGrantedValue = Nothing
-    , _qtDescription = Nothing
-    , _qtIsRequestable = Nothing
-    , _qtRetryDelayInSeconds = Nothing
-    }
+  QualificationType'
+  { _qtCreationTime = Nothing
+  , _qtTestDurationInSeconds = Nothing
+  , _qtQualificationTypeStatus = Nothing
+  , _qtAnswerKey = Nothing
+  , _qtTest = Nothing
+  , _qtQualificationTypeId = Nothing
+  , _qtName = Nothing
+  , _qtKeywords = Nothing
+  , _qtAutoGranted = Nothing
+  , _qtAutoGrantedValue = Nothing
+  , _qtDescription = Nothing
+  , _qtIsRequestable = Nothing
+  , _qtRetryDelayInSeconds = Nothing
+  }
+
 
 -- | The date and time the Qualification type was created.
 qtCreationTime :: Lens' QualificationType (Maybe UTCTime)
@@ -1153,9 +1165,9 @@ instance FromJSON QualificationType where
                      <*> (x .:? "IsRequestable")
                      <*> (x .:? "RetryDelayInSeconds"))
 
-instance Hashable QualificationType
+instance Hashable QualificationType where
 
-instance NFData QualificationType
+instance NFData QualificationType where
 
 -- | Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy.
 --
@@ -1163,15 +1175,16 @@ instance NFData QualificationType
 --
 -- /See:/ 'reviewActionDetail' smart constructor.
 data ReviewActionDetail = ReviewActionDetail'
-    { _radStatus       :: !(Maybe ReviewActionStatus)
-    , _radTargetId     :: !(Maybe Text)
-    , _radActionId     :: !(Maybe Text)
-    , _radTargetType   :: !(Maybe Text)
-    , _radResult       :: !(Maybe Text)
-    , _radActionName   :: !(Maybe Text)
-    , _radCompleteTime :: !(Maybe POSIX)
-    , _radErrorCode    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _radStatus       :: {-# NOUNPACK #-}!(Maybe ReviewActionStatus)
+  , _radTargetId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _radActionId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _radTargetType   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _radResult       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _radActionName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _radCompleteTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _radErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReviewActionDetail' with the minimum fields required to make a request.
 --
@@ -1195,16 +1208,17 @@ data ReviewActionDetail = ReviewActionDetail'
 reviewActionDetail
     :: ReviewActionDetail
 reviewActionDetail =
-    ReviewActionDetail'
-    { _radStatus = Nothing
-    , _radTargetId = Nothing
-    , _radActionId = Nothing
-    , _radTargetType = Nothing
-    , _radResult = Nothing
-    , _radActionName = Nothing
-    , _radCompleteTime = Nothing
-    , _radErrorCode = Nothing
-    }
+  ReviewActionDetail'
+  { _radStatus = Nothing
+  , _radTargetId = Nothing
+  , _radActionId = Nothing
+  , _radTargetType = Nothing
+  , _radResult = Nothing
+  , _radActionName = Nothing
+  , _radCompleteTime = Nothing
+  , _radErrorCode = Nothing
+  }
+
 
 -- | The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED.
 radStatus :: Lens' ReviewActionDetail (Maybe ReviewActionStatus)
@@ -1251,9 +1265,9 @@ instance FromJSON ReviewActionDetail where
                      <*> (x .:? "CompleteTime")
                      <*> (x .:? "ErrorCode"))
 
-instance Hashable ReviewActionDetail
+instance Hashable ReviewActionDetail where
 
-instance NFData ReviewActionDetail
+instance NFData ReviewActionDetail where
 
 -- | HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT.
 --
@@ -1261,9 +1275,10 @@ instance NFData ReviewActionDetail
 --
 -- /See:/ 'reviewPolicy' smart constructor.
 data ReviewPolicy = ReviewPolicy'
-    { _rpPolicyName :: !(Maybe Text)
-    , _rpParameters :: !(Maybe [PolicyParameter])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpParameters :: {-# NOUNPACK #-}!(Maybe [PolicyParameter])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReviewPolicy' with the minimum fields required to make a request.
 --
@@ -1274,11 +1289,8 @@ data ReviewPolicy = ReviewPolicy'
 -- * 'rpParameters' - Name of the parameter from the Review policy.
 reviewPolicy
     :: ReviewPolicy
-reviewPolicy =
-    ReviewPolicy'
-    { _rpPolicyName = Nothing
-    , _rpParameters = Nothing
-    }
+reviewPolicy = ReviewPolicy' {_rpPolicyName = Nothing, _rpParameters = Nothing}
+
 
 -- | Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
 rpPolicyName :: Lens' ReviewPolicy (Maybe Text)
@@ -1296,9 +1308,9 @@ instance FromJSON ReviewPolicy where
                    (x .:? "PolicyName") <*>
                      (x .:? "Parameters" .!= mempty))
 
-instance Hashable ReviewPolicy
+instance Hashable ReviewPolicy where
 
-instance NFData ReviewPolicy
+instance NFData ReviewPolicy where
 
 instance ToJSON ReviewPolicy where
         toJSON ReviewPolicy'{..}
@@ -1313,9 +1325,10 @@ instance ToJSON ReviewPolicy where
 --
 -- /See:/ 'reviewReport' smart constructor.
 data ReviewReport = ReviewReport'
-    { _rrReviewActions :: !(Maybe [ReviewActionDetail])
-    , _rrReviewResults :: !(Maybe [ReviewResultDetail])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrReviewActions :: {-# NOUNPACK #-}!(Maybe [ReviewActionDetail])
+  , _rrReviewResults :: {-# NOUNPACK #-}!(Maybe [ReviewResultDetail])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReviewReport' with the minimum fields required to make a request.
 --
@@ -1327,10 +1340,8 @@ data ReviewReport = ReviewReport'
 reviewReport
     :: ReviewReport
 reviewReport =
-    ReviewReport'
-    { _rrReviewActions = Nothing
-    , _rrReviewResults = Nothing
-    }
+  ReviewReport' {_rrReviewActions = Nothing, _rrReviewResults = Nothing}
+
 
 -- | A list of ReviewAction objects for each action specified in the Review Policy.
 rrReviewActions :: Lens' ReviewReport [ReviewActionDetail]
@@ -1348,9 +1359,9 @@ instance FromJSON ReviewReport where
                    (x .:? "ReviewActions" .!= mempty) <*>
                      (x .:? "ReviewResults" .!= mempty))
 
-instance Hashable ReviewReport
+instance Hashable ReviewReport where
 
-instance NFData ReviewReport
+instance NFData ReviewReport where
 
 -- | This data structure is returned multiple times for each result specified in the Review Policy.
 --
@@ -1358,13 +1369,14 @@ instance NFData ReviewReport
 --
 -- /See:/ 'reviewResultDetail' smart constructor.
 data ReviewResultDetail = ReviewResultDetail'
-    { _rrdValue       :: !(Maybe Text)
-    , _rrdActionId    :: !(Maybe Text)
-    , _rrdSubjectType :: !(Maybe Text)
-    , _rrdKey         :: !(Maybe Text)
-    , _rrdQuestionId  :: !(Maybe Text)
-    , _rrdSubjectId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrdValue       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrdActionId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrdSubjectType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrdKey         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrdQuestionId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrdSubjectId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReviewResultDetail' with the minimum fields required to make a request.
 --
@@ -1384,14 +1396,15 @@ data ReviewResultDetail = ReviewResultDetail'
 reviewResultDetail
     :: ReviewResultDetail
 reviewResultDetail =
-    ReviewResultDetail'
-    { _rrdValue = Nothing
-    , _rrdActionId = Nothing
-    , _rrdSubjectType = Nothing
-    , _rrdKey = Nothing
-    , _rrdQuestionId = Nothing
-    , _rrdSubjectId = Nothing
-    }
+  ReviewResultDetail'
+  { _rrdValue = Nothing
+  , _rrdActionId = Nothing
+  , _rrdSubjectType = Nothing
+  , _rrdKey = Nothing
+  , _rrdQuestionId = Nothing
+  , _rrdSubjectId = Nothing
+  }
+
 
 -- | The values of Key provided by the review policies you have selected.
 rrdValue :: Lens' ReviewResultDetail (Maybe Text)
@@ -1428,9 +1441,9 @@ instance FromJSON ReviewResultDetail where
                      <*> (x .:? "QuestionId")
                      <*> (x .:? "SubjectId"))
 
-instance Hashable ReviewResultDetail
+instance Hashable ReviewResultDetail where
 
-instance NFData ReviewResultDetail
+instance NFData ReviewResultDetail where
 
 -- | The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block.
 --
@@ -1438,9 +1451,10 @@ instance NFData ReviewResultDetail
 --
 -- /See:/ 'workerBlock' smart constructor.
 data WorkerBlock = WorkerBlock'
-    { _wbReason   :: !(Maybe Text)
-    , _wbWorkerId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wbReason   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wbWorkerId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkerBlock' with the minimum fields required to make a request.
 --
@@ -1451,11 +1465,8 @@ data WorkerBlock = WorkerBlock'
 -- * 'wbWorkerId' - The ID of the Worker who accepted the HIT.
 workerBlock
     :: WorkerBlock
-workerBlock =
-    WorkerBlock'
-    { _wbReason = Nothing
-    , _wbWorkerId = Nothing
-    }
+workerBlock = WorkerBlock' {_wbReason = Nothing, _wbWorkerId = Nothing}
+
 
 -- | A message explaining the reason the Worker was blocked.
 wbReason :: Lens' WorkerBlock (Maybe Text)
@@ -1472,6 +1483,6 @@ instance FromJSON WorkerBlock where
                  WorkerBlock' <$>
                    (x .:? "Reason") <*> (x .:? "WorkerId"))
 
-instance Hashable WorkerBlock
+instance Hashable WorkerBlock where
 
-instance NFData WorkerBlock
+instance NFData WorkerBlock where

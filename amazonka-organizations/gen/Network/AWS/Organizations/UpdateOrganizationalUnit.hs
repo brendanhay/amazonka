@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.UpdateOrganizationalUnit
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Organizations.UpdateOrganizationalUnit
     , uoursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateOrganizationalUnit' smart constructor.
 data UpdateOrganizationalUnit = UpdateOrganizationalUnit'
-    { _uouName                 :: !(Maybe Text)
-    , _uouOrganizationalUnitId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uouName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uouOrganizationalUnitId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateOrganizationalUnit' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ updateOrganizationalUnit
     :: Text -- ^ 'uouOrganizationalUnitId'
     -> UpdateOrganizationalUnit
 updateOrganizationalUnit pOrganizationalUnitId_ =
-    UpdateOrganizationalUnit'
-    { _uouName = Nothing
-    , _uouOrganizationalUnitId = pOrganizationalUnitId_
-    }
+  UpdateOrganizationalUnit'
+  {_uouName = Nothing, _uouOrganizationalUnitId = pOrganizationalUnitId_}
+
 
 -- | The new name that you want to assign to the OU. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 uouName :: Lens' UpdateOrganizationalUnit (Maybe Text)
@@ -87,9 +87,9 @@ instance AWSRequest UpdateOrganizationalUnit where
                  UpdateOrganizationalUnitResponse' <$>
                    (x .?> "OrganizationalUnit") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateOrganizationalUnit
+instance Hashable UpdateOrganizationalUnit where
 
-instance NFData UpdateOrganizationalUnit
+instance NFData UpdateOrganizationalUnit where
 
 instance ToHeaders UpdateOrganizationalUnit where
         toHeaders
@@ -118,9 +118,10 @@ instance ToQuery UpdateOrganizationalUnit where
 
 -- | /See:/ 'updateOrganizationalUnitResponse' smart constructor.
 data UpdateOrganizationalUnitResponse = UpdateOrganizationalUnitResponse'
-    { _uoursOrganizationalUnit :: !(Maybe OrganizationalUnit)
-    , _uoursResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uoursOrganizationalUnit :: {-# NOUNPACK #-}!(Maybe OrganizationalUnit)
+  , _uoursResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateOrganizationalUnitResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +134,9 @@ updateOrganizationalUnitResponse
     :: Int -- ^ 'uoursResponseStatus'
     -> UpdateOrganizationalUnitResponse
 updateOrganizationalUnitResponse pResponseStatus_ =
-    UpdateOrganizationalUnitResponse'
-    { _uoursOrganizationalUnit = Nothing
-    , _uoursResponseStatus = pResponseStatus_
-    }
+  UpdateOrganizationalUnitResponse'
+  {_uoursOrganizationalUnit = Nothing, _uoursResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains the details about the specified OU, including its new name.
 uoursOrganizationalUnit :: Lens' UpdateOrganizationalUnitResponse (Maybe OrganizationalUnit)
@@ -147,3 +147,4 @@ uoursResponseStatus :: Lens' UpdateOrganizationalUnitResponse Int
 uoursResponseStatus = lens _uoursResponseStatus (\ s a -> s{_uoursResponseStatus = a});
 
 instance NFData UpdateOrganizationalUnitResponse
+         where

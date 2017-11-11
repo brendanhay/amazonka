@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetGatewayResponses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GetGatewayResponses
     , ggrrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Gets the 'GatewayResponses' collection on the given 'RestApi' . If an API developer has not added any definitions for gateway responses, the result will be the Amazon API Gateway-generated default 'GatewayResponses' collection for the supported response types.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getGatewayResponses' smart constructor.
 data GetGatewayResponses = GetGatewayResponses'
-    { _ggrLimit     :: !(Maybe Int)
-    , _ggrPosition  :: !(Maybe Text)
-    , _ggrRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggrLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ggrPosition  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrRestAPIId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGatewayResponses' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ getGatewayResponses
     :: Text -- ^ 'ggrRestAPIId'
     -> GetGatewayResponses
 getGatewayResponses pRestAPIId_ =
-    GetGatewayResponses'
-    { _ggrLimit = Nothing
-    , _ggrPosition = Nothing
-    , _ggrRestAPIId = pRestAPIId_
-    }
+  GetGatewayResponses'
+  {_ggrLimit = Nothing, _ggrPosition = Nothing, _ggrRestAPIId = pRestAPIId_}
+
 
 -- | The maximum number of returned results per page. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
 ggrLimit :: Lens' GetGatewayResponses (Maybe Int)
@@ -100,9 +99,9 @@ instance AWSRequest GetGatewayResponses where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetGatewayResponses
+instance Hashable GetGatewayResponses where
 
-instance NFData GetGatewayResponses
+instance NFData GetGatewayResponses where
 
 instance ToHeaders GetGatewayResponses where
         toHeaders
@@ -139,10 +138,11 @@ instance ToQuery GetGatewayResponses where
 --
 -- /See:/ 'getGatewayResponsesResponse' smart constructor.
 data GetGatewayResponsesResponse = GetGatewayResponsesResponse'
-    { _ggrrsItems          :: !(Maybe [GatewayResponse])
-    , _ggrrsPosition       :: !(Maybe Text)
-    , _ggrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggrrsItems          :: {-# NOUNPACK #-}!(Maybe [GatewayResponse])
+  , _ggrrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGatewayResponsesResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +157,12 @@ getGatewayResponsesResponse
     :: Int -- ^ 'ggrrsResponseStatus'
     -> GetGatewayResponsesResponse
 getGatewayResponsesResponse pResponseStatus_ =
-    GetGatewayResponsesResponse'
-    { _ggrrsItems = Nothing
-    , _ggrrsPosition = Nothing
-    , _ggrrsResponseStatus = pResponseStatus_
-    }
+  GetGatewayResponsesResponse'
+  { _ggrrsItems = Nothing
+  , _ggrrsPosition = Nothing
+  , _ggrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Returns the entire collection, because of no pagination support.
 ggrrsItems :: Lens' GetGatewayResponsesResponse [GatewayResponse]
@@ -175,4 +176,4 @@ ggrrsPosition = lens _ggrrsPosition (\ s a -> s{_ggrrsPosition = a});
 ggrrsResponseStatus :: Lens' GetGatewayResponsesResponse Int
 ggrrsResponseStatus = lens _ggrrsResponseStatus (\ s a -> s{_ggrrsResponseStatus = a});
 
-instance NFData GetGatewayResponsesResponse
+instance NFData GetGatewayResponsesResponse where

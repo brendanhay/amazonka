@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.ListNamedQueries
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.Athena.ListNamedQueries
     , lnqrsResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listNamedQueries' smart constructor.
 data ListNamedQueries = ListNamedQueries'
-    { _lnqNextToken  :: !(Maybe Text)
-    , _lnqMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lnqNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lnqMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListNamedQueries' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ data ListNamedQueries = ListNamedQueries'
 listNamedQueries
     :: ListNamedQueries
 listNamedQueries =
-    ListNamedQueries'
-    { _lnqNextToken = Nothing
-    , _lnqMaxResults = Nothing
-    }
+  ListNamedQueries' {_lnqNextToken = Nothing, _lnqMaxResults = Nothing}
+
 
 -- | The token that specifies where to start pagination if a previous request was truncated.
 lnqNextToken :: Lens' ListNamedQueries (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest ListNamedQueries where
                    (x .?> "NextToken") <*> (x .?> "NamedQueryIds") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListNamedQueries
+instance Hashable ListNamedQueries where
 
-instance NFData ListNamedQueries
+instance NFData ListNamedQueries where
 
 instance ToHeaders ListNamedQueries where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery ListNamedQueries where
 
 -- | /See:/ 'listNamedQueriesResponse' smart constructor.
 data ListNamedQueriesResponse = ListNamedQueriesResponse'
-    { _lnqrsNextToken      :: !(Maybe Text)
-    , _lnqrsNamedQueryIds  :: !(Maybe (List1 Text))
-    , _lnqrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lnqrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lnqrsNamedQueryIds  :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _lnqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListNamedQueriesResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ listNamedQueriesResponse
     :: Int -- ^ 'lnqrsResponseStatus'
     -> ListNamedQueriesResponse
 listNamedQueriesResponse pResponseStatus_ =
-    ListNamedQueriesResponse'
-    { _lnqrsNextToken = Nothing
-    , _lnqrsNamedQueryIds = Nothing
-    , _lnqrsResponseStatus = pResponseStatus_
-    }
+  ListNamedQueriesResponse'
+  { _lnqrsNextToken = Nothing
+  , _lnqrsNamedQueryIds = Nothing
+  , _lnqrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token to be used by the next request if this request is truncated.
 lnqrsNextToken :: Lens' ListNamedQueriesResponse (Maybe Text)
@@ -161,4 +162,4 @@ lnqrsNamedQueryIds = lens _lnqrsNamedQueryIds (\ s a -> s{_lnqrsNamedQueryIds = 
 lnqrsResponseStatus :: Lens' ListNamedQueriesResponse Int
 lnqrsResponseStatus = lens _lnqrsResponseStatus (\ s a -> s{_lnqrsResponseStatus = a});
 
-instance NFData ListNamedQueriesResponse
+instance NFData ListNamedQueriesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTrafficPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Route53.ListTrafficPolicies
     , ltprsMaxItems
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains the information about the request to list the traffic policies that are associated with the current AWS account.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTrafficPolicies' smart constructor.
 data ListTrafficPolicies = ListTrafficPolicies'
-    { _ltpTrafficPolicyIdMarker :: !(Maybe Text)
-    , _ltpMaxItems              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltpTrafficPolicyIdMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltpMaxItems              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTrafficPolicies' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ data ListTrafficPolicies = ListTrafficPolicies'
 listTrafficPolicies
     :: ListTrafficPolicies
 listTrafficPolicies =
-    ListTrafficPolicies'
-    { _ltpTrafficPolicyIdMarker = Nothing
-    , _ltpMaxItems = Nothing
-    }
+  ListTrafficPolicies'
+  {_ltpTrafficPolicyIdMarker = Nothing, _ltpMaxItems = Nothing}
+
 
 -- | (Conditional) For your first request to @ListTrafficPolicies@ , don't include the @TrafficPolicyIdMarker@ parameter. If you have more traffic policies than the value of @MaxItems@ , @ListTrafficPolicies@ returns only the first @MaxItems@ traffic policies. To get the next group of policies, submit another request to @ListTrafficPolicies@ . For the value of @TrafficPolicyIdMarker@ , specify the value of @TrafficPolicyIdMarker@ that was returned in the previous response.
 ltpTrafficPolicyIdMarker :: Lens' ListTrafficPolicies (Maybe Text)
@@ -96,9 +96,9 @@ instance AWSRequest ListTrafficPolicies where
                      <*> (x .@ "TrafficPolicyIdMarker")
                      <*> (x .@ "MaxItems"))
 
-instance Hashable ListTrafficPolicies
+instance Hashable ListTrafficPolicies where
 
-instance NFData ListTrafficPolicies
+instance NFData ListTrafficPolicies where
 
 instance ToHeaders ListTrafficPolicies where
         toHeaders = const mempty
@@ -118,12 +118,13 @@ instance ToQuery ListTrafficPolicies where
 --
 -- /See:/ 'listTrafficPoliciesResponse' smart constructor.
 data ListTrafficPoliciesResponse = ListTrafficPoliciesResponse'
-    { _ltprsResponseStatus         :: !Int
-    , _ltprsTrafficPolicySummaries :: ![TrafficPolicySummary]
-    , _ltprsIsTruncated            :: !Bool
-    , _ltprsTrafficPolicyIdMarker  :: !Text
-    , _ltprsMaxItems               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltprsResponseStatus         :: {-# NOUNPACK #-}!Int
+  , _ltprsTrafficPolicySummaries :: {-# NOUNPACK #-}![TrafficPolicySummary]
+  , _ltprsIsTruncated            :: {-# NOUNPACK #-}!Bool
+  , _ltprsTrafficPolicyIdMarker  :: {-# NOUNPACK #-}!Text
+  , _ltprsMaxItems               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTrafficPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -145,13 +146,14 @@ listTrafficPoliciesResponse
     -> Text -- ^ 'ltprsMaxItems'
     -> ListTrafficPoliciesResponse
 listTrafficPoliciesResponse pResponseStatus_ pIsTruncated_ pTrafficPolicyIdMarker_ pMaxItems_ =
-    ListTrafficPoliciesResponse'
-    { _ltprsResponseStatus = pResponseStatus_
-    , _ltprsTrafficPolicySummaries = mempty
-    , _ltprsIsTruncated = pIsTruncated_
-    , _ltprsTrafficPolicyIdMarker = pTrafficPolicyIdMarker_
-    , _ltprsMaxItems = pMaxItems_
-    }
+  ListTrafficPoliciesResponse'
+  { _ltprsResponseStatus = pResponseStatus_
+  , _ltprsTrafficPolicySummaries = mempty
+  , _ltprsIsTruncated = pIsTruncated_
+  , _ltprsTrafficPolicyIdMarker = pTrafficPolicyIdMarker_
+  , _ltprsMaxItems = pMaxItems_
+  }
+
 
 -- | -- | The response status code.
 ltprsResponseStatus :: Lens' ListTrafficPoliciesResponse Int
@@ -173,4 +175,4 @@ ltprsTrafficPolicyIdMarker = lens _ltprsTrafficPolicyIdMarker (\ s a -> s{_ltprs
 ltprsMaxItems :: Lens' ListTrafficPoliciesResponse Text
 ltprsMaxItems = lens _ltprsMaxItems (\ s a -> s{_ltprsMaxItems = a});
 
-instance NFData ListTrafficPoliciesResponse
+instance NFData ListTrafficPoliciesResponse where

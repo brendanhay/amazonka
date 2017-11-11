@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPNConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.EC2.CreateVPNConnection
     , cvcrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateVpnConnection.
 --
@@ -64,12 +64,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createVPNConnection' smart constructor.
 data CreateVPNConnection = CreateVPNConnection'
-    { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
-    , _cvcDryRun            :: !(Maybe Bool)
-    , _cvcCustomerGatewayId :: !Text
-    , _cvcType              :: !Text
-    , _cvcVPNGatewayId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvcOptions :: {-# NOUNPACK #-}!(Maybe VPNConnectionOptionsSpecification)
+  , _cvcDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cvcCustomerGatewayId :: {-# NOUNPACK #-}!Text
+  , _cvcType :: {-# NOUNPACK #-}!Text
+  , _cvcVPNGatewayId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPNConnection' with the minimum fields required to make a request.
 --
@@ -90,13 +91,14 @@ createVPNConnection
     -> Text -- ^ 'cvcVPNGatewayId'
     -> CreateVPNConnection
 createVPNConnection pCustomerGatewayId_ pType_ pVPNGatewayId_ =
-    CreateVPNConnection'
-    { _cvcOptions = Nothing
-    , _cvcDryRun = Nothing
-    , _cvcCustomerGatewayId = pCustomerGatewayId_
-    , _cvcType = pType_
-    , _cvcVPNGatewayId = pVPNGatewayId_
-    }
+  CreateVPNConnection'
+  { _cvcOptions = Nothing
+  , _cvcDryRun = Nothing
+  , _cvcCustomerGatewayId = pCustomerGatewayId_
+  , _cvcType = pType_
+  , _cvcVPNGatewayId = pVPNGatewayId_
+  }
+
 
 -- | Indicates whether the VPN connection requires static routes. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Default: @false@
 cvcOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
@@ -128,9 +130,9 @@ instance AWSRequest CreateVPNConnection where
                  CreateVPNConnectionResponse' <$>
                    (x .@? "vpnConnection") <*> (pure (fromEnum s)))
 
-instance Hashable CreateVPNConnection
+instance Hashable CreateVPNConnection where
 
-instance NFData CreateVPNConnection
+instance NFData CreateVPNConnection where
 
 instance ToHeaders CreateVPNConnection where
         toHeaders = const mempty
@@ -154,9 +156,10 @@ instance ToQuery CreateVPNConnection where
 --
 -- /See:/ 'createVPNConnectionResponse' smart constructor.
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
-    { _cvcrsVPNConnection  :: !(Maybe VPNConnection)
-    , _cvcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvcrsVPNConnection  :: {-# NOUNPACK #-}!(Maybe VPNConnection)
+  , _cvcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPNConnectionResponse' with the minimum fields required to make a request.
 --
@@ -169,10 +172,9 @@ createVPNConnectionResponse
     :: Int -- ^ 'cvcrsResponseStatus'
     -> CreateVPNConnectionResponse
 createVPNConnectionResponse pResponseStatus_ =
-    CreateVPNConnectionResponse'
-    { _cvcrsVPNConnection = Nothing
-    , _cvcrsResponseStatus = pResponseStatus_
-    }
+  CreateVPNConnectionResponse'
+  {_cvcrsVPNConnection = Nothing, _cvcrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the VPN connection.
 cvcrsVPNConnection :: Lens' CreateVPNConnectionResponse (Maybe VPNConnection)
@@ -182,4 +184,4 @@ cvcrsVPNConnection = lens _cvcrsVPNConnection (\ s a -> s{_cvcrsVPNConnection = 
 cvcrsResponseStatus :: Lens' CreateVPNConnectionResponse Int
 cvcrsResponseStatus = lens _cvcrsResponseStatus (\ s a -> s{_cvcrsResponseStatus = a});
 
-instance NFData CreateVPNConnectionResponse
+instance NFData CreateVPNConnectionResponse where

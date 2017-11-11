@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.SetQueueAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.SQS.SetQueueAttributes
     , SetQueueAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -48,9 +48,10 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'setQueueAttributes' smart constructor.
 data SetQueueAttributes = SetQueueAttributes'
-    { _sqaQueueURL   :: !Text
-    , _sqaAttributes :: !(Map QueueAttributeName Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sqaQueueURL   :: {-# NOUNPACK #-}!Text
+  , _sqaAttributes :: {-# NOUNPACK #-}!(Map QueueAttributeName Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetQueueAttributes' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ setQueueAttributes
     :: Text -- ^ 'sqaQueueURL'
     -> SetQueueAttributes
 setQueueAttributes pQueueURL_ =
-    SetQueueAttributes'
-    { _sqaQueueURL = pQueueURL_
-    , _sqaAttributes = mempty
-    }
+  SetQueueAttributes' {_sqaQueueURL = pQueueURL_, _sqaAttributes = mempty}
+
 
 -- | The URL of the Amazon SQS queue whose attributes are set. Queue URLs are case-sensitive.
 sqaQueueURL :: Lens' SetQueueAttributes Text
@@ -82,9 +81,9 @@ instance AWSRequest SetQueueAttributes where
         request = postQuery sqs
         response = receiveNull SetQueueAttributesResponse'
 
-instance Hashable SetQueueAttributes
+instance Hashable SetQueueAttributes where
 
-instance NFData SetQueueAttributes
+instance NFData SetQueueAttributes where
 
 instance ToHeaders SetQueueAttributes where
         toHeaders = const mempty
@@ -102,8 +101,9 @@ instance ToQuery SetQueueAttributes where
 
 -- | /See:/ 'setQueueAttributesResponse' smart constructor.
 data SetQueueAttributesResponse =
-    SetQueueAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetQueueAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetQueueAttributesResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ setQueueAttributesResponse
     :: SetQueueAttributesResponse
 setQueueAttributesResponse = SetQueueAttributesResponse'
 
-instance NFData SetQueueAttributesResponse
+
+instance NFData SetQueueAttributesResponse where

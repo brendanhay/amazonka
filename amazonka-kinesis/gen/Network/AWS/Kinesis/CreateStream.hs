@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.CreateStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.Kinesis.CreateStream
     , CreateStreamResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @CreateStream@ .
 --
@@ -68,9 +68,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createStream' smart constructor.
 data CreateStream = CreateStream'
-    { _csStreamName :: !Text
-    , _csShardCount :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csStreamName :: {-# NOUNPACK #-}!Text
+  , _csShardCount :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStream' with the minimum fields required to make a request.
 --
@@ -84,10 +85,9 @@ createStream
     -> Natural -- ^ 'csShardCount'
     -> CreateStream
 createStream pStreamName_ pShardCount_ =
-    CreateStream'
-    { _csStreamName = pStreamName_
-    , _csShardCount = _Nat # pShardCount_
-    }
+  CreateStream'
+  {_csStreamName = pStreamName_, _csShardCount = _Nat # pShardCount_}
+
 
 -- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account but in two different regions can have the same name.
 csStreamName :: Lens' CreateStream Text
@@ -102,9 +102,9 @@ instance AWSRequest CreateStream where
         request = postJSON kinesis
         response = receiveNull CreateStreamResponse'
 
-instance Hashable CreateStream
+instance Hashable CreateStream where
 
-instance NFData CreateStream
+instance NFData CreateStream where
 
 instance ToHeaders CreateStream where
         toHeaders
@@ -130,8 +130,9 @@ instance ToQuery CreateStream where
 
 -- | /See:/ 'createStreamResponse' smart constructor.
 data CreateStreamResponse =
-    CreateStreamResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateStreamResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStreamResponse' with the minimum fields required to make a request.
 --
@@ -139,4 +140,5 @@ createStreamResponse
     :: CreateStreamResponse
 createStreamResponse = CreateStreamResponse'
 
-instance NFData CreateStreamResponse
+
+instance NFData CreateStreamResponse where

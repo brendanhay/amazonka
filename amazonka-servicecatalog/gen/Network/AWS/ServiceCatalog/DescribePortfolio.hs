@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribePortfolio
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.ServiceCatalog.DescribePortfolio
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describePortfolio' smart constructor.
 data DescribePortfolio = DescribePortfolio'
-    { _desAcceptLanguage :: !(Maybe Text)
-    , _desId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePortfolio' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ describePortfolio
     :: Text -- ^ 'desId'
     -> DescribePortfolio
 describePortfolio pId_ =
-    DescribePortfolio'
-    { _desAcceptLanguage = Nothing
-    , _desId = pId_
-    }
+  DescribePortfolio' {_desAcceptLanguage = Nothing, _desId = pId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 desAcceptLanguage :: Lens' DescribePortfolio (Maybe Text)
@@ -89,9 +88,9 @@ instance AWSRequest DescribePortfolio where
                      <*> (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribePortfolio
+instance Hashable DescribePortfolio where
 
-instance NFData DescribePortfolio
+instance NFData DescribePortfolio where
 
 instance ToHeaders DescribePortfolio where
         toHeaders
@@ -118,11 +117,12 @@ instance ToQuery DescribePortfolio where
 
 -- | /See:/ 'describePortfolioResponse' smart constructor.
 data DescribePortfolioResponse = DescribePortfolioResponse'
-    { _dprsPortfolioDetail :: !(Maybe PortfolioDetail)
-    , _dprsTagOptions      :: !(Maybe [TagOptionDetail])
-    , _dprsTags            :: !(Maybe [Tag])
-    , _dprsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsPortfolioDetail :: {-# NOUNPACK #-}!(Maybe PortfolioDetail)
+  , _dprsTagOptions      :: {-# NOUNPACK #-}!(Maybe [TagOptionDetail])
+  , _dprsTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _dprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePortfolioResponse' with the minimum fields required to make a request.
 --
@@ -139,12 +139,13 @@ describePortfolioResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribePortfolioResponse
 describePortfolioResponse pResponseStatus_ =
-    DescribePortfolioResponse'
-    { _dprsPortfolioDetail = Nothing
-    , _dprsTagOptions = Nothing
-    , _dprsTags = Nothing
-    , _dprsResponseStatus = pResponseStatus_
-    }
+  DescribePortfolioResponse'
+  { _dprsPortfolioDetail = Nothing
+  , _dprsTagOptions = Nothing
+  , _dprsTags = Nothing
+  , _dprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Detailed portfolio information.
 dprsPortfolioDetail :: Lens' DescribePortfolioResponse (Maybe PortfolioDetail)
@@ -162,4 +163,4 @@ dprsTags = lens _dprsTags (\ s a -> s{_dprsTags = a}) . _Default . _Coerce;
 dprsResponseStatus :: Lens' DescribePortfolioResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DescribePortfolioResponse
+instance NFData DescribePortfolioResponse where

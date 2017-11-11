@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisableVPCClassicLink
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.DisableVPCClassicLink
     , dvpcclrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DisableVpcClassicLink.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableVPCClassicLink' smart constructor.
 data DisableVPCClassicLink = DisableVPCClassicLink'
-    { _dvpcclDryRun :: !(Maybe Bool)
-    , _dvpcclVPCId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpcclDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvpcclVPCId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableVPCClassicLink' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ disableVPCClassicLink
     :: Text -- ^ 'dvpcclVPCId'
     -> DisableVPCClassicLink
 disableVPCClassicLink pVPCId_ =
-    DisableVPCClassicLink'
-    { _dvpcclDryRun = Nothing
-    , _dvpcclVPCId = pVPCId_
-    }
+  DisableVPCClassicLink' {_dvpcclDryRun = Nothing, _dvpcclVPCId = pVPCId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpcclDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
@@ -89,9 +88,9 @@ instance AWSRequest DisableVPCClassicLink where
                  DisableVPCClassicLinkResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable DisableVPCClassicLink
+instance Hashable DisableVPCClassicLink where
 
-instance NFData DisableVPCClassicLink
+instance NFData DisableVPCClassicLink where
 
 instance ToHeaders DisableVPCClassicLink where
         toHeaders = const mempty
@@ -112,9 +111,10 @@ instance ToQuery DisableVPCClassicLink where
 --
 -- /See:/ 'disableVPCClassicLinkResponse' smart constructor.
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
-    { _dvpcclrsReturn         :: !(Maybe Bool)
-    , _dvpcclrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpcclrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvpcclrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableVPCClassicLinkResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +127,9 @@ disableVPCClassicLinkResponse
     :: Int -- ^ 'dvpcclrsResponseStatus'
     -> DisableVPCClassicLinkResponse
 disableVPCClassicLinkResponse pResponseStatus_ =
-    DisableVPCClassicLinkResponse'
-    { _dvpcclrsReturn = Nothing
-    , _dvpcclrsResponseStatus = pResponseStatus_
-    }
+  DisableVPCClassicLinkResponse'
+  {_dvpcclrsReturn = Nothing, _dvpcclrsResponseStatus = pResponseStatus_}
+
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvpcclrsReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
@@ -140,4 +139,4 @@ dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a});
 dvpcclrsResponseStatus :: Lens' DisableVPCClassicLinkResponse Int
 dvpcclrsResponseStatus = lens _dvpcclrsResponseStatus (\ s a -> s{_dvpcclrsResponseStatus = a});
 
-instance NFData DisableVPCClassicLinkResponse
+instance NFData DisableVPCClassicLinkResponse where

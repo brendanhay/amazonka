@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListCoreDefinitionVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Greengrass.ListCoreDefinitionVersions
     , lcdvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listCoreDefinitionVersions' smart constructor.
 data ListCoreDefinitionVersions = ListCoreDefinitionVersions'
-    { _lcdvNextToken        :: !(Maybe Text)
-    , _lcdvMaxResults       :: !(Maybe Text)
-    , _lcdvCoreDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcdvNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcdvMaxResults       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcdvCoreDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCoreDefinitionVersions' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ listCoreDefinitionVersions
     :: Text -- ^ 'lcdvCoreDefinitionId'
     -> ListCoreDefinitionVersions
 listCoreDefinitionVersions pCoreDefinitionId_ =
-    ListCoreDefinitionVersions'
-    { _lcdvNextToken = Nothing
-    , _lcdvMaxResults = Nothing
-    , _lcdvCoreDefinitionId = pCoreDefinitionId_
-    }
+  ListCoreDefinitionVersions'
+  { _lcdvNextToken = Nothing
+  , _lcdvMaxResults = Nothing
+  , _lcdvCoreDefinitionId = pCoreDefinitionId_
+  }
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lcdvNextToken :: Lens' ListCoreDefinitionVersions (Maybe Text)
@@ -94,9 +96,9 @@ instance AWSRequest ListCoreDefinitionVersions where
                    (x .?> "Versions" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCoreDefinitionVersions
+instance Hashable ListCoreDefinitionVersions where
 
-instance NFData ListCoreDefinitionVersions
+instance NFData ListCoreDefinitionVersions where
 
 instance ToHeaders ListCoreDefinitionVersions where
         toHeaders
@@ -119,10 +121,11 @@ instance ToQuery ListCoreDefinitionVersions where
 
 -- | /See:/ 'listCoreDefinitionVersionsResponse' smart constructor.
 data ListCoreDefinitionVersionsResponse = ListCoreDefinitionVersionsResponse'
-    { _lcdvrsVersions       :: !(Maybe [VersionInformation])
-    , _lcdvrsNextToken      :: !(Maybe Text)
-    , _lcdvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcdvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
+  , _lcdvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCoreDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
@@ -137,11 +140,12 @@ listCoreDefinitionVersionsResponse
     :: Int -- ^ 'lcdvrsResponseStatus'
     -> ListCoreDefinitionVersionsResponse
 listCoreDefinitionVersionsResponse pResponseStatus_ =
-    ListCoreDefinitionVersionsResponse'
-    { _lcdvrsVersions = Nothing
-    , _lcdvrsNextToken = Nothing
-    , _lcdvrsResponseStatus = pResponseStatus_
-    }
+  ListCoreDefinitionVersionsResponse'
+  { _lcdvrsVersions = Nothing
+  , _lcdvrsNextToken = Nothing
+  , _lcdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Versions
 lcdvrsVersions :: Lens' ListCoreDefinitionVersionsResponse [VersionInformation]
@@ -156,3 +160,4 @@ lcdvrsResponseStatus :: Lens' ListCoreDefinitionVersionsResponse Int
 lcdvrsResponseStatus = lens _lcdvrsResponseStatus (\ s a -> s{_lcdvrsResponseStatus = a});
 
 instance NFData ListCoreDefinitionVersionsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.EnableEnhancedMonitoring
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Kinesis.EnableEnhancedMonitoring
     , emoStreamName
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for 'EnableEnhancedMonitoring' .
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableEnhancedMonitoring' smart constructor.
 data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
-    { _eemStreamName        :: !Text
-    , _eemShardLevelMetrics :: ![MetricsName]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eemStreamName        :: {-# NOUNPACK #-}!Text
+  , _eemShardLevelMetrics :: {-# NOUNPACK #-}![MetricsName]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableEnhancedMonitoring' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ enableEnhancedMonitoring
     :: Text -- ^ 'eemStreamName'
     -> EnableEnhancedMonitoring
 enableEnhancedMonitoring pStreamName_ =
-    EnableEnhancedMonitoring'
-    { _eemStreamName = pStreamName_
-    , _eemShardLevelMetrics = mempty
-    }
+  EnableEnhancedMonitoring'
+  {_eemStreamName = pStreamName_, _eemShardLevelMetrics = mempty}
+
 
 -- | The name of the stream for which to enable enhanced monitoring.
 eemStreamName :: Lens' EnableEnhancedMonitoring Text
@@ -86,9 +86,9 @@ instance AWSRequest EnableEnhancedMonitoring where
         request = postJSON kinesis
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable EnableEnhancedMonitoring
+instance Hashable EnableEnhancedMonitoring where
 
-instance NFData EnableEnhancedMonitoring
+instance NFData EnableEnhancedMonitoring where
 
 instance ToHeaders EnableEnhancedMonitoring where
         toHeaders

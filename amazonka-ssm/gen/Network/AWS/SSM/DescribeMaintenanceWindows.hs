@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindows
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.DescribeMaintenanceWindows
     , dmwsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeMaintenanceWindows' smart constructor.
 data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
-    { _dmwFilters    :: !(Maybe [MaintenanceWindowFilter])
-    , _dmwNextToken  :: !(Maybe Text)
-    , _dmwMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmwFilters    :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowFilter])
+  , _dmwNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindows' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
 describeMaintenanceWindows
     :: DescribeMaintenanceWindows
 describeMaintenanceWindows =
-    DescribeMaintenanceWindows'
-    { _dmwFilters = Nothing
-    , _dmwNextToken = Nothing
-    , _dmwMaxResults = Nothing
-    }
+  DescribeMaintenanceWindows'
+  {_dmwFilters = Nothing, _dmwNextToken = Nothing, _dmwMaxResults = Nothing}
+
 
 -- | Optional filters used to narrow down the scope of the returned Maintenance Windows. Supported filter keys are Name and Enabled.
 dmwFilters :: Lens' DescribeMaintenanceWindows [MaintenanceWindowFilter]
@@ -96,9 +95,9 @@ instance AWSRequest DescribeMaintenanceWindows where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeMaintenanceWindows
+instance Hashable DescribeMaintenanceWindows where
 
-instance NFData DescribeMaintenanceWindows
+instance NFData DescribeMaintenanceWindows where
 
 instance ToHeaders DescribeMaintenanceWindows where
         toHeaders
@@ -126,10 +125,11 @@ instance ToQuery DescribeMaintenanceWindows where
 
 -- | /See:/ 'describeMaintenanceWindowsResponse' smart constructor.
 data DescribeMaintenanceWindowsResponse = DescribeMaintenanceWindowsResponse'
-    { _dmwsrsWindowIdentities :: !(Maybe [MaintenanceWindowIdentity])
-    , _dmwsrsNextToken        :: !(Maybe Text)
-    , _dmwsrsResponseStatus   :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dmwsrsWindowIdentities :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowIdentity])
+  , _dmwsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowsResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +144,12 @@ describeMaintenanceWindowsResponse
     :: Int -- ^ 'dmwsrsResponseStatus'
     -> DescribeMaintenanceWindowsResponse
 describeMaintenanceWindowsResponse pResponseStatus_ =
-    DescribeMaintenanceWindowsResponse'
-    { _dmwsrsWindowIdentities = Nothing
-    , _dmwsrsNextToken = Nothing
-    , _dmwsrsResponseStatus = pResponseStatus_
-    }
+  DescribeMaintenanceWindowsResponse'
+  { _dmwsrsWindowIdentities = Nothing
+  , _dmwsrsNextToken = Nothing
+  , _dmwsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the Maintenance Windows.
 dmwsrsWindowIdentities :: Lens' DescribeMaintenanceWindowsResponse [MaintenanceWindowIdentity]
@@ -163,3 +164,4 @@ dmwsrsResponseStatus :: Lens' DescribeMaintenanceWindowsResponse Int
 dmwsrsResponseStatus = lens _dmwsrsResponseStatus (\ s a -> s{_dmwsrsResponseStatus = a});
 
 instance NFData DescribeMaintenanceWindowsResponse
+         where

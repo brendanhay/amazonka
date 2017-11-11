@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateLoginProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.IAM.CreateLoginProfile
     , clprsLoginProfile
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLoginProfile' smart constructor.
 data CreateLoginProfile = CreateLoginProfile'
-    { _clpPasswordResetRequired :: !(Maybe Bool)
-    , _clpUserName              :: !Text
-    , _clpPassword              :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _clpPasswordResetRequired :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _clpUserName              :: {-# NOUNPACK #-}!Text
+  , _clpPassword              :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLoginProfile' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ createLoginProfile
     -> Text -- ^ 'clpPassword'
     -> CreateLoginProfile
 createLoginProfile pUserName_ pPassword_ =
-    CreateLoginProfile'
-    { _clpPasswordResetRequired = Nothing
-    , _clpUserName = pUserName_
-    , _clpPassword = _Sensitive # pPassword_
-    }
+  CreateLoginProfile'
+  { _clpPasswordResetRequired = Nothing
+  , _clpUserName = pUserName_
+  , _clpPassword = _Sensitive # pPassword_
+  }
+
 
 -- | Specifies whether the user is required to set a new password on next sign-in.
 clpPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
@@ -95,9 +97,9 @@ instance AWSRequest CreateLoginProfile where
                  CreateLoginProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "LoginProfile"))
 
-instance Hashable CreateLoginProfile
+instance Hashable CreateLoginProfile where
 
-instance NFData CreateLoginProfile
+instance NFData CreateLoginProfile where
 
 instance ToHeaders CreateLoginProfile where
         toHeaders = const mempty
@@ -120,9 +122,10 @@ instance ToQuery CreateLoginProfile where
 --
 -- /See:/ 'createLoginProfileResponse' smart constructor.
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
-    { _clprsResponseStatus :: !Int
-    , _clprsLoginProfile   :: !LoginProfile
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _clprsLoginProfile   :: {-# NOUNPACK #-}!LoginProfile
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLoginProfileResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +139,9 @@ createLoginProfileResponse
     -> LoginProfile -- ^ 'clprsLoginProfile'
     -> CreateLoginProfileResponse
 createLoginProfileResponse pResponseStatus_ pLoginProfile_ =
-    CreateLoginProfileResponse'
-    { _clprsResponseStatus = pResponseStatus_
-    , _clprsLoginProfile = pLoginProfile_
-    }
+  CreateLoginProfileResponse'
+  {_clprsResponseStatus = pResponseStatus_, _clprsLoginProfile = pLoginProfile_}
+
 
 -- | -- | The response status code.
 clprsResponseStatus :: Lens' CreateLoginProfileResponse Int
@@ -149,4 +151,4 @@ clprsResponseStatus = lens _clprsResponseStatus (\ s a -> s{_clprsResponseStatus
 clprsLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprsLoginProfile = lens _clprsLoginProfile (\ s a -> s{_clprsLoginProfile = a});
 
-instance NFData CreateLoginProfileResponse
+instance NFData CreateLoginProfileResponse where

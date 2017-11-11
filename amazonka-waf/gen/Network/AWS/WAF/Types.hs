@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -298,40 +298,40 @@ module Network.AWS.WAF.Types
     , xmtTextTransformation
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
-import           Network.AWS.WAF.Types.Product
-import           Network.AWS.WAF.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
+import Network.AWS.WAF.Types.Product
+import Network.AWS.WAF.Types.Sum
 
 -- | API version @2015-08-24@ of the Amazon WAF SDK configuration.
 waf :: Service
 waf =
-    Service
-    { _svcAbbrev = "WAF"
-    , _svcSigner = v4
-    , _svcPrefix = "waf"
-    , _svcVersion = "2015-08-24"
-    , _svcEndpoint = defaultEndpoint waf
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "WAF"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "WAF"
+  , _svcSigner = v4
+  , _svcPrefix = "waf"
+  , _svcVersion = "2015-08-24"
+  , _svcEndpoint = defaultEndpoint waf
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "WAF"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -340,12 +340,14 @@ waf =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.
 --
 --
 _WAFInvalidAccountException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidAccountException =
-    _MatchServiceError waf "WAFInvalidAccountException"
+  _MatchServiceError waf "WAFInvalidAccountException"
+
 
 -- | The operation failed because you tried to delete an object that is still in use. For example:
 --
@@ -358,7 +360,8 @@ _WAFInvalidAccountException =
 --
 _WAFReferencedItemException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFReferencedItemException =
-    _MatchServiceError waf "WAFReferencedItemException"
+  _MatchServiceError waf "WAFReferencedItemException"
+
 
 -- | The operation failed because there was nothing to do. For example:
 --
@@ -379,14 +382,16 @@ _WAFReferencedItemException =
 --
 _WAFInvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidOperationException =
-    _MatchServiceError waf "WAFInvalidOperationException"
+  _MatchServiceError waf "WAFInvalidOperationException"
+
 
 -- | The operation failed because the referenced object doesn't exist.
 --
 --
 _WAFNonexistentItemException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonexistentItemException =
-    _MatchServiceError waf "WAFNonexistentItemException"
+  _MatchServiceError waf "WAFNonexistentItemException"
+
 
 -- | The operation failed because AWS WAF didn't recognize a parameter in the request. For example:
 --
@@ -413,14 +418,16 @@ _WAFNonexistentItemException =
 --
 _WAFInvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidParameterException =
-    _MatchServiceError waf "WAFInvalidParameterException"
+  _MatchServiceError waf "WAFInvalidParameterException"
+
 
 -- | The operation exceeds a resource limit, for example, the maximum number of @WebACL@ objects that you can create for an AWS account. For more information, see <http://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits> in the /AWS WAF Developer Guide/ .
 --
 --
 _WAFLimitsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFLimitsExceededException =
-    _MatchServiceError waf "WAFLimitsExceededException"
+  _MatchServiceError waf "WAFLimitsExceededException"
+
 
 -- | The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
 --
@@ -428,11 +435,13 @@ _WAFLimitsExceededException =
 _WAFStaleDataException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFStaleDataException = _MatchServiceError waf "WAFStaleDataException"
 
+
 -- | The operation failed because of a system problem, even though the request was valid. Retry your request.
 --
 --
 _WAFInternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInternalErrorException = _MatchServiceError waf "WAFInternalErrorException"
+
 
 -- | The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:
 --
@@ -449,14 +458,16 @@ _WAFInternalErrorException = _MatchServiceError waf "WAFInternalErrorException"
 --
 _WAFNonexistentContainerException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonexistentContainerException =
-    _MatchServiceError waf "WAFNonexistentContainerException"
+  _MatchServiceError waf "WAFNonexistentContainerException"
+
 
 -- | The name specified is invalid.
 --
 --
 _WAFDisallowedNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFDisallowedNameException =
-    _MatchServiceError waf "WAFDisallowedNameException"
+  _MatchServiceError waf "WAFDisallowedNameException"
+
 
 -- | The operation failed because you tried to delete an object that isn't empty. For example:
 --
@@ -473,4 +484,5 @@ _WAFDisallowedNameException =
 --
 _WAFNonEmptyEntityException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonEmptyEntityException =
-    _MatchServiceError waf "WAFNonEmptyEntityException"
+  _MatchServiceError waf "WAFNonEmptyEntityException"
+

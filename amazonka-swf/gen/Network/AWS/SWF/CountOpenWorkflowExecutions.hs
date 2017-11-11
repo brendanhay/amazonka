@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.CountOpenWorkflowExecutions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -63,21 +63,22 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
     , wecCount
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countOpenWorkflowExecutions' smart constructor.
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
-    { _coweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
-    , _coweTypeFilter      :: !(Maybe WorkflowTypeFilter)
-    , _coweTagFilter       :: !(Maybe TagFilter)
-    , _coweDomain          :: !Text
-    , _coweStartTimeFilter :: !ExecutionTimeFilter
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _coweExecutionFilter :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFilter)
+  , _coweTypeFilter      :: {-# NOUNPACK #-}!(Maybe WorkflowTypeFilter)
+  , _coweTagFilter       :: {-# NOUNPACK #-}!(Maybe TagFilter)
+  , _coweDomain          :: {-# NOUNPACK #-}!Text
+  , _coweStartTimeFilter :: {-# NOUNPACK #-}!ExecutionTimeFilter
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CountOpenWorkflowExecutions' with the minimum fields required to make a request.
 --
@@ -97,13 +98,14 @@ countOpenWorkflowExecutions
     -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
     -> CountOpenWorkflowExecutions
 countOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
-    CountOpenWorkflowExecutions'
-    { _coweExecutionFilter = Nothing
-    , _coweTypeFilter = Nothing
-    , _coweTagFilter = Nothing
-    , _coweDomain = pDomain_
-    , _coweStartTimeFilter = pStartTimeFilter_
-    }
+  CountOpenWorkflowExecutions'
+  { _coweExecutionFilter = Nothing
+  , _coweTypeFilter = Nothing
+  , _coweTagFilter = Nothing
+  , _coweDomain = pDomain_
+  , _coweStartTimeFilter = pStartTimeFilter_
+  }
+
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
 coweExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
@@ -131,9 +133,9 @@ instance AWSRequest CountOpenWorkflowExecutions where
         request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CountOpenWorkflowExecutions
+instance Hashable CountOpenWorkflowExecutions where
 
-instance NFData CountOpenWorkflowExecutions
+instance NFData CountOpenWorkflowExecutions where
 
 instance ToHeaders CountOpenWorkflowExecutions where
         toHeaders

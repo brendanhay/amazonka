@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.SendAutomationSignal
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.SSM.SendAutomationSignal
     , sasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'sendAutomationSignal' smart constructor.
 data SendAutomationSignal = SendAutomationSignal'
-    { _sasPayload               :: !(Maybe (Map Text [Text]))
-    , _sasAutomationExecutionId :: !Text
-    , _sasSignalType            :: !SignalType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sasPayload               :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _sasAutomationExecutionId :: {-# NOUNPACK #-}!Text
+  , _sasSignalType            :: {-# NOUNPACK #-}!SignalType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendAutomationSignal' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ sendAutomationSignal
     -> SignalType -- ^ 'sasSignalType'
     -> SendAutomationSignal
 sendAutomationSignal pAutomationExecutionId_ pSignalType_ =
-    SendAutomationSignal'
-    { _sasPayload = Nothing
-    , _sasAutomationExecutionId = pAutomationExecutionId_
-    , _sasSignalType = pSignalType_
-    }
+  SendAutomationSignal'
+  { _sasPayload = Nothing
+  , _sasAutomationExecutionId = pAutomationExecutionId_
+  , _sasSignalType = pSignalType_
+  }
+
 
 -- | The data sent with the signal. The data schema depends on the type of signal used in the request.
 sasPayload :: Lens' SendAutomationSignal (HashMap Text [Text])
@@ -94,9 +96,9 @@ instance AWSRequest SendAutomationSignal where
                  SendAutomationSignalResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable SendAutomationSignal
+instance Hashable SendAutomationSignal where
 
-instance NFData SendAutomationSignal
+instance NFData SendAutomationSignal where
 
 instance ToHeaders SendAutomationSignal where
         toHeaders
@@ -125,8 +127,9 @@ instance ToQuery SendAutomationSignal where
 
 -- | /See:/ 'sendAutomationSignalResponse' smart constructor.
 newtype SendAutomationSignalResponse = SendAutomationSignalResponse'
-    { _sasrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sasrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendAutomationSignalResponse' with the minimum fields required to make a request.
 --
@@ -137,12 +140,11 @@ sendAutomationSignalResponse
     :: Int -- ^ 'sasrsResponseStatus'
     -> SendAutomationSignalResponse
 sendAutomationSignalResponse pResponseStatus_ =
-    SendAutomationSignalResponse'
-    { _sasrsResponseStatus = pResponseStatus_
-    }
+  SendAutomationSignalResponse' {_sasrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 sasrsResponseStatus :: Lens' SendAutomationSignalResponse Int
 sasrsResponseStatus = lens _sasrsResponseStatus (\ s a -> s{_sasrsResponseStatus = a});
 
-instance NFData SendAutomationSignalResponse
+instance NFData SendAutomationSignalResponse where

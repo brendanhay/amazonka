@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AssociateVirtualInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.DirectConnect.AssociateVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the AssociateVirtualInterface operation.
 --
@@ -70,9 +70,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'associateVirtualInterface' smart constructor.
 data AssociateVirtualInterface = AssociateVirtualInterface'
-    { _aviVirtualInterfaceId :: !Text
-    , _aviConnectionId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aviVirtualInterfaceId :: {-# NOUNPACK #-}!Text
+  , _aviConnectionId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateVirtualInterface' with the minimum fields required to make a request.
 --
@@ -86,10 +87,11 @@ associateVirtualInterface
     -> Text -- ^ 'aviConnectionId'
     -> AssociateVirtualInterface
 associateVirtualInterface pVirtualInterfaceId_ pConnectionId_ =
-    AssociateVirtualInterface'
-    { _aviVirtualInterfaceId = pVirtualInterfaceId_
-    , _aviConnectionId = pConnectionId_
-    }
+  AssociateVirtualInterface'
+  { _aviVirtualInterfaceId = pVirtualInterfaceId_
+  , _aviConnectionId = pConnectionId_
+  }
+
 
 -- | The ID of the virtual interface. Example: dxvif-123dfg56 Default: None
 aviVirtualInterfaceId :: Lens' AssociateVirtualInterface Text
@@ -104,9 +106,9 @@ instance AWSRequest AssociateVirtualInterface where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable AssociateVirtualInterface
+instance Hashable AssociateVirtualInterface where
 
-instance NFData AssociateVirtualInterface
+instance NFData AssociateVirtualInterface where
 
 instance ToHeaders AssociateVirtualInterface where
         toHeaders

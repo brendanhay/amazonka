@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeScheduledInstanceAvailability
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.EC2.DescribeScheduledInstanceAvailability
     , dsiarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeScheduledInstanceAvailability.
 --
@@ -62,15 +62,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeScheduledInstanceAvailability' smart constructor.
 data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailability'
-    { _dsiaMinSlotDurationInHours  :: !(Maybe Int)
-    , _dsiaFilters                 :: !(Maybe [Filter])
-    , _dsiaNextToken               :: !(Maybe Text)
-    , _dsiaMaxSlotDurationInHours  :: !(Maybe Int)
-    , _dsiaDryRun                  :: !(Maybe Bool)
-    , _dsiaMaxResults              :: !(Maybe Int)
-    , _dsiaFirstSlotStartTimeRange :: !SlotDateTimeRangeRequest
-    , _dsiaRecurrence              :: !ScheduledInstanceRecurrenceRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsiaMinSlotDurationInHours :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsiaFilters :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dsiaNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsiaMaxSlotDurationInHours :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsiaDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsiaMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsiaFirstSlotStartTimeRange :: {-# NOUNPACK #-}!SlotDateTimeRangeRequest
+  , _dsiaRecurrence :: {-# NOUNPACK #-}!ScheduledInstanceRecurrenceRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScheduledInstanceAvailability' with the minimum fields required to make a request.
 --
@@ -96,16 +97,17 @@ describeScheduledInstanceAvailability
     -> ScheduledInstanceRecurrenceRequest -- ^ 'dsiaRecurrence'
     -> DescribeScheduledInstanceAvailability
 describeScheduledInstanceAvailability pFirstSlotStartTimeRange_ pRecurrence_ =
-    DescribeScheduledInstanceAvailability'
-    { _dsiaMinSlotDurationInHours = Nothing
-    , _dsiaFilters = Nothing
-    , _dsiaNextToken = Nothing
-    , _dsiaMaxSlotDurationInHours = Nothing
-    , _dsiaDryRun = Nothing
-    , _dsiaMaxResults = Nothing
-    , _dsiaFirstSlotStartTimeRange = pFirstSlotStartTimeRange_
-    , _dsiaRecurrence = pRecurrence_
-    }
+  DescribeScheduledInstanceAvailability'
+  { _dsiaMinSlotDurationInHours = Nothing
+  , _dsiaFilters = Nothing
+  , _dsiaNextToken = Nothing
+  , _dsiaMaxSlotDurationInHours = Nothing
+  , _dsiaDryRun = Nothing
+  , _dsiaMaxResults = Nothing
+  , _dsiaFirstSlotStartTimeRange = pFirstSlotStartTimeRange_
+  , _dsiaRecurrence = pRecurrence_
+  }
+
 
 -- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
 dsiaMinSlotDurationInHours :: Lens' DescribeScheduledInstanceAvailability (Maybe Int)
@@ -140,7 +142,8 @@ dsiaRecurrence :: Lens' DescribeScheduledInstanceAvailability ScheduledInstanceR
 dsiaRecurrence = lens _dsiaRecurrence (\ s a -> s{_dsiaRecurrence = a});
 
 instance AWSRequest
-         DescribeScheduledInstanceAvailability where
+           DescribeScheduledInstanceAvailability
+         where
         type Rs DescribeScheduledInstanceAvailability =
              DescribeScheduledInstanceAvailabilityResponse
         request = postQuery ec2
@@ -154,12 +157,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeScheduledInstanceAvailability
+           DescribeScheduledInstanceAvailability
+         where
 
 instance NFData DescribeScheduledInstanceAvailability
+         where
 
 instance ToHeaders
-         DescribeScheduledInstanceAvailability where
+           DescribeScheduledInstanceAvailability
+         where
         toHeaders = const mempty
 
 instance ToPath DescribeScheduledInstanceAvailability
@@ -167,7 +173,8 @@ instance ToPath DescribeScheduledInstanceAvailability
         toPath = const "/"
 
 instance ToQuery
-         DescribeScheduledInstanceAvailability where
+           DescribeScheduledInstanceAvailability
+         where
         toQuery DescribeScheduledInstanceAvailability'{..}
           = mconcat
               ["Action" =:
@@ -192,10 +199,11 @@ instance ToQuery
 --
 -- /See:/ 'describeScheduledInstanceAvailabilityResponse' smart constructor.
 data DescribeScheduledInstanceAvailabilityResponse = DescribeScheduledInstanceAvailabilityResponse'
-    { _dsiarsScheduledInstanceAvailabilitySet :: !(Maybe [ScheduledInstanceAvailability])
-    , _dsiarsNextToken                        :: !(Maybe Text)
-    , _dsiarsResponseStatus                   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsiarsScheduledInstanceAvailabilitySet :: {-# NOUNPACK #-}!(Maybe [ScheduledInstanceAvailability])
+  , _dsiarsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScheduledInstanceAvailabilityResponse' with the minimum fields required to make a request.
 --
@@ -210,11 +218,12 @@ describeScheduledInstanceAvailabilityResponse
     :: Int -- ^ 'dsiarsResponseStatus'
     -> DescribeScheduledInstanceAvailabilityResponse
 describeScheduledInstanceAvailabilityResponse pResponseStatus_ =
-    DescribeScheduledInstanceAvailabilityResponse'
-    { _dsiarsScheduledInstanceAvailabilitySet = Nothing
-    , _dsiarsNextToken = Nothing
-    , _dsiarsResponseStatus = pResponseStatus_
-    }
+  DescribeScheduledInstanceAvailabilityResponse'
+  { _dsiarsScheduledInstanceAvailabilitySet = Nothing
+  , _dsiarsNextToken = Nothing
+  , _dsiarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the available Scheduled Instances.
 dsiarsScheduledInstanceAvailabilitySet :: Lens' DescribeScheduledInstanceAvailabilityResponse [ScheduledInstanceAvailability]
@@ -229,4 +238,5 @@ dsiarsResponseStatus :: Lens' DescribeScheduledInstanceAvailabilityResponse Int
 dsiarsResponseStatus = lens _dsiarsResponseStatus (\ s a -> s{_dsiarsResponseStatus = a});
 
 instance NFData
-         DescribeScheduledInstanceAvailabilityResponse
+           DescribeScheduledInstanceAvailabilityResponse
+         where

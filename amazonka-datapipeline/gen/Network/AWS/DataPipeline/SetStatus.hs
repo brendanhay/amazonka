@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.SetStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.DataPipeline.SetStatus
     , SetStatusResponse
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for SetStatus.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setStatus' smart constructor.
 data SetStatus = SetStatus'
-    { _ssPipelineId :: !Text
-    , _ssObjectIds  :: ![Text]
-    , _ssStatus     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssPipelineId :: {-# NOUNPACK #-}!Text
+  , _ssObjectIds  :: {-# NOUNPACK #-}![Text]
+  , _ssStatus     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetStatus' with the minimum fields required to make a request.
 --
@@ -68,11 +69,9 @@ setStatus
     -> Text -- ^ 'ssStatus'
     -> SetStatus
 setStatus pPipelineId_ pStatus_ =
-    SetStatus'
-    { _ssPipelineId = pPipelineId_
-    , _ssObjectIds = mempty
-    , _ssStatus = pStatus_
-    }
+  SetStatus'
+  {_ssPipelineId = pPipelineId_, _ssObjectIds = mempty, _ssStatus = pStatus_}
+
 
 -- | The ID of the pipeline that contains the objects.
 ssPipelineId :: Lens' SetStatus Text
@@ -91,9 +90,9 @@ instance AWSRequest SetStatus where
         request = postJSON dataPipeline
         response = receiveNull SetStatusResponse'
 
-instance Hashable SetStatus
+instance Hashable SetStatus where
 
-instance NFData SetStatus
+instance NFData SetStatus where
 
 instance ToHeaders SetStatus where
         toHeaders
@@ -120,8 +119,9 @@ instance ToQuery SetStatus where
 
 -- | /See:/ 'setStatusResponse' smart constructor.
 data SetStatusResponse =
-    SetStatusResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetStatusResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetStatusResponse' with the minimum fields required to make a request.
 --
@@ -129,4 +129,5 @@ setStatusResponse
     :: SetStatusResponse
 setStatusResponse = SetStatusResponse'
 
-instance NFData SetStatusResponse
+
+instance NFData SetStatusResponse where

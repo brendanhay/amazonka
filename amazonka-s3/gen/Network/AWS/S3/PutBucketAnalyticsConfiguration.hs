@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketAnalyticsConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,19 +34,20 @@ module Network.AWS.S3.PutBucketAnalyticsConfiguration
     , PutBucketAnalyticsConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketAnalyticsConfiguration' smart constructor.
 data PutBucketAnalyticsConfiguration = PutBucketAnalyticsConfiguration'
-    { _pBucket                 :: !BucketName
-    , _pId                     :: !Text
-    , _pAnalyticsConfiguration :: !AnalyticsConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pBucket                 :: {-# NOUNPACK #-}!BucketName
+  , _pId                     :: {-# NOUNPACK #-}!Text
+  , _pAnalyticsConfiguration :: {-# NOUNPACK #-}!AnalyticsConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketAnalyticsConfiguration' with the minimum fields required to make a request.
 --
@@ -63,11 +64,12 @@ putBucketAnalyticsConfiguration
     -> AnalyticsConfiguration -- ^ 'pAnalyticsConfiguration'
     -> PutBucketAnalyticsConfiguration
 putBucketAnalyticsConfiguration pBucket_ pId_ pAnalyticsConfiguration_ =
-    PutBucketAnalyticsConfiguration'
-    { _pBucket = pBucket_
-    , _pId = pId_
-    , _pAnalyticsConfiguration = pAnalyticsConfiguration_
-    }
+  PutBucketAnalyticsConfiguration'
+  { _pBucket = pBucket_
+  , _pId = pId_
+  , _pAnalyticsConfiguration = pAnalyticsConfiguration_
+  }
+
 
 -- | The name of the bucket to which an analytics configuration is stored.
 pBucket :: Lens' PutBucketAnalyticsConfiguration BucketName
@@ -91,8 +93,9 @@ instance AWSRequest PutBucketAnalyticsConfiguration
               PutBucketAnalyticsConfigurationResponse'
 
 instance Hashable PutBucketAnalyticsConfiguration
+         where
 
-instance NFData PutBucketAnalyticsConfiguration
+instance NFData PutBucketAnalyticsConfiguration where
 
 instance ToElement PutBucketAnalyticsConfiguration
          where
@@ -117,15 +120,18 @@ instance ToQuery PutBucketAnalyticsConfiguration
 
 -- | /See:/ 'putBucketAnalyticsConfigurationResponse' smart constructor.
 data PutBucketAnalyticsConfigurationResponse =
-    PutBucketAnalyticsConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketAnalyticsConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketAnalyticsConfigurationResponse' with the minimum fields required to make a request.
 --
 putBucketAnalyticsConfigurationResponse
     :: PutBucketAnalyticsConfigurationResponse
 putBucketAnalyticsConfigurationResponse =
-    PutBucketAnalyticsConfigurationResponse'
+  PutBucketAnalyticsConfigurationResponse'
+
 
 instance NFData
-         PutBucketAnalyticsConfigurationResponse
+           PutBucketAnalyticsConfigurationResponse
+         where

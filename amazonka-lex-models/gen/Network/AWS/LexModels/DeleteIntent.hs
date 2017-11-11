@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteIntent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.LexModels.DeleteIntent
     , DeleteIntentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteIntent' smart constructor.
 newtype DeleteIntent = DeleteIntent'
-    { _diName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntent' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteIntent = DeleteIntent'
 deleteIntent
     :: Text -- ^ 'diName'
     -> DeleteIntent
-deleteIntent pName_ =
-    DeleteIntent'
-    { _diName = pName_
-    }
+deleteIntent pName_ = DeleteIntent' {_diName = pName_}
+
 
 -- | The name of the intent. The name is case sensitive.
 diName :: Lens' DeleteIntent Text
@@ -72,9 +71,9 @@ instance AWSRequest DeleteIntent where
         request = delete lexModels
         response = receiveNull DeleteIntentResponse'
 
-instance Hashable DeleteIntent
+instance Hashable DeleteIntent where
 
-instance NFData DeleteIntent
+instance NFData DeleteIntent where
 
 instance ToHeaders DeleteIntent where
         toHeaders
@@ -92,8 +91,9 @@ instance ToQuery DeleteIntent where
 
 -- | /See:/ 'deleteIntentResponse' smart constructor.
 data DeleteIntentResponse =
-    DeleteIntentResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteIntentResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntentResponse' with the minimum fields required to make a request.
 --
@@ -101,4 +101,5 @@ deleteIntentResponse
     :: DeleteIntentResponse
 deleteIntentResponse = DeleteIntentResponse'
 
-instance NFData DeleteIntentResponse
+
+instance NFData DeleteIntentResponse where

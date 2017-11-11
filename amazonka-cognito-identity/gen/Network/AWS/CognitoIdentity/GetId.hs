@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetId
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CognitoIdentity.GetId
     , girsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the GetId action.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getId' smart constructor.
 data GetId = GetId'
-    { _giAccountId      :: !(Maybe Text)
-    , _giLogins         :: !(Maybe (Map Text Text))
-    , _giIdentityPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giAccountId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giLogins         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _giIdentityPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetId' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ getId
     :: Text -- ^ 'giIdentityPoolId'
     -> GetId
 getId pIdentityPoolId_ =
-    GetId'
-    { _giAccountId = Nothing
-    , _giLogins = Nothing
-    , _giIdentityPoolId = pIdentityPoolId_
-    }
+  GetId'
+  { _giAccountId = Nothing
+  , _giLogins = Nothing
+  , _giIdentityPoolId = pIdentityPoolId_
+  }
+
 
 -- | A standard AWS account ID (9+ digits).
 giAccountId :: Lens' GetId (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest GetId where
                  GetIdResponse' <$>
                    (x .?> "IdentityId") <*> (pure (fromEnum s)))
 
-instance Hashable GetId
+instance Hashable GetId where
 
-instance NFData GetId
+instance NFData GetId where
 
 instance ToHeaders GetId where
         toHeaders
@@ -132,9 +134,10 @@ instance ToQuery GetId where
 --
 -- /See:/ 'getIdResponse' smart constructor.
 data GetIdResponse = GetIdResponse'
-    { _girsIdentityId     :: !(Maybe Text)
-    , _girsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _girsIdentityId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _girsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +150,9 @@ getIdResponse
     :: Int -- ^ 'girsResponseStatus'
     -> GetIdResponse
 getIdResponse pResponseStatus_ =
-    GetIdResponse'
-    { _girsIdentityId = Nothing
-    , _girsResponseStatus = pResponseStatus_
-    }
+  GetIdResponse'
+  {_girsIdentityId = Nothing, _girsResponseStatus = pResponseStatus_}
+
 
 -- | A unique identifier in the format REGION:GUID.
 girsIdentityId :: Lens' GetIdResponse (Maybe Text)
@@ -160,4 +162,4 @@ girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 girsResponseStatus :: Lens' GetIdResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
 
-instance NFData GetIdResponse
+instance NFData GetIdResponse where

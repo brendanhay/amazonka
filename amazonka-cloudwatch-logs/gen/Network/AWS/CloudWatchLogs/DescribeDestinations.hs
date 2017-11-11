@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeDestinations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.CloudWatchLogs.DescribeDestinations
     , ddrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDestinations' smart constructor.
 data DescribeDestinations = DescribeDestinations'
-    { _ddNextToken             :: !(Maybe Text)
-    , _ddLimit                 :: !(Maybe Nat)
-    , _ddDestinationNamePrefix :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddLimit                 :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ddDestinationNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDestinations' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data DescribeDestinations = DescribeDestinations'
 describeDestinations
     :: DescribeDestinations
 describeDestinations =
-    DescribeDestinations'
-    { _ddNextToken = Nothing
-    , _ddLimit = Nothing
-    , _ddDestinationNamePrefix = Nothing
-    }
+  DescribeDestinations'
+  { _ddNextToken = Nothing
+  , _ddLimit = Nothing
+  , _ddDestinationNamePrefix = Nothing
+  }
+
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 ddNextToken :: Lens' DescribeDestinations (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest DescribeDestinations where
                      (x .?> "destinations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDestinations
+instance Hashable DescribeDestinations where
 
-instance NFData DescribeDestinations
+instance NFData DescribeDestinations where
 
 instance ToHeaders DescribeDestinations where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery DescribeDestinations where
 
 -- | /See:/ 'describeDestinationsResponse' smart constructor.
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-    { _ddrsNextToken      :: !(Maybe Text)
-    , _ddrsDestinations   :: !(Maybe [Destination])
-    , _ddrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddrsDestinations   :: {-# NOUNPACK #-}!(Maybe [Destination])
+  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDestinationsResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ describeDestinationsResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDestinationsResponse
 describeDestinationsResponse pResponseStatus_ =
-    DescribeDestinationsResponse'
-    { _ddrsNextToken = Nothing
-    , _ddrsDestinations = Nothing
-    , _ddrsResponseStatus = pResponseStatus_
-    }
+  DescribeDestinationsResponse'
+  { _ddrsNextToken = Nothing
+  , _ddrsDestinations = Nothing
+  , _ddrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 ddrsNextToken :: Lens' DescribeDestinationsResponse (Maybe Text)
@@ -172,4 +176,4 @@ ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . 
 ddrsResponseStatus :: Lens' DescribeDestinationsResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
-instance NFData DescribeDestinationsResponse
+instance NFData DescribeDestinationsResponse where

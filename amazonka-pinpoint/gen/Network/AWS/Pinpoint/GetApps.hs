@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetApps
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.GetApps
     , gasrsApplicationsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getApps' smart constructor.
 data GetApps = GetApps'
-    { _gaToken    :: !(Maybe Text)
-    , _gaPageSize :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gaPageSize :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetApps' with the minimum fields required to make a request.
 --
@@ -58,11 +59,8 @@ data GetApps = GetApps'
 -- * 'gaPageSize' - Undocumented member.
 getApps
     :: GetApps
-getApps =
-    GetApps'
-    { _gaToken = Nothing
-    , _gaPageSize = Nothing
-    }
+getApps = GetApps' {_gaToken = Nothing, _gaPageSize = Nothing}
+
 
 -- | Undocumented member.
 gaToken :: Lens' GetApps (Maybe Text)
@@ -81,9 +79,9 @@ instance AWSRequest GetApps where
                  GetAppsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetApps
+instance Hashable GetApps where
 
-instance NFData GetApps
+instance NFData GetApps where
 
 instance ToHeaders GetApps where
         toHeaders
@@ -102,9 +100,10 @@ instance ToQuery GetApps where
 
 -- | /See:/ 'getAppsResponse' smart constructor.
 data GetAppsResponse = GetAppsResponse'
-    { _gasrsResponseStatus       :: !Int
-    , _gasrsApplicationsResponse :: !ApplicationsResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gasrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  , _gasrsApplicationsResponse :: {-# NOUNPACK #-}!ApplicationsResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAppsResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +117,11 @@ getAppsResponse
     -> ApplicationsResponse -- ^ 'gasrsApplicationsResponse'
     -> GetAppsResponse
 getAppsResponse pResponseStatus_ pApplicationsResponse_ =
-    GetAppsResponse'
-    { _gasrsResponseStatus = pResponseStatus_
-    , _gasrsApplicationsResponse = pApplicationsResponse_
-    }
+  GetAppsResponse'
+  { _gasrsResponseStatus = pResponseStatus_
+  , _gasrsApplicationsResponse = pApplicationsResponse_
+  }
+
 
 -- | -- | The response status code.
 gasrsResponseStatus :: Lens' GetAppsResponse Int
@@ -131,4 +131,4 @@ gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus
 gasrsApplicationsResponse :: Lens' GetAppsResponse ApplicationsResponse
 gasrsApplicationsResponse = lens _gasrsApplicationsResponse (\ s a -> s{_gasrsApplicationsResponse = a});
 
-instance NFData GetAppsResponse
+instance NFData GetAppsResponse where

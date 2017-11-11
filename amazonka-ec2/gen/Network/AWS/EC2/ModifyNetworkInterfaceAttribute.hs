@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyNetworkInterfaceAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     , ModifyNetworkInterfaceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyNetworkInterfaceAttribute.
 --
@@ -52,13 +52,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
-    { _mniaGroups             :: !(Maybe [Text])
-    , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)
-    , _mniaAttachment         :: !(Maybe NetworkInterfaceAttachmentChanges)
-    , _mniaDescription        :: !(Maybe AttributeValue)
-    , _mniaDryRun             :: !(Maybe Bool)
-    , _mniaNetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mniaGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mniaSourceDestCheck :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _mniaAttachment :: {-# NOUNPACK #-}!(Maybe NetworkInterfaceAttachmentChanges)
+  , _mniaDescription :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _mniaDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mniaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyNetworkInterfaceAttribute' with the minimum fields required to make a request.
 --
@@ -79,14 +80,15 @@ modifyNetworkInterfaceAttribute
     :: Text -- ^ 'mniaNetworkInterfaceId'
     -> ModifyNetworkInterfaceAttribute
 modifyNetworkInterfaceAttribute pNetworkInterfaceId_ =
-    ModifyNetworkInterfaceAttribute'
-    { _mniaGroups = Nothing
-    , _mniaSourceDestCheck = Nothing
-    , _mniaAttachment = Nothing
-    , _mniaDescription = Nothing
-    , _mniaDryRun = Nothing
-    , _mniaNetworkInterfaceId = pNetworkInterfaceId_
-    }
+  ModifyNetworkInterfaceAttribute'
+  { _mniaGroups = Nothing
+  , _mniaSourceDestCheck = Nothing
+  , _mniaAttachment = Nothing
+  , _mniaDescription = Nothing
+  , _mniaDryRun = Nothing
+  , _mniaNetworkInterfaceId = pNetworkInterfaceId_
+  }
+
 
 -- | Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.
 mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
@@ -122,8 +124,9 @@ instance AWSRequest ModifyNetworkInterfaceAttribute
               ModifyNetworkInterfaceAttributeResponse'
 
 instance Hashable ModifyNetworkInterfaceAttribute
+         where
 
-instance NFData ModifyNetworkInterfaceAttribute
+instance NFData ModifyNetworkInterfaceAttribute where
 
 instance ToHeaders ModifyNetworkInterfaceAttribute
          where
@@ -149,15 +152,18 @@ instance ToQuery ModifyNetworkInterfaceAttribute
 
 -- | /See:/ 'modifyNetworkInterfaceAttributeResponse' smart constructor.
 data ModifyNetworkInterfaceAttributeResponse =
-    ModifyNetworkInterfaceAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyNetworkInterfaceAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
 --
 modifyNetworkInterfaceAttributeResponse
     :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse =
-    ModifyNetworkInterfaceAttributeResponse'
+  ModifyNetworkInterfaceAttributeResponse'
+
 
 instance NFData
-         ModifyNetworkInterfaceAttributeResponse
+           ModifyNetworkInterfaceAttributeResponse
+         where

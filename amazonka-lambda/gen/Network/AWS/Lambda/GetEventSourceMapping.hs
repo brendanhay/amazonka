@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetEventSourceMapping
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.Lambda.GetEventSourceMapping
     , esmcLastModified
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,8 +58,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getEventSourceMapping' smart constructor.
 newtype GetEventSourceMapping = GetEventSourceMapping'
-    { _gesmUUId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gesmUUId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetEventSourceMapping' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ newtype GetEventSourceMapping = GetEventSourceMapping'
 getEventSourceMapping
     :: Text -- ^ 'gesmUUId'
     -> GetEventSourceMapping
-getEventSourceMapping pUUId_ =
-    GetEventSourceMapping'
-    { _gesmUUId = pUUId_
-    }
+getEventSourceMapping pUUId_ = GetEventSourceMapping' {_gesmUUId = pUUId_}
+
 
 -- | The AWS Lambda assigned ID of the event source mapping.
 gesmUUId :: Lens' GetEventSourceMapping Text
@@ -84,9 +83,9 @@ instance AWSRequest GetEventSourceMapping where
         request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetEventSourceMapping
+instance Hashable GetEventSourceMapping where
 
-instance NFData GetEventSourceMapping
+instance NFData GetEventSourceMapping where
 
 instance ToHeaders GetEventSourceMapping where
         toHeaders = const mempty

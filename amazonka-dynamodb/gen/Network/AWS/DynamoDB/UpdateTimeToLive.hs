@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.UpdateTimeToLive
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.DynamoDB.UpdateTimeToLive
     , uttlrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an @UpdateTimeToLive@ operation.
 --
@@ -61,9 +61,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateTimeToLive' smart constructor.
 data UpdateTimeToLive = UpdateTimeToLive'
-    { _uttlTableName               :: !Text
-    , _uttlTimeToLiveSpecification :: !TimeToLiveSpecification
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uttlTableName               :: {-# NOUNPACK #-}!Text
+  , _uttlTimeToLiveSpecification :: {-# NOUNPACK #-}!TimeToLiveSpecification
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTimeToLive' with the minimum fields required to make a request.
 --
@@ -77,10 +78,11 @@ updateTimeToLive
     -> TimeToLiveSpecification -- ^ 'uttlTimeToLiveSpecification'
     -> UpdateTimeToLive
 updateTimeToLive pTableName_ pTimeToLiveSpecification_ =
-    UpdateTimeToLive'
-    { _uttlTableName = pTableName_
-    , _uttlTimeToLiveSpecification = pTimeToLiveSpecification_
-    }
+  UpdateTimeToLive'
+  { _uttlTableName = pTableName_
+  , _uttlTimeToLiveSpecification = pTimeToLiveSpecification_
+  }
+
 
 -- | The name of the table to be configured.
 uttlTableName :: Lens' UpdateTimeToLive Text
@@ -100,9 +102,9 @@ instance AWSRequest UpdateTimeToLive where
                    (x .?> "TimeToLiveSpecification") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateTimeToLive
+instance Hashable UpdateTimeToLive where
 
-instance NFData UpdateTimeToLive
+instance NFData UpdateTimeToLive where
 
 instance ToHeaders UpdateTimeToLive where
         toHeaders
@@ -130,9 +132,10 @@ instance ToQuery UpdateTimeToLive where
 
 -- | /See:/ 'updateTimeToLiveResponse' smart constructor.
 data UpdateTimeToLiveResponse = UpdateTimeToLiveResponse'
-    { _uttlrsTimeToLiveSpecification :: !(Maybe TimeToLiveSpecification)
-    , _uttlrsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uttlrsTimeToLiveSpecification :: {-# NOUNPACK #-}!(Maybe TimeToLiveSpecification)
+  , _uttlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTimeToLiveResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +148,11 @@ updateTimeToLiveResponse
     :: Int -- ^ 'uttlrsResponseStatus'
     -> UpdateTimeToLiveResponse
 updateTimeToLiveResponse pResponseStatus_ =
-    UpdateTimeToLiveResponse'
-    { _uttlrsTimeToLiveSpecification = Nothing
-    , _uttlrsResponseStatus = pResponseStatus_
-    }
+  UpdateTimeToLiveResponse'
+  { _uttlrsTimeToLiveSpecification = Nothing
+  , _uttlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Represents the output of an @UpdateTimeToLive@ operation.
 uttlrsTimeToLiveSpecification :: Lens' UpdateTimeToLiveResponse (Maybe TimeToLiveSpecification)
@@ -158,4 +162,4 @@ uttlrsTimeToLiveSpecification = lens _uttlrsTimeToLiveSpecification (\ s a -> s{
 uttlrsResponseStatus :: Lens' UpdateTimeToLiveResponse Int
 uttlrsResponseStatus = lens _uttlrsResponseStatus (\ s a -> s{_uttlrsResponseStatus = a});
 
-instance NFData UpdateTimeToLiveResponse
+instance NFData UpdateTimeToLiveResponse where

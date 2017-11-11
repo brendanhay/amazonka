@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateFunctionDefinitionVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,21 +40,22 @@ module Network.AWS.Greengrass.CreateFunctionDefinitionVersion
     , cfdvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Function definition version
 --
 -- /See:/ 'createFunctionDefinitionVersion' smart constructor.
 data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
-    { _cfdvAmznClientToken      :: !(Maybe Text)
-    , _cfdvFunctions            :: !(Maybe [Function])
-    , _cfdvFunctionDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfdvAmznClientToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfdvFunctions            :: {-# NOUNPACK #-}!(Maybe [Function])
+  , _cfdvFunctionDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFunctionDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ createFunctionDefinitionVersion
     :: Text -- ^ 'cfdvFunctionDefinitionId'
     -> CreateFunctionDefinitionVersion
 createFunctionDefinitionVersion pFunctionDefinitionId_ =
-    CreateFunctionDefinitionVersion'
-    { _cfdvAmznClientToken = Nothing
-    , _cfdvFunctions = Nothing
-    , _cfdvFunctionDefinitionId = pFunctionDefinitionId_
-    }
+  CreateFunctionDefinitionVersion'
+  { _cfdvAmznClientToken = Nothing
+  , _cfdvFunctions = Nothing
+  , _cfdvFunctionDefinitionId = pFunctionDefinitionId_
+  }
+
 
 -- | The client token used to request idempotent operations.
 cfdvAmznClientToken :: Lens' CreateFunctionDefinitionVersion (Maybe Text)
@@ -102,8 +104,9 @@ instance AWSRequest CreateFunctionDefinitionVersion
                      <*> (pure (fromEnum s)))
 
 instance Hashable CreateFunctionDefinitionVersion
+         where
 
-instance NFData CreateFunctionDefinitionVersion
+instance NFData CreateFunctionDefinitionVersion where
 
 instance ToHeaders CreateFunctionDefinitionVersion
          where
@@ -130,12 +133,13 @@ instance ToQuery CreateFunctionDefinitionVersion
 
 -- | /See:/ 'createFunctionDefinitionVersionResponse' smart constructor.
 data CreateFunctionDefinitionVersionResponse = CreateFunctionDefinitionVersionResponse'
-    { _cfdvrsARN               :: !(Maybe Text)
-    , _cfdvrsCreationTimestamp :: !(Maybe Text)
-    , _cfdvrsVersion           :: !(Maybe Text)
-    , _cfdvrsId                :: !(Maybe Text)
-    , _cfdvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfdvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfdvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfdvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfdvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFunctionDefinitionVersionResponse' with the minimum fields required to make a request.
 --
@@ -154,13 +158,14 @@ createFunctionDefinitionVersionResponse
     :: Int -- ^ 'cfdvrsResponseStatus'
     -> CreateFunctionDefinitionVersionResponse
 createFunctionDefinitionVersionResponse pResponseStatus_ =
-    CreateFunctionDefinitionVersionResponse'
-    { _cfdvrsARN = Nothing
-    , _cfdvrsCreationTimestamp = Nothing
-    , _cfdvrsVersion = Nothing
-    , _cfdvrsId = Nothing
-    , _cfdvrsResponseStatus = pResponseStatus_
-    }
+  CreateFunctionDefinitionVersionResponse'
+  { _cfdvrsARN = Nothing
+  , _cfdvrsCreationTimestamp = Nothing
+  , _cfdvrsVersion = Nothing
+  , _cfdvrsId = Nothing
+  , _cfdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Arn of the version.
 cfdvrsARN :: Lens' CreateFunctionDefinitionVersionResponse (Maybe Text)
@@ -183,4 +188,5 @@ cfdvrsResponseStatus :: Lens' CreateFunctionDefinitionVersionResponse Int
 cfdvrsResponseStatus = lens _cfdvrsResponseStatus (\ s a -> s{_cfdvrsResponseStatus = a});
 
 instance NFData
-         CreateFunctionDefinitionVersionResponse
+           CreateFunctionDefinitionVersionResponse
+         where

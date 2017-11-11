@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RestoreAddressToClassic
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.RestoreAddressToClassic
     , ratcrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RestoreAddressToClassic.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreAddressToClassic' smart constructor.
 data RestoreAddressToClassic = RestoreAddressToClassic'
-    { _ratcDryRun   :: !(Maybe Bool)
-    , _ratcPublicIP :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ratcDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ratcPublicIP :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreAddressToClassic' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ restoreAddressToClassic
     :: Text -- ^ 'ratcPublicIP'
     -> RestoreAddressToClassic
 restoreAddressToClassic pPublicIP_ =
-    RestoreAddressToClassic'
-    { _ratcDryRun = Nothing
-    , _ratcPublicIP = pPublicIP_
-    }
+  RestoreAddressToClassic' {_ratcDryRun = Nothing, _ratcPublicIP = pPublicIP_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ratcDryRun :: Lens' RestoreAddressToClassic (Maybe Bool)
@@ -91,9 +90,9 @@ instance AWSRequest RestoreAddressToClassic where
                    (x .@? "status") <*> (x .@? "publicIp") <*>
                      (pure (fromEnum s)))
 
-instance Hashable RestoreAddressToClassic
+instance Hashable RestoreAddressToClassic where
 
-instance NFData RestoreAddressToClassic
+instance NFData RestoreAddressToClassic where
 
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
@@ -115,10 +114,11 @@ instance ToQuery RestoreAddressToClassic where
 --
 -- /See:/ 'restoreAddressToClassicResponse' smart constructor.
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
-    { _ratcrsStatus         :: !(Maybe AddressStatus)
-    , _ratcrsPublicIP       :: !(Maybe Text)
-    , _ratcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ratcrsStatus         :: {-# NOUNPACK #-}!(Maybe AddressStatus)
+  , _ratcrsPublicIP       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ratcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreAddressToClassicResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +133,12 @@ restoreAddressToClassicResponse
     :: Int -- ^ 'ratcrsResponseStatus'
     -> RestoreAddressToClassicResponse
 restoreAddressToClassicResponse pResponseStatus_ =
-    RestoreAddressToClassicResponse'
-    { _ratcrsStatus = Nothing
-    , _ratcrsPublicIP = Nothing
-    , _ratcrsResponseStatus = pResponseStatus_
-    }
+  RestoreAddressToClassicResponse'
+  { _ratcrsStatus = Nothing
+  , _ratcrsPublicIP = Nothing
+  , _ratcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The move status for the IP address.
 ratcrsStatus :: Lens' RestoreAddressToClassicResponse (Maybe AddressStatus)
@@ -151,4 +152,4 @@ ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a});
 ratcrsResponseStatus :: Lens' RestoreAddressToClassicResponse Int
 ratcrsResponseStatus = lens _ratcrsResponseStatus (\ s a -> s{_ratcrsResponseStatus = a});
 
-instance NFData RestoreAddressToClassicResponse
+instance NFData RestoreAddressToClassicResponse where

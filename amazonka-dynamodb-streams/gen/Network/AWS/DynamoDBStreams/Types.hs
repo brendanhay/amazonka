@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -119,40 +119,40 @@ module Network.AWS.DynamoDBStreams.Types
     , srNewImage
     ) where
 
-import           Network.AWS.DynamoDBStreams.Types.Product
-import           Network.AWS.DynamoDBStreams.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.DynamoDBStreams.Types.Product
+import Network.AWS.DynamoDBStreams.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2012-08-10@ of the Amazon DynamoDB Streams SDK configuration.
 dynamoDBStreams :: Service
 dynamoDBStreams =
-    Service
-    { _svcAbbrev = "DynamoDBStreams"
-    , _svcSigner = v4
-    , _svcPrefix = "streams.dynamodb"
-    , _svcVersion = "2012-08-10"
-    , _svcEndpoint = defaultEndpoint dynamoDBStreams
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "DynamoDBStreams"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "DynamoDBStreams"
+  , _svcSigner = v4
+  , _svcPrefix = "streams.dynamodb"
+  , _svcVersion = "2012-08-10"
+  , _svcEndpoint = defaultEndpoint dynamoDBStreams
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "DynamoDBStreams"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -161,18 +161,21 @@ dynamoDBStreams =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The shard iterator has expired and can no longer be used to retrieve stream records. A shard iterator expires 15 minutes after it is retrieved using the @GetShardIterator@ action.
 --
 --
 _ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredIteratorException =
-    _MatchServiceError dynamoDBStreams "ExpiredIteratorException"
+  _MatchServiceError dynamoDBStreams "ExpiredIteratorException"
+
 
 -- | An error occurred on the server side.
 --
 --
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _MatchServiceError dynamoDBStreams "InternalServerError"
+
 
 -- | The operation attempted to read past the oldest stream record in a shard.
 --
@@ -187,18 +190,21 @@ _InternalServerError = _MatchServiceError dynamoDBStreams "InternalServerError"
 --
 _TrimmedDataAccessException :: AsError a => Getting (First ServiceError) a ServiceError
 _TrimmedDataAccessException =
-    _MatchServiceError dynamoDBStreams "TrimmedDataAccessException"
+  _MatchServiceError dynamoDBStreams "TrimmedDataAccessException"
+
 
 -- | The operation tried to access a nonexistent stream.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _MatchServiceError dynamoDBStreams "ResourceNotFoundException"
+  _MatchServiceError dynamoDBStreams "ResourceNotFoundException"
+
 
 -- | Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff> in the /Amazon DynamoDB Developer Guide/ .
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _MatchServiceError dynamoDBStreams "LimitExceededException"
+  _MatchServiceError dynamoDBStreams "LimitExceededException"
+

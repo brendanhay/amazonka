@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetOfferingStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.DeviceFarm.GetOfferingStatus
     , gosrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to retrieve the offering status for the specified customer or account.
 --
@@ -55,8 +55,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getOfferingStatus' smart constructor.
 newtype GetOfferingStatus = GetOfferingStatus'
-    { _gosNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gosNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOfferingStatus' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ newtype GetOfferingStatus = GetOfferingStatus'
 -- * 'gosNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 getOfferingStatus
     :: GetOfferingStatus
-getOfferingStatus =
-    GetOfferingStatus'
-    { _gosNextToken = Nothing
-    }
+getOfferingStatus = GetOfferingStatus' {_gosNextToken = Nothing}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 gosNextToken :: Lens' GetOfferingStatus (Maybe Text)
@@ -94,9 +93,9 @@ instance AWSRequest GetOfferingStatus where
                      <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetOfferingStatus
+instance Hashable GetOfferingStatus where
 
-instance NFData GetOfferingStatus
+instance NFData GetOfferingStatus where
 
 instance ToHeaders GetOfferingStatus where
         toHeaders
@@ -125,11 +124,12 @@ instance ToQuery GetOfferingStatus where
 --
 -- /See:/ 'getOfferingStatusResponse' smart constructor.
 data GetOfferingStatusResponse = GetOfferingStatusResponse'
-    { _gosrsNextPeriod     :: !(Maybe (Map Text OfferingStatus))
-    , _gosrsCurrent        :: !(Maybe (Map Text OfferingStatus))
-    , _gosrsNextToken      :: !(Maybe Text)
-    , _gosrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gosrsNextPeriod     :: {-# NOUNPACK #-}!(Maybe (Map Text OfferingStatus))
+  , _gosrsCurrent        :: {-# NOUNPACK #-}!(Maybe (Map Text OfferingStatus))
+  , _gosrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gosrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOfferingStatusResponse' with the minimum fields required to make a request.
 --
@@ -146,12 +146,13 @@ getOfferingStatusResponse
     :: Int -- ^ 'gosrsResponseStatus'
     -> GetOfferingStatusResponse
 getOfferingStatusResponse pResponseStatus_ =
-    GetOfferingStatusResponse'
-    { _gosrsNextPeriod = Nothing
-    , _gosrsCurrent = Nothing
-    , _gosrsNextToken = Nothing
-    , _gosrsResponseStatus = pResponseStatus_
-    }
+  GetOfferingStatusResponse'
+  { _gosrsNextPeriod = Nothing
+  , _gosrsCurrent = Nothing
+  , _gosrsNextToken = Nothing
+  , _gosrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | When specified, gets the offering status for the next period.
 gosrsNextPeriod :: Lens' GetOfferingStatusResponse (HashMap Text OfferingStatus)
@@ -169,4 +170,4 @@ gosrsNextToken = lens _gosrsNextToken (\ s a -> s{_gosrsNextToken = a});
 gosrsResponseStatus :: Lens' GetOfferingStatusResponse Int
 gosrsResponseStatus = lens _gosrsResponseStatus (\ s a -> s{_gosrsResponseStatus = a});
 
-instance NFData GetOfferingStatusResponse
+instance NFData GetOfferingStatusResponse where

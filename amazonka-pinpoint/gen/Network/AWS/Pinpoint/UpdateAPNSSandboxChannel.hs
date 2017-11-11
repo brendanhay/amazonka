@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateAPNSSandboxChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.UpdateAPNSSandboxChannel
     , uascrsAPNSSandboxChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAPNSSandboxChannel' smart constructor.
 data UpdateAPNSSandboxChannel = UpdateAPNSSandboxChannel'
-    { _uascApplicationId             :: !Text
-    , _uascAPNSSandboxChannelRequest :: !APNSSandboxChannelRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uascApplicationId             :: {-# NOUNPACK #-}!Text
+  , _uascAPNSSandboxChannelRequest :: {-# NOUNPACK #-}!APNSSandboxChannelRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAPNSSandboxChannel' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ updateAPNSSandboxChannel
     -> APNSSandboxChannelRequest -- ^ 'uascAPNSSandboxChannelRequest'
     -> UpdateAPNSSandboxChannel
 updateAPNSSandboxChannel pApplicationId_ pAPNSSandboxChannelRequest_ =
-    UpdateAPNSSandboxChannel'
-    { _uascApplicationId = pApplicationId_
-    , _uascAPNSSandboxChannelRequest = pAPNSSandboxChannelRequest_
-    }
+  UpdateAPNSSandboxChannel'
+  { _uascApplicationId = pApplicationId_
+  , _uascAPNSSandboxChannelRequest = pAPNSSandboxChannelRequest_
+  }
+
 
 -- | Undocumented member.
 uascApplicationId :: Lens' UpdateAPNSSandboxChannel Text
@@ -84,9 +86,9 @@ instance AWSRequest UpdateAPNSSandboxChannel where
                  UpdateAPNSSandboxChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateAPNSSandboxChannel
+instance Hashable UpdateAPNSSandboxChannel where
 
-instance NFData UpdateAPNSSandboxChannel
+instance NFData UpdateAPNSSandboxChannel where
 
 instance ToHeaders UpdateAPNSSandboxChannel where
         toHeaders
@@ -114,9 +116,10 @@ instance ToQuery UpdateAPNSSandboxChannel where
 
 -- | /See:/ 'updateAPNSSandboxChannelResponse' smart constructor.
 data UpdateAPNSSandboxChannelResponse = UpdateAPNSSandboxChannelResponse'
-    { _uascrsResponseStatus             :: !Int
-    , _uascrsAPNSSandboxChannelResponse :: !APNSSandboxChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uascrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _uascrsAPNSSandboxChannelResponse :: {-# NOUNPACK #-}!APNSSandboxChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAPNSSandboxChannelResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +133,11 @@ updateAPNSSandboxChannelResponse
     -> APNSSandboxChannelResponse -- ^ 'uascrsAPNSSandboxChannelResponse'
     -> UpdateAPNSSandboxChannelResponse
 updateAPNSSandboxChannelResponse pResponseStatus_ pAPNSSandboxChannelResponse_ =
-    UpdateAPNSSandboxChannelResponse'
-    { _uascrsResponseStatus = pResponseStatus_
-    , _uascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
-    }
+  UpdateAPNSSandboxChannelResponse'
+  { _uascrsResponseStatus = pResponseStatus_
+  , _uascrsAPNSSandboxChannelResponse = pAPNSSandboxChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 uascrsResponseStatus :: Lens' UpdateAPNSSandboxChannelResponse Int
@@ -144,3 +148,4 @@ uascrsAPNSSandboxChannelResponse :: Lens' UpdateAPNSSandboxChannelResponse APNSS
 uascrsAPNSSandboxChannelResponse = lens _uascrsAPNSSandboxChannelResponse (\ s a -> s{_uascrsAPNSSandboxChannelResponse = a});
 
 instance NFData UpdateAPNSSandboxChannelResponse
+         where

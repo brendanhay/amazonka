@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -189,23 +189,23 @@ module Network.AWS.CloudWatchEvents
     , tARN
     ) where
 
-import           Network.AWS.CloudWatchEvents.DeleteRule
-import           Network.AWS.CloudWatchEvents.DescribeEventBus
-import           Network.AWS.CloudWatchEvents.DescribeRule
-import           Network.AWS.CloudWatchEvents.DisableRule
-import           Network.AWS.CloudWatchEvents.EnableRule
-import           Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
-import           Network.AWS.CloudWatchEvents.ListRules
-import           Network.AWS.CloudWatchEvents.ListTargetsByRule
-import           Network.AWS.CloudWatchEvents.PutEvents
-import           Network.AWS.CloudWatchEvents.PutPermission
-import           Network.AWS.CloudWatchEvents.PutRule
-import           Network.AWS.CloudWatchEvents.PutTargets
-import           Network.AWS.CloudWatchEvents.RemovePermission
-import           Network.AWS.CloudWatchEvents.RemoveTargets
-import           Network.AWS.CloudWatchEvents.TestEventPattern
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Waiters
+import Network.AWS.CloudWatchEvents.DeleteRule
+import Network.AWS.CloudWatchEvents.DescribeEventBus
+import Network.AWS.CloudWatchEvents.DescribeRule
+import Network.AWS.CloudWatchEvents.DisableRule
+import Network.AWS.CloudWatchEvents.EnableRule
+import Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
+import Network.AWS.CloudWatchEvents.ListRules
+import Network.AWS.CloudWatchEvents.ListTargetsByRule
+import Network.AWS.CloudWatchEvents.PutEvents
+import Network.AWS.CloudWatchEvents.PutPermission
+import Network.AWS.CloudWatchEvents.PutRule
+import Network.AWS.CloudWatchEvents.PutTargets
+import Network.AWS.CloudWatchEvents.RemovePermission
+import Network.AWS.CloudWatchEvents.RemoveTargets
+import Network.AWS.CloudWatchEvents.TestEventPattern
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

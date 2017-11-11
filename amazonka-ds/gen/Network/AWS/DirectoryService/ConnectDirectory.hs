@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ConnectDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.DirectoryService.ConnectDirectory
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'ConnectDirectory' operation.
 --
@@ -57,13 +57,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'connectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
-    { _cdShortName       :: !(Maybe Text)
-    , _cdDescription     :: !(Maybe Text)
-    , _cdName            :: !Text
-    , _cdPassword        :: !(Sensitive Text)
-    , _cdSize            :: !DirectorySize
-    , _cdConnectSettings :: !DirectoryConnectSettings
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cdShortName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdName            :: {-# NOUNPACK #-}!Text
+  , _cdPassword        :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _cdSize            :: {-# NOUNPACK #-}!DirectorySize
+  , _cdConnectSettings :: {-# NOUNPACK #-}!DirectoryConnectSettings
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConnectDirectory' with the minimum fields required to make a request.
 --
@@ -87,14 +88,15 @@ connectDirectory
     -> DirectoryConnectSettings -- ^ 'cdConnectSettings'
     -> ConnectDirectory
 connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
-    ConnectDirectory'
-    { _cdShortName = Nothing
-    , _cdDescription = Nothing
-    , _cdName = pName_
-    , _cdPassword = _Sensitive # pPassword_
-    , _cdSize = pSize_
-    , _cdConnectSettings = pConnectSettings_
-    }
+  ConnectDirectory'
+  { _cdShortName = Nothing
+  , _cdDescription = Nothing
+  , _cdName = pName_
+  , _cdPassword = _Sensitive # pPassword_
+  , _cdSize = pSize_
+  , _cdConnectSettings = pConnectSettings_
+  }
+
 
 -- | The NetBIOS name of the on-premises directory, such as @CORP@ .
 cdShortName :: Lens' ConnectDirectory (Maybe Text)
@@ -129,9 +131,9 @@ instance AWSRequest ConnectDirectory where
                  ConnectDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
-instance Hashable ConnectDirectory
+instance Hashable ConnectDirectory where
 
-instance NFData ConnectDirectory
+instance NFData ConnectDirectory where
 
 instance ToHeaders ConnectDirectory where
         toHeaders
@@ -166,9 +168,10 @@ instance ToQuery ConnectDirectory where
 --
 -- /See:/ 'connectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
-    { _cdrsDirectoryId    :: !(Maybe Text)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsDirectoryId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConnectDirectoryResponse' with the minimum fields required to make a request.
 --
@@ -181,10 +184,9 @@ connectDirectoryResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> ConnectDirectoryResponse
 connectDirectoryResponse pResponseStatus_ =
-    ConnectDirectoryResponse'
-    { _cdrsDirectoryId = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  ConnectDirectoryResponse'
+  {_cdrsDirectoryId = Nothing, _cdrsResponseStatus = pResponseStatus_}
+
 
 -- | The identifier of the new directory.
 cdrsDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
@@ -194,4 +196,4 @@ cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
 cdrsResponseStatus :: Lens' ConnectDirectoryResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData ConnectDirectoryResponse
+instance NFData ConnectDirectoryResponse where

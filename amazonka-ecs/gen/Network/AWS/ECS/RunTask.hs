@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.RunTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,24 +49,25 @@ module Network.AWS.ECS.RunTask
     , rtrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'runTask' smart constructor.
 data RunTask = RunTask'
-    { _rtOverrides            :: !(Maybe TaskOverride)
-    , _rtGroup                :: !(Maybe Text)
-    , _rtCluster              :: !(Maybe Text)
-    , _rtCount                :: !(Maybe Int)
-    , _rtPlacementConstraints :: !(Maybe [PlacementConstraint])
-    , _rtPlacementStrategy    :: !(Maybe [PlacementStrategy])
-    , _rtStartedBy            :: !(Maybe Text)
-    , _rtTaskDefinition       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtOverrides            :: {-# NOUNPACK #-}!(Maybe TaskOverride)
+  , _rtGroup                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtCluster              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtCount                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rtPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [PlacementConstraint])
+  , _rtPlacementStrategy    :: {-# NOUNPACK #-}!(Maybe [PlacementStrategy])
+  , _rtStartedBy            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtTaskDefinition       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunTask' with the minimum fields required to make a request.
 --
@@ -91,16 +92,17 @@ runTask
     :: Text -- ^ 'rtTaskDefinition'
     -> RunTask
 runTask pTaskDefinition_ =
-    RunTask'
-    { _rtOverrides = Nothing
-    , _rtGroup = Nothing
-    , _rtCluster = Nothing
-    , _rtCount = Nothing
-    , _rtPlacementConstraints = Nothing
-    , _rtPlacementStrategy = Nothing
-    , _rtStartedBy = Nothing
-    , _rtTaskDefinition = pTaskDefinition_
-    }
+  RunTask'
+  { _rtOverrides = Nothing
+  , _rtGroup = Nothing
+  , _rtCluster = Nothing
+  , _rtCount = Nothing
+  , _rtPlacementConstraints = Nothing
+  , _rtPlacementStrategy = Nothing
+  , _rtStartedBy = Nothing
+  , _rtTaskDefinition = pTaskDefinition_
+  }
+
 
 -- | A list of container overrides in JSON format that specify the name of a container in the specified task definition and the overrides it should receive. You can override the default command for a container (that is specified in the task definition or Docker image) with a @command@ override. You can also override existing environment variables (that are specified in the task definition or Docker image) on a container or add new environment variables to it with an @environment@ override.
 rtOverrides :: Lens' RunTask (Maybe TaskOverride)
@@ -145,9 +147,9 @@ instance AWSRequest RunTask where
                      (x .?> "tasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable RunTask
+instance Hashable RunTask where
 
-instance NFData RunTask
+instance NFData RunTask where
 
 instance ToHeaders RunTask where
         toHeaders
@@ -181,10 +183,11 @@ instance ToQuery RunTask where
 
 -- | /See:/ 'runTaskResponse' smart constructor.
 data RunTaskResponse = RunTaskResponse'
-    { _rtrsFailures       :: !(Maybe [Failure])
-    , _rtrsTasks          :: !(Maybe [Task])
-    , _rtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrsFailures       :: {-# NOUNPACK #-}!(Maybe [Failure])
+  , _rtrsTasks          :: {-# NOUNPACK #-}!(Maybe [Task])
+  , _rtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunTaskResponse' with the minimum fields required to make a request.
 --
@@ -199,11 +202,12 @@ runTaskResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RunTaskResponse
 runTaskResponse pResponseStatus_ =
-    RunTaskResponse'
-    { _rtrsFailures = Nothing
-    , _rtrsTasks = Nothing
-    , _rtrsResponseStatus = pResponseStatus_
-    }
+  RunTaskResponse'
+  { _rtrsFailures = Nothing
+  , _rtrsTasks = Nothing
+  , _rtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Any failures associated with the call.
 rtrsFailures :: Lens' RunTaskResponse [Failure]
@@ -217,4 +221,4 @@ rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default . _Coerce;
 rtrsResponseStatus :: Lens' RunTaskResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 
-instance NFData RunTaskResponse
+instance NFData RunTaskResponse where

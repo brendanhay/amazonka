@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceAccessDetails
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.GetInstanceAccessDetails
     , giadrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getInstanceAccessDetails' smart constructor.
 data GetInstanceAccessDetails = GetInstanceAccessDetails'
-    { _giadProtocol     :: !(Maybe InstanceAccessProtocol)
-    , _giadInstanceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giadProtocol     :: {-# NOUNPACK #-}!(Maybe InstanceAccessProtocol)
+  , _giadInstanceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceAccessDetails' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ getInstanceAccessDetails
     :: Text -- ^ 'giadInstanceName'
     -> GetInstanceAccessDetails
 getInstanceAccessDetails pInstanceName_ =
-    GetInstanceAccessDetails'
-    { _giadProtocol = Nothing
-    , _giadInstanceName = pInstanceName_
-    }
+  GetInstanceAccessDetails'
+  {_giadProtocol = Nothing, _giadInstanceName = pInstanceName_}
+
 
 -- | The protocol to use to connect to your instance. Defaults to @ssh@ .
 giadProtocol :: Lens' GetInstanceAccessDetails (Maybe InstanceAccessProtocol)
@@ -85,9 +85,9 @@ instance AWSRequest GetInstanceAccessDetails where
                  GetInstanceAccessDetailsResponse' <$>
                    (x .?> "accessDetails") <*> (pure (fromEnum s)))
 
-instance Hashable GetInstanceAccessDetails
+instance Hashable GetInstanceAccessDetails where
 
-instance NFData GetInstanceAccessDetails
+instance NFData GetInstanceAccessDetails where
 
 instance ToHeaders GetInstanceAccessDetails where
         toHeaders
@@ -114,9 +114,10 @@ instance ToQuery GetInstanceAccessDetails where
 
 -- | /See:/ 'getInstanceAccessDetailsResponse' smart constructor.
 data GetInstanceAccessDetailsResponse = GetInstanceAccessDetailsResponse'
-    { _giadrsAccessDetails  :: !(Maybe InstanceAccessDetails)
-    , _giadrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giadrsAccessDetails  :: {-# NOUNPACK #-}!(Maybe InstanceAccessDetails)
+  , _giadrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceAccessDetailsResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ getInstanceAccessDetailsResponse
     :: Int -- ^ 'giadrsResponseStatus'
     -> GetInstanceAccessDetailsResponse
 getInstanceAccessDetailsResponse pResponseStatus_ =
-    GetInstanceAccessDetailsResponse'
-    { _giadrsAccessDetails = Nothing
-    , _giadrsResponseStatus = pResponseStatus_
-    }
+  GetInstanceAccessDetailsResponse'
+  {_giadrsAccessDetails = Nothing, _giadrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about a get instance access request.
 giadrsAccessDetails :: Lens' GetInstanceAccessDetailsResponse (Maybe InstanceAccessDetails)
@@ -143,3 +143,4 @@ giadrsResponseStatus :: Lens' GetInstanceAccessDetailsResponse Int
 giadrsResponseStatus = lens _giadrsResponseStatus (\ s a -> s{_giadrsResponseStatus = a});
 
 instance NFData GetInstanceAccessDetailsResponse
+         where

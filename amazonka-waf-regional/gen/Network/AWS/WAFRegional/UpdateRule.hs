@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.UpdateRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -65,19 +65,20 @@ module Network.AWS.WAFRegional.UpdateRule
     , urrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'updateRule' smart constructor.
 data UpdateRule = UpdateRule'
-    { _urRuleId      :: !Text
-    , _urChangeToken :: !Text
-    , _urUpdates     :: ![RuleUpdate]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urRuleId      :: {-# NOUNPACK #-}!Text
+  , _urChangeToken :: {-# NOUNPACK #-}!Text
+  , _urUpdates     :: {-# NOUNPACK #-}![RuleUpdate]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRule' with the minimum fields required to make a request.
 --
@@ -93,11 +94,9 @@ updateRule
     -> Text -- ^ 'urChangeToken'
     -> UpdateRule
 updateRule pRuleId_ pChangeToken_ =
-    UpdateRule'
-    { _urRuleId = pRuleId_
-    , _urChangeToken = pChangeToken_
-    , _urUpdates = mempty
-    }
+  UpdateRule'
+  {_urRuleId = pRuleId_, _urChangeToken = pChangeToken_, _urUpdates = mempty}
+
 
 -- | The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned by @CreateRule@ and by 'ListRules' .
 urRuleId :: Lens' UpdateRule Text
@@ -120,9 +119,9 @@ instance AWSRequest UpdateRule where
                  UpdateRuleResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateRule
+instance Hashable UpdateRule where
 
-instance NFData UpdateRule
+instance NFData UpdateRule where
 
 instance ToHeaders UpdateRule where
         toHeaders
@@ -150,9 +149,10 @@ instance ToQuery UpdateRule where
 
 -- | /See:/ 'updateRuleResponse' smart constructor.
 data UpdateRuleResponse = UpdateRuleResponse'
-    { _urrsChangeToken    :: !(Maybe Text)
-    , _urrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _urrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRuleResponse' with the minimum fields required to make a request.
 --
@@ -165,10 +165,9 @@ updateRuleResponse
     :: Int -- ^ 'urrsResponseStatus'
     -> UpdateRuleResponse
 updateRuleResponse pResponseStatus_ =
-    UpdateRuleResponse'
-    { _urrsChangeToken = Nothing
-    , _urrsResponseStatus = pResponseStatus_
-    }
+  UpdateRuleResponse'
+  {_urrsChangeToken = Nothing, _urrsResponseStatus = pResponseStatus_}
+
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 urrsChangeToken :: Lens' UpdateRuleResponse (Maybe Text)
@@ -178,4 +177,4 @@ urrsChangeToken = lens _urrsChangeToken (\ s a -> s{_urrsChangeToken = a});
 urrsResponseStatus :: Lens' UpdateRuleResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
 
-instance NFData UpdateRuleResponse
+instance NFData UpdateRuleResponse where

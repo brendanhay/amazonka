@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomains
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
     , drsDomainStatusList
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DescribeElasticsearchDomains' @ operation. By default, the API returns the status of all Elasticsearch domains.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeElasticsearchDomains' smart constructor.
 newtype DescribeElasticsearchDomains = DescribeElasticsearchDomains'
-    { _dedDomainNames :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dedDomainNames :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticsearchDomains' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ newtype DescribeElasticsearchDomains = DescribeElasticsearchDomains'
 describeElasticsearchDomains
     :: DescribeElasticsearchDomains
 describeElasticsearchDomains =
-    DescribeElasticsearchDomains'
-    { _dedDomainNames = mempty
-    }
+  DescribeElasticsearchDomains' {_dedDomainNames = mempty}
+
 
 -- | The Elasticsearch domains for which you want information.
 dedDomainNames :: Lens' DescribeElasticsearchDomains [Text]
@@ -81,9 +81,9 @@ instance AWSRequest DescribeElasticsearchDomains
                    (pure (fromEnum s)) <*>
                      (x .?> "DomainStatusList" .!@ mempty))
 
-instance Hashable DescribeElasticsearchDomains
+instance Hashable DescribeElasticsearchDomains where
 
-instance NFData DescribeElasticsearchDomains
+instance NFData DescribeElasticsearchDomains where
 
 instance ToHeaders DescribeElasticsearchDomains where
         toHeaders = const mempty
@@ -105,9 +105,10 @@ instance ToQuery DescribeElasticsearchDomains where
 --
 -- /See:/ 'describeElasticsearchDomainsResponse' smart constructor.
 data DescribeElasticsearchDomainsResponse = DescribeElasticsearchDomainsResponse'
-    { _drsResponseStatus   :: !Int
-    , _drsDomainStatusList :: ![ElasticsearchDomainStatus]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _drsDomainStatusList :: {-# NOUNPACK #-}![ElasticsearchDomainStatus]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticsearchDomainsResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +121,9 @@ describeElasticsearchDomainsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeElasticsearchDomainsResponse
 describeElasticsearchDomainsResponse pResponseStatus_ =
-    DescribeElasticsearchDomainsResponse'
-    { _drsResponseStatus = pResponseStatus_
-    , _drsDomainStatusList = mempty
-    }
+  DescribeElasticsearchDomainsResponse'
+  {_drsResponseStatus = pResponseStatus_, _drsDomainStatusList = mempty}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeElasticsearchDomainsResponse Int
@@ -134,3 +134,4 @@ drsDomainStatusList :: Lens' DescribeElasticsearchDomainsResponse [Elasticsearch
 drsDomainStatusList = lens _drsDomainStatusList (\ s a -> s{_drsDomainStatusList = a}) . _Coerce;
 
 instance NFData DescribeElasticsearchDomainsResponse
+         where

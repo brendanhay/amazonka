@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetPolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.IoT.GetPolicyVersion
     , gpvrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the GetPolicyVersion operation.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getPolicyVersion' smart constructor.
 data GetPolicyVersion = GetPolicyVersion'
-    { _gpvPolicyName      :: !Text
-    , _gpvPolicyVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpvPolicyName      :: {-# NOUNPACK #-}!Text
+  , _gpvPolicyVersionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPolicyVersion' with the minimum fields required to make a request.
 --
@@ -71,10 +72,9 @@ getPolicyVersion
     -> Text -- ^ 'gpvPolicyVersionId'
     -> GetPolicyVersion
 getPolicyVersion pPolicyName_ pPolicyVersionId_ =
-    GetPolicyVersion'
-    { _gpvPolicyName = pPolicyName_
-    , _gpvPolicyVersionId = pPolicyVersionId_
-    }
+  GetPolicyVersion'
+  {_gpvPolicyName = pPolicyName_, _gpvPolicyVersionId = pPolicyVersionId_}
+
 
 -- | The name of the policy.
 gpvPolicyName :: Lens' GetPolicyVersion Text
@@ -97,9 +97,9 @@ instance AWSRequest GetPolicyVersion where
                      <*> (x .?> "isDefaultVersion")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetPolicyVersion
+instance Hashable GetPolicyVersion where
 
-instance NFData GetPolicyVersion
+instance NFData GetPolicyVersion where
 
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty
@@ -119,13 +119,14 @@ instance ToQuery GetPolicyVersion where
 --
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-    { _gpvrsPolicyName       :: !(Maybe Text)
-    , _gpvrsPolicyDocument   :: !(Maybe Text)
-    , _gpvrsPolicyVersionId  :: !(Maybe Text)
-    , _gpvrsPolicyARN        :: !(Maybe Text)
-    , _gpvrsIsDefaultVersion :: !(Maybe Bool)
-    , _gpvrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpvrsPolicyName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpvrsPolicyDocument   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpvrsPolicyVersionId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpvrsPolicyARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpvrsIsDefaultVersion :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gpvrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -146,14 +147,15 @@ getPolicyVersionResponse
     :: Int -- ^ 'gpvrsResponseStatus'
     -> GetPolicyVersionResponse
 getPolicyVersionResponse pResponseStatus_ =
-    GetPolicyVersionResponse'
-    { _gpvrsPolicyName = Nothing
-    , _gpvrsPolicyDocument = Nothing
-    , _gpvrsPolicyVersionId = Nothing
-    , _gpvrsPolicyARN = Nothing
-    , _gpvrsIsDefaultVersion = Nothing
-    , _gpvrsResponseStatus = pResponseStatus_
-    }
+  GetPolicyVersionResponse'
+  { _gpvrsPolicyName = Nothing
+  , _gpvrsPolicyDocument = Nothing
+  , _gpvrsPolicyVersionId = Nothing
+  , _gpvrsPolicyARN = Nothing
+  , _gpvrsIsDefaultVersion = Nothing
+  , _gpvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The policy name.
 gpvrsPolicyName :: Lens' GetPolicyVersionResponse (Maybe Text)
@@ -179,4 +181,4 @@ gpvrsIsDefaultVersion = lens _gpvrsIsDefaultVersion (\ s a -> s{_gpvrsIsDefaultV
 gpvrsResponseStatus :: Lens' GetPolicyVersionResponse Int
 gpvrsResponseStatus = lens _gpvrsResponseStatus (\ s a -> s{_gpvrsResponseStatus = a});
 
-instance NFData GetPolicyVersionResponse
+instance NFData GetPolicyVersionResponse where

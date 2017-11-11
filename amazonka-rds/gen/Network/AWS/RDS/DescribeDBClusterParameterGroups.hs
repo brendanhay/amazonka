@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBClusterParameterGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.RDS.DescribeDBClusterParameterGroups
     , ddcpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,11 +56,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBClusterParameterGroups' smart constructor.
 data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
-    { _ddcpgFilters                     :: !(Maybe [Filter])
-    , _ddcpgMarker                      :: !(Maybe Text)
-    , _ddcpgMaxRecords                  :: !(Maybe Int)
-    , _ddcpgDBClusterParameterGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcpgFilters                     :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddcpgMarker                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcpgMaxRecords                  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ddcpgDBClusterParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBClusterParameterGroups' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
 describeDBClusterParameterGroups
     :: DescribeDBClusterParameterGroups
 describeDBClusterParameterGroups =
-    DescribeDBClusterParameterGroups'
-    { _ddcpgFilters = Nothing
-    , _ddcpgMarker = Nothing
-    , _ddcpgMaxRecords = Nothing
-    , _ddcpgDBClusterParameterGroupName = Nothing
-    }
+  DescribeDBClusterParameterGroups'
+  { _ddcpgFilters = Nothing
+  , _ddcpgMarker = Nothing
+  , _ddcpgMaxRecords = Nothing
+  , _ddcpgDBClusterParameterGroupName = Nothing
+  }
+
 
 -- | This parameter is not currently supported.
 ddcpgFilters :: Lens' DescribeDBClusterParameterGroups [Filter]
@@ -115,8 +117,10 @@ instance AWSRequest DescribeDBClusterParameterGroups
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeDBClusterParameterGroups
+         where
 
 instance NFData DescribeDBClusterParameterGroups
+         where
 
 instance ToHeaders DescribeDBClusterParameterGroups
          where
@@ -146,10 +150,11 @@ instance ToQuery DescribeDBClusterParameterGroups
 --
 -- /See:/ 'describeDBClusterParameterGroupsResponse' smart constructor.
 data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroupsResponse'
-    { _ddcpgrsMarker                   :: !(Maybe Text)
-    , _ddcpgrsDBClusterParameterGroups :: !(Maybe [DBClusterParameterGroup])
-    , _ddcpgrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcpgrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcpgrsDBClusterParameterGroups :: {-# NOUNPACK #-}!(Maybe [DBClusterParameterGroup])
+  , _ddcpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBClusterParameterGroupsResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +169,12 @@ describeDBClusterParameterGroupsResponse
     :: Int -- ^ 'ddcpgrsResponseStatus'
     -> DescribeDBClusterParameterGroupsResponse
 describeDBClusterParameterGroupsResponse pResponseStatus_ =
-    DescribeDBClusterParameterGroupsResponse'
-    { _ddcpgrsMarker = Nothing
-    , _ddcpgrsDBClusterParameterGroups = Nothing
-    , _ddcpgrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBClusterParameterGroupsResponse'
+  { _ddcpgrsMarker = Nothing
+  , _ddcpgrsDBClusterParameterGroups = Nothing
+  , _ddcpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddcpgrsMarker :: Lens' DescribeDBClusterParameterGroupsResponse (Maybe Text)
@@ -183,4 +189,5 @@ ddcpgrsResponseStatus :: Lens' DescribeDBClusterParameterGroupsResponse Int
 ddcpgrsResponseStatus = lens _ddcpgrsResponseStatus (\ s a -> s{_ddcpgrsResponseStatus = a});
 
 instance NFData
-         DescribeDBClusterParameterGroupsResponse
+           DescribeDBClusterParameterGroupsResponse
+         where

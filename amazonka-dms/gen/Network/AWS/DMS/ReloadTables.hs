@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ReloadTables
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.DMS.ReloadTables
     , rtrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'reloadTables' smart constructor.
 data ReloadTables = ReloadTables'
-    { _rtReplicationTaskARN :: !Text
-    , _rtTablesToReload     :: ![TableToReload]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtReplicationTaskARN :: {-# NOUNPACK #-}!Text
+  , _rtTablesToReload     :: {-# NOUNPACK #-}![TableToReload]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReloadTables' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ reloadTables
     :: Text -- ^ 'rtReplicationTaskARN'
     -> ReloadTables
 reloadTables pReplicationTaskARN_ =
-    ReloadTables'
-    { _rtReplicationTaskARN = pReplicationTaskARN_
-    , _rtTablesToReload = mempty
-    }
+  ReloadTables'
+  {_rtReplicationTaskARN = pReplicationTaskARN_, _rtTablesToReload = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 rtReplicationTaskARN :: Lens' ReloadTables Text
@@ -84,9 +84,9 @@ instance AWSRequest ReloadTables where
                  ReloadTablesResponse' <$>
                    (x .?> "ReplicationTaskArn") <*> (pure (fromEnum s)))
 
-instance Hashable ReloadTables
+instance Hashable ReloadTables where
 
-instance NFData ReloadTables
+instance NFData ReloadTables where
 
 instance ToHeaders ReloadTables where
         toHeaders
@@ -113,9 +113,10 @@ instance ToQuery ReloadTables where
 
 -- | /See:/ 'reloadTablesResponse' smart constructor.
 data ReloadTablesResponse = ReloadTablesResponse'
-    { _rtrsReplicationTaskARN :: !(Maybe Text)
-    , _rtrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrsReplicationTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReloadTablesResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +129,9 @@ reloadTablesResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> ReloadTablesResponse
 reloadTablesResponse pResponseStatus_ =
-    ReloadTablesResponse'
-    { _rtrsReplicationTaskARN = Nothing
-    , _rtrsResponseStatus = pResponseStatus_
-    }
+  ReloadTablesResponse'
+  {_rtrsReplicationTaskARN = Nothing, _rtrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the replication task.
 rtrsReplicationTaskARN :: Lens' ReloadTablesResponse (Maybe Text)
@@ -141,4 +141,4 @@ rtrsReplicationTaskARN = lens _rtrsReplicationTaskARN (\ s a -> s{_rtrsReplicati
 rtrsResponseStatus :: Lens' ReloadTablesResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 
-instance NFData ReloadTablesResponse
+instance NFData ReloadTablesResponse where

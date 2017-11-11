@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThingTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.IoT.ListThingTypes
     , lttrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListThingTypes operation.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listThingTypes' smart constructor.
 data ListThingTypes = ListThingTypes'
-    { _lttThingTypeName :: !(Maybe Text)
-    , _lttNextToken     :: !(Maybe Text)
-    , _lttMaxResults    :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lttThingTypeName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lttNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lttMaxResults    :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThingTypes' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ data ListThingTypes = ListThingTypes'
 listThingTypes
     :: ListThingTypes
 listThingTypes =
-    ListThingTypes'
-    { _lttThingTypeName = Nothing
-    , _lttNextToken = Nothing
-    , _lttMaxResults = Nothing
-    }
+  ListThingTypes'
+  { _lttThingTypeName = Nothing
+  , _lttNextToken = Nothing
+  , _lttMaxResults = Nothing
+  }
+
 
 -- | The name of the thing type.
 lttThingTypeName :: Lens' ListThingTypes (Maybe Text)
@@ -109,9 +111,9 @@ instance AWSRequest ListThingTypes where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListThingTypes
+instance Hashable ListThingTypes where
 
-instance NFData ListThingTypes
+instance NFData ListThingTypes where
 
 instance ToHeaders ListThingTypes where
         toHeaders = const mempty
@@ -132,10 +134,11 @@ instance ToQuery ListThingTypes where
 --
 -- /See:/ 'listThingTypesResponse' smart constructor.
 data ListThingTypesResponse = ListThingTypesResponse'
-    { _lttrsThingTypes     :: !(Maybe [ThingTypeDefinition])
-    , _lttrsNextToken      :: !(Maybe Text)
-    , _lttrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lttrsThingTypes     :: {-# NOUNPACK #-}!(Maybe [ThingTypeDefinition])
+  , _lttrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lttrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListThingTypesResponse' with the minimum fields required to make a request.
 --
@@ -150,11 +153,12 @@ listThingTypesResponse
     :: Int -- ^ 'lttrsResponseStatus'
     -> ListThingTypesResponse
 listThingTypesResponse pResponseStatus_ =
-    ListThingTypesResponse'
-    { _lttrsThingTypes = Nothing
-    , _lttrsNextToken = Nothing
-    , _lttrsResponseStatus = pResponseStatus_
-    }
+  ListThingTypesResponse'
+  { _lttrsThingTypes = Nothing
+  , _lttrsNextToken = Nothing
+  , _lttrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The thing types.
 lttrsThingTypes :: Lens' ListThingTypesResponse [ThingTypeDefinition]
@@ -168,4 +172,4 @@ lttrsNextToken = lens _lttrsNextToken (\ s a -> s{_lttrsNextToken = a});
 lttrsResponseStatus :: Lens' ListThingTypesResponse Int
 lttrsResponseStatus = lens _lttrsResponseStatus (\ s a -> s{_lttrsResponseStatus = a});
 
-instance NFData ListThingTypesResponse
+instance NFData ListThingTypesResponse where

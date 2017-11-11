@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteObjectTagging
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.S3.DeleteObjectTagging
     , dotrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteObjectTagging' smart constructor.
 data DeleteObjectTagging = DeleteObjectTagging'
-    { _dotVersionId :: !(Maybe ObjectVersionId)
-    , _dotBucket    :: !BucketName
-    , _dotKey       :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dotVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _dotBucket    :: {-# NOUNPACK #-}!BucketName
+  , _dotKey       :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteObjectTagging' with the minimum fields required to make a request.
 --
@@ -65,11 +66,9 @@ deleteObjectTagging
     -> ObjectKey -- ^ 'dotKey'
     -> DeleteObjectTagging
 deleteObjectTagging pBucket_ pKey_ =
-    DeleteObjectTagging'
-    { _dotVersionId = Nothing
-    , _dotBucket = pBucket_
-    , _dotKey = pKey_
-    }
+  DeleteObjectTagging'
+  {_dotVersionId = Nothing, _dotBucket = pBucket_, _dotKey = pKey_}
+
 
 -- | The versionId of the object that the tag-set will be removed from.
 dotVersionId :: Lens' DeleteObjectTagging (Maybe ObjectVersionId)
@@ -93,9 +92,9 @@ instance AWSRequest DeleteObjectTagging where
                  DeleteObjectTaggingResponse' <$>
                    (h .#? "x-amz-version-id") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteObjectTagging
+instance Hashable DeleteObjectTagging where
 
-instance NFData DeleteObjectTagging
+instance NFData DeleteObjectTagging where
 
 instance ToHeaders DeleteObjectTagging where
         toHeaders = const mempty
@@ -110,9 +109,10 @@ instance ToQuery DeleteObjectTagging where
 
 -- | /See:/ 'deleteObjectTaggingResponse' smart constructor.
 data DeleteObjectTaggingResponse = DeleteObjectTaggingResponse'
-    { _dotrsVersionId      :: !(Maybe ObjectVersionId)
-    , _dotrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dotrsVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _dotrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteObjectTaggingResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +125,9 @@ deleteObjectTaggingResponse
     :: Int -- ^ 'dotrsResponseStatus'
     -> DeleteObjectTaggingResponse
 deleteObjectTaggingResponse pResponseStatus_ =
-    DeleteObjectTaggingResponse'
-    { _dotrsVersionId = Nothing
-    , _dotrsResponseStatus = pResponseStatus_
-    }
+  DeleteObjectTaggingResponse'
+  {_dotrsVersionId = Nothing, _dotrsResponseStatus = pResponseStatus_}
+
 
 -- | The versionId of the object the tag-set was removed from.
 dotrsVersionId :: Lens' DeleteObjectTaggingResponse (Maybe ObjectVersionId)
@@ -138,4 +137,4 @@ dotrsVersionId = lens _dotrsVersionId (\ s a -> s{_dotrsVersionId = a});
 dotrsResponseStatus :: Lens' DeleteObjectTaggingResponse Int
 dotrsResponseStatus = lens _dotrsResponseStatus (\ s a -> s{_dotrsResponseStatus = a});
 
-instance NFData DeleteObjectTaggingResponse
+instance NFData DeleteObjectTaggingResponse where

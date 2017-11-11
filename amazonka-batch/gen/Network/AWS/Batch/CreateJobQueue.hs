@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.CreateJobQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.Batch.CreateJobQueue
     , cjqrsJobQueueARN
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createJobQueue' smart constructor.
 data CreateJobQueue = CreateJobQueue'
-    { _cjqState                   :: !(Maybe JQState)
-    , _cjqJobQueueName            :: !Text
-    , _cjqPriority                :: !Int
-    , _cjqComputeEnvironmentOrder :: ![ComputeEnvironmentOrder]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjqState                   :: {-# NOUNPACK #-}!(Maybe JQState)
+  , _cjqJobQueueName            :: {-# NOUNPACK #-}!Text
+  , _cjqPriority                :: {-# NOUNPACK #-}!Int
+  , _cjqComputeEnvironmentOrder :: {-# NOUNPACK #-}![ComputeEnvironmentOrder]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJobQueue' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ createJobQueue
     -> Int -- ^ 'cjqPriority'
     -> CreateJobQueue
 createJobQueue pJobQueueName_ pPriority_ =
-    CreateJobQueue'
-    { _cjqState = Nothing
-    , _cjqJobQueueName = pJobQueueName_
-    , _cjqPriority = pPriority_
-    , _cjqComputeEnvironmentOrder = mempty
-    }
+  CreateJobQueue'
+  { _cjqState = Nothing
+  , _cjqJobQueueName = pJobQueueName_
+  , _cjqPriority = pPriority_
+  , _cjqComputeEnvironmentOrder = mempty
+  }
+
 
 -- | The state of the job queue. If the job queue state is @ENABLED@ , it is able to accept jobs.
 cjqState :: Lens' CreateJobQueue (Maybe JQState)
@@ -107,9 +109,9 @@ instance AWSRequest CreateJobQueue where
                    (pure (fromEnum s)) <*> (x .:> "jobQueueName") <*>
                      (x .:> "jobQueueArn"))
 
-instance Hashable CreateJobQueue
+instance Hashable CreateJobQueue where
 
-instance NFData CreateJobQueue
+instance NFData CreateJobQueue where
 
 instance ToHeaders CreateJobQueue where
         toHeaders
@@ -137,10 +139,11 @@ instance ToQuery CreateJobQueue where
 
 -- | /See:/ 'createJobQueueResponse' smart constructor.
 data CreateJobQueueResponse = CreateJobQueueResponse'
-    { _cjqrsResponseStatus :: !Int
-    , _cjqrsJobQueueName   :: !Text
-    , _cjqrsJobQueueARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _cjqrsJobQueueName   :: {-# NOUNPACK #-}!Text
+  , _cjqrsJobQueueARN    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJobQueueResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +160,12 @@ createJobQueueResponse
     -> Text -- ^ 'cjqrsJobQueueARN'
     -> CreateJobQueueResponse
 createJobQueueResponse pResponseStatus_ pJobQueueName_ pJobQueueARN_ =
-    CreateJobQueueResponse'
-    { _cjqrsResponseStatus = pResponseStatus_
-    , _cjqrsJobQueueName = pJobQueueName_
-    , _cjqrsJobQueueARN = pJobQueueARN_
-    }
+  CreateJobQueueResponse'
+  { _cjqrsResponseStatus = pResponseStatus_
+  , _cjqrsJobQueueName = pJobQueueName_
+  , _cjqrsJobQueueARN = pJobQueueARN_
+  }
+
 
 -- | -- | The response status code.
 cjqrsResponseStatus :: Lens' CreateJobQueueResponse Int
@@ -175,4 +179,4 @@ cjqrsJobQueueName = lens _cjqrsJobQueueName (\ s a -> s{_cjqrsJobQueueName = a})
 cjqrsJobQueueARN :: Lens' CreateJobQueueResponse Text
 cjqrsJobQueueARN = lens _cjqrsJobQueueARN (\ s a -> s{_cjqrsJobQueueARN = a});
 
-instance NFData CreateJobQueueResponse
+instance NFData CreateJobQueueResponse where

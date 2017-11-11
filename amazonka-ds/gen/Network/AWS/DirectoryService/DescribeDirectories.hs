@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeDirectories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.DirectoryService.DescribeDirectories
     , ddrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DescribeDirectories' operation.
 --
@@ -59,10 +59,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDirectories' smart constructor.
 data DescribeDirectories = DescribeDirectories'
-    { _ddNextToken    :: !(Maybe Text)
-    , _ddDirectoryIds :: !(Maybe [Text])
-    , _ddLimit        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddDirectoryIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ddLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDirectories' with the minimum fields required to make a request.
 --
@@ -76,11 +77,9 @@ data DescribeDirectories = DescribeDirectories'
 describeDirectories
     :: DescribeDirectories
 describeDirectories =
-    DescribeDirectories'
-    { _ddNextToken = Nothing
-    , _ddDirectoryIds = Nothing
-    , _ddLimit = Nothing
-    }
+  DescribeDirectories'
+  {_ddNextToken = Nothing, _ddDirectoryIds = Nothing, _ddLimit = Nothing}
+
 
 -- | The /DescribeDirectoriesResult.NextToken/ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
 ddNextToken :: Lens' DescribeDirectories (Maybe Text)
@@ -106,9 +105,9 @@ instance AWSRequest DescribeDirectories where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDirectories
+instance Hashable DescribeDirectories where
 
-instance NFData DescribeDirectories
+instance NFData DescribeDirectories where
 
 instance ToHeaders DescribeDirectories where
         toHeaders
@@ -140,10 +139,11 @@ instance ToQuery DescribeDirectories where
 --
 -- /See:/ 'describeDirectoriesResponse' smart constructor.
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
-    { _ddrsDirectoryDescriptions :: !(Maybe [DirectoryDescription])
-    , _ddrsNextToken             :: !(Maybe Text)
-    , _ddrsResponseStatus        :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ddrsDirectoryDescriptions :: {-# NOUNPACK #-}!(Maybe [DirectoryDescription])
+  , _ddrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDirectoriesResponse' with the minimum fields required to make a request.
 --
@@ -158,11 +158,12 @@ describeDirectoriesResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDirectoriesResponse
 describeDirectoriesResponse pResponseStatus_ =
-    DescribeDirectoriesResponse'
-    { _ddrsDirectoryDescriptions = Nothing
-    , _ddrsNextToken = Nothing
-    , _ddrsResponseStatus = pResponseStatus_
-    }
+  DescribeDirectoriesResponse'
+  { _ddrsDirectoryDescriptions = Nothing
+  , _ddrsNextToken = Nothing
+  , _ddrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of 'DirectoryDescription' objects that were retrieved. It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 ddrsDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
@@ -176,4 +177,4 @@ ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 ddrsResponseStatus :: Lens' DescribeDirectoriesResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
-instance NFData DescribeDirectoriesResponse
+instance NFData DescribeDirectoriesResponse where

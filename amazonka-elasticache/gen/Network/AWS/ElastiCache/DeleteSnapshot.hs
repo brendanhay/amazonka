@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DeleteSnapshot@ operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteSnapshot' smart constructor.
 newtype DeleteSnapshot = DeleteSnapshot'
-    { _dSnapshotName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dSnapshotName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ deleteSnapshot
     :: Text -- ^ 'dSnapshotName'
     -> DeleteSnapshot
 deleteSnapshot pSnapshotName_ =
-    DeleteSnapshot'
-    { _dSnapshotName = pSnapshotName_
-    }
+  DeleteSnapshot' {_dSnapshotName = pSnapshotName_}
+
 
 -- | The name of the snapshot to be deleted.
 dSnapshotName :: Lens' DeleteSnapshot Text
@@ -79,9 +79,9 @@ instance AWSRequest DeleteSnapshot where
                  DeleteSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteSnapshot
+instance Hashable DeleteSnapshot where
 
-instance NFData DeleteSnapshot
+instance NFData DeleteSnapshot where
 
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty
@@ -98,9 +98,10 @@ instance ToQuery DeleteSnapshot where
 
 -- | /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-    { _dsrsSnapshot       :: !(Maybe Snapshot)
-    , _dsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
+  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -113,10 +114,9 @@ deleteSnapshotResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteSnapshotResponse
 deleteSnapshotResponse pResponseStatus_ =
-    DeleteSnapshotResponse'
-    { _dsrsSnapshot = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DeleteSnapshotResponse'
+  {_dsrsSnapshot = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
@@ -126,4 +126,4 @@ dsrsSnapshot = lens _dsrsSnapshot (\ s a -> s{_dsrsSnapshot = a});
 dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DeleteSnapshotResponse
+instance NFData DeleteSnapshotResponse where

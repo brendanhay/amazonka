@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.PutReportDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,19 +34,20 @@ module Network.AWS.CostAndUsageReport.PutReportDefinition
     , prdrsResponseStatus
     ) where
 
-import           Network.AWS.CostAndUsageReport.Types
-import           Network.AWS.CostAndUsageReport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CostAndUsageReport.Types
+import Network.AWS.CostAndUsageReport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of PutReportDefinition
 --
 -- /See:/ 'putReportDefinition' smart constructor.
 newtype PutReportDefinition = PutReportDefinition'
-    { _prdReportDefinition :: ReportDefinition
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prdReportDefinition :: ReportDefinition
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutReportDefinition' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ putReportDefinition
     :: ReportDefinition -- ^ 'prdReportDefinition'
     -> PutReportDefinition
 putReportDefinition pReportDefinition_ =
-    PutReportDefinition'
-    { _prdReportDefinition = pReportDefinition_
-    }
+  PutReportDefinition' {_prdReportDefinition = pReportDefinition_}
+
 
 -- | Undocumented member.
 prdReportDefinition :: Lens' PutReportDefinition ReportDefinition
@@ -74,9 +74,9 @@ instance AWSRequest PutReportDefinition where
               (\ s h x ->
                  PutReportDefinitionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable PutReportDefinition
+instance Hashable PutReportDefinition where
 
-instance NFData PutReportDefinition
+instance NFData PutReportDefinition where
 
 instance ToHeaders PutReportDefinition where
         toHeaders
@@ -104,8 +104,9 @@ instance ToQuery PutReportDefinition where
 --
 -- /See:/ 'putReportDefinitionResponse' smart constructor.
 newtype PutReportDefinitionResponse = PutReportDefinitionResponse'
-    { _prdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutReportDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -116,12 +117,11 @@ putReportDefinitionResponse
     :: Int -- ^ 'prdrsResponseStatus'
     -> PutReportDefinitionResponse
 putReportDefinitionResponse pResponseStatus_ =
-    PutReportDefinitionResponse'
-    { _prdrsResponseStatus = pResponseStatus_
-    }
+  PutReportDefinitionResponse' {_prdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 prdrsResponseStatus :: Lens' PutReportDefinitionResponse Int
 prdrsResponseStatus = lens _prdrsResponseStatus (\ s a -> s{_prdrsResponseStatus = a});
 
-instance NFData PutReportDefinitionResponse
+instance NFData PutReportDefinitionResponse where

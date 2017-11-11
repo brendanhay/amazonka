@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.PutRepositoryTriggers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodeCommit.PutRepositoryTriggers
     , prtrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input ofa put repository triggers operation.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putRepositoryTriggers' smart constructor.
 data PutRepositoryTriggers = PutRepositoryTriggers'
-    { _prtRepositoryName :: !Text
-    , _prtTriggers       :: ![RepositoryTrigger]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prtRepositoryName :: {-# NOUNPACK #-}!Text
+  , _prtTriggers       :: {-# NOUNPACK #-}![RepositoryTrigger]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRepositoryTriggers' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ putRepositoryTriggers
     :: Text -- ^ 'prtRepositoryName'
     -> PutRepositoryTriggers
 putRepositoryTriggers pRepositoryName_ =
-    PutRepositoryTriggers'
-    { _prtRepositoryName = pRepositoryName_
-    , _prtTriggers = mempty
-    }
+  PutRepositoryTriggers'
+  {_prtRepositoryName = pRepositoryName_, _prtTriggers = mempty}
+
 
 -- | The name of the repository where you want to create or update the trigger.
 prtRepositoryName :: Lens' PutRepositoryTriggers Text
@@ -89,9 +89,9 @@ instance AWSRequest PutRepositoryTriggers where
                  PutRepositoryTriggersResponse' <$>
                    (x .?> "configurationId") <*> (pure (fromEnum s)))
 
-instance Hashable PutRepositoryTriggers
+instance Hashable PutRepositoryTriggers where
 
-instance NFData PutRepositoryTriggers
+instance NFData PutRepositoryTriggers where
 
 instance ToHeaders PutRepositoryTriggers where
         toHeaders
@@ -122,9 +122,10 @@ instance ToQuery PutRepositoryTriggers where
 --
 -- /See:/ 'putRepositoryTriggersResponse' smart constructor.
 data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
-    { _prtrsConfigurationId :: !(Maybe Text)
-    , _prtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prtrsConfigurationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRepositoryTriggersResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +138,9 @@ putRepositoryTriggersResponse
     :: Int -- ^ 'prtrsResponseStatus'
     -> PutRepositoryTriggersResponse
 putRepositoryTriggersResponse pResponseStatus_ =
-    PutRepositoryTriggersResponse'
-    { _prtrsConfigurationId = Nothing
-    , _prtrsResponseStatus = pResponseStatus_
-    }
+  PutRepositoryTriggersResponse'
+  {_prtrsConfigurationId = Nothing, _prtrsResponseStatus = pResponseStatus_}
+
 
 -- | The system-generated unique ID for the create or update operation.
 prtrsConfigurationId :: Lens' PutRepositoryTriggersResponse (Maybe Text)
@@ -150,4 +150,4 @@ prtrsConfigurationId = lens _prtrsConfigurationId (\ s a -> s{_prtrsConfiguratio
 prtrsResponseStatus :: Lens' PutRepositoryTriggersResponse Int
 prtrsResponseStatus = lens _prtrsResponseStatus (\ s a -> s{_prtrsResponseStatus = a});
 
-instance NFData PutRepositoryTriggersResponse
+instance NFData PutRepositoryTriggersResponse where

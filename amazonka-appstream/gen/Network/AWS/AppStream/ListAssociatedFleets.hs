@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.ListAssociatedFleets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.AppStream.ListAssociatedFleets
     , lafrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAssociatedFleets' smart constructor.
 data ListAssociatedFleets = ListAssociatedFleets'
-    { _lafNextToken :: !(Maybe Text)
-    , _lafStackName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lafNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lafStackName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssociatedFleets' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ listAssociatedFleets
     :: Text -- ^ 'lafStackName'
     -> ListAssociatedFleets
 listAssociatedFleets pStackName_ =
-    ListAssociatedFleets'
-    { _lafNextToken = Nothing
-    , _lafStackName = pStackName_
-    }
+  ListAssociatedFleets' {_lafNextToken = Nothing, _lafStackName = pStackName_}
+
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 lafNextToken :: Lens' ListAssociatedFleets (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest ListAssociatedFleets where
                    (x .?> "NextToken") <*> (x .?> "Names" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAssociatedFleets
+instance Hashable ListAssociatedFleets where
 
-instance NFData ListAssociatedFleets
+instance NFData ListAssociatedFleets where
 
 instance ToHeaders ListAssociatedFleets where
         toHeaders
@@ -120,10 +119,11 @@ instance ToQuery ListAssociatedFleets where
 --
 -- /See:/ 'listAssociatedFleetsResponse' smart constructor.
 data ListAssociatedFleetsResponse = ListAssociatedFleetsResponse'
-    { _lafrsNextToken      :: !(Maybe Text)
-    , _lafrsNames          :: !(Maybe [Text])
-    , _lafrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lafrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lafrsNames          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lafrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssociatedFleetsResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +138,12 @@ listAssociatedFleetsResponse
     :: Int -- ^ 'lafrsResponseStatus'
     -> ListAssociatedFleetsResponse
 listAssociatedFleetsResponse pResponseStatus_ =
-    ListAssociatedFleetsResponse'
-    { _lafrsNextToken = Nothing
-    , _lafrsNames = Nothing
-    , _lafrsResponseStatus = pResponseStatus_
-    }
+  ListAssociatedFleetsResponse'
+  { _lafrsNextToken = Nothing
+  , _lafrsNames = Nothing
+  , _lafrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 lafrsNextToken :: Lens' ListAssociatedFleetsResponse (Maybe Text)
@@ -156,4 +157,4 @@ lafrsNames = lens _lafrsNames (\ s a -> s{_lafrsNames = a}) . _Default . _Coerce
 lafrsResponseStatus :: Lens' ListAssociatedFleetsResponse Int
 lafrsResponseStatus = lens _lafrsResponseStatus (\ s a -> s{_lafrsResponseStatus = a});
 
-instance NFData ListAssociatedFleetsResponse
+instance NFData ListAssociatedFleetsResponse where

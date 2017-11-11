@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListAliases
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.Lambda.ListAliases
     , larsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAliases' smart constructor.
 data ListAliases = ListAliases'
-    { _laMarker          :: !(Maybe Text)
-    , _laMaxItems        :: !(Maybe Nat)
-    , _laFunctionVersion :: !(Maybe Text)
-    , _laFunctionName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laMaxItems        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _laFunctionVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laFunctionName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ listAliases
     :: Text -- ^ 'laFunctionName'
     -> ListAliases
 listAliases pFunctionName_ =
-    ListAliases'
-    { _laMarker = Nothing
-    , _laMaxItems = Nothing
-    , _laFunctionVersion = Nothing
-    , _laFunctionName = pFunctionName_
-    }
+  ListAliases'
+  { _laMarker = Nothing
+  , _laMaxItems = Nothing
+  , _laFunctionVersion = Nothing
+  , _laFunctionName = pFunctionName_
+  }
+
 
 -- | Optional string. An opaque pagination token returned from a previous @ListAliases@ operation. If present, indicates where to continue the listing.
 laMarker :: Lens' ListAliases (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest ListAliases where
                    (x .?> "Aliases" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAliases
+instance Hashable ListAliases where
 
-instance NFData ListAliases
+instance NFData ListAliases where
 
 instance ToHeaders ListAliases where
         toHeaders = const mempty
@@ -127,10 +129,11 @@ instance ToQuery ListAliases where
 
 -- | /See:/ 'listAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-    { _larsAliases        :: !(Maybe [AliasConfiguration])
-    , _larsNextMarker     :: !(Maybe Text)
-    , _larsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsAliases        :: {-# NOUNPACK #-}!(Maybe [AliasConfiguration])
+  , _larsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +148,12 @@ listAliasesResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAliasesResponse
 listAliasesResponse pResponseStatus_ =
-    ListAliasesResponse'
-    { _larsAliases = Nothing
-    , _larsNextMarker = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    }
+  ListAliasesResponse'
+  { _larsAliases = Nothing
+  , _larsNextMarker = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of aliases.
 larsAliases :: Lens' ListAliasesResponse [AliasConfiguration]
@@ -163,4 +167,4 @@ larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 larsResponseStatus :: Lens' ListAliasesResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 
-instance NFData ListAliasesResponse
+instance NFData ListAliasesResponse where

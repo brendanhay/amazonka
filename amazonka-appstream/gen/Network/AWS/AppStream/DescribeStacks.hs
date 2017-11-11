@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeStacks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.AppStream.DescribeStacks
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
-    { _dNextToken :: !(Maybe Text)
-    , _dNames     :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dNames     :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStacks' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data DescribeStacks = DescribeStacks'
 -- * 'dNames' - The stack names to describe. Use null to describe all the stacks for the AWS account.
 describeStacks
     :: DescribeStacks
-describeStacks =
-    DescribeStacks'
-    { _dNextToken = Nothing
-    , _dNames = Nothing
-    }
+describeStacks = DescribeStacks' {_dNextToken = Nothing, _dNames = Nothing}
+
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 dNextToken :: Lens' DescribeStacks (Maybe Text)
@@ -85,9 +83,9 @@ instance AWSRequest DescribeStacks where
                    (x .?> "NextToken") <*> (x .?> "Stacks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeStacks
+instance Hashable DescribeStacks where
 
-instance NFData DescribeStacks
+instance NFData DescribeStacks where
 
 instance ToHeaders DescribeStacks where
         toHeaders
@@ -114,10 +112,11 @@ instance ToQuery DescribeStacks where
 
 -- | /See:/ 'describeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-    { _desrsNextToken      :: !(Maybe Text)
-    , _desrsStacks         :: !(Maybe [Stack])
-    , _desrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsStacks         :: {-# NOUNPACK #-}!(Maybe [Stack])
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStacksResponse' with the minimum fields required to make a request.
 --
@@ -132,11 +131,12 @@ describeStacksResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeStacksResponse
 describeStacksResponse pResponseStatus_ =
-    DescribeStacksResponse'
-    { _desrsNextToken = Nothing
-    , _desrsStacks = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeStacksResponse'
+  { _desrsNextToken = Nothing
+  , _desrsStacks = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 desrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
@@ -150,4 +150,4 @@ desrsStacks = lens _desrsStacks (\ s a -> s{_desrsStacks = a}) . _Default . _Coe
 desrsResponseStatus :: Lens' DescribeStacksResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeStacksResponse
+instance NFData DescribeStacksResponse where

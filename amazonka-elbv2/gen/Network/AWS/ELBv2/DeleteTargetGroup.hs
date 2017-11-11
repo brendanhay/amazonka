@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeleteTargetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.ELBv2.DeleteTargetGroup
     , dtgrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteTargetGroup' smart constructor.
 newtype DeleteTargetGroup = DeleteTargetGroup'
-    { _dtgTargetGroupARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtgTargetGroupARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTargetGroup' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteTargetGroup
     :: Text -- ^ 'dtgTargetGroupARN'
     -> DeleteTargetGroup
 deleteTargetGroup pTargetGroupARN_ =
-    DeleteTargetGroup'
-    { _dtgTargetGroupARN = pTargetGroupARN_
-    }
+  DeleteTargetGroup' {_dtgTargetGroupARN = pTargetGroupARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the target group.
 dtgTargetGroupARN :: Lens' DeleteTargetGroup Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteTargetGroup where
               (\ s h x ->
                  DeleteTargetGroupResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteTargetGroup
+instance Hashable DeleteTargetGroup where
 
-instance NFData DeleteTargetGroup
+instance NFData DeleteTargetGroup where
 
 instance ToHeaders DeleteTargetGroup where
         toHeaders = const mempty
@@ -94,8 +94,9 @@ instance ToQuery DeleteTargetGroup where
 
 -- | /See:/ 'deleteTargetGroupResponse' smart constructor.
 newtype DeleteTargetGroupResponse = DeleteTargetGroupResponse'
-    { _dtgrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtgrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTargetGroupResponse' with the minimum fields required to make a request.
 --
@@ -106,12 +107,11 @@ deleteTargetGroupResponse
     :: Int -- ^ 'dtgrsResponseStatus'
     -> DeleteTargetGroupResponse
 deleteTargetGroupResponse pResponseStatus_ =
-    DeleteTargetGroupResponse'
-    { _dtgrsResponseStatus = pResponseStatus_
-    }
+  DeleteTargetGroupResponse' {_dtgrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dtgrsResponseStatus :: Lens' DeleteTargetGroupResponse Int
 dtgrsResponseStatus = lens _dtgrsResponseStatus (\ s a -> s{_dtgrsResponseStatus = a});
 
-instance NFData DeleteTargetGroupResponse
+instance NFData DeleteTargetGroupResponse where

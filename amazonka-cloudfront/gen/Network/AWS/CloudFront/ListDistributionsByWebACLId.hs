@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListDistributionsByWebACLId
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFront.ListDistributionsByWebACLId
     , ldbwairsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list distributions that are associated with a specified AWS WAF web ACL.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listDistributionsByWebACLId' smart constructor.
 data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
-    { _ldbwaiMarker   :: !(Maybe Text)
-    , _ldbwaiMaxItems :: !(Maybe Text)
-    , _ldbwaiWebACLId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldbwaiMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldbwaiMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldbwaiWebACLId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDistributionsByWebACLId' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ listDistributionsByWebACLId
     :: Text -- ^ 'ldbwaiWebACLId'
     -> ListDistributionsByWebACLId
 listDistributionsByWebACLId pWebACLId_ =
-    ListDistributionsByWebACLId'
-    { _ldbwaiMarker = Nothing
-    , _ldbwaiMaxItems = Nothing
-    , _ldbwaiWebACLId = pWebACLId_
-    }
+  ListDistributionsByWebACLId'
+  { _ldbwaiMarker = Nothing
+  , _ldbwaiMaxItems = Nothing
+  , _ldbwaiWebACLId = pWebACLId_
+  }
+
 
 -- | Use @Marker@ and @MaxItems@ to control pagination of results. If you have more than @MaxItems@ distributions that satisfy the request, the response includes a @NextMarker@ element. To get the next page of results, submit another request. For the value of @Marker@ , specify the value of @NextMarker@ from the last response. (For the first request, omit @Marker@ .)
 ldbwaiMarker :: Lens' ListDistributionsByWebACLId (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest ListDistributionsByWebACLId where
                  ListDistributionsByWebACLIdResponse' <$>
                    (parseXML x) <*> (pure (fromEnum s)))
 
-instance Hashable ListDistributionsByWebACLId
+instance Hashable ListDistributionsByWebACLId where
 
-instance NFData ListDistributionsByWebACLId
+instance NFData ListDistributionsByWebACLId where
 
 instance ToHeaders ListDistributionsByWebACLId where
         toHeaders = const mempty
@@ -123,9 +125,10 @@ instance ToQuery ListDistributionsByWebACLId where
 --
 -- /See:/ 'listDistributionsByWebACLIdResponse' smart constructor.
 data ListDistributionsByWebACLIdResponse = ListDistributionsByWebACLIdResponse'
-    { _ldbwairsDistributionList :: !(Maybe DistributionList)
-    , _ldbwairsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldbwairsDistributionList :: {-# NOUNPACK #-}!(Maybe DistributionList)
+  , _ldbwairsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDistributionsByWebACLIdResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,11 @@ listDistributionsByWebACLIdResponse
     :: Int -- ^ 'ldbwairsResponseStatus'
     -> ListDistributionsByWebACLIdResponse
 listDistributionsByWebACLIdResponse pResponseStatus_ =
-    ListDistributionsByWebACLIdResponse'
-    { _ldbwairsDistributionList = Nothing
-    , _ldbwairsResponseStatus = pResponseStatus_
-    }
+  ListDistributionsByWebACLIdResponse'
+  { _ldbwairsDistributionList = Nothing
+  , _ldbwairsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @DistributionList@ type.
 ldbwairsDistributionList :: Lens' ListDistributionsByWebACLIdResponse (Maybe DistributionList)
@@ -152,3 +156,4 @@ ldbwairsResponseStatus :: Lens' ListDistributionsByWebACLIdResponse Int
 ldbwairsResponseStatus = lens _ldbwairsResponseStatus (\ s a -> s{_ldbwairsResponseStatus = a});
 
 instance NFData ListDistributionsByWebACLIdResponse
+         where

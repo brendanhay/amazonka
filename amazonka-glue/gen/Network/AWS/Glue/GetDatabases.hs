@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetDatabases
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Glue.GetDatabases
     , gdsrsDatabaseList
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDatabases' smart constructor.
 data GetDatabases = GetDatabases'
-    { _gdCatalogId  :: !(Maybe Text)
-    , _gdNextToken  :: !(Maybe Text)
-    , _gdMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdCatalogId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDatabases' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data GetDatabases = GetDatabases'
 getDatabases
     :: GetDatabases
 getDatabases =
-    GetDatabases'
-    { _gdCatalogId = Nothing
-    , _gdNextToken = Nothing
-    , _gdMaxResults = Nothing
-    }
+  GetDatabases'
+  {_gdCatalogId = Nothing, _gdNextToken = Nothing, _gdMaxResults = Nothing}
+
 
 -- | The ID of the Data Catalog from which to retrieve @Databases@ . If none is supplied, the AWS account ID is used by default.
 gdCatalogId :: Lens' GetDatabases (Maybe Text)
@@ -94,9 +93,9 @@ instance AWSRequest GetDatabases where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "DatabaseList" .!@ mempty))
 
-instance Hashable GetDatabases
+instance Hashable GetDatabases where
 
-instance NFData GetDatabases
+instance NFData GetDatabases where
 
 instance ToHeaders GetDatabases where
         toHeaders
@@ -123,10 +122,11 @@ instance ToQuery GetDatabases where
 
 -- | /See:/ 'getDatabasesResponse' smart constructor.
 data GetDatabasesResponse = GetDatabasesResponse'
-    { _gdsrsNextToken      :: !(Maybe Text)
-    , _gdsrsResponseStatus :: !Int
-    , _gdsrsDatabaseList   :: ![Database]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gdsrsDatabaseList   :: {-# NOUNPACK #-}![Database]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDatabasesResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +141,12 @@ getDatabasesResponse
     :: Int -- ^ 'gdsrsResponseStatus'
     -> GetDatabasesResponse
 getDatabasesResponse pResponseStatus_ =
-    GetDatabasesResponse'
-    { _gdsrsNextToken = Nothing
-    , _gdsrsResponseStatus = pResponseStatus_
-    , _gdsrsDatabaseList = mempty
-    }
+  GetDatabasesResponse'
+  { _gdsrsNextToken = Nothing
+  , _gdsrsResponseStatus = pResponseStatus_
+  , _gdsrsDatabaseList = mempty
+  }
+
 
 -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
 gdsrsNextToken :: Lens' GetDatabasesResponse (Maybe Text)
@@ -159,4 +160,4 @@ gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus
 gdsrsDatabaseList :: Lens' GetDatabasesResponse [Database]
 gdsrsDatabaseList = lens _gdsrsDatabaseList (\ s a -> s{_gdsrsDatabaseList = a}) . _Coerce;
 
-instance NFData GetDatabasesResponse
+instance NFData GetDatabasesResponse where

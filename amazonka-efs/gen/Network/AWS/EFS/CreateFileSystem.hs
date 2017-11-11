@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.CreateFileSystem
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -65,20 +65,21 @@ module Network.AWS.EFS.CreateFileSystem
     , fsdPerformanceMode
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createFileSystem' smart constructor.
 data CreateFileSystem = CreateFileSystem'
-    { _cfsPerformanceMode :: !(Maybe PerformanceMode)
-    , _cfsEncrypted       :: !(Maybe Bool)
-    , _cfsKMSKeyId        :: !(Maybe Text)
-    , _cfsCreationToken   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfsPerformanceMode :: {-# NOUNPACK #-}!(Maybe PerformanceMode)
+  , _cfsEncrypted       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cfsKMSKeyId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfsCreationToken   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFileSystem' with the minimum fields required to make a request.
 --
@@ -95,12 +96,13 @@ createFileSystem
     :: Text -- ^ 'cfsCreationToken'
     -> CreateFileSystem
 createFileSystem pCreationToken_ =
-    CreateFileSystem'
-    { _cfsPerformanceMode = Nothing
-    , _cfsEncrypted = Nothing
-    , _cfsKMSKeyId = Nothing
-    , _cfsCreationToken = pCreationToken_
-    }
+  CreateFileSystem'
+  { _cfsPerformanceMode = Nothing
+  , _cfsEncrypted = Nothing
+  , _cfsKMSKeyId = Nothing
+  , _cfsCreationToken = pCreationToken_
+  }
+
 
 -- | The @PerformanceMode@ of the file system. We recommend @generalPurpose@ performance mode for most file systems. File systems using the @maxIO@ performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. This can't be changed after the file system has been created.
 cfsPerformanceMode :: Lens' CreateFileSystem (Maybe PerformanceMode)
@@ -123,9 +125,9 @@ instance AWSRequest CreateFileSystem where
         request = postJSON efs
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateFileSystem
+instance Hashable CreateFileSystem where
 
-instance NFData CreateFileSystem
+instance NFData CreateFileSystem where
 
 instance ToHeaders CreateFileSystem where
         toHeaders = const mempty

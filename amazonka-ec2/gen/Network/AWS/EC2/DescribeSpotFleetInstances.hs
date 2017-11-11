@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotFleetInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
     , dsfirsSpotFleetRequestId
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetInstances.
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSpotFleetInstances' smart constructor.
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
-    { _dsfiNextToken          :: !(Maybe Text)
-    , _dsfiDryRun             :: !(Maybe Bool)
-    , _dsfiMaxResults         :: !(Maybe Int)
-    , _dsfiSpotFleetRequestId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsfiNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsfiDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsfiMaxResults         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsfiSpotFleetRequestId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSpotFleetInstances' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ describeSpotFleetInstances
     :: Text -- ^ 'dsfiSpotFleetRequestId'
     -> DescribeSpotFleetInstances
 describeSpotFleetInstances pSpotFleetRequestId_ =
-    DescribeSpotFleetInstances'
-    { _dsfiNextToken = Nothing
-    , _dsfiDryRun = Nothing
-    , _dsfiMaxResults = Nothing
-    , _dsfiSpotFleetRequestId = pSpotFleetRequestId_
-    }
+  DescribeSpotFleetInstances'
+  { _dsfiNextToken = Nothing
+  , _dsfiDryRun = Nothing
+  , _dsfiMaxResults = Nothing
+  , _dsfiSpotFleetRequestId = pSpotFleetRequestId_
+  }
+
 
 -- | The token for the next set of results.
 dsfiNextToken :: Lens' DescribeSpotFleetInstances (Maybe Text)
@@ -112,9 +114,9 @@ instance AWSRequest DescribeSpotFleetInstances where
                         parseXMLList "item")
                      <*> (x .@ "spotFleetRequestId"))
 
-instance Hashable DescribeSpotFleetInstances
+instance Hashable DescribeSpotFleetInstances where
 
-instance NFData DescribeSpotFleetInstances
+instance NFData DescribeSpotFleetInstances where
 
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty
@@ -139,11 +141,12 @@ instance ToQuery DescribeSpotFleetInstances where
 --
 -- /See:/ 'describeSpotFleetInstancesResponse' smart constructor.
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
-    { _dsfirsNextToken          :: !(Maybe Text)
-    , _dsfirsResponseStatus     :: !Int
-    , _dsfirsActiveInstances    :: ![ActiveInstance]
-    , _dsfirsSpotFleetRequestId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsfirsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsfirsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _dsfirsActiveInstances    :: {-# NOUNPACK #-}![ActiveInstance]
+  , _dsfirsSpotFleetRequestId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSpotFleetInstancesResponse' with the minimum fields required to make a request.
 --
@@ -161,12 +164,13 @@ describeSpotFleetInstancesResponse
     -> Text -- ^ 'dsfirsSpotFleetRequestId'
     -> DescribeSpotFleetInstancesResponse
 describeSpotFleetInstancesResponse pResponseStatus_ pSpotFleetRequestId_ =
-    DescribeSpotFleetInstancesResponse'
-    { _dsfirsNextToken = Nothing
-    , _dsfirsResponseStatus = pResponseStatus_
-    , _dsfirsActiveInstances = mempty
-    , _dsfirsSpotFleetRequestId = pSpotFleetRequestId_
-    }
+  DescribeSpotFleetInstancesResponse'
+  { _dsfirsNextToken = Nothing
+  , _dsfirsResponseStatus = pResponseStatus_
+  , _dsfirsActiveInstances = mempty
+  , _dsfirsSpotFleetRequestId = pSpotFleetRequestId_
+  }
+
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 dsfirsNextToken :: Lens' DescribeSpotFleetInstancesResponse (Maybe Text)
@@ -185,3 +189,4 @@ dsfirsSpotFleetRequestId :: Lens' DescribeSpotFleetInstancesResponse Text
 dsfirsSpotFleetRequestId = lens _dsfirsSpotFleetRequestId (\ s a -> s{_dsfirsSpotFleetRequestId = a});
 
 instance NFData DescribeSpotFleetInstancesResponse
+         where

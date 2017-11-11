@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
     , lsdvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listSubscriptionDefinitionVersions' smart constructor.
 data ListSubscriptionDefinitionVersions = ListSubscriptionDefinitionVersions'
-    { _lsdvNextToken                :: !(Maybe Text)
-    , _lsdvMaxResults               :: !(Maybe Text)
-    , _lsdvSubscriptionDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsdvNextToken                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsdvMaxResults               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsdvSubscriptionDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSubscriptionDefinitionVersions' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ listSubscriptionDefinitionVersions
     :: Text -- ^ 'lsdvSubscriptionDefinitionId'
     -> ListSubscriptionDefinitionVersions
 listSubscriptionDefinitionVersions pSubscriptionDefinitionId_ =
-    ListSubscriptionDefinitionVersions'
-    { _lsdvNextToken = Nothing
-    , _lsdvMaxResults = Nothing
-    , _lsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
-    }
+  ListSubscriptionDefinitionVersions'
+  { _lsdvNextToken = Nothing
+  , _lsdvMaxResults = Nothing
+  , _lsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
+  }
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lsdvNextToken :: Lens' ListSubscriptionDefinitionVersions (Maybe Text)
@@ -84,7 +86,8 @@ lsdvSubscriptionDefinitionId :: Lens' ListSubscriptionDefinitionVersions Text
 lsdvSubscriptionDefinitionId = lens _lsdvSubscriptionDefinitionId (\ s a -> s{_lsdvSubscriptionDefinitionId = a});
 
 instance AWSRequest
-         ListSubscriptionDefinitionVersions where
+           ListSubscriptionDefinitionVersions
+         where
         type Rs ListSubscriptionDefinitionVersions =
              ListSubscriptionDefinitionVersionsResponse
         request = get greengrass
@@ -96,8 +99,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListSubscriptionDefinitionVersions
+         where
 
 instance NFData ListSubscriptionDefinitionVersions
+         where
 
 instance ToHeaders ListSubscriptionDefinitionVersions
          where
@@ -123,10 +128,11 @@ instance ToQuery ListSubscriptionDefinitionVersions
 
 -- | /See:/ 'listSubscriptionDefinitionVersionsResponse' smart constructor.
 data ListSubscriptionDefinitionVersionsResponse = ListSubscriptionDefinitionVersionsResponse'
-    { _lsdvrsVersions       :: !(Maybe [VersionInformation])
-    , _lsdvrsNextToken      :: !(Maybe Text)
-    , _lsdvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsdvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
+  , _lsdvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSubscriptionDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +147,12 @@ listSubscriptionDefinitionVersionsResponse
     :: Int -- ^ 'lsdvrsResponseStatus'
     -> ListSubscriptionDefinitionVersionsResponse
 listSubscriptionDefinitionVersionsResponse pResponseStatus_ =
-    ListSubscriptionDefinitionVersionsResponse'
-    { _lsdvrsVersions = Nothing
-    , _lsdvrsNextToken = Nothing
-    , _lsdvrsResponseStatus = pResponseStatus_
-    }
+  ListSubscriptionDefinitionVersionsResponse'
+  { _lsdvrsVersions = Nothing
+  , _lsdvrsNextToken = Nothing
+  , _lsdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Versions
 lsdvrsVersions :: Lens' ListSubscriptionDefinitionVersionsResponse [VersionInformation]
@@ -160,4 +167,5 @@ lsdvrsResponseStatus :: Lens' ListSubscriptionDefinitionVersionsResponse Int
 lsdvrsResponseStatus = lens _lsdvrsResponseStatus (\ s a -> s{_lsdvrsResponseStatus = a});
 
 instance NFData
-         ListSubscriptionDefinitionVersionsResponse
+           ListSubscriptionDefinitionVersionsResponse
+         where

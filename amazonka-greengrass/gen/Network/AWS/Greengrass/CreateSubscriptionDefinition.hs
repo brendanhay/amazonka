@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateSubscriptionDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.Greengrass.CreateSubscriptionDefinition
     , csdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createSubscriptionDefinition' smart constructor.
 data CreateSubscriptionDefinition = CreateSubscriptionDefinition'
-    { _csdAmznClientToken :: !(Maybe Text)
-    , _csdInitialVersion  :: !(Maybe SubscriptionDefinitionVersion)
-    , _csdName            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdInitialVersion :: {-# NOUNPACK #-}!(Maybe SubscriptionDefinitionVersion)
+  , _csdName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubscriptionDefinition' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data CreateSubscriptionDefinition = CreateSubscriptionDefinition'
 createSubscriptionDefinition
     :: CreateSubscriptionDefinition
 createSubscriptionDefinition =
-    CreateSubscriptionDefinition'
-    { _csdAmznClientToken = Nothing
-    , _csdInitialVersion = Nothing
-    , _csdName = Nothing
-    }
+  CreateSubscriptionDefinition'
+  { _csdAmznClientToken = Nothing
+  , _csdInitialVersion = Nothing
+  , _csdName = Nothing
+  }
+
 
 -- | The client token used to request idempotent operations.
 csdAmznClientToken :: Lens' CreateSubscriptionDefinition (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest CreateSubscriptionDefinition
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateSubscriptionDefinition
+instance Hashable CreateSubscriptionDefinition where
 
-instance NFData CreateSubscriptionDefinition
+instance NFData CreateSubscriptionDefinition where
 
 instance ToHeaders CreateSubscriptionDefinition where
         toHeaders CreateSubscriptionDefinition'{..}
@@ -130,15 +132,16 @@ instance ToQuery CreateSubscriptionDefinition where
 
 -- | /See:/ 'createSubscriptionDefinitionResponse' smart constructor.
 data CreateSubscriptionDefinitionResponse = CreateSubscriptionDefinitionResponse'
-    { _csdrsLatestVersionARN     :: !(Maybe Text)
-    , _csdrsARN                  :: !(Maybe Text)
-    , _csdrsName                 :: !(Maybe Text)
-    , _csdrsCreationTimestamp    :: !(Maybe Text)
-    , _csdrsId                   :: !(Maybe Text)
-    , _csdrsLatestVersion        :: !(Maybe Text)
-    , _csdrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _csdrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubscriptionDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -163,16 +166,17 @@ createSubscriptionDefinitionResponse
     :: Int -- ^ 'csdrsResponseStatus'
     -> CreateSubscriptionDefinitionResponse
 createSubscriptionDefinitionResponse pResponseStatus_ =
-    CreateSubscriptionDefinitionResponse'
-    { _csdrsLatestVersionARN = Nothing
-    , _csdrsARN = Nothing
-    , _csdrsName = Nothing
-    , _csdrsCreationTimestamp = Nothing
-    , _csdrsId = Nothing
-    , _csdrsLatestVersion = Nothing
-    , _csdrsLastUpdatedTimestamp = Nothing
-    , _csdrsResponseStatus = pResponseStatus_
-    }
+  CreateSubscriptionDefinitionResponse'
+  { _csdrsLatestVersionARN = Nothing
+  , _csdrsARN = Nothing
+  , _csdrsName = Nothing
+  , _csdrsCreationTimestamp = Nothing
+  , _csdrsId = Nothing
+  , _csdrsLatestVersion = Nothing
+  , _csdrsLastUpdatedTimestamp = Nothing
+  , _csdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 csdrsLatestVersionARN :: Lens' CreateSubscriptionDefinitionResponse (Maybe Text)
@@ -207,3 +211,4 @@ csdrsResponseStatus :: Lens' CreateSubscriptionDefinitionResponse Int
 csdrsResponseStatus = lens _csdrsResponseStatus (\ s a -> s{_csdrsResponseStatus = a});
 
 instance NFData CreateSubscriptionDefinitionResponse
+         where

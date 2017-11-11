@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.UpdateAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Lambda.UpdateAlias
     , acDescription
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-    { _uaFunctionVersion :: !(Maybe Text)
-    , _uaDescription     :: !(Maybe Text)
-    , _uaFunctionName    :: !Text
-    , _uaName            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaFunctionVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaFunctionName    :: {-# NOUNPACK #-}!Text
+  , _uaName            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAlias' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ updateAlias
     -> Text -- ^ 'uaName'
     -> UpdateAlias
 updateAlias pFunctionName_ pName_ =
-    UpdateAlias'
-    { _uaFunctionVersion = Nothing
-    , _uaDescription = Nothing
-    , _uaFunctionName = pFunctionName_
-    , _uaName = pName_
-    }
+  UpdateAlias'
+  { _uaFunctionVersion = Nothing
+  , _uaDescription = Nothing
+  , _uaFunctionName = pFunctionName_
+  , _uaName = pName_
+  }
+
 
 -- | Using this parameter you can change the Lambda function version to which the alias points.
 uaFunctionVersion :: Lens' UpdateAlias (Maybe Text)
@@ -103,9 +105,9 @@ instance AWSRequest UpdateAlias where
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateAlias
+instance Hashable UpdateAlias where
 
-instance NFData UpdateAlias
+instance NFData UpdateAlias where
 
 instance ToHeaders UpdateAlias where
         toHeaders = const mempty

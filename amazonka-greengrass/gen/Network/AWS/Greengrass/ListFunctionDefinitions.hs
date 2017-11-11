@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListFunctionDefinitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Greengrass.ListFunctionDefinitions
     , lfdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listFunctionDefinitions' smart constructor.
 data ListFunctionDefinitions = ListFunctionDefinitions'
-    { _lfdNextToken  :: !(Maybe Text)
-    , _lfdMaxResults :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfdNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfdMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFunctionDefinitions' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ data ListFunctionDefinitions = ListFunctionDefinitions'
 listFunctionDefinitions
     :: ListFunctionDefinitions
 listFunctionDefinitions =
-    ListFunctionDefinitions'
-    { _lfdNextToken = Nothing
-    , _lfdMaxResults = Nothing
-    }
+  ListFunctionDefinitions' {_lfdNextToken = Nothing, _lfdMaxResults = Nothing}
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lfdNextToken :: Lens' ListFunctionDefinitions (Maybe Text)
@@ -85,9 +84,9 @@ instance AWSRequest ListFunctionDefinitions where
                      (x .?> "Definitions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListFunctionDefinitions
+instance Hashable ListFunctionDefinitions where
 
-instance NFData ListFunctionDefinitions
+instance NFData ListFunctionDefinitions where
 
 instance ToHeaders ListFunctionDefinitions where
         toHeaders
@@ -107,10 +106,11 @@ instance ToQuery ListFunctionDefinitions where
 
 -- | /See:/ 'listFunctionDefinitionsResponse' smart constructor.
 data ListFunctionDefinitionsResponse = ListFunctionDefinitionsResponse'
-    { _lfdrsNextToken      :: !(Maybe Text)
-    , _lfdrsDefinitions    :: !(Maybe [DefinitionInformation])
-    , _lfdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfdrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
+  , _lfdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFunctionDefinitionsResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +125,12 @@ listFunctionDefinitionsResponse
     :: Int -- ^ 'lfdrsResponseStatus'
     -> ListFunctionDefinitionsResponse
 listFunctionDefinitionsResponse pResponseStatus_ =
-    ListFunctionDefinitionsResponse'
-    { _lfdrsNextToken = Nothing
-    , _lfdrsDefinitions = Nothing
-    , _lfdrsResponseStatus = pResponseStatus_
-    }
+  ListFunctionDefinitionsResponse'
+  { _lfdrsNextToken = Nothing
+  , _lfdrsDefinitions = Nothing
+  , _lfdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lfdrsNextToken :: Lens' ListFunctionDefinitionsResponse (Maybe Text)
@@ -143,4 +144,4 @@ lfdrsDefinitions = lens _lfdrsDefinitions (\ s a -> s{_lfdrsDefinitions = a}) . 
 lfdrsResponseStatus :: Lens' ListFunctionDefinitionsResponse Int
 lfdrsResponseStatus = lens _lfdrsResponseStatus (\ s a -> s{_lfdrsResponseStatus = a});
 
-instance NFData ListFunctionDefinitionsResponse
+instance NFData ListFunctionDefinitionsResponse where

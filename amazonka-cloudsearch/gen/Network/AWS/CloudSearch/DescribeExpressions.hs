@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeExpressions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudSearch.DescribeExpressions
     , drsExpressions
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DescribeDomains' @ operation. Specifies the name of the domain you want to describe. To restrict the response to particular expressions, specify the names of the expressions you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeExpressions' smart constructor.
 data DescribeExpressions = DescribeExpressions'
-    { _deDeployed        :: !(Maybe Bool)
-    , _deExpressionNames :: !(Maybe [Text])
-    , _deDomainName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deDeployed        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _deExpressionNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _deDomainName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExpressions' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ describeExpressions
     :: Text -- ^ 'deDomainName'
     -> DescribeExpressions
 describeExpressions pDomainName_ =
-    DescribeExpressions'
-    { _deDeployed = Nothing
-    , _deExpressionNames = Nothing
-    , _deDomainName = pDomainName_
-    }
+  DescribeExpressions'
+  { _deDeployed = Nothing
+  , _deExpressionNames = Nothing
+  , _deDomainName = pDomainName_
+  }
+
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 deDeployed :: Lens' DescribeExpressions (Maybe Bool)
@@ -100,9 +102,9 @@ instance AWSRequest DescribeExpressions where
                      (x .@? "Expressions" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable DescribeExpressions
+instance Hashable DescribeExpressions where
 
-instance NFData DescribeExpressions
+instance NFData DescribeExpressions where
 
 instance ToHeaders DescribeExpressions where
         toHeaders = const mempty
@@ -127,9 +129,10 @@ instance ToQuery DescribeExpressions where
 --
 -- /See:/ 'describeExpressionsResponse' smart constructor.
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-    { _drsResponseStatus :: !Int
-    , _drsExpressions    :: ![ExpressionStatus]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _drsExpressions    :: {-# NOUNPACK #-}![ExpressionStatus]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExpressionsResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,9 @@ describeExpressionsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeExpressionsResponse
 describeExpressionsResponse pResponseStatus_ =
-    DescribeExpressionsResponse'
-    { _drsResponseStatus = pResponseStatus_
-    , _drsExpressions = mempty
-    }
+  DescribeExpressionsResponse'
+  {_drsResponseStatus = pResponseStatus_, _drsExpressions = mempty}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeExpressionsResponse Int
@@ -155,4 +157,4 @@ drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 drsExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 drsExpressions = lens _drsExpressions (\ s a -> s{_drsExpressions = a}) . _Coerce;
 
-instance NFData DescribeExpressionsResponse
+instance NFData DescribeExpressionsResponse where

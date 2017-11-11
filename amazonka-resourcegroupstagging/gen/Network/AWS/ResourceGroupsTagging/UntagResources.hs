@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.UntagResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,18 +44,19 @@ module Network.AWS.ResourceGroupsTagging.UntagResources
     , urrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.ResourceGroupsTagging.Types
-import           Network.AWS.ResourceGroupsTagging.Types.Product
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.ResourceGroupsTagging.Types
+import Network.AWS.ResourceGroupsTagging.Types.Product
+import Network.AWS.Response
 
 -- | /See:/ 'untagResources' smart constructor.
 data UntagResources = UntagResources'
-    { _urResourceARNList :: !(List1 Text)
-    , _urTagKeys         :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urResourceARNList :: {-# NOUNPACK #-}!(List1 Text)
+  , _urTagKeys         :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResources' with the minimum fields required to make a request.
 --
@@ -69,10 +70,11 @@ untagResources
     -> NonEmpty Text -- ^ 'urTagKeys'
     -> UntagResources
 untagResources pResourceARNList_ pTagKeys_ =
-    UntagResources'
-    { _urResourceARNList = _List1 # pResourceARNList_
-    , _urTagKeys = _List1 # pTagKeys_
-    }
+  UntagResources'
+  { _urResourceARNList = _List1 # pResourceARNList_
+  , _urTagKeys = _List1 # pTagKeys_
+  }
+
 
 -- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. You can specify a minimum of 1 and a maximum of 20 ARNs (resources) to untag. An ARN can be set to a maximum of 1600 characters. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 urResourceARNList :: Lens' UntagResources (NonEmpty Text)
@@ -92,9 +94,9 @@ instance AWSRequest UntagResources where
                    (x .?> "FailedResourcesMap" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable UntagResources
+instance Hashable UntagResources where
 
-instance NFData UntagResources
+instance NFData UntagResources where
 
 instance ToHeaders UntagResources where
         toHeaders
@@ -121,9 +123,10 @@ instance ToQuery UntagResources where
 
 -- | /See:/ 'untagResourcesResponse' smart constructor.
 data UntagResourcesResponse = UntagResourcesResponse'
-    { _urrsFailedResourcesMap :: !(Maybe (Map Text FailureInfo))
-    , _urrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urrsFailedResourcesMap :: {-# NOUNPACK #-}!(Maybe (Map Text FailureInfo))
+  , _urrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResourcesResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +139,9 @@ untagResourcesResponse
     :: Int -- ^ 'urrsResponseStatus'
     -> UntagResourcesResponse
 untagResourcesResponse pResponseStatus_ =
-    UntagResourcesResponse'
-    { _urrsFailedResourcesMap = Nothing
-    , _urrsResponseStatus = pResponseStatus_
-    }
+  UntagResourcesResponse'
+  {_urrsFailedResourcesMap = Nothing, _urrsResponseStatus = pResponseStatus_}
+
 
 -- | Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item.
 urrsFailedResourcesMap :: Lens' UntagResourcesResponse (HashMap Text FailureInfo)
@@ -149,4 +151,4 @@ urrsFailedResourcesMap = lens _urrsFailedResourcesMap (\ s a -> s{_urrsFailedRes
 urrsResponseStatus :: Lens' UntagResourcesResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
 
-instance NFData UntagResourcesResponse
+instance NFData UntagResourcesResponse where

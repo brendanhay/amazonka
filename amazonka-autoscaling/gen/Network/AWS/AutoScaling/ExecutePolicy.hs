@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.ExecutePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , ExecutePolicyResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ExecutePolicy.
 --
@@ -51,12 +51,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'executePolicy' smart constructor.
 data ExecutePolicy = ExecutePolicy'
-    { _epHonorCooldown        :: !(Maybe Bool)
-    , _epMetricValue          :: !(Maybe Double)
-    , _epAutoScalingGroupName :: !(Maybe Text)
-    , _epBreachThreshold      :: !(Maybe Double)
-    , _epPolicyName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _epHonorCooldown        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _epMetricValue          :: {-# NOUNPACK #-}!(Maybe Double)
+  , _epAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _epBreachThreshold      :: {-# NOUNPACK #-}!(Maybe Double)
+  , _epPolicyName           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutePolicy' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ executePolicy
     :: Text -- ^ 'epPolicyName'
     -> ExecutePolicy
 executePolicy pPolicyName_ =
-    ExecutePolicy'
-    { _epHonorCooldown = Nothing
-    , _epMetricValue = Nothing
-    , _epAutoScalingGroupName = Nothing
-    , _epBreachThreshold = Nothing
-    , _epPolicyName = pPolicyName_
-    }
+  ExecutePolicy'
+  { _epHonorCooldown = Nothing
+  , _epMetricValue = Nothing
+  , _epAutoScalingGroupName = Nothing
+  , _epBreachThreshold = Nothing
+  , _epPolicyName = pPolicyName_
+  }
+
 
 -- | If this parameter is true, Auto Scaling waits for the cooldown period to complete before executing the policy. Otherwise, Auto Scaling executes the policy without waiting for the cooldown period to complete. This parameter is not supported if the policy type is @StepScaling@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
@@ -108,9 +110,9 @@ instance AWSRequest ExecutePolicy where
         request = postQuery autoScaling
         response = receiveNull ExecutePolicyResponse'
 
-instance Hashable ExecutePolicy
+instance Hashable ExecutePolicy where
 
-instance NFData ExecutePolicy
+instance NFData ExecutePolicy where
 
 instance ToHeaders ExecutePolicy where
         toHeaders = const mempty
@@ -131,8 +133,9 @@ instance ToQuery ExecutePolicy where
 
 -- | /See:/ 'executePolicyResponse' smart constructor.
 data ExecutePolicyResponse =
-    ExecutePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ExecutePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExecutePolicyResponse' with the minimum fields required to make a request.
 --
@@ -140,4 +143,5 @@ executePolicyResponse
     :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse'
 
-instance NFData ExecutePolicyResponse
+
+instance NFData ExecutePolicyResponse where

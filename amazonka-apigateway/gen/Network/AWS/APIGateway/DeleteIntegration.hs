@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteIntegration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.APIGateway.DeleteIntegration
     , DeleteIntegrationResponse'
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a delete integration request.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteIntegration' smart constructor.
 data DeleteIntegration = DeleteIntegration'
-    { _delRestAPIId  :: !Text
-    , _delResourceId :: !Text
-    , _delHttpMethod :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _delResourceId :: {-# NOUNPACK #-}!Text
+  , _delHttpMethod :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntegration' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ deleteIntegration
     -> Text -- ^ 'delHttpMethod'
     -> DeleteIntegration
 deleteIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
-    DeleteIntegration'
-    { _delRestAPIId = pRestAPIId_
-    , _delResourceId = pResourceId_
-    , _delHttpMethod = pHttpMethod_
-    }
+  DeleteIntegration'
+  { _delRestAPIId = pRestAPIId_
+  , _delResourceId = pResourceId_
+  , _delHttpMethod = pHttpMethod_
+  }
+
 
 -- | The string identifier of the associated 'RestApi' .
 delRestAPIId :: Lens' DeleteIntegration Text
@@ -93,9 +95,9 @@ instance AWSRequest DeleteIntegration where
         request = delete apiGateway
         response = receiveNull DeleteIntegrationResponse''
 
-instance Hashable DeleteIntegration
+instance Hashable DeleteIntegration where
 
-instance NFData DeleteIntegration
+instance NFData DeleteIntegration where
 
 instance ToHeaders DeleteIntegration where
         toHeaders
@@ -115,8 +117,9 @@ instance ToQuery DeleteIntegration where
 
 -- | /See:/ 'deleteIntegrationResponse'' smart constructor.
 data DeleteIntegrationResponse' =
-    DeleteIntegrationResponse''
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteIntegrationResponse''
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntegrationResponse'' with the minimum fields required to make a request.
 --
@@ -124,4 +127,5 @@ deleteIntegrationResponse'
     :: DeleteIntegrationResponse'
 deleteIntegrationResponse' = DeleteIntegrationResponse''
 
-instance NFData DeleteIntegrationResponse'
+
+instance NFData DeleteIntegrationResponse' where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ApplyPendingMaintenanceAction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.RDS.ApplyPendingMaintenanceAction
     , apmarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'applyPendingMaintenanceAction' smart constructor.
 data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
-    { _apmaResourceIdentifier :: !Text
-    , _apmaApplyAction        :: !Text
-    , _apmaOptInType          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apmaResourceIdentifier :: {-# NOUNPACK #-}!Text
+  , _apmaApplyAction        :: {-# NOUNPACK #-}!Text
+  , _apmaOptInType          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplyPendingMaintenanceAction' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ applyPendingMaintenanceAction
     -> Text -- ^ 'apmaOptInType'
     -> ApplyPendingMaintenanceAction
 applyPendingMaintenanceAction pResourceIdentifier_ pApplyAction_ pOptInType_ =
-    ApplyPendingMaintenanceAction'
-    { _apmaResourceIdentifier = pResourceIdentifier_
-    , _apmaApplyAction = pApplyAction_
-    , _apmaOptInType = pOptInType_
-    }
+  ApplyPendingMaintenanceAction'
+  { _apmaResourceIdentifier = pResourceIdentifier_
+  , _apmaApplyAction = pApplyAction_
+  , _apmaOptInType = pOptInType_
+  }
+
 
 -- | The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
@@ -103,9 +105,9 @@ instance AWSRequest ApplyPendingMaintenanceAction
                    (x .@? "ResourcePendingMaintenanceActions") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ApplyPendingMaintenanceAction
+instance Hashable ApplyPendingMaintenanceAction where
 
-instance NFData ApplyPendingMaintenanceAction
+instance NFData ApplyPendingMaintenanceAction where
 
 instance ToHeaders ApplyPendingMaintenanceAction
          where
@@ -126,9 +128,10 @@ instance ToQuery ApplyPendingMaintenanceAction where
 
 -- | /See:/ 'applyPendingMaintenanceActionResponse' smart constructor.
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
-    { _apmarsResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
-    , _apmarsResponseStatus                    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apmarsResourcePendingMaintenanceActions :: {-# NOUNPACK #-}!(Maybe ResourcePendingMaintenanceActions)
+  , _apmarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplyPendingMaintenanceActionResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +144,11 @@ applyPendingMaintenanceActionResponse
     :: Int -- ^ 'apmarsResponseStatus'
     -> ApplyPendingMaintenanceActionResponse
 applyPendingMaintenanceActionResponse pResponseStatus_ =
-    ApplyPendingMaintenanceActionResponse'
-    { _apmarsResourcePendingMaintenanceActions = Nothing
-    , _apmarsResponseStatus = pResponseStatus_
-    }
+  ApplyPendingMaintenanceActionResponse'
+  { _apmarsResourcePendingMaintenanceActions = Nothing
+  , _apmarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 apmarsResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
@@ -155,3 +159,4 @@ apmarsResponseStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
 apmarsResponseStatus = lens _apmarsResponseStatus (\ s a -> s{_apmarsResponseStatus = a});
 
 instance NFData ApplyPendingMaintenanceActionResponse
+         where

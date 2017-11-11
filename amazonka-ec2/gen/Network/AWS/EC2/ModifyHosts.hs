@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyHosts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.ModifyHosts
     , mhrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyHosts.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
-    { _mhAutoPlacement :: !AutoPlacement
-    , _mhHostIds       :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mhAutoPlacement :: {-# NOUNPACK #-}!AutoPlacement
+  , _mhHostIds       :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyHosts' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ modifyHosts
     :: AutoPlacement -- ^ 'mhAutoPlacement'
     -> ModifyHosts
 modifyHosts pAutoPlacement_ =
-    ModifyHosts'
-    { _mhAutoPlacement = pAutoPlacement_
-    , _mhHostIds = mempty
-    }
+  ModifyHosts' {_mhAutoPlacement = pAutoPlacement_, _mhHostIds = mempty}
+
 
 -- | Specify whether to enable or disable auto-placement.
 mhAutoPlacement :: Lens' ModifyHosts AutoPlacement
@@ -94,9 +93,9 @@ instance AWSRequest ModifyHosts where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ModifyHosts
+instance Hashable ModifyHosts where
 
-instance NFData ModifyHosts
+instance NFData ModifyHosts where
 
 instance ToHeaders ModifyHosts where
         toHeaders = const mempty
@@ -118,10 +117,11 @@ instance ToQuery ModifyHosts where
 --
 -- /See:/ 'modifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
-    { _mhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
-    , _mhrsSuccessful     :: !(Maybe [Text])
-    , _mhrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mhrsUnsuccessful   :: {-# NOUNPACK #-}!(Maybe [UnsuccessfulItem])
+  , _mhrsSuccessful     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyHostsResponse' with the minimum fields required to make a request.
 --
@@ -136,11 +136,12 @@ modifyHostsResponse
     :: Int -- ^ 'mhrsResponseStatus'
     -> ModifyHostsResponse
 modifyHostsResponse pResponseStatus_ =
-    ModifyHostsResponse'
-    { _mhrsUnsuccessful = Nothing
-    , _mhrsSuccessful = Nothing
-    , _mhrsResponseStatus = pResponseStatus_
-    }
+  ModifyHostsResponse'
+  { _mhrsUnsuccessful = Nothing
+  , _mhrsSuccessful = Nothing
+  , _mhrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
 mhrsUnsuccessful :: Lens' ModifyHostsResponse [UnsuccessfulItem]
@@ -154,4 +155,4 @@ mhrsSuccessful = lens _mhrsSuccessful (\ s a -> s{_mhrsSuccessful = a}) . _Defau
 mhrsResponseStatus :: Lens' ModifyHostsResponse Int
 mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
 
-instance NFData ModifyHostsResponse
+instance NFData ModifyHostsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StopCrawler
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.StopCrawler
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopCrawler' smart constructor.
 newtype StopCrawler = StopCrawler'
-    { _sName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopCrawler' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype StopCrawler = StopCrawler'
 stopCrawler
     :: Text -- ^ 'sName'
     -> StopCrawler
-stopCrawler pName_ =
-    StopCrawler'
-    { _sName = pName_
-    }
+stopCrawler pName_ = StopCrawler' {_sName = pName_}
+
 
 -- | Name of the @Crawler@ to stop.
 sName :: Lens' StopCrawler Text
@@ -73,9 +72,9 @@ instance AWSRequest StopCrawler where
               (\ s h x ->
                  StopCrawlerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StopCrawler
+instance Hashable StopCrawler where
 
-instance NFData StopCrawler
+instance NFData StopCrawler where
 
 instance ToHeaders StopCrawler where
         toHeaders
@@ -98,8 +97,9 @@ instance ToQuery StopCrawler where
 
 -- | /See:/ 'stopCrawlerResponse' smart constructor.
 newtype StopCrawlerResponse = StopCrawlerResponse'
-    { _srsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopCrawlerResponse' with the minimum fields required to make a request.
 --
@@ -110,12 +110,11 @@ stopCrawlerResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopCrawlerResponse
 stopCrawlerResponse pResponseStatus_ =
-    StopCrawlerResponse'
-    { _srsResponseStatus = pResponseStatus_
-    }
+  StopCrawlerResponse' {_srsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopCrawlerResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StopCrawlerResponse
+instance NFData StopCrawlerResponse where

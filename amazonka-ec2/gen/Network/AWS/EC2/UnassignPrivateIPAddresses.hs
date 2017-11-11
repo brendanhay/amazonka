@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.UnassignPrivateIPAddresses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.UnassignPrivateIPAddresses
     , UnassignPrivateIPAddressesResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for UnassignPrivateIpAddresses.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'unassignPrivateIPAddresses' smart constructor.
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
-    { _upiaNetworkInterfaceId :: !Text
-    , _upiaPrivateIPAddresses :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upiaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  , _upiaPrivateIPAddresses :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnassignPrivateIPAddresses' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ unassignPrivateIPAddresses
     :: Text -- ^ 'upiaNetworkInterfaceId'
     -> UnassignPrivateIPAddresses
 unassignPrivateIPAddresses pNetworkInterfaceId_ =
-    UnassignPrivateIPAddresses'
-    { _upiaNetworkInterfaceId = pNetworkInterfaceId_
-    , _upiaPrivateIPAddresses = mempty
-    }
+  UnassignPrivateIPAddresses'
+  { _upiaNetworkInterfaceId = pNetworkInterfaceId_
+  , _upiaPrivateIPAddresses = mempty
+  }
+
 
 -- | The ID of the network interface.
 upiaNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text
@@ -83,9 +85,9 @@ instance AWSRequest UnassignPrivateIPAddresses where
         response
           = receiveNull UnassignPrivateIPAddressesResponse'
 
-instance Hashable UnassignPrivateIPAddresses
+instance Hashable UnassignPrivateIPAddresses where
 
-instance NFData UnassignPrivateIPAddresses
+instance NFData UnassignPrivateIPAddresses where
 
 instance ToHeaders UnassignPrivateIPAddresses where
         toHeaders = const mempty
@@ -105,8 +107,9 @@ instance ToQuery UnassignPrivateIPAddresses where
 
 -- | /See:/ 'unassignPrivateIPAddressesResponse' smart constructor.
 data UnassignPrivateIPAddressesResponse =
-    UnassignPrivateIPAddressesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UnassignPrivateIPAddressesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnassignPrivateIPAddressesResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +117,6 @@ unassignPrivateIPAddressesResponse
     :: UnassignPrivateIPAddressesResponse
 unassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse'
 
+
 instance NFData UnassignPrivateIPAddressesResponse
+         where

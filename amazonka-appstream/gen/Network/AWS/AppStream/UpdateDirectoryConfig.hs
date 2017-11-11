@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.UpdateDirectoryConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.AppStream.UpdateDirectoryConfig
     , udcrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateDirectoryConfig' smart constructor.
 data UpdateDirectoryConfig = UpdateDirectoryConfig'
-    { _udcServiceAccountCredentials            :: !(Maybe ServiceAccountCredentials)
-    , _udcOrganizationalUnitDistinguishedNames :: !(Maybe [Text])
-    , _udcDirectoryName                        :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _udcServiceAccountCredentials :: {-# NOUNPACK #-}!(Maybe ServiceAccountCredentials)
+  , _udcOrganizationalUnitDistinguishedNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _udcDirectoryName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDirectoryConfig' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ updateDirectoryConfig
     :: Text -- ^ 'udcDirectoryName'
     -> UpdateDirectoryConfig
 updateDirectoryConfig pDirectoryName_ =
-    UpdateDirectoryConfig'
-    { _udcServiceAccountCredentials = Nothing
-    , _udcOrganizationalUnitDistinguishedNames = Nothing
-    , _udcDirectoryName = pDirectoryName_
-    }
+  UpdateDirectoryConfig'
+  { _udcServiceAccountCredentials = Nothing
+  , _udcOrganizationalUnitDistinguishedNames = Nothing
+  , _udcDirectoryName = pDirectoryName_
+  }
+
 
 -- | The /AccountName/ and /AccountPassword/ values for the service account, which are used by the streaming instance to connect to the directory
 udcServiceAccountCredentials :: Lens' UpdateDirectoryConfig (Maybe ServiceAccountCredentials)
@@ -94,9 +96,9 @@ instance AWSRequest UpdateDirectoryConfig where
                  UpdateDirectoryConfigResponse' <$>
                    (x .?> "DirectoryConfig") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateDirectoryConfig
+instance Hashable UpdateDirectoryConfig where
 
-instance NFData UpdateDirectoryConfig
+instance NFData UpdateDirectoryConfig where
 
 instance ToHeaders UpdateDirectoryConfig where
         toHeaders
@@ -126,9 +128,10 @@ instance ToQuery UpdateDirectoryConfig where
 
 -- | /See:/ 'updateDirectoryConfigResponse' smart constructor.
 data UpdateDirectoryConfigResponse = UpdateDirectoryConfigResponse'
-    { _udcrsDirectoryConfig :: !(Maybe DirectoryConfig)
-    , _udcrsResponseStatus  :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _udcrsDirectoryConfig :: {-# NOUNPACK #-}!(Maybe DirectoryConfig)
+  , _udcrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDirectoryConfigResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +144,9 @@ updateDirectoryConfigResponse
     :: Int -- ^ 'udcrsResponseStatus'
     -> UpdateDirectoryConfigResponse
 updateDirectoryConfigResponse pResponseStatus_ =
-    UpdateDirectoryConfigResponse'
-    { _udcrsDirectoryConfig = Nothing
-    , _udcrsResponseStatus = pResponseStatus_
-    }
+  UpdateDirectoryConfigResponse'
+  {_udcrsDirectoryConfig = Nothing, _udcrsResponseStatus = pResponseStatus_}
+
 
 -- | The updated directory configuration details.
 udcrsDirectoryConfig :: Lens' UpdateDirectoryConfigResponse (Maybe DirectoryConfig)
@@ -154,4 +156,4 @@ udcrsDirectoryConfig = lens _udcrsDirectoryConfig (\ s a -> s{_udcrsDirectoryCon
 udcrsResponseStatus :: Lens' UpdateDirectoryConfigResponse Int
 udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a});
 
-instance NFData UpdateDirectoryConfigResponse
+instance NFData UpdateDirectoryConfigResponse where

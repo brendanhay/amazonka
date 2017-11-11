@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListSigningCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,20 +47,21 @@ module Network.AWS.IAM.ListSigningCertificates
     , lrsCertificates
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listSigningCertificates' smart constructor.
 data ListSigningCertificates = ListSigningCertificates'
-    { _lUserName :: !(Maybe Text)
-    , _lMarker   :: !(Maybe Text)
-    , _lMaxItems :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSigningCertificates' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ data ListSigningCertificates = ListSigningCertificates'
 listSigningCertificates
     :: ListSigningCertificates
 listSigningCertificates =
-    ListSigningCertificates'
-    { _lUserName = Nothing
-    , _lMarker = Nothing
-    , _lMaxItems = Nothing
-    }
+  ListSigningCertificates'
+  {_lUserName = Nothing, _lMarker = Nothing, _lMaxItems = Nothing}
+
 
 -- | The name of the IAM user whose signing certificates you want to examine. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 lUserName :: Lens' ListSigningCertificates (Maybe Text)
@@ -112,9 +111,9 @@ instance AWSRequest ListSigningCertificates where
                      (x .@? "Certificates" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListSigningCertificates
+instance Hashable ListSigningCertificates where
 
-instance NFData ListSigningCertificates
+instance NFData ListSigningCertificates where
 
 instance ToHeaders ListSigningCertificates where
         toHeaders = const mempty
@@ -137,11 +136,12 @@ instance ToQuery ListSigningCertificates where
 --
 -- /See:/ 'listSigningCertificatesResponse' smart constructor.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
-    { _lrsMarker         :: !(Maybe Text)
-    , _lrsIsTruncated    :: !(Maybe Bool)
-    , _lrsResponseStatus :: !Int
-    , _lrsCertificates   :: ![SigningCertificate]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lrsCertificates   :: {-# NOUNPACK #-}![SigningCertificate]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSigningCertificatesResponse' with the minimum fields required to make a request.
 --
@@ -158,12 +158,13 @@ listSigningCertificatesResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListSigningCertificatesResponse
 listSigningCertificatesResponse pResponseStatus_ =
-    ListSigningCertificatesResponse'
-    { _lrsMarker = Nothing
-    , _lrsIsTruncated = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    , _lrsCertificates = mempty
-    }
+  ListSigningCertificatesResponse'
+  { _lrsMarker = Nothing
+  , _lrsIsTruncated = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  , _lrsCertificates = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lrsMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
@@ -181,4 +182,4 @@ lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 lrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lrsCertificates = lens _lrsCertificates (\ s a -> s{_lrsCertificates = a}) . _Coerce;
 
-instance NFData ListSigningCertificatesResponse
+instance NFData ListSigningCertificatesResponse where

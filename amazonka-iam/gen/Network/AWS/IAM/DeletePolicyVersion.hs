@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeletePolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.IAM.DeletePolicyVersion
     , DeletePolicyVersionResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
-    { _dpvPolicyARN :: !Text
-    , _dpvVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpvPolicyARN :: {-# NOUNPACK #-}!Text
+  , _dpvVersionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicyVersion' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ deletePolicyVersion
     -> Text -- ^ 'dpvVersionId'
     -> DeletePolicyVersion
 deletePolicyVersion pPolicyARN_ pVersionId_ =
-    DeletePolicyVersion'
-    { _dpvPolicyARN = pPolicyARN_
-    , _dpvVersionId = pVersionId_
-    }
+  DeletePolicyVersion'
+  {_dpvPolicyARN = pPolicyARN_, _dpvVersionId = pVersionId_}
+
 
 -- | The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dpvPolicyARN :: Lens' DeletePolicyVersion Text
@@ -83,9 +83,9 @@ instance AWSRequest DeletePolicyVersion where
         request = postQuery iam
         response = receiveNull DeletePolicyVersionResponse'
 
-instance Hashable DeletePolicyVersion
+instance Hashable DeletePolicyVersion where
 
-instance NFData DeletePolicyVersion
+instance NFData DeletePolicyVersion where
 
 instance ToHeaders DeletePolicyVersion where
         toHeaders = const mempty
@@ -103,8 +103,9 @@ instance ToQuery DeletePolicyVersion where
 
 -- | /See:/ 'deletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse =
-    DeletePolicyVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePolicyVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +113,5 @@ deletePolicyVersionResponse
     :: DeletePolicyVersionResponse
 deletePolicyVersionResponse = DeletePolicyVersionResponse'
 
-instance NFData DeletePolicyVersionResponse
+
+instance NFData DeletePolicyVersionResponse where

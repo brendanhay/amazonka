@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeArchive
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     , rtarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | RetrieveTapeArchiveInput
 --
@@ -53,9 +53,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'retrieveTapeArchive' smart constructor.
 data RetrieveTapeArchive = RetrieveTapeArchive'
-    { _rtaTapeARN    :: !Text
-    , _rtaGatewayARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtaTapeARN    :: {-# NOUNPACK #-}!Text
+  , _rtaGatewayARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RetrieveTapeArchive' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ retrieveTapeArchive
     -> Text -- ^ 'rtaGatewayARN'
     -> RetrieveTapeArchive
 retrieveTapeArchive pTapeARN_ pGatewayARN_ =
-    RetrieveTapeArchive'
-    { _rtaTapeARN = pTapeARN_
-    , _rtaGatewayARN = pGatewayARN_
-    }
+  RetrieveTapeArchive' {_rtaTapeARN = pTapeARN_, _rtaGatewayARN = pGatewayARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).
 rtaTapeARN :: Lens' RetrieveTapeArchive Text
@@ -92,9 +91,9 @@ instance AWSRequest RetrieveTapeArchive where
                  RetrieveTapeArchiveResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
-instance Hashable RetrieveTapeArchive
+instance Hashable RetrieveTapeArchive where
 
-instance NFData RetrieveTapeArchive
+instance NFData RetrieveTapeArchive where
 
 instance ToHeaders RetrieveTapeArchive where
         toHeaders
@@ -125,9 +124,10 @@ instance ToQuery RetrieveTapeArchive where
 --
 -- /See:/ 'retrieveTapeArchiveResponse' smart constructor.
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
-    { _rtarsTapeARN        :: !(Maybe Text)
-    , _rtarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtarsTapeARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RetrieveTapeArchiveResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +140,9 @@ retrieveTapeArchiveResponse
     :: Int -- ^ 'rtarsResponseStatus'
     -> RetrieveTapeArchiveResponse
 retrieveTapeArchiveResponse pResponseStatus_ =
-    RetrieveTapeArchiveResponse'
-    { _rtarsTapeARN = Nothing
-    , _rtarsResponseStatus = pResponseStatus_
-    }
+  RetrieveTapeArchiveResponse'
+  {_rtarsTapeARN = Nothing, _rtarsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
 rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
@@ -153,4 +152,4 @@ rtarsTapeARN = lens _rtarsTapeARN (\ s a -> s{_rtarsTapeARN = a});
 rtarsResponseStatus :: Lens' RetrieveTapeArchiveResponse Int
 rtarsResponseStatus = lens _rtarsResponseStatus (\ s a -> s{_rtarsResponseStatus = a});
 
-instance NFData RetrieveTapeArchiveResponse
+instance NFData RetrieveTapeArchiveResponse where

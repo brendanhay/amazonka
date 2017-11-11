@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyImageAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.ModifyImageAttribute
     , ModifyImageAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyImageAttribute.
 --
@@ -56,17 +56,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyImageAttribute' smart constructor.
 data ModifyImageAttribute = ModifyImageAttribute'
-    { _miaAttribute        :: !(Maybe Text)
-    , _miaUserIds          :: !(Maybe [Text])
-    , _miaUserGroups       :: !(Maybe [Text])
-    , _miaValue            :: !(Maybe Text)
-    , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
-    , _miaOperationType    :: !(Maybe OperationType)
-    , _miaProductCodes     :: !(Maybe [Text])
-    , _miaDescription      :: !(Maybe AttributeValue)
-    , _miaDryRun           :: !(Maybe Bool)
-    , _miaImageId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _miaAttribute :: {-# NOUNPACK #-}!(Maybe Text)
+  , _miaUserIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _miaUserGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _miaValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _miaLaunchPermission :: {-# NOUNPACK #-}!(Maybe LaunchPermissionModifications)
+  , _miaOperationType :: {-# NOUNPACK #-}!(Maybe OperationType)
+  , _miaProductCodes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _miaDescription :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _miaDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _miaImageId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyImageAttribute' with the minimum fields required to make a request.
 --
@@ -95,18 +96,19 @@ modifyImageAttribute
     :: Text -- ^ 'miaImageId'
     -> ModifyImageAttribute
 modifyImageAttribute pImageId_ =
-    ModifyImageAttribute'
-    { _miaAttribute = Nothing
-    , _miaUserIds = Nothing
-    , _miaUserGroups = Nothing
-    , _miaValue = Nothing
-    , _miaLaunchPermission = Nothing
-    , _miaOperationType = Nothing
-    , _miaProductCodes = Nothing
-    , _miaDescription = Nothing
-    , _miaDryRun = Nothing
-    , _miaImageId = pImageId_
-    }
+  ModifyImageAttribute'
+  { _miaAttribute = Nothing
+  , _miaUserIds = Nothing
+  , _miaUserGroups = Nothing
+  , _miaValue = Nothing
+  , _miaLaunchPermission = Nothing
+  , _miaOperationType = Nothing
+  , _miaProductCodes = Nothing
+  , _miaDescription = Nothing
+  , _miaDryRun = Nothing
+  , _miaImageId = pImageId_
+  }
+
 
 -- | The name of the attribute to modify.
 miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
@@ -154,9 +156,9 @@ instance AWSRequest ModifyImageAttribute where
         request = postQuery ec2
         response = receiveNull ModifyImageAttributeResponse'
 
-instance Hashable ModifyImageAttribute
+instance Hashable ModifyImageAttribute where
 
-instance NFData ModifyImageAttribute
+instance NFData ModifyImageAttribute where
 
 instance ToHeaders ModifyImageAttribute where
         toHeaders = const mempty
@@ -182,8 +184,9 @@ instance ToQuery ModifyImageAttribute where
 
 -- | /See:/ 'modifyImageAttributeResponse' smart constructor.
 data ModifyImageAttributeResponse =
-    ModifyImageAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyImageAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyImageAttributeResponse' with the minimum fields required to make a request.
 --
@@ -191,4 +194,5 @@ modifyImageAttributeResponse
     :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse'
 
-instance NFData ModifyImageAttributeResponse
+
+instance NFData ModifyImageAttributeResponse where

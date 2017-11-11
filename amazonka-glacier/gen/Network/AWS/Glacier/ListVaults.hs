@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListVaults
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,13 +48,13 @@ module Network.AWS.Glacier.ListVaults
     , lvrsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options to retrieve the vault list owned by the calling user's account. The list provides metadata information for each vault.
 --
@@ -62,10 +62,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listVaults' smart constructor.
 data ListVaults = ListVaults'
-    { _lvMarker    :: !(Maybe Text)
-    , _lvLimit     :: !(Maybe Text)
-    , _lvAccountId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvLimit     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvAccountId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVaults' with the minimum fields required to make a request.
 --
@@ -80,11 +81,9 @@ listVaults
     :: Text -- ^ 'lvAccountId'
     -> ListVaults
 listVaults pAccountId_ =
-    ListVaults'
-    { _lvMarker = Nothing
-    , _lvLimit = Nothing
-    , _lvAccountId = pAccountId_
-    }
+  ListVaults'
+  {_lvMarker = Nothing, _lvLimit = Nothing, _lvAccountId = pAccountId_}
+
 
 -- | A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
 lvMarker :: Lens' ListVaults (Maybe Text)
@@ -115,9 +114,9 @@ instance AWSRequest ListVaults where
                    (x .?> "Marker") <*> (x .?> "VaultList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListVaults
+instance Hashable ListVaults where
 
-instance NFData ListVaults
+instance NFData ListVaults where
 
 instance ToHeaders ListVaults where
         toHeaders = const mempty
@@ -137,10 +136,11 @@ instance ToQuery ListVaults where
 --
 -- /See:/ 'listVaultsResponse' smart constructor.
 data ListVaultsResponse = ListVaultsResponse'
-    { _lvrsMarker         :: !(Maybe Text)
-    , _lvrsVaultList      :: !(Maybe [DescribeVaultOutput])
-    , _lvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvrsVaultList      :: {-# NOUNPACK #-}!(Maybe [DescribeVaultOutput])
+  , _lvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVaultsResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +155,12 @@ listVaultsResponse
     :: Int -- ^ 'lvrsResponseStatus'
     -> ListVaultsResponse
 listVaultsResponse pResponseStatus_ =
-    ListVaultsResponse'
-    { _lvrsMarker = Nothing
-    , _lvrsVaultList = Nothing
-    , _lvrsResponseStatus = pResponseStatus_
-    }
+  ListVaultsResponse'
+  { _lvrsMarker = Nothing
+  , _lvrsVaultList = Nothing
+  , _lvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The vault ARN at which to continue pagination of the results. You use the marker in another List Vaults request to obtain more vaults in the list.
 lvrsMarker :: Lens' ListVaultsResponse (Maybe Text)
@@ -173,4 +174,4 @@ lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default 
 lvrsResponseStatus :: Lens' ListVaultsResponse Int
 lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});
 
-instance NFData ListVaultsResponse
+instance NFData ListVaultsResponse where

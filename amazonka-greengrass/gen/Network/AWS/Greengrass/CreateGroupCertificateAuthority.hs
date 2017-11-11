@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateGroupCertificateAuthority
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Greengrass.CreateGroupCertificateAuthority
     , cgcarsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createGroupCertificateAuthority' smart constructor.
 data CreateGroupCertificateAuthority = CreateGroupCertificateAuthority'
-    { _cgcaAmznClientToken :: !(Maybe Text)
-    , _cgcaGroupId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgcaAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgcaGroupId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroupCertificateAuthority' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ createGroupCertificateAuthority
     :: Text -- ^ 'cgcaGroupId'
     -> CreateGroupCertificateAuthority
 createGroupCertificateAuthority pGroupId_ =
-    CreateGroupCertificateAuthority'
-    { _cgcaAmznClientToken = Nothing
-    , _cgcaGroupId = pGroupId_
-    }
+  CreateGroupCertificateAuthority'
+  {_cgcaAmznClientToken = Nothing, _cgcaGroupId = pGroupId_}
+
 
 -- | The client token used to request idempotent operations.
 cgcaAmznClientToken :: Lens' CreateGroupCertificateAuthority (Maybe Text)
@@ -86,8 +86,9 @@ instance AWSRequest CreateGroupCertificateAuthority
                      (pure (fromEnum s)))
 
 instance Hashable CreateGroupCertificateAuthority
+         where
 
-instance NFData CreateGroupCertificateAuthority
+instance NFData CreateGroupCertificateAuthority where
 
 instance ToHeaders CreateGroupCertificateAuthority
          where
@@ -112,9 +113,10 @@ instance ToQuery CreateGroupCertificateAuthority
 
 -- | /See:/ 'createGroupCertificateAuthorityResponse' smart constructor.
 data CreateGroupCertificateAuthorityResponse = CreateGroupCertificateAuthorityResponse'
-    { _cgcarsGroupCertificateAuthorityARN :: !(Maybe Text)
-    , _cgcarsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgcarsGroupCertificateAuthorityARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgcarsResponseStatus               :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroupCertificateAuthorityResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +129,11 @@ createGroupCertificateAuthorityResponse
     :: Int -- ^ 'cgcarsResponseStatus'
     -> CreateGroupCertificateAuthorityResponse
 createGroupCertificateAuthorityResponse pResponseStatus_ =
-    CreateGroupCertificateAuthorityResponse'
-    { _cgcarsGroupCertificateAuthorityARN = Nothing
-    , _cgcarsResponseStatus = pResponseStatus_
-    }
+  CreateGroupCertificateAuthorityResponse'
+  { _cgcarsGroupCertificateAuthorityARN = Nothing
+  , _cgcarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Arn of the group certificate authority.
 cgcarsGroupCertificateAuthorityARN :: Lens' CreateGroupCertificateAuthorityResponse (Maybe Text)
@@ -141,4 +144,5 @@ cgcarsResponseStatus :: Lens' CreateGroupCertificateAuthorityResponse Int
 cgcarsResponseStatus = lens _cgcarsResponseStatus (\ s a -> s{_cgcarsResponseStatus = a});
 
 instance NFData
-         CreateGroupCertificateAuthorityResponse
+           CreateGroupCertificateAuthorityResponse
+         where

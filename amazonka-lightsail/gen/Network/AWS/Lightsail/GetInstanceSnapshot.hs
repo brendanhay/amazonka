@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.GetInstanceSnapshot
     , gisrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getInstanceSnapshot' smart constructor.
 newtype GetInstanceSnapshot = GetInstanceSnapshot'
-    { _gisInstanceSnapshotName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisInstanceSnapshotName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceSnapshot' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getInstanceSnapshot
     :: Text -- ^ 'gisInstanceSnapshotName'
     -> GetInstanceSnapshot
 getInstanceSnapshot pInstanceSnapshotName_ =
-    GetInstanceSnapshot'
-    { _gisInstanceSnapshotName = pInstanceSnapshotName_
-    }
+  GetInstanceSnapshot' {_gisInstanceSnapshotName = pInstanceSnapshotName_}
+
 
 -- | The name of the snapshot for which you are requesting information.
 gisInstanceSnapshotName :: Lens' GetInstanceSnapshot Text
@@ -76,9 +76,9 @@ instance AWSRequest GetInstanceSnapshot where
                  GetInstanceSnapshotResponse' <$>
                    (x .?> "instanceSnapshot") <*> (pure (fromEnum s)))
 
-instance Hashable GetInstanceSnapshot
+instance Hashable GetInstanceSnapshot where
 
-instance NFData GetInstanceSnapshot
+instance NFData GetInstanceSnapshot where
 
 instance ToHeaders GetInstanceSnapshot where
         toHeaders
@@ -106,9 +106,10 @@ instance ToQuery GetInstanceSnapshot where
 
 -- | /See:/ 'getInstanceSnapshotResponse' smart constructor.
 data GetInstanceSnapshotResponse = GetInstanceSnapshotResponse'
-    { _gisrsInstanceSnapshot :: !(Maybe InstanceSnapshot)
-    , _gisrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gisrsInstanceSnapshot :: {-# NOUNPACK #-}!(Maybe InstanceSnapshot)
+  , _gisrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,9 @@ getInstanceSnapshotResponse
     :: Int -- ^ 'gisrsResponseStatus'
     -> GetInstanceSnapshotResponse
 getInstanceSnapshotResponse pResponseStatus_ =
-    GetInstanceSnapshotResponse'
-    { _gisrsInstanceSnapshot = Nothing
-    , _gisrsResponseStatus = pResponseStatus_
-    }
+  GetInstanceSnapshotResponse'
+  {_gisrsInstanceSnapshot = Nothing, _gisrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your get instance snapshot request.
 gisrsInstanceSnapshot :: Lens' GetInstanceSnapshotResponse (Maybe InstanceSnapshot)
@@ -134,4 +134,4 @@ gisrsInstanceSnapshot = lens _gisrsInstanceSnapshot (\ s a -> s{_gisrsInstanceSn
 gisrsResponseStatus :: Lens' GetInstanceSnapshotResponse Int
 gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
 
-instance NFData GetInstanceSnapshotResponse
+instance NFData GetInstanceSnapshotResponse where

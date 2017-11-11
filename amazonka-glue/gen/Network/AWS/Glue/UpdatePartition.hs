@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdatePartition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,21 +40,22 @@ module Network.AWS.Glue.UpdatePartition
     , uprsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updatePartition' smart constructor.
 data UpdatePartition = UpdatePartition'
-    { _upCatalogId          :: !(Maybe Text)
-    , _upDatabaseName       :: !Text
-    , _upTableName          :: !Text
-    , _upPartitionValueList :: ![Text]
-    , _upPartitionInput     :: !PartitionInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upCatalogId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upDatabaseName       :: {-# NOUNPACK #-}!Text
+  , _upTableName          :: {-# NOUNPACK #-}!Text
+  , _upPartitionValueList :: {-# NOUNPACK #-}![Text]
+  , _upPartitionInput     :: {-# NOUNPACK #-}!PartitionInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePartition' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ updatePartition
     -> PartitionInput -- ^ 'upPartitionInput'
     -> UpdatePartition
 updatePartition pDatabaseName_ pTableName_ pPartitionInput_ =
-    UpdatePartition'
-    { _upCatalogId = Nothing
-    , _upDatabaseName = pDatabaseName_
-    , _upTableName = pTableName_
-    , _upPartitionValueList = mempty
-    , _upPartitionInput = pPartitionInput_
-    }
+  UpdatePartition'
+  { _upCatalogId = Nothing
+  , _upDatabaseName = pDatabaseName_
+  , _upTableName = pTableName_
+  , _upPartitionValueList = mempty
+  , _upPartitionInput = pPartitionInput_
+  }
+
 
 -- | The ID of the Data Catalog where the partition to be updated resides. If none is supplied, the AWS account ID is used by default.
 upCatalogId :: Lens' UpdatePartition (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest UpdatePartition where
               (\ s h x ->
                  UpdatePartitionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdatePartition
+instance Hashable UpdatePartition where
 
-instance NFData UpdatePartition
+instance NFData UpdatePartition where
 
 instance ToHeaders UpdatePartition where
         toHeaders
@@ -142,8 +144,9 @@ instance ToQuery UpdatePartition where
 
 -- | /See:/ 'updatePartitionResponse' smart constructor.
 newtype UpdatePartitionResponse = UpdatePartitionResponse'
-    { _uprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePartitionResponse' with the minimum fields required to make a request.
 --
@@ -154,12 +157,11 @@ updatePartitionResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UpdatePartitionResponse
 updatePartitionResponse pResponseStatus_ =
-    UpdatePartitionResponse'
-    { _uprsResponseStatus = pResponseStatus_
-    }
+  UpdatePartitionResponse' {_uprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdatePartitionResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 
-instance NFData UpdatePartitionResponse
+instance NFData UpdatePartitionResponse where

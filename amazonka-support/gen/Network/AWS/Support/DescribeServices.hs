@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeServices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Support.DescribeServices
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- |
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Support.Types.Product
 --
 -- /See:/ 'describeServices' smart constructor.
 data DescribeServices = DescribeServices'
-    { _dsServiceCodeList :: !(Maybe [Text])
-    , _dsLanguage        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsServiceCodeList :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsLanguage        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ data DescribeServices = DescribeServices'
 describeServices
     :: DescribeServices
 describeServices =
-    DescribeServices'
-    { _dsServiceCodeList = Nothing
-    , _dsLanguage = Nothing
-    }
+  DescribeServices' {_dsServiceCodeList = Nothing, _dsLanguage = Nothing}
+
 
 -- | A JSON-formatted list of service codes available for AWS services.
 dsServiceCodeList :: Lens' DescribeServices [Text]
@@ -90,9 +89,9 @@ instance AWSRequest DescribeServices where
                    (x .?> "services" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeServices
+instance Hashable DescribeServices where
 
-instance NFData DescribeServices
+instance NFData DescribeServices where
 
 instance ToHeaders DescribeServices where
         toHeaders
@@ -123,9 +122,10 @@ instance ToQuery DescribeServices where
 --
 -- /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _dsrsServices       :: !(Maybe [SupportService])
-    , _dsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsServices       :: {-# NOUNPACK #-}!(Maybe [SupportService])
+  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +138,9 @@ describeServicesResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeServicesResponse
 describeServicesResponse pResponseStatus_ =
-    DescribeServicesResponse'
-    { _dsrsServices = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DescribeServicesResponse'
+  {_dsrsServices = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | A JSON-formatted list of AWS services.
 dsrsServices :: Lens' DescribeServicesResponse [SupportService]
@@ -151,4 +150,4 @@ dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _
 dsrsResponseStatus :: Lens' DescribeServicesResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DescribeServicesResponse
+instance NFData DescribeServicesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.GetResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,22 +44,23 @@ module Network.AWS.ResourceGroupsTagging.GetResources
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.ResourceGroupsTagging.Types
-import           Network.AWS.ResourceGroupsTagging.Types.Product
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.ResourceGroupsTagging.Types
+import Network.AWS.ResourceGroupsTagging.Types.Product
+import Network.AWS.Response
 
 -- | /See:/ 'getResources' smart constructor.
 data GetResources = GetResources'
-    { _grPaginationToken     :: !(Maybe Text)
-    , _grResourcesPerPage    :: !(Maybe Int)
-    , _grResourceTypeFilters :: !(Maybe [Text])
-    , _grTagFilters          :: !(Maybe [TagFilter])
-    , _grTagsPerPage         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grPaginationToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grResourcesPerPage    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _grResourceTypeFilters :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _grTagFilters          :: {-# NOUNPACK #-}!(Maybe [TagFilter])
+  , _grTagsPerPage         :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetResources' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ data GetResources = GetResources'
 getResources
     :: GetResources
 getResources =
-    GetResources'
-    { _grPaginationToken = Nothing
-    , _grResourcesPerPage = Nothing
-    , _grResourceTypeFilters = Nothing
-    , _grTagFilters = Nothing
-    , _grTagsPerPage = Nothing
-    }
+  GetResources'
+  { _grPaginationToken = Nothing
+  , _grResourcesPerPage = Nothing
+  , _grResourceTypeFilters = Nothing
+  , _grTagFilters = Nothing
+  , _grTagsPerPage = Nothing
+  }
+
 
 -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
 grPaginationToken :: Lens' GetResources (Maybe Text)
@@ -124,9 +126,9 @@ instance AWSRequest GetResources where
                      (x .?> "ResourceTagMappingList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetResources
+instance Hashable GetResources where
 
-instance NFData GetResources
+instance NFData GetResources where
 
 instance ToHeaders GetResources where
         toHeaders
@@ -157,10 +159,11 @@ instance ToQuery GetResources where
 
 -- | /See:/ 'getResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
-    { _grrsPaginationToken        :: !(Maybe Text)
-    , _grrsResourceTagMappingList :: !(Maybe [ResourceTagMapping])
-    , _grrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsPaginationToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grrsResourceTagMappingList :: {-# NOUNPACK #-}!(Maybe [ResourceTagMapping])
+  , _grrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetResourcesResponse' with the minimum fields required to make a request.
 --
@@ -175,11 +178,12 @@ getResourcesResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetResourcesResponse
 getResourcesResponse pResponseStatus_ =
-    GetResourcesResponse'
-    { _grrsPaginationToken = Nothing
-    , _grrsResourceTagMappingList = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GetResourcesResponse'
+  { _grrsPaginationToken = Nothing
+  , _grrsResourceTagMappingList = Nothing
+  , _grrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
 grrsPaginationToken :: Lens' GetResourcesResponse (Maybe Text)
@@ -193,4 +197,4 @@ grrsResourceTagMappingList = lens _grrsResourceTagMappingList (\ s a -> s{_grrsR
 grrsResponseStatus :: Lens' GetResourcesResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GetResourcesResponse
+instance NFData GetResourcesResponse where

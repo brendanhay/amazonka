@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Shield.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Shield.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Shield.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Shield.Types.Sum
 
 -- | The details of a DDoS attack.
 --
@@ -27,14 +27,15 @@ import           Network.AWS.Shield.Types.Sum
 --
 -- /See:/ 'attackDetail' smart constructor.
 data AttackDetail = AttackDetail'
-    { _adAttackId       :: !(Maybe Text)
-    , _adStartTime      :: !(Maybe POSIX)
-    , _adSubResources   :: !(Maybe [SubResourceSummary])
-    , _adMitigations    :: !(Maybe [Mitigation])
-    , _adAttackCounters :: !(Maybe [SummarizedCounter])
-    , _adResourceARN    :: !(Maybe Text)
-    , _adEndTime        :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adAttackId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adStartTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _adSubResources   :: {-# NOUNPACK #-}!(Maybe [SubResourceSummary])
+  , _adMitigations    :: {-# NOUNPACK #-}!(Maybe [Mitigation])
+  , _adAttackCounters :: {-# NOUNPACK #-}!(Maybe [SummarizedCounter])
+  , _adResourceARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adEndTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttackDetail' with the minimum fields required to make a request.
 --
@@ -56,15 +57,16 @@ data AttackDetail = AttackDetail'
 attackDetail
     :: AttackDetail
 attackDetail =
-    AttackDetail'
-    { _adAttackId = Nothing
-    , _adStartTime = Nothing
-    , _adSubResources = Nothing
-    , _adMitigations = Nothing
-    , _adAttackCounters = Nothing
-    , _adResourceARN = Nothing
-    , _adEndTime = Nothing
-    }
+  AttackDetail'
+  { _adAttackId = Nothing
+  , _adStartTime = Nothing
+  , _adSubResources = Nothing
+  , _adMitigations = Nothing
+  , _adAttackCounters = Nothing
+  , _adResourceARN = Nothing
+  , _adEndTime = Nothing
+  }
+
 
 -- | The unique identifier (ID) of the attack.
 adAttackId :: Lens' AttackDetail (Maybe Text)
@@ -106,9 +108,9 @@ instance FromJSON AttackDetail where
                      <*> (x .:? "ResourceArn")
                      <*> (x .:? "EndTime"))
 
-instance Hashable AttackDetail
+instance Hashable AttackDetail where
 
-instance NFData AttackDetail
+instance NFData AttackDetail where
 
 -- | Summarizes all DDoS attacks for a specified time period.
 --
@@ -116,12 +118,13 @@ instance NFData AttackDetail
 --
 -- /See:/ 'attackSummary' smart constructor.
 data AttackSummary = AttackSummary'
-    { _asAttackVectors :: !(Maybe [AttackVectorDescription])
-    , _asAttackId      :: !(Maybe Text)
-    , _asStartTime     :: !(Maybe POSIX)
-    , _asResourceARN   :: !(Maybe Text)
-    , _asEndTime       :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asAttackVectors :: {-# NOUNPACK #-}!(Maybe [AttackVectorDescription])
+  , _asAttackId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asStartTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _asResourceARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asEndTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttackSummary' with the minimum fields required to make a request.
 --
@@ -139,13 +142,14 @@ data AttackSummary = AttackSummary'
 attackSummary
     :: AttackSummary
 attackSummary =
-    AttackSummary'
-    { _asAttackVectors = Nothing
-    , _asAttackId = Nothing
-    , _asStartTime = Nothing
-    , _asResourceARN = Nothing
-    , _asEndTime = Nothing
-    }
+  AttackSummary'
+  { _asAttackVectors = Nothing
+  , _asAttackId = Nothing
+  , _asStartTime = Nothing
+  , _asResourceARN = Nothing
+  , _asEndTime = Nothing
+  }
+
 
 -- | The list of attacks for a specified time period.
 asAttackVectors :: Lens' AttackSummary [AttackVectorDescription]
@@ -178,9 +182,9 @@ instance FromJSON AttackSummary where
                      <*> (x .:? "ResourceArn")
                      <*> (x .:? "EndTime"))
 
-instance Hashable AttackSummary
+instance Hashable AttackSummary where
 
-instance NFData AttackSummary
+instance NFData AttackSummary where
 
 -- | Describes the attack.
 --
@@ -188,8 +192,9 @@ instance NFData AttackSummary
 --
 -- /See:/ 'attackVectorDescription' smart constructor.
 newtype AttackVectorDescription = AttackVectorDescription'
-    { _avdVectorType :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avdVectorType :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttackVectorDescription' with the minimum fields required to make a request.
 --
@@ -200,9 +205,8 @@ attackVectorDescription
     :: Text -- ^ 'avdVectorType'
     -> AttackVectorDescription
 attackVectorDescription pVectorType_ =
-    AttackVectorDescription'
-    { _avdVectorType = pVectorType_
-    }
+  AttackVectorDescription' {_avdVectorType = pVectorType_}
+
 
 -- | The attack type, for example, SNMP reflection or SYN flood.
 avdVectorType :: Lens' AttackVectorDescription Text
@@ -214,9 +218,9 @@ instance FromJSON AttackVectorDescription where
               (\ x ->
                  AttackVectorDescription' <$> (x .: "VectorType"))
 
-instance Hashable AttackVectorDescription
+instance Hashable AttackVectorDescription where
 
-instance NFData AttackVectorDescription
+instance NFData AttackVectorDescription where
 
 -- | The mitigation applied to a DDoS attack.
 --
@@ -224,8 +228,9 @@ instance NFData AttackVectorDescription
 --
 -- /See:/ 'mitigation' smart constructor.
 newtype Mitigation = Mitigation'
-    { _mMitigationName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mMitigationName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Mitigation' with the minimum fields required to make a request.
 --
@@ -234,10 +239,8 @@ newtype Mitigation = Mitigation'
 -- * 'mMitigationName' - The name of the mitigation taken for this attack.
 mitigation
     :: Mitigation
-mitigation =
-    Mitigation'
-    { _mMitigationName = Nothing
-    }
+mitigation = Mitigation' {_mMitigationName = Nothing}
+
 
 -- | The name of the mitigation taken for this attack.
 mMitigationName :: Lens' Mitigation (Maybe Text)
@@ -248,9 +251,9 @@ instance FromJSON Mitigation where
           = withObject "Mitigation"
               (\ x -> Mitigation' <$> (x .:? "MitigationName"))
 
-instance Hashable Mitigation
+instance Hashable Mitigation where
 
-instance NFData Mitigation
+instance NFData Mitigation where
 
 -- | An object that represents a resource that is under DDoS protection.
 --
@@ -258,10 +261,11 @@ instance NFData Mitigation
 --
 -- /See:/ 'protection' smart constructor.
 data Protection = Protection'
-    { _pResourceARN :: !(Maybe Text)
-    , _pName        :: !(Maybe Text)
-    , _pId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Protection' with the minimum fields required to make a request.
 --
@@ -275,11 +279,8 @@ data Protection = Protection'
 protection
     :: Protection
 protection =
-    Protection'
-    { _pResourceARN = Nothing
-    , _pName = Nothing
-    , _pId = Nothing
-    }
+  Protection' {_pResourceARN = Nothing, _pName = Nothing, _pId = Nothing}
+
 
 -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
 pResourceARN :: Lens' Protection (Maybe Text)
@@ -301,9 +302,9 @@ instance FromJSON Protection where
                    (x .:? "ResourceArn") <*> (x .:? "Name") <*>
                      (x .:? "Id"))
 
-instance Hashable Protection
+instance Hashable Protection where
 
-instance NFData Protection
+instance NFData Protection where
 
 -- | The attack information for the specified SubResource.
 --
@@ -311,11 +312,12 @@ instance NFData Protection
 --
 -- /See:/ 'subResourceSummary' smart constructor.
 data SubResourceSummary = SubResourceSummary'
-    { _srsCounters      :: !(Maybe [SummarizedCounter])
-    , _srsAttackVectors :: !(Maybe [SummarizedAttackVector])
-    , _srsId            :: !(Maybe Text)
-    , _srsType          :: !(Maybe SubResourceType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsCounters      :: {-# NOUNPACK #-}!(Maybe [SummarizedCounter])
+  , _srsAttackVectors :: {-# NOUNPACK #-}!(Maybe [SummarizedAttackVector])
+  , _srsId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srsType          :: {-# NOUNPACK #-}!(Maybe SubResourceType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubResourceSummary' with the minimum fields required to make a request.
 --
@@ -331,12 +333,13 @@ data SubResourceSummary = SubResourceSummary'
 subResourceSummary
     :: SubResourceSummary
 subResourceSummary =
-    SubResourceSummary'
-    { _srsCounters = Nothing
-    , _srsAttackVectors = Nothing
-    , _srsId = Nothing
-    , _srsType = Nothing
-    }
+  SubResourceSummary'
+  { _srsCounters = Nothing
+  , _srsAttackVectors = Nothing
+  , _srsId = Nothing
+  , _srsType = Nothing
+  }
+
 
 -- | The counters that describe the details of the attack.
 srsCounters :: Lens' SubResourceSummary [SummarizedCounter]
@@ -364,9 +367,9 @@ instance FromJSON SubResourceSummary where
                      <*> (x .:? "Id")
                      <*> (x .:? "Type"))
 
-instance Hashable SubResourceSummary
+instance Hashable SubResourceSummary where
 
-instance NFData SubResourceSummary
+instance NFData SubResourceSummary where
 
 -- | Information about the AWS Shield Advanced subscription for an account.
 --
@@ -374,9 +377,10 @@ instance NFData SubResourceSummary
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-    { _sTimeCommitmentInSeconds :: !(Maybe Nat)
-    , _sStartTime               :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sTimeCommitmentInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sStartTime               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
@@ -388,10 +392,8 @@ data Subscription = Subscription'
 subscription
     :: Subscription
 subscription =
-    Subscription'
-    { _sTimeCommitmentInSeconds = Nothing
-    , _sStartTime = Nothing
-    }
+  Subscription' {_sTimeCommitmentInSeconds = Nothing, _sStartTime = Nothing}
+
 
 -- | The length, in seconds, of the AWS Shield Advanced subscription for the account.
 sTimeCommitmentInSeconds :: Lens' Subscription (Maybe Natural)
@@ -409,9 +411,9 @@ instance FromJSON Subscription where
                    (x .:? "TimeCommitmentInSeconds") <*>
                      (x .:? "StartTime"))
 
-instance Hashable Subscription
+instance Hashable Subscription where
 
-instance NFData Subscription
+instance NFData Subscription where
 
 -- | A summary of information about the attack.
 --
@@ -419,9 +421,10 @@ instance NFData Subscription
 --
 -- /See:/ 'summarizedAttackVector' smart constructor.
 data SummarizedAttackVector = SummarizedAttackVector'
-    { _savVectorCounters :: !(Maybe [SummarizedCounter])
-    , _savVectorType     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _savVectorCounters :: {-# NOUNPACK #-}!(Maybe [SummarizedCounter])
+  , _savVectorType     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SummarizedAttackVector' with the minimum fields required to make a request.
 --
@@ -434,10 +437,9 @@ summarizedAttackVector
     :: Text -- ^ 'savVectorType'
     -> SummarizedAttackVector
 summarizedAttackVector pVectorType_ =
-    SummarizedAttackVector'
-    { _savVectorCounters = Nothing
-    , _savVectorType = pVectorType_
-    }
+  SummarizedAttackVector'
+  {_savVectorCounters = Nothing, _savVectorType = pVectorType_}
+
 
 -- | The list of counters that describe the details of the attack.
 savVectorCounters :: Lens' SummarizedAttackVector [SummarizedCounter]
@@ -455,9 +457,9 @@ instance FromJSON SummarizedAttackVector where
                    (x .:? "VectorCounters" .!= mempty) <*>
                      (x .: "VectorType"))
 
-instance Hashable SummarizedAttackVector
+instance Hashable SummarizedAttackVector where
 
-instance NFData SummarizedAttackVector
+instance NFData SummarizedAttackVector where
 
 -- | The counter that describes a DDoS attack.
 --
@@ -465,13 +467,14 @@ instance NFData SummarizedAttackVector
 --
 -- /See:/ 'summarizedCounter' smart constructor.
 data SummarizedCounter = SummarizedCounter'
-    { _scMax     :: !(Maybe Double)
-    , _scAverage :: !(Maybe Double)
-    , _scN       :: !(Maybe Int)
-    , _scName    :: !(Maybe Text)
-    , _scSum     :: !(Maybe Double)
-    , _scUnit    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scMax     :: {-# NOUNPACK #-}!(Maybe Double)
+  , _scAverage :: {-# NOUNPACK #-}!(Maybe Double)
+  , _scN       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _scName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scSum     :: {-# NOUNPACK #-}!(Maybe Double)
+  , _scUnit    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SummarizedCounter' with the minimum fields required to make a request.
 --
@@ -491,14 +494,15 @@ data SummarizedCounter = SummarizedCounter'
 summarizedCounter
     :: SummarizedCounter
 summarizedCounter =
-    SummarizedCounter'
-    { _scMax = Nothing
-    , _scAverage = Nothing
-    , _scN = Nothing
-    , _scName = Nothing
-    , _scSum = Nothing
-    , _scUnit = Nothing
-    }
+  SummarizedCounter'
+  { _scMax = Nothing
+  , _scAverage = Nothing
+  , _scN = Nothing
+  , _scName = Nothing
+  , _scSum = Nothing
+  , _scUnit = Nothing
+  }
+
 
 -- | The maximum value of the counter for a specified time period.
 scMax :: Lens' SummarizedCounter (Maybe Double)
@@ -534,9 +538,9 @@ instance FromJSON SummarizedCounter where
                      <*> (x .:? "Sum")
                      <*> (x .:? "Unit"))
 
-instance Hashable SummarizedCounter
+instance Hashable SummarizedCounter where
 
-instance NFData SummarizedCounter
+instance NFData SummarizedCounter where
 
 -- | The time range.
 --
@@ -544,9 +548,10 @@ instance NFData SummarizedCounter
 --
 -- /See:/ 'timeRange' smart constructor.
 data TimeRange = TimeRange'
-    { _trFromInclusive :: !(Maybe POSIX)
-    , _trToExclusive   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trFromInclusive :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _trToExclusive   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TimeRange' with the minimum fields required to make a request.
 --
@@ -557,11 +562,8 @@ data TimeRange = TimeRange'
 -- * 'trToExclusive' - The end time, in the format 2016-12-16T15:50Z.
 timeRange
     :: TimeRange
-timeRange =
-    TimeRange'
-    { _trFromInclusive = Nothing
-    , _trToExclusive = Nothing
-    }
+timeRange = TimeRange' {_trFromInclusive = Nothing, _trToExclusive = Nothing}
+
 
 -- | The start time, in the format 2016-12-16T13:50Z.
 trFromInclusive :: Lens' TimeRange (Maybe UTCTime)
@@ -571,9 +573,9 @@ trFromInclusive = lens _trFromInclusive (\ s a -> s{_trFromInclusive = a}) . map
 trToExclusive :: Lens' TimeRange (Maybe UTCTime)
 trToExclusive = lens _trToExclusive (\ s a -> s{_trToExclusive = a}) . mapping _Time;
 
-instance Hashable TimeRange
+instance Hashable TimeRange where
 
-instance NFData TimeRange
+instance NFData TimeRange where
 
 instance ToJSON TimeRange where
         toJSON TimeRange'{..}

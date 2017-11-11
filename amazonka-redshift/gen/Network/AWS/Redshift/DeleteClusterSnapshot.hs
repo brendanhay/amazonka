@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     , dcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteClusterSnapshot' smart constructor.
 data DeleteClusterSnapshot = DeleteClusterSnapshot'
-    { _dcsSnapshotClusterIdentifier :: !(Maybe Text)
-    , _dcsSnapshotIdentifier        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsSnapshotClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClusterSnapshot' with the minimum fields required to make a request.
 --
@@ -68,10 +69,11 @@ deleteClusterSnapshot
     :: Text -- ^ 'dcsSnapshotIdentifier'
     -> DeleteClusterSnapshot
 deleteClusterSnapshot pSnapshotIdentifier_ =
-    DeleteClusterSnapshot'
-    { _dcsSnapshotClusterIdentifier = Nothing
-    , _dcsSnapshotIdentifier = pSnapshotIdentifier_
-    }
+  DeleteClusterSnapshot'
+  { _dcsSnapshotClusterIdentifier = Nothing
+  , _dcsSnapshotIdentifier = pSnapshotIdentifier_
+  }
+
 
 -- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints: Must be the name of valid cluster.
 dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
@@ -91,9 +93,9 @@ instance AWSRequest DeleteClusterSnapshot where
                  DeleteClusterSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteClusterSnapshot
+instance Hashable DeleteClusterSnapshot where
 
-instance NFData DeleteClusterSnapshot
+instance NFData DeleteClusterSnapshot where
 
 instance ToHeaders DeleteClusterSnapshot where
         toHeaders = const mempty
@@ -112,9 +114,10 @@ instance ToQuery DeleteClusterSnapshot where
 
 -- | /See:/ 'deleteClusterSnapshotResponse' smart constructor.
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
-    { _dcsrsSnapshot       :: !(Maybe Snapshot)
-    , _dcsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsrsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
+  , _dcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClusterSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +130,9 @@ deleteClusterSnapshotResponse
     :: Int -- ^ 'dcsrsResponseStatus'
     -> DeleteClusterSnapshotResponse
 deleteClusterSnapshotResponse pResponseStatus_ =
-    DeleteClusterSnapshotResponse'
-    { _dcsrsSnapshot = Nothing
-    , _dcsrsResponseStatus = pResponseStatus_
-    }
+  DeleteClusterSnapshotResponse'
+  {_dcsrsSnapshot = Nothing, _dcsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
@@ -140,4 +142,4 @@ dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
 dcsrsResponseStatus :: Lens' DeleteClusterSnapshotResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
 
-instance NFData DeleteClusterSnapshotResponse
+instance NFData DeleteClusterSnapshotResponse where

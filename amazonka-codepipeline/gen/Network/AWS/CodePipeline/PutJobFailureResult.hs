@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutJobFailureResult
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.CodePipeline.PutJobFailureResult
     , PutJobFailureResultResponse
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a put job failure result action.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putJobFailureResult' smart constructor.
 data PutJobFailureResult = PutJobFailureResult'
-    { _pjfrJobId          :: !Text
-    , _pjfrFailureDetails :: !FailureDetails
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pjfrJobId          :: {-# NOUNPACK #-}!Text
+  , _pjfrFailureDetails :: {-# NOUNPACK #-}!FailureDetails
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutJobFailureResult' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ putJobFailureResult
     -> FailureDetails -- ^ 'pjfrFailureDetails'
     -> PutJobFailureResult
 putJobFailureResult pJobId_ pFailureDetails_ =
-    PutJobFailureResult'
-    { _pjfrJobId = pJobId_
-    , _pjfrFailureDetails = pFailureDetails_
-    }
+  PutJobFailureResult'
+  {_pjfrJobId = pJobId_, _pjfrFailureDetails = pFailureDetails_}
+
 
 -- | The unique system-generated ID of the job that failed. This is the same ID returned from PollForJobs.
 pjfrJobId :: Lens' PutJobFailureResult Text
@@ -83,9 +83,9 @@ instance AWSRequest PutJobFailureResult where
         request = postJSON codePipeline
         response = receiveNull PutJobFailureResultResponse'
 
-instance Hashable PutJobFailureResult
+instance Hashable PutJobFailureResult where
 
-instance NFData PutJobFailureResult
+instance NFData PutJobFailureResult where
 
 instance ToHeaders PutJobFailureResult where
         toHeaders
@@ -112,8 +112,9 @@ instance ToQuery PutJobFailureResult where
 
 -- | /See:/ 'putJobFailureResultResponse' smart constructor.
 data PutJobFailureResultResponse =
-    PutJobFailureResultResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutJobFailureResultResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutJobFailureResultResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +122,5 @@ putJobFailureResultResponse
     :: PutJobFailureResultResponse
 putJobFailureResultResponse = PutJobFailureResultResponse'
 
-instance NFData PutJobFailureResultResponse
+
+instance NFData PutJobFailureResultResponse where

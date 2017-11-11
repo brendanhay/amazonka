@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.SES.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SES.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data BehaviorOnMXFailure
-    = RejectMessage
-    | UseDefaultValue
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RejectMessage
+  | UseDefaultValue
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BehaviorOnMXFailure where
     parser = takeLowerText >>= \case
@@ -46,13 +47,14 @@ instance FromXML BehaviorOnMXFailure where
     parseXML = parseXMLText "BehaviorOnMXFailure"
 
 data BounceType
-    = BTContentRejected
-    | BTDoesNotExist
-    | BTExceededQuota
-    | BTMessageTooLarge
-    | BTTemporaryFailure
-    | BTUndefined
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BTContentRejected
+  | BTDoesNotExist
+  | BTExceededQuota
+  | BTMessageTooLarge
+  | BTTemporaryFailure
+  | BTUndefined
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BounceType where
     parser = takeLowerText >>= \case
@@ -81,8 +83,9 @@ instance ToQuery      BounceType
 instance ToHeader     BounceType
 
 data ConfigurationSetAttribute =
-    EventDestinations
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  EventDestinations
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConfigurationSetAttribute where
     parser = takeLowerText >>= \case
@@ -101,11 +104,12 @@ instance ToQuery      ConfigurationSetAttribute
 instance ToHeader     ConfigurationSetAttribute
 
 data CustomMailFromStatus
-    = CMFSFailed
-    | CMFSPending
-    | CMFSSuccess
-    | CMFSTemporaryFailure
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CMFSFailed
+  | CMFSPending
+  | CMFSSuccess
+  | CMFSTemporaryFailure
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CustomMailFromStatus where
     parser = takeLowerText >>= \case
@@ -133,10 +137,11 @@ instance FromXML CustomMailFromStatus where
     parseXML = parseXMLText "CustomMailFromStatus"
 
 data DimensionValueSource
-    = EmailHeader
-    | LinkTag
-    | MessageTag
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EmailHeader
+  | LinkTag
+  | MessageTag
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DimensionValueSource where
     parser = takeLowerText >>= \case
@@ -162,12 +167,13 @@ instance FromXML DimensionValueSource where
     parseXML = parseXMLText "DimensionValueSource"
 
 data DsnAction
-    = DADelayed
-    | DADelivered
-    | DAExpanded
-    | DAFailed
-    | DARelayed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DADelayed
+  | DADelivered
+  | DAExpanded
+  | DAFailed
+  | DARelayed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DsnAction where
     parser = takeLowerText >>= \case
@@ -194,14 +200,15 @@ instance ToQuery      DsnAction
 instance ToHeader     DsnAction
 
 data EventType
-    = ETBounce
-    | ETClick
-    | ETComplaint
-    | ETDelivery
-    | ETOpen
-    | ETReject
-    | ETSend
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ETBounce
+  | ETClick
+  | ETComplaint
+  | ETDelivery
+  | ETOpen
+  | ETReject
+  | ETSend
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
@@ -235,9 +242,10 @@ instance FromXML EventType where
     parseXML = parseXMLText "EventType"
 
 data IdentityType
-    = Domain
-    | EmailAddress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Domain
+  | EmailAddress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IdentityType where
     parser = takeLowerText >>= \case
@@ -258,9 +266,10 @@ instance ToQuery      IdentityType
 instance ToHeader     IdentityType
 
 data InvocationType
-    = Event
-    | RequestResponse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Event
+  | RequestResponse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InvocationType where
     parser = takeLowerText >>= \case
@@ -284,10 +293,11 @@ instance FromXML InvocationType where
     parseXML = parseXMLText "InvocationType"
 
 data NotificationType
-    = Bounce
-    | Complaint
-    | Delivery
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Bounce
+  | Complaint
+  | Delivery
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NotificationType where
     parser = takeLowerText >>= \case
@@ -310,9 +320,10 @@ instance ToQuery      NotificationType
 instance ToHeader     NotificationType
 
 data ReceiptFilterPolicy
-    = Allow
-    | Block
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Allow
+  | Block
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReceiptFilterPolicy where
     parser = takeLowerText >>= \case
@@ -336,9 +347,10 @@ instance FromXML ReceiptFilterPolicy where
     parseXML = parseXMLText "ReceiptFilterPolicy"
 
 data SNSActionEncoding
-    = BASE64
-    | Utf8
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BASE64
+  | Utf8
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SNSActionEncoding where
     parser = takeLowerText >>= \case
@@ -362,8 +374,9 @@ instance FromXML SNSActionEncoding where
     parseXML = parseXMLText "SNSActionEncoding"
 
 data StopScope =
-    RuleSet
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  RuleSet
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StopScope where
     parser = takeLowerText >>= \case
@@ -385,9 +398,10 @@ instance FromXML StopScope where
     parseXML = parseXMLText "StopScope"
 
 data TLSPolicy
-    = Optional
-    | Require
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Optional
+  | Require
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TLSPolicy where
     parser = takeLowerText >>= \case
@@ -411,12 +425,13 @@ instance FromXML TLSPolicy where
     parseXML = parseXMLText "TLSPolicy"
 
 data VerificationStatus
-    = Failed
-    | NotStarted
-    | Pending
-    | Success
-    | TemporaryFailure
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | NotStarted
+  | Pending
+  | Success
+  | TemporaryFailure
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VerificationStatus where
     parser = takeLowerText >>= \case

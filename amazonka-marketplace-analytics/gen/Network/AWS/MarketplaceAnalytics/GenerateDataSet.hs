@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceAnalytics.GenerateDataSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,25 +41,26 @@ module Network.AWS.MarketplaceAnalytics.GenerateDataSet
     , gdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MarketplaceAnalytics.Types
-import           Network.AWS.MarketplaceAnalytics.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MarketplaceAnalytics.Types
+import Network.AWS.MarketplaceAnalytics.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the GenerateDataSet operation.
 --
 -- /See:/ 'generateDataSet' smart constructor.
 data GenerateDataSet = GenerateDataSet'
-    { _gdsCustomerDefinedValues   :: !(Maybe (Map Text Text))
-    , _gdsDestinationS3Prefix     :: !(Maybe Text)
-    , _gdsDataSetType             :: !DataSetType
-    , _gdsDataSetPublicationDate  :: !POSIX
-    , _gdsRoleNameARN             :: !Text
-    , _gdsDestinationS3BucketName :: !Text
-    , _gdsSnsTopicARN             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsCustomerDefinedValues   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gdsDestinationS3Prefix     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsDataSetType             :: {-# NOUNPACK #-}!DataSetType
+  , _gdsDataSetPublicationDate  :: {-# NOUNPACK #-}!POSIX
+  , _gdsRoleNameARN             :: {-# NOUNPACK #-}!Text
+  , _gdsDestinationS3BucketName :: {-# NOUNPACK #-}!Text
+  , _gdsSnsTopicARN             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateDataSet' with the minimum fields required to make a request.
 --
@@ -86,15 +87,16 @@ generateDataSet
     -> Text -- ^ 'gdsSnsTopicARN'
     -> GenerateDataSet
 generateDataSet pDataSetType_ pDataSetPublicationDate_ pRoleNameARN_ pDestinationS3BucketName_ pSnsTopicARN_ =
-    GenerateDataSet'
-    { _gdsCustomerDefinedValues = Nothing
-    , _gdsDestinationS3Prefix = Nothing
-    , _gdsDataSetType = pDataSetType_
-    , _gdsDataSetPublicationDate = _Time # pDataSetPublicationDate_
-    , _gdsRoleNameARN = pRoleNameARN_
-    , _gdsDestinationS3BucketName = pDestinationS3BucketName_
-    , _gdsSnsTopicARN = pSnsTopicARN_
-    }
+  GenerateDataSet'
+  { _gdsCustomerDefinedValues = Nothing
+  , _gdsDestinationS3Prefix = Nothing
+  , _gdsDataSetType = pDataSetType_
+  , _gdsDataSetPublicationDate = _Time # pDataSetPublicationDate_
+  , _gdsRoleNameARN = pRoleNameARN_
+  , _gdsDestinationS3BucketName = pDestinationS3BucketName_
+  , _gdsSnsTopicARN = pSnsTopicARN_
+  }
+
 
 -- | (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file. These key-value pairs can be used to correlated responses with tracking information from other systems.
 gdsCustomerDefinedValues :: Lens' GenerateDataSet (HashMap Text Text)
@@ -133,9 +135,9 @@ instance AWSRequest GenerateDataSet where
                  GenerateDataSetResponse' <$>
                    (x .?> "dataSetRequestId") <*> (pure (fromEnum s)))
 
-instance Hashable GenerateDataSet
+instance Hashable GenerateDataSet where
 
-instance NFData GenerateDataSet
+instance NFData GenerateDataSet where
 
 instance ToHeaders GenerateDataSet where
         toHeaders
@@ -175,9 +177,10 @@ instance ToQuery GenerateDataSet where
 --
 -- /See:/ 'generateDataSetResponse' smart constructor.
 data GenerateDataSetResponse = GenerateDataSetResponse'
-    { _gdsrsDataSetRequestId :: !(Maybe Text)
-    , _gdsrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsrsDataSetRequestId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateDataSetResponse' with the minimum fields required to make a request.
 --
@@ -190,10 +193,9 @@ generateDataSetResponse
     :: Int -- ^ 'gdsrsResponseStatus'
     -> GenerateDataSetResponse
 generateDataSetResponse pResponseStatus_ =
-    GenerateDataSetResponse'
-    { _gdsrsDataSetRequestId = Nothing
-    , _gdsrsResponseStatus = pResponseStatus_
-    }
+  GenerateDataSetResponse'
+  {_gdsrsDataSetRequestId = Nothing, _gdsrsResponseStatus = pResponseStatus_}
+
 
 -- | A unique identifier representing a specific request to the GenerateDataSet operation. This identifier can be used to correlate a request with notifications from the SNS topic.
 gdsrsDataSetRequestId :: Lens' GenerateDataSetResponse (Maybe Text)
@@ -203,4 +205,4 @@ gdsrsDataSetRequestId = lens _gdsrsDataSetRequestId (\ s a -> s{_gdsrsDataSetReq
 gdsrsResponseStatus :: Lens' GenerateDataSetResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
 
-instance NFData GenerateDataSetResponse
+instance NFData GenerateDataSetResponse where

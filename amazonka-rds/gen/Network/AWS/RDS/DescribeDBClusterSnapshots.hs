@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBClusterSnapshots
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,13 +49,13 @@ module Network.AWS.RDS.DescribeDBClusterSnapshots
     , ddbcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -63,15 +63,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBClusterSnapshots' smart constructor.
 data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
-    { _ddbcsDBClusterIdentifier         :: !(Maybe Text)
-    , _ddbcsIncludeShared               :: !(Maybe Bool)
-    , _ddbcsDBClusterSnapshotIdentifier :: !(Maybe Text)
-    , _ddbcsFilters                     :: !(Maybe [Filter])
-    , _ddbcsSnapshotType                :: !(Maybe Text)
-    , _ddbcsMarker                      :: !(Maybe Text)
-    , _ddbcsMaxRecords                  :: !(Maybe Int)
-    , _ddbcsIncludePublic               :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbcsDBClusterIdentifier         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbcsIncludeShared               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddbcsDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbcsFilters                     :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddbcsSnapshotType                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbcsMarker                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbcsMaxRecords                  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ddbcsIncludePublic               :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBClusterSnapshots' with the minimum fields required to make a request.
 --
@@ -95,16 +96,17 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 describeDBClusterSnapshots
     :: DescribeDBClusterSnapshots
 describeDBClusterSnapshots =
-    DescribeDBClusterSnapshots'
-    { _ddbcsDBClusterIdentifier = Nothing
-    , _ddbcsIncludeShared = Nothing
-    , _ddbcsDBClusterSnapshotIdentifier = Nothing
-    , _ddbcsFilters = Nothing
-    , _ddbcsSnapshotType = Nothing
-    , _ddbcsMarker = Nothing
-    , _ddbcsMaxRecords = Nothing
-    , _ddbcsIncludePublic = Nothing
-    }
+  DescribeDBClusterSnapshots'
+  { _ddbcsDBClusterIdentifier = Nothing
+  , _ddbcsIncludeShared = Nothing
+  , _ddbcsDBClusterSnapshotIdentifier = Nothing
+  , _ddbcsFilters = Nothing
+  , _ddbcsSnapshotType = Nothing
+  , _ddbcsMarker = Nothing
+  , _ddbcsMaxRecords = Nothing
+  , _ddbcsIncludePublic = Nothing
+  }
+
 
 -- | The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter cannot be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddbcsDBClusterIdentifier :: Lens' DescribeDBClusterSnapshots (Maybe Text)
@@ -159,9 +161,9 @@ instance AWSRequest DescribeDBClusterSnapshots where
                         may (parseXMLList "DBClusterSnapshot"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBClusterSnapshots
+instance Hashable DescribeDBClusterSnapshots where
 
-instance NFData DescribeDBClusterSnapshots
+instance NFData DescribeDBClusterSnapshots where
 
 instance ToHeaders DescribeDBClusterSnapshots where
         toHeaders = const mempty
@@ -192,10 +194,11 @@ instance ToQuery DescribeDBClusterSnapshots where
 --
 -- /See:/ 'describeDBClusterSnapshotsResponse' smart constructor.
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
-    { _ddbcsrsMarker             :: !(Maybe Text)
-    , _ddbcsrsDBClusterSnapshots :: !(Maybe [DBClusterSnapshot])
-    , _ddbcsrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbcsrsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbcsrsDBClusterSnapshots :: {-# NOUNPACK #-}!(Maybe [DBClusterSnapshot])
+  , _ddbcsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBClusterSnapshotsResponse' with the minimum fields required to make a request.
 --
@@ -210,11 +213,12 @@ describeDBClusterSnapshotsResponse
     :: Int -- ^ 'ddbcsrsResponseStatus'
     -> DescribeDBClusterSnapshotsResponse
 describeDBClusterSnapshotsResponse pResponseStatus_ =
-    DescribeDBClusterSnapshotsResponse'
-    { _ddbcsrsMarker = Nothing
-    , _ddbcsrsDBClusterSnapshots = Nothing
-    , _ddbcsrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBClusterSnapshotsResponse'
+  { _ddbcsrsMarker = Nothing
+  , _ddbcsrsDBClusterSnapshots = Nothing
+  , _ddbcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous 'DescribeDBClusterSnapshots' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddbcsrsMarker :: Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
@@ -229,3 +233,4 @@ ddbcsrsResponseStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
 ddbcsrsResponseStatus = lens _ddbcsrsResponseStatus (\ s a -> s{_ddbcsrsResponseStatus = a});
 
 instance NFData DescribeDBClusterSnapshotsResponse
+         where

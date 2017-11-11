@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.AppStream.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AuthenticationType
-    = API
-    | Saml
-    | Userpool
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = API
+  | Saml
+  | Userpool
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AuthenticationType where
     parser = takeLowerText >>= \case
@@ -55,10 +56,11 @@ instance FromJSON AuthenticationType where
 --
 --
 data FleetAttribute
-    = DomainJoinInfo
-    | VPCConfiguration
-    | VPCConfigurationSecurityGroupIds
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DomainJoinInfo
+  | VPCConfiguration
+  | VPCConfigurationSecurityGroupIds
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FleetAttribute where
     parser = takeLowerText >>= \case
@@ -84,32 +86,33 @@ instance ToJSON FleetAttribute where
     toJSON = toJSONText
 
 data FleetErrorCode
-    = DomainJoinErrorAccessDenied
-    | DomainJoinErrorDsMachineAccountQuotaExceeded
-    | DomainJoinErrorFileNotFound
-    | DomainJoinErrorInvalidParameter
-    | DomainJoinErrorLogonFailure
-    | DomainJoinErrorMoreData
-    | DomainJoinErrorNoSuchDomain
-    | DomainJoinErrorNotSupported
-    | DomainJoinInternalServiceError
-    | DomainJoinNerrInvalidWorkgroupName
-    | DomainJoinNerrPasswordExpired
-    | DomainJoinNerrWorkstationNotStarted
-    | IAMServiceRoleIsMissing
-    | IAMServiceRoleMissingDescribeSecurityGroupsAction
-    | IAMServiceRoleMissingDescribeSubnetAction
-    | IAMServiceRoleMissingEniCreateAction
-    | IAMServiceRoleMissingEniDeleteAction
-    | IAMServiceRoleMissingEniDescribeAction
-    | ImageNotFound
-    | InternalServiceError
-    | InvalidSubnetConfiguration
-    | NetworkInterfaceLimitExceeded
-    | SecurityGroupsNotFound
-    | SubnetHasInsufficientIPAddresses
-    | SubnetNotFound
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DomainJoinErrorAccessDenied
+  | DomainJoinErrorDsMachineAccountQuotaExceeded
+  | DomainJoinErrorFileNotFound
+  | DomainJoinErrorInvalidParameter
+  | DomainJoinErrorLogonFailure
+  | DomainJoinErrorMoreData
+  | DomainJoinErrorNoSuchDomain
+  | DomainJoinErrorNotSupported
+  | DomainJoinInternalServiceError
+  | DomainJoinNerrInvalidWorkgroupName
+  | DomainJoinNerrPasswordExpired
+  | DomainJoinNerrWorkstationNotStarted
+  | IAMServiceRoleIsMissing
+  | IAMServiceRoleMissingDescribeSecurityGroupsAction
+  | IAMServiceRoleMissingDescribeSubnetAction
+  | IAMServiceRoleMissingEniCreateAction
+  | IAMServiceRoleMissingEniDeleteAction
+  | IAMServiceRoleMissingEniDescribeAction
+  | ImageNotFound
+  | InternalServiceError
+  | InvalidSubnetConfiguration
+  | NetworkInterfaceLimitExceeded
+  | SecurityGroupsNotFound
+  | SubnetHasInsufficientIPAddresses
+  | SubnetNotFound
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FleetErrorCode where
     parser = takeLowerText >>= \case
@@ -179,11 +182,12 @@ instance FromJSON FleetErrorCode where
     parseJSON = parseJSONText "FleetErrorCode"
 
 data FleetState
-    = Running
-    | Starting
-    | Stopped
-    | Stopping
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Running
+  | Starting
+  | Stopped
+  | Stopping
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FleetState where
     parser = takeLowerText >>= \case
@@ -211,11 +215,12 @@ instance FromJSON FleetState where
     parseJSON = parseJSONText "FleetState"
 
 data ImageState
-    = ISAvailable
-    | ISDeleting
-    | ISFailed
-    | ISPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISAvailable
+  | ISDeleting
+  | ISFailed
+  | ISPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ImageState where
     parser = takeLowerText >>= \case
@@ -243,9 +248,10 @@ instance FromJSON ImageState where
     parseJSON = parseJSONText "ImageState"
 
 data ImageStateChangeReasonCode
-    = ImageBuilderNotAvailable
-    | InternalError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ImageBuilderNotAvailable
+  | InternalError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ImageStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -269,8 +275,9 @@ instance FromJSON ImageStateChangeReasonCode where
     parseJSON = parseJSONText "ImageStateChangeReasonCode"
 
 data PlatformType =
-    Windows
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Windows
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PlatformType where
     parser = takeLowerText >>= \case
@@ -295,10 +302,11 @@ instance FromJSON PlatformType where
 --
 --
 data SessionState
-    = Active
-    | Expired
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Expired
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SessionState where
     parser = takeLowerText >>= \case
@@ -324,9 +332,10 @@ instance FromJSON SessionState where
     parseJSON = parseJSONText "SessionState"
 
 data StackErrorCode
-    = SECInternalServiceError
-    | SECStorageConnectorError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SECInternalServiceError
+  | SECStorageConnectorError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StackErrorCode where
     parser = takeLowerText >>= \case
@@ -353,8 +362,9 @@ instance FromJSON StackErrorCode where
 --
 --
 data StorageConnectorType =
-    Homefolders
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Homefolders
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StorageConnectorType where
     parser = takeLowerText >>= \case
@@ -379,9 +389,10 @@ instance FromJSON StorageConnectorType where
     parseJSON = parseJSONText "StorageConnectorType"
 
 data VisibilityType
-    = Private
-    | Public
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Private
+  | Public
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VisibilityType where
     parser = takeLowerText >>= \case

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreatePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.IoT.CreatePolicy
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreatePolicy operation.
 --
@@ -56,9 +56,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createPolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-    { _cpPolicyName     :: !Text
-    , _cpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpPolicyName     :: {-# NOUNPACK #-}!Text
+  , _cpPolicyDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
 --
@@ -72,10 +73,9 @@ createPolicy
     -> Text -- ^ 'cpPolicyDocument'
     -> CreatePolicy
 createPolicy pPolicyName_ pPolicyDocument_ =
-    CreatePolicy'
-    { _cpPolicyName = pPolicyName_
-    , _cpPolicyDocument = pPolicyDocument_
-    }
+  CreatePolicy'
+  {_cpPolicyName = pPolicyName_, _cpPolicyDocument = pPolicyDocument_}
+
 
 -- | The policy name.
 cpPolicyName :: Lens' CreatePolicy Text
@@ -97,9 +97,9 @@ instance AWSRequest CreatePolicy where
                      <*> (x .?> "policyArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreatePolicy
+instance Hashable CreatePolicy where
 
-instance NFData CreatePolicy
+instance NFData CreatePolicy where
 
 instance ToHeaders CreatePolicy where
         toHeaders = const mempty
@@ -123,12 +123,13 @@ instance ToQuery CreatePolicy where
 --
 -- /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-    { _cprsPolicyName      :: !(Maybe Text)
-    , _cprsPolicyDocument  :: !(Maybe Text)
-    , _cprsPolicyVersionId :: !(Maybe Text)
-    , _cprsPolicyARN       :: !(Maybe Text)
-    , _cprsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsPolicyName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cprsPolicyDocument  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cprsPolicyVersionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cprsPolicyARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.
 --
@@ -147,13 +148,14 @@ createPolicyResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePolicyResponse
 createPolicyResponse pResponseStatus_ =
-    CreatePolicyResponse'
-    { _cprsPolicyName = Nothing
-    , _cprsPolicyDocument = Nothing
-    , _cprsPolicyVersionId = Nothing
-    , _cprsPolicyARN = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreatePolicyResponse'
+  { _cprsPolicyName = Nothing
+  , _cprsPolicyDocument = Nothing
+  , _cprsPolicyVersionId = Nothing
+  , _cprsPolicyARN = Nothing
+  , _cprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The policy name.
 cprsPolicyName :: Lens' CreatePolicyResponse (Maybe Text)
@@ -175,4 +177,4 @@ cprsPolicyARN = lens _cprsPolicyARN (\ s a -> s{_cprsPolicyARN = a});
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreatePolicyResponse
+instance NFData CreatePolicyResponse where

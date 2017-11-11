@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.SendMessage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.SQS.SendMessage
     , smrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -64,13 +64,14 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'sendMessage' smart constructor.
 data SendMessage = SendMessage'
-    { _smMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
-    , _smDelaySeconds           :: !(Maybe Int)
-    , _smMessageDeduplicationId :: !(Maybe Text)
-    , _smMessageGroupId         :: !(Maybe Text)
-    , _smQueueURL               :: !Text
-    , _smMessageBody            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smMessageAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text MessageAttributeValue))
+  , _smDelaySeconds :: {-# NOUNPACK #-}!(Maybe Int)
+  , _smMessageDeduplicationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smMessageGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smQueueURL :: {-# NOUNPACK #-}!Text
+  , _smMessageBody :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendMessage' with the minimum fields required to make a request.
 --
@@ -92,14 +93,15 @@ sendMessage
     -> Text -- ^ 'smMessageBody'
     -> SendMessage
 sendMessage pQueueURL_ pMessageBody_ =
-    SendMessage'
-    { _smMessageAttributes = Nothing
-    , _smDelaySeconds = Nothing
-    , _smMessageDeduplicationId = Nothing
-    , _smMessageGroupId = Nothing
-    , _smQueueURL = pQueueURL_
-    , _smMessageBody = pMessageBody_
-    }
+  SendMessage'
+  { _smMessageAttributes = Nothing
+  , _smDelaySeconds = Nothing
+  , _smMessageDeduplicationId = Nothing
+  , _smMessageGroupId = Nothing
+  , _smQueueURL = pQueueURL_
+  , _smMessageBody = pMessageBody_
+  }
+
 
 -- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation Message Attribute Items and Validation> in the /Amazon SQS Developer Guide/ .
 smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
@@ -137,9 +139,9 @@ instance AWSRequest SendMessage where
                      <*> (x .@? "MD5OfMessageAttributes")
                      <*> (pure (fromEnum s)))
 
-instance Hashable SendMessage
+instance Hashable SendMessage where
 
-instance NFData SendMessage
+instance NFData SendMessage where
 
 instance ToHeaders SendMessage where
         toHeaders = const mempty
@@ -168,12 +170,13 @@ instance ToQuery SendMessage where
 --
 -- /See:/ 'sendMessageResponse' smart constructor.
 data SendMessageResponse = SendMessageResponse'
-    { _smrsSequenceNumber         :: !(Maybe Text)
-    , _smrsMessageId              :: !(Maybe Text)
-    , _smrsMD5OfMessageBody       :: !(Maybe Text)
-    , _smrsMD5OfMessageAttributes :: !(Maybe Text)
-    , _smrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smrsSequenceNumber         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smrsMessageId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smrsMD5OfMessageBody       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smrsMD5OfMessageAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendMessageResponse' with the minimum fields required to make a request.
 --
@@ -192,13 +195,14 @@ sendMessageResponse
     :: Int -- ^ 'smrsResponseStatus'
     -> SendMessageResponse
 sendMessageResponse pResponseStatus_ =
-    SendMessageResponse'
-    { _smrsSequenceNumber = Nothing
-    , _smrsMessageId = Nothing
-    , _smrsMD5OfMessageBody = Nothing
-    , _smrsMD5OfMessageAttributes = Nothing
-    , _smrsResponseStatus = pResponseStatus_
-    }
+  SendMessageResponse'
+  { _smrsSequenceNumber = Nothing
+  , _smrsMessageId = Nothing
+  , _smrsMD5OfMessageBody = Nothing
+  , _smrsMD5OfMessageAttributes = Nothing
+  , _smrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
 smrsSequenceNumber :: Lens' SendMessageResponse (Maybe Text)
@@ -220,4 +224,4 @@ smrsMD5OfMessageAttributes = lens _smrsMD5OfMessageAttributes (\ s a -> s{_smrsM
 smrsResponseStatus :: Lens' SendMessageResponse Int
 smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a});
 
-instance NFData SendMessageResponse
+instance NFData SendMessageResponse where

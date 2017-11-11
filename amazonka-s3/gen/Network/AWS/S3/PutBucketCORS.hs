@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketCORS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,19 +34,20 @@ module Network.AWS.S3.PutBucketCORS
     , PutBucketCORSResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketCORS' smart constructor.
 data PutBucketCORS = PutBucketCORS'
-    { _pbcContentMD5        :: !(Maybe Text)
-    , _pbcBucket            :: !BucketName
-    , _pbcCORSConfiguration :: !CORSConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbcContentMD5        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbcBucket            :: {-# NOUNPACK #-}!BucketName
+  , _pbcCORSConfiguration :: {-# NOUNPACK #-}!CORSConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketCORS' with the minimum fields required to make a request.
 --
@@ -62,11 +63,12 @@ putBucketCORS
     -> CORSConfiguration -- ^ 'pbcCORSConfiguration'
     -> PutBucketCORS
 putBucketCORS pBucket_ pCORSConfiguration_ =
-    PutBucketCORS'
-    { _pbcContentMD5 = Nothing
-    , _pbcBucket = pBucket_
-    , _pbcCORSConfiguration = pCORSConfiguration_
-    }
+  PutBucketCORS'
+  { _pbcContentMD5 = Nothing
+  , _pbcBucket = pBucket_
+  , _pbcCORSConfiguration = pCORSConfiguration_
+  }
+
 
 -- | Undocumented member.
 pbcContentMD5 :: Lens' PutBucketCORS (Maybe Text)
@@ -85,9 +87,9 @@ instance AWSRequest PutBucketCORS where
         request = putXML s3
         response = receiveNull PutBucketCORSResponse'
 
-instance Hashable PutBucketCORS
+instance Hashable PutBucketCORS where
 
-instance NFData PutBucketCORS
+instance NFData PutBucketCORS where
 
 instance ToElement PutBucketCORS where
         toElement
@@ -109,8 +111,9 @@ instance ToQuery PutBucketCORS where
 
 -- | /See:/ 'putBucketCORSResponse' smart constructor.
 data PutBucketCORSResponse =
-    PutBucketCORSResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketCORSResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketCORSResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +121,5 @@ putBucketCORSResponse
     :: PutBucketCORSResponse
 putBucketCORSResponse = PutBucketCORSResponse'
 
-instance NFData PutBucketCORSResponse
+
+instance NFData PutBucketCORSResponse where

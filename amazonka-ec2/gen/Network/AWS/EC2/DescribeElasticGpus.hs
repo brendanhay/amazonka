@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeElasticGpus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.EC2.DescribeElasticGpus
     , degrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeElasticGpus' smart constructor.
 data DescribeElasticGpus = DescribeElasticGpus'
-    { _degFilters       :: !(Maybe [Filter])
-    , _degNextToken     :: !(Maybe Text)
-    , _degDryRun        :: !(Maybe Bool)
-    , _degMaxResults    :: !(Maybe Int)
-    , _degElasticGpuIds :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _degFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _degNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _degDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _degMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _degElasticGpuIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticGpus' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ data DescribeElasticGpus = DescribeElasticGpus'
 describeElasticGpus
     :: DescribeElasticGpus
 describeElasticGpus =
-    DescribeElasticGpus'
-    { _degFilters = Nothing
-    , _degNextToken = Nothing
-    , _degDryRun = Nothing
-    , _degMaxResults = Nothing
-    , _degElasticGpuIds = Nothing
-    }
+  DescribeElasticGpus'
+  { _degFilters = Nothing
+  , _degNextToken = Nothing
+  , _degDryRun = Nothing
+  , _degMaxResults = Nothing
+  , _degElasticGpuIds = Nothing
+  }
+
 
 -- | One or more filters.     * @availability-zone@ - The Availability Zone in which the Elastic GPU resides.     * @elastic-gpu-health@ - The status of the Elastic GPU (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic GPU (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic GPU; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic GPU is associated.
 degFilters :: Lens' DescribeElasticGpus [Filter]
@@ -117,9 +119,9 @@ instance AWSRequest DescribeElasticGpus where
                      <*> (x .@? "maxResults")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeElasticGpus
+instance Hashable DescribeElasticGpus where
 
-instance NFData DescribeElasticGpus
+instance NFData DescribeElasticGpus where
 
 instance ToHeaders DescribeElasticGpus where
         toHeaders = const mempty
@@ -140,11 +142,12 @@ instance ToQuery DescribeElasticGpus where
 
 -- | /See:/ 'describeElasticGpusResponse' smart constructor.
 data DescribeElasticGpusResponse = DescribeElasticGpusResponse'
-    { _degrsElasticGpuSet  :: !(Maybe [ElasticGpus])
-    , _degrsNextToken      :: !(Maybe Text)
-    , _degrsMaxResults     :: !(Maybe Int)
-    , _degrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _degrsElasticGpuSet  :: {-# NOUNPACK #-}!(Maybe [ElasticGpus])
+  , _degrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _degrsMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _degrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticGpusResponse' with the minimum fields required to make a request.
 --
@@ -161,12 +164,13 @@ describeElasticGpusResponse
     :: Int -- ^ 'degrsResponseStatus'
     -> DescribeElasticGpusResponse
 describeElasticGpusResponse pResponseStatus_ =
-    DescribeElasticGpusResponse'
-    { _degrsElasticGpuSet = Nothing
-    , _degrsNextToken = Nothing
-    , _degrsMaxResults = Nothing
-    , _degrsResponseStatus = pResponseStatus_
-    }
+  DescribeElasticGpusResponse'
+  { _degrsElasticGpuSet = Nothing
+  , _degrsNextToken = Nothing
+  , _degrsMaxResults = Nothing
+  , _degrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the Elastic GPUs.
 degrsElasticGpuSet :: Lens' DescribeElasticGpusResponse [ElasticGpus]
@@ -184,4 +188,4 @@ degrsMaxResults = lens _degrsMaxResults (\ s a -> s{_degrsMaxResults = a});
 degrsResponseStatus :: Lens' DescribeElasticGpusResponse Int
 degrsResponseStatus = lens _degrsResponseStatus (\ s a -> s{_degrsResponseStatus = a});
 
-instance NFData DescribeElasticGpusResponse
+instance NFData DescribeElasticGpusResponse where

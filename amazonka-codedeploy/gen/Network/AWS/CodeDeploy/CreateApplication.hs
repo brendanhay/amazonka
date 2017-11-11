@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.CreateApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CodeDeploy.CreateApplication
     , carsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a CreateApplication operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createApplication' smart constructor.
 newtype CreateApplication = CreateApplication'
-    { _caApplicationName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caApplicationName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ createApplication
     :: Text -- ^ 'caApplicationName'
     -> CreateApplication
 createApplication pApplicationName_ =
-    CreateApplication'
-    { _caApplicationName = pApplicationName_
-    }
+  CreateApplication' {_caApplicationName = pApplicationName_}
+
 
 -- | The name of the application. This name must be unique with the applicable IAM user or AWS account.
 caApplicationName :: Lens' CreateApplication Text
@@ -79,9 +79,9 @@ instance AWSRequest CreateApplication where
                  CreateApplicationResponse' <$>
                    (x .?> "applicationId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateApplication
+instance Hashable CreateApplication where
 
-instance NFData CreateApplication
+instance NFData CreateApplication where
 
 instance ToHeaders CreateApplication where
         toHeaders
@@ -111,9 +111,10 @@ instance ToQuery CreateApplication where
 --
 -- /See:/ 'createApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-    { _carsApplicationId  :: !(Maybe Text)
-    , _carsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carsApplicationId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +127,9 @@ createApplicationResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CreateApplicationResponse
 createApplicationResponse pResponseStatus_ =
-    CreateApplicationResponse'
-    { _carsApplicationId = Nothing
-    , _carsResponseStatus = pResponseStatus_
-    }
+  CreateApplicationResponse'
+  {_carsApplicationId = Nothing, _carsResponseStatus = pResponseStatus_}
+
 
 -- | A unique application ID.
 carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
@@ -139,4 +139,4 @@ carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a})
 carsResponseStatus :: Lens' CreateApplicationResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 
-instance NFData CreateApplicationResponse
+instance NFData CreateApplicationResponse where

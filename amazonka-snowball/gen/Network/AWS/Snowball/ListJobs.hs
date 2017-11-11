@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.ListJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.Snowball.ListJobs
     , ljrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
-    { _ljNextToken  :: !(Maybe Text)
-    , _ljMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
@@ -64,11 +65,8 @@ data ListJobs = ListJobs'
 -- * 'ljMaxResults' - The number of @JobListEntry@ objects to return.
 listJobs
     :: ListJobs
-listJobs =
-    ListJobs'
-    { _ljNextToken = Nothing
-    , _ljMaxResults = Nothing
-    }
+listJobs = ListJobs' {_ljNextToken = Nothing, _ljMaxResults = Nothing}
+
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 ljNextToken :: Lens' ListJobs (Maybe Text)
@@ -96,9 +94,9 @@ instance AWSRequest ListJobs where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListJobs
+instance Hashable ListJobs where
 
-instance NFData ListJobs
+instance NFData ListJobs where
 
 instance ToHeaders ListJobs where
         toHeaders
@@ -125,10 +123,11 @@ instance ToQuery ListJobs where
 
 -- | /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsJobListEntries :: !(Maybe [JobListEntry])
-    , _ljrsNextToken      :: !(Maybe Text)
-    , _ljrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljrsJobListEntries :: {-# NOUNPACK #-}!(Maybe [JobListEntry])
+  , _ljrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +142,12 @@ listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
-    ListJobsResponse'
-    { _ljrsJobListEntries = Nothing
-    , _ljrsNextToken = Nothing
-    , _ljrsResponseStatus = pResponseStatus_
-    }
+  ListJobsResponse'
+  { _ljrsJobListEntries = Nothing
+  , _ljrsNextToken = Nothing
+  , _ljrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
 ljrsJobListEntries :: Lens' ListJobsResponse [JobListEntry]
@@ -161,4 +161,4 @@ ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
 
-instance NFData ListJobsResponse
+instance NFData ListJobsResponse where

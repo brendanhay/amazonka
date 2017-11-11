@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateUserDefinedFunction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.Glue.UpdateUserDefinedFunction
     , uudfrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateUserDefinedFunction' smart constructor.
 data UpdateUserDefinedFunction = UpdateUserDefinedFunction'
-    { _uudfCatalogId     :: !(Maybe Text)
-    , _uudfDatabaseName  :: !Text
-    , _uudfFunctionName  :: !Text
-    , _uudfFunctionInput :: !UserDefinedFunctionInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uudfCatalogId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uudfDatabaseName  :: {-# NOUNPACK #-}!Text
+  , _uudfFunctionName  :: {-# NOUNPACK #-}!Text
+  , _uudfFunctionInput :: {-# NOUNPACK #-}!UserDefinedFunctionInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserDefinedFunction' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ updateUserDefinedFunction
     -> UserDefinedFunctionInput -- ^ 'uudfFunctionInput'
     -> UpdateUserDefinedFunction
 updateUserDefinedFunction pDatabaseName_ pFunctionName_ pFunctionInput_ =
-    UpdateUserDefinedFunction'
-    { _uudfCatalogId = Nothing
-    , _uudfDatabaseName = pDatabaseName_
-    , _uudfFunctionName = pFunctionName_
-    , _uudfFunctionInput = pFunctionInput_
-    }
+  UpdateUserDefinedFunction'
+  { _uudfCatalogId = Nothing
+  , _uudfDatabaseName = pDatabaseName_
+  , _uudfFunctionName = pFunctionName_
+  , _uudfFunctionInput = pFunctionInput_
+  }
+
 
 -- | The ID of the Data Catalog where the function to be updated is located. If none is supplied, the AWS account ID is used by default.
 uudfCatalogId :: Lens' UpdateUserDefinedFunction (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest UpdateUserDefinedFunction where
                  UpdateUserDefinedFunctionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateUserDefinedFunction
+instance Hashable UpdateUserDefinedFunction where
 
-instance NFData UpdateUserDefinedFunction
+instance NFData UpdateUserDefinedFunction where
 
 instance ToHeaders UpdateUserDefinedFunction where
         toHeaders
@@ -134,8 +136,9 @@ instance ToQuery UpdateUserDefinedFunction where
 
 -- | /See:/ 'updateUserDefinedFunctionResponse' smart constructor.
 newtype UpdateUserDefinedFunctionResponse = UpdateUserDefinedFunctionResponse'
-    { _uudfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uudfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserDefinedFunctionResponse' with the minimum fields required to make a request.
 --
@@ -146,12 +149,12 @@ updateUserDefinedFunctionResponse
     :: Int -- ^ 'uudfrsResponseStatus'
     -> UpdateUserDefinedFunctionResponse
 updateUserDefinedFunctionResponse pResponseStatus_ =
-    UpdateUserDefinedFunctionResponse'
-    { _uudfrsResponseStatus = pResponseStatus_
-    }
+  UpdateUserDefinedFunctionResponse' {_uudfrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uudfrsResponseStatus :: Lens' UpdateUserDefinedFunctionResponse Int
 uudfrsResponseStatus = lens _uudfrsResponseStatus (\ s a -> s{_uudfrsResponseStatus = a});
 
 instance NFData UpdateUserDefinedFunctionResponse
+         where

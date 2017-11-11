@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.RejectPortfolioShare
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.ServiceCatalog.RejectPortfolioShare
     , rpsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'rejectPortfolioShare' smart constructor.
 data RejectPortfolioShare = RejectPortfolioShare'
-    { _rpsAcceptLanguage :: !(Maybe Text)
-    , _rpsPortfolioId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpsAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpsPortfolioId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectPortfolioShare' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ rejectPortfolioShare
     :: Text -- ^ 'rpsPortfolioId'
     -> RejectPortfolioShare
 rejectPortfolioShare pPortfolioId_ =
-    RejectPortfolioShare'
-    { _rpsAcceptLanguage = Nothing
-    , _rpsPortfolioId = pPortfolioId_
-    }
+  RejectPortfolioShare'
+  {_rpsAcceptLanguage = Nothing, _rpsPortfolioId = pPortfolioId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 rpsAcceptLanguage :: Lens' RejectPortfolioShare (Maybe Text)
@@ -84,9 +84,9 @@ instance AWSRequest RejectPortfolioShare where
                  RejectPortfolioShareResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable RejectPortfolioShare
+instance Hashable RejectPortfolioShare where
 
-instance NFData RejectPortfolioShare
+instance NFData RejectPortfolioShare where
 
 instance ToHeaders RejectPortfolioShare where
         toHeaders
@@ -113,8 +113,9 @@ instance ToQuery RejectPortfolioShare where
 
 -- | /See:/ 'rejectPortfolioShareResponse' smart constructor.
 newtype RejectPortfolioShareResponse = RejectPortfolioShareResponse'
-    { _rpsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectPortfolioShareResponse' with the minimum fields required to make a request.
 --
@@ -125,12 +126,11 @@ rejectPortfolioShareResponse
     :: Int -- ^ 'rpsrsResponseStatus'
     -> RejectPortfolioShareResponse
 rejectPortfolioShareResponse pResponseStatus_ =
-    RejectPortfolioShareResponse'
-    { _rpsrsResponseStatus = pResponseStatus_
-    }
+  RejectPortfolioShareResponse' {_rpsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rpsrsResponseStatus :: Lens' RejectPortfolioShareResponse Int
 rpsrsResponseStatus = lens _rpsrsResponseStatus (\ s a -> s{_rpsrsResponseStatus = a});
 
-instance NFData RejectPortfolioShareResponse
+instance NFData RejectPortfolioShareResponse where

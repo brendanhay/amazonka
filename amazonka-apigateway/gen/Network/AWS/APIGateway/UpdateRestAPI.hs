@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateRestAPI
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.UpdateRestAPI
     , raDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to update an existing 'RestApi' resource in your collection.
 --
@@ -56,9 +56,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateRestAPI' smart constructor.
 data UpdateRestAPI = UpdateRestAPI'
-    { _uraPatchOperations :: !(Maybe [PatchOperation])
-    , _uraRestAPIId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uraPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _uraRestAPIId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRestAPI' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ updateRestAPI
     :: Text -- ^ 'uraRestAPIId'
     -> UpdateRestAPI
 updateRestAPI pRestAPIId_ =
-    UpdateRestAPI'
-    { _uraPatchOperations = Nothing
-    , _uraRestAPIId = pRestAPIId_
-    }
+  UpdateRestAPI' {_uraPatchOperations = Nothing, _uraRestAPIId = pRestAPIId_}
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uraPatchOperations :: Lens' UpdateRestAPI [PatchOperation]
@@ -89,9 +88,9 @@ instance AWSRequest UpdateRestAPI where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateRestAPI
+instance Hashable UpdateRestAPI where
 
-instance NFData UpdateRestAPI
+instance NFData UpdateRestAPI where
 
 instance ToHeaders UpdateRestAPI where
         toHeaders

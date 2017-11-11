@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateDomainEntry
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.CreateDomainEntry
     , cdersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDomainEntry' smart constructor.
 data CreateDomainEntry = CreateDomainEntry'
-    { _cdeDomainName  :: !Text
-    , _cdeDomainEntry :: !DomainEntry
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdeDomainName  :: {-# NOUNPACK #-}!Text
+  , _cdeDomainEntry :: {-# NOUNPACK #-}!DomainEntry
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomainEntry' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ createDomainEntry
     -> DomainEntry -- ^ 'cdeDomainEntry'
     -> CreateDomainEntry
 createDomainEntry pDomainName_ pDomainEntry_ =
-    CreateDomainEntry'
-    { _cdeDomainName = pDomainName_
-    , _cdeDomainEntry = pDomainEntry_
-    }
+  CreateDomainEntry'
+  {_cdeDomainName = pDomainName_, _cdeDomainEntry = pDomainEntry_}
+
 
 -- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
 cdeDomainName :: Lens' CreateDomainEntry Text
@@ -85,9 +85,9 @@ instance AWSRequest CreateDomainEntry where
                  CreateDomainEntryResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDomainEntry
+instance Hashable CreateDomainEntry where
 
-instance NFData CreateDomainEntry
+instance NFData CreateDomainEntry where
 
 instance ToHeaders CreateDomainEntry where
         toHeaders
@@ -114,9 +114,10 @@ instance ToQuery CreateDomainEntry where
 
 -- | /See:/ 'createDomainEntryResponse' smart constructor.
 data CreateDomainEntryResponse = CreateDomainEntryResponse'
-    { _cdersOperation      :: !(Maybe Operation)
-    , _cdersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdersOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _cdersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDomainEntryResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ createDomainEntryResponse
     :: Int -- ^ 'cdersResponseStatus'
     -> CreateDomainEntryResponse
 createDomainEntryResponse pResponseStatus_ =
-    CreateDomainEntryResponse'
-    { _cdersOperation = Nothing
-    , _cdersResponseStatus = pResponseStatus_
-    }
+  CreateDomainEntryResponse'
+  {_cdersOperation = Nothing, _cdersResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the operation.
 cdersOperation :: Lens' CreateDomainEntryResponse (Maybe Operation)
@@ -142,4 +142,4 @@ cdersOperation = lens _cdersOperation (\ s a -> s{_cdersOperation = a});
 cdersResponseStatus :: Lens' CreateDomainEntryResponse Int
 cdersResponseStatus = lens _cdersResponseStatus (\ s a -> s{_cdersResponseStatus = a});
 
-instance NFData CreateDomainEntryResponse
+instance NFData CreateDomainEntryResponse where

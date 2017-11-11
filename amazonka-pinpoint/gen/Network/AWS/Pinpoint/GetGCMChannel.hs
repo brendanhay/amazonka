@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetGCMChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.GetGCMChannel
     , ggcrsGCMChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getGCMChannel' smart constructor.
 newtype GetGCMChannel = GetGCMChannel'
-    { _ggcApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggcApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGCMChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ getGCMChannel
     :: Text -- ^ 'ggcApplicationId'
     -> GetGCMChannel
 getGCMChannel pApplicationId_ =
-    GetGCMChannel'
-    { _ggcApplicationId = pApplicationId_
-    }
+  GetGCMChannel' {_ggcApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 ggcApplicationId :: Lens' GetGCMChannel Text
@@ -73,9 +73,9 @@ instance AWSRequest GetGCMChannel where
                  GetGCMChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetGCMChannel
+instance Hashable GetGCMChannel where
 
-instance NFData GetGCMChannel
+instance NFData GetGCMChannel where
 
 instance ToHeaders GetGCMChannel where
         toHeaders
@@ -95,9 +95,10 @@ instance ToQuery GetGCMChannel where
 
 -- | /See:/ 'getGCMChannelResponse' smart constructor.
 data GetGCMChannelResponse = GetGCMChannelResponse'
-    { _ggcrsResponseStatus     :: !Int
-    , _ggcrsGCMChannelResponse :: !GCMChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _ggcrsGCMChannelResponse :: {-# NOUNPACK #-}!GCMChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGCMChannelResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +112,11 @@ getGCMChannelResponse
     -> GCMChannelResponse -- ^ 'ggcrsGCMChannelResponse'
     -> GetGCMChannelResponse
 getGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
-    GetGCMChannelResponse'
-    { _ggcrsResponseStatus = pResponseStatus_
-    , _ggcrsGCMChannelResponse = pGCMChannelResponse_
-    }
+  GetGCMChannelResponse'
+  { _ggcrsResponseStatus = pResponseStatus_
+  , _ggcrsGCMChannelResponse = pGCMChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 ggcrsResponseStatus :: Lens' GetGCMChannelResponse Int
@@ -124,4 +126,4 @@ ggcrsResponseStatus = lens _ggcrsResponseStatus (\ s a -> s{_ggcrsResponseStatus
 ggcrsGCMChannelResponse :: Lens' GetGCMChannelResponse GCMChannelResponse
 ggcrsGCMChannelResponse = lens _ggcrsGCMChannelResponse (\ s a -> s{_ggcrsGCMChannelResponse = a});
 
-instance NFData GetGCMChannelResponse
+instance NFData GetGCMChannelResponse where

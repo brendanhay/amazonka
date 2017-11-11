@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -292,30 +292,30 @@ module Network.AWS.AppStream
     , vcSubnetIds
     ) where
 
-import           Network.AWS.AppStream.AssociateFleet
-import           Network.AWS.AppStream.CreateDirectoryConfig
-import           Network.AWS.AppStream.CreateFleet
-import           Network.AWS.AppStream.CreateStack
-import           Network.AWS.AppStream.CreateStreamingURL
-import           Network.AWS.AppStream.DeleteDirectoryConfig
-import           Network.AWS.AppStream.DeleteFleet
-import           Network.AWS.AppStream.DeleteStack
-import           Network.AWS.AppStream.DescribeDirectoryConfigs
-import           Network.AWS.AppStream.DescribeFleets
-import           Network.AWS.AppStream.DescribeImages
-import           Network.AWS.AppStream.DescribeSessions
-import           Network.AWS.AppStream.DescribeStacks
-import           Network.AWS.AppStream.DisassociateFleet
-import           Network.AWS.AppStream.ExpireSession
-import           Network.AWS.AppStream.ListAssociatedFleets
-import           Network.AWS.AppStream.ListAssociatedStacks
-import           Network.AWS.AppStream.StartFleet
-import           Network.AWS.AppStream.StopFleet
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.UpdateDirectoryConfig
-import           Network.AWS.AppStream.UpdateFleet
-import           Network.AWS.AppStream.UpdateStack
-import           Network.AWS.AppStream.Waiters
+import Network.AWS.AppStream.AssociateFleet
+import Network.AWS.AppStream.CreateDirectoryConfig
+import Network.AWS.AppStream.CreateFleet
+import Network.AWS.AppStream.CreateStack
+import Network.AWS.AppStream.CreateStreamingURL
+import Network.AWS.AppStream.DeleteDirectoryConfig
+import Network.AWS.AppStream.DeleteFleet
+import Network.AWS.AppStream.DeleteStack
+import Network.AWS.AppStream.DescribeDirectoryConfigs
+import Network.AWS.AppStream.DescribeFleets
+import Network.AWS.AppStream.DescribeImages
+import Network.AWS.AppStream.DescribeSessions
+import Network.AWS.AppStream.DescribeStacks
+import Network.AWS.AppStream.DisassociateFleet
+import Network.AWS.AppStream.ExpireSession
+import Network.AWS.AppStream.ListAssociatedFleets
+import Network.AWS.AppStream.ListAssociatedStacks
+import Network.AWS.AppStream.StartFleet
+import Network.AWS.AppStream.StopFleet
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.UpdateDirectoryConfig
+import Network.AWS.AppStream.UpdateFleet
+import Network.AWS.AppStream.UpdateStack
+import Network.AWS.AppStream.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutConfigRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,17 +50,18 @@ module Network.AWS.Config.PutConfigRule
     , PutConfigRuleResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putConfigRule' smart constructor.
 newtype PutConfigRule = PutConfigRule'
-    { _pcrConfigRule :: ConfigRule
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcrConfigRule :: ConfigRule
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutConfigRule' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ newtype PutConfigRule = PutConfigRule'
 putConfigRule
     :: ConfigRule -- ^ 'pcrConfigRule'
     -> PutConfigRule
-putConfigRule pConfigRule_ =
-    PutConfigRule'
-    { _pcrConfigRule = pConfigRule_
-    }
+putConfigRule pConfigRule_ = PutConfigRule' {_pcrConfigRule = pConfigRule_}
+
 
 -- | The rule that you want to add to your account.
 pcrConfigRule :: Lens' PutConfigRule ConfigRule
@@ -84,9 +83,9 @@ instance AWSRequest PutConfigRule where
         request = postJSON config
         response = receiveNull PutConfigRuleResponse'
 
-instance Hashable PutConfigRule
+instance Hashable PutConfigRule where
 
-instance NFData PutConfigRule
+instance NFData PutConfigRule where
 
 instance ToHeaders PutConfigRule where
         toHeaders
@@ -110,8 +109,9 @@ instance ToQuery PutConfigRule where
 
 -- | /See:/ 'putConfigRuleResponse' smart constructor.
 data PutConfigRuleResponse =
-    PutConfigRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutConfigRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutConfigRuleResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +119,5 @@ putConfigRuleResponse
     :: PutConfigRuleResponse
 putConfigRuleResponse = PutConfigRuleResponse'
 
-instance NFData PutConfigRuleResponse
+
+instance NFData PutConfigRuleResponse where

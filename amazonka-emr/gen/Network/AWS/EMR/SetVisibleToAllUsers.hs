@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.SetVisibleToAllUsers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EMR.SetVisibleToAllUsers
     , SetVisibleToAllUsersResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the SetVisibleToAllUsers action.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setVisibleToAllUsers' smart constructor.
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
-    { _svtauJobFlowIds        :: ![Text]
-    , _svtauVisibleToAllUsers :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _svtauJobFlowIds        :: {-# NOUNPACK #-}![Text]
+  , _svtauVisibleToAllUsers :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetVisibleToAllUsers' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ setVisibleToAllUsers
     :: Bool -- ^ 'svtauVisibleToAllUsers'
     -> SetVisibleToAllUsers
 setVisibleToAllUsers pVisibleToAllUsers_ =
-    SetVisibleToAllUsers'
-    { _svtauJobFlowIds = mempty
-    , _svtauVisibleToAllUsers = pVisibleToAllUsers_
-    }
+  SetVisibleToAllUsers'
+  {_svtauJobFlowIds = mempty, _svtauVisibleToAllUsers = pVisibleToAllUsers_}
+
 
 -- | Identifiers of the job flows to receive the new visibility setting.
 svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
@@ -82,9 +82,9 @@ instance AWSRequest SetVisibleToAllUsers where
         request = postJSON emr
         response = receiveNull SetVisibleToAllUsersResponse'
 
-instance Hashable SetVisibleToAllUsers
+instance Hashable SetVisibleToAllUsers where
 
-instance NFData SetVisibleToAllUsers
+instance NFData SetVisibleToAllUsers where
 
 instance ToHeaders SetVisibleToAllUsers where
         toHeaders
@@ -112,8 +112,9 @@ instance ToQuery SetVisibleToAllUsers where
 
 -- | /See:/ 'setVisibleToAllUsersResponse' smart constructor.
 data SetVisibleToAllUsersResponse =
-    SetVisibleToAllUsersResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetVisibleToAllUsersResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetVisibleToAllUsersResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +122,5 @@ setVisibleToAllUsersResponse
     :: SetVisibleToAllUsersResponse
 setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'
 
-instance NFData SetVisibleToAllUsersResponse
+
+instance NFData SetVisibleToAllUsersResponse where

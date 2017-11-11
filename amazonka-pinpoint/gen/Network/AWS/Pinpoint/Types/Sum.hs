@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Pinpoint.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data Action
-    = DeepLink
-    | OpenApp
-    | URL
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DeepLink
+  | OpenApp
+  | URL
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Action where
     parser = takeLowerText >>= \case
@@ -52,9 +53,10 @@ instance FromJSON Action where
     parseJSON = parseJSONText "Action"
 
 data AttributeType
-    = Exclusive
-    | Inclusive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Exclusive
+  | Inclusive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AttributeType where
     parser = takeLowerText >>= \case
@@ -81,12 +83,13 @@ instance FromJSON AttributeType where
     parseJSON = parseJSONText "AttributeType"
 
 data CampaignStatus
-    = Completed
-    | Executing
-    | Paused
-    | PendingNextRun
-    | Scheduled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Completed
+  | Executing
+  | Paused
+  | PendingNextRun
+  | Scheduled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CampaignStatus where
     parser = takeLowerText >>= \case
@@ -116,13 +119,14 @@ instance FromJSON CampaignStatus where
     parseJSON = parseJSONText "CampaignStatus"
 
 data ChannelType
-    = ADM
-    | APNS
-    | APNSSandbox
-    | Email
-    | GCM
-    | Sms
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ADM
+  | APNS
+  | APNSSandbox
+  | Email
+  | GCM
+  | Sms
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChannelType where
     parser = takeLowerText >>= \case
@@ -157,9 +161,10 @@ instance FromJSON ChannelType where
     parseJSON = parseJSONText "ChannelType"
 
 data DefinitionFormat
-    = CSV
-    | JSON
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSV
+  | JSON
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DefinitionFormat where
     parser = takeLowerText >>= \case
@@ -186,11 +191,12 @@ instance FromJSON DefinitionFormat where
     parseJSON = parseJSONText "DefinitionFormat"
 
 data DeliveryStatus
-    = PermanentFailure
-    | Successful
-    | TemporaryFailure
-    | Throttled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = PermanentFailure
+  | Successful
+  | TemporaryFailure
+  | Throttled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
@@ -218,9 +224,10 @@ instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
 
 data DimensionType
-    = DTExclusive
-    | DTInclusive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DTExclusive
+  | DTInclusive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DimensionType where
     parser = takeLowerText >>= \case
@@ -247,11 +254,12 @@ instance FromJSON DimensionType where
     parseJSON = parseJSONText "DimensionType"
 
 data Duration
-    = Day14
-    | Day30
-    | Day7
-    | Hr24
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Day14
+  | Day30
+  | Day7
+  | Hr24
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Duration where
     parser = takeLowerText >>= \case
@@ -282,12 +290,13 @@ instance FromJSON Duration where
     parseJSON = parseJSONText "Duration"
 
 data Frequency
-    = Daily
-    | Hourly
-    | Monthly
-    | Once
-    | Weekly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Daily
+  | Hourly
+  | Monthly
+  | Once
+  | Weekly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Frequency where
     parser = takeLowerText >>= \case
@@ -320,14 +329,15 @@ instance FromJSON Frequency where
     parseJSON = parseJSONText "Frequency"
 
 data JobStatus
-    = JSCompleted
-    | JSCompleting
-    | JSCreated
-    | JSFailed
-    | JSFailing
-    | JSInitializing
-    | JSProcessing
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = JSCompleted
+  | JSCompleting
+  | JSCreated
+  | JSFailed
+  | JSFailing
+  | JSInitializing
+  | JSProcessing
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JobStatus where
     parser = takeLowerText >>= \case
@@ -361,9 +371,10 @@ instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
 
 data MessageType
-    = Promotional
-    | Transactional
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Promotional
+  | Transactional
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MessageType where
     parser = takeLowerText >>= \case
@@ -390,9 +401,10 @@ instance FromJSON MessageType where
     parseJSON = parseJSONText "MessageType"
 
 data RecencyType
-    = Active
-    | Inactive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Inactive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecencyType where
     parser = takeLowerText >>= \case
@@ -419,9 +431,10 @@ instance FromJSON RecencyType where
     parseJSON = parseJSONText "RecencyType"
 
 data SegmentType
-    = Dimensional
-    | Import
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Dimensional
+  | Import
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SegmentType where
     parser = takeLowerText >>= \case

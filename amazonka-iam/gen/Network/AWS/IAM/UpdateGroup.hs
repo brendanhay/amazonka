@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.IAM.UpdateGroup
     , UpdateGroupResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-    { _ugNewGroupName :: !(Maybe Text)
-    , _ugNewPath      :: !(Maybe Text)
-    , _ugGroupName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugNewGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugNewPath      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ugGroupName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
 --
@@ -65,11 +66,9 @@ updateGroup
     :: Text -- ^ 'ugGroupName'
     -> UpdateGroup
 updateGroup pGroupName_ =
-    UpdateGroup'
-    { _ugNewGroupName = Nothing
-    , _ugNewPath = Nothing
-    , _ugGroupName = pGroupName_
-    }
+  UpdateGroup'
+  {_ugNewGroupName = Nothing, _ugNewPath = Nothing, _ugGroupName = pGroupName_}
+
 
 -- | New name for the IAM group. Only include this if changing the group's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest UpdateGroup where
         request = postQuery iam
         response = receiveNull UpdateGroupResponse'
 
-instance Hashable UpdateGroup
+instance Hashable UpdateGroup where
 
-instance NFData UpdateGroup
+instance NFData UpdateGroup where
 
 instance ToHeaders UpdateGroup where
         toHeaders = const mempty
@@ -108,8 +107,9 @@ instance ToQuery UpdateGroup where
 
 -- | /See:/ 'updateGroupResponse' smart constructor.
 data UpdateGroupResponse =
-    UpdateGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
 --
@@ -117,4 +117,5 @@ updateGroupResponse
     :: UpdateGroupResponse
 updateGroupResponse = UpdateGroupResponse'
 
-instance NFData UpdateGroupResponse
+
+instance NFData UpdateGroupResponse where

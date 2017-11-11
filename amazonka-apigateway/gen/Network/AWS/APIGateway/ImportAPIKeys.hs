@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.ImportAPIKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.ImportAPIKeys
     , iakrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The POST request to import API keys from an external source, such as a CSV-formatted file.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'importAPIKeys' smart constructor.
 data ImportAPIKeys = ImportAPIKeys'
-    { _iakFailOnWarnings :: !(Maybe Bool)
-    , _iakBody           :: !(HashMap Text Value)
-    , _iakFormat         :: !APIKeysFormat
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _iakFailOnWarnings :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iakBody           :: {-# NOUNPACK #-}!(HashMap Text Value)
+  , _iakFormat         :: {-# NOUNPACK #-}!APIKeysFormat
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportAPIKeys' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ importAPIKeys
     -> APIKeysFormat -- ^ 'iakFormat'
     -> ImportAPIKeys
 importAPIKeys pBody_ pFormat_ =
-    ImportAPIKeys'
-    { _iakFailOnWarnings = Nothing
-    , _iakBody = pBody_
-    , _iakFormat = pFormat_
-    }
+  ImportAPIKeys'
+  {_iakFailOnWarnings = Nothing, _iakBody = pBody_, _iakFormat = pFormat_}
+
 
 -- | A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
 iakFailOnWarnings :: Lens' ImportAPIKeys (Maybe Bool)
@@ -101,9 +100,9 @@ instance AWSRequest ImportAPIKeys where
                      (x .?> "warnings" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ImportAPIKeys
+instance Hashable ImportAPIKeys where
 
-instance NFData ImportAPIKeys
+instance NFData ImportAPIKeys where
 
 instance ToBody ImportAPIKeys where
         toBody = toBody . _iakBody
@@ -129,10 +128,11 @@ instance ToQuery ImportAPIKeys where
 --
 -- /See:/ 'importAPIKeysResponse' smart constructor.
 data ImportAPIKeysResponse = ImportAPIKeysResponse'
-    { _iakrsIds            :: !(Maybe [Text])
-    , _iakrsWarnings       :: !(Maybe [Text])
-    , _iakrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iakrsIds            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _iakrsWarnings       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _iakrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportAPIKeysResponse' with the minimum fields required to make a request.
 --
@@ -147,11 +147,12 @@ importAPIKeysResponse
     :: Int -- ^ 'iakrsResponseStatus'
     -> ImportAPIKeysResponse
 importAPIKeysResponse pResponseStatus_ =
-    ImportAPIKeysResponse'
-    { _iakrsIds = Nothing
-    , _iakrsWarnings = Nothing
-    , _iakrsResponseStatus = pResponseStatus_
-    }
+  ImportAPIKeysResponse'
+  { _iakrsIds = Nothing
+  , _iakrsWarnings = Nothing
+  , _iakrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of all the 'ApiKey' identifiers.
 iakrsIds :: Lens' ImportAPIKeysResponse [Text]
@@ -165,4 +166,4 @@ iakrsWarnings = lens _iakrsWarnings (\ s a -> s{_iakrsWarnings = a}) . _Default 
 iakrsResponseStatus :: Lens' ImportAPIKeysResponse Int
 iakrsResponseStatus = lens _iakrsResponseStatus (\ s a -> s{_iakrsResponseStatus = a});
 
-instance NFData ImportAPIKeysResponse
+instance NFData ImportAPIKeysResponse where

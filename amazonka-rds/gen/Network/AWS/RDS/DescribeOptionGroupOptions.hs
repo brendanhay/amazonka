@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeOptionGroupOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     , dogorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,12 +58,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeOptionGroupOptions' smart constructor.
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
-    { _dogoFilters            :: !(Maybe [Filter])
-    , _dogoMajorEngineVersion :: !(Maybe Text)
-    , _dogoMarker             :: !(Maybe Text)
-    , _dogoMaxRecords         :: !(Maybe Int)
-    , _dogoEngineName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dogoFilters            :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dogoMajorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dogoMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dogoMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dogoEngineName         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOptionGroupOptions' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ describeOptionGroupOptions
     :: Text -- ^ 'dogoEngineName'
     -> DescribeOptionGroupOptions
 describeOptionGroupOptions pEngineName_ =
-    DescribeOptionGroupOptions'
-    { _dogoFilters = Nothing
-    , _dogoMajorEngineVersion = Nothing
-    , _dogoMarker = Nothing
-    , _dogoMaxRecords = Nothing
-    , _dogoEngineName = pEngineName_
-    }
+  DescribeOptionGroupOptions'
+  { _dogoFilters = Nothing
+  , _dogoMajorEngineVersion = Nothing
+  , _dogoMarker = Nothing
+  , _dogoMaxRecords = Nothing
+  , _dogoEngineName = pEngineName_
+  }
+
 
 -- | This parameter is not currently supported.
 dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
@@ -131,9 +133,9 @@ instance AWSRequest DescribeOptionGroupOptions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeOptionGroupOptions
+instance Hashable DescribeOptionGroupOptions where
 
-instance NFData DescribeOptionGroupOptions
+instance NFData DescribeOptionGroupOptions where
 
 instance ToHeaders DescribeOptionGroupOptions where
         toHeaders = const mempty
@@ -160,10 +162,11 @@ instance ToQuery DescribeOptionGroupOptions where
 --
 -- /See:/ 'describeOptionGroupOptionsResponse' smart constructor.
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
-    { _dogorsOptionGroupOptions :: !(Maybe [OptionGroupOption])
-    , _dogorsMarker             :: !(Maybe Text)
-    , _dogorsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dogorsOptionGroupOptions :: {-# NOUNPACK #-}!(Maybe [OptionGroupOption])
+  , _dogorsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dogorsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOptionGroupOptionsResponse' with the minimum fields required to make a request.
 --
@@ -178,11 +181,12 @@ describeOptionGroupOptionsResponse
     :: Int -- ^ 'dogorsResponseStatus'
     -> DescribeOptionGroupOptionsResponse
 describeOptionGroupOptionsResponse pResponseStatus_ =
-    DescribeOptionGroupOptionsResponse'
-    { _dogorsOptionGroupOptions = Nothing
-    , _dogorsMarker = Nothing
-    , _dogorsResponseStatus = pResponseStatus_
-    }
+  DescribeOptionGroupOptionsResponse'
+  { _dogorsOptionGroupOptions = Nothing
+  , _dogorsMarker = Nothing
+  , _dogorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dogorsOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
@@ -197,3 +201,4 @@ dogorsResponseStatus :: Lens' DescribeOptionGroupOptionsResponse Int
 dogorsResponseStatus = lens _dogorsResponseStatus (\ s a -> s{_dogorsResponseStatus = a});
 
 instance NFData DescribeOptionGroupOptionsResponse
+         where

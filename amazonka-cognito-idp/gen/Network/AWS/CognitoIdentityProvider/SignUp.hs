@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SignUp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.CognitoIdentityProvider.SignUp
     , sursUserSub
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to register a user.
 --
@@ -57,13 +57,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'signUp' smart constructor.
 data SignUp = SignUp'
-    { _suUserAttributes :: !(Maybe [AttributeType])
-    , _suSecretHash     :: !(Maybe (Sensitive Text))
-    , _suValidationData :: !(Maybe [AttributeType])
-    , _suClientId       :: !(Sensitive Text)
-    , _suUsername       :: !(Sensitive Text)
-    , _suPassword       :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _suUserAttributes :: {-# NOUNPACK #-}!(Maybe [AttributeType])
+  , _suSecretHash     :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _suValidationData :: {-# NOUNPACK #-}!(Maybe [AttributeType])
+  , _suClientId       :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _suUsername       :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _suPassword       :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignUp' with the minimum fields required to make a request.
 --
@@ -86,14 +87,15 @@ signUp
     -> Text -- ^ 'suPassword'
     -> SignUp
 signUp pClientId_ pUsername_ pPassword_ =
-    SignUp'
-    { _suUserAttributes = Nothing
-    , _suSecretHash = Nothing
-    , _suValidationData = Nothing
-    , _suClientId = _Sensitive # pClientId_
-    , _suUsername = _Sensitive # pUsername_
-    , _suPassword = _Sensitive # pPassword_
-    }
+  SignUp'
+  { _suUserAttributes = Nothing
+  , _suSecretHash = Nothing
+  , _suValidationData = Nothing
+  , _suClientId = _Sensitive # pClientId_
+  , _suUsername = _Sensitive # pUsername_
+  , _suPassword = _Sensitive # pPassword_
+  }
+
 
 -- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 suUserAttributes :: Lens' SignUp [AttributeType]
@@ -130,9 +132,9 @@ instance AWSRequest SignUp where
                      <*> (x .:> "UserConfirmed")
                      <*> (x .:> "UserSub"))
 
-instance Hashable SignUp
+instance Hashable SignUp where
 
-instance NFData SignUp
+instance NFData SignUp where
 
 instance ToHeaders SignUp where
         toHeaders
@@ -167,11 +169,12 @@ instance ToQuery SignUp where
 --
 -- /See:/ 'signUpResponse' smart constructor.
 data SignUpResponse = SignUpResponse'
-    { _sursCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
-    , _sursResponseStatus      :: !Int
-    , _sursUserConfirmed       :: !Bool
-    , _sursUserSub             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sursCodeDeliveryDetails :: {-# NOUNPACK #-}!(Maybe CodeDeliveryDetailsType)
+  , _sursResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _sursUserConfirmed       :: {-# NOUNPACK #-}!Bool
+  , _sursUserSub             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SignUpResponse' with the minimum fields required to make a request.
 --
@@ -190,12 +193,13 @@ signUpResponse
     -> Text -- ^ 'sursUserSub'
     -> SignUpResponse
 signUpResponse pResponseStatus_ pUserConfirmed_ pUserSub_ =
-    SignUpResponse'
-    { _sursCodeDeliveryDetails = Nothing
-    , _sursResponseStatus = pResponseStatus_
-    , _sursUserConfirmed = pUserConfirmed_
-    , _sursUserSub = pUserSub_
-    }
+  SignUpResponse'
+  { _sursCodeDeliveryDetails = Nothing
+  , _sursResponseStatus = pResponseStatus_
+  , _sursUserConfirmed = pUserConfirmed_
+  , _sursUserSub = pUserSub_
+  }
+
 
 -- | The code delivery details returned by the server response to the user registration request.
 sursCodeDeliveryDetails :: Lens' SignUpResponse (Maybe CodeDeliveryDetailsType)
@@ -213,4 +217,4 @@ sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a})
 sursUserSub :: Lens' SignUpResponse Text
 sursUserSub = lens _sursUserSub (\ s a -> s{_sursUserSub = a});
 
-instance NFData SignUpResponse
+instance NFData SignUpResponse where

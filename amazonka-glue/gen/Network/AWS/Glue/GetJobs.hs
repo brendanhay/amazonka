@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Glue.GetJobs
     , gjsrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getJobs' smart constructor.
 data GetJobs = GetJobs'
-    { _gjNextToken  :: !(Maybe Text)
-    , _gjMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobs' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data GetJobs = GetJobs'
 -- * 'gjMaxResults' - The maximum size of the response.
 getJobs
     :: GetJobs
-getJobs =
-    GetJobs'
-    { _gjNextToken = Nothing
-    , _gjMaxResults = Nothing
-    }
+getJobs = GetJobs' {_gjNextToken = Nothing, _gjMaxResults = Nothing}
+
 
 -- | A continuation token, if this is a continuation call.
 gjNextToken :: Lens' GetJobs (Maybe Text)
@@ -85,9 +83,9 @@ instance AWSRequest GetJobs where
                    (x .?> "NextToken") <*> (x .?> "Jobs" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetJobs
+instance Hashable GetJobs where
 
-instance NFData GetJobs
+instance NFData GetJobs where
 
 instance ToHeaders GetJobs where
         toHeaders
@@ -112,10 +110,11 @@ instance ToQuery GetJobs where
 
 -- | /See:/ 'getJobsResponse' smart constructor.
 data GetJobsResponse = GetJobsResponse'
-    { _gjsrsNextToken      :: !(Maybe Text)
-    , _gjsrsJobs           :: !(Maybe [Job])
-    , _gjsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjsrsJobs           :: {-# NOUNPACK #-}!(Maybe [Job])
+  , _gjsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobsResponse' with the minimum fields required to make a request.
 --
@@ -130,11 +129,12 @@ getJobsResponse
     :: Int -- ^ 'gjsrsResponseStatus'
     -> GetJobsResponse
 getJobsResponse pResponseStatus_ =
-    GetJobsResponse'
-    { _gjsrsNextToken = Nothing
-    , _gjsrsJobs = Nothing
-    , _gjsrsResponseStatus = pResponseStatus_
-    }
+  GetJobsResponse'
+  { _gjsrsNextToken = Nothing
+  , _gjsrsJobs = Nothing
+  , _gjsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A continuation token, if not all jobs have yet been returned.
 gjsrsNextToken :: Lens' GetJobsResponse (Maybe Text)
@@ -148,4 +148,4 @@ gjsrsJobs = lens _gjsrsJobs (\ s a -> s{_gjsrsJobs = a}) . _Default . _Coerce;
 gjsrsResponseStatus :: Lens' GetJobsResponse Int
 gjsrsResponseStatus = lens _gjsrsResponseStatus (\ s a -> s{_gjsrsResponseStatus = a});
 
-instance NFData GetJobsResponse
+instance NFData GetJobsResponse where

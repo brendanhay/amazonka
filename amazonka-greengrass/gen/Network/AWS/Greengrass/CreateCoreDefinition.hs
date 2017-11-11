@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateCoreDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.Greengrass.CreateCoreDefinition
     , ccdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Information on the core definition request
 --
 -- /See:/ 'createCoreDefinition' smart constructor.
 data CreateCoreDefinition = CreateCoreDefinition'
-    { _ccdAmznClientToken :: !(Maybe Text)
-    , _ccdInitialVersion  :: !(Maybe CoreDefinitionVersion)
-    , _ccdName            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccdAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdInitialVersion  :: {-# NOUNPACK #-}!(Maybe CoreDefinitionVersion)
+  , _ccdName            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCoreDefinition' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ data CreateCoreDefinition = CreateCoreDefinition'
 createCoreDefinition
     :: CreateCoreDefinition
 createCoreDefinition =
-    CreateCoreDefinition'
-    { _ccdAmznClientToken = Nothing
-    , _ccdInitialVersion = Nothing
-    , _ccdName = Nothing
-    }
+  CreateCoreDefinition'
+  { _ccdAmznClientToken = Nothing
+  , _ccdInitialVersion = Nothing
+  , _ccdName = Nothing
+  }
+
 
 -- | The client token used to request idempotent operations.
 ccdAmznClientToken :: Lens' CreateCoreDefinition (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest CreateCoreDefinition where
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateCoreDefinition
+instance Hashable CreateCoreDefinition where
 
-instance NFData CreateCoreDefinition
+instance NFData CreateCoreDefinition where
 
 instance ToHeaders CreateCoreDefinition where
         toHeaders CreateCoreDefinition'{..}
@@ -131,15 +133,16 @@ instance ToQuery CreateCoreDefinition where
 
 -- | /See:/ 'createCoreDefinitionResponse' smart constructor.
 data CreateCoreDefinitionResponse = CreateCoreDefinitionResponse'
-    { _ccdrsLatestVersionARN     :: !(Maybe Text)
-    , _ccdrsARN                  :: !(Maybe Text)
-    , _ccdrsName                 :: !(Maybe Text)
-    , _ccdrsCreationTimestamp    :: !(Maybe Text)
-    , _ccdrsId                   :: !(Maybe Text)
-    , _ccdrsLatestVersion        :: !(Maybe Text)
-    , _ccdrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _ccdrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCoreDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -164,16 +167,17 @@ createCoreDefinitionResponse
     :: Int -- ^ 'ccdrsResponseStatus'
     -> CreateCoreDefinitionResponse
 createCoreDefinitionResponse pResponseStatus_ =
-    CreateCoreDefinitionResponse'
-    { _ccdrsLatestVersionARN = Nothing
-    , _ccdrsARN = Nothing
-    , _ccdrsName = Nothing
-    , _ccdrsCreationTimestamp = Nothing
-    , _ccdrsId = Nothing
-    , _ccdrsLatestVersion = Nothing
-    , _ccdrsLastUpdatedTimestamp = Nothing
-    , _ccdrsResponseStatus = pResponseStatus_
-    }
+  CreateCoreDefinitionResponse'
+  { _ccdrsLatestVersionARN = Nothing
+  , _ccdrsARN = Nothing
+  , _ccdrsName = Nothing
+  , _ccdrsCreationTimestamp = Nothing
+  , _ccdrsId = Nothing
+  , _ccdrsLatestVersion = Nothing
+  , _ccdrsLastUpdatedTimestamp = Nothing
+  , _ccdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 ccdrsLatestVersionARN :: Lens' CreateCoreDefinitionResponse (Maybe Text)
@@ -207,4 +211,4 @@ ccdrsLastUpdatedTimestamp = lens _ccdrsLastUpdatedTimestamp (\ s a -> s{_ccdrsLa
 ccdrsResponseStatus :: Lens' CreateCoreDefinitionResponse Int
 ccdrsResponseStatus = lens _ccdrsResponseStatus (\ s a -> s{_ccdrsResponseStatus = a});
 
-instance NFData CreateCoreDefinitionResponse
+instance NFData CreateCoreDefinitionResponse where

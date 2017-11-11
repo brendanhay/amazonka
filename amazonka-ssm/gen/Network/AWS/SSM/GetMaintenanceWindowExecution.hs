@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetMaintenanceWindowExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,17 +42,18 @@ module Network.AWS.SSM.GetMaintenanceWindowExecution
     , gmwersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getMaintenanceWindowExecution' smart constructor.
 newtype GetMaintenanceWindowExecution = GetMaintenanceWindowExecution'
-    { _gmweWindowExecutionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmweWindowExecutionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMaintenanceWindowExecution' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ getMaintenanceWindowExecution
     :: Text -- ^ 'gmweWindowExecutionId'
     -> GetMaintenanceWindowExecution
 getMaintenanceWindowExecution pWindowExecutionId_ =
-    GetMaintenanceWindowExecution'
-    { _gmweWindowExecutionId = pWindowExecutionId_
-    }
+  GetMaintenanceWindowExecution' {_gmweWindowExecutionId = pWindowExecutionId_}
+
 
 -- | The ID of the Maintenance Window execution that includes the task.
 gmweWindowExecutionId :: Lens' GetMaintenanceWindowExecution Text
@@ -87,9 +87,9 @@ instance AWSRequest GetMaintenanceWindowExecution
                      <*> (x .?> "TaskIds" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetMaintenanceWindowExecution
+instance Hashable GetMaintenanceWindowExecution where
 
-instance NFData GetMaintenanceWindowExecution
+instance NFData GetMaintenanceWindowExecution where
 
 instance ToHeaders GetMaintenanceWindowExecution
          where
@@ -117,14 +117,15 @@ instance ToQuery GetMaintenanceWindowExecution where
 
 -- | /See:/ 'getMaintenanceWindowExecutionResponse' smart constructor.
 data GetMaintenanceWindowExecutionResponse = GetMaintenanceWindowExecutionResponse'
-    { _gmwersStatus            :: !(Maybe MaintenanceWindowExecutionStatus)
-    , _gmwersStartTime         :: !(Maybe POSIX)
-    , _gmwersWindowExecutionId :: !(Maybe Text)
-    , _gmwersStatusDetails     :: !(Maybe Text)
-    , _gmwersEndTime           :: !(Maybe POSIX)
-    , _gmwersTaskIds           :: !(Maybe [Text])
-    , _gmwersResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmwersStatus :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowExecutionStatus)
+  , _gmwersStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmwersWindowExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwersStatusDetails :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwersEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmwersTaskIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gmwersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionResponse' with the minimum fields required to make a request.
 --
@@ -147,15 +148,16 @@ getMaintenanceWindowExecutionResponse
     :: Int -- ^ 'gmwersResponseStatus'
     -> GetMaintenanceWindowExecutionResponse
 getMaintenanceWindowExecutionResponse pResponseStatus_ =
-    GetMaintenanceWindowExecutionResponse'
-    { _gmwersStatus = Nothing
-    , _gmwersStartTime = Nothing
-    , _gmwersWindowExecutionId = Nothing
-    , _gmwersStatusDetails = Nothing
-    , _gmwersEndTime = Nothing
-    , _gmwersTaskIds = Nothing
-    , _gmwersResponseStatus = pResponseStatus_
-    }
+  GetMaintenanceWindowExecutionResponse'
+  { _gmwersStatus = Nothing
+  , _gmwersStartTime = Nothing
+  , _gmwersWindowExecutionId = Nothing
+  , _gmwersStatusDetails = Nothing
+  , _gmwersEndTime = Nothing
+  , _gmwersTaskIds = Nothing
+  , _gmwersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the Maintenance Window execution.
 gmwersStatus :: Lens' GetMaintenanceWindowExecutionResponse (Maybe MaintenanceWindowExecutionStatus)
@@ -186,3 +188,4 @@ gmwersResponseStatus :: Lens' GetMaintenanceWindowExecutionResponse Int
 gmwersResponseStatus = lens _gmwersResponseStatus (\ s a -> s{_gmwersResponseStatus = a});
 
 instance NFData GetMaintenanceWindowExecutionResponse
+         where

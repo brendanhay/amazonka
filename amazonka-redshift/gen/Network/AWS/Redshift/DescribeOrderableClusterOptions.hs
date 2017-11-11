@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeOrderableClusterOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     , docorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeOrderableClusterOptions' smart constructor.
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
-    { _docoMarker         :: !(Maybe Text)
-    , _docoMaxRecords     :: !(Maybe Int)
-    , _docoClusterVersion :: !(Maybe Text)
-    , _docoNodeType       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _docoMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _docoMaxRecords     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _docoClusterVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _docoNodeType       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrderableClusterOptions' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
 describeOrderableClusterOptions
     :: DescribeOrderableClusterOptions
 describeOrderableClusterOptions =
-    DescribeOrderableClusterOptions'
-    { _docoMarker = Nothing
-    , _docoMaxRecords = Nothing
-    , _docoClusterVersion = Nothing
-    , _docoNodeType = Nothing
-    }
+  DescribeOrderableClusterOptions'
+  { _docoMarker = Nothing
+  , _docoMaxRecords = Nothing
+  , _docoClusterVersion = Nothing
+  , _docoNodeType = Nothing
+  }
+
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeOrderableClusterOptions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
@@ -125,8 +127,9 @@ instance AWSRequest DescribeOrderableClusterOptions
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeOrderableClusterOptions
+         where
 
-instance NFData DescribeOrderableClusterOptions
+instance NFData DescribeOrderableClusterOptions where
 
 instance ToHeaders DescribeOrderableClusterOptions
          where
@@ -153,10 +156,11 @@ instance ToQuery DescribeOrderableClusterOptions
 --
 -- /See:/ 'describeOrderableClusterOptionsResponse' smart constructor.
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'
-    { _docorsMarker                  :: !(Maybe Text)
-    , _docorsOrderableClusterOptions :: !(Maybe [OrderableClusterOption])
-    , _docorsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _docorsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _docorsOrderableClusterOptions :: {-# NOUNPACK #-}!(Maybe [OrderableClusterOption])
+  , _docorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrderableClusterOptionsResponse' with the minimum fields required to make a request.
 --
@@ -171,11 +175,12 @@ describeOrderableClusterOptionsResponse
     :: Int -- ^ 'docorsResponseStatus'
     -> DescribeOrderableClusterOptionsResponse
 describeOrderableClusterOptionsResponse pResponseStatus_ =
-    DescribeOrderableClusterOptionsResponse'
-    { _docorsMarker = Nothing
-    , _docorsOrderableClusterOptions = Nothing
-    , _docorsResponseStatus = pResponseStatus_
-    }
+  DescribeOrderableClusterOptionsResponse'
+  { _docorsMarker = Nothing
+  , _docorsOrderableClusterOptions = Nothing
+  , _docorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 docorsMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
@@ -190,4 +195,5 @@ docorsResponseStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
 docorsResponseStatus = lens _docorsResponseStatus (\ s a -> s{_docorsResponseStatus = a});
 
 instance NFData
-         DescribeOrderableClusterOptionsResponse
+           DescribeOrderableClusterOptionsResponse
+         where

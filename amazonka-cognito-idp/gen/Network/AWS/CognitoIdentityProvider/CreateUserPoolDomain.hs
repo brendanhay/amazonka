@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
     , cupdrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createUserPoolDomain' smart constructor.
 data CreateUserPoolDomain = CreateUserPoolDomain'
-    { _cupdDomain     :: !Text
-    , _cupdUserPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cupdDomain     :: {-# NOUNPACK #-}!Text
+  , _cupdUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserPoolDomain' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ createUserPoolDomain
     -> Text -- ^ 'cupdUserPoolId'
     -> CreateUserPoolDomain
 createUserPoolDomain pDomain_ pUserPoolId_ =
-    CreateUserPoolDomain'
-    { _cupdDomain = pDomain_
-    , _cupdUserPoolId = pUserPoolId_
-    }
+  CreateUserPoolDomain' {_cupdDomain = pDomain_, _cupdUserPoolId = pUserPoolId_}
+
 
 -- | The domain string.
 cupdDomain :: Lens' CreateUserPoolDomain Text
@@ -85,9 +84,9 @@ instance AWSRequest CreateUserPoolDomain where
                  CreateUserPoolDomainResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateUserPoolDomain
+instance Hashable CreateUserPoolDomain where
 
-instance NFData CreateUserPoolDomain
+instance NFData CreateUserPoolDomain where
 
 instance ToHeaders CreateUserPoolDomain where
         toHeaders
@@ -114,8 +113,9 @@ instance ToQuery CreateUserPoolDomain where
 
 -- | /See:/ 'createUserPoolDomainResponse' smart constructor.
 newtype CreateUserPoolDomainResponse = CreateUserPoolDomainResponse'
-    { _cupdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cupdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserPoolDomainResponse' with the minimum fields required to make a request.
 --
@@ -126,12 +126,11 @@ createUserPoolDomainResponse
     :: Int -- ^ 'cupdrsResponseStatus'
     -> CreateUserPoolDomainResponse
 createUserPoolDomainResponse pResponseStatus_ =
-    CreateUserPoolDomainResponse'
-    { _cupdrsResponseStatus = pResponseStatus_
-    }
+  CreateUserPoolDomainResponse' {_cupdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cupdrsResponseStatus :: Lens' CreateUserPoolDomainResponse Int
 cupdrsResponseStatus = lens _cupdrsResponseStatus (\ s a -> s{_cupdrsResponseStatus = a});
 
-instance NFData CreateUserPoolDomainResponse
+instance NFData CreateUserPoolDomainResponse where

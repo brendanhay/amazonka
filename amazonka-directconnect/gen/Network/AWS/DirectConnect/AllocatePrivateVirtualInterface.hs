@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,12 +56,12 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     , viVirtualInterfaceId
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the AllocatePrivateVirtualInterface operation.
 --
@@ -69,10 +69,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'allocatePrivateVirtualInterface' smart constructor.
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
-    { _apviConnectionId                         :: !Text
-    , _apviOwnerAccount                         :: !Text
-    , _apviNewPrivateVirtualInterfaceAllocation :: !NewPrivateVirtualInterfaceAllocation
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apviConnectionId :: {-# NOUNPACK #-}!Text
+  , _apviOwnerAccount :: {-# NOUNPACK #-}!Text
+  , _apviNewPrivateVirtualInterfaceAllocation :: {-# NOUNPACK #-}!NewPrivateVirtualInterfaceAllocation
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllocatePrivateVirtualInterface' with the minimum fields required to make a request.
 --
@@ -89,11 +90,13 @@ allocatePrivateVirtualInterface
     -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
     -> AllocatePrivateVirtualInterface
 allocatePrivateVirtualInterface pConnectionId_ pOwnerAccount_ pNewPrivateVirtualInterfaceAllocation_ =
-    AllocatePrivateVirtualInterface'
-    { _apviConnectionId = pConnectionId_
-    , _apviOwnerAccount = pOwnerAccount_
-    , _apviNewPrivateVirtualInterfaceAllocation = pNewPrivateVirtualInterfaceAllocation_
-    }
+  AllocatePrivateVirtualInterface'
+  { _apviConnectionId = pConnectionId_
+  , _apviOwnerAccount = pOwnerAccount_
+  , _apviNewPrivateVirtualInterfaceAllocation =
+      pNewPrivateVirtualInterfaceAllocation_
+  }
+
 
 -- | The connection ID on which the private virtual interface is provisioned. Default: None
 apviConnectionId :: Lens' AllocatePrivateVirtualInterface Text
@@ -115,8 +118,9 @@ instance AWSRequest AllocatePrivateVirtualInterface
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable AllocatePrivateVirtualInterface
+         where
 
-instance NFData AllocatePrivateVirtualInterface
+instance NFData AllocatePrivateVirtualInterface where
 
 instance ToHeaders AllocatePrivateVirtualInterface
          where

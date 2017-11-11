@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RebootDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.RDS.RebootDBInstance
     , rdirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'rebootDBInstance' smart constructor.
 data RebootDBInstance = RebootDBInstance'
-    { _rdiForceFailover        :: !(Maybe Bool)
-    , _rdiDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdiForceFailover        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdiDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootDBInstance' with the minimum fields required to make a request.
 --
@@ -70,10 +71,11 @@ rebootDBInstance
     :: Text -- ^ 'rdiDBInstanceIdentifier'
     -> RebootDBInstance
 rebootDBInstance pDBInstanceIdentifier_ =
-    RebootDBInstance'
-    { _rdiForceFailover = Nothing
-    , _rdiDBInstanceIdentifier = pDBInstanceIdentifier_
-    }
+  RebootDBInstance'
+  { _rdiForceFailover = Nothing
+  , _rdiDBInstanceIdentifier = pDBInstanceIdentifier_
+  }
+
 
 -- | When @true@ , the reboot will be conducted through a MultiAZ failover.  Constraint: You cannot specify @true@ if the instance is not configured for MultiAZ.
 rdiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
@@ -92,9 +94,9 @@ instance AWSRequest RebootDBInstance where
                  RebootDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-instance Hashable RebootDBInstance
+instance Hashable RebootDBInstance where
 
-instance NFData RebootDBInstance
+instance NFData RebootDBInstance where
 
 instance ToHeaders RebootDBInstance where
         toHeaders = const mempty
@@ -112,9 +114,10 @@ instance ToQuery RebootDBInstance where
 
 -- | /See:/ 'rebootDBInstanceResponse' smart constructor.
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
-    { _rdirsDBInstance     :: !(Maybe DBInstance)
-    , _rdirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _rdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +130,9 @@ rebootDBInstanceResponse
     :: Int -- ^ 'rdirsResponseStatus'
     -> RebootDBInstanceResponse
 rebootDBInstanceResponse pResponseStatus_ =
-    RebootDBInstanceResponse'
-    { _rdirsDBInstance = Nothing
-    , _rdirsResponseStatus = pResponseStatus_
-    }
+  RebootDBInstanceResponse'
+  {_rdirsDBInstance = Nothing, _rdirsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rdirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
@@ -140,4 +142,4 @@ rdirsDBInstance = lens _rdirsDBInstance (\ s a -> s{_rdirsDBInstance = a});
 rdirsResponseStatus :: Lens' RebootDBInstanceResponse Int
 rdirsResponseStatus = lens _rdirsResponseStatus (\ s a -> s{_rdirsResponseStatus = a});
 
-instance NFData RebootDBInstanceResponse
+instance NFData RebootDBInstanceResponse where

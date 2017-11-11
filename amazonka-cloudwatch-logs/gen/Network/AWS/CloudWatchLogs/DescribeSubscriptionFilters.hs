@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     , dsfrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeSubscriptionFilters' smart constructor.
 data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
-    { _dsfFilterNamePrefix :: !(Maybe Text)
-    , _dsfNextToken        :: !(Maybe Text)
-    , _dsfLimit            :: !(Maybe Nat)
-    , _dsfLogGroupName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsfFilterNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsfNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsfLimit            :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dsfLogGroupName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubscriptionFilters' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ describeSubscriptionFilters
     :: Text -- ^ 'dsfLogGroupName'
     -> DescribeSubscriptionFilters
 describeSubscriptionFilters pLogGroupName_ =
-    DescribeSubscriptionFilters'
-    { _dsfFilterNamePrefix = Nothing
-    , _dsfNextToken = Nothing
-    , _dsfLimit = Nothing
-    , _dsfLogGroupName = pLogGroupName_
-    }
+  DescribeSubscriptionFilters'
+  { _dsfFilterNamePrefix = Nothing
+  , _dsfNextToken = Nothing
+  , _dsfLimit = Nothing
+  , _dsfLogGroupName = pLogGroupName_
+  }
+
 
 -- | The prefix to match. If you don't specify a value, no prefix filter is applied.
 dsfFilterNamePrefix :: Lens' DescribeSubscriptionFilters (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest DescribeSubscriptionFilters where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSubscriptionFilters
+instance Hashable DescribeSubscriptionFilters where
 
-instance NFData DescribeSubscriptionFilters
+instance NFData DescribeSubscriptionFilters where
 
 instance ToHeaders DescribeSubscriptionFilters where
         toHeaders
@@ -147,10 +149,11 @@ instance ToQuery DescribeSubscriptionFilters where
 
 -- | /See:/ 'describeSubscriptionFiltersResponse' smart constructor.
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
-    { _dsfrsSubscriptionFilters :: !(Maybe [SubscriptionFilter])
-    , _dsfrsNextToken           :: !(Maybe Text)
-    , _dsfrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsfrsSubscriptionFilters :: {-# NOUNPACK #-}!(Maybe [SubscriptionFilter])
+  , _dsfrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsfrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSubscriptionFiltersResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ describeSubscriptionFiltersResponse
     :: Int -- ^ 'dsfrsResponseStatus'
     -> DescribeSubscriptionFiltersResponse
 describeSubscriptionFiltersResponse pResponseStatus_ =
-    DescribeSubscriptionFiltersResponse'
-    { _dsfrsSubscriptionFilters = Nothing
-    , _dsfrsNextToken = Nothing
-    , _dsfrsResponseStatus = pResponseStatus_
-    }
+  DescribeSubscriptionFiltersResponse'
+  { _dsfrsSubscriptionFilters = Nothing
+  , _dsfrsNextToken = Nothing
+  , _dsfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The subscription filters.
 dsfrsSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse [SubscriptionFilter]
@@ -184,3 +188,4 @@ dsfrsResponseStatus :: Lens' DescribeSubscriptionFiltersResponse Int
 dsfrsResponseStatus = lens _dsfrsResponseStatus (\ s a -> s{_dsfrsResponseStatus = a});
 
 instance NFData DescribeSubscriptionFiltersResponse
+         where

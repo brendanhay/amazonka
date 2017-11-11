@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.ListProgressUpdateStreams
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.MigrationHub.ListProgressUpdateStreams
     , lpusrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listProgressUpdateStreams' smart constructor.
 data ListProgressUpdateStreams = ListProgressUpdateStreams'
-    { _lpusNextToken  :: !(Maybe Text)
-    , _lpusMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpusNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpusMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProgressUpdateStreams' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ data ListProgressUpdateStreams = ListProgressUpdateStreams'
 listProgressUpdateStreams
     :: ListProgressUpdateStreams
 listProgressUpdateStreams =
-    ListProgressUpdateStreams'
-    { _lpusNextToken = Nothing
-    , _lpusMaxResults = Nothing
-    }
+  ListProgressUpdateStreams'
+  {_lpusNextToken = Nothing, _lpusMaxResults = Nothing}
+
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 lpusNextToken :: Lens' ListProgressUpdateStreams (Maybe Text)
@@ -87,9 +87,9 @@ instance AWSRequest ListProgressUpdateStreams where
                      <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListProgressUpdateStreams
+instance Hashable ListProgressUpdateStreams where
 
-instance NFData ListProgressUpdateStreams
+instance NFData ListProgressUpdateStreams where
 
 instance ToHeaders ListProgressUpdateStreams where
         toHeaders
@@ -116,10 +116,11 @@ instance ToQuery ListProgressUpdateStreams where
 
 -- | /See:/ 'listProgressUpdateStreamsResponse' smart constructor.
 data ListProgressUpdateStreamsResponse = ListProgressUpdateStreamsResponse'
-    { _lpusrsProgressUpdateStreamSummaryList :: !(Maybe [ProgressUpdateStreamSummary])
-    , _lpusrsNextToken                       :: !(Maybe Text)
-    , _lpusrsResponseStatus                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpusrsProgressUpdateStreamSummaryList :: {-# NOUNPACK #-}!(Maybe [ProgressUpdateStreamSummary])
+  , _lpusrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpusrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProgressUpdateStreamsResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +135,12 @@ listProgressUpdateStreamsResponse
     :: Int -- ^ 'lpusrsResponseStatus'
     -> ListProgressUpdateStreamsResponse
 listProgressUpdateStreamsResponse pResponseStatus_ =
-    ListProgressUpdateStreamsResponse'
-    { _lpusrsProgressUpdateStreamSummaryList = Nothing
-    , _lpusrsNextToken = Nothing
-    , _lpusrsResponseStatus = pResponseStatus_
-    }
+  ListProgressUpdateStreamsResponse'
+  { _lpusrsProgressUpdateStreamSummaryList = Nothing
+  , _lpusrsNextToken = Nothing
+  , _lpusrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | List of progress update streams up to the max number of results passed in the input.
 lpusrsProgressUpdateStreamSummaryList :: Lens' ListProgressUpdateStreamsResponse [ProgressUpdateStreamSummary]
@@ -153,3 +155,4 @@ lpusrsResponseStatus :: Lens' ListProgressUpdateStreamsResponse Int
 lpusrsResponseStatus = lens _lpusrsResponseStatus (\ s a -> s{_lpusrsResponseStatus = a});
 
 instance NFData ListProgressUpdateStreamsResponse
+         where

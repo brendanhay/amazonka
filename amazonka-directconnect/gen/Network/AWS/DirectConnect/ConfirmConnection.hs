@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DirectConnect.ConfirmConnection
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmConnection operation.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'confirmConnection' smart constructor.
 newtype ConfirmConnection = ConfirmConnection'
-    { _ccConnectionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccConnectionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmConnection' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ confirmConnection
     :: Text -- ^ 'ccConnectionId'
     -> ConfirmConnection
 confirmConnection pConnectionId_ =
-    ConfirmConnection'
-    { _ccConnectionId = pConnectionId_
-    }
+  ConfirmConnection' {_ccConnectionId = pConnectionId_}
+
 
 -- | Undocumented member.
 ccConnectionId :: Lens' ConfirmConnection Text
@@ -81,9 +81,9 @@ instance AWSRequest ConfirmConnection where
                  ConfirmConnectionResponse' <$>
                    (x .?> "connectionState") <*> (pure (fromEnum s)))
 
-instance Hashable ConfirmConnection
+instance Hashable ConfirmConnection where
 
-instance NFData ConfirmConnection
+instance NFData ConfirmConnection where
 
 instance ToHeaders ConfirmConnection where
         toHeaders
@@ -112,9 +112,10 @@ instance ToQuery ConfirmConnection where
 --
 -- /See:/ 'confirmConnectionResponse' smart constructor.
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
-    { _ccrsConnectionState :: !(Maybe ConnectionState)
-    , _ccrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsConnectionState :: {-# NOUNPACK #-}!(Maybe ConnectionState)
+  , _ccrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmConnectionResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ confirmConnectionResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> ConfirmConnectionResponse
 confirmConnectionResponse pResponseStatus_ =
-    ConfirmConnectionResponse'
-    { _ccrsConnectionState = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
-    }
+  ConfirmConnectionResponse'
+  {_ccrsConnectionState = Nothing, _ccrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
@@ -140,4 +140,4 @@ ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState
 ccrsResponseStatus :: Lens' ConfirmConnectionResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData ConfirmConnectionResponse
+instance NFData ConfirmConnectionResponse where

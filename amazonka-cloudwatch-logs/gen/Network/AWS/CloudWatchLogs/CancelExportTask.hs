@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CancelExportTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.CloudWatchLogs.CancelExportTask
     , CancelExportTaskResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cancelExportTask' smart constructor.
 newtype CancelExportTask = CancelExportTask'
-    { _cetTaskId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cetTaskId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelExportTask' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype CancelExportTask = CancelExportTask'
 cancelExportTask
     :: Text -- ^ 'cetTaskId'
     -> CancelExportTask
-cancelExportTask pTaskId_ =
-    CancelExportTask'
-    { _cetTaskId = pTaskId_
-    }
+cancelExportTask pTaskId_ = CancelExportTask' {_cetTaskId = pTaskId_}
+
 
 -- | The ID of the export task.
 cetTaskId :: Lens' CancelExportTask Text
@@ -70,9 +69,9 @@ instance AWSRequest CancelExportTask where
         request = postJSON cloudWatchLogs
         response = receiveNull CancelExportTaskResponse'
 
-instance Hashable CancelExportTask
+instance Hashable CancelExportTask where
 
-instance NFData CancelExportTask
+instance NFData CancelExportTask where
 
 instance ToHeaders CancelExportTask where
         toHeaders
@@ -95,8 +94,9 @@ instance ToQuery CancelExportTask where
 
 -- | /See:/ 'cancelExportTaskResponse' smart constructor.
 data CancelExportTaskResponse =
-    CancelExportTaskResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CancelExportTaskResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelExportTaskResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ cancelExportTaskResponse
     :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse'
 
-instance NFData CancelExportTaskResponse
+
+instance NFData CancelExportTaskResponse where

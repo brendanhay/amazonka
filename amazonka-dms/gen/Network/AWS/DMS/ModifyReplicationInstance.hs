@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.ModifyReplicationInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.DMS.ModifyReplicationInstance
     , mrirsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -64,18 +64,19 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyReplicationInstance' smart constructor.
 data ModifyReplicationInstance = ModifyReplicationInstance'
-    { _mriEngineVersion                 :: !(Maybe Text)
-    , _mriAutoMinorVersionUpgrade       :: !(Maybe Bool)
-    , _mriAllowMajorVersionUpgrade      :: !(Maybe Bool)
-    , _mriPreferredMaintenanceWindow    :: !(Maybe Text)
-    , _mriVPCSecurityGroupIds           :: !(Maybe [Text])
-    , _mriMultiAZ                       :: !(Maybe Bool)
-    , _mriAllocatedStorage              :: !(Maybe Int)
-    , _mriApplyImmediately              :: !(Maybe Bool)
-    , _mriReplicationInstanceClass      :: !(Maybe Text)
-    , _mriReplicationInstanceIdentifier :: !(Maybe Text)
-    , _mriReplicationInstanceARN        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mriEngineVersion                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mriAutoMinorVersionUpgrade       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mriAllowMajorVersionUpgrade      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mriPreferredMaintenanceWindow    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mriVPCSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mriMultiAZ                       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mriAllocatedStorage              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mriApplyImmediately              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mriReplicationInstanceClass      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mriReplicationInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mriReplicationInstanceARN        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyReplicationInstance' with the minimum fields required to make a request.
 --
@@ -106,19 +107,20 @@ modifyReplicationInstance
     :: Text -- ^ 'mriReplicationInstanceARN'
     -> ModifyReplicationInstance
 modifyReplicationInstance pReplicationInstanceARN_ =
-    ModifyReplicationInstance'
-    { _mriEngineVersion = Nothing
-    , _mriAutoMinorVersionUpgrade = Nothing
-    , _mriAllowMajorVersionUpgrade = Nothing
-    , _mriPreferredMaintenanceWindow = Nothing
-    , _mriVPCSecurityGroupIds = Nothing
-    , _mriMultiAZ = Nothing
-    , _mriAllocatedStorage = Nothing
-    , _mriApplyImmediately = Nothing
-    , _mriReplicationInstanceClass = Nothing
-    , _mriReplicationInstanceIdentifier = Nothing
-    , _mriReplicationInstanceARN = pReplicationInstanceARN_
-    }
+  ModifyReplicationInstance'
+  { _mriEngineVersion = Nothing
+  , _mriAutoMinorVersionUpgrade = Nothing
+  , _mriAllowMajorVersionUpgrade = Nothing
+  , _mriPreferredMaintenanceWindow = Nothing
+  , _mriVPCSecurityGroupIds = Nothing
+  , _mriMultiAZ = Nothing
+  , _mriAllocatedStorage = Nothing
+  , _mriApplyImmediately = Nothing
+  , _mriReplicationInstanceClass = Nothing
+  , _mriReplicationInstanceIdentifier = Nothing
+  , _mriReplicationInstanceARN = pReplicationInstanceARN_
+  }
+
 
 -- | The engine version number of the replication instance.
 mriEngineVersion :: Lens' ModifyReplicationInstance (Maybe Text)
@@ -175,9 +177,9 @@ instance AWSRequest ModifyReplicationInstance where
                    (x .?> "ReplicationInstance") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ModifyReplicationInstance
+instance Hashable ModifyReplicationInstance where
 
-instance NFData ModifyReplicationInstance
+instance NFData ModifyReplicationInstance where
 
 instance ToHeaders ModifyReplicationInstance where
         toHeaders
@@ -225,9 +227,10 @@ instance ToQuery ModifyReplicationInstance where
 --
 -- /See:/ 'modifyReplicationInstanceResponse' smart constructor.
 data ModifyReplicationInstanceResponse = ModifyReplicationInstanceResponse'
-    { _mrirsReplicationInstance :: !(Maybe ReplicationInstance)
-    , _mrirsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrirsReplicationInstance :: {-# NOUNPACK #-}!(Maybe ReplicationInstance)
+  , _mrirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyReplicationInstanceResponse' with the minimum fields required to make a request.
 --
@@ -240,10 +243,9 @@ modifyReplicationInstanceResponse
     :: Int -- ^ 'mrirsResponseStatus'
     -> ModifyReplicationInstanceResponse
 modifyReplicationInstanceResponse pResponseStatus_ =
-    ModifyReplicationInstanceResponse'
-    { _mrirsReplicationInstance = Nothing
-    , _mrirsResponseStatus = pResponseStatus_
-    }
+  ModifyReplicationInstanceResponse'
+  {_mrirsReplicationInstance = Nothing, _mrirsResponseStatus = pResponseStatus_}
+
 
 -- | The modified replication instance.
 mrirsReplicationInstance :: Lens' ModifyReplicationInstanceResponse (Maybe ReplicationInstance)
@@ -254,3 +256,4 @@ mrirsResponseStatus :: Lens' ModifyReplicationInstanceResponse Int
 mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a});
 
 instance NFData ModifyReplicationInstanceResponse
+         where

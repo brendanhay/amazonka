@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CloudFormation.DescribeStackResource
     , dsrrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for 'DescribeStackResource' action.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeStackResource' smart constructor.
 data DescribeStackResource = DescribeStackResource'
-    { _dsrsStackName         :: !Text
-    , _dsrsLogicalResourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsStackName         :: {-# NOUNPACK #-}!Text
+  , _dsrsLogicalResourceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackResource' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ describeStackResource
     -> Text -- ^ 'dsrsLogicalResourceId'
     -> DescribeStackResource
 describeStackResource pStackName_ pLogicalResourceId_ =
-    DescribeStackResource'
-    { _dsrsStackName = pStackName_
-    , _dsrsLogicalResourceId = pLogicalResourceId_
-    }
+  DescribeStackResource'
+  {_dsrsStackName = pStackName_, _dsrsLogicalResourceId = pLogicalResourceId_}
+
 
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 dsrsStackName :: Lens' DescribeStackResource Text
@@ -93,9 +93,9 @@ instance AWSRequest DescribeStackResource where
                    (x .@? "StackResourceDetail") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeStackResource
+instance Hashable DescribeStackResource where
 
-instance NFData DescribeStackResource
+instance NFData DescribeStackResource where
 
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
@@ -117,9 +117,10 @@ instance ToQuery DescribeStackResource where
 --
 -- /See:/ 'describeStackResourceResponse' smart constructor.
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
-    { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
-    , _dsrrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrrsStackResourceDetail :: {-# NOUNPACK #-}!(Maybe StackResourceDetail)
+  , _dsrrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackResourceResponse' with the minimum fields required to make a request.
 --
@@ -132,10 +133,9 @@ describeStackResourceResponse
     :: Int -- ^ 'dsrrsResponseStatus'
     -> DescribeStackResourceResponse
 describeStackResourceResponse pResponseStatus_ =
-    DescribeStackResourceResponse'
-    { _dsrrsStackResourceDetail = Nothing
-    , _dsrrsResponseStatus = pResponseStatus_
-    }
+  DescribeStackResourceResponse'
+  {_dsrrsStackResourceDetail = Nothing, _dsrrsResponseStatus = pResponseStatus_}
+
 
 -- | A @StackResourceDetail@ structure containing the description of the specified resource in the specified stack.
 dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
@@ -145,4 +145,4 @@ dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStac
 dsrrsResponseStatus :: Lens' DescribeStackResourceResponse Int
 dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});
 
-instance NFData DescribeStackResourceResponse
+instance NFData DescribeStackResourceResponse where

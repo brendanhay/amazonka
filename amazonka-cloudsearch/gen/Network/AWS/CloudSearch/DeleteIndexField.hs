@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteIndexField
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.DeleteIndexField
     , difrsIndexField
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DeleteIndexField' @ operation. Specifies the name of the domain you want to update and the name of the index field you want to delete.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteIndexField' smart constructor.
 data DeleteIndexField = DeleteIndexField'
-    { _difiDomainName     :: !Text
-    , _difiIndexFieldName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _difiDomainName     :: {-# NOUNPACK #-}!Text
+  , _difiIndexFieldName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIndexField' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ deleteIndexField
     -> Text -- ^ 'difiIndexFieldName'
     -> DeleteIndexField
 deleteIndexField pDomainName_ pIndexFieldName_ =
-    DeleteIndexField'
-    { _difiDomainName = pDomainName_
-    , _difiIndexFieldName = pIndexFieldName_
-    }
+  DeleteIndexField'
+  {_difiDomainName = pDomainName_, _difiIndexFieldName = pIndexFieldName_}
+
 
 -- | Undocumented member.
 difiDomainName :: Lens' DeleteIndexField Text
@@ -89,9 +89,9 @@ instance AWSRequest DeleteIndexField where
                  DeleteIndexFieldResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "IndexField"))
 
-instance Hashable DeleteIndexField
+instance Hashable DeleteIndexField where
 
-instance NFData DeleteIndexField
+instance NFData DeleteIndexField where
 
 instance ToHeaders DeleteIndexField where
         toHeaders = const mempty
@@ -113,9 +113,10 @@ instance ToQuery DeleteIndexField where
 --
 -- /See:/ 'deleteIndexFieldResponse' smart constructor.
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
-    { _difrsResponseStatus :: !Int
-    , _difrsIndexField     :: !IndexFieldStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _difrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _difrsIndexField     :: {-# NOUNPACK #-}!IndexFieldStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIndexFieldResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ deleteIndexFieldResponse
     -> IndexFieldStatus -- ^ 'difrsIndexField'
     -> DeleteIndexFieldResponse
 deleteIndexFieldResponse pResponseStatus_ pIndexField_ =
-    DeleteIndexFieldResponse'
-    { _difrsResponseStatus = pResponseStatus_
-    , _difrsIndexField = pIndexField_
-    }
+  DeleteIndexFieldResponse'
+  {_difrsResponseStatus = pResponseStatus_, _difrsIndexField = pIndexField_}
+
 
 -- | -- | The response status code.
 difrsResponseStatus :: Lens' DeleteIndexFieldResponse Int
@@ -142,4 +142,4 @@ difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus
 difrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrsIndexField = lens _difrsIndexField (\ s a -> s{_difrsIndexField = a});
 
-instance NFData DeleteIndexFieldResponse
+instance NFData DeleteIndexFieldResponse where

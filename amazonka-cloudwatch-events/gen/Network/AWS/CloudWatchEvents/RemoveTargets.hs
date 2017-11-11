@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.RemoveTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,18 +43,19 @@ module Network.AWS.CloudWatchEvents.RemoveTargets
     , rtrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeTargets' smart constructor.
 data RemoveTargets = RemoveTargets'
-    { _rtRule :: !Text
-    , _rtIds  :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtRule :: {-# NOUNPACK #-}!Text
+  , _rtIds  :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTargets' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ removeTargets
     -> NonEmpty Text -- ^ 'rtIds'
     -> RemoveTargets
 removeTargets pRule_ pIds_ =
-    RemoveTargets'
-    { _rtRule = pRule_
-    , _rtIds = _List1 # pIds_
-    }
+  RemoveTargets' {_rtRule = pRule_, _rtIds = _List1 # pIds_}
+
 
 -- | The name of the rule.
 rtRule :: Lens' RemoveTargets Text
@@ -92,9 +91,9 @@ instance AWSRequest RemoveTargets where
                      (x .?> "FailedEntries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable RemoveTargets
+instance Hashable RemoveTargets where
 
-instance NFData RemoveTargets
+instance NFData RemoveTargets where
 
 instance ToHeaders RemoveTargets where
         toHeaders
@@ -119,10 +118,11 @@ instance ToQuery RemoveTargets where
 
 -- | /See:/ 'removeTargetsResponse' smart constructor.
 data RemoveTargetsResponse = RemoveTargetsResponse'
-    { _rtrsFailedEntryCount :: !(Maybe Int)
-    , _rtrsFailedEntries    :: !(Maybe [RemoveTargetsResultEntry])
-    , _rtrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrsFailedEntryCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rtrsFailedEntries    :: {-# NOUNPACK #-}!(Maybe [RemoveTargetsResultEntry])
+  , _rtrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTargetsResponse' with the minimum fields required to make a request.
 --
@@ -137,11 +137,12 @@ removeTargetsResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTargetsResponse
 removeTargetsResponse pResponseStatus_ =
-    RemoveTargetsResponse'
-    { _rtrsFailedEntryCount = Nothing
-    , _rtrsFailedEntries = Nothing
-    , _rtrsResponseStatus = pResponseStatus_
-    }
+  RemoveTargetsResponse'
+  { _rtrsFailedEntryCount = Nothing
+  , _rtrsFailedEntries = Nothing
+  , _rtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of failed entries.
 rtrsFailedEntryCount :: Lens' RemoveTargetsResponse (Maybe Int)
@@ -155,4 +156,4 @@ rtrsFailedEntries = lens _rtrsFailedEntries (\ s a -> s{_rtrsFailedEntries = a})
 rtrsResponseStatus :: Lens' RemoveTargetsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 
-instance NFData RemoveTargetsResponse
+instance NFData RemoveTargetsResponse where

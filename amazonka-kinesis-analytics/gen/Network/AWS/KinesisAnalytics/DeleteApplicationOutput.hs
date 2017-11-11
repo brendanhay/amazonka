@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationOutput
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationOutput
     , daorsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteApplicationOutput' smart constructor.
 data DeleteApplicationOutput = DeleteApplicationOutput'
-    { _daoApplicationName             :: !Text
-    , _daoCurrentApplicationVersionId :: !Nat
-    , _daoOutputId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daoApplicationName             :: {-# NOUNPACK #-}!Text
+  , _daoCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
+  , _daoOutputId                    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationOutput' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ deleteApplicationOutput
     -> Text -- ^ 'daoOutputId'
     -> DeleteApplicationOutput
 deleteApplicationOutput pApplicationName_ pCurrentApplicationVersionId_ pOutputId_ =
-    DeleteApplicationOutput'
-    { _daoApplicationName = pApplicationName_
-    , _daoCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _daoOutputId = pOutputId_
-    }
+  DeleteApplicationOutput'
+  { _daoApplicationName = pApplicationName_
+  , _daoCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+  , _daoOutputId = pOutputId_
+  }
+
 
 -- | Amazon Kinesis Analytics application name.
 daoApplicationName :: Lens' DeleteApplicationOutput Text
@@ -101,9 +103,9 @@ instance AWSRequest DeleteApplicationOutput where
                  DeleteApplicationOutputResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteApplicationOutput
+instance Hashable DeleteApplicationOutput where
 
-instance NFData DeleteApplicationOutput
+instance NFData DeleteApplicationOutput where
 
 instance ToHeaders DeleteApplicationOutput where
         toHeaders
@@ -137,8 +139,9 @@ instance ToQuery DeleteApplicationOutput where
 --
 -- /See:/ 'deleteApplicationOutputResponse' smart constructor.
 newtype DeleteApplicationOutputResponse = DeleteApplicationOutputResponse'
-    { _daorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationOutputResponse' with the minimum fields required to make a request.
 --
@@ -149,12 +152,11 @@ deleteApplicationOutputResponse
     :: Int -- ^ 'daorsResponseStatus'
     -> DeleteApplicationOutputResponse
 deleteApplicationOutputResponse pResponseStatus_ =
-    DeleteApplicationOutputResponse'
-    { _daorsResponseStatus = pResponseStatus_
-    }
+  DeleteApplicationOutputResponse' {_daorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 daorsResponseStatus :: Lens' DeleteApplicationOutputResponse Int
 daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a});
 
-instance NFData DeleteApplicationOutputResponse
+instance NFData DeleteApplicationOutputResponse where

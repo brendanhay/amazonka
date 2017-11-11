@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.GetResource
     , rParentId
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to list information about a resource.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getResource' smart constructor.
 data GetResource = GetResource'
-    { _grEmbed      :: !(Maybe [Text])
-    , _grRestAPIId  :: !Text
-    , _grResourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grEmbed      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _grRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _grResourceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetResource' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ getResource
     -> Text -- ^ 'grResourceId'
     -> GetResource
 getResource pRestAPIId_ pResourceId_ =
-    GetResource'
-    { _grEmbed = Nothing
-    , _grRestAPIId = pRestAPIId_
-    , _grResourceId = pResourceId_
-    }
+  GetResource'
+  {_grEmbed = Nothing, _grRestAPIId = pRestAPIId_, _grResourceId = pResourceId_}
+
 
 -- | A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
 grEmbed :: Lens' GetResource [Text]
@@ -97,9 +96,9 @@ instance AWSRequest GetResource where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetResource
+instance Hashable GetResource where
 
-instance NFData GetResource
+instance NFData GetResource where
 
 instance ToHeaders GetResource where
         toHeaders

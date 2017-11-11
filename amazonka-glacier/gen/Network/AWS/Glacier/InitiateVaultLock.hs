@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.InitiateVaultLock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.Glacier.InitiateVaultLock
     , ivlrsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input values for @InitiateVaultLock@ .
 --
@@ -70,10 +70,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'initiateVaultLock' smart constructor.
 data InitiateVaultLock = InitiateVaultLock'
-    { _ivlPolicy    :: !(Maybe VaultLockPolicy)
-    , _ivlAccountId :: !Text
-    , _ivlVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ivlPolicy    :: {-# NOUNPACK #-}!(Maybe VaultLockPolicy)
+  , _ivlAccountId :: {-# NOUNPACK #-}!Text
+  , _ivlVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateVaultLock' with the minimum fields required to make a request.
 --
@@ -89,11 +90,12 @@ initiateVaultLock
     -> Text -- ^ 'ivlVaultName'
     -> InitiateVaultLock
 initiateVaultLock pAccountId_ pVaultName_ =
-    InitiateVaultLock'
-    { _ivlPolicy = Nothing
-    , _ivlAccountId = pAccountId_
-    , _ivlVaultName = pVaultName_
-    }
+  InitiateVaultLock'
+  { _ivlPolicy = Nothing
+  , _ivlAccountId = pAccountId_
+  , _ivlVaultName = pVaultName_
+  }
+
 
 -- | The vault lock policy as a JSON string, which uses "\" as an escape character.
 ivlPolicy :: Lens' InitiateVaultLock (Maybe VaultLockPolicy)
@@ -116,9 +118,9 @@ instance AWSRequest InitiateVaultLock where
                  InitiateVaultLockResponse' <$>
                    (h .#? "x-amz-lock-id") <*> (pure (fromEnum s)))
 
-instance Hashable InitiateVaultLock
+instance Hashable InitiateVaultLock where
 
-instance NFData InitiateVaultLock
+instance NFData InitiateVaultLock where
 
 instance ToHeaders InitiateVaultLock where
         toHeaders = const mempty
@@ -142,9 +144,10 @@ instance ToQuery InitiateVaultLock where
 --
 -- /See:/ 'initiateVaultLockResponse' smart constructor.
 data InitiateVaultLockResponse = InitiateVaultLockResponse'
-    { _ivlrsLockId         :: !(Maybe Text)
-    , _ivlrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ivlrsLockId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ivlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateVaultLockResponse' with the minimum fields required to make a request.
 --
@@ -157,10 +160,9 @@ initiateVaultLockResponse
     :: Int -- ^ 'ivlrsResponseStatus'
     -> InitiateVaultLockResponse
 initiateVaultLockResponse pResponseStatus_ =
-    InitiateVaultLockResponse'
-    { _ivlrsLockId = Nothing
-    , _ivlrsResponseStatus = pResponseStatus_
-    }
+  InitiateVaultLockResponse'
+  {_ivlrsLockId = Nothing, _ivlrsResponseStatus = pResponseStatus_}
+
 
 -- | The lock ID, which is used to complete the vault locking process.
 ivlrsLockId :: Lens' InitiateVaultLockResponse (Maybe Text)
@@ -170,4 +172,4 @@ ivlrsLockId = lens _ivlrsLockId (\ s a -> s{_ivlrsLockId = a});
 ivlrsResponseStatus :: Lens' InitiateVaultLockResponse Int
 ivlrsResponseStatus = lens _ivlrsResponseStatus (\ s a -> s{_ivlrsResponseStatus = a});
 
-instance NFData InitiateVaultLockResponse
+instance NFData InitiateVaultLockResponse where

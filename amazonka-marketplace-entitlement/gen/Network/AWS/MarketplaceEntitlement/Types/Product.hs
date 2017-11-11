@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceEntitlement.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MarketplaceEntitlement.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.MarketplaceEntitlement.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.MarketplaceEntitlement.Types.Sum
+import Network.AWS.Prelude
 
 -- | An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.
 --
@@ -27,12 +27,13 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'entitlement' smart constructor.
 data Entitlement = Entitlement'
-    { _eDimension          :: !(Maybe Text)
-    , _eValue              :: !(Maybe EntitlementValue)
-    , _eExpirationDate     :: !(Maybe POSIX)
-    , _eCustomerIdentifier :: !(Maybe Text)
-    , _eProductCode        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eDimension          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eValue              :: {-# NOUNPACK #-}!(Maybe EntitlementValue)
+  , _eExpirationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eCustomerIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eProductCode        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Entitlement' with the minimum fields required to make a request.
 --
@@ -50,13 +51,14 @@ data Entitlement = Entitlement'
 entitlement
     :: Entitlement
 entitlement =
-    Entitlement'
-    { _eDimension = Nothing
-    , _eValue = Nothing
-    , _eExpirationDate = Nothing
-    , _eCustomerIdentifier = Nothing
-    , _eProductCode = Nothing
-    }
+  Entitlement'
+  { _eDimension = Nothing
+  , _eValue = Nothing
+  , _eExpirationDate = Nothing
+  , _eCustomerIdentifier = Nothing
+  , _eProductCode = Nothing
+  }
+
 
 -- | The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
 eDimension :: Lens' Entitlement (Maybe Text)
@@ -88,9 +90,9 @@ instance FromJSON Entitlement where
                      <*> (x .:? "CustomerIdentifier")
                      <*> (x .:? "ProductCode"))
 
-instance Hashable Entitlement
+instance Hashable Entitlement where
 
-instance NFData Entitlement
+instance NFData Entitlement where
 
 -- | The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
 --
@@ -98,11 +100,12 @@ instance NFData Entitlement
 --
 -- /See:/ 'entitlementValue' smart constructor.
 data EntitlementValue = EntitlementValue'
-    { _evIntegerValue :: !(Maybe Int)
-    , _evDoubleValue  :: !(Maybe Double)
-    , _evStringValue  :: !(Maybe Text)
-    , _evBooleanValue :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evIntegerValue :: {-# NOUNPACK #-}!(Maybe Int)
+  , _evDoubleValue  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _evStringValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _evBooleanValue :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EntitlementValue' with the minimum fields required to make a request.
 --
@@ -118,12 +121,13 @@ data EntitlementValue = EntitlementValue'
 entitlementValue
     :: EntitlementValue
 entitlementValue =
-    EntitlementValue'
-    { _evIntegerValue = Nothing
-    , _evDoubleValue = Nothing
-    , _evStringValue = Nothing
-    , _evBooleanValue = Nothing
-    }
+  EntitlementValue'
+  { _evIntegerValue = Nothing
+  , _evDoubleValue = Nothing
+  , _evStringValue = Nothing
+  , _evBooleanValue = Nothing
+  }
+
 
 -- | The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set.
 evIntegerValue :: Lens' EntitlementValue (Maybe Int)
@@ -150,6 +154,6 @@ instance FromJSON EntitlementValue where
                      (x .:? "StringValue")
                      <*> (x .:? "BooleanValue"))
 
-instance Hashable EntitlementValue
+instance Hashable EntitlementValue where
 
-instance NFData EntitlementValue
+instance NFData EntitlementValue where

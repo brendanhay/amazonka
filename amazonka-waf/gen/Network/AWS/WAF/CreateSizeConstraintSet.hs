@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateSizeConstraintSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,18 +53,19 @@ module Network.AWS.WAF.CreateSizeConstraintSet
     , cscsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'createSizeConstraintSet' smart constructor.
 data CreateSizeConstraintSet = CreateSizeConstraintSet'
-    { _cscsName        :: !Text
-    , _cscsChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscsName        :: {-# NOUNPACK #-}!Text
+  , _cscsChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSizeConstraintSet' with the minimum fields required to make a request.
 --
@@ -78,10 +79,9 @@ createSizeConstraintSet
     -> Text -- ^ 'cscsChangeToken'
     -> CreateSizeConstraintSet
 createSizeConstraintSet pName_ pChangeToken_ =
-    CreateSizeConstraintSet'
-    { _cscsName = pName_
-    , _cscsChangeToken = pChangeToken_
-    }
+  CreateSizeConstraintSet'
+  {_cscsName = pName_, _cscsChangeToken = pChangeToken_}
+
 
 -- | A friendly name or description of the 'SizeConstraintSet' . You can't change @Name@ after you create a @SizeConstraintSet@ .
 cscsName :: Lens' CreateSizeConstraintSet Text
@@ -102,9 +102,9 @@ instance AWSRequest CreateSizeConstraintSet where
                    (x .?> "SizeConstraintSet") <*> (x .?> "ChangeToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateSizeConstraintSet
+instance Hashable CreateSizeConstraintSet where
 
-instance NFData CreateSizeConstraintSet
+instance NFData CreateSizeConstraintSet where
 
 instance ToHeaders CreateSizeConstraintSet where
         toHeaders
@@ -131,10 +131,11 @@ instance ToQuery CreateSizeConstraintSet where
 
 -- | /See:/ 'createSizeConstraintSetResponse' smart constructor.
 data CreateSizeConstraintSetResponse = CreateSizeConstraintSetResponse'
-    { _cscsrsSizeConstraintSet :: !(Maybe SizeConstraintSet)
-    , _cscsrsChangeToken       :: !(Maybe Text)
-    , _cscsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscsrsSizeConstraintSet :: {-# NOUNPACK #-}!(Maybe SizeConstraintSet)
+  , _cscsrsChangeToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cscsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSizeConstraintSetResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +150,12 @@ createSizeConstraintSetResponse
     :: Int -- ^ 'cscsrsResponseStatus'
     -> CreateSizeConstraintSetResponse
 createSizeConstraintSetResponse pResponseStatus_ =
-    CreateSizeConstraintSetResponse'
-    { _cscsrsSizeConstraintSet = Nothing
-    , _cscsrsChangeToken = Nothing
-    , _cscsrsResponseStatus = pResponseStatus_
-    }
+  CreateSizeConstraintSetResponse'
+  { _cscsrsSizeConstraintSet = Nothing
+  , _cscsrsChangeToken = Nothing
+  , _cscsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A 'SizeConstraintSet' that contains no @SizeConstraint@ objects.
 cscsrsSizeConstraintSet :: Lens' CreateSizeConstraintSetResponse (Maybe SizeConstraintSet)
@@ -167,4 +169,4 @@ cscsrsChangeToken = lens _cscsrsChangeToken (\ s a -> s{_cscsrsChangeToken = a})
 cscsrsResponseStatus :: Lens' CreateSizeConstraintSetResponse Int
 cscsrsResponseStatus = lens _cscsrsResponseStatus (\ s a -> s{_cscsrsResponseStatus = a});
 
-instance NFData CreateSizeConstraintSetResponse
+instance NFData CreateSizeConstraintSetResponse where

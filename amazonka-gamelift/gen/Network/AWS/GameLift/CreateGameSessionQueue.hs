@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateGameSessionQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,12 +58,12 @@ module Network.AWS.GameLift.CreateGameSessionQueue
     , cgsqrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -71,11 +71,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createGameSessionQueue' smart constructor.
 data CreateGameSessionQueue = CreateGameSessionQueue'
-    { _cgsqPlayerLatencyPolicies :: !(Maybe [PlayerLatencyPolicy])
-    , _cgsqTimeoutInSeconds      :: !(Maybe Nat)
-    , _cgsqDestinations          :: !(Maybe [GameSessionQueueDestination])
-    , _cgsqName                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgsqPlayerLatencyPolicies :: {-# NOUNPACK #-}!(Maybe [PlayerLatencyPolicy])
+  , _cgsqTimeoutInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cgsqDestinations :: {-# NOUNPACK #-}!(Maybe [GameSessionQueueDestination])
+  , _cgsqName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGameSessionQueue' with the minimum fields required to make a request.
 --
@@ -92,12 +93,13 @@ createGameSessionQueue
     :: Text -- ^ 'cgsqName'
     -> CreateGameSessionQueue
 createGameSessionQueue pName_ =
-    CreateGameSessionQueue'
-    { _cgsqPlayerLatencyPolicies = Nothing
-    , _cgsqTimeoutInSeconds = Nothing
-    , _cgsqDestinations = Nothing
-    , _cgsqName = pName_
-    }
+  CreateGameSessionQueue'
+  { _cgsqPlayerLatencyPolicies = Nothing
+  , _cgsqTimeoutInSeconds = Nothing
+  , _cgsqDestinations = Nothing
+  , _cgsqName = pName_
+  }
+
 
 -- | Collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, it is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement. A player latency policy must set a value for MaximumIndividualPlayerLatencyMilliseconds; if none is set, this API requests will fail.
 cgsqPlayerLatencyPolicies :: Lens' CreateGameSessionQueue [PlayerLatencyPolicy]
@@ -125,9 +127,9 @@ instance AWSRequest CreateGameSessionQueue where
                  CreateGameSessionQueueResponse' <$>
                    (x .?> "GameSessionQueue") <*> (pure (fromEnum s)))
 
-instance Hashable CreateGameSessionQueue
+instance Hashable CreateGameSessionQueue where
 
-instance NFData CreateGameSessionQueue
+instance NFData CreateGameSessionQueue where
 
 instance ToHeaders CreateGameSessionQueue where
         toHeaders
@@ -160,9 +162,10 @@ instance ToQuery CreateGameSessionQueue where
 --
 -- /See:/ 'createGameSessionQueueResponse' smart constructor.
 data CreateGameSessionQueueResponse = CreateGameSessionQueueResponse'
-    { _cgsqrsGameSessionQueue :: !(Maybe GameSessionQueue)
-    , _cgsqrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgsqrsGameSessionQueue :: {-# NOUNPACK #-}!(Maybe GameSessionQueue)
+  , _cgsqrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGameSessionQueueResponse' with the minimum fields required to make a request.
 --
@@ -175,10 +178,9 @@ createGameSessionQueueResponse
     :: Int -- ^ 'cgsqrsResponseStatus'
     -> CreateGameSessionQueueResponse
 createGameSessionQueueResponse pResponseStatus_ =
-    CreateGameSessionQueueResponse'
-    { _cgsqrsGameSessionQueue = Nothing
-    , _cgsqrsResponseStatus = pResponseStatus_
-    }
+  CreateGameSessionQueueResponse'
+  {_cgsqrsGameSessionQueue = Nothing, _cgsqrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that describes the newly created game session queue.
 cgsqrsGameSessionQueue :: Lens' CreateGameSessionQueueResponse (Maybe GameSessionQueue)
@@ -188,4 +190,4 @@ cgsqrsGameSessionQueue = lens _cgsqrsGameSessionQueue (\ s a -> s{_cgsqrsGameSes
 cgsqrsResponseStatus :: Lens' CreateGameSessionQueueResponse Int
 cgsqrsResponseStatus = lens _cgsqrsResponseStatus (\ s a -> s{_cgsqrsResponseStatus = a});
 
-instance NFData CreateGameSessionQueueResponse
+instance NFData CreateGameSessionQueueResponse where

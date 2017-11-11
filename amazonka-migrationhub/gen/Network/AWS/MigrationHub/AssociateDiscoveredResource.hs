@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.AssociateDiscoveredResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.MigrationHub.AssociateDiscoveredResource
     , adrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateDiscoveredResource' smart constructor.
 data AssociateDiscoveredResource = AssociateDiscoveredResource'
-    { _adrDryRun               :: !(Maybe Bool)
-    , _adrProgressUpdateStream :: !Text
-    , _adrMigrationTaskName    :: !Text
-    , _adrDiscoveredResource   :: !DiscoveredResource
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adrDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _adrProgressUpdateStream :: {-# NOUNPACK #-}!Text
+  , _adrMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  , _adrDiscoveredResource   :: {-# NOUNPACK #-}!DiscoveredResource
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateDiscoveredResource' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ associateDiscoveredResource
     -> DiscoveredResource -- ^ 'adrDiscoveredResource'
     -> AssociateDiscoveredResource
 associateDiscoveredResource pProgressUpdateStream_ pMigrationTaskName_ pDiscoveredResource_ =
-    AssociateDiscoveredResource'
-    { _adrDryRun = Nothing
-    , _adrProgressUpdateStream = pProgressUpdateStream_
-    , _adrMigrationTaskName = pMigrationTaskName_
-    , _adrDiscoveredResource = pDiscoveredResource_
-    }
+  AssociateDiscoveredResource'
+  { _adrDryRun = Nothing
+  , _adrProgressUpdateStream = pProgressUpdateStream_
+  , _adrMigrationTaskName = pMigrationTaskName_
+  , _adrDiscoveredResource = pDiscoveredResource_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 adrDryRun :: Lens' AssociateDiscoveredResource (Maybe Bool)
@@ -104,9 +106,9 @@ instance AWSRequest AssociateDiscoveredResource where
                  AssociateDiscoveredResourceResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AssociateDiscoveredResource
+instance Hashable AssociateDiscoveredResource where
 
-instance NFData AssociateDiscoveredResource
+instance NFData AssociateDiscoveredResource where
 
 instance ToHeaders AssociateDiscoveredResource where
         toHeaders
@@ -137,8 +139,9 @@ instance ToQuery AssociateDiscoveredResource where
 
 -- | /See:/ 'associateDiscoveredResourceResponse' smart constructor.
 newtype AssociateDiscoveredResourceResponse = AssociateDiscoveredResourceResponse'
-    { _adrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateDiscoveredResourceResponse' with the minimum fields required to make a request.
 --
@@ -149,12 +152,12 @@ associateDiscoveredResourceResponse
     :: Int -- ^ 'adrrsResponseStatus'
     -> AssociateDiscoveredResourceResponse
 associateDiscoveredResourceResponse pResponseStatus_ =
-    AssociateDiscoveredResourceResponse'
-    { _adrrsResponseStatus = pResponseStatus_
-    }
+  AssociateDiscoveredResourceResponse' {_adrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 adrrsResponseStatus :: Lens' AssociateDiscoveredResourceResponse Int
 adrrsResponseStatus = lens _adrrsResponseStatus (\ s a -> s{_adrrsResponseStatus = a});
 
 instance NFData AssociateDiscoveredResourceResponse
+         where

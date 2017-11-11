@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     , SwapEnvironmentCNAMEsResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Swaps the CNAMEs of two environments.
 --
@@ -50,11 +50,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'swapEnvironmentCNAMEs' smart constructor.
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
-    { _secnameDestinationEnvironmentName :: !(Maybe Text)
-    , _secnameDestinationEnvironmentId   :: !(Maybe Text)
-    , _secnameSourceEnvironmentName      :: !(Maybe Text)
-    , _secnameSourceEnvironmentId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _secnameDestinationEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _secnameDestinationEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _secnameSourceEnvironmentName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _secnameSourceEnvironmentId        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SwapEnvironmentCNAMEs' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
 swapEnvironmentCNAMEs
     :: SwapEnvironmentCNAMEs
 swapEnvironmentCNAMEs =
-    SwapEnvironmentCNAMEs'
-    { _secnameDestinationEnvironmentName = Nothing
-    , _secnameDestinationEnvironmentId = Nothing
-    , _secnameSourceEnvironmentName = Nothing
-    , _secnameSourceEnvironmentId = Nothing
-    }
+  SwapEnvironmentCNAMEs'
+  { _secnameDestinationEnvironmentName = Nothing
+  , _secnameDestinationEnvironmentId = Nothing
+  , _secnameSourceEnvironmentName = Nothing
+  , _secnameSourceEnvironmentId = Nothing
+  }
+
 
 -- | The name of the destination environment. Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentName@ with the @DestinationEnvironmentName@ .
 secnameDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest SwapEnvironmentCNAMEs where
         request = postQuery elasticBeanstalk
         response = receiveNull SwapEnvironmentCNAMEsResponse'
 
-instance Hashable SwapEnvironmentCNAMEs
+instance Hashable SwapEnvironmentCNAMEs where
 
-instance NFData SwapEnvironmentCNAMEs
+instance NFData SwapEnvironmentCNAMEs where
 
 instance ToHeaders SwapEnvironmentCNAMEs where
         toHeaders = const mempty
@@ -124,8 +126,9 @@ instance ToQuery SwapEnvironmentCNAMEs where
 
 -- | /See:/ 'swapEnvironmentCNAMEsResponse' smart constructor.
 data SwapEnvironmentCNAMEsResponse =
-    SwapEnvironmentCNAMEsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SwapEnvironmentCNAMEsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SwapEnvironmentCNAMEsResponse' with the minimum fields required to make a request.
 --
@@ -133,4 +136,5 @@ swapEnvironmentCNAMEsResponse
     :: SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse'
 
-instance NFData SwapEnvironmentCNAMEsResponse
+
+instance NFData SwapEnvironmentCNAMEsResponse where

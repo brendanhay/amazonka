@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
     , vuarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to verify user attributes.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'verifyUserAttribute' smart constructor.
 data VerifyUserAttribute = VerifyUserAttribute'
-    { _vuaAccessToken   :: !(Sensitive Text)
-    , _vuaAttributeName :: !Text
-    , _vuaCode          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _vuaAccessToken   :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _vuaAttributeName :: {-# NOUNPACK #-}!Text
+  , _vuaCode          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VerifyUserAttribute' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ verifyUserAttribute
     -> Text -- ^ 'vuaCode'
     -> VerifyUserAttribute
 verifyUserAttribute pAccessToken_ pAttributeName_ pCode_ =
-    VerifyUserAttribute'
-    { _vuaAccessToken = _Sensitive # pAccessToken_
-    , _vuaAttributeName = pAttributeName_
-    , _vuaCode = pCode_
-    }
+  VerifyUserAttribute'
+  { _vuaAccessToken = _Sensitive # pAccessToken_
+  , _vuaAttributeName = pAttributeName_
+  , _vuaCode = pCode_
+  }
+
 
 -- | Represents the access token of the request to verify user attributes.
 vuaAccessToken :: Lens' VerifyUserAttribute Text
@@ -98,9 +100,9 @@ instance AWSRequest VerifyUserAttribute where
               (\ s h x ->
                  VerifyUserAttributeResponse' <$> (pure (fromEnum s)))
 
-instance Hashable VerifyUserAttribute
+instance Hashable VerifyUserAttribute where
 
-instance NFData VerifyUserAttribute
+instance NFData VerifyUserAttribute where
 
 instance ToHeaders VerifyUserAttribute where
         toHeaders
@@ -132,8 +134,9 @@ instance ToQuery VerifyUserAttribute where
 --
 -- /See:/ 'verifyUserAttributeResponse' smart constructor.
 newtype VerifyUserAttributeResponse = VerifyUserAttributeResponse'
-    { _vuarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vuarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VerifyUserAttributeResponse' with the minimum fields required to make a request.
 --
@@ -144,12 +147,11 @@ verifyUserAttributeResponse
     :: Int -- ^ 'vuarsResponseStatus'
     -> VerifyUserAttributeResponse
 verifyUserAttributeResponse pResponseStatus_ =
-    VerifyUserAttributeResponse'
-    { _vuarsResponseStatus = pResponseStatus_
-    }
+  VerifyUserAttributeResponse' {_vuarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 vuarsResponseStatus :: Lens' VerifyUserAttributeResponse Int
 vuarsResponseStatus = lens _vuarsResponseStatus (\ s a -> s{_vuarsResponseStatus = a});
 
-instance NFData VerifyUserAttributeResponse
+instance NFData VerifyUserAttributeResponse where

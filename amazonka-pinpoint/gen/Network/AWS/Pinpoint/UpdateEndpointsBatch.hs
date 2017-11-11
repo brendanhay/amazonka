@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateEndpointsBatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.UpdateEndpointsBatch
     , uebrsMessageBody
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateEndpointsBatch' smart constructor.
 data UpdateEndpointsBatch = UpdateEndpointsBatch'
-    { _uebApplicationId        :: !Text
-    , _uebEndpointBatchRequest :: !EndpointBatchRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uebApplicationId        :: {-# NOUNPACK #-}!Text
+  , _uebEndpointBatchRequest :: {-# NOUNPACK #-}!EndpointBatchRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEndpointsBatch' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ updateEndpointsBatch
     -> EndpointBatchRequest -- ^ 'uebEndpointBatchRequest'
     -> UpdateEndpointsBatch
 updateEndpointsBatch pApplicationId_ pEndpointBatchRequest_ =
-    UpdateEndpointsBatch'
-    { _uebApplicationId = pApplicationId_
-    , _uebEndpointBatchRequest = pEndpointBatchRequest_
-    }
+  UpdateEndpointsBatch'
+  { _uebApplicationId = pApplicationId_
+  , _uebEndpointBatchRequest = pEndpointBatchRequest_
+  }
+
 
 -- | Undocumented member.
 uebApplicationId :: Lens' UpdateEndpointsBatch Text
@@ -84,9 +86,9 @@ instance AWSRequest UpdateEndpointsBatch where
                  UpdateEndpointsBatchResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateEndpointsBatch
+instance Hashable UpdateEndpointsBatch where
 
-instance NFData UpdateEndpointsBatch
+instance NFData UpdateEndpointsBatch where
 
 instance ToHeaders UpdateEndpointsBatch where
         toHeaders
@@ -113,9 +115,10 @@ instance ToQuery UpdateEndpointsBatch where
 
 -- | /See:/ 'updateEndpointsBatchResponse' smart constructor.
 data UpdateEndpointsBatchResponse = UpdateEndpointsBatchResponse'
-    { _uebrsResponseStatus :: !Int
-    , _uebrsMessageBody    :: !MessageBody
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uebrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _uebrsMessageBody    :: {-# NOUNPACK #-}!MessageBody
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEndpointsBatchResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +132,9 @@ updateEndpointsBatchResponse
     -> MessageBody -- ^ 'uebrsMessageBody'
     -> UpdateEndpointsBatchResponse
 updateEndpointsBatchResponse pResponseStatus_ pMessageBody_ =
-    UpdateEndpointsBatchResponse'
-    { _uebrsResponseStatus = pResponseStatus_
-    , _uebrsMessageBody = pMessageBody_
-    }
+  UpdateEndpointsBatchResponse'
+  {_uebrsResponseStatus = pResponseStatus_, _uebrsMessageBody = pMessageBody_}
+
 
 -- | -- | The response status code.
 uebrsResponseStatus :: Lens' UpdateEndpointsBatchResponse Int
@@ -142,4 +144,4 @@ uebrsResponseStatus = lens _uebrsResponseStatus (\ s a -> s{_uebrsResponseStatus
 uebrsMessageBody :: Lens' UpdateEndpointsBatchResponse MessageBody
 uebrsMessageBody = lens _uebrsMessageBody (\ s a -> s{_uebrsMessageBody = a});
 
-instance NFData UpdateEndpointsBatchResponse
+instance NFData UpdateEndpointsBatchResponse where

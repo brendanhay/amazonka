@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -81,11 +81,11 @@ module Network.AWS.CostAndUsageReport
     , rdS3Region
     ) where
 
-import           Network.AWS.CostAndUsageReport.DeleteReportDefinition
-import           Network.AWS.CostAndUsageReport.DescribeReportDefinitions
-import           Network.AWS.CostAndUsageReport.PutReportDefinition
-import           Network.AWS.CostAndUsageReport.Types
-import           Network.AWS.CostAndUsageReport.Waiters
+import Network.AWS.CostAndUsageReport.DeleteReportDefinition
+import Network.AWS.CostAndUsageReport.DescribeReportDefinitions
+import Network.AWS.CostAndUsageReport.PutReportDefinition
+import Network.AWS.CostAndUsageReport.Types
+import Network.AWS.CostAndUsageReport.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

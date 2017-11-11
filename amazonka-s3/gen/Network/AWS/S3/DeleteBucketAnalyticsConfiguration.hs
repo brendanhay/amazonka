@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketAnalyticsConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,18 +33,19 @@ module Network.AWS.S3.DeleteBucketAnalyticsConfiguration
     , DeleteBucketAnalyticsConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketAnalyticsConfiguration' smart constructor.
 data DeleteBucketAnalyticsConfiguration = DeleteBucketAnalyticsConfiguration'
-    { _dbacBucket :: !BucketName
-    , _dbacId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbacBucket :: {-# NOUNPACK #-}!BucketName
+  , _dbacId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketAnalyticsConfiguration' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ deleteBucketAnalyticsConfiguration
     -> Text -- ^ 'dbacId'
     -> DeleteBucketAnalyticsConfiguration
 deleteBucketAnalyticsConfiguration pBucket_ pId_ =
-    DeleteBucketAnalyticsConfiguration'
-    { _dbacBucket = pBucket_
-    , _dbacId = pId_
-    }
+  DeleteBucketAnalyticsConfiguration' {_dbacBucket = pBucket_, _dbacId = pId_}
+
 
 -- | The name of the bucket from which an analytics configuration is deleted.
 dbacBucket :: Lens' DeleteBucketAnalyticsConfiguration BucketName
@@ -72,7 +71,8 @@ dbacId :: Lens' DeleteBucketAnalyticsConfiguration Text
 dbacId = lens _dbacId (\ s a -> s{_dbacId = a});
 
 instance AWSRequest
-         DeleteBucketAnalyticsConfiguration where
+           DeleteBucketAnalyticsConfiguration
+         where
         type Rs DeleteBucketAnalyticsConfiguration =
              DeleteBucketAnalyticsConfigurationResponse
         request = delete s3
@@ -81,8 +81,10 @@ instance AWSRequest
               DeleteBucketAnalyticsConfigurationResponse'
 
 instance Hashable DeleteBucketAnalyticsConfiguration
+         where
 
 instance NFData DeleteBucketAnalyticsConfiguration
+         where
 
 instance ToHeaders DeleteBucketAnalyticsConfiguration
          where
@@ -100,15 +102,18 @@ instance ToQuery DeleteBucketAnalyticsConfiguration
 
 -- | /See:/ 'deleteBucketAnalyticsConfigurationResponse' smart constructor.
 data DeleteBucketAnalyticsConfigurationResponse =
-    DeleteBucketAnalyticsConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketAnalyticsConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketAnalyticsConfigurationResponse' with the minimum fields required to make a request.
 --
 deleteBucketAnalyticsConfigurationResponse
     :: DeleteBucketAnalyticsConfigurationResponse
 deleteBucketAnalyticsConfigurationResponse =
-    DeleteBucketAnalyticsConfigurationResponse'
+  DeleteBucketAnalyticsConfigurationResponse'
+
 
 instance NFData
-         DeleteBucketAnalyticsConfigurationResponse
+           DeleteBucketAnalyticsConfigurationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,13 +49,13 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     , drdirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -63,17 +63,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReservedDBInstances' smart constructor.
 data DescribeReservedDBInstances = DescribeReservedDBInstances'
-    { _drdiProductDescription            :: !(Maybe Text)
-    , _drdiFilters                       :: !(Maybe [Filter])
-    , _drdiReservedDBInstanceId          :: !(Maybe Text)
-    , _drdiDBInstanceClass               :: !(Maybe Text)
-    , _drdiMarker                        :: !(Maybe Text)
-    , _drdiMaxRecords                    :: !(Maybe Int)
-    , _drdiMultiAZ                       :: !(Maybe Bool)
-    , _drdiReservedDBInstancesOfferingId :: !(Maybe Text)
-    , _drdiOfferingType                  :: !(Maybe Text)
-    , _drdiDuration                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdiProductDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdiFilters                       :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _drdiReservedDBInstanceId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdiDBInstanceClass               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdiMarker                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdiMaxRecords                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _drdiMultiAZ                       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _drdiReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdiOfferingType                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdiDuration                      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedDBInstances' with the minimum fields required to make a request.
 --
@@ -101,18 +102,19 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances'
 describeReservedDBInstances
     :: DescribeReservedDBInstances
 describeReservedDBInstances =
-    DescribeReservedDBInstances'
-    { _drdiProductDescription = Nothing
-    , _drdiFilters = Nothing
-    , _drdiReservedDBInstanceId = Nothing
-    , _drdiDBInstanceClass = Nothing
-    , _drdiMarker = Nothing
-    , _drdiMaxRecords = Nothing
-    , _drdiMultiAZ = Nothing
-    , _drdiReservedDBInstancesOfferingId = Nothing
-    , _drdiOfferingType = Nothing
-    , _drdiDuration = Nothing
-    }
+  DescribeReservedDBInstances'
+  { _drdiProductDescription = Nothing
+  , _drdiFilters = Nothing
+  , _drdiReservedDBInstanceId = Nothing
+  , _drdiDBInstanceClass = Nothing
+  , _drdiMarker = Nothing
+  , _drdiMaxRecords = Nothing
+  , _drdiMultiAZ = Nothing
+  , _drdiReservedDBInstancesOfferingId = Nothing
+  , _drdiOfferingType = Nothing
+  , _drdiDuration = Nothing
+  }
+
 
 -- | The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
 drdiProductDescription :: Lens' DescribeReservedDBInstances (Maybe Text)
@@ -175,9 +177,9 @@ instance AWSRequest DescribeReservedDBInstances where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeReservedDBInstances
+instance Hashable DescribeReservedDBInstances where
 
-instance NFData DescribeReservedDBInstances
+instance NFData DescribeReservedDBInstances where
 
 instance ToHeaders DescribeReservedDBInstances where
         toHeaders = const mempty
@@ -210,10 +212,11 @@ instance ToQuery DescribeReservedDBInstances where
 --
 -- /See:/ 'describeReservedDBInstancesResponse' smart constructor.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
-    { _drdirsReservedDBInstances :: !(Maybe [ReservedDBInstance])
-    , _drdirsMarker              :: !(Maybe Text)
-    , _drdirsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdirsReservedDBInstances :: {-# NOUNPACK #-}!(Maybe [ReservedDBInstance])
+  , _drdirsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedDBInstancesResponse' with the minimum fields required to make a request.
 --
@@ -228,11 +231,12 @@ describeReservedDBInstancesResponse
     :: Int -- ^ 'drdirsResponseStatus'
     -> DescribeReservedDBInstancesResponse
 describeReservedDBInstancesResponse pResponseStatus_ =
-    DescribeReservedDBInstancesResponse'
-    { _drdirsReservedDBInstances = Nothing
-    , _drdirsMarker = Nothing
-    , _drdirsResponseStatus = pResponseStatus_
-    }
+  DescribeReservedDBInstancesResponse'
+  { _drdirsReservedDBInstances = Nothing
+  , _drdirsMarker = Nothing
+  , _drdirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of reserved DB instances.
 drdirsReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
@@ -247,3 +251,4 @@ drdirsResponseStatus :: Lens' DescribeReservedDBInstancesResponse Int
 drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});
 
 instance NFData DescribeReservedDBInstancesResponse
+         where

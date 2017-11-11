@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
     , aemarsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to execute a scheduled managed action immediately.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'applyEnvironmentManagedAction' smart constructor.
 data ApplyEnvironmentManagedAction = ApplyEnvironmentManagedAction'
-    { _aemaEnvironmentName :: !(Maybe Text)
-    , _aemaEnvironmentId   :: !(Maybe Text)
-    , _aemaActionId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aemaEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemaEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemaActionId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplyEnvironmentManagedAction' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ applyEnvironmentManagedAction
     :: Text -- ^ 'aemaActionId'
     -> ApplyEnvironmentManagedAction
 applyEnvironmentManagedAction pActionId_ =
-    ApplyEnvironmentManagedAction'
-    { _aemaEnvironmentName = Nothing
-    , _aemaEnvironmentId = Nothing
-    , _aemaActionId = pActionId_
-    }
+  ApplyEnvironmentManagedAction'
+  { _aemaEnvironmentName = Nothing
+  , _aemaEnvironmentId = Nothing
+  , _aemaActionId = pActionId_
+  }
+
 
 -- | The name of the target environment.
 aemaEnvironmentName :: Lens' ApplyEnvironmentManagedAction (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest ApplyEnvironmentManagedAction
                      <*> (x .@? "ActionType")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ApplyEnvironmentManagedAction
+instance Hashable ApplyEnvironmentManagedAction where
 
-instance NFData ApplyEnvironmentManagedAction
+instance NFData ApplyEnvironmentManagedAction where
 
 instance ToHeaders ApplyEnvironmentManagedAction
          where
@@ -133,12 +135,13 @@ instance ToQuery ApplyEnvironmentManagedAction where
 --
 -- /See:/ 'applyEnvironmentManagedActionResponse' smart constructor.
 data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionResponse'
-    { _aemarsStatus            :: !(Maybe Text)
-    , _aemarsActionId          :: !(Maybe Text)
-    , _aemarsActionDescription :: !(Maybe Text)
-    , _aemarsActionType        :: !(Maybe ActionType)
-    , _aemarsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aemarsStatus            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemarsActionId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemarsActionDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aemarsActionType        :: {-# NOUNPACK #-}!(Maybe ActionType)
+  , _aemarsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplyEnvironmentManagedActionResponse' with the minimum fields required to make a request.
 --
@@ -157,13 +160,14 @@ applyEnvironmentManagedActionResponse
     :: Int -- ^ 'aemarsResponseStatus'
     -> ApplyEnvironmentManagedActionResponse
 applyEnvironmentManagedActionResponse pResponseStatus_ =
-    ApplyEnvironmentManagedActionResponse'
-    { _aemarsStatus = Nothing
-    , _aemarsActionId = Nothing
-    , _aemarsActionDescription = Nothing
-    , _aemarsActionType = Nothing
-    , _aemarsResponseStatus = pResponseStatus_
-    }
+  ApplyEnvironmentManagedActionResponse'
+  { _aemarsStatus = Nothing
+  , _aemarsActionId = Nothing
+  , _aemarsActionDescription = Nothing
+  , _aemarsActionType = Nothing
+  , _aemarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the managed action.
 aemarsStatus :: Lens' ApplyEnvironmentManagedActionResponse (Maybe Text)
@@ -186,3 +190,4 @@ aemarsResponseStatus :: Lens' ApplyEnvironmentManagedActionResponse Int
 aemarsResponseStatus = lens _aemarsResponseStatus (\ s a -> s{_aemarsResponseStatus = a});
 
 instance NFData ApplyEnvironmentManagedActionResponse
+         where

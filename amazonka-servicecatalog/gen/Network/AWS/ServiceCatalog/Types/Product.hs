@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ServiceCatalog.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.ServiceCatalog.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.ServiceCatalog.Types.Sum
 
 -- | The access level to limit results.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.ServiceCatalog.Types.Sum
 --
 -- /See:/ 'accessLevelFilter' smart constructor.
 data AccessLevelFilter = AccessLevelFilter'
-    { _alfValue :: !(Maybe Text)
-    , _alfKey   :: !(Maybe AccessLevelFilterKey)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _alfValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _alfKey   :: {-# NOUNPACK #-}!(Maybe AccessLevelFilterKey)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccessLevelFilter' with the minimum fields required to make a request.
 --
@@ -40,11 +41,8 @@ data AccessLevelFilter = AccessLevelFilter'
 -- * 'alfKey' - Specifies the access level. @Account@ allows results at the account level.  @Role@ allows results based on the federated role of the specified user. @User@ allows results limited to the specified user.
 accessLevelFilter
     :: AccessLevelFilter
-accessLevelFilter =
-    AccessLevelFilter'
-    { _alfValue = Nothing
-    , _alfKey = Nothing
-    }
+accessLevelFilter = AccessLevelFilter' {_alfValue = Nothing, _alfKey = Nothing}
+
 
 -- | Specifies the user to which the access level applies. A value of @Self@ is currently supported.
 alfValue :: Lens' AccessLevelFilter (Maybe Text)
@@ -54,9 +52,9 @@ alfValue = lens _alfValue (\ s a -> s{_alfValue = a});
 alfKey :: Lens' AccessLevelFilter (Maybe AccessLevelFilterKey)
 alfKey = lens _alfKey (\ s a -> s{_alfKey = a});
 
-instance Hashable AccessLevelFilter
+instance Hashable AccessLevelFilter where
 
-instance NFData AccessLevelFilter
+instance NFData AccessLevelFilter where
 
 instance ToJSON AccessLevelFilter where
         toJSON AccessLevelFilter'{..}
@@ -70,11 +68,12 @@ instance ToJSON AccessLevelFilter where
 --
 -- /See:/ 'constraintDetail' smart constructor.
 data ConstraintDetail = ConstraintDetail'
-    { _cdConstraintId :: !(Maybe Text)
-    , _cdOwner        :: !(Maybe Text)
-    , _cdType         :: !(Maybe Text)
-    , _cdDescription  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdConstraintId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdOwner        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdType         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConstraintDetail' with the minimum fields required to make a request.
 --
@@ -90,12 +89,13 @@ data ConstraintDetail = ConstraintDetail'
 constraintDetail
     :: ConstraintDetail
 constraintDetail =
-    ConstraintDetail'
-    { _cdConstraintId = Nothing
-    , _cdOwner = Nothing
-    , _cdType = Nothing
-    , _cdDescription = Nothing
-    }
+  ConstraintDetail'
+  { _cdConstraintId = Nothing
+  , _cdOwner = Nothing
+  , _cdType = Nothing
+  , _cdDescription = Nothing
+  }
+
 
 -- | The identifier of the constraint.
 cdConstraintId :: Lens' ConstraintDetail (Maybe Text)
@@ -122,9 +122,9 @@ instance FromJSON ConstraintDetail where
                      (x .:? "Type")
                      <*> (x .:? "Description"))
 
-instance Hashable ConstraintDetail
+instance Hashable ConstraintDetail where
 
-instance NFData ConstraintDetail
+instance NFData ConstraintDetail where
 
 -- | An administrator-specified constraint to apply when provisioning a product.
 --
@@ -132,9 +132,10 @@ instance NFData ConstraintDetail
 --
 -- /See:/ 'constraintSummary' smart constructor.
 data ConstraintSummary = ConstraintSummary'
-    { _csType        :: !(Maybe Text)
-    , _csDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csType        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConstraintSummary' with the minimum fields required to make a request.
 --
@@ -146,10 +147,8 @@ data ConstraintSummary = ConstraintSummary'
 constraintSummary
     :: ConstraintSummary
 constraintSummary =
-    ConstraintSummary'
-    { _csType = Nothing
-    , _csDescription = Nothing
-    }
+  ConstraintSummary' {_csType = Nothing, _csDescription = Nothing}
+
 
 -- | The type of the constraint.
 csType :: Lens' ConstraintSummary (Maybe Text)
@@ -166,9 +165,9 @@ instance FromJSON ConstraintSummary where
                  ConstraintSummary' <$>
                    (x .:? "Type") <*> (x .:? "Description"))
 
-instance Hashable ConstraintSummary
+instance Hashable ConstraintSummary where
 
-instance NFData ConstraintSummary
+instance NFData ConstraintSummary where
 
 -- | Summary information about a path for a user to have access to a specified product.
 --
@@ -176,11 +175,12 @@ instance NFData ConstraintSummary
 --
 -- /See:/ 'launchPathSummary' smart constructor.
 data LaunchPathSummary = LaunchPathSummary'
-    { _lpsConstraintSummaries :: !(Maybe [ConstraintSummary])
-    , _lpsName                :: !(Maybe Text)
-    , _lpsId                  :: !(Maybe Text)
-    , _lpsTags                :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpsConstraintSummaries :: {-# NOUNPACK #-}!(Maybe [ConstraintSummary])
+  , _lpsName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpsId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpsTags                :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LaunchPathSummary' with the minimum fields required to make a request.
 --
@@ -196,12 +196,13 @@ data LaunchPathSummary = LaunchPathSummary'
 launchPathSummary
     :: LaunchPathSummary
 launchPathSummary =
-    LaunchPathSummary'
-    { _lpsConstraintSummaries = Nothing
-    , _lpsName = Nothing
-    , _lpsId = Nothing
-    , _lpsTags = Nothing
-    }
+  LaunchPathSummary'
+  { _lpsConstraintSummaries = Nothing
+  , _lpsName = Nothing
+  , _lpsId = Nothing
+  , _lpsTags = Nothing
+  }
+
 
 -- | List of constraints on the portfolio-product relationship.
 lpsConstraintSummaries :: Lens' LaunchPathSummary [ConstraintSummary]
@@ -229,9 +230,9 @@ instance FromJSON LaunchPathSummary where
                      <*> (x .:? "Id")
                      <*> (x .:? "Tags" .!= mempty))
 
-instance Hashable LaunchPathSummary
+instance Hashable LaunchPathSummary where
 
-instance NFData LaunchPathSummary
+instance NFData LaunchPathSummary where
 
 -- | The search filter to limit results when listing request history records.
 --
@@ -239,9 +240,10 @@ instance NFData LaunchPathSummary
 --
 -- /See:/ 'listRecordHistorySearchFilter' smart constructor.
 data ListRecordHistorySearchFilter = ListRecordHistorySearchFilter'
-    { _lrhsfValue :: !(Maybe Text)
-    , _lrhsfKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrhsfValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrhsfKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRecordHistorySearchFilter' with the minimum fields required to make a request.
 --
@@ -253,10 +255,8 @@ data ListRecordHistorySearchFilter = ListRecordHistorySearchFilter'
 listRecordHistorySearchFilter
     :: ListRecordHistorySearchFilter
 listRecordHistorySearchFilter =
-    ListRecordHistorySearchFilter'
-    { _lrhsfValue = Nothing
-    , _lrhsfKey = Nothing
-    }
+  ListRecordHistorySearchFilter' {_lrhsfValue = Nothing, _lrhsfKey = Nothing}
+
 
 -- | The filter value for @Key@ .
 lrhsfValue :: Lens' ListRecordHistorySearchFilter (Maybe Text)
@@ -266,9 +266,9 @@ lrhsfValue = lens _lrhsfValue (\ s a -> s{_lrhsfValue = a});
 lrhsfKey :: Lens' ListRecordHistorySearchFilter (Maybe Text)
 lrhsfKey = lens _lrhsfKey (\ s a -> s{_lrhsfKey = a});
 
-instance Hashable ListRecordHistorySearchFilter
+instance Hashable ListRecordHistorySearchFilter where
 
-instance NFData ListRecordHistorySearchFilter
+instance NFData ListRecordHistorySearchFilter where
 
 instance ToJSON ListRecordHistorySearchFilter where
         toJSON ListRecordHistorySearchFilter'{..}
@@ -283,10 +283,11 @@ instance ToJSON ListRecordHistorySearchFilter where
 --
 -- /See:/ 'listTagOptionsFilters' smart constructor.
 data ListTagOptionsFilters = ListTagOptionsFilters'
-    { _ltofValue  :: !(Maybe Text)
-    , _ltofActive :: !(Maybe Bool)
-    , _ltofKey    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltofValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltofActive :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ltofKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagOptionsFilters' with the minimum fields required to make a request.
 --
@@ -300,11 +301,9 @@ data ListTagOptionsFilters = ListTagOptionsFilters'
 listTagOptionsFilters
     :: ListTagOptionsFilters
 listTagOptionsFilters =
-    ListTagOptionsFilters'
-    { _ltofValue = Nothing
-    , _ltofActive = Nothing
-    , _ltofKey = Nothing
-    }
+  ListTagOptionsFilters'
+  {_ltofValue = Nothing, _ltofActive = Nothing, _ltofKey = Nothing}
+
 
 -- | The ListTagOptionsFilters value.
 ltofValue :: Lens' ListTagOptionsFilters (Maybe Text)
@@ -318,9 +317,9 @@ ltofActive = lens _ltofActive (\ s a -> s{_ltofActive = a});
 ltofKey :: Lens' ListTagOptionsFilters (Maybe Text)
 ltofKey = lens _ltofKey (\ s a -> s{_ltofKey = a});
 
-instance Hashable ListTagOptionsFilters
+instance Hashable ListTagOptionsFilters where
 
-instance NFData ListTagOptionsFilters
+instance NFData ListTagOptionsFilters where
 
 instance ToJSON ListTagOptionsFilters where
         toJSON ListTagOptionsFilters'{..}
@@ -336,8 +335,9 @@ instance ToJSON ListTagOptionsFilters where
 --
 -- /See:/ 'parameterConstraints' smart constructor.
 newtype ParameterConstraints = ParameterConstraints'
-    { _pcAllowedValues :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcAllowedValues :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ParameterConstraints' with the minimum fields required to make a request.
 --
@@ -346,10 +346,8 @@ newtype ParameterConstraints = ParameterConstraints'
 -- * 'pcAllowedValues' - The values that the administrator has allowed for the parameter.
 parameterConstraints
     :: ParameterConstraints
-parameterConstraints =
-    ParameterConstraints'
-    { _pcAllowedValues = Nothing
-    }
+parameterConstraints = ParameterConstraints' {_pcAllowedValues = Nothing}
+
 
 -- | The values that the administrator has allowed for the parameter.
 pcAllowedValues :: Lens' ParameterConstraints [Text]
@@ -362,9 +360,9 @@ instance FromJSON ParameterConstraints where
                  ParameterConstraints' <$>
                    (x .:? "AllowedValues" .!= mempty))
 
-instance Hashable ParameterConstraints
+instance Hashable ParameterConstraints where
 
-instance NFData ParameterConstraints
+instance NFData ParameterConstraints where
 
 -- | Detailed portfolio information.
 --
@@ -372,13 +370,14 @@ instance NFData ParameterConstraints
 --
 -- /See:/ 'portfolioDetail' smart constructor.
 data PortfolioDetail = PortfolioDetail'
-    { _pdARN          :: !(Maybe Text)
-    , _pdCreatedTime  :: !(Maybe POSIX)
-    , _pdId           :: !(Maybe Text)
-    , _pdDisplayName  :: !(Maybe Text)
-    , _pdDescription  :: !(Maybe Text)
-    , _pdProviderName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdCreatedTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pdId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdProviderName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PortfolioDetail' with the minimum fields required to make a request.
 --
@@ -398,14 +397,15 @@ data PortfolioDetail = PortfolioDetail'
 portfolioDetail
     :: PortfolioDetail
 portfolioDetail =
-    PortfolioDetail'
-    { _pdARN = Nothing
-    , _pdCreatedTime = Nothing
-    , _pdId = Nothing
-    , _pdDisplayName = Nothing
-    , _pdDescription = Nothing
-    , _pdProviderName = Nothing
-    }
+  PortfolioDetail'
+  { _pdARN = Nothing
+  , _pdCreatedTime = Nothing
+  , _pdId = Nothing
+  , _pdDisplayName = Nothing
+  , _pdDescription = Nothing
+  , _pdProviderName = Nothing
+  }
+
 
 -- | The ARN assigned to the portfolio.
 pdARN :: Lens' PortfolioDetail (Maybe Text)
@@ -442,9 +442,9 @@ instance FromJSON PortfolioDetail where
                      <*> (x .:? "Description")
                      <*> (x .:? "ProviderName"))
 
-instance Hashable PortfolioDetail
+instance Hashable PortfolioDetail where
 
-instance NFData PortfolioDetail
+instance NFData PortfolioDetail where
 
 -- | A principal's ARN and type.
 --
@@ -452,9 +452,10 @@ instance NFData PortfolioDetail
 --
 -- /See:/ 'principal' smart constructor.
 data Principal = Principal'
-    { _pPrincipalType :: !(Maybe PrincipalType)
-    , _pPrincipalARN  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pPrincipalType :: {-# NOUNPACK #-}!(Maybe PrincipalType)
+  , _pPrincipalARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Principal' with the minimum fields required to make a request.
 --
@@ -465,11 +466,8 @@ data Principal = Principal'
 -- * 'pPrincipalARN' - The ARN representing the principal (IAM user, role, or group).
 principal
     :: Principal
-principal =
-    Principal'
-    { _pPrincipalType = Nothing
-    , _pPrincipalARN = Nothing
-    }
+principal = Principal' {_pPrincipalType = Nothing, _pPrincipalARN = Nothing}
+
 
 -- | The principal type. Must be @IAM@
 pPrincipalType :: Lens' Principal (Maybe PrincipalType)
@@ -486,9 +484,9 @@ instance FromJSON Principal where
                  Principal' <$>
                    (x .:? "PrincipalType") <*> (x .:? "PrincipalARN"))
 
-instance Hashable Principal
+instance Hashable Principal where
 
-instance NFData Principal
+instance NFData Principal where
 
 -- | A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.
 --
@@ -496,9 +494,10 @@ instance NFData Principal
 --
 -- /See:/ 'productViewAggregationValue' smart constructor.
 data ProductViewAggregationValue = ProductViewAggregationValue'
-    { _pvavValue            :: !(Maybe Text)
-    , _pvavApproximateCount :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pvavValue            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvavApproximateCount :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProductViewAggregationValue' with the minimum fields required to make a request.
 --
@@ -510,10 +509,9 @@ data ProductViewAggregationValue = ProductViewAggregationValue'
 productViewAggregationValue
     :: ProductViewAggregationValue
 productViewAggregationValue =
-    ProductViewAggregationValue'
-    { _pvavValue = Nothing
-    , _pvavApproximateCount = Nothing
-    }
+  ProductViewAggregationValue'
+  {_pvavValue = Nothing, _pvavApproximateCount = Nothing}
+
 
 -- | The value of the product view aggregation.
 pvavValue :: Lens' ProductViewAggregationValue (Maybe Text)
@@ -530,9 +528,9 @@ instance FromJSON ProductViewAggregationValue where
                  ProductViewAggregationValue' <$>
                    (x .:? "Value") <*> (x .:? "ApproximateCount"))
 
-instance Hashable ProductViewAggregationValue
+instance Hashable ProductViewAggregationValue where
 
-instance NFData ProductViewAggregationValue
+instance NFData ProductViewAggregationValue where
 
 -- | Detailed product view information.
 --
@@ -540,11 +538,12 @@ instance NFData ProductViewAggregationValue
 --
 -- /See:/ 'productViewDetail' smart constructor.
 data ProductViewDetail = ProductViewDetail'
-    { _pvdStatus             :: !(Maybe RequestStatus)
-    , _pvdProductViewSummary :: !(Maybe ProductViewSummary)
-    , _pvdCreatedTime        :: !(Maybe POSIX)
-    , _pvdProductARN         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pvdStatus             :: {-# NOUNPACK #-}!(Maybe RequestStatus)
+  , _pvdProductViewSummary :: {-# NOUNPACK #-}!(Maybe ProductViewSummary)
+  , _pvdCreatedTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pvdProductARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProductViewDetail' with the minimum fields required to make a request.
 --
@@ -560,12 +559,13 @@ data ProductViewDetail = ProductViewDetail'
 productViewDetail
     :: ProductViewDetail
 productViewDetail =
-    ProductViewDetail'
-    { _pvdStatus = Nothing
-    , _pvdProductViewSummary = Nothing
-    , _pvdCreatedTime = Nothing
-    , _pvdProductARN = Nothing
-    }
+  ProductViewDetail'
+  { _pvdStatus = Nothing
+  , _pvdProductViewSummary = Nothing
+  , _pvdCreatedTime = Nothing
+  , _pvdProductARN = Nothing
+  }
+
 
 -- | Current status of the product. @AVAILABLE@ - Product is available for use. @CREATING@ - Creation of product started, not ready for use. @FAILED@ - Action on product failed.
 pvdStatus :: Lens' ProductViewDetail (Maybe RequestStatus)
@@ -592,9 +592,9 @@ instance FromJSON ProductViewDetail where
                      (x .:? "CreatedTime")
                      <*> (x .:? "ProductARN"))
 
-instance Hashable ProductViewDetail
+instance Hashable ProductViewDetail where
 
-instance NFData ProductViewDetail
+instance NFData ProductViewDetail where
 
 -- | The summary metadata about the specified product.
 --
@@ -602,18 +602,19 @@ instance NFData ProductViewDetail
 --
 -- /See:/ 'productViewSummary' smart constructor.
 data ProductViewSummary = ProductViewSummary'
-    { _pvsOwner              :: !(Maybe Text)
-    , _pvsSupportURL         :: !(Maybe Text)
-    , _pvsShortDescription   :: !(Maybe Text)
-    , _pvsHasDefaultPath     :: !(Maybe Bool)
-    , _pvsDistributor        :: !(Maybe Text)
-    , _pvsName               :: !(Maybe Text)
-    , _pvsId                 :: !(Maybe Text)
-    , _pvsType               :: !(Maybe ProductType)
-    , _pvsSupportEmail       :: !(Maybe Text)
-    , _pvsProductId          :: !(Maybe Text)
-    , _pvsSupportDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pvsOwner              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvsSupportURL         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvsShortDescription   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvsHasDefaultPath     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pvsDistributor        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvsName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvsId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvsType               :: {-# NOUNPACK #-}!(Maybe ProductType)
+  , _pvsSupportEmail       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvsProductId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pvsSupportDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProductViewSummary' with the minimum fields required to make a request.
 --
@@ -643,19 +644,20 @@ data ProductViewSummary = ProductViewSummary'
 productViewSummary
     :: ProductViewSummary
 productViewSummary =
-    ProductViewSummary'
-    { _pvsOwner = Nothing
-    , _pvsSupportURL = Nothing
-    , _pvsShortDescription = Nothing
-    , _pvsHasDefaultPath = Nothing
-    , _pvsDistributor = Nothing
-    , _pvsName = Nothing
-    , _pvsId = Nothing
-    , _pvsType = Nothing
-    , _pvsSupportEmail = Nothing
-    , _pvsProductId = Nothing
-    , _pvsSupportDescription = Nothing
-    }
+  ProductViewSummary'
+  { _pvsOwner = Nothing
+  , _pvsSupportURL = Nothing
+  , _pvsShortDescription = Nothing
+  , _pvsHasDefaultPath = Nothing
+  , _pvsDistributor = Nothing
+  , _pvsName = Nothing
+  , _pvsId = Nothing
+  , _pvsType = Nothing
+  , _pvsSupportEmail = Nothing
+  , _pvsProductId = Nothing
+  , _pvsSupportDescription = Nothing
+  }
+
 
 -- | The owner of the product. Contact the product administrator for the significance of this value.
 pvsOwner :: Lens' ProductViewSummary (Maybe Text)
@@ -717,9 +719,9 @@ instance FromJSON ProductViewSummary where
                      <*> (x .:? "ProductId")
                      <*> (x .:? "SupportDescription"))
 
-instance Hashable ProductViewSummary
+instance Hashable ProductViewSummary where
 
-instance NFData ProductViewSummary
+instance NFData ProductViewSummary where
 
 -- | Detailed information about a ProvisionedProduct object.
 --
@@ -727,16 +729,17 @@ instance NFData ProductViewSummary
 --
 -- /See:/ 'provisionedProductDetail' smart constructor.
 data ProvisionedProductDetail = ProvisionedProductDetail'
-    { _ppdIdempotencyToken :: !(Maybe Text)
-    , _ppdStatus           :: !(Maybe ProvisionedProductStatus)
-    , _ppdARN              :: !(Maybe Text)
-    , _ppdCreatedTime      :: !(Maybe POSIX)
-    , _ppdStatusMessage    :: !(Maybe Text)
-    , _ppdName             :: !(Maybe Text)
-    , _ppdLastRecordId     :: !(Maybe Text)
-    , _ppdId               :: !(Maybe Text)
-    , _ppdType             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppdIdempotencyToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppdStatus           :: {-# NOUNPACK #-}!(Maybe ProvisionedProductStatus)
+  , _ppdARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppdCreatedTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ppdStatusMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppdName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppdLastRecordId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppdId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppdType             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisionedProductDetail' with the minimum fields required to make a request.
 --
@@ -762,17 +765,18 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 provisionedProductDetail
     :: ProvisionedProductDetail
 provisionedProductDetail =
-    ProvisionedProductDetail'
-    { _ppdIdempotencyToken = Nothing
-    , _ppdStatus = Nothing
-    , _ppdARN = Nothing
-    , _ppdCreatedTime = Nothing
-    , _ppdStatusMessage = Nothing
-    , _ppdName = Nothing
-    , _ppdLastRecordId = Nothing
-    , _ppdId = Nothing
-    , _ppdType = Nothing
-    }
+  ProvisionedProductDetail'
+  { _ppdIdempotencyToken = Nothing
+  , _ppdStatus = Nothing
+  , _ppdARN = Nothing
+  , _ppdCreatedTime = Nothing
+  , _ppdStatusMessage = Nothing
+  , _ppdName = Nothing
+  , _ppdLastRecordId = Nothing
+  , _ppdId = Nothing
+  , _ppdType = Nothing
+  }
+
 
 -- | A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 ppdIdempotencyToken :: Lens' ProvisionedProductDetail (Maybe Text)
@@ -824,9 +828,9 @@ instance FromJSON ProvisionedProductDetail where
                      <*> (x .:? "Id")
                      <*> (x .:? "Type"))
 
-instance Hashable ProvisionedProductDetail
+instance Hashable ProvisionedProductDetail where
 
-instance NFData ProvisionedProductDetail
+instance NFData ProvisionedProductDetail where
 
 -- | Contains information indicating the ways in which a product can be provisioned.
 --
@@ -834,11 +838,12 @@ instance NFData ProvisionedProductDetail
 --
 -- /See:/ 'provisioningArtifact' smart constructor.
 data ProvisioningArtifact = ProvisioningArtifact'
-    { _paCreatedTime :: !(Maybe POSIX)
-    , _paName        :: !(Maybe Text)
-    , _paId          :: !(Maybe Text)
-    , _paDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _paCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _paName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisioningArtifact' with the minimum fields required to make a request.
 --
@@ -854,12 +859,13 @@ data ProvisioningArtifact = ProvisioningArtifact'
 provisioningArtifact
     :: ProvisioningArtifact
 provisioningArtifact =
-    ProvisioningArtifact'
-    { _paCreatedTime = Nothing
-    , _paName = Nothing
-    , _paId = Nothing
-    , _paDescription = Nothing
-    }
+  ProvisioningArtifact'
+  { _paCreatedTime = Nothing
+  , _paName = Nothing
+  , _paId = Nothing
+  , _paDescription = Nothing
+  }
+
 
 -- | The UTC timestamp of the creation time.
 paCreatedTime :: Lens' ProvisioningArtifact (Maybe UTCTime)
@@ -886,9 +892,9 @@ instance FromJSON ProvisioningArtifact where
                      (x .:? "Id")
                      <*> (x .:? "Description"))
 
-instance Hashable ProvisioningArtifact
+instance Hashable ProvisioningArtifact where
 
-instance NFData ProvisioningArtifact
+instance NFData ProvisioningArtifact where
 
 -- | Detailed provisioning artifact information.
 --
@@ -896,12 +902,13 @@ instance NFData ProvisioningArtifact
 --
 -- /See:/ 'provisioningArtifactDetail' smart constructor.
 data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
-    { _padCreatedTime :: !(Maybe POSIX)
-    , _padName        :: !(Maybe Text)
-    , _padId          :: !(Maybe Text)
-    , _padType        :: !(Maybe ProvisioningArtifactType)
-    , _padDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _padCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _padName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _padId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _padType        :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactType)
+  , _padDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisioningArtifactDetail' with the minimum fields required to make a request.
 --
@@ -919,13 +926,14 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
 provisioningArtifactDetail
     :: ProvisioningArtifactDetail
 provisioningArtifactDetail =
-    ProvisioningArtifactDetail'
-    { _padCreatedTime = Nothing
-    , _padName = Nothing
-    , _padId = Nothing
-    , _padType = Nothing
-    , _padDescription = Nothing
-    }
+  ProvisioningArtifactDetail'
+  { _padCreatedTime = Nothing
+  , _padName = Nothing
+  , _padId = Nothing
+  , _padType = Nothing
+  , _padDescription = Nothing
+  }
+
 
 -- | The UTC timestamp of the creation time.
 padCreatedTime :: Lens' ProvisioningArtifactDetail (Maybe UTCTime)
@@ -957,9 +965,9 @@ instance FromJSON ProvisioningArtifactDetail where
                      <*> (x .:? "Type")
                      <*> (x .:? "Description"))
 
-instance Hashable ProvisioningArtifactDetail
+instance Hashable ProvisioningArtifactDetail where
 
-instance NFData ProvisioningArtifactDetail
+instance NFData ProvisioningArtifactDetail where
 
 -- | A parameter used to successfully provision the product. This value includes a list of allowable values and additional metadata.
 --
@@ -967,13 +975,14 @@ instance NFData ProvisioningArtifactDetail
 --
 -- /See:/ 'provisioningArtifactParameter' smart constructor.
 data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
-    { _pIsNoEcho             :: !(Maybe Bool)
-    , _pParameterKey         :: !(Maybe Text)
-    , _pParameterType        :: !(Maybe Text)
-    , _pParameterConstraints :: !(Maybe ParameterConstraints)
-    , _pDefaultValue         :: !(Maybe Text)
-    , _pDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pIsNoEcho             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pParameterKey         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pParameterType        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pParameterConstraints :: {-# NOUNPACK #-}!(Maybe ParameterConstraints)
+  , _pDefaultValue         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisioningArtifactParameter' with the minimum fields required to make a request.
 --
@@ -993,14 +1002,15 @@ data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
 provisioningArtifactParameter
     :: ProvisioningArtifactParameter
 provisioningArtifactParameter =
-    ProvisioningArtifactParameter'
-    { _pIsNoEcho = Nothing
-    , _pParameterKey = Nothing
-    , _pParameterType = Nothing
-    , _pParameterConstraints = Nothing
-    , _pDefaultValue = Nothing
-    , _pDescription = Nothing
-    }
+  ProvisioningArtifactParameter'
+  { _pIsNoEcho = Nothing
+  , _pParameterKey = Nothing
+  , _pParameterType = Nothing
+  , _pParameterConstraints = Nothing
+  , _pDefaultValue = Nothing
+  , _pDescription = Nothing
+  }
+
 
 -- | If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
 pIsNoEcho :: Lens' ProvisioningArtifactParameter (Maybe Bool)
@@ -1037,9 +1047,9 @@ instance FromJSON ProvisioningArtifactParameter where
                      <*> (x .:? "DefaultValue")
                      <*> (x .:? "Description"))
 
-instance Hashable ProvisioningArtifactParameter
+instance Hashable ProvisioningArtifactParameter where
 
-instance NFData ProvisioningArtifactParameter
+instance NFData ProvisioningArtifactParameter where
 
 -- | Provisioning artifact properties. For example request JSON, see 'CreateProvisioningArtifact' .
 --
@@ -1047,11 +1057,12 @@ instance NFData ProvisioningArtifactParameter
 --
 -- /See:/ 'provisioningArtifactProperties' smart constructor.
 data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
-    { _papName        :: !(Maybe Text)
-    , _papType        :: !(Maybe ProvisioningArtifactType)
-    , _papDescription :: !(Maybe Text)
-    , _papInfo        :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _papName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _papType        :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactType)
+  , _papDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _papInfo        :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisioningArtifactProperties' with the minimum fields required to make a request.
 --
@@ -1067,12 +1078,13 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 provisioningArtifactProperties
     :: ProvisioningArtifactProperties
 provisioningArtifactProperties =
-    ProvisioningArtifactProperties'
-    { _papName = Nothing
-    , _papType = Nothing
-    , _papDescription = Nothing
-    , _papInfo = mempty
-    }
+  ProvisioningArtifactProperties'
+  { _papName = Nothing
+  , _papType = Nothing
+  , _papDescription = Nothing
+  , _papInfo = mempty
+  }
+
 
 -- | The name assigned to the provisioning artifact properties.
 papName :: Lens' ProvisioningArtifactProperties (Maybe Text)
@@ -1091,8 +1103,9 @@ papInfo :: Lens' ProvisioningArtifactProperties (HashMap Text Text)
 papInfo = lens _papInfo (\ s a -> s{_papInfo = a}) . _Map;
 
 instance Hashable ProvisioningArtifactProperties
+         where
 
-instance NFData ProvisioningArtifactProperties
+instance NFData ProvisioningArtifactProperties where
 
 instance ToJSON ProvisioningArtifactProperties where
         toJSON ProvisioningArtifactProperties'{..}
@@ -1108,12 +1121,13 @@ instance ToJSON ProvisioningArtifactProperties where
 --
 -- /See:/ 'provisioningArtifactSummary' smart constructor.
 data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
-    { _pasProvisioningArtifactMetadata :: !(Maybe (Map Text Text))
-    , _pasCreatedTime                  :: !(Maybe POSIX)
-    , _pasName                         :: !(Maybe Text)
-    , _pasId                           :: !(Maybe Text)
-    , _pasDescription                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pasProvisioningArtifactMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _pasCreatedTime                  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pasName                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pasId                           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pasDescription                  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisioningArtifactSummary' with the minimum fields required to make a request.
 --
@@ -1131,13 +1145,14 @@ data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
 provisioningArtifactSummary
     :: ProvisioningArtifactSummary
 provisioningArtifactSummary =
-    ProvisioningArtifactSummary'
-    { _pasProvisioningArtifactMetadata = Nothing
-    , _pasCreatedTime = Nothing
-    , _pasName = Nothing
-    , _pasId = Nothing
-    , _pasDescription = Nothing
-    }
+  ProvisioningArtifactSummary'
+  { _pasProvisioningArtifactMetadata = Nothing
+  , _pasCreatedTime = Nothing
+  , _pasName = Nothing
+  , _pasId = Nothing
+  , _pasDescription = Nothing
+  }
+
 
 -- | The provisioning artifact metadata. This data is used with products created by AWS Marketplace.
 pasProvisioningArtifactMetadata :: Lens' ProvisioningArtifactSummary (HashMap Text Text)
@@ -1170,9 +1185,9 @@ instance FromJSON ProvisioningArtifactSummary where
                      <*> (x .:? "Id")
                      <*> (x .:? "Description"))
 
-instance Hashable ProvisioningArtifactSummary
+instance Hashable ProvisioningArtifactSummary where
 
-instance NFData ProvisioningArtifactSummary
+instance NFData ProvisioningArtifactSummary where
 
 -- | The parameter key-value pairs used to provision a product.
 --
@@ -1180,9 +1195,10 @@ instance NFData ProvisioningArtifactSummary
 --
 -- /See:/ 'provisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
-    { _ppValue :: !(Maybe Text)
-    , _ppKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisioningParameter' with the minimum fields required to make a request.
 --
@@ -1194,10 +1210,8 @@ data ProvisioningParameter = ProvisioningParameter'
 provisioningParameter
     :: ProvisioningParameter
 provisioningParameter =
-    ProvisioningParameter'
-    { _ppValue = Nothing
-    , _ppKey = Nothing
-    }
+  ProvisioningParameter' {_ppValue = Nothing, _ppKey = Nothing}
+
 
 -- | The value to use for provisioning. Any constraints on this value can be found in @ProvisioningArtifactParameter@ for @Key@ .
 ppValue :: Lens' ProvisioningParameter (Maybe Text)
@@ -1207,9 +1221,9 @@ ppValue = lens _ppValue (\ s a -> s{_ppValue = a});
 ppKey :: Lens' ProvisioningParameter (Maybe Text)
 ppKey = lens _ppKey (\ s a -> s{_ppKey = a});
 
-instance Hashable ProvisioningParameter
+instance Hashable ProvisioningParameter where
 
-instance NFData ProvisioningParameter
+instance NFData ProvisioningParameter where
 
 instance ToJSON ProvisioningParameter where
         toJSON ProvisioningParameter'{..}
@@ -1223,20 +1237,21 @@ instance ToJSON ProvisioningParameter where
 --
 -- /See:/ 'recordDetail' smart constructor.
 data RecordDetail = RecordDetail'
-    { _rdStatus                 :: !(Maybe RecordStatus)
-    , _rdRecordTags             :: !(Maybe [RecordTag])
-    , _rdProvisionedProductName :: !(Maybe Text)
-    , _rdProvisioningArtifactId :: !(Maybe Text)
-    , _rdCreatedTime            :: !(Maybe POSIX)
-    , _rdRecordType             :: !(Maybe Text)
-    , _rdRecordId               :: !(Maybe Text)
-    , _rdProvisionedProductType :: !(Maybe Text)
-    , _rdUpdatedTime            :: !(Maybe POSIX)
-    , _rdPathId                 :: !(Maybe Text)
-    , _rdProvisionedProductId   :: !(Maybe Text)
-    , _rdRecordErrors           :: !(Maybe [RecordError])
-    , _rdProductId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdStatus                 :: {-# NOUNPACK #-}!(Maybe RecordStatus)
+  , _rdRecordTags             :: {-# NOUNPACK #-}!(Maybe [RecordTag])
+  , _rdProvisionedProductName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdProvisioningArtifactId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdCreatedTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rdRecordType             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdRecordId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdProvisionedProductType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdUpdatedTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rdPathId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdProvisionedProductId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdRecordErrors           :: {-# NOUNPACK #-}!(Maybe [RecordError])
+  , _rdProductId              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordDetail' with the minimum fields required to make a request.
 --
@@ -1270,21 +1285,22 @@ data RecordDetail = RecordDetail'
 recordDetail
     :: RecordDetail
 recordDetail =
-    RecordDetail'
-    { _rdStatus = Nothing
-    , _rdRecordTags = Nothing
-    , _rdProvisionedProductName = Nothing
-    , _rdProvisioningArtifactId = Nothing
-    , _rdCreatedTime = Nothing
-    , _rdRecordType = Nothing
-    , _rdRecordId = Nothing
-    , _rdProvisionedProductType = Nothing
-    , _rdUpdatedTime = Nothing
-    , _rdPathId = Nothing
-    , _rdProvisionedProductId = Nothing
-    , _rdRecordErrors = Nothing
-    , _rdProductId = Nothing
-    }
+  RecordDetail'
+  { _rdStatus = Nothing
+  , _rdRecordTags = Nothing
+  , _rdProvisionedProductName = Nothing
+  , _rdProvisioningArtifactId = Nothing
+  , _rdCreatedTime = Nothing
+  , _rdRecordType = Nothing
+  , _rdRecordId = Nothing
+  , _rdProvisionedProductType = Nothing
+  , _rdUpdatedTime = Nothing
+  , _rdPathId = Nothing
+  , _rdProvisionedProductId = Nothing
+  , _rdRecordErrors = Nothing
+  , _rdProductId = Nothing
+  }
+
 
 -- | The status of the ProvisionedProduct object. @CREATED@ - Request created but the operation has not yet started. @IN_PROGRESS@ - The requested operation is in-progress. @IN_PROGRESS_IN_ERROR@ - The provisioned product is under change but the requested operation failed and some remediation is occurring. For example, a rollback. @SUCCEEDED@ - The requested operation has successfully completed. @FAILED@ - The requested operation has completed but has failed. Investigate using the error messages returned.
 rdStatus :: Lens' RecordDetail (Maybe RecordStatus)
@@ -1356,9 +1372,9 @@ instance FromJSON RecordDetail where
                      <*> (x .:? "RecordErrors" .!= mempty)
                      <*> (x .:? "ProductId"))
 
-instance Hashable RecordDetail
+instance Hashable RecordDetail where
 
-instance NFData RecordDetail
+instance NFData RecordDetail where
 
 -- | The error code and description resulting from an operation.
 --
@@ -1366,9 +1382,10 @@ instance NFData RecordDetail
 --
 -- /See:/ 'recordError' smart constructor.
 data RecordError = RecordError'
-    { _reCode        :: !(Maybe Text)
-    , _reDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _reCode        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _reDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordError' with the minimum fields required to make a request.
 --
@@ -1379,11 +1396,8 @@ data RecordError = RecordError'
 -- * 'reDescription' - The text description of the error.
 recordError
     :: RecordError
-recordError =
-    RecordError'
-    { _reCode = Nothing
-    , _reDescription = Nothing
-    }
+recordError = RecordError' {_reCode = Nothing, _reDescription = Nothing}
+
 
 -- | The numeric value of the error.
 reCode :: Lens' RecordError (Maybe Text)
@@ -1400,9 +1414,9 @@ instance FromJSON RecordError where
                  RecordError' <$>
                    (x .:? "Code") <*> (x .:? "Description"))
 
-instance Hashable RecordError
+instance Hashable RecordError where
 
-instance NFData RecordError
+instance NFData RecordError where
 
 -- | An output for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.
 --
@@ -1410,10 +1424,11 @@ instance NFData RecordError
 --
 -- /See:/ 'recordOutput' smart constructor.
 data RecordOutput = RecordOutput'
-    { _roOutputValue :: !(Maybe Text)
-    , _roOutputKey   :: !(Maybe Text)
-    , _roDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _roOutputValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _roOutputKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _roDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordOutput' with the minimum fields required to make a request.
 --
@@ -1427,11 +1442,9 @@ data RecordOutput = RecordOutput'
 recordOutput
     :: RecordOutput
 recordOutput =
-    RecordOutput'
-    { _roOutputValue = Nothing
-    , _roOutputKey = Nothing
-    , _roDescription = Nothing
-    }
+  RecordOutput'
+  {_roOutputValue = Nothing, _roOutputKey = Nothing, _roDescription = Nothing}
+
 
 -- | The output value.
 roOutputValue :: Lens' RecordOutput (Maybe Text)
@@ -1453,9 +1466,9 @@ instance FromJSON RecordOutput where
                    (x .:? "OutputValue") <*> (x .:? "OutputKey") <*>
                      (x .:? "Description"))
 
-instance Hashable RecordOutput
+instance Hashable RecordOutput where
 
-instance NFData RecordOutput
+instance NFData RecordOutput where
 
 -- | A tag associated with the record, stored as a key-value pair.
 --
@@ -1463,9 +1476,10 @@ instance NFData RecordOutput
 --
 -- /See:/ 'recordTag' smart constructor.
 data RecordTag = RecordTag'
-    { _rtValue :: !(Maybe Text)
-    , _rtKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordTag' with the minimum fields required to make a request.
 --
@@ -1476,11 +1490,8 @@ data RecordTag = RecordTag'
 -- * 'rtKey' - The key for this tag.
 recordTag
     :: RecordTag
-recordTag =
-    RecordTag'
-    { _rtValue = Nothing
-    , _rtKey = Nothing
-    }
+recordTag = RecordTag' {_rtValue = Nothing, _rtKey = Nothing}
+
 
 -- | The value for this tag.
 rtValue :: Lens' RecordTag (Maybe Text)
@@ -1496,9 +1507,9 @@ instance FromJSON RecordTag where
               (\ x ->
                  RecordTag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable RecordTag
+instance Hashable RecordTag where
 
-instance NFData RecordTag
+instance NFData RecordTag where
 
 -- | Detailed resource information.
 --
@@ -1506,12 +1517,13 @@ instance NFData RecordTag
 --
 -- /See:/ 'resourceDetail' smart constructor.
 data ResourceDetail = ResourceDetail'
-    { _rARN         :: !(Maybe Text)
-    , _rCreatedTime :: !(Maybe POSIX)
-    , _rName        :: !(Maybe Text)
-    , _rId          :: !(Maybe Text)
-    , _rDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceDetail' with the minimum fields required to make a request.
 --
@@ -1529,13 +1541,14 @@ data ResourceDetail = ResourceDetail'
 resourceDetail
     :: ResourceDetail
 resourceDetail =
-    ResourceDetail'
-    { _rARN = Nothing
-    , _rCreatedTime = Nothing
-    , _rName = Nothing
-    , _rId = Nothing
-    , _rDescription = Nothing
-    }
+  ResourceDetail'
+  { _rARN = Nothing
+  , _rCreatedTime = Nothing
+  , _rName = Nothing
+  , _rId = Nothing
+  , _rDescription = Nothing
+  }
+
 
 -- | ARN of the resource.
 rARN :: Lens' ResourceDetail (Maybe Text)
@@ -1567,9 +1580,9 @@ instance FromJSON ResourceDetail where
                      <*> (x .:? "Id")
                      <*> (x .:? "Description"))
 
-instance Hashable ResourceDetail
+instance Hashable ResourceDetail where
 
-instance NFData ResourceDetail
+instance NFData ResourceDetail where
 
 -- | Key-value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.
 --
@@ -1577,9 +1590,10 @@ instance NFData ResourceDetail
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -1592,11 +1606,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | The @ProvisioningArtifactParameter.TagKey@ parameter from 'DescribeProvisioningParameters' .
 tagKey :: Lens' Tag Text
@@ -1611,9 +1622,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1628,11 +1639,12 @@ instance ToJSON Tag where
 --
 -- /See:/ 'tagOptionDetail' smart constructor.
 data TagOptionDetail = TagOptionDetail'
-    { _todValue  :: !(Maybe Text)
-    , _todActive :: !(Maybe Bool)
-    , _todKey    :: !(Maybe Text)
-    , _todId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _todValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _todActive :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _todKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _todId     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagOptionDetail' with the minimum fields required to make a request.
 --
@@ -1648,12 +1660,13 @@ data TagOptionDetail = TagOptionDetail'
 tagOptionDetail
     :: TagOptionDetail
 tagOptionDetail =
-    TagOptionDetail'
-    { _todValue = Nothing
-    , _todActive = Nothing
-    , _todKey = Nothing
-    , _todId = Nothing
-    }
+  TagOptionDetail'
+  { _todValue = Nothing
+  , _todActive = Nothing
+  , _todKey = Nothing
+  , _todId = Nothing
+  }
+
 
 -- | The TagOptionDetail value.
 todValue :: Lens' TagOptionDetail (Maybe Text)
@@ -1680,9 +1693,9 @@ instance FromJSON TagOptionDetail where
                      (x .:? "Key")
                      <*> (x .:? "Id"))
 
-instance Hashable TagOptionDetail
+instance Hashable TagOptionDetail where
 
-instance NFData TagOptionDetail
+instance NFData TagOptionDetail where
 
 -- | The TagOption summary key-value pair.
 --
@@ -1690,9 +1703,10 @@ instance NFData TagOptionDetail
 --
 -- /See:/ 'tagOptionSummary' smart constructor.
 data TagOptionSummary = TagOptionSummary'
-    { _tosValues :: !(Maybe [Text])
-    , _tosKey    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tosValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _tosKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagOptionSummary' with the minimum fields required to make a request.
 --
@@ -1703,11 +1717,8 @@ data TagOptionSummary = TagOptionSummary'
 -- * 'tosKey' - The TagOptionSummary key.
 tagOptionSummary
     :: TagOptionSummary
-tagOptionSummary =
-    TagOptionSummary'
-    { _tosValues = Nothing
-    , _tosKey = Nothing
-    }
+tagOptionSummary = TagOptionSummary' {_tosValues = Nothing, _tosKey = Nothing}
+
 
 -- | The TagOptionSummary value.
 tosValues :: Lens' TagOptionSummary [Text]
@@ -1724,9 +1735,9 @@ instance FromJSON TagOptionSummary where
                  TagOptionSummary' <$>
                    (x .:? "Values" .!= mempty) <*> (x .:? "Key"))
 
-instance Hashable TagOptionSummary
+instance Hashable TagOptionSummary where
 
-instance NFData TagOptionSummary
+instance NFData TagOptionSummary where
 
 -- | The parameter key-value pair used to update a ProvisionedProduct object. If @UsePreviousValue@ is set to true, @Value@ is ignored and the value for @Key@ is kept as previously set (current value).
 --
@@ -1734,10 +1745,11 @@ instance NFData TagOptionSummary
 --
 -- /See:/ 'updateProvisioningParameter' smart constructor.
 data UpdateProvisioningParameter = UpdateProvisioningParameter'
-    { _uppValue            :: !(Maybe Text)
-    , _uppKey              :: !(Maybe Text)
-    , _uppUsePreviousValue :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uppValue            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uppKey              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uppUsePreviousValue :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProvisioningParameter' with the minimum fields required to make a request.
 --
@@ -1751,11 +1763,9 @@ data UpdateProvisioningParameter = UpdateProvisioningParameter'
 updateProvisioningParameter
     :: UpdateProvisioningParameter
 updateProvisioningParameter =
-    UpdateProvisioningParameter'
-    { _uppValue = Nothing
-    , _uppKey = Nothing
-    , _uppUsePreviousValue = Nothing
-    }
+  UpdateProvisioningParameter'
+  {_uppValue = Nothing, _uppKey = Nothing, _uppUsePreviousValue = Nothing}
+
 
 -- | The value to use for updating the product provisioning. Any constraints on this value can be found in the @ProvisioningArtifactParameter@ parameter for @Key@ .
 uppValue :: Lens' UpdateProvisioningParameter (Maybe Text)
@@ -1769,9 +1779,9 @@ uppKey = lens _uppKey (\ s a -> s{_uppKey = a});
 uppUsePreviousValue :: Lens' UpdateProvisioningParameter (Maybe Bool)
 uppUsePreviousValue = lens _uppUsePreviousValue (\ s a -> s{_uppUsePreviousValue = a});
 
-instance Hashable UpdateProvisioningParameter
+instance Hashable UpdateProvisioningParameter where
 
-instance NFData UpdateProvisioningParameter
+instance NFData UpdateProvisioningParameter where
 
 instance ToJSON UpdateProvisioningParameter where
         toJSON UpdateProvisioningParameter'{..}
@@ -1786,9 +1796,10 @@ instance ToJSON UpdateProvisioningParameter where
 --
 -- /See:/ 'usageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
-    { _uiValue :: !(Maybe Text)
-    , _uiType  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiType  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UsageInstruction' with the minimum fields required to make a request.
 --
@@ -1799,11 +1810,8 @@ data UsageInstruction = UsageInstruction'
 -- * 'uiType' - The usage instruction type for the value.
 usageInstruction
     :: UsageInstruction
-usageInstruction =
-    UsageInstruction'
-    { _uiValue = Nothing
-    , _uiType = Nothing
-    }
+usageInstruction = UsageInstruction' {_uiValue = Nothing, _uiType = Nothing}
+
 
 -- | The usage instruction value for this type.
 uiValue :: Lens' UsageInstruction (Maybe Text)
@@ -1820,6 +1828,6 @@ instance FromJSON UsageInstruction where
                  UsageInstruction' <$>
                    (x .:? "Value") <*> (x .:? "Type"))
 
-instance Hashable UsageInstruction
+instance Hashable UsageInstruction where
 
-instance NFData UsageInstruction
+instance NFData UsageInstruction where

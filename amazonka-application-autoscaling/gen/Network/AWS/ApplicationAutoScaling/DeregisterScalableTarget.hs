@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
     , dstrsResponseStatus
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterScalableTarget' smart constructor.
 data DeregisterScalableTarget = DeregisterScalableTarget'
-    { _derServiceNamespace  :: !ServiceNamespace
-    , _derResourceId        :: !Text
-    , _derScalableDimension :: !ScalableDimension
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  , _derResourceId        :: {-# NOUNPACK #-}!Text
+  , _derScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterScalableTarget' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ deregisterScalableTarget
     -> ScalableDimension -- ^ 'derScalableDimension'
     -> DeregisterScalableTarget
 deregisterScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
-    DeregisterScalableTarget'
-    { _derServiceNamespace = pServiceNamespace_
-    , _derResourceId = pResourceId_
-    , _derScalableDimension = pScalableDimension_
-    }
+  DeregisterScalableTarget'
+  { _derServiceNamespace = pServiceNamespace_
+  , _derResourceId = pResourceId_
+  , _derScalableDimension = pScalableDimension_
+  }
+
 
 -- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 derServiceNamespace :: Lens' DeregisterScalableTarget ServiceNamespace
@@ -99,9 +101,9 @@ instance AWSRequest DeregisterScalableTarget where
                  DeregisterScalableTargetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeregisterScalableTarget
+instance Hashable DeregisterScalableTarget where
 
-instance NFData DeregisterScalableTarget
+instance NFData DeregisterScalableTarget where
 
 instance ToHeaders DeregisterScalableTarget where
         toHeaders
@@ -129,8 +131,9 @@ instance ToQuery DeregisterScalableTarget where
 
 -- | /See:/ 'deregisterScalableTargetResponse' smart constructor.
 newtype DeregisterScalableTargetResponse = DeregisterScalableTargetResponse'
-    { _dstrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dstrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterScalableTargetResponse' with the minimum fields required to make a request.
 --
@@ -141,12 +144,12 @@ deregisterScalableTargetResponse
     :: Int -- ^ 'dstrsResponseStatus'
     -> DeregisterScalableTargetResponse
 deregisterScalableTargetResponse pResponseStatus_ =
-    DeregisterScalableTargetResponse'
-    { _dstrsResponseStatus = pResponseStatus_
-    }
+  DeregisterScalableTargetResponse' {_dstrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dstrsResponseStatus :: Lens' DeregisterScalableTargetResponse Int
 dstrsResponseStatus = lens _dstrsResponseStatus (\ s a -> s{_dstrsResponseStatus = a});
 
 instance NFData DeregisterScalableTargetResponse
+         where

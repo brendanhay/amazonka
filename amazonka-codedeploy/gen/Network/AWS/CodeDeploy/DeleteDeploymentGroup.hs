@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     , ddgrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a DeleteDeploymentGroup operation.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDeploymentGroup' smart constructor.
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
-    { _ddgApplicationName     :: !Text
-    , _ddgDeploymentGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddgApplicationName     :: {-# NOUNPACK #-}!Text
+  , _ddgDeploymentGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeploymentGroup' with the minimum fields required to make a request.
 --
@@ -67,10 +68,11 @@ deleteDeploymentGroup
     -> Text -- ^ 'ddgDeploymentGroupName'
     -> DeleteDeploymentGroup
 deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
-    DeleteDeploymentGroup'
-    { _ddgApplicationName = pApplicationName_
-    , _ddgDeploymentGroupName = pDeploymentGroupName_
-    }
+  DeleteDeploymentGroup'
+  { _ddgApplicationName = pApplicationName_
+  , _ddgDeploymentGroupName = pDeploymentGroupName_
+  }
+
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 ddgApplicationName :: Lens' DeleteDeploymentGroup Text
@@ -91,9 +93,9 @@ instance AWSRequest DeleteDeploymentGroup where
                    (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DeleteDeploymentGroup
+instance Hashable DeleteDeploymentGroup where
 
-instance NFData DeleteDeploymentGroup
+instance NFData DeleteDeploymentGroup where
 
 instance ToHeaders DeleteDeploymentGroup where
         toHeaders
@@ -125,9 +127,10 @@ instance ToQuery DeleteDeploymentGroup where
 --
 -- /See:/ 'deleteDeploymentGroupResponse' smart constructor.
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
-    { _ddgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _ddgrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddgrsHooksNotCleanedUp :: {-# NOUNPACK #-}!(Maybe [AutoScalingGroup])
+  , _ddgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDeploymentGroupResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +143,9 @@ deleteDeploymentGroupResponse
     :: Int -- ^ 'ddgrsResponseStatus'
     -> DeleteDeploymentGroupResponse
 deleteDeploymentGroupResponse pResponseStatus_ =
-    DeleteDeploymentGroupResponse'
-    { _ddgrsHooksNotCleanedUp = Nothing
-    , _ddgrsResponseStatus = pResponseStatus_
-    }
+  DeleteDeploymentGroupResponse'
+  {_ddgrsHooksNotCleanedUp = Nothing, _ddgrsResponseStatus = pResponseStatus_}
+
 
 -- | If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group.
 ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
@@ -153,4 +155,4 @@ ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNot
 ddgrsResponseStatus :: Lens' DeleteDeploymentGroupResponse Int
 ddgrsResponseStatus = lens _ddgrsResponseStatus (\ s a -> s{_ddgrsResponseStatus = a});
 
-instance NFData DeleteDeploymentGroupResponse
+instance NFData DeleteDeploymentGroupResponse where

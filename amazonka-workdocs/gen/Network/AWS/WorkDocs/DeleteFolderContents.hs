@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteFolderContents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.WorkDocs.DeleteFolderContents
     , DeleteFolderContentsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteFolderContents' smart constructor.
 data DeleteFolderContents = DeleteFolderContents'
-    { _dfcAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _dfcFolderId            :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dfcAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _dfcFolderId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFolderContents' with the minimum fields required to make a request.
 --
@@ -59,10 +60,9 @@ deleteFolderContents
     :: Text -- ^ 'dfcFolderId'
     -> DeleteFolderContents
 deleteFolderContents pFolderId_ =
-    DeleteFolderContents'
-    { _dfcAuthenticationToken = Nothing
-    , _dfcFolderId = pFolderId_
-    }
+  DeleteFolderContents'
+  {_dfcAuthenticationToken = Nothing, _dfcFolderId = pFolderId_}
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 dfcAuthenticationToken :: Lens' DeleteFolderContents (Maybe Text)
@@ -78,9 +78,9 @@ instance AWSRequest DeleteFolderContents where
         request = delete workDocs
         response = receiveNull DeleteFolderContentsResponse'
 
-instance Hashable DeleteFolderContents
+instance Hashable DeleteFolderContents where
 
-instance NFData DeleteFolderContents
+instance NFData DeleteFolderContents where
 
 instance ToHeaders DeleteFolderContents where
         toHeaders DeleteFolderContents'{..}
@@ -99,8 +99,9 @@ instance ToQuery DeleteFolderContents where
 
 -- | /See:/ 'deleteFolderContentsResponse' smart constructor.
 data DeleteFolderContentsResponse =
-    DeleteFolderContentsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteFolderContentsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFolderContentsResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +109,5 @@ deleteFolderContentsResponse
     :: DeleteFolderContentsResponse
 deleteFolderContentsResponse = DeleteFolderContentsResponse'
 
-instance NFData DeleteFolderContentsResponse
+
+instance NFData DeleteFolderContentsResponse where

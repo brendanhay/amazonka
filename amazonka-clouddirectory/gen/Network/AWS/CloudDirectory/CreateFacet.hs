@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateFacet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.CloudDirectory.CreateFacet
     , cfrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createFacet' smart constructor.
 data CreateFacet = CreateFacet'
-    { _cfAttributes :: !(Maybe [FacetAttribute])
-    , _cfSchemaARN  :: !Text
-    , _cfName       :: !Text
-    , _cfObjectType :: !ObjectType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfAttributes :: {-# NOUNPACK #-}!(Maybe [FacetAttribute])
+  , _cfSchemaARN  :: {-# NOUNPACK #-}!Text
+  , _cfName       :: {-# NOUNPACK #-}!Text
+  , _cfObjectType :: {-# NOUNPACK #-}!ObjectType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFacet' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ createFacet
     -> ObjectType -- ^ 'cfObjectType'
     -> CreateFacet
 createFacet pSchemaARN_ pName_ pObjectType_ =
-    CreateFacet'
-    { _cfAttributes = Nothing
-    , _cfSchemaARN = pSchemaARN_
-    , _cfName = pName_
-    , _cfObjectType = pObjectType_
-    }
+  CreateFacet'
+  { _cfAttributes = Nothing
+  , _cfSchemaARN = pSchemaARN_
+  , _cfName = pName_
+  , _cfObjectType = pObjectType_
+  }
+
 
 -- | The attributes that are associated with the 'Facet' .
 cfAttributes :: Lens' CreateFacet [FacetAttribute]
@@ -102,9 +104,9 @@ instance AWSRequest CreateFacet where
               (\ s h x ->
                  CreateFacetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateFacet
+instance Hashable CreateFacet where
 
-instance NFData CreateFacet
+instance NFData CreateFacet where
 
 instance ToHeaders CreateFacet where
         toHeaders CreateFacet'{..}
@@ -128,8 +130,9 @@ instance ToQuery CreateFacet where
 
 -- | /See:/ 'createFacetResponse' smart constructor.
 newtype CreateFacetResponse = CreateFacetResponse'
-    { _cfrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFacetResponse' with the minimum fields required to make a request.
 --
@@ -140,12 +143,11 @@ createFacetResponse
     :: Int -- ^ 'cfrsResponseStatus'
     -> CreateFacetResponse
 createFacetResponse pResponseStatus_ =
-    CreateFacetResponse'
-    { _cfrsResponseStatus = pResponseStatus_
-    }
+  CreateFacetResponse' {_cfrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cfrsResponseStatus :: Lens' CreateFacetResponse Int
 cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
 
-instance NFData CreateFacetResponse
+instance NFData CreateFacetResponse where

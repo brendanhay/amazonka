@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     , derrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe the resources in an environment.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
-    { _derEnvironmentName :: !(Maybe Text)
-    , _derEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _derEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironmentResources' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources'
 describeEnvironmentResources
     :: DescribeEnvironmentResources
 describeEnvironmentResources =
-    DescribeEnvironmentResources'
-    { _derEnvironmentName = Nothing
-    , _derEnvironmentId = Nothing
-    }
+  DescribeEnvironmentResources'
+  {_derEnvironmentName = Nothing, _derEnvironmentId = Nothing}
+
 
 -- | The name of the environment to retrieve AWS resource usage data. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
@@ -91,9 +91,9 @@ instance AWSRequest DescribeEnvironmentResources
                    (x .@? "EnvironmentResources") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeEnvironmentResources
+instance Hashable DescribeEnvironmentResources where
 
-instance NFData DescribeEnvironmentResources
+instance NFData DescribeEnvironmentResources where
 
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
@@ -116,9 +116,10 @@ instance ToQuery DescribeEnvironmentResources where
 --
 -- /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
-    { _derrsEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
-    , _derrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derrsEnvironmentResources :: {-# NOUNPACK #-}!(Maybe EnvironmentResourceDescription)
+  , _derrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironmentResourcesResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,11 @@ describeEnvironmentResourcesResponse
     :: Int -- ^ 'derrsResponseStatus'
     -> DescribeEnvironmentResourcesResponse
 describeEnvironmentResourcesResponse pResponseStatus_ =
-    DescribeEnvironmentResourcesResponse'
-    { _derrsEnvironmentResources = Nothing
-    , _derrsResponseStatus = pResponseStatus_
-    }
+  DescribeEnvironmentResourcesResponse'
+  { _derrsEnvironmentResources = Nothing
+  , _derrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'EnvironmentResourceDescription' .
 derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
@@ -145,3 +147,4 @@ derrsResponseStatus :: Lens' DescribeEnvironmentResourcesResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
 
 instance NFData DescribeEnvironmentResourcesResponse
+         where

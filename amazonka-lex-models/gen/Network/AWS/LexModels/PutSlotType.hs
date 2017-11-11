@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.PutSlotType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,20 +52,21 @@ module Network.AWS.LexModels.PutSlotType
     , pstrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putSlotType' smart constructor.
 data PutSlotType = PutSlotType'
-    { _pstChecksum          :: !(Maybe Text)
-    , _pstDescription       :: !(Maybe Text)
-    , _pstEnumerationValues :: !(Maybe (List1 EnumerationValue))
-    , _pstName              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pstChecksum          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pstDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pstEnumerationValues :: {-# NOUNPACK #-}!(Maybe (List1 EnumerationValue))
+  , _pstName              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutSlotType' with the minimum fields required to make a request.
 --
@@ -82,12 +83,13 @@ putSlotType
     :: Text -- ^ 'pstName'
     -> PutSlotType
 putSlotType pName_ =
-    PutSlotType'
-    { _pstChecksum = Nothing
-    , _pstDescription = Nothing
-    , _pstEnumerationValues = Nothing
-    , _pstName = pName_
-    }
+  PutSlotType'
+  { _pstChecksum = Nothing
+  , _pstDescription = Nothing
+  , _pstEnumerationValues = Nothing
+  , _pstName = pName_
+  }
+
 
 -- | Identifies a specific revision of the @> LATEST@ version. When you create a new slot type, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception. When you want to update a slot type, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
 pstChecksum :: Lens' PutSlotType (Maybe Text)
@@ -120,9 +122,9 @@ instance AWSRequest PutSlotType where
                      <*> (x .?> "enumerationValues")
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutSlotType
+instance Hashable PutSlotType where
 
-instance NFData PutSlotType
+instance NFData PutSlotType where
 
 instance ToHeaders PutSlotType where
         toHeaders
@@ -149,15 +151,16 @@ instance ToQuery PutSlotType where
 
 -- | /See:/ 'putSlotTypeResponse' smart constructor.
 data PutSlotTypeResponse = PutSlotTypeResponse'
-    { _pstrsChecksum          :: !(Maybe Text)
-    , _pstrsCreatedDate       :: !(Maybe POSIX)
-    , _pstrsName              :: !(Maybe Text)
-    , _pstrsVersion           :: !(Maybe Text)
-    , _pstrsLastUpdatedDate   :: !(Maybe POSIX)
-    , _pstrsDescription       :: !(Maybe Text)
-    , _pstrsEnumerationValues :: !(Maybe (List1 EnumerationValue))
-    , _pstrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pstrsChecksum          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pstrsCreatedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pstrsName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pstrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pstrsLastUpdatedDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pstrsDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pstrsEnumerationValues :: {-# NOUNPACK #-}!(Maybe (List1 EnumerationValue))
+  , _pstrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutSlotTypeResponse' with the minimum fields required to make a request.
 --
@@ -182,16 +185,17 @@ putSlotTypeResponse
     :: Int -- ^ 'pstrsResponseStatus'
     -> PutSlotTypeResponse
 putSlotTypeResponse pResponseStatus_ =
-    PutSlotTypeResponse'
-    { _pstrsChecksum = Nothing
-    , _pstrsCreatedDate = Nothing
-    , _pstrsName = Nothing
-    , _pstrsVersion = Nothing
-    , _pstrsLastUpdatedDate = Nothing
-    , _pstrsDescription = Nothing
-    , _pstrsEnumerationValues = Nothing
-    , _pstrsResponseStatus = pResponseStatus_
-    }
+  PutSlotTypeResponse'
+  { _pstrsChecksum = Nothing
+  , _pstrsCreatedDate = Nothing
+  , _pstrsName = Nothing
+  , _pstrsVersion = Nothing
+  , _pstrsLastUpdatedDate = Nothing
+  , _pstrsDescription = Nothing
+  , _pstrsEnumerationValues = Nothing
+  , _pstrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Checksum of the @> LATEST@ version of the slot type.
 pstrsChecksum :: Lens' PutSlotTypeResponse (Maybe Text)
@@ -225,4 +229,4 @@ pstrsEnumerationValues = lens _pstrsEnumerationValues (\ s a -> s{_pstrsEnumerat
 pstrsResponseStatus :: Lens' PutSlotTypeResponse Int
 pstrsResponseStatus = lens _pstrsResponseStatus (\ s a -> s{_pstrsResponseStatus = a});
 
-instance NFData PutSlotTypeResponse
+instance NFData PutSlotTypeResponse where

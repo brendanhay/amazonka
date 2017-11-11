@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUsers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.CognitoIdentityProvider.ListUsers
     , lursResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to list users.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listUsers' smart constructor.
 data ListUsers = ListUsers'
-    { _luPaginationToken :: !(Maybe Text)
-    , _luAttributesToGet :: !(Maybe [Text])
-    , _luLimit           :: !(Maybe Nat)
-    , _luFilter          :: !(Maybe Text)
-    , _luUserPoolId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _luPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _luAttributesToGet :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _luLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _luFilter          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _luUserPoolId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
 --
@@ -79,13 +80,14 @@ listUsers
     :: Text -- ^ 'luUserPoolId'
     -> ListUsers
 listUsers pUserPoolId_ =
-    ListUsers'
-    { _luPaginationToken = Nothing
-    , _luAttributesToGet = Nothing
-    , _luLimit = Nothing
-    , _luFilter = Nothing
-    , _luUserPoolId = pUserPoolId_
-    }
+  ListUsers'
+  { _luPaginationToken = Nothing
+  , _luAttributesToGet = Nothing
+  , _luLimit = Nothing
+  , _luFilter = Nothing
+  , _luUserPoolId = pUserPoolId_
+  }
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luPaginationToken :: Lens' ListUsers (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest ListUsers where
                      (x .?> "Users" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListUsers
+instance Hashable ListUsers where
 
-instance NFData ListUsers
+instance NFData ListUsers where
 
 instance ToHeaders ListUsers where
         toHeaders
@@ -154,10 +156,11 @@ instance ToQuery ListUsers where
 --
 -- /See:/ 'listUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-    { _lursPaginationToken :: !(Maybe Text)
-    , _lursUsers           :: !(Maybe [UserType])
-    , _lursResponseStatus  :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lursPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lursUsers           :: {-# NOUNPACK #-}!(Maybe [UserType])
+  , _lursResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
 --
@@ -172,11 +175,12 @@ listUsersResponse
     :: Int -- ^ 'lursResponseStatus'
     -> ListUsersResponse
 listUsersResponse pResponseStatus_ =
-    ListUsersResponse'
-    { _lursPaginationToken = Nothing
-    , _lursUsers = Nothing
-    , _lursResponseStatus = pResponseStatus_
-    }
+  ListUsersResponse'
+  { _lursPaginationToken = Nothing
+  , _lursUsers = Nothing
+  , _lursResponseStatus = pResponseStatus_
+  }
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lursPaginationToken :: Lens' ListUsersResponse (Maybe Text)
@@ -190,4 +194,4 @@ lursUsers = lens _lursUsers (\ s a -> s{_lursUsers = a}) . _Default . _Coerce;
 lursResponseStatus :: Lens' ListUsersResponse Int
 lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
 
-instance NFData ListUsersResponse
+instance NFData ListUsersResponse where

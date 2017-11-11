@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ScanProvisionedProducts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.ServiceCatalog.ScanProvisionedProducts
     , spprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'scanProvisionedProducts' smart constructor.
 data ScanProvisionedProducts = ScanProvisionedProducts'
-    { _sppAcceptLanguage    :: !(Maybe Text)
-    , _sppAccessLevelFilter :: !(Maybe AccessLevelFilter)
-    , _sppPageToken         :: !(Maybe Text)
-    , _sppPageSize          :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sppAcceptLanguage    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sppAccessLevelFilter :: {-# NOUNPACK #-}!(Maybe AccessLevelFilter)
+  , _sppPageToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sppPageSize          :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScanProvisionedProducts' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data ScanProvisionedProducts = ScanProvisionedProducts'
 scanProvisionedProducts
     :: ScanProvisionedProducts
 scanProvisionedProducts =
-    ScanProvisionedProducts'
-    { _sppAcceptLanguage = Nothing
-    , _sppAccessLevelFilter = Nothing
-    , _sppPageToken = Nothing
-    , _sppPageSize = Nothing
-    }
+  ScanProvisionedProducts'
+  { _sppAcceptLanguage = Nothing
+  , _sppAccessLevelFilter = Nothing
+  , _sppPageToken = Nothing
+  , _sppPageSize = Nothing
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 sppAcceptLanguage :: Lens' ScanProvisionedProducts (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest ScanProvisionedProducts where
                      (x .?> "ProvisionedProducts" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ScanProvisionedProducts
+instance Hashable ScanProvisionedProducts where
 
-instance NFData ScanProvisionedProducts
+instance NFData ScanProvisionedProducts where
 
 instance ToHeaders ScanProvisionedProducts where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery ScanProvisionedProducts where
 
 -- | /See:/ 'scanProvisionedProductsResponse' smart constructor.
 data ScanProvisionedProductsResponse = ScanProvisionedProductsResponse'
-    { _spprsNextPageToken       :: !(Maybe Text)
-    , _spprsProvisionedProducts :: !(Maybe [ProvisionedProductDetail])
-    , _spprsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spprsNextPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _spprsProvisionedProducts :: {-# NOUNPACK #-}!(Maybe [ProvisionedProductDetail])
+  , _spprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScanProvisionedProductsResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ scanProvisionedProductsResponse
     :: Int -- ^ 'spprsResponseStatus'
     -> ScanProvisionedProductsResponse
 scanProvisionedProductsResponse pResponseStatus_ =
-    ScanProvisionedProductsResponse'
-    { _spprsNextPageToken = Nothing
-    , _spprsProvisionedProducts = Nothing
-    , _spprsResponseStatus = pResponseStatus_
-    }
+  ScanProvisionedProductsResponse'
+  { _spprsNextPageToken = Nothing
+  , _spprsProvisionedProducts = Nothing
+  , _spprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 spprsNextPageToken :: Lens' ScanProvisionedProductsResponse (Maybe Text)
@@ -172,4 +176,4 @@ spprsProvisionedProducts = lens _spprsProvisionedProducts (\ s a -> s{_spprsProv
 spprsResponseStatus :: Lens' ScanProvisionedProductsResponse Int
 spprsResponseStatus = lens _spprsResponseStatus (\ s a -> s{_spprsResponseStatus = a});
 
-instance NFData ScanProvisionedProductsResponse
+instance NFData ScanProvisionedProductsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Polly.ListLexicons
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Polly.ListLexicons
     , llrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Polly.Types
-import           Network.AWS.Polly.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Polly.Types
+import Network.AWS.Polly.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listLexicons' smart constructor.
 newtype ListLexicons = ListLexicons'
-    { _llNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _llNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLexicons' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype ListLexicons = ListLexicons'
 -- * 'llNextToken' - An opaque pagination token returned from previous @ListLexicons@ operation. If present, indicates where to continue the list of lexicons.
 listLexicons
     :: ListLexicons
-listLexicons =
-    ListLexicons'
-    { _llNextToken = Nothing
-    }
+listLexicons = ListLexicons' {_llNextToken = Nothing}
+
 
 -- | An opaque pagination token returned from previous @ListLexicons@ operation. If present, indicates where to continue the list of lexicons.
 llNextToken :: Lens' ListLexicons (Maybe Text)
@@ -76,9 +75,9 @@ instance AWSRequest ListLexicons where
                    (x .?> "Lexicons" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListLexicons
+instance Hashable ListLexicons where
 
-instance NFData ListLexicons
+instance NFData ListLexicons where
 
 instance ToHeaders ListLexicons where
         toHeaders = const mempty
@@ -92,10 +91,11 @@ instance ToQuery ListLexicons where
 
 -- | /See:/ 'listLexiconsResponse' smart constructor.
 data ListLexiconsResponse = ListLexiconsResponse'
-    { _llrsLexicons       :: !(Maybe [LexiconDescription])
-    , _llrsNextToken      :: !(Maybe Text)
-    , _llrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _llrsLexicons       :: {-# NOUNPACK #-}!(Maybe [LexiconDescription])
+  , _llrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _llrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLexiconsResponse' with the minimum fields required to make a request.
 --
@@ -110,11 +110,12 @@ listLexiconsResponse
     :: Int -- ^ 'llrsResponseStatus'
     -> ListLexiconsResponse
 listLexiconsResponse pResponseStatus_ =
-    ListLexiconsResponse'
-    { _llrsLexicons = Nothing
-    , _llrsNextToken = Nothing
-    , _llrsResponseStatus = pResponseStatus_
-    }
+  ListLexiconsResponse'
+  { _llrsLexicons = Nothing
+  , _llrsNextToken = Nothing
+  , _llrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of lexicon names and attributes.
 llrsLexicons :: Lens' ListLexiconsResponse [LexiconDescription]
@@ -128,4 +129,4 @@ llrsNextToken = lens _llrsNextToken (\ s a -> s{_llrsNextToken = a});
 llrsResponseStatus :: Lens' ListLexiconsResponse Int
 llrsResponseStatus = lens _llrsResponseStatus (\ s a -> s{_llrsResponseStatus = a});
 
-instance NFData ListLexiconsResponse
+instance NFData ListLexiconsResponse where

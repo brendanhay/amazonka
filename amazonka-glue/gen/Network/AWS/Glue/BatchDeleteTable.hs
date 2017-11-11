@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchDeleteTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.Glue.BatchDeleteTable
     , bdtrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchDeleteTable' smart constructor.
 data BatchDeleteTable = BatchDeleteTable'
-    { _bdtCatalogId      :: !(Maybe Text)
-    , _bdtDatabaseName   :: !Text
-    , _bdtTablesToDelete :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdtCatalogId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bdtDatabaseName   :: {-# NOUNPACK #-}!Text
+  , _bdtTablesToDelete :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteTable' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ batchDeleteTable
     :: Text -- ^ 'bdtDatabaseName'
     -> BatchDeleteTable
 batchDeleteTable pDatabaseName_ =
-    BatchDeleteTable'
-    { _bdtCatalogId = Nothing
-    , _bdtDatabaseName = pDatabaseName_
-    , _bdtTablesToDelete = mempty
-    }
+  BatchDeleteTable'
+  { _bdtCatalogId = Nothing
+  , _bdtDatabaseName = pDatabaseName_
+  , _bdtTablesToDelete = mempty
+  }
+
 
 -- | The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
 bdtCatalogId :: Lens' BatchDeleteTable (Maybe Text)
@@ -93,9 +95,9 @@ instance AWSRequest BatchDeleteTable where
                  BatchDeleteTableResponse' <$>
                    (x .?> "Errors" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable BatchDeleteTable
+instance Hashable BatchDeleteTable where
 
-instance NFData BatchDeleteTable
+instance NFData BatchDeleteTable where
 
 instance ToHeaders BatchDeleteTable where
         toHeaders
@@ -122,9 +124,10 @@ instance ToQuery BatchDeleteTable where
 
 -- | /See:/ 'batchDeleteTableResponse' smart constructor.
 data BatchDeleteTableResponse = BatchDeleteTableResponse'
-    { _bdtrsErrors         :: !(Maybe [TableError])
-    , _bdtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdtrsErrors         :: {-# NOUNPACK #-}!(Maybe [TableError])
+  , _bdtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteTableResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,9 @@ batchDeleteTableResponse
     :: Int -- ^ 'bdtrsResponseStatus'
     -> BatchDeleteTableResponse
 batchDeleteTableResponse pResponseStatus_ =
-    BatchDeleteTableResponse'
-    { _bdtrsErrors = Nothing
-    , _bdtrsResponseStatus = pResponseStatus_
-    }
+  BatchDeleteTableResponse'
+  {_bdtrsErrors = Nothing, _bdtrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of errors encountered in attempting to delete the specified tables.
 bdtrsErrors :: Lens' BatchDeleteTableResponse [TableError]
@@ -150,4 +152,4 @@ bdtrsErrors = lens _bdtrsErrors (\ s a -> s{_bdtrsErrors = a}) . _Default . _Coe
 bdtrsResponseStatus :: Lens' BatchDeleteTableResponse Int
 bdtrsResponseStatus = lens _bdtrsResponseStatus (\ s a -> s{_bdtrsResponseStatus = a});
 
-instance NFData BatchDeleteTableResponse
+instance NFData BatchDeleteTableResponse where

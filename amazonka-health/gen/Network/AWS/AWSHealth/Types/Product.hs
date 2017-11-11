@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.AWSHealth.Types.Product where
 
-import           Network.AWS.AWSHealth.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.AWSHealth.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Information about an entity that is affected by a Health event.
 --
@@ -27,14 +27,15 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'affectedEntity' smart constructor.
 data AffectedEntity = AffectedEntity'
-    { _aeLastUpdatedTime :: !(Maybe POSIX)
-    , _aeEntityValue     :: !(Maybe Text)
-    , _aeAwsAccountId    :: !(Maybe Text)
-    , _aeEventARN        :: !(Maybe Text)
-    , _aeEntityARN       :: !(Maybe Text)
-    , _aeTags            :: !(Maybe (Map Text Text))
-    , _aeStatusCode      :: !(Maybe EntityStatusCode)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aeLastUpdatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aeEntityValue     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeAwsAccountId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeEventARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeEntityARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aeTags            :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _aeStatusCode      :: {-# NOUNPACK #-}!(Maybe EntityStatusCode)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AffectedEntity' with the minimum fields required to make a request.
 --
@@ -56,15 +57,16 @@ data AffectedEntity = AffectedEntity'
 affectedEntity
     :: AffectedEntity
 affectedEntity =
-    AffectedEntity'
-    { _aeLastUpdatedTime = Nothing
-    , _aeEntityValue = Nothing
-    , _aeAwsAccountId = Nothing
-    , _aeEventARN = Nothing
-    , _aeEntityARN = Nothing
-    , _aeTags = Nothing
-    , _aeStatusCode = Nothing
-    }
+  AffectedEntity'
+  { _aeLastUpdatedTime = Nothing
+  , _aeEntityValue = Nothing
+  , _aeAwsAccountId = Nothing
+  , _aeEventARN = Nothing
+  , _aeEntityARN = Nothing
+  , _aeTags = Nothing
+  , _aeStatusCode = Nothing
+  }
+
 
 -- | The most recent time that the entity was updated.
 aeLastUpdatedTime :: Lens' AffectedEntity (Maybe UTCTime)
@@ -106,9 +108,9 @@ instance FromJSON AffectedEntity where
                      <*> (x .:? "tags" .!= mempty)
                      <*> (x .:? "statusCode"))
 
-instance Hashable AffectedEntity
+instance Hashable AffectedEntity where
 
-instance NFData AffectedEntity
+instance NFData AffectedEntity where
 
 -- | A range of dates and times that is used by the 'EventFilter' and 'EntityFilter' objects. If @from@ is set and @to@ is set: match items where the timestamp (@startTime@ , @endTime@ , or @lastUpdatedTime@ ) is between @from@ and @to@ inclusive. If @from@ is set and @to@ is not set: match items where the timestamp value is equal to or after @from@ . If @from@ is not set and @to@ is set: match items where the timestamp value is equal to or before @to@ .
 --
@@ -116,9 +118,10 @@ instance NFData AffectedEntity
 --
 -- /See:/ 'dateTimeRange' smart constructor.
 data DateTimeRange = DateTimeRange'
-    { _dtrTo   :: !(Maybe POSIX)
-    , _dtrFrom :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrTo   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dtrFrom :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DateTimeRange' with the minimum fields required to make a request.
 --
@@ -129,11 +132,8 @@ data DateTimeRange = DateTimeRange'
 -- * 'dtrFrom' - The starting date and time of a time range.
 dateTimeRange
     :: DateTimeRange
-dateTimeRange =
-    DateTimeRange'
-    { _dtrTo = Nothing
-    , _dtrFrom = Nothing
-    }
+dateTimeRange = DateTimeRange' {_dtrTo = Nothing, _dtrFrom = Nothing}
+
 
 -- | The ending date and time of a time range.
 dtrTo :: Lens' DateTimeRange (Maybe UTCTime)
@@ -143,9 +143,9 @@ dtrTo = lens _dtrTo (\ s a -> s{_dtrTo = a}) . mapping _Time;
 dtrFrom :: Lens' DateTimeRange (Maybe UTCTime)
 dtrFrom = lens _dtrFrom (\ s a -> s{_dtrFrom = a}) . mapping _Time;
 
-instance Hashable DateTimeRange
+instance Hashable DateTimeRange where
 
-instance NFData DateTimeRange
+instance NFData DateTimeRange where
 
 instance ToJSON DateTimeRange where
         toJSON DateTimeRange'{..}
@@ -159,9 +159,10 @@ instance ToJSON DateTimeRange where
 --
 -- /See:/ 'entityAggregate' smart constructor.
 data EntityAggregate = EntityAggregate'
-    { _eCount    :: !(Maybe Int)
-    , _eEventARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eCount    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _eEventARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EntityAggregate' with the minimum fields required to make a request.
 --
@@ -172,11 +173,8 @@ data EntityAggregate = EntityAggregate'
 -- * 'eEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
 entityAggregate
     :: EntityAggregate
-entityAggregate =
-    EntityAggregate'
-    { _eCount = Nothing
-    , _eEventARN = Nothing
-    }
+entityAggregate = EntityAggregate' {_eCount = Nothing, _eEventARN = Nothing}
+
 
 -- | The number entities that match the criteria for the specified events.
 eCount :: Lens' EntityAggregate (Maybe Int)
@@ -193,9 +191,9 @@ instance FromJSON EntityAggregate where
                  EntityAggregate' <$>
                    (x .:? "count") <*> (x .:? "eventArn"))
 
-instance Hashable EntityAggregate
+instance Hashable EntityAggregate where
 
-instance NFData EntityAggregate
+instance NFData EntityAggregate where
 
 -- | The values to use to filter results from the 'DescribeAffectedEntities' operation.
 --
@@ -203,13 +201,14 @@ instance NFData EntityAggregate
 --
 -- /See:/ 'entityFilter' smart constructor.
 data EntityFilter = EntityFilter'
-    { _eStatusCodes      :: !(Maybe (List1 EntityStatusCode))
-    , _eEntityARNs       :: !(Maybe (List1 Text))
-    , _eEntityValues     :: !(Maybe (List1 Text))
-    , _eTags             :: !(Maybe [Map Text Text])
-    , _eLastUpdatedTimes :: !(Maybe (List1 DateTimeRange))
-    , _eEventARNs        :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eStatusCodes      :: {-# NOUNPACK #-}!(Maybe (List1 EntityStatusCode))
+  , _eEntityARNs       :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _eEntityValues     :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _eTags             :: {-# NOUNPACK #-}!(Maybe [Map Text Text])
+  , _eLastUpdatedTimes :: {-# NOUNPACK #-}!(Maybe (List1 DateTimeRange))
+  , _eEventARNs        :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EntityFilter' with the minimum fields required to make a request.
 --
@@ -230,14 +229,15 @@ entityFilter
     :: NonEmpty Text -- ^ 'eEventARNs'
     -> EntityFilter
 entityFilter pEventARNs_ =
-    EntityFilter'
-    { _eStatusCodes = Nothing
-    , _eEntityARNs = Nothing
-    , _eEntityValues = Nothing
-    , _eTags = Nothing
-    , _eLastUpdatedTimes = Nothing
-    , _eEventARNs = _List1 # pEventARNs_
-    }
+  EntityFilter'
+  { _eStatusCodes = Nothing
+  , _eEntityARNs = Nothing
+  , _eEntityValues = Nothing
+  , _eTags = Nothing
+  , _eLastUpdatedTimes = Nothing
+  , _eEventARNs = _List1 # pEventARNs_
+  }
+
 
 -- | A list of entity status codes (@IMPAIRED@ , @UNIMPAIRED@ , or @UNKNOWN@ ).
 eStatusCodes :: Lens' EntityFilter (Maybe (NonEmpty EntityStatusCode))
@@ -263,9 +263,9 @@ eLastUpdatedTimes = lens _eLastUpdatedTimes (\ s a -> s{_eLastUpdatedTimes = a})
 eEventARNs :: Lens' EntityFilter (NonEmpty Text)
 eEventARNs = lens _eEventARNs (\ s a -> s{_eEventARNs = a}) . _List1;
 
-instance Hashable EntityFilter
+instance Hashable EntityFilter where
 
-instance NFData EntityFilter
+instance NFData EntityFilter where
 
 instance ToJSON EntityFilter where
         toJSON EntityFilter'{..}
@@ -284,17 +284,18 @@ instance ToJSON EntityFilter where
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eLastUpdatedTime   :: !(Maybe POSIX)
-    , _eArn               :: !(Maybe Text)
-    , _eService           :: !(Maybe Text)
-    , _eStartTime         :: !(Maybe POSIX)
-    , _eEventTypeCode     :: !(Maybe Text)
-    , _eEventTypeCategory :: !(Maybe EventTypeCategory)
-    , _eAvailabilityZone  :: !(Maybe Text)
-    , _eEndTime           :: !(Maybe POSIX)
-    , _eRegion            :: !(Maybe Text)
-    , _eStatusCode        :: !(Maybe EventStatusCode)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eLastUpdatedTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eArn               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eService           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eStartTime         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eEventTypeCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEventTypeCategory :: {-# NOUNPACK #-}!(Maybe EventTypeCategory)
+  , _eAvailabilityZone  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEndTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eRegion            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eStatusCode        :: {-# NOUNPACK #-}!(Maybe EventStatusCode)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
@@ -322,18 +323,19 @@ data Event = Event'
 event
     :: Event
 event =
-    Event'
-    { _eLastUpdatedTime = Nothing
-    , _eArn = Nothing
-    , _eService = Nothing
-    , _eStartTime = Nothing
-    , _eEventTypeCode = Nothing
-    , _eEventTypeCategory = Nothing
-    , _eAvailabilityZone = Nothing
-    , _eEndTime = Nothing
-    , _eRegion = Nothing
-    , _eStatusCode = Nothing
-    }
+  Event'
+  { _eLastUpdatedTime = Nothing
+  , _eArn = Nothing
+  , _eService = Nothing
+  , _eStartTime = Nothing
+  , _eEventTypeCode = Nothing
+  , _eEventTypeCategory = Nothing
+  , _eAvailabilityZone = Nothing
+  , _eEndTime = Nothing
+  , _eRegion = Nothing
+  , _eStatusCode = Nothing
+  }
+
 
 -- | The most recent date and time that the event was updated.
 eLastUpdatedTime :: Lens' Event (Maybe UTCTime)
@@ -390,9 +392,9 @@ instance FromJSON Event where
                      <*> (x .:? "region")
                      <*> (x .:? "statusCode"))
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- | The number of events of each issue type. Returned by the 'DescribeEventAggregates' operation.
 --
@@ -400,9 +402,10 @@ instance NFData Event
 --
 -- /See:/ 'eventAggregate' smart constructor.
 data EventAggregate = EventAggregate'
-    { _eaCount          :: !(Maybe Int)
-    , _eaAggregateValue :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eaCount          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _eaAggregateValue :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventAggregate' with the minimum fields required to make a request.
 --
@@ -414,10 +417,8 @@ data EventAggregate = EventAggregate'
 eventAggregate
     :: EventAggregate
 eventAggregate =
-    EventAggregate'
-    { _eaCount = Nothing
-    , _eaAggregateValue = Nothing
-    }
+  EventAggregate' {_eaCount = Nothing, _eaAggregateValue = Nothing}
+
 
 -- | The number of events of the associated issue type.
 eaCount :: Lens' EventAggregate (Maybe Int)
@@ -434,9 +435,9 @@ instance FromJSON EventAggregate where
                  EventAggregate' <$>
                    (x .:? "count") <*> (x .:? "aggregateValue"))
 
-instance Hashable EventAggregate
+instance Hashable EventAggregate where
 
-instance NFData EventAggregate
+instance NFData EventAggregate where
 
 -- | The detailed description of the event. Included in the information returned by the 'DescribeEventDetails' operation.
 --
@@ -444,8 +445,9 @@ instance NFData EventAggregate
 --
 -- /See:/ 'eventDescription' smart constructor.
 newtype EventDescription = EventDescription'
-    { _edLatestDescription :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edLatestDescription :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventDescription' with the minimum fields required to make a request.
 --
@@ -454,10 +456,8 @@ newtype EventDescription = EventDescription'
 -- * 'edLatestDescription' - The most recent description of the event.
 eventDescription
     :: EventDescription
-eventDescription =
-    EventDescription'
-    { _edLatestDescription = Nothing
-    }
+eventDescription = EventDescription' {_edLatestDescription = Nothing}
+
 
 -- | The most recent description of the event.
 edLatestDescription :: Lens' EventDescription (Maybe Text)
@@ -469,9 +469,9 @@ instance FromJSON EventDescription where
               (\ x ->
                  EventDescription' <$> (x .:? "latestDescription"))
 
-instance Hashable EventDescription
+instance Hashable EventDescription where
 
-instance NFData EventDescription
+instance NFData EventDescription where
 
 -- | Detailed information about an event. A combination of an 'Event' object, an 'EventDescription' object, and additional metadata about the event. Returned by the 'DescribeEventDetails' operation.
 --
@@ -479,10 +479,11 @@ instance NFData EventDescription
 --
 -- /See:/ 'eventDetails' smart constructor.
 data EventDetails = EventDetails'
-    { _edEvent            :: !(Maybe Event)
-    , _edEventDescription :: !(Maybe EventDescription)
-    , _edEventMetadata    :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edEvent            :: {-# NOUNPACK #-}!(Maybe Event)
+  , _edEventDescription :: {-# NOUNPACK #-}!(Maybe EventDescription)
+  , _edEventMetadata    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventDetails' with the minimum fields required to make a request.
 --
@@ -496,11 +497,12 @@ data EventDetails = EventDetails'
 eventDetails
     :: EventDetails
 eventDetails =
-    EventDetails'
-    { _edEvent = Nothing
-    , _edEventDescription = Nothing
-    , _edEventMetadata = Nothing
-    }
+  EventDetails'
+  { _edEvent = Nothing
+  , _edEventDescription = Nothing
+  , _edEventMetadata = Nothing
+  }
+
 
 -- | Summary information about the event.
 edEvent :: Lens' EventDetails (Maybe Event)
@@ -522,9 +524,9 @@ instance FromJSON EventDetails where
                    (x .:? "event") <*> (x .:? "eventDescription") <*>
                      (x .:? "eventMetadata" .!= mempty))
 
-instance Hashable EventDetails
+instance Hashable EventDetails where
 
-instance NFData EventDetails
+instance NFData EventDetails where
 
 -- | Error information returned when a 'DescribeEventDetails' operation cannot find a specified event.
 --
@@ -532,10 +534,11 @@ instance NFData EventDetails
 --
 -- /See:/ 'eventDetailsErrorItem' smart constructor.
 data EventDetailsErrorItem = EventDetailsErrorItem'
-    { _edeiEventARN     :: !(Maybe Text)
-    , _edeiErrorName    :: !(Maybe Text)
-    , _edeiErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edeiEventARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edeiErrorName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edeiErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventDetailsErrorItem' with the minimum fields required to make a request.
 --
@@ -549,11 +552,12 @@ data EventDetailsErrorItem = EventDetailsErrorItem'
 eventDetailsErrorItem
     :: EventDetailsErrorItem
 eventDetailsErrorItem =
-    EventDetailsErrorItem'
-    { _edeiEventARN = Nothing
-    , _edeiErrorName = Nothing
-    , _edeiErrorMessage = Nothing
-    }
+  EventDetailsErrorItem'
+  { _edeiEventARN = Nothing
+  , _edeiErrorName = Nothing
+  , _edeiErrorMessage = Nothing
+  }
+
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
 edeiEventARN :: Lens' EventDetailsErrorItem (Maybe Text)
@@ -575,9 +579,9 @@ instance FromJSON EventDetailsErrorItem where
                    (x .:? "eventArn") <*> (x .:? "errorName") <*>
                      (x .:? "errorMessage"))
 
-instance Hashable EventDetailsErrorItem
+instance Hashable EventDetailsErrorItem where
 
-instance NFData EventDetailsErrorItem
+instance NFData EventDetailsErrorItem where
 
 -- | The values to use to filter results from the 'DescribeEvents' and 'DescribeEventAggregates' operations.
 --
@@ -585,20 +589,21 @@ instance NFData EventDetailsErrorItem
 --
 -- /See:/ 'eventFilter' smart constructor.
 data EventFilter = EventFilter'
-    { _efEventARNs           :: !(Maybe (List1 Text))
-    , _efEventTypeCategories :: !(Maybe (List1 EventTypeCategory))
-    , _efEventTypeCodes      :: !(Maybe (List1 Text))
-    , _efRegions             :: !(Maybe (List1 Text))
-    , _efEventStatusCodes    :: !(Maybe (List1 EventStatusCode))
-    , _efEndTimes            :: !(Maybe (List1 DateTimeRange))
-    , _efAvailabilityZones   :: !(Maybe [Text])
-    , _efEntityARNs          :: !(Maybe (List1 Text))
-    , _efEntityValues        :: !(Maybe (List1 Text))
-    , _efStartTimes          :: !(Maybe (List1 DateTimeRange))
-    , _efServices            :: !(Maybe (List1 Text))
-    , _efTags                :: !(Maybe [Map Text Text])
-    , _efLastUpdatedTimes    :: !(Maybe (List1 DateTimeRange))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _efEventARNs           :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _efEventTypeCategories :: {-# NOUNPACK #-}!(Maybe (List1 EventTypeCategory))
+  , _efEventTypeCodes      :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _efRegions             :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _efEventStatusCodes    :: {-# NOUNPACK #-}!(Maybe (List1 EventStatusCode))
+  , _efEndTimes            :: {-# NOUNPACK #-}!(Maybe (List1 DateTimeRange))
+  , _efAvailabilityZones   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _efEntityARNs          :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _efEntityValues        :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _efStartTimes          :: {-# NOUNPACK #-}!(Maybe (List1 DateTimeRange))
+  , _efServices            :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _efTags                :: {-# NOUNPACK #-}!(Maybe [Map Text Text])
+  , _efLastUpdatedTimes    :: {-# NOUNPACK #-}!(Maybe (List1 DateTimeRange))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventFilter' with the minimum fields required to make a request.
 --
@@ -632,21 +637,22 @@ data EventFilter = EventFilter'
 eventFilter
     :: EventFilter
 eventFilter =
-    EventFilter'
-    { _efEventARNs = Nothing
-    , _efEventTypeCategories = Nothing
-    , _efEventTypeCodes = Nothing
-    , _efRegions = Nothing
-    , _efEventStatusCodes = Nothing
-    , _efEndTimes = Nothing
-    , _efAvailabilityZones = Nothing
-    , _efEntityARNs = Nothing
-    , _efEntityValues = Nothing
-    , _efStartTimes = Nothing
-    , _efServices = Nothing
-    , _efTags = Nothing
-    , _efLastUpdatedTimes = Nothing
-    }
+  EventFilter'
+  { _efEventARNs = Nothing
+  , _efEventTypeCategories = Nothing
+  , _efEventTypeCodes = Nothing
+  , _efRegions = Nothing
+  , _efEventStatusCodes = Nothing
+  , _efEndTimes = Nothing
+  , _efAvailabilityZones = Nothing
+  , _efEntityARNs = Nothing
+  , _efEntityValues = Nothing
+  , _efStartTimes = Nothing
+  , _efServices = Nothing
+  , _efTags = Nothing
+  , _efLastUpdatedTimes = Nothing
+  }
+
 
 -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
 efEventARNs :: Lens' EventFilter (Maybe (NonEmpty Text))
@@ -700,9 +706,9 @@ efTags = lens _efTags (\ s a -> s{_efTags = a}) . _Default . _Coerce;
 efLastUpdatedTimes :: Lens' EventFilter (Maybe (NonEmpty DateTimeRange))
 efLastUpdatedTimes = lens _efLastUpdatedTimes (\ s a -> s{_efLastUpdatedTimes = a}) . mapping _List1;
 
-instance Hashable EventFilter
+instance Hashable EventFilter where
 
-instance NFData EventFilter
+instance NFData EventFilter where
 
 instance ToJSON EventFilter where
         toJSON EventFilter'{..}
@@ -729,10 +735,11 @@ instance ToJSON EventFilter where
 --
 -- /See:/ 'eventType' smart constructor.
 data EventType = EventType'
-    { _etService  :: !(Maybe Text)
-    , _etCategory :: !(Maybe EventTypeCategory)
-    , _etCode     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etService  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etCategory :: {-# NOUNPACK #-}!(Maybe EventTypeCategory)
+  , _etCode     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventType' with the minimum fields required to make a request.
 --
@@ -746,11 +753,8 @@ data EventType = EventType'
 eventType
     :: EventType
 eventType =
-    EventType'
-    { _etService = Nothing
-    , _etCategory = Nothing
-    , _etCode = Nothing
-    }
+  EventType' {_etService = Nothing, _etCategory = Nothing, _etCode = Nothing}
+
 
 -- | The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
 etService :: Lens' EventType (Maybe Text)
@@ -772,9 +776,9 @@ instance FromJSON EventType where
                    (x .:? "service") <*> (x .:? "category") <*>
                      (x .:? "code"))
 
-instance Hashable EventType
+instance Hashable EventType where
 
-instance NFData EventType
+instance NFData EventType where
 
 -- | The values to use to filter results from the 'DescribeEventTypes' operation.
 --
@@ -782,10 +786,11 @@ instance NFData EventType
 --
 -- /See:/ 'eventTypeFilter' smart constructor.
 data EventTypeFilter = EventTypeFilter'
-    { _etfEventTypeCategories :: !(Maybe (List1 EventTypeCategory))
-    , _etfEventTypeCodes      :: !(Maybe (List1 Text))
-    , _etfServices            :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etfEventTypeCategories :: {-# NOUNPACK #-}!(Maybe (List1 EventTypeCategory))
+  , _etfEventTypeCodes :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _etfServices :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventTypeFilter' with the minimum fields required to make a request.
 --
@@ -799,11 +804,12 @@ data EventTypeFilter = EventTypeFilter'
 eventTypeFilter
     :: EventTypeFilter
 eventTypeFilter =
-    EventTypeFilter'
-    { _etfEventTypeCategories = Nothing
-    , _etfEventTypeCodes = Nothing
-    , _etfServices = Nothing
-    }
+  EventTypeFilter'
+  { _etfEventTypeCategories = Nothing
+  , _etfEventTypeCodes = Nothing
+  , _etfServices = Nothing
+  }
+
 
 -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
 etfEventTypeCategories :: Lens' EventTypeFilter (Maybe (NonEmpty EventTypeCategory))
@@ -817,9 +823,9 @@ etfEventTypeCodes = lens _etfEventTypeCodes (\ s a -> s{_etfEventTypeCodes = a})
 etfServices :: Lens' EventTypeFilter (Maybe (NonEmpty Text))
 etfServices = lens _etfServices (\ s a -> s{_etfServices = a}) . mapping _List1;
 
-instance Hashable EventTypeFilter
+instance Hashable EventTypeFilter where
 
-instance NFData EventTypeFilter
+instance NFData EventTypeFilter where
 
 instance ToJSON EventTypeFilter where
         toJSON EventTypeFilter'{..}

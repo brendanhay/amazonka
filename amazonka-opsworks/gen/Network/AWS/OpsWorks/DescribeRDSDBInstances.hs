@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeRDSDBInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,18 +42,19 @@ module Network.AWS.OpsWorks.DescribeRDSDBInstances
     , drdirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeRDSDBInstances' smart constructor.
 data DescribeRDSDBInstances = DescribeRDSDBInstances'
-    { _drdiRDSDBInstanceARNs :: !(Maybe [Text])
-    , _drdiStackId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdiRDSDBInstanceARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drdiStackId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRDSDBInstances' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ describeRDSDBInstances
     :: Text -- ^ 'drdiStackId'
     -> DescribeRDSDBInstances
 describeRDSDBInstances pStackId_ =
-    DescribeRDSDBInstances'
-    { _drdiRDSDBInstanceARNs = Nothing
-    , _drdiStackId = pStackId_
-    }
+  DescribeRDSDBInstances'
+  {_drdiRDSDBInstanceARNs = Nothing, _drdiStackId = pStackId_}
+
 
 -- | An array containing the ARNs of the instances to be described.
 drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
@@ -90,9 +90,9 @@ instance AWSRequest DescribeRDSDBInstances where
                    (x .?> "RdsDbInstances" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeRDSDBInstances
+instance Hashable DescribeRDSDBInstances where
 
-instance NFData DescribeRDSDBInstances
+instance NFData DescribeRDSDBInstances where
 
 instance ToHeaders DescribeRDSDBInstances where
         toHeaders
@@ -123,9 +123,10 @@ instance ToQuery DescribeRDSDBInstances where
 --
 -- /See:/ 'describeRDSDBInstancesResponse' smart constructor.
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
-    { _drdirsRDSDBInstances :: !(Maybe [RDSDBInstance])
-    , _drdirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdirsRDSDBInstances :: {-# NOUNPACK #-}!(Maybe [RDSDBInstance])
+  , _drdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRDSDBInstancesResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +139,9 @@ describeRDSDBInstancesResponse
     :: Int -- ^ 'drdirsResponseStatus'
     -> DescribeRDSDBInstancesResponse
 describeRDSDBInstancesResponse pResponseStatus_ =
-    DescribeRDSDBInstancesResponse'
-    { _drdirsRDSDBInstances = Nothing
-    , _drdirsResponseStatus = pResponseStatus_
-    }
+  DescribeRDSDBInstancesResponse'
+  {_drdirsRDSDBInstances = Nothing, _drdirsResponseStatus = pResponseStatus_}
+
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
 drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
@@ -151,4 +151,4 @@ drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstan
 drdirsResponseStatus :: Lens' DescribeRDSDBInstancesResponse Int
 drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});
 
-instance NFData DescribeRDSDBInstancesResponse
+instance NFData DescribeRDSDBInstancesResponse where

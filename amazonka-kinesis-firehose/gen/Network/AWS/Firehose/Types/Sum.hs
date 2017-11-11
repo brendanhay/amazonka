@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Firehose.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data CompressionFormat
-    = Gzip
-    | Snappy
-    | Uncompressed
-    | Zip
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Gzip
+  | Snappy
+  | Uncompressed
+  | Zip
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CompressionFormat where
     parser = takeLowerText >>= \case
@@ -55,10 +56,11 @@ instance FromJSON CompressionFormat where
     parseJSON = parseJSONText "CompressionFormat"
 
 data DeliveryStreamStatus
-    = Active
-    | Creating
-    | Deleting
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Creating
+  | Deleting
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeliveryStreamStatus where
     parser = takeLowerText >>= \case
@@ -84,12 +86,13 @@ instance FromJSON DeliveryStreamStatus where
     parseJSON = parseJSONText "DeliveryStreamStatus"
 
 data ElasticsearchIndexRotationPeriod
-    = NoRotation
-    | OneDay
-    | OneHour
-    | OneMonth
-    | OneWeek
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NoRotation
+  | OneDay
+  | OneHour
+  | OneMonth
+  | OneWeek
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ElasticsearchIndexRotationPeriod where
     parser = takeLowerText >>= \case
@@ -122,9 +125,10 @@ instance FromJSON ElasticsearchIndexRotationPeriod where
     parseJSON = parseJSONText "ElasticsearchIndexRotationPeriod"
 
 data ElasticsearchS3BackupMode
-    = AllDocuments
-    | FailedDocumentsOnly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AllDocuments
+  | FailedDocumentsOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ElasticsearchS3BackupMode where
     parser = takeLowerText >>= \case
@@ -151,8 +155,9 @@ instance FromJSON ElasticsearchS3BackupMode where
     parseJSON = parseJSONText "ElasticsearchS3BackupMode"
 
 data NoEncryptionConfig =
-    NoEncryption
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  NoEncryption
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NoEncryptionConfig where
     parser = takeLowerText >>= \case
@@ -177,9 +182,10 @@ instance FromJSON NoEncryptionConfig where
     parseJSON = parseJSONText "NoEncryptionConfig"
 
 data ProcessorParameterName
-    = LambdaARN
-    | NumberOfRetries
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LambdaARN
+  | NumberOfRetries
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProcessorParameterName where
     parser = takeLowerText >>= \case
@@ -206,8 +212,9 @@ instance FromJSON ProcessorParameterName where
     parseJSON = parseJSONText "ProcessorParameterName"
 
 data ProcessorType =
-    Lambda
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Lambda
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProcessorType where
     parser = takeLowerText >>= \case
@@ -232,9 +239,10 @@ instance FromJSON ProcessorType where
     parseJSON = parseJSONText "ProcessorType"
 
 data RedshiftS3BackupMode
-    = Disabled
-    | Enabled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RedshiftS3BackupMode where
     parser = takeLowerText >>= \case
@@ -261,9 +269,10 @@ instance FromJSON RedshiftS3BackupMode where
     parseJSON = parseJSONText "RedshiftS3BackupMode"
 
 data S3BackupMode
-    = SBMDisabled
-    | SBMEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SBMDisabled
+  | SBMEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText S3BackupMode where
     parser = takeLowerText >>= \case

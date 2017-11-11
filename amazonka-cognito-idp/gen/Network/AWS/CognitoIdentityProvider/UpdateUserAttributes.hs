@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
     , uuarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to update user attributes.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUserAttributes' smart constructor.
 data UpdateUserAttributes = UpdateUserAttributes'
-    { _uuaUserAttributes :: ![AttributeType]
-    , _uuaAccessToken    :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uuaUserAttributes :: {-# NOUNPACK #-}![AttributeType]
+  , _uuaAccessToken    :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserAttributes' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ updateUserAttributes
     :: Text -- ^ 'uuaAccessToken'
     -> UpdateUserAttributes
 updateUserAttributes pAccessToken_ =
-    UpdateUserAttributes'
-    { _uuaUserAttributes = mempty
-    , _uuaAccessToken = _Sensitive # pAccessToken_
-    }
+  UpdateUserAttributes'
+  {_uuaUserAttributes = mempty, _uuaAccessToken = _Sensitive # pAccessToken_}
+
 
 -- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 uuaUserAttributes :: Lens' UpdateUserAttributes [AttributeType]
@@ -90,9 +90,9 @@ instance AWSRequest UpdateUserAttributes where
                    (x .?> "CodeDeliveryDetailsList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateUserAttributes
+instance Hashable UpdateUserAttributes where
 
-instance NFData UpdateUserAttributes
+instance NFData UpdateUserAttributes where
 
 instance ToHeaders UpdateUserAttributes where
         toHeaders
@@ -123,9 +123,10 @@ instance ToQuery UpdateUserAttributes where
 --
 -- /See:/ 'updateUserAttributesResponse' smart constructor.
 data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
-    { _uuarsCodeDeliveryDetailsList :: !(Maybe [CodeDeliveryDetailsType])
-    , _uuarsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uuarsCodeDeliveryDetailsList :: {-# NOUNPACK #-}!(Maybe [CodeDeliveryDetailsType])
+  , _uuarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserAttributesResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +139,11 @@ updateUserAttributesResponse
     :: Int -- ^ 'uuarsResponseStatus'
     -> UpdateUserAttributesResponse
 updateUserAttributesResponse pResponseStatus_ =
-    UpdateUserAttributesResponse'
-    { _uuarsCodeDeliveryDetailsList = Nothing
-    , _uuarsResponseStatus = pResponseStatus_
-    }
+  UpdateUserAttributesResponse'
+  { _uuarsCodeDeliveryDetailsList = Nothing
+  , _uuarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The code delivery details list from the server for the request to update user attributes.
 uuarsCodeDeliveryDetailsList :: Lens' UpdateUserAttributesResponse [CodeDeliveryDetailsType]
@@ -151,4 +153,4 @@ uuarsCodeDeliveryDetailsList = lens _uuarsCodeDeliveryDetailsList (\ s a -> s{_u
 uuarsResponseStatus :: Lens' UpdateUserAttributesResponse Int
 uuarsResponseStatus = lens _uuarsResponseStatus (\ s a -> s{_uuarsResponseStatus = a});
 
-instance NFData UpdateUserAttributesResponse
+instance NFData UpdateUserAttributesResponse where

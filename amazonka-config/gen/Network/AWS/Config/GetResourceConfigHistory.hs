@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetResourceConfigHistory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,13 +48,13 @@ module Network.AWS.Config.GetResourceConfigHistory
     , grchrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'GetResourceConfigHistory' action.
 --
@@ -62,14 +62,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getResourceConfigHistory' smart constructor.
 data GetResourceConfigHistory = GetResourceConfigHistory'
-    { _grchChronologicalOrder :: !(Maybe ChronologicalOrder)
-    , _grchNextToken          :: !(Maybe Text)
-    , _grchLimit              :: !(Maybe Nat)
-    , _grchLaterTime          :: !(Maybe POSIX)
-    , _grchEarlierTime        :: !(Maybe POSIX)
-    , _grchResourceType       :: !ResourceType
-    , _grchResourceId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grchChronologicalOrder :: {-# NOUNPACK #-}!(Maybe ChronologicalOrder)
+  , _grchNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grchLimit              :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _grchLaterTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _grchEarlierTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _grchResourceType       :: {-# NOUNPACK #-}!ResourceType
+  , _grchResourceId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetResourceConfigHistory' with the minimum fields required to make a request.
 --
@@ -93,15 +94,16 @@ getResourceConfigHistory
     -> Text -- ^ 'grchResourceId'
     -> GetResourceConfigHistory
 getResourceConfigHistory pResourceType_ pResourceId_ =
-    GetResourceConfigHistory'
-    { _grchChronologicalOrder = Nothing
-    , _grchNextToken = Nothing
-    , _grchLimit = Nothing
-    , _grchLaterTime = Nothing
-    , _grchEarlierTime = Nothing
-    , _grchResourceType = pResourceType_
-    , _grchResourceId = pResourceId_
-    }
+  GetResourceConfigHistory'
+  { _grchChronologicalOrder = Nothing
+  , _grchNextToken = Nothing
+  , _grchLimit = Nothing
+  , _grchLaterTime = Nothing
+  , _grchEarlierTime = Nothing
+  , _grchResourceType = pResourceType_
+  , _grchResourceId = pResourceId_
+  }
+
 
 -- | The chronological order for configuration items listed. By default the results are listed in reverse chronological order.
 grchChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe ChronologicalOrder)
@@ -150,9 +152,9 @@ instance AWSRequest GetResourceConfigHistory where
                      (x .?> "configurationItems" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetResourceConfigHistory
+instance Hashable GetResourceConfigHistory where
 
-instance NFData GetResourceConfigHistory
+instance NFData GetResourceConfigHistory where
 
 instance ToHeaders GetResourceConfigHistory where
         toHeaders
@@ -189,10 +191,11 @@ instance ToQuery GetResourceConfigHistory where
 --
 -- /See:/ 'getResourceConfigHistoryResponse' smart constructor.
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
-    { _grchrsNextToken          :: !(Maybe Text)
-    , _grchrsConfigurationItems :: !(Maybe [ConfigurationItem])
-    , _grchrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grchrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grchrsConfigurationItems :: {-# NOUNPACK #-}!(Maybe [ConfigurationItem])
+  , _grchrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetResourceConfigHistoryResponse' with the minimum fields required to make a request.
 --
@@ -207,11 +210,12 @@ getResourceConfigHistoryResponse
     :: Int -- ^ 'grchrsResponseStatus'
     -> GetResourceConfigHistoryResponse
 getResourceConfigHistoryResponse pResponseStatus_ =
-    GetResourceConfigHistoryResponse'
-    { _grchrsNextToken = Nothing
-    , _grchrsConfigurationItems = Nothing
-    , _grchrsResponseStatus = pResponseStatus_
-    }
+  GetResourceConfigHistoryResponse'
+  { _grchrsNextToken = Nothing
+  , _grchrsConfigurationItems = Nothing
+  , _grchrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 grchrsNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
@@ -226,3 +230,4 @@ grchrsResponseStatus :: Lens' GetResourceConfigHistoryResponse Int
 grchrsResponseStatus = lens _grchrsResponseStatus (\ s a -> s{_grchrsResponseStatus = a});
 
 instance NFData GetResourceConfigHistoryResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetBundles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.Lightsail.GetBundles
     , gbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBundles' smart constructor.
 data GetBundles = GetBundles'
-    { _gIncludeInactive :: !(Maybe Bool)
-    , _gPageToken       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gIncludeInactive :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gPageToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBundles' with the minimum fields required to make a request.
 --
@@ -64,11 +65,8 @@ data GetBundles = GetBundles'
 -- * 'gPageToken' - A token used for advancing to the next page of results from your get bundles request.
 getBundles
     :: GetBundles
-getBundles =
-    GetBundles'
-    { _gIncludeInactive = Nothing
-    , _gPageToken = Nothing
-    }
+getBundles = GetBundles' {_gIncludeInactive = Nothing, _gPageToken = Nothing}
+
 
 -- | A Boolean value that indicates whether to include inactive bundle results in your request.
 gIncludeInactive :: Lens' GetBundles (Maybe Bool)
@@ -96,9 +94,9 @@ instance AWSRequest GetBundles where
                      (x .?> "bundles" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBundles
+instance Hashable GetBundles where
 
-instance NFData GetBundles
+instance NFData GetBundles where
 
 instance ToHeaders GetBundles where
         toHeaders
@@ -124,10 +122,11 @@ instance ToQuery GetBundles where
 
 -- | /See:/ 'getBundlesResponse' smart constructor.
 data GetBundlesResponse = GetBundlesResponse'
-    { _gbrsNextPageToken  :: !(Maybe Text)
-    , _gbrsBundles        :: !(Maybe [Bundle])
-    , _gbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbrsBundles        :: {-# NOUNPACK #-}!(Maybe [Bundle])
+  , _gbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBundlesResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +141,12 @@ getBundlesResponse
     :: Int -- ^ 'gbrsResponseStatus'
     -> GetBundlesResponse
 getBundlesResponse pResponseStatus_ =
-    GetBundlesResponse'
-    { _gbrsNextPageToken = Nothing
-    , _gbrsBundles = Nothing
-    , _gbrsResponseStatus = pResponseStatus_
-    }
+  GetBundlesResponse'
+  { _gbrsNextPageToken = Nothing
+  , _gbrsBundles = Nothing
+  , _gbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token used for advancing to the next page of results from your get active names request.
 gbrsNextPageToken :: Lens' GetBundlesResponse (Maybe Text)
@@ -160,4 +160,4 @@ gbrsBundles = lens _gbrsBundles (\ s a -> s{_gbrsBundles = a}) . _Default . _Coe
 gbrsResponseStatus :: Lens' GetBundlesResponse Int
 gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = a});
 
-instance NFData GetBundlesResponse
+instance NFData GetBundlesResponse where

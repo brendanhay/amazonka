@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.TestInvokeMethod
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.APIGateway.TestInvokeMethod
     , timrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Make a request to simulate the execution of a 'Method' .
 --
@@ -61,15 +61,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'testInvokeMethod' smart constructor.
 data TestInvokeMethod = TestInvokeMethod'
-    { _timPathWithQueryString :: !(Maybe Text)
-    , _timBody                :: !(Maybe Text)
-    , _timClientCertificateId :: !(Maybe Text)
-    , _timStageVariables      :: !(Maybe (Map Text Text))
-    , _timHeaders             :: !(Maybe (Map Text Text))
-    , _timRestAPIId           :: !Text
-    , _timResourceId          :: !Text
-    , _timHttpMethod          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _timPathWithQueryString :: {-# NOUNPACK #-}!(Maybe Text)
+  , _timBody                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _timClientCertificateId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _timStageVariables      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _timHeaders             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _timRestAPIId           :: {-# NOUNPACK #-}!Text
+  , _timResourceId          :: {-# NOUNPACK #-}!Text
+  , _timHttpMethod          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestInvokeMethod' with the minimum fields required to make a request.
 --
@@ -96,16 +97,17 @@ testInvokeMethod
     -> Text -- ^ 'timHttpMethod'
     -> TestInvokeMethod
 testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
-    TestInvokeMethod'
-    { _timPathWithQueryString = Nothing
-    , _timBody = Nothing
-    , _timClientCertificateId = Nothing
-    , _timStageVariables = Nothing
-    , _timHeaders = Nothing
-    , _timRestAPIId = pRestAPIId_
-    , _timResourceId = pResourceId_
-    , _timHttpMethod = pHttpMethod_
-    }
+  TestInvokeMethod'
+  { _timPathWithQueryString = Nothing
+  , _timBody = Nothing
+  , _timClientCertificateId = Nothing
+  , _timStageVariables = Nothing
+  , _timHeaders = Nothing
+  , _timRestAPIId = pRestAPIId_
+  , _timResourceId = pResourceId_
+  , _timHttpMethod = pHttpMethod_
+  }
+
 
 -- | The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
 timPathWithQueryString :: Lens' TestInvokeMethod (Maybe Text)
@@ -151,9 +153,9 @@ instance AWSRequest TestInvokeMethod where
                      <*> (x .?> "headers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable TestInvokeMethod
+instance Hashable TestInvokeMethod where
 
-instance NFData TestInvokeMethod
+instance NFData TestInvokeMethod where
 
 instance ToHeaders TestInvokeMethod where
         toHeaders
@@ -190,13 +192,14 @@ instance ToQuery TestInvokeMethod where
 --
 -- /See:/ 'testInvokeMethodResponse' smart constructor.
 data TestInvokeMethodResponse = TestInvokeMethodResponse'
-    { _timrsLog            :: !(Maybe Text)
-    , _timrsStatus         :: !(Maybe Int)
-    , _timrsBody           :: !(Maybe Text)
-    , _timrsLatency        :: !(Maybe Integer)
-    , _timrsHeaders        :: !(Maybe (Map Text Text))
-    , _timrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _timrsLog            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _timrsStatus         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _timrsBody           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _timrsLatency        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _timrsHeaders        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _timrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestInvokeMethodResponse' with the minimum fields required to make a request.
 --
@@ -217,14 +220,15 @@ testInvokeMethodResponse
     :: Int -- ^ 'timrsResponseStatus'
     -> TestInvokeMethodResponse
 testInvokeMethodResponse pResponseStatus_ =
-    TestInvokeMethodResponse'
-    { _timrsLog = Nothing
-    , _timrsStatus = Nothing
-    , _timrsBody = Nothing
-    , _timrsLatency = Nothing
-    , _timrsHeaders = Nothing
-    , _timrsResponseStatus = pResponseStatus_
-    }
+  TestInvokeMethodResponse'
+  { _timrsLog = Nothing
+  , _timrsStatus = Nothing
+  , _timrsBody = Nothing
+  , _timrsLatency = Nothing
+  , _timrsHeaders = Nothing
+  , _timrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon API Gateway execution log for the test invoke request.
 timrsLog :: Lens' TestInvokeMethodResponse (Maybe Text)
@@ -250,4 +254,4 @@ timrsHeaders = lens _timrsHeaders (\ s a -> s{_timrsHeaders = a}) . _Default . _
 timrsResponseStatus :: Lens' TestInvokeMethodResponse Int
 timrsResponseStatus = lens _timrsResponseStatus (\ s a -> s{_timrsResponseStatus = a});
 
-instance NFData TestInvokeMethodResponse
+instance NFData TestInvokeMethodResponse where

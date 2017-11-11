@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetSuite
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DeviceFarm.GetSuite
     , gsrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the get suite operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getSuite' smart constructor.
 newtype GetSuite = GetSuite'
-    { _gsArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSuite' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetSuite = GetSuite'
 getSuite
     :: Text -- ^ 'gsArn'
     -> GetSuite
-getSuite pArn_ =
-    GetSuite'
-    { _gsArn = pArn_
-    }
+getSuite pArn_ = GetSuite' {_gsArn = pArn_}
+
 
 -- | The suite's ARN.
 gsArn :: Lens' GetSuite Text
@@ -79,9 +78,9 @@ instance AWSRequest GetSuite where
                  GetSuiteResponse' <$>
                    (x .?> "suite") <*> (pure (fromEnum s)))
 
-instance Hashable GetSuite
+instance Hashable GetSuite where
 
-instance NFData GetSuite
+instance NFData GetSuite where
 
 instance ToHeaders GetSuite where
         toHeaders
@@ -108,9 +107,10 @@ instance ToQuery GetSuite where
 --
 -- /See:/ 'getSuiteResponse' smart constructor.
 data GetSuiteResponse = GetSuiteResponse'
-    { _gsrsSuite          :: !(Maybe Suite)
-    , _gsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsrsSuite          :: {-# NOUNPACK #-}!(Maybe Suite)
+  , _gsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSuiteResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +123,9 @@ getSuiteResponse
     :: Int -- ^ 'gsrsResponseStatus'
     -> GetSuiteResponse
 getSuiteResponse pResponseStatus_ =
-    GetSuiteResponse'
-    { _gsrsSuite = Nothing
-    , _gsrsResponseStatus = pResponseStatus_
-    }
+  GetSuiteResponse'
+  {_gsrsSuite = Nothing, _gsrsResponseStatus = pResponseStatus_}
+
 
 -- | A collection of one or more tests.
 gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
@@ -136,4 +135,4 @@ gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
 gsrsResponseStatus :: Lens' GetSuiteResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
 
-instance NFData GetSuiteResponse
+instance NFData GetSuiteResponse where

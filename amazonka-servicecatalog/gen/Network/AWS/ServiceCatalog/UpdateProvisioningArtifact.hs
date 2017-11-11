@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
     , uparsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateProvisioningArtifact' smart constructor.
 data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
-    { _upaName                   :: !(Maybe Text)
-    , _upaAcceptLanguage         :: !(Maybe Text)
-    , _upaDescription            :: !(Maybe Text)
-    , _upaProductId              :: !Text
-    , _upaProvisioningArtifactId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upaName                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upaAcceptLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upaDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upaProductId              :: {-# NOUNPACK #-}!Text
+  , _upaProvisioningArtifactId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProvisioningArtifact' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ updateProvisioningArtifact
     -> Text -- ^ 'upaProvisioningArtifactId'
     -> UpdateProvisioningArtifact
 updateProvisioningArtifact pProductId_ pProvisioningArtifactId_ =
-    UpdateProvisioningArtifact'
-    { _upaName = Nothing
-    , _upaAcceptLanguage = Nothing
-    , _upaDescription = Nothing
-    , _upaProductId = pProductId_
-    , _upaProvisioningArtifactId = pProvisioningArtifactId_
-    }
+  UpdateProvisioningArtifact'
+  { _upaName = Nothing
+  , _upaAcceptLanguage = Nothing
+  , _upaDescription = Nothing
+  , _upaProductId = pProductId_
+  , _upaProvisioningArtifactId = pProvisioningArtifactId_
+  }
+
 
 -- | The updated name of the provisioning artifact.
 upaName :: Lens' UpdateProvisioningArtifact (Maybe Text)
@@ -117,9 +119,9 @@ instance AWSRequest UpdateProvisioningArtifact where
                      (x .?> "ProvisioningArtifactDetail")
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateProvisioningArtifact
+instance Hashable UpdateProvisioningArtifact where
 
-instance NFData UpdateProvisioningArtifact
+instance NFData UpdateProvisioningArtifact where
 
 instance ToHeaders UpdateProvisioningArtifact where
         toHeaders
@@ -151,11 +153,12 @@ instance ToQuery UpdateProvisioningArtifact where
 
 -- | /See:/ 'updateProvisioningArtifactResponse' smart constructor.
 data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
-    { _uparsStatus                     :: !(Maybe RequestStatus)
-    , _uparsInfo                       :: !(Maybe (Map Text Text))
-    , _uparsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
-    , _uparsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uparsStatus :: {-# NOUNPACK #-}!(Maybe RequestStatus)
+  , _uparsInfo :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _uparsProvisioningArtifactDetail :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactDetail)
+  , _uparsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
@@ -172,12 +175,13 @@ updateProvisioningArtifactResponse
     :: Int -- ^ 'uparsResponseStatus'
     -> UpdateProvisioningArtifactResponse
 updateProvisioningArtifactResponse pResponseStatus_ =
-    UpdateProvisioningArtifactResponse'
-    { _uparsStatus = Nothing
-    , _uparsInfo = Nothing
-    , _uparsProvisioningArtifactDetail = Nothing
-    , _uparsResponseStatus = pResponseStatus_
-    }
+  UpdateProvisioningArtifactResponse'
+  { _uparsStatus = Nothing
+  , _uparsInfo = Nothing
+  , _uparsProvisioningArtifactDetail = Nothing
+  , _uparsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the current request.
 uparsStatus :: Lens' UpdateProvisioningArtifactResponse (Maybe RequestStatus)
@@ -196,3 +200,4 @@ uparsResponseStatus :: Lens' UpdateProvisioningArtifactResponse Int
 uparsResponseStatus = lens _uparsResponseStatus (\ s a -> s{_uparsResponseStatus = a});
 
 instance NFData UpdateProvisioningArtifactResponse
+         where

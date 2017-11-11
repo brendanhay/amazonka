@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteScalingPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -87,12 +87,12 @@ module Network.AWS.GameLift.DeleteScalingPolicy
     , DeleteScalingPolicyResponse
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -100,9 +100,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
-    { _dspName    :: !Text
-    , _dspFleetId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dspName    :: {-# NOUNPACK #-}!Text
+  , _dspFleetId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteScalingPolicy' with the minimum fields required to make a request.
 --
@@ -116,10 +117,8 @@ deleteScalingPolicy
     -> Text -- ^ 'dspFleetId'
     -> DeleteScalingPolicy
 deleteScalingPolicy pName_ pFleetId_ =
-    DeleteScalingPolicy'
-    { _dspName = pName_
-    , _dspFleetId = pFleetId_
-    }
+  DeleteScalingPolicy' {_dspName = pName_, _dspFleetId = pFleetId_}
+
 
 -- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 dspName :: Lens' DeleteScalingPolicy Text
@@ -135,9 +134,9 @@ instance AWSRequest DeleteScalingPolicy where
         request = postJSON gameLift
         response = receiveNull DeleteScalingPolicyResponse'
 
-instance Hashable DeleteScalingPolicy
+instance Hashable DeleteScalingPolicy where
 
-instance NFData DeleteScalingPolicy
+instance NFData DeleteScalingPolicy where
 
 instance ToHeaders DeleteScalingPolicy where
         toHeaders
@@ -163,8 +162,9 @@ instance ToQuery DeleteScalingPolicy where
 
 -- | /See:/ 'deleteScalingPolicyResponse' smart constructor.
 data DeleteScalingPolicyResponse =
-    DeleteScalingPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteScalingPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteScalingPolicyResponse' with the minimum fields required to make a request.
 --
@@ -172,4 +172,5 @@ deleteScalingPolicyResponse
     :: DeleteScalingPolicyResponse
 deleteScalingPolicyResponse = DeleteScalingPolicyResponse'
 
-instance NFData DeleteScalingPolicyResponse
+
+instance NFData DeleteScalingPolicyResponse where

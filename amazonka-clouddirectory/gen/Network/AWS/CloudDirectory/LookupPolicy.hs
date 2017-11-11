@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.LookupPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.CloudDirectory.LookupPolicy
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'lookupPolicy' smart constructor.
 data LookupPolicy = LookupPolicy'
-    { _lpNextToken       :: !(Maybe Text)
-    , _lpMaxResults      :: !(Maybe Nat)
-    , _lpDirectoryARN    :: !Text
-    , _lpObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lpDirectoryARN    :: {-# NOUNPACK #-}!Text
+  , _lpObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LookupPolicy' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ lookupPolicy
     -> ObjectReference -- ^ 'lpObjectReference'
     -> LookupPolicy
 lookupPolicy pDirectoryARN_ pObjectReference_ =
-    LookupPolicy'
-    { _lpNextToken = Nothing
-    , _lpMaxResults = Nothing
-    , _lpDirectoryARN = pDirectoryARN_
-    , _lpObjectReference = pObjectReference_
-    }
+  LookupPolicy'
+  { _lpNextToken = Nothing
+  , _lpMaxResults = Nothing
+  , _lpDirectoryARN = pDirectoryARN_
+  , _lpObjectReference = pObjectReference_
+  }
+
 
 -- | The token to request the next page of results.
 lpNextToken :: Lens' LookupPolicy (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest LookupPolicy where
                      (x .?> "PolicyToPathList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable LookupPolicy
+instance Hashable LookupPolicy where
 
-instance NFData LookupPolicy
+instance NFData LookupPolicy where
 
 instance ToHeaders LookupPolicy where
         toHeaders LookupPolicy'{..}
@@ -132,10 +134,11 @@ instance ToQuery LookupPolicy where
 
 -- | /See:/ 'lookupPolicyResponse' smart constructor.
 data LookupPolicyResponse = LookupPolicyResponse'
-    { _lprsNextToken        :: !(Maybe Text)
-    , _lprsPolicyToPathList :: !(Maybe [PolicyToPath])
-    , _lprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsPolicyToPathList :: {-# NOUNPACK #-}!(Maybe [PolicyToPath])
+  , _lprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LookupPolicyResponse' with the minimum fields required to make a request.
 --
@@ -150,11 +153,12 @@ lookupPolicyResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> LookupPolicyResponse
 lookupPolicyResponse pResponseStatus_ =
-    LookupPolicyResponse'
-    { _lprsNextToken = Nothing
-    , _lprsPolicyToPathList = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  LookupPolicyResponse'
+  { _lprsNextToken = Nothing
+  , _lprsPolicyToPathList = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 lprsNextToken :: Lens' LookupPolicyResponse (Maybe Text)
@@ -168,4 +172,4 @@ lprsPolicyToPathList = lens _lprsPolicyToPathList (\ s a -> s{_lprsPolicyToPathL
 lprsResponseStatus :: Lens' LookupPolicyResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData LookupPolicyResponse
+instance NFData LookupPolicyResponse where

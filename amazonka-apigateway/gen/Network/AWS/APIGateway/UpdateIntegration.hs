@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateIntegration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.APIGateway.UpdateIntegration
     , iCacheKeyParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents an update integration request.
 --
@@ -62,11 +62,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateIntegration' smart constructor.
 data UpdateIntegration = UpdateIntegration'
-    { _updPatchOperations :: !(Maybe [PatchOperation])
-    , _updRestAPIId       :: !Text
-    , _updResourceId      :: !Text
-    , _updHttpMethod      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _updPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _updRestAPIId       :: {-# NOUNPACK #-}!Text
+  , _updResourceId      :: {-# NOUNPACK #-}!Text
+  , _updHttpMethod      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateIntegration' with the minimum fields required to make a request.
 --
@@ -85,12 +86,13 @@ updateIntegration
     -> Text -- ^ 'updHttpMethod'
     -> UpdateIntegration
 updateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
-    UpdateIntegration'
-    { _updPatchOperations = Nothing
-    , _updRestAPIId = pRestAPIId_
-    , _updResourceId = pResourceId_
-    , _updHttpMethod = pHttpMethod_
-    }
+  UpdateIntegration'
+  { _updPatchOperations = Nothing
+  , _updRestAPIId = pRestAPIId_
+  , _updResourceId = pResourceId_
+  , _updHttpMethod = pHttpMethod_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 updPatchOperations :: Lens' UpdateIntegration [PatchOperation]
@@ -113,9 +115,9 @@ instance AWSRequest UpdateIntegration where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateIntegration
+instance Hashable UpdateIntegration where
 
-instance NFData UpdateIntegration
+instance NFData UpdateIntegration where
 
 instance ToHeaders UpdateIntegration where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ForgotPassword
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CognitoIdentityProvider.ForgotPassword
     , fprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to reset a user's password.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'forgotPassword' smart constructor.
 data ForgotPassword = ForgotPassword'
-    { _fpSecretHash :: !(Maybe (Sensitive Text))
-    , _fpClientId   :: !(Sensitive Text)
-    , _fpUsername   :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _fpSecretHash :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _fpClientId   :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _fpUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ForgotPassword' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ forgotPassword
     -> Text -- ^ 'fpUsername'
     -> ForgotPassword
 forgotPassword pClientId_ pUsername_ =
-    ForgotPassword'
-    { _fpSecretHash = Nothing
-    , _fpClientId = _Sensitive # pClientId_
-    , _fpUsername = _Sensitive # pUsername_
-    }
+  ForgotPassword'
+  { _fpSecretHash = Nothing
+  , _fpClientId = _Sensitive # pClientId_
+  , _fpUsername = _Sensitive # pUsername_
+  }
+
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 fpSecretHash :: Lens' ForgotPassword (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest ForgotPassword where
                    (x .?> "CodeDeliveryDetails") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ForgotPassword
+instance Hashable ForgotPassword where
 
-instance NFData ForgotPassword
+instance NFData ForgotPassword where
 
 instance ToHeaders ForgotPassword where
         toHeaders
@@ -133,9 +135,10 @@ instance ToQuery ForgotPassword where
 --
 -- /See:/ 'forgotPasswordResponse' smart constructor.
 data ForgotPasswordResponse = ForgotPasswordResponse'
-    { _fprsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
-    , _fprsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fprsCodeDeliveryDetails :: {-# NOUNPACK #-}!(Maybe CodeDeliveryDetailsType)
+  , _fprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ForgotPasswordResponse' with the minimum fields required to make a request.
 --
@@ -148,10 +151,9 @@ forgotPasswordResponse
     :: Int -- ^ 'fprsResponseStatus'
     -> ForgotPasswordResponse
 forgotPasswordResponse pResponseStatus_ =
-    ForgotPasswordResponse'
-    { _fprsCodeDeliveryDetails = Nothing
-    , _fprsResponseStatus = pResponseStatus_
-    }
+  ForgotPasswordResponse'
+  {_fprsCodeDeliveryDetails = Nothing, _fprsResponseStatus = pResponseStatus_}
+
 
 -- | The code delivery details returned by the server in response to the request to reset a password.
 fprsCodeDeliveryDetails :: Lens' ForgotPasswordResponse (Maybe CodeDeliveryDetailsType)
@@ -161,4 +163,4 @@ fprsCodeDeliveryDetails = lens _fprsCodeDeliveryDetails (\ s a -> s{_fprsCodeDel
 fprsResponseStatus :: Lens' ForgotPasswordResponse Int
 fprsResponseStatus = lens _fprsResponseStatus (\ s a -> s{_fprsResponseStatus = a});
 
-instance NFData ForgotPasswordResponse
+instance NFData ForgotPasswordResponse where

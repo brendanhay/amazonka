@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribePlatformVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.ElasticBeanstalk.DescribePlatformVersion
     , drsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describePlatformVersion' smart constructor.
 newtype DescribePlatformVersion = DescribePlatformVersion'
-    { _dPlatformARN :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dPlatformARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePlatformVersion' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DescribePlatformVersion = DescribePlatformVersion'
 -- * 'dPlatformARN' - The ARN of the version of the platform.
 describePlatformVersion
     :: DescribePlatformVersion
-describePlatformVersion =
-    DescribePlatformVersion'
-    { _dPlatformARN = Nothing
-    }
+describePlatformVersion = DescribePlatformVersion' {_dPlatformARN = Nothing}
+
 
 -- | The ARN of the version of the platform.
 dPlatformARN :: Lens' DescribePlatformVersion (Maybe Text)
@@ -76,9 +75,9 @@ instance AWSRequest DescribePlatformVersion where
                    (x .@? "PlatformDescription") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribePlatformVersion
+instance Hashable DescribePlatformVersion where
 
-instance NFData DescribePlatformVersion
+instance NFData DescribePlatformVersion where
 
 instance ToHeaders DescribePlatformVersion where
         toHeaders = const mempty
@@ -96,9 +95,10 @@ instance ToQuery DescribePlatformVersion where
 
 -- | /See:/ 'describePlatformVersionResponse' smart constructor.
 data DescribePlatformVersionResponse = DescribePlatformVersionResponse'
-    { _drsPlatformDescription :: !(Maybe PlatformDescription)
-    , _drsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsPlatformDescription :: {-# NOUNPACK #-}!(Maybe PlatformDescription)
+  , _drsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePlatformVersionResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +111,9 @@ describePlatformVersionResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribePlatformVersionResponse
 describePlatformVersionResponse pResponseStatus_ =
-    DescribePlatformVersionResponse'
-    { _drsPlatformDescription = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribePlatformVersionResponse'
+  {_drsPlatformDescription = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | Detailed information about the version of the platform.
 drsPlatformDescription :: Lens' DescribePlatformVersionResponse (Maybe PlatformDescription)
@@ -124,4 +123,4 @@ drsPlatformDescription = lens _drsPlatformDescription (\ s a -> s{_drsPlatformDe
 drsResponseStatus :: Lens' DescribePlatformVersionResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribePlatformVersionResponse
+instance NFData DescribePlatformVersionResponse where

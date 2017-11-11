@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetLoginProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.IAM.GetLoginProfile
     , glprsLoginProfile
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getLoginProfile' smart constructor.
 newtype GetLoginProfile = GetLoginProfile'
-    { _glpUserName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _glpUserName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLoginProfile' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetLoginProfile = GetLoginProfile'
 getLoginProfile
     :: Text -- ^ 'glpUserName'
     -> GetLoginProfile
-getLoginProfile pUserName_ =
-    GetLoginProfile'
-    { _glpUserName = pUserName_
-    }
+getLoginProfile pUserName_ = GetLoginProfile' {_glpUserName = pUserName_}
+
 
 -- | The name of the user whose login profile you want to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 glpUserName :: Lens' GetLoginProfile Text
@@ -75,9 +74,9 @@ instance AWSRequest GetLoginProfile where
                  GetLoginProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "LoginProfile"))
 
-instance Hashable GetLoginProfile
+instance Hashable GetLoginProfile where
 
-instance NFData GetLoginProfile
+instance NFData GetLoginProfile where
 
 instance ToHeaders GetLoginProfile where
         toHeaders = const mempty
@@ -98,9 +97,10 @@ instance ToQuery GetLoginProfile where
 --
 -- /See:/ 'getLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'
-    { _glprsResponseStatus :: !Int
-    , _glprsLoginProfile   :: !LoginProfile
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _glprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _glprsLoginProfile   :: {-# NOUNPACK #-}!LoginProfile
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLoginProfileResponse' with the minimum fields required to make a request.
 --
@@ -114,10 +114,9 @@ getLoginProfileResponse
     -> LoginProfile -- ^ 'glprsLoginProfile'
     -> GetLoginProfileResponse
 getLoginProfileResponse pResponseStatus_ pLoginProfile_ =
-    GetLoginProfileResponse'
-    { _glprsResponseStatus = pResponseStatus_
-    , _glprsLoginProfile = pLoginProfile_
-    }
+  GetLoginProfileResponse'
+  {_glprsResponseStatus = pResponseStatus_, _glprsLoginProfile = pLoginProfile_}
+
 
 -- | -- | The response status code.
 glprsResponseStatus :: Lens' GetLoginProfileResponse Int
@@ -127,4 +126,4 @@ glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus
 glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprsLoginProfile = lens _glprsLoginProfile (\ s a -> s{_glprsLoginProfile = a});
 
-instance NFData GetLoginProfileResponse
+instance NFData GetLoginProfileResponse where

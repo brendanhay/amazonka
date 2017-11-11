@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetImportJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.Pinpoint.GetImportJobs
     , gijsrsImportJobsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getImportJobs' smart constructor.
 data GetImportJobs = GetImportJobs'
-    { _gijsToken         :: !(Maybe Text)
-    , _gijsPageSize      :: !(Maybe Text)
-    , _gijsApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gijsToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gijsPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gijsApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetImportJobs' with the minimum fields required to make a request.
 --
@@ -64,11 +65,12 @@ getImportJobs
     :: Text -- ^ 'gijsApplicationId'
     -> GetImportJobs
 getImportJobs pApplicationId_ =
-    GetImportJobs'
-    { _gijsToken = Nothing
-    , _gijsPageSize = Nothing
-    , _gijsApplicationId = pApplicationId_
-    }
+  GetImportJobs'
+  { _gijsToken = Nothing
+  , _gijsPageSize = Nothing
+  , _gijsApplicationId = pApplicationId_
+  }
+
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gijsToken :: Lens' GetImportJobs (Maybe Text)
@@ -91,9 +93,9 @@ instance AWSRequest GetImportJobs where
                  GetImportJobsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetImportJobs
+instance Hashable GetImportJobs where
 
-instance NFData GetImportJobs
+instance NFData GetImportJobs where
 
 instance ToHeaders GetImportJobs where
         toHeaders
@@ -115,9 +117,10 @@ instance ToQuery GetImportJobs where
 
 -- | /See:/ 'getImportJobsResponse' smart constructor.
 data GetImportJobsResponse = GetImportJobsResponse'
-    { _gijsrsResponseStatus     :: !Int
-    , _gijsrsImportJobsResponse :: !ImportJobsResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gijsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _gijsrsImportJobsResponse :: {-# NOUNPACK #-}!ImportJobsResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetImportJobsResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +134,11 @@ getImportJobsResponse
     -> ImportJobsResponse -- ^ 'gijsrsImportJobsResponse'
     -> GetImportJobsResponse
 getImportJobsResponse pResponseStatus_ pImportJobsResponse_ =
-    GetImportJobsResponse'
-    { _gijsrsResponseStatus = pResponseStatus_
-    , _gijsrsImportJobsResponse = pImportJobsResponse_
-    }
+  GetImportJobsResponse'
+  { _gijsrsResponseStatus = pResponseStatus_
+  , _gijsrsImportJobsResponse = pImportJobsResponse_
+  }
+
 
 -- | -- | The response status code.
 gijsrsResponseStatus :: Lens' GetImportJobsResponse Int
@@ -144,4 +148,4 @@ gijsrsResponseStatus = lens _gijsrsResponseStatus (\ s a -> s{_gijsrsResponseSta
 gijsrsImportJobsResponse :: Lens' GetImportJobsResponse ImportJobsResponse
 gijsrsImportJobsResponse = lens _gijsrsImportJobsResponse (\ s a -> s{_gijsrsImportJobsResponse = a});
 
-instance NFData GetImportJobsResponse
+instance NFData GetImportJobsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteCampaign
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.DeleteCampaign
     , dcrsCampaignResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCampaign' smart constructor.
 data DeleteCampaign = DeleteCampaign'
-    { _dcCampaignId    :: !Text
-    , _dcApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcCampaignId    :: {-# NOUNPACK #-}!Text
+  , _dcApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCampaign' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ deleteCampaign
     -> Text -- ^ 'dcApplicationId'
     -> DeleteCampaign
 deleteCampaign pCampaignId_ pApplicationId_ =
-    DeleteCampaign'
-    { _dcCampaignId = pCampaignId_
-    , _dcApplicationId = pApplicationId_
-    }
+  DeleteCampaign'
+  {_dcCampaignId = pCampaignId_, _dcApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 dcCampaignId :: Lens' DeleteCampaign Text
@@ -83,9 +83,9 @@ instance AWSRequest DeleteCampaign where
                  DeleteCampaignResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteCampaign
+instance Hashable DeleteCampaign where
 
-instance NFData DeleteCampaign
+instance NFData DeleteCampaign where
 
 instance ToHeaders DeleteCampaign where
         toHeaders
@@ -105,9 +105,10 @@ instance ToQuery DeleteCampaign where
 
 -- | /See:/ 'deleteCampaignResponse' smart constructor.
 data DeleteCampaignResponse = DeleteCampaignResponse'
-    { _dcrsResponseStatus   :: !Int
-    , _dcrsCampaignResponse :: !CampaignResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _dcrsCampaignResponse :: {-# NOUNPACK #-}!CampaignResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCampaignResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,11 @@ deleteCampaignResponse
     -> CampaignResponse -- ^ 'dcrsCampaignResponse'
     -> DeleteCampaignResponse
 deleteCampaignResponse pResponseStatus_ pCampaignResponse_ =
-    DeleteCampaignResponse'
-    { _dcrsResponseStatus = pResponseStatus_
-    , _dcrsCampaignResponse = pCampaignResponse_
-    }
+  DeleteCampaignResponse'
+  { _dcrsResponseStatus = pResponseStatus_
+  , _dcrsCampaignResponse = pCampaignResponse_
+  }
+
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DeleteCampaignResponse Int
@@ -134,4 +136,4 @@ dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = 
 dcrsCampaignResponse :: Lens' DeleteCampaignResponse CampaignResponse
 dcrsCampaignResponse = lens _dcrsCampaignResponse (\ s a -> s{_dcrsCampaignResponse = a});
 
-instance NFData DeleteCampaignResponse
+instance NFData DeleteCampaignResponse where

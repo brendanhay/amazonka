@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyOptionGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.RDS.CopyOptionGroup
     , cogrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'copyOptionGroup' smart constructor.
 data CopyOptionGroup = CopyOptionGroup'
-    { _cTags                         :: !(Maybe [Tag])
-    , _cSourceOptionGroupIdentifier  :: !Text
-    , _cTargetOptionGroupIdentifier  :: !Text
-    , _cTargetOptionGroupDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cTags                         :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cSourceOptionGroupIdentifier  :: {-# NOUNPACK #-}!Text
+  , _cTargetOptionGroupIdentifier  :: {-# NOUNPACK #-}!Text
+  , _cTargetOptionGroupDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyOptionGroup' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ copyOptionGroup
     -> Text -- ^ 'cTargetOptionGroupDescription'
     -> CopyOptionGroup
 copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTargetOptionGroupDescription_ =
-    CopyOptionGroup'
-    { _cTags = Nothing
-    , _cSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier_
-    , _cTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier_
-    , _cTargetOptionGroupDescription = pTargetOptionGroupDescription_
-    }
+  CopyOptionGroup'
+  { _cTags = Nothing
+  , _cSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier_
+  , _cTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier_
+  , _cTargetOptionGroupDescription = pTargetOptionGroupDescription_
+  }
+
 
 -- | Undocumented member.
 cTags :: Lens' CopyOptionGroup [Tag]
@@ -108,9 +110,9 @@ instance AWSRequest CopyOptionGroup where
                  CopyOptionGroupResponse' <$>
                    (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
-instance Hashable CopyOptionGroup
+instance Hashable CopyOptionGroup where
 
-instance NFData CopyOptionGroup
+instance NFData CopyOptionGroup where
 
 instance ToHeaders CopyOptionGroup where
         toHeaders = const mempty
@@ -133,9 +135,10 @@ instance ToQuery CopyOptionGroup where
 
 -- | /See:/ 'copyOptionGroupResponse' smart constructor.
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
-    { _cogrsOptionGroup    :: !(Maybe OptionGroup)
-    , _cogrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cogrsOptionGroup    :: {-# NOUNPACK #-}!(Maybe OptionGroup)
+  , _cogrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyOptionGroupResponse' with the minimum fields required to make a request.
 --
@@ -148,10 +151,9 @@ copyOptionGroupResponse
     :: Int -- ^ 'cogrsResponseStatus'
     -> CopyOptionGroupResponse
 copyOptionGroupResponse pResponseStatus_ =
-    CopyOptionGroupResponse'
-    { _cogrsOptionGroup = Nothing
-    , _cogrsResponseStatus = pResponseStatus_
-    }
+  CopyOptionGroupResponse'
+  {_cogrsOptionGroup = Nothing, _cogrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cogrsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
@@ -161,4 +163,4 @@ cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
 cogrsResponseStatus :: Lens' CopyOptionGroupResponse Int
 cogrsResponseStatus = lens _cogrsResponseStatus (\ s a -> s{_cogrsResponseStatus = a});
 
-instance NFData CopyOptionGroupResponse
+instance NFData CopyOptionGroupResponse where

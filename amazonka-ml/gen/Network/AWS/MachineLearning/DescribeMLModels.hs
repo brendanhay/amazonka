@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeMLModels
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,28 +50,29 @@ module Network.AWS.MachineLearning.DescribeMLModels
     , dmlmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMLModels' smart constructor.
 data DescribeMLModels = DescribeMLModels'
-    { _dmlmEQ             :: !(Maybe Text)
-    , _dmlmGE             :: !(Maybe Text)
-    , _dmlmPrefix         :: !(Maybe Text)
-    , _dmlmGT             :: !(Maybe Text)
-    , _dmlmNE             :: !(Maybe Text)
-    , _dmlmNextToken      :: !(Maybe Text)
-    , _dmlmSortOrder      :: !(Maybe SortOrder)
-    , _dmlmLimit          :: !(Maybe Nat)
-    , _dmlmLT             :: !(Maybe Text)
-    , _dmlmFilterVariable :: !(Maybe MLModelFilterVariable)
-    , _dmlmLE             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmlmEQ             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmGE             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmPrefix         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmGT             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmNE             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmSortOrder      :: {-# NOUNPACK #-}!(Maybe SortOrder)
+  , _dmlmLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dmlmLT             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmFilterVariable :: {-# NOUNPACK #-}!(Maybe MLModelFilterVariable)
+  , _dmlmLE             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMLModels' with the minimum fields required to make a request.
 --
@@ -101,19 +102,20 @@ data DescribeMLModels = DescribeMLModels'
 describeMLModels
     :: DescribeMLModels
 describeMLModels =
-    DescribeMLModels'
-    { _dmlmEQ = Nothing
-    , _dmlmGE = Nothing
-    , _dmlmPrefix = Nothing
-    , _dmlmGT = Nothing
-    , _dmlmNE = Nothing
-    , _dmlmNextToken = Nothing
-    , _dmlmSortOrder = Nothing
-    , _dmlmLimit = Nothing
-    , _dmlmLT = Nothing
-    , _dmlmFilterVariable = Nothing
-    , _dmlmLE = Nothing
-    }
+  DescribeMLModels'
+  { _dmlmEQ = Nothing
+  , _dmlmGE = Nothing
+  , _dmlmPrefix = Nothing
+  , _dmlmGT = Nothing
+  , _dmlmNE = Nothing
+  , _dmlmNextToken = Nothing
+  , _dmlmSortOrder = Nothing
+  , _dmlmLimit = Nothing
+  , _dmlmLT = Nothing
+  , _dmlmFilterVariable = Nothing
+  , _dmlmLE = Nothing
+  }
+
 
 -- | The equal to operator. The @MLModel@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
 dmlmEQ :: Lens' DescribeMLModels (Maybe Text)
@@ -176,9 +178,9 @@ instance AWSRequest DescribeMLModels where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeMLModels
+instance Hashable DescribeMLModels where
 
-instance NFData DescribeMLModels
+instance NFData DescribeMLModels where
 
 instance ToHeaders DescribeMLModels where
         toHeaders
@@ -214,10 +216,11 @@ instance ToQuery DescribeMLModels where
 --
 -- /See:/ 'describeMLModelsResponse' smart constructor.
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
-    { _dmlmsrsResults        :: !(Maybe [MLModel])
-    , _dmlmsrsNextToken      :: !(Maybe Text)
-    , _dmlmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmlmsrsResults        :: {-# NOUNPACK #-}!(Maybe [MLModel])
+  , _dmlmsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMLModelsResponse' with the minimum fields required to make a request.
 --
@@ -232,11 +235,12 @@ describeMLModelsResponse
     :: Int -- ^ 'dmlmsrsResponseStatus'
     -> DescribeMLModelsResponse
 describeMLModelsResponse pResponseStatus_ =
-    DescribeMLModelsResponse'
-    { _dmlmsrsResults = Nothing
-    , _dmlmsrsNextToken = Nothing
-    , _dmlmsrsResponseStatus = pResponseStatus_
-    }
+  DescribeMLModelsResponse'
+  { _dmlmsrsResults = Nothing
+  , _dmlmsrsNextToken = Nothing
+  , _dmlmsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of @MLModel@ that meet the search criteria.
 dmlmsrsResults :: Lens' DescribeMLModelsResponse [MLModel]
@@ -250,4 +254,4 @@ dmlmsrsNextToken = lens _dmlmsrsNextToken (\ s a -> s{_dmlmsrsNextToken = a});
 dmlmsrsResponseStatus :: Lens' DescribeMLModelsResponse Int
 dmlmsrsResponseStatus = lens _dmlmsrsResponseStatus (\ s a -> s{_dmlmsrsResponseStatus = a});
 
-instance NFData DescribeMLModelsResponse
+instance NFData DescribeMLModelsResponse where

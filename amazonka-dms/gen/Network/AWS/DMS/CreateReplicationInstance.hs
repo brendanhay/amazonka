@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.CreateReplicationInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.DMS.CreateReplicationInstance
     , crirsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -62,20 +62,21 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createReplicationInstance' smart constructor.
 data CreateReplicationInstance = CreateReplicationInstance'
-    { _criEngineVersion                    :: !(Maybe Text)
-    , _criPubliclyAccessible               :: !(Maybe Bool)
-    , _criAutoMinorVersionUpgrade          :: !(Maybe Bool)
-    , _criReplicationSubnetGroupIdentifier :: !(Maybe Text)
-    , _criPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _criKMSKeyId                         :: !(Maybe Text)
-    , _criAvailabilityZone                 :: !(Maybe Text)
-    , _criVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _criMultiAZ                          :: !(Maybe Bool)
-    , _criAllocatedStorage                 :: !(Maybe Int)
-    , _criTags                             :: !(Maybe [Tag])
-    , _criReplicationInstanceIdentifier    :: !Text
-    , _criReplicationInstanceClass         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _criEngineVersion                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _criPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _criAutoMinorVersionUpgrade          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _criReplicationSubnetGroupIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _criPreferredMaintenanceWindow       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _criKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _criAvailabilityZone                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _criVPCSecurityGroupIds              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _criMultiAZ                          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _criAllocatedStorage                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _criTags                             :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _criReplicationInstanceIdentifier    :: {-# NOUNPACK #-}!Text
+  , _criReplicationInstanceClass         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationInstance' with the minimum fields required to make a request.
 --
@@ -111,21 +112,22 @@ createReplicationInstance
     -> Text -- ^ 'criReplicationInstanceClass'
     -> CreateReplicationInstance
 createReplicationInstance pReplicationInstanceIdentifier_ pReplicationInstanceClass_ =
-    CreateReplicationInstance'
-    { _criEngineVersion = Nothing
-    , _criPubliclyAccessible = Nothing
-    , _criAutoMinorVersionUpgrade = Nothing
-    , _criReplicationSubnetGroupIdentifier = Nothing
-    , _criPreferredMaintenanceWindow = Nothing
-    , _criKMSKeyId = Nothing
-    , _criAvailabilityZone = Nothing
-    , _criVPCSecurityGroupIds = Nothing
-    , _criMultiAZ = Nothing
-    , _criAllocatedStorage = Nothing
-    , _criTags = Nothing
-    , _criReplicationInstanceIdentifier = pReplicationInstanceIdentifier_
-    , _criReplicationInstanceClass = pReplicationInstanceClass_
-    }
+  CreateReplicationInstance'
+  { _criEngineVersion = Nothing
+  , _criPubliclyAccessible = Nothing
+  , _criAutoMinorVersionUpgrade = Nothing
+  , _criReplicationSubnetGroupIdentifier = Nothing
+  , _criPreferredMaintenanceWindow = Nothing
+  , _criKMSKeyId = Nothing
+  , _criAvailabilityZone = Nothing
+  , _criVPCSecurityGroupIds = Nothing
+  , _criMultiAZ = Nothing
+  , _criAllocatedStorage = Nothing
+  , _criTags = Nothing
+  , _criReplicationInstanceIdentifier = pReplicationInstanceIdentifier_
+  , _criReplicationInstanceClass = pReplicationInstanceClass_
+  }
+
 
 -- | The engine version number of the replication instance.
 criEngineVersion :: Lens' CreateReplicationInstance (Maybe Text)
@@ -190,9 +192,9 @@ instance AWSRequest CreateReplicationInstance where
                    (x .?> "ReplicationInstance") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateReplicationInstance
+instance Hashable CreateReplicationInstance where
 
-instance NFData CreateReplicationInstance
+instance NFData CreateReplicationInstance where
 
 instance ToHeaders CreateReplicationInstance where
         toHeaders
@@ -242,9 +244,10 @@ instance ToQuery CreateReplicationInstance where
 --
 -- /See:/ 'createReplicationInstanceResponse' smart constructor.
 data CreateReplicationInstanceResponse = CreateReplicationInstanceResponse'
-    { _crirsReplicationInstance :: !(Maybe ReplicationInstance)
-    , _crirsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crirsReplicationInstance :: {-# NOUNPACK #-}!(Maybe ReplicationInstance)
+  , _crirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationInstanceResponse' with the minimum fields required to make a request.
 --
@@ -257,10 +260,9 @@ createReplicationInstanceResponse
     :: Int -- ^ 'crirsResponseStatus'
     -> CreateReplicationInstanceResponse
 createReplicationInstanceResponse pResponseStatus_ =
-    CreateReplicationInstanceResponse'
-    { _crirsReplicationInstance = Nothing
-    , _crirsResponseStatus = pResponseStatus_
-    }
+  CreateReplicationInstanceResponse'
+  {_crirsReplicationInstance = Nothing, _crirsResponseStatus = pResponseStatus_}
+
 
 -- | The replication instance that was created.
 crirsReplicationInstance :: Lens' CreateReplicationInstanceResponse (Maybe ReplicationInstance)
@@ -271,3 +273,4 @@ crirsResponseStatus :: Lens' CreateReplicationInstanceResponse Int
 crirsResponseStatus = lens _crirsResponseStatus (\ s a -> s{_crirsResponseStatus = a});
 
 instance NFData CreateReplicationInstanceResponse
+         where

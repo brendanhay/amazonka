@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListRoles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.IAM.ListRoles
     , lrrsRoles
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listRoles' smart constructor.
 data ListRoles = ListRoles'
-    { _lrPathPrefix :: !(Maybe Text)
-    , _lrMarker     :: !(Maybe Text)
-    , _lrMaxItems   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRoles' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ data ListRoles = ListRoles'
 listRoles
     :: ListRoles
 listRoles =
-    ListRoles'
-    { _lrPathPrefix = Nothing
-    , _lrMarker = Nothing
-    , _lrMaxItems = Nothing
-    }
+  ListRoles'
+  {_lrPathPrefix = Nothing, _lrMarker = Nothing, _lrMaxItems = Nothing}
+
 
 -- | The path prefix for filtering the results. For example, the prefix @/application_abc/component_xyz/@ gets all roles whose path starts with @/application_abc/component_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all roles. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lrPathPrefix :: Lens' ListRoles (Maybe Text)
@@ -109,9 +108,9 @@ instance AWSRequest ListRoles where
                      <*>
                      (x .@? "Roles" .!@ mempty >>= parseXMLList "member"))
 
-instance Hashable ListRoles
+instance Hashable ListRoles where
 
-instance NFData ListRoles
+instance NFData ListRoles where
 
 instance ToHeaders ListRoles where
         toHeaders = const mempty
@@ -133,11 +132,12 @@ instance ToQuery ListRoles where
 --
 -- /See:/ 'listRolesResponse' smart constructor.
 data ListRolesResponse = ListRolesResponse'
-    { _lrrsMarker         :: !(Maybe Text)
-    , _lrrsIsTruncated    :: !(Maybe Bool)
-    , _lrrsResponseStatus :: !Int
-    , _lrrsRoles          :: ![Role]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lrrsRoles          :: {-# NOUNPACK #-}![Role]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRolesResponse' with the minimum fields required to make a request.
 --
@@ -154,12 +154,13 @@ listRolesResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListRolesResponse
 listRolesResponse pResponseStatus_ =
-    ListRolesResponse'
-    { _lrrsMarker = Nothing
-    , _lrrsIsTruncated = Nothing
-    , _lrrsResponseStatus = pResponseStatus_
-    , _lrrsRoles = mempty
-    }
+  ListRolesResponse'
+  { _lrrsMarker = Nothing
+  , _lrrsIsTruncated = Nothing
+  , _lrrsResponseStatus = pResponseStatus_
+  , _lrrsRoles = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lrrsMarker :: Lens' ListRolesResponse (Maybe Text)
@@ -177,4 +178,4 @@ lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = 
 lrrsRoles :: Lens' ListRolesResponse [Role]
 lrrsRoles = lens _lrrsRoles (\ s a -> s{_lrrsRoles = a}) . _Coerce;
 
-instance NFData ListRolesResponse
+instance NFData ListRolesResponse where

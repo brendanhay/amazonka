@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -173,40 +173,40 @@ module Network.AWS.Greengrass.Types
     , viId
     ) where
 
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Greengrass.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Greengrass.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2017-06-07@ of the Amazon Greengrass SDK configuration.
 greengrass :: Service
 greengrass =
-    Service
-    { _svcAbbrev = "Greengrass"
-    , _svcSigner = v4
-    , _svcPrefix = "greengrass"
-    , _svcVersion = "2017-06-07"
-    , _svcEndpoint = defaultEndpoint greengrass
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Greengrass"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "Greengrass"
+  , _svcSigner = v4
+  , _svcPrefix = "greengrass"
+  , _svcVersion = "2017-06-07"
+  , _svcEndpoint = defaultEndpoint greengrass
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "Greengrass"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -215,13 +215,15 @@ greengrass =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | General Error
 _InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerErrorException =
-    _MatchServiceError greengrass "InternalServerErrorException" .
-    hasStatus 500
+  _MatchServiceError greengrass "InternalServerErrorException" . hasStatus 500
+
 
 -- | General Error
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
-    _MatchServiceError greengrass "BadRequestException" . hasStatus 400
+  _MatchServiceError greengrass "BadRequestException" . hasStatus 400
+

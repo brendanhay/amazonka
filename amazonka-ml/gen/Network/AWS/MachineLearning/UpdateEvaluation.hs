@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateEvaluation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.MachineLearning.UpdateEvaluation
     , uersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateEvaluation' smart constructor.
 data UpdateEvaluation = UpdateEvaluation'
-    { _ueEvaluationId   :: !Text
-    , _ueEvaluationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ueEvaluationId   :: {-# NOUNPACK #-}!Text
+  , _ueEvaluationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEvaluation' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ updateEvaluation
     -> Text -- ^ 'ueEvaluationName'
     -> UpdateEvaluation
 updateEvaluation pEvaluationId_ pEvaluationName_ =
-    UpdateEvaluation'
-    { _ueEvaluationId = pEvaluationId_
-    , _ueEvaluationName = pEvaluationName_
-    }
+  UpdateEvaluation'
+  {_ueEvaluationId = pEvaluationId_, _ueEvaluationName = pEvaluationName_}
+
 
 -- | The ID assigned to the @Evaluation@ during creation.
 ueEvaluationId :: Lens' UpdateEvaluation Text
@@ -87,9 +87,9 @@ instance AWSRequest UpdateEvaluation where
                  UpdateEvaluationResponse' <$>
                    (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateEvaluation
+instance Hashable UpdateEvaluation where
 
-instance NFData UpdateEvaluation
+instance NFData UpdateEvaluation where
 
 instance ToHeaders UpdateEvaluation where
         toHeaders
@@ -121,9 +121,10 @@ instance ToQuery UpdateEvaluation where
 --
 -- /See:/ 'updateEvaluationResponse' smart constructor.
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
-    { _uersEvaluationId   :: !(Maybe Text)
-    , _uersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uersEvaluationId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateEvaluationResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +137,9 @@ updateEvaluationResponse
     :: Int -- ^ 'uersResponseStatus'
     -> UpdateEvaluationResponse
 updateEvaluationResponse pResponseStatus_ =
-    UpdateEvaluationResponse'
-    { _uersEvaluationId = Nothing
-    , _uersResponseStatus = pResponseStatus_
-    }
+  UpdateEvaluationResponse'
+  {_uersEvaluationId = Nothing, _uersResponseStatus = pResponseStatus_}
+
 
 -- | The ID assigned to the @Evaluation@ during creation. This value should be identical to the value of the @Evaluation@ in the request.
 uersEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
@@ -149,4 +149,4 @@ uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
 uersResponseStatus :: Lens' UpdateEvaluationResponse Int
 uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = a});
 
-instance NFData UpdateEvaluationResponse
+instance NFData UpdateEvaluationResponse where

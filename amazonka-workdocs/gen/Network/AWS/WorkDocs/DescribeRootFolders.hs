@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeRootFolders
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.WorkDocs.DescribeRootFolders
     , drfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeRootFolders' smart constructor.
 data DescribeRootFolders = DescribeRootFolders'
-    { _drfMarker              :: !(Maybe Text)
-    , _drfLimit               :: !(Maybe Nat)
-    , _drfAuthenticationToken :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _drfMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drfLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _drfAuthenticationToken :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRootFolders' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ describeRootFolders
     :: Text -- ^ 'drfAuthenticationToken'
     -> DescribeRootFolders
 describeRootFolders pAuthenticationToken_ =
-    DescribeRootFolders'
-    { _drfMarker = Nothing
-    , _drfLimit = Nothing
-    , _drfAuthenticationToken = _Sensitive # pAuthenticationToken_
-    }
+  DescribeRootFolders'
+  { _drfMarker = Nothing
+  , _drfLimit = Nothing
+  , _drfAuthenticationToken = _Sensitive # pAuthenticationToken_
+  }
+
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 drfMarker :: Lens' DescribeRootFolders (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest DescribeRootFolders where
                    (x .?> "Folders" .!@ mempty) <*> (x .?> "Marker") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeRootFolders
+instance Hashable DescribeRootFolders where
 
-instance NFData DescribeRootFolders
+instance NFData DescribeRootFolders where
 
 instance ToHeaders DescribeRootFolders where
         toHeaders DescribeRootFolders'{..}
@@ -117,10 +119,11 @@ instance ToQuery DescribeRootFolders where
 
 -- | /See:/ 'describeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
-    { _drfrsFolders        :: !(Maybe [FolderMetadata])
-    , _drfrsMarker         :: !(Maybe Text)
-    , _drfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drfrsFolders        :: {-# NOUNPACK #-}!(Maybe [FolderMetadata])
+  , _drfrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRootFoldersResponse' with the minimum fields required to make a request.
 --
@@ -135,11 +138,12 @@ describeRootFoldersResponse
     :: Int -- ^ 'drfrsResponseStatus'
     -> DescribeRootFoldersResponse
 describeRootFoldersResponse pResponseStatus_ =
-    DescribeRootFoldersResponse'
-    { _drfrsFolders = Nothing
-    , _drfrsMarker = Nothing
-    , _drfrsResponseStatus = pResponseStatus_
-    }
+  DescribeRootFoldersResponse'
+  { _drfrsFolders = Nothing
+  , _drfrsMarker = Nothing
+  , _drfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The user's special folders.
 drfrsFolders :: Lens' DescribeRootFoldersResponse [FolderMetadata]
@@ -153,4 +157,4 @@ drfrsMarker = lens _drfrsMarker (\ s a -> s{_drfrsMarker = a});
 drfrsResponseStatus :: Lens' DescribeRootFoldersResponse Int
 drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a});
 
-instance NFData DescribeRootFoldersResponse
+instance NFData DescribeRootFoldersResponse where

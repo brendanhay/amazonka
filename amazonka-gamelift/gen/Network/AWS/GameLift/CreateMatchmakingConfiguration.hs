@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateMatchmakingConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -72,12 +72,12 @@ module Network.AWS.GameLift.CreateMatchmakingConfiguration
     , cmcrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -85,19 +85,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createMatchmakingConfiguration' smart constructor.
 data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
-    { _cmcGameProperties           :: !(Maybe [GameProperty])
-    , _cmcAcceptanceTimeoutSeconds :: !(Maybe Nat)
-    , _cmcNotificationTarget       :: !(Maybe Text)
-    , _cmcCustomEventData          :: !(Maybe Text)
-    , _cmcGameSessionData          :: !(Maybe Text)
-    , _cmcDescription              :: !(Maybe Text)
-    , _cmcAdditionalPlayerCount    :: !(Maybe Nat)
-    , _cmcName                     :: !Text
-    , _cmcGameSessionQueueARNs     :: ![Text]
-    , _cmcRequestTimeoutSeconds    :: !Nat
-    , _cmcAcceptanceRequired       :: !Bool
-    , _cmcRuleSetName              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmcGameProperties           :: {-# NOUNPACK #-}!(Maybe [GameProperty])
+  , _cmcAcceptanceTimeoutSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cmcNotificationTarget       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmcCustomEventData          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmcGameSessionData          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmcDescription              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmcAdditionalPlayerCount    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cmcName                     :: {-# NOUNPACK #-}!Text
+  , _cmcGameSessionQueueARNs     :: {-# NOUNPACK #-}![Text]
+  , _cmcRequestTimeoutSeconds    :: {-# NOUNPACK #-}!Nat
+  , _cmcAcceptanceRequired       :: {-# NOUNPACK #-}!Bool
+  , _cmcRuleSetName              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMatchmakingConfiguration' with the minimum fields required to make a request.
 --
@@ -133,20 +134,21 @@ createMatchmakingConfiguration
     -> Text -- ^ 'cmcRuleSetName'
     -> CreateMatchmakingConfiguration
 createMatchmakingConfiguration pName_ pRequestTimeoutSeconds_ pAcceptanceRequired_ pRuleSetName_ =
-    CreateMatchmakingConfiguration'
-    { _cmcGameProperties = Nothing
-    , _cmcAcceptanceTimeoutSeconds = Nothing
-    , _cmcNotificationTarget = Nothing
-    , _cmcCustomEventData = Nothing
-    , _cmcGameSessionData = Nothing
-    , _cmcDescription = Nothing
-    , _cmcAdditionalPlayerCount = Nothing
-    , _cmcName = pName_
-    , _cmcGameSessionQueueARNs = mempty
-    , _cmcRequestTimeoutSeconds = _Nat # pRequestTimeoutSeconds_
-    , _cmcAcceptanceRequired = pAcceptanceRequired_
-    , _cmcRuleSetName = pRuleSetName_
-    }
+  CreateMatchmakingConfiguration'
+  { _cmcGameProperties = Nothing
+  , _cmcAcceptanceTimeoutSeconds = Nothing
+  , _cmcNotificationTarget = Nothing
+  , _cmcCustomEventData = Nothing
+  , _cmcGameSessionData = Nothing
+  , _cmcDescription = Nothing
+  , _cmcAdditionalPlayerCount = Nothing
+  , _cmcName = pName_
+  , _cmcGameSessionQueueARNs = mempty
+  , _cmcRequestTimeoutSeconds = _Nat # pRequestTimeoutSeconds_
+  , _cmcAcceptanceRequired = pAcceptanceRequired_
+  , _cmcRuleSetName = pRuleSetName_
+  }
+
 
 -- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 cmcGameProperties :: Lens' CreateMatchmakingConfiguration [GameProperty]
@@ -208,8 +210,9 @@ instance AWSRequest CreateMatchmakingConfiguration
                    (x .?> "Configuration") <*> (pure (fromEnum s)))
 
 instance Hashable CreateMatchmakingConfiguration
+         where
 
-instance NFData CreateMatchmakingConfiguration
+instance NFData CreateMatchmakingConfiguration where
 
 instance ToHeaders CreateMatchmakingConfiguration
          where
@@ -257,9 +260,10 @@ instance ToQuery CreateMatchmakingConfiguration where
 --
 -- /See:/ 'createMatchmakingConfigurationResponse' smart constructor.
 data CreateMatchmakingConfigurationResponse = CreateMatchmakingConfigurationResponse'
-    { _cmcrsConfiguration  :: !(Maybe MatchmakingConfiguration)
-    , _cmcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmcrsConfiguration  :: {-# NOUNPACK #-}!(Maybe MatchmakingConfiguration)
+  , _cmcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMatchmakingConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -272,10 +276,9 @@ createMatchmakingConfigurationResponse
     :: Int -- ^ 'cmcrsResponseStatus'
     -> CreateMatchmakingConfigurationResponse
 createMatchmakingConfigurationResponse pResponseStatus_ =
-    CreateMatchmakingConfigurationResponse'
-    { _cmcrsConfiguration = Nothing
-    , _cmcrsResponseStatus = pResponseStatus_
-    }
+  CreateMatchmakingConfigurationResponse'
+  {_cmcrsConfiguration = Nothing, _cmcrsResponseStatus = pResponseStatus_}
+
 
 -- | Object that describes the newly created matchmaking configuration.
 cmcrsConfiguration :: Lens' CreateMatchmakingConfigurationResponse (Maybe MatchmakingConfiguration)
@@ -286,4 +289,5 @@ cmcrsResponseStatus :: Lens' CreateMatchmakingConfigurationResponse Int
 cmcrsResponseStatus = lens _cmcrsResponseStatus (\ s a -> s{_cmcrsResponseStatus = a});
 
 instance NFData
-         CreateMatchmakingConfigurationResponse
+           CreateMatchmakingConfigurationResponse
+         where

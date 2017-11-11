@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminDisableProviderForUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,18 +47,19 @@ module Network.AWS.CognitoIdentityProvider.AdminDisableProviderForUser
     , adpfursResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'adminDisableProviderForUser' smart constructor.
 data AdminDisableProviderForUser = AdminDisableProviderForUser'
-    { _adpfuUserPoolId :: !Text
-    , _adpfuUser       :: !ProviderUserIdentifierType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adpfuUserPoolId :: {-# NOUNPACK #-}!Text
+  , _adpfuUser       :: {-# NOUNPACK #-}!ProviderUserIdentifierType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminDisableProviderForUser' with the minimum fields required to make a request.
 --
@@ -72,10 +73,9 @@ adminDisableProviderForUser
     -> ProviderUserIdentifierType -- ^ 'adpfuUser'
     -> AdminDisableProviderForUser
 adminDisableProviderForUser pUserPoolId_ pUser_ =
-    AdminDisableProviderForUser'
-    { _adpfuUserPoolId = pUserPoolId_
-    , _adpfuUser = pUser_
-    }
+  AdminDisableProviderForUser'
+  {_adpfuUserPoolId = pUserPoolId_, _adpfuUser = pUser_}
+
 
 -- | The user pool ID for the user pool.
 adpfuUserPoolId :: Lens' AdminDisableProviderForUser Text
@@ -95,9 +95,9 @@ instance AWSRequest AdminDisableProviderForUser where
                  AdminDisableProviderForUserResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminDisableProviderForUser
+instance Hashable AdminDisableProviderForUser where
 
-instance NFData AdminDisableProviderForUser
+instance NFData AdminDisableProviderForUser where
 
 instance ToHeaders AdminDisableProviderForUser where
         toHeaders
@@ -124,8 +124,9 @@ instance ToQuery AdminDisableProviderForUser where
 
 -- | /See:/ 'adminDisableProviderForUserResponse' smart constructor.
 newtype AdminDisableProviderForUserResponse = AdminDisableProviderForUserResponse'
-    { _adpfursResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adpfursResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminDisableProviderForUserResponse' with the minimum fields required to make a request.
 --
@@ -136,12 +137,13 @@ adminDisableProviderForUserResponse
     :: Int -- ^ 'adpfursResponseStatus'
     -> AdminDisableProviderForUserResponse
 adminDisableProviderForUserResponse pResponseStatus_ =
-    AdminDisableProviderForUserResponse'
-    { _adpfursResponseStatus = pResponseStatus_
-    }
+  AdminDisableProviderForUserResponse'
+  {_adpfursResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 adpfursResponseStatus :: Lens' AdminDisableProviderForUserResponse Int
 adpfursResponseStatus = lens _adpfursResponseStatus (\ s a -> s{_adpfursResponseStatus = a});
 
 instance NFData AdminDisableProviderForUserResponse
+         where

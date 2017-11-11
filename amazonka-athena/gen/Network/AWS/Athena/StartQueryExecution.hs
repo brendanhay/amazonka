@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.StartQueryExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.Athena.StartQueryExecution
     , sqersResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startQueryExecution' smart constructor.
 data StartQueryExecution = StartQueryExecution'
-    { _sqeQueryExecutionContext :: !(Maybe QueryExecutionContext)
-    , _sqeClientRequestToken    :: !(Maybe Text)
-    , _sqeQueryString           :: !Text
-    , _sqeResultConfiguration   :: !ResultConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sqeQueryExecutionContext :: {-# NOUNPACK #-}!(Maybe QueryExecutionContext)
+  , _sqeClientRequestToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sqeQueryString           :: {-# NOUNPACK #-}!Text
+  , _sqeResultConfiguration   :: {-# NOUNPACK #-}!ResultConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartQueryExecution' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ startQueryExecution
     -> ResultConfiguration -- ^ 'sqeResultConfiguration'
     -> StartQueryExecution
 startQueryExecution pQueryString_ pResultConfiguration_ =
-    StartQueryExecution'
-    { _sqeQueryExecutionContext = Nothing
-    , _sqeClientRequestToken = Nothing
-    , _sqeQueryString = pQueryString_
-    , _sqeResultConfiguration = pResultConfiguration_
-    }
+  StartQueryExecution'
+  { _sqeQueryExecutionContext = Nothing
+  , _sqeClientRequestToken = Nothing
+  , _sqeQueryString = pQueryString_
+  , _sqeResultConfiguration = pResultConfiguration_
+  }
+
 
 -- | The database within which the query executes.
 sqeQueryExecutionContext :: Lens' StartQueryExecution (Maybe QueryExecutionContext)
@@ -106,9 +108,9 @@ instance AWSRequest StartQueryExecution where
                  StartQueryExecutionResponse' <$>
                    (x .?> "QueryExecutionId") <*> (pure (fromEnum s)))
 
-instance Hashable StartQueryExecution
+instance Hashable StartQueryExecution where
 
-instance NFData StartQueryExecution
+instance NFData StartQueryExecution where
 
 instance ToHeaders StartQueryExecution where
         toHeaders
@@ -138,9 +140,10 @@ instance ToQuery StartQueryExecution where
 
 -- | /See:/ 'startQueryExecutionResponse' smart constructor.
 data StartQueryExecutionResponse = StartQueryExecutionResponse'
-    { _sqersQueryExecutionId :: !(Maybe Text)
-    , _sqersResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sqersQueryExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sqersResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartQueryExecutionResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +156,9 @@ startQueryExecutionResponse
     :: Int -- ^ 'sqersResponseStatus'
     -> StartQueryExecutionResponse
 startQueryExecutionResponse pResponseStatus_ =
-    StartQueryExecutionResponse'
-    { _sqersQueryExecutionId = Nothing
-    , _sqersResponseStatus = pResponseStatus_
-    }
+  StartQueryExecutionResponse'
+  {_sqersQueryExecutionId = Nothing, _sqersResponseStatus = pResponseStatus_}
+
 
 -- | The unique ID of the query that ran as a result of this request.
 sqersQueryExecutionId :: Lens' StartQueryExecutionResponse (Maybe Text)
@@ -166,4 +168,4 @@ sqersQueryExecutionId = lens _sqersQueryExecutionId (\ s a -> s{_sqersQueryExecu
 sqersResponseStatus :: Lens' StartQueryExecutionResponse Int
 sqersResponseStatus = lens _sqersResponseStatus (\ s a -> s{_sqersResponseStatus = a});
 
-instance NFData StartQueryExecutionResponse
+instance NFData StartQueryExecutionResponse where

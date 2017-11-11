@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
     , dtofrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'disassociateTagOptionFromResource' smart constructor.
 data DisassociateTagOptionFromResource = DisassociateTagOptionFromResource'
-    { _dtofrResourceId  :: !Text
-    , _dtofrTagOptionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtofrResourceId  :: {-# NOUNPACK #-}!Text
+  , _dtofrTagOptionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateTagOptionFromResource' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ disassociateTagOptionFromResource
     -> Text -- ^ 'dtofrTagOptionId'
     -> DisassociateTagOptionFromResource
 disassociateTagOptionFromResource pResourceId_ pTagOptionId_ =
-    DisassociateTagOptionFromResource'
-    { _dtofrResourceId = pResourceId_
-    , _dtofrTagOptionId = pTagOptionId_
-    }
+  DisassociateTagOptionFromResource'
+  {_dtofrResourceId = pResourceId_, _dtofrTagOptionId = pTagOptionId_}
+
 
 -- | Identifier of the resource from which to disassociate the TagOption.
 dtofrResourceId :: Lens' DisassociateTagOptionFromResource Text
@@ -87,8 +87,10 @@ instance AWSRequest DisassociateTagOptionFromResource
                    (pure (fromEnum s)))
 
 instance Hashable DisassociateTagOptionFromResource
+         where
 
 instance NFData DisassociateTagOptionFromResource
+         where
 
 instance ToHeaders DisassociateTagOptionFromResource
          where
@@ -119,8 +121,9 @@ instance ToQuery DisassociateTagOptionFromResource
 
 -- | /See:/ 'disassociateTagOptionFromResourceResponse' smart constructor.
 newtype DisassociateTagOptionFromResourceResponse = DisassociateTagOptionFromResourceResponse'
-    { _dtofrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtofrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateTagOptionFromResourceResponse' with the minimum fields required to make a request.
 --
@@ -131,13 +134,14 @@ disassociateTagOptionFromResourceResponse
     :: Int -- ^ 'dtofrrsResponseStatus'
     -> DisassociateTagOptionFromResourceResponse
 disassociateTagOptionFromResourceResponse pResponseStatus_ =
-    DisassociateTagOptionFromResourceResponse'
-    { _dtofrrsResponseStatus = pResponseStatus_
-    }
+  DisassociateTagOptionFromResourceResponse'
+  {_dtofrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dtofrrsResponseStatus :: Lens' DisassociateTagOptionFromResourceResponse Int
 dtofrrsResponseStatus = lens _dtofrrsResponseStatus (\ s a -> s{_dtofrrsResponseStatus = a});
 
 instance NFData
-         DisassociateTagOptionFromResourceResponse
+           DisassociateTagOptionFromResourceResponse
+         where

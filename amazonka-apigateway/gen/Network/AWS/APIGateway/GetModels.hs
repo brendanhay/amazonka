@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModels
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.APIGateway.GetModels
     , gmrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to list existing 'Models' defined for a 'RestApi' resource.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getModels' smart constructor.
 data GetModels = GetModels'
-    { _gmsLimit     :: !(Maybe Int)
-    , _gmsPosition  :: !(Maybe Text)
-    , _gmsRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmsLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gmsPosition  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmsRestAPIId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetModels' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ getModels
     :: Text -- ^ 'gmsRestAPIId'
     -> GetModels
 getModels pRestAPIId_ =
-    GetModels'
-    { _gmsLimit = Nothing
-    , _gmsPosition = Nothing
-    , _gmsRestAPIId = pRestAPIId_
-    }
+  GetModels'
+  {_gmsLimit = Nothing, _gmsPosition = Nothing, _gmsRestAPIId = pRestAPIId_}
+
 
 -- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gmsLimit :: Lens' GetModels (Maybe Int)
@@ -109,9 +108,9 @@ instance AWSRequest GetModels where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetModels
+instance Hashable GetModels where
 
-instance NFData GetModels
+instance NFData GetModels where
 
 instance ToHeaders GetModels where
         toHeaders
@@ -136,10 +135,11 @@ instance ToQuery GetModels where
 --
 -- /See:/ 'getModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
-    { _gmrsItems          :: !(Maybe [Model])
-    , _gmrsPosition       :: !(Maybe Text)
-    , _gmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmrsItems          :: {-# NOUNPACK #-}!(Maybe [Model])
+  , _gmrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetModelsResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +154,12 @@ getModelsResponse
     :: Int -- ^ 'gmrsResponseStatus'
     -> GetModelsResponse
 getModelsResponse pResponseStatus_ =
-    GetModelsResponse'
-    { _gmrsItems = Nothing
-    , _gmrsPosition = Nothing
-    , _gmrsResponseStatus = pResponseStatus_
-    }
+  GetModelsResponse'
+  { _gmrsItems = Nothing
+  , _gmrsPosition = Nothing
+  , _gmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 gmrsItems :: Lens' GetModelsResponse [Model]
@@ -172,4 +173,4 @@ gmrsPosition = lens _gmrsPosition (\ s a -> s{_gmrsPosition = a});
 gmrsResponseStatus :: Lens' GetModelsResponse Int
 gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = a});
 
-instance NFData GetModelsResponse
+instance NFData GetModelsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteSmsChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.DeleteSmsChannel
     , dscrsSMSChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSmsChannel' smart constructor.
 newtype DeleteSmsChannel = DeleteSmsChannel'
-    { _dscApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSmsChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ deleteSmsChannel
     :: Text -- ^ 'dscApplicationId'
     -> DeleteSmsChannel
 deleteSmsChannel pApplicationId_ =
-    DeleteSmsChannel'
-    { _dscApplicationId = pApplicationId_
-    }
+  DeleteSmsChannel' {_dscApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 dscApplicationId :: Lens' DeleteSmsChannel Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteSmsChannel where
                  DeleteSmsChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteSmsChannel
+instance Hashable DeleteSmsChannel where
 
-instance NFData DeleteSmsChannel
+instance NFData DeleteSmsChannel where
 
 instance ToHeaders DeleteSmsChannel where
         toHeaders
@@ -95,9 +95,10 @@ instance ToQuery DeleteSmsChannel where
 
 -- | /See:/ 'deleteSmsChannelResponse' smart constructor.
 data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
-    { _dscrsResponseStatus     :: !Int
-    , _dscrsSMSChannelResponse :: !SMSChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _dscrsSMSChannelResponse :: {-# NOUNPACK #-}!SMSChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSmsChannelResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +112,11 @@ deleteSmsChannelResponse
     -> SMSChannelResponse -- ^ 'dscrsSMSChannelResponse'
     -> DeleteSmsChannelResponse
 deleteSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
-    DeleteSmsChannelResponse'
-    { _dscrsResponseStatus = pResponseStatus_
-    , _dscrsSMSChannelResponse = pSMSChannelResponse_
-    }
+  DeleteSmsChannelResponse'
+  { _dscrsResponseStatus = pResponseStatus_
+  , _dscrsSMSChannelResponse = pSMSChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 dscrsResponseStatus :: Lens' DeleteSmsChannelResponse Int
@@ -124,4 +126,4 @@ dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus
 dscrsSMSChannelResponse :: Lens' DeleteSmsChannelResponse SMSChannelResponse
 dscrsSMSChannelResponse = lens _dscrsSMSChannelResponse (\ s a -> s{_dscrsSMSChannelResponse = a});
 
-instance NFData DeleteSmsChannelResponse
+instance NFData DeleteSmsChannelResponse where

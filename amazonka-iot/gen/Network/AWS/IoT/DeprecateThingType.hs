@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeprecateThingType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.IoT.DeprecateThingType
     , deprsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeprecateThingType operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deprecateThingType' smart constructor.
 data DeprecateThingType = DeprecateThingType'
-    { _depUndoDeprecate :: !(Maybe Bool)
-    , _depThingTypeName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _depUndoDeprecate :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _depThingTypeName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateThingType' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ deprecateThingType
     :: Text -- ^ 'depThingTypeName'
     -> DeprecateThingType
 deprecateThingType pThingTypeName_ =
-    DeprecateThingType'
-    { _depUndoDeprecate = Nothing
-    , _depThingTypeName = pThingTypeName_
-    }
+  DeprecateThingType'
+  {_depUndoDeprecate = Nothing, _depThingTypeName = pThingTypeName_}
+
 
 -- | Whether to undeprecate a deprecated thing type. If __true__ , the thing type will not be deprecated anymore and you can associate it with things.
 depUndoDeprecate :: Lens' DeprecateThingType (Maybe Bool)
@@ -87,9 +87,9 @@ instance AWSRequest DeprecateThingType where
               (\ s h x ->
                  DeprecateThingTypeResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeprecateThingType
+instance Hashable DeprecateThingType where
 
-instance NFData DeprecateThingType
+instance NFData DeprecateThingType where
 
 instance ToHeaders DeprecateThingType where
         toHeaders = const mempty
@@ -115,8 +115,9 @@ instance ToQuery DeprecateThingType where
 --
 -- /See:/ 'deprecateThingTypeResponse' smart constructor.
 newtype DeprecateThingTypeResponse = DeprecateThingTypeResponse'
-    { _deprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateThingTypeResponse' with the minimum fields required to make a request.
 --
@@ -127,12 +128,11 @@ deprecateThingTypeResponse
     :: Int -- ^ 'deprsResponseStatus'
     -> DeprecateThingTypeResponse
 deprecateThingTypeResponse pResponseStatus_ =
-    DeprecateThingTypeResponse'
-    { _deprsResponseStatus = pResponseStatus_
-    }
+  DeprecateThingTypeResponse' {_deprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 deprsResponseStatus :: Lens' DeprecateThingTypeResponse Int
 deprsResponseStatus = lens _deprsResponseStatus (\ s a -> s{_deprsResponseStatus = a});
 
-instance NFData DeprecateThingTypeResponse
+instance NFData DeprecateThingTypeResponse where

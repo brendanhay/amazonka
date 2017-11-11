@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,13 +48,13 @@ module Network.AWS.Redshift.DescribeClusters
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -62,12 +62,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-    { _dcTagValues         :: !(Maybe [Text])
-    , _dcTagKeys           :: !(Maybe [Text])
-    , _dcClusterIdentifier :: !(Maybe Text)
-    , _dcMarker            :: !(Maybe Text)
-    , _dcMaxRecords        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcTagValues         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcTagKeys           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMarker            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMaxRecords        :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
 --
@@ -85,13 +86,14 @@ data DescribeClusters = DescribeClusters'
 describeClusters
     :: DescribeClusters
 describeClusters =
-    DescribeClusters'
-    { _dcTagValues = Nothing
-    , _dcTagKeys = Nothing
-    , _dcClusterIdentifier = Nothing
-    , _dcMarker = Nothing
-    , _dcMaxRecords = Nothing
-    }
+  DescribeClusters'
+  { _dcTagValues = Nothing
+  , _dcTagKeys = Nothing
+  , _dcClusterIdentifier = Nothing
+  , _dcMarker = Nothing
+  , _dcMaxRecords = Nothing
+  }
+
 
 -- | A tag value or values for which you want to return all matching clusters that are associated with the specified tag value or values. For example, suppose that you have clusters that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag values associated with them.
 dcTagValues :: Lens' DescribeClusters [Text]
@@ -132,9 +134,9 @@ instance AWSRequest DescribeClusters where
                         may (parseXMLList "Cluster"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeClusters
+instance Hashable DescribeClusters where
 
-instance NFData DescribeClusters
+instance NFData DescribeClusters where
 
 instance ToHeaders DescribeClusters where
         toHeaders = const mempty
@@ -160,10 +162,11 @@ instance ToQuery DescribeClusters where
 --
 -- /See:/ 'describeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrsMarker         :: !(Maybe Text)
-    , _dcrsClusters       :: !(Maybe [Cluster])
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcrsClusters       :: {-# NOUNPACK #-}!(Maybe [Cluster])
+  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
 --
@@ -178,11 +181,12 @@ describeClustersResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeClustersResponse
 describeClustersResponse pResponseStatus_ =
-    DescribeClustersResponse'
-    { _dcrsMarker = Nothing
-    , _dcrsClusters = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeClustersResponse'
+  { _dcrsMarker = Nothing
+  , _dcrsClusters = Nothing
+  , _dcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 dcrsMarker :: Lens' DescribeClustersResponse (Maybe Text)
@@ -196,4 +200,4 @@ dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _
 dcrsResponseStatus :: Lens' DescribeClustersResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeClustersResponse
+instance NFData DescribeClustersResponse where

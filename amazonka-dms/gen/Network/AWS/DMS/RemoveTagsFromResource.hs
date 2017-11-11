@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.RemoveTagsFromResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DMS.RemoveTagsFromResource
     , rtfrrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrResourceARN :: !Text
-    , _rtfrTagKeys     :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrResourceARN :: {-# NOUNPACK #-}!Text
+  , _rtfrTagKeys     :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ removeTagsFromResource
     :: Text -- ^ 'rtfrResourceARN'
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceARN_ =
-    RemoveTagsFromResource'
-    { _rtfrResourceARN = pResourceARN_
-    , _rtfrTagKeys = mempty
-    }
+  RemoveTagsFromResource'
+  {_rtfrResourceARN = pResourceARN_, _rtfrTagKeys = mempty}
+
 
 -- | >The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed from.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
@@ -88,9 +88,9 @@ instance AWSRequest RemoveTagsFromResource where
                  RemoveTagsFromResourceResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable RemoveTagsFromResource
+instance Hashable RemoveTagsFromResource where
 
-instance NFData RemoveTagsFromResource
+instance NFData RemoveTagsFromResource where
 
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
@@ -121,8 +121,9 @@ instance ToQuery RemoveTagsFromResource where
 --
 -- /See:/ 'removeTagsFromResourceResponse' smart constructor.
 newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-    { _rtfrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +134,11 @@ removeTagsFromResourceResponse
     :: Int -- ^ 'rtfrrsResponseStatus'
     -> RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse pResponseStatus_ =
-    RemoveTagsFromResourceResponse'
-    { _rtfrrsResponseStatus = pResponseStatus_
-    }
+  RemoveTagsFromResourceResponse' {_rtfrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
 
-instance NFData RemoveTagsFromResourceResponse
+instance NFData RemoveTagsFromResourceResponse where

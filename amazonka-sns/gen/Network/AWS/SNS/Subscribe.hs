@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Subscribe
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.SNS.Subscribe
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for Subscribe action.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'subscribe' smart constructor.
 data Subscribe = Subscribe'
-    { _subEndpoint :: !(Maybe Text)
-    , _subTopicARN :: !Text
-    , _subProtocol :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _subEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _subTopicARN :: {-# NOUNPACK #-}!Text
+  , _subProtocol :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subscribe' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ subscribe
     -> Text -- ^ 'subProtocol'
     -> Subscribe
 subscribe pTopicARN_ pProtocol_ =
-    Subscribe'
-    { _subEndpoint = Nothing
-    , _subTopicARN = pTopicARN_
-    , _subProtocol = pProtocol_
-    }
+  Subscribe'
+  {_subEndpoint = Nothing, _subTopicARN = pTopicARN_, _subProtocol = pProtocol_}
+
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by protocol:     * For the @http@ protocol, the endpoint is an URL beginning with "http://"     * For the @https@ protocol, the endpoint is a URL beginning with "https://"     * For the @email@ protocol, the endpoint is an email address     * For the @email-json@ protocol, the endpoint is an email address     * For the @sms@ protocol, the endpoint is a phone number of an SMS-enabled device     * For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS queue     * For the @application@ protocol, the endpoint is the EndpointArn of a mobile app and device.     * For the @lambda@ protocol, the endpoint is the ARN of an AWS Lambda function.
 subEndpoint :: Lens' Subscribe (Maybe Text)
@@ -98,9 +97,9 @@ instance AWSRequest Subscribe where
                  SubscribeResponse' <$>
                    (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
-instance Hashable Subscribe
+instance Hashable Subscribe where
 
-instance NFData Subscribe
+instance NFData Subscribe where
 
 instance ToHeaders Subscribe where
         toHeaders = const mempty
@@ -123,9 +122,10 @@ instance ToQuery Subscribe where
 --
 -- /See:/ 'subscribeResponse' smart constructor.
 data SubscribeResponse = SubscribeResponse'
-    { _srsSubscriptionARN :: !(Maybe Text)
-    , _srsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsSubscriptionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubscribeResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +138,9 @@ subscribeResponse
     :: Int -- ^ 'srsResponseStatus'
     -> SubscribeResponse
 subscribeResponse pResponseStatus_ =
-    SubscribeResponse'
-    { _srsSubscriptionARN = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  SubscribeResponse'
+  {_srsSubscriptionARN = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the subscription, if the service was able to create a subscription immediately (without requiring endpoint owner confirmation).
 srsSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
@@ -151,4 +150,4 @@ srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = 
 srsResponseStatus :: Lens' SubscribeResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData SubscribeResponse
+instance NFData SubscribeResponse where

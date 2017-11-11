@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.ECS.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ECS.Types.Product where
 
-import           Network.AWS.ECS.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.ECS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | An attribute is a name-value pair associated with an Amazon ECS object. Attributes enable you to extend the Amazon ECS data model by adding custom metadata to your resources. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes Attributes> in the /Amazon EC2 Container Service Developer Guide/ .
 --
@@ -27,11 +27,12 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-    { _aTargetId   :: !(Maybe Text)
-    , _aValue      :: !(Maybe Text)
-    , _aTargetType :: !(Maybe TargetType)
-    , _aName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aTargetId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aValue      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aTargetType :: {-# NOUNPACK #-}!(Maybe TargetType)
+  , _aName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
@@ -48,12 +49,13 @@ attribute
     :: Text -- ^ 'aName'
     -> Attribute
 attribute pName_ =
-    Attribute'
-    { _aTargetId = Nothing
-    , _aValue = Nothing
-    , _aTargetType = Nothing
-    , _aName = pName_
-    }
+  Attribute'
+  { _aTargetId = Nothing
+  , _aValue = Nothing
+  , _aTargetType = Nothing
+  , _aName = pName_
+  }
+
 
 -- | The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
 aTargetId :: Lens' Attribute (Maybe Text)
@@ -80,9 +82,9 @@ instance FromJSON Attribute where
                      (x .:? "targetType")
                      <*> (x .: "name"))
 
-instance Hashable Attribute
+instance Hashable Attribute where
 
-instance NFData Attribute
+instance NFData Attribute where
 
 instance ToJSON Attribute where
         toJSON Attribute'{..}
@@ -99,14 +101,15 @@ instance ToJSON Attribute where
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-    { _cStatus                            :: !(Maybe Text)
-    , _cClusterARN                        :: !(Maybe Text)
-    , _cRunningTasksCount                 :: !(Maybe Int)
-    , _cRegisteredContainerInstancesCount :: !(Maybe Int)
-    , _cPendingTasksCount                 :: !(Maybe Int)
-    , _cClusterName                       :: !(Maybe Text)
-    , _cActiveServicesCount               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cStatus                            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterARN                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cRunningTasksCount                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cRegisteredContainerInstancesCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cPendingTasksCount                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cClusterName                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cActiveServicesCount               :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
@@ -128,15 +131,16 @@ data Cluster = Cluster'
 cluster
     :: Cluster
 cluster =
-    Cluster'
-    { _cStatus = Nothing
-    , _cClusterARN = Nothing
-    , _cRunningTasksCount = Nothing
-    , _cRegisteredContainerInstancesCount = Nothing
-    , _cPendingTasksCount = Nothing
-    , _cClusterName = Nothing
-    , _cActiveServicesCount = Nothing
-    }
+  Cluster'
+  { _cStatus = Nothing
+  , _cClusterARN = Nothing
+  , _cRunningTasksCount = Nothing
+  , _cRegisteredContainerInstancesCount = Nothing
+  , _cPendingTasksCount = Nothing
+  , _cClusterName = Nothing
+  , _cActiveServicesCount = Nothing
+  }
+
 
 -- | The status of the cluster. The valid values are @ACTIVE@ or @INACTIVE@ . @ACTIVE@ indicates that you can register container instances with the cluster and the associated instances can accept tasks.
 cStatus :: Lens' Cluster (Maybe Text)
@@ -178,9 +182,9 @@ instance FromJSON Cluster where
                      <*> (x .:? "clusterName")
                      <*> (x .:? "activeServicesCount"))
 
-instance Hashable Cluster
+instance Hashable Cluster where
 
-instance NFData Cluster
+instance NFData Cluster where
 
 -- | A Docker container that is part of a task.
 --
@@ -188,14 +192,15 @@ instance NFData Cluster
 --
 -- /See:/ 'container' smart constructor.
 data Container = Container'
-    { _cNetworkBindings :: !(Maybe [NetworkBinding])
-    , _cContainerARN    :: !(Maybe Text)
-    , _cTaskARN         :: !(Maybe Text)
-    , _cLastStatus      :: !(Maybe Text)
-    , _cReason          :: !(Maybe Text)
-    , _cName            :: !(Maybe Text)
-    , _cExitCode        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cNetworkBindings :: {-# NOUNPACK #-}!(Maybe [NetworkBinding])
+  , _cContainerARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cTaskARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cLastStatus      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cReason          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cExitCode        :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Container' with the minimum fields required to make a request.
 --
@@ -217,15 +222,16 @@ data Container = Container'
 container
     :: Container
 container =
-    Container'
-    { _cNetworkBindings = Nothing
-    , _cContainerARN = Nothing
-    , _cTaskARN = Nothing
-    , _cLastStatus = Nothing
-    , _cReason = Nothing
-    , _cName = Nothing
-    , _cExitCode = Nothing
-    }
+  Container'
+  { _cNetworkBindings = Nothing
+  , _cContainerARN = Nothing
+  , _cTaskARN = Nothing
+  , _cLastStatus = Nothing
+  , _cReason = Nothing
+  , _cName = Nothing
+  , _cExitCode = Nothing
+  }
+
 
 -- | The network bindings associated with the container.
 cNetworkBindings :: Lens' Container [NetworkBinding]
@@ -268,9 +274,9 @@ instance FromJSON Container where
                      <*> (x .:? "name")
                      <*> (x .:? "exitCode"))
 
-instance Hashable Container
+instance Hashable Container where
 
-instance NFData Container
+instance NFData Container where
 
 -- | Container definitions are used in task definitions to describe the different containers that are launched as part of a task.
 --
@@ -278,33 +284,34 @@ instance NFData Container
 --
 -- /See:/ 'containerDefinition' smart constructor.
 data ContainerDefinition = ContainerDefinition'
-    { _cdImage                  :: !(Maybe Text)
-    , _cdCommand                :: !(Maybe [Text])
-    , _cdHostname               :: !(Maybe Text)
-    , _cdDockerSecurityOptions  :: !(Maybe [Text])
-    , _cdDisableNetworking      :: !(Maybe Bool)
-    , _cdVolumesFrom            :: !(Maybe [VolumeFrom])
-    , _cdEnvironment            :: !(Maybe [KeyValuePair])
-    , _cdEntryPoint             :: !(Maybe [Text])
-    , _cdWorkingDirectory       :: !(Maybe Text)
-    , _cdUlimits                :: !(Maybe [Ulimit])
-    , _cdPrivileged             :: !(Maybe Bool)
-    , _cdPortMappings           :: !(Maybe [PortMapping])
-    , _cdDockerLabels           :: !(Maybe (Map Text Text))
-    , _cdExtraHosts             :: !(Maybe [HostEntry])
-    , _cdMemory                 :: !(Maybe Int)
-    , _cdUser                   :: !(Maybe Text)
-    , _cdDnsSearchDomains       :: !(Maybe [Text])
-    , _cdLogConfiguration       :: !(Maybe LogConfiguration)
-    , _cdName                   :: !(Maybe Text)
-    , _cdDnsServers             :: !(Maybe [Text])
-    , _cdMountPoints            :: !(Maybe [MountPoint])
-    , _cdLinks                  :: !(Maybe [Text])
-    , _cdReadonlyRootFilesystem :: !(Maybe Bool)
-    , _cdEssential              :: !(Maybe Bool)
-    , _cdCpu                    :: !(Maybe Int)
-    , _cdMemoryReservation      :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdImage                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdCommand                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdHostname               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdDockerSecurityOptions  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdDisableNetworking      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdVolumesFrom            :: {-# NOUNPACK #-}!(Maybe [VolumeFrom])
+  , _cdEnvironment            :: {-# NOUNPACK #-}!(Maybe [KeyValuePair])
+  , _cdEntryPoint             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdWorkingDirectory       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdUlimits                :: {-# NOUNPACK #-}!(Maybe [Ulimit])
+  , _cdPrivileged             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdPortMappings           :: {-# NOUNPACK #-}!(Maybe [PortMapping])
+  , _cdDockerLabels           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cdExtraHosts             :: {-# NOUNPACK #-}!(Maybe [HostEntry])
+  , _cdMemory                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdUser                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdDnsSearchDomains       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdLogConfiguration       :: {-# NOUNPACK #-}!(Maybe LogConfiguration)
+  , _cdName                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdDnsServers             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdMountPoints            :: {-# NOUNPACK #-}!(Maybe [MountPoint])
+  , _cdLinks                  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdReadonlyRootFilesystem :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdEssential              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdCpu                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdMemoryReservation      :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContainerDefinition' with the minimum fields required to make a request.
 --
@@ -364,34 +371,35 @@ data ContainerDefinition = ContainerDefinition'
 containerDefinition
     :: ContainerDefinition
 containerDefinition =
-    ContainerDefinition'
-    { _cdImage = Nothing
-    , _cdCommand = Nothing
-    , _cdHostname = Nothing
-    , _cdDockerSecurityOptions = Nothing
-    , _cdDisableNetworking = Nothing
-    , _cdVolumesFrom = Nothing
-    , _cdEnvironment = Nothing
-    , _cdEntryPoint = Nothing
-    , _cdWorkingDirectory = Nothing
-    , _cdUlimits = Nothing
-    , _cdPrivileged = Nothing
-    , _cdPortMappings = Nothing
-    , _cdDockerLabels = Nothing
-    , _cdExtraHosts = Nothing
-    , _cdMemory = Nothing
-    , _cdUser = Nothing
-    , _cdDnsSearchDomains = Nothing
-    , _cdLogConfiguration = Nothing
-    , _cdName = Nothing
-    , _cdDnsServers = Nothing
-    , _cdMountPoints = Nothing
-    , _cdLinks = Nothing
-    , _cdReadonlyRootFilesystem = Nothing
-    , _cdEssential = Nothing
-    , _cdCpu = Nothing
-    , _cdMemoryReservation = Nothing
-    }
+  ContainerDefinition'
+  { _cdImage = Nothing
+  , _cdCommand = Nothing
+  , _cdHostname = Nothing
+  , _cdDockerSecurityOptions = Nothing
+  , _cdDisableNetworking = Nothing
+  , _cdVolumesFrom = Nothing
+  , _cdEnvironment = Nothing
+  , _cdEntryPoint = Nothing
+  , _cdWorkingDirectory = Nothing
+  , _cdUlimits = Nothing
+  , _cdPrivileged = Nothing
+  , _cdPortMappings = Nothing
+  , _cdDockerLabels = Nothing
+  , _cdExtraHosts = Nothing
+  , _cdMemory = Nothing
+  , _cdUser = Nothing
+  , _cdDnsSearchDomains = Nothing
+  , _cdLogConfiguration = Nothing
+  , _cdName = Nothing
+  , _cdDnsServers = Nothing
+  , _cdMountPoints = Nothing
+  , _cdLinks = Nothing
+  , _cdReadonlyRootFilesystem = Nothing
+  , _cdEssential = Nothing
+  , _cdCpu = Nothing
+  , _cdMemoryReservation = Nothing
+  }
+
 
 -- | The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with @/repository-url/ //image/ :/tag/ @ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to @Image@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @IMAGE@ parameter of <https://docs.docker.com/engine/reference/run/ docker run> .     * Images in Amazon ECR repositories use the full registry and repository URI (for example, @012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@ ).      * Images in official repositories on Docker Hub use a single name (for example, @ubuntu@ or @mongo@ ).     * Images in other repositories on Docker Hub are qualified with an organization name (for example, @amazon/amazon-ecs-agent@ ).     * Images in other online repositories are qualified further by a domain name (for example, @quay.io/assemblyline/ubuntu@ ).
 cdImage :: Lens' ContainerDefinition (Maybe Text)
@@ -528,9 +536,9 @@ instance FromJSON ContainerDefinition where
                      <*> (x .:? "cpu")
                      <*> (x .:? "memoryReservation"))
 
-instance Hashable ContainerDefinition
+instance Hashable ContainerDefinition where
 
-instance NFData ContainerDefinition
+instance NFData ContainerDefinition where
 
 instance ToJSON ContainerDefinition where
         toJSON ContainerDefinition'{..}
@@ -570,20 +578,21 @@ instance ToJSON ContainerDefinition where
 --
 -- /See:/ 'containerInstance' smart constructor.
 data ContainerInstance = ContainerInstance'
-    { _ciStatus               :: !(Maybe Text)
-    , _ciRunningTasksCount    :: !(Maybe Int)
-    , _ciRemainingResources   :: !(Maybe [Resource])
-    , _ciEc2InstanceId        :: !(Maybe Text)
-    , _ciContainerInstanceARN :: !(Maybe Text)
-    , _ciAgentConnected       :: !(Maybe Bool)
-    , _ciVersionInfo          :: !(Maybe VersionInfo)
-    , _ciAgentUpdateStatus    :: !(Maybe AgentUpdateStatus)
-    , _ciAttributes           :: !(Maybe [Attribute])
-    , _ciVersion              :: !(Maybe Integer)
-    , _ciPendingTasksCount    :: !(Maybe Int)
-    , _ciRegisteredAt         :: !(Maybe POSIX)
-    , _ciRegisteredResources  :: !(Maybe [Resource])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciStatus               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciRunningTasksCount    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ciRemainingResources   :: {-# NOUNPACK #-}!(Maybe [Resource])
+  , _ciEc2InstanceId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciContainerInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciAgentConnected       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ciVersionInfo          :: {-# NOUNPACK #-}!(Maybe VersionInfo)
+  , _ciAgentUpdateStatus    :: {-# NOUNPACK #-}!(Maybe AgentUpdateStatus)
+  , _ciAttributes           :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _ciVersion              :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _ciPendingTasksCount    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ciRegisteredAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ciRegisteredResources  :: {-# NOUNPACK #-}!(Maybe [Resource])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContainerInstance' with the minimum fields required to make a request.
 --
@@ -617,21 +626,22 @@ data ContainerInstance = ContainerInstance'
 containerInstance
     :: ContainerInstance
 containerInstance =
-    ContainerInstance'
-    { _ciStatus = Nothing
-    , _ciRunningTasksCount = Nothing
-    , _ciRemainingResources = Nothing
-    , _ciEc2InstanceId = Nothing
-    , _ciContainerInstanceARN = Nothing
-    , _ciAgentConnected = Nothing
-    , _ciVersionInfo = Nothing
-    , _ciAgentUpdateStatus = Nothing
-    , _ciAttributes = Nothing
-    , _ciVersion = Nothing
-    , _ciPendingTasksCount = Nothing
-    , _ciRegisteredAt = Nothing
-    , _ciRegisteredResources = Nothing
-    }
+  ContainerInstance'
+  { _ciStatus = Nothing
+  , _ciRunningTasksCount = Nothing
+  , _ciRemainingResources = Nothing
+  , _ciEc2InstanceId = Nothing
+  , _ciContainerInstanceARN = Nothing
+  , _ciAgentConnected = Nothing
+  , _ciVersionInfo = Nothing
+  , _ciAgentUpdateStatus = Nothing
+  , _ciAttributes = Nothing
+  , _ciVersion = Nothing
+  , _ciPendingTasksCount = Nothing
+  , _ciRegisteredAt = Nothing
+  , _ciRegisteredResources = Nothing
+  }
+
 
 -- | The status of the container instance. The valid values are @ACTIVE@ , @INACTIVE@ , or @DRAINING@ . @ACTIVE@ indicates that the container instance can accept tasks. @DRAINING@ indicates that new tasks are not placed on the container instance and any service tasks running on the container instance are removed if possible. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container Instance Draining> in the /Amazon EC2 Container Service Developer Guide/ .
 ciStatus :: Lens' ContainerInstance (Maybe Text)
@@ -703,9 +713,9 @@ instance FromJSON ContainerInstance where
                      <*> (x .:? "registeredAt")
                      <*> (x .:? "registeredResources" .!= mempty))
 
-instance Hashable ContainerInstance
+instance Hashable ContainerInstance where
 
-instance NFData ContainerInstance
+instance NFData ContainerInstance where
 
 -- | The overrides that should be sent to a container.
 --
@@ -713,13 +723,14 @@ instance NFData ContainerInstance
 --
 -- /See:/ 'containerOverride' smart constructor.
 data ContainerOverride = ContainerOverride'
-    { _coCommand           :: !(Maybe [Text])
-    , _coEnvironment       :: !(Maybe [KeyValuePair])
-    , _coMemory            :: !(Maybe Int)
-    , _coName              :: !(Maybe Text)
-    , _coCpu               :: !(Maybe Int)
-    , _coMemoryReservation :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _coCommand           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _coEnvironment       :: {-# NOUNPACK #-}!(Maybe [KeyValuePair])
+  , _coMemory            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _coName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _coCpu               :: {-# NOUNPACK #-}!(Maybe Int)
+  , _coMemoryReservation :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContainerOverride' with the minimum fields required to make a request.
 --
@@ -739,14 +750,15 @@ data ContainerOverride = ContainerOverride'
 containerOverride
     :: ContainerOverride
 containerOverride =
-    ContainerOverride'
-    { _coCommand = Nothing
-    , _coEnvironment = Nothing
-    , _coMemory = Nothing
-    , _coName = Nothing
-    , _coCpu = Nothing
-    , _coMemoryReservation = Nothing
-    }
+  ContainerOverride'
+  { _coCommand = Nothing
+  , _coEnvironment = Nothing
+  , _coMemory = Nothing
+  , _coName = Nothing
+  , _coCpu = Nothing
+  , _coMemoryReservation = Nothing
+  }
+
 
 -- | The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 coCommand :: Lens' ContainerOverride [Text]
@@ -784,9 +796,9 @@ instance FromJSON ContainerOverride where
                      <*> (x .:? "cpu")
                      <*> (x .:? "memoryReservation"))
 
-instance Hashable ContainerOverride
+instance Hashable ContainerOverride where
 
-instance NFData ContainerOverride
+instance NFData ContainerOverride where
 
 instance ToJSON ContainerOverride where
         toJSON ContainerOverride'{..}
@@ -804,23 +816,24 @@ instance ToJSON ContainerOverride where
 --
 -- /See:/ 'containerService' smart constructor.
 data ContainerService = ContainerService'
-    { _csRunningCount            :: !(Maybe Int)
-    , _csStatus                  :: !(Maybe Text)
-    , _csClusterARN              :: !(Maybe Text)
-    , _csCreatedAt               :: !(Maybe POSIX)
-    , _csDesiredCount            :: !(Maybe Int)
-    , _csLoadBalancers           :: !(Maybe [LoadBalancer])
-    , _csPendingCount            :: !(Maybe Int)
-    , _csPlacementConstraints    :: !(Maybe [PlacementConstraint])
-    , _csEvents                  :: !(Maybe [ServiceEvent])
-    , _csPlacementStrategy       :: !(Maybe [PlacementStrategy])
-    , _csDeployments             :: !(Maybe [Deployment])
-    , _csServiceName             :: !(Maybe Text)
-    , _csServiceARN              :: !(Maybe Text)
-    , _csTaskDefinition          :: !(Maybe Text)
-    , _csRoleARN                 :: !(Maybe Text)
-    , _csDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csRunningCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _csStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csClusterARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _csDesiredCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _csLoadBalancers :: {-# NOUNPACK #-}!(Maybe [LoadBalancer])
+  , _csPendingCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _csPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [PlacementConstraint])
+  , _csEvents :: {-# NOUNPACK #-}!(Maybe [ServiceEvent])
+  , _csPlacementStrategy :: {-# NOUNPACK #-}!(Maybe [PlacementStrategy])
+  , _csDeployments :: {-# NOUNPACK #-}!(Maybe [Deployment])
+  , _csServiceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csServiceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csTaskDefinition :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe DeploymentConfiguration)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContainerService' with the minimum fields required to make a request.
 --
@@ -860,24 +873,25 @@ data ContainerService = ContainerService'
 containerService
     :: ContainerService
 containerService =
-    ContainerService'
-    { _csRunningCount = Nothing
-    , _csStatus = Nothing
-    , _csClusterARN = Nothing
-    , _csCreatedAt = Nothing
-    , _csDesiredCount = Nothing
-    , _csLoadBalancers = Nothing
-    , _csPendingCount = Nothing
-    , _csPlacementConstraints = Nothing
-    , _csEvents = Nothing
-    , _csPlacementStrategy = Nothing
-    , _csDeployments = Nothing
-    , _csServiceName = Nothing
-    , _csServiceARN = Nothing
-    , _csTaskDefinition = Nothing
-    , _csRoleARN = Nothing
-    , _csDeploymentConfiguration = Nothing
-    }
+  ContainerService'
+  { _csRunningCount = Nothing
+  , _csStatus = Nothing
+  , _csClusterARN = Nothing
+  , _csCreatedAt = Nothing
+  , _csDesiredCount = Nothing
+  , _csLoadBalancers = Nothing
+  , _csPendingCount = Nothing
+  , _csPlacementConstraints = Nothing
+  , _csEvents = Nothing
+  , _csPlacementStrategy = Nothing
+  , _csDeployments = Nothing
+  , _csServiceName = Nothing
+  , _csServiceARN = Nothing
+  , _csTaskDefinition = Nothing
+  , _csRoleARN = Nothing
+  , _csDeploymentConfiguration = Nothing
+  }
+
 
 -- | The number of tasks in the cluster that are in the @RUNNING@ state.
 csRunningCount :: Lens' ContainerService (Maybe Int)
@@ -964,9 +978,9 @@ instance FromJSON ContainerService where
                      <*> (x .:? "roleArn")
                      <*> (x .:? "deploymentConfiguration"))
 
-instance Hashable ContainerService
+instance Hashable ContainerService where
 
-instance NFData ContainerService
+instance NFData ContainerService where
 
 -- | The details of an Amazon ECS service deployment.
 --
@@ -974,15 +988,16 @@ instance NFData ContainerService
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-    { _dRunningCount   :: !(Maybe Int)
-    , _dStatus         :: !(Maybe Text)
-    , _dCreatedAt      :: !(Maybe POSIX)
-    , _dDesiredCount   :: !(Maybe Int)
-    , _dPendingCount   :: !(Maybe Int)
-    , _dId             :: !(Maybe Text)
-    , _dUpdatedAt      :: !(Maybe POSIX)
-    , _dTaskDefinition :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dRunningCount   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dStatus         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCreatedAt      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dDesiredCount   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dPendingCount   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dUpdatedAt      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dTaskDefinition :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
@@ -1006,16 +1021,17 @@ data Deployment = Deployment'
 deployment
     :: Deployment
 deployment =
-    Deployment'
-    { _dRunningCount = Nothing
-    , _dStatus = Nothing
-    , _dCreatedAt = Nothing
-    , _dDesiredCount = Nothing
-    , _dPendingCount = Nothing
-    , _dId = Nothing
-    , _dUpdatedAt = Nothing
-    , _dTaskDefinition = Nothing
-    }
+  Deployment'
+  { _dRunningCount = Nothing
+  , _dStatus = Nothing
+  , _dCreatedAt = Nothing
+  , _dDesiredCount = Nothing
+  , _dPendingCount = Nothing
+  , _dId = Nothing
+  , _dUpdatedAt = Nothing
+  , _dTaskDefinition = Nothing
+  }
+
 
 -- | The number of tasks in the deployment that are in the @RUNNING@ status.
 dRunningCount :: Lens' Deployment (Maybe Int)
@@ -1062,9 +1078,9 @@ instance FromJSON Deployment where
                      <*> (x .:? "updatedAt")
                      <*> (x .:? "taskDefinition"))
 
-instance Hashable Deployment
+instance Hashable Deployment where
 
-instance NFData Deployment
+instance NFData Deployment where
 
 -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 --
@@ -1072,9 +1088,10 @@ instance NFData Deployment
 --
 -- /See:/ 'deploymentConfiguration' smart constructor.
 data DeploymentConfiguration = DeploymentConfiguration'
-    { _dcMinimumHealthyPercent :: !(Maybe Int)
-    , _dcMaximumPercent        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcMinimumHealthyPercent :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcMaximumPercent        :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeploymentConfiguration' with the minimum fields required to make a request.
 --
@@ -1086,10 +1103,9 @@ data DeploymentConfiguration = DeploymentConfiguration'
 deploymentConfiguration
     :: DeploymentConfiguration
 deploymentConfiguration =
-    DeploymentConfiguration'
-    { _dcMinimumHealthyPercent = Nothing
-    , _dcMaximumPercent = Nothing
-    }
+  DeploymentConfiguration'
+  {_dcMinimumHealthyPercent = Nothing, _dcMaximumPercent = Nothing}
+
 
 -- | The lower limit (as a percentage of the service's @desiredCount@ ) of the number of running tasks that must remain in the @RUNNING@ state in a service during a deployment. The minimum healthy tasks during a deployment is the @desiredCount@ multiplied by @minimumHealthyPercent@ /100, rounded up to the nearest integer value.
 dcMinimumHealthyPercent :: Lens' DeploymentConfiguration (Maybe Int)
@@ -1107,9 +1123,9 @@ instance FromJSON DeploymentConfiguration where
                    (x .:? "minimumHealthyPercent") <*>
                      (x .:? "maximumPercent"))
 
-instance Hashable DeploymentConfiguration
+instance Hashable DeploymentConfiguration where
 
-instance NFData DeploymentConfiguration
+instance NFData DeploymentConfiguration where
 
 instance ToJSON DeploymentConfiguration where
         toJSON DeploymentConfiguration'{..}
@@ -1125,9 +1141,10 @@ instance ToJSON DeploymentConfiguration where
 --
 -- /See:/ 'failure' smart constructor.
 data Failure = Failure'
-    { _fArn    :: !(Maybe Text)
-    , _fReason :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fArn    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fReason :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Failure' with the minimum fields required to make a request.
 --
@@ -1138,11 +1155,8 @@ data Failure = Failure'
 -- * 'fReason' - The reason for the failure.
 failure
     :: Failure
-failure =
-    Failure'
-    { _fArn = Nothing
-    , _fReason = Nothing
-    }
+failure = Failure' {_fArn = Nothing, _fReason = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) of the failed resource.
 fArn :: Lens' Failure (Maybe Text)
@@ -1158,9 +1172,9 @@ instance FromJSON Failure where
               (\ x ->
                  Failure' <$> (x .:? "arn") <*> (x .:? "reason"))
 
-instance Hashable Failure
+instance Hashable Failure where
 
-instance NFData Failure
+instance NFData Failure where
 
 -- | Hostnames and IP address entries that are added to the @/etc/hosts@ file of a container via the @extraHosts@ parameter of its 'ContainerDefinition' .
 --
@@ -1168,9 +1182,10 @@ instance NFData Failure
 --
 -- /See:/ 'hostEntry' smart constructor.
 data HostEntry = HostEntry'
-    { _heHostname  :: !Text
-    , _heIpAddress :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _heHostname  :: {-# NOUNPACK #-}!Text
+  , _heIpAddress :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HostEntry' with the minimum fields required to make a request.
 --
@@ -1184,10 +1199,8 @@ hostEntry
     -> Text -- ^ 'heIpAddress'
     -> HostEntry
 hostEntry pHostname_ pIpAddress_ =
-    HostEntry'
-    { _heHostname = pHostname_
-    , _heIpAddress = pIpAddress_
-    }
+  HostEntry' {_heHostname = pHostname_, _heIpAddress = pIpAddress_}
+
 
 -- | The hostname to use in the @/etc/hosts@ entry.
 heHostname :: Lens' HostEntry Text
@@ -1204,9 +1217,9 @@ instance FromJSON HostEntry where
                  HostEntry' <$>
                    (x .: "hostname") <*> (x .: "ipAddress"))
 
-instance Hashable HostEntry
+instance Hashable HostEntry where
 
-instance NFData HostEntry
+instance NFData HostEntry where
 
 instance ToJSON HostEntry where
         toJSON HostEntry'{..}
@@ -1221,8 +1234,9 @@ instance ToJSON HostEntry where
 --
 -- /See:/ 'hostVolumeProperties' smart constructor.
 newtype HostVolumeProperties = HostVolumeProperties'
-    { _hvpSourcePath :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hvpSourcePath :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HostVolumeProperties' with the minimum fields required to make a request.
 --
@@ -1231,10 +1245,8 @@ newtype HostVolumeProperties = HostVolumeProperties'
 -- * 'hvpSourcePath' - The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the @host@ parameter contains a @sourcePath@ file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the @sourcePath@ value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
 hostVolumeProperties
     :: HostVolumeProperties
-hostVolumeProperties =
-    HostVolumeProperties'
-    { _hvpSourcePath = Nothing
-    }
+hostVolumeProperties = HostVolumeProperties' {_hvpSourcePath = Nothing}
+
 
 -- | The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the @host@ parameter contains a @sourcePath@ file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the @sourcePath@ value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
 hvpSourcePath :: Lens' HostVolumeProperties (Maybe Text)
@@ -1246,9 +1258,9 @@ instance FromJSON HostVolumeProperties where
               (\ x ->
                  HostVolumeProperties' <$> (x .:? "sourcePath"))
 
-instance Hashable HostVolumeProperties
+instance Hashable HostVolumeProperties where
 
-instance NFData HostVolumeProperties
+instance NFData HostVolumeProperties where
 
 instance ToJSON HostVolumeProperties where
         toJSON HostVolumeProperties'{..}
@@ -1261,9 +1273,10 @@ instance ToJSON HostVolumeProperties where
 --
 -- /See:/ 'keyValuePair' smart constructor.
 data KeyValuePair = KeyValuePair'
-    { _kvpValue :: !(Maybe Text)
-    , _kvpName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kvpValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kvpName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyValuePair' with the minimum fields required to make a request.
 --
@@ -1274,11 +1287,8 @@ data KeyValuePair = KeyValuePair'
 -- * 'kvpName' - The name of the key value pair. For environment variables, this is the name of the environment variable.
 keyValuePair
     :: KeyValuePair
-keyValuePair =
-    KeyValuePair'
-    { _kvpValue = Nothing
-    , _kvpName = Nothing
-    }
+keyValuePair = KeyValuePair' {_kvpValue = Nothing, _kvpName = Nothing}
+
 
 -- | The value of the key value pair. For environment variables, this is the value of the environment variable.
 kvpValue :: Lens' KeyValuePair (Maybe Text)
@@ -1294,9 +1304,9 @@ instance FromJSON KeyValuePair where
               (\ x ->
                  KeyValuePair' <$> (x .:? "value") <*> (x .:? "name"))
 
-instance Hashable KeyValuePair
+instance Hashable KeyValuePair where
 
-instance NFData KeyValuePair
+instance NFData KeyValuePair where
 
 instance ToJSON KeyValuePair where
         toJSON KeyValuePair'{..}
@@ -1311,11 +1321,12 @@ instance ToJSON KeyValuePair where
 --
 -- /See:/ 'loadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
-    { _lbLoadBalancerName :: !(Maybe Text)
-    , _lbContainerName    :: !(Maybe Text)
-    , _lbTargetGroupARN   :: !(Maybe Text)
-    , _lbContainerPort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbContainerName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbTargetGroupARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbContainerPort    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
 --
@@ -1331,12 +1342,13 @@ data LoadBalancer = LoadBalancer'
 loadBalancer
     :: LoadBalancer
 loadBalancer =
-    LoadBalancer'
-    { _lbLoadBalancerName = Nothing
-    , _lbContainerName = Nothing
-    , _lbTargetGroupARN = Nothing
-    , _lbContainerPort = Nothing
-    }
+  LoadBalancer'
+  { _lbLoadBalancerName = Nothing
+  , _lbContainerName = Nothing
+  , _lbTargetGroupARN = Nothing
+  , _lbContainerPort = Nothing
+  }
+
 
 -- | The name of a Classic load balancer.
 lbLoadBalancerName :: Lens' LoadBalancer (Maybe Text)
@@ -1364,9 +1376,9 @@ instance FromJSON LoadBalancer where
                      <*> (x .:? "targetGroupArn")
                      <*> (x .:? "containerPort"))
 
-instance Hashable LoadBalancer
+instance Hashable LoadBalancer where
 
-instance NFData LoadBalancer
+instance NFData LoadBalancer where
 
 instance ToJSON LoadBalancer where
         toJSON LoadBalancer'{..}
@@ -1383,9 +1395,10 @@ instance ToJSON LoadBalancer where
 --
 -- /See:/ 'logConfiguration' smart constructor.
 data LogConfiguration = LogConfiguration'
-    { _lcOptions   :: !(Maybe (Map Text Text))
-    , _lcLogDriver :: !LogDriver
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcOptions   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _lcLogDriver :: {-# NOUNPACK #-}!LogDriver
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LogConfiguration' with the minimum fields required to make a request.
 --
@@ -1398,10 +1411,8 @@ logConfiguration
     :: LogDriver -- ^ 'lcLogDriver'
     -> LogConfiguration
 logConfiguration pLogDriver_ =
-    LogConfiguration'
-    { _lcOptions = Nothing
-    , _lcLogDriver = pLogDriver_
-    }
+  LogConfiguration' {_lcOptions = Nothing, _lcLogDriver = pLogDriver_}
+
 
 -- | The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: @sudo docker version | grep "Server API version"@
 lcOptions :: Lens' LogConfiguration (HashMap Text Text)
@@ -1418,9 +1429,9 @@ instance FromJSON LogConfiguration where
                  LogConfiguration' <$>
                    (x .:? "options" .!= mempty) <*> (x .: "logDriver"))
 
-instance Hashable LogConfiguration
+instance Hashable LogConfiguration where
 
-instance NFData LogConfiguration
+instance NFData LogConfiguration where
 
 instance ToJSON LogConfiguration where
         toJSON LogConfiguration'{..}
@@ -1435,10 +1446,11 @@ instance ToJSON LogConfiguration where
 --
 -- /See:/ 'mountPoint' smart constructor.
 data MountPoint = MountPoint'
-    { _mpContainerPath :: !(Maybe Text)
-    , _mpSourceVolume  :: !(Maybe Text)
-    , _mpReadOnly      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mpContainerPath :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mpSourceVolume  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mpReadOnly      :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MountPoint' with the minimum fields required to make a request.
 --
@@ -1452,11 +1464,9 @@ data MountPoint = MountPoint'
 mountPoint
     :: MountPoint
 mountPoint =
-    MountPoint'
-    { _mpContainerPath = Nothing
-    , _mpSourceVolume = Nothing
-    , _mpReadOnly = Nothing
-    }
+  MountPoint'
+  {_mpContainerPath = Nothing, _mpSourceVolume = Nothing, _mpReadOnly = Nothing}
+
 
 -- | The path on the container to mount the host volume at.
 mpContainerPath :: Lens' MountPoint (Maybe Text)
@@ -1478,9 +1488,9 @@ instance FromJSON MountPoint where
                    (x .:? "containerPath") <*> (x .:? "sourceVolume")
                      <*> (x .:? "readOnly"))
 
-instance Hashable MountPoint
+instance Hashable MountPoint where
 
-instance NFData MountPoint
+instance NFData MountPoint where
 
 instance ToJSON MountPoint where
         toJSON MountPoint'{..}
@@ -1496,11 +1506,12 @@ instance ToJSON MountPoint where
 --
 -- /See:/ 'networkBinding' smart constructor.
 data NetworkBinding = NetworkBinding'
-    { _nbBindIP        :: !(Maybe Text)
-    , _nbProtocol      :: !(Maybe TransportProtocol)
-    , _nbHostPort      :: !(Maybe Int)
-    , _nbContainerPort :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nbBindIP        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nbProtocol      :: {-# NOUNPACK #-}!(Maybe TransportProtocol)
+  , _nbHostPort      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _nbContainerPort :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NetworkBinding' with the minimum fields required to make a request.
 --
@@ -1516,12 +1527,13 @@ data NetworkBinding = NetworkBinding'
 networkBinding
     :: NetworkBinding
 networkBinding =
-    NetworkBinding'
-    { _nbBindIP = Nothing
-    , _nbProtocol = Nothing
-    , _nbHostPort = Nothing
-    , _nbContainerPort = Nothing
-    }
+  NetworkBinding'
+  { _nbBindIP = Nothing
+  , _nbProtocol = Nothing
+  , _nbHostPort = Nothing
+  , _nbContainerPort = Nothing
+  }
+
 
 -- | The IP address that the container is bound to on the container instance.
 nbBindIP :: Lens' NetworkBinding (Maybe Text)
@@ -1548,9 +1560,9 @@ instance FromJSON NetworkBinding where
                      (x .:? "hostPort")
                      <*> (x .:? "containerPort"))
 
-instance Hashable NetworkBinding
+instance Hashable NetworkBinding where
 
-instance NFData NetworkBinding
+instance NFData NetworkBinding where
 
 instance ToJSON NetworkBinding where
         toJSON NetworkBinding'{..}
@@ -1567,9 +1579,10 @@ instance ToJSON NetworkBinding where
 --
 -- /See:/ 'placementConstraint' smart constructor.
 data PlacementConstraint = PlacementConstraint'
-    { _pcExpression :: !(Maybe Text)
-    , _pcType       :: !(Maybe PlacementConstraintType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pcExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcType       :: {-# NOUNPACK #-}!(Maybe PlacementConstraintType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlacementConstraint' with the minimum fields required to make a request.
 --
@@ -1581,10 +1594,8 @@ data PlacementConstraint = PlacementConstraint'
 placementConstraint
     :: PlacementConstraint
 placementConstraint =
-    PlacementConstraint'
-    { _pcExpression = Nothing
-    , _pcType = Nothing
-    }
+  PlacementConstraint' {_pcExpression = Nothing, _pcType = Nothing}
+
 
 -- | A cluster query language expression to apply to the constraint. Note you cannot specify an expression if the constraint type is @distinctInstance@ . For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
 pcExpression :: Lens' PlacementConstraint (Maybe Text)
@@ -1601,9 +1612,9 @@ instance FromJSON PlacementConstraint where
                  PlacementConstraint' <$>
                    (x .:? "expression") <*> (x .:? "type"))
 
-instance Hashable PlacementConstraint
+instance Hashable PlacementConstraint where
 
-instance NFData PlacementConstraint
+instance NFData PlacementConstraint where
 
 instance ToJSON PlacementConstraint where
         toJSON PlacementConstraint'{..}
@@ -1618,9 +1629,10 @@ instance ToJSON PlacementConstraint where
 --
 -- /See:/ 'placementStrategy' smart constructor.
 data PlacementStrategy = PlacementStrategy'
-    { _psField :: !(Maybe Text)
-    , _psType  :: !(Maybe PlacementStrategyType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psField :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psType  :: {-# NOUNPACK #-}!(Maybe PlacementStrategyType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlacementStrategy' with the minimum fields required to make a request.
 --
@@ -1631,11 +1643,8 @@ data PlacementStrategy = PlacementStrategy'
 -- * 'psType' - The type of placement strategy. The @random@ placement strategy randomly places tasks on available candidates. The @spread@ placement strategy spreads placement across available candidates evenly based on the @field@ parameter. The @binpack@ strategy places tasks on available candidates that have the least available amount of the resource that is specified with the @field@ parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
 placementStrategy
     :: PlacementStrategy
-placementStrategy =
-    PlacementStrategy'
-    { _psField = Nothing
-    , _psType = Nothing
-    }
+placementStrategy = PlacementStrategy' {_psField = Nothing, _psType = Nothing}
+
 
 -- | The field to apply the placement strategy against. For the @spread@ placement strategy, valid values are @instanceId@ (or @host@ , which has the same effect), or any platform or custom attribute that is applied to a container instance, such as @attribute:ecs.availability-zone@ . For the @binpack@ placement strategy, valid values are @cpu@ and @memory@ . For the @random@ placement strategy, this field is not used.
 psField :: Lens' PlacementStrategy (Maybe Text)
@@ -1652,9 +1661,9 @@ instance FromJSON PlacementStrategy where
                  PlacementStrategy' <$>
                    (x .:? "field") <*> (x .:? "type"))
 
-instance Hashable PlacementStrategy
+instance Hashable PlacementStrategy where
 
-instance NFData PlacementStrategy
+instance NFData PlacementStrategy where
 
 instance ToJSON PlacementStrategy where
         toJSON PlacementStrategy'{..}
@@ -1668,10 +1677,11 @@ instance ToJSON PlacementStrategy where
 --
 -- /See:/ 'portMapping' smart constructor.
 data PortMapping = PortMapping'
-    { _pmProtocol      :: !(Maybe TransportProtocol)
-    , _pmHostPort      :: !(Maybe Int)
-    , _pmContainerPort :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmProtocol      :: {-# NOUNPACK #-}!(Maybe TransportProtocol)
+  , _pmHostPort      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pmContainerPort :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PortMapping' with the minimum fields required to make a request.
 --
@@ -1685,11 +1695,9 @@ data PortMapping = PortMapping'
 portMapping
     :: PortMapping
 portMapping =
-    PortMapping'
-    { _pmProtocol = Nothing
-    , _pmHostPort = Nothing
-    , _pmContainerPort = Nothing
-    }
+  PortMapping'
+  {_pmProtocol = Nothing, _pmHostPort = Nothing, _pmContainerPort = Nothing}
+
 
 -- | The protocol used for the port mapping. Valid values are @tcp@ and @udp@ . The default is @tcp@ .
 pmProtocol :: Lens' PortMapping (Maybe TransportProtocol)
@@ -1711,9 +1719,9 @@ instance FromJSON PortMapping where
                    (x .:? "protocol") <*> (x .:? "hostPort") <*>
                      (x .:? "containerPort"))
 
-instance Hashable PortMapping
+instance Hashable PortMapping where
 
-instance NFData PortMapping
+instance NFData PortMapping where
 
 instance ToJSON PortMapping where
         toJSON PortMapping'{..}
@@ -1729,13 +1737,14 @@ instance ToJSON PortMapping where
 --
 -- /See:/ 'resource' smart constructor.
 data Resource = Resource'
-    { _rStringSetValue :: !(Maybe [Text])
-    , _rIntegerValue   :: !(Maybe Int)
-    , _rDoubleValue    :: !(Maybe Double)
-    , _rLongValue      :: !(Maybe Integer)
-    , _rName           :: !(Maybe Text)
-    , _rType           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rStringSetValue :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rIntegerValue   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rDoubleValue    :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rLongValue      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _rName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rType           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
@@ -1755,14 +1764,15 @@ data Resource = Resource'
 resource
     :: Resource
 resource =
-    Resource'
-    { _rStringSetValue = Nothing
-    , _rIntegerValue = Nothing
-    , _rDoubleValue = Nothing
-    , _rLongValue = Nothing
-    , _rName = Nothing
-    , _rType = Nothing
-    }
+  Resource'
+  { _rStringSetValue = Nothing
+  , _rIntegerValue = Nothing
+  , _rDoubleValue = Nothing
+  , _rLongValue = Nothing
+  , _rName = Nothing
+  , _rType = Nothing
+  }
+
 
 -- | When the @stringSetValue@ type is set, the value of the resource must be a string type.
 rStringSetValue :: Lens' Resource [Text]
@@ -1800,9 +1810,9 @@ instance FromJSON Resource where
                      <*> (x .:? "name")
                      <*> (x .:? "type"))
 
-instance Hashable Resource
+instance Hashable Resource where
 
-instance NFData Resource
+instance NFData Resource where
 
 instance ToJSON Resource where
         toJSON Resource'{..}
@@ -1820,10 +1830,11 @@ instance ToJSON Resource where
 --
 -- /See:/ 'serviceEvent' smart constructor.
 data ServiceEvent = ServiceEvent'
-    { _seCreatedAt :: !(Maybe POSIX)
-    , _seId        :: !(Maybe Text)
-    , _seMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _seId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ServiceEvent' with the minimum fields required to make a request.
 --
@@ -1837,11 +1848,8 @@ data ServiceEvent = ServiceEvent'
 serviceEvent
     :: ServiceEvent
 serviceEvent =
-    ServiceEvent'
-    { _seCreatedAt = Nothing
-    , _seId = Nothing
-    , _seMessage = Nothing
-    }
+  ServiceEvent' {_seCreatedAt = Nothing, _seId = Nothing, _seMessage = Nothing}
+
 
 -- | The Unix timestamp for when the event was triggered.
 seCreatedAt :: Lens' ServiceEvent (Maybe UTCTime)
@@ -1863,9 +1871,9 @@ instance FromJSON ServiceEvent where
                    (x .:? "createdAt") <*> (x .:? "id") <*>
                      (x .:? "message"))
 
-instance Hashable ServiceEvent
+instance Hashable ServiceEvent where
 
-instance NFData ServiceEvent
+instance NFData ServiceEvent where
 
 -- | Details on a task in a cluster.
 --
@@ -1873,22 +1881,23 @@ instance NFData ServiceEvent
 --
 -- /See:/ 'task' smart constructor.
 data Task = Task'
-    { _tStoppedAt            :: !(Maybe POSIX)
-    , _tDesiredStatus        :: !(Maybe Text)
-    , _tOverrides            :: !(Maybe TaskOverride)
-    , _tClusterARN           :: !(Maybe Text)
-    , _tGroup                :: !(Maybe Text)
-    , _tCreatedAt            :: !(Maybe POSIX)
-    , _tTaskARN              :: !(Maybe Text)
-    , _tContainerInstanceARN :: !(Maybe Text)
-    , _tLastStatus           :: !(Maybe Text)
-    , _tContainers           :: !(Maybe [Container])
-    , _tStartedAt            :: !(Maybe POSIX)
-    , _tVersion              :: !(Maybe Integer)
-    , _tStartedBy            :: !(Maybe Text)
-    , _tStoppedReason        :: !(Maybe Text)
-    , _tTaskDefinitionARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tStoppedAt            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tDesiredStatus        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tOverrides            :: {-# NOUNPACK #-}!(Maybe TaskOverride)
+  , _tClusterARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tGroup                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tCreatedAt            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tTaskARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tContainerInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tLastStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tContainers           :: {-# NOUNPACK #-}!(Maybe [Container])
+  , _tStartedAt            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tVersion              :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tStartedBy            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tStoppedReason        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tTaskDefinitionARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Task' with the minimum fields required to make a request.
 --
@@ -1926,23 +1935,24 @@ data Task = Task'
 task
     :: Task
 task =
-    Task'
-    { _tStoppedAt = Nothing
-    , _tDesiredStatus = Nothing
-    , _tOverrides = Nothing
-    , _tClusterARN = Nothing
-    , _tGroup = Nothing
-    , _tCreatedAt = Nothing
-    , _tTaskARN = Nothing
-    , _tContainerInstanceARN = Nothing
-    , _tLastStatus = Nothing
-    , _tContainers = Nothing
-    , _tStartedAt = Nothing
-    , _tVersion = Nothing
-    , _tStartedBy = Nothing
-    , _tStoppedReason = Nothing
-    , _tTaskDefinitionARN = Nothing
-    }
+  Task'
+  { _tStoppedAt = Nothing
+  , _tDesiredStatus = Nothing
+  , _tOverrides = Nothing
+  , _tClusterARN = Nothing
+  , _tGroup = Nothing
+  , _tCreatedAt = Nothing
+  , _tTaskARN = Nothing
+  , _tContainerInstanceARN = Nothing
+  , _tLastStatus = Nothing
+  , _tContainers = Nothing
+  , _tStartedAt = Nothing
+  , _tVersion = Nothing
+  , _tStartedBy = Nothing
+  , _tStoppedReason = Nothing
+  , _tTaskDefinitionARN = Nothing
+  }
+
 
 -- | The Unix timestamp for when the task was stopped (the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
 tStoppedAt :: Lens' Task (Maybe UTCTime)
@@ -2024,9 +2034,9 @@ instance FromJSON Task where
                      <*> (x .:? "stoppedReason")
                      <*> (x .:? "taskDefinitionArn"))
 
-instance Hashable Task
+instance Hashable Task where
 
-instance NFData Task
+instance NFData Task where
 
 -- | Details of a task definition.
 --
@@ -2034,17 +2044,18 @@ instance NFData Task
 --
 -- /See:/ 'taskDefinition' smart constructor.
 data TaskDefinition = TaskDefinition'
-    { _tdStatus               :: !(Maybe TaskDefinitionStatus)
-    , _tdFamily               :: !(Maybe Text)
-    , _tdContainerDefinitions :: !(Maybe [ContainerDefinition])
-    , _tdTaskRoleARN          :: !(Maybe Text)
-    , _tdPlacementConstraints :: !(Maybe [TaskDefinitionPlacementConstraint])
-    , _tdNetworkMode          :: !(Maybe NetworkMode)
-    , _tdTaskDefinitionARN    :: !(Maybe Text)
-    , _tdRevision             :: !(Maybe Int)
-    , _tdVolumes              :: !(Maybe [Volume])
-    , _tdRequiresAttributes   :: !(Maybe [Attribute])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tdStatus :: {-# NOUNPACK #-}!(Maybe TaskDefinitionStatus)
+  , _tdFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdContainerDefinitions :: {-# NOUNPACK #-}!(Maybe [ContainerDefinition])
+  , _tdTaskRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [TaskDefinitionPlacementConstraint])
+  , _tdNetworkMode :: {-# NOUNPACK #-}!(Maybe NetworkMode)
+  , _tdTaskDefinitionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdRevision :: {-# NOUNPACK #-}!(Maybe Int)
+  , _tdVolumes :: {-# NOUNPACK #-}!(Maybe [Volume])
+  , _tdRequiresAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TaskDefinition' with the minimum fields required to make a request.
 --
@@ -2072,18 +2083,19 @@ data TaskDefinition = TaskDefinition'
 taskDefinition
     :: TaskDefinition
 taskDefinition =
-    TaskDefinition'
-    { _tdStatus = Nothing
-    , _tdFamily = Nothing
-    , _tdContainerDefinitions = Nothing
-    , _tdTaskRoleARN = Nothing
-    , _tdPlacementConstraints = Nothing
-    , _tdNetworkMode = Nothing
-    , _tdTaskDefinitionARN = Nothing
-    , _tdRevision = Nothing
-    , _tdVolumes = Nothing
-    , _tdRequiresAttributes = Nothing
-    }
+  TaskDefinition'
+  { _tdStatus = Nothing
+  , _tdFamily = Nothing
+  , _tdContainerDefinitions = Nothing
+  , _tdTaskRoleARN = Nothing
+  , _tdPlacementConstraints = Nothing
+  , _tdNetworkMode = Nothing
+  , _tdTaskDefinitionARN = Nothing
+  , _tdRevision = Nothing
+  , _tdVolumes = Nothing
+  , _tdRequiresAttributes = Nothing
+  }
+
 
 -- | The status of the task definition.
 tdStatus :: Lens' TaskDefinition (Maybe TaskDefinitionStatus)
@@ -2140,9 +2152,9 @@ instance FromJSON TaskDefinition where
                      <*> (x .:? "volumes" .!= mempty)
                      <*> (x .:? "requiresAttributes" .!= mempty))
 
-instance Hashable TaskDefinition
+instance Hashable TaskDefinition where
 
-instance NFData TaskDefinition
+instance NFData TaskDefinition where
 
 -- | An object representing a constraint on task placement in the task definition. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task Placement Constraints> in the /Amazon EC2 Container Service Developer Guide/ .
 --
@@ -2150,9 +2162,10 @@ instance NFData TaskDefinition
 --
 -- /See:/ 'taskDefinitionPlacementConstraint' smart constructor.
 data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
-    { _tdpcExpression :: !(Maybe Text)
-    , _tdpcType       :: !(Maybe TaskDefinitionPlacementConstraintType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tdpcExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdpcType :: {-# NOUNPACK #-}!(Maybe TaskDefinitionPlacementConstraintType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TaskDefinitionPlacementConstraint' with the minimum fields required to make a request.
 --
@@ -2164,10 +2177,9 @@ data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
 taskDefinitionPlacementConstraint
     :: TaskDefinitionPlacementConstraint
 taskDefinitionPlacementConstraint =
-    TaskDefinitionPlacementConstraint'
-    { _tdpcExpression = Nothing
-    , _tdpcType = Nothing
-    }
+  TaskDefinitionPlacementConstraint'
+  {_tdpcExpression = Nothing, _tdpcType = Nothing}
+
 
 -- | A cluster query language expression to apply to the constraint. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
 tdpcExpression :: Lens' TaskDefinitionPlacementConstraint (Maybe Text)
@@ -2186,8 +2198,10 @@ instance FromJSON TaskDefinitionPlacementConstraint
                    (x .:? "expression") <*> (x .:? "type"))
 
 instance Hashable TaskDefinitionPlacementConstraint
+         where
 
 instance NFData TaskDefinitionPlacementConstraint
+         where
 
 instance ToJSON TaskDefinitionPlacementConstraint
          where
@@ -2203,9 +2217,10 @@ instance ToJSON TaskDefinitionPlacementConstraint
 --
 -- /See:/ 'taskOverride' smart constructor.
 data TaskOverride = TaskOverride'
-    { _toContainerOverrides :: !(Maybe [ContainerOverride])
-    , _toTaskRoleARN        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _toContainerOverrides :: {-# NOUNPACK #-}!(Maybe [ContainerOverride])
+  , _toTaskRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TaskOverride' with the minimum fields required to make a request.
 --
@@ -2217,10 +2232,8 @@ data TaskOverride = TaskOverride'
 taskOverride
     :: TaskOverride
 taskOverride =
-    TaskOverride'
-    { _toContainerOverrides = Nothing
-    , _toTaskRoleARN = Nothing
-    }
+  TaskOverride' {_toContainerOverrides = Nothing, _toTaskRoleARN = Nothing}
+
 
 -- | One or more container overrides sent to a task.
 toContainerOverrides :: Lens' TaskOverride [ContainerOverride]
@@ -2238,9 +2251,9 @@ instance FromJSON TaskOverride where
                    (x .:? "containerOverrides" .!= mempty) <*>
                      (x .:? "taskRoleArn"))
 
-instance Hashable TaskOverride
+instance Hashable TaskOverride where
 
-instance NFData TaskOverride
+instance NFData TaskOverride where
 
 instance ToJSON TaskOverride where
         toJSON TaskOverride'{..}
@@ -2255,10 +2268,11 @@ instance ToJSON TaskOverride where
 --
 -- /See:/ 'ulimit' smart constructor.
 data Ulimit = Ulimit'
-    { _uName      :: !UlimitName
-    , _uSoftLimit :: !Int
-    , _uHardLimit :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uName      :: {-# NOUNPACK #-}!UlimitName
+  , _uSoftLimit :: {-# NOUNPACK #-}!Int
+  , _uHardLimit :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Ulimit' with the minimum fields required to make a request.
 --
@@ -2275,11 +2289,9 @@ ulimit
     -> Int -- ^ 'uHardLimit'
     -> Ulimit
 ulimit pName_ pSoftLimit_ pHardLimit_ =
-    Ulimit'
-    { _uName = pName_
-    , _uSoftLimit = pSoftLimit_
-    , _uHardLimit = pHardLimit_
-    }
+  Ulimit'
+  {_uName = pName_, _uSoftLimit = pSoftLimit_, _uHardLimit = pHardLimit_}
+
 
 -- | The @type@ of the @ulimit@ .
 uName :: Lens' Ulimit UlimitName
@@ -2301,9 +2313,9 @@ instance FromJSON Ulimit where
                    (x .: "name") <*> (x .: "softLimit") <*>
                      (x .: "hardLimit"))
 
-instance Hashable Ulimit
+instance Hashable Ulimit where
 
-instance NFData Ulimit
+instance NFData Ulimit where
 
 instance ToJSON Ulimit where
         toJSON Ulimit'{..}
@@ -2319,10 +2331,11 @@ instance ToJSON Ulimit where
 --
 -- /See:/ 'versionInfo' smart constructor.
 data VersionInfo = VersionInfo'
-    { _viAgentHash     :: !(Maybe Text)
-    , _viAgentVersion  :: !(Maybe Text)
-    , _viDockerVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _viAgentHash     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viAgentVersion  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viDockerVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VersionInfo' with the minimum fields required to make a request.
 --
@@ -2336,11 +2349,12 @@ data VersionInfo = VersionInfo'
 versionInfo
     :: VersionInfo
 versionInfo =
-    VersionInfo'
-    { _viAgentHash = Nothing
-    , _viAgentVersion = Nothing
-    , _viDockerVersion = Nothing
-    }
+  VersionInfo'
+  { _viAgentHash = Nothing
+  , _viAgentVersion = Nothing
+  , _viDockerVersion = Nothing
+  }
+
 
 -- | The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.
 viAgentHash :: Lens' VersionInfo (Maybe Text)
@@ -2362,9 +2376,9 @@ instance FromJSON VersionInfo where
                    (x .:? "agentHash") <*> (x .:? "agentVersion") <*>
                      (x .:? "dockerVersion"))
 
-instance Hashable VersionInfo
+instance Hashable VersionInfo where
 
-instance NFData VersionInfo
+instance NFData VersionInfo where
 
 instance ToJSON VersionInfo where
         toJSON VersionInfo'{..}
@@ -2380,9 +2394,10 @@ instance ToJSON VersionInfo where
 --
 -- /See:/ 'volume' smart constructor.
 data Volume = Volume'
-    { _vName :: !(Maybe Text)
-    , _vHost :: !(Maybe HostVolumeProperties)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vHost :: {-# NOUNPACK #-}!(Maybe HostVolumeProperties)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Volume' with the minimum fields required to make a request.
 --
@@ -2393,11 +2408,8 @@ data Volume = Volume'
 -- * 'vHost' - The contents of the @host@ parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data is not guaranteed to persist after the containers associated with it stop running.
 volume
     :: Volume
-volume =
-    Volume'
-    { _vName = Nothing
-    , _vHost = Nothing
-    }
+volume = Volume' {_vName = Nothing, _vHost = Nothing}
+
 
 -- | The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
 vName :: Lens' Volume (Maybe Text)
@@ -2413,9 +2425,9 @@ instance FromJSON Volume where
               (\ x ->
                  Volume' <$> (x .:? "name") <*> (x .:? "host"))
 
-instance Hashable Volume
+instance Hashable Volume where
 
-instance NFData Volume
+instance NFData Volume where
 
 instance ToJSON Volume where
         toJSON Volume'{..}
@@ -2429,9 +2441,10 @@ instance ToJSON Volume where
 --
 -- /See:/ 'volumeFrom' smart constructor.
 data VolumeFrom = VolumeFrom'
-    { _vfSourceContainer :: !(Maybe Text)
-    , _vfReadOnly        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vfSourceContainer :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vfReadOnly        :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VolumeFrom' with the minimum fields required to make a request.
 --
@@ -2442,11 +2455,8 @@ data VolumeFrom = VolumeFrom'
 -- * 'vfReadOnly' - If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
 volumeFrom
     :: VolumeFrom
-volumeFrom =
-    VolumeFrom'
-    { _vfSourceContainer = Nothing
-    , _vfReadOnly = Nothing
-    }
+volumeFrom = VolumeFrom' {_vfSourceContainer = Nothing, _vfReadOnly = Nothing}
+
 
 -- | The name of another container within the same task definition to mount volumes from.
 vfSourceContainer :: Lens' VolumeFrom (Maybe Text)
@@ -2463,9 +2473,9 @@ instance FromJSON VolumeFrom where
                  VolumeFrom' <$>
                    (x .:? "sourceContainer") <*> (x .:? "readOnly"))
 
-instance Hashable VolumeFrom
+instance Hashable VolumeFrom where
 
-instance NFData VolumeFrom
+instance NFData VolumeFrom where
 
 instance ToJSON VolumeFrom where
         toJSON VolumeFrom'{..}

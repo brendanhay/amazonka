@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,13 +46,13 @@ module Network.AWS.Redshift.DescribeEvents
     , dersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -60,14 +60,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-    { _deStartTime        :: !(Maybe ISO8601)
-    , _deSourceType       :: !(Maybe SourceType)
-    , _deSourceIdentifier :: !(Maybe Text)
-    , _deMarker           :: !(Maybe Text)
-    , _deMaxRecords       :: !(Maybe Int)
-    , _deEndTime          :: !(Maybe ISO8601)
-    , _deDuration         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deStartTime        :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _deSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _deSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deMaxRecords       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _deEndTime          :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _deDuration         :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
@@ -89,15 +90,16 @@ data DescribeEvents = DescribeEvents'
 describeEvents
     :: DescribeEvents
 describeEvents =
-    DescribeEvents'
-    { _deStartTime = Nothing
-    , _deSourceType = Nothing
-    , _deSourceIdentifier = Nothing
-    , _deMarker = Nothing
-    , _deMaxRecords = Nothing
-    , _deEndTime = Nothing
-    , _deDuration = Nothing
-    }
+  DescribeEvents'
+  { _deStartTime = Nothing
+  , _deSourceType = Nothing
+  , _deSourceIdentifier = Nothing
+  , _deMarker = Nothing
+  , _deMaxRecords = Nothing
+  , _deEndTime = Nothing
+  , _deDuration = Nothing
+  }
+
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: @2009-07-08T18:00Z@
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
@@ -146,9 +148,9 @@ instance AWSRequest DescribeEvents where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEvents
+instance Hashable DescribeEvents where
 
-instance NFData DescribeEvents
+instance NFData DescribeEvents where
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
@@ -173,10 +175,11 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersEvents         :: !(Maybe [Event])
-    , _dersMarker         :: !(Maybe Text)
-    , _dersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
+  , _dersMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
@@ -191,11 +194,12 @@ describeEventsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
-    DescribeEventsResponse'
-    { _dersEvents = Nothing
-    , _dersMarker = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DescribeEventsResponse'
+  { _dersEvents = Nothing
+  , _dersMarker = Nothing
+  , _dersResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of @Event@ instances.
 dersEvents :: Lens' DescribeEventsResponse [Event]
@@ -209,4 +213,4 @@ dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 dersResponseStatus :: Lens' DescribeEventsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DescribeEventsResponse
+instance NFData DescribeEventsResponse where

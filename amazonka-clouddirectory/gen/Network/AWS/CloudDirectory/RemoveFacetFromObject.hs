@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.RemoveFacetFromObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.CloudDirectory.RemoveFacetFromObject
     , rfforsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeFacetFromObject' smart constructor.
 data RemoveFacetFromObject = RemoveFacetFromObject'
-    { _rffoDirectoryARN    :: !Text
-    , _rffoSchemaFacet     :: !SchemaFacet
-    , _rffoObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rffoDirectoryARN    :: {-# NOUNPACK #-}!Text
+  , _rffoSchemaFacet     :: {-# NOUNPACK #-}!SchemaFacet
+  , _rffoObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveFacetFromObject' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ removeFacetFromObject
     -> ObjectReference -- ^ 'rffoObjectReference'
     -> RemoveFacetFromObject
 removeFacetFromObject pDirectoryARN_ pSchemaFacet_ pObjectReference_ =
-    RemoveFacetFromObject'
-    { _rffoDirectoryARN = pDirectoryARN_
-    , _rffoSchemaFacet = pSchemaFacet_
-    , _rffoObjectReference = pObjectReference_
-    }
+  RemoveFacetFromObject'
+  { _rffoDirectoryARN = pDirectoryARN_
+  , _rffoSchemaFacet = pSchemaFacet_
+  , _rffoObjectReference = pObjectReference_
+  }
+
 
 -- | The ARN of the directory in which the object resides.
 rffoDirectoryARN :: Lens' RemoveFacetFromObject Text
@@ -95,9 +97,9 @@ instance AWSRequest RemoveFacetFromObject where
                  RemoveFacetFromObjectResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable RemoveFacetFromObject
+instance Hashable RemoveFacetFromObject where
 
-instance NFData RemoveFacetFromObject
+instance NFData RemoveFacetFromObject where
 
 instance ToHeaders RemoveFacetFromObject where
         toHeaders RemoveFacetFromObject'{..}
@@ -121,8 +123,9 @@ instance ToQuery RemoveFacetFromObject where
 
 -- | /See:/ 'removeFacetFromObjectResponse' smart constructor.
 newtype RemoveFacetFromObjectResponse = RemoveFacetFromObjectResponse'
-    { _rfforsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rfforsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveFacetFromObjectResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +136,11 @@ removeFacetFromObjectResponse
     :: Int -- ^ 'rfforsResponseStatus'
     -> RemoveFacetFromObjectResponse
 removeFacetFromObjectResponse pResponseStatus_ =
-    RemoveFacetFromObjectResponse'
-    { _rfforsResponseStatus = pResponseStatus_
-    }
+  RemoveFacetFromObjectResponse' {_rfforsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rfforsResponseStatus :: Lens' RemoveFacetFromObjectResponse Int
 rfforsResponseStatus = lens _rfforsResponseStatus (\ s a -> s{_rfforsResponseStatus = a});
 
-instance NFData RemoveFacetFromObjectResponse
+instance NFData RemoveFacetFromObjectResponse where

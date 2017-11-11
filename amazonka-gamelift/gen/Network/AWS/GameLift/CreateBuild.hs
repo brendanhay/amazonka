@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateBuild
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,12 +60,12 @@ module Network.AWS.GameLift.CreateBuild
     , cbrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -73,11 +73,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createBuild' smart constructor.
 data CreateBuild = CreateBuild'
-    { _cbStorageLocation :: !(Maybe S3Location)
-    , _cbOperatingSystem :: !(Maybe OperatingSystem)
-    , _cbName            :: !(Maybe Text)
-    , _cbVersion         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbStorageLocation :: {-# NOUNPACK #-}!(Maybe S3Location)
+  , _cbOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _cbName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBuild' with the minimum fields required to make a request.
 --
@@ -93,12 +94,13 @@ data CreateBuild = CreateBuild'
 createBuild
     :: CreateBuild
 createBuild =
-    CreateBuild'
-    { _cbStorageLocation = Nothing
-    , _cbOperatingSystem = Nothing
-    , _cbName = Nothing
-    , _cbVersion = Nothing
-    }
+  CreateBuild'
+  { _cbStorageLocation = Nothing
+  , _cbOperatingSystem = Nothing
+  , _cbName = Nothing
+  , _cbVersion = Nothing
+  }
+
 
 -- | Amazon S3 location of the game build files to be uploaded. The S3 bucket must be owned by the same AWS account that you're using to manage Amazon GameLift. It also must in the same region that you want to create a new build in. Before calling @CreateBuild@ with this location, you must allow Amazon GameLift to access your Amazon S3 bucket (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build Create a Build with Files in Amazon S3> ).
 cbStorageLocation :: Lens' CreateBuild (Maybe S3Location)
@@ -128,9 +130,9 @@ instance AWSRequest CreateBuild where
                      <*> (x .?> "Build")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateBuild
+instance Hashable CreateBuild where
 
-instance NFData CreateBuild
+instance NFData CreateBuild where
 
 instance ToHeaders CreateBuild where
         toHeaders
@@ -162,11 +164,12 @@ instance ToQuery CreateBuild where
 --
 -- /See:/ 'createBuildResponse' smart constructor.
 data CreateBuildResponse = CreateBuildResponse'
-    { _cbrsStorageLocation   :: !(Maybe S3Location)
-    , _cbrsUploadCredentials :: !(Maybe (Sensitive AWSCredentials))
-    , _cbrsBuild             :: !(Maybe Build)
-    , _cbrsResponseStatus    :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cbrsStorageLocation :: {-# NOUNPACK #-}!(Maybe S3Location)
+  , _cbrsUploadCredentials :: {-# NOUNPACK #-}!(Maybe (Sensitive AWSCredentials))
+  , _cbrsBuild :: {-# NOUNPACK #-}!(Maybe Build)
+  , _cbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBuildResponse' with the minimum fields required to make a request.
 --
@@ -183,12 +186,13 @@ createBuildResponse
     :: Int -- ^ 'cbrsResponseStatus'
     -> CreateBuildResponse
 createBuildResponse pResponseStatus_ =
-    CreateBuildResponse'
-    { _cbrsStorageLocation = Nothing
-    , _cbrsUploadCredentials = Nothing
-    , _cbrsBuild = Nothing
-    , _cbrsResponseStatus = pResponseStatus_
-    }
+  CreateBuildResponse'
+  { _cbrsStorageLocation = Nothing
+  , _cbrsUploadCredentials = Nothing
+  , _cbrsBuild = Nothing
+  , _cbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Amazon S3 location specified in the request.
 cbrsStorageLocation :: Lens' CreateBuildResponse (Maybe S3Location)
@@ -206,4 +210,4 @@ cbrsBuild = lens _cbrsBuild (\ s a -> s{_cbrsBuild = a});
 cbrsResponseStatus :: Lens' CreateBuildResponse Int
 cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
 
-instance NFData CreateBuildResponse
+instance NFData CreateBuildResponse where

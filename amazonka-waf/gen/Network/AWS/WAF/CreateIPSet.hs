@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateIPSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,18 +53,19 @@ module Network.AWS.WAF.CreateIPSet
     , cisrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'createIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'
-    { _cisName        :: !Text
-    , _cisChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cisName        :: {-# NOUNPACK #-}!Text
+  , _cisChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIPSet' with the minimum fields required to make a request.
 --
@@ -78,10 +79,8 @@ createIPSet
     -> Text -- ^ 'cisChangeToken'
     -> CreateIPSet
 createIPSet pName_ pChangeToken_ =
-    CreateIPSet'
-    { _cisName = pName_
-    , _cisChangeToken = pChangeToken_
-    }
+  CreateIPSet' {_cisName = pName_, _cisChangeToken = pChangeToken_}
+
 
 -- | A friendly name or description of the 'IPSet' . You can't change @Name@ after you create the @IPSet@ .
 cisName :: Lens' CreateIPSet Text
@@ -101,9 +100,9 @@ instance AWSRequest CreateIPSet where
                    (x .?> "ChangeToken") <*> (x .?> "IPSet") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateIPSet
+instance Hashable CreateIPSet where
 
-instance NFData CreateIPSet
+instance NFData CreateIPSet where
 
 instance ToHeaders CreateIPSet where
         toHeaders
@@ -129,10 +128,11 @@ instance ToQuery CreateIPSet where
 
 -- | /See:/ 'createIPSetResponse' smart constructor.
 data CreateIPSetResponse = CreateIPSetResponse'
-    { _cisrsChangeToken    :: !(Maybe Text)
-    , _cisrsIPSet          :: !(Maybe IPSet)
-    , _cisrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cisrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cisrsIPSet          :: {-# NOUNPACK #-}!(Maybe IPSet)
+  , _cisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIPSetResponse' with the minimum fields required to make a request.
 --
@@ -147,11 +147,12 @@ createIPSetResponse
     :: Int -- ^ 'cisrsResponseStatus'
     -> CreateIPSetResponse
 createIPSetResponse pResponseStatus_ =
-    CreateIPSetResponse'
-    { _cisrsChangeToken = Nothing
-    , _cisrsIPSet = Nothing
-    , _cisrsResponseStatus = pResponseStatus_
-    }
+  CreateIPSetResponse'
+  { _cisrsChangeToken = Nothing
+  , _cisrsIPSet = Nothing
+  , _cisrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 cisrsChangeToken :: Lens' CreateIPSetResponse (Maybe Text)
@@ -165,4 +166,4 @@ cisrsIPSet = lens _cisrsIPSet (\ s a -> s{_cisrsIPSet = a});
 cisrsResponseStatus :: Lens' CreateIPSetResponse Int
 cisrsResponseStatus = lens _cisrsResponseStatus (\ s a -> s{_cisrsResponseStatus = a});
 
-instance NFData CreateIPSetResponse
+instance NFData CreateIPSetResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachVPNGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.AttachVPNGateway
     , avgrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachVpnGateway.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'attachVPNGateway' smart constructor.
 data AttachVPNGateway = AttachVPNGateway'
-    { _avgDryRun       :: !(Maybe Bool)
-    , _avgVPCId        :: !Text
-    , _avgVPNGatewayId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avgDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _avgVPCId        :: {-# NOUNPACK #-}!Text
+  , _avgVPNGatewayId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachVPNGateway' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ attachVPNGateway
     -> Text -- ^ 'avgVPNGatewayId'
     -> AttachVPNGateway
 attachVPNGateway pVPCId_ pVPNGatewayId_ =
-    AttachVPNGateway'
-    { _avgDryRun = Nothing
-    , _avgVPCId = pVPCId_
-    , _avgVPNGatewayId = pVPNGatewayId_
-    }
+  AttachVPNGateway'
+  {_avgDryRun = Nothing, _avgVPCId = pVPCId_, _avgVPNGatewayId = pVPNGatewayId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avgDryRun :: Lens' AttachVPNGateway (Maybe Bool)
@@ -100,9 +99,9 @@ instance AWSRequest AttachVPNGateway where
                  AttachVPNGatewayResponse' <$>
                    (x .@? "attachment") <*> (pure (fromEnum s)))
 
-instance Hashable AttachVPNGateway
+instance Hashable AttachVPNGateway where
 
-instance NFData AttachVPNGateway
+instance NFData AttachVPNGateway where
 
 instance ToHeaders AttachVPNGateway where
         toHeaders = const mempty
@@ -124,9 +123,10 @@ instance ToQuery AttachVPNGateway where
 --
 -- /See:/ 'attachVPNGatewayResponse' smart constructor.
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
-    { _avgrsVPCAttachment  :: !(Maybe VPCAttachment)
-    , _avgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avgrsVPCAttachment  :: {-# NOUNPACK #-}!(Maybe VPCAttachment)
+  , _avgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachVPNGatewayResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +139,9 @@ attachVPNGatewayResponse
     :: Int -- ^ 'avgrsResponseStatus'
     -> AttachVPNGatewayResponse
 attachVPNGatewayResponse pResponseStatus_ =
-    AttachVPNGatewayResponse'
-    { _avgrsVPCAttachment = Nothing
-    , _avgrsResponseStatus = pResponseStatus_
-    }
+  AttachVPNGatewayResponse'
+  {_avgrsVPCAttachment = Nothing, _avgrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the attachment.
 avgrsVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
@@ -152,4 +151,4 @@ avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = 
 avgrsResponseStatus :: Lens' AttachVPNGatewayResponse Int
 avgrsResponseStatus = lens _avgrsResponseStatus (\ s a -> s{_avgrsResponseStatus = a});
 
-instance NFData AttachVPNGatewayResponse
+instance NFData AttachVPNGatewayResponse where

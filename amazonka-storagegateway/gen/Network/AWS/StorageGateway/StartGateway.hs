@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.StartGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.StorageGateway.StartGateway
     , sgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway to start.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'startGateway' smart constructor.
 newtype StartGateway = StartGateway'
-    { _sgGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartGateway' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ newtype StartGateway = StartGateway'
 startGateway
     :: Text -- ^ 'sgGatewayARN'
     -> StartGateway
-startGateway pGatewayARN_ =
-    StartGateway'
-    { _sgGatewayARN = pGatewayARN_
-    }
+startGateway pGatewayARN_ = StartGateway' {_sgGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 sgGatewayARN :: Lens' StartGateway Text
@@ -81,9 +80,9 @@ instance AWSRequest StartGateway where
                  StartGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable StartGateway
+instance Hashable StartGateway where
 
-instance NFData StartGateway
+instance NFData StartGateway where
 
 instance ToHeaders StartGateway where
         toHeaders
@@ -112,9 +111,10 @@ instance ToQuery StartGateway where
 --
 -- /See:/ 'startGatewayResponse' smart constructor.
 data StartGatewayResponse = StartGatewayResponse'
-    { _sgrsGatewayARN     :: !(Maybe Text)
-    , _sgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartGatewayResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +127,9 @@ startGatewayResponse
     :: Int -- ^ 'sgrsResponseStatus'
     -> StartGatewayResponse
 startGatewayResponse pResponseStatus_ =
-    StartGatewayResponse'
-    { _sgrsGatewayARN = Nothing
-    , _sgrsResponseStatus = pResponseStatus_
-    }
+  StartGatewayResponse'
+  {_sgrsGatewayARN = Nothing, _sgrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 sgrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
@@ -140,4 +139,4 @@ sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 sgrsResponseStatus :: Lens' StartGatewayResponse Int
 sgrsResponseStatus = lens _sgrsResponseStatus (\ s a -> s{_sgrsResponseStatus = a});
 
-instance NFData StartGatewayResponse
+instance NFData StartGatewayResponse where

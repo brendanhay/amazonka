@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStackSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudFormation.ListStackSets
     , lssrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listStackSets' smart constructor.
 data ListStackSets = ListStackSets'
-    { _lssStatus     :: !(Maybe StackSetStatus)
-    , _lssNextToken  :: !(Maybe Text)
-    , _lssMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lssStatus     :: {-# NOUNPACK #-}!(Maybe StackSetStatus)
+  , _lssNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lssMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStackSets' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data ListStackSets = ListStackSets'
 listStackSets
     :: ListStackSets
 listStackSets =
-    ListStackSets'
-    { _lssStatus = Nothing
-    , _lssNextToken = Nothing
-    , _lssMaxResults = Nothing
-    }
+  ListStackSets'
+  {_lssStatus = Nothing, _lssNextToken = Nothing, _lssMaxResults = Nothing}
+
 
 -- | The status of the stack sets that you want to get summary information about.
 lssStatus :: Lens' ListStackSets (Maybe StackSetStatus)
@@ -96,9 +95,9 @@ instance AWSRequest ListStackSets where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListStackSets
+instance Hashable ListStackSets where
 
-instance NFData ListStackSets
+instance NFData ListStackSets where
 
 instance ToHeaders ListStackSets where
         toHeaders = const mempty
@@ -116,10 +115,11 @@ instance ToQuery ListStackSets where
 
 -- | /See:/ 'listStackSetsResponse' smart constructor.
 data ListStackSetsResponse = ListStackSetsResponse'
-    { _lssrsNextToken      :: !(Maybe Text)
-    , _lssrsSummaries      :: !(Maybe [StackSetSummary])
-    , _lssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lssrsSummaries      :: {-# NOUNPACK #-}!(Maybe [StackSetSummary])
+  , _lssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListStackSetsResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +134,12 @@ listStackSetsResponse
     :: Int -- ^ 'lssrsResponseStatus'
     -> ListStackSetsResponse
 listStackSetsResponse pResponseStatus_ =
-    ListStackSetsResponse'
-    { _lssrsNextToken = Nothing
-    , _lssrsSummaries = Nothing
-    , _lssrsResponseStatus = pResponseStatus_
-    }
+  ListStackSetsResponse'
+  { _lssrsNextToken = Nothing
+  , _lssrsSummaries = Nothing
+  , _lssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
 lssrsNextToken :: Lens' ListStackSetsResponse (Maybe Text)
@@ -152,4 +153,4 @@ lssrsSummaries = lens _lssrsSummaries (\ s a -> s{_lssrsSummaries = a}) . _Defau
 lssrsResponseStatus :: Lens' ListStackSetsResponse Int
 lssrsResponseStatus = lens _lssrsResponseStatus (\ s a -> s{_lssrsResponseStatus = a});
 
-instance NFData ListStackSetsResponse
+instance NFData ListStackSetsResponse where

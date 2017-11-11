@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheClusters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,13 +54,13 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     , drsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DescribeCacheClusters@ operation.
 --
@@ -68,12 +68,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCacheClusters' smart constructor.
 data DescribeCacheClusters = DescribeCacheClusters'
-    { _dShowCacheClustersNotInReplicationGroups :: !(Maybe Bool)
-    , _dCacheClusterId                          :: !(Maybe Text)
-    , _dMarker                                  :: !(Maybe Text)
-    , _dMaxRecords                              :: !(Maybe Int)
-    , _dShowCacheNodeInfo                       :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dShowCacheClustersNotInReplicationGroups :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dCacheClusterId                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMarker                                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMaxRecords                              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dShowCacheNodeInfo                       :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheClusters' with the minimum fields required to make a request.
 --
@@ -91,13 +92,14 @@ data DescribeCacheClusters = DescribeCacheClusters'
 describeCacheClusters
     :: DescribeCacheClusters
 describeCacheClusters =
-    DescribeCacheClusters'
-    { _dShowCacheClustersNotInReplicationGroups = Nothing
-    , _dCacheClusterId = Nothing
-    , _dMarker = Nothing
-    , _dMaxRecords = Nothing
-    , _dShowCacheNodeInfo = Nothing
-    }
+  DescribeCacheClusters'
+  { _dShowCacheClustersNotInReplicationGroups = Nothing
+  , _dCacheClusterId = Nothing
+  , _dMarker = Nothing
+  , _dMaxRecords = Nothing
+  , _dShowCacheNodeInfo = Nothing
+  }
+
 
 -- | An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
 dShowCacheClustersNotInReplicationGroups :: Lens' DescribeCacheClusters (Maybe Bool)
@@ -138,9 +140,9 @@ instance AWSRequest DescribeCacheClusters where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCacheClusters
+instance Hashable DescribeCacheClusters where
 
-instance NFData DescribeCacheClusters
+instance NFData DescribeCacheClusters where
 
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
@@ -165,10 +167,11 @@ instance ToQuery DescribeCacheClusters where
 --
 -- /See:/ 'describeCacheClustersResponse' smart constructor.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
-    { _drsCacheClusters  :: !(Maybe [CacheCluster])
-    , _drsMarker         :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsCacheClusters  :: {-# NOUNPACK #-}!(Maybe [CacheCluster])
+  , _drsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheClustersResponse' with the minimum fields required to make a request.
 --
@@ -183,11 +186,12 @@ describeCacheClustersResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeCacheClustersResponse
 describeCacheClustersResponse pResponseStatus_ =
-    DescribeCacheClustersResponse'
-    { _drsCacheClusters = Nothing
-    , _drsMarker = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeCacheClustersResponse'
+  { _drsCacheClusters = Nothing
+  , _drsMarker = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of cache clusters. Each item in the list contains detailed information about one cache cluster.
 drsCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
@@ -201,4 +205,4 @@ drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 drsResponseStatus :: Lens' DescribeCacheClustersResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeCacheClustersResponse
+instance NFData DescribeCacheClustersResponse where

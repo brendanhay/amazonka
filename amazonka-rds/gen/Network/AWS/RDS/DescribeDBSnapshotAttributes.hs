@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSnapshotAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.RDS.DescribeDBSnapshotAttributes
     , ddsarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBSnapshotAttributes' smart constructor.
 newtype DescribeDBSnapshotAttributes = DescribeDBSnapshotAttributes'
-    { _ddsaDBSnapshotIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsaDBSnapshotIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSnapshotAttributes' with the minimum fields required to make a request.
 --
@@ -66,9 +67,9 @@ describeDBSnapshotAttributes
     :: Text -- ^ 'ddsaDBSnapshotIdentifier'
     -> DescribeDBSnapshotAttributes
 describeDBSnapshotAttributes pDBSnapshotIdentifier_ =
-    DescribeDBSnapshotAttributes'
-    { _ddsaDBSnapshotIdentifier = pDBSnapshotIdentifier_
-    }
+  DescribeDBSnapshotAttributes'
+  {_ddsaDBSnapshotIdentifier = pDBSnapshotIdentifier_}
+
 
 -- | The identifier for the DB snapshot to describe the attributes for.
 ddsaDBSnapshotIdentifier :: Lens' DescribeDBSnapshotAttributes Text
@@ -87,9 +88,9 @@ instance AWSRequest DescribeDBSnapshotAttributes
                    (x .@? "DBSnapshotAttributesResult") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeDBSnapshotAttributes
+instance Hashable DescribeDBSnapshotAttributes where
 
-instance NFData DescribeDBSnapshotAttributes
+instance NFData DescribeDBSnapshotAttributes where
 
 instance ToHeaders DescribeDBSnapshotAttributes where
         toHeaders = const mempty
@@ -107,9 +108,10 @@ instance ToQuery DescribeDBSnapshotAttributes where
 
 -- | /See:/ 'describeDBSnapshotAttributesResponse' smart constructor.
 data DescribeDBSnapshotAttributesResponse = DescribeDBSnapshotAttributesResponse'
-    { _ddsarsDBSnapshotAttributesResult :: !(Maybe DBSnapshotAttributesResult)
-    , _ddsarsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsarsDBSnapshotAttributesResult :: {-# NOUNPACK #-}!(Maybe DBSnapshotAttributesResult)
+  , _ddsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSnapshotAttributesResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +124,11 @@ describeDBSnapshotAttributesResponse
     :: Int -- ^ 'ddsarsResponseStatus'
     -> DescribeDBSnapshotAttributesResponse
 describeDBSnapshotAttributesResponse pResponseStatus_ =
-    DescribeDBSnapshotAttributesResponse'
-    { _ddsarsDBSnapshotAttributesResult = Nothing
-    , _ddsarsResponseStatus = pResponseStatus_
-    }
+  DescribeDBSnapshotAttributesResponse'
+  { _ddsarsDBSnapshotAttributesResult = Nothing
+  , _ddsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 ddsarsDBSnapshotAttributesResult :: Lens' DescribeDBSnapshotAttributesResponse (Maybe DBSnapshotAttributesResult)
@@ -136,3 +139,4 @@ ddsarsResponseStatus :: Lens' DescribeDBSnapshotAttributesResponse Int
 ddsarsResponseStatus = lens _ddsarsResponseStatus (\ s a -> s{_ddsarsResponseStatus = a});
 
 instance NFData DescribeDBSnapshotAttributesResponse
+         where

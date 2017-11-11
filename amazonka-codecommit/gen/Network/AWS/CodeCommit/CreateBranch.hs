@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.CreateBranch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.CodeCommit.CreateBranch
     , CreateBranchResponse
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create branch operation.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createBranch' smart constructor.
 data CreateBranch = CreateBranch'
-    { _cbRepositoryName :: !Text
-    , _cbBranchName     :: !Text
-    , _cbCommitId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbRepositoryName :: {-# NOUNPACK #-}!Text
+  , _cbBranchName     :: {-# NOUNPACK #-}!Text
+  , _cbCommitId       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBranch' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ createBranch
     -> Text -- ^ 'cbCommitId'
     -> CreateBranch
 createBranch pRepositoryName_ pBranchName_ pCommitId_ =
-    CreateBranch'
-    { _cbRepositoryName = pRepositoryName_
-    , _cbBranchName = pBranchName_
-    , _cbCommitId = pCommitId_
-    }
+  CreateBranch'
+  { _cbRepositoryName = pRepositoryName_
+  , _cbBranchName = pBranchName_
+  , _cbCommitId = pCommitId_
+  }
+
 
 -- | The name of the repository in which you want to create the new branch.
 cbRepositoryName :: Lens' CreateBranch Text
@@ -92,9 +94,9 @@ instance AWSRequest CreateBranch where
         request = postJSON codeCommit
         response = receiveNull CreateBranchResponse'
 
-instance Hashable CreateBranch
+instance Hashable CreateBranch where
 
-instance NFData CreateBranch
+instance NFData CreateBranch where
 
 instance ToHeaders CreateBranch where
         toHeaders
@@ -121,8 +123,9 @@ instance ToQuery CreateBranch where
 
 -- | /See:/ 'createBranchResponse' smart constructor.
 data CreateBranchResponse =
-    CreateBranchResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateBranchResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBranchResponse' with the minimum fields required to make a request.
 --
@@ -130,4 +133,5 @@ createBranchResponse
     :: CreateBranchResponse
 createBranchResponse = CreateBranchResponse'
 
-instance NFData CreateBranchResponse
+
+instance NFData CreateBranchResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.RejectCertificateTransfer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.IoT.RejectCertificateTransfer
     , RejectCertificateTransferResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the RejectCertificateTransfer operation.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'rejectCertificateTransfer' smart constructor.
 data RejectCertificateTransfer = RejectCertificateTransfer'
-    { _rctRejectReason  :: !(Maybe Text)
-    , _rctCertificateId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rctRejectReason  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rctCertificateId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectCertificateTransfer' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ rejectCertificateTransfer
     :: Text -- ^ 'rctCertificateId'
     -> RejectCertificateTransfer
 rejectCertificateTransfer pCertificateId_ =
-    RejectCertificateTransfer'
-    { _rctRejectReason = Nothing
-    , _rctCertificateId = pCertificateId_
-    }
+  RejectCertificateTransfer'
+  {_rctRejectReason = Nothing, _rctCertificateId = pCertificateId_}
+
 
 -- | The reason the certificate transfer was rejected.
 rctRejectReason :: Lens' RejectCertificateTransfer (Maybe Text)
@@ -87,9 +87,9 @@ instance AWSRequest RejectCertificateTransfer where
         response
           = receiveNull RejectCertificateTransferResponse'
 
-instance Hashable RejectCertificateTransfer
+instance Hashable RejectCertificateTransfer where
 
-instance NFData RejectCertificateTransfer
+instance NFData RejectCertificateTransfer where
 
 instance ToHeaders RejectCertificateTransfer where
         toHeaders = const mempty
@@ -111,8 +111,9 @@ instance ToQuery RejectCertificateTransfer where
 
 -- | /See:/ 'rejectCertificateTransferResponse' smart constructor.
 data RejectCertificateTransferResponse =
-    RejectCertificateTransferResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RejectCertificateTransferResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectCertificateTransferResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +121,6 @@ rejectCertificateTransferResponse
     :: RejectCertificateTransferResponse
 rejectCertificateTransferResponse = RejectCertificateTransferResponse'
 
+
 instance NFData RejectCertificateTransferResponse
+         where

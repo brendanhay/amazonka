@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DisassociateElasticIP
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.DisassociateElasticIP
     , DisassociateElasticIPResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateElasticIP' smart constructor.
 newtype DisassociateElasticIP = DisassociateElasticIP'
-    { _deiElasticIP :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deiElasticIP :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateElasticIP' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ disassociateElasticIP
     :: Text -- ^ 'deiElasticIP'
     -> DisassociateElasticIP
 disassociateElasticIP pElasticIP_ =
-    DisassociateElasticIP'
-    { _deiElasticIP = pElasticIP_
-    }
+  DisassociateElasticIP' {_deiElasticIP = pElasticIP_}
+
 
 -- | The Elastic IP address.
 deiElasticIP :: Lens' DisassociateElasticIP Text
@@ -71,9 +71,9 @@ instance AWSRequest DisassociateElasticIP where
         request = postJSON opsWorks
         response = receiveNull DisassociateElasticIPResponse'
 
-instance Hashable DisassociateElasticIP
+instance Hashable DisassociateElasticIP where
 
-instance NFData DisassociateElasticIP
+instance NFData DisassociateElasticIP where
 
 instance ToHeaders DisassociateElasticIP where
         toHeaders
@@ -98,8 +98,9 @@ instance ToQuery DisassociateElasticIP where
 
 -- | /See:/ 'disassociateElasticIPResponse' smart constructor.
 data DisassociateElasticIPResponse =
-    DisassociateElasticIPResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisassociateElasticIPResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateElasticIPResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +108,5 @@ disassociateElasticIPResponse
     :: DisassociateElasticIPResponse
 disassociateElasticIPResponse = DisassociateElasticIPResponse'
 
-instance NFData DisassociateElasticIPResponse
+
+instance NFData DisassociateElasticIPResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -130,12 +130,12 @@ module Network.AWS.GameLift.CreateFleet
     , cfrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -143,19 +143,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createFleet' smart constructor.
 data CreateFleet = CreateFleet'
-    { _cfServerLaunchParameters         :: !(Maybe Text)
-    , _cfLogPaths                       :: !(Maybe [Text])
-    , _cfEC2InboundPermissions          :: !(Maybe [IPPermission])
-    , _cfRuntimeConfiguration           :: !(Maybe RuntimeConfiguration)
-    , _cfNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
-    , _cfServerLaunchPath               :: !(Maybe Text)
-    , _cfMetricGroups                   :: !(Maybe [Text])
-    , _cfDescription                    :: !(Maybe Text)
-    , _cfResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
-    , _cfName                           :: !Text
-    , _cfBuildId                        :: !Text
-    , _cfEC2InstanceType                :: !EC2InstanceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfServerLaunchParameters :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfLogPaths :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cfEC2InboundPermissions :: {-# NOUNPACK #-}!(Maybe [IPPermission])
+  , _cfRuntimeConfiguration :: {-# NOUNPACK #-}!(Maybe RuntimeConfiguration)
+  , _cfNewGameSessionProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
+  , _cfServerLaunchPath :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfMetricGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cfDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfResourceCreationLimitPolicy :: {-# NOUNPACK #-}!(Maybe ResourceCreationLimitPolicy)
+  , _cfName :: {-# NOUNPACK #-}!Text
+  , _cfBuildId :: {-# NOUNPACK #-}!Text
+  , _cfEC2InstanceType :: {-# NOUNPACK #-}!EC2InstanceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFleet' with the minimum fields required to make a request.
 --
@@ -190,20 +191,21 @@ createFleet
     -> EC2InstanceType -- ^ 'cfEC2InstanceType'
     -> CreateFleet
 createFleet pName_ pBuildId_ pEC2InstanceType_ =
-    CreateFleet'
-    { _cfServerLaunchParameters = Nothing
-    , _cfLogPaths = Nothing
-    , _cfEC2InboundPermissions = Nothing
-    , _cfRuntimeConfiguration = Nothing
-    , _cfNewGameSessionProtectionPolicy = Nothing
-    , _cfServerLaunchPath = Nothing
-    , _cfMetricGroups = Nothing
-    , _cfDescription = Nothing
-    , _cfResourceCreationLimitPolicy = Nothing
-    , _cfName = pName_
-    , _cfBuildId = pBuildId_
-    , _cfEC2InstanceType = pEC2InstanceType_
-    }
+  CreateFleet'
+  { _cfServerLaunchParameters = Nothing
+  , _cfLogPaths = Nothing
+  , _cfEC2InboundPermissions = Nothing
+  , _cfRuntimeConfiguration = Nothing
+  , _cfNewGameSessionProtectionPolicy = Nothing
+  , _cfServerLaunchPath = Nothing
+  , _cfMetricGroups = Nothing
+  , _cfDescription = Nothing
+  , _cfResourceCreationLimitPolicy = Nothing
+  , _cfName = pName_
+  , _cfBuildId = pBuildId_
+  , _cfEC2InstanceType = pEC2InstanceType_
+  }
+
 
 -- | This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
 cfServerLaunchParameters :: Lens' CreateFleet (Maybe Text)
@@ -262,9 +264,9 @@ instance AWSRequest CreateFleet where
                  CreateFleetResponse' <$>
                    (x .?> "FleetAttributes") <*> (pure (fromEnum s)))
 
-instance Hashable CreateFleet
+instance Hashable CreateFleet where
 
-instance NFData CreateFleet
+instance NFData CreateFleet where
 
 instance ToHeaders CreateFleet where
         toHeaders
@@ -309,9 +311,10 @@ instance ToQuery CreateFleet where
 --
 -- /See:/ 'createFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
-    { _cfrsFleetAttributes :: !(Maybe FleetAttributes)
-    , _cfrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfrsFleetAttributes :: {-# NOUNPACK #-}!(Maybe FleetAttributes)
+  , _cfrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFleetResponse' with the minimum fields required to make a request.
 --
@@ -324,10 +327,9 @@ createFleetResponse
     :: Int -- ^ 'cfrsResponseStatus'
     -> CreateFleetResponse
 createFleetResponse pResponseStatus_ =
-    CreateFleetResponse'
-    { _cfrsFleetAttributes = Nothing
-    , _cfrsResponseStatus = pResponseStatus_
-    }
+  CreateFleetResponse'
+  {_cfrsFleetAttributes = Nothing, _cfrsResponseStatus = pResponseStatus_}
+
 
 -- | Properties for the newly created fleet.
 cfrsFleetAttributes :: Lens' CreateFleetResponse (Maybe FleetAttributes)
@@ -337,4 +339,4 @@ cfrsFleetAttributes = lens _cfrsFleetAttributes (\ s a -> s{_cfrsFleetAttributes
 cfrsResponseStatus :: Lens' CreateFleetResponse Int
 cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
 
-instance NFData CreateFleetResponse
+instance NFData CreateFleetResponse where

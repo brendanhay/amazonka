@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListByteMatchSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.WAFRegional.ListByteMatchSets
     , lbmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listByteMatchSets' smart constructor.
 data ListByteMatchSets = ListByteMatchSets'
-    { _lbmsNextMarker :: !(Maybe Text)
-    , _lbmsLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbmsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbmsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListByteMatchSets' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data ListByteMatchSets = ListByteMatchSets'
 listByteMatchSets
     :: ListByteMatchSets
 listByteMatchSets =
-    ListByteMatchSets'
-    { _lbmsNextMarker = Nothing
-    , _lbmsLimit = Nothing
-    }
+  ListByteMatchSets' {_lbmsNextMarker = Nothing, _lbmsLimit = Nothing}
+
 
 -- | If you specify a value for @Limit@ and you have more @ByteMatchSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListByteMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ByteMatchSets@ .
 lbmsNextMarker :: Lens' ListByteMatchSets (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest ListByteMatchSets where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListByteMatchSets
+instance Hashable ListByteMatchSets where
 
-instance NFData ListByteMatchSets
+instance NFData ListByteMatchSets where
 
 instance ToHeaders ListByteMatchSets where
         toHeaders
@@ -115,10 +114,11 @@ instance ToQuery ListByteMatchSets where
 
 -- | /See:/ 'listByteMatchSetsResponse' smart constructor.
 data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
-    { _lbmsrsByteMatchSets  :: !(Maybe [ByteMatchSetSummary])
-    , _lbmsrsNextMarker     :: !(Maybe Text)
-    , _lbmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbmsrsByteMatchSets  :: {-# NOUNPACK #-}!(Maybe [ByteMatchSetSummary])
+  , _lbmsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListByteMatchSetsResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +133,12 @@ listByteMatchSetsResponse
     :: Int -- ^ 'lbmsrsResponseStatus'
     -> ListByteMatchSetsResponse
 listByteMatchSetsResponse pResponseStatus_ =
-    ListByteMatchSetsResponse'
-    { _lbmsrsByteMatchSets = Nothing
-    , _lbmsrsNextMarker = Nothing
-    , _lbmsrsResponseStatus = pResponseStatus_
-    }
+  ListByteMatchSetsResponse'
+  { _lbmsrsByteMatchSets = Nothing
+  , _lbmsrsNextMarker = Nothing
+  , _lbmsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of 'ByteMatchSetSummary' objects.
 lbmsrsByteMatchSets :: Lens' ListByteMatchSetsResponse [ByteMatchSetSummary]
@@ -151,4 +152,4 @@ lbmsrsNextMarker = lens _lbmsrsNextMarker (\ s a -> s{_lbmsrsNextMarker = a});
 lbmsrsResponseStatus :: Lens' ListByteMatchSetsResponse Int
 lbmsrsResponseStatus = lens _lbmsrsResponseStatus (\ s a -> s{_lbmsrsResponseStatus = a});
 
-instance NFData ListByteMatchSetsResponse
+instance NFData ListByteMatchSetsResponse where

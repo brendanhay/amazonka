@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
     , gsdvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSubscriptionDefinitionVersion' smart constructor.
 data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
-    { _gsdvSubscriptionDefinitionId        :: !Text
-    , _gsdvSubscriptionDefinitionVersionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsdvSubscriptionDefinitionId        :: {-# NOUNPACK #-}!Text
+  , _gsdvSubscriptionDefinitionVersionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSubscriptionDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ getSubscriptionDefinitionVersion
     -> Text -- ^ 'gsdvSubscriptionDefinitionVersionId'
     -> GetSubscriptionDefinitionVersion
 getSubscriptionDefinitionVersion pSubscriptionDefinitionId_ pSubscriptionDefinitionVersionId_ =
-    GetSubscriptionDefinitionVersion'
-    { _gsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
-    , _gsdvSubscriptionDefinitionVersionId = pSubscriptionDefinitionVersionId_
-    }
+  GetSubscriptionDefinitionVersion'
+  { _gsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
+  , _gsdvSubscriptionDefinitionVersionId = pSubscriptionDefinitionVersionId_
+  }
+
 
 -- | subscription definition Id
 gsdvSubscriptionDefinitionId :: Lens' GetSubscriptionDefinitionVersion Text
@@ -94,8 +96,10 @@ instance AWSRequest GetSubscriptionDefinitionVersion
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetSubscriptionDefinitionVersion
+         where
 
 instance NFData GetSubscriptionDefinitionVersion
+         where
 
 instance ToHeaders GetSubscriptionDefinitionVersion
          where
@@ -119,13 +123,14 @@ instance ToQuery GetSubscriptionDefinitionVersion
 
 -- | /See:/ 'getSubscriptionDefinitionVersionResponse' smart constructor.
 data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersionResponse'
-    { _gsdvrsDefinition        :: !(Maybe SubscriptionDefinitionVersion)
-    , _gsdvrsARN               :: !(Maybe Text)
-    , _gsdvrsCreationTimestamp :: !(Maybe Text)
-    , _gsdvrsVersion           :: !(Maybe Text)
-    , _gsdvrsId                :: !(Maybe Text)
-    , _gsdvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsdvrsDefinition :: {-# NOUNPACK #-}!(Maybe SubscriptionDefinitionVersion)
+  , _gsdvrsARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdvrsVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdvrsId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSubscriptionDefinitionVersionResponse' with the minimum fields required to make a request.
 --
@@ -146,14 +151,15 @@ getSubscriptionDefinitionVersionResponse
     :: Int -- ^ 'gsdvrsResponseStatus'
     -> GetSubscriptionDefinitionVersionResponse
 getSubscriptionDefinitionVersionResponse pResponseStatus_ =
-    GetSubscriptionDefinitionVersionResponse'
-    { _gsdvrsDefinition = Nothing
-    , _gsdvrsARN = Nothing
-    , _gsdvrsCreationTimestamp = Nothing
-    , _gsdvrsVersion = Nothing
-    , _gsdvrsId = Nothing
-    , _gsdvrsResponseStatus = pResponseStatus_
-    }
+  GetSubscriptionDefinitionVersionResponse'
+  { _gsdvrsDefinition = Nothing
+  , _gsdvrsARN = Nothing
+  , _gsdvrsCreationTimestamp = Nothing
+  , _gsdvrsVersion = Nothing
+  , _gsdvrsId = Nothing
+  , _gsdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information on the definition
 gsdvrsDefinition :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe SubscriptionDefinitionVersion)
@@ -180,4 +186,5 @@ gsdvrsResponseStatus :: Lens' GetSubscriptionDefinitionVersionResponse Int
 gsdvrsResponseStatus = lens _gsdvrsResponseStatus (\ s a -> s{_gsdvrsResponseStatus = a});
 
 instance NFData
-         GetSubscriptionDefinitionVersionResponse
+           GetSubscriptionDefinitionVersionResponse
+         where

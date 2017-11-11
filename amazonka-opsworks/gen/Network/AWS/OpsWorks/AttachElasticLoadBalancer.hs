@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AttachElasticLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     , AttachElasticLoadBalancerResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachElasticLoadBalancer' smart constructor.
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
-    { _aelbElasticLoadBalancerName :: !Text
-    , _aelbLayerId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aelbElasticLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _aelbLayerId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachElasticLoadBalancer' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ attachElasticLoadBalancer
     -> Text -- ^ 'aelbLayerId'
     -> AttachElasticLoadBalancer
 attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
-    AttachElasticLoadBalancer'
-    { _aelbElasticLoadBalancerName = pElasticLoadBalancerName_
-    , _aelbLayerId = pLayerId_
-    }
+  AttachElasticLoadBalancer'
+  { _aelbElasticLoadBalancerName = pElasticLoadBalancerName_
+  , _aelbLayerId = pLayerId_
+  }
+
 
 -- | The Elastic Load Balancing instance's name.
 aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
@@ -82,9 +84,9 @@ instance AWSRequest AttachElasticLoadBalancer where
         response
           = receiveNull AttachElasticLoadBalancerResponse'
 
-instance Hashable AttachElasticLoadBalancer
+instance Hashable AttachElasticLoadBalancer where
 
-instance NFData AttachElasticLoadBalancer
+instance NFData AttachElasticLoadBalancer where
 
 instance ToHeaders AttachElasticLoadBalancer where
         toHeaders
@@ -113,8 +115,9 @@ instance ToQuery AttachElasticLoadBalancer where
 
 -- | /See:/ 'attachElasticLoadBalancerResponse' smart constructor.
 data AttachElasticLoadBalancerResponse =
-    AttachElasticLoadBalancerResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachElasticLoadBalancerResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachElasticLoadBalancerResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +125,6 @@ attachElasticLoadBalancerResponse
     :: AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse'
 
+
 instance NFData AttachElasticLoadBalancerResponse
+         where

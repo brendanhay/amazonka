@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DeviceFarm.CreateUpload
     , cursResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the create upload operation.
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUpload' smart constructor.
 data CreateUpload = CreateUpload'
-    { _cuContentType :: !(Maybe Text)
-    , _cuProjectARN  :: !Text
-    , _cuName        :: !Text
-    , _cuType        :: !UploadType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cuContentType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuProjectARN  :: {-# NOUNPACK #-}!Text
+  , _cuName        :: {-# NOUNPACK #-}!Text
+  , _cuType        :: {-# NOUNPACK #-}!UploadType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUpload' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ createUpload
     -> UploadType -- ^ 'cuType'
     -> CreateUpload
 createUpload pProjectARN_ pName_ pType_ =
-    CreateUpload'
-    { _cuContentType = Nothing
-    , _cuProjectARN = pProjectARN_
-    , _cuName = pName_
-    , _cuType = pType_
-    }
+  CreateUpload'
+  { _cuContentType = Nothing
+  , _cuProjectARN = pProjectARN_
+  , _cuName = pName_
+  , _cuType = pType_
+  }
+
 
 -- | The upload's content type (for example, "application/octet-stream").
 cuContentType :: Lens' CreateUpload (Maybe Text)
@@ -108,9 +110,9 @@ instance AWSRequest CreateUpload where
                  CreateUploadResponse' <$>
                    (x .?> "upload") <*> (pure (fromEnum s)))
 
-instance Hashable CreateUpload
+instance Hashable CreateUpload where
 
-instance NFData CreateUpload
+instance NFData CreateUpload where
 
 instance ToHeaders CreateUpload where
         toHeaders
@@ -141,9 +143,10 @@ instance ToQuery CreateUpload where
 --
 -- /See:/ 'createUploadResponse' smart constructor.
 data CreateUploadResponse = CreateUploadResponse'
-    { _cursUpload         :: !(Maybe Upload)
-    , _cursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cursUpload         :: {-# NOUNPACK #-}!(Maybe Upload)
+  , _cursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUploadResponse' with the minimum fields required to make a request.
 --
@@ -156,10 +159,9 @@ createUploadResponse
     :: Int -- ^ 'cursResponseStatus'
     -> CreateUploadResponse
 createUploadResponse pResponseStatus_ =
-    CreateUploadResponse'
-    { _cursUpload = Nothing
-    , _cursResponseStatus = pResponseStatus_
-    }
+  CreateUploadResponse'
+  {_cursUpload = Nothing, _cursResponseStatus = pResponseStatus_}
+
 
 -- | The newly created upload.
 cursUpload :: Lens' CreateUploadResponse (Maybe Upload)
@@ -169,4 +171,4 @@ cursUpload = lens _cursUpload (\ s a -> s{_cursUpload = a});
 cursResponseStatus :: Lens' CreateUploadResponse Int
 cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});
 
-instance NFData CreateUploadResponse
+instance NFData CreateUploadResponse where

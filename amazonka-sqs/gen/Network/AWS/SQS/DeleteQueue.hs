@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.DeleteQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.SQS.DeleteQueue
     , DeleteQueueResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -53,8 +53,9 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'deleteQueue' smart constructor.
 newtype DeleteQueue = DeleteQueue'
-    { _dqQueueURL :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dqQueueURL :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteQueue' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ newtype DeleteQueue = DeleteQueue'
 deleteQueue
     :: Text -- ^ 'dqQueueURL'
     -> DeleteQueue
-deleteQueue pQueueURL_ =
-    DeleteQueue'
-    { _dqQueueURL = pQueueURL_
-    }
+deleteQueue pQueueURL_ = DeleteQueue' {_dqQueueURL = pQueueURL_}
+
 
 -- | The URL of the Amazon SQS queue to delete. Queue URLs are case-sensitive.
 dqQueueURL :: Lens' DeleteQueue Text
@@ -78,9 +77,9 @@ instance AWSRequest DeleteQueue where
         request = postQuery sqs
         response = receiveNull DeleteQueueResponse'
 
-instance Hashable DeleteQueue
+instance Hashable DeleteQueue where
 
-instance NFData DeleteQueue
+instance NFData DeleteQueue where
 
 instance ToHeaders DeleteQueue where
         toHeaders = const mempty
@@ -97,8 +96,9 @@ instance ToQuery DeleteQueue where
 
 -- | /See:/ 'deleteQueueResponse' smart constructor.
 data DeleteQueueResponse =
-    DeleteQueueResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteQueueResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteQueueResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +106,5 @@ deleteQueueResponse
     :: DeleteQueueResponse
 deleteQueueResponse = DeleteQueueResponse'
 
-instance NFData DeleteQueueResponse
+
+instance NFData DeleteQueueResponse where

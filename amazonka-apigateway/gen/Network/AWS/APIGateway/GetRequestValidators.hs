@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetRequestValidators
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GetRequestValidators
     , grvrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Gets the 'RequestValidators' collection of a given 'RestApi' .
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRequestValidators' smart constructor.
 data GetRequestValidators = GetRequestValidators'
-    { _grvLimit     :: !(Maybe Int)
-    , _grvPosition  :: !(Maybe Text)
-    , _grvRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grvLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _grvPosition  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grvRestAPIId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRequestValidators' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ getRequestValidators
     :: Text -- ^ 'grvRestAPIId'
     -> GetRequestValidators
 getRequestValidators pRestAPIId_ =
-    GetRequestValidators'
-    { _grvLimit = Nothing
-    , _grvPosition = Nothing
-    , _grvRestAPIId = pRestAPIId_
-    }
+  GetRequestValidators'
+  {_grvLimit = Nothing, _grvPosition = Nothing, _grvRestAPIId = pRestAPIId_}
+
 
 -- | The maximum number of returned results per page.
 grvLimit :: Lens' GetRequestValidators (Maybe Int)
@@ -100,9 +99,9 @@ instance AWSRequest GetRequestValidators where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetRequestValidators
+instance Hashable GetRequestValidators where
 
-instance NFData GetRequestValidators
+instance NFData GetRequestValidators where
 
 instance ToHeaders GetRequestValidators where
         toHeaders
@@ -130,10 +129,11 @@ instance ToQuery GetRequestValidators where
 --
 -- /See:/ 'getRequestValidatorsResponse' smart constructor.
 data GetRequestValidatorsResponse = GetRequestValidatorsResponse'
-    { _grvrsItems          :: !(Maybe [RequestValidator])
-    , _grvrsPosition       :: !(Maybe Text)
-    , _grvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grvrsItems          :: {-# NOUNPACK #-}!(Maybe [RequestValidator])
+  , _grvrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRequestValidatorsResponse' with the minimum fields required to make a request.
 --
@@ -148,11 +148,12 @@ getRequestValidatorsResponse
     :: Int -- ^ 'grvrsResponseStatus'
     -> GetRequestValidatorsResponse
 getRequestValidatorsResponse pResponseStatus_ =
-    GetRequestValidatorsResponse'
-    { _grvrsItems = Nothing
-    , _grvrsPosition = Nothing
-    , _grvrsResponseStatus = pResponseStatus_
-    }
+  GetRequestValidatorsResponse'
+  { _grvrsItems = Nothing
+  , _grvrsPosition = Nothing
+  , _grvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 grvrsItems :: Lens' GetRequestValidatorsResponse [RequestValidator]
@@ -166,4 +167,4 @@ grvrsPosition = lens _grvrsPosition (\ s a -> s{_grvrsPosition = a});
 grvrsResponseStatus :: Lens' GetRequestValidatorsResponse Int
 grvrsResponseStatus = lens _grvrsResponseStatus (\ s a -> s{_grvrsResponseStatus = a});
 
-instance NFData GetRequestValidatorsResponse
+instance NFData GetRequestValidatorsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateInterconnect
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.DirectConnect.CreateInterconnect
     , iRegion
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the CreateInterconnect operation.
 --
@@ -66,11 +66,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
-    { _ciLagId            :: !(Maybe Text)
-    , _ciInterconnectName :: !Text
-    , _ciBandwidth        :: !Text
-    , _ciLocation         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciLagId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciInterconnectName :: {-# NOUNPACK #-}!Text
+  , _ciBandwidth        :: {-# NOUNPACK #-}!Text
+  , _ciLocation         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInterconnect' with the minimum fields required to make a request.
 --
@@ -89,12 +90,13 @@ createInterconnect
     -> Text -- ^ 'ciLocation'
     -> CreateInterconnect
 createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
-    CreateInterconnect'
-    { _ciLagId = Nothing
-    , _ciInterconnectName = pInterconnectName_
-    , _ciBandwidth = pBandwidth_
-    , _ciLocation = pLocation_
-    }
+  CreateInterconnect'
+  { _ciLagId = Nothing
+  , _ciInterconnectName = pInterconnectName_
+  , _ciBandwidth = pBandwidth_
+  , _ciLocation = pLocation_
+  }
+
 
 -- | Undocumented member.
 ciLagId :: Lens' CreateInterconnect (Maybe Text)
@@ -117,9 +119,9 @@ instance AWSRequest CreateInterconnect where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateInterconnect
+instance Hashable CreateInterconnect where
 
-instance NFData CreateInterconnect
+instance NFData CreateInterconnect where
 
 instance ToHeaders CreateInterconnect where
         toHeaders

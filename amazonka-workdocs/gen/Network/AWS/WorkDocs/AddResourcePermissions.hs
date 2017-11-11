@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.AddResourcePermissions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.WorkDocs.AddResourcePermissions
     , arprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'addResourcePermissions' smart constructor.
 data AddResourcePermissions = AddResourcePermissions'
-    { _arpAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _arpResourceId          :: !Text
-    , _arpPrincipals          :: ![SharePrincipal]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _arpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _arpResourceId          :: {-# NOUNPACK #-}!Text
+  , _arpPrincipals          :: {-# NOUNPACK #-}![SharePrincipal]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddResourcePermissions' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ addResourcePermissions
     :: Text -- ^ 'arpResourceId'
     -> AddResourcePermissions
 addResourcePermissions pResourceId_ =
-    AddResourcePermissions'
-    { _arpAuthenticationToken = Nothing
-    , _arpResourceId = pResourceId_
-    , _arpPrincipals = mempty
-    }
+  AddResourcePermissions'
+  { _arpAuthenticationToken = Nothing
+  , _arpResourceId = pResourceId_
+  , _arpPrincipals = mempty
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 arpAuthenticationToken :: Lens' AddResourcePermissions (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest AddResourcePermissions where
                    (x .?> "ShareResults" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable AddResourcePermissions
+instance Hashable AddResourcePermissions where
 
-instance NFData AddResourcePermissions
+instance NFData AddResourcePermissions where
 
 instance ToHeaders AddResourcePermissions where
         toHeaders AddResourcePermissions'{..}
@@ -122,9 +124,10 @@ instance ToQuery AddResourcePermissions where
 
 -- | /See:/ 'addResourcePermissionsResponse' smart constructor.
 data AddResourcePermissionsResponse = AddResourcePermissionsResponse'
-    { _arprsShareResults   :: !(Maybe [ShareResult])
-    , _arprsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _arprsShareResults   :: {-# NOUNPACK #-}!(Maybe [ShareResult])
+  , _arprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddResourcePermissionsResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,9 @@ addResourcePermissionsResponse
     :: Int -- ^ 'arprsResponseStatus'
     -> AddResourcePermissionsResponse
 addResourcePermissionsResponse pResponseStatus_ =
-    AddResourcePermissionsResponse'
-    { _arprsShareResults = Nothing
-    , _arprsResponseStatus = pResponseStatus_
-    }
+  AddResourcePermissionsResponse'
+  {_arprsShareResults = Nothing, _arprsResponseStatus = pResponseStatus_}
+
 
 -- | The share results.
 arprsShareResults :: Lens' AddResourcePermissionsResponse [ShareResult]
@@ -150,4 +152,4 @@ arprsShareResults = lens _arprsShareResults (\ s a -> s{_arprsShareResults = a})
 arprsResponseStatus :: Lens' AddResourcePermissionsResponse Int
 arprsResponseStatus = lens _arprsResponseStatus (\ s a -> s{_arprsResponseStatus = a});
 
-instance NFData AddResourcePermissionsResponse
+instance NFData AddResourcePermissionsResponse where

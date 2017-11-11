@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteFolder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.WorkDocs.DeleteFolder
     , DeleteFolderResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteFolder' smart constructor.
 data DeleteFolder = DeleteFolder'
-    { _dfAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _dfFolderId            :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dfAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _dfFolderId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFolder' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ deleteFolder
     :: Text -- ^ 'dfFolderId'
     -> DeleteFolder
 deleteFolder pFolderId_ =
-    DeleteFolder'
-    { _dfAuthenticationToken = Nothing
-    , _dfFolderId = pFolderId_
-    }
+  DeleteFolder' {_dfAuthenticationToken = Nothing, _dfFolderId = pFolderId_}
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 dfAuthenticationToken :: Lens' DeleteFolder (Maybe Text)
@@ -77,9 +76,9 @@ instance AWSRequest DeleteFolder where
         request = delete workDocs
         response = receiveNull DeleteFolderResponse'
 
-instance Hashable DeleteFolder
+instance Hashable DeleteFolder where
 
-instance NFData DeleteFolder
+instance NFData DeleteFolder where
 
 instance ToHeaders DeleteFolder where
         toHeaders DeleteFolder'{..}
@@ -97,8 +96,9 @@ instance ToQuery DeleteFolder where
 
 -- | /See:/ 'deleteFolderResponse' smart constructor.
 data DeleteFolderResponse =
-    DeleteFolderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteFolderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFolderResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +106,5 @@ deleteFolderResponse
     :: DeleteFolderResponse
 deleteFolderResponse = DeleteFolderResponse'
 
-instance NFData DeleteFolderResponse
+
+instance NFData DeleteFolderResponse where

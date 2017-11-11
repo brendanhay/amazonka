@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateApp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,27 +46,28 @@ module Network.AWS.OpsWorks.UpdateApp
     , UpdateAppResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateApp' smart constructor.
 data UpdateApp = UpdateApp'
-    { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _uaEnableSSL        :: !(Maybe Bool)
-    , _uaDataSources      :: !(Maybe [DataSource])
-    , _uaAppSource        :: !(Maybe Source)
-    , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _uaName             :: !(Maybe Text)
-    , _uaType             :: !(Maybe AppType)
-    , _uaDomains          :: !(Maybe [Text])
-    , _uaDescription      :: !(Maybe Text)
-    , _uaAppId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaSSLConfiguration :: {-# NOUNPACK #-}!(Maybe SSLConfiguration)
+  , _uaEnvironment      :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
+  , _uaEnableSSL        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uaDataSources      :: {-# NOUNPACK #-}!(Maybe [DataSource])
+  , _uaAppSource        :: {-# NOUNPACK #-}!(Maybe Source)
+  , _uaAttributes       :: {-# NOUNPACK #-}!(Maybe (Map AppAttributesKeys Text))
+  , _uaName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaType             :: {-# NOUNPACK #-}!(Maybe AppType)
+  , _uaDomains          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uaDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaAppId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApp' with the minimum fields required to make a request.
 --
@@ -97,19 +98,20 @@ updateApp
     :: Text -- ^ 'uaAppId'
     -> UpdateApp
 updateApp pAppId_ =
-    UpdateApp'
-    { _uaSSLConfiguration = Nothing
-    , _uaEnvironment = Nothing
-    , _uaEnableSSL = Nothing
-    , _uaDataSources = Nothing
-    , _uaAppSource = Nothing
-    , _uaAttributes = Nothing
-    , _uaName = Nothing
-    , _uaType = Nothing
-    , _uaDomains = Nothing
-    , _uaDescription = Nothing
-    , _uaAppId = pAppId_
-    }
+  UpdateApp'
+  { _uaSSLConfiguration = Nothing
+  , _uaEnvironment = Nothing
+  , _uaEnableSSL = Nothing
+  , _uaDataSources = Nothing
+  , _uaAppSource = Nothing
+  , _uaAttributes = Nothing
+  , _uaName = Nothing
+  , _uaType = Nothing
+  , _uaDomains = Nothing
+  , _uaDescription = Nothing
+  , _uaAppId = pAppId_
+  }
+
 
 -- | An @SslConfiguration@ object with the SSL configuration.
 uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
@@ -160,9 +162,9 @@ instance AWSRequest UpdateApp where
         request = postJSON opsWorks
         response = receiveNull UpdateAppResponse'
 
-instance Hashable UpdateApp
+instance Hashable UpdateApp where
 
-instance NFData UpdateApp
+instance NFData UpdateApp where
 
 instance ToHeaders UpdateApp where
         toHeaders
@@ -196,8 +198,9 @@ instance ToQuery UpdateApp where
 
 -- | /See:/ 'updateAppResponse' smart constructor.
 data UpdateAppResponse =
-    UpdateAppResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateAppResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAppResponse' with the minimum fields required to make a request.
 --
@@ -205,4 +208,5 @@ updateAppResponse
     :: UpdateAppResponse
 updateAppResponse = UpdateAppResponse'
 
-instance NFData UpdateAppResponse
+
+instance NFData UpdateAppResponse where

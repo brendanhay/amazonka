@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DescribeObjects
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.DataPipeline.DescribeObjects
     , dorsPipelineObjects
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeObjects.
 --
@@ -58,11 +58,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeObjects' smart constructor.
 data DescribeObjects = DescribeObjects'
-    { _doEvaluateExpressions :: !(Maybe Bool)
-    , _doMarker              :: !(Maybe Text)
-    , _doPipelineId          :: !Text
-    , _doObjectIds           :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doEvaluateExpressions :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _doMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _doPipelineId          :: {-# NOUNPACK #-}!Text
+  , _doObjectIds           :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeObjects' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ describeObjects
     :: Text -- ^ 'doPipelineId'
     -> DescribeObjects
 describeObjects pPipelineId_ =
-    DescribeObjects'
-    { _doEvaluateExpressions = Nothing
-    , _doMarker = Nothing
-    , _doPipelineId = pPipelineId_
-    , _doObjectIds = mempty
-    }
+  DescribeObjects'
+  { _doEvaluateExpressions = Nothing
+  , _doMarker = Nothing
+  , _doPipelineId = pPipelineId_
+  , _doObjectIds = mempty
+  }
+
 
 -- | Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.
 doEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
@@ -120,9 +122,9 @@ instance AWSRequest DescribeObjects where
                      (pure (fromEnum s))
                      <*> (x .?> "pipelineObjects" .!@ mempty))
 
-instance Hashable DescribeObjects
+instance Hashable DescribeObjects where
 
-instance NFData DescribeObjects
+instance NFData DescribeObjects where
 
 instance ToHeaders DescribeObjects where
         toHeaders
@@ -155,11 +157,12 @@ instance ToQuery DescribeObjects where
 --
 -- /See:/ 'describeObjectsResponse' smart constructor.
 data DescribeObjectsResponse = DescribeObjectsResponse'
-    { _dorsHasMoreResults  :: !(Maybe Bool)
-    , _dorsMarker          :: !(Maybe Text)
-    , _dorsResponseStatus  :: !Int
-    , _dorsPipelineObjects :: ![PipelineObject]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dorsHasMoreResults  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dorsMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dorsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _dorsPipelineObjects :: {-# NOUNPACK #-}![PipelineObject]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeObjectsResponse' with the minimum fields required to make a request.
 --
@@ -176,12 +179,13 @@ describeObjectsResponse
     :: Int -- ^ 'dorsResponseStatus'
     -> DescribeObjectsResponse
 describeObjectsResponse pResponseStatus_ =
-    DescribeObjectsResponse'
-    { _dorsHasMoreResults = Nothing
-    , _dorsMarker = Nothing
-    , _dorsResponseStatus = pResponseStatus_
-    , _dorsPipelineObjects = mempty
-    }
+  DescribeObjectsResponse'
+  { _dorsHasMoreResults = Nothing
+  , _dorsMarker = Nothing
+  , _dorsResponseStatus = pResponseStatus_
+  , _dorsPipelineObjects = mempty
+  }
+
 
 -- | Indicates whether there are more results to return.
 dorsHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
@@ -199,4 +203,4 @@ dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = 
 dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorsPipelineObjects = lens _dorsPipelineObjects (\ s a -> s{_dorsPipelineObjects = a}) . _Coerce;
 
-instance NFData DescribeObjectsResponse
+instance NFData DescribeObjectsResponse where

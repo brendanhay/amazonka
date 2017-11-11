@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GenerateCredentialReport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,23 +36,25 @@ module Network.AWS.IAM.GenerateCredentialReport
     , gcrrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'generateCredentialReport' smart constructor.
 data GenerateCredentialReport =
-    GenerateCredentialReport'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GenerateCredentialReport'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateCredentialReport' with the minimum fields required to make a request.
 --
 generateCredentialReport
     :: GenerateCredentialReport
 generateCredentialReport = GenerateCredentialReport'
+
 
 instance AWSRequest GenerateCredentialReport where
         type Rs GenerateCredentialReport =
@@ -65,9 +67,9 @@ instance AWSRequest GenerateCredentialReport where
                    (x .@? "State") <*> (x .@? "Description") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GenerateCredentialReport
+instance Hashable GenerateCredentialReport where
 
-instance NFData GenerateCredentialReport
+instance NFData GenerateCredentialReport where
 
 instance ToHeaders GenerateCredentialReport where
         toHeaders = const mempty
@@ -89,10 +91,11 @@ instance ToQuery GenerateCredentialReport where
 --
 -- /See:/ 'generateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
-    { _gcrrsState          :: !(Maybe ReportStateType)
-    , _gcrrsDescription    :: !(Maybe Text)
-    , _gcrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrrsState          :: {-# NOUNPACK #-}!(Maybe ReportStateType)
+  , _gcrrsDescription    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateCredentialReportResponse' with the minimum fields required to make a request.
 --
@@ -107,11 +110,12 @@ generateCredentialReportResponse
     :: Int -- ^ 'gcrrsResponseStatus'
     -> GenerateCredentialReportResponse
 generateCredentialReportResponse pResponseStatus_ =
-    GenerateCredentialReportResponse'
-    { _gcrrsState = Nothing
-    , _gcrrsDescription = Nothing
-    , _gcrrsResponseStatus = pResponseStatus_
-    }
+  GenerateCredentialReportResponse'
+  { _gcrrsState = Nothing
+  , _gcrrsDescription = Nothing
+  , _gcrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the state of the credential report.
 gcrrsState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
@@ -126,3 +130,4 @@ gcrrsResponseStatus :: Lens' GenerateCredentialReportResponse Int
 gcrrsResponseStatus = lens _gcrrsResponseStatus (\ s a -> s{_gcrrsResponseStatus = a});
 
 instance NFData GenerateCredentialReportResponse
+         where

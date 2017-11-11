@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeactivateUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.WorkDocs.DeactivateUser
     , DeactivateUserResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deactivateUser' smart constructor.
 data DeactivateUser = DeactivateUser'
-    { _dAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _dUserId              :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _dUserId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeactivateUser' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ deactivateUser
     :: Text -- ^ 'dUserId'
     -> DeactivateUser
 deactivateUser pUserId_ =
-    DeactivateUser'
-    { _dAuthenticationToken = Nothing
-    , _dUserId = pUserId_
-    }
+  DeactivateUser' {_dAuthenticationToken = Nothing, _dUserId = pUserId_}
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 dAuthenticationToken :: Lens' DeactivateUser (Maybe Text)
@@ -77,9 +76,9 @@ instance AWSRequest DeactivateUser where
         request = delete workDocs
         response = receiveNull DeactivateUserResponse'
 
-instance Hashable DeactivateUser
+instance Hashable DeactivateUser where
 
-instance NFData DeactivateUser
+instance NFData DeactivateUser where
 
 instance ToHeaders DeactivateUser where
         toHeaders DeactivateUser'{..}
@@ -98,8 +97,9 @@ instance ToQuery DeactivateUser where
 
 -- | /See:/ 'deactivateUserResponse' smart constructor.
 data DeactivateUserResponse =
-    DeactivateUserResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeactivateUserResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeactivateUserResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +107,5 @@ deactivateUserResponse
     :: DeactivateUserResponse
 deactivateUserResponse = DeactivateUserResponse'
 
-instance NFData DeactivateUserResponse
+
+instance NFData DeactivateUserResponse where

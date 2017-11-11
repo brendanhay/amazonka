@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListArtifacts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.DeviceFarm.ListArtifacts
     , larsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list artifacts operation.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
-    { _laNextToken :: !(Maybe Text)
-    , _laArn       :: !Text
-    , _laType      :: !ArtifactCategory
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laArn       :: {-# NOUNPACK #-}!Text
+  , _laType      :: {-# NOUNPACK #-}!ArtifactCategory
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListArtifacts' with the minimum fields required to make a request.
 --
@@ -75,11 +76,8 @@ listArtifacts
     -> ArtifactCategory -- ^ 'laType'
     -> ListArtifacts
 listArtifacts pArn_ pType_ =
-    ListArtifacts'
-    { _laNextToken = Nothing
-    , _laArn = pArn_
-    , _laType = pType_
-    }
+  ListArtifacts' {_laNextToken = Nothing, _laArn = pArn_, _laType = pType_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 laNextToken :: Lens' ListArtifacts (Maybe Text)
@@ -111,9 +109,9 @@ instance AWSRequest ListArtifacts where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListArtifacts
+instance Hashable ListArtifacts where
 
-instance NFData ListArtifacts
+instance NFData ListArtifacts where
 
 instance ToHeaders ListArtifacts where
         toHeaders
@@ -143,10 +141,11 @@ instance ToQuery ListArtifacts where
 --
 -- /See:/ 'listArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
-    { _larsArtifacts      :: !(Maybe [Artifact])
-    , _larsNextToken      :: !(Maybe Text)
-    , _larsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsArtifacts      :: {-# NOUNPACK #-}!(Maybe [Artifact])
+  , _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListArtifactsResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +160,12 @@ listArtifactsResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListArtifactsResponse
 listArtifactsResponse pResponseStatus_ =
-    ListArtifactsResponse'
-    { _larsArtifacts = Nothing
-    , _larsNextToken = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    }
+  ListArtifactsResponse'
+  { _larsArtifacts = Nothing
+  , _larsNextToken = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the artifacts.
 larsArtifacts :: Lens' ListArtifactsResponse [Artifact]
@@ -179,4 +179,4 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsResponseStatus :: Lens' ListArtifactsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 
-instance NFData ListArtifactsResponse
+instance NFData ListArtifactsResponse where

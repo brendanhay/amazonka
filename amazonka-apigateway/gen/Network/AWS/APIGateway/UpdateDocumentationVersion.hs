@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDocumentationVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.UpdateDocumentationVersion
     , dvDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Updates an existing documentation version of an API.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateDocumentationVersion' smart constructor.
 data UpdateDocumentationVersion = UpdateDocumentationVersion'
-    { _udvPatchOperations      :: !(Maybe [PatchOperation])
-    , _udvRestAPIId            :: !Text
-    , _udvDocumentationVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udvPatchOperations      :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _udvRestAPIId            :: {-# NOUNPACK #-}!Text
+  , _udvDocumentationVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocumentationVersion' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ updateDocumentationVersion
     -> Text -- ^ 'udvDocumentationVersion'
     -> UpdateDocumentationVersion
 updateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
-    UpdateDocumentationVersion'
-    { _udvPatchOperations = Nothing
-    , _udvRestAPIId = pRestAPIId_
-    , _udvDocumentationVersion = pDocumentationVersion_
-    }
+  UpdateDocumentationVersion'
+  { _udvPatchOperations = Nothing
+  , _udvRestAPIId = pRestAPIId_
+  , _udvDocumentationVersion = pDocumentationVersion_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 udvPatchOperations :: Lens' UpdateDocumentationVersion [PatchOperation]
@@ -94,9 +96,9 @@ instance AWSRequest UpdateDocumentationVersion where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateDocumentationVersion
+instance Hashable UpdateDocumentationVersion where
 
-instance NFData UpdateDocumentationVersion
+instance NFData UpdateDocumentationVersion where
 
 instance ToHeaders UpdateDocumentationVersion where
         toHeaders

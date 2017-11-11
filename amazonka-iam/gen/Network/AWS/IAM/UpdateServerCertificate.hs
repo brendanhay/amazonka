@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateServerCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.IAM.UpdateServerCertificate
     , UpdateServerCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateServerCertificate' smart constructor.
 data UpdateServerCertificate = UpdateServerCertificate'
-    { _uNewServerCertificateName :: !(Maybe Text)
-    , _uNewPath                  :: !(Maybe Text)
-    , _uServerCertificateName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uNewServerCertificateName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uNewPath                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uServerCertificateName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServerCertificate' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ updateServerCertificate
     :: Text -- ^ 'uServerCertificateName'
     -> UpdateServerCertificate
 updateServerCertificate pServerCertificateName_ =
-    UpdateServerCertificate'
-    { _uNewServerCertificateName = Nothing
-    , _uNewPath = Nothing
-    , _uServerCertificateName = pServerCertificateName_
-    }
+  UpdateServerCertificate'
+  { _uNewServerCertificateName = Nothing
+  , _uNewPath = Nothing
+  , _uServerCertificateName = pServerCertificateName_
+  }
+
 
 -- | The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
@@ -92,9 +94,9 @@ instance AWSRequest UpdateServerCertificate where
         response
           = receiveNull UpdateServerCertificateResponse'
 
-instance Hashable UpdateServerCertificate
+instance Hashable UpdateServerCertificate where
 
-instance NFData UpdateServerCertificate
+instance NFData UpdateServerCertificate where
 
 instance ToHeaders UpdateServerCertificate where
         toHeaders = const mempty
@@ -115,8 +117,9 @@ instance ToQuery UpdateServerCertificate where
 
 -- | /See:/ 'updateServerCertificateResponse' smart constructor.
 data UpdateServerCertificateResponse =
-    UpdateServerCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateServerCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServerCertificateResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +127,5 @@ updateServerCertificateResponse
     :: UpdateServerCertificateResponse
 updateServerCertificateResponse = UpdateServerCertificateResponse'
 
-instance NFData UpdateServerCertificateResponse
+
+instance NFData UpdateServerCertificateResponse where

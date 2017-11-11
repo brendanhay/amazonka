@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.CreateDeploymentGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     , cdgrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a CreateDeploymentGroup operation.
 --
@@ -64,22 +64,23 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDeploymentGroup' smart constructor.
 data CreateDeploymentGroup = CreateDeploymentGroup'
-    { _cdgEc2TagSet                        :: !(Maybe EC2TagSet)
-    , _cdgDeploymentConfigName             :: !(Maybe Text)
-    , _cdgOnPremisesTagSet                 :: !(Maybe OnPremisesTagSet)
-    , _cdgEc2TagFilters                    :: !(Maybe [EC2TagFilter])
-    , _cdgBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
-    , _cdgLoadBalancerInfo                 :: !(Maybe LoadBalancerInfo)
-    , _cdgOnPremisesInstanceTagFilters     :: !(Maybe [TagFilter])
-    , _cdgAlarmConfiguration               :: !(Maybe AlarmConfiguration)
-    , _cdgTriggerConfigurations            :: !(Maybe [TriggerConfig])
-    , _cdgAutoScalingGroups                :: !(Maybe [Text])
-    , _cdgDeploymentStyle                  :: !(Maybe DeploymentStyle)
-    , _cdgAutoRollbackConfiguration        :: !(Maybe AutoRollbackConfiguration)
-    , _cdgApplicationName                  :: !Text
-    , _cdgDeploymentGroupName              :: !Text
-    , _cdgServiceRoleARN                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdgEc2TagSet :: {-# NOUNPACK #-}!(Maybe EC2TagSet)
+  , _cdgDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdgOnPremisesTagSet :: {-# NOUNPACK #-}!(Maybe OnPremisesTagSet)
+  , _cdgEc2TagFilters :: {-# NOUNPACK #-}!(Maybe [EC2TagFilter])
+  , _cdgBlueGreenDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe BlueGreenDeploymentConfiguration)
+  , _cdgLoadBalancerInfo :: {-# NOUNPACK #-}!(Maybe LoadBalancerInfo)
+  , _cdgOnPremisesInstanceTagFilters :: {-# NOUNPACK #-}!(Maybe [TagFilter])
+  , _cdgAlarmConfiguration :: {-# NOUNPACK #-}!(Maybe AlarmConfiguration)
+  , _cdgTriggerConfigurations :: {-# NOUNPACK #-}!(Maybe [TriggerConfig])
+  , _cdgAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdgDeploymentStyle :: {-# NOUNPACK #-}!(Maybe DeploymentStyle)
+  , _cdgAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
+  , _cdgApplicationName :: {-# NOUNPACK #-}!Text
+  , _cdgDeploymentGroupName :: {-# NOUNPACK #-}!Text
+  , _cdgServiceRoleARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeploymentGroup' with the minimum fields required to make a request.
 --
@@ -120,23 +121,24 @@ createDeploymentGroup
     -> Text -- ^ 'cdgServiceRoleARN'
     -> CreateDeploymentGroup
 createDeploymentGroup pApplicationName_ pDeploymentGroupName_ pServiceRoleARN_ =
-    CreateDeploymentGroup'
-    { _cdgEc2TagSet = Nothing
-    , _cdgDeploymentConfigName = Nothing
-    , _cdgOnPremisesTagSet = Nothing
-    , _cdgEc2TagFilters = Nothing
-    , _cdgBlueGreenDeploymentConfiguration = Nothing
-    , _cdgLoadBalancerInfo = Nothing
-    , _cdgOnPremisesInstanceTagFilters = Nothing
-    , _cdgAlarmConfiguration = Nothing
-    , _cdgTriggerConfigurations = Nothing
-    , _cdgAutoScalingGroups = Nothing
-    , _cdgDeploymentStyle = Nothing
-    , _cdgAutoRollbackConfiguration = Nothing
-    , _cdgApplicationName = pApplicationName_
-    , _cdgDeploymentGroupName = pDeploymentGroupName_
-    , _cdgServiceRoleARN = pServiceRoleARN_
-    }
+  CreateDeploymentGroup'
+  { _cdgEc2TagSet = Nothing
+  , _cdgDeploymentConfigName = Nothing
+  , _cdgOnPremisesTagSet = Nothing
+  , _cdgEc2TagFilters = Nothing
+  , _cdgBlueGreenDeploymentConfiguration = Nothing
+  , _cdgLoadBalancerInfo = Nothing
+  , _cdgOnPremisesInstanceTagFilters = Nothing
+  , _cdgAlarmConfiguration = Nothing
+  , _cdgTriggerConfigurations = Nothing
+  , _cdgAutoScalingGroups = Nothing
+  , _cdgDeploymentStyle = Nothing
+  , _cdgAutoRollbackConfiguration = Nothing
+  , _cdgApplicationName = pApplicationName_
+  , _cdgDeploymentGroupName = pDeploymentGroupName_
+  , _cdgServiceRoleARN = pServiceRoleARN_
+  }
+
 
 -- | Information about groups of tags applied to EC2 instances. The deployment group will include only EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilters.
 cdgEc2TagSet :: Lens' CreateDeploymentGroup (Maybe EC2TagSet)
@@ -208,9 +210,9 @@ instance AWSRequest CreateDeploymentGroup where
                  CreateDeploymentGroupResponse' <$>
                    (x .?> "deploymentGroupId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDeploymentGroup
+instance Hashable CreateDeploymentGroup where
 
-instance NFData CreateDeploymentGroup
+instance NFData CreateDeploymentGroup where
 
 instance ToHeaders CreateDeploymentGroup where
         toHeaders
@@ -260,9 +262,10 @@ instance ToQuery CreateDeploymentGroup where
 --
 -- /See:/ 'createDeploymentGroupResponse' smart constructor.
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
-    { _cdgrsDeploymentGroupId :: !(Maybe Text)
-    , _cdgrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdgrsDeploymentGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeploymentGroupResponse' with the minimum fields required to make a request.
 --
@@ -275,10 +278,9 @@ createDeploymentGroupResponse
     :: Int -- ^ 'cdgrsResponseStatus'
     -> CreateDeploymentGroupResponse
 createDeploymentGroupResponse pResponseStatus_ =
-    CreateDeploymentGroupResponse'
-    { _cdgrsDeploymentGroupId = Nothing
-    , _cdgrsResponseStatus = pResponseStatus_
-    }
+  CreateDeploymentGroupResponse'
+  {_cdgrsDeploymentGroupId = Nothing, _cdgrsResponseStatus = pResponseStatus_}
+
 
 -- | A unique deployment group ID.
 cdgrsDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
@@ -288,4 +290,4 @@ cdgrsDeploymentGroupId = lens _cdgrsDeploymentGroupId (\ s a -> s{_cdgrsDeployme
 cdgrsResponseStatus :: Lens' CreateDeploymentGroupResponse Int
 cdgrsResponseStatus = lens _cdgrsResponseStatus (\ s a -> s{_cdgrsResponseStatus = a});
 
-instance NFData CreateDeploymentGroupResponse
+instance NFData CreateDeploymentGroupResponse where

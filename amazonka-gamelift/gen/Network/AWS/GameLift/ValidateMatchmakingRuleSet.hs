@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.ValidateMatchmakingRuleSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.GameLift.ValidateMatchmakingRuleSet
     , vmrsrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -68,8 +68,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'validateMatchmakingRuleSet' smart constructor.
 newtype ValidateMatchmakingRuleSet = ValidateMatchmakingRuleSet'
-    { _vmrsRuleSetBody :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vmrsRuleSetBody :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidateMatchmakingRuleSet' with the minimum fields required to make a request.
 --
@@ -80,9 +81,8 @@ validateMatchmakingRuleSet
     :: Text -- ^ 'vmrsRuleSetBody'
     -> ValidateMatchmakingRuleSet
 validateMatchmakingRuleSet pRuleSetBody_ =
-    ValidateMatchmakingRuleSet'
-    { _vmrsRuleSetBody = pRuleSetBody_
-    }
+  ValidateMatchmakingRuleSet' {_vmrsRuleSetBody = pRuleSetBody_}
+
 
 -- | Collection of matchmaking rules to validate, formatted as a JSON string.
 vmrsRuleSetBody :: Lens' ValidateMatchmakingRuleSet Text
@@ -98,9 +98,9 @@ instance AWSRequest ValidateMatchmakingRuleSet where
                  ValidateMatchmakingRuleSetResponse' <$>
                    (x .?> "Valid") <*> (pure (fromEnum s)))
 
-instance Hashable ValidateMatchmakingRuleSet
+instance Hashable ValidateMatchmakingRuleSet where
 
-instance NFData ValidateMatchmakingRuleSet
+instance NFData ValidateMatchmakingRuleSet where
 
 instance ToHeaders ValidateMatchmakingRuleSet where
         toHeaders
@@ -130,9 +130,10 @@ instance ToQuery ValidateMatchmakingRuleSet where
 --
 -- /See:/ 'validateMatchmakingRuleSetResponse' smart constructor.
 data ValidateMatchmakingRuleSetResponse = ValidateMatchmakingRuleSetResponse'
-    { _vmrsrsValid          :: !(Maybe Bool)
-    , _vmrsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vmrsrsValid          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _vmrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidateMatchmakingRuleSetResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +146,9 @@ validateMatchmakingRuleSetResponse
     :: Int -- ^ 'vmrsrsResponseStatus'
     -> ValidateMatchmakingRuleSetResponse
 validateMatchmakingRuleSetResponse pResponseStatus_ =
-    ValidateMatchmakingRuleSetResponse'
-    { _vmrsrsValid = Nothing
-    , _vmrsrsResponseStatus = pResponseStatus_
-    }
+  ValidateMatchmakingRuleSetResponse'
+  {_vmrsrsValid = Nothing, _vmrsrsResponseStatus = pResponseStatus_}
+
 
 -- | Response indicating whether or not the rule set is valid.
 vmrsrsValid :: Lens' ValidateMatchmakingRuleSetResponse (Maybe Bool)
@@ -159,3 +159,4 @@ vmrsrsResponseStatus :: Lens' ValidateMatchmakingRuleSetResponse Int
 vmrsrsResponseStatus = lens _vmrsrsResponseStatus (\ s a -> s{_vmrsrsResponseStatus = a});
 
 instance NFData ValidateMatchmakingRuleSetResponse
+         where

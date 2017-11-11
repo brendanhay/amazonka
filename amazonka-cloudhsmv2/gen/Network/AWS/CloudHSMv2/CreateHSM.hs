@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.CreateHSM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.CloudHSMv2.CreateHSM
     , chrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSMv2.Types
-import           Network.AWS.CloudHSMv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSMv2.Types
+import Network.AWS.CloudHSMv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createHSM' smart constructor.
 data CreateHSM = CreateHSM'
-    { _chIPAddress        :: !(Maybe Text)
-    , _chClusterId        :: !Text
-    , _chAvailabilityZone :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chIPAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chClusterId        :: {-# NOUNPACK #-}!Text
+  , _chAvailabilityZone :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSM' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ createHSM
     -> Text -- ^ 'chAvailabilityZone'
     -> CreateHSM
 createHSM pClusterId_ pAvailabilityZone_ =
-    CreateHSM'
-    { _chIPAddress = Nothing
-    , _chClusterId = pClusterId_
-    , _chAvailabilityZone = pAvailabilityZone_
-    }
+  CreateHSM'
+  { _chIPAddress = Nothing
+  , _chClusterId = pClusterId_
+  , _chAvailabilityZone = pAvailabilityZone_
+  }
+
 
 -- | The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet.
 chIPAddress :: Lens' CreateHSM (Maybe Text)
@@ -94,9 +96,9 @@ instance AWSRequest CreateHSM where
                  CreateHSMResponse' <$>
                    (x .?> "Hsm") <*> (pure (fromEnum s)))
 
-instance Hashable CreateHSM
+instance Hashable CreateHSM where
 
-instance NFData CreateHSM
+instance NFData CreateHSM where
 
 instance ToHeaders CreateHSM where
         toHeaders
@@ -123,9 +125,10 @@ instance ToQuery CreateHSM where
 
 -- | /See:/ 'createHSMResponse' smart constructor.
 data CreateHSMResponse = CreateHSMResponse'
-    { _chrsHSM            :: !(Maybe HSM)
-    , _chrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chrsHSM            :: {-# NOUNPACK #-}!(Maybe HSM)
+  , _chrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSMResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,9 @@ createHSMResponse
     :: Int -- ^ 'chrsResponseStatus'
     -> CreateHSMResponse
 createHSMResponse pResponseStatus_ =
-    CreateHSMResponse'
-    { _chrsHSM = Nothing
-    , _chrsResponseStatus = pResponseStatus_
-    }
+  CreateHSMResponse'
+  {_chrsHSM = Nothing, _chrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the HSM that was created.
 chrsHSM :: Lens' CreateHSMResponse (Maybe HSM)
@@ -151,4 +153,4 @@ chrsHSM = lens _chrsHSM (\ s a -> s{_chrsHSM = a});
 chrsResponseStatus :: Lens' CreateHSMResponse Int
 chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a});
 
-instance NFData CreateHSMResponse
+instance NFData CreateHSMResponse where

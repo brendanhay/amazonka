@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.UpdateFolder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,21 +38,22 @@ module Network.AWS.WorkDocs.UpdateFolder
     , UpdateFolderResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateFolder' smart constructor.
 data UpdateFolder = UpdateFolder'
-    { _ufParentFolderId      :: !(Maybe Text)
-    , _ufAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _ufName                :: !(Maybe Text)
-    , _ufResourceState       :: !(Maybe ResourceStateType)
-    , _ufFolderId            :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ufParentFolderId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ufName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufResourceState       :: {-# NOUNPACK #-}!(Maybe ResourceStateType)
+  , _ufFolderId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFolder' with the minimum fields required to make a request.
 --
@@ -71,13 +72,14 @@ updateFolder
     :: Text -- ^ 'ufFolderId'
     -> UpdateFolder
 updateFolder pFolderId_ =
-    UpdateFolder'
-    { _ufParentFolderId = Nothing
-    , _ufAuthenticationToken = Nothing
-    , _ufName = Nothing
-    , _ufResourceState = Nothing
-    , _ufFolderId = pFolderId_
-    }
+  UpdateFolder'
+  { _ufParentFolderId = Nothing
+  , _ufAuthenticationToken = Nothing
+  , _ufName = Nothing
+  , _ufResourceState = Nothing
+  , _ufFolderId = pFolderId_
+  }
+
 
 -- | The ID of the parent folder.
 ufParentFolderId :: Lens' UpdateFolder (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest UpdateFolder where
         request = patchJSON workDocs
         response = receiveNull UpdateFolderResponse'
 
-instance Hashable UpdateFolder
+instance Hashable UpdateFolder where
 
-instance NFData UpdateFolder
+instance NFData UpdateFolder where
 
 instance ToHeaders UpdateFolder where
         toHeaders UpdateFolder'{..}
@@ -132,8 +134,9 @@ instance ToQuery UpdateFolder where
 
 -- | /See:/ 'updateFolderResponse' smart constructor.
 data UpdateFolderResponse =
-    UpdateFolderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateFolderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFolderResponse' with the minimum fields required to make a request.
 --
@@ -141,4 +144,5 @@ updateFolderResponse
     :: UpdateFolderResponse
 updateFolderResponse = UpdateFolderResponse'
 
-instance NFData UpdateFolderResponse
+
+instance NFData UpdateFolderResponse where

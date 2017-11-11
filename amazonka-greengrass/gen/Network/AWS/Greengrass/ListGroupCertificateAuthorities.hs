@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListGroupCertificateAuthorities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Greengrass.ListGroupCertificateAuthorities
     , lgcarsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listGroupCertificateAuthorities' smart constructor.
 newtype ListGroupCertificateAuthorities = ListGroupCertificateAuthorities'
-    { _lgcaGroupId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgcaGroupId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroupCertificateAuthorities' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ listGroupCertificateAuthorities
     :: Text -- ^ 'lgcaGroupId'
     -> ListGroupCertificateAuthorities
 listGroupCertificateAuthorities pGroupId_ =
-    ListGroupCertificateAuthorities'
-    { _lgcaGroupId = pGroupId_
-    }
+  ListGroupCertificateAuthorities' {_lgcaGroupId = pGroupId_}
+
 
 -- | The unique Id of the AWS Greengrass Group
 lgcaGroupId :: Lens' ListGroupCertificateAuthorities Text
@@ -77,8 +77,9 @@ instance AWSRequest ListGroupCertificateAuthorities
                      (pure (fromEnum s)))
 
 instance Hashable ListGroupCertificateAuthorities
+         where
 
-instance NFData ListGroupCertificateAuthorities
+instance NFData ListGroupCertificateAuthorities where
 
 instance ToHeaders ListGroupCertificateAuthorities
          where
@@ -100,9 +101,10 @@ instance ToQuery ListGroupCertificateAuthorities
 
 -- | /See:/ 'listGroupCertificateAuthoritiesResponse' smart constructor.
 data ListGroupCertificateAuthoritiesResponse = ListGroupCertificateAuthoritiesResponse'
-    { _lgcarsGroupCertificateAuthorities :: !(Maybe [GroupCertificateAuthorityProperties])
-    , _lgcarsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgcarsGroupCertificateAuthorities :: {-# NOUNPACK #-}!(Maybe [GroupCertificateAuthorityProperties])
+  , _lgcarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGroupCertificateAuthoritiesResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +117,11 @@ listGroupCertificateAuthoritiesResponse
     :: Int -- ^ 'lgcarsResponseStatus'
     -> ListGroupCertificateAuthoritiesResponse
 listGroupCertificateAuthoritiesResponse pResponseStatus_ =
-    ListGroupCertificateAuthoritiesResponse'
-    { _lgcarsGroupCertificateAuthorities = Nothing
-    , _lgcarsResponseStatus = pResponseStatus_
-    }
+  ListGroupCertificateAuthoritiesResponse'
+  { _lgcarsGroupCertificateAuthorities = Nothing
+  , _lgcarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | List of certificate authorities associated with the group.
 lgcarsGroupCertificateAuthorities :: Lens' ListGroupCertificateAuthoritiesResponse [GroupCertificateAuthorityProperties]
@@ -129,4 +132,5 @@ lgcarsResponseStatus :: Lens' ListGroupCertificateAuthoritiesResponse Int
 lgcarsResponseStatus = lens _lgcarsResponseStatus (\ s a -> s{_lgcarsResponseStatus = a});
 
 instance NFData
-         ListGroupCertificateAuthoritiesResponse
+           ListGroupCertificateAuthoritiesResponse
+         where

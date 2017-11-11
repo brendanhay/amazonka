@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.UpdateCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.DAX.UpdateCluster
     , ucrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-    { _ucSecurityGroupIds           :: !(Maybe [Text])
-    , _ucPreferredMaintenanceWindow :: !(Maybe Text)
-    , _ucNotificationTopicStatus    :: !(Maybe Text)
-    , _ucDescription                :: !(Maybe Text)
-    , _ucNotificationTopicARN       :: !(Maybe Text)
-    , _ucParameterGroupName         :: !(Maybe Text)
-    , _ucClusterName                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ucPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucNotificationTopicStatus    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucDescription                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucNotificationTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucParameterGroupName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucClusterName                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCluster' with the minimum fields required to make a request.
 --
@@ -82,15 +83,16 @@ updateCluster
     :: Text -- ^ 'ucClusterName'
     -> UpdateCluster
 updateCluster pClusterName_ =
-    UpdateCluster'
-    { _ucSecurityGroupIds = Nothing
-    , _ucPreferredMaintenanceWindow = Nothing
-    , _ucNotificationTopicStatus = Nothing
-    , _ucDescription = Nothing
-    , _ucNotificationTopicARN = Nothing
-    , _ucParameterGroupName = Nothing
-    , _ucClusterName = pClusterName_
-    }
+  UpdateCluster'
+  { _ucSecurityGroupIds = Nothing
+  , _ucPreferredMaintenanceWindow = Nothing
+  , _ucNotificationTopicStatus = Nothing
+  , _ucDescription = Nothing
+  , _ucNotificationTopicARN = Nothing
+  , _ucParameterGroupName = Nothing
+  , _ucClusterName = pClusterName_
+  }
+
 
 -- | A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.
 ucSecurityGroupIds :: Lens' UpdateCluster [Text]
@@ -129,9 +131,9 @@ instance AWSRequest UpdateCluster where
                  UpdateClusterResponse' <$>
                    (x .?> "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateCluster
+instance Hashable UpdateCluster where
 
-instance NFData UpdateCluster
+instance NFData UpdateCluster where
 
 instance ToHeaders UpdateCluster where
         toHeaders
@@ -165,9 +167,10 @@ instance ToQuery UpdateCluster where
 
 -- | /See:/ 'updateClusterResponse' smart constructor.
 data UpdateClusterResponse = UpdateClusterResponse'
-    { _ucrsCluster        :: !(Maybe Cluster)
-    , _ucrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _ucrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateClusterResponse' with the minimum fields required to make a request.
 --
@@ -180,10 +183,9 @@ updateClusterResponse
     :: Int -- ^ 'ucrsResponseStatus'
     -> UpdateClusterResponse
 updateClusterResponse pResponseStatus_ =
-    UpdateClusterResponse'
-    { _ucrsCluster = Nothing
-    , _ucrsResponseStatus = pResponseStatus_
-    }
+  UpdateClusterResponse'
+  {_ucrsCluster = Nothing, _ucrsResponseStatus = pResponseStatus_}
+
 
 -- | A description of the DAX cluster, after it has been modified.
 ucrsCluster :: Lens' UpdateClusterResponse (Maybe Cluster)
@@ -193,4 +195,4 @@ ucrsCluster = lens _ucrsCluster (\ s a -> s{_ucrsCluster = a});
 ucrsResponseStatus :: Lens' UpdateClusterResponse Int
 ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
 
-instance NFData UpdateClusterResponse
+instance NFData UpdateClusterResponse where

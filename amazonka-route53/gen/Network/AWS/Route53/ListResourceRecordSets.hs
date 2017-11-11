@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListResourceRecordSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -72,13 +72,13 @@ module Network.AWS.Route53.ListResourceRecordSets
     , lrrsrsMaxItems
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request for the resource record sets that are associated with a specified hosted zone.
 --
@@ -86,12 +86,13 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listResourceRecordSets' smart constructor.
 data ListResourceRecordSets = ListResourceRecordSets'
-    { _lrrsStartRecordName       :: !(Maybe Text)
-    , _lrrsStartRecordType       :: !(Maybe RecordType)
-    , _lrrsStartRecordIdentifier :: !(Maybe Text)
-    , _lrrsMaxItems              :: !(Maybe Text)
-    , _lrrsHostedZoneId          :: !ResourceId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsStartRecordName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsStartRecordType       :: {-# NOUNPACK #-}!(Maybe RecordType)
+  , _lrrsStartRecordIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsMaxItems              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsHostedZoneId          :: {-# NOUNPACK #-}!ResourceId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourceRecordSets' with the minimum fields required to make a request.
 --
@@ -110,13 +111,14 @@ listResourceRecordSets
     :: ResourceId -- ^ 'lrrsHostedZoneId'
     -> ListResourceRecordSets
 listResourceRecordSets pHostedZoneId_ =
-    ListResourceRecordSets'
-    { _lrrsStartRecordName = Nothing
-    , _lrrsStartRecordType = Nothing
-    , _lrrsStartRecordIdentifier = Nothing
-    , _lrrsMaxItems = Nothing
-    , _lrrsHostedZoneId = pHostedZoneId_
-    }
+  ListResourceRecordSets'
+  { _lrrsStartRecordName = Nothing
+  , _lrrsStartRecordType = Nothing
+  , _lrrsStartRecordIdentifier = Nothing
+  , _lrrsMaxItems = Nothing
+  , _lrrsHostedZoneId = pHostedZoneId_
+  }
+
 
 -- | The first name in the lexicographic ordering of resource record sets that you want to list.
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
@@ -170,9 +172,9 @@ instance AWSRequest ListResourceRecordSets where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
-instance Hashable ListResourceRecordSets
+instance Hashable ListResourceRecordSets where
 
-instance NFData ListResourceRecordSets
+instance NFData ListResourceRecordSets where
 
 instance ToHeaders ListResourceRecordSets where
         toHeaders = const mempty
@@ -197,14 +199,15 @@ instance ToQuery ListResourceRecordSets where
 --
 -- /See:/ 'listResourceRecordSetsResponse' smart constructor.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
-    { _lrrsrsNextRecordType       :: !(Maybe RecordType)
-    , _lrrsrsNextRecordName       :: !(Maybe Text)
-    , _lrrsrsNextRecordIdentifier :: !(Maybe Text)
-    , _lrrsrsResponseStatus       :: !Int
-    , _lrrsrsResourceRecordSets   :: ![ResourceRecordSet]
-    , _lrrsrsIsTruncated          :: !Bool
-    , _lrrsrsMaxItems             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsrsNextRecordType       :: {-# NOUNPACK #-}!(Maybe RecordType)
+  , _lrrsrsNextRecordName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsrsNextRecordIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  , _lrrsrsResourceRecordSets   :: {-# NOUNPACK #-}![ResourceRecordSet]
+  , _lrrsrsIsTruncated          :: {-# NOUNPACK #-}!Bool
+  , _lrrsrsMaxItems             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourceRecordSetsResponse' with the minimum fields required to make a request.
 --
@@ -229,15 +232,16 @@ listResourceRecordSetsResponse
     -> Text -- ^ 'lrrsrsMaxItems'
     -> ListResourceRecordSetsResponse
 listResourceRecordSetsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
-    ListResourceRecordSetsResponse'
-    { _lrrsrsNextRecordType = Nothing
-    , _lrrsrsNextRecordName = Nothing
-    , _lrrsrsNextRecordIdentifier = Nothing
-    , _lrrsrsResponseStatus = pResponseStatus_
-    , _lrrsrsResourceRecordSets = mempty
-    , _lrrsrsIsTruncated = pIsTruncated_
-    , _lrrsrsMaxItems = pMaxItems_
-    }
+  ListResourceRecordSetsResponse'
+  { _lrrsrsNextRecordType = Nothing
+  , _lrrsrsNextRecordName = Nothing
+  , _lrrsrsNextRecordIdentifier = Nothing
+  , _lrrsrsResponseStatus = pResponseStatus_
+  , _lrrsrsResourceRecordSets = mempty
+  , _lrrsrsIsTruncated = pIsTruncated_
+  , _lrrsrsMaxItems = pMaxItems_
+  }
+
 
 -- | If the results were truncated, the type of the next record in the list. This element is present only if @IsTruncated@ is true.
 lrrsrsNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
@@ -267,4 +271,4 @@ lrrsrsIsTruncated = lens _lrrsrsIsTruncated (\ s a -> s{_lrrsrsIsTruncated = a})
 lrrsrsMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrsMaxItems = lens _lrrsrsMaxItems (\ s a -> s{_lrrsrsMaxItems = a});
 
-instance NFData ListResourceRecordSetsResponse
+instance NFData ListResourceRecordSetsResponse where

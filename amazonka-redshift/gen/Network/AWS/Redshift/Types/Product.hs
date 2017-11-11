@@ -9,18 +9,18 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Redshift.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Internal
-import           Network.AWS.Redshift.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Internal
+import Network.AWS.Redshift.Types.Sum
 
 -- | Describes an AWS customer account authorized to restore a snapshot.
 --
@@ -28,9 +28,10 @@ import           Network.AWS.Redshift.Types.Sum
 --
 -- /See:/ 'accountWithRestoreAccess' smart constructor.
 data AccountWithRestoreAccess = AccountWithRestoreAccess'
-    { _awraAccountAlias :: !(Maybe Text)
-    , _awraAccountId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _awraAccountAlias :: {-# NOUNPACK #-}!(Maybe Text)
+  , _awraAccountId    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccountWithRestoreAccess' with the minimum fields required to make a request.
 --
@@ -42,10 +43,9 @@ data AccountWithRestoreAccess = AccountWithRestoreAccess'
 accountWithRestoreAccess
     :: AccountWithRestoreAccess
 accountWithRestoreAccess =
-    AccountWithRestoreAccess'
-    { _awraAccountAlias = Nothing
-    , _awraAccountId = Nothing
-    }
+  AccountWithRestoreAccess'
+  {_awraAccountAlias = Nothing, _awraAccountId = Nothing}
+
 
 -- | The identifier of an AWS support account authorized to restore a snapshot. For AWS support, the identifier is @amazon-redshift-support@ .
 awraAccountAlias :: Lens' AccountWithRestoreAccess (Maybe Text)
@@ -60,9 +60,9 @@ instance FromXML AccountWithRestoreAccess where
           = AccountWithRestoreAccess' <$>
               (x .@? "AccountAlias") <*> (x .@? "AccountId")
 
-instance Hashable AccountWithRestoreAccess
+instance Hashable AccountWithRestoreAccess where
 
-instance NFData AccountWithRestoreAccess
+instance NFData AccountWithRestoreAccess where
 
 -- | Describes an availability zone.
 --
@@ -70,8 +70,9 @@ instance NFData AccountWithRestoreAccess
 --
 -- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
-    { _azName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _azName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
@@ -80,10 +81,8 @@ newtype AvailabilityZone = AvailabilityZone'
 -- * 'azName' - The name of the availability zone.
 availabilityZone
     :: AvailabilityZone
-availabilityZone =
-    AvailabilityZone'
-    { _azName = Nothing
-    }
+availabilityZone = AvailabilityZone' {_azName = Nothing}
+
 
 -- | The name of the availability zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
@@ -92,9 +91,9 @@ azName = lens _azName (\ s a -> s{_azName = a});
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
-instance Hashable AvailabilityZone
+instance Hashable AvailabilityZone where
 
-instance NFData AvailabilityZone
+instance NFData AvailabilityZone where
 
 -- | Describes a cluster.
 --
@@ -102,40 +101,41 @@ instance NFData AvailabilityZone
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-    { _cRestoreStatus                    :: !(Maybe RestoreStatus)
-    , _cEnhancedVPCRouting               :: !(Maybe Bool)
-    , _cClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
-    , _cClusterRevisionNumber            :: !(Maybe Text)
-    , _cPubliclyAccessible               :: !(Maybe Bool)
-    , _cMasterUsername                   :: !(Maybe Text)
-    , _cVPCId                            :: !(Maybe Text)
-    , _cClusterSecurityGroups            :: !(Maybe [ClusterSecurityGroupMembership])
-    , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _cEncrypted                        :: !(Maybe Bool)
-    , _cClusterSubnetGroupName           :: !(Maybe Text)
-    , _cClusterIdentifier                :: !(Maybe Text)
-    , _cNumberOfNodes                    :: !(Maybe Int)
-    , _cClusterPublicKey                 :: !(Maybe Text)
-    , _cPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _cModifyStatus                     :: !(Maybe Text)
-    , _cKMSKeyId                         :: !(Maybe Text)
-    , _cClusterParameterGroups           :: !(Maybe [ClusterParameterGroupStatus])
-    , _cAvailabilityZone                 :: !(Maybe Text)
-    , _cVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
-    , _cHSMStatus                        :: !(Maybe HSMStatus)
-    , _cIAMRoles                         :: !(Maybe [ClusterIAMRole])
-    , _cElasticIPStatus                  :: !(Maybe ElasticIPStatus)
-    , _cClusterVersion                   :: !(Maybe Text)
-    , _cNodeType                         :: !(Maybe Text)
-    , _cClusterCreateTime                :: !(Maybe ISO8601)
-    , _cEndpoint                         :: !(Maybe Endpoint)
-    , _cAllowVersionUpgrade              :: !(Maybe Bool)
-    , _cClusterStatus                    :: !(Maybe Text)
-    , _cPendingModifiedValues            :: !(Maybe PendingModifiedValues)
-    , _cTags                             :: !(Maybe [Tag])
-    , _cClusterNodes                     :: !(Maybe [ClusterNode])
-    , _cDBName                           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cRestoreStatus :: {-# NOUNPACK #-}!(Maybe RestoreStatus)
+  , _cEnhancedVPCRouting :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cClusterSnapshotCopyStatus :: {-# NOUNPACK #-}!(Maybe ClusterSnapshotCopyStatus)
+  , _cClusterRevisionNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cPubliclyAccessible :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cMasterUsername :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterSecurityGroups :: {-# NOUNPACK #-}!(Maybe [ClusterSecurityGroupMembership])
+  , _cAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cClusterSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cNumberOfNodes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cClusterPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cModifyStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterParameterGroups :: {-# NOUNPACK #-}!(Maybe [ClusterParameterGroupStatus])
+  , _cAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
+  , _cHSMStatus :: {-# NOUNPACK #-}!(Maybe HSMStatus)
+  , _cIAMRoles :: {-# NOUNPACK #-}!(Maybe [ClusterIAMRole])
+  , _cElasticIPStatus :: {-# NOUNPACK #-}!(Maybe ElasticIPStatus)
+  , _cClusterVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _cEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _cAllowVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cClusterStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe PendingModifiedValues)
+  , _cTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cClusterNodes :: {-# NOUNPACK #-}!(Maybe [ClusterNode])
+  , _cDBName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
@@ -209,41 +209,42 @@ data Cluster = Cluster'
 cluster
     :: Cluster
 cluster =
-    Cluster'
-    { _cRestoreStatus = Nothing
-    , _cEnhancedVPCRouting = Nothing
-    , _cClusterSnapshotCopyStatus = Nothing
-    , _cClusterRevisionNumber = Nothing
-    , _cPubliclyAccessible = Nothing
-    , _cMasterUsername = Nothing
-    , _cVPCId = Nothing
-    , _cClusterSecurityGroups = Nothing
-    , _cAutomatedSnapshotRetentionPeriod = Nothing
-    , _cEncrypted = Nothing
-    , _cClusterSubnetGroupName = Nothing
-    , _cClusterIdentifier = Nothing
-    , _cNumberOfNodes = Nothing
-    , _cClusterPublicKey = Nothing
-    , _cPreferredMaintenanceWindow = Nothing
-    , _cModifyStatus = Nothing
-    , _cKMSKeyId = Nothing
-    , _cClusterParameterGroups = Nothing
-    , _cAvailabilityZone = Nothing
-    , _cVPCSecurityGroups = Nothing
-    , _cHSMStatus = Nothing
-    , _cIAMRoles = Nothing
-    , _cElasticIPStatus = Nothing
-    , _cClusterVersion = Nothing
-    , _cNodeType = Nothing
-    , _cClusterCreateTime = Nothing
-    , _cEndpoint = Nothing
-    , _cAllowVersionUpgrade = Nothing
-    , _cClusterStatus = Nothing
-    , _cPendingModifiedValues = Nothing
-    , _cTags = Nothing
-    , _cClusterNodes = Nothing
-    , _cDBName = Nothing
-    }
+  Cluster'
+  { _cRestoreStatus = Nothing
+  , _cEnhancedVPCRouting = Nothing
+  , _cClusterSnapshotCopyStatus = Nothing
+  , _cClusterRevisionNumber = Nothing
+  , _cPubliclyAccessible = Nothing
+  , _cMasterUsername = Nothing
+  , _cVPCId = Nothing
+  , _cClusterSecurityGroups = Nothing
+  , _cAutomatedSnapshotRetentionPeriod = Nothing
+  , _cEncrypted = Nothing
+  , _cClusterSubnetGroupName = Nothing
+  , _cClusterIdentifier = Nothing
+  , _cNumberOfNodes = Nothing
+  , _cClusterPublicKey = Nothing
+  , _cPreferredMaintenanceWindow = Nothing
+  , _cModifyStatus = Nothing
+  , _cKMSKeyId = Nothing
+  , _cClusterParameterGroups = Nothing
+  , _cAvailabilityZone = Nothing
+  , _cVPCSecurityGroups = Nothing
+  , _cHSMStatus = Nothing
+  , _cIAMRoles = Nothing
+  , _cElasticIPStatus = Nothing
+  , _cClusterVersion = Nothing
+  , _cNodeType = Nothing
+  , _cClusterCreateTime = Nothing
+  , _cEndpoint = Nothing
+  , _cAllowVersionUpgrade = Nothing
+  , _cClusterStatus = Nothing
+  , _cPendingModifiedValues = Nothing
+  , _cTags = Nothing
+  , _cClusterNodes = Nothing
+  , _cDBName = Nothing
+  }
+
 
 -- | A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
 cRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
@@ -426,9 +427,9 @@ instance FromXML Cluster where
                    may (parseXMLList "member"))
                 <*> (x .@? "DBName")
 
-instance Hashable Cluster
+instance Hashable Cluster where
 
-instance NFData Cluster
+instance NFData Cluster where
 
 -- | An AWS Identity and Access Management (IAM) role that can be used by the associated Amazon Redshift cluster to access other AWS services.
 --
@@ -436,9 +437,10 @@ instance NFData Cluster
 --
 -- /See:/ 'clusterIAMRole' smart constructor.
 data ClusterIAMRole = ClusterIAMRole'
-    { _cirIAMRoleARN  :: !(Maybe Text)
-    , _cirApplyStatus :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cirIAMRoleARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cirApplyStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterIAMRole' with the minimum fields required to make a request.
 --
@@ -450,10 +452,8 @@ data ClusterIAMRole = ClusterIAMRole'
 clusterIAMRole
     :: ClusterIAMRole
 clusterIAMRole =
-    ClusterIAMRole'
-    { _cirIAMRoleARN = Nothing
-    , _cirApplyStatus = Nothing
-    }
+  ClusterIAMRole' {_cirIAMRoleARN = Nothing, _cirApplyStatus = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) of the IAM role, for example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
 cirIAMRoleARN :: Lens' ClusterIAMRole (Maybe Text)
@@ -468,9 +468,9 @@ instance FromXML ClusterIAMRole where
           = ClusterIAMRole' <$>
               (x .@? "IamRoleArn") <*> (x .@? "ApplyStatus")
 
-instance Hashable ClusterIAMRole
+instance Hashable ClusterIAMRole where
 
-instance NFData ClusterIAMRole
+instance NFData ClusterIAMRole where
 
 -- | The identifier of a node in a cluster.
 --
@@ -478,10 +478,11 @@ instance NFData ClusterIAMRole
 --
 -- /See:/ 'clusterNode' smart constructor.
 data ClusterNode = ClusterNode'
-    { _cnNodeRole         :: !(Maybe Text)
-    , _cnPrivateIPAddress :: !(Maybe Text)
-    , _cnPublicIPAddress  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnNodeRole         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnPrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnPublicIPAddress  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterNode' with the minimum fields required to make a request.
 --
@@ -495,11 +496,12 @@ data ClusterNode = ClusterNode'
 clusterNode
     :: ClusterNode
 clusterNode =
-    ClusterNode'
-    { _cnNodeRole = Nothing
-    , _cnPrivateIPAddress = Nothing
-    , _cnPublicIPAddress = Nothing
-    }
+  ClusterNode'
+  { _cnNodeRole = Nothing
+  , _cnPrivateIPAddress = Nothing
+  , _cnPublicIPAddress = Nothing
+  }
+
 
 -- | Whether the node is a leader node or a compute node.
 cnNodeRole :: Lens' ClusterNode (Maybe Text)
@@ -519,9 +521,9 @@ instance FromXML ClusterNode where
               (x .@? "NodeRole") <*> (x .@? "PrivateIPAddress") <*>
                 (x .@? "PublicIPAddress")
 
-instance Hashable ClusterNode
+instance Hashable ClusterNode where
 
-instance NFData ClusterNode
+instance NFData ClusterNode where
 
 -- | Describes a parameter group.
 --
@@ -529,11 +531,12 @@ instance NFData ClusterNode
 --
 -- /See:/ 'clusterParameterGroup' smart constructor.
 data ClusterParameterGroup = ClusterParameterGroup'
-    { _cpgParameterGroupFamily :: !(Maybe Text)
-    , _cpgDescription          :: !(Maybe Text)
-    , _cpgTags                 :: !(Maybe [Tag])
-    , _cpgParameterGroupName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpgDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpgTags                 :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cpgParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterParameterGroup' with the minimum fields required to make a request.
 --
@@ -549,12 +552,13 @@ data ClusterParameterGroup = ClusterParameterGroup'
 clusterParameterGroup
     :: ClusterParameterGroup
 clusterParameterGroup =
-    ClusterParameterGroup'
-    { _cpgParameterGroupFamily = Nothing
-    , _cpgDescription = Nothing
-    , _cpgTags = Nothing
-    , _cpgParameterGroupName = Nothing
-    }
+  ClusterParameterGroup'
+  { _cpgParameterGroupFamily = Nothing
+  , _cpgDescription = Nothing
+  , _cpgTags = Nothing
+  , _cpgParameterGroupName = Nothing
+  }
+
 
 -- | The name of the cluster parameter group family that this cluster parameter group is compatible with.
 cpgParameterGroupFamily :: Lens' ClusterParameterGroup (Maybe Text)
@@ -582,9 +586,9 @@ instance FromXML ClusterParameterGroup where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "ParameterGroupName")
 
-instance Hashable ClusterParameterGroup
+instance Hashable ClusterParameterGroup where
 
-instance NFData ClusterParameterGroup
+instance NFData ClusterParameterGroup where
 
 -- |
 --
@@ -592,9 +596,10 @@ instance NFData ClusterParameterGroup
 --
 -- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
-    { _cpgnmParameterGroupStatus :: !(Maybe Text)
-    , _cpgnmParameterGroupName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgnmParameterGroupStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpgnmParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterParameterGroupNameMessage' with the minimum fields required to make a request.
 --
@@ -606,10 +611,9 @@ data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
 clusterParameterGroupNameMessage
     :: ClusterParameterGroupNameMessage
 clusterParameterGroupNameMessage =
-    ClusterParameterGroupNameMessage'
-    { _cpgnmParameterGroupStatus = Nothing
-    , _cpgnmParameterGroupName = Nothing
-    }
+  ClusterParameterGroupNameMessage'
+  {_cpgnmParameterGroupStatus = Nothing, _cpgnmParameterGroupName = Nothing}
+
 
 -- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
 cpgnmParameterGroupStatus :: Lens' ClusterParameterGroupNameMessage (Maybe Text)
@@ -627,8 +631,10 @@ instance FromXML ClusterParameterGroupNameMessage
                 (x .@? "ParameterGroupName")
 
 instance Hashable ClusterParameterGroupNameMessage
+         where
 
 instance NFData ClusterParameterGroupNameMessage
+         where
 
 -- | Describes the status of a parameter group.
 --
@@ -636,10 +642,11 @@ instance NFData ClusterParameterGroupNameMessage
 --
 -- /See:/ 'clusterParameterGroupStatus' smart constructor.
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
-    { _cpgsClusterParameterStatusList :: !(Maybe [ClusterParameterStatus])
-    , _cpgsParameterApplyStatus       :: !(Maybe Text)
-    , _cpgsParameterGroupName         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpgsClusterParameterStatusList :: {-# NOUNPACK #-}!(Maybe [ClusterParameterStatus])
+  , _cpgsParameterApplyStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpgsParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterParameterGroupStatus' with the minimum fields required to make a request.
 --
@@ -653,11 +660,12 @@ data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
 clusterParameterGroupStatus
     :: ClusterParameterGroupStatus
 clusterParameterGroupStatus =
-    ClusterParameterGroupStatus'
-    { _cpgsClusterParameterStatusList = Nothing
-    , _cpgsParameterApplyStatus = Nothing
-    , _cpgsParameterGroupName = Nothing
-    }
+  ClusterParameterGroupStatus'
+  { _cpgsClusterParameterStatusList = Nothing
+  , _cpgsParameterApplyStatus = Nothing
+  , _cpgsParameterGroupName = Nothing
+  }
+
 
 -- | The list of parameter statuses. For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
 cpgsClusterParameterStatusList :: Lens' ClusterParameterGroupStatus [ClusterParameterStatus]
@@ -679,9 +687,9 @@ instance FromXML ClusterParameterGroupStatus where
                 <*> (x .@? "ParameterApplyStatus")
                 <*> (x .@? "ParameterGroupName")
 
-instance Hashable ClusterParameterGroupStatus
+instance Hashable ClusterParameterGroupStatus where
 
-instance NFData ClusterParameterGroupStatus
+instance NFData ClusterParameterGroupStatus where
 
 -- | Describes the status of a parameter group.
 --
@@ -689,10 +697,11 @@ instance NFData ClusterParameterGroupStatus
 --
 -- /See:/ 'clusterParameterStatus' smart constructor.
 data ClusterParameterStatus = ClusterParameterStatus'
-    { _cpsParameterApplyErrorDescription :: !(Maybe Text)
-    , _cpsParameterName                  :: !(Maybe Text)
-    , _cpsParameterApplyStatus           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpsParameterApplyErrorDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpsParameterName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpsParameterApplyStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterParameterStatus' with the minimum fields required to make a request.
 --
@@ -706,11 +715,12 @@ data ClusterParameterStatus = ClusterParameterStatus'
 clusterParameterStatus
     :: ClusterParameterStatus
 clusterParameterStatus =
-    ClusterParameterStatus'
-    { _cpsParameterApplyErrorDescription = Nothing
-    , _cpsParameterName = Nothing
-    , _cpsParameterApplyStatus = Nothing
-    }
+  ClusterParameterStatus'
+  { _cpsParameterApplyErrorDescription = Nothing
+  , _cpsParameterName = Nothing
+  , _cpsParameterApplyStatus = Nothing
+  }
+
 
 -- | The error that prevented the parameter from being applied to the database.
 cpsParameterApplyErrorDescription :: Lens' ClusterParameterStatus (Maybe Text)
@@ -731,9 +741,9 @@ instance FromXML ClusterParameterStatus where
                 (x .@? "ParameterName")
                 <*> (x .@? "ParameterApplyStatus")
 
-instance Hashable ClusterParameterStatus
+instance Hashable ClusterParameterStatus where
 
-instance NFData ClusterParameterStatus
+instance NFData ClusterParameterStatus where
 
 -- | Describes a security group.
 --
@@ -741,12 +751,13 @@ instance NFData ClusterParameterStatus
 --
 -- /See:/ 'clusterSecurityGroup' smart constructor.
 data ClusterSecurityGroup = ClusterSecurityGroup'
-    { _cluClusterSecurityGroupName :: !(Maybe Text)
-    , _cluIPRanges                 :: !(Maybe [IPRange])
-    , _cluEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
-    , _cluDescription              :: !(Maybe Text)
-    , _cluTags                     :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cluClusterSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluIPRanges                 :: {-# NOUNPACK #-}!(Maybe [IPRange])
+  , _cluEC2SecurityGroups        :: {-# NOUNPACK #-}!(Maybe [EC2SecurityGroup])
+  , _cluDescription              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cluTags                     :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSecurityGroup' with the minimum fields required to make a request.
 --
@@ -764,13 +775,14 @@ data ClusterSecurityGroup = ClusterSecurityGroup'
 clusterSecurityGroup
     :: ClusterSecurityGroup
 clusterSecurityGroup =
-    ClusterSecurityGroup'
-    { _cluClusterSecurityGroupName = Nothing
-    , _cluIPRanges = Nothing
-    , _cluEC2SecurityGroups = Nothing
-    , _cluDescription = Nothing
-    , _cluTags = Nothing
-    }
+  ClusterSecurityGroup'
+  { _cluClusterSecurityGroupName = Nothing
+  , _cluIPRanges = Nothing
+  , _cluEC2SecurityGroups = Nothing
+  , _cluDescription = Nothing
+  , _cluTags = Nothing
+  }
+
 
 -- | The name of the cluster security group to which the operation was applied.
 cluClusterSecurityGroupName :: Lens' ClusterSecurityGroup (Maybe Text)
@@ -806,9 +818,9 @@ instance FromXML ClusterSecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable ClusterSecurityGroup
+instance Hashable ClusterSecurityGroup where
 
-instance NFData ClusterSecurityGroup
+instance NFData ClusterSecurityGroup where
 
 -- | Describes a cluster security group.
 --
@@ -816,9 +828,10 @@ instance NFData ClusterSecurityGroup
 --
 -- /See:/ 'clusterSecurityGroupMembership' smart constructor.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
-    { _csgmStatus                   :: !(Maybe Text)
-    , _csgmClusterSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgmStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgmClusterSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSecurityGroupMembership' with the minimum fields required to make a request.
 --
@@ -830,10 +843,9 @@ data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
 clusterSecurityGroupMembership
     :: ClusterSecurityGroupMembership
 clusterSecurityGroupMembership =
-    ClusterSecurityGroupMembership'
-    { _csgmStatus = Nothing
-    , _csgmClusterSecurityGroupName = Nothing
-    }
+  ClusterSecurityGroupMembership'
+  {_csgmStatus = Nothing, _csgmClusterSecurityGroupName = Nothing}
+
 
 -- | The status of the cluster security group.
 csgmStatus :: Lens' ClusterSecurityGroupMembership (Maybe Text)
@@ -850,8 +862,9 @@ instance FromXML ClusterSecurityGroupMembership where
                 (x .@? "ClusterSecurityGroupName")
 
 instance Hashable ClusterSecurityGroupMembership
+         where
 
-instance NFData ClusterSecurityGroupMembership
+instance NFData ClusterSecurityGroupMembership where
 
 -- | Returns the destination region and retention period that are configured for cross-region snapshot copy.
 --
@@ -859,10 +872,11 @@ instance NFData ClusterSecurityGroupMembership
 --
 -- /See:/ 'clusterSnapshotCopyStatus' smart constructor.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
-    { _cscsRetentionPeriod       :: !(Maybe Integer)
-    , _cscsDestinationRegion     :: !(Maybe Text)
-    , _cscsSnapshotCopyGrantName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscsRetentionPeriod       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _cscsDestinationRegion     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cscsSnapshotCopyGrantName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSnapshotCopyStatus' with the minimum fields required to make a request.
 --
@@ -876,11 +890,12 @@ data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
 clusterSnapshotCopyStatus
     :: ClusterSnapshotCopyStatus
 clusterSnapshotCopyStatus =
-    ClusterSnapshotCopyStatus'
-    { _cscsRetentionPeriod = Nothing
-    , _cscsDestinationRegion = Nothing
-    , _cscsSnapshotCopyGrantName = Nothing
-    }
+  ClusterSnapshotCopyStatus'
+  { _cscsRetentionPeriod = Nothing
+  , _cscsDestinationRegion = Nothing
+  , _cscsSnapshotCopyGrantName = Nothing
+  }
+
 
 -- | The number of days that automated snapshots are retained in the destination region after they are copied from a source region.
 cscsRetentionPeriod :: Lens' ClusterSnapshotCopyStatus (Maybe Integer)
@@ -901,9 +916,9 @@ instance FromXML ClusterSnapshotCopyStatus where
                 (x .@? "DestinationRegion")
                 <*> (x .@? "SnapshotCopyGrantName")
 
-instance Hashable ClusterSnapshotCopyStatus
+instance Hashable ClusterSnapshotCopyStatus where
 
-instance NFData ClusterSnapshotCopyStatus
+instance NFData ClusterSnapshotCopyStatus where
 
 -- | Describes a subnet group.
 --
@@ -911,13 +926,14 @@ instance NFData ClusterSnapshotCopyStatus
 --
 -- /See:/ 'clusterSubnetGroup' smart constructor.
 data ClusterSubnetGroup = ClusterSubnetGroup'
-    { _csgVPCId                  :: !(Maybe Text)
-    , _csgSubnets                :: !(Maybe [Subnet])
-    , _csgClusterSubnetGroupName :: !(Maybe Text)
-    , _csgSubnetGroupStatus      :: !(Maybe Text)
-    , _csgDescription            :: !(Maybe Text)
-    , _csgTags                   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csgVPCId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgSubnets                :: {-# NOUNPACK #-}!(Maybe [Subnet])
+  , _csgClusterSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgSubnetGroupStatus      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csgTags                   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterSubnetGroup' with the minimum fields required to make a request.
 --
@@ -937,14 +953,15 @@ data ClusterSubnetGroup = ClusterSubnetGroup'
 clusterSubnetGroup
     :: ClusterSubnetGroup
 clusterSubnetGroup =
-    ClusterSubnetGroup'
-    { _csgVPCId = Nothing
-    , _csgSubnets = Nothing
-    , _csgClusterSubnetGroupName = Nothing
-    , _csgSubnetGroupStatus = Nothing
-    , _csgDescription = Nothing
-    , _csgTags = Nothing
-    }
+  ClusterSubnetGroup'
+  { _csgVPCId = Nothing
+  , _csgSubnets = Nothing
+  , _csgClusterSubnetGroupName = Nothing
+  , _csgSubnetGroupStatus = Nothing
+  , _csgDescription = Nothing
+  , _csgTags = Nothing
+  }
+
 
 -- | The VPC ID of the cluster subnet group.
 csgVPCId :: Lens' ClusterSubnetGroup (Maybe Text)
@@ -983,9 +1000,9 @@ instance FromXML ClusterSubnetGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable ClusterSubnetGroup
+instance Hashable ClusterSubnetGroup where
 
-instance NFData ClusterSubnetGroup
+instance NFData ClusterSubnetGroup where
 
 -- | Describes a cluster version, including the parameter group family and description of the version.
 --
@@ -993,10 +1010,11 @@ instance NFData ClusterSubnetGroup
 --
 -- /See:/ 'clusterVersion' smart constructor.
 data ClusterVersion = ClusterVersion'
-    { _cvClusterParameterGroupFamily :: !(Maybe Text)
-    , _cvClusterVersion              :: !(Maybe Text)
-    , _cvDescription                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvClusterParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvClusterVersion              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterVersion' with the minimum fields required to make a request.
 --
@@ -1010,11 +1028,12 @@ data ClusterVersion = ClusterVersion'
 clusterVersion
     :: ClusterVersion
 clusterVersion =
-    ClusterVersion'
-    { _cvClusterParameterGroupFamily = Nothing
-    , _cvClusterVersion = Nothing
-    , _cvDescription = Nothing
-    }
+  ClusterVersion'
+  { _cvClusterParameterGroupFamily = Nothing
+  , _cvClusterVersion = Nothing
+  , _cvDescription = Nothing
+  }
+
 
 -- | The name of the cluster parameter group family for the cluster.
 cvClusterParameterGroupFamily :: Lens' ClusterVersion (Maybe Text)
@@ -1035,9 +1054,9 @@ instance FromXML ClusterVersion where
                 (x .@? "ClusterVersion")
                 <*> (x .@? "Description")
 
-instance Hashable ClusterVersion
+instance Hashable ClusterVersion where
 
-instance NFData ClusterVersion
+instance NFData ClusterVersion where
 
 -- | Describes the default cluster parameters for a parameter group family.
 --
@@ -1045,10 +1064,11 @@ instance NFData ClusterVersion
 --
 -- /See:/ 'defaultClusterParameters' smart constructor.
 data DefaultClusterParameters = DefaultClusterParameters'
-    { _dcpMarker               :: !(Maybe Text)
-    , _dcpParameters           :: !(Maybe [Parameter])
-    , _dcpParameterGroupFamily :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcpMarker               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcpParameters           :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _dcpParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefaultClusterParameters' with the minimum fields required to make a request.
 --
@@ -1062,11 +1082,12 @@ data DefaultClusterParameters = DefaultClusterParameters'
 defaultClusterParameters
     :: DefaultClusterParameters
 defaultClusterParameters =
-    DefaultClusterParameters'
-    { _dcpMarker = Nothing
-    , _dcpParameters = Nothing
-    , _dcpParameterGroupFamily = Nothing
-    }
+  DefaultClusterParameters'
+  { _dcpMarker = Nothing
+  , _dcpParameters = Nothing
+  , _dcpParameterGroupFamily = Nothing
+  }
+
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 dcpMarker :: Lens' DefaultClusterParameters (Maybe Text)
@@ -1088,9 +1109,9 @@ instance FromXML DefaultClusterParameters where
                    may (parseXMLList "Parameter"))
                 <*> (x .@? "ParameterGroupFamily")
 
-instance Hashable DefaultClusterParameters
+instance Hashable DefaultClusterParameters where
 
-instance NFData DefaultClusterParameters
+instance NFData DefaultClusterParameters where
 
 -- | Describes an Amazon EC2 security group.
 --
@@ -1098,11 +1119,12 @@ instance NFData DefaultClusterParameters
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-    { _esgStatus                  :: !(Maybe Text)
-    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _esgEC2SecurityGroupName    :: !(Maybe Text)
-    , _esgTags                    :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esgStatus                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esgEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esgEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esgTags                    :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
@@ -1118,12 +1140,13 @@ data EC2SecurityGroup = EC2SecurityGroup'
 ec2SecurityGroup
     :: EC2SecurityGroup
 ec2SecurityGroup =
-    EC2SecurityGroup'
-    { _esgStatus = Nothing
-    , _esgEC2SecurityGroupOwnerId = Nothing
-    , _esgEC2SecurityGroupName = Nothing
-    , _esgTags = Nothing
-    }
+  EC2SecurityGroup'
+  { _esgStatus = Nothing
+  , _esgEC2SecurityGroupOwnerId = Nothing
+  , _esgEC2SecurityGroupName = Nothing
+  , _esgTags = Nothing
+  }
+
 
 -- | The status of the EC2 security group.
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
@@ -1151,9 +1174,9 @@ instance FromXML EC2SecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable EC2SecurityGroup
+instance Hashable EC2SecurityGroup where
 
-instance NFData EC2SecurityGroup
+instance NFData EC2SecurityGroup where
 
 -- | Describes the status of the elastic IP (EIP) address.
 --
@@ -1161,9 +1184,10 @@ instance NFData EC2SecurityGroup
 --
 -- /See:/ 'elasticIPStatus' smart constructor.
 data ElasticIPStatus = ElasticIPStatus'
-    { _eisStatus    :: !(Maybe Text)
-    , _eisElasticIP :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eisStatus    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eisElasticIP :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticIPStatus' with the minimum fields required to make a request.
 --
@@ -1175,10 +1199,8 @@ data ElasticIPStatus = ElasticIPStatus'
 elasticIPStatus
     :: ElasticIPStatus
 elasticIPStatus =
-    ElasticIPStatus'
-    { _eisStatus = Nothing
-    , _eisElasticIP = Nothing
-    }
+  ElasticIPStatus' {_eisStatus = Nothing, _eisElasticIP = Nothing}
+
 
 -- | The status of the elastic IP (EIP) address.
 eisStatus :: Lens' ElasticIPStatus (Maybe Text)
@@ -1193,9 +1215,9 @@ instance FromXML ElasticIPStatus where
           = ElasticIPStatus' <$>
               (x .@? "Status") <*> (x .@? "ElasticIp")
 
-instance Hashable ElasticIPStatus
+instance Hashable ElasticIPStatus where
 
-instance NFData ElasticIPStatus
+instance NFData ElasticIPStatus where
 
 -- | Describes a connection endpoint.
 --
@@ -1203,9 +1225,10 @@ instance NFData ElasticIPStatus
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-    { _eAddress :: !(Maybe Text)
-    , _ePort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ePort    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
@@ -1216,11 +1239,8 @@ data Endpoint = Endpoint'
 -- * 'ePort' - The port that the database engine is listening on.
 endpoint
     :: Endpoint
-endpoint =
-    Endpoint'
-    { _eAddress = Nothing
-    , _ePort = Nothing
-    }
+endpoint = Endpoint' {_eAddress = Nothing, _ePort = Nothing}
+
 
 -- | The DNS address of the Cluster.
 eAddress :: Lens' Endpoint (Maybe Text)
@@ -1234,9 +1254,9 @@ instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
-instance Hashable Endpoint
+instance Hashable Endpoint where
 
-instance NFData Endpoint
+instance NFData Endpoint where
 
 -- | Describes an event.
 --
@@ -1244,14 +1264,15 @@ instance NFData Endpoint
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eSourceType       :: !(Maybe SourceType)
-    , _eSeverity         :: !(Maybe Text)
-    , _eSourceIdentifier :: !(Maybe Text)
-    , _eDate             :: !(Maybe ISO8601)
-    , _eEventCategories  :: !(Maybe [Text])
-    , _eMessage          :: !(Maybe Text)
-    , _eEventId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _eSeverity         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eDate             :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _eEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eMessage          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEventId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
@@ -1273,15 +1294,16 @@ data Event = Event'
 event
     :: Event
 event =
-    Event'
-    { _eSourceType = Nothing
-    , _eSeverity = Nothing
-    , _eSourceIdentifier = Nothing
-    , _eDate = Nothing
-    , _eEventCategories = Nothing
-    , _eMessage = Nothing
-    , _eEventId = Nothing
-    }
+  Event'
+  { _eSourceType = Nothing
+  , _eSeverity = Nothing
+  , _eSourceIdentifier = Nothing
+  , _eDate = Nothing
+  , _eEventCategories = Nothing
+  , _eMessage = Nothing
+  , _eEventId = Nothing
+  }
+
 
 -- | The source type for this event.
 eSourceType :: Lens' Event (Maybe SourceType)
@@ -1323,9 +1345,9 @@ instance FromXML Event where
                 <*> (x .@? "Message")
                 <*> (x .@? "EventId")
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- | Describes event categories.
 --
@@ -1333,9 +1355,10 @@ instance NFData Event
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-    { _ecmSourceType :: !(Maybe Text)
-    , _ecmEvents     :: !(Maybe [EventInfoMap])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecmSourceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecmEvents     :: {-# NOUNPACK #-}!(Maybe [EventInfoMap])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
 --
@@ -1347,10 +1370,8 @@ data EventCategoriesMap = EventCategoriesMap'
 eventCategoriesMap
     :: EventCategoriesMap
 eventCategoriesMap =
-    EventCategoriesMap'
-    { _ecmSourceType = Nothing
-    , _ecmEvents = Nothing
-    }
+  EventCategoriesMap' {_ecmSourceType = Nothing, _ecmEvents = Nothing}
+
 
 -- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
@@ -1367,9 +1388,9 @@ instance FromXML EventCategoriesMap where
                 (x .@? "Events" .!@ mempty >>=
                    may (parseXMLList "EventInfoMap"))
 
-instance Hashable EventCategoriesMap
+instance Hashable EventCategoriesMap where
 
-instance NFData EventCategoriesMap
+instance NFData EventCategoriesMap where
 
 -- | Describes event information.
 --
@@ -1377,11 +1398,12 @@ instance NFData EventCategoriesMap
 --
 -- /See:/ 'eventInfoMap' smart constructor.
 data EventInfoMap = EventInfoMap'
-    { _eimEventDescription :: !(Maybe Text)
-    , _eimSeverity         :: !(Maybe Text)
-    , _eimEventCategories  :: !(Maybe [Text])
-    , _eimEventId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eimEventDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eimSeverity         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eimEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eimEventId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventInfoMap' with the minimum fields required to make a request.
 --
@@ -1397,12 +1419,13 @@ data EventInfoMap = EventInfoMap'
 eventInfoMap
     :: EventInfoMap
 eventInfoMap =
-    EventInfoMap'
-    { _eimEventDescription = Nothing
-    , _eimSeverity = Nothing
-    , _eimEventCategories = Nothing
-    , _eimEventId = Nothing
-    }
+  EventInfoMap'
+  { _eimEventDescription = Nothing
+  , _eimSeverity = Nothing
+  , _eimEventCategories = Nothing
+  , _eimEventId = Nothing
+  }
+
 
 -- | The description of an Amazon Redshift event.
 eimEventDescription :: Lens' EventInfoMap (Maybe Text)
@@ -1428,9 +1451,9 @@ instance FromXML EventInfoMap where
                    may (parseXMLList "EventCategory"))
                 <*> (x .@? "EventId")
 
-instance Hashable EventInfoMap
+instance Hashable EventInfoMap where
 
-instance NFData EventInfoMap
+instance NFData EventInfoMap where
 
 -- | Describes event subscriptions.
 --
@@ -1438,18 +1461,19 @@ instance NFData EventInfoMap
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-    { _esStatus                   :: !(Maybe Text)
-    , _esCustomerAWSId            :: !(Maybe Text)
-    , _esCustSubscriptionId       :: !(Maybe Text)
-    , _esSNSTopicARN              :: !(Maybe Text)
-    , _esEnabled                  :: !(Maybe Bool)
-    , _esSourceType               :: !(Maybe Text)
-    , _esSeverity                 :: !(Maybe Text)
-    , _esSubscriptionCreationTime :: !(Maybe ISO8601)
-    , _esEventCategoriesList      :: !(Maybe [Text])
-    , _esTags                     :: !(Maybe [Tag])
-    , _esSourceIdsList            :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esCustomerAWSId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esCustSubscriptionId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esSNSTopicARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _esSourceType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esSeverity                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esSubscriptionCreationTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _esEventCategoriesList      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _esTags                     :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _esSourceIdsList            :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
@@ -1479,19 +1503,20 @@ data EventSubscription = EventSubscription'
 eventSubscription
     :: EventSubscription
 eventSubscription =
-    EventSubscription'
-    { _esStatus = Nothing
-    , _esCustomerAWSId = Nothing
-    , _esCustSubscriptionId = Nothing
-    , _esSNSTopicARN = Nothing
-    , _esEnabled = Nothing
-    , _esSourceType = Nothing
-    , _esSeverity = Nothing
-    , _esSubscriptionCreationTime = Nothing
-    , _esEventCategoriesList = Nothing
-    , _esTags = Nothing
-    , _esSourceIdsList = Nothing
-    }
+  EventSubscription'
+  { _esStatus = Nothing
+  , _esCustomerAWSId = Nothing
+  , _esCustSubscriptionId = Nothing
+  , _esSNSTopicARN = Nothing
+  , _esEnabled = Nothing
+  , _esSourceType = Nothing
+  , _esSeverity = Nothing
+  , _esSubscriptionCreationTime = Nothing
+  , _esEventCategoriesList = Nothing
+  , _esTags = Nothing
+  , _esSourceIdsList = Nothing
+  }
+
 
 -- | The status of the Amazon Redshift event notification subscription. Constraints:     * Can be one of the following: active | no-permission | topic-not-exist     * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
@@ -1557,9 +1582,9 @@ instance FromXML EventSubscription where
                 (x .@? "SourceIdsList" .!@ mempty >>=
                    may (parseXMLList "SourceId"))
 
-instance Hashable EventSubscription
+instance Hashable EventSubscription where
 
-instance NFData EventSubscription
+instance NFData EventSubscription where
 
 -- | Returns information about an HSM client certificate. The certificate is stored in a secure Hardware Storage Module (HSM), and used by the Amazon Redshift cluster to encrypt data files.
 --
@@ -1567,10 +1592,11 @@ instance NFData EventSubscription
 --
 -- /See:/ 'hsmClientCertificate' smart constructor.
 data HSMClientCertificate = HSMClientCertificate'
-    { _hccHSMClientCertificateIdentifier :: !(Maybe Text)
-    , _hccHSMClientCertificatePublicKey  :: !(Maybe Text)
-    , _hccTags                           :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hccHSMClientCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hccHSMClientCertificatePublicKey  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hccTags                           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HSMClientCertificate' with the minimum fields required to make a request.
 --
@@ -1584,11 +1610,12 @@ data HSMClientCertificate = HSMClientCertificate'
 hsmClientCertificate
     :: HSMClientCertificate
 hsmClientCertificate =
-    HSMClientCertificate'
-    { _hccHSMClientCertificateIdentifier = Nothing
-    , _hccHSMClientCertificatePublicKey = Nothing
-    , _hccTags = Nothing
-    }
+  HSMClientCertificate'
+  { _hccHSMClientCertificateIdentifier = Nothing
+  , _hccHSMClientCertificatePublicKey = Nothing
+  , _hccTags = Nothing
+  }
+
 
 -- | The identifier of the HSM client certificate.
 hccHSMClientCertificateIdentifier :: Lens' HSMClientCertificate (Maybe Text)
@@ -1611,9 +1638,9 @@ instance FromXML HSMClientCertificate where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable HSMClientCertificate
+instance Hashable HSMClientCertificate where
 
-instance NFData HSMClientCertificate
+instance NFData HSMClientCertificate where
 
 -- | Returns information about an HSM configuration, which is an object that describes to Amazon Redshift clusters the information they require to connect to an HSM where they can store database encryption keys.
 --
@@ -1621,12 +1648,13 @@ instance NFData HSMClientCertificate
 --
 -- /See:/ 'hsmConfiguration' smart constructor.
 data HSMConfiguration = HSMConfiguration'
-    { _hcHSMConfigurationIdentifier :: !(Maybe Text)
-    , _hcHSMPartitionName           :: !(Maybe Text)
-    , _hcDescription                :: !(Maybe Text)
-    , _hcTags                       :: !(Maybe [Tag])
-    , _hcHSMIPAddress               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hcHSMConfigurationIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcHSMPartitionName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcDescription                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hcTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _hcHSMIPAddress               :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HSMConfiguration' with the minimum fields required to make a request.
 --
@@ -1644,13 +1672,14 @@ data HSMConfiguration = HSMConfiguration'
 hsmConfiguration
     :: HSMConfiguration
 hsmConfiguration =
-    HSMConfiguration'
-    { _hcHSMConfigurationIdentifier = Nothing
-    , _hcHSMPartitionName = Nothing
-    , _hcDescription = Nothing
-    , _hcTags = Nothing
-    , _hcHSMIPAddress = Nothing
-    }
+  HSMConfiguration'
+  { _hcHSMConfigurationIdentifier = Nothing
+  , _hcHSMPartitionName = Nothing
+  , _hcDescription = Nothing
+  , _hcTags = Nothing
+  , _hcHSMIPAddress = Nothing
+  }
+
 
 -- | The name of the Amazon Redshift HSM configuration.
 hcHSMConfigurationIdentifier :: Lens' HSMConfiguration (Maybe Text)
@@ -1683,9 +1712,9 @@ instance FromXML HSMConfiguration where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "HsmIpAddress")
 
-instance Hashable HSMConfiguration
+instance Hashable HSMConfiguration where
 
-instance NFData HSMConfiguration
+instance NFData HSMConfiguration where
 
 -- | Describes the status of changes to HSM settings.
 --
@@ -1693,10 +1722,11 @@ instance NFData HSMConfiguration
 --
 -- /See:/ 'hsmStatus' smart constructor.
 data HSMStatus = HSMStatus'
-    { _hsStatus                         :: !(Maybe Text)
-    , _hsHSMConfigurationIdentifier     :: !(Maybe Text)
-    , _hsHSMClientCertificateIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hsStatus                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hsHSMConfigurationIdentifier     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hsHSMClientCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HSMStatus' with the minimum fields required to make a request.
 --
@@ -1710,11 +1740,12 @@ data HSMStatus = HSMStatus'
 hsmStatus
     :: HSMStatus
 hsmStatus =
-    HSMStatus'
-    { _hsStatus = Nothing
-    , _hsHSMConfigurationIdentifier = Nothing
-    , _hsHSMClientCertificateIdentifier = Nothing
-    }
+  HSMStatus'
+  { _hsStatus = Nothing
+  , _hsHSMConfigurationIdentifier = Nothing
+  , _hsHSMClientCertificateIdentifier = Nothing
+  }
+
 
 -- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command. Values: active, applying
 hsStatus :: Lens' HSMStatus (Maybe Text)
@@ -1735,9 +1766,9 @@ instance FromXML HSMStatus where
                 (x .@? "HsmConfigurationIdentifier")
                 <*> (x .@? "HsmClientCertificateIdentifier")
 
-instance Hashable HSMStatus
+instance Hashable HSMStatus where
 
-instance NFData HSMStatus
+instance NFData HSMStatus where
 
 -- | Describes an IP range used in a security group.
 --
@@ -1745,10 +1776,11 @@ instance NFData HSMStatus
 --
 -- /See:/ 'ipRange' smart constructor.
 data IPRange = IPRange'
-    { _irStatus :: !(Maybe Text)
-    , _irCIdRIP :: !(Maybe Text)
-    , _irTags   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irCIdRIP :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irTags   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
@@ -1761,12 +1793,8 @@ data IPRange = IPRange'
 -- * 'irTags' - The list of tags for the IP range.
 ipRange
     :: IPRange
-ipRange =
-    IPRange'
-    { _irStatus = Nothing
-    , _irCIdRIP = Nothing
-    , _irTags = Nothing
-    }
+ipRange = IPRange' {_irStatus = Nothing, _irCIdRIP = Nothing, _irTags = Nothing}
+
 
 -- | The status of the IP range, for example, "authorized".
 irStatus :: Lens' IPRange (Maybe Text)
@@ -1787,9 +1815,9 @@ instance FromXML IPRange where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable IPRange
+instance Hashable IPRange where
 
-instance NFData IPRange
+instance NFData IPRange where
 
 -- | Describes the status of logging for a cluster.
 --
@@ -1797,13 +1825,14 @@ instance NFData IPRange
 --
 -- /See:/ 'loggingStatus' smart constructor.
 data LoggingStatus = LoggingStatus'
-    { _lsLastFailureTime            :: !(Maybe ISO8601)
-    , _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
-    , _lsS3KeyPrefix                :: !(Maybe Text)
-    , _lsBucketName                 :: !(Maybe Text)
-    , _lsLoggingEnabled             :: !(Maybe Bool)
-    , _lsLastFailureMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsLastFailureTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _lsLastSuccessfulDeliveryTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _lsS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsBucketName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsLoggingEnabled             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lsLastFailureMessage         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoggingStatus' with the minimum fields required to make a request.
 --
@@ -1823,14 +1852,15 @@ data LoggingStatus = LoggingStatus'
 loggingStatus
     :: LoggingStatus
 loggingStatus =
-    LoggingStatus'
-    { _lsLastFailureTime = Nothing
-    , _lsLastSuccessfulDeliveryTime = Nothing
-    , _lsS3KeyPrefix = Nothing
-    , _lsBucketName = Nothing
-    , _lsLoggingEnabled = Nothing
-    , _lsLastFailureMessage = Nothing
-    }
+  LoggingStatus'
+  { _lsLastFailureTime = Nothing
+  , _lsLastSuccessfulDeliveryTime = Nothing
+  , _lsS3KeyPrefix = Nothing
+  , _lsBucketName = Nothing
+  , _lsLoggingEnabled = Nothing
+  , _lsLastFailureMessage = Nothing
+  }
+
 
 -- | The last time when logs failed to be delivered.
 lsLastFailureTime :: Lens' LoggingStatus (Maybe UTCTime)
@@ -1866,9 +1896,9 @@ instance FromXML LoggingStatus where
                 <*> (x .@? "LoggingEnabled")
                 <*> (x .@? "LastFailureMessage")
 
-instance Hashable LoggingStatus
+instance Hashable LoggingStatus where
 
-instance NFData LoggingStatus
+instance NFData LoggingStatus where
 
 -- | Describes an orderable cluster option.
 --
@@ -1876,11 +1906,12 @@ instance NFData LoggingStatus
 --
 -- /See:/ 'orderableClusterOption' smart constructor.
 data OrderableClusterOption = OrderableClusterOption'
-    { _ocoAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _ocoClusterType       :: !(Maybe Text)
-    , _ocoClusterVersion    :: !(Maybe Text)
-    , _ocoNodeType          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ocoAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
+  , _ocoClusterType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ocoClusterVersion    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ocoNodeType          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OrderableClusterOption' with the minimum fields required to make a request.
 --
@@ -1896,12 +1927,13 @@ data OrderableClusterOption = OrderableClusterOption'
 orderableClusterOption
     :: OrderableClusterOption
 orderableClusterOption =
-    OrderableClusterOption'
-    { _ocoAvailabilityZones = Nothing
-    , _ocoClusterType = Nothing
-    , _ocoClusterVersion = Nothing
-    , _ocoNodeType = Nothing
-    }
+  OrderableClusterOption'
+  { _ocoAvailabilityZones = Nothing
+  , _ocoClusterType = Nothing
+  , _ocoClusterVersion = Nothing
+  , _ocoNodeType = Nothing
+  }
+
 
 -- | A list of availability zones for the orderable cluster.
 ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
@@ -1928,9 +1960,9 @@ instance FromXML OrderableClusterOption where
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
 
-instance Hashable OrderableClusterOption
+instance Hashable OrderableClusterOption where
 
-instance NFData OrderableClusterOption
+instance NFData OrderableClusterOption where
 
 -- | Describes a parameter in a cluster parameter group.
 --
@@ -1938,16 +1970,17 @@ instance NFData OrderableClusterOption
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-    { _pApplyType            :: !(Maybe ParameterApplyType)
-    , _pParameterValue       :: !(Maybe Text)
-    , _pMinimumEngineVersion :: !(Maybe Text)
-    , _pSource               :: !(Maybe Text)
-    , _pIsModifiable         :: !(Maybe Bool)
-    , _pDataType             :: !(Maybe Text)
-    , _pAllowedValues        :: !(Maybe Text)
-    , _pParameterName        :: !(Maybe Text)
-    , _pDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pApplyType            :: {-# NOUNPACK #-}!(Maybe ParameterApplyType)
+  , _pParameterValue       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pMinimumEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pSource               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pIsModifiable         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pDataType             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pAllowedValues        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pParameterName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
@@ -1973,17 +2006,18 @@ data Parameter = Parameter'
 parameter
     :: Parameter
 parameter =
-    Parameter'
-    { _pApplyType = Nothing
-    , _pParameterValue = Nothing
-    , _pMinimumEngineVersion = Nothing
-    , _pSource = Nothing
-    , _pIsModifiable = Nothing
-    , _pDataType = Nothing
-    , _pAllowedValues = Nothing
-    , _pParameterName = Nothing
-    , _pDescription = Nothing
-    }
+  Parameter'
+  { _pApplyType = Nothing
+  , _pParameterValue = Nothing
+  , _pMinimumEngineVersion = Nothing
+  , _pSource = Nothing
+  , _pIsModifiable = Nothing
+  , _pDataType = Nothing
+  , _pAllowedValues = Nothing
+  , _pParameterName = Nothing
+  , _pDescription = Nothing
+  }
+
 
 -- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
 pApplyType :: Lens' Parameter (Maybe ParameterApplyType)
@@ -2033,9 +2067,9 @@ instance FromXML Parameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
-instance Hashable Parameter
+instance Hashable Parameter where
 
-instance NFData Parameter
+instance NFData Parameter where
 
 instance ToQuery Parameter where
         toQuery Parameter'{..}
@@ -2056,16 +2090,17 @@ instance ToQuery Parameter where
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-    { _pmvEnhancedVPCRouting               :: !(Maybe Bool)
-    , _pmvMasterUserPassword               :: !(Maybe Text)
-    , _pmvPubliclyAccessible               :: !(Maybe Bool)
-    , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _pmvClusterIdentifier                :: !(Maybe Text)
-    , _pmvNumberOfNodes                    :: !(Maybe Int)
-    , _pmvClusterType                      :: !(Maybe Text)
-    , _pmvClusterVersion                   :: !(Maybe Text)
-    , _pmvNodeType                         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmvEnhancedVPCRouting               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pmvMasterUserPassword               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pmvAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pmvClusterIdentifier                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvNumberOfNodes                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pmvClusterType                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvClusterVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvNodeType                         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
@@ -2091,17 +2126,18 @@ data PendingModifiedValues = PendingModifiedValues'
 pendingModifiedValues
     :: PendingModifiedValues
 pendingModifiedValues =
-    PendingModifiedValues'
-    { _pmvEnhancedVPCRouting = Nothing
-    , _pmvMasterUserPassword = Nothing
-    , _pmvPubliclyAccessible = Nothing
-    , _pmvAutomatedSnapshotRetentionPeriod = Nothing
-    , _pmvClusterIdentifier = Nothing
-    , _pmvNumberOfNodes = Nothing
-    , _pmvClusterType = Nothing
-    , _pmvClusterVersion = Nothing
-    , _pmvNodeType = Nothing
-    }
+  PendingModifiedValues'
+  { _pmvEnhancedVPCRouting = Nothing
+  , _pmvMasterUserPassword = Nothing
+  , _pmvPubliclyAccessible = Nothing
+  , _pmvAutomatedSnapshotRetentionPeriod = Nothing
+  , _pmvClusterIdentifier = Nothing
+  , _pmvNumberOfNodes = Nothing
+  , _pmvClusterType = Nothing
+  , _pmvClusterVersion = Nothing
+  , _pmvNodeType = Nothing
+  }
+
 
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 pmvEnhancedVPCRouting :: Lens' PendingModifiedValues (Maybe Bool)
@@ -2152,9 +2188,9 @@ instance FromXML PendingModifiedValues where
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
 
-instance Hashable PendingModifiedValues
+instance Hashable PendingModifiedValues where
 
-instance NFData PendingModifiedValues
+instance NFData PendingModifiedValues where
 
 -- | Describes a recurring charge.
 --
@@ -2162,9 +2198,10 @@ instance NFData PendingModifiedValues
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-    { _rcRecurringChargeFrequency :: !(Maybe Text)
-    , _rcRecurringChargeAmount    :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcRecurringChargeFrequency :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcRecurringChargeAmount    :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
@@ -2176,10 +2213,9 @@ data RecurringCharge = RecurringCharge'
 recurringCharge
     :: RecurringCharge
 recurringCharge =
-    RecurringCharge'
-    { _rcRecurringChargeFrequency = Nothing
-    , _rcRecurringChargeAmount = Nothing
-    }
+  RecurringCharge'
+  {_rcRecurringChargeFrequency = Nothing, _rcRecurringChargeAmount = Nothing}
+
 
 -- | The frequency at which the recurring charge amount is applied.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
@@ -2195,9 +2231,9 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
-instance Hashable RecurringCharge
+instance Hashable RecurringCharge where
 
-instance NFData RecurringCharge
+instance NFData RecurringCharge where
 
 -- | Describes a reserved node. You can call the 'DescribeReservedNodeOfferings' API to obtain the available reserved node offerings.
 --
@@ -2205,19 +2241,20 @@ instance NFData RecurringCharge
 --
 -- /See:/ 'reservedNode' smart constructor.
 data ReservedNode = ReservedNode'
-    { _rnState                  :: !(Maybe Text)
-    , _rnCurrencyCode           :: !(Maybe Text)
-    , _rnStartTime              :: !(Maybe ISO8601)
-    , _rnNodeCount              :: !(Maybe Int)
-    , _rnReservedNodeId         :: !(Maybe Text)
-    , _rnReservedNodeOfferingId :: !(Maybe Text)
-    , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
-    , _rnOfferingType           :: !(Maybe Text)
-    , _rnUsagePrice             :: !(Maybe Double)
-    , _rnNodeType               :: !(Maybe Text)
-    , _rnFixedPrice             :: !(Maybe Double)
-    , _rnDuration               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rnState                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnCurrencyCode           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnStartTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _rnNodeCount              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rnReservedNodeId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnReservedNodeOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnRecurringCharges       :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
+  , _rnOfferingType           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnUsagePrice             :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rnNodeType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnFixedPrice             :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rnDuration               :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReservedNode' with the minimum fields required to make a request.
 --
@@ -2249,20 +2286,21 @@ data ReservedNode = ReservedNode'
 reservedNode
     :: ReservedNode
 reservedNode =
-    ReservedNode'
-    { _rnState = Nothing
-    , _rnCurrencyCode = Nothing
-    , _rnStartTime = Nothing
-    , _rnNodeCount = Nothing
-    , _rnReservedNodeId = Nothing
-    , _rnReservedNodeOfferingId = Nothing
-    , _rnRecurringCharges = Nothing
-    , _rnOfferingType = Nothing
-    , _rnUsagePrice = Nothing
-    , _rnNodeType = Nothing
-    , _rnFixedPrice = Nothing
-    , _rnDuration = Nothing
-    }
+  ReservedNode'
+  { _rnState = Nothing
+  , _rnCurrencyCode = Nothing
+  , _rnStartTime = Nothing
+  , _rnNodeCount = Nothing
+  , _rnReservedNodeId = Nothing
+  , _rnReservedNodeOfferingId = Nothing
+  , _rnRecurringCharges = Nothing
+  , _rnOfferingType = Nothing
+  , _rnUsagePrice = Nothing
+  , _rnNodeType = Nothing
+  , _rnFixedPrice = Nothing
+  , _rnDuration = Nothing
+  }
+
 
 -- | The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.
 rnState :: Lens' ReservedNode (Maybe Text)
@@ -2329,9 +2367,9 @@ instance FromXML ReservedNode where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
-instance Hashable ReservedNode
+instance Hashable ReservedNode where
 
-instance NFData ReservedNode
+instance NFData ReservedNode where
 
 -- | Describes a reserved node offering.
 --
@@ -2339,15 +2377,16 @@ instance NFData ReservedNode
 --
 -- /See:/ 'reservedNodeOffering' smart constructor.
 data ReservedNodeOffering = ReservedNodeOffering'
-    { _rnoCurrencyCode           :: !(Maybe Text)
-    , _rnoReservedNodeOfferingId :: !(Maybe Text)
-    , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
-    , _rnoOfferingType           :: !(Maybe Text)
-    , _rnoUsagePrice             :: !(Maybe Double)
-    , _rnoNodeType               :: !(Maybe Text)
-    , _rnoFixedPrice             :: !(Maybe Double)
-    , _rnoDuration               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rnoCurrencyCode           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnoReservedNodeOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnoRecurringCharges       :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
+  , _rnoOfferingType           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnoUsagePrice             :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rnoNodeType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnoFixedPrice             :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rnoDuration               :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReservedNodeOffering' with the minimum fields required to make a request.
 --
@@ -2371,16 +2410,17 @@ data ReservedNodeOffering = ReservedNodeOffering'
 reservedNodeOffering
     :: ReservedNodeOffering
 reservedNodeOffering =
-    ReservedNodeOffering'
-    { _rnoCurrencyCode = Nothing
-    , _rnoReservedNodeOfferingId = Nothing
-    , _rnoRecurringCharges = Nothing
-    , _rnoOfferingType = Nothing
-    , _rnoUsagePrice = Nothing
-    , _rnoNodeType = Nothing
-    , _rnoFixedPrice = Nothing
-    , _rnoDuration = Nothing
-    }
+  ReservedNodeOffering'
+  { _rnoCurrencyCode = Nothing
+  , _rnoReservedNodeOfferingId = Nothing
+  , _rnoRecurringCharges = Nothing
+  , _rnoOfferingType = Nothing
+  , _rnoUsagePrice = Nothing
+  , _rnoNodeType = Nothing
+  , _rnoFixedPrice = Nothing
+  , _rnoDuration = Nothing
+  }
+
 
 -- | The currency code for the compute nodes offering.
 rnoCurrencyCode :: Lens' ReservedNodeOffering (Maybe Text)
@@ -2428,9 +2468,9 @@ instance FromXML ReservedNodeOffering where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
-instance Hashable ReservedNodeOffering
+instance Hashable ReservedNodeOffering where
 
-instance NFData ReservedNodeOffering
+instance NFData ReservedNodeOffering where
 
 -- | Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
 --
@@ -2438,13 +2478,14 @@ instance NFData ReservedNodeOffering
 --
 -- /See:/ 'restoreStatus' smart constructor.
 data RestoreStatus = RestoreStatus'
-    { _rsStatus                                 :: !(Maybe Text)
-    , _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
-    , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
-    , _rsProgressInMegaBytes                    :: !(Maybe Integer)
-    , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
-    , _rsSnapshotSizeInMegaBytes                :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsEstimatedTimeToCompletionInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _rsCurrentRestoreRateInMegaBytesPerSecond :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rsProgressInMegaBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _rsElapsedTimeInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _rsSnapshotSizeInMegaBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreStatus' with the minimum fields required to make a request.
 --
@@ -2464,14 +2505,15 @@ data RestoreStatus = RestoreStatus'
 restoreStatus
     :: RestoreStatus
 restoreStatus =
-    RestoreStatus'
-    { _rsStatus = Nothing
-    , _rsEstimatedTimeToCompletionInSeconds = Nothing
-    , _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing
-    , _rsProgressInMegaBytes = Nothing
-    , _rsElapsedTimeInSeconds = Nothing
-    , _rsSnapshotSizeInMegaBytes = Nothing
-    }
+  RestoreStatus'
+  { _rsStatus = Nothing
+  , _rsEstimatedTimeToCompletionInSeconds = Nothing
+  , _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing
+  , _rsProgressInMegaBytes = Nothing
+  , _rsElapsedTimeInSeconds = Nothing
+  , _rsSnapshotSizeInMegaBytes = Nothing
+  }
+
 
 -- | The status of the restore action. Returns starting, restoring, completed, or failed.
 rsStatus :: Lens' RestoreStatus (Maybe Text)
@@ -2507,9 +2549,9 @@ instance FromXML RestoreStatus where
                 <*> (x .@? "ElapsedTimeInSeconds")
                 <*> (x .@? "SnapshotSizeInMegaBytes")
 
-instance Hashable RestoreStatus
+instance Hashable RestoreStatus where
 
-instance NFData RestoreStatus
+instance NFData RestoreStatus where
 
 -- | Describes a snapshot.
 --
@@ -2517,36 +2559,37 @@ instance NFData RestoreStatus
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-    { _sStatus                                 :: !(Maybe Text)
-    , _sRestorableNodeTypes                    :: !(Maybe [Text])
-    , _sAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
-    , _sEnhancedVPCRouting                     :: !(Maybe Bool)
-    , _sSnapshotIdentifier                     :: !(Maybe Text)
-    , _sEncryptedWithHSM                       :: !(Maybe Bool)
-    , _sMasterUsername                         :: !(Maybe Text)
-    , _sSourceRegion                           :: !(Maybe Text)
-    , _sVPCId                                  :: !(Maybe Text)
-    , _sBackupProgressInMegaBytes              :: !(Maybe Double)
-    , _sEncrypted                              :: !(Maybe Bool)
-    , _sClusterIdentifier                      :: !(Maybe Text)
-    , _sNumberOfNodes                          :: !(Maybe Int)
-    , _sSnapshotType                           :: !(Maybe Text)
-    , _sKMSKeyId                               :: !(Maybe Text)
-    , _sAvailabilityZone                       :: !(Maybe Text)
-    , _sCurrentBackupRateInMegaBytesPerSecond  :: !(Maybe Double)
-    , _sSnapshotCreateTime                     :: !(Maybe ISO8601)
-    , _sClusterVersion                         :: !(Maybe Text)
-    , _sOwnerAccount                           :: !(Maybe Text)
-    , _sNodeType                               :: !(Maybe Text)
-    , _sElapsedTimeInSeconds                   :: !(Maybe Integer)
-    , _sClusterCreateTime                      :: !(Maybe ISO8601)
-    , _sEstimatedSecondsToCompletion           :: !(Maybe Integer)
-    , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
-    , _sTags                                   :: !(Maybe [Tag])
-    , _sPort                                   :: !(Maybe Int)
-    , _sTotalBackupSizeInMegaBytes             :: !(Maybe Double)
-    , _sDBName                                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sRestorableNodeTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sAccountsWithRestoreAccess :: {-# NOUNPACK #-}!(Maybe [AccountWithRestoreAccess])
+  , _sEnhancedVPCRouting :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sEncryptedWithHSM :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sMasterUsername :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSourceRegion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sBackupProgressInMegaBytes :: {-# NOUNPACK #-}!(Maybe Double)
+  , _sEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sNumberOfNodes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sSnapshotType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCurrentBackupRateInMegaBytesPerSecond :: {-# NOUNPACK #-}!(Maybe Double)
+  , _sSnapshotCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _sClusterVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sOwnerAccount :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sElapsedTimeInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _sClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _sEstimatedSecondsToCompletion :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _sActualIncrementalBackupSizeInMegaBytes :: {-# NOUNPACK #-}!(Maybe Double)
+  , _sTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _sPort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sTotalBackupSizeInMegaBytes :: {-# NOUNPACK #-}!(Maybe Double)
+  , _sDBName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
@@ -2612,37 +2655,38 @@ data Snapshot = Snapshot'
 snapshot
     :: Snapshot
 snapshot =
-    Snapshot'
-    { _sStatus = Nothing
-    , _sRestorableNodeTypes = Nothing
-    , _sAccountsWithRestoreAccess = Nothing
-    , _sEnhancedVPCRouting = Nothing
-    , _sSnapshotIdentifier = Nothing
-    , _sEncryptedWithHSM = Nothing
-    , _sMasterUsername = Nothing
-    , _sSourceRegion = Nothing
-    , _sVPCId = Nothing
-    , _sBackupProgressInMegaBytes = Nothing
-    , _sEncrypted = Nothing
-    , _sClusterIdentifier = Nothing
-    , _sNumberOfNodes = Nothing
-    , _sSnapshotType = Nothing
-    , _sKMSKeyId = Nothing
-    , _sAvailabilityZone = Nothing
-    , _sCurrentBackupRateInMegaBytesPerSecond = Nothing
-    , _sSnapshotCreateTime = Nothing
-    , _sClusterVersion = Nothing
-    , _sOwnerAccount = Nothing
-    , _sNodeType = Nothing
-    , _sElapsedTimeInSeconds = Nothing
-    , _sClusterCreateTime = Nothing
-    , _sEstimatedSecondsToCompletion = Nothing
-    , _sActualIncrementalBackupSizeInMegaBytes = Nothing
-    , _sTags = Nothing
-    , _sPort = Nothing
-    , _sTotalBackupSizeInMegaBytes = Nothing
-    , _sDBName = Nothing
-    }
+  Snapshot'
+  { _sStatus = Nothing
+  , _sRestorableNodeTypes = Nothing
+  , _sAccountsWithRestoreAccess = Nothing
+  , _sEnhancedVPCRouting = Nothing
+  , _sSnapshotIdentifier = Nothing
+  , _sEncryptedWithHSM = Nothing
+  , _sMasterUsername = Nothing
+  , _sSourceRegion = Nothing
+  , _sVPCId = Nothing
+  , _sBackupProgressInMegaBytes = Nothing
+  , _sEncrypted = Nothing
+  , _sClusterIdentifier = Nothing
+  , _sNumberOfNodes = Nothing
+  , _sSnapshotType = Nothing
+  , _sKMSKeyId = Nothing
+  , _sAvailabilityZone = Nothing
+  , _sCurrentBackupRateInMegaBytesPerSecond = Nothing
+  , _sSnapshotCreateTime = Nothing
+  , _sClusterVersion = Nothing
+  , _sOwnerAccount = Nothing
+  , _sNodeType = Nothing
+  , _sElapsedTimeInSeconds = Nothing
+  , _sClusterCreateTime = Nothing
+  , _sEstimatedSecondsToCompletion = Nothing
+  , _sActualIncrementalBackupSizeInMegaBytes = Nothing
+  , _sTags = Nothing
+  , _sPort = Nothing
+  , _sTotalBackupSizeInMegaBytes = Nothing
+  , _sDBName = Nothing
+  }
+
 
 -- | The snapshot status. The value of the status depends on the API operation used.      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
 sStatus :: Lens' Snapshot (Maybe Text)
@@ -2798,9 +2842,9 @@ instance FromXML Snapshot where
                 <*> (x .@? "TotalBackupSizeInMegaBytes")
                 <*> (x .@? "DBName")
 
-instance Hashable Snapshot
+instance Hashable Snapshot where
 
-instance NFData Snapshot
+instance NFData Snapshot where
 
 -- | The snapshot copy grant that grants Amazon Redshift permission to encrypt copied snapshots with the specified customer master key (CMK) from AWS KMS in the destination region.
 --
@@ -2810,10 +2854,11 @@ instance NFData Snapshot
 --
 -- /See:/ 'snapshotCopyGrant' smart constructor.
 data SnapshotCopyGrant = SnapshotCopyGrant'
-    { _scgKMSKeyId              :: !(Maybe Text)
-    , _scgSnapshotCopyGrantName :: !(Maybe Text)
-    , _scgTags                  :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scgKMSKeyId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scgSnapshotCopyGrantName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scgTags                  :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SnapshotCopyGrant' with the minimum fields required to make a request.
 --
@@ -2827,11 +2872,12 @@ data SnapshotCopyGrant = SnapshotCopyGrant'
 snapshotCopyGrant
     :: SnapshotCopyGrant
 snapshotCopyGrant =
-    SnapshotCopyGrant'
-    { _scgKMSKeyId = Nothing
-    , _scgSnapshotCopyGrantName = Nothing
-    , _scgTags = Nothing
-    }
+  SnapshotCopyGrant'
+  { _scgKMSKeyId = Nothing
+  , _scgSnapshotCopyGrantName = Nothing
+  , _scgTags = Nothing
+  }
+
 
 -- | The unique identifier of the customer master key (CMK) in AWS KMS to which Amazon Redshift is granted permission.
 scgKMSKeyId :: Lens' SnapshotCopyGrant (Maybe Text)
@@ -2854,9 +2900,9 @@ instance FromXML SnapshotCopyGrant where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
-instance Hashable SnapshotCopyGrant
+instance Hashable SnapshotCopyGrant where
 
-instance NFData SnapshotCopyGrant
+instance NFData SnapshotCopyGrant where
 
 -- | Describes a subnet.
 --
@@ -2864,10 +2910,11 @@ instance NFData SnapshotCopyGrant
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-    { _sSubnetStatus           :: !(Maybe Text)
-    , _sSubnetIdentifier       :: !(Maybe Text)
-    , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSubnetStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubnetIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubnetAvailabilityZone :: {-# NOUNPACK #-}!(Maybe AvailabilityZone)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
@@ -2881,11 +2928,12 @@ data Subnet = Subnet'
 subnet
     :: Subnet
 subnet =
-    Subnet'
-    { _sSubnetStatus = Nothing
-    , _sSubnetIdentifier = Nothing
-    , _sSubnetAvailabilityZone = Nothing
-    }
+  Subnet'
+  { _sSubnetStatus = Nothing
+  , _sSubnetIdentifier = Nothing
+  , _sSubnetAvailabilityZone = Nothing
+  }
+
 
 -- | The status of the subnet.
 sSubnetStatus :: Lens' Subnet (Maybe Text)
@@ -2905,9 +2953,9 @@ instance FromXML Subnet where
               (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
                 <*> (x .@? "SubnetAvailabilityZone")
 
-instance Hashable Subnet
+instance Hashable Subnet where
 
-instance NFData Subnet
+instance NFData Subnet where
 
 -- | Describes the status of a 'RestoreTableFromClusterSnapshot' operation.
 --
@@ -2915,21 +2963,22 @@ instance NFData Subnet
 --
 -- /See:/ 'tableRestoreStatus' smart constructor.
 data TableRestoreStatus = TableRestoreStatus'
-    { _trsStatus                :: !(Maybe TableRestoreStatusType)
-    , _trsTargetSchemaName      :: !(Maybe Text)
-    , _trsSnapshotIdentifier    :: !(Maybe Text)
-    , _trsSourceDatabaseName    :: !(Maybe Text)
-    , _trsTableRestoreRequestId :: !(Maybe Text)
-    , _trsNewTableName          :: !(Maybe Text)
-    , _trsTargetDatabaseName    :: !(Maybe Text)
-    , _trsSourceSchemaName      :: !(Maybe Text)
-    , _trsClusterIdentifier     :: !(Maybe Text)
-    , _trsRequestTime           :: !(Maybe ISO8601)
-    , _trsSourceTableName       :: !(Maybe Text)
-    , _trsTotalDataInMegaBytes  :: !(Maybe Integer)
-    , _trsProgressInMegaBytes   :: !(Maybe Integer)
-    , _trsMessage               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trsStatus                :: {-# NOUNPACK #-}!(Maybe TableRestoreStatusType)
+  , _trsTargetSchemaName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsSnapshotIdentifier    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsSourceDatabaseName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsTableRestoreRequestId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsNewTableName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsTargetDatabaseName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsSourceSchemaName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsClusterIdentifier     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsRequestTime           :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _trsSourceTableName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trsTotalDataInMegaBytes  :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _trsProgressInMegaBytes   :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _trsMessage               :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TableRestoreStatus' with the minimum fields required to make a request.
 --
@@ -2965,22 +3014,23 @@ data TableRestoreStatus = TableRestoreStatus'
 tableRestoreStatus
     :: TableRestoreStatus
 tableRestoreStatus =
-    TableRestoreStatus'
-    { _trsStatus = Nothing
-    , _trsTargetSchemaName = Nothing
-    , _trsSnapshotIdentifier = Nothing
-    , _trsSourceDatabaseName = Nothing
-    , _trsTableRestoreRequestId = Nothing
-    , _trsNewTableName = Nothing
-    , _trsTargetDatabaseName = Nothing
-    , _trsSourceSchemaName = Nothing
-    , _trsClusterIdentifier = Nothing
-    , _trsRequestTime = Nothing
-    , _trsSourceTableName = Nothing
-    , _trsTotalDataInMegaBytes = Nothing
-    , _trsProgressInMegaBytes = Nothing
-    , _trsMessage = Nothing
-    }
+  TableRestoreStatus'
+  { _trsStatus = Nothing
+  , _trsTargetSchemaName = Nothing
+  , _trsSnapshotIdentifier = Nothing
+  , _trsSourceDatabaseName = Nothing
+  , _trsTableRestoreRequestId = Nothing
+  , _trsNewTableName = Nothing
+  , _trsTargetDatabaseName = Nothing
+  , _trsSourceSchemaName = Nothing
+  , _trsClusterIdentifier = Nothing
+  , _trsRequestTime = Nothing
+  , _trsSourceTableName = Nothing
+  , _trsTotalDataInMegaBytes = Nothing
+  , _trsProgressInMegaBytes = Nothing
+  , _trsMessage = Nothing
+  }
+
 
 -- | A value that describes the current state of the table restore request. Valid Values: @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@
 trsStatus :: Lens' TableRestoreStatus (Maybe TableRestoreStatusType)
@@ -3055,9 +3105,9 @@ instance FromXML TableRestoreStatus where
                 <*> (x .@? "ProgressInMegaBytes")
                 <*> (x .@? "Message")
 
-instance Hashable TableRestoreStatus
+instance Hashable TableRestoreStatus where
 
-instance NFData TableRestoreStatus
+instance NFData TableRestoreStatus where
 
 -- | A tag consisting of a name/value pair for a resource.
 --
@@ -3065,9 +3115,10 @@ instance NFData TableRestoreStatus
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -3078,11 +3129,8 @@ data Tag = Tag'
 -- * 'tagKey' - The key, or name, for the resource tag.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The value for the resource tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -3096,9 +3144,9 @@ instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -3110,10 +3158,11 @@ instance ToQuery Tag where
 --
 -- /See:/ 'taggedResource' smart constructor.
 data TaggedResource = TaggedResource'
-    { _trTag          :: !(Maybe Tag)
-    , _trResourceType :: !(Maybe Text)
-    , _trResourceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trTag          :: {-# NOUNPACK #-}!(Maybe Tag)
+  , _trResourceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trResourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TaggedResource' with the minimum fields required to make a request.
 --
@@ -3127,11 +3176,9 @@ data TaggedResource = TaggedResource'
 taggedResource
     :: TaggedResource
 taggedResource =
-    TaggedResource'
-    { _trTag = Nothing
-    , _trResourceType = Nothing
-    , _trResourceName = Nothing
-    }
+  TaggedResource'
+  {_trTag = Nothing, _trResourceType = Nothing, _trResourceName = Nothing}
+
 
 -- | The tag for the resource.
 trTag :: Lens' TaggedResource (Maybe Tag)
@@ -3151,9 +3198,9 @@ instance FromXML TaggedResource where
               (x .@? "Tag") <*> (x .@? "ResourceType") <*>
                 (x .@? "ResourceName")
 
-instance Hashable TaggedResource
+instance Hashable TaggedResource where
 
-instance NFData TaggedResource
+instance NFData TaggedResource where
 
 -- | Describes the members of a VPC security group.
 --
@@ -3161,9 +3208,10 @@ instance NFData TaggedResource
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-    { _vsgmStatus             :: !(Maybe Text)
-    , _vsgmVPCSecurityGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vsgmStatus             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vsgmVPCSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.
 --
@@ -3175,10 +3223,9 @@ data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
 vpcSecurityGroupMembership
     :: VPCSecurityGroupMembership
 vpcSecurityGroupMembership =
-    VPCSecurityGroupMembership'
-    { _vsgmStatus = Nothing
-    , _vsgmVPCSecurityGroupId = Nothing
-    }
+  VPCSecurityGroupMembership'
+  {_vsgmStatus = Nothing, _vsgmVPCSecurityGroupId = Nothing}
+
 
 -- | The status of the VPC security group.
 vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)
@@ -3193,6 +3240,6 @@ instance FromXML VPCSecurityGroupMembership where
           = VPCSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")
 
-instance Hashable VPCSecurityGroupMembership
+instance Hashable VPCSecurityGroupMembership where
 
-instance NFData VPCSecurityGroupMembership
+instance NFData VPCSecurityGroupMembership where

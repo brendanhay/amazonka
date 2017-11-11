@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaigns
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.Pinpoint.GetCampaigns
     , gcsrsCampaignsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCampaigns' smart constructor.
 data GetCampaigns = GetCampaigns'
-    { _gcsToken         :: !(Maybe Text)
-    , _gcsPageSize      :: !(Maybe Text)
-    , _gcsApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcsToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcsPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcsApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCampaigns' with the minimum fields required to make a request.
 --
@@ -64,11 +65,12 @@ getCampaigns
     :: Text -- ^ 'gcsApplicationId'
     -> GetCampaigns
 getCampaigns pApplicationId_ =
-    GetCampaigns'
-    { _gcsToken = Nothing
-    , _gcsPageSize = Nothing
-    , _gcsApplicationId = pApplicationId_
-    }
+  GetCampaigns'
+  { _gcsToken = Nothing
+  , _gcsPageSize = Nothing
+  , _gcsApplicationId = pApplicationId_
+  }
+
 
 -- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gcsToken :: Lens' GetCampaigns (Maybe Text)
@@ -91,9 +93,9 @@ instance AWSRequest GetCampaigns where
                  GetCampaignsResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetCampaigns
+instance Hashable GetCampaigns where
 
-instance NFData GetCampaigns
+instance NFData GetCampaigns where
 
 instance ToHeaders GetCampaigns where
         toHeaders
@@ -114,9 +116,10 @@ instance ToQuery GetCampaigns where
 
 -- | /See:/ 'getCampaignsResponse' smart constructor.
 data GetCampaignsResponse = GetCampaignsResponse'
-    { _gcsrsResponseStatus    :: !Int
-    , _gcsrsCampaignsResponse :: !CampaignsResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _gcsrsCampaignsResponse :: {-# NOUNPACK #-}!CampaignsResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCampaignsResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +133,11 @@ getCampaignsResponse
     -> CampaignsResponse -- ^ 'gcsrsCampaignsResponse'
     -> GetCampaignsResponse
 getCampaignsResponse pResponseStatus_ pCampaignsResponse_ =
-    GetCampaignsResponse'
-    { _gcsrsResponseStatus = pResponseStatus_
-    , _gcsrsCampaignsResponse = pCampaignsResponse_
-    }
+  GetCampaignsResponse'
+  { _gcsrsResponseStatus = pResponseStatus_
+  , _gcsrsCampaignsResponse = pCampaignsResponse_
+  }
+
 
 -- | -- | The response status code.
 gcsrsResponseStatus :: Lens' GetCampaignsResponse Int
@@ -143,4 +147,4 @@ gcsrsResponseStatus = lens _gcsrsResponseStatus (\ s a -> s{_gcsrsResponseStatus
 gcsrsCampaignsResponse :: Lens' GetCampaignsResponse CampaignsResponse
 gcsrsCampaignsResponse = lens _gcsrsCampaignsResponse (\ s a -> s{_gcsrsCampaignsResponse = a});
 
-instance NFData GetCampaignsResponse
+instance NFData GetCampaignsResponse where

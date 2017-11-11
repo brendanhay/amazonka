@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     , dtacsrsSummaries
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- |
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Support.Types.Product
 --
 -- /See:/ 'describeTrustedAdvisorCheckSummaries' smart constructor.
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'
-    { _dtacsCheckIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtacsCheckIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckSummaries' with the minimum fields required to make a request.
 --
@@ -63,16 +64,16 @@ newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummar
 describeTrustedAdvisorCheckSummaries
     :: DescribeTrustedAdvisorCheckSummaries
 describeTrustedAdvisorCheckSummaries =
-    DescribeTrustedAdvisorCheckSummaries'
-    { _dtacsCheckIds = mempty
-    }
+  DescribeTrustedAdvisorCheckSummaries' {_dtacsCheckIds = mempty}
+
 
 -- | The IDs of the Trusted Advisor checks.
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
 dtacsCheckIds = lens _dtacsCheckIds (\ s a -> s{_dtacsCheckIds = a}) . _Coerce;
 
 instance AWSRequest
-         DescribeTrustedAdvisorCheckSummaries where
+           DescribeTrustedAdvisorCheckSummaries
+         where
         type Rs DescribeTrustedAdvisorCheckSummaries =
              DescribeTrustedAdvisorCheckSummariesResponse
         request = postJSON support
@@ -84,12 +85,15 @@ instance AWSRequest
                      (x .?> "summaries" .!@ mempty))
 
 instance Hashable
-         DescribeTrustedAdvisorCheckSummaries
+           DescribeTrustedAdvisorCheckSummaries
+         where
 
 instance NFData DescribeTrustedAdvisorCheckSummaries
+         where
 
 instance ToHeaders
-         DescribeTrustedAdvisorCheckSummaries where
+           DescribeTrustedAdvisorCheckSummaries
+         where
         toHeaders
           = const
               (mconcat
@@ -119,9 +123,10 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 --
 -- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrsResponseStatus :: !Int
-    , _dtacsrsSummaries      :: ![TrustedAdvisorCheckSummary]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtacsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dtacsrsSummaries      :: {-# NOUNPACK #-}![TrustedAdvisorCheckSummary]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckSummariesResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +139,9 @@ describeTrustedAdvisorCheckSummariesResponse
     :: Int -- ^ 'dtacsrsResponseStatus'
     -> DescribeTrustedAdvisorCheckSummariesResponse
 describeTrustedAdvisorCheckSummariesResponse pResponseStatus_ =
-    DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrsResponseStatus = pResponseStatus_
-    , _dtacsrsSummaries = mempty
-    }
+  DescribeTrustedAdvisorCheckSummariesResponse'
+  {_dtacsrsResponseStatus = pResponseStatus_, _dtacsrsSummaries = mempty}
+
 
 -- | -- | The response status code.
 dtacsrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
@@ -148,4 +152,5 @@ dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedA
 dtacsrsSummaries = lens _dtacsrsSummaries (\ s a -> s{_dtacsrsSummaries = a}) . _Coerce;
 
 instance NFData
-         DescribeTrustedAdvisorCheckSummariesResponse
+           DescribeTrustedAdvisorCheckSummariesResponse
+         where

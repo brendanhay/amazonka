@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutEvaluations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Config.PutEvaluations
     , persResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putEvaluations' smart constructor.
 data PutEvaluations = PutEvaluations'
-    { _peEvaluations :: !(Maybe [Evaluation])
-    , _peTestMode    :: !(Maybe Bool)
-    , _peResultToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _peEvaluations :: {-# NOUNPACK #-}!(Maybe [Evaluation])
+  , _peTestMode    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _peResultToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEvaluations' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ putEvaluations
     :: Text -- ^ 'peResultToken'
     -> PutEvaluations
 putEvaluations pResultToken_ =
-    PutEvaluations'
-    { _peEvaluations = Nothing
-    , _peTestMode = Nothing
-    , _peResultToken = pResultToken_
-    }
+  PutEvaluations'
+  { _peEvaluations = Nothing
+  , _peTestMode = Nothing
+  , _peResultToken = pResultToken_
+  }
+
 
 -- | The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 peEvaluations :: Lens' PutEvaluations [Evaluation]
@@ -98,9 +100,9 @@ instance AWSRequest PutEvaluations where
                    (x .?> "FailedEvaluations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable PutEvaluations
+instance Hashable PutEvaluations where
 
-instance NFData PutEvaluations
+instance NFData PutEvaluations where
 
 instance ToHeaders PutEvaluations where
         toHeaders
@@ -131,9 +133,10 @@ instance ToQuery PutEvaluations where
 --
 -- /See:/ 'putEvaluationsResponse' smart constructor.
 data PutEvaluationsResponse = PutEvaluationsResponse'
-    { _persFailedEvaluations :: !(Maybe [Evaluation])
-    , _persResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _persFailedEvaluations :: {-# NOUNPACK #-}!(Maybe [Evaluation])
+  , _persResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEvaluationsResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +149,9 @@ putEvaluationsResponse
     :: Int -- ^ 'persResponseStatus'
     -> PutEvaluationsResponse
 putEvaluationsResponse pResponseStatus_ =
-    PutEvaluationsResponse'
-    { _persFailedEvaluations = Nothing
-    , _persResponseStatus = pResponseStatus_
-    }
+  PutEvaluationsResponse'
+  {_persFailedEvaluations = Nothing, _persResponseStatus = pResponseStatus_}
+
 
 -- | Requests that failed because of a client or server error.
 persFailedEvaluations :: Lens' PutEvaluationsResponse [Evaluation]
@@ -159,4 +161,4 @@ persFailedEvaluations = lens _persFailedEvaluations (\ s a -> s{_persFailedEvalu
 persResponseStatus :: Lens' PutEvaluationsResponse Int
 persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
 
-instance NFData PutEvaluationsResponse
+instance NFData PutEvaluationsResponse where

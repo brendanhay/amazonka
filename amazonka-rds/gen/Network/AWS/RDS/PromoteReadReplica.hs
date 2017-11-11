@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.PromoteReadReplica
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.RDS.PromoteReadReplica
     , prrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'promoteReadReplica' smart constructor.
 data PromoteReadReplica = PromoteReadReplica'
-    { _prrPreferredBackupWindow :: !(Maybe Text)
-    , _prrBackupRetentionPeriod :: !(Maybe Int)
-    , _prrDBInstanceIdentifier  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prrPreferredBackupWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prrBackupRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _prrDBInstanceIdentifier  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PromoteReadReplica' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ promoteReadReplica
     :: Text -- ^ 'prrDBInstanceIdentifier'
     -> PromoteReadReplica
 promoteReadReplica pDBInstanceIdentifier_ =
-    PromoteReadReplica'
-    { _prrPreferredBackupWindow = Nothing
-    , _prrBackupRetentionPeriod = Nothing
-    , _prrDBInstanceIdentifier = pDBInstanceIdentifier_
-    }
+  PromoteReadReplica'
+  { _prrPreferredBackupWindow = Nothing
+  , _prrBackupRetentionPeriod = Nothing
+  , _prrDBInstanceIdentifier = pDBInstanceIdentifier_
+  }
+
 
 -- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per AWS Region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest PromoteReadReplica where
                  PromoteReadReplicaResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-instance Hashable PromoteReadReplica
+instance Hashable PromoteReadReplica where
 
-instance NFData PromoteReadReplica
+instance NFData PromoteReadReplica where
 
 instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty
@@ -119,9 +121,10 @@ instance ToQuery PromoteReadReplica where
 
 -- | /See:/ 'promoteReadReplicaResponse' smart constructor.
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
-    { _prrrsDBInstance     :: !(Maybe DBInstance)
-    , _prrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prrrsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _prrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PromoteReadReplicaResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +137,9 @@ promoteReadReplicaResponse
     :: Int -- ^ 'prrrsResponseStatus'
     -> PromoteReadReplicaResponse
 promoteReadReplicaResponse pResponseStatus_ =
-    PromoteReadReplicaResponse'
-    { _prrrsDBInstance = Nothing
-    , _prrrsResponseStatus = pResponseStatus_
-    }
+  PromoteReadReplicaResponse'
+  {_prrrsDBInstance = Nothing, _prrrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
@@ -147,4 +149,4 @@ prrrsDBInstance = lens _prrrsDBInstance (\ s a -> s{_prrrsDBInstance = a});
 prrrsResponseStatus :: Lens' PromoteReadReplicaResponse Int
 prrrsResponseStatus = lens _prrrsResponseStatus (\ s a -> s{_prrrsResponseStatus = a});
 
-instance NFData PromoteReadReplicaResponse
+instance NFData PromoteReadReplicaResponse where

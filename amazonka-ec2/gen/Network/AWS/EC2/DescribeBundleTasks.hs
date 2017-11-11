@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeBundleTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.DescribeBundleTasks
     , dbtrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeBundleTasks.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeBundleTasks' smart constructor.
 data DescribeBundleTasks = DescribeBundleTasks'
-    { _dbtBundleIds :: !(Maybe [Text])
-    , _dbtFilters   :: !(Maybe [Filter])
-    , _dbtDryRun    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbtBundleIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dbtFilters   :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dbtDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBundleTasks' with the minimum fields required to make a request.
 --
@@ -69,11 +70,9 @@ data DescribeBundleTasks = DescribeBundleTasks'
 describeBundleTasks
     :: DescribeBundleTasks
 describeBundleTasks =
-    DescribeBundleTasks'
-    { _dbtBundleIds = Nothing
-    , _dbtFilters = Nothing
-    , _dbtDryRun = Nothing
-    }
+  DescribeBundleTasks'
+  {_dbtBundleIds = Nothing, _dbtFilters = Nothing, _dbtDryRun = Nothing}
+
 
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
 dbtBundleIds :: Lens' DescribeBundleTasks [Text]
@@ -99,9 +98,9 @@ instance AWSRequest DescribeBundleTasks where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeBundleTasks
+instance Hashable DescribeBundleTasks where
 
-instance NFData DescribeBundleTasks
+instance NFData DescribeBundleTasks where
 
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
@@ -124,9 +123,10 @@ instance ToQuery DescribeBundleTasks where
 --
 -- /See:/ 'describeBundleTasksResponse' smart constructor.
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
-    { _dbtrsBundleTasks    :: !(Maybe [BundleTask])
-    , _dbtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbtrsBundleTasks    :: {-# NOUNPACK #-}!(Maybe [BundleTask])
+  , _dbtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBundleTasksResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +139,9 @@ describeBundleTasksResponse
     :: Int -- ^ 'dbtrsResponseStatus'
     -> DescribeBundleTasksResponse
 describeBundleTasksResponse pResponseStatus_ =
-    DescribeBundleTasksResponse'
-    { _dbtrsBundleTasks = Nothing
-    , _dbtrsResponseStatus = pResponseStatus_
-    }
+  DescribeBundleTasksResponse'
+  {_dbtrsBundleTasks = Nothing, _dbtrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more bundle tasks.
 dbtrsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
@@ -152,4 +151,4 @@ dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . 
 dbtrsResponseStatus :: Lens' DescribeBundleTasksResponse Int
 dbtrsResponseStatus = lens _dbtrsResponseStatus (\ s a -> s{_dbtrsResponseStatus = a});
 
-instance NFData DescribeBundleTasksResponse
+instance NFData DescribeBundleTasksResponse where

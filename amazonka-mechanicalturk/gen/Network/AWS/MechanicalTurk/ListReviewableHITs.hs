@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListReviewableHITs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.MechanicalTurk.ListReviewableHITs
     , lrhitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listReviewableHITs' smart constructor.
 data ListReviewableHITs = ListReviewableHITs'
-    { _lrhitStatus     :: !(Maybe ReviewableHITStatus)
-    , _lrhitHITTypeId  :: !(Maybe Text)
-    , _lrhitNextToken  :: !(Maybe Text)
-    , _lrhitMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrhitStatus     :: {-# NOUNPACK #-}!(Maybe ReviewableHITStatus)
+  , _lrhitHITTypeId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrhitNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrhitMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListReviewableHITs' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ data ListReviewableHITs = ListReviewableHITs'
 listReviewableHITs
     :: ListReviewableHITs
 listReviewableHITs =
-    ListReviewableHITs'
-    { _lrhitStatus = Nothing
-    , _lrhitHITTypeId = Nothing
-    , _lrhitNextToken = Nothing
-    , _lrhitMaxResults = Nothing
-    }
+  ListReviewableHITs'
+  { _lrhitStatus = Nothing
+  , _lrhitHITTypeId = Nothing
+  , _lrhitNextToken = Nothing
+  , _lrhitMaxResults = Nothing
+  }
+
 
 -- | Can be either @Reviewable@ or @Reviewing@ . Reviewable is the default value.
 lrhitStatus :: Lens' ListReviewableHITs (Maybe ReviewableHITStatus)
@@ -106,9 +108,9 @@ instance AWSRequest ListReviewableHITs where
                      (x .?> "HITs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListReviewableHITs
+instance Hashable ListReviewableHITs where
 
-instance NFData ListReviewableHITs
+instance NFData ListReviewableHITs where
 
 instance ToHeaders ListReviewableHITs where
         toHeaders
@@ -137,11 +139,12 @@ instance ToQuery ListReviewableHITs where
 
 -- | /See:/ 'listReviewableHITsResponse' smart constructor.
 data ListReviewableHITsResponse = ListReviewableHITsResponse'
-    { _lrhitrsNextToken      :: !(Maybe Text)
-    , _lrhitrsNumResults     :: !(Maybe Int)
-    , _lrhitrsHITs           :: !(Maybe [HIT])
-    , _lrhitrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrhitrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrhitrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lrhitrsHITs           :: {-# NOUNPACK #-}!(Maybe [HIT])
+  , _lrhitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListReviewableHITsResponse' with the minimum fields required to make a request.
 --
@@ -158,12 +161,13 @@ listReviewableHITsResponse
     :: Int -- ^ 'lrhitrsResponseStatus'
     -> ListReviewableHITsResponse
 listReviewableHITsResponse pResponseStatus_ =
-    ListReviewableHITsResponse'
-    { _lrhitrsNextToken = Nothing
-    , _lrhitrsNumResults = Nothing
-    , _lrhitrsHITs = Nothing
-    , _lrhitrsResponseStatus = pResponseStatus_
-    }
+  ListReviewableHITsResponse'
+  { _lrhitrsNextToken = Nothing
+  , _lrhitrsNumResults = Nothing
+  , _lrhitrsHITs = Nothing
+  , _lrhitrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lrhitrsNextToken :: Lens' ListReviewableHITsResponse (Maybe Text)
@@ -181,4 +185,4 @@ lrhitrsHITs = lens _lrhitrsHITs (\ s a -> s{_lrhitrsHITs = a}) . _Default . _Coe
 lrhitrsResponseStatus :: Lens' ListReviewableHITsResponse Int
 lrhitrsResponseStatus = lens _lrhitrsResponseStatus (\ s a -> s{_lrhitrsResponseStatus = a});
 
-instance NFData ListReviewableHITsResponse
+instance NFData ListReviewableHITsResponse where

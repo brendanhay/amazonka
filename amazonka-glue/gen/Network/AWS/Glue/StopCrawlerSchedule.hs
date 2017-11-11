@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StopCrawlerSchedule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.StopCrawlerSchedule
     , storsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopCrawlerSchedule' smart constructor.
 newtype StopCrawlerSchedule = StopCrawlerSchedule'
-    { _sCrawlerName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sCrawlerName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopCrawlerSchedule' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ stopCrawlerSchedule
     :: Text -- ^ 'sCrawlerName'
     -> StopCrawlerSchedule
 stopCrawlerSchedule pCrawlerName_ =
-    StopCrawlerSchedule'
-    { _sCrawlerName = pCrawlerName_
-    }
+  StopCrawlerSchedule' {_sCrawlerName = pCrawlerName_}
+
 
 -- | Name of the crawler whose schedule state to set.
 sCrawlerName :: Lens' StopCrawlerSchedule Text
@@ -74,9 +74,9 @@ instance AWSRequest StopCrawlerSchedule where
               (\ s h x ->
                  StopCrawlerScheduleResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StopCrawlerSchedule
+instance Hashable StopCrawlerSchedule where
 
-instance NFData StopCrawlerSchedule
+instance NFData StopCrawlerSchedule where
 
 instance ToHeaders StopCrawlerSchedule where
         toHeaders
@@ -100,8 +100,9 @@ instance ToQuery StopCrawlerSchedule where
 
 -- | /See:/ 'stopCrawlerScheduleResponse' smart constructor.
 newtype StopCrawlerScheduleResponse = StopCrawlerScheduleResponse'
-    { _storsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _storsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopCrawlerScheduleResponse' with the minimum fields required to make a request.
 --
@@ -112,12 +113,11 @@ stopCrawlerScheduleResponse
     :: Int -- ^ 'storsResponseStatus'
     -> StopCrawlerScheduleResponse
 stopCrawlerScheduleResponse pResponseStatus_ =
-    StopCrawlerScheduleResponse'
-    { _storsResponseStatus = pResponseStatus_
-    }
+  StopCrawlerScheduleResponse' {_storsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 storsResponseStatus :: Lens' StopCrawlerScheduleResponse Int
 storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a});
 
-instance NFData StopCrawlerScheduleResponse
+instance NFData StopCrawlerScheduleResponse where

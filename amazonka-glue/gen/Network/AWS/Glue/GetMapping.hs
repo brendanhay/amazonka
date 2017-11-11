@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetMapping
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.Glue.GetMapping
     , gmrsMapping
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getMapping' smart constructor.
 data GetMapping = GetMapping'
-    { _gmSinks    :: !(Maybe [CatalogEntry])
-    , _gmLocation :: !(Maybe Location)
-    , _gmSource   :: !CatalogEntry
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmSinks    :: {-# NOUNPACK #-}!(Maybe [CatalogEntry])
+  , _gmLocation :: {-# NOUNPACK #-}!(Maybe Location)
+  , _gmSource   :: {-# NOUNPACK #-}!CatalogEntry
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMapping' with the minimum fields required to make a request.
 --
@@ -66,11 +67,8 @@ getMapping
     :: CatalogEntry -- ^ 'gmSource'
     -> GetMapping
 getMapping pSource_ =
-    GetMapping'
-    { _gmSinks = Nothing
-    , _gmLocation = Nothing
-    , _gmSource = pSource_
-    }
+  GetMapping' {_gmSinks = Nothing, _gmLocation = Nothing, _gmSource = pSource_}
+
 
 -- | A list of target tables.
 gmSinks :: Lens' GetMapping [CatalogEntry]
@@ -93,9 +91,9 @@ instance AWSRequest GetMapping where
                  GetMappingResponse' <$>
                    (pure (fromEnum s)) <*> (x .?> "Mapping" .!@ mempty))
 
-instance Hashable GetMapping
+instance Hashable GetMapping where
 
-instance NFData GetMapping
+instance NFData GetMapping where
 
 instance ToHeaders GetMapping where
         toHeaders
@@ -122,9 +120,10 @@ instance ToQuery GetMapping where
 
 -- | /See:/ 'getMappingResponse' smart constructor.
 data GetMappingResponse = GetMappingResponse'
-    { _gmrsResponseStatus :: !Int
-    , _gmrsMapping        :: ![MappingEntry]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gmrsMapping        :: {-# NOUNPACK #-}![MappingEntry]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMappingResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +136,9 @@ getMappingResponse
     :: Int -- ^ 'gmrsResponseStatus'
     -> GetMappingResponse
 getMappingResponse pResponseStatus_ =
-    GetMappingResponse'
-    { _gmrsResponseStatus = pResponseStatus_
-    , _gmrsMapping = mempty
-    }
+  GetMappingResponse'
+  {_gmrsResponseStatus = pResponseStatus_, _gmrsMapping = mempty}
+
 
 -- | -- | The response status code.
 gmrsResponseStatus :: Lens' GetMappingResponse Int
@@ -150,4 +148,4 @@ gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = 
 gmrsMapping :: Lens' GetMappingResponse [MappingEntry]
 gmrsMapping = lens _gmrsMapping (\ s a -> s{_gmrsMapping = a}) . _Coerce;
 
-instance NFData GetMappingResponse
+instance NFData GetMappingResponse where

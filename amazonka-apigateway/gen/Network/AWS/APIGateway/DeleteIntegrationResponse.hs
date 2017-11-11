@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteIntegrationResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.DeleteIntegrationResponse
     , DeleteIntegrationResponseResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a delete integration response request.
 --
@@ -50,11 +50,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteIntegrationResponse' smart constructor.
 data DeleteIntegrationResponse = DeleteIntegrationResponse'
-    { _diRestAPIId  :: !Text
-    , _diResourceId :: !Text
-    , _diHttpMethod :: !Text
-    , _diStatusCode :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _diResourceId :: {-# NOUNPACK #-}!Text
+  , _diHttpMethod :: {-# NOUNPACK #-}!Text
+  , _diStatusCode :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntegrationResponse' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ deleteIntegrationResponse
     -> Text -- ^ 'diStatusCode'
     -> DeleteIntegrationResponse
 deleteIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    DeleteIntegrationResponse'
-    { _diRestAPIId = pRestAPIId_
-    , _diResourceId = pResourceId_
-    , _diHttpMethod = pHttpMethod_
-    , _diStatusCode = pStatusCode_
-    }
+  DeleteIntegrationResponse'
+  { _diRestAPIId = pRestAPIId_
+  , _diResourceId = pResourceId_
+  , _diHttpMethod = pHttpMethod_
+  , _diStatusCode = pStatusCode_
+  }
+
 
 -- | The string identifier of the associated 'RestApi' .
 diRestAPIId :: Lens' DeleteIntegrationResponse Text
@@ -104,9 +106,9 @@ instance AWSRequest DeleteIntegrationResponse where
         response
           = receiveNull DeleteIntegrationResponseResponse'
 
-instance Hashable DeleteIntegrationResponse
+instance Hashable DeleteIntegrationResponse where
 
-instance NFData DeleteIntegrationResponse
+instance NFData DeleteIntegrationResponse where
 
 instance ToHeaders DeleteIntegrationResponse where
         toHeaders
@@ -126,8 +128,9 @@ instance ToQuery DeleteIntegrationResponse where
 
 -- | /See:/ 'deleteIntegrationResponseResponse' smart constructor.
 data DeleteIntegrationResponseResponse =
-    DeleteIntegrationResponseResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteIntegrationResponseResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteIntegrationResponseResponse' with the minimum fields required to make a request.
 --
@@ -135,4 +138,6 @@ deleteIntegrationResponseResponse
     :: DeleteIntegrationResponseResponse
 deleteIntegrationResponseResponse = DeleteIntegrationResponseResponse'
 
+
 instance NFData DeleteIntegrationResponseResponse
+         where

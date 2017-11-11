@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.AutoScaling.Types.Product where
 
-import           Network.AWS.AutoScaling.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.AutoScaling.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Describes scaling activity, which is a long-running process that represents a change to your Auto Scaling group, such as changing its size or replacing an instance.
 --
@@ -27,17 +27,18 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'activity' smart constructor.
 data Activity = Activity'
-    { _aProgress             :: !(Maybe Int)
-    , _aStatusMessage        :: !(Maybe Text)
-    , _aEndTime              :: !(Maybe ISO8601)
-    , _aDetails              :: !(Maybe Text)
-    , _aDescription          :: !(Maybe Text)
-    , _aActivityId           :: !Text
-    , _aAutoScalingGroupName :: !Text
-    , _aCause                :: !Text
-    , _aStartTime            :: !ISO8601
-    , _aStatusCode           :: !ScalingActivityStatusCode
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aProgress             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _aStatusMessage        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aEndTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _aDetails              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aActivityId           :: {-# NOUNPACK #-}!Text
+  , _aAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _aCause                :: {-# NOUNPACK #-}!Text
+  , _aStartTime            :: {-# NOUNPACK #-}!ISO8601
+  , _aStatusCode           :: {-# NOUNPACK #-}!ScalingActivityStatusCode
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Activity' with the minimum fields required to make a request.
 --
@@ -70,18 +71,19 @@ activity
     -> ScalingActivityStatusCode -- ^ 'aStatusCode'
     -> Activity
 activity pActivityId_ pAutoScalingGroupName_ pCause_ pStartTime_ pStatusCode_ =
-    Activity'
-    { _aProgress = Nothing
-    , _aStatusMessage = Nothing
-    , _aEndTime = Nothing
-    , _aDetails = Nothing
-    , _aDescription = Nothing
-    , _aActivityId = pActivityId_
-    , _aAutoScalingGroupName = pAutoScalingGroupName_
-    , _aCause = pCause_
-    , _aStartTime = _Time # pStartTime_
-    , _aStatusCode = pStatusCode_
-    }
+  Activity'
+  { _aProgress = Nothing
+  , _aStatusMessage = Nothing
+  , _aEndTime = Nothing
+  , _aDetails = Nothing
+  , _aDescription = Nothing
+  , _aActivityId = pActivityId_
+  , _aAutoScalingGroupName = pAutoScalingGroupName_
+  , _aCause = pCause_
+  , _aStartTime = _Time # pStartTime_
+  , _aStatusCode = pStatusCode_
+  }
+
 
 -- | A value between 0 and 100 that indicates the progress of the activity.
 aProgress :: Lens' Activity (Maybe Int)
@@ -136,9 +138,9 @@ instance FromXML Activity where
                 <*> (x .@ "StartTime")
                 <*> (x .@ "StatusCode")
 
-instance Hashable Activity
+instance Hashable Activity where
 
-instance NFData Activity
+instance NFData Activity where
 
 -- | Describes a policy adjustment type.
 --
@@ -148,8 +150,9 @@ instance NFData Activity
 --
 -- /See:/ 'adjustmentType' smart constructor.
 newtype AdjustmentType = AdjustmentType'
-    { _atAdjustmentType :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atAdjustmentType :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdjustmentType' with the minimum fields required to make a request.
 --
@@ -158,10 +161,8 @@ newtype AdjustmentType = AdjustmentType'
 -- * 'atAdjustmentType' - The policy adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
 adjustmentType
     :: AdjustmentType
-adjustmentType =
-    AdjustmentType'
-    { _atAdjustmentType = Nothing
-    }
+adjustmentType = AdjustmentType' {_atAdjustmentType = Nothing}
+
 
 -- | The policy adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
 atAdjustmentType :: Lens' AdjustmentType (Maybe Text)
@@ -171,9 +172,9 @@ instance FromXML AdjustmentType where
         parseXML x
           = AdjustmentType' <$> (x .@? "AdjustmentType")
 
-instance Hashable AdjustmentType
+instance Hashable AdjustmentType where
 
-instance NFData AdjustmentType
+instance NFData AdjustmentType where
 
 -- | Describes an alarm.
 --
@@ -181,9 +182,10 @@ instance NFData AdjustmentType
 --
 -- /See:/ 'alarm' smart constructor.
 data Alarm = Alarm'
-    { _aAlarmName :: !(Maybe Text)
-    , _aAlarmARN  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aAlarmName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAlarmARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Alarm' with the minimum fields required to make a request.
 --
@@ -194,11 +196,8 @@ data Alarm = Alarm'
 -- * 'aAlarmARN' - The Amazon Resource Name (ARN) of the alarm.
 alarm
     :: Alarm
-alarm =
-    Alarm'
-    { _aAlarmName = Nothing
-    , _aAlarmARN = Nothing
-    }
+alarm = Alarm' {_aAlarmName = Nothing, _aAlarmARN = Nothing}
+
 
 -- | The name of the alarm.
 aAlarmName :: Lens' Alarm (Maybe Text)
@@ -213,9 +212,9 @@ instance FromXML Alarm where
           = Alarm' <$>
               (x .@? "AlarmName") <*> (x .@? "AlarmARN")
 
-instance Hashable Alarm
+instance Hashable Alarm where
 
-instance NFData Alarm
+instance NFData Alarm where
 
 -- | Describes an Auto Scaling group.
 --
@@ -223,29 +222,30 @@ instance NFData Alarm
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
-    { _asgStatus                           :: !(Maybe Text)
-    , _asgTerminationPolicies              :: !(Maybe [Text])
-    , _asgHealthCheckGracePeriod           :: !(Maybe Int)
-    , _asgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
-    , _asgVPCZoneIdentifier                :: !(Maybe Text)
-    , _asgTargetGroupARNs                  :: !(Maybe [Text])
-    , _asgEnabledMetrics                   :: !(Maybe [EnabledMetric])
-    , _asgLaunchConfigurationName          :: !(Maybe Text)
-    , _asgInstances                        :: !(Maybe [Instance])
-    , _asgAutoScalingGroupARN              :: !(Maybe Text)
-    , _asgPlacementGroup                   :: !(Maybe Text)
-    , _asgSuspendedProcesses               :: !(Maybe [SuspendedProcess])
-    , _asgLoadBalancerNames                :: !(Maybe [Text])
-    , _asgTags                             :: !(Maybe [TagDescription])
-    , _asgAutoScalingGroupName             :: !Text
-    , _asgMinSize                          :: !Int
-    , _asgMaxSize                          :: !Int
-    , _asgDesiredCapacity                  :: !Int
-    , _asgDefaultCooldown                  :: !Int
-    , _asgAvailabilityZones                :: !(List1 Text)
-    , _asgHealthCheckType                  :: !Text
-    , _asgCreatedTime                      :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asgStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgTerminationPolicies :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _asgHealthCheckGracePeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _asgNewInstancesProtectedFromScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _asgVPCZoneIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgTargetGroupARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _asgEnabledMetrics :: {-# NOUNPACK #-}!(Maybe [EnabledMetric])
+  , _asgLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgInstances :: {-# NOUNPACK #-}!(Maybe [Instance])
+  , _asgAutoScalingGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgPlacementGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgSuspendedProcesses :: {-# NOUNPACK #-}!(Maybe [SuspendedProcess])
+  , _asgLoadBalancerNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _asgTags :: {-# NOUNPACK #-}!(Maybe [TagDescription])
+  , _asgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _asgMinSize :: {-# NOUNPACK #-}!Int
+  , _asgMaxSize :: {-# NOUNPACK #-}!Int
+  , _asgDesiredCapacity :: {-# NOUNPACK #-}!Int
+  , _asgDefaultCooldown :: {-# NOUNPACK #-}!Int
+  , _asgAvailabilityZones :: {-# NOUNPACK #-}!(List1 Text)
+  , _asgHealthCheckType :: {-# NOUNPACK #-}!Text
+  , _asgCreatedTime :: {-# NOUNPACK #-}!ISO8601
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
 --
@@ -305,30 +305,31 @@ autoScalingGroup
     -> UTCTime -- ^ 'asgCreatedTime'
     -> AutoScalingGroup
 autoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pDefaultCooldown_ pAvailabilityZones_ pHealthCheckType_ pCreatedTime_ =
-    AutoScalingGroup'
-    { _asgStatus = Nothing
-    , _asgTerminationPolicies = Nothing
-    , _asgHealthCheckGracePeriod = Nothing
-    , _asgNewInstancesProtectedFromScaleIn = Nothing
-    , _asgVPCZoneIdentifier = Nothing
-    , _asgTargetGroupARNs = Nothing
-    , _asgEnabledMetrics = Nothing
-    , _asgLaunchConfigurationName = Nothing
-    , _asgInstances = Nothing
-    , _asgAutoScalingGroupARN = Nothing
-    , _asgPlacementGroup = Nothing
-    , _asgSuspendedProcesses = Nothing
-    , _asgLoadBalancerNames = Nothing
-    , _asgTags = Nothing
-    , _asgAutoScalingGroupName = pAutoScalingGroupName_
-    , _asgMinSize = pMinSize_
-    , _asgMaxSize = pMaxSize_
-    , _asgDesiredCapacity = pDesiredCapacity_
-    , _asgDefaultCooldown = pDefaultCooldown_
-    , _asgAvailabilityZones = _List1 # pAvailabilityZones_
-    , _asgHealthCheckType = pHealthCheckType_
-    , _asgCreatedTime = _Time # pCreatedTime_
-    }
+  AutoScalingGroup'
+  { _asgStatus = Nothing
+  , _asgTerminationPolicies = Nothing
+  , _asgHealthCheckGracePeriod = Nothing
+  , _asgNewInstancesProtectedFromScaleIn = Nothing
+  , _asgVPCZoneIdentifier = Nothing
+  , _asgTargetGroupARNs = Nothing
+  , _asgEnabledMetrics = Nothing
+  , _asgLaunchConfigurationName = Nothing
+  , _asgInstances = Nothing
+  , _asgAutoScalingGroupARN = Nothing
+  , _asgPlacementGroup = Nothing
+  , _asgSuspendedProcesses = Nothing
+  , _asgLoadBalancerNames = Nothing
+  , _asgTags = Nothing
+  , _asgAutoScalingGroupName = pAutoScalingGroupName_
+  , _asgMinSize = pMinSize_
+  , _asgMaxSize = pMaxSize_
+  , _asgDesiredCapacity = pDesiredCapacity_
+  , _asgDefaultCooldown = pDefaultCooldown_
+  , _asgAvailabilityZones = _List1 # pAvailabilityZones_
+  , _asgHealthCheckType = pHealthCheckType_
+  , _asgCreatedTime = _Time # pCreatedTime_
+  }
+
 
 -- | The current state of the group when 'DeleteAutoScalingGroup' is in progress.
 asgStatus :: Lens' AutoScalingGroup (Maybe Text)
@@ -459,9 +460,9 @@ instance FromXML AutoScalingGroup where
                 <*> (x .@ "HealthCheckType")
                 <*> (x .@ "CreatedTime")
 
-instance Hashable AutoScalingGroup
+instance Hashable AutoScalingGroup where
 
-instance NFData AutoScalingGroup
+instance NFData AutoScalingGroup where
 
 -- | Describes an EC2 instance associated with an Auto Scaling group.
 --
@@ -469,14 +470,15 @@ instance NFData AutoScalingGroup
 --
 -- /See:/ 'autoScalingInstanceDetails' smart constructor.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-    { _asidLaunchConfigurationName :: !(Maybe Text)
-    , _asidInstanceId              :: !Text
-    , _asidAutoScalingGroupName    :: !Text
-    , _asidAvailabilityZone        :: !Text
-    , _asidLifecycleState          :: !Text
-    , _asidHealthStatus            :: !Text
-    , _asidProtectedFromScaleIn    :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asidLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asidInstanceId              :: {-# NOUNPACK #-}!Text
+  , _asidAutoScalingGroupName    :: {-# NOUNPACK #-}!Text
+  , _asidAvailabilityZone        :: {-# NOUNPACK #-}!Text
+  , _asidLifecycleState          :: {-# NOUNPACK #-}!Text
+  , _asidHealthStatus            :: {-# NOUNPACK #-}!Text
+  , _asidProtectedFromScaleIn    :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingInstanceDetails' with the minimum fields required to make a request.
 --
@@ -504,15 +506,16 @@ autoScalingInstanceDetails
     -> Bool -- ^ 'asidProtectedFromScaleIn'
     -> AutoScalingInstanceDetails
 autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pProtectedFromScaleIn_ =
-    AutoScalingInstanceDetails'
-    { _asidLaunchConfigurationName = Nothing
-    , _asidInstanceId = pInstanceId_
-    , _asidAutoScalingGroupName = pAutoScalingGroupName_
-    , _asidAvailabilityZone = pAvailabilityZone_
-    , _asidLifecycleState = pLifecycleState_
-    , _asidHealthStatus = pHealthStatus_
-    , _asidProtectedFromScaleIn = pProtectedFromScaleIn_
-    }
+  AutoScalingInstanceDetails'
+  { _asidLaunchConfigurationName = Nothing
+  , _asidInstanceId = pInstanceId_
+  , _asidAutoScalingGroupName = pAutoScalingGroupName_
+  , _asidAvailabilityZone = pAvailabilityZone_
+  , _asidLifecycleState = pLifecycleState_
+  , _asidHealthStatus = pHealthStatus_
+  , _asidProtectedFromScaleIn = pProtectedFromScaleIn_
+  }
+
 
 -- | The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.
 asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails (Maybe Text)
@@ -553,9 +556,9 @@ instance FromXML AutoScalingInstanceDetails where
                 <*> (x .@ "HealthStatus")
                 <*> (x .@ "ProtectedFromScaleIn")
 
-instance Hashable AutoScalingInstanceDetails
+instance Hashable AutoScalingInstanceDetails where
 
-instance NFData AutoScalingInstanceDetails
+instance NFData AutoScalingInstanceDetails where
 
 -- | Describes a block device mapping.
 --
@@ -563,11 +566,12 @@ instance NFData AutoScalingInstanceDetails
 --
 -- /See:/ 'blockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-    { _bdmVirtualName :: !(Maybe Text)
-    , _bdmNoDevice    :: !(Maybe Bool)
-    , _bdmEBS         :: !(Maybe EBS)
-    , _bdmDeviceName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdmVirtualName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bdmNoDevice    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _bdmEBS         :: {-# NOUNPACK #-}!(Maybe EBS)
+  , _bdmDeviceName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
@@ -584,12 +588,13 @@ blockDeviceMapping
     :: Text -- ^ 'bdmDeviceName'
     -> BlockDeviceMapping
 blockDeviceMapping pDeviceName_ =
-    BlockDeviceMapping'
-    { _bdmVirtualName = Nothing
-    , _bdmNoDevice = Nothing
-    , _bdmEBS = Nothing
-    , _bdmDeviceName = pDeviceName_
-    }
+  BlockDeviceMapping'
+  { _bdmVirtualName = Nothing
+  , _bdmNoDevice = Nothing
+  , _bdmEBS = Nothing
+  , _bdmDeviceName = pDeviceName_
+  }
+
 
 -- | The name of the virtual device (for example, @ephemeral0@ ).
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
@@ -614,9 +619,9 @@ instance FromXML BlockDeviceMapping where
                 (x .@? "Ebs")
                 <*> (x .@ "DeviceName")
 
-instance Hashable BlockDeviceMapping
+instance Hashable BlockDeviceMapping where
 
-instance NFData BlockDeviceMapping
+instance NFData BlockDeviceMapping where
 
 instance ToQuery BlockDeviceMapping where
         toQuery BlockDeviceMapping'{..}
@@ -631,12 +636,13 @@ instance ToQuery BlockDeviceMapping where
 --
 -- /See:/ 'customizedMetricSpecification' smart constructor.
 data CustomizedMetricSpecification = CustomizedMetricSpecification'
-    { _cmsDimensions :: !(Maybe [MetricDimension])
-    , _cmsUnit       :: !(Maybe Text)
-    , _cmsMetricName :: !Text
-    , _cmsNamespace  :: !Text
-    , _cmsStatistic  :: !MetricStatistic
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmsDimensions :: {-# NOUNPACK #-}!(Maybe [MetricDimension])
+  , _cmsUnit       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmsMetricName :: {-# NOUNPACK #-}!Text
+  , _cmsNamespace  :: {-# NOUNPACK #-}!Text
+  , _cmsStatistic  :: {-# NOUNPACK #-}!MetricStatistic
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomizedMetricSpecification' with the minimum fields required to make a request.
 --
@@ -657,13 +663,14 @@ customizedMetricSpecification
     -> MetricStatistic -- ^ 'cmsStatistic'
     -> CustomizedMetricSpecification
 customizedMetricSpecification pMetricName_ pNamespace_ pStatistic_ =
-    CustomizedMetricSpecification'
-    { _cmsDimensions = Nothing
-    , _cmsUnit = Nothing
-    , _cmsMetricName = pMetricName_
-    , _cmsNamespace = pNamespace_
-    , _cmsStatistic = pStatistic_
-    }
+  CustomizedMetricSpecification'
+  { _cmsDimensions = Nothing
+  , _cmsUnit = Nothing
+  , _cmsMetricName = pMetricName_
+  , _cmsNamespace = pNamespace_
+  , _cmsStatistic = pStatistic_
+  }
+
 
 -- | The dimensions of the metric.
 cmsDimensions :: Lens' CustomizedMetricSpecification [MetricDimension]
@@ -695,9 +702,9 @@ instance FromXML CustomizedMetricSpecification where
                 <*> (x .@ "Namespace")
                 <*> (x .@ "Statistic")
 
-instance Hashable CustomizedMetricSpecification
+instance Hashable CustomizedMetricSpecification where
 
-instance NFData CustomizedMetricSpecification
+instance NFData CustomizedMetricSpecification where
 
 instance ToQuery CustomizedMetricSpecification where
         toQuery CustomizedMetricSpecification'{..}
@@ -714,13 +721,14 @@ instance ToQuery CustomizedMetricSpecification where
 --
 -- /See:/ 'ebs' smart constructor.
 data EBS = EBS'
-    { _ebsDeleteOnTermination :: !(Maybe Bool)
-    , _ebsVolumeSize          :: !(Maybe Nat)
-    , _ebsIOPS                :: !(Maybe Nat)
-    , _ebsEncrypted           :: !(Maybe Bool)
-    , _ebsVolumeType          :: !(Maybe Text)
-    , _ebsSnapshotId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ebsDeleteOnTermination :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ebsVolumeSize          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ebsIOPS                :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ebsEncrypted           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ebsVolumeType          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ebsSnapshotId          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EBS' with the minimum fields required to make a request.
 --
@@ -740,14 +748,15 @@ data EBS = EBS'
 ebs
     :: EBS
 ebs =
-    EBS'
-    { _ebsDeleteOnTermination = Nothing
-    , _ebsVolumeSize = Nothing
-    , _ebsIOPS = Nothing
-    , _ebsEncrypted = Nothing
-    , _ebsVolumeType = Nothing
-    , _ebsSnapshotId = Nothing
-    }
+  EBS'
+  { _ebsDeleteOnTermination = Nothing
+  , _ebsVolumeSize = Nothing
+  , _ebsIOPS = Nothing
+  , _ebsEncrypted = Nothing
+  , _ebsVolumeType = Nothing
+  , _ebsSnapshotId = Nothing
+  }
+
 
 -- | Indicates whether the volume is deleted on instance termination. Default: @true@
 ebsDeleteOnTermination :: Lens' EBS (Maybe Bool)
@@ -783,9 +792,9 @@ instance FromXML EBS where
                 <*> (x .@? "VolumeType")
                 <*> (x .@? "SnapshotId")
 
-instance Hashable EBS
+instance Hashable EBS where
 
-instance NFData EBS
+instance NFData EBS where
 
 instance ToQuery EBS where
         toQuery EBS'{..}
@@ -802,9 +811,10 @@ instance ToQuery EBS where
 --
 -- /See:/ 'enabledMetric' smart constructor.
 data EnabledMetric = EnabledMetric'
-    { _emGranularity :: !(Maybe Text)
-    , _emMetric      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _emGranularity :: {-# NOUNPACK #-}!(Maybe Text)
+  , _emMetric      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnabledMetric' with the minimum fields required to make a request.
 --
@@ -815,11 +825,8 @@ data EnabledMetric = EnabledMetric'
 -- * 'emMetric' - One of the following metrics:     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 enabledMetric
     :: EnabledMetric
-enabledMetric =
-    EnabledMetric'
-    { _emGranularity = Nothing
-    , _emMetric = Nothing
-    }
+enabledMetric = EnabledMetric' {_emGranularity = Nothing, _emMetric = Nothing}
+
 
 -- | The granularity of the metric. The only valid value is @1Minute@ .
 emGranularity :: Lens' EnabledMetric (Maybe Text)
@@ -834,9 +841,9 @@ instance FromXML EnabledMetric where
           = EnabledMetric' <$>
               (x .@? "Granularity") <*> (x .@? "Metric")
 
-instance Hashable EnabledMetric
+instance Hashable EnabledMetric where
 
-instance NFData EnabledMetric
+instance NFData EnabledMetric where
 
 -- | Describes a filter.
 --
@@ -844,9 +851,10 @@ instance NFData EnabledMetric
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
-    { _fValues :: !(Maybe [Text])
-    , _fName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _fName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
@@ -858,11 +866,8 @@ data Filter = Filter'
 filter'
     :: Text -- ^ 'fName'
     -> Filter
-filter' pName_ =
-    Filter'
-    { _fValues = Nothing
-    , _fName = pName_
-    }
+filter' pName_ = Filter' {_fValues = Nothing, _fName = pName_}
+
 
 -- | The value of the filter.
 fValues :: Lens' Filter [Text]
@@ -872,9 +877,9 @@ fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default . _Coerce;
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
 
-instance Hashable Filter
+instance Hashable Filter where
 
-instance NFData Filter
+instance NFData Filter where
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -889,13 +894,14 @@ instance ToQuery Filter where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-    { _iLaunchConfigurationName :: !(Maybe Text)
-    , _iInstanceId              :: !Text
-    , _iAvailabilityZone        :: !Text
-    , _iLifecycleState          :: !LifecycleState
-    , _iHealthStatus            :: !Text
-    , _iProtectedFromScaleIn    :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iInstanceId              :: {-# NOUNPACK #-}!Text
+  , _iAvailabilityZone        :: {-# NOUNPACK #-}!Text
+  , _iLifecycleState          :: {-# NOUNPACK #-}!LifecycleState
+  , _iHealthStatus            :: {-# NOUNPACK #-}!Text
+  , _iProtectedFromScaleIn    :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
@@ -920,14 +926,15 @@ instance'
     -> Bool -- ^ 'iProtectedFromScaleIn'
     -> Instance
 instance' pInstanceId_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pProtectedFromScaleIn_ =
-    Instance'
-    { _iLaunchConfigurationName = Nothing
-    , _iInstanceId = pInstanceId_
-    , _iAvailabilityZone = pAvailabilityZone_
-    , _iLifecycleState = pLifecycleState_
-    , _iHealthStatus = pHealthStatus_
-    , _iProtectedFromScaleIn = pProtectedFromScaleIn_
-    }
+  Instance'
+  { _iLaunchConfigurationName = Nothing
+  , _iInstanceId = pInstanceId_
+  , _iAvailabilityZone = pAvailabilityZone_
+  , _iLifecycleState = pLifecycleState_
+  , _iHealthStatus = pHealthStatus_
+  , _iProtectedFromScaleIn = pProtectedFromScaleIn_
+  }
+
 
 -- | The launch configuration associated with the instance.
 iLaunchConfigurationName :: Lens' Instance (Maybe Text)
@@ -963,9 +970,9 @@ instance FromXML Instance where
                 <*> (x .@ "HealthStatus")
                 <*> (x .@ "ProtectedFromScaleIn")
 
-instance Hashable Instance
+instance Hashable Instance where
 
-instance NFData Instance
+instance NFData Instance where
 
 -- | Describes whether instance monitoring is enabled.
 --
@@ -973,8 +980,9 @@ instance NFData Instance
 --
 -- /See:/ 'instanceMonitoring' smart constructor.
 newtype InstanceMonitoring = InstanceMonitoring'
-    { _imEnabled :: Maybe Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _imEnabled :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceMonitoring' with the minimum fields required to make a request.
 --
@@ -983,10 +991,8 @@ newtype InstanceMonitoring = InstanceMonitoring'
 -- * 'imEnabled' - If @True@ , instance monitoring is enabled.
 instanceMonitoring
     :: InstanceMonitoring
-instanceMonitoring =
-    InstanceMonitoring'
-    { _imEnabled = Nothing
-    }
+instanceMonitoring = InstanceMonitoring' {_imEnabled = Nothing}
+
 
 -- | If @True@ , instance monitoring is enabled.
 imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
@@ -996,9 +1002,9 @@ instance FromXML InstanceMonitoring where
         parseXML x
           = InstanceMonitoring' <$> (x .@? "Enabled")
 
-instance Hashable InstanceMonitoring
+instance Hashable InstanceMonitoring where
 
-instance NFData InstanceMonitoring
+instance NFData InstanceMonitoring where
 
 instance ToQuery InstanceMonitoring where
         toQuery InstanceMonitoring'{..}
@@ -1010,26 +1016,27 @@ instance ToQuery InstanceMonitoring where
 --
 -- /See:/ 'launchConfiguration' smart constructor.
 data LaunchConfiguration = LaunchConfiguration'
-    { _lcAssociatePublicIPAddress     :: !(Maybe Bool)
-    , _lcSecurityGroups               :: !(Maybe [Text])
-    , _lcSpotPrice                    :: !(Maybe Text)
-    , _lcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
-    , _lcKeyName                      :: !(Maybe Text)
-    , _lcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
-    , _lcRAMDiskId                    :: !(Maybe Text)
-    , _lcKernelId                     :: !(Maybe Text)
-    , _lcEBSOptimized                 :: !(Maybe Bool)
-    , _lcUserData                     :: !(Maybe Text)
-    , _lcClassicLinkVPCId             :: !(Maybe Text)
-    , _lcIAMInstanceProfile           :: !(Maybe Text)
-    , _lcLaunchConfigurationARN       :: !(Maybe Text)
-    , _lcPlacementTenancy             :: !(Maybe Text)
-    , _lcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
-    , _lcLaunchConfigurationName      :: !Text
-    , _lcImageId                      :: !Text
-    , _lcInstanceType                 :: !Text
-    , _lcCreatedTime                  :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcAssociatePublicIPAddress :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lcSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lcSpotPrice :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcInstanceMonitoring :: {-# NOUNPACK #-}!(Maybe InstanceMonitoring)
+  , _lcKeyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcClassicLinkVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lcRAMDiskId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcKernelId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lcUserData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcClassicLinkVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcIAMInstanceProfile :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcLaunchConfigurationARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcPlacementTenancy :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
+  , _lcLaunchConfigurationName :: {-# NOUNPACK #-}!Text
+  , _lcImageId :: {-# NOUNPACK #-}!Text
+  , _lcInstanceType :: {-# NOUNPACK #-}!Text
+  , _lcCreatedTime :: {-# NOUNPACK #-}!ISO8601
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LaunchConfiguration' with the minimum fields required to make a request.
 --
@@ -1079,27 +1086,28 @@ launchConfiguration
     -> UTCTime -- ^ 'lcCreatedTime'
     -> LaunchConfiguration
 launchConfiguration pLaunchConfigurationName_ pImageId_ pInstanceType_ pCreatedTime_ =
-    LaunchConfiguration'
-    { _lcAssociatePublicIPAddress = Nothing
-    , _lcSecurityGroups = Nothing
-    , _lcSpotPrice = Nothing
-    , _lcInstanceMonitoring = Nothing
-    , _lcKeyName = Nothing
-    , _lcClassicLinkVPCSecurityGroups = Nothing
-    , _lcRAMDiskId = Nothing
-    , _lcKernelId = Nothing
-    , _lcEBSOptimized = Nothing
-    , _lcUserData = Nothing
-    , _lcClassicLinkVPCId = Nothing
-    , _lcIAMInstanceProfile = Nothing
-    , _lcLaunchConfigurationARN = Nothing
-    , _lcPlacementTenancy = Nothing
-    , _lcBlockDeviceMappings = Nothing
-    , _lcLaunchConfigurationName = pLaunchConfigurationName_
-    , _lcImageId = pImageId_
-    , _lcInstanceType = pInstanceType_
-    , _lcCreatedTime = _Time # pCreatedTime_
-    }
+  LaunchConfiguration'
+  { _lcAssociatePublicIPAddress = Nothing
+  , _lcSecurityGroups = Nothing
+  , _lcSpotPrice = Nothing
+  , _lcInstanceMonitoring = Nothing
+  , _lcKeyName = Nothing
+  , _lcClassicLinkVPCSecurityGroups = Nothing
+  , _lcRAMDiskId = Nothing
+  , _lcKernelId = Nothing
+  , _lcEBSOptimized = Nothing
+  , _lcUserData = Nothing
+  , _lcClassicLinkVPCId = Nothing
+  , _lcIAMInstanceProfile = Nothing
+  , _lcLaunchConfigurationARN = Nothing
+  , _lcPlacementTenancy = Nothing
+  , _lcBlockDeviceMappings = Nothing
+  , _lcLaunchConfigurationName = pLaunchConfigurationName_
+  , _lcImageId = pImageId_
+  , _lcInstanceType = pInstanceType_
+  , _lcCreatedTime = _Time # pCreatedTime_
+  }
+
 
 -- | [EC2-VPC] Indicates whether to assign a public IP address to each instance.
 lcAssociatePublicIPAddress :: Lens' LaunchConfiguration (Maybe Bool)
@@ -1205,9 +1213,9 @@ instance FromXML LaunchConfiguration where
                 <*> (x .@ "InstanceType")
                 <*> (x .@ "CreatedTime")
 
-instance Hashable LaunchConfiguration
+instance Hashable LaunchConfiguration where
 
-instance NFData LaunchConfiguration
+instance NFData LaunchConfiguration where
 
 -- | Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action when an instance launches or terminates. When you have a lifecycle hook in place, the Auto Scaling group will either:
 --
@@ -1223,16 +1231,17 @@ instance NFData LaunchConfiguration
 --
 -- /See:/ 'lifecycleHook' smart constructor.
 data LifecycleHook = LifecycleHook'
-    { _lhDefaultResult         :: !(Maybe Text)
-    , _lhLifecycleHookName     :: !(Maybe Text)
-    , _lhHeartbeatTimeout      :: !(Maybe Int)
-    , _lhAutoScalingGroupName  :: !(Maybe Text)
-    , _lhNotificationMetadata  :: !(Maybe Text)
-    , _lhGlobalTimeout         :: !(Maybe Int)
-    , _lhNotificationTargetARN :: !(Maybe Text)
-    , _lhLifecycleTransition   :: !(Maybe Text)
-    , _lhRoleARN               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhDefaultResult         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhLifecycleHookName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhHeartbeatTimeout      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lhAutoScalingGroupName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhNotificationMetadata  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhGlobalTimeout         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lhNotificationTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhLifecycleTransition   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LifecycleHook' with the minimum fields required to make a request.
 --
@@ -1258,17 +1267,18 @@ data LifecycleHook = LifecycleHook'
 lifecycleHook
     :: LifecycleHook
 lifecycleHook =
-    LifecycleHook'
-    { _lhDefaultResult = Nothing
-    , _lhLifecycleHookName = Nothing
-    , _lhHeartbeatTimeout = Nothing
-    , _lhAutoScalingGroupName = Nothing
-    , _lhNotificationMetadata = Nothing
-    , _lhGlobalTimeout = Nothing
-    , _lhNotificationTargetARN = Nothing
-    , _lhLifecycleTransition = Nothing
-    , _lhRoleARN = Nothing
-    }
+  LifecycleHook'
+  { _lhDefaultResult = Nothing
+  , _lhLifecycleHookName = Nothing
+  , _lhHeartbeatTimeout = Nothing
+  , _lhAutoScalingGroupName = Nothing
+  , _lhNotificationMetadata = Nothing
+  , _lhGlobalTimeout = Nothing
+  , _lhNotificationTargetARN = Nothing
+  , _lhLifecycleTransition = Nothing
+  , _lhRoleARN = Nothing
+  }
+
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are @CONTINUE@ and @ABANDON@ . The default value is @CONTINUE@ .
 lhDefaultResult :: Lens' LifecycleHook (Maybe Text)
@@ -1319,9 +1329,9 @@ instance FromXML LifecycleHook where
                 <*> (x .@? "LifecycleTransition")
                 <*> (x .@? "RoleARN")
 
-instance Hashable LifecycleHook
+instance Hashable LifecycleHook where
 
-instance NFData LifecycleHook
+instance NFData LifecycleHook where
 
 -- | Describes the state of a Classic Load Balancer.
 --
@@ -1333,9 +1343,10 @@ instance NFData LifecycleHook
 --
 -- /See:/ 'loadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
-    { _lbsState            :: !(Maybe Text)
-    , _lbsLoadBalancerName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbsState            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbsLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoadBalancerState' with the minimum fields required to make a request.
 --
@@ -1347,10 +1358,8 @@ data LoadBalancerState = LoadBalancerState'
 loadBalancerState
     :: LoadBalancerState
 loadBalancerState =
-    LoadBalancerState'
-    { _lbsState = Nothing
-    , _lbsLoadBalancerName = Nothing
-    }
+  LoadBalancerState' {_lbsState = Nothing, _lbsLoadBalancerName = Nothing}
+
 
 -- | One of the following load balancer states:     * @Adding@ - The instances in the group are being registered with the load balancer.     * @Added@ - All instances in the group are registered with the load balancer.     * @InService@ - At least one instance in the group passed an ELB health check.     * @Removing@ - The instances in the group are being deregistered from the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.     * @Removed@ - All instances in the group are deregistered from the load balancer.
 lbsState :: Lens' LoadBalancerState (Maybe Text)
@@ -1365,9 +1374,9 @@ instance FromXML LoadBalancerState where
           = LoadBalancerState' <$>
               (x .@? "State") <*> (x .@? "LoadBalancerName")
 
-instance Hashable LoadBalancerState
+instance Hashable LoadBalancerState where
 
-instance NFData LoadBalancerState
+instance NFData LoadBalancerState where
 
 -- | Describes the state of a target group.
 --
@@ -1377,9 +1386,10 @@ instance NFData LoadBalancerState
 --
 -- /See:/ 'loadBalancerTargetGroupState' smart constructor.
 data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
-    { _lbtgsState                      :: !(Maybe Text)
-    , _lbtgsLoadBalancerTargetGroupARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbtgsState                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbtgsLoadBalancerTargetGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoadBalancerTargetGroupState' with the minimum fields required to make a request.
 --
@@ -1391,10 +1401,9 @@ data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
 loadBalancerTargetGroupState
     :: LoadBalancerTargetGroupState
 loadBalancerTargetGroupState =
-    LoadBalancerTargetGroupState'
-    { _lbtgsState = Nothing
-    , _lbtgsLoadBalancerTargetGroupARN = Nothing
-    }
+  LoadBalancerTargetGroupState'
+  {_lbtgsState = Nothing, _lbtgsLoadBalancerTargetGroupARN = Nothing}
+
 
 -- | The state of the target group.     * @Adding@ - The Auto Scaling instances are being registered with the target group.     * @Added@ - All Auto Scaling instances are registered with the target group.     * @InService@ - At least one Auto Scaling instance passed an ELB health check.     * @Removing@ - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.     * @Removed@ - All Auto Scaling instances are deregistered from the target group.
 lbtgsState :: Lens' LoadBalancerTargetGroupState (Maybe Text)
@@ -1410,9 +1419,9 @@ instance FromXML LoadBalancerTargetGroupState where
               (x .@? "State") <*>
                 (x .@? "LoadBalancerTargetGroupARN")
 
-instance Hashable LoadBalancerTargetGroupState
+instance Hashable LoadBalancerTargetGroupState where
 
-instance NFData LoadBalancerTargetGroupState
+instance NFData LoadBalancerTargetGroupState where
 
 -- | Describes a metric.
 --
@@ -1420,8 +1429,9 @@ instance NFData LoadBalancerTargetGroupState
 --
 -- /See:/ 'metricCollectionType' smart constructor.
 newtype MetricCollectionType = MetricCollectionType'
-    { _mctMetric :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mctMetric :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricCollectionType' with the minimum fields required to make a request.
 --
@@ -1430,10 +1440,8 @@ newtype MetricCollectionType = MetricCollectionType'
 -- * 'mctMetric' - One of the following metrics:     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 metricCollectionType
     :: MetricCollectionType
-metricCollectionType =
-    MetricCollectionType'
-    { _mctMetric = Nothing
-    }
+metricCollectionType = MetricCollectionType' {_mctMetric = Nothing}
+
 
 -- | One of the following metrics:     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@
 mctMetric :: Lens' MetricCollectionType (Maybe Text)
@@ -1443,9 +1451,9 @@ instance FromXML MetricCollectionType where
         parseXML x
           = MetricCollectionType' <$> (x .@? "Metric")
 
-instance Hashable MetricCollectionType
+instance Hashable MetricCollectionType where
 
-instance NFData MetricCollectionType
+instance NFData MetricCollectionType where
 
 -- | Describes the dimension of a metric.
 --
@@ -1453,9 +1461,10 @@ instance NFData MetricCollectionType
 --
 -- /See:/ 'metricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-    { _mdName  :: !Text
-    , _mdValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdName  :: {-# NOUNPACK #-}!Text
+  , _mdValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
 --
@@ -1469,10 +1478,8 @@ metricDimension
     -> Text -- ^ 'mdValue'
     -> MetricDimension
 metricDimension pName_ pValue_ =
-    MetricDimension'
-    { _mdName = pName_
-    , _mdValue = pValue_
-    }
+  MetricDimension' {_mdName = pName_, _mdValue = pValue_}
+
 
 -- | The name of the dimension.
 mdName :: Lens' MetricDimension Text
@@ -1487,9 +1494,9 @@ instance FromXML MetricDimension where
           = MetricDimension' <$>
               (x .@ "Name") <*> (x .@ "Value")
 
-instance Hashable MetricDimension
+instance Hashable MetricDimension where
 
-instance NFData MetricDimension
+instance NFData MetricDimension where
 
 instance ToQuery MetricDimension where
         toQuery MetricDimension'{..}
@@ -1501,8 +1508,9 @@ instance ToQuery MetricDimension where
 --
 -- /See:/ 'metricGranularityType' smart constructor.
 newtype MetricGranularityType = MetricGranularityType'
-    { _mgtGranularity :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mgtGranularity :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricGranularityType' with the minimum fields required to make a request.
 --
@@ -1511,10 +1519,8 @@ newtype MetricGranularityType = MetricGranularityType'
 -- * 'mgtGranularity' - The granularity. The only valid value is @1Minute@ .
 metricGranularityType
     :: MetricGranularityType
-metricGranularityType =
-    MetricGranularityType'
-    { _mgtGranularity = Nothing
-    }
+metricGranularityType = MetricGranularityType' {_mgtGranularity = Nothing}
+
 
 -- | The granularity. The only valid value is @1Minute@ .
 mgtGranularity :: Lens' MetricGranularityType (Maybe Text)
@@ -1524,9 +1530,9 @@ instance FromXML MetricGranularityType where
         parseXML x
           = MetricGranularityType' <$> (x .@? "Granularity")
 
-instance Hashable MetricGranularityType
+instance Hashable MetricGranularityType where
 
-instance NFData MetricGranularityType
+instance NFData MetricGranularityType where
 
 -- | Describes a notification.
 --
@@ -1534,10 +1540,11 @@ instance NFData MetricGranularityType
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-    { _ncTopicARN             :: !(Maybe Text)
-    , _ncAutoScalingGroupName :: !(Maybe Text)
-    , _ncNotificationType     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ncTopicARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ncAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ncNotificationType     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
 --
@@ -1551,11 +1558,12 @@ data NotificationConfiguration = NotificationConfiguration'
 notificationConfiguration
     :: NotificationConfiguration
 notificationConfiguration =
-    NotificationConfiguration'
-    { _ncTopicARN = Nothing
-    , _ncAutoScalingGroupName = Nothing
-    , _ncNotificationType = Nothing
-    }
+  NotificationConfiguration'
+  { _ncTopicARN = Nothing
+  , _ncAutoScalingGroupName = Nothing
+  , _ncNotificationType = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
 ncTopicARN :: Lens' NotificationConfiguration (Maybe Text)
@@ -1575,9 +1583,9 @@ instance FromXML NotificationConfiguration where
               (x .@? "TopicARN") <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "NotificationType")
 
-instance Hashable NotificationConfiguration
+instance Hashable NotificationConfiguration where
 
-instance NFData NotificationConfiguration
+instance NFData NotificationConfiguration where
 
 -- | Configures a predefined metric for a target tracking policy. The following predefined metrics are available:
 --
@@ -1595,9 +1603,10 @@ instance NFData NotificationConfiguration
 --
 -- /See:/ 'predefinedMetricSpecification' smart constructor.
 data PredefinedMetricSpecification = PredefinedMetricSpecification'
-    { _pmsResourceLabel        :: !(Maybe Text)
-    , _pmsPredefinedMetricType :: !MetricType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmsResourceLabel        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmsPredefinedMetricType :: {-# NOUNPACK #-}!MetricType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PredefinedMetricSpecification' with the minimum fields required to make a request.
 --
@@ -1610,10 +1619,11 @@ predefinedMetricSpecification
     :: MetricType -- ^ 'pmsPredefinedMetricType'
     -> PredefinedMetricSpecification
 predefinedMetricSpecification pPredefinedMetricType_ =
-    PredefinedMetricSpecification'
-    { _pmsResourceLabel = Nothing
-    , _pmsPredefinedMetricType = pPredefinedMetricType_
-    }
+  PredefinedMetricSpecification'
+  { _pmsResourceLabel = Nothing
+  , _pmsPredefinedMetricType = pPredefinedMetricType_
+  }
+
 
 -- | Identifies the resource associated with the metric type. For predefined metric types @ASGAverageCPUUtilization@ , @ASGAverageNetworkIn@ and @ASGAverageNetworkOut@ , the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type @ALBRequestCountPerTarget@ , the parameter must be specified in the format @app//load-balancer-name/ //load-balancer-id/ /targetgroup//target-group-name/ //target-group-id/ @ , where @app//load-balancer-name/ //load-balancer-id/ @ is the final portion of the load balancer ARN, and @targetgroup//target-group-name/ //target-group-id/ @ is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
 pmsResourceLabel :: Lens' PredefinedMetricSpecification (Maybe Text)
@@ -1629,9 +1639,9 @@ instance FromXML PredefinedMetricSpecification where
               (x .@? "ResourceLabel") <*>
                 (x .@ "PredefinedMetricType")
 
-instance Hashable PredefinedMetricSpecification
+instance Hashable PredefinedMetricSpecification where
 
-instance NFData PredefinedMetricSpecification
+instance NFData PredefinedMetricSpecification where
 
 instance ToQuery PredefinedMetricSpecification where
         toQuery PredefinedMetricSpecification'{..}
@@ -1647,8 +1657,9 @@ instance ToQuery PredefinedMetricSpecification where
 --
 -- /See:/ 'processType' smart constructor.
 newtype ProcessType = ProcessType'
-    { _ptProcessName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptProcessName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProcessType' with the minimum fields required to make a request.
 --
@@ -1658,10 +1669,8 @@ newtype ProcessType = ProcessType'
 processType
     :: Text -- ^ 'ptProcessName'
     -> ProcessType
-processType pProcessName_ =
-    ProcessType'
-    { _ptProcessName = pProcessName_
-    }
+processType pProcessName_ = ProcessType' {_ptProcessName = pProcessName_}
+
 
 -- | One of the following processes:     * @Launch@      * @Terminate@      * @AddToLoadBalancer@      * @AlarmNotification@      * @AZRebalance@      * @HealthCheck@      * @ReplaceUnhealthy@      * @ScheduledActions@
 ptProcessName :: Lens' ProcessType Text
@@ -1670,9 +1679,9 @@ ptProcessName = lens _ptProcessName (\ s a -> s{_ptProcessName = a});
 instance FromXML ProcessType where
         parseXML x = ProcessType' <$> (x .@ "ProcessName")
 
-instance Hashable ProcessType
+instance Hashable ProcessType where
 
-instance NFData ProcessType
+instance NFData ProcessType where
 
 -- | Describes a scaling policy.
 --
@@ -1680,21 +1689,22 @@ instance NFData ProcessType
 --
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-    { _sMinAdjustmentStep           :: !(Maybe Int)
-    , _sEstimatedInstanceWarmup     :: !(Maybe Int)
-    , _sPolicyName                  :: !(Maybe Text)
-    , _sPolicyType                  :: !(Maybe Text)
-    , _sStepAdjustments             :: !(Maybe [StepAdjustment])
-    , _sTargetTrackingConfiguration :: !(Maybe TargetTrackingConfiguration)
-    , _sAdjustmentType              :: !(Maybe Text)
-    , _sAutoScalingGroupName        :: !(Maybe Text)
-    , _sScalingAdjustment           :: !(Maybe Int)
-    , _sCooldown                    :: !(Maybe Int)
-    , _sPolicyARN                   :: !(Maybe Text)
-    , _sAlarms                      :: !(Maybe [Alarm])
-    , _sMetricAggregationType       :: !(Maybe Text)
-    , _sMinAdjustmentMagnitude      :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sMinAdjustmentStep :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sEstimatedInstanceWarmup :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sPolicyType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sStepAdjustments :: {-# NOUNPACK #-}!(Maybe [StepAdjustment])
+  , _sTargetTrackingConfiguration :: {-# NOUNPACK #-}!(Maybe TargetTrackingConfiguration)
+  , _sAdjustmentType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sScalingAdjustment :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sCooldown :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sPolicyARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sAlarms :: {-# NOUNPACK #-}!(Maybe [Alarm])
+  , _sMetricAggregationType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sMinAdjustmentMagnitude :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
 --
@@ -1730,22 +1740,23 @@ data ScalingPolicy = ScalingPolicy'
 scalingPolicy
     :: ScalingPolicy
 scalingPolicy =
-    ScalingPolicy'
-    { _sMinAdjustmentStep = Nothing
-    , _sEstimatedInstanceWarmup = Nothing
-    , _sPolicyName = Nothing
-    , _sPolicyType = Nothing
-    , _sStepAdjustments = Nothing
-    , _sTargetTrackingConfiguration = Nothing
-    , _sAdjustmentType = Nothing
-    , _sAutoScalingGroupName = Nothing
-    , _sScalingAdjustment = Nothing
-    , _sCooldown = Nothing
-    , _sPolicyARN = Nothing
-    , _sAlarms = Nothing
-    , _sMetricAggregationType = Nothing
-    , _sMinAdjustmentMagnitude = Nothing
-    }
+  ScalingPolicy'
+  { _sMinAdjustmentStep = Nothing
+  , _sEstimatedInstanceWarmup = Nothing
+  , _sPolicyName = Nothing
+  , _sPolicyType = Nothing
+  , _sStepAdjustments = Nothing
+  , _sTargetTrackingConfiguration = Nothing
+  , _sAdjustmentType = Nothing
+  , _sAutoScalingGroupName = Nothing
+  , _sScalingAdjustment = Nothing
+  , _sCooldown = Nothing
+  , _sPolicyARN = Nothing
+  , _sAlarms = Nothing
+  , _sMetricAggregationType = Nothing
+  , _sMinAdjustmentMagnitude = Nothing
+  }
+
 
 -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@ instead.
 sMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
@@ -1825,9 +1836,9 @@ instance FromXML ScalingPolicy where
                 <*> (x .@? "MetricAggregationType")
                 <*> (x .@? "MinAdjustmentMagnitude")
 
-instance Hashable ScalingPolicy
+instance Hashable ScalingPolicy where
 
-instance NFData ScalingPolicy
+instance NFData ScalingPolicy where
 
 -- | Contains the parameters for SuspendProcesses and ResumeProcesses.
 --
@@ -1835,9 +1846,10 @@ instance NFData ScalingPolicy
 --
 -- /See:/ 'scalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
-    { _spqScalingProcesses     :: !(Maybe [Text])
-    , _spqAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spqScalingProcesses     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _spqAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingProcessQuery' with the minimum fields required to make a request.
 --
@@ -1850,10 +1862,11 @@ scalingProcessQuery
     :: Text -- ^ 'spqAutoScalingGroupName'
     -> ScalingProcessQuery
 scalingProcessQuery pAutoScalingGroupName_ =
-    ScalingProcessQuery'
-    { _spqScalingProcesses = Nothing
-    , _spqAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  ScalingProcessQuery'
+  { _spqScalingProcesses = Nothing
+  , _spqAutoScalingGroupName = pAutoScalingGroupName_
+  }
+
 
 -- | One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
 spqScalingProcesses :: Lens' ScalingProcessQuery [Text]
@@ -1863,9 +1876,9 @@ spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses
 spqAutoScalingGroupName :: Lens' ScalingProcessQuery Text
 spqAutoScalingGroupName = lens _spqAutoScalingGroupName (\ s a -> s{_spqAutoScalingGroupName = a});
 
-instance Hashable ScalingProcessQuery
+instance Hashable ScalingProcessQuery where
 
-instance NFData ScalingProcessQuery
+instance NFData ScalingProcessQuery where
 
 instance ToQuery ScalingProcessQuery where
         toQuery ScalingProcessQuery'{..}
@@ -1881,17 +1894,18 @@ instance ToQuery ScalingProcessQuery where
 --
 -- /See:/ 'scheduledUpdateGroupAction' smart constructor.
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
-    { _sugaScheduledActionARN   :: !(Maybe Text)
-    , _sugaStartTime            :: !(Maybe ISO8601)
-    , _sugaTime                 :: !(Maybe ISO8601)
-    , _sugaScheduledActionName  :: !(Maybe Text)
-    , _sugaMaxSize              :: !(Maybe Int)
-    , _sugaRecurrence           :: !(Maybe Text)
-    , _sugaDesiredCapacity      :: !(Maybe Int)
-    , _sugaMinSize              :: !(Maybe Int)
-    , _sugaAutoScalingGroupName :: !(Maybe Text)
-    , _sugaEndTime              :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sugaScheduledActionARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sugaStartTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _sugaTime                 :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _sugaScheduledActionName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sugaMaxSize              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sugaRecurrence           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sugaDesiredCapacity      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sugaMinSize              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sugaAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sugaEndTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScheduledUpdateGroupAction' with the minimum fields required to make a request.
 --
@@ -1919,18 +1933,19 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
 scheduledUpdateGroupAction
     :: ScheduledUpdateGroupAction
 scheduledUpdateGroupAction =
-    ScheduledUpdateGroupAction'
-    { _sugaScheduledActionARN = Nothing
-    , _sugaStartTime = Nothing
-    , _sugaTime = Nothing
-    , _sugaScheduledActionName = Nothing
-    , _sugaMaxSize = Nothing
-    , _sugaRecurrence = Nothing
-    , _sugaDesiredCapacity = Nothing
-    , _sugaMinSize = Nothing
-    , _sugaAutoScalingGroupName = Nothing
-    , _sugaEndTime = Nothing
-    }
+  ScheduledUpdateGroupAction'
+  { _sugaScheduledActionARN = Nothing
+  , _sugaStartTime = Nothing
+  , _sugaTime = Nothing
+  , _sugaScheduledActionName = Nothing
+  , _sugaMaxSize = Nothing
+  , _sugaRecurrence = Nothing
+  , _sugaDesiredCapacity = Nothing
+  , _sugaMinSize = Nothing
+  , _sugaAutoScalingGroupName = Nothing
+  , _sugaEndTime = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the scheduled action.
 sugaScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
@@ -1985,9 +2000,9 @@ instance FromXML ScheduledUpdateGroupAction where
                 <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "EndTime")
 
-instance Hashable ScheduledUpdateGroupAction
+instance Hashable ScheduledUpdateGroupAction where
 
-instance NFData ScheduledUpdateGroupAction
+instance NFData ScheduledUpdateGroupAction where
 
 -- | Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
 --
@@ -2015,10 +2030,11 @@ instance NFData ScheduledUpdateGroupAction
 --
 -- /See:/ 'stepAdjustment' smart constructor.
 data StepAdjustment = StepAdjustment'
-    { _saMetricIntervalLowerBound :: !(Maybe Double)
-    , _saMetricIntervalUpperBound :: !(Maybe Double)
-    , _saScalingAdjustment        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saMetricIntervalLowerBound :: {-# NOUNPACK #-}!(Maybe Double)
+  , _saMetricIntervalUpperBound :: {-# NOUNPACK #-}!(Maybe Double)
+  , _saScalingAdjustment        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepAdjustment' with the minimum fields required to make a request.
 --
@@ -2033,11 +2049,12 @@ stepAdjustment
     :: Int -- ^ 'saScalingAdjustment'
     -> StepAdjustment
 stepAdjustment pScalingAdjustment_ =
-    StepAdjustment'
-    { _saMetricIntervalLowerBound = Nothing
-    , _saMetricIntervalUpperBound = Nothing
-    , _saScalingAdjustment = pScalingAdjustment_
-    }
+  StepAdjustment'
+  { _saMetricIntervalLowerBound = Nothing
+  , _saMetricIntervalUpperBound = Nothing
+  , _saScalingAdjustment = pScalingAdjustment_
+  }
+
 
 -- | The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
 saMetricIntervalLowerBound :: Lens' StepAdjustment (Maybe Double)
@@ -2058,9 +2075,9 @@ instance FromXML StepAdjustment where
                 (x .@? "MetricIntervalUpperBound")
                 <*> (x .@ "ScalingAdjustment")
 
-instance Hashable StepAdjustment
+instance Hashable StepAdjustment where
 
-instance NFData StepAdjustment
+instance NFData StepAdjustment where
 
 instance ToQuery StepAdjustment where
         toQuery StepAdjustment'{..}
@@ -2077,9 +2094,10 @@ instance ToQuery StepAdjustment where
 --
 -- /See:/ 'suspendedProcess' smart constructor.
 data SuspendedProcess = SuspendedProcess'
-    { _spProcessName      :: !(Maybe Text)
-    , _spSuspensionReason :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spProcessName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _spSuspensionReason :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SuspendedProcess' with the minimum fields required to make a request.
 --
@@ -2091,10 +2109,8 @@ data SuspendedProcess = SuspendedProcess'
 suspendedProcess
     :: SuspendedProcess
 suspendedProcess =
-    SuspendedProcess'
-    { _spProcessName = Nothing
-    , _spSuspensionReason = Nothing
-    }
+  SuspendedProcess' {_spProcessName = Nothing, _spSuspensionReason = Nothing}
+
 
 -- | The name of the suspended process.
 spProcessName :: Lens' SuspendedProcess (Maybe Text)
@@ -2109,9 +2125,9 @@ instance FromXML SuspendedProcess where
           = SuspendedProcess' <$>
               (x .@? "ProcessName") <*> (x .@? "SuspensionReason")
 
-instance Hashable SuspendedProcess
+instance Hashable SuspendedProcess where
 
-instance NFData SuspendedProcess
+instance NFData SuspendedProcess where
 
 -- | Describes a tag for an Auto Scaling group.
 --
@@ -2119,12 +2135,13 @@ instance NFData SuspendedProcess
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey               :: !Text
-    , _tagResourceId        :: !Text
-    , _tagResourceType      :: !Text
-    , _tagPropagateAtLaunch :: !Bool
-    , _tagValue             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey               :: {-# NOUNPACK #-}!Text
+  , _tagResourceId        :: {-# NOUNPACK #-}!Text
+  , _tagResourceType      :: {-# NOUNPACK #-}!Text
+  , _tagPropagateAtLaunch :: {-# NOUNPACK #-}!Bool
+  , _tagValue             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -2147,13 +2164,14 @@ tag
     -> Text -- ^ 'tagValue'
     -> Tag
 tag pKey_ pResourceId_ pResourceType_ pPropagateAtLaunch_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagResourceId = pResourceId_
-    , _tagResourceType = pResourceType_
-    , _tagPropagateAtLaunch = pPropagateAtLaunch_
-    , _tagValue = pValue_
-    }
+  Tag'
+  { _tagKey = pKey_
+  , _tagResourceId = pResourceId_
+  , _tagResourceType = pResourceType_
+  , _tagPropagateAtLaunch = pPropagateAtLaunch_
+  , _tagValue = pValue_
+  }
+
 
 -- | The tag key.
 tagKey :: Lens' Tag Text
@@ -2175,9 +2193,9 @@ tagPropagateAtLaunch = lens _tagPropagateAtLaunch (\ s a -> s{_tagPropagateAtLau
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -2193,12 +2211,13 @@ instance ToQuery Tag where
 --
 -- /See:/ 'tagDescription' smart constructor.
 data TagDescription = TagDescription'
-    { _tdResourceId        :: !Text
-    , _tdResourceType      :: !Text
-    , _tdKey               :: !Text
-    , _tdPropagateAtLaunch :: !Bool
-    , _tdValue             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tdResourceId        :: {-# NOUNPACK #-}!Text
+  , _tdResourceType      :: {-# NOUNPACK #-}!Text
+  , _tdKey               :: {-# NOUNPACK #-}!Text
+  , _tdPropagateAtLaunch :: {-# NOUNPACK #-}!Bool
+  , _tdValue             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
 --
@@ -2221,13 +2240,14 @@ tagDescription
     -> Text -- ^ 'tdValue'
     -> TagDescription
 tagDescription pResourceId_ pResourceType_ pKey_ pPropagateAtLaunch_ pValue_ =
-    TagDescription'
-    { _tdResourceId = pResourceId_
-    , _tdResourceType = pResourceType_
-    , _tdKey = pKey_
-    , _tdPropagateAtLaunch = pPropagateAtLaunch_
-    , _tdValue = pValue_
-    }
+  TagDescription'
+  { _tdResourceId = pResourceId_
+  , _tdResourceType = pResourceType_
+  , _tdKey = pKey_
+  , _tdPropagateAtLaunch = pPropagateAtLaunch_
+  , _tdValue = pValue_
+  }
+
 
 -- | The name of the group.
 tdResourceId :: Lens' TagDescription Text
@@ -2257,9 +2277,9 @@ instance FromXML TagDescription where
                 <*> (x .@ "PropagateAtLaunch")
                 <*> (x .@ "Value")
 
-instance Hashable TagDescription
+instance Hashable TagDescription where
 
-instance NFData TagDescription
+instance NFData TagDescription where
 
 -- | Represents a target tracking policy configuration.
 --
@@ -2267,11 +2287,12 @@ instance NFData TagDescription
 --
 -- /See:/ 'targetTrackingConfiguration' smart constructor.
 data TargetTrackingConfiguration = TargetTrackingConfiguration'
-    { _ttcPredefinedMetricSpecification :: !(Maybe PredefinedMetricSpecification)
-    , _ttcCustomizedMetricSpecification :: !(Maybe CustomizedMetricSpecification)
-    , _ttcDisableScaleIn                :: !(Maybe Bool)
-    , _ttcTargetValue                   :: !Double
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ttcPredefinedMetricSpecification :: {-# NOUNPACK #-}!(Maybe PredefinedMetricSpecification)
+  , _ttcCustomizedMetricSpecification :: {-# NOUNPACK #-}!(Maybe CustomizedMetricSpecification)
+  , _ttcDisableScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ttcTargetValue :: {-# NOUNPACK #-}!Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TargetTrackingConfiguration' with the minimum fields required to make a request.
 --
@@ -2288,12 +2309,13 @@ targetTrackingConfiguration
     :: Double -- ^ 'ttcTargetValue'
     -> TargetTrackingConfiguration
 targetTrackingConfiguration pTargetValue_ =
-    TargetTrackingConfiguration'
-    { _ttcPredefinedMetricSpecification = Nothing
-    , _ttcCustomizedMetricSpecification = Nothing
-    , _ttcDisableScaleIn = Nothing
-    , _ttcTargetValue = pTargetValue_
-    }
+  TargetTrackingConfiguration'
+  { _ttcPredefinedMetricSpecification = Nothing
+  , _ttcCustomizedMetricSpecification = Nothing
+  , _ttcDisableScaleIn = Nothing
+  , _ttcTargetValue = pTargetValue_
+  }
+
 
 -- | A predefined metric. You can specify either a predefined metric or a customized metric.
 ttcPredefinedMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe PredefinedMetricSpecification)
@@ -2319,9 +2341,9 @@ instance FromXML TargetTrackingConfiguration where
                 <*> (x .@? "DisableScaleIn")
                 <*> (x .@ "TargetValue")
 
-instance Hashable TargetTrackingConfiguration
+instance Hashable TargetTrackingConfiguration where
 
-instance NFData TargetTrackingConfiguration
+instance NFData TargetTrackingConfiguration where
 
 instance ToQuery TargetTrackingConfiguration where
         toQuery TargetTrackingConfiguration'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
     , artacrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to respond to the authentication challenge, as an administrator.
 --
@@ -59,12 +59,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminRespondToAuthChallenge' smart constructor.
 data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
-    { _artacChallengeResponses :: !(Maybe (Map Text Text))
-    , _artacSession            :: !(Maybe Text)
-    , _artacUserPoolId         :: !Text
-    , _artacClientId           :: !(Sensitive Text)
-    , _artacChallengeName      :: !ChallengeNameType
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _artacChallengeResponses :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _artacSession            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _artacUserPoolId         :: {-# NOUNPACK #-}!Text
+  , _artacClientId           :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _artacChallengeName      :: {-# NOUNPACK #-}!ChallengeNameType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminRespondToAuthChallenge' with the minimum fields required to make a request.
 --
@@ -85,13 +86,14 @@ adminRespondToAuthChallenge
     -> ChallengeNameType -- ^ 'artacChallengeName'
     -> AdminRespondToAuthChallenge
 adminRespondToAuthChallenge pUserPoolId_ pClientId_ pChallengeName_ =
-    AdminRespondToAuthChallenge'
-    { _artacChallengeResponses = Nothing
-    , _artacSession = Nothing
-    , _artacUserPoolId = pUserPoolId_
-    , _artacClientId = _Sensitive # pClientId_
-    , _artacChallengeName = pChallengeName_
-    }
+  AdminRespondToAuthChallenge'
+  { _artacChallengeResponses = Nothing
+  , _artacSession = Nothing
+  , _artacUserPoolId = pUserPoolId_
+  , _artacClientId = _Sensitive # pClientId_
+  , _artacChallengeName = pChallengeName_
+  }
+
 
 -- | The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @ADMIN_NO_SRP_AUTH@ : @PASSWORD@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).      * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).  The value of the @USERNAME@ attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the @AdminInitiateAuth@ response includes the actual username value in the @USERNAMEUSER_ID_FOR_SRP@ attribute, even if you specified an alias in your call to @AdminInitiateAuth@ .
 artacChallengeResponses :: Lens' AdminRespondToAuthChallenge (HashMap Text Text)
@@ -127,9 +129,9 @@ instance AWSRequest AdminRespondToAuthChallenge where
                      <*> (x .?> "Session")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AdminRespondToAuthChallenge
+instance Hashable AdminRespondToAuthChallenge where
 
-instance NFData AdminRespondToAuthChallenge
+instance NFData AdminRespondToAuthChallenge where
 
 instance ToHeaders AdminRespondToAuthChallenge where
         toHeaders
@@ -164,12 +166,13 @@ instance ToQuery AdminRespondToAuthChallenge where
 --
 -- /See:/ 'adminRespondToAuthChallengeResponse' smart constructor.
 data AdminRespondToAuthChallengeResponse = AdminRespondToAuthChallengeResponse'
-    { _artacrsChallengeName        :: !(Maybe ChallengeNameType)
-    , _artacrsChallengeParameters  :: !(Maybe (Map Text Text))
-    , _artacrsAuthenticationResult :: !(Maybe AuthenticationResultType)
-    , _artacrsSession              :: !(Maybe Text)
-    , _artacrsResponseStatus       :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _artacrsChallengeName :: {-# NOUNPACK #-}!(Maybe ChallengeNameType)
+  , _artacrsChallengeParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _artacrsAuthenticationResult :: {-# NOUNPACK #-}!(Maybe AuthenticationResultType)
+  , _artacrsSession :: {-# NOUNPACK #-}!(Maybe Text)
+  , _artacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminRespondToAuthChallengeResponse' with the minimum fields required to make a request.
 --
@@ -188,13 +191,14 @@ adminRespondToAuthChallengeResponse
     :: Int -- ^ 'artacrsResponseStatus'
     -> AdminRespondToAuthChallengeResponse
 adminRespondToAuthChallengeResponse pResponseStatus_ =
-    AdminRespondToAuthChallengeResponse'
-    { _artacrsChallengeName = Nothing
-    , _artacrsChallengeParameters = Nothing
-    , _artacrsAuthenticationResult = Nothing
-    , _artacrsSession = Nothing
-    , _artacrsResponseStatus = pResponseStatus_
-    }
+  AdminRespondToAuthChallengeResponse'
+  { _artacrsChallengeName = Nothing
+  , _artacrsChallengeParameters = Nothing
+  , _artacrsAuthenticationResult = Nothing
+  , _artacrsSession = Nothing
+  , _artacrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the challenge. For more information, see <API_AdminInitiateAuth.html AdminInitiateAuth> .
 artacrsChallengeName :: Lens' AdminRespondToAuthChallengeResponse (Maybe ChallengeNameType)
@@ -217,3 +221,4 @@ artacrsResponseStatus :: Lens' AdminRespondToAuthChallengeResponse Int
 artacrsResponseStatus = lens _artacrsResponseStatus (\ s a -> s{_artacrsResponseStatus = a});
 
 instance NFData AdminRespondToAuthChallengeResponse
+         where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -488,48 +488,48 @@ module Network.AWS.DMS
     , vsgmVPCSecurityGroupId
     ) where
 
-import           Network.AWS.DMS.AddTagsToResource
-import           Network.AWS.DMS.CreateEndpoint
-import           Network.AWS.DMS.CreateEventSubscription
-import           Network.AWS.DMS.CreateReplicationInstance
-import           Network.AWS.DMS.CreateReplicationSubnetGroup
-import           Network.AWS.DMS.CreateReplicationTask
-import           Network.AWS.DMS.DeleteCertificate
-import           Network.AWS.DMS.DeleteEndpoint
-import           Network.AWS.DMS.DeleteEventSubscription
-import           Network.AWS.DMS.DeleteReplicationInstance
-import           Network.AWS.DMS.DeleteReplicationSubnetGroup
-import           Network.AWS.DMS.DeleteReplicationTask
-import           Network.AWS.DMS.DescribeAccountAttributes
-import           Network.AWS.DMS.DescribeCertificates
-import           Network.AWS.DMS.DescribeConnections
-import           Network.AWS.DMS.DescribeEndpoints
-import           Network.AWS.DMS.DescribeEndpointTypes
-import           Network.AWS.DMS.DescribeEventCategories
-import           Network.AWS.DMS.DescribeEvents
-import           Network.AWS.DMS.DescribeEventSubscriptions
-import           Network.AWS.DMS.DescribeOrderableReplicationInstances
-import           Network.AWS.DMS.DescribeRefreshSchemasStatus
-import           Network.AWS.DMS.DescribeReplicationInstances
-import           Network.AWS.DMS.DescribeReplicationSubnetGroups
-import           Network.AWS.DMS.DescribeReplicationTasks
-import           Network.AWS.DMS.DescribeSchemas
-import           Network.AWS.DMS.DescribeTableStatistics
-import           Network.AWS.DMS.ImportCertificate
-import           Network.AWS.DMS.ListTagsForResource
-import           Network.AWS.DMS.ModifyEndpoint
-import           Network.AWS.DMS.ModifyEventSubscription
-import           Network.AWS.DMS.ModifyReplicationInstance
-import           Network.AWS.DMS.ModifyReplicationSubnetGroup
-import           Network.AWS.DMS.ModifyReplicationTask
-import           Network.AWS.DMS.RefreshSchemas
-import           Network.AWS.DMS.ReloadTables
-import           Network.AWS.DMS.RemoveTagsFromResource
-import           Network.AWS.DMS.StartReplicationTask
-import           Network.AWS.DMS.StopReplicationTask
-import           Network.AWS.DMS.TestConnection
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Waiters
+import Network.AWS.DMS.AddTagsToResource
+import Network.AWS.DMS.CreateEndpoint
+import Network.AWS.DMS.CreateEventSubscription
+import Network.AWS.DMS.CreateReplicationInstance
+import Network.AWS.DMS.CreateReplicationSubnetGroup
+import Network.AWS.DMS.CreateReplicationTask
+import Network.AWS.DMS.DeleteCertificate
+import Network.AWS.DMS.DeleteEndpoint
+import Network.AWS.DMS.DeleteEventSubscription
+import Network.AWS.DMS.DeleteReplicationInstance
+import Network.AWS.DMS.DeleteReplicationSubnetGroup
+import Network.AWS.DMS.DeleteReplicationTask
+import Network.AWS.DMS.DescribeAccountAttributes
+import Network.AWS.DMS.DescribeCertificates
+import Network.AWS.DMS.DescribeConnections
+import Network.AWS.DMS.DescribeEndpoints
+import Network.AWS.DMS.DescribeEndpointTypes
+import Network.AWS.DMS.DescribeEventCategories
+import Network.AWS.DMS.DescribeEvents
+import Network.AWS.DMS.DescribeEventSubscriptions
+import Network.AWS.DMS.DescribeOrderableReplicationInstances
+import Network.AWS.DMS.DescribeRefreshSchemasStatus
+import Network.AWS.DMS.DescribeReplicationInstances
+import Network.AWS.DMS.DescribeReplicationSubnetGroups
+import Network.AWS.DMS.DescribeReplicationTasks
+import Network.AWS.DMS.DescribeSchemas
+import Network.AWS.DMS.DescribeTableStatistics
+import Network.AWS.DMS.ImportCertificate
+import Network.AWS.DMS.ListTagsForResource
+import Network.AWS.DMS.ModifyEndpoint
+import Network.AWS.DMS.ModifyEventSubscription
+import Network.AWS.DMS.ModifyReplicationInstance
+import Network.AWS.DMS.ModifyReplicationSubnetGroup
+import Network.AWS.DMS.ModifyReplicationTask
+import Network.AWS.DMS.RefreshSchemas
+import Network.AWS.DMS.ReloadTables
+import Network.AWS.DMS.RemoveTagsFromResource
+import Network.AWS.DMS.StartReplicationTask
+import Network.AWS.DMS.StopReplicationTask
+import Network.AWS.DMS.TestConnection
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

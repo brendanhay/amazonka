@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheEngineVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     , dcevrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DescribeCacheEngineVersions@ operation.
 --
@@ -59,13 +59,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCacheEngineVersions' smart constructor.
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
-    { _dcevEngineVersion             :: !(Maybe Text)
-    , _dcevCacheParameterGroupFamily :: !(Maybe Text)
-    , _dcevDefaultOnly               :: !(Maybe Bool)
-    , _dcevEngine                    :: !(Maybe Text)
-    , _dcevMarker                    :: !(Maybe Text)
-    , _dcevMaxRecords                :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcevEngineVersion             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcevCacheParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcevDefaultOnly               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcevEngine                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcevMarker                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcevMaxRecords                :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheEngineVersions' with the minimum fields required to make a request.
 --
@@ -85,14 +86,15 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
 describeCacheEngineVersions
     :: DescribeCacheEngineVersions
 describeCacheEngineVersions =
-    DescribeCacheEngineVersions'
-    { _dcevEngineVersion = Nothing
-    , _dcevCacheParameterGroupFamily = Nothing
-    , _dcevDefaultOnly = Nothing
-    , _dcevEngine = Nothing
-    , _dcevMarker = Nothing
-    , _dcevMaxRecords = Nothing
-    }
+  DescribeCacheEngineVersions'
+  { _dcevEngineVersion = Nothing
+  , _dcevCacheParameterGroupFamily = Nothing
+  , _dcevDefaultOnly = Nothing
+  , _dcevEngine = Nothing
+  , _dcevMarker = Nothing
+  , _dcevMaxRecords = Nothing
+  }
+
 
 -- | The cache engine version to return. Example: @1.4.14@
 dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
@@ -139,9 +141,9 @@ instance AWSRequest DescribeCacheEngineVersions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCacheEngineVersions
+instance Hashable DescribeCacheEngineVersions where
 
-instance NFData DescribeCacheEngineVersions
+instance NFData DescribeCacheEngineVersions where
 
 instance ToHeaders DescribeCacheEngineVersions where
         toHeaders = const mempty
@@ -168,10 +170,11 @@ instance ToQuery DescribeCacheEngineVersions where
 --
 -- /See:/ 'describeCacheEngineVersionsResponse' smart constructor.
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
-    { _dcevrsCacheEngineVersions :: !(Maybe [CacheEngineVersion])
-    , _dcevrsMarker              :: !(Maybe Text)
-    , _dcevrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcevrsCacheEngineVersions :: {-# NOUNPACK #-}!(Maybe [CacheEngineVersion])
+  , _dcevrsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcevrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCacheEngineVersionsResponse' with the minimum fields required to make a request.
 --
@@ -186,11 +189,12 @@ describeCacheEngineVersionsResponse
     :: Int -- ^ 'dcevrsResponseStatus'
     -> DescribeCacheEngineVersionsResponse
 describeCacheEngineVersionsResponse pResponseStatus_ =
-    DescribeCacheEngineVersionsResponse'
-    { _dcevrsCacheEngineVersions = Nothing
-    , _dcevrsMarker = Nothing
-    , _dcevrsResponseStatus = pResponseStatus_
-    }
+  DescribeCacheEngineVersionsResponse'
+  { _dcevrsCacheEngineVersions = Nothing
+  , _dcevrsMarker = Nothing
+  , _dcevrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of cache engine version details. Each element in the list contains detailed information about one cache engine version.
 dcevrsCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
@@ -205,3 +209,4 @@ dcevrsResponseStatus :: Lens' DescribeCacheEngineVersionsResponse Int
 dcevrsResponseStatus = lens _dcevrsResponseStatus (\ s a -> s{_dcevrsResponseStatus = a});
 
 instance NFData DescribeCacheEngineVersionsResponse
+         where

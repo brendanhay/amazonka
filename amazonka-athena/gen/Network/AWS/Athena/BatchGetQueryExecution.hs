@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.BatchGetQueryExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Athena.BatchGetQueryExecution
     , bgqersResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchGetQueryExecution' smart constructor.
 newtype BatchGetQueryExecution = BatchGetQueryExecution'
-    { _bgqeQueryExecutionIds :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgqeQueryExecutionIds :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetQueryExecution' with the minimum fields required to make a request.
 --
@@ -59,9 +60,9 @@ batchGetQueryExecution
     :: NonEmpty Text -- ^ 'bgqeQueryExecutionIds'
     -> BatchGetQueryExecution
 batchGetQueryExecution pQueryExecutionIds_ =
-    BatchGetQueryExecution'
-    { _bgqeQueryExecutionIds = _List1 # pQueryExecutionIds_
-    }
+  BatchGetQueryExecution'
+  {_bgqeQueryExecutionIds = _List1 # pQueryExecutionIds_}
+
 
 -- | An array of query execution IDs.
 bgqeQueryExecutionIds :: Lens' BatchGetQueryExecution (NonEmpty Text)
@@ -79,9 +80,9 @@ instance AWSRequest BatchGetQueryExecution where
                      (x .?> "QueryExecutions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetQueryExecution
+instance Hashable BatchGetQueryExecution where
 
-instance NFData BatchGetQueryExecution
+instance NFData BatchGetQueryExecution where
 
 instance ToHeaders BatchGetQueryExecution where
         toHeaders
@@ -108,10 +109,11 @@ instance ToQuery BatchGetQueryExecution where
 
 -- | /See:/ 'batchGetQueryExecutionResponse' smart constructor.
 data BatchGetQueryExecutionResponse = BatchGetQueryExecutionResponse'
-    { _bgqersUnprocessedQueryExecutionIds :: !(Maybe [UnprocessedQueryExecutionId])
-    , _bgqersQueryExecutions              :: !(Maybe [QueryExecution])
-    , _bgqersResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgqersUnprocessedQueryExecutionIds :: {-# NOUNPACK #-}!(Maybe [UnprocessedQueryExecutionId])
+  , _bgqersQueryExecutions :: {-# NOUNPACK #-}!(Maybe [QueryExecution])
+  , _bgqersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetQueryExecutionResponse' with the minimum fields required to make a request.
 --
@@ -126,11 +128,12 @@ batchGetQueryExecutionResponse
     :: Int -- ^ 'bgqersResponseStatus'
     -> BatchGetQueryExecutionResponse
 batchGetQueryExecutionResponse pResponseStatus_ =
-    BatchGetQueryExecutionResponse'
-    { _bgqersUnprocessedQueryExecutionIds = Nothing
-    , _bgqersQueryExecutions = Nothing
-    , _bgqersResponseStatus = pResponseStatus_
-    }
+  BatchGetQueryExecutionResponse'
+  { _bgqersUnprocessedQueryExecutionIds = Nothing
+  , _bgqersQueryExecutions = Nothing
+  , _bgqersResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the query executions that failed to run.
 bgqersUnprocessedQueryExecutionIds :: Lens' BatchGetQueryExecutionResponse [UnprocessedQueryExecutionId]
@@ -144,4 +147,4 @@ bgqersQueryExecutions = lens _bgqersQueryExecutions (\ s a -> s{_bgqersQueryExec
 bgqersResponseStatus :: Lens' BatchGetQueryExecutionResponse Int
 bgqersResponseStatus = lens _bgqersResponseStatus (\ s a -> s{_bgqersResponseStatus = a});
 
-instance NFData BatchGetQueryExecutionResponse
+instance NFData BatchGetQueryExecutionResponse where

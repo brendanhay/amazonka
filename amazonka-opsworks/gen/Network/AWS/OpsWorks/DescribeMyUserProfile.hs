@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeMyUserProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,23 +37,25 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     , dmuprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeMyUserProfile' smart constructor.
 data DescribeMyUserProfile =
-    DescribeMyUserProfile'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeMyUserProfile'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMyUserProfile' with the minimum fields required to make a request.
 --
 describeMyUserProfile
     :: DescribeMyUserProfile
 describeMyUserProfile = DescribeMyUserProfile'
+
 
 instance AWSRequest DescribeMyUserProfile where
         type Rs DescribeMyUserProfile =
@@ -65,9 +67,9 @@ instance AWSRequest DescribeMyUserProfile where
                  DescribeMyUserProfileResponse' <$>
                    (x .?> "UserProfile") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeMyUserProfile
+instance Hashable DescribeMyUserProfile where
 
-instance NFData DescribeMyUserProfile
+instance NFData DescribeMyUserProfile where
 
 instance ToHeaders DescribeMyUserProfile where
         toHeaders
@@ -94,9 +96,10 @@ instance ToQuery DescribeMyUserProfile where
 --
 -- /See:/ 'describeMyUserProfileResponse' smart constructor.
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
-    { _dmuprsUserProfile    :: !(Maybe SelfUserProfile)
-    , _dmuprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmuprsUserProfile    :: {-# NOUNPACK #-}!(Maybe SelfUserProfile)
+  , _dmuprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMyUserProfileResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +112,9 @@ describeMyUserProfileResponse
     :: Int -- ^ 'dmuprsResponseStatus'
     -> DescribeMyUserProfileResponse
 describeMyUserProfileResponse pResponseStatus_ =
-    DescribeMyUserProfileResponse'
-    { _dmuprsUserProfile = Nothing
-    , _dmuprsResponseStatus = pResponseStatus_
-    }
+  DescribeMyUserProfileResponse'
+  {_dmuprsUserProfile = Nothing, _dmuprsResponseStatus = pResponseStatus_}
+
 
 -- | A @UserProfile@ object that describes the user's SSH information.
 dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
@@ -122,4 +124,4 @@ dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a})
 dmuprsResponseStatus :: Lens' DescribeMyUserProfileResponse Int
 dmuprsResponseStatus = lens _dmuprsResponseStatus (\ s a -> s{_dmuprsResponseStatus = a});
 
-instance NFData DescribeMyUserProfileResponse
+instance NFData DescribeMyUserProfileResponse where

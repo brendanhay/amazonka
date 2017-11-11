@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.RemoveAllResourcePermissions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.WorkDocs.RemoveAllResourcePermissions
     , RemoveAllResourcePermissionsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'removeAllResourcePermissions' smart constructor.
 data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
-    { _rarpAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _rarpResourceId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rarpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _rarpResourceId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveAllResourcePermissions' with the minimum fields required to make a request.
 --
@@ -59,10 +60,9 @@ removeAllResourcePermissions
     :: Text -- ^ 'rarpResourceId'
     -> RemoveAllResourcePermissions
 removeAllResourcePermissions pResourceId_ =
-    RemoveAllResourcePermissions'
-    { _rarpAuthenticationToken = Nothing
-    , _rarpResourceId = pResourceId_
-    }
+  RemoveAllResourcePermissions'
+  {_rarpAuthenticationToken = Nothing, _rarpResourceId = pResourceId_}
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 rarpAuthenticationToken :: Lens' RemoveAllResourcePermissions (Maybe Text)
@@ -80,9 +80,9 @@ instance AWSRequest RemoveAllResourcePermissions
         response
           = receiveNull RemoveAllResourcePermissionsResponse'
 
-instance Hashable RemoveAllResourcePermissions
+instance Hashable RemoveAllResourcePermissions where
 
-instance NFData RemoveAllResourcePermissions
+instance NFData RemoveAllResourcePermissions where
 
 instance ToHeaders RemoveAllResourcePermissions where
         toHeaders RemoveAllResourcePermissions'{..}
@@ -102,8 +102,9 @@ instance ToQuery RemoveAllResourcePermissions where
 
 -- | /See:/ 'removeAllResourcePermissionsResponse' smart constructor.
 data RemoveAllResourcePermissionsResponse =
-    RemoveAllResourcePermissionsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveAllResourcePermissionsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveAllResourcePermissionsResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +112,6 @@ removeAllResourcePermissionsResponse
     :: RemoveAllResourcePermissionsResponse
 removeAllResourcePermissionsResponse = RemoveAllResourcePermissionsResponse'
 
+
 instance NFData RemoveAllResourcePermissionsResponse
+         where

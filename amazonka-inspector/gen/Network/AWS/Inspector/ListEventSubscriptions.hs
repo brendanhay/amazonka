@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListEventSubscriptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Inspector.ListEventSubscriptions
     , lesrsSubscriptions
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listEventSubscriptions' smart constructor.
 data ListEventSubscriptions = ListEventSubscriptions'
-    { _lesNextToken   :: !(Maybe Text)
-    , _lesResourceARN :: !(Maybe Text)
-    , _lesMaxResults  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lesNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lesResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lesMaxResults  :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListEventSubscriptions' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data ListEventSubscriptions = ListEventSubscriptions'
 listEventSubscriptions
     :: ListEventSubscriptions
 listEventSubscriptions =
-    ListEventSubscriptions'
-    { _lesNextToken = Nothing
-    , _lesResourceARN = Nothing
-    , _lesMaxResults = Nothing
-    }
+  ListEventSubscriptions'
+  {_lesNextToken = Nothing, _lesResourceARN = Nothing, _lesMaxResults = Nothing}
+
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 lesNextToken :: Lens' ListEventSubscriptions (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest ListEventSubscriptions where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "subscriptions" .!@ mempty))
 
-instance Hashable ListEventSubscriptions
+instance Hashable ListEventSubscriptions where
 
-instance NFData ListEventSubscriptions
+instance NFData ListEventSubscriptions where
 
 instance ToHeaders ListEventSubscriptions where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery ListEventSubscriptions where
 
 -- | /See:/ 'listEventSubscriptionsResponse' smart constructor.
 data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
-    { _lesrsNextToken      :: !(Maybe Text)
-    , _lesrsResponseStatus :: !Int
-    , _lesrsSubscriptions  :: ![Subscription]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lesrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lesrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lesrsSubscriptions  :: {-# NOUNPACK #-}![Subscription]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListEventSubscriptionsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ listEventSubscriptionsResponse
     :: Int -- ^ 'lesrsResponseStatus'
     -> ListEventSubscriptionsResponse
 listEventSubscriptionsResponse pResponseStatus_ =
-    ListEventSubscriptionsResponse'
-    { _lesrsNextToken = Nothing
-    , _lesrsResponseStatus = pResponseStatus_
-    , _lesrsSubscriptions = mempty
-    }
+  ListEventSubscriptionsResponse'
+  { _lesrsNextToken = Nothing
+  , _lesrsResponseStatus = pResponseStatus_
+  , _lesrsSubscriptions = mempty
+  }
+
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 lesrsNextToken :: Lens' ListEventSubscriptionsResponse (Maybe Text)
@@ -161,4 +162,4 @@ lesrsResponseStatus = lens _lesrsResponseStatus (\ s a -> s{_lesrsResponseStatus
 lesrsSubscriptions :: Lens' ListEventSubscriptionsResponse [Subscription]
 lesrsSubscriptions = lens _lesrsSubscriptions (\ s a -> s{_lesrsSubscriptions = a}) . _Coerce;
 
-instance NFData ListEventSubscriptionsResponse
+instance NFData ListEventSubscriptionsResponse where

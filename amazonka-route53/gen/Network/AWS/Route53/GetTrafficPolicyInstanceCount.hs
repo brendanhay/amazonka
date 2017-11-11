@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetTrafficPolicyInstanceCount
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.Route53.GetTrafficPolicyInstanceCount
     , gtpicrsTrafficPolicyInstanceCount
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | Request to get the number of traffic policy instances that are associated with the current AWS account.
 --
@@ -48,14 +48,16 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount =
-    GetTrafficPolicyInstanceCount'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetTrafficPolicyInstanceCount'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTrafficPolicyInstanceCount' with the minimum fields required to make a request.
 --
 getTrafficPolicyInstanceCount
     :: GetTrafficPolicyInstanceCount
 getTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
+
 
 instance AWSRequest GetTrafficPolicyInstanceCount
          where
@@ -69,9 +71,9 @@ instance AWSRequest GetTrafficPolicyInstanceCount
                    (pure (fromEnum s)) <*>
                      (x .@ "TrafficPolicyInstanceCount"))
 
-instance Hashable GetTrafficPolicyInstanceCount
+instance Hashable GetTrafficPolicyInstanceCount where
 
-instance NFData GetTrafficPolicyInstanceCount
+instance NFData GetTrafficPolicyInstanceCount where
 
 instance ToHeaders GetTrafficPolicyInstanceCount
          where
@@ -90,9 +92,10 @@ instance ToQuery GetTrafficPolicyInstanceCount where
 --
 -- /See:/ 'getTrafficPolicyInstanceCountResponse' smart constructor.
 data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountResponse'
-    { _gtpicrsResponseStatus             :: !Int
-    , _gtpicrsTrafficPolicyInstanceCount :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtpicrsResponseStatus             :: {-# NOUNPACK #-}!Int
+  , _gtpicrsTrafficPolicyInstanceCount :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTrafficPolicyInstanceCountResponse' with the minimum fields required to make a request.
 --
@@ -106,10 +109,11 @@ getTrafficPolicyInstanceCountResponse
     -> Int -- ^ 'gtpicrsTrafficPolicyInstanceCount'
     -> GetTrafficPolicyInstanceCountResponse
 getTrafficPolicyInstanceCountResponse pResponseStatus_ pTrafficPolicyInstanceCount_ =
-    GetTrafficPolicyInstanceCountResponse'
-    { _gtpicrsResponseStatus = pResponseStatus_
-    , _gtpicrsTrafficPolicyInstanceCount = pTrafficPolicyInstanceCount_
-    }
+  GetTrafficPolicyInstanceCountResponse'
+  { _gtpicrsResponseStatus = pResponseStatus_
+  , _gtpicrsTrafficPolicyInstanceCount = pTrafficPolicyInstanceCount_
+  }
+
 
 -- | -- | The response status code.
 gtpicrsResponseStatus :: Lens' GetTrafficPolicyInstanceCountResponse Int
@@ -120,3 +124,4 @@ gtpicrsTrafficPolicyInstanceCount :: Lens' GetTrafficPolicyInstanceCountResponse
 gtpicrsTrafficPolicyInstanceCount = lens _gtpicrsTrafficPolicyInstanceCount (\ s a -> s{_gtpicrsTrafficPolicyInstanceCount = a});
 
 instance NFData GetTrafficPolicyInstanceCountResponse
+         where

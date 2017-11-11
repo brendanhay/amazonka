@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateDatabase
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Glue.CreateDatabase
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDatabase' smart constructor.
 data CreateDatabase = CreateDatabase'
-    { _cdCatalogId     :: !(Maybe Text)
-    , _cdDatabaseInput :: !DatabaseInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdCatalogId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdDatabaseInput :: {-# NOUNPACK #-}!DatabaseInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDatabase' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ createDatabase
     :: DatabaseInput -- ^ 'cdDatabaseInput'
     -> CreateDatabase
 createDatabase pDatabaseInput_ =
-    CreateDatabase'
-    { _cdCatalogId = Nothing
-    , _cdDatabaseInput = pDatabaseInput_
-    }
+  CreateDatabase' {_cdCatalogId = Nothing, _cdDatabaseInput = pDatabaseInput_}
+
 
 -- | The ID of the Data Catalog in which to create the database. If none is supplied, the AWS account ID is used by default.
 cdCatalogId :: Lens' CreateDatabase (Maybe Text)
@@ -82,9 +81,9 @@ instance AWSRequest CreateDatabase where
               (\ s h x ->
                  CreateDatabaseResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateDatabase
+instance Hashable CreateDatabase where
 
-instance NFData CreateDatabase
+instance NFData CreateDatabase where
 
 instance ToHeaders CreateDatabase where
         toHeaders
@@ -110,8 +109,9 @@ instance ToQuery CreateDatabase where
 
 -- | /See:/ 'createDatabaseResponse' smart constructor.
 newtype CreateDatabaseResponse = CreateDatabaseResponse'
-    { _cdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDatabaseResponse' with the minimum fields required to make a request.
 --
@@ -122,12 +122,11 @@ createDatabaseResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDatabaseResponse
 createDatabaseResponse pResponseStatus_ =
-    CreateDatabaseResponse'
-    { _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDatabaseResponse' {_cdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDatabaseResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDatabaseResponse
+instance NFData CreateDatabaseResponse where

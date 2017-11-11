@@ -7,41 +7,44 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.Waiters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Kinesis.Waiters where
 
-import           Network.AWS.Kinesis.DescribeStream
-import           Network.AWS.Kinesis.DescribeStream
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.Types
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
 streamExists :: Wait DescribeStream
 streamExists =
-    Wait
-    { _waitName = "StreamExists"
-    , _waitAttempts = 18
-    , _waitDelay = 10
-    , _waitAcceptors = [ matchAll
-                             "ACTIVE"
-                             AcceptSuccess
-                             (dsrsStreamDescription .
-                              sdStreamStatus . to toTextCI)]
-    }
+  Wait
+  { _waitName = "StreamExists"
+  , _waitAttempts = 18
+  , _waitDelay = 10
+  , _waitAcceptors =
+      [ matchAll
+          "ACTIVE"
+          AcceptSuccess
+          (dsrsStreamDescription . sdStreamStatus . to toTextCI)
+      ]
+  }
+
 
 -- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
 streamNotExists :: Wait DescribeStream
 streamNotExists =
-    Wait
-    { _waitName = "StreamNotExists"
-    , _waitAttempts = 18
-    , _waitDelay = 10
-    , _waitAcceptors = [matchError "ResourceNotFoundException" AcceptSuccess]
-    }
+  Wait
+  { _waitName = "StreamNotExists"
+  , _waitAttempts = 18
+  , _waitDelay = 10
+  , _waitAcceptors = [matchError "ResourceNotFoundException" AcceptSuccess]
+  }
+

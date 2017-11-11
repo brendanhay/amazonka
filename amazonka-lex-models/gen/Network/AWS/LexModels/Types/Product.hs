@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.LexModels.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types.Sum
+import Network.AWS.Prelude
 
 -- | Provides information about a bot alias.
 --
@@ -27,14 +27,15 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'botAliasMetadata' smart constructor.
 data BotAliasMetadata = BotAliasMetadata'
-    { _bamChecksum        :: !(Maybe Text)
-    , _bamBotVersion      :: !(Maybe Text)
-    , _bamBotName         :: !(Maybe Text)
-    , _bamCreatedDate     :: !(Maybe POSIX)
-    , _bamName            :: !(Maybe Text)
-    , _bamLastUpdatedDate :: !(Maybe POSIX)
-    , _bamDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bamChecksum        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bamBotVersion      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bamBotName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bamCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bamName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bamLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bamDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BotAliasMetadata' with the minimum fields required to make a request.
 --
@@ -56,15 +57,16 @@ data BotAliasMetadata = BotAliasMetadata'
 botAliasMetadata
     :: BotAliasMetadata
 botAliasMetadata =
-    BotAliasMetadata'
-    { _bamChecksum = Nothing
-    , _bamBotVersion = Nothing
-    , _bamBotName = Nothing
-    , _bamCreatedDate = Nothing
-    , _bamName = Nothing
-    , _bamLastUpdatedDate = Nothing
-    , _bamDescription = Nothing
-    }
+  BotAliasMetadata'
+  { _bamChecksum = Nothing
+  , _bamBotVersion = Nothing
+  , _bamBotName = Nothing
+  , _bamCreatedDate = Nothing
+  , _bamName = Nothing
+  , _bamLastUpdatedDate = Nothing
+  , _bamDescription = Nothing
+  }
+
 
 -- | Checksum of the bot alias.
 bamChecksum :: Lens' BotAliasMetadata (Maybe Text)
@@ -106,9 +108,9 @@ instance FromJSON BotAliasMetadata where
                      <*> (x .:? "lastUpdatedDate")
                      <*> (x .:? "description"))
 
-instance Hashable BotAliasMetadata
+instance Hashable BotAliasMetadata where
 
-instance NFData BotAliasMetadata
+instance NFData BotAliasMetadata where
 
 -- | Represents an association between an Amazon Lex bot and an external messaging platform.
 --
@@ -116,14 +118,15 @@ instance NFData BotAliasMetadata
 --
 -- /See:/ 'botChannelAssociation' smart constructor.
 data BotChannelAssociation = BotChannelAssociation'
-    { _bcaBotAlias         :: !(Maybe Text)
-    , _bcaBotName          :: !(Maybe Text)
-    , _bcaBotConfiguration :: !(Maybe (Map Text Text))
-    , _bcaCreatedDate      :: !(Maybe POSIX)
-    , _bcaName             :: !(Maybe Text)
-    , _bcaType             :: !(Maybe ChannelType)
-    , _bcaDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bcaBotAlias         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bcaBotName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bcaBotConfiguration :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _bcaCreatedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bcaName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bcaType             :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  , _bcaDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BotChannelAssociation' with the minimum fields required to make a request.
 --
@@ -145,15 +148,16 @@ data BotChannelAssociation = BotChannelAssociation'
 botChannelAssociation
     :: BotChannelAssociation
 botChannelAssociation =
-    BotChannelAssociation'
-    { _bcaBotAlias = Nothing
-    , _bcaBotName = Nothing
-    , _bcaBotConfiguration = Nothing
-    , _bcaCreatedDate = Nothing
-    , _bcaName = Nothing
-    , _bcaType = Nothing
-    , _bcaDescription = Nothing
-    }
+  BotChannelAssociation'
+  { _bcaBotAlias = Nothing
+  , _bcaBotName = Nothing
+  , _bcaBotConfiguration = Nothing
+  , _bcaCreatedDate = Nothing
+  , _bcaName = Nothing
+  , _bcaType = Nothing
+  , _bcaDescription = Nothing
+  }
+
 
 -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
 bcaBotAlias :: Lens' BotChannelAssociation (Maybe Text)
@@ -195,9 +199,9 @@ instance FromJSON BotChannelAssociation where
                      <*> (x .:? "type")
                      <*> (x .:? "description"))
 
-instance Hashable BotChannelAssociation
+instance Hashable BotChannelAssociation where
 
-instance NFData BotChannelAssociation
+instance NFData BotChannelAssociation where
 
 -- | Provides information about a bot. .
 --
@@ -205,13 +209,14 @@ instance NFData BotChannelAssociation
 --
 -- /See:/ 'botMetadata' smart constructor.
 data BotMetadata = BotMetadata'
-    { _bmStatus          :: !(Maybe LexStatus)
-    , _bmCreatedDate     :: !(Maybe POSIX)
-    , _bmName            :: !(Maybe Text)
-    , _bmVersion         :: !(Maybe Text)
-    , _bmLastUpdatedDate :: !(Maybe POSIX)
-    , _bmDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bmStatus          :: {-# NOUNPACK #-}!(Maybe LexStatus)
+  , _bmCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bmName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bmVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bmLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bmDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BotMetadata' with the minimum fields required to make a request.
 --
@@ -231,14 +236,15 @@ data BotMetadata = BotMetadata'
 botMetadata
     :: BotMetadata
 botMetadata =
-    BotMetadata'
-    { _bmStatus = Nothing
-    , _bmCreatedDate = Nothing
-    , _bmName = Nothing
-    , _bmVersion = Nothing
-    , _bmLastUpdatedDate = Nothing
-    , _bmDescription = Nothing
-    }
+  BotMetadata'
+  { _bmStatus = Nothing
+  , _bmCreatedDate = Nothing
+  , _bmName = Nothing
+  , _bmVersion = Nothing
+  , _bmLastUpdatedDate = Nothing
+  , _bmDescription = Nothing
+  }
+
 
 -- | The status of the bot.
 bmStatus :: Lens' BotMetadata (Maybe LexStatus)
@@ -275,9 +281,9 @@ instance FromJSON BotMetadata where
                      <*> (x .:? "lastUpdatedDate")
                      <*> (x .:? "description"))
 
-instance Hashable BotMetadata
+instance Hashable BotMetadata where
 
-instance NFData BotMetadata
+instance NFData BotMetadata where
 
 -- | Provides metadata for a built-in intent.
 --
@@ -285,9 +291,10 @@ instance NFData BotMetadata
 --
 -- /See:/ 'builtinIntentMetadata' smart constructor.
 data BuiltinIntentMetadata = BuiltinIntentMetadata'
-    { _bimSignature        :: !(Maybe Text)
-    , _bimSupportedLocales :: !(Maybe [Locale])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bimSignature        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bimSupportedLocales :: {-# NOUNPACK #-}!(Maybe [Locale])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BuiltinIntentMetadata' with the minimum fields required to make a request.
 --
@@ -299,10 +306,9 @@ data BuiltinIntentMetadata = BuiltinIntentMetadata'
 builtinIntentMetadata
     :: BuiltinIntentMetadata
 builtinIntentMetadata =
-    BuiltinIntentMetadata'
-    { _bimSignature = Nothing
-    , _bimSupportedLocales = Nothing
-    }
+  BuiltinIntentMetadata'
+  {_bimSignature = Nothing, _bimSupportedLocales = Nothing}
+
 
 -- | A unique identifier for the built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
 bimSignature :: Lens' BuiltinIntentMetadata (Maybe Text)
@@ -320,9 +326,9 @@ instance FromJSON BuiltinIntentMetadata where
                    (x .:? "signature") <*>
                      (x .:? "supportedLocales" .!= mempty))
 
-instance Hashable BuiltinIntentMetadata
+instance Hashable BuiltinIntentMetadata where
 
-instance NFData BuiltinIntentMetadata
+instance NFData BuiltinIntentMetadata where
 
 -- | Provides information about a slot used in a built-in intent.
 --
@@ -330,8 +336,9 @@ instance NFData BuiltinIntentMetadata
 --
 -- /See:/ 'builtinIntentSlot' smart constructor.
 newtype BuiltinIntentSlot = BuiltinIntentSlot'
-    { _bisName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bisName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BuiltinIntentSlot' with the minimum fields required to make a request.
 --
@@ -340,10 +347,8 @@ newtype BuiltinIntentSlot = BuiltinIntentSlot'
 -- * 'bisName' - A list of the slots defined for the intent.
 builtinIntentSlot
     :: BuiltinIntentSlot
-builtinIntentSlot =
-    BuiltinIntentSlot'
-    { _bisName = Nothing
-    }
+builtinIntentSlot = BuiltinIntentSlot' {_bisName = Nothing}
+
 
 -- | A list of the slots defined for the intent.
 bisName :: Lens' BuiltinIntentSlot (Maybe Text)
@@ -354,9 +359,9 @@ instance FromJSON BuiltinIntentSlot where
           = withObject "BuiltinIntentSlot"
               (\ x -> BuiltinIntentSlot' <$> (x .:? "name"))
 
-instance Hashable BuiltinIntentSlot
+instance Hashable BuiltinIntentSlot where
 
-instance NFData BuiltinIntentSlot
+instance NFData BuiltinIntentSlot where
 
 -- | Provides information about a built in slot type.
 --
@@ -364,9 +369,10 @@ instance NFData BuiltinIntentSlot
 --
 -- /See:/ 'builtinSlotTypeMetadata' smart constructor.
 data BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata'
-    { _bstmSignature        :: !(Maybe Text)
-    , _bstmSupportedLocales :: !(Maybe [Locale])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bstmSignature        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bstmSupportedLocales :: {-# NOUNPACK #-}!(Maybe [Locale])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BuiltinSlotTypeMetadata' with the minimum fields required to make a request.
 --
@@ -378,10 +384,9 @@ data BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata'
 builtinSlotTypeMetadata
     :: BuiltinSlotTypeMetadata
 builtinSlotTypeMetadata =
-    BuiltinSlotTypeMetadata'
-    { _bstmSignature = Nothing
-    , _bstmSupportedLocales = Nothing
-    }
+  BuiltinSlotTypeMetadata'
+  {_bstmSignature = Nothing, _bstmSupportedLocales = Nothing}
+
 
 -- | A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
 bstmSignature :: Lens' BuiltinSlotTypeMetadata (Maybe Text)
@@ -399,9 +404,9 @@ instance FromJSON BuiltinSlotTypeMetadata where
                    (x .:? "signature") <*>
                      (x .:? "supportedLocales" .!= mempty))
 
-instance Hashable BuiltinSlotTypeMetadata
+instance Hashable BuiltinSlotTypeMetadata where
 
-instance NFData BuiltinSlotTypeMetadata
+instance NFData BuiltinSlotTypeMetadata where
 
 -- | Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot..
 --
@@ -409,9 +414,10 @@ instance NFData BuiltinSlotTypeMetadata
 --
 -- /See:/ 'codeHook' smart constructor.
 data CodeHook = CodeHook'
-    { _chUri            :: !Text
-    , _chMessageVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chUri            :: {-# NOUNPACK #-}!Text
+  , _chMessageVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CodeHook' with the minimum fields required to make a request.
 --
@@ -425,10 +431,8 @@ codeHook
     -> Text -- ^ 'chMessageVersion'
     -> CodeHook
 codeHook pUri_ pMessageVersion_ =
-    CodeHook'
-    { _chUri = pUri_
-    , _chMessageVersion = pMessageVersion_
-    }
+  CodeHook' {_chUri = pUri_, _chMessageVersion = pMessageVersion_}
+
 
 -- | The Amazon Resource Name (ARN) of the Lambda function.
 chUri :: Lens' CodeHook Text
@@ -445,9 +449,9 @@ instance FromJSON CodeHook where
                  CodeHook' <$>
                    (x .: "uri") <*> (x .: "messageVersion"))
 
-instance Hashable CodeHook
+instance Hashable CodeHook where
 
-instance NFData CodeHook
+instance NFData CodeHook where
 
 instance ToJSON CodeHook where
         toJSON CodeHook'{..}
@@ -472,8 +476,9 @@ instance ToJSON CodeHook where
 --
 -- /See:/ 'enumerationValue' smart constructor.
 newtype EnumerationValue = EnumerationValue'
-    { _evValue :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evValue :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnumerationValue' with the minimum fields required to make a request.
 --
@@ -483,10 +488,8 @@ newtype EnumerationValue = EnumerationValue'
 enumerationValue
     :: Text -- ^ 'evValue'
     -> EnumerationValue
-enumerationValue pValue_ =
-    EnumerationValue'
-    { _evValue = pValue_
-    }
+enumerationValue pValue_ = EnumerationValue' {_evValue = pValue_}
+
 
 -- | The value of the slot type.
 evValue :: Lens' EnumerationValue Text
@@ -497,9 +500,9 @@ instance FromJSON EnumerationValue where
           = withObject "EnumerationValue"
               (\ x -> EnumerationValue' <$> (x .: "value"))
 
-instance Hashable EnumerationValue
+instance Hashable EnumerationValue where
 
-instance NFData EnumerationValue
+instance NFData EnumerationValue where
 
 instance ToJSON EnumerationValue where
         toJSON EnumerationValue'{..}
@@ -511,9 +514,10 @@ instance ToJSON EnumerationValue where
 --
 -- /See:/ 'followUpPrompt' smart constructor.
 data FollowUpPrompt = FollowUpPrompt'
-    { _fupPrompt             :: !Prompt
-    , _fupRejectionStatement :: !Statement
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fupPrompt             :: {-# NOUNPACK #-}!Prompt
+  , _fupRejectionStatement :: {-# NOUNPACK #-}!Statement
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FollowUpPrompt' with the minimum fields required to make a request.
 --
@@ -527,10 +531,9 @@ followUpPrompt
     -> Statement -- ^ 'fupRejectionStatement'
     -> FollowUpPrompt
 followUpPrompt pPrompt_ pRejectionStatement_ =
-    FollowUpPrompt'
-    { _fupPrompt = pPrompt_
-    , _fupRejectionStatement = pRejectionStatement_
-    }
+  FollowUpPrompt'
+  {_fupPrompt = pPrompt_, _fupRejectionStatement = pRejectionStatement_}
+
 
 -- | Prompts for information from the user.
 fupPrompt :: Lens' FollowUpPrompt Prompt
@@ -547,9 +550,9 @@ instance FromJSON FollowUpPrompt where
                  FollowUpPrompt' <$>
                    (x .: "prompt") <*> (x .: "rejectionStatement"))
 
-instance Hashable FollowUpPrompt
+instance Hashable FollowUpPrompt where
 
-instance NFData FollowUpPrompt
+instance NFData FollowUpPrompt where
 
 instance ToJSON FollowUpPrompt where
         toJSON FollowUpPrompt'{..}
@@ -573,9 +576,10 @@ instance ToJSON FollowUpPrompt where
 --
 -- /See:/ 'fulfillmentActivity' smart constructor.
 data FulfillmentActivity = FulfillmentActivity'
-    { _faCodeHook :: !(Maybe CodeHook)
-    , _faType     :: !FulfillmentActivityType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _faCodeHook :: {-# NOUNPACK #-}!(Maybe CodeHook)
+  , _faType     :: {-# NOUNPACK #-}!FulfillmentActivityType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FulfillmentActivity' with the minimum fields required to make a request.
 --
@@ -588,10 +592,8 @@ fulfillmentActivity
     :: FulfillmentActivityType -- ^ 'faType'
     -> FulfillmentActivity
 fulfillmentActivity pType_ =
-    FulfillmentActivity'
-    { _faCodeHook = Nothing
-    , _faType = pType_
-    }
+  FulfillmentActivity' {_faCodeHook = Nothing, _faType = pType_}
+
 
 -- | A description of the Lambda function that is run to fulfill the intent.
 faCodeHook :: Lens' FulfillmentActivity (Maybe CodeHook)
@@ -608,9 +610,9 @@ instance FromJSON FulfillmentActivity where
                  FulfillmentActivity' <$>
                    (x .:? "codeHook") <*> (x .: "type"))
 
-instance Hashable FulfillmentActivity
+instance Hashable FulfillmentActivity where
 
-instance NFData FulfillmentActivity
+instance NFData FulfillmentActivity where
 
 instance ToJSON FulfillmentActivity where
         toJSON FulfillmentActivity'{..}
@@ -625,9 +627,10 @@ instance ToJSON FulfillmentActivity where
 --
 -- /See:/ 'intent' smart constructor.
 data Intent = Intent'
-    { _iIntentName    :: !Text
-    , _iIntentVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iIntentName    :: {-# NOUNPACK #-}!Text
+  , _iIntentVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Intent' with the minimum fields required to make a request.
 --
@@ -641,10 +644,8 @@ intent
     -> Text -- ^ 'iIntentVersion'
     -> Intent
 intent pIntentName_ pIntentVersion_ =
-    Intent'
-    { _iIntentName = pIntentName_
-    , _iIntentVersion = pIntentVersion_
-    }
+  Intent' {_iIntentName = pIntentName_, _iIntentVersion = pIntentVersion_}
+
 
 -- | The name of the intent.
 iIntentName :: Lens' Intent Text
@@ -661,9 +662,9 @@ instance FromJSON Intent where
                  Intent' <$>
                    (x .: "intentName") <*> (x .: "intentVersion"))
 
-instance Hashable Intent
+instance Hashable Intent where
 
-instance NFData Intent
+instance NFData Intent where
 
 instance ToJSON Intent where
         toJSON Intent'{..}
@@ -678,12 +679,13 @@ instance ToJSON Intent where
 --
 -- /See:/ 'intentMetadata' smart constructor.
 data IntentMetadata = IntentMetadata'
-    { _imCreatedDate     :: !(Maybe POSIX)
-    , _imName            :: !(Maybe Text)
-    , _imVersion         :: !(Maybe Text)
-    , _imLastUpdatedDate :: !(Maybe POSIX)
-    , _imDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _imCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _imName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _imVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _imLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _imDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IntentMetadata' with the minimum fields required to make a request.
 --
@@ -701,13 +703,14 @@ data IntentMetadata = IntentMetadata'
 intentMetadata
     :: IntentMetadata
 intentMetadata =
-    IntentMetadata'
-    { _imCreatedDate = Nothing
-    , _imName = Nothing
-    , _imVersion = Nothing
-    , _imLastUpdatedDate = Nothing
-    , _imDescription = Nothing
-    }
+  IntentMetadata'
+  { _imCreatedDate = Nothing
+  , _imName = Nothing
+  , _imVersion = Nothing
+  , _imLastUpdatedDate = Nothing
+  , _imDescription = Nothing
+  }
+
 
 -- | The date that the intent was created.
 imCreatedDate :: Lens' IntentMetadata (Maybe UTCTime)
@@ -739,9 +742,9 @@ instance FromJSON IntentMetadata where
                      <*> (x .:? "lastUpdatedDate")
                      <*> (x .:? "description"))
 
-instance Hashable IntentMetadata
+instance Hashable IntentMetadata where
 
-instance NFData IntentMetadata
+instance NFData IntentMetadata where
 
 -- | The message object that provides the message text and its type.
 --
@@ -749,9 +752,10 @@ instance NFData IntentMetadata
 --
 -- /See:/ 'message' smart constructor.
 data Message = Message'
-    { _mContentType :: !ContentType
-    , _mContent     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mContentType :: {-# NOUNPACK #-}!ContentType
+  , _mContent     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
@@ -765,10 +769,8 @@ message
     -> Text -- ^ 'mContent'
     -> Message
 message pContentType_ pContent_ =
-    Message'
-    { _mContentType = pContentType_
-    , _mContent = pContent_
-    }
+  Message' {_mContentType = pContentType_, _mContent = pContent_}
+
 
 -- | The content type of the message string.
 mContentType :: Lens' Message ContentType
@@ -785,9 +787,9 @@ instance FromJSON Message where
                  Message' <$>
                    (x .: "contentType") <*> (x .: "content"))
 
-instance Hashable Message
+instance Hashable Message where
 
-instance NFData Message
+instance NFData Message where
 
 instance ToJSON Message where
         toJSON Message'{..}
@@ -802,10 +804,11 @@ instance ToJSON Message where
 --
 -- /See:/ 'prompt' smart constructor.
 data Prompt = Prompt'
-    { _pResponseCard :: !(Maybe Text)
-    , _pMessages     :: !(List1 Message)
-    , _pMaxAttempts  :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pResponseCard :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pMessages     :: {-# NOUNPACK #-}!(List1 Message)
+  , _pMaxAttempts  :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Prompt' with the minimum fields required to make a request.
 --
@@ -821,11 +824,12 @@ prompt
     -> Natural -- ^ 'pMaxAttempts'
     -> Prompt
 prompt pMessages_ pMaxAttempts_ =
-    Prompt'
-    { _pResponseCard = Nothing
-    , _pMessages = _List1 # pMessages_
-    , _pMaxAttempts = _Nat # pMaxAttempts_
-    }
+  Prompt'
+  { _pResponseCard = Nothing
+  , _pMessages = _List1 # pMessages_
+  , _pMaxAttempts = _Nat # pMaxAttempts_
+  }
+
 
 -- | A response card. Amazon Lex uses this prompt at runtime, in the @PostText@ API response. It substitutes session attributes and slot values for placeholders in the response card. For more information, see 'ex-resp-card' .
 pResponseCard :: Lens' Prompt (Maybe Text)
@@ -847,9 +851,9 @@ instance FromJSON Prompt where
                    (x .:? "responseCard") <*> (x .: "messages") <*>
                      (x .: "maxAttempts"))
 
-instance Hashable Prompt
+instance Hashable Prompt where
 
-instance NFData Prompt
+instance NFData Prompt where
 
 instance ToJSON Prompt where
         toJSON Prompt'{..}
@@ -865,16 +869,17 @@ instance ToJSON Prompt where
 --
 -- /See:/ 'slot' smart constructor.
 data Slot = Slot'
-    { _sSlotType               :: !(Maybe Text)
-    , _sValueElicitationPrompt :: !(Maybe Prompt)
-    , _sResponseCard           :: !(Maybe Text)
-    , _sPriority               :: !(Maybe Nat)
-    , _sSlotTypeVersion        :: !(Maybe Text)
-    , _sSampleUtterances       :: !(Maybe [Text])
-    , _sDescription            :: !(Maybe Text)
-    , _sName                   :: !Text
-    , _sSlotConstraint         :: !SlotConstraint
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSlotType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sValueElicitationPrompt :: {-# NOUNPACK #-}!(Maybe Prompt)
+  , _sResponseCard           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sPriority               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sSlotTypeVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSampleUtterances       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sName                   :: {-# NOUNPACK #-}!Text
+  , _sSlotConstraint         :: {-# NOUNPACK #-}!SlotConstraint
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Slot' with the minimum fields required to make a request.
 --
@@ -902,17 +907,18 @@ slot
     -> SlotConstraint -- ^ 'sSlotConstraint'
     -> Slot
 slot pName_ pSlotConstraint_ =
-    Slot'
-    { _sSlotType = Nothing
-    , _sValueElicitationPrompt = Nothing
-    , _sResponseCard = Nothing
-    , _sPriority = Nothing
-    , _sSlotTypeVersion = Nothing
-    , _sSampleUtterances = Nothing
-    , _sDescription = Nothing
-    , _sName = pName_
-    , _sSlotConstraint = pSlotConstraint_
-    }
+  Slot'
+  { _sSlotType = Nothing
+  , _sValueElicitationPrompt = Nothing
+  , _sResponseCard = Nothing
+  , _sPriority = Nothing
+  , _sSlotTypeVersion = Nothing
+  , _sSampleUtterances = Nothing
+  , _sDescription = Nothing
+  , _sName = pName_
+  , _sSlotConstraint = pSlotConstraint_
+  }
+
 
 -- | The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
 sSlotType :: Lens' Slot (Maybe Text)
@@ -965,9 +971,9 @@ instance FromJSON Slot where
                      <*> (x .: "name")
                      <*> (x .: "slotConstraint"))
 
-instance Hashable Slot
+instance Hashable Slot where
 
-instance NFData Slot
+instance NFData Slot where
 
 instance ToJSON Slot where
         toJSON Slot'{..}
@@ -990,12 +996,13 @@ instance ToJSON Slot where
 --
 -- /See:/ 'slotTypeMetadata' smart constructor.
 data SlotTypeMetadata = SlotTypeMetadata'
-    { _stmCreatedDate     :: !(Maybe POSIX)
-    , _stmName            :: !(Maybe Text)
-    , _stmVersion         :: !(Maybe Text)
-    , _stmLastUpdatedDate :: !(Maybe POSIX)
-    , _stmDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stmCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _stmName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stmVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stmLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _stmDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SlotTypeMetadata' with the minimum fields required to make a request.
 --
@@ -1013,13 +1020,14 @@ data SlotTypeMetadata = SlotTypeMetadata'
 slotTypeMetadata
     :: SlotTypeMetadata
 slotTypeMetadata =
-    SlotTypeMetadata'
-    { _stmCreatedDate = Nothing
-    , _stmName = Nothing
-    , _stmVersion = Nothing
-    , _stmLastUpdatedDate = Nothing
-    , _stmDescription = Nothing
-    }
+  SlotTypeMetadata'
+  { _stmCreatedDate = Nothing
+  , _stmName = Nothing
+  , _stmVersion = Nothing
+  , _stmLastUpdatedDate = Nothing
+  , _stmDescription = Nothing
+  }
+
 
 -- | The date that the slot type was created.
 stmCreatedDate :: Lens' SlotTypeMetadata (Maybe UTCTime)
@@ -1051,9 +1059,9 @@ instance FromJSON SlotTypeMetadata where
                      <*> (x .:? "lastUpdatedDate")
                      <*> (x .:? "description"))
 
-instance Hashable SlotTypeMetadata
+instance Hashable SlotTypeMetadata where
 
-instance NFData SlotTypeMetadata
+instance NFData SlotTypeMetadata where
 
 -- | A collection of messages that convey information to the user. At runtime, Amazon Lex selects the message to convey.
 --
@@ -1061,9 +1069,10 @@ instance NFData SlotTypeMetadata
 --
 -- /See:/ 'statement' smart constructor.
 data Statement = Statement'
-    { _staResponseCard :: !(Maybe Text)
-    , _staMessages     :: !(List1 Message)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _staResponseCard :: {-# NOUNPACK #-}!(Maybe Text)
+  , _staMessages     :: {-# NOUNPACK #-}!(List1 Message)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Statement' with the minimum fields required to make a request.
 --
@@ -1076,10 +1085,8 @@ statement
     :: NonEmpty Message -- ^ 'staMessages'
     -> Statement
 statement pMessages_ =
-    Statement'
-    { _staResponseCard = Nothing
-    , _staMessages = _List1 # pMessages_
-    }
+  Statement' {_staResponseCard = Nothing, _staMessages = _List1 # pMessages_}
+
 
 -- | At runtime, if the client is using the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> API, Amazon Lex includes the response card in the response. It substitutes all of the session attributes and slot values for placeholders in the response card.
 staResponseCard :: Lens' Statement (Maybe Text)
@@ -1096,9 +1103,9 @@ instance FromJSON Statement where
                  Statement' <$>
                    (x .:? "responseCard") <*> (x .: "messages"))
 
-instance Hashable Statement
+instance Hashable Statement where
 
-instance NFData Statement
+instance NFData Statement where
 
 instance ToJSON Statement where
         toJSON Statement'{..}
@@ -1113,12 +1120,13 @@ instance ToJSON Statement where
 --
 -- /See:/ 'utteranceData' smart constructor.
 data UtteranceData = UtteranceData'
-    { _udFirstUtteredDate :: !(Maybe POSIX)
-    , _udCount            :: !(Maybe Int)
-    , _udUtteranceString  :: !(Maybe Text)
-    , _udLastUtteredDate  :: !(Maybe POSIX)
-    , _udDistinctUsers    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udFirstUtteredDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _udCount            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _udUtteranceString  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udLastUtteredDate  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _udDistinctUsers    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UtteranceData' with the minimum fields required to make a request.
 --
@@ -1136,13 +1144,14 @@ data UtteranceData = UtteranceData'
 utteranceData
     :: UtteranceData
 utteranceData =
-    UtteranceData'
-    { _udFirstUtteredDate = Nothing
-    , _udCount = Nothing
-    , _udUtteranceString = Nothing
-    , _udLastUtteredDate = Nothing
-    , _udDistinctUsers = Nothing
-    }
+  UtteranceData'
+  { _udFirstUtteredDate = Nothing
+  , _udCount = Nothing
+  , _udUtteranceString = Nothing
+  , _udLastUtteredDate = Nothing
+  , _udDistinctUsers = Nothing
+  }
+
 
 -- | The date that the utterance was first recorded.
 udFirstUtteredDate :: Lens' UtteranceData (Maybe UTCTime)
@@ -1174,9 +1183,9 @@ instance FromJSON UtteranceData where
                      <*> (x .:? "lastUtteredDate")
                      <*> (x .:? "distinctUsers"))
 
-instance Hashable UtteranceData
+instance Hashable UtteranceData where
 
-instance NFData UtteranceData
+instance NFData UtteranceData where
 
 -- | Provides a list of utterances that have been made to a specific version of your bot. The list contains a maximum of 100 utterances.
 --
@@ -1184,9 +1193,10 @@ instance NFData UtteranceData
 --
 -- /See:/ 'utteranceList' smart constructor.
 data UtteranceList = UtteranceList'
-    { _ulBotVersion :: !(Maybe Text)
-    , _ulUtterances :: !(Maybe [UtteranceData])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ulBotVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ulUtterances :: {-# NOUNPACK #-}!(Maybe [UtteranceData])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UtteranceList' with the minimum fields required to make a request.
 --
@@ -1198,10 +1208,8 @@ data UtteranceList = UtteranceList'
 utteranceList
     :: UtteranceList
 utteranceList =
-    UtteranceList'
-    { _ulBotVersion = Nothing
-    , _ulUtterances = Nothing
-    }
+  UtteranceList' {_ulBotVersion = Nothing, _ulUtterances = Nothing}
+
 
 -- | The version of the bot that processed the list.
 ulBotVersion :: Lens' UtteranceList (Maybe Text)
@@ -1219,6 +1227,6 @@ instance FromJSON UtteranceList where
                    (x .:? "botVersion") <*>
                      (x .:? "utterances" .!= mempty))
 
-instance Hashable UtteranceList
+instance Hashable UtteranceList where
 
-instance NFData UtteranceList
+instance NFData UtteranceList where

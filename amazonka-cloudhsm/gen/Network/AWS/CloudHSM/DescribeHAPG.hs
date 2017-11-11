@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DescribeHAPG
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.CloudHSM.DescribeHAPG
     , dhapgrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DescribeHapg' action.
 --
@@ -58,8 +58,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeHAPG' smart constructor.
 newtype DescribeHAPG = DescribeHAPG'
-    { _dhapgHAPGARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhapgHAPGARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHAPG' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ newtype DescribeHAPG = DescribeHAPG'
 describeHAPG
     :: Text -- ^ 'dhapgHAPGARN'
     -> DescribeHAPG
-describeHAPG pHAPGARN_ =
-    DescribeHAPG'
-    { _dhapgHAPGARN = pHAPGARN_
-    }
+describeHAPG pHAPGARN_ = DescribeHAPG' {_dhapgHAPGARN = pHAPGARN_}
+
 
 -- | The ARN of the high-availability partition group to describe.
 dhapgHAPGARN :: Lens' DescribeHAPG Text
@@ -95,9 +94,9 @@ instance AWSRequest DescribeHAPG where
                      <*> (x .?> "Label")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHAPG
+instance Hashable DescribeHAPG where
 
-instance NFData DescribeHAPG
+instance NFData DescribeHAPG where
 
 instance ToHeaders DescribeHAPG where
         toHeaders
@@ -126,17 +125,18 @@ instance ToQuery DescribeHAPG where
 --
 -- /See:/ 'describeHAPGResponse' smart constructor.
 data DescribeHAPGResponse = DescribeHAPGResponse'
-    { _dhapgrsState                   :: !(Maybe CloudHSMObjectState)
-    , _dhapgrsLastModifiedTimestamp   :: !(Maybe Text)
-    , _dhapgrsHSMsPendingRegistration :: !(Maybe [Text])
-    , _dhapgrsHSMsPendingDeletion     :: !(Maybe [Text])
-    , _dhapgrsHAPGSerial              :: !(Maybe Text)
-    , _dhapgrsHSMsLastActionFailed    :: !(Maybe [Text])
-    , _dhapgrsPartitionSerialList     :: !(Maybe [Text])
-    , _dhapgrsHAPGARN                 :: !(Maybe Text)
-    , _dhapgrsLabel                   :: !(Maybe Text)
-    , _dhapgrsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhapgrsState :: {-# NOUNPACK #-}!(Maybe CloudHSMObjectState)
+  , _dhapgrsLastModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhapgrsHSMsPendingRegistration :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhapgrsHSMsPendingDeletion :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhapgrsHAPGSerial :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhapgrsHSMsLastActionFailed :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhapgrsPartitionSerialList :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhapgrsHAPGARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhapgrsLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhapgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHAPGResponse' with the minimum fields required to make a request.
 --
@@ -165,18 +165,19 @@ describeHAPGResponse
     :: Int -- ^ 'dhapgrsResponseStatus'
     -> DescribeHAPGResponse
 describeHAPGResponse pResponseStatus_ =
-    DescribeHAPGResponse'
-    { _dhapgrsState = Nothing
-    , _dhapgrsLastModifiedTimestamp = Nothing
-    , _dhapgrsHSMsPendingRegistration = Nothing
-    , _dhapgrsHSMsPendingDeletion = Nothing
-    , _dhapgrsHAPGSerial = Nothing
-    , _dhapgrsHSMsLastActionFailed = Nothing
-    , _dhapgrsPartitionSerialList = Nothing
-    , _dhapgrsHAPGARN = Nothing
-    , _dhapgrsLabel = Nothing
-    , _dhapgrsResponseStatus = pResponseStatus_
-    }
+  DescribeHAPGResponse'
+  { _dhapgrsState = Nothing
+  , _dhapgrsLastModifiedTimestamp = Nothing
+  , _dhapgrsHSMsPendingRegistration = Nothing
+  , _dhapgrsHSMsPendingDeletion = Nothing
+  , _dhapgrsHAPGSerial = Nothing
+  , _dhapgrsHSMsLastActionFailed = Nothing
+  , _dhapgrsPartitionSerialList = Nothing
+  , _dhapgrsHAPGARN = Nothing
+  , _dhapgrsLabel = Nothing
+  , _dhapgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The state of the high-availability partition group.
 dhapgrsState :: Lens' DescribeHAPGResponse (Maybe CloudHSMObjectState)
@@ -218,4 +219,4 @@ dhapgrsLabel = lens _dhapgrsLabel (\ s a -> s{_dhapgrsLabel = a});
 dhapgrsResponseStatus :: Lens' DescribeHAPGResponse Int
 dhapgrsResponseStatus = lens _dhapgrsResponseStatus (\ s a -> s{_dhapgrsResponseStatus = a});
 
-instance NFData DescribeHAPGResponse
+instance NFData DescribeHAPGResponse where

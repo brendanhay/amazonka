@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.UpdateDestination
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,23 +52,24 @@ module Network.AWS.Firehose.UpdateDestination
     , udrsResponseStatus
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
-    { _udS3DestinationUpdate            :: !(Maybe S3DestinationUpdate)
-    , _udRedshiftDestinationUpdate      :: !(Maybe RedshiftDestinationUpdate)
-    , _udElasticsearchDestinationUpdate :: !(Maybe ElasticsearchDestinationUpdate)
-    , _udExtendedS3DestinationUpdate    :: !(Maybe ExtendedS3DestinationUpdate)
-    , _udDeliveryStreamName             :: !Text
-    , _udCurrentDeliveryStreamVersionId :: !Text
-    , _udDestinationId                  :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _udS3DestinationUpdate :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
+  , _udRedshiftDestinationUpdate :: {-# NOUNPACK #-}!(Maybe RedshiftDestinationUpdate)
+  , _udElasticsearchDestinationUpdate :: {-# NOUNPACK #-}!(Maybe ElasticsearchDestinationUpdate)
+  , _udExtendedS3DestinationUpdate :: {-# NOUNPACK #-}!(Maybe ExtendedS3DestinationUpdate)
+  , _udDeliveryStreamName :: {-# NOUNPACK #-}!Text
+  , _udCurrentDeliveryStreamVersionId :: {-# NOUNPACK #-}!Text
+  , _udDestinationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDestination' with the minimum fields required to make a request.
 --
@@ -93,15 +94,16 @@ updateDestination
     -> Text -- ^ 'udDestinationId'
     -> UpdateDestination
 updateDestination pDeliveryStreamName_ pCurrentDeliveryStreamVersionId_ pDestinationId_ =
-    UpdateDestination'
-    { _udS3DestinationUpdate = Nothing
-    , _udRedshiftDestinationUpdate = Nothing
-    , _udElasticsearchDestinationUpdate = Nothing
-    , _udExtendedS3DestinationUpdate = Nothing
-    , _udDeliveryStreamName = pDeliveryStreamName_
-    , _udCurrentDeliveryStreamVersionId = pCurrentDeliveryStreamVersionId_
-    , _udDestinationId = pDestinationId_
-    }
+  UpdateDestination'
+  { _udS3DestinationUpdate = Nothing
+  , _udRedshiftDestinationUpdate = Nothing
+  , _udElasticsearchDestinationUpdate = Nothing
+  , _udExtendedS3DestinationUpdate = Nothing
+  , _udDeliveryStreamName = pDeliveryStreamName_
+  , _udCurrentDeliveryStreamVersionId = pCurrentDeliveryStreamVersionId_
+  , _udDestinationId = pDestinationId_
+  }
+
 
 -- | [Deprecated] Describes an update for a destination in Amazon S3.
 udS3DestinationUpdate :: Lens' UpdateDestination (Maybe S3DestinationUpdate)
@@ -139,9 +141,9 @@ instance AWSRequest UpdateDestination where
               (\ s h x ->
                  UpdateDestinationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateDestination
+instance Hashable UpdateDestination where
 
-instance NFData UpdateDestination
+instance NFData UpdateDestination where
 
 instance ToHeaders UpdateDestination where
         toHeaders
@@ -179,8 +181,9 @@ instance ToQuery UpdateDestination where
 
 -- | /See:/ 'updateDestinationResponse' smart constructor.
 newtype UpdateDestinationResponse = UpdateDestinationResponse'
-    { _udrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDestinationResponse' with the minimum fields required to make a request.
 --
@@ -191,12 +194,11 @@ updateDestinationResponse
     :: Int -- ^ 'udrsResponseStatus'
     -> UpdateDestinationResponse
 updateDestinationResponse pResponseStatus_ =
-    UpdateDestinationResponse'
-    { _udrsResponseStatus = pResponseStatus_
-    }
+  UpdateDestinationResponse' {_udrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDestinationResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
 
-instance NFData UpdateDestinationResponse
+instance NFData UpdateDestinationResponse where

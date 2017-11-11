@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.DirectoryService.CreateDirectory
     , crsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'CreateDirectory' operation.
 --
@@ -57,13 +57,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
-    { _cShortName   :: !(Maybe Text)
-    , _cVPCSettings :: !(Maybe DirectoryVPCSettings)
-    , _cDescription :: !(Maybe Text)
-    , _cName        :: !Text
-    , _cPassword    :: !(Sensitive Text)
-    , _cSize        :: !DirectorySize
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cShortName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cVPCSettings :: {-# NOUNPACK #-}!(Maybe DirectoryVPCSettings)
+  , _cDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cName        :: {-# NOUNPACK #-}!Text
+  , _cPassword    :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _cSize        :: {-# NOUNPACK #-}!DirectorySize
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDirectory' with the minimum fields required to make a request.
 --
@@ -86,14 +87,15 @@ createDirectory
     -> DirectorySize -- ^ 'cSize'
     -> CreateDirectory
 createDirectory pName_ pPassword_ pSize_ =
-    CreateDirectory'
-    { _cShortName = Nothing
-    , _cVPCSettings = Nothing
-    , _cDescription = Nothing
-    , _cName = pName_
-    , _cPassword = _Sensitive # pPassword_
-    , _cSize = pSize_
-    }
+  CreateDirectory'
+  { _cShortName = Nothing
+  , _cVPCSettings = Nothing
+  , _cDescription = Nothing
+  , _cName = pName_
+  , _cPassword = _Sensitive # pPassword_
+  , _cSize = pSize_
+  }
+
 
 -- | The short name of the directory, such as @CORP@ .
 cShortName :: Lens' CreateDirectory (Maybe Text)
@@ -128,9 +130,9 @@ instance AWSRequest CreateDirectory where
                  CreateDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDirectory
+instance Hashable CreateDirectory where
 
-instance NFData CreateDirectory
+instance NFData CreateDirectory where
 
 instance ToHeaders CreateDirectory where
         toHeaders
@@ -165,9 +167,10 @@ instance ToQuery CreateDirectory where
 --
 -- /See:/ 'createDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
-    { _crsDirectoryId    :: !(Maybe Text)
-    , _crsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsDirectoryId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDirectoryResponse' with the minimum fields required to make a request.
 --
@@ -180,10 +183,9 @@ createDirectoryResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateDirectoryResponse
 createDirectoryResponse pResponseStatus_ =
-    CreateDirectoryResponse'
-    { _crsDirectoryId = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CreateDirectoryResponse'
+  {_crsDirectoryId = Nothing, _crsResponseStatus = pResponseStatus_}
+
 
 -- | The identifier of the directory that was created.
 crsDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
@@ -193,4 +195,4 @@ crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a});
 crsResponseStatus :: Lens' CreateDirectoryResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CreateDirectoryResponse
+instance NFData CreateDirectoryResponse where

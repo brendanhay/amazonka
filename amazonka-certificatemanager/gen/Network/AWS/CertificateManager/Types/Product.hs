@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CertificateManager.Types.Product where
 
-import           Network.AWS.CertificateManager.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CertificateManager.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Contains metadata about an ACM certificate. This structure is returned in the response to a 'DescribeCertificate' request.
 --
@@ -27,28 +27,29 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'certificateDetail' smart constructor.
 data CertificateDetail = CertificateDetail'
-    { _cdSubject                 :: !(Maybe Text)
-    , _cdStatus                  :: !(Maybe CertificateStatus)
-    , _cdFailureReason           :: !(Maybe FailureReason)
-    , _cdSubjectAlternativeNames :: !(Maybe (List1 Text))
-    , _cdInUseBy                 :: !(Maybe [Text])
-    , _cdCreatedAt               :: !(Maybe POSIX)
-    , _cdCertificateARN          :: !(Maybe Text)
-    , _cdSerial                  :: !(Maybe Text)
-    , _cdImportedAt              :: !(Maybe POSIX)
-    , _cdRevokedAt               :: !(Maybe POSIX)
-    , _cdNotBefore               :: !(Maybe POSIX)
-    , _cdRevocationReason        :: !(Maybe RevocationReason)
-    , _cdDomainName              :: !(Maybe Text)
-    , _cdRenewalSummary          :: !(Maybe RenewalSummary)
-    , _cdKeyAlgorithm            :: !(Maybe KeyAlgorithm)
-    , _cdType                    :: !(Maybe CertificateType)
-    , _cdIssuedAt                :: !(Maybe POSIX)
-    , _cdSignatureAlgorithm      :: !(Maybe Text)
-    , _cdDomainValidationOptions :: !(Maybe (List1 DomainValidation))
-    , _cdIssuer                  :: !(Maybe Text)
-    , _cdNotAfter                :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdSubject :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdStatus :: {-# NOUNPACK #-}!(Maybe CertificateStatus)
+  , _cdFailureReason :: {-# NOUNPACK #-}!(Maybe FailureReason)
+  , _cdSubjectAlternativeNames :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _cdInUseBy :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cdCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdSerial :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdImportedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cdRevokedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cdNotBefore :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cdRevocationReason :: {-# NOUNPACK #-}!(Maybe RevocationReason)
+  , _cdDomainName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdRenewalSummary :: {-# NOUNPACK #-}!(Maybe RenewalSummary)
+  , _cdKeyAlgorithm :: {-# NOUNPACK #-}!(Maybe KeyAlgorithm)
+  , _cdType :: {-# NOUNPACK #-}!(Maybe CertificateType)
+  , _cdIssuedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cdSignatureAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdDomainValidationOptions :: {-# NOUNPACK #-}!(Maybe (List1 DomainValidation))
+  , _cdIssuer :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdNotAfter :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CertificateDetail' with the minimum fields required to make a request.
 --
@@ -98,29 +99,30 @@ data CertificateDetail = CertificateDetail'
 certificateDetail
     :: CertificateDetail
 certificateDetail =
-    CertificateDetail'
-    { _cdSubject = Nothing
-    , _cdStatus = Nothing
-    , _cdFailureReason = Nothing
-    , _cdSubjectAlternativeNames = Nothing
-    , _cdInUseBy = Nothing
-    , _cdCreatedAt = Nothing
-    , _cdCertificateARN = Nothing
-    , _cdSerial = Nothing
-    , _cdImportedAt = Nothing
-    , _cdRevokedAt = Nothing
-    , _cdNotBefore = Nothing
-    , _cdRevocationReason = Nothing
-    , _cdDomainName = Nothing
-    , _cdRenewalSummary = Nothing
-    , _cdKeyAlgorithm = Nothing
-    , _cdType = Nothing
-    , _cdIssuedAt = Nothing
-    , _cdSignatureAlgorithm = Nothing
-    , _cdDomainValidationOptions = Nothing
-    , _cdIssuer = Nothing
-    , _cdNotAfter = Nothing
-    }
+  CertificateDetail'
+  { _cdSubject = Nothing
+  , _cdStatus = Nothing
+  , _cdFailureReason = Nothing
+  , _cdSubjectAlternativeNames = Nothing
+  , _cdInUseBy = Nothing
+  , _cdCreatedAt = Nothing
+  , _cdCertificateARN = Nothing
+  , _cdSerial = Nothing
+  , _cdImportedAt = Nothing
+  , _cdRevokedAt = Nothing
+  , _cdNotBefore = Nothing
+  , _cdRevocationReason = Nothing
+  , _cdDomainName = Nothing
+  , _cdRenewalSummary = Nothing
+  , _cdKeyAlgorithm = Nothing
+  , _cdType = Nothing
+  , _cdIssuedAt = Nothing
+  , _cdSignatureAlgorithm = Nothing
+  , _cdDomainValidationOptions = Nothing
+  , _cdIssuer = Nothing
+  , _cdNotAfter = Nothing
+  }
+
 
 -- | The name of the entity that is associated with the public key contained in the certificate.
 cdSubject :: Lens' CertificateDetail (Maybe Text)
@@ -232,9 +234,9 @@ instance FromJSON CertificateDetail where
                      <*> (x .:? "Issuer")
                      <*> (x .:? "NotAfter"))
 
-instance Hashable CertificateDetail
+instance Hashable CertificateDetail where
 
-instance NFData CertificateDetail
+instance NFData CertificateDetail where
 
 -- | This structure is returned in the response object of 'ListCertificates' action.
 --
@@ -242,9 +244,10 @@ instance NFData CertificateDetail
 --
 -- /See:/ 'certificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
-    { _csCertificateARN :: !(Maybe Text)
-    , _csDomainName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csDomainName     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CertificateSummary' with the minimum fields required to make a request.
 --
@@ -256,10 +259,8 @@ data CertificateSummary = CertificateSummary'
 certificateSummary
     :: CertificateSummary
 certificateSummary =
-    CertificateSummary'
-    { _csCertificateARN = Nothing
-    , _csDomainName = Nothing
-    }
+  CertificateSummary' {_csCertificateARN = Nothing, _csDomainName = Nothing}
+
 
 -- | Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 csCertificateARN :: Lens' CertificateSummary (Maybe Text)
@@ -276,9 +277,9 @@ instance FromJSON CertificateSummary where
                  CertificateSummary' <$>
                    (x .:? "CertificateArn") <*> (x .:? "DomainName"))
 
-instance Hashable CertificateSummary
+instance Hashable CertificateSummary where
 
-instance NFData CertificateSummary
+instance NFData CertificateSummary where
 
 -- | Contains information about the validation of each domain name in the certificate.
 --
@@ -286,11 +287,12 @@ instance NFData CertificateSummary
 --
 -- /See:/ 'domainValidation' smart constructor.
 data DomainValidation = DomainValidation'
-    { _dvValidationEmails :: !(Maybe [Text])
-    , _dvValidationStatus :: !(Maybe DomainStatus)
-    , _dvValidationDomain :: !(Maybe Text)
-    , _dvDomainName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvValidationEmails :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dvValidationStatus :: {-# NOUNPACK #-}!(Maybe DomainStatus)
+  , _dvValidationDomain :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvDomainName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainValidation' with the minimum fields required to make a request.
 --
@@ -307,12 +309,13 @@ domainValidation
     :: Text -- ^ 'dvDomainName'
     -> DomainValidation
 domainValidation pDomainName_ =
-    DomainValidation'
-    { _dvValidationEmails = Nothing
-    , _dvValidationStatus = Nothing
-    , _dvValidationDomain = Nothing
-    , _dvDomainName = pDomainName_
-    }
+  DomainValidation'
+  { _dvValidationEmails = Nothing
+  , _dvValidationStatus = Nothing
+  , _dvValidationDomain = Nothing
+  , _dvDomainName = pDomainName_
+  }
+
 
 -- | A list of email addresses that ACM used to send domain validation emails.
 dvValidationEmails :: Lens' DomainValidation [Text]
@@ -340,9 +343,9 @@ instance FromJSON DomainValidation where
                      <*> (x .:? "ValidationDomain")
                      <*> (x .: "DomainName"))
 
-instance Hashable DomainValidation
+instance Hashable DomainValidation where
 
-instance NFData DomainValidation
+instance NFData DomainValidation where
 
 -- | Contains information about the domain names that you want ACM to use to send you emails to validate your ownership of the domain.
 --
@@ -350,9 +353,10 @@ instance NFData DomainValidation
 --
 -- /See:/ 'domainValidationOption' smart constructor.
 data DomainValidationOption = DomainValidationOption'
-    { _dvoDomainName       :: !Text
-    , _dvoValidationDomain :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvoDomainName       :: {-# NOUNPACK #-}!Text
+  , _dvoValidationDomain :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainValidationOption' with the minimum fields required to make a request.
 --
@@ -366,10 +370,9 @@ domainValidationOption
     -> Text -- ^ 'dvoValidationDomain'
     -> DomainValidationOption
 domainValidationOption pDomainName_ pValidationDomain_ =
-    DomainValidationOption'
-    { _dvoDomainName = pDomainName_
-    , _dvoValidationDomain = pValidationDomain_
-    }
+  DomainValidationOption'
+  {_dvoDomainName = pDomainName_, _dvoValidationDomain = pValidationDomain_}
+
 
 -- | A fully qualified domain name (FQDN) in the certificate request.
 dvoDomainName :: Lens' DomainValidationOption Text
@@ -379,9 +382,9 @@ dvoDomainName = lens _dvoDomainName (\ s a -> s{_dvoDomainName = a});
 dvoValidationDomain :: Lens' DomainValidationOption Text
 dvoValidationDomain = lens _dvoValidationDomain (\ s a -> s{_dvoValidationDomain = a});
 
-instance Hashable DomainValidationOption
+instance Hashable DomainValidationOption where
 
-instance NFData DomainValidationOption
+instance NFData DomainValidationOption where
 
 instance ToJSON DomainValidationOption where
         toJSON DomainValidationOption'{..}
@@ -396,9 +399,10 @@ instance ToJSON DomainValidationOption where
 --
 -- /See:/ 'renewalSummary' smart constructor.
 data RenewalSummary = RenewalSummary'
-    { _rsRenewalStatus           :: !RenewalStatus
-    , _rsDomainValidationOptions :: !(List1 DomainValidation)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsRenewalStatus           :: {-# NOUNPACK #-}!RenewalStatus
+  , _rsDomainValidationOptions :: {-# NOUNPACK #-}!(List1 DomainValidation)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RenewalSummary' with the minimum fields required to make a request.
 --
@@ -412,10 +416,11 @@ renewalSummary
     -> NonEmpty DomainValidation -- ^ 'rsDomainValidationOptions'
     -> RenewalSummary
 renewalSummary pRenewalStatus_ pDomainValidationOptions_ =
-    RenewalSummary'
-    { _rsRenewalStatus = pRenewalStatus_
-    , _rsDomainValidationOptions = _List1 # pDomainValidationOptions_
-    }
+  RenewalSummary'
+  { _rsRenewalStatus = pRenewalStatus_
+  , _rsDomainValidationOptions = _List1 # pDomainValidationOptions_
+  }
+
 
 -- | The status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
 rsRenewalStatus :: Lens' RenewalSummary RenewalStatus
@@ -433,9 +438,9 @@ instance FromJSON RenewalSummary where
                    (x .: "RenewalStatus") <*>
                      (x .: "DomainValidationOptions"))
 
-instance Hashable RenewalSummary
+instance Hashable RenewalSummary where
 
-instance NFData RenewalSummary
+instance NFData RenewalSummary where
 
 -- | A key-value pair that identifies or specifies metadata about an ACM resource.
 --
@@ -443,9 +448,10 @@ instance NFData RenewalSummary
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -457,11 +463,8 @@ data Tag = Tag'
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
-tag pKey_ =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = pKey_
-    }
+tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
+
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -476,9 +479,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

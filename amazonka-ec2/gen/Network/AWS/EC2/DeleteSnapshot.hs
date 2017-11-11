@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DeleteSnapshot
     , DeleteSnapshotResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteSnapshot.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteSnapshot' smart constructor.
 data DeleteSnapshot = DeleteSnapshot'
-    { _deleDryRun     :: !(Maybe Bool)
-    , _deleSnapshotId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deleDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _deleSnapshotId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ deleteSnapshot
     :: Text -- ^ 'deleSnapshotId'
     -> DeleteSnapshot
 deleteSnapshot pSnapshotId_ =
-    DeleteSnapshot'
-    { _deleDryRun = Nothing
-    , _deleSnapshotId = pSnapshotId_
-    }
+  DeleteSnapshot' {_deleDryRun = Nothing, _deleSnapshotId = pSnapshotId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 deleDryRun :: Lens' DeleteSnapshot (Maybe Bool)
@@ -87,9 +86,9 @@ instance AWSRequest DeleteSnapshot where
         request = postQuery ec2
         response = receiveNull DeleteSnapshotResponse'
 
-instance Hashable DeleteSnapshot
+instance Hashable DeleteSnapshot where
 
-instance NFData DeleteSnapshot
+instance NFData DeleteSnapshot where
 
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty
@@ -107,8 +106,9 @@ instance ToQuery DeleteSnapshot where
 
 -- | /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse =
-    DeleteSnapshotResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSnapshotResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -116,4 +116,5 @@ deleteSnapshotResponse
     :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse'
 
-instance NFData DeleteSnapshotResponse
+
+instance NFData DeleteSnapshotResponse where

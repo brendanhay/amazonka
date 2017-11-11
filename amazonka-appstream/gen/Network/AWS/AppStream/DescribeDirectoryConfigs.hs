@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeDirectoryConfigs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.AppStream.DescribeDirectoryConfigs
     , ddcrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDirectoryConfigs' smart constructor.
 data DescribeDirectoryConfigs = DescribeDirectoryConfigs'
-    { _ddcNextToken      :: !(Maybe Text)
-    , _ddcDirectoryNames :: !(Maybe [Text])
-    , _ddcMaxResults     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcDirectoryNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ddcMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDirectoryConfigs' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ data DescribeDirectoryConfigs = DescribeDirectoryConfigs'
 describeDirectoryConfigs
     :: DescribeDirectoryConfigs
 describeDirectoryConfigs =
-    DescribeDirectoryConfigs'
-    { _ddcNextToken = Nothing
-    , _ddcDirectoryNames = Nothing
-    , _ddcMaxResults = Nothing
-    }
+  DescribeDirectoryConfigs'
+  { _ddcNextToken = Nothing
+  , _ddcDirectoryNames = Nothing
+  , _ddcMaxResults = Nothing
+  }
+
 
 -- | The DescribeDirectoryConfigsResult.NextToken from a previous call to DescribeDirectoryConfigs. If this is the first call, pass null.
 ddcNextToken :: Lens' DescribeDirectoryConfigs (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest DescribeDirectoryConfigs where
                      (x .?> "DirectoryConfigs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDirectoryConfigs
+instance Hashable DescribeDirectoryConfigs where
 
-instance NFData DescribeDirectoryConfigs
+instance NFData DescribeDirectoryConfigs where
 
 instance ToHeaders DescribeDirectoryConfigs where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery DescribeDirectoryConfigs where
 
 -- | /See:/ 'describeDirectoryConfigsResponse' smart constructor.
 data DescribeDirectoryConfigsResponse = DescribeDirectoryConfigsResponse'
-    { _ddcrsNextToken        :: !(Maybe Text)
-    , _ddcrsDirectoryConfigs :: !(Maybe [DirectoryConfig])
-    , _ddcrsResponseStatus   :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ddcrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcrsDirectoryConfigs :: {-# NOUNPACK #-}!(Maybe [DirectoryConfig])
+  , _ddcrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDirectoryConfigsResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ describeDirectoryConfigsResponse
     :: Int -- ^ 'ddcrsResponseStatus'
     -> DescribeDirectoryConfigsResponse
 describeDirectoryConfigsResponse pResponseStatus_ =
-    DescribeDirectoryConfigsResponse'
-    { _ddcrsNextToken = Nothing
-    , _ddcrsDirectoryConfigs = Nothing
-    , _ddcrsResponseStatus = pResponseStatus_
-    }
+  DescribeDirectoryConfigsResponse'
+  { _ddcrsNextToken = Nothing
+  , _ddcrsDirectoryConfigs = Nothing
+  , _ddcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If not null, more results are available. To retrieve the next set of items, pass this value for the NextToken parameter in a subsequent call to DescribeDirectoryConfigs.
 ddcrsNextToken :: Lens' DescribeDirectoryConfigsResponse (Maybe Text)
@@ -163,3 +167,4 @@ ddcrsResponseStatus :: Lens' DescribeDirectoryConfigsResponse Int
 ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
 
 instance NFData DescribeDirectoryConfigsResponse
+         where

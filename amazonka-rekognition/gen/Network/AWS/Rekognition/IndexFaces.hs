@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.IndexFaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,20 +51,21 @@ module Network.AWS.Rekognition.IndexFaces
     , ifrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'indexFaces' smart constructor.
 data IndexFaces = IndexFaces'
-    { _ifExternalImageId     :: !(Maybe Text)
-    , _ifDetectionAttributes :: !(Maybe [Attribute])
-    , _ifCollectionId        :: !Text
-    , _ifImage               :: !Image
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifExternalImageId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ifDetectionAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _ifCollectionId        :: {-# NOUNPACK #-}!Text
+  , _ifImage               :: {-# NOUNPACK #-}!Image
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IndexFaces' with the minimum fields required to make a request.
 --
@@ -82,12 +83,13 @@ indexFaces
     -> Image -- ^ 'ifImage'
     -> IndexFaces
 indexFaces pCollectionId_ pImage_ =
-    IndexFaces'
-    { _ifExternalImageId = Nothing
-    , _ifDetectionAttributes = Nothing
-    , _ifCollectionId = pCollectionId_
-    , _ifImage = pImage_
-    }
+  IndexFaces'
+  { _ifExternalImageId = Nothing
+  , _ifDetectionAttributes = Nothing
+  , _ifCollectionId = pCollectionId_
+  , _ifImage = pImage_
+  }
+
 
 -- | ID you want to assign to all the faces detected in the image.
 ifExternalImageId :: Lens' IndexFaces (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest IndexFaces where
                      (x .?> "OrientationCorrection")
                      <*> (pure (fromEnum s)))
 
-instance Hashable IndexFaces
+instance Hashable IndexFaces where
 
-instance NFData IndexFaces
+instance NFData IndexFaces where
 
 instance ToHeaders IndexFaces where
         toHeaders
@@ -147,10 +149,11 @@ instance ToQuery IndexFaces where
 
 -- | /See:/ 'indexFacesResponse' smart constructor.
 data IndexFacesResponse = IndexFacesResponse'
-    { _ifrsFaceRecords           :: !(Maybe [FaceRecord])
-    , _ifrsOrientationCorrection :: !(Maybe OrientationCorrection)
-    , _ifrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifrsFaceRecords           :: {-# NOUNPACK #-}!(Maybe [FaceRecord])
+  , _ifrsOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
+  , _ifrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IndexFacesResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ indexFacesResponse
     :: Int -- ^ 'ifrsResponseStatus'
     -> IndexFacesResponse
 indexFacesResponse pResponseStatus_ =
-    IndexFacesResponse'
-    { _ifrsFaceRecords = Nothing
-    , _ifrsOrientationCorrection = Nothing
-    , _ifrsResponseStatus = pResponseStatus_
-    }
+  IndexFacesResponse'
+  { _ifrsFaceRecords = Nothing
+  , _ifrsOrientationCorrection = Nothing
+  , _ifrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of faces detected and added to the collection. For more information, see 'howitworks-index-faces' .
 ifrsFaceRecords :: Lens' IndexFacesResponse [FaceRecord]
@@ -183,4 +187,4 @@ ifrsOrientationCorrection = lens _ifrsOrientationCorrection (\ s a -> s{_ifrsOri
 ifrsResponseStatus :: Lens' IndexFacesResponse Int
 ifrsResponseStatus = lens _ifrsResponseStatus (\ s a -> s{_ifrsResponseStatus = a});
 
-instance NFData IndexFacesResponse
+instance NFData IndexFacesResponse where

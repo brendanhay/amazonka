@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSAMLProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.IAM.DeleteSAMLProvider
     , DeleteSAMLProviderResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSAMLProvider' smart constructor.
 newtype DeleteSAMLProvider = DeleteSAMLProvider'
-    { _dsamlpSAMLProviderARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsamlpSAMLProviderARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSAMLProvider' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deleteSAMLProvider
     :: Text -- ^ 'dsamlpSAMLProviderARN'
     -> DeleteSAMLProvider
 deleteSAMLProvider pSAMLProviderARN_ =
-    DeleteSAMLProvider'
-    { _dsamlpSAMLProviderARN = pSAMLProviderARN_
-    }
+  DeleteSAMLProvider' {_dsamlpSAMLProviderARN = pSAMLProviderARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
 dsamlpSAMLProviderARN :: Lens' DeleteSAMLProvider Text
@@ -71,9 +71,9 @@ instance AWSRequest DeleteSAMLProvider where
         request = postQuery iam
         response = receiveNull DeleteSAMLProviderResponse'
 
-instance Hashable DeleteSAMLProvider
+instance Hashable DeleteSAMLProvider where
 
-instance NFData DeleteSAMLProvider
+instance NFData DeleteSAMLProvider where
 
 instance ToHeaders DeleteSAMLProvider where
         toHeaders = const mempty
@@ -90,8 +90,9 @@ instance ToQuery DeleteSAMLProvider where
 
 -- | /See:/ 'deleteSAMLProviderResponse' smart constructor.
 data DeleteSAMLProviderResponse =
-    DeleteSAMLProviderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSAMLProviderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSAMLProviderResponse' with the minimum fields required to make a request.
 --
@@ -99,4 +100,5 @@ deleteSAMLProviderResponse
     :: DeleteSAMLProviderResponse
 deleteSAMLProviderResponse = DeleteSAMLProviderResponse'
 
-instance NFData DeleteSAMLProviderResponse
+
+instance NFData DeleteSAMLProviderResponse where

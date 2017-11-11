@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.CreateIdentityPool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -63,12 +63,12 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , ipAllowUnauthenticatedIdentities
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the CreateIdentityPool action.
 --
@@ -76,14 +76,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createIdentityPool' smart constructor.
 data CreateIdentityPool = CreateIdentityPool'
-    { _cipSamlProviderARNs               :: !(Maybe [Text])
-    , _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
-    , _cipDeveloperProviderName          :: !(Maybe Text)
-    , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
-    , _cipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
-    , _cipIdentityPoolName               :: !Text
-    , _cipAllowUnauthenticatedIdentities :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cipSamlProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cipSupportedLoginProviders :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cipDeveloperProviderName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cipOpenIdConnectProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cipCognitoIdentityProviders :: {-# NOUNPACK #-}!(Maybe [CognitoIdentityProvider])
+  , _cipIdentityPoolName :: {-# NOUNPACK #-}!Text
+  , _cipAllowUnauthenticatedIdentities :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIdentityPool' with the minimum fields required to make a request.
 --
@@ -107,15 +108,16 @@ createIdentityPool
     -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
     -> CreateIdentityPool
 createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
-    CreateIdentityPool'
-    { _cipSamlProviderARNs = Nothing
-    , _cipSupportedLoginProviders = Nothing
-    , _cipDeveloperProviderName = Nothing
-    , _cipOpenIdConnectProviderARNs = Nothing
-    , _cipCognitoIdentityProviders = Nothing
-    , _cipIdentityPoolName = pIdentityPoolName_
-    , _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
-    }
+  CreateIdentityPool'
+  { _cipSamlProviderARNs = Nothing
+  , _cipSupportedLoginProviders = Nothing
+  , _cipDeveloperProviderName = Nothing
+  , _cipOpenIdConnectProviderARNs = Nothing
+  , _cipCognitoIdentityProviders = Nothing
+  , _cipIdentityPoolName = pIdentityPoolName_
+  , _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
+  }
+
 
 -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 cipSamlProviderARNs :: Lens' CreateIdentityPool [Text]
@@ -150,9 +152,9 @@ instance AWSRequest CreateIdentityPool where
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateIdentityPool
+instance Hashable CreateIdentityPool where
 
-instance NFData CreateIdentityPool
+instance NFData CreateIdentityPool where
 
 instance ToHeaders CreateIdentityPool where
         toHeaders

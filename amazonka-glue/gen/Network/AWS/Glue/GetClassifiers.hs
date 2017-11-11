@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetClassifiers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Glue.GetClassifiers
     , gcsrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getClassifiers' smart constructor.
 data GetClassifiers = GetClassifiers'
-    { _gcNextToken  :: !(Maybe Text)
-    , _gcMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetClassifiers' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data GetClassifiers = GetClassifiers'
 getClassifiers
     :: GetClassifiers
 getClassifiers =
-    GetClassifiers'
-    { _gcNextToken = Nothing
-    , _gcMaxResults = Nothing
-    }
+  GetClassifiers' {_gcNextToken = Nothing, _gcMaxResults = Nothing}
+
 
 -- | An optional continuation token.
 gcNextToken :: Lens' GetClassifiers (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest GetClassifiers where
                      (x .?> "Classifiers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetClassifiers
+instance Hashable GetClassifiers where
 
-instance NFData GetClassifiers
+instance NFData GetClassifiers where
 
 instance ToHeaders GetClassifiers where
         toHeaders
@@ -114,10 +113,11 @@ instance ToQuery GetClassifiers where
 
 -- | /See:/ 'getClassifiersResponse' smart constructor.
 data GetClassifiersResponse = GetClassifiersResponse'
-    { _gcsrsNextToken      :: !(Maybe Text)
-    , _gcsrsClassifiers    :: !(Maybe [Classifier])
-    , _gcsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcsrsClassifiers    :: {-# NOUNPACK #-}!(Maybe [Classifier])
+  , _gcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetClassifiersResponse' with the minimum fields required to make a request.
 --
@@ -132,11 +132,12 @@ getClassifiersResponse
     :: Int -- ^ 'gcsrsResponseStatus'
     -> GetClassifiersResponse
 getClassifiersResponse pResponseStatus_ =
-    GetClassifiersResponse'
-    { _gcsrsNextToken = Nothing
-    , _gcsrsClassifiers = Nothing
-    , _gcsrsResponseStatus = pResponseStatus_
-    }
+  GetClassifiersResponse'
+  { _gcsrsNextToken = Nothing
+  , _gcsrsClassifiers = Nothing
+  , _gcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A continuation token.
 gcsrsNextToken :: Lens' GetClassifiersResponse (Maybe Text)
@@ -150,4 +151,4 @@ gcsrsClassifiers = lens _gcsrsClassifiers (\ s a -> s{_gcsrsClassifiers = a}) . 
 gcsrsResponseStatus :: Lens' GetClassifiersResponse Int
 gcsrsResponseStatus = lens _gcsrsResponseStatus (\ s a -> s{_gcsrsResponseStatus = a});
 
-instance NFData GetClassifiersResponse
+instance NFData GetClassifiersResponse where

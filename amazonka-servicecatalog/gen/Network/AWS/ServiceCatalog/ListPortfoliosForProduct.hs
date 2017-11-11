@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListPortfoliosForProduct
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.ServiceCatalog.ListPortfoliosForProduct
     , lpfprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listPortfoliosForProduct' smart constructor.
 data ListPortfoliosForProduct = ListPortfoliosForProduct'
-    { _lisAcceptLanguage :: !(Maybe Text)
-    , _lisPageToken      :: !(Maybe Text)
-    , _lisPageSize       :: !(Maybe Nat)
-    , _lisProductId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lisAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lisPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lisPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lisProductId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPortfoliosForProduct' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ listPortfoliosForProduct
     :: Text -- ^ 'lisProductId'
     -> ListPortfoliosForProduct
 listPortfoliosForProduct pProductId_ =
-    ListPortfoliosForProduct'
-    { _lisAcceptLanguage = Nothing
-    , _lisPageToken = Nothing
-    , _lisPageSize = Nothing
-    , _lisProductId = pProductId_
-    }
+  ListPortfoliosForProduct'
+  { _lisAcceptLanguage = Nothing
+  , _lisPageToken = Nothing
+  , _lisPageSize = Nothing
+  , _lisProductId = pProductId_
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 lisAcceptLanguage :: Lens' ListPortfoliosForProduct (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest ListPortfoliosForProduct where
                      (x .?> "PortfolioDetails" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPortfoliosForProduct
+instance Hashable ListPortfoliosForProduct where
 
-instance NFData ListPortfoliosForProduct
+instance NFData ListPortfoliosForProduct where
 
 instance ToHeaders ListPortfoliosForProduct where
         toHeaders
@@ -137,10 +139,11 @@ instance ToQuery ListPortfoliosForProduct where
 
 -- | /See:/ 'listPortfoliosForProductResponse' smart constructor.
 data ListPortfoliosForProductResponse = ListPortfoliosForProductResponse'
-    { _lpfprsNextPageToken    :: !(Maybe Text)
-    , _lpfprsPortfolioDetails :: !(Maybe [PortfolioDetail])
-    , _lpfprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpfprsNextPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpfprsPortfolioDetails :: {-# NOUNPACK #-}!(Maybe [PortfolioDetail])
+  , _lpfprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPortfoliosForProductResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +158,12 @@ listPortfoliosForProductResponse
     :: Int -- ^ 'lpfprsResponseStatus'
     -> ListPortfoliosForProductResponse
 listPortfoliosForProductResponse pResponseStatus_ =
-    ListPortfoliosForProductResponse'
-    { _lpfprsNextPageToken = Nothing
-    , _lpfprsPortfolioDetails = Nothing
-    , _lpfprsResponseStatus = pResponseStatus_
-    }
+  ListPortfoliosForProductResponse'
+  { _lpfprsNextPageToken = Nothing
+  , _lpfprsPortfolioDetails = Nothing
+  , _lpfprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 lpfprsNextPageToken :: Lens' ListPortfoliosForProductResponse (Maybe Text)
@@ -174,3 +178,4 @@ lpfprsResponseStatus :: Lens' ListPortfoliosForProductResponse Int
 lpfprsResponseStatus = lens _lpfprsResponseStatus (\ s a -> s{_lpfprsResponseStatus = a});
 
 instance NFData ListPortfoliosForProductResponse
+         where

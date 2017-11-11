@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     , tiiasgrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for TerminateInstanceInAutoScalingGroup.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
-    { _tiiasgInstanceId                     :: !Text
-    , _tiiasgShouldDecrementDesiredCapacity :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tiiasgInstanceId                     :: {-# NOUNPACK #-}!Text
+  , _tiiasgShouldDecrementDesiredCapacity :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateInstanceInAutoScalingGroup' with the minimum fields required to make a request.
 --
@@ -69,10 +70,11 @@ terminateInstanceInAutoScalingGroup
     -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
     -> TerminateInstanceInAutoScalingGroup
 terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity_ =
-    TerminateInstanceInAutoScalingGroup'
-    { _tiiasgInstanceId = pInstanceId_
-    , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
-    }
+  TerminateInstanceInAutoScalingGroup'
+  { _tiiasgInstanceId = pInstanceId_
+  , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+  }
+
 
 -- | The ID of the instance.
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
@@ -83,7 +85,8 @@ tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGrou
 tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest
-         TerminateInstanceInAutoScalingGroup where
+           TerminateInstanceInAutoScalingGroup
+         where
         type Rs TerminateInstanceInAutoScalingGroup =
              TerminateInstanceInAutoScalingGroupResponse
         request = postQuery autoScaling
@@ -95,11 +98,14 @@ instance AWSRequest
                    (x .@? "Activity") <*> (pure (fromEnum s)))
 
 instance Hashable TerminateInstanceInAutoScalingGroup
+         where
 
 instance NFData TerminateInstanceInAutoScalingGroup
+         where
 
 instance ToHeaders
-         TerminateInstanceInAutoScalingGroup where
+           TerminateInstanceInAutoScalingGroup
+         where
         toHeaders = const mempty
 
 instance ToPath TerminateInstanceInAutoScalingGroup
@@ -124,9 +130,10 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 --
 -- /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
-    { _tiiasgrsActivity       :: !(Maybe Activity)
-    , _tiiasgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tiiasgrsActivity       :: {-# NOUNPACK #-}!(Maybe Activity)
+  , _tiiasgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateInstanceInAutoScalingGroupResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +146,9 @@ terminateInstanceInAutoScalingGroupResponse
     :: Int -- ^ 'tiiasgrsResponseStatus'
     -> TerminateInstanceInAutoScalingGroupResponse
 terminateInstanceInAutoScalingGroupResponse pResponseStatus_ =
-    TerminateInstanceInAutoScalingGroupResponse'
-    { _tiiasgrsActivity = Nothing
-    , _tiiasgrsResponseStatus = pResponseStatus_
-    }
+  TerminateInstanceInAutoScalingGroupResponse'
+  {_tiiasgrsActivity = Nothing, _tiiasgrsResponseStatus = pResponseStatus_}
+
 
 -- | A scaling activity.
 tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
@@ -153,4 +159,5 @@ tiiasgrsResponseStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
 tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\ s a -> s{_tiiasgrsResponseStatus = a});
 
 instance NFData
-         TerminateInstanceInAutoScalingGroupResponse
+           TerminateInstanceInAutoScalingGroupResponse
+         where

@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.EFS.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.EFS.Types.Product where
 
-import           Network.AWS.EFS.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.EFS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Description of the file system.
 --
@@ -27,18 +27,19 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'fileSystemDescription' smart constructor.
 data FileSystemDescription = FileSystemDescription'
-    { _fsdEncrypted            :: !(Maybe Bool)
-    , _fsdKMSKeyId             :: !(Maybe Text)
-    , _fsdName                 :: !(Maybe Text)
-    , _fsdOwnerId              :: !Text
-    , _fsdCreationToken        :: !Text
-    , _fsdFileSystemId         :: !Text
-    , _fsdCreationTime         :: !POSIX
-    , _fsdLifeCycleState       :: !LifeCycleState
-    , _fsdNumberOfMountTargets :: !Nat
-    , _fsdSizeInBytes          :: !FileSystemSize
-    , _fsdPerformanceMode      :: !PerformanceMode
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fsdEncrypted            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _fsdKMSKeyId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fsdName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fsdOwnerId              :: {-# NOUNPACK #-}!Text
+  , _fsdCreationToken        :: {-# NOUNPACK #-}!Text
+  , _fsdFileSystemId         :: {-# NOUNPACK #-}!Text
+  , _fsdCreationTime         :: {-# NOUNPACK #-}!POSIX
+  , _fsdLifeCycleState       :: {-# NOUNPACK #-}!LifeCycleState
+  , _fsdNumberOfMountTargets :: {-# NOUNPACK #-}!Nat
+  , _fsdSizeInBytes          :: {-# NOUNPACK #-}!FileSystemSize
+  , _fsdPerformanceMode      :: {-# NOUNPACK #-}!PerformanceMode
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FileSystemDescription' with the minimum fields required to make a request.
 --
@@ -76,19 +77,20 @@ fileSystemDescription
     -> PerformanceMode -- ^ 'fsdPerformanceMode'
     -> FileSystemDescription
 fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pLifeCycleState_ pNumberOfMountTargets_ pSizeInBytes_ pPerformanceMode_ =
-    FileSystemDescription'
-    { _fsdEncrypted = Nothing
-    , _fsdKMSKeyId = Nothing
-    , _fsdName = Nothing
-    , _fsdOwnerId = pOwnerId_
-    , _fsdCreationToken = pCreationToken_
-    , _fsdFileSystemId = pFileSystemId_
-    , _fsdCreationTime = _Time # pCreationTime_
-    , _fsdLifeCycleState = pLifeCycleState_
-    , _fsdNumberOfMountTargets = _Nat # pNumberOfMountTargets_
-    , _fsdSizeInBytes = pSizeInBytes_
-    , _fsdPerformanceMode = pPerformanceMode_
-    }
+  FileSystemDescription'
+  { _fsdEncrypted = Nothing
+  , _fsdKMSKeyId = Nothing
+  , _fsdName = Nothing
+  , _fsdOwnerId = pOwnerId_
+  , _fsdCreationToken = pCreationToken_
+  , _fsdFileSystemId = pFileSystemId_
+  , _fsdCreationTime = _Time # pCreationTime_
+  , _fsdLifeCycleState = pLifeCycleState_
+  , _fsdNumberOfMountTargets = _Nat # pNumberOfMountTargets_
+  , _fsdSizeInBytes = pSizeInBytes_
+  , _fsdPerformanceMode = pPerformanceMode_
+  }
+
 
 -- | A boolean value that, if true, indicates that the file system is encrypted.
 fsdEncrypted :: Lens' FileSystemDescription (Maybe Bool)
@@ -150,9 +152,9 @@ instance FromJSON FileSystemDescription where
                      <*> (x .: "SizeInBytes")
                      <*> (x .: "PerformanceMode"))
 
-instance Hashable FileSystemDescription
+instance Hashable FileSystemDescription where
 
-instance NFData FileSystemDescription
+instance NFData FileSystemDescription where
 
 -- | Latest known metered size (in bytes) of data stored in the file system, in its @Value@ field, and the time at which that size was determined in its @Timestamp@ field. Note that the value does not represent the size of a consistent snapshot of the file system, but it is eventually consistent when there are no writes to the file system. That is, the value will represent the actual size only if the file system is not modified for a period longer than a couple of hours. Otherwise, the value is not necessarily the exact size the file system was at any instant in time.
 --
@@ -160,9 +162,10 @@ instance NFData FileSystemDescription
 --
 -- /See:/ 'fileSystemSize' smart constructor.
 data FileSystemSize = FileSystemSize'
-    { _fssTimestamp :: !(Maybe POSIX)
-    , _fssValue     :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fssTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _fssValue     :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FileSystemSize' with the minimum fields required to make a request.
 --
@@ -175,10 +178,8 @@ fileSystemSize
     :: Natural -- ^ 'fssValue'
     -> FileSystemSize
 fileSystemSize pValue_ =
-    FileSystemSize'
-    { _fssTimestamp = Nothing
-    , _fssValue = _Nat # pValue_
-    }
+  FileSystemSize' {_fssTimestamp = Nothing, _fssValue = _Nat # pValue_}
+
 
 -- | Time at which the size of data, returned in the @Value@ field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.
 fssTimestamp :: Lens' FileSystemSize (Maybe UTCTime)
@@ -195,9 +196,9 @@ instance FromJSON FileSystemSize where
                  FileSystemSize' <$>
                    (x .:? "Timestamp") <*> (x .: "Value"))
 
-instance Hashable FileSystemSize
+instance Hashable FileSystemSize where
 
-instance NFData FileSystemSize
+instance NFData FileSystemSize where
 
 -- | Provides a description of a mount target.
 --
@@ -205,14 +206,15 @@ instance NFData FileSystemSize
 --
 -- /See:/ 'mountTargetDescription' smart constructor.
 data MountTargetDescription = MountTargetDescription'
-    { _mtdIPAddress          :: !(Maybe Text)
-    , _mtdNetworkInterfaceId :: !(Maybe Text)
-    , _mtdOwnerId            :: !(Maybe Text)
-    , _mtdMountTargetId      :: !Text
-    , _mtdFileSystemId       :: !Text
-    , _mtdSubnetId           :: !Text
-    , _mtdLifeCycleState     :: !LifeCycleState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtdIPAddress          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtdNetworkInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtdOwnerId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtdMountTargetId      :: {-# NOUNPACK #-}!Text
+  , _mtdFileSystemId       :: {-# NOUNPACK #-}!Text
+  , _mtdSubnetId           :: {-# NOUNPACK #-}!Text
+  , _mtdLifeCycleState     :: {-# NOUNPACK #-}!LifeCycleState
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MountTargetDescription' with the minimum fields required to make a request.
 --
@@ -238,15 +240,16 @@ mountTargetDescription
     -> LifeCycleState -- ^ 'mtdLifeCycleState'
     -> MountTargetDescription
 mountTargetDescription pMountTargetId_ pFileSystemId_ pSubnetId_ pLifeCycleState_ =
-    MountTargetDescription'
-    { _mtdIPAddress = Nothing
-    , _mtdNetworkInterfaceId = Nothing
-    , _mtdOwnerId = Nothing
-    , _mtdMountTargetId = pMountTargetId_
-    , _mtdFileSystemId = pFileSystemId_
-    , _mtdSubnetId = pSubnetId_
-    , _mtdLifeCycleState = pLifeCycleState_
-    }
+  MountTargetDescription'
+  { _mtdIPAddress = Nothing
+  , _mtdNetworkInterfaceId = Nothing
+  , _mtdOwnerId = Nothing
+  , _mtdMountTargetId = pMountTargetId_
+  , _mtdFileSystemId = pFileSystemId_
+  , _mtdSubnetId = pSubnetId_
+  , _mtdLifeCycleState = pLifeCycleState_
+  }
+
 
 -- | Address at which the file system may be mounted via the mount target.
 mtdIPAddress :: Lens' MountTargetDescription (Maybe Text)
@@ -288,9 +291,9 @@ instance FromJSON MountTargetDescription where
                      <*> (x .: "SubnetId")
                      <*> (x .: "LifeCycleState"))
 
-instance Hashable MountTargetDescription
+instance Hashable MountTargetDescription where
 
-instance NFData MountTargetDescription
+instance NFData MountTargetDescription where
 
 -- | A tag is a key-value pair. Allowed characters: letters, whitespace, and numbers, representable in UTF-8, and the following characters:@+ - = . _ : /@
 --
@@ -298,9 +301,10 @@ instance NFData MountTargetDescription
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -313,11 +317,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | Tag key (String). The key can't start with @aws:@ .
 tagKey :: Lens' Tag Text
@@ -332,9 +333,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

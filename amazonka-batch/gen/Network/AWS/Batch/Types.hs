@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -237,40 +237,40 @@ module Network.AWS.Batch.Types
     , vHost
     ) where
 
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Batch.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Batch.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2016-08-10@ of the Amazon Batch SDK configuration.
 batch :: Service
 batch =
-    Service
-    { _svcAbbrev = "Batch"
-    , _svcSigner = v4
-    , _svcPrefix = "batch"
-    , _svcVersion = "2016-08-10"
-    , _svcEndpoint = defaultEndpoint batch
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Batch"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "Batch"
+  , _svcSigner = v4
+  , _svcPrefix = "batch"
+  , _svcVersion = "2016-08-10"
+  , _svcEndpoint = defaultEndpoint batch
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "Batch"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -279,14 +279,17 @@ batch =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | These errors are usually caused by a server issue.
 --
 --
 _ServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServerException = _MatchServiceError batch "ServerException" . hasStatus 500
 
+
 -- | These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permission to use the action or resource, or specifying an identifier that is not valid.
 --
 --
 _ClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClientException = _MatchServiceError batch "ClientException" . hasStatus 400
+

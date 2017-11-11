@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.CreateCustomActionType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     , ccatrsActionType
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a create custom action operation.
 --
@@ -56,14 +56,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCustomActionType' smart constructor.
 data CreateCustomActionType = CreateCustomActionType'
-    { _ccatSettings                :: !(Maybe ActionTypeSettings)
-    , _ccatConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
-    , _ccatCategory                :: !ActionCategory
-    , _ccatProvider                :: !Text
-    , _ccatVersion                 :: !Text
-    , _ccatInputArtifactDetails    :: !ArtifactDetails
-    , _ccatOutputArtifactDetails   :: !ArtifactDetails
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccatSettings :: {-# NOUNPACK #-}!(Maybe ActionTypeSettings)
+  , _ccatConfigurationProperties :: {-# NOUNPACK #-}!(Maybe [ActionConfigurationProperty])
+  , _ccatCategory :: {-# NOUNPACK #-}!ActionCategory
+  , _ccatProvider :: {-# NOUNPACK #-}!Text
+  , _ccatVersion :: {-# NOUNPACK #-}!Text
+  , _ccatInputArtifactDetails :: {-# NOUNPACK #-}!ArtifactDetails
+  , _ccatOutputArtifactDetails :: {-# NOUNPACK #-}!ArtifactDetails
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCustomActionType' with the minimum fields required to make a request.
 --
@@ -90,15 +91,16 @@ createCustomActionType
     -> ArtifactDetails -- ^ 'ccatOutputArtifactDetails'
     -> CreateCustomActionType
 createCustomActionType pCategory_ pProvider_ pVersion_ pInputArtifactDetails_ pOutputArtifactDetails_ =
-    CreateCustomActionType'
-    { _ccatSettings = Nothing
-    , _ccatConfigurationProperties = Nothing
-    , _ccatCategory = pCategory_
-    , _ccatProvider = pProvider_
-    , _ccatVersion = pVersion_
-    , _ccatInputArtifactDetails = pInputArtifactDetails_
-    , _ccatOutputArtifactDetails = pOutputArtifactDetails_
-    }
+  CreateCustomActionType'
+  { _ccatSettings = Nothing
+  , _ccatConfigurationProperties = Nothing
+  , _ccatCategory = pCategory_
+  , _ccatProvider = pProvider_
+  , _ccatVersion = pVersion_
+  , _ccatInputArtifactDetails = pInputArtifactDetails_
+  , _ccatOutputArtifactDetails = pOutputArtifactDetails_
+  }
+
 
 -- | Returns information about the settings for an action type.
 ccatSettings :: Lens' CreateCustomActionType (Maybe ActionTypeSettings)
@@ -138,9 +140,9 @@ instance AWSRequest CreateCustomActionType where
                  CreateCustomActionTypeResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "actionType"))
 
-instance Hashable CreateCustomActionType
+instance Hashable CreateCustomActionType where
 
-instance NFData CreateCustomActionType
+instance NFData CreateCustomActionType where
 
 instance ToHeaders CreateCustomActionType where
         toHeaders
@@ -181,9 +183,10 @@ instance ToQuery CreateCustomActionType where
 --
 -- /See:/ 'createCustomActionTypeResponse' smart constructor.
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
-    { _ccatrsResponseStatus :: !Int
-    , _ccatrsActionType     :: !ActionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccatrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ccatrsActionType     :: {-# NOUNPACK #-}!ActionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCustomActionTypeResponse' with the minimum fields required to make a request.
 --
@@ -197,10 +200,9 @@ createCustomActionTypeResponse
     -> ActionType -- ^ 'ccatrsActionType'
     -> CreateCustomActionTypeResponse
 createCustomActionTypeResponse pResponseStatus_ pActionType_ =
-    CreateCustomActionTypeResponse'
-    { _ccatrsResponseStatus = pResponseStatus_
-    , _ccatrsActionType = pActionType_
-    }
+  CreateCustomActionTypeResponse'
+  {_ccatrsResponseStatus = pResponseStatus_, _ccatrsActionType = pActionType_}
+
 
 -- | -- | The response status code.
 ccatrsResponseStatus :: Lens' CreateCustomActionTypeResponse Int
@@ -210,4 +212,4 @@ ccatrsResponseStatus = lens _ccatrsResponseStatus (\ s a -> s{_ccatrsResponseSta
 ccatrsActionType :: Lens' CreateCustomActionTypeResponse ActionType
 ccatrsActionType = lens _ccatrsActionType (\ s a -> s{_ccatrsActionType = a});
 
-instance NFData CreateCustomActionTypeResponse
+instance NFData CreateCustomActionTypeResponse where

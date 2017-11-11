@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RespondActivityTaskCompleted
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,18 +53,19 @@ module Network.AWS.SWF.RespondActivityTaskCompleted
     , RespondActivityTaskCompletedResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'respondActivityTaskCompleted' smart constructor.
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted'
-    { _ratcResult    :: !(Maybe Text)
-    , _ratcTaskToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ratcResult    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ratcTaskToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondActivityTaskCompleted' with the minimum fields required to make a request.
 --
@@ -77,10 +78,9 @@ respondActivityTaskCompleted
     :: Text -- ^ 'ratcTaskToken'
     -> RespondActivityTaskCompleted
 respondActivityTaskCompleted pTaskToken_ =
-    RespondActivityTaskCompleted'
-    { _ratcResult = Nothing
-    , _ratcTaskToken = pTaskToken_
-    }
+  RespondActivityTaskCompleted'
+  {_ratcResult = Nothing, _ratcTaskToken = pTaskToken_}
+
 
 -- | The result of the activity task. It is a free form string that is implementation specific.
 ratcResult :: Lens' RespondActivityTaskCompleted (Maybe Text)
@@ -98,9 +98,9 @@ instance AWSRequest RespondActivityTaskCompleted
         response
           = receiveNull RespondActivityTaskCompletedResponse'
 
-instance Hashable RespondActivityTaskCompleted
+instance Hashable RespondActivityTaskCompleted where
 
-instance NFData RespondActivityTaskCompleted
+instance NFData RespondActivityTaskCompleted where
 
 instance ToHeaders RespondActivityTaskCompleted where
         toHeaders
@@ -127,8 +127,9 @@ instance ToQuery RespondActivityTaskCompleted where
 
 -- | /See:/ 'respondActivityTaskCompletedResponse' smart constructor.
 data RespondActivityTaskCompletedResponse =
-    RespondActivityTaskCompletedResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RespondActivityTaskCompletedResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondActivityTaskCompletedResponse' with the minimum fields required to make a request.
 --
@@ -136,4 +137,6 @@ respondActivityTaskCompletedResponse
     :: RespondActivityTaskCompletedResponse
 respondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse'
 
+
 instance NFData RespondActivityTaskCompletedResponse
+         where

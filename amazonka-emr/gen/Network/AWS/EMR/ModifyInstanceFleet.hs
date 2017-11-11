@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ModifyInstanceFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.EMR.ModifyInstanceFleet
     , ModifyInstanceFleetResponse
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyInstanceFleet' smart constructor.
 data ModifyInstanceFleet = ModifyInstanceFleet'
-    { _mifClusterId     :: !Text
-    , _mifInstanceFleet :: !InstanceFleetModifyConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mifClusterId     :: {-# NOUNPACK #-}!Text
+  , _mifInstanceFleet :: {-# NOUNPACK #-}!InstanceFleetModifyConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyInstanceFleet' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ modifyInstanceFleet
     -> InstanceFleetModifyConfig -- ^ 'mifInstanceFleet'
     -> ModifyInstanceFleet
 modifyInstanceFleet pClusterId_ pInstanceFleet_ =
-    ModifyInstanceFleet'
-    { _mifClusterId = pClusterId_
-    , _mifInstanceFleet = pInstanceFleet_
-    }
+  ModifyInstanceFleet'
+  {_mifClusterId = pClusterId_, _mifInstanceFleet = pInstanceFleet_}
+
 
 -- | The unique identifier of the cluster.
 mifClusterId :: Lens' ModifyInstanceFleet Text
@@ -79,9 +79,9 @@ instance AWSRequest ModifyInstanceFleet where
         request = postJSON emr
         response = receiveNull ModifyInstanceFleetResponse'
 
-instance Hashable ModifyInstanceFleet
+instance Hashable ModifyInstanceFleet where
 
-instance NFData ModifyInstanceFleet
+instance NFData ModifyInstanceFleet where
 
 instance ToHeaders ModifyInstanceFleet where
         toHeaders
@@ -108,8 +108,9 @@ instance ToQuery ModifyInstanceFleet where
 
 -- | /See:/ 'modifyInstanceFleetResponse' smart constructor.
 data ModifyInstanceFleetResponse =
-    ModifyInstanceFleetResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyInstanceFleetResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyInstanceFleetResponse' with the minimum fields required to make a request.
 --
@@ -117,4 +118,5 @@ modifyInstanceFleetResponse
     :: ModifyInstanceFleetResponse
 modifyInstanceFleetResponse = ModifyInstanceFleetResponse'
 
-instance NFData ModifyInstanceFleetResponse
+
+instance NFData ModifyInstanceFleetResponse where

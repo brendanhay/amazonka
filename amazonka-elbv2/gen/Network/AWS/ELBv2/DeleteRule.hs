@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeleteRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.ELBv2.DeleteRule
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteRule' smart constructor.
 newtype DeleteRule = DeleteRule'
-    { _drRuleARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drRuleARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRule' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteRule = DeleteRule'
 deleteRule
     :: Text -- ^ 'drRuleARN'
     -> DeleteRule
-deleteRule pRuleARN_ =
-    DeleteRule'
-    { _drRuleARN = pRuleARN_
-    }
+deleteRule pRuleARN_ = DeleteRule' {_drRuleARN = pRuleARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the rule.
 drRuleARN :: Lens' DeleteRule Text
@@ -73,9 +72,9 @@ instance AWSRequest DeleteRule where
               (\ s h x ->
                  DeleteRuleResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteRule
+instance Hashable DeleteRule where
 
-instance NFData DeleteRule
+instance NFData DeleteRule where
 
 instance ToHeaders DeleteRule where
         toHeaders = const mempty
@@ -92,8 +91,9 @@ instance ToQuery DeleteRule where
 
 -- | /See:/ 'deleteRuleResponse' smart constructor.
 newtype DeleteRuleResponse = DeleteRuleResponse'
-    { _drrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRuleResponse' with the minimum fields required to make a request.
 --
@@ -104,12 +104,11 @@ deleteRuleResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DeleteRuleResponse
 deleteRuleResponse pResponseStatus_ =
-    DeleteRuleResponse'
-    { _drrsResponseStatus = pResponseStatus_
-    }
+  DeleteRuleResponse' {_drrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRuleResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DeleteRuleResponse
+instance NFData DeleteRuleResponse where

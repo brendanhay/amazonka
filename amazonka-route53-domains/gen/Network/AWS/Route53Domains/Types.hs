@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -112,40 +112,40 @@ module Network.AWS.Route53Domains.Types
     , tagKey
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Route53Domains.Types.Product
-import           Network.AWS.Route53Domains.Types.Sum
-import           Network.AWS.Sign.V4
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Route53Domains.Types.Sum
+import Network.AWS.Sign.V4
 
 -- | API version @2014-05-15@ of the Amazon Route 53 Domains SDK configuration.
 route53Domains :: Service
 route53Domains =
-    Service
-    { _svcAbbrev = "Route53Domains"
-    , _svcSigner = v4
-    , _svcPrefix = "route53domains"
-    , _svcVersion = "2014-05-15"
-    , _svcEndpoint = defaultEndpoint route53Domains
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Route53Domains"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "Route53Domains"
+  , _svcSigner = v4
+  , _svcPrefix = "route53domains"
+  , _svcVersion = "2014-05-15"
+  , _svcEndpoint = defaultEndpoint route53Domains
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "Route53Domains"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -154,18 +154,21 @@ route53Domains =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The requested item is not acceptable. For example, for an OperationId it may refer to the ID of an operation that is already completed. For a domain name, it may not be a valid domain name or belong to the requester account.
 --
 --
 _InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInput = _MatchServiceError route53Domains "InvalidInput"
 
+
 -- | The number of operations or jobs running exceeded the allowed threshold for the account.
 --
 --
 _OperationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationLimitExceeded =
-    _MatchServiceError route53Domains "OperationLimitExceeded"
+  _MatchServiceError route53Domains "OperationLimitExceeded"
+
 
 -- | The number of domains has exceeded the allowed threshold for the account.
 --
@@ -173,11 +176,13 @@ _OperationLimitExceeded =
 _DomainLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DomainLimitExceeded = _MatchServiceError route53Domains "DomainLimitExceeded"
 
+
 -- | Amazon Route 53 does not support this top-level domain.
 --
 --
 _UnsupportedTLD :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedTLD = _MatchServiceError route53Domains "UnsupportedTLD"
+
 
 -- | The top-level domain does not support this operation.
 --
@@ -185,8 +190,10 @@ _UnsupportedTLD = _MatchServiceError route53Domains "UnsupportedTLD"
 _TLDRulesViolation :: AsError a => Getting (First ServiceError) a ServiceError
 _TLDRulesViolation = _MatchServiceError route53Domains "TLDRulesViolation"
 
+
 -- | The request is already in progress for the domain.
 --
 --
 _DuplicateRequest :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateRequest = _MatchServiceError route53Domains "DuplicateRequest"
+

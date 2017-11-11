@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreatePolicyVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.IAM.CreatePolicyVersion
     , cpvrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createPolicyVersion' smart constructor.
 data CreatePolicyVersion = CreatePolicyVersion'
-    { _cpvSetAsDefault   :: !(Maybe Bool)
-    , _cpvPolicyARN      :: !Text
-    , _cpvPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpvSetAsDefault   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cpvPolicyARN      :: {-# NOUNPACK #-}!Text
+  , _cpvPolicyDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicyVersion' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ createPolicyVersion
     -> Text -- ^ 'cpvPolicyDocument'
     -> CreatePolicyVersion
 createPolicyVersion pPolicyARN_ pPolicyDocument_ =
-    CreatePolicyVersion'
-    { _cpvSetAsDefault = Nothing
-    , _cpvPolicyARN = pPolicyARN_
-    , _cpvPolicyDocument = pPolicyDocument_
-    }
+  CreatePolicyVersion'
+  { _cpvSetAsDefault = Nothing
+  , _cpvPolicyARN = pPolicyARN_
+  , _cpvPolicyDocument = pPolicyDocument_
+  }
+
 
 -- | Specifies whether to set this version as the policy's default version. When this parameter is @true@ , the new policy version becomes the operative version; that is, the version that is in effect for the IAM users, groups, and roles that the policy is attached to. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
@@ -99,9 +101,9 @@ instance AWSRequest CreatePolicyVersion where
                  CreatePolicyVersionResponse' <$>
                    (x .@? "PolicyVersion") <*> (pure (fromEnum s)))
 
-instance Hashable CreatePolicyVersion
+instance Hashable CreatePolicyVersion where
 
-instance NFData CreatePolicyVersion
+instance NFData CreatePolicyVersion where
 
 instance ToHeaders CreatePolicyVersion where
         toHeaders = const mempty
@@ -124,9 +126,10 @@ instance ToQuery CreatePolicyVersion where
 --
 -- /See:/ 'createPolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-    { _cpvrsPolicyVersion  :: !(Maybe PolicyVersion)
-    , _cpvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpvrsPolicyVersion  :: {-# NOUNPACK #-}!(Maybe PolicyVersion)
+  , _cpvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ createPolicyVersionResponse
     :: Int -- ^ 'cpvrsResponseStatus'
     -> CreatePolicyVersionResponse
 createPolicyVersionResponse pResponseStatus_ =
-    CreatePolicyVersionResponse'
-    { _cpvrsPolicyVersion = Nothing
-    , _cpvrsResponseStatus = pResponseStatus_
-    }
+  CreatePolicyVersionResponse'
+  {_cpvrsPolicyVersion = Nothing, _cpvrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure containing details about the new policy version.
 cpvrsPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
@@ -152,4 +154,4 @@ cpvrsPolicyVersion = lens _cpvrsPolicyVersion (\ s a -> s{_cpvrsPolicyVersion = 
 cpvrsResponseStatus :: Lens' CreatePolicyVersionResponse Int
 cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a});
 
-instance NFData CreatePolicyVersionResponse
+instance NFData CreatePolicyVersionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEndpointTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DMS.DescribeEndpointTypes
     , detrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEndpointTypes' smart constructor.
 data DescribeEndpointTypes = DescribeEndpointTypes'
-    { _detFilters    :: !(Maybe [Filter])
-    , _detMarker     :: !(Maybe Text)
-    , _detMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _detMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEndpointTypes' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data DescribeEndpointTypes = DescribeEndpointTypes'
 describeEndpointTypes
     :: DescribeEndpointTypes
 describeEndpointTypes =
-    DescribeEndpointTypes'
-    { _detFilters = Nothing
-    , _detMarker = Nothing
-    , _detMaxRecords = Nothing
-    }
+  DescribeEndpointTypes'
+  {_detFilters = Nothing, _detMarker = Nothing, _detMaxRecords = Nothing}
+
 
 -- | Filters applied to the describe action. Valid filter names: engine-name | endpoint-type
 detFilters :: Lens' DescribeEndpointTypes [Filter]
@@ -100,9 +99,9 @@ instance AWSRequest DescribeEndpointTypes where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEndpointTypes
+instance Hashable DescribeEndpointTypes where
 
-instance NFData DescribeEndpointTypes
+instance NFData DescribeEndpointTypes where
 
 instance ToHeaders DescribeEndpointTypes where
         toHeaders
@@ -134,10 +133,11 @@ instance ToQuery DescribeEndpointTypes where
 --
 -- /See:/ 'describeEndpointTypesResponse' smart constructor.
 data DescribeEndpointTypesResponse = DescribeEndpointTypesResponse'
-    { _detrsSupportedEndpointTypes :: !(Maybe [SupportedEndpointType])
-    , _detrsMarker                 :: !(Maybe Text)
-    , _detrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detrsSupportedEndpointTypes :: {-# NOUNPACK #-}!(Maybe [SupportedEndpointType])
+  , _detrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEndpointTypesResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +152,12 @@ describeEndpointTypesResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DescribeEndpointTypesResponse
 describeEndpointTypesResponse pResponseStatus_ =
-    DescribeEndpointTypesResponse'
-    { _detrsSupportedEndpointTypes = Nothing
-    , _detrsMarker = Nothing
-    , _detrsResponseStatus = pResponseStatus_
-    }
+  DescribeEndpointTypesResponse'
+  { _detrsSupportedEndpointTypes = Nothing
+  , _detrsMarker = Nothing
+  , _detrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The type of endpoints that are supported.
 detrsSupportedEndpointTypes :: Lens' DescribeEndpointTypesResponse [SupportedEndpointType]
@@ -170,4 +171,4 @@ detrsMarker = lens _detrsMarker (\ s a -> s{_detrsMarker = a});
 detrsResponseStatus :: Lens' DescribeEndpointTypesResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 
-instance NFData DescribeEndpointTypesResponse
+instance NFData DescribeEndpointTypesResponse where

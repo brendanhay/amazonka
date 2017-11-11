@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
     , dlbtgsrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancerTargetGroups.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeLoadBalancerTargetGroups' smart constructor.
 data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
-    { _dlbtgsNextToken            :: !(Maybe Text)
-    , _dlbtgsMaxRecords           :: !(Maybe Int)
-    , _dlbtgsAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbtgsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlbtgsMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dlbtgsAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerTargetGroups' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ describeLoadBalancerTargetGroups
     :: Text -- ^ 'dlbtgsAutoScalingGroupName'
     -> DescribeLoadBalancerTargetGroups
 describeLoadBalancerTargetGroups pAutoScalingGroupName_ =
-    DescribeLoadBalancerTargetGroups'
-    { _dlbtgsNextToken = Nothing
-    , _dlbtgsMaxRecords = Nothing
-    , _dlbtgsAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  DescribeLoadBalancerTargetGroups'
+  { _dlbtgsNextToken = Nothing
+  , _dlbtgsMaxRecords = Nothing
+  , _dlbtgsAutoScalingGroupName = pAutoScalingGroupName_
+  }
+
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dlbtgsNextToken :: Lens' DescribeLoadBalancerTargetGroups (Maybe Text)
@@ -105,8 +107,10 @@ instance AWSRequest DescribeLoadBalancerTargetGroups
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeLoadBalancerTargetGroups
+         where
 
 instance NFData DescribeLoadBalancerTargetGroups
+         where
 
 instance ToHeaders DescribeLoadBalancerTargetGroups
          where
@@ -134,10 +138,11 @@ instance ToQuery DescribeLoadBalancerTargetGroups
 --
 -- /See:/ 'describeLoadBalancerTargetGroupsResponse' smart constructor.
 data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroupsResponse'
-    { _dlbtgsrsLoadBalancerTargetGroups :: !(Maybe [LoadBalancerTargetGroupState])
-    , _dlbtgsrsNextToken                :: !(Maybe Text)
-    , _dlbtgsrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbtgsrsLoadBalancerTargetGroups :: {-# NOUNPACK #-}!(Maybe [LoadBalancerTargetGroupState])
+  , _dlbtgsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlbtgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerTargetGroupsResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +157,12 @@ describeLoadBalancerTargetGroupsResponse
     :: Int -- ^ 'dlbtgsrsResponseStatus'
     -> DescribeLoadBalancerTargetGroupsResponse
 describeLoadBalancerTargetGroupsResponse pResponseStatus_ =
-    DescribeLoadBalancerTargetGroupsResponse'
-    { _dlbtgsrsLoadBalancerTargetGroups = Nothing
-    , _dlbtgsrsNextToken = Nothing
-    , _dlbtgsrsResponseStatus = pResponseStatus_
-    }
+  DescribeLoadBalancerTargetGroupsResponse'
+  { _dlbtgsrsLoadBalancerTargetGroups = Nothing
+  , _dlbtgsrsNextToken = Nothing
+  , _dlbtgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the target groups.
 dlbtgsrsLoadBalancerTargetGroups :: Lens' DescribeLoadBalancerTargetGroupsResponse [LoadBalancerTargetGroupState]
@@ -171,4 +177,5 @@ dlbtgsrsResponseStatus :: Lens' DescribeLoadBalancerTargetGroupsResponse Int
 dlbtgsrsResponseStatus = lens _dlbtgsrsResponseStatus (\ s a -> s{_dlbtgsrsResponseStatus = a});
 
 instance NFData
-         DescribeLoadBalancerTargetGroupsResponse
+           DescribeLoadBalancerTargetGroupsResponse
+         where

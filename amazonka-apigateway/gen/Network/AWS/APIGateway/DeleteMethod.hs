@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteMethod
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.APIGateway.DeleteMethod
     , DeleteMethodResponse'
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to delete an existing 'Method' resource.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteMethod' smart constructor.
 data DeleteMethod = DeleteMethod'
-    { _dmmRestAPIId  :: !Text
-    , _dmmResourceId :: !Text
-    , _dmmHttpMethod :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmmRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _dmmResourceId :: {-# NOUNPACK #-}!Text
+  , _dmmHttpMethod :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMethod' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ deleteMethod
     -> Text -- ^ 'dmmHttpMethod'
     -> DeleteMethod
 deleteMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
-    DeleteMethod'
-    { _dmmRestAPIId = pRestAPIId_
-    , _dmmResourceId = pResourceId_
-    , _dmmHttpMethod = pHttpMethod_
-    }
+  DeleteMethod'
+  { _dmmRestAPIId = pRestAPIId_
+  , _dmmResourceId = pResourceId_
+  , _dmmHttpMethod = pHttpMethod_
+  }
+
 
 -- | The string identifier of the associated 'RestApi' .
 dmmRestAPIId :: Lens' DeleteMethod Text
@@ -92,9 +94,9 @@ instance AWSRequest DeleteMethod where
         request = delete apiGateway
         response = receiveNull DeleteMethodResponse''
 
-instance Hashable DeleteMethod
+instance Hashable DeleteMethod where
 
-instance NFData DeleteMethod
+instance NFData DeleteMethod where
 
 instance ToHeaders DeleteMethod where
         toHeaders
@@ -114,8 +116,9 @@ instance ToQuery DeleteMethod where
 
 -- | /See:/ 'deleteMethodResponse'' smart constructor.
 data DeleteMethodResponse' =
-    DeleteMethodResponse''
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteMethodResponse''
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMethodResponse'' with the minimum fields required to make a request.
 --
@@ -123,4 +126,5 @@ deleteMethodResponse'
     :: DeleteMethodResponse'
 deleteMethodResponse' = DeleteMethodResponse''
 
-instance NFData DeleteMethodResponse'
+
+instance NFData DeleteMethodResponse' where

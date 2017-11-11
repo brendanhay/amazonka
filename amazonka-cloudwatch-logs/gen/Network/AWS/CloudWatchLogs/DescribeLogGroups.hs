@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     , dlgrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLogGroups' smart constructor.
 data DescribeLogGroups = DescribeLogGroups'
-    { _dlgLogGroupNamePrefix :: !(Maybe Text)
-    , _dlgNextToken          :: !(Maybe Text)
-    , _dlgLimit              :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlgLogGroupNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlgNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlgLimit              :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLogGroups' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data DescribeLogGroups = DescribeLogGroups'
 describeLogGroups
     :: DescribeLogGroups
 describeLogGroups =
-    DescribeLogGroups'
-    { _dlgLogGroupNamePrefix = Nothing
-    , _dlgNextToken = Nothing
-    , _dlgLimit = Nothing
-    }
+  DescribeLogGroups'
+  { _dlgLogGroupNamePrefix = Nothing
+  , _dlgNextToken = Nothing
+  , _dlgLimit = Nothing
+  }
+
 
 -- | The prefix to match.
 dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest DescribeLogGroups where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLogGroups
+instance Hashable DescribeLogGroups where
 
-instance NFData DescribeLogGroups
+instance NFData DescribeLogGroups where
 
 instance ToHeaders DescribeLogGroups where
         toHeaders
@@ -135,10 +137,11 @@ instance ToQuery DescribeLogGroups where
 
 -- | /See:/ 'describeLogGroupsResponse' smart constructor.
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
-    { _dlgrsLogGroups      :: !(Maybe [LogGroup])
-    , _dlgrsNextToken      :: !(Maybe Text)
-    , _dlgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlgrsLogGroups      :: {-# NOUNPACK #-}!(Maybe [LogGroup])
+  , _dlgrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLogGroupsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ describeLogGroupsResponse
     :: Int -- ^ 'dlgrsResponseStatus'
     -> DescribeLogGroupsResponse
 describeLogGroupsResponse pResponseStatus_ =
-    DescribeLogGroupsResponse'
-    { _dlgrsLogGroups = Nothing
-    , _dlgrsNextToken = Nothing
-    , _dlgrsResponseStatus = pResponseStatus_
-    }
+  DescribeLogGroupsResponse'
+  { _dlgrsLogGroups = Nothing
+  , _dlgrsNextToken = Nothing
+  , _dlgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The log groups.
 dlgrsLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
@@ -171,4 +175,4 @@ dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a});
 dlgrsResponseStatus :: Lens' DescribeLogGroupsResponse Int
 dlgrsResponseStatus = lens _dlgrsResponseStatus (\ s a -> s{_dlgrsResponseStatus = a});
 
-instance NFData DescribeLogGroupsResponse
+instance NFData DescribeLogGroupsResponse where

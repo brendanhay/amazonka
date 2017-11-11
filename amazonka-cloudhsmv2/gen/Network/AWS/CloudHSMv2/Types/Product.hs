@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudHSMv2.Types.Product where
 
-import           Network.AWS.CloudHSMv2.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudHSMv2.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Contains information about a backup of an AWS CloudHSM cluster.
 --
@@ -27,11 +27,12 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'backup' smart constructor.
 data Backup = Backup'
-    { _bClusterId       :: !(Maybe Text)
-    , _bCreateTimestamp :: !(Maybe POSIX)
-    , _bBackupState     :: !(Maybe BackupState)
-    , _bBackupId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bClusterId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bCreateTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bBackupState     :: {-# NOUNPACK #-}!(Maybe BackupState)
+  , _bBackupId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Backup' with the minimum fields required to make a request.
 --
@@ -48,12 +49,13 @@ backup
     :: Text -- ^ 'bBackupId'
     -> Backup
 backup pBackupId_ =
-    Backup'
-    { _bClusterId = Nothing
-    , _bCreateTimestamp = Nothing
-    , _bBackupState = Nothing
-    , _bBackupId = pBackupId_
-    }
+  Backup'
+  { _bClusterId = Nothing
+  , _bCreateTimestamp = Nothing
+  , _bBackupState = Nothing
+  , _bBackupId = pBackupId_
+  }
+
 
 -- | The identifier (ID) of the cluster that was backed up.
 bClusterId :: Lens' Backup (Maybe Text)
@@ -80,9 +82,9 @@ instance FromJSON Backup where
                      (x .:? "BackupState")
                      <*> (x .: "BackupId"))
 
-instance Hashable Backup
+instance Hashable Backup where
 
-instance NFData Backup
+instance NFData Backup where
 
 -- | Contains one or more certificates or a certificate signing request (CSR).
 --
@@ -90,12 +92,13 @@ instance NFData Backup
 --
 -- /See:/ 'certificates' smart constructor.
 data Certificates = Certificates'
-    { _cManufacturerHardwareCertificate :: !(Maybe Text)
-    , _cClusterCSR                      :: !(Maybe Text)
-    , _cHSMCertificate                  :: !(Maybe Text)
-    , _cClusterCertificate              :: !(Maybe Text)
-    , _cAWSHardwareCertificate          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cManufacturerHardwareCertificate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterCSR                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cHSMCertificate                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterCertificate              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cAWSHardwareCertificate          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Certificates' with the minimum fields required to make a request.
 --
@@ -113,13 +116,14 @@ data Certificates = Certificates'
 certificates
     :: Certificates
 certificates =
-    Certificates'
-    { _cManufacturerHardwareCertificate = Nothing
-    , _cClusterCSR = Nothing
-    , _cHSMCertificate = Nothing
-    , _cClusterCertificate = Nothing
-    , _cAWSHardwareCertificate = Nothing
-    }
+  Certificates'
+  { _cManufacturerHardwareCertificate = Nothing
+  , _cClusterCSR = Nothing
+  , _cHSMCertificate = Nothing
+  , _cClusterCertificate = Nothing
+  , _cAWSHardwareCertificate = Nothing
+  }
+
 
 -- | The HSM hardware certificate issued (signed) by the hardware manufacturer.
 cManufacturerHardwareCertificate :: Lens' Certificates (Maybe Text)
@@ -152,9 +156,9 @@ instance FromJSON Certificates where
                      <*> (x .:? "ClusterCertificate")
                      <*> (x .:? "AwsHardwareCertificate"))
 
-instance Hashable Certificates
+instance Hashable Certificates where
 
-instance NFData Certificates
+instance NFData Certificates where
 
 -- | Contains information about an AWS CloudHSM cluster.
 --
@@ -162,20 +166,21 @@ instance NFData Certificates
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-    { _cPreCoPassword   :: !(Maybe Text)
-    , _cStateMessage    :: !(Maybe Text)
-    , _cState           :: !(Maybe ClusterState)
-    , _cSubnetMapping   :: !(Maybe (Map Text Text))
-    , _cHSMs            :: !(Maybe [HSM])
-    , _cVPCId           :: !(Maybe Text)
-    , _cSourceBackupId  :: !(Maybe Text)
-    , _cCertificates    :: !(Maybe Certificates)
-    , _cSecurityGroup   :: !(Maybe Text)
-    , _cClusterId       :: !(Maybe Text)
-    , _cCreateTimestamp :: !(Maybe POSIX)
-    , _cBackupPolicy    :: !(Maybe BackupPolicy)
-    , _cHSMType         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cPreCoPassword   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cStateMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cState           :: {-# NOUNPACK #-}!(Maybe ClusterState)
+  , _cSubnetMapping   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cHSMs            :: {-# NOUNPACK #-}!(Maybe [HSM])
+  , _cVPCId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cSourceBackupId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCertificates    :: {-# NOUNPACK #-}!(Maybe Certificates)
+  , _cSecurityGroup   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClusterId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCreateTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cBackupPolicy    :: {-# NOUNPACK #-}!(Maybe BackupPolicy)
+  , _cHSMType         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
@@ -209,21 +214,22 @@ data Cluster = Cluster'
 cluster
     :: Cluster
 cluster =
-    Cluster'
-    { _cPreCoPassword = Nothing
-    , _cStateMessage = Nothing
-    , _cState = Nothing
-    , _cSubnetMapping = Nothing
-    , _cHSMs = Nothing
-    , _cVPCId = Nothing
-    , _cSourceBackupId = Nothing
-    , _cCertificates = Nothing
-    , _cSecurityGroup = Nothing
-    , _cClusterId = Nothing
-    , _cCreateTimestamp = Nothing
-    , _cBackupPolicy = Nothing
-    , _cHSMType = Nothing
-    }
+  Cluster'
+  { _cPreCoPassword = Nothing
+  , _cStateMessage = Nothing
+  , _cState = Nothing
+  , _cSubnetMapping = Nothing
+  , _cHSMs = Nothing
+  , _cVPCId = Nothing
+  , _cSourceBackupId = Nothing
+  , _cCertificates = Nothing
+  , _cSecurityGroup = Nothing
+  , _cClusterId = Nothing
+  , _cCreateTimestamp = Nothing
+  , _cBackupPolicy = Nothing
+  , _cHSMType = Nothing
+  }
+
 
 -- | The default password for the cluster's Pre-Crypto Officer (PRECO) user.
 cPreCoPassword :: Lens' Cluster (Maybe Text)
@@ -295,9 +301,9 @@ instance FromJSON Cluster where
                      <*> (x .:? "BackupPolicy")
                      <*> (x .:? "HsmType"))
 
-instance Hashable Cluster
+instance Hashable Cluster where
 
-instance NFData Cluster
+instance NFData Cluster where
 
 -- | Contains information about a hardware security module (HSM) in an AWS CloudHSM cluster.
 --
@@ -305,15 +311,16 @@ instance NFData Cluster
 --
 -- /See:/ 'hsm' smart constructor.
 data HSM = HSM'
-    { _hsmStateMessage     :: !(Maybe Text)
-    , _hsmState            :: !(Maybe HSMState)
-    , _hsmEniId            :: !(Maybe Text)
-    , _hsmSubnetId         :: !(Maybe Text)
-    , _hsmAvailabilityZone :: !(Maybe Text)
-    , _hsmClusterId        :: !(Maybe Text)
-    , _hsmEniIP            :: !(Maybe Text)
-    , _hsmHSMId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hsmStateMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hsmState            :: {-# NOUNPACK #-}!(Maybe HSMState)
+  , _hsmEniId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hsmSubnetId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hsmAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hsmClusterId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hsmEniIP            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hsmHSMId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HSM' with the minimum fields required to make a request.
 --
@@ -338,16 +345,17 @@ hsm
     :: Text -- ^ 'hsmHSMId'
     -> HSM
 hsm pHSMId_ =
-    HSM'
-    { _hsmStateMessage = Nothing
-    , _hsmState = Nothing
-    , _hsmEniId = Nothing
-    , _hsmSubnetId = Nothing
-    , _hsmAvailabilityZone = Nothing
-    , _hsmClusterId = Nothing
-    , _hsmEniIP = Nothing
-    , _hsmHSMId = pHSMId_
-    }
+  HSM'
+  { _hsmStateMessage = Nothing
+  , _hsmState = Nothing
+  , _hsmEniId = Nothing
+  , _hsmSubnetId = Nothing
+  , _hsmAvailabilityZone = Nothing
+  , _hsmClusterId = Nothing
+  , _hsmEniIP = Nothing
+  , _hsmHSMId = pHSMId_
+  }
+
 
 -- | A description of the HSM's state.
 hsmStateMessage :: Lens' HSM (Maybe Text)
@@ -394,9 +402,9 @@ instance FromJSON HSM where
                      <*> (x .:? "EniIp")
                      <*> (x .: "HsmId"))
 
-instance Hashable HSM
+instance Hashable HSM where
 
-instance NFData HSM
+instance NFData HSM where
 
 -- | Contains a tag. A tag is a key-value pair.
 --
@@ -404,9 +412,10 @@ instance NFData HSM
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -419,11 +428,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | The key of the tag.
 tagKey :: Lens' Tag Text
@@ -438,9 +444,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

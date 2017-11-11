@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -862,55 +862,55 @@ module Network.AWS.Pinpoint
     , wtrMessageConfiguration
     ) where
 
-import           Network.AWS.Pinpoint.CreateApp
-import           Network.AWS.Pinpoint.CreateCampaign
-import           Network.AWS.Pinpoint.CreateImportJob
-import           Network.AWS.Pinpoint.CreateSegment
-import           Network.AWS.Pinpoint.DeleteAPNSChannel
-import           Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
-import           Network.AWS.Pinpoint.DeleteApp
-import           Network.AWS.Pinpoint.DeleteCampaign
-import           Network.AWS.Pinpoint.DeleteEmailChannel
-import           Network.AWS.Pinpoint.DeleteEventStream
-import           Network.AWS.Pinpoint.DeleteGCMChannel
-import           Network.AWS.Pinpoint.DeleteSegment
-import           Network.AWS.Pinpoint.DeleteSmsChannel
-import           Network.AWS.Pinpoint.GetAPNSChannel
-import           Network.AWS.Pinpoint.GetAPNSSandboxChannel
-import           Network.AWS.Pinpoint.GetApp
-import           Network.AWS.Pinpoint.GetApplicationSettings
-import           Network.AWS.Pinpoint.GetApps
-import           Network.AWS.Pinpoint.GetCampaign
-import           Network.AWS.Pinpoint.GetCampaignActivities
-import           Network.AWS.Pinpoint.GetCampaigns
-import           Network.AWS.Pinpoint.GetCampaignVersion
-import           Network.AWS.Pinpoint.GetCampaignVersions
-import           Network.AWS.Pinpoint.GetEmailChannel
-import           Network.AWS.Pinpoint.GetEndpoint
-import           Network.AWS.Pinpoint.GetEventStream
-import           Network.AWS.Pinpoint.GetGCMChannel
-import           Network.AWS.Pinpoint.GetImportJob
-import           Network.AWS.Pinpoint.GetImportJobs
-import           Network.AWS.Pinpoint.GetSegment
-import           Network.AWS.Pinpoint.GetSegmentImportJobs
-import           Network.AWS.Pinpoint.GetSegments
-import           Network.AWS.Pinpoint.GetSegmentVersion
-import           Network.AWS.Pinpoint.GetSegmentVersions
-import           Network.AWS.Pinpoint.GetSmsChannel
-import           Network.AWS.Pinpoint.PutEventStream
-import           Network.AWS.Pinpoint.SendMessages
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.UpdateAPNSChannel
-import           Network.AWS.Pinpoint.UpdateAPNSSandboxChannel
-import           Network.AWS.Pinpoint.UpdateApplicationSettings
-import           Network.AWS.Pinpoint.UpdateCampaign
-import           Network.AWS.Pinpoint.UpdateEmailChannel
-import           Network.AWS.Pinpoint.UpdateEndpoint
-import           Network.AWS.Pinpoint.UpdateEndpointsBatch
-import           Network.AWS.Pinpoint.UpdateGCMChannel
-import           Network.AWS.Pinpoint.UpdateSegment
-import           Network.AWS.Pinpoint.UpdateSmsChannel
-import           Network.AWS.Pinpoint.Waiters
+import Network.AWS.Pinpoint.CreateApp
+import Network.AWS.Pinpoint.CreateCampaign
+import Network.AWS.Pinpoint.CreateImportJob
+import Network.AWS.Pinpoint.CreateSegment
+import Network.AWS.Pinpoint.DeleteAPNSChannel
+import Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
+import Network.AWS.Pinpoint.DeleteApp
+import Network.AWS.Pinpoint.DeleteCampaign
+import Network.AWS.Pinpoint.DeleteEmailChannel
+import Network.AWS.Pinpoint.DeleteEventStream
+import Network.AWS.Pinpoint.DeleteGCMChannel
+import Network.AWS.Pinpoint.DeleteSegment
+import Network.AWS.Pinpoint.DeleteSmsChannel
+import Network.AWS.Pinpoint.GetAPNSChannel
+import Network.AWS.Pinpoint.GetAPNSSandboxChannel
+import Network.AWS.Pinpoint.GetApp
+import Network.AWS.Pinpoint.GetApplicationSettings
+import Network.AWS.Pinpoint.GetApps
+import Network.AWS.Pinpoint.GetCampaign
+import Network.AWS.Pinpoint.GetCampaignActivities
+import Network.AWS.Pinpoint.GetCampaigns
+import Network.AWS.Pinpoint.GetCampaignVersion
+import Network.AWS.Pinpoint.GetCampaignVersions
+import Network.AWS.Pinpoint.GetEmailChannel
+import Network.AWS.Pinpoint.GetEndpoint
+import Network.AWS.Pinpoint.GetEventStream
+import Network.AWS.Pinpoint.GetGCMChannel
+import Network.AWS.Pinpoint.GetImportJob
+import Network.AWS.Pinpoint.GetImportJobs
+import Network.AWS.Pinpoint.GetSegment
+import Network.AWS.Pinpoint.GetSegmentImportJobs
+import Network.AWS.Pinpoint.GetSegments
+import Network.AWS.Pinpoint.GetSegmentVersion
+import Network.AWS.Pinpoint.GetSegmentVersions
+import Network.AWS.Pinpoint.GetSmsChannel
+import Network.AWS.Pinpoint.PutEventStream
+import Network.AWS.Pinpoint.SendMessages
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.UpdateAPNSChannel
+import Network.AWS.Pinpoint.UpdateAPNSSandboxChannel
+import Network.AWS.Pinpoint.UpdateApplicationSettings
+import Network.AWS.Pinpoint.UpdateCampaign
+import Network.AWS.Pinpoint.UpdateEmailChannel
+import Network.AWS.Pinpoint.UpdateEndpoint
+import Network.AWS.Pinpoint.UpdateEndpointsBatch
+import Network.AWS.Pinpoint.UpdateGCMChannel
+import Network.AWS.Pinpoint.UpdateSegment
+import Network.AWS.Pinpoint.UpdateSmsChannel
+import Network.AWS.Pinpoint.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

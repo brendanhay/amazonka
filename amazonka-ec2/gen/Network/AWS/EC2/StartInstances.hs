@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.StartInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.EC2.StartInstances
     , srsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for StartInstances.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startInstances' smart constructor.
 data StartInstances = StartInstances'
-    { _sAdditionalInfo :: !(Maybe Text)
-    , _sDryRun         :: !(Maybe Bool)
-    , _sInstanceIds    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sAdditionalInfo :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sInstanceIds    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartInstances' with the minimum fields required to make a request.
 --
@@ -77,11 +78,9 @@ data StartInstances = StartInstances'
 startInstances
     :: StartInstances
 startInstances =
-    StartInstances'
-    { _sAdditionalInfo = Nothing
-    , _sDryRun = Nothing
-    , _sInstanceIds = mempty
-    }
+  StartInstances'
+  {_sAdditionalInfo = Nothing, _sDryRun = Nothing, _sInstanceIds = mempty}
+
 
 -- | Reserved.
 sAdditionalInfo :: Lens' StartInstances (Maybe Text)
@@ -106,9 +105,9 @@ instance AWSRequest StartInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable StartInstances
+instance Hashable StartInstances where
 
-instance NFData StartInstances
+instance NFData StartInstances where
 
 instance ToHeaders StartInstances where
         toHeaders = const mempty
@@ -131,9 +130,10 @@ instance ToQuery StartInstances where
 --
 -- /See:/ 'startInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
-    { _srsStartingInstances :: !(Maybe [InstanceStateChange])
-    , _srsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsStartingInstances :: {-# NOUNPACK #-}!(Maybe [InstanceStateChange])
+  , _srsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartInstancesResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +146,9 @@ startInstancesResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StartInstancesResponse
 startInstancesResponse pResponseStatus_ =
-    StartInstancesResponse'
-    { _srsStartingInstances = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  StartInstancesResponse'
+  {_srsStartingInstances = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more started instances.
 srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
@@ -159,4 +158,4 @@ srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstan
 srsResponseStatus :: Lens' StartInstancesResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StartInstancesResponse
+instance NFData StartInstancesResponse where

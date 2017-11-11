@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.ListImages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,22 +46,23 @@ module Network.AWS.ECR.ListImages
     , lirsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listImages' smart constructor.
 data ListImages = ListImages'
-    { _liRegistryId     :: !(Maybe Text)
-    , _liNextToken      :: !(Maybe Text)
-    , _liFilter         :: !(Maybe ListImagesFilter)
-    , _liMaxResults     :: !(Maybe Nat)
-    , _liRepositoryName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liFilter         :: {-# NOUNPACK #-}!(Maybe ListImagesFilter)
+  , _liMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _liRepositoryName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListImages' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ listImages
     :: Text -- ^ 'liRepositoryName'
     -> ListImages
 listImages pRepositoryName_ =
-    ListImages'
-    { _liRegistryId = Nothing
-    , _liNextToken = Nothing
-    , _liFilter = Nothing
-    , _liMaxResults = Nothing
-    , _liRepositoryName = pRepositoryName_
-    }
+  ListImages'
+  { _liRegistryId = Nothing
+  , _liNextToken = Nothing
+  , _liFilter = Nothing
+  , _liMaxResults = Nothing
+  , _liRepositoryName = pRepositoryName_
+  }
+
 
 -- | The AWS account ID associated with the registry that contains the repository to list images in. If you do not specify a registry, the default registry is assumed.
 liRegistryId :: Lens' ListImages (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest ListImages where
                    (x .?> "imageIds" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListImages
+instance Hashable ListImages where
 
-instance NFData ListImages
+instance NFData ListImages where
 
 instance ToHeaders ListImages where
         toHeaders
@@ -157,10 +159,11 @@ instance ToQuery ListImages where
 
 -- | /See:/ 'listImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-    { _lirsImageIds       :: !(Maybe [ImageIdentifier])
-    , _lirsNextToken      :: !(Maybe Text)
-    , _lirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirsImageIds       :: {-# NOUNPACK #-}!(Maybe [ImageIdentifier])
+  , _lirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListImagesResponse' with the minimum fields required to make a request.
 --
@@ -175,11 +178,12 @@ listImagesResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListImagesResponse
 listImagesResponse pResponseStatus_ =
-    ListImagesResponse'
-    { _lirsImageIds = Nothing
-    , _lirsNextToken = Nothing
-    , _lirsResponseStatus = pResponseStatus_
-    }
+  ListImagesResponse'
+  { _lirsImageIds = Nothing
+  , _lirsNextToken = Nothing
+  , _lirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of image IDs for the requested repository.
 lirsImageIds :: Lens' ListImagesResponse [ImageIdentifier]
@@ -193,4 +197,4 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 lirsResponseStatus :: Lens' ListImagesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
-instance NFData ListImagesResponse
+instance NFData ListImagesResponse where

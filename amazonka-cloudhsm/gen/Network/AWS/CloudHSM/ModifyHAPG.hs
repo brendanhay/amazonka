@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ModifyHAPG
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.CloudHSM.ModifyHAPG
     , mhrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyHAPG' smart constructor.
 data ModifyHAPG = ModifyHAPG'
-    { _mhPartitionSerialList :: !(Maybe [Text])
-    , _mhLabel               :: !(Maybe Text)
-    , _mhHAPGARN             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mhPartitionSerialList :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mhLabel               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mhHAPGARN             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyHAPG' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ modifyHAPG
     :: Text -- ^ 'mhHAPGARN'
     -> ModifyHAPG
 modifyHAPG pHAPGARN_ =
-    ModifyHAPG'
-    { _mhPartitionSerialList = Nothing
-    , _mhLabel = Nothing
-    , _mhHAPGARN = pHAPGARN_
-    }
+  ModifyHAPG'
+  {_mhPartitionSerialList = Nothing, _mhLabel = Nothing, _mhHAPGARN = pHAPGARN_}
+
 
 -- | The list of partition serial numbers to make members of the high-availability partition group.
 mhPartitionSerialList :: Lens' ModifyHAPG [Text]
@@ -93,9 +92,9 @@ instance AWSRequest ModifyHAPG where
                  ModifyHAPGResponse' <$>
                    (x .?> "HapgArn") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyHAPG
+instance Hashable ModifyHAPG where
 
-instance NFData ModifyHAPG
+instance NFData ModifyHAPG where
 
 instance ToHeaders ModifyHAPG where
         toHeaders
@@ -123,9 +122,10 @@ instance ToQuery ModifyHAPG where
 
 -- | /See:/ 'modifyHAPGResponse' smart constructor.
 data ModifyHAPGResponse = ModifyHAPGResponse'
-    { _mhrsHAPGARN        :: !(Maybe Text)
-    , _mhrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mhrsHAPGARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyHAPGResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +138,9 @@ modifyHAPGResponse
     :: Int -- ^ 'mhrsResponseStatus'
     -> ModifyHAPGResponse
 modifyHAPGResponse pResponseStatus_ =
-    ModifyHAPGResponse'
-    { _mhrsHAPGARN = Nothing
-    , _mhrsResponseStatus = pResponseStatus_
-    }
+  ModifyHAPGResponse'
+  {_mhrsHAPGARN = Nothing, _mhrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the high-availability partition group.
 mhrsHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
@@ -151,4 +150,4 @@ mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a});
 mhrsResponseStatus :: Lens' ModifyHAPGResponse Int
 mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
 
-instance NFData ModifyHAPGResponse
+instance NFData ModifyHAPGResponse where

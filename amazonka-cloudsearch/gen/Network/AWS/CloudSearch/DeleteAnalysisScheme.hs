@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteAnalysisScheme
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     , dasarsAnalysisScheme
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DeleteAnalysisScheme' @ operation. Specifies the name of the domain you want to update and the analysis scheme you want to delete.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteAnalysisScheme' smart constructor.
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
-    { _dasDomainName         :: !Text
-    , _dasAnalysisSchemeName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasDomainName         :: {-# NOUNPACK #-}!Text
+  , _dasAnalysisSchemeName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAnalysisScheme' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ deleteAnalysisScheme
     -> Text -- ^ 'dasAnalysisSchemeName'
     -> DeleteAnalysisScheme
 deleteAnalysisScheme pDomainName_ pAnalysisSchemeName_ =
-    DeleteAnalysisScheme'
-    { _dasDomainName = pDomainName_
-    , _dasAnalysisSchemeName = pAnalysisSchemeName_
-    }
+  DeleteAnalysisScheme'
+  {_dasDomainName = pDomainName_, _dasAnalysisSchemeName = pAnalysisSchemeName_}
+
 
 -- | Undocumented member.
 dasDomainName :: Lens' DeleteAnalysisScheme Text
@@ -90,9 +90,9 @@ instance AWSRequest DeleteAnalysisScheme where
                  DeleteAnalysisSchemeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AnalysisScheme"))
 
-instance Hashable DeleteAnalysisScheme
+instance Hashable DeleteAnalysisScheme where
 
-instance NFData DeleteAnalysisScheme
+instance NFData DeleteAnalysisScheme where
 
 instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty
@@ -114,9 +114,10 @@ instance ToQuery DeleteAnalysisScheme where
 --
 -- /See:/ 'deleteAnalysisSchemeResponse' smart constructor.
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-    { _dasarsResponseStatus :: !Int
-    , _dasarsAnalysisScheme :: !AnalysisSchemeStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasarsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dasarsAnalysisScheme :: {-# NOUNPACK #-}!AnalysisSchemeStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAnalysisSchemeResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,11 @@ deleteAnalysisSchemeResponse
     -> AnalysisSchemeStatus -- ^ 'dasarsAnalysisScheme'
     -> DeleteAnalysisSchemeResponse
 deleteAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
-    DeleteAnalysisSchemeResponse'
-    { _dasarsResponseStatus = pResponseStatus_
-    , _dasarsAnalysisScheme = pAnalysisScheme_
-    }
+  DeleteAnalysisSchemeResponse'
+  { _dasarsResponseStatus = pResponseStatus_
+  , _dasarsAnalysisScheme = pAnalysisScheme_
+  }
+
 
 -- | -- | The response status code.
 dasarsResponseStatus :: Lens' DeleteAnalysisSchemeResponse Int
@@ -143,4 +145,4 @@ dasarsResponseStatus = lens _dasarsResponseStatus (\ s a -> s{_dasarsResponseSta
 dasarsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dasarsAnalysisScheme = lens _dasarsAnalysisScheme (\ s a -> s{_dasarsAnalysisScheme = a});
 
-instance NFData DeleteAnalysisSchemeResponse
+instance NFData DeleteAnalysisSchemeResponse where

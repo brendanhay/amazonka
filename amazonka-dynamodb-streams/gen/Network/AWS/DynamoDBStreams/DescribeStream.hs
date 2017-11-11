@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.DescribeStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.DynamoDBStreams.DescribeStream
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDBStreams.Types
-import           Network.AWS.DynamoDBStreams.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDBStreams.Types
+import Network.AWS.DynamoDBStreams.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DescribeStream@ operation.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeStream' smart constructor.
 data DescribeStream = DescribeStream'
-    { _dsExclusiveStartShardId :: !(Maybe Text)
-    , _dsLimit                 :: !(Maybe Nat)
-    , _dsStreamARN             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsExclusiveStartShardId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsLimit                 :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dsStreamARN             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ describeStream
     :: Text -- ^ 'dsStreamARN'
     -> DescribeStream
 describeStream pStreamARN_ =
-    DescribeStream'
-    { _dsExclusiveStartShardId = Nothing
-    , _dsLimit = Nothing
-    , _dsStreamARN = pStreamARN_
-    }
+  DescribeStream'
+  { _dsExclusiveStartShardId = Nothing
+  , _dsLimit = Nothing
+  , _dsStreamARN = pStreamARN_
+  }
+
 
 -- | The shard ID of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedShardId@ in the previous operation.
 dsExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest DescribeStream where
                  DescribeStreamResponse' <$>
                    (x .?> "StreamDescription") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeStream
+instance Hashable DescribeStream where
 
-instance NFData DescribeStream
+instance NFData DescribeStream where
 
 instance ToHeaders DescribeStream where
         toHeaders
@@ -134,9 +136,10 @@ instance ToQuery DescribeStream where
 --
 -- /See:/ 'describeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrsStreamDescription :: !(Maybe StreamDescription)
-    , _dsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsStreamDescription :: {-# NOUNPACK #-}!(Maybe StreamDescription)
+  , _dsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
 --
@@ -149,10 +152,9 @@ describeStreamResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStreamResponse
 describeStreamResponse pResponseStatus_ =
-    DescribeStreamResponse'
-    { _dsrsStreamDescription = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DescribeStreamResponse'
+  {_dsrsStreamDescription = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.
 dsrsStreamDescription :: Lens' DescribeStreamResponse (Maybe StreamDescription)
@@ -162,4 +164,4 @@ dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescr
 dsrsResponseStatus :: Lens' DescribeStreamResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DescribeStreamResponse
+instance NFData DescribeStreamResponse where

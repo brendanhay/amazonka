@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudFront.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data CertificateSource
-    = Acm
-    | Cloudfront
-    | IAM
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Acm
+  | Cloudfront
+  | IAM
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CertificateSource where
     parser = takeLowerText >>= \case
@@ -52,11 +53,12 @@ instance ToXML CertificateSource where
     toXML = toXMLText
 
 data EventType
-    = OriginRequest
-    | OriginResponse
-    | ViewerRequest
-    | ViewerResponse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = OriginRequest
+  | OriginResponse
+  | ViewerRequest
+  | ViewerResponse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
@@ -87,10 +89,11 @@ instance ToXML EventType where
     toXML = toXMLText
 
 data GeoRestrictionType
-    = Blacklist
-    | None
-    | Whitelist
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Blacklist
+  | None
+  | Whitelist
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText GeoRestrictionType where
     parser = takeLowerText >>= \case
@@ -119,9 +122,10 @@ instance ToXML GeoRestrictionType where
     toXML = toXMLText
 
 data HTTPVersion
-    = HTTP1_1
-    | HTTP2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HTTP1_1
+  | HTTP2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HTTPVersion where
     parser = takeLowerText >>= \case
@@ -148,10 +152,11 @@ instance ToXML HTTPVersion where
     toXML = toXMLText
 
 data ItemSelection
-    = ISAll
-    | ISNone
-    | ISWhitelist
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISAll
+  | ISNone
+  | ISWhitelist
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ItemSelection where
     parser = takeLowerText >>= \case
@@ -180,14 +185,15 @@ instance ToXML ItemSelection where
     toXML = toXMLText
 
 data Method
-    = Delete
-    | Get
-    | Head
-    | Options
-    | Patch
-    | Post
-    | Put
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Delete
+  | Get
+  | Head
+  | Options
+  | Patch
+  | Post
+  | Put
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Method where
     parser = takeLowerText >>= \case
@@ -224,9 +230,10 @@ instance ToXML Method where
     toXML = toXMLText
 
 data MinimumProtocolVersion
-    = MPVSSLV3
-    | MPVTLSV1
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = MPVSSLV3
+  | MPVTLSV1
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MinimumProtocolVersion where
     parser = takeLowerText >>= \case
@@ -253,10 +260,11 @@ instance ToXML MinimumProtocolVersion where
     toXML = toXMLText
 
 data OriginProtocolPolicy
-    = HTTPOnly
-    | HTTPSOnly
-    | MatchViewer
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HTTPOnly
+  | HTTPSOnly
+  | MatchViewer
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OriginProtocolPolicy where
     parser = takeLowerText >>= \case
@@ -285,10 +293,11 @@ instance ToXML OriginProtocolPolicy where
     toXML = toXMLText
 
 data PriceClass
-    = PriceClass100
-    | PriceClass200
-    | PriceClassAll
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = PriceClass100
+  | PriceClass200
+  | PriceClassAll
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PriceClass where
     parser = takeLowerText >>= \case
@@ -317,11 +326,12 @@ instance ToXML PriceClass where
     toXML = toXMLText
 
 data SSLProtocol
-    = SSLV3
-    | TLSV1
-    | TLSV1_1
-    | TLSV1_2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSLV3
+  | TLSV1
+  | TLSV1_1
+  | TLSV1_2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SSLProtocol where
     parser = takeLowerText >>= \case
@@ -352,9 +362,10 @@ instance ToXML SSLProtocol where
     toXML = toXMLText
 
 data SSLSupportMethod
-    = SNIOnly
-    | VIP
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SNIOnly
+  | VIP
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SSLSupportMethod where
     parser = takeLowerText >>= \case
@@ -381,10 +392,11 @@ instance ToXML SSLSupportMethod where
     toXML = toXMLText
 
 data ViewerProtocolPolicy
-    = VPPAllowAll
-    | VPPHTTPSOnly
-    | VPPRedirectToHTTPS
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VPPAllowAll
+  | VPPHTTPSOnly
+  | VPPRedirectToHTTPS
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ViewerProtocolPolicy where
     parser = takeLowerText >>= \case

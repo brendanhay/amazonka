@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.GetBatchPrediction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,17 +53,18 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     , gbprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBatchPrediction' smart constructor.
 newtype GetBatchPrediction = GetBatchPrediction'
-    { _gbpBatchPredictionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbpBatchPredictionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBatchPrediction' with the minimum fields required to make a request.
 --
@@ -74,9 +75,8 @@ getBatchPrediction
     :: Text -- ^ 'gbpBatchPredictionId'
     -> GetBatchPrediction
 getBatchPrediction pBatchPredictionId_ =
-    GetBatchPrediction'
-    { _gbpBatchPredictionId = pBatchPredictionId_
-    }
+  GetBatchPrediction' {_gbpBatchPredictionId = pBatchPredictionId_}
+
 
 -- | An ID assigned to the @BatchPrediction@ at creation.
 gbpBatchPredictionId :: Lens' GetBatchPrediction Text
@@ -108,9 +108,9 @@ instance AWSRequest GetBatchPrediction where
                      <*> (x .?> "OutputUri")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBatchPrediction
+instance Hashable GetBatchPrediction where
 
-instance NFData GetBatchPrediction
+instance NFData GetBatchPrediction where
 
 instance ToHeaders GetBatchPrediction where
         toHeaders
@@ -141,25 +141,26 @@ instance ToQuery GetBatchPrediction where
 --
 -- /See:/ 'getBatchPredictionResponse' smart constructor.
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
-    { _gbprsStatus                      :: !(Maybe EntityStatus)
-    , _gbprsLastUpdatedAt               :: !(Maybe POSIX)
-    , _gbprsCreatedAt                   :: !(Maybe POSIX)
-    , _gbprsComputeTime                 :: !(Maybe Integer)
-    , _gbprsInputDataLocationS3         :: !(Maybe Text)
-    , _gbprsMLModelId                   :: !(Maybe Text)
-    , _gbprsBatchPredictionDataSourceId :: !(Maybe Text)
-    , _gbprsTotalRecordCount            :: !(Maybe Integer)
-    , _gbprsStartedAt                   :: !(Maybe POSIX)
-    , _gbprsBatchPredictionId           :: !(Maybe Text)
-    , _gbprsFinishedAt                  :: !(Maybe POSIX)
-    , _gbprsInvalidRecordCount          :: !(Maybe Integer)
-    , _gbprsCreatedByIAMUser            :: !(Maybe Text)
-    , _gbprsName                        :: !(Maybe Text)
-    , _gbprsLogURI                      :: !(Maybe Text)
-    , _gbprsMessage                     :: !(Maybe Text)
-    , _gbprsOutputURI                   :: !(Maybe Text)
-    , _gbprsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbprsStatus                      :: {-# NOUNPACK #-}!(Maybe EntityStatus)
+  , _gbprsLastUpdatedAt               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gbprsCreatedAt                   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gbprsComputeTime                 :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gbprsInputDataLocationS3         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsMLModelId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsBatchPredictionDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsTotalRecordCount            :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gbprsStartedAt                   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gbprsBatchPredictionId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsFinishedAt                  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gbprsInvalidRecordCount          :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gbprsCreatedByIAMUser            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsName                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsLogURI                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsMessage                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsOutputURI                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbprsResponseStatus              :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBatchPredictionResponse' with the minimum fields required to make a request.
 --
@@ -204,26 +205,27 @@ getBatchPredictionResponse
     :: Int -- ^ 'gbprsResponseStatus'
     -> GetBatchPredictionResponse
 getBatchPredictionResponse pResponseStatus_ =
-    GetBatchPredictionResponse'
-    { _gbprsStatus = Nothing
-    , _gbprsLastUpdatedAt = Nothing
-    , _gbprsCreatedAt = Nothing
-    , _gbprsComputeTime = Nothing
-    , _gbprsInputDataLocationS3 = Nothing
-    , _gbprsMLModelId = Nothing
-    , _gbprsBatchPredictionDataSourceId = Nothing
-    , _gbprsTotalRecordCount = Nothing
-    , _gbprsStartedAt = Nothing
-    , _gbprsBatchPredictionId = Nothing
-    , _gbprsFinishedAt = Nothing
-    , _gbprsInvalidRecordCount = Nothing
-    , _gbprsCreatedByIAMUser = Nothing
-    , _gbprsName = Nothing
-    , _gbprsLogURI = Nothing
-    , _gbprsMessage = Nothing
-    , _gbprsOutputURI = Nothing
-    , _gbprsResponseStatus = pResponseStatus_
-    }
+  GetBatchPredictionResponse'
+  { _gbprsStatus = Nothing
+  , _gbprsLastUpdatedAt = Nothing
+  , _gbprsCreatedAt = Nothing
+  , _gbprsComputeTime = Nothing
+  , _gbprsInputDataLocationS3 = Nothing
+  , _gbprsMLModelId = Nothing
+  , _gbprsBatchPredictionDataSourceId = Nothing
+  , _gbprsTotalRecordCount = Nothing
+  , _gbprsStartedAt = Nothing
+  , _gbprsBatchPredictionId = Nothing
+  , _gbprsFinishedAt = Nothing
+  , _gbprsInvalidRecordCount = Nothing
+  , _gbprsCreatedByIAMUser = Nothing
+  , _gbprsName = Nothing
+  , _gbprsLogURI = Nothing
+  , _gbprsMessage = Nothing
+  , _gbprsOutputURI = Nothing
+  , _gbprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the @BatchPrediction@ , which can be one of the following values:     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to generate batch predictions.    * @INPROGRESS@ - The batch predictions are in progress.    * @FAILED@ - The request to perform a batch prediction did not run to completion. It is not usable.    * @COMPLETED@ - The batch prediction process completed successfully.    * @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not usable.
 gbprsStatus :: Lens' GetBatchPredictionResponse (Maybe EntityStatus)
@@ -297,4 +299,4 @@ gbprsOutputURI = lens _gbprsOutputURI (\ s a -> s{_gbprsOutputURI = a});
 gbprsResponseStatus :: Lens' GetBatchPredictionResponse Int
 gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus = a});
 
-instance NFData GetBatchPredictionResponse
+instance NFData GetBatchPredictionResponse where

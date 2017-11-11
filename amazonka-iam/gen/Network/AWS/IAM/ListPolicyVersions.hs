@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListPolicyVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.IAM.ListPolicyVersions
     , lpvrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listPolicyVersions' smart constructor.
 data ListPolicyVersions = ListPolicyVersions'
-    { _lpvMarker    :: !(Maybe Text)
-    , _lpvMaxItems  :: !(Maybe Nat)
-    , _lpvPolicyARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpvMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpvMaxItems  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lpvPolicyARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicyVersions' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ listPolicyVersions
     :: Text -- ^ 'lpvPolicyARN'
     -> ListPolicyVersions
 listPolicyVersions pPolicyARN_ =
-    ListPolicyVersions'
-    { _lpvMarker = Nothing
-    , _lpvMaxItems = Nothing
-    , _lpvPolicyARN = pPolicyARN_
-    }
+  ListPolicyVersions'
+  {_lpvMarker = Nothing, _lpvMaxItems = Nothing, _lpvPolicyARN = pPolicyARN_}
+
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
@@ -112,9 +111,9 @@ instance AWSRequest ListPolicyVersions where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPolicyVersions
+instance Hashable ListPolicyVersions where
 
-instance NFData ListPolicyVersions
+instance NFData ListPolicyVersions where
 
 instance ToHeaders ListPolicyVersions where
         toHeaders = const mempty
@@ -136,11 +135,12 @@ instance ToQuery ListPolicyVersions where
 --
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-    { _lpvrsVersions       :: !(Maybe [PolicyVersion])
-    , _lpvrsMarker         :: !(Maybe Text)
-    , _lpvrsIsTruncated    :: !(Maybe Bool)
-    , _lpvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpvrsVersions       :: {-# NOUNPACK #-}!(Maybe [PolicyVersion])
+  , _lpvrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpvrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lpvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicyVersionsResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +157,13 @@ listPolicyVersionsResponse
     :: Int -- ^ 'lpvrsResponseStatus'
     -> ListPolicyVersionsResponse
 listPolicyVersionsResponse pResponseStatus_ =
-    ListPolicyVersionsResponse'
-    { _lpvrsVersions = Nothing
-    , _lpvrsMarker = Nothing
-    , _lpvrsIsTruncated = Nothing
-    , _lpvrsResponseStatus = pResponseStatus_
-    }
+  ListPolicyVersionsResponse'
+  { _lpvrsVersions = Nothing
+  , _lpvrsMarker = Nothing
+  , _lpvrsIsTruncated = Nothing
+  , _lpvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of policy versions. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 lpvrsVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
@@ -180,4 +181,4 @@ lpvrsIsTruncated = lens _lpvrsIsTruncated (\ s a -> s{_lpvrsIsTruncated = a});
 lpvrsResponseStatus :: Lens' ListPolicyVersionsResponse Int
 lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a});
 
-instance NFData ListPolicyVersionsResponse
+instance NFData ListPolicyVersionsResponse where

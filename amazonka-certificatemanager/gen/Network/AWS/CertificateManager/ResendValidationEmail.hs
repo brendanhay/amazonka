@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.ResendValidationEmail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,19 +36,20 @@ module Network.AWS.CertificateManager.ResendValidationEmail
     , ResendValidationEmailResponse
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'resendValidationEmail' smart constructor.
 data ResendValidationEmail = ResendValidationEmail'
-    { _rveCertificateARN   :: !Text
-    , _rveDomain           :: !Text
-    , _rveValidationDomain :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rveCertificateARN   :: {-# NOUNPACK #-}!Text
+  , _rveDomain           :: {-# NOUNPACK #-}!Text
+  , _rveValidationDomain :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResendValidationEmail' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ resendValidationEmail
     -> Text -- ^ 'rveValidationDomain'
     -> ResendValidationEmail
 resendValidationEmail pCertificateARN_ pDomain_ pValidationDomain_ =
-    ResendValidationEmail'
-    { _rveCertificateARN = pCertificateARN_
-    , _rveDomain = pDomain_
-    , _rveValidationDomain = pValidationDomain_
-    }
+  ResendValidationEmail'
+  { _rveCertificateARN = pCertificateARN_
+  , _rveDomain = pDomain_
+  , _rveValidationDomain = pValidationDomain_
+  }
+
 
 -- | String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the 'RequestCertificate' action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request. The ARN must be of the form: @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 rveCertificateARN :: Lens' ResendValidationEmail Text
@@ -89,9 +91,9 @@ instance AWSRequest ResendValidationEmail where
         request = postJSON certificateManager
         response = receiveNull ResendValidationEmailResponse'
 
-instance Hashable ResendValidationEmail
+instance Hashable ResendValidationEmail where
 
-instance NFData ResendValidationEmail
+instance NFData ResendValidationEmail where
 
 instance ToHeaders ResendValidationEmail where
         toHeaders
@@ -119,8 +121,9 @@ instance ToQuery ResendValidationEmail where
 
 -- | /See:/ 'resendValidationEmailResponse' smart constructor.
 data ResendValidationEmailResponse =
-    ResendValidationEmailResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ResendValidationEmailResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResendValidationEmailResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +131,5 @@ resendValidationEmailResponse
     :: ResendValidationEmailResponse
 resendValidationEmailResponse = ResendValidationEmailResponse'
 
-instance NFData ResendValidationEmailResponse
+
+instance NFData ResendValidationEmailResponse where

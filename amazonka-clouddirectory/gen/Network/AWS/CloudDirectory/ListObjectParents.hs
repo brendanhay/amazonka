@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListObjectParents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.CloudDirectory.ListObjectParents
     , lrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listObjectParents' smart constructor.
 data ListObjectParents = ListObjectParents'
-    { _lopConsistencyLevel :: !(Maybe ConsistencyLevel)
-    , _lopNextToken        :: !(Maybe Text)
-    , _lopMaxResults       :: !(Maybe Nat)
-    , _lopDirectoryARN     :: !Text
-    , _lopObjectReference  :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lopConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
+  , _lopNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lopMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lopDirectoryARN     :: {-# NOUNPACK #-}!Text
+  , _lopObjectReference  :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectParents' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ listObjectParents
     -> ObjectReference -- ^ 'lopObjectReference'
     -> ListObjectParents
 listObjectParents pDirectoryARN_ pObjectReference_ =
-    ListObjectParents'
-    { _lopConsistencyLevel = Nothing
-    , _lopNextToken = Nothing
-    , _lopMaxResults = Nothing
-    , _lopDirectoryARN = pDirectoryARN_
-    , _lopObjectReference = pObjectReference_
-    }
+  ListObjectParents'
+  { _lopConsistencyLevel = Nothing
+  , _lopNextToken = Nothing
+  , _lopMaxResults = Nothing
+  , _lopDirectoryARN = pDirectoryARN_
+  , _lopObjectReference = pObjectReference_
+  }
+
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 lopConsistencyLevel :: Lens' ListObjectParents (Maybe ConsistencyLevel)
@@ -114,9 +116,9 @@ instance AWSRequest ListObjectParents where
                    (x .?> "NextToken") <*> (x .?> "Parents" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListObjectParents
+instance Hashable ListObjectParents where
 
-instance NFData ListObjectParents
+instance NFData ListObjectParents where
 
 instance ToHeaders ListObjectParents where
         toHeaders ListObjectParents'{..}
@@ -142,10 +144,11 @@ instance ToQuery ListObjectParents where
 
 -- | /See:/ 'listObjectParentsResponse' smart constructor.
 data ListObjectParentsResponse = ListObjectParentsResponse'
-    { _lrsNextToken      :: !(Maybe Text)
-    , _lrsParents        :: !(Maybe (Map Text Text))
-    , _lrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsParents        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectParentsResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +163,12 @@ listObjectParentsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListObjectParentsResponse
 listObjectParentsResponse pResponseStatus_ =
-    ListObjectParentsResponse'
-    { _lrsNextToken = Nothing
-    , _lrsParents = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    }
+  ListObjectParentsResponse'
+  { _lrsNextToken = Nothing
+  , _lrsParents = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 lrsNextToken :: Lens' ListObjectParentsResponse (Maybe Text)
@@ -178,4 +182,4 @@ lrsParents = lens _lrsParents (\ s a -> s{_lrsParents = a}) . _Default . _Map;
 lrsResponseStatus :: Lens' ListObjectParentsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
-instance NFData ListObjectParentsResponse
+instance NFData ListObjectParentsResponse where

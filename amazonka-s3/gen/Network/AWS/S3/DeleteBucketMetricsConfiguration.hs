@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketMetricsConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,18 +33,19 @@ module Network.AWS.S3.DeleteBucketMetricsConfiguration
     , DeleteBucketMetricsConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketMetricsConfiguration' smart constructor.
 data DeleteBucketMetricsConfiguration = DeleteBucketMetricsConfiguration'
-    { _dbmcBucket :: !BucketName
-    , _dbmcId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbmcBucket :: {-# NOUNPACK #-}!BucketName
+  , _dbmcId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketMetricsConfiguration' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ deleteBucketMetricsConfiguration
     -> Text -- ^ 'dbmcId'
     -> DeleteBucketMetricsConfiguration
 deleteBucketMetricsConfiguration pBucket_ pId_ =
-    DeleteBucketMetricsConfiguration'
-    { _dbmcBucket = pBucket_
-    , _dbmcId = pId_
-    }
+  DeleteBucketMetricsConfiguration' {_dbmcBucket = pBucket_, _dbmcId = pId_}
+
 
 -- | The name of the bucket containing the metrics configuration to delete.
 dbmcBucket :: Lens' DeleteBucketMetricsConfiguration BucketName
@@ -81,8 +80,10 @@ instance AWSRequest DeleteBucketMetricsConfiguration
               DeleteBucketMetricsConfigurationResponse'
 
 instance Hashable DeleteBucketMetricsConfiguration
+         where
 
 instance NFData DeleteBucketMetricsConfiguration
+         where
 
 instance ToHeaders DeleteBucketMetricsConfiguration
          where
@@ -100,15 +101,18 @@ instance ToQuery DeleteBucketMetricsConfiguration
 
 -- | /See:/ 'deleteBucketMetricsConfigurationResponse' smart constructor.
 data DeleteBucketMetricsConfigurationResponse =
-    DeleteBucketMetricsConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketMetricsConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketMetricsConfigurationResponse' with the minimum fields required to make a request.
 --
 deleteBucketMetricsConfigurationResponse
     :: DeleteBucketMetricsConfigurationResponse
 deleteBucketMetricsConfigurationResponse =
-    DeleteBucketMetricsConfigurationResponse'
+  DeleteBucketMetricsConfigurationResponse'
+
 
 instance NFData
-         DeleteBucketMetricsConfigurationResponse
+           DeleteBucketMetricsConfigurationResponse
+         where

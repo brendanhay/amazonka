@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DomainMetadata
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,17 +43,18 @@ module Network.AWS.SDB.DomainMetadata
     , dmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'domainMetadata' smart constructor.
 newtype DomainMetadata = DomainMetadata'
-    { _dmDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainMetadata' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ newtype DomainMetadata = DomainMetadata'
 domainMetadata
     :: Text -- ^ 'dmDomainName'
     -> DomainMetadata
-domainMetadata pDomainName_ =
-    DomainMetadata'
-    { _dmDomainName = pDomainName_
-    }
+domainMetadata pDomainName_ = DomainMetadata' {_dmDomainName = pDomainName_}
+
 
 -- | The name of the domain for which to display the metadata of.
 dmDomainName :: Lens' DomainMetadata Text
@@ -88,9 +87,9 @@ instance AWSRequest DomainMetadata where
                      <*> (x .@? "Timestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DomainMetadata
+instance Hashable DomainMetadata where
 
-instance NFData DomainMetadata
+instance NFData DomainMetadata where
 
 instance ToHeaders DomainMetadata where
         toHeaders = const mempty
@@ -107,15 +106,16 @@ instance ToQuery DomainMetadata where
 
 -- | /See:/ 'domainMetadataResponse' smart constructor.
 data DomainMetadataResponse = DomainMetadataResponse'
-    { _dmrsItemNamesSizeBytes       :: !(Maybe Integer)
-    , _dmrsAttributeValuesSizeBytes :: !(Maybe Integer)
-    , _dmrsAttributeNameCount       :: !(Maybe Int)
-    , _dmrsAttributeNamesSizeBytes  :: !(Maybe Integer)
-    , _dmrsAttributeValueCount      :: !(Maybe Int)
-    , _dmrsItemCount                :: !(Maybe Int)
-    , _dmrsTimestamp                :: !(Maybe Int)
-    , _dmrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmrsItemNamesSizeBytes       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dmrsAttributeValuesSizeBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dmrsAttributeNameCount       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dmrsAttributeNamesSizeBytes  :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dmrsAttributeValueCount      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dmrsItemCount                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dmrsTimestamp                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dmrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainMetadataResponse' with the minimum fields required to make a request.
 --
@@ -140,16 +140,17 @@ domainMetadataResponse
     :: Int -- ^ 'dmrsResponseStatus'
     -> DomainMetadataResponse
 domainMetadataResponse pResponseStatus_ =
-    DomainMetadataResponse'
-    { _dmrsItemNamesSizeBytes = Nothing
-    , _dmrsAttributeValuesSizeBytes = Nothing
-    , _dmrsAttributeNameCount = Nothing
-    , _dmrsAttributeNamesSizeBytes = Nothing
-    , _dmrsAttributeValueCount = Nothing
-    , _dmrsItemCount = Nothing
-    , _dmrsTimestamp = Nothing
-    , _dmrsResponseStatus = pResponseStatus_
-    }
+  DomainMetadataResponse'
+  { _dmrsItemNamesSizeBytes = Nothing
+  , _dmrsAttributeValuesSizeBytes = Nothing
+  , _dmrsAttributeNameCount = Nothing
+  , _dmrsAttributeNamesSizeBytes = Nothing
+  , _dmrsAttributeValueCount = Nothing
+  , _dmrsItemCount = Nothing
+  , _dmrsTimestamp = Nothing
+  , _dmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The total size of all item names in the domain, in bytes.
 dmrsItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
@@ -183,4 +184,4 @@ dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a});
 dmrsResponseStatus :: Lens' DomainMetadataResponse Int
 dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a});
 
-instance NFData DomainMetadataResponse
+instance NFData DomainMetadataResponse where

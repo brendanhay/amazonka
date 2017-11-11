@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DeleteOrganization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.Organizations.DeleteOrganization
     , DeleteOrganizationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteOrganization' smart constructor.
 data DeleteOrganization =
-    DeleteOrganization'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteOrganization'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteOrganization' with the minimum fields required to make a request.
 --
@@ -52,15 +53,16 @@ deleteOrganization
     :: DeleteOrganization
 deleteOrganization = DeleteOrganization'
 
+
 instance AWSRequest DeleteOrganization where
         type Rs DeleteOrganization =
              DeleteOrganizationResponse
         request = postJSON organizations
         response = receiveNull DeleteOrganizationResponse'
 
-instance Hashable DeleteOrganization
+instance Hashable DeleteOrganization where
 
-instance NFData DeleteOrganization
+instance NFData DeleteOrganization where
 
 instance ToHeaders DeleteOrganization where
         toHeaders
@@ -83,8 +85,9 @@ instance ToQuery DeleteOrganization where
 
 -- | /See:/ 'deleteOrganizationResponse' smart constructor.
 data DeleteOrganizationResponse =
-    DeleteOrganizationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteOrganizationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteOrganizationResponse' with the minimum fields required to make a request.
 --
@@ -92,4 +95,5 @@ deleteOrganizationResponse
     :: DeleteOrganizationResponse
 deleteOrganizationResponse = DeleteOrganizationResponse'
 
-instance NFData DeleteOrganizationResponse
+
+instance NFData DeleteOrganizationResponse where

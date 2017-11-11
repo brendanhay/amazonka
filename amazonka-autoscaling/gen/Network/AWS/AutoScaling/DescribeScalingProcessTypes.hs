@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeScalingProcessTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     , dsptrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeScalingProcessTypes' smart constructor.
 data DescribeScalingProcessTypes =
-    DescribeScalingProcessTypes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeScalingProcessTypes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingProcessTypes' with the minimum fields required to make a request.
 --
 describeScalingProcessTypes
     :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes'
+
 
 instance AWSRequest DescribeScalingProcessTypes where
         type Rs DescribeScalingProcessTypes =
@@ -66,9 +68,9 @@ instance AWSRequest DescribeScalingProcessTypes where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeScalingProcessTypes
+instance Hashable DescribeScalingProcessTypes where
 
-instance NFData DescribeScalingProcessTypes
+instance NFData DescribeScalingProcessTypes where
 
 instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty
@@ -90,9 +92,10 @@ instance ToQuery DescribeScalingProcessTypes where
 --
 -- /See:/ 'describeScalingProcessTypesResponse' smart constructor.
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
-    { _dsptrsProcesses      :: !(Maybe [ProcessType])
-    , _dsptrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsptrsProcesses      :: {-# NOUNPACK #-}!(Maybe [ProcessType])
+  , _dsptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalingProcessTypesResponse' with the minimum fields required to make a request.
 --
@@ -105,10 +108,9 @@ describeScalingProcessTypesResponse
     :: Int -- ^ 'dsptrsResponseStatus'
     -> DescribeScalingProcessTypesResponse
 describeScalingProcessTypesResponse pResponseStatus_ =
-    DescribeScalingProcessTypesResponse'
-    { _dsptrsProcesses = Nothing
-    , _dsptrsResponseStatus = pResponseStatus_
-    }
+  DescribeScalingProcessTypesResponse'
+  {_dsptrsProcesses = Nothing, _dsptrsResponseStatus = pResponseStatus_}
+
 
 -- | The names of the process types.
 dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
@@ -119,3 +121,4 @@ dsptrsResponseStatus :: Lens' DescribeScalingProcessTypesResponse Int
 dsptrsResponseStatus = lens _dsptrsResponseStatus (\ s a -> s{_dsptrsResponseStatus = a});
 
 instance NFData DescribeScalingProcessTypesResponse
+         where

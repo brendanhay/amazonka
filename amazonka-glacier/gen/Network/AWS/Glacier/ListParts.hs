@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListParts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,13 +55,13 @@ module Network.AWS.Glacier.ListParts
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving a list of parts of an archive that have been uploaded in a specific multipart upload.
 --
@@ -69,12 +69,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listParts' smart constructor.
 data ListParts = ListParts'
-    { _lpMarker    :: !(Maybe Text)
-    , _lpLimit     :: !(Maybe Text)
-    , _lpAccountId :: !Text
-    , _lpVaultName :: !Text
-    , _lpUploadId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpLimit     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpAccountId :: {-# NOUNPACK #-}!Text
+  , _lpVaultName :: {-# NOUNPACK #-}!Text
+  , _lpUploadId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListParts' with the minimum fields required to make a request.
 --
@@ -95,13 +96,14 @@ listParts
     -> Text -- ^ 'lpUploadId'
     -> ListParts
 listParts pAccountId_ pVaultName_ pUploadId_ =
-    ListParts'
-    { _lpMarker = Nothing
-    , _lpLimit = Nothing
-    , _lpAccountId = pAccountId_
-    , _lpVaultName = pVaultName_
-    , _lpUploadId = pUploadId_
-    }
+  ListParts'
+  { _lpMarker = Nothing
+  , _lpLimit = Nothing
+  , _lpAccountId = pAccountId_
+  , _lpVaultName = pVaultName_
+  , _lpUploadId = pUploadId_
+  }
+
 
 -- | An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
 lpMarker :: Lens' ListParts (Maybe Text)
@@ -146,9 +148,9 @@ instance AWSRequest ListParts where
                      <*> (x .?> "CreationDate")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListParts
+instance Hashable ListParts where
 
-instance NFData ListParts
+instance NFData ListParts where
 
 instance ToHeaders ListParts where
         toHeaders = const mempty
@@ -171,15 +173,16 @@ instance ToQuery ListParts where
 --
 -- /See:/ 'listPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-    { _lprsParts              :: !(Maybe [PartListElement])
-    , _lprsMultipartUploadId  :: !(Maybe Text)
-    , _lprsPartSizeInBytes    :: !(Maybe Integer)
-    , _lprsArchiveDescription :: !(Maybe Text)
-    , _lprsVaultARN           :: !(Maybe Text)
-    , _lprsMarker             :: !(Maybe Text)
-    , _lprsCreationDate       :: !(Maybe Text)
-    , _lprsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsParts              :: {-# NOUNPACK #-}!(Maybe [PartListElement])
+  , _lprsMultipartUploadId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsPartSizeInBytes    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _lprsArchiveDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsVaultARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsCreationDate       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
 --
@@ -204,16 +207,17 @@ listPartsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPartsResponse
 listPartsResponse pResponseStatus_ =
-    ListPartsResponse'
-    { _lprsParts = Nothing
-    , _lprsMultipartUploadId = Nothing
-    , _lprsPartSizeInBytes = Nothing
-    , _lprsArchiveDescription = Nothing
-    , _lprsVaultARN = Nothing
-    , _lprsMarker = Nothing
-    , _lprsCreationDate = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPartsResponse'
+  { _lprsParts = Nothing
+  , _lprsMultipartUploadId = Nothing
+  , _lprsPartSizeInBytes = Nothing
+  , _lprsArchiveDescription = Nothing
+  , _lprsVaultARN = Nothing
+  , _lprsMarker = Nothing
+  , _lprsCreationDate = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
 lprsParts :: Lens' ListPartsResponse [PartListElement]
@@ -247,4 +251,4 @@ lprsCreationDate = lens _lprsCreationDate (\ s a -> s{_lprsCreationDate = a});
 lprsResponseStatus :: Lens' ListPartsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPartsResponse
+instance NFData ListPartsResponse where

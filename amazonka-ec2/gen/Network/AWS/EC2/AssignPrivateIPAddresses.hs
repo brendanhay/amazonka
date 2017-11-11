@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssignPrivateIPAddresses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.AssignPrivateIPAddresses
     , AssignPrivateIPAddressesResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AssignPrivateIpAddresses.
 --
@@ -52,11 +52,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'assignPrivateIPAddresses' smart constructor.
 data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
-    { _apiaPrivateIPAddresses             :: !(Maybe [Text])
-    , _apiaAllowReassignment              :: !(Maybe Bool)
-    , _apiaSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _apiaNetworkInterfaceId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apiaPrivateIPAddresses             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _apiaAllowReassignment              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _apiaSecondaryPrivateIPAddressCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _apiaNetworkInterfaceId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssignPrivateIPAddresses' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ assignPrivateIPAddresses
     :: Text -- ^ 'apiaNetworkInterfaceId'
     -> AssignPrivateIPAddresses
 assignPrivateIPAddresses pNetworkInterfaceId_ =
-    AssignPrivateIPAddresses'
-    { _apiaPrivateIPAddresses = Nothing
-    , _apiaAllowReassignment = Nothing
-    , _apiaSecondaryPrivateIPAddressCount = Nothing
-    , _apiaNetworkInterfaceId = pNetworkInterfaceId_
-    }
+  AssignPrivateIPAddresses'
+  { _apiaPrivateIPAddresses = Nothing
+  , _apiaAllowReassignment = Nothing
+  , _apiaSecondaryPrivateIPAddressCount = Nothing
+  , _apiaNetworkInterfaceId = pNetworkInterfaceId_
+  }
+
 
 -- | One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses. If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
 apiaPrivateIPAddresses :: Lens' AssignPrivateIPAddresses [Text]
@@ -103,9 +105,9 @@ instance AWSRequest AssignPrivateIPAddresses where
         response
           = receiveNull AssignPrivateIPAddressesResponse'
 
-instance Hashable AssignPrivateIPAddresses
+instance Hashable AssignPrivateIPAddresses where
 
-instance NFData AssignPrivateIPAddresses
+instance NFData AssignPrivateIPAddresses where
 
 instance ToHeaders AssignPrivateIPAddresses where
         toHeaders = const mempty
@@ -129,8 +131,9 @@ instance ToQuery AssignPrivateIPAddresses where
 
 -- | /See:/ 'assignPrivateIPAddressesResponse' smart constructor.
 data AssignPrivateIPAddressesResponse =
-    AssignPrivateIPAddressesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AssignPrivateIPAddressesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssignPrivateIPAddressesResponse' with the minimum fields required to make a request.
 --
@@ -138,4 +141,6 @@ assignPrivateIPAddressesResponse
     :: AssignPrivateIPAddressesResponse
 assignPrivateIPAddressesResponse = AssignPrivateIPAddressesResponse'
 
+
 instance NFData AssignPrivateIPAddressesResponse
+         where

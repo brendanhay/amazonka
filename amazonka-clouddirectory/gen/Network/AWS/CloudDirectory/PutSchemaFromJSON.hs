@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.PutSchemaFromJSON
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CloudDirectory.PutSchemaFromJSON
     , psfjrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putSchemaFromJSON' smart constructor.
 data PutSchemaFromJSON = PutSchemaFromJSON'
-    { _psfjSchemaARN :: !Text
-    , _psfjDocument  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psfjSchemaARN :: {-# NOUNPACK #-}!Text
+  , _psfjDocument  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutSchemaFromJSON' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ putSchemaFromJSON
     -> Text -- ^ 'psfjDocument'
     -> PutSchemaFromJSON
 putSchemaFromJSON pSchemaARN_ pDocument_ =
-    PutSchemaFromJSON'
-    { _psfjSchemaARN = pSchemaARN_
-    , _psfjDocument = pDocument_
-    }
+  PutSchemaFromJSON' {_psfjSchemaARN = pSchemaARN_, _psfjDocument = pDocument_}
+
 
 -- | The ARN of the schema to update.
 psfjSchemaARN :: Lens' PutSchemaFromJSON Text
@@ -85,9 +84,9 @@ instance AWSRequest PutSchemaFromJSON where
                  PutSchemaFromJSONResponse' <$>
                    (x .?> "Arn") <*> (pure (fromEnum s)))
 
-instance Hashable PutSchemaFromJSON
+instance Hashable PutSchemaFromJSON where
 
-instance NFData PutSchemaFromJSON
+instance NFData PutSchemaFromJSON where
 
 instance ToHeaders PutSchemaFromJSON where
         toHeaders PutSchemaFromJSON'{..}
@@ -108,9 +107,10 @@ instance ToQuery PutSchemaFromJSON where
 
 -- | /See:/ 'putSchemaFromJSONResponse' smart constructor.
 data PutSchemaFromJSONResponse = PutSchemaFromJSONResponse'
-    { _psfjrsARN            :: !(Maybe Text)
-    , _psfjrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psfjrsARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psfjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutSchemaFromJSONResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +123,9 @@ putSchemaFromJSONResponse
     :: Int -- ^ 'psfjrsResponseStatus'
     -> PutSchemaFromJSONResponse
 putSchemaFromJSONResponse pResponseStatus_ =
-    PutSchemaFromJSONResponse'
-    { _psfjrsARN = Nothing
-    , _psfjrsResponseStatus = pResponseStatus_
-    }
+  PutSchemaFromJSONResponse'
+  {_psfjrsARN = Nothing, _psfjrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the schema to update.
 psfjrsARN :: Lens' PutSchemaFromJSONResponse (Maybe Text)
@@ -136,4 +135,4 @@ psfjrsARN = lens _psfjrsARN (\ s a -> s{_psfjrsARN = a});
 psfjrsResponseStatus :: Lens' PutSchemaFromJSONResponse Int
 psfjrsResponseStatus = lens _psfjrsResponseStatus (\ s a -> s{_psfjrsResponseStatus = a});
 
-instance NFData PutSchemaFromJSONResponse
+instance NFData PutSchemaFromJSONResponse where

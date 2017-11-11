@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RebootInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.RebootInstance
     , RebootInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'rebootInstance' smart constructor.
 newtype RebootInstance = RebootInstance'
-    { _riInstanceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riInstanceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootInstance' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype RebootInstance = RebootInstance'
 rebootInstance
     :: Text -- ^ 'riInstanceId'
     -> RebootInstance
-rebootInstance pInstanceId_ =
-    RebootInstance'
-    { _riInstanceId = pInstanceId_
-    }
+rebootInstance pInstanceId_ = RebootInstance' {_riInstanceId = pInstanceId_}
+
 
 -- | The instance ID.
 riInstanceId :: Lens' RebootInstance Text
@@ -70,9 +69,9 @@ instance AWSRequest RebootInstance where
         request = postJSON opsWorks
         response = receiveNull RebootInstanceResponse'
 
-instance Hashable RebootInstance
+instance Hashable RebootInstance where
 
-instance NFData RebootInstance
+instance NFData RebootInstance where
 
 instance ToHeaders RebootInstance where
         toHeaders
@@ -96,8 +95,9 @@ instance ToQuery RebootInstance where
 
 -- | /See:/ 'rebootInstanceResponse' smart constructor.
 data RebootInstanceResponse =
-    RebootInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RebootInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootInstanceResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +105,5 @@ rebootInstanceResponse
     :: RebootInstanceResponse
 rebootInstanceResponse = RebootInstanceResponse'
 
-instance NFData RebootInstanceResponse
+
+instance NFData RebootInstanceResponse where

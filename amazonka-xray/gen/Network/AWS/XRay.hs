@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.XRay
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -217,14 +217,14 @@ module Network.AWS.XRay
     , vwsiAnnotationValue
     ) where
 
-import           Network.AWS.XRay.BatchGetTraces
-import           Network.AWS.XRay.GetServiceGraph
-import           Network.AWS.XRay.GetTraceGraph
-import           Network.AWS.XRay.GetTraceSummaries
-import           Network.AWS.XRay.PutTelemetryRecords
-import           Network.AWS.XRay.PutTraceSegments
-import           Network.AWS.XRay.Types
-import           Network.AWS.XRay.Waiters
+import Network.AWS.XRay.BatchGetTraces
+import Network.AWS.XRay.GetServiceGraph
+import Network.AWS.XRay.GetTraceGraph
+import Network.AWS.XRay.GetTraceSummaries
+import Network.AWS.XRay.PutTelemetryRecords
+import Network.AWS.XRay.PutTraceSegments
+import Network.AWS.XRay.Types
+import Network.AWS.XRay.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

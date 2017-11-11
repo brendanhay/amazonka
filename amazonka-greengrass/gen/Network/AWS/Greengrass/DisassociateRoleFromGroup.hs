@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DisassociateRoleFromGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Greengrass.DisassociateRoleFromGroup
     , drfgrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateRoleFromGroup' smart constructor.
 newtype DisassociateRoleFromGroup = DisassociateRoleFromGroup'
-    { _drfgGroupId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drfgGroupId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateRoleFromGroup' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ disassociateRoleFromGroup
     :: Text -- ^ 'drfgGroupId'
     -> DisassociateRoleFromGroup
 disassociateRoleFromGroup pGroupId_ =
-    DisassociateRoleFromGroup'
-    { _drfgGroupId = pGroupId_
-    }
+  DisassociateRoleFromGroup' {_drfgGroupId = pGroupId_}
+
 
 -- | The unique Id of the AWS Greengrass Group
 drfgGroupId :: Lens' DisassociateRoleFromGroup Text
@@ -74,9 +74,9 @@ instance AWSRequest DisassociateRoleFromGroup where
                  DisassociateRoleFromGroupResponse' <$>
                    (x .?> "DisassociatedAt") <*> (pure (fromEnum s)))
 
-instance Hashable DisassociateRoleFromGroup
+instance Hashable DisassociateRoleFromGroup where
 
-instance NFData DisassociateRoleFromGroup
+instance NFData DisassociateRoleFromGroup where
 
 instance ToHeaders DisassociateRoleFromGroup where
         toHeaders
@@ -95,9 +95,10 @@ instance ToQuery DisassociateRoleFromGroup where
 
 -- | /See:/ 'disassociateRoleFromGroupResponse' smart constructor.
 data DisassociateRoleFromGroupResponse = DisassociateRoleFromGroupResponse'
-    { _drfgrsDisassociatedAt :: !(Maybe Text)
-    , _drfgrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drfgrsDisassociatedAt :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drfgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateRoleFromGroupResponse' with the minimum fields required to make a request.
 --
@@ -110,10 +111,9 @@ disassociateRoleFromGroupResponse
     :: Int -- ^ 'drfgrsResponseStatus'
     -> DisassociateRoleFromGroupResponse
 disassociateRoleFromGroupResponse pResponseStatus_ =
-    DisassociateRoleFromGroupResponse'
-    { _drfgrsDisassociatedAt = Nothing
-    , _drfgrsResponseStatus = pResponseStatus_
-    }
+  DisassociateRoleFromGroupResponse'
+  {_drfgrsDisassociatedAt = Nothing, _drfgrsResponseStatus = pResponseStatus_}
+
 
 -- | Time when the role was disassociated from the group.
 drfgrsDisassociatedAt :: Lens' DisassociateRoleFromGroupResponse (Maybe Text)
@@ -124,3 +124,4 @@ drfgrsResponseStatus :: Lens' DisassociateRoleFromGroupResponse Int
 drfgrsResponseStatus = lens _drfgrsResponseStatus (\ s a -> s{_drfgrsResponseStatus = a});
 
 instance NFData DisassociateRoleFromGroupResponse
+         where

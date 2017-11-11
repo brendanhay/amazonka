@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -209,27 +209,27 @@ module Network.AWS.DataPipeline
     , vwId
     ) where
 
-import           Network.AWS.DataPipeline.ActivatePipeline
-import           Network.AWS.DataPipeline.AddTags
-import           Network.AWS.DataPipeline.CreatePipeline
-import           Network.AWS.DataPipeline.DeactivatePipeline
-import           Network.AWS.DataPipeline.DeletePipeline
-import           Network.AWS.DataPipeline.DescribeObjects
-import           Network.AWS.DataPipeline.DescribePipelines
-import           Network.AWS.DataPipeline.EvaluateExpression
-import           Network.AWS.DataPipeline.GetPipelineDefinition
-import           Network.AWS.DataPipeline.ListPipelines
-import           Network.AWS.DataPipeline.PollForTask
-import           Network.AWS.DataPipeline.PutPipelineDefinition
-import           Network.AWS.DataPipeline.QueryObjects
-import           Network.AWS.DataPipeline.RemoveTags
-import           Network.AWS.DataPipeline.ReportTaskProgress
-import           Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
-import           Network.AWS.DataPipeline.SetStatus
-import           Network.AWS.DataPipeline.SetTaskStatus
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.ValidatePipelineDefinition
-import           Network.AWS.DataPipeline.Waiters
+import Network.AWS.DataPipeline.ActivatePipeline
+import Network.AWS.DataPipeline.AddTags
+import Network.AWS.DataPipeline.CreatePipeline
+import Network.AWS.DataPipeline.DeactivatePipeline
+import Network.AWS.DataPipeline.DeletePipeline
+import Network.AWS.DataPipeline.DescribeObjects
+import Network.AWS.DataPipeline.DescribePipelines
+import Network.AWS.DataPipeline.EvaluateExpression
+import Network.AWS.DataPipeline.GetPipelineDefinition
+import Network.AWS.DataPipeline.ListPipelines
+import Network.AWS.DataPipeline.PollForTask
+import Network.AWS.DataPipeline.PutPipelineDefinition
+import Network.AWS.DataPipeline.QueryObjects
+import Network.AWS.DataPipeline.RemoveTags
+import Network.AWS.DataPipeline.ReportTaskProgress
+import Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
+import Network.AWS.DataPipeline.SetStatus
+import Network.AWS.DataPipeline.SetTaskStatus
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.ValidatePipelineDefinition
+import Network.AWS.DataPipeline.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.WorkDocs.GetDocument
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getDocument' smart constructor.
 data GetDocument = GetDocument'
-    { _gdAuthenticationToken   :: !(Maybe (Sensitive Text))
-    , _gdIncludeCustomMetadata :: !(Maybe Bool)
-    , _gdDocumentId            :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gdAuthenticationToken   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gdIncludeCustomMetadata :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gdDocumentId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ getDocument
     :: Text -- ^ 'gdDocumentId'
     -> GetDocument
 getDocument pDocumentId_ =
-    GetDocument'
-    { _gdAuthenticationToken = Nothing
-    , _gdIncludeCustomMetadata = Nothing
-    , _gdDocumentId = pDocumentId_
-    }
+  GetDocument'
+  { _gdAuthenticationToken = Nothing
+  , _gdIncludeCustomMetadata = Nothing
+  , _gdDocumentId = pDocumentId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 gdAuthenticationToken :: Lens' GetDocument (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest GetDocument where
                      (x .?> "Metadata")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDocument
+instance Hashable GetDocument where
 
-instance NFData GetDocument
+instance NFData GetDocument where
 
 instance ToHeaders GetDocument where
         toHeaders GetDocument'{..}
@@ -118,10 +120,11 @@ instance ToQuery GetDocument where
 
 -- | /See:/ 'getDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-    { _gdrsCustomMetadata :: !(Maybe (Map Text Text))
-    , _gdrsMetadata       :: !(Maybe DocumentMetadata)
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gdrsCustomMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gdrsMetadata       :: {-# NOUNPACK #-}!(Maybe DocumentMetadata)
+  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
 --
@@ -136,11 +139,12 @@ getDocumentResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDocumentResponse
 getDocumentResponse pResponseStatus_ =
-    GetDocumentResponse'
-    { _gdrsCustomMetadata = Nothing
-    , _gdrsMetadata = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDocumentResponse'
+  { _gdrsCustomMetadata = Nothing
+  , _gdrsMetadata = Nothing
+  , _gdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The custom metadata on the document.
 gdrsCustomMetadata :: Lens' GetDocumentResponse (HashMap Text Text)
@@ -154,4 +158,4 @@ gdrsMetadata = lens _gdrsMetadata (\ s a -> s{_gdrsMetadata = a});
 gdrsResponseStatus :: Lens' GetDocumentResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDocumentResponse
+instance NFData GetDocumentResponse where

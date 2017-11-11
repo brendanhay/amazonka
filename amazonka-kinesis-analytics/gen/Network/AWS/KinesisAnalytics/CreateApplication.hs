@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.CreateApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.KinesisAnalytics.CreateApplication
     , carsApplicationSummary
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | TBD
 --
@@ -65,13 +65,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
-    { _caApplicationDescription   :: !(Maybe Text)
-    , _caInputs                   :: !(Maybe [Input])
-    , _caCloudWatchLoggingOptions :: !(Maybe [CloudWatchLoggingOption])
-    , _caOutputs                  :: !(Maybe [Output])
-    , _caApplicationCode          :: !(Maybe Text)
-    , _caApplicationName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caApplicationDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caInputs :: {-# NOUNPACK #-}!(Maybe [Input])
+  , _caCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe [CloudWatchLoggingOption])
+  , _caOutputs :: {-# NOUNPACK #-}!(Maybe [Output])
+  , _caApplicationCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caApplicationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
@@ -92,14 +93,15 @@ createApplication
     :: Text -- ^ 'caApplicationName'
     -> CreateApplication
 createApplication pApplicationName_ =
-    CreateApplication'
-    { _caApplicationDescription = Nothing
-    , _caInputs = Nothing
-    , _caCloudWatchLoggingOptions = Nothing
-    , _caOutputs = Nothing
-    , _caApplicationCode = Nothing
-    , _caApplicationName = pApplicationName_
-    }
+  CreateApplication'
+  { _caApplicationDescription = Nothing
+  , _caInputs = Nothing
+  , _caCloudWatchLoggingOptions = Nothing
+  , _caOutputs = Nothing
+  , _caApplicationCode = Nothing
+  , _caApplicationName = pApplicationName_
+  }
+
 
 -- | Summary description of the application.
 caApplicationDescription :: Lens' CreateApplication (Maybe Text)
@@ -134,9 +136,9 @@ instance AWSRequest CreateApplication where
                  CreateApplicationResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "ApplicationSummary"))
 
-instance Hashable CreateApplication
+instance Hashable CreateApplication where
 
-instance NFData CreateApplication
+instance NFData CreateApplication where
 
 instance ToHeaders CreateApplication where
         toHeaders
@@ -173,9 +175,10 @@ instance ToQuery CreateApplication where
 --
 -- /See:/ 'createApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-    { _carsResponseStatus     :: !Int
-    , _carsApplicationSummary :: !ApplicationSummary
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _carsApplicationSummary :: {-# NOUNPACK #-}!ApplicationSummary
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
 --
@@ -189,10 +192,11 @@ createApplicationResponse
     -> ApplicationSummary -- ^ 'carsApplicationSummary'
     -> CreateApplicationResponse
 createApplicationResponse pResponseStatus_ pApplicationSummary_ =
-    CreateApplicationResponse'
-    { _carsResponseStatus = pResponseStatus_
-    , _carsApplicationSummary = pApplicationSummary_
-    }
+  CreateApplicationResponse'
+  { _carsResponseStatus = pResponseStatus_
+  , _carsApplicationSummary = pApplicationSummary_
+  }
+
 
 -- | -- | The response status code.
 carsResponseStatus :: Lens' CreateApplicationResponse Int
@@ -202,4 +206,4 @@ carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = 
 carsApplicationSummary :: Lens' CreateApplicationResponse ApplicationSummary
 carsApplicationSummary = lens _carsApplicationSummary (\ s a -> s{_carsApplicationSummary = a});
 
-instance NFData CreateApplicationResponse
+instance NFData CreateApplicationResponse where

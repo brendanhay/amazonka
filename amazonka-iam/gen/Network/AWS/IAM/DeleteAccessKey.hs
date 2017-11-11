@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteAccessKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.DeleteAccessKey
     , DeleteAccessKeyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAccessKey' smart constructor.
 data DeleteAccessKey = DeleteAccessKey'
-    { _dakUserName    :: !(Maybe Text)
-    , _dakAccessKeyId :: !AccessKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dakUserName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dakAccessKeyId :: {-# NOUNPACK #-}!AccessKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAccessKey' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ deleteAccessKey
     :: AccessKey -- ^ 'dakAccessKeyId'
     -> DeleteAccessKey
 deleteAccessKey pAccessKeyId_ =
-    DeleteAccessKey'
-    { _dakUserName = Nothing
-    , _dakAccessKeyId = pAccessKeyId_
-    }
+  DeleteAccessKey' {_dakUserName = Nothing, _dakAccessKeyId = pAccessKeyId_}
+
 
 -- | The name of the user whose access key pair you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
@@ -79,9 +78,9 @@ instance AWSRequest DeleteAccessKey where
         request = postQuery iam
         response = receiveNull DeleteAccessKeyResponse'
 
-instance Hashable DeleteAccessKey
+instance Hashable DeleteAccessKey where
 
-instance NFData DeleteAccessKey
+instance NFData DeleteAccessKey where
 
 instance ToHeaders DeleteAccessKey where
         toHeaders = const mempty
@@ -99,8 +98,9 @@ instance ToQuery DeleteAccessKey where
 
 -- | /See:/ 'deleteAccessKeyResponse' smart constructor.
 data DeleteAccessKeyResponse =
-    DeleteAccessKeyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAccessKeyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAccessKeyResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +108,5 @@ deleteAccessKeyResponse
     :: DeleteAccessKeyResponse
 deleteAccessKeyResponse = DeleteAccessKeyResponse'
 
-instance NFData DeleteAccessKeyResponse
+
+instance NFData DeleteAccessKeyResponse where

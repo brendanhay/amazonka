@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.UpdateFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,29 +49,30 @@ module Network.AWS.AppStream.UpdateFleet
     , ufrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateFleet' smart constructor.
 data UpdateFleet = UpdateFleet'
-    { _ufDomainJoinInfo              :: !(Maybe DomainJoinInfo)
-    , _ufDisconnectTimeoutInSeconds  :: !(Maybe Int)
-    , _ufMaxUserDurationInSeconds    :: !(Maybe Int)
-    , _ufAttributesToDelete          :: !(Maybe [FleetAttribute])
-    , _ufDeleteVPCConfig             :: !(Maybe Bool)
-    , _ufInstanceType                :: !(Maybe Text)
-    , _ufVPCConfig                   :: !(Maybe VPCConfig)
-    , _ufDisplayName                 :: !(Maybe Text)
-    , _ufEnableDefaultInternetAccess :: !(Maybe Bool)
-    , _ufImageName                   :: !(Maybe Text)
-    , _ufDescription                 :: !(Maybe Text)
-    , _ufComputeCapacity             :: !(Maybe ComputeCapacity)
-    , _ufName                        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufDomainJoinInfo              :: {-# NOUNPACK #-}!(Maybe DomainJoinInfo)
+  , _ufDisconnectTimeoutInSeconds  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ufMaxUserDurationInSeconds    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ufAttributesToDelete          :: {-# NOUNPACK #-}!(Maybe [FleetAttribute])
+  , _ufDeleteVPCConfig             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ufInstanceType                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufVPCConfig                   :: {-# NOUNPACK #-}!(Maybe VPCConfig)
+  , _ufDisplayName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufEnableDefaultInternetAccess :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ufImageName                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ufComputeCapacity             :: {-# NOUNPACK #-}!(Maybe ComputeCapacity)
+  , _ufName                        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFleet' with the minimum fields required to make a request.
 --
@@ -106,21 +107,22 @@ updateFleet
     :: Text -- ^ 'ufName'
     -> UpdateFleet
 updateFleet pName_ =
-    UpdateFleet'
-    { _ufDomainJoinInfo = Nothing
-    , _ufDisconnectTimeoutInSeconds = Nothing
-    , _ufMaxUserDurationInSeconds = Nothing
-    , _ufAttributesToDelete = Nothing
-    , _ufDeleteVPCConfig = Nothing
-    , _ufInstanceType = Nothing
-    , _ufVPCConfig = Nothing
-    , _ufDisplayName = Nothing
-    , _ufEnableDefaultInternetAccess = Nothing
-    , _ufImageName = Nothing
-    , _ufDescription = Nothing
-    , _ufComputeCapacity = Nothing
-    , _ufName = pName_
-    }
+  UpdateFleet'
+  { _ufDomainJoinInfo = Nothing
+  , _ufDisconnectTimeoutInSeconds = Nothing
+  , _ufMaxUserDurationInSeconds = Nothing
+  , _ufAttributesToDelete = Nothing
+  , _ufDeleteVPCConfig = Nothing
+  , _ufInstanceType = Nothing
+  , _ufVPCConfig = Nothing
+  , _ufDisplayName = Nothing
+  , _ufEnableDefaultInternetAccess = Nothing
+  , _ufImageName = Nothing
+  , _ufDescription = Nothing
+  , _ufComputeCapacity = Nothing
+  , _ufName = pName_
+  }
+
 
 -- | The /DirectoryName/ and /OrganizationalUnitDistinguishedName/ values, which are used to join domains for the AppStream 2.0 streaming instances.
 ufDomainJoinInfo :: Lens' UpdateFleet (Maybe DomainJoinInfo)
@@ -183,9 +185,9 @@ instance AWSRequest UpdateFleet where
                  UpdateFleetResponse' <$>
                    (x .?> "Fleet") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateFleet
+instance Hashable UpdateFleet where
 
-instance NFData UpdateFleet
+instance NFData UpdateFleet where
 
 instance ToHeaders UpdateFleet where
         toHeaders
@@ -226,9 +228,10 @@ instance ToQuery UpdateFleet where
 
 -- | /See:/ 'updateFleetResponse' smart constructor.
 data UpdateFleetResponse = UpdateFleetResponse'
-    { _ufrsFleet          :: !(Maybe Fleet)
-    , _ufrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ufrsFleet          :: {-# NOUNPACK #-}!(Maybe Fleet)
+  , _ufrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateFleetResponse' with the minimum fields required to make a request.
 --
@@ -241,10 +244,9 @@ updateFleetResponse
     :: Int -- ^ 'ufrsResponseStatus'
     -> UpdateFleetResponse
 updateFleetResponse pResponseStatus_ =
-    UpdateFleetResponse'
-    { _ufrsFleet = Nothing
-    , _ufrsResponseStatus = pResponseStatus_
-    }
+  UpdateFleetResponse'
+  {_ufrsFleet = Nothing, _ufrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of fleet details.
 ufrsFleet :: Lens' UpdateFleetResponse (Maybe Fleet)
@@ -254,4 +256,4 @@ ufrsFleet = lens _ufrsFleet (\ s a -> s{_ufrsFleet = a});
 ufrsResponseStatus :: Lens' UpdateFleetResponse Int
 ufrsResponseStatus = lens _ufrsResponseStatus (\ s a -> s{_ufrsResponseStatus = a});
 
-instance NFData UpdateFleetResponse
+instance NFData UpdateFleetResponse where

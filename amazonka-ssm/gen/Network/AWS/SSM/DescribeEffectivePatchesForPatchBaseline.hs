@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
     , depfpbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeEffectivePatchesForPatchBaseline' smart constructor.
 data DescribeEffectivePatchesForPatchBaseline = DescribeEffectivePatchesForPatchBaseline'
-    { _depfpbNextToken  :: !(Maybe Text)
-    , _depfpbMaxResults :: !(Maybe Nat)
-    , _depfpbBaselineId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _depfpbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _depfpbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _depfpbBaselineId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEffectivePatchesForPatchBaseline' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ describeEffectivePatchesForPatchBaseline
     :: Text -- ^ 'depfpbBaselineId'
     -> DescribeEffectivePatchesForPatchBaseline
 describeEffectivePatchesForPatchBaseline pBaselineId_ =
-    DescribeEffectivePatchesForPatchBaseline'
-    { _depfpbNextToken = Nothing
-    , _depfpbMaxResults = Nothing
-    , _depfpbBaselineId = pBaselineId_
-    }
+  DescribeEffectivePatchesForPatchBaseline'
+  { _depfpbNextToken = Nothing
+  , _depfpbMaxResults = Nothing
+  , _depfpbBaselineId = pBaselineId_
+  }
+
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 depfpbNextToken :: Lens' DescribeEffectivePatchesForPatchBaseline (Maybe Text)
@@ -86,7 +88,8 @@ depfpbBaselineId :: Lens' DescribeEffectivePatchesForPatchBaseline Text
 depfpbBaselineId = lens _depfpbBaselineId (\ s a -> s{_depfpbBaselineId = a});
 
 instance AWSRequest
-         DescribeEffectivePatchesForPatchBaseline where
+           DescribeEffectivePatchesForPatchBaseline
+         where
         type Rs DescribeEffectivePatchesForPatchBaseline =
              DescribeEffectivePatchesForPatchBaselineResponse
         request = postJSON ssm
@@ -99,13 +102,16 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeEffectivePatchesForPatchBaseline
+           DescribeEffectivePatchesForPatchBaseline
+         where
 
 instance NFData
-         DescribeEffectivePatchesForPatchBaseline
+           DescribeEffectivePatchesForPatchBaseline
+         where
 
 instance ToHeaders
-         DescribeEffectivePatchesForPatchBaseline where
+           DescribeEffectivePatchesForPatchBaseline
+         where
         toHeaders
           = const
               (mconcat
@@ -116,7 +122,8 @@ instance ToHeaders
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON
-         DescribeEffectivePatchesForPatchBaseline where
+           DescribeEffectivePatchesForPatchBaseline
+         where
         toJSON DescribeEffectivePatchesForPatchBaseline'{..}
           = object
               (catMaybes
@@ -125,19 +132,22 @@ instance ToJSON
                   Just ("BaselineId" .= _depfpbBaselineId)])
 
 instance ToPath
-         DescribeEffectivePatchesForPatchBaseline where
+           DescribeEffectivePatchesForPatchBaseline
+         where
         toPath = const "/"
 
 instance ToQuery
-         DescribeEffectivePatchesForPatchBaseline where
+           DescribeEffectivePatchesForPatchBaseline
+         where
         toQuery = const mempty
 
 -- | /See:/ 'describeEffectivePatchesForPatchBaselineResponse' smart constructor.
 data DescribeEffectivePatchesForPatchBaselineResponse = DescribeEffectivePatchesForPatchBaselineResponse'
-    { _depfpbrsEffectivePatches :: !(Maybe [EffectivePatch])
-    , _depfpbrsNextToken        :: !(Maybe Text)
-    , _depfpbrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _depfpbrsEffectivePatches :: {-# NOUNPACK #-}!(Maybe [EffectivePatch])
+  , _depfpbrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _depfpbrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEffectivePatchesForPatchBaselineResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +162,12 @@ describeEffectivePatchesForPatchBaselineResponse
     :: Int -- ^ 'depfpbrsResponseStatus'
     -> DescribeEffectivePatchesForPatchBaselineResponse
 describeEffectivePatchesForPatchBaselineResponse pResponseStatus_ =
-    DescribeEffectivePatchesForPatchBaselineResponse'
-    { _depfpbrsEffectivePatches = Nothing
-    , _depfpbrsNextToken = Nothing
-    , _depfpbrsResponseStatus = pResponseStatus_
-    }
+  DescribeEffectivePatchesForPatchBaselineResponse'
+  { _depfpbrsEffectivePatches = Nothing
+  , _depfpbrsNextToken = Nothing
+  , _depfpbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of patches and patch status.
 depfpbrsEffectivePatches :: Lens' DescribeEffectivePatchesForPatchBaselineResponse [EffectivePatch]
@@ -171,4 +182,5 @@ depfpbrsResponseStatus :: Lens' DescribeEffectivePatchesForPatchBaselineResponse
 depfpbrsResponseStatus = lens _depfpbrsResponseStatus (\ s a -> s{_depfpbrsResponseStatus = a});
 
 instance NFData
-         DescribeEffectivePatchesForPatchBaselineResponse
+           DescribeEffectivePatchesForPatchBaselineResponse
+         where

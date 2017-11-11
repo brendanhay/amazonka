@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.DeleteSecurityConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.EMR.DeleteSecurityConfiguration
     , dscrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSecurityConfiguration' smart constructor.
 newtype DeleteSecurityConfiguration = DeleteSecurityConfiguration'
-    { _dscName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSecurityConfiguration' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deleteSecurityConfiguration
     :: Text -- ^ 'dscName'
     -> DeleteSecurityConfiguration
 deleteSecurityConfiguration pName_ =
-    DeleteSecurityConfiguration'
-    { _dscName = pName_
-    }
+  DeleteSecurityConfiguration' {_dscName = pName_}
+
 
 -- | The name of the security configuration.
 dscName :: Lens' DeleteSecurityConfiguration Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteSecurityConfiguration where
                  DeleteSecurityConfigurationResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteSecurityConfiguration
+instance Hashable DeleteSecurityConfiguration where
 
-instance NFData DeleteSecurityConfiguration
+instance NFData DeleteSecurityConfiguration where
 
 instance ToHeaders DeleteSecurityConfiguration where
         toHeaders
@@ -101,8 +101,9 @@ instance ToQuery DeleteSecurityConfiguration where
 
 -- | /See:/ 'deleteSecurityConfigurationResponse' smart constructor.
 newtype DeleteSecurityConfigurationResponse = DeleteSecurityConfigurationResponse'
-    { _dscrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -113,12 +114,12 @@ deleteSecurityConfigurationResponse
     :: Int -- ^ 'dscrsResponseStatus'
     -> DeleteSecurityConfigurationResponse
 deleteSecurityConfigurationResponse pResponseStatus_ =
-    DeleteSecurityConfigurationResponse'
-    { _dscrsResponseStatus = pResponseStatus_
-    }
+  DeleteSecurityConfigurationResponse' {_dscrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dscrsResponseStatus :: Lens' DeleteSecurityConfigurationResponse Int
 dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
 
 instance NFData DeleteSecurityConfigurationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AbortMultipartUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.Glacier.AbortMultipartUpload
     , AbortMultipartUploadResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options to abort a multipart upload identified by the upload ID.
 --
@@ -59,10 +59,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'abortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-    { _amuAccountId :: !Text
-    , _amuVaultName :: !Text
-    , _amuUploadId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amuAccountId :: {-# NOUNPACK #-}!Text
+  , _amuVaultName :: {-# NOUNPACK #-}!Text
+  , _amuUploadId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortMultipartUpload' with the minimum fields required to make a request.
 --
@@ -79,11 +80,12 @@ abortMultipartUpload
     -> Text -- ^ 'amuUploadId'
     -> AbortMultipartUpload
 abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
-    AbortMultipartUpload'
-    { _amuAccountId = pAccountId_
-    , _amuVaultName = pVaultName_
-    , _amuUploadId = pUploadId_
-    }
+  AbortMultipartUpload'
+  { _amuAccountId = pAccountId_
+  , _amuVaultName = pVaultName_
+  , _amuUploadId = pUploadId_
+  }
+
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 amuAccountId :: Lens' AbortMultipartUpload Text
@@ -103,9 +105,9 @@ instance AWSRequest AbortMultipartUpload where
         request = delete glacier
         response = receiveNull AbortMultipartUploadResponse'
 
-instance Hashable AbortMultipartUpload
+instance Hashable AbortMultipartUpload where
 
-instance NFData AbortMultipartUpload
+instance NFData AbortMultipartUpload where
 
 instance ToHeaders AbortMultipartUpload where
         toHeaders = const mempty
@@ -122,8 +124,9 @@ instance ToQuery AbortMultipartUpload where
 
 -- | /See:/ 'abortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse =
-    AbortMultipartUploadResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AbortMultipartUploadResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
 --
@@ -131,4 +134,5 @@ abortMultipartUploadResponse
     :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse'
 
-instance NFData AbortMultipartUploadResponse
+
+instance NFData AbortMultipartUploadResponse where

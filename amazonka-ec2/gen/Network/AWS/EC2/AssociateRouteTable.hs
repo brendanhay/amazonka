@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateRouteTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.AssociateRouteTable
     , artrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AssociateRouteTable.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'associateRouteTable' smart constructor.
 data AssociateRouteTable = AssociateRouteTable'
-    { _artDryRun       :: !(Maybe Bool)
-    , _artRouteTableId :: !Text
-    , _artSubnetId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _artDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _artRouteTableId :: {-# NOUNPACK #-}!Text
+  , _artSubnetId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateRouteTable' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ associateRouteTable
     -> Text -- ^ 'artSubnetId'
     -> AssociateRouteTable
 associateRouteTable pRouteTableId_ pSubnetId_ =
-    AssociateRouteTable'
-    { _artDryRun = Nothing
-    , _artRouteTableId = pRouteTableId_
-    , _artSubnetId = pSubnetId_
-    }
+  AssociateRouteTable'
+  { _artDryRun = Nothing
+  , _artRouteTableId = pRouteTableId_
+  , _artSubnetId = pSubnetId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 artDryRun :: Lens' AssociateRouteTable (Maybe Bool)
@@ -101,9 +103,9 @@ instance AWSRequest AssociateRouteTable where
                  AssociateRouteTableResponse' <$>
                    (x .@? "associationId") <*> (pure (fromEnum s)))
 
-instance Hashable AssociateRouteTable
+instance Hashable AssociateRouteTable where
 
-instance NFData AssociateRouteTable
+instance NFData AssociateRouteTable where
 
 instance ToHeaders AssociateRouteTable where
         toHeaders = const mempty
@@ -126,9 +128,10 @@ instance ToQuery AssociateRouteTable where
 --
 -- /See:/ 'associateRouteTableResponse' smart constructor.
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
-    { _artrsAssociationId  :: !(Maybe Text)
-    , _artrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _artrsAssociationId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _artrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateRouteTableResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +144,9 @@ associateRouteTableResponse
     :: Int -- ^ 'artrsResponseStatus'
     -> AssociateRouteTableResponse
 associateRouteTableResponse pResponseStatus_ =
-    AssociateRouteTableResponse'
-    { _artrsAssociationId = Nothing
-    , _artrsResponseStatus = pResponseStatus_
-    }
+  AssociateRouteTableResponse'
+  {_artrsAssociationId = Nothing, _artrsResponseStatus = pResponseStatus_}
+
 
 -- | The route table association ID (needed to disassociate the route table).
 artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
@@ -154,4 +156,4 @@ artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = 
 artrsResponseStatus :: Lens' AssociateRouteTableResponse Int
 artrsResponseStatus = lens _artrsResponseStatus (\ s a -> s{_artrsResponseStatus = a});
 
-instance NFData AssociateRouteTableResponse
+instance NFData AssociateRouteTableResponse where

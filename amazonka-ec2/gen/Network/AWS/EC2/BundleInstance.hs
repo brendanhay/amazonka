@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.BundleInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.BundleInstance
     , birsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for BundleInstance.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'bundleInstance' smart constructor.
 data BundleInstance = BundleInstance'
-    { _biDryRun     :: !(Maybe Bool)
-    , _biInstanceId :: !Text
-    , _biStorage    :: !Storage
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _biDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _biInstanceId :: {-# NOUNPACK #-}!Text
+  , _biStorage    :: {-# NOUNPACK #-}!Storage
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BundleInstance' with the minimum fields required to make a request.
 --
@@ -75,11 +76,9 @@ bundleInstance
     -> Storage -- ^ 'biStorage'
     -> BundleInstance
 bundleInstance pInstanceId_ pStorage_ =
-    BundleInstance'
-    { _biDryRun = Nothing
-    , _biInstanceId = pInstanceId_
-    , _biStorage = pStorage_
-    }
+  BundleInstance'
+  {_biDryRun = Nothing, _biInstanceId = pInstanceId_, _biStorage = pStorage_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 biDryRun :: Lens' BundleInstance (Maybe Bool)
@@ -102,9 +101,9 @@ instance AWSRequest BundleInstance where
                  BundleInstanceResponse' <$>
                    (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
-instance Hashable BundleInstance
+instance Hashable BundleInstance where
 
-instance NFData BundleInstance
+instance NFData BundleInstance where
 
 instance ToHeaders BundleInstance where
         toHeaders = const mempty
@@ -126,9 +125,10 @@ instance ToQuery BundleInstance where
 --
 -- /See:/ 'bundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
-    { _birsBundleTask     :: !(Maybe BundleTask)
-    , _birsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _birsBundleTask     :: {-# NOUNPACK #-}!(Maybe BundleTask)
+  , _birsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BundleInstanceResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +141,9 @@ bundleInstanceResponse
     :: Int -- ^ 'birsResponseStatus'
     -> BundleInstanceResponse
 bundleInstanceResponse pResponseStatus_ =
-    BundleInstanceResponse'
-    { _birsBundleTask = Nothing
-    , _birsResponseStatus = pResponseStatus_
-    }
+  BundleInstanceResponse'
+  {_birsBundleTask = Nothing, _birsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the bundle task.
 birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
@@ -154,4 +153,4 @@ birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 birsResponseStatus :: Lens' BundleInstanceResponse Int
 birsResponseStatus = lens _birsResponseStatus (\ s a -> s{_birsResponseStatus = a});
 
-instance NFData BundleInstanceResponse
+instance NFData BundleInstanceResponse where

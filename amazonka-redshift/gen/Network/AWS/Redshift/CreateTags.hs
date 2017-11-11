@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Redshift.CreateTags
     , CreateTagsResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the output from the @CreateTags@ action.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
-    { _ctResourceName :: !Text
-    , _ctTags         :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctResourceName :: {-# NOUNPACK #-}!Text
+  , _ctTags         :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ createTags
     :: Text -- ^ 'ctResourceName'
     -> CreateTags
 createTags pResourceName_ =
-    CreateTags'
-    { _ctResourceName = pResourceName_
-    , _ctTags = mempty
-    }
+  CreateTags' {_ctResourceName = pResourceName_, _ctTags = mempty}
+
 
 -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 ctResourceName :: Lens' CreateTags Text
@@ -85,9 +84,9 @@ instance AWSRequest CreateTags where
         request = postQuery redshift
         response = receiveNull CreateTagsResponse'
 
-instance Hashable CreateTags
+instance Hashable CreateTags where
 
-instance NFData CreateTags
+instance NFData CreateTags where
 
 instance ToHeaders CreateTags where
         toHeaders = const mempty
@@ -105,8 +104,9 @@ instance ToQuery CreateTags where
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =
-    CreateTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +114,5 @@ createTagsResponse
     :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse'
 
-instance NFData CreateTagsResponse
+
+instance NFData CreateTagsResponse where

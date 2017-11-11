@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegmentVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.Pinpoint.GetSegmentVersion
     , gsvrsSegmentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSegmentVersion' smart constructor.
 data GetSegmentVersion = GetSegmentVersion'
-    { _gSegmentId     :: !Text
-    , _gVersion       :: !Text
-    , _gApplicationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gSegmentId     :: {-# NOUNPACK #-}!Text
+  , _gVersion       :: {-# NOUNPACK #-}!Text
+  , _gApplicationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegmentVersion' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ getSegmentVersion
     -> Text -- ^ 'gApplicationId'
     -> GetSegmentVersion
 getSegmentVersion pSegmentId_ pVersion_ pApplicationId_ =
-    GetSegmentVersion'
-    { _gSegmentId = pSegmentId_
-    , _gVersion = pVersion_
-    , _gApplicationId = pApplicationId_
-    }
+  GetSegmentVersion'
+  { _gSegmentId = pSegmentId_
+  , _gVersion = pVersion_
+  , _gApplicationId = pApplicationId_
+  }
+
 
 -- | Undocumented member.
 gSegmentId :: Lens' GetSegmentVersion Text
@@ -93,9 +95,9 @@ instance AWSRequest GetSegmentVersion where
                  GetSegmentVersionResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetSegmentVersion
+instance Hashable GetSegmentVersion where
 
-instance NFData GetSegmentVersion
+instance NFData GetSegmentVersion where
 
 instance ToHeaders GetSegmentVersion where
         toHeaders
@@ -115,9 +117,10 @@ instance ToQuery GetSegmentVersion where
 
 -- | /See:/ 'getSegmentVersionResponse' smart constructor.
 data GetSegmentVersionResponse = GetSegmentVersionResponse'
-    { _gsvrsResponseStatus  :: !Int
-    , _gsvrsSegmentResponse :: !SegmentResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _gsvrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSegmentVersionResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +134,11 @@ getSegmentVersionResponse
     -> SegmentResponse -- ^ 'gsvrsSegmentResponse'
     -> GetSegmentVersionResponse
 getSegmentVersionResponse pResponseStatus_ pSegmentResponse_ =
-    GetSegmentVersionResponse'
-    { _gsvrsResponseStatus = pResponseStatus_
-    , _gsvrsSegmentResponse = pSegmentResponse_
-    }
+  GetSegmentVersionResponse'
+  { _gsvrsResponseStatus = pResponseStatus_
+  , _gsvrsSegmentResponse = pSegmentResponse_
+  }
+
 
 -- | -- | The response status code.
 gsvrsResponseStatus :: Lens' GetSegmentVersionResponse Int
@@ -144,4 +148,4 @@ gsvrsResponseStatus = lens _gsvrsResponseStatus (\ s a -> s{_gsvrsResponseStatus
 gsvrsSegmentResponse :: Lens' GetSegmentVersionResponse SegmentResponse
 gsvrsSegmentResponse = lens _gsvrsSegmentResponse (\ s a -> s{_gsvrsSegmentResponse = a});
 
-instance NFData GetSegmentVersionResponse
+instance NFData GetSegmentVersionResponse where

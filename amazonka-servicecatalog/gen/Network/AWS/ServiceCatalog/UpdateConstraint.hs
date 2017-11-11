@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateConstraint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.ServiceCatalog.UpdateConstraint
     , ucrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateConstraint' smart constructor.
 data UpdateConstraint = UpdateConstraint'
-    { _ucAcceptLanguage :: !(Maybe Text)
-    , _ucDescription    :: !(Maybe Text)
-    , _ucId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucDescription    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConstraint' with the minimum fields required to make a request.
 --
@@ -68,11 +69,9 @@ updateConstraint
     :: Text -- ^ 'ucId'
     -> UpdateConstraint
 updateConstraint pId_ =
-    UpdateConstraint'
-    { _ucAcceptLanguage = Nothing
-    , _ucDescription = Nothing
-    , _ucId = pId_
-    }
+  UpdateConstraint'
+  {_ucAcceptLanguage = Nothing, _ucDescription = Nothing, _ucId = pId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 ucAcceptLanguage :: Lens' UpdateConstraint (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest UpdateConstraint where
                      (x .?> "ConstraintParameters")
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateConstraint
+instance Hashable UpdateConstraint where
 
-instance NFData UpdateConstraint
+instance NFData UpdateConstraint where
 
 instance ToHeaders UpdateConstraint where
         toHeaders
@@ -127,11 +126,12 @@ instance ToQuery UpdateConstraint where
 
 -- | /See:/ 'updateConstraintResponse' smart constructor.
 data UpdateConstraintResponse = UpdateConstraintResponse'
-    { _ucrsStatus               :: !(Maybe RequestStatus)
-    , _ucrsConstraintDetail     :: !(Maybe ConstraintDetail)
-    , _ucrsConstraintParameters :: !(Maybe Text)
-    , _ucrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucrsStatus               :: {-# NOUNPACK #-}!(Maybe RequestStatus)
+  , _ucrsConstraintDetail     :: {-# NOUNPACK #-}!(Maybe ConstraintDetail)
+  , _ucrsConstraintParameters :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConstraintResponse' with the minimum fields required to make a request.
 --
@@ -148,12 +148,13 @@ updateConstraintResponse
     :: Int -- ^ 'ucrsResponseStatus'
     -> UpdateConstraintResponse
 updateConstraintResponse pResponseStatus_ =
-    UpdateConstraintResponse'
-    { _ucrsStatus = Nothing
-    , _ucrsConstraintDetail = Nothing
-    , _ucrsConstraintParameters = Nothing
-    , _ucrsResponseStatus = pResponseStatus_
-    }
+  UpdateConstraintResponse'
+  { _ucrsStatus = Nothing
+  , _ucrsConstraintDetail = Nothing
+  , _ucrsConstraintParameters = Nothing
+  , _ucrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the current request.
 ucrsStatus :: Lens' UpdateConstraintResponse (Maybe RequestStatus)
@@ -171,4 +172,4 @@ ucrsConstraintParameters = lens _ucrsConstraintParameters (\ s a -> s{_ucrsConst
 ucrsResponseStatus :: Lens' UpdateConstraintResponse Int
 ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
 
-instance NFData UpdateConstraintResponse
+instance NFData UpdateConstraintResponse where

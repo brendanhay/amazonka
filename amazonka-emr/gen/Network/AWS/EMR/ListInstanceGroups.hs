@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstanceGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.EMR.ListInstanceGroups
     , ligrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input determines which instance groups to retrieve.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listInstanceGroups' smart constructor.
 data ListInstanceGroups = ListInstanceGroups'
-    { _ligMarker    :: !(Maybe Text)
-    , _ligClusterId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ligMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ligClusterId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceGroups' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ listInstanceGroups
     :: Text -- ^ 'ligClusterId'
     -> ListInstanceGroups
 listInstanceGroups pClusterId_ =
-    ListInstanceGroups'
-    { _ligMarker = Nothing
-    , _ligClusterId = pClusterId_
-    }
+  ListInstanceGroups' {_ligMarker = Nothing, _ligClusterId = pClusterId_}
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligMarker :: Lens' ListInstanceGroups (Maybe Text)
@@ -102,9 +101,9 @@ instance AWSRequest ListInstanceGroups where
                      (x .?> "InstanceGroups" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListInstanceGroups
+instance Hashable ListInstanceGroups where
 
-instance NFData ListInstanceGroups
+instance NFData ListInstanceGroups where
 
 instance ToHeaders ListInstanceGroups where
         toHeaders
@@ -135,10 +134,11 @@ instance ToQuery ListInstanceGroups where
 --
 -- /See:/ 'listInstanceGroupsResponse' smart constructor.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-    { _ligrsMarker         :: !(Maybe Text)
-    , _ligrsInstanceGroups :: !(Maybe [InstanceGroup])
-    , _ligrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ligrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ligrsInstanceGroups :: {-# NOUNPACK #-}!(Maybe [InstanceGroup])
+  , _ligrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceGroupsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +153,12 @@ listInstanceGroupsResponse
     :: Int -- ^ 'ligrsResponseStatus'
     -> ListInstanceGroupsResponse
 listInstanceGroupsResponse pResponseStatus_ =
-    ListInstanceGroupsResponse'
-    { _ligrsMarker = Nothing
-    , _ligrsInstanceGroups = Nothing
-    , _ligrsResponseStatus = pResponseStatus_
-    }
+  ListInstanceGroupsResponse'
+  { _ligrsMarker = Nothing
+  , _ligrsInstanceGroups = Nothing
+  , _ligrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligrsMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
@@ -171,4 +172,4 @@ ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups
 ligrsResponseStatus :: Lens' ListInstanceGroupsResponse Int
 ligrsResponseStatus = lens _ligrsResponseStatus (\ s a -> s{_ligrsResponseStatus = a});
 
-instance NFData ListInstanceGroupsResponse
+instance NFData ListInstanceGroupsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,23 +36,25 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     , lassrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAvailableSolutionStacks' smart constructor.
 data ListAvailableSolutionStacks =
-    ListAvailableSolutionStacks'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ListAvailableSolutionStacks'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAvailableSolutionStacks' with the minimum fields required to make a request.
 --
 listAvailableSolutionStacks
     :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks'
+
 
 instance AWSRequest ListAvailableSolutionStacks where
         type Rs ListAvailableSolutionStacks =
@@ -70,9 +72,9 @@ instance AWSRequest ListAvailableSolutionStacks where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAvailableSolutionStacks
+instance Hashable ListAvailableSolutionStacks where
 
-instance NFData ListAvailableSolutionStacks
+instance NFData ListAvailableSolutionStacks where
 
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
@@ -94,10 +96,11 @@ instance ToQuery ListAvailableSolutionStacks where
 --
 -- /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-    { _lassrsSolutionStacks       :: !(Maybe [Text])
-    , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
-    , _lassrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lassrsSolutionStacks :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lassrsSolutionStackDetails :: {-# NOUNPACK #-}!(Maybe [SolutionStackDescription])
+  , _lassrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAvailableSolutionStacksResponse' with the minimum fields required to make a request.
 --
@@ -112,11 +115,12 @@ listAvailableSolutionStacksResponse
     :: Int -- ^ 'lassrsResponseStatus'
     -> ListAvailableSolutionStacksResponse
 listAvailableSolutionStacksResponse pResponseStatus_ =
-    ListAvailableSolutionStacksResponse'
-    { _lassrsSolutionStacks = Nothing
-    , _lassrsSolutionStackDetails = Nothing
-    , _lassrsResponseStatus = pResponseStatus_
-    }
+  ListAvailableSolutionStacksResponse'
+  { _lassrsSolutionStacks = Nothing
+  , _lassrsSolutionStackDetails = Nothing
+  , _lassrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of available solution stacks.
 lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
@@ -131,3 +135,4 @@ lassrsResponseStatus :: Lens' ListAvailableSolutionStacksResponse Int
 lassrsResponseStatus = lens _lassrsResponseStatus (\ s a -> s{_lassrsResponseStatus = a});
 
 instance NFData ListAvailableSolutionStacksResponse
+         where

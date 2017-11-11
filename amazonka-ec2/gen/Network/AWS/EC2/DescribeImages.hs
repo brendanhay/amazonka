@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImages
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeImages
     , diirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeImages.
 --
@@ -54,12 +54,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeImages' smart constructor.
 data DescribeImages = DescribeImages'
-    { _deseOwners          :: !(Maybe [Text])
-    , _deseExecutableUsers :: !(Maybe [Text])
-    , _deseFilters         :: !(Maybe [Filter])
-    , _deseImageIds        :: !(Maybe [Text])
-    , _deseDryRun          :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deseOwners          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _deseExecutableUsers :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _deseFilters         :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _deseImageIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _deseDryRun          :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImages' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ data DescribeImages = DescribeImages'
 describeImages
     :: DescribeImages
 describeImages =
-    DescribeImages'
-    { _deseOwners = Nothing
-    , _deseExecutableUsers = Nothing
-    , _deseFilters = Nothing
-    , _deseImageIds = Nothing
-    , _deseDryRun = Nothing
-    }
+  DescribeImages'
+  { _deseOwners = Nothing
+  , _deseExecutableUsers = Nothing
+  , _deseFilters = Nothing
+  , _deseImageIds = Nothing
+  , _deseDryRun = Nothing
+  }
+
 
 -- | Filters the images by the owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ | @microsoft@ ). Omitting this option returns all images for which you have launch permissions, regardless of ownership.
 deseOwners :: Lens' DescribeImages [Text]
@@ -116,9 +118,9 @@ instance AWSRequest DescribeImages where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeImages
+instance Hashable DescribeImages where
 
-instance NFData DescribeImages
+instance NFData DescribeImages where
 
 instance ToHeaders DescribeImages where
         toHeaders = const mempty
@@ -145,9 +147,10 @@ instance ToQuery DescribeImages where
 --
 -- /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _diirsImages         :: !(Maybe [Image])
-    , _diirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diirsImages         :: {-# NOUNPACK #-}!(Maybe [Image])
+  , _diirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
 --
@@ -160,10 +163,9 @@ describeImagesResponse
     :: Int -- ^ 'diirsResponseStatus'
     -> DescribeImagesResponse
 describeImagesResponse pResponseStatus_ =
-    DescribeImagesResponse'
-    { _diirsImages = Nothing
-    , _diirsResponseStatus = pResponseStatus_
-    }
+  DescribeImagesResponse'
+  {_diirsImages = Nothing, _diirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more images.
 diirsImages :: Lens' DescribeImagesResponse [Image]
@@ -173,4 +175,4 @@ diirsImages = lens _diirsImages (\ s a -> s{_diirsImages = a}) . _Default . _Coe
 diirsResponseStatus :: Lens' DescribeImagesResponse Int
 diirsResponseStatus = lens _diirsResponseStatus (\ s a -> s{_diirsResponseStatus = a});
 
-instance NFData DescribeImagesResponse
+instance NFData DescribeImagesResponse where

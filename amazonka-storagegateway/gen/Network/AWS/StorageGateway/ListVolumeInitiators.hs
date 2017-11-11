@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumeInitiators
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.StorageGateway.ListVolumeInitiators
     , lvirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | ListVolumeInitiatorsInput
 --
@@ -50,8 +50,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listVolumeInitiators' smart constructor.
 newtype ListVolumeInitiators = ListVolumeInitiators'
-    { _lviVolumeARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lviVolumeARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVolumeInitiators' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ listVolumeInitiators
     :: Text -- ^ 'lviVolumeARN'
     -> ListVolumeInitiators
 listVolumeInitiators pVolumeARN_ =
-    ListVolumeInitiators'
-    { _lviVolumeARN = pVolumeARN_
-    }
+  ListVolumeInitiators' {_lviVolumeARN = pVolumeARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes for the gateway.
 lviVolumeARN :: Lens' ListVolumeInitiators Text
@@ -81,9 +81,9 @@ instance AWSRequest ListVolumeInitiators where
                    (x .?> "Initiators" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListVolumeInitiators
+instance Hashable ListVolumeInitiators where
 
-instance NFData ListVolumeInitiators
+instance NFData ListVolumeInitiators where
 
 instance ToHeaders ListVolumeInitiators where
         toHeaders
@@ -112,9 +112,10 @@ instance ToQuery ListVolumeInitiators where
 --
 -- /See:/ 'listVolumeInitiatorsResponse' smart constructor.
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
-    { _lvirsInitiators     :: !(Maybe [Text])
-    , _lvirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvirsInitiators     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lvirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVolumeInitiatorsResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ listVolumeInitiatorsResponse
     :: Int -- ^ 'lvirsResponseStatus'
     -> ListVolumeInitiatorsResponse
 listVolumeInitiatorsResponse pResponseStatus_ =
-    ListVolumeInitiatorsResponse'
-    { _lvirsInitiators = Nothing
-    , _lvirsResponseStatus = pResponseStatus_
-    }
+  ListVolumeInitiatorsResponse'
+  {_lvirsInitiators = Nothing, _lvirsResponseStatus = pResponseStatus_}
+
 
 -- | The host names and port numbers of all iSCSI initiators that are connected to the gateway.
 lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
@@ -140,4 +140,4 @@ lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _De
 lvirsResponseStatus :: Lens' ListVolumeInitiatorsResponse Int
 lvirsResponseStatus = lens _lvirsResponseStatus (\ s a -> s{_lvirsResponseStatus = a});
 
-instance NFData ListVolumeInitiatorsResponse
+instance NFData ListVolumeInitiatorsResponse where

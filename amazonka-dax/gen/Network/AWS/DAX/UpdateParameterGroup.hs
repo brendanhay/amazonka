@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.UpdateParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.DAX.UpdateParameterGroup
     , upgrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateParameterGroup' smart constructor.
 data UpdateParameterGroup = UpdateParameterGroup'
-    { _upgParameterGroupName  :: !Text
-    , _upgParameterNameValues :: ![ParameterNameValue]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upgParameterGroupName  :: {-# NOUNPACK #-}!Text
+  , _upgParameterNameValues :: {-# NOUNPACK #-}![ParameterNameValue]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateParameterGroup' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ updateParameterGroup
     :: Text -- ^ 'upgParameterGroupName'
     -> UpdateParameterGroup
 updateParameterGroup pParameterGroupName_ =
-    UpdateParameterGroup'
-    { _upgParameterGroupName = pParameterGroupName_
-    , _upgParameterNameValues = mempty
-    }
+  UpdateParameterGroup'
+  { _upgParameterGroupName = pParameterGroupName_
+  , _upgParameterNameValues = mempty
+  }
+
 
 -- | The name of the parameter group.
 upgParameterGroupName :: Lens' UpdateParameterGroup Text
@@ -85,9 +87,9 @@ instance AWSRequest UpdateParameterGroup where
                  UpdateParameterGroupResponse' <$>
                    (x .?> "ParameterGroup") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateParameterGroup
+instance Hashable UpdateParameterGroup where
 
-instance NFData UpdateParameterGroup
+instance NFData UpdateParameterGroup where
 
 instance ToHeaders UpdateParameterGroup where
         toHeaders
@@ -115,9 +117,10 @@ instance ToQuery UpdateParameterGroup where
 
 -- | /See:/ 'updateParameterGroupResponse' smart constructor.
 data UpdateParameterGroupResponse = UpdateParameterGroupResponse'
-    { _upgrsParameterGroup :: !(Maybe ParameterGroup)
-    , _upgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upgrsParameterGroup :: {-# NOUNPACK #-}!(Maybe ParameterGroup)
+  , _upgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +133,9 @@ updateParameterGroupResponse
     :: Int -- ^ 'upgrsResponseStatus'
     -> UpdateParameterGroupResponse
 updateParameterGroupResponse pResponseStatus_ =
-    UpdateParameterGroupResponse'
-    { _upgrsParameterGroup = Nothing
-    , _upgrsResponseStatus = pResponseStatus_
-    }
+  UpdateParameterGroupResponse'
+  {_upgrsParameterGroup = Nothing, _upgrsResponseStatus = pResponseStatus_}
+
 
 -- | The parameter group that has been modified.
 upgrsParameterGroup :: Lens' UpdateParameterGroupResponse (Maybe ParameterGroup)
@@ -143,4 +145,4 @@ upgrsParameterGroup = lens _upgrsParameterGroup (\ s a -> s{_upgrsParameterGroup
 upgrsResponseStatus :: Lens' UpdateParameterGroupResponse Int
 upgrsResponseStatus = lens _upgrsResponseStatus (\ s a -> s{_upgrsResponseStatus = a});
 
-instance NFData UpdateParameterGroupResponse
+instance NFData UpdateParameterGroupResponse where

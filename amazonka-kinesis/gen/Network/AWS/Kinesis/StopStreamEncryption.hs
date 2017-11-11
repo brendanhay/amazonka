@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.StopStreamEncryption
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.Kinesis.StopStreamEncryption
     , StopStreamEncryptionResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopStreamEncryption' smart constructor.
 data StopStreamEncryption = StopStreamEncryption'
-    { _sseStreamName     :: !Text
-    , _sseEncryptionType :: !EncryptionType
-    , _sseKeyId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sseStreamName     :: {-# NOUNPACK #-}!Text
+  , _sseEncryptionType :: {-# NOUNPACK #-}!EncryptionType
+  , _sseKeyId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopStreamEncryption' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ stopStreamEncryption
     -> Text -- ^ 'sseKeyId'
     -> StopStreamEncryption
 stopStreamEncryption pStreamName_ pEncryptionType_ pKeyId_ =
-    StopStreamEncryption'
-    { _sseStreamName = pStreamName_
-    , _sseEncryptionType = pEncryptionType_
-    , _sseKeyId = pKeyId_
-    }
+  StopStreamEncryption'
+  { _sseStreamName = pStreamName_
+  , _sseEncryptionType = pEncryptionType_
+  , _sseKeyId = pKeyId_
+  }
+
 
 -- | The name of the stream on which to stop encrypting records.
 sseStreamName :: Lens' StopStreamEncryption Text
@@ -95,9 +97,9 @@ instance AWSRequest StopStreamEncryption where
         request = postJSON kinesis
         response = receiveNull StopStreamEncryptionResponse'
 
-instance Hashable StopStreamEncryption
+instance Hashable StopStreamEncryption where
 
-instance NFData StopStreamEncryption
+instance NFData StopStreamEncryption where
 
 instance ToHeaders StopStreamEncryption where
         toHeaders
@@ -125,8 +127,9 @@ instance ToQuery StopStreamEncryption where
 
 -- | /See:/ 'stopStreamEncryptionResponse' smart constructor.
 data StopStreamEncryptionResponse =
-    StopStreamEncryptionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StopStreamEncryptionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopStreamEncryptionResponse' with the minimum fields required to make a request.
 --
@@ -134,4 +137,5 @@ stopStreamEncryptionResponse
     :: StopStreamEncryptionResponse
 stopStreamEncryptionResponse = StopStreamEncryptionResponse'
 
-instance NFData StopStreamEncryptionResponse
+
+instance NFData StopStreamEncryptionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListResourcesForTagOption
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.ServiceCatalog.ListResourcesForTagOption
     , lrftorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listResourcesForTagOption' smart constructor.
 data ListResourcesForTagOption = ListResourcesForTagOption'
-    { _lrftoResourceType :: !(Maybe Text)
-    , _lrftoPageToken    :: !(Maybe Text)
-    , _lrftoPageSize     :: !(Maybe Nat)
-    , _lrftoTagOptionId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrftoResourceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrftoPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrftoPageSize     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lrftoTagOptionId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourcesForTagOption' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ listResourcesForTagOption
     :: Text -- ^ 'lrftoTagOptionId'
     -> ListResourcesForTagOption
 listResourcesForTagOption pTagOptionId_ =
-    ListResourcesForTagOption'
-    { _lrftoResourceType = Nothing
-    , _lrftoPageToken = Nothing
-    , _lrftoPageSize = Nothing
-    , _lrftoTagOptionId = pTagOptionId_
-    }
+  ListResourcesForTagOption'
+  { _lrftoResourceType = Nothing
+  , _lrftoPageToken = Nothing
+  , _lrftoPageSize = Nothing
+  , _lrftoTagOptionId = pTagOptionId_
+  }
+
 
 -- | Resource type.
 lrftoResourceType :: Lens' ListResourcesForTagOption (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest ListResourcesForTagOption where
                      (x .?> "PageToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListResourcesForTagOption
+instance Hashable ListResourcesForTagOption where
 
-instance NFData ListResourcesForTagOption
+instance NFData ListResourcesForTagOption where
 
 instance ToHeaders ListResourcesForTagOption where
         toHeaders
@@ -137,10 +139,11 @@ instance ToQuery ListResourcesForTagOption where
 
 -- | /See:/ 'listResourcesForTagOptionResponse' smart constructor.
 data ListResourcesForTagOptionResponse = ListResourcesForTagOptionResponse'
-    { _lrftorsResourceDetails :: !(Maybe [ResourceDetail])
-    , _lrftorsPageToken       :: !(Maybe Text)
-    , _lrftorsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrftorsResourceDetails :: {-# NOUNPACK #-}!(Maybe [ResourceDetail])
+  , _lrftorsPageToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrftorsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourcesForTagOptionResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +158,12 @@ listResourcesForTagOptionResponse
     :: Int -- ^ 'lrftorsResponseStatus'
     -> ListResourcesForTagOptionResponse
 listResourcesForTagOptionResponse pResponseStatus_ =
-    ListResourcesForTagOptionResponse'
-    { _lrftorsResourceDetails = Nothing
-    , _lrftorsPageToken = Nothing
-    , _lrftorsResponseStatus = pResponseStatus_
-    }
+  ListResourcesForTagOptionResponse'
+  { _lrftorsResourceDetails = Nothing
+  , _lrftorsPageToken = Nothing
+  , _lrftorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The resulting detailed resource information.
 lrftorsResourceDetails :: Lens' ListResourcesForTagOptionResponse [ResourceDetail]
@@ -174,3 +178,4 @@ lrftorsResponseStatus :: Lens' ListResourcesForTagOptionResponse Int
 lrftorsResponseStatus = lens _lrftorsResponseStatus (\ s a -> s{_lrftorsResponseStatus = a});
 
 instance NFData ListResourcesForTagOptionResponse
+         where

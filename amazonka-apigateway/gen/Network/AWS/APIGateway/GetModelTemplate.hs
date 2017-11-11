@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModelTemplate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.GetModelTemplate
     , gmtrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to generate a sample mapping template used to transform the payload.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getModelTemplate' smart constructor.
 data GetModelTemplate = GetModelTemplate'
-    { _gmtRestAPIId :: !Text
-    , _gmtModelName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmtRestAPIId :: {-# NOUNPACK #-}!Text
+  , _gmtModelName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetModelTemplate' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ getModelTemplate
     -> Text -- ^ 'gmtModelName'
     -> GetModelTemplate
 getModelTemplate pRestAPIId_ pModelName_ =
-    GetModelTemplate'
-    { _gmtRestAPIId = pRestAPIId_
-    , _gmtModelName = pModelName_
-    }
+  GetModelTemplate' {_gmtRestAPIId = pRestAPIId_, _gmtModelName = pModelName_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 gmtRestAPIId :: Lens' GetModelTemplate Text
@@ -89,9 +88,9 @@ instance AWSRequest GetModelTemplate where
                  GetModelTemplateResponse' <$>
                    (x .?> "value") <*> (pure (fromEnum s)))
 
-instance Hashable GetModelTemplate
+instance Hashable GetModelTemplate where
 
-instance NFData GetModelTemplate
+instance NFData GetModelTemplate where
 
 instance ToHeaders GetModelTemplate where
         toHeaders
@@ -115,9 +114,10 @@ instance ToQuery GetModelTemplate where
 --
 -- /See:/ 'getModelTemplateResponse' smart constructor.
 data GetModelTemplateResponse = GetModelTemplateResponse'
-    { _gmtrsValue          :: !(Maybe Text)
-    , _gmtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmtrsValue          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetModelTemplateResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +130,9 @@ getModelTemplateResponse
     :: Int -- ^ 'gmtrsResponseStatus'
     -> GetModelTemplateResponse
 getModelTemplateResponse pResponseStatus_ =
-    GetModelTemplateResponse'
-    { _gmtrsValue = Nothing
-    , _gmtrsResponseStatus = pResponseStatus_
-    }
+  GetModelTemplateResponse'
+  {_gmtrsValue = Nothing, _gmtrsResponseStatus = pResponseStatus_}
+
 
 -- | The Apache <http://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)> template content used for the template resource.
 gmtrsValue :: Lens' GetModelTemplateResponse (Maybe Text)
@@ -143,4 +142,4 @@ gmtrsValue = lens _gmtrsValue (\ s a -> s{_gmtrsValue = a});
 gmtrsResponseStatus :: Lens' GetModelTemplateResponse Int
 gmtrsResponseStatus = lens _gmtrsResponseStatus (\ s a -> s{_gmtrsResponseStatus = a});
 
-instance NFData GetModelTemplateResponse
+instance NFData GetModelTemplateResponse where

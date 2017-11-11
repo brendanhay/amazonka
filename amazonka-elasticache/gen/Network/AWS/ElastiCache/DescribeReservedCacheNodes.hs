@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeReservedCacheNodes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,13 +47,13 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     , drcnrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DescribeReservedCacheNodes@ operation.
 --
@@ -61,15 +61,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReservedCacheNodes' smart constructor.
 data DescribeReservedCacheNodes = DescribeReservedCacheNodes'
-    { _drcnCacheNodeType                :: !(Maybe Text)
-    , _drcnProductDescription           :: !(Maybe Text)
-    , _drcnMarker                       :: !(Maybe Text)
-    , _drcnMaxRecords                   :: !(Maybe Int)
-    , _drcnReservedCacheNodeId          :: !(Maybe Text)
-    , _drcnOfferingType                 :: !(Maybe Text)
-    , _drcnDuration                     :: !(Maybe Text)
-    , _drcnReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drcnCacheNodeType                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drcnProductDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drcnMarker                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drcnMaxRecords                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _drcnReservedCacheNodeId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drcnOfferingType                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drcnDuration                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drcnReservedCacheNodesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedCacheNodes' with the minimum fields required to make a request.
 --
@@ -93,16 +94,17 @@ data DescribeReservedCacheNodes = DescribeReservedCacheNodes'
 describeReservedCacheNodes
     :: DescribeReservedCacheNodes
 describeReservedCacheNodes =
-    DescribeReservedCacheNodes'
-    { _drcnCacheNodeType = Nothing
-    , _drcnProductDescription = Nothing
-    , _drcnMarker = Nothing
-    , _drcnMaxRecords = Nothing
-    , _drcnReservedCacheNodeId = Nothing
-    , _drcnOfferingType = Nothing
-    , _drcnDuration = Nothing
-    , _drcnReservedCacheNodesOfferingId = Nothing
-    }
+  DescribeReservedCacheNodes'
+  { _drcnCacheNodeType = Nothing
+  , _drcnProductDescription = Nothing
+  , _drcnMarker = Nothing
+  , _drcnMaxRecords = Nothing
+  , _drcnReservedCacheNodeId = Nothing
+  , _drcnOfferingType = Nothing
+  , _drcnDuration = Nothing
+  , _drcnReservedCacheNodesOfferingId = Nothing
+  }
+
 
 -- | The cache node type filter value. Use this parameter to show only those reservations matching the specified cache node type. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 drcnCacheNodeType :: Lens' DescribeReservedCacheNodes (Maybe Text)
@@ -157,9 +159,9 @@ instance AWSRequest DescribeReservedCacheNodes where
                         may (parseXMLList "ReservedCacheNode"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeReservedCacheNodes
+instance Hashable DescribeReservedCacheNodes where
 
-instance NFData DescribeReservedCacheNodes
+instance NFData DescribeReservedCacheNodes where
 
 instance ToHeaders DescribeReservedCacheNodes where
         toHeaders = const mempty
@@ -189,10 +191,11 @@ instance ToQuery DescribeReservedCacheNodes where
 --
 -- /See:/ 'describeReservedCacheNodesResponse' smart constructor.
 data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'
-    { _drcnrsMarker             :: !(Maybe Text)
-    , _drcnrsReservedCacheNodes :: !(Maybe [ReservedCacheNode])
-    , _drcnrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drcnrsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drcnrsReservedCacheNodes :: {-# NOUNPACK #-}!(Maybe [ReservedCacheNode])
+  , _drcnrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedCacheNodesResponse' with the minimum fields required to make a request.
 --
@@ -207,11 +210,12 @@ describeReservedCacheNodesResponse
     :: Int -- ^ 'drcnrsResponseStatus'
     -> DescribeReservedCacheNodesResponse
 describeReservedCacheNodesResponse pResponseStatus_ =
-    DescribeReservedCacheNodesResponse'
-    { _drcnrsMarker = Nothing
-    , _drcnrsReservedCacheNodes = Nothing
-    , _drcnrsResponseStatus = pResponseStatus_
-    }
+  DescribeReservedCacheNodesResponse'
+  { _drcnrsMarker = Nothing
+  , _drcnrsReservedCacheNodes = Nothing
+  , _drcnrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drcnrsMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)
@@ -226,3 +230,4 @@ drcnrsResponseStatus :: Lens' DescribeReservedCacheNodesResponse Int
 drcnrsResponseStatus = lens _drcnrsResponseStatus (\ s a -> s{_drcnrsResponseStatus = a});
 
 instance NFData DescribeReservedCacheNodesResponse
+         where

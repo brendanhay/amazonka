@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListAvailableZones
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.CloudHSM.ListAvailableZones
     , lazrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'ListAvailableZones' action.
 --
@@ -48,14 +48,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listAvailableZones' smart constructor.
 data ListAvailableZones =
-    ListAvailableZones'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ListAvailableZones'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAvailableZones' with the minimum fields required to make a request.
 --
 listAvailableZones
     :: ListAvailableZones
 listAvailableZones = ListAvailableZones'
+
 
 instance AWSRequest ListAvailableZones where
         type Rs ListAvailableZones =
@@ -67,9 +69,9 @@ instance AWSRequest ListAvailableZones where
                  ListAvailableZonesResponse' <$>
                    (x .?> "AZList" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable ListAvailableZones
+instance Hashable ListAvailableZones where
 
-instance NFData ListAvailableZones
+instance NFData ListAvailableZones where
 
 instance ToHeaders ListAvailableZones where
         toHeaders
@@ -92,9 +94,10 @@ instance ToQuery ListAvailableZones where
 
 -- | /See:/ 'listAvailableZonesResponse' smart constructor.
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
-    { _lazrsAZList         :: !(Maybe [Text])
-    , _lazrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lazrsAZList         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lazrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAvailableZonesResponse' with the minimum fields required to make a request.
 --
@@ -107,10 +110,9 @@ listAvailableZonesResponse
     :: Int -- ^ 'lazrsResponseStatus'
     -> ListAvailableZonesResponse
 listAvailableZonesResponse pResponseStatus_ =
-    ListAvailableZonesResponse'
-    { _lazrsAZList = Nothing
-    , _lazrsResponseStatus = pResponseStatus_
-    }
+  ListAvailableZonesResponse'
+  {_lazrsAZList = Nothing, _lazrsResponseStatus = pResponseStatus_}
+
 
 -- | The list of Availability Zones that have available AWS CloudHSM capacity.
 lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
@@ -120,4 +122,4 @@ lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coe
 lazrsResponseStatus :: Lens' ListAvailableZonesResponse Int
 lazrsResponseStatus = lens _lazrsResponseStatus (\ s a -> s{_lazrsResponseStatus = a});
 
-instance NFData ListAvailableZonesResponse
+instance NFData ListAvailableZonesResponse where

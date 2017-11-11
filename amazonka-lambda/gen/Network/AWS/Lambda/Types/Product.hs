@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Lambda.Types.Product where
 
-import           Network.AWS.Lambda.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Lambda.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Provides limits of code size and concurrency associated with the current account and region.
 --
@@ -27,11 +27,12 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'accountLimit' smart constructor.
 data AccountLimit = AccountLimit'
-    { _alConcurrentExecutions :: !(Maybe Int)
-    , _alTotalCodeSize        :: !(Maybe Integer)
-    , _alCodeSizeUnzipped     :: !(Maybe Integer)
-    , _alCodeSizeZipped       :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _alConcurrentExecutions :: {-# NOUNPACK #-}!(Maybe Int)
+  , _alTotalCodeSize        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _alCodeSizeUnzipped     :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _alCodeSizeZipped       :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccountLimit' with the minimum fields required to make a request.
 --
@@ -47,12 +48,13 @@ data AccountLimit = AccountLimit'
 accountLimit
     :: AccountLimit
 accountLimit =
-    AccountLimit'
-    { _alConcurrentExecutions = Nothing
-    , _alTotalCodeSize = Nothing
-    , _alCodeSizeUnzipped = Nothing
-    , _alCodeSizeZipped = Nothing
-    }
+  AccountLimit'
+  { _alConcurrentExecutions = Nothing
+  , _alTotalCodeSize = Nothing
+  , _alCodeSizeUnzipped = Nothing
+  , _alCodeSizeZipped = Nothing
+  }
+
 
 -- | Number of simultaneous executions of your function per region. For more information or to request a limit increase for concurrent executions, see <http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Lambda Function Concurrent Executions> . The default limit is 100.
 alConcurrentExecutions :: Lens' AccountLimit (Maybe Int)
@@ -80,9 +82,9 @@ instance FromJSON AccountLimit where
                      <*> (x .:? "CodeSizeUnzipped")
                      <*> (x .:? "CodeSizeZipped"))
 
-instance Hashable AccountLimit
+instance Hashable AccountLimit where
 
-instance NFData AccountLimit
+instance NFData AccountLimit where
 
 -- | Provides code size usage and function count associated with the current account and region.
 --
@@ -90,9 +92,10 @@ instance NFData AccountLimit
 --
 -- /See:/ 'accountUsage' smart constructor.
 data AccountUsage = AccountUsage'
-    { _auTotalCodeSize :: !(Maybe Integer)
-    , _auFunctionCount :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _auTotalCodeSize :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _auFunctionCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccountUsage' with the minimum fields required to make a request.
 --
@@ -104,10 +107,8 @@ data AccountUsage = AccountUsage'
 accountUsage
     :: AccountUsage
 accountUsage =
-    AccountUsage'
-    { _auTotalCodeSize = Nothing
-    , _auFunctionCount = Nothing
-    }
+  AccountUsage' {_auTotalCodeSize = Nothing, _auFunctionCount = Nothing}
+
 
 -- | Total size, in bytes, of the account's deployment packages per region.
 auTotalCodeSize :: Lens' AccountUsage (Maybe Integer)
@@ -124,9 +125,9 @@ instance FromJSON AccountUsage where
                  AccountUsage' <$>
                    (x .:? "TotalCodeSize") <*> (x .:? "FunctionCount"))
 
-instance Hashable AccountUsage
+instance Hashable AccountUsage where
 
-instance NFData AccountUsage
+instance NFData AccountUsage where
 
 -- | Provides configuration information about a Lambda function version alias.
 --
@@ -134,11 +135,12 @@ instance NFData AccountUsage
 --
 -- /See:/ 'aliasConfiguration' smart constructor.
 data AliasConfiguration = AliasConfiguration'
-    { _acName            :: !(Maybe Text)
-    , _acFunctionVersion :: !(Maybe Text)
-    , _acAliasARN        :: !(Maybe Text)
-    , _acDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acFunctionVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acAliasARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AliasConfiguration' with the minimum fields required to make a request.
 --
@@ -154,12 +156,13 @@ data AliasConfiguration = AliasConfiguration'
 aliasConfiguration
     :: AliasConfiguration
 aliasConfiguration =
-    AliasConfiguration'
-    { _acName = Nothing
-    , _acFunctionVersion = Nothing
-    , _acAliasARN = Nothing
-    , _acDescription = Nothing
-    }
+  AliasConfiguration'
+  { _acName = Nothing
+  , _acFunctionVersion = Nothing
+  , _acAliasARN = Nothing
+  , _acDescription = Nothing
+  }
+
 
 -- | Alias name.
 acName :: Lens' AliasConfiguration (Maybe Text)
@@ -186,9 +189,9 @@ instance FromJSON AliasConfiguration where
                      (x .:? "AliasArn")
                      <*> (x .:? "Description"))
 
-instance Hashable AliasConfiguration
+instance Hashable AliasConfiguration where
 
-instance NFData AliasConfiguration
+instance NFData AliasConfiguration where
 
 -- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 --
@@ -196,8 +199,9 @@ instance NFData AliasConfiguration
 --
 -- /See:/ 'deadLetterConfig' smart constructor.
 newtype DeadLetterConfig = DeadLetterConfig'
-    { _dlcTargetARN :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlcTargetARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeadLetterConfig' with the minimum fields required to make a request.
 --
@@ -206,10 +210,8 @@ newtype DeadLetterConfig = DeadLetterConfig'
 -- * 'dlcTargetARN' - The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ).
 deadLetterConfig
     :: DeadLetterConfig
-deadLetterConfig =
-    DeadLetterConfig'
-    { _dlcTargetARN = Nothing
-    }
+deadLetterConfig = DeadLetterConfig' {_dlcTargetARN = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ).
 dlcTargetARN :: Lens' DeadLetterConfig (Maybe Text)
@@ -220,9 +222,9 @@ instance FromJSON DeadLetterConfig where
           = withObject "DeadLetterConfig"
               (\ x -> DeadLetterConfig' <$> (x .:? "TargetArn"))
 
-instance Hashable DeadLetterConfig
+instance Hashable DeadLetterConfig where
 
-instance NFData DeadLetterConfig
+instance NFData DeadLetterConfig where
 
 instance ToJSON DeadLetterConfig where
         toJSON DeadLetterConfig'{..}
@@ -235,8 +237,9 @@ instance ToJSON DeadLetterConfig where
 --
 -- /See:/ 'environment' smart constructor.
 newtype Environment = Environment'
-    { _eVariables :: Maybe (Sensitive (Map Text (Sensitive Text)))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _eVariables :: Maybe (Sensitive (Map Text (Sensitive Text)))
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Environment' with the minimum fields required to make a request.
 --
@@ -245,18 +248,16 @@ newtype Environment = Environment'
 -- * 'eVariables' - The key-value pairs that represent your environment's configuration settings.
 environment
     :: Environment
-environment =
-    Environment'
-    { _eVariables = Nothing
-    }
+environment = Environment' {_eVariables = Nothing}
+
 
 -- | The key-value pairs that represent your environment's configuration settings.
 eVariables :: Lens' Environment (Maybe (HashMap Text Text))
 eVariables = lens _eVariables (\ s a -> s{_eVariables = a}) . mapping (_Sensitive . _Map);
 
-instance Hashable Environment
+instance Hashable Environment where
 
-instance NFData Environment
+instance NFData Environment where
 
 instance ToJSON Environment where
         toJSON Environment'{..}
@@ -269,9 +270,10 @@ instance ToJSON Environment where
 --
 -- /See:/ 'environmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
-    { _eeErrorCode :: !(Maybe Text)
-    , _eeMessage   :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _eeErrorCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eeMessage   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentError' with the minimum fields required to make a request.
 --
@@ -283,10 +285,8 @@ data EnvironmentError = EnvironmentError'
 environmentError
     :: EnvironmentError
 environmentError =
-    EnvironmentError'
-    { _eeErrorCode = Nothing
-    , _eeMessage = Nothing
-    }
+  EnvironmentError' {_eeErrorCode = Nothing, _eeMessage = Nothing}
+
 
 -- | The error code returned by the environment error object.
 eeErrorCode :: Lens' EnvironmentError (Maybe Text)
@@ -303,9 +303,9 @@ instance FromJSON EnvironmentError where
                  EnvironmentError' <$>
                    (x .:? "ErrorCode") <*> (x .:? "Message"))
 
-instance Hashable EnvironmentError
+instance Hashable EnvironmentError where
 
-instance NFData EnvironmentError
+instance NFData EnvironmentError where
 
 -- | The parent object returned that contains your environment's configuration settings or any error information associated with your configuration settings.
 --
@@ -313,9 +313,10 @@ instance NFData EnvironmentError
 --
 -- /See:/ 'environmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'
-    { _envVariables :: !(Maybe (Sensitive (Map Text (Sensitive Text))))
-    , _envError     :: !(Maybe EnvironmentError)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _envVariables :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text (Sensitive Text))))
+  , _envError :: {-# NOUNPACK #-}!(Maybe EnvironmentError)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentResponse' with the minimum fields required to make a request.
 --
@@ -327,10 +328,8 @@ data EnvironmentResponse = EnvironmentResponse'
 environmentResponse
     :: EnvironmentResponse
 environmentResponse =
-    EnvironmentResponse'
-    { _envVariables = Nothing
-    , _envError = Nothing
-    }
+  EnvironmentResponse' {_envVariables = Nothing, _envError = Nothing}
+
 
 -- | The key-value pairs returned that represent your environment's configuration settings or error information.
 envVariables :: Lens' EnvironmentResponse (Maybe (HashMap Text Text))
@@ -347,9 +346,9 @@ instance FromJSON EnvironmentResponse where
                  EnvironmentResponse' <$>
                    (x .:? "Variables" .!= mempty) <*> (x .:? "Error"))
 
-instance Hashable EnvironmentResponse
+instance Hashable EnvironmentResponse where
 
-instance NFData EnvironmentResponse
+instance NFData EnvironmentResponse where
 
 -- | Describes mapping between an Amazon Kinesis stream and a Lambda function.
 --
@@ -357,15 +356,16 @@ instance NFData EnvironmentResponse
 --
 -- /See:/ 'eventSourceMappingConfiguration' smart constructor.
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
-    { _esmcEventSourceARN        :: !(Maybe Text)
-    , _esmcState                 :: !(Maybe Text)
-    , _esmcFunctionARN           :: !(Maybe Text)
-    , _esmcUUId                  :: !(Maybe Text)
-    , _esmcLastProcessingResult  :: !(Maybe Text)
-    , _esmcBatchSize             :: !(Maybe Nat)
-    , _esmcStateTransitionReason :: !(Maybe Text)
-    , _esmcLastModified          :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esmcEventSourceARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esmcState                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esmcFunctionARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esmcUUId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esmcLastProcessingResult  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esmcBatchSize             :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _esmcStateTransitionReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esmcLastModified          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventSourceMappingConfiguration' with the minimum fields required to make a request.
 --
@@ -389,16 +389,17 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 eventSourceMappingConfiguration
     :: EventSourceMappingConfiguration
 eventSourceMappingConfiguration =
-    EventSourceMappingConfiguration'
-    { _esmcEventSourceARN = Nothing
-    , _esmcState = Nothing
-    , _esmcFunctionARN = Nothing
-    , _esmcUUId = Nothing
-    , _esmcLastProcessingResult = Nothing
-    , _esmcBatchSize = Nothing
-    , _esmcStateTransitionReason = Nothing
-    , _esmcLastModified = Nothing
-    }
+  EventSourceMappingConfiguration'
+  { _esmcEventSourceARN = Nothing
+  , _esmcState = Nothing
+  , _esmcFunctionARN = Nothing
+  , _esmcUUId = Nothing
+  , _esmcLastProcessingResult = Nothing
+  , _esmcBatchSize = Nothing
+  , _esmcStateTransitionReason = Nothing
+  , _esmcLastModified = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the source of events.
 esmcEventSourceARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
@@ -447,8 +448,9 @@ instance FromJSON EventSourceMappingConfiguration
                      <*> (x .:? "LastModified"))
 
 instance Hashable EventSourceMappingConfiguration
+         where
 
-instance NFData EventSourceMappingConfiguration
+instance NFData EventSourceMappingConfiguration where
 
 -- | The code for the Lambda function.
 --
@@ -456,11 +458,12 @@ instance NFData EventSourceMappingConfiguration
 --
 -- /See:/ 'functionCode' smart constructor.
 data FunctionCode = FunctionCode'
-    { _fcS3ObjectVersion :: !(Maybe Text)
-    , _fcS3Key           :: !(Maybe Text)
-    , _fcZipFile         :: !(Maybe (Sensitive Base64))
-    , _fcS3Bucket        :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _fcS3ObjectVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcS3Key           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcZipFile         :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
+  , _fcS3Bucket        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FunctionCode' with the minimum fields required to make a request.
 --
@@ -476,12 +479,13 @@ data FunctionCode = FunctionCode'
 functionCode
     :: FunctionCode
 functionCode =
-    FunctionCode'
-    { _fcS3ObjectVersion = Nothing
-    , _fcS3Key = Nothing
-    , _fcZipFile = Nothing
-    , _fcS3Bucket = Nothing
-    }
+  FunctionCode'
+  { _fcS3ObjectVersion = Nothing
+  , _fcS3Key = Nothing
+  , _fcZipFile = Nothing
+  , _fcS3Bucket = Nothing
+  }
+
 
 -- | The Amazon S3 object (the deployment package) version you want to upload.
 fcS3ObjectVersion :: Lens' FunctionCode (Maybe Text)
@@ -499,9 +503,9 @@ fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping (_Sensitive .
 fcS3Bucket :: Lens' FunctionCode (Maybe Text)
 fcS3Bucket = lens _fcS3Bucket (\ s a -> s{_fcS3Bucket = a});
 
-instance Hashable FunctionCode
+instance Hashable FunctionCode where
 
-instance NFData FunctionCode
+instance NFData FunctionCode where
 
 instance ToJSON FunctionCode where
         toJSON FunctionCode'{..}
@@ -518,9 +522,10 @@ instance ToJSON FunctionCode where
 --
 -- /See:/ 'functionCodeLocation' smart constructor.
 data FunctionCodeLocation = FunctionCodeLocation'
-    { _fclLocation       :: !(Maybe Text)
-    , _fclRepositoryType :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fclLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fclRepositoryType :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FunctionCodeLocation' with the minimum fields required to make a request.
 --
@@ -532,10 +537,8 @@ data FunctionCodeLocation = FunctionCodeLocation'
 functionCodeLocation
     :: FunctionCodeLocation
 functionCodeLocation =
-    FunctionCodeLocation'
-    { _fclLocation = Nothing
-    , _fclRepositoryType = Nothing
-    }
+  FunctionCodeLocation' {_fclLocation = Nothing, _fclRepositoryType = Nothing}
+
 
 -- | The presigned URL you can use to download the function's .zip file that you previously uploaded. The URL is valid for up to 10 minutes.
 fclLocation :: Lens' FunctionCodeLocation (Maybe Text)
@@ -552,9 +555,9 @@ instance FromJSON FunctionCodeLocation where
                  FunctionCodeLocation' <$>
                    (x .:? "Location") <*> (x .:? "RepositoryType"))
 
-instance Hashable FunctionCodeLocation
+instance Hashable FunctionCodeLocation where
 
-instance NFData FunctionCodeLocation
+instance NFData FunctionCodeLocation where
 
 -- | A complex type that describes function metadata.
 --
@@ -562,25 +565,26 @@ instance NFData FunctionCodeLocation
 --
 -- /See:/ 'functionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-    { _fcMemorySize       :: !(Maybe Nat)
-    , _fcRuntime          :: !(Maybe Runtime)
-    , _fcFunctionARN      :: !(Maybe Text)
-    , _fcKMSKeyARN        :: !(Maybe Text)
-    , _fcEnvironment      :: !(Maybe EnvironmentResponse)
-    , _fcDeadLetterConfig :: !(Maybe DeadLetterConfig)
-    , _fcRole             :: !(Maybe Text)
-    , _fcVPCConfig        :: !(Maybe VPCConfigResponse)
-    , _fcVersion          :: !(Maybe Text)
-    , _fcFunctionName     :: !(Maybe Text)
-    , _fcCodeSize         :: !(Maybe Integer)
-    , _fcHandler          :: !(Maybe Text)
-    , _fcTimeout          :: !(Maybe Nat)
-    , _fcLastModified     :: !(Maybe Text)
-    , _fcCodeSha256       :: !(Maybe Text)
-    , _fcTracingConfig    :: !(Maybe TracingConfigResponse)
-    , _fcDescription      :: !(Maybe Text)
-    , _fcMasterARN        :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _fcMemorySize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fcRuntime          :: {-# NOUNPACK #-}!(Maybe Runtime)
+  , _fcFunctionARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcKMSKeyARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcEnvironment      :: {-# NOUNPACK #-}!(Maybe EnvironmentResponse)
+  , _fcDeadLetterConfig :: {-# NOUNPACK #-}!(Maybe DeadLetterConfig)
+  , _fcRole             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcVPCConfig        :: {-# NOUNPACK #-}!(Maybe VPCConfigResponse)
+  , _fcVersion          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcFunctionName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcCodeSize         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _fcHandler          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcTimeout          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fcLastModified     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcCodeSha256       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcTracingConfig    :: {-# NOUNPACK #-}!(Maybe TracingConfigResponse)
+  , _fcDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcMasterARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
 --
@@ -624,26 +628,27 @@ data FunctionConfiguration = FunctionConfiguration'
 functionConfiguration
     :: FunctionConfiguration
 functionConfiguration =
-    FunctionConfiguration'
-    { _fcMemorySize = Nothing
-    , _fcRuntime = Nothing
-    , _fcFunctionARN = Nothing
-    , _fcKMSKeyARN = Nothing
-    , _fcEnvironment = Nothing
-    , _fcDeadLetterConfig = Nothing
-    , _fcRole = Nothing
-    , _fcVPCConfig = Nothing
-    , _fcVersion = Nothing
-    , _fcFunctionName = Nothing
-    , _fcCodeSize = Nothing
-    , _fcHandler = Nothing
-    , _fcTimeout = Nothing
-    , _fcLastModified = Nothing
-    , _fcCodeSha256 = Nothing
-    , _fcTracingConfig = Nothing
-    , _fcDescription = Nothing
-    , _fcMasterARN = Nothing
-    }
+  FunctionConfiguration'
+  { _fcMemorySize = Nothing
+  , _fcRuntime = Nothing
+  , _fcFunctionARN = Nothing
+  , _fcKMSKeyARN = Nothing
+  , _fcEnvironment = Nothing
+  , _fcDeadLetterConfig = Nothing
+  , _fcRole = Nothing
+  , _fcVPCConfig = Nothing
+  , _fcVersion = Nothing
+  , _fcFunctionName = Nothing
+  , _fcCodeSize = Nothing
+  , _fcHandler = Nothing
+  , _fcTimeout = Nothing
+  , _fcLastModified = Nothing
+  , _fcCodeSha256 = Nothing
+  , _fcTracingConfig = Nothing
+  , _fcDescription = Nothing
+  , _fcMasterARN = Nothing
+  }
+
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
@@ -740,9 +745,9 @@ instance FromJSON FunctionConfiguration where
                      <*> (x .:? "Description")
                      <*> (x .:? "MasterArn"))
 
-instance Hashable FunctionConfiguration
+instance Hashable FunctionConfiguration where
 
-instance NFData FunctionConfiguration
+instance NFData FunctionConfiguration where
 
 -- | The parent object that contains your function's tracing settings.
 --
@@ -750,8 +755,9 @@ instance NFData FunctionConfiguration
 --
 -- /See:/ 'tracingConfig' smart constructor.
 newtype TracingConfig = TracingConfig'
-    { _tMode :: Maybe TracingMode
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tMode :: Maybe TracingMode
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TracingConfig' with the minimum fields required to make a request.
 --
@@ -760,18 +766,16 @@ newtype TracingConfig = TracingConfig'
 -- * 'tMode' - Can be either PassThrough or Active. If PassThrough, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If Active, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
 tracingConfig
     :: TracingConfig
-tracingConfig =
-    TracingConfig'
-    { _tMode = Nothing
-    }
+tracingConfig = TracingConfig' {_tMode = Nothing}
+
 
 -- | Can be either PassThrough or Active. If PassThrough, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If Active, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
 tMode :: Lens' TracingConfig (Maybe TracingMode)
 tMode = lens _tMode (\ s a -> s{_tMode = a});
 
-instance Hashable TracingConfig
+instance Hashable TracingConfig where
 
-instance NFData TracingConfig
+instance NFData TracingConfig where
 
 instance ToJSON TracingConfig where
         toJSON TracingConfig'{..}
@@ -783,8 +787,9 @@ instance ToJSON TracingConfig where
 --
 -- /See:/ 'tracingConfigResponse' smart constructor.
 newtype TracingConfigResponse = TracingConfigResponse'
-    { _tcMode :: Maybe TracingMode
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tcMode :: Maybe TracingMode
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TracingConfigResponse' with the minimum fields required to make a request.
 --
@@ -793,10 +798,8 @@ newtype TracingConfigResponse = TracingConfigResponse'
 -- * 'tcMode' - The tracing mode associated with your Lambda function.
 tracingConfigResponse
     :: TracingConfigResponse
-tracingConfigResponse =
-    TracingConfigResponse'
-    { _tcMode = Nothing
-    }
+tracingConfigResponse = TracingConfigResponse' {_tcMode = Nothing}
+
 
 -- | The tracing mode associated with your Lambda function.
 tcMode :: Lens' TracingConfigResponse (Maybe TracingMode)
@@ -807,9 +810,9 @@ instance FromJSON TracingConfigResponse where
           = withObject "TracingConfigResponse"
               (\ x -> TracingConfigResponse' <$> (x .:? "Mode"))
 
-instance Hashable TracingConfigResponse
+instance Hashable TracingConfigResponse where
 
-instance NFData TracingConfigResponse
+instance NFData TracingConfigResponse where
 
 -- | If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --
@@ -817,9 +820,10 @@ instance NFData TracingConfigResponse
 --
 -- /See:/ 'vpcConfig' smart constructor.
 data VPCConfig = VPCConfig'
-    { _vpccSecurityGroupIds :: !(Maybe [Text])
-    , _vpccSubnetIds        :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vpccSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _vpccSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.
 --
@@ -831,10 +835,8 @@ data VPCConfig = VPCConfig'
 vpcConfig
     :: VPCConfig
 vpcConfig =
-    VPCConfig'
-    { _vpccSecurityGroupIds = Nothing
-    , _vpccSubnetIds = Nothing
-    }
+  VPCConfig' {_vpccSecurityGroupIds = Nothing, _vpccSubnetIds = Nothing}
+
 
 -- | A list of one or more security groups IDs in your VPC.
 vpccSecurityGroupIds :: Lens' VPCConfig [Text]
@@ -844,9 +846,9 @@ vpccSecurityGroupIds = lens _vpccSecurityGroupIds (\ s a -> s{_vpccSecurityGroup
 vpccSubnetIds :: Lens' VPCConfig [Text]
 vpccSubnetIds = lens _vpccSubnetIds (\ s a -> s{_vpccSubnetIds = a}) . _Default . _Coerce;
 
-instance Hashable VPCConfig
+instance Hashable VPCConfig where
 
-instance NFData VPCConfig
+instance NFData VPCConfig where
 
 instance ToJSON VPCConfig where
         toJSON VPCConfig'{..}
@@ -861,10 +863,11 @@ instance ToJSON VPCConfig where
 --
 -- /See:/ 'vpcConfigResponse' smart constructor.
 data VPCConfigResponse = VPCConfigResponse'
-    { _vcSecurityGroupIds :: !(Maybe [Text])
-    , _vcSubnetIds        :: !(Maybe [Text])
-    , _vcVPCId            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _vcSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _vcVPCId            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VPCConfigResponse' with the minimum fields required to make a request.
 --
@@ -878,11 +881,9 @@ data VPCConfigResponse = VPCConfigResponse'
 vpcConfigResponse
     :: VPCConfigResponse
 vpcConfigResponse =
-    VPCConfigResponse'
-    { _vcSecurityGroupIds = Nothing
-    , _vcSubnetIds = Nothing
-    , _vcVPCId = Nothing
-    }
+  VPCConfigResponse'
+  {_vcSecurityGroupIds = Nothing, _vcSubnetIds = Nothing, _vcVPCId = Nothing}
+
 
 -- | A list of security group IDs associated with the Lambda function.
 vcSecurityGroupIds :: Lens' VPCConfigResponse [Text]
@@ -905,6 +906,6 @@ instance FromJSON VPCConfigResponse where
                      (x .:? "SubnetIds" .!= mempty)
                      <*> (x .:? "VpcId"))
 
-instance Hashable VPCConfigResponse
+instance Hashable VPCConfigResponse where
 
-instance NFData VPCConfigResponse
+instance NFData VPCConfigResponse where

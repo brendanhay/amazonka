@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.WorkSpaces.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data Compute
-    = Performance
-    | Standard
-    | Value
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Performance
+  | Standard
+  | Value
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Compute where
     parser = takeLowerText >>= \case
@@ -49,10 +50,11 @@ instance FromJSON Compute where
     parseJSON = parseJSONText "Compute"
 
 data ConnectionState
-    = Connected
-    | Disconnected
-    | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Connected
+  | Disconnected
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConnectionState where
     parser = takeLowerText >>= \case
@@ -78,9 +80,10 @@ instance FromJSON ConnectionState where
     parseJSON = parseJSONText "ConnectionState"
 
 data RunningMode
-    = AlwaysOn
-    | AutoStop
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AlwaysOn
+  | AutoStop
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RunningMode where
     parser = takeLowerText >>= \case
@@ -107,12 +110,13 @@ instance FromJSON RunningMode where
     parseJSON = parseJSONText "RunningMode"
 
 data WorkspaceDirectoryState
-    = Deregistered
-    | Deregistering
-    | Error'
-    | Registered
-    | Registering
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Deregistered
+  | Deregistering
+  | Error'
+  | Registered
+  | Registering
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText WorkspaceDirectoryState where
     parser = takeLowerText >>= \case
@@ -142,9 +146,10 @@ instance FromJSON WorkspaceDirectoryState where
     parseJSON = parseJSONText "WorkspaceDirectoryState"
 
 data WorkspaceDirectoryType
-    = AdConnector
-    | SimpleAd
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AdConnector
+  | SimpleAd
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText WorkspaceDirectoryType where
     parser = takeLowerText >>= \case
@@ -168,21 +173,22 @@ instance FromJSON WorkspaceDirectoryType where
     parseJSON = parseJSONText "WorkspaceDirectoryType"
 
 data WorkspaceState
-    = WSAvailable
-    | WSError'
-    | WSImpaired
-    | WSMaintenance
-    | WSPending
-    | WSRebooting
-    | WSRebuilding
-    | WSStarting
-    | WSStopped
-    | WSStopping
-    | WSSuspended
-    | WSTerminated
-    | WSTerminating
-    | WSUnhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = WSAvailable
+  | WSError'
+  | WSImpaired
+  | WSMaintenance
+  | WSPending
+  | WSRebooting
+  | WSRebuilding
+  | WSStarting
+  | WSStopped
+  | WSStopping
+  | WSSuspended
+  | WSTerminated
+  | WSTerminating
+  | WSUnhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText WorkspaceState where
     parser = takeLowerText >>= \case

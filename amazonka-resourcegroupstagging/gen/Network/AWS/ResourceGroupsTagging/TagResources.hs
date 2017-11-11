@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.TagResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,18 +48,19 @@ module Network.AWS.ResourceGroupsTagging.TagResources
     , trrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.ResourceGroupsTagging.Types
-import           Network.AWS.ResourceGroupsTagging.Types.Product
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.ResourceGroupsTagging.Types
+import Network.AWS.ResourceGroupsTagging.Types.Product
+import Network.AWS.Response
 
 -- | /See:/ 'tagResources' smart constructor.
 data TagResources = TagResources'
-    { _trResourceARNList :: !(List1 Text)
-    , _trTags            :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trResourceARNList :: {-# NOUNPACK #-}!(List1 Text)
+  , _trTags            :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResources' with the minimum fields required to make a request.
 --
@@ -72,10 +73,9 @@ tagResources
     :: NonEmpty Text -- ^ 'trResourceARNList'
     -> TagResources
 tagResources pResourceARNList_ =
-    TagResources'
-    { _trResourceARNList = _List1 # pResourceARNList_
-    , _trTags = mempty
-    }
+  TagResources'
+  {_trResourceARNList = _List1 # pResourceARNList_, _trTags = mempty}
+
 
 -- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. You can specify a minimum of 1 and a maximum of 20 ARNs (resources) to tag. An ARN can be set to a maximum of 1600 characters. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 trResourceARNList :: Lens' TagResources (NonEmpty Text)
@@ -95,9 +95,9 @@ instance AWSRequest TagResources where
                    (x .?> "FailedResourcesMap" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable TagResources
+instance Hashable TagResources where
 
-instance NFData TagResources
+instance NFData TagResources where
 
 instance ToHeaders TagResources where
         toHeaders
@@ -124,9 +124,10 @@ instance ToQuery TagResources where
 
 -- | /See:/ 'tagResourcesResponse' smart constructor.
 data TagResourcesResponse = TagResourcesResponse'
-    { _trrsFailedResourcesMap :: !(Maybe (Map Text FailureInfo))
-    , _trrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trrsFailedResourcesMap :: {-# NOUNPACK #-}!(Maybe (Map Text FailureInfo))
+  , _trrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResourcesResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +140,9 @@ tagResourcesResponse
     :: Int -- ^ 'trrsResponseStatus'
     -> TagResourcesResponse
 tagResourcesResponse pResponseStatus_ =
-    TagResourcesResponse'
-    { _trrsFailedResourcesMap = Nothing
-    , _trrsResponseStatus = pResponseStatus_
-    }
+  TagResourcesResponse'
+  {_trrsFailedResourcesMap = Nothing, _trrsResponseStatus = pResponseStatus_}
+
 
 -- | Details of resources that could not be tagged. An error code, status code, and error message are returned for each failed item.
 trrsFailedResourcesMap :: Lens' TagResourcesResponse (HashMap Text FailureInfo)
@@ -152,4 +152,4 @@ trrsFailedResourcesMap = lens _trrsFailedResourcesMap (\ s a -> s{_trrsFailedRes
 trrsResponseStatus :: Lens' TagResourcesResponse Int
 trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
 
-instance NFData TagResourcesResponse
+instance NFData TagResourcesResponse where

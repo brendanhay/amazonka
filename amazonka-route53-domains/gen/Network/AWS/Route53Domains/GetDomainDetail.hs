@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetDomainDetail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.Route53Domains.GetDomainDetail
     , gddrsTechContact
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The GetDomainDetail request includes the following element.
 --
@@ -70,8 +70,9 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'getDomainDetail' smart constructor.
 newtype GetDomainDetail = GetDomainDetail'
-    { _gddDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gddDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainDetail' with the minimum fields required to make a request.
 --
@@ -81,10 +82,8 @@ newtype GetDomainDetail = GetDomainDetail'
 getDomainDetail
     :: Text -- ^ 'gddDomainName'
     -> GetDomainDetail
-getDomainDetail pDomainName_ =
-    GetDomainDetail'
-    { _gddDomainName = pDomainName_
-    }
+getDomainDetail pDomainName_ = GetDomainDetail' {_gddDomainName = pDomainName_}
+
 
 -- | The name of the domain that you want to get detailed information about.
 gddDomainName :: Lens' GetDomainDetail Text
@@ -119,9 +118,9 @@ instance AWSRequest GetDomainDetail where
                      <*> (x .:> "RegistrantContact")
                      <*> (x .:> "TechContact"))
 
-instance Hashable GetDomainDetail
+instance Hashable GetDomainDetail where
 
-instance NFData GetDomainDetail
+instance NFData GetDomainDetail where
 
 instance ToHeaders GetDomainDetail where
         toHeaders
@@ -150,29 +149,30 @@ instance ToQuery GetDomainDetail where
 --
 -- /See:/ 'getDomainDetailResponse' smart constructor.
 data GetDomainDetailResponse = GetDomainDetailResponse'
-    { _gddrsTechPrivacy       :: !(Maybe Bool)
-    , _gddrsDNSSec            :: !(Maybe Text)
-    , _gddrsWhoIsServer       :: !(Maybe Text)
-    , _gddrsRegistryDomainId  :: !(Maybe Text)
-    , _gddrsRegistrantPrivacy :: !(Maybe Bool)
-    , _gddrsUpdatedDate       :: !(Maybe POSIX)
-    , _gddrsAdminPrivacy      :: !(Maybe Bool)
-    , _gddrsAutoRenew         :: !(Maybe Bool)
-    , _gddrsAbuseContactPhone :: !(Maybe Text)
-    , _gddrsRegistrarURL      :: !(Maybe Text)
-    , _gddrsAbuseContactEmail :: !(Maybe Text)
-    , _gddrsExpirationDate    :: !(Maybe POSIX)
-    , _gddrsCreationDate      :: !(Maybe POSIX)
-    , _gddrsRegistrarName     :: !(Maybe Text)
-    , _gddrsReseller          :: !(Maybe Text)
-    , _gddrsStatusList        :: !(Maybe [Text])
-    , _gddrsResponseStatus    :: !Int
-    , _gddrsDomainName        :: !Text
-    , _gddrsNameservers       :: ![Nameserver]
-    , _gddrsAdminContact      :: !(Sensitive ContactDetail)
-    , _gddrsRegistrantContact :: !(Sensitive ContactDetail)
-    , _gddrsTechContact       :: !(Sensitive ContactDetail)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gddrsTechPrivacy       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gddrsDNSSec            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsWhoIsServer       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsRegistryDomainId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsRegistrantPrivacy :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gddrsUpdatedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gddrsAdminPrivacy      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gddrsAutoRenew         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gddrsAbuseContactPhone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsRegistrarURL      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsAbuseContactEmail :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsExpirationDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gddrsCreationDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gddrsRegistrarName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsReseller          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddrsStatusList        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gddrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _gddrsDomainName        :: {-# NOUNPACK #-}!Text
+  , _gddrsNameservers       :: {-# NOUNPACK #-}![Nameserver]
+  , _gddrsAdminContact      :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  , _gddrsRegistrantContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  , _gddrsTechContact       :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainDetailResponse' with the minimum fields required to make a request.
 --
@@ -229,30 +229,31 @@ getDomainDetailResponse
     -> ContactDetail -- ^ 'gddrsTechContact'
     -> GetDomainDetailResponse
 getDomainDetailResponse pResponseStatus_ pDomainName_ pAdminContact_ pRegistrantContact_ pTechContact_ =
-    GetDomainDetailResponse'
-    { _gddrsTechPrivacy = Nothing
-    , _gddrsDNSSec = Nothing
-    , _gddrsWhoIsServer = Nothing
-    , _gddrsRegistryDomainId = Nothing
-    , _gddrsRegistrantPrivacy = Nothing
-    , _gddrsUpdatedDate = Nothing
-    , _gddrsAdminPrivacy = Nothing
-    , _gddrsAutoRenew = Nothing
-    , _gddrsAbuseContactPhone = Nothing
-    , _gddrsRegistrarURL = Nothing
-    , _gddrsAbuseContactEmail = Nothing
-    , _gddrsExpirationDate = Nothing
-    , _gddrsCreationDate = Nothing
-    , _gddrsRegistrarName = Nothing
-    , _gddrsReseller = Nothing
-    , _gddrsStatusList = Nothing
-    , _gddrsResponseStatus = pResponseStatus_
-    , _gddrsDomainName = pDomainName_
-    , _gddrsNameservers = mempty
-    , _gddrsAdminContact = _Sensitive # pAdminContact_
-    , _gddrsRegistrantContact = _Sensitive # pRegistrantContact_
-    , _gddrsTechContact = _Sensitive # pTechContact_
-    }
+  GetDomainDetailResponse'
+  { _gddrsTechPrivacy = Nothing
+  , _gddrsDNSSec = Nothing
+  , _gddrsWhoIsServer = Nothing
+  , _gddrsRegistryDomainId = Nothing
+  , _gddrsRegistrantPrivacy = Nothing
+  , _gddrsUpdatedDate = Nothing
+  , _gddrsAdminPrivacy = Nothing
+  , _gddrsAutoRenew = Nothing
+  , _gddrsAbuseContactPhone = Nothing
+  , _gddrsRegistrarURL = Nothing
+  , _gddrsAbuseContactEmail = Nothing
+  , _gddrsExpirationDate = Nothing
+  , _gddrsCreationDate = Nothing
+  , _gddrsRegistrarName = Nothing
+  , _gddrsReseller = Nothing
+  , _gddrsStatusList = Nothing
+  , _gddrsResponseStatus = pResponseStatus_
+  , _gddrsDomainName = pDomainName_
+  , _gddrsNameservers = mempty
+  , _gddrsAdminContact = _Sensitive # pAdminContact_
+  , _gddrsRegistrantContact = _Sensitive # pRegistrantContact_
+  , _gddrsTechContact = _Sensitive # pTechContact_
+  }
+
 
 -- | Specifies whether contact information for the tech contact is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter.
 gddrsTechPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
@@ -342,4 +343,4 @@ gddrsRegistrantContact = lens _gddrsRegistrantContact (\ s a -> s{_gddrsRegistra
 gddrsTechContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrsTechContact = lens _gddrsTechContact (\ s a -> s{_gddrsTechContact = a}) . _Sensitive;
 
-instance NFData GetDomainDetailResponse
+instance NFData GetDomainDetailResponse where

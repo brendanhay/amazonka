@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProvisionedProduct
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.ServiceCatalog.DescribeProvisionedProduct
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProvisionedProduct' smart constructor.
 data DescribeProvisionedProduct = DescribeProvisionedProduct'
-    { _dpppAcceptLanguage :: !(Maybe Text)
-    , _dpppId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpppAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpppId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProvisionedProduct' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ describeProvisionedProduct
     :: Text -- ^ 'dpppId'
     -> DescribeProvisionedProduct
 describeProvisionedProduct pId_ =
-    DescribeProvisionedProduct'
-    { _dpppAcceptLanguage = Nothing
-    , _dpppId = pId_
-    }
+  DescribeProvisionedProduct' {_dpppAcceptLanguage = Nothing, _dpppId = pId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dpppAcceptLanguage :: Lens' DescribeProvisionedProduct (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest DescribeProvisionedProduct where
                    (x .?> "ProvisionedProductDetail") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeProvisionedProduct
+instance Hashable DescribeProvisionedProduct where
 
-instance NFData DescribeProvisionedProduct
+instance NFData DescribeProvisionedProduct where
 
 instance ToHeaders DescribeProvisionedProduct where
         toHeaders
@@ -115,9 +114,10 @@ instance ToQuery DescribeProvisionedProduct where
 
 -- | /See:/ 'describeProvisionedProductResponse' smart constructor.
 data DescribeProvisionedProductResponse = DescribeProvisionedProductResponse'
-    { _drsProvisionedProductDetail :: !(Maybe ProvisionedProductDetail)
-    , _drsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsProvisionedProductDetail :: {-# NOUNPACK #-}!(Maybe ProvisionedProductDetail)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProvisionedProductResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +130,11 @@ describeProvisionedProductResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeProvisionedProductResponse
 describeProvisionedProductResponse pResponseStatus_ =
-    DescribeProvisionedProductResponse'
-    { _drsProvisionedProductDetail = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeProvisionedProductResponse'
+  { _drsProvisionedProductDetail = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Detailed provisioned product information.
 drsProvisionedProductDetail :: Lens' DescribeProvisionedProductResponse (Maybe ProvisionedProductDetail)
@@ -144,3 +145,4 @@ drsResponseStatus :: Lens' DescribeProvisionedProductResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 instance NFData DescribeProvisionedProductResponse
+         where

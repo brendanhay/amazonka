@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListPresets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.ElasticTranscoder.ListPresets
     , lrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @ListPresetsRequest@ structure.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listPresets' smart constructor.
 data ListPresets = ListPresets'
-    { _lAscending :: !(Maybe Text)
-    , _lPageToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lAscending :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPresets' with the minimum fields required to make a request.
 --
@@ -68,11 +69,8 @@ data ListPresets = ListPresets'
 -- * 'lPageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 listPresets
     :: ListPresets
-listPresets =
-    ListPresets'
-    { _lAscending = Nothing
-    , _lPageToken = Nothing
-    }
+listPresets = ListPresets' {_lAscending = Nothing, _lPageToken = Nothing}
+
 
 -- | To list presets in chronological order by the date and time that they were created, enter @true@ . To list presets in reverse chronological order, enter @false@ .
 lAscending :: Lens' ListPresets (Maybe Text)
@@ -100,9 +98,9 @@ instance AWSRequest ListPresets where
                      (x .?> "Presets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPresets
+instance Hashable ListPresets where
 
-instance NFData ListPresets
+instance NFData ListPresets where
 
 instance ToHeaders ListPresets where
         toHeaders = const mempty
@@ -122,10 +120,11 @@ instance ToQuery ListPresets where
 --
 -- /See:/ 'listPresetsResponse' smart constructor.
 data ListPresetsResponse = ListPresetsResponse'
-    { _lrsNextPageToken  :: !(Maybe Text)
-    , _lrsPresets        :: !(Maybe [Preset])
-    , _lrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsPresets        :: {-# NOUNPACK #-}!(Maybe [Preset])
+  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPresetsResponse' with the minimum fields required to make a request.
 --
@@ -140,11 +139,12 @@ listPresetsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListPresetsResponse
 listPresetsResponse pResponseStatus_ =
-    ListPresetsResponse'
-    { _lrsNextPageToken = Nothing
-    , _lrsPresets = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    }
+  ListPresetsResponse'
+  { _lrsNextPageToken = Nothing
+  , _lrsPresets = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that you use to access the second and subsequent pages of results, if any. When the presets fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 lrsNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
@@ -158,4 +158,4 @@ lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default . _Coerce
 lrsResponseStatus :: Lens' ListPresetsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
-instance NFData ListPresetsResponse
+instance NFData ListPresetsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StartJobRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.Glue.StartJobRun
     , sjrrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startJobRun' smart constructor.
 data StartJobRun = StartJobRun'
-    { _sjrArguments         :: !(Maybe (Map Text Text))
-    , _sjrAllocatedCapacity :: !(Maybe Int)
-    , _sjrJobRunId          :: !(Maybe Text)
-    , _sjrJobName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sjrArguments         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _sjrAllocatedCapacity :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sjrJobRunId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sjrJobName           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartJobRun' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ startJobRun
     :: Text -- ^ 'sjrJobName'
     -> StartJobRun
 startJobRun pJobName_ =
-    StartJobRun'
-    { _sjrArguments = Nothing
-    , _sjrAllocatedCapacity = Nothing
-    , _sjrJobRunId = Nothing
-    , _sjrJobName = pJobName_
-    }
+  StartJobRun'
+  { _sjrArguments = Nothing
+  , _sjrAllocatedCapacity = Nothing
+  , _sjrJobRunId = Nothing
+  , _sjrJobName = pJobName_
+  }
+
 
 -- | Specific arguments for this job run.
 sjrArguments :: Lens' StartJobRun (HashMap Text Text)
@@ -102,9 +104,9 @@ instance AWSRequest StartJobRun where
                  StartJobRunResponse' <$>
                    (x .?> "JobRunId") <*> (pure (fromEnum s)))
 
-instance Hashable StartJobRun
+instance Hashable StartJobRun where
 
-instance NFData StartJobRun
+instance NFData StartJobRun where
 
 instance ToHeaders StartJobRun where
         toHeaders
@@ -132,9 +134,10 @@ instance ToQuery StartJobRun where
 
 -- | /See:/ 'startJobRunResponse' smart constructor.
 data StartJobRunResponse = StartJobRunResponse'
-    { _sjrrsJobRunId       :: !(Maybe Text)
-    , _sjrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sjrrsJobRunId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sjrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartJobRunResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +150,9 @@ startJobRunResponse
     :: Int -- ^ 'sjrrsResponseStatus'
     -> StartJobRunResponse
 startJobRunResponse pResponseStatus_ =
-    StartJobRunResponse'
-    { _sjrrsJobRunId = Nothing
-    , _sjrrsResponseStatus = pResponseStatus_
-    }
+  StartJobRunResponse'
+  {_sjrrsJobRunId = Nothing, _sjrrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID assigned to this job run.
 sjrrsJobRunId :: Lens' StartJobRunResponse (Maybe Text)
@@ -160,4 +162,4 @@ sjrrsJobRunId = lens _sjrrsJobRunId (\ s a -> s{_sjrrsJobRunId = a});
 sjrrsResponseStatus :: Lens' StartJobRunResponse Int
 sjrrsResponseStatus = lens _sjrrsResponseStatus (\ s a -> s{_sjrrsResponseStatus = a});
 
-instance NFData StartJobRunResponse
+instance NFData StartJobRunResponse where

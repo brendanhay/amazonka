@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Glue.DeleteTable
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteTable' smart constructor.
 data DeleteTable = DeleteTable'
-    { _dtCatalogId    :: !(Maybe Text)
-    , _dtDatabaseName :: !Text
-    , _dtName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtDatabaseName :: {-# NOUNPACK #-}!Text
+  , _dtName         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTable' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ deleteTable
     -> Text -- ^ 'dtName'
     -> DeleteTable
 deleteTable pDatabaseName_ pName_ =
-    DeleteTable'
-    { _dtCatalogId = Nothing
-    , _dtDatabaseName = pDatabaseName_
-    , _dtName = pName_
-    }
+  DeleteTable'
+  {_dtCatalogId = Nothing, _dtDatabaseName = pDatabaseName_, _dtName = pName_}
+
 
 -- | The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
 dtCatalogId :: Lens' DeleteTable (Maybe Text)
@@ -92,9 +91,9 @@ instance AWSRequest DeleteTable where
               (\ s h x ->
                  DeleteTableResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteTable
+instance Hashable DeleteTable where
 
-instance NFData DeleteTable
+instance NFData DeleteTable where
 
 instance ToHeaders DeleteTable where
         toHeaders
@@ -121,8 +120,9 @@ instance ToQuery DeleteTable where
 
 -- | /See:/ 'deleteTableResponse' smart constructor.
 newtype DeleteTableResponse = DeleteTableResponse'
-    { _dtrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTableResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +133,11 @@ deleteTableResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DeleteTableResponse
 deleteTableResponse pResponseStatus_ =
-    DeleteTableResponse'
-    { _dtrsResponseStatus = pResponseStatus_
-    }
+  DeleteTableResponse' {_dtrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dtrsResponseStatus :: Lens' DeleteTableResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DeleteTableResponse
+instance NFData DeleteTableResponse where

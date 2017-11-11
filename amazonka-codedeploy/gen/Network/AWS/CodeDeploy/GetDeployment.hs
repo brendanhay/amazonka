@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CodeDeploy.GetDeployment
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a GetDeployment operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDeployment' smart constructor.
 newtype GetDeployment = GetDeployment'
-    { _gdDeploymentId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdDeploymentId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeployment' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetDeployment = GetDeployment'
 getDeployment
     :: Text -- ^ 'gdDeploymentId'
     -> GetDeployment
-getDeployment pDeploymentId_ =
-    GetDeployment'
-    { _gdDeploymentId = pDeploymentId_
-    }
+getDeployment pDeploymentId_ = GetDeployment' {_gdDeploymentId = pDeploymentId_}
+
 
 -- | A deployment ID associated with the applicable IAM user or AWS account.
 gdDeploymentId :: Lens' GetDeployment Text
@@ -79,9 +78,9 @@ instance AWSRequest GetDeployment where
                  GetDeploymentResponse' <$>
                    (x .?> "deploymentInfo") <*> (pure (fromEnum s)))
 
-instance Hashable GetDeployment
+instance Hashable GetDeployment where
 
-instance NFData GetDeployment
+instance NFData GetDeployment where
 
 instance ToHeaders GetDeployment where
         toHeaders
@@ -110,9 +109,10 @@ instance ToQuery GetDeployment where
 --
 -- /See:/ 'getDeploymentResponse' smart constructor.
 data GetDeploymentResponse = GetDeploymentResponse'
-    { _gdrsDeploymentInfo :: !(Maybe DeploymentInfo)
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsDeploymentInfo :: {-# NOUNPACK #-}!(Maybe DeploymentInfo)
+  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeploymentResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +125,9 @@ getDeploymentResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDeploymentResponse
 getDeploymentResponse pResponseStatus_ =
-    GetDeploymentResponse'
-    { _gdrsDeploymentInfo = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDeploymentResponse'
+  {_gdrsDeploymentInfo = Nothing, _gdrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the deployment.
 gdrsDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
@@ -138,4 +137,4 @@ gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = 
 gdrsResponseStatus :: Lens' GetDeploymentResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDeploymentResponse
+instance NFData GetDeploymentResponse where

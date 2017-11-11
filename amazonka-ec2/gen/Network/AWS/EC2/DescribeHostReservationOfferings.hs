@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeHostReservationOfferings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,22 +45,23 @@ module Network.AWS.EC2.DescribeHostReservationOfferings
     , dhrorsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeHostReservationOfferings' smart constructor.
 data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
-    { _dhroMaxDuration :: !(Maybe Int)
-    , _dhroNextToken   :: !(Maybe Text)
-    , _dhroMinDuration :: !(Maybe Int)
-    , _dhroOfferingId  :: !(Maybe Text)
-    , _dhroFilter      :: !(Maybe [Filter])
-    , _dhroMaxResults  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhroMaxDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dhroNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhroMinDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dhroOfferingId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhroFilter      :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dhroMaxResults  :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHostReservationOfferings' with the minimum fields required to make a request.
 --
@@ -80,14 +81,15 @@ data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
 describeHostReservationOfferings
     :: DescribeHostReservationOfferings
 describeHostReservationOfferings =
-    DescribeHostReservationOfferings'
-    { _dhroMaxDuration = Nothing
-    , _dhroNextToken = Nothing
-    , _dhroMinDuration = Nothing
-    , _dhroOfferingId = Nothing
-    , _dhroFilter = Nothing
-    , _dhroMaxResults = Nothing
-    }
+  DescribeHostReservationOfferings'
+  { _dhroMaxDuration = Nothing
+  , _dhroNextToken = Nothing
+  , _dhroMinDuration = Nothing
+  , _dhroOfferingId = Nothing
+  , _dhroFilter = Nothing
+  , _dhroMaxResults = Nothing
+  }
+
 
 -- | This is the maximum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
 dhroMaxDuration :: Lens' DescribeHostReservationOfferings (Maybe Int)
@@ -128,8 +130,10 @@ instance AWSRequest DescribeHostReservationOfferings
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeHostReservationOfferings
+         where
 
 instance NFData DescribeHostReservationOfferings
+         where
 
 instance ToHeaders DescribeHostReservationOfferings
          where
@@ -155,10 +159,11 @@ instance ToQuery DescribeHostReservationOfferings
 
 -- | /See:/ 'describeHostReservationOfferingsResponse' smart constructor.
 data DescribeHostReservationOfferingsResponse = DescribeHostReservationOfferingsResponse'
-    { _dhrorsOfferingSet    :: !(Maybe [HostOffering])
-    , _dhrorsNextToken      :: !(Maybe Text)
-    , _dhrorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrorsOfferingSet    :: {-# NOUNPACK #-}!(Maybe [HostOffering])
+  , _dhrorsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhrorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHostReservationOfferingsResponse' with the minimum fields required to make a request.
 --
@@ -173,11 +178,12 @@ describeHostReservationOfferingsResponse
     :: Int -- ^ 'dhrorsResponseStatus'
     -> DescribeHostReservationOfferingsResponse
 describeHostReservationOfferingsResponse pResponseStatus_ =
-    DescribeHostReservationOfferingsResponse'
-    { _dhrorsOfferingSet = Nothing
-    , _dhrorsNextToken = Nothing
-    , _dhrorsResponseStatus = pResponseStatus_
-    }
+  DescribeHostReservationOfferingsResponse'
+  { _dhrorsOfferingSet = Nothing
+  , _dhrorsNextToken = Nothing
+  , _dhrorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the offerings.
 dhrorsOfferingSet :: Lens' DescribeHostReservationOfferingsResponse [HostOffering]
@@ -192,4 +198,5 @@ dhrorsResponseStatus :: Lens' DescribeHostReservationOfferingsResponse Int
 dhrorsResponseStatus = lens _dhrorsResponseStatus (\ s a -> s{_dhrorsResponseStatus = a});
 
 instance NFData
-         DescribeHostReservationOfferingsResponse
+           DescribeHostReservationOfferingsResponse
+         where

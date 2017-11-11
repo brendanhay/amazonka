@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteAccountAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.IAM.DeleteAccountAlias
     , DeleteAccountAliasResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAccountAlias' smart constructor.
 newtype DeleteAccountAlias = DeleteAccountAlias'
-    { _daaAccountAlias :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daaAccountAlias :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAccountAlias' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ deleteAccountAlias
     :: Text -- ^ 'daaAccountAlias'
     -> DeleteAccountAlias
 deleteAccountAlias pAccountAlias_ =
-    DeleteAccountAlias'
-    { _daaAccountAlias = pAccountAlias_
-    }
+  DeleteAccountAlias' {_daaAccountAlias = pAccountAlias_}
+
 
 -- | The name of the account alias to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
@@ -69,9 +69,9 @@ instance AWSRequest DeleteAccountAlias where
         request = postQuery iam
         response = receiveNull DeleteAccountAliasResponse'
 
-instance Hashable DeleteAccountAlias
+instance Hashable DeleteAccountAlias where
 
-instance NFData DeleteAccountAlias
+instance NFData DeleteAccountAlias where
 
 instance ToHeaders DeleteAccountAlias where
         toHeaders = const mempty
@@ -88,8 +88,9 @@ instance ToQuery DeleteAccountAlias where
 
 -- | /See:/ 'deleteAccountAliasResponse' smart constructor.
 data DeleteAccountAliasResponse =
-    DeleteAccountAliasResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAccountAliasResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAccountAliasResponse' with the minimum fields required to make a request.
 --
@@ -97,4 +98,5 @@ deleteAccountAliasResponse
     :: DeleteAccountAliasResponse
 deleteAccountAliasResponse = DeleteAccountAliasResponse'
 
-instance NFData DeleteAccountAliasResponse
+
+instance NFData DeleteAccountAliasResponse where

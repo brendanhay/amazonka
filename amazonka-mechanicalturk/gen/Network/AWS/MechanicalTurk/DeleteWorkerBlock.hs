@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.DeleteWorkerBlock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.MechanicalTurk.DeleteWorkerBlock
     , dwbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteWorkerBlock' smart constructor.
 data DeleteWorkerBlock = DeleteWorkerBlock'
-    { _dwbReason   :: !(Maybe Text)
-    , _dwbWorkerId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwbReason   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwbWorkerId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteWorkerBlock' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ deleteWorkerBlock
     :: Text -- ^ 'dwbWorkerId'
     -> DeleteWorkerBlock
 deleteWorkerBlock pWorkerId_ =
-    DeleteWorkerBlock'
-    { _dwbReason = Nothing
-    , _dwbWorkerId = pWorkerId_
-    }
+  DeleteWorkerBlock' {_dwbReason = Nothing, _dwbWorkerId = pWorkerId_}
+
 
 -- | A message that explains the reason for unblocking the Worker. The Worker does not see this message.
 dwbReason :: Lens' DeleteWorkerBlock (Maybe Text)
@@ -82,9 +81,9 @@ instance AWSRequest DeleteWorkerBlock where
               (\ s h x ->
                  DeleteWorkerBlockResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteWorkerBlock
+instance Hashable DeleteWorkerBlock where
 
-instance NFData DeleteWorkerBlock
+instance NFData DeleteWorkerBlock where
 
 instance ToHeaders DeleteWorkerBlock where
         toHeaders
@@ -111,8 +110,9 @@ instance ToQuery DeleteWorkerBlock where
 
 -- | /See:/ 'deleteWorkerBlockResponse' smart constructor.
 newtype DeleteWorkerBlockResponse = DeleteWorkerBlockResponse'
-    { _dwbrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwbrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteWorkerBlockResponse' with the minimum fields required to make a request.
 --
@@ -123,12 +123,11 @@ deleteWorkerBlockResponse
     :: Int -- ^ 'dwbrsResponseStatus'
     -> DeleteWorkerBlockResponse
 deleteWorkerBlockResponse pResponseStatus_ =
-    DeleteWorkerBlockResponse'
-    { _dwbrsResponseStatus = pResponseStatus_
-    }
+  DeleteWorkerBlockResponse' {_dwbrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dwbrsResponseStatus :: Lens' DeleteWorkerBlockResponse Int
 dwbrsResponseStatus = lens _dwbrsResponseStatus (\ s a -> s{_dwbrsResponseStatus = a});
 
-instance NFData DeleteWorkerBlockResponse
+instance NFData DeleteWorkerBlockResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateEventSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.Redshift.CreateEventSubscription
     , cesrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,15 +61,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createEventSubscription' smart constructor.
 data CreateEventSubscription = CreateEventSubscription'
-    { _cesEnabled          :: !(Maybe Bool)
-    , _cesSourceType       :: !(Maybe Text)
-    , _cesSeverity         :: !(Maybe Text)
-    , _cesEventCategories  :: !(Maybe [Text])
-    , _cesSourceIds        :: !(Maybe [Text])
-    , _cesTags             :: !(Maybe [Tag])
-    , _cesSubscriptionName :: !Text
-    , _cesSNSTopicARN      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cesEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cesSourceType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cesSeverity         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cesEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cesSourceIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cesTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cesSubscriptionName :: {-# NOUNPACK #-}!Text
+  , _cesSNSTopicARN      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateEventSubscription' with the minimum fields required to make a request.
 --
@@ -95,16 +96,17 @@ createEventSubscription
     -> Text -- ^ 'cesSNSTopicARN'
     -> CreateEventSubscription
 createEventSubscription pSubscriptionName_ pSNSTopicARN_ =
-    CreateEventSubscription'
-    { _cesEnabled = Nothing
-    , _cesSourceType = Nothing
-    , _cesSeverity = Nothing
-    , _cesEventCategories = Nothing
-    , _cesSourceIds = Nothing
-    , _cesTags = Nothing
-    , _cesSubscriptionName = pSubscriptionName_
-    , _cesSNSTopicARN = pSNSTopicARN_
-    }
+  CreateEventSubscription'
+  { _cesEnabled = Nothing
+  , _cesSourceType = Nothing
+  , _cesSeverity = Nothing
+  , _cesEventCategories = Nothing
+  , _cesSourceIds = Nothing
+  , _cesTags = Nothing
+  , _cesSubscriptionName = pSubscriptionName_
+  , _cesSNSTopicARN = pSNSTopicARN_
+  }
+
 
 -- | A Boolean value; set to @true@ to activate the subscription, set to @false@ to create the subscription but not active it.
 cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
@@ -148,9 +150,9 @@ instance AWSRequest CreateEventSubscription where
                  CreateEventSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
-instance Hashable CreateEventSubscription
+instance Hashable CreateEventSubscription where
 
-instance NFData CreateEventSubscription
+instance NFData CreateEventSubscription where
 
 instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
@@ -179,9 +181,10 @@ instance ToQuery CreateEventSubscription where
 
 -- | /See:/ 'createEventSubscriptionResponse' smart constructor.
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
-    { _cesrsEventSubscription :: !(Maybe EventSubscription)
-    , _cesrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cesrsEventSubscription :: {-# NOUNPACK #-}!(Maybe EventSubscription)
+  , _cesrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateEventSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -194,10 +197,9 @@ createEventSubscriptionResponse
     :: Int -- ^ 'cesrsResponseStatus'
     -> CreateEventSubscriptionResponse
 createEventSubscriptionResponse pResponseStatus_ =
-    CreateEventSubscriptionResponse'
-    { _cesrsEventSubscription = Nothing
-    , _cesrsResponseStatus = pResponseStatus_
-    }
+  CreateEventSubscriptionResponse'
+  {_cesrsEventSubscription = Nothing, _cesrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cesrsEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
@@ -207,4 +209,4 @@ cesrsEventSubscription = lens _cesrsEventSubscription (\ s a -> s{_cesrsEventSub
 cesrsResponseStatus :: Lens' CreateEventSubscriptionResponse Int
 cesrsResponseStatus = lens _cesrsResponseStatus (\ s a -> s{_cesrsResponseStatus = a});
 
-instance NFData CreateEventSubscriptionResponse
+instance NFData CreateEventSubscriptionResponse where

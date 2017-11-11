@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetAccountPasswordPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     , gapprsPasswordPolicy
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAccountPasswordPolicy' smart constructor.
 data GetAccountPasswordPolicy =
-    GetAccountPasswordPolicy'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetAccountPasswordPolicy'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountPasswordPolicy' with the minimum fields required to make a request.
 --
 getAccountPasswordPolicy
     :: GetAccountPasswordPolicy
 getAccountPasswordPolicy = GetAccountPasswordPolicy'
+
 
 instance AWSRequest GetAccountPasswordPolicy where
         type Rs GetAccountPasswordPolicy =
@@ -63,9 +65,9 @@ instance AWSRequest GetAccountPasswordPolicy where
                  GetAccountPasswordPolicyResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "PasswordPolicy"))
 
-instance Hashable GetAccountPasswordPolicy
+instance Hashable GetAccountPasswordPolicy where
 
-instance NFData GetAccountPasswordPolicy
+instance NFData GetAccountPasswordPolicy where
 
 instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty
@@ -87,9 +89,10 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- /See:/ 'getAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-    { _gapprsResponseStatus :: !Int
-    , _gapprsPasswordPolicy :: !PasswordPolicy
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gapprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gapprsPasswordPolicy :: {-# NOUNPACK #-}!PasswordPolicy
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountPasswordPolicyResponse' with the minimum fields required to make a request.
 --
@@ -103,10 +106,11 @@ getAccountPasswordPolicyResponse
     -> PasswordPolicy -- ^ 'gapprsPasswordPolicy'
     -> GetAccountPasswordPolicyResponse
 getAccountPasswordPolicyResponse pResponseStatus_ pPasswordPolicy_ =
-    GetAccountPasswordPolicyResponse'
-    { _gapprsResponseStatus = pResponseStatus_
-    , _gapprsPasswordPolicy = pPasswordPolicy_
-    }
+  GetAccountPasswordPolicyResponse'
+  { _gapprsResponseStatus = pResponseStatus_
+  , _gapprsPasswordPolicy = pPasswordPolicy_
+  }
+
 
 -- | -- | The response status code.
 gapprsResponseStatus :: Lens' GetAccountPasswordPolicyResponse Int
@@ -117,3 +121,4 @@ gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\ s a -> s{_gapprsPasswordPolicy = a});
 
 instance NFData GetAccountPasswordPolicyResponse
+         where

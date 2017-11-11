@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateDHCPOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.EC2.CreateDHCPOptions
     , cdorsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateDhcpOptions.
 --
@@ -65,9 +65,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDHCPOptions' smart constructor.
 data CreateDHCPOptions = CreateDHCPOptions'
-    { _cdoDryRun             :: !(Maybe Bool)
-    , _cdoDHCPConfigurations :: ![NewDHCPConfiguration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdoDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdoDHCPConfigurations :: {-# NOUNPACK #-}![NewDHCPConfiguration]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDHCPOptions' with the minimum fields required to make a request.
 --
@@ -79,10 +80,8 @@ data CreateDHCPOptions = CreateDHCPOptions'
 createDHCPOptions
     :: CreateDHCPOptions
 createDHCPOptions =
-    CreateDHCPOptions'
-    { _cdoDryRun = Nothing
-    , _cdoDHCPConfigurations = mempty
-    }
+  CreateDHCPOptions' {_cdoDryRun = Nothing, _cdoDHCPConfigurations = mempty}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cdoDryRun :: Lens' CreateDHCPOptions (Maybe Bool)
@@ -101,9 +100,9 @@ instance AWSRequest CreateDHCPOptions where
                  CreateDHCPOptionsResponse' <$>
                    (x .@? "dhcpOptions") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDHCPOptions
+instance Hashable CreateDHCPOptions where
 
-instance NFData CreateDHCPOptions
+instance NFData CreateDHCPOptions where
 
 instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty
@@ -126,9 +125,10 @@ instance ToQuery CreateDHCPOptions where
 --
 -- /See:/ 'createDHCPOptionsResponse' smart constructor.
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
-    { _cdorsDHCPOptions    :: !(Maybe DHCPOptions)
-    , _cdorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdorsDHCPOptions    :: {-# NOUNPACK #-}!(Maybe DHCPOptions)
+  , _cdorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDHCPOptionsResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +141,9 @@ createDHCPOptionsResponse
     :: Int -- ^ 'cdorsResponseStatus'
     -> CreateDHCPOptionsResponse
 createDHCPOptionsResponse pResponseStatus_ =
-    CreateDHCPOptionsResponse'
-    { _cdorsDHCPOptions = Nothing
-    , _cdorsResponseStatus = pResponseStatus_
-    }
+  CreateDHCPOptionsResponse'
+  {_cdorsDHCPOptions = Nothing, _cdorsResponseStatus = pResponseStatus_}
+
 
 -- | A set of DHCP options.
 cdorsDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
@@ -154,4 +153,4 @@ cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a});
 cdorsResponseStatus :: Lens' CreateDHCPOptionsResponse Int
 cdorsResponseStatus = lens _cdorsResponseStatus (\ s a -> s{_cdorsResponseStatus = a});
 
-instance NFData CreateDHCPOptionsResponse
+instance NFData CreateDHCPOptionsResponse where

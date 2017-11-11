@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.UnmonitorInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.UnmonitorInstances
     , uirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for UnmonitorInstances.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'unmonitorInstances' smart constructor.
 data UnmonitorInstances = UnmonitorInstances'
-    { _uiDryRun      :: !(Maybe Bool)
-    , _uiInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uiInstanceIds :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnmonitorInstances' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data UnmonitorInstances = UnmonitorInstances'
 unmonitorInstances
     :: UnmonitorInstances
 unmonitorInstances =
-    UnmonitorInstances'
-    { _uiDryRun = Nothing
-    , _uiInstanceIds = mempty
-    }
+  UnmonitorInstances' {_uiDryRun = Nothing, _uiInstanceIds = mempty}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
@@ -90,9 +89,9 @@ instance AWSRequest UnmonitorInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable UnmonitorInstances
+instance Hashable UnmonitorInstances where
 
-instance NFData UnmonitorInstances
+instance NFData UnmonitorInstances where
 
 instance ToHeaders UnmonitorInstances where
         toHeaders = const mempty
@@ -114,9 +113,10 @@ instance ToQuery UnmonitorInstances where
 --
 -- /See:/ 'unmonitorInstancesResponse' smart constructor.
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
-    { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _uirsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uirsInstanceMonitorings :: {-# NOUNPACK #-}!(Maybe [InstanceMonitoring])
+  , _uirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnmonitorInstancesResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ unmonitorInstancesResponse
     :: Int -- ^ 'uirsResponseStatus'
     -> UnmonitorInstancesResponse
 unmonitorInstancesResponse pResponseStatus_ =
-    UnmonitorInstancesResponse'
-    { _uirsInstanceMonitorings = Nothing
-    , _uirsResponseStatus = pResponseStatus_
-    }
+  UnmonitorInstancesResponse'
+  {_uirsInstanceMonitorings = Nothing, _uirsResponseStatus = pResponseStatus_}
+
 
 -- | The monitoring information.
 uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
@@ -142,4 +141,4 @@ uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanc
 uirsResponseStatus :: Lens' UnmonitorInstancesResponse Int
 uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});
 
-instance NFData UnmonitorInstancesResponse
+instance NFData UnmonitorInstancesResponse where

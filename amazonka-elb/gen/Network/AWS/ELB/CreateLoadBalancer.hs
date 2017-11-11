@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.ELB.CreateLoadBalancer
     , clbrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateLoadBalancer.
 --
@@ -62,14 +62,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-    { _clbSecurityGroups    :: !(Maybe [Text])
-    , _clbSubnets           :: !(Maybe [Text])
-    , _clbAvailabilityZones :: !(Maybe [Text])
-    , _clbScheme            :: !(Maybe Text)
-    , _clbTags              :: !(Maybe (List1 Tag))
-    , _clbLoadBalancerName  :: !Text
-    , _clbListeners         :: ![Listener]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clbSecurityGroups    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _clbSubnets           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _clbAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _clbScheme            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clbTags              :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
+  , _clbLoadBalancerName  :: {-# NOUNPACK #-}!Text
+  , _clbListeners         :: {-# NOUNPACK #-}![Listener]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLoadBalancer' with the minimum fields required to make a request.
 --
@@ -92,15 +93,16 @@ createLoadBalancer
     :: Text -- ^ 'clbLoadBalancerName'
     -> CreateLoadBalancer
 createLoadBalancer pLoadBalancerName_ =
-    CreateLoadBalancer'
-    { _clbSecurityGroups = Nothing
-    , _clbSubnets = Nothing
-    , _clbAvailabilityZones = Nothing
-    , _clbScheme = Nothing
-    , _clbTags = Nothing
-    , _clbLoadBalancerName = pLoadBalancerName_
-    , _clbListeners = mempty
-    }
+  CreateLoadBalancer'
+  { _clbSecurityGroups = Nothing
+  , _clbSubnets = Nothing
+  , _clbAvailabilityZones = Nothing
+  , _clbScheme = Nothing
+  , _clbTags = Nothing
+  , _clbLoadBalancerName = pLoadBalancerName_
+  , _clbListeners = mempty
+  }
+
 
 -- | The IDs of the security groups to assign to the load balancer.
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
@@ -140,9 +142,9 @@ instance AWSRequest CreateLoadBalancer where
                  CreateLoadBalancerResponse' <$>
                    (x .@? "DNSName") <*> (pure (fromEnum s)))
 
-instance Hashable CreateLoadBalancer
+instance Hashable CreateLoadBalancer where
 
-instance NFData CreateLoadBalancer
+instance NFData CreateLoadBalancer where
 
 instance ToHeaders CreateLoadBalancer where
         toHeaders = const mempty
@@ -175,9 +177,10 @@ instance ToQuery CreateLoadBalancer where
 --
 -- /See:/ 'createLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
-    { _clbrsDNSName        :: !(Maybe Text)
-    , _clbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clbrsDNSName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLoadBalancerResponse' with the minimum fields required to make a request.
 --
@@ -190,10 +193,9 @@ createLoadBalancerResponse
     :: Int -- ^ 'clbrsResponseStatus'
     -> CreateLoadBalancerResponse
 createLoadBalancerResponse pResponseStatus_ =
-    CreateLoadBalancerResponse'
-    { _clbrsDNSName = Nothing
-    , _clbrsResponseStatus = pResponseStatus_
-    }
+  CreateLoadBalancerResponse'
+  {_clbrsDNSName = Nothing, _clbrsResponseStatus = pResponseStatus_}
+
 
 -- | The DNS name of the load balancer.
 clbrsDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
@@ -203,4 +205,4 @@ clbrsDNSName = lens _clbrsDNSName (\ s a -> s{_clbrsDNSName = a});
 clbrsResponseStatus :: Lens' CreateLoadBalancerResponse Int
 clbrsResponseStatus = lens _clbrsResponseStatus (\ s a -> s{_clbrsResponseStatus = a});
 
-instance NFData CreateLoadBalancerResponse
+instance NFData CreateLoadBalancerResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     , dazflbrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DisableAvailabilityZonesForLoadBalancer.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableAvailabilityZonesForLoadBalancer' smart constructor.
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer'
-    { _dazflbLoadBalancerName  :: !Text
-    , _dazflbAvailabilityZones :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dazflbLoadBalancerName  :: {-# NOUNPACK #-}!Text
+  , _dazflbAvailabilityZones :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableAvailabilityZonesForLoadBalancer' with the minimum fields required to make a request.
 --
@@ -70,10 +71,11 @@ disableAvailabilityZonesForLoadBalancer
     :: Text -- ^ 'dazflbLoadBalancerName'
     -> DisableAvailabilityZonesForLoadBalancer
 disableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
-    DisableAvailabilityZonesForLoadBalancer'
-    { _dazflbLoadBalancerName = pLoadBalancerName_
-    , _dazflbAvailabilityZones = mempty
-    }
+  DisableAvailabilityZonesForLoadBalancer'
+  { _dazflbLoadBalancerName = pLoadBalancerName_
+  , _dazflbAvailabilityZones = mempty
+  }
+
 
 -- | The name of the load balancer.
 dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
@@ -84,7 +86,8 @@ dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
 dazflbAvailabilityZones = lens _dazflbAvailabilityZones (\ s a -> s{_dazflbAvailabilityZones = a}) . _Coerce;
 
 instance AWSRequest
-         DisableAvailabilityZonesForLoadBalancer where
+           DisableAvailabilityZonesForLoadBalancer
+         where
         type Rs DisableAvailabilityZonesForLoadBalancer =
              DisableAvailabilityZonesForLoadBalancerResponse
         request = postQuery elb
@@ -98,21 +101,26 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DisableAvailabilityZonesForLoadBalancer
+           DisableAvailabilityZonesForLoadBalancer
+         where
 
 instance NFData
-         DisableAvailabilityZonesForLoadBalancer
+           DisableAvailabilityZonesForLoadBalancer
+         where
 
 instance ToHeaders
-         DisableAvailabilityZonesForLoadBalancer where
+           DisableAvailabilityZonesForLoadBalancer
+         where
         toHeaders = const mempty
 
 instance ToPath
-         DisableAvailabilityZonesForLoadBalancer where
+           DisableAvailabilityZonesForLoadBalancer
+         where
         toPath = const "/"
 
 instance ToQuery
-         DisableAvailabilityZonesForLoadBalancer where
+           DisableAvailabilityZonesForLoadBalancer
+         where
         toQuery DisableAvailabilityZonesForLoadBalancer'{..}
           = mconcat
               ["Action" =:
@@ -129,9 +137,10 @@ instance ToQuery
 --
 -- /See:/ 'disableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'
-    { _dazflbrsAvailabilityZones :: !(Maybe [Text])
-    , _dazflbrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dazflbrsAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dazflbrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableAvailabilityZonesForLoadBalancerResponse' with the minimum fields required to make a request.
 --
@@ -144,10 +153,11 @@ disableAvailabilityZonesForLoadBalancerResponse
     :: Int -- ^ 'dazflbrsResponseStatus'
     -> DisableAvailabilityZonesForLoadBalancerResponse
 disableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
-    DisableAvailabilityZonesForLoadBalancerResponse'
-    { _dazflbrsAvailabilityZones = Nothing
-    , _dazflbrsResponseStatus = pResponseStatus_
-    }
+  DisableAvailabilityZonesForLoadBalancerResponse'
+  { _dazflbrsAvailabilityZones = Nothing
+  , _dazflbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The remaining Availability Zones for the load balancer.
 dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
@@ -158,4 +168,5 @@ dazflbrsResponseStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse 
 dazflbrsResponseStatus = lens _dazflbrsResponseStatus (\ s a -> s{_dazflbrsResponseStatus = a});
 
 instance NFData
-         DisableAvailabilityZonesForLoadBalancerResponse
+           DisableAvailabilityZonesForLoadBalancerResponse
+         where

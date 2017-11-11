@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReportInstanceStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.ReportInstanceStatus
     , ReportInstanceStatusResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReportInstanceStatus.
 --
@@ -55,14 +55,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'reportInstanceStatus' smart constructor.
 data ReportInstanceStatus = ReportInstanceStatus'
-    { _risStartTime   :: !(Maybe ISO8601)
-    , _risEndTime     :: !(Maybe ISO8601)
-    , _risDescription :: !(Maybe Text)
-    , _risDryRun      :: !(Maybe Bool)
-    , _risInstances   :: ![Text]
-    , _risReasonCodes :: ![ReportInstanceReasonCodes]
-    , _risStatus      :: !ReportStatusType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _risStartTime   :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _risEndTime     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _risDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _risDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _risInstances   :: {-# NOUNPACK #-}![Text]
+  , _risReasonCodes :: {-# NOUNPACK #-}![ReportInstanceReasonCodes]
+  , _risStatus      :: {-# NOUNPACK #-}!ReportStatusType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReportInstanceStatus' with the minimum fields required to make a request.
 --
@@ -85,15 +86,16 @@ reportInstanceStatus
     :: ReportStatusType -- ^ 'risStatus'
     -> ReportInstanceStatus
 reportInstanceStatus pStatus_ =
-    ReportInstanceStatus'
-    { _risStartTime = Nothing
-    , _risEndTime = Nothing
-    , _risDescription = Nothing
-    , _risDryRun = Nothing
-    , _risInstances = mempty
-    , _risReasonCodes = mempty
-    , _risStatus = pStatus_
-    }
+  ReportInstanceStatus'
+  { _risStartTime = Nothing
+  , _risEndTime = Nothing
+  , _risDescription = Nothing
+  , _risDryRun = Nothing
+  , _risInstances = mempty
+  , _risReasonCodes = mempty
+  , _risStatus = pStatus_
+  }
+
 
 -- | The time at which the reported instance health state began.
 risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
@@ -129,9 +131,9 @@ instance AWSRequest ReportInstanceStatus where
         request = postQuery ec2
         response = receiveNull ReportInstanceStatusResponse'
 
-instance Hashable ReportInstanceStatus
+instance Hashable ReportInstanceStatus where
 
-instance NFData ReportInstanceStatus
+instance NFData ReportInstanceStatus where
 
 instance ToHeaders ReportInstanceStatus where
         toHeaders = const mempty
@@ -154,8 +156,9 @@ instance ToQuery ReportInstanceStatus where
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse =
-    ReportInstanceStatusResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ReportInstanceStatusResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReportInstanceStatusResponse' with the minimum fields required to make a request.
 --
@@ -163,4 +166,5 @@ reportInstanceStatusResponse
     :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse'
 
-instance NFData ReportInstanceStatusResponse
+
+instance NFData ReportInstanceStatusResponse where

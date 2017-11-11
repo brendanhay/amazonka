@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEventCategories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.DMS.DescribeEventCategories
     , decrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
-    { _decSourceType :: !(Maybe Text)
-    , _decFilters    :: !(Maybe [Filter])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decSourceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _decFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data DescribeEventCategories = DescribeEventCategories'
 describeEventCategories
     :: DescribeEventCategories
 describeEventCategories =
-    DescribeEventCategories'
-    { _decSourceType = Nothing
-    , _decFilters = Nothing
-    }
+  DescribeEventCategories' {_decSourceType = Nothing, _decFilters = Nothing}
+
 
 -- | The type of AWS DMS resource that generates events.  Valid values: replication-instance | migration-task
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
@@ -89,9 +88,9 @@ instance AWSRequest DescribeEventCategories where
                    (x .?> "EventCategoryGroupList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeEventCategories
+instance Hashable DescribeEventCategories where
 
-instance NFData DescribeEventCategories
+instance NFData DescribeEventCategories where
 
 instance ToHeaders DescribeEventCategories where
         toHeaders
@@ -122,9 +121,10 @@ instance ToQuery DescribeEventCategories where
 --
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-    { _decrsEventCategoryGroupList :: !(Maybe [EventCategoryGroup])
-    , _decrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decrsEventCategoryGroupList :: {-# NOUNPACK #-}!(Maybe [EventCategoryGroup])
+  , _decrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +137,11 @@ describeEventCategoriesResponse
     :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pResponseStatus_ =
-    DescribeEventCategoriesResponse'
-    { _decrsEventCategoryGroupList = Nothing
-    , _decrsResponseStatus = pResponseStatus_
-    }
+  DescribeEventCategoriesResponse'
+  { _decrsEventCategoryGroupList = Nothing
+  , _decrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of event categories.
 decrsEventCategoryGroupList :: Lens' DescribeEventCategoriesResponse [EventCategoryGroup]
@@ -150,4 +151,4 @@ decrsEventCategoryGroupList = lens _decrsEventCategoryGroupList (\ s a -> s{_dec
 decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
 
-instance NFData DescribeEventCategoriesResponse
+instance NFData DescribeEventCategoriesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.GetSnowballUsage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,23 +38,25 @@ module Network.AWS.Snowball.GetSnowballUsage
     , gsursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'getSnowballUsage' smart constructor.
 data GetSnowballUsage =
-    GetSnowballUsage'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetSnowballUsage'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSnowballUsage' with the minimum fields required to make a request.
 --
 getSnowballUsage
     :: GetSnowballUsage
 getSnowballUsage = GetSnowballUsage'
+
 
 instance AWSRequest GetSnowballUsage where
         type Rs GetSnowballUsage = GetSnowballUsageResponse
@@ -66,9 +68,9 @@ instance AWSRequest GetSnowballUsage where
                    (x .?> "SnowballsInUse") <*> (x .?> "SnowballLimit")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSnowballUsage
+instance Hashable GetSnowballUsage where
 
-instance NFData GetSnowballUsage
+instance NFData GetSnowballUsage where
 
 instance ToHeaders GetSnowballUsage where
         toHeaders
@@ -91,10 +93,11 @@ instance ToQuery GetSnowballUsage where
 
 -- | /See:/ 'getSnowballUsageResponse' smart constructor.
 data GetSnowballUsageResponse = GetSnowballUsageResponse'
-    { _gsursSnowballsInUse :: !(Maybe Int)
-    , _gsursSnowballLimit  :: !(Maybe Int)
-    , _gsursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsursSnowballsInUse :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gsursSnowballLimit  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gsursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSnowballUsageResponse' with the minimum fields required to make a request.
 --
@@ -109,11 +112,12 @@ getSnowballUsageResponse
     :: Int -- ^ 'gsursResponseStatus'
     -> GetSnowballUsageResponse
 getSnowballUsageResponse pResponseStatus_ =
-    GetSnowballUsageResponse'
-    { _gsursSnowballsInUse = Nothing
-    , _gsursSnowballLimit = Nothing
-    , _gsursResponseStatus = pResponseStatus_
-    }
+  GetSnowballUsageResponse'
+  { _gsursSnowballsInUse = Nothing
+  , _gsursSnowballLimit = Nothing
+  , _gsursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of Snowballs that this account is currently using.
 gsursSnowballsInUse :: Lens' GetSnowballUsageResponse (Maybe Int)
@@ -127,4 +131,4 @@ gsursSnowballLimit = lens _gsursSnowballLimit (\ s a -> s{_gsursSnowballLimit = 
 gsursResponseStatus :: Lens' GetSnowballUsageResponse Int
 gsursResponseStatus = lens _gsursResponseStatus (\ s a -> s{_gsursResponseStatus = a});
 
-instance NFData GetSnowballUsageResponse
+instance NFData GetSnowballUsageResponse where

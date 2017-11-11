@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.SetSubnets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.ELBv2.SetSubnets
     , ssrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setSubnets' smart constructor.
 data SetSubnets = SetSubnets'
-    { _ssLoadBalancerARN :: !Text
-    , _ssSubnets         :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssLoadBalancerARN :: {-# NOUNPACK #-}!Text
+  , _ssSubnets         :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetSubnets' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ setSubnets
     :: Text -- ^ 'ssLoadBalancerARN'
     -> SetSubnets
 setSubnets pLoadBalancerARN_ =
-    SetSubnets'
-    { _ssLoadBalancerARN = pLoadBalancerARN_
-    , _ssSubnets = mempty
-    }
+  SetSubnets' {_ssLoadBalancerARN = pLoadBalancerARN_, _ssSubnets = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 ssLoadBalancerARN :: Lens' SetSubnets Text
@@ -86,9 +85,9 @@ instance AWSRequest SetSubnets where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable SetSubnets
+instance Hashable SetSubnets where
 
-instance NFData SetSubnets
+instance NFData SetSubnets where
 
 instance ToHeaders SetSubnets where
         toHeaders = const mempty
@@ -106,9 +105,10 @@ instance ToQuery SetSubnets where
 
 -- | /See:/ 'setSubnetsResponse' smart constructor.
 data SetSubnetsResponse = SetSubnetsResponse'
-    { _ssrsAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _ssrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssrsAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
+  , _ssrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetSubnetsResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +121,9 @@ setSubnetsResponse
     :: Int -- ^ 'ssrsResponseStatus'
     -> SetSubnetsResponse
 setSubnetsResponse pResponseStatus_ =
-    SetSubnetsResponse'
-    { _ssrsAvailabilityZones = Nothing
-    , _ssrsResponseStatus = pResponseStatus_
-    }
+  SetSubnetsResponse'
+  {_ssrsAvailabilityZones = Nothing, _ssrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the subnet and Availability Zone.
 ssrsAvailabilityZones :: Lens' SetSubnetsResponse [AvailabilityZone]
@@ -134,4 +133,4 @@ ssrsAvailabilityZones = lens _ssrsAvailabilityZones (\ s a -> s{_ssrsAvailabilit
 ssrsResponseStatus :: Lens' SetSubnetsResponse Int
 ssrsResponseStatus = lens _ssrsResponseStatus (\ s a -> s{_ssrsResponseStatus = a});
 
-instance NFData SetSubnetsResponse
+instance NFData SetSubnetsResponse where

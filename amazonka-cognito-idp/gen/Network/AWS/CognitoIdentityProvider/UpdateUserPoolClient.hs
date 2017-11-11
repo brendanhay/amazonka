@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
     , uupcrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to update the user pool client.
 --
@@ -63,21 +63,22 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUserPoolClient' smart constructor.
 data UpdateUserPoolClient = UpdateUserPoolClient'
-    { _uupcRefreshTokenValidity            :: !(Maybe Nat)
-    , _uupcExplicitAuthFlows               :: !(Maybe [ExplicitAuthFlowsType])
-    , _uupcSupportedIdentityProviders      :: !(Maybe [Text])
-    , _uupcLogoutURLs                      :: !(Maybe [Text])
-    , _uupcAllowedOAuthFlowsUserPoolClient :: !(Maybe Bool)
-    , _uupcDefaultRedirectURI              :: !(Maybe Text)
-    , _uupcWriteAttributes                 :: !(Maybe [Text])
-    , _uupcReadAttributes                  :: !(Maybe [Text])
-    , _uupcAllowedOAuthScopes              :: !(Maybe [Text])
-    , _uupcAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
-    , _uupcClientName                      :: !(Maybe Text)
-    , _uupcCallbackURLs                    :: !(Maybe [Text])
-    , _uupcUserPoolId                      :: !Text
-    , _uupcClientId                        :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uupcRefreshTokenValidity :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uupcExplicitAuthFlows :: {-# NOUNPACK #-}!(Maybe [ExplicitAuthFlowsType])
+  , _uupcSupportedIdentityProviders :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uupcLogoutURLs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uupcAllowedOAuthFlowsUserPoolClient :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uupcDefaultRedirectURI :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupcWriteAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uupcReadAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uupcAllowedOAuthScopes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uupcAllowedOAuthFlows :: {-# NOUNPACK #-}!(Maybe [OAuthFlowType])
+  , _uupcClientName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupcCallbackURLs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uupcUserPoolId :: {-# NOUNPACK #-}!Text
+  , _uupcClientId :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserPoolClient' with the minimum fields required to make a request.
 --
@@ -115,22 +116,23 @@ updateUserPoolClient
     -> Text -- ^ 'uupcClientId'
     -> UpdateUserPoolClient
 updateUserPoolClient pUserPoolId_ pClientId_ =
-    UpdateUserPoolClient'
-    { _uupcRefreshTokenValidity = Nothing
-    , _uupcExplicitAuthFlows = Nothing
-    , _uupcSupportedIdentityProviders = Nothing
-    , _uupcLogoutURLs = Nothing
-    , _uupcAllowedOAuthFlowsUserPoolClient = Nothing
-    , _uupcDefaultRedirectURI = Nothing
-    , _uupcWriteAttributes = Nothing
-    , _uupcReadAttributes = Nothing
-    , _uupcAllowedOAuthScopes = Nothing
-    , _uupcAllowedOAuthFlows = Nothing
-    , _uupcClientName = Nothing
-    , _uupcCallbackURLs = Nothing
-    , _uupcUserPoolId = pUserPoolId_
-    , _uupcClientId = _Sensitive # pClientId_
-    }
+  UpdateUserPoolClient'
+  { _uupcRefreshTokenValidity = Nothing
+  , _uupcExplicitAuthFlows = Nothing
+  , _uupcSupportedIdentityProviders = Nothing
+  , _uupcLogoutURLs = Nothing
+  , _uupcAllowedOAuthFlowsUserPoolClient = Nothing
+  , _uupcDefaultRedirectURI = Nothing
+  , _uupcWriteAttributes = Nothing
+  , _uupcReadAttributes = Nothing
+  , _uupcAllowedOAuthScopes = Nothing
+  , _uupcAllowedOAuthFlows = Nothing
+  , _uupcClientName = Nothing
+  , _uupcCallbackURLs = Nothing
+  , _uupcUserPoolId = pUserPoolId_
+  , _uupcClientId = _Sensitive # pClientId_
+  }
+
 
 -- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 uupcRefreshTokenValidity :: Lens' UpdateUserPoolClient (Maybe Natural)
@@ -198,9 +200,9 @@ instance AWSRequest UpdateUserPoolClient where
                  UpdateUserPoolClientResponse' <$>
                    (x .?> "UserPoolClient") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateUserPoolClient
+instance Hashable UpdateUserPoolClient where
 
-instance NFData UpdateUserPoolClient
+instance NFData UpdateUserPoolClient where
 
 instance ToHeaders UpdateUserPoolClient where
         toHeaders
@@ -248,9 +250,10 @@ instance ToQuery UpdateUserPoolClient where
 --
 -- /See:/ 'updateUserPoolClientResponse' smart constructor.
 data UpdateUserPoolClientResponse = UpdateUserPoolClientResponse'
-    { _uupcrsUserPoolClient :: !(Maybe UserPoolClientType)
-    , _uupcrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _uupcrsUserPoolClient :: {-# NOUNPACK #-}!(Maybe UserPoolClientType)
+  , _uupcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateUserPoolClientResponse' with the minimum fields required to make a request.
 --
@@ -263,10 +266,9 @@ updateUserPoolClientResponse
     :: Int -- ^ 'uupcrsResponseStatus'
     -> UpdateUserPoolClientResponse
 updateUserPoolClientResponse pResponseStatus_ =
-    UpdateUserPoolClientResponse'
-    { _uupcrsUserPoolClient = Nothing
-    , _uupcrsResponseStatus = pResponseStatus_
-    }
+  UpdateUserPoolClientResponse'
+  {_uupcrsUserPoolClient = Nothing, _uupcrsResponseStatus = pResponseStatus_}
+
 
 -- | The user pool client value from the response from the server when an update user pool client request is made.
 uupcrsUserPoolClient :: Lens' UpdateUserPoolClientResponse (Maybe UserPoolClientType)
@@ -276,4 +278,4 @@ uupcrsUserPoolClient = lens _uupcrsUserPoolClient (\ s a -> s{_uupcrsUserPoolCli
 uupcrsResponseStatus :: Lens' UpdateUserPoolClientResponse Int
 uupcrsResponseStatus = lens _uupcrsResponseStatus (\ s a -> s{_uupcrsResponseStatus = a});
 
-instance NFData UpdateUserPoolClientResponse
+instance NFData UpdateUserPoolClientResponse where

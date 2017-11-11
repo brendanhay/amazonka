@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.DescribeMaintenanceWindowTargets
     , dmwtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeMaintenanceWindowTargets' smart constructor.
 data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
-    { _dmwtFilters    :: !(Maybe [MaintenanceWindowFilter])
-    , _dmwtNextToken  :: !(Maybe Text)
-    , _dmwtMaxResults :: !(Maybe Nat)
-    , _dmwtWindowId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmwtFilters    :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowFilter])
+  , _dmwtNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwtMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dmwtWindowId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowTargets' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeMaintenanceWindowTargets
     :: Text -- ^ 'dmwtWindowId'
     -> DescribeMaintenanceWindowTargets
 describeMaintenanceWindowTargets pWindowId_ =
-    DescribeMaintenanceWindowTargets'
-    { _dmwtFilters = Nothing
-    , _dmwtNextToken = Nothing
-    , _dmwtMaxResults = Nothing
-    , _dmwtWindowId = pWindowId_
-    }
+  DescribeMaintenanceWindowTargets'
+  { _dmwtFilters = Nothing
+  , _dmwtNextToken = Nothing
+  , _dmwtMaxResults = Nothing
+  , _dmwtWindowId = pWindowId_
+  }
+
 
 -- | Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are Type, WindowTargetId and OwnerInformation.
 dmwtFilters :: Lens' DescribeMaintenanceWindowTargets [MaintenanceWindowFilter]
@@ -107,8 +109,10 @@ instance AWSRequest DescribeMaintenanceWindowTargets
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeMaintenanceWindowTargets
+         where
 
 instance NFData DescribeMaintenanceWindowTargets
+         where
 
 instance ToHeaders DescribeMaintenanceWindowTargets
          where
@@ -141,10 +145,11 @@ instance ToQuery DescribeMaintenanceWindowTargets
 
 -- | /See:/ 'describeMaintenanceWindowTargetsResponse' smart constructor.
 data DescribeMaintenanceWindowTargetsResponse = DescribeMaintenanceWindowTargetsResponse'
-    { _dmwtrsNextToken      :: !(Maybe Text)
-    , _dmwtrsTargets        :: !(Maybe [MaintenanceWindowTarget])
-    , _dmwtrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dmwtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwtrsTargets        :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowTarget])
+  , _dmwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowTargetsResponse' with the minimum fields required to make a request.
 --
@@ -159,11 +164,12 @@ describeMaintenanceWindowTargetsResponse
     :: Int -- ^ 'dmwtrsResponseStatus'
     -> DescribeMaintenanceWindowTargetsResponse
 describeMaintenanceWindowTargetsResponse pResponseStatus_ =
-    DescribeMaintenanceWindowTargetsResponse'
-    { _dmwtrsNextToken = Nothing
-    , _dmwtrsTargets = Nothing
-    , _dmwtrsResponseStatus = pResponseStatus_
-    }
+  DescribeMaintenanceWindowTargetsResponse'
+  { _dmwtrsNextToken = Nothing
+  , _dmwtrsTargets = Nothing
+  , _dmwtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dmwtrsNextToken :: Lens' DescribeMaintenanceWindowTargetsResponse (Maybe Text)
@@ -178,4 +184,5 @@ dmwtrsResponseStatus :: Lens' DescribeMaintenanceWindowTargetsResponse Int
 dmwtrsResponseStatus = lens _dmwtrsResponseStatus (\ s a -> s{_dmwtrsResponseStatus = a});
 
 instance NFData
-         DescribeMaintenanceWindowTargetsResponse
+           DescribeMaintenanceWindowTargetsResponse
+         where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -380,72 +380,72 @@ module Network.AWS.Greengrass
     , viId
     ) where
 
-import           Network.AWS.Greengrass.AssociateRoleToGroup
-import           Network.AWS.Greengrass.AssociateServiceRoleToAccount
-import           Network.AWS.Greengrass.CreateCoreDefinition
-import           Network.AWS.Greengrass.CreateCoreDefinitionVersion
-import           Network.AWS.Greengrass.CreateDeployment
-import           Network.AWS.Greengrass.CreateDeviceDefinition
-import           Network.AWS.Greengrass.CreateDeviceDefinitionVersion
-import           Network.AWS.Greengrass.CreateFunctionDefinition
-import           Network.AWS.Greengrass.CreateFunctionDefinitionVersion
-import           Network.AWS.Greengrass.CreateGroup
-import           Network.AWS.Greengrass.CreateGroupCertificateAuthority
-import           Network.AWS.Greengrass.CreateGroupVersion
-import           Network.AWS.Greengrass.CreateLoggerDefinition
-import           Network.AWS.Greengrass.CreateLoggerDefinitionVersion
-import           Network.AWS.Greengrass.CreateSubscriptionDefinition
-import           Network.AWS.Greengrass.CreateSubscriptionDefinitionVersion
-import           Network.AWS.Greengrass.DeleteCoreDefinition
-import           Network.AWS.Greengrass.DeleteDeviceDefinition
-import           Network.AWS.Greengrass.DeleteFunctionDefinition
-import           Network.AWS.Greengrass.DeleteGroup
-import           Network.AWS.Greengrass.DeleteLoggerDefinition
-import           Network.AWS.Greengrass.DeleteSubscriptionDefinition
-import           Network.AWS.Greengrass.DisassociateRoleFromGroup
-import           Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
-import           Network.AWS.Greengrass.GetAssociatedRole
-import           Network.AWS.Greengrass.GetConnectivityInfo
-import           Network.AWS.Greengrass.GetCoreDefinition
-import           Network.AWS.Greengrass.GetCoreDefinitionVersion
-import           Network.AWS.Greengrass.GetDeploymentStatus
-import           Network.AWS.Greengrass.GetDeviceDefinition
-import           Network.AWS.Greengrass.GetDeviceDefinitionVersion
-import           Network.AWS.Greengrass.GetFunctionDefinition
-import           Network.AWS.Greengrass.GetFunctionDefinitionVersion
-import           Network.AWS.Greengrass.GetGroup
-import           Network.AWS.Greengrass.GetGroupCertificateAuthority
-import           Network.AWS.Greengrass.GetGroupCertificateConfiguration
-import           Network.AWS.Greengrass.GetGroupVersion
-import           Network.AWS.Greengrass.GetLoggerDefinition
-import           Network.AWS.Greengrass.GetLoggerDefinitionVersion
-import           Network.AWS.Greengrass.GetServiceRoleForAccount
-import           Network.AWS.Greengrass.GetSubscriptionDefinition
-import           Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
-import           Network.AWS.Greengrass.ListCoreDefinitions
-import           Network.AWS.Greengrass.ListCoreDefinitionVersions
-import           Network.AWS.Greengrass.ListDeployments
-import           Network.AWS.Greengrass.ListDeviceDefinitions
-import           Network.AWS.Greengrass.ListDeviceDefinitionVersions
-import           Network.AWS.Greengrass.ListFunctionDefinitions
-import           Network.AWS.Greengrass.ListFunctionDefinitionVersions
-import           Network.AWS.Greengrass.ListGroupCertificateAuthorities
-import           Network.AWS.Greengrass.ListGroups
-import           Network.AWS.Greengrass.ListGroupVersions
-import           Network.AWS.Greengrass.ListLoggerDefinitions
-import           Network.AWS.Greengrass.ListLoggerDefinitionVersions
-import           Network.AWS.Greengrass.ListSubscriptionDefinitions
-import           Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.UpdateConnectivityInfo
-import           Network.AWS.Greengrass.UpdateCoreDefinition
-import           Network.AWS.Greengrass.UpdateDeviceDefinition
-import           Network.AWS.Greengrass.UpdateFunctionDefinition
-import           Network.AWS.Greengrass.UpdateGroup
-import           Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
-import           Network.AWS.Greengrass.UpdateLoggerDefinition
-import           Network.AWS.Greengrass.UpdateSubscriptionDefinition
-import           Network.AWS.Greengrass.Waiters
+import Network.AWS.Greengrass.AssociateRoleToGroup
+import Network.AWS.Greengrass.AssociateServiceRoleToAccount
+import Network.AWS.Greengrass.CreateCoreDefinition
+import Network.AWS.Greengrass.CreateCoreDefinitionVersion
+import Network.AWS.Greengrass.CreateDeployment
+import Network.AWS.Greengrass.CreateDeviceDefinition
+import Network.AWS.Greengrass.CreateDeviceDefinitionVersion
+import Network.AWS.Greengrass.CreateFunctionDefinition
+import Network.AWS.Greengrass.CreateFunctionDefinitionVersion
+import Network.AWS.Greengrass.CreateGroup
+import Network.AWS.Greengrass.CreateGroupCertificateAuthority
+import Network.AWS.Greengrass.CreateGroupVersion
+import Network.AWS.Greengrass.CreateLoggerDefinition
+import Network.AWS.Greengrass.CreateLoggerDefinitionVersion
+import Network.AWS.Greengrass.CreateSubscriptionDefinition
+import Network.AWS.Greengrass.CreateSubscriptionDefinitionVersion
+import Network.AWS.Greengrass.DeleteCoreDefinition
+import Network.AWS.Greengrass.DeleteDeviceDefinition
+import Network.AWS.Greengrass.DeleteFunctionDefinition
+import Network.AWS.Greengrass.DeleteGroup
+import Network.AWS.Greengrass.DeleteLoggerDefinition
+import Network.AWS.Greengrass.DeleteSubscriptionDefinition
+import Network.AWS.Greengrass.DisassociateRoleFromGroup
+import Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
+import Network.AWS.Greengrass.GetAssociatedRole
+import Network.AWS.Greengrass.GetConnectivityInfo
+import Network.AWS.Greengrass.GetCoreDefinition
+import Network.AWS.Greengrass.GetCoreDefinitionVersion
+import Network.AWS.Greengrass.GetDeploymentStatus
+import Network.AWS.Greengrass.GetDeviceDefinition
+import Network.AWS.Greengrass.GetDeviceDefinitionVersion
+import Network.AWS.Greengrass.GetFunctionDefinition
+import Network.AWS.Greengrass.GetFunctionDefinitionVersion
+import Network.AWS.Greengrass.GetGroup
+import Network.AWS.Greengrass.GetGroupCertificateAuthority
+import Network.AWS.Greengrass.GetGroupCertificateConfiguration
+import Network.AWS.Greengrass.GetGroupVersion
+import Network.AWS.Greengrass.GetLoggerDefinition
+import Network.AWS.Greengrass.GetLoggerDefinitionVersion
+import Network.AWS.Greengrass.GetServiceRoleForAccount
+import Network.AWS.Greengrass.GetSubscriptionDefinition
+import Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
+import Network.AWS.Greengrass.ListCoreDefinitions
+import Network.AWS.Greengrass.ListCoreDefinitionVersions
+import Network.AWS.Greengrass.ListDeployments
+import Network.AWS.Greengrass.ListDeviceDefinitions
+import Network.AWS.Greengrass.ListDeviceDefinitionVersions
+import Network.AWS.Greengrass.ListFunctionDefinitions
+import Network.AWS.Greengrass.ListFunctionDefinitionVersions
+import Network.AWS.Greengrass.ListGroupCertificateAuthorities
+import Network.AWS.Greengrass.ListGroups
+import Network.AWS.Greengrass.ListGroupVersions
+import Network.AWS.Greengrass.ListLoggerDefinitions
+import Network.AWS.Greengrass.ListLoggerDefinitionVersions
+import Network.AWS.Greengrass.ListSubscriptionDefinitions
+import Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.UpdateConnectivityInfo
+import Network.AWS.Greengrass.UpdateCoreDefinition
+import Network.AWS.Greengrass.UpdateDeviceDefinition
+import Network.AWS.Greengrass.UpdateFunctionDefinition
+import Network.AWS.Greengrass.UpdateGroup
+import Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
+import Network.AWS.Greengrass.UpdateLoggerDefinition
+import Network.AWS.Greengrass.UpdateSubscriptionDefinition
+import Network.AWS.Greengrass.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

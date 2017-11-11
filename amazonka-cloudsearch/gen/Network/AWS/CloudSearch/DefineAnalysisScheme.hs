@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     , defersAnalysisScheme
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DefineAnalysisScheme' @ operation. Specifies the name of the domain you want to update and the analysis scheme configuration.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'defineAnalysisScheme' smart constructor.
 data DefineAnalysisScheme = DefineAnalysisScheme'
-    { _dasaDomainName     :: !Text
-    , _dasaAnalysisScheme :: !AnalysisScheme
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasaDomainName     :: {-# NOUNPACK #-}!Text
+  , _dasaAnalysisScheme :: {-# NOUNPACK #-}!AnalysisScheme
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineAnalysisScheme' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ defineAnalysisScheme
     -> AnalysisScheme -- ^ 'dasaAnalysisScheme'
     -> DefineAnalysisScheme
 defineAnalysisScheme pDomainName_ pAnalysisScheme_ =
-    DefineAnalysisScheme'
-    { _dasaDomainName = pDomainName_
-    , _dasaAnalysisScheme = pAnalysisScheme_
-    }
+  DefineAnalysisScheme'
+  {_dasaDomainName = pDomainName_, _dasaAnalysisScheme = pAnalysisScheme_}
+
 
 -- | Undocumented member.
 dasaDomainName :: Lens' DefineAnalysisScheme Text
@@ -90,9 +90,9 @@ instance AWSRequest DefineAnalysisScheme where
                  DefineAnalysisSchemeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AnalysisScheme"))
 
-instance Hashable DefineAnalysisScheme
+instance Hashable DefineAnalysisScheme where
 
-instance NFData DefineAnalysisScheme
+instance NFData DefineAnalysisScheme where
 
 instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
@@ -114,9 +114,10 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- /See:/ 'defineAnalysisSchemeResponse' smart constructor.
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-    { _defersResponseStatus :: !Int
-    , _defersAnalysisScheme :: !AnalysisSchemeStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _defersResponseStatus :: {-# NOUNPACK #-}!Int
+  , _defersAnalysisScheme :: {-# NOUNPACK #-}!AnalysisSchemeStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineAnalysisSchemeResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,11 @@ defineAnalysisSchemeResponse
     -> AnalysisSchemeStatus -- ^ 'defersAnalysisScheme'
     -> DefineAnalysisSchemeResponse
 defineAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
-    DefineAnalysisSchemeResponse'
-    { _defersResponseStatus = pResponseStatus_
-    , _defersAnalysisScheme = pAnalysisScheme_
-    }
+  DefineAnalysisSchemeResponse'
+  { _defersResponseStatus = pResponseStatus_
+  , _defersAnalysisScheme = pAnalysisScheme_
+  }
+
 
 -- | -- | The response status code.
 defersResponseStatus :: Lens' DefineAnalysisSchemeResponse Int
@@ -143,4 +145,4 @@ defersResponseStatus = lens _defersResponseStatus (\ s a -> s{_defersResponseSta
 defersAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 defersAnalysisScheme = lens _defersAnalysisScheme (\ s a -> s{_defersAnalysisScheme = a});
 
-instance NFData DefineAnalysisSchemeResponse
+instance NFData DefineAnalysisSchemeResponse where

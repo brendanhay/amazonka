@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeGameSessionPlacement
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -63,12 +63,12 @@ module Network.AWS.GameLift.DescribeGameSessionPlacement
     , dgsprsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -76,8 +76,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeGameSessionPlacement' smart constructor.
 newtype DescribeGameSessionPlacement = DescribeGameSessionPlacement'
-    { _dgspPlacementId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgspPlacementId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGameSessionPlacement' with the minimum fields required to make a request.
 --
@@ -88,9 +89,8 @@ describeGameSessionPlacement
     :: Text -- ^ 'dgspPlacementId'
     -> DescribeGameSessionPlacement
 describeGameSessionPlacement pPlacementId_ =
-    DescribeGameSessionPlacement'
-    { _dgspPlacementId = pPlacementId_
-    }
+  DescribeGameSessionPlacement' {_dgspPlacementId = pPlacementId_}
+
 
 -- | Unique identifier for a game session placement to retrieve.
 dgspPlacementId :: Lens' DescribeGameSessionPlacement Text
@@ -108,9 +108,9 @@ instance AWSRequest DescribeGameSessionPlacement
                    (x .?> "GameSessionPlacement") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeGameSessionPlacement
+instance Hashable DescribeGameSessionPlacement where
 
-instance NFData DescribeGameSessionPlacement
+instance NFData DescribeGameSessionPlacement where
 
 instance ToHeaders DescribeGameSessionPlacement where
         toHeaders
@@ -140,9 +140,10 @@ instance ToQuery DescribeGameSessionPlacement where
 --
 -- /See:/ 'describeGameSessionPlacementResponse' smart constructor.
 data DescribeGameSessionPlacementResponse = DescribeGameSessionPlacementResponse'
-    { _dgsprsGameSessionPlacement :: !(Maybe GameSessionPlacement)
-    , _dgsprsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgsprsGameSessionPlacement :: {-# NOUNPACK #-}!(Maybe GameSessionPlacement)
+  , _dgsprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeGameSessionPlacementResponse' with the minimum fields required to make a request.
 --
@@ -155,10 +156,11 @@ describeGameSessionPlacementResponse
     :: Int -- ^ 'dgsprsResponseStatus'
     -> DescribeGameSessionPlacementResponse
 describeGameSessionPlacementResponse pResponseStatus_ =
-    DescribeGameSessionPlacementResponse'
-    { _dgsprsGameSessionPlacement = Nothing
-    , _dgsprsResponseStatus = pResponseStatus_
-    }
+  DescribeGameSessionPlacementResponse'
+  { _dgsprsGameSessionPlacement = Nothing
+  , _dgsprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Object that describes the requested game session placement.
 dgsprsGameSessionPlacement :: Lens' DescribeGameSessionPlacementResponse (Maybe GameSessionPlacement)
@@ -169,3 +171,4 @@ dgsprsResponseStatus :: Lens' DescribeGameSessionPlacementResponse Int
 dgsprsResponseStatus = lens _dgsprsResponseStatus (\ s a -> s{_dgsprsResponseStatus = a});
 
 instance NFData DescribeGameSessionPlacementResponse
+         where

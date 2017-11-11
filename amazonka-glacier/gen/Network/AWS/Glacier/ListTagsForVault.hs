@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListTagsForVault
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Glacier.ListTagsForVault
     , ltfvrsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input value for @ListTagsForVaultInput@ .
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listTagsForVault' smart constructor.
 data ListTagsForVault = ListTagsForVault'
-    { _ltfvAccountId :: !Text
-    , _ltfvVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfvAccountId :: {-# NOUNPACK #-}!Text
+  , _ltfvVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForVault' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ listTagsForVault
     -> Text -- ^ 'ltfvVaultName'
     -> ListTagsForVault
 listTagsForVault pAccountId_ pVaultName_ =
-    ListTagsForVault'
-    { _ltfvAccountId = pAccountId_
-    , _ltfvVaultName = pVaultName_
-    }
+  ListTagsForVault' {_ltfvAccountId = pAccountId_, _ltfvVaultName = pVaultName_}
+
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 ltfvAccountId :: Lens' ListTagsForVault Text
@@ -89,9 +88,9 @@ instance AWSRequest ListTagsForVault where
                  ListTagsForVaultResponse' <$>
                    (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable ListTagsForVault
+instance Hashable ListTagsForVault where
 
-instance NFData ListTagsForVault
+instance NFData ListTagsForVault where
 
 instance ToHeaders ListTagsForVault where
         toHeaders = const mempty
@@ -111,9 +110,10 @@ instance ToQuery ListTagsForVault where
 --
 -- /See:/ 'listTagsForVaultResponse' smart constructor.
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
-    { _ltfvrsTags           :: !(Maybe (Map Text Text))
-    , _ltfvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfvrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ltfvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForVaultResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +126,9 @@ listTagsForVaultResponse
     :: Int -- ^ 'ltfvrsResponseStatus'
     -> ListTagsForVaultResponse
 listTagsForVaultResponse pResponseStatus_ =
-    ListTagsForVaultResponse'
-    { _ltfvrsTags = Nothing
-    , _ltfvrsResponseStatus = pResponseStatus_
-    }
+  ListTagsForVaultResponse'
+  {_ltfvrsTags = Nothing, _ltfvrsResponseStatus = pResponseStatus_}
+
 
 -- | The tags attached to the vault. Each tag is composed of a key and a value.
 ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
@@ -139,4 +138,4 @@ ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
 ltfvrsResponseStatus :: Lens' ListTagsForVaultResponse Int
 ltfvrsResponseStatus = lens _ltfvrsResponseStatus (\ s a -> s{_ltfvrsResponseStatus = a});
 
-instance NFData ListTagsForVaultResponse
+instance NFData ListTagsForVaultResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     , csdDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The result message containing the options for the specified solution stack.
 --
@@ -68,12 +68,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateConfigurationTemplate' smart constructor.
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
-    { _uctOptionsToRemove :: !(Maybe [OptionSpecification])
-    , _uctOptionSettings  :: !(Maybe [ConfigurationOptionSetting])
-    , _uctDescription     :: !(Maybe Text)
-    , _uctApplicationName :: !Text
-    , _uctTemplateName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uctOptionsToRemove :: {-# NOUNPACK #-}!(Maybe [OptionSpecification])
+  , _uctOptionSettings  :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
+  , _uctDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uctApplicationName :: {-# NOUNPACK #-}!Text
+  , _uctTemplateName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateConfigurationTemplate' with the minimum fields required to make a request.
 --
@@ -93,13 +94,14 @@ updateConfigurationTemplate
     -> Text -- ^ 'uctTemplateName'
     -> UpdateConfigurationTemplate
 updateConfigurationTemplate pApplicationName_ pTemplateName_ =
-    UpdateConfigurationTemplate'
-    { _uctOptionsToRemove = Nothing
-    , _uctOptionSettings = Nothing
-    , _uctDescription = Nothing
-    , _uctApplicationName = pApplicationName_
-    , _uctTemplateName = pTemplateName_
-    }
+  UpdateConfigurationTemplate'
+  { _uctOptionsToRemove = Nothing
+  , _uctOptionSettings = Nothing
+  , _uctDescription = Nothing
+  , _uctApplicationName = pApplicationName_
+  , _uctTemplateName = pTemplateName_
+  }
+
 
 -- | A list of configuration options to remove from the configuration set. Constraint: You can remove only @UserDefined@ configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
@@ -130,9 +132,9 @@ instance AWSRequest UpdateConfigurationTemplate where
               "UpdateConfigurationTemplateResult"
               (\ s h x -> parseXML x)
 
-instance Hashable UpdateConfigurationTemplate
+instance Hashable UpdateConfigurationTemplate where
 
-instance NFData UpdateConfigurationTemplate
+instance NFData UpdateConfigurationTemplate where
 
 instance ToHeaders UpdateConfigurationTemplate where
         toHeaders = const mempty

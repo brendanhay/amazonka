@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RegisterDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,19 +50,20 @@ module Network.AWS.SWF.RegisterDomain
     , RegisterDomainResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'registerDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
-    { _rdDescription                            :: !(Maybe Text)
-    , _rdName                                   :: !Text
-    , _rdWorkflowExecutionRetentionPeriodInDays :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdDescription                            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdName                                   :: {-# NOUNPACK #-}!Text
+  , _rdWorkflowExecutionRetentionPeriodInDays :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterDomain' with the minimum fields required to make a request.
 --
@@ -78,11 +79,13 @@ registerDomain
     -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
     -> RegisterDomain
 registerDomain pName_ pWorkflowExecutionRetentionPeriodInDays_ =
-    RegisterDomain'
-    { _rdDescription = Nothing
-    , _rdName = pName_
-    , _rdWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays_
-    }
+  RegisterDomain'
+  { _rdDescription = Nothing
+  , _rdName = pName_
+  , _rdWorkflowExecutionRetentionPeriodInDays =
+      pWorkflowExecutionRetentionPeriodInDays_
+  }
+
 
 -- | A text description of the domain.
 rdDescription :: Lens' RegisterDomain (Maybe Text)
@@ -101,9 +104,9 @@ instance AWSRequest RegisterDomain where
         request = postJSON swf
         response = receiveNull RegisterDomainResponse'
 
-instance Hashable RegisterDomain
+instance Hashable RegisterDomain where
 
-instance NFData RegisterDomain
+instance NFData RegisterDomain where
 
 instance ToHeaders RegisterDomain where
         toHeaders
@@ -133,8 +136,9 @@ instance ToQuery RegisterDomain where
 
 -- | /See:/ 'registerDomainResponse' smart constructor.
 data RegisterDomainResponse =
-    RegisterDomainResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RegisterDomainResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterDomainResponse' with the minimum fields required to make a request.
 --
@@ -142,4 +146,5 @@ registerDomainResponse
     :: RegisterDomainResponse
 registerDomainResponse = RegisterDomainResponse'
 
-instance NFData RegisterDomainResponse
+
+instance NFData RegisterDomainResponse where

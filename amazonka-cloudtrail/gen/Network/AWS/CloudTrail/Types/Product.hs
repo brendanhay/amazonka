@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudTrail.Types.Product where
 
-import           Network.AWS.CloudTrail.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudTrail.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | The Amazon S3 objects that you specify in your event selectors for your trail to log data events. Data events are object-level API operations that access S3 objects, such as @GetObject@ , @DeleteObject@ , and @PutObject@ . You can specify up to 250 S3 buckets and object prefixes for a trail.
 --
@@ -41,9 +41,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'dataResource' smart constructor.
 data DataResource = DataResource'
-    { _drValues :: !(Maybe [Text])
-    , _drType   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drType   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DataResource' with the minimum fields required to make a request.
 --
@@ -54,11 +55,8 @@ data DataResource = DataResource'
 -- * 'drType' - The resource type in which you want to log data events. You can specify only the following value: @AWS::S3::Object@ .
 dataResource
     :: DataResource
-dataResource =
-    DataResource'
-    { _drValues = Nothing
-    , _drType = Nothing
-    }
+dataResource = DataResource' {_drValues = Nothing, _drType = Nothing}
+
 
 -- | A list of ARN-like strings for the specified S3 objects. To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket. To log data events for specific objects, specify the S3 bucket and object prefix such as @arn:aws:s3:::bucket-1/example-images@ . The trail logs data events for objects in this S3 bucket that match the prefix.
 drValues :: Lens' DataResource [Text]
@@ -75,9 +73,9 @@ instance FromJSON DataResource where
                  DataResource' <$>
                    (x .:? "Values" .!= mempty) <*> (x .:? "Type"))
 
-instance Hashable DataResource
+instance Hashable DataResource where
 
-instance NFData DataResource
+instance NFData DataResource where
 
 instance ToJSON DataResource where
         toJSON DataResource'{..}
@@ -92,14 +90,15 @@ instance ToJSON DataResource where
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eUsername        :: !(Maybe Text)
-    , _eResources       :: !(Maybe [Resource])
-    , _eEventTime       :: !(Maybe POSIX)
-    , _eCloudTrailEvent :: !(Maybe Text)
-    , _eEventName       :: !(Maybe Text)
-    , _eEventSource     :: !(Maybe Text)
-    , _eEventId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eUsername        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eResources       :: {-# NOUNPACK #-}!(Maybe [Resource])
+  , _eEventTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eCloudTrailEvent :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEventName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEventSource     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEventId         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
@@ -121,15 +120,16 @@ data Event = Event'
 event
     :: Event
 event =
-    Event'
-    { _eUsername = Nothing
-    , _eResources = Nothing
-    , _eEventTime = Nothing
-    , _eCloudTrailEvent = Nothing
-    , _eEventName = Nothing
-    , _eEventSource = Nothing
-    , _eEventId = Nothing
-    }
+  Event'
+  { _eUsername = Nothing
+  , _eResources = Nothing
+  , _eEventTime = Nothing
+  , _eCloudTrailEvent = Nothing
+  , _eEventName = Nothing
+  , _eEventSource = Nothing
+  , _eEventId = Nothing
+  }
+
 
 -- | A user name or role name of the requester that called the API in the event returned.
 eUsername :: Lens' Event (Maybe Text)
@@ -171,9 +171,9 @@ instance FromJSON Event where
                      <*> (x .:? "EventSource")
                      <*> (x .:? "EventId"))
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- | Use event selectors to specify whether you want your trail to log management and/or data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
 --
@@ -183,10 +183,11 @@ instance NFData Event
 --
 -- /See:/ 'eventSelector' smart constructor.
 data EventSelector = EventSelector'
-    { _esDataResources           :: !(Maybe [DataResource])
-    , _esReadWriteType           :: !(Maybe ReadWriteType)
-    , _esIncludeManagementEvents :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esDataResources           :: {-# NOUNPACK #-}!(Maybe [DataResource])
+  , _esReadWriteType           :: {-# NOUNPACK #-}!(Maybe ReadWriteType)
+  , _esIncludeManagementEvents :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventSelector' with the minimum fields required to make a request.
 --
@@ -200,11 +201,12 @@ data EventSelector = EventSelector'
 eventSelector
     :: EventSelector
 eventSelector =
-    EventSelector'
-    { _esDataResources = Nothing
-    , _esReadWriteType = Nothing
-    , _esIncludeManagementEvents = Nothing
-    }
+  EventSelector'
+  { _esDataResources = Nothing
+  , _esReadWriteType = Nothing
+  , _esIncludeManagementEvents = Nothing
+  }
+
 
 -- | CloudTrail supports logging only data events for S3 objects. You can specify up to 250 S3 buckets and object prefixes for a trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events> in the /AWS CloudTrail User Guide/ .
 esDataResources :: Lens' EventSelector [DataResource]
@@ -227,9 +229,9 @@ instance FromJSON EventSelector where
                      (x .:? "ReadWriteType")
                      <*> (x .:? "IncludeManagementEvents"))
 
-instance Hashable EventSelector
+instance Hashable EventSelector where
 
-instance NFData EventSelector
+instance NFData EventSelector where
 
 instance ToJSON EventSelector where
         toJSON EventSelector'{..}
@@ -246,9 +248,10 @@ instance ToJSON EventSelector where
 --
 -- /See:/ 'lookupAttribute' smart constructor.
 data LookupAttribute = LookupAttribute'
-    { _laAttributeKey   :: !LookupAttributeKey
-    , _laAttributeValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laAttributeKey   :: {-# NOUNPACK #-}!LookupAttributeKey
+  , _laAttributeValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LookupAttribute' with the minimum fields required to make a request.
 --
@@ -262,10 +265,9 @@ lookupAttribute
     -> Text -- ^ 'laAttributeValue'
     -> LookupAttribute
 lookupAttribute pAttributeKey_ pAttributeValue_ =
-    LookupAttribute'
-    { _laAttributeKey = pAttributeKey_
-    , _laAttributeValue = pAttributeValue_
-    }
+  LookupAttribute'
+  {_laAttributeKey = pAttributeKey_, _laAttributeValue = pAttributeValue_}
+
 
 -- | Specifies an attribute on which to filter the events returned.
 laAttributeKey :: Lens' LookupAttribute LookupAttributeKey
@@ -275,9 +277,9 @@ laAttributeKey = lens _laAttributeKey (\ s a -> s{_laAttributeKey = a});
 laAttributeValue :: Lens' LookupAttribute Text
 laAttributeValue = lens _laAttributeValue (\ s a -> s{_laAttributeValue = a});
 
-instance Hashable LookupAttribute
+instance Hashable LookupAttribute where
 
-instance NFData LookupAttribute
+instance NFData LookupAttribute where
 
 instance ToJSON LookupAttribute where
         toJSON LookupAttribute'{..}
@@ -292,11 +294,12 @@ instance ToJSON LookupAttribute where
 --
 -- /See:/ 'publicKey' smart constructor.
 data PublicKey = PublicKey'
-    { _pkFingerprint       :: !(Maybe Text)
-    , _pkValidityEndTime   :: !(Maybe POSIX)
-    , _pkValue             :: !(Maybe Base64)
-    , _pkValidityStartTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pkFingerprint       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pkValidityEndTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pkValue             :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _pkValidityStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PublicKey' with the minimum fields required to make a request.
 --
@@ -312,12 +315,13 @@ data PublicKey = PublicKey'
 publicKey
     :: PublicKey
 publicKey =
-    PublicKey'
-    { _pkFingerprint = Nothing
-    , _pkValidityEndTime = Nothing
-    , _pkValue = Nothing
-    , _pkValidityStartTime = Nothing
-    }
+  PublicKey'
+  { _pkFingerprint = Nothing
+  , _pkValidityEndTime = Nothing
+  , _pkValue = Nothing
+  , _pkValidityStartTime = Nothing
+  }
+
 
 -- | The fingerprint of the public key.
 pkFingerprint :: Lens' PublicKey (Maybe Text)
@@ -344,9 +348,9 @@ instance FromJSON PublicKey where
                      <*> (x .:? "Value")
                      <*> (x .:? "ValidityStartTime"))
 
-instance Hashable PublicKey
+instance Hashable PublicKey where
 
-instance NFData PublicKey
+instance NFData PublicKey where
 
 -- | Specifies the type and name of a resource referenced by an event.
 --
@@ -354,9 +358,10 @@ instance NFData PublicKey
 --
 -- /See:/ 'resource' smart constructor.
 data Resource = Resource'
-    { _rResourceType :: !(Maybe Text)
-    , _rResourceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rResourceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rResourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
@@ -367,11 +372,8 @@ data Resource = Resource'
 -- * 'rResourceName' - The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
 resource
     :: Resource
-resource =
-    Resource'
-    { _rResourceType = Nothing
-    , _rResourceName = Nothing
-    }
+resource = Resource' {_rResourceType = Nothing, _rResourceName = Nothing}
+
 
 -- | The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup> .
 rResourceType :: Lens' Resource (Maybe Text)
@@ -388,9 +390,9 @@ instance FromJSON Resource where
                  Resource' <$>
                    (x .:? "ResourceType") <*> (x .:? "ResourceName"))
 
-instance Hashable Resource
+instance Hashable Resource where
 
-instance NFData Resource
+instance NFData Resource where
 
 -- | A resource tag.
 --
@@ -398,9 +400,10 @@ instance NFData Resource
 --
 -- /See:/ 'resourceTag' smart constructor.
 data ResourceTag = ResourceTag'
-    { _rResourceId :: !(Maybe Text)
-    , _rTagsList   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rResourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rTagsList   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
 --
@@ -411,11 +414,8 @@ data ResourceTag = ResourceTag'
 -- * 'rTagsList' - A list of tags.
 resourceTag
     :: ResourceTag
-resourceTag =
-    ResourceTag'
-    { _rResourceId = Nothing
-    , _rTagsList = Nothing
-    }
+resourceTag = ResourceTag' {_rResourceId = Nothing, _rTagsList = Nothing}
+
 
 -- | Specifies the ARN of the resource.
 rResourceId :: Lens' ResourceTag (Maybe Text)
@@ -433,9 +433,9 @@ instance FromJSON ResourceTag where
                    (x .:? "ResourceId") <*>
                      (x .:? "TagsList" .!= mempty))
 
-instance Hashable ResourceTag
+instance Hashable ResourceTag where
 
-instance NFData ResourceTag
+instance NFData ResourceTag where
 
 -- | A custom key-value pair associated with a resource such as a CloudTrail trail.
 --
@@ -443,9 +443,10 @@ instance NFData ResourceTag
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -457,11 +458,8 @@ data Tag = Tag'
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
-tag pKey_ =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = pKey_
-    }
+tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
+
 
 -- | The value in a key-value pair of a tag. The value must be no longer than 256 Unicode characters.
 tagValue :: Lens' Tag (Maybe Text)
@@ -476,9 +474,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -493,21 +491,22 @@ instance ToJSON Tag where
 --
 -- /See:/ 'trail' smart constructor.
 data Trail = Trail'
-    { _tLogFileValidationEnabled   :: !(Maybe Bool)
-    , _tTrailARN                   :: !(Maybe Text)
-    , _tS3KeyPrefix                :: !(Maybe Text)
-    , _tSNSTopicARN                :: !(Maybe Text)
-    , _tSNSTopicName               :: !(Maybe Text)
-    , _tCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _tKMSKeyId                   :: !(Maybe Text)
-    , _tHomeRegion                 :: !(Maybe Text)
-    , _tName                       :: !(Maybe Text)
-    , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _tHasCustomEventSelectors    :: !(Maybe Bool)
-    , _tCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _tS3BucketName               :: !(Maybe Text)
-    , _tIsMultiRegionTrail         :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tLogFileValidationEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tTrailARN                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tSNSTopicARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tSNSTopicName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tCloudWatchLogsLogGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tHomeRegion                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tName                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tIncludeGlobalServiceEvents :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tHasCustomEventSelectors    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tCloudWatchLogsRoleARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tS3BucketName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tIsMultiRegionTrail         :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Trail' with the minimum fields required to make a request.
 --
@@ -543,22 +542,23 @@ data Trail = Trail'
 trail
     :: Trail
 trail =
-    Trail'
-    { _tLogFileValidationEnabled = Nothing
-    , _tTrailARN = Nothing
-    , _tS3KeyPrefix = Nothing
-    , _tSNSTopicARN = Nothing
-    , _tSNSTopicName = Nothing
-    , _tCloudWatchLogsLogGroupARN = Nothing
-    , _tKMSKeyId = Nothing
-    , _tHomeRegion = Nothing
-    , _tName = Nothing
-    , _tIncludeGlobalServiceEvents = Nothing
-    , _tHasCustomEventSelectors = Nothing
-    , _tCloudWatchLogsRoleARN = Nothing
-    , _tS3BucketName = Nothing
-    , _tIsMultiRegionTrail = Nothing
-    }
+  Trail'
+  { _tLogFileValidationEnabled = Nothing
+  , _tTrailARN = Nothing
+  , _tS3KeyPrefix = Nothing
+  , _tSNSTopicARN = Nothing
+  , _tSNSTopicName = Nothing
+  , _tCloudWatchLogsLogGroupARN = Nothing
+  , _tKMSKeyId = Nothing
+  , _tHomeRegion = Nothing
+  , _tName = Nothing
+  , _tIncludeGlobalServiceEvents = Nothing
+  , _tHasCustomEventSelectors = Nothing
+  , _tCloudWatchLogsRoleARN = Nothing
+  , _tS3BucketName = Nothing
+  , _tIsMultiRegionTrail = Nothing
+  }
+
 
 -- | Specifies whether log file validation is enabled.
 tLogFileValidationEnabled :: Lens' Trail (Maybe Bool)
@@ -636,6 +636,6 @@ instance FromJSON Trail where
                      <*> (x .:? "S3BucketName")
                      <*> (x .:? "IsMultiRegionTrail"))
 
-instance Hashable Trail
+instance Hashable Trail where
 
-instance NFData Trail
+instance NFData Trail where

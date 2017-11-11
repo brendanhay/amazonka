@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNatGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DeleteNatGateway
     , dngnrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteNatGateway.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteNatGateway' smart constructor.
 newtype DeleteNatGateway = DeleteNatGateway'
-    { _dngNatGatewayId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dngNatGatewayId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNatGateway' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ deleteNatGateway
     :: Text -- ^ 'dngNatGatewayId'
     -> DeleteNatGateway
 deleteNatGateway pNatGatewayId_ =
-    DeleteNatGateway'
-    { _dngNatGatewayId = pNatGatewayId_
-    }
+  DeleteNatGateway' {_dngNatGatewayId = pNatGatewayId_}
+
 
 -- | The ID of the NAT gateway.
 dngNatGatewayId :: Lens' DeleteNatGateway Text
@@ -79,9 +79,9 @@ instance AWSRequest DeleteNatGateway where
                  DeleteNatGatewayResponse' <$>
                    (x .@? "natGatewayId") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteNatGateway
+instance Hashable DeleteNatGateway where
 
-instance NFData DeleteNatGateway
+instance NFData DeleteNatGateway where
 
 instance ToHeaders DeleteNatGateway where
         toHeaders = const mempty
@@ -102,9 +102,10 @@ instance ToQuery DeleteNatGateway where
 --
 -- /See:/ 'deleteNatGatewayResponse' smart constructor.
 data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
-    { _dngnrsNatGatewayId   :: !(Maybe Text)
-    , _dngnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dngnrsNatGatewayId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dngnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNatGatewayResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ deleteNatGatewayResponse
     :: Int -- ^ 'dngnrsResponseStatus'
     -> DeleteNatGatewayResponse
 deleteNatGatewayResponse pResponseStatus_ =
-    DeleteNatGatewayResponse'
-    { _dngnrsNatGatewayId = Nothing
-    , _dngnrsResponseStatus = pResponseStatus_
-    }
+  DeleteNatGatewayResponse'
+  {_dngnrsNatGatewayId = Nothing, _dngnrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the NAT gateway.
 dngnrsNatGatewayId :: Lens' DeleteNatGatewayResponse (Maybe Text)
@@ -130,4 +130,4 @@ dngnrsNatGatewayId = lens _dngnrsNatGatewayId (\ s a -> s{_dngnrsNatGatewayId = 
 dngnrsResponseStatus :: Lens' DeleteNatGatewayResponse Int
 dngnrsResponseStatus = lens _dngnrsResponseStatus (\ s a -> s{_dngnrsResponseStatus = a});
 
-instance NFData DeleteNatGatewayResponse
+instance NFData DeleteNatGatewayResponse where

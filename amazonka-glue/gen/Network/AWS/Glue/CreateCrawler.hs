@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateCrawler
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,25 +44,26 @@ module Network.AWS.Glue.CreateCrawler
     , crersResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createCrawler' smart constructor.
 data CreateCrawler = CreateCrawler'
-    { _ccSchemaChangePolicy :: !(Maybe SchemaChangePolicy)
-    , _ccSchedule           :: !(Maybe Text)
-    , _ccClassifiers        :: !(Maybe [Text])
-    , _ccTablePrefix        :: !(Maybe Text)
-    , _ccDescription        :: !(Maybe Text)
-    , _ccName               :: !Text
-    , _ccRole               :: !Text
-    , _ccDatabaseName       :: !Text
-    , _ccTargets            :: !CrawlerTargets
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccSchemaChangePolicy :: {-# NOUNPACK #-}!(Maybe SchemaChangePolicy)
+  , _ccSchedule           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccClassifiers        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccTablePrefix        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccName               :: {-# NOUNPACK #-}!Text
+  , _ccRole               :: {-# NOUNPACK #-}!Text
+  , _ccDatabaseName       :: {-# NOUNPACK #-}!Text
+  , _ccTargets            :: {-# NOUNPACK #-}!CrawlerTargets
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCrawler' with the minimum fields required to make a request.
 --
@@ -92,17 +93,18 @@ createCrawler
     -> CrawlerTargets -- ^ 'ccTargets'
     -> CreateCrawler
 createCrawler pName_ pRole_ pDatabaseName_ pTargets_ =
-    CreateCrawler'
-    { _ccSchemaChangePolicy = Nothing
-    , _ccSchedule = Nothing
-    , _ccClassifiers = Nothing
-    , _ccTablePrefix = Nothing
-    , _ccDescription = Nothing
-    , _ccName = pName_
-    , _ccRole = pRole_
-    , _ccDatabaseName = pDatabaseName_
-    , _ccTargets = pTargets_
-    }
+  CreateCrawler'
+  { _ccSchemaChangePolicy = Nothing
+  , _ccSchedule = Nothing
+  , _ccClassifiers = Nothing
+  , _ccTablePrefix = Nothing
+  , _ccDescription = Nothing
+  , _ccName = pName_
+  , _ccRole = pRole_
+  , _ccDatabaseName = pDatabaseName_
+  , _ccTargets = pTargets_
+  }
+
 
 -- | Policy for the crawler's update and deletion behavior.
 ccSchemaChangePolicy :: Lens' CreateCrawler (Maybe SchemaChangePolicy)
@@ -148,9 +150,9 @@ instance AWSRequest CreateCrawler where
               (\ s h x ->
                  CreateCrawlerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateCrawler
+instance Hashable CreateCrawler where
 
-instance NFData CreateCrawler
+instance NFData CreateCrawler where
 
 instance ToHeaders CreateCrawler where
         toHeaders
@@ -182,8 +184,9 @@ instance ToQuery CreateCrawler where
 
 -- | /See:/ 'createCrawlerResponse' smart constructor.
 newtype CreateCrawlerResponse = CreateCrawlerResponse'
-    { _crersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCrawlerResponse' with the minimum fields required to make a request.
 --
@@ -194,12 +197,11 @@ createCrawlerResponse
     :: Int -- ^ 'crersResponseStatus'
     -> CreateCrawlerResponse
 createCrawlerResponse pResponseStatus_ =
-    CreateCrawlerResponse'
-    { _crersResponseStatus = pResponseStatus_
-    }
+  CreateCrawlerResponse' {_crersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 crersResponseStatus :: Lens' CreateCrawlerResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
 
-instance NFData CreateCrawlerResponse
+instance NFData CreateCrawlerResponse where

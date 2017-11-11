@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DeleteProduct
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.ServiceCatalog.DeleteProduct
     , delersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'deleteProduct' smart constructor.
 data DeleteProduct = DeleteProduct'
-    { _delAcceptLanguage :: !(Maybe Text)
-    , _delId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _delId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProduct' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ deleteProduct
     :: Text -- ^ 'delId'
     -> DeleteProduct
 deleteProduct pId_ =
-    DeleteProduct'
-    { _delAcceptLanguage = Nothing
-    , _delId = pId_
-    }
+  DeleteProduct' {_delAcceptLanguage = Nothing, _delId = pId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 delAcceptLanguage :: Lens' DeleteProduct (Maybe Text)
@@ -82,9 +81,9 @@ instance AWSRequest DeleteProduct where
               (\ s h x ->
                  DeleteProductResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteProduct
+instance Hashable DeleteProduct where
 
-instance NFData DeleteProduct
+instance NFData DeleteProduct where
 
 instance ToHeaders DeleteProduct where
         toHeaders
@@ -111,8 +110,9 @@ instance ToQuery DeleteProduct where
 
 -- | /See:/ 'deleteProductResponse' smart constructor.
 newtype DeleteProductResponse = DeleteProductResponse'
-    { _delersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProductResponse' with the minimum fields required to make a request.
 --
@@ -123,12 +123,11 @@ deleteProductResponse
     :: Int -- ^ 'delersResponseStatus'
     -> DeleteProductResponse
 deleteProductResponse pResponseStatus_ =
-    DeleteProductResponse'
-    { _delersResponseStatus = pResponseStatus_
-    }
+  DeleteProductResponse' {_delersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 delersResponseStatus :: Lens' DeleteProductResponse Int
 delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseStatus = a});
 
-instance NFData DeleteProductResponse
+instance NFData DeleteProductResponse where

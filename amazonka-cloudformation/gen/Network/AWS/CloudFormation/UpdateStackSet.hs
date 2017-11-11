@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.UpdateStackSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,26 +48,27 @@ module Network.AWS.CloudFormation.UpdateStackSet
     , ussrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateStackSet' smart constructor.
 data UpdateStackSet = UpdateStackSet'
-    { _ussUsePreviousTemplate  :: !(Maybe Bool)
-    , _ussParameters           :: !(Maybe [Parameter])
-    , _ussOperationPreferences :: !(Maybe StackSetOperationPreferences)
-    , _ussOperationId          :: !(Maybe Text)
-    , _ussTemplateBody         :: !(Maybe Text)
-    , _ussTemplateURL          :: !(Maybe Text)
-    , _ussDescription          :: !(Maybe Text)
-    , _ussCapabilities         :: !(Maybe [Capability])
-    , _ussTags                 :: !(Maybe [Tag])
-    , _ussStackSetName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ussUsePreviousTemplate :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ussParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _ussOperationPreferences :: {-# NOUNPACK #-}!(Maybe StackSetOperationPreferences)
+  , _ussOperationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ussTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ussTemplateURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ussDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ussCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _ussTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ussStackSetName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStackSet' with the minimum fields required to make a request.
 --
@@ -96,18 +97,19 @@ updateStackSet
     :: Text -- ^ 'ussStackSetName'
     -> UpdateStackSet
 updateStackSet pStackSetName_ =
-    UpdateStackSet'
-    { _ussUsePreviousTemplate = Nothing
-    , _ussParameters = Nothing
-    , _ussOperationPreferences = Nothing
-    , _ussOperationId = Nothing
-    , _ussTemplateBody = Nothing
-    , _ussTemplateURL = Nothing
-    , _ussDescription = Nothing
-    , _ussCapabilities = Nothing
-    , _ussTags = Nothing
-    , _ussStackSetName = pStackSetName_
-    }
+  UpdateStackSet'
+  { _ussUsePreviousTemplate = Nothing
+  , _ussParameters = Nothing
+  , _ussOperationPreferences = Nothing
+  , _ussOperationId = Nothing
+  , _ussTemplateBody = Nothing
+  , _ussTemplateURL = Nothing
+  , _ussDescription = Nothing
+  , _ussCapabilities = Nothing
+  , _ussTags = Nothing
+  , _ussStackSetName = pStackSetName_
+  }
+
 
 -- | Use the existing template that's associated with the stack set that you're updating. Conditional: You must specify only one of the following parameters: @TemplateBody@ or @TemplateURL@ —or set @UsePreviousTemplate@ to true.
 ussUsePreviousTemplate :: Lens' UpdateStackSet (Maybe Bool)
@@ -158,9 +160,9 @@ instance AWSRequest UpdateStackSet where
                  UpdateStackSetResponse' <$>
                    (x .@? "OperationId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateStackSet
+instance Hashable UpdateStackSet where
 
-instance NFData UpdateStackSet
+instance NFData UpdateStackSet where
 
 instance ToHeaders UpdateStackSet where
         toHeaders = const mempty
@@ -189,9 +191,10 @@ instance ToQuery UpdateStackSet where
 
 -- | /See:/ 'updateStackSetResponse' smart constructor.
 data UpdateStackSetResponse = UpdateStackSetResponse'
-    { _ussrsOperationId    :: !(Maybe Text)
-    , _ussrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ussrsOperationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ussrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateStackSetResponse' with the minimum fields required to make a request.
 --
@@ -204,10 +207,9 @@ updateStackSetResponse
     :: Int -- ^ 'ussrsResponseStatus'
     -> UpdateStackSetResponse
 updateStackSetResponse pResponseStatus_ =
-    UpdateStackSetResponse'
-    { _ussrsOperationId = Nothing
-    , _ussrsResponseStatus = pResponseStatus_
-    }
+  UpdateStackSetResponse'
+  {_ussrsOperationId = Nothing, _ussrsResponseStatus = pResponseStatus_}
+
 
 -- | The unique ID for this stack set operation.
 ussrsOperationId :: Lens' UpdateStackSetResponse (Maybe Text)
@@ -217,4 +219,4 @@ ussrsOperationId = lens _ussrsOperationId (\ s a -> s{_ussrsOperationId = a});
 ussrsResponseStatus :: Lens' UpdateStackSetResponse Int
 ussrsResponseStatus = lens _ussrsResponseStatus (\ s a -> s{_ussrsResponseStatus = a});
 
-instance NFData UpdateStackSetResponse
+instance NFData UpdateStackSetResponse where

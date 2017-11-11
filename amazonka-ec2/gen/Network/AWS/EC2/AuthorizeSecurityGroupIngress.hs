@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AuthorizeSecurityGroupIngress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     , AuthorizeSecurityGroupIngressResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AuthorizeSecurityGroupIngress.
 --
@@ -62,17 +62,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'authorizeSecurityGroupIngress' smart constructor.
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
-    { _asgiFromPort                   :: !(Maybe Int)
-    , _asgiIPPermissions              :: !(Maybe [IPPermission])
-    , _asgiIPProtocol                 :: !(Maybe Text)
-    , _asgiGroupId                    :: !(Maybe Text)
-    , _asgiToPort                     :: !(Maybe Int)
-    , _asgiCidrIP                     :: !(Maybe Text)
-    , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _asgiGroupName                  :: !(Maybe Text)
-    , _asgiSourceSecurityGroupName    :: !(Maybe Text)
-    , _asgiDryRun                     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asgiFromPort                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _asgiIPPermissions              :: {-# NOUNPACK #-}!(Maybe [IPPermission])
+  , _asgiIPProtocol                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgiGroupId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgiToPort                     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _asgiCidrIP                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgiSourceSecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgiGroupName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgiSourceSecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgiDryRun                     :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeSecurityGroupIngress' with the minimum fields required to make a request.
 --
@@ -100,18 +101,19 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 authorizeSecurityGroupIngress
     :: AuthorizeSecurityGroupIngress
 authorizeSecurityGroupIngress =
-    AuthorizeSecurityGroupIngress'
-    { _asgiFromPort = Nothing
-    , _asgiIPPermissions = Nothing
-    , _asgiIPProtocol = Nothing
-    , _asgiGroupId = Nothing
-    , _asgiToPort = Nothing
-    , _asgiCidrIP = Nothing
-    , _asgiSourceSecurityGroupOwnerId = Nothing
-    , _asgiGroupName = Nothing
-    , _asgiSourceSecurityGroupName = Nothing
-    , _asgiDryRun = Nothing
-    }
+  AuthorizeSecurityGroupIngress'
+  { _asgiFromPort = Nothing
+  , _asgiIPPermissions = Nothing
+  , _asgiIPProtocol = Nothing
+  , _asgiGroupId = Nothing
+  , _asgiToPort = Nothing
+  , _asgiCidrIP = Nothing
+  , _asgiSourceSecurityGroupOwnerId = Nothing
+  , _asgiGroupName = Nothing
+  , _asgiSourceSecurityGroupName = Nothing
+  , _asgiDryRun = Nothing
+  }
+
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. For the ICMP/ICMPv6 type number, use @-1@ to specify all types.
 asgiFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
@@ -161,9 +163,9 @@ instance AWSRequest AuthorizeSecurityGroupIngress
         response
           = receiveNull AuthorizeSecurityGroupIngressResponse'
 
-instance Hashable AuthorizeSecurityGroupIngress
+instance Hashable AuthorizeSecurityGroupIngress where
 
-instance NFData AuthorizeSecurityGroupIngress
+instance NFData AuthorizeSecurityGroupIngress where
 
 instance ToHeaders AuthorizeSecurityGroupIngress
          where
@@ -193,8 +195,9 @@ instance ToQuery AuthorizeSecurityGroupIngress where
 
 -- | /See:/ 'authorizeSecurityGroupIngressResponse' smart constructor.
 data AuthorizeSecurityGroupIngressResponse =
-    AuthorizeSecurityGroupIngressResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AuthorizeSecurityGroupIngressResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AuthorizeSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
@@ -202,4 +205,6 @@ authorizeSecurityGroupIngressResponse
     :: AuthorizeSecurityGroupIngressResponse
 authorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse'
 
+
 instance NFData AuthorizeSecurityGroupIngressResponse
+         where

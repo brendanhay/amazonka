@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateHIT
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,32 +58,33 @@ module Network.AWS.MechanicalTurk.CreateHIT
     , chitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createHIT' smart constructor.
 data CreateHIT = CreateHIT'
-    { _chitHITReviewPolicy             :: !(Maybe ReviewPolicy)
-    , _chitUniqueRequestToken          :: !(Maybe Text)
-    , _chitAutoApprovalDelayInSeconds  :: !(Maybe Integer)
-    , _chitRequesterAnnotation         :: !(Maybe Text)
-    , _chitMaxAssignments              :: !(Maybe Int)
-    , _chitKeywords                    :: !(Maybe Text)
-    , _chitHITLayoutId                 :: !(Maybe Text)
-    , _chitHITLayoutParameters         :: !(Maybe [HITLayoutParameter])
-    , _chitQualificationRequirements   :: !(Maybe [QualificationRequirement])
-    , _chitQuestion                    :: !(Maybe Text)
-    , _chitAssignmentReviewPolicy      :: !(Maybe ReviewPolicy)
-    , _chitLifetimeInSeconds           :: !Integer
-    , _chitAssignmentDurationInSeconds :: !Integer
-    , _chitReward                      :: !Text
-    , _chitTitle                       :: !Text
-    , _chitDescription                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chitHITReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
+  , _chitUniqueRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitAutoApprovalDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _chitRequesterAnnotation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitMaxAssignments :: {-# NOUNPACK #-}!(Maybe Int)
+  , _chitKeywords :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitHITLayoutId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitHITLayoutParameters :: {-# NOUNPACK #-}!(Maybe [HITLayoutParameter])
+  , _chitQualificationRequirements :: {-# NOUNPACK #-}!(Maybe [QualificationRequirement])
+  , _chitQuestion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitAssignmentReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
+  , _chitLifetimeInSeconds :: {-# NOUNPACK #-}!Integer
+  , _chitAssignmentDurationInSeconds :: {-# NOUNPACK #-}!Integer
+  , _chitReward :: {-# NOUNPACK #-}!Text
+  , _chitTitle :: {-# NOUNPACK #-}!Text
+  , _chitDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHIT' with the minimum fields required to make a request.
 --
@@ -128,24 +129,25 @@ createHIT
     -> Text -- ^ 'chitDescription'
     -> CreateHIT
 createHIT pLifetimeInSeconds_ pAssignmentDurationInSeconds_ pReward_ pTitle_ pDescription_ =
-    CreateHIT'
-    { _chitHITReviewPolicy = Nothing
-    , _chitUniqueRequestToken = Nothing
-    , _chitAutoApprovalDelayInSeconds = Nothing
-    , _chitRequesterAnnotation = Nothing
-    , _chitMaxAssignments = Nothing
-    , _chitKeywords = Nothing
-    , _chitHITLayoutId = Nothing
-    , _chitHITLayoutParameters = Nothing
-    , _chitQualificationRequirements = Nothing
-    , _chitQuestion = Nothing
-    , _chitAssignmentReviewPolicy = Nothing
-    , _chitLifetimeInSeconds = pLifetimeInSeconds_
-    , _chitAssignmentDurationInSeconds = pAssignmentDurationInSeconds_
-    , _chitReward = pReward_
-    , _chitTitle = pTitle_
-    , _chitDescription = pDescription_
-    }
+  CreateHIT'
+  { _chitHITReviewPolicy = Nothing
+  , _chitUniqueRequestToken = Nothing
+  , _chitAutoApprovalDelayInSeconds = Nothing
+  , _chitRequesterAnnotation = Nothing
+  , _chitMaxAssignments = Nothing
+  , _chitKeywords = Nothing
+  , _chitHITLayoutId = Nothing
+  , _chitHITLayoutParameters = Nothing
+  , _chitQualificationRequirements = Nothing
+  , _chitQuestion = Nothing
+  , _chitAssignmentReviewPolicy = Nothing
+  , _chitLifetimeInSeconds = pLifetimeInSeconds_
+  , _chitAssignmentDurationInSeconds = pAssignmentDurationInSeconds_
+  , _chitReward = pReward_
+  , _chitTitle = pTitle_
+  , _chitDescription = pDescription_
+  }
+
 
 -- | The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
 chitHITReviewPolicy :: Lens' CreateHIT (Maybe ReviewPolicy)
@@ -220,9 +222,9 @@ instance AWSRequest CreateHIT where
                  CreateHITResponse' <$>
                    (x .?> "HIT") <*> (pure (fromEnum s)))
 
-instance Hashable CreateHIT
+instance Hashable CreateHIT where
 
-instance NFData CreateHIT
+instance NFData CreateHIT where
 
 instance ToHeaders CreateHIT where
         toHeaders
@@ -271,9 +273,10 @@ instance ToQuery CreateHIT where
 
 -- | /See:/ 'createHITResponse' smart constructor.
 data CreateHITResponse = CreateHITResponse'
-    { _chitrsHIT            :: !(Maybe HIT)
-    , _chitrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chitrsHIT            :: {-# NOUNPACK #-}!(Maybe HIT)
+  , _chitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHITResponse' with the minimum fields required to make a request.
 --
@@ -286,10 +289,9 @@ createHITResponse
     :: Int -- ^ 'chitrsResponseStatus'
     -> CreateHITResponse
 createHITResponse pResponseStatus_ =
-    CreateHITResponse'
-    { _chitrsHIT = Nothing
-    , _chitrsResponseStatus = pResponseStatus_
-    }
+  CreateHITResponse'
+  {_chitrsHIT = Nothing, _chitrsResponseStatus = pResponseStatus_}
+
 
 -- | Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation.
 chitrsHIT :: Lens' CreateHITResponse (Maybe HIT)
@@ -299,4 +301,4 @@ chitrsHIT = lens _chitrsHIT (\ s a -> s{_chitrsHIT = a});
 chitrsResponseStatus :: Lens' CreateHITResponse Int
 chitrsResponseStatus = lens _chitrsResponseStatus (\ s a -> s{_chitrsResponseStatus = a});
 
-instance NFData CreateHITResponse
+instance NFData CreateHITResponse where

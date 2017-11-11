@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListCommands
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,22 +44,23 @@ module Network.AWS.SSM.ListCommands
     , lcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listCommands' smart constructor.
 data ListCommands = ListCommands'
-    { _lcInstanceId :: !(Maybe Text)
-    , _lcFilters    :: !(Maybe (List1 CommandFilter))
-    , _lcNextToken  :: !(Maybe Text)
-    , _lcCommandId  :: !(Maybe Text)
-    , _lcMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcFilters    :: {-# NOUNPACK #-}!(Maybe (List1 CommandFilter))
+  , _lcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcCommandId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCommands' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ data ListCommands = ListCommands'
 listCommands
     :: ListCommands
 listCommands =
-    ListCommands'
-    { _lcInstanceId = Nothing
-    , _lcFilters = Nothing
-    , _lcNextToken = Nothing
-    , _lcCommandId = Nothing
-    , _lcMaxResults = Nothing
-    }
+  ListCommands'
+  { _lcInstanceId = Nothing
+  , _lcFilters = Nothing
+  , _lcNextToken = Nothing
+  , _lcCommandId = Nothing
+  , _lcMaxResults = Nothing
+  }
+
 
 -- | (Optional) Lists commands issued against this instance ID.
 lcInstanceId :: Lens' ListCommands (Maybe Text)
@@ -122,9 +124,9 @@ instance AWSRequest ListCommands where
                    (x .?> "Commands" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCommands
+instance Hashable ListCommands where
 
-instance NFData ListCommands
+instance NFData ListCommands where
 
 instance ToHeaders ListCommands where
         toHeaders
@@ -153,10 +155,11 @@ instance ToQuery ListCommands where
 
 -- | /See:/ 'listCommandsResponse' smart constructor.
 data ListCommandsResponse = ListCommandsResponse'
-    { _lcrsCommands       :: !(Maybe [Command])
-    , _lcrsNextToken      :: !(Maybe Text)
-    , _lcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcrsCommands       :: {-# NOUNPACK #-}!(Maybe [Command])
+  , _lcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCommandsResponse' with the minimum fields required to make a request.
 --
@@ -171,11 +174,12 @@ listCommandsResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCommandsResponse
 listCommandsResponse pResponseStatus_ =
-    ListCommandsResponse'
-    { _lcrsCommands = Nothing
-    , _lcrsNextToken = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
-    }
+  ListCommandsResponse'
+  { _lcrsCommands = Nothing
+  , _lcrsNextToken = Nothing
+  , _lcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | (Optional) The list of commands requested by the user.
 lcrsCommands :: Lens' ListCommandsResponse [Command]
@@ -189,4 +193,4 @@ lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 lcrsResponseStatus :: Lens' ListCommandsResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 
-instance NFData ListCommandsResponse
+instance NFData ListCommandsResponse where

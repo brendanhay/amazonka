@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateSigningCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.IAM.UpdateSigningCertificate
     , UpdateSigningCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSigningCertificate' smart constructor.
 data UpdateSigningCertificate = UpdateSigningCertificate'
-    { _uscUserName      :: !(Maybe Text)
-    , _uscCertificateId :: !Text
-    , _uscStatus        :: !StatusType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uscUserName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uscCertificateId :: {-# NOUNPACK #-}!Text
+  , _uscStatus        :: {-# NOUNPACK #-}!StatusType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSigningCertificate' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ updateSigningCertificate
     -> StatusType -- ^ 'uscStatus'
     -> UpdateSigningCertificate
 updateSigningCertificate pCertificateId_ pStatus_ =
-    UpdateSigningCertificate'
-    { _uscUserName = Nothing
-    , _uscCertificateId = pCertificateId_
-    , _uscStatus = pStatus_
-    }
+  UpdateSigningCertificate'
+  { _uscUserName = Nothing
+  , _uscCertificateId = pCertificateId_
+  , _uscStatus = pStatus_
+  }
+
 
 -- | The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
@@ -91,9 +93,9 @@ instance AWSRequest UpdateSigningCertificate where
         response
           = receiveNull UpdateSigningCertificateResponse'
 
-instance Hashable UpdateSigningCertificate
+instance Hashable UpdateSigningCertificate where
 
-instance NFData UpdateSigningCertificate
+instance NFData UpdateSigningCertificate where
 
 instance ToHeaders UpdateSigningCertificate where
         toHeaders = const mempty
@@ -113,8 +115,9 @@ instance ToQuery UpdateSigningCertificate where
 
 -- | /See:/ 'updateSigningCertificateResponse' smart constructor.
 data UpdateSigningCertificateResponse =
-    UpdateSigningCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateSigningCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSigningCertificateResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +125,6 @@ updateSigningCertificateResponse
     :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse'
 
+
 instance NFData UpdateSigningCertificateResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ResyncMFADevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.IAM.ResyncMFADevice
     , ResyncMFADeviceResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'resyncMFADevice' smart constructor.
 data ResyncMFADevice = ResyncMFADevice'
-    { _rmdUserName            :: !Text
-    , _rmdSerialNumber        :: !Text
-    , _rmdAuthenticationCode1 :: !Text
-    , _rmdAuthenticationCode2 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rmdUserName            :: {-# NOUNPACK #-}!Text
+  , _rmdSerialNumber        :: {-# NOUNPACK #-}!Text
+  , _rmdAuthenticationCode1 :: {-# NOUNPACK #-}!Text
+  , _rmdAuthenticationCode2 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResyncMFADevice' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ resyncMFADevice
     -> Text -- ^ 'rmdAuthenticationCode2'
     -> ResyncMFADevice
 resyncMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
-    ResyncMFADevice'
-    { _rmdUserName = pUserName_
-    , _rmdSerialNumber = pSerialNumber_
-    , _rmdAuthenticationCode1 = pAuthenticationCode1_
-    , _rmdAuthenticationCode2 = pAuthenticationCode2_
-    }
+  ResyncMFADevice'
+  { _rmdUserName = pUserName_
+  , _rmdSerialNumber = pSerialNumber_
+  , _rmdAuthenticationCode1 = pAuthenticationCode1_
+  , _rmdAuthenticationCode2 = pAuthenticationCode2_
+  }
+
 
 -- | The name of the user whose MFA device you want to resynchronize. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rmdUserName :: Lens' ResyncMFADevice Text
@@ -100,9 +102,9 @@ instance AWSRequest ResyncMFADevice where
         request = postQuery iam
         response = receiveNull ResyncMFADeviceResponse'
 
-instance Hashable ResyncMFADevice
+instance Hashable ResyncMFADevice where
 
-instance NFData ResyncMFADevice
+instance NFData ResyncMFADevice where
 
 instance ToHeaders ResyncMFADevice where
         toHeaders = const mempty
@@ -122,8 +124,9 @@ instance ToQuery ResyncMFADevice where
 
 -- | /See:/ 'resyncMFADeviceResponse' smart constructor.
 data ResyncMFADeviceResponse =
-    ResyncMFADeviceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ResyncMFADeviceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResyncMFADeviceResponse' with the minimum fields required to make a request.
 --
@@ -131,4 +134,5 @@ resyncMFADeviceResponse
     :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse'
 
-instance NFData ResyncMFADeviceResponse
+
+instance NFData ResyncMFADeviceResponse where

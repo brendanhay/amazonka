@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBLogFiles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,13 +46,13 @@ module Network.AWS.RDS.DescribeDBLogFiles
     , ddlfrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -60,14 +60,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBLogFiles' smart constructor.
 data DescribeDBLogFiles = DescribeDBLogFiles'
-    { _ddlfFilenameContains     :: !(Maybe Text)
-    , _ddlfFilters              :: !(Maybe [Filter])
-    , _ddlfFileSize             :: !(Maybe Integer)
-    , _ddlfFileLastWritten      :: !(Maybe Integer)
-    , _ddlfMarker               :: !(Maybe Text)
-    , _ddlfMaxRecords           :: !(Maybe Int)
-    , _ddlfDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddlfFilenameContains     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddlfFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddlfFileSize             :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _ddlfFileLastWritten      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _ddlfMarker               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddlfMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ddlfDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBLogFiles' with the minimum fields required to make a request.
 --
@@ -90,15 +91,16 @@ describeDBLogFiles
     :: Text -- ^ 'ddlfDBInstanceIdentifier'
     -> DescribeDBLogFiles
 describeDBLogFiles pDBInstanceIdentifier_ =
-    DescribeDBLogFiles'
-    { _ddlfFilenameContains = Nothing
-    , _ddlfFilters = Nothing
-    , _ddlfFileSize = Nothing
-    , _ddlfFileLastWritten = Nothing
-    , _ddlfMarker = Nothing
-    , _ddlfMaxRecords = Nothing
-    , _ddlfDBInstanceIdentifier = pDBInstanceIdentifier_
-    }
+  DescribeDBLogFiles'
+  { _ddlfFilenameContains = Nothing
+  , _ddlfFilters = Nothing
+  , _ddlfFileSize = Nothing
+  , _ddlfFileLastWritten = Nothing
+  , _ddlfMarker = Nothing
+  , _ddlfMaxRecords = Nothing
+  , _ddlfDBInstanceIdentifier = pDBInstanceIdentifier_
+  }
+
 
 -- | Filters the available log files for log file names that contain the specified string.
 ddlfFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
@@ -148,9 +150,9 @@ instance AWSRequest DescribeDBLogFiles where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBLogFiles
+instance Hashable DescribeDBLogFiles where
 
-instance NFData DescribeDBLogFiles
+instance NFData DescribeDBLogFiles where
 
 instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
@@ -178,10 +180,11 @@ instance ToQuery DescribeDBLogFiles where
 --
 -- /See:/ 'describeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
-    { _ddlfrsDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
-    , _ddlfrsMarker             :: !(Maybe Text)
-    , _ddlfrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddlfrsDescribeDBLogFiles :: {-# NOUNPACK #-}!(Maybe [DescribeDBLogFilesDetails])
+  , _ddlfrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddlfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBLogFilesResponse' with the minimum fields required to make a request.
 --
@@ -196,11 +199,12 @@ describeDBLogFilesResponse
     :: Int -- ^ 'ddlfrsResponseStatus'
     -> DescribeDBLogFilesResponse
 describeDBLogFilesResponse pResponseStatus_ =
-    DescribeDBLogFilesResponse'
-    { _ddlfrsDescribeDBLogFiles = Nothing
-    , _ddlfrsMarker = Nothing
-    , _ddlfrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBLogFilesResponse'
+  { _ddlfrsDescribeDBLogFiles = Nothing
+  , _ddlfrsMarker = Nothing
+  , _ddlfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The DB log files returned.
 ddlfrsDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
@@ -214,4 +218,4 @@ ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a});
 ddlfrsResponseStatus :: Lens' DescribeDBLogFilesResponse Int
 ddlfrsResponseStatus = lens _ddlfrsResponseStatus (\ s a -> s{_ddlfrsResponseStatus = a});
 
-instance NFData DescribeDBLogFilesResponse
+instance NFData DescribeDBLogFilesResponse where

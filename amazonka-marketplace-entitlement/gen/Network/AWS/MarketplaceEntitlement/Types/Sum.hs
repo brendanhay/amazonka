@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceEntitlement.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.MarketplaceEntitlement.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data GetEntitlementFilterName
-    = CustomerIdentifier
-    | Dimension
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CustomerIdentifier
+  | Dimension
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText GetEntitlementFilterName where
     parser = takeLowerText >>= \case

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListObjectAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,22 +43,23 @@ module Network.AWS.CloudDirectory.ListObjectAttributes
     , loarsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
-    { _loaFacetFilter      :: !(Maybe SchemaFacet)
-    , _loaConsistencyLevel :: !(Maybe ConsistencyLevel)
-    , _loaNextToken        :: !(Maybe Text)
-    , _loaMaxResults       :: !(Maybe Nat)
-    , _loaDirectoryARN     :: !Text
-    , _loaObjectReference  :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loaFacetFilter      :: {-# NOUNPACK #-}!(Maybe SchemaFacet)
+  , _loaConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
+  , _loaNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loaMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _loaDirectoryARN     :: {-# NOUNPACK #-}!Text
+  , _loaObjectReference  :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectAttributes' with the minimum fields required to make a request.
 --
@@ -80,14 +81,15 @@ listObjectAttributes
     -> ObjectReference -- ^ 'loaObjectReference'
     -> ListObjectAttributes
 listObjectAttributes pDirectoryARN_ pObjectReference_ =
-    ListObjectAttributes'
-    { _loaFacetFilter = Nothing
-    , _loaConsistencyLevel = Nothing
-    , _loaNextToken = Nothing
-    , _loaMaxResults = Nothing
-    , _loaDirectoryARN = pDirectoryARN_
-    , _loaObjectReference = pObjectReference_
-    }
+  ListObjectAttributes'
+  { _loaFacetFilter = Nothing
+  , _loaConsistencyLevel = Nothing
+  , _loaNextToken = Nothing
+  , _loaMaxResults = Nothing
+  , _loaDirectoryARN = pDirectoryARN_
+  , _loaObjectReference = pObjectReference_
+  }
+
 
 -- | Used to filter the list of object attributes that are associated with a certain facet.
 loaFacetFilter :: Lens' ListObjectAttributes (Maybe SchemaFacet)
@@ -125,9 +127,9 @@ instance AWSRequest ListObjectAttributes where
                      (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListObjectAttributes
+instance Hashable ListObjectAttributes where
 
-instance NFData ListObjectAttributes
+instance NFData ListObjectAttributes where
 
 instance ToHeaders ListObjectAttributes where
         toHeaders ListObjectAttributes'{..}
@@ -154,10 +156,11 @@ instance ToQuery ListObjectAttributes where
 
 -- | /See:/ 'listObjectAttributesResponse' smart constructor.
 data ListObjectAttributesResponse = ListObjectAttributesResponse'
-    { _loarsNextToken      :: !(Maybe Text)
-    , _loarsAttributes     :: !(Maybe [AttributeKeyAndValue])
-    , _loarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loarsAttributes     :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
+  , _loarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListObjectAttributesResponse' with the minimum fields required to make a request.
 --
@@ -172,11 +175,12 @@ listObjectAttributesResponse
     :: Int -- ^ 'loarsResponseStatus'
     -> ListObjectAttributesResponse
 listObjectAttributesResponse pResponseStatus_ =
-    ListObjectAttributesResponse'
-    { _loarsNextToken = Nothing
-    , _loarsAttributes = Nothing
-    , _loarsResponseStatus = pResponseStatus_
-    }
+  ListObjectAttributesResponse'
+  { _loarsNextToken = Nothing
+  , _loarsAttributes = Nothing
+  , _loarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 loarsNextToken :: Lens' ListObjectAttributesResponse (Maybe Text)
@@ -190,4 +194,4 @@ loarsAttributes = lens _loarsAttributes (\ s a -> s{_loarsAttributes = a}) . _De
 loarsResponseStatus :: Lens' ListObjectAttributesResponse Int
 loarsResponseStatus = lens _loarsResponseStatus (\ s a -> s{_loarsResponseStatus = a});
 
-instance NFData ListObjectAttributesResponse
+instance NFData ListObjectAttributesResponse where

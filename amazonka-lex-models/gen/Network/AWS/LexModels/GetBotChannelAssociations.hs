@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBotChannelAssociations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,21 +44,22 @@ module Network.AWS.LexModels.GetBotChannelAssociations
     , gbcasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBotChannelAssociations' smart constructor.
 data GetBotChannelAssociations = GetBotChannelAssociations'
-    { _gbcaNameContains :: !(Maybe Text)
-    , _gbcaNextToken    :: !(Maybe Text)
-    , _gbcaMaxResults   :: !(Maybe Nat)
-    , _gbcaBotName      :: !Text
-    , _gbcaBotAlias     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbcaNameContains :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcaNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcaMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gbcaBotName      :: {-# NOUNPACK #-}!Text
+  , _gbcaBotAlias     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotChannelAssociations' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ getBotChannelAssociations
     -> Text -- ^ 'gbcaBotAlias'
     -> GetBotChannelAssociations
 getBotChannelAssociations pBotName_ pBotAlias_ =
-    GetBotChannelAssociations'
-    { _gbcaNameContains = Nothing
-    , _gbcaNextToken = Nothing
-    , _gbcaMaxResults = Nothing
-    , _gbcaBotName = pBotName_
-    , _gbcaBotAlias = pBotAlias_
-    }
+  GetBotChannelAssociations'
+  { _gbcaNameContains = Nothing
+  , _gbcaNextToken = Nothing
+  , _gbcaMaxResults = Nothing
+  , _gbcaBotName = pBotName_
+  , _gbcaBotAlias = pBotAlias_
+  }
+
 
 -- | Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the @nameContains@ parameter.
 gbcaNameContains :: Lens' GetBotChannelAssociations (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest GetBotChannelAssociations where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBotChannelAssociations
+instance Hashable GetBotChannelAssociations where
 
-instance NFData GetBotChannelAssociations
+instance NFData GetBotChannelAssociations where
 
 instance ToHeaders GetBotChannelAssociations where
         toHeaders
@@ -144,10 +146,11 @@ instance ToQuery GetBotChannelAssociations where
 
 -- | /See:/ 'getBotChannelAssociationsResponse' smart constructor.
 data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
-    { _gbcasrsBotChannelAssociations :: !(Maybe [BotChannelAssociation])
-    , _gbcasrsNextToken              :: !(Maybe Text)
-    , _gbcasrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbcasrsBotChannelAssociations :: {-# NOUNPACK #-}!(Maybe [BotChannelAssociation])
+  , _gbcasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotChannelAssociationsResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ getBotChannelAssociationsResponse
     :: Int -- ^ 'gbcasrsResponseStatus'
     -> GetBotChannelAssociationsResponse
 getBotChannelAssociationsResponse pResponseStatus_ =
-    GetBotChannelAssociationsResponse'
-    { _gbcasrsBotChannelAssociations = Nothing
-    , _gbcasrsNextToken = Nothing
-    , _gbcasrsResponseStatus = pResponseStatus_
-    }
+  GetBotChannelAssociationsResponse'
+  { _gbcasrsBotChannelAssociations = Nothing
+  , _gbcasrsNextToken = Nothing
+  , _gbcasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of objects, one for each association, that provides information about the Amazon Lex bot and its association with the channel.
 gbcasrsBotChannelAssociations :: Lens' GetBotChannelAssociationsResponse [BotChannelAssociation]
@@ -181,3 +185,4 @@ gbcasrsResponseStatus :: Lens' GetBotChannelAssociationsResponse Int
 gbcasrsResponseStatus = lens _gbcasrsResponseStatus (\ s a -> s{_gbcasrsResponseStatus = a});
 
 instance NFData GetBotChannelAssociationsResponse
+         where

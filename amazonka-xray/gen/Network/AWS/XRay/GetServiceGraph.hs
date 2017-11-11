@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.XRay.GetServiceGraph
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.XRay.GetServiceGraph
     , gsgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.XRay.Types
-import           Network.AWS.XRay.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.XRay.Types
+import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'getServiceGraph' smart constructor.
 data GetServiceGraph = GetServiceGraph'
-    { _gsgNextToken :: !(Maybe Text)
-    , _gsgStartTime :: !POSIX
-    , _gsgEndTime   :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsgNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsgStartTime :: {-# NOUNPACK #-}!POSIX
+  , _gsgEndTime   :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetServiceGraph' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ getServiceGraph
     -> UTCTime -- ^ 'gsgEndTime'
     -> GetServiceGraph
 getServiceGraph pStartTime_ pEndTime_ =
-    GetServiceGraph'
-    { _gsgNextToken = Nothing
-    , _gsgStartTime = _Time # pStartTime_
-    , _gsgEndTime = _Time # pEndTime_
-    }
+  GetServiceGraph'
+  { _gsgNextToken = Nothing
+  , _gsgStartTime = _Time # pStartTime_
+  , _gsgEndTime = _Time # pEndTime_
+  }
+
 
 -- | Pagination token. Not used.
 gsgNextToken :: Lens' GetServiceGraph (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest GetServiceGraph where
                      <*> (x .?> "Services" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetServiceGraph
+instance Hashable GetServiceGraph where
 
-instance NFData GetServiceGraph
+instance NFData GetServiceGraph where
 
 instance ToHeaders GetServiceGraph where
         toHeaders = const mempty
@@ -123,12 +125,13 @@ instance ToQuery GetServiceGraph where
 
 -- | /See:/ 'getServiceGraphResponse' smart constructor.
 data GetServiceGraphResponse = GetServiceGraphResponse'
-    { _gsgrsStartTime      :: !(Maybe POSIX)
-    , _gsgrsNextToken      :: !(Maybe Text)
-    , _gsgrsEndTime        :: !(Maybe POSIX)
-    , _gsgrsServices       :: !(Maybe [ServiceInfo])
-    , _gsgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsgrsStartTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gsgrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsgrsEndTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gsgrsServices       :: {-# NOUNPACK #-}!(Maybe [ServiceInfo])
+  , _gsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetServiceGraphResponse' with the minimum fields required to make a request.
 --
@@ -147,13 +150,14 @@ getServiceGraphResponse
     :: Int -- ^ 'gsgrsResponseStatus'
     -> GetServiceGraphResponse
 getServiceGraphResponse pResponseStatus_ =
-    GetServiceGraphResponse'
-    { _gsgrsStartTime = Nothing
-    , _gsgrsNextToken = Nothing
-    , _gsgrsEndTime = Nothing
-    , _gsgrsServices = Nothing
-    , _gsgrsResponseStatus = pResponseStatus_
-    }
+  GetServiceGraphResponse'
+  { _gsgrsStartTime = Nothing
+  , _gsgrsNextToken = Nothing
+  , _gsgrsEndTime = Nothing
+  , _gsgrsServices = Nothing
+  , _gsgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The start of the time frame for which the graph was generated.
 gsgrsStartTime :: Lens' GetServiceGraphResponse (Maybe UTCTime)
@@ -175,4 +179,4 @@ gsgrsServices = lens _gsgrsServices (\ s a -> s{_gsgrsServices = a}) . _Default 
 gsgrsResponseStatus :: Lens' GetServiceGraphResponse Int
 gsgrsResponseStatus = lens _gsgrsResponseStatus (\ s a -> s{_gsgrsResponseStatus = a});
 
-instance NFData GetServiceGraphResponse
+instance NFData GetServiceGraphResponse where

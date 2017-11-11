@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     , usprsScalingParameters
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'UpdateScalingParameters' @ operation. Specifies the name of the domain you want to update and the scaling parameters you want to configure.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateScalingParameters' smart constructor.
 data UpdateScalingParameters = UpdateScalingParameters'
-    { _uspDomainName        :: !Text
-    , _uspScalingParameters :: !ScalingParameters
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uspDomainName        :: {-# NOUNPACK #-}!Text
+  , _uspScalingParameters :: {-# NOUNPACK #-}!ScalingParameters
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateScalingParameters' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ updateScalingParameters
     -> ScalingParameters -- ^ 'uspScalingParameters'
     -> UpdateScalingParameters
 updateScalingParameters pDomainName_ pScalingParameters_ =
-    UpdateScalingParameters'
-    { _uspDomainName = pDomainName_
-    , _uspScalingParameters = pScalingParameters_
-    }
+  UpdateScalingParameters'
+  {_uspDomainName = pDomainName_, _uspScalingParameters = pScalingParameters_}
+
 
 -- | Undocumented member.
 uspDomainName :: Lens' UpdateScalingParameters Text
@@ -90,9 +90,9 @@ instance AWSRequest UpdateScalingParameters where
                  UpdateScalingParametersResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ScalingParameters"))
 
-instance Hashable UpdateScalingParameters
+instance Hashable UpdateScalingParameters where
 
-instance NFData UpdateScalingParameters
+instance NFData UpdateScalingParameters where
 
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty
@@ -115,9 +115,10 @@ instance ToQuery UpdateScalingParameters where
 --
 -- /See:/ 'updateScalingParametersResponse' smart constructor.
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
-    { _usprsResponseStatus    :: !Int
-    , _usprsScalingParameters :: !ScalingParametersStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _usprsScalingParameters :: {-# NOUNPACK #-}!ScalingParametersStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateScalingParametersResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,11 @@ updateScalingParametersResponse
     -> ScalingParametersStatus -- ^ 'usprsScalingParameters'
     -> UpdateScalingParametersResponse
 updateScalingParametersResponse pResponseStatus_ pScalingParameters_ =
-    UpdateScalingParametersResponse'
-    { _usprsResponseStatus = pResponseStatus_
-    , _usprsScalingParameters = pScalingParameters_
-    }
+  UpdateScalingParametersResponse'
+  { _usprsResponseStatus = pResponseStatus_
+  , _usprsScalingParameters = pScalingParameters_
+  }
+
 
 -- | -- | The response status code.
 usprsResponseStatus :: Lens' UpdateScalingParametersResponse Int
@@ -144,4 +146,4 @@ usprsResponseStatus = lens _usprsResponseStatus (\ s a -> s{_usprsResponseStatus
 usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprsScalingParameters = lens _usprsScalingParameters (\ s a -> s{_usprsScalingParameters = a});
 
-instance NFData UpdateScalingParametersResponse
+instance NFData UpdateScalingParametersResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RequestSpotFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EC2.RequestSpotFleet
     , rsfrsSpotFleetRequestId
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for RequestSpotFleet.
 --
@@ -59,9 +59,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'requestSpotFleet' smart constructor.
 data RequestSpotFleet = RequestSpotFleet'
-    { _rsfDryRun                 :: !(Maybe Bool)
-    , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsfDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rsfSpotFleetRequestConfig :: {-# NOUNPACK #-}!SpotFleetRequestConfigData
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestSpotFleet' with the minimum fields required to make a request.
 --
@@ -74,10 +75,9 @@ requestSpotFleet
     :: SpotFleetRequestConfigData -- ^ 'rsfSpotFleetRequestConfig'
     -> RequestSpotFleet
 requestSpotFleet pSpotFleetRequestConfig_ =
-    RequestSpotFleet'
-    { _rsfDryRun = Nothing
-    , _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig_
-    }
+  RequestSpotFleet'
+  {_rsfDryRun = Nothing, _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsfDryRun :: Lens' RequestSpotFleet (Maybe Bool)
@@ -96,9 +96,9 @@ instance AWSRequest RequestSpotFleet where
                  RequestSpotFleetResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "spotFleetRequestId"))
 
-instance Hashable RequestSpotFleet
+instance Hashable RequestSpotFleet where
 
-instance NFData RequestSpotFleet
+instance NFData RequestSpotFleet where
 
 instance ToHeaders RequestSpotFleet where
         toHeaders = const mempty
@@ -121,9 +121,10 @@ instance ToQuery RequestSpotFleet where
 --
 -- /See:/ 'requestSpotFleetResponse' smart constructor.
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-    { _rsfrsResponseStatus     :: !Int
-    , _rsfrsSpotFleetRequestId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsfrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _rsfrsSpotFleetRequestId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RequestSpotFleetResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +138,11 @@ requestSpotFleetResponse
     -> Text -- ^ 'rsfrsSpotFleetRequestId'
     -> RequestSpotFleetResponse
 requestSpotFleetResponse pResponseStatus_ pSpotFleetRequestId_ =
-    RequestSpotFleetResponse'
-    { _rsfrsResponseStatus = pResponseStatus_
-    , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
-    }
+  RequestSpotFleetResponse'
+  { _rsfrsResponseStatus = pResponseStatus_
+  , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
+  }
+
 
 -- | -- | The response status code.
 rsfrsResponseStatus :: Lens' RequestSpotFleetResponse Int
@@ -150,4 +152,4 @@ rsfrsResponseStatus = lens _rsfrsResponseStatus (\ s a -> s{_rsfrsResponseStatus
 rsfrsSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
 rsfrsSpotFleetRequestId = lens _rsfrsSpotFleetRequestId (\ s a -> s{_rsfrsSpotFleetRequestId = a});
 
-instance NFData RequestSpotFleetResponse
+instance NFData RequestSpotFleetResponse where

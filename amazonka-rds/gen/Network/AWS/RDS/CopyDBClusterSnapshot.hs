@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyDBClusterSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -74,12 +74,12 @@ module Network.AWS.RDS.CopyDBClusterSnapshot
     , cdcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -87,13 +87,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'copyDBClusterSnapshot' smart constructor.
 data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
-    { _cdbcsPreSignedURL                      :: !(Maybe Text)
-    , _cdbcsCopyTags                          :: !(Maybe Bool)
-    , _cdbcsKMSKeyId                          :: !(Maybe Text)
-    , _cdbcsTags                              :: !(Maybe [Tag])
-    , _cdbcsSourceDBClusterSnapshotIdentifier :: !Text
-    , _cdbcsTargetDBClusterSnapshotIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdbcsPreSignedURL                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdbcsCopyTags                          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdbcsKMSKeyId                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdbcsTags                              :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdbcsSourceDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  , _cdbcsTargetDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyDBClusterSnapshot' with the minimum fields required to make a request.
 --
@@ -115,14 +116,17 @@ copyDBClusterSnapshot
     -> Text -- ^ 'cdbcsTargetDBClusterSnapshotIdentifier'
     -> CopyDBClusterSnapshot
 copyDBClusterSnapshot pSourceDBClusterSnapshotIdentifier_ pTargetDBClusterSnapshotIdentifier_ =
-    CopyDBClusterSnapshot'
-    { _cdbcsPreSignedURL = Nothing
-    , _cdbcsCopyTags = Nothing
-    , _cdbcsKMSKeyId = Nothing
-    , _cdbcsTags = Nothing
-    , _cdbcsSourceDBClusterSnapshotIdentifier = pSourceDBClusterSnapshotIdentifier_
-    , _cdbcsTargetDBClusterSnapshotIdentifier = pTargetDBClusterSnapshotIdentifier_
-    }
+  CopyDBClusterSnapshot'
+  { _cdbcsPreSignedURL = Nothing
+  , _cdbcsCopyTags = Nothing
+  , _cdbcsKMSKeyId = Nothing
+  , _cdbcsTags = Nothing
+  , _cdbcsSourceDBClusterSnapshotIdentifier =
+      pSourceDBClusterSnapshotIdentifier_
+  , _cdbcsTargetDBClusterSnapshotIdentifier =
+      pTargetDBClusterSnapshotIdentifier_
+  }
+
 
 -- | The URL that contains a Signature Version 4 signed request for the @CopyDBClusterSnapshot@ API action in the AWS Region that contains the source DB cluster snapshot to copy. The @PreSignedUrl@ parameter must be used when copying an encrypted DB cluster snapshot from another AWS Region. The pre-signed URL must be a valid request for the @CopyDBSClusterSnapshot@ API action that can be executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied. The pre-signed URL request must contain the following parameter values:     * @KmsKeyId@ - The KMS key identifier for the key to use to encrypt the copy of the DB cluster snapshot in the destination AWS Region. This is the same identifier for both the @CopyDBClusterSnapshot@ action that is called in the destination AWS Region, and the action contained in the pre-signed URL.     * @DestinationRegion@ - The name of the AWS Region that the DB cluster snapshot will be created in.     * @SourceDBClusterSnapshotIdentifier@ - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB cluster snapshot from the us-west-2 region, then your @SourceDBClusterSnapshotIdentifier@ looks like the following example: @arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115@ . To learn how to generate a Signature Version 4 signed request, see <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)> and <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
 cdbcsPreSignedURL :: Lens' CopyDBClusterSnapshot (Maybe Text)
@@ -158,9 +162,9 @@ instance AWSRequest CopyDBClusterSnapshot where
                  CopyDBClusterSnapshotResponse' <$>
                    (x .@? "DBClusterSnapshot") <*> (pure (fromEnum s)))
 
-instance Hashable CopyDBClusterSnapshot
+instance Hashable CopyDBClusterSnapshot where
 
-instance NFData CopyDBClusterSnapshot
+instance NFData CopyDBClusterSnapshot where
 
 instance ToHeaders CopyDBClusterSnapshot where
         toHeaders = const mempty
@@ -184,9 +188,10 @@ instance ToQuery CopyDBClusterSnapshot where
 
 -- | /See:/ 'copyDBClusterSnapshotResponse' smart constructor.
 data CopyDBClusterSnapshotResponse = CopyDBClusterSnapshotResponse'
-    { _cdcsrsDBClusterSnapshot :: !(Maybe DBClusterSnapshot)
-    , _cdcsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdcsrsDBClusterSnapshot :: {-# NOUNPACK #-}!(Maybe DBClusterSnapshot)
+  , _cdcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyDBClusterSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -199,10 +204,9 @@ copyDBClusterSnapshotResponse
     :: Int -- ^ 'cdcsrsResponseStatus'
     -> CopyDBClusterSnapshotResponse
 copyDBClusterSnapshotResponse pResponseStatus_ =
-    CopyDBClusterSnapshotResponse'
-    { _cdcsrsDBClusterSnapshot = Nothing
-    , _cdcsrsResponseStatus = pResponseStatus_
-    }
+  CopyDBClusterSnapshotResponse'
+  {_cdcsrsDBClusterSnapshot = Nothing, _cdcsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cdcsrsDBClusterSnapshot :: Lens' CopyDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
@@ -212,4 +216,4 @@ cdcsrsDBClusterSnapshot = lens _cdcsrsDBClusterSnapshot (\ s a -> s{_cdcsrsDBClu
 cdcsrsResponseStatus :: Lens' CopyDBClusterSnapshotResponse Int
 cdcsrsResponseStatus = lens _cdcsrsResponseStatus (\ s a -> s{_cdcsrsResponseStatus = a});
 
-instance NFData CopyDBClusterSnapshotResponse
+instance NFData CopyDBClusterSnapshotResponse where

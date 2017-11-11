@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.Search
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,12 +59,12 @@ module Network.AWS.CloudSearchDomains.Search
     , searsResponseStatus
     ) where
 
-import           Network.AWS.CloudSearchDomains.Types
-import           Network.AWS.CloudSearchDomains.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.CloudSearchDomains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @Search@ request.
 --
@@ -72,21 +72,22 @@ import           Network.AWS.Response
 --
 -- /See:/ 'search' smart constructor.
 data Search = Search'
-    { _seaExpr         :: !(Maybe Text)
-    , _seaCursor       :: !(Maybe Text)
-    , _seaReturn       :: !(Maybe Text)
-    , _seaQueryOptions :: !(Maybe Text)
-    , _seaFilterQuery  :: !(Maybe Text)
-    , _seaSize         :: !(Maybe Integer)
-    , _seaQueryParser  :: !(Maybe QueryParser)
-    , _seaStart        :: !(Maybe Integer)
-    , _seaHighlight    :: !(Maybe Text)
-    , _seaStats        :: !(Maybe Text)
-    , _seaSort         :: !(Maybe Text)
-    , _seaFacet        :: !(Maybe Text)
-    , _seaPartial      :: !(Maybe Bool)
-    , _seaQuery        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seaExpr         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaCursor       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaReturn       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaQueryOptions :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaFilterQuery  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaSize         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _seaQueryParser  :: {-# NOUNPACK #-}!(Maybe QueryParser)
+  , _seaStart        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _seaHighlight    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaStats        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaSort         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaFacet        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seaPartial      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _seaQuery        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Search' with the minimum fields required to make a request.
 --
@@ -123,22 +124,23 @@ search
     :: Text -- ^ 'seaQuery'
     -> Search
 search pQuery_ =
-    Search'
-    { _seaExpr = Nothing
-    , _seaCursor = Nothing
-    , _seaReturn = Nothing
-    , _seaQueryOptions = Nothing
-    , _seaFilterQuery = Nothing
-    , _seaSize = Nothing
-    , _seaQueryParser = Nothing
-    , _seaStart = Nothing
-    , _seaHighlight = Nothing
-    , _seaStats = Nothing
-    , _seaSort = Nothing
-    , _seaFacet = Nothing
-    , _seaPartial = Nothing
-    , _seaQuery = pQuery_
-    }
+  Search'
+  { _seaExpr = Nothing
+  , _seaCursor = Nothing
+  , _seaReturn = Nothing
+  , _seaQueryOptions = Nothing
+  , _seaFilterQuery = Nothing
+  , _seaSize = Nothing
+  , _seaQueryParser = Nothing
+  , _seaStart = Nothing
+  , _seaHighlight = Nothing
+  , _seaStats = Nothing
+  , _seaSort = Nothing
+  , _seaFacet = Nothing
+  , _seaPartial = Nothing
+  , _seaQuery = pQuery_
+  }
+
 
 -- | Defines one or more numeric expressions that can be used to sort results or specify search or filter criteria. You can also specify expressions as return fields.  You specify the expressions in JSON using the form @{"EXPRESSIONNAME":"EXPRESSION"}@ . You can define and use multiple expressions in a search request. For example: @{"expression1":"_score*rating", "expression2":"(1/rank)*year"} @  For information about the variables, operators, and functions you can use in expressions, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html#writing-expressions Writing Expressions> in the /Amazon CloudSearch Developer Guide/ .
 seaExpr :: Lens' Search (Maybe Text)
@@ -208,9 +210,9 @@ instance AWSRequest Search where
                      <*> (x .?> "hits")
                      <*> (pure (fromEnum s)))
 
-instance Hashable Search
+instance Hashable Search where
 
-instance NFData Search
+instance NFData Search where
 
 instance ToHeaders Search where
         toHeaders
@@ -241,12 +243,13 @@ instance ToQuery Search where
 --
 -- /See:/ 'searchResponse' smart constructor.
 data SearchResponse = SearchResponse'
-    { _searsStatus         :: !(Maybe SearchStatus)
-    , _searsFacets         :: !(Maybe (Map Text BucketInfo))
-    , _searsStats          :: !(Maybe (Map Text FieldStats))
-    , _searsHits           :: !(Maybe Hits)
-    , _searsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _searsStatus         :: {-# NOUNPACK #-}!(Maybe SearchStatus)
+  , _searsFacets         :: {-# NOUNPACK #-}!(Maybe (Map Text BucketInfo))
+  , _searsStats          :: {-# NOUNPACK #-}!(Maybe (Map Text FieldStats))
+  , _searsHits           :: {-# NOUNPACK #-}!(Maybe Hits)
+  , _searsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchResponse' with the minimum fields required to make a request.
 --
@@ -265,13 +268,14 @@ searchResponse
     :: Int -- ^ 'searsResponseStatus'
     -> SearchResponse
 searchResponse pResponseStatus_ =
-    SearchResponse'
-    { _searsStatus = Nothing
-    , _searsFacets = Nothing
-    , _searsStats = Nothing
-    , _searsHits = Nothing
-    , _searsResponseStatus = pResponseStatus_
-    }
+  SearchResponse'
+  { _searsStatus = Nothing
+  , _searsFacets = Nothing
+  , _searsStats = Nothing
+  , _searsHits = Nothing
+  , _searsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status information returned for the search request.
 searsStatus :: Lens' SearchResponse (Maybe SearchStatus)
@@ -293,4 +297,4 @@ searsHits = lens _searsHits (\ s a -> s{_searsHits = a});
 searsResponseStatus :: Lens' SearchResponse Int
 searsResponseStatus = lens _searsResponseStatus (\ s a -> s{_searsResponseStatus = a});
 
-instance NFData SearchResponse
+instance NFData SearchResponse where

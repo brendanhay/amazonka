@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListLoggerDefinitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Greengrass.ListLoggerDefinitions
     , lldrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listLoggerDefinitions' smart constructor.
 data ListLoggerDefinitions = ListLoggerDefinitions'
-    { _lldNextToken  :: !(Maybe Text)
-    , _lldMaxResults :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lldNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lldMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLoggerDefinitions' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ data ListLoggerDefinitions = ListLoggerDefinitions'
 listLoggerDefinitions
     :: ListLoggerDefinitions
 listLoggerDefinitions =
-    ListLoggerDefinitions'
-    { _lldNextToken = Nothing
-    , _lldMaxResults = Nothing
-    }
+  ListLoggerDefinitions' {_lldNextToken = Nothing, _lldMaxResults = Nothing}
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lldNextToken :: Lens' ListLoggerDefinitions (Maybe Text)
@@ -85,9 +84,9 @@ instance AWSRequest ListLoggerDefinitions where
                      (x .?> "Definitions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListLoggerDefinitions
+instance Hashable ListLoggerDefinitions where
 
-instance NFData ListLoggerDefinitions
+instance NFData ListLoggerDefinitions where
 
 instance ToHeaders ListLoggerDefinitions where
         toHeaders
@@ -107,10 +106,11 @@ instance ToQuery ListLoggerDefinitions where
 
 -- | /See:/ 'listLoggerDefinitionsResponse' smart constructor.
 data ListLoggerDefinitionsResponse = ListLoggerDefinitionsResponse'
-    { _lldrsNextToken      :: !(Maybe Text)
-    , _lldrsDefinitions    :: !(Maybe [DefinitionInformation])
-    , _lldrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lldrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
+  , _lldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLoggerDefinitionsResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +125,12 @@ listLoggerDefinitionsResponse
     :: Int -- ^ 'lldrsResponseStatus'
     -> ListLoggerDefinitionsResponse
 listLoggerDefinitionsResponse pResponseStatus_ =
-    ListLoggerDefinitionsResponse'
-    { _lldrsNextToken = Nothing
-    , _lldrsDefinitions = Nothing
-    , _lldrsResponseStatus = pResponseStatus_
-    }
+  ListLoggerDefinitionsResponse'
+  { _lldrsNextToken = Nothing
+  , _lldrsDefinitions = Nothing
+  , _lldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lldrsNextToken :: Lens' ListLoggerDefinitionsResponse (Maybe Text)
@@ -143,4 +144,4 @@ lldrsDefinitions = lens _lldrsDefinitions (\ s a -> s{_lldrsDefinitions = a}) . 
 lldrsResponseStatus :: Lens' ListLoggerDefinitionsResponse Int
 lldrsResponseStatus = lens _lldrsResponseStatus (\ s a -> s{_lldrsResponseStatus = a});
 
-instance NFData ListLoggerDefinitionsResponse
+instance NFData ListLoggerDefinitionsResponse where

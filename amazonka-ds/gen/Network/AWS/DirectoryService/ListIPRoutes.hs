@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ListIPRoutes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.DirectoryService.ListIPRoutes
     , lirrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listIPRoutes' smart constructor.
 data ListIPRoutes = ListIPRoutes'
-    { _lirNextToken   :: !(Maybe Text)
-    , _lirLimit       :: !(Maybe Nat)
-    , _lirDirectoryId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lirLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lirDirectoryId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIPRoutes' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listIPRoutes
     :: Text -- ^ 'lirDirectoryId'
     -> ListIPRoutes
 listIPRoutes pDirectoryId_ =
-    ListIPRoutes'
-    { _lirNextToken = Nothing
-    , _lirLimit = Nothing
-    , _lirDirectoryId = pDirectoryId_
-    }
+  ListIPRoutes'
+  { _lirNextToken = Nothing
+  , _lirLimit = Nothing
+  , _lirDirectoryId = pDirectoryId_
+  }
+
 
 -- | The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
 lirNextToken :: Lens' ListIPRoutes (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest ListIPRoutes where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListIPRoutes
+instance Hashable ListIPRoutes where
 
-instance NFData ListIPRoutes
+instance NFData ListIPRoutes where
 
 instance ToHeaders ListIPRoutes where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery ListIPRoutes where
 
 -- | /See:/ 'listIPRoutesResponse' smart constructor.
 data ListIPRoutesResponse = ListIPRoutesResponse'
-    { _lirrsIPRoutesInfo   :: !(Maybe [IPRouteInfo])
-    , _lirrsNextToken      :: !(Maybe Text)
-    , _lirrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirrsIPRoutesInfo   :: {-# NOUNPACK #-}!(Maybe [IPRouteInfo])
+  , _lirrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lirrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIPRoutesResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ listIPRoutesResponse
     :: Int -- ^ 'lirrsResponseStatus'
     -> ListIPRoutesResponse
 listIPRoutesResponse pResponseStatus_ =
-    ListIPRoutesResponse'
-    { _lirrsIPRoutesInfo = Nothing
-    , _lirrsNextToken = Nothing
-    , _lirrsResponseStatus = pResponseStatus_
-    }
+  ListIPRoutesResponse'
+  { _lirrsIPRoutesInfo = Nothing
+  , _lirrsNextToken = Nothing
+  , _lirrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'IpRoute' s.
 lirrsIPRoutesInfo :: Lens' ListIPRoutesResponse [IPRouteInfo]
@@ -162,4 +166,4 @@ lirrsNextToken = lens _lirrsNextToken (\ s a -> s{_lirrsNextToken = a});
 lirrsResponseStatus :: Lens' ListIPRoutesResponse Int
 lirrsResponseStatus = lens _lirrsResponseStatus (\ s a -> s{_lirrsResponseStatus = a});
 
-instance NFData ListIPRoutesResponse
+instance NFData ListIPRoutesResponse where

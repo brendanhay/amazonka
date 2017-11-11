@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceRouteTableAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     , rrtarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReplaceRouteTableAssociation.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'replaceRouteTableAssociation' smart constructor.
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
-    { _rrtaDryRun        :: !(Maybe Bool)
-    , _rrtaAssociationId :: !Text
-    , _rrtaRouteTableId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrtaDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rrtaAssociationId :: {-# NOUNPACK #-}!Text
+  , _rrtaRouteTableId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceRouteTableAssociation' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ replaceRouteTableAssociation
     -> Text -- ^ 'rrtaRouteTableId'
     -> ReplaceRouteTableAssociation
 replaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
-    ReplaceRouteTableAssociation'
-    { _rrtaDryRun = Nothing
-    , _rrtaAssociationId = pAssociationId_
-    , _rrtaRouteTableId = pRouteTableId_
-    }
+  ReplaceRouteTableAssociation'
+  { _rrtaDryRun = Nothing
+  , _rrtaAssociationId = pAssociationId_
+  , _rrtaRouteTableId = pRouteTableId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
@@ -102,9 +104,9 @@ instance AWSRequest ReplaceRouteTableAssociation
                  ReplaceRouteTableAssociationResponse' <$>
                    (x .@? "newAssociationId") <*> (pure (fromEnum s)))
 
-instance Hashable ReplaceRouteTableAssociation
+instance Hashable ReplaceRouteTableAssociation where
 
-instance NFData ReplaceRouteTableAssociation
+instance NFData ReplaceRouteTableAssociation where
 
 instance ToHeaders ReplaceRouteTableAssociation where
         toHeaders = const mempty
@@ -128,9 +130,10 @@ instance ToQuery ReplaceRouteTableAssociation where
 --
 -- /See:/ 'replaceRouteTableAssociationResponse' smart constructor.
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
-    { _rrtarsNewAssociationId :: !(Maybe Text)
-    , _rrtarsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrtarsNewAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrtarsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceRouteTableAssociationResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +146,9 @@ replaceRouteTableAssociationResponse
     :: Int -- ^ 'rrtarsResponseStatus'
     -> ReplaceRouteTableAssociationResponse
 replaceRouteTableAssociationResponse pResponseStatus_ =
-    ReplaceRouteTableAssociationResponse'
-    { _rrtarsNewAssociationId = Nothing
-    , _rrtarsResponseStatus = pResponseStatus_
-    }
+  ReplaceRouteTableAssociationResponse'
+  {_rrtarsNewAssociationId = Nothing, _rrtarsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the new association.
 rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
@@ -157,3 +159,4 @@ rrtarsResponseStatus :: Lens' ReplaceRouteTableAssociationResponse Int
 rrtarsResponseStatus = lens _rrtarsResponseStatus (\ s a -> s{_rrtarsResponseStatus = a});
 
 instance NFData ReplaceRouteTableAssociationResponse
+         where

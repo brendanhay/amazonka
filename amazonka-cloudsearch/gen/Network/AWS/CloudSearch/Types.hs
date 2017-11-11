@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -285,42 +285,42 @@ module Network.AWS.CloudSearch.Types
     , toDefaultValue
     ) where
 
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.CloudSearch.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.CloudSearch.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2013-01-01@ of the Amazon CloudSearch SDK configuration.
 cloudSearch :: Service
 cloudSearch =
-    Service
-    { _svcAbbrev = "CloudSearch"
-    , _svcSigner = v4
-    , _svcPrefix = "cloudsearch"
-    , _svcVersion = "2013-01-01"
-    , _svcEndpoint = defaultEndpoint cloudSearch
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "CloudSearch"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "CloudSearch"
+  , _svcSigner = v4
+  , _svcPrefix = "cloudsearch"
+  , _svcVersion = "2013-01-01"
+  , _svcEndpoint = defaultEndpoint cloudSearch
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "CloudSearch"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasCode "BandwidthLimitExceeded" . hasStatus 509) e =
-          Just "request_limit_exceeded"
+        Just "request_limit_exceeded"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -329,43 +329,50 @@ cloudSearch =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | An error occurred while processing the request.
 --
 --
 _BaseException :: AsError a => Getting (First ServiceError) a ServiceError
 _BaseException = _MatchServiceError cloudSearch "BaseException"
 
+
 -- | The request was rejected because it attempted an operation which is not enabled.
 --
 --
 _DisabledOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _DisabledOperationException =
-    _MatchServiceError cloudSearch "DisabledAction" . hasStatus 409
+  _MatchServiceError cloudSearch "DisabledAction" . hasStatus 409
+
 
 -- | An internal error occurred while processing the request. If this problem persists, report an issue from the <http://status.aws.amazon.com/ Service Health Dashboard> .
 --
 --
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException =
-    _MatchServiceError cloudSearch "InternalException" . hasStatus 500
+  _MatchServiceError cloudSearch "InternalException" . hasStatus 500
+
 
 -- | The request was rejected because it specified an invalid type definition.
 --
 --
 _InvalidTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTypeException =
-    _MatchServiceError cloudSearch "InvalidType" . hasStatus 409
+  _MatchServiceError cloudSearch "InvalidType" . hasStatus 409
+
 
 -- | The request was rejected because it attempted to reference a resource that does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _MatchServiceError cloudSearch "ResourceNotFound" . hasStatus 409
+  _MatchServiceError cloudSearch "ResourceNotFound" . hasStatus 409
+
 
 -- | The request was rejected because a resource limit has already been met.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _MatchServiceError cloudSearch "LimitExceeded" . hasStatus 409
+  _MatchServiceError cloudSearch "LimitExceeded" . hasStatus 409
+

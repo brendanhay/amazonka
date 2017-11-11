@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateAPIKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.APIGateway.UpdateAPIKey
     , akDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to change information about an 'ApiKey' resource.
 --
@@ -58,9 +58,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
-    { _uakPatchOperations :: !(Maybe [PatchOperation])
-    , _uakApiKey          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uakPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _uakApiKey          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAPIKey' with the minimum fields required to make a request.
 --
@@ -73,10 +74,8 @@ updateAPIKey
     :: Text -- ^ 'uakApiKey'
     -> UpdateAPIKey
 updateAPIKey pApiKey_ =
-    UpdateAPIKey'
-    { _uakPatchOperations = Nothing
-    , _uakApiKey = pApiKey_
-    }
+  UpdateAPIKey' {_uakPatchOperations = Nothing, _uakApiKey = pApiKey_}
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uakPatchOperations :: Lens' UpdateAPIKey [PatchOperation]
@@ -91,9 +90,9 @@ instance AWSRequest UpdateAPIKey where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateAPIKey
+instance Hashable UpdateAPIKey where
 
-instance NFData UpdateAPIKey
+instance NFData UpdateAPIKey where
 
 instance ToHeaders UpdateAPIKey where
         toHeaders

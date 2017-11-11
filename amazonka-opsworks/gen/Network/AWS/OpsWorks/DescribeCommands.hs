@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeCommands
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.OpsWorks.DescribeCommands
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeCommands' smart constructor.
 data DescribeCommands = DescribeCommands'
-    { _dcDeploymentId :: !(Maybe Text)
-    , _dcInstanceId   :: !(Maybe Text)
-    , _dcCommandIds   :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcInstanceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcCommandIds   :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCommands' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ data DescribeCommands = DescribeCommands'
 describeCommands
     :: DescribeCommands
 describeCommands =
-    DescribeCommands'
-    { _dcDeploymentId = Nothing
-    , _dcInstanceId = Nothing
-    , _dcCommandIds = Nothing
-    }
+  DescribeCommands'
+  {_dcDeploymentId = Nothing, _dcInstanceId = Nothing, _dcCommandIds = Nothing}
+
 
 -- | The deployment ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified deployment.
 dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest DescribeCommands where
                    (x .?> "Commands" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeCommands
+instance Hashable DescribeCommands where
 
-instance NFData DescribeCommands
+instance NFData DescribeCommands where
 
 instance ToHeaders DescribeCommands where
         toHeaders
@@ -128,9 +127,10 @@ instance ToQuery DescribeCommands where
 --
 -- /See:/ 'describeCommandsResponse' smart constructor.
 data DescribeCommandsResponse = DescribeCommandsResponse'
-    { _dcrsCommands       :: !(Maybe [Command])
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsCommands       :: {-# NOUNPACK #-}!(Maybe [Command])
+  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCommandsResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +143,9 @@ describeCommandsResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCommandsResponse
 describeCommandsResponse pResponseStatus_ =
-    DescribeCommandsResponse'
-    { _dcrsCommands = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeCommandsResponse'
+  {_dcrsCommands = Nothing, _dcrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of @Command@ objects that describe each of the specified commands.
 dcrsCommands :: Lens' DescribeCommandsResponse [Command]
@@ -156,4 +155,4 @@ dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default . _
 dcrsResponseStatus :: Lens' DescribeCommandsResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeCommandsResponse
+instance NFData DescribeCommandsResponse where

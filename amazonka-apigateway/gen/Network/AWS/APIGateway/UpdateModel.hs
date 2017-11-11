@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.UpdateModel
     , mContentType
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to update an existing model in an existing 'RestApi' resource.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateModel' smart constructor.
 data UpdateModel = UpdateModel'
-    { _uPatchOperations :: !(Maybe [PatchOperation])
-    , _uRestAPIId       :: !Text
-    , _uModelName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _uRestAPIId       :: {-# NOUNPACK #-}!Text
+  , _uModelName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateModel' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ updateModel
     -> Text -- ^ 'uModelName'
     -> UpdateModel
 updateModel pRestAPIId_ pModelName_ =
-    UpdateModel'
-    { _uPatchOperations = Nothing
-    , _uRestAPIId = pRestAPIId_
-    , _uModelName = pModelName_
-    }
+  UpdateModel'
+  { _uPatchOperations = Nothing
+  , _uRestAPIId = pRestAPIId_
+  , _uModelName = pModelName_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 uPatchOperations :: Lens' UpdateModel [PatchOperation]
@@ -97,9 +99,9 @@ instance AWSRequest UpdateModel where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateModel
+instance Hashable UpdateModel where
 
-instance NFData UpdateModel
+instance NFData UpdateModel where
 
 instance ToHeaders UpdateModel where
         toHeaders

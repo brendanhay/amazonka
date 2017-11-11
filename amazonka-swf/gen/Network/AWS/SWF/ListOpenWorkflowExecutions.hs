@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.ListOpenWorkflowExecutions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -68,25 +68,26 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     , weiExecutionInfos
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listOpenWorkflowExecutions' smart constructor.
 data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
-    { _loweNextPageToken   :: !(Maybe Text)
-    , _loweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
-    , _loweTypeFilter      :: !(Maybe WorkflowTypeFilter)
-    , _loweReverseOrder    :: !(Maybe Bool)
-    , _loweTagFilter       :: !(Maybe TagFilter)
-    , _loweMaximumPageSize :: !(Maybe Nat)
-    , _loweDomain          :: !Text
-    , _loweStartTimeFilter :: !ExecutionTimeFilter
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loweNextPageToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loweExecutionFilter :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFilter)
+  , _loweTypeFilter      :: {-# NOUNPACK #-}!(Maybe WorkflowTypeFilter)
+  , _loweReverseOrder    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _loweTagFilter       :: {-# NOUNPACK #-}!(Maybe TagFilter)
+  , _loweMaximumPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _loweDomain          :: {-# NOUNPACK #-}!Text
+  , _loweStartTimeFilter :: {-# NOUNPACK #-}!ExecutionTimeFilter
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOpenWorkflowExecutions' with the minimum fields required to make a request.
 --
@@ -112,16 +113,17 @@ listOpenWorkflowExecutions
     -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
     -> ListOpenWorkflowExecutions
 listOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
-    ListOpenWorkflowExecutions'
-    { _loweNextPageToken = Nothing
-    , _loweExecutionFilter = Nothing
-    , _loweTypeFilter = Nothing
-    , _loweReverseOrder = Nothing
-    , _loweTagFilter = Nothing
-    , _loweMaximumPageSize = Nothing
-    , _loweDomain = pDomain_
-    , _loweStartTimeFilter = pStartTimeFilter_
-    }
+  ListOpenWorkflowExecutions'
+  { _loweNextPageToken = Nothing
+  , _loweExecutionFilter = Nothing
+  , _loweTypeFilter = Nothing
+  , _loweReverseOrder = Nothing
+  , _loweTagFilter = Nothing
+  , _loweMaximumPageSize = Nothing
+  , _loweDomain = pDomain_
+  , _loweStartTimeFilter = pStartTimeFilter_
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 loweNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
@@ -169,9 +171,9 @@ instance AWSRequest ListOpenWorkflowExecutions where
         request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable ListOpenWorkflowExecutions
+instance Hashable ListOpenWorkflowExecutions where
 
-instance NFData ListOpenWorkflowExecutions
+instance NFData ListOpenWorkflowExecutions where
 
 instance ToHeaders ListOpenWorkflowExecutions where
         toHeaders

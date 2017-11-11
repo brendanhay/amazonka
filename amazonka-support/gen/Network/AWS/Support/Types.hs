@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -153,40 +153,40 @@ module Network.AWS.Support.Types
     , tarsResourcesSuppressed
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
-import           Network.AWS.Support.Types.Product
-import           Network.AWS.Support.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
+import Network.AWS.Support.Types.Product
+import Network.AWS.Support.Types.Sum
 
 -- | API version @2013-04-15@ of the Amazon Support SDK configuration.
 support :: Service
 support =
-    Service
-    { _svcAbbrev = "Support"
-    , _svcSigner = v4
-    , _svcPrefix = "support"
-    , _svcVersion = "2013-04-15"
-    , _svcEndpoint = defaultEndpoint support
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Support"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "Support"
+  , _svcSigner = v4
+  , _svcPrefix = "support"
+  , _svcVersion = "2013-04-15"
+  , _svcEndpoint = defaultEndpoint support
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "Support"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -195,11 +195,13 @@ support =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The expiration time of the attachment set has passed. The set expires 1 hour after it is created.
 --
 --
 _AttachmentSetExpired :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentSetExpired = _MatchServiceError support "AttachmentSetExpired"
+
 
 -- | The limit for the number of attachment sets created in a short period of time has been exceeded.
 --
@@ -207,12 +209,14 @@ _AttachmentSetExpired = _MatchServiceError support "AttachmentSetExpired"
 _AttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentLimitExceeded = _MatchServiceError support "AttachmentLimitExceeded"
 
+
 -- | The limit for the number of 'DescribeAttachment' requests in a short period of time has been exceeded.
 --
 --
 _DescribeAttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DescribeAttachmentLimitExceeded =
-    _MatchServiceError support "DescribeAttachmentLimitExceeded"
+  _MatchServiceError support "DescribeAttachmentLimitExceeded"
+
 
 -- | The requested @caseId@ could not be located.
 --
@@ -220,18 +224,21 @@ _DescribeAttachmentLimitExceeded =
 _CaseIdNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _CaseIdNotFound = _MatchServiceError support "CaseIdNotFound"
 
+
 -- | An attachment set with the specified ID could not be found.
 --
 --
 _AttachmentSetIdNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentSetIdNotFound = _MatchServiceError support "AttachmentSetIdNotFound"
 
+
 -- | A limit for the size of an attachment set has been exceeded. The limits are 3 attachments and 5 MB per attachment.
 --
 --
 _AttachmentSetSizeLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentSetSizeLimitExceeded =
-    _MatchServiceError support "AttachmentSetSizeLimitExceeded"
+  _MatchServiceError support "AttachmentSetSizeLimitExceeded"
+
 
 -- | An attachment with the specified ID could not be found.
 --
@@ -239,15 +246,18 @@ _AttachmentSetSizeLimitExceeded =
 _AttachmentIdNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentIdNotFound = _MatchServiceError support "AttachmentIdNotFound"
 
+
 -- | An internal server error occurred.
 --
 --
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _MatchServiceError support "InternalServerError"
 
+
 -- | The case creation limit for the account has been exceeded.
 --
 --
 _CaseCreationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _CaseCreationLimitExceeded =
-    _MatchServiceError support "CaseCreationLimitExceeded"
+  _MatchServiceError support "CaseCreationLimitExceeded"
+

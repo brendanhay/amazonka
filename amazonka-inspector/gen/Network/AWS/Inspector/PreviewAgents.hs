@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.PreviewAgents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Inspector.PreviewAgents
     , parsAgentPreviews
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'previewAgents' smart constructor.
 data PreviewAgents = PreviewAgents'
-    { _paNextToken        :: !(Maybe Text)
-    , _paMaxResults       :: !(Maybe Int)
-    , _paPreviewAgentsARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _paNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _paPreviewAgentsARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PreviewAgents' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ previewAgents
     :: Text -- ^ 'paPreviewAgentsARN'
     -> PreviewAgents
 previewAgents pPreviewAgentsARN_ =
-    PreviewAgents'
-    { _paNextToken = Nothing
-    , _paMaxResults = Nothing
-    , _paPreviewAgentsARN = pPreviewAgentsARN_
-    }
+  PreviewAgents'
+  { _paNextToken = Nothing
+  , _paMaxResults = Nothing
+  , _paPreviewAgentsARN = pPreviewAgentsARN_
+  }
+
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 paNextToken :: Lens' PreviewAgents (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest PreviewAgents where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "agentPreviews" .!@ mempty))
 
-instance Hashable PreviewAgents
+instance Hashable PreviewAgents where
 
-instance NFData PreviewAgents
+instance NFData PreviewAgents where
 
 instance ToHeaders PreviewAgents where
         toHeaders
@@ -124,10 +126,11 @@ instance ToQuery PreviewAgents where
 
 -- | /See:/ 'previewAgentsResponse' smart constructor.
 data PreviewAgentsResponse = PreviewAgentsResponse'
-    { _parsNextToken      :: !(Maybe Text)
-    , _parsResponseStatus :: !Int
-    , _parsAgentPreviews  :: ![AgentPreview]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _parsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _parsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _parsAgentPreviews  :: {-# NOUNPACK #-}![AgentPreview]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PreviewAgentsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +145,12 @@ previewAgentsResponse
     :: Int -- ^ 'parsResponseStatus'
     -> PreviewAgentsResponse
 previewAgentsResponse pResponseStatus_ =
-    PreviewAgentsResponse'
-    { _parsNextToken = Nothing
-    , _parsResponseStatus = pResponseStatus_
-    , _parsAgentPreviews = mempty
-    }
+  PreviewAgentsResponse'
+  { _parsNextToken = Nothing
+  , _parsResponseStatus = pResponseStatus_
+  , _parsAgentPreviews = mempty
+  }
+
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 parsNextToken :: Lens' PreviewAgentsResponse (Maybe Text)
@@ -160,4 +164,4 @@ parsResponseStatus = lens _parsResponseStatus (\ s a -> s{_parsResponseStatus = 
 parsAgentPreviews :: Lens' PreviewAgentsResponse [AgentPreview]
 parsAgentPreviews = lens _parsAgentPreviews (\ s a -> s{_parsAgentPreviews = a}) . _Coerce;
 
-instance NFData PreviewAgentsResponse
+instance NFData PreviewAgentsResponse where

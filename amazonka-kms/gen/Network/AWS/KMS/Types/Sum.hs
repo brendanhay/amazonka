@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.KMS.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.KMS.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AlgorithmSpec
-    = RsaesOaepSha1
-    | RsaesOaepSha256
-    | RsaesPKCS1V15
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RsaesOaepSha1
+  | RsaesOaepSha256
+  | RsaesPKCS1V15
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AlgorithmSpec where
     parser = takeLowerText >>= \case
@@ -49,9 +50,10 @@ instance ToJSON AlgorithmSpec where
     toJSON = toJSONText
 
 data DataKeySpec
-    = AES128
-    | AES256
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AES128
+  | AES256
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DataKeySpec where
     parser = takeLowerText >>= \case
@@ -75,9 +77,10 @@ instance ToJSON DataKeySpec where
     toJSON = toJSONText
 
 data ExpirationModelType
-    = KeyMaterialDoesNotExpire
-    | KeyMaterialExpires
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = KeyMaterialDoesNotExpire
+  | KeyMaterialExpires
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExpirationModelType where
     parser = takeLowerText >>= \case
@@ -104,16 +107,17 @@ instance FromJSON ExpirationModelType where
     parseJSON = parseJSONText "ExpirationModelType"
 
 data GrantOperation
-    = CreateGrant
-    | Decrypt
-    | DescribeKey
-    | Encrypt
-    | GenerateDataKey
-    | GenerateDataKeyWithoutPlaintext
-    | ReEncryptFrom
-    | ReEncryptTo
-    | RetireGrant
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreateGrant
+  | Decrypt
+  | DescribeKey
+  | Encrypt
+  | GenerateDataKey
+  | GenerateDataKeyWithoutPlaintext
+  | ReEncryptFrom
+  | ReEncryptTo
+  | RetireGrant
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText GrantOperation where
     parser = takeLowerText >>= \case
@@ -154,9 +158,10 @@ instance FromJSON GrantOperation where
     parseJSON = parseJSONText "GrantOperation"
 
 data KeyManagerType
-    = AWS
-    | Customer
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWS
+  | Customer
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText KeyManagerType where
     parser = takeLowerText >>= \case
@@ -180,11 +185,12 @@ instance FromJSON KeyManagerType where
     parseJSON = parseJSONText "KeyManagerType"
 
 data KeyState
-    = Disabled
-    | Enabled
-    | PendingDeletion
-    | PendingImport
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disabled
+  | Enabled
+  | PendingDeletion
+  | PendingImport
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText KeyState where
     parser = takeLowerText >>= \case
@@ -212,8 +218,9 @@ instance FromJSON KeyState where
     parseJSON = parseJSONText "KeyState"
 
 data KeyUsageType =
-    EncryptDecrypt
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  EncryptDecrypt
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText KeyUsageType where
     parser = takeLowerText >>= \case
@@ -238,9 +245,10 @@ instance FromJSON KeyUsageType where
     parseJSON = parseJSONText "KeyUsageType"
 
 data OriginType
-    = AWSKMS
-    | External
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AWSKMS
+  | External
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OriginType where
     parser = takeLowerText >>= \case
@@ -267,8 +275,9 @@ instance FromJSON OriginType where
     parseJSON = parseJSONText "OriginType"
 
 data WrappingKeySpec =
-    Rsa2048
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Rsa2048
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText WrappingKeySpec where
     parser = takeLowerText >>= \case

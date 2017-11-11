@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     , dcorsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Result message containing a list of application version descriptions.
 --
@@ -57,13 +57,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeConfigurationOptions' smart constructor.
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
-    { _dcoTemplateName      :: !(Maybe Text)
-    , _dcoPlatformARN       :: !(Maybe Text)
-    , _dcoEnvironmentName   :: !(Maybe Text)
-    , _dcoApplicationName   :: !(Maybe Text)
-    , _dcoSolutionStackName :: !(Maybe Text)
-    , _dcoOptions           :: !(Maybe [OptionSpecification])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcoTemplateName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcoPlatformARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcoEnvironmentName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcoApplicationName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcoSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcoOptions           :: {-# NOUNPACK #-}!(Maybe [OptionSpecification])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationOptions' with the minimum fields required to make a request.
 --
@@ -83,14 +84,15 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions'
 describeConfigurationOptions
     :: DescribeConfigurationOptions
 describeConfigurationOptions =
-    DescribeConfigurationOptions'
-    { _dcoTemplateName = Nothing
-    , _dcoPlatformARN = Nothing
-    , _dcoEnvironmentName = Nothing
-    , _dcoApplicationName = Nothing
-    , _dcoSolutionStackName = Nothing
-    , _dcoOptions = Nothing
-    }
+  DescribeConfigurationOptions'
+  { _dcoTemplateName = Nothing
+  , _dcoPlatformARN = Nothing
+  , _dcoEnvironmentName = Nothing
+  , _dcoApplicationName = Nothing
+  , _dcoSolutionStackName = Nothing
+  , _dcoOptions = Nothing
+  }
+
 
 -- | The name of the configuration template whose configuration options you want to describe.
 dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
@@ -132,9 +134,9 @@ instance AWSRequest DescribeConfigurationOptions
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeConfigurationOptions
+instance Hashable DescribeConfigurationOptions where
 
-instance NFData DescribeConfigurationOptions
+instance NFData DescribeConfigurationOptions where
 
 instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
@@ -162,11 +164,12 @@ instance ToQuery DescribeConfigurationOptions where
 --
 -- /See:/ 'describeConfigurationOptionsResponse' smart constructor.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
-    { _dcorsPlatformARN       :: !(Maybe Text)
-    , _dcorsSolutionStackName :: !(Maybe Text)
-    , _dcorsOptions           :: !(Maybe [ConfigurationOptionDescription])
-    , _dcorsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcorsPlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcorsSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcorsOptions :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionDescription])
+  , _dcorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationOptionsResponse' with the minimum fields required to make a request.
 --
@@ -183,12 +186,13 @@ describeConfigurationOptionsResponse
     :: Int -- ^ 'dcorsResponseStatus'
     -> DescribeConfigurationOptionsResponse
 describeConfigurationOptionsResponse pResponseStatus_ =
-    DescribeConfigurationOptionsResponse'
-    { _dcorsPlatformARN = Nothing
-    , _dcorsSolutionStackName = Nothing
-    , _dcorsOptions = Nothing
-    , _dcorsResponseStatus = pResponseStatus_
-    }
+  DescribeConfigurationOptionsResponse'
+  { _dcorsPlatformARN = Nothing
+  , _dcorsSolutionStackName = Nothing
+  , _dcorsOptions = Nothing
+  , _dcorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARN of the platform.
 dcorsPlatformARN :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
@@ -207,3 +211,4 @@ dcorsResponseStatus :: Lens' DescribeConfigurationOptionsResponse Int
 dcorsResponseStatus = lens _dcorsResponseStatus (\ s a -> s{_dcorsResponseStatus = a});
 
 instance NFData DescribeConfigurationOptionsResponse
+         where

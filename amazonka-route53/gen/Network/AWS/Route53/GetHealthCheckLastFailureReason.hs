@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckLastFailureReason
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     , ghclfrrsHealthCheckObservations
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request for the reason that a health check failed most recently.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getHealthCheckLastFailureReason' smart constructor.
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
-    { _ghclfrHealthCheckId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghclfrHealthCheckId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHealthCheckLastFailureReason' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getHealthCheckLastFailureReason
     :: Text -- ^ 'ghclfrHealthCheckId'
     -> GetHealthCheckLastFailureReason
 getHealthCheckLastFailureReason pHealthCheckId_ =
-    GetHealthCheckLastFailureReason'
-    { _ghclfrHealthCheckId = pHealthCheckId_
-    }
+  GetHealthCheckLastFailureReason' {_ghclfrHealthCheckId = pHealthCheckId_}
+
 
 -- | The ID for the health check for which you want the last failure reason. When you created the health check, @CreateHealthCheck@ returned the ID in the response, in the @HealthCheckId@ element.
 ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
@@ -84,8 +84,9 @@ instance AWSRequest GetHealthCheckLastFailureReason
                         parseXMLList "HealthCheckObservation"))
 
 instance Hashable GetHealthCheckLastFailureReason
+         where
 
-instance NFData GetHealthCheckLastFailureReason
+instance NFData GetHealthCheckLastFailureReason where
 
 instance ToHeaders GetHealthCheckLastFailureReason
          where
@@ -107,9 +108,10 @@ instance ToQuery GetHealthCheckLastFailureReason
 --
 -- /See:/ 'getHealthCheckLastFailureReasonResponse' smart constructor.
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrsResponseStatus          :: !Int
-    , _ghclfrrsHealthCheckObservations :: ![HealthCheckObservation]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghclfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ghclfrrsHealthCheckObservations :: {-# NOUNPACK #-}![HealthCheckObservation]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHealthCheckLastFailureReasonResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +124,11 @@ getHealthCheckLastFailureReasonResponse
     :: Int -- ^ 'ghclfrrsResponseStatus'
     -> GetHealthCheckLastFailureReasonResponse
 getHealthCheckLastFailureReasonResponse pResponseStatus_ =
-    GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrsResponseStatus = pResponseStatus_
-    , _ghclfrrsHealthCheckObservations = mempty
-    }
+  GetHealthCheckLastFailureReasonResponse'
+  { _ghclfrrsResponseStatus = pResponseStatus_
+  , _ghclfrrsHealthCheckObservations = mempty
+  }
+
 
 -- | -- | The response status code.
 ghclfrrsResponseStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
@@ -136,4 +139,5 @@ ghclfrrsHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse
 ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\ s a -> s{_ghclfrrsHealthCheckObservations = a}) . _Coerce;
 
 instance NFData
-         GetHealthCheckLastFailureReasonResponse
+           GetHealthCheckLastFailureReasonResponse
+         where

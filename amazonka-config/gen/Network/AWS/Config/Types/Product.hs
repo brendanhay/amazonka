@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Config.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Config.Types.Product where
 
-import           Network.AWS.Config.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Config.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'compliance' smart constructor.
 data Compliance = Compliance'
-    { _cComplianceContributorCount :: !(Maybe ComplianceContributorCount)
-    , _cComplianceType             :: !(Maybe ComplianceType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cComplianceContributorCount :: {-# NOUNPACK #-}!(Maybe ComplianceContributorCount)
+  , _cComplianceType :: {-# NOUNPACK #-}!(Maybe ComplianceType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Compliance' with the minimum fields required to make a request.
 --
@@ -41,10 +42,9 @@ data Compliance = Compliance'
 compliance
     :: Compliance
 compliance =
-    Compliance'
-    { _cComplianceContributorCount = Nothing
-    , _cComplianceType = Nothing
-    }
+  Compliance'
+  {_cComplianceContributorCount = Nothing, _cComplianceType = Nothing}
+
 
 -- | The number of AWS resources or AWS Config rules that cause a result of @NON_COMPLIANT@ , up to a maximum number.
 cComplianceContributorCount :: Lens' Compliance (Maybe ComplianceContributorCount)
@@ -62,9 +62,9 @@ instance FromJSON Compliance where
                    (x .:? "ComplianceContributorCount") <*>
                      (x .:? "ComplianceType"))
 
-instance Hashable Compliance
+instance Hashable Compliance where
 
-instance NFData Compliance
+instance NFData Compliance where
 
 -- | Indicates whether an AWS Config rule is compliant. A rule is compliant if all of the resources that the rule evaluated comply with it, and it is noncompliant if any of these resources do not comply.
 --
@@ -72,9 +72,10 @@ instance NFData Compliance
 --
 -- /See:/ 'complianceByConfigRule' smart constructor.
 data ComplianceByConfigRule = ComplianceByConfigRule'
-    { _cbcrCompliance     :: !(Maybe Compliance)
-    , _cbcrConfigRuleName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbcrCompliance     :: {-# NOUNPACK #-}!(Maybe Compliance)
+  , _cbcrConfigRuleName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceByConfigRule' with the minimum fields required to make a request.
 --
@@ -86,10 +87,9 @@ data ComplianceByConfigRule = ComplianceByConfigRule'
 complianceByConfigRule
     :: ComplianceByConfigRule
 complianceByConfigRule =
-    ComplianceByConfigRule'
-    { _cbcrCompliance = Nothing
-    , _cbcrConfigRuleName = Nothing
-    }
+  ComplianceByConfigRule'
+  {_cbcrCompliance = Nothing, _cbcrConfigRuleName = Nothing}
+
 
 -- | Indicates whether the AWS Config rule is compliant.
 cbcrCompliance :: Lens' ComplianceByConfigRule (Maybe Compliance)
@@ -106,9 +106,9 @@ instance FromJSON ComplianceByConfigRule where
                  ComplianceByConfigRule' <$>
                    (x .:? "Compliance") <*> (x .:? "ConfigRuleName"))
 
-instance Hashable ComplianceByConfigRule
+instance Hashable ComplianceByConfigRule where
 
-instance NFData ComplianceByConfigRule
+instance NFData ComplianceByConfigRule where
 
 -- | Indicates whether an AWS resource that is evaluated according to one or more AWS Config rules is compliant. A resource is compliant if it complies with all of the rules that evaluate it, and it is noncompliant if it does not comply with one or more of these rules.
 --
@@ -116,10 +116,11 @@ instance NFData ComplianceByConfigRule
 --
 -- /See:/ 'complianceByResource' smart constructor.
 data ComplianceByResource = ComplianceByResource'
-    { _cbrResourceId   :: !(Maybe Text)
-    , _cbrResourceType :: !(Maybe Text)
-    , _cbrCompliance   :: !(Maybe Compliance)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbrResourceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbrResourceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbrCompliance   :: {-# NOUNPACK #-}!(Maybe Compliance)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceByResource' with the minimum fields required to make a request.
 --
@@ -133,11 +134,12 @@ data ComplianceByResource = ComplianceByResource'
 complianceByResource
     :: ComplianceByResource
 complianceByResource =
-    ComplianceByResource'
-    { _cbrResourceId = Nothing
-    , _cbrResourceType = Nothing
-    , _cbrCompliance = Nothing
-    }
+  ComplianceByResource'
+  { _cbrResourceId = Nothing
+  , _cbrResourceType = Nothing
+  , _cbrCompliance = Nothing
+  }
+
 
 -- | The ID of the AWS resource that was evaluated.
 cbrResourceId :: Lens' ComplianceByResource (Maybe Text)
@@ -159,9 +161,9 @@ instance FromJSON ComplianceByResource where
                    (x .:? "ResourceId") <*> (x .:? "ResourceType") <*>
                      (x .:? "Compliance"))
 
-instance Hashable ComplianceByResource
+instance Hashable ComplianceByResource where
 
-instance NFData ComplianceByResource
+instance NFData ComplianceByResource where
 
 -- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item, up to a maximum number.
 --
@@ -169,9 +171,10 @@ instance NFData ComplianceByResource
 --
 -- /See:/ 'complianceContributorCount' smart constructor.
 data ComplianceContributorCount = ComplianceContributorCount'
-    { _cccCappedCount :: !(Maybe Int)
-    , _cccCapExceeded :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cccCappedCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cccCapExceeded :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceContributorCount' with the minimum fields required to make a request.
 --
@@ -183,10 +186,9 @@ data ComplianceContributorCount = ComplianceContributorCount'
 complianceContributorCount
     :: ComplianceContributorCount
 complianceContributorCount =
-    ComplianceContributorCount'
-    { _cccCappedCount = Nothing
-    , _cccCapExceeded = Nothing
-    }
+  ComplianceContributorCount'
+  {_cccCappedCount = Nothing, _cccCapExceeded = Nothing}
+
 
 -- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
 cccCappedCount :: Lens' ComplianceContributorCount (Maybe Int)
@@ -203,9 +205,9 @@ instance FromJSON ComplianceContributorCount where
                  ComplianceContributorCount' <$>
                    (x .:? "CappedCount") <*> (x .:? "CapExceeded"))
 
-instance Hashable ComplianceContributorCount
+instance Hashable ComplianceContributorCount where
 
-instance NFData ComplianceContributorCount
+instance NFData ComplianceContributorCount where
 
 -- | The number of AWS Config rules or AWS resources that are compliant and noncompliant.
 --
@@ -213,10 +215,11 @@ instance NFData ComplianceContributorCount
 --
 -- /See:/ 'complianceSummary' smart constructor.
 data ComplianceSummary = ComplianceSummary'
-    { _csComplianceSummaryTimestamp :: !(Maybe POSIX)
-    , _csCompliantResourceCount     :: !(Maybe ComplianceContributorCount)
-    , _csNonCompliantResourceCount  :: !(Maybe ComplianceContributorCount)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csComplianceSummaryTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _csCompliantResourceCount :: {-# NOUNPACK #-}!(Maybe ComplianceContributorCount)
+  , _csNonCompliantResourceCount :: {-# NOUNPACK #-}!(Maybe ComplianceContributorCount)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceSummary' with the minimum fields required to make a request.
 --
@@ -230,11 +233,12 @@ data ComplianceSummary = ComplianceSummary'
 complianceSummary
     :: ComplianceSummary
 complianceSummary =
-    ComplianceSummary'
-    { _csComplianceSummaryTimestamp = Nothing
-    , _csCompliantResourceCount = Nothing
-    , _csNonCompliantResourceCount = Nothing
-    }
+  ComplianceSummary'
+  { _csComplianceSummaryTimestamp = Nothing
+  , _csCompliantResourceCount = Nothing
+  , _csNonCompliantResourceCount = Nothing
+  }
+
 
 -- | The time that AWS Config created the compliance summary.
 csComplianceSummaryTimestamp :: Lens' ComplianceSummary (Maybe UTCTime)
@@ -257,9 +261,9 @@ instance FromJSON ComplianceSummary where
                      (x .:? "CompliantResourceCount")
                      <*> (x .:? "NonCompliantResourceCount"))
 
-instance Hashable ComplianceSummary
+instance Hashable ComplianceSummary where
 
-instance NFData ComplianceSummary
+instance NFData ComplianceSummary where
 
 -- | The number of AWS resources of a specific type that are compliant or noncompliant, up to a maximum of 100 for each compliance.
 --
@@ -267,9 +271,10 @@ instance NFData ComplianceSummary
 --
 -- /See:/ 'complianceSummaryByResourceType' smart constructor.
 data ComplianceSummaryByResourceType = ComplianceSummaryByResourceType'
-    { _csbrtResourceType      :: !(Maybe Text)
-    , _csbrtComplianceSummary :: !(Maybe ComplianceSummary)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csbrtResourceType      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csbrtComplianceSummary :: {-# NOUNPACK #-}!(Maybe ComplianceSummary)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComplianceSummaryByResourceType' with the minimum fields required to make a request.
 --
@@ -281,10 +286,9 @@ data ComplianceSummaryByResourceType = ComplianceSummaryByResourceType'
 complianceSummaryByResourceType
     :: ComplianceSummaryByResourceType
 complianceSummaryByResourceType =
-    ComplianceSummaryByResourceType'
-    { _csbrtResourceType = Nothing
-    , _csbrtComplianceSummary = Nothing
-    }
+  ComplianceSummaryByResourceType'
+  {_csbrtResourceType = Nothing, _csbrtComplianceSummary = Nothing}
+
 
 -- | The type of AWS resource.
 csbrtResourceType :: Lens' ComplianceSummaryByResourceType (Maybe Text)
@@ -304,8 +308,9 @@ instance FromJSON ComplianceSummaryByResourceType
                      (x .:? "ComplianceSummary"))
 
 instance Hashable ComplianceSummaryByResourceType
+         where
 
-instance NFData ComplianceSummaryByResourceType
+instance NFData ComplianceSummaryByResourceType where
 
 -- | A list that contains the status of the delivery of either the snapshot or the configuration history to the specified Amazon S3 bucket.
 --
@@ -313,13 +318,14 @@ instance NFData ComplianceSummaryByResourceType
 --
 -- /See:/ 'configExportDeliveryInfo' smart constructor.
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
-    { _cediLastErrorCode      :: !(Maybe Text)
-    , _cediLastAttemptTime    :: !(Maybe POSIX)
-    , _cediLastSuccessfulTime :: !(Maybe POSIX)
-    , _cediLastStatus         :: !(Maybe DeliveryStatus)
-    , _cediLastErrorMessage   :: !(Maybe Text)
-    , _cediNextDeliveryTime   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cediLastErrorCode      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cediLastAttemptTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cediLastSuccessfulTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cediLastStatus         :: {-# NOUNPACK #-}!(Maybe DeliveryStatus)
+  , _cediLastErrorMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cediNextDeliveryTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigExportDeliveryInfo' with the minimum fields required to make a request.
 --
@@ -339,14 +345,15 @@ data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
 configExportDeliveryInfo
     :: ConfigExportDeliveryInfo
 configExportDeliveryInfo =
-    ConfigExportDeliveryInfo'
-    { _cediLastErrorCode = Nothing
-    , _cediLastAttemptTime = Nothing
-    , _cediLastSuccessfulTime = Nothing
-    , _cediLastStatus = Nothing
-    , _cediLastErrorMessage = Nothing
-    , _cediNextDeliveryTime = Nothing
-    }
+  ConfigExportDeliveryInfo'
+  { _cediLastErrorCode = Nothing
+  , _cediLastAttemptTime = Nothing
+  , _cediLastSuccessfulTime = Nothing
+  , _cediLastStatus = Nothing
+  , _cediLastErrorMessage = Nothing
+  , _cediNextDeliveryTime = Nothing
+  }
+
 
 -- | The error code from the last attempted delivery.
 cediLastErrorCode :: Lens' ConfigExportDeliveryInfo (Maybe Text)
@@ -383,9 +390,9 @@ instance FromJSON ConfigExportDeliveryInfo where
                      <*> (x .:? "lastErrorMessage")
                      <*> (x .:? "nextDeliveryTime"))
 
-instance Hashable ConfigExportDeliveryInfo
+instance Hashable ConfigExportDeliveryInfo where
 
-instance NFData ConfigExportDeliveryInfo
+instance NFData ConfigExportDeliveryInfo where
 
 -- | An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).
 --
@@ -395,16 +402,17 @@ instance NFData ConfigExportDeliveryInfo
 --
 -- /See:/ 'configRule' smart constructor.
 data ConfigRule = ConfigRule'
-    { _crInputParameters           :: !(Maybe Text)
-    , _crConfigRuleName            :: !(Maybe Text)
-    , _crMaximumExecutionFrequency :: !(Maybe MaximumExecutionFrequency)
-    , _crConfigRuleId              :: !(Maybe Text)
-    , _crScope                     :: !(Maybe Scope)
-    , _crConfigRuleState           :: !(Maybe ConfigRuleState)
-    , _crDescription               :: !(Maybe Text)
-    , _crConfigRuleARN             :: !(Maybe Text)
-    , _crSource                    :: !Source
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crInputParameters :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crConfigRuleName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crMaximumExecutionFrequency :: {-# NOUNPACK #-}!(Maybe MaximumExecutionFrequency)
+  , _crConfigRuleId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crScope :: {-# NOUNPACK #-}!(Maybe Scope)
+  , _crConfigRuleState :: {-# NOUNPACK #-}!(Maybe ConfigRuleState)
+  , _crDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crConfigRuleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crSource :: {-# NOUNPACK #-}!Source
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigRule' with the minimum fields required to make a request.
 --
@@ -431,17 +439,18 @@ configRule
     :: Source -- ^ 'crSource'
     -> ConfigRule
 configRule pSource_ =
-    ConfigRule'
-    { _crInputParameters = Nothing
-    , _crConfigRuleName = Nothing
-    , _crMaximumExecutionFrequency = Nothing
-    , _crConfigRuleId = Nothing
-    , _crScope = Nothing
-    , _crConfigRuleState = Nothing
-    , _crDescription = Nothing
-    , _crConfigRuleARN = Nothing
-    , _crSource = pSource_
-    }
+  ConfigRule'
+  { _crInputParameters = Nothing
+  , _crConfigRuleName = Nothing
+  , _crMaximumExecutionFrequency = Nothing
+  , _crConfigRuleId = Nothing
+  , _crScope = Nothing
+  , _crConfigRuleState = Nothing
+  , _crDescription = Nothing
+  , _crConfigRuleARN = Nothing
+  , _crSource = pSource_
+  }
+
 
 -- | A string in JSON format that is passed to the AWS Config rule Lambda function.
 crInputParameters :: Lens' ConfigRule (Maybe Text)
@@ -494,9 +503,9 @@ instance FromJSON ConfigRule where
                      <*> (x .:? "ConfigRuleArn")
                      <*> (x .: "Source"))
 
-instance Hashable ConfigRule
+instance Hashable ConfigRule where
 
-instance NFData ConfigRule
+instance NFData ConfigRule where
 
 instance ToJSON ConfigRule where
         toJSON ConfigRule'{..}
@@ -521,18 +530,19 @@ instance ToJSON ConfigRule where
 --
 -- /See:/ 'configRuleEvaluationStatus' smart constructor.
 data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
-    { _cresLastErrorCode                :: !(Maybe Text)
-    , _cresLastFailedEvaluationTime     :: !(Maybe POSIX)
-    , _cresFirstActivatedTime           :: !(Maybe POSIX)
-    , _cresLastSuccessfulEvaluationTime :: !(Maybe POSIX)
-    , _cresConfigRuleName               :: !(Maybe Text)
-    , _cresLastErrorMessage             :: !(Maybe Text)
-    , _cresConfigRuleId                 :: !(Maybe Text)
-    , _cresLastFailedInvocationTime     :: !(Maybe POSIX)
-    , _cresFirstEvaluationStarted       :: !(Maybe Bool)
-    , _cresLastSuccessfulInvocationTime :: !(Maybe POSIX)
-    , _cresConfigRuleARN                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cresLastErrorCode                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cresLastFailedEvaluationTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cresFirstActivatedTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cresLastSuccessfulEvaluationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cresConfigRuleName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cresLastErrorMessage             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cresConfigRuleId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cresLastFailedInvocationTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cresFirstEvaluationStarted       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cresLastSuccessfulInvocationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cresConfigRuleARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigRuleEvaluationStatus' with the minimum fields required to make a request.
 --
@@ -562,19 +572,20 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
 configRuleEvaluationStatus
     :: ConfigRuleEvaluationStatus
 configRuleEvaluationStatus =
-    ConfigRuleEvaluationStatus'
-    { _cresLastErrorCode = Nothing
-    , _cresLastFailedEvaluationTime = Nothing
-    , _cresFirstActivatedTime = Nothing
-    , _cresLastSuccessfulEvaluationTime = Nothing
-    , _cresConfigRuleName = Nothing
-    , _cresLastErrorMessage = Nothing
-    , _cresConfigRuleId = Nothing
-    , _cresLastFailedInvocationTime = Nothing
-    , _cresFirstEvaluationStarted = Nothing
-    , _cresLastSuccessfulInvocationTime = Nothing
-    , _cresConfigRuleARN = Nothing
-    }
+  ConfigRuleEvaluationStatus'
+  { _cresLastErrorCode = Nothing
+  , _cresLastFailedEvaluationTime = Nothing
+  , _cresFirstActivatedTime = Nothing
+  , _cresLastSuccessfulEvaluationTime = Nothing
+  , _cresConfigRuleName = Nothing
+  , _cresLastErrorMessage = Nothing
+  , _cresConfigRuleId = Nothing
+  , _cresLastFailedInvocationTime = Nothing
+  , _cresFirstEvaluationStarted = Nothing
+  , _cresLastSuccessfulInvocationTime = Nothing
+  , _cresConfigRuleARN = Nothing
+  }
+
 
 -- | The error code that AWS Config returned when the rule last failed.
 cresLastErrorCode :: Lens' ConfigRuleEvaluationStatus (Maybe Text)
@@ -637,9 +648,9 @@ instance FromJSON ConfigRuleEvaluationStatus where
                      <*> (x .:? "LastSuccessfulInvocationTime")
                      <*> (x .:? "ConfigRuleArn"))
 
-instance Hashable ConfigRuleEvaluationStatus
+instance Hashable ConfigRuleEvaluationStatus where
 
-instance NFData ConfigRuleEvaluationStatus
+instance NFData ConfigRuleEvaluationStatus where
 
 -- | Provides options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.
 --
@@ -671,8 +682,9 @@ instance NFData ConfigRuleEvaluationStatus
 --
 -- /See:/ 'configSnapshotDeliveryProperties' smart constructor.
 newtype ConfigSnapshotDeliveryProperties = ConfigSnapshotDeliveryProperties'
-    { _csdpDeliveryFrequency :: Maybe MaximumExecutionFrequency
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdpDeliveryFrequency :: Maybe MaximumExecutionFrequency
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigSnapshotDeliveryProperties' with the minimum fields required to make a request.
 --
@@ -682,9 +694,8 @@ newtype ConfigSnapshotDeliveryProperties = ConfigSnapshotDeliveryProperties'
 configSnapshotDeliveryProperties
     :: ConfigSnapshotDeliveryProperties
 configSnapshotDeliveryProperties =
-    ConfigSnapshotDeliveryProperties'
-    { _csdpDeliveryFrequency = Nothing
-    }
+  ConfigSnapshotDeliveryProperties' {_csdpDeliveryFrequency = Nothing}
+
 
 -- | The frequency with which AWS Config delivers configuration snapshots.
 csdpDeliveryFrequency :: Lens' ConfigSnapshotDeliveryProperties (Maybe MaximumExecutionFrequency)
@@ -699,8 +710,10 @@ instance FromJSON ConfigSnapshotDeliveryProperties
                    (x .:? "deliveryFrequency"))
 
 instance Hashable ConfigSnapshotDeliveryProperties
+         where
 
 instance NFData ConfigSnapshotDeliveryProperties
+         where
 
 instance ToJSON ConfigSnapshotDeliveryProperties
          where
@@ -716,11 +729,12 @@ instance ToJSON ConfigSnapshotDeliveryProperties
 --
 -- /See:/ 'configStreamDeliveryInfo' smart constructor.
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
-    { _csdiLastErrorCode        :: !(Maybe Text)
-    , _csdiLastStatusChangeTime :: !(Maybe POSIX)
-    , _csdiLastStatus           :: !(Maybe DeliveryStatus)
-    , _csdiLastErrorMessage     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdiLastErrorCode        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdiLastStatusChangeTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _csdiLastStatus           :: {-# NOUNPACK #-}!(Maybe DeliveryStatus)
+  , _csdiLastErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigStreamDeliveryInfo' with the minimum fields required to make a request.
 --
@@ -736,12 +750,13 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
 configStreamDeliveryInfo
     :: ConfigStreamDeliveryInfo
 configStreamDeliveryInfo =
-    ConfigStreamDeliveryInfo'
-    { _csdiLastErrorCode = Nothing
-    , _csdiLastStatusChangeTime = Nothing
-    , _csdiLastStatus = Nothing
-    , _csdiLastErrorMessage = Nothing
-    }
+  ConfigStreamDeliveryInfo'
+  { _csdiLastErrorCode = Nothing
+  , _csdiLastStatusChangeTime = Nothing
+  , _csdiLastStatus = Nothing
+  , _csdiLastErrorMessage = Nothing
+  }
+
 
 -- | The error code from the last attempted delivery.
 csdiLastErrorCode :: Lens' ConfigStreamDeliveryInfo (Maybe Text)
@@ -769,9 +784,9 @@ instance FromJSON ConfigStreamDeliveryInfo where
                      <*> (x .:? "lastStatus")
                      <*> (x .:? "lastErrorMessage"))
 
-instance Hashable ConfigStreamDeliveryInfo
+instance Hashable ConfigStreamDeliveryInfo where
 
-instance NFData ConfigStreamDeliveryInfo
+instance NFData ConfigStreamDeliveryInfo where
 
 -- | A list that contains detailed configurations of a specified resource.
 --
@@ -779,25 +794,26 @@ instance NFData ConfigStreamDeliveryInfo
 --
 -- /See:/ 'configurationItem' smart constructor.
 data ConfigurationItem = ConfigurationItem'
-    { _ciResourceId                   :: !(Maybe Text)
-    , _ciResourceType                 :: !(Maybe ResourceType)
-    , _ciConfigurationStateId         :: !(Maybe Text)
-    , _ciArn                          :: !(Maybe Text)
-    , _ciResourceName                 :: !(Maybe Text)
-    , _ciResourceCreationTime         :: !(Maybe POSIX)
-    , _ciConfigurationItemStatus      :: !(Maybe ConfigurationItemStatus)
-    , _ciConfigurationItemCaptureTime :: !(Maybe POSIX)
-    , _ciAccountId                    :: !(Maybe Text)
-    , _ciSupplementaryConfiguration   :: !(Maybe (Map Text Text))
-    , _ciAvailabilityZone             :: !(Maybe Text)
-    , _ciRelationships                :: !(Maybe [Relationship])
-    , _ciVersion                      :: !(Maybe Text)
-    , _ciAwsRegion                    :: !(Maybe Text)
-    , _ciRelatedEvents                :: !(Maybe [Text])
-    , _ciConfiguration                :: !(Maybe Text)
-    , _ciConfigurationItemMD5Hash     :: !(Maybe Text)
-    , _ciTags                         :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciResourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciResourceType :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _ciConfigurationStateId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciArn :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciResourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciResourceCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ciConfigurationItemStatus :: {-# NOUNPACK #-}!(Maybe ConfigurationItemStatus)
+  , _ciConfigurationItemCaptureTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ciAccountId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciSupplementaryConfiguration :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ciAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciRelationships :: {-# NOUNPACK #-}!(Maybe [Relationship])
+  , _ciVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciAwsRegion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciRelatedEvents :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ciConfiguration :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciConfigurationItemMD5Hash :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciTags :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigurationItem' with the minimum fields required to make a request.
 --
@@ -841,26 +857,27 @@ data ConfigurationItem = ConfigurationItem'
 configurationItem
     :: ConfigurationItem
 configurationItem =
-    ConfigurationItem'
-    { _ciResourceId = Nothing
-    , _ciResourceType = Nothing
-    , _ciConfigurationStateId = Nothing
-    , _ciArn = Nothing
-    , _ciResourceName = Nothing
-    , _ciResourceCreationTime = Nothing
-    , _ciConfigurationItemStatus = Nothing
-    , _ciConfigurationItemCaptureTime = Nothing
-    , _ciAccountId = Nothing
-    , _ciSupplementaryConfiguration = Nothing
-    , _ciAvailabilityZone = Nothing
-    , _ciRelationships = Nothing
-    , _ciVersion = Nothing
-    , _ciAwsRegion = Nothing
-    , _ciRelatedEvents = Nothing
-    , _ciConfiguration = Nothing
-    , _ciConfigurationItemMD5Hash = Nothing
-    , _ciTags = Nothing
-    }
+  ConfigurationItem'
+  { _ciResourceId = Nothing
+  , _ciResourceType = Nothing
+  , _ciConfigurationStateId = Nothing
+  , _ciArn = Nothing
+  , _ciResourceName = Nothing
+  , _ciResourceCreationTime = Nothing
+  , _ciConfigurationItemStatus = Nothing
+  , _ciConfigurationItemCaptureTime = Nothing
+  , _ciAccountId = Nothing
+  , _ciSupplementaryConfiguration = Nothing
+  , _ciAvailabilityZone = Nothing
+  , _ciRelationships = Nothing
+  , _ciVersion = Nothing
+  , _ciAwsRegion = Nothing
+  , _ciRelatedEvents = Nothing
+  , _ciConfiguration = Nothing
+  , _ciConfigurationItemMD5Hash = Nothing
+  , _ciTags = Nothing
+  }
+
 
 -- | The ID of the resource (for example., @sg-xxxxxx@ ).
 ciResourceId :: Lens' ConfigurationItem (Maybe Text)
@@ -957,9 +974,9 @@ instance FromJSON ConfigurationItem where
                      <*> (x .:? "configurationItemMD5Hash")
                      <*> (x .:? "tags" .!= mempty))
 
-instance Hashable ConfigurationItem
+instance Hashable ConfigurationItem where
 
-instance NFData ConfigurationItem
+instance NFData ConfigurationItem where
 
 -- | An object that represents the recording of configuration changes of an AWS resource.
 --
@@ -967,10 +984,11 @@ instance NFData ConfigurationItem
 --
 -- /See:/ 'configurationRecorder' smart constructor.
 data ConfigurationRecorder = ConfigurationRecorder'
-    { _crName           :: !(Maybe Text)
-    , _crRecordingGroup :: !(Maybe RecordingGroup)
-    , _crRoleARN        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crRecordingGroup :: {-# NOUNPACK #-}!(Maybe RecordingGroup)
+  , _crRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigurationRecorder' with the minimum fields required to make a request.
 --
@@ -984,11 +1002,9 @@ data ConfigurationRecorder = ConfigurationRecorder'
 configurationRecorder
     :: ConfigurationRecorder
 configurationRecorder =
-    ConfigurationRecorder'
-    { _crName = Nothing
-    , _crRecordingGroup = Nothing
-    , _crRoleARN = Nothing
-    }
+  ConfigurationRecorder'
+  {_crName = Nothing, _crRecordingGroup = Nothing, _crRoleARN = Nothing}
+
 
 -- | The name of the recorder. By default, AWS Config automatically assigns the name "default" when creating the configuration recorder. You cannot change the assigned name.
 crName :: Lens' ConfigurationRecorder (Maybe Text)
@@ -1010,9 +1026,9 @@ instance FromJSON ConfigurationRecorder where
                    (x .:? "name") <*> (x .:? "recordingGroup") <*>
                      (x .:? "roleARN"))
 
-instance Hashable ConfigurationRecorder
+instance Hashable ConfigurationRecorder where
 
-instance NFData ConfigurationRecorder
+instance NFData ConfigurationRecorder where
 
 instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
@@ -1028,15 +1044,16 @@ instance ToJSON ConfigurationRecorder where
 --
 -- /See:/ 'configurationRecorderStatus' smart constructor.
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
-    { _crsLastErrorCode        :: !(Maybe Text)
-    , _crsLastStopTime         :: !(Maybe POSIX)
-    , _crsLastStatusChangeTime :: !(Maybe POSIX)
-    , _crsRecording            :: !(Maybe Bool)
-    , _crsLastStatus           :: !(Maybe RecorderStatus)
-    , _crsLastErrorMessage     :: !(Maybe Text)
-    , _crsName                 :: !(Maybe Text)
-    , _crsLastStartTime        :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsLastErrorCode        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crsLastStopTime         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _crsLastStatusChangeTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _crsRecording            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _crsLastStatus           :: {-# NOUNPACK #-}!(Maybe RecorderStatus)
+  , _crsLastErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crsLastStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigurationRecorderStatus' with the minimum fields required to make a request.
 --
@@ -1060,16 +1077,17 @@ data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
 configurationRecorderStatus
     :: ConfigurationRecorderStatus
 configurationRecorderStatus =
-    ConfigurationRecorderStatus'
-    { _crsLastErrorCode = Nothing
-    , _crsLastStopTime = Nothing
-    , _crsLastStatusChangeTime = Nothing
-    , _crsRecording = Nothing
-    , _crsLastStatus = Nothing
-    , _crsLastErrorMessage = Nothing
-    , _crsName = Nothing
-    , _crsLastStartTime = Nothing
-    }
+  ConfigurationRecorderStatus'
+  { _crsLastErrorCode = Nothing
+  , _crsLastStopTime = Nothing
+  , _crsLastStatusChangeTime = Nothing
+  , _crsRecording = Nothing
+  , _crsLastStatus = Nothing
+  , _crsLastErrorMessage = Nothing
+  , _crsName = Nothing
+  , _crsLastStartTime = Nothing
+  }
+
 
 -- | The error code indicating that the recording failed.
 crsLastErrorCode :: Lens' ConfigurationRecorderStatus (Maybe Text)
@@ -1116,9 +1134,9 @@ instance FromJSON ConfigurationRecorderStatus where
                      <*> (x .:? "name")
                      <*> (x .:? "lastStartTime"))
 
-instance Hashable ConfigurationRecorderStatus
+instance Hashable ConfigurationRecorderStatus where
 
-instance NFData ConfigurationRecorderStatus
+instance NFData ConfigurationRecorderStatus where
 
 -- | The channel through which AWS Config delivers notifications and updated configuration states.
 --
@@ -1126,12 +1144,13 @@ instance NFData ConfigurationRecorderStatus
 --
 -- /See:/ 'deliveryChannel' smart constructor.
 data DeliveryChannel = DeliveryChannel'
-    { _dcS3KeyPrefix                      :: !(Maybe Text)
-    , _dcSnsTopicARN                      :: !(Maybe Text)
-    , _dcName                             :: !(Maybe Text)
-    , _dcConfigSnapshotDeliveryProperties :: !(Maybe ConfigSnapshotDeliveryProperties)
-    , _dcS3BucketName                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcS3KeyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcSnsTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcConfigSnapshotDeliveryProperties :: {-# NOUNPACK #-}!(Maybe ConfigSnapshotDeliveryProperties)
+  , _dcS3BucketName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeliveryChannel' with the minimum fields required to make a request.
 --
@@ -1149,13 +1168,14 @@ data DeliveryChannel = DeliveryChannel'
 deliveryChannel
     :: DeliveryChannel
 deliveryChannel =
-    DeliveryChannel'
-    { _dcS3KeyPrefix = Nothing
-    , _dcSnsTopicARN = Nothing
-    , _dcName = Nothing
-    , _dcConfigSnapshotDeliveryProperties = Nothing
-    , _dcS3BucketName = Nothing
-    }
+  DeliveryChannel'
+  { _dcS3KeyPrefix = Nothing
+  , _dcSnsTopicARN = Nothing
+  , _dcName = Nothing
+  , _dcConfigSnapshotDeliveryProperties = Nothing
+  , _dcS3BucketName = Nothing
+  }
+
 
 -- | The prefix for the specified Amazon S3 bucket.
 dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
@@ -1187,9 +1207,9 @@ instance FromJSON DeliveryChannel where
                      <*> (x .:? "configSnapshotDeliveryProperties")
                      <*> (x .:? "s3BucketName"))
 
-instance Hashable DeliveryChannel
+instance Hashable DeliveryChannel where
 
-instance NFData DeliveryChannel
+instance NFData DeliveryChannel where
 
 instance ToJSON DeliveryChannel where
         toJSON DeliveryChannel'{..}
@@ -1210,11 +1230,12 @@ instance ToJSON DeliveryChannel where
 --
 -- /See:/ 'deliveryChannelStatus' smart constructor.
 data DeliveryChannelStatus = DeliveryChannelStatus'
-    { _dcsConfigSnapshotDeliveryInfo :: !(Maybe ConfigExportDeliveryInfo)
-    , _dcsConfigStreamDeliveryInfo   :: !(Maybe ConfigStreamDeliveryInfo)
-    , _dcsConfigHistoryDeliveryInfo  :: !(Maybe ConfigExportDeliveryInfo)
-    , _dcsName                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsConfigSnapshotDeliveryInfo :: {-# NOUNPACK #-}!(Maybe ConfigExportDeliveryInfo)
+  , _dcsConfigStreamDeliveryInfo :: {-# NOUNPACK #-}!(Maybe ConfigStreamDeliveryInfo)
+  , _dcsConfigHistoryDeliveryInfo :: {-# NOUNPACK #-}!(Maybe ConfigExportDeliveryInfo)
+  , _dcsName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeliveryChannelStatus' with the minimum fields required to make a request.
 --
@@ -1230,12 +1251,13 @@ data DeliveryChannelStatus = DeliveryChannelStatus'
 deliveryChannelStatus
     :: DeliveryChannelStatus
 deliveryChannelStatus =
-    DeliveryChannelStatus'
-    { _dcsConfigSnapshotDeliveryInfo = Nothing
-    , _dcsConfigStreamDeliveryInfo = Nothing
-    , _dcsConfigHistoryDeliveryInfo = Nothing
-    , _dcsName = Nothing
-    }
+  DeliveryChannelStatus'
+  { _dcsConfigSnapshotDeliveryInfo = Nothing
+  , _dcsConfigStreamDeliveryInfo = Nothing
+  , _dcsConfigHistoryDeliveryInfo = Nothing
+  , _dcsName = Nothing
+  }
+
 
 -- | A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.
 dcsConfigSnapshotDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
@@ -1263,9 +1285,9 @@ instance FromJSON DeliveryChannelStatus where
                      <*> (x .:? "configHistoryDeliveryInfo")
                      <*> (x .:? "name"))
 
-instance Hashable DeliveryChannelStatus
+instance Hashable DeliveryChannelStatus where
 
-instance NFData DeliveryChannelStatus
+instance NFData DeliveryChannelStatus where
 
 -- | Identifies an AWS resource and indicates whether it complies with the AWS Config rule that it was evaluated against.
 --
@@ -1273,12 +1295,13 @@ instance NFData DeliveryChannelStatus
 --
 -- /See:/ 'evaluation' smart constructor.
 data Evaluation = Evaluation'
-    { _eAnnotation             :: !(Maybe Text)
-    , _eComplianceResourceType :: !Text
-    , _eComplianceResourceId   :: !Text
-    , _eComplianceType         :: !ComplianceType
-    , _eOrderingTimestamp      :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eAnnotation             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eComplianceResourceType :: {-# NOUNPACK #-}!Text
+  , _eComplianceResourceId   :: {-# NOUNPACK #-}!Text
+  , _eComplianceType         :: {-# NOUNPACK #-}!ComplianceType
+  , _eOrderingTimestamp      :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
 --
@@ -1300,13 +1323,14 @@ evaluation
     -> UTCTime -- ^ 'eOrderingTimestamp'
     -> Evaluation
 evaluation pComplianceResourceType_ pComplianceResourceId_ pComplianceType_ pOrderingTimestamp_ =
-    Evaluation'
-    { _eAnnotation = Nothing
-    , _eComplianceResourceType = pComplianceResourceType_
-    , _eComplianceResourceId = pComplianceResourceId_
-    , _eComplianceType = pComplianceType_
-    , _eOrderingTimestamp = _Time # pOrderingTimestamp_
-    }
+  Evaluation'
+  { _eAnnotation = Nothing
+  , _eComplianceResourceType = pComplianceResourceType_
+  , _eComplianceResourceId = pComplianceResourceId_
+  , _eComplianceType = pComplianceType_
+  , _eOrderingTimestamp = _Time # pOrderingTimestamp_
+  }
+
 
 -- | Supplementary information about how the evaluation determined the compliance.
 eAnnotation :: Lens' Evaluation (Maybe Text)
@@ -1339,9 +1363,9 @@ instance FromJSON Evaluation where
                      <*> (x .: "ComplianceType")
                      <*> (x .: "OrderingTimestamp"))
 
-instance Hashable Evaluation
+instance Hashable Evaluation where
 
-instance NFData Evaluation
+instance NFData Evaluation where
 
 instance ToJSON Evaluation where
         toJSON Evaluation'{..}
@@ -1362,13 +1386,14 @@ instance ToJSON Evaluation where
 --
 -- /See:/ 'evaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-    { _erEvaluationResultIdentifier :: !(Maybe EvaluationResultIdentifier)
-    , _erAnnotation                 :: !(Maybe Text)
-    , _erConfigRuleInvokedTime      :: !(Maybe POSIX)
-    , _erResultRecordedTime         :: !(Maybe POSIX)
-    , _erResultToken                :: !(Maybe Text)
-    , _erComplianceType             :: !(Maybe ComplianceType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _erEvaluationResultIdentifier :: {-# NOUNPACK #-}!(Maybe EvaluationResultIdentifier)
+  , _erAnnotation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erConfigRuleInvokedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _erResultRecordedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _erResultToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erComplianceType :: {-# NOUNPACK #-}!(Maybe ComplianceType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
 --
@@ -1388,14 +1413,15 @@ data EvaluationResult = EvaluationResult'
 evaluationResult
     :: EvaluationResult
 evaluationResult =
-    EvaluationResult'
-    { _erEvaluationResultIdentifier = Nothing
-    , _erAnnotation = Nothing
-    , _erConfigRuleInvokedTime = Nothing
-    , _erResultRecordedTime = Nothing
-    , _erResultToken = Nothing
-    , _erComplianceType = Nothing
-    }
+  EvaluationResult'
+  { _erEvaluationResultIdentifier = Nothing
+  , _erAnnotation = Nothing
+  , _erConfigRuleInvokedTime = Nothing
+  , _erResultRecordedTime = Nothing
+  , _erResultToken = Nothing
+  , _erComplianceType = Nothing
+  }
+
 
 -- | Uniquely identifies the evaluation result.
 erEvaluationResultIdentifier :: Lens' EvaluationResult (Maybe EvaluationResultIdentifier)
@@ -1433,9 +1459,9 @@ instance FromJSON EvaluationResult where
                      <*> (x .:? "ResultToken")
                      <*> (x .:? "ComplianceType"))
 
-instance Hashable EvaluationResult
+instance Hashable EvaluationResult where
 
-instance NFData EvaluationResult
+instance NFData EvaluationResult where
 
 -- | Uniquely identifies an evaluation result.
 --
@@ -1443,9 +1469,10 @@ instance NFData EvaluationResult
 --
 -- /See:/ 'evaluationResultIdentifier' smart constructor.
 data EvaluationResultIdentifier = EvaluationResultIdentifier'
-    { _eriEvaluationResultQualifier :: !(Maybe EvaluationResultQualifier)
-    , _eriOrderingTimestamp         :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eriEvaluationResultQualifier :: {-# NOUNPACK #-}!(Maybe EvaluationResultQualifier)
+  , _eriOrderingTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EvaluationResultIdentifier' with the minimum fields required to make a request.
 --
@@ -1457,10 +1484,9 @@ data EvaluationResultIdentifier = EvaluationResultIdentifier'
 evaluationResultIdentifier
     :: EvaluationResultIdentifier
 evaluationResultIdentifier =
-    EvaluationResultIdentifier'
-    { _eriEvaluationResultQualifier = Nothing
-    , _eriOrderingTimestamp = Nothing
-    }
+  EvaluationResultIdentifier'
+  {_eriEvaluationResultQualifier = Nothing, _eriOrderingTimestamp = Nothing}
+
 
 -- | Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource.
 eriEvaluationResultQualifier :: Lens' EvaluationResultIdentifier (Maybe EvaluationResultQualifier)
@@ -1478,9 +1504,9 @@ instance FromJSON EvaluationResultIdentifier where
                    (x .:? "EvaluationResultQualifier") <*>
                      (x .:? "OrderingTimestamp"))
 
-instance Hashable EvaluationResultIdentifier
+instance Hashable EvaluationResultIdentifier where
 
-instance NFData EvaluationResultIdentifier
+instance NFData EvaluationResultIdentifier where
 
 -- | Identifies an AWS Config rule that evaluated an AWS resource, and provides the type and ID of the resource that the rule evaluated.
 --
@@ -1488,10 +1514,11 @@ instance NFData EvaluationResultIdentifier
 --
 -- /See:/ 'evaluationResultQualifier' smart constructor.
 data EvaluationResultQualifier = EvaluationResultQualifier'
-    { _erqResourceId     :: !(Maybe Text)
-    , _erqResourceType   :: !(Maybe Text)
-    , _erqConfigRuleName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _erqResourceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erqResourceType   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erqConfigRuleName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EvaluationResultQualifier' with the minimum fields required to make a request.
 --
@@ -1505,11 +1532,12 @@ data EvaluationResultQualifier = EvaluationResultQualifier'
 evaluationResultQualifier
     :: EvaluationResultQualifier
 evaluationResultQualifier =
-    EvaluationResultQualifier'
-    { _erqResourceId = Nothing
-    , _erqResourceType = Nothing
-    , _erqConfigRuleName = Nothing
-    }
+  EvaluationResultQualifier'
+  { _erqResourceId = Nothing
+  , _erqResourceType = Nothing
+  , _erqConfigRuleName = Nothing
+  }
+
 
 -- | The ID of the evaluated AWS resource.
 erqResourceId :: Lens' EvaluationResultQualifier (Maybe Text)
@@ -1531,9 +1559,9 @@ instance FromJSON EvaluationResultQualifier where
                    (x .:? "ResourceId") <*> (x .:? "ResourceType") <*>
                      (x .:? "ConfigRuleName"))
 
-instance Hashable EvaluationResultQualifier
+instance Hashable EvaluationResultQualifier where
 
-instance NFData EvaluationResultQualifier
+instance NFData EvaluationResultQualifier where
 
 -- | Specifies the types of AWS resource for which AWS Config records configuration changes.
 --
@@ -1555,10 +1583,11 @@ instance NFData EvaluationResultQualifier
 --
 -- /See:/ 'recordingGroup' smart constructor.
 data RecordingGroup = RecordingGroup'
-    { _rgAllSupported               :: !(Maybe Bool)
-    , _rgIncludeGlobalResourceTypes :: !(Maybe Bool)
-    , _rgResourceTypes              :: !(Maybe [ResourceType])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rgAllSupported               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rgIncludeGlobalResourceTypes :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rgResourceTypes              :: {-# NOUNPACK #-}!(Maybe [ResourceType])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecordingGroup' with the minimum fields required to make a request.
 --
@@ -1572,11 +1601,12 @@ data RecordingGroup = RecordingGroup'
 recordingGroup
     :: RecordingGroup
 recordingGroup =
-    RecordingGroup'
-    { _rgAllSupported = Nothing
-    , _rgIncludeGlobalResourceTypes = Nothing
-    , _rgResourceTypes = Nothing
-    }
+  RecordingGroup'
+  { _rgAllSupported = Nothing
+  , _rgIncludeGlobalResourceTypes = Nothing
+  , _rgResourceTypes = Nothing
+  }
+
 
 -- | Specifies whether AWS Config records configuration changes for every supported type of regional resource. If you set this option to @true@ , when AWS Config adds support for a new type of regional resource, it automatically starts recording resources of that type. If you set this option to @true@ , you cannot enumerate a list of @resourceTypes@ .
 rgAllSupported :: Lens' RecordingGroup (Maybe Bool)
@@ -1599,9 +1629,9 @@ instance FromJSON RecordingGroup where
                      (x .:? "includeGlobalResourceTypes")
                      <*> (x .:? "resourceTypes" .!= mempty))
 
-instance Hashable RecordingGroup
+instance Hashable RecordingGroup where
 
-instance NFData RecordingGroup
+instance NFData RecordingGroup where
 
 instance ToJSON RecordingGroup where
         toJSON RecordingGroup'{..}
@@ -1618,11 +1648,12 @@ instance ToJSON RecordingGroup where
 --
 -- /See:/ 'relationship' smart constructor.
 data Relationship = Relationship'
-    { _rResourceId       :: !(Maybe Text)
-    , _rResourceType     :: !(Maybe ResourceType)
-    , _rResourceName     :: !(Maybe Text)
-    , _rRelationshipName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rResourceId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rResourceType     :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _rResourceName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rRelationshipName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Relationship' with the minimum fields required to make a request.
 --
@@ -1638,12 +1669,13 @@ data Relationship = Relationship'
 relationship
     :: Relationship
 relationship =
-    Relationship'
-    { _rResourceId = Nothing
-    , _rResourceType = Nothing
-    , _rResourceName = Nothing
-    , _rRelationshipName = Nothing
-    }
+  Relationship'
+  { _rResourceId = Nothing
+  , _rResourceType = Nothing
+  , _rResourceName = Nothing
+  , _rRelationshipName = Nothing
+  }
+
 
 -- | The ID of the related resource (for example, @sg-xxxxxx@ ).
 rResourceId :: Lens' Relationship (Maybe Text)
@@ -1670,9 +1702,9 @@ instance FromJSON Relationship where
                      (x .:? "resourceName")
                      <*> (x .:? "relationshipName"))
 
-instance Hashable Relationship
+instance Hashable Relationship where
 
-instance NFData Relationship
+instance NFData Relationship where
 
 -- | An object that contains the resource type and the number of resources.
 --
@@ -1680,9 +1712,10 @@ instance NFData Relationship
 --
 -- /See:/ 'resourceCount' smart constructor.
 data ResourceCount = ResourceCount'
-    { _rcResourceType :: !(Maybe ResourceType)
-    , _rcCount        :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcResourceType :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _rcCount        :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceCount' with the minimum fields required to make a request.
 --
@@ -1693,11 +1726,8 @@ data ResourceCount = ResourceCount'
 -- * 'rcCount' - The number of resources.
 resourceCount
     :: ResourceCount
-resourceCount =
-    ResourceCount'
-    { _rcResourceType = Nothing
-    , _rcCount = Nothing
-    }
+resourceCount = ResourceCount' {_rcResourceType = Nothing, _rcCount = Nothing}
+
 
 -- | The resource type, for example @"AWS::EC2::Instance"@ .
 rcResourceType :: Lens' ResourceCount (Maybe ResourceType)
@@ -1714,9 +1744,9 @@ instance FromJSON ResourceCount where
                  ResourceCount' <$>
                    (x .:? "resourceType") <*> (x .:? "count"))
 
-instance Hashable ResourceCount
+instance Hashable ResourceCount where
 
-instance NFData ResourceCount
+instance NFData ResourceCount where
 
 -- | The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name.
 --
@@ -1724,11 +1754,12 @@ instance NFData ResourceCount
 --
 -- /See:/ 'resourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-    { _riResourceId           :: !(Maybe Text)
-    , _riResourceType         :: !(Maybe ResourceType)
-    , _riResourceName         :: !(Maybe Text)
-    , _riResourceDeletionTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riResourceId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riResourceType         :: {-# NOUNPACK #-}!(Maybe ResourceType)
+  , _riResourceName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riResourceDeletionTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
 --
@@ -1744,12 +1775,13 @@ data ResourceIdentifier = ResourceIdentifier'
 resourceIdentifier
     :: ResourceIdentifier
 resourceIdentifier =
-    ResourceIdentifier'
-    { _riResourceId = Nothing
-    , _riResourceType = Nothing
-    , _riResourceName = Nothing
-    , _riResourceDeletionTime = Nothing
-    }
+  ResourceIdentifier'
+  { _riResourceId = Nothing
+  , _riResourceType = Nothing
+  , _riResourceName = Nothing
+  , _riResourceDeletionTime = Nothing
+  }
+
 
 -- | The ID of the resource (for example., @sg-xxxxxx@ ).
 riResourceId :: Lens' ResourceIdentifier (Maybe Text)
@@ -1776,9 +1808,9 @@ instance FromJSON ResourceIdentifier where
                      (x .:? "resourceName")
                      <*> (x .:? "resourceDeletionTime"))
 
-instance Hashable ResourceIdentifier
+instance Hashable ResourceIdentifier where
 
-instance NFData ResourceIdentifier
+instance NFData ResourceIdentifier where
 
 -- | Defines which resources trigger an evaluation for an AWS Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 --
@@ -1786,11 +1818,12 @@ instance NFData ResourceIdentifier
 --
 -- /See:/ 'scope' smart constructor.
 data Scope = Scope'
-    { _sComplianceResourceTypes :: !(Maybe [Text])
-    , _sComplianceResourceId    :: !(Maybe Text)
-    , _sTagValue                :: !(Maybe Text)
-    , _sTagKey                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sComplianceResourceTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sComplianceResourceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTagValue                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTagKey                  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Scope' with the minimum fields required to make a request.
 --
@@ -1806,12 +1839,13 @@ data Scope = Scope'
 scope
     :: Scope
 scope =
-    Scope'
-    { _sComplianceResourceTypes = Nothing
-    , _sComplianceResourceId = Nothing
-    , _sTagValue = Nothing
-    , _sTagKey = Nothing
-    }
+  Scope'
+  { _sComplianceResourceTypes = Nothing
+  , _sComplianceResourceId = Nothing
+  , _sTagValue = Nothing
+  , _sTagKey = Nothing
+  }
+
 
 -- | The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
 sComplianceResourceTypes :: Lens' Scope [Text]
@@ -1839,9 +1873,9 @@ instance FromJSON Scope where
                      <*> (x .:? "TagValue")
                      <*> (x .:? "TagKey"))
 
-instance Hashable Scope
+instance Hashable Scope where
 
-instance NFData Scope
+instance NFData Scope where
 
 instance ToJSON Scope where
         toJSON Scope'{..}
@@ -1860,10 +1894,11 @@ instance ToJSON Scope where
 --
 -- /See:/ 'source' smart constructor.
 data Source = Source'
-    { _sSourceDetails    :: !(Maybe [SourceDetail])
-    , _sOwner            :: !Owner
-    , _sSourceIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSourceDetails    :: {-# NOUNPACK #-}!(Maybe [SourceDetail])
+  , _sOwner            :: {-# NOUNPACK #-}!Owner
+  , _sSourceIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Source' with the minimum fields required to make a request.
 --
@@ -1879,11 +1914,12 @@ source
     -> Text -- ^ 'sSourceIdentifier'
     -> Source
 source pOwner_ pSourceIdentifier_ =
-    Source'
-    { _sSourceDetails = Nothing
-    , _sOwner = pOwner_
-    , _sSourceIdentifier = pSourceIdentifier_
-    }
+  Source'
+  { _sSourceDetails = Nothing
+  , _sOwner = pOwner_
+  , _sSourceIdentifier = pSourceIdentifier_
+  }
+
 
 -- | Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
 sSourceDetails :: Lens' Source [SourceDetail]
@@ -1905,9 +1941,9 @@ instance FromJSON Source where
                    (x .:? "SourceDetails" .!= mempty) <*> (x .: "Owner")
                      <*> (x .: "SourceIdentifier"))
 
-instance Hashable Source
+instance Hashable Source where
 
-instance NFData Source
+instance NFData Source where
 
 instance ToJSON Source where
         toJSON Source'{..}
@@ -1923,10 +1959,11 @@ instance ToJSON Source where
 --
 -- /See:/ 'sourceDetail' smart constructor.
 data SourceDetail = SourceDetail'
-    { _sdMessageType               :: !(Maybe MessageType)
-    , _sdMaximumExecutionFrequency :: !(Maybe MaximumExecutionFrequency)
-    , _sdEventSource               :: !(Maybe EventSource)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdMessageType :: {-# NOUNPACK #-}!(Maybe MessageType)
+  , _sdMaximumExecutionFrequency :: {-# NOUNPACK #-}!(Maybe MaximumExecutionFrequency)
+  , _sdEventSource :: {-# NOUNPACK #-}!(Maybe EventSource)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SourceDetail' with the minimum fields required to make a request.
 --
@@ -1940,11 +1977,12 @@ data SourceDetail = SourceDetail'
 sourceDetail
     :: SourceDetail
 sourceDetail =
-    SourceDetail'
-    { _sdMessageType = Nothing
-    , _sdMaximumExecutionFrequency = Nothing
-    , _sdEventSource = Nothing
-    }
+  SourceDetail'
+  { _sdMessageType = Nothing
+  , _sdMaximumExecutionFrequency = Nothing
+  , _sdEventSource = Nothing
+  }
+
 
 -- | The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:     * @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.     * @OversizedConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .     * @ConfigurationSnapshotDeliveryCompleted@ - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot. If you want your custom rule to be triggered by configuration changes, specify both @ConfigurationItemChangeNotification@ and @OversizedConfigurationItemChangeNotification@ .
 sdMessageType :: Lens' SourceDetail (Maybe MessageType)
@@ -1967,9 +2005,9 @@ instance FromJSON SourceDetail where
                      (x .:? "MaximumExecutionFrequency")
                      <*> (x .:? "EventSource"))
 
-instance Hashable SourceDetail
+instance Hashable SourceDetail where
 
-instance NFData SourceDetail
+instance NFData SourceDetail where
 
 instance ToJSON SourceDetail where
         toJSON SourceDetail'{..}

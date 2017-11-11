@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetSSHPublicKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.IAM.GetSSHPublicKey
     , gspkrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSSHPublicKey' smart constructor.
 data GetSSHPublicKey = GetSSHPublicKey'
-    { _gspkUserName       :: !Text
-    , _gspkSSHPublicKeyId :: !Text
-    , _gspkEncoding       :: !EncodingType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gspkUserName       :: {-# NOUNPACK #-}!Text
+  , _gspkSSHPublicKeyId :: {-# NOUNPACK #-}!Text
+  , _gspkEncoding       :: {-# NOUNPACK #-}!EncodingType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSSHPublicKey' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ getSSHPublicKey
     -> EncodingType -- ^ 'gspkEncoding'
     -> GetSSHPublicKey
 getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
-    GetSSHPublicKey'
-    { _gspkUserName = pUserName_
-    , _gspkSSHPublicKeyId = pSSHPublicKeyId_
-    , _gspkEncoding = pEncoding_
-    }
+  GetSSHPublicKey'
+  { _gspkUserName = pUserName_
+  , _gspkSSHPublicKeyId = pSSHPublicKeyId_
+  , _gspkEncoding = pEncoding_
+  }
+
 
 -- | The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 gspkUserName :: Lens' GetSSHPublicKey Text
@@ -97,9 +99,9 @@ instance AWSRequest GetSSHPublicKey where
                  GetSSHPublicKeyResponse' <$>
                    (x .@? "SSHPublicKey") <*> (pure (fromEnum s)))
 
-instance Hashable GetSSHPublicKey
+instance Hashable GetSSHPublicKey where
 
-instance NFData GetSSHPublicKey
+instance NFData GetSSHPublicKey where
 
 instance ToHeaders GetSSHPublicKey where
         toHeaders = const mempty
@@ -122,9 +124,10 @@ instance ToQuery GetSSHPublicKey where
 --
 -- /See:/ 'getSSHPublicKeyResponse' smart constructor.
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
-    { _gspkrsSSHPublicKey   :: !(Maybe SSHPublicKey)
-    , _gspkrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gspkrsSSHPublicKey   :: {-# NOUNPACK #-}!(Maybe SSHPublicKey)
+  , _gspkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSSHPublicKeyResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +140,9 @@ getSSHPublicKeyResponse
     :: Int -- ^ 'gspkrsResponseStatus'
     -> GetSSHPublicKeyResponse
 getSSHPublicKeyResponse pResponseStatus_ =
-    GetSSHPublicKeyResponse'
-    { _gspkrsSSHPublicKey = Nothing
-    , _gspkrsResponseStatus = pResponseStatus_
-    }
+  GetSSHPublicKeyResponse'
+  {_gspkrsSSHPublicKey = Nothing, _gspkrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure containing details about the SSH public key.
 gspkrsSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
@@ -150,4 +152,4 @@ gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = 
 gspkrsResponseStatus :: Lens' GetSSHPublicKeyResponse Int
 gspkrsResponseStatus = lens _gspkrsResponseStatus (\ s a -> s{_gspkrsResponseStatus = a});
 
-instance NFData GetSSHPublicKeyResponse
+instance NFData GetSSHPublicKeyResponse where

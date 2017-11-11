@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstanceInformation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.SSM.DescribeInstanceInformation
     , diirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstanceInformation' smart constructor.
 data DescribeInstanceInformation = DescribeInstanceInformation'
-    { _diiInstanceInformationFilterList :: !(Maybe [InstanceInformationFilter])
-    , _diiFilters                       :: !(Maybe [InstanceInformationStringFilter])
-    , _diiNextToken                     :: !(Maybe Text)
-    , _diiMaxResults                    :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diiInstanceInformationFilterList :: {-# NOUNPACK #-}!(Maybe [InstanceInformationFilter])
+  , _diiFilters :: {-# NOUNPACK #-}!(Maybe [InstanceInformationStringFilter])
+  , _diiNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diiMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstanceInformation' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 describeInstanceInformation
     :: DescribeInstanceInformation
 describeInstanceInformation =
-    DescribeInstanceInformation'
-    { _diiInstanceInformationFilterList = Nothing
-    , _diiFilters = Nothing
-    , _diiNextToken = Nothing
-    , _diiMaxResults = Nothing
-    }
+  DescribeInstanceInformation'
+  { _diiInstanceInformationFilterList = Nothing
+  , _diiFilters = Nothing
+  , _diiNextToken = Nothing
+  , _diiMaxResults = Nothing
+  }
+
 
 -- | One or more filters. Use a filter to return a more specific list of instances.
 diiInstanceInformationFilterList :: Lens' DescribeInstanceInformation [InstanceInformationFilter]
@@ -115,9 +117,9 @@ instance AWSRequest DescribeInstanceInformation where
                      (x .?> "InstanceInformationList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeInstanceInformation
+instance Hashable DescribeInstanceInformation where
 
-instance NFData DescribeInstanceInformation
+instance NFData DescribeInstanceInformation where
 
 instance ToHeaders DescribeInstanceInformation where
         toHeaders
@@ -147,10 +149,11 @@ instance ToQuery DescribeInstanceInformation where
 
 -- | /See:/ 'describeInstanceInformationResponse' smart constructor.
 data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
-    { _diirsNextToken               :: !(Maybe Text)
-    , _diirsInstanceInformationList :: !(Maybe [InstanceInformation])
-    , _diirsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diirsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diirsInstanceInformationList :: {-# NOUNPACK #-}!(Maybe [InstanceInformation])
+  , _diirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstanceInformationResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ describeInstanceInformationResponse
     :: Int -- ^ 'diirsResponseStatus'
     -> DescribeInstanceInformationResponse
 describeInstanceInformationResponse pResponseStatus_ =
-    DescribeInstanceInformationResponse'
-    { _diirsNextToken = Nothing
-    , _diirsInstanceInformationList = Nothing
-    , _diirsResponseStatus = pResponseStatus_
-    }
+  DescribeInstanceInformationResponse'
+  { _diirsNextToken = Nothing
+  , _diirsInstanceInformationList = Nothing
+  , _diirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 diirsNextToken :: Lens' DescribeInstanceInformationResponse (Maybe Text)
@@ -184,3 +188,4 @@ diirsResponseStatus :: Lens' DescribeInstanceInformationResponse Int
 diirsResponseStatus = lens _diirsResponseStatus (\ s a -> s{_diirsResponseStatus = a});
 
 instance NFData DescribeInstanceInformationResponse
+         where

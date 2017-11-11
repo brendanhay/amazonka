@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetRepository
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CodeCommit.GetRepository
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get repository operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRepository' smart constructor.
 newtype GetRepository = GetRepository'
-    { _grRepositoryName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grRepositoryName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRepository' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getRepository
     :: Text -- ^ 'grRepositoryName'
     -> GetRepository
 getRepository pRepositoryName_ =
-    GetRepository'
-    { _grRepositoryName = pRepositoryName_
-    }
+  GetRepository' {_grRepositoryName = pRepositoryName_}
+
 
 -- | The name of the repository to get information about.
 grRepositoryName :: Lens' GetRepository Text
@@ -79,9 +79,9 @@ instance AWSRequest GetRepository where
                  GetRepositoryResponse' <$>
                    (x .?> "repositoryMetadata") <*> (pure (fromEnum s)))
 
-instance Hashable GetRepository
+instance Hashable GetRepository where
 
-instance NFData GetRepository
+instance NFData GetRepository where
 
 instance ToHeaders GetRepository where
         toHeaders
@@ -110,9 +110,10 @@ instance ToQuery GetRepository where
 --
 -- /See:/ 'getRepositoryResponse' smart constructor.
 data GetRepositoryResponse = GetRepositoryResponse'
-    { _grrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
-    , _grrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsRepositoryMetadata :: {-# NOUNPACK #-}!(Maybe RepositoryMetadata)
+  , _grrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRepositoryResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +126,9 @@ getRepositoryResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRepositoryResponse
 getRepositoryResponse pResponseStatus_ =
-    GetRepositoryResponse'
-    { _grrsRepositoryMetadata = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GetRepositoryResponse'
+  {_grrsRepositoryMetadata = Nothing, _grrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the repository.
 grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
@@ -138,4 +138,4 @@ grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositor
 grrsResponseStatus :: Lens' GetRepositoryResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GetRepositoryResponse
+instance NFData GetRepositoryResponse where

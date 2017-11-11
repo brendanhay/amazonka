@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesListings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     , drilrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeReservedInstancesListings.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReservedInstancesListings' smart constructor.
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
-    { _drilFilters                    :: !(Maybe [Filter])
-    , _drilReservedInstancesId        :: !(Maybe Text)
-    , _drilReservedInstancesListingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drilFilters                    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _drilReservedInstancesId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drilReservedInstancesListingId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedInstancesListings' with the minimum fields required to make a request.
 --
@@ -77,11 +78,12 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
 describeReservedInstancesListings
     :: DescribeReservedInstancesListings
 describeReservedInstancesListings =
-    DescribeReservedInstancesListings'
-    { _drilFilters = Nothing
-    , _drilReservedInstancesId = Nothing
-    , _drilReservedInstancesListingId = Nothing
-    }
+  DescribeReservedInstancesListings'
+  { _drilFilters = Nothing
+  , _drilReservedInstancesId = Nothing
+  , _drilReservedInstancesListingId = Nothing
+  }
+
 
 -- | One or more filters.     * @reserved-instances-id@ - The ID of the Reserved Instances.     * @reserved-instances-listing-id@ - The ID of the Reserved Instances listing.     * @status@ - The status of the Reserved Instance listing (@pending@ | @active@ | @cancelled@ | @closed@ ).     * @status-message@ - The reason for the status.
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
@@ -109,8 +111,10 @@ instance AWSRequest DescribeReservedInstancesListings
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeReservedInstancesListings
+         where
 
 instance NFData DescribeReservedInstancesListings
+         where
 
 instance ToHeaders DescribeReservedInstancesListings
          where
@@ -138,9 +142,10 @@ instance ToQuery DescribeReservedInstancesListings
 --
 -- /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
-    { _drilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _drilrsResponseStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drilrsReservedInstancesListings :: {-# NOUNPACK #-}!(Maybe [ReservedInstancesListing])
+  , _drilrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedInstancesListingsResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +158,11 @@ describeReservedInstancesListingsResponse
     :: Int -- ^ 'drilrsResponseStatus'
     -> DescribeReservedInstancesListingsResponse
 describeReservedInstancesListingsResponse pResponseStatus_ =
-    DescribeReservedInstancesListingsResponse'
-    { _drilrsReservedInstancesListings = Nothing
-    , _drilrsResponseStatus = pResponseStatus_
-    }
+  DescribeReservedInstancesListingsResponse'
+  { _drilrsReservedInstancesListings = Nothing
+  , _drilrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the Reserved Instance listing.
 drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
@@ -167,4 +173,5 @@ drilrsResponseStatus :: Lens' DescribeReservedInstancesListingsResponse Int
 drilrsResponseStatus = lens _drilrsResponseStatus (\ s a -> s{_drilrsResponseStatus = a});
 
 instance NFData
-         DescribeReservedInstancesListingsResponse
+           DescribeReservedInstancesListingsResponse
+         where

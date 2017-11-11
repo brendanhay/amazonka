@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.AssociateVPCWithHostedZone
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
     , avwhzrsChangeInfo
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the request to associate a VPC with a private hosted zone.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'associateVPCWithHostedZone' smart constructor.
 data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
-    { _avwhzComment      :: !(Maybe Text)
-    , _avwhzHostedZoneId :: !ResourceId
-    , _avwhzVPC          :: !VPC
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avwhzComment      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avwhzHostedZoneId :: {-# NOUNPACK #-}!ResourceId
+  , _avwhzVPC          :: {-# NOUNPACK #-}!VPC
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateVPCWithHostedZone' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ associateVPCWithHostedZone
     -> VPC -- ^ 'avwhzVPC'
     -> AssociateVPCWithHostedZone
 associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
-    AssociateVPCWithHostedZone'
-    { _avwhzComment = Nothing
-    , _avwhzHostedZoneId = pHostedZoneId_
-    , _avwhzVPC = pVPC_
-    }
+  AssociateVPCWithHostedZone'
+  { _avwhzComment = Nothing
+  , _avwhzHostedZoneId = pHostedZoneId_
+  , _avwhzVPC = pVPC_
+  }
+
 
 -- | /Optional:/ A comment about the association request.
 avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest AssociateVPCWithHostedZone where
                  AssociateVPCWithHostedZoneResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
-instance Hashable AssociateVPCWithHostedZone
+instance Hashable AssociateVPCWithHostedZone where
 
-instance NFData AssociateVPCWithHostedZone
+instance NFData AssociateVPCWithHostedZone where
 
 instance ToElement AssociateVPCWithHostedZone where
         toElement
@@ -133,9 +135,10 @@ instance ToXML AssociateVPCWithHostedZone where
 --
 -- /See:/ 'associateVPCWithHostedZoneResponse' smart constructor.
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
-    { _avwhzrsResponseStatus :: !Int
-    , _avwhzrsChangeInfo     :: !ChangeInfo
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avwhzrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _avwhzrsChangeInfo     :: {-# NOUNPACK #-}!ChangeInfo
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateVPCWithHostedZoneResponse' with the minimum fields required to make a request.
 --
@@ -149,10 +152,9 @@ associateVPCWithHostedZoneResponse
     -> ChangeInfo -- ^ 'avwhzrsChangeInfo'
     -> AssociateVPCWithHostedZoneResponse
 associateVPCWithHostedZoneResponse pResponseStatus_ pChangeInfo_ =
-    AssociateVPCWithHostedZoneResponse'
-    { _avwhzrsResponseStatus = pResponseStatus_
-    , _avwhzrsChangeInfo = pChangeInfo_
-    }
+  AssociateVPCWithHostedZoneResponse'
+  {_avwhzrsResponseStatus = pResponseStatus_, _avwhzrsChangeInfo = pChangeInfo_}
+
 
 -- | -- | The response status code.
 avwhzrsResponseStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
@@ -163,3 +165,4 @@ avwhzrsChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avwhzrsChangeInfo = lens _avwhzrsChangeInfo (\ s a -> s{_avwhzrsChangeInfo = a});
 
 instance NFData AssociateVPCWithHostedZoneResponse
+         where

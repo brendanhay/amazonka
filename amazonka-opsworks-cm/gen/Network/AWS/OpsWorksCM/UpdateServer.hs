@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.UpdateServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.OpsWorksCM.UpdateServer
     , usrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateServer' smart constructor.
 data UpdateServer = UpdateServer'
-    { _usDisableAutomatedBackup     :: !(Maybe Bool)
-    , _usPreferredMaintenanceWindow :: !(Maybe Text)
-    , _usPreferredBackupWindow      :: !(Maybe Text)
-    , _usBackupRetentionCount       :: !(Maybe Int)
-    , _usServerName                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usDisableAutomatedBackup     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _usPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usPreferredBackupWindow      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usBackupRetentionCount       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _usServerName                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServer' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ updateServer
     :: Text -- ^ 'usServerName'
     -> UpdateServer
 updateServer pServerName_ =
-    UpdateServer'
-    { _usDisableAutomatedBackup = Nothing
-    , _usPreferredMaintenanceWindow = Nothing
-    , _usPreferredBackupWindow = Nothing
-    , _usBackupRetentionCount = Nothing
-    , _usServerName = pServerName_
-    }
+  UpdateServer'
+  { _usDisableAutomatedBackup = Nothing
+  , _usPreferredMaintenanceWindow = Nothing
+  , _usPreferredBackupWindow = Nothing
+  , _usBackupRetentionCount = Nothing
+  , _usServerName = pServerName_
+  }
+
 
 -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
 usDisableAutomatedBackup :: Lens' UpdateServer (Maybe Bool)
@@ -113,9 +115,9 @@ instance AWSRequest UpdateServer where
                  UpdateServerResponse' <$>
                    (x .?> "Server") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateServer
+instance Hashable UpdateServer where
 
-instance NFData UpdateServer
+instance NFData UpdateServer where
 
 instance ToHeaders UpdateServer where
         toHeaders
@@ -149,9 +151,10 @@ instance ToQuery UpdateServer where
 
 -- | /See:/ 'updateServerResponse' smart constructor.
 data UpdateServerResponse = UpdateServerResponse'
-    { _usrsServer         :: !(Maybe Server)
-    , _usrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _usrsServer         :: {-# NOUNPACK #-}!(Maybe Server)
+  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServerResponse' with the minimum fields required to make a request.
 --
@@ -164,10 +167,9 @@ updateServerResponse
     :: Int -- ^ 'usrsResponseStatus'
     -> UpdateServerResponse
 updateServerResponse pResponseStatus_ =
-    UpdateServerResponse'
-    { _usrsServer = Nothing
-    , _usrsResponseStatus = pResponseStatus_
-    }
+  UpdateServerResponse'
+  {_usrsServer = Nothing, _usrsResponseStatus = pResponseStatus_}
+
 
 -- | Contains the response to a @UpdateServer@ request.
 usrsServer :: Lens' UpdateServerResponse (Maybe Server)
@@ -177,4 +179,4 @@ usrsServer = lens _usrsServer (\ s a -> s{_usrsServer = a});
 usrsResponseStatus :: Lens' UpdateServerResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
 
-instance NFData UpdateServerResponse
+instance NFData UpdateServerResponse where

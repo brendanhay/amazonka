@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DownloadDefaultKeyPair
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,23 +36,25 @@ module Network.AWS.Lightsail.DownloadDefaultKeyPair
     , ddkprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'downloadDefaultKeyPair' smart constructor.
 data DownloadDefaultKeyPair =
-    DownloadDefaultKeyPair'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DownloadDefaultKeyPair'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DownloadDefaultKeyPair' with the minimum fields required to make a request.
 --
 downloadDefaultKeyPair
     :: DownloadDefaultKeyPair
 downloadDefaultKeyPair = DownloadDefaultKeyPair'
+
 
 instance AWSRequest DownloadDefaultKeyPair where
         type Rs DownloadDefaultKeyPair =
@@ -66,9 +68,9 @@ instance AWSRequest DownloadDefaultKeyPair where
                      (x .?> "privateKeyBase64")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DownloadDefaultKeyPair
+instance Hashable DownloadDefaultKeyPair where
 
-instance NFData DownloadDefaultKeyPair
+instance NFData DownloadDefaultKeyPair where
 
 instance ToHeaders DownloadDefaultKeyPair where
         toHeaders
@@ -91,10 +93,11 @@ instance ToQuery DownloadDefaultKeyPair where
 
 -- | /See:/ 'downloadDefaultKeyPairResponse' smart constructor.
 data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
-    { _ddkprsPublicKeyBase64  :: !(Maybe Text)
-    , _ddkprsPrivateKeyBase64 :: !(Maybe Text)
-    , _ddkprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddkprsPublicKeyBase64  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddkprsPrivateKeyBase64 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddkprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DownloadDefaultKeyPairResponse' with the minimum fields required to make a request.
 --
@@ -109,11 +112,12 @@ downloadDefaultKeyPairResponse
     :: Int -- ^ 'ddkprsResponseStatus'
     -> DownloadDefaultKeyPairResponse
 downloadDefaultKeyPairResponse pResponseStatus_ =
-    DownloadDefaultKeyPairResponse'
-    { _ddkprsPublicKeyBase64 = Nothing
-    , _ddkprsPrivateKeyBase64 = Nothing
-    , _ddkprsResponseStatus = pResponseStatus_
-    }
+  DownloadDefaultKeyPairResponse'
+  { _ddkprsPublicKeyBase64 = Nothing
+  , _ddkprsPrivateKeyBase64 = Nothing
+  , _ddkprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
 ddkprsPublicKeyBase64 :: Lens' DownloadDefaultKeyPairResponse (Maybe Text)
@@ -127,4 +131,4 @@ ddkprsPrivateKeyBase64 = lens _ddkprsPrivateKeyBase64 (\ s a -> s{_ddkprsPrivate
 ddkprsResponseStatus :: Lens' DownloadDefaultKeyPairResponse Int
 ddkprsResponseStatus = lens _ddkprsResponseStatus (\ s a -> s{_ddkprsResponseStatus = a});
 
-instance NFData DownloadDefaultKeyPairResponse
+instance NFData DownloadDefaultKeyPairResponse where

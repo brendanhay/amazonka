@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.EnableAllFeatures
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,25 @@ module Network.AWS.Organizations.EnableAllFeatures
     , eafrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableAllFeatures' smart constructor.
 data EnableAllFeatures =
-    EnableAllFeatures'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableAllFeatures'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableAllFeatures' with the minimum fields required to make a request.
 --
 enableAllFeatures
     :: EnableAllFeatures
 enableAllFeatures = EnableAllFeatures'
+
 
 instance AWSRequest EnableAllFeatures where
         type Rs EnableAllFeatures = EnableAllFeaturesResponse
@@ -70,9 +72,9 @@ instance AWSRequest EnableAllFeatures where
                  EnableAllFeaturesResponse' <$>
                    (x .?> "Handshake") <*> (pure (fromEnum s)))
 
-instance Hashable EnableAllFeatures
+instance Hashable EnableAllFeatures where
 
-instance NFData EnableAllFeatures
+instance NFData EnableAllFeatures where
 
 instance ToHeaders EnableAllFeatures where
         toHeaders
@@ -95,9 +97,10 @@ instance ToQuery EnableAllFeatures where
 
 -- | /See:/ 'enableAllFeaturesResponse' smart constructor.
 data EnableAllFeaturesResponse = EnableAllFeaturesResponse'
-    { _eafrsHandshake      :: !(Maybe Handshake)
-    , _eafrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _eafrsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
+  , _eafrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableAllFeaturesResponse' with the minimum fields required to make a request.
 --
@@ -110,10 +113,9 @@ enableAllFeaturesResponse
     :: Int -- ^ 'eafrsResponseStatus'
     -> EnableAllFeaturesResponse
 enableAllFeaturesResponse pResponseStatus_ =
-    EnableAllFeaturesResponse'
-    { _eafrsHandshake = Nothing
-    , _eafrsResponseStatus = pResponseStatus_
-    }
+  EnableAllFeaturesResponse'
+  {_eafrsHandshake = Nothing, _eafrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the handshake created to support this request to enable all features in the organization.
 eafrsHandshake :: Lens' EnableAllFeaturesResponse (Maybe Handshake)
@@ -123,4 +125,4 @@ eafrsHandshake = lens _eafrsHandshake (\ s a -> s{_eafrsHandshake = a});
 eafrsResponseStatus :: Lens' EnableAllFeaturesResponse Int
 eafrsResponseStatus = lens _eafrsResponseStatus (\ s a -> s{_eafrsResponseStatus = a});
 
-instance NFData EnableAllFeaturesResponse
+instance NFData EnableAllFeaturesResponse where

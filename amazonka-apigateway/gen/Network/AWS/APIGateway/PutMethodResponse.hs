@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutMethodResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.PutMethodResponse
     , mResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to add a 'MethodResponse' to an existing 'Method' resource.
 --
@@ -56,13 +56,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putMethodResponse' smart constructor.
 data PutMethodResponse = PutMethodResponse'
-    { _pmResponseModels     :: !(Maybe (Map Text Text))
-    , _pmResponseParameters :: !(Maybe (Map Text Bool))
-    , _pmRestAPIId          :: !Text
-    , _pmResourceId         :: !Text
-    , _pmHttpMethod         :: !Text
-    , _pmStatusCode         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmResponseModels     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _pmResponseParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Bool))
+  , _pmRestAPIId          :: {-# NOUNPACK #-}!Text
+  , _pmResourceId         :: {-# NOUNPACK #-}!Text
+  , _pmHttpMethod         :: {-# NOUNPACK #-}!Text
+  , _pmStatusCode         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutMethodResponse' with the minimum fields required to make a request.
 --
@@ -86,14 +87,15 @@ putMethodResponse
     -> Text -- ^ 'pmStatusCode'
     -> PutMethodResponse
 putMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    PutMethodResponse'
-    { _pmResponseModels = Nothing
-    , _pmResponseParameters = Nothing
-    , _pmRestAPIId = pRestAPIId_
-    , _pmResourceId = pResourceId_
-    , _pmHttpMethod = pHttpMethod_
-    , _pmStatusCode = pStatusCode_
-    }
+  PutMethodResponse'
+  { _pmResponseModels = Nothing
+  , _pmResponseParameters = Nothing
+  , _pmRestAPIId = pRestAPIId_
+  , _pmResourceId = pResourceId_
+  , _pmHttpMethod = pHttpMethod_
+  , _pmStatusCode = pStatusCode_
+  }
+
 
 -- | Specifies the 'Model' resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
 pmResponseModels :: Lens' PutMethodResponse (HashMap Text Text)
@@ -124,9 +126,9 @@ instance AWSRequest PutMethodResponse where
         request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable PutMethodResponse
+instance Hashable PutMethodResponse where
 
-instance NFData PutMethodResponse
+instance NFData PutMethodResponse where
 
 instance ToHeaders PutMethodResponse where
         toHeaders

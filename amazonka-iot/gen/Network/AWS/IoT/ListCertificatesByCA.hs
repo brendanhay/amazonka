@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCertificatesByCA
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.IoT.ListCertificatesByCA
     , lcbcarsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the ListCertificatesByCA operation.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listCertificatesByCA' smart constructor.
 data ListCertificatesByCA = ListCertificatesByCA'
-    { _lcbcaMarker          :: !(Maybe Text)
-    , _lcbcaAscendingOrder  :: !(Maybe Bool)
-    , _lcbcaPageSize        :: !(Maybe Nat)
-    , _lcbcaCaCertificateId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcbcaMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcbcaAscendingOrder  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lcbcaPageSize        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lcbcaCaCertificateId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCertificatesByCA' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ listCertificatesByCA
     :: Text -- ^ 'lcbcaCaCertificateId'
     -> ListCertificatesByCA
 listCertificatesByCA pCaCertificateId_ =
-    ListCertificatesByCA'
-    { _lcbcaMarker = Nothing
-    , _lcbcaAscendingOrder = Nothing
-    , _lcbcaPageSize = Nothing
-    , _lcbcaCaCertificateId = pCaCertificateId_
-    }
+  ListCertificatesByCA'
+  { _lcbcaMarker = Nothing
+  , _lcbcaAscendingOrder = Nothing
+  , _lcbcaPageSize = Nothing
+  , _lcbcaCaCertificateId = pCaCertificateId_
+  }
+
 
 -- | The marker for the next set of results.
 lcbcaMarker :: Lens' ListCertificatesByCA (Maybe Text)
@@ -120,9 +122,9 @@ instance AWSRequest ListCertificatesByCA where
                      (x .?> "nextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCertificatesByCA
+instance Hashable ListCertificatesByCA where
 
-instance NFData ListCertificatesByCA
+instance NFData ListCertificatesByCA where
 
 instance ToHeaders ListCertificatesByCA where
         toHeaders = const mempty
@@ -145,10 +147,11 @@ instance ToQuery ListCertificatesByCA where
 --
 -- /See:/ 'listCertificatesByCAResponse' smart constructor.
 data ListCertificatesByCAResponse = ListCertificatesByCAResponse'
-    { _lcbcarsCertificates   :: !(Maybe [Certificate])
-    , _lcbcarsNextMarker     :: !(Maybe Text)
-    , _lcbcarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcbcarsCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
+  , _lcbcarsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcbcarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCertificatesByCAResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +166,12 @@ listCertificatesByCAResponse
     :: Int -- ^ 'lcbcarsResponseStatus'
     -> ListCertificatesByCAResponse
 listCertificatesByCAResponse pResponseStatus_ =
-    ListCertificatesByCAResponse'
-    { _lcbcarsCertificates = Nothing
-    , _lcbcarsNextMarker = Nothing
-    , _lcbcarsResponseStatus = pResponseStatus_
-    }
+  ListCertificatesByCAResponse'
+  { _lcbcarsCertificates = Nothing
+  , _lcbcarsNextMarker = Nothing
+  , _lcbcarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The device certificates signed by the specified CA certificate.
 lcbcarsCertificates :: Lens' ListCertificatesByCAResponse [Certificate]
@@ -181,4 +185,4 @@ lcbcarsNextMarker = lens _lcbcarsNextMarker (\ s a -> s{_lcbcarsNextMarker = a})
 lcbcarsResponseStatus :: Lens' ListCertificatesByCAResponse Int
 lcbcarsResponseStatus = lens _lcbcarsResponseStatus (\ s a -> s{_lcbcarsResponseStatus = a});
 
-instance NFData ListCertificatesByCAResponse
+instance NFData ListCertificatesByCAResponse where

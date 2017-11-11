@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetDefaultPatchBaseline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.SSM.GetDefaultPatchBaseline
     , gdpbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getDefaultPatchBaseline' smart constructor.
 newtype GetDefaultPatchBaseline = GetDefaultPatchBaseline'
-    { _gdpbOperatingSystem :: Maybe OperatingSystem
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdpbOperatingSystem :: Maybe OperatingSystem
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDefaultPatchBaseline' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ newtype GetDefaultPatchBaseline = GetDefaultPatchBaseline'
 getDefaultPatchBaseline
     :: GetDefaultPatchBaseline
 getDefaultPatchBaseline =
-    GetDefaultPatchBaseline'
-    { _gdpbOperatingSystem = Nothing
-    }
+  GetDefaultPatchBaseline' {_gdpbOperatingSystem = Nothing}
+
 
 -- | Returns the default patch baseline for the specified operating system.
 gdpbOperatingSystem :: Lens' GetDefaultPatchBaseline (Maybe OperatingSystem)
@@ -77,9 +77,9 @@ instance AWSRequest GetDefaultPatchBaseline where
                    (x .?> "OperatingSystem") <*> (x .?> "BaselineId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDefaultPatchBaseline
+instance Hashable GetDefaultPatchBaseline where
 
-instance NFData GetDefaultPatchBaseline
+instance NFData GetDefaultPatchBaseline where
 
 instance ToHeaders GetDefaultPatchBaseline where
         toHeaders
@@ -104,10 +104,11 @@ instance ToQuery GetDefaultPatchBaseline where
 
 -- | /See:/ 'getDefaultPatchBaselineResponse' smart constructor.
 data GetDefaultPatchBaselineResponse = GetDefaultPatchBaselineResponse'
-    { _gdpbrsOperatingSystem :: !(Maybe OperatingSystem)
-    , _gdpbrsBaselineId      :: !(Maybe Text)
-    , _gdpbrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdpbrsOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _gdpbrsBaselineId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpbrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDefaultPatchBaselineResponse' with the minimum fields required to make a request.
 --
@@ -122,11 +123,12 @@ getDefaultPatchBaselineResponse
     :: Int -- ^ 'gdpbrsResponseStatus'
     -> GetDefaultPatchBaselineResponse
 getDefaultPatchBaselineResponse pResponseStatus_ =
-    GetDefaultPatchBaselineResponse'
-    { _gdpbrsOperatingSystem = Nothing
-    , _gdpbrsBaselineId = Nothing
-    , _gdpbrsResponseStatus = pResponseStatus_
-    }
+  GetDefaultPatchBaselineResponse'
+  { _gdpbrsOperatingSystem = Nothing
+  , _gdpbrsBaselineId = Nothing
+  , _gdpbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The operating system for the returned patch baseline.
 gdpbrsOperatingSystem :: Lens' GetDefaultPatchBaselineResponse (Maybe OperatingSystem)
@@ -140,4 +142,4 @@ gdpbrsBaselineId = lens _gdpbrsBaselineId (\ s a -> s{_gdpbrsBaselineId = a});
 gdpbrsResponseStatus :: Lens' GetDefaultPatchBaselineResponse Int
 gdpbrsResponseStatus = lens _gdpbrsResponseStatus (\ s a -> s{_gdpbrsResponseStatus = a});
 
-instance NFData GetDefaultPatchBaselineResponse
+instance NFData GetDefaultPatchBaselineResponse where

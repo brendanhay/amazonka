@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteAccountPasswordPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -32,23 +32,25 @@ module Network.AWS.IAM.DeleteAccountPasswordPolicy
     , DeleteAccountPasswordPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAccountPasswordPolicy' smart constructor.
 data DeleteAccountPasswordPolicy =
-    DeleteAccountPasswordPolicy'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAccountPasswordPolicy'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAccountPasswordPolicy' with the minimum fields required to make a request.
 --
 deleteAccountPasswordPolicy
     :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
+
 
 instance AWSRequest DeleteAccountPasswordPolicy where
         type Rs DeleteAccountPasswordPolicy =
@@ -57,9 +59,9 @@ instance AWSRequest DeleteAccountPasswordPolicy where
         response
           = receiveNull DeleteAccountPasswordPolicyResponse'
 
-instance Hashable DeleteAccountPasswordPolicy
+instance Hashable DeleteAccountPasswordPolicy where
 
-instance NFData DeleteAccountPasswordPolicy
+instance NFData DeleteAccountPasswordPolicy where
 
 instance ToHeaders DeleteAccountPasswordPolicy where
         toHeaders = const mempty
@@ -77,8 +79,9 @@ instance ToQuery DeleteAccountPasswordPolicy where
 
 -- | /See:/ 'deleteAccountPasswordPolicyResponse' smart constructor.
 data DeleteAccountPasswordPolicyResponse =
-    DeleteAccountPasswordPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAccountPasswordPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAccountPasswordPolicyResponse' with the minimum fields required to make a request.
 --
@@ -86,4 +89,6 @@ deleteAccountPasswordPolicyResponse
     :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'
 
+
 instance NFData DeleteAccountPasswordPolicyResponse
+         where

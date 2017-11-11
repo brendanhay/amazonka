@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
     , auuarsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to update the user's attributes as an administrator.
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminUpdateUserAttributes' smart constructor.
 data AdminUpdateUserAttributes = AdminUpdateUserAttributes'
-    { _auuaUserPoolId     :: !Text
-    , _auuaUsername       :: !(Sensitive Text)
-    , _auuaUserAttributes :: ![AttributeType]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _auuaUserPoolId     :: {-# NOUNPACK #-}!Text
+  , _auuaUsername       :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _auuaUserAttributes :: {-# NOUNPACK #-}![AttributeType]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminUpdateUserAttributes' with the minimum fields required to make a request.
 --
@@ -76,11 +77,12 @@ adminUpdateUserAttributes
     -> Text -- ^ 'auuaUsername'
     -> AdminUpdateUserAttributes
 adminUpdateUserAttributes pUserPoolId_ pUsername_ =
-    AdminUpdateUserAttributes'
-    { _auuaUserPoolId = pUserPoolId_
-    , _auuaUsername = _Sensitive # pUsername_
-    , _auuaUserAttributes = mempty
-    }
+  AdminUpdateUserAttributes'
+  { _auuaUserPoolId = pUserPoolId_
+  , _auuaUsername = _Sensitive # pUsername_
+  , _auuaUserAttributes = mempty
+  }
+
 
 -- | The user pool ID for the user pool where you want to update user attributes.
 auuaUserPoolId :: Lens' AdminUpdateUserAttributes Text
@@ -104,9 +106,9 @@ instance AWSRequest AdminUpdateUserAttributes where
                  AdminUpdateUserAttributesResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminUpdateUserAttributes
+instance Hashable AdminUpdateUserAttributes where
 
-instance NFData AdminUpdateUserAttributes
+instance NFData AdminUpdateUserAttributes where
 
 instance ToHeaders AdminUpdateUserAttributes where
         toHeaders
@@ -138,8 +140,9 @@ instance ToQuery AdminUpdateUserAttributes where
 --
 -- /See:/ 'adminUpdateUserAttributesResponse' smart constructor.
 newtype AdminUpdateUserAttributesResponse = AdminUpdateUserAttributesResponse'
-    { _auuarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _auuarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminUpdateUserAttributesResponse' with the minimum fields required to make a request.
 --
@@ -150,12 +153,12 @@ adminUpdateUserAttributesResponse
     :: Int -- ^ 'auuarsResponseStatus'
     -> AdminUpdateUserAttributesResponse
 adminUpdateUserAttributesResponse pResponseStatus_ =
-    AdminUpdateUserAttributesResponse'
-    { _auuarsResponseStatus = pResponseStatus_
-    }
+  AdminUpdateUserAttributesResponse' {_auuarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 auuarsResponseStatus :: Lens' AdminUpdateUserAttributesResponse Int
 auuarsResponseStatus = lens _auuarsResponseStatus (\ s a -> s{_auuarsResponseStatus = a});
 
 instance NFData AdminUpdateUserAttributesResponse
+         where

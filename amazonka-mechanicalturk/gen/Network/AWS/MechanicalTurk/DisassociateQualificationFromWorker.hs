@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
     , dqfwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateQualificationFromWorker' smart constructor.
 data DisassociateQualificationFromWorker = DisassociateQualificationFromWorker'
-    { _dqfwReason              :: !(Maybe Text)
-    , _dqfwWorkerId            :: !Text
-    , _dqfwQualificationTypeId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dqfwReason              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dqfwWorkerId            :: {-# NOUNPACK #-}!Text
+  , _dqfwQualificationTypeId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateQualificationFromWorker' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ disassociateQualificationFromWorker
     -> Text -- ^ 'dqfwQualificationTypeId'
     -> DisassociateQualificationFromWorker
 disassociateQualificationFromWorker pWorkerId_ pQualificationTypeId_ =
-    DisassociateQualificationFromWorker'
-    { _dqfwReason = Nothing
-    , _dqfwWorkerId = pWorkerId_
-    , _dqfwQualificationTypeId = pQualificationTypeId_
-    }
+  DisassociateQualificationFromWorker'
+  { _dqfwReason = Nothing
+  , _dqfwWorkerId = pWorkerId_
+  , _dqfwQualificationTypeId = pQualificationTypeId_
+  }
+
 
 -- | A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
 dqfwReason :: Lens' DisassociateQualificationFromWorker (Maybe Text)
@@ -87,7 +89,8 @@ dqfwQualificationTypeId :: Lens' DisassociateQualificationFromWorker Text
 dqfwQualificationTypeId = lens _dqfwQualificationTypeId (\ s a -> s{_dqfwQualificationTypeId = a});
 
 instance AWSRequest
-         DisassociateQualificationFromWorker where
+           DisassociateQualificationFromWorker
+         where
         type Rs DisassociateQualificationFromWorker =
              DisassociateQualificationFromWorkerResponse
         request = postJSON mechanicalTurk
@@ -98,11 +101,14 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable DisassociateQualificationFromWorker
+         where
 
 instance NFData DisassociateQualificationFromWorker
+         where
 
 instance ToHeaders
-         DisassociateQualificationFromWorker where
+           DisassociateQualificationFromWorker
+         where
         toHeaders
           = const
               (mconcat
@@ -132,8 +138,9 @@ instance ToQuery DisassociateQualificationFromWorker
 
 -- | /See:/ 'disassociateQualificationFromWorkerResponse' smart constructor.
 newtype DisassociateQualificationFromWorkerResponse = DisassociateQualificationFromWorkerResponse'
-    { _dqfwrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dqfwrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateQualificationFromWorkerResponse' with the minimum fields required to make a request.
 --
@@ -144,13 +151,14 @@ disassociateQualificationFromWorkerResponse
     :: Int -- ^ 'dqfwrsResponseStatus'
     -> DisassociateQualificationFromWorkerResponse
 disassociateQualificationFromWorkerResponse pResponseStatus_ =
-    DisassociateQualificationFromWorkerResponse'
-    { _dqfwrsResponseStatus = pResponseStatus_
-    }
+  DisassociateQualificationFromWorkerResponse'
+  {_dqfwrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dqfwrsResponseStatus :: Lens' DisassociateQualificationFromWorkerResponse Int
 dqfwrsResponseStatus = lens _dqfwrsResponseStatus (\ s a -> s{_dqfwrsResponseStatus = a});
 
 instance NFData
-         DisassociateQualificationFromWorkerResponse
+           DisassociateQualificationFromWorkerResponse
+         where

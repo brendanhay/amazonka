@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHooks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     , dlhrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeLifecycleHooks.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeLifecycleHooks' smart constructor.
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
-    { _dlhLifecycleHookNames   :: !(Maybe [Text])
-    , _dlhAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlhLifecycleHookNames   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dlhAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLifecycleHooks' with the minimum fields required to make a request.
 --
@@ -66,10 +67,11 @@ describeLifecycleHooks
     :: Text -- ^ 'dlhAutoScalingGroupName'
     -> DescribeLifecycleHooks
 describeLifecycleHooks pAutoScalingGroupName_ =
-    DescribeLifecycleHooks'
-    { _dlhLifecycleHookNames = Nothing
-    , _dlhAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  DescribeLifecycleHooks'
+  { _dlhLifecycleHookNames = Nothing
+  , _dlhAutoScalingGroupName = pAutoScalingGroupName_
+  }
+
 
 -- | The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle hooks are described.
 dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
@@ -91,9 +93,9 @@ instance AWSRequest DescribeLifecycleHooks where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLifecycleHooks
+instance Hashable DescribeLifecycleHooks where
 
-instance NFData DescribeLifecycleHooks
+instance NFData DescribeLifecycleHooks where
 
 instance ToHeaders DescribeLifecycleHooks where
         toHeaders = const mempty
@@ -118,9 +120,10 @@ instance ToQuery DescribeLifecycleHooks where
 --
 -- /See:/ 'describeLifecycleHooksResponse' smart constructor.
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
-    { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
-    , _dlhrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlhrsLifecycleHooks :: {-# NOUNPACK #-}!(Maybe [LifecycleHook])
+  , _dlhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLifecycleHooksResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +136,9 @@ describeLifecycleHooksResponse
     :: Int -- ^ 'dlhrsResponseStatus'
     -> DescribeLifecycleHooksResponse
 describeLifecycleHooksResponse pResponseStatus_ =
-    DescribeLifecycleHooksResponse'
-    { _dlhrsLifecycleHooks = Nothing
-    , _dlhrsResponseStatus = pResponseStatus_
-    }
+  DescribeLifecycleHooksResponse'
+  {_dlhrsLifecycleHooks = Nothing, _dlhrsResponseStatus = pResponseStatus_}
+
 
 -- | The lifecycle hooks for the specified group.
 dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
@@ -146,4 +148,4 @@ dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks
 dlhrsResponseStatus :: Lens' DescribeLifecycleHooksResponse Int
 dlhrsResponseStatus = lens _dlhrsResponseStatus (\ s a -> s{_dlhrsResponseStatus = a});
 
-instance NFData DescribeLifecycleHooksResponse
+instance NFData DescribeLifecycleHooksResponse where

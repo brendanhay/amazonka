@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetDevEndpoints
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Glue.GetDevEndpoints
     , gdersResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDevEndpoints' smart constructor.
 data GetDevEndpoints = GetDevEndpoints'
-    { _gdeNextToken  :: !(Maybe Text)
-    , _gdeMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdeNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdeMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDevEndpoints' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data GetDevEndpoints = GetDevEndpoints'
 getDevEndpoints
     :: GetDevEndpoints
 getDevEndpoints =
-    GetDevEndpoints'
-    { _gdeNextToken = Nothing
-    , _gdeMaxResults = Nothing
-    }
+  GetDevEndpoints' {_gdeNextToken = Nothing, _gdeMaxResults = Nothing}
+
 
 -- | A continuation token, if this is a continuation call.
 gdeNextToken :: Lens' GetDevEndpoints (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest GetDevEndpoints where
                      (x .?> "DevEndpoints" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDevEndpoints
+instance Hashable GetDevEndpoints where
 
-instance NFData GetDevEndpoints
+instance NFData GetDevEndpoints where
 
 instance ToHeaders GetDevEndpoints where
         toHeaders
@@ -114,10 +113,11 @@ instance ToQuery GetDevEndpoints where
 
 -- | /See:/ 'getDevEndpointsResponse' smart constructor.
 data GetDevEndpointsResponse = GetDevEndpointsResponse'
-    { _gdersNextToken      :: !(Maybe Text)
-    , _gdersDevEndpoints   :: !(Maybe [DevEndpoint])
-    , _gdersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdersDevEndpoints   :: {-# NOUNPACK #-}!(Maybe [DevEndpoint])
+  , _gdersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDevEndpointsResponse' with the minimum fields required to make a request.
 --
@@ -132,11 +132,12 @@ getDevEndpointsResponse
     :: Int -- ^ 'gdersResponseStatus'
     -> GetDevEndpointsResponse
 getDevEndpointsResponse pResponseStatus_ =
-    GetDevEndpointsResponse'
-    { _gdersNextToken = Nothing
-    , _gdersDevEndpoints = Nothing
-    , _gdersResponseStatus = pResponseStatus_
-    }
+  GetDevEndpointsResponse'
+  { _gdersNextToken = Nothing
+  , _gdersDevEndpoints = Nothing
+  , _gdersResponseStatus = pResponseStatus_
+  }
+
 
 -- | A continuation token, if not all DevEndpoint definitions have yet been returned.
 gdersNextToken :: Lens' GetDevEndpointsResponse (Maybe Text)
@@ -150,4 +151,4 @@ gdersDevEndpoints = lens _gdersDevEndpoints (\ s a -> s{_gdersDevEndpoints = a})
 gdersResponseStatus :: Lens' GetDevEndpointsResponse Int
 gdersResponseStatus = lens _gdersResponseStatus (\ s a -> s{_gdersResponseStatus = a});
 
-instance NFData GetDevEndpointsResponse
+instance NFData GetDevEndpointsResponse where

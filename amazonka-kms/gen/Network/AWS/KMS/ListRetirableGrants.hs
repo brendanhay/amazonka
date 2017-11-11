@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListRetirableGrants
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.KMS.ListRetirableGrants
     , lgNextMarker
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listRetirableGrants' smart constructor.
 data ListRetirableGrants = ListRetirableGrants'
-    { _lrgMarker            :: !(Maybe Text)
-    , _lrgLimit             :: !(Maybe Nat)
-    , _lrgRetiringPrincipal :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrgMarker            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrgLimit             :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lrgRetiringPrincipal :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRetirableGrants' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ listRetirableGrants
     :: Text -- ^ 'lrgRetiringPrincipal'
     -> ListRetirableGrants
 listRetirableGrants pRetiringPrincipal_ =
-    ListRetirableGrants'
-    { _lrgMarker = Nothing
-    , _lrgLimit = Nothing
-    , _lrgRetiringPrincipal = pRetiringPrincipal_
-    }
+  ListRetirableGrants'
+  { _lrgMarker = Nothing
+  , _lrgLimit = Nothing
+  , _lrgRetiringPrincipal = pRetiringPrincipal_
+  }
+
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lrgMarker :: Lens' ListRetirableGrants (Maybe Text)
@@ -92,9 +94,9 @@ instance AWSRequest ListRetirableGrants where
         request = postJSON kms
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable ListRetirableGrants
+instance Hashable ListRetirableGrants where
 
-instance NFData ListRetirableGrants
+instance NFData ListRetirableGrants where
 
 instance ToHeaders ListRetirableGrants where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.RegisterDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,12 +60,12 @@ module Network.AWS.Route53Domains.RegisterDomain
     , rdrsOperationId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The RegisterDomain request includes the following elements.
 --
@@ -73,17 +73,18 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'registerDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
-    { _rPrivacyProtectTechContact       :: !(Maybe Bool)
-    , _rPrivacyProtectRegistrantContact :: !(Maybe Bool)
-    , _rAutoRenew                       :: !(Maybe Bool)
-    , _rPrivacyProtectAdminContact      :: !(Maybe Bool)
-    , _rIdNLangCode                     :: !(Maybe Text)
-    , _rDomainName                      :: !Text
-    , _rDurationInYears                 :: !Nat
-    , _rAdminContact                    :: !(Sensitive ContactDetail)
-    , _rRegistrantContact               :: !(Sensitive ContactDetail)
-    , _rTechContact                     :: !(Sensitive ContactDetail)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rPrivacyProtectTechContact :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rPrivacyProtectRegistrantContact :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rAutoRenew :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rPrivacyProtectAdminContact :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rIdNLangCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDomainName :: {-# NOUNPACK #-}!Text
+  , _rDurationInYears :: {-# NOUNPACK #-}!Nat
+  , _rAdminContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  , _rRegistrantContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  , _rTechContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterDomain' with the minimum fields required to make a request.
 --
@@ -116,18 +117,19 @@ registerDomain
     -> ContactDetail -- ^ 'rTechContact'
     -> RegisterDomain
 registerDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_ pTechContact_ =
-    RegisterDomain'
-    { _rPrivacyProtectTechContact = Nothing
-    , _rPrivacyProtectRegistrantContact = Nothing
-    , _rAutoRenew = Nothing
-    , _rPrivacyProtectAdminContact = Nothing
-    , _rIdNLangCode = Nothing
-    , _rDomainName = pDomainName_
-    , _rDurationInYears = _Nat # pDurationInYears_
-    , _rAdminContact = _Sensitive # pAdminContact_
-    , _rRegistrantContact = _Sensitive # pRegistrantContact_
-    , _rTechContact = _Sensitive # pTechContact_
-    }
+  RegisterDomain'
+  { _rPrivacyProtectTechContact = Nothing
+  , _rPrivacyProtectRegistrantContact = Nothing
+  , _rAutoRenew = Nothing
+  , _rPrivacyProtectAdminContact = Nothing
+  , _rIdNLangCode = Nothing
+  , _rDomainName = pDomainName_
+  , _rDurationInYears = _Nat # pDurationInYears_
+  , _rAdminContact = _Sensitive # pAdminContact_
+  , _rRegistrantContact = _Sensitive # pRegistrantContact_
+  , _rTechContact = _Sensitive # pTechContact_
+  }
+
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter. Default: @true@
 rPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
@@ -178,9 +180,9 @@ instance AWSRequest RegisterDomain where
                  RegisterDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
-instance Hashable RegisterDomain
+instance Hashable RegisterDomain where
 
-instance NFData RegisterDomain
+instance NFData RegisterDomain where
 
 instance ToHeaders RegisterDomain where
         toHeaders
@@ -222,9 +224,10 @@ instance ToQuery RegisterDomain where
 --
 -- /See:/ 'registerDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
-    { _rdrsResponseStatus :: !Int
-    , _rdrsOperationId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _rdrsOperationId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterDomainResponse' with the minimum fields required to make a request.
 --
@@ -238,10 +241,9 @@ registerDomainResponse
     -> Text -- ^ 'rdrsOperationId'
     -> RegisterDomainResponse
 registerDomainResponse pResponseStatus_ pOperationId_ =
-    RegisterDomainResponse'
-    { _rdrsResponseStatus = pResponseStatus_
-    , _rdrsOperationId = pOperationId_
-    }
+  RegisterDomainResponse'
+  {_rdrsResponseStatus = pResponseStatus_, _rdrsOperationId = pOperationId_}
+
 
 -- | -- | The response status code.
 rdrsResponseStatus :: Lens' RegisterDomainResponse Int
@@ -251,4 +253,4 @@ rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = 
 rdrsOperationId :: Lens' RegisterDomainResponse Text
 rdrsOperationId = lens _rdrsOperationId (\ s a -> s{_rdrsOperationId = a});
 
-instance NFData RegisterDomainResponse
+instance NFData RegisterDomainResponse where

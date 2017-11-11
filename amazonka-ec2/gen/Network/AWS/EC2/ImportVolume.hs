@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.ImportVolume
     , ivrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ImportVolume.
 --
@@ -56,12 +56,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'importVolume' smart constructor.
 data ImportVolume = ImportVolume'
-    { _ivDescription      :: !(Maybe Text)
-    , _ivDryRun           :: !(Maybe Bool)
-    , _ivAvailabilityZone :: !Text
-    , _ivImage            :: !DiskImageDetail
-    , _ivVolume           :: !VolumeDetail
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ivDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ivDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ivAvailabilityZone :: {-# NOUNPACK #-}!Text
+  , _ivImage            :: {-# NOUNPACK #-}!DiskImageDetail
+  , _ivVolume           :: {-# NOUNPACK #-}!VolumeDetail
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportVolume' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ importVolume
     -> VolumeDetail -- ^ 'ivVolume'
     -> ImportVolume
 importVolume pAvailabilityZone_ pImage_ pVolume_ =
-    ImportVolume'
-    { _ivDescription = Nothing
-    , _ivDryRun = Nothing
-    , _ivAvailabilityZone = pAvailabilityZone_
-    , _ivImage = pImage_
-    , _ivVolume = pVolume_
-    }
+  ImportVolume'
+  { _ivDescription = Nothing
+  , _ivDryRun = Nothing
+  , _ivAvailabilityZone = pAvailabilityZone_
+  , _ivImage = pImage_
+  , _ivVolume = pVolume_
+  }
+
 
 -- | A description of the volume.
 ivDescription :: Lens' ImportVolume (Maybe Text)
@@ -119,9 +121,9 @@ instance AWSRequest ImportVolume where
                  ImportVolumeResponse' <$>
                    (x .@? "conversionTask") <*> (pure (fromEnum s)))
 
-instance Hashable ImportVolume
+instance Hashable ImportVolume where
 
-instance NFData ImportVolume
+instance NFData ImportVolume where
 
 instance ToHeaders ImportVolume where
         toHeaders = const mempty
@@ -145,9 +147,10 @@ instance ToQuery ImportVolume where
 --
 -- /See:/ 'importVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
-    { _ivrsConversionTask :: !(Maybe ConversionTask)
-    , _ivrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ivrsConversionTask :: {-# NOUNPACK #-}!(Maybe ConversionTask)
+  , _ivrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportVolumeResponse' with the minimum fields required to make a request.
 --
@@ -160,10 +163,9 @@ importVolumeResponse
     :: Int -- ^ 'ivrsResponseStatus'
     -> ImportVolumeResponse
 importVolumeResponse pResponseStatus_ =
-    ImportVolumeResponse'
-    { _ivrsConversionTask = Nothing
-    , _ivrsResponseStatus = pResponseStatus_
-    }
+  ImportVolumeResponse'
+  {_ivrsConversionTask = Nothing, _ivrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the conversion task.
 ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
@@ -173,4 +175,4 @@ ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = 
 ivrsResponseStatus :: Lens' ImportVolumeResponse Int
 ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a});
 
-instance NFData ImportVolumeResponse
+instance NFData ImportVolumeResponse where

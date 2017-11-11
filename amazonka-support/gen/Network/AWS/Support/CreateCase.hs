@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.CreateCase
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -67,12 +67,12 @@ module Network.AWS.Support.CreateCase
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- |
 --
@@ -80,16 +80,17 @@ import           Network.AWS.Support.Types.Product
 --
 -- /See:/ 'createCase' smart constructor.
 data CreateCase = CreateCase'
-    { _ccSeverityCode      :: !(Maybe Text)
-    , _ccIssueType         :: !(Maybe Text)
-    , _ccCcEmailAddresses  :: !(Maybe [Text])
-    , _ccLanguage          :: !(Maybe Text)
-    , _ccCategoryCode      :: !(Maybe Text)
-    , _ccServiceCode       :: !(Maybe Text)
-    , _ccAttachmentSetId   :: !(Maybe Text)
-    , _ccSubject           :: !Text
-    , _ccCommunicationBody :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccSeverityCode      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccIssueType         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccCcEmailAddresses  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccLanguage          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccCategoryCode      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccServiceCode       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccAttachmentSetId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccSubject           :: {-# NOUNPACK #-}!Text
+  , _ccCommunicationBody :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCase' with the minimum fields required to make a request.
 --
@@ -117,17 +118,18 @@ createCase
     -> Text -- ^ 'ccCommunicationBody'
     -> CreateCase
 createCase pSubject_ pCommunicationBody_ =
-    CreateCase'
-    { _ccSeverityCode = Nothing
-    , _ccIssueType = Nothing
-    , _ccCcEmailAddresses = Nothing
-    , _ccLanguage = Nothing
-    , _ccCategoryCode = Nothing
-    , _ccServiceCode = Nothing
-    , _ccAttachmentSetId = Nothing
-    , _ccSubject = pSubject_
-    , _ccCommunicationBody = pCommunicationBody_
-    }
+  CreateCase'
+  { _ccSeverityCode = Nothing
+  , _ccIssueType = Nothing
+  , _ccCcEmailAddresses = Nothing
+  , _ccLanguage = Nothing
+  , _ccCategoryCode = Nothing
+  , _ccServiceCode = Nothing
+  , _ccAttachmentSetId = Nothing
+  , _ccSubject = pSubject_
+  , _ccCommunicationBody = pCommunicationBody_
+  }
+
 
 -- | The code for the severity level returned by the call to 'DescribeSeverityLevels' .
 ccSeverityCode :: Lens' CreateCase (Maybe Text)
@@ -174,9 +176,9 @@ instance AWSRequest CreateCase where
                  CreateCaseResponse' <$>
                    (x .?> "caseId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateCase
+instance Hashable CreateCase where
 
-instance NFData CreateCase
+instance NFData CreateCase where
 
 instance ToHeaders CreateCase where
         toHeaders
@@ -213,9 +215,10 @@ instance ToQuery CreateCase where
 --
 -- /See:/ 'createCaseResponse' smart constructor.
 data CreateCaseResponse = CreateCaseResponse'
-    { _ccrsCaseId         :: !(Maybe Text)
-    , _ccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsCaseId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCaseResponse' with the minimum fields required to make a request.
 --
@@ -228,10 +231,9 @@ createCaseResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CreateCaseResponse
 createCaseResponse pResponseStatus_ =
-    CreateCaseResponse'
-    { _ccrsCaseId = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
-    }
+  CreateCaseResponse'
+  {_ccrsCaseId = Nothing, _ccrsResponseStatus = pResponseStatus_}
+
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 ccrsCaseId :: Lens' CreateCaseResponse (Maybe Text)
@@ -241,4 +243,4 @@ ccrsCaseId = lens _ccrsCaseId (\ s a -> s{_ccrsCaseId = a});
 ccrsResponseStatus :: Lens' CreateCaseResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData CreateCaseResponse
+instance NFData CreateCaseResponse where

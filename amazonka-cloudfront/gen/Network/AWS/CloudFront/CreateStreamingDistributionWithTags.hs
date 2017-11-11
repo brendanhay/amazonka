@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistributionWithTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
     , csdwtrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create a new streaming distribution with tags.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createStreamingDistributionWithTags' smart constructor.
 newtype CreateStreamingDistributionWithTags = CreateStreamingDistributionWithTags'
-    { _csdwtStreamingDistributionConfigWithTags :: StreamingDistributionConfigWithTags
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdwtStreamingDistributionConfigWithTags :: StreamingDistributionConfigWithTags
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStreamingDistributionWithTags' with the minimum fields required to make a request.
 --
@@ -64,16 +65,19 @@ createStreamingDistributionWithTags
     :: StreamingDistributionConfigWithTags -- ^ 'csdwtStreamingDistributionConfigWithTags'
     -> CreateStreamingDistributionWithTags
 createStreamingDistributionWithTags pStreamingDistributionConfigWithTags_ =
-    CreateStreamingDistributionWithTags'
-    { _csdwtStreamingDistributionConfigWithTags = pStreamingDistributionConfigWithTags_
-    }
+  CreateStreamingDistributionWithTags'
+  { _csdwtStreamingDistributionConfigWithTags =
+      pStreamingDistributionConfigWithTags_
+  }
+
 
 -- | The streaming distribution's configuration information.
 csdwtStreamingDistributionConfigWithTags :: Lens' CreateStreamingDistributionWithTags StreamingDistributionConfigWithTags
 csdwtStreamingDistributionConfigWithTags = lens _csdwtStreamingDistributionConfigWithTags (\ s a -> s{_csdwtStreamingDistributionConfigWithTags = a});
 
 instance AWSRequest
-         CreateStreamingDistributionWithTags where
+           CreateStreamingDistributionWithTags
+         where
         type Rs CreateStreamingDistributionWithTags =
              CreateStreamingDistributionWithTagsResponse
         request = postXML cloudFront
@@ -86,11 +90,14 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable CreateStreamingDistributionWithTags
+         where
 
 instance NFData CreateStreamingDistributionWithTags
+         where
 
 instance ToElement
-         CreateStreamingDistributionWithTags where
+           CreateStreamingDistributionWithTags
+         where
         toElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2017-03-25/}StreamingDistributionConfigWithTags"
@@ -98,7 +105,8 @@ instance ToElement
               _csdwtStreamingDistributionConfigWithTags
 
 instance ToHeaders
-         CreateStreamingDistributionWithTags where
+           CreateStreamingDistributionWithTags
+         where
         toHeaders = const mempty
 
 instance ToPath CreateStreamingDistributionWithTags
@@ -115,11 +123,12 @@ instance ToQuery CreateStreamingDistributionWithTags
 --
 -- /See:/ 'createStreamingDistributionWithTagsResponse' smart constructor.
 data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWithTagsResponse'
-    { _csdwtrsETag                  :: !(Maybe Text)
-    , _csdwtrsLocation              :: !(Maybe Text)
-    , _csdwtrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _csdwtrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdwtrsETag :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdwtrsLocation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdwtrsStreamingDistribution :: {-# NOUNPACK #-}!(Maybe StreamingDistribution)
+  , _csdwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStreamingDistributionWithTagsResponse' with the minimum fields required to make a request.
 --
@@ -136,12 +145,13 @@ createStreamingDistributionWithTagsResponse
     :: Int -- ^ 'csdwtrsResponseStatus'
     -> CreateStreamingDistributionWithTagsResponse
 createStreamingDistributionWithTagsResponse pResponseStatus_ =
-    CreateStreamingDistributionWithTagsResponse'
-    { _csdwtrsETag = Nothing
-    , _csdwtrsLocation = Nothing
-    , _csdwtrsStreamingDistribution = Nothing
-    , _csdwtrsResponseStatus = pResponseStatus_
-    }
+  CreateStreamingDistributionWithTagsResponse'
+  { _csdwtrsETag = Nothing
+  , _csdwtrsLocation = Nothing
+  , _csdwtrsStreamingDistribution = Nothing
+  , _csdwtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 csdwtrsETag :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
@@ -160,4 +170,5 @@ csdwtrsResponseStatus :: Lens' CreateStreamingDistributionWithTagsResponse Int
 csdwtrsResponseStatus = lens _csdwtrsResponseStatus (\ s a -> s{_csdwtrsResponseStatus = a});
 
 instance NFData
-         CreateStreamingDistributionWithTagsResponse
+           CreateStreamingDistributionWithTagsResponse
+         where

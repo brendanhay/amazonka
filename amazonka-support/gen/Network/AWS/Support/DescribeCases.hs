@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeCases
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,13 +58,13 @@ module Network.AWS.Support.DescribeCases
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- |
 --
@@ -72,16 +72,17 @@ import           Network.AWS.Support.Types.Product
 --
 -- /See:/ 'describeCases' smart constructor.
 data DescribeCases = DescribeCases'
-    { _dcIncludeResolvedCases  :: !(Maybe Bool)
-    , _dcCaseIdList            :: !(Maybe [Text])
-    , _dcAfterTime             :: !(Maybe Text)
-    , _dcBeforeTime            :: !(Maybe Text)
-    , _dcNextToken             :: !(Maybe Text)
-    , _dcIncludeCommunications :: !(Maybe Bool)
-    , _dcDisplayId             :: !(Maybe Text)
-    , _dcLanguage              :: !(Maybe Text)
-    , _dcMaxResults            :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcIncludeResolvedCases  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcCaseIdList            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcAfterTime             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcBeforeTime            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcIncludeCommunications :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcDisplayId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcLanguage              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMaxResults            :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCases' with the minimum fields required to make a request.
 --
@@ -107,17 +108,18 @@ data DescribeCases = DescribeCases'
 describeCases
     :: DescribeCases
 describeCases =
-    DescribeCases'
-    { _dcIncludeResolvedCases = Nothing
-    , _dcCaseIdList = Nothing
-    , _dcAfterTime = Nothing
-    , _dcBeforeTime = Nothing
-    , _dcNextToken = Nothing
-    , _dcIncludeCommunications = Nothing
-    , _dcDisplayId = Nothing
-    , _dcLanguage = Nothing
-    , _dcMaxResults = Nothing
-    }
+  DescribeCases'
+  { _dcIncludeResolvedCases = Nothing
+  , _dcCaseIdList = Nothing
+  , _dcAfterTime = Nothing
+  , _dcBeforeTime = Nothing
+  , _dcNextToken = Nothing
+  , _dcIncludeCommunications = Nothing
+  , _dcDisplayId = Nothing
+  , _dcLanguage = Nothing
+  , _dcMaxResults = Nothing
+  }
+
 
 -- | Specifies whether resolved support cases should be included in the 'DescribeCases' results. The default is /false/ .
 dcIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
@@ -172,9 +174,9 @@ instance AWSRequest DescribeCases where
                    (x .?> "cases" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCases
+instance Hashable DescribeCases where
 
-instance NFData DescribeCases
+instance NFData DescribeCases where
 
 instance ToHeaders DescribeCases where
         toHeaders
@@ -213,10 +215,11 @@ instance ToQuery DescribeCases where
 --
 -- /See:/ 'describeCasesResponse' smart constructor.
 data DescribeCasesResponse = DescribeCasesResponse'
-    { _drsCases          :: !(Maybe [CaseDetails])
-    , _drsNextToken      :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsCases          :: {-# NOUNPACK #-}!(Maybe [CaseDetails])
+  , _drsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCasesResponse' with the minimum fields required to make a request.
 --
@@ -231,11 +234,12 @@ describeCasesResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeCasesResponse
 describeCasesResponse pResponseStatus_ =
-    DescribeCasesResponse'
-    { _drsCases = Nothing
-    , _drsNextToken = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeCasesResponse'
+  { _drsCases = Nothing
+  , _drsNextToken = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The details for the cases that match the request.
 drsCases :: Lens' DescribeCasesResponse [CaseDetails]
@@ -249,4 +253,4 @@ drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 drsResponseStatus :: Lens' DescribeCasesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeCasesResponse
+instance NFData DescribeCasesResponse where

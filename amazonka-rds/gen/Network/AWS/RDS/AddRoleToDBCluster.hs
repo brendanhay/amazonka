@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.AddRoleToDBCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.RDS.AddRoleToDBCluster
     , AddRoleToDBClusterResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addRoleToDBCluster' smart constructor.
 data AddRoleToDBCluster = AddRoleToDBCluster'
-    { _artdcDBClusterIdentifier :: !Text
-    , _artdcRoleARN             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _artdcDBClusterIdentifier :: {-# NOUNPACK #-}!Text
+  , _artdcRoleARN             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddRoleToDBCluster' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ addRoleToDBCluster
     -> Text -- ^ 'artdcRoleARN'
     -> AddRoleToDBCluster
 addRoleToDBCluster pDBClusterIdentifier_ pRoleARN_ =
-    AddRoleToDBCluster'
-    { _artdcDBClusterIdentifier = pDBClusterIdentifier_
-    , _artdcRoleARN = pRoleARN_
-    }
+  AddRoleToDBCluster'
+  {_artdcDBClusterIdentifier = pDBClusterIdentifier_, _artdcRoleARN = pRoleARN_}
+
 
 -- | The name of the DB cluster to associate the IAM role with.
 artdcDBClusterIdentifier :: Lens' AddRoleToDBCluster Text
@@ -79,9 +79,9 @@ instance AWSRequest AddRoleToDBCluster where
         request = postQuery rds
         response = receiveNull AddRoleToDBClusterResponse'
 
-instance Hashable AddRoleToDBCluster
+instance Hashable AddRoleToDBCluster where
 
-instance NFData AddRoleToDBCluster
+instance NFData AddRoleToDBCluster where
 
 instance ToHeaders AddRoleToDBCluster where
         toHeaders = const mempty
@@ -99,8 +99,9 @@ instance ToQuery AddRoleToDBCluster where
 
 -- | /See:/ 'addRoleToDBClusterResponse' smart constructor.
 data AddRoleToDBClusterResponse =
-    AddRoleToDBClusterResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddRoleToDBClusterResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddRoleToDBClusterResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +109,5 @@ addRoleToDBClusterResponse
     :: AddRoleToDBClusterResponse
 addRoleToDBClusterResponse = AddRoleToDBClusterResponse'
 
-instance NFData AddRoleToDBClusterResponse
+
+instance NFData AddRoleToDBClusterResponse where

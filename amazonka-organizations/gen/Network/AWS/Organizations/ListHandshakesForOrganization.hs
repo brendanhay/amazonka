@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListHandshakesForOrganization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,20 +46,21 @@ module Network.AWS.Organizations.ListHandshakesForOrganization
     , lhforsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listHandshakesForOrganization' smart constructor.
 data ListHandshakesForOrganization = ListHandshakesForOrganization'
-    { _lhfoNextToken  :: !(Maybe Text)
-    , _lhfoFilter     :: !(Maybe HandshakeFilter)
-    , _lhfoMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhfoNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhfoFilter     :: {-# NOUNPACK #-}!(Maybe HandshakeFilter)
+  , _lhfoMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHandshakesForOrganization' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ data ListHandshakesForOrganization = ListHandshakesForOrganization'
 listHandshakesForOrganization
     :: ListHandshakesForOrganization
 listHandshakesForOrganization =
-    ListHandshakesForOrganization'
-    { _lhfoNextToken = Nothing
-    , _lhfoFilter = Nothing
-    , _lhfoMaxResults = Nothing
-    }
+  ListHandshakesForOrganization'
+  {_lhfoNextToken = Nothing, _lhfoFilter = Nothing, _lhfoMaxResults = Nothing}
+
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 lhfoNextToken :: Lens' ListHandshakesForOrganization (Maybe Text)
@@ -111,9 +110,9 @@ instance AWSRequest ListHandshakesForOrganization
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListHandshakesForOrganization
+instance Hashable ListHandshakesForOrganization where
 
-instance NFData ListHandshakesForOrganization
+instance NFData ListHandshakesForOrganization where
 
 instance ToHeaders ListHandshakesForOrganization
          where
@@ -142,10 +141,11 @@ instance ToQuery ListHandshakesForOrganization where
 
 -- | /See:/ 'listHandshakesForOrganizationResponse' smart constructor.
 data ListHandshakesForOrganizationResponse = ListHandshakesForOrganizationResponse'
-    { _lhforsHandshakes     :: !(Maybe [Handshake])
-    , _lhforsNextToken      :: !(Maybe Text)
-    , _lhforsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lhforsHandshakes     :: {-# NOUNPACK #-}!(Maybe [Handshake])
+  , _lhforsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhforsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHandshakesForOrganizationResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +160,12 @@ listHandshakesForOrganizationResponse
     :: Int -- ^ 'lhforsResponseStatus'
     -> ListHandshakesForOrganizationResponse
 listHandshakesForOrganizationResponse pResponseStatus_ =
-    ListHandshakesForOrganizationResponse'
-    { _lhforsHandshakes = Nothing
-    , _lhforsNextToken = Nothing
-    , _lhforsResponseStatus = pResponseStatus_
-    }
+  ListHandshakesForOrganizationResponse'
+  { _lhforsHandshakes = Nothing
+  , _lhforsNextToken = Nothing
+  , _lhforsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'Handshake' objects with details about each of the handshakes that are associated with an organization.
 lhforsHandshakes :: Lens' ListHandshakesForOrganizationResponse [Handshake]
@@ -179,3 +180,4 @@ lhforsResponseStatus :: Lens' ListHandshakesForOrganizationResponse Int
 lhforsResponseStatus = lens _lhforsResponseStatus (\ s a -> s{_lhforsResponseStatus = a});
 
 instance NFData ListHandshakesForOrganizationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.GetTagKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.ResourceGroupsTagging.GetTagKeys
     , gtkrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.ResourceGroupsTagging.Types
-import           Network.AWS.ResourceGroupsTagging.Types.Product
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.ResourceGroupsTagging.Types
+import Network.AWS.ResourceGroupsTagging.Types.Product
+import Network.AWS.Response
 
 -- | /See:/ 'getTagKeys' smart constructor.
 newtype GetTagKeys = GetTagKeys'
-    { _gtkPaginationToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtkPaginationToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTagKeys' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetTagKeys = GetTagKeys'
 -- * 'gtkPaginationToken' - A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a PaginationToken, use that string for this value to request an additional page of data.
 getTagKeys
     :: GetTagKeys
-getTagKeys =
-    GetTagKeys'
-    { _gtkPaginationToken = Nothing
-    }
+getTagKeys = GetTagKeys' {_gtkPaginationToken = Nothing}
+
 
 -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a PaginationToken, use that string for this value to request an additional page of data.
 gtkPaginationToken :: Lens' GetTagKeys (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest GetTagKeys where
                      (x .?> "TagKeys" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTagKeys
+instance Hashable GetTagKeys where
 
-instance NFData GetTagKeys
+instance NFData GetTagKeys where
 
 instance ToHeaders GetTagKeys where
         toHeaders
@@ -116,10 +115,11 @@ instance ToQuery GetTagKeys where
 
 -- | /See:/ 'getTagKeysResponse' smart constructor.
 data GetTagKeysResponse = GetTagKeysResponse'
-    { _gtkrsPaginationToken :: !(Maybe Text)
-    , _gtkrsTagKeys         :: !(Maybe [Text])
-    , _gtkrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtkrsPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtkrsTagKeys         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gtkrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTagKeysResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +134,12 @@ getTagKeysResponse
     :: Int -- ^ 'gtkrsResponseStatus'
     -> GetTagKeysResponse
 getTagKeysResponse pResponseStatus_ =
-    GetTagKeysResponse'
-    { _gtkrsPaginationToken = Nothing
-    , _gtkrsTagKeys = Nothing
-    , _gtkrsResponseStatus = pResponseStatus_
-    }
+  GetTagKeysResponse'
+  { _gtkrsPaginationToken = Nothing
+  , _gtkrsTagKeys = Nothing
+  , _gtkrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
 gtkrsPaginationToken :: Lens' GetTagKeysResponse (Maybe Text)
@@ -152,4 +153,4 @@ gtkrsTagKeys = lens _gtkrsTagKeys (\ s a -> s{_gtkrsTagKeys = a}) . _Default . _
 gtkrsResponseStatus :: Lens' GetTagKeysResponse Int
 gtkrsResponseStatus = lens _gtkrsResponseStatus (\ s a -> s{_gtkrsResponseStatus = a});
 
-instance NFData GetTagKeysResponse
+instance NFData GetTagKeysResponse where

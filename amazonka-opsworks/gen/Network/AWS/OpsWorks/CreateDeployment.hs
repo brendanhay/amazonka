@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,23 +45,24 @@ module Network.AWS.OpsWorks.CreateDeployment
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-    { _cdCustomJSON  :: !(Maybe Text)
-    , _cdAppId       :: !(Maybe Text)
-    , _cdInstanceIds :: !(Maybe [Text])
-    , _cdLayerIds    :: !(Maybe [Text])
-    , _cdComment     :: !(Maybe Text)
-    , _cdStackId     :: !Text
-    , _cdCommand     :: !DeploymentCommand
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdCustomJSON  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdAppId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdLayerIds    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdComment     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdStackId     :: {-# NOUNPACK #-}!Text
+  , _cdCommand     :: {-# NOUNPACK #-}!DeploymentCommand
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
@@ -85,15 +86,16 @@ createDeployment
     -> DeploymentCommand -- ^ 'cdCommand'
     -> CreateDeployment
 createDeployment pStackId_ pCommand_ =
-    CreateDeployment'
-    { _cdCustomJSON = Nothing
-    , _cdAppId = Nothing
-    , _cdInstanceIds = Nothing
-    , _cdLayerIds = Nothing
-    , _cdComment = Nothing
-    , _cdStackId = pStackId_
-    , _cdCommand = pCommand_
-    }
+  CreateDeployment'
+  { _cdCustomJSON = Nothing
+  , _cdAppId = Nothing
+  , _cdInstanceIds = Nothing
+  , _cdLayerIds = Nothing
+  , _cdComment = Nothing
+  , _cdStackId = pStackId_
+  , _cdCommand = pCommand_
+  }
+
 
 -- | A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format: @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@  For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 cdCustomJSON :: Lens' CreateDeployment (Maybe Text)
@@ -132,9 +134,9 @@ instance AWSRequest CreateDeployment where
                  CreateDeploymentResponse' <$>
                    (x .?> "DeploymentId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDeployment
+instance Hashable CreateDeployment where
 
-instance NFData CreateDeployment
+instance NFData CreateDeployment where
 
 instance ToHeaders CreateDeployment where
         toHeaders
@@ -169,9 +171,10 @@ instance ToQuery CreateDeployment where
 --
 -- /See:/ 'createDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-    { _cdrsDeploymentId   :: !(Maybe Text)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsDeploymentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
 --
@@ -184,10 +187,9 @@ createDeploymentResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDeploymentResponse
 createDeploymentResponse pResponseStatus_ =
-    CreateDeploymentResponse'
-    { _cdrsDeploymentId = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDeploymentResponse'
+  {_cdrsDeploymentId = Nothing, _cdrsResponseStatus = pResponseStatus_}
+
 
 -- | The deployment ID, which can be used with other requests to identify the deployment.
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
@@ -197,4 +199,4 @@ cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDeploymentResponse
+instance NFData CreateDeploymentResponse where

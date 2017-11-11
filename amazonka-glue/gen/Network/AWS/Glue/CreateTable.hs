@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Glue.CreateTable
     , cttrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createTable' smart constructor.
 data CreateTable = CreateTable'
-    { _ctCatalogId    :: !(Maybe Text)
-    , _ctDatabaseName :: !Text
-    , _ctTableInput   :: !TableInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctDatabaseName :: {-# NOUNPACK #-}!Text
+  , _ctTableInput   :: {-# NOUNPACK #-}!TableInput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTable' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ createTable
     -> TableInput -- ^ 'ctTableInput'
     -> CreateTable
 createTable pDatabaseName_ pTableInput_ =
-    CreateTable'
-    { _ctCatalogId = Nothing
-    , _ctDatabaseName = pDatabaseName_
-    , _ctTableInput = pTableInput_
-    }
+  CreateTable'
+  { _ctCatalogId = Nothing
+  , _ctDatabaseName = pDatabaseName_
+  , _ctTableInput = pTableInput_
+  }
+
 
 -- | The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
 ctCatalogId :: Lens' CreateTable (Maybe Text)
@@ -92,9 +94,9 @@ instance AWSRequest CreateTable where
               (\ s h x ->
                  CreateTableResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateTable
+instance Hashable CreateTable where
 
-instance NFData CreateTable
+instance NFData CreateTable where
 
 instance ToHeaders CreateTable where
         toHeaders
@@ -121,8 +123,9 @@ instance ToQuery CreateTable where
 
 -- | /See:/ 'createTableResponse' smart constructor.
 newtype CreateTableResponse = CreateTableResponse'
-    { _cttrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cttrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTableResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +136,11 @@ createTableResponse
     :: Int -- ^ 'cttrsResponseStatus'
     -> CreateTableResponse
 createTableResponse pResponseStatus_ =
-    CreateTableResponse'
-    { _cttrsResponseStatus = pResponseStatus_
-    }
+  CreateTableResponse' {_cttrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cttrsResponseStatus :: Lens' CreateTableResponse Int
 cttrsResponseStatus = lens _cttrsResponseStatus (\ s a -> s{_cttrsResponseStatus = a});
 
-instance NFData CreateTableResponse
+instance NFData CreateTableResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.BatchGetItem
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,12 +60,12 @@ module Network.AWS.DynamoDB.BatchGetItem
     , bgirsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @BatchGetItem@ operation.
 --
@@ -73,9 +73,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'batchGetItem' smart constructor.
 data BatchGetItem = BatchGetItem'
-    { _bgiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
-    , _bgiRequestItems           :: !(Map Text KeysAndAttributes)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgiReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
+  , _bgiRequestItems :: {-# NOUNPACK #-}!(Map Text KeysAndAttributes)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetItem' with the minimum fields required to make a request.
 --
@@ -87,10 +88,9 @@ data BatchGetItem = BatchGetItem'
 batchGetItem
     :: BatchGetItem
 batchGetItem =
-    BatchGetItem'
-    { _bgiReturnConsumedCapacity = Nothing
-    , _bgiRequestItems = mempty
-    }
+  BatchGetItem'
+  {_bgiReturnConsumedCapacity = Nothing, _bgiRequestItems = mempty}
+
 
 -- | Undocumented member.
 bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
@@ -112,9 +112,9 @@ instance AWSRequest BatchGetItem where
                      <*> (x .?> "ConsumedCapacity" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetItem
+instance Hashable BatchGetItem where
 
-instance NFData BatchGetItem
+instance NFData BatchGetItem where
 
 instance ToHeaders BatchGetItem where
         toHeaders
@@ -145,11 +145,12 @@ instance ToQuery BatchGetItem where
 --
 -- /See:/ 'batchGetItemResponse' smart constructor.
 data BatchGetItemResponse = BatchGetItemResponse'
-    { _bgirsUnprocessedKeys  :: !(Maybe (Map Text KeysAndAttributes))
-    , _bgirsResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
-    , _bgirsConsumedCapacity :: !(Maybe [ConsumedCapacity])
-    , _bgirsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgirsUnprocessedKeys :: {-# NOUNPACK #-}!(Maybe (Map Text KeysAndAttributes))
+  , _bgirsResponses :: {-# NOUNPACK #-}!(Maybe (Map Text [Map Text AttributeValue]))
+  , _bgirsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe [ConsumedCapacity])
+  , _bgirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetItemResponse' with the minimum fields required to make a request.
 --
@@ -166,12 +167,13 @@ batchGetItemResponse
     :: Int -- ^ 'bgirsResponseStatus'
     -> BatchGetItemResponse
 batchGetItemResponse pResponseStatus_ =
-    BatchGetItemResponse'
-    { _bgirsUnprocessedKeys = Nothing
-    , _bgirsResponses = Nothing
-    , _bgirsConsumedCapacity = Nothing
-    , _bgirsResponseStatus = pResponseStatus_
-    }
+  BatchGetItemResponse'
+  { _bgirsUnprocessedKeys = Nothing
+  , _bgirsResponses = Nothing
+  , _bgirsConsumedCapacity = Nothing
+  , _bgirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A map of tables and their respective keys that were not processed with the current response. The @UnprocessedKeys@ value is in the same form as @RequestItems@ , so the value can be provided directly to a subsequent @BatchGetItem@ operation. For more information, see @RequestItems@ in the Request Parameters section. Each element consists of:     * @Keys@ - An array of primary key attribute values that define specific items in the table.     * @ProjectionExpression@ - One or more attributes to be retrieved from the table or index. By default, all attributes are returned. If a requested attribute is not found, it does not appear in the result.     * @ConsistentRead@ - The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used. If there are no unprocessed keys remaining, the response contains an empty @UnprocessedKeys@ map.
 bgirsUnprocessedKeys :: Lens' BatchGetItemResponse (HashMap Text KeysAndAttributes)
@@ -189,4 +191,4 @@ bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCa
 bgirsResponseStatus :: Lens' BatchGetItemResponse Int
 bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});
 
-instance NFData BatchGetItemResponse
+instance NFData BatchGetItemResponse where

@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DynamoDBStreams.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data KeyType
-    = Hash
-    | Range
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Hash
+  | Range
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText KeyType where
     parser = takeLowerText >>= \case
@@ -46,10 +47,11 @@ instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
 
 data OperationType
-    = Insert
-    | Modify
-    | Remove
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Insert
+  | Modify
+  | Remove
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
@@ -75,11 +77,12 @@ instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"
 
 data ShardIteratorType
-    = AfterSequenceNumber
-    | AtSequenceNumber
-    | Latest
-    | TrimHorizon
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AfterSequenceNumber
+  | AtSequenceNumber
+  | Latest
+  | TrimHorizon
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ShardIteratorType where
     parser = takeLowerText >>= \case
@@ -107,11 +110,12 @@ instance ToJSON ShardIteratorType where
     toJSON = toJSONText
 
 data StreamStatus
-    = Disabled
-    | Disabling
-    | Enabled
-    | Enabling
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disabled
+  | Disabling
+  | Enabled
+  | Enabling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StreamStatus where
     parser = takeLowerText >>= \case
@@ -139,11 +143,12 @@ instance FromJSON StreamStatus where
     parseJSON = parseJSONText "StreamStatus"
 
 data StreamViewType
-    = KeysOnly
-    | NewAndOldImages
-    | NewImage
-    | OldImage
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = KeysOnly
+  | NewAndOldImages
+  | NewImage
+  | OldImage
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StreamViewType where
     parser = takeLowerText >>= \case

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.RDS.DescribeCertificates
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCertificates' smart constructor.
 data DescribeCertificates = DescribeCertificates'
-    { _dcFilters               :: !(Maybe [Filter])
-    , _dcCertificateIdentifier :: !(Maybe Text)
-    , _dcMarker                :: !(Maybe Text)
-    , _dcMaxRecords            :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcFilters               :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dcCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMarker                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMaxRecords            :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCertificates' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribeCertificates = DescribeCertificates'
 describeCertificates
     :: DescribeCertificates
 describeCertificates =
-    DescribeCertificates'
-    { _dcFilters = Nothing
-    , _dcCertificateIdentifier = Nothing
-    , _dcMarker = Nothing
-    , _dcMaxRecords = Nothing
-    }
+  DescribeCertificates'
+  { _dcFilters = Nothing
+  , _dcCertificateIdentifier = Nothing
+  , _dcMarker = Nothing
+  , _dcMaxRecords = Nothing
+  }
+
 
 -- | This parameter is not currently supported.
 dcFilters :: Lens' DescribeCertificates [Filter]
@@ -110,9 +112,9 @@ instance AWSRequest DescribeCertificates where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCertificates
+instance Hashable DescribeCertificates where
 
-instance NFData DescribeCertificates
+instance NFData DescribeCertificates where
 
 instance ToHeaders DescribeCertificates where
         toHeaders = const mempty
@@ -136,10 +138,11 @@ instance ToQuery DescribeCertificates where
 --
 -- /See:/ 'describeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-    { _dcrsCertificates   :: !(Maybe [Certificate])
-    , _dcrsMarker         :: !(Maybe Text)
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
+  , _dcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCertificatesResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ describeCertificatesResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCertificatesResponse
 describeCertificatesResponse pResponseStatus_ =
-    DescribeCertificatesResponse'
-    { _dcrsCertificates = Nothing
-    , _dcrsMarker = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeCertificatesResponse'
+  { _dcrsCertificates = Nothing
+  , _dcrsMarker = Nothing
+  , _dcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of 'Certificate' objects for the AWS account.
 dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
@@ -172,4 +176,4 @@ dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 dcrsResponseStatus :: Lens' DescribeCertificatesResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeCertificatesResponse
+instance NFData DescribeCertificatesResponse where

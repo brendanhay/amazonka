@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.S3.DeleteObject
     , dorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteObject' smart constructor.
 data DeleteObject = DeleteObject'
-    { _doVersionId    :: !(Maybe ObjectVersionId)
-    , _doMFA          :: !(Maybe Text)
-    , _doRequestPayer :: !(Maybe RequestPayer)
-    , _doBucket       :: !BucketName
-    , _doKey          :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doVersionId    :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _doMFA          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _doRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _doBucket       :: {-# NOUNPACK #-}!BucketName
+  , _doKey          :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteObject' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ deleteObject
     -> ObjectKey -- ^ 'doKey'
     -> DeleteObject
 deleteObject pBucket_ pKey_ =
-    DeleteObject'
-    { _doVersionId = Nothing
-    , _doMFA = Nothing
-    , _doRequestPayer = Nothing
-    , _doBucket = pBucket_
-    , _doKey = pKey_
-    }
+  DeleteObject'
+  { _doVersionId = Nothing
+  , _doMFA = Nothing
+  , _doRequestPayer = Nothing
+  , _doBucket = pBucket_
+  , _doKey = pKey_
+  }
+
 
 -- | VersionId used to reference a specific version of the object.
 doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
@@ -115,9 +117,9 @@ instance AWSRequest DeleteObject where
                      <*> (h .#? "x-amz-delete-marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DeleteObject
+instance Hashable DeleteObject where
 
-instance NFData DeleteObject
+instance NFData DeleteObject where
 
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}
@@ -135,11 +137,12 @@ instance ToQuery DeleteObject where
 
 -- | /See:/ 'deleteObjectResponse' smart constructor.
 data DeleteObjectResponse = DeleteObjectResponse'
-    { _dorsRequestCharged :: !(Maybe RequestCharged)
-    , _dorsVersionId      :: !(Maybe ObjectVersionId)
-    , _dorsDeleteMarker   :: !(Maybe Bool)
-    , _dorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dorsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _dorsVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _dorsDeleteMarker   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
 --
@@ -156,12 +159,13 @@ deleteObjectResponse
     :: Int -- ^ 'dorsResponseStatus'
     -> DeleteObjectResponse
 deleteObjectResponse pResponseStatus_ =
-    DeleteObjectResponse'
-    { _dorsRequestCharged = Nothing
-    , _dorsVersionId = Nothing
-    , _dorsDeleteMarker = Nothing
-    , _dorsResponseStatus = pResponseStatus_
-    }
+  DeleteObjectResponse'
+  { _dorsRequestCharged = Nothing
+  , _dorsVersionId = Nothing
+  , _dorsDeleteMarker = Nothing
+  , _dorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dorsRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
@@ -179,4 +183,4 @@ dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 dorsResponseStatus :: Lens' DeleteObjectResponse Int
 dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});
 
-instance NFData DeleteObjectResponse
+instance NFData DeleteObjectResponse where

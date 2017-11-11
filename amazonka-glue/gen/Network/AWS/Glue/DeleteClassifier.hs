@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteClassifier
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.DeleteClassifier
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteClassifier' smart constructor.
 newtype DeleteClassifier = DeleteClassifier'
-    { _delName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClassifier' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteClassifier = DeleteClassifier'
 deleteClassifier
     :: Text -- ^ 'delName'
     -> DeleteClassifier
-deleteClassifier pName_ =
-    DeleteClassifier'
-    { _delName = pName_
-    }
+deleteClassifier pName_ = DeleteClassifier' {_delName = pName_}
+
 
 -- | Name of the @Classifier@ to remove.
 delName :: Lens' DeleteClassifier Text
@@ -73,9 +72,9 @@ instance AWSRequest DeleteClassifier where
               (\ s h x ->
                  DeleteClassifierResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteClassifier
+instance Hashable DeleteClassifier where
 
-instance NFData DeleteClassifier
+instance NFData DeleteClassifier where
 
 instance ToHeaders DeleteClassifier where
         toHeaders
@@ -98,8 +97,9 @@ instance ToQuery DeleteClassifier where
 
 -- | /See:/ 'deleteClassifierResponse' smart constructor.
 newtype DeleteClassifierResponse = DeleteClassifierResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteClassifierResponse' with the minimum fields required to make a request.
 --
@@ -110,12 +110,11 @@ deleteClassifierResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteClassifierResponse
 deleteClassifierResponse pResponseStatus_ =
-    DeleteClassifierResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteClassifierResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteClassifierResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteClassifierResponse
+instance NFData DeleteClassifierResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DisableAlarmActions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.CloudWatch.DisableAlarmActions
     , DisableAlarmActionsResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disableAlarmActions' smart constructor.
 newtype DisableAlarmActions = DisableAlarmActions'
-    { _daaAlarmNames :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daaAlarmNames :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableAlarmActions' with the minimum fields required to make a request.
 --
@@ -53,10 +54,8 @@ newtype DisableAlarmActions = DisableAlarmActions'
 -- * 'daaAlarmNames' - The names of the alarms.
 disableAlarmActions
     :: DisableAlarmActions
-disableAlarmActions =
-    DisableAlarmActions'
-    { _daaAlarmNames = mempty
-    }
+disableAlarmActions = DisableAlarmActions' {_daaAlarmNames = mempty}
+
 
 -- | The names of the alarms.
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
@@ -68,9 +67,9 @@ instance AWSRequest DisableAlarmActions where
         request = postQuery cloudWatch
         response = receiveNull DisableAlarmActionsResponse'
 
-instance Hashable DisableAlarmActions
+instance Hashable DisableAlarmActions where
 
-instance NFData DisableAlarmActions
+instance NFData DisableAlarmActions where
 
 instance ToHeaders DisableAlarmActions where
         toHeaders = const mempty
@@ -87,8 +86,9 @@ instance ToQuery DisableAlarmActions where
 
 -- | /See:/ 'disableAlarmActionsResponse' smart constructor.
 data DisableAlarmActionsResponse =
-    DisableAlarmActionsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DisableAlarmActionsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableAlarmActionsResponse' with the minimum fields required to make a request.
 --
@@ -96,4 +96,5 @@ disableAlarmActionsResponse
     :: DisableAlarmActionsResponse
 disableAlarmActionsResponse = DisableAlarmActionsResponse'
 
-instance NFData DisableAlarmActionsResponse
+
+instance NFData DisableAlarmActionsResponse where

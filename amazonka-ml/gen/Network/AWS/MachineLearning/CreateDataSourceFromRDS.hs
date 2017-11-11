@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromRDS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     , cdsfrdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromRDS' smart constructor.
 data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
-    { _cdsfrdsDataSourceName    :: !(Maybe Text)
-    , _cdsfrdsComputeStatistics :: !(Maybe Bool)
-    , _cdsfrdsDataSourceId      :: !Text
-    , _cdsfrdsRDSData           :: !RDSDataSpec
-    , _cdsfrdsRoleARN           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsfrdsDataSourceName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsfrdsComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdsfrdsDataSourceId      :: {-# NOUNPACK #-}!Text
+  , _cdsfrdsRDSData           :: {-# NOUNPACK #-}!RDSDataSpec
+  , _cdsfrdsRoleARN           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDataSourceFromRDS' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ createDataSourceFromRDS
     -> Text -- ^ 'cdsfrdsRoleARN'
     -> CreateDataSourceFromRDS
 createDataSourceFromRDS pDataSourceId_ pRDSData_ pRoleARN_ =
-    CreateDataSourceFromRDS'
-    { _cdsfrdsDataSourceName = Nothing
-    , _cdsfrdsComputeStatistics = Nothing
-    , _cdsfrdsDataSourceId = pDataSourceId_
-    , _cdsfrdsRDSData = pRDSData_
-    , _cdsfrdsRoleARN = pRoleARN_
-    }
+  CreateDataSourceFromRDS'
+  { _cdsfrdsDataSourceName = Nothing
+  , _cdsfrdsComputeStatistics = Nothing
+  , _cdsfrdsDataSourceId = pDataSourceId_
+  , _cdsfrdsRDSData = pRDSData_
+  , _cdsfrdsRoleARN = pRoleARN_
+  }
+
 
 -- | A user-supplied name or description of the @DataSource@ .
 cdsfrdsDataSourceName :: Lens' CreateDataSourceFromRDS (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest CreateDataSourceFromRDS where
                  CreateDataSourceFromRDSResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDataSourceFromRDS
+instance Hashable CreateDataSourceFromRDS where
 
-instance NFData CreateDataSourceFromRDS
+instance NFData CreateDataSourceFromRDS where
 
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders
@@ -157,9 +159,10 @@ instance ToQuery CreateDataSourceFromRDS where
 --
 -- /See:/ 'createDataSourceFromRDSResponse' smart constructor.
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
-    { _cdsfrdsrsDataSourceId   :: !(Maybe Text)
-    , _cdsfrdsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsfrdsrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsfrdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDataSourceFromRDSResponse' with the minimum fields required to make a request.
 --
@@ -172,10 +175,11 @@ createDataSourceFromRDSResponse
     :: Int -- ^ 'cdsfrdsrsResponseStatus'
     -> CreateDataSourceFromRDSResponse
 createDataSourceFromRDSResponse pResponseStatus_ =
-    CreateDataSourceFromRDSResponse'
-    { _cdsfrdsrsDataSourceId = Nothing
-    , _cdsfrdsrsResponseStatus = pResponseStatus_
-    }
+  CreateDataSourceFromRDSResponse'
+  { _cdsfrdsrsDataSourceId = Nothing
+  , _cdsfrdsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
 cdsfrdsrsDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
@@ -185,4 +189,4 @@ cdsfrdsrsDataSourceId = lens _cdsfrdsrsDataSourceId (\ s a -> s{_cdsfrdsrsDataSo
 cdsfrdsrsResponseStatus :: Lens' CreateDataSourceFromRDSResponse Int
 cdsfrdsrsResponseStatus = lens _cdsfrdsrsResponseStatus (\ s a -> s{_cdsfrdsrsResponseStatus = a});
 
-instance NFData CreateDataSourceFromRDSResponse
+instance NFData CreateDataSourceFromRDSResponse where

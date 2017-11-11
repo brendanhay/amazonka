@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstancePatchStates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.DescribeInstancePatchStates
     , dipsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstancePatchStates' smart constructor.
 data DescribeInstancePatchStates = DescribeInstancePatchStates'
-    { _dipsNextToken   :: !(Maybe Text)
-    , _dipsMaxResults  :: !(Maybe Nat)
-    , _dipsInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dipsNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dipsMaxResults  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dipsInstanceIds :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstancePatchStates' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ data DescribeInstancePatchStates = DescribeInstancePatchStates'
 describeInstancePatchStates
     :: DescribeInstancePatchStates
 describeInstancePatchStates =
-    DescribeInstancePatchStates'
-    { _dipsNextToken = Nothing
-    , _dipsMaxResults = Nothing
-    , _dipsInstanceIds = mempty
-    }
+  DescribeInstancePatchStates'
+  { _dipsNextToken = Nothing
+  , _dipsMaxResults = Nothing
+  , _dipsInstanceIds = mempty
+  }
+
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 dipsNextToken :: Lens' DescribeInstancePatchStates (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest DescribeInstancePatchStates where
                      (x .?> "InstancePatchStates" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeInstancePatchStates
+instance Hashable DescribeInstancePatchStates where
 
-instance NFData DescribeInstancePatchStates
+instance NFData DescribeInstancePatchStates where
 
 instance ToHeaders DescribeInstancePatchStates where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery DescribeInstancePatchStates where
 
 -- | /See:/ 'describeInstancePatchStatesResponse' smart constructor.
 data DescribeInstancePatchStatesResponse = DescribeInstancePatchStatesResponse'
-    { _dipsrsNextToken           :: !(Maybe Text)
-    , _dipsrsInstancePatchStates :: !(Maybe [InstancePatchState])
-    , _dipsrsResponseStatus      :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dipsrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dipsrsInstancePatchStates :: {-# NOUNPACK #-}!(Maybe [InstancePatchState])
+  , _dipsrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstancePatchStatesResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ describeInstancePatchStatesResponse
     :: Int -- ^ 'dipsrsResponseStatus'
     -> DescribeInstancePatchStatesResponse
 describeInstancePatchStatesResponse pResponseStatus_ =
-    DescribeInstancePatchStatesResponse'
-    { _dipsrsNextToken = Nothing
-    , _dipsrsInstancePatchStates = Nothing
-    , _dipsrsResponseStatus = pResponseStatus_
-    }
+  DescribeInstancePatchStatesResponse'
+  { _dipsrsNextToken = Nothing
+  , _dipsrsInstancePatchStates = Nothing
+  , _dipsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dipsrsNextToken :: Lens' DescribeInstancePatchStatesResponse (Maybe Text)
@@ -163,3 +167,4 @@ dipsrsResponseStatus :: Lens' DescribeInstancePatchStatesResponse Int
 dipsrsResponseStatus = lens _dipsrsResponseStatus (\ s a -> s{_dipsrsResponseStatus = a});
 
 instance NFData DescribeInstancePatchStatesResponse
+         where

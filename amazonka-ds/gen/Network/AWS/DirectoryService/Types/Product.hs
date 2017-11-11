@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DirectoryService.Types.Product where
 
-import           Network.AWS.DirectoryService.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DirectoryService.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Represents a named directory attribute.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-    { _aValue :: !(Maybe Text)
-    , _aName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
@@ -40,11 +41,8 @@ data Attribute = Attribute'
 -- * 'aName' - The name of the attribute.
 attribute
     :: Attribute
-attribute =
-    Attribute'
-    { _aValue = Nothing
-    , _aName = Nothing
-    }
+attribute = Attribute' {_aValue = Nothing, _aName = Nothing}
+
 
 -- | The value of the attribute.
 aValue :: Lens' Attribute (Maybe Text)
@@ -60,9 +58,9 @@ instance FromJSON Attribute where
               (\ x ->
                  Attribute' <$> (x .:? "Value") <*> (x .:? "Name"))
 
-instance Hashable Attribute
+instance Hashable Attribute where
 
-instance NFData Attribute
+instance NFData Attribute where
 
 instance ToJSON Attribute where
         toJSON Attribute'{..}
@@ -76,10 +74,11 @@ instance ToJSON Attribute where
 --
 -- /See:/ 'computer' smart constructor.
 data Computer = Computer'
-    { _cComputerId         :: !(Maybe Text)
-    , _cComputerAttributes :: !(Maybe [Attribute])
-    , _cComputerName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cComputerId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cComputerAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _cComputerName       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Computer' with the minimum fields required to make a request.
 --
@@ -93,11 +92,12 @@ data Computer = Computer'
 computer
     :: Computer
 computer =
-    Computer'
-    { _cComputerId = Nothing
-    , _cComputerAttributes = Nothing
-    , _cComputerName = Nothing
-    }
+  Computer'
+  { _cComputerId = Nothing
+  , _cComputerAttributes = Nothing
+  , _cComputerName = Nothing
+  }
+
 
 -- | The identifier of the computer.
 cComputerId :: Lens' Computer (Maybe Text)
@@ -120,9 +120,9 @@ instance FromJSON Computer where
                      (x .:? "ComputerAttributes" .!= mempty)
                      <*> (x .:? "ComputerName"))
 
-instance Hashable Computer
+instance Hashable Computer where
 
-instance NFData Computer
+instance NFData Computer where
 
 -- | Points to a remote domain with which you are setting up a trust relationship. Conditional forwarders are required in order to set up a trust relationship with another domain.
 --
@@ -130,10 +130,11 @@ instance NFData Computer
 --
 -- /See:/ 'conditionalForwarder' smart constructor.
 data ConditionalForwarder = ConditionalForwarder'
-    { _cfDNSIPAddrs       :: !(Maybe [Text])
-    , _cfRemoteDomainName :: !(Maybe Text)
-    , _cfReplicationScope :: !(Maybe ReplicationScope)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfDNSIPAddrs       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cfRemoteDomainName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfReplicationScope :: {-# NOUNPACK #-}!(Maybe ReplicationScope)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConditionalForwarder' with the minimum fields required to make a request.
 --
@@ -147,11 +148,12 @@ data ConditionalForwarder = ConditionalForwarder'
 conditionalForwarder
     :: ConditionalForwarder
 conditionalForwarder =
-    ConditionalForwarder'
-    { _cfDNSIPAddrs = Nothing
-    , _cfRemoteDomainName = Nothing
-    , _cfReplicationScope = Nothing
-    }
+  ConditionalForwarder'
+  { _cfDNSIPAddrs = Nothing
+  , _cfRemoteDomainName = Nothing
+  , _cfReplicationScope = Nothing
+  }
+
 
 -- | The IP addresses of the remote DNS server associated with RemoteDomainName. This is the IP address of the DNS server that your conditional forwarder points to.
 cfDNSIPAddrs :: Lens' ConditionalForwarder [Text]
@@ -174,9 +176,9 @@ instance FromJSON ConditionalForwarder where
                      (x .:? "RemoteDomainName")
                      <*> (x .:? "ReplicationScope"))
 
-instance Hashable ConditionalForwarder
+instance Hashable ConditionalForwarder where
 
-instance NFData ConditionalForwarder
+instance NFData ConditionalForwarder where
 
 -- | Contains information for the 'ConnectDirectory' operation when an AD Connector directory is being created.
 --
@@ -184,11 +186,12 @@ instance NFData ConditionalForwarder
 --
 -- /See:/ 'directoryConnectSettings' smart constructor.
 data DirectoryConnectSettings = DirectoryConnectSettings'
-    { _dcsVPCId            :: !Text
-    , _dcsSubnetIds        :: ![Text]
-    , _dcsCustomerDNSIPs   :: ![Text]
-    , _dcsCustomerUserName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsVPCId            :: {-# NOUNPACK #-}!Text
+  , _dcsSubnetIds        :: {-# NOUNPACK #-}![Text]
+  , _dcsCustomerDNSIPs   :: {-# NOUNPACK #-}![Text]
+  , _dcsCustomerUserName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DirectoryConnectSettings' with the minimum fields required to make a request.
 --
@@ -206,12 +209,13 @@ directoryConnectSettings
     -> Text -- ^ 'dcsCustomerUserName'
     -> DirectoryConnectSettings
 directoryConnectSettings pVPCId_ pCustomerUserName_ =
-    DirectoryConnectSettings'
-    { _dcsVPCId = pVPCId_
-    , _dcsSubnetIds = mempty
-    , _dcsCustomerDNSIPs = mempty
-    , _dcsCustomerUserName = pCustomerUserName_
-    }
+  DirectoryConnectSettings'
+  { _dcsVPCId = pVPCId_
+  , _dcsSubnetIds = mempty
+  , _dcsCustomerDNSIPs = mempty
+  , _dcsCustomerUserName = pCustomerUserName_
+  }
+
 
 -- | The identifier of the VPC in which the AD Connector is created.
 dcsVPCId :: Lens' DirectoryConnectSettings Text
@@ -229,9 +233,9 @@ dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a})
 dcsCustomerUserName :: Lens' DirectoryConnectSettings Text
 dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName = a});
 
-instance Hashable DirectoryConnectSettings
+instance Hashable DirectoryConnectSettings where
 
-instance NFData DirectoryConnectSettings
+instance NFData DirectoryConnectSettings where
 
 instance ToJSON DirectoryConnectSettings where
         toJSON DirectoryConnectSettings'{..}
@@ -248,13 +252,14 @@ instance ToJSON DirectoryConnectSettings where
 --
 -- /See:/ 'directoryConnectSettingsDescription' smart constructor.
 data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
-    { _dcsdCustomerUserName  :: !(Maybe Text)
-    , _dcsdSubnetIds         :: !(Maybe [Text])
-    , _dcsdVPCId             :: !(Maybe Text)
-    , _dcsdSecurityGroupId   :: !(Maybe Text)
-    , _dcsdConnectIPs        :: !(Maybe [Text])
-    , _dcsdAvailabilityZones :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsdCustomerUserName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsdSubnetIds         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcsdVPCId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsdSecurityGroupId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsdConnectIPs        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcsdAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DirectoryConnectSettingsDescription' with the minimum fields required to make a request.
 --
@@ -274,14 +279,15 @@ data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
 directoryConnectSettingsDescription
     :: DirectoryConnectSettingsDescription
 directoryConnectSettingsDescription =
-    DirectoryConnectSettingsDescription'
-    { _dcsdCustomerUserName = Nothing
-    , _dcsdSubnetIds = Nothing
-    , _dcsdVPCId = Nothing
-    , _dcsdSecurityGroupId = Nothing
-    , _dcsdConnectIPs = Nothing
-    , _dcsdAvailabilityZones = Nothing
-    }
+  DirectoryConnectSettingsDescription'
+  { _dcsdCustomerUserName = Nothing
+  , _dcsdSubnetIds = Nothing
+  , _dcsdVPCId = Nothing
+  , _dcsdSecurityGroupId = Nothing
+  , _dcsdConnectIPs = Nothing
+  , _dcsdAvailabilityZones = Nothing
+  }
+
 
 -- | The username of the service account in the on-premises directory.
 dcsdCustomerUserName :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
@@ -321,8 +327,10 @@ instance FromJSON DirectoryConnectSettingsDescription
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
 instance Hashable DirectoryConnectSettingsDescription
+         where
 
 instance NFData DirectoryConnectSettingsDescription
+         where
 
 -- | Contains information about an AWS Directory Service directory.
 --
@@ -330,26 +338,27 @@ instance NFData DirectoryConnectSettingsDescription
 --
 -- /See:/ 'directoryDescription' smart constructor.
 data DirectoryDescription = DirectoryDescription'
-    { _ddRadiusStatus                     :: !(Maybe RadiusStatus)
-    , _ddStage                            :: !(Maybe DirectoryStage)
-    , _ddDirectoryId                      :: !(Maybe Text)
-    , _ddAccessURL                        :: !(Maybe Text)
-    , _ddShortName                        :: !(Maybe Text)
-    , _ddSize                             :: !(Maybe DirectorySize)
-    , _ddDesiredNumberOfDomainControllers :: !(Maybe Nat)
-    , _ddRadiusSettings                   :: !(Maybe RadiusSettings)
-    , _ddLaunchTime                       :: !(Maybe POSIX)
-    , _ddAlias                            :: !(Maybe Text)
-    , _ddName                             :: !(Maybe Text)
-    , _ddStageLastUpdatedDateTime         :: !(Maybe POSIX)
-    , _ddSSOEnabled                       :: !(Maybe Bool)
-    , _ddDNSIPAddrs                       :: !(Maybe [Text])
-    , _ddVPCSettings                      :: !(Maybe DirectoryVPCSettingsDescription)
-    , _ddType                             :: !(Maybe DirectoryType)
-    , _ddStageReason                      :: !(Maybe Text)
-    , _ddConnectSettings                  :: !(Maybe DirectoryConnectSettingsDescription)
-    , _ddDescription                      :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ddRadiusStatus :: {-# NOUNPACK #-}!(Maybe RadiusStatus)
+  , _ddStage :: {-# NOUNPACK #-}!(Maybe DirectoryStage)
+  , _ddDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddAccessURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddShortName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddSize :: {-# NOUNPACK #-}!(Maybe DirectorySize)
+  , _ddDesiredNumberOfDomainControllers :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ddRadiusSettings :: {-# NOUNPACK #-}!(Maybe RadiusSettings)
+  , _ddLaunchTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ddAlias :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddStageLastUpdatedDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ddSSOEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddDNSIPAddrs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ddVPCSettings :: {-# NOUNPACK #-}!(Maybe DirectoryVPCSettingsDescription)
+  , _ddType :: {-# NOUNPACK #-}!(Maybe DirectoryType)
+  , _ddStageReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddConnectSettings :: {-# NOUNPACK #-}!(Maybe DirectoryConnectSettingsDescription)
+  , _ddDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DirectoryDescription' with the minimum fields required to make a request.
 --
@@ -395,27 +404,28 @@ data DirectoryDescription = DirectoryDescription'
 directoryDescription
     :: DirectoryDescription
 directoryDescription =
-    DirectoryDescription'
-    { _ddRadiusStatus = Nothing
-    , _ddStage = Nothing
-    , _ddDirectoryId = Nothing
-    , _ddAccessURL = Nothing
-    , _ddShortName = Nothing
-    , _ddSize = Nothing
-    , _ddDesiredNumberOfDomainControllers = Nothing
-    , _ddRadiusSettings = Nothing
-    , _ddLaunchTime = Nothing
-    , _ddAlias = Nothing
-    , _ddName = Nothing
-    , _ddStageLastUpdatedDateTime = Nothing
-    , _ddSSOEnabled = Nothing
-    , _ddDNSIPAddrs = Nothing
-    , _ddVPCSettings = Nothing
-    , _ddType = Nothing
-    , _ddStageReason = Nothing
-    , _ddConnectSettings = Nothing
-    , _ddDescription = Nothing
-    }
+  DirectoryDescription'
+  { _ddRadiusStatus = Nothing
+  , _ddStage = Nothing
+  , _ddDirectoryId = Nothing
+  , _ddAccessURL = Nothing
+  , _ddShortName = Nothing
+  , _ddSize = Nothing
+  , _ddDesiredNumberOfDomainControllers = Nothing
+  , _ddRadiusSettings = Nothing
+  , _ddLaunchTime = Nothing
+  , _ddAlias = Nothing
+  , _ddName = Nothing
+  , _ddStageLastUpdatedDateTime = Nothing
+  , _ddSSOEnabled = Nothing
+  , _ddDNSIPAddrs = Nothing
+  , _ddVPCSettings = Nothing
+  , _ddType = Nothing
+  , _ddStageReason = Nothing
+  , _ddConnectSettings = Nothing
+  , _ddDescription = Nothing
+  }
+
 
 -- | The status of the RADIUS MFA server connection.
 ddRadiusStatus :: Lens' DirectoryDescription (Maybe RadiusStatus)
@@ -517,9 +527,9 @@ instance FromJSON DirectoryDescription where
                      <*> (x .:? "ConnectSettings")
                      <*> (x .:? "Description"))
 
-instance Hashable DirectoryDescription
+instance Hashable DirectoryDescription where
 
-instance NFData DirectoryDescription
+instance NFData DirectoryDescription where
 
 -- | Contains directory limit information for a region.
 --
@@ -527,16 +537,17 @@ instance NFData DirectoryDescription
 --
 -- /See:/ 'directoryLimits' smart constructor.
 data DirectoryLimits = DirectoryLimits'
-    { _dlConnectedDirectoriesCurrentCount :: !(Maybe Nat)
-    , _dlCloudOnlyMicrosoftADLimitReached :: !(Maybe Bool)
-    , _dlConnectedDirectoriesLimit        :: !(Maybe Nat)
-    , _dlConnectedDirectoriesLimitReached :: !(Maybe Bool)
-    , _dlCloudOnlyMicrosoftADLimit        :: !(Maybe Nat)
-    , _dlCloudOnlyDirectoriesLimit        :: !(Maybe Nat)
-    , _dlCloudOnlyDirectoriesCurrentCount :: !(Maybe Nat)
-    , _dlCloudOnlyDirectoriesLimitReached :: !(Maybe Bool)
-    , _dlCloudOnlyMicrosoftADCurrentCount :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlConnectedDirectoriesCurrentCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlCloudOnlyMicrosoftADLimitReached :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dlConnectedDirectoriesLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlConnectedDirectoriesLimitReached :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dlCloudOnlyMicrosoftADLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlCloudOnlyDirectoriesLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlCloudOnlyDirectoriesCurrentCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlCloudOnlyDirectoriesLimitReached :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dlCloudOnlyMicrosoftADCurrentCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DirectoryLimits' with the minimum fields required to make a request.
 --
@@ -562,17 +573,18 @@ data DirectoryLimits = DirectoryLimits'
 directoryLimits
     :: DirectoryLimits
 directoryLimits =
-    DirectoryLimits'
-    { _dlConnectedDirectoriesCurrentCount = Nothing
-    , _dlCloudOnlyMicrosoftADLimitReached = Nothing
-    , _dlConnectedDirectoriesLimit = Nothing
-    , _dlConnectedDirectoriesLimitReached = Nothing
-    , _dlCloudOnlyMicrosoftADLimit = Nothing
-    , _dlCloudOnlyDirectoriesLimit = Nothing
-    , _dlCloudOnlyDirectoriesCurrentCount = Nothing
-    , _dlCloudOnlyDirectoriesLimitReached = Nothing
-    , _dlCloudOnlyMicrosoftADCurrentCount = Nothing
-    }
+  DirectoryLimits'
+  { _dlConnectedDirectoriesCurrentCount = Nothing
+  , _dlCloudOnlyMicrosoftADLimitReached = Nothing
+  , _dlConnectedDirectoriesLimit = Nothing
+  , _dlConnectedDirectoriesLimitReached = Nothing
+  , _dlCloudOnlyMicrosoftADLimit = Nothing
+  , _dlCloudOnlyDirectoriesLimit = Nothing
+  , _dlCloudOnlyDirectoriesCurrentCount = Nothing
+  , _dlCloudOnlyDirectoriesLimitReached = Nothing
+  , _dlCloudOnlyMicrosoftADCurrentCount = Nothing
+  }
+
 
 -- | The current number of connected directories in the region.
 dlConnectedDirectoriesCurrentCount :: Lens' DirectoryLimits (Maybe Natural)
@@ -625,9 +637,9 @@ instance FromJSON DirectoryLimits where
                      <*> (x .:? "CloudOnlyDirectoriesLimitReached")
                      <*> (x .:? "CloudOnlyMicrosoftADCurrentCount"))
 
-instance Hashable DirectoryLimits
+instance Hashable DirectoryLimits where
 
-instance NFData DirectoryLimits
+instance NFData DirectoryLimits where
 
 -- | Contains VPC information for the 'CreateDirectory' or 'CreateMicrosoftAD' operation.
 --
@@ -635,9 +647,10 @@ instance NFData DirectoryLimits
 --
 -- /See:/ 'directoryVPCSettings' smart constructor.
 data DirectoryVPCSettings = DirectoryVPCSettings'
-    { _dvsVPCId     :: !Text
-    , _dvsSubnetIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvsVPCId     :: {-# NOUNPACK #-}!Text
+  , _dvsSubnetIds :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DirectoryVPCSettings' with the minimum fields required to make a request.
 --
@@ -650,10 +663,8 @@ directoryVPCSettings
     :: Text -- ^ 'dvsVPCId'
     -> DirectoryVPCSettings
 directoryVPCSettings pVPCId_ =
-    DirectoryVPCSettings'
-    { _dvsVPCId = pVPCId_
-    , _dvsSubnetIds = mempty
-    }
+  DirectoryVPCSettings' {_dvsVPCId = pVPCId_, _dvsSubnetIds = mempty}
+
 
 -- | The identifier of the VPC in which to create the directory.
 dvsVPCId :: Lens' DirectoryVPCSettings Text
@@ -663,9 +674,9 @@ dvsVPCId = lens _dvsVPCId (\ s a -> s{_dvsVPCId = a});
 dvsSubnetIds :: Lens' DirectoryVPCSettings [Text]
 dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a}) . _Coerce;
 
-instance Hashable DirectoryVPCSettings
+instance Hashable DirectoryVPCSettings where
 
-instance NFData DirectoryVPCSettings
+instance NFData DirectoryVPCSettings where
 
 instance ToJSON DirectoryVPCSettings where
         toJSON DirectoryVPCSettings'{..}
@@ -680,11 +691,12 @@ instance ToJSON DirectoryVPCSettings where
 --
 -- /See:/ 'directoryVPCSettingsDescription' smart constructor.
 data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
-    { _dvsdSubnetIds         :: !(Maybe [Text])
-    , _dvsdVPCId             :: !(Maybe Text)
-    , _dvsdSecurityGroupId   :: !(Maybe Text)
-    , _dvsdAvailabilityZones :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvsdSubnetIds         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dvsdVPCId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvsdSecurityGroupId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvsdAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DirectoryVPCSettingsDescription' with the minimum fields required to make a request.
 --
@@ -700,12 +712,13 @@ data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
 directoryVPCSettingsDescription
     :: DirectoryVPCSettingsDescription
 directoryVPCSettingsDescription =
-    DirectoryVPCSettingsDescription'
-    { _dvsdSubnetIds = Nothing
-    , _dvsdVPCId = Nothing
-    , _dvsdSecurityGroupId = Nothing
-    , _dvsdAvailabilityZones = Nothing
-    }
+  DirectoryVPCSettingsDescription'
+  { _dvsdSubnetIds = Nothing
+  , _dvsdVPCId = Nothing
+  , _dvsdSecurityGroupId = Nothing
+  , _dvsdAvailabilityZones = Nothing
+  }
+
 
 -- | The identifiers of the subnets for the directory servers.
 dvsdSubnetIds :: Lens' DirectoryVPCSettingsDescription [Text]
@@ -734,8 +747,9 @@ instance FromJSON DirectoryVPCSettingsDescription
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
 instance Hashable DirectoryVPCSettingsDescription
+         where
 
-instance NFData DirectoryVPCSettingsDescription
+instance NFData DirectoryVPCSettingsDescription where
 
 -- | Contains information about the domain controllers for a specified directory.
 --
@@ -743,17 +757,18 @@ instance NFData DirectoryVPCSettingsDescription
 --
 -- /See:/ 'domainController' smart constructor.
 data DomainController = DomainController'
-    { _dcStatus                    :: !(Maybe DomainControllerStatus)
-    , _dcDirectoryId               :: !(Maybe Text)
-    , _dcVPCId                     :: !(Maybe Text)
-    , _dcLaunchTime                :: !(Maybe POSIX)
-    , _dcSubnetId                  :: !(Maybe Text)
-    , _dcAvailabilityZone          :: !(Maybe Text)
-    , _dcStatusLastUpdatedDateTime :: !(Maybe POSIX)
-    , _dcStatusReason              :: !(Maybe Text)
-    , _dcDNSIPAddr                 :: !(Maybe Text)
-    , _dcDomainControllerId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcStatus :: {-# NOUNPACK #-}!(Maybe DomainControllerStatus)
+  , _dcDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcLaunchTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dcSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcStatusLastUpdatedDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dcStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcDNSIPAddr :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcDomainControllerId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainController' with the minimum fields required to make a request.
 --
@@ -781,18 +796,19 @@ data DomainController = DomainController'
 domainController
     :: DomainController
 domainController =
-    DomainController'
-    { _dcStatus = Nothing
-    , _dcDirectoryId = Nothing
-    , _dcVPCId = Nothing
-    , _dcLaunchTime = Nothing
-    , _dcSubnetId = Nothing
-    , _dcAvailabilityZone = Nothing
-    , _dcStatusLastUpdatedDateTime = Nothing
-    , _dcStatusReason = Nothing
-    , _dcDNSIPAddr = Nothing
-    , _dcDomainControllerId = Nothing
-    }
+  DomainController'
+  { _dcStatus = Nothing
+  , _dcDirectoryId = Nothing
+  , _dcVPCId = Nothing
+  , _dcLaunchTime = Nothing
+  , _dcSubnetId = Nothing
+  , _dcAvailabilityZone = Nothing
+  , _dcStatusLastUpdatedDateTime = Nothing
+  , _dcStatusReason = Nothing
+  , _dcDNSIPAddr = Nothing
+  , _dcDomainControllerId = Nothing
+  }
+
 
 -- | The status of the domain controller.
 dcStatus :: Lens' DomainController (Maybe DomainControllerStatus)
@@ -849,9 +865,9 @@ instance FromJSON DomainController where
                      <*> (x .:? "DnsIpAddr")
                      <*> (x .:? "DomainControllerId"))
 
-instance Hashable DomainController
+instance Hashable DomainController where
 
-instance NFData DomainController
+instance NFData DomainController where
 
 -- | Information about SNS topic and AWS Directory Service directory associations.
 --
@@ -859,12 +875,13 @@ instance NFData DomainController
 --
 -- /See:/ 'eventTopic' smart constructor.
 data EventTopic = EventTopic'
-    { _etStatus          :: !(Maybe TopicStatus)
-    , _etDirectoryId     :: !(Maybe Text)
-    , _etTopicName       :: !(Maybe Text)
-    , _etTopicARN        :: !(Maybe Text)
-    , _etCreatedDateTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etStatus          :: {-# NOUNPACK #-}!(Maybe TopicStatus)
+  , _etDirectoryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etTopicName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etTopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etCreatedDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventTopic' with the minimum fields required to make a request.
 --
@@ -882,13 +899,14 @@ data EventTopic = EventTopic'
 eventTopic
     :: EventTopic
 eventTopic =
-    EventTopic'
-    { _etStatus = Nothing
-    , _etDirectoryId = Nothing
-    , _etTopicName = Nothing
-    , _etTopicARN = Nothing
-    , _etCreatedDateTime = Nothing
-    }
+  EventTopic'
+  { _etStatus = Nothing
+  , _etDirectoryId = Nothing
+  , _etTopicName = Nothing
+  , _etTopicARN = Nothing
+  , _etCreatedDateTime = Nothing
+  }
+
 
 -- | The topic registration status.
 etStatus :: Lens' EventTopic (Maybe TopicStatus)
@@ -920,9 +938,9 @@ instance FromJSON EventTopic where
                      <*> (x .:? "TopicArn")
                      <*> (x .:? "CreatedDateTime"))
 
-instance Hashable EventTopic
+instance Hashable EventTopic where
 
-instance NFData EventTopic
+instance NFData EventTopic where
 
 -- | IP address block. This is often the address block of the DNS server used for your on-premises domain.
 --
@@ -930,9 +948,10 @@ instance NFData EventTopic
 --
 -- /See:/ 'ipRoute' smart constructor.
 data IPRoute = IPRoute'
-    { _irCidrIP      :: !(Maybe Text)
-    , _irDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irCidrIP      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPRoute' with the minimum fields required to make a request.
 --
@@ -943,11 +962,8 @@ data IPRoute = IPRoute'
 -- * 'irDescription' - Description of the address block.
 ipRoute
     :: IPRoute
-ipRoute =
-    IPRoute'
-    { _irCidrIP = Nothing
-    , _irDescription = Nothing
-    }
+ipRoute = IPRoute' {_irCidrIP = Nothing, _irDescription = Nothing}
+
 
 -- | IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
 irCidrIP :: Lens' IPRoute (Maybe Text)
@@ -957,9 +973,9 @@ irCidrIP = lens _irCidrIP (\ s a -> s{_irCidrIP = a});
 irDescription :: Lens' IPRoute (Maybe Text)
 irDescription = lens _irDescription (\ s a -> s{_irDescription = a});
 
-instance Hashable IPRoute
+instance Hashable IPRoute where
 
-instance NFData IPRoute
+instance NFData IPRoute where
 
 instance ToJSON IPRoute where
         toJSON IPRoute'{..}
@@ -974,13 +990,14 @@ instance ToJSON IPRoute where
 --
 -- /See:/ 'ipRouteInfo' smart constructor.
 data IPRouteInfo = IPRouteInfo'
-    { _iriDirectoryId         :: !(Maybe Text)
-    , _iriIPRouteStatusReason :: !(Maybe Text)
-    , _iriAddedDateTime       :: !(Maybe POSIX)
-    , _iriCidrIP              :: !(Maybe Text)
-    , _iriIPRouteStatusMsg    :: !(Maybe IPRouteStatusMsg)
-    , _iriDescription         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iriDirectoryId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iriIPRouteStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iriAddedDateTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iriCidrIP              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iriIPRouteStatusMsg    :: {-# NOUNPACK #-}!(Maybe IPRouteStatusMsg)
+  , _iriDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPRouteInfo' with the minimum fields required to make a request.
 --
@@ -1000,14 +1017,15 @@ data IPRouteInfo = IPRouteInfo'
 ipRouteInfo
     :: IPRouteInfo
 ipRouteInfo =
-    IPRouteInfo'
-    { _iriDirectoryId = Nothing
-    , _iriIPRouteStatusReason = Nothing
-    , _iriAddedDateTime = Nothing
-    , _iriCidrIP = Nothing
-    , _iriIPRouteStatusMsg = Nothing
-    , _iriDescription = Nothing
-    }
+  IPRouteInfo'
+  { _iriDirectoryId = Nothing
+  , _iriIPRouteStatusReason = Nothing
+  , _iriAddedDateTime = Nothing
+  , _iriCidrIP = Nothing
+  , _iriIPRouteStatusMsg = Nothing
+  , _iriDescription = Nothing
+  }
+
 
 -- | Identifier (ID) of the directory associated with the IP addresses.
 iriDirectoryId :: Lens' IPRouteInfo (Maybe Text)
@@ -1045,9 +1063,9 @@ instance FromJSON IPRouteInfo where
                      <*> (x .:? "IpRouteStatusMsg")
                      <*> (x .:? "Description"))
 
-instance Hashable IPRouteInfo
+instance Hashable IPRouteInfo where
 
-instance NFData IPRouteInfo
+instance NFData IPRouteInfo where
 
 -- | Contains information about a Remote Authentication Dial In User Service (RADIUS) server.
 --
@@ -1055,15 +1073,16 @@ instance NFData IPRouteInfo
 --
 -- /See:/ 'radiusSettings' smart constructor.
 data RadiusSettings = RadiusSettings'
-    { _rsDisplayLabel           :: !(Maybe Text)
-    , _rsRadiusRetries          :: !(Maybe Nat)
-    , _rsAuthenticationProtocol :: !(Maybe RadiusAuthenticationProtocol)
-    , _rsRadiusServers          :: !(Maybe [Text])
-    , _rsUseSameUsername        :: !(Maybe Bool)
-    , _rsSharedSecret           :: !(Maybe (Sensitive Text))
-    , _rsRadiusTimeout          :: !(Maybe Nat)
-    , _rsRadiusPort             :: !(Maybe Nat)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rsDisplayLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsRadiusRetries :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _rsAuthenticationProtocol :: {-# NOUNPACK #-}!(Maybe RadiusAuthenticationProtocol)
+  , _rsRadiusServers :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rsUseSameUsername :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rsSharedSecret :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _rsRadiusTimeout :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _rsRadiusPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RadiusSettings' with the minimum fields required to make a request.
 --
@@ -1087,16 +1106,17 @@ data RadiusSettings = RadiusSettings'
 radiusSettings
     :: RadiusSettings
 radiusSettings =
-    RadiusSettings'
-    { _rsDisplayLabel = Nothing
-    , _rsRadiusRetries = Nothing
-    , _rsAuthenticationProtocol = Nothing
-    , _rsRadiusServers = Nothing
-    , _rsUseSameUsername = Nothing
-    , _rsSharedSecret = Nothing
-    , _rsRadiusTimeout = Nothing
-    , _rsRadiusPort = Nothing
-    }
+  RadiusSettings'
+  { _rsDisplayLabel = Nothing
+  , _rsRadiusRetries = Nothing
+  , _rsAuthenticationProtocol = Nothing
+  , _rsRadiusServers = Nothing
+  , _rsUseSameUsername = Nothing
+  , _rsSharedSecret = Nothing
+  , _rsRadiusTimeout = Nothing
+  , _rsRadiusPort = Nothing
+  }
+
 
 -- | Not currently used.
 rsDisplayLabel :: Lens' RadiusSettings (Maybe Text)
@@ -1143,9 +1163,9 @@ instance FromJSON RadiusSettings where
                      <*> (x .:? "RadiusTimeout")
                      <*> (x .:? "RadiusPort"))
 
-instance Hashable RadiusSettings
+instance Hashable RadiusSettings where
 
-instance NFData RadiusSettings
+instance NFData RadiusSettings where
 
 instance ToJSON RadiusSettings where
         toJSON RadiusSettings'{..}
@@ -1167,14 +1187,15 @@ instance ToJSON RadiusSettings where
 --
 -- /See:/ 'schemaExtensionInfo' smart constructor.
 data SchemaExtensionInfo = SchemaExtensionInfo'
-    { _seiDirectoryId                 :: !(Maybe Text)
-    , _seiSchemaExtensionId           :: !(Maybe Text)
-    , _seiSchemaExtensionStatusReason :: !(Maybe Text)
-    , _seiSchemaExtensionStatus       :: !(Maybe SchemaExtensionStatus)
-    , _seiDescription                 :: !(Maybe Text)
-    , _seiEndDateTime                 :: !(Maybe POSIX)
-    , _seiStartDateTime               :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seiDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seiSchemaExtensionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seiSchemaExtensionStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seiSchemaExtensionStatus :: {-# NOUNPACK #-}!(Maybe SchemaExtensionStatus)
+  , _seiDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seiEndDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _seiStartDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SchemaExtensionInfo' with the minimum fields required to make a request.
 --
@@ -1196,15 +1217,16 @@ data SchemaExtensionInfo = SchemaExtensionInfo'
 schemaExtensionInfo
     :: SchemaExtensionInfo
 schemaExtensionInfo =
-    SchemaExtensionInfo'
-    { _seiDirectoryId = Nothing
-    , _seiSchemaExtensionId = Nothing
-    , _seiSchemaExtensionStatusReason = Nothing
-    , _seiSchemaExtensionStatus = Nothing
-    , _seiDescription = Nothing
-    , _seiEndDateTime = Nothing
-    , _seiStartDateTime = Nothing
-    }
+  SchemaExtensionInfo'
+  { _seiDirectoryId = Nothing
+  , _seiSchemaExtensionId = Nothing
+  , _seiSchemaExtensionStatusReason = Nothing
+  , _seiSchemaExtensionStatus = Nothing
+  , _seiDescription = Nothing
+  , _seiEndDateTime = Nothing
+  , _seiStartDateTime = Nothing
+  }
+
 
 -- | The identifier of the directory to which the schema extension is applied.
 seiDirectoryId :: Lens' SchemaExtensionInfo (Maybe Text)
@@ -1246,9 +1268,9 @@ instance FromJSON SchemaExtensionInfo where
                      <*> (x .:? "EndDateTime")
                      <*> (x .:? "StartDateTime"))
 
-instance Hashable SchemaExtensionInfo
+instance Hashable SchemaExtensionInfo where
 
-instance NFData SchemaExtensionInfo
+instance NFData SchemaExtensionInfo where
 
 -- | Describes a directory snapshot.
 --
@@ -1256,13 +1278,14 @@ instance NFData SchemaExtensionInfo
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-    { _sStatus      :: !(Maybe SnapshotStatus)
-    , _sDirectoryId :: !(Maybe Text)
-    , _sStartTime   :: !(Maybe POSIX)
-    , _sName        :: !(Maybe Text)
-    , _sType        :: !(Maybe SnapshotType)
-    , _sSnapshotId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStatus      :: {-# NOUNPACK #-}!(Maybe SnapshotStatus)
+  , _sDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sStartTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _sName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sType        :: {-# NOUNPACK #-}!(Maybe SnapshotType)
+  , _sSnapshotId  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
@@ -1282,14 +1305,15 @@ data Snapshot = Snapshot'
 snapshot
     :: Snapshot
 snapshot =
-    Snapshot'
-    { _sStatus = Nothing
-    , _sDirectoryId = Nothing
-    , _sStartTime = Nothing
-    , _sName = Nothing
-    , _sType = Nothing
-    , _sSnapshotId = Nothing
-    }
+  Snapshot'
+  { _sStatus = Nothing
+  , _sDirectoryId = Nothing
+  , _sStartTime = Nothing
+  , _sName = Nothing
+  , _sType = Nothing
+  , _sSnapshotId = Nothing
+  }
+
 
 -- | The snapshot status.
 sStatus :: Lens' Snapshot (Maybe SnapshotStatus)
@@ -1326,9 +1350,9 @@ instance FromJSON Snapshot where
                      <*> (x .:? "Type")
                      <*> (x .:? "SnapshotId"))
 
-instance Hashable Snapshot
+instance Hashable Snapshot where
 
-instance NFData Snapshot
+instance NFData Snapshot where
 
 -- | Contains manual snapshot limit information for a directory.
 --
@@ -1336,10 +1360,11 @@ instance NFData Snapshot
 --
 -- /See:/ 'snapshotLimits' smart constructor.
 data SnapshotLimits = SnapshotLimits'
-    { _slManualSnapshotsLimitReached :: !(Maybe Bool)
-    , _slManualSnapshotsCurrentCount :: !(Maybe Nat)
-    , _slManualSnapshotsLimit        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slManualSnapshotsLimitReached :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _slManualSnapshotsCurrentCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _slManualSnapshotsLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SnapshotLimits' with the minimum fields required to make a request.
 --
@@ -1353,11 +1378,12 @@ data SnapshotLimits = SnapshotLimits'
 snapshotLimits
     :: SnapshotLimits
 snapshotLimits =
-    SnapshotLimits'
-    { _slManualSnapshotsLimitReached = Nothing
-    , _slManualSnapshotsCurrentCount = Nothing
-    , _slManualSnapshotsLimit = Nothing
-    }
+  SnapshotLimits'
+  { _slManualSnapshotsLimitReached = Nothing
+  , _slManualSnapshotsCurrentCount = Nothing
+  , _slManualSnapshotsLimit = Nothing
+  }
+
 
 -- | Indicates if the manual snapshot limit has been reached.
 slManualSnapshotsLimitReached :: Lens' SnapshotLimits (Maybe Bool)
@@ -1380,9 +1406,9 @@ instance FromJSON SnapshotLimits where
                      (x .:? "ManualSnapshotsCurrentCount")
                      <*> (x .:? "ManualSnapshotsLimit"))
 
-instance Hashable SnapshotLimits
+instance Hashable SnapshotLimits where
 
-instance NFData SnapshotLimits
+instance NFData SnapshotLimits where
 
 -- | Metadata assigned to a directory consisting of a key-value pair.
 --
@@ -1390,9 +1416,10 @@ instance NFData SnapshotLimits
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -1405,11 +1432,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | Required name of the tag. The string value can be Unicode characters and cannot be prefixed with "aws:". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tagKey :: Lens' Tag Text
@@ -1424,9 +1448,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1441,17 +1465,18 @@ instance ToJSON Tag where
 --
 -- /See:/ 'trust' smart constructor.
 data Trust = Trust'
-    { _tDirectoryId              :: !(Maybe Text)
-    , _tTrustState               :: !(Maybe TrustState)
-    , _tLastUpdatedDateTime      :: !(Maybe POSIX)
-    , _tTrustDirection           :: !(Maybe TrustDirection)
-    , _tStateLastUpdatedDateTime :: !(Maybe POSIX)
-    , _tTrustType                :: !(Maybe TrustType)
-    , _tTrustStateReason         :: !(Maybe Text)
-    , _tRemoteDomainName         :: !(Maybe Text)
-    , _tTrustId                  :: !(Maybe Text)
-    , _tCreatedDateTime          :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tDirectoryId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tTrustState               :: {-# NOUNPACK #-}!(Maybe TrustState)
+  , _tLastUpdatedDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tTrustDirection           :: {-# NOUNPACK #-}!(Maybe TrustDirection)
+  , _tStateLastUpdatedDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tTrustType                :: {-# NOUNPACK #-}!(Maybe TrustType)
+  , _tTrustStateReason         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tRemoteDomainName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tTrustId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tCreatedDateTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Trust' with the minimum fields required to make a request.
 --
@@ -1479,18 +1504,19 @@ data Trust = Trust'
 trust
     :: Trust
 trust =
-    Trust'
-    { _tDirectoryId = Nothing
-    , _tTrustState = Nothing
-    , _tLastUpdatedDateTime = Nothing
-    , _tTrustDirection = Nothing
-    , _tStateLastUpdatedDateTime = Nothing
-    , _tTrustType = Nothing
-    , _tTrustStateReason = Nothing
-    , _tRemoteDomainName = Nothing
-    , _tTrustId = Nothing
-    , _tCreatedDateTime = Nothing
-    }
+  Trust'
+  { _tDirectoryId = Nothing
+  , _tTrustState = Nothing
+  , _tLastUpdatedDateTime = Nothing
+  , _tTrustDirection = Nothing
+  , _tStateLastUpdatedDateTime = Nothing
+  , _tTrustType = Nothing
+  , _tTrustStateReason = Nothing
+  , _tRemoteDomainName = Nothing
+  , _tTrustId = Nothing
+  , _tCreatedDateTime = Nothing
+  }
+
 
 -- | The Directory ID of the AWS directory involved in the trust relationship.
 tDirectoryId :: Lens' Trust (Maybe Text)
@@ -1547,6 +1573,6 @@ instance FromJSON Trust where
                      <*> (x .:? "TrustId")
                      <*> (x .:? "CreatedDateTime"))
 
-instance Hashable Trust
+instance Hashable Trust where
 
-instance NFData Trust
+instance NFData Trust where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.DeleteSubscriptionDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.Greengrass.DeleteSubscriptionDefinition
     , dsdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSubscriptionDefinition' smart constructor.
 newtype DeleteSubscriptionDefinition = DeleteSubscriptionDefinition'
-    { _dsdSubscriptionDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsdSubscriptionDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubscriptionDefinition' with the minimum fields required to make a request.
 --
@@ -55,9 +56,9 @@ deleteSubscriptionDefinition
     :: Text -- ^ 'dsdSubscriptionDefinitionId'
     -> DeleteSubscriptionDefinition
 deleteSubscriptionDefinition pSubscriptionDefinitionId_ =
-    DeleteSubscriptionDefinition'
-    { _dsdSubscriptionDefinitionId = pSubscriptionDefinitionId_
-    }
+  DeleteSubscriptionDefinition'
+  {_dsdSubscriptionDefinitionId = pSubscriptionDefinitionId_}
+
 
 -- | subscription definition Id
 dsdSubscriptionDefinitionId :: Lens' DeleteSubscriptionDefinition Text
@@ -74,9 +75,9 @@ instance AWSRequest DeleteSubscriptionDefinition
                  DeleteSubscriptionDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteSubscriptionDefinition
+instance Hashable DeleteSubscriptionDefinition where
 
-instance NFData DeleteSubscriptionDefinition
+instance NFData DeleteSubscriptionDefinition where
 
 instance ToHeaders DeleteSubscriptionDefinition where
         toHeaders
@@ -96,8 +97,9 @@ instance ToQuery DeleteSubscriptionDefinition where
 
 -- | /See:/ 'deleteSubscriptionDefinitionResponse' smart constructor.
 newtype DeleteSubscriptionDefinitionResponse = DeleteSubscriptionDefinitionResponse'
-    { _dsdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubscriptionDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -108,12 +110,13 @@ deleteSubscriptionDefinitionResponse
     :: Int -- ^ 'dsdrsResponseStatus'
     -> DeleteSubscriptionDefinitionResponse
 deleteSubscriptionDefinitionResponse pResponseStatus_ =
-    DeleteSubscriptionDefinitionResponse'
-    { _dsdrsResponseStatus = pResponseStatus_
-    }
+  DeleteSubscriptionDefinitionResponse'
+  {_dsdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dsdrsResponseStatus :: Lens' DeleteSubscriptionDefinitionResponse Int
 dsdrsResponseStatus = lens _dsdrsResponseStatus (\ s a -> s{_dsdrsResponseStatus = a});
 
 instance NFData DeleteSubscriptionDefinitionResponse
+         where

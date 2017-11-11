@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.UpdateKeyDescription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.KMS.UpdateKeyDescription
     , UpdateKeyDescriptionResponse
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateKeyDescription' smart constructor.
 data UpdateKeyDescription = UpdateKeyDescription'
-    { _ukdKeyId       :: !Text
-    , _ukdDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ukdKeyId       :: {-# NOUNPACK #-}!Text
+  , _ukdDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateKeyDescription' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ updateKeyDescription
     -> Text -- ^ 'ukdDescription'
     -> UpdateKeyDescription
 updateKeyDescription pKeyId_ pDescription_ =
-    UpdateKeyDescription'
-    { _ukdKeyId = pKeyId_
-    , _ukdDescription = pDescription_
-    }
+  UpdateKeyDescription' {_ukdKeyId = pKeyId_, _ukdDescription = pDescription_}
+
 
 -- | A unique identifier for the CMK. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 ukdKeyId :: Lens' UpdateKeyDescription Text
@@ -79,9 +78,9 @@ instance AWSRequest UpdateKeyDescription where
         request = postJSON kms
         response = receiveNull UpdateKeyDescriptionResponse'
 
-instance Hashable UpdateKeyDescription
+instance Hashable UpdateKeyDescription where
 
-instance NFData UpdateKeyDescription
+instance NFData UpdateKeyDescription where
 
 instance ToHeaders UpdateKeyDescription where
         toHeaders
@@ -107,8 +106,9 @@ instance ToQuery UpdateKeyDescription where
 
 -- | /See:/ 'updateKeyDescriptionResponse' smart constructor.
 data UpdateKeyDescriptionResponse =
-    UpdateKeyDescriptionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateKeyDescriptionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateKeyDescriptionResponse' with the minimum fields required to make a request.
 --
@@ -116,4 +116,5 @@ updateKeyDescriptionResponse
     :: UpdateKeyDescriptionResponse
 updateKeyDescriptionResponse = UpdateKeyDescriptionResponse'
 
-instance NFData UpdateKeyDescriptionResponse
+
+instance NFData UpdateKeyDescriptionResponse where

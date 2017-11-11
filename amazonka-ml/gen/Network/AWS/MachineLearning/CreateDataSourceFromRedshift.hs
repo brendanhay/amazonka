@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromRedshift
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,21 +51,22 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     , cdsfrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromRedshift' smart constructor.
 data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
-    { _cdsfrDataSourceName    :: !(Maybe Text)
-    , _cdsfrComputeStatistics :: !(Maybe Bool)
-    , _cdsfrDataSourceId      :: !Text
-    , _cdsfrDataSpec          :: !RedshiftDataSpec
-    , _cdsfrRoleARN           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsfrDataSourceName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsfrComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdsfrDataSourceId      :: {-# NOUNPACK #-}!Text
+  , _cdsfrDataSpec          :: {-# NOUNPACK #-}!RedshiftDataSpec
+  , _cdsfrRoleARN           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDataSourceFromRedshift' with the minimum fields required to make a request.
 --
@@ -86,13 +87,14 @@ createDataSourceFromRedshift
     -> Text -- ^ 'cdsfrRoleARN'
     -> CreateDataSourceFromRedshift
 createDataSourceFromRedshift pDataSourceId_ pDataSpec_ pRoleARN_ =
-    CreateDataSourceFromRedshift'
-    { _cdsfrDataSourceName = Nothing
-    , _cdsfrComputeStatistics = Nothing
-    , _cdsfrDataSourceId = pDataSourceId_
-    , _cdsfrDataSpec = pDataSpec_
-    , _cdsfrRoleARN = pRoleARN_
-    }
+  CreateDataSourceFromRedshift'
+  { _cdsfrDataSourceName = Nothing
+  , _cdsfrComputeStatistics = Nothing
+  , _cdsfrDataSourceId = pDataSourceId_
+  , _cdsfrDataSpec = pDataSpec_
+  , _cdsfrRoleARN = pRoleARN_
+  }
+
 
 -- | A user-supplied name or description of the @DataSource@ .
 cdsfrDataSourceName :: Lens' CreateDataSourceFromRedshift (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest CreateDataSourceFromRedshift
                  CreateDataSourceFromRedshiftResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDataSourceFromRedshift
+instance Hashable CreateDataSourceFromRedshift where
 
-instance NFData CreateDataSourceFromRedshift
+instance NFData CreateDataSourceFromRedshift where
 
 instance ToHeaders CreateDataSourceFromRedshift where
         toHeaders
@@ -163,9 +165,10 @@ instance ToQuery CreateDataSourceFromRedshift where
 --
 -- /See:/ 'createDataSourceFromRedshiftResponse' smart constructor.
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
-    { _cdsfrrsDataSourceId   :: !(Maybe Text)
-    , _cdsfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsfrrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDataSourceFromRedshiftResponse' with the minimum fields required to make a request.
 --
@@ -178,10 +181,9 @@ createDataSourceFromRedshiftResponse
     :: Int -- ^ 'cdsfrrsResponseStatus'
     -> CreateDataSourceFromRedshiftResponse
 createDataSourceFromRedshiftResponse pResponseStatus_ =
-    CreateDataSourceFromRedshiftResponse'
-    { _cdsfrrsDataSourceId = Nothing
-    , _cdsfrrsResponseStatus = pResponseStatus_
-    }
+  CreateDataSourceFromRedshiftResponse'
+  {_cdsfrrsDataSourceId = Nothing, _cdsfrrsResponseStatus = pResponseStatus_}
+
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
 cdsfrrsDataSourceId :: Lens' CreateDataSourceFromRedshiftResponse (Maybe Text)
@@ -192,3 +194,4 @@ cdsfrrsResponseStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
 cdsfrrsResponseStatus = lens _cdsfrrsResponseStatus (\ s a -> s{_cdsfrrsResponseStatus = a});
 
 instance NFData CreateDataSourceFromRedshiftResponse
+         where

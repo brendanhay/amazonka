@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeSnapshotSchedule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     , dssrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the 'DescribeSnapshotScheduleInput$VolumeARN' of the volume.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeSnapshotSchedule' smart constructor.
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
-    { _dssVolumeARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssVolumeARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotSchedule' with the minimum fields required to make a request.
 --
@@ -66,9 +67,8 @@ describeSnapshotSchedule
     :: Text -- ^ 'dssVolumeARN'
     -> DescribeSnapshotSchedule
 describeSnapshotSchedule pVolumeARN_ =
-    DescribeSnapshotSchedule'
-    { _dssVolumeARN = pVolumeARN_
-    }
+  DescribeSnapshotSchedule' {_dssVolumeARN = pVolumeARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
@@ -88,9 +88,9 @@ instance AWSRequest DescribeSnapshotSchedule where
                      <*> (x .?> "Description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSnapshotSchedule
+instance Hashable DescribeSnapshotSchedule where
 
-instance NFData DescribeSnapshotSchedule
+instance NFData DescribeSnapshotSchedule where
 
 instance ToHeaders DescribeSnapshotSchedule where
         toHeaders
@@ -115,13 +115,14 @@ instance ToQuery DescribeSnapshotSchedule where
 
 -- | /See:/ 'describeSnapshotScheduleResponse' smart constructor.
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
-    { _dssrsStartAt           :: !(Maybe Nat)
-    , _dssrsVolumeARN         :: !(Maybe Text)
-    , _dssrsRecurrenceInHours :: !(Maybe Nat)
-    , _dssrsTimezone          :: !(Maybe Text)
-    , _dssrsDescription       :: !(Maybe Text)
-    , _dssrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssrsStartAt           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dssrsVolumeARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssrsRecurrenceInHours :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dssrsTimezone          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssrsDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
@@ -142,14 +143,15 @@ describeSnapshotScheduleResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSnapshotScheduleResponse
 describeSnapshotScheduleResponse pResponseStatus_ =
-    DescribeSnapshotScheduleResponse'
-    { _dssrsStartAt = Nothing
-    , _dssrsVolumeARN = Nothing
-    , _dssrsRecurrenceInHours = Nothing
-    , _dssrsTimezone = Nothing
-    , _dssrsDescription = Nothing
-    , _dssrsResponseStatus = pResponseStatus_
-    }
+  DescribeSnapshotScheduleResponse'
+  { _dssrsStartAt = Nothing
+  , _dssrsVolumeARN = Nothing
+  , _dssrsRecurrenceInHours = Nothing
+  , _dssrsTimezone = Nothing
+  , _dssrsDescription = Nothing
+  , _dssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 dssrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
@@ -176,3 +178,4 @@ dssrsResponseStatus :: Lens' DescribeSnapshotScheduleResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 
 instance NFData DescribeSnapshotScheduleResponse
+         where

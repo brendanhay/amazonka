@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.StopFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.AppStream.StopFleet
     , srsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopFleet' smart constructor.
 newtype StopFleet = StopFleet'
-    { _sfName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sfName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopFleet' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype StopFleet = StopFleet'
 stopFleet
     :: Text -- ^ 'sfName'
     -> StopFleet
-stopFleet pName_ =
-    StopFleet'
-    { _sfName = pName_
-    }
+stopFleet pName_ = StopFleet' {_sfName = pName_}
+
 
 -- | The name of the fleet to stop.
 sfName :: Lens' StopFleet Text
@@ -73,9 +72,9 @@ instance AWSRequest StopFleet where
               (\ s h x ->
                  StopFleetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StopFleet
+instance Hashable StopFleet where
 
-instance NFData StopFleet
+instance NFData StopFleet where
 
 instance ToHeaders StopFleet where
         toHeaders
@@ -98,8 +97,9 @@ instance ToQuery StopFleet where
 
 -- | /See:/ 'stopFleetResponse' smart constructor.
 newtype StopFleetResponse = StopFleetResponse'
-    { _srsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopFleetResponse' with the minimum fields required to make a request.
 --
@@ -110,12 +110,11 @@ stopFleetResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopFleetResponse
 stopFleetResponse pResponseStatus_ =
-    StopFleetResponse'
-    { _srsResponseStatus = pResponseStatus_
-    }
+  StopFleetResponse' {_srsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StopFleetResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StopFleetResponse
+instance NFData StopFleetResponse where

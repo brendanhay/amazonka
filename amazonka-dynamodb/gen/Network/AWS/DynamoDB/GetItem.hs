@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.GetItem
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.DynamoDB.GetItem
     , girsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @GetItem@ operation.
 --
@@ -59,14 +59,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getItem' smart constructor.
 data GetItem = GetItem'
-    { _giProjectionExpression     :: !(Maybe Text)
-    , _giAttributesToGet          :: !(Maybe (List1 Text))
-    , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _giConsistentRead           :: !(Maybe Bool)
-    , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
-    , _giTableName                :: !Text
-    , _giKey                      :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giProjectionExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giAttributesToGet :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _giExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _giConsistentRead :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _giReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
+  , _giTableName :: {-# NOUNPACK #-}!Text
+  , _giKey :: {-# NOUNPACK #-}!(Map Text AttributeValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetItem' with the minimum fields required to make a request.
 --
@@ -89,15 +90,16 @@ getItem
     :: Text -- ^ 'giTableName'
     -> GetItem
 getItem pTableName_ =
-    GetItem'
-    { _giProjectionExpression = Nothing
-    , _giAttributesToGet = Nothing
-    , _giExpressionAttributeNames = Nothing
-    , _giConsistentRead = Nothing
-    , _giReturnConsumedCapacity = Nothing
-    , _giTableName = pTableName_
-    , _giKey = mempty
-    }
+  GetItem'
+  { _giProjectionExpression = Nothing
+  , _giAttributesToGet = Nothing
+  , _giExpressionAttributeNames = Nothing
+  , _giConsistentRead = Nothing
+  , _giReturnConsumedCapacity = Nothing
+  , _giTableName = pTableName_
+  , _giKey = mempty
+  }
+
 
 -- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 giProjectionExpression :: Lens' GetItem (Maybe Text)
@@ -138,9 +140,9 @@ instance AWSRequest GetItem where
                      (x .?> "Item" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetItem
+instance Hashable GetItem where
 
-instance NFData GetItem
+instance NFData GetItem where
 
 instance ToHeaders GetItem where
         toHeaders
@@ -178,10 +180,11 @@ instance ToQuery GetItem where
 --
 -- /See:/ 'getItemResponse' smart constructor.
 data GetItemResponse = GetItemResponse'
-    { _girsConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _girsItem             :: !(Maybe (Map Text AttributeValue))
-    , _girsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _girsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
+  , _girsItem             :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _girsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetItemResponse' with the minimum fields required to make a request.
 --
@@ -196,11 +199,12 @@ getItemResponse
     :: Int -- ^ 'girsResponseStatus'
     -> GetItemResponse
 getItemResponse pResponseStatus_ =
-    GetItemResponse'
-    { _girsConsumedCapacity = Nothing
-    , _girsItem = Nothing
-    , _girsResponseStatus = pResponseStatus_
-    }
+  GetItemResponse'
+  { _girsConsumedCapacity = Nothing
+  , _girsItem = Nothing
+  , _girsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The capacity units consumed by the @GetItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput> in the /Amazon DynamoDB Developer Guide/ .
 girsConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
@@ -214,4 +218,4 @@ girsItem = lens _girsItem (\ s a -> s{_girsItem = a}) . _Default . _Map;
 girsResponseStatus :: Lens' GetItemResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
 
-instance NFData GetItemResponse
+instance NFData GetItemResponse where

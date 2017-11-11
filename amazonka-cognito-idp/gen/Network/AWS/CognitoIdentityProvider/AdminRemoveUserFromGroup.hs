@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
     , AdminRemoveUserFromGroupResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'adminRemoveUserFromGroup' smart constructor.
 data AdminRemoveUserFromGroup = AdminRemoveUserFromGroup'
-    { _arufgUserPoolId :: !Text
-    , _arufgUsername   :: !(Sensitive Text)
-    , _arufgGroupName  :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _arufgUserPoolId :: {-# NOUNPACK #-}!Text
+  , _arufgUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _arufgGroupName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminRemoveUserFromGroup' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ adminRemoveUserFromGroup
     -> Text -- ^ 'arufgGroupName'
     -> AdminRemoveUserFromGroup
 adminRemoveUserFromGroup pUserPoolId_ pUsername_ pGroupName_ =
-    AdminRemoveUserFromGroup'
-    { _arufgUserPoolId = pUserPoolId_
-    , _arufgUsername = _Sensitive # pUsername_
-    , _arufgGroupName = pGroupName_
-    }
+  AdminRemoveUserFromGroup'
+  { _arufgUserPoolId = pUserPoolId_
+  , _arufgUsername = _Sensitive # pUsername_
+  , _arufgGroupName = pGroupName_
+  }
+
 
 -- | The user pool ID for the user pool.
 arufgUserPoolId :: Lens' AdminRemoveUserFromGroup Text
@@ -92,9 +94,9 @@ instance AWSRequest AdminRemoveUserFromGroup where
         response
           = receiveNull AdminRemoveUserFromGroupResponse'
 
-instance Hashable AdminRemoveUserFromGroup
+instance Hashable AdminRemoveUserFromGroup where
 
-instance NFData AdminRemoveUserFromGroup
+instance NFData AdminRemoveUserFromGroup where
 
 instance ToHeaders AdminRemoveUserFromGroup where
         toHeaders
@@ -122,8 +124,9 @@ instance ToQuery AdminRemoveUserFromGroup where
 
 -- | /See:/ 'adminRemoveUserFromGroupResponse' smart constructor.
 data AdminRemoveUserFromGroupResponse =
-    AdminRemoveUserFromGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AdminRemoveUserFromGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminRemoveUserFromGroupResponse' with the minimum fields required to make a request.
 --
@@ -131,4 +134,6 @@ adminRemoveUserFromGroupResponse
     :: AdminRemoveUserFromGroupResponse
 adminRemoveUserFromGroupResponse = AdminRemoveUserFromGroupResponse'
 
+
 instance NFData AdminRemoveUserFromGroupResponse
+         where

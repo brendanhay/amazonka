@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetApplications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CodeDeploy.BatchGetApplications
     , bgarsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a BatchGetApplications operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'batchGetApplications' smart constructor.
 newtype BatchGetApplications = BatchGetApplications'
-    { _bgaApplicationNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgaApplicationNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetApplications' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype BatchGetApplications = BatchGetApplications'
 -- * 'bgaApplicationNames' - A list of application names separated by spaces.
 batchGetApplications
     :: BatchGetApplications
-batchGetApplications =
-    BatchGetApplications'
-    { _bgaApplicationNames = Nothing
-    }
+batchGetApplications = BatchGetApplications' {_bgaApplicationNames = Nothing}
+
 
 -- | A list of application names separated by spaces.
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
@@ -80,9 +79,9 @@ instance AWSRequest BatchGetApplications where
                    (x .?> "applicationsInfo" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable BatchGetApplications
+instance Hashable BatchGetApplications where
 
-instance NFData BatchGetApplications
+instance NFData BatchGetApplications where
 
 instance ToHeaders BatchGetApplications where
         toHeaders
@@ -112,9 +111,10 @@ instance ToQuery BatchGetApplications where
 --
 -- /See:/ 'batchGetApplicationsResponse' smart constructor.
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
-    { _bgarsApplicationsInfo :: !(Maybe [ApplicationInfo])
-    , _bgarsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgarsApplicationsInfo :: {-# NOUNPACK #-}!(Maybe [ApplicationInfo])
+  , _bgarsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetApplicationsResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +127,9 @@ batchGetApplicationsResponse
     :: Int -- ^ 'bgarsResponseStatus'
     -> BatchGetApplicationsResponse
 batchGetApplicationsResponse pResponseStatus_ =
-    BatchGetApplicationsResponse'
-    { _bgarsApplicationsInfo = Nothing
-    , _bgarsResponseStatus = pResponseStatus_
-    }
+  BatchGetApplicationsResponse'
+  {_bgarsApplicationsInfo = Nothing, _bgarsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the applications.
 bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
@@ -140,4 +139,4 @@ bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicatio
 bgarsResponseStatus :: Lens' BatchGetApplicationsResponse Int
 bgarsResponseStatus = lens _bgarsResponseStatus (\ s a -> s{_bgarsResponseStatus = a});
 
-instance NFData BatchGetApplicationsResponse
+instance NFData BatchGetApplicationsResponse where

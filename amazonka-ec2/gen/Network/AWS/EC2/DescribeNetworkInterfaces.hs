@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     , dnirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeNetworkInterfaces.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeNetworkInterfaces' smart constructor.
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
-    { _dnisNetworkInterfaceIds :: !(Maybe [Text])
-    , _dnisFilters             :: !(Maybe [Filter])
-    , _dnisDryRun              :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnisNetworkInterfaceIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dnisFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dnisDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNetworkInterfaces' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 describeNetworkInterfaces
     :: DescribeNetworkInterfaces
 describeNetworkInterfaces =
-    DescribeNetworkInterfaces'
-    { _dnisNetworkInterfaceIds = Nothing
-    , _dnisFilters = Nothing
-    , _dnisDryRun = Nothing
-    }
+  DescribeNetworkInterfaces'
+  { _dnisNetworkInterfaceIds = Nothing
+  , _dnisFilters = Nothing
+  , _dnisDryRun = Nothing
+  }
+
 
 -- | One or more network interface IDs. Default: Describes all your network interfaces.
 dnisNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
@@ -99,9 +101,9 @@ instance AWSRequest DescribeNetworkInterfaces where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeNetworkInterfaces
+instance Hashable DescribeNetworkInterfaces where
 
-instance NFData DescribeNetworkInterfaces
+instance NFData DescribeNetworkInterfaces where
 
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty
@@ -127,9 +129,10 @@ instance ToQuery DescribeNetworkInterfaces where
 --
 -- /See:/ 'describeNetworkInterfacesResponse' smart constructor.
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
-    { _dnirsNetworkInterfaces :: !(Maybe [NetworkInterface])
-    , _dnirsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnirsNetworkInterfaces :: {-# NOUNPACK #-}!(Maybe [NetworkInterface])
+  , _dnirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNetworkInterfacesResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,9 @@ describeNetworkInterfacesResponse
     :: Int -- ^ 'dnirsResponseStatus'
     -> DescribeNetworkInterfacesResponse
 describeNetworkInterfacesResponse pResponseStatus_ =
-    DescribeNetworkInterfacesResponse'
-    { _dnirsNetworkInterfaces = Nothing
-    , _dnirsResponseStatus = pResponseStatus_
-    }
+  DescribeNetworkInterfacesResponse'
+  {_dnirsNetworkInterfaces = Nothing, _dnirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more network interfaces.
 dnirsNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
@@ -156,3 +158,4 @@ dnirsResponseStatus :: Lens' DescribeNetworkInterfacesResponse Int
 dnirsResponseStatus = lens _dnirsResponseStatus (\ s a -> s{_dnirsResponseStatus = a});
 
 instance NFData DescribeNetworkInterfacesResponse
+         where

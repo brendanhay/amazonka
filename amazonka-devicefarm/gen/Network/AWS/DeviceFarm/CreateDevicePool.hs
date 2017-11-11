@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateDevicePool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DeviceFarm.CreateDevicePool
     , cdprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the create device pool operation.
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDevicePool' smart constructor.
 data CreateDevicePool = CreateDevicePool'
-    { _cdpDescription :: !(Maybe Text)
-    , _cdpProjectARN  :: !Text
-    , _cdpName        :: !Text
-    , _cdpRules       :: ![Rule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdpDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdpProjectARN  :: {-# NOUNPACK #-}!Text
+  , _cdpName        :: {-# NOUNPACK #-}!Text
+  , _cdpRules       :: {-# NOUNPACK #-}![Rule]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDevicePool' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ createDevicePool
     -> Text -- ^ 'cdpName'
     -> CreateDevicePool
 createDevicePool pProjectARN_ pName_ =
-    CreateDevicePool'
-    { _cdpDescription = Nothing
-    , _cdpProjectARN = pProjectARN_
-    , _cdpName = pName_
-    , _cdpRules = mempty
-    }
+  CreateDevicePool'
+  { _cdpDescription = Nothing
+  , _cdpProjectARN = pProjectARN_
+  , _cdpName = pName_
+  , _cdpRules = mempty
+  }
+
 
 -- | The device pool's description.
 cdpDescription :: Lens' CreateDevicePool (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest CreateDevicePool where
                  CreateDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDevicePool
+instance Hashable CreateDevicePool where
 
-instance NFData CreateDevicePool
+instance NFData CreateDevicePool where
 
 instance ToHeaders CreateDevicePool where
         toHeaders
@@ -142,9 +144,10 @@ instance ToQuery CreateDevicePool where
 --
 -- /See:/ 'createDevicePoolResponse' smart constructor.
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
-    { _cdprsDevicePool     :: !(Maybe DevicePool)
-    , _cdprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdprsDevicePool     :: {-# NOUNPACK #-}!(Maybe DevicePool)
+  , _cdprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDevicePoolResponse' with the minimum fields required to make a request.
 --
@@ -157,10 +160,9 @@ createDevicePoolResponse
     :: Int -- ^ 'cdprsResponseStatus'
     -> CreateDevicePoolResponse
 createDevicePoolResponse pResponseStatus_ =
-    CreateDevicePoolResponse'
-    { _cdprsDevicePool = Nothing
-    , _cdprsResponseStatus = pResponseStatus_
-    }
+  CreateDevicePoolResponse'
+  {_cdprsDevicePool = Nothing, _cdprsResponseStatus = pResponseStatus_}
+
 
 -- | The newly created device pool.
 cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
@@ -170,4 +172,4 @@ cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
 cdprsResponseStatus :: Lens' CreateDevicePoolResponse Int
 cdprsResponseStatus = lens _cdprsResponseStatus (\ s a -> s{_cdprsResponseStatus = a});
 
-instance NFData CreateDevicePoolResponse
+instance NFData CreateDevicePoolResponse where

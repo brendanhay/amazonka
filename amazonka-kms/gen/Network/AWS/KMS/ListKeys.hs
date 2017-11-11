@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.KMS.ListKeys
     , lkrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listKeys' smart constructor.
 data ListKeys = ListKeys'
-    { _lkMarker :: !(Maybe Text)
-    , _lkLimit  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lkMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lkLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListKeys' with the minimum fields required to make a request.
 --
@@ -65,11 +66,8 @@ data ListKeys = ListKeys'
 -- * 'lkLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
 listKeys
     :: ListKeys
-listKeys =
-    ListKeys'
-    { _lkMarker = Nothing
-    , _lkLimit = Nothing
-    }
+listKeys = ListKeys' {_lkMarker = Nothing, _lkLimit = Nothing}
+
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lkMarker :: Lens' ListKeys (Maybe Text)
@@ -97,9 +95,9 @@ instance AWSRequest ListKeys where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListKeys
+instance Hashable ListKeys where
 
-instance NFData ListKeys
+instance NFData ListKeys where
 
 instance ToHeaders ListKeys where
         toHeaders
@@ -125,11 +123,12 @@ instance ToQuery ListKeys where
 
 -- | /See:/ 'listKeysResponse' smart constructor.
 data ListKeysResponse = ListKeysResponse'
-    { _lkrsTruncated      :: !(Maybe Bool)
-    , _lkrsKeys           :: !(Maybe [KeyListEntry])
-    , _lkrsNextMarker     :: !(Maybe Text)
-    , _lkrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lkrsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lkrsKeys           :: {-# NOUNPACK #-}!(Maybe [KeyListEntry])
+  , _lkrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListKeysResponse' with the minimum fields required to make a request.
 --
@@ -146,12 +145,13 @@ listKeysResponse
     :: Int -- ^ 'lkrsResponseStatus'
     -> ListKeysResponse
 listKeysResponse pResponseStatus_ =
-    ListKeysResponse'
-    { _lkrsTruncated = Nothing
-    , _lkrsKeys = Nothing
-    , _lkrsNextMarker = Nothing
-    , _lkrsResponseStatus = pResponseStatus_
-    }
+  ListKeysResponse'
+  { _lkrsTruncated = Nothing
+  , _lkrsKeys = Nothing
+  , _lkrsNextMarker = Nothing
+  , _lkrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lkrsTruncated :: Lens' ListKeysResponse (Maybe Bool)
@@ -169,4 +169,4 @@ lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
 lkrsResponseStatus :: Lens' ListKeysResponse Int
 lkrsResponseStatus = lens _lkrsResponseStatus (\ s a -> s{_lkrsResponseStatus = a});
 
-instance NFData ListKeysResponse
+instance NFData ListKeysResponse where

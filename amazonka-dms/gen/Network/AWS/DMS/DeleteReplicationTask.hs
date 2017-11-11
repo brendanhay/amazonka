@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteReplicationTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DMS.DeleteReplicationTask
     , drtrsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteReplicationTask' smart constructor.
 newtype DeleteReplicationTask = DeleteReplicationTask'
-    { _drtReplicationTaskARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drtReplicationTaskARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReplicationTask' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ deleteReplicationTask
     :: Text -- ^ 'drtReplicationTaskARN'
     -> DeleteReplicationTask
 deleteReplicationTask pReplicationTaskARN_ =
-    DeleteReplicationTask'
-    { _drtReplicationTaskARN = pReplicationTaskARN_
-    }
+  DeleteReplicationTask' {_drtReplicationTaskARN = pReplicationTaskARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the replication task to be deleted.
 drtReplicationTaskARN :: Lens' DeleteReplicationTask Text
@@ -80,9 +80,9 @@ instance AWSRequest DeleteReplicationTask where
                  DeleteReplicationTaskResponse' <$>
                    (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteReplicationTask
+instance Hashable DeleteReplicationTask where
 
-instance NFData DeleteReplicationTask
+instance NFData DeleteReplicationTask where
 
 instance ToHeaders DeleteReplicationTask where
         toHeaders
@@ -113,9 +113,10 @@ instance ToQuery DeleteReplicationTask where
 --
 -- /See:/ 'deleteReplicationTaskResponse' smart constructor.
 data DeleteReplicationTaskResponse = DeleteReplicationTaskResponse'
-    { _drtrsReplicationTask :: !(Maybe ReplicationTask)
-    , _drtrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drtrsReplicationTask :: {-# NOUNPACK #-}!(Maybe ReplicationTask)
+  , _drtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReplicationTaskResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +129,9 @@ deleteReplicationTaskResponse
     :: Int -- ^ 'drtrsResponseStatus'
     -> DeleteReplicationTaskResponse
 deleteReplicationTaskResponse pResponseStatus_ =
-    DeleteReplicationTaskResponse'
-    { _drtrsReplicationTask = Nothing
-    , _drtrsResponseStatus = pResponseStatus_
-    }
+  DeleteReplicationTaskResponse'
+  {_drtrsReplicationTask = Nothing, _drtrsResponseStatus = pResponseStatus_}
+
 
 -- | The deleted replication task.
 drtrsReplicationTask :: Lens' DeleteReplicationTaskResponse (Maybe ReplicationTask)
@@ -141,4 +141,4 @@ drtrsReplicationTask = lens _drtrsReplicationTask (\ s a -> s{_drtrsReplicationT
 drtrsResponseStatus :: Lens' DeleteReplicationTaskResponse Int
 drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a});
 
-instance NFData DeleteReplicationTaskResponse
+instance NFData DeleteReplicationTaskResponse where

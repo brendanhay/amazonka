@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateDHCPOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.EC2.AssociateDHCPOptions
     , AssociateDHCPOptionsResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AssociateDhcpOptions.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'associateDHCPOptions' smart constructor.
 data AssociateDHCPOptions = AssociateDHCPOptions'
-    { _adoDryRun        :: !(Maybe Bool)
-    , _adoDHCPOptionsId :: !Text
-    , _adoVPCId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adoDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _adoDHCPOptionsId :: {-# NOUNPACK #-}!Text
+  , _adoVPCId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateDHCPOptions' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ associateDHCPOptions
     -> Text -- ^ 'adoVPCId'
     -> AssociateDHCPOptions
 associateDHCPOptions pDHCPOptionsId_ pVPCId_ =
-    AssociateDHCPOptions'
-    { _adoDryRun = Nothing
-    , _adoDHCPOptionsId = pDHCPOptionsId_
-    , _adoVPCId = pVPCId_
-    }
+  AssociateDHCPOptions'
+  { _adoDryRun = Nothing
+  , _adoDHCPOptionsId = pDHCPOptionsId_
+  , _adoVPCId = pVPCId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 adoDryRun :: Lens' AssociateDHCPOptions (Maybe Bool)
@@ -96,9 +98,9 @@ instance AWSRequest AssociateDHCPOptions where
         request = postQuery ec2
         response = receiveNull AssociateDHCPOptionsResponse'
 
-instance Hashable AssociateDHCPOptions
+instance Hashable AssociateDHCPOptions where
 
-instance NFData AssociateDHCPOptions
+instance NFData AssociateDHCPOptions where
 
 instance ToHeaders AssociateDHCPOptions where
         toHeaders = const mempty
@@ -117,8 +119,9 @@ instance ToQuery AssociateDHCPOptions where
 
 -- | /See:/ 'associateDHCPOptionsResponse' smart constructor.
 data AssociateDHCPOptionsResponse =
-    AssociateDHCPOptionsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AssociateDHCPOptionsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateDHCPOptionsResponse' with the minimum fields required to make a request.
 --
@@ -126,4 +129,5 @@ associateDHCPOptionsResponse
     :: AssociateDHCPOptionsResponse
 associateDHCPOptionsResponse = AssociateDHCPOptionsResponse'
 
-instance NFData AssociateDHCPOptionsResponse
+
+instance NFData AssociateDHCPOptionsResponse where

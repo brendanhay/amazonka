@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GetKeyPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.KMS.GetKeyPolicy
     , gkprsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getKeyPolicy' smart constructor.
 data GetKeyPolicy = GetKeyPolicy'
-    { _gkpKeyId      :: !Text
-    , _gkpPolicyName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gkpKeyId      :: {-# NOUNPACK #-}!Text
+  , _gkpPolicyName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetKeyPolicy' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ getKeyPolicy
     -> Text -- ^ 'gkpPolicyName'
     -> GetKeyPolicy
 getKeyPolicy pKeyId_ pPolicyName_ =
-    GetKeyPolicy'
-    { _gkpKeyId = pKeyId_
-    , _gkpPolicyName = pPolicyName_
-    }
+  GetKeyPolicy' {_gkpKeyId = pKeyId_, _gkpPolicyName = pPolicyName_}
+
 
 -- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 gkpKeyId :: Lens' GetKeyPolicy Text
@@ -85,9 +84,9 @@ instance AWSRequest GetKeyPolicy where
                  GetKeyPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
-instance Hashable GetKeyPolicy
+instance Hashable GetKeyPolicy where
 
-instance NFData GetKeyPolicy
+instance NFData GetKeyPolicy where
 
 instance ToHeaders GetKeyPolicy where
         toHeaders
@@ -113,9 +112,10 @@ instance ToQuery GetKeyPolicy where
 
 -- | /See:/ 'getKeyPolicyResponse' smart constructor.
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
-    { _gkprsPolicy         :: !(Maybe Text)
-    , _gkprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gkprsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gkprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetKeyPolicyResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +128,9 @@ getKeyPolicyResponse
     :: Int -- ^ 'gkprsResponseStatus'
     -> GetKeyPolicyResponse
 getKeyPolicyResponse pResponseStatus_ =
-    GetKeyPolicyResponse'
-    { _gkprsPolicy = Nothing
-    , _gkprsResponseStatus = pResponseStatus_
-    }
+  GetKeyPolicyResponse'
+  {_gkprsPolicy = Nothing, _gkprsResponseStatus = pResponseStatus_}
+
 
 -- | A policy document in JSON format.
 gkprsPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
@@ -141,4 +140,4 @@ gkprsPolicy = lens _gkprsPolicy (\ s a -> s{_gkprsPolicy = a});
 gkprsResponseStatus :: Lens' GetKeyPolicyResponse Int
 gkprsResponseStatus = lens _gkprsResponseStatus (\ s a -> s{_gkprsResponseStatus = a});
 
-instance NFData GetKeyPolicyResponse
+instance NFData GetKeyPolicyResponse where

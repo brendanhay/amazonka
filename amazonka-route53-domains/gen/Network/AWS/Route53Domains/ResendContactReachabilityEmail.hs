@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ResendContactReachabilityEmail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.Route53Domains.ResendContactReachabilityEmail
     , rcrersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | /See:/ 'resendContactReachabilityEmail' smart constructor.
 newtype ResendContactReachabilityEmail = ResendContactReachabilityEmail'
-    { _rcreDomainName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcreDomainName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResendContactReachabilityEmail' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ newtype ResendContactReachabilityEmail = ResendContactReachabilityEmail'
 resendContactReachabilityEmail
     :: ResendContactReachabilityEmail
 resendContactReachabilityEmail =
-    ResendContactReachabilityEmail'
-    { _rcreDomainName = Nothing
-    }
+  ResendContactReachabilityEmail' {_rcreDomainName = Nothing}
+
 
 -- | The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact.
 rcreDomainName :: Lens' ResendContactReachabilityEmail (Maybe Text)
@@ -81,8 +81,9 @@ instance AWSRequest ResendContactReachabilityEmail
                      <*> (pure (fromEnum s)))
 
 instance Hashable ResendContactReachabilityEmail
+         where
 
-instance NFData ResendContactReachabilityEmail
+instance NFData ResendContactReachabilityEmail where
 
 instance ToHeaders ResendContactReachabilityEmail
          where
@@ -108,11 +109,12 @@ instance ToQuery ResendContactReachabilityEmail where
 
 -- | /See:/ 'resendContactReachabilityEmailResponse' smart constructor.
 data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResponse'
-    { _rcrersDomainName        :: !(Maybe Text)
-    , _rcrersEmailAddress      :: !(Maybe Text)
-    , _rcrersIsAlreadyVerified :: !(Maybe Bool)
-    , _rcrersResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcrersDomainName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcrersEmailAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcrersIsAlreadyVerified :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rcrersResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResendContactReachabilityEmailResponse' with the minimum fields required to make a request.
 --
@@ -129,12 +131,13 @@ resendContactReachabilityEmailResponse
     :: Int -- ^ 'rcrersResponseStatus'
     -> ResendContactReachabilityEmailResponse
 resendContactReachabilityEmailResponse pResponseStatus_ =
-    ResendContactReachabilityEmailResponse'
-    { _rcrersDomainName = Nothing
-    , _rcrersEmailAddress = Nothing
-    , _rcrersIsAlreadyVerified = Nothing
-    , _rcrersResponseStatus = pResponseStatus_
-    }
+  ResendContactReachabilityEmailResponse'
+  { _rcrersDomainName = Nothing
+  , _rcrersEmailAddress = Nothing
+  , _rcrersIsAlreadyVerified = Nothing
+  , _rcrersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The domain name for which you requested a confirmation email.
 rcrersDomainName :: Lens' ResendContactReachabilityEmailResponse (Maybe Text)
@@ -153,4 +156,5 @@ rcrersResponseStatus :: Lens' ResendContactReachabilityEmailResponse Int
 rcrersResponseStatus = lens _rcrersResponseStatus (\ s a -> s{_rcrersResponseStatus = a});
 
 instance NFData
-         ResendContactReachabilityEmailResponse
+           ResendContactReachabilityEmailResponse
+         where

@@ -9,24 +9,25 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.KinesisAnalytics.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ApplicationStatus
-    = Deleting
-    | Ready
-    | Running
-    | Starting
-    | Stopping
-    | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Deleting
+  | Ready
+  | Running
+  | Starting
+  | Stopping
+  | Updating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ApplicationStatus where
     parser = takeLowerText >>= \case
@@ -58,10 +59,11 @@ instance FromJSON ApplicationStatus where
     parseJSON = parseJSONText "ApplicationStatus"
 
 data InputStartingPosition
-    = LastStoppedPoint
-    | Now
-    | TrimHorizon
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LastStoppedPoint
+  | Now
+  | TrimHorizon
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InputStartingPosition where
     parser = takeLowerText >>= \case
@@ -90,9 +92,10 @@ instance FromJSON InputStartingPosition where
     parseJSON = parseJSONText "InputStartingPosition"
 
 data RecordFormatType
-    = CSV
-    | JSON
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSV
+  | JSON
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecordFormatType where
     parser = takeLowerText >>= \case

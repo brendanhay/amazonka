@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBClusters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.RDS.DescribeDBClusters
     , ddcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,11 +56,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBClusters' smart constructor.
 data DescribeDBClusters = DescribeDBClusters'
-    { _ddcDBClusterIdentifier :: !(Maybe Text)
-    , _ddcFilters             :: !(Maybe [Filter])
-    , _ddcMarker              :: !(Maybe Text)
-    , _ddcMaxRecords          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcDBClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddcMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcMaxRecords          :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBClusters' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ data DescribeDBClusters = DescribeDBClusters'
 describeDBClusters
     :: DescribeDBClusters
 describeDBClusters =
-    DescribeDBClusters'
-    { _ddcDBClusterIdentifier = Nothing
-    , _ddcFilters = Nothing
-    , _ddcMarker = Nothing
-    , _ddcMaxRecords = Nothing
-    }
+  DescribeDBClusters'
+  { _ddcDBClusterIdentifier = Nothing
+  , _ddcFilters = Nothing
+  , _ddcMarker = Nothing
+  , _ddcMaxRecords = Nothing
+  }
+
 
 -- | The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddcDBClusterIdentifier :: Lens' DescribeDBClusters (Maybe Text)
@@ -112,9 +114,9 @@ instance AWSRequest DescribeDBClusters where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBClusters
+instance Hashable DescribeDBClusters where
 
-instance NFData DescribeDBClusters
+instance NFData DescribeDBClusters where
 
 instance ToHeaders DescribeDBClusters where
         toHeaders = const mempty
@@ -139,10 +141,11 @@ instance ToQuery DescribeDBClusters where
 --
 -- /See:/ 'describeDBClustersResponse' smart constructor.
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
-    { _ddcrsDBClusters     :: !(Maybe [DBCluster])
-    , _ddcrsMarker         :: !(Maybe Text)
-    , _ddcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcrsDBClusters     :: {-# NOUNPACK #-}!(Maybe [DBCluster])
+  , _ddcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBClustersResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +160,12 @@ describeDBClustersResponse
     :: Int -- ^ 'ddcrsResponseStatus'
     -> DescribeDBClustersResponse
 describeDBClustersResponse pResponseStatus_ =
-    DescribeDBClustersResponse'
-    { _ddcrsDBClusters = Nothing
-    , _ddcrsMarker = Nothing
-    , _ddcrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBClustersResponse'
+  { _ddcrsDBClusters = Nothing
+  , _ddcrsMarker = Nothing
+  , _ddcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Contains a list of DB clusters for the user.
 ddcrsDBClusters :: Lens' DescribeDBClustersResponse [DBCluster]
@@ -175,4 +179,4 @@ ddcrsMarker = lens _ddcrsMarker (\ s a -> s{_ddcrsMarker = a});
 ddcrsResponseStatus :: Lens' DescribeDBClustersResponse Int
 ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
 
-instance NFData DescribeDBClustersResponse
+instance NFData DescribeDBClustersResponse where

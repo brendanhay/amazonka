@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListFacetAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.CloudDirectory.ListFacetAttributes
     , lfarsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listFacetAttributes' smart constructor.
 data ListFacetAttributes = ListFacetAttributes'
-    { _lfaNextToken  :: !(Maybe Text)
-    , _lfaMaxResults :: !(Maybe Nat)
-    , _lfaSchemaARN  :: !Text
-    , _lfaName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lfaSchemaARN  :: {-# NOUNPACK #-}!Text
+  , _lfaName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFacetAttributes' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ listFacetAttributes
     -> Text -- ^ 'lfaName'
     -> ListFacetAttributes
 listFacetAttributes pSchemaARN_ pName_ =
-    ListFacetAttributes'
-    { _lfaNextToken = Nothing
-    , _lfaMaxResults = Nothing
-    , _lfaSchemaARN = pSchemaARN_
-    , _lfaName = pName_
-    }
+  ListFacetAttributes'
+  { _lfaNextToken = Nothing
+  , _lfaMaxResults = Nothing
+  , _lfaSchemaARN = pSchemaARN_
+  , _lfaName = pName_
+  }
+
 
 -- | The pagination token.
 lfaNextToken :: Lens' ListFacetAttributes (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest ListFacetAttributes where
                      (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListFacetAttributes
+instance Hashable ListFacetAttributes where
 
-instance NFData ListFacetAttributes
+instance NFData ListFacetAttributes where
 
 instance ToHeaders ListFacetAttributes where
         toHeaders ListFacetAttributes'{..}
@@ -133,10 +135,11 @@ instance ToQuery ListFacetAttributes where
 
 -- | /See:/ 'listFacetAttributesResponse' smart constructor.
 data ListFacetAttributesResponse = ListFacetAttributesResponse'
-    { _lfarsNextToken      :: !(Maybe Text)
-    , _lfarsAttributes     :: !(Maybe [FacetAttribute])
-    , _lfarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfarsAttributes     :: {-# NOUNPACK #-}!(Maybe [FacetAttribute])
+  , _lfarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFacetAttributesResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +154,12 @@ listFacetAttributesResponse
     :: Int -- ^ 'lfarsResponseStatus'
     -> ListFacetAttributesResponse
 listFacetAttributesResponse pResponseStatus_ =
-    ListFacetAttributesResponse'
-    { _lfarsNextToken = Nothing
-    , _lfarsAttributes = Nothing
-    , _lfarsResponseStatus = pResponseStatus_
-    }
+  ListFacetAttributesResponse'
+  { _lfarsNextToken = Nothing
+  , _lfarsAttributes = Nothing
+  , _lfarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token.
 lfarsNextToken :: Lens' ListFacetAttributesResponse (Maybe Text)
@@ -169,4 +173,4 @@ lfarsAttributes = lens _lfarsAttributes (\ s a -> s{_lfarsAttributes = a}) . _De
 lfarsResponseStatus :: Lens' ListFacetAttributesResponse Int
 lfarsResponseStatus = lens _lfarsResponseStatus (\ s a -> s{_lfarsResponseStatus = a});
 
-instance NFData ListFacetAttributesResponse
+instance NFData ListFacetAttributesResponse where

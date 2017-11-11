@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ChangeTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Route53.ChangeTagsForResource
     , ctfrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the tags that you want to add, edit, or delete.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'changeTagsForResource' smart constructor.
 data ChangeTagsForResource = ChangeTagsForResource'
-    { _ctfrRemoveTagKeys :: !(Maybe (List1 Text))
-    , _ctfrAddTags       :: !(Maybe (List1 Tag))
-    , _ctfrResourceType  :: !TagResourceType
-    , _ctfrResourceId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctfrRemoveTagKeys :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _ctfrAddTags       :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
+  , _ctfrResourceType  :: {-# NOUNPACK #-}!TagResourceType
+  , _ctfrResourceId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeTagsForResource' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ changeTagsForResource
     -> Text -- ^ 'ctfrResourceId'
     -> ChangeTagsForResource
 changeTagsForResource pResourceType_ pResourceId_ =
-    ChangeTagsForResource'
-    { _ctfrRemoveTagKeys = Nothing
-    , _ctfrAddTags = Nothing
-    , _ctfrResourceType = pResourceType_
-    , _ctfrResourceId = pResourceId_
-    }
+  ChangeTagsForResource'
+  { _ctfrRemoveTagKeys = Nothing
+  , _ctfrAddTags = Nothing
+  , _ctfrResourceType = pResourceType_
+  , _ctfrResourceId = pResourceId_
+  }
+
 
 -- | A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys.
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
@@ -109,9 +111,9 @@ instance AWSRequest ChangeTagsForResource where
                  ChangeTagsForResourceResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable ChangeTagsForResource
+instance Hashable ChangeTagsForResource where
 
-instance NFData ChangeTagsForResource
+instance NFData ChangeTagsForResource where
 
 instance ToElement ChangeTagsForResource where
         toElement
@@ -144,8 +146,9 @@ instance ToXML ChangeTagsForResource where
 --
 -- /See:/ 'changeTagsForResourceResponse' smart constructor.
 newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
-    { _ctfrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctfrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeTagsForResourceResponse' with the minimum fields required to make a request.
 --
@@ -156,12 +159,11 @@ changeTagsForResourceResponse
     :: Int -- ^ 'ctfrrsResponseStatus'
     -> ChangeTagsForResourceResponse
 changeTagsForResourceResponse pResponseStatus_ =
-    ChangeTagsForResourceResponse'
-    { _ctfrrsResponseStatus = pResponseStatus_
-    }
+  ChangeTagsForResourceResponse' {_ctfrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ctfrrsResponseStatus :: Lens' ChangeTagsForResourceResponse Int
 ctfrrsResponseStatus = lens _ctfrrsResponseStatus (\ s a -> s{_ctfrrsResponseStatus = a});
 
-instance NFData ChangeTagsForResourceResponse
+instance NFData ChangeTagsForResourceResponse where

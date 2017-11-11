@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateMatchmakingRuleSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,12 +60,12 @@ module Network.AWS.GameLift.CreateMatchmakingRuleSet
     , cmrsrsRuleSet
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -73,9 +73,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createMatchmakingRuleSet' smart constructor.
 data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
-    { _cmrsName        :: !Text
-    , _cmrsRuleSetBody :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmrsName        :: {-# NOUNPACK #-}!Text
+  , _cmrsRuleSetBody :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMatchmakingRuleSet' with the minimum fields required to make a request.
 --
@@ -89,10 +90,9 @@ createMatchmakingRuleSet
     -> Text -- ^ 'cmrsRuleSetBody'
     -> CreateMatchmakingRuleSet
 createMatchmakingRuleSet pName_ pRuleSetBody_ =
-    CreateMatchmakingRuleSet'
-    { _cmrsName = pName_
-    , _cmrsRuleSetBody = pRuleSetBody_
-    }
+  CreateMatchmakingRuleSet'
+  {_cmrsName = pName_, _cmrsRuleSetBody = pRuleSetBody_}
+
 
 -- | Unique identifier for a matchmaking rule set. This name is used to identify the rule set associated with a matchmaking configuration.
 cmrsName :: Lens' CreateMatchmakingRuleSet Text
@@ -112,9 +112,9 @@ instance AWSRequest CreateMatchmakingRuleSet where
                  CreateMatchmakingRuleSetResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "RuleSet"))
 
-instance Hashable CreateMatchmakingRuleSet
+instance Hashable CreateMatchmakingRuleSet where
 
-instance NFData CreateMatchmakingRuleSet
+instance NFData CreateMatchmakingRuleSet where
 
 instance ToHeaders CreateMatchmakingRuleSet where
         toHeaders
@@ -144,9 +144,10 @@ instance ToQuery CreateMatchmakingRuleSet where
 --
 -- /See:/ 'createMatchmakingRuleSetResponse' smart constructor.
 data CreateMatchmakingRuleSetResponse = CreateMatchmakingRuleSetResponse'
-    { _cmrsrsResponseStatus :: !Int
-    , _cmrsrsRuleSet        :: !MatchmakingRuleSet
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _cmrsrsRuleSet        :: {-# NOUNPACK #-}!MatchmakingRuleSet
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMatchmakingRuleSetResponse' with the minimum fields required to make a request.
 --
@@ -160,10 +161,9 @@ createMatchmakingRuleSetResponse
     -> MatchmakingRuleSet -- ^ 'cmrsrsRuleSet'
     -> CreateMatchmakingRuleSetResponse
 createMatchmakingRuleSetResponse pResponseStatus_ pRuleSet_ =
-    CreateMatchmakingRuleSetResponse'
-    { _cmrsrsResponseStatus = pResponseStatus_
-    , _cmrsrsRuleSet = pRuleSet_
-    }
+  CreateMatchmakingRuleSetResponse'
+  {_cmrsrsResponseStatus = pResponseStatus_, _cmrsrsRuleSet = pRuleSet_}
+
 
 -- | -- | The response status code.
 cmrsrsResponseStatus :: Lens' CreateMatchmakingRuleSetResponse Int
@@ -174,3 +174,4 @@ cmrsrsRuleSet :: Lens' CreateMatchmakingRuleSetResponse MatchmakingRuleSet
 cmrsrsRuleSet = lens _cmrsrsRuleSet (\ s a -> s{_cmrsrsRuleSet = a});
 
 instance NFData CreateMatchmakingRuleSetResponse
+         where

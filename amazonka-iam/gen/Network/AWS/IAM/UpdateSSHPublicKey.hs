@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateSSHPublicKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.IAM.UpdateSSHPublicKey
     , UpdateSSHPublicKeyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSSHPublicKey' smart constructor.
 data UpdateSSHPublicKey = UpdateSSHPublicKey'
-    { _uspkUserName       :: !Text
-    , _uspkSSHPublicKeyId :: !Text
-    , _uspkStatus         :: !StatusType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uspkUserName       :: {-# NOUNPACK #-}!Text
+  , _uspkSSHPublicKeyId :: {-# NOUNPACK #-}!Text
+  , _uspkStatus         :: {-# NOUNPACK #-}!StatusType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSSHPublicKey' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ updateSSHPublicKey
     -> StatusType -- ^ 'uspkStatus'
     -> UpdateSSHPublicKey
 updateSSHPublicKey pUserName_ pSSHPublicKeyId_ pStatus_ =
-    UpdateSSHPublicKey'
-    { _uspkUserName = pUserName_
-    , _uspkSSHPublicKeyId = pSSHPublicKeyId_
-    , _uspkStatus = pStatus_
-    }
+  UpdateSSHPublicKey'
+  { _uspkUserName = pUserName_
+  , _uspkSSHPublicKeyId = pSSHPublicKeyId_
+  , _uspkStatus = pStatus_
+  }
+
 
 -- | The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uspkUserName :: Lens' UpdateSSHPublicKey Text
@@ -91,9 +93,9 @@ instance AWSRequest UpdateSSHPublicKey where
         request = postQuery iam
         response = receiveNull UpdateSSHPublicKeyResponse'
 
-instance Hashable UpdateSSHPublicKey
+instance Hashable UpdateSSHPublicKey where
 
-instance NFData UpdateSSHPublicKey
+instance NFData UpdateSSHPublicKey where
 
 instance ToHeaders UpdateSSHPublicKey where
         toHeaders = const mempty
@@ -112,8 +114,9 @@ instance ToQuery UpdateSSHPublicKey where
 
 -- | /See:/ 'updateSSHPublicKeyResponse' smart constructor.
 data UpdateSSHPublicKeyResponse =
-    UpdateSSHPublicKeyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateSSHPublicKeyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSSHPublicKeyResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +124,5 @@ updateSSHPublicKeyResponse
     :: UpdateSSHPublicKeyResponse
 updateSSHPublicKeyResponse = UpdateSSHPublicKeyResponse'
 
-instance NFData UpdateSSHPublicKeyResponse
+
+instance NFData UpdateSSHPublicKeyResponse where

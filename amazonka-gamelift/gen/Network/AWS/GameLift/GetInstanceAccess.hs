@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.GetInstanceAccess
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.GameLift.GetInstanceAccess
     , giarsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getInstanceAccess' smart constructor.
 data GetInstanceAccess = GetInstanceAccess'
-    { _giaFleetId    :: !Text
-    , _giaInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giaFleetId    :: {-# NOUNPACK #-}!Text
+  , _giaInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceAccess' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ getInstanceAccess
     -> Text -- ^ 'giaInstanceId'
     -> GetInstanceAccess
 getInstanceAccess pFleetId_ pInstanceId_ =
-    GetInstanceAccess'
-    { _giaFleetId = pFleetId_
-    , _giaInstanceId = pInstanceId_
-    }
+  GetInstanceAccess' {_giaFleetId = pFleetId_, _giaInstanceId = pInstanceId_}
+
 
 -- | Unique identifier for a fleet that contains the instance you want access to. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
 giaFleetId :: Lens' GetInstanceAccess Text
@@ -93,9 +92,9 @@ instance AWSRequest GetInstanceAccess where
                  GetInstanceAccessResponse' <$>
                    (x .?> "InstanceAccess") <*> (pure (fromEnum s)))
 
-instance Hashable GetInstanceAccess
+instance Hashable GetInstanceAccess where
 
-instance NFData GetInstanceAccess
+instance NFData GetInstanceAccess where
 
 instance ToHeaders GetInstanceAccess where
         toHeaders
@@ -125,9 +124,10 @@ instance ToQuery GetInstanceAccess where
 --
 -- /See:/ 'getInstanceAccessResponse' smart constructor.
 data GetInstanceAccessResponse = GetInstanceAccessResponse'
-    { _giarsInstanceAccess :: !(Maybe InstanceAccess)
-    , _giarsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _giarsInstanceAccess :: {-# NOUNPACK #-}!(Maybe InstanceAccess)
+  , _giarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstanceAccessResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +140,9 @@ getInstanceAccessResponse
     :: Int -- ^ 'giarsResponseStatus'
     -> GetInstanceAccessResponse
 getInstanceAccessResponse pResponseStatus_ =
-    GetInstanceAccessResponse'
-    { _giarsInstanceAccess = Nothing
-    , _giarsResponseStatus = pResponseStatus_
-    }
+  GetInstanceAccessResponse'
+  {_giarsInstanceAccess = Nothing, _giarsResponseStatus = pResponseStatus_}
+
 
 -- | Object that contains connection information for a fleet instance, including IP address and access credentials.
 giarsInstanceAccess :: Lens' GetInstanceAccessResponse (Maybe InstanceAccess)
@@ -153,4 +152,4 @@ giarsInstanceAccess = lens _giarsInstanceAccess (\ s a -> s{_giarsInstanceAccess
 giarsResponseStatus :: Lens' GetInstanceAccessResponse Int
 giarsResponseStatus = lens _giarsResponseStatus (\ s a -> s{_giarsResponseStatus = a});
 
-instance NFData GetInstanceAccessResponse
+instance NFData GetInstanceAccessResponse where

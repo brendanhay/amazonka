@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.ListCollections
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,19 +45,20 @@ module Network.AWS.Rekognition.ListCollections
     , lcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listCollections' smart constructor.
 data ListCollections = ListCollections'
-    { _lcNextToken  :: !(Maybe Text)
-    , _lcMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCollections' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ data ListCollections = ListCollections'
 listCollections
     :: ListCollections
 listCollections =
-    ListCollections'
-    { _lcNextToken = Nothing
-    , _lcMaxResults = Nothing
-    }
+  ListCollections' {_lcNextToken = Nothing, _lcMaxResults = Nothing}
+
 
 -- | Pagination token from the previous response.
 lcNextToken :: Lens' ListCollections (Maybe Text)
@@ -100,9 +99,9 @@ instance AWSRequest ListCollections where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCollections
+instance Hashable ListCollections where
 
-instance NFData ListCollections
+instance NFData ListCollections where
 
 instance ToHeaders ListCollections where
         toHeaders
@@ -128,10 +127,11 @@ instance ToQuery ListCollections where
 
 -- | /See:/ 'listCollectionsResponse' smart constructor.
 data ListCollectionsResponse = ListCollectionsResponse'
-    { _lcrsCollectionIds  :: !(Maybe [Text])
-    , _lcrsNextToken      :: !(Maybe Text)
-    , _lcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcrsCollectionIds  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCollectionsResponse' with the minimum fields required to make a request.
 --
@@ -146,11 +146,12 @@ listCollectionsResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCollectionsResponse
 listCollectionsResponse pResponseStatus_ =
-    ListCollectionsResponse'
-    { _lcrsCollectionIds = Nothing
-    , _lcrsNextToken = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
-    }
+  ListCollectionsResponse'
+  { _lcrsCollectionIds = Nothing
+  , _lcrsNextToken = Nothing
+  , _lcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of collection IDs.
 lcrsCollectionIds :: Lens' ListCollectionsResponse [Text]
@@ -164,4 +165,4 @@ lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 lcrsResponseStatus :: Lens' ListCollectionsResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 
-instance NFData ListCollectionsResponse
+instance NFData ListCollectionsResponse where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -380,27 +380,27 @@ module Network.AWS.DynamoDB
     , wrPutRequest
     ) where
 
-import           Network.AWS.DynamoDB.BatchGetItem
-import           Network.AWS.DynamoDB.BatchWriteItem
-import           Network.AWS.DynamoDB.CreateTable
-import           Network.AWS.DynamoDB.DeleteItem
-import           Network.AWS.DynamoDB.DeleteTable
-import           Network.AWS.DynamoDB.DescribeLimits
-import           Network.AWS.DynamoDB.DescribeTable
-import           Network.AWS.DynamoDB.DescribeTimeToLive
-import           Network.AWS.DynamoDB.GetItem
-import           Network.AWS.DynamoDB.ListTables
-import           Network.AWS.DynamoDB.ListTagsOfResource
-import           Network.AWS.DynamoDB.PutItem
-import           Network.AWS.DynamoDB.Query
-import           Network.AWS.DynamoDB.Scan
-import           Network.AWS.DynamoDB.TagResource
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.UntagResource
-import           Network.AWS.DynamoDB.UpdateItem
-import           Network.AWS.DynamoDB.UpdateTable
-import           Network.AWS.DynamoDB.UpdateTimeToLive
-import           Network.AWS.DynamoDB.Waiters
+import Network.AWS.DynamoDB.BatchGetItem
+import Network.AWS.DynamoDB.BatchWriteItem
+import Network.AWS.DynamoDB.CreateTable
+import Network.AWS.DynamoDB.DeleteItem
+import Network.AWS.DynamoDB.DeleteTable
+import Network.AWS.DynamoDB.DescribeLimits
+import Network.AWS.DynamoDB.DescribeTable
+import Network.AWS.DynamoDB.DescribeTimeToLive
+import Network.AWS.DynamoDB.GetItem
+import Network.AWS.DynamoDB.ListTables
+import Network.AWS.DynamoDB.ListTagsOfResource
+import Network.AWS.DynamoDB.PutItem
+import Network.AWS.DynamoDB.Query
+import Network.AWS.DynamoDB.Scan
+import Network.AWS.DynamoDB.TagResource
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.UntagResource
+import Network.AWS.DynamoDB.UpdateItem
+import Network.AWS.DynamoDB.UpdateTable
+import Network.AWS.DynamoDB.UpdateTimeToLive
+import Network.AWS.DynamoDB.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

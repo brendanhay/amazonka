@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -384,38 +384,38 @@ module Network.AWS.ELB
     , tkoKey
     ) where
 
-import           Network.AWS.ELB.AddTags
-import           Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-import           Network.AWS.ELB.AttachLoadBalancerToSubnets
-import           Network.AWS.ELB.ConfigureHealthCheck
-import           Network.AWS.ELB.CreateAppCookieStickinessPolicy
-import           Network.AWS.ELB.CreateLBCookieStickinessPolicy
-import           Network.AWS.ELB.CreateLoadBalancer
-import           Network.AWS.ELB.CreateLoadBalancerListeners
-import           Network.AWS.ELB.CreateLoadBalancerPolicy
-import           Network.AWS.ELB.DeleteLoadBalancer
-import           Network.AWS.ELB.DeleteLoadBalancerListeners
-import           Network.AWS.ELB.DeleteLoadBalancerPolicy
-import           Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-import           Network.AWS.ELB.DescribeAccountLimits
-import           Network.AWS.ELB.DescribeInstanceHealth
-import           Network.AWS.ELB.DescribeLoadBalancerAttributes
-import           Network.AWS.ELB.DescribeLoadBalancerPolicies
-import           Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-import           Network.AWS.ELB.DescribeLoadBalancers
-import           Network.AWS.ELB.DescribeTags
-import           Network.AWS.ELB.DetachLoadBalancerFromSubnets
-import           Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-import           Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-import           Network.AWS.ELB.Internal
-import           Network.AWS.ELB.ModifyLoadBalancerAttributes
-import           Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-import           Network.AWS.ELB.RemoveTags
-import           Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-import           Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-import           Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Waiters
+import Network.AWS.ELB.AddTags
+import Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+import Network.AWS.ELB.AttachLoadBalancerToSubnets
+import Network.AWS.ELB.ConfigureHealthCheck
+import Network.AWS.ELB.CreateAppCookieStickinessPolicy
+import Network.AWS.ELB.CreateLBCookieStickinessPolicy
+import Network.AWS.ELB.CreateLoadBalancer
+import Network.AWS.ELB.CreateLoadBalancerListeners
+import Network.AWS.ELB.CreateLoadBalancerPolicy
+import Network.AWS.ELB.DeleteLoadBalancer
+import Network.AWS.ELB.DeleteLoadBalancerListeners
+import Network.AWS.ELB.DeleteLoadBalancerPolicy
+import Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+import Network.AWS.ELB.DescribeAccountLimits
+import Network.AWS.ELB.DescribeInstanceHealth
+import Network.AWS.ELB.DescribeLoadBalancerAttributes
+import Network.AWS.ELB.DescribeLoadBalancerPolicies
+import Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+import Network.AWS.ELB.DescribeLoadBalancers
+import Network.AWS.ELB.DescribeTags
+import Network.AWS.ELB.DetachLoadBalancerFromSubnets
+import Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
+import Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+import Network.AWS.ELB.Internal
+import Network.AWS.ELB.ModifyLoadBalancerAttributes
+import Network.AWS.ELB.RegisterInstancesWithLoadBalancer
+import Network.AWS.ELB.RemoveTags
+import Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+import Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+import Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

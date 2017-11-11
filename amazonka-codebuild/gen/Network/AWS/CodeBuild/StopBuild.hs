@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.StopBuild
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CodeBuild.StopBuild
     , sbrsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopBuild' smart constructor.
 newtype StopBuild = StopBuild'
-    { _sbId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sbId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopBuild' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype StopBuild = StopBuild'
 stopBuild
     :: Text -- ^ 'sbId'
     -> StopBuild
-stopBuild pId_ =
-    StopBuild'
-    { _sbId = pId_
-    }
+stopBuild pId_ = StopBuild' {_sbId = pId_}
+
 
 -- | The ID of the build.
 sbId :: Lens' StopBuild Text
@@ -75,9 +74,9 @@ instance AWSRequest StopBuild where
                  StopBuildResponse' <$>
                    (x .?> "build") <*> (pure (fromEnum s)))
 
-instance Hashable StopBuild
+instance Hashable StopBuild where
 
-instance NFData StopBuild
+instance NFData StopBuild where
 
 instance ToHeaders StopBuild where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery StopBuild where
 
 -- | /See:/ 'stopBuildResponse' smart constructor.
 data StopBuildResponse = StopBuildResponse'
-    { _sbrsBuild          :: !(Maybe Build)
-    , _sbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sbrsBuild          :: {-# NOUNPACK #-}!(Maybe Build)
+  , _sbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopBuildResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ stopBuildResponse
     :: Int -- ^ 'sbrsResponseStatus'
     -> StopBuildResponse
 stopBuildResponse pResponseStatus_ =
-    StopBuildResponse'
-    { _sbrsBuild = Nothing
-    , _sbrsResponseStatus = pResponseStatus_
-    }
+  StopBuildResponse'
+  {_sbrsBuild = Nothing, _sbrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the build.
 sbrsBuild :: Lens' StopBuildResponse (Maybe Build)
@@ -128,4 +127,4 @@ sbrsBuild = lens _sbrsBuild (\ s a -> s{_sbrsBuild = a});
 sbrsResponseStatus :: Lens' StopBuildResponse Int
 sbrsResponseStatus = lens _sbrsResponseStatus (\ s a -> s{_sbrsResponseStatus = a});
 
-instance NFData StopBuildResponse
+instance NFData StopBuildResponse where

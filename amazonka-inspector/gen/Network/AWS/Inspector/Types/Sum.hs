@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Inspector.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AgentHealth
-    = AHHealthy
-    | AHUnhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AHHealthy
+  | AHUnhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AgentHealth where
     parser = takeLowerText >>= \case
@@ -49,13 +50,14 @@ instance FromJSON AgentHealth where
     parseJSON = parseJSONText "AgentHealth"
 
 data AgentHealthCode
-    = Idle
-    | Running
-    | Shutdown
-    | Throttled
-    | Unhealthy
-    | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Idle
+  | Running
+  | Shutdown
+  | Throttled
+  | Unhealthy
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AgentHealthCode where
     parser = takeLowerText >>= \case
@@ -90,11 +92,12 @@ instance FromJSON AgentHealthCode where
     parseJSON = parseJSONText "AgentHealthCode"
 
 data AssessmentRunNotificationSNSStatusCode
-    = AccessDenied
-    | InternalError
-    | Success
-    | TopicDoesNotExist
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AccessDenied
+  | InternalError
+  | Success
+  | TopicDoesNotExist
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AssessmentRunNotificationSNSStatusCode where
     parser = takeLowerText >>= \case
@@ -122,20 +125,21 @@ instance FromJSON AssessmentRunNotificationSNSStatusCode where
     parseJSON = parseJSONText "AssessmentRunNotificationSNSStatusCode"
 
 data AssessmentRunState
-    = Canceled
-    | CollectingData
-    | Completed
-    | CompletedWithErrors
-    | Created
-    | DataCollected
-    | Error'
-    | EvaluatingRules
-    | Failed
-    | StartDataCollectionInProgress
-    | StartDataCollectionPending
-    | StartEvaluatingRulesPending
-    | StopDataCollectionPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Canceled
+  | CollectingData
+  | Completed
+  | CompletedWithErrors
+  | Created
+  | DataCollected
+  | Error'
+  | EvaluatingRules
+  | Failed
+  | StartDataCollectionInProgress
+  | StartDataCollectionPending
+  | StartEvaluatingRulesPending
+  | StopDataCollectionPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AssessmentRunState where
     parser = takeLowerText >>= \case
@@ -184,8 +188,9 @@ instance FromJSON AssessmentRunState where
     parseJSON = parseJSONText "AssessmentRunState"
 
 data AssetType =
-    EC2Instance
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  EC2Instance
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AssetType where
     parser = takeLowerText >>= \case
@@ -207,13 +212,14 @@ instance FromJSON AssetType where
     parseJSON = parseJSONText "AssetType"
 
 data FailedItemErrorCode
-    = FIECAccessDenied
-    | FIECDuplicateARN
-    | FIECInternalError
-    | FIECInvalidARN
-    | FIECItemDoesNotExist
-    | FIECLimitExceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FIECAccessDenied
+  | FIECDuplicateARN
+  | FIECInternalError
+  | FIECInvalidARN
+  | FIECItemDoesNotExist
+  | FIECLimitExceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FailedItemErrorCode where
     parser = takeLowerText >>= \case
@@ -245,12 +251,13 @@ instance FromJSON FailedItemErrorCode where
     parseJSON = parseJSONText "FailedItemErrorCode"
 
 data InspectorEvent
-    = AssessmentRunCompleted
-    | AssessmentRunStarted
-    | AssessmentRunStateChanged
-    | FindingReported
-    | Other
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AssessmentRunCompleted
+  | AssessmentRunStarted
+  | AssessmentRunStateChanged
+  | FindingReported
+  | Other
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InspectorEvent where
     parser = takeLowerText >>= \case
@@ -283,8 +290,9 @@ instance FromJSON InspectorEvent where
     parseJSON = parseJSONText "InspectorEvent"
 
 data Locale =
-    EnUs
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  EnUs
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Locale where
     parser = takeLowerText >>= \case
@@ -306,9 +314,10 @@ instance ToJSON Locale where
     toJSON = toJSONText
 
 data ReportFileFormat
-    = HTML
-    | Pdf
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HTML
+  | Pdf
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReportFileFormat where
     parser = takeLowerText >>= \case
@@ -332,10 +341,11 @@ instance ToJSON ReportFileFormat where
     toJSON = toJSONText
 
 data ReportStatus
-    = RSCompleted
-    | RSFailed
-    | RSWorkInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RSCompleted
+  | RSFailed
+  | RSWorkInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReportStatus where
     parser = takeLowerText >>= \case
@@ -361,9 +371,10 @@ instance FromJSON ReportStatus where
     parseJSON = parseJSONText "ReportStatus"
 
 data ReportType
-    = Finding
-    | Full
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Finding
+  | Full
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReportType where
     parser = takeLowerText >>= \case
@@ -387,12 +398,13 @@ instance ToJSON ReportType where
     toJSON = toJSONText
 
 data Severity
-    = High
-    | Informational
-    | Low
-    | Medium
-    | Undefined
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = High
+  | Informational
+  | Low
+  | Medium
+  | Undefined
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Severity where
     parser = takeLowerText >>= \case
@@ -425,9 +437,10 @@ instance FromJSON Severity where
     parseJSON = parseJSONText "Severity"
 
 data StopAction
-    = SkipEvaluation
-    | StartEvaluation
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SkipEvaluation
+  | StartEvaluation
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StopAction where
     parser = takeLowerText >>= \case

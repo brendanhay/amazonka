@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ElasticBeanstalk.Types.Product where
 
-import           Network.AWS.ElasticBeanstalk.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.ElasticBeanstalk.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Describes the properties of an application.
 --
@@ -27,14 +27,15 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'applicationDescription' smart constructor.
 data ApplicationDescription = ApplicationDescription'
-    { _adVersions                :: !(Maybe [Text])
-    , _adDateUpdated             :: !(Maybe ISO8601)
-    , _adDateCreated             :: !(Maybe ISO8601)
-    , _adApplicationName         :: !(Maybe Text)
-    , _adConfigurationTemplates  :: !(Maybe [Text])
-    , _adResourceLifecycleConfig :: !(Maybe ApplicationResourceLifecycleConfig)
-    , _adDescription             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adVersions :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _adDateUpdated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _adDateCreated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _adApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adConfigurationTemplates :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _adResourceLifecycleConfig :: {-# NOUNPACK #-}!(Maybe ApplicationResourceLifecycleConfig)
+  , _adDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationDescription' with the minimum fields required to make a request.
 --
@@ -56,15 +57,16 @@ data ApplicationDescription = ApplicationDescription'
 applicationDescription
     :: ApplicationDescription
 applicationDescription =
-    ApplicationDescription'
-    { _adVersions = Nothing
-    , _adDateUpdated = Nothing
-    , _adDateCreated = Nothing
-    , _adApplicationName = Nothing
-    , _adConfigurationTemplates = Nothing
-    , _adResourceLifecycleConfig = Nothing
-    , _adDescription = Nothing
-    }
+  ApplicationDescription'
+  { _adVersions = Nothing
+  , _adDateUpdated = Nothing
+  , _adDateCreated = Nothing
+  , _adApplicationName = Nothing
+  , _adConfigurationTemplates = Nothing
+  , _adResourceLifecycleConfig = Nothing
+  , _adDescription = Nothing
+  }
+
 
 -- | The names of the versions for this application.
 adVersions :: Lens' ApplicationDescription [Text]
@@ -108,9 +110,9 @@ instance FromXML ApplicationDescription where
                 <*> (x .@? "ResourceLifecycleConfig")
                 <*> (x .@? "Description")
 
-instance Hashable ApplicationDescription
+instance Hashable ApplicationDescription where
 
-instance NFData ApplicationDescription
+instance NFData ApplicationDescription where
 
 -- | Result message containing a single description of an application.
 --
@@ -118,8 +120,9 @@ instance NFData ApplicationDescription
 --
 -- /See:/ 'applicationDescriptionMessage' smart constructor.
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
-    { _admApplication :: Maybe ApplicationDescription
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _admApplication :: Maybe ApplicationDescription
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationDescriptionMessage' with the minimum fields required to make a request.
 --
@@ -129,9 +132,8 @@ newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
 applicationDescriptionMessage
     :: ApplicationDescriptionMessage
 applicationDescriptionMessage =
-    ApplicationDescriptionMessage'
-    { _admApplication = Nothing
-    }
+  ApplicationDescriptionMessage' {_admApplication = Nothing}
+
 
 -- | The 'ApplicationDescription' of the application.
 admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
@@ -142,9 +144,9 @@ instance FromXML ApplicationDescriptionMessage where
           = ApplicationDescriptionMessage' <$>
               (x .@? "Application")
 
-instance Hashable ApplicationDescriptionMessage
+instance Hashable ApplicationDescriptionMessage where
 
-instance NFData ApplicationDescriptionMessage
+instance NFData ApplicationDescriptionMessage where
 
 -- | Application request metrics for an AWS Elastic Beanstalk environment.
 --
@@ -152,11 +154,12 @@ instance NFData ApplicationDescriptionMessage
 --
 -- /See:/ 'applicationMetrics' smart constructor.
 data ApplicationMetrics = ApplicationMetrics'
-    { _amRequestCount :: !(Maybe Int)
-    , _amLatency      :: !(Maybe Latency)
-    , _amStatusCodes  :: !(Maybe StatusCodes)
-    , _amDuration     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amRequestCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _amLatency      :: {-# NOUNPACK #-}!(Maybe Latency)
+  , _amStatusCodes  :: {-# NOUNPACK #-}!(Maybe StatusCodes)
+  , _amDuration     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationMetrics' with the minimum fields required to make a request.
 --
@@ -172,12 +175,13 @@ data ApplicationMetrics = ApplicationMetrics'
 applicationMetrics
     :: ApplicationMetrics
 applicationMetrics =
-    ApplicationMetrics'
-    { _amRequestCount = Nothing
-    , _amLatency = Nothing
-    , _amStatusCodes = Nothing
-    , _amDuration = Nothing
-    }
+  ApplicationMetrics'
+  { _amRequestCount = Nothing
+  , _amLatency = Nothing
+  , _amStatusCodes = Nothing
+  , _amDuration = Nothing
+  }
+
 
 -- | Average number of requests handled by the web server per second over the last 10 seconds.
 amRequestCount :: Lens' ApplicationMetrics (Maybe Int)
@@ -202,9 +206,9 @@ instance FromXML ApplicationMetrics where
                 (x .@? "StatusCodes")
                 <*> (x .@? "Duration")
 
-instance Hashable ApplicationMetrics
+instance Hashable ApplicationMetrics where
 
-instance NFData ApplicationMetrics
+instance NFData ApplicationMetrics where
 
 -- | The resource lifecycle configuration for an application. Defines lifecycle settings for resources that belong to the application, and the service role that Elastic Beanstalk assumes in order to apply lifecycle settings. The version lifecycle configuration defines lifecycle settings for application versions.
 --
@@ -212,9 +216,10 @@ instance NFData ApplicationMetrics
 --
 -- /See:/ 'applicationResourceLifecycleConfig' smart constructor.
 data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
-    { _arlcVersionLifecycleConfig :: !(Maybe ApplicationVersionLifecycleConfig)
-    , _arlcServiceRole            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arlcVersionLifecycleConfig :: {-# NOUNPACK #-}!(Maybe ApplicationVersionLifecycleConfig)
+  , _arlcServiceRole :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationResourceLifecycleConfig' with the minimum fields required to make a request.
 --
@@ -226,10 +231,9 @@ data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
 applicationResourceLifecycleConfig
     :: ApplicationResourceLifecycleConfig
 applicationResourceLifecycleConfig =
-    ApplicationResourceLifecycleConfig'
-    { _arlcVersionLifecycleConfig = Nothing
-    , _arlcServiceRole = Nothing
-    }
+  ApplicationResourceLifecycleConfig'
+  {_arlcVersionLifecycleConfig = Nothing, _arlcServiceRole = Nothing}
+
 
 -- | The application version lifecycle configuration.
 arlcVersionLifecycleConfig :: Lens' ApplicationResourceLifecycleConfig (Maybe ApplicationVersionLifecycleConfig)
@@ -247,8 +251,10 @@ instance FromXML ApplicationResourceLifecycleConfig
                 (x .@? "ServiceRole")
 
 instance Hashable ApplicationResourceLifecycleConfig
+         where
 
 instance NFData ApplicationResourceLifecycleConfig
+         where
 
 instance ToQuery ApplicationResourceLifecycleConfig
          where
@@ -264,16 +270,17 @@ instance ToQuery ApplicationResourceLifecycleConfig
 --
 -- /See:/ 'applicationVersionDescription' smart constructor.
 data ApplicationVersionDescription = ApplicationVersionDescription'
-    { _avdStatus                 :: !(Maybe ApplicationVersionStatus)
-    , _avdSourceBundle           :: !(Maybe S3Location)
-    , _avdDateUpdated            :: !(Maybe ISO8601)
-    , _avdDateCreated            :: !(Maybe ISO8601)
-    , _avdVersionLabel           :: !(Maybe Text)
-    , _avdSourceBuildInformation :: !(Maybe SourceBuildInformation)
-    , _avdApplicationName        :: !(Maybe Text)
-    , _avdBuildARN               :: !(Maybe Text)
-    , _avdDescription            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avdStatus :: {-# NOUNPACK #-}!(Maybe ApplicationVersionStatus)
+  , _avdSourceBundle :: {-# NOUNPACK #-}!(Maybe S3Location)
+  , _avdDateUpdated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _avdDateCreated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _avdVersionLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avdSourceBuildInformation :: {-# NOUNPACK #-}!(Maybe SourceBuildInformation)
+  , _avdApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avdBuildARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avdDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationVersionDescription' with the minimum fields required to make a request.
 --
@@ -299,17 +306,18 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 applicationVersionDescription
     :: ApplicationVersionDescription
 applicationVersionDescription =
-    ApplicationVersionDescription'
-    { _avdStatus = Nothing
-    , _avdSourceBundle = Nothing
-    , _avdDateUpdated = Nothing
-    , _avdDateCreated = Nothing
-    , _avdVersionLabel = Nothing
-    , _avdSourceBuildInformation = Nothing
-    , _avdApplicationName = Nothing
-    , _avdBuildARN = Nothing
-    , _avdDescription = Nothing
-    }
+  ApplicationVersionDescription'
+  { _avdStatus = Nothing
+  , _avdSourceBundle = Nothing
+  , _avdDateUpdated = Nothing
+  , _avdDateCreated = Nothing
+  , _avdVersionLabel = Nothing
+  , _avdSourceBuildInformation = Nothing
+  , _avdApplicationName = Nothing
+  , _avdBuildARN = Nothing
+  , _avdDescription = Nothing
+  }
+
 
 -- | The processing status of the application version.
 avdStatus :: Lens' ApplicationVersionDescription (Maybe ApplicationVersionStatus)
@@ -359,9 +367,9 @@ instance FromXML ApplicationVersionDescription where
                 <*> (x .@? "BuildArn")
                 <*> (x .@? "Description")
 
-instance Hashable ApplicationVersionDescription
+instance Hashable ApplicationVersionDescription where
 
-instance NFData ApplicationVersionDescription
+instance NFData ApplicationVersionDescription where
 
 -- | Result message wrapping a single description of an application version.
 --
@@ -369,8 +377,9 @@ instance NFData ApplicationVersionDescription
 --
 -- /See:/ 'applicationVersionDescriptionMessage' smart constructor.
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'
-    { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationVersionDescriptionMessage' with the minimum fields required to make a request.
 --
@@ -380,9 +389,8 @@ newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMess
 applicationVersionDescriptionMessage
     :: ApplicationVersionDescriptionMessage
 applicationVersionDescriptionMessage =
-    ApplicationVersionDescriptionMessage'
-    { _avdmApplicationVersion = Nothing
-    }
+  ApplicationVersionDescriptionMessage' {_avdmApplicationVersion = Nothing}
+
 
 -- | The 'ApplicationVersionDescription' of the application version.
 avdmApplicationVersion :: Lens' ApplicationVersionDescriptionMessage (Maybe ApplicationVersionDescription)
@@ -395,9 +403,11 @@ instance FromXML ApplicationVersionDescriptionMessage
               (x .@? "ApplicationVersion")
 
 instance Hashable
-         ApplicationVersionDescriptionMessage
+           ApplicationVersionDescriptionMessage
+         where
 
 instance NFData ApplicationVersionDescriptionMessage
+         where
 
 -- | The application version lifecycle settings for an application. Defines the rules that Elastic Beanstalk applies to an application's versions in order to avoid hitting the per-region limit for application versions.
 --
@@ -407,9 +417,10 @@ instance NFData ApplicationVersionDescriptionMessage
 --
 -- /See:/ 'applicationVersionLifecycleConfig' smart constructor.
 data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
-    { _avlcMaxAgeRule   :: !(Maybe MaxAgeRule)
-    , _avlcMaxCountRule :: !(Maybe MaxCountRule)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avlcMaxAgeRule   :: {-# NOUNPACK #-}!(Maybe MaxAgeRule)
+  , _avlcMaxCountRule :: {-# NOUNPACK #-}!(Maybe MaxCountRule)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationVersionLifecycleConfig' with the minimum fields required to make a request.
 --
@@ -421,10 +432,9 @@ data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
 applicationVersionLifecycleConfig
     :: ApplicationVersionLifecycleConfig
 applicationVersionLifecycleConfig =
-    ApplicationVersionLifecycleConfig'
-    { _avlcMaxAgeRule = Nothing
-    , _avlcMaxCountRule = Nothing
-    }
+  ApplicationVersionLifecycleConfig'
+  {_avlcMaxAgeRule = Nothing, _avlcMaxCountRule = Nothing}
+
 
 -- | Specify a max age rule to restrict the length of time that application versions are retained for an application.
 avlcMaxAgeRule :: Lens' ApplicationVersionLifecycleConfig (Maybe MaxAgeRule)
@@ -441,8 +451,10 @@ instance FromXML ApplicationVersionLifecycleConfig
               (x .@? "MaxAgeRule") <*> (x .@? "MaxCountRule")
 
 instance Hashable ApplicationVersionLifecycleConfig
+         where
 
 instance NFData ApplicationVersionLifecycleConfig
+         where
 
 instance ToQuery ApplicationVersionLifecycleConfig
          where
@@ -457,8 +469,9 @@ instance ToQuery ApplicationVersionLifecycleConfig
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
 newtype AutoScalingGroup = AutoScalingGroup'
-    { _asgName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asgName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
 --
@@ -467,10 +480,8 @@ newtype AutoScalingGroup = AutoScalingGroup'
 -- * 'asgName' - The name of the @AutoScalingGroup@ .
 autoScalingGroup
     :: AutoScalingGroup
-autoScalingGroup =
-    AutoScalingGroup'
-    { _asgName = Nothing
-    }
+autoScalingGroup = AutoScalingGroup' {_asgName = Nothing}
+
 
 -- | The name of the @AutoScalingGroup@ .
 asgName :: Lens' AutoScalingGroup (Maybe Text)
@@ -479,9 +490,9 @@ asgName = lens _asgName (\ s a -> s{_asgName = a});
 instance FromXML AutoScalingGroup where
         parseXML x = AutoScalingGroup' <$> (x .@? "Name")
 
-instance Hashable AutoScalingGroup
+instance Hashable AutoScalingGroup where
 
-instance NFData AutoScalingGroup
+instance NFData AutoScalingGroup where
 
 -- | Settings for an AWS CodeBuild build.
 --
@@ -489,12 +500,13 @@ instance NFData AutoScalingGroup
 --
 -- /See:/ 'buildConfiguration' smart constructor.
 data BuildConfiguration = BuildConfiguration'
-    { _bcArtifactName         :: !(Maybe Text)
-    , _bcComputeType          :: !(Maybe ComputeType)
-    , _bcTimeoutInMinutes     :: !(Maybe Int)
-    , _bcCodeBuildServiceRole :: !Text
-    , _bcImage                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bcArtifactName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bcComputeType          :: {-# NOUNPACK #-}!(Maybe ComputeType)
+  , _bcTimeoutInMinutes     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bcCodeBuildServiceRole :: {-# NOUNPACK #-}!Text
+  , _bcImage                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BuildConfiguration' with the minimum fields required to make a request.
 --
@@ -514,13 +526,14 @@ buildConfiguration
     -> Text -- ^ 'bcImage'
     -> BuildConfiguration
 buildConfiguration pCodeBuildServiceRole_ pImage_ =
-    BuildConfiguration'
-    { _bcArtifactName = Nothing
-    , _bcComputeType = Nothing
-    , _bcTimeoutInMinutes = Nothing
-    , _bcCodeBuildServiceRole = pCodeBuildServiceRole_
-    , _bcImage = pImage_
-    }
+  BuildConfiguration'
+  { _bcArtifactName = Nothing
+  , _bcComputeType = Nothing
+  , _bcTimeoutInMinutes = Nothing
+  , _bcCodeBuildServiceRole = pCodeBuildServiceRole_
+  , _bcImage = pImage_
+  }
+
 
 -- | The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location /S3-bucket/ /resources//application-name/ /codebuild/codebuild-/version-label/ -/artifact-name/ .zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location /S3-bucket/ /resources//application-name/ /codebuild/codebuild-/version-label/ .zip.
 bcArtifactName :: Lens' BuildConfiguration (Maybe Text)
@@ -542,9 +555,9 @@ bcCodeBuildServiceRole = lens _bcCodeBuildServiceRole (\ s a -> s{_bcCodeBuildSe
 bcImage :: Lens' BuildConfiguration Text
 bcImage = lens _bcImage (\ s a -> s{_bcImage = a});
 
-instance Hashable BuildConfiguration
+instance Hashable BuildConfiguration where
 
-instance NFData BuildConfiguration
+instance NFData BuildConfiguration where
 
 instance ToQuery BuildConfiguration where
         toQuery BuildConfiguration'{..}
@@ -561,8 +574,9 @@ instance ToQuery BuildConfiguration where
 --
 -- /See:/ 'builder' smart constructor.
 newtype Builder = Builder'
-    { _bARN :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Builder' with the minimum fields required to make a request.
 --
@@ -571,10 +585,8 @@ newtype Builder = Builder'
 -- * 'bARN' - The ARN of the builder.
 builder
     :: Builder
-builder =
-    Builder'
-    { _bARN = Nothing
-    }
+builder = Builder' {_bARN = Nothing}
+
 
 -- | The ARN of the builder.
 bARN :: Lens' Builder (Maybe Text)
@@ -583,9 +595,9 @@ bARN = lens _bARN (\ s a -> s{_bARN = a});
 instance FromXML Builder where
         parseXML x = Builder' <$> (x .@? "ARN")
 
-instance Hashable Builder
+instance Hashable Builder where
 
-instance NFData Builder
+instance NFData Builder where
 
 -- | CPU utilization metrics for an instance.
 --
@@ -593,14 +605,15 @@ instance NFData Builder
 --
 -- /See:/ 'cpuUtilization' smart constructor.
 data CPUUtilization = CPUUtilization'
-    { _cuSoftIRQ :: !(Maybe Double)
-    , _cuIdle    :: !(Maybe Double)
-    , _cuIRQ     :: !(Maybe Double)
-    , _cuSystem  :: !(Maybe Double)
-    , _cuUser    :: !(Maybe Double)
-    , _cuIOWait  :: !(Maybe Double)
-    , _cuNice    :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cuSoftIRQ :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cuIdle    :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cuIRQ     :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cuSystem  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cuUser    :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cuIOWait  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cuNice    :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CPUUtilization' with the minimum fields required to make a request.
 --
@@ -622,15 +635,16 @@ data CPUUtilization = CPUUtilization'
 cpuUtilization
     :: CPUUtilization
 cpuUtilization =
-    CPUUtilization'
-    { _cuSoftIRQ = Nothing
-    , _cuIdle = Nothing
-    , _cuIRQ = Nothing
-    , _cuSystem = Nothing
-    , _cuUser = Nothing
-    , _cuIOWait = Nothing
-    , _cuNice = Nothing
-    }
+  CPUUtilization'
+  { _cuSoftIRQ = Nothing
+  , _cuIdle = Nothing
+  , _cuIRQ = Nothing
+  , _cuSystem = Nothing
+  , _cuUser = Nothing
+  , _cuIOWait = Nothing
+  , _cuNice = Nothing
+  }
+
 
 -- | Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
 cuSoftIRQ :: Lens' CPUUtilization (Maybe Double)
@@ -670,9 +684,9 @@ instance FromXML CPUUtilization where
                 <*> (x .@? "IOWait")
                 <*> (x .@? "Nice")
 
-instance Hashable CPUUtilization
+instance Hashable CPUUtilization where
 
-instance NFData CPUUtilization
+instance NFData CPUUtilization where
 
 -- | Describes the possible values for a configuration option.
 --
@@ -680,18 +694,19 @@ instance NFData CPUUtilization
 --
 -- /See:/ 'configurationOptionDescription' smart constructor.
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
-    { _codMaxValue       :: !(Maybe Int)
-    , _codRegex          :: !(Maybe OptionRestrictionRegex)
-    , _codMaxLength      :: !(Maybe Int)
-    , _codUserDefined    :: !(Maybe Bool)
-    , _codNamespace      :: !(Maybe Text)
-    , _codValueOptions   :: !(Maybe [Text])
-    , _codName           :: !(Maybe Text)
-    , _codChangeSeverity :: !(Maybe Text)
-    , _codDefaultValue   :: !(Maybe Text)
-    , _codValueType      :: !(Maybe ConfigurationOptionValueType)
-    , _codMinValue       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _codMaxValue       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _codRegex          :: {-# NOUNPACK #-}!(Maybe OptionRestrictionRegex)
+  , _codMaxLength      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _codUserDefined    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _codNamespace      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _codValueOptions   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _codName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _codChangeSeverity :: {-# NOUNPACK #-}!(Maybe Text)
+  , _codDefaultValue   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _codValueType      :: {-# NOUNPACK #-}!(Maybe ConfigurationOptionValueType)
+  , _codMinValue       :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigurationOptionDescription' with the minimum fields required to make a request.
 --
@@ -721,19 +736,20 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 configurationOptionDescription
     :: ConfigurationOptionDescription
 configurationOptionDescription =
-    ConfigurationOptionDescription'
-    { _codMaxValue = Nothing
-    , _codRegex = Nothing
-    , _codMaxLength = Nothing
-    , _codUserDefined = Nothing
-    , _codNamespace = Nothing
-    , _codValueOptions = Nothing
-    , _codName = Nothing
-    , _codChangeSeverity = Nothing
-    , _codDefaultValue = Nothing
-    , _codValueType = Nothing
-    , _codMinValue = Nothing
-    }
+  ConfigurationOptionDescription'
+  { _codMaxValue = Nothing
+  , _codRegex = Nothing
+  , _codMaxLength = Nothing
+  , _codUserDefined = Nothing
+  , _codNamespace = Nothing
+  , _codValueOptions = Nothing
+  , _codName = Nothing
+  , _codChangeSeverity = Nothing
+  , _codDefaultValue = Nothing
+  , _codValueType = Nothing
+  , _codMinValue = Nothing
+  }
+
 
 -- | If specified, the configuration option must be a numeric value less than this value.
 codMaxValue :: Lens' ConfigurationOptionDescription (Maybe Int)
@@ -796,8 +812,9 @@ instance FromXML ConfigurationOptionDescription where
                 <*> (x .@? "MinValue")
 
 instance Hashable ConfigurationOptionDescription
+         where
 
-instance NFData ConfigurationOptionDescription
+instance NFData ConfigurationOptionDescription where
 
 -- | A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values> in the /AWS Elastic Beanstalk Developer Guide/ .
 --
@@ -805,11 +822,12 @@ instance NFData ConfigurationOptionDescription
 --
 -- /See:/ 'configurationOptionSetting' smart constructor.
 data ConfigurationOptionSetting = ConfigurationOptionSetting'
-    { _cosOptionName   :: !(Maybe Text)
-    , _cosResourceName :: !(Maybe Text)
-    , _cosNamespace    :: !(Maybe Text)
-    , _cosValue        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cosOptionName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cosResourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cosNamespace    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cosValue        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigurationOptionSetting' with the minimum fields required to make a request.
 --
@@ -825,12 +843,13 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting'
 configurationOptionSetting
     :: ConfigurationOptionSetting
 configurationOptionSetting =
-    ConfigurationOptionSetting'
-    { _cosOptionName = Nothing
-    , _cosResourceName = Nothing
-    , _cosNamespace = Nothing
-    , _cosValue = Nothing
-    }
+  ConfigurationOptionSetting'
+  { _cosOptionName = Nothing
+  , _cosResourceName = Nothing
+  , _cosNamespace = Nothing
+  , _cosValue = Nothing
+  }
+
 
 -- | The name of the configuration option.
 cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
@@ -855,9 +874,9 @@ instance FromXML ConfigurationOptionSetting where
                 (x .@? "Namespace")
                 <*> (x .@? "Value")
 
-instance Hashable ConfigurationOptionSetting
+instance Hashable ConfigurationOptionSetting where
 
-instance NFData ConfigurationOptionSetting
+instance NFData ConfigurationOptionSetting where
 
 instance ToQuery ConfigurationOptionSetting where
         toQuery ConfigurationOptionSetting'{..}
@@ -872,17 +891,18 @@ instance ToQuery ConfigurationOptionSetting where
 --
 -- /See:/ 'configurationSettingsDescription' smart constructor.
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
-    { _csdTemplateName      :: !(Maybe Text)
-    , _csdOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _csdDateUpdated       :: !(Maybe ISO8601)
-    , _csdDateCreated       :: !(Maybe ISO8601)
-    , _csdPlatformARN       :: !(Maybe Text)
-    , _csdEnvironmentName   :: !(Maybe Text)
-    , _csdApplicationName   :: !(Maybe Text)
-    , _csdDeploymentStatus  :: !(Maybe ConfigurationDeploymentStatus)
-    , _csdSolutionStackName :: !(Maybe Text)
-    , _csdDescription       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdTemplateName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdOptionSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
+  , _csdDateUpdated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _csdDateCreated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _csdPlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdDeploymentStatus :: {-# NOUNPACK #-}!(Maybe ConfigurationDeploymentStatus)
+  , _csdSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigurationSettingsDescription' with the minimum fields required to make a request.
 --
@@ -910,18 +930,19 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
 configurationSettingsDescription
     :: ConfigurationSettingsDescription
 configurationSettingsDescription =
-    ConfigurationSettingsDescription'
-    { _csdTemplateName = Nothing
-    , _csdOptionSettings = Nothing
-    , _csdDateUpdated = Nothing
-    , _csdDateCreated = Nothing
-    , _csdPlatformARN = Nothing
-    , _csdEnvironmentName = Nothing
-    , _csdApplicationName = Nothing
-    , _csdDeploymentStatus = Nothing
-    , _csdSolutionStackName = Nothing
-    , _csdDescription = Nothing
-    }
+  ConfigurationSettingsDescription'
+  { _csdTemplateName = Nothing
+  , _csdOptionSettings = Nothing
+  , _csdDateUpdated = Nothing
+  , _csdDateCreated = Nothing
+  , _csdPlatformARN = Nothing
+  , _csdEnvironmentName = Nothing
+  , _csdApplicationName = Nothing
+  , _csdDeploymentStatus = Nothing
+  , _csdSolutionStackName = Nothing
+  , _csdDescription = Nothing
+  }
+
 
 -- | If not @null@ , the name of the configuration template for this configuration set.
 csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
@@ -980,8 +1001,10 @@ instance FromXML ConfigurationSettingsDescription
                 <*> (x .@? "Description")
 
 instance Hashable ConfigurationSettingsDescription
+         where
 
 instance NFData ConfigurationSettingsDescription
+         where
 
 -- | A custom AMI available to platforms.
 --
@@ -989,9 +1012,10 @@ instance NFData ConfigurationSettingsDescription
 --
 -- /See:/ 'customAMI' smart constructor.
 data CustomAMI = CustomAMI'
-    { _caVirtualizationType :: !(Maybe Text)
-    , _caImageId            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caVirtualizationType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caImageId            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomAMI' with the minimum fields required to make a request.
 --
@@ -1002,11 +1026,8 @@ data CustomAMI = CustomAMI'
 -- * 'caImageId' - THe ID of the image used to create the custom AMI.
 customAMI
     :: CustomAMI
-customAMI =
-    CustomAMI'
-    { _caVirtualizationType = Nothing
-    , _caImageId = Nothing
-    }
+customAMI = CustomAMI' {_caVirtualizationType = Nothing, _caImageId = Nothing}
+
 
 -- | The type of virtualization used to create the custom AMI.
 caVirtualizationType :: Lens' CustomAMI (Maybe Text)
@@ -1021,9 +1042,9 @@ instance FromXML CustomAMI where
           = CustomAMI' <$>
               (x .@? "VirtualizationType") <*> (x .@? "ImageId")
 
-instance Hashable CustomAMI
+instance Hashable CustomAMI where
 
-instance NFData CustomAMI
+instance NFData CustomAMI where
 
 -- | Information about an application version deployment.
 --
@@ -1031,11 +1052,12 @@ instance NFData CustomAMI
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-    { _dDeploymentId   :: !(Maybe Integer)
-    , _dStatus         :: !(Maybe Text)
-    , _dDeploymentTime :: !(Maybe ISO8601)
-    , _dVersionLabel   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDeploymentId   :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dStatus         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDeploymentTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dVersionLabel   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
@@ -1051,12 +1073,13 @@ data Deployment = Deployment'
 deployment
     :: Deployment
 deployment =
-    Deployment'
-    { _dDeploymentId = Nothing
-    , _dStatus = Nothing
-    , _dDeploymentTime = Nothing
-    , _dVersionLabel = Nothing
-    }
+  Deployment'
+  { _dDeploymentId = Nothing
+  , _dStatus = Nothing
+  , _dDeploymentTime = Nothing
+  , _dVersionLabel = Nothing
+  }
+
 
 -- | The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
 dDeploymentId :: Lens' Deployment (Maybe Integer)
@@ -1081,9 +1104,9 @@ instance FromXML Deployment where
                 (x .@? "DeploymentTime")
                 <*> (x .@? "VersionLabel")
 
-instance Hashable Deployment
+instance Hashable Deployment where
 
-instance NFData Deployment
+instance NFData Deployment where
 
 -- | Describes the properties of an environment.
 --
@@ -1091,27 +1114,28 @@ instance NFData Deployment
 --
 -- /See:/ 'environmentDescription' smart constructor.
 data EnvironmentDescription = EnvironmentDescription'
-    { _eStatus                       :: !(Maybe EnvironmentStatus)
-    , _eCNAME                        :: !(Maybe Text)
-    , _eTemplateName                 :: !(Maybe Text)
-    , _eAbortableOperationInProgress :: !(Maybe Bool)
-    , _eEndpointURL                  :: !(Maybe Text)
-    , _eResources                    :: !(Maybe EnvironmentResourcesDescription)
-    , _eDateUpdated                  :: !(Maybe ISO8601)
-    , _eDateCreated                  :: !(Maybe ISO8601)
-    , _eHealth                       :: !(Maybe EnvironmentHealth)
-    , _eVersionLabel                 :: !(Maybe Text)
-    , _ePlatformARN                  :: !(Maybe Text)
-    , _eTier                         :: !(Maybe EnvironmentTier)
-    , _eEnvironmentName              :: !(Maybe Text)
-    , _eApplicationName              :: !(Maybe Text)
-    , _eEnvironmentARN               :: !(Maybe Text)
-    , _eSolutionStackName            :: !(Maybe Text)
-    , _eEnvironmentId                :: !(Maybe Text)
-    , _eHealthStatus                 :: !(Maybe EnvironmentHealthStatus)
-    , _eEnvironmentLinks             :: !(Maybe [EnvironmentLink])
-    , _eDescription                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eStatus :: {-# NOUNPACK #-}!(Maybe EnvironmentStatus)
+  , _eCNAME :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eTemplateName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eAbortableOperationInProgress :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _eEndpointURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eResources :: {-# NOUNPACK #-}!(Maybe EnvironmentResourcesDescription)
+  , _eDateUpdated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _eDateCreated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _eHealth :: {-# NOUNPACK #-}!(Maybe EnvironmentHealth)
+  , _eVersionLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ePlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eTier :: {-# NOUNPACK #-}!(Maybe EnvironmentTier)
+  , _eEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEnvironmentARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEnvironmentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eHealthStatus :: {-# NOUNPACK #-}!(Maybe EnvironmentHealthStatus)
+  , _eEnvironmentLinks :: {-# NOUNPACK #-}!(Maybe [EnvironmentLink])
+  , _eDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentDescription' with the minimum fields required to make a request.
 --
@@ -1159,28 +1183,29 @@ data EnvironmentDescription = EnvironmentDescription'
 environmentDescription
     :: EnvironmentDescription
 environmentDescription =
-    EnvironmentDescription'
-    { _eStatus = Nothing
-    , _eCNAME = Nothing
-    , _eTemplateName = Nothing
-    , _eAbortableOperationInProgress = Nothing
-    , _eEndpointURL = Nothing
-    , _eResources = Nothing
-    , _eDateUpdated = Nothing
-    , _eDateCreated = Nothing
-    , _eHealth = Nothing
-    , _eVersionLabel = Nothing
-    , _ePlatformARN = Nothing
-    , _eTier = Nothing
-    , _eEnvironmentName = Nothing
-    , _eApplicationName = Nothing
-    , _eEnvironmentARN = Nothing
-    , _eSolutionStackName = Nothing
-    , _eEnvironmentId = Nothing
-    , _eHealthStatus = Nothing
-    , _eEnvironmentLinks = Nothing
-    , _eDescription = Nothing
-    }
+  EnvironmentDescription'
+  { _eStatus = Nothing
+  , _eCNAME = Nothing
+  , _eTemplateName = Nothing
+  , _eAbortableOperationInProgress = Nothing
+  , _eEndpointURL = Nothing
+  , _eResources = Nothing
+  , _eDateUpdated = Nothing
+  , _eDateCreated = Nothing
+  , _eHealth = Nothing
+  , _eVersionLabel = Nothing
+  , _ePlatformARN = Nothing
+  , _eTier = Nothing
+  , _eEnvironmentName = Nothing
+  , _eApplicationName = Nothing
+  , _eEnvironmentARN = Nothing
+  , _eSolutionStackName = Nothing
+  , _eEnvironmentId = Nothing
+  , _eHealthStatus = Nothing
+  , _eEnvironmentLinks = Nothing
+  , _eDescription = Nothing
+  }
+
 
 -- | The current operational status of the environment:     * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
 eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
@@ -1287,9 +1312,9 @@ instance FromXML EnvironmentDescription where
                    may (parseXMLList "member"))
                 <*> (x .@? "Description")
 
-instance Hashable EnvironmentDescription
+instance Hashable EnvironmentDescription where
 
-instance NFData EnvironmentDescription
+instance NFData EnvironmentDescription where
 
 -- | Result message containing a list of environment descriptions.
 --
@@ -1297,9 +1322,10 @@ instance NFData EnvironmentDescription
 --
 -- /See:/ 'environmentDescriptionsMessage' smart constructor.
 data EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
-    { _edmNextToken    :: !(Maybe Text)
-    , _edmEnvironments :: !(Maybe [EnvironmentDescription])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edmNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edmEnvironments :: {-# NOUNPACK #-}!(Maybe [EnvironmentDescription])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentDescriptionsMessage' with the minimum fields required to make a request.
 --
@@ -1311,10 +1337,9 @@ data EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
 environmentDescriptionsMessage
     :: EnvironmentDescriptionsMessage
 environmentDescriptionsMessage =
-    EnvironmentDescriptionsMessage'
-    { _edmNextToken = Nothing
-    , _edmEnvironments = Nothing
-    }
+  EnvironmentDescriptionsMessage'
+  {_edmNextToken = Nothing, _edmEnvironments = Nothing}
+
 
 -- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
 edmNextToken :: Lens' EnvironmentDescriptionsMessage (Maybe Text)
@@ -1332,8 +1357,9 @@ instance FromXML EnvironmentDescriptionsMessage where
                    may (parseXMLList "member"))
 
 instance Hashable EnvironmentDescriptionsMessage
+         where
 
-instance NFData EnvironmentDescriptionsMessage
+instance NFData EnvironmentDescriptionsMessage where
 
 -- | The information retrieved from the Amazon EC2 instances.
 --
@@ -1341,11 +1367,12 @@ instance NFData EnvironmentDescriptionsMessage
 --
 -- /See:/ 'environmentInfoDescription' smart constructor.
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
-    { _eidSampleTimestamp :: !(Maybe ISO8601)
-    , _eidEC2InstanceId   :: !(Maybe Text)
-    , _eidInfoType        :: !(Maybe EnvironmentInfoType)
-    , _eidMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eidSampleTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _eidEC2InstanceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eidInfoType        :: {-# NOUNPACK #-}!(Maybe EnvironmentInfoType)
+  , _eidMessage         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentInfoDescription' with the minimum fields required to make a request.
 --
@@ -1361,12 +1388,13 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription'
 environmentInfoDescription
     :: EnvironmentInfoDescription
 environmentInfoDescription =
-    EnvironmentInfoDescription'
-    { _eidSampleTimestamp = Nothing
-    , _eidEC2InstanceId = Nothing
-    , _eidInfoType = Nothing
-    , _eidMessage = Nothing
-    }
+  EnvironmentInfoDescription'
+  { _eidSampleTimestamp = Nothing
+  , _eidEC2InstanceId = Nothing
+  , _eidInfoType = Nothing
+  , _eidMessage = Nothing
+  }
+
 
 -- | The time stamp when this information was retrieved.
 eidSampleTimestamp :: Lens' EnvironmentInfoDescription (Maybe UTCTime)
@@ -1391,9 +1419,9 @@ instance FromXML EnvironmentInfoDescription where
                 <*> (x .@? "InfoType")
                 <*> (x .@? "Message")
 
-instance Hashable EnvironmentInfoDescription
+instance Hashable EnvironmentInfoDescription where
 
-instance NFData EnvironmentInfoDescription
+instance NFData EnvironmentInfoDescription where
 
 -- | A link to another environment, defined in the environment's manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
@@ -1401,9 +1429,10 @@ instance NFData EnvironmentInfoDescription
 --
 -- /See:/ 'environmentLink' smart constructor.
 data EnvironmentLink = EnvironmentLink'
-    { _elLinkName        :: !(Maybe Text)
-    , _elEnvironmentName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _elLinkName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentLink' with the minimum fields required to make a request.
 --
@@ -1415,10 +1444,8 @@ data EnvironmentLink = EnvironmentLink'
 environmentLink
     :: EnvironmentLink
 environmentLink =
-    EnvironmentLink'
-    { _elLinkName = Nothing
-    , _elEnvironmentName = Nothing
-    }
+  EnvironmentLink' {_elLinkName = Nothing, _elEnvironmentName = Nothing}
+
 
 -- | The name of the link.
 elLinkName :: Lens' EnvironmentLink (Maybe Text)
@@ -1433,9 +1460,9 @@ instance FromXML EnvironmentLink where
           = EnvironmentLink' <$>
               (x .@? "LinkName") <*> (x .@? "EnvironmentName")
 
-instance Hashable EnvironmentLink
+instance Hashable EnvironmentLink where
 
-instance NFData EnvironmentLink
+instance NFData EnvironmentLink where
 
 -- | Describes the AWS resources in use by this environment. This data is live.
 --
@@ -1443,14 +1470,15 @@ instance NFData EnvironmentLink
 --
 -- /See:/ 'environmentResourceDescription' smart constructor.
 data EnvironmentResourceDescription = EnvironmentResourceDescription'
-    { _erdQueues               :: !(Maybe [Queue])
-    , _erdTriggers             :: !(Maybe [Trigger])
-    , _erdLoadBalancers        :: !(Maybe [LoadBalancer])
-    , _erdEnvironmentName      :: !(Maybe Text)
-    , _erdInstances            :: !(Maybe [Instance])
-    , _erdLaunchConfigurations :: !(Maybe [LaunchConfiguration])
-    , _erdAutoScalingGroups    :: !(Maybe [AutoScalingGroup])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _erdQueues               :: {-# NOUNPACK #-}!(Maybe [Queue])
+  , _erdTriggers             :: {-# NOUNPACK #-}!(Maybe [Trigger])
+  , _erdLoadBalancers        :: {-# NOUNPACK #-}!(Maybe [LoadBalancer])
+  , _erdEnvironmentName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erdInstances            :: {-# NOUNPACK #-}!(Maybe [Instance])
+  , _erdLaunchConfigurations :: {-# NOUNPACK #-}!(Maybe [LaunchConfiguration])
+  , _erdAutoScalingGroups    :: {-# NOUNPACK #-}!(Maybe [AutoScalingGroup])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentResourceDescription' with the minimum fields required to make a request.
 --
@@ -1472,15 +1500,16 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription'
 environmentResourceDescription
     :: EnvironmentResourceDescription
 environmentResourceDescription =
-    EnvironmentResourceDescription'
-    { _erdQueues = Nothing
-    , _erdTriggers = Nothing
-    , _erdLoadBalancers = Nothing
-    , _erdEnvironmentName = Nothing
-    , _erdInstances = Nothing
-    , _erdLaunchConfigurations = Nothing
-    , _erdAutoScalingGroups = Nothing
-    }
+  EnvironmentResourceDescription'
+  { _erdQueues = Nothing
+  , _erdTriggers = Nothing
+  , _erdLoadBalancers = Nothing
+  , _erdEnvironmentName = Nothing
+  , _erdInstances = Nothing
+  , _erdLaunchConfigurations = Nothing
+  , _erdAutoScalingGroups = Nothing
+  }
+
 
 -- | The queues used by this environment.
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
@@ -1533,8 +1562,9 @@ instance FromXML EnvironmentResourceDescription where
                    may (parseXMLList "member"))
 
 instance Hashable EnvironmentResourceDescription
+         where
 
-instance NFData EnvironmentResourceDescription
+instance NFData EnvironmentResourceDescription where
 
 -- | Describes the AWS resources in use by this environment. This data is not live data.
 --
@@ -1542,8 +1572,9 @@ instance NFData EnvironmentResourceDescription
 --
 -- /See:/ 'environmentResourcesDescription' smart constructor.
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
-    { _erdLoadBalancer :: Maybe LoadBalancerDescription
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _erdLoadBalancer :: Maybe LoadBalancerDescription
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentResourcesDescription' with the minimum fields required to make a request.
 --
@@ -1553,9 +1584,8 @@ newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
 environmentResourcesDescription
     :: EnvironmentResourcesDescription
 environmentResourcesDescription =
-    EnvironmentResourcesDescription'
-    { _erdLoadBalancer = Nothing
-    }
+  EnvironmentResourcesDescription' {_erdLoadBalancer = Nothing}
+
 
 -- | Describes the LoadBalancer.
 erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDescription)
@@ -1568,8 +1598,9 @@ instance FromXML EnvironmentResourcesDescription
               (x .@? "LoadBalancer")
 
 instance Hashable EnvironmentResourcesDescription
+         where
 
-instance NFData EnvironmentResourcesDescription
+instance NFData EnvironmentResourcesDescription where
 
 -- | Describes the properties of an environment tier
 --
@@ -1577,10 +1608,11 @@ instance NFData EnvironmentResourcesDescription
 --
 -- /See:/ 'environmentTier' smart constructor.
 data EnvironmentTier = EnvironmentTier'
-    { _etName    :: !(Maybe Text)
-    , _etVersion :: !(Maybe Text)
-    , _etType    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etType    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnvironmentTier' with the minimum fields required to make a request.
 --
@@ -1594,11 +1626,8 @@ data EnvironmentTier = EnvironmentTier'
 environmentTier
     :: EnvironmentTier
 environmentTier =
-    EnvironmentTier'
-    { _etName = Nothing
-    , _etVersion = Nothing
-    , _etType = Nothing
-    }
+  EnvironmentTier' {_etName = Nothing, _etVersion = Nothing, _etType = Nothing}
+
 
 -- | The name of this environment tier.
 etName :: Lens' EnvironmentTier (Maybe Text)
@@ -1618,9 +1647,9 @@ instance FromXML EnvironmentTier where
               (x .@? "Name") <*> (x .@? "Version") <*>
                 (x .@? "Type")
 
-instance Hashable EnvironmentTier
+instance Hashable EnvironmentTier where
 
-instance NFData EnvironmentTier
+instance NFData EnvironmentTier where
 
 instance ToQuery EnvironmentTier where
         toQuery EnvironmentTier'{..}
@@ -1634,16 +1663,17 @@ instance ToQuery EnvironmentTier where
 --
 -- /See:/ 'eventDescription' smart constructor.
 data EventDescription = EventDescription'
-    { _edRequestId       :: !(Maybe Text)
-    , _edTemplateName    :: !(Maybe Text)
-    , _edSeverity        :: !(Maybe EventSeverity)
-    , _edVersionLabel    :: !(Maybe Text)
-    , _edPlatformARN     :: !(Maybe Text)
-    , _edEnvironmentName :: !(Maybe Text)
-    , _edApplicationName :: !(Maybe Text)
-    , _edEventDate       :: !(Maybe ISO8601)
-    , _edMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edRequestId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edTemplateName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edSeverity        :: {-# NOUNPACK #-}!(Maybe EventSeverity)
+  , _edVersionLabel    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edPlatformARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edEventDate       :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _edMessage         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventDescription' with the minimum fields required to make a request.
 --
@@ -1669,17 +1699,18 @@ data EventDescription = EventDescription'
 eventDescription
     :: EventDescription
 eventDescription =
-    EventDescription'
-    { _edRequestId = Nothing
-    , _edTemplateName = Nothing
-    , _edSeverity = Nothing
-    , _edVersionLabel = Nothing
-    , _edPlatformARN = Nothing
-    , _edEnvironmentName = Nothing
-    , _edApplicationName = Nothing
-    , _edEventDate = Nothing
-    , _edMessage = Nothing
-    }
+  EventDescription'
+  { _edRequestId = Nothing
+  , _edTemplateName = Nothing
+  , _edSeverity = Nothing
+  , _edVersionLabel = Nothing
+  , _edPlatformARN = Nothing
+  , _edEnvironmentName = Nothing
+  , _edApplicationName = Nothing
+  , _edEventDate = Nothing
+  , _edMessage = Nothing
+  }
+
 
 -- | The web service request ID for the activity of this event.
 edRequestId :: Lens' EventDescription (Maybe Text)
@@ -1729,9 +1760,9 @@ instance FromXML EventDescription where
                 <*> (x .@? "EventDate")
                 <*> (x .@? "Message")
 
-instance Hashable EventDescription
+instance Hashable EventDescription where
 
-instance NFData EventDescription
+instance NFData EventDescription where
 
 -- | The description of an Amazon EC2 instance.
 --
@@ -1739,8 +1770,9 @@ instance NFData EventDescription
 --
 -- /See:/ 'instance'' smart constructor.
 newtype Instance = Instance'
-    { _iId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
@@ -1749,10 +1781,8 @@ newtype Instance = Instance'
 -- * 'iId' - The ID of the Amazon EC2 instance.
 instance'
     :: Instance
-instance' =
-    Instance'
-    { _iId = Nothing
-    }
+instance' = Instance' {_iId = Nothing}
+
 
 -- | The ID of the Amazon EC2 instance.
 iId :: Lens' Instance (Maybe Text)
@@ -1761,9 +1791,9 @@ iId = lens _iId (\ s a -> s{_iId = a});
 instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "Id")
 
-instance Hashable Instance
+instance Hashable Instance where
 
-instance NFData Instance
+instance NFData Instance where
 
 -- | Represents summary information about the health of an instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 --
@@ -1771,15 +1801,16 @@ instance NFData Instance
 --
 -- /See:/ 'instanceHealthSummary' smart constructor.
 data InstanceHealthSummary = InstanceHealthSummary'
-    { _ihsOK       :: !(Maybe Int)
-    , _ihsPending  :: !(Maybe Int)
-    , _ihsSevere   :: !(Maybe Int)
-    , _ihsUnknown  :: !(Maybe Int)
-    , _ihsNoData   :: !(Maybe Int)
-    , _ihsWarning  :: !(Maybe Int)
-    , _ihsDegraded :: !(Maybe Int)
-    , _ihsInfo     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ihsOK       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ihsPending  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ihsSevere   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ihsUnknown  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ihsNoData   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ihsWarning  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ihsDegraded :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ihsInfo     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceHealthSummary' with the minimum fields required to make a request.
 --
@@ -1803,16 +1834,17 @@ data InstanceHealthSummary = InstanceHealthSummary'
 instanceHealthSummary
     :: InstanceHealthSummary
 instanceHealthSummary =
-    InstanceHealthSummary'
-    { _ihsOK = Nothing
-    , _ihsPending = Nothing
-    , _ihsSevere = Nothing
-    , _ihsUnknown = Nothing
-    , _ihsNoData = Nothing
-    , _ihsWarning = Nothing
-    , _ihsDegraded = Nothing
-    , _ihsInfo = Nothing
-    }
+  InstanceHealthSummary'
+  { _ihsOK = Nothing
+  , _ihsPending = Nothing
+  , _ihsSevere = Nothing
+  , _ihsUnknown = Nothing
+  , _ihsNoData = Nothing
+  , _ihsWarning = Nothing
+  , _ihsDegraded = Nothing
+  , _ihsInfo = Nothing
+  }
+
 
 -- | __Green.__ An instance is passing health checks and the health agent is not reporting any problems.
 ihsOK :: Lens' InstanceHealthSummary (Maybe Int)
@@ -1857,9 +1889,9 @@ instance FromXML InstanceHealthSummary where
                 <*> (x .@? "Degraded")
                 <*> (x .@? "Info")
 
-instance Hashable InstanceHealthSummary
+instance Hashable InstanceHealthSummary where
 
-instance NFData InstanceHealthSummary
+instance NFData InstanceHealthSummary where
 
 -- | Represents the average latency for the slowest X percent of requests over the last 10 seconds.
 --
@@ -1867,15 +1899,16 @@ instance NFData InstanceHealthSummary
 --
 -- /See:/ 'latency' smart constructor.
 data Latency = Latency'
-    { _lP75  :: !(Maybe Double)
-    , _lP50  :: !(Maybe Double)
-    , _lP85  :: !(Maybe Double)
-    , _lP999 :: !(Maybe Double)
-    , _lP90  :: !(Maybe Double)
-    , _lP95  :: !(Maybe Double)
-    , _lP99  :: !(Maybe Double)
-    , _lP10  :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lP75  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lP50  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lP85  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lP999 :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lP90  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lP95  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lP99  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lP10  :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Latency' with the minimum fields required to make a request.
 --
@@ -1899,16 +1932,17 @@ data Latency = Latency'
 latency
     :: Latency
 latency =
-    Latency'
-    { _lP75 = Nothing
-    , _lP50 = Nothing
-    , _lP85 = Nothing
-    , _lP999 = Nothing
-    , _lP90 = Nothing
-    , _lP95 = Nothing
-    , _lP99 = Nothing
-    , _lP10 = Nothing
-    }
+  Latency'
+  { _lP75 = Nothing
+  , _lP50 = Nothing
+  , _lP85 = Nothing
+  , _lP999 = Nothing
+  , _lP90 = Nothing
+  , _lP95 = Nothing
+  , _lP99 = Nothing
+  , _lP10 = Nothing
+  }
+
 
 -- | The average latency for the slowest 25 percent of requests over the last 10 seconds.
 lP75 :: Lens' Latency (Maybe Double)
@@ -1952,9 +1986,9 @@ instance FromXML Latency where
                 <*> (x .@? "P99")
                 <*> (x .@? "P10")
 
-instance Hashable Latency
+instance Hashable Latency where
 
-instance NFData Latency
+instance NFData Latency where
 
 -- | Describes an Auto Scaling launch configuration.
 --
@@ -1962,8 +1996,9 @@ instance NFData Latency
 --
 -- /See:/ 'launchConfiguration' smart constructor.
 newtype LaunchConfiguration = LaunchConfiguration'
-    { _lcName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LaunchConfiguration' with the minimum fields required to make a request.
 --
@@ -1972,10 +2007,8 @@ newtype LaunchConfiguration = LaunchConfiguration'
 -- * 'lcName' - The name of the launch configuration.
 launchConfiguration
     :: LaunchConfiguration
-launchConfiguration =
-    LaunchConfiguration'
-    { _lcName = Nothing
-    }
+launchConfiguration = LaunchConfiguration' {_lcName = Nothing}
+
 
 -- | The name of the launch configuration.
 lcName :: Lens' LaunchConfiguration (Maybe Text)
@@ -1984,9 +2017,9 @@ lcName = lens _lcName (\ s a -> s{_lcName = a});
 instance FromXML LaunchConfiguration where
         parseXML x = LaunchConfiguration' <$> (x .@? "Name")
 
-instance Hashable LaunchConfiguration
+instance Hashable LaunchConfiguration where
 
-instance NFData LaunchConfiguration
+instance NFData LaunchConfiguration where
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
@@ -1994,9 +2027,10 @@ instance NFData LaunchConfiguration
 --
 -- /See:/ 'listener' smart constructor.
 data Listener = Listener'
-    { _lProtocol :: !(Maybe Text)
-    , _lPort     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lProtocol :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lPort     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Listener' with the minimum fields required to make a request.
 --
@@ -2007,11 +2041,8 @@ data Listener = Listener'
 -- * 'lPort' - The port that is used by the Listener.
 listener
     :: Listener
-listener =
-    Listener'
-    { _lProtocol = Nothing
-    , _lPort = Nothing
-    }
+listener = Listener' {_lProtocol = Nothing, _lPort = Nothing}
+
 
 -- | The protocol that is used by the Listener.
 lProtocol :: Lens' Listener (Maybe Text)
@@ -2025,9 +2056,9 @@ instance FromXML Listener where
         parseXML x
           = Listener' <$> (x .@? "Protocol") <*> (x .@? "Port")
 
-instance Hashable Listener
+instance Hashable Listener where
 
-instance NFData Listener
+instance NFData Listener where
 
 -- | Describes a LoadBalancer.
 --
@@ -2035,8 +2066,9 @@ instance NFData Listener
 --
 -- /See:/ 'loadBalancer' smart constructor.
 newtype LoadBalancer = LoadBalancer'
-    { _lbName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
 --
@@ -2045,10 +2077,8 @@ newtype LoadBalancer = LoadBalancer'
 -- * 'lbName' - The name of the LoadBalancer.
 loadBalancer
     :: LoadBalancer
-loadBalancer =
-    LoadBalancer'
-    { _lbName = Nothing
-    }
+loadBalancer = LoadBalancer' {_lbName = Nothing}
+
 
 -- | The name of the LoadBalancer.
 lbName :: Lens' LoadBalancer (Maybe Text)
@@ -2057,9 +2087,9 @@ lbName = lens _lbName (\ s a -> s{_lbName = a});
 instance FromXML LoadBalancer where
         parseXML x = LoadBalancer' <$> (x .@? "Name")
 
-instance Hashable LoadBalancer
+instance Hashable LoadBalancer where
 
-instance NFData LoadBalancer
+instance NFData LoadBalancer where
 
 -- | Describes the details of a LoadBalancer.
 --
@@ -2067,10 +2097,11 @@ instance NFData LoadBalancer
 --
 -- /See:/ 'loadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
-    { _lbdLoadBalancerName :: !(Maybe Text)
-    , _lbdDomain           :: !(Maybe Text)
-    , _lbdListeners        :: !(Maybe [Listener])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbdLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbdDomain           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbdListeners        :: {-# NOUNPACK #-}!(Maybe [Listener])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoadBalancerDescription' with the minimum fields required to make a request.
 --
@@ -2084,11 +2115,12 @@ data LoadBalancerDescription = LoadBalancerDescription'
 loadBalancerDescription
     :: LoadBalancerDescription
 loadBalancerDescription =
-    LoadBalancerDescription'
-    { _lbdLoadBalancerName = Nothing
-    , _lbdDomain = Nothing
-    , _lbdListeners = Nothing
-    }
+  LoadBalancerDescription'
+  { _lbdLoadBalancerName = Nothing
+  , _lbdDomain = Nothing
+  , _lbdListeners = Nothing
+  }
+
 
 -- | The name of the LoadBalancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -2109,9 +2141,9 @@ instance FromXML LoadBalancerDescription where
                 (x .@? "Listeners" .!@ mempty >>=
                    may (parseXMLList "member"))
 
-instance Hashable LoadBalancerDescription
+instance Hashable LoadBalancerDescription where
 
-instance NFData LoadBalancerDescription
+instance NFData LoadBalancerDescription where
 
 -- | The record of an upcoming or in-progress managed action.
 --
@@ -2119,12 +2151,13 @@ instance NFData LoadBalancerDescription
 --
 -- /See:/ 'managedAction' smart constructor.
 data ManagedAction = ManagedAction'
-    { _maStatus            :: !(Maybe ActionStatus)
-    , _maActionId          :: !(Maybe Text)
-    , _maWindowStartTime   :: !(Maybe ISO8601)
-    , _maActionDescription :: !(Maybe Text)
-    , _maActionType        :: !(Maybe ActionType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _maStatus            :: {-# NOUNPACK #-}!(Maybe ActionStatus)
+  , _maActionId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maWindowStartTime   :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _maActionDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _maActionType        :: {-# NOUNPACK #-}!(Maybe ActionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ManagedAction' with the minimum fields required to make a request.
 --
@@ -2142,13 +2175,14 @@ data ManagedAction = ManagedAction'
 managedAction
     :: ManagedAction
 managedAction =
-    ManagedAction'
-    { _maStatus = Nothing
-    , _maActionId = Nothing
-    , _maWindowStartTime = Nothing
-    , _maActionDescription = Nothing
-    , _maActionType = Nothing
-    }
+  ManagedAction'
+  { _maStatus = Nothing
+  , _maActionId = Nothing
+  , _maWindowStartTime = Nothing
+  , _maActionDescription = Nothing
+  , _maActionType = Nothing
+  }
+
 
 -- | The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
 maStatus :: Lens' ManagedAction (Maybe ActionStatus)
@@ -2178,9 +2212,9 @@ instance FromXML ManagedAction where
                 <*> (x .@? "ActionDescription")
                 <*> (x .@? "ActionType")
 
-instance Hashable ManagedAction
+instance Hashable ManagedAction where
 
-instance NFData ManagedAction
+instance NFData ManagedAction where
 
 -- | The record of a completed or failed managed action.
 --
@@ -2188,15 +2222,16 @@ instance NFData ManagedAction
 --
 -- /See:/ 'managedActionHistoryItem' smart constructor.
 data ManagedActionHistoryItem = ManagedActionHistoryItem'
-    { _mahiStatus             :: !(Maybe ActionHistoryStatus)
-    , _mahiFailureType        :: !(Maybe FailureType)
-    , _mahiActionId           :: !(Maybe Text)
-    , _mahiFailureDescription :: !(Maybe Text)
-    , _mahiFinishedTime       :: !(Maybe ISO8601)
-    , _mahiActionDescription  :: !(Maybe Text)
-    , _mahiExecutedTime       :: !(Maybe ISO8601)
-    , _mahiActionType         :: !(Maybe ActionType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mahiStatus             :: {-# NOUNPACK #-}!(Maybe ActionHistoryStatus)
+  , _mahiFailureType        :: {-# NOUNPACK #-}!(Maybe FailureType)
+  , _mahiActionId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mahiFailureDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mahiFinishedTime       :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _mahiActionDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mahiExecutedTime       :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _mahiActionType         :: {-# NOUNPACK #-}!(Maybe ActionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ManagedActionHistoryItem' with the minimum fields required to make a request.
 --
@@ -2220,16 +2255,17 @@ data ManagedActionHistoryItem = ManagedActionHistoryItem'
 managedActionHistoryItem
     :: ManagedActionHistoryItem
 managedActionHistoryItem =
-    ManagedActionHistoryItem'
-    { _mahiStatus = Nothing
-    , _mahiFailureType = Nothing
-    , _mahiActionId = Nothing
-    , _mahiFailureDescription = Nothing
-    , _mahiFinishedTime = Nothing
-    , _mahiActionDescription = Nothing
-    , _mahiExecutedTime = Nothing
-    , _mahiActionType = Nothing
-    }
+  ManagedActionHistoryItem'
+  { _mahiStatus = Nothing
+  , _mahiFailureType = Nothing
+  , _mahiActionId = Nothing
+  , _mahiFailureDescription = Nothing
+  , _mahiFinishedTime = Nothing
+  , _mahiActionDescription = Nothing
+  , _mahiExecutedTime = Nothing
+  , _mahiActionType = Nothing
+  }
+
 
 -- | The status of the action.
 mahiStatus :: Lens' ManagedActionHistoryItem (Maybe ActionHistoryStatus)
@@ -2274,9 +2310,9 @@ instance FromXML ManagedActionHistoryItem where
                 <*> (x .@? "ExecutedTime")
                 <*> (x .@? "ActionType")
 
-instance Hashable ManagedActionHistoryItem
+instance Hashable ManagedActionHistoryItem where
 
-instance NFData ManagedActionHistoryItem
+instance NFData ManagedActionHistoryItem where
 
 -- | A lifecycle rule that deletes application versions after the specified number of days.
 --
@@ -2284,10 +2320,11 @@ instance NFData ManagedActionHistoryItem
 --
 -- /See:/ 'maxAgeRule' smart constructor.
 data MaxAgeRule = MaxAgeRule'
-    { _marDeleteSourceFromS3 :: !(Maybe Bool)
-    , _marMaxAgeInDays       :: !(Maybe Int)
-    , _marEnabled            :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _marDeleteSourceFromS3 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _marMaxAgeInDays       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _marEnabled            :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaxAgeRule' with the minimum fields required to make a request.
 --
@@ -2302,11 +2339,12 @@ maxAgeRule
     :: Bool -- ^ 'marEnabled'
     -> MaxAgeRule
 maxAgeRule pEnabled_ =
-    MaxAgeRule'
-    { _marDeleteSourceFromS3 = Nothing
-    , _marMaxAgeInDays = Nothing
-    , _marEnabled = pEnabled_
-    }
+  MaxAgeRule'
+  { _marDeleteSourceFromS3 = Nothing
+  , _marMaxAgeInDays = Nothing
+  , _marEnabled = pEnabled_
+  }
+
 
 -- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 marDeleteSourceFromS3 :: Lens' MaxAgeRule (Maybe Bool)
@@ -2327,9 +2365,9 @@ instance FromXML MaxAgeRule where
                 (x .@? "MaxAgeInDays")
                 <*> (x .@ "Enabled")
 
-instance Hashable MaxAgeRule
+instance Hashable MaxAgeRule where
 
-instance NFData MaxAgeRule
+instance NFData MaxAgeRule where
 
 instance ToQuery MaxAgeRule where
         toQuery MaxAgeRule'{..}
@@ -2344,10 +2382,11 @@ instance ToQuery MaxAgeRule where
 --
 -- /See:/ 'maxCountRule' smart constructor.
 data MaxCountRule = MaxCountRule'
-    { _mcrMaxCount           :: !(Maybe Int)
-    , _mcrDeleteSourceFromS3 :: !(Maybe Bool)
-    , _mcrEnabled            :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcrMaxCount           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mcrDeleteSourceFromS3 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mcrEnabled            :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MaxCountRule' with the minimum fields required to make a request.
 --
@@ -2362,11 +2401,12 @@ maxCountRule
     :: Bool -- ^ 'mcrEnabled'
     -> MaxCountRule
 maxCountRule pEnabled_ =
-    MaxCountRule'
-    { _mcrMaxCount = Nothing
-    , _mcrDeleteSourceFromS3 = Nothing
-    , _mcrEnabled = pEnabled_
-    }
+  MaxCountRule'
+  { _mcrMaxCount = Nothing
+  , _mcrDeleteSourceFromS3 = Nothing
+  , _mcrEnabled = pEnabled_
+  }
+
 
 -- | Specify the maximum number of application versions to retain.
 mcrMaxCount :: Lens' MaxCountRule (Maybe Int)
@@ -2386,9 +2426,9 @@ instance FromXML MaxCountRule where
               (x .@? "MaxCount") <*> (x .@? "DeleteSourceFromS3")
                 <*> (x .@ "Enabled")
 
-instance Hashable MaxCountRule
+instance Hashable MaxCountRule where
 
-instance NFData MaxCountRule
+instance NFData MaxCountRule where
 
 instance ToQuery MaxCountRule where
         toQuery MaxCountRule'{..}
@@ -2403,9 +2443,10 @@ instance ToQuery MaxCountRule where
 --
 -- /See:/ 'optionRestrictionRegex' smart constructor.
 data OptionRestrictionRegex = OptionRestrictionRegex'
-    { _orrPattern :: !(Maybe Text)
-    , _orrLabel   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _orrPattern :: {-# NOUNPACK #-}!(Maybe Text)
+  , _orrLabel   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionRestrictionRegex' with the minimum fields required to make a request.
 --
@@ -2417,10 +2458,8 @@ data OptionRestrictionRegex = OptionRestrictionRegex'
 optionRestrictionRegex
     :: OptionRestrictionRegex
 optionRestrictionRegex =
-    OptionRestrictionRegex'
-    { _orrPattern = Nothing
-    , _orrLabel = Nothing
-    }
+  OptionRestrictionRegex' {_orrPattern = Nothing, _orrLabel = Nothing}
+
 
 -- | The regular expression pattern that a string configuration option value with this restriction must match.
 orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
@@ -2435,9 +2474,9 @@ instance FromXML OptionRestrictionRegex where
           = OptionRestrictionRegex' <$>
               (x .@? "Pattern") <*> (x .@? "Label")
 
-instance Hashable OptionRestrictionRegex
+instance Hashable OptionRestrictionRegex where
 
-instance NFData OptionRestrictionRegex
+instance NFData OptionRestrictionRegex where
 
 -- | A specification identifying an individual configuration option.
 --
@@ -2445,10 +2484,11 @@ instance NFData OptionRestrictionRegex
 --
 -- /See:/ 'optionSpecification' smart constructor.
 data OptionSpecification = OptionSpecification'
-    { _osOptionName   :: !(Maybe Text)
-    , _osResourceName :: !(Maybe Text)
-    , _osNamespace    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _osOptionName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _osResourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _osNamespace    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionSpecification' with the minimum fields required to make a request.
 --
@@ -2462,11 +2502,9 @@ data OptionSpecification = OptionSpecification'
 optionSpecification
     :: OptionSpecification
 optionSpecification =
-    OptionSpecification'
-    { _osOptionName = Nothing
-    , _osResourceName = Nothing
-    , _osNamespace = Nothing
-    }
+  OptionSpecification'
+  {_osOptionName = Nothing, _osResourceName = Nothing, _osNamespace = Nothing}
+
 
 -- | The name of the configuration option.
 osOptionName :: Lens' OptionSpecification (Maybe Text)
@@ -2480,9 +2518,9 @@ osResourceName = lens _osResourceName (\ s a -> s{_osResourceName = a});
 osNamespace :: Lens' OptionSpecification (Maybe Text)
 osNamespace = lens _osNamespace (\ s a -> s{_osNamespace = a});
 
-instance Hashable OptionSpecification
+instance Hashable OptionSpecification where
 
-instance NFData OptionSpecification
+instance NFData OptionSpecification where
 
 instance ToQuery OptionSpecification where
         toQuery OptionSpecification'{..}
@@ -2497,25 +2535,26 @@ instance ToQuery OptionSpecification where
 --
 -- /See:/ 'platformDescription' smart constructor.
 data PlatformDescription = PlatformDescription'
-    { _pdSupportedAddonList     :: !(Maybe [Text])
-    , _pdPlatformCategory       :: !(Maybe Text)
-    , _pdPlatformVersion        :: !(Maybe Text)
-    , _pdPlatformStatus         :: !(Maybe PlatformStatus)
-    , _pdMaintainer             :: !(Maybe Text)
-    , _pdPlatformOwner          :: !(Maybe Text)
-    , _pdDateUpdated            :: !(Maybe ISO8601)
-    , _pdCustomAMIList          :: !(Maybe [CustomAMI])
-    , _pdDateCreated            :: !(Maybe ISO8601)
-    , _pdOperatingSystemName    :: !(Maybe Text)
-    , _pdFrameworks             :: !(Maybe [PlatformFramework])
-    , _pdPlatformARN            :: !(Maybe Text)
-    , _pdOperatingSystemVersion :: !(Maybe Text)
-    , _pdProgrammingLanguages   :: !(Maybe [PlatformProgrammingLanguage])
-    , _pdSolutionStackName      :: !(Maybe Text)
-    , _pdPlatformName           :: !(Maybe Text)
-    , _pdDescription            :: !(Maybe Text)
-    , _pdSupportedTierList      :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pdSupportedAddonList :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pdPlatformCategory :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdPlatformVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdPlatformStatus :: {-# NOUNPACK #-}!(Maybe PlatformStatus)
+  , _pdMaintainer :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdPlatformOwner :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdDateUpdated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _pdCustomAMIList :: {-# NOUNPACK #-}!(Maybe [CustomAMI])
+  , _pdDateCreated :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _pdOperatingSystemName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdFrameworks :: {-# NOUNPACK #-}!(Maybe [PlatformFramework])
+  , _pdPlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdOperatingSystemVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdProgrammingLanguages :: {-# NOUNPACK #-}!(Maybe [PlatformProgrammingLanguage])
+  , _pdSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdPlatformName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdSupportedTierList :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlatformDescription' with the minimum fields required to make a request.
 --
@@ -2559,26 +2598,27 @@ data PlatformDescription = PlatformDescription'
 platformDescription
     :: PlatformDescription
 platformDescription =
-    PlatformDescription'
-    { _pdSupportedAddonList = Nothing
-    , _pdPlatformCategory = Nothing
-    , _pdPlatformVersion = Nothing
-    , _pdPlatformStatus = Nothing
-    , _pdMaintainer = Nothing
-    , _pdPlatformOwner = Nothing
-    , _pdDateUpdated = Nothing
-    , _pdCustomAMIList = Nothing
-    , _pdDateCreated = Nothing
-    , _pdOperatingSystemName = Nothing
-    , _pdFrameworks = Nothing
-    , _pdPlatformARN = Nothing
-    , _pdOperatingSystemVersion = Nothing
-    , _pdProgrammingLanguages = Nothing
-    , _pdSolutionStackName = Nothing
-    , _pdPlatformName = Nothing
-    , _pdDescription = Nothing
-    , _pdSupportedTierList = Nothing
-    }
+  PlatformDescription'
+  { _pdSupportedAddonList = Nothing
+  , _pdPlatformCategory = Nothing
+  , _pdPlatformVersion = Nothing
+  , _pdPlatformStatus = Nothing
+  , _pdMaintainer = Nothing
+  , _pdPlatformOwner = Nothing
+  , _pdDateUpdated = Nothing
+  , _pdCustomAMIList = Nothing
+  , _pdDateCreated = Nothing
+  , _pdOperatingSystemName = Nothing
+  , _pdFrameworks = Nothing
+  , _pdPlatformARN = Nothing
+  , _pdOperatingSystemVersion = Nothing
+  , _pdProgrammingLanguages = Nothing
+  , _pdSolutionStackName = Nothing
+  , _pdPlatformName = Nothing
+  , _pdDescription = Nothing
+  , _pdSupportedTierList = Nothing
+  }
+
 
 -- | The additions supported by the platform.
 pdSupportedAddonList :: Lens' PlatformDescription [Text]
@@ -2683,9 +2723,9 @@ instance FromXML PlatformDescription where
                 (x .@? "SupportedTierList" .!@ mempty >>=
                    may (parseXMLList "member"))
 
-instance Hashable PlatformDescription
+instance Hashable PlatformDescription where
 
-instance NFData PlatformDescription
+instance NFData PlatformDescription where
 
 -- | Specify criteria to restrict the results when listing custom platforms.
 --
@@ -2697,10 +2737,11 @@ instance NFData PlatformDescription
 --
 -- /See:/ 'platformFilter' smart constructor.
 data PlatformFilter = PlatformFilter'
-    { _pfValues   :: !(Maybe [Text])
-    , _pfOperator :: !(Maybe Text)
-    , _pfType     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfValues   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pfOperator :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfType     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlatformFilter' with the minimum fields required to make a request.
 --
@@ -2714,11 +2755,9 @@ data PlatformFilter = PlatformFilter'
 platformFilter
     :: PlatformFilter
 platformFilter =
-    PlatformFilter'
-    { _pfValues = Nothing
-    , _pfOperator = Nothing
-    , _pfType = Nothing
-    }
+  PlatformFilter'
+  {_pfValues = Nothing, _pfOperator = Nothing, _pfType = Nothing}
+
 
 -- | The list of values applied to the custom platform attribute.
 pfValues :: Lens' PlatformFilter [Text]
@@ -2732,9 +2771,9 @@ pfOperator = lens _pfOperator (\ s a -> s{_pfOperator = a});
 pfType :: Lens' PlatformFilter (Maybe Text)
 pfType = lens _pfType (\ s a -> s{_pfType = a});
 
-instance Hashable PlatformFilter
+instance Hashable PlatformFilter where
 
-instance NFData PlatformFilter
+instance NFData PlatformFilter where
 
 instance ToQuery PlatformFilter where
         toQuery PlatformFilter'{..}
@@ -2749,9 +2788,10 @@ instance ToQuery PlatformFilter where
 --
 -- /See:/ 'platformFramework' smart constructor.
 data PlatformFramework = PlatformFramework'
-    { _pfName    :: !(Maybe Text)
-    , _pfVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlatformFramework' with the minimum fields required to make a request.
 --
@@ -2762,11 +2802,8 @@ data PlatformFramework = PlatformFramework'
 -- * 'pfVersion' - The version of the framework.
 platformFramework
     :: PlatformFramework
-platformFramework =
-    PlatformFramework'
-    { _pfName = Nothing
-    , _pfVersion = Nothing
-    }
+platformFramework = PlatformFramework' {_pfName = Nothing, _pfVersion = Nothing}
+
 
 -- | The name of the framework.
 pfName :: Lens' PlatformFramework (Maybe Text)
@@ -2781,9 +2818,9 @@ instance FromXML PlatformFramework where
           = PlatformFramework' <$>
               (x .@? "Name") <*> (x .@? "Version")
 
-instance Hashable PlatformFramework
+instance Hashable PlatformFramework where
 
-instance NFData PlatformFramework
+instance NFData PlatformFramework where
 
 -- | A programming language supported by the platform.
 --
@@ -2791,9 +2828,10 @@ instance NFData PlatformFramework
 --
 -- /See:/ 'platformProgrammingLanguage' smart constructor.
 data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
-    { _pplName    :: !(Maybe Text)
-    , _pplVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pplName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pplVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlatformProgrammingLanguage' with the minimum fields required to make a request.
 --
@@ -2805,10 +2843,8 @@ data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
 platformProgrammingLanguage
     :: PlatformProgrammingLanguage
 platformProgrammingLanguage =
-    PlatformProgrammingLanguage'
-    { _pplName = Nothing
-    , _pplVersion = Nothing
-    }
+  PlatformProgrammingLanguage' {_pplName = Nothing, _pplVersion = Nothing}
+
 
 -- | The name of the programming language.
 pplName :: Lens' PlatformProgrammingLanguage (Maybe Text)
@@ -2823,9 +2859,9 @@ instance FromXML PlatformProgrammingLanguage where
           = PlatformProgrammingLanguage' <$>
               (x .@? "Name") <*> (x .@? "Version")
 
-instance Hashable PlatformProgrammingLanguage
+instance Hashable PlatformProgrammingLanguage where
 
-instance NFData PlatformProgrammingLanguage
+instance NFData PlatformProgrammingLanguage where
 
 -- | Detailed information about a platform.
 --
@@ -2833,15 +2869,16 @@ instance NFData PlatformProgrammingLanguage
 --
 -- /See:/ 'platformSummary' smart constructor.
 data PlatformSummary = PlatformSummary'
-    { _psSupportedAddonList     :: !(Maybe [Text])
-    , _psPlatformCategory       :: !(Maybe Text)
-    , _psPlatformStatus         :: !(Maybe PlatformStatus)
-    , _psPlatformOwner          :: !(Maybe Text)
-    , _psOperatingSystemName    :: !(Maybe Text)
-    , _psPlatformARN            :: !(Maybe Text)
-    , _psOperatingSystemVersion :: !(Maybe Text)
-    , _psSupportedTierList      :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psSupportedAddonList     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _psPlatformCategory       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psPlatformStatus         :: {-# NOUNPACK #-}!(Maybe PlatformStatus)
+  , _psPlatformOwner          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psOperatingSystemName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psPlatformARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psOperatingSystemVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psSupportedTierList      :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlatformSummary' with the minimum fields required to make a request.
 --
@@ -2865,16 +2902,17 @@ data PlatformSummary = PlatformSummary'
 platformSummary
     :: PlatformSummary
 platformSummary =
-    PlatformSummary'
-    { _psSupportedAddonList = Nothing
-    , _psPlatformCategory = Nothing
-    , _psPlatformStatus = Nothing
-    , _psPlatformOwner = Nothing
-    , _psOperatingSystemName = Nothing
-    , _psPlatformARN = Nothing
-    , _psOperatingSystemVersion = Nothing
-    , _psSupportedTierList = Nothing
-    }
+  PlatformSummary'
+  { _psSupportedAddonList = Nothing
+  , _psPlatformCategory = Nothing
+  , _psPlatformStatus = Nothing
+  , _psPlatformOwner = Nothing
+  , _psOperatingSystemName = Nothing
+  , _psPlatformARN = Nothing
+  , _psOperatingSystemVersion = Nothing
+  , _psSupportedTierList = Nothing
+  }
+
 
 -- | The additions associated with the platform.
 psSupportedAddonList :: Lens' PlatformSummary [Text]
@@ -2923,9 +2961,9 @@ instance FromXML PlatformSummary where
                 (x .@? "SupportedTierList" .!@ mempty >>=
                    may (parseXMLList "member"))
 
-instance Hashable PlatformSummary
+instance Hashable PlatformSummary where
 
-instance NFData PlatformSummary
+instance NFData PlatformSummary where
 
 -- | Describes a queue.
 --
@@ -2933,9 +2971,10 @@ instance NFData PlatformSummary
 --
 -- /See:/ 'queue' smart constructor.
 data Queue = Queue'
-    { _qURL  :: !(Maybe Text)
-    , _qName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Queue' with the minimum fields required to make a request.
 --
@@ -2946,11 +2985,8 @@ data Queue = Queue'
 -- * 'qName' - The name of the queue.
 queue
     :: Queue
-queue =
-    Queue'
-    { _qURL = Nothing
-    , _qName = Nothing
-    }
+queue = Queue' {_qURL = Nothing, _qName = Nothing}
+
 
 -- | The URL of the queue.
 qURL :: Lens' Queue (Maybe Text)
@@ -2964,9 +3000,9 @@ instance FromXML Queue where
         parseXML x
           = Queue' <$> (x .@? "URL") <*> (x .@? "Name")
 
-instance Hashable Queue
+instance Hashable Queue where
 
-instance NFData Queue
+instance NFData Queue where
 
 -- | The bucket and key of an item stored in Amazon S3.
 --
@@ -2974,9 +3010,10 @@ instance NFData Queue
 --
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
-    { _slS3Key    :: !(Maybe Text)
-    , _slS3Bucket :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slS3Key    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _slS3Bucket :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
@@ -2987,11 +3024,8 @@ data S3Location = S3Location'
 -- * 'slS3Bucket' - The Amazon S3 bucket where the data is located.
 s3Location
     :: S3Location
-s3Location =
-    S3Location'
-    { _slS3Key = Nothing
-    , _slS3Bucket = Nothing
-    }
+s3Location = S3Location' {_slS3Key = Nothing, _slS3Bucket = Nothing}
+
 
 -- | The Amazon S3 key where the data is located.
 slS3Key :: Lens' S3Location (Maybe Text)
@@ -3006,9 +3040,9 @@ instance FromXML S3Location where
           = S3Location' <$>
               (x .@? "S3Key") <*> (x .@? "S3Bucket")
 
-instance Hashable S3Location
+instance Hashable S3Location where
 
-instance NFData S3Location
+instance NFData S3Location where
 
 instance ToQuery S3Location where
         toQuery S3Location'{..}
@@ -3021,17 +3055,18 @@ instance ToQuery S3Location where
 --
 -- /See:/ 'singleInstanceHealth' smart constructor.
 data SingleInstanceHealth = SingleInstanceHealth'
-    { _sihInstanceId         :: !(Maybe Text)
-    , _sihCauses             :: !(Maybe [Text])
-    , _sihSystem             :: !(Maybe SystemStatus)
-    , _sihApplicationMetrics :: !(Maybe ApplicationMetrics)
-    , _sihColor              :: !(Maybe Text)
-    , _sihInstanceType       :: !(Maybe Text)
-    , _sihAvailabilityZone   :: !(Maybe Text)
-    , _sihHealthStatus       :: !(Maybe Text)
-    , _sihDeployment         :: !(Maybe Deployment)
-    , _sihLaunchedAt         :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sihInstanceId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sihCauses             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sihSystem             :: {-# NOUNPACK #-}!(Maybe SystemStatus)
+  , _sihApplicationMetrics :: {-# NOUNPACK #-}!(Maybe ApplicationMetrics)
+  , _sihColor              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sihInstanceType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sihAvailabilityZone   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sihHealthStatus       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sihDeployment         :: {-# NOUNPACK #-}!(Maybe Deployment)
+  , _sihLaunchedAt         :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SingleInstanceHealth' with the minimum fields required to make a request.
 --
@@ -3059,18 +3094,19 @@ data SingleInstanceHealth = SingleInstanceHealth'
 singleInstanceHealth
     :: SingleInstanceHealth
 singleInstanceHealth =
-    SingleInstanceHealth'
-    { _sihInstanceId = Nothing
-    , _sihCauses = Nothing
-    , _sihSystem = Nothing
-    , _sihApplicationMetrics = Nothing
-    , _sihColor = Nothing
-    , _sihInstanceType = Nothing
-    , _sihAvailabilityZone = Nothing
-    , _sihHealthStatus = Nothing
-    , _sihDeployment = Nothing
-    , _sihLaunchedAt = Nothing
-    }
+  SingleInstanceHealth'
+  { _sihInstanceId = Nothing
+  , _sihCauses = Nothing
+  , _sihSystem = Nothing
+  , _sihApplicationMetrics = Nothing
+  , _sihColor = Nothing
+  , _sihInstanceType = Nothing
+  , _sihAvailabilityZone = Nothing
+  , _sihHealthStatus = Nothing
+  , _sihDeployment = Nothing
+  , _sihLaunchedAt = Nothing
+  }
+
 
 -- | The ID of the Amazon EC2 instance.
 sihInstanceId :: Lens' SingleInstanceHealth (Maybe Text)
@@ -3127,9 +3163,9 @@ instance FromXML SingleInstanceHealth where
                 <*> (x .@? "Deployment")
                 <*> (x .@? "LaunchedAt")
 
-instance Hashable SingleInstanceHealth
+instance Hashable SingleInstanceHealth where
 
-instance NFData SingleInstanceHealth
+instance NFData SingleInstanceHealth where
 
 -- | Describes the solution stack.
 --
@@ -3137,9 +3173,10 @@ instance NFData SingleInstanceHealth
 --
 -- /See:/ 'solutionStackDescription' smart constructor.
 data SolutionStackDescription = SolutionStackDescription'
-    { _ssdPermittedFileTypes :: !(Maybe [Text])
-    , _ssdSolutionStackName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssdPermittedFileTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ssdSolutionStackName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SolutionStackDescription' with the minimum fields required to make a request.
 --
@@ -3151,10 +3188,9 @@ data SolutionStackDescription = SolutionStackDescription'
 solutionStackDescription
     :: SolutionStackDescription
 solutionStackDescription =
-    SolutionStackDescription'
-    { _ssdPermittedFileTypes = Nothing
-    , _ssdSolutionStackName = Nothing
-    }
+  SolutionStackDescription'
+  {_ssdPermittedFileTypes = Nothing, _ssdSolutionStackName = Nothing}
+
 
 -- | The permitted file types allowed for a solution stack.
 ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
@@ -3171,9 +3207,9 @@ instance FromXML SolutionStackDescription where
                  may (parseXMLList "member"))
                 <*> (x .@? "SolutionStackName")
 
-instance Hashable SolutionStackDescription
+instance Hashable SolutionStackDescription where
 
-instance NFData SolutionStackDescription
+instance NFData SolutionStackDescription where
 
 -- | Location of the source code for an application version.
 --
@@ -3181,10 +3217,11 @@ instance NFData SolutionStackDescription
 --
 -- /See:/ 'sourceBuildInformation' smart constructor.
 data SourceBuildInformation = SourceBuildInformation'
-    { _sbiSourceType       :: !SourceType
-    , _sbiSourceRepository :: !SourceRepository
-    , _sbiSourceLocation   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sbiSourceType       :: {-# NOUNPACK #-}!SourceType
+  , _sbiSourceRepository :: {-# NOUNPACK #-}!SourceRepository
+  , _sbiSourceLocation   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SourceBuildInformation' with the minimum fields required to make a request.
 --
@@ -3201,11 +3238,12 @@ sourceBuildInformation
     -> Text -- ^ 'sbiSourceLocation'
     -> SourceBuildInformation
 sourceBuildInformation pSourceType_ pSourceRepository_ pSourceLocation_ =
-    SourceBuildInformation'
-    { _sbiSourceType = pSourceType_
-    , _sbiSourceRepository = pSourceRepository_
-    , _sbiSourceLocation = pSourceLocation_
-    }
+  SourceBuildInformation'
+  { _sbiSourceType = pSourceType_
+  , _sbiSourceRepository = pSourceRepository_
+  , _sbiSourceLocation = pSourceLocation_
+  }
+
 
 -- | The type of repository.     * @Git@      * @Zip@
 sbiSourceType :: Lens' SourceBuildInformation SourceType
@@ -3225,9 +3263,9 @@ instance FromXML SourceBuildInformation where
               (x .@ "SourceType") <*> (x .@ "SourceRepository") <*>
                 (x .@ "SourceLocation")
 
-instance Hashable SourceBuildInformation
+instance Hashable SourceBuildInformation where
 
-instance NFData SourceBuildInformation
+instance NFData SourceBuildInformation where
 
 instance ToQuery SourceBuildInformation where
         toQuery SourceBuildInformation'{..}
@@ -3242,9 +3280,10 @@ instance ToQuery SourceBuildInformation where
 --
 -- /See:/ 'sourceConfiguration' smart constructor.
 data SourceConfiguration = SourceConfiguration'
-    { _scTemplateName    :: !(Maybe Text)
-    , _scApplicationName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scTemplateName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SourceConfiguration' with the minimum fields required to make a request.
 --
@@ -3256,10 +3295,8 @@ data SourceConfiguration = SourceConfiguration'
 sourceConfiguration
     :: SourceConfiguration
 sourceConfiguration =
-    SourceConfiguration'
-    { _scTemplateName = Nothing
-    , _scApplicationName = Nothing
-    }
+  SourceConfiguration' {_scTemplateName = Nothing, _scApplicationName = Nothing}
+
 
 -- | The name of the configuration template.
 scTemplateName :: Lens' SourceConfiguration (Maybe Text)
@@ -3269,9 +3306,9 @@ scTemplateName = lens _scTemplateName (\ s a -> s{_scTemplateName = a});
 scApplicationName :: Lens' SourceConfiguration (Maybe Text)
 scApplicationName = lens _scApplicationName (\ s a -> s{_scApplicationName = a});
 
-instance Hashable SourceConfiguration
+instance Hashable SourceConfiguration where
 
-instance NFData SourceConfiguration
+instance NFData SourceConfiguration where
 
 instance ToQuery SourceConfiguration where
         toQuery SourceConfiguration'{..}
@@ -3285,11 +3322,12 @@ instance ToQuery SourceConfiguration where
 --
 -- /See:/ 'statusCodes' smart constructor.
 data StatusCodes = StatusCodes'
-    { _scStatus2xx :: !(Maybe Int)
-    , _scStatus3xx :: !(Maybe Int)
-    , _scStatus4xx :: !(Maybe Int)
-    , _scStatus5xx :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scStatus2xx :: {-# NOUNPACK #-}!(Maybe Int)
+  , _scStatus3xx :: {-# NOUNPACK #-}!(Maybe Int)
+  , _scStatus4xx :: {-# NOUNPACK #-}!(Maybe Int)
+  , _scStatus5xx :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StatusCodes' with the minimum fields required to make a request.
 --
@@ -3305,12 +3343,13 @@ data StatusCodes = StatusCodes'
 statusCodes
     :: StatusCodes
 statusCodes =
-    StatusCodes'
-    { _scStatus2xx = Nothing
-    , _scStatus3xx = Nothing
-    , _scStatus4xx = Nothing
-    , _scStatus5xx = Nothing
-    }
+  StatusCodes'
+  { _scStatus2xx = Nothing
+  , _scStatus3xx = Nothing
+  , _scStatus4xx = Nothing
+  , _scStatus5xx = Nothing
+  }
+
 
 -- | The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201, etc.) status code.
 scStatus2xx :: Lens' StatusCodes (Maybe Int)
@@ -3335,9 +3374,9 @@ instance FromXML StatusCodes where
                 (x .@? "Status4xx")
                 <*> (x .@? "Status5xx")
 
-instance Hashable StatusCodes
+instance Hashable StatusCodes where
 
-instance NFData StatusCodes
+instance NFData StatusCodes where
 
 -- | CPU utilization and load average metrics for an Amazon EC2 instance.
 --
@@ -3345,9 +3384,10 @@ instance NFData StatusCodes
 --
 -- /See:/ 'systemStatus' smart constructor.
 data SystemStatus = SystemStatus'
-    { _ssCPUUtilization :: !(Maybe CPUUtilization)
-    , _ssLoadAverage    :: !(Maybe [Double])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssCPUUtilization :: {-# NOUNPACK #-}!(Maybe CPUUtilization)
+  , _ssLoadAverage    :: {-# NOUNPACK #-}!(Maybe [Double])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SystemStatus' with the minimum fields required to make a request.
 --
@@ -3359,10 +3399,8 @@ data SystemStatus = SystemStatus'
 systemStatus
     :: SystemStatus
 systemStatus =
-    SystemStatus'
-    { _ssCPUUtilization = Nothing
-    , _ssLoadAverage = Nothing
-    }
+  SystemStatus' {_ssCPUUtilization = Nothing, _ssLoadAverage = Nothing}
+
 
 -- | CPU utilization metrics for the instance.
 ssCPUUtilization :: Lens' SystemStatus (Maybe CPUUtilization)
@@ -3379,9 +3417,9 @@ instance FromXML SystemStatus where
                 (x .@? "LoadAverage" .!@ mempty >>=
                    may (parseXMLList "member"))
 
-instance Hashable SystemStatus
+instance Hashable SystemStatus where
 
-instance NFData SystemStatus
+instance NFData SystemStatus where
 
 -- | Describes a tag applied to a resource in an environment.
 --
@@ -3389,9 +3427,10 @@ instance NFData SystemStatus
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -3402,11 +3441,8 @@ data Tag = Tag'
 -- * 'tagKey' - The key of the tag.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -3416,9 +3452,9 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -3430,8 +3466,9 @@ instance ToQuery Tag where
 --
 -- /See:/ 'trigger' smart constructor.
 newtype Trigger = Trigger'
-    { _tName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Trigger' with the minimum fields required to make a request.
 --
@@ -3440,10 +3477,8 @@ newtype Trigger = Trigger'
 -- * 'tName' - The name of the trigger.
 trigger
     :: Trigger
-trigger =
-    Trigger'
-    { _tName = Nothing
-    }
+trigger = Trigger' {_tName = Nothing}
+
 
 -- | The name of the trigger.
 tName :: Lens' Trigger (Maybe Text)
@@ -3452,9 +3487,9 @@ tName = lens _tName (\ s a -> s{_tName = a});
 instance FromXML Trigger where
         parseXML x = Trigger' <$> (x .@? "Name")
 
-instance Hashable Trigger
+instance Hashable Trigger where
 
-instance NFData Trigger
+instance NFData Trigger where
 
 -- | An error or warning for a desired configuration option value.
 --
@@ -3462,11 +3497,12 @@ instance NFData Trigger
 --
 -- /See:/ 'validationMessage' smart constructor.
 data ValidationMessage = ValidationMessage'
-    { _vmOptionName :: !(Maybe Text)
-    , _vmSeverity   :: !(Maybe ValidationSeverity)
-    , _vmNamespace  :: !(Maybe Text)
-    , _vmMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vmOptionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmSeverity   :: {-# NOUNPACK #-}!(Maybe ValidationSeverity)
+  , _vmNamespace  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValidationMessage' with the minimum fields required to make a request.
 --
@@ -3482,12 +3518,13 @@ data ValidationMessage = ValidationMessage'
 validationMessage
     :: ValidationMessage
 validationMessage =
-    ValidationMessage'
-    { _vmOptionName = Nothing
-    , _vmSeverity = Nothing
-    , _vmNamespace = Nothing
-    , _vmMessage = Nothing
-    }
+  ValidationMessage'
+  { _vmOptionName = Nothing
+  , _vmSeverity = Nothing
+  , _vmNamespace = Nothing
+  , _vmMessage = Nothing
+  }
+
 
 -- | The name of the option.
 vmOptionName :: Lens' ValidationMessage (Maybe Text)
@@ -3512,6 +3549,6 @@ instance FromXML ValidationMessage where
                 (x .@? "Namespace")
                 <*> (x .@? "Message")
 
-instance Hashable ValidationMessage
+instance Hashable ValidationMessage where
 
-instance NFData ValidationMessage
+instance NFData ValidationMessage where

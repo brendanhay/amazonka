@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -1001,39 +1001,39 @@ module Network.AWS.SWF
     , wtiCreationDate
     ) where
 
-import           Network.AWS.SWF.CountClosedWorkflowExecutions
-import           Network.AWS.SWF.CountOpenWorkflowExecutions
-import           Network.AWS.SWF.CountPendingActivityTasks
-import           Network.AWS.SWF.CountPendingDecisionTasks
-import           Network.AWS.SWF.DeprecateActivityType
-import           Network.AWS.SWF.DeprecateDomain
-import           Network.AWS.SWF.DeprecateWorkflowType
-import           Network.AWS.SWF.DescribeActivityType
-import           Network.AWS.SWF.DescribeDomain
-import           Network.AWS.SWF.DescribeWorkflowExecution
-import           Network.AWS.SWF.DescribeWorkflowType
-import           Network.AWS.SWF.GetWorkflowExecutionHistory
-import           Network.AWS.SWF.ListActivityTypes
-import           Network.AWS.SWF.ListClosedWorkflowExecutions
-import           Network.AWS.SWF.ListDomains
-import           Network.AWS.SWF.ListOpenWorkflowExecutions
-import           Network.AWS.SWF.ListWorkflowTypes
-import           Network.AWS.SWF.PollForActivityTask
-import           Network.AWS.SWF.PollForDecisionTask
-import           Network.AWS.SWF.RecordActivityTaskHeartbeat
-import           Network.AWS.SWF.RegisterActivityType
-import           Network.AWS.SWF.RegisterDomain
-import           Network.AWS.SWF.RegisterWorkflowType
-import           Network.AWS.SWF.RequestCancelWorkflowExecution
-import           Network.AWS.SWF.RespondActivityTaskCanceled
-import           Network.AWS.SWF.RespondActivityTaskCompleted
-import           Network.AWS.SWF.RespondActivityTaskFailed
-import           Network.AWS.SWF.RespondDecisionTaskCompleted
-import           Network.AWS.SWF.SignalWorkflowExecution
-import           Network.AWS.SWF.StartWorkflowExecution
-import           Network.AWS.SWF.TerminateWorkflowExecution
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Waiters
+import Network.AWS.SWF.CountClosedWorkflowExecutions
+import Network.AWS.SWF.CountOpenWorkflowExecutions
+import Network.AWS.SWF.CountPendingActivityTasks
+import Network.AWS.SWF.CountPendingDecisionTasks
+import Network.AWS.SWF.DeprecateActivityType
+import Network.AWS.SWF.DeprecateDomain
+import Network.AWS.SWF.DeprecateWorkflowType
+import Network.AWS.SWF.DescribeActivityType
+import Network.AWS.SWF.DescribeDomain
+import Network.AWS.SWF.DescribeWorkflowExecution
+import Network.AWS.SWF.DescribeWorkflowType
+import Network.AWS.SWF.GetWorkflowExecutionHistory
+import Network.AWS.SWF.ListActivityTypes
+import Network.AWS.SWF.ListClosedWorkflowExecutions
+import Network.AWS.SWF.ListDomains
+import Network.AWS.SWF.ListOpenWorkflowExecutions
+import Network.AWS.SWF.ListWorkflowTypes
+import Network.AWS.SWF.PollForActivityTask
+import Network.AWS.SWF.PollForDecisionTask
+import Network.AWS.SWF.RecordActivityTaskHeartbeat
+import Network.AWS.SWF.RegisterActivityType
+import Network.AWS.SWF.RegisterDomain
+import Network.AWS.SWF.RegisterWorkflowType
+import Network.AWS.SWF.RequestCancelWorkflowExecution
+import Network.AWS.SWF.RespondActivityTaskCanceled
+import Network.AWS.SWF.RespondActivityTaskCompleted
+import Network.AWS.SWF.RespondActivityTaskFailed
+import Network.AWS.SWF.RespondDecisionTaskCompleted
+import Network.AWS.SWF.SignalWorkflowExecution
+import Network.AWS.SWF.StartWorkflowExecution
+import Network.AWS.SWF.TerminateWorkflowExecution
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

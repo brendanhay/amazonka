@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListOnPremisesInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
     , lopirsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a ListOnPremisesInstances operation.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listOnPremisesInstances' smart constructor.
 data ListOnPremisesInstances = ListOnPremisesInstances'
-    { _lopiTagFilters         :: !(Maybe [TagFilter])
-    , _lopiNextToken          :: !(Maybe Text)
-    , _lopiRegistrationStatus :: !(Maybe RegistrationStatus)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lopiTagFilters         :: {-# NOUNPACK #-}!(Maybe [TagFilter])
+  , _lopiNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lopiRegistrationStatus :: {-# NOUNPACK #-}!(Maybe RegistrationStatus)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOnPremisesInstances' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
 listOnPremisesInstances
     :: ListOnPremisesInstances
 listOnPremisesInstances =
-    ListOnPremisesInstances'
-    { _lopiTagFilters = Nothing
-    , _lopiNextToken = Nothing
-    , _lopiRegistrationStatus = Nothing
-    }
+  ListOnPremisesInstances'
+  { _lopiTagFilters = Nothing
+  , _lopiNextToken = Nothing
+  , _lopiRegistrationStatus = Nothing
+  }
+
 
 -- | The on-premises instance tags that will be used to restrict the corresponding on-premises instance names returned.
 lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
@@ -102,9 +104,9 @@ instance AWSRequest ListOnPremisesInstances where
                      (x .?> "instanceNames" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListOnPremisesInstances
+instance Hashable ListOnPremisesInstances where
 
-instance NFData ListOnPremisesInstances
+instance NFData ListOnPremisesInstances where
 
 instance ToHeaders ListOnPremisesInstances where
         toHeaders
@@ -137,10 +139,11 @@ instance ToQuery ListOnPremisesInstances where
 --
 -- /See:/ 'listOnPremisesInstancesResponse' smart constructor.
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
-    { _lopirsNextToken      :: !(Maybe Text)
-    , _lopirsInstanceNames  :: !(Maybe [Text])
-    , _lopirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lopirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lopirsInstanceNames  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lopirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOnPremisesInstancesResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +158,12 @@ listOnPremisesInstancesResponse
     :: Int -- ^ 'lopirsResponseStatus'
     -> ListOnPremisesInstancesResponse
 listOnPremisesInstancesResponse pResponseStatus_ =
-    ListOnPremisesInstancesResponse'
-    { _lopirsNextToken = Nothing
-    , _lopirsInstanceNames = Nothing
-    , _lopirsResponseStatus = pResponseStatus_
-    }
+  ListOnPremisesInstancesResponse'
+  { _lopirsNextToken = Nothing
+  , _lopirsInstanceNames = Nothing
+  , _lopirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
 lopirsNextToken :: Lens' ListOnPremisesInstancesResponse (Maybe Text)
@@ -173,4 +177,4 @@ lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames
 lopirsResponseStatus :: Lens' ListOnPremisesInstancesResponse Int
 lopirsResponseStatus = lens _lopirsResponseStatus (\ s a -> s{_lopirsResponseStatus = a});
 
-instance NFData ListOnPremisesInstancesResponse
+instance NFData ListOnPremisesInstancesResponse where

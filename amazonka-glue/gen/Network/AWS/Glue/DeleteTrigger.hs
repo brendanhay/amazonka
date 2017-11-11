@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteTrigger
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.DeleteTrigger
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteTrigger' smart constructor.
 newtype DeleteTrigger = DeleteTrigger'
-    { _dttName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dttName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTrigger' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DeleteTrigger = DeleteTrigger'
 deleteTrigger
     :: Text -- ^ 'dttName'
     -> DeleteTrigger
-deleteTrigger pName_ =
-    DeleteTrigger'
-    { _dttName = pName_
-    }
+deleteTrigger pName_ = DeleteTrigger' {_dttName = pName_}
+
 
 -- | The name of the trigger to delete.
 dttName :: Lens' DeleteTrigger Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteTrigger where
                  DeleteTriggerResponse' <$>
                    (x .?> "Name") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteTrigger
+instance Hashable DeleteTrigger where
 
-instance NFData DeleteTrigger
+instance NFData DeleteTrigger where
 
 instance ToHeaders DeleteTrigger where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery DeleteTrigger where
 
 -- | /See:/ 'deleteTriggerResponse' smart constructor.
 data DeleteTriggerResponse = DeleteTriggerResponse'
-    { _delrsName           :: !(Maybe Text)
-    , _delrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTriggerResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ deleteTriggerResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteTriggerResponse
 deleteTriggerResponse pResponseStatus_ =
-    DeleteTriggerResponse'
-    { _delrsName = Nothing
-    , _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteTriggerResponse'
+  {_delrsName = Nothing, _delrsResponseStatus = pResponseStatus_}
+
 
 -- | The name of the trigger that was deleted.
 delrsName :: Lens' DeleteTriggerResponse (Maybe Text)
@@ -128,4 +127,4 @@ delrsName = lens _delrsName (\ s a -> s{_delrsName = a});
 delrsResponseStatus :: Lens' DeleteTriggerResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteTriggerResponse
+instance NFData DeleteTriggerResponse where

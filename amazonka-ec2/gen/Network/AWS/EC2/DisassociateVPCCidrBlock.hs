@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisassociateVPCCidrBlock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.EC2.DisassociateVPCCidrBlock
     , dvcbrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateVPCCidrBlock' smart constructor.
 newtype DisassociateVPCCidrBlock = DisassociateVPCCidrBlock'
-    { _dvcbAssociationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvcbAssociationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateVPCCidrBlock' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ disassociateVPCCidrBlock
     :: Text -- ^ 'dvcbAssociationId'
     -> DisassociateVPCCidrBlock
 disassociateVPCCidrBlock pAssociationId_ =
-    DisassociateVPCCidrBlock'
-    { _dvcbAssociationId = pAssociationId_
-    }
+  DisassociateVPCCidrBlock' {_dvcbAssociationId = pAssociationId_}
+
 
 -- | The association ID for the CIDR block.
 dvcbAssociationId :: Lens' DisassociateVPCCidrBlock Text
@@ -79,9 +79,9 @@ instance AWSRequest DisassociateVPCCidrBlock where
                      (x .@? "ipv6CidrBlockAssociation")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DisassociateVPCCidrBlock
+instance Hashable DisassociateVPCCidrBlock where
 
-instance NFData DisassociateVPCCidrBlock
+instance NFData DisassociateVPCCidrBlock where
 
 instance ToHeaders DisassociateVPCCidrBlock where
         toHeaders = const mempty
@@ -99,10 +99,11 @@ instance ToQuery DisassociateVPCCidrBlock where
 
 -- | /See:/ 'disassociateVPCCidrBlockResponse' smart constructor.
 data DisassociateVPCCidrBlockResponse = DisassociateVPCCidrBlockResponse'
-    { _dvcbrsVPCId                    :: !(Maybe Text)
-    , _dvcbrsIPv6CidrBlockAssociation :: !(Maybe VPCIPv6CidrBlockAssociation)
-    , _dvcbrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvcbrsVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvcbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCIPv6CidrBlockAssociation)
+  , _dvcbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateVPCCidrBlockResponse' with the minimum fields required to make a request.
 --
@@ -117,11 +118,12 @@ disassociateVPCCidrBlockResponse
     :: Int -- ^ 'dvcbrsResponseStatus'
     -> DisassociateVPCCidrBlockResponse
 disassociateVPCCidrBlockResponse pResponseStatus_ =
-    DisassociateVPCCidrBlockResponse'
-    { _dvcbrsVPCId = Nothing
-    , _dvcbrsIPv6CidrBlockAssociation = Nothing
-    , _dvcbrsResponseStatus = pResponseStatus_
-    }
+  DisassociateVPCCidrBlockResponse'
+  { _dvcbrsVPCId = Nothing
+  , _dvcbrsIPv6CidrBlockAssociation = Nothing
+  , _dvcbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the VPC.
 dvcbrsVPCId :: Lens' DisassociateVPCCidrBlockResponse (Maybe Text)
@@ -136,3 +138,4 @@ dvcbrsResponseStatus :: Lens' DisassociateVPCCidrBlockResponse Int
 dvcbrsResponseStatus = lens _dvcbrsResponseStatus (\ s a -> s{_dvcbrsResponseStatus = a});
 
 instance NFData DisassociateVPCCidrBlockResponse
+         where

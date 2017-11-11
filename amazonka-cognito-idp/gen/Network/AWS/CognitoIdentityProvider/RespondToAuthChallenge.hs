@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
     , rtacrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to respond to an authentication challenge.
 --
@@ -56,11 +56,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'respondToAuthChallenge' smart constructor.
 data RespondToAuthChallenge = RespondToAuthChallenge'
-    { _rtacChallengeResponses :: !(Maybe (Map Text Text))
-    , _rtacSession            :: !(Maybe Text)
-    , _rtacClientId           :: !(Sensitive Text)
-    , _rtacChallengeName      :: !ChallengeNameType
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rtacChallengeResponses :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _rtacSession            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtacClientId           :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _rtacChallengeName      :: {-# NOUNPACK #-}!ChallengeNameType
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondToAuthChallenge' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ respondToAuthChallenge
     -> ChallengeNameType -- ^ 'rtacChallengeName'
     -> RespondToAuthChallenge
 respondToAuthChallenge pClientId_ pChallengeName_ =
-    RespondToAuthChallenge'
-    { _rtacChallengeResponses = Nothing
-    , _rtacSession = Nothing
-    , _rtacClientId = _Sensitive # pClientId_
-    , _rtacChallengeName = pChallengeName_
-    }
+  RespondToAuthChallenge'
+  { _rtacChallengeResponses = Nothing
+  , _rtacSession = Nothing
+  , _rtacClientId = _Sensitive # pClientId_
+  , _rtacChallengeName = pChallengeName_
+  }
+
 
 -- | The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
 rtacChallengeResponses :: Lens' RespondToAuthChallenge (HashMap Text Text)
@@ -115,9 +117,9 @@ instance AWSRequest RespondToAuthChallenge where
                      <*> (x .?> "Session")
                      <*> (pure (fromEnum s)))
 
-instance Hashable RespondToAuthChallenge
+instance Hashable RespondToAuthChallenge where
 
-instance NFData RespondToAuthChallenge
+instance NFData RespondToAuthChallenge where
 
 instance ToHeaders RespondToAuthChallenge where
         toHeaders
@@ -151,12 +153,13 @@ instance ToQuery RespondToAuthChallenge where
 --
 -- /See:/ 'respondToAuthChallengeResponse' smart constructor.
 data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
-    { _rtacrsChallengeName        :: !(Maybe ChallengeNameType)
-    , _rtacrsChallengeParameters  :: !(Maybe (Map Text Text))
-    , _rtacrsAuthenticationResult :: !(Maybe AuthenticationResultType)
-    , _rtacrsSession              :: !(Maybe Text)
-    , _rtacrsResponseStatus       :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rtacrsChallengeName :: {-# NOUNPACK #-}!(Maybe ChallengeNameType)
+  , _rtacrsChallengeParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _rtacrsAuthenticationResult :: {-# NOUNPACK #-}!(Maybe AuthenticationResultType)
+  , _rtacrsSession :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondToAuthChallengeResponse' with the minimum fields required to make a request.
 --
@@ -175,13 +178,14 @@ respondToAuthChallengeResponse
     :: Int -- ^ 'rtacrsResponseStatus'
     -> RespondToAuthChallengeResponse
 respondToAuthChallengeResponse pResponseStatus_ =
-    RespondToAuthChallengeResponse'
-    { _rtacrsChallengeName = Nothing
-    , _rtacrsChallengeParameters = Nothing
-    , _rtacrsAuthenticationResult = Nothing
-    , _rtacrsSession = Nothing
-    , _rtacrsResponseStatus = pResponseStatus_
-    }
+  RespondToAuthChallengeResponse'
+  { _rtacrsChallengeName = Nothing
+  , _rtacrsChallengeParameters = Nothing
+  , _rtacrsAuthenticationResult = Nothing
+  , _rtacrsSession = Nothing
+  , _rtacrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> .
 rtacrsChallengeName :: Lens' RespondToAuthChallengeResponse (Maybe ChallengeNameType)
@@ -203,4 +207,4 @@ rtacrsSession = lens _rtacrsSession (\ s a -> s{_rtacrsSession = a});
 rtacrsResponseStatus :: Lens' RespondToAuthChallengeResponse Int
 rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseStatus = a});
 
-instance NFData RespondToAuthChallengeResponse
+instance NFData RespondToAuthChallengeResponse where

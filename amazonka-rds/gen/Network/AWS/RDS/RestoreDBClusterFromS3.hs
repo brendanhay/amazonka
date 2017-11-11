@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RestoreDBClusterFromS3
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,41 +61,42 @@ module Network.AWS.RDS.RestoreDBClusterFromS3
     , rdcfsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'restoreDBClusterFromS3' smart constructor.
 data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
-    { _rdcfsEngineVersion                   :: !(Maybe Text)
-    , _rdcfsStorageEncrypted                :: !(Maybe Bool)
-    , _rdcfsDBSubnetGroupName               :: !(Maybe Text)
-    , _rdcfsPreferredMaintenanceWindow      :: !(Maybe Text)
-    , _rdcfsAvailabilityZones               :: !(Maybe [Text])
-    , _rdcfsCharacterSetName                :: !(Maybe Text)
-    , _rdcfsKMSKeyId                        :: !(Maybe Text)
-    , _rdcfsPreferredBackupWindow           :: !(Maybe Text)
-    , _rdcfsBackupRetentionPeriod           :: !(Maybe Int)
-    , _rdcfsVPCSecurityGroupIds             :: !(Maybe [Text])
-    , _rdcfsDatabaseName                    :: !(Maybe Text)
-    , _rdcfsDBClusterParameterGroupName     :: !(Maybe Text)
-    , _rdcfsS3Prefix                        :: !(Maybe Text)
-    , _rdcfsOptionGroupName                 :: !(Maybe Text)
-    , _rdcfsTags                            :: !(Maybe [Tag])
-    , _rdcfsPort                            :: !(Maybe Int)
-    , _rdcfsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _rdcfsDBClusterIdentifier             :: !Text
-    , _rdcfsEngine                          :: !Text
-    , _rdcfsMasterUsername                  :: !Text
-    , _rdcfsMasterUserPassword              :: !Text
-    , _rdcfsSourceEngine                    :: !Text
-    , _rdcfsSourceEngineVersion             :: !Text
-    , _rdcfsS3BucketName                    :: !Text
-    , _rdcfsS3IngestionRoleARN              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdcfsEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsStorageEncrypted                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdcfsDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsAvailabilityZones               :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rdcfsCharacterSetName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rdcfsVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rdcfsDatabaseName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsDBClusterParameterGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsS3Prefix                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdcfsTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _rdcfsPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rdcfsEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdcfsDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
+  , _rdcfsEngine                          :: {-# NOUNPACK #-}!Text
+  , _rdcfsMasterUsername                  :: {-# NOUNPACK #-}!Text
+  , _rdcfsMasterUserPassword              :: {-# NOUNPACK #-}!Text
+  , _rdcfsSourceEngine                    :: {-# NOUNPACK #-}!Text
+  , _rdcfsSourceEngineVersion             :: {-# NOUNPACK #-}!Text
+  , _rdcfsS3BucketName                    :: {-# NOUNPACK #-}!Text
+  , _rdcfsS3IngestionRoleARN              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBClusterFromS3' with the minimum fields required to make a request.
 --
@@ -161,33 +162,34 @@ restoreDBClusterFromS3
     -> Text -- ^ 'rdcfsS3IngestionRoleARN'
     -> RestoreDBClusterFromS3
 restoreDBClusterFromS3 pDBClusterIdentifier_ pEngine_ pMasterUsername_ pMasterUserPassword_ pSourceEngine_ pSourceEngineVersion_ pS3BucketName_ pS3IngestionRoleARN_ =
-    RestoreDBClusterFromS3'
-    { _rdcfsEngineVersion = Nothing
-    , _rdcfsStorageEncrypted = Nothing
-    , _rdcfsDBSubnetGroupName = Nothing
-    , _rdcfsPreferredMaintenanceWindow = Nothing
-    , _rdcfsAvailabilityZones = Nothing
-    , _rdcfsCharacterSetName = Nothing
-    , _rdcfsKMSKeyId = Nothing
-    , _rdcfsPreferredBackupWindow = Nothing
-    , _rdcfsBackupRetentionPeriod = Nothing
-    , _rdcfsVPCSecurityGroupIds = Nothing
-    , _rdcfsDatabaseName = Nothing
-    , _rdcfsDBClusterParameterGroupName = Nothing
-    , _rdcfsS3Prefix = Nothing
-    , _rdcfsOptionGroupName = Nothing
-    , _rdcfsTags = Nothing
-    , _rdcfsPort = Nothing
-    , _rdcfsEnableIAMDatabaseAuthentication = Nothing
-    , _rdcfsDBClusterIdentifier = pDBClusterIdentifier_
-    , _rdcfsEngine = pEngine_
-    , _rdcfsMasterUsername = pMasterUsername_
-    , _rdcfsMasterUserPassword = pMasterUserPassword_
-    , _rdcfsSourceEngine = pSourceEngine_
-    , _rdcfsSourceEngineVersion = pSourceEngineVersion_
-    , _rdcfsS3BucketName = pS3BucketName_
-    , _rdcfsS3IngestionRoleARN = pS3IngestionRoleARN_
-    }
+  RestoreDBClusterFromS3'
+  { _rdcfsEngineVersion = Nothing
+  , _rdcfsStorageEncrypted = Nothing
+  , _rdcfsDBSubnetGroupName = Nothing
+  , _rdcfsPreferredMaintenanceWindow = Nothing
+  , _rdcfsAvailabilityZones = Nothing
+  , _rdcfsCharacterSetName = Nothing
+  , _rdcfsKMSKeyId = Nothing
+  , _rdcfsPreferredBackupWindow = Nothing
+  , _rdcfsBackupRetentionPeriod = Nothing
+  , _rdcfsVPCSecurityGroupIds = Nothing
+  , _rdcfsDatabaseName = Nothing
+  , _rdcfsDBClusterParameterGroupName = Nothing
+  , _rdcfsS3Prefix = Nothing
+  , _rdcfsOptionGroupName = Nothing
+  , _rdcfsTags = Nothing
+  , _rdcfsPort = Nothing
+  , _rdcfsEnableIAMDatabaseAuthentication = Nothing
+  , _rdcfsDBClusterIdentifier = pDBClusterIdentifier_
+  , _rdcfsEngine = pEngine_
+  , _rdcfsMasterUsername = pMasterUsername_
+  , _rdcfsMasterUserPassword = pMasterUserPassword_
+  , _rdcfsSourceEngine = pSourceEngine_
+  , _rdcfsSourceEngineVersion = pSourceEngineVersion_
+  , _rdcfsS3BucketName = pS3BucketName_
+  , _rdcfsS3IngestionRoleARN = pS3IngestionRoleARN_
+  }
+
 
 -- | The version number of the database engine to use. __Aurora__  Example: @5.6.10a@
 rdcfsEngineVersion :: Lens' RestoreDBClusterFromS3 (Maybe Text)
@@ -299,9 +301,9 @@ instance AWSRequest RestoreDBClusterFromS3 where
                  RestoreDBClusterFromS3Response' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
-instance Hashable RestoreDBClusterFromS3
+instance Hashable RestoreDBClusterFromS3 where
 
-instance NFData RestoreDBClusterFromS3
+instance NFData RestoreDBClusterFromS3 where
 
 instance ToHeaders RestoreDBClusterFromS3 where
         toHeaders = const mempty
@@ -354,9 +356,10 @@ instance ToQuery RestoreDBClusterFromS3 where
 
 -- | /See:/ 'restoreDBClusterFromS3Response' smart constructor.
 data RestoreDBClusterFromS3Response = RestoreDBClusterFromS3Response'
-    { _rdcfsrsDBCluster      :: !(Maybe DBCluster)
-    , _rdcfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdcfsrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
+  , _rdcfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBClusterFromS3Response' with the minimum fields required to make a request.
 --
@@ -369,10 +372,9 @@ restoreDBClusterFromS3Response
     :: Int -- ^ 'rdcfsrsResponseStatus'
     -> RestoreDBClusterFromS3Response
 restoreDBClusterFromS3Response pResponseStatus_ =
-    RestoreDBClusterFromS3Response'
-    { _rdcfsrsDBCluster = Nothing
-    , _rdcfsrsResponseStatus = pResponseStatus_
-    }
+  RestoreDBClusterFromS3Response'
+  {_rdcfsrsDBCluster = Nothing, _rdcfsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rdcfsrsDBCluster :: Lens' RestoreDBClusterFromS3Response (Maybe DBCluster)
@@ -382,4 +384,4 @@ rdcfsrsDBCluster = lens _rdcfsrsDBCluster (\ s a -> s{_rdcfsrsDBCluster = a});
 rdcfsrsResponseStatus :: Lens' RestoreDBClusterFromS3Response Int
 rdcfsrsResponseStatus = lens _rdcfsrsResponseStatus (\ s a -> s{_rdcfsrsResponseStatus = a});
 
-instance NFData RestoreDBClusterFromS3Response
+instance NFData RestoreDBClusterFromS3Response where

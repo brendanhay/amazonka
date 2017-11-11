@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPNGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.CreateVPNGateway
     , cvgrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateVpnGateway.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createVPNGateway' smart constructor.
 data CreateVPNGateway = CreateVPNGateway'
-    { _cvgAvailabilityZone :: !(Maybe Text)
-    , _cvgDryRun           :: !(Maybe Bool)
-    , _cvgType             :: !GatewayType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvgAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvgDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cvgType             :: {-# NOUNPACK #-}!GatewayType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPNGateway' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ createVPNGateway
     :: GatewayType -- ^ 'cvgType'
     -> CreateVPNGateway
 createVPNGateway pType_ =
-    CreateVPNGateway'
-    { _cvgAvailabilityZone = Nothing
-    , _cvgDryRun = Nothing
-    , _cvgType = pType_
-    }
+  CreateVPNGateway'
+  {_cvgAvailabilityZone = Nothing, _cvgDryRun = Nothing, _cvgType = pType_}
+
 
 -- | The Availability Zone for the virtual private gateway.
 cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
@@ -99,9 +98,9 @@ instance AWSRequest CreateVPNGateway where
                  CreateVPNGatewayResponse' <$>
                    (x .@? "vpnGateway") <*> (pure (fromEnum s)))
 
-instance Hashable CreateVPNGateway
+instance Hashable CreateVPNGateway where
 
-instance NFData CreateVPNGateway
+instance NFData CreateVPNGateway where
 
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty
@@ -123,9 +122,10 @@ instance ToQuery CreateVPNGateway where
 --
 -- /See:/ 'createVPNGatewayResponse' smart constructor.
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
-    { _cvgrsVPNGateway     :: !(Maybe VPNGateway)
-    , _cvgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvgrsVPNGateway     :: {-# NOUNPACK #-}!(Maybe VPNGateway)
+  , _cvgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVPNGatewayResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +138,9 @@ createVPNGatewayResponse
     :: Int -- ^ 'cvgrsResponseStatus'
     -> CreateVPNGatewayResponse
 createVPNGatewayResponse pResponseStatus_ =
-    CreateVPNGatewayResponse'
-    { _cvgrsVPNGateway = Nothing
-    , _cvgrsResponseStatus = pResponseStatus_
-    }
+  CreateVPNGatewayResponse'
+  {_cvgrsVPNGateway = Nothing, _cvgrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the virtual private gateway.
 cvgrsVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
@@ -151,4 +150,4 @@ cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
 cvgrsResponseStatus :: Lens' CreateVPNGatewayResponse Int
 cvgrsResponseStatus = lens _cvgrsResponseStatus (\ s a -> s{_cvgrsResponseStatus = a});
 
-instance NFData CreateVPNGatewayResponse
+instance NFData CreateVPNGatewayResponse where

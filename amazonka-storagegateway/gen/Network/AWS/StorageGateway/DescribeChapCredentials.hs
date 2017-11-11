@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeChapCredentials
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     , dccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume target.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeChapCredentials' smart constructor.
 newtype DescribeChapCredentials = DescribeChapCredentials'
-    { _dccTargetARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dccTargetARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeChapCredentials' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ describeChapCredentials
     :: Text -- ^ 'dccTargetARN'
     -> DescribeChapCredentials
 describeChapCredentials pTargetARN_ =
-    DescribeChapCredentials'
-    { _dccTargetARN = pTargetARN_
-    }
+  DescribeChapCredentials' {_dccTargetARN = pTargetARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 dccTargetARN :: Lens' DescribeChapCredentials Text
@@ -81,9 +81,9 @@ instance AWSRequest DescribeChapCredentials where
                    (x .?> "ChapCredentials" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeChapCredentials
+instance Hashable DescribeChapCredentials where
 
-instance NFData DescribeChapCredentials
+instance NFData DescribeChapCredentials where
 
 instance ToHeaders DescribeChapCredentials where
         toHeaders
@@ -112,9 +112,10 @@ instance ToQuery DescribeChapCredentials where
 --
 -- /See:/ 'describeChapCredentialsResponse' smart constructor.
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
-    { _dccrsChapCredentials :: !(Maybe [ChapInfo])
-    , _dccrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dccrsChapCredentials :: {-# NOUNPACK #-}!(Maybe [ChapInfo])
+  , _dccrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeChapCredentialsResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ describeChapCredentialsResponse
     :: Int -- ^ 'dccrsResponseStatus'
     -> DescribeChapCredentialsResponse
 describeChapCredentialsResponse pResponseStatus_ =
-    DescribeChapCredentialsResponse'
-    { _dccrsChapCredentials = Nothing
-    , _dccrsResponseStatus = pResponseStatus_
-    }
+  DescribeChapCredentialsResponse'
+  {_dccrsChapCredentials = Nothing, _dccrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:     * __InitiatorName__ : The iSCSI initiator that connects to the target.     * __SecretToAuthenticateInitiator__ : The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.     * __SecretToAuthenticateTarget__ : The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).     * __TargetARN__ : The Amazon Resource Name (ARN) of the storage volume.
 dccrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
@@ -140,4 +140,4 @@ dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredenti
 dccrsResponseStatus :: Lens' DescribeChapCredentialsResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
 
-instance NFData DescribeChapCredentialsResponse
+instance NFData DescribeChapCredentialsResponse where

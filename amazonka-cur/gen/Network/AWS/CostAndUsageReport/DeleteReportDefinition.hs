@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.DeleteReportDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,19 +35,20 @@ module Network.AWS.CostAndUsageReport.DeleteReportDefinition
     , drsResponseStatus
     ) where
 
-import           Network.AWS.CostAndUsageReport.Types
-import           Network.AWS.CostAndUsageReport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CostAndUsageReport.Types
+import Network.AWS.CostAndUsageReport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DeleteReportDefinition
 --
 -- /See:/ 'deleteReportDefinition' smart constructor.
 newtype DeleteReportDefinition = DeleteReportDefinition'
-    { _drdReportName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdReportName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReportDefinition' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteReportDefinition = DeleteReportDefinition'
 -- * 'drdReportName' - Undocumented member.
 deleteReportDefinition
     :: DeleteReportDefinition
-deleteReportDefinition =
-    DeleteReportDefinition'
-    { _drdReportName = Nothing
-    }
+deleteReportDefinition = DeleteReportDefinition' {_drdReportName = Nothing}
+
 
 -- | Undocumented member.
 drdReportName :: Lens' DeleteReportDefinition (Maybe Text)
@@ -75,9 +74,9 @@ instance AWSRequest DeleteReportDefinition where
                  DeleteReportDefinitionResponse' <$>
                    (x .?> "ResponseMessage") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteReportDefinition
+instance Hashable DeleteReportDefinition where
 
-instance NFData DeleteReportDefinition
+instance NFData DeleteReportDefinition where
 
 instance ToHeaders DeleteReportDefinition where
         toHeaders
@@ -104,9 +103,10 @@ instance ToQuery DeleteReportDefinition where
 --
 -- /See:/ 'deleteReportDefinitionResponse' smart constructor.
 data DeleteReportDefinitionResponse = DeleteReportDefinitionResponse'
-    { _drsResponseMessage :: !(Maybe Text)
-    , _drsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteReportDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +119,9 @@ deleteReportDefinitionResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteReportDefinitionResponse
 deleteReportDefinitionResponse pResponseStatus_ =
-    DeleteReportDefinitionResponse'
-    { _drsResponseMessage = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteReportDefinitionResponse'
+  {_drsResponseMessage = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 drsResponseMessage :: Lens' DeleteReportDefinitionResponse (Maybe Text)
@@ -132,4 +131,4 @@ drsResponseMessage = lens _drsResponseMessage (\ s a -> s{_drsResponseMessage = 
 drsResponseStatus :: Lens' DeleteReportDefinitionResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteReportDefinitionResponse
+instance NFData DeleteReportDefinitionResponse where

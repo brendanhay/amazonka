@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
     , uhittohitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateHITTypeOfHIT' smart constructor.
 data UpdateHITTypeOfHIT = UpdateHITTypeOfHIT'
-    { _uhittohitHITId     :: !Text
-    , _uhittohitHITTypeId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uhittohitHITId     :: {-# NOUNPACK #-}!Text
+  , _uhittohitHITTypeId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateHITTypeOfHIT' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ updateHITTypeOfHIT
     -> Text -- ^ 'uhittohitHITTypeId'
     -> UpdateHITTypeOfHIT
 updateHITTypeOfHIT pHITId_ pHITTypeId_ =
-    UpdateHITTypeOfHIT'
-    { _uhittohitHITId = pHITId_
-    , _uhittohitHITTypeId = pHITTypeId_
-    }
+  UpdateHITTypeOfHIT'
+  {_uhittohitHITId = pHITId_, _uhittohitHITTypeId = pHITTypeId_}
+
 
 -- | The HIT to update.
 uhittohitHITId :: Lens' UpdateHITTypeOfHIT Text
@@ -84,9 +84,9 @@ instance AWSRequest UpdateHITTypeOfHIT where
               (\ s h x ->
                  UpdateHITTypeOfHITResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateHITTypeOfHIT
+instance Hashable UpdateHITTypeOfHIT where
 
-instance NFData UpdateHITTypeOfHIT
+instance NFData UpdateHITTypeOfHIT where
 
 instance ToHeaders UpdateHITTypeOfHIT where
         toHeaders
@@ -113,8 +113,9 @@ instance ToQuery UpdateHITTypeOfHIT where
 
 -- | /See:/ 'updateHITTypeOfHITResponse' smart constructor.
 newtype UpdateHITTypeOfHITResponse = UpdateHITTypeOfHITResponse'
-    { _uhittohitrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uhittohitrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateHITTypeOfHITResponse' with the minimum fields required to make a request.
 --
@@ -125,12 +126,11 @@ updateHITTypeOfHITResponse
     :: Int -- ^ 'uhittohitrsResponseStatus'
     -> UpdateHITTypeOfHITResponse
 updateHITTypeOfHITResponse pResponseStatus_ =
-    UpdateHITTypeOfHITResponse'
-    { _uhittohitrsResponseStatus = pResponseStatus_
-    }
+  UpdateHITTypeOfHITResponse' {_uhittohitrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uhittohitrsResponseStatus :: Lens' UpdateHITTypeOfHITResponse Int
 uhittohitrsResponseStatus = lens _uhittohitrsResponseStatus (\ s a -> s{_uhittohitrsResponseStatus = a});
 
-instance NFData UpdateHITTypeOfHITResponse
+instance NFData UpdateHITTypeOfHITResponse where

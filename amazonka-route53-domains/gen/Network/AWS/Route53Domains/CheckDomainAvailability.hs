@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.CheckDomainAvailability
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     , cdarsAvailability
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The CheckDomainAvailability request contains the following elements.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'checkDomainAvailability' smart constructor.
 data CheckDomainAvailability = CheckDomainAvailability'
-    { _cdaIdNLangCode :: !(Maybe Text)
-    , _cdaDomainName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdaIdNLangCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdaDomainName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CheckDomainAvailability' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ checkDomainAvailability
     :: Text -- ^ 'cdaDomainName'
     -> CheckDomainAvailability
 checkDomainAvailability pDomainName_ =
-    CheckDomainAvailability'
-    { _cdaIdNLangCode = Nothing
-    , _cdaDomainName = pDomainName_
-    }
+  CheckDomainAvailability'
+  {_cdaIdNLangCode = Nothing, _cdaDomainName = pDomainName_}
+
 
 -- | Reserved for future use.
 cdaIdNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
@@ -89,9 +89,9 @@ instance AWSRequest CheckDomainAvailability where
                  CheckDomainAvailabilityResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Availability"))
 
-instance Hashable CheckDomainAvailability
+instance Hashable CheckDomainAvailability where
 
-instance NFData CheckDomainAvailability
+instance NFData CheckDomainAvailability where
 
 instance ToHeaders CheckDomainAvailability where
         toHeaders
@@ -122,9 +122,10 @@ instance ToQuery CheckDomainAvailability where
 --
 -- /See:/ 'checkDomainAvailabilityResponse' smart constructor.
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
-    { _cdarsResponseStatus :: !Int
-    , _cdarsAvailability   :: !DomainAvailability
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdarsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _cdarsAvailability   :: {-# NOUNPACK #-}!DomainAvailability
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CheckDomainAvailabilityResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +139,9 @@ checkDomainAvailabilityResponse
     -> DomainAvailability -- ^ 'cdarsAvailability'
     -> CheckDomainAvailabilityResponse
 checkDomainAvailabilityResponse pResponseStatus_ pAvailability_ =
-    CheckDomainAvailabilityResponse'
-    { _cdarsResponseStatus = pResponseStatus_
-    , _cdarsAvailability = pAvailability_
-    }
+  CheckDomainAvailabilityResponse'
+  {_cdarsResponseStatus = pResponseStatus_, _cdarsAvailability = pAvailability_}
+
 
 -- | -- | The response status code.
 cdarsResponseStatus :: Lens' CheckDomainAvailabilityResponse Int
@@ -151,4 +151,4 @@ cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus
 cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarsAvailability = lens _cdarsAvailability (\ s a -> s{_cdarsAvailability = a});
 
-instance NFData CheckDomainAvailabilityResponse
+instance NFData CheckDomainAvailabilityResponse where

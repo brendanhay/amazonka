@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteDomainEntry
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Lightsail.DeleteDomainEntry
     , ddersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDomainEntry' smart constructor.
 data DeleteDomainEntry = DeleteDomainEntry'
-    { _ddeDomainName  :: !Text
-    , _ddeDomainEntry :: !DomainEntry
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddeDomainName  :: {-# NOUNPACK #-}!Text
+  , _ddeDomainEntry :: {-# NOUNPACK #-}!DomainEntry
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDomainEntry' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ deleteDomainEntry
     -> DomainEntry -- ^ 'ddeDomainEntry'
     -> DeleteDomainEntry
 deleteDomainEntry pDomainName_ pDomainEntry_ =
-    DeleteDomainEntry'
-    { _ddeDomainName = pDomainName_
-    , _ddeDomainEntry = pDomainEntry_
-    }
+  DeleteDomainEntry'
+  {_ddeDomainName = pDomainName_, _ddeDomainEntry = pDomainEntry_}
+
 
 -- | The name of the domain entry to delete.
 ddeDomainName :: Lens' DeleteDomainEntry Text
@@ -85,9 +85,9 @@ instance AWSRequest DeleteDomainEntry where
                  DeleteDomainEntryResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteDomainEntry
+instance Hashable DeleteDomainEntry where
 
-instance NFData DeleteDomainEntry
+instance NFData DeleteDomainEntry where
 
 instance ToHeaders DeleteDomainEntry where
         toHeaders
@@ -114,9 +114,10 @@ instance ToQuery DeleteDomainEntry where
 
 -- | /See:/ 'deleteDomainEntryResponse' smart constructor.
 data DeleteDomainEntryResponse = DeleteDomainEntryResponse'
-    { _ddersOperation      :: !(Maybe Operation)
-    , _ddersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddersOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _ddersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDomainEntryResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ deleteDomainEntryResponse
     :: Int -- ^ 'ddersResponseStatus'
     -> DeleteDomainEntryResponse
 deleteDomainEntryResponse pResponseStatus_ =
-    DeleteDomainEntryResponse'
-    { _ddersOperation = Nothing
-    , _ddersResponseStatus = pResponseStatus_
-    }
+  DeleteDomainEntryResponse'
+  {_ddersOperation = Nothing, _ddersResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your delete domain entry request.
 ddersOperation :: Lens' DeleteDomainEntryResponse (Maybe Operation)
@@ -142,4 +142,4 @@ ddersOperation = lens _ddersOperation (\ s a -> s{_ddersOperation = a});
 ddersResponseStatus :: Lens' DeleteDomainEntryResponse Int
 ddersResponseStatus = lens _ddersResponseStatus (\ s a -> s{_ddersResponseStatus = a});
 
-instance NFData DeleteDomainEntryResponse
+instance NFData DeleteDomainEntryResponse where

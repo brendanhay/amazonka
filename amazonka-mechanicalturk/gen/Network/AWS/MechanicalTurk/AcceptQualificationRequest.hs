@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.AcceptQualificationRequest
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.MechanicalTurk.AcceptQualificationRequest
     , aqrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'acceptQualificationRequest' smart constructor.
 data AcceptQualificationRequest = AcceptQualificationRequest'
-    { _aqrIntegerValue           :: !(Maybe Int)
-    , _aqrQualificationRequestId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aqrIntegerValue           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _aqrQualificationRequestId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptQualificationRequest' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ acceptQualificationRequest
     :: Text -- ^ 'aqrQualificationRequestId'
     -> AcceptQualificationRequest
 acceptQualificationRequest pQualificationRequestId_ =
-    AcceptQualificationRequest'
-    { _aqrIntegerValue = Nothing
-    , _aqrQualificationRequestId = pQualificationRequestId_
-    }
+  AcceptQualificationRequest'
+  { _aqrIntegerValue = Nothing
+  , _aqrQualificationRequestId = pQualificationRequestId_
+  }
+
 
 -- | The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement.
 aqrIntegerValue :: Lens' AcceptQualificationRequest (Maybe Int)
@@ -88,9 +90,9 @@ instance AWSRequest AcceptQualificationRequest where
                  AcceptQualificationRequestResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AcceptQualificationRequest
+instance Hashable AcceptQualificationRequest where
 
-instance NFData AcceptQualificationRequest
+instance NFData AcceptQualificationRequest where
 
 instance ToHeaders AcceptQualificationRequest where
         toHeaders
@@ -119,8 +121,9 @@ instance ToQuery AcceptQualificationRequest where
 
 -- | /See:/ 'acceptQualificationRequestResponse' smart constructor.
 newtype AcceptQualificationRequestResponse = AcceptQualificationRequestResponse'
-    { _aqrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aqrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptQualificationRequestResponse' with the minimum fields required to make a request.
 --
@@ -131,12 +134,12 @@ acceptQualificationRequestResponse
     :: Int -- ^ 'aqrrsResponseStatus'
     -> AcceptQualificationRequestResponse
 acceptQualificationRequestResponse pResponseStatus_ =
-    AcceptQualificationRequestResponse'
-    { _aqrrsResponseStatus = pResponseStatus_
-    }
+  AcceptQualificationRequestResponse' {_aqrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aqrrsResponseStatus :: Lens' AcceptQualificationRequestResponse Int
 aqrrsResponseStatus = lens _aqrrsResponseStatus (\ s a -> s{_aqrrsResponseStatus = a});
 
 instance NFData AcceptQualificationRequestResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImportSnapshotTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
     , distrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeImportSnapshotTasks.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeImportSnapshotTasks' smart constructor.
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-    { _distFilters       :: !(Maybe [Filter])
-    , _distImportTaskIds :: !(Maybe [Text])
-    , _distNextToken     :: !(Maybe Text)
-    , _distDryRun        :: !(Maybe Bool)
-    , _distMaxResults    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _distFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _distImportTaskIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _distNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _distDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _distMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImportSnapshotTasks' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
 describeImportSnapshotTasks
     :: DescribeImportSnapshotTasks
 describeImportSnapshotTasks =
-    DescribeImportSnapshotTasks'
-    { _distFilters = Nothing
-    , _distImportTaskIds = Nothing
-    , _distNextToken = Nothing
-    , _distDryRun = Nothing
-    , _distMaxResults = Nothing
-    }
+  DescribeImportSnapshotTasks'
+  { _distFilters = Nothing
+  , _distImportTaskIds = Nothing
+  , _distNextToken = Nothing
+  , _distDryRun = Nothing
+  , _distMaxResults = Nothing
+  }
+
 
 -- | One or more filters.
 distFilters :: Lens' DescribeImportSnapshotTasks [Filter]
@@ -119,9 +121,9 @@ instance AWSRequest DescribeImportSnapshotTasks where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeImportSnapshotTasks
+instance Hashable DescribeImportSnapshotTasks where
 
-instance NFData DescribeImportSnapshotTasks
+instance NFData DescribeImportSnapshotTasks where
 
 instance ToHeaders DescribeImportSnapshotTasks where
         toHeaders = const mempty
@@ -148,10 +150,11 @@ instance ToQuery DescribeImportSnapshotTasks where
 --
 -- /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
-    { _distrsNextToken           :: !(Maybe Text)
-    , _distrsImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
-    , _distrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _distrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _distrsImportSnapshotTasks :: {-# NOUNPACK #-}!(Maybe [ImportSnapshotTask])
+  , _distrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeImportSnapshotTasksResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ describeImportSnapshotTasksResponse
     :: Int -- ^ 'distrsResponseStatus'
     -> DescribeImportSnapshotTasksResponse
 describeImportSnapshotTasksResponse pResponseStatus_ =
-    DescribeImportSnapshotTasksResponse'
-    { _distrsNextToken = Nothing
-    , _distrsImportSnapshotTasks = Nothing
-    , _distrsResponseStatus = pResponseStatus_
-    }
+  DescribeImportSnapshotTasksResponse'
+  { _distrsNextToken = Nothing
+  , _distrsImportSnapshotTasks = Nothing
+  , _distrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
 distrsNextToken :: Lens' DescribeImportSnapshotTasksResponse (Maybe Text)
@@ -185,3 +189,4 @@ distrsResponseStatus :: Lens' DescribeImportSnapshotTasksResponse Int
 distrsResponseStatus = lens _distrsResponseStatus (\ s a -> s{_distrsResponseStatus = a});
 
 instance NFData DescribeImportSnapshotTasksResponse
+         where

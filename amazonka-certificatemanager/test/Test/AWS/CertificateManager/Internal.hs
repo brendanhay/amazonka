@@ -9,7 +9,6 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-
 module Test.AWS.CertificateManager.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

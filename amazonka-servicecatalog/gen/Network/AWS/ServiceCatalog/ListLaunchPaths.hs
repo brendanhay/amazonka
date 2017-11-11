@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListLaunchPaths
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.ServiceCatalog.ListLaunchPaths
     , llprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listLaunchPaths' smart constructor.
 data ListLaunchPaths = ListLaunchPaths'
-    { _llpAcceptLanguage :: !(Maybe Text)
-    , _llpPageToken      :: !(Maybe Text)
-    , _llpPageSize       :: !(Maybe Nat)
-    , _llpProductId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _llpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _llpPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _llpPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _llpProductId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLaunchPaths' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ listLaunchPaths
     :: Text -- ^ 'llpProductId'
     -> ListLaunchPaths
 listLaunchPaths pProductId_ =
-    ListLaunchPaths'
-    { _llpAcceptLanguage = Nothing
-    , _llpPageToken = Nothing
-    , _llpPageSize = Nothing
-    , _llpProductId = pProductId_
-    }
+  ListLaunchPaths'
+  { _llpAcceptLanguage = Nothing
+  , _llpPageToken = Nothing
+  , _llpPageSize = Nothing
+  , _llpProductId = pProductId_
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 llpAcceptLanguage :: Lens' ListLaunchPaths (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest ListLaunchPaths where
                      (x .?> "LaunchPathSummaries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListLaunchPaths
+instance Hashable ListLaunchPaths where
 
-instance NFData ListLaunchPaths
+instance NFData ListLaunchPaths where
 
 instance ToHeaders ListLaunchPaths where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery ListLaunchPaths where
 
 -- | /See:/ 'listLaunchPathsResponse' smart constructor.
 data ListLaunchPathsResponse = ListLaunchPathsResponse'
-    { _llprsNextPageToken       :: !(Maybe Text)
-    , _llprsLaunchPathSummaries :: !(Maybe [LaunchPathSummary])
-    , _llprsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _llprsNextPageToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _llprsLaunchPathSummaries :: {-# NOUNPACK #-}!(Maybe [LaunchPathSummary])
+  , _llprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListLaunchPathsResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ listLaunchPathsResponse
     :: Int -- ^ 'llprsResponseStatus'
     -> ListLaunchPathsResponse
 listLaunchPathsResponse pResponseStatus_ =
-    ListLaunchPathsResponse'
-    { _llprsNextPageToken = Nothing
-    , _llprsLaunchPathSummaries = Nothing
-    , _llprsResponseStatus = pResponseStatus_
-    }
+  ListLaunchPathsResponse'
+  { _llprsNextPageToken = Nothing
+  , _llprsLaunchPathSummaries = Nothing
+  , _llprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 llprsNextPageToken :: Lens' ListLaunchPathsResponse (Maybe Text)
@@ -172,4 +176,4 @@ llprsLaunchPathSummaries = lens _llprsLaunchPathSummaries (\ s a -> s{_llprsLaun
 llprsResponseStatus :: Lens' ListLaunchPathsResponse Int
 llprsResponseStatus = lens _llprsResponseStatus (\ s a -> s{_llprsResponseStatus = a});
 
-instance NFData ListLaunchPathsResponse
+instance NFData ListLaunchPathsResponse where

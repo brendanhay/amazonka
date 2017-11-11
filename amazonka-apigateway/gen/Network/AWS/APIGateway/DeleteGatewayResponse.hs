@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteGatewayResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteGatewayResponse
     , DeleteGatewayResponseResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Clears any customization of a 'GatewayResponse' of a specified response type on the given 'RestApi' and resets it with the default settings.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-    { _dgRestAPIId    :: !Text
-    , _dgResponseType :: !GatewayResponseType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgRestAPIId    :: {-# NOUNPACK #-}!Text
+  , _dgResponseType :: {-# NOUNPACK #-}!GatewayResponseType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGatewayResponse' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ deleteGatewayResponse
     -> GatewayResponseType -- ^ 'dgResponseType'
     -> DeleteGatewayResponse
 deleteGatewayResponse pRestAPIId_ pResponseType_ =
-    DeleteGatewayResponse'
-    { _dgRestAPIId = pRestAPIId_
-    , _dgResponseType = pResponseType_
-    }
+  DeleteGatewayResponse'
+  {_dgRestAPIId = pRestAPIId_, _dgResponseType = pResponseType_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 dgRestAPIId :: Lens' DeleteGatewayResponse Text
@@ -83,9 +83,9 @@ instance AWSRequest DeleteGatewayResponse where
         request = delete apiGateway
         response = receiveNull DeleteGatewayResponseResponse'
 
-instance Hashable DeleteGatewayResponse
+instance Hashable DeleteGatewayResponse where
 
-instance NFData DeleteGatewayResponse
+instance NFData DeleteGatewayResponse where
 
 instance ToHeaders DeleteGatewayResponse where
         toHeaders
@@ -104,8 +104,9 @@ instance ToQuery DeleteGatewayResponse where
 
 -- | /See:/ 'deleteGatewayResponseResponse' smart constructor.
 data DeleteGatewayResponseResponse =
-    DeleteGatewayResponseResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteGatewayResponseResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGatewayResponseResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +114,5 @@ deleteGatewayResponseResponse
     :: DeleteGatewayResponseResponse
 deleteGatewayResponseResponse = DeleteGatewayResponseResponse'
 
-instance NFData DeleteGatewayResponseResponse
+
+instance NFData DeleteGatewayResponseResponse where

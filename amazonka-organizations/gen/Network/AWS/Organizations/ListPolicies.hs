@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Organizations.ListPolicies
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-    { _lpNextToken  :: !(Maybe Text)
-    , _lpMaxResults :: !(Maybe Nat)
-    , _lpFilter     :: !PolicyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lpFilter     :: {-# NOUNPACK #-}!PolicyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ listPolicies
     :: PolicyType -- ^ 'lpFilter'
     -> ListPolicies
 listPolicies pFilter_ =
-    ListPolicies'
-    { _lpNextToken = Nothing
-    , _lpMaxResults = Nothing
-    , _lpFilter = pFilter_
-    }
+  ListPolicies'
+  {_lpNextToken = Nothing, _lpMaxResults = Nothing, _lpFilter = pFilter_}
+
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 lpNextToken :: Lens' ListPolicies (Maybe Text)
@@ -107,9 +106,9 @@ instance AWSRequest ListPolicies where
                    (x .?> "NextToken") <*> (x .?> "Policies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPolicies
+instance Hashable ListPolicies where
 
-instance NFData ListPolicies
+instance NFData ListPolicies where
 
 instance ToHeaders ListPolicies where
         toHeaders
@@ -137,10 +136,11 @@ instance ToQuery ListPolicies where
 
 -- | /See:/ 'listPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-    { _lprsNextToken      :: !(Maybe Text)
-    , _lprsPolicies       :: !(Maybe [PolicySummary])
-    , _lprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsPolicies       :: {-# NOUNPACK #-}!(Maybe [PolicySummary])
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +155,12 @@ listPoliciesResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPoliciesResponse
 listPoliciesResponse pResponseStatus_ =
-    ListPoliciesResponse'
-    { _lprsNextToken = Nothing
-    , _lprsPolicies = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPoliciesResponse'
+  { _lprsNextToken = Nothing
+  , _lprsPolicies = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 lprsNextToken :: Lens' ListPoliciesResponse (Maybe Text)
@@ -173,4 +174,4 @@ lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _
 lprsResponseStatus :: Lens' ListPoliciesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPoliciesResponse
+instance NFData ListPoliciesResponse where

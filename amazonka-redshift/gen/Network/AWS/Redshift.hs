@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -899,72 +899,72 @@ module Network.AWS.Redshift
     , vsgmVPCSecurityGroupId
     ) where
 
-import           Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
-import           Network.AWS.Redshift.AuthorizeSnapshotAccess
-import           Network.AWS.Redshift.CopyClusterSnapshot
-import           Network.AWS.Redshift.CreateCluster
-import           Network.AWS.Redshift.CreateClusterParameterGroup
-import           Network.AWS.Redshift.CreateClusterSecurityGroup
-import           Network.AWS.Redshift.CreateClusterSnapshot
-import           Network.AWS.Redshift.CreateClusterSubnetGroup
-import           Network.AWS.Redshift.CreateEventSubscription
-import           Network.AWS.Redshift.CreateHSMClientCertificate
-import           Network.AWS.Redshift.CreateHSMConfiguration
-import           Network.AWS.Redshift.CreateSnapshotCopyGrant
-import           Network.AWS.Redshift.CreateTags
-import           Network.AWS.Redshift.DeleteCluster
-import           Network.AWS.Redshift.DeleteClusterParameterGroup
-import           Network.AWS.Redshift.DeleteClusterSecurityGroup
-import           Network.AWS.Redshift.DeleteClusterSnapshot
-import           Network.AWS.Redshift.DeleteClusterSubnetGroup
-import           Network.AWS.Redshift.DeleteEventSubscription
-import           Network.AWS.Redshift.DeleteHSMClientCertificate
-import           Network.AWS.Redshift.DeleteHSMConfiguration
-import           Network.AWS.Redshift.DeleteSnapshotCopyGrant
-import           Network.AWS.Redshift.DeleteTags
-import           Network.AWS.Redshift.DescribeClusterParameterGroups
-import           Network.AWS.Redshift.DescribeClusterParameters
-import           Network.AWS.Redshift.DescribeClusters
-import           Network.AWS.Redshift.DescribeClusterSecurityGroups
-import           Network.AWS.Redshift.DescribeClusterSnapshots
-import           Network.AWS.Redshift.DescribeClusterSubnetGroups
-import           Network.AWS.Redshift.DescribeClusterVersions
-import           Network.AWS.Redshift.DescribeDefaultClusterParameters
-import           Network.AWS.Redshift.DescribeEventCategories
-import           Network.AWS.Redshift.DescribeEvents
-import           Network.AWS.Redshift.DescribeEventSubscriptions
-import           Network.AWS.Redshift.DescribeHSMClientCertificates
-import           Network.AWS.Redshift.DescribeHSMConfigurations
-import           Network.AWS.Redshift.DescribeLoggingStatus
-import           Network.AWS.Redshift.DescribeOrderableClusterOptions
-import           Network.AWS.Redshift.DescribeReservedNodeOfferings
-import           Network.AWS.Redshift.DescribeReservedNodes
-import           Network.AWS.Redshift.DescribeResize
-import           Network.AWS.Redshift.DescribeSnapshotCopyGrants
-import           Network.AWS.Redshift.DescribeTableRestoreStatus
-import           Network.AWS.Redshift.DescribeTags
-import           Network.AWS.Redshift.DisableLogging
-import           Network.AWS.Redshift.DisableSnapshotCopy
-import           Network.AWS.Redshift.EnableLogging
-import           Network.AWS.Redshift.EnableSnapshotCopy
-import           Network.AWS.Redshift.GetClusterCredentials
-import           Network.AWS.Redshift.Internal
-import           Network.AWS.Redshift.ModifyCluster
-import           Network.AWS.Redshift.ModifyClusterIAMRoles
-import           Network.AWS.Redshift.ModifyClusterParameterGroup
-import           Network.AWS.Redshift.ModifyClusterSubnetGroup
-import           Network.AWS.Redshift.ModifyEventSubscription
-import           Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
-import           Network.AWS.Redshift.PurchaseReservedNodeOffering
-import           Network.AWS.Redshift.RebootCluster
-import           Network.AWS.Redshift.ResetClusterParameterGroup
-import           Network.AWS.Redshift.RestoreFromClusterSnapshot
-import           Network.AWS.Redshift.RestoreTableFromClusterSnapshot
-import           Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
-import           Network.AWS.Redshift.RevokeSnapshotAccess
-import           Network.AWS.Redshift.RotateEncryptionKey
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Waiters
+import Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+import Network.AWS.Redshift.AuthorizeSnapshotAccess
+import Network.AWS.Redshift.CopyClusterSnapshot
+import Network.AWS.Redshift.CreateCluster
+import Network.AWS.Redshift.CreateClusterParameterGroup
+import Network.AWS.Redshift.CreateClusterSecurityGroup
+import Network.AWS.Redshift.CreateClusterSnapshot
+import Network.AWS.Redshift.CreateClusterSubnetGroup
+import Network.AWS.Redshift.CreateEventSubscription
+import Network.AWS.Redshift.CreateHSMClientCertificate
+import Network.AWS.Redshift.CreateHSMConfiguration
+import Network.AWS.Redshift.CreateSnapshotCopyGrant
+import Network.AWS.Redshift.CreateTags
+import Network.AWS.Redshift.DeleteCluster
+import Network.AWS.Redshift.DeleteClusterParameterGroup
+import Network.AWS.Redshift.DeleteClusterSecurityGroup
+import Network.AWS.Redshift.DeleteClusterSnapshot
+import Network.AWS.Redshift.DeleteClusterSubnetGroup
+import Network.AWS.Redshift.DeleteEventSubscription
+import Network.AWS.Redshift.DeleteHSMClientCertificate
+import Network.AWS.Redshift.DeleteHSMConfiguration
+import Network.AWS.Redshift.DeleteSnapshotCopyGrant
+import Network.AWS.Redshift.DeleteTags
+import Network.AWS.Redshift.DescribeClusterParameterGroups
+import Network.AWS.Redshift.DescribeClusterParameters
+import Network.AWS.Redshift.DescribeClusters
+import Network.AWS.Redshift.DescribeClusterSecurityGroups
+import Network.AWS.Redshift.DescribeClusterSnapshots
+import Network.AWS.Redshift.DescribeClusterSubnetGroups
+import Network.AWS.Redshift.DescribeClusterVersions
+import Network.AWS.Redshift.DescribeDefaultClusterParameters
+import Network.AWS.Redshift.DescribeEventCategories
+import Network.AWS.Redshift.DescribeEvents
+import Network.AWS.Redshift.DescribeEventSubscriptions
+import Network.AWS.Redshift.DescribeHSMClientCertificates
+import Network.AWS.Redshift.DescribeHSMConfigurations
+import Network.AWS.Redshift.DescribeLoggingStatus
+import Network.AWS.Redshift.DescribeOrderableClusterOptions
+import Network.AWS.Redshift.DescribeReservedNodeOfferings
+import Network.AWS.Redshift.DescribeReservedNodes
+import Network.AWS.Redshift.DescribeResize
+import Network.AWS.Redshift.DescribeSnapshotCopyGrants
+import Network.AWS.Redshift.DescribeTableRestoreStatus
+import Network.AWS.Redshift.DescribeTags
+import Network.AWS.Redshift.DisableLogging
+import Network.AWS.Redshift.DisableSnapshotCopy
+import Network.AWS.Redshift.EnableLogging
+import Network.AWS.Redshift.EnableSnapshotCopy
+import Network.AWS.Redshift.GetClusterCredentials
+import Network.AWS.Redshift.Internal
+import Network.AWS.Redshift.ModifyCluster
+import Network.AWS.Redshift.ModifyClusterIAMRoles
+import Network.AWS.Redshift.ModifyClusterParameterGroup
+import Network.AWS.Redshift.ModifyClusterSubnetGroup
+import Network.AWS.Redshift.ModifyEventSubscription
+import Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
+import Network.AWS.Redshift.PurchaseReservedNodeOffering
+import Network.AWS.Redshift.RebootCluster
+import Network.AWS.Redshift.ResetClusterParameterGroup
+import Network.AWS.Redshift.RestoreFromClusterSnapshot
+import Network.AWS.Redshift.RestoreTableFromClusterSnapshot
+import Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
+import Network.AWS.Redshift.RevokeSnapshotAccess
+import Network.AWS.Redshift.RotateEncryptionKey
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

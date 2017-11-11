@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListBonusPayments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.MechanicalTurk.ListBonusPayments
     , lbprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listBonusPayments' smart constructor.
 data ListBonusPayments = ListBonusPayments'
-    { _lbpNextToken    :: !(Maybe Text)
-    , _lbpHITId        :: !(Maybe Text)
-    , _lbpAssignmentId :: !(Maybe Text)
-    , _lbpMaxResults   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbpNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbpHITId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbpAssignmentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbpMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBonusPayments' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ data ListBonusPayments = ListBonusPayments'
 listBonusPayments
     :: ListBonusPayments
 listBonusPayments =
-    ListBonusPayments'
-    { _lbpNextToken = Nothing
-    , _lbpHITId = Nothing
-    , _lbpAssignmentId = Nothing
-    , _lbpMaxResults = Nothing
-    }
+  ListBonusPayments'
+  { _lbpNextToken = Nothing
+  , _lbpHITId = Nothing
+  , _lbpAssignmentId = Nothing
+  , _lbpMaxResults = Nothing
+  }
+
 
 -- | Pagination token
 lbpNextToken :: Lens' ListBonusPayments (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest ListBonusPayments where
                      <*> (x .?> "NumResults")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListBonusPayments
+instance Hashable ListBonusPayments where
 
-instance NFData ListBonusPayments
+instance NFData ListBonusPayments where
 
 instance ToHeaders ListBonusPayments where
         toHeaders
@@ -137,11 +139,12 @@ instance ToQuery ListBonusPayments where
 
 -- | /See:/ 'listBonusPaymentsResponse' smart constructor.
 data ListBonusPaymentsResponse = ListBonusPaymentsResponse'
-    { _lbprsBonusPayments  :: !(Maybe [BonusPayment])
-    , _lbprsNextToken      :: !(Maybe Text)
-    , _lbprsNumResults     :: !(Maybe Int)
-    , _lbprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbprsBonusPayments  :: {-# NOUNPACK #-}!(Maybe [BonusPayment])
+  , _lbprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbprsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lbprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBonusPaymentsResponse' with the minimum fields required to make a request.
 --
@@ -158,12 +161,13 @@ listBonusPaymentsResponse
     :: Int -- ^ 'lbprsResponseStatus'
     -> ListBonusPaymentsResponse
 listBonusPaymentsResponse pResponseStatus_ =
-    ListBonusPaymentsResponse'
-    { _lbprsBonusPayments = Nothing
-    , _lbprsNextToken = Nothing
-    , _lbprsNumResults = Nothing
-    , _lbprsResponseStatus = pResponseStatus_
-    }
+  ListBonusPaymentsResponse'
+  { _lbprsBonusPayments = Nothing
+  , _lbprsNextToken = Nothing
+  , _lbprsNumResults = Nothing
+  , _lbprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A successful request to the ListBonusPayments operation returns a list of BonusPayment objects.
 lbprsBonusPayments :: Lens' ListBonusPaymentsResponse [BonusPayment]
@@ -181,4 +185,4 @@ lbprsNumResults = lens _lbprsNumResults (\ s a -> s{_lbprsNumResults = a});
 lbprsResponseStatus :: Lens' ListBonusPaymentsResponse Int
 lbprsResponseStatus = lens _lbprsResponseStatus (\ s a -> s{_lbprsResponseStatus = a});
 
-instance NFData ListBonusPaymentsResponse
+instance NFData ListBonusPaymentsResponse where

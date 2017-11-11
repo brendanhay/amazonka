@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListApplications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,13 +40,13 @@ module Network.AWS.CodeDeploy.ListApplications
     , larsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a ListApplications operation.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listApplications' smart constructor.
 newtype ListApplications = ListApplications'
-    { _laNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListApplications' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ newtype ListApplications = ListApplications'
 -- * 'laNextToken' - An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.
 listApplications
     :: ListApplications
-listApplications =
-    ListApplications'
-    { _laNextToken = Nothing
-    }
+listApplications = ListApplications' {_laNextToken = Nothing}
+
 
 -- | An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.
 laNextToken :: Lens' ListApplications (Maybe Text)
@@ -91,9 +90,9 @@ instance AWSRequest ListApplications where
                      (x .?> "applications" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListApplications
+instance Hashable ListApplications where
 
-instance NFData ListApplications
+instance NFData ListApplications where
 
 instance ToHeaders ListApplications where
         toHeaders
@@ -122,10 +121,11 @@ instance ToQuery ListApplications where
 --
 -- /See:/ 'listApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-    { _larsNextToken      :: !(Maybe Text)
-    , _larsApplications   :: !(Maybe [Text])
-    , _larsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larsApplications   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListApplicationsResponse' with the minimum fields required to make a request.
 --
@@ -140,11 +140,12 @@ listApplicationsResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListApplicationsResponse
 listApplicationsResponse pResponseStatus_ =
-    ListApplicationsResponse'
-    { _larsNextToken = Nothing
-    , _larsApplications = Nothing
-    , _larsResponseStatus = pResponseStatus_
-    }
+  ListApplicationsResponse'
+  { _larsNextToken = Nothing
+  , _larsApplications = Nothing
+  , _larsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications, will also be returned. in the list.
 larsNextToken :: Lens' ListApplicationsResponse (Maybe Text)
@@ -158,4 +159,4 @@ larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . 
 larsResponseStatus :: Lens' ListApplicationsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 
-instance NFData ListApplicationsResponse
+instance NFData ListApplicationsResponse where

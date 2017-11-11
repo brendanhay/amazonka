@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyDBSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.RDS.CopyDBSnapshot
     , cdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -62,14 +62,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'copyDBSnapshot' smart constructor.
 data CopyDBSnapshot = CopyDBSnapshot'
-    { _cdsPreSignedURL               :: !(Maybe Text)
-    , _cdsCopyTags                   :: !(Maybe Bool)
-    , _cdsKMSKeyId                   :: !(Maybe Text)
-    , _cdsOptionGroupName            :: !(Maybe Text)
-    , _cdsTags                       :: !(Maybe [Tag])
-    , _cdsSourceDBSnapshotIdentifier :: !Text
-    , _cdsTargetDBSnapshotIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsPreSignedURL               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsCopyTags                   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cdsKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsOptionGroupName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdsTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdsSourceDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  , _cdsTargetDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyDBSnapshot' with the minimum fields required to make a request.
 --
@@ -93,15 +94,16 @@ copyDBSnapshot
     -> Text -- ^ 'cdsTargetDBSnapshotIdentifier'
     -> CopyDBSnapshot
 copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
-    CopyDBSnapshot'
-    { _cdsPreSignedURL = Nothing
-    , _cdsCopyTags = Nothing
-    , _cdsKMSKeyId = Nothing
-    , _cdsOptionGroupName = Nothing
-    , _cdsTags = Nothing
-    , _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier_
-    , _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier_
-    }
+  CopyDBSnapshot'
+  { _cdsPreSignedURL = Nothing
+  , _cdsCopyTags = Nothing
+  , _cdsKMSKeyId = Nothing
+  , _cdsOptionGroupName = Nothing
+  , _cdsTags = Nothing
+  , _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier_
+  , _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier_
+  }
+
 
 -- | The URL that contains a Signature Version 4 signed request for the @CopyDBSnapshot@ API action in the source AWS Region that contains the source DB snapshot to copy.  You must specify this parameter when you copy an encrypted DB snapshot from another AWS Region by using the Amazon RDS API. You can specify the source region option instead of this parameter when you copy an encrypted DB snapshot from another AWS Region by using the AWS CLI.  The presigned URL must be a valid request for the @CopyDBSnapshot@ API action that can be executed in the source AWS Region that contains the encrypted DB snapshot to be copied. The presigned URL request must contain the following parameter values:      * @DestinationRegion@ - The AWS Region that the encrypted DB snapshot will be copied to. This AWS Region is the same one where the @CopyDBSnapshot@ action is called that contains this presigned URL.  For example, if you copy an encrypted DB snapshot from the us-west-2 region to the us-east-1 region, then you call the @CopyDBSnapshot@ action in the us-east-1 region and provide a presigned URL that contains a call to the @CopyDBSnapshot@ action in the us-west-2 region. For this example, the @DestinationRegion@ in the presigned URL must be set to the us-east-1 region.      * @KmsKeyId@ - The KMS key identifier for the key to use to encrypt the copy of the DB snapshot in the destination AWS Region. This is the same identifier for both the @CopyDBSnapshot@ action that is called in the destination AWS Region, and the action contained in the presigned URL.      * @SourceDBSnapshotIdentifier@ - The DB snapshot identifier for the encrypted snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an encrypted DB snapshot from the us-west-2 region, then your @SourceDBSnapshotIdentifier@ looks like the following example: @arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115@ .  To learn how to generate a Signature Version 4 signed request, see <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)> and <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
 cdsPreSignedURL :: Lens' CopyDBSnapshot (Maybe Text)
@@ -140,9 +142,9 @@ instance AWSRequest CopyDBSnapshot where
                  CopyDBSnapshotResponse' <$>
                    (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
-instance Hashable CopyDBSnapshot
+instance Hashable CopyDBSnapshot where
 
-instance NFData CopyDBSnapshot
+instance NFData CopyDBSnapshot where
 
 instance ToHeaders CopyDBSnapshot where
         toHeaders = const mempty
@@ -167,9 +169,10 @@ instance ToQuery CopyDBSnapshot where
 
 -- | /See:/ 'copyDBSnapshotResponse' smart constructor.
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
-    { _cdsrsDBSnapshot     :: !(Maybe DBSnapshot)
-    , _cdsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsrsDBSnapshot     :: {-# NOUNPACK #-}!(Maybe DBSnapshot)
+  , _cdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CopyDBSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -182,10 +185,9 @@ copyDBSnapshotResponse
     :: Int -- ^ 'cdsrsResponseStatus'
     -> CopyDBSnapshotResponse
 copyDBSnapshotResponse pResponseStatus_ =
-    CopyDBSnapshotResponse'
-    { _cdsrsDBSnapshot = Nothing
-    , _cdsrsResponseStatus = pResponseStatus_
-    }
+  CopyDBSnapshotResponse'
+  {_cdsrsDBSnapshot = Nothing, _cdsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cdsrsDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
@@ -195,4 +197,4 @@ cdsrsDBSnapshot = lens _cdsrsDBSnapshot (\ s a -> s{_cdsrsDBSnapshot = a});
 cdsrsResponseStatus :: Lens' CopyDBSnapshotResponse Int
 cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a});
 
-instance NFData CopyDBSnapshotResponse
+instance NFData CopyDBSnapshotResponse where

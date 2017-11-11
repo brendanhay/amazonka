@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListInstanceProfiles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.IAM.ListInstanceProfiles
     , liprsInstanceProfiles
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfiles' smart constructor.
 data ListInstanceProfiles = ListInstanceProfiles'
-    { _lipPathPrefix :: !(Maybe Text)
-    , _lipMarker     :: !(Maybe Text)
-    , _lipMaxItems   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lipMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lipMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceProfiles' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ data ListInstanceProfiles = ListInstanceProfiles'
 listInstanceProfiles
     :: ListInstanceProfiles
 listInstanceProfiles =
-    ListInstanceProfiles'
-    { _lipPathPrefix = Nothing
-    , _lipMarker = Nothing
-    , _lipMaxItems = Nothing
-    }
+  ListInstanceProfiles'
+  {_lipPathPrefix = Nothing, _lipMarker = Nothing, _lipMaxItems = Nothing}
+
 
 -- | The path prefix for filtering the results. For example, the prefix @/application_abc/component_xyz/@ gets all instance profiles whose path starts with @/application_abc/component_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
@@ -111,9 +110,9 @@ instance AWSRequest ListInstanceProfiles where
                      (x .@? "InstanceProfiles" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListInstanceProfiles
+instance Hashable ListInstanceProfiles where
 
-instance NFData ListInstanceProfiles
+instance NFData ListInstanceProfiles where
 
 instance ToHeaders ListInstanceProfiles where
         toHeaders = const mempty
@@ -135,11 +134,12 @@ instance ToQuery ListInstanceProfiles where
 --
 -- /See:/ 'listInstanceProfilesResponse' smart constructor.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
-    { _liprsMarker           :: !(Maybe Text)
-    , _liprsIsTruncated      :: !(Maybe Bool)
-    , _liprsResponseStatus   :: !Int
-    , _liprsInstanceProfiles :: ![InstanceProfile]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liprsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liprsIsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _liprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _liprsInstanceProfiles :: {-# NOUNPACK #-}![InstanceProfile]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListInstanceProfilesResponse' with the minimum fields required to make a request.
 --
@@ -156,12 +156,13 @@ listInstanceProfilesResponse
     :: Int -- ^ 'liprsResponseStatus'
     -> ListInstanceProfilesResponse
 listInstanceProfilesResponse pResponseStatus_ =
-    ListInstanceProfilesResponse'
-    { _liprsMarker = Nothing
-    , _liprsIsTruncated = Nothing
-    , _liprsResponseStatus = pResponseStatus_
-    , _liprsInstanceProfiles = mempty
-    }
+  ListInstanceProfilesResponse'
+  { _liprsMarker = Nothing
+  , _liprsIsTruncated = Nothing
+  , _liprsResponseStatus = pResponseStatus_
+  , _liprsInstanceProfiles = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 liprsMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
@@ -179,4 +180,4 @@ liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus
 liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
 liprsInstanceProfiles = lens _liprsInstanceProfiles (\ s a -> s{_liprsInstanceProfiles = a}) . _Coerce;
 
-instance NFData ListInstanceProfilesResponse
+instance NFData ListInstanceProfilesResponse where

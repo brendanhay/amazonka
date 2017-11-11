@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeRAIdArrays
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.OpsWorks.DescribeRAIdArrays
     , draiarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeRAIdArrays' smart constructor.
 data DescribeRAIdArrays = DescribeRAIdArrays'
-    { _draiaInstanceId   :: !(Maybe Text)
-    , _draiaRAIdArrayIds :: !(Maybe [Text])
-    , _draiaStackId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _draiaInstanceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _draiaRAIdArrayIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _draiaStackId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRAIdArrays' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ data DescribeRAIdArrays = DescribeRAIdArrays'
 describeRAIdArrays
     :: DescribeRAIdArrays
 describeRAIdArrays =
-    DescribeRAIdArrays'
-    { _draiaInstanceId = Nothing
-    , _draiaRAIdArrayIds = Nothing
-    , _draiaStackId = Nothing
-    }
+  DescribeRAIdArrays'
+  { _draiaInstanceId = Nothing
+  , _draiaRAIdArrayIds = Nothing
+  , _draiaStackId = Nothing
+  }
+
 
 -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns descriptions of the RAID arrays associated with the specified instance.
 draiaInstanceId :: Lens' DescribeRAIdArrays (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest DescribeRAIdArrays where
                    (x .?> "RaidArrays" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeRAIdArrays
+instance Hashable DescribeRAIdArrays where
 
-instance NFData DescribeRAIdArrays
+instance NFData DescribeRAIdArrays where
 
 instance ToHeaders DescribeRAIdArrays where
         toHeaders
@@ -130,9 +132,10 @@ instance ToQuery DescribeRAIdArrays where
 --
 -- /See:/ 'describeRAIdArraysResponse' smart constructor.
 data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
-    { _draiarsRAIdArrays     :: !(Maybe [RAIdArray])
-    , _draiarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _draiarsRAIdArrays     :: {-# NOUNPACK #-}!(Maybe [RAIdArray])
+  , _draiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRAIdArraysResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +148,9 @@ describeRAIdArraysResponse
     :: Int -- ^ 'draiarsResponseStatus'
     -> DescribeRAIdArraysResponse
 describeRAIdArraysResponse pResponseStatus_ =
-    DescribeRAIdArraysResponse'
-    { _draiarsRAIdArrays = Nothing
-    , _draiarsResponseStatus = pResponseStatus_
-    }
+  DescribeRAIdArraysResponse'
+  {_draiarsRAIdArrays = Nothing, _draiarsResponseStatus = pResponseStatus_}
+
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
 draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
@@ -158,4 +160,4 @@ draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a})
 draiarsResponseStatus :: Lens' DescribeRAIdArraysResponse Int
 draiarsResponseStatus = lens _draiarsResponseStatus (\ s a -> s{_draiarsResponseStatus = a});
 
-instance NFData DescribeRAIdArraysResponse
+instance NFData DescribeRAIdArraysResponse where

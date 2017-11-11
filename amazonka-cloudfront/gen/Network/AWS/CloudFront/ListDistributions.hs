@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListDistributions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,13 +40,13 @@ module Network.AWS.CloudFront.ListDistributions
     , ldrsDistributionList
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list your distributions.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listDistributions' smart constructor.
 data ListDistributions = ListDistributions'
-    { _ldMarker   :: !(Maybe Text)
-    , _ldMaxItems :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDistributions' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ data ListDistributions = ListDistributions'
 listDistributions
     :: ListDistributions
 listDistributions =
-    ListDistributions'
-    { _ldMarker = Nothing
-    , _ldMaxItems = Nothing
-    }
+  ListDistributions' {_ldMarker = Nothing, _ldMaxItems = Nothing}
+
 
 -- | Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
 ldMarker :: Lens' ListDistributions (Maybe Text)
@@ -102,9 +101,9 @@ instance AWSRequest ListDistributions where
                  ListDistributionsResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
-instance Hashable ListDistributions
+instance Hashable ListDistributions where
 
-instance NFData ListDistributions
+instance NFData ListDistributions where
 
 instance ToHeaders ListDistributions where
         toHeaders = const mempty
@@ -123,9 +122,10 @@ instance ToQuery ListDistributions where
 --
 -- /See:/ 'listDistributionsResponse' smart constructor.
 data ListDistributionsResponse = ListDistributionsResponse'
-    { _ldrsResponseStatus   :: !Int
-    , _ldrsDistributionList :: !DistributionList
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _ldrsDistributionList :: {-# NOUNPACK #-}!DistributionList
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDistributionsResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +139,11 @@ listDistributionsResponse
     -> DistributionList -- ^ 'ldrsDistributionList'
     -> ListDistributionsResponse
 listDistributionsResponse pResponseStatus_ pDistributionList_ =
-    ListDistributionsResponse'
-    { _ldrsResponseStatus = pResponseStatus_
-    , _ldrsDistributionList = pDistributionList_
-    }
+  ListDistributionsResponse'
+  { _ldrsResponseStatus = pResponseStatus_
+  , _ldrsDistributionList = pDistributionList_
+  }
+
 
 -- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDistributionsResponse Int
@@ -152,4 +153,4 @@ ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = 
 ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrsDistributionList = lens _ldrsDistributionList (\ s a -> s{_ldrsDistributionList = a});
 
-instance NFData ListDistributionsResponse
+instance NFData ListDistributionsResponse where

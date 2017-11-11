@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CloneStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,38 +60,39 @@ module Network.AWS.OpsWorks.CloneStack
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'cloneStack' smart constructor.
 data CloneStack = CloneStack'
-    { _cDefaultInstanceProfileARN :: !(Maybe Text)
-    , _cCloneAppIds               :: !(Maybe [Text])
-    , _cDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _cVPCId                     :: !(Maybe Text)
-    , _cChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _cAgentVersion              :: !(Maybe Text)
-    , _cDefaultSSHKeyName         :: !(Maybe Text)
-    , _cCustomJSON                :: !(Maybe Text)
-    , _cClonePermissions          :: !(Maybe Bool)
-    , _cCustomCookbooksSource     :: !(Maybe Source)
-    , _cDefaultAvailabilityZone   :: !(Maybe Text)
-    , _cAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _cName                      :: !(Maybe Text)
-    , _cDefaultOS                 :: !(Maybe Text)
-    , _cUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _cUseCustomCookbooks        :: !(Maybe Bool)
-    , _cDefaultSubnetId           :: !(Maybe Text)
-    , _cRegion                    :: !(Maybe Text)
-    , _cConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _cHostnameTheme             :: !(Maybe Text)
-    , _cSourceStackId             :: !Text
-    , _cServiceRoleARN            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cDefaultInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCloneAppIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cDefaultRootDeviceType :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
+  , _cVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cChefConfiguration :: {-# NOUNPACK #-}!(Maybe ChefConfiguration)
+  , _cAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cDefaultSSHKeyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cClonePermissions :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cCustomCookbooksSource :: {-# NOUNPACK #-}!(Maybe Source)
+  , _cDefaultAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cAttributes :: {-# NOUNPACK #-}!(Maybe (Map StackAttributesKeys Text))
+  , _cName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cDefaultOS :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cUseOpsworksSecurityGroups :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cUseCustomCookbooks :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cDefaultSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cRegion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
+  , _cHostnameTheme :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cSourceStackId :: {-# NOUNPACK #-}!Text
+  , _cServiceRoleARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloneStack' with the minimum fields required to make a request.
 --
@@ -145,30 +146,31 @@ cloneStack
     -> Text -- ^ 'cServiceRoleARN'
     -> CloneStack
 cloneStack pSourceStackId_ pServiceRoleARN_ =
-    CloneStack'
-    { _cDefaultInstanceProfileARN = Nothing
-    , _cCloneAppIds = Nothing
-    , _cDefaultRootDeviceType = Nothing
-    , _cVPCId = Nothing
-    , _cChefConfiguration = Nothing
-    , _cAgentVersion = Nothing
-    , _cDefaultSSHKeyName = Nothing
-    , _cCustomJSON = Nothing
-    , _cClonePermissions = Nothing
-    , _cCustomCookbooksSource = Nothing
-    , _cDefaultAvailabilityZone = Nothing
-    , _cAttributes = Nothing
-    , _cName = Nothing
-    , _cDefaultOS = Nothing
-    , _cUseOpsworksSecurityGroups = Nothing
-    , _cUseCustomCookbooks = Nothing
-    , _cDefaultSubnetId = Nothing
-    , _cRegion = Nothing
-    , _cConfigurationManager = Nothing
-    , _cHostnameTheme = Nothing
-    , _cSourceStackId = pSourceStackId_
-    , _cServiceRoleARN = pServiceRoleARN_
-    }
+  CloneStack'
+  { _cDefaultInstanceProfileARN = Nothing
+  , _cCloneAppIds = Nothing
+  , _cDefaultRootDeviceType = Nothing
+  , _cVPCId = Nothing
+  , _cChefConfiguration = Nothing
+  , _cAgentVersion = Nothing
+  , _cDefaultSSHKeyName = Nothing
+  , _cCustomJSON = Nothing
+  , _cClonePermissions = Nothing
+  , _cCustomCookbooksSource = Nothing
+  , _cDefaultAvailabilityZone = Nothing
+  , _cAttributes = Nothing
+  , _cName = Nothing
+  , _cDefaultOS = Nothing
+  , _cUseOpsworksSecurityGroups = Nothing
+  , _cUseCustomCookbooks = Nothing
+  , _cDefaultSubnetId = Nothing
+  , _cRegion = Nothing
+  , _cConfigurationManager = Nothing
+  , _cHostnameTheme = Nothing
+  , _cSourceStackId = pSourceStackId_
+  , _cServiceRoleARN = pServiceRoleARN_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 cDefaultInstanceProfileARN :: Lens' CloneStack (Maybe Text)
@@ -267,9 +269,9 @@ instance AWSRequest CloneStack where
                  CloneStackResponse' <$>
                    (x .?> "StackId") <*> (pure (fromEnum s)))
 
-instance Hashable CloneStack
+instance Hashable CloneStack where
 
-instance NFData CloneStack
+instance NFData CloneStack where
 
 instance ToHeaders CloneStack where
         toHeaders
@@ -325,9 +327,10 @@ instance ToQuery CloneStack where
 --
 -- /See:/ 'cloneStackResponse' smart constructor.
 data CloneStackResponse = CloneStackResponse'
-    { _csrsStackId        :: !(Maybe Text)
-    , _csrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloneStackResponse' with the minimum fields required to make a request.
 --
@@ -340,10 +343,9 @@ cloneStackResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CloneStackResponse
 cloneStackResponse pResponseStatus_ =
-    CloneStackResponse'
-    { _csrsStackId = Nothing
-    , _csrsResponseStatus = pResponseStatus_
-    }
+  CloneStackResponse'
+  {_csrsStackId = Nothing, _csrsResponseStatus = pResponseStatus_}
+
 
 -- | The cloned stack ID.
 csrsStackId :: Lens' CloneStackResponse (Maybe Text)
@@ -353,4 +355,4 @@ csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 csrsResponseStatus :: Lens' CloneStackResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CloneStackResponse
+instance NFData CloneStackResponse where

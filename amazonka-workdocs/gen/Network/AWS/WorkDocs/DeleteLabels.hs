@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteLabels
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.WorkDocs.DeleteLabels
     , dlrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteLabels' smart constructor.
 data DeleteLabels = DeleteLabels'
-    { _dlDeleteAll           :: !(Maybe Bool)
-    , _dlAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _dlLabels              :: !(Maybe [Text])
-    , _dlResourceId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dlDeleteAll           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dlAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _dlLabels              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dlResourceId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLabels' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ deleteLabels
     :: Text -- ^ 'dlResourceId'
     -> DeleteLabels
 deleteLabels pResourceId_ =
-    DeleteLabels'
-    { _dlDeleteAll = Nothing
-    , _dlAuthenticationToken = Nothing
-    , _dlLabels = Nothing
-    , _dlResourceId = pResourceId_
-    }
+  DeleteLabels'
+  { _dlDeleteAll = Nothing
+  , _dlAuthenticationToken = Nothing
+  , _dlLabels = Nothing
+  , _dlResourceId = pResourceId_
+  }
+
 
 -- | Flag to request removal of all labels from the specified resource.
 dlDeleteAll :: Lens' DeleteLabels (Maybe Bool)
@@ -100,9 +102,9 @@ instance AWSRequest DeleteLabels where
               (\ s h x ->
                  DeleteLabelsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteLabels
+instance Hashable DeleteLabels where
 
-instance NFData DeleteLabels
+instance NFData DeleteLabels where
 
 instance ToHeaders DeleteLabels where
         toHeaders DeleteLabels'{..}
@@ -125,8 +127,9 @@ instance ToQuery DeleteLabels where
 
 -- | /See:/ 'deleteLabelsResponse' smart constructor.
 newtype DeleteLabelsResponse = DeleteLabelsResponse'
-    { _dlrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLabelsResponse' with the minimum fields required to make a request.
 --
@@ -137,12 +140,11 @@ deleteLabelsResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DeleteLabelsResponse
 deleteLabelsResponse pResponseStatus_ =
-    DeleteLabelsResponse'
-    { _dlrsResponseStatus = pResponseStatus_
-    }
+  DeleteLabelsResponse' {_dlrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dlrsResponseStatus :: Lens' DeleteLabelsResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 
-instance NFData DeleteLabelsResponse
+instance NFData DeleteLabelsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GetParametersForImport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,19 +46,20 @@ module Network.AWS.KMS.GetParametersForImport
     , gpfirsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getParametersForImport' smart constructor.
 data GetParametersForImport = GetParametersForImport'
-    { _gpfiKeyId             :: !Text
-    , _gpfiWrappingAlgorithm :: !AlgorithmSpec
-    , _gpfiWrappingKeySpec   :: !WrappingKeySpec
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpfiKeyId             :: {-# NOUNPACK #-}!Text
+  , _gpfiWrappingAlgorithm :: {-# NOUNPACK #-}!AlgorithmSpec
+  , _gpfiWrappingKeySpec   :: {-# NOUNPACK #-}!WrappingKeySpec
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParametersForImport' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ getParametersForImport
     -> WrappingKeySpec -- ^ 'gpfiWrappingKeySpec'
     -> GetParametersForImport
 getParametersForImport pKeyId_ pWrappingAlgorithm_ pWrappingKeySpec_ =
-    GetParametersForImport'
-    { _gpfiKeyId = pKeyId_
-    , _gpfiWrappingAlgorithm = pWrappingAlgorithm_
-    , _gpfiWrappingKeySpec = pWrappingKeySpec_
-    }
+  GetParametersForImport'
+  { _gpfiKeyId = pKeyId_
+  , _gpfiWrappingAlgorithm = pWrappingAlgorithm_
+  , _gpfiWrappingKeySpec = pWrappingKeySpec_
+  }
+
 
 -- | The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 gpfiKeyId :: Lens' GetParametersForImport Text
@@ -106,9 +108,9 @@ instance AWSRequest GetParametersForImport where
                      <*> (x .?> "ImportToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetParametersForImport
+instance Hashable GetParametersForImport where
 
-instance NFData GetParametersForImport
+instance NFData GetParametersForImport where
 
 instance ToHeaders GetParametersForImport where
         toHeaders
@@ -136,12 +138,13 @@ instance ToQuery GetParametersForImport where
 
 -- | /See:/ 'getParametersForImportResponse' smart constructor.
 data GetParametersForImportResponse = GetParametersForImportResponse'
-    { _gpfirsKeyId             :: !(Maybe Text)
-    , _gpfirsPublicKey         :: !(Maybe (Sensitive Base64))
-    , _gpfirsParametersValidTo :: !(Maybe POSIX)
-    , _gpfirsImportToken       :: !(Maybe Base64)
-    , _gpfirsResponseStatus    :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gpfirsKeyId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpfirsPublicKey         :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
+  , _gpfirsParametersValidTo :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gpfirsImportToken       :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _gpfirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParametersForImportResponse' with the minimum fields required to make a request.
 --
@@ -160,13 +163,14 @@ getParametersForImportResponse
     :: Int -- ^ 'gpfirsResponseStatus'
     -> GetParametersForImportResponse
 getParametersForImportResponse pResponseStatus_ =
-    GetParametersForImportResponse'
-    { _gpfirsKeyId = Nothing
-    , _gpfirsPublicKey = Nothing
-    , _gpfirsParametersValidTo = Nothing
-    , _gpfirsImportToken = Nothing
-    , _gpfirsResponseStatus = pResponseStatus_
-    }
+  GetParametersForImportResponse'
+  { _gpfirsKeyId = Nothing
+  , _gpfirsPublicKey = Nothing
+  , _gpfirsParametersValidTo = Nothing
+  , _gpfirsImportToken = Nothing
+  , _gpfirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The identifier of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
 gpfirsKeyId :: Lens' GetParametersForImportResponse (Maybe Text)
@@ -188,4 +192,4 @@ gpfirsImportToken = lens _gpfirsImportToken (\ s a -> s{_gpfirsImportToken = a})
 gpfirsResponseStatus :: Lens' GetParametersForImportResponse Int
 gpfirsResponseStatus = lens _gpfirsResponseStatus (\ s a -> s{_gpfirsResponseStatus = a});
 
-instance NFData GetParametersForImportResponse
+instance NFData GetParametersForImportResponse where

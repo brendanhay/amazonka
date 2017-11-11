@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     , dccrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DeleteCacheCluster@ operation.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteCacheCluster' smart constructor.
 data DeleteCacheCluster = DeleteCacheCluster'
-    { _dccFinalSnapshotIdentifier :: !(Maybe Text)
-    , _dccCacheClusterId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dccFinalSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dccCacheClusterId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCacheCluster' with the minimum fields required to make a request.
 --
@@ -70,10 +71,9 @@ deleteCacheCluster
     :: Text -- ^ 'dccCacheClusterId'
     -> DeleteCacheCluster
 deleteCacheCluster pCacheClusterId_ =
-    DeleteCacheCluster'
-    { _dccFinalSnapshotIdentifier = Nothing
-    , _dccCacheClusterId = pCacheClusterId_
-    }
+  DeleteCacheCluster'
+  {_dccFinalSnapshotIdentifier = Nothing, _dccCacheClusterId = pCacheClusterId_}
+
 
 -- | The user-supplied name of a final cache cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cache cluster immediately afterward.
 dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
@@ -93,9 +93,9 @@ instance AWSRequest DeleteCacheCluster where
                  DeleteCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteCacheCluster
+instance Hashable DeleteCacheCluster where
 
-instance NFData DeleteCacheCluster
+instance NFData DeleteCacheCluster where
 
 instance ToHeaders DeleteCacheCluster where
         toHeaders = const mempty
@@ -114,9 +114,10 @@ instance ToQuery DeleteCacheCluster where
 
 -- | /See:/ 'deleteCacheClusterResponse' smart constructor.
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
-    { _dccrsCacheCluster   :: !(Maybe CacheCluster)
-    , _dccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dccrsCacheCluster   :: {-# NOUNPACK #-}!(Maybe CacheCluster)
+  , _dccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCacheClusterResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ deleteCacheClusterResponse
     :: Int -- ^ 'dccrsResponseStatus'
     -> DeleteCacheClusterResponse
 deleteCacheClusterResponse pResponseStatus_ =
-    DeleteCacheClusterResponse'
-    { _dccrsCacheCluster = Nothing
-    , _dccrsResponseStatus = pResponseStatus_
-    }
+  DeleteCacheClusterResponse'
+  {_dccrsCacheCluster = Nothing, _dccrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
@@ -142,4 +142,4 @@ dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a})
 dccrsResponseStatus :: Lens' DeleteCacheClusterResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
 
-instance NFData DeleteCacheClusterResponse
+instance NFData DeleteCacheClusterResponse where

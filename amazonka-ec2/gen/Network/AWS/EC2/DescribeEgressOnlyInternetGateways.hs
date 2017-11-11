@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeEgressOnlyInternetGateways
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.EC2.DescribeEgressOnlyInternetGateways
     , deoigrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEgressOnlyInternetGateways' smart constructor.
 data DescribeEgressOnlyInternetGateways = DescribeEgressOnlyInternetGateways'
-    { _deoigEgressOnlyInternetGatewayIds :: !(Maybe [Text])
-    , _deoigNextToken                    :: !(Maybe Text)
-    , _deoigDryRun                       :: !(Maybe Bool)
-    , _deoigMaxResults                   :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deoigEgressOnlyInternetGatewayIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _deoigNextToken                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deoigDryRun                       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _deoigMaxResults                   :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEgressOnlyInternetGateways' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data DescribeEgressOnlyInternetGateways = DescribeEgressOnlyInternetGateways'
 describeEgressOnlyInternetGateways
     :: DescribeEgressOnlyInternetGateways
 describeEgressOnlyInternetGateways =
-    DescribeEgressOnlyInternetGateways'
-    { _deoigEgressOnlyInternetGatewayIds = Nothing
-    , _deoigNextToken = Nothing
-    , _deoigDryRun = Nothing
-    , _deoigMaxResults = Nothing
-    }
+  DescribeEgressOnlyInternetGateways'
+  { _deoigEgressOnlyInternetGatewayIds = Nothing
+  , _deoigNextToken = Nothing
+  , _deoigDryRun = Nothing
+  , _deoigMaxResults = Nothing
+  }
+
 
 -- | One or more egress-only Internet gateway IDs.
 deoigEgressOnlyInternetGatewayIds :: Lens' DescribeEgressOnlyInternetGateways [Text]
@@ -94,7 +96,8 @@ deoigMaxResults :: Lens' DescribeEgressOnlyInternetGateways (Maybe Int)
 deoigMaxResults = lens _deoigMaxResults (\ s a -> s{_deoigMaxResults = a});
 
 instance AWSRequest
-         DescribeEgressOnlyInternetGateways where
+           DescribeEgressOnlyInternetGateways
+         where
         type Rs DescribeEgressOnlyInternetGateways =
              DescribeEgressOnlyInternetGatewaysResponse
         request = postQuery ec2
@@ -108,8 +111,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeEgressOnlyInternetGateways
+         where
 
 instance NFData DescribeEgressOnlyInternetGateways
+         where
 
 instance ToHeaders DescribeEgressOnlyInternetGateways
          where
@@ -135,10 +140,11 @@ instance ToQuery DescribeEgressOnlyInternetGateways
 
 -- | /See:/ 'describeEgressOnlyInternetGatewaysResponse' smart constructor.
 data DescribeEgressOnlyInternetGatewaysResponse = DescribeEgressOnlyInternetGatewaysResponse'
-    { _deoigrsEgressOnlyInternetGateways :: !(Maybe [EgressOnlyInternetGateway])
-    , _deoigrsNextToken                  :: !(Maybe Text)
-    , _deoigrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deoigrsEgressOnlyInternetGateways :: {-# NOUNPACK #-}!(Maybe [EgressOnlyInternetGateway])
+  , _deoigrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deoigrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEgressOnlyInternetGatewaysResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +159,12 @@ describeEgressOnlyInternetGatewaysResponse
     :: Int -- ^ 'deoigrsResponseStatus'
     -> DescribeEgressOnlyInternetGatewaysResponse
 describeEgressOnlyInternetGatewaysResponse pResponseStatus_ =
-    DescribeEgressOnlyInternetGatewaysResponse'
-    { _deoigrsEgressOnlyInternetGateways = Nothing
-    , _deoigrsNextToken = Nothing
-    , _deoigrsResponseStatus = pResponseStatus_
-    }
+  DescribeEgressOnlyInternetGatewaysResponse'
+  { _deoigrsEgressOnlyInternetGateways = Nothing
+  , _deoigrsNextToken = Nothing
+  , _deoigrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the egress-only Internet gateways.
 deoigrsEgressOnlyInternetGateways :: Lens' DescribeEgressOnlyInternetGatewaysResponse [EgressOnlyInternetGateway]
@@ -172,4 +179,5 @@ deoigrsResponseStatus :: Lens' DescribeEgressOnlyInternetGatewaysResponse Int
 deoigrsResponseStatus = lens _deoigrsResponseStatus (\ s a -> s{_deoigrsResponseStatus = a});
 
 instance NFData
-         DescribeEgressOnlyInternetGatewaysResponse
+           DescribeEgressOnlyInternetGatewaysResponse
+         where

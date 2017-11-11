@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteUserPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.DeleteUserPolicy
     , DeleteUserPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteUserPolicy' smart constructor.
 data DeleteUserPolicy = DeleteUserPolicy'
-    { _dupUserName   :: !Text
-    , _dupPolicyName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dupUserName   :: {-# NOUNPACK #-}!Text
+  , _dupPolicyName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserPolicy' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ deleteUserPolicy
     -> Text -- ^ 'dupPolicyName'
     -> DeleteUserPolicy
 deleteUserPolicy pUserName_ pPolicyName_ =
-    DeleteUserPolicy'
-    { _dupUserName = pUserName_
-    , _dupPolicyName = pPolicyName_
-    }
+  DeleteUserPolicy' {_dupUserName = pUserName_, _dupPolicyName = pPolicyName_}
+
 
 -- | The name (friendly name, not ARN) identifying the user that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dupUserName :: Lens' DeleteUserPolicy Text
@@ -80,9 +79,9 @@ instance AWSRequest DeleteUserPolicy where
         request = postQuery iam
         response = receiveNull DeleteUserPolicyResponse'
 
-instance Hashable DeleteUserPolicy
+instance Hashable DeleteUserPolicy where
 
-instance NFData DeleteUserPolicy
+instance NFData DeleteUserPolicy where
 
 instance ToHeaders DeleteUserPolicy where
         toHeaders = const mempty
@@ -100,8 +99,9 @@ instance ToQuery DeleteUserPolicy where
 
 -- | /See:/ 'deleteUserPolicyResponse' smart constructor.
 data DeleteUserPolicyResponse =
-    DeleteUserPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteUserPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserPolicyResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +109,5 @@ deleteUserPolicyResponse
     :: DeleteUserPolicyResponse
 deleteUserPolicyResponse = DeleteUserPolicyResponse'
 
-instance NFData DeleteUserPolicyResponse
+
+instance NFData DeleteUserPolicyResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.DescribeProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,17 +44,18 @@ module Network.AWS.CodeStar.DescribeProject
     , drsResponseStatus
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeProject' smart constructor.
 newtype DescribeProject = DescribeProject'
-    { _dId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProject' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ newtype DescribeProject = DescribeProject'
 describeProject
     :: Text -- ^ 'dId'
     -> DescribeProject
-describeProject pId_ =
-    DescribeProject'
-    { _dId = pId_
-    }
+describeProject pId_ = DescribeProject' {_dId = pId_}
+
 
 -- | The ID of the project.
 dId :: Lens' DescribeProject Text
@@ -89,9 +88,9 @@ instance AWSRequest DescribeProject where
                      <*> (x .?> "description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeProject
+instance Hashable DescribeProject where
 
-instance NFData DescribeProject
+instance NFData DescribeProject where
 
 instance ToHeaders DescribeProject where
         toHeaders
@@ -114,16 +113,17 @@ instance ToQuery DescribeProject where
 
 -- | /See:/ 'describeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-    { _drsArn                :: !(Maybe Text)
-    , _drsProjectTemplateId  :: !(Maybe Text)
-    , _drsName               :: !(Maybe (Sensitive Text))
-    , _drsId                 :: !(Maybe Text)
-    , _drsStackId            :: !(Maybe Text)
-    , _drsClientRequestToken :: !(Maybe Text)
-    , _drsCreatedTimeStamp   :: !(Maybe POSIX)
-    , _drsDescription        :: !(Maybe (Sensitive Text))
-    , _drsResponseStatus     :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _drsArn                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsProjectTemplateId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsName               :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _drsId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsStackId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsCreatedTimeStamp   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _drsDescription        :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _drsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProjectResponse' with the minimum fields required to make a request.
 --
@@ -150,17 +150,18 @@ describeProjectResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeProjectResponse
 describeProjectResponse pResponseStatus_ =
-    DescribeProjectResponse'
-    { _drsArn = Nothing
-    , _drsProjectTemplateId = Nothing
-    , _drsName = Nothing
-    , _drsId = Nothing
-    , _drsStackId = Nothing
-    , _drsClientRequestToken = Nothing
-    , _drsCreatedTimeStamp = Nothing
-    , _drsDescription = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeProjectResponse'
+  { _drsArn = Nothing
+  , _drsProjectTemplateId = Nothing
+  , _drsName = Nothing
+  , _drsId = Nothing
+  , _drsStackId = Nothing
+  , _drsClientRequestToken = Nothing
+  , _drsCreatedTimeStamp = Nothing
+  , _drsDescription = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) for the project.
 drsArn :: Lens' DescribeProjectResponse (Maybe Text)
@@ -198,4 +199,4 @@ drsDescription = lens _drsDescription (\ s a -> s{_drsDescription = a}) . mappin
 drsResponseStatus :: Lens' DescribeProjectResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeProjectResponse
+instance NFData DescribeProjectResponse where

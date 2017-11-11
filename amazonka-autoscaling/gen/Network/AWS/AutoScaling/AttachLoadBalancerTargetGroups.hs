@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
     , albtgrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachLoadBalancerTargetGroups.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'attachLoadBalancerTargetGroups' smart constructor.
 data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
-    { _albtgAutoScalingGroupName :: !Text
-    , _albtgTargetGroupARNs      :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albtgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _albtgTargetGroupARNs      :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancerTargetGroups' with the minimum fields required to make a request.
 --
@@ -69,10 +70,11 @@ attachLoadBalancerTargetGroups
     :: Text -- ^ 'albtgAutoScalingGroupName'
     -> AttachLoadBalancerTargetGroups
 attachLoadBalancerTargetGroups pAutoScalingGroupName_ =
-    AttachLoadBalancerTargetGroups'
-    { _albtgAutoScalingGroupName = pAutoScalingGroupName_
-    , _albtgTargetGroupARNs = mempty
-    }
+  AttachLoadBalancerTargetGroups'
+  { _albtgAutoScalingGroupName = pAutoScalingGroupName_
+  , _albtgTargetGroupARNs = mempty
+  }
+
 
 -- | The name of the Auto Scaling group.
 albtgAutoScalingGroupName :: Lens' AttachLoadBalancerTargetGroups Text
@@ -95,8 +97,9 @@ instance AWSRequest AttachLoadBalancerTargetGroups
                    (pure (fromEnum s)))
 
 instance Hashable AttachLoadBalancerTargetGroups
+         where
 
-instance NFData AttachLoadBalancerTargetGroups
+instance NFData AttachLoadBalancerTargetGroups where
 
 instance ToHeaders AttachLoadBalancerTargetGroups
          where
@@ -117,8 +120,9 @@ instance ToQuery AttachLoadBalancerTargetGroups where
 
 -- | /See:/ 'attachLoadBalancerTargetGroupsResponse' smart constructor.
 newtype AttachLoadBalancerTargetGroupsResponse = AttachLoadBalancerTargetGroupsResponse'
-    { _albtgrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _albtgrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachLoadBalancerTargetGroupsResponse' with the minimum fields required to make a request.
 --
@@ -129,13 +133,14 @@ attachLoadBalancerTargetGroupsResponse
     :: Int -- ^ 'albtgrsResponseStatus'
     -> AttachLoadBalancerTargetGroupsResponse
 attachLoadBalancerTargetGroupsResponse pResponseStatus_ =
-    AttachLoadBalancerTargetGroupsResponse'
-    { _albtgrsResponseStatus = pResponseStatus_
-    }
+  AttachLoadBalancerTargetGroupsResponse'
+  {_albtgrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 albtgrsResponseStatus :: Lens' AttachLoadBalancerTargetGroupsResponse Int
 albtgrsResponseStatus = lens _albtgrsResponseStatus (\ s a -> s{_albtgrsResponseStatus = a});
 
 instance NFData
-         AttachLoadBalancerTargetGroupsResponse
+           AttachLoadBalancerTargetGroupsResponse
+         where

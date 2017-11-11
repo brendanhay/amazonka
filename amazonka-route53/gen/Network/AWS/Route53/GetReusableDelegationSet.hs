@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetReusableDelegationSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Route53.GetReusableDelegationSet
     , grdsrsDelegationSet
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to get information about a specified reusable delegation set.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getReusableDelegationSet' smart constructor.
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
-    { _grdsId :: ResourceId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grdsId :: ResourceId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetReusableDelegationSet' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetReusableDelegationSet = GetReusableDelegationSet'
 getReusableDelegationSet
     :: ResourceId -- ^ 'grdsId'
     -> GetReusableDelegationSet
-getReusableDelegationSet pId_ =
-    GetReusableDelegationSet'
-    { _grdsId = pId_
-    }
+getReusableDelegationSet pId_ = GetReusableDelegationSet' {_grdsId = pId_}
+
 
 -- | The ID of the reusable delegation set that you want to get a list of name servers for.
 grdsId :: Lens' GetReusableDelegationSet ResourceId
@@ -80,9 +79,9 @@ instance AWSRequest GetReusableDelegationSet where
                  GetReusableDelegationSetResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "DelegationSet"))
 
-instance Hashable GetReusableDelegationSet
+instance Hashable GetReusableDelegationSet where
 
-instance NFData GetReusableDelegationSet
+instance NFData GetReusableDelegationSet where
 
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty
@@ -101,9 +100,10 @@ instance ToQuery GetReusableDelegationSet where
 --
 -- /See:/ 'getReusableDelegationSetResponse' smart constructor.
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
-    { _grdsrsResponseStatus :: !Int
-    , _grdsrsDelegationSet  :: !DelegationSet
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _grdsrsDelegationSet  :: {-# NOUNPACK #-}!DelegationSet
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetReusableDelegationSetResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,11 @@ getReusableDelegationSetResponse
     -> DelegationSet -- ^ 'grdsrsDelegationSet'
     -> GetReusableDelegationSetResponse
 getReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ =
-    GetReusableDelegationSetResponse'
-    { _grdsrsResponseStatus = pResponseStatus_
-    , _grdsrsDelegationSet = pDelegationSet_
-    }
+  GetReusableDelegationSetResponse'
+  { _grdsrsResponseStatus = pResponseStatus_
+  , _grdsrsDelegationSet = pDelegationSet_
+  }
+
 
 -- | -- | The response status code.
 grdsrsResponseStatus :: Lens' GetReusableDelegationSetResponse Int
@@ -131,3 +132,4 @@ grdsrsDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrsDelegationSet = lens _grdsrsDelegationSet (\ s a -> s{_grdsrsDelegationSet = a});
 
 instance NFData GetReusableDelegationSetResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateStack
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,35 +57,36 @@ module Network.AWS.OpsWorks.CreateStack
     , crsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-    { _csDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _csVPCId                     :: !(Maybe Text)
-    , _csChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _csAgentVersion              :: !(Maybe Text)
-    , _csDefaultSSHKeyName         :: !(Maybe Text)
-    , _csCustomJSON                :: !(Maybe Text)
-    , _csCustomCookbooksSource     :: !(Maybe Source)
-    , _csDefaultAvailabilityZone   :: !(Maybe Text)
-    , _csAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _csDefaultOS                 :: !(Maybe Text)
-    , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _csUseCustomCookbooks        :: !(Maybe Bool)
-    , _csDefaultSubnetId           :: !(Maybe Text)
-    , _csConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _csHostnameTheme             :: !(Maybe Text)
-    , _csName                      :: !Text
-    , _csRegion                    :: !Text
-    , _csServiceRoleARN            :: !Text
-    , _csDefaultInstanceProfileARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csDefaultRootDeviceType :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
+  , _csVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csChefConfiguration :: {-# NOUNPACK #-}!(Maybe ChefConfiguration)
+  , _csAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csDefaultSSHKeyName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csCustomCookbooksSource :: {-# NOUNPACK #-}!(Maybe Source)
+  , _csDefaultAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csAttributes :: {-# NOUNPACK #-}!(Maybe (Map StackAttributesKeys Text))
+  , _csDefaultOS :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csUseOpsworksSecurityGroups :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csUseCustomCookbooks :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csDefaultSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
+  , _csHostnameTheme :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csName :: {-# NOUNPACK #-}!Text
+  , _csRegion :: {-# NOUNPACK #-}!Text
+  , _csServiceRoleARN :: {-# NOUNPACK #-}!Text
+  , _csDefaultInstanceProfileARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStack' with the minimum fields required to make a request.
 --
@@ -135,27 +136,28 @@ createStack
     -> Text -- ^ 'csDefaultInstanceProfileARN'
     -> CreateStack
 createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
-    CreateStack'
-    { _csDefaultRootDeviceType = Nothing
-    , _csVPCId = Nothing
-    , _csChefConfiguration = Nothing
-    , _csAgentVersion = Nothing
-    , _csDefaultSSHKeyName = Nothing
-    , _csCustomJSON = Nothing
-    , _csCustomCookbooksSource = Nothing
-    , _csDefaultAvailabilityZone = Nothing
-    , _csAttributes = Nothing
-    , _csDefaultOS = Nothing
-    , _csUseOpsworksSecurityGroups = Nothing
-    , _csUseCustomCookbooks = Nothing
-    , _csDefaultSubnetId = Nothing
-    , _csConfigurationManager = Nothing
-    , _csHostnameTheme = Nothing
-    , _csName = pName_
-    , _csRegion = pRegion_
-    , _csServiceRoleARN = pServiceRoleARN_
-    , _csDefaultInstanceProfileARN = pDefaultInstanceProfileARN_
-    }
+  CreateStack'
+  { _csDefaultRootDeviceType = Nothing
+  , _csVPCId = Nothing
+  , _csChefConfiguration = Nothing
+  , _csAgentVersion = Nothing
+  , _csDefaultSSHKeyName = Nothing
+  , _csCustomJSON = Nothing
+  , _csCustomCookbooksSource = Nothing
+  , _csDefaultAvailabilityZone = Nothing
+  , _csAttributes = Nothing
+  , _csDefaultOS = Nothing
+  , _csUseOpsworksSecurityGroups = Nothing
+  , _csUseCustomCookbooks = Nothing
+  , _csDefaultSubnetId = Nothing
+  , _csConfigurationManager = Nothing
+  , _csHostnameTheme = Nothing
+  , _csName = pName_
+  , _csRegion = pRegion_
+  , _csServiceRoleARN = pServiceRoleARN_
+  , _csDefaultInstanceProfileARN = pDefaultInstanceProfileARN_
+  }
+
 
 -- | The default root device type. This value is the default for all instances in the stack, but you can override it when you create an instance. The default option is @instance-store@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
 csDefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
@@ -242,9 +244,9 @@ instance AWSRequest CreateStack where
                  CreateStackResponse' <$>
                    (x .?> "StackId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateStack
+instance Hashable CreateStack where
 
-instance NFData CreateStack
+instance NFData CreateStack where
 
 instance ToHeaders CreateStack where
         toHeaders
@@ -298,9 +300,10 @@ instance ToQuery CreateStack where
 --
 -- /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-    { _crsStackId        :: !(Maybe Text)
-    , _crsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStackResponse' with the minimum fields required to make a request.
 --
@@ -313,10 +316,9 @@ createStackResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateStackResponse
 createStackResponse pResponseStatus_ =
-    CreateStackResponse'
-    { _crsStackId = Nothing
-    , _crsResponseStatus = pResponseStatus_
-    }
+  CreateStackResponse'
+  {_crsStackId = Nothing, _crsResponseStatus = pResponseStatus_}
+
 
 -- | The stack ID, which is an opaque string that you use to identify the stack when performing actions such as @DescribeStacks@ .
 crsStackId :: Lens' CreateStackResponse (Maybe Text)
@@ -326,4 +328,4 @@ crsStackId = lens _crsStackId (\ s a -> s{_crsStackId = a});
 crsResponseStatus :: Lens' CreateStackResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 
-instance NFData CreateStackResponse
+instance NFData CreateStackResponse where

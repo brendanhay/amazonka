@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -537,40 +537,40 @@ module Network.AWS.ElasticBeanstalk.Types
     , vmMessage
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.ElasticBeanstalk.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.ElasticBeanstalk.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2010-12-01@ of the Amazon Elastic Beanstalk SDK configuration.
 elasticBeanstalk :: Service
 elasticBeanstalk =
-    Service
-    { _svcAbbrev = "ElasticBeanstalk"
-    , _svcSigner = v4
-    , _svcPrefix = "elasticbeanstalk"
-    , _svcVersion = "2010-12-01"
-    , _svcEndpoint = defaultEndpoint elasticBeanstalk
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "ElasticBeanstalk"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "ElasticBeanstalk"
+  , _svcSigner = v4
+  , _svcPrefix = "elasticbeanstalk"
+  , _svcVersion = "2010-12-01"
+  , _svcEndpoint = defaultEndpoint elasticBeanstalk
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "ElasticBeanstalk"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -579,111 +579,119 @@ elasticBeanstalk =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | One or more input parameters is not valid. Please correct the input parameters and try the operation again.
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException =
-    _MatchServiceError elasticBeanstalk "InvalidRequestException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "InvalidRequestException" . hasStatus 400
+
 
 -- | The specified account has reached its limit of Amazon S3 buckets.
 --
 --
 _TooManyBucketsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyBucketsException =
-    _MatchServiceError elasticBeanstalk "TooManyBucketsException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "TooManyBucketsException" . hasStatus 400
+
 
 -- | The specified account does not have a subscription to Amazon S3.
 --
 --
 _S3SubscriptionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _S3SubscriptionRequiredException =
-    _MatchServiceError elasticBeanstalk "S3SubscriptionRequiredException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "S3SubscriptionRequiredException" .
+  hasStatus 400
+
 
 -- | Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
 --
 --
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
-    _MatchServiceError elasticBeanstalk "OperationInProgressFailure" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "OperationInProgressFailure" .
+  hasStatus 400
+
 
 -- | You cannot delete the platform version because there are still environments running on it.
 --
 --
 _PlatformVersionStillReferencedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PlatformVersionStillReferencedException =
-    _MatchServiceError
-        elasticBeanstalk
-        "PlatformVersionStillReferencedException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "PlatformVersionStillReferencedException" .
+  hasStatus 400
+
 
 -- | The specified account has reached its limit of application versions.
 --
 --
 _TooManyApplicationVersionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationVersionsException =
-    _MatchServiceError elasticBeanstalk "TooManyApplicationVersionsException"
+  _MatchServiceError elasticBeanstalk "TooManyApplicationVersionsException"
+
 
 -- | The specified account has reached its limit of configuration templates.
 --
 --
 _TooManyConfigurationTemplatesException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyConfigurationTemplatesException =
-    _MatchServiceError
-        elasticBeanstalk
-        "TooManyConfigurationTemplatesException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "TooManyConfigurationTemplatesException" .
+  hasStatus 400
+
 
 -- | The specified account does not have sufficient privileges for one of more AWS services.
 --
 --
 _InsufficientPrivilegesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPrivilegesException =
-    _MatchServiceError elasticBeanstalk "InsufficientPrivilegesException" .
-    hasStatus 403
+  _MatchServiceError elasticBeanstalk "InsufficientPrivilegesException" .
+  hasStatus 403
+
 
 -- | A generic service exception has occurred.
 --
 --
 _ElasticBeanstalkServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ElasticBeanstalkServiceException =
-    _MatchServiceError elasticBeanstalk "ElasticBeanstalkServiceException"
+  _MatchServiceError elasticBeanstalk "ElasticBeanstalkServiceException"
+
 
 -- | The specified account has reached its limit of applications.
 --
 --
 _TooManyApplicationsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationsException =
-    _MatchServiceError elasticBeanstalk "TooManyApplicationsException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "TooManyApplicationsException" .
+  hasStatus 400
+
 
 -- | You have exceeded the maximum number of allowed platforms associated with the account.
 --
 --
 _TooManyPlatformsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyPlatformsException =
-    _MatchServiceError elasticBeanstalk "TooManyPlatformsException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "TooManyPlatformsException" .
+  hasStatus 400
+
 
 -- | Cannot modify the managed action in its current state.
 --
 --
 _ManagedActionInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _ManagedActionInvalidStateException =
-    _MatchServiceError elasticBeanstalk "ManagedActionInvalidStateException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "ManagedActionInvalidStateException" .
+  hasStatus 400
+
 
 -- | Unable to delete the Amazon S3 source bundle associated with the application version. The application version was deleted successfully.
 --
 --
 _SourceBundleDeletionException :: AsError a => Getting (First ServiceError) a ServiceError
 _SourceBundleDeletionException =
-    _MatchServiceError elasticBeanstalk "SourceBundleDeletionFailure" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "SourceBundleDeletionFailure" .
+  hasStatus 400
+
 
 -- | The specified S3 bucket does not belong to the S3 region in which the service is running. The following regions are supported:
 --
@@ -698,21 +706,24 @@ _SourceBundleDeletionException =
 --
 _S3LocationNotInServiceRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _S3LocationNotInServiceRegionException =
-    _MatchServiceError elasticBeanstalk "S3LocationNotInServiceRegionException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "S3LocationNotInServiceRegionException" .
+  hasStatus 400
+
 
 -- | AWS CodeBuild is not available in the specified region.
 --
 --
 _CodeBuildNotInServiceRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _CodeBuildNotInServiceRegionException =
-    _MatchServiceError elasticBeanstalk "CodeBuildNotInServiceRegionException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "CodeBuildNotInServiceRegionException" .
+  hasStatus 400
+
 
 -- | The specified account has reached its limit of environments.
 --
 --
 _TooManyEnvironmentsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyEnvironmentsException =
-    _MatchServiceError elasticBeanstalk "TooManyEnvironmentsException" .
-    hasStatus 400
+  _MatchServiceError elasticBeanstalk "TooManyEnvironmentsException" .
+  hasStatus 400
+

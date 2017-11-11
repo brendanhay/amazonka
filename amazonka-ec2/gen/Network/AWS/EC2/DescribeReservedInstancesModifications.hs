@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesModifications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     , drimrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeReservedInstancesModifications.
 --
@@ -58,10 +58,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReservedInstancesModifications' smart constructor.
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
-    { _drimFilters                          :: !(Maybe [Filter])
-    , _drimReservedInstancesModificationIds :: !(Maybe [Text])
-    , _drimNextToken                        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drimFilters                          :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _drimReservedInstancesModificationIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drimNextToken                        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedInstancesModifications' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 describeReservedInstancesModifications
     :: DescribeReservedInstancesModifications
 describeReservedInstancesModifications =
-    DescribeReservedInstancesModifications'
-    { _drimFilters = Nothing
-    , _drimReservedInstancesModificationIds = Nothing
-    , _drimNextToken = Nothing
-    }
+  DescribeReservedInstancesModifications'
+  { _drimFilters = Nothing
+  , _drimReservedInstancesModificationIds = Nothing
+  , _drimNextToken = Nothing
+  }
+
 
 -- | One or more filters.     * @client-token@ - The idempotency token for the modification request.     * @create-date@ - The time when the modification request was created.     * @effective-date@ - The time when the modification becomes effective.     * @modification-result.reserved-instances-id@ - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is @fulfilled@ .     * @modification-result.target-configuration.availability-zone@ - The Availability Zone for the new Reserved Instances.     * @modification-result.target-configuration.instance-count @ - The number of new Reserved Instances.     * @modification-result.target-configuration.instance-type@ - The instance type of the new Reserved Instances.     * @modification-result.target-configuration.platform@ - The network platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@ ).     * @reserved-instances-id@ - The ID of the Reserved Instances modified.     * @reserved-instances-modification-id@ - The ID of the modification request.     * @status@ - The status of the Reserved Instances modification request (@processing@ | @fulfilled@ | @failed@ ).     * @status-message@ - The reason for the status.     * @update-date@ - The time when the modification request was last updated.
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
@@ -94,7 +96,8 @@ drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
 drimNextToken = lens _drimNextToken (\ s a -> s{_drimNextToken = a});
 
 instance AWSPager
-         DescribeReservedInstancesModifications where
+           DescribeReservedInstancesModifications
+         where
         page rq rs
           | stop (rs ^. drimrsNextToken) = Nothing
           | stop (rs ^. drimrsReservedInstancesModifications) =
@@ -103,7 +106,8 @@ instance AWSPager
             Just $ rq & drimNextToken .~ rs ^. drimrsNextToken
 
 instance AWSRequest
-         DescribeReservedInstancesModifications where
+           DescribeReservedInstancesModifications
+         where
         type Rs DescribeReservedInstancesModifications =
              DescribeReservedInstancesModificationsResponse
         request = postQuery ec2
@@ -117,21 +121,26 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeReservedInstancesModifications
+           DescribeReservedInstancesModifications
+         where
 
 instance NFData
-         DescribeReservedInstancesModifications
+           DescribeReservedInstancesModifications
+         where
 
 instance ToHeaders
-         DescribeReservedInstancesModifications where
+           DescribeReservedInstancesModifications
+         where
         toHeaders = const mempty
 
 instance ToPath
-         DescribeReservedInstancesModifications where
+           DescribeReservedInstancesModifications
+         where
         toPath = const "/"
 
 instance ToQuery
-         DescribeReservedInstancesModifications where
+           DescribeReservedInstancesModifications
+         where
         toQuery DescribeReservedInstancesModifications'{..}
           = mconcat
               ["Action" =:
@@ -150,10 +159,11 @@ instance ToQuery
 --
 -- /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
-    { _drimrsNextToken                      :: !(Maybe Text)
-    , _drimrsReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
-    , _drimrsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drimrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drimrsReservedInstancesModifications :: {-# NOUNPACK #-}!(Maybe [ReservedInstancesModification])
+  , _drimrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedInstancesModificationsResponse' with the minimum fields required to make a request.
 --
@@ -168,11 +178,12 @@ describeReservedInstancesModificationsResponse
     :: Int -- ^ 'drimrsResponseStatus'
     -> DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModificationsResponse pResponseStatus_ =
-    DescribeReservedInstancesModificationsResponse'
-    { _drimrsNextToken = Nothing
-    , _drimrsReservedInstancesModifications = Nothing
-    , _drimrsResponseStatus = pResponseStatus_
-    }
+  DescribeReservedInstancesModificationsResponse'
+  { _drimrsNextToken = Nothing
+  , _drimrsReservedInstancesModifications = Nothing
+  , _drimrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 drimrsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
@@ -187,4 +198,5 @@ drimrsResponseStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
 drimrsResponseStatus = lens _drimrsResponseStatus (\ s a -> s{_drimrsResponseStatus = a});
 
 instance NFData
-         DescribeReservedInstancesModificationsResponse
+           DescribeReservedInstancesModificationsResponse
+         where

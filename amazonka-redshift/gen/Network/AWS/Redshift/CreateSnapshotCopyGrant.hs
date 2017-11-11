@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateSnapshotCopyGrant
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Redshift.CreateSnapshotCopyGrant
     , cscgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The result of the @CreateSnapshotCopyGrant@ action.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createSnapshotCopyGrant' smart constructor.
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
-    { _cscgKMSKeyId              :: !(Maybe Text)
-    , _cscgTags                  :: !(Maybe [Tag])
-    , _cscgSnapshotCopyGrantName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscgKMSKeyId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cscgTags                  :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cscgSnapshotCopyGrantName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshotCopyGrant' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ createSnapshotCopyGrant
     :: Text -- ^ 'cscgSnapshotCopyGrantName'
     -> CreateSnapshotCopyGrant
 createSnapshotCopyGrant pSnapshotCopyGrantName_ =
-    CreateSnapshotCopyGrant'
-    { _cscgKMSKeyId = Nothing
-    , _cscgTags = Nothing
-    , _cscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
-    }
+  CreateSnapshotCopyGrant'
+  { _cscgKMSKeyId = Nothing
+  , _cscgTags = Nothing
+  , _cscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
+  }
+
 
 -- | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
 cscgKMSKeyId :: Lens' CreateSnapshotCopyGrant (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest CreateSnapshotCopyGrant where
                  CreateSnapshotCopyGrantResponse' <$>
                    (x .@? "SnapshotCopyGrant") <*> (pure (fromEnum s)))
 
-instance Hashable CreateSnapshotCopyGrant
+instance Hashable CreateSnapshotCopyGrant where
 
-instance NFData CreateSnapshotCopyGrant
+instance NFData CreateSnapshotCopyGrant where
 
 instance ToHeaders CreateSnapshotCopyGrant where
         toHeaders = const mempty
@@ -123,9 +125,10 @@ instance ToQuery CreateSnapshotCopyGrant where
 
 -- | /See:/ 'createSnapshotCopyGrantResponse' smart constructor.
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
-    { _cscgrsSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
-    , _cscgrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscgrsSnapshotCopyGrant :: {-# NOUNPACK #-}!(Maybe SnapshotCopyGrant)
+  , _cscgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshotCopyGrantResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,9 @@ createSnapshotCopyGrantResponse
     :: Int -- ^ 'cscgrsResponseStatus'
     -> CreateSnapshotCopyGrantResponse
 createSnapshotCopyGrantResponse pResponseStatus_ =
-    CreateSnapshotCopyGrantResponse'
-    { _cscgrsSnapshotCopyGrant = Nothing
-    , _cscgrsResponseStatus = pResponseStatus_
-    }
+  CreateSnapshotCopyGrantResponse'
+  {_cscgrsSnapshotCopyGrant = Nothing, _cscgrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cscgrsSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe SnapshotCopyGrant)
@@ -151,4 +153,4 @@ cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnaps
 cscgrsResponseStatus :: Lens' CreateSnapshotCopyGrantResponse Int
 cscgrsResponseStatus = lens _cscgrsResponseStatus (\ s a -> s{_cscgrsResponseStatus = a});
 
-instance NFData CreateSnapshotCopyGrantResponse
+instance NFData CreateSnapshotCopyGrantResponse where

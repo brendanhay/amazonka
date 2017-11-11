@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListConfigurationSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.SES.ListConfigurationSets
     , lcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to list the configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
@@ -56,9 +56,10 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'listConfigurationSets' smart constructor.
 data ListConfigurationSets = ListConfigurationSets'
-    { _lcsNextToken :: !(Maybe Text)
-    , _lcsMaxItems  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcsMaxItems  :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListConfigurationSets' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ data ListConfigurationSets = ListConfigurationSets'
 listConfigurationSets
     :: ListConfigurationSets
 listConfigurationSets =
-    ListConfigurationSets'
-    { _lcsNextToken = Nothing
-    , _lcsMaxItems = Nothing
-    }
+  ListConfigurationSets' {_lcsNextToken = Nothing, _lcsMaxItems = Nothing}
+
 
 -- | A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
 lcsNextToken :: Lens' ListConfigurationSets (Maybe Text)
@@ -96,9 +95,9 @@ instance AWSRequest ListConfigurationSets where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListConfigurationSets
+instance Hashable ListConfigurationSets where
 
-instance NFData ListConfigurationSets
+instance NFData ListConfigurationSets where
 
 instance ToHeaders ListConfigurationSets where
         toHeaders = const mempty
@@ -120,10 +119,11 @@ instance ToQuery ListConfigurationSets where
 --
 -- /See:/ 'listConfigurationSetsResponse' smart constructor.
 data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
-    { _lcsrsConfigurationSets :: !(Maybe [ConfigurationSet])
-    , _lcsrsNextToken         :: !(Maybe Text)
-    , _lcsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcsrsConfigurationSets :: {-# NOUNPACK #-}!(Maybe [ConfigurationSet])
+  , _lcsrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListConfigurationSetsResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +138,12 @@ listConfigurationSetsResponse
     :: Int -- ^ 'lcsrsResponseStatus'
     -> ListConfigurationSetsResponse
 listConfigurationSetsResponse pResponseStatus_ =
-    ListConfigurationSetsResponse'
-    { _lcsrsConfigurationSets = Nothing
-    , _lcsrsNextToken = Nothing
-    , _lcsrsResponseStatus = pResponseStatus_
-    }
+  ListConfigurationSetsResponse'
+  { _lcsrsConfigurationSets = Nothing
+  , _lcsrsNextToken = Nothing
+  , _lcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of configuration sets.
 lcsrsConfigurationSets :: Lens' ListConfigurationSetsResponse [ConfigurationSet]
@@ -156,4 +157,4 @@ lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a});
 lcsrsResponseStatus :: Lens' ListConfigurationSetsResponse Int
 lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a});
 
-instance NFData ListConfigurationSetsResponse
+instance NFData ListConfigurationSetsResponse where

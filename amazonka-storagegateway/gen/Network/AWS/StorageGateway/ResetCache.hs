@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ResetCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.StorageGateway.ResetCache
     , rrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'resetCache' smart constructor.
 newtype ResetCache = ResetCache'
-    { _rcGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetCache' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ newtype ResetCache = ResetCache'
 resetCache
     :: Text -- ^ 'rcGatewayARN'
     -> ResetCache
-resetCache pGatewayARN_ =
-    ResetCache'
-    { _rcGatewayARN = pGatewayARN_
-    }
+resetCache pGatewayARN_ = ResetCache' {_rcGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 rcGatewayARN :: Lens' ResetCache Text
@@ -77,9 +76,9 @@ instance AWSRequest ResetCache where
                  ResetCacheResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable ResetCache
+instance Hashable ResetCache where
 
-instance NFData ResetCache
+instance NFData ResetCache where
 
 instance ToHeaders ResetCache where
         toHeaders
@@ -103,9 +102,10 @@ instance ToQuery ResetCache where
 
 -- | /See:/ 'resetCacheResponse' smart constructor.
 data ResetCacheResponse = ResetCacheResponse'
-    { _rrsGatewayARN     :: !(Maybe Text)
-    , _rrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetCacheResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +118,9 @@ resetCacheResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> ResetCacheResponse
 resetCacheResponse pResponseStatus_ =
-    ResetCacheResponse'
-    { _rrsGatewayARN = Nothing
-    , _rrsResponseStatus = pResponseStatus_
-    }
+  ResetCacheResponse'
+  {_rrsGatewayARN = Nothing, _rrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
@@ -131,4 +130,4 @@ rrsGatewayARN = lens _rrsGatewayARN (\ s a -> s{_rrsGatewayARN = a});
 rrsResponseStatus :: Lens' ResetCacheResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 
-instance NFData ResetCacheResponse
+instance NFData ResetCacheResponse where

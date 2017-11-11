@@ -9,29 +9,30 @@
 
 -- |
 -- Module      : Network.AWS.Glue.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Glue.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ConnectionPropertyKey
-    = ConfigFiles
-    | Host
-    | InstanceId
-    | JdbcConnectionURL
-    | JdbcDriverClassName
-    | JdbcDriverJARURI
-    | JdbcEngine
-    | JdbcEngineVersion
-    | Password
-    | Port
-    | Username
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ConfigFiles
+  | Host
+  | InstanceId
+  | JdbcConnectionURL
+  | JdbcDriverClassName
+  | JdbcDriverJARURI
+  | JdbcEngine
+  | JdbcEngineVersion
+  | Password
+  | Port
+  | Username
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConnectionPropertyKey where
     parser = takeLowerText >>= \case
@@ -76,9 +77,10 @@ instance FromJSON ConnectionPropertyKey where
     parseJSON = parseJSONText "ConnectionPropertyKey"
 
 data ConnectionType
-    = Jdbc
-    | Sftp
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Jdbc
+  | Sftp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConnectionType where
     parser = takeLowerText >>= \case
@@ -105,10 +107,11 @@ instance FromJSON ConnectionType where
     parseJSON = parseJSONText "ConnectionType"
 
 data CrawlerState
-    = CSReady
-    | CSRunning
-    | CSStopping
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSReady
+  | CSRunning
+  | CSStopping
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CrawlerState where
     parser = takeLowerText >>= \case
@@ -134,10 +137,11 @@ instance FromJSON CrawlerState where
     parseJSON = parseJSONText "CrawlerState"
 
 data DeleteBehavior
-    = DeleteFromDatabase
-    | DeprecateInDatabase
-    | Log
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DeleteFromDatabase
+  | DeprecateInDatabase
+  | Log
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeleteBehavior where
     parser = takeLowerText >>= \case
@@ -166,13 +170,14 @@ instance FromJSON DeleteBehavior where
     parseJSON = parseJSONText "DeleteBehavior"
 
 data JobRunState
-    = Failed
-    | Running
-    | Starting
-    | Stopped
-    | Stopping
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | Running
+  | Starting
+  | Stopped
+  | Stopping
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText JobRunState where
     parser = takeLowerText >>= \case
@@ -207,10 +212,11 @@ instance FromJSON JobRunState where
     parseJSON = parseJSONText "JobRunState"
 
 data LastCrawlStatus
-    = LCSCancelled
-    | LCSFailed
-    | LCSSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LCSCancelled
+  | LCSFailed
+  | LCSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LastCrawlStatus where
     parser = takeLowerText >>= \case
@@ -236,8 +242,9 @@ instance FromJSON LastCrawlStatus where
     parseJSON = parseJSONText "LastCrawlStatus"
 
 data Logical =
-    And
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  And
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Logical where
     parser = takeLowerText >>= \case
@@ -262,8 +269,9 @@ instance FromJSON Logical where
     parseJSON = parseJSONText "Logical"
 
 data LogicalOperator =
-    Equals
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Equals
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LogicalOperator where
     parser = takeLowerText >>= \case
@@ -288,10 +296,11 @@ instance FromJSON LogicalOperator where
     parseJSON = parseJSONText "LogicalOperator"
 
 data PrincipalType
-    = Group
-    | Role
-    | User
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Group
+  | Role
+  | User
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PrincipalType where
     parser = takeLowerText >>= \case
@@ -320,10 +329,11 @@ instance FromJSON PrincipalType where
     parseJSON = parseJSONText "PrincipalType"
 
 data ResourceType
-    = Archive
-    | File
-    | JAR
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Archive
+  | File
+  | JAR
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
@@ -352,10 +362,11 @@ instance FromJSON ResourceType where
     parseJSON = parseJSONText "ResourceType"
 
 data ScheduleState
-    = NotScheduled
-    | Scheduled
-    | Transitioning
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NotScheduled
+  | Scheduled
+  | Transitioning
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ScheduleState where
     parser = takeLowerText >>= \case
@@ -381,15 +392,16 @@ instance FromJSON ScheduleState where
     parseJSON = parseJSONText "ScheduleState"
 
 data TriggerState
-    = Activated
-    | Activating
-    | Created
-    | Creating
-    | Deactivated
-    | Deactivating
-    | Deleting
-    | Updating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Activated
+  | Activating
+  | Created
+  | Creating
+  | Deactivated
+  | Deactivating
+  | Deleting
+  | Updating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TriggerState where
     parser = takeLowerText >>= \case
@@ -425,10 +437,11 @@ instance FromJSON TriggerState where
     parseJSON = parseJSONText "TriggerState"
 
 data TriggerType
-    = TTConditional
-    | TTOnDemand
-    | TTScheduled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TTConditional
+  | TTOnDemand
+  | TTScheduled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TriggerType where
     parser = takeLowerText >>= \case
@@ -457,9 +470,10 @@ instance FromJSON TriggerType where
     parseJSON = parseJSONText "TriggerType"
 
 data UpdateBehavior
-    = UBLog
-    | UBUpdateInDatabase
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = UBLog
+  | UBUpdateInDatabase
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UpdateBehavior where
     parser = takeLowerText >>= \case

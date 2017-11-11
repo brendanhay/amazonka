@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DeleteSchema
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CloudDirectory.DeleteSchema
     , dsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSchema' smart constructor.
 newtype DeleteSchema = DeleteSchema'
-    { _dsSchemaARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsSchemaARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSchema' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DeleteSchema = DeleteSchema'
 deleteSchema
     :: Text -- ^ 'dsSchemaARN'
     -> DeleteSchema
-deleteSchema pSchemaARN_ =
-    DeleteSchema'
-    { _dsSchemaARN = pSchemaARN_
-    }
+deleteSchema pSchemaARN_ = DeleteSchema' {_dsSchemaARN = pSchemaARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 dsSchemaARN :: Lens' DeleteSchema Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteSchema where
                  DeleteSchemaResponse' <$>
                    (x .?> "SchemaArn") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteSchema
+instance Hashable DeleteSchema where
 
-instance NFData DeleteSchema
+instance NFData DeleteSchema where
 
 instance ToHeaders DeleteSchema where
         toHeaders DeleteSchema'{..}
@@ -95,9 +94,10 @@ instance ToQuery DeleteSchema where
 
 -- | /See:/ 'deleteSchemaResponse' smart constructor.
 data DeleteSchemaResponse = DeleteSchemaResponse'
-    { _dsrsSchemaARN      :: !(Maybe Text)
-    , _dsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrsSchemaARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSchemaResponse' with the minimum fields required to make a request.
 --
@@ -110,10 +110,9 @@ deleteSchemaResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteSchemaResponse
 deleteSchemaResponse pResponseStatus_ =
-    DeleteSchemaResponse'
-    { _dsrsSchemaARN = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
-    }
+  DeleteSchemaResponse'
+  {_dsrsSchemaARN = Nothing, _dsrsResponseStatus = pResponseStatus_}
+
 
 -- | The input ARN that is returned as part of the response. For more information, see 'arns' .
 dsrsSchemaARN :: Lens' DeleteSchemaResponse (Maybe Text)
@@ -123,4 +122,4 @@ dsrsSchemaARN = lens _dsrsSchemaARN (\ s a -> s{_dsrsSchemaARN = a});
 dsrsResponseStatus :: Lens' DeleteSchemaResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
-instance NFData DeleteSchemaResponse
+instance NFData DeleteSchemaResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -80,35 +80,36 @@ module Network.AWS.S3.GetObject
     , gorsBody
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObject' smart constructor.
 data GetObject = GetObject'
-    { _goIfMatch                    :: !(Maybe Text)
-    , _goVersionId                  :: !(Maybe ObjectVersionId)
-    , _goResponseContentType        :: !(Maybe Text)
-    , _goResponseContentDisposition :: !(Maybe Text)
-    , _goResponseContentLanguage    :: !(Maybe Text)
-    , _goSSECustomerAlgorithm       :: !(Maybe Text)
-    , _goSSECustomerKey             :: !(Maybe (Sensitive Text))
-    , _goRequestPayer               :: !(Maybe RequestPayer)
-    , _goResponseContentEncoding    :: !(Maybe Text)
-    , _goIfModifiedSince            :: !(Maybe RFC822)
-    , _goPartNumber                 :: !(Maybe Int)
-    , _goRange                      :: !(Maybe Text)
-    , _goIfUnmodifiedSince          :: !(Maybe RFC822)
-    , _goSSECustomerKeyMD5          :: !(Maybe Text)
-    , _goResponseCacheControl       :: !(Maybe Text)
-    , _goResponseExpires            :: !(Maybe RFC822)
-    , _goIfNoneMatch                :: !(Maybe Text)
-    , _goBucket                     :: !BucketName
-    , _goKey                        :: !ObjectKey
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _goIfMatch                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goVersionId                  :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _goResponseContentType        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goResponseContentDisposition :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goResponseContentLanguage    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goSSECustomerAlgorithm       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goSSECustomerKey             :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _goRequestPayer               :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _goResponseContentEncoding    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goIfModifiedSince            :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _goPartNumber                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _goRange                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goIfUnmodifiedSince          :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _goSSECustomerKeyMD5          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goResponseCacheControl       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goResponseExpires            :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _goIfNoneMatch                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goBucket                     :: {-# NOUNPACK #-}!BucketName
+  , _goKey                        :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetObject' with the minimum fields required to make a request.
 --
@@ -156,27 +157,28 @@ getObject
     -> ObjectKey -- ^ 'goKey'
     -> GetObject
 getObject pBucket_ pKey_ =
-    GetObject'
-    { _goIfMatch = Nothing
-    , _goVersionId = Nothing
-    , _goResponseContentType = Nothing
-    , _goResponseContentDisposition = Nothing
-    , _goResponseContentLanguage = Nothing
-    , _goSSECustomerAlgorithm = Nothing
-    , _goSSECustomerKey = Nothing
-    , _goRequestPayer = Nothing
-    , _goResponseContentEncoding = Nothing
-    , _goIfModifiedSince = Nothing
-    , _goPartNumber = Nothing
-    , _goRange = Nothing
-    , _goIfUnmodifiedSince = Nothing
-    , _goSSECustomerKeyMD5 = Nothing
-    , _goResponseCacheControl = Nothing
-    , _goResponseExpires = Nothing
-    , _goIfNoneMatch = Nothing
-    , _goBucket = pBucket_
-    , _goKey = pKey_
-    }
+  GetObject'
+  { _goIfMatch = Nothing
+  , _goVersionId = Nothing
+  , _goResponseContentType = Nothing
+  , _goResponseContentDisposition = Nothing
+  , _goResponseContentLanguage = Nothing
+  , _goSSECustomerAlgorithm = Nothing
+  , _goSSECustomerKey = Nothing
+  , _goRequestPayer = Nothing
+  , _goResponseContentEncoding = Nothing
+  , _goIfModifiedSince = Nothing
+  , _goPartNumber = Nothing
+  , _goRange = Nothing
+  , _goIfUnmodifiedSince = Nothing
+  , _goSSECustomerKeyMD5 = Nothing
+  , _goResponseCacheControl = Nothing
+  , _goResponseExpires = Nothing
+  , _goIfNoneMatch = Nothing
+  , _goBucket = pBucket_
+  , _goKey = pKey_
+  }
+
 
 -- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
 goIfMatch :: Lens' GetObject (Maybe Text)
@@ -296,9 +298,9 @@ instance AWSRequest GetObject where
                      <*> (pure (fromEnum s))
                      <*> (pure x))
 
-instance Hashable GetObject
+instance Hashable GetObject where
 
-instance NFData GetObject
+instance NFData GetObject where
 
 instance ToHeaders GetObject where
         toHeaders GetObject'{..}
@@ -337,36 +339,37 @@ instance ToQuery GetObject where
 
 -- | /See:/ 'getObjectResponse' smart constructor.
 data GetObjectResponse = GetObjectResponse'
-    { _gorsRequestCharged          :: !(Maybe RequestCharged)
-    , _gorsPartsCount              :: !(Maybe Int)
-    , _gorsETag                    :: !(Maybe ETag)
-    , _gorsVersionId               :: !(Maybe ObjectVersionId)
-    , _gorsContentLength           :: !(Maybe Integer)
-    , _gorsExpires                 :: !(Maybe RFC822)
-    , _gorsRestore                 :: !(Maybe Text)
-    , _gorsExpiration              :: !(Maybe Text)
-    , _gorsDeleteMarker            :: !(Maybe Bool)
-    , _gorsSSECustomerAlgorithm    :: !(Maybe Text)
-    , _gorsTagCount                :: !(Maybe Int)
-    , _gorsMissingMeta             :: !(Maybe Int)
-    , _gorsWebsiteRedirectLocation :: !(Maybe Text)
-    , _gorsAcceptRanges            :: !(Maybe Text)
-    , _gorsStorageClass            :: !(Maybe StorageClass)
-    , _gorsSSECustomerKeyMD5       :: !(Maybe Text)
-    , _gorsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _gorsContentEncoding         :: !(Maybe Text)
-    , _gorsMetadata                :: !(Map Text Text)
-    , _gorsReplicationStatus       :: !(Maybe ReplicationStatus)
-    , _gorsCacheControl            :: !(Maybe Text)
-    , _gorsContentLanguage         :: !(Maybe Text)
-    , _gorsLastModified            :: !(Maybe RFC822)
-    , _gorsContentDisposition      :: !(Maybe Text)
-    , _gorsContentRange            :: !(Maybe Text)
-    , _gorsServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _gorsContentType             :: !(Maybe Text)
-    , _gorsResponseStatus          :: !Int
-    , _gorsBody                    :: !RsBody
-    } deriving (Show,Generic)
+  { _gorsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _gorsPartsCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gorsETag :: {-# NOUNPACK #-}!(Maybe ETag)
+  , _gorsVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _gorsContentLength :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gorsExpires :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _gorsRestore :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsExpiration :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsDeleteMarker :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gorsSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsTagCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gorsMissingMeta :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gorsWebsiteRedirectLocation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsAcceptRanges :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
+  , _gorsSSECustomerKeyMD5 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsSSEKMSKeyId :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gorsContentEncoding :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsMetadata :: {-# NOUNPACK #-}!(Map Text Text)
+  , _gorsReplicationStatus :: {-# NOUNPACK #-}!(Maybe ReplicationStatus)
+  , _gorsCacheControl :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsContentLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _gorsContentDisposition :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsContentRange :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsServerSideEncryption :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
+  , _gorsContentType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gorsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gorsBody :: {-# NOUNPACK #-}!RsBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'GetObjectResponse' with the minimum fields required to make a request.
 --
@@ -434,37 +437,38 @@ getObjectResponse
     -> RsBody -- ^ 'gorsBody'
     -> GetObjectResponse
 getObjectResponse pResponseStatus_ pBody_ =
-    GetObjectResponse'
-    { _gorsRequestCharged = Nothing
-    , _gorsPartsCount = Nothing
-    , _gorsETag = Nothing
-    , _gorsVersionId = Nothing
-    , _gorsContentLength = Nothing
-    , _gorsExpires = Nothing
-    , _gorsRestore = Nothing
-    , _gorsExpiration = Nothing
-    , _gorsDeleteMarker = Nothing
-    , _gorsSSECustomerAlgorithm = Nothing
-    , _gorsTagCount = Nothing
-    , _gorsMissingMeta = Nothing
-    , _gorsWebsiteRedirectLocation = Nothing
-    , _gorsAcceptRanges = Nothing
-    , _gorsStorageClass = Nothing
-    , _gorsSSECustomerKeyMD5 = Nothing
-    , _gorsSSEKMSKeyId = Nothing
-    , _gorsContentEncoding = Nothing
-    , _gorsMetadata = mempty
-    , _gorsReplicationStatus = Nothing
-    , _gorsCacheControl = Nothing
-    , _gorsContentLanguage = Nothing
-    , _gorsLastModified = Nothing
-    , _gorsContentDisposition = Nothing
-    , _gorsContentRange = Nothing
-    , _gorsServerSideEncryption = Nothing
-    , _gorsContentType = Nothing
-    , _gorsResponseStatus = pResponseStatus_
-    , _gorsBody = pBody_
-    }
+  GetObjectResponse'
+  { _gorsRequestCharged = Nothing
+  , _gorsPartsCount = Nothing
+  , _gorsETag = Nothing
+  , _gorsVersionId = Nothing
+  , _gorsContentLength = Nothing
+  , _gorsExpires = Nothing
+  , _gorsRestore = Nothing
+  , _gorsExpiration = Nothing
+  , _gorsDeleteMarker = Nothing
+  , _gorsSSECustomerAlgorithm = Nothing
+  , _gorsTagCount = Nothing
+  , _gorsMissingMeta = Nothing
+  , _gorsWebsiteRedirectLocation = Nothing
+  , _gorsAcceptRanges = Nothing
+  , _gorsStorageClass = Nothing
+  , _gorsSSECustomerKeyMD5 = Nothing
+  , _gorsSSEKMSKeyId = Nothing
+  , _gorsContentEncoding = Nothing
+  , _gorsMetadata = mempty
+  , _gorsReplicationStatus = Nothing
+  , _gorsCacheControl = Nothing
+  , _gorsContentLanguage = Nothing
+  , _gorsLastModified = Nothing
+  , _gorsContentDisposition = Nothing
+  , _gorsContentRange = Nothing
+  , _gorsServerSideEncryption = Nothing
+  , _gorsContentType = Nothing
+  , _gorsResponseStatus = pResponseStatus_
+  , _gorsBody = pBody_
+  }
+
 
 -- | Undocumented member.
 gorsRequestCharged :: Lens' GetObjectResponse (Maybe RequestCharged)

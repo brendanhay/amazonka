@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeAgents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Discovery.DescribeAgents
     , dasrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAgents' smart constructor.
 data DescribeAgents = DescribeAgents'
-    { _daAgentIds   :: !(Maybe [Text])
-    , _daFilters    :: !(Maybe [Filter])
-    , _daNextToken  :: !(Maybe Text)
-    , _daMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAgentIds   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _daFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _daNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAgents' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data DescribeAgents = DescribeAgents'
 describeAgents
     :: DescribeAgents
 describeAgents =
-    DescribeAgents'
-    { _daAgentIds = Nothing
-    , _daFilters = Nothing
-    , _daNextToken = Nothing
-    , _daMaxResults = Nothing
-    }
+  DescribeAgents'
+  { _daAgentIds = Nothing
+  , _daFilters = Nothing
+  , _daNextToken = Nothing
+  , _daMaxResults = Nothing
+  }
+
 
 -- | The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
 daAgentIds :: Lens' DescribeAgents [Text]
@@ -104,9 +106,9 @@ instance AWSRequest DescribeAgents where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAgents
+instance Hashable DescribeAgents where
 
-instance NFData DescribeAgents
+instance NFData DescribeAgents where
 
 instance ToHeaders DescribeAgents where
         toHeaders
@@ -135,10 +137,11 @@ instance ToQuery DescribeAgents where
 
 -- | /See:/ 'describeAgentsResponse' smart constructor.
 data DescribeAgentsResponse = DescribeAgentsResponse'
-    { _dasrsAgentsInfo     :: !(Maybe [AgentInfo])
-    , _dasrsNextToken      :: !(Maybe Text)
-    , _dasrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dasrsAgentsInfo     :: {-# NOUNPACK #-}!(Maybe [AgentInfo])
+  , _dasrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAgentsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ describeAgentsResponse
     :: Int -- ^ 'dasrsResponseStatus'
     -> DescribeAgentsResponse
 describeAgentsResponse pResponseStatus_ =
-    DescribeAgentsResponse'
-    { _dasrsAgentsInfo = Nothing
-    , _dasrsNextToken = Nothing
-    , _dasrsResponseStatus = pResponseStatus_
-    }
+  DescribeAgentsResponse'
+  { _dasrsAgentsInfo = Nothing
+  , _dasrsNextToken = Nothing
+  , _dasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
 dasrsAgentsInfo :: Lens' DescribeAgentsResponse [AgentInfo]
@@ -171,4 +175,4 @@ dasrsNextToken = lens _dasrsNextToken (\ s a -> s{_dasrsNextToken = a});
 dasrsResponseStatus :: Lens' DescribeAgentsResponse Int
 dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a});
 
-instance NFData DescribeAgentsResponse
+instance NFData DescribeAgentsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DescribeLunaClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,18 +42,19 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     , drsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeLunaClient' smart constructor.
 data DescribeLunaClient = DescribeLunaClient'
-    { _dlcClientARN              :: !(Maybe Text)
-    , _dlcCertificateFingerprint :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlcClientARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlcCertificateFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLunaClient' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ data DescribeLunaClient = DescribeLunaClient'
 describeLunaClient
     :: DescribeLunaClient
 describeLunaClient =
-    DescribeLunaClient'
-    { _dlcClientARN = Nothing
-    , _dlcCertificateFingerprint = Nothing
-    }
+  DescribeLunaClient'
+  {_dlcClientARN = Nothing, _dlcCertificateFingerprint = Nothing}
+
 
 -- | The ARN of the client.
 dlcClientARN :: Lens' DescribeLunaClient (Maybe Text)
@@ -93,9 +93,9 @@ instance AWSRequest DescribeLunaClient where
                      <*> (x .?> "Label")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLunaClient
+instance Hashable DescribeLunaClient where
 
-instance NFData DescribeLunaClient
+instance NFData DescribeLunaClient where
 
 instance ToHeaders DescribeLunaClient where
         toHeaders
@@ -123,13 +123,14 @@ instance ToQuery DescribeLunaClient where
 
 -- | /See:/ 'describeLunaClientResponse' smart constructor.
 data DescribeLunaClientResponse = DescribeLunaClientResponse'
-    { _drsClientARN              :: !(Maybe Text)
-    , _drsLastModifiedTimestamp  :: !(Maybe Text)
-    , _drsCertificateFingerprint :: !(Maybe Text)
-    , _drsCertificate            :: !(Maybe Text)
-    , _drsLabel                  :: !(Maybe Text)
-    , _drsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsClientARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsLastModifiedTimestamp  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsCertificateFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsCertificate            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsLabel                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLunaClientResponse' with the minimum fields required to make a request.
 --
@@ -150,14 +151,15 @@ describeLunaClientResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeLunaClientResponse
 describeLunaClientResponse pResponseStatus_ =
-    DescribeLunaClientResponse'
-    { _drsClientARN = Nothing
-    , _drsLastModifiedTimestamp = Nothing
-    , _drsCertificateFingerprint = Nothing
-    , _drsCertificate = Nothing
-    , _drsLabel = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeLunaClientResponse'
+  { _drsClientARN = Nothing
+  , _drsLastModifiedTimestamp = Nothing
+  , _drsCertificateFingerprint = Nothing
+  , _drsCertificate = Nothing
+  , _drsLabel = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARN of the client.
 drsClientARN :: Lens' DescribeLunaClientResponse (Maybe Text)
@@ -183,4 +185,4 @@ drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
 drsResponseStatus :: Lens' DescribeLunaClientResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeLunaClientResponse
+instance NFData DescribeLunaClientResponse where

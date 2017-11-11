@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.IAM.GetGroup
     , ggrsUsers
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
 data GetGroup = GetGroup'
-    { _ggMarker    :: !(Maybe Text)
-    , _ggMaxItems  :: !(Maybe Nat)
-    , _ggGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggMaxItems  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ggGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ getGroup
     :: Text -- ^ 'ggGroupName'
     -> GetGroup
 getGroup pGroupName_ =
-    GetGroup'
-    { _ggMarker = Nothing
-    , _ggMaxItems = Nothing
-    , _ggGroupName = pGroupName_
-    }
+  GetGroup'
+  {_ggMarker = Nothing, _ggMaxItems = Nothing, _ggGroupName = pGroupName_}
+
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 ggMarker :: Lens' GetGroup (Maybe Text)
@@ -110,9 +109,9 @@ instance AWSRequest GetGroup where
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
-instance Hashable GetGroup
+instance Hashable GetGroup where
 
-instance NFData GetGroup
+instance NFData GetGroup where
 
 instance ToHeaders GetGroup where
         toHeaders = const mempty
@@ -134,12 +133,13 @@ instance ToQuery GetGroup where
 --
 -- /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-    { _ggrsMarker         :: !(Maybe Text)
-    , _ggrsIsTruncated    :: !(Maybe Bool)
-    , _ggrsResponseStatus :: !Int
-    , _ggrsGroup          :: !Group
-    , _ggrsUsers          :: ![User]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ggrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ggrsGroup          :: {-# NOUNPACK #-}!Group
+  , _ggrsUsers          :: {-# NOUNPACK #-}![User]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
 --
@@ -159,13 +159,14 @@ getGroupResponse
     -> Group -- ^ 'ggrsGroup'
     -> GetGroupResponse
 getGroupResponse pResponseStatus_ pGroup_ =
-    GetGroupResponse'
-    { _ggrsMarker = Nothing
-    , _ggrsIsTruncated = Nothing
-    , _ggrsResponseStatus = pResponseStatus_
-    , _ggrsGroup = pGroup_
-    , _ggrsUsers = mempty
-    }
+  GetGroupResponse'
+  { _ggrsMarker = Nothing
+  , _ggrsIsTruncated = Nothing
+  , _ggrsResponseStatus = pResponseStatus_
+  , _ggrsGroup = pGroup_
+  , _ggrsUsers = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 ggrsMarker :: Lens' GetGroupResponse (Maybe Text)
@@ -187,4 +188,4 @@ ggrsGroup = lens _ggrsGroup (\ s a -> s{_ggrsGroup = a});
 ggrsUsers :: Lens' GetGroupResponse [User]
 ggrsUsers = lens _ggrsUsers (\ s a -> s{_ggrsUsers = a}) . _Coerce;
 
-instance NFData GetGroupResponse
+instance NFData GetGroupResponse where

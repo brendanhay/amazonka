@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.RemovePermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.SQS.RemovePermission
     , RemovePermissionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -48,9 +48,10 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
-    { _rpQueueURL :: !Text
-    , _rpLabel    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpQueueURL :: {-# NOUNPACK #-}!Text
+  , _rpLabel    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ removePermission
     -> Text -- ^ 'rpLabel'
     -> RemovePermission
 removePermission pQueueURL_ pLabel_ =
-    RemovePermission'
-    { _rpQueueURL = pQueueURL_
-    , _rpLabel = pLabel_
-    }
+  RemovePermission' {_rpQueueURL = pQueueURL_, _rpLabel = pLabel_}
+
 
 -- | The URL of the Amazon SQS queue from which permissions are removed. Queue URLs are case-sensitive.
 rpQueueURL :: Lens' RemovePermission Text
@@ -82,9 +81,9 @@ instance AWSRequest RemovePermission where
         request = postQuery sqs
         response = receiveNull RemovePermissionResponse'
 
-instance Hashable RemovePermission
+instance Hashable RemovePermission where
 
-instance NFData RemovePermission
+instance NFData RemovePermission where
 
 instance ToHeaders RemovePermission where
         toHeaders = const mempty
@@ -101,8 +100,9 @@ instance ToQuery RemovePermission where
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =
-    RemovePermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemovePermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +110,5 @@ removePermissionResponse
     :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse'
 
-instance NFData RemovePermissionResponse
+
+instance NFData RemovePermissionResponse where

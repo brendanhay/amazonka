@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.GameLift.Types.Product where
 
-import           Network.AWS.GameLift.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.GameLift.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Temporary access credentials used for uploading game build files to Amazon GameLift. They are valid for a limited time. If they expire before you upload your game build, get a new set by calling 'RequestUploadCredentials' .
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'awsCredentials' smart constructor.
 data AWSCredentials = AWSCredentials'
-    { _acSecretAccessKey :: !(Maybe Text)
-    , _acSessionToken    :: !(Maybe Text)
-    , _acAccessKeyId     :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _acSecretAccessKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acSessionToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acAccessKeyId     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AWSCredentials' with the minimum fields required to make a request.
 --
@@ -44,11 +45,12 @@ data AWSCredentials = AWSCredentials'
 awsCredentials
     :: AWSCredentials
 awsCredentials =
-    AWSCredentials'
-    { _acSecretAccessKey = Nothing
-    , _acSessionToken = Nothing
-    , _acAccessKeyId = Nothing
-    }
+  AWSCredentials'
+  { _acSecretAccessKey = Nothing
+  , _acSessionToken = Nothing
+  , _acAccessKeyId = Nothing
+  }
+
 
 -- | Temporary secret key allowing access to the Amazon GameLift S3 account.
 acSecretAccessKey :: Lens' AWSCredentials (Maybe Text)
@@ -70,9 +72,9 @@ instance FromJSON AWSCredentials where
                    (x .:? "SecretAccessKey") <*> (x .:? "SessionToken")
                      <*> (x .:? "AccessKeyId"))
 
-instance Hashable AWSCredentials
+instance Hashable AWSCredentials where
 
-instance NFData AWSCredentials
+instance NFData AWSCredentials where
 
 -- | Properties describing a fleet alias.
 --
@@ -96,14 +98,15 @@ instance NFData AWSCredentials
 --
 -- /See:/ 'alias' smart constructor.
 data Alias = Alias'
-    { _aCreationTime    :: !(Maybe POSIX)
-    , _aLastUpdatedTime :: !(Maybe POSIX)
-    , _aAliasId         :: !(Maybe Text)
-    , _aRoutingStrategy :: !(Maybe RoutingStrategy)
-    , _aName            :: !(Maybe Text)
-    , _aAliasARN        :: !(Maybe Text)
-    , _aDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aCreationTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aLastUpdatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aAliasId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aRoutingStrategy :: {-# NOUNPACK #-}!(Maybe RoutingStrategy)
+  , _aName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAliasARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Alias' with the minimum fields required to make a request.
 --
@@ -125,15 +128,16 @@ data Alias = Alias'
 alias
     :: Alias
 alias =
-    Alias'
-    { _aCreationTime = Nothing
-    , _aLastUpdatedTime = Nothing
-    , _aAliasId = Nothing
-    , _aRoutingStrategy = Nothing
-    , _aName = Nothing
-    , _aAliasARN = Nothing
-    , _aDescription = Nothing
-    }
+  Alias'
+  { _aCreationTime = Nothing
+  , _aLastUpdatedTime = Nothing
+  , _aAliasId = Nothing
+  , _aRoutingStrategy = Nothing
+  , _aName = Nothing
+  , _aAliasARN = Nothing
+  , _aDescription = Nothing
+  }
+
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 aCreationTime :: Lens' Alias (Maybe UTCTime)
@@ -175,9 +179,9 @@ instance FromJSON Alias where
                      <*> (x .:? "AliasArn")
                      <*> (x .:? "Description"))
 
-instance Hashable Alias
+instance Hashable Alias where
 
-instance NFData Alias
+instance NFData Alias where
 
 -- | Values for use in 'Player' attribute type:value pairs. This object lets you specify an attribute value using any of the valid data types: string, number, string array or data map. Each @AttributeValue@ object can use only one of the available properties.
 --
@@ -185,11 +189,12 @@ instance NFData Alias
 --
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-    { _avSL  :: !(Maybe [Text])
-    , _avSDM :: !(Maybe (Map Text Double))
-    , _avN   :: !(Maybe Double)
-    , _avS   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avSL  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _avSDM :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
+  , _avN   :: {-# NOUNPACK #-}!(Maybe Double)
+  , _avS   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
@@ -205,12 +210,9 @@ data AttributeValue = AttributeValue'
 attributeValue
     :: AttributeValue
 attributeValue =
-    AttributeValue'
-    { _avSL = Nothing
-    , _avSDM = Nothing
-    , _avN = Nothing
-    , _avS = Nothing
-    }
+  AttributeValue'
+  {_avSL = Nothing, _avSDM = Nothing, _avN = Nothing, _avS = Nothing}
+
 
 -- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurances of the the repeated value after the first of a repeated value are ignored.
 avSL :: Lens' AttributeValue [Text]
@@ -237,9 +239,9 @@ instance FromJSON AttributeValue where
                      <*> (x .:? "N")
                      <*> (x .:? "S"))
 
-instance Hashable AttributeValue
+instance Hashable AttributeValue where
 
-instance NFData AttributeValue
+instance NFData AttributeValue where
 
 instance ToJSON AttributeValue where
         toJSON AttributeValue'{..}
@@ -268,14 +270,15 @@ instance ToJSON AttributeValue where
 --
 -- /See:/ 'build' smart constructor.
 data Build = Build'
-    { _bCreationTime    :: !(Maybe POSIX)
-    , _bStatus          :: !(Maybe BuildStatus)
-    , _bOperatingSystem :: !(Maybe OperatingSystem)
-    , _bBuildId         :: !(Maybe Text)
-    , _bName            :: !(Maybe Text)
-    , _bVersion         :: !(Maybe Text)
-    , _bSizeOnDisk      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bCreationTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _bStatus          :: {-# NOUNPACK #-}!(Maybe BuildStatus)
+  , _bOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _bBuildId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bSizeOnDisk      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Build' with the minimum fields required to make a request.
 --
@@ -297,15 +300,16 @@ data Build = Build'
 build
     :: Build
 build =
-    Build'
-    { _bCreationTime = Nothing
-    , _bStatus = Nothing
-    , _bOperatingSystem = Nothing
-    , _bBuildId = Nothing
-    , _bName = Nothing
-    , _bVersion = Nothing
-    , _bSizeOnDisk = Nothing
-    }
+  Build'
+  { _bCreationTime = Nothing
+  , _bStatus = Nothing
+  , _bOperatingSystem = Nothing
+  , _bBuildId = Nothing
+  , _bName = Nothing
+  , _bVersion = Nothing
+  , _bSizeOnDisk = Nothing
+  }
+
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 bCreationTime :: Lens' Build (Maybe UTCTime)
@@ -347,9 +351,9 @@ instance FromJSON Build where
                      <*> (x .:? "Version")
                      <*> (x .:? "SizeOnDisk"))
 
-instance Hashable Build
+instance Hashable Build where
 
-instance NFData Build
+instance NFData Build where
 
 -- | Player information for use when creating player sessions using a game session placement request with 'StartGameSessionPlacement' .
 --
@@ -357,9 +361,10 @@ instance NFData Build
 --
 -- /See:/ 'desiredPlayerSession' smart constructor.
 data DesiredPlayerSession = DesiredPlayerSession'
-    { _dpsPlayerData :: !(Maybe Text)
-    , _dpsPlayerId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpsPlayerData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpsPlayerId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DesiredPlayerSession' with the minimum fields required to make a request.
 --
@@ -371,10 +376,8 @@ data DesiredPlayerSession = DesiredPlayerSession'
 desiredPlayerSession
     :: DesiredPlayerSession
 desiredPlayerSession =
-    DesiredPlayerSession'
-    { _dpsPlayerData = Nothing
-    , _dpsPlayerId = Nothing
-    }
+  DesiredPlayerSession' {_dpsPlayerData = Nothing, _dpsPlayerId = Nothing}
+
 
 -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
 dpsPlayerData :: Lens' DesiredPlayerSession (Maybe Text)
@@ -384,9 +387,9 @@ dpsPlayerData = lens _dpsPlayerData (\ s a -> s{_dpsPlayerData = a});
 dpsPlayerId :: Lens' DesiredPlayerSession (Maybe Text)
 dpsPlayerId = lens _dpsPlayerId (\ s a -> s{_dpsPlayerId = a});
 
-instance Hashable DesiredPlayerSession
+instance Hashable DesiredPlayerSession where
 
-instance NFData DesiredPlayerSession
+instance NFData DesiredPlayerSession where
 
 instance ToJSON DesiredPlayerSession where
         toJSON DesiredPlayerSession'{..}
@@ -453,14 +456,15 @@ instance ToJSON DesiredPlayerSession where
 --
 -- /See:/ 'ec2InstanceCounts' smart constructor.
 data EC2InstanceCounts = EC2InstanceCounts'
-    { _eicIdLE        :: !(Maybe Nat)
-    , _eicTERMINATING :: !(Maybe Nat)
-    , _eicPENDING     :: !(Maybe Nat)
-    , _eicMAXIMUM     :: !(Maybe Nat)
-    , _eicDESIRED     :: !(Maybe Nat)
-    , _eicMINIMUM     :: !(Maybe Nat)
-    , _eicACTIVE      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eicIdLE        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _eicTERMINATING :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _eicPENDING     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _eicMAXIMUM     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _eicDESIRED     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _eicMINIMUM     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _eicACTIVE      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2InstanceCounts' with the minimum fields required to make a request.
 --
@@ -482,15 +486,16 @@ data EC2InstanceCounts = EC2InstanceCounts'
 ec2InstanceCounts
     :: EC2InstanceCounts
 ec2InstanceCounts =
-    EC2InstanceCounts'
-    { _eicIdLE = Nothing
-    , _eicTERMINATING = Nothing
-    , _eicPENDING = Nothing
-    , _eicMAXIMUM = Nothing
-    , _eicDESIRED = Nothing
-    , _eicMINIMUM = Nothing
-    , _eicACTIVE = Nothing
-    }
+  EC2InstanceCounts'
+  { _eicIdLE = Nothing
+  , _eicTERMINATING = Nothing
+  , _eicPENDING = Nothing
+  , _eicMAXIMUM = Nothing
+  , _eicDESIRED = Nothing
+  , _eicMINIMUM = Nothing
+  , _eicACTIVE = Nothing
+  }
+
 
 -- | Number of active instances in the fleet that are not currently hosting a game session.
 eicIdLE :: Lens' EC2InstanceCounts (Maybe Natural)
@@ -532,9 +537,9 @@ instance FromJSON EC2InstanceCounts where
                      <*> (x .:? "MINIMUM")
                      <*> (x .:? "ACTIVE"))
 
-instance Hashable EC2InstanceCounts
+instance Hashable EC2InstanceCounts where
 
-instance NFData EC2InstanceCounts
+instance NFData EC2InstanceCounts where
 
 -- | Maximum number of instances allowed based on the Amazon Elastic Compute Cloud (Amazon EC2) instance type. Instance limits can be retrieved by calling 'DescribeEC2InstanceLimits' .
 --
@@ -542,10 +547,11 @@ instance NFData EC2InstanceCounts
 --
 -- /See:/ 'ec2InstanceLimit' smart constructor.
 data EC2InstanceLimit = EC2InstanceLimit'
-    { _eilEC2InstanceType  :: !(Maybe EC2InstanceType)
-    , _eilCurrentInstances :: !(Maybe Nat)
-    , _eilInstanceLimit    :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eilEC2InstanceType  :: {-# NOUNPACK #-}!(Maybe EC2InstanceType)
+  , _eilCurrentInstances :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _eilInstanceLimit    :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2InstanceLimit' with the minimum fields required to make a request.
 --
@@ -559,11 +565,12 @@ data EC2InstanceLimit = EC2InstanceLimit'
 ec2InstanceLimit
     :: EC2InstanceLimit
 ec2InstanceLimit =
-    EC2InstanceLimit'
-    { _eilEC2InstanceType = Nothing
-    , _eilCurrentInstances = Nothing
-    , _eilInstanceLimit = Nothing
-    }
+  EC2InstanceLimit'
+  { _eilEC2InstanceType = Nothing
+  , _eilCurrentInstances = Nothing
+  , _eilInstanceLimit = Nothing
+  }
+
 
 -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
 eilEC2InstanceType :: Lens' EC2InstanceLimit (Maybe EC2InstanceType)
@@ -586,9 +593,9 @@ instance FromJSON EC2InstanceLimit where
                      (x .:? "CurrentInstances")
                      <*> (x .:? "InstanceLimit"))
 
-instance Hashable EC2InstanceLimit
+instance Hashable EC2InstanceLimit where
 
-instance NFData EC2InstanceLimit
+instance NFData EC2InstanceLimit where
 
 -- | Log entry describing an event that involves Amazon GameLift resources (such as a fleet). In addition to tracking activity, event codes and messages can provide additional information for troubleshooting and debugging problems.
 --
@@ -596,13 +603,14 @@ instance NFData EC2InstanceLimit
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eResourceId      :: !(Maybe Text)
-    , _ePreSignedLogURL :: !(Maybe Text)
-    , _eEventTime       :: !(Maybe POSIX)
-    , _eMessage         :: !(Maybe Text)
-    , _eEventCode       :: !(Maybe EventCode)
-    , _eEventId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eResourceId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ePreSignedLogURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEventTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eMessage         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEventCode       :: {-# NOUNPACK #-}!(Maybe EventCode)
+  , _eEventId         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
@@ -622,14 +630,15 @@ data Event = Event'
 event
     :: Event
 event =
-    Event'
-    { _eResourceId = Nothing
-    , _ePreSignedLogURL = Nothing
-    , _eEventTime = Nothing
-    , _eMessage = Nothing
-    , _eEventCode = Nothing
-    , _eEventId = Nothing
-    }
+  Event'
+  { _eResourceId = Nothing
+  , _ePreSignedLogURL = Nothing
+  , _eEventTime = Nothing
+  , _eMessage = Nothing
+  , _eEventCode = Nothing
+  , _eEventId = Nothing
+  }
+
 
 -- | Unique identifier for an event resource, such as a fleet ID.
 eResourceId :: Lens' Event (Maybe Text)
@@ -666,9 +675,9 @@ instance FromJSON Event where
                      <*> (x .:? "EventCode")
                      <*> (x .:? "EventId"))
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- | General properties describing a fleet.
 --
@@ -728,22 +737,23 @@ instance NFData Event
 --
 -- /See:/ 'fleetAttributes' smart constructor.
 data FleetAttributes = FleetAttributes'
-    { _faCreationTime                   :: !(Maybe POSIX)
-    , _faStatus                         :: !(Maybe FleetStatus)
-    , _faServerLaunchParameters         :: !(Maybe Text)
-    , _faLogPaths                       :: !(Maybe [Text])
-    , _faOperatingSystem                :: !(Maybe OperatingSystem)
-    , _faBuildId                        :: !(Maybe Text)
-    , _faFleetARN                       :: !(Maybe Text)
-    , _faTerminationTime                :: !(Maybe POSIX)
-    , _faNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
-    , _faName                           :: !(Maybe Text)
-    , _faServerLaunchPath               :: !(Maybe Text)
-    , _faMetricGroups                   :: !(Maybe [Text])
-    , _faFleetId                        :: !(Maybe Text)
-    , _faDescription                    :: !(Maybe Text)
-    , _faResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _faCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _faStatus :: {-# NOUNPACK #-}!(Maybe FleetStatus)
+  , _faServerLaunchParameters :: {-# NOUNPACK #-}!(Maybe Text)
+  , _faLogPaths :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _faOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _faBuildId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _faFleetARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _faTerminationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _faNewGameSessionProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
+  , _faName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _faServerLaunchPath :: {-# NOUNPACK #-}!(Maybe Text)
+  , _faMetricGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _faFleetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _faDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _faResourceCreationLimitPolicy :: {-# NOUNPACK #-}!(Maybe ResourceCreationLimitPolicy)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FleetAttributes' with the minimum fields required to make a request.
 --
@@ -781,23 +791,24 @@ data FleetAttributes = FleetAttributes'
 fleetAttributes
     :: FleetAttributes
 fleetAttributes =
-    FleetAttributes'
-    { _faCreationTime = Nothing
-    , _faStatus = Nothing
-    , _faServerLaunchParameters = Nothing
-    , _faLogPaths = Nothing
-    , _faOperatingSystem = Nothing
-    , _faBuildId = Nothing
-    , _faFleetARN = Nothing
-    , _faTerminationTime = Nothing
-    , _faNewGameSessionProtectionPolicy = Nothing
-    , _faName = Nothing
-    , _faServerLaunchPath = Nothing
-    , _faMetricGroups = Nothing
-    , _faFleetId = Nothing
-    , _faDescription = Nothing
-    , _faResourceCreationLimitPolicy = Nothing
-    }
+  FleetAttributes'
+  { _faCreationTime = Nothing
+  , _faStatus = Nothing
+  , _faServerLaunchParameters = Nothing
+  , _faLogPaths = Nothing
+  , _faOperatingSystem = Nothing
+  , _faBuildId = Nothing
+  , _faFleetARN = Nothing
+  , _faTerminationTime = Nothing
+  , _faNewGameSessionProtectionPolicy = Nothing
+  , _faName = Nothing
+  , _faServerLaunchPath = Nothing
+  , _faMetricGroups = Nothing
+  , _faFleetId = Nothing
+  , _faDescription = Nothing
+  , _faResourceCreationLimitPolicy = Nothing
+  }
+
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 faCreationTime :: Lens' FleetAttributes (Maybe UTCTime)
@@ -879,9 +890,9 @@ instance FromJSON FleetAttributes where
                      <*> (x .:? "Description")
                      <*> (x .:? "ResourceCreationLimitPolicy"))
 
-instance Hashable FleetAttributes
+instance Hashable FleetAttributes where
 
-instance NFData FleetAttributes
+instance NFData FleetAttributes where
 
 -- | Information about the fleet's capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet's instance type.
 --
@@ -941,10 +952,11 @@ instance NFData FleetAttributes
 --
 -- /See:/ 'fleetCapacity' smart constructor.
 data FleetCapacity = FleetCapacity'
-    { _fcInstanceType   :: !(Maybe EC2InstanceType)
-    , _fcFleetId        :: !(Maybe Text)
-    , _fcInstanceCounts :: !(Maybe EC2InstanceCounts)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fcInstanceType   :: {-# NOUNPACK #-}!(Maybe EC2InstanceType)
+  , _fcFleetId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcInstanceCounts :: {-# NOUNPACK #-}!(Maybe EC2InstanceCounts)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FleetCapacity' with the minimum fields required to make a request.
 --
@@ -958,11 +970,9 @@ data FleetCapacity = FleetCapacity'
 fleetCapacity
     :: FleetCapacity
 fleetCapacity =
-    FleetCapacity'
-    { _fcInstanceType = Nothing
-    , _fcFleetId = Nothing
-    , _fcInstanceCounts = Nothing
-    }
+  FleetCapacity'
+  {_fcInstanceType = Nothing, _fcFleetId = Nothing, _fcInstanceCounts = Nothing}
+
 
 -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
 fcInstanceType :: Lens' FleetCapacity (Maybe EC2InstanceType)
@@ -984,9 +994,9 @@ instance FromJSON FleetCapacity where
                    (x .:? "InstanceType") <*> (x .:? "FleetId") <*>
                      (x .:? "InstanceCounts"))
 
-instance Hashable FleetCapacity
+instance Hashable FleetCapacity where
 
-instance NFData FleetCapacity
+instance NFData FleetCapacity where
 
 -- | Current status of fleet utilization, including the number of game and player sessions being hosted.
 --
@@ -1046,12 +1056,13 @@ instance NFData FleetCapacity
 --
 -- /See:/ 'fleetUtilization' smart constructor.
 data FleetUtilization = FleetUtilization'
-    { _fuActiveGameSessionCount    :: !(Maybe Nat)
-    , _fuMaximumPlayerSessionCount :: !(Maybe Nat)
-    , _fuCurrentPlayerSessionCount :: !(Maybe Nat)
-    , _fuFleetId                   :: !(Maybe Text)
-    , _fuActiveServerProcessCount  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fuActiveGameSessionCount    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fuMaximumPlayerSessionCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fuCurrentPlayerSessionCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fuFleetId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fuActiveServerProcessCount  :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FleetUtilization' with the minimum fields required to make a request.
 --
@@ -1069,13 +1080,14 @@ data FleetUtilization = FleetUtilization'
 fleetUtilization
     :: FleetUtilization
 fleetUtilization =
-    FleetUtilization'
-    { _fuActiveGameSessionCount = Nothing
-    , _fuMaximumPlayerSessionCount = Nothing
-    , _fuCurrentPlayerSessionCount = Nothing
-    , _fuFleetId = Nothing
-    , _fuActiveServerProcessCount = Nothing
-    }
+  FleetUtilization'
+  { _fuActiveGameSessionCount = Nothing
+  , _fuMaximumPlayerSessionCount = Nothing
+  , _fuCurrentPlayerSessionCount = Nothing
+  , _fuFleetId = Nothing
+  , _fuActiveServerProcessCount = Nothing
+  }
+
 
 -- | Number of active game sessions currently being hosted on all instances in the fleet.
 fuActiveGameSessionCount :: Lens' FleetUtilization (Maybe Natural)
@@ -1108,9 +1120,9 @@ instance FromJSON FleetUtilization where
                      <*> (x .:? "FleetId")
                      <*> (x .:? "ActiveServerProcessCount"))
 
-instance Hashable FleetUtilization
+instance Hashable FleetUtilization where
 
-instance NFData FleetUtilization
+instance NFData FleetUtilization where
 
 -- | Set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session, such as to specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session; the server process uses the properties as appropriate. For more information, see the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create Amazon GameLift Developer Guide> .
 --
@@ -1118,9 +1130,10 @@ instance NFData FleetUtilization
 --
 -- /See:/ 'gameProperty' smart constructor.
 data GameProperty = GameProperty'
-    { _gpKey   :: !Text
-    , _gpValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpKey   :: {-# NOUNPACK #-}!Text
+  , _gpValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GameProperty' with the minimum fields required to make a request.
 --
@@ -1133,11 +1146,8 @@ gameProperty
     :: Text -- ^ 'gpKey'
     -> Text -- ^ 'gpValue'
     -> GameProperty
-gameProperty pKey_ pValue_ =
-    GameProperty'
-    { _gpKey = pKey_
-    , _gpValue = pValue_
-    }
+gameProperty pKey_ pValue_ = GameProperty' {_gpKey = pKey_, _gpValue = pValue_}
+
 
 -- | Game property identifier.
 gpKey :: Lens' GameProperty Text
@@ -1153,9 +1163,9 @@ instance FromJSON GameProperty where
               (\ x ->
                  GameProperty' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable GameProperty
+instance Hashable GameProperty where
 
-instance NFData GameProperty
+instance NFData GameProperty where
 
 instance ToJSON GameProperty where
         toJSON GameProperty'{..}
@@ -1199,21 +1209,22 @@ instance ToJSON GameProperty where
 --
 -- /See:/ 'gameSession' smart constructor.
 data GameSession = GameSession'
-    { _gsCreationTime                :: !(Maybe POSIX)
-    , _gsStatus                      :: !(Maybe GameSessionStatus)
-    , _gsGameProperties              :: !(Maybe [GameProperty])
-    , _gsIPAddress                   :: !(Maybe Text)
-    , _gsGameSessionId               :: !(Maybe Text)
-    , _gsMaximumPlayerSessionCount   :: !(Maybe Nat)
-    , _gsTerminationTime             :: !(Maybe POSIX)
-    , _gsPlayerSessionCreationPolicy :: !(Maybe PlayerSessionCreationPolicy)
-    , _gsName                        :: !(Maybe Text)
-    , _gsCurrentPlayerSessionCount   :: !(Maybe Nat)
-    , _gsGameSessionData             :: !(Maybe Text)
-    , _gsFleetId                     :: !(Maybe Text)
-    , _gsCreatorId                   :: !(Maybe Text)
-    , _gsPort                        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gsStatus :: {-# NOUNPACK #-}!(Maybe GameSessionStatus)
+  , _gsGameProperties :: {-# NOUNPACK #-}!(Maybe [GameProperty])
+  , _gsIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsGameSessionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsMaximumPlayerSessionCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gsTerminationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gsPlayerSessionCreationPolicy :: {-# NOUNPACK #-}!(Maybe PlayerSessionCreationPolicy)
+  , _gsName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsCurrentPlayerSessionCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gsGameSessionData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsFleetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsCreatorId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GameSession' with the minimum fields required to make a request.
 --
@@ -1249,22 +1260,23 @@ data GameSession = GameSession'
 gameSession
     :: GameSession
 gameSession =
-    GameSession'
-    { _gsCreationTime = Nothing
-    , _gsStatus = Nothing
-    , _gsGameProperties = Nothing
-    , _gsIPAddress = Nothing
-    , _gsGameSessionId = Nothing
-    , _gsMaximumPlayerSessionCount = Nothing
-    , _gsTerminationTime = Nothing
-    , _gsPlayerSessionCreationPolicy = Nothing
-    , _gsName = Nothing
-    , _gsCurrentPlayerSessionCount = Nothing
-    , _gsGameSessionData = Nothing
-    , _gsFleetId = Nothing
-    , _gsCreatorId = Nothing
-    , _gsPort = Nothing
-    }
+  GameSession'
+  { _gsCreationTime = Nothing
+  , _gsStatus = Nothing
+  , _gsGameProperties = Nothing
+  , _gsIPAddress = Nothing
+  , _gsGameSessionId = Nothing
+  , _gsMaximumPlayerSessionCount = Nothing
+  , _gsTerminationTime = Nothing
+  , _gsPlayerSessionCreationPolicy = Nothing
+  , _gsName = Nothing
+  , _gsCurrentPlayerSessionCount = Nothing
+  , _gsGameSessionData = Nothing
+  , _gsFleetId = Nothing
+  , _gsCreatorId = Nothing
+  , _gsPort = Nothing
+  }
+
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 gsCreationTime :: Lens' GameSession (Maybe UTCTime)
@@ -1341,9 +1353,9 @@ instance FromJSON GameSession where
                      <*> (x .:? "CreatorId")
                      <*> (x .:? "Port"))
 
-instance Hashable GameSession
+instance Hashable GameSession where
 
-instance NFData GameSession
+instance NFData GameSession where
 
 -- | Connection information for the new game session that is created with matchmaking. (with 'StartMatchmaking' ). Once a match is set, the FlexMatch engine places the match and creates a new game session for it. This information, including the game session endpoint and player sessions for each player in the original matchmaking request, is added to the 'MatchmakingTicket' , which can be retrieved by calling 'DescribeMatchmaking' .
 --
@@ -1351,11 +1363,12 @@ instance NFData GameSession
 --
 -- /See:/ 'gameSessionConnectionInfo' smart constructor.
 data GameSessionConnectionInfo = GameSessionConnectionInfo'
-    { _gsciMatchedPlayerSessions :: !(Maybe [MatchedPlayerSession])
-    , _gsciIPAddress             :: !(Maybe Text)
-    , _gsciGameSessionARN        :: !(Maybe Text)
-    , _gsciPort                  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsciMatchedPlayerSessions :: {-# NOUNPACK #-}!(Maybe [MatchedPlayerSession])
+  , _gsciIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsciGameSessionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsciPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GameSessionConnectionInfo' with the minimum fields required to make a request.
 --
@@ -1371,12 +1384,13 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
 gameSessionConnectionInfo
     :: GameSessionConnectionInfo
 gameSessionConnectionInfo =
-    GameSessionConnectionInfo'
-    { _gsciMatchedPlayerSessions = Nothing
-    , _gsciIPAddress = Nothing
-    , _gsciGameSessionARN = Nothing
-    , _gsciPort = Nothing
-    }
+  GameSessionConnectionInfo'
+  { _gsciMatchedPlayerSessions = Nothing
+  , _gsciIPAddress = Nothing
+  , _gsciGameSessionARN = Nothing
+  , _gsciPort = Nothing
+  }
+
 
 -- | Collection of player session IDs, one for each player ID that was included in the original matchmaking request.
 gsciMatchedPlayerSessions :: Lens' GameSessionConnectionInfo [MatchedPlayerSession]
@@ -1404,9 +1418,9 @@ instance FromJSON GameSessionConnectionInfo where
                      <*> (x .:? "GameSessionArn")
                      <*> (x .:? "Port"))
 
-instance Hashable GameSessionConnectionInfo
+instance Hashable GameSessionConnectionInfo where
 
-instance NFData GameSessionConnectionInfo
+instance NFData GameSessionConnectionInfo where
 
 -- | A game session's properties plus the protection policy currently in force.
 --
@@ -1414,9 +1428,10 @@ instance NFData GameSessionConnectionInfo
 --
 -- /See:/ 'gameSessionDetail' smart constructor.
 data GameSessionDetail = GameSessionDetail'
-    { _gsdGameSession      :: !(Maybe GameSession)
-    , _gsdProtectionPolicy :: !(Maybe ProtectionPolicy)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsdGameSession      :: {-# NOUNPACK #-}!(Maybe GameSession)
+  , _gsdProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GameSessionDetail' with the minimum fields required to make a request.
 --
@@ -1428,10 +1443,8 @@ data GameSessionDetail = GameSessionDetail'
 gameSessionDetail
     :: GameSessionDetail
 gameSessionDetail =
-    GameSessionDetail'
-    { _gsdGameSession = Nothing
-    , _gsdProtectionPolicy = Nothing
-    }
+  GameSessionDetail' {_gsdGameSession = Nothing, _gsdProtectionPolicy = Nothing}
+
 
 -- | Object that describes a game session.
 gsdGameSession :: Lens' GameSessionDetail (Maybe GameSession)
@@ -1448,9 +1461,9 @@ instance FromJSON GameSessionDetail where
                  GameSessionDetail' <$>
                    (x .:? "GameSession") <*> (x .:? "ProtectionPolicy"))
 
-instance Hashable GameSessionDetail
+instance Hashable GameSessionDetail where
 
-instance NFData GameSessionDetail
+instance NFData GameSessionDetail where
 
 -- | Object that describes a 'StartGameSessionPlacement' request. This object includes the full details of the original request plus the current status and start/end time stamps.
 --
@@ -1468,23 +1481,24 @@ instance NFData GameSessionDetail
 --
 -- /See:/ 'gameSessionPlacement' smart constructor.
 data GameSessionPlacement = GameSessionPlacement'
-    { _gspStatus                    :: !(Maybe GameSessionPlacementState)
-    , _gspPlacementId               :: !(Maybe Text)
-    , _gspGameProperties            :: !(Maybe [GameProperty])
-    , _gspIPAddress                 :: !(Maybe Text)
-    , _gspGameSessionName           :: !(Maybe Text)
-    , _gspStartTime                 :: !(Maybe POSIX)
-    , _gspGameSessionId             :: !(Maybe Text)
-    , _gspGameSessionRegion         :: !(Maybe Text)
-    , _gspMaximumPlayerSessionCount :: !(Maybe Nat)
-    , _gspEndTime                   :: !(Maybe POSIX)
-    , _gspGameSessionARN            :: !(Maybe Text)
-    , _gspPlayerLatencies           :: !(Maybe [PlayerLatency])
-    , _gspGameSessionData           :: !(Maybe Text)
-    , _gspGameSessionQueueName      :: !(Maybe Text)
-    , _gspPlacedPlayerSessions      :: !(Maybe [PlacedPlayerSession])
-    , _gspPort                      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gspStatus :: {-# NOUNPACK #-}!(Maybe GameSessionPlacementState)
+  , _gspPlacementId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gspGameProperties :: {-# NOUNPACK #-}!(Maybe [GameProperty])
+  , _gspIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gspGameSessionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gspStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gspGameSessionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gspGameSessionRegion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gspMaximumPlayerSessionCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gspEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gspGameSessionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gspPlayerLatencies :: {-# NOUNPACK #-}!(Maybe [PlayerLatency])
+  , _gspGameSessionData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gspGameSessionQueueName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gspPlacedPlayerSessions :: {-# NOUNPACK #-}!(Maybe [PlacedPlayerSession])
+  , _gspPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GameSessionPlacement' with the minimum fields required to make a request.
 --
@@ -1524,24 +1538,25 @@ data GameSessionPlacement = GameSessionPlacement'
 gameSessionPlacement
     :: GameSessionPlacement
 gameSessionPlacement =
-    GameSessionPlacement'
-    { _gspStatus = Nothing
-    , _gspPlacementId = Nothing
-    , _gspGameProperties = Nothing
-    , _gspIPAddress = Nothing
-    , _gspGameSessionName = Nothing
-    , _gspStartTime = Nothing
-    , _gspGameSessionId = Nothing
-    , _gspGameSessionRegion = Nothing
-    , _gspMaximumPlayerSessionCount = Nothing
-    , _gspEndTime = Nothing
-    , _gspGameSessionARN = Nothing
-    , _gspPlayerLatencies = Nothing
-    , _gspGameSessionData = Nothing
-    , _gspGameSessionQueueName = Nothing
-    , _gspPlacedPlayerSessions = Nothing
-    , _gspPort = Nothing
-    }
+  GameSessionPlacement'
+  { _gspStatus = Nothing
+  , _gspPlacementId = Nothing
+  , _gspGameProperties = Nothing
+  , _gspIPAddress = Nothing
+  , _gspGameSessionName = Nothing
+  , _gspStartTime = Nothing
+  , _gspGameSessionId = Nothing
+  , _gspGameSessionRegion = Nothing
+  , _gspMaximumPlayerSessionCount = Nothing
+  , _gspEndTime = Nothing
+  , _gspGameSessionARN = Nothing
+  , _gspPlayerLatencies = Nothing
+  , _gspGameSessionData = Nothing
+  , _gspGameSessionQueueName = Nothing
+  , _gspPlacedPlayerSessions = Nothing
+  , _gspPort = Nothing
+  }
+
 
 -- | Current status of the game session placement request.     * __PENDING__ – The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ – A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ – The placement request was canceled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ – A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
 gspStatus :: Lens' GameSessionPlacement (Maybe GameSessionPlacementState)
@@ -1628,9 +1643,9 @@ instance FromJSON GameSessionPlacement where
                      <*> (x .:? "PlacedPlayerSessions" .!= mempty)
                      <*> (x .:? "Port"))
 
-instance Hashable GameSessionPlacement
+instance Hashable GameSessionPlacement where
 
-instance NFData GameSessionPlacement
+instance NFData GameSessionPlacement where
 
 -- | Configuration of a queue that is used to process game session placement requests. The queue configuration identifies several game features:
 --
@@ -1658,12 +1673,13 @@ instance NFData GameSessionPlacement
 --
 -- /See:/ 'gameSessionQueue' smart constructor.
 data GameSessionQueue = GameSessionQueue'
-    { _gsqGameSessionQueueARN   :: !(Maybe Text)
-    , _gsqPlayerLatencyPolicies :: !(Maybe [PlayerLatencyPolicy])
-    , _gsqTimeoutInSeconds      :: !(Maybe Nat)
-    , _gsqDestinations          :: !(Maybe [GameSessionQueueDestination])
-    , _gsqName                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsqGameSessionQueueARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsqPlayerLatencyPolicies :: {-# NOUNPACK #-}!(Maybe [PlayerLatencyPolicy])
+  , _gsqTimeoutInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gsqDestinations :: {-# NOUNPACK #-}!(Maybe [GameSessionQueueDestination])
+  , _gsqName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GameSessionQueue' with the minimum fields required to make a request.
 --
@@ -1681,13 +1697,14 @@ data GameSessionQueue = GameSessionQueue'
 gameSessionQueue
     :: GameSessionQueue
 gameSessionQueue =
-    GameSessionQueue'
-    { _gsqGameSessionQueueARN = Nothing
-    , _gsqPlayerLatencyPolicies = Nothing
-    , _gsqTimeoutInSeconds = Nothing
-    , _gsqDestinations = Nothing
-    , _gsqName = Nothing
-    }
+  GameSessionQueue'
+  { _gsqGameSessionQueueARN = Nothing
+  , _gsqPlayerLatencyPolicies = Nothing
+  , _gsqTimeoutInSeconds = Nothing
+  , _gsqDestinations = Nothing
+  , _gsqName = Nothing
+  }
+
 
 -- | Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ .
 gsqGameSessionQueueARN :: Lens' GameSessionQueue (Maybe Text)
@@ -1720,9 +1737,9 @@ instance FromJSON GameSessionQueue where
                      <*> (x .:? "Destinations" .!= mempty)
                      <*> (x .:? "Name"))
 
-instance Hashable GameSessionQueue
+instance Hashable GameSessionQueue where
 
-instance NFData GameSessionQueue
+instance NFData GameSessionQueue where
 
 -- | Fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination configured for a queue.
 --
@@ -1742,8 +1759,9 @@ instance NFData GameSessionQueue
 --
 -- /See:/ 'gameSessionQueueDestination' smart constructor.
 newtype GameSessionQueueDestination = GameSessionQueueDestination'
-    { _gsqdDestinationARN :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsqdDestinationARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GameSessionQueueDestination' with the minimum fields required to make a request.
 --
@@ -1753,9 +1771,8 @@ newtype GameSessionQueueDestination = GameSessionQueueDestination'
 gameSessionQueueDestination
     :: GameSessionQueueDestination
 gameSessionQueueDestination =
-    GameSessionQueueDestination'
-    { _gsqdDestinationARN = Nothing
-    }
+  GameSessionQueueDestination' {_gsqdDestinationARN = Nothing}
+
 
 -- | Amazon Resource Name (ARN) assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a region name, provide a unique identifier across all regions.
 gsqdDestinationARN :: Lens' GameSessionQueueDestination (Maybe Text)
@@ -1768,9 +1785,9 @@ instance FromJSON GameSessionQueueDestination where
                  GameSessionQueueDestination' <$>
                    (x .:? "DestinationArn"))
 
-instance Hashable GameSessionQueueDestination
+instance Hashable GameSessionQueueDestination where
 
-instance NFData GameSessionQueueDestination
+instance NFData GameSessionQueueDestination where
 
 instance ToJSON GameSessionQueueDestination where
         toJSON GameSessionQueueDestination'{..}
@@ -1784,11 +1801,12 @@ instance ToJSON GameSessionQueueDestination where
 --
 -- /See:/ 'ipPermission' smart constructor.
 data IPPermission = IPPermission'
-    { _ipFromPort :: !Nat
-    , _ipToPort   :: !Nat
-    , _ipIPRange  :: !Text
-    , _ipProtocol :: !IPProtocol
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ipFromPort :: {-# NOUNPACK #-}!Nat
+  , _ipToPort   :: {-# NOUNPACK #-}!Nat
+  , _ipIPRange  :: {-# NOUNPACK #-}!Text
+  , _ipProtocol :: {-# NOUNPACK #-}!IPProtocol
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPPermission' with the minimum fields required to make a request.
 --
@@ -1808,12 +1826,13 @@ ipPermission
     -> IPProtocol -- ^ 'ipProtocol'
     -> IPPermission
 ipPermission pFromPort_ pToPort_ pIPRange_ pProtocol_ =
-    IPPermission'
-    { _ipFromPort = _Nat # pFromPort_
-    , _ipToPort = _Nat # pToPort_
-    , _ipIPRange = pIPRange_
-    , _ipProtocol = pProtocol_
-    }
+  IPPermission'
+  { _ipFromPort = _Nat # pFromPort_
+  , _ipToPort = _Nat # pToPort_
+  , _ipIPRange = pIPRange_
+  , _ipProtocol = pProtocol_
+  }
+
 
 -- | Starting value for a range of allowed port numbers.
 ipFromPort :: Lens' IPPermission Natural
@@ -1840,9 +1859,9 @@ instance FromJSON IPPermission where
                      (x .: "IpRange")
                      <*> (x .: "Protocol"))
 
-instance Hashable IPPermission
+instance Hashable IPPermission where
 
-instance NFData IPPermission
+instance NFData IPPermission where
 
 instance ToJSON IPPermission where
         toJSON IPPermission'{..}
@@ -1859,14 +1878,15 @@ instance ToJSON IPPermission where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-    { _iCreationTime    :: !(Maybe POSIX)
-    , _iInstanceId      :: !(Maybe Text)
-    , _iStatus          :: !(Maybe InstanceStatus)
-    , _iIPAddress       :: !(Maybe Text)
-    , _iOperatingSystem :: !(Maybe OperatingSystem)
-    , _iType            :: !(Maybe EC2InstanceType)
-    , _iFleetId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iCreationTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iInstanceId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iStatus          :: {-# NOUNPACK #-}!(Maybe InstanceStatus)
+  , _iIPAddress       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _iType            :: {-# NOUNPACK #-}!(Maybe EC2InstanceType)
+  , _iFleetId         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
@@ -1888,15 +1908,16 @@ data Instance = Instance'
 instance'
     :: Instance
 instance' =
-    Instance'
-    { _iCreationTime = Nothing
-    , _iInstanceId = Nothing
-    , _iStatus = Nothing
-    , _iIPAddress = Nothing
-    , _iOperatingSystem = Nothing
-    , _iType = Nothing
-    , _iFleetId = Nothing
-    }
+  Instance'
+  { _iCreationTime = Nothing
+  , _iInstanceId = Nothing
+  , _iStatus = Nothing
+  , _iIPAddress = Nothing
+  , _iOperatingSystem = Nothing
+  , _iType = Nothing
+  , _iFleetId = Nothing
+  }
+
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 iCreationTime :: Lens' Instance (Maybe UTCTime)
@@ -1938,9 +1959,9 @@ instance FromJSON Instance where
                      <*> (x .:? "Type")
                      <*> (x .:? "FleetId"))
 
-instance Hashable Instance
+instance Hashable Instance where
 
-instance NFData Instance
+instance NFData Instance where
 
 -- | Information required to remotely connect to a fleet instance. Access is requested by calling 'GetInstanceAccess' .
 --
@@ -1948,12 +1969,13 @@ instance NFData Instance
 --
 -- /See:/ 'instanceAccess' smart constructor.
 data InstanceAccess = InstanceAccess'
-    { _iaInstanceId      :: !(Maybe Text)
-    , _iaIPAddress       :: !(Maybe Text)
-    , _iaOperatingSystem :: !(Maybe OperatingSystem)
-    , _iaCredentials     :: !(Maybe (Sensitive InstanceCredentials))
-    , _iaFleetId         :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _iaInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
+  , _iaCredentials :: {-# NOUNPACK #-}!(Maybe (Sensitive InstanceCredentials))
+  , _iaFleetId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceAccess' with the minimum fields required to make a request.
 --
@@ -1971,13 +1993,14 @@ data InstanceAccess = InstanceAccess'
 instanceAccess
     :: InstanceAccess
 instanceAccess =
-    InstanceAccess'
-    { _iaInstanceId = Nothing
-    , _iaIPAddress = Nothing
-    , _iaOperatingSystem = Nothing
-    , _iaCredentials = Nothing
-    , _iaFleetId = Nothing
-    }
+  InstanceAccess'
+  { _iaInstanceId = Nothing
+  , _iaIPAddress = Nothing
+  , _iaOperatingSystem = Nothing
+  , _iaCredentials = Nothing
+  , _iaFleetId = Nothing
+  }
+
 
 -- | Unique identifier for an instance being accessed.
 iaInstanceId :: Lens' InstanceAccess (Maybe Text)
@@ -2009,9 +2032,9 @@ instance FromJSON InstanceAccess where
                      <*> (x .:? "Credentials")
                      <*> (x .:? "FleetId"))
 
-instance Hashable InstanceAccess
+instance Hashable InstanceAccess where
 
-instance NFData InstanceAccess
+instance NFData InstanceAccess where
 
 -- | Set of credentials required to remotely access a fleet instance. Access credentials are requested by calling 'GetInstanceAccess' and returned in an 'InstanceAccess' object.
 --
@@ -2019,9 +2042,10 @@ instance NFData InstanceAccess
 --
 -- /See:/ 'instanceCredentials' smart constructor.
 data InstanceCredentials = InstanceCredentials'
-    { _icUserName :: !(Maybe Text)
-    , _icSecret   :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _icUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _icSecret   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceCredentials' with the minimum fields required to make a request.
 --
@@ -2033,10 +2057,8 @@ data InstanceCredentials = InstanceCredentials'
 instanceCredentials
     :: InstanceCredentials
 instanceCredentials =
-    InstanceCredentials'
-    { _icUserName = Nothing
-    , _icSecret = Nothing
-    }
+  InstanceCredentials' {_icUserName = Nothing, _icSecret = Nothing}
+
 
 -- | User login string.
 icUserName :: Lens' InstanceCredentials (Maybe Text)
@@ -2053,9 +2075,9 @@ instance FromJSON InstanceCredentials where
                  InstanceCredentials' <$>
                    (x .:? "UserName") <*> (x .:? "Secret"))
 
-instance Hashable InstanceCredentials
+instance Hashable InstanceCredentials where
 
-instance NFData InstanceCredentials
+instance NFData InstanceCredentials where
 
 -- | New player session created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request.
 --
@@ -2065,9 +2087,10 @@ instance NFData InstanceCredentials
 --
 -- /See:/ 'matchedPlayerSession' smart constructor.
 data MatchedPlayerSession = MatchedPlayerSession'
-    { _mpsPlayerSessionId :: !(Maybe Text)
-    , _mpsPlayerId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mpsPlayerSessionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mpsPlayerId        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MatchedPlayerSession' with the minimum fields required to make a request.
 --
@@ -2079,10 +2102,8 @@ data MatchedPlayerSession = MatchedPlayerSession'
 matchedPlayerSession
     :: MatchedPlayerSession
 matchedPlayerSession =
-    MatchedPlayerSession'
-    { _mpsPlayerSessionId = Nothing
-    , _mpsPlayerId = Nothing
-    }
+  MatchedPlayerSession' {_mpsPlayerSessionId = Nothing, _mpsPlayerId = Nothing}
+
 
 -- | Unique identifier for a player session
 mpsPlayerSessionId :: Lens' MatchedPlayerSession (Maybe Text)
@@ -2099,9 +2120,9 @@ instance FromJSON MatchedPlayerSession where
                  MatchedPlayerSession' <$>
                    (x .:? "PlayerSessionId") <*> (x .:? "PlayerId"))
 
-instance Hashable MatchedPlayerSession
+instance Hashable MatchedPlayerSession where
 
-instance NFData MatchedPlayerSession
+instance NFData MatchedPlayerSession where
 
 -- | Guidelines for use with FlexMatch to match players into games. All matchmaking requests must specify a matchmaking configuration.
 --
@@ -2109,20 +2130,21 @@ instance NFData MatchedPlayerSession
 --
 -- /See:/ 'matchmakingConfiguration' smart constructor.
 data MatchmakingConfiguration = MatchmakingConfiguration'
-    { _mcCreationTime             :: !(Maybe POSIX)
-    , _mcGameProperties           :: !(Maybe [GameProperty])
-    , _mcRuleSetName              :: !(Maybe Text)
-    , _mcAcceptanceTimeoutSeconds :: !(Maybe Nat)
-    , _mcRequestTimeoutSeconds    :: !(Maybe Nat)
-    , _mcNotificationTarget       :: !(Maybe Text)
-    , _mcGameSessionQueueARNs     :: !(Maybe [Text])
-    , _mcName                     :: !(Maybe Text)
-    , _mcCustomEventData          :: !(Maybe Text)
-    , _mcAcceptanceRequired       :: !(Maybe Bool)
-    , _mcGameSessionData          :: !(Maybe Text)
-    , _mcDescription              :: !(Maybe Text)
-    , _mcAdditionalPlayerCount    :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcCreationTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mcGameProperties           :: {-# NOUNPACK #-}!(Maybe [GameProperty])
+  , _mcRuleSetName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcAcceptanceTimeoutSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mcRequestTimeoutSeconds    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mcNotificationTarget       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcGameSessionQueueARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mcName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcCustomEventData          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcAcceptanceRequired       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mcGameSessionData          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcDescription              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcAdditionalPlayerCount    :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MatchmakingConfiguration' with the minimum fields required to make a request.
 --
@@ -2156,21 +2178,22 @@ data MatchmakingConfiguration = MatchmakingConfiguration'
 matchmakingConfiguration
     :: MatchmakingConfiguration
 matchmakingConfiguration =
-    MatchmakingConfiguration'
-    { _mcCreationTime = Nothing
-    , _mcGameProperties = Nothing
-    , _mcRuleSetName = Nothing
-    , _mcAcceptanceTimeoutSeconds = Nothing
-    , _mcRequestTimeoutSeconds = Nothing
-    , _mcNotificationTarget = Nothing
-    , _mcGameSessionQueueARNs = Nothing
-    , _mcName = Nothing
-    , _mcCustomEventData = Nothing
-    , _mcAcceptanceRequired = Nothing
-    , _mcGameSessionData = Nothing
-    , _mcDescription = Nothing
-    , _mcAdditionalPlayerCount = Nothing
-    }
+  MatchmakingConfiguration'
+  { _mcCreationTime = Nothing
+  , _mcGameProperties = Nothing
+  , _mcRuleSetName = Nothing
+  , _mcAcceptanceTimeoutSeconds = Nothing
+  , _mcRequestTimeoutSeconds = Nothing
+  , _mcNotificationTarget = Nothing
+  , _mcGameSessionQueueARNs = Nothing
+  , _mcName = Nothing
+  , _mcCustomEventData = Nothing
+  , _mcAcceptanceRequired = Nothing
+  , _mcGameSessionData = Nothing
+  , _mcDescription = Nothing
+  , _mcAdditionalPlayerCount = Nothing
+  }
+
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 mcCreationTime :: Lens' MatchmakingConfiguration (Maybe UTCTime)
@@ -2243,9 +2266,9 @@ instance FromJSON MatchmakingConfiguration where
                      <*> (x .:? "Description")
                      <*> (x .:? "AdditionalPlayerCount"))
 
-instance Hashable MatchmakingConfiguration
+instance Hashable MatchmakingConfiguration where
 
-instance NFData MatchmakingConfiguration
+instance NFData MatchmakingConfiguration where
 
 -- | Set of rule statements, used with FlexMatch, that determine how to build a certain kind of player match. Each rule set describes a type of group to be created and defines the parameters for acceptable player matches. Rule sets are used in 'MatchmakingConfiguration' objects.
 --
@@ -2265,10 +2288,11 @@ instance NFData MatchmakingConfiguration
 --
 -- /See:/ 'matchmakingRuleSet' smart constructor.
 data MatchmakingRuleSet = MatchmakingRuleSet'
-    { _mrsCreationTime :: !(Maybe POSIX)
-    , _mrsRuleSetName  :: !(Maybe Text)
-    , _mrsRuleSetBody  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrsCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mrsRuleSetName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrsRuleSetBody  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MatchmakingRuleSet' with the minimum fields required to make a request.
 --
@@ -2283,11 +2307,12 @@ matchmakingRuleSet
     :: Text -- ^ 'mrsRuleSetBody'
     -> MatchmakingRuleSet
 matchmakingRuleSet pRuleSetBody_ =
-    MatchmakingRuleSet'
-    { _mrsCreationTime = Nothing
-    , _mrsRuleSetName = Nothing
-    , _mrsRuleSetBody = pRuleSetBody_
-    }
+  MatchmakingRuleSet'
+  { _mrsCreationTime = Nothing
+  , _mrsRuleSetName = Nothing
+  , _mrsRuleSetBody = pRuleSetBody_
+  }
+
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 mrsCreationTime :: Lens' MatchmakingRuleSet (Maybe UTCTime)
@@ -2309,9 +2334,9 @@ instance FromJSON MatchmakingRuleSet where
                    (x .:? "CreationTime") <*> (x .:? "RuleSetName") <*>
                      (x .: "RuleSetBody"))
 
-instance Hashable MatchmakingRuleSet
+instance Hashable MatchmakingRuleSet where
 
-instance NFData MatchmakingRuleSet
+instance NFData MatchmakingRuleSet where
 
 -- | Ticket generated to track the progress of a matchmaking request. Each ticket is uniquely identified by a ticket ID, supplied by the requester, when creating a matchmaking request with 'StartMatchmaking' . Tickets can be retrieved by calling 'DescribeMatchmaking' with the ticket ID.
 --
@@ -2319,15 +2344,16 @@ instance NFData MatchmakingRuleSet
 --
 -- /See:/ 'matchmakingTicket' smart constructor.
 data MatchmakingTicket = MatchmakingTicket'
-    { _mtStatus                    :: !(Maybe MatchmakingConfigurationStatus)
-    , _mtConfigurationName         :: !(Maybe Text)
-    , _mtStartTime                 :: !(Maybe POSIX)
-    , _mtGameSessionConnectionInfo :: !(Maybe GameSessionConnectionInfo)
-    , _mtTicketId                  :: !(Maybe Text)
-    , _mtStatusMessage             :: !(Maybe Text)
-    , _mtStatusReason              :: !(Maybe Text)
-    , _mtPlayers                   :: !(Maybe [Player])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtStatus :: {-# NOUNPACK #-}!(Maybe MatchmakingConfigurationStatus)
+  , _mtConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _mtGameSessionConnectionInfo :: {-# NOUNPACK #-}!(Maybe GameSessionConnectionInfo)
+  , _mtTicketId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtStatusMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtPlayers :: {-# NOUNPACK #-}!(Maybe [Player])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MatchmakingTicket' with the minimum fields required to make a request.
 --
@@ -2351,16 +2377,17 @@ data MatchmakingTicket = MatchmakingTicket'
 matchmakingTicket
     :: MatchmakingTicket
 matchmakingTicket =
-    MatchmakingTicket'
-    { _mtStatus = Nothing
-    , _mtConfigurationName = Nothing
-    , _mtStartTime = Nothing
-    , _mtGameSessionConnectionInfo = Nothing
-    , _mtTicketId = Nothing
-    , _mtStatusMessage = Nothing
-    , _mtStatusReason = Nothing
-    , _mtPlayers = Nothing
-    }
+  MatchmakingTicket'
+  { _mtStatus = Nothing
+  , _mtConfigurationName = Nothing
+  , _mtStartTime = Nothing
+  , _mtGameSessionConnectionInfo = Nothing
+  , _mtTicketId = Nothing
+  , _mtStatusMessage = Nothing
+  , _mtStatusReason = Nothing
+  , _mtPlayers = Nothing
+  }
+
 
 -- | Current status of the matchmaking request.     * __QUEUED__ – The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ – The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ – A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ – The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ – Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ – The matchmaking request was not completed. Tickets with players who fail to accept a proposed match are placed in @FAILED@ status; new matchmaking requests can be submitted for these players.     * __CANCELLED__ – The matchmaking request was canceled with a call to 'StopMatchmaking' .     * __TIMED_OUT__ – The matchmaking request was not completed within the duration specified in the matchmaking configuration. Matchmaking requests that time out can be resubmitted.
 mtStatus :: Lens' MatchmakingTicket (Maybe MatchmakingConfigurationStatus)
@@ -2407,9 +2434,9 @@ instance FromJSON MatchmakingTicket where
                      <*> (x .:? "StatusReason")
                      <*> (x .:? "Players" .!= mempty))
 
-instance Hashable MatchmakingTicket
+instance Hashable MatchmakingTicket where
 
-instance NFData MatchmakingTicket
+instance NFData MatchmakingTicket where
 
 -- | Information about a player session that was created as part of a 'StartGameSessionPlacement' request. This object contains only the player ID and player session ID. To retrieve full details on a player session, call 'DescribePlayerSessions' with the player session ID.
 --
@@ -2437,9 +2464,10 @@ instance NFData MatchmakingTicket
 --
 -- /See:/ 'placedPlayerSession' smart constructor.
 data PlacedPlayerSession = PlacedPlayerSession'
-    { _ppsPlayerSessionId :: !(Maybe Text)
-    , _ppsPlayerId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppsPlayerSessionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppsPlayerId        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlacedPlayerSession' with the minimum fields required to make a request.
 --
@@ -2451,10 +2479,8 @@ data PlacedPlayerSession = PlacedPlayerSession'
 placedPlayerSession
     :: PlacedPlayerSession
 placedPlayerSession =
-    PlacedPlayerSession'
-    { _ppsPlayerSessionId = Nothing
-    , _ppsPlayerId = Nothing
-    }
+  PlacedPlayerSession' {_ppsPlayerSessionId = Nothing, _ppsPlayerId = Nothing}
+
 
 -- | Unique identifier for a player session.
 ppsPlayerSessionId :: Lens' PlacedPlayerSession (Maybe Text)
@@ -2471,9 +2497,9 @@ instance FromJSON PlacedPlayerSession where
                  PlacedPlayerSession' <$>
                    (x .:? "PlayerSessionId") <*> (x .:? "PlayerId"))
 
-instance Hashable PlacedPlayerSession
+instance Hashable PlacedPlayerSession where
 
-instance NFData PlacedPlayerSession
+instance NFData PlacedPlayerSession where
 
 -- | Object used in matchmaking to represent a player. When starting a matchmaking request, a player has a player ID and may have latency data. Team information is added after a match has been successfully completed.
 --
@@ -2481,11 +2507,12 @@ instance NFData PlacedPlayerSession
 --
 -- /See:/ 'player' smart constructor.
 data Player = Player'
-    { _pPlayerAttributes :: !(Maybe (Map Text AttributeValue))
-    , _pTeam             :: !(Maybe Text)
-    , _pPlayerId         :: !(Maybe Text)
-    , _pLatencyInMs      :: !(Maybe (Map Text Nat))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pPlayerAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _pTeam             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pPlayerId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pLatencyInMs      :: {-# NOUNPACK #-}!(Maybe (Map Text Nat))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Player' with the minimum fields required to make a request.
 --
@@ -2501,12 +2528,13 @@ data Player = Player'
 player
     :: Player
 player =
-    Player'
-    { _pPlayerAttributes = Nothing
-    , _pTeam = Nothing
-    , _pPlayerId = Nothing
-    , _pLatencyInMs = Nothing
-    }
+  Player'
+  { _pPlayerAttributes = Nothing
+  , _pTeam = Nothing
+  , _pPlayerId = Nothing
+  , _pLatencyInMs = Nothing
+  }
+
 
 -- | Collection of name:value pairs containing player information for use in matchmaking. Player attribute names need to match /playerAttributes/ names in the rule set being used. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
 pPlayerAttributes :: Lens' Player (HashMap Text AttributeValue)
@@ -2534,9 +2562,9 @@ instance FromJSON Player where
                      <*> (x .:? "PlayerId")
                      <*> (x .:? "LatencyInMs" .!= mempty))
 
-instance Hashable Player
+instance Hashable Player where
 
-instance NFData Player
+instance NFData Player where
 
 instance ToJSON Player where
         toJSON Player'{..}
@@ -2553,10 +2581,11 @@ instance ToJSON Player where
 --
 -- /See:/ 'playerLatency' smart constructor.
 data PlayerLatency = PlayerLatency'
-    { _plLatencyInMilliseconds :: !(Maybe Double)
-    , _plRegionIdentifier      :: !(Maybe Text)
-    , _plPlayerId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _plLatencyInMilliseconds :: {-# NOUNPACK #-}!(Maybe Double)
+  , _plRegionIdentifier      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _plPlayerId              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlayerLatency' with the minimum fields required to make a request.
 --
@@ -2570,11 +2599,12 @@ data PlayerLatency = PlayerLatency'
 playerLatency
     :: PlayerLatency
 playerLatency =
-    PlayerLatency'
-    { _plLatencyInMilliseconds = Nothing
-    , _plRegionIdentifier = Nothing
-    , _plPlayerId = Nothing
-    }
+  PlayerLatency'
+  { _plLatencyInMilliseconds = Nothing
+  , _plRegionIdentifier = Nothing
+  , _plPlayerId = Nothing
+  }
+
 
 -- | Amount of time that represents the time lag experienced by the player when connected to the specified region.
 plLatencyInMilliseconds :: Lens' PlayerLatency (Maybe Double)
@@ -2597,9 +2627,9 @@ instance FromJSON PlayerLatency where
                      (x .:? "RegionIdentifier")
                      <*> (x .:? "PlayerId"))
 
-instance Hashable PlayerLatency
+instance Hashable PlayerLatency where
 
-instance NFData PlayerLatency
+instance NFData PlayerLatency where
 
 instance ToJSON PlayerLatency where
         toJSON PlayerLatency'{..}
@@ -2628,9 +2658,10 @@ instance ToJSON PlayerLatency where
 --
 -- /See:/ 'playerLatencyPolicy' smart constructor.
 data PlayerLatencyPolicy = PlayerLatencyPolicy'
-    { _plpPolicyDurationSeconds                      :: !(Maybe Nat)
-    , _plpMaximumIndividualPlayerLatencyMilliseconds :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _plpPolicyDurationSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _plpMaximumIndividualPlayerLatencyMilliseconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlayerLatencyPolicy' with the minimum fields required to make a request.
 --
@@ -2642,10 +2673,11 @@ data PlayerLatencyPolicy = PlayerLatencyPolicy'
 playerLatencyPolicy
     :: PlayerLatencyPolicy
 playerLatencyPolicy =
-    PlayerLatencyPolicy'
-    { _plpPolicyDurationSeconds = Nothing
-    , _plpMaximumIndividualPlayerLatencyMilliseconds = Nothing
-    }
+  PlayerLatencyPolicy'
+  { _plpPolicyDurationSeconds = Nothing
+  , _plpMaximumIndividualPlayerLatencyMilliseconds = Nothing
+  }
+
 
 -- | The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
 plpPolicyDurationSeconds :: Lens' PlayerLatencyPolicy (Maybe Natural)
@@ -2663,9 +2695,9 @@ instance FromJSON PlayerLatencyPolicy where
                    (x .:? "PolicyDurationSeconds") <*>
                      (x .:? "MaximumIndividualPlayerLatencyMilliseconds"))
 
-instance Hashable PlayerLatencyPolicy
+instance Hashable PlayerLatencyPolicy where
 
-instance NFData PlayerLatencyPolicy
+instance NFData PlayerLatencyPolicy where
 
 instance ToJSON PlayerLatencyPolicy where
         toJSON PlayerLatencyPolicy'{..}
@@ -2704,17 +2736,18 @@ instance ToJSON PlayerLatencyPolicy where
 --
 -- /See:/ 'playerSession' smart constructor.
 data PlayerSession = PlayerSession'
-    { _psCreationTime    :: !(Maybe POSIX)
-    , _psStatus          :: !(Maybe PlayerSessionStatus)
-    , _psIPAddress       :: !(Maybe Text)
-    , _psGameSessionId   :: !(Maybe Text)
-    , _psTerminationTime :: !(Maybe POSIX)
-    , _psPlayerSessionId :: !(Maybe Text)
-    , _psFleetId         :: !(Maybe Text)
-    , _psPlayerData      :: !(Maybe Text)
-    , _psPlayerId        :: !(Maybe Text)
-    , _psPort            :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psCreationTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _psStatus          :: {-# NOUNPACK #-}!(Maybe PlayerSessionStatus)
+  , _psIPAddress       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psGameSessionId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psTerminationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _psPlayerSessionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psFleetId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psPlayerData      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psPlayerId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psPort            :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PlayerSession' with the minimum fields required to make a request.
 --
@@ -2742,18 +2775,19 @@ data PlayerSession = PlayerSession'
 playerSession
     :: PlayerSession
 playerSession =
-    PlayerSession'
-    { _psCreationTime = Nothing
-    , _psStatus = Nothing
-    , _psIPAddress = Nothing
-    , _psGameSessionId = Nothing
-    , _psTerminationTime = Nothing
-    , _psPlayerSessionId = Nothing
-    , _psFleetId = Nothing
-    , _psPlayerData = Nothing
-    , _psPlayerId = Nothing
-    , _psPort = Nothing
-    }
+  PlayerSession'
+  { _psCreationTime = Nothing
+  , _psStatus = Nothing
+  , _psIPAddress = Nothing
+  , _psGameSessionId = Nothing
+  , _psTerminationTime = Nothing
+  , _psPlayerSessionId = Nothing
+  , _psFleetId = Nothing
+  , _psPlayerData = Nothing
+  , _psPlayerId = Nothing
+  , _psPort = Nothing
+  }
+
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 psCreationTime :: Lens' PlayerSession (Maybe UTCTime)
@@ -2810,9 +2844,9 @@ instance FromJSON PlayerSession where
                      <*> (x .:? "PlayerId")
                      <*> (x .:? "Port"))
 
-instance Hashable PlayerSession
+instance Hashable PlayerSession where
 
-instance NFData PlayerSession
+instance NFData PlayerSession where
 
 -- | Policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
 --
@@ -2822,9 +2856,10 @@ instance NFData PlayerSession
 --
 -- /See:/ 'resourceCreationLimitPolicy' smart constructor.
 data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
-    { _rclpNewGameSessionsPerCreator :: !(Maybe Nat)
-    , _rclpPolicyPeriodInMinutes     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rclpNewGameSessionsPerCreator :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _rclpPolicyPeriodInMinutes     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourceCreationLimitPolicy' with the minimum fields required to make a request.
 --
@@ -2836,10 +2871,11 @@ data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
 resourceCreationLimitPolicy
     :: ResourceCreationLimitPolicy
 resourceCreationLimitPolicy =
-    ResourceCreationLimitPolicy'
-    { _rclpNewGameSessionsPerCreator = Nothing
-    , _rclpPolicyPeriodInMinutes = Nothing
-    }
+  ResourceCreationLimitPolicy'
+  { _rclpNewGameSessionsPerCreator = Nothing
+  , _rclpPolicyPeriodInMinutes = Nothing
+  }
+
 
 -- | Maximum number of game sessions that an individual can create during the policy period.
 rclpNewGameSessionsPerCreator :: Lens' ResourceCreationLimitPolicy (Maybe Natural)
@@ -2857,9 +2893,9 @@ instance FromJSON ResourceCreationLimitPolicy where
                    (x .:? "NewGameSessionsPerCreator") <*>
                      (x .:? "PolicyPeriodInMinutes"))
 
-instance Hashable ResourceCreationLimitPolicy
+instance Hashable ResourceCreationLimitPolicy where
 
-instance NFData ResourceCreationLimitPolicy
+instance NFData ResourceCreationLimitPolicy where
 
 instance ToJSON ResourceCreationLimitPolicy where
         toJSON ResourceCreationLimitPolicy'{..}
@@ -2928,10 +2964,11 @@ instance ToJSON ResourceCreationLimitPolicy where
 --
 -- /See:/ 'routingStrategy' smart constructor.
 data RoutingStrategy = RoutingStrategy'
-    { _rsType    :: !(Maybe RoutingStrategyType)
-    , _rsMessage :: !(Maybe Text)
-    , _rsFleetId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsType    :: {-# NOUNPACK #-}!(Maybe RoutingStrategyType)
+  , _rsMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rsFleetId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RoutingStrategy' with the minimum fields required to make a request.
 --
@@ -2945,11 +2982,9 @@ data RoutingStrategy = RoutingStrategy'
 routingStrategy
     :: RoutingStrategy
 routingStrategy =
-    RoutingStrategy'
-    { _rsType = Nothing
-    , _rsMessage = Nothing
-    , _rsFleetId = Nothing
-    }
+  RoutingStrategy'
+  {_rsType = Nothing, _rsMessage = Nothing, _rsFleetId = Nothing}
+
 
 -- | Type of routing strategy. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 rsType :: Lens' RoutingStrategy (Maybe RoutingStrategyType)
@@ -2971,9 +3006,9 @@ instance FromJSON RoutingStrategy where
                    (x .:? "Type") <*> (x .:? "Message") <*>
                      (x .:? "FleetId"))
 
-instance Hashable RoutingStrategy
+instance Hashable RoutingStrategy where
 
-instance NFData RoutingStrategy
+instance NFData RoutingStrategy where
 
 instance ToJSON RoutingStrategy where
         toJSON RoutingStrategy'{..}
@@ -3045,10 +3080,11 @@ instance ToJSON RoutingStrategy where
 --
 -- /See:/ 'runtimeConfiguration' smart constructor.
 data RuntimeConfiguration = RuntimeConfiguration'
-    { _rcGameSessionActivationTimeoutSeconds :: !(Maybe Nat)
-    , _rcServerProcesses                     :: !(Maybe (List1 ServerProcess))
-    , _rcMaxConcurrentGameSessionActivations :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcGameSessionActivationTimeoutSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _rcServerProcesses :: {-# NOUNPACK #-}!(Maybe (List1 ServerProcess))
+  , _rcMaxConcurrentGameSessionActivations :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RuntimeConfiguration' with the minimum fields required to make a request.
 --
@@ -3062,11 +3098,12 @@ data RuntimeConfiguration = RuntimeConfiguration'
 runtimeConfiguration
     :: RuntimeConfiguration
 runtimeConfiguration =
-    RuntimeConfiguration'
-    { _rcGameSessionActivationTimeoutSeconds = Nothing
-    , _rcServerProcesses = Nothing
-    , _rcMaxConcurrentGameSessionActivations = Nothing
-    }
+  RuntimeConfiguration'
+  { _rcGameSessionActivationTimeoutSeconds = Nothing
+  , _rcServerProcesses = Nothing
+  , _rcMaxConcurrentGameSessionActivations = Nothing
+  }
+
 
 -- | Maximum amount of time (in seconds) that a game session can remain in status @ACTIVATING@ . If the game session is not active before the timeout, activation is terminated and the game session status is changed to @TERMINATED@ .
 rcGameSessionActivationTimeoutSeconds :: Lens' RuntimeConfiguration (Maybe Natural)
@@ -3089,9 +3126,9 @@ instance FromJSON RuntimeConfiguration where
                      (x .:? "ServerProcesses")
                      <*> (x .:? "MaxConcurrentGameSessionActivations"))
 
-instance Hashable RuntimeConfiguration
+instance Hashable RuntimeConfiguration where
 
-instance NFData RuntimeConfiguration
+instance NFData RuntimeConfiguration where
 
 instance ToJSON RuntimeConfiguration where
         toJSON RuntimeConfiguration'{..}
@@ -3109,10 +3146,11 @@ instance ToJSON RuntimeConfiguration where
 --
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
-    { _slBucket  :: !(Maybe Text)
-    , _slKey     :: !(Maybe Text)
-    , _slRoleARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slBucket  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _slKey     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _slRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
@@ -3126,11 +3164,8 @@ data S3Location = S3Location'
 s3Location
     :: S3Location
 s3Location =
-    S3Location'
-    { _slBucket = Nothing
-    , _slKey = Nothing
-    , _slRoleARN = Nothing
-    }
+  S3Location' {_slBucket = Nothing, _slKey = Nothing, _slRoleARN = Nothing}
+
 
 -- | Amazon S3 bucket identifier. This is the name of your S3 bucket.
 slBucket :: Lens' S3Location (Maybe Text)
@@ -3152,9 +3187,9 @@ instance FromJSON S3Location where
                    (x .:? "Bucket") <*> (x .:? "Key") <*>
                      (x .:? "RoleArn"))
 
-instance Hashable S3Location
+instance Hashable S3Location where
 
-instance NFData S3Location
+instance NFData S3Location where
 
 instance ToJSON S3Location where
         toJSON S3Location'{..}
@@ -3221,16 +3256,17 @@ instance ToJSON S3Location where
 --
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-    { _spStatus                :: !(Maybe ScalingStatusType)
-    , _spScalingAdjustmentType :: !(Maybe ScalingAdjustmentType)
-    , _spEvaluationPeriods     :: !(Maybe Nat)
-    , _spMetricName            :: !(Maybe MetricName)
-    , _spComparisonOperator    :: !(Maybe ComparisonOperatorType)
-    , _spName                  :: !(Maybe Text)
-    , _spThreshold             :: !(Maybe Double)
-    , _spScalingAdjustment     :: !(Maybe Int)
-    , _spFleetId               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spStatus                :: {-# NOUNPACK #-}!(Maybe ScalingStatusType)
+  , _spScalingAdjustmentType :: {-# NOUNPACK #-}!(Maybe ScalingAdjustmentType)
+  , _spEvaluationPeriods     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _spMetricName            :: {-# NOUNPACK #-}!(Maybe MetricName)
+  , _spComparisonOperator    :: {-# NOUNPACK #-}!(Maybe ComparisonOperatorType)
+  , _spName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _spThreshold             :: {-# NOUNPACK #-}!(Maybe Double)
+  , _spScalingAdjustment     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _spFleetId               :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
 --
@@ -3256,17 +3292,18 @@ data ScalingPolicy = ScalingPolicy'
 scalingPolicy
     :: ScalingPolicy
 scalingPolicy =
-    ScalingPolicy'
-    { _spStatus = Nothing
-    , _spScalingAdjustmentType = Nothing
-    , _spEvaluationPeriods = Nothing
-    , _spMetricName = Nothing
-    , _spComparisonOperator = Nothing
-    , _spName = Nothing
-    , _spThreshold = Nothing
-    , _spScalingAdjustment = Nothing
-    , _spFleetId = Nothing
-    }
+  ScalingPolicy'
+  { _spStatus = Nothing
+  , _spScalingAdjustmentType = Nothing
+  , _spEvaluationPeriods = Nothing
+  , _spMetricName = Nothing
+  , _spComparisonOperator = Nothing
+  , _spName = Nothing
+  , _spThreshold = Nothing
+  , _spScalingAdjustment = Nothing
+  , _spFleetId = Nothing
+  }
+
 
 -- | Current status of the scaling policy. The scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.     * __UPDATE_REQUESTED__ – A request to update the scaling policy has been received.     * __UPDATING__ – A change is being made to the scaling policy.     * __DELETE_REQUESTED__ – A request to delete the scaling policy has been received.     * __DELETING__ – The scaling policy is being deleted.     * __DELETED__ – The scaling policy has been deleted.     * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
 spStatus :: Lens' ScalingPolicy (Maybe ScalingStatusType)
@@ -3318,9 +3355,9 @@ instance FromJSON ScalingPolicy where
                      <*> (x .:? "ScalingAdjustment")
                      <*> (x .:? "FleetId"))
 
-instance Hashable ScalingPolicy
+instance Hashable ScalingPolicy where
 
-instance NFData ScalingPolicy
+instance NFData ScalingPolicy where
 
 -- | A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's @'RuntimeConfiguration' @ .
 --
@@ -3328,10 +3365,11 @@ instance NFData ScalingPolicy
 --
 -- /See:/ 'serverProcess' smart constructor.
 data ServerProcess = ServerProcess'
-    { _spParameters           :: !(Maybe Text)
-    , _spLaunchPath           :: !Text
-    , _spConcurrentExecutions :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spParameters           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _spLaunchPath           :: {-# NOUNPACK #-}!Text
+  , _spConcurrentExecutions :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ServerProcess' with the minimum fields required to make a request.
 --
@@ -3347,11 +3385,12 @@ serverProcess
     -> Natural -- ^ 'spConcurrentExecutions'
     -> ServerProcess
 serverProcess pLaunchPath_ pConcurrentExecutions_ =
-    ServerProcess'
-    { _spParameters = Nothing
-    , _spLaunchPath = pLaunchPath_
-    , _spConcurrentExecutions = _Nat # pConcurrentExecutions_
-    }
+  ServerProcess'
+  { _spParameters = Nothing
+  , _spLaunchPath = pLaunchPath_
+  , _spConcurrentExecutions = _Nat # pConcurrentExecutions_
+  }
+
 
 -- | Optional list of parameters to pass to the server executable on launch.
 spParameters :: Lens' ServerProcess (Maybe Text)
@@ -3373,9 +3412,9 @@ instance FromJSON ServerProcess where
                    (x .:? "Parameters") <*> (x .: "LaunchPath") <*>
                      (x .: "ConcurrentExecutions"))
 
-instance Hashable ServerProcess
+instance Hashable ServerProcess where
 
-instance NFData ServerProcess
+instance NFData ServerProcess where
 
 instance ToJSON ServerProcess where
         toJSON ServerProcess'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.GetJobManifest
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,17 +43,18 @@ module Network.AWS.Snowball.GetJobManifest
     , gjmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'getJobManifest' smart constructor.
 newtype GetJobManifest = GetJobManifest'
-    { _gjmJobId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjmJobId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobManifest' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ newtype GetJobManifest = GetJobManifest'
 getJobManifest
     :: Text -- ^ 'gjmJobId'
     -> GetJobManifest
-getJobManifest pJobId_ =
-    GetJobManifest'
-    { _gjmJobId = pJobId_
-    }
+getJobManifest pJobId_ = GetJobManifest' {_gjmJobId = pJobId_}
+
 
 -- | The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 gjmJobId :: Lens' GetJobManifest Text
@@ -81,9 +80,9 @@ instance AWSRequest GetJobManifest where
                  GetJobManifestResponse' <$>
                    (x .?> "ManifestURI") <*> (pure (fromEnum s)))
 
-instance Hashable GetJobManifest
+instance Hashable GetJobManifest where
 
-instance NFData GetJobManifest
+instance NFData GetJobManifest where
 
 instance ToHeaders GetJobManifest where
         toHeaders
@@ -107,9 +106,10 @@ instance ToQuery GetJobManifest where
 
 -- | /See:/ 'getJobManifestResponse' smart constructor.
 data GetJobManifestResponse = GetJobManifestResponse'
-    { _gjmrsManifestURI    :: !(Maybe Text)
-    , _gjmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gjmrsManifestURI    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gjmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetJobManifestResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +122,9 @@ getJobManifestResponse
     :: Int -- ^ 'gjmrsResponseStatus'
     -> GetJobManifestResponse
 getJobManifestResponse pResponseStatus_ =
-    GetJobManifestResponse'
-    { _gjmrsManifestURI = Nothing
-    , _gjmrsResponseStatus = pResponseStatus_
-    }
+  GetJobManifestResponse'
+  {_gjmrsManifestURI = Nothing, _gjmrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
 gjmrsManifestURI :: Lens' GetJobManifestResponse (Maybe Text)
@@ -135,4 +134,4 @@ gjmrsManifestURI = lens _gjmrsManifestURI (\ s a -> s{_gjmrsManifestURI = a});
 gjmrsResponseStatus :: Lens' GetJobManifestResponse Int
 gjmrsResponseStatus = lens _gjmrsResponseStatus (\ s a -> s{_gjmrsResponseStatus = a});
 
-instance NFData GetJobManifestResponse
+instance NFData GetJobManifestResponse where

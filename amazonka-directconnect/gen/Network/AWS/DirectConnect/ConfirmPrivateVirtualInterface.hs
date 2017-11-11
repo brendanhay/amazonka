@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     , cpvirsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmPrivateVirtualInterface operation.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'confirmPrivateVirtualInterface' smart constructor.
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
-    { _cpviVirtualInterfaceId :: !Text
-    , _cpviVirtualGatewayId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpviVirtualInterfaceId :: {-# NOUNPACK #-}!Text
+  , _cpviVirtualGatewayId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmPrivateVirtualInterface' with the minimum fields required to make a request.
 --
@@ -69,10 +70,11 @@ confirmPrivateVirtualInterface
     -> Text -- ^ 'cpviVirtualGatewayId'
     -> ConfirmPrivateVirtualInterface
 confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
-    ConfirmPrivateVirtualInterface'
-    { _cpviVirtualInterfaceId = pVirtualInterfaceId_
-    , _cpviVirtualGatewayId = pVirtualGatewayId_
-    }
+  ConfirmPrivateVirtualInterface'
+  { _cpviVirtualInterfaceId = pVirtualInterfaceId_
+  , _cpviVirtualGatewayId = pVirtualGatewayId_
+  }
+
 
 -- | Undocumented member.
 cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
@@ -95,8 +97,9 @@ instance AWSRequest ConfirmPrivateVirtualInterface
                      (pure (fromEnum s)))
 
 instance Hashable ConfirmPrivateVirtualInterface
+         where
 
-instance NFData ConfirmPrivateVirtualInterface
+instance NFData ConfirmPrivateVirtualInterface where
 
 instance ToHeaders ConfirmPrivateVirtualInterface
          where
@@ -129,9 +132,10 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 --
 -- /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
-    { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _cpvirsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpvirsVirtualInterfaceState :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
+  , _cpvirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmPrivateVirtualInterfaceResponse' with the minimum fields required to make a request.
 --
@@ -144,10 +148,11 @@ confirmPrivateVirtualInterfaceResponse
     :: Int -- ^ 'cpvirsResponseStatus'
     -> ConfirmPrivateVirtualInterfaceResponse
 confirmPrivateVirtualInterfaceResponse pResponseStatus_ =
-    ConfirmPrivateVirtualInterfaceResponse'
-    { _cpvirsVirtualInterfaceState = Nothing
-    , _cpvirsResponseStatus = pResponseStatus_
-    }
+  ConfirmPrivateVirtualInterfaceResponse'
+  { _cpvirsVirtualInterfaceState = Nothing
+  , _cpvirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
@@ -158,4 +163,5 @@ cpvirsResponseStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
 cpvirsResponseStatus = lens _cpvirsResponseStatus (\ s a -> s{_cpvirsResponseStatus = a});
 
 instance NFData
-         ConfirmPrivateVirtualInterfaceResponse
+           ConfirmPrivateVirtualInterfaceResponse
+         where

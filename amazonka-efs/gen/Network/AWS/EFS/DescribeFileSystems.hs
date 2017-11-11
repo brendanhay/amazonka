@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeFileSystems
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,13 +54,13 @@ module Network.AWS.EFS.DescribeFileSystems
     , dfsrsResponseStatus
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -68,11 +68,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeFileSystems' smart constructor.
 data DescribeFileSystems = DescribeFileSystems'
-    { _dfsFileSystemId  :: !(Maybe Text)
-    , _dfsCreationToken :: !(Maybe Text)
-    , _dfsMarker        :: !(Maybe Text)
-    , _dfsMaxItems      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfsFileSystemId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfsCreationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfsMarker        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfsMaxItems      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFileSystems' with the minimum fields required to make a request.
 --
@@ -88,12 +89,13 @@ data DescribeFileSystems = DescribeFileSystems'
 describeFileSystems
     :: DescribeFileSystems
 describeFileSystems =
-    DescribeFileSystems'
-    { _dfsFileSystemId = Nothing
-    , _dfsCreationToken = Nothing
-    , _dfsMarker = Nothing
-    , _dfsMaxItems = Nothing
-    }
+  DescribeFileSystems'
+  { _dfsFileSystemId = Nothing
+  , _dfsCreationToken = Nothing
+  , _dfsMarker = Nothing
+  , _dfsMaxItems = Nothing
+  }
+
 
 -- | (Optional) ID of the file system whose description you want to retrieve (String).
 dfsFileSystemId :: Lens' DescribeFileSystems (Maybe Text)
@@ -130,9 +132,9 @@ instance AWSRequest DescribeFileSystems where
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeFileSystems
+instance Hashable DescribeFileSystems where
 
-instance NFData DescribeFileSystems
+instance NFData DescribeFileSystems where
 
 instance ToHeaders DescribeFileSystems where
         toHeaders = const mempty
@@ -149,11 +151,12 @@ instance ToQuery DescribeFileSystems where
 
 -- | /See:/ 'describeFileSystemsResponse' smart constructor.
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
-    { _dfsrsFileSystems    :: !(Maybe [FileSystemDescription])
-    , _dfsrsMarker         :: !(Maybe Text)
-    , _dfsrsNextMarker     :: !(Maybe Text)
-    , _dfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfsrsFileSystems    :: {-# NOUNPACK #-}!(Maybe [FileSystemDescription])
+  , _dfsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFileSystemsResponse' with the minimum fields required to make a request.
 --
@@ -170,12 +173,13 @@ describeFileSystemsResponse
     :: Int -- ^ 'dfsrsResponseStatus'
     -> DescribeFileSystemsResponse
 describeFileSystemsResponse pResponseStatus_ =
-    DescribeFileSystemsResponse'
-    { _dfsrsFileSystems = Nothing
-    , _dfsrsMarker = Nothing
-    , _dfsrsNextMarker = Nothing
-    , _dfsrsResponseStatus = pResponseStatus_
-    }
+  DescribeFileSystemsResponse'
+  { _dfsrsFileSystems = Nothing
+  , _dfsrsMarker = Nothing
+  , _dfsrsNextMarker = Nothing
+  , _dfsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Array of file system descriptions.
 dfsrsFileSystems :: Lens' DescribeFileSystemsResponse [FileSystemDescription]
@@ -193,4 +197,4 @@ dfsrsNextMarker = lens _dfsrsNextMarker (\ s a -> s{_dfsrsNextMarker = a});
 dfsrsResponseStatus :: Lens' DescribeFileSystemsResponse Int
 dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a});
 
-instance NFData DescribeFileSystemsResponse
+instance NFData DescribeFileSystemsResponse where

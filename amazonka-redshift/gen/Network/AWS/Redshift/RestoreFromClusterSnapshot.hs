@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RestoreFromClusterSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -62,12 +62,12 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , rfcsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -75,29 +75,30 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreFromClusterSnapshot' smart constructor.
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
-    { _rfcsEnhancedVPCRouting               :: !(Maybe Bool)
-    , _rfcsAdditionalInfo                   :: !(Maybe Text)
-    , _rfcsPubliclyAccessible               :: !(Maybe Bool)
-    , _rfcsSnapshotClusterIdentifier        :: !(Maybe Text)
-    , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
-    , _rfcsClusterSecurityGroups            :: !(Maybe [Text])
-    , _rfcsAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _rfcsClusterSubnetGroupName           :: !(Maybe Text)
-    , _rfcsHSMClientCertificateIdentifier   :: !(Maybe Text)
-    , _rfcsElasticIP                        :: !(Maybe Text)
-    , _rfcsPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _rfcsKMSKeyId                         :: !(Maybe Text)
-    , _rfcsAvailabilityZone                 :: !(Maybe Text)
-    , _rfcsVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _rfcsIAMRoles                         :: !(Maybe [Text])
-    , _rfcsOwnerAccount                     :: !(Maybe Text)
-    , _rfcsNodeType                         :: !(Maybe Text)
-    , _rfcsAllowVersionUpgrade              :: !(Maybe Bool)
-    , _rfcsClusterParameterGroupName        :: !(Maybe Text)
-    , _rfcsPort                             :: !(Maybe Int)
-    , _rfcsClusterIdentifier                :: !Text
-    , _rfcsSnapshotIdentifier               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rfcsEnhancedVPCRouting               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rfcsAdditionalInfo                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rfcsSnapshotClusterIdentifier        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsHSMConfigurationIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsClusterSecurityGroups            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rfcsAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rfcsClusterSubnetGroupName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsHSMClientCertificateIdentifier   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsElasticIP                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsPreferredMaintenanceWindow       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsAvailabilityZone                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsVPCSecurityGroupIds              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rfcsIAMRoles                         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rfcsOwnerAccount                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsNodeType                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsAllowVersionUpgrade              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rfcsClusterParameterGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rfcsPort                             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rfcsClusterIdentifier                :: {-# NOUNPACK #-}!Text
+  , _rfcsSnapshotIdentifier               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreFromClusterSnapshot' with the minimum fields required to make a request.
 --
@@ -151,30 +152,31 @@ restoreFromClusterSnapshot
     -> Text -- ^ 'rfcsSnapshotIdentifier'
     -> RestoreFromClusterSnapshot
 restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
-    RestoreFromClusterSnapshot'
-    { _rfcsEnhancedVPCRouting = Nothing
-    , _rfcsAdditionalInfo = Nothing
-    , _rfcsPubliclyAccessible = Nothing
-    , _rfcsSnapshotClusterIdentifier = Nothing
-    , _rfcsHSMConfigurationIdentifier = Nothing
-    , _rfcsClusterSecurityGroups = Nothing
-    , _rfcsAutomatedSnapshotRetentionPeriod = Nothing
-    , _rfcsClusterSubnetGroupName = Nothing
-    , _rfcsHSMClientCertificateIdentifier = Nothing
-    , _rfcsElasticIP = Nothing
-    , _rfcsPreferredMaintenanceWindow = Nothing
-    , _rfcsKMSKeyId = Nothing
-    , _rfcsAvailabilityZone = Nothing
-    , _rfcsVPCSecurityGroupIds = Nothing
-    , _rfcsIAMRoles = Nothing
-    , _rfcsOwnerAccount = Nothing
-    , _rfcsNodeType = Nothing
-    , _rfcsAllowVersionUpgrade = Nothing
-    , _rfcsClusterParameterGroupName = Nothing
-    , _rfcsPort = Nothing
-    , _rfcsClusterIdentifier = pClusterIdentifier_
-    , _rfcsSnapshotIdentifier = pSnapshotIdentifier_
-    }
+  RestoreFromClusterSnapshot'
+  { _rfcsEnhancedVPCRouting = Nothing
+  , _rfcsAdditionalInfo = Nothing
+  , _rfcsPubliclyAccessible = Nothing
+  , _rfcsSnapshotClusterIdentifier = Nothing
+  , _rfcsHSMConfigurationIdentifier = Nothing
+  , _rfcsClusterSecurityGroups = Nothing
+  , _rfcsAutomatedSnapshotRetentionPeriod = Nothing
+  , _rfcsClusterSubnetGroupName = Nothing
+  , _rfcsHSMClientCertificateIdentifier = Nothing
+  , _rfcsElasticIP = Nothing
+  , _rfcsPreferredMaintenanceWindow = Nothing
+  , _rfcsKMSKeyId = Nothing
+  , _rfcsAvailabilityZone = Nothing
+  , _rfcsVPCSecurityGroupIds = Nothing
+  , _rfcsIAMRoles = Nothing
+  , _rfcsOwnerAccount = Nothing
+  , _rfcsNodeType = Nothing
+  , _rfcsAllowVersionUpgrade = Nothing
+  , _rfcsClusterParameterGroupName = Nothing
+  , _rfcsPort = Nothing
+  , _rfcsClusterIdentifier = pClusterIdentifier_
+  , _rfcsSnapshotIdentifier = pSnapshotIdentifier_
+  }
+
 
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 rfcsEnhancedVPCRouting :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
@@ -275,9 +277,9 @@ instance AWSRequest RestoreFromClusterSnapshot where
                  RestoreFromClusterSnapshotResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable RestoreFromClusterSnapshot
+instance Hashable RestoreFromClusterSnapshot where
 
-instance NFData RestoreFromClusterSnapshot
+instance NFData RestoreFromClusterSnapshot where
 
 instance ToHeaders RestoreFromClusterSnapshot where
         toHeaders = const mempty
@@ -330,9 +332,10 @@ instance ToQuery RestoreFromClusterSnapshot where
 
 -- | /See:/ 'restoreFromClusterSnapshotResponse' smart constructor.
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
-    { _rfcsrsCluster        :: !(Maybe Cluster)
-    , _rfcsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rfcsrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _rfcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreFromClusterSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -345,10 +348,9 @@ restoreFromClusterSnapshotResponse
     :: Int -- ^ 'rfcsrsResponseStatus'
     -> RestoreFromClusterSnapshotResponse
 restoreFromClusterSnapshotResponse pResponseStatus_ =
-    RestoreFromClusterSnapshotResponse'
-    { _rfcsrsCluster = Nothing
-    , _rfcsrsResponseStatus = pResponseStatus_
-    }
+  RestoreFromClusterSnapshotResponse'
+  {_rfcsrsCluster = Nothing, _rfcsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rfcsrsCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
@@ -359,3 +361,4 @@ rfcsrsResponseStatus :: Lens' RestoreFromClusterSnapshotResponse Int
 rfcsrsResponseStatus = lens _rfcsrsResponseStatus (\ s a -> s{_rfcsrsResponseStatus = a});
 
 instance NFData RestoreFromClusterSnapshotResponse
+         where

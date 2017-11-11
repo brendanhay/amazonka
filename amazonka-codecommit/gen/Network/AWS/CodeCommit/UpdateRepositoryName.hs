@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.UpdateRepositoryName
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.CodeCommit.UpdateRepositoryName
     , UpdateRepositoryNameResponse
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an update repository description operation.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateRepositoryName' smart constructor.
 data UpdateRepositoryName = UpdateRepositoryName'
-    { _urnOldName :: !Text
-    , _urnNewName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urnOldName :: {-# NOUNPACK #-}!Text
+  , _urnNewName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRepositoryName' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ updateRepositoryName
     -> Text -- ^ 'urnNewName'
     -> UpdateRepositoryName
 updateRepositoryName pOldName_ pNewName_ =
-    UpdateRepositoryName'
-    { _urnOldName = pOldName_
-    , _urnNewName = pNewName_
-    }
+  UpdateRepositoryName' {_urnOldName = pOldName_, _urnNewName = pNewName_}
+
 
 -- | The existing name of the repository.
 urnOldName :: Lens' UpdateRepositoryName Text
@@ -83,9 +82,9 @@ instance AWSRequest UpdateRepositoryName where
         request = postJSON codeCommit
         response = receiveNull UpdateRepositoryNameResponse'
 
-instance Hashable UpdateRepositoryName
+instance Hashable UpdateRepositoryName where
 
-instance NFData UpdateRepositoryName
+instance NFData UpdateRepositoryName where
 
 instance ToHeaders UpdateRepositoryName where
         toHeaders
@@ -112,8 +111,9 @@ instance ToQuery UpdateRepositoryName where
 
 -- | /See:/ 'updateRepositoryNameResponse' smart constructor.
 data UpdateRepositoryNameResponse =
-    UpdateRepositoryNameResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateRepositoryNameResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRepositoryNameResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +121,5 @@ updateRepositoryNameResponse
     :: UpdateRepositoryNameResponse
 updateRepositoryNameResponse = UpdateRepositoryNameResponse'
 
-instance NFData UpdateRepositoryNameResponse
+
+instance NFData UpdateRepositoryNameResponse where

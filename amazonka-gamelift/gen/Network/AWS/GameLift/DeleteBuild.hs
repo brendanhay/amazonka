@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteBuild
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.GameLift.DeleteBuild
     , DeleteBuildResponse
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -63,8 +63,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteBuild' smart constructor.
 newtype DeleteBuild = DeleteBuild'
-    { _dbBuildId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbBuildId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBuild' with the minimum fields required to make a request.
 --
@@ -74,10 +75,8 @@ newtype DeleteBuild = DeleteBuild'
 deleteBuild
     :: Text -- ^ 'dbBuildId'
     -> DeleteBuild
-deleteBuild pBuildId_ =
-    DeleteBuild'
-    { _dbBuildId = pBuildId_
-    }
+deleteBuild pBuildId_ = DeleteBuild' {_dbBuildId = pBuildId_}
+
 
 -- | Unique identifier for a build to delete.
 dbBuildId :: Lens' DeleteBuild Text
@@ -88,9 +87,9 @@ instance AWSRequest DeleteBuild where
         request = postJSON gameLift
         response = receiveNull DeleteBuildResponse'
 
-instance Hashable DeleteBuild
+instance Hashable DeleteBuild where
 
-instance NFData DeleteBuild
+instance NFData DeleteBuild where
 
 instance ToHeaders DeleteBuild where
         toHeaders
@@ -113,8 +112,9 @@ instance ToQuery DeleteBuild where
 
 -- | /See:/ 'deleteBuildResponse' smart constructor.
 data DeleteBuildResponse =
-    DeleteBuildResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBuildResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBuildResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +122,5 @@ deleteBuildResponse
     :: DeleteBuildResponse
 deleteBuildResponse = DeleteBuildResponse'
 
-instance NFData DeleteBuildResponse
+
+instance NFData DeleteBuildResponse where

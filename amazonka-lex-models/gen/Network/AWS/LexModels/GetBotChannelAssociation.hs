@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBotChannelAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,19 +47,20 @@ module Network.AWS.LexModels.GetBotChannelAssociation
     , gbcarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBotChannelAssociation' smart constructor.
 data GetBotChannelAssociation = GetBotChannelAssociation'
-    { _gName     :: !Text
-    , _gBotName  :: !Text
-    , _gBotAlias :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gName     :: {-# NOUNPACK #-}!Text
+  , _gBotName  :: {-# NOUNPACK #-}!Text
+  , _gBotAlias :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotChannelAssociation' with the minimum fields required to make a request.
 --
@@ -76,11 +77,9 @@ getBotChannelAssociation
     -> Text -- ^ 'gBotAlias'
     -> GetBotChannelAssociation
 getBotChannelAssociation pName_ pBotName_ pBotAlias_ =
-    GetBotChannelAssociation'
-    { _gName = pName_
-    , _gBotName = pBotName_
-    , _gBotAlias = pBotAlias_
-    }
+  GetBotChannelAssociation'
+  {_gName = pName_, _gBotName = pBotName_, _gBotAlias = pBotAlias_}
+
 
 -- | The name of the association between the bot and the channel. The name is case sensitive.
 gName :: Lens' GetBotChannelAssociation Text
@@ -110,9 +109,9 @@ instance AWSRequest GetBotChannelAssociation where
                      <*> (x .?> "description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBotChannelAssociation
+instance Hashable GetBotChannelAssociation where
 
-instance NFData GetBotChannelAssociation
+instance NFData GetBotChannelAssociation where
 
 instance ToHeaders GetBotChannelAssociation where
         toHeaders
@@ -132,15 +131,16 @@ instance ToQuery GetBotChannelAssociation where
 
 -- | /See:/ 'getBotChannelAssociationResponse' smart constructor.
 data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
-    { _gbcarsBotAlias         :: !(Maybe Text)
-    , _gbcarsBotName          :: !(Maybe Text)
-    , _gbcarsBotConfiguration :: !(Maybe (Map Text Text))
-    , _gbcarsCreatedDate      :: !(Maybe POSIX)
-    , _gbcarsName             :: !(Maybe Text)
-    , _gbcarsType             :: !(Maybe ChannelType)
-    , _gbcarsDescription      :: !(Maybe Text)
-    , _gbcarsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbcarsBotAlias         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcarsBotName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcarsBotConfiguration :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gbcarsCreatedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gbcarsName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcarsType             :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  , _gbcarsDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcarsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotChannelAssociationResponse' with the minimum fields required to make a request.
 --
@@ -165,16 +165,17 @@ getBotChannelAssociationResponse
     :: Int -- ^ 'gbcarsResponseStatus'
     -> GetBotChannelAssociationResponse
 getBotChannelAssociationResponse pResponseStatus_ =
-    GetBotChannelAssociationResponse'
-    { _gbcarsBotAlias = Nothing
-    , _gbcarsBotName = Nothing
-    , _gbcarsBotConfiguration = Nothing
-    , _gbcarsCreatedDate = Nothing
-    , _gbcarsName = Nothing
-    , _gbcarsType = Nothing
-    , _gbcarsDescription = Nothing
-    , _gbcarsResponseStatus = pResponseStatus_
-    }
+  GetBotChannelAssociationResponse'
+  { _gbcarsBotAlias = Nothing
+  , _gbcarsBotName = Nothing
+  , _gbcarsBotConfiguration = Nothing
+  , _gbcarsCreatedDate = Nothing
+  , _gbcarsName = Nothing
+  , _gbcarsType = Nothing
+  , _gbcarsDescription = Nothing
+  , _gbcarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
 gbcarsBotAlias :: Lens' GetBotChannelAssociationResponse (Maybe Text)
@@ -209,3 +210,4 @@ gbcarsResponseStatus :: Lens' GetBotChannelAssociationResponse Int
 gbcarsResponseStatus = lens _gbcarsResponseStatus (\ s a -> s{_gbcarsResponseStatus = a});
 
 instance NFData GetBotChannelAssociationResponse
+         where

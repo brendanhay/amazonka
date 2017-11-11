@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.RDS.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.RDS.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ApplyMethod
-    = Immediate
-    | PendingReboot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Immediate
+  | PendingReboot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ApplyMethod where
     parser = takeLowerText >>= \case
@@ -46,13 +47,14 @@ instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"
 
 data SourceType
-    = DBCluster
-    | DBClusterSnapshot
-    | DBInstance
-    | DBParameterGroup
-    | DBSecurityGroup
-    | DBSnapshot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DBCluster
+  | DBClusterSnapshot
+  | DBInstance
+  | DBParameterGroup
+  | DBSecurityGroup
+  | DBSnapshot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case

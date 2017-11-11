@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribePatchGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.DescribePatchGroups
     , dpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describePatchGroups' smart constructor.
 data DescribePatchGroups = DescribePatchGroups'
-    { _dpgFilters    :: !(Maybe [PatchOrchestratorFilter])
-    , _dpgNextToken  :: !(Maybe Text)
-    , _dpgMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgFilters    :: {-# NOUNPACK #-}!(Maybe [PatchOrchestratorFilter])
+  , _dpgNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePatchGroups' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DescribePatchGroups = DescribePatchGroups'
 describePatchGroups
     :: DescribePatchGroups
 describePatchGroups =
-    DescribePatchGroups'
-    { _dpgFilters = Nothing
-    , _dpgNextToken = Nothing
-    , _dpgMaxResults = Nothing
-    }
+  DescribePatchGroups'
+  {_dpgFilters = Nothing, _dpgNextToken = Nothing, _dpgMaxResults = Nothing}
+
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 dpgFilters :: Lens' DescribePatchGroups [PatchOrchestratorFilter]
@@ -95,9 +94,9 @@ instance AWSRequest DescribePatchGroups where
                    (x .?> "Mappings" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribePatchGroups
+instance Hashable DescribePatchGroups where
 
-instance NFData DescribePatchGroups
+instance NFData DescribePatchGroups where
 
 instance ToHeaders DescribePatchGroups where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery DescribePatchGroups where
 
 -- | /See:/ 'describePatchGroupsResponse' smart constructor.
 data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
-    { _dpgrsMappings       :: !(Maybe [PatchGroupPatchBaselineMapping])
-    , _dpgrsNextToken      :: !(Maybe Text)
-    , _dpgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgrsMappings :: {-# NOUNPACK #-}!(Maybe [PatchGroupPatchBaselineMapping])
+  , _dpgrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePatchGroupsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ describePatchGroupsResponse
     :: Int -- ^ 'dpgrsResponseStatus'
     -> DescribePatchGroupsResponse
 describePatchGroupsResponse pResponseStatus_ =
-    DescribePatchGroupsResponse'
-    { _dpgrsMappings = Nothing
-    , _dpgrsNextToken = Nothing
-    , _dpgrsResponseStatus = pResponseStatus_
-    }
+  DescribePatchGroupsResponse'
+  { _dpgrsMappings = Nothing
+  , _dpgrsNextToken = Nothing
+  , _dpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Each entry in the array contains: PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element.
 dpgrsMappings :: Lens' DescribePatchGroupsResponse [PatchGroupPatchBaselineMapping]
@@ -160,4 +161,4 @@ dpgrsNextToken = lens _dpgrsNextToken (\ s a -> s{_dpgrsNextToken = a});
 dpgrsResponseStatus :: Lens' DescribePatchGroupsResponse Int
 dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a});
 
-instance NFData DescribePatchGroupsResponse
+instance NFData DescribePatchGroupsResponse where

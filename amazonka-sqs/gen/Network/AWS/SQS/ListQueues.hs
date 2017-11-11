@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ListQueues
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.SQS.ListQueues
     , lqrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -50,8 +50,9 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'listQueues' smart constructor.
 newtype ListQueues = ListQueues'
-    { _lqQueueNamePrefix :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lqQueueNamePrefix :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListQueues' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype ListQueues = ListQueues'
 -- * 'lqQueueNamePrefix' - A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue names are case-sensitive.
 listQueues
     :: ListQueues
-listQueues =
-    ListQueues'
-    { _lqQueueNamePrefix = Nothing
-    }
+listQueues = ListQueues' {_lqQueueNamePrefix = Nothing}
+
 
 -- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue names are case-sensitive.
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
@@ -79,9 +78,9 @@ instance AWSRequest ListQueues where
                    (may (parseXMLList "QueueUrl") x) <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListQueues
+instance Hashable ListQueues where
 
-instance NFData ListQueues
+instance NFData ListQueues where
 
 instance ToHeaders ListQueues where
         toHeaders = const mempty
@@ -102,9 +101,10 @@ instance ToQuery ListQueues where
 --
 -- /See:/ 'listQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-    { _lqrsQueueURLs      :: !(Maybe [Text])
-    , _lqrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lqrsQueueURLs      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ listQueuesResponse
     :: Int -- ^ 'lqrsResponseStatus'
     -> ListQueuesResponse
 listQueuesResponse pResponseStatus_ =
-    ListQueuesResponse'
-    { _lqrsQueueURLs = Nothing
-    , _lqrsResponseStatus = pResponseStatus_
-    }
+  ListQueuesResponse'
+  {_lqrsQueueURLs = Nothing, _lqrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of queue URLs, up to 1,000 entries.
 lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
@@ -130,4 +129,4 @@ lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default 
 lqrsResponseStatus :: Lens' ListQueuesResponse Int
 lqrsResponseStatus = lens _lqrsResponseStatus (\ s a -> s{_lqrsResponseStatus = a});
 
-instance NFData ListQueuesResponse
+instance NFData ListQueuesResponse where

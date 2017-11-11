@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Athena.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Athena.Types.Product where
 
-import           Network.AWS.Athena.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Athena.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Information about the columns in a query execution result.
 --
@@ -27,17 +27,18 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'columnInfo' smart constructor.
 data ColumnInfo = ColumnInfo'
-    { _ciScale         :: !(Maybe Int)
-    , _ciPrecision     :: !(Maybe Int)
-    , _ciSchemaName    :: !(Maybe Text)
-    , _ciCatalogName   :: !(Maybe Text)
-    , _ciCaseSensitive :: !(Maybe Bool)
-    , _ciLabel         :: !(Maybe Text)
-    , _ciTableName     :: !(Maybe Text)
-    , _ciNullable      :: !(Maybe ColumnNullable)
-    , _ciName          :: !Text
-    , _ciType          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciScale         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ciPrecision     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ciSchemaName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciCatalogName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciCaseSensitive :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ciLabel         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciTableName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciNullable      :: {-# NOUNPACK #-}!(Maybe ColumnNullable)
+  , _ciName          :: {-# NOUNPACK #-}!Text
+  , _ciType          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ColumnInfo' with the minimum fields required to make a request.
 --
@@ -67,18 +68,19 @@ columnInfo
     -> Text -- ^ 'ciType'
     -> ColumnInfo
 columnInfo pName_ pType_ =
-    ColumnInfo'
-    { _ciScale = Nothing
-    , _ciPrecision = Nothing
-    , _ciSchemaName = Nothing
-    , _ciCatalogName = Nothing
-    , _ciCaseSensitive = Nothing
-    , _ciLabel = Nothing
-    , _ciTableName = Nothing
-    , _ciNullable = Nothing
-    , _ciName = pName_
-    , _ciType = pType_
-    }
+  ColumnInfo'
+  { _ciScale = Nothing
+  , _ciPrecision = Nothing
+  , _ciSchemaName = Nothing
+  , _ciCatalogName = Nothing
+  , _ciCaseSensitive = Nothing
+  , _ciLabel = Nothing
+  , _ciTableName = Nothing
+  , _ciNullable = Nothing
+  , _ciName = pName_
+  , _ciType = pType_
+  }
+
 
 -- | For @DECIMAL@ data types, specifies the total number of digits in the fractional part of the value. Defaults to 0.
 ciScale :: Lens' ColumnInfo (Maybe Int)
@@ -135,9 +137,9 @@ instance FromJSON ColumnInfo where
                      <*> (x .: "Name")
                      <*> (x .: "Type"))
 
-instance Hashable ColumnInfo
+instance Hashable ColumnInfo where
 
-instance NFData ColumnInfo
+instance NFData ColumnInfo where
 
 -- | A piece of data (a field in the table).
 --
@@ -145,8 +147,9 @@ instance NFData ColumnInfo
 --
 -- /See:/ 'datum' smart constructor.
 newtype Datum = Datum'
-    { _dVarCharValue :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dVarCharValue :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Datum' with the minimum fields required to make a request.
 --
@@ -155,10 +158,8 @@ newtype Datum = Datum'
 -- * 'dVarCharValue' - The value of the datum.
 datum
     :: Datum
-datum =
-    Datum'
-    { _dVarCharValue = Nothing
-    }
+datum = Datum' {_dVarCharValue = Nothing}
+
 
 -- | The value of the datum.
 dVarCharValue :: Lens' Datum (Maybe Text)
@@ -169,9 +170,9 @@ instance FromJSON Datum where
           = withObject "Datum"
               (\ x -> Datum' <$> (x .:? "VarCharValue"))
 
-instance Hashable Datum
+instance Hashable Datum where
 
-instance NFData Datum
+instance NFData Datum where
 
 -- | If query results are encrypted in Amazon S3, indicates the Amazon S3 encryption option used.
 --
@@ -179,9 +180,10 @@ instance NFData Datum
 --
 -- /See:/ 'encryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-    { _ecKMSKey           :: !(Maybe Text)
-    , _ecEncryptionOption :: !EncryptionOption
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecKMSKey           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecEncryptionOption :: {-# NOUNPACK #-}!EncryptionOption
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
 --
@@ -194,10 +196,9 @@ encryptionConfiguration
     :: EncryptionOption -- ^ 'ecEncryptionOption'
     -> EncryptionConfiguration
 encryptionConfiguration pEncryptionOption_ =
-    EncryptionConfiguration'
-    { _ecKMSKey = Nothing
-    , _ecEncryptionOption = pEncryptionOption_
-    }
+  EncryptionConfiguration'
+  {_ecKMSKey = Nothing, _ecEncryptionOption = pEncryptionOption_}
+
 
 -- | For @SSE-KMS@ and @CSE-KMS@ , this is the KMS key ARN or ID.
 ecKMSKey :: Lens' EncryptionConfiguration (Maybe Text)
@@ -214,9 +215,9 @@ instance FromJSON EncryptionConfiguration where
                  EncryptionConfiguration' <$>
                    (x .:? "KmsKey") <*> (x .: "EncryptionOption"))
 
-instance Hashable EncryptionConfiguration
+instance Hashable EncryptionConfiguration where
 
-instance NFData EncryptionConfiguration
+instance NFData EncryptionConfiguration where
 
 instance ToJSON EncryptionConfiguration where
         toJSON EncryptionConfiguration'{..}
@@ -231,12 +232,13 @@ instance ToJSON EncryptionConfiguration where
 --
 -- /See:/ 'namedQuery' smart constructor.
 data NamedQuery = NamedQuery'
-    { _nqNamedQueryId :: !(Maybe Text)
-    , _nqDescription  :: !(Maybe Text)
-    , _nqName         :: !Text
-    , _nqDatabase     :: !Text
-    , _nqQueryString  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nqNamedQueryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nqDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nqName         :: {-# NOUNPACK #-}!Text
+  , _nqDatabase     :: {-# NOUNPACK #-}!Text
+  , _nqQueryString  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NamedQuery' with the minimum fields required to make a request.
 --
@@ -257,13 +259,14 @@ namedQuery
     -> Text -- ^ 'nqQueryString'
     -> NamedQuery
 namedQuery pName_ pDatabase_ pQueryString_ =
-    NamedQuery'
-    { _nqNamedQueryId = Nothing
-    , _nqDescription = Nothing
-    , _nqName = pName_
-    , _nqDatabase = pDatabase_
-    , _nqQueryString = pQueryString_
-    }
+  NamedQuery'
+  { _nqNamedQueryId = Nothing
+  , _nqDescription = Nothing
+  , _nqName = pName_
+  , _nqDatabase = pDatabase_
+  , _nqQueryString = pQueryString_
+  }
+
 
 -- | The unique identifier of the query.
 nqNamedQueryId :: Lens' NamedQuery (Maybe Text)
@@ -295,9 +298,9 @@ instance FromJSON NamedQuery where
                      <*> (x .: "Database")
                      <*> (x .: "QueryString"))
 
-instance Hashable NamedQuery
+instance Hashable NamedQuery where
 
-instance NFData NamedQuery
+instance NFData NamedQuery where
 
 -- | Information about a single instance of a query execution.
 --
@@ -305,13 +308,14 @@ instance NFData NamedQuery
 --
 -- /See:/ 'queryExecution' smart constructor.
 data QueryExecution = QueryExecution'
-    { _qeStatus                :: !(Maybe QueryExecutionStatus)
-    , _qeQueryExecutionContext :: !(Maybe QueryExecutionContext)
-    , _qeResultConfiguration   :: !(Maybe ResultConfiguration)
-    , _qeQuery                 :: !(Maybe Text)
-    , _qeStatistics            :: !(Maybe QueryExecutionStatistics)
-    , _qeQueryExecutionId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qeStatus :: {-# NOUNPACK #-}!(Maybe QueryExecutionStatus)
+  , _qeQueryExecutionContext :: {-# NOUNPACK #-}!(Maybe QueryExecutionContext)
+  , _qeResultConfiguration :: {-# NOUNPACK #-}!(Maybe ResultConfiguration)
+  , _qeQuery :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qeStatistics :: {-# NOUNPACK #-}!(Maybe QueryExecutionStatistics)
+  , _qeQueryExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueryExecution' with the minimum fields required to make a request.
 --
@@ -331,14 +335,15 @@ data QueryExecution = QueryExecution'
 queryExecution
     :: QueryExecution
 queryExecution =
-    QueryExecution'
-    { _qeStatus = Nothing
-    , _qeQueryExecutionContext = Nothing
-    , _qeResultConfiguration = Nothing
-    , _qeQuery = Nothing
-    , _qeStatistics = Nothing
-    , _qeQueryExecutionId = Nothing
-    }
+  QueryExecution'
+  { _qeStatus = Nothing
+  , _qeQueryExecutionContext = Nothing
+  , _qeResultConfiguration = Nothing
+  , _qeQuery = Nothing
+  , _qeStatistics = Nothing
+  , _qeQueryExecutionId = Nothing
+  }
+
 
 -- | The completion date, current state, submission time, and state change reason (if applicable) for the query execution.
 qeStatus :: Lens' QueryExecution (Maybe QueryExecutionStatus)
@@ -375,9 +380,9 @@ instance FromJSON QueryExecution where
                      <*> (x .:? "Statistics")
                      <*> (x .:? "QueryExecutionId"))
 
-instance Hashable QueryExecution
+instance Hashable QueryExecution where
 
-instance NFData QueryExecution
+instance NFData QueryExecution where
 
 -- | The database in which the query execution occurs.
 --
@@ -385,8 +390,9 @@ instance NFData QueryExecution
 --
 -- /See:/ 'queryExecutionContext' smart constructor.
 newtype QueryExecutionContext = QueryExecutionContext'
-    { _qecDatabase :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qecDatabase :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueryExecutionContext' with the minimum fields required to make a request.
 --
@@ -395,10 +401,8 @@ newtype QueryExecutionContext = QueryExecutionContext'
 -- * 'qecDatabase' - The name of the database.
 queryExecutionContext
     :: QueryExecutionContext
-queryExecutionContext =
-    QueryExecutionContext'
-    { _qecDatabase = Nothing
-    }
+queryExecutionContext = QueryExecutionContext' {_qecDatabase = Nothing}
+
 
 -- | The name of the database.
 qecDatabase :: Lens' QueryExecutionContext (Maybe Text)
@@ -410,9 +414,9 @@ instance FromJSON QueryExecutionContext where
               (\ x ->
                  QueryExecutionContext' <$> (x .:? "Database"))
 
-instance Hashable QueryExecutionContext
+instance Hashable QueryExecutionContext where
 
-instance NFData QueryExecutionContext
+instance NFData QueryExecutionContext where
 
 instance ToJSON QueryExecutionContext where
         toJSON QueryExecutionContext'{..}
@@ -425,9 +429,10 @@ instance ToJSON QueryExecutionContext where
 --
 -- /See:/ 'queryExecutionStatistics' smart constructor.
 data QueryExecutionStatistics = QueryExecutionStatistics'
-    { _qesEngineExecutionTimeInMillis :: !(Maybe Integer)
-    , _qesDataScannedInBytes          :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qesEngineExecutionTimeInMillis :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _qesDataScannedInBytes          :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueryExecutionStatistics' with the minimum fields required to make a request.
 --
@@ -439,10 +444,9 @@ data QueryExecutionStatistics = QueryExecutionStatistics'
 queryExecutionStatistics
     :: QueryExecutionStatistics
 queryExecutionStatistics =
-    QueryExecutionStatistics'
-    { _qesEngineExecutionTimeInMillis = Nothing
-    , _qesDataScannedInBytes = Nothing
-    }
+  QueryExecutionStatistics'
+  {_qesEngineExecutionTimeInMillis = Nothing, _qesDataScannedInBytes = Nothing}
+
 
 -- | The number of milliseconds that the query took to execute.
 qesEngineExecutionTimeInMillis :: Lens' QueryExecutionStatistics (Maybe Integer)
@@ -460,9 +464,9 @@ instance FromJSON QueryExecutionStatistics where
                    (x .:? "EngineExecutionTimeInMillis") <*>
                      (x .:? "DataScannedInBytes"))
 
-instance Hashable QueryExecutionStatistics
+instance Hashable QueryExecutionStatistics where
 
-instance NFData QueryExecutionStatistics
+instance NFData QueryExecutionStatistics where
 
 -- | The completion date, current state, submission time, and state change reason (if applicable) for the query execution.
 --
@@ -470,11 +474,12 @@ instance NFData QueryExecutionStatistics
 --
 -- /See:/ 'queryExecutionStatus' smart constructor.
 data QueryExecutionStatus = QueryExecutionStatus'
-    { _qesState              :: !(Maybe QueryExecutionState)
-    , _qesStateChangeReason  :: !(Maybe Text)
-    , _qesSubmissionDateTime :: !(Maybe POSIX)
-    , _qesCompletionDateTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qesState              :: {-# NOUNPACK #-}!(Maybe QueryExecutionState)
+  , _qesStateChangeReason  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qesSubmissionDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _qesCompletionDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueryExecutionStatus' with the minimum fields required to make a request.
 --
@@ -490,12 +495,13 @@ data QueryExecutionStatus = QueryExecutionStatus'
 queryExecutionStatus
     :: QueryExecutionStatus
 queryExecutionStatus =
-    QueryExecutionStatus'
-    { _qesState = Nothing
-    , _qesStateChangeReason = Nothing
-    , _qesSubmissionDateTime = Nothing
-    , _qesCompletionDateTime = Nothing
-    }
+  QueryExecutionStatus'
+  { _qesState = Nothing
+  , _qesStateChangeReason = Nothing
+  , _qesSubmissionDateTime = Nothing
+  , _qesCompletionDateTime = Nothing
+  }
+
 
 -- | The state of query execution. @SUBMITTED@ indicates that the query is queued for execution. @RUNNING@ indicates that the query is scanning data and returning results. @SUCCEEDED@ indicates that the query completed without error. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that user input interrupted query execution.
 qesState :: Lens' QueryExecutionStatus (Maybe QueryExecutionState)
@@ -522,9 +528,9 @@ instance FromJSON QueryExecutionStatus where
                      (x .:? "SubmissionDateTime")
                      <*> (x .:? "CompletionDateTime"))
 
-instance Hashable QueryExecutionStatus
+instance Hashable QueryExecutionStatus where
 
-instance NFData QueryExecutionStatus
+instance NFData QueryExecutionStatus where
 
 -- | The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
 --
@@ -532,9 +538,10 @@ instance NFData QueryExecutionStatus
 --
 -- /See:/ 'resultConfiguration' smart constructor.
 data ResultConfiguration = ResultConfiguration'
-    { _rcEncryptionConfiguration :: !(Maybe EncryptionConfiguration)
-    , _rcOutputLocation          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
+  , _rcOutputLocation :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResultConfiguration' with the minimum fields required to make a request.
 --
@@ -547,10 +554,9 @@ resultConfiguration
     :: Text -- ^ 'rcOutputLocation'
     -> ResultConfiguration
 resultConfiguration pOutputLocation_ =
-    ResultConfiguration'
-    { _rcEncryptionConfiguration = Nothing
-    , _rcOutputLocation = pOutputLocation_
-    }
+  ResultConfiguration'
+  {_rcEncryptionConfiguration = Nothing, _rcOutputLocation = pOutputLocation_}
+
 
 -- | If query results are encrypted in S3, indicates the S3 encryption option used (for example, @SSE-KMS@ or @CSE-KMS@ and key information.
 rcEncryptionConfiguration :: Lens' ResultConfiguration (Maybe EncryptionConfiguration)
@@ -568,9 +574,9 @@ instance FromJSON ResultConfiguration where
                    (x .:? "EncryptionConfiguration") <*>
                      (x .: "OutputLocation"))
 
-instance Hashable ResultConfiguration
+instance Hashable ResultConfiguration where
 
-instance NFData ResultConfiguration
+instance NFData ResultConfiguration where
 
 instance ToJSON ResultConfiguration where
         toJSON ResultConfiguration'{..}
@@ -586,9 +592,10 @@ instance ToJSON ResultConfiguration where
 --
 -- /See:/ 'resultSet' smart constructor.
 data ResultSet = ResultSet'
-    { _rsRows              :: !(Maybe [Row])
-    , _rsResultSetMetadata :: !(Maybe ResultSetMetadata)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsRows              :: {-# NOUNPACK #-}!(Maybe [Row])
+  , _rsResultSetMetadata :: {-# NOUNPACK #-}!(Maybe ResultSetMetadata)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResultSet' with the minimum fields required to make a request.
 --
@@ -599,11 +606,8 @@ data ResultSet = ResultSet'
 -- * 'rsResultSetMetadata' - The metadata that describes the column structure and data types of a table of query results.
 resultSet
     :: ResultSet
-resultSet =
-    ResultSet'
-    { _rsRows = Nothing
-    , _rsResultSetMetadata = Nothing
-    }
+resultSet = ResultSet' {_rsRows = Nothing, _rsResultSetMetadata = Nothing}
+
 
 -- | The rows in the table.
 rsRows :: Lens' ResultSet [Row]
@@ -621,9 +625,9 @@ instance FromJSON ResultSet where
                    (x .:? "Rows" .!= mempty) <*>
                      (x .:? "ResultSetMetadata"))
 
-instance Hashable ResultSet
+instance Hashable ResultSet where
 
-instance NFData ResultSet
+instance NFData ResultSet where
 
 -- | The metadata that describes the column structure and data types of a table of query results.
 --
@@ -631,8 +635,9 @@ instance NFData ResultSet
 --
 -- /See:/ 'resultSetMetadata' smart constructor.
 newtype ResultSetMetadata = ResultSetMetadata'
-    { _rsmColumnInfo :: Maybe [ColumnInfo]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rsmColumnInfo :: Maybe [ColumnInfo]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResultSetMetadata' with the minimum fields required to make a request.
 --
@@ -641,10 +646,8 @@ newtype ResultSetMetadata = ResultSetMetadata'
 -- * 'rsmColumnInfo' - Information about the columns in a query execution result.
 resultSetMetadata
     :: ResultSetMetadata
-resultSetMetadata =
-    ResultSetMetadata'
-    { _rsmColumnInfo = Nothing
-    }
+resultSetMetadata = ResultSetMetadata' {_rsmColumnInfo = Nothing}
+
 
 -- | Information about the columns in a query execution result.
 rsmColumnInfo :: Lens' ResultSetMetadata [ColumnInfo]
@@ -657,9 +660,9 @@ instance FromJSON ResultSetMetadata where
                  ResultSetMetadata' <$>
                    (x .:? "ColumnInfo" .!= mempty))
 
-instance Hashable ResultSetMetadata
+instance Hashable ResultSetMetadata where
 
-instance NFData ResultSetMetadata
+instance NFData ResultSetMetadata where
 
 -- | The rows that comprise a query result table.
 --
@@ -667,8 +670,9 @@ instance NFData ResultSetMetadata
 --
 -- /See:/ 'row' smart constructor.
 newtype Row = Row'
-    { _rowData :: Maybe [Datum]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rowData :: Maybe [Datum]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Row' with the minimum fields required to make a request.
 --
@@ -677,10 +681,8 @@ newtype Row = Row'
 -- * 'rowData' - The data that populates a row in a query result table.
 row
     :: Row
-row =
-    Row'
-    { _rowData = Nothing
-    }
+row = Row' {_rowData = Nothing}
+
 
 -- | The data that populates a row in a query result table.
 rowData :: Lens' Row [Datum]
@@ -691,9 +693,9 @@ instance FromJSON Row where
           = withObject "Row"
               (\ x -> Row' <$> (x .:? "Data" .!= mempty))
 
-instance Hashable Row
+instance Hashable Row where
 
-instance NFData Row
+instance NFData Row where
 
 -- | Information about a named query ID that could not be processed.
 --
@@ -701,10 +703,11 @@ instance NFData Row
 --
 -- /See:/ 'unprocessedNamedQueryId' smart constructor.
 data UnprocessedNamedQueryId = UnprocessedNamedQueryId'
-    { _unqiNamedQueryId :: !(Maybe Text)
-    , _unqiErrorCode    :: !(Maybe Text)
-    , _unqiErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unqiNamedQueryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _unqiErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _unqiErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnprocessedNamedQueryId' with the minimum fields required to make a request.
 --
@@ -718,11 +721,12 @@ data UnprocessedNamedQueryId = UnprocessedNamedQueryId'
 unprocessedNamedQueryId
     :: UnprocessedNamedQueryId
 unprocessedNamedQueryId =
-    UnprocessedNamedQueryId'
-    { _unqiNamedQueryId = Nothing
-    , _unqiErrorCode = Nothing
-    , _unqiErrorMessage = Nothing
-    }
+  UnprocessedNamedQueryId'
+  { _unqiNamedQueryId = Nothing
+  , _unqiErrorCode = Nothing
+  , _unqiErrorMessage = Nothing
+  }
+
 
 -- | The unique identifier of the named query.
 unqiNamedQueryId :: Lens' UnprocessedNamedQueryId (Maybe Text)
@@ -744,9 +748,9 @@ instance FromJSON UnprocessedNamedQueryId where
                    (x .:? "NamedQueryId") <*> (x .:? "ErrorCode") <*>
                      (x .:? "ErrorMessage"))
 
-instance Hashable UnprocessedNamedQueryId
+instance Hashable UnprocessedNamedQueryId where
 
-instance NFData UnprocessedNamedQueryId
+instance NFData UnprocessedNamedQueryId where
 
 -- | Describes a query execution that failed to process.
 --
@@ -754,10 +758,11 @@ instance NFData UnprocessedNamedQueryId
 --
 -- /See:/ 'unprocessedQueryExecutionId' smart constructor.
 data UnprocessedQueryExecutionId = UnprocessedQueryExecutionId'
-    { _uqeiErrorCode        :: !(Maybe Text)
-    , _uqeiQueryExecutionId :: !(Maybe Text)
-    , _uqeiErrorMessage     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uqeiErrorCode        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uqeiQueryExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uqeiErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnprocessedQueryExecutionId' with the minimum fields required to make a request.
 --
@@ -771,11 +776,12 @@ data UnprocessedQueryExecutionId = UnprocessedQueryExecutionId'
 unprocessedQueryExecutionId
     :: UnprocessedQueryExecutionId
 unprocessedQueryExecutionId =
-    UnprocessedQueryExecutionId'
-    { _uqeiErrorCode = Nothing
-    , _uqeiQueryExecutionId = Nothing
-    , _uqeiErrorMessage = Nothing
-    }
+  UnprocessedQueryExecutionId'
+  { _uqeiErrorCode = Nothing
+  , _uqeiQueryExecutionId = Nothing
+  , _uqeiErrorMessage = Nothing
+  }
+
 
 -- | The error code returned when the query execution failed to process, if applicable.
 uqeiErrorCode :: Lens' UnprocessedQueryExecutionId (Maybe Text)
@@ -797,6 +803,6 @@ instance FromJSON UnprocessedQueryExecutionId where
                    (x .:? "ErrorCode") <*> (x .:? "QueryExecutionId")
                      <*> (x .:? "ErrorMessage"))
 
-instance Hashable UnprocessedQueryExecutionId
+instance Hashable UnprocessedQueryExecutionId where
 
-instance NFData UnprocessedQueryExecutionId
+instance NFData UnprocessedQueryExecutionId where

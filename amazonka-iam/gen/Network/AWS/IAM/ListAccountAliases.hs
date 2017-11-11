@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAccountAliases
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.IAM.ListAccountAliases
     , laarsAccountAliases
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAccountAliases' smart constructor.
 data ListAccountAliases = ListAccountAliases'
-    { _laaMarker   :: !(Maybe Text)
-    , _laaMaxItems :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laaMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laaMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAccountAliases' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ data ListAccountAliases = ListAccountAliases'
 listAccountAliases
     :: ListAccountAliases
 listAccountAliases =
-    ListAccountAliases'
-    { _laaMarker = Nothing
-    , _laaMaxItems = Nothing
-    }
+  ListAccountAliases' {_laaMarker = Nothing, _laaMaxItems = Nothing}
+
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 laaMarker :: Lens' ListAccountAliases (Maybe Text)
@@ -100,9 +99,9 @@ instance AWSRequest ListAccountAliases where
                      (x .@? "AccountAliases" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListAccountAliases
+instance Hashable ListAccountAliases where
 
-instance NFData ListAccountAliases
+instance NFData ListAccountAliases where
 
 instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
@@ -123,11 +122,12 @@ instance ToQuery ListAccountAliases where
 --
 -- /See:/ 'listAccountAliasesResponse' smart constructor.
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
-    { _laarsMarker         :: !(Maybe Text)
-    , _laarsIsTruncated    :: !(Maybe Bool)
-    , _laarsResponseStatus :: !Int
-    , _laarsAccountAliases :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laarsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laarsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _laarsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _laarsAccountAliases :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAccountAliasesResponse' with the minimum fields required to make a request.
 --
@@ -144,12 +144,13 @@ listAccountAliasesResponse
     :: Int -- ^ 'laarsResponseStatus'
     -> ListAccountAliasesResponse
 listAccountAliasesResponse pResponseStatus_ =
-    ListAccountAliasesResponse'
-    { _laarsMarker = Nothing
-    , _laarsIsTruncated = Nothing
-    , _laarsResponseStatus = pResponseStatus_
-    , _laarsAccountAliases = mempty
-    }
+  ListAccountAliasesResponse'
+  { _laarsMarker = Nothing
+  , _laarsIsTruncated = Nothing
+  , _laarsResponseStatus = pResponseStatus_
+  , _laarsAccountAliases = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 laarsMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
@@ -167,4 +168,4 @@ laarsResponseStatus = lens _laarsResponseStatus (\ s a -> s{_laarsResponseStatus
 laarsAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarsAccountAliases = lens _laarsAccountAliases (\ s a -> s{_laarsAccountAliases = a}) . _Coerce;
 
-instance NFData ListAccountAliasesResponse
+instance NFData ListAccountAliasesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetUtterancesView
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,19 +50,20 @@ module Network.AWS.LexModels.GetUtterancesView
     , guvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getUtterancesView' smart constructor.
 data GetUtterancesView = GetUtterancesView'
-    { _guvBotName     :: !Text
-    , _guvBotVersions :: !(List1 Text)
-    , _guvStatusType  :: !StatusType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _guvBotName     :: {-# NOUNPACK #-}!Text
+  , _guvBotVersions :: {-# NOUNPACK #-}!(List1 Text)
+  , _guvStatusType  :: {-# NOUNPACK #-}!StatusType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUtterancesView' with the minimum fields required to make a request.
 --
@@ -79,11 +80,12 @@ getUtterancesView
     -> StatusType -- ^ 'guvStatusType'
     -> GetUtterancesView
 getUtterancesView pBotName_ pBotVersions_ pStatusType_ =
-    GetUtterancesView'
-    { _guvBotName = pBotName_
-    , _guvBotVersions = _List1 # pBotVersions_
-    , _guvStatusType = pStatusType_
-    }
+  GetUtterancesView'
+  { _guvBotName = pBotName_
+  , _guvBotVersions = _List1 # pBotVersions_
+  , _guvStatusType = pStatusType_
+  }
+
 
 -- | The name of the bot for which utterance information should be returned.
 guvBotName :: Lens' GetUtterancesView Text
@@ -107,9 +109,9 @@ instance AWSRequest GetUtterancesView where
                    (x .?> "botName") <*> (x .?> "utterances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetUtterancesView
+instance Hashable GetUtterancesView where
 
-instance NFData GetUtterancesView
+instance NFData GetUtterancesView where
 
 instance ToHeaders GetUtterancesView where
         toHeaders
@@ -131,10 +133,11 @@ instance ToQuery GetUtterancesView where
 
 -- | /See:/ 'getUtterancesViewResponse' smart constructor.
 data GetUtterancesViewResponse = GetUtterancesViewResponse'
-    { _guvrsBotName        :: !(Maybe Text)
-    , _guvrsUtterances     :: !(Maybe [UtteranceList])
-    , _guvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _guvrsBotName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _guvrsUtterances     :: {-# NOUNPACK #-}!(Maybe [UtteranceList])
+  , _guvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUtterancesViewResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +152,12 @@ getUtterancesViewResponse
     :: Int -- ^ 'guvrsResponseStatus'
     -> GetUtterancesViewResponse
 getUtterancesViewResponse pResponseStatus_ =
-    GetUtterancesViewResponse'
-    { _guvrsBotName = Nothing
-    , _guvrsUtterances = Nothing
-    , _guvrsResponseStatus = pResponseStatus_
-    }
+  GetUtterancesViewResponse'
+  { _guvrsBotName = Nothing
+  , _guvrsUtterances = Nothing
+  , _guvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the bot for which utterance information was returned.
 guvrsBotName :: Lens' GetUtterancesViewResponse (Maybe Text)
@@ -167,4 +171,4 @@ guvrsUtterances = lens _guvrsUtterances (\ s a -> s{_guvrsUtterances = a}) . _De
 guvrsResponseStatus :: Lens' GetUtterancesViewResponse Int
 guvrsResponseStatus = lens _guvrsResponseStatus (\ s a -> s{_guvrsResponseStatus = a});
 
-instance NFData GetUtterancesViewResponse
+instance NFData GetUtterancesViewResponse where

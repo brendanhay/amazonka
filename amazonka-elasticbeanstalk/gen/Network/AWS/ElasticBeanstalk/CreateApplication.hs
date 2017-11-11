@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     , admApplication
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to create an application.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
-    { _caResourceLifecycleConfig :: !(Maybe ApplicationResourceLifecycleConfig)
-    , _caDescription             :: !(Maybe Text)
-    , _caApplicationName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caResourceLifecycleConfig :: {-# NOUNPACK #-}!(Maybe ApplicationResourceLifecycleConfig)
+  , _caDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caApplicationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ createApplication
     :: Text -- ^ 'caApplicationName'
     -> CreateApplication
 createApplication pApplicationName_ =
-    CreateApplication'
-    { _caResourceLifecycleConfig = Nothing
-    , _caDescription = Nothing
-    , _caApplicationName = pApplicationName_
-    }
+  CreateApplication'
+  { _caResourceLifecycleConfig = Nothing
+  , _caDescription = Nothing
+  , _caApplicationName = pApplicationName_
+  }
+
 
 -- | Specify an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 caResourceLifecycleConfig :: Lens' CreateApplication (Maybe ApplicationResourceLifecycleConfig)
@@ -95,9 +97,9 @@ instance AWSRequest CreateApplication where
           = receiveXMLWrapper "CreateApplicationResult"
               (\ s h x -> parseXML x)
 
-instance Hashable CreateApplication
+instance Hashable CreateApplication where
 
-instance NFData CreateApplication
+instance NFData CreateApplication where
 
 instance ToHeaders CreateApplication where
         toHeaders = const mempty

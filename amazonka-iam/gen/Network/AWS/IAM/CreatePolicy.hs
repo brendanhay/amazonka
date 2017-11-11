@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreatePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.IAM.CreatePolicy
     , cprsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createPolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-    { _cpPath           :: !(Maybe Text)
-    , _cpDescription    :: !(Maybe Text)
-    , _cpPolicyName     :: !Text
-    , _cpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpPath           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpDescription    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpPolicyName     :: {-# NOUNPACK #-}!Text
+  , _cpPolicyDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ createPolicy
     -> Text -- ^ 'cpPolicyDocument'
     -> CreatePolicy
 createPolicy pPolicyName_ pPolicyDocument_ =
-    CreatePolicy'
-    { _cpPath = Nothing
-    , _cpDescription = Nothing
-    , _cpPolicyName = pPolicyName_
-    , _cpPolicyDocument = pPolicyDocument_
-    }
+  CreatePolicy'
+  { _cpPath = Nothing
+  , _cpDescription = Nothing
+  , _cpPolicyName = pPolicyName_
+  , _cpPolicyDocument = pPolicyDocument_
+  }
+
 
 -- | The path for the policy. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cpPath :: Lens' CreatePolicy (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest CreatePolicy where
                  CreatePolicyResponse' <$>
                    (x .@? "Policy") <*> (pure (fromEnum s)))
 
-instance Hashable CreatePolicy
+instance Hashable CreatePolicy where
 
-instance NFData CreatePolicy
+instance NFData CreatePolicy where
 
 instance ToHeaders CreatePolicy where
         toHeaders = const mempty
@@ -132,9 +134,10 @@ instance ToQuery CreatePolicy where
 --
 -- /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-    { _cprsPolicy         :: !(Maybe Policy)
-    , _cprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsPolicy         :: {-# NOUNPACK #-}!(Maybe Policy)
+  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +150,9 @@ createPolicyResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePolicyResponse
 createPolicyResponse pResponseStatus_ =
-    CreatePolicyResponse'
-    { _cprsPolicy = Nothing
-    , _cprsResponseStatus = pResponseStatus_
-    }
+  CreatePolicyResponse'
+  {_cprsPolicy = Nothing, _cprsResponseStatus = pResponseStatus_}
+
 
 -- | A structure containing details about the new policy.
 cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
@@ -160,4 +162,4 @@ cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 
-instance NFData CreatePolicyResponse
+instance NFData CreatePolicyResponse where

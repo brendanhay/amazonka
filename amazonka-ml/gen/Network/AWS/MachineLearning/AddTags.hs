@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.AddTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.MachineLearning.AddTags
     , atrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
-    { _atTags         :: ![Tag]
-    , _atResourceId   :: !Text
-    , _atResourceType :: !TaggableResourceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atTags         :: {-# NOUNPACK #-}![Tag]
+  , _atResourceId   :: {-# NOUNPACK #-}!Text
+  , _atResourceType :: {-# NOUNPACK #-}!TaggableResourceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ addTags
     -> TaggableResourceType -- ^ 'atResourceType'
     -> AddTags
 addTags pResourceId_ pResourceType_ =
-    AddTags'
-    { _atTags = mempty
-    , _atResourceId = pResourceId_
-    , _atResourceType = pResourceType_
-    }
+  AddTags'
+  { _atTags = mempty
+  , _atResourceId = pResourceId_
+  , _atResourceType = pResourceType_
+  }
+
 
 -- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
 atTags :: Lens' AddTags [Tag]
@@ -96,9 +98,9 @@ instance AWSRequest AddTags where
                    (x .?> "ResourceId") <*> (x .?> "ResourceType") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AddTags
+instance Hashable AddTags where
 
-instance NFData AddTags
+instance NFData AddTags where
 
 instance ToHeaders AddTags where
         toHeaders
@@ -129,10 +131,11 @@ instance ToQuery AddTags where
 --
 -- /See:/ 'addTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
-    { _atrsResourceId     :: !(Maybe Text)
-    , _atrsResourceType   :: !(Maybe TaggableResourceType)
-    , _atrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atrsResourceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _atrsResourceType   :: {-# NOUNPACK #-}!(Maybe TaggableResourceType)
+  , _atrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
@@ -147,11 +150,12 @@ addTagsResponse
     :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
 addTagsResponse pResponseStatus_ =
-    AddTagsResponse'
-    { _atrsResourceId = Nothing
-    , _atrsResourceType = Nothing
-    , _atrsResponseStatus = pResponseStatus_
-    }
+  AddTagsResponse'
+  { _atrsResourceId = Nothing
+  , _atrsResourceType = Nothing
+  , _atrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the ML object that was tagged.
 atrsResourceId :: Lens' AddTagsResponse (Maybe Text)
@@ -165,4 +169,4 @@ atrsResourceType = lens _atrsResourceType (\ s a -> s{_atrsResourceType = a});
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
 
-instance NFData AddTagsResponse
+instance NFData AddTagsResponse where

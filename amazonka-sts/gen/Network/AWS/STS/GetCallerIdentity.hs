@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.STS.GetCallerIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,23 +37,25 @@ module Network.AWS.STS.GetCallerIdentity
     , gcirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.STS.Types
-import           Network.AWS.STS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.STS.Types
+import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'getCallerIdentity' smart constructor.
 data GetCallerIdentity =
-    GetCallerIdentity'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetCallerIdentity'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCallerIdentity' with the minimum fields required to make a request.
 --
 getCallerIdentity
     :: GetCallerIdentity
 getCallerIdentity = GetCallerIdentity'
+
 
 instance AWSRequest GetCallerIdentity where
         type Rs GetCallerIdentity = GetCallerIdentityResponse
@@ -66,9 +68,9 @@ instance AWSRequest GetCallerIdentity where
                      (x .@? "UserId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetCallerIdentity
+instance Hashable GetCallerIdentity where
 
-instance NFData GetCallerIdentity
+instance NFData GetCallerIdentity where
 
 instance ToHeaders GetCallerIdentity where
         toHeaders = const mempty
@@ -89,11 +91,12 @@ instance ToQuery GetCallerIdentity where
 --
 -- /See:/ 'getCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
-    { _gcirsARN            :: !(Maybe Text)
-    , _gcirsAccount        :: !(Maybe Text)
-    , _gcirsUserId         :: !(Maybe Text)
-    , _gcirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcirsARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsAccount        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsUserId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCallerIdentityResponse' with the minimum fields required to make a request.
 --
@@ -110,12 +113,13 @@ getCallerIdentityResponse
     :: Int -- ^ 'gcirsResponseStatus'
     -> GetCallerIdentityResponse
 getCallerIdentityResponse pResponseStatus_ =
-    GetCallerIdentityResponse'
-    { _gcirsARN = Nothing
-    , _gcirsAccount = Nothing
-    , _gcirsUserId = Nothing
-    , _gcirsResponseStatus = pResponseStatus_
-    }
+  GetCallerIdentityResponse'
+  { _gcirsARN = Nothing
+  , _gcirsAccount = Nothing
+  , _gcirsUserId = Nothing
+  , _gcirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The AWS ARN associated with the calling entity.
 gcirsARN :: Lens' GetCallerIdentityResponse (Maybe Text)
@@ -133,4 +137,4 @@ gcirsUserId = lens _gcirsUserId (\ s a -> s{_gcirsUserId = a});
 gcirsResponseStatus :: Lens' GetCallerIdentityResponse Int
 gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a});
 
-instance NFData GetCallerIdentityResponse
+instance NFData GetCallerIdentityResponse where

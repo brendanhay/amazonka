@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -907,67 +907,67 @@ module Network.AWS.CloudDirectory
     , tlsIdentityAttributeValues
     ) where
 
-import           Network.AWS.CloudDirectory.AddFacetToObject
-import           Network.AWS.CloudDirectory.ApplySchema
-import           Network.AWS.CloudDirectory.AttachObject
-import           Network.AWS.CloudDirectory.AttachPolicy
-import           Network.AWS.CloudDirectory.AttachToIndex
-import           Network.AWS.CloudDirectory.AttachTypedLink
-import           Network.AWS.CloudDirectory.BatchRead
-import           Network.AWS.CloudDirectory.BatchWrite
-import           Network.AWS.CloudDirectory.CreateDirectory
-import           Network.AWS.CloudDirectory.CreateFacet
-import           Network.AWS.CloudDirectory.CreateIndex
-import           Network.AWS.CloudDirectory.CreateObject
-import           Network.AWS.CloudDirectory.CreateSchema
-import           Network.AWS.CloudDirectory.CreateTypedLinkFacet
-import           Network.AWS.CloudDirectory.DeleteDirectory
-import           Network.AWS.CloudDirectory.DeleteFacet
-import           Network.AWS.CloudDirectory.DeleteObject
-import           Network.AWS.CloudDirectory.DeleteSchema
-import           Network.AWS.CloudDirectory.DeleteTypedLinkFacet
-import           Network.AWS.CloudDirectory.DetachFromIndex
-import           Network.AWS.CloudDirectory.DetachObject
-import           Network.AWS.CloudDirectory.DetachPolicy
-import           Network.AWS.CloudDirectory.DetachTypedLink
-import           Network.AWS.CloudDirectory.DisableDirectory
-import           Network.AWS.CloudDirectory.EnableDirectory
-import           Network.AWS.CloudDirectory.GetDirectory
-import           Network.AWS.CloudDirectory.GetFacet
-import           Network.AWS.CloudDirectory.GetObjectInformation
-import           Network.AWS.CloudDirectory.GetSchemaAsJSON
-import           Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
-import           Network.AWS.CloudDirectory.ListAppliedSchemaARNs
-import           Network.AWS.CloudDirectory.ListAttachedIndices
-import           Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
-import           Network.AWS.CloudDirectory.ListDirectories
-import           Network.AWS.CloudDirectory.ListFacetAttributes
-import           Network.AWS.CloudDirectory.ListFacetNames
-import           Network.AWS.CloudDirectory.ListIncomingTypedLinks
-import           Network.AWS.CloudDirectory.ListIndex
-import           Network.AWS.CloudDirectory.ListObjectAttributes
-import           Network.AWS.CloudDirectory.ListObjectChildren
-import           Network.AWS.CloudDirectory.ListObjectParentPaths
-import           Network.AWS.CloudDirectory.ListObjectParents
-import           Network.AWS.CloudDirectory.ListObjectPolicies
-import           Network.AWS.CloudDirectory.ListOutgoingTypedLinks
-import           Network.AWS.CloudDirectory.ListPolicyAttachments
-import           Network.AWS.CloudDirectory.ListPublishedSchemaARNs
-import           Network.AWS.CloudDirectory.ListTagsForResource
-import           Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
-import           Network.AWS.CloudDirectory.ListTypedLinkFacetNames
-import           Network.AWS.CloudDirectory.LookupPolicy
-import           Network.AWS.CloudDirectory.PublishSchema
-import           Network.AWS.CloudDirectory.PutSchemaFromJSON
-import           Network.AWS.CloudDirectory.RemoveFacetFromObject
-import           Network.AWS.CloudDirectory.TagResource
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.UntagResource
-import           Network.AWS.CloudDirectory.UpdateFacet
-import           Network.AWS.CloudDirectory.UpdateObjectAttributes
-import           Network.AWS.CloudDirectory.UpdateSchema
-import           Network.AWS.CloudDirectory.UpdateTypedLinkFacet
-import           Network.AWS.CloudDirectory.Waiters
+import Network.AWS.CloudDirectory.AddFacetToObject
+import Network.AWS.CloudDirectory.ApplySchema
+import Network.AWS.CloudDirectory.AttachObject
+import Network.AWS.CloudDirectory.AttachPolicy
+import Network.AWS.CloudDirectory.AttachToIndex
+import Network.AWS.CloudDirectory.AttachTypedLink
+import Network.AWS.CloudDirectory.BatchRead
+import Network.AWS.CloudDirectory.BatchWrite
+import Network.AWS.CloudDirectory.CreateDirectory
+import Network.AWS.CloudDirectory.CreateFacet
+import Network.AWS.CloudDirectory.CreateIndex
+import Network.AWS.CloudDirectory.CreateObject
+import Network.AWS.CloudDirectory.CreateSchema
+import Network.AWS.CloudDirectory.CreateTypedLinkFacet
+import Network.AWS.CloudDirectory.DeleteDirectory
+import Network.AWS.CloudDirectory.DeleteFacet
+import Network.AWS.CloudDirectory.DeleteObject
+import Network.AWS.CloudDirectory.DeleteSchema
+import Network.AWS.CloudDirectory.DeleteTypedLinkFacet
+import Network.AWS.CloudDirectory.DetachFromIndex
+import Network.AWS.CloudDirectory.DetachObject
+import Network.AWS.CloudDirectory.DetachPolicy
+import Network.AWS.CloudDirectory.DetachTypedLink
+import Network.AWS.CloudDirectory.DisableDirectory
+import Network.AWS.CloudDirectory.EnableDirectory
+import Network.AWS.CloudDirectory.GetDirectory
+import Network.AWS.CloudDirectory.GetFacet
+import Network.AWS.CloudDirectory.GetObjectInformation
+import Network.AWS.CloudDirectory.GetSchemaAsJSON
+import Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
+import Network.AWS.CloudDirectory.ListAppliedSchemaARNs
+import Network.AWS.CloudDirectory.ListAttachedIndices
+import Network.AWS.CloudDirectory.ListDevelopmentSchemaARNs
+import Network.AWS.CloudDirectory.ListDirectories
+import Network.AWS.CloudDirectory.ListFacetAttributes
+import Network.AWS.CloudDirectory.ListFacetNames
+import Network.AWS.CloudDirectory.ListIncomingTypedLinks
+import Network.AWS.CloudDirectory.ListIndex
+import Network.AWS.CloudDirectory.ListObjectAttributes
+import Network.AWS.CloudDirectory.ListObjectChildren
+import Network.AWS.CloudDirectory.ListObjectParentPaths
+import Network.AWS.CloudDirectory.ListObjectParents
+import Network.AWS.CloudDirectory.ListObjectPolicies
+import Network.AWS.CloudDirectory.ListOutgoingTypedLinks
+import Network.AWS.CloudDirectory.ListPolicyAttachments
+import Network.AWS.CloudDirectory.ListPublishedSchemaARNs
+import Network.AWS.CloudDirectory.ListTagsForResource
+import Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
+import Network.AWS.CloudDirectory.ListTypedLinkFacetNames
+import Network.AWS.CloudDirectory.LookupPolicy
+import Network.AWS.CloudDirectory.PublishSchema
+import Network.AWS.CloudDirectory.PutSchemaFromJSON
+import Network.AWS.CloudDirectory.RemoveFacetFromObject
+import Network.AWS.CloudDirectory.TagResource
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.UntagResource
+import Network.AWS.CloudDirectory.UpdateFacet
+import Network.AWS.CloudDirectory.UpdateObjectAttributes
+import Network.AWS.CloudDirectory.UpdateSchema
+import Network.AWS.CloudDirectory.UpdateTypedLinkFacet
+import Network.AWS.CloudDirectory.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

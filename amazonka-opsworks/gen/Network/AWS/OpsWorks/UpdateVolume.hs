@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.OpsWorks.UpdateVolume
     , UpdateVolumeResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateVolume' smart constructor.
 data UpdateVolume = UpdateVolume'
-    { _uName       :: !(Maybe Text)
-    , _uMountPoint :: !(Maybe Text)
-    , _uVolumeId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uMountPoint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uVolumeId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateVolume' with the minimum fields required to make a request.
 --
@@ -65,11 +66,9 @@ updateVolume
     :: Text -- ^ 'uVolumeId'
     -> UpdateVolume
 updateVolume pVolumeId_ =
-    UpdateVolume'
-    { _uName = Nothing
-    , _uMountPoint = Nothing
-    , _uVolumeId = pVolumeId_
-    }
+  UpdateVolume'
+  {_uName = Nothing, _uMountPoint = Nothing, _uVolumeId = pVolumeId_}
+
 
 -- | The new name.
 uName :: Lens' UpdateVolume (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest UpdateVolume where
         request = postJSON opsWorks
         response = receiveNull UpdateVolumeResponse'
 
-instance Hashable UpdateVolume
+instance Hashable UpdateVolume where
 
-instance NFData UpdateVolume
+instance NFData UpdateVolume where
 
 instance ToHeaders UpdateVolume where
         toHeaders
@@ -117,8 +116,9 @@ instance ToQuery UpdateVolume where
 
 -- | /See:/ 'updateVolumeResponse' smart constructor.
 data UpdateVolumeResponse =
-    UpdateVolumeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateVolumeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateVolumeResponse' with the minimum fields required to make a request.
 --
@@ -126,4 +126,5 @@ updateVolumeResponse
     :: UpdateVolumeResponse
 updateVolumeResponse = UpdateVolumeResponse'
 
-instance NFData UpdateVolumeResponse
+
+instance NFData UpdateVolumeResponse where

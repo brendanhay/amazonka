@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProductView
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.ServiceCatalog.DescribeProductView
     , dpvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProductView' smart constructor.
 data DescribeProductView = DescribeProductView'
-    { _dpvAcceptLanguage :: !(Maybe Text)
-    , _dpvId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpvAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpvId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProductView' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ describeProductView
     :: Text -- ^ 'dpvId'
     -> DescribeProductView
 describeProductView pId_ =
-    DescribeProductView'
-    { _dpvAcceptLanguage = Nothing
-    , _dpvId = pId_
-    }
+  DescribeProductView' {_dpvAcceptLanguage = Nothing, _dpvId = pId_}
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dpvAcceptLanguage :: Lens' DescribeProductView (Maybe Text)
@@ -90,9 +89,9 @@ instance AWSRequest DescribeProductView where
                      (x .?> "ProvisioningArtifacts" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeProductView
+instance Hashable DescribeProductView where
 
-instance NFData DescribeProductView
+instance NFData DescribeProductView where
 
 instance ToHeaders DescribeProductView where
         toHeaders
@@ -119,10 +118,11 @@ instance ToQuery DescribeProductView where
 
 -- | /See:/ 'describeProductViewResponse' smart constructor.
 data DescribeProductViewResponse = DescribeProductViewResponse'
-    { _dpvrsProductViewSummary    :: !(Maybe ProductViewSummary)
-    , _dpvrsProvisioningArtifacts :: !(Maybe [ProvisioningArtifact])
-    , _dpvrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpvrsProductViewSummary :: {-# NOUNPACK #-}!(Maybe ProductViewSummary)
+  , _dpvrsProvisioningArtifacts :: {-# NOUNPACK #-}!(Maybe [ProvisioningArtifact])
+  , _dpvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProductViewResponse' with the minimum fields required to make a request.
 --
@@ -137,11 +137,12 @@ describeProductViewResponse
     :: Int -- ^ 'dpvrsResponseStatus'
     -> DescribeProductViewResponse
 describeProductViewResponse pResponseStatus_ =
-    DescribeProductViewResponse'
-    { _dpvrsProductViewSummary = Nothing
-    , _dpvrsProvisioningArtifacts = Nothing
-    , _dpvrsResponseStatus = pResponseStatus_
-    }
+  DescribeProductViewResponse'
+  { _dpvrsProductViewSummary = Nothing
+  , _dpvrsProvisioningArtifacts = Nothing
+  , _dpvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The summary metadata about the specified product.
 dpvrsProductViewSummary :: Lens' DescribeProductViewResponse (Maybe ProductViewSummary)
@@ -155,4 +156,4 @@ dpvrsProvisioningArtifacts = lens _dpvrsProvisioningArtifacts (\ s a -> s{_dpvrs
 dpvrsResponseStatus :: Lens' DescribeProductViewResponse Int
 dpvrsResponseStatus = lens _dpvrsResponseStatus (\ s a -> s{_dpvrsResponseStatus = a});
 
-instance NFData DescribeProductViewResponse
+instance NFData DescribeProductViewResponse where

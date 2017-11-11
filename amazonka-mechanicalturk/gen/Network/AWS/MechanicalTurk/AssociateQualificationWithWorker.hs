@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
     , aqwwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateQualificationWithWorker' smart constructor.
 data AssociateQualificationWithWorker = AssociateQualificationWithWorker'
-    { _aqwwIntegerValue        :: !(Maybe Int)
-    , _aqwwSendNotification    :: !(Maybe Bool)
-    , _aqwwQualificationTypeId :: !Text
-    , _aqwwWorkerId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aqwwIntegerValue        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _aqwwSendNotification    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aqwwQualificationTypeId :: {-# NOUNPACK #-}!Text
+  , _aqwwWorkerId            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateQualificationWithWorker' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ associateQualificationWithWorker
     -> Text -- ^ 'aqwwWorkerId'
     -> AssociateQualificationWithWorker
 associateQualificationWithWorker pQualificationTypeId_ pWorkerId_ =
-    AssociateQualificationWithWorker'
-    { _aqwwIntegerValue = Nothing
-    , _aqwwSendNotification = Nothing
-    , _aqwwQualificationTypeId = pQualificationTypeId_
-    , _aqwwWorkerId = pWorkerId_
-    }
+  AssociateQualificationWithWorker'
+  { _aqwwIntegerValue = Nothing
+  , _aqwwSendNotification = Nothing
+  , _aqwwQualificationTypeId = pQualificationTypeId_
+  , _aqwwWorkerId = pWorkerId_
+  }
+
 
 -- | The value of the Qualification to assign.
 aqwwIntegerValue :: Lens' AssociateQualificationWithWorker (Maybe Int)
@@ -107,8 +109,10 @@ instance AWSRequest AssociateQualificationWithWorker
                    (pure (fromEnum s)))
 
 instance Hashable AssociateQualificationWithWorker
+         where
 
 instance NFData AssociateQualificationWithWorker
+         where
 
 instance ToHeaders AssociateQualificationWithWorker
          where
@@ -142,8 +146,9 @@ instance ToQuery AssociateQualificationWithWorker
 
 -- | /See:/ 'associateQualificationWithWorkerResponse' smart constructor.
 newtype AssociateQualificationWithWorkerResponse = AssociateQualificationWithWorkerResponse'
-    { _aqwwrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aqwwrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateQualificationWithWorkerResponse' with the minimum fields required to make a request.
 --
@@ -154,13 +159,14 @@ associateQualificationWithWorkerResponse
     :: Int -- ^ 'aqwwrsResponseStatus'
     -> AssociateQualificationWithWorkerResponse
 associateQualificationWithWorkerResponse pResponseStatus_ =
-    AssociateQualificationWithWorkerResponse'
-    { _aqwwrsResponseStatus = pResponseStatus_
-    }
+  AssociateQualificationWithWorkerResponse'
+  {_aqwwrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aqwwrsResponseStatus :: Lens' AssociateQualificationWithWorkerResponse Int
 aqwwrsResponseStatus = lens _aqwwrsResponseStatus (\ s a -> s{_aqwwrsResponseStatus = a});
 
 instance NFData
-         AssociateQualificationWithWorkerResponse
+           AssociateQualificationWithWorkerResponse
+         where

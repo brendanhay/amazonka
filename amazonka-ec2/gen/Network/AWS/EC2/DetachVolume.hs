@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,12 +49,12 @@ module Network.AWS.EC2.DetachVolume
     , volAttachTime
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachVolume.
 --
@@ -62,12 +62,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachVolume' smart constructor.
 data DetachVolume = DetachVolume'
-    { _dvInstanceId :: !(Maybe Text)
-    , _dvForce      :: !(Maybe Bool)
-    , _dvDevice     :: !(Maybe Text)
-    , _dvDryRun     :: !(Maybe Bool)
-    , _dvVolumeId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvForce      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvDevice     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvVolumeId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachVolume' with the minimum fields required to make a request.
 --
@@ -86,13 +87,14 @@ detachVolume
     :: Text -- ^ 'dvVolumeId'
     -> DetachVolume
 detachVolume pVolumeId_ =
-    DetachVolume'
-    { _dvInstanceId = Nothing
-    , _dvForce = Nothing
-    , _dvDevice = Nothing
-    , _dvDryRun = Nothing
-    , _dvVolumeId = pVolumeId_
-    }
+  DetachVolume'
+  { _dvInstanceId = Nothing
+  , _dvForce = Nothing
+  , _dvDevice = Nothing
+  , _dvDryRun = Nothing
+  , _dvVolumeId = pVolumeId_
+  }
+
 
 -- | The ID of the instance.
 dvInstanceId :: Lens' DetachVolume (Maybe Text)
@@ -119,9 +121,9 @@ instance AWSRequest DetachVolume where
         request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
-instance Hashable DetachVolume
+instance Hashable DetachVolume where
 
-instance NFData DetachVolume
+instance NFData DetachVolume where
 
 instance ToHeaders DetachVolume where
         toHeaders = const mempty

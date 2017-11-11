@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,26 +46,27 @@ module Network.AWS.Glue.CreateJob
     , cjrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createJob' smart constructor.
 data CreateJob = CreateJob'
-    { _cjConnections       :: !(Maybe ConnectionsList)
-    , _cjLogURI            :: !(Maybe Text)
-    , _cjMaxRetries        :: !(Maybe Int)
-    , _cjExecutionProperty :: !(Maybe ExecutionProperty)
-    , _cjAllocatedCapacity :: !(Maybe Int)
-    , _cjDefaultArguments  :: !(Maybe (Map Text Text))
-    , _cjDescription       :: !(Maybe Text)
-    , _cjName              :: !Text
-    , _cjRole              :: !Text
-    , _cjCommand           :: !JobCommand
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjConnections       :: {-# NOUNPACK #-}!(Maybe ConnectionsList)
+  , _cjLogURI            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjMaxRetries        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cjExecutionProperty :: {-# NOUNPACK #-}!(Maybe ExecutionProperty)
+  , _cjAllocatedCapacity :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cjDefaultArguments  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cjDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjName              :: {-# NOUNPACK #-}!Text
+  , _cjRole              :: {-# NOUNPACK #-}!Text
+  , _cjCommand           :: {-# NOUNPACK #-}!JobCommand
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
@@ -96,18 +97,19 @@ createJob
     -> JobCommand -- ^ 'cjCommand'
     -> CreateJob
 createJob pName_ pRole_ pCommand_ =
-    CreateJob'
-    { _cjConnections = Nothing
-    , _cjLogURI = Nothing
-    , _cjMaxRetries = Nothing
-    , _cjExecutionProperty = Nothing
-    , _cjAllocatedCapacity = Nothing
-    , _cjDefaultArguments = Nothing
-    , _cjDescription = Nothing
-    , _cjName = pName_
-    , _cjRole = pRole_
-    , _cjCommand = pCommand_
-    }
+  CreateJob'
+  { _cjConnections = Nothing
+  , _cjLogURI = Nothing
+  , _cjMaxRetries = Nothing
+  , _cjExecutionProperty = Nothing
+  , _cjAllocatedCapacity = Nothing
+  , _cjDefaultArguments = Nothing
+  , _cjDescription = Nothing
+  , _cjName = pName_
+  , _cjRole = pRole_
+  , _cjCommand = pCommand_
+  }
+
 
 -- | The connections used for this job.
 cjConnections :: Lens' CreateJob (Maybe ConnectionsList)
@@ -158,9 +160,9 @@ instance AWSRequest CreateJob where
                  CreateJobResponse' <$>
                    (x .?> "Name") <*> (pure (fromEnum s)))
 
-instance Hashable CreateJob
+instance Hashable CreateJob where
 
-instance NFData CreateJob
+instance NFData CreateJob where
 
 instance ToHeaders CreateJob where
         toHeaders
@@ -193,9 +195,10 @@ instance ToQuery CreateJob where
 
 -- | /See:/ 'createJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-    { _cjrsName           :: !(Maybe Text)
-    , _cjrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cjrsName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
 --
@@ -208,10 +211,9 @@ createJobResponse
     :: Int -- ^ 'cjrsResponseStatus'
     -> CreateJobResponse
 createJobResponse pResponseStatus_ =
-    CreateJobResponse'
-    { _cjrsName = Nothing
-    , _cjrsResponseStatus = pResponseStatus_
-    }
+  CreateJobResponse'
+  {_cjrsName = Nothing, _cjrsResponseStatus = pResponseStatus_}
+
 
 -- | The unique name of the new job that has been created.
 cjrsName :: Lens' CreateJobResponse (Maybe Text)
@@ -221,4 +223,4 @@ cjrsName = lens _cjrsName (\ s a -> s{_cjrsName = a});
 cjrsResponseStatus :: Lens' CreateJobResponse Int
 cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
 
-instance NFData CreateJobResponse
+instance NFData CreateJobResponse where

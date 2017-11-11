@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
     , DeleteUserPoolClientResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to delete a user pool client.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteUserPoolClient' smart constructor.
 data DeleteUserPoolClient = DeleteUserPoolClient'
-    { _dupcUserPoolId :: !Text
-    , _dupcClientId   :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dupcUserPoolId :: {-# NOUNPACK #-}!Text
+  , _dupcClientId   :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserPoolClient' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ deleteUserPoolClient
     -> Text -- ^ 'dupcClientId'
     -> DeleteUserPoolClient
 deleteUserPoolClient pUserPoolId_ pClientId_ =
-    DeleteUserPoolClient'
-    { _dupcUserPoolId = pUserPoolId_
-    , _dupcClientId = _Sensitive # pClientId_
-    }
+  DeleteUserPoolClient'
+  {_dupcUserPoolId = pUserPoolId_, _dupcClientId = _Sensitive # pClientId_}
+
 
 -- | The user pool ID for the user pool where you want to delete the client.
 dupcUserPoolId :: Lens' DeleteUserPoolClient Text
@@ -83,9 +83,9 @@ instance AWSRequest DeleteUserPoolClient where
         request = postJSON cognitoIdentityProvider
         response = receiveNull DeleteUserPoolClientResponse'
 
-instance Hashable DeleteUserPoolClient
+instance Hashable DeleteUserPoolClient where
 
-instance NFData DeleteUserPoolClient
+instance NFData DeleteUserPoolClient where
 
 instance ToHeaders DeleteUserPoolClient where
         toHeaders
@@ -112,8 +112,9 @@ instance ToQuery DeleteUserPoolClient where
 
 -- | /See:/ 'deleteUserPoolClientResponse' smart constructor.
 data DeleteUserPoolClientResponse =
-    DeleteUserPoolClientResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteUserPoolClientResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserPoolClientResponse' with the minimum fields required to make a request.
 --
@@ -121,4 +122,5 @@ deleteUserPoolClientResponse
     :: DeleteUserPoolClientResponse
 deleteUserPoolClientResponse = DeleteUserPoolClientResponse'
 
-instance NFData DeleteUserPoolClientResponse
+
+instance NFData DeleteUserPoolClientResponse where

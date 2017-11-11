@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DeleteParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.DAX.DeleteParameterGroup
     , dpgrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteParameterGroup' smart constructor.
 newtype DeleteParameterGroup = DeleteParameterGroup'
-    { _dpgParameterGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgParameterGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteParameterGroup' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deleteParameterGroup
     :: Text -- ^ 'dpgParameterGroupName'
     -> DeleteParameterGroup
 deleteParameterGroup pParameterGroupName_ =
-    DeleteParameterGroup'
-    { _dpgParameterGroupName = pParameterGroupName_
-    }
+  DeleteParameterGroup' {_dpgParameterGroupName = pParameterGroupName_}
+
 
 -- | The name of the parameter group to delete.
 dpgParameterGroupName :: Lens' DeleteParameterGroup Text
@@ -76,9 +76,9 @@ instance AWSRequest DeleteParameterGroup where
                  DeleteParameterGroupResponse' <$>
                    (x .?> "DeletionMessage") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteParameterGroup
+instance Hashable DeleteParameterGroup where
 
-instance NFData DeleteParameterGroup
+instance NFData DeleteParameterGroup where
 
 instance ToHeaders DeleteParameterGroup where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery DeleteParameterGroup where
 
 -- | /See:/ 'deleteParameterGroupResponse' smart constructor.
 data DeleteParameterGroupResponse = DeleteParameterGroupResponse'
-    { _dpgrsDeletionMessage :: !(Maybe Text)
-    , _dpgrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgrsDeletionMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ deleteParameterGroupResponse
     :: Int -- ^ 'dpgrsResponseStatus'
     -> DeleteParameterGroupResponse
 deleteParameterGroupResponse pResponseStatus_ =
-    DeleteParameterGroupResponse'
-    { _dpgrsDeletionMessage = Nothing
-    , _dpgrsResponseStatus = pResponseStatus_
-    }
+  DeleteParameterGroupResponse'
+  {_dpgrsDeletionMessage = Nothing, _dpgrsResponseStatus = pResponseStatus_}
+
 
 -- | A user-specified message for this action (i.e., a reason for deleting the parameter group).
 dpgrsDeletionMessage :: Lens' DeleteParameterGroupResponse (Maybe Text)
@@ -132,4 +132,4 @@ dpgrsDeletionMessage = lens _dpgrsDeletionMessage (\ s a -> s{_dpgrsDeletionMess
 dpgrsResponseStatus :: Lens' DeleteParameterGroupResponse Int
 dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a});
 
-instance NFData DeleteParameterGroupResponse
+instance NFData DeleteParameterGroupResponse where

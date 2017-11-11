@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.WorkSpaces.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.WorkSpaces.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.WorkSpaces.Types.Sum
 
 -- | Contains information about the compute type of a WorkSpace bundle.
 --
@@ -27,8 +27,9 @@ import           Network.AWS.WorkSpaces.Types.Sum
 --
 -- /See:/ 'computeType' smart constructor.
 newtype ComputeType = ComputeType'
-    { _ctName :: Maybe Compute
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctName :: Maybe Compute
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComputeType' with the minimum fields required to make a request.
 --
@@ -37,10 +38,8 @@ newtype ComputeType = ComputeType'
 -- * 'ctName' - The name of the compute type for the bundle.
 computeType
     :: ComputeType
-computeType =
-    ComputeType'
-    { _ctName = Nothing
-    }
+computeType = ComputeType' {_ctName = Nothing}
+
 
 -- | The name of the compute type for the bundle.
 ctName :: Lens' ComputeType (Maybe Compute)
@@ -51,9 +50,9 @@ instance FromJSON ComputeType where
           = withObject "ComputeType"
               (\ x -> ComputeType' <$> (x .:? "Name"))
 
-instance Hashable ComputeType
+instance Hashable ComputeType where
 
-instance NFData ComputeType
+instance NFData ComputeType where
 
 -- | Contains default WorkSpace creation information.
 --
@@ -61,12 +60,13 @@ instance NFData ComputeType
 --
 -- /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
 data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
-    { _dwcpCustomSecurityGroupId           :: !(Maybe Text)
-    , _dwcpUserEnabledAsLocalAdministrator :: !(Maybe Bool)
-    , _dwcpEnableWorkDocs                  :: !(Maybe Bool)
-    , _dwcpEnableInternetAccess            :: !(Maybe Bool)
-    , _dwcpDefaultOu                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwcpCustomSecurityGroupId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwcpUserEnabledAsLocalAdministrator :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dwcpEnableWorkDocs                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dwcpEnableInternetAccess            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dwcpDefaultOu                       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefaultWorkspaceCreationProperties' with the minimum fields required to make a request.
 --
@@ -84,13 +84,14 @@ data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
 defaultWorkspaceCreationProperties
     :: DefaultWorkspaceCreationProperties
 defaultWorkspaceCreationProperties =
-    DefaultWorkspaceCreationProperties'
-    { _dwcpCustomSecurityGroupId = Nothing
-    , _dwcpUserEnabledAsLocalAdministrator = Nothing
-    , _dwcpEnableWorkDocs = Nothing
-    , _dwcpEnableInternetAccess = Nothing
-    , _dwcpDefaultOu = Nothing
-    }
+  DefaultWorkspaceCreationProperties'
+  { _dwcpCustomSecurityGroupId = Nothing
+  , _dwcpUserEnabledAsLocalAdministrator = Nothing
+  , _dwcpEnableWorkDocs = Nothing
+  , _dwcpEnableInternetAccess = Nothing
+  , _dwcpDefaultOu = Nothing
+  }
+
 
 -- | The identifier of any custom security groups that are applied to the WorkSpaces when they are created.
 dwcpCustomSecurityGroupId :: Lens' DefaultWorkspaceCreationProperties (Maybe Text)
@@ -125,8 +126,10 @@ instance FromJSON DefaultWorkspaceCreationProperties
                      <*> (x .:? "DefaultOu"))
 
 instance Hashable DefaultWorkspaceCreationProperties
+         where
 
 instance NFData DefaultWorkspaceCreationProperties
+         where
 
 -- | Contains information about a WorkSpace that could not be created.
 --
@@ -134,10 +137,11 @@ instance NFData DefaultWorkspaceCreationProperties
 --
 -- /See:/ 'failedCreateWorkspaceRequest' smart constructor.
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
-    { _fcwrWorkspaceRequest :: !(Maybe WorkspaceRequest)
-    , _fcwrErrorCode        :: !(Maybe Text)
-    , _fcwrErrorMessage     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fcwrWorkspaceRequest :: {-# NOUNPACK #-}!(Maybe WorkspaceRequest)
+  , _fcwrErrorCode        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fcwrErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailedCreateWorkspaceRequest' with the minimum fields required to make a request.
 --
@@ -151,11 +155,12 @@ data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
 failedCreateWorkspaceRequest
     :: FailedCreateWorkspaceRequest
 failedCreateWorkspaceRequest =
-    FailedCreateWorkspaceRequest'
-    { _fcwrWorkspaceRequest = Nothing
-    , _fcwrErrorCode = Nothing
-    , _fcwrErrorMessage = Nothing
-    }
+  FailedCreateWorkspaceRequest'
+  { _fcwrWorkspaceRequest = Nothing
+  , _fcwrErrorCode = Nothing
+  , _fcwrErrorMessage = Nothing
+  }
+
 
 -- | A 'FailedCreateWorkspaceRequest$WorkspaceRequest' object that contains the information about the WorkSpace that could not be created.
 fcwrWorkspaceRequest :: Lens' FailedCreateWorkspaceRequest (Maybe WorkspaceRequest)
@@ -177,9 +182,9 @@ instance FromJSON FailedCreateWorkspaceRequest where
                    (x .:? "WorkspaceRequest") <*> (x .:? "ErrorCode")
                      <*> (x .:? "ErrorMessage"))
 
-instance Hashable FailedCreateWorkspaceRequest
+instance Hashable FailedCreateWorkspaceRequest where
 
-instance NFData FailedCreateWorkspaceRequest
+instance NFData FailedCreateWorkspaceRequest where
 
 -- | Contains information about a WorkSpace that could not be rebooted ('RebootWorkspaces' ), rebuilt ('RebuildWorkspaces' ), terminated ('TerminateWorkspaces' ), started ('StartWorkspaces' ), or stopped ('StopWorkspaces' ).
 --
@@ -187,10 +192,11 @@ instance NFData FailedCreateWorkspaceRequest
 --
 -- /See:/ 'failedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
-    { _fwcrErrorCode    :: !(Maybe Text)
-    , _fwcrWorkspaceId  :: !(Maybe Text)
-    , _fwcrErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fwcrErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fwcrWorkspaceId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fwcrErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FailedWorkspaceChangeRequest' with the minimum fields required to make a request.
 --
@@ -204,11 +210,12 @@ data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
 failedWorkspaceChangeRequest
     :: FailedWorkspaceChangeRequest
 failedWorkspaceChangeRequest =
-    FailedWorkspaceChangeRequest'
-    { _fwcrErrorCode = Nothing
-    , _fwcrWorkspaceId = Nothing
-    , _fwcrErrorMessage = Nothing
-    }
+  FailedWorkspaceChangeRequest'
+  { _fwcrErrorCode = Nothing
+  , _fwcrWorkspaceId = Nothing
+  , _fwcrErrorMessage = Nothing
+  }
+
 
 -- | The error code.
 fwcrErrorCode :: Lens' FailedWorkspaceChangeRequest (Maybe Text)
@@ -230,9 +237,9 @@ instance FromJSON FailedWorkspaceChangeRequest where
                    (x .:? "ErrorCode") <*> (x .:? "WorkspaceId") <*>
                      (x .:? "ErrorMessage"))
 
-instance Hashable FailedWorkspaceChangeRequest
+instance Hashable FailedWorkspaceChangeRequest where
 
-instance NFData FailedWorkspaceChangeRequest
+instance NFData FailedWorkspaceChangeRequest where
 
 -- | Contains information used with the 'RebootWorkspaces' operation to reboot a WorkSpace.
 --
@@ -240,8 +247,9 @@ instance NFData FailedWorkspaceChangeRequest
 --
 -- /See:/ 'rebootRequest' smart constructor.
 newtype RebootRequest = RebootRequest'
-    { _rWorkspaceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rWorkspaceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebootRequest' with the minimum fields required to make a request.
 --
@@ -251,18 +259,16 @@ newtype RebootRequest = RebootRequest'
 rebootRequest
     :: Text -- ^ 'rWorkspaceId'
     -> RebootRequest
-rebootRequest pWorkspaceId_ =
-    RebootRequest'
-    { _rWorkspaceId = pWorkspaceId_
-    }
+rebootRequest pWorkspaceId_ = RebootRequest' {_rWorkspaceId = pWorkspaceId_}
+
 
 -- | The identifier of the WorkSpace to reboot.
 rWorkspaceId :: Lens' RebootRequest Text
 rWorkspaceId = lens _rWorkspaceId (\ s a -> s{_rWorkspaceId = a});
 
-instance Hashable RebootRequest
+instance Hashable RebootRequest where
 
-instance NFData RebootRequest
+instance NFData RebootRequest where
 
 instance ToJSON RebootRequest where
         toJSON RebootRequest'{..}
@@ -275,8 +281,9 @@ instance ToJSON RebootRequest where
 --
 -- /See:/ 'rebuildRequest' smart constructor.
 newtype RebuildRequest = RebuildRequest'
-    { _rrWorkspaceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrWorkspaceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebuildRequest' with the minimum fields required to make a request.
 --
@@ -286,18 +293,16 @@ newtype RebuildRequest = RebuildRequest'
 rebuildRequest
     :: Text -- ^ 'rrWorkspaceId'
     -> RebuildRequest
-rebuildRequest pWorkspaceId_ =
-    RebuildRequest'
-    { _rrWorkspaceId = pWorkspaceId_
-    }
+rebuildRequest pWorkspaceId_ = RebuildRequest' {_rrWorkspaceId = pWorkspaceId_}
+
 
 -- | The identifier of the WorkSpace to rebuild.
 rrWorkspaceId :: Lens' RebuildRequest Text
 rrWorkspaceId = lens _rrWorkspaceId (\ s a -> s{_rrWorkspaceId = a});
 
-instance Hashable RebuildRequest
+instance Hashable RebuildRequest where
 
-instance NFData RebuildRequest
+instance NFData RebuildRequest where
 
 instance ToJSON RebuildRequest where
         toJSON RebuildRequest'{..}
@@ -310,8 +315,9 @@ instance ToJSON RebuildRequest where
 --
 -- /See:/ 'startRequest' smart constructor.
 newtype StartRequest = StartRequest'
-    { _sWorkspaceId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sWorkspaceId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartRequest' with the minimum fields required to make a request.
 --
@@ -320,18 +326,16 @@ newtype StartRequest = StartRequest'
 -- * 'sWorkspaceId' - The ID of the WorkSpace.
 startRequest
     :: StartRequest
-startRequest =
-    StartRequest'
-    { _sWorkspaceId = Nothing
-    }
+startRequest = StartRequest' {_sWorkspaceId = Nothing}
+
 
 -- | The ID of the WorkSpace.
 sWorkspaceId :: Lens' StartRequest (Maybe Text)
 sWorkspaceId = lens _sWorkspaceId (\ s a -> s{_sWorkspaceId = a});
 
-instance Hashable StartRequest
+instance Hashable StartRequest where
 
-instance NFData StartRequest
+instance NFData StartRequest where
 
 instance ToJSON StartRequest where
         toJSON StartRequest'{..}
@@ -344,8 +348,9 @@ instance ToJSON StartRequest where
 --
 -- /See:/ 'stopRequest' smart constructor.
 newtype StopRequest = StopRequest'
-    { _srWorkspaceId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srWorkspaceId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopRequest' with the minimum fields required to make a request.
 --
@@ -354,18 +359,16 @@ newtype StopRequest = StopRequest'
 -- * 'srWorkspaceId' - The ID of the WorkSpace.
 stopRequest
     :: StopRequest
-stopRequest =
-    StopRequest'
-    { _srWorkspaceId = Nothing
-    }
+stopRequest = StopRequest' {_srWorkspaceId = Nothing}
+
 
 -- | The ID of the WorkSpace.
 srWorkspaceId :: Lens' StopRequest (Maybe Text)
 srWorkspaceId = lens _srWorkspaceId (\ s a -> s{_srWorkspaceId = a});
 
-instance Hashable StopRequest
+instance Hashable StopRequest where
 
-instance NFData StopRequest
+instance NFData StopRequest where
 
 instance ToJSON StopRequest where
         toJSON StopRequest'{..}
@@ -378,9 +381,10 @@ instance ToJSON StopRequest where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -392,11 +396,8 @@ data Tag = Tag'
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
-tag pKey_ =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = pKey_
-    }
+tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
+
 
 -- | The value of the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -411,9 +412,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -428,8 +429,9 @@ instance ToJSON Tag where
 --
 -- /See:/ 'terminateRequest' smart constructor.
 newtype TerminateRequest = TerminateRequest'
-    { _trWorkspaceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trWorkspaceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateRequest' with the minimum fields required to make a request.
 --
@@ -440,17 +442,16 @@ terminateRequest
     :: Text -- ^ 'trWorkspaceId'
     -> TerminateRequest
 terminateRequest pWorkspaceId_ =
-    TerminateRequest'
-    { _trWorkspaceId = pWorkspaceId_
-    }
+  TerminateRequest' {_trWorkspaceId = pWorkspaceId_}
+
 
 -- | The identifier of the WorkSpace to terminate.
 trWorkspaceId :: Lens' TerminateRequest Text
 trWorkspaceId = lens _trWorkspaceId (\ s a -> s{_trWorkspaceId = a});
 
-instance Hashable TerminateRequest
+instance Hashable TerminateRequest where
 
-instance NFData TerminateRequest
+instance NFData TerminateRequest where
 
 instance ToJSON TerminateRequest where
         toJSON TerminateRequest'{..}
@@ -463,8 +464,9 @@ instance ToJSON TerminateRequest where
 --
 -- /See:/ 'userStorage' smart constructor.
 newtype UserStorage = UserStorage'
-    { _usCapacity :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usCapacity :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserStorage' with the minimum fields required to make a request.
 --
@@ -473,10 +475,8 @@ newtype UserStorage = UserStorage'
 -- * 'usCapacity' - The amount of user storage for the bundle.
 userStorage
     :: UserStorage
-userStorage =
-    UserStorage'
-    { _usCapacity = Nothing
-    }
+userStorage = UserStorage' {_usCapacity = Nothing}
+
 
 -- | The amount of user storage for the bundle.
 usCapacity :: Lens' UserStorage (Maybe Text)
@@ -487,9 +487,9 @@ instance FromJSON UserStorage where
           = withObject "UserStorage"
               (\ x -> UserStorage' <$> (x .:? "Capacity"))
 
-instance Hashable UserStorage
+instance Hashable UserStorage where
 
-instance NFData UserStorage
+instance NFData UserStorage where
 
 -- | Contains information about a WorkSpace.
 --
@@ -497,21 +497,22 @@ instance NFData UserStorage
 --
 -- /See:/ 'workspace' smart constructor.
 data Workspace = Workspace'
-    { _wDirectoryId                 :: !(Maybe Text)
-    , _wState                       :: !(Maybe WorkspaceState)
-    , _wIPAddress                   :: !(Maybe Text)
-    , _wUserName                    :: !(Maybe Text)
-    , _wSubnetId                    :: !(Maybe Text)
-    , _wBundleId                    :: !(Maybe Text)
-    , _wWorkspaceProperties         :: !(Maybe WorkspaceProperties)
-    , _wRootVolumeEncryptionEnabled :: !(Maybe Bool)
-    , _wErrorCode                   :: !(Maybe Text)
-    , _wVolumeEncryptionKey         :: !(Maybe Text)
-    , _wComputerName                :: !(Maybe Text)
-    , _wWorkspaceId                 :: !(Maybe Text)
-    , _wUserVolumeEncryptionEnabled :: !(Maybe Bool)
-    , _wErrorMessage                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wState :: {-# NOUNPACK #-}!(Maybe WorkspaceState)
+  , _wIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wBundleId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wWorkspaceProperties :: {-# NOUNPACK #-}!(Maybe WorkspaceProperties)
+  , _wRootVolumeEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _wErrorCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wVolumeEncryptionKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wComputerName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wWorkspaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wUserVolumeEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _wErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Workspace' with the minimum fields required to make a request.
 --
@@ -547,22 +548,23 @@ data Workspace = Workspace'
 workspace
     :: Workspace
 workspace =
-    Workspace'
-    { _wDirectoryId = Nothing
-    , _wState = Nothing
-    , _wIPAddress = Nothing
-    , _wUserName = Nothing
-    , _wSubnetId = Nothing
-    , _wBundleId = Nothing
-    , _wWorkspaceProperties = Nothing
-    , _wRootVolumeEncryptionEnabled = Nothing
-    , _wErrorCode = Nothing
-    , _wVolumeEncryptionKey = Nothing
-    , _wComputerName = Nothing
-    , _wWorkspaceId = Nothing
-    , _wUserVolumeEncryptionEnabled = Nothing
-    , _wErrorMessage = Nothing
-    }
+  Workspace'
+  { _wDirectoryId = Nothing
+  , _wState = Nothing
+  , _wIPAddress = Nothing
+  , _wUserName = Nothing
+  , _wSubnetId = Nothing
+  , _wBundleId = Nothing
+  , _wWorkspaceProperties = Nothing
+  , _wRootVolumeEncryptionEnabled = Nothing
+  , _wErrorCode = Nothing
+  , _wVolumeEncryptionKey = Nothing
+  , _wComputerName = Nothing
+  , _wWorkspaceId = Nothing
+  , _wUserVolumeEncryptionEnabled = Nothing
+  , _wErrorMessage = Nothing
+  }
+
 
 -- | The identifier of the AWS Directory Service directory that the WorkSpace belongs to.
 wDirectoryId :: Lens' Workspace (Maybe Text)
@@ -639,9 +641,9 @@ instance FromJSON Workspace where
                      <*> (x .:? "UserVolumeEncryptionEnabled")
                      <*> (x .:? "ErrorMessage"))
 
-instance Hashable Workspace
+instance Hashable Workspace where
 
-instance NFData Workspace
+instance NFData Workspace where
 
 -- | Contains information about a WorkSpace bundle.
 --
@@ -649,13 +651,14 @@ instance NFData Workspace
 --
 -- /See:/ 'workspaceBundle' smart constructor.
 data WorkspaceBundle = WorkspaceBundle'
-    { _wbBundleId    :: !(Maybe Text)
-    , _wbOwner       :: !(Maybe Text)
-    , _wbName        :: !(Maybe Text)
-    , _wbComputeType :: !(Maybe ComputeType)
-    , _wbUserStorage :: !(Maybe UserStorage)
-    , _wbDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wbBundleId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wbOwner       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wbName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wbComputeType :: {-# NOUNPACK #-}!(Maybe ComputeType)
+  , _wbUserStorage :: {-# NOUNPACK #-}!(Maybe UserStorage)
+  , _wbDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceBundle' with the minimum fields required to make a request.
 --
@@ -675,14 +678,15 @@ data WorkspaceBundle = WorkspaceBundle'
 workspaceBundle
     :: WorkspaceBundle
 workspaceBundle =
-    WorkspaceBundle'
-    { _wbBundleId = Nothing
-    , _wbOwner = Nothing
-    , _wbName = Nothing
-    , _wbComputeType = Nothing
-    , _wbUserStorage = Nothing
-    , _wbDescription = Nothing
-    }
+  WorkspaceBundle'
+  { _wbBundleId = Nothing
+  , _wbOwner = Nothing
+  , _wbName = Nothing
+  , _wbComputeType = Nothing
+  , _wbUserStorage = Nothing
+  , _wbDescription = Nothing
+  }
+
 
 -- | The bundle identifier.
 wbBundleId :: Lens' WorkspaceBundle (Maybe Text)
@@ -719,9 +723,9 @@ instance FromJSON WorkspaceBundle where
                      <*> (x .:? "UserStorage")
                      <*> (x .:? "Description"))
 
-instance Hashable WorkspaceBundle
+instance Hashable WorkspaceBundle where
 
-instance NFData WorkspaceBundle
+instance NFData WorkspaceBundle where
 
 -- | Describes the connection status of a WorkSpace.
 --
@@ -729,11 +733,12 @@ instance NFData WorkspaceBundle
 --
 -- /See:/ 'workspaceConnectionStatus' smart constructor.
 data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
-    { _wcsLastKnownUserConnectionTimestamp :: !(Maybe POSIX)
-    , _wcsConnectionStateCheckTimestamp    :: !(Maybe POSIX)
-    , _wcsWorkspaceId                      :: !(Maybe Text)
-    , _wcsConnectionState                  :: !(Maybe ConnectionState)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wcsLastKnownUserConnectionTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _wcsConnectionStateCheckTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _wcsWorkspaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wcsConnectionState :: {-# NOUNPACK #-}!(Maybe ConnectionState)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceConnectionStatus' with the minimum fields required to make a request.
 --
@@ -749,12 +754,13 @@ data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
 workspaceConnectionStatus
     :: WorkspaceConnectionStatus
 workspaceConnectionStatus =
-    WorkspaceConnectionStatus'
-    { _wcsLastKnownUserConnectionTimestamp = Nothing
-    , _wcsConnectionStateCheckTimestamp = Nothing
-    , _wcsWorkspaceId = Nothing
-    , _wcsConnectionState = Nothing
-    }
+  WorkspaceConnectionStatus'
+  { _wcsLastKnownUserConnectionTimestamp = Nothing
+  , _wcsConnectionStateCheckTimestamp = Nothing
+  , _wcsWorkspaceId = Nothing
+  , _wcsConnectionState = Nothing
+  }
+
 
 -- | The timestamp of the last known user connection.
 wcsLastKnownUserConnectionTimestamp :: Lens' WorkspaceConnectionStatus (Maybe UTCTime)
@@ -782,9 +788,9 @@ instance FromJSON WorkspaceConnectionStatus where
                      <*> (x .:? "WorkspaceId")
                      <*> (x .:? "ConnectionState"))
 
-instance Hashable WorkspaceConnectionStatus
+instance Hashable WorkspaceConnectionStatus where
 
-instance NFData WorkspaceConnectionStatus
+instance NFData WorkspaceConnectionStatus where
 
 -- | Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.
 --
@@ -792,19 +798,20 @@ instance NFData WorkspaceConnectionStatus
 --
 -- /See:/ 'workspaceDirectory' smart constructor.
 data WorkspaceDirectory = WorkspaceDirectory'
-    { _wdRegistrationCode            :: !(Maybe Text)
-    , _wdIAMRoleId                   :: !(Maybe Text)
-    , _wdDirectoryId                 :: !(Maybe Text)
-    , _wdState                       :: !(Maybe WorkspaceDirectoryState)
-    , _wdCustomerUserName            :: !(Maybe Text)
-    , _wdSubnetIds                   :: !(Maybe [Text])
-    , _wdAlias                       :: !(Maybe Text)
-    , _wdWorkspaceSecurityGroupId    :: !(Maybe Text)
-    , _wdDirectoryType               :: !(Maybe WorkspaceDirectoryType)
-    , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
-    , _wdDNSIPAddresses              :: !(Maybe [Text])
-    , _wdDirectoryName               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wdRegistrationCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wdIAMRoleId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wdDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wdState :: {-# NOUNPACK #-}!(Maybe WorkspaceDirectoryState)
+  , _wdCustomerUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wdSubnetIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _wdAlias :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wdWorkspaceSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wdDirectoryType :: {-# NOUNPACK #-}!(Maybe WorkspaceDirectoryType)
+  , _wdWorkspaceCreationProperties :: {-# NOUNPACK #-}!(Maybe DefaultWorkspaceCreationProperties)
+  , _wdDNSIPAddresses :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _wdDirectoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceDirectory' with the minimum fields required to make a request.
 --
@@ -836,20 +843,21 @@ data WorkspaceDirectory = WorkspaceDirectory'
 workspaceDirectory
     :: WorkspaceDirectory
 workspaceDirectory =
-    WorkspaceDirectory'
-    { _wdRegistrationCode = Nothing
-    , _wdIAMRoleId = Nothing
-    , _wdDirectoryId = Nothing
-    , _wdState = Nothing
-    , _wdCustomerUserName = Nothing
-    , _wdSubnetIds = Nothing
-    , _wdAlias = Nothing
-    , _wdWorkspaceSecurityGroupId = Nothing
-    , _wdDirectoryType = Nothing
-    , _wdWorkspaceCreationProperties = Nothing
-    , _wdDNSIPAddresses = Nothing
-    , _wdDirectoryName = Nothing
-    }
+  WorkspaceDirectory'
+  { _wdRegistrationCode = Nothing
+  , _wdIAMRoleId = Nothing
+  , _wdDirectoryId = Nothing
+  , _wdState = Nothing
+  , _wdCustomerUserName = Nothing
+  , _wdSubnetIds = Nothing
+  , _wdAlias = Nothing
+  , _wdWorkspaceSecurityGroupId = Nothing
+  , _wdDirectoryType = Nothing
+  , _wdWorkspaceCreationProperties = Nothing
+  , _wdDNSIPAddresses = Nothing
+  , _wdDirectoryName = Nothing
+  }
+
 
 -- | The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 wdRegistrationCode :: Lens' WorkspaceDirectory (Maybe Text)
@@ -916,9 +924,9 @@ instance FromJSON WorkspaceDirectory where
                      <*> (x .:? "DnsIpAddresses" .!= mempty)
                      <*> (x .:? "DirectoryName"))
 
-instance Hashable WorkspaceDirectory
+instance Hashable WorkspaceDirectory where
 
-instance NFData WorkspaceDirectory
+instance NFData WorkspaceDirectory where
 
 -- | Describes the properties of a WorkSpace.
 --
@@ -926,9 +934,10 @@ instance NFData WorkspaceDirectory
 --
 -- /See:/ 'workspaceProperties' smart constructor.
 data WorkspaceProperties = WorkspaceProperties'
-    { _wpRunningMode                         :: !(Maybe RunningMode)
-    , _wpRunningModeAutoStopTimeoutInMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wpRunningMode :: {-# NOUNPACK #-}!(Maybe RunningMode)
+  , _wpRunningModeAutoStopTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceProperties' with the minimum fields required to make a request.
 --
@@ -940,10 +949,9 @@ data WorkspaceProperties = WorkspaceProperties'
 workspaceProperties
     :: WorkspaceProperties
 workspaceProperties =
-    WorkspaceProperties'
-    { _wpRunningMode = Nothing
-    , _wpRunningModeAutoStopTimeoutInMinutes = Nothing
-    }
+  WorkspaceProperties'
+  {_wpRunningMode = Nothing, _wpRunningModeAutoStopTimeoutInMinutes = Nothing}
+
 
 -- | The running mode of the WorkSpace. AlwaysOn WorkSpaces are billed monthly. AutoStop WorkSpaces are billed by the hour and stopped when no longer being used in order to save on costs.
 wpRunningMode :: Lens' WorkspaceProperties (Maybe RunningMode)
@@ -961,9 +969,9 @@ instance FromJSON WorkspaceProperties where
                    (x .:? "RunningMode") <*>
                      (x .:? "RunningModeAutoStopTimeoutInMinutes"))
 
-instance Hashable WorkspaceProperties
+instance Hashable WorkspaceProperties where
 
-instance NFData WorkspaceProperties
+instance NFData WorkspaceProperties where
 
 instance ToJSON WorkspaceProperties where
         toJSON WorkspaceProperties'{..}
@@ -979,15 +987,16 @@ instance ToJSON WorkspaceProperties where
 --
 -- /See:/ 'workspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
-    { _wrWorkspaceProperties         :: !(Maybe WorkspaceProperties)
-    , _wrRootVolumeEncryptionEnabled :: !(Maybe Bool)
-    , _wrVolumeEncryptionKey         :: !(Maybe Text)
-    , _wrUserVolumeEncryptionEnabled :: !(Maybe Bool)
-    , _wrTags                        :: !(Maybe [Tag])
-    , _wrDirectoryId                 :: !Text
-    , _wrUserName                    :: !Text
-    , _wrBundleId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wrWorkspaceProperties :: {-# NOUNPACK #-}!(Maybe WorkspaceProperties)
+  , _wrRootVolumeEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _wrVolumeEncryptionKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wrUserVolumeEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _wrTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _wrDirectoryId :: {-# NOUNPACK #-}!Text
+  , _wrUserName :: {-# NOUNPACK #-}!Text
+  , _wrBundleId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WorkspaceRequest' with the minimum fields required to make a request.
 --
@@ -1014,16 +1023,17 @@ workspaceRequest
     -> Text -- ^ 'wrBundleId'
     -> WorkspaceRequest
 workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
-    WorkspaceRequest'
-    { _wrWorkspaceProperties = Nothing
-    , _wrRootVolumeEncryptionEnabled = Nothing
-    , _wrVolumeEncryptionKey = Nothing
-    , _wrUserVolumeEncryptionEnabled = Nothing
-    , _wrTags = Nothing
-    , _wrDirectoryId = pDirectoryId_
-    , _wrUserName = pUserName_
-    , _wrBundleId = pBundleId_
-    }
+  WorkspaceRequest'
+  { _wrWorkspaceProperties = Nothing
+  , _wrRootVolumeEncryptionEnabled = Nothing
+  , _wrVolumeEncryptionKey = Nothing
+  , _wrUserVolumeEncryptionEnabled = Nothing
+  , _wrTags = Nothing
+  , _wrDirectoryId = pDirectoryId_
+  , _wrUserName = pUserName_
+  , _wrBundleId = pBundleId_
+  }
+
 
 -- | Undocumented member.
 wrWorkspaceProperties :: Lens' WorkspaceRequest (Maybe WorkspaceProperties)
@@ -1071,9 +1081,9 @@ instance FromJSON WorkspaceRequest where
                      <*> (x .: "UserName")
                      <*> (x .: "BundleId"))
 
-instance Hashable WorkspaceRequest
+instance Hashable WorkspaceRequest where
 
-instance NFData WorkspaceRequest
+instance NFData WorkspaceRequest where
 
 instance ToJSON WorkspaceRequest where
         toJSON WorkspaceRequest'{..}

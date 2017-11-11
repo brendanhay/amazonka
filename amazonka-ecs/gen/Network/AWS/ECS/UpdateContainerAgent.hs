@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateContainerAgent
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.ECS.UpdateContainerAgent
     , ucarsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateContainerAgent' smart constructor.
 data UpdateContainerAgent = UpdateContainerAgent'
-    { _ucaCluster           :: !(Maybe Text)
-    , _ucaContainerInstance :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucaCluster           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucaContainerInstance :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateContainerAgent' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ updateContainerAgent
     :: Text -- ^ 'ucaContainerInstance'
     -> UpdateContainerAgent
 updateContainerAgent pContainerInstance_ =
-    UpdateContainerAgent'
-    { _ucaCluster = Nothing
-    , _ucaContainerInstance = pContainerInstance_
-    }
+  UpdateContainerAgent'
+  {_ucaCluster = Nothing, _ucaContainerInstance = pContainerInstance_}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
 ucaCluster :: Lens' UpdateContainerAgent (Maybe Text)
@@ -87,9 +87,9 @@ instance AWSRequest UpdateContainerAgent where
                  UpdateContainerAgentResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateContainerAgent
+instance Hashable UpdateContainerAgent where
 
-instance NFData UpdateContainerAgent
+instance NFData UpdateContainerAgent where
 
 instance ToHeaders UpdateContainerAgent where
         toHeaders
@@ -116,9 +116,10 @@ instance ToQuery UpdateContainerAgent where
 
 -- | /See:/ 'updateContainerAgentResponse' smart constructor.
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
-    { _ucarsContainerInstance :: !(Maybe ContainerInstance)
-    , _ucarsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucarsContainerInstance :: {-# NOUNPACK #-}!(Maybe ContainerInstance)
+  , _ucarsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateContainerAgentResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ updateContainerAgentResponse
     :: Int -- ^ 'ucarsResponseStatus'
     -> UpdateContainerAgentResponse
 updateContainerAgentResponse pResponseStatus_ =
-    UpdateContainerAgentResponse'
-    { _ucarsContainerInstance = Nothing
-    , _ucarsResponseStatus = pResponseStatus_
-    }
+  UpdateContainerAgentResponse'
+  {_ucarsContainerInstance = Nothing, _ucarsResponseStatus = pResponseStatus_}
+
 
 -- | The container instance for which the container agent was updated.
 ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
@@ -144,4 +144,4 @@ ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContaine
 ucarsResponseStatus :: Lens' UpdateContainerAgentResponse Int
 ucarsResponseStatus = lens _ucarsResponseStatus (\ s a -> s{_ucarsResponseStatus = a});
 
-instance NFData UpdateContainerAgentResponse
+instance NFData UpdateContainerAgentResponse where

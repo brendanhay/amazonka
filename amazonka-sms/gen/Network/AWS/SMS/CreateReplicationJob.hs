@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.CreateReplicationJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,22 +40,23 @@ module Network.AWS.SMS.CreateReplicationJob
     , crjrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'createReplicationJob' smart constructor.
 data CreateReplicationJob = CreateReplicationJob'
-    { _crjLicenseType         :: !(Maybe LicenseType)
-    , _crjRoleName            :: !(Maybe Text)
-    , _crjDescription         :: !(Maybe Text)
-    , _crjServerId            :: !Text
-    , _crjSeedReplicationTime :: !POSIX
-    , _crjFrequency           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crjLicenseType         :: {-# NOUNPACK #-}!(Maybe LicenseType)
+  , _crjRoleName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crjDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crjServerId            :: {-# NOUNPACK #-}!Text
+  , _crjSeedReplicationTime :: {-# NOUNPACK #-}!POSIX
+  , _crjFrequency           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationJob' with the minimum fields required to make a request.
 --
@@ -78,14 +79,15 @@ createReplicationJob
     -> Int -- ^ 'crjFrequency'
     -> CreateReplicationJob
 createReplicationJob pServerId_ pSeedReplicationTime_ pFrequency_ =
-    CreateReplicationJob'
-    { _crjLicenseType = Nothing
-    , _crjRoleName = Nothing
-    , _crjDescription = Nothing
-    , _crjServerId = pServerId_
-    , _crjSeedReplicationTime = _Time # pSeedReplicationTime_
-    , _crjFrequency = pFrequency_
-    }
+  CreateReplicationJob'
+  { _crjLicenseType = Nothing
+  , _crjRoleName = Nothing
+  , _crjDescription = Nothing
+  , _crjServerId = pServerId_
+  , _crjSeedReplicationTime = _Time # pSeedReplicationTime_
+  , _crjFrequency = pFrequency_
+  }
+
 
 -- | Undocumented member.
 crjLicenseType :: Lens' CreateReplicationJob (Maybe LicenseType)
@@ -121,9 +123,9 @@ instance AWSRequest CreateReplicationJob where
                  CreateReplicationJobResponse' <$>
                    (x .?> "replicationJobId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateReplicationJob
+instance Hashable CreateReplicationJob where
 
-instance NFData CreateReplicationJob
+instance NFData CreateReplicationJob where
 
 instance ToHeaders CreateReplicationJob where
         toHeaders
@@ -155,9 +157,10 @@ instance ToQuery CreateReplicationJob where
 
 -- | /See:/ 'createReplicationJobResponse' smart constructor.
 data CreateReplicationJobResponse = CreateReplicationJobResponse'
-    { _crjrsReplicationJobId :: !(Maybe Text)
-    , _crjrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crjrsReplicationJobId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crjrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationJobResponse' with the minimum fields required to make a request.
 --
@@ -170,10 +173,9 @@ createReplicationJobResponse
     :: Int -- ^ 'crjrsResponseStatus'
     -> CreateReplicationJobResponse
 createReplicationJobResponse pResponseStatus_ =
-    CreateReplicationJobResponse'
-    { _crjrsReplicationJobId = Nothing
-    , _crjrsResponseStatus = pResponseStatus_
-    }
+  CreateReplicationJobResponse'
+  {_crjrsReplicationJobId = Nothing, _crjrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 crjrsReplicationJobId :: Lens' CreateReplicationJobResponse (Maybe Text)
@@ -183,4 +185,4 @@ crjrsReplicationJobId = lens _crjrsReplicationJobId (\ s a -> s{_crjrsReplicatio
 crjrsResponseStatus :: Lens' CreateReplicationJobResponse Int
 crjrsResponseStatus = lens _crjrsResponseStatus (\ s a -> s{_crjrsResponseStatus = a});
 
-instance NFData CreateReplicationJobResponse
+instance NFData CreateReplicationJobResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DisableRadius
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.DirectoryService.DisableRadius
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DisableRadius' operation.
 --
@@ -49,8 +49,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableRadius' smart constructor.
 newtype DisableRadius = DisableRadius'
-    { _drDirectoryId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drDirectoryId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableRadius' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype DisableRadius = DisableRadius'
 disableRadius
     :: Text -- ^ 'drDirectoryId'
     -> DisableRadius
-disableRadius pDirectoryId_ =
-    DisableRadius'
-    { _drDirectoryId = pDirectoryId_
-    }
+disableRadius pDirectoryId_ = DisableRadius' {_drDirectoryId = pDirectoryId_}
+
 
 -- | The identifier of the directory for which to disable MFA.
 drDirectoryId :: Lens' DisableRadius Text
@@ -77,9 +76,9 @@ instance AWSRequest DisableRadius where
               (\ s h x ->
                  DisableRadiusResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DisableRadius
+instance Hashable DisableRadius where
 
-instance NFData DisableRadius
+instance NFData DisableRadius where
 
 instance ToHeaders DisableRadius where
         toHeaders
@@ -108,8 +107,9 @@ instance ToQuery DisableRadius where
 --
 -- /See:/ 'disableRadiusResponse' smart constructor.
 newtype DisableRadiusResponse = DisableRadiusResponse'
-    { _drrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisableRadiusResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +120,11 @@ disableRadiusResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DisableRadiusResponse
 disableRadiusResponse pResponseStatus_ =
-    DisableRadiusResponse'
-    { _drrsResponseStatus = pResponseStatus_
-    }
+  DisableRadiusResponse' {_drrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DisableRadiusResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DisableRadiusResponse
+instance NFData DisableRadiusResponse where

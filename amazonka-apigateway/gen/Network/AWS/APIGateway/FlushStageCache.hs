@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.FlushStageCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.FlushStageCache
     , FlushStageCacheResponse
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Requests Amazon API Gateway to flush a stage's cache.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'flushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
-    { _fscRestAPIId :: !Text
-    , _fscStageName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fscRestAPIId :: {-# NOUNPACK #-}!Text
+  , _fscStageName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FlushStageCache' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ flushStageCache
     -> Text -- ^ 'fscStageName'
     -> FlushStageCache
 flushStageCache pRestAPIId_ pStageName_ =
-    FlushStageCache'
-    { _fscRestAPIId = pRestAPIId_
-    , _fscStageName = pStageName_
-    }
+  FlushStageCache' {_fscRestAPIId = pRestAPIId_, _fscStageName = pStageName_}
+
 
 -- | The string identifier of the associated 'RestApi' .
 fscRestAPIId :: Lens' FlushStageCache Text
@@ -82,9 +81,9 @@ instance AWSRequest FlushStageCache where
         request = delete apiGateway
         response = receiveNull FlushStageCacheResponse'
 
-instance Hashable FlushStageCache
+instance Hashable FlushStageCache where
 
-instance NFData FlushStageCache
+instance NFData FlushStageCache where
 
 instance ToHeaders FlushStageCache where
         toHeaders
@@ -103,8 +102,9 @@ instance ToQuery FlushStageCache where
 
 -- | /See:/ 'flushStageCacheResponse' smart constructor.
 data FlushStageCacheResponse =
-    FlushStageCacheResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  FlushStageCacheResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FlushStageCacheResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +112,5 @@ flushStageCacheResponse
     :: FlushStageCacheResponse
 flushStageCacheResponse = FlushStageCacheResponse'
 
-instance NFData FlushStageCacheResponse
+
+instance NFData FlushStageCacheResponse where

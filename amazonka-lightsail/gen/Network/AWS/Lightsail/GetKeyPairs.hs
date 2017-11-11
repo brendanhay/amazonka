@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetKeyPairs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Lightsail.GetKeyPairs
     , gkpsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getKeyPairs' smart constructor.
 newtype GetKeyPairs = GetKeyPairs'
-    { _gkpPageToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gkpPageToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetKeyPairs' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetKeyPairs = GetKeyPairs'
 -- * 'gkpPageToken' - A token used for advancing to the next page of results from your get key pairs request.
 getKeyPairs
     :: GetKeyPairs
-getKeyPairs =
-    GetKeyPairs'
-    { _gkpPageToken = Nothing
-    }
+getKeyPairs = GetKeyPairs' {_gkpPageToken = Nothing}
+
 
 -- | A token used for advancing to the next page of results from your get key pairs request.
 gkpPageToken :: Lens' GetKeyPairs (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest GetKeyPairs where
                      (x .?> "keyPairs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetKeyPairs
+instance Hashable GetKeyPairs where
 
-instance NFData GetKeyPairs
+instance NFData GetKeyPairs where
 
 instance ToHeaders GetKeyPairs where
         toHeaders
@@ -113,10 +112,11 @@ instance ToQuery GetKeyPairs where
 
 -- | /See:/ 'getKeyPairsResponse' smart constructor.
 data GetKeyPairsResponse = GetKeyPairsResponse'
-    { _gkpsrsNextPageToken  :: !(Maybe Text)
-    , _gkpsrsKeyPairs       :: !(Maybe [KeyPair])
-    , _gkpsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gkpsrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gkpsrsKeyPairs       :: {-# NOUNPACK #-}!(Maybe [KeyPair])
+  , _gkpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetKeyPairsResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +131,12 @@ getKeyPairsResponse
     :: Int -- ^ 'gkpsrsResponseStatus'
     -> GetKeyPairsResponse
 getKeyPairsResponse pResponseStatus_ =
-    GetKeyPairsResponse'
-    { _gkpsrsNextPageToken = Nothing
-    , _gkpsrsKeyPairs = Nothing
-    , _gkpsrsResponseStatus = pResponseStatus_
-    }
+  GetKeyPairsResponse'
+  { _gkpsrsNextPageToken = Nothing
+  , _gkpsrsKeyPairs = Nothing
+  , _gkpsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token used for advancing to the next page of results from your get key pairs request.
 gkpsrsNextPageToken :: Lens' GetKeyPairsResponse (Maybe Text)
@@ -149,4 +150,4 @@ gkpsrsKeyPairs = lens _gkpsrsKeyPairs (\ s a -> s{_gkpsrsKeyPairs = a}) . _Defau
 gkpsrsResponseStatus :: Lens' GetKeyPairsResponse Int
 gkpsrsResponseStatus = lens _gkpsrsResponseStatus (\ s a -> s{_gkpsrsResponseStatus = a});
 
-instance NFData GetKeyPairsResponse
+instance NFData GetKeyPairsResponse where

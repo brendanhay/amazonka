@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeEvaluations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,28 +50,29 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEvaluations' smart constructor.
 data DescribeEvaluations = DescribeEvaluations'
-    { _deEQ             :: !(Maybe Text)
-    , _deGE             :: !(Maybe Text)
-    , _dePrefix         :: !(Maybe Text)
-    , _deGT             :: !(Maybe Text)
-    , _deNE             :: !(Maybe Text)
-    , _deNextToken      :: !(Maybe Text)
-    , _deSortOrder      :: !(Maybe SortOrder)
-    , _deLimit          :: !(Maybe Nat)
-    , _deLT             :: !(Maybe Text)
-    , _deFilterVariable :: !(Maybe EvaluationFilterVariable)
-    , _deLE             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deEQ             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deGE             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dePrefix         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deGT             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deNE             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deSortOrder      :: {-# NOUNPACK #-}!(Maybe SortOrder)
+  , _deLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _deLT             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deFilterVariable :: {-# NOUNPACK #-}!(Maybe EvaluationFilterVariable)
+  , _deLE             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEvaluations' with the minimum fields required to make a request.
 --
@@ -101,19 +102,20 @@ data DescribeEvaluations = DescribeEvaluations'
 describeEvaluations
     :: DescribeEvaluations
 describeEvaluations =
-    DescribeEvaluations'
-    { _deEQ = Nothing
-    , _deGE = Nothing
-    , _dePrefix = Nothing
-    , _deGT = Nothing
-    , _deNE = Nothing
-    , _deNextToken = Nothing
-    , _deSortOrder = Nothing
-    , _deLimit = Nothing
-    , _deLT = Nothing
-    , _deFilterVariable = Nothing
-    , _deLE = Nothing
-    }
+  DescribeEvaluations'
+  { _deEQ = Nothing
+  , _deGE = Nothing
+  , _dePrefix = Nothing
+  , _deGT = Nothing
+  , _deNE = Nothing
+  , _deNextToken = Nothing
+  , _deSortOrder = Nothing
+  , _deLimit = Nothing
+  , _deLT = Nothing
+  , _deFilterVariable = Nothing
+  , _deLE = Nothing
+  }
+
 
 -- | The equal to operator. The @Evaluation@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
 deEQ :: Lens' DescribeEvaluations (Maybe Text)
@@ -177,9 +179,9 @@ instance AWSRequest DescribeEvaluations where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEvaluations
+instance Hashable DescribeEvaluations where
 
-instance NFData DescribeEvaluations
+instance NFData DescribeEvaluations where
 
 instance ToHeaders DescribeEvaluations where
         toHeaders
@@ -216,10 +218,11 @@ instance ToQuery DescribeEvaluations where
 --
 -- /See:/ 'describeEvaluationsResponse' smart constructor.
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
-    { _desrsResults        :: !(Maybe [Evaluation])
-    , _desrsNextToken      :: !(Maybe Text)
-    , _desrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsResults        :: {-# NOUNPACK #-}!(Maybe [Evaluation])
+  , _desrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEvaluationsResponse' with the minimum fields required to make a request.
 --
@@ -234,11 +237,12 @@ describeEvaluationsResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeEvaluationsResponse
 describeEvaluationsResponse pResponseStatus_ =
-    DescribeEvaluationsResponse'
-    { _desrsResults = Nothing
-    , _desrsNextToken = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeEvaluationsResponse'
+  { _desrsResults = Nothing
+  , _desrsNextToken = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of @Evaluation@ that meet the search criteria.
 desrsResults :: Lens' DescribeEvaluationsResponse [Evaluation]
@@ -252,4 +256,4 @@ desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 desrsResponseStatus :: Lens' DescribeEvaluationsResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeEvaluationsResponse
+instance NFData DescribeEvaluationsResponse where

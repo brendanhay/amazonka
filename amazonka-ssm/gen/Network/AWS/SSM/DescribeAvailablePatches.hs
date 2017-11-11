@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeAvailablePatches
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.SSM.DescribeAvailablePatches
     , daprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAvailablePatches' smart constructor.
 data DescribeAvailablePatches = DescribeAvailablePatches'
-    { _dapFilters    :: !(Maybe [PatchOrchestratorFilter])
-    , _dapNextToken  :: !(Maybe Text)
-    , _dapMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dapFilters    :: {-# NOUNPACK #-}!(Maybe [PatchOrchestratorFilter])
+  , _dapNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dapMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAvailablePatches' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
 describeAvailablePatches
     :: DescribeAvailablePatches
 describeAvailablePatches =
-    DescribeAvailablePatches'
-    { _dapFilters = Nothing
-    , _dapNextToken = Nothing
-    , _dapMaxResults = Nothing
-    }
+  DescribeAvailablePatches'
+  {_dapFilters = Nothing, _dapNextToken = Nothing, _dapMaxResults = Nothing}
+
 
 -- | Filters used to scope down the returned patches.
 dapFilters :: Lens' DescribeAvailablePatches [PatchOrchestratorFilter]
@@ -95,9 +94,9 @@ instance AWSRequest DescribeAvailablePatches where
                    (x .?> "Patches" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAvailablePatches
+instance Hashable DescribeAvailablePatches where
 
-instance NFData DescribeAvailablePatches
+instance NFData DescribeAvailablePatches where
 
 instance ToHeaders DescribeAvailablePatches where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery DescribeAvailablePatches where
 
 -- | /See:/ 'describeAvailablePatchesResponse' smart constructor.
 data DescribeAvailablePatchesResponse = DescribeAvailablePatchesResponse'
-    { _daprsPatches        :: !(Maybe [Patch])
-    , _daprsNextToken      :: !(Maybe Text)
-    , _daprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daprsPatches        :: {-# NOUNPACK #-}!(Maybe [Patch])
+  , _daprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAvailablePatchesResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ describeAvailablePatchesResponse
     :: Int -- ^ 'daprsResponseStatus'
     -> DescribeAvailablePatchesResponse
 describeAvailablePatchesResponse pResponseStatus_ =
-    DescribeAvailablePatchesResponse'
-    { _daprsPatches = Nothing
-    , _daprsNextToken = Nothing
-    , _daprsResponseStatus = pResponseStatus_
-    }
+  DescribeAvailablePatchesResponse'
+  { _daprsPatches = Nothing
+  , _daprsNextToken = Nothing
+  , _daprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of patches. Each entry in the array is a patch structure.
 daprsPatches :: Lens' DescribeAvailablePatchesResponse [Patch]
@@ -161,3 +162,4 @@ daprsResponseStatus :: Lens' DescribeAvailablePatchesResponse Int
 daprsResponseStatus = lens _daprsResponseStatus (\ s a -> s{_daprsResponseStatus = a});
 
 instance NFData DescribeAvailablePatchesResponse
+         where

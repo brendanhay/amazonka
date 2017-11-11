@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListDeviceDefinitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Greengrass.ListDeviceDefinitions
     , lddrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listDeviceDefinitions' smart constructor.
 data ListDeviceDefinitions = ListDeviceDefinitions'
-    { _lddNextToken  :: !(Maybe Text)
-    , _lddMaxResults :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lddNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lddMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeviceDefinitions' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ data ListDeviceDefinitions = ListDeviceDefinitions'
 listDeviceDefinitions
     :: ListDeviceDefinitions
 listDeviceDefinitions =
-    ListDeviceDefinitions'
-    { _lddNextToken = Nothing
-    , _lddMaxResults = Nothing
-    }
+  ListDeviceDefinitions' {_lddNextToken = Nothing, _lddMaxResults = Nothing}
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lddNextToken :: Lens' ListDeviceDefinitions (Maybe Text)
@@ -85,9 +84,9 @@ instance AWSRequest ListDeviceDefinitions where
                      (x .?> "Definitions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDeviceDefinitions
+instance Hashable ListDeviceDefinitions where
 
-instance NFData ListDeviceDefinitions
+instance NFData ListDeviceDefinitions where
 
 instance ToHeaders ListDeviceDefinitions where
         toHeaders
@@ -107,10 +106,11 @@ instance ToQuery ListDeviceDefinitions where
 
 -- | /See:/ 'listDeviceDefinitionsResponse' smart constructor.
 data ListDeviceDefinitionsResponse = ListDeviceDefinitionsResponse'
-    { _lddrsNextToken      :: !(Maybe Text)
-    , _lddrsDefinitions    :: !(Maybe [DefinitionInformation])
-    , _lddrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lddrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lddrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
+  , _lddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeviceDefinitionsResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +125,12 @@ listDeviceDefinitionsResponse
     :: Int -- ^ 'lddrsResponseStatus'
     -> ListDeviceDefinitionsResponse
 listDeviceDefinitionsResponse pResponseStatus_ =
-    ListDeviceDefinitionsResponse'
-    { _lddrsNextToken = Nothing
-    , _lddrsDefinitions = Nothing
-    , _lddrsResponseStatus = pResponseStatus_
-    }
+  ListDeviceDefinitionsResponse'
+  { _lddrsNextToken = Nothing
+  , _lddrsDefinitions = Nothing
+  , _lddrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 lddrsNextToken :: Lens' ListDeviceDefinitionsResponse (Maybe Text)
@@ -143,4 +144,4 @@ lddrsDefinitions = lens _lddrsDefinitions (\ s a -> s{_lddrsDefinitions = a}) . 
 lddrsResponseStatus :: Lens' ListDeviceDefinitionsResponse Int
 lddrsResponseStatus = lens _lddrsResponseStatus (\ s a -> s{_lddrsResponseStatus = a});
 
-instance NFData ListDeviceDefinitionsResponse
+instance NFData ListDeviceDefinitionsResponse where

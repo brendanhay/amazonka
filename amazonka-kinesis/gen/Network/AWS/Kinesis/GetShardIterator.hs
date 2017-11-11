@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.GetShardIterator
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.Kinesis.GetShardIterator
     , gsirsResponseStatus
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @GetShardIterator@ .
 --
@@ -66,12 +66,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getShardIterator' smart constructor.
 data GetShardIterator = GetShardIterator'
-    { _gsiStartingSequenceNumber :: !(Maybe Text)
-    , _gsiTimestamp              :: !(Maybe POSIX)
-    , _gsiStreamName             :: !Text
-    , _gsiShardId                :: !Text
-    , _gsiShardIteratorType      :: !ShardIteratorType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsiStartingSequenceNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsiTimestamp              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gsiStreamName             :: {-# NOUNPACK #-}!Text
+  , _gsiShardId                :: {-# NOUNPACK #-}!Text
+  , _gsiShardIteratorType      :: {-# NOUNPACK #-}!ShardIteratorType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetShardIterator' with the minimum fields required to make a request.
 --
@@ -92,13 +93,14 @@ getShardIterator
     -> ShardIteratorType -- ^ 'gsiShardIteratorType'
     -> GetShardIterator
 getShardIterator pStreamName_ pShardId_ pShardIteratorType_ =
-    GetShardIterator'
-    { _gsiStartingSequenceNumber = Nothing
-    , _gsiTimestamp = Nothing
-    , _gsiStreamName = pStreamName_
-    , _gsiShardId = pShardId_
-    , _gsiShardIteratorType = pShardIteratorType_
-    }
+  GetShardIterator'
+  { _gsiStartingSequenceNumber = Nothing
+  , _gsiTimestamp = Nothing
+  , _gsiStreamName = pStreamName_
+  , _gsiShardId = pShardId_
+  , _gsiShardIteratorType = pShardIteratorType_
+  }
+
 
 -- | The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.
 gsiStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
@@ -129,9 +131,9 @@ instance AWSRequest GetShardIterator where
                  GetShardIteratorResponse' <$>
                    (x .?> "ShardIterator") <*> (pure (fromEnum s)))
 
-instance Hashable GetShardIterator
+instance Hashable GetShardIterator where
 
-instance NFData GetShardIterator
+instance NFData GetShardIterator where
 
 instance ToHeaders GetShardIterator where
         toHeaders
@@ -165,9 +167,10 @@ instance ToQuery GetShardIterator where
 --
 -- /See:/ 'getShardIteratorResponse' smart constructor.
 data GetShardIteratorResponse = GetShardIteratorResponse'
-    { _gsirsShardIterator  :: !(Maybe Text)
-    , _gsirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsirsShardIterator  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetShardIteratorResponse' with the minimum fields required to make a request.
 --
@@ -180,10 +183,9 @@ getShardIteratorResponse
     :: Int -- ^ 'gsirsResponseStatus'
     -> GetShardIteratorResponse
 getShardIteratorResponse pResponseStatus_ =
-    GetShardIteratorResponse'
-    { _gsirsShardIterator = Nothing
-    , _gsirsResponseStatus = pResponseStatus_
-    }
+  GetShardIteratorResponse'
+  {_gsirsShardIterator = Nothing, _gsirsResponseStatus = pResponseStatus_}
+
 
 -- | The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.
 gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
@@ -193,4 +195,4 @@ gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = 
 gsirsResponseStatus :: Lens' GetShardIteratorResponse Int
 gsirsResponseStatus = lens _gsirsResponseStatus (\ s a -> s{_gsirsResponseStatus = a});
 
-instance NFData GetShardIteratorResponse
+instance NFData GetShardIteratorResponse where

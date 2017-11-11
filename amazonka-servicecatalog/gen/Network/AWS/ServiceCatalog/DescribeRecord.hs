@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeRecord
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.ServiceCatalog.DescribeRecord
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeRecord' smart constructor.
 data DescribeRecord = DescribeRecord'
-    { _drAcceptLanguage :: !(Maybe Text)
-    , _drPageToken      :: !(Maybe Text)
-    , _drPageSize       :: !(Maybe Nat)
-    , _drId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _drId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRecord' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ describeRecord
     :: Text -- ^ 'drId'
     -> DescribeRecord
 describeRecord pId_ =
-    DescribeRecord'
-    { _drAcceptLanguage = Nothing
-    , _drPageToken = Nothing
-    , _drPageSize = Nothing
-    , _drId = pId_
-    }
+  DescribeRecord'
+  { _drAcceptLanguage = Nothing
+  , _drPageToken = Nothing
+  , _drPageSize = Nothing
+  , _drId = pId_
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 drAcceptLanguage :: Lens' DescribeRecord (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest DescribeRecord where
                      <*> (x .?> "RecordOutputs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeRecord
+instance Hashable DescribeRecord where
 
-instance NFData DescribeRecord
+instance NFData DescribeRecord where
 
 instance ToHeaders DescribeRecord where
         toHeaders
@@ -137,11 +139,12 @@ instance ToQuery DescribeRecord where
 
 -- | /See:/ 'describeRecordResponse' smart constructor.
 data DescribeRecordResponse = DescribeRecordResponse'
-    { _drrsRecordDetail   :: !(Maybe RecordDetail)
-    , _drrsNextPageToken  :: !(Maybe Text)
-    , _drrsRecordOutputs  :: !(Maybe [RecordOutput])
-    , _drrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsRecordDetail   :: {-# NOUNPACK #-}!(Maybe RecordDetail)
+  , _drrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drrsRecordOutputs  :: {-# NOUNPACK #-}!(Maybe [RecordOutput])
+  , _drrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeRecordResponse' with the minimum fields required to make a request.
 --
@@ -158,12 +161,13 @@ describeRecordResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DescribeRecordResponse
 describeRecordResponse pResponseStatus_ =
-    DescribeRecordResponse'
-    { _drrsRecordDetail = Nothing
-    , _drrsNextPageToken = Nothing
-    , _drrsRecordOutputs = Nothing
-    , _drrsResponseStatus = pResponseStatus_
-    }
+  DescribeRecordResponse'
+  { _drrsRecordDetail = Nothing
+  , _drrsNextPageToken = Nothing
+  , _drrsRecordOutputs = Nothing
+  , _drrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Detailed record information for the specified product.
 drrsRecordDetail :: Lens' DescribeRecordResponse (Maybe RecordDetail)
@@ -181,4 +185,4 @@ drrsRecordOutputs = lens _drrsRecordOutputs (\ s a -> s{_drrsRecordOutputs = a})
 drrsResponseStatus :: Lens' DescribeRecordResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DescribeRecordResponse
+instance NFData DescribeRecordResponse where

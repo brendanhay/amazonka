@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteEmailChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.DeleteEmailChannel
     , decrsEmailChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteEmailChannel' smart constructor.
 newtype DeleteEmailChannel = DeleteEmailChannel'
-    { _decApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEmailChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ deleteEmailChannel
     :: Text -- ^ 'decApplicationId'
     -> DeleteEmailChannel
 deleteEmailChannel pApplicationId_ =
-    DeleteEmailChannel'
-    { _decApplicationId = pApplicationId_
-    }
+  DeleteEmailChannel' {_decApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 decApplicationId :: Lens' DeleteEmailChannel Text
@@ -74,9 +74,9 @@ instance AWSRequest DeleteEmailChannel where
                  DeleteEmailChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteEmailChannel
+instance Hashable DeleteEmailChannel where
 
-instance NFData DeleteEmailChannel
+instance NFData DeleteEmailChannel where
 
 instance ToHeaders DeleteEmailChannel where
         toHeaders
@@ -96,9 +96,10 @@ instance ToQuery DeleteEmailChannel where
 
 -- | /See:/ 'deleteEmailChannelResponse' smart constructor.
 data DeleteEmailChannelResponse = DeleteEmailChannelResponse'
-    { _decrsResponseStatus       :: !Int
-    , _decrsEmailChannelResponse :: !EmailChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  , _decrsEmailChannelResponse :: {-# NOUNPACK #-}!EmailChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEmailChannelResponse' with the minimum fields required to make a request.
 --
@@ -112,10 +113,11 @@ deleteEmailChannelResponse
     -> EmailChannelResponse -- ^ 'decrsEmailChannelResponse'
     -> DeleteEmailChannelResponse
 deleteEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
-    DeleteEmailChannelResponse'
-    { _decrsResponseStatus = pResponseStatus_
-    , _decrsEmailChannelResponse = pEmailChannelResponse_
-    }
+  DeleteEmailChannelResponse'
+  { _decrsResponseStatus = pResponseStatus_
+  , _decrsEmailChannelResponse = pEmailChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 decrsResponseStatus :: Lens' DeleteEmailChannelResponse Int
@@ -125,4 +127,4 @@ decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus
 decrsEmailChannelResponse :: Lens' DeleteEmailChannelResponse EmailChannelResponse
 decrsEmailChannelResponse = lens _decrsEmailChannelResponse (\ s a -> s{_decrsEmailChannelResponse = a});
 
-instance NFData DeleteEmailChannelResponse
+instance NFData DeleteEmailChannelResponse where

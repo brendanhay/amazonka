@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.AddTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EMR.AddTags
     , atrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This input identifies a cluster and a list of tags to attach.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
-    { _atResourceId :: !Text
-    , _atTags       :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atResourceId :: {-# NOUNPACK #-}!Text
+  , _atTags       :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
 --
@@ -64,11 +65,8 @@ data AddTags = AddTags'
 addTags
     :: Text -- ^ 'atResourceId'
     -> AddTags
-addTags pResourceId_ =
-    AddTags'
-    { _atResourceId = pResourceId_
-    , _atTags = mempty
-    }
+addTags pResourceId_ = AddTags' {_atResourceId = pResourceId_, _atTags = mempty}
+
 
 -- | The Amazon EMR resource identifier to which tags will be added. This value must be a cluster identifier.
 atResourceId :: Lens' AddTags Text
@@ -85,9 +83,9 @@ instance AWSRequest AddTags where
           = receiveEmpty
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AddTags
+instance Hashable AddTags where
 
-instance NFData AddTags
+instance NFData AddTags where
 
 instance ToHeaders AddTags where
         toHeaders
@@ -117,8 +115,9 @@ instance ToQuery AddTags where
 --
 -- /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-    { _atrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
@@ -129,12 +128,11 @@ addTagsResponse
     :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
 addTagsResponse pResponseStatus_ =
-    AddTagsResponse'
-    { _atrsResponseStatus = pResponseStatus_
-    }
+  AddTagsResponse' {_atrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
 
-instance NFData AddTagsResponse
+instance NFData AddTagsResponse where

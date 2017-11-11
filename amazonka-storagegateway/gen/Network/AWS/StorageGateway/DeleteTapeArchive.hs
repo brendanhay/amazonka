@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteTapeArchive
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.StorageGateway.DeleteTapeArchive
     , dtatrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DeleteTapeArchiveInput
 --
@@ -50,8 +50,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'deleteTapeArchive' smart constructor.
 newtype DeleteTapeArchive = DeleteTapeArchive'
-    { _dtaTapeARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtaTapeARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTapeArchive' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype DeleteTapeArchive = DeleteTapeArchive'
 deleteTapeArchive
     :: Text -- ^ 'dtaTapeARN'
     -> DeleteTapeArchive
-deleteTapeArchive pTapeARN_ =
-    DeleteTapeArchive'
-    { _dtaTapeARN = pTapeARN_
-    }
+deleteTapeArchive pTapeARN_ = DeleteTapeArchive' {_dtaTapeARN = pTapeARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf (VTS).
 dtaTapeARN :: Lens' DeleteTapeArchive Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteTapeArchive where
                  DeleteTapeArchiveResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteTapeArchive
+instance Hashable DeleteTapeArchive where
 
-instance NFData DeleteTapeArchive
+instance NFData DeleteTapeArchive where
 
 instance ToHeaders DeleteTapeArchive where
         toHeaders
@@ -110,9 +109,10 @@ instance ToQuery DeleteTapeArchive where
 --
 -- /See:/ 'deleteTapeArchiveResponse' smart constructor.
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
-    { _dtatrsTapeARN        :: !(Maybe Text)
-    , _dtatrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtatrsTapeARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtatrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTapeArchiveResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +125,9 @@ deleteTapeArchiveResponse
     :: Int -- ^ 'dtatrsResponseStatus'
     -> DeleteTapeArchiveResponse
 deleteTapeArchiveResponse pResponseStatus_ =
-    DeleteTapeArchiveResponse'
-    { _dtatrsTapeARN = Nothing
-    , _dtatrsResponseStatus = pResponseStatus_
-    }
+  DeleteTapeArchiveResponse'
+  {_dtatrsTapeARN = Nothing, _dtatrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual tape shelf (VTS).
 dtatrsTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
@@ -138,4 +137,4 @@ dtatrsTapeARN = lens _dtatrsTapeARN (\ s a -> s{_dtatrsTapeARN = a});
 dtatrsResponseStatus :: Lens' DeleteTapeArchiveResponse Int
 dtatrsResponseStatus = lens _dtatrsResponseStatus (\ s a -> s{_dtatrsResponseStatus = a});
 
-instance NFData DeleteTapeArchiveResponse
+instance NFData DeleteTapeArchiveResponse where

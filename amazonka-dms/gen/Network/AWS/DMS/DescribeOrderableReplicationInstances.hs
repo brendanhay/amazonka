@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeOrderableReplicationInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DMS.DescribeOrderableReplicationInstances
     , dorirsResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeOrderableReplicationInstances' smart constructor.
 data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstances'
-    { _doriMarker     :: !(Maybe Text)
-    , _doriMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doriMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _doriMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrderableReplicationInstances' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstanc
 describeOrderableReplicationInstances
     :: DescribeOrderableReplicationInstances
 describeOrderableReplicationInstances =
-    DescribeOrderableReplicationInstances'
-    { _doriMarker = Nothing
-    , _doriMaxRecords = Nothing
-    }
+  DescribeOrderableReplicationInstances'
+  {_doriMarker = Nothing, _doriMaxRecords = Nothing}
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 doriMarker :: Lens' DescribeOrderableReplicationInstances (Maybe Text)
@@ -80,7 +80,8 @@ doriMaxRecords :: Lens' DescribeOrderableReplicationInstances (Maybe Int)
 doriMaxRecords = lens _doriMaxRecords (\ s a -> s{_doriMaxRecords = a});
 
 instance AWSRequest
-         DescribeOrderableReplicationInstances where
+           DescribeOrderableReplicationInstances
+         where
         type Rs DescribeOrderableReplicationInstances =
              DescribeOrderableReplicationInstancesResponse
         request = postJSON dms
@@ -93,12 +94,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeOrderableReplicationInstances
+           DescribeOrderableReplicationInstances
+         where
 
 instance NFData DescribeOrderableReplicationInstances
+         where
 
 instance ToHeaders
-         DescribeOrderableReplicationInstances where
+           DescribeOrderableReplicationInstances
+         where
         toHeaders
           = const
               (mconcat
@@ -121,7 +125,8 @@ instance ToPath DescribeOrderableReplicationInstances
         toPath = const "/"
 
 instance ToQuery
-         DescribeOrderableReplicationInstances where
+           DescribeOrderableReplicationInstances
+         where
         toQuery = const mempty
 
 -- |
@@ -130,10 +135,11 @@ instance ToQuery
 --
 -- /See:/ 'describeOrderableReplicationInstancesResponse' smart constructor.
 data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicationInstancesResponse'
-    { _dorirsMarker                        :: !(Maybe Text)
-    , _dorirsOrderableReplicationInstances :: !(Maybe [OrderableReplicationInstance])
-    , _dorirsResponseStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dorirsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dorirsOrderableReplicationInstances :: {-# NOUNPACK #-}!(Maybe [OrderableReplicationInstance])
+  , _dorirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrderableReplicationInstancesResponse' with the minimum fields required to make a request.
 --
@@ -148,11 +154,12 @@ describeOrderableReplicationInstancesResponse
     :: Int -- ^ 'dorirsResponseStatus'
     -> DescribeOrderableReplicationInstancesResponse
 describeOrderableReplicationInstancesResponse pResponseStatus_ =
-    DescribeOrderableReplicationInstancesResponse'
-    { _dorirsMarker = Nothing
-    , _dorirsOrderableReplicationInstances = Nothing
-    , _dorirsResponseStatus = pResponseStatus_
-    }
+  DescribeOrderableReplicationInstancesResponse'
+  { _dorirsMarker = Nothing
+  , _dorirsOrderableReplicationInstances = Nothing
+  , _dorirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dorirsMarker :: Lens' DescribeOrderableReplicationInstancesResponse (Maybe Text)
@@ -167,4 +174,5 @@ dorirsResponseStatus :: Lens' DescribeOrderableReplicationInstancesResponse Int
 dorirsResponseStatus = lens _dorirsResponseStatus (\ s a -> s{_dorirsResponseStatus = a});
 
 instance NFData
-         DescribeOrderableReplicationInstancesResponse
+           DescribeOrderableReplicationInstancesResponse
+         where

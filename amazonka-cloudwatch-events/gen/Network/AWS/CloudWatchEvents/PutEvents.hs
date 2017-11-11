@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.PutEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.CloudWatchEvents.PutEvents
     , persResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putEvents' smart constructor.
 newtype PutEvents = PutEvents'
-    { _peEntries :: List1 PutEventsRequestEntry
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _peEntries :: List1 PutEventsRequestEntry
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEvents' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype PutEvents = PutEvents'
 putEvents
     :: NonEmpty PutEventsRequestEntry -- ^ 'peEntries'
     -> PutEvents
-putEvents pEntries_ =
-    PutEvents'
-    { _peEntries = _List1 # pEntries_
-    }
+putEvents pEntries_ = PutEvents' {_peEntries = _List1 # pEntries_}
+
 
 -- | The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
 peEntries :: Lens' PutEvents (NonEmpty PutEventsRequestEntry)
@@ -78,9 +77,9 @@ instance AWSRequest PutEvents where
                      (x .?> "Entries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutEvents
+instance Hashable PutEvents where
 
-instance NFData PutEvents
+instance NFData PutEvents where
 
 instance ToHeaders PutEvents where
         toHeaders
@@ -103,10 +102,11 @@ instance ToQuery PutEvents where
 
 -- | /See:/ 'putEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
-    { _persFailedEntryCount :: !(Maybe Int)
-    , _persEntries          :: !(Maybe [PutEventsResultEntry])
-    , _persResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _persFailedEntryCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _persEntries          :: {-# NOUNPACK #-}!(Maybe [PutEventsResultEntry])
+  , _persResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutEventsResponse' with the minimum fields required to make a request.
 --
@@ -121,11 +121,12 @@ putEventsResponse
     :: Int -- ^ 'persResponseStatus'
     -> PutEventsResponse
 putEventsResponse pResponseStatus_ =
-    PutEventsResponse'
-    { _persFailedEntryCount = Nothing
-    , _persEntries = Nothing
-    , _persResponseStatus = pResponseStatus_
-    }
+  PutEventsResponse'
+  { _persFailedEntryCount = Nothing
+  , _persEntries = Nothing
+  , _persResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of failed entries.
 persFailedEntryCount :: Lens' PutEventsResponse (Maybe Int)
@@ -139,4 +140,4 @@ persEntries = lens _persEntries (\ s a -> s{_persEntries = a}) . _Default . _Coe
 persResponseStatus :: Lens' PutEventsResponse Int
 persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
 
-instance NFData PutEventsResponse
+instance NFData PutEventsResponse where

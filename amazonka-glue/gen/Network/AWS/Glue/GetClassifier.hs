@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetClassifier
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.GetClassifier
     , gcrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getClassifier' smart constructor.
 newtype GetClassifier = GetClassifier'
-    { _getName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _getName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetClassifier' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetClassifier = GetClassifier'
 getClassifier
     :: Text -- ^ 'getName'
     -> GetClassifier
-getClassifier pName_ =
-    GetClassifier'
-    { _getName = pName_
-    }
+getClassifier pName_ = GetClassifier' {_getName = pName_}
+
 
 -- | Name of the @Classifier@ to retrieve.
 getName :: Lens' GetClassifier Text
@@ -75,9 +74,9 @@ instance AWSRequest GetClassifier where
                  GetClassifierResponse' <$>
                    (x .?> "Classifier") <*> (pure (fromEnum s)))
 
-instance Hashable GetClassifier
+instance Hashable GetClassifier where
 
-instance NFData GetClassifier
+instance NFData GetClassifier where
 
 instance ToHeaders GetClassifier where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery GetClassifier where
 
 -- | /See:/ 'getClassifierResponse' smart constructor.
 data GetClassifierResponse = GetClassifierResponse'
-    { _gcrsClassifier     :: !(Maybe Classifier)
-    , _gcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrsClassifier     :: {-# NOUNPACK #-}!(Maybe Classifier)
+  , _gcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetClassifierResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ getClassifierResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> GetClassifierResponse
 getClassifierResponse pResponseStatus_ =
-    GetClassifierResponse'
-    { _gcrsClassifier = Nothing
-    , _gcrsResponseStatus = pResponseStatus_
-    }
+  GetClassifierResponse'
+  {_gcrsClassifier = Nothing, _gcrsResponseStatus = pResponseStatus_}
+
 
 -- | The requested @Classifier@ .
 gcrsClassifier :: Lens' GetClassifierResponse (Maybe Classifier)
@@ -128,4 +127,4 @@ gcrsClassifier = lens _gcrsClassifier (\ s a -> s{_gcrsClassifier = a});
 gcrsResponseStatus :: Lens' GetClassifierResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 
-instance NFData GetClassifierResponse
+instance NFData GetClassifierResponse where

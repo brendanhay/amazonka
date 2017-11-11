@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,28 +47,29 @@ module Network.AWS.OpsWorks.UpdateInstance
     , UpdateInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateInstance' smart constructor.
 data UpdateInstance = UpdateInstance'
-    { _uiInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _uiHostname             :: !(Maybe Text)
-    , _uiSSHKeyName           :: !(Maybe Text)
-    , _uiAgentVersion         :: !(Maybe Text)
-    , _uiInstanceType         :: !(Maybe Text)
-    , _uiEBSOptimized         :: !(Maybe Bool)
-    , _uiOS                   :: !(Maybe Text)
-    , _uiAutoScalingType      :: !(Maybe AutoScalingType)
-    , _uiLayerIds             :: !(Maybe [Text])
-    , _uiArchitecture         :: !(Maybe Architecture)
-    , _uiAMIId                :: !(Maybe Text)
-    , _uiInstanceId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uiHostname             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiSSHKeyName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiAgentVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiInstanceType         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiEBSOptimized         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uiOS                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiAutoScalingType      :: {-# NOUNPACK #-}!(Maybe AutoScalingType)
+  , _uiLayerIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uiArchitecture         :: {-# NOUNPACK #-}!(Maybe Architecture)
+  , _uiAMIId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uiInstanceId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateInstance' with the minimum fields required to make a request.
 --
@@ -101,20 +102,21 @@ updateInstance
     :: Text -- ^ 'uiInstanceId'
     -> UpdateInstance
 updateInstance pInstanceId_ =
-    UpdateInstance'
-    { _uiInstallUpdatesOnBoot = Nothing
-    , _uiHostname = Nothing
-    , _uiSSHKeyName = Nothing
-    , _uiAgentVersion = Nothing
-    , _uiInstanceType = Nothing
-    , _uiEBSOptimized = Nothing
-    , _uiOS = Nothing
-    , _uiAutoScalingType = Nothing
-    , _uiLayerIds = Nothing
-    , _uiArchitecture = Nothing
-    , _uiAMIId = Nothing
-    , _uiInstanceId = pInstanceId_
-    }
+  UpdateInstance'
+  { _uiInstallUpdatesOnBoot = Nothing
+  , _uiHostname = Nothing
+  , _uiSSHKeyName = Nothing
+  , _uiAgentVersion = Nothing
+  , _uiInstanceType = Nothing
+  , _uiEBSOptimized = Nothing
+  , _uiOS = Nothing
+  , _uiAutoScalingType = Nothing
+  , _uiLayerIds = Nothing
+  , _uiArchitecture = Nothing
+  , _uiAMIId = Nothing
+  , _uiInstanceId = pInstanceId_
+  }
+
 
 -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 uiInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
@@ -169,9 +171,9 @@ instance AWSRequest UpdateInstance where
         request = postJSON opsWorks
         response = receiveNull UpdateInstanceResponse'
 
-instance Hashable UpdateInstance
+instance Hashable UpdateInstance where
 
-instance NFData UpdateInstance
+instance NFData UpdateInstance where
 
 instance ToHeaders UpdateInstance where
         toHeaders
@@ -208,8 +210,9 @@ instance ToQuery UpdateInstance where
 
 -- | /See:/ 'updateInstanceResponse' smart constructor.
 data UpdateInstanceResponse =
-    UpdateInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateInstanceResponse' with the minimum fields required to make a request.
 --
@@ -217,4 +220,5 @@ updateInstanceResponse
     :: UpdateInstanceResponse
 updateInstanceResponse = UpdateInstanceResponse'
 
-instance NFData UpdateInstanceResponse
+
+instance NFData UpdateInstanceResponse where

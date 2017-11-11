@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteTopicRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.IoT.DeleteTopicRule
     , DeleteTopicRuleResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the DeleteTopicRule operation.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteTopicRule' smart constructor.
 newtype DeleteTopicRule = DeleteTopicRule'
-    { _dRuleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dRuleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTopicRule' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteTopicRule = DeleteTopicRule'
 deleteTopicRule
     :: Text -- ^ 'dRuleName'
     -> DeleteTopicRule
-deleteTopicRule pRuleName_ =
-    DeleteTopicRule'
-    { _dRuleName = pRuleName_
-    }
+deleteTopicRule pRuleName_ = DeleteTopicRule' {_dRuleName = pRuleName_}
+
 
 -- | The name of the rule.
 dRuleName :: Lens' DeleteTopicRule Text
@@ -72,9 +71,9 @@ instance AWSRequest DeleteTopicRule where
         request = delete ioT
         response = receiveNull DeleteTopicRuleResponse'
 
-instance Hashable DeleteTopicRule
+instance Hashable DeleteTopicRule where
 
-instance NFData DeleteTopicRule
+instance NFData DeleteTopicRule where
 
 instance ToHeaders DeleteTopicRule where
         toHeaders = const mempty
@@ -88,8 +87,9 @@ instance ToQuery DeleteTopicRule where
 
 -- | /See:/ 'deleteTopicRuleResponse' smart constructor.
 data DeleteTopicRuleResponse =
-    DeleteTopicRuleResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteTopicRuleResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTopicRuleResponse' with the minimum fields required to make a request.
 --
@@ -97,4 +97,5 @@ deleteTopicRuleResponse
     :: DeleteTopicRuleResponse
 deleteTopicRuleResponse = DeleteTopicRuleResponse'
 
-instance NFData DeleteTopicRuleResponse
+
+instance NFData DeleteTopicRuleResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.RegisterJobDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.Batch.RegisterJobDefinition
     , rjdrsRevision
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerJobDefinition' smart constructor.
 data RegisterJobDefinition = RegisterJobDefinition'
-    { _rjdRetryStrategy       :: !(Maybe RetryStrategy)
-    , _rjdParameters          :: !(Maybe (Map Text Text))
-    , _rjdContainerProperties :: !(Maybe ContainerProperties)
-    , _rjdJobDefinitionName   :: !Text
-    , _rjdType                :: !JobDefinitionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjdRetryStrategy       :: {-# NOUNPACK #-}!(Maybe RetryStrategy)
+  , _rjdParameters          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _rjdContainerProperties :: {-# NOUNPACK #-}!(Maybe ContainerProperties)
+  , _rjdJobDefinitionName   :: {-# NOUNPACK #-}!Text
+  , _rjdType                :: {-# NOUNPACK #-}!JobDefinitionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterJobDefinition' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ registerJobDefinition
     -> JobDefinitionType -- ^ 'rjdType'
     -> RegisterJobDefinition
 registerJobDefinition pJobDefinitionName_ pType_ =
-    RegisterJobDefinition'
-    { _rjdRetryStrategy = Nothing
-    , _rjdParameters = Nothing
-    , _rjdContainerProperties = Nothing
-    , _rjdJobDefinitionName = pJobDefinitionName_
-    , _rjdType = pType_
-    }
+  RegisterJobDefinition'
+  { _rjdRetryStrategy = Nothing
+  , _rjdParameters = Nothing
+  , _rjdContainerProperties = Nothing
+  , _rjdJobDefinitionName = pJobDefinitionName_
+  , _rjdType = pType_
+  }
+
 
 -- | The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that is specified during a 'SubmitJob' operation overrides the retry strategy defined here.
 rjdRetryStrategy :: Lens' RegisterJobDefinition (Maybe RetryStrategy)
@@ -117,9 +119,9 @@ instance AWSRequest RegisterJobDefinition where
                      <*> (x .:> "jobDefinitionArn")
                      <*> (x .:> "revision"))
 
-instance Hashable RegisterJobDefinition
+instance Hashable RegisterJobDefinition where
 
-instance NFData RegisterJobDefinition
+instance NFData RegisterJobDefinition where
 
 instance ToHeaders RegisterJobDefinition where
         toHeaders
@@ -147,11 +149,12 @@ instance ToQuery RegisterJobDefinition where
 
 -- | /See:/ 'registerJobDefinitionResponse' smart constructor.
 data RegisterJobDefinitionResponse = RegisterJobDefinitionResponse'
-    { _rjdrsResponseStatus    :: !Int
-    , _rjdrsJobDefinitionName :: !Text
-    , _rjdrsJobDefinitionARN  :: !Text
-    , _rjdrsRevision          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjdrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _rjdrsJobDefinitionName :: {-# NOUNPACK #-}!Text
+  , _rjdrsJobDefinitionARN  :: {-# NOUNPACK #-}!Text
+  , _rjdrsRevision          :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterJobDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -171,12 +174,13 @@ registerJobDefinitionResponse
     -> Int -- ^ 'rjdrsRevision'
     -> RegisterJobDefinitionResponse
 registerJobDefinitionResponse pResponseStatus_ pJobDefinitionName_ pJobDefinitionARN_ pRevision_ =
-    RegisterJobDefinitionResponse'
-    { _rjdrsResponseStatus = pResponseStatus_
-    , _rjdrsJobDefinitionName = pJobDefinitionName_
-    , _rjdrsJobDefinitionARN = pJobDefinitionARN_
-    , _rjdrsRevision = pRevision_
-    }
+  RegisterJobDefinitionResponse'
+  { _rjdrsResponseStatus = pResponseStatus_
+  , _rjdrsJobDefinitionName = pJobDefinitionName_
+  , _rjdrsJobDefinitionARN = pJobDefinitionARN_
+  , _rjdrsRevision = pRevision_
+  }
+
 
 -- | -- | The response status code.
 rjdrsResponseStatus :: Lens' RegisterJobDefinitionResponse Int
@@ -194,4 +198,4 @@ rjdrsJobDefinitionARN = lens _rjdrsJobDefinitionARN (\ s a -> s{_rjdrsJobDefinit
 rjdrsRevision :: Lens' RegisterJobDefinitionResponse Int
 rjdrsRevision = lens _rjdrsRevision (\ s a -> s{_rjdrsRevision = a});
 
-instance NFData RegisterJobDefinitionResponse
+instance NFData RegisterJobDefinitionResponse where

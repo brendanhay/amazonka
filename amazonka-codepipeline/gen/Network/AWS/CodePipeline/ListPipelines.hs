@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.ListPipelines
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodePipeline.ListPipelines
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a list pipelines action.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listPipelines' smart constructor.
 newtype ListPipelines = ListPipelines'
-    { _lpNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype ListPipelines = ListPipelines'
 -- * 'lpNextToken' - An identifier that was returned from the previous list pipelines call, which can be used to return the next set of pipelines in the list.
 listPipelines
     :: ListPipelines
-listPipelines =
-    ListPipelines'
-    { _lpNextToken = Nothing
-    }
+listPipelines = ListPipelines' {_lpNextToken = Nothing}
+
 
 -- | An identifier that was returned from the previous list pipelines call, which can be used to return the next set of pipelines in the list.
 lpNextToken :: Lens' ListPipelines (Maybe Text)
@@ -81,9 +80,9 @@ instance AWSRequest ListPipelines where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPipelines
+instance Hashable ListPipelines where
 
-instance NFData ListPipelines
+instance NFData ListPipelines where
 
 instance ToHeaders ListPipelines where
         toHeaders
@@ -112,10 +111,11 @@ instance ToQuery ListPipelines where
 --
 -- /See:/ 'listPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprsPipelines      :: !(Maybe [PipelineSummary])
-    , _lprsNextToken      :: !(Maybe Text)
-    , _lprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsPipelines      :: {-# NOUNPACK #-}!(Maybe [PipelineSummary])
+  , _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
 --
@@ -130,11 +130,12 @@ listPipelinesResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPipelinesResponse
 listPipelinesResponse pResponseStatus_ =
-    ListPipelinesResponse'
-    { _lprsPipelines = Nothing
-    , _lprsNextToken = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPipelinesResponse'
+  { _lprsPipelines = Nothing
+  , _lprsNextToken = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of pipelines.
 lprsPipelines :: Lens' ListPipelinesResponse [PipelineSummary]
@@ -148,4 +149,4 @@ lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPipelinesResponse
+instance NFData ListPipelinesResponse where

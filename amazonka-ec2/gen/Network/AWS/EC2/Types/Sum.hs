@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.EC2.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.EC2.Types.Sum where
 
-import           Network.AWS.EC2.Internal
-import           Network.AWS.Prelude
+import Network.AWS.EC2.Internal
+import Network.AWS.Prelude
 
 data AccountAttributeName
-    = DefaultVPC
-    | SupportedPlatforms
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DefaultVPC
+  | SupportedPlatforms
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AccountAttributeName where
     parser = takeLowerText >>= \case
@@ -44,11 +45,12 @@ instance ToQuery      AccountAttributeName
 instance ToHeader     AccountAttributeName
 
 data ActivityStatus
-    = Error'
-    | Fulfilled
-    | PendingFulfillment
-    | PendingTermination
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Error'
+  | Fulfilled
+  | PendingFulfillment
+  | PendingTermination
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActivityStatus where
     parser = takeLowerText >>= \case
@@ -76,10 +78,11 @@ instance FromXML ActivityStatus where
     parseXML = parseXMLText "ActivityStatus"
 
 data AddressStatus
-    = InClassic
-    | InVPC
-    | MoveInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = InClassic
+  | InVPC
+  | MoveInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AddressStatus where
     parser = takeLowerText >>= \case
@@ -105,9 +108,10 @@ instance FromXML AddressStatus where
     parseXML = parseXMLText "AddressStatus"
 
 data Affinity
-    = ADefault
-    | AHost
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ADefault
+  | AHost
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Affinity where
     parser = takeLowerText >>= \case
@@ -128,12 +132,13 @@ instance ToQuery      Affinity
 instance ToHeader     Affinity
 
 data AllocationState
-    = ASAvailable
-    | ASPermanentFailure
-    | ASReleased
-    | ASReleasedPermanentFailure
-    | ASUnderAssessment
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ASAvailable
+  | ASPermanentFailure
+  | ASReleased
+  | ASReleasedPermanentFailure
+  | ASUnderAssessment
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AllocationState where
     parser = takeLowerText >>= \case
@@ -163,9 +168,10 @@ instance FromXML AllocationState where
     parseXML = parseXMLText "AllocationState"
 
 data AllocationStrategy
-    = Diversified
-    | LowestPrice
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Diversified
+  | LowestPrice
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AllocationStrategy where
     parser = takeLowerText >>= \case
@@ -189,9 +195,10 @@ instance FromXML AllocationStrategy where
     parseXML = parseXMLText "AllocationStrategy"
 
 data ArchitectureValues
-    = I386
-    | X86_64
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = I386
+  | X86_64
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ArchitectureValues where
     parser = takeLowerText >>= \case
@@ -215,13 +222,14 @@ instance FromXML ArchitectureValues where
     parseXML = parseXMLText "ArchitectureValues"
 
 data AttachmentStatus
-    = AAttached
-    | AAttaching
-    | AAvailable
-    | ABusy
-    | ADetached
-    | ADetaching
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AAttached
+  | AAttaching
+  | AAvailable
+  | ABusy
+  | ADetached
+  | ADetaching
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AttachmentStatus where
     parser = takeLowerText >>= \case
@@ -253,9 +261,10 @@ instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
 
 data AutoPlacement
-    = ON
-    | Off
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ON
+  | Off
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AutoPlacement where
     parser = takeLowerText >>= \case
@@ -279,11 +288,12 @@ instance FromXML AutoPlacement where
     parseXML = parseXMLText "AutoPlacement"
 
 data AvailabilityZoneState
-    = AZSAvailable
-    | AZSImpaired
-    | AZSInformation
-    | AZSUnavailable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AZSAvailable
+  | AZSImpaired
+  | AZSInformation
+  | AZSUnavailable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AvailabilityZoneState where
     parser = takeLowerText >>= \case
@@ -311,14 +321,15 @@ instance FromXML AvailabilityZoneState where
     parseXML = parseXMLText "AvailabilityZoneState"
 
 data BatchState
-    = BSActive
-    | BSCancelled
-    | BSCancelledRunning
-    | BSCancelledTerminating
-    | BSFailed
-    | BSModifying
-    | BSSubmitted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BSActive
+  | BSCancelled
+  | BSCancelledRunning
+  | BSCancelledTerminating
+  | BSFailed
+  | BSModifying
+  | BSSubmitted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BatchState where
     parser = takeLowerText >>= \case
@@ -352,14 +363,15 @@ instance FromXML BatchState where
     parseXML = parseXMLText "BatchState"
 
 data BundleTaskState
-    = BTSBundling
-    | BTSCancelling
-    | BTSComplete
-    | BTSFailed
-    | BTSPending
-    | BTSStoring
-    | BTSWaitingForShutdown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BTSBundling
+  | BTSCancelling
+  | BTSComplete
+  | BTSFailed
+  | BTSPending
+  | BTSStoring
+  | BTSWaitingForShutdown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BundleTaskState where
     parser = takeLowerText >>= \case
@@ -393,11 +405,12 @@ instance FromXML BundleTaskState where
     parseXML = parseXMLText "BundleTaskState"
 
 data CancelBatchErrorCode
-    = FleetRequestIdDoesNotExist
-    | FleetRequestIdMalformed
-    | FleetRequestNotInCancellableState
-    | UnexpectedError
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FleetRequestIdDoesNotExist
+  | FleetRequestIdMalformed
+  | FleetRequestNotInCancellableState
+  | UnexpectedError
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CancelBatchErrorCode where
     parser = takeLowerText >>= \case
@@ -425,12 +438,13 @@ instance FromXML CancelBatchErrorCode where
     parseXML = parseXMLText "CancelBatchErrorCode"
 
 data CancelSpotInstanceRequestState
-    = CSIRSActive
-    | CSIRSCancelled
-    | CSIRSClosed
-    | CSIRSCompleted
-    | CSIRSOpen
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSIRSActive
+  | CSIRSCancelled
+  | CSIRSClosed
+  | CSIRSCompleted
+  | CSIRSOpen
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CancelSpotInstanceRequestState where
     parser = takeLowerText >>= \case
@@ -460,8 +474,9 @@ instance FromXML CancelSpotInstanceRequestState where
     parseXML = parseXMLText "CancelSpotInstanceRequestState"
 
 data ContainerFormat =
-    Ova
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Ova
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ContainerFormat where
     parser = takeLowerText >>= \case
@@ -483,11 +498,12 @@ instance FromXML ContainerFormat where
     parseXML = parseXMLText "ContainerFormat"
 
 data ConversionTaskState
-    = CTSActive
-    | CTSCancelled
-    | CTSCancelling
-    | CTSCompleted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CTSActive
+  | CTSCancelled
+  | CTSCancelling
+  | CTSCompleted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConversionTaskState where
     parser = takeLowerText >>= \case
@@ -515,8 +531,9 @@ instance FromXML ConversionTaskState where
     parseXML = parseXMLText "ConversionTaskState"
 
 data CurrencyCodeValues =
-    Usd
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Usd
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CurrencyCodeValues where
     parser = takeLowerText >>= \case
@@ -538,9 +555,10 @@ instance FromXML CurrencyCodeValues where
     parseXML = parseXMLText "CurrencyCodeValues"
 
 data DatafeedSubscriptionState
-    = DSSActive
-    | DSSInactive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DSSActive
+  | DSSInactive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DatafeedSubscriptionState where
     parser = takeLowerText >>= \case
@@ -564,9 +582,10 @@ instance FromXML DatafeedSubscriptionState where
     parseXML = parseXMLText "DatafeedSubscriptionState"
 
 data DeviceType
-    = EBS
-    | InstanceStore
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EBS
+  | InstanceStore
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeviceType where
     parser = takeLowerText >>= \case
@@ -590,10 +609,11 @@ instance FromXML DeviceType where
     parseXML = parseXMLText "DeviceType"
 
 data DiskImageFormat
-    = Raw
-    | VHD
-    | VMDK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Raw
+  | VHD
+  | VMDK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DiskImageFormat where
     parser = takeLowerText >>= \case
@@ -619,9 +639,10 @@ instance FromXML DiskImageFormat where
     parseXML = parseXMLText "DiskImageFormat"
 
 data DomainType
-    = DTStandard
-    | DTVPC
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DTStandard
+  | DTVPC
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DomainType where
     parser = takeLowerText >>= \case
@@ -645,8 +666,9 @@ instance FromXML DomainType where
     parseXML = parseXMLText "DomainType"
 
 data ElasticGpuState =
-    Attached
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Attached
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ElasticGpuState where
     parser = takeLowerText >>= \case
@@ -668,9 +690,10 @@ instance FromXML ElasticGpuState where
     parseXML = parseXMLText "ElasticGpuState"
 
 data ElasticGpuStatus
-    = EGSImpaired
-    | EGSOK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EGSImpaired
+  | EGSOK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ElasticGpuStatus where
     parser = takeLowerText >>= \case
@@ -694,12 +717,13 @@ instance FromXML ElasticGpuStatus where
     parseXML = parseXMLText "ElasticGpuStatus"
 
 data EventCode
-    = InstanceReboot
-    | InstanceRetirement
-    | InstanceStop
-    | SystemMaintenance
-    | SystemReboot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = InstanceReboot
+  | InstanceRetirement
+  | InstanceStop
+  | SystemMaintenance
+  | SystemReboot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventCode where
     parser = takeLowerText >>= \case
@@ -729,10 +753,11 @@ instance FromXML EventCode where
     parseXML = parseXMLText "EventCode"
 
 data EventType
-    = ETError'
-    | ETFleetRequestChange
-    | ETInstanceChange
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ETError'
+  | ETFleetRequestChange
+  | ETInstanceChange
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
@@ -758,9 +783,10 @@ instance FromXML EventType where
     parseXML = parseXMLText "EventType"
 
 data ExcessCapacityTerminationPolicy
-    = ECTPDefault
-    | ECTPNoTermination
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ECTPDefault
+  | ECTPNoTermination
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExcessCapacityTerminationPolicy where
     parser = takeLowerText >>= \case
@@ -784,10 +810,11 @@ instance FromXML ExcessCapacityTerminationPolicy where
     parseXML = parseXMLText "ExcessCapacityTerminationPolicy"
 
 data ExportEnvironment
-    = Citrix
-    | Microsoft
-    | VMware
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Citrix
+  | Microsoft
+  | VMware
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExportEnvironment where
     parser = takeLowerText >>= \case
@@ -813,11 +840,12 @@ instance FromXML ExportEnvironment where
     parseXML = parseXMLText "ExportEnvironment"
 
 data ExportTaskState
-    = ETSActive
-    | ETSCancelled
-    | ETSCancelling
-    | ETSCompleted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ETSActive
+  | ETSCancelled
+  | ETSCancelling
+  | ETSCompleted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExportTaskState where
     parser = takeLowerText >>= \case
@@ -845,9 +873,10 @@ instance FromXML ExportTaskState where
     parseXML = parseXMLText "ExportTaskState"
 
 data FleetType
-    = FTMaintain
-    | FTRequest
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FTMaintain
+  | FTRequest
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FleetType where
     parser = takeLowerText >>= \case
@@ -871,10 +900,11 @@ instance FromXML FleetType where
     parseXML = parseXMLText "FleetType"
 
 data FlowLogsResourceType
-    = FLRTNetworkInterface
-    | FLRTSubnet
-    | FLRTVPC
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FLRTNetworkInterface
+  | FLRTSubnet
+  | FLRTVPC
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FlowLogsResourceType where
     parser = takeLowerText >>= \case
@@ -897,11 +927,12 @@ instance ToQuery      FlowLogsResourceType
 instance ToHeader     FlowLogsResourceType
 
 data FpgaImageStateCode
-    = FISCAvailable
-    | FISCFailed
-    | FISCPending
-    | FISCUnavailable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FISCAvailable
+  | FISCFailed
+  | FISCPending
+  | FISCUnavailable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FpgaImageStateCode where
     parser = takeLowerText >>= \case
@@ -929,8 +960,9 @@ instance FromXML FpgaImageStateCode where
     parseXML = parseXMLText "FpgaImageStateCode"
 
 data GatewayType =
-    IPsec_1
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  IPsec_1
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText GatewayType where
     parser = takeLowerText >>= \case
@@ -952,9 +984,10 @@ instance FromXML GatewayType where
     parseXML = parseXMLText "GatewayType"
 
 data HostTenancy
-    = HTDedicated
-    | HTHost
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HTDedicated
+  | HTHost
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HostTenancy where
     parser = takeLowerText >>= \case
@@ -975,9 +1008,10 @@ instance ToQuery      HostTenancy
 instance ToHeader     HostTenancy
 
 data HypervisorType
-    = Ovm
-    | Xen
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Ovm
+  | Xen
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HypervisorType where
     parser = takeLowerText >>= \case
@@ -1001,11 +1035,12 @@ instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
 
 data IAMInstanceProfileAssociationState
-    = Associated
-    | Associating
-    | Disassociated
-    | Disassociating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Associated
+  | Associating
+  | Disassociated
+  | Disassociating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IAMInstanceProfileAssociationState where
     parser = takeLowerText >>= \case
@@ -1033,14 +1068,15 @@ instance FromXML IAMInstanceProfileAssociationState where
     parseXML = parseXMLText "IAMInstanceProfileAssociationState"
 
 data ImageAttributeName
-    = BlockDeviceMapping
-    | Description
-    | Kernel
-    | LaunchPermission
-    | ProductCodes
-    | RAMDisk
-    | SRIOVNetSupport
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BlockDeviceMapping
+  | Description
+  | Kernel
+  | LaunchPermission
+  | ProductCodes
+  | RAMDisk
+  | SRIOVNetSupport
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ImageAttributeName where
     parser = takeLowerText >>= \case
@@ -1071,14 +1107,15 @@ instance ToQuery      ImageAttributeName
 instance ToHeader     ImageAttributeName
 
 data ImageState
-    = ISAvailable
-    | ISDeregistered
-    | ISError'
-    | ISFailed
-    | ISInvalid
-    | ISPending
-    | ISTransient
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISAvailable
+  | ISDeregistered
+  | ISError'
+  | ISFailed
+  | ISInvalid
+  | ISPending
+  | ISTransient
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ImageState where
     parser = takeLowerText >>= \case
@@ -1112,10 +1149,11 @@ instance FromXML ImageState where
     parseXML = parseXMLText "ImageState"
 
 data ImageTypeValues
-    = ITVKernel
-    | ITVMachine
-    | ITVRAMDisk
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ITVKernel
+  | ITVMachine
+  | ITVRAMDisk
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ImageTypeValues where
     parser = takeLowerText >>= \case
@@ -1141,21 +1179,22 @@ instance FromXML ImageTypeValues where
     parseXML = parseXMLText "ImageTypeValues"
 
 data InstanceAttributeName
-    = IANBlockDeviceMapping
-    | IANDisableAPITermination
-    | IANEBSOptimized
-    | IANEnaSupport
-    | IANGroupSet
-    | IANInstanceInitiatedShutdownBehavior
-    | IANInstanceType
-    | IANKernel
-    | IANProductCodes
-    | IANRAMDisk
-    | IANRootDeviceName
-    | IANSRIOVNetSupport
-    | IANSourceDestCheck
-    | IANUserData
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = IANBlockDeviceMapping
+  | IANDisableAPITermination
+  | IANEBSOptimized
+  | IANEnaSupport
+  | IANGroupSet
+  | IANInstanceInitiatedShutdownBehavior
+  | IANInstanceType
+  | IANKernel
+  | IANProductCodes
+  | IANRAMDisk
+  | IANRootDeviceName
+  | IANSRIOVNetSupport
+  | IANSourceDestCheck
+  | IANUserData
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceAttributeName where
     parser = takeLowerText >>= \case
@@ -1200,9 +1239,10 @@ instance ToQuery      InstanceAttributeName
 instance ToHeader     InstanceAttributeName
 
 data InstanceHealthStatus
-    = Healthy
-    | Unhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Healthy
+  | Unhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceHealthStatus where
     parser = takeLowerText >>= \case
@@ -1226,9 +1266,10 @@ instance FromXML InstanceHealthStatus where
     parseXML = parseXMLText "InstanceHealthStatus"
 
 data InstanceLifecycleType
-    = Scheduled
-    | Spot
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Scheduled
+  | Spot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceLifecycleType where
     parser = takeLowerText >>= \case
@@ -1252,13 +1293,14 @@ instance FromXML InstanceLifecycleType where
     parseXML = parseXMLText "InstanceLifecycleType"
 
 data InstanceStateName
-    = ISNPending
-    | ISNRunning
-    | ISNShuttingDown
-    | ISNStopped
-    | ISNStopping
-    | ISNTerminated
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ISNPending
+  | ISNRunning
+  | ISNShuttingDown
+  | ISNStopped
+  | ISNStopping
+  | ISNTerminated
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceStateName where
     parser = takeLowerText >>= \case
@@ -1290,87 +1332,88 @@ instance FromXML InstanceStateName where
     parseXML = parseXMLText "InstanceStateName"
 
 data InstanceType
-    = C1_Medium
-    | C1_XLarge
-    | C3_2XLarge
-    | C3_4XLarge
-    | C3_8XLarge
-    | C3_Large
-    | C3_XLarge
-    | C4_2XLarge
-    | C4_4XLarge
-    | C4_8XLarge
-    | C4_Large
-    | C4_XLarge
-    | CC1_4XLarge
-    | CC2_8XLarge
-    | CG1_4XLarge
-    | CR1_8XLarge
-    | D2_2XLarge
-    | D2_4XLarge
-    | D2_8XLarge
-    | D2_XLarge
-    | F1_16XLarge
-    | F1_2XLarge
-    | G2_2XLarge
-    | G2_8XLarge
-    | G3_16XLarge
-    | G3_4XLarge
-    | G3_8XLarge
-    | HI1_4XLarge
-    | HS1_8XLarge
-    | I2_2XLarge
-    | I2_4XLarge
-    | I2_8XLarge
-    | I2_XLarge
-    | I3_16XLarge
-    | I3_2XLarge
-    | I3_4XLarge
-    | I3_8XLarge
-    | I3_Large
-    | I3_XLarge
-    | M1_Large
-    | M1_Medium
-    | M1_Small
-    | M1_XLarge
-    | M2_2XLarge
-    | M2_4XLarge
-    | M2_XLarge
-    | M3_2XLarge
-    | M3_Large
-    | M3_Medium
-    | M3_XLarge
-    | M4_10XLarge
-    | M4_16XLarge
-    | M4_2XLarge
-    | M4_4XLarge
-    | M4_Large
-    | M4_XLarge
-    | P2_16XLarge
-    | P2_8XLarge
-    | P2_XLarge
-    | R3_2XLarge
-    | R3_4XLarge
-    | R3_8XLarge
-    | R3_Large
-    | R3_XLarge
-    | R4_16XLarge
-    | R4_2XLarge
-    | R4_4XLarge
-    | R4_8XLarge
-    | R4_Large
-    | R4_XLarge
-    | T1_Micro
-    | T2_2XLarge
-    | T2_Large
-    | T2_Medium
-    | T2_Micro
-    | T2_Nano
-    | T2_Small
-    | T2_XLarge
-    | X1_16XLarge
-    | X1_32XLarge
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = C1_Medium
+  | C1_XLarge
+  | C3_2XLarge
+  | C3_4XLarge
+  | C3_8XLarge
+  | C3_Large
+  | C3_XLarge
+  | C4_2XLarge
+  | C4_4XLarge
+  | C4_8XLarge
+  | C4_Large
+  | C4_XLarge
+  | CC1_4XLarge
+  | CC2_8XLarge
+  | CG1_4XLarge
+  | CR1_8XLarge
+  | D2_2XLarge
+  | D2_4XLarge
+  | D2_8XLarge
+  | D2_XLarge
+  | F1_16XLarge
+  | F1_2XLarge
+  | G2_2XLarge
+  | G2_8XLarge
+  | G3_16XLarge
+  | G3_4XLarge
+  | G3_8XLarge
+  | HI1_4XLarge
+  | HS1_8XLarge
+  | I2_2XLarge
+  | I2_4XLarge
+  | I2_8XLarge
+  | I2_XLarge
+  | I3_16XLarge
+  | I3_2XLarge
+  | I3_4XLarge
+  | I3_8XLarge
+  | I3_Large
+  | I3_XLarge
+  | M1_Large
+  | M1_Medium
+  | M1_Small
+  | M1_XLarge
+  | M2_2XLarge
+  | M2_4XLarge
+  | M2_XLarge
+  | M3_2XLarge
+  | M3_Large
+  | M3_Medium
+  | M3_XLarge
+  | M4_10XLarge
+  | M4_16XLarge
+  | M4_2XLarge
+  | M4_4XLarge
+  | M4_Large
+  | M4_XLarge
+  | P2_16XLarge
+  | P2_8XLarge
+  | P2_XLarge
+  | R3_2XLarge
+  | R3_4XLarge
+  | R3_8XLarge
+  | R3_Large
+  | R3_XLarge
+  | R4_16XLarge
+  | R4_2XLarge
+  | R4_4XLarge
+  | R4_8XLarge
+  | R4_Large
+  | R4_XLarge
+  | T1_Micro
+  | T2_2XLarge
+  | T2_Large
+  | T2_Medium
+  | T2_Micro
+  | T2_Nano
+  | T2_Small
+  | T2_XLarge
+  | X1_16XLarge
+  | X1_32XLarge
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InstanceType where
     parser = takeLowerText >>= \case
@@ -1550,9 +1593,10 @@ instance FromXML InstanceType where
     parseXML = parseXMLText "InstanceType"
 
 data InterfacePermissionType
-    = EIPAssociate
-    | InstanceAttach
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EIPAssociate
+  | InstanceAttach
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InterfacePermissionType where
     parser = takeLowerText >>= \case
@@ -1576,11 +1620,12 @@ instance FromXML InterfacePermissionType where
     parseXML = parseXMLText "InterfacePermissionType"
 
 data ListingState
-    = LAvailable
-    | LCancelled
-    | LPending
-    | LSold
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LAvailable
+  | LCancelled
+  | LPending
+  | LSold
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ListingState where
     parser = takeLowerText >>= \case
@@ -1608,11 +1653,12 @@ instance FromXML ListingState where
     parseXML = parseXMLText "ListingState"
 
 data ListingStatus
-    = LSActive
-    | LSCancelled
-    | LSClosed
-    | LSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = LSActive
+  | LSCancelled
+  | LSClosed
+  | LSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ListingStatus where
     parser = takeLowerText >>= \case
@@ -1640,11 +1686,12 @@ instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
 
 data MonitoringState
-    = MSDisabled
-    | MSDisabling
-    | MSEnabled
-    | MSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = MSDisabled
+  | MSDisabling
+  | MSEnabled
+  | MSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MonitoringState where
     parser = takeLowerText >>= \case
@@ -1672,9 +1719,10 @@ instance FromXML MonitoringState where
     parseXML = parseXMLText "MonitoringState"
 
 data MoveStatus
-    = MovingToVPC
-    | RestoringToClassic
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = MovingToVPC
+  | RestoringToClassic
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MoveStatus where
     parser = takeLowerText >>= \case
@@ -1698,12 +1746,13 @@ instance FromXML MoveStatus where
     parseXML = parseXMLText "MoveStatus"
 
 data NatGatewayState
-    = NGSAvailable
-    | NGSDeleted
-    | NGSDeleting
-    | NGSFailed
-    | NGSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NGSAvailable
+  | NGSDeleted
+  | NGSDeleting
+  | NGSFailed
+  | NGSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NatGatewayState where
     parser = takeLowerText >>= \case
@@ -1733,11 +1782,12 @@ instance FromXML NatGatewayState where
     parseXML = parseXMLText "NatGatewayState"
 
 data NetworkInterfaceAttribute
-    = NIAAttachment
-    | NIADescription
-    | NIAGroupSet
-    | NIASourceDestCheck
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NIAAttachment
+  | NIADescription
+  | NIAGroupSet
+  | NIASourceDestCheck
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NetworkInterfaceAttribute where
     parser = takeLowerText >>= \case
@@ -1762,11 +1812,12 @@ instance ToQuery      NetworkInterfaceAttribute
 instance ToHeader     NetworkInterfaceAttribute
 
 data NetworkInterfacePermissionStateCode
-    = NIPSCGranted
-    | NIPSCPending
-    | NIPSCRevoked
-    | NIPSCRevoking
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NIPSCGranted
+  | NIPSCPending
+  | NIPSCRevoked
+  | NIPSCRevoking
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NetworkInterfacePermissionStateCode where
     parser = takeLowerText >>= \case
@@ -1794,11 +1845,12 @@ instance FromXML NetworkInterfacePermissionStateCode where
     parseXML = parseXMLText "NetworkInterfacePermissionStateCode"
 
 data NetworkInterfaceStatus
-    = NISAttaching
-    | NISAvailable
-    | NISDetaching
-    | NISInUse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NISAttaching
+  | NISAvailable
+  | NISDetaching
+  | NISInUse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NetworkInterfaceStatus where
     parser = takeLowerText >>= \case
@@ -1826,9 +1878,10 @@ instance FromXML NetworkInterfaceStatus where
     parseXML = parseXMLText "NetworkInterfaceStatus"
 
 data NetworkInterfaceType
-    = Interface
-    | NatGateway
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Interface
+  | NatGateway
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText NetworkInterfaceType where
     parser = takeLowerText >>= \case
@@ -1852,9 +1905,10 @@ instance FromXML NetworkInterfaceType where
     parseXML = parseXMLText "NetworkInterfaceType"
 
 data OfferingClassType
-    = OCTConvertible
-    | OCTStandard
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = OCTConvertible
+  | OCTStandard
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OfferingClassType where
     parser = takeLowerText >>= \case
@@ -1878,13 +1932,14 @@ instance FromXML OfferingClassType where
     parseXML = parseXMLText "OfferingClassType"
 
 data OfferingTypeValues
-    = AllUpfront
-    | HeavyUtilization
-    | LightUtilization
-    | MediumUtilization
-    | NoUpfront
-    | PartialUpfront
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AllUpfront
+  | HeavyUtilization
+  | LightUtilization
+  | MediumUtilization
+  | NoUpfront
+  | PartialUpfront
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OfferingTypeValues where
     parser = takeLowerText >>= \case
@@ -1916,9 +1971,10 @@ instance FromXML OfferingTypeValues where
     parseXML = parseXMLText "OfferingTypeValues"
 
 data OperationType
-    = Add
-    | Remove
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Add
+  | Remove
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
@@ -1939,10 +1995,11 @@ instance ToQuery      OperationType
 instance ToHeader     OperationType
 
 data PaymentOption
-    = POAllUpfront
-    | PONoUpfront
-    | POPartialUpfront
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = POAllUpfront
+  | PONoUpfront
+  | POPartialUpfront
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PaymentOption where
     parser = takeLowerText >>= \case
@@ -1968,8 +2025,9 @@ instance FromXML PaymentOption where
     parseXML = parseXMLText "PaymentOption"
 
 data PermissionGroup =
-    All
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  All
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PermissionGroup where
     parser = takeLowerText >>= \case
@@ -1991,11 +2049,12 @@ instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
 
 data PlacementGroupState
-    = Available
-    | Deleted
-    | Deleting
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | Deleted
+  | Deleting
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PlacementGroupState where
     parser = takeLowerText >>= \case
@@ -2023,8 +2082,9 @@ instance FromXML PlacementGroupState where
     parseXML = parseXMLText "PlacementGroupState"
 
 data PlacementStrategy =
-    Cluster
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Cluster
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PlacementStrategy where
     parser = takeLowerText >>= \case
@@ -2046,8 +2106,9 @@ instance FromXML PlacementStrategy where
     parseXML = parseXMLText "PlacementStrategy"
 
 data PlatformValues =
-    Windows
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Windows
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PlatformValues where
     parser = takeLowerText >>= \case
@@ -2069,9 +2130,10 @@ instance FromXML PlatformValues where
     parseXML = parseXMLText "PlatformValues"
 
 data ProductCodeValues
-    = Devpay
-    | Marketplace
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Devpay
+  | Marketplace
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProductCodeValues where
     parser = takeLowerText >>= \case
@@ -2095,11 +2157,12 @@ instance FromXML ProductCodeValues where
     parseXML = parseXMLText "ProductCodeValues"
 
 data RIProductDescription
-    = RIDLinuxUnix
-    | RIDLinuxUnixAmazonVPC
-    | RIDWindows
-    | RIDWindowsAmazonVPC
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RIDLinuxUnix
+  | RIDLinuxUnixAmazonVPC
+  | RIDWindows
+  | RIDWindowsAmazonVPC
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RIProductDescription where
     parser = takeLowerText >>= \case
@@ -2127,8 +2190,9 @@ instance FromXML RIProductDescription where
     parseXML = parseXMLText "RIProductDescription"
 
 data RecurringChargeFrequency =
-    Hourly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Hourly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecurringChargeFrequency where
     parser = takeLowerText >>= \case
@@ -2150,16 +2214,17 @@ instance FromXML RecurringChargeFrequency where
     parseXML = parseXMLText "RecurringChargeFrequency"
 
 data ReportInstanceReasonCodes
-    = InstanceStuckInState
-    | NotAcceptingCredentials
-    | Other
-    | PasswordNotAvailable
-    | PerformanceEBSVolume
-    | PerformanceInstanceStore
-    | PerformanceNetwork
-    | PerformanceOther
-    | Unresponsive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = InstanceStuckInState
+  | NotAcceptingCredentials
+  | Other
+  | PasswordNotAvailable
+  | PerformanceEBSVolume
+  | PerformanceInstanceStore
+  | PerformanceNetwork
+  | PerformanceOther
+  | Unresponsive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReportInstanceReasonCodes where
     parser = takeLowerText >>= \case
@@ -2194,9 +2259,10 @@ instance ToQuery      ReportInstanceReasonCodes
 instance ToHeader     ReportInstanceReasonCodes
 
 data ReportStatusType
-    = RSTImpaired
-    | RSTOK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RSTImpaired
+  | RSTOK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReportStatusType where
     parser = takeLowerText >>= \case
@@ -2217,11 +2283,12 @@ instance ToQuery      ReportStatusType
 instance ToHeader     ReportStatusType
 
 data ReservationState
-    = RSActive
-    | RSPaymentFailed
-    | RSPaymentPending
-    | RSRetired
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RSActive
+  | RSPaymentFailed
+  | RSPaymentPending
+  | RSRetired
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReservationState where
     parser = takeLowerText >>= \case
@@ -2249,11 +2316,12 @@ instance FromXML ReservationState where
     parseXML = parseXMLText "ReservationState"
 
 data ReservedInstanceState
-    = Active
-    | PaymentFailed
-    | PaymentPending
-    | Retired
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | PaymentFailed
+  | PaymentPending
+  | Retired
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReservedInstanceState where
     parser = takeLowerText >>= \case
@@ -2281,8 +2349,9 @@ instance FromXML ReservedInstanceState where
     parseXML = parseXMLText "ReservedInstanceState"
 
 data ResetImageAttributeName =
-    RIANLaunchPermission
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  RIANLaunchPermission
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResetImageAttributeName where
     parser = takeLowerText >>= \case
@@ -2301,24 +2370,25 @@ instance ToQuery      ResetImageAttributeName
 instance ToHeader     ResetImageAttributeName
 
 data ResourceType
-    = CustomerGateway
-    | DHCPOptions
-    | Image
-    | Instance
-    | InternetGateway
-    | NetworkACL
-    | NetworkInterface
-    | ReservedInstances
-    | RouteTable
-    | SecurityGroup
-    | Snapshot
-    | SpotInstancesRequest
-    | Subnet
-    | VPC
-    | VPNConnection
-    | VPNGateway
-    | Volume
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CustomerGateway
+  | DHCPOptions
+  | Image
+  | Instance
+  | InternetGateway
+  | NetworkACL
+  | NetworkInterface
+  | ReservedInstances
+  | RouteTable
+  | SecurityGroup
+  | Snapshot
+  | SpotInstancesRequest
+  | Subnet
+  | VPC
+  | VPNConnection
+  | VPNGateway
+  | Volume
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
@@ -2372,10 +2442,11 @@ instance FromXML ResourceType where
     parseXML = parseXMLText "ResourceType"
 
 data RouteOrigin
-    = CreateRoute
-    | CreateRouteTable
-    | EnableVGWRoutePropagation
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreateRoute
+  | CreateRouteTable
+  | EnableVGWRoutePropagation
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RouteOrigin where
     parser = takeLowerText >>= \case
@@ -2401,9 +2472,10 @@ instance FromXML RouteOrigin where
     parseXML = parseXMLText "RouteOrigin"
 
 data RouteState
-    = RActive
-    | RBlackhole
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RActive
+  | RBlackhole
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RouteState where
     parser = takeLowerText >>= \case
@@ -2427,9 +2499,10 @@ instance FromXML RouteState where
     parseXML = parseXMLText "RouteState"
 
 data RuleAction
-    = Allow
-    | Deny
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Allow
+  | Deny
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RuleAction where
     parser = takeLowerText >>= \case
@@ -2453,9 +2526,10 @@ instance FromXML RuleAction where
     parseXML = parseXMLText "RuleAction"
 
 data Scope
-    = AvailabilityZone
-    | Region
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AvailabilityZone
+  | Region
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Scope where
     parser = takeLowerText >>= \case
@@ -2479,9 +2553,10 @@ instance FromXML Scope where
     parseXML = parseXMLText "Scope"
 
 data ShutdownBehavior
-    = Stop
-    | Terminate
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Stop
+  | Terminate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ShutdownBehavior where
     parser = takeLowerText >>= \case
@@ -2502,9 +2577,10 @@ instance ToQuery      ShutdownBehavior
 instance ToHeader     ShutdownBehavior
 
 data SnapshotAttributeName
-    = SANCreateVolumePermission
-    | SANProductCodes
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SANCreateVolumePermission
+  | SANProductCodes
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SnapshotAttributeName where
     parser = takeLowerText >>= \case
@@ -2525,10 +2601,11 @@ instance ToQuery      SnapshotAttributeName
 instance ToHeader     SnapshotAttributeName
 
 data SnapshotState
-    = SSCompleted
-    | SSError'
-    | SSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSCompleted
+  | SSError'
+  | SSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SnapshotState where
     parser = takeLowerText >>= \case
@@ -2554,12 +2631,13 @@ instance FromXML SnapshotState where
     parseXML = parseXMLText "SnapshotState"
 
 data SpotInstanceState
-    = SISActive
-    | SISCancelled
-    | SISClosed
-    | SISFailed
-    | SISOpen
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SISActive
+  | SISCancelled
+  | SISClosed
+  | SISFailed
+  | SISOpen
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SpotInstanceState where
     parser = takeLowerText >>= \case
@@ -2589,9 +2667,10 @@ instance FromXML SpotInstanceState where
     parseXML = parseXMLText "SpotInstanceState"
 
 data SpotInstanceType
-    = OneTime
-    | Persistent
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = OneTime
+  | Persistent
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SpotInstanceType where
     parser = takeLowerText >>= \case
@@ -2615,11 +2694,12 @@ instance FromXML SpotInstanceType where
     parseXML = parseXMLText "SpotInstanceType"
 
 data State
-    = SAvailable
-    | SDeleted
-    | SDeleting
-    | SPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SAvailable
+  | SDeleted
+  | SDeleting
+  | SPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText State where
     parser = takeLowerText >>= \case
@@ -2647,8 +2727,9 @@ instance FromXML State where
     parseXML = parseXMLText "State"
 
 data StatusName =
-    Reachability
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Reachability
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StatusName where
     parser = takeLowerText >>= \case
@@ -2670,11 +2751,12 @@ instance FromXML StatusName where
     parseXML = parseXMLText "StatusName"
 
 data StatusType
-    = STFailed
-    | STInitializing
-    | STInsufficientData
-    | STPassed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = STFailed
+  | STInitializing
+  | STInsufficientData
+  | STPassed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
@@ -2702,13 +2784,14 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 data SubnetCidrBlockStateCode
-    = SCBSCAssociated
-    | SCBSCAssociating
-    | SCBSCDisassociated
-    | SCBSCDisassociating
-    | SCBSCFailed
-    | SCBSCFailing
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SCBSCAssociated
+  | SCBSCAssociating
+  | SCBSCDisassociated
+  | SCBSCDisassociating
+  | SCBSCFailed
+  | SCBSCFailing
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SubnetCidrBlockStateCode where
     parser = takeLowerText >>= \case
@@ -2740,9 +2823,10 @@ instance FromXML SubnetCidrBlockStateCode where
     parseXML = parseXMLText "SubnetCidrBlockStateCode"
 
 data SubnetState
-    = SubAvailable
-    | SubPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SubAvailable
+  | SubPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SubnetState where
     parser = takeLowerText >>= \case
@@ -2766,12 +2850,13 @@ instance FromXML SubnetState where
     parseXML = parseXMLText "SubnetState"
 
 data SummaryStatus
-    = SSImpaired
-    | SSInitializing
-    | SSInsufficientData
-    | SSNotApplicable
-    | SSOK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = SSImpaired
+  | SSInitializing
+  | SSInsufficientData
+  | SSNotApplicable
+  | SSOK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SummaryStatus where
     parser = takeLowerText >>= \case
@@ -2801,9 +2886,10 @@ instance FromXML SummaryStatus where
     parseXML = parseXMLText "SummaryStatus"
 
 data TelemetryStatus
-    = Down
-    | UP
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Down
+  | UP
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TelemetryStatus where
     parser = takeLowerText >>= \case
@@ -2827,10 +2913,11 @@ instance FromXML TelemetryStatus where
     parseXML = parseXMLText "TelemetryStatus"
 
 data Tenancy
-    = Dedicated
-    | Default
-    | Host
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Dedicated
+  | Default
+  | Host
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Tenancy where
     parser = takeLowerText >>= \case
@@ -2856,10 +2943,11 @@ instance FromXML Tenancy where
     parseXML = parseXMLText "Tenancy"
 
 data TrafficType
-    = TTAccept
-    | TTAll
-    | TTReject
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = TTAccept
+  | TTAll
+  | TTReject
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TrafficType where
     parser = takeLowerText >>= \case
@@ -2885,9 +2973,10 @@ instance FromXML TrafficType where
     parseXML = parseXMLText "TrafficType"
 
 data VPCAttributeName
-    = EnableDNSHostnames
-    | EnableDNSSupport
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EnableDNSHostnames
+  | EnableDNSSupport
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VPCAttributeName where
     parser = takeLowerText >>= \case
@@ -2908,13 +2997,14 @@ instance ToQuery      VPCAttributeName
 instance ToHeader     VPCAttributeName
 
 data VPCCidrBlockStateCode
-    = VCBSCAssociated
-    | VCBSCAssociating
-    | VCBSCDisassociated
-    | VCBSCDisassociating
-    | VCBSCFailed
-    | VCBSCFailing
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VCBSCAssociated
+  | VCBSCAssociating
+  | VCBSCDisassociated
+  | VCBSCDisassociating
+  | VCBSCFailed
+  | VCBSCFailing
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VPCCidrBlockStateCode where
     parser = takeLowerText >>= \case
@@ -2946,16 +3036,17 @@ instance FromXML VPCCidrBlockStateCode where
     parseXML = parseXMLText "VPCCidrBlockStateCode"
 
 data VPCPeeringConnectionStateReasonCode
-    = VPCSRCActive
-    | VPCSRCDeleted
-    | VPCSRCDeleting
-    | VPCSRCExpired
-    | VPCSRCFailed
-    | VPCSRCInitiatingRequest
-    | VPCSRCPendingAcceptance
-    | VPCSRCProvisioning
-    | VPCSRCRejected
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VPCSRCActive
+  | VPCSRCDeleted
+  | VPCSRCDeleting
+  | VPCSRCExpired
+  | VPCSRCFailed
+  | VPCSRCInitiatingRequest
+  | VPCSRCPendingAcceptance
+  | VPCSRCProvisioning
+  | VPCSRCRejected
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VPCPeeringConnectionStateReasonCode where
     parser = takeLowerText >>= \case
@@ -2993,9 +3084,10 @@ instance FromXML VPCPeeringConnectionStateReasonCode where
     parseXML = parseXMLText "VPCPeeringConnectionStateReasonCode"
 
 data VPCState
-    = VPCSAvailable
-    | VPCSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VPCSAvailable
+  | VPCSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VPCState where
     parser = takeLowerText >>= \case
@@ -3019,11 +3111,12 @@ instance FromXML VPCState where
     parseXML = parseXMLText "VPCState"
 
 data VPNState
-    = VSAvailable
-    | VSDeleted
-    | VSDeleting
-    | VSPending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VSAvailable
+  | VSDeleted
+  | VSDeleting
+  | VSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VPNState where
     parser = takeLowerText >>= \case
@@ -3051,8 +3144,9 @@ instance FromXML VPNState where
     parseXML = parseXMLText "VPNState"
 
 data VPNStaticRouteSource =
-    Static
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Static
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VPNStaticRouteSource where
     parser = takeLowerText >>= \case
@@ -3074,9 +3168,10 @@ instance FromXML VPNStaticRouteSource where
     parseXML = parseXMLText "VPNStaticRouteSource"
 
 data VirtualizationType
-    = HVM
-    | Paravirtual
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HVM
+  | Paravirtual
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
@@ -3100,12 +3195,13 @@ instance FromXML VirtualizationType where
     parseXML = parseXMLText "VirtualizationType"
 
 data VolumeAttachmentState
-    = VAttached
-    | VAttaching
-    | VBusy
-    | VDetached
-    | VDetaching
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VAttached
+  | VAttaching
+  | VBusy
+  | VDetached
+  | VDetaching
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeAttachmentState where
     parser = takeLowerText >>= \case
@@ -3135,9 +3231,10 @@ instance FromXML VolumeAttachmentState where
     parseXML = parseXMLText "VolumeAttachmentState"
 
 data VolumeAttributeName
-    = VANAutoEnableIO
-    | VANProductCodes
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VANAutoEnableIO
+  | VANProductCodes
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeAttributeName where
     parser = takeLowerText >>= \case
@@ -3158,11 +3255,12 @@ instance ToQuery      VolumeAttributeName
 instance ToHeader     VolumeAttributeName
 
 data VolumeModificationState
-    = Completed
-    | Failed
-    | Modifying
-    | Optimizing
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Completed
+  | Failed
+  | Modifying
+  | Optimizing
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeModificationState where
     parser = takeLowerText >>= \case
@@ -3190,13 +3288,14 @@ instance FromXML VolumeModificationState where
     parseXML = parseXMLText "VolumeModificationState"
 
 data VolumeState
-    = VAvailable
-    | VCreating
-    | VDeleted
-    | VDeleting
-    | VError'
-    | VInUse
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = VAvailable
+  | VCreating
+  | VDeleted
+  | VDeleting
+  | VError'
+  | VInUse
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeState where
     parser = takeLowerText >>= \case
@@ -3228,10 +3327,11 @@ instance FromXML VolumeState where
     parseXML = parseXMLText "VolumeState"
 
 data VolumeStatusInfoStatus
-    = Impaired
-    | InsufficientData
-    | OK
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Impaired
+  | InsufficientData
+  | OK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeStatusInfoStatus where
     parser = takeLowerText >>= \case
@@ -3257,9 +3357,10 @@ instance FromXML VolumeStatusInfoStatus where
     parseXML = parseXMLText "VolumeStatusInfoStatus"
 
 data VolumeStatusName
-    = IOEnabled
-    | IOPerformance
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = IOEnabled
+  | IOPerformance
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeStatusName where
     parser = takeLowerText >>= \case
@@ -3283,12 +3384,13 @@ instance FromXML VolumeStatusName where
     parseXML = parseXMLText "VolumeStatusName"
 
 data VolumeType
-    = GP2
-    | IO1
-    | SC1
-    | ST1
-    | Standard
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GP2
+  | IO1
+  | SC1
+  | ST1
+  | Standard
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case

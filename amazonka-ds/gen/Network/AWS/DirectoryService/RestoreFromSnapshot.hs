@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RestoreFromSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DirectoryService.RestoreFromSnapshot
     , rfsrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | An object representing the inputs for the 'RestoreFromSnapshot' operation.
 --
@@ -53,8 +53,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreFromSnapshot' smart constructor.
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
-    { _rfsSnapshotId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rfsSnapshotId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreFromSnapshot' with the minimum fields required to make a request.
 --
@@ -65,9 +66,8 @@ restoreFromSnapshot
     :: Text -- ^ 'rfsSnapshotId'
     -> RestoreFromSnapshot
 restoreFromSnapshot pSnapshotId_ =
-    RestoreFromSnapshot'
-    { _rfsSnapshotId = pSnapshotId_
-    }
+  RestoreFromSnapshot' {_rfsSnapshotId = pSnapshotId_}
+
 
 -- | The identifier of the snapshot to restore from.
 rfsSnapshotId :: Lens' RestoreFromSnapshot Text
@@ -82,9 +82,9 @@ instance AWSRequest RestoreFromSnapshot where
               (\ s h x ->
                  RestoreFromSnapshotResponse' <$> (pure (fromEnum s)))
 
-instance Hashable RestoreFromSnapshot
+instance Hashable RestoreFromSnapshot where
 
-instance NFData RestoreFromSnapshot
+instance NFData RestoreFromSnapshot where
 
 instance ToHeaders RestoreFromSnapshot where
         toHeaders
@@ -113,8 +113,9 @@ instance ToQuery RestoreFromSnapshot where
 --
 -- /See:/ 'restoreFromSnapshotResponse' smart constructor.
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
-    { _rfsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rfsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreFromSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -125,12 +126,11 @@ restoreFromSnapshotResponse
     :: Int -- ^ 'rfsrsResponseStatus'
     -> RestoreFromSnapshotResponse
 restoreFromSnapshotResponse pResponseStatus_ =
-    RestoreFromSnapshotResponse'
-    { _rfsrsResponseStatus = pResponseStatus_
-    }
+  RestoreFromSnapshotResponse' {_rfsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rfsrsResponseStatus :: Lens' RestoreFromSnapshotResponse Int
 rfsrsResponseStatus = lens _rfsrsResponseStatus (\ s a -> s{_rfsrsResponseStatus = a});
 
-instance NFData RestoreFromSnapshotResponse
+instance NFData RestoreFromSnapshotResponse where

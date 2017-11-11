@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBSnapshotAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.RDS.ModifyDBSnapshotAttribute
     , mdsarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBSnapshotAttribute' smart constructor.
 data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
-    { _mdsaValuesToAdd          :: !(Maybe [Text])
-    , _mdsaValuesToRemove       :: !(Maybe [Text])
-    , _mdsaDBSnapshotIdentifier :: !Text
-    , _mdsaAttributeName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdsaValuesToAdd          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mdsaValuesToRemove       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mdsaDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  , _mdsaAttributeName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBSnapshotAttribute' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ modifyDBSnapshotAttribute
     -> Text -- ^ 'mdsaAttributeName'
     -> ModifyDBSnapshotAttribute
 modifyDBSnapshotAttribute pDBSnapshotIdentifier_ pAttributeName_ =
-    ModifyDBSnapshotAttribute'
-    { _mdsaValuesToAdd = Nothing
-    , _mdsaValuesToRemove = Nothing
-    , _mdsaDBSnapshotIdentifier = pDBSnapshotIdentifier_
-    , _mdsaAttributeName = pAttributeName_
-    }
+  ModifyDBSnapshotAttribute'
+  { _mdsaValuesToAdd = Nothing
+  , _mdsaValuesToRemove = Nothing
+  , _mdsaDBSnapshotIdentifier = pDBSnapshotIdentifier_
+  , _mdsaAttributeName = pAttributeName_
+  }
+
 
 -- | A list of DB snapshot attributes to add to the attribute specified by @AttributeName@ . To authorize other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB snapshots that contain private information that you don't want available to all AWS accounts.
 mdsaValuesToAdd :: Lens' ModifyDBSnapshotAttribute [Text]
@@ -113,9 +115,9 @@ instance AWSRequest ModifyDBSnapshotAttribute where
                    (x .@? "DBSnapshotAttributesResult") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ModifyDBSnapshotAttribute
+instance Hashable ModifyDBSnapshotAttribute where
 
-instance NFData ModifyDBSnapshotAttribute
+instance NFData ModifyDBSnapshotAttribute where
 
 instance ToHeaders ModifyDBSnapshotAttribute where
         toHeaders = const mempty
@@ -141,9 +143,10 @@ instance ToQuery ModifyDBSnapshotAttribute where
 
 -- | /See:/ 'modifyDBSnapshotAttributeResponse' smart constructor.
 data ModifyDBSnapshotAttributeResponse = ModifyDBSnapshotAttributeResponse'
-    { _mdsarsDBSnapshotAttributesResult :: !(Maybe DBSnapshotAttributesResult)
-    , _mdsarsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdsarsDBSnapshotAttributesResult :: {-# NOUNPACK #-}!(Maybe DBSnapshotAttributesResult)
+  , _mdsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
@@ -156,10 +159,11 @@ modifyDBSnapshotAttributeResponse
     :: Int -- ^ 'mdsarsResponseStatus'
     -> ModifyDBSnapshotAttributeResponse
 modifyDBSnapshotAttributeResponse pResponseStatus_ =
-    ModifyDBSnapshotAttributeResponse'
-    { _mdsarsDBSnapshotAttributesResult = Nothing
-    , _mdsarsResponseStatus = pResponseStatus_
-    }
+  ModifyDBSnapshotAttributeResponse'
+  { _mdsarsDBSnapshotAttributesResult = Nothing
+  , _mdsarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 mdsarsDBSnapshotAttributesResult :: Lens' ModifyDBSnapshotAttributeResponse (Maybe DBSnapshotAttributesResult)
@@ -170,3 +174,4 @@ mdsarsResponseStatus :: Lens' ModifyDBSnapshotAttributeResponse Int
 mdsarsResponseStatus = lens _mdsarsResponseStatus (\ s a -> s{_mdsarsResponseStatus = a});
 
 instance NFData ModifyDBSnapshotAttributeResponse
+         where

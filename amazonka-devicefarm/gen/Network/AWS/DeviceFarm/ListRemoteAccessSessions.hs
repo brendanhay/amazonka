@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListRemoteAccessSessions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DeviceFarm.ListRemoteAccessSessions
     , lrasrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to return information about the remote access session.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listRemoteAccessSessions' smart constructor.
 data ListRemoteAccessSessions = ListRemoteAccessSessions'
-    { _lrasNextToken :: !(Maybe Text)
-    , _lrasArn       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrasNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrasArn       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRemoteAccessSessions' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ listRemoteAccessSessions
     :: Text -- ^ 'lrasArn'
     -> ListRemoteAccessSessions
 listRemoteAccessSessions pArn_ =
-    ListRemoteAccessSessions'
-    { _lrasNextToken = Nothing
-    , _lrasArn = pArn_
-    }
+  ListRemoteAccessSessions' {_lrasNextToken = Nothing, _lrasArn = pArn_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lrasNextToken :: Lens' ListRemoteAccessSessions (Maybe Text)
@@ -92,9 +91,9 @@ instance AWSRequest ListRemoteAccessSessions where
                      (x .?> "remoteAccessSessions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListRemoteAccessSessions
+instance Hashable ListRemoteAccessSessions where
 
-instance NFData ListRemoteAccessSessions
+instance NFData ListRemoteAccessSessions where
 
 instance ToHeaders ListRemoteAccessSessions where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery ListRemoteAccessSessions where
 --
 -- /See:/ 'listRemoteAccessSessionsResponse' smart constructor.
 data ListRemoteAccessSessionsResponse = ListRemoteAccessSessionsResponse'
-    { _lrasrsNextToken            :: !(Maybe Text)
-    , _lrasrsRemoteAccessSessions :: !(Maybe [RemoteAccessSession])
-    , _lrasrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrasrsRemoteAccessSessions :: {-# NOUNPACK #-}!(Maybe [RemoteAccessSession])
+  , _lrasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListRemoteAccessSessionsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ listRemoteAccessSessionsResponse
     :: Int -- ^ 'lrasrsResponseStatus'
     -> ListRemoteAccessSessionsResponse
 listRemoteAccessSessionsResponse pResponseStatus_ =
-    ListRemoteAccessSessionsResponse'
-    { _lrasrsNextToken = Nothing
-    , _lrasrsRemoteAccessSessions = Nothing
-    , _lrasrsResponseStatus = pResponseStatus_
-    }
+  ListRemoteAccessSessionsResponse'
+  { _lrasrsNextToken = Nothing
+  , _lrasrsRemoteAccessSessions = Nothing
+  , _lrasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lrasrsNextToken :: Lens' ListRemoteAccessSessionsResponse (Maybe Text)
@@ -162,3 +163,4 @@ lrasrsResponseStatus :: Lens' ListRemoteAccessSessionsResponse Int
 lrasrsResponseStatus = lens _lrasrsResponseStatus (\ s a -> s{_lrasrsResponseStatus = a});
 
 instance NFData ListRemoteAccessSessionsResponse
+         where

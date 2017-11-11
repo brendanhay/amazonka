@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.CreateEventSourceMapping
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,12 +60,12 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     , esmcLastModified
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -73,13 +73,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createEventSourceMapping' smart constructor.
 data CreateEventSourceMapping = CreateEventSourceMapping'
-    { _cesmStartingPositionTimestamp :: !(Maybe POSIX)
-    , _cesmEnabled                   :: !(Maybe Bool)
-    , _cesmBatchSize                 :: !(Maybe Nat)
-    , _cesmEventSourceARN            :: !Text
-    , _cesmFunctionName              :: !Text
-    , _cesmStartingPosition          :: !EventSourcePosition
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cesmStartingPositionTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cesmEnabled                   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cesmBatchSize                 :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _cesmEventSourceARN            :: {-# NOUNPACK #-}!Text
+  , _cesmFunctionName              :: {-# NOUNPACK #-}!Text
+  , _cesmStartingPosition          :: {-# NOUNPACK #-}!EventSourcePosition
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateEventSourceMapping' with the minimum fields required to make a request.
 --
@@ -102,14 +103,15 @@ createEventSourceMapping
     -> EventSourcePosition -- ^ 'cesmStartingPosition'
     -> CreateEventSourceMapping
 createEventSourceMapping pEventSourceARN_ pFunctionName_ pStartingPosition_ =
-    CreateEventSourceMapping'
-    { _cesmStartingPositionTimestamp = Nothing
-    , _cesmEnabled = Nothing
-    , _cesmBatchSize = Nothing
-    , _cesmEventSourceARN = pEventSourceARN_
-    , _cesmFunctionName = pFunctionName_
-    , _cesmStartingPosition = pStartingPosition_
-    }
+  CreateEventSourceMapping'
+  { _cesmStartingPositionTimestamp = Nothing
+  , _cesmEnabled = Nothing
+  , _cesmBatchSize = Nothing
+  , _cesmEventSourceARN = pEventSourceARN_
+  , _cesmFunctionName = pFunctionName_
+  , _cesmStartingPosition = pStartingPosition_
+  }
+
 
 -- | The timestamp of the data record from which to start reading. Used with <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType shard iterator type> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for Kinesis streams.
 cesmStartingPositionTimestamp :: Lens' CreateEventSourceMapping (Maybe UTCTime)
@@ -141,9 +143,9 @@ instance AWSRequest CreateEventSourceMapping where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateEventSourceMapping
+instance Hashable CreateEventSourceMapping where
 
-instance NFData CreateEventSourceMapping
+instance NFData CreateEventSourceMapping where
 
 instance ToHeaders CreateEventSourceMapping where
         toHeaders = const mempty

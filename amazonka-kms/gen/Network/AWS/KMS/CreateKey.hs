@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CreateKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,22 +50,23 @@ module Network.AWS.KMS.CreateKey
     , ckrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createKey' smart constructor.
 data CreateKey = CreateKey'
-    { _ckOrigin                         :: !(Maybe OriginType)
-    , _ckKeyUsage                       :: !(Maybe KeyUsageType)
-    , _ckBypassPolicyLockoutSafetyCheck :: !(Maybe Bool)
-    , _ckPolicy                         :: !(Maybe Text)
-    , _ckDescription                    :: !(Maybe Text)
-    , _ckTags                           :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckOrigin                         :: {-# NOUNPACK #-}!(Maybe OriginType)
+  , _ckKeyUsage                       :: {-# NOUNPACK #-}!(Maybe KeyUsageType)
+  , _ckBypassPolicyLockoutSafetyCheck :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ckPolicy                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ckDescription                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ckTags                           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateKey' with the minimum fields required to make a request.
 --
@@ -85,14 +86,15 @@ data CreateKey = CreateKey'
 createKey
     :: CreateKey
 createKey =
-    CreateKey'
-    { _ckOrigin = Nothing
-    , _ckKeyUsage = Nothing
-    , _ckBypassPolicyLockoutSafetyCheck = Nothing
-    , _ckPolicy = Nothing
-    , _ckDescription = Nothing
-    , _ckTags = Nothing
-    }
+  CreateKey'
+  { _ckOrigin = Nothing
+  , _ckKeyUsage = Nothing
+  , _ckBypassPolicyLockoutSafetyCheck = Nothing
+  , _ckPolicy = Nothing
+  , _ckDescription = Nothing
+  , _ckTags = Nothing
+  }
+
 
 -- | The source of the CMK's key material. The default is @AWS_KMS@ , which means AWS KMS creates the key material. When this parameter is set to @EXTERNAL@ , the request creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . The CMK's @Origin@ is immutable and is set when the CMK is created.
 ckOrigin :: Lens' CreateKey (Maybe OriginType)
@@ -127,9 +129,9 @@ instance AWSRequest CreateKey where
                  CreateKeyResponse' <$>
                    (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
 
-instance Hashable CreateKey
+instance Hashable CreateKey where
 
-instance NFData CreateKey
+instance NFData CreateKey where
 
 instance ToHeaders CreateKey where
         toHeaders
@@ -160,9 +162,10 @@ instance ToQuery CreateKey where
 
 -- | /See:/ 'createKeyResponse' smart constructor.
 data CreateKeyResponse = CreateKeyResponse'
-    { _ckrsKeyMetadata    :: !(Maybe KeyMetadata)
-    , _ckrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckrsKeyMetadata    :: {-# NOUNPACK #-}!(Maybe KeyMetadata)
+  , _ckrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateKeyResponse' with the minimum fields required to make a request.
 --
@@ -175,10 +178,9 @@ createKeyResponse
     :: Int -- ^ 'ckrsResponseStatus'
     -> CreateKeyResponse
 createKeyResponse pResponseStatus_ =
-    CreateKeyResponse'
-    { _ckrsKeyMetadata = Nothing
-    , _ckrsResponseStatus = pResponseStatus_
-    }
+  CreateKeyResponse'
+  {_ckrsKeyMetadata = Nothing, _ckrsResponseStatus = pResponseStatus_}
+
 
 -- | Metadata associated with the CMK.
 ckrsKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
@@ -188,4 +190,4 @@ ckrsKeyMetadata = lens _ckrsKeyMetadata (\ s a -> s{_ckrsKeyMetadata = a});
 ckrsResponseStatus :: Lens' CreateKeyResponse Int
 ckrsResponseStatus = lens _ckrsResponseStatus (\ s a -> s{_ckrsResponseStatus = a});
 
-instance NFData CreateKeyResponse
+instance NFData CreateKeyResponse where

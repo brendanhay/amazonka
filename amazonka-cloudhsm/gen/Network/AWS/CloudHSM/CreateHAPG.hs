@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.CreateHAPG
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudHSM.CreateHAPG
     , chapgrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'CreateHapgRequest' action.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createHAPG' smart constructor.
 newtype CreateHAPG = CreateHAPG'
-    { _chLabel :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chLabel :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHAPG' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype CreateHAPG = CreateHAPG'
 createHAPG
     :: Text -- ^ 'chLabel'
     -> CreateHAPG
-createHAPG pLabel_ =
-    CreateHAPG'
-    { _chLabel = pLabel_
-    }
+createHAPG pLabel_ = CreateHAPG' {_chLabel = pLabel_}
+
 
 -- | The label of the new high-availability partition group.
 chLabel :: Lens' CreateHAPG Text
@@ -79,9 +78,9 @@ instance AWSRequest CreateHAPG where
                  CreateHAPGResponse' <$>
                    (x .?> "HapgArn") <*> (pure (fromEnum s)))
 
-instance Hashable CreateHAPG
+instance Hashable CreateHAPG where
 
-instance NFData CreateHAPG
+instance NFData CreateHAPG where
 
 instance ToHeaders CreateHAPG where
         toHeaders
@@ -108,9 +107,10 @@ instance ToQuery CreateHAPG where
 --
 -- /See:/ 'createHAPGResponse' smart constructor.
 data CreateHAPGResponse = CreateHAPGResponse'
-    { _chapgrsHAPGARN        :: !(Maybe Text)
-    , _chapgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chapgrsHAPGARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chapgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHAPGResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +123,9 @@ createHAPGResponse
     :: Int -- ^ 'chapgrsResponseStatus'
     -> CreateHAPGResponse
 createHAPGResponse pResponseStatus_ =
-    CreateHAPGResponse'
-    { _chapgrsHAPGARN = Nothing
-    , _chapgrsResponseStatus = pResponseStatus_
-    }
+  CreateHAPGResponse'
+  {_chapgrsHAPGARN = Nothing, _chapgrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the high-availability partition group.
 chapgrsHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
@@ -136,4 +135,4 @@ chapgrsHAPGARN = lens _chapgrsHAPGARN (\ s a -> s{_chapgrsHAPGARN = a});
 chapgrsResponseStatus :: Lens' CreateHAPGResponse Int
 chapgrsResponseStatus = lens _chapgrsResponseStatus (\ s a -> s{_chapgrsResponseStatus = a});
 
-instance NFData CreateHAPGResponse
+instance NFData CreateHAPGResponse where

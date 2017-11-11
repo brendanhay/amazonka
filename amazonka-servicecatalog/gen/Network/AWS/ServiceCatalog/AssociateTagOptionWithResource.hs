@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
     , atowrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'associateTagOptionWithResource' smart constructor.
 data AssociateTagOptionWithResource = AssociateTagOptionWithResource'
-    { _atowrResourceId  :: !Text
-    , _atowrTagOptionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atowrResourceId  :: {-# NOUNPACK #-}!Text
+  , _atowrTagOptionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateTagOptionWithResource' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ associateTagOptionWithResource
     -> Text -- ^ 'atowrTagOptionId'
     -> AssociateTagOptionWithResource
 associateTagOptionWithResource pResourceId_ pTagOptionId_ =
-    AssociateTagOptionWithResource'
-    { _atowrResourceId = pResourceId_
-    , _atowrTagOptionId = pTagOptionId_
-    }
+  AssociateTagOptionWithResource'
+  {_atowrResourceId = pResourceId_, _atowrTagOptionId = pTagOptionId_}
+
 
 -- | The resource identifier.
 atowrResourceId :: Lens' AssociateTagOptionWithResource Text
@@ -87,8 +87,9 @@ instance AWSRequest AssociateTagOptionWithResource
                    (pure (fromEnum s)))
 
 instance Hashable AssociateTagOptionWithResource
+         where
 
-instance NFData AssociateTagOptionWithResource
+instance NFData AssociateTagOptionWithResource where
 
 instance ToHeaders AssociateTagOptionWithResource
          where
@@ -116,8 +117,9 @@ instance ToQuery AssociateTagOptionWithResource where
 
 -- | /See:/ 'associateTagOptionWithResourceResponse' smart constructor.
 newtype AssociateTagOptionWithResourceResponse = AssociateTagOptionWithResourceResponse'
-    { _atowrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atowrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateTagOptionWithResourceResponse' with the minimum fields required to make a request.
 --
@@ -128,13 +130,14 @@ associateTagOptionWithResourceResponse
     :: Int -- ^ 'atowrrsResponseStatus'
     -> AssociateTagOptionWithResourceResponse
 associateTagOptionWithResourceResponse pResponseStatus_ =
-    AssociateTagOptionWithResourceResponse'
-    { _atowrrsResponseStatus = pResponseStatus_
-    }
+  AssociateTagOptionWithResourceResponse'
+  {_atowrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 atowrrsResponseStatus :: Lens' AssociateTagOptionWithResourceResponse Int
 atowrrsResponseStatus = lens _atowrrsResponseStatus (\ s a -> s{_atowrrsResponseStatus = a});
 
 instance NFData
-         AssociateTagOptionWithResourceResponse
+           AssociateTagOptionWithResourceResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.UpdateProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.CodeStar.UpdateProject
     , uprsResponseStatus
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
-    { _upName        :: !(Maybe (Sensitive Text))
-    , _upDescription :: !(Maybe (Sensitive Text))
-    , _upId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _upName        :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _upDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _upId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
 --
@@ -65,11 +66,8 @@ updateProject
     :: Text -- ^ 'upId'
     -> UpdateProject
 updateProject pId_ =
-    UpdateProject'
-    { _upName = Nothing
-    , _upDescription = Nothing
-    , _upId = pId_
-    }
+  UpdateProject' {_upName = Nothing, _upDescription = Nothing, _upId = pId_}
+
 
 -- | The name of the project you want to update.
 upName :: Lens' UpdateProject (Maybe Text)
@@ -91,9 +89,9 @@ instance AWSRequest UpdateProject where
               (\ s h x ->
                  UpdateProjectResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateProject
+instance Hashable UpdateProject where
 
-instance NFData UpdateProject
+instance NFData UpdateProject where
 
 instance ToHeaders UpdateProject where
         toHeaders
@@ -120,8 +118,9 @@ instance ToQuery UpdateProject where
 
 -- | /See:/ 'updateProjectResponse' smart constructor.
 newtype UpdateProjectResponse = UpdateProjectResponse'
-    { _uprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.
 --
@@ -132,12 +131,11 @@ updateProjectResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UpdateProjectResponse
 updateProjectResponse pResponseStatus_ =
-    UpdateProjectResponse'
-    { _uprsResponseStatus = pResponseStatus_
-    }
+  UpdateProjectResponse' {_uprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 
-instance NFData UpdateProjectResponse
+instance NFData UpdateProjectResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UntagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.CloudFront.UntagResource
     , UntagResourceResponse
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to remove tags from a CloudFront resource.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'untagResource' smart constructor.
 data UntagResource = UntagResource'
-    { _urResource :: !Text
-    , _urTagKeys  :: !TagKeys
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urResource :: {-# NOUNPACK #-}!Text
+  , _urTagKeys  :: {-# NOUNPACK #-}!TagKeys
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ untagResource
     -> TagKeys -- ^ 'urTagKeys'
     -> UntagResource
 untagResource pResource_ pTagKeys_ =
-    UntagResource'
-    { _urResource = pResource_
-    , _urTagKeys = pTagKeys_
-    }
+  UntagResource' {_urResource = pResource_, _urTagKeys = pTagKeys_}
+
 
 -- | An ARN of a CloudFront resource.
 urResource :: Lens' UntagResource Text
@@ -82,9 +81,9 @@ instance AWSRequest UntagResource where
         request = postXML cloudFront
         response = receiveNull UntagResourceResponse'
 
-instance Hashable UntagResource
+instance Hashable UntagResource where
 
-instance NFData UntagResource
+instance NFData UntagResource where
 
 instance ToElement UntagResource where
         toElement
@@ -106,8 +105,9 @@ instance ToQuery UntagResource where
 
 -- | /See:/ 'untagResourceResponse' smart constructor.
 data UntagResourceResponse =
-    UntagResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UntagResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
 --
@@ -115,4 +115,5 @@ untagResourceResponse
     :: UntagResourceResponse
 untagResourceResponse = UntagResourceResponse'
 
-instance NFData UntagResourceResponse
+
+instance NFData UntagResourceResponse where

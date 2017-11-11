@@ -9,22 +9,23 @@
 
 -- |
 -- Module      : Network.AWS.Route53.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Route53.Types.Sum where
 
-import           Network.AWS.Prelude
-import           Network.AWS.Route53.Internal
+import Network.AWS.Prelude
+import Network.AWS.Route53.Internal
 
 data ChangeAction
-    = Create
-    | Delete
-    | Upsert
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Create
+  | Delete
+  | Upsert
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -50,9 +51,10 @@ instance ToXML ChangeAction where
     toXML = toXMLText
 
 data ChangeStatus
-    = Insync
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Insync
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeStatus where
     parser = takeLowerText >>= \case
@@ -76,21 +78,22 @@ instance FromXML ChangeStatus where
     parseXML = parseXMLText "ChangeStatus"
 
 data CloudWatchRegion
-    = CWRApNortheast1
-    | CWRApNortheast2
-    | CWRApSouth1
-    | CWRApSoutheast1
-    | CWRApSoutheast2
-    | CWRCaCentral1
-    | CWREuCentral1
-    | CWREuWest1
-    | CWREuWest2
-    | CWRSaEast1
-    | CWRUsEast1
-    | CWRUsEast2
-    | CWRUsWest1
-    | CWRUsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CWRApNortheast1
+  | CWRApNortheast2
+  | CWRApSouth1
+  | CWRApSoutheast1
+  | CWRApSoutheast2
+  | CWRCaCentral1
+  | CWREuCentral1
+  | CWREuWest1
+  | CWREuWest2
+  | CWRSaEast1
+  | CWRUsEast1
+  | CWRUsEast2
+  | CWRUsWest1
+  | CWRUsWest2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CloudWatchRegion where
     parser = takeLowerText >>= \case
@@ -141,11 +144,12 @@ instance ToXML CloudWatchRegion where
     toXML = toXMLText
 
 data ComparisonOperator
-    = GreaterThanOrEqualToThreshold
-    | GreaterThanThreshold
-    | LessThanOrEqualToThreshold
-    | LessThanThreshold
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = GreaterThanOrEqualToThreshold
+  | GreaterThanThreshold
+  | LessThanOrEqualToThreshold
+  | LessThanThreshold
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -173,9 +177,10 @@ instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
 data Failover
-    = Primary
-    | Secondary
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Primary
+  | Secondary
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Failover where
     parser = takeLowerText >>= \case
@@ -202,15 +207,16 @@ instance ToXML Failover where
     toXML = toXMLText
 
 data HealthCheckRegion
-    = HCRApNortheast1
-    | HCRApSoutheast1
-    | HCRApSoutheast2
-    | HCREuWest1
-    | HCRSaEast1
-    | HCRUsEast1
-    | HCRUsWest1
-    | HCRUsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HCRApNortheast1
+  | HCRApSoutheast1
+  | HCRApSoutheast2
+  | HCREuWest1
+  | HCRSaEast1
+  | HCRUsEast1
+  | HCRUsWest1
+  | HCRUsWest2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HealthCheckRegion where
     parser = takeLowerText >>= \case
@@ -249,14 +255,15 @@ instance ToXML HealthCheckRegion where
     toXML = toXMLText
 
 data HealthCheckType
-    = Calculated
-    | CloudwatchMetric
-    | HTTP
-    | HTTPS
-    | HTTPSStrMatch
-    | HTTPStrMatch
-    | TCP
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Calculated
+  | CloudwatchMetric
+  | HTTP
+  | HTTPS
+  | HTTPSStrMatch
+  | HTTPStrMatch
+  | TCP
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HealthCheckType where
     parser = takeLowerText >>= \case
@@ -293,10 +300,11 @@ instance ToXML HealthCheckType where
     toXML = toXMLText
 
 data InsufficientDataHealthStatus
-    = Healthy
-    | LastKnownStatus
-    | Unhealthy
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Healthy
+  | LastKnownStatus
+  | Unhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText InsufficientDataHealthStatus where
     parser = takeLowerText >>= \case
@@ -325,18 +333,19 @@ instance ToXML InsufficientDataHealthStatus where
     toXML = toXMLText
 
 data RecordType
-    = A
-    | Aaaa
-    | Cname
-    | MX
-    | NS
-    | Naptr
-    | Ptr
-    | Soa
-    | Spf
-    | Srv
-    | Txt
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = A
+  | Aaaa
+  | Cname
+  | MX
+  | NS
+  | Naptr
+  | Ptr
+  | Soa
+  | Spf
+  | Srv
+  | Txt
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecordType where
     parser = takeLowerText >>= \case
@@ -381,12 +390,13 @@ instance ToXML RecordType where
     toXML = toXMLText
 
 data Statistic
-    = Average
-    | Maximum
-    | Minimum
-    | SampleCount
-    | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Average
+  | Maximum
+  | Minimum
+  | SampleCount
+  | Sum
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText Statistic where
     parser = takeLowerText >>= \case
@@ -416,9 +426,10 @@ instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"
 
 data TagResourceType
-    = Healthcheck
-    | Hostedzone
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Healthcheck
+  | Hostedzone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TagResourceType where
     parser = takeLowerText >>= \case
@@ -445,22 +456,23 @@ instance ToXML TagResourceType where
     toXML = toXMLText
 
 data VPCRegion
-    = ApNortheast1
-    | ApNortheast2
-    | ApSouth1
-    | ApSoutheast1
-    | ApSoutheast2
-    | CaCentral1
-    | CnNorth1
-    | EuCentral1
-    | EuWest1
-    | EuWest2
-    | SaEast1
-    | UsEast1
-    | UsEast2
-    | UsWest1
-    | UsWest2
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ApNortheast1
+  | ApNortheast2
+  | ApSouth1
+  | ApSoutheast1
+  | ApSoutheast2
+  | CaCentral1
+  | CnNorth1
+  | EuCentral1
+  | EuWest1
+  | EuWest2
+  | SaEast1
+  | UsEast1
+  | UsEast2
+  | UsWest1
+  | UsWest2
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VPCRegion where
     parser = takeLowerText >>= \case

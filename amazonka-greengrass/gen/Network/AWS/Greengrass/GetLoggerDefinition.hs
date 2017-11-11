@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetLoggerDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Greengrass.GetLoggerDefinition
     , gldrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getLoggerDefinition' smart constructor.
 newtype GetLoggerDefinition = GetLoggerDefinition'
-    { _gldLoggerDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gldLoggerDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLoggerDefinition' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getLoggerDefinition
     :: Text -- ^ 'gldLoggerDefinitionId'
     -> GetLoggerDefinition
 getLoggerDefinition pLoggerDefinitionId_ =
-    GetLoggerDefinition'
-    { _gldLoggerDefinitionId = pLoggerDefinitionId_
-    }
+  GetLoggerDefinition' {_gldLoggerDefinitionId = pLoggerDefinitionId_}
+
 
 -- | logger definition Id
 gldLoggerDefinitionId :: Lens' GetLoggerDefinition Text
@@ -86,9 +86,9 @@ instance AWSRequest GetLoggerDefinition where
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetLoggerDefinition
+instance Hashable GetLoggerDefinition where
 
-instance NFData GetLoggerDefinition
+instance NFData GetLoggerDefinition where
 
 instance ToHeaders GetLoggerDefinition where
         toHeaders
@@ -108,15 +108,16 @@ instance ToQuery GetLoggerDefinition where
 
 -- | /See:/ 'getLoggerDefinitionResponse' smart constructor.
 data GetLoggerDefinitionResponse = GetLoggerDefinitionResponse'
-    { _gldrsLatestVersionARN     :: !(Maybe Text)
-    , _gldrsARN                  :: !(Maybe Text)
-    , _gldrsName                 :: !(Maybe Text)
-    , _gldrsCreationTimestamp    :: !(Maybe Text)
-    , _gldrsId                   :: !(Maybe Text)
-    , _gldrsLatestVersion        :: !(Maybe Text)
-    , _gldrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _gldrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gldrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLoggerDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -141,16 +142,17 @@ getLoggerDefinitionResponse
     :: Int -- ^ 'gldrsResponseStatus'
     -> GetLoggerDefinitionResponse
 getLoggerDefinitionResponse pResponseStatus_ =
-    GetLoggerDefinitionResponse'
-    { _gldrsLatestVersionARN = Nothing
-    , _gldrsARN = Nothing
-    , _gldrsName = Nothing
-    , _gldrsCreationTimestamp = Nothing
-    , _gldrsId = Nothing
-    , _gldrsLatestVersion = Nothing
-    , _gldrsLastUpdatedTimestamp = Nothing
-    , _gldrsResponseStatus = pResponseStatus_
-    }
+  GetLoggerDefinitionResponse'
+  { _gldrsLatestVersionARN = Nothing
+  , _gldrsARN = Nothing
+  , _gldrsName = Nothing
+  , _gldrsCreationTimestamp = Nothing
+  , _gldrsId = Nothing
+  , _gldrsLatestVersion = Nothing
+  , _gldrsLastUpdatedTimestamp = Nothing
+  , _gldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 gldrsLatestVersionARN :: Lens' GetLoggerDefinitionResponse (Maybe Text)
@@ -184,4 +186,4 @@ gldrsLastUpdatedTimestamp = lens _gldrsLastUpdatedTimestamp (\ s a -> s{_gldrsLa
 gldrsResponseStatus :: Lens' GetLoggerDefinitionResponse Int
 gldrsResponseStatus = lens _gldrsResponseStatus (\ s a -> s{_gldrsResponseStatus = a});
 
-instance NFData GetLoggerDefinitionResponse
+instance NFData GetLoggerDefinitionResponse where

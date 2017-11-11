@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SDB.DeleteAttributes
     , DeleteAttributesResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'deleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-    { _daAttributes :: !(Maybe [Attribute])
-    , _daExpected   :: !(Maybe UpdateCondition)
-    , _daDomainName :: !Text
-    , _daItemName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _daExpected   :: {-# NOUNPACK #-}!(Maybe UpdateCondition)
+  , _daDomainName :: {-# NOUNPACK #-}!Text
+  , _daItemName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ deleteAttributes
     -> Text -- ^ 'daItemName'
     -> DeleteAttributes
 deleteAttributes pDomainName_ pItemName_ =
-    DeleteAttributes'
-    { _daAttributes = Nothing
-    , _daExpected = Nothing
-    , _daDomainName = pDomainName_
-    , _daItemName = pItemName_
-    }
+  DeleteAttributes'
+  { _daAttributes = Nothing
+  , _daExpected = Nothing
+  , _daDomainName = pDomainName_
+  , _daItemName = pItemName_
+  }
+
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
 daAttributes :: Lens' DeleteAttributes [Attribute]
@@ -100,9 +102,9 @@ instance AWSRequest DeleteAttributes where
         request = postQuery sdb
         response = receiveNull DeleteAttributesResponse'
 
-instance Hashable DeleteAttributes
+instance Hashable DeleteAttributes where
 
-instance NFData DeleteAttributes
+instance NFData DeleteAttributes where
 
 instance ToHeaders DeleteAttributes where
         toHeaders = const mempty
@@ -122,8 +124,9 @@ instance ToQuery DeleteAttributes where
 
 -- | /See:/ 'deleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse =
-    DeleteAttributesResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAttributesResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.
 --
@@ -131,4 +134,5 @@ deleteAttributesResponse
     :: DeleteAttributesResponse
 deleteAttributesResponse = DeleteAttributesResponse'
 
-instance NFData DeleteAttributesResponse
+
+instance NFData DeleteAttributesResponse where

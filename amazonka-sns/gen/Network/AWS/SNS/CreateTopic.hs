@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreateTopic
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.SNS.CreateTopic
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for CreateTopic action.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'createTopic' smart constructor.
 newtype CreateTopic = CreateTopic'
-    { _ctName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTopic' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype CreateTopic = CreateTopic'
 createTopic
     :: Text -- ^ 'ctName'
     -> CreateTopic
-createTopic pName_ =
-    CreateTopic'
-    { _ctName = pName_
-    }
+createTopic pName_ = CreateTopic' {_ctName = pName_}
+
 
 -- | The name of the topic you want to create. Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
 ctName :: Lens' CreateTopic Text
@@ -79,9 +78,9 @@ instance AWSRequest CreateTopic where
                  CreateTopicResponse' <$>
                    (x .@? "TopicArn") <*> (pure (fromEnum s)))
 
-instance Hashable CreateTopic
+instance Hashable CreateTopic where
 
-instance NFData CreateTopic
+instance NFData CreateTopic where
 
 instance ToHeaders CreateTopic where
         toHeaders = const mempty
@@ -102,9 +101,10 @@ instance ToQuery CreateTopic where
 --
 -- /See:/ 'createTopicResponse' smart constructor.
 data CreateTopicResponse = CreateTopicResponse'
-    { _ctrsTopicARN       :: !(Maybe Text)
-    , _ctrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTopicResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ createTopicResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTopicResponse
 createTopicResponse pResponseStatus_ =
-    CreateTopicResponse'
-    { _ctrsTopicARN = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTopicResponse'
+  {_ctrsTopicARN = Nothing, _ctrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrsTopicARN :: Lens' CreateTopicResponse (Maybe Text)
@@ -130,4 +129,4 @@ ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a});
 ctrsResponseStatus :: Lens' CreateTopicResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTopicResponse
+instance NFData CreateTopicResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPolicyPrincipals
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.IoT.ListPolicyPrincipals
     , lrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListPolicyPrincipals operation.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listPolicyPrincipals' smart constructor.
 data ListPolicyPrincipals = ListPolicyPrincipals'
-    { _lMarker         :: !(Maybe Text)
-    , _lAscendingOrder :: !(Maybe Bool)
-    , _lPageSize       :: !(Maybe Nat)
-    , _lPolicyName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lPolicyName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicyPrincipals' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ listPolicyPrincipals
     :: Text -- ^ 'lPolicyName'
     -> ListPolicyPrincipals
 listPolicyPrincipals pPolicyName_ =
-    ListPolicyPrincipals'
-    { _lMarker = Nothing
-    , _lAscendingOrder = Nothing
-    , _lPageSize = Nothing
-    , _lPolicyName = pPolicyName_
-    }
+  ListPolicyPrincipals'
+  { _lMarker = Nothing
+  , _lAscendingOrder = Nothing
+  , _lPageSize = Nothing
+  , _lPolicyName = pPolicyName_
+  }
+
 
 -- | The marker for the next set of results.
 lMarker :: Lens' ListPolicyPrincipals (Maybe Text)
@@ -120,9 +122,9 @@ instance AWSRequest ListPolicyPrincipals where
                      (x .?> "nextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPolicyPrincipals
+instance Hashable ListPolicyPrincipals where
 
-instance NFData ListPolicyPrincipals
+instance NFData ListPolicyPrincipals where
 
 instance ToHeaders ListPolicyPrincipals where
         toHeaders ListPolicyPrincipals'{..}
@@ -144,10 +146,11 @@ instance ToQuery ListPolicyPrincipals where
 --
 -- /See:/ 'listPolicyPrincipalsResponse' smart constructor.
 data ListPolicyPrincipalsResponse = ListPolicyPrincipalsResponse'
-    { _lrsPrincipals     :: !(Maybe [Text])
-    , _lrsNextMarker     :: !(Maybe Text)
-    , _lrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsPrincipals     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicyPrincipalsResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ listPolicyPrincipalsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListPolicyPrincipalsResponse
 listPolicyPrincipalsResponse pResponseStatus_ =
-    ListPolicyPrincipalsResponse'
-    { _lrsPrincipals = Nothing
-    , _lrsNextMarker = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    }
+  ListPolicyPrincipalsResponse'
+  { _lrsPrincipals = Nothing
+  , _lrsNextMarker = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The descriptions of the principals.
 lrsPrincipals :: Lens' ListPolicyPrincipalsResponse [Text]
@@ -180,4 +184,4 @@ lrsNextMarker = lens _lrsNextMarker (\ s a -> s{_lrsNextMarker = a});
 lrsResponseStatus :: Lens' ListPolicyPrincipalsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
-instance NFData ListPolicyPrincipalsResponse
+instance NFData ListPolicyPrincipalsResponse where

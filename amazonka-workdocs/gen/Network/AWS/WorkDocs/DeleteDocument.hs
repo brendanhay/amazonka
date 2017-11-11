@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteDocument
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.WorkDocs.DeleteDocument
     , DeleteDocumentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteDocument' smart constructor.
 data DeleteDocument = DeleteDocument'
-    { _ddAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _ddDocumentId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ddAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ddDocumentId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDocument' with the minimum fields required to make a request.
 --
@@ -59,10 +60,9 @@ deleteDocument
     :: Text -- ^ 'ddDocumentId'
     -> DeleteDocument
 deleteDocument pDocumentId_ =
-    DeleteDocument'
-    { _ddAuthenticationToken = Nothing
-    , _ddDocumentId = pDocumentId_
-    }
+  DeleteDocument'
+  {_ddAuthenticationToken = Nothing, _ddDocumentId = pDocumentId_}
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 ddAuthenticationToken :: Lens' DeleteDocument (Maybe Text)
@@ -77,9 +77,9 @@ instance AWSRequest DeleteDocument where
         request = delete workDocs
         response = receiveNull DeleteDocumentResponse'
 
-instance Hashable DeleteDocument
+instance Hashable DeleteDocument where
 
-instance NFData DeleteDocument
+instance NFData DeleteDocument where
 
 instance ToHeaders DeleteDocument where
         toHeaders DeleteDocument'{..}
@@ -97,8 +97,9 @@ instance ToQuery DeleteDocument where
 
 -- | /See:/ 'deleteDocumentResponse' smart constructor.
 data DeleteDocumentResponse =
-    DeleteDocumentResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDocumentResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDocumentResponse' with the minimum fields required to make a request.
 --
@@ -106,4 +107,5 @@ deleteDocumentResponse
     :: DeleteDocumentResponse
 deleteDocumentResponse = DeleteDocumentResponse'
 
-instance NFData DeleteDocumentResponse
+
+instance NFData DeleteDocumentResponse where

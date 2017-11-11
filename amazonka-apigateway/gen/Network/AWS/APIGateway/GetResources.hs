@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.APIGateway.GetResources
     , grrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to list information about a collection of resources.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getResources' smart constructor.
 data GetResources = GetResources'
-    { _grsEmbed     :: !(Maybe [Text])
-    , _grsLimit     :: !(Maybe Int)
-    , _grsPosition  :: !(Maybe Text)
-    , _grsRestAPIId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsEmbed     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _grsLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _grsPosition  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grsRestAPIId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetResources' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ getResources
     :: Text -- ^ 'grsRestAPIId'
     -> GetResources
 getResources pRestAPIId_ =
-    GetResources'
-    { _grsEmbed = Nothing
-    , _grsLimit = Nothing
-    , _grsPosition = Nothing
-    , _grsRestAPIId = pRestAPIId_
-    }
+  GetResources'
+  { _grsEmbed = Nothing
+  , _grsLimit = Nothing
+  , _grsPosition = Nothing
+  , _grsRestAPIId = pRestAPIId_
+  }
+
 
 -- | A query parameter used to retrieve the specified resources embedded in the returned 'Resources' resource in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources?embed=methods@ .
 grsEmbed :: Lens' GetResources [Text]
@@ -118,9 +120,9 @@ instance AWSRequest GetResources where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetResources
+instance Hashable GetResources where
 
-instance NFData GetResources
+instance NFData GetResources where
 
 instance ToHeaders GetResources where
         toHeaders
@@ -147,10 +149,11 @@ instance ToQuery GetResources where
 --
 -- /See:/ 'getResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
-    { _grrsItems          :: !(Maybe [Resource])
-    , _grrsPosition       :: !(Maybe Text)
-    , _grrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsItems          :: {-# NOUNPACK #-}!(Maybe [Resource])
+  , _grrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetResourcesResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ getResourcesResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetResourcesResponse
 getResourcesResponse pResponseStatus_ =
-    GetResourcesResponse'
-    { _grrsItems = Nothing
-    , _grrsPosition = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    }
+  GetResourcesResponse'
+  { _grrsItems = Nothing
+  , _grrsPosition = Nothing
+  , _grrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 grrsItems :: Lens' GetResourcesResponse [Resource]
@@ -183,4 +187,4 @@ grrsPosition = lens _grrsPosition (\ s a -> s{_grrsPosition = a});
 grrsResponseStatus :: Lens' GetResourcesResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 
-instance NFData GetResourcesResponse
+instance NFData GetResourcesResponse where

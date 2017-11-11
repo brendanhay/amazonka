@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RespondDecisionTaskCompleted
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.SWF.RespondDecisionTaskCompleted
     , RespondDecisionTaskCompletedResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | Input data for a TaskCompleted response to a decision task.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.SWF.Types.Product
 --
 -- /See:/ 'respondDecisionTaskCompleted' smart constructor.
 data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
-    { _rdtcDecisions        :: !(Maybe [Decision])
-    , _rdtcExecutionContext :: !(Maybe Text)
-    , _rdtcTaskToken        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdtcDecisions        :: {-# NOUNPACK #-}!(Maybe [Decision])
+  , _rdtcExecutionContext :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdtcTaskToken        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondDecisionTaskCompleted' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ respondDecisionTaskCompleted
     :: Text -- ^ 'rdtcTaskToken'
     -> RespondDecisionTaskCompleted
 respondDecisionTaskCompleted pTaskToken_ =
-    RespondDecisionTaskCompleted'
-    { _rdtcDecisions = Nothing
-    , _rdtcExecutionContext = Nothing
-    , _rdtcTaskToken = pTaskToken_
-    }
+  RespondDecisionTaskCompleted'
+  { _rdtcDecisions = Nothing
+  , _rdtcExecutionContext = Nothing
+  , _rdtcTaskToken = pTaskToken_
+  }
+
 
 -- | The list of decisions (possibly empty) made by the decider while processing this decision task. See the docs for the 'Decision' structure for details.
 rdtcDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
@@ -99,9 +101,9 @@ instance AWSRequest RespondDecisionTaskCompleted
         response
           = receiveNull RespondDecisionTaskCompletedResponse'
 
-instance Hashable RespondDecisionTaskCompleted
+instance Hashable RespondDecisionTaskCompleted where
 
-instance NFData RespondDecisionTaskCompleted
+instance NFData RespondDecisionTaskCompleted where
 
 instance ToHeaders RespondDecisionTaskCompleted where
         toHeaders
@@ -129,8 +131,9 @@ instance ToQuery RespondDecisionTaskCompleted where
 
 -- | /See:/ 'respondDecisionTaskCompletedResponse' smart constructor.
 data RespondDecisionTaskCompletedResponse =
-    RespondDecisionTaskCompletedResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RespondDecisionTaskCompletedResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondDecisionTaskCompletedResponse' with the minimum fields required to make a request.
 --
@@ -138,4 +141,6 @@ respondDecisionTaskCompletedResponse
     :: RespondDecisionTaskCompletedResponse
 respondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse'
 
+
 instance NFData RespondDecisionTaskCompletedResponse
+         where

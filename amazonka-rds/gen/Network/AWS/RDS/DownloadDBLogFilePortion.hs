@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DownloadDBLogFilePortion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     , ddlfprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,11 +58,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'downloadDBLogFilePortion' smart constructor.
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
-    { _ddlfpNumberOfLines        :: !(Maybe Int)
-    , _ddlfpMarker               :: !(Maybe Text)
-    , _ddlfpDBInstanceIdentifier :: !Text
-    , _ddlfpLogFileName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddlfpNumberOfLines        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ddlfpMarker               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddlfpDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  , _ddlfpLogFileName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DownloadDBLogFilePortion' with the minimum fields required to make a request.
 --
@@ -80,12 +81,13 @@ downloadDBLogFilePortion
     -> Text -- ^ 'ddlfpLogFileName'
     -> DownloadDBLogFilePortion
 downloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
-    DownloadDBLogFilePortion'
-    { _ddlfpNumberOfLines = Nothing
-    , _ddlfpMarker = Nothing
-    , _ddlfpDBInstanceIdentifier = pDBInstanceIdentifier_
-    , _ddlfpLogFileName = pLogFileName_
-    }
+  DownloadDBLogFilePortion'
+  { _ddlfpNumberOfLines = Nothing
+  , _ddlfpMarker = Nothing
+  , _ddlfpDBInstanceIdentifier = pDBInstanceIdentifier_
+  , _ddlfpLogFileName = pLogFileName_
+  }
+
 
 -- | The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file will be truncated at 1 MB in size. If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.     * If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.     * If NumberOfLines is specified and Marker is not specified, then the most recent lines from the end of the log file are returned.     * If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.     * You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.
 ddlfpNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Int)
@@ -123,9 +125,9 @@ instance AWSRequest DownloadDBLogFilePortion where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DownloadDBLogFilePortion
+instance Hashable DownloadDBLogFilePortion where
 
-instance NFData DownloadDBLogFilePortion
+instance NFData DownloadDBLogFilePortion where
 
 instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty
@@ -150,11 +152,12 @@ instance ToQuery DownloadDBLogFilePortion where
 --
 -- /See:/ 'downloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-    { _ddlfprsLogFileData           :: !(Maybe Text)
-    , _ddlfprsAdditionalDataPending :: !(Maybe Bool)
-    , _ddlfprsMarker                :: !(Maybe Text)
-    , _ddlfprsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddlfprsLogFileData           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddlfprsAdditionalDataPending :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddlfprsMarker                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddlfprsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DownloadDBLogFilePortionResponse' with the minimum fields required to make a request.
 --
@@ -171,12 +174,13 @@ downloadDBLogFilePortionResponse
     :: Int -- ^ 'ddlfprsResponseStatus'
     -> DownloadDBLogFilePortionResponse
 downloadDBLogFilePortionResponse pResponseStatus_ =
-    DownloadDBLogFilePortionResponse'
-    { _ddlfprsLogFileData = Nothing
-    , _ddlfprsAdditionalDataPending = Nothing
-    , _ddlfprsMarker = Nothing
-    , _ddlfprsResponseStatus = pResponseStatus_
-    }
+  DownloadDBLogFilePortionResponse'
+  { _ddlfprsLogFileData = Nothing
+  , _ddlfprsAdditionalDataPending = Nothing
+  , _ddlfprsMarker = Nothing
+  , _ddlfprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Entries from the specified log file.
 ddlfprsLogFileData :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
@@ -195,3 +199,4 @@ ddlfprsResponseStatus :: Lens' DownloadDBLogFilePortionResponse Int
 ddlfprsResponseStatus = lens _ddlfprsResponseStatus (\ s a -> s{_ddlfprsResponseStatus = a});
 
 instance NFData DownloadDBLogFilePortionResponse
+         where

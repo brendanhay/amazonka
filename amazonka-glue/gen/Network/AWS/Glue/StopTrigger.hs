@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StopTrigger
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.StopTrigger
     , strsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopTrigger' smart constructor.
 newtype StopTrigger = StopTrigger'
-    { _stName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopTrigger' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype StopTrigger = StopTrigger'
 stopTrigger
     :: Text -- ^ 'stName'
     -> StopTrigger
-stopTrigger pName_ =
-    StopTrigger'
-    { _stName = pName_
-    }
+stopTrigger pName_ = StopTrigger' {_stName = pName_}
+
 
 -- | The name of the trigger to stop.
 stName :: Lens' StopTrigger Text
@@ -75,9 +74,9 @@ instance AWSRequest StopTrigger where
                  StopTriggerResponse' <$>
                    (x .?> "Name") <*> (pure (fromEnum s)))
 
-instance Hashable StopTrigger
+instance Hashable StopTrigger where
 
-instance NFData StopTrigger
+instance NFData StopTrigger where
 
 instance ToHeaders StopTrigger where
         toHeaders
@@ -100,9 +99,10 @@ instance ToQuery StopTrigger where
 
 -- | /See:/ 'stopTriggerResponse' smart constructor.
 data StopTriggerResponse = StopTriggerResponse'
-    { _strsName           :: !(Maybe Text)
-    , _strsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _strsName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _strsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopTriggerResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +115,9 @@ stopTriggerResponse
     :: Int -- ^ 'strsResponseStatus'
     -> StopTriggerResponse
 stopTriggerResponse pResponseStatus_ =
-    StopTriggerResponse'
-    { _strsName = Nothing
-    , _strsResponseStatus = pResponseStatus_
-    }
+  StopTriggerResponse'
+  {_strsName = Nothing, _strsResponseStatus = pResponseStatus_}
+
 
 -- | The name of the trigger that was stopped.
 strsName :: Lens' StopTriggerResponse (Maybe Text)
@@ -128,4 +127,4 @@ strsName = lens _strsName (\ s a -> s{_strsName = a});
 strsResponseStatus :: Lens' StopTriggerResponse Int
 strsResponseStatus = lens _strsResponseStatus (\ s a -> s{_strsResponseStatus = a});
 
-instance NFData StopTriggerResponse
+instance NFData StopTriggerResponse where

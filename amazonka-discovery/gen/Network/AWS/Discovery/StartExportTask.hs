@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.StartExportTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Discovery.StartExportTask
     , setrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startExportTask' smart constructor.
 data StartExportTask = StartExportTask'
-    { _setExportDataFormat :: !(Maybe [ExportDataFormat])
-    , _setStartTime        :: !(Maybe POSIX)
-    , _setFilters          :: !(Maybe [ExportFilter])
-    , _setEndTime          :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _setExportDataFormat :: {-# NOUNPACK #-}!(Maybe [ExportDataFormat])
+  , _setStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _setFilters          :: {-# NOUNPACK #-}!(Maybe [ExportFilter])
+  , _setEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartExportTask' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ data StartExportTask = StartExportTask'
 startExportTask
     :: StartExportTask
 startExportTask =
-    StartExportTask'
-    { _setExportDataFormat = Nothing
-    , _setStartTime = Nothing
-    , _setFilters = Nothing
-    , _setEndTime = Nothing
-    }
+  StartExportTask'
+  { _setExportDataFormat = Nothing
+  , _setStartTime = Nothing
+  , _setFilters = Nothing
+  , _setEndTime = Nothing
+  }
+
 
 -- | The file format for the returned export data. Default value is @CSV@ .
 setExportDataFormat :: Lens' StartExportTask [ExportDataFormat]
@@ -105,9 +107,9 @@ instance AWSRequest StartExportTask where
                  StartExportTaskResponse' <$>
                    (x .?> "exportId") <*> (pure (fromEnum s)))
 
-instance Hashable StartExportTask
+instance Hashable StartExportTask where
 
-instance NFData StartExportTask
+instance NFData StartExportTask where
 
 instance ToHeaders StartExportTask where
         toHeaders
@@ -136,9 +138,10 @@ instance ToQuery StartExportTask where
 
 -- | /See:/ 'startExportTaskResponse' smart constructor.
 data StartExportTaskResponse = StartExportTaskResponse'
-    { _setrsExportId       :: !(Maybe Text)
-    , _setrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _setrsExportId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _setrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartExportTaskResponse' with the minimum fields required to make a request.
 --
@@ -151,10 +154,9 @@ startExportTaskResponse
     :: Int -- ^ 'setrsResponseStatus'
     -> StartExportTaskResponse
 startExportTaskResponse pResponseStatus_ =
-    StartExportTaskResponse'
-    { _setrsExportId = Nothing
-    , _setrsResponseStatus = pResponseStatus_
-    }
+  StartExportTaskResponse'
+  {_setrsExportId = Nothing, _setrsResponseStatus = pResponseStatus_}
+
 
 -- | A unique identifier used to query the status of an export request.
 setrsExportId :: Lens' StartExportTaskResponse (Maybe Text)
@@ -164,4 +166,4 @@ setrsExportId = lens _setrsExportId (\ s a -> s{_setrsExportId = a});
 setrsResponseStatus :: Lens' StartExportTaskResponse Int
 setrsResponseStatus = lens _setrsResponseStatus (\ s a -> s{_setrsResponseStatus = a});
 
-instance NFData StartExportTaskResponse
+instance NFData StartExportTaskResponse where

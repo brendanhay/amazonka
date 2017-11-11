@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ApplicationAutoScaling.Types.Product where
 
-import           Network.AWS.ApplicationAutoScaling.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.ApplicationAutoScaling.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Represents a CloudWatch alarm associated with a scaling policy.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'alarm' smart constructor.
 data Alarm = Alarm'
-    { _aAlarmName :: !Text
-    , _aAlarmARN  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aAlarmName :: {-# NOUNPACK #-}!Text
+  , _aAlarmARN  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Alarm' with the minimum fields required to make a request.
 --
@@ -43,10 +44,8 @@ alarm
     -> Text -- ^ 'aAlarmARN'
     -> Alarm
 alarm pAlarmName_ pAlarmARN_ =
-    Alarm'
-    { _aAlarmName = pAlarmName_
-    , _aAlarmARN = pAlarmARN_
-    }
+  Alarm' {_aAlarmName = pAlarmName_, _aAlarmARN = pAlarmARN_}
+
 
 -- | The name of the alarm.
 aAlarmName :: Lens' Alarm Text
@@ -62,9 +61,9 @@ instance FromJSON Alarm where
               (\ x ->
                  Alarm' <$> (x .: "AlarmName") <*> (x .: "AlarmARN"))
 
-instance Hashable Alarm
+instance Hashable Alarm where
 
-instance NFData Alarm
+instance NFData Alarm where
 
 -- | Configures a customized metric for a target tracking policy.
 --
@@ -72,12 +71,13 @@ instance NFData Alarm
 --
 -- /See:/ 'customizedMetricSpecification' smart constructor.
 data CustomizedMetricSpecification = CustomizedMetricSpecification'
-    { _cmsDimensions :: !(Maybe [MetricDimension])
-    , _cmsUnit       :: !(Maybe Text)
-    , _cmsMetricName :: !Text
-    , _cmsNamespace  :: !Text
-    , _cmsStatistic  :: !MetricStatistic
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmsDimensions :: {-# NOUNPACK #-}!(Maybe [MetricDimension])
+  , _cmsUnit       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmsMetricName :: {-# NOUNPACK #-}!Text
+  , _cmsNamespace  :: {-# NOUNPACK #-}!Text
+  , _cmsStatistic  :: {-# NOUNPACK #-}!MetricStatistic
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomizedMetricSpecification' with the minimum fields required to make a request.
 --
@@ -98,13 +98,14 @@ customizedMetricSpecification
     -> MetricStatistic -- ^ 'cmsStatistic'
     -> CustomizedMetricSpecification
 customizedMetricSpecification pMetricName_ pNamespace_ pStatistic_ =
-    CustomizedMetricSpecification'
-    { _cmsDimensions = Nothing
-    , _cmsUnit = Nothing
-    , _cmsMetricName = pMetricName_
-    , _cmsNamespace = pNamespace_
-    , _cmsStatistic = pStatistic_
-    }
+  CustomizedMetricSpecification'
+  { _cmsDimensions = Nothing
+  , _cmsUnit = Nothing
+  , _cmsMetricName = pMetricName_
+  , _cmsNamespace = pNamespace_
+  , _cmsStatistic = pStatistic_
+  }
+
 
 -- | The dimensions of the metric.
 cmsDimensions :: Lens' CustomizedMetricSpecification [MetricDimension]
@@ -136,9 +137,9 @@ instance FromJSON CustomizedMetricSpecification where
                      <*> (x .: "Namespace")
                      <*> (x .: "Statistic"))
 
-instance Hashable CustomizedMetricSpecification
+instance Hashable CustomizedMetricSpecification where
 
-instance NFData CustomizedMetricSpecification
+instance NFData CustomizedMetricSpecification where
 
 instance ToJSON CustomizedMetricSpecification where
         toJSON CustomizedMetricSpecification'{..}
@@ -156,9 +157,10 @@ instance ToJSON CustomizedMetricSpecification where
 --
 -- /See:/ 'metricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-    { _mdName  :: !Text
-    , _mdValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdName  :: {-# NOUNPACK #-}!Text
+  , _mdValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
 --
@@ -172,10 +174,8 @@ metricDimension
     -> Text -- ^ 'mdValue'
     -> MetricDimension
 metricDimension pName_ pValue_ =
-    MetricDimension'
-    { _mdName = pName_
-    , _mdValue = pValue_
-    }
+  MetricDimension' {_mdName = pName_, _mdValue = pValue_}
+
 
 -- | The name of the dimension.
 mdName :: Lens' MetricDimension Text
@@ -192,9 +192,9 @@ instance FromJSON MetricDimension where
                  MetricDimension' <$>
                    (x .: "Name") <*> (x .: "Value"))
 
-instance Hashable MetricDimension
+instance Hashable MetricDimension where
 
-instance NFData MetricDimension
+instance NFData MetricDimension where
 
 instance ToJSON MetricDimension where
         toJSON MetricDimension'{..}
@@ -209,9 +209,10 @@ instance ToJSON MetricDimension where
 --
 -- /See:/ 'predefinedMetricSpecification' smart constructor.
 data PredefinedMetricSpecification = PredefinedMetricSpecification'
-    { _pmsResourceLabel        :: !(Maybe Text)
-    , _pmsPredefinedMetricType :: !MetricType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmsResourceLabel        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmsPredefinedMetricType :: {-# NOUNPACK #-}!MetricType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PredefinedMetricSpecification' with the minimum fields required to make a request.
 --
@@ -224,10 +225,11 @@ predefinedMetricSpecification
     :: MetricType -- ^ 'pmsPredefinedMetricType'
     -> PredefinedMetricSpecification
 predefinedMetricSpecification pPredefinedMetricType_ =
-    PredefinedMetricSpecification'
-    { _pmsResourceLabel = Nothing
-    , _pmsPredefinedMetricType = pPredefinedMetricType_
-    }
+  PredefinedMetricSpecification'
+  { _pmsResourceLabel = Nothing
+  , _pmsPredefinedMetricType = pPredefinedMetricType_
+  }
+
 
 -- | Reserved for future use.
 pmsResourceLabel :: Lens' PredefinedMetricSpecification (Maybe Text)
@@ -245,9 +247,9 @@ instance FromJSON PredefinedMetricSpecification where
                    (x .:? "ResourceLabel") <*>
                      (x .: "PredefinedMetricType"))
 
-instance Hashable PredefinedMetricSpecification
+instance Hashable PredefinedMetricSpecification where
 
-instance NFData PredefinedMetricSpecification
+instance NFData PredefinedMetricSpecification where
 
 instance ToJSON PredefinedMetricSpecification where
         toJSON PredefinedMetricSpecification'{..}
@@ -264,14 +266,15 @@ instance ToJSON PredefinedMetricSpecification where
 --
 -- /See:/ 'scalableTarget' smart constructor.
 data ScalableTarget = ScalableTarget'
-    { _stServiceNamespace  :: !ServiceNamespace
-    , _stResourceId        :: !Text
-    , _stScalableDimension :: !ScalableDimension
-    , _stMinCapacity       :: !Int
-    , _stMaxCapacity       :: !Int
-    , _stRoleARN           :: !Text
-    , _stCreationTime      :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  , _stResourceId        :: {-# NOUNPACK #-}!Text
+  , _stScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  , _stMinCapacity       :: {-# NOUNPACK #-}!Int
+  , _stMaxCapacity       :: {-# NOUNPACK #-}!Int
+  , _stRoleARN           :: {-# NOUNPACK #-}!Text
+  , _stCreationTime      :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalableTarget' with the minimum fields required to make a request.
 --
@@ -300,15 +303,16 @@ scalableTarget
     -> UTCTime -- ^ 'stCreationTime'
     -> ScalableTarget
 scalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ pMinCapacity_ pMaxCapacity_ pRoleARN_ pCreationTime_ =
-    ScalableTarget'
-    { _stServiceNamespace = pServiceNamespace_
-    , _stResourceId = pResourceId_
-    , _stScalableDimension = pScalableDimension_
-    , _stMinCapacity = pMinCapacity_
-    , _stMaxCapacity = pMaxCapacity_
-    , _stRoleARN = pRoleARN_
-    , _stCreationTime = _Time # pCreationTime_
-    }
+  ScalableTarget'
+  { _stServiceNamespace = pServiceNamespace_
+  , _stResourceId = pResourceId_
+  , _stScalableDimension = pScalableDimension_
+  , _stMinCapacity = pMinCapacity_
+  , _stMaxCapacity = pMaxCapacity_
+  , _stRoleARN = pRoleARN_
+  , _stCreationTime = _Time # pCreationTime_
+  }
+
 
 -- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 stServiceNamespace :: Lens' ScalableTarget ServiceNamespace
@@ -350,9 +354,9 @@ instance FromJSON ScalableTarget where
                      <*> (x .: "RoleARN")
                      <*> (x .: "CreationTime"))
 
-instance Hashable ScalableTarget
+instance Hashable ScalableTarget where
 
-instance NFData ScalableTarget
+instance NFData ScalableTarget where
 
 -- | Represents a scaling activity.
 --
@@ -360,18 +364,19 @@ instance NFData ScalableTarget
 --
 -- /See:/ 'scalingActivity' smart constructor.
 data ScalingActivity = ScalingActivity'
-    { _saStatusMessage     :: !(Maybe Text)
-    , _saEndTime           :: !(Maybe POSIX)
-    , _saDetails           :: !(Maybe Text)
-    , _saActivityId        :: !Text
-    , _saServiceNamespace  :: !ServiceNamespace
-    , _saResourceId        :: !Text
-    , _saScalableDimension :: !ScalableDimension
-    , _saDescription       :: !Text
-    , _saCause             :: !Text
-    , _saStartTime         :: !POSIX
-    , _saStatusCode        :: !ScalingActivityStatusCode
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saStatusMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _saEndTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _saDetails           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _saActivityId        :: {-# NOUNPACK #-}!Text
+  , _saServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  , _saResourceId        :: {-# NOUNPACK #-}!Text
+  , _saScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  , _saDescription       :: {-# NOUNPACK #-}!Text
+  , _saCause             :: {-# NOUNPACK #-}!Text
+  , _saStartTime         :: {-# NOUNPACK #-}!POSIX
+  , _saStatusCode        :: {-# NOUNPACK #-}!ScalingActivityStatusCode
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingActivity' with the minimum fields required to make a request.
 --
@@ -409,19 +414,20 @@ scalingActivity
     -> ScalingActivityStatusCode -- ^ 'saStatusCode'
     -> ScalingActivity
 scalingActivity pActivityId_ pServiceNamespace_ pResourceId_ pScalableDimension_ pDescription_ pCause_ pStartTime_ pStatusCode_ =
-    ScalingActivity'
-    { _saStatusMessage = Nothing
-    , _saEndTime = Nothing
-    , _saDetails = Nothing
-    , _saActivityId = pActivityId_
-    , _saServiceNamespace = pServiceNamespace_
-    , _saResourceId = pResourceId_
-    , _saScalableDimension = pScalableDimension_
-    , _saDescription = pDescription_
-    , _saCause = pCause_
-    , _saStartTime = _Time # pStartTime_
-    , _saStatusCode = pStatusCode_
-    }
+  ScalingActivity'
+  { _saStatusMessage = Nothing
+  , _saEndTime = Nothing
+  , _saDetails = Nothing
+  , _saActivityId = pActivityId_
+  , _saServiceNamespace = pServiceNamespace_
+  , _saResourceId = pResourceId_
+  , _saScalableDimension = pScalableDimension_
+  , _saDescription = pDescription_
+  , _saCause = pCause_
+  , _saStartTime = _Time # pStartTime_
+  , _saStatusCode = pStatusCode_
+  }
+
 
 -- | A simple message about the current status of the scaling activity.
 saStatusMessage :: Lens' ScalingActivity (Maybe Text)
@@ -483,9 +489,9 @@ instance FromJSON ScalingActivity where
                      <*> (x .: "StartTime")
                      <*> (x .: "StatusCode"))
 
-instance Hashable ScalingActivity
+instance Hashable ScalingActivity where
 
-instance NFData ScalingActivity
+instance NFData ScalingActivity where
 
 -- | Represents a scaling policy.
 --
@@ -493,17 +499,18 @@ instance NFData ScalingActivity
 --
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-    { _spTargetTrackingScalingPolicyConfiguration :: !(Maybe TargetTrackingScalingPolicyConfiguration)
-    , _spStepScalingPolicyConfiguration           :: !(Maybe StepScalingPolicyConfiguration)
-    , _spAlarms                                   :: !(Maybe [Alarm])
-    , _spPolicyARN                                :: !Text
-    , _spPolicyName                               :: !Text
-    , _spServiceNamespace                         :: !ServiceNamespace
-    , _spResourceId                               :: !Text
-    , _spScalableDimension                        :: !ScalableDimension
-    , _spPolicyType                               :: !PolicyType
-    , _spCreationTime                             :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spTargetTrackingScalingPolicyConfiguration :: {-# NOUNPACK #-}!(Maybe TargetTrackingScalingPolicyConfiguration)
+  , _spStepScalingPolicyConfiguration :: {-# NOUNPACK #-}!(Maybe StepScalingPolicyConfiguration)
+  , _spAlarms :: {-# NOUNPACK #-}!(Maybe [Alarm])
+  , _spPolicyARN :: {-# NOUNPACK #-}!Text
+  , _spPolicyName :: {-# NOUNPACK #-}!Text
+  , _spServiceNamespace :: {-# NOUNPACK #-}!ServiceNamespace
+  , _spResourceId :: {-# NOUNPACK #-}!Text
+  , _spScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  , _spPolicyType :: {-# NOUNPACK #-}!PolicyType
+  , _spCreationTime :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
 --
@@ -538,18 +545,19 @@ scalingPolicy
     -> UTCTime -- ^ 'spCreationTime'
     -> ScalingPolicy
 scalingPolicy pPolicyARN_ pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ pPolicyType_ pCreationTime_ =
-    ScalingPolicy'
-    { _spTargetTrackingScalingPolicyConfiguration = Nothing
-    , _spStepScalingPolicyConfiguration = Nothing
-    , _spAlarms = Nothing
-    , _spPolicyARN = pPolicyARN_
-    , _spPolicyName = pPolicyName_
-    , _spServiceNamespace = pServiceNamespace_
-    , _spResourceId = pResourceId_
-    , _spScalableDimension = pScalableDimension_
-    , _spPolicyType = pPolicyType_
-    , _spCreationTime = _Time # pCreationTime_
-    }
+  ScalingPolicy'
+  { _spTargetTrackingScalingPolicyConfiguration = Nothing
+  , _spStepScalingPolicyConfiguration = Nothing
+  , _spAlarms = Nothing
+  , _spPolicyARN = pPolicyARN_
+  , _spPolicyName = pPolicyName_
+  , _spServiceNamespace = pServiceNamespace_
+  , _spResourceId = pResourceId_
+  , _spScalableDimension = pScalableDimension_
+  , _spPolicyType = pPolicyType_
+  , _spCreationTime = _Time # pCreationTime_
+  }
+
 
 -- | A target tracking policy.
 spTargetTrackingScalingPolicyConfiguration :: Lens' ScalingPolicy (Maybe TargetTrackingScalingPolicyConfiguration)
@@ -607,9 +615,9 @@ instance FromJSON ScalingPolicy where
                      <*> (x .: "PolicyType")
                      <*> (x .: "CreationTime"))
 
-instance Hashable ScalingPolicy
+instance Hashable ScalingPolicy where
 
-instance NFData ScalingPolicy
+instance NFData ScalingPolicy where
 
 -- | Represents a step adjustment for a 'StepScalingPolicyConfiguration' . Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
 --
@@ -637,10 +645,11 @@ instance NFData ScalingPolicy
 --
 -- /See:/ 'stepAdjustment' smart constructor.
 data StepAdjustment = StepAdjustment'
-    { _saMetricIntervalLowerBound :: !(Maybe Double)
-    , _saMetricIntervalUpperBound :: !(Maybe Double)
-    , _saScalingAdjustment        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saMetricIntervalLowerBound :: {-# NOUNPACK #-}!(Maybe Double)
+  , _saMetricIntervalUpperBound :: {-# NOUNPACK #-}!(Maybe Double)
+  , _saScalingAdjustment        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepAdjustment' with the minimum fields required to make a request.
 --
@@ -655,11 +664,12 @@ stepAdjustment
     :: Int -- ^ 'saScalingAdjustment'
     -> StepAdjustment
 stepAdjustment pScalingAdjustment_ =
-    StepAdjustment'
-    { _saMetricIntervalLowerBound = Nothing
-    , _saMetricIntervalUpperBound = Nothing
-    , _saScalingAdjustment = pScalingAdjustment_
-    }
+  StepAdjustment'
+  { _saMetricIntervalLowerBound = Nothing
+  , _saMetricIntervalUpperBound = Nothing
+  , _saScalingAdjustment = pScalingAdjustment_
+  }
+
 
 -- | The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
 saMetricIntervalLowerBound :: Lens' StepAdjustment (Maybe Double)
@@ -682,9 +692,9 @@ instance FromJSON StepAdjustment where
                      (x .:? "MetricIntervalUpperBound")
                      <*> (x .: "ScalingAdjustment"))
 
-instance Hashable StepAdjustment
+instance Hashable StepAdjustment where
 
-instance NFData StepAdjustment
+instance NFData StepAdjustment where
 
 instance ToJSON StepAdjustment where
         toJSON StepAdjustment'{..}
@@ -702,12 +712,13 @@ instance ToJSON StepAdjustment where
 --
 -- /See:/ 'stepScalingPolicyConfiguration' smart constructor.
 data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
-    { _sspcStepAdjustments        :: !(Maybe [StepAdjustment])
-    , _sspcAdjustmentType         :: !(Maybe AdjustmentType)
-    , _sspcCooldown               :: !(Maybe Int)
-    , _sspcMetricAggregationType  :: !(Maybe MetricAggregationType)
-    , _sspcMinAdjustmentMagnitude :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sspcStepAdjustments :: {-# NOUNPACK #-}!(Maybe [StepAdjustment])
+  , _sspcAdjustmentType :: {-# NOUNPACK #-}!(Maybe AdjustmentType)
+  , _sspcCooldown :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sspcMetricAggregationType :: {-# NOUNPACK #-}!(Maybe MetricAggregationType)
+  , _sspcMinAdjustmentMagnitude :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StepScalingPolicyConfiguration' with the minimum fields required to make a request.
 --
@@ -725,13 +736,14 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 stepScalingPolicyConfiguration
     :: StepScalingPolicyConfiguration
 stepScalingPolicyConfiguration =
-    StepScalingPolicyConfiguration'
-    { _sspcStepAdjustments = Nothing
-    , _sspcAdjustmentType = Nothing
-    , _sspcCooldown = Nothing
-    , _sspcMetricAggregationType = Nothing
-    , _sspcMinAdjustmentMagnitude = Nothing
-    }
+  StepScalingPolicyConfiguration'
+  { _sspcStepAdjustments = Nothing
+  , _sspcAdjustmentType = Nothing
+  , _sspcCooldown = Nothing
+  , _sspcMetricAggregationType = Nothing
+  , _sspcMinAdjustmentMagnitude = Nothing
+  }
+
 
 -- | A set of adjustments that enable you to scale based on the size of the alarm breach.
 sspcStepAdjustments :: Lens' StepScalingPolicyConfiguration [StepAdjustment]
@@ -766,8 +778,9 @@ instance FromJSON StepScalingPolicyConfiguration
                      <*> (x .:? "MinAdjustmentMagnitude"))
 
 instance Hashable StepScalingPolicyConfiguration
+         where
 
-instance NFData StepScalingPolicyConfiguration
+instance NFData StepScalingPolicyConfiguration where
 
 instance ToJSON StepScalingPolicyConfiguration where
         toJSON StepScalingPolicyConfiguration'{..}
@@ -787,12 +800,13 @@ instance ToJSON StepScalingPolicyConfiguration where
 --
 -- /See:/ 'targetTrackingScalingPolicyConfiguration' smart constructor.
 data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfiguration'
-    { _ttspcPredefinedMetricSpecification :: !(Maybe PredefinedMetricSpecification)
-    , _ttspcScaleInCooldown               :: !(Maybe Int)
-    , _ttspcCustomizedMetricSpecification :: !(Maybe CustomizedMetricSpecification)
-    , _ttspcScaleOutCooldown              :: !(Maybe Int)
-    , _ttspcTargetValue                   :: !Double
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ttspcPredefinedMetricSpecification :: {-# NOUNPACK #-}!(Maybe PredefinedMetricSpecification)
+  , _ttspcScaleInCooldown :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ttspcCustomizedMetricSpecification :: {-# NOUNPACK #-}!(Maybe CustomizedMetricSpecification)
+  , _ttspcScaleOutCooldown :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ttspcTargetValue :: {-# NOUNPACK #-}!Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TargetTrackingScalingPolicyConfiguration' with the minimum fields required to make a request.
 --
@@ -811,13 +825,14 @@ targetTrackingScalingPolicyConfiguration
     :: Double -- ^ 'ttspcTargetValue'
     -> TargetTrackingScalingPolicyConfiguration
 targetTrackingScalingPolicyConfiguration pTargetValue_ =
-    TargetTrackingScalingPolicyConfiguration'
-    { _ttspcPredefinedMetricSpecification = Nothing
-    , _ttspcScaleInCooldown = Nothing
-    , _ttspcCustomizedMetricSpecification = Nothing
-    , _ttspcScaleOutCooldown = Nothing
-    , _ttspcTargetValue = pTargetValue_
-    }
+  TargetTrackingScalingPolicyConfiguration'
+  { _ttspcPredefinedMetricSpecification = Nothing
+  , _ttspcScaleInCooldown = Nothing
+  , _ttspcCustomizedMetricSpecification = Nothing
+  , _ttspcScaleOutCooldown = Nothing
+  , _ttspcTargetValue = pTargetValue_
+  }
+
 
 -- | A predefined metric.
 ttspcPredefinedMetricSpecification :: Lens' TargetTrackingScalingPolicyConfiguration (Maybe PredefinedMetricSpecification)
@@ -840,7 +855,8 @@ ttspcTargetValue :: Lens' TargetTrackingScalingPolicyConfiguration Double
 ttspcTargetValue = lens _ttspcTargetValue (\ s a -> s{_ttspcTargetValue = a});
 
 instance FromJSON
-         TargetTrackingScalingPolicyConfiguration where
+           TargetTrackingScalingPolicyConfiguration
+         where
         parseJSON
           = withObject
               "TargetTrackingScalingPolicyConfiguration"
@@ -853,13 +869,16 @@ instance FromJSON
                      <*> (x .: "TargetValue"))
 
 instance Hashable
-         TargetTrackingScalingPolicyConfiguration
+           TargetTrackingScalingPolicyConfiguration
+         where
 
 instance NFData
-         TargetTrackingScalingPolicyConfiguration
+           TargetTrackingScalingPolicyConfiguration
+         where
 
 instance ToJSON
-         TargetTrackingScalingPolicyConfiguration where
+           TargetTrackingScalingPolicyConfiguration
+         where
         toJSON TargetTrackingScalingPolicyConfiguration'{..}
           = object
               (catMaybes

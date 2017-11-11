@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateThing
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.IoT.CreateThing
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreateThing operation.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createThing' smart constructor.
 data CreateThing = CreateThing'
-    { _ctThingTypeName    :: !(Maybe Text)
-    , _ctAttributePayload :: !(Maybe AttributePayload)
-    , _ctThingName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctThingTypeName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctAttributePayload :: {-# NOUNPACK #-}!(Maybe AttributePayload)
+  , _ctThingName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateThing' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ createThing
     :: Text -- ^ 'ctThingName'
     -> CreateThing
 createThing pThingName_ =
-    CreateThing'
-    { _ctThingTypeName = Nothing
-    , _ctAttributePayload = Nothing
-    , _ctThingName = pThingName_
-    }
+  CreateThing'
+  { _ctThingTypeName = Nothing
+  , _ctAttributePayload = Nothing
+  , _ctThingName = pThingName_
+  }
+
 
 -- | The name of the thing type associated with the new thing.
 ctThingTypeName :: Lens' CreateThing (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest CreateThing where
                    (x .?> "thingArn") <*> (x .?> "thingName") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateThing
+instance Hashable CreateThing where
 
-instance NFData CreateThing
+instance NFData CreateThing where
 
 instance ToHeaders CreateThing where
         toHeaders = const mempty
@@ -126,10 +128,11 @@ instance ToQuery CreateThing where
 --
 -- /See:/ 'createThingResponse' smart constructor.
 data CreateThingResponse = CreateThingResponse'
-    { _ctrsThingARN       :: !(Maybe Text)
-    , _ctrsThingName      :: !(Maybe Text)
-    , _ctrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsThingARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsThingName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateThingResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ createThingResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateThingResponse
 createThingResponse pResponseStatus_ =
-    CreateThingResponse'
-    { _ctrsThingARN = Nothing
-    , _ctrsThingName = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateThingResponse'
+  { _ctrsThingARN = Nothing
+  , _ctrsThingName = Nothing
+  , _ctrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARN of the new thing.
 ctrsThingARN :: Lens' CreateThingResponse (Maybe Text)
@@ -162,4 +166,4 @@ ctrsThingName = lens _ctrsThingName (\ s a -> s{_ctrsThingName = a});
 ctrsResponseStatus :: Lens' CreateThingResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateThingResponse
+instance NFData CreateThingResponse where

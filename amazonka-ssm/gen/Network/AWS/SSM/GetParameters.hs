@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.SSM.GetParameters
     , grsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getParameters' smart constructor.
 data GetParameters = GetParameters'
-    { _gpWithDecryption :: !(Maybe Bool)
-    , _gpNames          :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpWithDecryption :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gpNames          :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParameters' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ getParameters
     :: NonEmpty Text -- ^ 'gpNames'
     -> GetParameters
 getParameters pNames_ =
-    GetParameters'
-    { _gpWithDecryption = Nothing
-    , _gpNames = _List1 # pNames_
-    }
+  GetParameters' {_gpWithDecryption = Nothing, _gpNames = _List1 # pNames_}
+
 
 -- | Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
 gpWithDecryption :: Lens' GetParameters (Maybe Bool)
@@ -87,9 +86,9 @@ instance AWSRequest GetParameters where
                      (x .?> "InvalidParameters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetParameters
+instance Hashable GetParameters where
 
-instance NFData GetParameters
+instance NFData GetParameters where
 
 instance ToHeaders GetParameters where
         toHeaders
@@ -115,10 +114,11 @@ instance ToQuery GetParameters where
 
 -- | /See:/ 'getParametersResponse' smart constructor.
 data GetParametersResponse = GetParametersResponse'
-    { _grsParameters        :: !(Maybe [Parameter])
-    , _grsInvalidParameters :: !(Maybe [Text])
-    , _grsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsParameters        :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _grsInvalidParameters :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _grsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParametersResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +133,12 @@ getParametersResponse
     :: Int -- ^ 'grsResponseStatus'
     -> GetParametersResponse
 getParametersResponse pResponseStatus_ =
-    GetParametersResponse'
-    { _grsParameters = Nothing
-    , _grsInvalidParameters = Nothing
-    , _grsResponseStatus = pResponseStatus_
-    }
+  GetParametersResponse'
+  { _grsParameters = Nothing
+  , _grsInvalidParameters = Nothing
+  , _grsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of details for a parameter.
 grsParameters :: Lens' GetParametersResponse [Parameter]
@@ -151,4 +152,4 @@ grsInvalidParameters = lens _grsInvalidParameters (\ s a -> s{_grsInvalidParamet
 grsResponseStatus :: Lens' GetParametersResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
-instance NFData GetParametersResponse
+instance NFData GetParametersResponse where

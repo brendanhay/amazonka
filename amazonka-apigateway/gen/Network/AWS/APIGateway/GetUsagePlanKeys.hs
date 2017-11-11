@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsagePlanKeys
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.APIGateway.GetUsagePlanKeys
     , gupkrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getUsagePlanKeys' smart constructor.
 data GetUsagePlanKeys = GetUsagePlanKeys'
-    { _gupkNameQuery   :: !(Maybe Text)
-    , _gupkLimit       :: !(Maybe Int)
-    , _gupkPosition    :: !(Maybe Text)
-    , _gupkUsagePlanId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gupkNameQuery   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gupkLimit       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gupkPosition    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gupkUsagePlanId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUsagePlanKeys' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ getUsagePlanKeys
     :: Text -- ^ 'gupkUsagePlanId'
     -> GetUsagePlanKeys
 getUsagePlanKeys pUsagePlanId_ =
-    GetUsagePlanKeys'
-    { _gupkNameQuery = Nothing
-    , _gupkLimit = Nothing
-    , _gupkPosition = Nothing
-    , _gupkUsagePlanId = pUsagePlanId_
-    }
+  GetUsagePlanKeys'
+  { _gupkNameQuery = Nothing
+  , _gupkLimit = Nothing
+  , _gupkPosition = Nothing
+  , _gupkUsagePlanId = pUsagePlanId_
+  }
+
 
 -- | A query parameter specifying the name of the to-be-returned usage plan keys.
 gupkNameQuery :: Lens' GetUsagePlanKeys (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest GetUsagePlanKeys where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetUsagePlanKeys
+instance Hashable GetUsagePlanKeys where
 
-instance NFData GetUsagePlanKeys
+instance NFData GetUsagePlanKeys where
 
 instance ToHeaders GetUsagePlanKeys where
         toHeaders
@@ -146,10 +148,11 @@ instance ToQuery GetUsagePlanKeys where
 --
 -- /See:/ 'getUsagePlanKeysResponse' smart constructor.
 data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
-    { _gupkrsItems          :: !(Maybe [UsagePlanKey])
-    , _gupkrsPosition       :: !(Maybe Text)
-    , _gupkrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gupkrsItems          :: {-# NOUNPACK #-}!(Maybe [UsagePlanKey])
+  , _gupkrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gupkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUsagePlanKeysResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ getUsagePlanKeysResponse
     :: Int -- ^ 'gupkrsResponseStatus'
     -> GetUsagePlanKeysResponse
 getUsagePlanKeysResponse pResponseStatus_ =
-    GetUsagePlanKeysResponse'
-    { _gupkrsItems = Nothing
-    , _gupkrsPosition = Nothing
-    , _gupkrsResponseStatus = pResponseStatus_
-    }
+  GetUsagePlanKeysResponse'
+  { _gupkrsItems = Nothing
+  , _gupkrsPosition = Nothing
+  , _gupkrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 gupkrsItems :: Lens' GetUsagePlanKeysResponse [UsagePlanKey]
@@ -182,4 +186,4 @@ gupkrsPosition = lens _gupkrsPosition (\ s a -> s{_gupkrsPosition = a});
 gupkrsResponseStatus :: Lens' GetUsagePlanKeysResponse Int
 gupkrsResponseStatus = lens _gupkrsResponseStatus (\ s a -> s{_gupkrsResponseStatus = a});
 
-instance NFData GetUsagePlanKeysResponse
+instance NFData GetUsagePlanKeysResponse where

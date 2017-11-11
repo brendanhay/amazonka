@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     , slblscrsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for SetLoadBalancerListenerSSLCertificate.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
-    { _slblscLoadBalancerName :: !Text
-    , _slblscLoadBalancerPort :: !Int
-    , _slblscSSLCertificateId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slblscLoadBalancerName :: {-# NOUNPACK #-}!Text
+  , _slblscLoadBalancerPort :: {-# NOUNPACK #-}!Int
+  , _slblscSSLCertificateId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetLoadBalancerListenerSSLCertificate' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ setLoadBalancerListenerSSLCertificate
     -> Text -- ^ 'slblscSSLCertificateId'
     -> SetLoadBalancerListenerSSLCertificate
 setLoadBalancerListenerSSLCertificate pLoadBalancerName_ pLoadBalancerPort_ pSSLCertificateId_ =
-    SetLoadBalancerListenerSSLCertificate'
-    { _slblscLoadBalancerName = pLoadBalancerName_
-    , _slblscLoadBalancerPort = pLoadBalancerPort_
-    , _slblscSSLCertificateId = pSSLCertificateId_
-    }
+  SetLoadBalancerListenerSSLCertificate'
+  { _slblscLoadBalancerName = pLoadBalancerName_
+  , _slblscLoadBalancerPort = pLoadBalancerPort_
+  , _slblscSSLCertificateId = pSSLCertificateId_
+  }
+
 
 -- | The name of the load balancer.
 slblscLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
@@ -92,7 +94,8 @@ slblscSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblscSSLCertificateId = lens _slblscSSLCertificateId (\ s a -> s{_slblscSSLCertificateId = a});
 
 instance AWSRequest
-         SetLoadBalancerListenerSSLCertificate where
+           SetLoadBalancerListenerSSLCertificate
+         where
         type Rs SetLoadBalancerListenerSSLCertificate =
              SetLoadBalancerListenerSSLCertificateResponse
         request = postQuery elb
@@ -104,12 +107,15 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         SetLoadBalancerListenerSSLCertificate
+           SetLoadBalancerListenerSSLCertificate
+         where
 
 instance NFData SetLoadBalancerListenerSSLCertificate
+         where
 
 instance ToHeaders
-         SetLoadBalancerListenerSSLCertificate where
+           SetLoadBalancerListenerSSLCertificate
+         where
         toHeaders = const mempty
 
 instance ToPath SetLoadBalancerListenerSSLCertificate
@@ -117,7 +123,8 @@ instance ToPath SetLoadBalancerListenerSSLCertificate
         toPath = const "/"
 
 instance ToQuery
-         SetLoadBalancerListenerSSLCertificate where
+           SetLoadBalancerListenerSSLCertificate
+         where
         toQuery SetLoadBalancerListenerSSLCertificate'{..}
           = mconcat
               ["Action" =:
@@ -134,8 +141,9 @@ instance ToQuery
 --
 -- /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
 newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
-    { _slblscrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slblscrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetLoadBalancerListenerSSLCertificateResponse' with the minimum fields required to make a request.
 --
@@ -146,13 +154,14 @@ setLoadBalancerListenerSSLCertificateResponse
     :: Int -- ^ 'slblscrsResponseStatus'
     -> SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificateResponse pResponseStatus_ =
-    SetLoadBalancerListenerSSLCertificateResponse'
-    { _slblscrsResponseStatus = pResponseStatus_
-    }
+  SetLoadBalancerListenerSSLCertificateResponse'
+  {_slblscrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 slblscrsResponseStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
 slblscrsResponseStatus = lens _slblscrsResponseStatus (\ s a -> s{_slblscrsResponseStatus = a});
 
 instance NFData
-         SetLoadBalancerListenerSSLCertificateResponse
+           SetLoadBalancerListenerSSLCertificateResponse
+         where

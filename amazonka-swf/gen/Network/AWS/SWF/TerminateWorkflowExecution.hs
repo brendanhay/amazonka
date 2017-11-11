@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.TerminateWorkflowExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,22 +55,23 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     , TerminateWorkflowExecutionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'terminateWorkflowExecution' smart constructor.
 data TerminateWorkflowExecution = TerminateWorkflowExecution'
-    { _tweReason      :: !(Maybe Text)
-    , _tweRunId       :: !(Maybe Text)
-    , _tweChildPolicy :: !(Maybe ChildPolicy)
-    , _tweDetails     :: !(Maybe Text)
-    , _tweDomain      :: !Text
-    , _tweWorkflowId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tweReason      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tweRunId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tweChildPolicy :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
+  , _tweDetails     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tweDomain      :: {-# NOUNPACK #-}!Text
+  , _tweWorkflowId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateWorkflowExecution' with the minimum fields required to make a request.
 --
@@ -92,14 +93,15 @@ terminateWorkflowExecution
     -> Text -- ^ 'tweWorkflowId'
     -> TerminateWorkflowExecution
 terminateWorkflowExecution pDomain_ pWorkflowId_ =
-    TerminateWorkflowExecution'
-    { _tweReason = Nothing
-    , _tweRunId = Nothing
-    , _tweChildPolicy = Nothing
-    , _tweDetails = Nothing
-    , _tweDomain = pDomain_
-    , _tweWorkflowId = pWorkflowId_
-    }
+  TerminateWorkflowExecution'
+  { _tweReason = Nothing
+  , _tweRunId = Nothing
+  , _tweChildPolicy = Nothing
+  , _tweDetails = Nothing
+  , _tweDomain = pDomain_
+  , _tweWorkflowId = pWorkflowId_
+  }
+
 
 -- | A descriptive reason for terminating the workflow execution.
 tweReason :: Lens' TerminateWorkflowExecution (Maybe Text)
@@ -132,9 +134,9 @@ instance AWSRequest TerminateWorkflowExecution where
         response
           = receiveNull TerminateWorkflowExecutionResponse'
 
-instance Hashable TerminateWorkflowExecution
+instance Hashable TerminateWorkflowExecution where
 
-instance NFData TerminateWorkflowExecution
+instance NFData TerminateWorkflowExecution where
 
 instance ToHeaders TerminateWorkflowExecution where
         toHeaders
@@ -165,8 +167,9 @@ instance ToQuery TerminateWorkflowExecution where
 
 -- | /See:/ 'terminateWorkflowExecutionResponse' smart constructor.
 data TerminateWorkflowExecutionResponse =
-    TerminateWorkflowExecutionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  TerminateWorkflowExecutionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TerminateWorkflowExecutionResponse' with the minimum fields required to make a request.
 --
@@ -174,4 +177,6 @@ terminateWorkflowExecutionResponse
     :: TerminateWorkflowExecutionResponse
 terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse'
 
+
 instance NFData TerminateWorkflowExecutionResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyInstancePlacement
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.EC2.ModifyInstancePlacement
     , miprsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyInstancePlacement.
 --
@@ -61,11 +61,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyInstancePlacement' smart constructor.
 data ModifyInstancePlacement = ModifyInstancePlacement'
-    { _mipAffinity   :: !(Maybe Affinity)
-    , _mipHostId     :: !(Maybe Text)
-    , _mipTenancy    :: !(Maybe HostTenancy)
-    , _mipInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mipAffinity   :: {-# NOUNPACK #-}!(Maybe Affinity)
+  , _mipHostId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mipTenancy    :: {-# NOUNPACK #-}!(Maybe HostTenancy)
+  , _mipInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyInstancePlacement' with the minimum fields required to make a request.
 --
@@ -82,12 +83,13 @@ modifyInstancePlacement
     :: Text -- ^ 'mipInstanceId'
     -> ModifyInstancePlacement
 modifyInstancePlacement pInstanceId_ =
-    ModifyInstancePlacement'
-    { _mipAffinity = Nothing
-    , _mipHostId = Nothing
-    , _mipTenancy = Nothing
-    , _mipInstanceId = pInstanceId_
-    }
+  ModifyInstancePlacement'
+  { _mipAffinity = Nothing
+  , _mipHostId = Nothing
+  , _mipTenancy = Nothing
+  , _mipInstanceId = pInstanceId_
+  }
+
 
 -- | The new affinity setting for the instance.
 mipAffinity :: Lens' ModifyInstancePlacement (Maybe Affinity)
@@ -115,9 +117,9 @@ instance AWSRequest ModifyInstancePlacement where
                  ModifyInstancePlacementResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyInstancePlacement
+instance Hashable ModifyInstancePlacement where
 
-instance NFData ModifyInstancePlacement
+instance NFData ModifyInstancePlacement where
 
 instance ToHeaders ModifyInstancePlacement where
         toHeaders = const mempty
@@ -141,9 +143,10 @@ instance ToQuery ModifyInstancePlacement where
 --
 -- /See:/ 'modifyInstancePlacementResponse' smart constructor.
 data ModifyInstancePlacementResponse = ModifyInstancePlacementResponse'
-    { _miprsReturn         :: !(Maybe Bool)
-    , _miprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _miprsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _miprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyInstancePlacementResponse' with the minimum fields required to make a request.
 --
@@ -156,10 +159,9 @@ modifyInstancePlacementResponse
     :: Int -- ^ 'miprsResponseStatus'
     -> ModifyInstancePlacementResponse
 modifyInstancePlacementResponse pResponseStatus_ =
-    ModifyInstancePlacementResponse'
-    { _miprsReturn = Nothing
-    , _miprsResponseStatus = pResponseStatus_
-    }
+  ModifyInstancePlacementResponse'
+  {_miprsReturn = Nothing, _miprsResponseStatus = pResponseStatus_}
+
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
 miprsReturn :: Lens' ModifyInstancePlacementResponse (Maybe Bool)
@@ -169,4 +171,4 @@ miprsReturn = lens _miprsReturn (\ s a -> s{_miprsReturn = a});
 miprsResponseStatus :: Lens' ModifyInstancePlacementResponse Int
 miprsResponseStatus = lens _miprsResponseStatus (\ s a -> s{_miprsResponseStatus = a});
 
-instance NFData ModifyInstancePlacementResponse
+instance NFData ModifyInstancePlacementResponse where

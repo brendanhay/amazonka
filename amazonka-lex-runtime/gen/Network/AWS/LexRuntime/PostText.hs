@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexRuntime.PostText
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -79,21 +79,22 @@ module Network.AWS.LexRuntime.PostText
     , ptrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexRuntime.Types
-import           Network.AWS.LexRuntime.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexRuntime.Types
+import Network.AWS.LexRuntime.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'postText' smart constructor.
 data PostText = PostText'
-    { _ptSessionAttributes :: !(Maybe (Map Text Text))
-    , _ptBotName           :: !Text
-    , _ptBotAlias          :: !Text
-    , _ptUserId            :: !Text
-    , _ptInputText         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptSessionAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ptBotName           :: {-# NOUNPACK #-}!Text
+  , _ptBotAlias          :: {-# NOUNPACK #-}!Text
+  , _ptUserId            :: {-# NOUNPACK #-}!Text
+  , _ptInputText         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PostText' with the minimum fields required to make a request.
 --
@@ -115,13 +116,14 @@ postText
     -> Text -- ^ 'ptInputText'
     -> PostText
 postText pBotName_ pBotAlias_ pUserId_ pInputText_ =
-    PostText'
-    { _ptSessionAttributes = Nothing
-    , _ptBotName = pBotName_
-    , _ptBotAlias = pBotAlias_
-    , _ptUserId = pUserId_
-    , _ptInputText = pInputText_
-    }
+  PostText'
+  { _ptSessionAttributes = Nothing
+  , _ptBotName = pBotName_
+  , _ptBotAlias = pBotAlias_
+  , _ptUserId = pUserId_
+  , _ptInputText = pInputText_
+  }
+
 
 -- | By using session attributes, a client application can pass contextual information in the request to Amazon Lex For example,      * In Getting Started Exercise 1, the example bot uses the @price@ session attribute to maintain the price of the flowers ordered (for example, "Price":25). The code hook (the Lambda function) sets this attribute based on the type of flowers ordered. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/gs-bp-details-after-lambda.html Review the Details of Information Flow> .      * In the BookTrip bot exercise, the bot uses the @currentReservation@ session attribute to maintain slot data during the in-progress conversation to book a hotel or book a car. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/book-trip-detail-flow.html Details of Information Flow> .      * You might use the session attributes (key, value pairs) to track the requestID of user requests. Amazon Lex simply passes these session attributes to the Lambda functions configured for the intent. In your Lambda function, you can also use the session attributes for initialization and customization (prompts and response cards). Some examples are:     * Initialization - In a pizza ordering bot, if you can pass the user location as a session attribute (for example, @"Location" : "111 Maple street"@ ), then your Lambda function might use this information to determine the closest pizzeria to place the order (perhaps to set the storeAddress slot value).      * Personalize prompts - For example, you can configure prompts to refer to the user name. (For example, "Hey [FirstName], what toppings would you like?"). You can pass the user name as a session attribute (@"FirstName" : "Joe"@ ) so that Amazon Lex can substitute the placeholder to provide a personalize prompt to the user ("Hey Joe, what toppings would you like?").
 ptSessionAttributes :: Lens' PostText (HashMap Text Text)
@@ -158,9 +160,9 @@ instance AWSRequest PostText where
                      <*> (x .?> "sessionAttributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable PostText
+instance Hashable PostText where
 
-instance NFData PostText
+instance NFData PostText where
 
 instance ToHeaders PostText where
         toHeaders
@@ -187,15 +189,16 @@ instance ToQuery PostText where
 
 -- | /See:/ 'postTextResponse' smart constructor.
 data PostTextResponse = PostTextResponse'
-    { _ptrsSlots             :: !(Maybe (Map Text Text))
-    , _ptrsResponseCard      :: !(Maybe ResponseCard)
-    , _ptrsIntentName        :: !(Maybe Text)
-    , _ptrsDialogState       :: !(Maybe DialogState)
-    , _ptrsMessage           :: !(Maybe Text)
-    , _ptrsSlotToElicit      :: !(Maybe Text)
-    , _ptrsSessionAttributes :: !(Maybe (Map Text Text))
-    , _ptrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptrsSlots             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ptrsResponseCard      :: {-# NOUNPACK #-}!(Maybe ResponseCard)
+  , _ptrsIntentName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptrsDialogState       :: {-# NOUNPACK #-}!(Maybe DialogState)
+  , _ptrsMessage           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptrsSlotToElicit      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptrsSessionAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ptrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PostTextResponse' with the minimum fields required to make a request.
 --
@@ -220,16 +223,17 @@ postTextResponse
     :: Int -- ^ 'ptrsResponseStatus'
     -> PostTextResponse
 postTextResponse pResponseStatus_ =
-    PostTextResponse'
-    { _ptrsSlots = Nothing
-    , _ptrsResponseCard = Nothing
-    , _ptrsIntentName = Nothing
-    , _ptrsDialogState = Nothing
-    , _ptrsMessage = Nothing
-    , _ptrsSlotToElicit = Nothing
-    , _ptrsSessionAttributes = Nothing
-    , _ptrsResponseStatus = pResponseStatus_
-    }
+  PostTextResponse'
+  { _ptrsSlots = Nothing
+  , _ptrsResponseCard = Nothing
+  , _ptrsIntentName = Nothing
+  , _ptrsDialogState = Nothing
+  , _ptrsMessage = Nothing
+  , _ptrsSlotToElicit = Nothing
+  , _ptrsSessionAttributes = Nothing
+  , _ptrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The intent slots (name/value pairs) that Amazon Lex detected so far from the user input in the conversation.
 ptrsSlots :: Lens' PostTextResponse (HashMap Text Text)
@@ -263,4 +267,4 @@ ptrsSessionAttributes = lens _ptrsSessionAttributes (\ s a -> s{_ptrsSessionAttr
 ptrsResponseStatus :: Lens' PostTextResponse Int
 ptrsResponseStatus = lens _ptrsResponseStatus (\ s a -> s{_ptrsResponseStatus = a});
 
-instance NFData PostTextResponse
+instance NFData PostTextResponse where

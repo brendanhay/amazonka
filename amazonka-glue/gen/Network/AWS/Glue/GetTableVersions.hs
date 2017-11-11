@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetTableVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.Glue.GetTableVersions
     , gtvrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getTableVersions' smart constructor.
 data GetTableVersions = GetTableVersions'
-    { _gtvCatalogId    :: !(Maybe Text)
-    , _gtvNextToken    :: !(Maybe Text)
-    , _gtvMaxResults   :: !(Maybe Nat)
-    , _gtvDatabaseName :: !Text
-    , _gtvTableName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtvCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtvNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtvMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gtvDatabaseName :: {-# NOUNPACK #-}!Text
+  , _gtvTableName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTableVersions' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ getTableVersions
     -> Text -- ^ 'gtvTableName'
     -> GetTableVersions
 getTableVersions pDatabaseName_ pTableName_ =
-    GetTableVersions'
-    { _gtvCatalogId = Nothing
-    , _gtvNextToken = Nothing
-    , _gtvMaxResults = Nothing
-    , _gtvDatabaseName = pDatabaseName_
-    , _gtvTableName = pTableName_
-    }
+  GetTableVersions'
+  { _gtvCatalogId = Nothing
+  , _gtvNextToken = Nothing
+  , _gtvMaxResults = Nothing
+  , _gtvDatabaseName = pDatabaseName_
+  , _gtvTableName = pTableName_
+  }
+
 
 -- | The ID of the Data Catalog where the tables reside. If none is supplied, the AWS account ID is used by default.
 gtvCatalogId :: Lens' GetTableVersions (Maybe Text)
@@ -115,9 +117,9 @@ instance AWSRequest GetTableVersions where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTableVersions
+instance Hashable GetTableVersions where
 
-instance NFData GetTableVersions
+instance NFData GetTableVersions where
 
 instance ToHeaders GetTableVersions where
         toHeaders
@@ -146,10 +148,11 @@ instance ToQuery GetTableVersions where
 
 -- | /See:/ 'getTableVersionsResponse' smart constructor.
 data GetTableVersionsResponse = GetTableVersionsResponse'
-    { _gtvrsTableVersions  :: !(Maybe [TableVersion])
-    , _gtvrsNextToken      :: !(Maybe Text)
-    , _gtvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtvrsTableVersions  :: {-# NOUNPACK #-}!(Maybe [TableVersion])
+  , _gtvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTableVersionsResponse' with the minimum fields required to make a request.
 --
@@ -164,11 +167,12 @@ getTableVersionsResponse
     :: Int -- ^ 'gtvrsResponseStatus'
     -> GetTableVersionsResponse
 getTableVersionsResponse pResponseStatus_ =
-    GetTableVersionsResponse'
-    { _gtvrsTableVersions = Nothing
-    , _gtvrsNextToken = Nothing
-    , _gtvrsResponseStatus = pResponseStatus_
-    }
+  GetTableVersionsResponse'
+  { _gtvrsTableVersions = Nothing
+  , _gtvrsNextToken = Nothing
+  , _gtvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of strings identifying available versions of the specified table.
 gtvrsTableVersions :: Lens' GetTableVersionsResponse [TableVersion]
@@ -182,4 +186,4 @@ gtvrsNextToken = lens _gtvrsNextToken (\ s a -> s{_gtvrsNextToken = a});
 gtvrsResponseStatus :: Lens' GetTableVersionsResponse Int
 gtvrsResponseStatus = lens _gtvrsResponseStatus (\ s a -> s{_gtvrsResponseStatus = a});
 
-instance NFData GetTableVersionsResponse
+instance NFData GetTableVersionsResponse where

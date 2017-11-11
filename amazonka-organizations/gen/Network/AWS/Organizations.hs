@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -476,47 +476,47 @@ module Network.AWS.Organizations
     , rPolicyTypes
     ) where
 
-import           Network.AWS.Organizations.AcceptHandshake
-import           Network.AWS.Organizations.AttachPolicy
-import           Network.AWS.Organizations.CancelHandshake
-import           Network.AWS.Organizations.CreateAccount
-import           Network.AWS.Organizations.CreateOrganization
-import           Network.AWS.Organizations.CreateOrganizationalUnit
-import           Network.AWS.Organizations.CreatePolicy
-import           Network.AWS.Organizations.DeclineHandshake
-import           Network.AWS.Organizations.DeleteOrganization
-import           Network.AWS.Organizations.DeleteOrganizationalUnit
-import           Network.AWS.Organizations.DeletePolicy
-import           Network.AWS.Organizations.DescribeAccount
-import           Network.AWS.Organizations.DescribeCreateAccountStatus
-import           Network.AWS.Organizations.DescribeHandshake
-import           Network.AWS.Organizations.DescribeOrganization
-import           Network.AWS.Organizations.DescribeOrganizationalUnit
-import           Network.AWS.Organizations.DescribePolicy
-import           Network.AWS.Organizations.DetachPolicy
-import           Network.AWS.Organizations.DisablePolicyType
-import           Network.AWS.Organizations.EnableAllFeatures
-import           Network.AWS.Organizations.EnablePolicyType
-import           Network.AWS.Organizations.InviteAccountToOrganization
-import           Network.AWS.Organizations.LeaveOrganization
-import           Network.AWS.Organizations.ListAccounts
-import           Network.AWS.Organizations.ListAccountsForParent
-import           Network.AWS.Organizations.ListChildren
-import           Network.AWS.Organizations.ListCreateAccountStatus
-import           Network.AWS.Organizations.ListHandshakesForAccount
-import           Network.AWS.Organizations.ListHandshakesForOrganization
-import           Network.AWS.Organizations.ListOrganizationalUnitsForParent
-import           Network.AWS.Organizations.ListParents
-import           Network.AWS.Organizations.ListPolicies
-import           Network.AWS.Organizations.ListPoliciesForTarget
-import           Network.AWS.Organizations.ListRoots
-import           Network.AWS.Organizations.ListTargetsForPolicy
-import           Network.AWS.Organizations.MoveAccount
-import           Network.AWS.Organizations.RemoveAccountFromOrganization
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.UpdateOrganizationalUnit
-import           Network.AWS.Organizations.UpdatePolicy
-import           Network.AWS.Organizations.Waiters
+import Network.AWS.Organizations.AcceptHandshake
+import Network.AWS.Organizations.AttachPolicy
+import Network.AWS.Organizations.CancelHandshake
+import Network.AWS.Organizations.CreateAccount
+import Network.AWS.Organizations.CreateOrganization
+import Network.AWS.Organizations.CreateOrganizationalUnit
+import Network.AWS.Organizations.CreatePolicy
+import Network.AWS.Organizations.DeclineHandshake
+import Network.AWS.Organizations.DeleteOrganization
+import Network.AWS.Organizations.DeleteOrganizationalUnit
+import Network.AWS.Organizations.DeletePolicy
+import Network.AWS.Organizations.DescribeAccount
+import Network.AWS.Organizations.DescribeCreateAccountStatus
+import Network.AWS.Organizations.DescribeHandshake
+import Network.AWS.Organizations.DescribeOrganization
+import Network.AWS.Organizations.DescribeOrganizationalUnit
+import Network.AWS.Organizations.DescribePolicy
+import Network.AWS.Organizations.DetachPolicy
+import Network.AWS.Organizations.DisablePolicyType
+import Network.AWS.Organizations.EnableAllFeatures
+import Network.AWS.Organizations.EnablePolicyType
+import Network.AWS.Organizations.InviteAccountToOrganization
+import Network.AWS.Organizations.LeaveOrganization
+import Network.AWS.Organizations.ListAccounts
+import Network.AWS.Organizations.ListAccountsForParent
+import Network.AWS.Organizations.ListChildren
+import Network.AWS.Organizations.ListCreateAccountStatus
+import Network.AWS.Organizations.ListHandshakesForAccount
+import Network.AWS.Organizations.ListHandshakesForOrganization
+import Network.AWS.Organizations.ListOrganizationalUnitsForParent
+import Network.AWS.Organizations.ListParents
+import Network.AWS.Organizations.ListPolicies
+import Network.AWS.Organizations.ListPoliciesForTarget
+import Network.AWS.Organizations.ListRoots
+import Network.AWS.Organizations.ListTargetsForPolicy
+import Network.AWS.Organizations.MoveAccount
+import Network.AWS.Organizations.RemoveAccountFromOrganization
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.UpdateOrganizationalUnit
+import Network.AWS.Organizations.UpdatePolicy
+import Network.AWS.Organizations.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

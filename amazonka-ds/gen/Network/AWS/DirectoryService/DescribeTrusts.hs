@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeTrusts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.DirectoryService.DescribeTrusts
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Describes the trust relationships for a particular Microsoft AD in the AWS cloud. If no input parameters are are provided, such as directory ID or trust ID, this request describes all the trust relationships.
 --
@@ -56,11 +56,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTrusts' smart constructor.
 data DescribeTrusts = DescribeTrusts'
-    { _dtDirectoryId :: !(Maybe Text)
-    , _dtNextToken   :: !(Maybe Text)
-    , _dtTrustIds    :: !(Maybe [Text])
-    , _dtLimit       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtTrustIds    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dtLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTrusts' with the minimum fields required to make a request.
 --
@@ -76,12 +77,13 @@ data DescribeTrusts = DescribeTrusts'
 describeTrusts
     :: DescribeTrusts
 describeTrusts =
-    DescribeTrusts'
-    { _dtDirectoryId = Nothing
-    , _dtNextToken = Nothing
-    , _dtTrustIds = Nothing
-    , _dtLimit = Nothing
-    }
+  DescribeTrusts'
+  { _dtDirectoryId = Nothing
+  , _dtNextToken = Nothing
+  , _dtTrustIds = Nothing
+  , _dtLimit = Nothing
+  }
+
 
 -- | The Directory ID of the AWS directory that is a part of the requested trust relationship.
 dtDirectoryId :: Lens' DescribeTrusts (Maybe Text)
@@ -109,9 +111,9 @@ instance AWSRequest DescribeTrusts where
                    (x .?> "NextToken") <*> (x .?> "Trusts" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTrusts
+instance Hashable DescribeTrusts where
 
-instance NFData DescribeTrusts
+instance NFData DescribeTrusts where
 
 instance ToHeaders DescribeTrusts where
         toHeaders
@@ -144,10 +146,11 @@ instance ToQuery DescribeTrusts where
 --
 -- /See:/ 'describeTrustsResponse' smart constructor.
 data DescribeTrustsResponse = DescribeTrustsResponse'
-    { _dtrsNextToken      :: !(Maybe Text)
-    , _dtrsTrusts         :: !(Maybe [Trust])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsTrusts         :: {-# NOUNPACK #-}!(Maybe [Trust])
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTrustsResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +165,12 @@ describeTrustsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTrustsResponse
 describeTrustsResponse pResponseStatus_ =
-    DescribeTrustsResponse'
-    { _dtrsNextToken = Nothing
-    , _dtrsTrusts = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTrustsResponse'
+  { _dtrsNextToken = Nothing
+  , _dtrsTrusts = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeTrusts' to retrieve the next set of items.
 dtrsNextToken :: Lens' DescribeTrustsResponse (Maybe Text)
@@ -180,4 +184,4 @@ dtrsTrusts = lens _dtrsTrusts (\ s a -> s{_dtrsTrusts = a}) . _Default . _Coerce
 dtrsResponseStatus :: Lens' DescribeTrustsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTrustsResponse
+instance NFData DescribeTrustsResponse where

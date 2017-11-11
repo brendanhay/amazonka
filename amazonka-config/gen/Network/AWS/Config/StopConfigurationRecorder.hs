@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.StopConfigurationRecorder
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.Config.StopConfigurationRecorder
     , StopConfigurationRecorderResponse
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'StopConfigurationRecorder' action.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'stopConfigurationRecorder' smart constructor.
 newtype StopConfigurationRecorder = StopConfigurationRecorder'
-    { _scrConfigurationRecorderName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scrConfigurationRecorderName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopConfigurationRecorder' with the minimum fields required to make a request.
 --
@@ -59,9 +60,9 @@ stopConfigurationRecorder
     :: Text -- ^ 'scrConfigurationRecorderName'
     -> StopConfigurationRecorder
 stopConfigurationRecorder pConfigurationRecorderName_ =
-    StopConfigurationRecorder'
-    { _scrConfigurationRecorderName = pConfigurationRecorderName_
-    }
+  StopConfigurationRecorder'
+  {_scrConfigurationRecorderName = pConfigurationRecorderName_}
+
 
 -- | The name of the recorder object that records each configuration change made to the resources.
 scrConfigurationRecorderName :: Lens' StopConfigurationRecorder Text
@@ -74,9 +75,9 @@ instance AWSRequest StopConfigurationRecorder where
         response
           = receiveNull StopConfigurationRecorderResponse'
 
-instance Hashable StopConfigurationRecorder
+instance Hashable StopConfigurationRecorder where
 
-instance NFData StopConfigurationRecorder
+instance NFData StopConfigurationRecorder where
 
 instance ToHeaders StopConfigurationRecorder where
         toHeaders
@@ -104,8 +105,9 @@ instance ToQuery StopConfigurationRecorder where
 
 -- | /See:/ 'stopConfigurationRecorderResponse' smart constructor.
 data StopConfigurationRecorderResponse =
-    StopConfigurationRecorderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StopConfigurationRecorderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopConfigurationRecorderResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +115,6 @@ stopConfigurationRecorderResponse
     :: StopConfigurationRecorderResponse
 stopConfigurationRecorderResponse = StopConfigurationRecorderResponse'
 
+
 instance NFData StopConfigurationRecorderResponse
+         where

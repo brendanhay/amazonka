@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
     , dipsfpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstancePatchStatesForPatchGroup' smart constructor.
 data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPatchGroup'
-    { _dipsfpgFilters    :: !(Maybe [InstancePatchStateFilter])
-    , _dipsfpgNextToken  :: !(Maybe Text)
-    , _dipsfpgMaxResults :: !(Maybe Nat)
-    , _dipsfpgPatchGroup :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dipsfpgFilters    :: {-# NOUNPACK #-}!(Maybe [InstancePatchStateFilter])
+  , _dipsfpgNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dipsfpgMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dipsfpgPatchGroup :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstancePatchStatesForPatchGroup' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeInstancePatchStatesForPatchGroup
     :: Text -- ^ 'dipsfpgPatchGroup'
     -> DescribeInstancePatchStatesForPatchGroup
 describeInstancePatchStatesForPatchGroup pPatchGroup_ =
-    DescribeInstancePatchStatesForPatchGroup'
-    { _dipsfpgFilters = Nothing
-    , _dipsfpgNextToken = Nothing
-    , _dipsfpgMaxResults = Nothing
-    , _dipsfpgPatchGroup = pPatchGroup_
-    }
+  DescribeInstancePatchStatesForPatchGroup'
+  { _dipsfpgFilters = Nothing
+  , _dipsfpgNextToken = Nothing
+  , _dipsfpgMaxResults = Nothing
+  , _dipsfpgPatchGroup = pPatchGroup_
+  }
+
 
 -- | Each entry in the array is a structure containing: Key (string between 1 and 200 characters) Values (array containing a single string) Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")
 dipsfpgFilters :: Lens' DescribeInstancePatchStatesForPatchGroup [InstancePatchStateFilter]
@@ -95,7 +97,8 @@ dipsfpgPatchGroup :: Lens' DescribeInstancePatchStatesForPatchGroup Text
 dipsfpgPatchGroup = lens _dipsfpgPatchGroup (\ s a -> s{_dipsfpgPatchGroup = a});
 
 instance AWSRequest
-         DescribeInstancePatchStatesForPatchGroup where
+           DescribeInstancePatchStatesForPatchGroup
+         where
         type Rs DescribeInstancePatchStatesForPatchGroup =
              DescribeInstancePatchStatesForPatchGroupResponse
         request = postJSON ssm
@@ -107,13 +110,16 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeInstancePatchStatesForPatchGroup
+           DescribeInstancePatchStatesForPatchGroup
+         where
 
 instance NFData
-         DescribeInstancePatchStatesForPatchGroup
+           DescribeInstancePatchStatesForPatchGroup
+         where
 
 instance ToHeaders
-         DescribeInstancePatchStatesForPatchGroup where
+           DescribeInstancePatchStatesForPatchGroup
+         where
         toHeaders
           = const
               (mconcat
@@ -124,7 +130,8 @@ instance ToHeaders
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON
-         DescribeInstancePatchStatesForPatchGroup where
+           DescribeInstancePatchStatesForPatchGroup
+         where
         toJSON DescribeInstancePatchStatesForPatchGroup'{..}
           = object
               (catMaybes
@@ -134,19 +141,22 @@ instance ToJSON
                   Just ("PatchGroup" .= _dipsfpgPatchGroup)])
 
 instance ToPath
-         DescribeInstancePatchStatesForPatchGroup where
+           DescribeInstancePatchStatesForPatchGroup
+         where
         toPath = const "/"
 
 instance ToQuery
-         DescribeInstancePatchStatesForPatchGroup where
+           DescribeInstancePatchStatesForPatchGroup
+         where
         toQuery = const mempty
 
 -- | /See:/ 'describeInstancePatchStatesForPatchGroupResponse' smart constructor.
 data DescribeInstancePatchStatesForPatchGroupResponse = DescribeInstancePatchStatesForPatchGroupResponse'
-    { _dipsfpgrsNextToken           :: !(Maybe Text)
-    , _dipsfpgrsInstancePatchStates :: !(Maybe (List1 InstancePatchState))
-    , _dipsfpgrsResponseStatus      :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dipsfpgrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dipsfpgrsInstancePatchStates :: {-# NOUNPACK #-}!(Maybe (List1 InstancePatchState))
+  , _dipsfpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstancePatchStatesForPatchGroupResponse' with the minimum fields required to make a request.
 --
@@ -161,11 +171,12 @@ describeInstancePatchStatesForPatchGroupResponse
     :: Int -- ^ 'dipsfpgrsResponseStatus'
     -> DescribeInstancePatchStatesForPatchGroupResponse
 describeInstancePatchStatesForPatchGroupResponse pResponseStatus_ =
-    DescribeInstancePatchStatesForPatchGroupResponse'
-    { _dipsfpgrsNextToken = Nothing
-    , _dipsfpgrsInstancePatchStates = Nothing
-    , _dipsfpgrsResponseStatus = pResponseStatus_
-    }
+  DescribeInstancePatchStatesForPatchGroupResponse'
+  { _dipsfpgrsNextToken = Nothing
+  , _dipsfpgrsInstancePatchStates = Nothing
+  , _dipsfpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dipsfpgrsNextToken :: Lens' DescribeInstancePatchStatesForPatchGroupResponse (Maybe Text)
@@ -180,4 +191,5 @@ dipsfpgrsResponseStatus :: Lens' DescribeInstancePatchStatesForPatchGroupRespons
 dipsfpgrsResponseStatus = lens _dipsfpgrsResponseStatus (\ s a -> s{_dipsfpgrsResponseStatus = a});
 
 instance NFData
-         DescribeInstancePatchStatesForPatchGroupResponse
+           DescribeInstancePatchStatesForPatchGroupResponse
+         where

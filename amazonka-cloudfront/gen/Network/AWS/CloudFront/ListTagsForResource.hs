@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListTagsForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudFront.ListTagsForResource
     , ltfrrsTags
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to list tags for a CloudFront resource.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-    { _ltfrResource :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrResource :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ listTagsForResource
     :: Text -- ^ 'ltfrResource'
     -> ListTagsForResource
 listTagsForResource pResource_ =
-    ListTagsForResource'
-    { _ltfrResource = pResource_
-    }
+  ListTagsForResource' {_ltfrResource = pResource_}
+
 
 -- | An ARN of a CloudFront resource.
 ltfrResource :: Lens' ListTagsForResource Text
@@ -80,9 +80,9 @@ instance AWSRequest ListTagsForResource where
                  ListTagsForResourceResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
-instance Hashable ListTagsForResource
+instance Hashable ListTagsForResource where
 
-instance NFData ListTagsForResource
+instance NFData ListTagsForResource where
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
@@ -100,9 +100,10 @@ instance ToQuery ListTagsForResource where
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsResponseStatus :: !Int
-    , _ltfrrsTags           :: !Tags
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ltfrrsTags           :: {-# NOUNPACK #-}!Tags
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +117,9 @@ listTagsForResourceResponse
     -> Tags -- ^ 'ltfrrsTags'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ pTags_ =
-    ListTagsForResourceResponse'
-    { _ltfrrsResponseStatus = pResponseStatus_
-    , _ltfrrsTags = pTags_
-    }
+  ListTagsForResourceResponse'
+  {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTags = pTags_}
+
 
 -- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
@@ -129,4 +129,4 @@ ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseSta
 ltfrrsTags :: Lens' ListTagsForResourceResponse Tags
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a});
 
-instance NFData ListTagsForResourceResponse
+instance NFData ListTagsForResourceResponse where

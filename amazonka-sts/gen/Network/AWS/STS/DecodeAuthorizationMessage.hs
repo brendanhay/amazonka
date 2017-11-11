@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.STS.DecodeAuthorizationMessage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,17 +55,18 @@ module Network.AWS.STS.DecodeAuthorizationMessage
     , damrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.STS.Types
-import           Network.AWS.STS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.STS.Types
+import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'decodeAuthorizationMessage' smart constructor.
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage'
-    { _damEncodedMessage :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _damEncodedMessage :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DecodeAuthorizationMessage' with the minimum fields required to make a request.
 --
@@ -76,9 +77,8 @@ decodeAuthorizationMessage
     :: Text -- ^ 'damEncodedMessage'
     -> DecodeAuthorizationMessage
 decodeAuthorizationMessage pEncodedMessage_ =
-    DecodeAuthorizationMessage'
-    { _damEncodedMessage = pEncodedMessage_
-    }
+  DecodeAuthorizationMessage' {_damEncodedMessage = pEncodedMessage_}
+
 
 -- | The encoded message that was returned with the response.
 damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
@@ -95,9 +95,9 @@ instance AWSRequest DecodeAuthorizationMessage where
                  DecodeAuthorizationMessageResponse' <$>
                    (x .@? "DecodedMessage") <*> (pure (fromEnum s)))
 
-instance Hashable DecodeAuthorizationMessage
+instance Hashable DecodeAuthorizationMessage where
 
-instance NFData DecodeAuthorizationMessage
+instance NFData DecodeAuthorizationMessage where
 
 instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty
@@ -119,9 +119,10 @@ instance ToQuery DecodeAuthorizationMessage where
 --
 -- /See:/ 'decodeAuthorizationMessageResponse' smart constructor.
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
-    { _damrsDecodedMessage :: !(Maybe Text)
-    , _damrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _damrsDecodedMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _damrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DecodeAuthorizationMessageResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +135,9 @@ decodeAuthorizationMessageResponse
     :: Int -- ^ 'damrsResponseStatus'
     -> DecodeAuthorizationMessageResponse
 decodeAuthorizationMessageResponse pResponseStatus_ =
-    DecodeAuthorizationMessageResponse'
-    { _damrsDecodedMessage = Nothing
-    , _damrsResponseStatus = pResponseStatus_
-    }
+  DecodeAuthorizationMessageResponse'
+  {_damrsDecodedMessage = Nothing, _damrsResponseStatus = pResponseStatus_}
+
 
 -- | An XML document that contains the decoded message.
 damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
@@ -148,3 +148,4 @@ damrsResponseStatus :: Lens' DecodeAuthorizationMessageResponse Int
 damrsResponseStatus = lens _damrsResponseStatus (\ s a -> s{_damrsResponseStatus = a});
 
 instance NFData DecodeAuthorizationMessageResponse
+         where

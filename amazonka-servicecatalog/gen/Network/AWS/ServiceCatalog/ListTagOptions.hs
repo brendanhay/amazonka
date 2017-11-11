@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListTagOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.ServiceCatalog.ListTagOptions
     , ltorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listTagOptions' smart constructor.
 data ListTagOptions = ListTagOptions'
-    { _ltoFilters   :: !(Maybe ListTagOptionsFilters)
-    , _ltoPageToken :: !(Maybe Text)
-    , _ltoPageSize  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltoFilters   :: {-# NOUNPACK #-}!(Maybe ListTagOptionsFilters)
+  , _ltoPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltoPageSize  :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagOptions' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data ListTagOptions = ListTagOptions'
 listTagOptions
     :: ListTagOptions
 listTagOptions =
-    ListTagOptions'
-    { _ltoFilters = Nothing
-    , _ltoPageToken = Nothing
-    , _ltoPageSize = Nothing
-    }
+  ListTagOptions'
+  {_ltoFilters = Nothing, _ltoPageToken = Nothing, _ltoPageSize = Nothing}
+
 
 -- | The list of filters with which to limit search results. If no search filters are specified, the output is all TagOptions.
 ltoFilters :: Lens' ListTagOptions (Maybe ListTagOptionsFilters)
@@ -95,9 +94,9 @@ instance AWSRequest ListTagOptions where
                      (x .?> "TagOptionDetails" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTagOptions
+instance Hashable ListTagOptions where
 
-instance NFData ListTagOptions
+instance NFData ListTagOptions where
 
 instance ToHeaders ListTagOptions where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery ListTagOptions where
 
 -- | /See:/ 'listTagOptionsResponse' smart constructor.
 data ListTagOptionsResponse = ListTagOptionsResponse'
-    { _ltorsPageToken        :: !(Maybe Text)
-    , _ltorsTagOptionDetails :: !(Maybe [TagOptionDetail])
-    , _ltorsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltorsPageToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltorsTagOptionDetails :: {-# NOUNPACK #-}!(Maybe [TagOptionDetail])
+  , _ltorsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTagOptionsResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ listTagOptionsResponse
     :: Int -- ^ 'ltorsResponseStatus'
     -> ListTagOptionsResponse
 listTagOptionsResponse pResponseStatus_ =
-    ListTagOptionsResponse'
-    { _ltorsPageToken = Nothing
-    , _ltorsTagOptionDetails = Nothing
-    , _ltorsResponseStatus = pResponseStatus_
-    }
+  ListTagOptionsResponse'
+  { _ltorsPageToken = Nothing
+  , _ltorsTagOptionDetails = Nothing
+  , _ltorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 ltorsPageToken :: Lens' ListTagOptionsResponse (Maybe Text)
@@ -161,4 +162,4 @@ ltorsTagOptionDetails = lens _ltorsTagOptionDetails (\ s a -> s{_ltorsTagOptionD
 ltorsResponseStatus :: Lens' ListTagOptionsResponse Int
 ltorsResponseStatus = lens _ltorsResponseStatus (\ s a -> s{_ltorsResponseStatus = a});
 
-instance NFData ListTagOptionsResponse
+instance NFData ListTagOptionsResponse where

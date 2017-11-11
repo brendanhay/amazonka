@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.UnpeerVPC
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,23 +35,25 @@ module Network.AWS.Lightsail.UnpeerVPC
     , uvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'unpeerVPC' smart constructor.
 data UnpeerVPC =
-    UnpeerVPC'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UnpeerVPC'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnpeerVPC' with the minimum fields required to make a request.
 --
 unpeerVPC
     :: UnpeerVPC
 unpeerVPC = UnpeerVPC'
+
 
 instance AWSRequest UnpeerVPC where
         type Rs UnpeerVPC = UnpeerVPCResponse
@@ -62,9 +64,9 @@ instance AWSRequest UnpeerVPC where
                  UnpeerVPCResponse' <$>
                    (x .?> "operation") <*> (pure (fromEnum s)))
 
-instance Hashable UnpeerVPC
+instance Hashable UnpeerVPC where
 
-instance NFData UnpeerVPC
+instance NFData UnpeerVPC where
 
 instance ToHeaders UnpeerVPC where
         toHeaders
@@ -86,9 +88,10 @@ instance ToQuery UnpeerVPC where
 
 -- | /See:/ 'unpeerVPCResponse' smart constructor.
 data UnpeerVPCResponse = UnpeerVPCResponse'
-    { _uvrsOperation      :: !(Maybe Operation)
-    , _uvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uvrsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
+  , _uvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnpeerVPCResponse' with the minimum fields required to make a request.
 --
@@ -101,10 +104,9 @@ unpeerVPCResponse
     :: Int -- ^ 'uvrsResponseStatus'
     -> UnpeerVPCResponse
 unpeerVPCResponse pResponseStatus_ =
-    UnpeerVPCResponse'
-    { _uvrsOperation = Nothing
-    , _uvrsResponseStatus = pResponseStatus_
-    }
+  UnpeerVPCResponse'
+  {_uvrsOperation = Nothing, _uvrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the request operation.
 uvrsOperation :: Lens' UnpeerVPCResponse (Maybe Operation)
@@ -114,4 +116,4 @@ uvrsOperation = lens _uvrsOperation (\ s a -> s{_uvrsOperation = a});
 uvrsResponseStatus :: Lens' UnpeerVPCResponse Int
 uvrsResponseStatus = lens _uvrsResponseStatus (\ s a -> s{_uvrsResponseStatus = a});
 
-instance NFData UnpeerVPCResponse
+instance NFData UnpeerVPCResponse where

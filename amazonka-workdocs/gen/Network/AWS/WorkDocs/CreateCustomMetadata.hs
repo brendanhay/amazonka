@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateCustomMetadata
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.WorkDocs.CreateCustomMetadata
     , ccmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createCustomMetadata' smart constructor.
 data CreateCustomMetadata = CreateCustomMetadata'
-    { _ccmVersionId           :: !(Maybe Text)
-    , _ccmAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _ccmResourceId          :: !Text
-    , _ccmCustomMetadata      :: !(Map Text Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ccmVersionId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccmAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ccmResourceId          :: {-# NOUNPACK #-}!Text
+  , _ccmCustomMetadata      :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCustomMetadata' with the minimum fields required to make a request.
 --
@@ -69,12 +70,13 @@ createCustomMetadata
     :: Text -- ^ 'ccmResourceId'
     -> CreateCustomMetadata
 createCustomMetadata pResourceId_ =
-    CreateCustomMetadata'
-    { _ccmVersionId = Nothing
-    , _ccmAuthenticationToken = Nothing
-    , _ccmResourceId = pResourceId_
-    , _ccmCustomMetadata = mempty
-    }
+  CreateCustomMetadata'
+  { _ccmVersionId = Nothing
+  , _ccmAuthenticationToken = Nothing
+  , _ccmResourceId = pResourceId_
+  , _ccmCustomMetadata = mempty
+  }
+
 
 -- | The ID of the version, if the custom metadata is being added to a document version.
 ccmVersionId :: Lens' CreateCustomMetadata (Maybe Text)
@@ -102,9 +104,9 @@ instance AWSRequest CreateCustomMetadata where
                  CreateCustomMetadataResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreateCustomMetadata
+instance Hashable CreateCustomMetadata where
 
-instance NFData CreateCustomMetadata
+instance NFData CreateCustomMetadata where
 
 instance ToHeaders CreateCustomMetadata where
         toHeaders CreateCustomMetadata'{..}
@@ -131,8 +133,9 @@ instance ToQuery CreateCustomMetadata where
 
 -- | /See:/ 'createCustomMetadataResponse' smart constructor.
 newtype CreateCustomMetadataResponse = CreateCustomMetadataResponse'
-    { _ccmrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccmrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCustomMetadataResponse' with the minimum fields required to make a request.
 --
@@ -143,12 +146,11 @@ createCustomMetadataResponse
     :: Int -- ^ 'ccmrsResponseStatus'
     -> CreateCustomMetadataResponse
 createCustomMetadataResponse pResponseStatus_ =
-    CreateCustomMetadataResponse'
-    { _ccmrsResponseStatus = pResponseStatus_
-    }
+  CreateCustomMetadataResponse' {_ccmrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ccmrsResponseStatus :: Lens' CreateCustomMetadataResponse Int
 ccmrsResponseStatus = lens _ccmrsResponseStatus (\ s a -> s{_ccmrsResponseStatus = a});
 
-instance NFData CreateCustomMetadataResponse
+instance NFData CreateCustomMetadataResponse where

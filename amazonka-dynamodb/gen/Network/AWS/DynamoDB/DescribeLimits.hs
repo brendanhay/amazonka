@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeLimits
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -72,12 +72,12 @@ module Network.AWS.DynamoDB.DescribeLimits
     , dlrsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DescribeLimits@ operation. Has no content.
 --
@@ -85,14 +85,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeLimits' smart constructor.
 data DescribeLimits =
-    DescribeLimits'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeLimits'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLimits' with the minimum fields required to make a request.
 --
 describeLimits
     :: DescribeLimits
 describeLimits = DescribeLimits'
+
 
 instance AWSRequest DescribeLimits where
         type Rs DescribeLimits = DescribeLimitsResponse
@@ -107,9 +109,9 @@ instance AWSRequest DescribeLimits where
                      <*> (x .?> "AccountMaxReadCapacityUnits")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLimits
+instance Hashable DescribeLimits where
 
-instance NFData DescribeLimits
+instance NFData DescribeLimits where
 
 instance ToHeaders DescribeLimits where
         toHeaders
@@ -135,12 +137,13 @@ instance ToQuery DescribeLimits where
 --
 -- /See:/ 'describeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
-    { _dlrsTableMaxWriteCapacityUnits   :: !(Maybe Nat)
-    , _dlrsTableMaxReadCapacityUnits    :: !(Maybe Nat)
-    , _dlrsAccountMaxWriteCapacityUnits :: !(Maybe Nat)
-    , _dlrsAccountMaxReadCapacityUnits  :: !(Maybe Nat)
-    , _dlrsResponseStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlrsTableMaxWriteCapacityUnits   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlrsTableMaxReadCapacityUnits    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlrsAccountMaxWriteCapacityUnits :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlrsAccountMaxReadCapacityUnits  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dlrsResponseStatus               :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLimitsResponse' with the minimum fields required to make a request.
 --
@@ -159,13 +162,14 @@ describeLimitsResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DescribeLimitsResponse
 describeLimitsResponse pResponseStatus_ =
-    DescribeLimitsResponse'
-    { _dlrsTableMaxWriteCapacityUnits = Nothing
-    , _dlrsTableMaxReadCapacityUnits = Nothing
-    , _dlrsAccountMaxWriteCapacityUnits = Nothing
-    , _dlrsAccountMaxReadCapacityUnits = Nothing
-    , _dlrsResponseStatus = pResponseStatus_
-    }
+  DescribeLimitsResponse'
+  { _dlrsTableMaxWriteCapacityUnits = Nothing
+  , _dlrsTableMaxReadCapacityUnits = Nothing
+  , _dlrsAccountMaxWriteCapacityUnits = Nothing
+  , _dlrsAccountMaxReadCapacityUnits = Nothing
+  , _dlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).
 dlrsTableMaxWriteCapacityUnits :: Lens' DescribeLimitsResponse (Maybe Natural)
@@ -187,4 +191,4 @@ dlrsAccountMaxReadCapacityUnits = lens _dlrsAccountMaxReadCapacityUnits (\ s a -
 dlrsResponseStatus :: Lens' DescribeLimitsResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 
-instance NFData DescribeLimitsResponse
+instance NFData DescribeLimitsResponse where

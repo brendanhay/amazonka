@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.VerifyDomainIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.SES.VerifyDomainIdentity
     , vdirsVerificationToken
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to begin Amazon SES domain verification and to generate the TXT records that you must publish to the DNS server of your domain to complete the verification. For information about domain verification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html Amazon SES Developer Guide> .
 --
@@ -52,8 +52,9 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'verifyDomainIdentity' smart constructor.
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
-    { _vdiDomain :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vdiDomain :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VerifyDomainIdentity' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ newtype VerifyDomainIdentity = VerifyDomainIdentity'
 verifyDomainIdentity
     :: Text -- ^ 'vdiDomain'
     -> VerifyDomainIdentity
-verifyDomainIdentity pDomain_ =
-    VerifyDomainIdentity'
-    { _vdiDomain = pDomain_
-    }
+verifyDomainIdentity pDomain_ = VerifyDomainIdentity' {_vdiDomain = pDomain_}
+
 
 -- | The domain to be verified.
 vdiDomain :: Lens' VerifyDomainIdentity Text
@@ -82,9 +81,9 @@ instance AWSRequest VerifyDomainIdentity where
                  VerifyDomainIdentityResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "VerificationToken"))
 
-instance Hashable VerifyDomainIdentity
+instance Hashable VerifyDomainIdentity where
 
-instance NFData VerifyDomainIdentity
+instance NFData VerifyDomainIdentity where
 
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
@@ -105,9 +104,10 @@ instance ToQuery VerifyDomainIdentity where
 --
 -- /See:/ 'verifyDomainIdentityResponse' smart constructor.
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
-    { _vdirsResponseStatus    :: !Int
-    , _vdirsVerificationToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vdirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _vdirsVerificationToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VerifyDomainIdentityResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +121,11 @@ verifyDomainIdentityResponse
     -> Text -- ^ 'vdirsVerificationToken'
     -> VerifyDomainIdentityResponse
 verifyDomainIdentityResponse pResponseStatus_ pVerificationToken_ =
-    VerifyDomainIdentityResponse'
-    { _vdirsResponseStatus = pResponseStatus_
-    , _vdirsVerificationToken = pVerificationToken_
-    }
+  VerifyDomainIdentityResponse'
+  { _vdirsResponseStatus = pResponseStatus_
+  , _vdirsVerificationToken = pVerificationToken_
+  }
+
 
 -- | -- | The response status code.
 vdirsResponseStatus :: Lens' VerifyDomainIdentityResponse Int
@@ -134,4 +135,4 @@ vdirsResponseStatus = lens _vdirsResponseStatus (\ s a -> s{_vdirsResponseStatus
 vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirsVerificationToken = lens _vdirsVerificationToken (\ s a -> s{_vdirsVerificationToken = a});
 
-instance NFData VerifyDomainIdentityResponse
+instance NFData VerifyDomainIdentityResponse where

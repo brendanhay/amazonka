@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesOfferings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,13 +58,13 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     , driorsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeReservedInstancesOfferings.
 --
@@ -72,22 +72,23 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeReservedInstancesOfferings' smart constructor.
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
-    { _drioMaxDuration                  :: !(Maybe Integer)
-    , _drioProductDescription           :: !(Maybe RIProductDescription)
-    , _drioFilters                      :: !(Maybe [Filter])
-    , _drioIncludeMarketplace           :: !(Maybe Bool)
-    , _drioInstanceType                 :: !(Maybe InstanceType)
-    , _drioNextToken                    :: !(Maybe Text)
-    , _drioMinDuration                  :: !(Maybe Integer)
-    , _drioAvailabilityZone             :: !(Maybe Text)
-    , _drioOfferingType                 :: !(Maybe OfferingTypeValues)
-    , _drioReservedInstancesOfferingIds :: !(Maybe [Text])
-    , _drioInstanceTenancy              :: !(Maybe Tenancy)
-    , _drioOfferingClass                :: !(Maybe OfferingClassType)
-    , _drioMaxInstanceCount             :: !(Maybe Int)
-    , _drioDryRun                       :: !(Maybe Bool)
-    , _drioMaxResults                   :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drioMaxDuration :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _drioProductDescription :: {-# NOUNPACK #-}!(Maybe RIProductDescription)
+  , _drioFilters :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _drioIncludeMarketplace :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _drioInstanceType :: {-# NOUNPACK #-}!(Maybe InstanceType)
+  , _drioNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drioMinDuration :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _drioAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drioOfferingType :: {-# NOUNPACK #-}!(Maybe OfferingTypeValues)
+  , _drioReservedInstancesOfferingIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _drioInstanceTenancy :: {-# NOUNPACK #-}!(Maybe Tenancy)
+  , _drioOfferingClass :: {-# NOUNPACK #-}!(Maybe OfferingClassType)
+  , _drioMaxInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _drioDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _drioMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedInstancesOfferings' with the minimum fields required to make a request.
 --
@@ -125,23 +126,24 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 describeReservedInstancesOfferings
     :: DescribeReservedInstancesOfferings
 describeReservedInstancesOfferings =
-    DescribeReservedInstancesOfferings'
-    { _drioMaxDuration = Nothing
-    , _drioProductDescription = Nothing
-    , _drioFilters = Nothing
-    , _drioIncludeMarketplace = Nothing
-    , _drioInstanceType = Nothing
-    , _drioNextToken = Nothing
-    , _drioMinDuration = Nothing
-    , _drioAvailabilityZone = Nothing
-    , _drioOfferingType = Nothing
-    , _drioReservedInstancesOfferingIds = Nothing
-    , _drioInstanceTenancy = Nothing
-    , _drioOfferingClass = Nothing
-    , _drioMaxInstanceCount = Nothing
-    , _drioDryRun = Nothing
-    , _drioMaxResults = Nothing
-    }
+  DescribeReservedInstancesOfferings'
+  { _drioMaxDuration = Nothing
+  , _drioProductDescription = Nothing
+  , _drioFilters = Nothing
+  , _drioIncludeMarketplace = Nothing
+  , _drioInstanceType = Nothing
+  , _drioNextToken = Nothing
+  , _drioMinDuration = Nothing
+  , _drioAvailabilityZone = Nothing
+  , _drioOfferingType = Nothing
+  , _drioReservedInstancesOfferingIds = Nothing
+  , _drioInstanceTenancy = Nothing
+  , _drioOfferingClass = Nothing
+  , _drioMaxInstanceCount = Nothing
+  , _drioDryRun = Nothing
+  , _drioMaxResults = Nothing
+  }
+
 
 -- | The maximum duration (in seconds) to filter when searching for offerings. Default: 94608000 (3 years)
 drioMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
@@ -213,7 +215,8 @@ instance AWSPager DescribeReservedInstancesOfferings
             Just $ rq & drioNextToken .~ rs ^. driorsNextToken
 
 instance AWSRequest
-         DescribeReservedInstancesOfferings where
+           DescribeReservedInstancesOfferings
+         where
         type Rs DescribeReservedInstancesOfferings =
              DescribeReservedInstancesOfferingsResponse
         request = postQuery ec2
@@ -227,8 +230,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeReservedInstancesOfferings
+         where
 
 instance NFData DescribeReservedInstancesOfferings
+         where
 
 instance ToHeaders DescribeReservedInstancesOfferings
          where
@@ -269,10 +274,11 @@ instance ToQuery DescribeReservedInstancesOfferings
 --
 -- /See:/ 'describeReservedInstancesOfferingsResponse' smart constructor.
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
-    { _driorsNextToken                  :: !(Maybe Text)
-    , _driorsReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
-    , _driorsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _driorsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _driorsReservedInstancesOfferings :: {-# NOUNPACK #-}!(Maybe [ReservedInstancesOffering])
+  , _driorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReservedInstancesOfferingsResponse' with the minimum fields required to make a request.
 --
@@ -287,11 +293,12 @@ describeReservedInstancesOfferingsResponse
     :: Int -- ^ 'driorsResponseStatus'
     -> DescribeReservedInstancesOfferingsResponse
 describeReservedInstancesOfferingsResponse pResponseStatus_ =
-    DescribeReservedInstancesOfferingsResponse'
-    { _driorsNextToken = Nothing
-    , _driorsReservedInstancesOfferings = Nothing
-    , _driorsResponseStatus = pResponseStatus_
-    }
+  DescribeReservedInstancesOfferingsResponse'
+  { _driorsNextToken = Nothing
+  , _driorsReservedInstancesOfferings = Nothing
+  , _driorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 driorsNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
@@ -306,4 +313,5 @@ driorsResponseStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
 driorsResponseStatus = lens _driorsResponseStatus (\ s a -> s{_driorsResponseStatus = a});
 
 instance NFData
-         DescribeReservedInstancesOfferingsResponse
+           DescribeReservedInstancesOfferingsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StartInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.StartInstance
     , StartInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startInstance' smart constructor.
 newtype StartInstance = StartInstance'
-    { _sInstanceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sInstanceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartInstance' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype StartInstance = StartInstance'
 startInstance
     :: Text -- ^ 'sInstanceId'
     -> StartInstance
-startInstance pInstanceId_ =
-    StartInstance'
-    { _sInstanceId = pInstanceId_
-    }
+startInstance pInstanceId_ = StartInstance' {_sInstanceId = pInstanceId_}
+
 
 -- | The instance ID.
 sInstanceId :: Lens' StartInstance Text
@@ -70,9 +69,9 @@ instance AWSRequest StartInstance where
         request = postJSON opsWorks
         response = receiveNull StartInstanceResponse'
 
-instance Hashable StartInstance
+instance Hashable StartInstance where
 
-instance NFData StartInstance
+instance NFData StartInstance where
 
 instance ToHeaders StartInstance where
         toHeaders
@@ -96,8 +95,9 @@ instance ToQuery StartInstance where
 
 -- | /See:/ 'startInstanceResponse' smart constructor.
 data StartInstanceResponse =
-    StartInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  StartInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartInstanceResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +105,5 @@ startInstanceResponse
     :: StartInstanceResponse
 startInstanceResponse = StartInstanceResponse'
 
-instance NFData StartInstanceResponse
+
+instance NFData StartInstanceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReleaseAddress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.EC2.ReleaseAddress
     , ReleaseAddressResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReleaseAddress.
 --
@@ -57,10 +57,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'releaseAddress' smart constructor.
 data ReleaseAddress = ReleaseAddress'
-    { _raAllocationId :: !(Maybe Text)
-    , _raPublicIP     :: !(Maybe Text)
-    , _raDryRun       :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _raAllocationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raPublicIP     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReleaseAddress' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ data ReleaseAddress = ReleaseAddress'
 releaseAddress
     :: ReleaseAddress
 releaseAddress =
-    ReleaseAddress'
-    { _raAllocationId = Nothing
-    , _raPublicIP = Nothing
-    , _raDryRun = Nothing
-    }
+  ReleaseAddress'
+  {_raAllocationId = Nothing, _raPublicIP = Nothing, _raDryRun = Nothing}
+
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
 raAllocationId :: Lens' ReleaseAddress (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest ReleaseAddress where
         request = postQuery ec2
         response = receiveNull ReleaseAddressResponse'
 
-instance Hashable ReleaseAddress
+instance Hashable ReleaseAddress where
 
-instance NFData ReleaseAddress
+instance NFData ReleaseAddress where
 
 instance ToHeaders ReleaseAddress where
         toHeaders = const mempty
@@ -117,8 +116,9 @@ instance ToQuery ReleaseAddress where
 
 -- | /See:/ 'releaseAddressResponse' smart constructor.
 data ReleaseAddressResponse =
-    ReleaseAddressResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ReleaseAddressResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReleaseAddressResponse' with the minimum fields required to make a request.
 --
@@ -126,4 +126,5 @@ releaseAddressResponse
     :: ReleaseAddressResponse
 releaseAddressResponse = ReleaseAddressResponse'
 
-instance NFData ReleaseAddressResponse
+
+instance NFData ReleaseAddressResponse where

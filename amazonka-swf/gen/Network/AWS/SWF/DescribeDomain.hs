@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,17 +52,18 @@ module Network.AWS.SWF.DescribeDomain
     , ddrsConfiguration
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeDomain' smart constructor.
 newtype DescribeDomain = DescribeDomain'
-    { _ddName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDomain' with the minimum fields required to make a request.
 --
@@ -72,10 +73,8 @@ newtype DescribeDomain = DescribeDomain'
 describeDomain
     :: Text -- ^ 'ddName'
     -> DescribeDomain
-describeDomain pName_ =
-    DescribeDomain'
-    { _ddName = pName_
-    }
+describeDomain pName_ = DescribeDomain' {_ddName = pName_}
+
 
 -- | The name of the domain to describe.
 ddName :: Lens' DescribeDomain Text
@@ -91,9 +90,9 @@ instance AWSRequest DescribeDomain where
                    (pure (fromEnum s)) <*> (x .:> "domainInfo") <*>
                      (x .:> "configuration"))
 
-instance Hashable DescribeDomain
+instance Hashable DescribeDomain where
 
-instance NFData DescribeDomain
+instance NFData DescribeDomain where
 
 instance ToHeaders DescribeDomain where
         toHeaders
@@ -121,10 +120,11 @@ instance ToQuery DescribeDomain where
 --
 -- /See:/ 'describeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-    { _ddrsResponseStatus :: !Int
-    , _ddrsDomainInfo     :: !DomainInfo
-    , _ddrsConfiguration  :: !DomainConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ddrsDomainInfo     :: {-# NOUNPACK #-}!DomainInfo
+  , _ddrsConfiguration  :: {-# NOUNPACK #-}!DomainConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDomainResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +141,12 @@ describeDomainResponse
     -> DomainConfiguration -- ^ 'ddrsConfiguration'
     -> DescribeDomainResponse
 describeDomainResponse pResponseStatus_ pDomainInfo_ pConfiguration_ =
-    DescribeDomainResponse'
-    { _ddrsResponseStatus = pResponseStatus_
-    , _ddrsDomainInfo = pDomainInfo_
-    , _ddrsConfiguration = pConfiguration_
-    }
+  DescribeDomainResponse'
+  { _ddrsResponseStatus = pResponseStatus_
+  , _ddrsDomainInfo = pDomainInfo_
+  , _ddrsConfiguration = pConfiguration_
+  }
+
 
 -- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDomainResponse Int
@@ -159,4 +160,4 @@ ddrsDomainInfo = lens _ddrsDomainInfo (\ s a -> s{_ddrsDomainInfo = a});
 ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
 ddrsConfiguration = lens _ddrsConfiguration (\ s a -> s{_ddrsConfiguration = a});
 
-instance NFData DescribeDomainResponse
+instance NFData DescribeDomainResponse where

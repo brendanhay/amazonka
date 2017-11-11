@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.StopTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.ECS.StopTask
     , srsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopTask' smart constructor.
 data StopTask = StopTask'
-    { _stCluster :: !(Maybe Text)
-    , _stReason  :: !(Maybe Text)
-    , _stTask    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stCluster :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stReason  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stTask    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopTask' with the minimum fields required to make a request.
 --
@@ -68,11 +69,8 @@ stopTask
     :: Text -- ^ 'stTask'
     -> StopTask
 stopTask pTask_ =
-    StopTask'
-    { _stCluster = Nothing
-    , _stReason = Nothing
-    , _stTask = pTask_
-    }
+  StopTask' {_stCluster = Nothing, _stReason = Nothing, _stTask = pTask_}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
 stCluster :: Lens' StopTask (Maybe Text)
@@ -95,9 +93,9 @@ instance AWSRequest StopTask where
                  StopTaskResponse' <$>
                    (x .?> "task") <*> (pure (fromEnum s)))
 
-instance Hashable StopTask
+instance Hashable StopTask where
 
-instance NFData StopTask
+instance NFData StopTask where
 
 instance ToHeaders StopTask where
         toHeaders
@@ -125,9 +123,10 @@ instance ToQuery StopTask where
 
 -- | /See:/ 'stopTaskResponse' smart constructor.
 data StopTaskResponse = StopTaskResponse'
-    { _srsTask           :: !(Maybe Task)
-    , _srsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsTask           :: {-# NOUNPACK #-}!(Maybe Task)
+  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopTaskResponse' with the minimum fields required to make a request.
 --
@@ -140,10 +139,8 @@ stopTaskResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopTaskResponse
 stopTaskResponse pResponseStatus_ =
-    StopTaskResponse'
-    { _srsTask = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  StopTaskResponse' {_srsTask = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | The task that was stopped.
 srsTask :: Lens' StopTaskResponse (Maybe Task)
@@ -153,4 +150,4 @@ srsTask = lens _srsTask (\ s a -> s{_srsTask = a});
 srsResponseStatus :: Lens' StopTaskResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
-instance NFData StopTaskResponse
+instance NFData StopTaskResponse where

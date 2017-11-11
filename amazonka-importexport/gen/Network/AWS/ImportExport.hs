@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -124,14 +124,14 @@ module Network.AWS.ImportExport
     , jobCreationDate
     ) where
 
-import           Network.AWS.ImportExport.CancelJob
-import           Network.AWS.ImportExport.CreateJob
-import           Network.AWS.ImportExport.GetShippingLabel
-import           Network.AWS.ImportExport.GetStatus
-import           Network.AWS.ImportExport.ListJobs
-import           Network.AWS.ImportExport.Types
-import           Network.AWS.ImportExport.UpdateJob
-import           Network.AWS.ImportExport.Waiters
+import Network.AWS.ImportExport.CancelJob
+import Network.AWS.ImportExport.CreateJob
+import Network.AWS.ImportExport.GetShippingLabel
+import Network.AWS.ImportExport.GetStatus
+import Network.AWS.ImportExport.ListJobs
+import Network.AWS.ImportExport.Types
+import Network.AWS.ImportExport.UpdateJob
+import Network.AWS.ImportExport.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

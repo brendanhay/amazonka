@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetSAMLProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.IAM.GetSAMLProvider
     , gsamlprsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSAMLProvider' smart constructor.
 newtype GetSAMLProvider = GetSAMLProvider'
-    { _gsamlpSAMLProviderARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsamlpSAMLProviderARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSAMLProvider' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ getSAMLProvider
     :: Text -- ^ 'gsamlpSAMLProviderARN'
     -> GetSAMLProvider
 getSAMLProvider pSAMLProviderARN_ =
-    GetSAMLProvider'
-    { _gsamlpSAMLProviderARN = pSAMLProviderARN_
-    }
+  GetSAMLProvider' {_gsamlpSAMLProviderARN = pSAMLProviderARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
@@ -79,9 +79,9 @@ instance AWSRequest GetSAMLProvider where
                      (x .@? "SAMLMetadataDocument")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSAMLProvider
+instance Hashable GetSAMLProvider where
 
-instance NFData GetSAMLProvider
+instance NFData GetSAMLProvider where
 
 instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty
@@ -102,11 +102,12 @@ instance ToQuery GetSAMLProvider where
 --
 -- /See:/ 'getSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
-    { _gsamlprsCreateDate           :: !(Maybe ISO8601)
-    , _gsamlprsValidUntil           :: !(Maybe ISO8601)
-    , _gsamlprsSAMLMetadataDocument :: !(Maybe Text)
-    , _gsamlprsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsamlprsCreateDate           :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _gsamlprsValidUntil           :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _gsamlprsSAMLMetadataDocument :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsamlprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSAMLProviderResponse' with the minimum fields required to make a request.
 --
@@ -123,12 +124,13 @@ getSAMLProviderResponse
     :: Int -- ^ 'gsamlprsResponseStatus'
     -> GetSAMLProviderResponse
 getSAMLProviderResponse pResponseStatus_ =
-    GetSAMLProviderResponse'
-    { _gsamlprsCreateDate = Nothing
-    , _gsamlprsValidUntil = Nothing
-    , _gsamlprsSAMLMetadataDocument = Nothing
-    , _gsamlprsResponseStatus = pResponseStatus_
-    }
+  GetSAMLProviderResponse'
+  { _gsamlprsCreateDate = Nothing
+  , _gsamlprsValidUntil = Nothing
+  , _gsamlprsSAMLMetadataDocument = Nothing
+  , _gsamlprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The date and time when the SAML provider was created.
 gsamlprsCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
@@ -146,4 +148,4 @@ gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_g
 gsamlprsResponseStatus :: Lens' GetSAMLProviderResponse Int
 gsamlprsResponseStatus = lens _gsamlprsResponseStatus (\ s a -> s{_gsamlprsResponseStatus = a});
 
-instance NFData GetSAMLProviderResponse
+instance NFData GetSAMLProviderResponse where

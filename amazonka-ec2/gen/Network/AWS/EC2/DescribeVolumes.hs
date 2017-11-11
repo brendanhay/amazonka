@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,13 +48,13 @@ module Network.AWS.EC2.DescribeVolumes
     , dvvrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeVolumes.
 --
@@ -62,12 +62,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeVolumes' smart constructor.
 data DescribeVolumes = DescribeVolumes'
-    { _desFilters    :: !(Maybe [Filter])
-    , _desVolumeIds  :: !(Maybe [Text])
-    , _desNextToken  :: !(Maybe Text)
-    , _desDryRun     :: !(Maybe Bool)
-    , _desMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _desVolumeIds  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _desNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _desMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumes' with the minimum fields required to make a request.
 --
@@ -85,13 +86,14 @@ data DescribeVolumes = DescribeVolumes'
 describeVolumes
     :: DescribeVolumes
 describeVolumes =
-    DescribeVolumes'
-    { _desFilters = Nothing
-    , _desVolumeIds = Nothing
-    , _desNextToken = Nothing
-    , _desDryRun = Nothing
-    , _desMaxResults = Nothing
-    }
+  DescribeVolumes'
+  { _desFilters = Nothing
+  , _desVolumeIds = Nothing
+  , _desNextToken = Nothing
+  , _desDryRun = Nothing
+  , _desMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @attachment.attach-time@ - The time stamp when the attachment initiated.     * @attachment.delete-on-termination@ - Whether the volume is deleted on instance termination.     * @attachment.device@ - The device name that is exposed to the instance (for example, @/dev/sda1@ ).     * @attachment.instance-id@ - The ID of the instance the volume is attached to.     * @attachment.status@ - The attachment state (@attaching@ | @attached@ | @detaching@ | @detached@ ).     * @availability-zone@ - The Availability Zone in which the volume was created.     * @create-time@ - The time stamp when the volume was created.     * @encrypted@ - The encryption status of the volume.     * @size@ - The size of the volume, in GiB.     * @snapshot-id@ - The snapshot from which the volume was created.     * @status@ - The status of the volume (@creating@ | @available@ | @in-use@ | @deleting@ | @deleted@ | @error@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @volume-id@ - The volume ID.     * @volume-type@ - The Amazon EBS volume type. This can be @gp2@ for General Purpose SSD, @io1@ for Provisioned IOPS SSD, @st1@ for Throughput Optimized HDD, @sc1@ for Cold HDD, or @standard@ for Magnetic volumes.
 desFilters :: Lens' DescribeVolumes [Filter]
@@ -132,9 +134,9 @@ instance AWSRequest DescribeVolumes where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVolumes
+instance Hashable DescribeVolumes where
 
-instance NFData DescribeVolumes
+instance NFData DescribeVolumes where
 
 instance ToHeaders DescribeVolumes where
         toHeaders = const mempty
@@ -158,10 +160,11 @@ instance ToQuery DescribeVolumes where
 --
 -- /See:/ 'describeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
-    { _dvvrsNextToken      :: !(Maybe Text)
-    , _dvvrsVolumes        :: !(Maybe [Volume])
-    , _dvvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvvrsVolumes        :: {-# NOUNPACK #-}!(Maybe [Volume])
+  , _dvvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVolumesResponse' with the minimum fields required to make a request.
 --
@@ -176,11 +179,12 @@ describeVolumesResponse
     :: Int -- ^ 'dvvrsResponseStatus'
     -> DescribeVolumesResponse
 describeVolumesResponse pResponseStatus_ =
-    DescribeVolumesResponse'
-    { _dvvrsNextToken = Nothing
-    , _dvvrsVolumes = Nothing
-    , _dvvrsResponseStatus = pResponseStatus_
-    }
+  DescribeVolumesResponse'
+  { _dvvrsNextToken = Nothing
+  , _dvvrsVolumes = Nothing
+  , _dvvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @NextToken@ value to include in a future @DescribeVolumes@ request. When the results of a @DescribeVolumes@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dvvrsNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
@@ -194,4 +198,4 @@ dvvrsVolumes = lens _dvvrsVolumes (\ s a -> s{_dvvrsVolumes = a}) . _Default . _
 dvvrsResponseStatus :: Lens' DescribeVolumesResponse Int
 dvvrsResponseStatus = lens _dvvrsResponseStatus (\ s a -> s{_dvvrsResponseStatus = a});
 
-instance NFData DescribeVolumesResponse
+instance NFData DescribeVolumesResponse where

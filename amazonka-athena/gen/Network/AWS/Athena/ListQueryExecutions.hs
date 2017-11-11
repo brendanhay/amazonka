@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Athena.ListQueryExecutions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.Athena.ListQueryExecutions
     , lqersResponseStatus
     ) where
 
-import           Network.AWS.Athena.Types
-import           Network.AWS.Athena.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Athena.Types
+import Network.AWS.Athena.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listQueryExecutions' smart constructor.
 data ListQueryExecutions = ListQueryExecutions'
-    { _lqeNextToken  :: !(Maybe Text)
-    , _lqeMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lqeNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lqeMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListQueryExecutions' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ data ListQueryExecutions = ListQueryExecutions'
 listQueryExecutions
     :: ListQueryExecutions
 listQueryExecutions =
-    ListQueryExecutions'
-    { _lqeNextToken = Nothing
-    , _lqeMaxResults = Nothing
-    }
+  ListQueryExecutions' {_lqeNextToken = Nothing, _lqeMaxResults = Nothing}
+
 
 -- | The token that specifies where to start pagination if a previous request was truncated.
 lqeNextToken :: Lens' ListQueryExecutions (Maybe Text)
@@ -98,9 +97,9 @@ instance AWSRequest ListQueryExecutions where
                    (x .?> "QueryExecutionIds") <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListQueryExecutions
+instance Hashable ListQueryExecutions where
 
-instance NFData ListQueryExecutions
+instance NFData ListQueryExecutions where
 
 instance ToHeaders ListQueryExecutions where
         toHeaders
@@ -126,10 +125,11 @@ instance ToQuery ListQueryExecutions where
 
 -- | /See:/ 'listQueryExecutionsResponse' smart constructor.
 data ListQueryExecutionsResponse = ListQueryExecutionsResponse'
-    { _lqersQueryExecutionIds :: !(Maybe (List1 Text))
-    , _lqersNextToken         :: !(Maybe Text)
-    , _lqersResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lqersQueryExecutionIds :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _lqersNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lqersResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListQueryExecutionsResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +144,12 @@ listQueryExecutionsResponse
     :: Int -- ^ 'lqersResponseStatus'
     -> ListQueryExecutionsResponse
 listQueryExecutionsResponse pResponseStatus_ =
-    ListQueryExecutionsResponse'
-    { _lqersQueryExecutionIds = Nothing
-    , _lqersNextToken = Nothing
-    , _lqersResponseStatus = pResponseStatus_
-    }
+  ListQueryExecutionsResponse'
+  { _lqersQueryExecutionIds = Nothing
+  , _lqersNextToken = Nothing
+  , _lqersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The unique IDs of each query execution as an array of strings.
 lqersQueryExecutionIds :: Lens' ListQueryExecutionsResponse (Maybe (NonEmpty Text))
@@ -162,4 +163,4 @@ lqersNextToken = lens _lqersNextToken (\ s a -> s{_lqersNextToken = a});
 lqersResponseStatus :: Lens' ListQueryExecutionsResponse Int
 lqersResponseStatus = lens _lqersResponseStatus (\ s a -> s{_lqersResponseStatus = a});
 
-instance NFData ListQueryExecutionsResponse
+instance NFData ListQueryExecutionsResponse where

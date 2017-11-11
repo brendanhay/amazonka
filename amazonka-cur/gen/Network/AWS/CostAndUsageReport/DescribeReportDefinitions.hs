@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.DescribeReportDefinitions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,21 +39,22 @@ module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
     , drdrsResponseStatus
     ) where
 
-import           Network.AWS.CostAndUsageReport.Types
-import           Network.AWS.CostAndUsageReport.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CostAndUsageReport.Types
+import Network.AWS.CostAndUsageReport.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of DescribeReportDefinitions
 --
 -- /See:/ 'describeReportDefinitions' smart constructor.
 data DescribeReportDefinitions = DescribeReportDefinitions'
-    { _drdNextToken  :: !(Maybe Text)
-    , _drdMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReportDefinitions' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data DescribeReportDefinitions = DescribeReportDefinitions'
 describeReportDefinitions
     :: DescribeReportDefinitions
 describeReportDefinitions =
-    DescribeReportDefinitions'
-    { _drdNextToken = Nothing
-    , _drdMaxResults = Nothing
-    }
+  DescribeReportDefinitions' {_drdNextToken = Nothing, _drdMaxResults = Nothing}
+
 
 -- | Undocumented member.
 drdNextToken :: Lens' DescribeReportDefinitions (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest DescribeReportDefinitions where
                      (x .?> "ReportDefinitions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeReportDefinitions
+instance Hashable DescribeReportDefinitions where
 
-instance NFData DescribeReportDefinitions
+instance NFData DescribeReportDefinitions where
 
 instance ToHeaders DescribeReportDefinitions where
         toHeaders
@@ -128,10 +127,11 @@ instance ToQuery DescribeReportDefinitions where
 --
 -- /See:/ 'describeReportDefinitionsResponse' smart constructor.
 data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
-    { _drdrsNextToken         :: !(Maybe Text)
-    , _drdrsReportDefinitions :: !(Maybe [ReportDefinition])
-    , _drdrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drdrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drdrsReportDefinitions :: {-# NOUNPACK #-}!(Maybe [ReportDefinition])
+  , _drdrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeReportDefinitionsResponse' with the minimum fields required to make a request.
 --
@@ -146,11 +146,12 @@ describeReportDefinitionsResponse
     :: Int -- ^ 'drdrsResponseStatus'
     -> DescribeReportDefinitionsResponse
 describeReportDefinitionsResponse pResponseStatus_ =
-    DescribeReportDefinitionsResponse'
-    { _drdrsNextToken = Nothing
-    , _drdrsReportDefinitions = Nothing
-    , _drdrsResponseStatus = pResponseStatus_
-    }
+  DescribeReportDefinitionsResponse'
+  { _drdrsNextToken = Nothing
+  , _drdrsReportDefinitions = Nothing
+  , _drdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 drdrsNextToken :: Lens' DescribeReportDefinitionsResponse (Maybe Text)
@@ -165,3 +166,4 @@ drdrsResponseStatus :: Lens' DescribeReportDefinitionsResponse Int
 drdrsResponseStatus = lens _drdrsResponseStatus (\ s a -> s{_drdrsResponseStatus = a});
 
 instance NFData DescribeReportDefinitionsResponse
+         where

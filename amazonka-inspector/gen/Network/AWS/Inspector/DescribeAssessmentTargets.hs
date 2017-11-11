@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeAssessmentTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Inspector.DescribeAssessmentTargets
     , drsFailedItems
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAssessmentTargets' smart constructor.
 newtype DescribeAssessmentTargets = DescribeAssessmentTargets'
-    { _datAssessmentTargetARNs :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _datAssessmentTargetARNs :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssessmentTargets' with the minimum fields required to make a request.
 --
@@ -59,9 +60,9 @@ describeAssessmentTargets
     :: NonEmpty Text -- ^ 'datAssessmentTargetARNs'
     -> DescribeAssessmentTargets
 describeAssessmentTargets pAssessmentTargetARNs_ =
-    DescribeAssessmentTargets'
-    { _datAssessmentTargetARNs = _List1 # pAssessmentTargetARNs_
-    }
+  DescribeAssessmentTargets'
+  {_datAssessmentTargetARNs = _List1 # pAssessmentTargetARNs_}
+
 
 -- | The ARNs that specifies the assessment targets that you want to describe.
 datAssessmentTargetARNs :: Lens' DescribeAssessmentTargets (NonEmpty Text)
@@ -79,9 +80,9 @@ instance AWSRequest DescribeAssessmentTargets where
                      (x .?> "assessmentTargets" .!@ mempty)
                      <*> (x .?> "failedItems" .!@ mempty))
 
-instance Hashable DescribeAssessmentTargets
+instance Hashable DescribeAssessmentTargets where
 
-instance NFData DescribeAssessmentTargets
+instance NFData DescribeAssessmentTargets where
 
 instance ToHeaders DescribeAssessmentTargets where
         toHeaders
@@ -109,10 +110,11 @@ instance ToQuery DescribeAssessmentTargets where
 
 -- | /See:/ 'describeAssessmentTargetsResponse' smart constructor.
 data DescribeAssessmentTargetsResponse = DescribeAssessmentTargetsResponse'
-    { _drsResponseStatus    :: !Int
-    , _drsAssessmentTargets :: ![AssessmentTarget]
-    , _drsFailedItems       :: !(Map Text FailedItemDetails)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _drsAssessmentTargets :: {-# NOUNPACK #-}![AssessmentTarget]
+  , _drsFailedItems       :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAssessmentTargetsResponse' with the minimum fields required to make a request.
 --
@@ -127,11 +129,12 @@ describeAssessmentTargetsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeAssessmentTargetsResponse
 describeAssessmentTargetsResponse pResponseStatus_ =
-    DescribeAssessmentTargetsResponse'
-    { _drsResponseStatus = pResponseStatus_
-    , _drsAssessmentTargets = mempty
-    , _drsFailedItems = mempty
-    }
+  DescribeAssessmentTargetsResponse'
+  { _drsResponseStatus = pResponseStatus_
+  , _drsAssessmentTargets = mempty
+  , _drsFailedItems = mempty
+  }
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeAssessmentTargetsResponse Int
@@ -146,3 +149,4 @@ drsFailedItems :: Lens' DescribeAssessmentTargetsResponse (HashMap Text FailedIt
 drsFailedItems = lens _drsFailedItems (\ s a -> s{_drsFailedItems = a}) . _Map;
 
 instance NFData DescribeAssessmentTargetsResponse
+         where

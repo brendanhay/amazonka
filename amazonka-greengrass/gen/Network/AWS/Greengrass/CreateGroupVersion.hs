@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateGroupVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,23 +44,24 @@ module Network.AWS.Greengrass.CreateGroupVersion
     , cgvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createGroupVersion' smart constructor.
 data CreateGroupVersion = CreateGroupVersion'
-    { _cgvAmznClientToken                  :: !(Maybe Text)
-    , _cgvSubscriptionDefinitionVersionARN :: !(Maybe Text)
-    , _cgvCoreDefinitionVersionARN         :: !(Maybe Text)
-    , _cgvDeviceDefinitionVersionARN       :: !(Maybe Text)
-    , _cgvFunctionDefinitionVersionARN     :: !(Maybe Text)
-    , _cgvLoggerDefinitionVersionARN       :: !(Maybe Text)
-    , _cgvGroupId                          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgvAmznClientToken                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvSubscriptionDefinitionVersionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvCoreDefinitionVersionARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvDeviceDefinitionVersionARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvFunctionDefinitionVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvLoggerDefinitionVersionARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvGroupId                          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroupVersion' with the minimum fields required to make a request.
 --
@@ -83,15 +84,16 @@ createGroupVersion
     :: Text -- ^ 'cgvGroupId'
     -> CreateGroupVersion
 createGroupVersion pGroupId_ =
-    CreateGroupVersion'
-    { _cgvAmznClientToken = Nothing
-    , _cgvSubscriptionDefinitionVersionARN = Nothing
-    , _cgvCoreDefinitionVersionARN = Nothing
-    , _cgvDeviceDefinitionVersionARN = Nothing
-    , _cgvFunctionDefinitionVersionARN = Nothing
-    , _cgvLoggerDefinitionVersionARN = Nothing
-    , _cgvGroupId = pGroupId_
-    }
+  CreateGroupVersion'
+  { _cgvAmznClientToken = Nothing
+  , _cgvSubscriptionDefinitionVersionARN = Nothing
+  , _cgvCoreDefinitionVersionARN = Nothing
+  , _cgvDeviceDefinitionVersionARN = Nothing
+  , _cgvFunctionDefinitionVersionARN = Nothing
+  , _cgvLoggerDefinitionVersionARN = Nothing
+  , _cgvGroupId = pGroupId_
+  }
+
 
 -- | The client token used to request idempotent operations.
 cgvAmznClientToken :: Lens' CreateGroupVersion (Maybe Text)
@@ -134,9 +136,9 @@ instance AWSRequest CreateGroupVersion where
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateGroupVersion
+instance Hashable CreateGroupVersion where
 
-instance NFData CreateGroupVersion
+instance NFData CreateGroupVersion where
 
 instance ToHeaders CreateGroupVersion where
         toHeaders CreateGroupVersion'{..}
@@ -171,12 +173,13 @@ instance ToQuery CreateGroupVersion where
 
 -- | /See:/ 'createGroupVersionResponse' smart constructor.
 data CreateGroupVersionResponse = CreateGroupVersionResponse'
-    { _cgvrsARN               :: !(Maybe Text)
-    , _cgvrsCreationTimestamp :: !(Maybe Text)
-    , _cgvrsVersion           :: !(Maybe Text)
-    , _cgvrsId                :: !(Maybe Text)
-    , _cgvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cgvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGroupVersionResponse' with the minimum fields required to make a request.
 --
@@ -195,13 +198,14 @@ createGroupVersionResponse
     :: Int -- ^ 'cgvrsResponseStatus'
     -> CreateGroupVersionResponse
 createGroupVersionResponse pResponseStatus_ =
-    CreateGroupVersionResponse'
-    { _cgvrsARN = Nothing
-    , _cgvrsCreationTimestamp = Nothing
-    , _cgvrsVersion = Nothing
-    , _cgvrsId = Nothing
-    , _cgvrsResponseStatus = pResponseStatus_
-    }
+  CreateGroupVersionResponse'
+  { _cgvrsARN = Nothing
+  , _cgvrsCreationTimestamp = Nothing
+  , _cgvrsVersion = Nothing
+  , _cgvrsId = Nothing
+  , _cgvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Arn of the version.
 cgvrsARN :: Lens' CreateGroupVersionResponse (Maybe Text)
@@ -223,4 +227,4 @@ cgvrsId = lens _cgvrsId (\ s a -> s{_cgvrsId = a});
 cgvrsResponseStatus :: Lens' CreateGroupVersionResponse Int
 cgvrsResponseStatus = lens _cgvrsResponseStatus (\ s a -> s{_cgvrsResponseStatus = a});
 
-instance NFData CreateGroupVersionResponse
+instance NFData CreateGroupVersionResponse where

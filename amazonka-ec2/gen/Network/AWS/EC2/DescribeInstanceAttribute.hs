@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeInstanceAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeInstanceAttribute.
 --
@@ -66,10 +66,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-    { _diaDryRun     :: !(Maybe Bool)
-    , _diaAttribute  :: !InstanceAttributeName
-    , _diaInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diaDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diaAttribute  :: {-# NOUNPACK #-}!InstanceAttributeName
+  , _diaInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstanceAttribute' with the minimum fields required to make a request.
 --
@@ -85,11 +86,12 @@ describeInstanceAttribute
     -> Text -- ^ 'diaInstanceId'
     -> DescribeInstanceAttribute
 describeInstanceAttribute pAttribute_ pInstanceId_ =
-    DescribeInstanceAttribute'
-    { _diaDryRun = Nothing
-    , _diaAttribute = pAttribute_
-    , _diaInstanceId = pInstanceId_
-    }
+  DescribeInstanceAttribute'
+  { _diaDryRun = Nothing
+  , _diaAttribute = pAttribute_
+  , _diaInstanceId = pInstanceId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diaDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
@@ -133,9 +135,9 @@ instance AWSRequest DescribeInstanceAttribute where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeInstanceAttribute
+instance Hashable DescribeInstanceAttribute where
 
-instance NFData DescribeInstanceAttribute
+instance NFData DescribeInstanceAttribute where
 
 instance ToHeaders DescribeInstanceAttribute where
         toHeaders = const mempty
@@ -158,23 +160,24 @@ instance ToQuery DescribeInstanceAttribute where
 --
 -- /See:/ 'describeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-    { _desrsInstanceId                        :: !(Maybe Text)
-    , _desrsGroups                            :: !(Maybe [GroupIdentifier])
-    , _desrsEnaSupport                        :: !(Maybe AttributeBooleanValue)
-    , _desrsSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
-    , _desrsDisableAPITermination             :: !(Maybe AttributeBooleanValue)
-    , _desrsRAMDiskId                         :: !(Maybe AttributeValue)
-    , _desrsKernelId                          :: !(Maybe AttributeValue)
-    , _desrsRootDeviceName                    :: !(Maybe AttributeValue)
-    , _desrsInstanceType                      :: !(Maybe AttributeValue)
-    , _desrsSRIOVNetSupport                   :: !(Maybe AttributeValue)
-    , _desrsEBSOptimized                      :: !(Maybe AttributeBooleanValue)
-    , _desrsUserData                          :: !(Maybe AttributeValue)
-    , _desrsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
-    , _desrsProductCodes                      :: !(Maybe [ProductCode])
-    , _desrsBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
-    , _desrsResponseStatus                    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsGroups :: {-# NOUNPACK #-}!(Maybe [GroupIdentifier])
+  , _desrsEnaSupport :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _desrsSourceDestCheck :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _desrsDisableAPITermination :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _desrsRAMDiskId :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _desrsKernelId :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _desrsRootDeviceName :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _desrsInstanceType :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _desrsSRIOVNetSupport :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _desrsEBSOptimized :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _desrsUserData :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _desrsInstanceInitiatedShutdownBehavior :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _desrsProductCodes :: {-# NOUNPACK #-}!(Maybe [ProductCode])
+  , _desrsBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [InstanceBlockDeviceMapping])
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeInstanceAttributeResponse' with the minimum fields required to make a request.
 --
@@ -215,24 +218,25 @@ describeInstanceAttributeResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeInstanceAttributeResponse
 describeInstanceAttributeResponse pResponseStatus_ =
-    DescribeInstanceAttributeResponse'
-    { _desrsInstanceId = Nothing
-    , _desrsGroups = Nothing
-    , _desrsEnaSupport = Nothing
-    , _desrsSourceDestCheck = Nothing
-    , _desrsDisableAPITermination = Nothing
-    , _desrsRAMDiskId = Nothing
-    , _desrsKernelId = Nothing
-    , _desrsRootDeviceName = Nothing
-    , _desrsInstanceType = Nothing
-    , _desrsSRIOVNetSupport = Nothing
-    , _desrsEBSOptimized = Nothing
-    , _desrsUserData = Nothing
-    , _desrsInstanceInitiatedShutdownBehavior = Nothing
-    , _desrsProductCodes = Nothing
-    , _desrsBlockDeviceMappings = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeInstanceAttributeResponse'
+  { _desrsInstanceId = Nothing
+  , _desrsGroups = Nothing
+  , _desrsEnaSupport = Nothing
+  , _desrsSourceDestCheck = Nothing
+  , _desrsDisableAPITermination = Nothing
+  , _desrsRAMDiskId = Nothing
+  , _desrsKernelId = Nothing
+  , _desrsRootDeviceName = Nothing
+  , _desrsInstanceType = Nothing
+  , _desrsSRIOVNetSupport = Nothing
+  , _desrsEBSOptimized = Nothing
+  , _desrsUserData = Nothing
+  , _desrsInstanceInitiatedShutdownBehavior = Nothing
+  , _desrsProductCodes = Nothing
+  , _desrsBlockDeviceMappings = Nothing
+  , _desrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the instance.
 desrsInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
@@ -299,3 +303,4 @@ desrsResponseStatus :: Lens' DescribeInstanceAttributeResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
 instance NFData DescribeInstanceAttributeResponse
+         where

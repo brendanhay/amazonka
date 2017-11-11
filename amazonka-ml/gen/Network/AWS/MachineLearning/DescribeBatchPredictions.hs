@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeBatchPredictions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,28 +50,29 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     , dbpsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeBatchPredictions' smart constructor.
 data DescribeBatchPredictions = DescribeBatchPredictions'
-    { _dbpEQ             :: !(Maybe Text)
-    , _dbpGE             :: !(Maybe Text)
-    , _dbpPrefix         :: !(Maybe Text)
-    , _dbpGT             :: !(Maybe Text)
-    , _dbpNE             :: !(Maybe Text)
-    , _dbpNextToken      :: !(Maybe Text)
-    , _dbpSortOrder      :: !(Maybe SortOrder)
-    , _dbpLimit          :: !(Maybe Nat)
-    , _dbpLT             :: !(Maybe Text)
-    , _dbpFilterVariable :: !(Maybe BatchPredictionFilterVariable)
-    , _dbpLE             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbpEQ             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpGE             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpPrefix         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpGT             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpNE             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpSortOrder      :: {-# NOUNPACK #-}!(Maybe SortOrder)
+  , _dbpLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dbpLT             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpFilterVariable :: {-# NOUNPACK #-}!(Maybe BatchPredictionFilterVariable)
+  , _dbpLE             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBatchPredictions' with the minimum fields required to make a request.
 --
@@ -101,19 +102,20 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
 describeBatchPredictions
     :: DescribeBatchPredictions
 describeBatchPredictions =
-    DescribeBatchPredictions'
-    { _dbpEQ = Nothing
-    , _dbpGE = Nothing
-    , _dbpPrefix = Nothing
-    , _dbpGT = Nothing
-    , _dbpNE = Nothing
-    , _dbpNextToken = Nothing
-    , _dbpSortOrder = Nothing
-    , _dbpLimit = Nothing
-    , _dbpLT = Nothing
-    , _dbpFilterVariable = Nothing
-    , _dbpLE = Nothing
-    }
+  DescribeBatchPredictions'
+  { _dbpEQ = Nothing
+  , _dbpGE = Nothing
+  , _dbpPrefix = Nothing
+  , _dbpGT = Nothing
+  , _dbpNE = Nothing
+  , _dbpNextToken = Nothing
+  , _dbpSortOrder = Nothing
+  , _dbpLimit = Nothing
+  , _dbpLT = Nothing
+  , _dbpFilterVariable = Nothing
+  , _dbpLE = Nothing
+  }
+
 
 -- | The equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
 dbpEQ :: Lens' DescribeBatchPredictions (Maybe Text)
@@ -177,9 +179,9 @@ instance AWSRequest DescribeBatchPredictions where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeBatchPredictions
+instance Hashable DescribeBatchPredictions where
 
-instance NFData DescribeBatchPredictions
+instance NFData DescribeBatchPredictions where
 
 instance ToHeaders DescribeBatchPredictions where
         toHeaders
@@ -216,10 +218,11 @@ instance ToQuery DescribeBatchPredictions where
 --
 -- /See:/ 'describeBatchPredictionsResponse' smart constructor.
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-    { _dbpsrsResults        :: !(Maybe [BatchPrediction])
-    , _dbpsrsNextToken      :: !(Maybe Text)
-    , _dbpsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbpsrsResults        :: {-# NOUNPACK #-}!(Maybe [BatchPrediction])
+  , _dbpsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeBatchPredictionsResponse' with the minimum fields required to make a request.
 --
@@ -234,11 +237,12 @@ describeBatchPredictionsResponse
     :: Int -- ^ 'dbpsrsResponseStatus'
     -> DescribeBatchPredictionsResponse
 describeBatchPredictionsResponse pResponseStatus_ =
-    DescribeBatchPredictionsResponse'
-    { _dbpsrsResults = Nothing
-    , _dbpsrsNextToken = Nothing
-    , _dbpsrsResponseStatus = pResponseStatus_
-    }
+  DescribeBatchPredictionsResponse'
+  { _dbpsrsResults = Nothing
+  , _dbpsrsNextToken = Nothing
+  , _dbpsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of @BatchPrediction@ objects that meet the search criteria.
 dbpsrsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
@@ -253,3 +257,4 @@ dbpsrsResponseStatus :: Lens' DescribeBatchPredictionsResponse Int
 dbpsrsResponseStatus = lens _dbpsrsResponseStatus (\ s a -> s{_dbpsrsResponseStatus = a});
 
 instance NFData DescribeBatchPredictionsResponse
+         where

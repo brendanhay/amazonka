@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.DeleteTopic
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.SNS.DeleteTopic
     , DeleteTopicResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'deleteTopic' smart constructor.
 newtype DeleteTopic = DeleteTopic'
-    { _dtTopicARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtTopicARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTopic' with the minimum fields required to make a request.
 --
@@ -54,10 +55,8 @@ newtype DeleteTopic = DeleteTopic'
 deleteTopic
     :: Text -- ^ 'dtTopicARN'
     -> DeleteTopic
-deleteTopic pTopicARN_ =
-    DeleteTopic'
-    { _dtTopicARN = pTopicARN_
-    }
+deleteTopic pTopicARN_ = DeleteTopic' {_dtTopicARN = pTopicARN_}
+
 
 -- | The ARN of the topic you want to delete.
 dtTopicARN :: Lens' DeleteTopic Text
@@ -68,9 +67,9 @@ instance AWSRequest DeleteTopic where
         request = postQuery sns
         response = receiveNull DeleteTopicResponse'
 
-instance Hashable DeleteTopic
+instance Hashable DeleteTopic where
 
-instance NFData DeleteTopic
+instance NFData DeleteTopic where
 
 instance ToHeaders DeleteTopic where
         toHeaders = const mempty
@@ -87,8 +86,9 @@ instance ToQuery DeleteTopic where
 
 -- | /See:/ 'deleteTopicResponse' smart constructor.
 data DeleteTopicResponse =
-    DeleteTopicResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteTopicResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTopicResponse' with the minimum fields required to make a request.
 --
@@ -96,4 +96,5 @@ deleteTopicResponse
     :: DeleteTopicResponse
 deleteTopicResponse = DeleteTopicResponse'
 
-instance NFData DeleteTopicResponse
+
+instance NFData DeleteTopicResponse where

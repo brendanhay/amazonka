@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SetUserSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CognitoIdentityProvider.SetUserSettings
     , susrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to set user settings.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setUserSettings' smart constructor.
 data SetUserSettings = SetUserSettings'
-    { _susAccessToken :: !(Sensitive Text)
-    , _susMFAOptions  :: ![MFAOptionType]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _susAccessToken :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _susMFAOptions  :: {-# NOUNPACK #-}![MFAOptionType]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetUserSettings' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ setUserSettings
     :: Text -- ^ 'susAccessToken'
     -> SetUserSettings
 setUserSettings pAccessToken_ =
-    SetUserSettings'
-    { _susAccessToken = _Sensitive # pAccessToken_
-    , _susMFAOptions = mempty
-    }
+  SetUserSettings'
+  {_susAccessToken = _Sensitive # pAccessToken_, _susMFAOptions = mempty}
+
 
 -- | The access token for the set user settings request.
 susAccessToken :: Lens' SetUserSettings Text
@@ -86,9 +86,9 @@ instance AWSRequest SetUserSettings where
               (\ s h x ->
                  SetUserSettingsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable SetUserSettings
+instance Hashable SetUserSettings where
 
-instance NFData SetUserSettings
+instance NFData SetUserSettings where
 
 instance ToHeaders SetUserSettings where
         toHeaders
@@ -119,8 +119,9 @@ instance ToQuery SetUserSettings where
 --
 -- /See:/ 'setUserSettingsResponse' smart constructor.
 newtype SetUserSettingsResponse = SetUserSettingsResponse'
-    { _susrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _susrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetUserSettingsResponse' with the minimum fields required to make a request.
 --
@@ -131,12 +132,11 @@ setUserSettingsResponse
     :: Int -- ^ 'susrsResponseStatus'
     -> SetUserSettingsResponse
 setUserSettingsResponse pResponseStatus_ =
-    SetUserSettingsResponse'
-    { _susrsResponseStatus = pResponseStatus_
-    }
+  SetUserSettingsResponse' {_susrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 susrsResponseStatus :: Lens' SetUserSettingsResponse Int
 susrsResponseStatus = lens _susrsResponseStatus (\ s a -> s{_susrsResponseStatus = a});
 
-instance NFData SetUserSettingsResponse
+instance NFData SetUserSettingsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.LeaveOrganization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,17 +42,18 @@ module Network.AWS.Organizations.LeaveOrganization
     , LeaveOrganizationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'leaveOrganization' smart constructor.
 data LeaveOrganization =
-    LeaveOrganization'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  LeaveOrganization'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LeaveOrganization' with the minimum fields required to make a request.
 --
@@ -60,14 +61,15 @@ leaveOrganization
     :: LeaveOrganization
 leaveOrganization = LeaveOrganization'
 
+
 instance AWSRequest LeaveOrganization where
         type Rs LeaveOrganization = LeaveOrganizationResponse
         request = postJSON organizations
         response = receiveNull LeaveOrganizationResponse'
 
-instance Hashable LeaveOrganization
+instance Hashable LeaveOrganization where
 
-instance NFData LeaveOrganization
+instance NFData LeaveOrganization where
 
 instance ToHeaders LeaveOrganization where
         toHeaders
@@ -90,8 +92,9 @@ instance ToQuery LeaveOrganization where
 
 -- | /See:/ 'leaveOrganizationResponse' smart constructor.
 data LeaveOrganizationResponse =
-    LeaveOrganizationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  LeaveOrganizationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LeaveOrganizationResponse' with the minimum fields required to make a request.
 --
@@ -99,4 +102,5 @@ leaveOrganizationResponse
     :: LeaveOrganizationResponse
 leaveOrganizationResponse = LeaveOrganizationResponse'
 
-instance NFData LeaveOrganizationResponse
+
+instance NFData LeaveOrganizationResponse where

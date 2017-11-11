@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteMLModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.MachineLearning.DeleteMLModel
     , dmlmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteMLModel' smart constructor.
 newtype DeleteMLModel = DeleteMLModel'
-    { _dmlmMLModelId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmlmMLModelId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMLModel' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype DeleteMLModel = DeleteMLModel'
 deleteMLModel
     :: Text -- ^ 'dmlmMLModelId'
     -> DeleteMLModel
-deleteMLModel pMLModelId_ =
-    DeleteMLModel'
-    { _dmlmMLModelId = pMLModelId_
-    }
+deleteMLModel pMLModelId_ = DeleteMLModel' {_dmlmMLModelId = pMLModelId_}
+
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ .
 dmlmMLModelId :: Lens' DeleteMLModel Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteMLModel where
                  DeleteMLModelResponse' <$>
                    (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteMLModel
+instance Hashable DeleteMLModel where
 
-instance NFData DeleteMLModel
+instance NFData DeleteMLModel where
 
 instance ToHeaders DeleteMLModel where
         toHeaders
@@ -111,9 +110,10 @@ instance ToQuery DeleteMLModel where
 --
 -- /See:/ 'deleteMLModelResponse' smart constructor.
 data DeleteMLModelResponse = DeleteMLModelResponse'
-    { _dmlmrsMLModelId      :: !(Maybe Text)
-    , _dmlmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmlmrsMLModelId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmlmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMLModelResponse' with the minimum fields required to make a request.
 --
@@ -126,10 +126,9 @@ deleteMLModelResponse
     :: Int -- ^ 'dmlmrsResponseStatus'
     -> DeleteMLModelResponse
 deleteMLModelResponse pResponseStatus_ =
-    DeleteMLModelResponse'
-    { _dmlmrsMLModelId = Nothing
-    , _dmlmrsResponseStatus = pResponseStatus_
-    }
+  DeleteMLModelResponse'
+  {_dmlmrsMLModelId = Nothing, _dmlmrsResponseStatus = pResponseStatus_}
+
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
 dmlmrsMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
@@ -139,4 +138,4 @@ dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
 dmlmrsResponseStatus :: Lens' DeleteMLModelResponse Int
 dmlmrsResponseStatus = lens _dmlmrsResponseStatus (\ s a -> s{_dmlmrsResponseStatus = a});
 
-instance NFData DeleteMLModelResponse
+instance NFData DeleteMLModelResponse where

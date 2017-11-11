@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DetachStaticIP
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.DetachStaticIP
     , dsirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachStaticIP' smart constructor.
 newtype DetachStaticIP = DetachStaticIP'
-    { _dsiStaticIPName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsiStaticIPName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachStaticIP' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ detachStaticIP
     :: Text -- ^ 'dsiStaticIPName'
     -> DetachStaticIP
 detachStaticIP pStaticIPName_ =
-    DetachStaticIP'
-    { _dsiStaticIPName = pStaticIPName_
-    }
+  DetachStaticIP' {_dsiStaticIPName = pStaticIPName_}
+
 
 -- | The name of the static IP to detach from the instance.
 dsiStaticIPName :: Lens' DetachStaticIP Text
@@ -76,9 +76,9 @@ instance AWSRequest DetachStaticIP where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DetachStaticIP
+instance Hashable DetachStaticIP where
 
-instance NFData DetachStaticIP
+instance NFData DetachStaticIP where
 
 instance ToHeaders DetachStaticIP where
         toHeaders
@@ -103,9 +103,10 @@ instance ToQuery DetachStaticIP where
 
 -- | /See:/ 'detachStaticIPResponse' smart constructor.
 data DetachStaticIPResponse = DetachStaticIPResponse'
-    { _dsirsOperations     :: !(Maybe [Operation])
-    , _dsirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _dsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachStaticIPResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +119,9 @@ detachStaticIPResponse
     :: Int -- ^ 'dsirsResponseStatus'
     -> DetachStaticIPResponse
 detachStaticIPResponse pResponseStatus_ =
-    DetachStaticIPResponse'
-    { _dsirsOperations = Nothing
-    , _dsirsResponseStatus = pResponseStatus_
-    }
+  DetachStaticIPResponse'
+  {_dsirsOperations = Nothing, _dsirsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your detach static IP request.
 dsirsOperations :: Lens' DetachStaticIPResponse [Operation]
@@ -131,4 +131,4 @@ dsirsOperations = lens _dsirsOperations (\ s a -> s{_dsirsOperations = a}) . _De
 dsirsResponseStatus :: Lens' DetachStaticIPResponse Int
 dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a});
 
-instance NFData DetachStaticIPResponse
+instance NFData DetachStaticIPResponse where

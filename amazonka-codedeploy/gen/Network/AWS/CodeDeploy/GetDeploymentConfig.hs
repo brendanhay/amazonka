@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     , gdcrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a GetDeploymentConfig operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDeploymentConfig' smart constructor.
 newtype GetDeploymentConfig = GetDeploymentConfig'
-    { _gdcDeploymentConfigName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdcDeploymentConfigName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeploymentConfig' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getDeploymentConfig
     :: Text -- ^ 'gdcDeploymentConfigName'
     -> GetDeploymentConfig
 getDeploymentConfig pDeploymentConfigName_ =
-    GetDeploymentConfig'
-    { _gdcDeploymentConfigName = pDeploymentConfigName_
-    }
+  GetDeploymentConfig' {_gdcDeploymentConfigName = pDeploymentConfigName_}
+
 
 -- | The name of a deployment configuration associated with the applicable IAM user or AWS account.
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
@@ -81,9 +81,9 @@ instance AWSRequest GetDeploymentConfig where
                    (x .?> "deploymentConfigInfo") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetDeploymentConfig
+instance Hashable GetDeploymentConfig where
 
-instance NFData GetDeploymentConfig
+instance NFData GetDeploymentConfig where
 
 instance ToHeaders GetDeploymentConfig where
         toHeaders
@@ -115,9 +115,10 @@ instance ToQuery GetDeploymentConfig where
 --
 -- /See:/ 'getDeploymentConfigResponse' smart constructor.
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
-    { _gdcrsDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
-    , _gdcrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdcrsDeploymentConfigInfo :: {-# NOUNPACK #-}!(Maybe DeploymentConfigInfo)
+  , _gdcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeploymentConfigResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,11 @@ getDeploymentConfigResponse
     :: Int -- ^ 'gdcrsResponseStatus'
     -> GetDeploymentConfigResponse
 getDeploymentConfigResponse pResponseStatus_ =
-    GetDeploymentConfigResponse'
-    { _gdcrsDeploymentConfigInfo = Nothing
-    , _gdcrsResponseStatus = pResponseStatus_
-    }
+  GetDeploymentConfigResponse'
+  { _gdcrsDeploymentConfigInfo = Nothing
+  , _gdcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the deployment configuration.
 gdcrsDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
@@ -143,4 +145,4 @@ gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDe
 gdcrsResponseStatus :: Lens' GetDeploymentConfigResponse Int
 gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});
 
-instance NFData GetDeploymentConfigResponse
+instance NFData GetDeploymentConfigResponse where

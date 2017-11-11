@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DeleteComputeEnvironment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Batch.DeleteComputeEnvironment
     , dcersResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteComputeEnvironment' smart constructor.
 newtype DeleteComputeEnvironment = DeleteComputeEnvironment'
-    { _dceComputeEnvironment :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dceComputeEnvironment :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteComputeEnvironment' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteComputeEnvironment
     :: Text -- ^ 'dceComputeEnvironment'
     -> DeleteComputeEnvironment
 deleteComputeEnvironment pComputeEnvironment_ =
-    DeleteComputeEnvironment'
-    { _dceComputeEnvironment = pComputeEnvironment_
-    }
+  DeleteComputeEnvironment' {_dceComputeEnvironment = pComputeEnvironment_}
+
 
 -- | The name or Amazon Resource Name (ARN) of the compute environment to delete.
 dceComputeEnvironment :: Lens' DeleteComputeEnvironment Text
@@ -77,9 +77,9 @@ instance AWSRequest DeleteComputeEnvironment where
                  DeleteComputeEnvironmentResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteComputeEnvironment
+instance Hashable DeleteComputeEnvironment where
 
-instance NFData DeleteComputeEnvironment
+instance NFData DeleteComputeEnvironment where
 
 instance ToHeaders DeleteComputeEnvironment where
         toHeaders
@@ -103,8 +103,9 @@ instance ToQuery DeleteComputeEnvironment where
 
 -- | /See:/ 'deleteComputeEnvironmentResponse' smart constructor.
 newtype DeleteComputeEnvironmentResponse = DeleteComputeEnvironmentResponse'
-    { _dcersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteComputeEnvironmentResponse' with the minimum fields required to make a request.
 --
@@ -115,12 +116,12 @@ deleteComputeEnvironmentResponse
     :: Int -- ^ 'dcersResponseStatus'
     -> DeleteComputeEnvironmentResponse
 deleteComputeEnvironmentResponse pResponseStatus_ =
-    DeleteComputeEnvironmentResponse'
-    { _dcersResponseStatus = pResponseStatus_
-    }
+  DeleteComputeEnvironmentResponse' {_dcersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dcersResponseStatus :: Lens' DeleteComputeEnvironmentResponse Int
 dcersResponseStatus = lens _dcersResponseStatus (\ s a -> s{_dcersResponseStatus = a});
 
 instance NFData DeleteComputeEnvironmentResponse
+         where

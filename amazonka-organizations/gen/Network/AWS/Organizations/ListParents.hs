@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.ListParents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.Organizations.ListParents
     , lrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listParents' smart constructor.
 data ListParents = ListParents'
-    { _lNextToken  :: !(Maybe Text)
-    , _lMaxResults :: !(Maybe Nat)
-    , _lChildId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lChildId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListParents' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ listParents
     :: Text -- ^ 'lChildId'
     -> ListParents
 listParents pChildId_ =
-    ListParents'
-    { _lNextToken = Nothing
-    , _lMaxResults = Nothing
-    , _lChildId = pChildId_
-    }
+  ListParents'
+  {_lNextToken = Nothing, _lMaxResults = Nothing, _lChildId = pChildId_}
+
 
 -- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 lNextToken :: Lens' ListParents (Maybe Text)
@@ -107,9 +106,9 @@ instance AWSRequest ListParents where
                    (x .?> "NextToken") <*> (x .?> "Parents" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListParents
+instance Hashable ListParents where
 
-instance NFData ListParents
+instance NFData ListParents where
 
 instance ToHeaders ListParents where
         toHeaders
@@ -137,10 +136,11 @@ instance ToQuery ListParents where
 
 -- | /See:/ 'listParentsResponse' smart constructor.
 data ListParentsResponse = ListParentsResponse'
-    { _lrsNextToken      :: !(Maybe Text)
-    , _lrsParents        :: !(Maybe [Parent])
-    , _lrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsParents        :: {-# NOUNPACK #-}!(Maybe [Parent])
+  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListParentsResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +155,12 @@ listParentsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListParentsResponse
 listParentsResponse pResponseStatus_ =
-    ListParentsResponse'
-    { _lrsNextToken = Nothing
-    , _lrsParents = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    }
+  ListParentsResponse'
+  { _lrsNextToken = Nothing
+  , _lrsParents = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 lrsNextToken :: Lens' ListParentsResponse (Maybe Text)
@@ -173,4 +174,4 @@ lrsParents = lens _lrsParents (\ s a -> s{_lrsParents = a}) . _Default . _Coerce
 lrsResponseStatus :: Lens' ListParentsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
-instance NFData ListParentsResponse
+instance NFData ListParentsResponse where

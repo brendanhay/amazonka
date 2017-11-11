@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEndpoints
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DMS.DescribeEndpoints
     , dersResponseStatus
     ) where
 
-import           Network.AWS.DMS.Types
-import           Network.AWS.DMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DMS.Types
+import Network.AWS.DMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-    { _desFilters    :: !(Maybe [Filter])
-    , _desMarker     :: !(Maybe Text)
-    , _desMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _desMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEndpoints' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data DescribeEndpoints = DescribeEndpoints'
 describeEndpoints
     :: DescribeEndpoints
 describeEndpoints =
-    DescribeEndpoints'
-    { _desFilters = Nothing
-    , _desMarker = Nothing
-    , _desMaxRecords = Nothing
-    }
+  DescribeEndpoints'
+  {_desFilters = Nothing, _desMarker = Nothing, _desMaxRecords = Nothing}
+
 
 -- | Filters applied to the describe action. Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
 desFilters :: Lens' DescribeEndpoints [Filter]
@@ -98,9 +97,9 @@ instance AWSRequest DescribeEndpoints where
                    (x .?> "Marker") <*> (x .?> "Endpoints" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEndpoints
+instance Hashable DescribeEndpoints where
 
-instance NFData DescribeEndpoints
+instance NFData DescribeEndpoints where
 
 instance ToHeaders DescribeEndpoints where
         toHeaders
@@ -132,10 +131,11 @@ instance ToQuery DescribeEndpoints where
 --
 -- /See:/ 'describeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
-    { _dersMarker         :: !(Maybe Text)
-    , _dersEndpoints      :: !(Maybe [Endpoint])
-    , _dersResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dersMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dersEndpoints      :: {-# NOUNPACK #-}!(Maybe [Endpoint])
+  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEndpointsResponse' with the minimum fields required to make a request.
 --
@@ -150,11 +150,12 @@ describeEndpointsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEndpointsResponse
 describeEndpointsResponse pResponseStatus_ =
-    DescribeEndpointsResponse'
-    { _dersMarker = Nothing
-    , _dersEndpoints = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DescribeEndpointsResponse'
+  { _dersMarker = Nothing
+  , _dersEndpoints = Nothing
+  , _dersResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dersMarker :: Lens' DescribeEndpointsResponse (Maybe Text)
@@ -168,4 +169,4 @@ dersEndpoints = lens _dersEndpoints (\ s a -> s{_dersEndpoints = a}) . _Default 
 dersResponseStatus :: Lens' DescribeEndpointsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DescribeEndpointsResponse
+instance NFData DescribeEndpointsResponse where

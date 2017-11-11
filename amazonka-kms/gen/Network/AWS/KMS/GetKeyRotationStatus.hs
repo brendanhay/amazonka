@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GetKeyRotationStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.KMS.GetKeyRotationStatus
     , gkrsrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getKeyRotationStatus' smart constructor.
 newtype GetKeyRotationStatus = GetKeyRotationStatus'
-    { _gkrsKeyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gkrsKeyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetKeyRotationStatus' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetKeyRotationStatus = GetKeyRotationStatus'
 getKeyRotationStatus
     :: Text -- ^ 'gkrsKeyId'
     -> GetKeyRotationStatus
-getKeyRotationStatus pKeyId_ =
-    GetKeyRotationStatus'
-    { _gkrsKeyId = pKeyId_
-    }
+getKeyRotationStatus pKeyId_ = GetKeyRotationStatus' {_gkrsKeyId = pKeyId_}
+
 
 -- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
@@ -76,9 +75,9 @@ instance AWSRequest GetKeyRotationStatus where
                  GetKeyRotationStatusResponse' <$>
                    (x .?> "KeyRotationEnabled") <*> (pure (fromEnum s)))
 
-instance Hashable GetKeyRotationStatus
+instance Hashable GetKeyRotationStatus where
 
-instance NFData GetKeyRotationStatus
+instance NFData GetKeyRotationStatus where
 
 instance ToHeaders GetKeyRotationStatus where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery GetKeyRotationStatus where
 
 -- | /See:/ 'getKeyRotationStatusResponse' smart constructor.
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
-    { _gkrsrsKeyRotationEnabled :: !(Maybe Bool)
-    , _gkrsrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gkrsrsKeyRotationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gkrsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetKeyRotationStatusResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,11 @@ getKeyRotationStatusResponse
     :: Int -- ^ 'gkrsrsResponseStatus'
     -> GetKeyRotationStatusResponse
 getKeyRotationStatusResponse pResponseStatus_ =
-    GetKeyRotationStatusResponse'
-    { _gkrsrsKeyRotationEnabled = Nothing
-    , _gkrsrsResponseStatus = pResponseStatus_
-    }
+  GetKeyRotationStatusResponse'
+  { _gkrsrsKeyRotationEnabled = Nothing
+  , _gkrsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A Boolean value that specifies whether key rotation is enabled.
 gkrsrsKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
@@ -129,4 +130,4 @@ gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKey
 gkrsrsResponseStatus :: Lens' GetKeyRotationStatusResponse Int
 gkrsrsResponseStatus = lens _gkrsrsResponseStatus (\ s a -> s{_gkrsrsResponseStatus = a});
 
-instance NFData GetKeyRotationStatusResponse
+instance NFData GetKeyRotationStatusResponse where

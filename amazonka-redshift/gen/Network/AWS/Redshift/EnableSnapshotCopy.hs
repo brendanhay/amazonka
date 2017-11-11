@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.EnableSnapshotCopy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     , escrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableSnapshotCopy' smart constructor.
 data EnableSnapshotCopy = EnableSnapshotCopy'
-    { _escRetentionPeriod       :: !(Maybe Int)
-    , _escSnapshotCopyGrantName :: !(Maybe Text)
-    , _escClusterIdentifier     :: !Text
-    , _escDestinationRegion     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _escRetentionPeriod       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _escSnapshotCopyGrantName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _escClusterIdentifier     :: {-# NOUNPACK #-}!Text
+  , _escDestinationRegion     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableSnapshotCopy' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ enableSnapshotCopy
     -> Text -- ^ 'escDestinationRegion'
     -> EnableSnapshotCopy
 enableSnapshotCopy pClusterIdentifier_ pDestinationRegion_ =
-    EnableSnapshotCopy'
-    { _escRetentionPeriod = Nothing
-    , _escSnapshotCopyGrantName = Nothing
-    , _escClusterIdentifier = pClusterIdentifier_
-    , _escDestinationRegion = pDestinationRegion_
-    }
+  EnableSnapshotCopy'
+  { _escRetentionPeriod = Nothing
+  , _escSnapshotCopyGrantName = Nothing
+  , _escClusterIdentifier = pClusterIdentifier_
+  , _escDestinationRegion = pDestinationRegion_
+  }
+
 
 -- | The number of days to retain automated snapshots in the destination region after they are copied from the source region. Default: 7. Constraints: Must be at least 1 and no more than 35.
 escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
@@ -108,9 +110,9 @@ instance AWSRequest EnableSnapshotCopy where
                  EnableSnapshotCopyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable EnableSnapshotCopy
+instance Hashable EnableSnapshotCopy where
 
-instance NFData EnableSnapshotCopy
+instance NFData EnableSnapshotCopy where
 
 instance ToHeaders EnableSnapshotCopy where
         toHeaders = const mempty
@@ -130,9 +132,10 @@ instance ToQuery EnableSnapshotCopy where
 
 -- | /See:/ 'enableSnapshotCopyResponse' smart constructor.
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
-    { _escrsCluster        :: !(Maybe Cluster)
-    , _escrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _escrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _escrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableSnapshotCopyResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +148,9 @@ enableSnapshotCopyResponse
     :: Int -- ^ 'escrsResponseStatus'
     -> EnableSnapshotCopyResponse
 enableSnapshotCopyResponse pResponseStatus_ =
-    EnableSnapshotCopyResponse'
-    { _escrsCluster = Nothing
-    , _escrsResponseStatus = pResponseStatus_
-    }
+  EnableSnapshotCopyResponse'
+  {_escrsCluster = Nothing, _escrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
@@ -158,4 +160,4 @@ escrsCluster = lens _escrsCluster (\ s a -> s{_escrsCluster = a});
 escrsResponseStatus :: Lens' EnableSnapshotCopyResponse Int
 escrsResponseStatus = lens _escrsResponseStatus (\ s a -> s{_escrsResponseStatus = a});
 
-instance NFData EnableSnapshotCopyResponse
+instance NFData EnableSnapshotCopyResponse where

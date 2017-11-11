@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateTapes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.StorageGateway.CreateTapes
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | CreateTapesInput
 --
@@ -54,12 +54,13 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createTapes' smart constructor.
 data CreateTapes = CreateTapes'
-    { _ctGatewayARN        :: !Text
-    , _ctTapeSizeInBytes   :: !Integer
-    , _ctClientToken       :: !Text
-    , _ctNumTapesToCreate  :: !Nat
-    , _ctTapeBarcodePrefix :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctGatewayARN        :: {-# NOUNPACK #-}!Text
+  , _ctTapeSizeInBytes   :: {-# NOUNPACK #-}!Integer
+  , _ctClientToken       :: {-# NOUNPACK #-}!Text
+  , _ctNumTapesToCreate  :: {-# NOUNPACK #-}!Nat
+  , _ctTapeBarcodePrefix :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTapes' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ createTapes
     -> Text -- ^ 'ctTapeBarcodePrefix'
     -> CreateTapes
 createTapes pGatewayARN_ pTapeSizeInBytes_ pClientToken_ pNumTapesToCreate_ pTapeBarcodePrefix_ =
-    CreateTapes'
-    { _ctGatewayARN = pGatewayARN_
-    , _ctTapeSizeInBytes = pTapeSizeInBytes_
-    , _ctClientToken = pClientToken_
-    , _ctNumTapesToCreate = _Nat # pNumTapesToCreate_
-    , _ctTapeBarcodePrefix = pTapeBarcodePrefix_
-    }
+  CreateTapes'
+  { _ctGatewayARN = pGatewayARN_
+  , _ctTapeSizeInBytes = pTapeSizeInBytes_
+  , _ctClientToken = pClientToken_
+  , _ctNumTapesToCreate = _Nat # pNumTapesToCreate_
+  , _ctTapeBarcodePrefix = pTapeBarcodePrefix_
+  }
+
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 ctGatewayARN :: Lens' CreateTapes Text
@@ -120,9 +122,9 @@ instance AWSRequest CreateTapes where
                    (x .?> "TapeARNs" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateTapes
+instance Hashable CreateTapes where
 
-instance NFData CreateTapes
+instance NFData CreateTapes where
 
 instance ToHeaders CreateTapes where
         toHeaders
@@ -156,9 +158,10 @@ instance ToQuery CreateTapes where
 --
 -- /See:/ 'createTapesResponse' smart constructor.
 data CreateTapesResponse = CreateTapesResponse'
-    { _ctrsTapeARNs       :: !(Maybe [Text])
-    , _ctrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsTapeARNs       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTapesResponse' with the minimum fields required to make a request.
 --
@@ -171,10 +174,9 @@ createTapesResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTapesResponse
 createTapesResponse pResponseStatus_ =
-    CreateTapesResponse'
-    { _ctrsTapeARNs = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTapesResponse'
+  {_ctrsTapeARNs = Nothing, _ctrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created.
 ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
@@ -184,4 +186,4 @@ ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _
 ctrsResponseStatus :: Lens' CreateTapesResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTapesResponse
+instance NFData CreateTapesResponse where

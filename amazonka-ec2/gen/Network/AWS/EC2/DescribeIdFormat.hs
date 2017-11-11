@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeIdFormat
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeIdFormat
     , difrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeIdFormat.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeIdFormat' smart constructor.
 newtype DescribeIdFormat = DescribeIdFormat'
-    { _difResource :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _difResource :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIdFormat' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ newtype DescribeIdFormat = DescribeIdFormat'
 -- * 'difResource' - The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 describeIdFormat
     :: DescribeIdFormat
-describeIdFormat =
-    DescribeIdFormat'
-    { _difResource = Nothing
-    }
+describeIdFormat = DescribeIdFormat' {_difResource = Nothing}
+
 
 -- | The type of resource: @instance@ | @reservation@ | @snapshot@ | @volume@
 difResource :: Lens' DescribeIdFormat (Maybe Text)
@@ -84,9 +83,9 @@ instance AWSRequest DescribeIdFormat where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeIdFormat
+instance Hashable DescribeIdFormat where
 
-instance NFData DescribeIdFormat
+instance NFData DescribeIdFormat where
 
 instance ToHeaders DescribeIdFormat where
         toHeaders = const mempty
@@ -107,9 +106,10 @@ instance ToQuery DescribeIdFormat where
 --
 -- /See:/ 'describeIdFormatResponse' smart constructor.
 data DescribeIdFormatResponse = DescribeIdFormatResponse'
-    { _difrsStatuses       :: !(Maybe [IdFormat])
-    , _difrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _difrsStatuses       :: {-# NOUNPACK #-}!(Maybe [IdFormat])
+  , _difrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeIdFormatResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +122,9 @@ describeIdFormatResponse
     :: Int -- ^ 'difrsResponseStatus'
     -> DescribeIdFormatResponse
 describeIdFormatResponse pResponseStatus_ =
-    DescribeIdFormatResponse'
-    { _difrsStatuses = Nothing
-    , _difrsResponseStatus = pResponseStatus_
-    }
+  DescribeIdFormatResponse'
+  {_difrsStatuses = Nothing, _difrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the ID format for the resource.
 difrsStatuses :: Lens' DescribeIdFormatResponse [IdFormat]
@@ -135,4 +134,4 @@ difrsStatuses = lens _difrsStatuses (\ s a -> s{_difrsStatuses = a}) . _Default 
 difrsResponseStatus :: Lens' DescribeIdFormatResponse Int
 difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus = a});
 
-instance NFData DescribeIdFormatResponse
+instance NFData DescribeIdFormatResponse where

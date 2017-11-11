@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetMethodResponse
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.GetMethodResponse
     , mResponseParameters
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe a 'MethodResponse' resource.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
-    { _gmRestAPIId  :: !Text
-    , _gmResourceId :: !Text
-    , _gmHttpMethod :: !Text
-    , _gmStatusCode :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _gmResourceId :: {-# NOUNPACK #-}!Text
+  , _gmHttpMethod :: {-# NOUNPACK #-}!Text
+  , _gmStatusCode :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMethodResponse' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ getMethodResponse
     -> Text -- ^ 'gmStatusCode'
     -> GetMethodResponse
 getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
-    GetMethodResponse'
-    { _gmRestAPIId = pRestAPIId_
-    , _gmResourceId = pResourceId_
-    , _gmHttpMethod = pHttpMethod_
-    , _gmStatusCode = pStatusCode_
-    }
+  GetMethodResponse'
+  { _gmRestAPIId = pRestAPIId_
+  , _gmResourceId = pResourceId_
+  , _gmHttpMethod = pHttpMethod_
+  , _gmStatusCode = pStatusCode_
+  }
+
 
 -- | The string identifier of the associated 'RestApi' .
 gmRestAPIId :: Lens' GetMethodResponse Text
@@ -106,9 +108,9 @@ instance AWSRequest GetMethodResponse where
         request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GetMethodResponse
+instance Hashable GetMethodResponse where
 
-instance NFData GetMethodResponse
+instance NFData GetMethodResponse where
 
 instance ToHeaders GetMethodResponse where
         toHeaders

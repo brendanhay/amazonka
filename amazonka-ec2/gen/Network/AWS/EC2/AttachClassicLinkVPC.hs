@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachClassicLinkVPC
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     , aclvrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AttachClassicLinkVpc.
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'attachClassicLinkVPC' smart constructor.
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
-    { _aclvDryRun     :: !(Maybe Bool)
-    , _aclvGroups     :: ![Text]
-    , _aclvInstanceId :: !Text
-    , _aclvVPCId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aclvDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aclvGroups     :: {-# NOUNPACK #-}![Text]
+  , _aclvInstanceId :: {-# NOUNPACK #-}!Text
+  , _aclvVPCId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachClassicLinkVPC' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ attachClassicLinkVPC
     -> Text -- ^ 'aclvVPCId'
     -> AttachClassicLinkVPC
 attachClassicLinkVPC pInstanceId_ pVPCId_ =
-    AttachClassicLinkVPC'
-    { _aclvDryRun = Nothing
-    , _aclvGroups = mempty
-    , _aclvInstanceId = pInstanceId_
-    , _aclvVPCId = pVPCId_
-    }
+  AttachClassicLinkVPC'
+  { _aclvDryRun = Nothing
+  , _aclvGroups = mempty
+  , _aclvInstanceId = pInstanceId_
+  , _aclvVPCId = pVPCId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aclvDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
@@ -112,9 +114,9 @@ instance AWSRequest AttachClassicLinkVPC where
                  AttachClassicLinkVPCResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable AttachClassicLinkVPC
+instance Hashable AttachClassicLinkVPC where
 
-instance NFData AttachClassicLinkVPC
+instance NFData AttachClassicLinkVPC where
 
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
@@ -138,9 +140,10 @@ instance ToQuery AttachClassicLinkVPC where
 --
 -- /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
-    { _aclvrsReturn         :: !(Maybe Bool)
-    , _aclvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aclvrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aclvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachClassicLinkVPCResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +156,9 @@ attachClassicLinkVPCResponse
     :: Int -- ^ 'aclvrsResponseStatus'
     -> AttachClassicLinkVPCResponse
 attachClassicLinkVPCResponse pResponseStatus_ =
-    AttachClassicLinkVPCResponse'
-    { _aclvrsReturn = Nothing
-    , _aclvrsResponseStatus = pResponseStatus_
-    }
+  AttachClassicLinkVPCResponse'
+  {_aclvrsReturn = Nothing, _aclvrsResponseStatus = pResponseStatus_}
+
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 aclvrsReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
@@ -166,4 +168,4 @@ aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
 aclvrsResponseStatus :: Lens' AttachClassicLinkVPCResponse Int
 aclvrsResponseStatus = lens _aclvrsResponseStatus (\ s a -> s{_aclvrsResponseStatus = a});
 
-instance NFData AttachClassicLinkVPCResponse
+instance NFData AttachClassicLinkVPCResponse where

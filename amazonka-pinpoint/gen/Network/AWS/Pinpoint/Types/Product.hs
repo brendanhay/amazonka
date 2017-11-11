@@ -9,26 +9,27 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Pinpoint.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types.Sum
+import Network.AWS.Prelude
 
 -- | Apple Push Notification Service channel definition.
 --
 -- /See:/ 'apnsChannelRequest' smart constructor.
 data APNSChannelRequest = APNSChannelRequest'
-    { _acrPrivateKey  :: !(Maybe Text)
-    , _acrEnabled     :: !(Maybe Bool)
-    , _acrCertificate :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acrPrivateKey  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acrEnabled     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acrCertificate :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'APNSChannelRequest' with the minimum fields required to make a request.
 --
@@ -42,11 +43,9 @@ data APNSChannelRequest = APNSChannelRequest'
 apnsChannelRequest
     :: APNSChannelRequest
 apnsChannelRequest =
-    APNSChannelRequest'
-    { _acrPrivateKey = Nothing
-    , _acrEnabled = Nothing
-    , _acrCertificate = Nothing
-    }
+  APNSChannelRequest'
+  {_acrPrivateKey = Nothing, _acrEnabled = Nothing, _acrCertificate = Nothing}
+
 
 -- | The certificate private key.
 acrPrivateKey :: Lens' APNSChannelRequest (Maybe Text)
@@ -60,9 +59,9 @@ acrEnabled = lens _acrEnabled (\ s a -> s{_acrEnabled = a});
 acrCertificate :: Lens' APNSChannelRequest (Maybe Text)
 acrCertificate = lens _acrCertificate (\ s a -> s{_acrCertificate = a});
 
-instance Hashable APNSChannelRequest
+instance Hashable APNSChannelRequest where
 
-instance NFData APNSChannelRequest
+instance NFData APNSChannelRequest where
 
 instance ToJSON APNSChannelRequest where
         toJSON APNSChannelRequest'{..}
@@ -76,16 +75,17 @@ instance ToJSON APNSChannelRequest where
 --
 -- /See:/ 'apnsChannelResponse' smart constructor.
 data APNSChannelResponse = APNSChannelResponse'
-    { _acPlatform         :: !(Maybe Text)
-    , _acLastModifiedDate :: !(Maybe Text)
-    , _acEnabled          :: !(Maybe Bool)
-    , _acIsArchived       :: !(Maybe Bool)
-    , _acApplicationId    :: !(Maybe Text)
-    , _acVersion          :: !(Maybe Int)
-    , _acId               :: !(Maybe Text)
-    , _acCreationDate     :: !(Maybe Text)
-    , _acLastModifiedBy   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acVersion          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _acId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'APNSChannelResponse' with the minimum fields required to make a request.
 --
@@ -111,17 +111,18 @@ data APNSChannelResponse = APNSChannelResponse'
 apnsChannelResponse
     :: APNSChannelResponse
 apnsChannelResponse =
-    APNSChannelResponse'
-    { _acPlatform = Nothing
-    , _acLastModifiedDate = Nothing
-    , _acEnabled = Nothing
-    , _acIsArchived = Nothing
-    , _acApplicationId = Nothing
-    , _acVersion = Nothing
-    , _acId = Nothing
-    , _acCreationDate = Nothing
-    , _acLastModifiedBy = Nothing
-    }
+  APNSChannelResponse'
+  { _acPlatform = Nothing
+  , _acLastModifiedDate = Nothing
+  , _acEnabled = Nothing
+  , _acIsArchived = Nothing
+  , _acApplicationId = Nothing
+  , _acVersion = Nothing
+  , _acId = Nothing
+  , _acCreationDate = Nothing
+  , _acLastModifiedBy = Nothing
+  }
+
 
 -- | The platform type. Will be APNS.
 acPlatform :: Lens' APNSChannelResponse (Maybe Text)
@@ -173,28 +174,29 @@ instance FromJSON APNSChannelResponse where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "LastModifiedBy"))
 
-instance Hashable APNSChannelResponse
+instance Hashable APNSChannelResponse where
 
-instance NFData APNSChannelResponse
+instance NFData APNSChannelResponse where
 
 -- | APNS Message.
 --
 -- /See:/ 'apnsMessage' smart constructor.
 data APNSMessage = APNSMessage'
-    { _amSubstitutions :: !(Maybe (Map Text [Text]))
-    , _amSilentPush    :: !(Maybe Bool)
-    , _amRawContent    :: !(Maybe Text)
-    , _amData          :: !(Maybe (Map Text Text))
-    , _amBody          :: !(Maybe Text)
-    , _amCategory      :: !(Maybe Text)
-    , _amURL           :: !(Maybe Text)
-    , _amSound         :: !(Maybe Text)
-    , _amAction        :: !(Maybe Action)
-    , _amMediaURL      :: !(Maybe Text)
-    , _amBadge         :: !(Maybe Int)
-    , _amTitle         :: !(Maybe Text)
-    , _amThreadId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _amSilentPush    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _amRawContent    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _amData          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _amBody          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _amCategory      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _amURL           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _amSound         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _amAction        :: {-# NOUNPACK #-}!(Maybe Action)
+  , _amMediaURL      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _amBadge         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _amTitle         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _amThreadId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'APNSMessage' with the minimum fields required to make a request.
 --
@@ -228,21 +230,22 @@ data APNSMessage = APNSMessage'
 apnsMessage
     :: APNSMessage
 apnsMessage =
-    APNSMessage'
-    { _amSubstitutions = Nothing
-    , _amSilentPush = Nothing
-    , _amRawContent = Nothing
-    , _amData = Nothing
-    , _amBody = Nothing
-    , _amCategory = Nothing
-    , _amURL = Nothing
-    , _amSound = Nothing
-    , _amAction = Nothing
-    , _amMediaURL = Nothing
-    , _amBadge = Nothing
-    , _amTitle = Nothing
-    , _amThreadId = Nothing
-    }
+  APNSMessage'
+  { _amSubstitutions = Nothing
+  , _amSilentPush = Nothing
+  , _amRawContent = Nothing
+  , _amData = Nothing
+  , _amBody = Nothing
+  , _amCategory = Nothing
+  , _amURL = Nothing
+  , _amSound = Nothing
+  , _amAction = Nothing
+  , _amMediaURL = Nothing
+  , _amBadge = Nothing
+  , _amTitle = Nothing
+  , _amThreadId = Nothing
+  }
+
 
 -- | Default message substitutions. Can be overridden by individual address substitutions.
 amSubstitutions :: Lens' APNSMessage (HashMap Text [Text])
@@ -296,9 +299,9 @@ amTitle = lens _amTitle (\ s a -> s{_amTitle = a});
 amThreadId :: Lens' APNSMessage (Maybe Text)
 amThreadId = lens _amThreadId (\ s a -> s{_amThreadId = a});
 
-instance Hashable APNSMessage
+instance Hashable APNSMessage where
 
-instance NFData APNSMessage
+instance NFData APNSMessage where
 
 instance ToJSON APNSMessage where
         toJSON APNSMessage'{..}
@@ -319,10 +322,11 @@ instance ToJSON APNSMessage where
 --
 -- /See:/ 'apnsSandboxChannelRequest' smart constructor.
 data APNSSandboxChannelRequest = APNSSandboxChannelRequest'
-    { _ascrPrivateKey  :: !(Maybe Text)
-    , _ascrEnabled     :: !(Maybe Bool)
-    , _ascrCertificate :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ascrPrivateKey  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ascrEnabled     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ascrCertificate :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'APNSSandboxChannelRequest' with the minimum fields required to make a request.
 --
@@ -336,11 +340,12 @@ data APNSSandboxChannelRequest = APNSSandboxChannelRequest'
 apnsSandboxChannelRequest
     :: APNSSandboxChannelRequest
 apnsSandboxChannelRequest =
-    APNSSandboxChannelRequest'
-    { _ascrPrivateKey = Nothing
-    , _ascrEnabled = Nothing
-    , _ascrCertificate = Nothing
-    }
+  APNSSandboxChannelRequest'
+  { _ascrPrivateKey = Nothing
+  , _ascrEnabled = Nothing
+  , _ascrCertificate = Nothing
+  }
+
 
 -- | The certificate private key.
 ascrPrivateKey :: Lens' APNSSandboxChannelRequest (Maybe Text)
@@ -354,9 +359,9 @@ ascrEnabled = lens _ascrEnabled (\ s a -> s{_ascrEnabled = a});
 ascrCertificate :: Lens' APNSSandboxChannelRequest (Maybe Text)
 ascrCertificate = lens _ascrCertificate (\ s a -> s{_ascrCertificate = a});
 
-instance Hashable APNSSandboxChannelRequest
+instance Hashable APNSSandboxChannelRequest where
 
-instance NFData APNSSandboxChannelRequest
+instance NFData APNSSandboxChannelRequest where
 
 instance ToJSON APNSSandboxChannelRequest where
         toJSON APNSSandboxChannelRequest'{..}
@@ -370,16 +375,17 @@ instance ToJSON APNSSandboxChannelRequest where
 --
 -- /See:/ 'apnsSandboxChannelResponse' smart constructor.
 data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
-    { _ascPlatform         :: !(Maybe Text)
-    , _ascLastModifiedDate :: !(Maybe Text)
-    , _ascEnabled          :: !(Maybe Bool)
-    , _ascIsArchived       :: !(Maybe Bool)
-    , _ascApplicationId    :: !(Maybe Text)
-    , _ascVersion          :: !(Maybe Int)
-    , _ascId               :: !(Maybe Text)
-    , _ascCreationDate     :: !(Maybe Text)
-    , _ascLastModifiedBy   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ascPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ascLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ascEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ascIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ascApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ascVersion          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ascId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ascCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ascLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'APNSSandboxChannelResponse' with the minimum fields required to make a request.
 --
@@ -405,17 +411,18 @@ data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
 apnsSandboxChannelResponse
     :: APNSSandboxChannelResponse
 apnsSandboxChannelResponse =
-    APNSSandboxChannelResponse'
-    { _ascPlatform = Nothing
-    , _ascLastModifiedDate = Nothing
-    , _ascEnabled = Nothing
-    , _ascIsArchived = Nothing
-    , _ascApplicationId = Nothing
-    , _ascVersion = Nothing
-    , _ascId = Nothing
-    , _ascCreationDate = Nothing
-    , _ascLastModifiedBy = Nothing
-    }
+  APNSSandboxChannelResponse'
+  { _ascPlatform = Nothing
+  , _ascLastModifiedDate = Nothing
+  , _ascEnabled = Nothing
+  , _ascIsArchived = Nothing
+  , _ascApplicationId = Nothing
+  , _ascVersion = Nothing
+  , _ascId = Nothing
+  , _ascCreationDate = Nothing
+  , _ascLastModifiedBy = Nothing
+  }
+
 
 -- | The platform type. Will be APNS_SANDBOX.
 ascPlatform :: Lens' APNSSandboxChannelResponse (Maybe Text)
@@ -467,16 +474,17 @@ instance FromJSON APNSSandboxChannelResponse where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "LastModifiedBy"))
 
-instance Hashable APNSSandboxChannelResponse
+instance Hashable APNSSandboxChannelResponse where
 
-instance NFData APNSSandboxChannelResponse
+instance NFData APNSSandboxChannelResponse where
 
 -- | Activities for campaign.
 --
 -- /See:/ 'activitiesResponse' smart constructor.
 newtype ActivitiesResponse = ActivitiesResponse'
-    { _aItem :: Maybe [ActivityResponse]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aItem :: Maybe [ActivityResponse]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivitiesResponse' with the minimum fields required to make a request.
 --
@@ -485,10 +493,8 @@ newtype ActivitiesResponse = ActivitiesResponse'
 -- * 'aItem' - List of campaign activities
 activitiesResponse
     :: ActivitiesResponse
-activitiesResponse =
-    ActivitiesResponse'
-    { _aItem = Nothing
-    }
+activitiesResponse = ActivitiesResponse' {_aItem = Nothing}
+
 
 -- | List of campaign activities
 aItem :: Lens' ActivitiesResponse [ActivityResponse]
@@ -500,28 +506,29 @@ instance FromJSON ActivitiesResponse where
               (\ x ->
                  ActivitiesResponse' <$> (x .:? "Item" .!= mempty))
 
-instance Hashable ActivitiesResponse
+instance Hashable ActivitiesResponse where
 
-instance NFData ActivitiesResponse
+instance NFData ActivitiesResponse where
 
 -- | Activity definition
 --
 -- /See:/ 'activityResponse' smart constructor.
 data ActivityResponse = ActivityResponse'
-    { _aState                   :: !(Maybe Text)
-    , _aStart                   :: !(Maybe Text)
-    , _aCampaignId              :: !(Maybe Text)
-    , _aTimezonesCompletedCount :: !(Maybe Int)
-    , _aTimezonesTotalCount     :: !(Maybe Int)
-    , _aResult                  :: !(Maybe Text)
-    , _aTreatmentId             :: !(Maybe Text)
-    , _aSuccessfulEndpointCount :: !(Maybe Int)
-    , _aEnd                     :: !(Maybe Text)
-    , _aApplicationId           :: !(Maybe Text)
-    , _aTotalEndpointCount      :: !(Maybe Int)
-    , _aId                      :: !(Maybe Text)
-    , _aScheduledStart          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aState                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aStart                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aCampaignId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aTimezonesCompletedCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _aTimezonesTotalCount     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _aResult                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aTreatmentId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aSuccessfulEndpointCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _aEnd                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aApplicationId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aTotalEndpointCount      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _aId                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aScheduledStart          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActivityResponse' with the minimum fields required to make a request.
 --
@@ -555,21 +562,22 @@ data ActivityResponse = ActivityResponse'
 activityResponse
     :: ActivityResponse
 activityResponse =
-    ActivityResponse'
-    { _aState = Nothing
-    , _aStart = Nothing
-    , _aCampaignId = Nothing
-    , _aTimezonesCompletedCount = Nothing
-    , _aTimezonesTotalCount = Nothing
-    , _aResult = Nothing
-    , _aTreatmentId = Nothing
-    , _aSuccessfulEndpointCount = Nothing
-    , _aEnd = Nothing
-    , _aApplicationId = Nothing
-    , _aTotalEndpointCount = Nothing
-    , _aId = Nothing
-    , _aScheduledStart = Nothing
-    }
+  ActivityResponse'
+  { _aState = Nothing
+  , _aStart = Nothing
+  , _aCampaignId = Nothing
+  , _aTimezonesCompletedCount = Nothing
+  , _aTimezonesTotalCount = Nothing
+  , _aResult = Nothing
+  , _aTreatmentId = Nothing
+  , _aSuccessfulEndpointCount = Nothing
+  , _aEnd = Nothing
+  , _aApplicationId = Nothing
+  , _aTotalEndpointCount = Nothing
+  , _aId = Nothing
+  , _aScheduledStart = Nothing
+  }
+
 
 -- | The state of the activity. Valid values: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, COMPLETED
 aState :: Lens' ActivityResponse (Maybe Text)
@@ -641,21 +649,22 @@ instance FromJSON ActivityResponse where
                      <*> (x .:? "Id")
                      <*> (x .:? "ScheduledStart"))
 
-instance Hashable ActivityResponse
+instance Hashable ActivityResponse where
 
-instance NFData ActivityResponse
+instance NFData ActivityResponse where
 
 -- | Address configuration.
 --
 -- /See:/ 'addressConfiguration' smart constructor.
 data AddressConfiguration = AddressConfiguration'
-    { _acSubstitutions :: !(Maybe (Map Text [Text]))
-    , _acTitleOverride :: !(Maybe Text)
-    , _acContext       :: !(Maybe (Map Text Text))
-    , _acRawContent    :: !(Maybe Text)
-    , _acBodyOverride  :: !(Maybe Text)
-    , _acChannelType   :: !(Maybe ChannelType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _acTitleOverride :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acContext       :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _acRawContent    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acBodyOverride  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acChannelType   :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddressConfiguration' with the minimum fields required to make a request.
 --
@@ -675,14 +684,15 @@ data AddressConfiguration = AddressConfiguration'
 addressConfiguration
     :: AddressConfiguration
 addressConfiguration =
-    AddressConfiguration'
-    { _acSubstitutions = Nothing
-    , _acTitleOverride = Nothing
-    , _acContext = Nothing
-    , _acRawContent = Nothing
-    , _acBodyOverride = Nothing
-    , _acChannelType = Nothing
-    }
+  AddressConfiguration'
+  { _acSubstitutions = Nothing
+  , _acTitleOverride = Nothing
+  , _acContext = Nothing
+  , _acRawContent = Nothing
+  , _acBodyOverride = Nothing
+  , _acChannelType = Nothing
+  }
+
 
 -- | A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
 acSubstitutions :: Lens' AddressConfiguration (HashMap Text [Text])
@@ -708,9 +718,9 @@ acBodyOverride = lens _acBodyOverride (\ s a -> s{_acBodyOverride = a});
 acChannelType :: Lens' AddressConfiguration (Maybe ChannelType)
 acChannelType = lens _acChannelType (\ s a -> s{_acChannelType = a});
 
-instance Hashable AddressConfiguration
+instance Hashable AddressConfiguration where
 
-instance NFData AddressConfiguration
+instance NFData AddressConfiguration where
 
 instance ToJSON AddressConfiguration where
         toJSON AddressConfiguration'{..}
@@ -727,9 +737,10 @@ instance ToJSON AddressConfiguration where
 --
 -- /See:/ 'applicationResponse' smart constructor.
 data ApplicationResponse = ApplicationResponse'
-    { _appName :: !(Maybe Text)
-    , _appId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _appName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _appId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationResponse' with the minimum fields required to make a request.
 --
@@ -741,10 +752,8 @@ data ApplicationResponse = ApplicationResponse'
 applicationResponse
     :: ApplicationResponse
 applicationResponse =
-    ApplicationResponse'
-    { _appName = Nothing
-    , _appId = Nothing
-    }
+  ApplicationResponse' {_appName = Nothing, _appId = Nothing}
+
 
 -- | The display name of the application.
 appName :: Lens' ApplicationResponse (Maybe Text)
@@ -761,19 +770,20 @@ instance FromJSON ApplicationResponse where
                  ApplicationResponse' <$>
                    (x .:? "Name") <*> (x .:? "Id"))
 
-instance Hashable ApplicationResponse
+instance Hashable ApplicationResponse where
 
-instance NFData ApplicationResponse
+instance NFData ApplicationResponse where
 
 -- | Application settings.
 --
 -- /See:/ 'applicationSettingsResource' smart constructor.
 data ApplicationSettingsResource = ApplicationSettingsResource'
-    { _asrLastModifiedDate :: !(Maybe Text)
-    , _asrLimits           :: !(Maybe CampaignLimits)
-    , _asrQuietTime        :: !(Maybe QuietTime)
-    , _asrApplicationId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asrLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asrLimits           :: {-# NOUNPACK #-}!(Maybe CampaignLimits)
+  , _asrQuietTime        :: {-# NOUNPACK #-}!(Maybe QuietTime)
+  , _asrApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationSettingsResource' with the minimum fields required to make a request.
 --
@@ -789,12 +799,13 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
 applicationSettingsResource
     :: ApplicationSettingsResource
 applicationSettingsResource =
-    ApplicationSettingsResource'
-    { _asrLastModifiedDate = Nothing
-    , _asrLimits = Nothing
-    , _asrQuietTime = Nothing
-    , _asrApplicationId = Nothing
-    }
+  ApplicationSettingsResource'
+  { _asrLastModifiedDate = Nothing
+  , _asrLimits = Nothing
+  , _asrQuietTime = Nothing
+  , _asrApplicationId = Nothing
+  }
+
 
 -- | The date that the settings were last updated in ISO 8601 format.
 asrLastModifiedDate :: Lens' ApplicationSettingsResource (Maybe Text)
@@ -821,17 +832,18 @@ instance FromJSON ApplicationSettingsResource where
                      (x .:? "QuietTime")
                      <*> (x .:? "ApplicationId"))
 
-instance Hashable ApplicationSettingsResource
+instance Hashable ApplicationSettingsResource where
 
-instance NFData ApplicationSettingsResource
+instance NFData ApplicationSettingsResource where
 
 -- | Get Applications Result.
 --
 -- /See:/ 'applicationsResponse' smart constructor.
 data ApplicationsResponse = ApplicationsResponse'
-    { _appNextToken :: !(Maybe Text)
-    , _appItem      :: !(Maybe [ApplicationResponse])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _appNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _appItem      :: {-# NOUNPACK #-}!(Maybe [ApplicationResponse])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationsResponse' with the minimum fields required to make a request.
 --
@@ -843,10 +855,8 @@ data ApplicationsResponse = ApplicationsResponse'
 applicationsResponse
     :: ApplicationsResponse
 applicationsResponse =
-    ApplicationsResponse'
-    { _appNextToken = Nothing
-    , _appItem = Nothing
-    }
+  ApplicationsResponse' {_appNextToken = Nothing, _appItem = Nothing}
+
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 appNextToken :: Lens' ApplicationsResponse (Maybe Text)
@@ -863,17 +873,18 @@ instance FromJSON ApplicationsResponse where
                  ApplicationsResponse' <$>
                    (x .:? "NextToken") <*> (x .:? "Item" .!= mempty))
 
-instance Hashable ApplicationsResponse
+instance Hashable ApplicationsResponse where
 
-instance NFData ApplicationsResponse
+instance NFData ApplicationsResponse where
 
 -- | Custom attibute dimension
 --
 -- /See:/ 'attributeDimension' smart constructor.
 data AttributeDimension = AttributeDimension'
-    { _adValues        :: !(Maybe [Text])
-    , _adAttributeType :: !(Maybe AttributeType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adValues        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _adAttributeType :: {-# NOUNPACK #-}!(Maybe AttributeType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeDimension' with the minimum fields required to make a request.
 --
@@ -885,10 +896,8 @@ data AttributeDimension = AttributeDimension'
 attributeDimension
     :: AttributeDimension
 attributeDimension =
-    AttributeDimension'
-    { _adValues = Nothing
-    , _adAttributeType = Nothing
-    }
+  AttributeDimension' {_adValues = Nothing, _adAttributeType = Nothing}
+
 
 -- | The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.
 adValues :: Lens' AttributeDimension [Text]
@@ -906,9 +915,9 @@ instance FromJSON AttributeDimension where
                    (x .:? "Values" .!= mempty) <*>
                      (x .:? "AttributeType"))
 
-instance Hashable AttributeDimension
+instance Hashable AttributeDimension where
 
-instance NFData AttributeDimension
+instance NFData AttributeDimension where
 
 instance ToJSON AttributeDimension where
         toJSON AttributeDimension'{..}
@@ -921,11 +930,12 @@ instance ToJSON AttributeDimension where
 --
 -- /See:/ 'campaignEmailMessage' smart constructor.
 data CampaignEmailMessage = CampaignEmailMessage'
-    { _cemBody        :: !(Maybe Text)
-    , _cemFromAddress :: !(Maybe Text)
-    , _cemHTMLBody    :: !(Maybe Text)
-    , _cemTitle       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cemBody        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cemFromAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cemHTMLBody    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cemTitle       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CampaignEmailMessage' with the minimum fields required to make a request.
 --
@@ -941,12 +951,13 @@ data CampaignEmailMessage = CampaignEmailMessage'
 campaignEmailMessage
     :: CampaignEmailMessage
 campaignEmailMessage =
-    CampaignEmailMessage'
-    { _cemBody = Nothing
-    , _cemFromAddress = Nothing
-    , _cemHTMLBody = Nothing
-    , _cemTitle = Nothing
-    }
+  CampaignEmailMessage'
+  { _cemBody = Nothing
+  , _cemFromAddress = Nothing
+  , _cemHTMLBody = Nothing
+  , _cemTitle = Nothing
+  }
+
 
 -- | The email text body.
 cemBody :: Lens' CampaignEmailMessage (Maybe Text)
@@ -973,9 +984,9 @@ instance FromJSON CampaignEmailMessage where
                      (x .:? "HtmlBody")
                      <*> (x .:? "Title"))
 
-instance Hashable CampaignEmailMessage
+instance Hashable CampaignEmailMessage where
 
-instance NFData CampaignEmailMessage
+instance NFData CampaignEmailMessage where
 
 instance ToJSON CampaignEmailMessage where
         toJSON CampaignEmailMessage'{..}
@@ -990,9 +1001,10 @@ instance ToJSON CampaignEmailMessage where
 --
 -- /See:/ 'campaignLimits' smart constructor.
 data CampaignLimits = CampaignLimits'
-    { _clDaily :: !(Maybe Int)
-    , _clTotal :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clDaily :: {-# NOUNPACK #-}!(Maybe Int)
+  , _clTotal :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CampaignLimits' with the minimum fields required to make a request.
 --
@@ -1003,11 +1015,8 @@ data CampaignLimits = CampaignLimits'
 -- * 'clTotal' - The maximum total number of messages that the campaign can send.
 campaignLimits
     :: CampaignLimits
-campaignLimits =
-    CampaignLimits'
-    { _clDaily = Nothing
-    , _clTotal = Nothing
-    }
+campaignLimits = CampaignLimits' {_clDaily = Nothing, _clTotal = Nothing}
+
 
 -- | The maximum number of messages that the campaign can send daily.
 clDaily :: Lens' CampaignLimits (Maybe Int)
@@ -1024,9 +1033,9 @@ instance FromJSON CampaignLimits where
                  CampaignLimits' <$>
                    (x .:? "Daily") <*> (x .:? "Total"))
 
-instance Hashable CampaignLimits
+instance Hashable CampaignLimits where
 
-instance NFData CampaignLimits
+instance NFData CampaignLimits where
 
 instance ToJSON CampaignLimits where
         toJSON CampaignLimits'{..}
@@ -1039,26 +1048,27 @@ instance ToJSON CampaignLimits where
 --
 -- /See:/ 'campaignResponse' smart constructor.
 data CampaignResponse = CampaignResponse'
-    { _cState                :: !(Maybe CampaignState)
-    , _cLastModifiedDate     :: !(Maybe Text)
-    , _cSchedule             :: !(Maybe Schedule)
-    , _cTreatmentName        :: !(Maybe Text)
-    , _cLimits               :: !(Maybe CampaignLimits)
-    , _cIsPaused             :: !(Maybe Bool)
-    , _cDefaultState         :: !(Maybe CampaignState)
-    , _cApplicationId        :: !(Maybe Text)
-    , _cName                 :: !(Maybe Text)
-    , _cVersion              :: !(Maybe Int)
-    , _cHoldoutPercent       :: !(Maybe Int)
-    , _cTreatmentDescription :: !(Maybe Text)
-    , _cId                   :: !(Maybe Text)
-    , _cCreationDate         :: !(Maybe Text)
-    , _cMessageConfiguration :: !(Maybe MessageConfiguration)
-    , _cDescription          :: !(Maybe Text)
-    , _cSegmentId            :: !(Maybe Text)
-    , _cAdditionalTreatments :: !(Maybe [TreatmentResource])
-    , _cSegmentVersion       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cState                :: {-# NOUNPACK #-}!(Maybe CampaignState)
+  , _cLastModifiedDate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cSchedule             :: {-# NOUNPACK #-}!(Maybe Schedule)
+  , _cTreatmentName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cLimits               :: {-# NOUNPACK #-}!(Maybe CampaignLimits)
+  , _cIsPaused             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cDefaultState         :: {-# NOUNPACK #-}!(Maybe CampaignState)
+  , _cApplicationId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cVersion              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cHoldoutPercent       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cTreatmentDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCreationDate         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cMessageConfiguration :: {-# NOUNPACK #-}!(Maybe MessageConfiguration)
+  , _cDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cSegmentId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cAdditionalTreatments :: {-# NOUNPACK #-}!(Maybe [TreatmentResource])
+  , _cSegmentVersion       :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CampaignResponse' with the minimum fields required to make a request.
 --
@@ -1104,27 +1114,28 @@ data CampaignResponse = CampaignResponse'
 campaignResponse
     :: CampaignResponse
 campaignResponse =
-    CampaignResponse'
-    { _cState = Nothing
-    , _cLastModifiedDate = Nothing
-    , _cSchedule = Nothing
-    , _cTreatmentName = Nothing
-    , _cLimits = Nothing
-    , _cIsPaused = Nothing
-    , _cDefaultState = Nothing
-    , _cApplicationId = Nothing
-    , _cName = Nothing
-    , _cVersion = Nothing
-    , _cHoldoutPercent = Nothing
-    , _cTreatmentDescription = Nothing
-    , _cId = Nothing
-    , _cCreationDate = Nothing
-    , _cMessageConfiguration = Nothing
-    , _cDescription = Nothing
-    , _cSegmentId = Nothing
-    , _cAdditionalTreatments = Nothing
-    , _cSegmentVersion = Nothing
-    }
+  CampaignResponse'
+  { _cState = Nothing
+  , _cLastModifiedDate = Nothing
+  , _cSchedule = Nothing
+  , _cTreatmentName = Nothing
+  , _cLimits = Nothing
+  , _cIsPaused = Nothing
+  , _cDefaultState = Nothing
+  , _cApplicationId = Nothing
+  , _cName = Nothing
+  , _cVersion = Nothing
+  , _cHoldoutPercent = Nothing
+  , _cTreatmentDescription = Nothing
+  , _cId = Nothing
+  , _cCreationDate = Nothing
+  , _cMessageConfiguration = Nothing
+  , _cDescription = Nothing
+  , _cSegmentId = Nothing
+  , _cAdditionalTreatments = Nothing
+  , _cSegmentVersion = Nothing
+  }
+
 
 -- | The campaign status. An A/B test campaign will have a status of COMPLETED only when all treatments have a status of COMPLETED.
 cState :: Lens' CampaignResponse (Maybe CampaignState)
@@ -1226,18 +1237,19 @@ instance FromJSON CampaignResponse where
                      <*> (x .:? "AdditionalTreatments" .!= mempty)
                      <*> (x .:? "SegmentVersion"))
 
-instance Hashable CampaignResponse
+instance Hashable CampaignResponse where
 
-instance NFData CampaignResponse
+instance NFData CampaignResponse where
 
 -- | SMS message configuration.
 --
 -- /See:/ 'campaignSmsMessage' smart constructor.
 data CampaignSmsMessage = CampaignSmsMessage'
-    { _csmBody        :: !(Maybe Text)
-    , _csmMessageType :: !(Maybe MessageType)
-    , _csmSenderId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csmBody        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csmMessageType :: {-# NOUNPACK #-}!(Maybe MessageType)
+  , _csmSenderId    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CampaignSmsMessage' with the minimum fields required to make a request.
 --
@@ -1251,11 +1263,9 @@ data CampaignSmsMessage = CampaignSmsMessage'
 campaignSmsMessage
     :: CampaignSmsMessage
 campaignSmsMessage =
-    CampaignSmsMessage'
-    { _csmBody = Nothing
-    , _csmMessageType = Nothing
-    , _csmSenderId = Nothing
-    }
+  CampaignSmsMessage'
+  {_csmBody = Nothing, _csmMessageType = Nothing, _csmSenderId = Nothing}
+
 
 -- | The SMS text body.
 csmBody :: Lens' CampaignSmsMessage (Maybe Text)
@@ -1277,9 +1287,9 @@ instance FromJSON CampaignSmsMessage where
                    (x .:? "Body") <*> (x .:? "MessageType") <*>
                      (x .:? "SenderId"))
 
-instance Hashable CampaignSmsMessage
+instance Hashable CampaignSmsMessage where
 
-instance NFData CampaignSmsMessage
+instance NFData CampaignSmsMessage where
 
 instance ToJSON CampaignSmsMessage where
         toJSON CampaignSmsMessage'{..}
@@ -1293,8 +1303,9 @@ instance ToJSON CampaignSmsMessage where
 --
 -- /See:/ 'campaignState' smart constructor.
 newtype CampaignState = CampaignState'
-    { _csCampaignStatus :: Maybe CampaignStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csCampaignStatus :: Maybe CampaignStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CampaignState' with the minimum fields required to make a request.
 --
@@ -1303,10 +1314,8 @@ newtype CampaignState = CampaignState'
 -- * 'csCampaignStatus' - The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
 campaignState
     :: CampaignState
-campaignState =
-    CampaignState'
-    { _csCampaignStatus = Nothing
-    }
+campaignState = CampaignState' {_csCampaignStatus = Nothing}
+
 
 -- | The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. Valid values: SCHEDULED, EXECUTING, PENDING_NEXT_RUN, COMPLETED, PAUSED
 csCampaignStatus :: Lens' CampaignState (Maybe CampaignStatus)
@@ -1317,17 +1326,18 @@ instance FromJSON CampaignState where
           = withObject "CampaignState"
               (\ x -> CampaignState' <$> (x .:? "CampaignStatus"))
 
-instance Hashable CampaignState
+instance Hashable CampaignState where
 
-instance NFData CampaignState
+instance NFData CampaignState where
 
 -- | List of available campaigns.
 --
 -- /See:/ 'campaignsResponse' smart constructor.
 data CampaignsResponse = CampaignsResponse'
-    { _cNextToken :: !(Maybe Text)
-    , _cItem      :: !(Maybe [CampaignResponse])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cItem      :: {-# NOUNPACK #-}!(Maybe [CampaignResponse])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CampaignsResponse' with the minimum fields required to make a request.
 --
@@ -1338,11 +1348,8 @@ data CampaignsResponse = CampaignsResponse'
 -- * 'cItem' - A list of campaigns.
 campaignsResponse
     :: CampaignsResponse
-campaignsResponse =
-    CampaignsResponse'
-    { _cNextToken = Nothing
-    , _cItem = Nothing
-    }
+campaignsResponse = CampaignsResponse' {_cNextToken = Nothing, _cItem = Nothing}
+
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 cNextToken :: Lens' CampaignsResponse (Maybe Text)
@@ -1359,16 +1366,17 @@ instance FromJSON CampaignsResponse where
                  CampaignsResponse' <$>
                    (x .:? "NextToken") <*> (x .:? "Item" .!= mempty))
 
-instance Hashable CampaignsResponse
+instance Hashable CampaignsResponse where
 
-instance NFData CampaignsResponse
+instance NFData CampaignsResponse where
 
 -- | Application Request.
 --
 -- /See:/ 'createApplicationRequest' smart constructor.
 newtype CreateApplicationRequest = CreateApplicationRequest'
-    { _carName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _carName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateApplicationRequest' with the minimum fields required to make a request.
 --
@@ -1377,18 +1385,16 @@ newtype CreateApplicationRequest = CreateApplicationRequest'
 -- * 'carName' - The display name of the application. Used in the Amazon Pinpoint console.
 createApplicationRequest
     :: CreateApplicationRequest
-createApplicationRequest =
-    CreateApplicationRequest'
-    { _carName = Nothing
-    }
+createApplicationRequest = CreateApplicationRequest' {_carName = Nothing}
+
 
 -- | The display name of the application. Used in the Amazon Pinpoint console.
 carName :: Lens' CreateApplicationRequest (Maybe Text)
 carName = lens _carName (\ s a -> s{_carName = a});
 
-instance Hashable CreateApplicationRequest
+instance Hashable CreateApplicationRequest where
 
-instance NFData CreateApplicationRequest
+instance NFData CreateApplicationRequest where
 
 instance ToJSON CreateApplicationRequest where
         toJSON CreateApplicationRequest'{..}
@@ -1398,9 +1404,10 @@ instance ToJSON CreateApplicationRequest where
 --
 -- /See:/ 'defaultMessage' smart constructor.
 data DefaultMessage = DefaultMessage'
-    { _dmSubstitutions :: !(Maybe (Map Text [Text]))
-    , _dmBody          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _dmBody          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefaultMessage' with the minimum fields required to make a request.
 --
@@ -1411,11 +1418,8 @@ data DefaultMessage = DefaultMessage'
 -- * 'dmBody' - The message body of the notification, the email body or the text message.
 defaultMessage
     :: DefaultMessage
-defaultMessage =
-    DefaultMessage'
-    { _dmSubstitutions = Nothing
-    , _dmBody = Nothing
-    }
+defaultMessage = DefaultMessage' {_dmSubstitutions = Nothing, _dmBody = Nothing}
+
 
 -- | Default message substitutions. Can be overridden by individual address substitutions.
 dmSubstitutions :: Lens' DefaultMessage (HashMap Text [Text])
@@ -1425,9 +1429,9 @@ dmSubstitutions = lens _dmSubstitutions (\ s a -> s{_dmSubstitutions = a}) . _De
 dmBody :: Lens' DefaultMessage (Maybe Text)
 dmBody = lens _dmBody (\ s a -> s{_dmBody = a});
 
-instance Hashable DefaultMessage
+instance Hashable DefaultMessage where
 
-instance NFData DefaultMessage
+instance NFData DefaultMessage where
 
 instance ToJSON DefaultMessage where
         toJSON DefaultMessage'{..}
@@ -1440,14 +1444,15 @@ instance ToJSON DefaultMessage where
 --
 -- /See:/ 'defaultPushNotificationMessage' smart constructor.
 data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
-    { _dpnmSubstitutions :: !(Maybe (Map Text [Text]))
-    , _dpnmSilentPush    :: !(Maybe Bool)
-    , _dpnmData          :: !(Maybe (Map Text Text))
-    , _dpnmBody          :: !(Maybe Text)
-    , _dpnmURL           :: !(Maybe Text)
-    , _dpnmAction        :: !(Maybe Action)
-    , _dpnmTitle         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpnmSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _dpnmSilentPush    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dpnmData          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _dpnmBody          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpnmURL           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpnmAction        :: {-# NOUNPACK #-}!(Maybe Action)
+  , _dpnmTitle         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefaultPushNotificationMessage' with the minimum fields required to make a request.
 --
@@ -1469,15 +1474,16 @@ data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
 defaultPushNotificationMessage
     :: DefaultPushNotificationMessage
 defaultPushNotificationMessage =
-    DefaultPushNotificationMessage'
-    { _dpnmSubstitutions = Nothing
-    , _dpnmSilentPush = Nothing
-    , _dpnmData = Nothing
-    , _dpnmBody = Nothing
-    , _dpnmURL = Nothing
-    , _dpnmAction = Nothing
-    , _dpnmTitle = Nothing
-    }
+  DefaultPushNotificationMessage'
+  { _dpnmSubstitutions = Nothing
+  , _dpnmSilentPush = Nothing
+  , _dpnmData = Nothing
+  , _dpnmBody = Nothing
+  , _dpnmURL = Nothing
+  , _dpnmAction = Nothing
+  , _dpnmTitle = Nothing
+  }
+
 
 -- | Default message substitutions. Can be overridden by individual address substitutions.
 dpnmSubstitutions :: Lens' DefaultPushNotificationMessage (HashMap Text [Text])
@@ -1508,8 +1514,9 @@ dpnmTitle :: Lens' DefaultPushNotificationMessage (Maybe Text)
 dpnmTitle = lens _dpnmTitle (\ s a -> s{_dpnmTitle = a});
 
 instance Hashable DefaultPushNotificationMessage
+         where
 
-instance NFData DefaultPushNotificationMessage
+instance NFData DefaultPushNotificationMessage where
 
 instance ToJSON DefaultPushNotificationMessage where
         toJSON DefaultPushNotificationMessage'{..}
@@ -1526,12 +1533,13 @@ instance ToJSON DefaultPushNotificationMessage where
 --
 -- /See:/ 'directMessageConfiguration' smart constructor.
 data DirectMessageConfiguration = DirectMessageConfiguration'
-    { _dmcAPNSMessage                    :: !(Maybe APNSMessage)
-    , _dmcGCMMessage                     :: !(Maybe GCMMessage)
-    , _dmcDefaultMessage                 :: !(Maybe DefaultMessage)
-    , _dmcSMSMessage                     :: !(Maybe SMSMessage)
-    , _dmcDefaultPushNotificationMessage :: !(Maybe DefaultPushNotificationMessage)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmcAPNSMessage :: {-# NOUNPACK #-}!(Maybe APNSMessage)
+  , _dmcGCMMessage :: {-# NOUNPACK #-}!(Maybe GCMMessage)
+  , _dmcDefaultMessage :: {-# NOUNPACK #-}!(Maybe DefaultMessage)
+  , _dmcSMSMessage :: {-# NOUNPACK #-}!(Maybe SMSMessage)
+  , _dmcDefaultPushNotificationMessage :: {-# NOUNPACK #-}!(Maybe DefaultPushNotificationMessage)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DirectMessageConfiguration' with the minimum fields required to make a request.
 --
@@ -1549,13 +1557,14 @@ data DirectMessageConfiguration = DirectMessageConfiguration'
 directMessageConfiguration
     :: DirectMessageConfiguration
 directMessageConfiguration =
-    DirectMessageConfiguration'
-    { _dmcAPNSMessage = Nothing
-    , _dmcGCMMessage = Nothing
-    , _dmcDefaultMessage = Nothing
-    , _dmcSMSMessage = Nothing
-    , _dmcDefaultPushNotificationMessage = Nothing
-    }
+  DirectMessageConfiguration'
+  { _dmcAPNSMessage = Nothing
+  , _dmcGCMMessage = Nothing
+  , _dmcDefaultMessage = Nothing
+  , _dmcSMSMessage = Nothing
+  , _dmcDefaultPushNotificationMessage = Nothing
+  }
+
 
 -- | The message to APNS channels. Overrides the default push notification message.
 dmcAPNSMessage :: Lens' DirectMessageConfiguration (Maybe APNSMessage)
@@ -1577,9 +1586,9 @@ dmcSMSMessage = lens _dmcSMSMessage (\ s a -> s{_dmcSMSMessage = a});
 dmcDefaultPushNotificationMessage :: Lens' DirectMessageConfiguration (Maybe DefaultPushNotificationMessage)
 dmcDefaultPushNotificationMessage = lens _dmcDefaultPushNotificationMessage (\ s a -> s{_dmcDefaultPushNotificationMessage = a});
 
-instance Hashable DirectMessageConfiguration
+instance Hashable DirectMessageConfiguration where
 
-instance NFData DirectMessageConfiguration
+instance NFData DirectMessageConfiguration where
 
 instance ToJSON DirectMessageConfiguration where
         toJSON DirectMessageConfiguration'{..}
@@ -1596,11 +1605,12 @@ instance ToJSON DirectMessageConfiguration where
 --
 -- /See:/ 'emailChannelRequest' smart constructor.
 data EmailChannelRequest = EmailChannelRequest'
-    { _ecrEnabled     :: !(Maybe Bool)
-    , _ecrFromAddress :: !(Maybe Text)
-    , _ecrIdentity    :: !(Maybe Text)
-    , _ecrRoleARN     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecrEnabled     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ecrFromAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecrIdentity    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecrRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EmailChannelRequest' with the minimum fields required to make a request.
 --
@@ -1616,12 +1626,13 @@ data EmailChannelRequest = EmailChannelRequest'
 emailChannelRequest
     :: EmailChannelRequest
 emailChannelRequest =
-    EmailChannelRequest'
-    { _ecrEnabled = Nothing
-    , _ecrFromAddress = Nothing
-    , _ecrIdentity = Nothing
-    , _ecrRoleARN = Nothing
-    }
+  EmailChannelRequest'
+  { _ecrEnabled = Nothing
+  , _ecrFromAddress = Nothing
+  , _ecrIdentity = Nothing
+  , _ecrRoleARN = Nothing
+  }
+
 
 -- | If the channel is enabled for sending messages.
 ecrEnabled :: Lens' EmailChannelRequest (Maybe Bool)
@@ -1639,9 +1650,9 @@ ecrIdentity = lens _ecrIdentity (\ s a -> s{_ecrIdentity = a});
 ecrRoleARN :: Lens' EmailChannelRequest (Maybe Text)
 ecrRoleARN = lens _ecrRoleARN (\ s a -> s{_ecrRoleARN = a});
 
-instance Hashable EmailChannelRequest
+instance Hashable EmailChannelRequest where
 
-instance NFData EmailChannelRequest
+instance NFData EmailChannelRequest where
 
 instance ToJSON EmailChannelRequest where
         toJSON EmailChannelRequest'{..}
@@ -1656,19 +1667,20 @@ instance ToJSON EmailChannelRequest where
 --
 -- /See:/ 'emailChannelResponse' smart constructor.
 data EmailChannelResponse = EmailChannelResponse'
-    { _ecPlatform         :: !(Maybe Text)
-    , _ecLastModifiedDate :: !(Maybe Text)
-    , _ecEnabled          :: !(Maybe Bool)
-    , _ecFromAddress      :: !(Maybe Text)
-    , _ecIsArchived       :: !(Maybe Bool)
-    , _ecApplicationId    :: !(Maybe Text)
-    , _ecVersion          :: !(Maybe Int)
-    , _ecId               :: !(Maybe Text)
-    , _ecCreationDate     :: !(Maybe Text)
-    , _ecLastModifiedBy   :: !(Maybe Text)
-    , _ecIdentity         :: !(Maybe Text)
-    , _ecRoleARN          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ecFromAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ecApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecVersion          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ecId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecIdentity         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecRoleARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EmailChannelResponse' with the minimum fields required to make a request.
 --
@@ -1700,20 +1712,21 @@ data EmailChannelResponse = EmailChannelResponse'
 emailChannelResponse
     :: EmailChannelResponse
 emailChannelResponse =
-    EmailChannelResponse'
-    { _ecPlatform = Nothing
-    , _ecLastModifiedDate = Nothing
-    , _ecEnabled = Nothing
-    , _ecFromAddress = Nothing
-    , _ecIsArchived = Nothing
-    , _ecApplicationId = Nothing
-    , _ecVersion = Nothing
-    , _ecId = Nothing
-    , _ecCreationDate = Nothing
-    , _ecLastModifiedBy = Nothing
-    , _ecIdentity = Nothing
-    , _ecRoleARN = Nothing
-    }
+  EmailChannelResponse'
+  { _ecPlatform = Nothing
+  , _ecLastModifiedDate = Nothing
+  , _ecEnabled = Nothing
+  , _ecFromAddress = Nothing
+  , _ecIsArchived = Nothing
+  , _ecApplicationId = Nothing
+  , _ecVersion = Nothing
+  , _ecId = Nothing
+  , _ecCreationDate = Nothing
+  , _ecLastModifiedBy = Nothing
+  , _ecIdentity = Nothing
+  , _ecRoleARN = Nothing
+  }
+
 
 -- | Platform type. Will be "EMAIL"
 ecPlatform :: Lens' EmailChannelResponse (Maybe Text)
@@ -1780,27 +1793,28 @@ instance FromJSON EmailChannelResponse where
                      <*> (x .:? "Identity")
                      <*> (x .:? "RoleArn"))
 
-instance Hashable EmailChannelResponse
+instance Hashable EmailChannelResponse where
 
-instance NFData EmailChannelResponse
+instance NFData EmailChannelResponse where
 
 -- | Endpoint update request
 --
 -- /See:/ 'endpointBatchItem' smart constructor.
 data EndpointBatchItem = EndpointBatchItem'
-    { _ebiRequestId      :: !(Maybe Text)
-    , _ebiMetrics        :: !(Maybe (Map Text Double))
-    , _ebiLocation       :: !(Maybe EndpointLocation)
-    , _ebiDemographic    :: !(Maybe EndpointDemographic)
-    , _ebiAddress        :: !(Maybe Text)
-    , _ebiEffectiveDate  :: !(Maybe Text)
-    , _ebiUser           :: !(Maybe EndpointUser)
-    , _ebiAttributes     :: !(Maybe (Map Text [Text]))
-    , _ebiEndpointStatus :: !(Maybe Text)
-    , _ebiOptOut         :: !(Maybe Text)
-    , _ebiId             :: !(Maybe Text)
-    , _ebiChannelType    :: !(Maybe ChannelType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ebiRequestId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ebiMetrics        :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
+  , _ebiLocation       :: {-# NOUNPACK #-}!(Maybe EndpointLocation)
+  , _ebiDemographic    :: {-# NOUNPACK #-}!(Maybe EndpointDemographic)
+  , _ebiAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ebiEffectiveDate  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ebiUser           :: {-# NOUNPACK #-}!(Maybe EndpointUser)
+  , _ebiAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _ebiEndpointStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ebiOptOut         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ebiId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ebiChannelType    :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EndpointBatchItem' with the minimum fields required to make a request.
 --
@@ -1832,20 +1846,21 @@ data EndpointBatchItem = EndpointBatchItem'
 endpointBatchItem
     :: EndpointBatchItem
 endpointBatchItem =
-    EndpointBatchItem'
-    { _ebiRequestId = Nothing
-    , _ebiMetrics = Nothing
-    , _ebiLocation = Nothing
-    , _ebiDemographic = Nothing
-    , _ebiAddress = Nothing
-    , _ebiEffectiveDate = Nothing
-    , _ebiUser = Nothing
-    , _ebiAttributes = Nothing
-    , _ebiEndpointStatus = Nothing
-    , _ebiOptOut = Nothing
-    , _ebiId = Nothing
-    , _ebiChannelType = Nothing
-    }
+  EndpointBatchItem'
+  { _ebiRequestId = Nothing
+  , _ebiMetrics = Nothing
+  , _ebiLocation = Nothing
+  , _ebiDemographic = Nothing
+  , _ebiAddress = Nothing
+  , _ebiEffectiveDate = Nothing
+  , _ebiUser = Nothing
+  , _ebiAttributes = Nothing
+  , _ebiEndpointStatus = Nothing
+  , _ebiOptOut = Nothing
+  , _ebiId = Nothing
+  , _ebiChannelType = Nothing
+  }
+
 
 -- | The unique ID for the most recent request to update the endpoint.
 ebiRequestId :: Lens' EndpointBatchItem (Maybe Text)
@@ -1895,9 +1910,9 @@ ebiId = lens _ebiId (\ s a -> s{_ebiId = a});
 ebiChannelType :: Lens' EndpointBatchItem (Maybe ChannelType)
 ebiChannelType = lens _ebiChannelType (\ s a -> s{_ebiChannelType = a});
 
-instance Hashable EndpointBatchItem
+instance Hashable EndpointBatchItem where
 
-instance NFData EndpointBatchItem
+instance NFData EndpointBatchItem where
 
 instance ToJSON EndpointBatchItem where
         toJSON EndpointBatchItem'{..}
@@ -1919,8 +1934,9 @@ instance ToJSON EndpointBatchItem where
 --
 -- /See:/ 'endpointBatchRequest' smart constructor.
 newtype EndpointBatchRequest = EndpointBatchRequest'
-    { _ebrItem :: Maybe [EndpointBatchItem]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ebrItem :: Maybe [EndpointBatchItem]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EndpointBatchRequest' with the minimum fields required to make a request.
 --
@@ -1929,18 +1945,16 @@ newtype EndpointBatchRequest = EndpointBatchRequest'
 -- * 'ebrItem' - List of items to update. Maximum 100 items
 endpointBatchRequest
     :: EndpointBatchRequest
-endpointBatchRequest =
-    EndpointBatchRequest'
-    { _ebrItem = Nothing
-    }
+endpointBatchRequest = EndpointBatchRequest' {_ebrItem = Nothing}
+
 
 -- | List of items to update. Maximum 100 items
 ebrItem :: Lens' EndpointBatchRequest [EndpointBatchItem]
 ebrItem = lens _ebrItem (\ s a -> s{_ebrItem = a}) . _Default . _Coerce;
 
-instance Hashable EndpointBatchRequest
+instance Hashable EndpointBatchRequest where
 
-instance NFData EndpointBatchRequest
+instance NFData EndpointBatchRequest where
 
 instance ToJSON EndpointBatchRequest where
         toJSON EndpointBatchRequest'{..}
@@ -1950,15 +1964,16 @@ instance ToJSON EndpointBatchRequest where
 --
 -- /See:/ 'endpointDemographic' smart constructor.
 data EndpointDemographic = EndpointDemographic'
-    { _edPlatform        :: !(Maybe Text)
-    , _edPlatformVersion :: !(Maybe Text)
-    , _edLocale          :: !(Maybe Text)
-    , _edAppVersion      :: !(Maybe Text)
-    , _edModel           :: !(Maybe Text)
-    , _edMake            :: !(Maybe Text)
-    , _edModelVersion    :: !(Maybe Text)
-    , _edTimezone        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edPlatform        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edPlatformVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edLocale          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edAppVersion      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edModel           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edMake            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edModelVersion    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edTimezone        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EndpointDemographic' with the minimum fields required to make a request.
 --
@@ -1982,16 +1997,17 @@ data EndpointDemographic = EndpointDemographic'
 endpointDemographic
     :: EndpointDemographic
 endpointDemographic =
-    EndpointDemographic'
-    { _edPlatform = Nothing
-    , _edPlatformVersion = Nothing
-    , _edLocale = Nothing
-    , _edAppVersion = Nothing
-    , _edModel = Nothing
-    , _edMake = Nothing
-    , _edModelVersion = Nothing
-    , _edTimezone = Nothing
-    }
+  EndpointDemographic'
+  { _edPlatform = Nothing
+  , _edPlatformVersion = Nothing
+  , _edLocale = Nothing
+  , _edAppVersion = Nothing
+  , _edModel = Nothing
+  , _edMake = Nothing
+  , _edModelVersion = Nothing
+  , _edTimezone = Nothing
+  }
+
 
 -- | The endpoint platform, such as ios or android.
 edPlatform :: Lens' EndpointDemographic (Maybe Text)
@@ -2038,9 +2054,9 @@ instance FromJSON EndpointDemographic where
                      <*> (x .:? "ModelVersion")
                      <*> (x .:? "Timezone"))
 
-instance Hashable EndpointDemographic
+instance Hashable EndpointDemographic where
 
-instance NFData EndpointDemographic
+instance NFData EndpointDemographic where
 
 instance ToJSON EndpointDemographic where
         toJSON EndpointDemographic'{..}
@@ -2058,13 +2074,14 @@ instance ToJSON EndpointDemographic where
 --
 -- /See:/ 'endpointLocation' smart constructor.
 data EndpointLocation = EndpointLocation'
-    { _elPostalCode :: !(Maybe Text)
-    , _elLatitude   :: !(Maybe Double)
-    , _elCountry    :: !(Maybe Text)
-    , _elCity       :: !(Maybe Text)
-    , _elRegion     :: !(Maybe Text)
-    , _elLongitude  :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _elPostalCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elLatitude   :: {-# NOUNPACK #-}!(Maybe Double)
+  , _elCountry    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elCity       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elRegion     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _elLongitude  :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EndpointLocation' with the minimum fields required to make a request.
 --
@@ -2084,14 +2101,15 @@ data EndpointLocation = EndpointLocation'
 endpointLocation
     :: EndpointLocation
 endpointLocation =
-    EndpointLocation'
-    { _elPostalCode = Nothing
-    , _elLatitude = Nothing
-    , _elCountry = Nothing
-    , _elCity = Nothing
-    , _elRegion = Nothing
-    , _elLongitude = Nothing
-    }
+  EndpointLocation'
+  { _elPostalCode = Nothing
+  , _elLatitude = Nothing
+  , _elCountry = Nothing
+  , _elCity = Nothing
+  , _elRegion = Nothing
+  , _elLongitude = Nothing
+  }
+
 
 -- | The postal code or zip code of the endpoint.
 elPostalCode :: Lens' EndpointLocation (Maybe Text)
@@ -2128,9 +2146,9 @@ instance FromJSON EndpointLocation where
                      <*> (x .:? "Region")
                      <*> (x .:? "Longitude"))
 
-instance Hashable EndpointLocation
+instance Hashable EndpointLocation where
 
-instance NFData EndpointLocation
+instance NFData EndpointLocation where
 
 instance ToJSON EndpointLocation where
         toJSON EndpointLocation'{..}
@@ -2146,18 +2164,19 @@ instance ToJSON EndpointLocation where
 --
 -- /See:/ 'endpointRequest' smart constructor.
 data EndpointRequest = EndpointRequest'
-    { _erRequestId      :: !(Maybe Text)
-    , _erMetrics        :: !(Maybe (Map Text Double))
-    , _erLocation       :: !(Maybe EndpointLocation)
-    , _erDemographic    :: !(Maybe EndpointDemographic)
-    , _erAddress        :: !(Maybe Text)
-    , _erEffectiveDate  :: !(Maybe Text)
-    , _erUser           :: !(Maybe EndpointUser)
-    , _erAttributes     :: !(Maybe (Map Text [Text]))
-    , _erEndpointStatus :: !(Maybe Text)
-    , _erOptOut         :: !(Maybe Text)
-    , _erChannelType    :: !(Maybe ChannelType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _erRequestId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erMetrics        :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
+  , _erLocation       :: {-# NOUNPACK #-}!(Maybe EndpointLocation)
+  , _erDemographic    :: {-# NOUNPACK #-}!(Maybe EndpointDemographic)
+  , _erAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erEffectiveDate  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erUser           :: {-# NOUNPACK #-}!(Maybe EndpointUser)
+  , _erAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _erEndpointStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erOptOut         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _erChannelType    :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EndpointRequest' with the minimum fields required to make a request.
 --
@@ -2187,19 +2206,20 @@ data EndpointRequest = EndpointRequest'
 endpointRequest
     :: EndpointRequest
 endpointRequest =
-    EndpointRequest'
-    { _erRequestId = Nothing
-    , _erMetrics = Nothing
-    , _erLocation = Nothing
-    , _erDemographic = Nothing
-    , _erAddress = Nothing
-    , _erEffectiveDate = Nothing
-    , _erUser = Nothing
-    , _erAttributes = Nothing
-    , _erEndpointStatus = Nothing
-    , _erOptOut = Nothing
-    , _erChannelType = Nothing
-    }
+  EndpointRequest'
+  { _erRequestId = Nothing
+  , _erMetrics = Nothing
+  , _erLocation = Nothing
+  , _erDemographic = Nothing
+  , _erAddress = Nothing
+  , _erEffectiveDate = Nothing
+  , _erUser = Nothing
+  , _erAttributes = Nothing
+  , _erEndpointStatus = Nothing
+  , _erOptOut = Nothing
+  , _erChannelType = Nothing
+  }
+
 
 -- | The unique ID for the most recent request to update the endpoint.
 erRequestId :: Lens' EndpointRequest (Maybe Text)
@@ -2245,9 +2265,9 @@ erOptOut = lens _erOptOut (\ s a -> s{_erOptOut = a});
 erChannelType :: Lens' EndpointRequest (Maybe ChannelType)
 erChannelType = lens _erChannelType (\ s a -> s{_erChannelType = a});
 
-instance Hashable EndpointRequest
+instance Hashable EndpointRequest where
 
-instance NFData EndpointRequest
+instance NFData EndpointRequest where
 
 instance ToJSON EndpointRequest where
         toJSON EndpointRequest'{..}
@@ -2269,23 +2289,24 @@ instance ToJSON EndpointRequest where
 --
 -- /See:/ 'endpointResponse' smart constructor.
 data EndpointResponse = EndpointResponse'
-    { _eRequestId      :: !(Maybe Text)
-    , _eMetrics        :: !(Maybe (Map Text Double))
-    , _eLocation       :: !(Maybe EndpointLocation)
-    , _eDemographic    :: !(Maybe EndpointDemographic)
-    , _eCohortId       :: !(Maybe Text)
-    , _eAddress        :: !(Maybe Text)
-    , _eEffectiveDate  :: !(Maybe Text)
-    , _eUser           :: !(Maybe EndpointUser)
-    , _eApplicationId  :: !(Maybe Text)
-    , _eAttributes     :: !(Maybe (Map Text [Text]))
-    , _eEndpointStatus :: !(Maybe Text)
-    , _eOptOut         :: !(Maybe Text)
-    , _eId             :: !(Maybe Text)
-    , _eCreationDate   :: !(Maybe Text)
-    , _eChannelType    :: !(Maybe ChannelType)
-    , _eShardId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eRequestId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eMetrics        :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
+  , _eLocation       :: {-# NOUNPACK #-}!(Maybe EndpointLocation)
+  , _eDemographic    :: {-# NOUNPACK #-}!(Maybe EndpointDemographic)
+  , _eCohortId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eEffectiveDate  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eUser           :: {-# NOUNPACK #-}!(Maybe EndpointUser)
+  , _eApplicationId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _eEndpointStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eOptOut         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eCreationDate   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eChannelType    :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  , _eShardId        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EndpointResponse' with the minimum fields required to make a request.
 --
@@ -2325,24 +2346,25 @@ data EndpointResponse = EndpointResponse'
 endpointResponse
     :: EndpointResponse
 endpointResponse =
-    EndpointResponse'
-    { _eRequestId = Nothing
-    , _eMetrics = Nothing
-    , _eLocation = Nothing
-    , _eDemographic = Nothing
-    , _eCohortId = Nothing
-    , _eAddress = Nothing
-    , _eEffectiveDate = Nothing
-    , _eUser = Nothing
-    , _eApplicationId = Nothing
-    , _eAttributes = Nothing
-    , _eEndpointStatus = Nothing
-    , _eOptOut = Nothing
-    , _eId = Nothing
-    , _eCreationDate = Nothing
-    , _eChannelType = Nothing
-    , _eShardId = Nothing
-    }
+  EndpointResponse'
+  { _eRequestId = Nothing
+  , _eMetrics = Nothing
+  , _eLocation = Nothing
+  , _eDemographic = Nothing
+  , _eCohortId = Nothing
+  , _eAddress = Nothing
+  , _eEffectiveDate = Nothing
+  , _eUser = Nothing
+  , _eApplicationId = Nothing
+  , _eAttributes = Nothing
+  , _eEndpointStatus = Nothing
+  , _eOptOut = Nothing
+  , _eId = Nothing
+  , _eCreationDate = Nothing
+  , _eChannelType = Nothing
+  , _eShardId = Nothing
+  }
+
 
 -- | The unique ID for the most recent request to update the endpoint.
 eRequestId :: Lens' EndpointResponse (Maybe Text)
@@ -2429,17 +2451,18 @@ instance FromJSON EndpointResponse where
                      <*> (x .:? "ChannelType")
                      <*> (x .:? "ShardId"))
 
-instance Hashable EndpointResponse
+instance Hashable EndpointResponse where
 
-instance NFData EndpointResponse
+instance NFData EndpointResponse where
 
 -- | Endpoint user specific custom userAttributes
 --
 -- /See:/ 'endpointUser' smart constructor.
 data EndpointUser = EndpointUser'
-    { _euUserAttributes :: !(Maybe (Map Text [Text]))
-    , _euUserId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _euUserAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _euUserId         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EndpointUser' with the minimum fields required to make a request.
 --
@@ -2450,11 +2473,8 @@ data EndpointUser = EndpointUser'
 -- * 'euUserId' - The unique ID of the user.
 endpointUser
     :: EndpointUser
-endpointUser =
-    EndpointUser'
-    { _euUserAttributes = Nothing
-    , _euUserId = Nothing
-    }
+endpointUser = EndpointUser' {_euUserAttributes = Nothing, _euUserId = Nothing}
+
 
 -- | Custom attributes specific to the user.
 euUserAttributes :: Lens' EndpointUser (HashMap Text [Text])
@@ -2472,9 +2492,9 @@ instance FromJSON EndpointUser where
                    (x .:? "UserAttributes" .!= mempty) <*>
                      (x .:? "UserId"))
 
-instance Hashable EndpointUser
+instance Hashable EndpointUser where
 
-instance NFData EndpointUser
+instance NFData EndpointUser where
 
 instance ToJSON EndpointUser where
         toJSON EndpointUser'{..}
@@ -2487,13 +2507,14 @@ instance ToJSON EndpointUser where
 --
 -- /See:/ 'eventStream' smart constructor.
 data EventStream = EventStream'
-    { _esLastUpdatedBy        :: !(Maybe Text)
-    , _esLastModifiedDate     :: !(Maybe Text)
-    , _esDestinationStreamARN :: !(Maybe Text)
-    , _esApplicationId        :: !(Maybe Text)
-    , _esExternalId           :: !(Maybe Text)
-    , _esRoleARN              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esLastUpdatedBy        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esLastModifiedDate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esDestinationStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esApplicationId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esExternalId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esRoleARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventStream' with the minimum fields required to make a request.
 --
@@ -2513,14 +2534,15 @@ data EventStream = EventStream'
 eventStream
     :: EventStream
 eventStream =
-    EventStream'
-    { _esLastUpdatedBy = Nothing
-    , _esLastModifiedDate = Nothing
-    , _esDestinationStreamARN = Nothing
-    , _esApplicationId = Nothing
-    , _esExternalId = Nothing
-    , _esRoleARN = Nothing
-    }
+  EventStream'
+  { _esLastUpdatedBy = Nothing
+  , _esLastModifiedDate = Nothing
+  , _esDestinationStreamARN = Nothing
+  , _esApplicationId = Nothing
+  , _esExternalId = Nothing
+  , _esRoleARN = Nothing
+  }
+
 
 -- | The IAM user who last modified the event stream.
 esLastUpdatedBy :: Lens' EventStream (Maybe Text)
@@ -2558,17 +2580,18 @@ instance FromJSON EventStream where
                      <*> (x .:? "ExternalId")
                      <*> (x .:? "RoleArn"))
 
-instance Hashable EventStream
+instance Hashable EventStream where
 
-instance NFData EventStream
+instance NFData EventStream where
 
 -- | Google Cloud Messaging credentials
 --
 -- /See:/ 'gcmChannelRequest' smart constructor.
 data GCMChannelRequest = GCMChannelRequest'
-    { _gcrAPIKey  :: !(Maybe Text)
-    , _gcrEnabled :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcrAPIKey  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcrEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GCMChannelRequest' with the minimum fields required to make a request.
 --
@@ -2580,10 +2603,8 @@ data GCMChannelRequest = GCMChannelRequest'
 gcmChannelRequest
     :: GCMChannelRequest
 gcmChannelRequest =
-    GCMChannelRequest'
-    { _gcrAPIKey = Nothing
-    , _gcrEnabled = Nothing
-    }
+  GCMChannelRequest' {_gcrAPIKey = Nothing, _gcrEnabled = Nothing}
+
 
 -- | Platform credential API key from Google.
 gcrAPIKey :: Lens' GCMChannelRequest (Maybe Text)
@@ -2593,9 +2614,9 @@ gcrAPIKey = lens _gcrAPIKey (\ s a -> s{_gcrAPIKey = a});
 gcrEnabled :: Lens' GCMChannelRequest (Maybe Bool)
 gcrEnabled = lens _gcrEnabled (\ s a -> s{_gcrEnabled = a});
 
-instance Hashable GCMChannelRequest
+instance Hashable GCMChannelRequest where
 
-instance NFData GCMChannelRequest
+instance NFData GCMChannelRequest where
 
 instance ToJSON GCMChannelRequest where
         toJSON GCMChannelRequest'{..}
@@ -2608,17 +2629,18 @@ instance ToJSON GCMChannelRequest where
 --
 -- /See:/ 'gcmChannelResponse' smart constructor.
 data GCMChannelResponse = GCMChannelResponse'
-    { _gcPlatform         :: !(Maybe Text)
-    , _gcLastModifiedDate :: !(Maybe Text)
-    , _gcEnabled          :: !(Maybe Bool)
-    , _gcCredential       :: !(Maybe Text)
-    , _gcIsArchived       :: !(Maybe Bool)
-    , _gcApplicationId    :: !(Maybe Text)
-    , _gcVersion          :: !(Maybe Int)
-    , _gcId               :: !(Maybe Text)
-    , _gcCreationDate     :: !(Maybe Text)
-    , _gcLastModifiedBy   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gcCredential       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gcApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcVersion          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gcId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GCMChannelResponse' with the minimum fields required to make a request.
 --
@@ -2646,18 +2668,19 @@ data GCMChannelResponse = GCMChannelResponse'
 gcmChannelResponse
     :: GCMChannelResponse
 gcmChannelResponse =
-    GCMChannelResponse'
-    { _gcPlatform = Nothing
-    , _gcLastModifiedDate = Nothing
-    , _gcEnabled = Nothing
-    , _gcCredential = Nothing
-    , _gcIsArchived = Nothing
-    , _gcApplicationId = Nothing
-    , _gcVersion = Nothing
-    , _gcId = Nothing
-    , _gcCreationDate = Nothing
-    , _gcLastModifiedBy = Nothing
-    }
+  GCMChannelResponse'
+  { _gcPlatform = Nothing
+  , _gcLastModifiedDate = Nothing
+  , _gcEnabled = Nothing
+  , _gcCredential = Nothing
+  , _gcIsArchived = Nothing
+  , _gcApplicationId = Nothing
+  , _gcVersion = Nothing
+  , _gcId = Nothing
+  , _gcCreationDate = Nothing
+  , _gcLastModifiedBy = Nothing
+  }
+
 
 -- | The platform type. Will be GCM
 gcPlatform :: Lens' GCMChannelResponse (Maybe Text)
@@ -2714,30 +2737,31 @@ instance FromJSON GCMChannelResponse where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "LastModifiedBy"))
 
-instance Hashable GCMChannelResponse
+instance Hashable GCMChannelResponse where
 
-instance NFData GCMChannelResponse
+instance NFData GCMChannelResponse where
 
 -- | GCM Message.
 --
 -- /See:/ 'gcmMessage' smart constructor.
 data GCMMessage = GCMMessage'
-    { _gmSubstitutions         :: !(Maybe (Map Text [Text]))
-    , _gmSilentPush            :: !(Maybe Bool)
-    , _gmImageIconURL          :: !(Maybe Text)
-    , _gmRawContent            :: !(Maybe Text)
-    , _gmData                  :: !(Maybe (Map Text Text))
-    , _gmRestrictedPackageName :: !(Maybe Text)
-    , _gmSmallImageIconURL     :: !(Maybe Text)
-    , _gmBody                  :: !(Maybe Text)
-    , _gmURL                   :: !(Maybe Text)
-    , _gmSound                 :: !(Maybe Text)
-    , _gmAction                :: !(Maybe Action)
-    , _gmCollapseKey           :: !(Maybe Text)
-    , _gmImageURL              :: !(Maybe Text)
-    , _gmTitle                 :: !(Maybe Text)
-    , _gmIconReference         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmSubstitutions         :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _gmSilentPush            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gmImageIconURL          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmRawContent            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmData                  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gmRestrictedPackageName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmSmallImageIconURL     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmBody                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmURL                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmSound                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmAction                :: {-# NOUNPACK #-}!(Maybe Action)
+  , _gmCollapseKey           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmImageURL              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmTitle                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmIconReference         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GCMMessage' with the minimum fields required to make a request.
 --
@@ -2775,23 +2799,24 @@ data GCMMessage = GCMMessage'
 gcmMessage
     :: GCMMessage
 gcmMessage =
-    GCMMessage'
-    { _gmSubstitutions = Nothing
-    , _gmSilentPush = Nothing
-    , _gmImageIconURL = Nothing
-    , _gmRawContent = Nothing
-    , _gmData = Nothing
-    , _gmRestrictedPackageName = Nothing
-    , _gmSmallImageIconURL = Nothing
-    , _gmBody = Nothing
-    , _gmURL = Nothing
-    , _gmSound = Nothing
-    , _gmAction = Nothing
-    , _gmCollapseKey = Nothing
-    , _gmImageURL = Nothing
-    , _gmTitle = Nothing
-    , _gmIconReference = Nothing
-    }
+  GCMMessage'
+  { _gmSubstitutions = Nothing
+  , _gmSilentPush = Nothing
+  , _gmImageIconURL = Nothing
+  , _gmRawContent = Nothing
+  , _gmData = Nothing
+  , _gmRestrictedPackageName = Nothing
+  , _gmSmallImageIconURL = Nothing
+  , _gmBody = Nothing
+  , _gmURL = Nothing
+  , _gmSound = Nothing
+  , _gmAction = Nothing
+  , _gmCollapseKey = Nothing
+  , _gmImageURL = Nothing
+  , _gmTitle = Nothing
+  , _gmIconReference = Nothing
+  }
+
 
 -- | Default message substitutions. Can be overridden by individual address substitutions.
 gmSubstitutions :: Lens' GCMMessage (HashMap Text [Text])
@@ -2853,9 +2878,9 @@ gmTitle = lens _gmTitle (\ s a -> s{_gmTitle = a});
 gmIconReference :: Lens' GCMMessage (Maybe Text)
 gmIconReference = lens _gmIconReference (\ s a -> s{_gmIconReference = a});
 
-instance Hashable GCMMessage
+instance Hashable GCMMessage where
 
-instance NFData GCMMessage
+instance NFData GCMMessage where
 
 instance ToJSON GCMMessage where
         toJSON GCMMessage'{..}
@@ -2879,15 +2904,16 @@ instance ToJSON GCMMessage where
 
 -- | /See:/ 'importJobRequest' smart constructor.
 data ImportJobRequest = ImportJobRequest'
-    { _iSegmentName       :: !(Maybe Text)
-    , _iFormat            :: !(Maybe DefinitionFormat)
-    , _iDefineSegment     :: !(Maybe Bool)
-    , _iRegisterEndpoints :: !(Maybe Bool)
-    , _iExternalId        :: !(Maybe Text)
-    , _iS3URL             :: !(Maybe Text)
-    , _iSegmentId         :: !(Maybe Text)
-    , _iRoleARN           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iSegmentName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iFormat            :: {-# NOUNPACK #-}!(Maybe DefinitionFormat)
+  , _iDefineSegment     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iRegisterEndpoints :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iExternalId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iS3URL             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iSegmentId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportJobRequest' with the minimum fields required to make a request.
 --
@@ -2911,16 +2937,17 @@ data ImportJobRequest = ImportJobRequest'
 importJobRequest
     :: ImportJobRequest
 importJobRequest =
-    ImportJobRequest'
-    { _iSegmentName = Nothing
-    , _iFormat = Nothing
-    , _iDefineSegment = Nothing
-    , _iRegisterEndpoints = Nothing
-    , _iExternalId = Nothing
-    , _iS3URL = Nothing
-    , _iSegmentId = Nothing
-    , _iRoleARN = Nothing
-    }
+  ImportJobRequest'
+  { _iSegmentName = Nothing
+  , _iFormat = Nothing
+  , _iDefineSegment = Nothing
+  , _iRegisterEndpoints = Nothing
+  , _iExternalId = Nothing
+  , _iS3URL = Nothing
+  , _iSegmentId = Nothing
+  , _iRoleARN = Nothing
+  }
+
 
 -- | A custom name for the segment created by the import job. Use if DefineSegment is true.
 iSegmentName :: Lens' ImportJobRequest (Maybe Text)
@@ -2954,9 +2981,9 @@ iSegmentId = lens _iSegmentId (\ s a -> s{_iSegmentId = a});
 iRoleARN :: Lens' ImportJobRequest (Maybe Text)
 iRoleARN = lens _iRoleARN (\ s a -> s{_iRoleARN = a});
 
-instance Hashable ImportJobRequest
+instance Hashable ImportJobRequest where
 
-instance NFData ImportJobRequest
+instance NFData ImportJobRequest where
 
 instance ToJSON ImportJobRequest where
         toJSON ImportJobRequest'{..}
@@ -2973,15 +3000,16 @@ instance ToJSON ImportJobRequest where
 
 -- | /See:/ 'importJobResource' smart constructor.
 data ImportJobResource = ImportJobResource'
-    { _ijrSegmentName       :: !(Maybe Text)
-    , _ijrFormat            :: !(Maybe DefinitionFormat)
-    , _ijrDefineSegment     :: !(Maybe Bool)
-    , _ijrRegisterEndpoints :: !(Maybe Bool)
-    , _ijrExternalId        :: !(Maybe Text)
-    , _ijrS3URL             :: !(Maybe Text)
-    , _ijrSegmentId         :: !(Maybe Text)
-    , _ijrRoleARN           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ijrSegmentName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijrFormat            :: {-# NOUNPACK #-}!(Maybe DefinitionFormat)
+  , _ijrDefineSegment     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ijrRegisterEndpoints :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ijrExternalId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijrS3URL             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijrSegmentId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijrRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportJobResource' with the minimum fields required to make a request.
 --
@@ -3005,16 +3033,17 @@ data ImportJobResource = ImportJobResource'
 importJobResource
     :: ImportJobResource
 importJobResource =
-    ImportJobResource'
-    { _ijrSegmentName = Nothing
-    , _ijrFormat = Nothing
-    , _ijrDefineSegment = Nothing
-    , _ijrRegisterEndpoints = Nothing
-    , _ijrExternalId = Nothing
-    , _ijrS3URL = Nothing
-    , _ijrSegmentId = Nothing
-    , _ijrRoleARN = Nothing
-    }
+  ImportJobResource'
+  { _ijrSegmentName = Nothing
+  , _ijrFormat = Nothing
+  , _ijrDefineSegment = Nothing
+  , _ijrRegisterEndpoints = Nothing
+  , _ijrExternalId = Nothing
+  , _ijrS3URL = Nothing
+  , _ijrSegmentId = Nothing
+  , _ijrRoleARN = Nothing
+  }
+
 
 -- | A custom name for the segment created by the import job. Use if DefineSegment is true.
 ijrSegmentName :: Lens' ImportJobResource (Maybe Text)
@@ -3061,26 +3090,27 @@ instance FromJSON ImportJobResource where
                      <*> (x .:? "SegmentId")
                      <*> (x .:? "RoleArn"))
 
-instance Hashable ImportJobResource
+instance Hashable ImportJobResource where
 
-instance NFData ImportJobResource
+instance NFData ImportJobResource where
 
 -- | /See:/ 'importJobResponse' smart constructor.
 data ImportJobResponse = ImportJobResponse'
-    { _ijCompletedPieces :: !(Maybe Int)
-    , _ijFailedPieces    :: !(Maybe Int)
-    , _ijDefinition      :: !(Maybe ImportJobResource)
-    , _ijTotalProcessed  :: !(Maybe Int)
-    , _ijFailures        :: !(Maybe [Text])
-    , _ijTotalPieces     :: !(Maybe Int)
-    , _ijApplicationId   :: !(Maybe Text)
-    , _ijId              :: !(Maybe Text)
-    , _ijCreationDate    :: !(Maybe Text)
-    , _ijType            :: !(Maybe Text)
-    , _ijCompletionDate  :: !(Maybe Text)
-    , _ijJobStatus       :: !(Maybe JobStatus)
-    , _ijTotalFailures   :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ijCompletedPieces :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ijFailedPieces    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ijDefinition      :: {-# NOUNPACK #-}!(Maybe ImportJobResource)
+  , _ijTotalProcessed  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ijFailures        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ijTotalPieces     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ijApplicationId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijCreationDate    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijType            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijCompletionDate  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijJobStatus       :: {-# NOUNPACK #-}!(Maybe JobStatus)
+  , _ijTotalFailures   :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportJobResponse' with the minimum fields required to make a request.
 --
@@ -3114,21 +3144,22 @@ data ImportJobResponse = ImportJobResponse'
 importJobResponse
     :: ImportJobResponse
 importJobResponse =
-    ImportJobResponse'
-    { _ijCompletedPieces = Nothing
-    , _ijFailedPieces = Nothing
-    , _ijDefinition = Nothing
-    , _ijTotalProcessed = Nothing
-    , _ijFailures = Nothing
-    , _ijTotalPieces = Nothing
-    , _ijApplicationId = Nothing
-    , _ijId = Nothing
-    , _ijCreationDate = Nothing
-    , _ijType = Nothing
-    , _ijCompletionDate = Nothing
-    , _ijJobStatus = Nothing
-    , _ijTotalFailures = Nothing
-    }
+  ImportJobResponse'
+  { _ijCompletedPieces = Nothing
+  , _ijFailedPieces = Nothing
+  , _ijDefinition = Nothing
+  , _ijTotalProcessed = Nothing
+  , _ijFailures = Nothing
+  , _ijTotalPieces = Nothing
+  , _ijApplicationId = Nothing
+  , _ijId = Nothing
+  , _ijCreationDate = Nothing
+  , _ijType = Nothing
+  , _ijCompletionDate = Nothing
+  , _ijJobStatus = Nothing
+  , _ijTotalFailures = Nothing
+  }
+
 
 -- | The number of pieces that have successfully imported as of the time of the request.
 ijCompletedPieces :: Lens' ImportJobResponse (Maybe Int)
@@ -3200,17 +3231,18 @@ instance FromJSON ImportJobResponse where
                      <*> (x .:? "JobStatus")
                      <*> (x .:? "TotalFailures"))
 
-instance Hashable ImportJobResponse
+instance Hashable ImportJobResponse where
 
-instance NFData ImportJobResponse
+instance NFData ImportJobResponse where
 
 -- | Import job list.
 --
 -- /See:/ 'importJobsResponse' smart constructor.
 data ImportJobsResponse = ImportJobsResponse'
-    { _ijNextToken :: !(Maybe Text)
-    , _ijItem      :: !(Maybe [ImportJobResponse])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ijNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijItem      :: {-# NOUNPACK #-}!(Maybe [ImportJobResponse])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportJobsResponse' with the minimum fields required to make a request.
 --
@@ -3222,10 +3254,8 @@ data ImportJobsResponse = ImportJobsResponse'
 importJobsResponse
     :: ImportJobsResponse
 importJobsResponse =
-    ImportJobsResponse'
-    { _ijNextToken = Nothing
-    , _ijItem = Nothing
-    }
+  ImportJobsResponse' {_ijNextToken = Nothing, _ijItem = Nothing}
+
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 ijNextToken :: Lens' ImportJobsResponse (Maybe Text)
@@ -3242,24 +3272,25 @@ instance FromJSON ImportJobsResponse where
                  ImportJobsResponse' <$>
                    (x .:? "NextToken") <*> (x .:? "Item" .!= mempty))
 
-instance Hashable ImportJobsResponse
+instance Hashable ImportJobsResponse where
 
-instance NFData ImportJobsResponse
+instance NFData ImportJobsResponse where
 
 -- | /See:/ 'message' smart constructor.
 data Message = Message'
-    { _mSilentPush        :: !(Maybe Bool)
-    , _mImageIconURL      :: !(Maybe Text)
-    , _mRawContent        :: !(Maybe Text)
-    , _mBody              :: !(Maybe Text)
-    , _mImageSmallIconURL :: !(Maybe Text)
-    , _mJSONBody          :: !(Maybe Text)
-    , _mURL               :: !(Maybe Text)
-    , _mAction            :: !(Maybe Action)
-    , _mImageURL          :: !(Maybe Text)
-    , _mMediaURL          :: !(Maybe Text)
-    , _mTitle             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mSilentPush        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mImageIconURL      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mRawContent        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mBody              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mImageSmallIconURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mJSONBody          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mURL               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mAction            :: {-# NOUNPACK #-}!(Maybe Action)
+  , _mImageURL          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mMediaURL          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mTitle             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
@@ -3289,19 +3320,20 @@ data Message = Message'
 message
     :: Message
 message =
-    Message'
-    { _mSilentPush = Nothing
-    , _mImageIconURL = Nothing
-    , _mRawContent = Nothing
-    , _mBody = Nothing
-    , _mImageSmallIconURL = Nothing
-    , _mJSONBody = Nothing
-    , _mURL = Nothing
-    , _mAction = Nothing
-    , _mImageURL = Nothing
-    , _mMediaURL = Nothing
-    , _mTitle = Nothing
-    }
+  Message'
+  { _mSilentPush = Nothing
+  , _mImageIconURL = Nothing
+  , _mRawContent = Nothing
+  , _mBody = Nothing
+  , _mImageSmallIconURL = Nothing
+  , _mJSONBody = Nothing
+  , _mURL = Nothing
+  , _mAction = Nothing
+  , _mImageURL = Nothing
+  , _mMediaURL = Nothing
+  , _mTitle = Nothing
+  }
+
 
 -- | Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
 mSilentPush :: Lens' Message (Maybe Bool)
@@ -3363,9 +3395,9 @@ instance FromJSON Message where
                      <*> (x .:? "MediaUrl")
                      <*> (x .:? "Title"))
 
-instance Hashable Message
+instance Hashable Message where
 
-instance NFData Message
+instance NFData Message where
 
 instance ToJSON Message where
         toJSON Message'{..}
@@ -3386,9 +3418,10 @@ instance ToJSON Message where
 --
 -- /See:/ 'messageBody' smart constructor.
 data MessageBody = MessageBody'
-    { _mbRequestId :: !(Maybe Text)
-    , _mbMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mbRequestId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mbMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageBody' with the minimum fields required to make a request.
 --
@@ -3399,11 +3432,8 @@ data MessageBody = MessageBody'
 -- * 'mbMessage' - The error message returned from the API.
 messageBody
     :: MessageBody
-messageBody =
-    MessageBody'
-    { _mbRequestId = Nothing
-    , _mbMessage = Nothing
-    }
+messageBody = MessageBody' {_mbRequestId = Nothing, _mbMessage = Nothing}
+
 
 -- | The unique message body ID.
 mbRequestId :: Lens' MessageBody (Maybe Text)
@@ -3420,20 +3450,21 @@ instance FromJSON MessageBody where
                  MessageBody' <$>
                    (x .:? "RequestID") <*> (x .:? "Message"))
 
-instance Hashable MessageBody
+instance Hashable MessageBody where
 
-instance NFData MessageBody
+instance NFData MessageBody where
 
 -- | Message configuration for a campaign.
 --
 -- /See:/ 'messageConfiguration' smart constructor.
 data MessageConfiguration = MessageConfiguration'
-    { _mcAPNSMessage    :: !(Maybe Message)
-    , _mcGCMMessage     :: !(Maybe Message)
-    , _mcDefaultMessage :: !(Maybe Message)
-    , _mcSMSMessage     :: !(Maybe CampaignSmsMessage)
-    , _mcEmailMessage   :: !(Maybe CampaignEmailMessage)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcAPNSMessage    :: {-# NOUNPACK #-}!(Maybe Message)
+  , _mcGCMMessage     :: {-# NOUNPACK #-}!(Maybe Message)
+  , _mcDefaultMessage :: {-# NOUNPACK #-}!(Maybe Message)
+  , _mcSMSMessage     :: {-# NOUNPACK #-}!(Maybe CampaignSmsMessage)
+  , _mcEmailMessage   :: {-# NOUNPACK #-}!(Maybe CampaignEmailMessage)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageConfiguration' with the minimum fields required to make a request.
 --
@@ -3451,13 +3482,14 @@ data MessageConfiguration = MessageConfiguration'
 messageConfiguration
     :: MessageConfiguration
 messageConfiguration =
-    MessageConfiguration'
-    { _mcAPNSMessage = Nothing
-    , _mcGCMMessage = Nothing
-    , _mcDefaultMessage = Nothing
-    , _mcSMSMessage = Nothing
-    , _mcEmailMessage = Nothing
-    }
+  MessageConfiguration'
+  { _mcAPNSMessage = Nothing
+  , _mcGCMMessage = Nothing
+  , _mcDefaultMessage = Nothing
+  , _mcSMSMessage = Nothing
+  , _mcEmailMessage = Nothing
+  }
+
 
 -- | The message that the campaign delivers to APNS channels. Overrides the default message.
 mcAPNSMessage :: Lens' MessageConfiguration (Maybe Message)
@@ -3489,9 +3521,9 @@ instance FromJSON MessageConfiguration where
                      <*> (x .:? "SMSMessage")
                      <*> (x .:? "EmailMessage"))
 
-instance Hashable MessageConfiguration
+instance Hashable MessageConfiguration where
 
-instance NFData MessageConfiguration
+instance NFData MessageConfiguration where
 
 instance ToJSON MessageConfiguration where
         toJSON MessageConfiguration'{..}
@@ -3507,10 +3539,11 @@ instance ToJSON MessageConfiguration where
 --
 -- /See:/ 'messageRequest' smart constructor.
 data MessageRequest = MessageRequest'
-    { _mrContext              :: !(Maybe (Map Text Text))
-    , _mrAddresses            :: !(Maybe (Map Text AddressConfiguration))
-    , _mrMessageConfiguration :: !(Maybe DirectMessageConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrContext :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _mrAddresses :: {-# NOUNPACK #-}!(Maybe (Map Text AddressConfiguration))
+  , _mrMessageConfiguration :: {-# NOUNPACK #-}!(Maybe DirectMessageConfiguration)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageRequest' with the minimum fields required to make a request.
 --
@@ -3524,11 +3557,12 @@ data MessageRequest = MessageRequest'
 messageRequest
     :: MessageRequest
 messageRequest =
-    MessageRequest'
-    { _mrContext = Nothing
-    , _mrAddresses = Nothing
-    , _mrMessageConfiguration = Nothing
-    }
+  MessageRequest'
+  { _mrContext = Nothing
+  , _mrAddresses = Nothing
+  , _mrMessageConfiguration = Nothing
+  }
+
 
 -- | A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
 mrContext :: Lens' MessageRequest (HashMap Text Text)
@@ -3542,9 +3576,9 @@ mrAddresses = lens _mrAddresses (\ s a -> s{_mrAddresses = a}) . _Default . _Map
 mrMessageConfiguration :: Lens' MessageRequest (Maybe DirectMessageConfiguration)
 mrMessageConfiguration = lens _mrMessageConfiguration (\ s a -> s{_mrMessageConfiguration = a});
 
-instance Hashable MessageRequest
+instance Hashable MessageRequest where
 
-instance NFData MessageRequest
+instance NFData MessageRequest where
 
 instance ToJSON MessageRequest where
         toJSON MessageRequest'{..}
@@ -3559,10 +3593,11 @@ instance ToJSON MessageRequest where
 --
 -- /See:/ 'messageResponse' smart constructor.
 data MessageResponse = MessageResponse'
-    { _mRequestId     :: !(Maybe Text)
-    , _mResult        :: !(Maybe (Map Text MessageResult))
-    , _mApplicationId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mRequestId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mResult        :: {-# NOUNPACK #-}!(Maybe (Map Text MessageResult))
+  , _mApplicationId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageResponse' with the minimum fields required to make a request.
 --
@@ -3576,11 +3611,9 @@ data MessageResponse = MessageResponse'
 messageResponse
     :: MessageResponse
 messageResponse =
-    MessageResponse'
-    { _mRequestId = Nothing
-    , _mResult = Nothing
-    , _mApplicationId = Nothing
-    }
+  MessageResponse'
+  {_mRequestId = Nothing, _mResult = Nothing, _mApplicationId = Nothing}
+
 
 -- | Original request Id for which this message was delivered.
 mRequestId :: Lens' MessageResponse (Maybe Text)
@@ -3602,19 +3635,20 @@ instance FromJSON MessageResponse where
                    (x .:? "RequestId") <*> (x .:? "Result" .!= mempty)
                      <*> (x .:? "ApplicationId"))
 
-instance Hashable MessageResponse
+instance Hashable MessageResponse where
 
-instance NFData MessageResponse
+instance NFData MessageResponse where
 
 -- | The result from sending a message to an address.
 --
 -- /See:/ 'messageResult' smart constructor.
 data MessageResult = MessageResult'
-    { _mrDeliveryStatus :: !(Maybe DeliveryStatus)
-    , _mrStatusMessage  :: !(Maybe Text)
-    , _mrUpdatedToken   :: !(Maybe Text)
-    , _mrStatusCode     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrDeliveryStatus :: {-# NOUNPACK #-}!(Maybe DeliveryStatus)
+  , _mrStatusMessage  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrUpdatedToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mrStatusCode     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageResult' with the minimum fields required to make a request.
 --
@@ -3630,12 +3664,13 @@ data MessageResult = MessageResult'
 messageResult
     :: MessageResult
 messageResult =
-    MessageResult'
-    { _mrDeliveryStatus = Nothing
-    , _mrStatusMessage = Nothing
-    , _mrUpdatedToken = Nothing
-    , _mrStatusCode = Nothing
-    }
+  MessageResult'
+  { _mrDeliveryStatus = Nothing
+  , _mrStatusMessage = Nothing
+  , _mrUpdatedToken = Nothing
+  , _mrStatusCode = Nothing
+  }
+
 
 -- | Delivery status of message.
 mrDeliveryStatus :: Lens' MessageResult (Maybe DeliveryStatus)
@@ -3662,17 +3697,18 @@ instance FromJSON MessageResult where
                      <*> (x .:? "UpdatedToken")
                      <*> (x .:? "StatusCode"))
 
-instance Hashable MessageResult
+instance Hashable MessageResult where
 
-instance NFData MessageResult
+instance NFData MessageResult where
 
 -- | Quiet Time
 --
 -- /See:/ 'quietTime' smart constructor.
 data QuietTime = QuietTime'
-    { _qtStart :: !(Maybe Text)
-    , _qtEnd   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qtStart :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qtEnd   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QuietTime' with the minimum fields required to make a request.
 --
@@ -3683,11 +3719,8 @@ data QuietTime = QuietTime'
 -- * 'qtEnd' - The default end time for quiet time in ISO 8601 format.
 quietTime
     :: QuietTime
-quietTime =
-    QuietTime'
-    { _qtStart = Nothing
-    , _qtEnd = Nothing
-    }
+quietTime = QuietTime' {_qtStart = Nothing, _qtEnd = Nothing}
+
 
 -- | The default start time for quiet time in ISO 8601 format.
 qtStart :: Lens' QuietTime (Maybe Text)
@@ -3703,9 +3736,9 @@ instance FromJSON QuietTime where
               (\ x ->
                  QuietTime' <$> (x .:? "Start") <*> (x .:? "End"))
 
-instance Hashable QuietTime
+instance Hashable QuietTime where
 
-instance NFData QuietTime
+instance NFData QuietTime where
 
 instance ToJSON QuietTime where
         toJSON QuietTime'{..}
@@ -3717,9 +3750,10 @@ instance ToJSON QuietTime where
 --
 -- /See:/ 'recencyDimension' smart constructor.
 data RecencyDimension = RecencyDimension'
-    { _rdRecencyType :: !(Maybe RecencyType)
-    , _rdDuration    :: !(Maybe Duration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdRecencyType :: {-# NOUNPACK #-}!(Maybe RecencyType)
+  , _rdDuration    :: {-# NOUNPACK #-}!(Maybe Duration)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecencyDimension' with the minimum fields required to make a request.
 --
@@ -3731,10 +3765,8 @@ data RecencyDimension = RecencyDimension'
 recencyDimension
     :: RecencyDimension
 recencyDimension =
-    RecencyDimension'
-    { _rdRecencyType = Nothing
-    , _rdDuration = Nothing
-    }
+  RecencyDimension' {_rdRecencyType = Nothing, _rdDuration = Nothing}
+
 
 -- | The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in the segment. INACTIVE - Users who have not used your app within the specified duration are included in the segment.
 rdRecencyType :: Lens' RecencyDimension (Maybe RecencyType)
@@ -3751,9 +3783,9 @@ instance FromJSON RecencyDimension where
                  RecencyDimension' <$>
                    (x .:? "RecencyType") <*> (x .:? "Duration"))
 
-instance Hashable RecencyDimension
+instance Hashable RecencyDimension where
 
-instance NFData RecencyDimension
+instance NFData RecencyDimension where
 
 instance ToJSON RecencyDimension where
         toJSON RecencyDimension'{..}
@@ -3766,9 +3798,10 @@ instance ToJSON RecencyDimension where
 --
 -- /See:/ 'sMSChannelRequest' smart constructor.
 data SMSChannelRequest = SMSChannelRequest'
-    { _smscrEnabled  :: !(Maybe Bool)
-    , _smscrSenderId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smscrEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _smscrSenderId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SMSChannelRequest' with the minimum fields required to make a request.
 --
@@ -3780,10 +3813,8 @@ data SMSChannelRequest = SMSChannelRequest'
 sMSChannelRequest
     :: SMSChannelRequest
 sMSChannelRequest =
-    SMSChannelRequest'
-    { _smscrEnabled = Nothing
-    , _smscrSenderId = Nothing
-    }
+  SMSChannelRequest' {_smscrEnabled = Nothing, _smscrSenderId = Nothing}
+
 
 -- | If the channel is enabled for sending messages.
 smscrEnabled :: Lens' SMSChannelRequest (Maybe Bool)
@@ -3793,9 +3824,9 @@ smscrEnabled = lens _smscrEnabled (\ s a -> s{_smscrEnabled = a});
 smscrSenderId :: Lens' SMSChannelRequest (Maybe Text)
 smscrSenderId = lens _smscrSenderId (\ s a -> s{_smscrSenderId = a});
 
-instance Hashable SMSChannelRequest
+instance Hashable SMSChannelRequest where
 
-instance NFData SMSChannelRequest
+instance NFData SMSChannelRequest where
 
 instance ToJSON SMSChannelRequest where
         toJSON SMSChannelRequest'{..}
@@ -3808,18 +3839,19 @@ instance ToJSON SMSChannelRequest where
 --
 -- /See:/ 'sMSChannelResponse' smart constructor.
 data SMSChannelResponse = SMSChannelResponse'
-    { _smscPlatform         :: !(Maybe Text)
-    , _smscShortCode        :: !(Maybe Text)
-    , _smscLastModifiedDate :: !(Maybe Text)
-    , _smscEnabled          :: !(Maybe Bool)
-    , _smscSenderId         :: !(Maybe Text)
-    , _smscIsArchived       :: !(Maybe Bool)
-    , _smscApplicationId    :: !(Maybe Text)
-    , _smscVersion          :: !(Maybe Int)
-    , _smscId               :: !(Maybe Text)
-    , _smscCreationDate     :: !(Maybe Text)
-    , _smscLastModifiedBy   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smscPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smscShortCode        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smscLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smscEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _smscSenderId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smscIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _smscApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smscVersion          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _smscId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smscCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smscLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SMSChannelResponse' with the minimum fields required to make a request.
 --
@@ -3849,19 +3881,20 @@ data SMSChannelResponse = SMSChannelResponse'
 sMSChannelResponse
     :: SMSChannelResponse
 sMSChannelResponse =
-    SMSChannelResponse'
-    { _smscPlatform = Nothing
-    , _smscShortCode = Nothing
-    , _smscLastModifiedDate = Nothing
-    , _smscEnabled = Nothing
-    , _smscSenderId = Nothing
-    , _smscIsArchived = Nothing
-    , _smscApplicationId = Nothing
-    , _smscVersion = Nothing
-    , _smscId = Nothing
-    , _smscCreationDate = Nothing
-    , _smscLastModifiedBy = Nothing
-    }
+  SMSChannelResponse'
+  { _smscPlatform = Nothing
+  , _smscShortCode = Nothing
+  , _smscLastModifiedDate = Nothing
+  , _smscEnabled = Nothing
+  , _smscSenderId = Nothing
+  , _smscIsArchived = Nothing
+  , _smscApplicationId = Nothing
+  , _smscVersion = Nothing
+  , _smscId = Nothing
+  , _smscCreationDate = Nothing
+  , _smscLastModifiedBy = Nothing
+  }
+
 
 -- | Platform type. Will be "SMS"
 smscPlatform :: Lens' SMSChannelResponse (Maybe Text)
@@ -3923,19 +3956,20 @@ instance FromJSON SMSChannelResponse where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "LastModifiedBy"))
 
-instance Hashable SMSChannelResponse
+instance Hashable SMSChannelResponse where
 
-instance NFData SMSChannelResponse
+instance NFData SMSChannelResponse where
 
 -- | SMS Message.
 --
 -- /See:/ 'sMSMessage' smart constructor.
 data SMSMessage = SMSMessage'
-    { _smsmSubstitutions :: !(Maybe (Map Text [Text]))
-    , _smsmBody          :: !(Maybe Text)
-    , _smsmMessageType   :: !(Maybe MessageType)
-    , _smsmSenderId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smsmSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _smsmBody          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smsmMessageType   :: {-# NOUNPACK #-}!(Maybe MessageType)
+  , _smsmSenderId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SMSMessage' with the minimum fields required to make a request.
 --
@@ -3951,12 +3985,13 @@ data SMSMessage = SMSMessage'
 sMSMessage
     :: SMSMessage
 sMSMessage =
-    SMSMessage'
-    { _smsmSubstitutions = Nothing
-    , _smsmBody = Nothing
-    , _smsmMessageType = Nothing
-    , _smsmSenderId = Nothing
-    }
+  SMSMessage'
+  { _smsmSubstitutions = Nothing
+  , _smsmBody = Nothing
+  , _smsmMessageType = Nothing
+  , _smsmSenderId = Nothing
+  }
+
 
 -- | Default message substitutions. Can be overridden by individual address substitutions.
 smsmSubstitutions :: Lens' SMSMessage (HashMap Text [Text])
@@ -3974,9 +4009,9 @@ smsmMessageType = lens _smsmMessageType (\ s a -> s{_smsmMessageType = a});
 smsmSenderId :: Lens' SMSMessage (Maybe Text)
 smsmSenderId = lens _smsmSenderId (\ s a -> s{_smsmSenderId = a});
 
-instance Hashable SMSMessage
+instance Hashable SMSMessage where
 
-instance NFData SMSMessage
+instance NFData SMSMessage where
 
 instance ToJSON SMSMessage where
         toJSON SMSMessage'{..}
@@ -3991,13 +4026,14 @@ instance ToJSON SMSMessage where
 --
 -- /See:/ 'schedule' smart constructor.
 data Schedule = Schedule'
-    { _sFrequency   :: !(Maybe Frequency)
-    , _sStartTime   :: !(Maybe Text)
-    , _sQuietTime   :: !(Maybe QuietTime)
-    , _sIsLocalTime :: !(Maybe Bool)
-    , _sEndTime     :: !(Maybe Text)
-    , _sTimezone    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sFrequency   :: {-# NOUNPACK #-}!(Maybe Frequency)
+  , _sStartTime   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sQuietTime   :: {-# NOUNPACK #-}!(Maybe QuietTime)
+  , _sIsLocalTime :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sEndTime     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTimezone    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Schedule' with the minimum fields required to make a request.
 --
@@ -4017,14 +4053,15 @@ data Schedule = Schedule'
 schedule
     :: Schedule
 schedule =
-    Schedule'
-    { _sFrequency = Nothing
-    , _sStartTime = Nothing
-    , _sQuietTime = Nothing
-    , _sIsLocalTime = Nothing
-    , _sEndTime = Nothing
-    , _sTimezone = Nothing
-    }
+  Schedule'
+  { _sFrequency = Nothing
+  , _sStartTime = Nothing
+  , _sQuietTime = Nothing
+  , _sIsLocalTime = Nothing
+  , _sEndTime = Nothing
+  , _sTimezone = Nothing
+  }
+
 
 -- | How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
 sFrequency :: Lens' Schedule (Maybe Frequency)
@@ -4061,9 +4098,9 @@ instance FromJSON Schedule where
                      <*> (x .:? "EndTime")
                      <*> (x .:? "Timezone"))
 
-instance Hashable Schedule
+instance Hashable Schedule where
 
-instance NFData Schedule
+instance NFData Schedule where
 
 instance ToJSON Schedule where
         toJSON Schedule'{..}
@@ -4080,8 +4117,9 @@ instance ToJSON Schedule where
 --
 -- /See:/ 'segmentBehaviors' smart constructor.
 newtype SegmentBehaviors = SegmentBehaviors'
-    { _sbRecency :: Maybe RecencyDimension
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sbRecency :: Maybe RecencyDimension
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SegmentBehaviors' with the minimum fields required to make a request.
 --
@@ -4090,10 +4128,8 @@ newtype SegmentBehaviors = SegmentBehaviors'
 -- * 'sbRecency' - The recency of use.
 segmentBehaviors
     :: SegmentBehaviors
-segmentBehaviors =
-    SegmentBehaviors'
-    { _sbRecency = Nothing
-    }
+segmentBehaviors = SegmentBehaviors' {_sbRecency = Nothing}
+
 
 -- | The recency of use.
 sbRecency :: Lens' SegmentBehaviors (Maybe RecencyDimension)
@@ -4104,9 +4140,9 @@ instance FromJSON SegmentBehaviors where
           = withObject "SegmentBehaviors"
               (\ x -> SegmentBehaviors' <$> (x .:? "Recency"))
 
-instance Hashable SegmentBehaviors
+instance Hashable SegmentBehaviors where
 
-instance NFData SegmentBehaviors
+instance NFData SegmentBehaviors where
 
 instance ToJSON SegmentBehaviors where
         toJSON SegmentBehaviors'{..}
@@ -4116,13 +4152,14 @@ instance ToJSON SegmentBehaviors where
 --
 -- /See:/ 'segmentDemographics' smart constructor.
 data SegmentDemographics = SegmentDemographics'
-    { _sdPlatform   :: !(Maybe SetDimension)
-    , _sdAppVersion :: !(Maybe SetDimension)
-    , _sdChannel    :: !(Maybe SetDimension)
-    , _sdModel      :: !(Maybe SetDimension)
-    , _sdMake       :: !(Maybe SetDimension)
-    , _sdDeviceType :: !(Maybe SetDimension)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdPlatform   :: {-# NOUNPACK #-}!(Maybe SetDimension)
+  , _sdAppVersion :: {-# NOUNPACK #-}!(Maybe SetDimension)
+  , _sdChannel    :: {-# NOUNPACK #-}!(Maybe SetDimension)
+  , _sdModel      :: {-# NOUNPACK #-}!(Maybe SetDimension)
+  , _sdMake       :: {-# NOUNPACK #-}!(Maybe SetDimension)
+  , _sdDeviceType :: {-# NOUNPACK #-}!(Maybe SetDimension)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SegmentDemographics' with the minimum fields required to make a request.
 --
@@ -4142,14 +4179,15 @@ data SegmentDemographics = SegmentDemographics'
 segmentDemographics
     :: SegmentDemographics
 segmentDemographics =
-    SegmentDemographics'
-    { _sdPlatform = Nothing
-    , _sdAppVersion = Nothing
-    , _sdChannel = Nothing
-    , _sdModel = Nothing
-    , _sdMake = Nothing
-    , _sdDeviceType = Nothing
-    }
+  SegmentDemographics'
+  { _sdPlatform = Nothing
+  , _sdAppVersion = Nothing
+  , _sdChannel = Nothing
+  , _sdModel = Nothing
+  , _sdMake = Nothing
+  , _sdDeviceType = Nothing
+  }
+
 
 -- | The device platform criteria for the segment.
 sdPlatform :: Lens' SegmentDemographics (Maybe SetDimension)
@@ -4186,9 +4224,9 @@ instance FromJSON SegmentDemographics where
                      <*> (x .:? "Make")
                      <*> (x .:? "DeviceType"))
 
-instance Hashable SegmentDemographics
+instance Hashable SegmentDemographics where
 
-instance NFData SegmentDemographics
+instance NFData SegmentDemographics where
 
 instance ToJSON SegmentDemographics where
         toJSON SegmentDemographics'{..}
@@ -4204,12 +4242,13 @@ instance ToJSON SegmentDemographics where
 --
 -- /See:/ 'segmentDimensions' smart constructor.
 data SegmentDimensions = SegmentDimensions'
-    { _sdLocation       :: !(Maybe SegmentLocation)
-    , _sdDemographic    :: !(Maybe SegmentDemographics)
-    , _sdUserAttributes :: !(Maybe (Map Text AttributeDimension))
-    , _sdBehavior       :: !(Maybe SegmentBehaviors)
-    , _sdAttributes     :: !(Maybe (Map Text AttributeDimension))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdLocation       :: {-# NOUNPACK #-}!(Maybe SegmentLocation)
+  , _sdDemographic    :: {-# NOUNPACK #-}!(Maybe SegmentDemographics)
+  , _sdUserAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeDimension))
+  , _sdBehavior       :: {-# NOUNPACK #-}!(Maybe SegmentBehaviors)
+  , _sdAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeDimension))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SegmentDimensions' with the minimum fields required to make a request.
 --
@@ -4227,13 +4266,14 @@ data SegmentDimensions = SegmentDimensions'
 segmentDimensions
     :: SegmentDimensions
 segmentDimensions =
-    SegmentDimensions'
-    { _sdLocation = Nothing
-    , _sdDemographic = Nothing
-    , _sdUserAttributes = Nothing
-    , _sdBehavior = Nothing
-    , _sdAttributes = Nothing
-    }
+  SegmentDimensions'
+  { _sdLocation = Nothing
+  , _sdDemographic = Nothing
+  , _sdUserAttributes = Nothing
+  , _sdBehavior = Nothing
+  , _sdAttributes = Nothing
+  }
+
 
 -- | The segment location attributes.
 sdLocation :: Lens' SegmentDimensions (Maybe SegmentLocation)
@@ -4265,9 +4305,9 @@ instance FromJSON SegmentDimensions where
                      <*> (x .:? "Behavior")
                      <*> (x .:? "Attributes" .!= mempty))
 
-instance Hashable SegmentDimensions
+instance Hashable SegmentDimensions where
 
-instance NFData SegmentDimensions
+instance NFData SegmentDimensions where
 
 instance ToJSON SegmentDimensions where
         toJSON SegmentDimensions'{..}
@@ -4283,13 +4323,14 @@ instance ToJSON SegmentDimensions where
 --
 -- /See:/ 'segmentImportResource' smart constructor.
 data SegmentImportResource = SegmentImportResource'
-    { _sirSize          :: !(Maybe Int)
-    , _sirFormat        :: !(Maybe DefinitionFormat)
-    , _sirChannelCounts :: !(Maybe (Map Text Int))
-    , _sirExternalId    :: !(Maybe Text)
-    , _sirS3URL         :: !(Maybe Text)
-    , _sirRoleARN       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sirSize          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sirFormat        :: {-# NOUNPACK #-}!(Maybe DefinitionFormat)
+  , _sirChannelCounts :: {-# NOUNPACK #-}!(Maybe (Map Text Int))
+  , _sirExternalId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sirS3URL         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sirRoleARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SegmentImportResource' with the minimum fields required to make a request.
 --
@@ -4309,14 +4350,15 @@ data SegmentImportResource = SegmentImportResource'
 segmentImportResource
     :: SegmentImportResource
 segmentImportResource =
-    SegmentImportResource'
-    { _sirSize = Nothing
-    , _sirFormat = Nothing
-    , _sirChannelCounts = Nothing
-    , _sirExternalId = Nothing
-    , _sirS3URL = Nothing
-    , _sirRoleARN = Nothing
-    }
+  SegmentImportResource'
+  { _sirSize = Nothing
+  , _sirFormat = Nothing
+  , _sirChannelCounts = Nothing
+  , _sirExternalId = Nothing
+  , _sirS3URL = Nothing
+  , _sirRoleARN = Nothing
+  }
+
 
 -- | The number of endpoints that were successfully imported to create this segment.
 sirSize :: Lens' SegmentImportResource (Maybe Int)
@@ -4353,16 +4395,17 @@ instance FromJSON SegmentImportResource where
                      <*> (x .:? "S3Url")
                      <*> (x .:? "RoleArn"))
 
-instance Hashable SegmentImportResource
+instance Hashable SegmentImportResource where
 
-instance NFData SegmentImportResource
+instance NFData SegmentImportResource where
 
 -- | Segment location dimensions
 --
 -- /See:/ 'segmentLocation' smart constructor.
 newtype SegmentLocation = SegmentLocation'
-    { _slCountry :: Maybe SetDimension
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slCountry :: Maybe SetDimension
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SegmentLocation' with the minimum fields required to make a request.
 --
@@ -4371,10 +4414,8 @@ newtype SegmentLocation = SegmentLocation'
 -- * 'slCountry' - The country filter according to ISO 3166-1 Alpha-2 codes.
 segmentLocation
     :: SegmentLocation
-segmentLocation =
-    SegmentLocation'
-    { _slCountry = Nothing
-    }
+segmentLocation = SegmentLocation' {_slCountry = Nothing}
+
 
 -- | The country filter according to ISO 3166-1 Alpha-2 codes.
 slCountry :: Lens' SegmentLocation (Maybe SetDimension)
@@ -4385,9 +4426,9 @@ instance FromJSON SegmentLocation where
           = withObject "SegmentLocation"
               (\ x -> SegmentLocation' <$> (x .:? "Country"))
 
-instance Hashable SegmentLocation
+instance Hashable SegmentLocation where
 
-instance NFData SegmentLocation
+instance NFData SegmentLocation where
 
 instance ToJSON SegmentLocation where
         toJSON SegmentLocation'{..}
@@ -4397,16 +4438,17 @@ instance ToJSON SegmentLocation where
 --
 -- /See:/ 'segmentResponse' smart constructor.
 data SegmentResponse = SegmentResponse'
-    { _sLastModifiedDate :: !(Maybe Text)
-    , _sSegmentType      :: !(Maybe SegmentType)
-    , _sApplicationId    :: !(Maybe Text)
-    , _sName             :: !(Maybe Text)
-    , _sVersion          :: !(Maybe Int)
-    , _sId               :: !(Maybe Text)
-    , _sCreationDate     :: !(Maybe Text)
-    , _sImportDefinition :: !(Maybe SegmentImportResource)
-    , _sDimensions       :: !(Maybe SegmentDimensions)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSegmentType      :: {-# NOUNPACK #-}!(Maybe SegmentType)
+  , _sApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sVersion          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sImportDefinition :: {-# NOUNPACK #-}!(Maybe SegmentImportResource)
+  , _sDimensions       :: {-# NOUNPACK #-}!(Maybe SegmentDimensions)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SegmentResponse' with the minimum fields required to make a request.
 --
@@ -4432,17 +4474,18 @@ data SegmentResponse = SegmentResponse'
 segmentResponse
     :: SegmentResponse
 segmentResponse =
-    SegmentResponse'
-    { _sLastModifiedDate = Nothing
-    , _sSegmentType = Nothing
-    , _sApplicationId = Nothing
-    , _sName = Nothing
-    , _sVersion = Nothing
-    , _sId = Nothing
-    , _sCreationDate = Nothing
-    , _sImportDefinition = Nothing
-    , _sDimensions = Nothing
-    }
+  SegmentResponse'
+  { _sLastModifiedDate = Nothing
+  , _sSegmentType = Nothing
+  , _sApplicationId = Nothing
+  , _sName = Nothing
+  , _sVersion = Nothing
+  , _sId = Nothing
+  , _sCreationDate = Nothing
+  , _sImportDefinition = Nothing
+  , _sDimensions = Nothing
+  }
+
 
 -- | The date the segment was last updated in ISO 8601 format.
 sLastModifiedDate :: Lens' SegmentResponse (Maybe Text)
@@ -4494,17 +4537,18 @@ instance FromJSON SegmentResponse where
                      <*> (x .:? "ImportDefinition")
                      <*> (x .:? "Dimensions"))
 
-instance Hashable SegmentResponse
+instance Hashable SegmentResponse where
 
-instance NFData SegmentResponse
+instance NFData SegmentResponse where
 
 -- | Segments in your account.
 --
 -- /See:/ 'segmentsResponse' smart constructor.
 data SegmentsResponse = SegmentsResponse'
-    { _sNextToken :: !(Maybe Text)
-    , _sItem      :: !(Maybe [SegmentResponse])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sItem      :: {-# NOUNPACK #-}!(Maybe [SegmentResponse])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SegmentsResponse' with the minimum fields required to make a request.
 --
@@ -4515,11 +4559,8 @@ data SegmentsResponse = SegmentsResponse'
 -- * 'sItem' - The list of segments.
 segmentsResponse
     :: SegmentsResponse
-segmentsResponse =
-    SegmentsResponse'
-    { _sNextToken = Nothing
-    , _sItem = Nothing
-    }
+segmentsResponse = SegmentsResponse' {_sNextToken = Nothing, _sItem = Nothing}
+
 
 -- | An identifier used to retrieve the next page of results. The token is null if no additional pages exist.
 sNextToken :: Lens' SegmentsResponse (Maybe Text)
@@ -4536,17 +4577,18 @@ instance FromJSON SegmentsResponse where
                  SegmentsResponse' <$>
                    (x .:? "NextToken") <*> (x .:? "Item" .!= mempty))
 
-instance Hashable SegmentsResponse
+instance Hashable SegmentsResponse where
 
-instance NFData SegmentsResponse
+instance NFData SegmentsResponse where
 
 -- | Dimension specification of a segment.
 --
 -- /See:/ 'setDimension' smart constructor.
 data SetDimension = SetDimension'
-    { _sdValues        :: !(Maybe [Text])
-    , _sdDimensionType :: !(Maybe DimensionType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdValues        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sdDimensionType :: {-# NOUNPACK #-}!(Maybe DimensionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDimension' with the minimum fields required to make a request.
 --
@@ -4557,11 +4599,8 @@ data SetDimension = SetDimension'
 -- * 'sdDimensionType' - The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.
 setDimension
     :: SetDimension
-setDimension =
-    SetDimension'
-    { _sdValues = Nothing
-    , _sdDimensionType = Nothing
-    }
+setDimension = SetDimension' {_sdValues = Nothing, _sdDimensionType = Nothing}
+
 
 -- | The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.
 sdValues :: Lens' SetDimension [Text]
@@ -4579,9 +4618,9 @@ instance FromJSON SetDimension where
                    (x .:? "Values" .!= mempty) <*>
                      (x .:? "DimensionType"))
 
-instance Hashable SetDimension
+instance Hashable SetDimension where
 
-instance NFData SetDimension
+instance NFData SetDimension where
 
 instance ToJSON SetDimension where
         toJSON SetDimension'{..}
@@ -4594,14 +4633,15 @@ instance ToJSON SetDimension where
 --
 -- /See:/ 'treatmentResource' smart constructor.
 data TreatmentResource = TreatmentResource'
-    { _trState                :: !(Maybe CampaignState)
-    , _trSchedule             :: !(Maybe Schedule)
-    , _trTreatmentName        :: !(Maybe Text)
-    , _trSizePercent          :: !(Maybe Int)
-    , _trTreatmentDescription :: !(Maybe Text)
-    , _trId                   :: !(Maybe Text)
-    , _trMessageConfiguration :: !(Maybe MessageConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trState                :: {-# NOUNPACK #-}!(Maybe CampaignState)
+  , _trSchedule             :: {-# NOUNPACK #-}!(Maybe Schedule)
+  , _trTreatmentName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trSizePercent          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _trTreatmentDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trMessageConfiguration :: {-# NOUNPACK #-}!(Maybe MessageConfiguration)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TreatmentResource' with the minimum fields required to make a request.
 --
@@ -4623,15 +4663,16 @@ data TreatmentResource = TreatmentResource'
 treatmentResource
     :: TreatmentResource
 treatmentResource =
-    TreatmentResource'
-    { _trState = Nothing
-    , _trSchedule = Nothing
-    , _trTreatmentName = Nothing
-    , _trSizePercent = Nothing
-    , _trTreatmentDescription = Nothing
-    , _trId = Nothing
-    , _trMessageConfiguration = Nothing
-    }
+  TreatmentResource'
+  { _trState = Nothing
+  , _trSchedule = Nothing
+  , _trTreatmentName = Nothing
+  , _trSizePercent = Nothing
+  , _trTreatmentDescription = Nothing
+  , _trId = Nothing
+  , _trMessageConfiguration = Nothing
+  }
+
 
 -- | The treatment status.
 trState :: Lens' TreatmentResource (Maybe CampaignState)
@@ -4673,17 +4714,18 @@ instance FromJSON TreatmentResource where
                      <*> (x .:? "Id")
                      <*> (x .:? "MessageConfiguration"))
 
-instance Hashable TreatmentResource
+instance Hashable TreatmentResource where
 
-instance NFData TreatmentResource
+instance NFData TreatmentResource where
 
 -- | Creating application setting request
 --
 -- /See:/ 'writeApplicationSettingsRequest' smart constructor.
 data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
-    { _wasrLimits    :: !(Maybe CampaignLimits)
-    , _wasrQuietTime :: !(Maybe QuietTime)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wasrLimits    :: {-# NOUNPACK #-}!(Maybe CampaignLimits)
+  , _wasrQuietTime :: {-# NOUNPACK #-}!(Maybe QuietTime)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WriteApplicationSettingsRequest' with the minimum fields required to make a request.
 --
@@ -4695,10 +4737,9 @@ data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
 writeApplicationSettingsRequest
     :: WriteApplicationSettingsRequest
 writeApplicationSettingsRequest =
-    WriteApplicationSettingsRequest'
-    { _wasrLimits = Nothing
-    , _wasrQuietTime = Nothing
-    }
+  WriteApplicationSettingsRequest'
+  {_wasrLimits = Nothing, _wasrQuietTime = Nothing}
+
 
 -- | The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own.
 wasrLimits :: Lens' WriteApplicationSettingsRequest (Maybe CampaignLimits)
@@ -4709,8 +4750,9 @@ wasrQuietTime :: Lens' WriteApplicationSettingsRequest (Maybe QuietTime)
 wasrQuietTime = lens _wasrQuietTime (\ s a -> s{_wasrQuietTime = a});
 
 instance Hashable WriteApplicationSettingsRequest
+         where
 
-instance NFData WriteApplicationSettingsRequest
+instance NFData WriteApplicationSettingsRequest where
 
 instance ToJSON WriteApplicationSettingsRequest where
         toJSON WriteApplicationSettingsRequest'{..}
@@ -4723,19 +4765,20 @@ instance ToJSON WriteApplicationSettingsRequest where
 --
 -- /See:/ 'writeCampaignRequest' smart constructor.
 data WriteCampaignRequest = WriteCampaignRequest'
-    { _wcrSchedule             :: !(Maybe Schedule)
-    , _wcrTreatmentName        :: !(Maybe Text)
-    , _wcrLimits               :: !(Maybe CampaignLimits)
-    , _wcrIsPaused             :: !(Maybe Bool)
-    , _wcrName                 :: !(Maybe Text)
-    , _wcrHoldoutPercent       :: !(Maybe Int)
-    , _wcrTreatmentDescription :: !(Maybe Text)
-    , _wcrMessageConfiguration :: !(Maybe MessageConfiguration)
-    , _wcrDescription          :: !(Maybe Text)
-    , _wcrSegmentId            :: !(Maybe Text)
-    , _wcrAdditionalTreatments :: !(Maybe [WriteTreatmentResource])
-    , _wcrSegmentVersion       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wcrSchedule :: {-# NOUNPACK #-}!(Maybe Schedule)
+  , _wcrTreatmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wcrLimits :: {-# NOUNPACK #-}!(Maybe CampaignLimits)
+  , _wcrIsPaused :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _wcrName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wcrHoldoutPercent :: {-# NOUNPACK #-}!(Maybe Int)
+  , _wcrTreatmentDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wcrMessageConfiguration :: {-# NOUNPACK #-}!(Maybe MessageConfiguration)
+  , _wcrDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wcrSegmentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wcrAdditionalTreatments :: {-# NOUNPACK #-}!(Maybe [WriteTreatmentResource])
+  , _wcrSegmentVersion :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WriteCampaignRequest' with the minimum fields required to make a request.
 --
@@ -4767,20 +4810,21 @@ data WriteCampaignRequest = WriteCampaignRequest'
 writeCampaignRequest
     :: WriteCampaignRequest
 writeCampaignRequest =
-    WriteCampaignRequest'
-    { _wcrSchedule = Nothing
-    , _wcrTreatmentName = Nothing
-    , _wcrLimits = Nothing
-    , _wcrIsPaused = Nothing
-    , _wcrName = Nothing
-    , _wcrHoldoutPercent = Nothing
-    , _wcrTreatmentDescription = Nothing
-    , _wcrMessageConfiguration = Nothing
-    , _wcrDescription = Nothing
-    , _wcrSegmentId = Nothing
-    , _wcrAdditionalTreatments = Nothing
-    , _wcrSegmentVersion = Nothing
-    }
+  WriteCampaignRequest'
+  { _wcrSchedule = Nothing
+  , _wcrTreatmentName = Nothing
+  , _wcrLimits = Nothing
+  , _wcrIsPaused = Nothing
+  , _wcrName = Nothing
+  , _wcrHoldoutPercent = Nothing
+  , _wcrTreatmentDescription = Nothing
+  , _wcrMessageConfiguration = Nothing
+  , _wcrDescription = Nothing
+  , _wcrSegmentId = Nothing
+  , _wcrAdditionalTreatments = Nothing
+  , _wcrSegmentVersion = Nothing
+  }
+
 
 -- | The campaign schedule.
 wcrSchedule :: Lens' WriteCampaignRequest (Maybe Schedule)
@@ -4830,9 +4874,9 @@ wcrAdditionalTreatments = lens _wcrAdditionalTreatments (\ s a -> s{_wcrAddition
 wcrSegmentVersion :: Lens' WriteCampaignRequest (Maybe Int)
 wcrSegmentVersion = lens _wcrSegmentVersion (\ s a -> s{_wcrSegmentVersion = a});
 
-instance Hashable WriteCampaignRequest
+instance Hashable WriteCampaignRequest where
 
-instance NFData WriteCampaignRequest
+instance NFData WriteCampaignRequest where
 
 instance ToJSON WriteCampaignRequest where
         toJSON WriteCampaignRequest'{..}
@@ -4858,10 +4902,11 @@ instance ToJSON WriteCampaignRequest where
 --
 -- /See:/ 'writeEventStream' smart constructor.
 data WriteEventStream = WriteEventStream'
-    { _wesDestinationStreamARN :: !(Maybe Text)
-    , _wesExternalId           :: !(Maybe Text)
-    , _wesRoleARN              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wesDestinationStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wesExternalId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wesRoleARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WriteEventStream' with the minimum fields required to make a request.
 --
@@ -4875,11 +4920,12 @@ data WriteEventStream = WriteEventStream'
 writeEventStream
     :: WriteEventStream
 writeEventStream =
-    WriteEventStream'
-    { _wesDestinationStreamARN = Nothing
-    , _wesExternalId = Nothing
-    , _wesRoleARN = Nothing
-    }
+  WriteEventStream'
+  { _wesDestinationStreamARN = Nothing
+  , _wesExternalId = Nothing
+  , _wesRoleARN = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.  Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME  Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME
 wesDestinationStreamARN :: Lens' WriteEventStream (Maybe Text)
@@ -4893,9 +4939,9 @@ wesExternalId = lens _wesExternalId (\ s a -> s{_wesExternalId = a});
 wesRoleARN :: Lens' WriteEventStream (Maybe Text)
 wesRoleARN = lens _wesRoleARN (\ s a -> s{_wesRoleARN = a});
 
-instance Hashable WriteEventStream
+instance Hashable WriteEventStream where
 
-instance NFData WriteEventStream
+instance NFData WriteEventStream where
 
 instance ToJSON WriteEventStream where
         toJSON WriteEventStream'{..}
@@ -4910,9 +4956,10 @@ instance ToJSON WriteEventStream where
 --
 -- /See:/ 'writeSegmentRequest' smart constructor.
 data WriteSegmentRequest = WriteSegmentRequest'
-    { _wsrName       :: !(Maybe Text)
-    , _wsrDimensions :: !(Maybe SegmentDimensions)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wsrName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wsrDimensions :: {-# NOUNPACK #-}!(Maybe SegmentDimensions)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WriteSegmentRequest' with the minimum fields required to make a request.
 --
@@ -4924,10 +4971,8 @@ data WriteSegmentRequest = WriteSegmentRequest'
 writeSegmentRequest
     :: WriteSegmentRequest
 writeSegmentRequest =
-    WriteSegmentRequest'
-    { _wsrName = Nothing
-    , _wsrDimensions = Nothing
-    }
+  WriteSegmentRequest' {_wsrName = Nothing, _wsrDimensions = Nothing}
+
 
 -- | The name of segment
 wsrName :: Lens' WriteSegmentRequest (Maybe Text)
@@ -4937,9 +4982,9 @@ wsrName = lens _wsrName (\ s a -> s{_wsrName = a});
 wsrDimensions :: Lens' WriteSegmentRequest (Maybe SegmentDimensions)
 wsrDimensions = lens _wsrDimensions (\ s a -> s{_wsrDimensions = a});
 
-instance Hashable WriteSegmentRequest
+instance Hashable WriteSegmentRequest where
 
-instance NFData WriteSegmentRequest
+instance NFData WriteSegmentRequest where
 
 instance ToJSON WriteSegmentRequest where
         toJSON WriteSegmentRequest'{..}
@@ -4952,12 +4997,13 @@ instance ToJSON WriteSegmentRequest where
 --
 -- /See:/ 'writeTreatmentResource' smart constructor.
 data WriteTreatmentResource = WriteTreatmentResource'
-    { _wtrSchedule             :: !(Maybe Schedule)
-    , _wtrTreatmentName        :: !(Maybe Text)
-    , _wtrSizePercent          :: !(Maybe Int)
-    , _wtrTreatmentDescription :: !(Maybe Text)
-    , _wtrMessageConfiguration :: !(Maybe MessageConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wtrSchedule             :: {-# NOUNPACK #-}!(Maybe Schedule)
+  , _wtrTreatmentName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wtrSizePercent          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _wtrTreatmentDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _wtrMessageConfiguration :: {-# NOUNPACK #-}!(Maybe MessageConfiguration)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WriteTreatmentResource' with the minimum fields required to make a request.
 --
@@ -4975,13 +5021,14 @@ data WriteTreatmentResource = WriteTreatmentResource'
 writeTreatmentResource
     :: WriteTreatmentResource
 writeTreatmentResource =
-    WriteTreatmentResource'
-    { _wtrSchedule = Nothing
-    , _wtrTreatmentName = Nothing
-    , _wtrSizePercent = Nothing
-    , _wtrTreatmentDescription = Nothing
-    , _wtrMessageConfiguration = Nothing
-    }
+  WriteTreatmentResource'
+  { _wtrSchedule = Nothing
+  , _wtrTreatmentName = Nothing
+  , _wtrSizePercent = Nothing
+  , _wtrTreatmentDescription = Nothing
+  , _wtrMessageConfiguration = Nothing
+  }
+
 
 -- | The campaign schedule.
 wtrSchedule :: Lens' WriteTreatmentResource (Maybe Schedule)
@@ -5003,9 +5050,9 @@ wtrTreatmentDescription = lens _wtrTreatmentDescription (\ s a -> s{_wtrTreatmen
 wtrMessageConfiguration :: Lens' WriteTreatmentResource (Maybe MessageConfiguration)
 wtrMessageConfiguration = lens _wtrMessageConfiguration (\ s a -> s{_wtrMessageConfiguration = a});
 
-instance Hashable WriteTreatmentResource
+instance Hashable WriteTreatmentResource where
 
-instance NFData WriteTreatmentResource
+instance NFData WriteTreatmentResource where
 
 instance ToJSON WriteTreatmentResource where
         toJSON WriteTreatmentResource'{..}

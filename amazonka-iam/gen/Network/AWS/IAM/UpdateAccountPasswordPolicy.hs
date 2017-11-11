@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateAccountPasswordPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,25 +44,26 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     , UpdateAccountPasswordPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAccountPasswordPolicy' smart constructor.
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
-    { _uappMinimumPasswordLength      :: !(Maybe Nat)
-    , _uappRequireNumbers             :: !(Maybe Bool)
-    , _uappPasswordReusePrevention    :: !(Maybe Nat)
-    , _uappRequireLowercaseCharacters :: !(Maybe Bool)
-    , _uappMaxPasswordAge             :: !(Maybe Nat)
-    , _uappHardExpiry                 :: !(Maybe Bool)
-    , _uappRequireSymbols             :: !(Maybe Bool)
-    , _uappRequireUppercaseCharacters :: !(Maybe Bool)
-    , _uappAllowUsersToChangePassword :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uappMinimumPasswordLength      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uappRequireNumbers             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uappPasswordReusePrevention    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uappRequireLowercaseCharacters :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uappMaxPasswordAge             :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uappHardExpiry                 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uappRequireSymbols             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uappRequireUppercaseCharacters :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uappAllowUsersToChangePassword :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAccountPasswordPolicy' with the minimum fields required to make a request.
 --
@@ -88,17 +89,18 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 updateAccountPasswordPolicy
     :: UpdateAccountPasswordPolicy
 updateAccountPasswordPolicy =
-    UpdateAccountPasswordPolicy'
-    { _uappMinimumPasswordLength = Nothing
-    , _uappRequireNumbers = Nothing
-    , _uappPasswordReusePrevention = Nothing
-    , _uappRequireLowercaseCharacters = Nothing
-    , _uappMaxPasswordAge = Nothing
-    , _uappHardExpiry = Nothing
-    , _uappRequireSymbols = Nothing
-    , _uappRequireUppercaseCharacters = Nothing
-    , _uappAllowUsersToChangePassword = Nothing
-    }
+  UpdateAccountPasswordPolicy'
+  { _uappMinimumPasswordLength = Nothing
+  , _uappRequireNumbers = Nothing
+  , _uappPasswordReusePrevention = Nothing
+  , _uappRequireLowercaseCharacters = Nothing
+  , _uappMaxPasswordAge = Nothing
+  , _uappHardExpiry = Nothing
+  , _uappRequireSymbols = Nothing
+  , _uappRequireUppercaseCharacters = Nothing
+  , _uappAllowUsersToChangePassword = Nothing
+  }
+
 
 -- | The minimum number of characters allowed in an IAM user password. Default value: 6
 uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
@@ -143,9 +145,9 @@ instance AWSRequest UpdateAccountPasswordPolicy where
         response
           = receiveNull UpdateAccountPasswordPolicyResponse'
 
-instance Hashable UpdateAccountPasswordPolicy
+instance Hashable UpdateAccountPasswordPolicy where
 
-instance NFData UpdateAccountPasswordPolicy
+instance NFData UpdateAccountPasswordPolicy where
 
 instance ToHeaders UpdateAccountPasswordPolicy where
         toHeaders = const mempty
@@ -176,8 +178,9 @@ instance ToQuery UpdateAccountPasswordPolicy where
 
 -- | /See:/ 'updateAccountPasswordPolicyResponse' smart constructor.
 data UpdateAccountPasswordPolicyResponse =
-    UpdateAccountPasswordPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateAccountPasswordPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAccountPasswordPolicyResponse' with the minimum fields required to make a request.
 --
@@ -185,4 +188,6 @@ updateAccountPasswordPolicyResponse
     :: UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse'
 
+
 instance NFData UpdateAccountPasswordPolicyResponse
+         where

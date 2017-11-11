@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     , uedcrsDomainConfig
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'UpdateElasticsearchDomain' @ operation. Specifies the type and number of instances in the domain cluster.
 --
@@ -55,13 +55,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateElasticsearchDomainConfig' smart constructor.
 data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
-    { _uedcEBSOptions                 :: !(Maybe EBSOptions)
-    , _uedcAccessPolicies             :: !(Maybe Text)
-    , _uedcElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfig)
-    , _uedcSnapshotOptions            :: !(Maybe SnapshotOptions)
-    , _uedcAdvancedOptions            :: !(Maybe (Map Text Text))
-    , _uedcDomainName                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uedcEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
+  , _uedcAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uedcElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfig)
+  , _uedcSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
+  , _uedcAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _uedcDomainName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateElasticsearchDomainConfig' with the minimum fields required to make a request.
 --
@@ -82,14 +83,15 @@ updateElasticsearchDomainConfig
     :: Text -- ^ 'uedcDomainName'
     -> UpdateElasticsearchDomainConfig
 updateElasticsearchDomainConfig pDomainName_ =
-    UpdateElasticsearchDomainConfig'
-    { _uedcEBSOptions = Nothing
-    , _uedcAccessPolicies = Nothing
-    , _uedcElasticsearchClusterConfig = Nothing
-    , _uedcSnapshotOptions = Nothing
-    , _uedcAdvancedOptions = Nothing
-    , _uedcDomainName = pDomainName_
-    }
+  UpdateElasticsearchDomainConfig'
+  { _uedcEBSOptions = Nothing
+  , _uedcAccessPolicies = Nothing
+  , _uedcElasticsearchClusterConfig = Nothing
+  , _uedcSnapshotOptions = Nothing
+  , _uedcAdvancedOptions = Nothing
+  , _uedcDomainName = pDomainName_
+  }
+
 
 -- | Specify the type and size of the EBS volume that you want to use.
 uedcEBSOptions :: Lens' UpdateElasticsearchDomainConfig (Maybe EBSOptions)
@@ -127,8 +129,9 @@ instance AWSRequest UpdateElasticsearchDomainConfig
                    (pure (fromEnum s)) <*> (x .:> "DomainConfig"))
 
 instance Hashable UpdateElasticsearchDomainConfig
+         where
 
-instance NFData UpdateElasticsearchDomainConfig
+instance NFData UpdateElasticsearchDomainConfig where
 
 instance ToHeaders UpdateElasticsearchDomainConfig
          where
@@ -161,9 +164,10 @@ instance ToQuery UpdateElasticsearchDomainConfig
 --
 -- /See:/ 'updateElasticsearchDomainConfigResponse' smart constructor.
 data UpdateElasticsearchDomainConfigResponse = UpdateElasticsearchDomainConfigResponse'
-    { _uedcrsResponseStatus :: !Int
-    , _uedcrsDomainConfig   :: !ElasticsearchDomainConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uedcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _uedcrsDomainConfig   :: {-# NOUNPACK #-}!ElasticsearchDomainConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateElasticsearchDomainConfigResponse' with the minimum fields required to make a request.
 --
@@ -177,10 +181,11 @@ updateElasticsearchDomainConfigResponse
     -> ElasticsearchDomainConfig -- ^ 'uedcrsDomainConfig'
     -> UpdateElasticsearchDomainConfigResponse
 updateElasticsearchDomainConfigResponse pResponseStatus_ pDomainConfig_ =
-    UpdateElasticsearchDomainConfigResponse'
-    { _uedcrsResponseStatus = pResponseStatus_
-    , _uedcrsDomainConfig = pDomainConfig_
-    }
+  UpdateElasticsearchDomainConfigResponse'
+  { _uedcrsResponseStatus = pResponseStatus_
+  , _uedcrsDomainConfig = pDomainConfig_
+  }
+
 
 -- | -- | The response status code.
 uedcrsResponseStatus :: Lens' UpdateElasticsearchDomainConfigResponse Int
@@ -191,4 +196,5 @@ uedcrsDomainConfig :: Lens' UpdateElasticsearchDomainConfigResponse Elasticsearc
 uedcrsDomainConfig = lens _uedcrsDomainConfig (\ s a -> s{_uedcrsDomainConfig = a});
 
 instance NFData
-         UpdateElasticsearchDomainConfigResponse
+           UpdateElasticsearchDomainConfigResponse
+         where

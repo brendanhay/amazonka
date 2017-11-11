@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListIdentityProviders
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CognitoIdentityProvider.ListIdentityProviders
     , liprsProviders
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listIdentityProviders' smart constructor.
 data ListIdentityProviders = ListIdentityProviders'
-    { _lipNextToken  :: !(Maybe Text)
-    , _lipMaxResults :: !(Maybe Nat)
-    , _lipUserPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lipNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lipMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lipUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityProviders' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listIdentityProviders
     :: Text -- ^ 'lipUserPoolId'
     -> ListIdentityProviders
 listIdentityProviders pUserPoolId_ =
-    ListIdentityProviders'
-    { _lipNextToken = Nothing
-    , _lipMaxResults = Nothing
-    , _lipUserPoolId = pUserPoolId_
-    }
+  ListIdentityProviders'
+  { _lipNextToken = Nothing
+  , _lipMaxResults = Nothing
+  , _lipUserPoolId = pUserPoolId_
+  }
+
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityProviders (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest ListIdentityProviders where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "Providers" .!@ mempty))
 
-instance Hashable ListIdentityProviders
+instance Hashable ListIdentityProviders where
 
-instance NFData ListIdentityProviders
+instance NFData ListIdentityProviders where
 
 instance ToHeaders ListIdentityProviders where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery ListIdentityProviders where
 
 -- | /See:/ 'listIdentityProvidersResponse' smart constructor.
 data ListIdentityProvidersResponse = ListIdentityProvidersResponse'
-    { _liprsNextToken      :: !(Maybe Text)
-    , _liprsResponseStatus :: !Int
-    , _liprsProviders      :: ![ProviderDescription]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _liprsProviders      :: {-# NOUNPACK #-}![ProviderDescription]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListIdentityProvidersResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ listIdentityProvidersResponse
     :: Int -- ^ 'liprsResponseStatus'
     -> ListIdentityProvidersResponse
 listIdentityProvidersResponse pResponseStatus_ =
-    ListIdentityProvidersResponse'
-    { _liprsNextToken = Nothing
-    , _liprsResponseStatus = pResponseStatus_
-    , _liprsProviders = mempty
-    }
+  ListIdentityProvidersResponse'
+  { _liprsNextToken = Nothing
+  , _liprsResponseStatus = pResponseStatus_
+  , _liprsProviders = mempty
+  }
+
 
 -- | A pagination token.
 liprsNextToken :: Lens' ListIdentityProvidersResponse (Maybe Text)
@@ -162,4 +166,4 @@ liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus
 liprsProviders :: Lens' ListIdentityProvidersResponse [ProviderDescription]
 liprsProviders = lens _liprsProviders (\ s a -> s{_liprsProviders = a}) . _Coerce;
 
-instance NFData ListIdentityProvidersResponse
+instance NFData ListIdentityProvidersResponse where

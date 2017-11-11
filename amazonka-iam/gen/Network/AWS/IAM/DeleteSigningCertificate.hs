@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSigningCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.DeleteSigningCertificate
     , DeleteSigningCertificateResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSigningCertificate' smart constructor.
 data DeleteSigningCertificate = DeleteSigningCertificate'
-    { _dscUserName      :: !(Maybe Text)
-    , _dscCertificateId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscUserName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dscCertificateId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSigningCertificate' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ deleteSigningCertificate
     :: Text -- ^ 'dscCertificateId'
     -> DeleteSigningCertificate
 deleteSigningCertificate pCertificateId_ =
-    DeleteSigningCertificate'
-    { _dscUserName = Nothing
-    , _dscCertificateId = pCertificateId_
-    }
+  DeleteSigningCertificate'
+  {_dscUserName = Nothing, _dscCertificateId = pCertificateId_}
+
 
 -- | The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
@@ -81,9 +81,9 @@ instance AWSRequest DeleteSigningCertificate where
         response
           = receiveNull DeleteSigningCertificateResponse'
 
-instance Hashable DeleteSigningCertificate
+instance Hashable DeleteSigningCertificate where
 
-instance NFData DeleteSigningCertificate
+instance NFData DeleteSigningCertificate where
 
 instance ToHeaders DeleteSigningCertificate where
         toHeaders = const mempty
@@ -102,8 +102,9 @@ instance ToQuery DeleteSigningCertificate where
 
 -- | /See:/ 'deleteSigningCertificateResponse' smart constructor.
 data DeleteSigningCertificateResponse =
-    DeleteSigningCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSigningCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSigningCertificateResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +112,6 @@ deleteSigningCertificateResponse
     :: DeleteSigningCertificateResponse
 deleteSigningCertificateResponse = DeleteSigningCertificateResponse'
 
+
 instance NFData DeleteSigningCertificateResponse
+         where

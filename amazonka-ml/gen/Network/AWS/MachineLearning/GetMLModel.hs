@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.GetMLModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,18 +60,19 @@ module Network.AWS.MachineLearning.GetMLModel
     , gmlmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getMLModel' smart constructor.
 data GetMLModel = GetMLModel'
-    { _gmlmVerbose   :: !(Maybe Bool)
-    , _gmlmMLModelId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmlmVerbose   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gmlmMLModelId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMLModel' with the minimum fields required to make a request.
 --
@@ -84,10 +85,8 @@ getMLModel
     :: Text -- ^ 'gmlmMLModelId'
     -> GetMLModel
 getMLModel pMLModelId_ =
-    GetMLModel'
-    { _gmlmVerbose = Nothing
-    , _gmlmMLModelId = pMLModelId_
-    }
+  GetMLModel' {_gmlmVerbose = Nothing, _gmlmMLModelId = pMLModelId_}
+
 
 -- | Specifies whether the @GetMLModel@ operation should return @Recipe@ . If true, @Recipe@ is returned. If false, @Recipe@ is not returned.
 gmlmVerbose :: Lens' GetMLModel (Maybe Bool)
@@ -126,9 +125,9 @@ instance AWSRequest GetMLModel where
                      <*> (x .?> "MLModelType")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetMLModel
+instance Hashable GetMLModel where
 
-instance NFData GetMLModel
+instance NFData GetMLModel where
 
 instance ToHeaders GetMLModel where
         toHeaders
@@ -158,29 +157,30 @@ instance ToQuery GetMLModel where
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
-    { _gmlmrsStatus                      :: !(Maybe EntityStatus)
-    , _gmlmrsLastUpdatedAt               :: !(Maybe POSIX)
-    , _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
-    , _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
-    , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
-    , _gmlmrsComputeTime                 :: !(Maybe Integer)
-    , _gmlmrsRecipe                      :: !(Maybe Text)
-    , _gmlmrsInputDataLocationS3         :: !(Maybe Text)
-    , _gmlmrsMLModelId                   :: !(Maybe Text)
-    , _gmlmrsSizeInBytes                 :: !(Maybe Integer)
-    , _gmlmrsSchema                      :: !(Maybe Text)
-    , _gmlmrsStartedAt                   :: !(Maybe POSIX)
-    , _gmlmrsScoreThreshold              :: !(Maybe Double)
-    , _gmlmrsFinishedAt                  :: !(Maybe POSIX)
-    , _gmlmrsCreatedByIAMUser            :: !(Maybe Text)
-    , _gmlmrsName                        :: !(Maybe Text)
-    , _gmlmrsLogURI                      :: !(Maybe Text)
-    , _gmlmrsEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
-    , _gmlmrsTrainingDataSourceId        :: !(Maybe Text)
-    , _gmlmrsMessage                     :: !(Maybe Text)
-    , _gmlmrsMLModelType                 :: !(Maybe MLModelType)
-    , _gmlmrsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmlmrsStatus :: {-# NOUNPACK #-}!(Maybe EntityStatus)
+  , _gmlmrsLastUpdatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmlmrsTrainingParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gmlmrsScoreThresholdLastUpdatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmlmrsCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmlmrsComputeTime :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gmlmrsRecipe :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsInputDataLocationS3 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsMLModelId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gmlmrsSchema :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsStartedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmlmrsScoreThreshold :: {-# NOUNPACK #-}!(Maybe Double)
+  , _gmlmrsFinishedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gmlmrsCreatedByIAMUser :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsLogURI :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsEndpointInfo :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointInfo)
+  , _gmlmrsTrainingDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmlmrsMLModelType :: {-# NOUNPACK #-}!(Maybe MLModelType)
+  , _gmlmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMLModelResponse' with the minimum fields required to make a request.
 --
@@ -233,30 +233,31 @@ getMLModelResponse
     :: Int -- ^ 'gmlmrsResponseStatus'
     -> GetMLModelResponse
 getMLModelResponse pResponseStatus_ =
-    GetMLModelResponse'
-    { _gmlmrsStatus = Nothing
-    , _gmlmrsLastUpdatedAt = Nothing
-    , _gmlmrsTrainingParameters = Nothing
-    , _gmlmrsScoreThresholdLastUpdatedAt = Nothing
-    , _gmlmrsCreatedAt = Nothing
-    , _gmlmrsComputeTime = Nothing
-    , _gmlmrsRecipe = Nothing
-    , _gmlmrsInputDataLocationS3 = Nothing
-    , _gmlmrsMLModelId = Nothing
-    , _gmlmrsSizeInBytes = Nothing
-    , _gmlmrsSchema = Nothing
-    , _gmlmrsStartedAt = Nothing
-    , _gmlmrsScoreThreshold = Nothing
-    , _gmlmrsFinishedAt = Nothing
-    , _gmlmrsCreatedByIAMUser = Nothing
-    , _gmlmrsName = Nothing
-    , _gmlmrsLogURI = Nothing
-    , _gmlmrsEndpointInfo = Nothing
-    , _gmlmrsTrainingDataSourceId = Nothing
-    , _gmlmrsMessage = Nothing
-    , _gmlmrsMLModelType = Nothing
-    , _gmlmrsResponseStatus = pResponseStatus_
-    }
+  GetMLModelResponse'
+  { _gmlmrsStatus = Nothing
+  , _gmlmrsLastUpdatedAt = Nothing
+  , _gmlmrsTrainingParameters = Nothing
+  , _gmlmrsScoreThresholdLastUpdatedAt = Nothing
+  , _gmlmrsCreatedAt = Nothing
+  , _gmlmrsComputeTime = Nothing
+  , _gmlmrsRecipe = Nothing
+  , _gmlmrsInputDataLocationS3 = Nothing
+  , _gmlmrsMLModelId = Nothing
+  , _gmlmrsSizeInBytes = Nothing
+  , _gmlmrsSchema = Nothing
+  , _gmlmrsStartedAt = Nothing
+  , _gmlmrsScoreThreshold = Nothing
+  , _gmlmrsFinishedAt = Nothing
+  , _gmlmrsCreatedByIAMUser = Nothing
+  , _gmlmrsName = Nothing
+  , _gmlmrsLogURI = Nothing
+  , _gmlmrsEndpointInfo = Nothing
+  , _gmlmrsTrainingDataSourceId = Nothing
+  , _gmlmrsMessage = Nothing
+  , _gmlmrsMLModelType = Nothing
+  , _gmlmrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current status of the @MLModel@ . This element can have one of the following values:     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to describe a @MLModel@ .    * @INPROGRESS@ - The request is processing.    * @FAILED@ - The request did not run to completion. The ML model isn't usable.    * @COMPLETED@ - The request completed successfully.    * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
 gmlmrsStatus :: Lens' GetMLModelResponse (Maybe EntityStatus)
@@ -346,4 +347,4 @@ gmlmrsMLModelType = lens _gmlmrsMLModelType (\ s a -> s{_gmlmrsMLModelType = a})
 gmlmrsResponseStatus :: Lens' GetMLModelResponse Int
 gmlmrsResponseStatus = lens _gmlmrsResponseStatus (\ s a -> s{_gmlmrsResponseStatus = a});
 
-instance NFData GetMLModelResponse
+instance NFData GetMLModelResponse where

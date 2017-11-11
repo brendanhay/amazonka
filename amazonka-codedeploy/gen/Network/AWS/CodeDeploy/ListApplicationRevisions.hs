@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListApplicationRevisions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,13 +46,13 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     , larrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a ListApplicationRevisions operation.
 --
@@ -60,14 +60,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listApplicationRevisions' smart constructor.
 data ListApplicationRevisions = ListApplicationRevisions'
-    { _larS3KeyPrefix     :: !(Maybe Text)
-    , _larDeployed        :: !(Maybe ListStateFilterAction)
-    , _larSortOrder       :: !(Maybe SortOrder)
-    , _larNextToken       :: !(Maybe Text)
-    , _larS3Bucket        :: !(Maybe Text)
-    , _larSortBy          :: !(Maybe ApplicationRevisionSortBy)
-    , _larApplicationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larS3KeyPrefix     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larDeployed        :: {-# NOUNPACK #-}!(Maybe ListStateFilterAction)
+  , _larSortOrder       :: {-# NOUNPACK #-}!(Maybe SortOrder)
+  , _larNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larS3Bucket        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larSortBy          :: {-# NOUNPACK #-}!(Maybe ApplicationRevisionSortBy)
+  , _larApplicationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListApplicationRevisions' with the minimum fields required to make a request.
 --
@@ -90,15 +91,16 @@ listApplicationRevisions
     :: Text -- ^ 'larApplicationName'
     -> ListApplicationRevisions
 listApplicationRevisions pApplicationName_ =
-    ListApplicationRevisions'
-    { _larS3KeyPrefix = Nothing
-    , _larDeployed = Nothing
-    , _larSortOrder = Nothing
-    , _larNextToken = Nothing
-    , _larS3Bucket = Nothing
-    , _larSortBy = Nothing
-    , _larApplicationName = pApplicationName_
-    }
+  ListApplicationRevisions'
+  { _larS3KeyPrefix = Nothing
+  , _larDeployed = Nothing
+  , _larSortOrder = Nothing
+  , _larNextToken = Nothing
+  , _larS3Bucket = Nothing
+  , _larSortBy = Nothing
+  , _larApplicationName = pApplicationName_
+  }
+
 
 -- | A key prefix for the set of Amazon S3 objects to limit the search for revisions.
 larS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
@@ -147,9 +149,9 @@ instance AWSRequest ListApplicationRevisions where
                      (x .?> "revisions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListApplicationRevisions
+instance Hashable ListApplicationRevisions where
 
-instance NFData ListApplicationRevisions
+instance NFData ListApplicationRevisions where
 
 instance ToHeaders ListApplicationRevisions where
         toHeaders
@@ -185,10 +187,11 @@ instance ToQuery ListApplicationRevisions where
 --
 -- /See:/ 'listApplicationRevisionsResponse' smart constructor.
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
-    { _larrsNextToken      :: !(Maybe Text)
-    , _larrsRevisions      :: !(Maybe [RevisionLocation])
-    , _larrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _larrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _larrsRevisions      :: {-# NOUNPACK #-}!(Maybe [RevisionLocation])
+  , _larrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListApplicationRevisionsResponse' with the minimum fields required to make a request.
 --
@@ -203,11 +206,12 @@ listApplicationRevisionsResponse
     :: Int -- ^ 'larrsResponseStatus'
     -> ListApplicationRevisionsResponse
 listApplicationRevisionsResponse pResponseStatus_ =
-    ListApplicationRevisionsResponse'
-    { _larrsNextToken = Nothing
-    , _larrsRevisions = Nothing
-    , _larrsResponseStatus = pResponseStatus_
-    }
+  ListApplicationRevisionsResponse'
+  { _larrsNextToken = Nothing
+  , _larrsRevisions = Nothing
+  , _larrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a large amount of information is returned, an identifier will also be returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
 larrsNextToken :: Lens' ListApplicationRevisionsResponse (Maybe Text)
@@ -222,3 +226,4 @@ larrsResponseStatus :: Lens' ListApplicationRevisionsResponse Int
 larrsResponseStatus = lens _larrsResponseStatus (\ s a -> s{_larrsResponseStatus = a});
 
 instance NFData ListApplicationRevisionsResponse
+         where

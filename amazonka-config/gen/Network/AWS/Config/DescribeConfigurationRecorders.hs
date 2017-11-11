@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorders
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Config.DescribeConfigurationRecorders
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'DescribeConfigurationRecorders' action.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeConfigurationRecorders' smart constructor.
 newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
-    { _dcrConfigurationRecorderNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrConfigurationRecorderNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationRecorders' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
 describeConfigurationRecorders
     :: DescribeConfigurationRecorders
 describeConfigurationRecorders =
-    DescribeConfigurationRecorders'
-    { _dcrConfigurationRecorderNames = Nothing
-    }
+  DescribeConfigurationRecorders' {_dcrConfigurationRecorderNames = Nothing}
+
 
 -- | A list of configuration recorder names.
 dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
@@ -82,8 +82,9 @@ instance AWSRequest DescribeConfigurationRecorders
                      (pure (fromEnum s)))
 
 instance Hashable DescribeConfigurationRecorders
+         where
 
-instance NFData DescribeConfigurationRecorders
+instance NFData DescribeConfigurationRecorders where
 
 instance ToHeaders DescribeConfigurationRecorders
          where
@@ -115,9 +116,10 @@ instance ToQuery DescribeConfigurationRecorders where
 --
 -- /See:/ 'describeConfigurationRecordersResponse' smart constructor.
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
-    { _drsConfigurationRecorders :: !(Maybe [ConfigurationRecorder])
-    , _drsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsConfigurationRecorders :: {-# NOUNPACK #-}!(Maybe [ConfigurationRecorder])
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationRecordersResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +132,9 @@ describeConfigurationRecordersResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeConfigurationRecordersResponse
 describeConfigurationRecordersResponse pResponseStatus_ =
-    DescribeConfigurationRecordersResponse'
-    { _drsConfigurationRecorders = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeConfigurationRecordersResponse'
+  {_drsConfigurationRecorders = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | A list that contains the descriptions of the specified configuration recorders.
 drsConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
@@ -144,4 +145,5 @@ drsResponseStatus :: Lens' DescribeConfigurationRecordersResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 instance NFData
-         DescribeConfigurationRecordersResponse
+           DescribeConfigurationRecordersResponse
+         where

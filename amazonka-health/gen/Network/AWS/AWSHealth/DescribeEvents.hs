@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AWSHealth.DescribeEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.AWSHealth.DescribeEvents
     , dersResponseStatus
     ) where
 
-import           Network.AWS.AWSHealth.Types
-import           Network.AWS.AWSHealth.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AWSHealth.Types
+import Network.AWS.AWSHealth.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-    { _deLocale     :: !(Maybe Text)
-    , _deNextToken  :: !(Maybe Text)
-    , _deFilter     :: !(Maybe EventFilter)
-    , _deMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deLocale     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deFilter     :: {-# NOUNPACK #-}!(Maybe EventFilter)
+  , _deMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ data DescribeEvents = DescribeEvents'
 describeEvents
     :: DescribeEvents
 describeEvents =
-    DescribeEvents'
-    { _deLocale = Nothing
-    , _deNextToken = Nothing
-    , _deFilter = Nothing
-    , _deMaxResults = Nothing
-    }
+  DescribeEvents'
+  { _deLocale = Nothing
+  , _deNextToken = Nothing
+  , _deFilter = Nothing
+  , _deMaxResults = Nothing
+  }
+
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 deLocale :: Lens' DescribeEvents (Maybe Text)
@@ -115,9 +117,9 @@ instance AWSRequest DescribeEvents where
                    (x .?> "nextToken") <*> (x .?> "events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEvents
+instance Hashable DescribeEvents where
 
-instance NFData DescribeEvents
+instance NFData DescribeEvents where
 
 instance ToHeaders DescribeEvents where
         toHeaders
@@ -145,10 +147,11 @@ instance ToQuery DescribeEvents where
 
 -- | /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersNextToken      :: !(Maybe Text)
-    , _dersEvents         :: !(Maybe [Event])
-    , _dersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
+  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +166,12 @@ describeEventsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
-    DescribeEventsResponse'
-    { _dersNextToken = Nothing
-    , _dersEvents = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DescribeEventsResponse'
+  { _dersNextToken = Nothing
+  , _dersEvents = Nothing
+  , _dersResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 dersNextToken :: Lens' DescribeEventsResponse (Maybe Text)
@@ -181,4 +185,4 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 dersResponseStatus :: Lens' DescribeEventsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DescribeEventsResponse
+instance NFData DescribeEventsResponse where

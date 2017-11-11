@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.InitiateJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -102,12 +102,12 @@ module Network.AWS.Glacier.InitiateJob
     , ijrsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for initiating an Amazon Glacier job.
 --
@@ -115,10 +115,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'initiateJob' smart constructor.
 data InitiateJob = InitiateJob'
-    { _ijJobParameters :: !(Maybe JobParameters)
-    , _ijAccountId     :: !Text
-    , _ijVaultName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ijJobParameters :: {-# NOUNPACK #-}!(Maybe JobParameters)
+  , _ijAccountId     :: {-# NOUNPACK #-}!Text
+  , _ijVaultName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateJob' with the minimum fields required to make a request.
 --
@@ -134,11 +135,12 @@ initiateJob
     -> Text -- ^ 'ijVaultName'
     -> InitiateJob
 initiateJob pAccountId_ pVaultName_ =
-    InitiateJob'
-    { _ijJobParameters = Nothing
-    , _ijAccountId = pAccountId_
-    , _ijVaultName = pVaultName_
-    }
+  InitiateJob'
+  { _ijJobParameters = Nothing
+  , _ijAccountId = pAccountId_
+  , _ijVaultName = pVaultName_
+  }
+
 
 -- | Provides options for specifying job information.
 ijJobParameters :: Lens' InitiateJob (Maybe JobParameters)
@@ -162,9 +164,9 @@ instance AWSRequest InitiateJob where
                    (h .#? "x-amz-job-id") <*> (h .#? "Location") <*>
                      (pure (fromEnum s)))
 
-instance Hashable InitiateJob
+instance Hashable InitiateJob where
 
-instance NFData InitiateJob
+instance NFData InitiateJob where
 
 instance ToHeaders InitiateJob where
         toHeaders = const mempty
@@ -190,10 +192,11 @@ instance ToQuery InitiateJob where
 --
 -- /See:/ 'initiateJobResponse' smart constructor.
 data InitiateJobResponse = InitiateJobResponse'
-    { _ijrsJobId          :: !(Maybe Text)
-    , _ijrsLocation       :: !(Maybe Text)
-    , _ijrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ijrsJobId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ijrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateJobResponse' with the minimum fields required to make a request.
 --
@@ -208,11 +211,12 @@ initiateJobResponse
     :: Int -- ^ 'ijrsResponseStatus'
     -> InitiateJobResponse
 initiateJobResponse pResponseStatus_ =
-    InitiateJobResponse'
-    { _ijrsJobId = Nothing
-    , _ijrsLocation = Nothing
-    , _ijrsResponseStatus = pResponseStatus_
-    }
+  InitiateJobResponse'
+  { _ijrsJobId = Nothing
+  , _ijrsLocation = Nothing
+  , _ijrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the job.
 ijrsJobId :: Lens' InitiateJobResponse (Maybe Text)
@@ -226,4 +230,4 @@ ijrsLocation = lens _ijrsLocation (\ s a -> s{_ijrsLocation = a});
 ijrsResponseStatus :: Lens' InitiateJobResponse Int
 ijrsResponseStatus = lens _ijrsResponseStatus (\ s a -> s{_ijrsResponseStatus = a});
 
-instance NFData InitiateJobResponse
+instance NFData InitiateJobResponse where

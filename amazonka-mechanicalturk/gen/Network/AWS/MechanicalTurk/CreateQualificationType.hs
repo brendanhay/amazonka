@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateQualificationType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,26 +46,27 @@ module Network.AWS.MechanicalTurk.CreateQualificationType
     , cqtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createQualificationType' smart constructor.
 data CreateQualificationType = CreateQualificationType'
-    { _cqtTestDurationInSeconds   :: !(Maybe Integer)
-    , _cqtAnswerKey               :: !(Maybe Text)
-    , _cqtTest                    :: !(Maybe Text)
-    , _cqtKeywords                :: !(Maybe Text)
-    , _cqtAutoGranted             :: !(Maybe Bool)
-    , _cqtAutoGrantedValue        :: !(Maybe Int)
-    , _cqtRetryDelayInSeconds     :: !(Maybe Integer)
-    , _cqtName                    :: !Text
-    , _cqtDescription             :: !Text
-    , _cqtQualificationTypeStatus :: !QualificationTypeStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cqtTestDurationInSeconds   :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _cqtAnswerKey               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cqtTest                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cqtKeywords                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cqtAutoGranted             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cqtAutoGrantedValue        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cqtRetryDelayInSeconds     :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _cqtName                    :: {-# NOUNPACK #-}!Text
+  , _cqtDescription             :: {-# NOUNPACK #-}!Text
+  , _cqtQualificationTypeStatus :: {-# NOUNPACK #-}!QualificationTypeStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateQualificationType' with the minimum fields required to make a request.
 --
@@ -96,18 +97,19 @@ createQualificationType
     -> QualificationTypeStatus -- ^ 'cqtQualificationTypeStatus'
     -> CreateQualificationType
 createQualificationType pName_ pDescription_ pQualificationTypeStatus_ =
-    CreateQualificationType'
-    { _cqtTestDurationInSeconds = Nothing
-    , _cqtAnswerKey = Nothing
-    , _cqtTest = Nothing
-    , _cqtKeywords = Nothing
-    , _cqtAutoGranted = Nothing
-    , _cqtAutoGrantedValue = Nothing
-    , _cqtRetryDelayInSeconds = Nothing
-    , _cqtName = pName_
-    , _cqtDescription = pDescription_
-    , _cqtQualificationTypeStatus = pQualificationTypeStatus_
-    }
+  CreateQualificationType'
+  { _cqtTestDurationInSeconds = Nothing
+  , _cqtAnswerKey = Nothing
+  , _cqtTest = Nothing
+  , _cqtKeywords = Nothing
+  , _cqtAutoGranted = Nothing
+  , _cqtAutoGrantedValue = Nothing
+  , _cqtRetryDelayInSeconds = Nothing
+  , _cqtName = pName_
+  , _cqtDescription = pDescription_
+  , _cqtQualificationTypeStatus = pQualificationTypeStatus_
+  }
+
 
 -- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
 cqtTestDurationInSeconds :: Lens' CreateQualificationType (Maybe Integer)
@@ -159,9 +161,9 @@ instance AWSRequest CreateQualificationType where
                  CreateQualificationTypeResponse' <$>
                    (x .?> "QualificationType") <*> (pure (fromEnum s)))
 
-instance Hashable CreateQualificationType
+instance Hashable CreateQualificationType where
 
-instance NFData CreateQualificationType
+instance NFData CreateQualificationType where
 
 instance ToHeaders CreateQualificationType where
         toHeaders
@@ -200,9 +202,10 @@ instance ToQuery CreateQualificationType where
 
 -- | /See:/ 'createQualificationTypeResponse' smart constructor.
 data CreateQualificationTypeResponse = CreateQualificationTypeResponse'
-    { _cqtrsQualificationType :: !(Maybe QualificationType)
-    , _cqtrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cqtrsQualificationType :: {-# NOUNPACK #-}!(Maybe QualificationType)
+  , _cqtrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateQualificationTypeResponse' with the minimum fields required to make a request.
 --
@@ -215,10 +218,9 @@ createQualificationTypeResponse
     :: Int -- ^ 'cqtrsResponseStatus'
     -> CreateQualificationTypeResponse
 createQualificationTypeResponse pResponseStatus_ =
-    CreateQualificationTypeResponse'
-    { _cqtrsQualificationType = Nothing
-    , _cqtrsResponseStatus = pResponseStatus_
-    }
+  CreateQualificationTypeResponse'
+  {_cqtrsQualificationType = Nothing, _cqtrsResponseStatus = pResponseStatus_}
+
 
 -- | The created Qualification type, returned as a QualificationType data structure.
 cqtrsQualificationType :: Lens' CreateQualificationTypeResponse (Maybe QualificationType)
@@ -228,4 +230,4 @@ cqtrsQualificationType = lens _cqtrsQualificationType (\ s a -> s{_cqtrsQualific
 cqtrsResponseStatus :: Lens' CreateQualificationTypeResponse Int
 cqtrsResponseStatus = lens _cqtrsResponseStatus (\ s a -> s{_cqtrsResponseStatus = a});
 
-instance NFData CreateQualificationTypeResponse
+instance NFData CreateQualificationTypeResponse where

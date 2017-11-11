@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.StartSchemaExtension
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.DirectoryService.StartSchemaExtension
     , ssersResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startSchemaExtension' smart constructor.
 data StartSchemaExtension = StartSchemaExtension'
-    { _sseDirectoryId                         :: !Text
-    , _sseCreateSnapshotBeforeSchemaExtension :: !Bool
-    , _sseLdifContent                         :: !Text
-    , _sseDescription                         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sseDirectoryId                         :: {-# NOUNPACK #-}!Text
+  , _sseCreateSnapshotBeforeSchemaExtension :: {-# NOUNPACK #-}!Bool
+  , _sseLdifContent                         :: {-# NOUNPACK #-}!Text
+  , _sseDescription                         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartSchemaExtension' with the minimum fields required to make a request.
 --
@@ -73,12 +74,14 @@ startSchemaExtension
     -> Text -- ^ 'sseDescription'
     -> StartSchemaExtension
 startSchemaExtension pDirectoryId_ pCreateSnapshotBeforeSchemaExtension_ pLdifContent_ pDescription_ =
-    StartSchemaExtension'
-    { _sseDirectoryId = pDirectoryId_
-    , _sseCreateSnapshotBeforeSchemaExtension = pCreateSnapshotBeforeSchemaExtension_
-    , _sseLdifContent = pLdifContent_
-    , _sseDescription = pDescription_
-    }
+  StartSchemaExtension'
+  { _sseDirectoryId = pDirectoryId_
+  , _sseCreateSnapshotBeforeSchemaExtension =
+      pCreateSnapshotBeforeSchemaExtension_
+  , _sseLdifContent = pLdifContent_
+  , _sseDescription = pDescription_
+  }
+
 
 -- | The identifier of the directory for which the schema extension will be applied to.
 sseDirectoryId :: Lens' StartSchemaExtension Text
@@ -106,9 +109,9 @@ instance AWSRequest StartSchemaExtension where
                  StartSchemaExtensionResponse' <$>
                    (x .?> "SchemaExtensionId") <*> (pure (fromEnum s)))
 
-instance Hashable StartSchemaExtension
+instance Hashable StartSchemaExtension where
 
-instance NFData StartSchemaExtension
+instance NFData StartSchemaExtension where
 
 instance ToHeaders StartSchemaExtension where
         toHeaders
@@ -139,9 +142,10 @@ instance ToQuery StartSchemaExtension where
 
 -- | /See:/ 'startSchemaExtensionResponse' smart constructor.
 data StartSchemaExtensionResponse = StartSchemaExtensionResponse'
-    { _ssersSchemaExtensionId :: !(Maybe Text)
-    , _ssersResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssersSchemaExtensionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssersResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartSchemaExtensionResponse' with the minimum fields required to make a request.
 --
@@ -154,10 +158,9 @@ startSchemaExtensionResponse
     :: Int -- ^ 'ssersResponseStatus'
     -> StartSchemaExtensionResponse
 startSchemaExtensionResponse pResponseStatus_ =
-    StartSchemaExtensionResponse'
-    { _ssersSchemaExtensionId = Nothing
-    , _ssersResponseStatus = pResponseStatus_
-    }
+  StartSchemaExtensionResponse'
+  {_ssersSchemaExtensionId = Nothing, _ssersResponseStatus = pResponseStatus_}
+
 
 -- | The identifier of the schema extension that will be applied.
 ssersSchemaExtensionId :: Lens' StartSchemaExtensionResponse (Maybe Text)
@@ -167,4 +170,4 @@ ssersSchemaExtensionId = lens _ssersSchemaExtensionId (\ s a -> s{_ssersSchemaEx
 ssersResponseStatus :: Lens' StartSchemaExtensionResponse Int
 ssersResponseStatus = lens _ssersResponseStatus (\ s a -> s{_ssersResponseStatus = a});
 
-instance NFData StartSchemaExtensionResponse
+instance NFData StartSchemaExtensionResponse where

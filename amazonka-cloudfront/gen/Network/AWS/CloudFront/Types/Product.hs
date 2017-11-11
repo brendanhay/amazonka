@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudFront.Types.Product where
 
-import           Network.AWS.CloudFront.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudFront.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A complex type that lists the AWS accounts, if any, that you included in the @TrustedSigners@ complex type for this distribution. These are the accounts that you want to allow to create signed URLs for private content.
 --
@@ -31,10 +31,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'activeTrustedSigners' smart constructor.
 data ActiveTrustedSigners = ActiveTrustedSigners'
-    { _atsItems    :: !(Maybe [Signer])
-    , _atsEnabled  :: !Bool
-    , _atsQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atsItems    :: {-# NOUNPACK #-}!(Maybe [Signer])
+  , _atsEnabled  :: {-# NOUNPACK #-}!Bool
+  , _atsQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ActiveTrustedSigners' with the minimum fields required to make a request.
 --
@@ -50,11 +51,9 @@ activeTrustedSigners
     -> Int -- ^ 'atsQuantity'
     -> ActiveTrustedSigners
 activeTrustedSigners pEnabled_ pQuantity_ =
-    ActiveTrustedSigners'
-    { _atsItems = Nothing
-    , _atsEnabled = pEnabled_
-    , _atsQuantity = pQuantity_
-    }
+  ActiveTrustedSigners'
+  {_atsItems = Nothing, _atsEnabled = pEnabled_, _atsQuantity = pQuantity_}
+
 
 -- | A complex type that contains one @Signer@ complex type for each trusted signer that is specified in the @TrustedSigners@ complex type. For more information, see 'ActiveTrustedSigners' .
 atsItems :: Lens' ActiveTrustedSigners [Signer]
@@ -76,9 +75,9 @@ instance FromXML ActiveTrustedSigners where
                 <*> (x .@ "Enabled")
                 <*> (x .@ "Quantity")
 
-instance Hashable ActiveTrustedSigners
+instance Hashable ActiveTrustedSigners where
 
-instance NFData ActiveTrustedSigners
+instance NFData ActiveTrustedSigners where
 
 -- | A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 --
@@ -86,9 +85,10 @@ instance NFData ActiveTrustedSigners
 --
 -- /See:/ 'aliases' smart constructor.
 data Aliases = Aliases'
-    { _aItems    :: !(Maybe [Text])
-    , _aQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aItems    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _aQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Aliases' with the minimum fields required to make a request.
 --
@@ -100,11 +100,8 @@ data Aliases = Aliases'
 aliases
     :: Int -- ^ 'aQuantity'
     -> Aliases
-aliases pQuantity_ =
-    Aliases'
-    { _aItems = Nothing
-    , _aQuantity = pQuantity_
-    }
+aliases pQuantity_ = Aliases' {_aItems = Nothing, _aQuantity = pQuantity_}
+
 
 -- | A complex type that contains the CNAME aliases, if any, that you want to associate with this distribution.
 aItems :: Lens' Aliases [Text]
@@ -121,9 +118,9 @@ instance FromXML Aliases where
                  may (parseXMLList "CNAME"))
                 <*> (x .@ "Quantity")
 
-instance Hashable Aliases
+instance Hashable Aliases where
 
-instance NFData Aliases
+instance NFData Aliases where
 
 instance ToXML Aliases where
         toXML Aliases'{..}
@@ -147,10 +144,11 @@ instance ToXML Aliases where
 --
 -- /See:/ 'allowedMethods' smart constructor.
 data AllowedMethods = AllowedMethods'
-    { _amCachedMethods :: !(Maybe CachedMethods)
-    , _amQuantity      :: !Int
-    , _amItems         :: ![Method]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amCachedMethods :: {-# NOUNPACK #-}!(Maybe CachedMethods)
+  , _amQuantity      :: {-# NOUNPACK #-}!Int
+  , _amItems         :: {-# NOUNPACK #-}![Method]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllowedMethods' with the minimum fields required to make a request.
 --
@@ -165,11 +163,9 @@ allowedMethods
     :: Int -- ^ 'amQuantity'
     -> AllowedMethods
 allowedMethods pQuantity_ =
-    AllowedMethods'
-    { _amCachedMethods = Nothing
-    , _amQuantity = pQuantity_
-    , _amItems = mempty
-    }
+  AllowedMethods'
+  {_amCachedMethods = Nothing, _amQuantity = pQuantity_, _amItems = mempty}
+
 
 -- | Undocumented member.
 amCachedMethods :: Lens' AllowedMethods (Maybe CachedMethods)
@@ -189,9 +185,9 @@ instance FromXML AllowedMethods where
               (x .@? "CachedMethods") <*> (x .@ "Quantity") <*>
                 (x .@? "Items" .!@ mempty >>= parseXMLList "Method")
 
-instance Hashable AllowedMethods
+instance Hashable AllowedMethods where
 
-instance NFData AllowedMethods
+instance NFData AllowedMethods where
 
 instance ToXML AllowedMethods where
         toXML AllowedMethods'{..}
@@ -218,19 +214,20 @@ instance ToXML AllowedMethods where
 --
 -- /See:/ 'cacheBehavior' smart constructor.
 data CacheBehavior = CacheBehavior'
-    { _cbAllowedMethods             :: !(Maybe AllowedMethods)
-    , _cbLambdaFunctionAssociations :: !(Maybe LambdaFunctionAssociations)
-    , _cbMaxTTL                     :: !(Maybe Integer)
-    , _cbCompress                   :: !(Maybe Bool)
-    , _cbSmoothStreaming            :: !(Maybe Bool)
-    , _cbDefaultTTL                 :: !(Maybe Integer)
-    , _cbPathPattern                :: !Text
-    , _cbTargetOriginId             :: !Text
-    , _cbForwardedValues            :: !ForwardedValues
-    , _cbTrustedSigners             :: !TrustedSigners
-    , _cbViewerProtocolPolicy       :: !ViewerProtocolPolicy
-    , _cbMinTTL                     :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbAllowedMethods :: {-# NOUNPACK #-}!(Maybe AllowedMethods)
+  , _cbLambdaFunctionAssociations :: {-# NOUNPACK #-}!(Maybe LambdaFunctionAssociations)
+  , _cbMaxTTL :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _cbCompress :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cbSmoothStreaming :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cbDefaultTTL :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _cbPathPattern :: {-# NOUNPACK #-}!Text
+  , _cbTargetOriginId :: {-# NOUNPACK #-}!Text
+  , _cbForwardedValues :: {-# NOUNPACK #-}!ForwardedValues
+  , _cbTrustedSigners :: {-# NOUNPACK #-}!TrustedSigners
+  , _cbViewerProtocolPolicy :: {-# NOUNPACK #-}!ViewerProtocolPolicy
+  , _cbMinTTL :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheBehavior' with the minimum fields required to make a request.
 --
@@ -268,20 +265,21 @@ cacheBehavior
     -> Integer -- ^ 'cbMinTTL'
     -> CacheBehavior
 cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
-    CacheBehavior'
-    { _cbAllowedMethods = Nothing
-    , _cbLambdaFunctionAssociations = Nothing
-    , _cbMaxTTL = Nothing
-    , _cbCompress = Nothing
-    , _cbSmoothStreaming = Nothing
-    , _cbDefaultTTL = Nothing
-    , _cbPathPattern = pPathPattern_
-    , _cbTargetOriginId = pTargetOriginId_
-    , _cbForwardedValues = pForwardedValues_
-    , _cbTrustedSigners = pTrustedSigners_
-    , _cbViewerProtocolPolicy = pViewerProtocolPolicy_
-    , _cbMinTTL = pMinTTL_
-    }
+  CacheBehavior'
+  { _cbAllowedMethods = Nothing
+  , _cbLambdaFunctionAssociations = Nothing
+  , _cbMaxTTL = Nothing
+  , _cbCompress = Nothing
+  , _cbSmoothStreaming = Nothing
+  , _cbDefaultTTL = Nothing
+  , _cbPathPattern = pPathPattern_
+  , _cbTargetOriginId = pTargetOriginId_
+  , _cbForwardedValues = pForwardedValues_
+  , _cbTrustedSigners = pTrustedSigners_
+  , _cbViewerProtocolPolicy = pViewerProtocolPolicy_
+  , _cbMinTTL = pMinTTL_
+  }
+
 
 -- | Undocumented member.
 cbAllowedMethods :: Lens' CacheBehavior (Maybe AllowedMethods)
@@ -347,9 +345,9 @@ instance FromXML CacheBehavior where
                 <*> (x .@ "ViewerProtocolPolicy")
                 <*> (x .@ "MinTTL")
 
-instance Hashable CacheBehavior
+instance Hashable CacheBehavior where
 
-instance NFData CacheBehavior
+instance NFData CacheBehavior where
 
 instance ToXML CacheBehavior where
         toXML CacheBehavior'{..}
@@ -373,9 +371,10 @@ instance ToXML CacheBehavior where
 --
 -- /See:/ 'cacheBehaviors' smart constructor.
 data CacheBehaviors = CacheBehaviors'
-    { _cbItems    :: !(Maybe [CacheBehavior])
-    , _cbQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbItems    :: {-# NOUNPACK #-}!(Maybe [CacheBehavior])
+  , _cbQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CacheBehaviors' with the minimum fields required to make a request.
 --
@@ -388,10 +387,8 @@ cacheBehaviors
     :: Int -- ^ 'cbQuantity'
     -> CacheBehaviors
 cacheBehaviors pQuantity_ =
-    CacheBehaviors'
-    { _cbItems = Nothing
-    , _cbQuantity = pQuantity_
-    }
+  CacheBehaviors' {_cbItems = Nothing, _cbQuantity = pQuantity_}
+
 
 -- | Optional: A complex type that contains cache behaviors for this distribution. If @Quantity@ is @0@ , you can omit @Items@ .
 cbItems :: Lens' CacheBehaviors [CacheBehavior]
@@ -408,9 +405,9 @@ instance FromXML CacheBehaviors where
                  may (parseXMLList "CacheBehavior"))
                 <*> (x .@ "Quantity")
 
-instance Hashable CacheBehaviors
+instance Hashable CacheBehaviors where
 
-instance NFData CacheBehaviors
+instance NFData CacheBehaviors where
 
 instance ToXML CacheBehaviors where
         toXML CacheBehaviors'{..}
@@ -433,9 +430,10 @@ instance ToXML CacheBehaviors where
 --
 -- /See:/ 'cachedMethods' smart constructor.
 data CachedMethods = CachedMethods'
-    { _cmQuantity :: !Int
-    , _cmItems    :: ![Method]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmQuantity :: {-# NOUNPACK #-}!Int
+  , _cmItems    :: {-# NOUNPACK #-}![Method]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CachedMethods' with the minimum fields required to make a request.
 --
@@ -448,10 +446,8 @@ cachedMethods
     :: Int -- ^ 'cmQuantity'
     -> CachedMethods
 cachedMethods pQuantity_ =
-    CachedMethods'
-    { _cmQuantity = pQuantity_
-    , _cmItems = mempty
-    }
+  CachedMethods' {_cmQuantity = pQuantity_, _cmItems = mempty}
+
 
 -- | The number of HTTP methods for which you want CloudFront to cache responses. Valid values are @2@ (for caching responses to @GET@ and @HEAD@ requests) and @3@ (for caching responses to @GET@ , @HEAD@ , and @OPTIONS@ requests).
 cmQuantity :: Lens' CachedMethods Int
@@ -467,9 +463,9 @@ instance FromXML CachedMethods where
               (x .@ "Quantity") <*>
                 (x .@? "Items" .!@ mempty >>= parseXMLList "Method")
 
-instance Hashable CachedMethods
+instance Hashable CachedMethods where
 
-instance NFData CachedMethods
+instance NFData CachedMethods where
 
 instance ToXML CachedMethods where
         toXML CachedMethods'{..}
@@ -483,10 +479,11 @@ instance ToXML CachedMethods where
 --
 -- /See:/ 'cloudFrontOriginAccessIdentity' smart constructor.
 data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
-    { _cfoaiCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
-    , _cfoaiId                                   :: !Text
-    , _cfoaiS3CanonicalUserId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfoaiCloudFrontOriginAccessIdentityConfig :: {-# NOUNPACK #-}!(Maybe CloudFrontOriginAccessIdentityConfig)
+  , _cfoaiId :: {-# NOUNPACK #-}!Text
+  , _cfoaiS3CanonicalUserId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
@@ -502,11 +499,12 @@ cloudFrontOriginAccessIdentity
     -> Text -- ^ 'cfoaiS3CanonicalUserId'
     -> CloudFrontOriginAccessIdentity
 cloudFrontOriginAccessIdentity pId_ pS3CanonicalUserId_ =
-    CloudFrontOriginAccessIdentity'
-    { _cfoaiCloudFrontOriginAccessIdentityConfig = Nothing
-    , _cfoaiId = pId_
-    , _cfoaiS3CanonicalUserId = pS3CanonicalUserId_
-    }
+  CloudFrontOriginAccessIdentity'
+  { _cfoaiCloudFrontOriginAccessIdentityConfig = Nothing
+  , _cfoaiId = pId_
+  , _cfoaiS3CanonicalUserId = pS3CanonicalUserId_
+  }
+
 
 -- | The current configuration information for the identity.
 cfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CloudFrontOriginAccessIdentity (Maybe CloudFrontOriginAccessIdentityConfig)
@@ -528,8 +526,9 @@ instance FromXML CloudFrontOriginAccessIdentity where
                 <*> (x .@ "S3CanonicalUserId")
 
 instance Hashable CloudFrontOriginAccessIdentity
+         where
 
-instance NFData CloudFrontOriginAccessIdentity
+instance NFData CloudFrontOriginAccessIdentity where
 
 -- | Origin access identity configuration. Send a @GET@ request to the @//CloudFront API version/ /CloudFront/identity ID/config@ resource.
 --
@@ -537,9 +536,10 @@ instance NFData CloudFrontOriginAccessIdentity
 --
 -- /See:/ 'cloudFrontOriginAccessIdentityConfig' smart constructor.
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'
-    { _cfoaicCallerReference :: !Text
-    , _cfoaicComment         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfoaicCallerReference :: {-# NOUNPACK #-}!Text
+  , _cfoaicComment         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudFrontOriginAccessIdentityConfig' with the minimum fields required to make a request.
 --
@@ -553,10 +553,9 @@ cloudFrontOriginAccessIdentityConfig
     -> Text -- ^ 'cfoaicComment'
     -> CloudFrontOriginAccessIdentityConfig
 cloudFrontOriginAccessIdentityConfig pCallerReference_ pComment_ =
-    CloudFrontOriginAccessIdentityConfig'
-    { _cfoaicCallerReference = pCallerReference_
-    , _cfoaicComment = pComment_
-    }
+  CloudFrontOriginAccessIdentityConfig'
+  {_cfoaicCallerReference = pCallerReference_, _cfoaicComment = pComment_}
+
 
 -- | A unique number that ensures the request can't be replayed. If the @CallerReference@ is new (no matter the content of the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access identity is created. If the @CallerReference@ is a value already sent in a previous identity request, and the content of the @CloudFrontOriginAccessIdentityConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request.  If the @CallerReference@ is a value you already sent in a previous request to create an identity, but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
 cfoaicCallerReference :: Lens' CloudFrontOriginAccessIdentityConfig Text
@@ -573,9 +572,11 @@ instance FromXML CloudFrontOriginAccessIdentityConfig
               (x .@ "CallerReference") <*> (x .@ "Comment")
 
 instance Hashable
-         CloudFrontOriginAccessIdentityConfig
+           CloudFrontOriginAccessIdentityConfig
+         where
 
 instance NFData CloudFrontOriginAccessIdentityConfig
+         where
 
 instance ToXML CloudFrontOriginAccessIdentityConfig
          where
@@ -590,13 +591,14 @@ instance ToXML CloudFrontOriginAccessIdentityConfig
 --
 -- /See:/ 'cloudFrontOriginAccessIdentityList' smart constructor.
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
-    { _cfoailItems       :: !(Maybe [CloudFrontOriginAccessIdentitySummary])
-    , _cfoailNextMarker  :: !(Maybe Text)
-    , _cfoailMarker      :: !Text
-    , _cfoailMaxItems    :: !Int
-    , _cfoailIsTruncated :: !Bool
-    , _cfoailQuantity    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfoailItems :: {-# NOUNPACK #-}!(Maybe [CloudFrontOriginAccessIdentitySummary])
+  , _cfoailNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfoailMarker :: {-# NOUNPACK #-}!Text
+  , _cfoailMaxItems :: {-# NOUNPACK #-}!Int
+  , _cfoailIsTruncated :: {-# NOUNPACK #-}!Bool
+  , _cfoailQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudFrontOriginAccessIdentityList' with the minimum fields required to make a request.
 --
@@ -620,14 +622,15 @@ cloudFrontOriginAccessIdentityList
     -> Int -- ^ 'cfoailQuantity'
     -> CloudFrontOriginAccessIdentityList
 cloudFrontOriginAccessIdentityList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
-    CloudFrontOriginAccessIdentityList'
-    { _cfoailItems = Nothing
-    , _cfoailNextMarker = Nothing
-    , _cfoailMarker = pMarker_
-    , _cfoailMaxItems = pMaxItems_
-    , _cfoailIsTruncated = pIsTruncated_
-    , _cfoailQuantity = pQuantity_
-    }
+  CloudFrontOriginAccessIdentityList'
+  { _cfoailItems = Nothing
+  , _cfoailNextMarker = Nothing
+  , _cfoailMarker = pMarker_
+  , _cfoailMaxItems = pMaxItems_
+  , _cfoailIsTruncated = pIsTruncated_
+  , _cfoailQuantity = pQuantity_
+  }
+
 
 -- | A complex type that contains one @CloudFrontOriginAccessIdentitySummary@ element for each origin access identity that was created by the current AWS account.
 cfoailItems :: Lens' CloudFrontOriginAccessIdentityList [CloudFrontOriginAccessIdentitySummary]
@@ -668,8 +671,10 @@ instance FromXML CloudFrontOriginAccessIdentityList
                 <*> (x .@ "Quantity")
 
 instance Hashable CloudFrontOriginAccessIdentityList
+         where
 
 instance NFData CloudFrontOriginAccessIdentityList
+         where
 
 -- | Summary of the information about a CloudFront origin access identity.
 --
@@ -677,10 +682,11 @@ instance NFData CloudFrontOriginAccessIdentityList
 --
 -- /See:/ 'cloudFrontOriginAccessIdentitySummary' smart constructor.
 data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary'
-    { _cfoaisId                :: !Text
-    , _cfoaisS3CanonicalUserId :: !Text
-    , _cfoaisComment           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfoaisId                :: {-# NOUNPACK #-}!Text
+  , _cfoaisS3CanonicalUserId :: {-# NOUNPACK #-}!Text
+  , _cfoaisComment           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CloudFrontOriginAccessIdentitySummary' with the minimum fields required to make a request.
 --
@@ -697,11 +703,12 @@ cloudFrontOriginAccessIdentitySummary
     -> Text -- ^ 'cfoaisComment'
     -> CloudFrontOriginAccessIdentitySummary
 cloudFrontOriginAccessIdentitySummary pId_ pS3CanonicalUserId_ pComment_ =
-    CloudFrontOriginAccessIdentitySummary'
-    { _cfoaisId = pId_
-    , _cfoaisS3CanonicalUserId = pS3CanonicalUserId_
-    , _cfoaisComment = pComment_
-    }
+  CloudFrontOriginAccessIdentitySummary'
+  { _cfoaisId = pId_
+  , _cfoaisS3CanonicalUserId = pS3CanonicalUserId_
+  , _cfoaisComment = pComment_
+  }
+
 
 -- | The ID for the origin access identity. For example: @E74FTE3AJFJ256A@ .
 cfoaisId :: Lens' CloudFrontOriginAccessIdentitySummary Text
@@ -716,16 +723,19 @@ cfoaisComment :: Lens' CloudFrontOriginAccessIdentitySummary Text
 cfoaisComment = lens _cfoaisComment (\ s a -> s{_cfoaisComment = a});
 
 instance FromXML
-         CloudFrontOriginAccessIdentitySummary where
+           CloudFrontOriginAccessIdentitySummary
+         where
         parseXML x
           = CloudFrontOriginAccessIdentitySummary' <$>
               (x .@ "Id") <*> (x .@ "S3CanonicalUserId") <*>
                 (x .@ "Comment")
 
 instance Hashable
-         CloudFrontOriginAccessIdentitySummary
+           CloudFrontOriginAccessIdentitySummary
+         where
 
 instance NFData CloudFrontOriginAccessIdentitySummary
+         where
 
 -- | A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html How CloudFront Forwards, Caches, and Logs Cookies> in the /Amazon CloudFront Developer Guide/ .
 --
@@ -733,9 +743,10 @@ instance NFData CloudFrontOriginAccessIdentitySummary
 --
 -- /See:/ 'cookieNames' smart constructor.
 data CookieNames = CookieNames'
-    { _cnItems    :: !(Maybe [Text])
-    , _cnQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnItems    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cnQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CookieNames' with the minimum fields required to make a request.
 --
@@ -748,10 +759,8 @@ cookieNames
     :: Int -- ^ 'cnQuantity'
     -> CookieNames
 cookieNames pQuantity_ =
-    CookieNames'
-    { _cnItems = Nothing
-    , _cnQuantity = pQuantity_
-    }
+  CookieNames' {_cnItems = Nothing, _cnQuantity = pQuantity_}
+
 
 -- | A complex type that contains one @Name@ element for each cookie that you want CloudFront to forward to the origin for this cache behavior.
 cnItems :: Lens' CookieNames [Text]
@@ -768,9 +777,9 @@ instance FromXML CookieNames where
                  may (parseXMLList "Name"))
                 <*> (x .@ "Quantity")
 
-instance Hashable CookieNames
+instance Hashable CookieNames where
 
-instance NFData CookieNames
+instance NFData CookieNames where
 
 instance ToXML CookieNames where
         toXML CookieNames'{..}
@@ -784,9 +793,10 @@ instance ToXML CookieNames where
 --
 -- /See:/ 'cookiePreference' smart constructor.
 data CookiePreference = CookiePreference'
-    { _cpWhitelistedNames :: !(Maybe CookieNames)
-    , _cpForward          :: !ItemSelection
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpWhitelistedNames :: {-# NOUNPACK #-}!(Maybe CookieNames)
+  , _cpForward          :: {-# NOUNPACK #-}!ItemSelection
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CookiePreference' with the minimum fields required to make a request.
 --
@@ -799,10 +809,8 @@ cookiePreference
     :: ItemSelection -- ^ 'cpForward'
     -> CookiePreference
 cookiePreference pForward_ =
-    CookiePreference'
-    { _cpWhitelistedNames = Nothing
-    , _cpForward = pForward_
-    }
+  CookiePreference' {_cpWhitelistedNames = Nothing, _cpForward = pForward_}
+
 
 -- | Required if you specify @whitelist@ for the value of @Forward:@ . A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies. If you specify @all@ or none for the value of @Forward@ , omit @WhitelistedNames@ . If you change the value of @Forward@ from @whitelist@ to all or none and you don't delete the @WhitelistedNames@ element and its child elements, CloudFront deletes them automatically. For the current limit on the number of cookie names that you can whitelist for each cache behavior, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront Amazon CloudFront Limits> in the /AWS General Reference/ .
 cpWhitelistedNames :: Lens' CookiePreference (Maybe CookieNames)
@@ -817,9 +825,9 @@ instance FromXML CookiePreference where
           = CookiePreference' <$>
               (x .@? "WhitelistedNames") <*> (x .@ "Forward")
 
-instance Hashable CookiePreference
+instance Hashable CookiePreference where
 
-instance NFData CookiePreference
+instance NFData CookiePreference where
 
 instance ToXML CookiePreference where
         toXML CookiePreference'{..}
@@ -841,11 +849,12 @@ instance ToXML CookiePreference where
 --
 -- /See:/ 'customErrorResponse' smart constructor.
 data CustomErrorResponse = CustomErrorResponse'
-    { _ceResponsePagePath   :: !(Maybe Text)
-    , _ceResponseCode       :: !(Maybe Text)
-    , _ceErrorCachingMinTTL :: !(Maybe Integer)
-    , _ceErrorCode          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ceResponsePagePath   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceResponseCode       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ceErrorCachingMinTTL :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _ceErrorCode          :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomErrorResponse' with the minimum fields required to make a request.
 --
@@ -862,12 +871,13 @@ customErrorResponse
     :: Int -- ^ 'ceErrorCode'
     -> CustomErrorResponse
 customErrorResponse pErrorCode_ =
-    CustomErrorResponse'
-    { _ceResponsePagePath = Nothing
-    , _ceResponseCode = Nothing
-    , _ceErrorCachingMinTTL = Nothing
-    , _ceErrorCode = pErrorCode_
-    }
+  CustomErrorResponse'
+  { _ceResponsePagePath = Nothing
+  , _ceResponseCode = Nothing
+  , _ceErrorCachingMinTTL = Nothing
+  , _ceErrorCode = pErrorCode_
+  }
+
 
 -- | The path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by @ErrorCode@ , for example, @/4xx-errors/403-forbidden.html@ . If you want to store your objects and your custom error pages in different locations, your distribution must include a cache behavior for which the following is true:     * The value of @PathPattern@ matches the path to your custom error messages. For example, suppose you saved custom error pages for 4xx errors in an Amazon S3 bucket in a directory named @/4xx-errors@ . Your distribution must include a cache behavior for which the path pattern routes requests for your custom error pages to that location, for example, @/4xx-errors/*@ .      * The value of @TargetOriginId@ specifies the value of the @ID@ element for the origin that contains your custom error pages. If you specify a value for @ResponsePagePath@ , you must also specify a value for @ResponseCode@ . If you don't want to specify a value, include an empty element, @<ResponsePagePath>@ , in the XML document. We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
 ceResponsePagePath :: Lens' CustomErrorResponse (Maybe Text)
@@ -892,9 +902,9 @@ instance FromXML CustomErrorResponse where
                 <*> (x .@? "ErrorCachingMinTTL")
                 <*> (x .@ "ErrorCode")
 
-instance Hashable CustomErrorResponse
+instance Hashable CustomErrorResponse where
 
-instance NFData CustomErrorResponse
+instance NFData CustomErrorResponse where
 
 instance ToXML CustomErrorResponse where
         toXML CustomErrorResponse'{..}
@@ -918,9 +928,10 @@ instance ToXML CustomErrorResponse where
 --
 -- /See:/ 'customErrorResponses' smart constructor.
 data CustomErrorResponses = CustomErrorResponses'
-    { _cerItems    :: !(Maybe [CustomErrorResponse])
-    , _cerQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cerItems    :: {-# NOUNPACK #-}!(Maybe [CustomErrorResponse])
+  , _cerQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomErrorResponses' with the minimum fields required to make a request.
 --
@@ -933,10 +944,8 @@ customErrorResponses
     :: Int -- ^ 'cerQuantity'
     -> CustomErrorResponses
 customErrorResponses pQuantity_ =
-    CustomErrorResponses'
-    { _cerItems = Nothing
-    , _cerQuantity = pQuantity_
-    }
+  CustomErrorResponses' {_cerItems = Nothing, _cerQuantity = pQuantity_}
+
 
 -- | A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration.
 cerItems :: Lens' CustomErrorResponses [CustomErrorResponse]
@@ -953,9 +962,9 @@ instance FromXML CustomErrorResponses where
                  may (parseXMLList "CustomErrorResponse"))
                 <*> (x .@ "Quantity")
 
-instance Hashable CustomErrorResponses
+instance Hashable CustomErrorResponses where
 
-instance NFData CustomErrorResponses
+instance NFData CustomErrorResponses where
 
 instance ToXML CustomErrorResponses where
         toXML CustomErrorResponses'{..}
@@ -971,9 +980,10 @@ instance ToXML CustomErrorResponses where
 --
 -- /See:/ 'customHeaders' smart constructor.
 data CustomHeaders = CustomHeaders'
-    { _chItems    :: !(Maybe [OriginCustomHeader])
-    , _chQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chItems    :: {-# NOUNPACK #-}!(Maybe [OriginCustomHeader])
+  , _chQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomHeaders' with the minimum fields required to make a request.
 --
@@ -986,10 +996,8 @@ customHeaders
     :: Int -- ^ 'chQuantity'
     -> CustomHeaders
 customHeaders pQuantity_ =
-    CustomHeaders'
-    { _chItems = Nothing
-    , _chQuantity = pQuantity_
-    }
+  CustomHeaders' {_chItems = Nothing, _chQuantity = pQuantity_}
+
 
 -- | __Optional__ : A list that contains one @OriginCustomHeader@ element for each custom header that you want CloudFront to forward to the origin. If Quantity is @0@ , omit @Items@ .
 chItems :: Lens' CustomHeaders [OriginCustomHeader]
@@ -1006,9 +1014,9 @@ instance FromXML CustomHeaders where
                  may (parseXMLList "OriginCustomHeader"))
                 <*> (x .@ "Quantity")
 
-instance Hashable CustomHeaders
+instance Hashable CustomHeaders where
 
-instance NFData CustomHeaders
+instance NFData CustomHeaders where
 
 instance ToXML CustomHeaders where
         toXML CustomHeaders'{..}
@@ -1023,13 +1031,14 @@ instance ToXML CustomHeaders where
 --
 -- /See:/ 'customOriginConfig' smart constructor.
 data CustomOriginConfig = CustomOriginConfig'
-    { _cocOriginKeepaliveTimeout :: !(Maybe Int)
-    , _cocOriginReadTimeout      :: !(Maybe Int)
-    , _cocOriginSSLProtocols     :: !(Maybe OriginSSLProtocols)
-    , _cocHTTPPort               :: !Int
-    , _cocHTTPSPort              :: !Int
-    , _cocOriginProtocolPolicy   :: !OriginProtocolPolicy
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cocOriginKeepaliveTimeout :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cocOriginReadTimeout      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cocOriginSSLProtocols     :: {-# NOUNPACK #-}!(Maybe OriginSSLProtocols)
+  , _cocHTTPPort               :: {-# NOUNPACK #-}!Int
+  , _cocHTTPSPort              :: {-# NOUNPACK #-}!Int
+  , _cocOriginProtocolPolicy   :: {-# NOUNPACK #-}!OriginProtocolPolicy
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomOriginConfig' with the minimum fields required to make a request.
 --
@@ -1052,14 +1061,15 @@ customOriginConfig
     -> OriginProtocolPolicy -- ^ 'cocOriginProtocolPolicy'
     -> CustomOriginConfig
 customOriginConfig pHTTPPort_ pHTTPSPort_ pOriginProtocolPolicy_ =
-    CustomOriginConfig'
-    { _cocOriginKeepaliveTimeout = Nothing
-    , _cocOriginReadTimeout = Nothing
-    , _cocOriginSSLProtocols = Nothing
-    , _cocHTTPPort = pHTTPPort_
-    , _cocHTTPSPort = pHTTPSPort_
-    , _cocOriginProtocolPolicy = pOriginProtocolPolicy_
-    }
+  CustomOriginConfig'
+  { _cocOriginKeepaliveTimeout = Nothing
+  , _cocOriginReadTimeout = Nothing
+  , _cocOriginSSLProtocols = Nothing
+  , _cocHTTPPort = pHTTPPort_
+  , _cocHTTPSPort = pHTTPSPort_
+  , _cocOriginProtocolPolicy = pOriginProtocolPolicy_
+  }
+
 
 -- | You can create a custom keep-alive timeout. All timeout units are in seconds. The default keep-alive timeout is 5 seconds, but you can configure custom timeout lengths using the CloudFront API. The minimum timeout length is 1 second; the maximum is 60 seconds. If you need to increase the maximum time limit, contact the <https://console.aws.amazon.com/support/home#/ AWS Support Center> .
 cocOriginKeepaliveTimeout :: Lens' CustomOriginConfig (Maybe Int)
@@ -1095,9 +1105,9 @@ instance FromXML CustomOriginConfig where
                 <*> (x .@ "HTTPSPort")
                 <*> (x .@ "OriginProtocolPolicy")
 
-instance Hashable CustomOriginConfig
+instance Hashable CustomOriginConfig where
 
-instance NFData CustomOriginConfig
+instance NFData CustomOriginConfig where
 
 instance ToXML CustomOriginConfig where
         toXML CustomOriginConfig'{..}
@@ -1116,18 +1126,19 @@ instance ToXML CustomOriginConfig where
 --
 -- /See:/ 'defaultCacheBehavior' smart constructor.
 data DefaultCacheBehavior = DefaultCacheBehavior'
-    { _dcbAllowedMethods             :: !(Maybe AllowedMethods)
-    , _dcbLambdaFunctionAssociations :: !(Maybe LambdaFunctionAssociations)
-    , _dcbMaxTTL                     :: !(Maybe Integer)
-    , _dcbCompress                   :: !(Maybe Bool)
-    , _dcbSmoothStreaming            :: !(Maybe Bool)
-    , _dcbDefaultTTL                 :: !(Maybe Integer)
-    , _dcbTargetOriginId             :: !Text
-    , _dcbForwardedValues            :: !ForwardedValues
-    , _dcbTrustedSigners             :: !TrustedSigners
-    , _dcbViewerProtocolPolicy       :: !ViewerProtocolPolicy
-    , _dcbMinTTL                     :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcbAllowedMethods :: {-# NOUNPACK #-}!(Maybe AllowedMethods)
+  , _dcbLambdaFunctionAssociations :: {-# NOUNPACK #-}!(Maybe LambdaFunctionAssociations)
+  , _dcbMaxTTL :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dcbCompress :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcbSmoothStreaming :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcbDefaultTTL :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dcbTargetOriginId :: {-# NOUNPACK #-}!Text
+  , _dcbForwardedValues :: {-# NOUNPACK #-}!ForwardedValues
+  , _dcbTrustedSigners :: {-# NOUNPACK #-}!TrustedSigners
+  , _dcbViewerProtocolPolicy :: {-# NOUNPACK #-}!ViewerProtocolPolicy
+  , _dcbMinTTL :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefaultCacheBehavior' with the minimum fields required to make a request.
 --
@@ -1162,19 +1173,20 @@ defaultCacheBehavior
     -> Integer -- ^ 'dcbMinTTL'
     -> DefaultCacheBehavior
 defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
-    DefaultCacheBehavior'
-    { _dcbAllowedMethods = Nothing
-    , _dcbLambdaFunctionAssociations = Nothing
-    , _dcbMaxTTL = Nothing
-    , _dcbCompress = Nothing
-    , _dcbSmoothStreaming = Nothing
-    , _dcbDefaultTTL = Nothing
-    , _dcbTargetOriginId = pTargetOriginId_
-    , _dcbForwardedValues = pForwardedValues_
-    , _dcbTrustedSigners = pTrustedSigners_
-    , _dcbViewerProtocolPolicy = pViewerProtocolPolicy_
-    , _dcbMinTTL = pMinTTL_
-    }
+  DefaultCacheBehavior'
+  { _dcbAllowedMethods = Nothing
+  , _dcbLambdaFunctionAssociations = Nothing
+  , _dcbMaxTTL = Nothing
+  , _dcbCompress = Nothing
+  , _dcbSmoothStreaming = Nothing
+  , _dcbDefaultTTL = Nothing
+  , _dcbTargetOriginId = pTargetOriginId_
+  , _dcbForwardedValues = pForwardedValues_
+  , _dcbTrustedSigners = pTrustedSigners_
+  , _dcbViewerProtocolPolicy = pViewerProtocolPolicy_
+  , _dcbMinTTL = pMinTTL_
+  }
+
 
 -- | Undocumented member.
 dcbAllowedMethods :: Lens' DefaultCacheBehavior (Maybe AllowedMethods)
@@ -1235,9 +1247,9 @@ instance FromXML DefaultCacheBehavior where
                 <*> (x .@ "ViewerProtocolPolicy")
                 <*> (x .@ "MinTTL")
 
-instance Hashable DefaultCacheBehavior
+instance Hashable DefaultCacheBehavior where
 
-instance NFData DefaultCacheBehavior
+instance NFData DefaultCacheBehavior where
 
 instance ToXML DefaultCacheBehavior where
         toXML DefaultCacheBehavior'{..}
@@ -1260,15 +1272,16 @@ instance ToXML DefaultCacheBehavior where
 --
 -- /See:/ 'distribution' smart constructor.
 data Distribution = Distribution'
-    { _dId                            :: !Text
-    , _dARN                           :: !Text
-    , _dStatus                        :: !Text
-    , _dLastModifiedTime              :: !ISO8601
-    , _dInProgressInvalidationBatches :: !Int
-    , _dDomainName                    :: !Text
-    , _dActiveTrustedSigners          :: !ActiveTrustedSigners
-    , _dDistributionConfig            :: !DistributionConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dId                            :: {-# NOUNPACK #-}!Text
+  , _dARN                           :: {-# NOUNPACK #-}!Text
+  , _dStatus                        :: {-# NOUNPACK #-}!Text
+  , _dLastModifiedTime              :: {-# NOUNPACK #-}!ISO8601
+  , _dInProgressInvalidationBatches :: {-# NOUNPACK #-}!Int
+  , _dDomainName                    :: {-# NOUNPACK #-}!Text
+  , _dActiveTrustedSigners          :: {-# NOUNPACK #-}!ActiveTrustedSigners
+  , _dDistributionConfig            :: {-# NOUNPACK #-}!DistributionConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Distribution' with the minimum fields required to make a request.
 --
@@ -1300,16 +1313,17 @@ distribution
     -> DistributionConfig -- ^ 'dDistributionConfig'
     -> Distribution
 distribution pId_ pARN_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatches_ pDomainName_ pActiveTrustedSigners_ pDistributionConfig_ =
-    Distribution'
-    { _dId = pId_
-    , _dARN = pARN_
-    , _dStatus = pStatus_
-    , _dLastModifiedTime = _Time # pLastModifiedTime_
-    , _dInProgressInvalidationBatches = pInProgressInvalidationBatches_
-    , _dDomainName = pDomainName_
-    , _dActiveTrustedSigners = pActiveTrustedSigners_
-    , _dDistributionConfig = pDistributionConfig_
-    }
+  Distribution'
+  { _dId = pId_
+  , _dARN = pARN_
+  , _dStatus = pStatus_
+  , _dLastModifiedTime = _Time # pLastModifiedTime_
+  , _dInProgressInvalidationBatches = pInProgressInvalidationBatches_
+  , _dDomainName = pDomainName_
+  , _dActiveTrustedSigners = pActiveTrustedSigners_
+  , _dDistributionConfig = pDistributionConfig_
+  }
+
 
 -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@ .
 dId :: Lens' Distribution Text
@@ -1353,9 +1367,9 @@ instance FromXML Distribution where
                 <*> (x .@ "ActiveTrustedSigners")
                 <*> (x .@ "DistributionConfig")
 
-instance Hashable Distribution
+instance Hashable Distribution where
 
-instance NFData Distribution
+instance NFData Distribution where
 
 -- | A distribution configuration.
 --
@@ -1363,23 +1377,24 @@ instance NFData Distribution
 --
 -- /See:/ 'distributionConfig' smart constructor.
 data DistributionConfig = DistributionConfig'
-    { _dcHTTPVersion          :: !(Maybe HTTPVersion)
-    , _dcAliases              :: !(Maybe Aliases)
-    , _dcDefaultRootObject    :: !(Maybe Text)
-    , _dcPriceClass           :: !(Maybe PriceClass)
-    , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
-    , _dcWebACLId             :: !(Maybe Text)
-    , _dcViewerCertificate    :: !(Maybe ViewerCertificate)
-    , _dcRestrictions         :: !(Maybe Restrictions)
-    , _dcLogging              :: !(Maybe LoggingConfig)
-    , _dcCacheBehaviors       :: !(Maybe CacheBehaviors)
-    , _dcIsIPV6Enabled        :: !(Maybe Bool)
-    , _dcCallerReference      :: !Text
-    , _dcOrigins              :: !Origins
-    , _dcDefaultCacheBehavior :: !DefaultCacheBehavior
-    , _dcComment              :: !Text
-    , _dcEnabled              :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcHTTPVersion          :: {-# NOUNPACK #-}!(Maybe HTTPVersion)
+  , _dcAliases              :: {-# NOUNPACK #-}!(Maybe Aliases)
+  , _dcDefaultRootObject    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcPriceClass           :: {-# NOUNPACK #-}!(Maybe PriceClass)
+  , _dcCustomErrorResponses :: {-# NOUNPACK #-}!(Maybe CustomErrorResponses)
+  , _dcWebACLId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcViewerCertificate    :: {-# NOUNPACK #-}!(Maybe ViewerCertificate)
+  , _dcRestrictions         :: {-# NOUNPACK #-}!(Maybe Restrictions)
+  , _dcLogging              :: {-# NOUNPACK #-}!(Maybe LoggingConfig)
+  , _dcCacheBehaviors       :: {-# NOUNPACK #-}!(Maybe CacheBehaviors)
+  , _dcIsIPV6Enabled        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcCallerReference      :: {-# NOUNPACK #-}!Text
+  , _dcOrigins              :: {-# NOUNPACK #-}!Origins
+  , _dcDefaultCacheBehavior :: {-# NOUNPACK #-}!DefaultCacheBehavior
+  , _dcComment              :: {-# NOUNPACK #-}!Text
+  , _dcEnabled              :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DistributionConfig' with the minimum fields required to make a request.
 --
@@ -1424,24 +1439,25 @@ distributionConfig
     -> Bool -- ^ 'dcEnabled'
     -> DistributionConfig
 distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ pEnabled_ =
-    DistributionConfig'
-    { _dcHTTPVersion = Nothing
-    , _dcAliases = Nothing
-    , _dcDefaultRootObject = Nothing
-    , _dcPriceClass = Nothing
-    , _dcCustomErrorResponses = Nothing
-    , _dcWebACLId = Nothing
-    , _dcViewerCertificate = Nothing
-    , _dcRestrictions = Nothing
-    , _dcLogging = Nothing
-    , _dcCacheBehaviors = Nothing
-    , _dcIsIPV6Enabled = Nothing
-    , _dcCallerReference = pCallerReference_
-    , _dcOrigins = pOrigins_
-    , _dcDefaultCacheBehavior = pDefaultCacheBehavior_
-    , _dcComment = pComment_
-    , _dcEnabled = pEnabled_
-    }
+  DistributionConfig'
+  { _dcHTTPVersion = Nothing
+  , _dcAliases = Nothing
+  , _dcDefaultRootObject = Nothing
+  , _dcPriceClass = Nothing
+  , _dcCustomErrorResponses = Nothing
+  , _dcWebACLId = Nothing
+  , _dcViewerCertificate = Nothing
+  , _dcRestrictions = Nothing
+  , _dcLogging = Nothing
+  , _dcCacheBehaviors = Nothing
+  , _dcIsIPV6Enabled = Nothing
+  , _dcCallerReference = pCallerReference_
+  , _dcOrigins = pOrigins_
+  , _dcDefaultCacheBehavior = pDefaultCacheBehavior_
+  , _dcComment = pComment_
+  , _dcEnabled = pEnabled_
+  }
+
 
 -- | (Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is http2. Viewers that don't support HTTP/2 automatically use an earlier HTTP version. For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support Server Name Identification (SNI). In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2. For more information, do an Internet search for "http/2 optimization."
 dcHTTPVersion :: Lens' DistributionConfig (Maybe HTTPVersion)
@@ -1526,9 +1542,9 @@ instance FromXML DistributionConfig where
                 <*> (x .@ "Comment")
                 <*> (x .@ "Enabled")
 
-instance Hashable DistributionConfig
+instance Hashable DistributionConfig where
 
-instance NFData DistributionConfig
+instance NFData DistributionConfig where
 
 instance ToXML DistributionConfig where
         toXML DistributionConfig'{..}
@@ -1555,9 +1571,10 @@ instance ToXML DistributionConfig where
 --
 -- /See:/ 'distributionConfigWithTags' smart constructor.
 data DistributionConfigWithTags = DistributionConfigWithTags'
-    { _dcwtDistributionConfig :: !DistributionConfig
-    , _dcwtTags               :: !Tags
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcwtDistributionConfig :: {-# NOUNPACK #-}!DistributionConfig
+  , _dcwtTags               :: {-# NOUNPACK #-}!Tags
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DistributionConfigWithTags' with the minimum fields required to make a request.
 --
@@ -1571,10 +1588,9 @@ distributionConfigWithTags
     -> Tags -- ^ 'dcwtTags'
     -> DistributionConfigWithTags
 distributionConfigWithTags pDistributionConfig_ pTags_ =
-    DistributionConfigWithTags'
-    { _dcwtDistributionConfig = pDistributionConfig_
-    , _dcwtTags = pTags_
-    }
+  DistributionConfigWithTags'
+  {_dcwtDistributionConfig = pDistributionConfig_, _dcwtTags = pTags_}
+
 
 -- | A distribution configuration.
 dcwtDistributionConfig :: Lens' DistributionConfigWithTags DistributionConfig
@@ -1584,9 +1600,9 @@ dcwtDistributionConfig = lens _dcwtDistributionConfig (\ s a -> s{_dcwtDistribut
 dcwtTags :: Lens' DistributionConfigWithTags Tags
 dcwtTags = lens _dcwtTags (\ s a -> s{_dcwtTags = a});
 
-instance Hashable DistributionConfigWithTags
+instance Hashable DistributionConfigWithTags where
 
-instance NFData DistributionConfigWithTags
+instance NFData DistributionConfigWithTags where
 
 instance ToXML DistributionConfigWithTags where
         toXML DistributionConfigWithTags'{..}
@@ -1600,13 +1616,14 @@ instance ToXML DistributionConfigWithTags where
 --
 -- /See:/ 'distributionList' smart constructor.
 data DistributionList = DistributionList'
-    { _dlItems       :: !(Maybe [DistributionSummary])
-    , _dlNextMarker  :: !(Maybe Text)
-    , _dlMarker      :: !Text
-    , _dlMaxItems    :: !Int
-    , _dlIsTruncated :: !Bool
-    , _dlQuantity    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlItems       :: {-# NOUNPACK #-}!(Maybe [DistributionSummary])
+  , _dlNextMarker  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dlMarker      :: {-# NOUNPACK #-}!Text
+  , _dlMaxItems    :: {-# NOUNPACK #-}!Int
+  , _dlIsTruncated :: {-# NOUNPACK #-}!Bool
+  , _dlQuantity    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DistributionList' with the minimum fields required to make a request.
 --
@@ -1630,14 +1647,15 @@ distributionList
     -> Int -- ^ 'dlQuantity'
     -> DistributionList
 distributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
-    DistributionList'
-    { _dlItems = Nothing
-    , _dlNextMarker = Nothing
-    , _dlMarker = pMarker_
-    , _dlMaxItems = pMaxItems_
-    , _dlIsTruncated = pIsTruncated_
-    , _dlQuantity = pQuantity_
-    }
+  DistributionList'
+  { _dlItems = Nothing
+  , _dlNextMarker = Nothing
+  , _dlMarker = pMarker_
+  , _dlMaxItems = pMaxItems_
+  , _dlIsTruncated = pIsTruncated_
+  , _dlQuantity = pQuantity_
+  }
+
 
 -- | A complex type that contains one @DistributionSummary@ element for each distribution that was created by the current AWS account.
 dlItems :: Lens' DistributionList [DistributionSummary]
@@ -1674,9 +1692,9 @@ instance FromXML DistributionList where
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
-instance Hashable DistributionList
+instance Hashable DistributionList where
 
-instance NFData DistributionList
+instance NFData DistributionList where
 
 -- | A summary of the information about a CloudFront distribution.
 --
@@ -1684,25 +1702,26 @@ instance NFData DistributionList
 --
 -- /See:/ 'distributionSummary' smart constructor.
 data DistributionSummary = DistributionSummary'
-    { _dsId                   :: !Text
-    , _dsARN                  :: !Text
-    , _dsStatus               :: !Text
-    , _dsLastModifiedTime     :: !ISO8601
-    , _dsDomainName           :: !Text
-    , _dsAliases              :: !Aliases
-    , _dsOrigins              :: !Origins
-    , _dsDefaultCacheBehavior :: !DefaultCacheBehavior
-    , _dsCacheBehaviors       :: !CacheBehaviors
-    , _dsCustomErrorResponses :: !CustomErrorResponses
-    , _dsComment              :: !Text
-    , _dsPriceClass           :: !PriceClass
-    , _dsEnabled              :: !Bool
-    , _dsViewerCertificate    :: !ViewerCertificate
-    , _dsRestrictions         :: !Restrictions
-    , _dsWebACLId             :: !Text
-    , _dsHTTPVersion          :: !HTTPVersion
-    , _dsIsIPV6Enabled        :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsId                   :: {-# NOUNPACK #-}!Text
+  , _dsARN                  :: {-# NOUNPACK #-}!Text
+  , _dsStatus               :: {-# NOUNPACK #-}!Text
+  , _dsLastModifiedTime     :: {-# NOUNPACK #-}!ISO8601
+  , _dsDomainName           :: {-# NOUNPACK #-}!Text
+  , _dsAliases              :: {-# NOUNPACK #-}!Aliases
+  , _dsOrigins              :: {-# NOUNPACK #-}!Origins
+  , _dsDefaultCacheBehavior :: {-# NOUNPACK #-}!DefaultCacheBehavior
+  , _dsCacheBehaviors       :: {-# NOUNPACK #-}!CacheBehaviors
+  , _dsCustomErrorResponses :: {-# NOUNPACK #-}!CustomErrorResponses
+  , _dsComment              :: {-# NOUNPACK #-}!Text
+  , _dsPriceClass           :: {-# NOUNPACK #-}!PriceClass
+  , _dsEnabled              :: {-# NOUNPACK #-}!Bool
+  , _dsViewerCertificate    :: {-# NOUNPACK #-}!ViewerCertificate
+  , _dsRestrictions         :: {-# NOUNPACK #-}!Restrictions
+  , _dsWebACLId             :: {-# NOUNPACK #-}!Text
+  , _dsHTTPVersion          :: {-# NOUNPACK #-}!HTTPVersion
+  , _dsIsIPV6Enabled        :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DistributionSummary' with the minimum fields required to make a request.
 --
@@ -1764,26 +1783,27 @@ distributionSummary
     -> Bool -- ^ 'dsIsIPV6Enabled'
     -> DistributionSummary
 distributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ pWebACLId_ pHTTPVersion_ pIsIPV6Enabled_ =
-    DistributionSummary'
-    { _dsId = pId_
-    , _dsARN = pARN_
-    , _dsStatus = pStatus_
-    , _dsLastModifiedTime = _Time # pLastModifiedTime_
-    , _dsDomainName = pDomainName_
-    , _dsAliases = pAliases_
-    , _dsOrigins = pOrigins_
-    , _dsDefaultCacheBehavior = pDefaultCacheBehavior_
-    , _dsCacheBehaviors = pCacheBehaviors_
-    , _dsCustomErrorResponses = pCustomErrorResponses_
-    , _dsComment = pComment_
-    , _dsPriceClass = pPriceClass_
-    , _dsEnabled = pEnabled_
-    , _dsViewerCertificate = pViewerCertificate_
-    , _dsRestrictions = pRestrictions_
-    , _dsWebACLId = pWebACLId_
-    , _dsHTTPVersion = pHTTPVersion_
-    , _dsIsIPV6Enabled = pIsIPV6Enabled_
-    }
+  DistributionSummary'
+  { _dsId = pId_
+  , _dsARN = pARN_
+  , _dsStatus = pStatus_
+  , _dsLastModifiedTime = _Time # pLastModifiedTime_
+  , _dsDomainName = pDomainName_
+  , _dsAliases = pAliases_
+  , _dsOrigins = pOrigins_
+  , _dsDefaultCacheBehavior = pDefaultCacheBehavior_
+  , _dsCacheBehaviors = pCacheBehaviors_
+  , _dsCustomErrorResponses = pCustomErrorResponses_
+  , _dsComment = pComment_
+  , _dsPriceClass = pPriceClass_
+  , _dsEnabled = pEnabled_
+  , _dsViewerCertificate = pViewerCertificate_
+  , _dsRestrictions = pRestrictions_
+  , _dsWebACLId = pWebACLId_
+  , _dsHTTPVersion = pHTTPVersion_
+  , _dsIsIPV6Enabled = pIsIPV6Enabled_
+  }
+
 
 -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@ .
 dsId :: Lens' DistributionSummary Text
@@ -1877,9 +1897,9 @@ instance FromXML DistributionSummary where
                 <*> (x .@ "HttpVersion")
                 <*> (x .@ "IsIPV6Enabled")
 
-instance Hashable DistributionSummary
+instance Hashable DistributionSummary where
 
-instance NFData DistributionSummary
+instance NFData DistributionSummary where
 
 -- | A complex type that specifies how CloudFront handles query strings and cookies.
 --
@@ -1887,11 +1907,12 @@ instance NFData DistributionSummary
 --
 -- /See:/ 'forwardedValues' smart constructor.
 data ForwardedValues = ForwardedValues'
-    { _fvQueryStringCacheKeys :: !(Maybe QueryStringCacheKeys)
-    , _fvHeaders              :: !(Maybe Headers)
-    , _fvQueryString          :: !Bool
-    , _fvCookies              :: !CookiePreference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fvQueryStringCacheKeys :: {-# NOUNPACK #-}!(Maybe QueryStringCacheKeys)
+  , _fvHeaders              :: {-# NOUNPACK #-}!(Maybe Headers)
+  , _fvQueryString          :: {-# NOUNPACK #-}!Bool
+  , _fvCookies              :: {-# NOUNPACK #-}!CookiePreference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ForwardedValues' with the minimum fields required to make a request.
 --
@@ -1909,12 +1930,13 @@ forwardedValues
     -> CookiePreference -- ^ 'fvCookies'
     -> ForwardedValues
 forwardedValues pQueryString_ pCookies_ =
-    ForwardedValues'
-    { _fvQueryStringCacheKeys = Nothing
-    , _fvHeaders = Nothing
-    , _fvQueryString = pQueryString_
-    , _fvCookies = pCookies_
-    }
+  ForwardedValues'
+  { _fvQueryStringCacheKeys = Nothing
+  , _fvHeaders = Nothing
+  , _fvQueryString = pQueryString_
+  , _fvCookies = pCookies_
+  }
+
 
 -- | A complex type that contains information about the query string parameters that you want CloudFront to use for caching for this cache behavior.
 fvQueryStringCacheKeys :: Lens' ForwardedValues (Maybe QueryStringCacheKeys)
@@ -1939,9 +1961,9 @@ instance FromXML ForwardedValues where
                 <*> (x .@ "QueryString")
                 <*> (x .@ "Cookies")
 
-instance Hashable ForwardedValues
+instance Hashable ForwardedValues where
 
-instance NFData ForwardedValues
+instance NFData ForwardedValues where
 
 instance ToXML ForwardedValues where
         toXML ForwardedValues'{..}
@@ -1957,10 +1979,11 @@ instance ToXML ForwardedValues where
 --
 -- /See:/ 'geoRestriction' smart constructor.
 data GeoRestriction = GeoRestriction'
-    { _grItems           :: !(Maybe [Text])
-    , _grRestrictionType :: !GeoRestrictionType
-    , _grQuantity        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grItems           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _grRestrictionType :: {-# NOUNPACK #-}!GeoRestrictionType
+  , _grQuantity        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GeoRestriction' with the minimum fields required to make a request.
 --
@@ -1976,11 +1999,12 @@ geoRestriction
     -> Int -- ^ 'grQuantity'
     -> GeoRestriction
 geoRestriction pRestrictionType_ pQuantity_ =
-    GeoRestriction'
-    { _grItems = Nothing
-    , _grRestrictionType = pRestrictionType_
-    , _grQuantity = pQuantity_
-    }
+  GeoRestriction'
+  { _grItems = Nothing
+  , _grRestrictionType = pRestrictionType_
+  , _grQuantity = pQuantity_
+  }
+
 
 -- | A complex type that contains a @Location@ element for each country in which you want CloudFront either to distribute your content (@whitelist@ ) or not distribute your content (@blacklist@ ). The @Location@ element is a two-letter, uppercase country code for a country that you want to include in your @blacklist@ or @whitelist@ . Include one @Location@ element for each country. CloudFront and @MaxMind@ both use @ISO 3166@ country codes. For the current list of countries and the corresponding codes, see @ISO 3166-1-alpha-2@ code on the /International Organization for Standardization/ website. You can also refer to the country list in the CloudFront console, which includes both country names and codes.
 grItems :: Lens' GeoRestriction [Text]
@@ -2002,9 +2026,9 @@ instance FromXML GeoRestriction where
                 <*> (x .@ "RestrictionType")
                 <*> (x .@ "Quantity")
 
-instance Hashable GeoRestriction
+instance Hashable GeoRestriction where
 
-instance NFData GeoRestriction
+instance NFData GeoRestriction where
 
 instance ToXML GeoRestriction where
         toXML GeoRestriction'{..}
@@ -2022,9 +2046,10 @@ instance ToXML GeoRestriction where
 --
 -- /See:/ 'headers' smart constructor.
 data Headers = Headers'
-    { _hItems    :: !(Maybe [Text])
-    , _hQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _hItems    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _hQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Headers' with the minimum fields required to make a request.
 --
@@ -2036,11 +2061,8 @@ data Headers = Headers'
 headers
     :: Int -- ^ 'hQuantity'
     -> Headers
-headers pQuantity_ =
-    Headers'
-    { _hItems = Nothing
-    , _hQuantity = pQuantity_
-    }
+headers pQuantity_ = Headers' {_hItems = Nothing, _hQuantity = pQuantity_}
+
 
 -- | A complex type that contains one @Name@ element for each header that you want CloudFront to forward to the origin and to vary on for this cache behavior. If @Quantity@ is @0@ , omit @Items@ .
 hItems :: Lens' Headers [Text]
@@ -2057,9 +2079,9 @@ instance FromXML Headers where
                  may (parseXMLList "Name"))
                 <*> (x .@ "Quantity")
 
-instance Hashable Headers
+instance Hashable Headers where
 
-instance NFData Headers
+instance NFData Headers where
 
 instance ToXML Headers where
         toXML Headers'{..}
@@ -2073,11 +2095,12 @@ instance ToXML Headers where
 --
 -- /See:/ 'invalidation' smart constructor.
 data Invalidation = Invalidation'
-    { _iId                :: !Text
-    , _iStatus            :: !Text
-    , _iCreateTime        :: !ISO8601
-    , _iInvalidationBatch :: !InvalidationBatch
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iId                :: {-# NOUNPACK #-}!Text
+  , _iStatus            :: {-# NOUNPACK #-}!Text
+  , _iCreateTime        :: {-# NOUNPACK #-}!ISO8601
+  , _iInvalidationBatch :: {-# NOUNPACK #-}!InvalidationBatch
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Invalidation' with the minimum fields required to make a request.
 --
@@ -2097,12 +2120,13 @@ invalidation
     -> InvalidationBatch -- ^ 'iInvalidationBatch'
     -> Invalidation
 invalidation pId_ pStatus_ pCreateTime_ pInvalidationBatch_ =
-    Invalidation'
-    { _iId = pId_
-    , _iStatus = pStatus_
-    , _iCreateTime = _Time # pCreateTime_
-    , _iInvalidationBatch = pInvalidationBatch_
-    }
+  Invalidation'
+  { _iId = pId_
+  , _iStatus = pStatus_
+  , _iCreateTime = _Time # pCreateTime_
+  , _iInvalidationBatch = pInvalidationBatch_
+  }
+
 
 -- | The identifier for the invalidation request. For example: @IDFDVBD632BHDS5@ .
 iId :: Lens' Invalidation Text
@@ -2127,9 +2151,9 @@ instance FromXML Invalidation where
                 (x .@ "CreateTime")
                 <*> (x .@ "InvalidationBatch")
 
-instance Hashable Invalidation
+instance Hashable Invalidation where
 
-instance NFData Invalidation
+instance NFData Invalidation where
 
 -- | An invalidation batch.
 --
@@ -2137,9 +2161,10 @@ instance NFData Invalidation
 --
 -- /See:/ 'invalidationBatch' smart constructor.
 data InvalidationBatch = InvalidationBatch'
-    { _ibPaths           :: !Paths
-    , _ibCallerReference :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ibPaths           :: {-# NOUNPACK #-}!Paths
+  , _ibCallerReference :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InvalidationBatch' with the minimum fields required to make a request.
 --
@@ -2153,10 +2178,9 @@ invalidationBatch
     -> Text -- ^ 'ibCallerReference'
     -> InvalidationBatch
 invalidationBatch pPaths_ pCallerReference_ =
-    InvalidationBatch'
-    { _ibPaths = pPaths_
-    , _ibCallerReference = pCallerReference_
-    }
+  InvalidationBatch'
+  {_ibPaths = pPaths_, _ibCallerReference = pCallerReference_}
+
 
 -- | A complex type that contains information about the objects that you want to invalidate. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate> in the /Amazon CloudFront Developer Guide/ .
 ibPaths :: Lens' InvalidationBatch Paths
@@ -2171,9 +2195,9 @@ instance FromXML InvalidationBatch where
           = InvalidationBatch' <$>
               (x .@ "Paths") <*> (x .@ "CallerReference")
 
-instance Hashable InvalidationBatch
+instance Hashable InvalidationBatch where
 
-instance NFData InvalidationBatch
+instance NFData InvalidationBatch where
 
 instance ToXML InvalidationBatch where
         toXML InvalidationBatch'{..}
@@ -2187,13 +2211,14 @@ instance ToXML InvalidationBatch where
 --
 -- /See:/ 'invalidationList' smart constructor.
 data InvalidationList = InvalidationList'
-    { _ilItems       :: !(Maybe [InvalidationSummary])
-    , _ilNextMarker  :: !(Maybe Text)
-    , _ilMarker      :: !Text
-    , _ilMaxItems    :: !Int
-    , _ilIsTruncated :: !Bool
-    , _ilQuantity    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ilItems       :: {-# NOUNPACK #-}!(Maybe [InvalidationSummary])
+  , _ilNextMarker  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ilMarker      :: {-# NOUNPACK #-}!Text
+  , _ilMaxItems    :: {-# NOUNPACK #-}!Int
+  , _ilIsTruncated :: {-# NOUNPACK #-}!Bool
+  , _ilQuantity    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InvalidationList' with the minimum fields required to make a request.
 --
@@ -2217,14 +2242,15 @@ invalidationList
     -> Int -- ^ 'ilQuantity'
     -> InvalidationList
 invalidationList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
-    InvalidationList'
-    { _ilItems = Nothing
-    , _ilNextMarker = Nothing
-    , _ilMarker = pMarker_
-    , _ilMaxItems = pMaxItems_
-    , _ilIsTruncated = pIsTruncated_
-    , _ilQuantity = pQuantity_
-    }
+  InvalidationList'
+  { _ilItems = Nothing
+  , _ilNextMarker = Nothing
+  , _ilMarker = pMarker_
+  , _ilMaxItems = pMaxItems_
+  , _ilIsTruncated = pIsTruncated_
+  , _ilQuantity = pQuantity_
+  }
+
 
 -- | A complex type that contains one @InvalidationSummary@ element for each invalidation batch created by the current AWS account.
 ilItems :: Lens' InvalidationList [InvalidationSummary]
@@ -2261,9 +2287,9 @@ instance FromXML InvalidationList where
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
-instance Hashable InvalidationList
+instance Hashable InvalidationList where
 
-instance NFData InvalidationList
+instance NFData InvalidationList where
 
 -- | A summary of an invalidation request.
 --
@@ -2271,10 +2297,11 @@ instance NFData InvalidationList
 --
 -- /See:/ 'invalidationSummary' smart constructor.
 data InvalidationSummary = InvalidationSummary'
-    { _isId         :: !Text
-    , _isCreateTime :: !ISO8601
-    , _isStatus     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isId         :: {-# NOUNPACK #-}!Text
+  , _isCreateTime :: {-# NOUNPACK #-}!ISO8601
+  , _isStatus     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InvalidationSummary' with the minimum fields required to make a request.
 --
@@ -2291,11 +2318,9 @@ invalidationSummary
     -> Text -- ^ 'isStatus'
     -> InvalidationSummary
 invalidationSummary pId_ pCreateTime_ pStatus_ =
-    InvalidationSummary'
-    { _isId = pId_
-    , _isCreateTime = _Time # pCreateTime_
-    , _isStatus = pStatus_
-    }
+  InvalidationSummary'
+  {_isId = pId_, _isCreateTime = _Time # pCreateTime_, _isStatus = pStatus_}
+
 
 -- | The unique ID for an invalidation request.
 isId :: Lens' InvalidationSummary Text
@@ -2315,9 +2340,9 @@ instance FromXML InvalidationSummary where
               (x .@ "Id") <*> (x .@ "CreateTime") <*>
                 (x .@ "Status")
 
-instance Hashable InvalidationSummary
+instance Hashable InvalidationSummary where
 
-instance NFData InvalidationSummary
+instance NFData InvalidationSummary where
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that are associated with @AwsAccountNumber@ .
 --
@@ -2327,9 +2352,10 @@ instance NFData InvalidationSummary
 --
 -- /See:/ 'keyPairIds' smart constructor.
 data KeyPairIds = KeyPairIds'
-    { _kpiItems    :: !(Maybe [Text])
-    , _kpiQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kpiItems    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _kpiQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyPairIds' with the minimum fields required to make a request.
 --
@@ -2342,10 +2368,8 @@ keyPairIds
     :: Int -- ^ 'kpiQuantity'
     -> KeyPairIds
 keyPairIds pQuantity_ =
-    KeyPairIds'
-    { _kpiItems = Nothing
-    , _kpiQuantity = pQuantity_
-    }
+  KeyPairIds' {_kpiItems = Nothing, _kpiQuantity = pQuantity_}
+
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that are associated with @AwsAccountNumber@ . For more information, see 'ActiveTrustedSigners' .
 kpiItems :: Lens' KeyPairIds [Text]
@@ -2362,9 +2386,9 @@ instance FromXML KeyPairIds where
                  may (parseXMLList "KeyPairId"))
                 <*> (x .@ "Quantity")
 
-instance Hashable KeyPairIds
+instance Hashable KeyPairIds where
 
-instance NFData KeyPairIds
+instance NFData KeyPairIds where
 
 -- | A complex type that contains a Lambda function association.
 --
@@ -2372,9 +2396,10 @@ instance NFData KeyPairIds
 --
 -- /See:/ 'lambdaFunctionAssociation' smart constructor.
 data LambdaFunctionAssociation = LambdaFunctionAssociation'
-    { _lfaLambdaFunctionARN :: !(Maybe Text)
-    , _lfaEventType         :: !(Maybe EventType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfaLambdaFunctionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfaEventType         :: {-# NOUNPACK #-}!(Maybe EventType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionAssociation' with the minimum fields required to make a request.
 --
@@ -2386,10 +2411,9 @@ data LambdaFunctionAssociation = LambdaFunctionAssociation'
 lambdaFunctionAssociation
     :: LambdaFunctionAssociation
 lambdaFunctionAssociation =
-    LambdaFunctionAssociation'
-    { _lfaLambdaFunctionARN = Nothing
-    , _lfaEventType = Nothing
-    }
+  LambdaFunctionAssociation'
+  {_lfaLambdaFunctionARN = Nothing, _lfaEventType = Nothing}
+
 
 -- | The ARN of the Lambda function.
 lfaLambdaFunctionARN :: Lens' LambdaFunctionAssociation (Maybe Text)
@@ -2404,9 +2428,9 @@ instance FromXML LambdaFunctionAssociation where
           = LambdaFunctionAssociation' <$>
               (x .@? "LambdaFunctionARN") <*> (x .@? "EventType")
 
-instance Hashable LambdaFunctionAssociation
+instance Hashable LambdaFunctionAssociation where
 
-instance NFData LambdaFunctionAssociation
+instance NFData LambdaFunctionAssociation where
 
 instance ToXML LambdaFunctionAssociation where
         toXML LambdaFunctionAssociation'{..}
@@ -2424,9 +2448,10 @@ instance ToXML LambdaFunctionAssociation where
 --
 -- /See:/ 'lambdaFunctionAssociations' smart constructor.
 data LambdaFunctionAssociations = LambdaFunctionAssociations'
-    { _lfaItems    :: !(Maybe [LambdaFunctionAssociation])
-    , _lfaQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfaItems    :: {-# NOUNPACK #-}!(Maybe [LambdaFunctionAssociation])
+  , _lfaQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaFunctionAssociations' with the minimum fields required to make a request.
 --
@@ -2439,10 +2464,8 @@ lambdaFunctionAssociations
     :: Int -- ^ 'lfaQuantity'
     -> LambdaFunctionAssociations
 lambdaFunctionAssociations pQuantity_ =
-    LambdaFunctionAssociations'
-    { _lfaItems = Nothing
-    , _lfaQuantity = pQuantity_
-    }
+  LambdaFunctionAssociations' {_lfaItems = Nothing, _lfaQuantity = pQuantity_}
+
 
 -- | __Optional__ : A complex type that contains @LambdaFunctionAssociation@ items for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
 lfaItems :: Lens' LambdaFunctionAssociations [LambdaFunctionAssociation]
@@ -2459,9 +2482,9 @@ instance FromXML LambdaFunctionAssociations where
                  may (parseXMLList "LambdaFunctionAssociation"))
                 <*> (x .@ "Quantity")
 
-instance Hashable LambdaFunctionAssociations
+instance Hashable LambdaFunctionAssociations where
 
-instance NFData LambdaFunctionAssociations
+instance NFData LambdaFunctionAssociations where
 
 instance ToXML LambdaFunctionAssociations where
         toXML LambdaFunctionAssociations'{..}
@@ -2478,11 +2501,12 @@ instance ToXML LambdaFunctionAssociations where
 --
 -- /See:/ 'loggingConfig' smart constructor.
 data LoggingConfig = LoggingConfig'
-    { _lcEnabled        :: !Bool
-    , _lcIncludeCookies :: !Bool
-    , _lcBucket         :: !Text
-    , _lcPrefix         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcEnabled        :: {-# NOUNPACK #-}!Bool
+  , _lcIncludeCookies :: {-# NOUNPACK #-}!Bool
+  , _lcBucket         :: {-# NOUNPACK #-}!Text
+  , _lcPrefix         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoggingConfig' with the minimum fields required to make a request.
 --
@@ -2502,12 +2526,13 @@ loggingConfig
     -> Text -- ^ 'lcPrefix'
     -> LoggingConfig
 loggingConfig pEnabled_ pIncludeCookies_ pBucket_ pPrefix_ =
-    LoggingConfig'
-    { _lcEnabled = pEnabled_
-    , _lcIncludeCookies = pIncludeCookies_
-    , _lcBucket = pBucket_
-    , _lcPrefix = pPrefix_
-    }
+  LoggingConfig'
+  { _lcEnabled = pEnabled_
+  , _lcIncludeCookies = pIncludeCookies_
+  , _lcBucket = pBucket_
+  , _lcPrefix = pPrefix_
+  }
+
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you do not want to enable logging when you create a distribution or if you want to disable logging for an existing distribution, specify @false@ for @Enabled@ , and specify empty @Bucket@ and @Prefix@ elements. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ , @prefix@ , and @IncludeCookies@ , the values are automatically deleted.
 lcEnabled :: Lens' LoggingConfig Bool
@@ -2532,9 +2557,9 @@ instance FromXML LoggingConfig where
                 (x .@ "Bucket")
                 <*> (x .@ "Prefix")
 
-instance Hashable LoggingConfig
+instance Hashable LoggingConfig where
 
-instance NFData LoggingConfig
+instance NFData LoggingConfig where
 
 instance ToXML LoggingConfig where
         toXML LoggingConfig'{..}
@@ -2551,13 +2576,14 @@ instance ToXML LoggingConfig where
 --
 -- /See:/ 'origin' smart constructor.
 data Origin = Origin'
-    { _oCustomHeaders      :: !(Maybe CustomHeaders)
-    , _oCustomOriginConfig :: !(Maybe CustomOriginConfig)
-    , _oS3OriginConfig     :: !(Maybe S3OriginConfig)
-    , _oOriginPath         :: !(Maybe Text)
-    , _oId                 :: !Text
-    , _oDomainName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oCustomHeaders      :: {-# NOUNPACK #-}!(Maybe CustomHeaders)
+  , _oCustomOriginConfig :: {-# NOUNPACK #-}!(Maybe CustomOriginConfig)
+  , _oS3OriginConfig     :: {-# NOUNPACK #-}!(Maybe S3OriginConfig)
+  , _oOriginPath         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oId                 :: {-# NOUNPACK #-}!Text
+  , _oDomainName         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Origin' with the minimum fields required to make a request.
 --
@@ -2579,14 +2605,15 @@ origin
     -> Text -- ^ 'oDomainName'
     -> Origin
 origin pId_ pDomainName_ =
-    Origin'
-    { _oCustomHeaders = Nothing
-    , _oCustomOriginConfig = Nothing
-    , _oS3OriginConfig = Nothing
-    , _oOriginPath = Nothing
-    , _oId = pId_
-    , _oDomainName = pDomainName_
-    }
+  Origin'
+  { _oCustomHeaders = Nothing
+  , _oCustomOriginConfig = Nothing
+  , _oS3OriginConfig = Nothing
+  , _oOriginPath = Nothing
+  , _oId = pId_
+  , _oDomainName = pDomainName_
+  }
+
 
 -- | A complex type that contains names and values for the custom headers that you want.
 oCustomHeaders :: Lens' Origin (Maybe CustomHeaders)
@@ -2622,9 +2649,9 @@ instance FromXML Origin where
                 <*> (x .@ "Id")
                 <*> (x .@ "DomainName")
 
-instance Hashable Origin
+instance Hashable Origin where
 
-instance NFData Origin
+instance NFData Origin where
 
 instance ToXML Origin where
         toXML Origin'{..}
@@ -2641,9 +2668,10 @@ instance ToXML Origin where
 --
 -- /See:/ 'originCustomHeader' smart constructor.
 data OriginCustomHeader = OriginCustomHeader'
-    { _ochHeaderName  :: !Text
-    , _ochHeaderValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ochHeaderName  :: {-# NOUNPACK #-}!Text
+  , _ochHeaderValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OriginCustomHeader' with the minimum fields required to make a request.
 --
@@ -2657,10 +2685,9 @@ originCustomHeader
     -> Text -- ^ 'ochHeaderValue'
     -> OriginCustomHeader
 originCustomHeader pHeaderName_ pHeaderValue_ =
-    OriginCustomHeader'
-    { _ochHeaderName = pHeaderName_
-    , _ochHeaderValue = pHeaderValue_
-    }
+  OriginCustomHeader'
+  {_ochHeaderName = pHeaderName_, _ochHeaderValue = pHeaderValue_}
+
 
 -- | The name of a header that you want CloudFront to forward to your origin. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html Forwarding Custom Headers to Your Origin (Web Distributions Only)> in the /Amazon Amazon CloudFront Developer Guide/ .
 ochHeaderName :: Lens' OriginCustomHeader Text
@@ -2675,9 +2702,9 @@ instance FromXML OriginCustomHeader where
           = OriginCustomHeader' <$>
               (x .@ "HeaderName") <*> (x .@ "HeaderValue")
 
-instance Hashable OriginCustomHeader
+instance Hashable OriginCustomHeader where
 
-instance NFData OriginCustomHeader
+instance NFData OriginCustomHeader where
 
 instance ToXML OriginCustomHeader where
         toXML OriginCustomHeader'{..}
@@ -2691,9 +2718,10 @@ instance ToXML OriginCustomHeader where
 --
 -- /See:/ 'originSSLProtocols' smart constructor.
 data OriginSSLProtocols = OriginSSLProtocols'
-    { _ospQuantity :: !Int
-    , _ospItems    :: ![SSLProtocol]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ospQuantity :: {-# NOUNPACK #-}!Int
+  , _ospItems    :: {-# NOUNPACK #-}![SSLProtocol]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OriginSSLProtocols' with the minimum fields required to make a request.
 --
@@ -2706,10 +2734,8 @@ originSSLProtocols
     :: Int -- ^ 'ospQuantity'
     -> OriginSSLProtocols
 originSSLProtocols pQuantity_ =
-    OriginSSLProtocols'
-    { _ospQuantity = pQuantity_
-    , _ospItems = mempty
-    }
+  OriginSSLProtocols' {_ospQuantity = pQuantity_, _ospItems = mempty}
+
 
 -- | The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
 ospQuantity :: Lens' OriginSSLProtocols Int
@@ -2726,9 +2752,9 @@ instance FromXML OriginSSLProtocols where
                 (x .@? "Items" .!@ mempty >>=
                    parseXMLList "SslProtocol")
 
-instance Hashable OriginSSLProtocols
+instance Hashable OriginSSLProtocols where
 
-instance NFData OriginSSLProtocols
+instance NFData OriginSSLProtocols where
 
 instance ToXML OriginSSLProtocols where
         toXML OriginSSLProtocols'{..}
@@ -2742,9 +2768,10 @@ instance ToXML OriginSSLProtocols where
 --
 -- /See:/ 'origins' smart constructor.
 data Origins = Origins'
-    { _oItems    :: !(Maybe (List1 Origin))
-    , _oQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oItems    :: {-# NOUNPACK #-}!(Maybe (List1 Origin))
+  , _oQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Origins' with the minimum fields required to make a request.
 --
@@ -2756,11 +2783,8 @@ data Origins = Origins'
 origins
     :: Int -- ^ 'oQuantity'
     -> Origins
-origins pQuantity_ =
-    Origins'
-    { _oItems = Nothing
-    , _oQuantity = pQuantity_
-    }
+origins pQuantity_ = Origins' {_oItems = Nothing, _oQuantity = pQuantity_}
+
 
 -- | A complex type that contains origins for this distribution.
 oItems :: Lens' Origins (Maybe (NonEmpty Origin))
@@ -2777,9 +2801,9 @@ instance FromXML Origins where
                  may (parseXMLList1 "Origin"))
                 <*> (x .@ "Quantity")
 
-instance Hashable Origins
+instance Hashable Origins where
 
-instance NFData Origins
+instance NFData Origins where
 
 instance ToXML Origins where
         toXML Origins'{..}
@@ -2793,9 +2817,10 @@ instance ToXML Origins where
 --
 -- /See:/ 'paths' smart constructor.
 data Paths = Paths'
-    { _pItems    :: !(Maybe [Text])
-    , _pQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pItems    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _pQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Paths' with the minimum fields required to make a request.
 --
@@ -2807,11 +2832,8 @@ data Paths = Paths'
 paths
     :: Int -- ^ 'pQuantity'
     -> Paths
-paths pQuantity_ =
-    Paths'
-    { _pItems = Nothing
-    , _pQuantity = pQuantity_
-    }
+paths pQuantity_ = Paths' {_pItems = Nothing, _pQuantity = pQuantity_}
+
 
 -- | A complex type that contains a list of the paths that you want to invalidate.
 pItems :: Lens' Paths [Text]
@@ -2828,9 +2850,9 @@ instance FromXML Paths where
                  may (parseXMLList "Path"))
                 <*> (x .@ "Quantity")
 
-instance Hashable Paths
+instance Hashable Paths where
 
-instance NFData Paths
+instance NFData Paths where
 
 instance ToXML Paths where
         toXML Paths'{..}
@@ -2840,9 +2862,10 @@ instance ToXML Paths where
 
 -- | /See:/ 'queryStringCacheKeys' smart constructor.
 data QueryStringCacheKeys = QueryStringCacheKeys'
-    { _qsckItems    :: !(Maybe [Text])
-    , _qsckQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qsckItems    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _qsckQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueryStringCacheKeys' with the minimum fields required to make a request.
 --
@@ -2855,10 +2878,8 @@ queryStringCacheKeys
     :: Int -- ^ 'qsckQuantity'
     -> QueryStringCacheKeys
 queryStringCacheKeys pQuantity_ =
-    QueryStringCacheKeys'
-    { _qsckItems = Nothing
-    , _qsckQuantity = pQuantity_
-    }
+  QueryStringCacheKeys' {_qsckItems = Nothing, _qsckQuantity = pQuantity_}
+
 
 -- | (Optional) A list that contains the query string parameters that you want CloudFront to use as a basis for caching for this cache behavior. If @Quantity@ is 0, you can omit @Items@ .
 qsckItems :: Lens' QueryStringCacheKeys [Text]
@@ -2875,9 +2896,9 @@ instance FromXML QueryStringCacheKeys where
                  may (parseXMLList "Name"))
                 <*> (x .@ "Quantity")
 
-instance Hashable QueryStringCacheKeys
+instance Hashable QueryStringCacheKeys where
 
-instance NFData QueryStringCacheKeys
+instance NFData QueryStringCacheKeys where
 
 instance ToXML QueryStringCacheKeys where
         toXML QueryStringCacheKeys'{..}
@@ -2891,8 +2912,9 @@ instance ToXML QueryStringCacheKeys where
 --
 -- /See:/ 'restrictions' smart constructor.
 newtype Restrictions = Restrictions'
-    { _rGeoRestriction :: GeoRestriction
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rGeoRestriction :: GeoRestriction
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Restrictions' with the minimum fields required to make a request.
 --
@@ -2903,9 +2925,8 @@ restrictions
     :: GeoRestriction -- ^ 'rGeoRestriction'
     -> Restrictions
 restrictions pGeoRestriction_ =
-    Restrictions'
-    { _rGeoRestriction = pGeoRestriction_
-    }
+  Restrictions' {_rGeoRestriction = pGeoRestriction_}
+
 
 -- | Undocumented member.
 rGeoRestriction :: Lens' Restrictions GeoRestriction
@@ -2915,9 +2936,9 @@ instance FromXML Restrictions where
         parseXML x
           = Restrictions' <$> (x .@ "GeoRestriction")
 
-instance Hashable Restrictions
+instance Hashable Restrictions where
 
-instance NFData Restrictions
+instance NFData Restrictions where
 
 instance ToXML Restrictions where
         toXML Restrictions'{..}
@@ -2929,9 +2950,10 @@ instance ToXML Restrictions where
 --
 -- /See:/ 's3Origin' smart constructor.
 data S3Origin = S3Origin'
-    { _soDomainName           :: !Text
-    , _soOriginAccessIdentity :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _soDomainName           :: {-# NOUNPACK #-}!Text
+  , _soOriginAccessIdentity :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Origin' with the minimum fields required to make a request.
 --
@@ -2945,10 +2967,11 @@ s3Origin
     -> Text -- ^ 'soOriginAccessIdentity'
     -> S3Origin
 s3Origin pDomainName_ pOriginAccessIdentity_ =
-    S3Origin'
-    { _soDomainName = pDomainName_
-    , _soOriginAccessIdentity = pOriginAccessIdentity_
-    }
+  S3Origin'
+  { _soDomainName = pDomainName_
+  , _soOriginAccessIdentity = pOriginAccessIdentity_
+  }
+
 
 -- | The DNS name of the Amazon S3 origin.
 soDomainName :: Lens' S3Origin Text
@@ -2963,9 +2986,9 @@ instance FromXML S3Origin where
           = S3Origin' <$>
               (x .@ "DomainName") <*> (x .@ "OriginAccessIdentity")
 
-instance Hashable S3Origin
+instance Hashable S3Origin where
 
-instance NFData S3Origin
+instance NFData S3Origin where
 
 instance ToXML S3Origin where
         toXML S3Origin'{..}
@@ -2979,8 +3002,9 @@ instance ToXML S3Origin where
 --
 -- /See:/ 's3OriginConfig' smart constructor.
 newtype S3OriginConfig = S3OriginConfig'
-    { _socOriginAccessIdentity :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _socOriginAccessIdentity :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3OriginConfig' with the minimum fields required to make a request.
 --
@@ -2991,9 +3015,8 @@ s3OriginConfig
     :: Text -- ^ 'socOriginAccessIdentity'
     -> S3OriginConfig
 s3OriginConfig pOriginAccessIdentity_ =
-    S3OriginConfig'
-    { _socOriginAccessIdentity = pOriginAccessIdentity_
-    }
+  S3OriginConfig' {_socOriginAccessIdentity = pOriginAccessIdentity_}
+
 
 -- | The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can /only/ access objects in an Amazon S3 bucket through CloudFront. The format of the value is: origin-access-identity/cloudfront//ID-of-origin-access-identity/  where @/ID-of-origin-access-identity/ @ is the value that CloudFront returned in the @ID@ element when you created the origin access identity. If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. For more information about the origin access identity, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
 socOriginAccessIdentity :: Lens' S3OriginConfig Text
@@ -3003,9 +3026,9 @@ instance FromXML S3OriginConfig where
         parseXML x
           = S3OriginConfig' <$> (x .@ "OriginAccessIdentity")
 
-instance Hashable S3OriginConfig
+instance Hashable S3OriginConfig where
 
-instance NFData S3OriginConfig
+instance NFData S3OriginConfig where
 
 instance ToXML S3OriginConfig where
         toXML S3OriginConfig'{..}
@@ -3018,9 +3041,10 @@ instance ToXML S3OriginConfig where
 --
 -- /See:/ 'signer' smart constructor.
 data Signer = Signer'
-    { _sAWSAccountNumber :: !(Maybe Text)
-    , _sKeyPairIds       :: !(Maybe KeyPairIds)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sAWSAccountNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sKeyPairIds       :: {-# NOUNPACK #-}!(Maybe KeyPairIds)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Signer' with the minimum fields required to make a request.
 --
@@ -3031,11 +3055,8 @@ data Signer = Signer'
 -- * 'sKeyPairIds' - A complex type that lists the active CloudFront key pairs, if any, that are associated with @AwsAccountNumber@ .
 signer
     :: Signer
-signer =
-    Signer'
-    { _sAWSAccountNumber = Nothing
-    , _sKeyPairIds = Nothing
-    }
+signer = Signer' {_sAWSAccountNumber = Nothing, _sKeyPairIds = Nothing}
+
 
 -- | An AWS account that is included in the @TrustedSigners@ complex type for this RTMP distribution. Valid values include:     * @self@ , which is the AWS account used to create the distribution.     * An AWS account number.
 sAWSAccountNumber :: Lens' Signer (Maybe Text)
@@ -3050,9 +3071,9 @@ instance FromXML Signer where
           = Signer' <$>
               (x .@? "AwsAccountNumber") <*> (x .@? "KeyPairIds")
 
-instance Hashable Signer
+instance Hashable Signer where
 
-instance NFData Signer
+instance NFData Signer where
 
 -- | A streaming distribution.
 --
@@ -3060,14 +3081,15 @@ instance NFData Signer
 --
 -- /See:/ 'streamingDistribution' smart constructor.
 data StreamingDistribution = StreamingDistribution'
-    { _sdLastModifiedTime            :: !(Maybe ISO8601)
-    , _sdId                          :: !Text
-    , _sdARN                         :: !Text
-    , _sdStatus                      :: !Text
-    , _sdDomainName                  :: !Text
-    , _sdActiveTrustedSigners        :: !ActiveTrustedSigners
-    , _sdStreamingDistributionConfig :: !StreamingDistributionConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdLastModifiedTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _sdId :: {-# NOUNPACK #-}!Text
+  , _sdARN :: {-# NOUNPACK #-}!Text
+  , _sdStatus :: {-# NOUNPACK #-}!Text
+  , _sdDomainName :: {-# NOUNPACK #-}!Text
+  , _sdActiveTrustedSigners :: {-# NOUNPACK #-}!ActiveTrustedSigners
+  , _sdStreamingDistributionConfig :: {-# NOUNPACK #-}!StreamingDistributionConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamingDistribution' with the minimum fields required to make a request.
 --
@@ -3095,15 +3117,16 @@ streamingDistribution
     -> StreamingDistributionConfig -- ^ 'sdStreamingDistributionConfig'
     -> StreamingDistribution
 streamingDistribution pId_ pARN_ pStatus_ pDomainName_ pActiveTrustedSigners_ pStreamingDistributionConfig_ =
-    StreamingDistribution'
-    { _sdLastModifiedTime = Nothing
-    , _sdId = pId_
-    , _sdARN = pARN_
-    , _sdStatus = pStatus_
-    , _sdDomainName = pDomainName_
-    , _sdActiveTrustedSigners = pActiveTrustedSigners_
-    , _sdStreamingDistributionConfig = pStreamingDistributionConfig_
-    }
+  StreamingDistribution'
+  { _sdLastModifiedTime = Nothing
+  , _sdId = pId_
+  , _sdARN = pARN_
+  , _sdStatus = pStatus_
+  , _sdDomainName = pDomainName_
+  , _sdActiveTrustedSigners = pActiveTrustedSigners_
+  , _sdStreamingDistributionConfig = pStreamingDistributionConfig_
+  }
+
 
 -- | The date and time that the distribution was last modified.
 sdLastModifiedTime :: Lens' StreamingDistribution (Maybe UTCTime)
@@ -3143,9 +3166,9 @@ instance FromXML StreamingDistribution where
                 <*> (x .@ "ActiveTrustedSigners")
                 <*> (x .@ "StreamingDistributionConfig")
 
-instance Hashable StreamingDistribution
+instance Hashable StreamingDistribution where
 
-instance NFData StreamingDistribution
+instance NFData StreamingDistribution where
 
 -- | The RTMP distribution's configuration information.
 --
@@ -3153,15 +3176,16 @@ instance NFData StreamingDistribution
 --
 -- /See:/ 'streamingDistributionConfig' smart constructor.
 data StreamingDistributionConfig = StreamingDistributionConfig'
-    { _sdcAliases         :: !(Maybe Aliases)
-    , _sdcPriceClass      :: !(Maybe PriceClass)
-    , _sdcLogging         :: !(Maybe StreamingLoggingConfig)
-    , _sdcCallerReference :: !Text
-    , _sdcS3Origin        :: !S3Origin
-    , _sdcComment         :: !Text
-    , _sdcTrustedSigners  :: !TrustedSigners
-    , _sdcEnabled         :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdcAliases         :: {-# NOUNPACK #-}!(Maybe Aliases)
+  , _sdcPriceClass      :: {-# NOUNPACK #-}!(Maybe PriceClass)
+  , _sdcLogging         :: {-# NOUNPACK #-}!(Maybe StreamingLoggingConfig)
+  , _sdcCallerReference :: {-# NOUNPACK #-}!Text
+  , _sdcS3Origin        :: {-# NOUNPACK #-}!S3Origin
+  , _sdcComment         :: {-# NOUNPACK #-}!Text
+  , _sdcTrustedSigners  :: {-# NOUNPACK #-}!TrustedSigners
+  , _sdcEnabled         :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamingDistributionConfig' with the minimum fields required to make a request.
 --
@@ -3190,16 +3214,17 @@ streamingDistributionConfig
     -> Bool -- ^ 'sdcEnabled'
     -> StreamingDistributionConfig
 streamingDistributionConfig pCallerReference_ pS3Origin_ pComment_ pTrustedSigners_ pEnabled_ =
-    StreamingDistributionConfig'
-    { _sdcAliases = Nothing
-    , _sdcPriceClass = Nothing
-    , _sdcLogging = Nothing
-    , _sdcCallerReference = pCallerReference_
-    , _sdcS3Origin = pS3Origin_
-    , _sdcComment = pComment_
-    , _sdcTrustedSigners = pTrustedSigners_
-    , _sdcEnabled = pEnabled_
-    }
+  StreamingDistributionConfig'
+  { _sdcAliases = Nothing
+  , _sdcPriceClass = Nothing
+  , _sdcLogging = Nothing
+  , _sdcCallerReference = pCallerReference_
+  , _sdcS3Origin = pS3Origin_
+  , _sdcComment = pComment_
+  , _sdcTrustedSigners = pTrustedSigners_
+  , _sdcEnabled = pEnabled_
+  }
+
 
 -- | A complex type that contains information about CNAMEs (alternate domain names), if any, for this streaming distribution.
 sdcAliases :: Lens' StreamingDistributionConfig (Maybe Aliases)
@@ -3244,9 +3269,9 @@ instance FromXML StreamingDistributionConfig where
                 <*> (x .@ "TrustedSigners")
                 <*> (x .@ "Enabled")
 
-instance Hashable StreamingDistributionConfig
+instance Hashable StreamingDistributionConfig where
 
-instance NFData StreamingDistributionConfig
+instance NFData StreamingDistributionConfig where
 
 instance ToXML StreamingDistributionConfig where
         toXML StreamingDistributionConfig'{..}
@@ -3265,9 +3290,10 @@ instance ToXML StreamingDistributionConfig where
 --
 -- /See:/ 'streamingDistributionConfigWithTags' smart constructor.
 data StreamingDistributionConfigWithTags = StreamingDistributionConfigWithTags'
-    { _sdcwtStreamingDistributionConfig :: !StreamingDistributionConfig
-    , _sdcwtTags                        :: !Tags
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdcwtStreamingDistributionConfig :: {-# NOUNPACK #-}!StreamingDistributionConfig
+  , _sdcwtTags :: {-# NOUNPACK #-}!Tags
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamingDistributionConfigWithTags' with the minimum fields required to make a request.
 --
@@ -3281,10 +3307,11 @@ streamingDistributionConfigWithTags
     -> Tags -- ^ 'sdcwtTags'
     -> StreamingDistributionConfigWithTags
 streamingDistributionConfigWithTags pStreamingDistributionConfig_ pTags_ =
-    StreamingDistributionConfigWithTags'
-    { _sdcwtStreamingDistributionConfig = pStreamingDistributionConfig_
-    , _sdcwtTags = pTags_
-    }
+  StreamingDistributionConfigWithTags'
+  { _sdcwtStreamingDistributionConfig = pStreamingDistributionConfig_
+  , _sdcwtTags = pTags_
+  }
+
 
 -- | A streaming distribution Configuration.
 sdcwtStreamingDistributionConfig :: Lens' StreamingDistributionConfigWithTags StreamingDistributionConfig
@@ -3295,8 +3322,10 @@ sdcwtTags :: Lens' StreamingDistributionConfigWithTags Tags
 sdcwtTags = lens _sdcwtTags (\ s a -> s{_sdcwtTags = a});
 
 instance Hashable StreamingDistributionConfigWithTags
+         where
 
 instance NFData StreamingDistributionConfigWithTags
+         where
 
 instance ToXML StreamingDistributionConfigWithTags
          where
@@ -3312,13 +3341,14 @@ instance ToXML StreamingDistributionConfigWithTags
 --
 -- /See:/ 'streamingDistributionList' smart constructor.
 data StreamingDistributionList = StreamingDistributionList'
-    { _sdlItems       :: !(Maybe [StreamingDistributionSummary])
-    , _sdlNextMarker  :: !(Maybe Text)
-    , _sdlMarker      :: !Text
-    , _sdlMaxItems    :: !Int
-    , _sdlIsTruncated :: !Bool
-    , _sdlQuantity    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdlItems       :: {-# NOUNPACK #-}!(Maybe [StreamingDistributionSummary])
+  , _sdlNextMarker  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdlMarker      :: {-# NOUNPACK #-}!Text
+  , _sdlMaxItems    :: {-# NOUNPACK #-}!Int
+  , _sdlIsTruncated :: {-# NOUNPACK #-}!Bool
+  , _sdlQuantity    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamingDistributionList' with the minimum fields required to make a request.
 --
@@ -3342,14 +3372,15 @@ streamingDistributionList
     -> Int -- ^ 'sdlQuantity'
     -> StreamingDistributionList
 streamingDistributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
-    StreamingDistributionList'
-    { _sdlItems = Nothing
-    , _sdlNextMarker = Nothing
-    , _sdlMarker = pMarker_
-    , _sdlMaxItems = pMaxItems_
-    , _sdlIsTruncated = pIsTruncated_
-    , _sdlQuantity = pQuantity_
-    }
+  StreamingDistributionList'
+  { _sdlItems = Nothing
+  , _sdlNextMarker = Nothing
+  , _sdlMarker = pMarker_
+  , _sdlMaxItems = pMaxItems_
+  , _sdlIsTruncated = pIsTruncated_
+  , _sdlQuantity = pQuantity_
+  }
+
 
 -- | A complex type that contains one @StreamingDistributionSummary@ element for each distribution that was created by the current AWS account.
 sdlItems :: Lens' StreamingDistributionList [StreamingDistributionSummary]
@@ -3386,9 +3417,9 @@ instance FromXML StreamingDistributionList where
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
-instance Hashable StreamingDistributionList
+instance Hashable StreamingDistributionList where
 
-instance NFData StreamingDistributionList
+instance NFData StreamingDistributionList where
 
 -- | A summary of the information for an Amazon CloudFront streaming distribution.
 --
@@ -3396,18 +3427,19 @@ instance NFData StreamingDistributionList
 --
 -- /See:/ 'streamingDistributionSummary' smart constructor.
 data StreamingDistributionSummary = StreamingDistributionSummary'
-    { _sdsId               :: !Text
-    , _sdsARN              :: !Text
-    , _sdsStatus           :: !Text
-    , _sdsLastModifiedTime :: !ISO8601
-    , _sdsDomainName       :: !Text
-    , _sdsS3Origin         :: !S3Origin
-    , _sdsAliases          :: !Aliases
-    , _sdsTrustedSigners   :: !TrustedSigners
-    , _sdsComment          :: !Text
-    , _sdsPriceClass       :: !PriceClass
-    , _sdsEnabled          :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdsId               :: {-# NOUNPACK #-}!Text
+  , _sdsARN              :: {-# NOUNPACK #-}!Text
+  , _sdsStatus           :: {-# NOUNPACK #-}!Text
+  , _sdsLastModifiedTime :: {-# NOUNPACK #-}!ISO8601
+  , _sdsDomainName       :: {-# NOUNPACK #-}!Text
+  , _sdsS3Origin         :: {-# NOUNPACK #-}!S3Origin
+  , _sdsAliases          :: {-# NOUNPACK #-}!Aliases
+  , _sdsTrustedSigners   :: {-# NOUNPACK #-}!TrustedSigners
+  , _sdsComment          :: {-# NOUNPACK #-}!Text
+  , _sdsPriceClass       :: {-# NOUNPACK #-}!PriceClass
+  , _sdsEnabled          :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamingDistributionSummary' with the minimum fields required to make a request.
 --
@@ -3448,19 +3480,20 @@ streamingDistributionSummary
     -> Bool -- ^ 'sdsEnabled'
     -> StreamingDistributionSummary
 streamingDistributionSummary pId_ pARN_ pStatus_ pLastModifiedTime_ pDomainName_ pS3Origin_ pAliases_ pTrustedSigners_ pComment_ pPriceClass_ pEnabled_ =
-    StreamingDistributionSummary'
-    { _sdsId = pId_
-    , _sdsARN = pARN_
-    , _sdsStatus = pStatus_
-    , _sdsLastModifiedTime = _Time # pLastModifiedTime_
-    , _sdsDomainName = pDomainName_
-    , _sdsS3Origin = pS3Origin_
-    , _sdsAliases = pAliases_
-    , _sdsTrustedSigners = pTrustedSigners_
-    , _sdsComment = pComment_
-    , _sdsPriceClass = pPriceClass_
-    , _sdsEnabled = pEnabled_
-    }
+  StreamingDistributionSummary'
+  { _sdsId = pId_
+  , _sdsARN = pARN_
+  , _sdsStatus = pStatus_
+  , _sdsLastModifiedTime = _Time # pLastModifiedTime_
+  , _sdsDomainName = pDomainName_
+  , _sdsS3Origin = pS3Origin_
+  , _sdsAliases = pAliases_
+  , _sdsTrustedSigners = pTrustedSigners_
+  , _sdsComment = pComment_
+  , _sdsPriceClass = pPriceClass_
+  , _sdsEnabled = pEnabled_
+  }
+
 
 -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@ .
 sdsId :: Lens' StreamingDistributionSummary Text
@@ -3519,9 +3552,9 @@ instance FromXML StreamingDistributionSummary where
                 <*> (x .@ "PriceClass")
                 <*> (x .@ "Enabled")
 
-instance Hashable StreamingDistributionSummary
+instance Hashable StreamingDistributionSummary where
 
-instance NFData StreamingDistributionSummary
+instance NFData StreamingDistributionSummary where
 
 -- | A complex type that controls whether access logs are written for this streaming distribution.
 --
@@ -3529,10 +3562,11 @@ instance NFData StreamingDistributionSummary
 --
 -- /See:/ 'streamingLoggingConfig' smart constructor.
 data StreamingLoggingConfig = StreamingLoggingConfig'
-    { _slcEnabled :: !Bool
-    , _slcBucket  :: !Text
-    , _slcPrefix  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slcEnabled :: {-# NOUNPACK #-}!Bool
+  , _slcBucket  :: {-# NOUNPACK #-}!Text
+  , _slcPrefix  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamingLoggingConfig' with the minimum fields required to make a request.
 --
@@ -3549,11 +3583,9 @@ streamingLoggingConfig
     -> Text -- ^ 'slcPrefix'
     -> StreamingLoggingConfig
 streamingLoggingConfig pEnabled_ pBucket_ pPrefix_ =
-    StreamingLoggingConfig'
-    { _slcEnabled = pEnabled_
-    , _slcBucket = pBucket_
-    , _slcPrefix = pPrefix_
-    }
+  StreamingLoggingConfig'
+  {_slcEnabled = pEnabled_, _slcBucket = pBucket_, _slcPrefix = pPrefix_}
+
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you do not want to enable logging when you create a streaming distribution or if you want to disable logging for an existing streaming distribution, specify @false@ for @Enabled@ , and specify @empty Bucket@ and @Prefix@ elements. If you specify @false@ for @Enabled@ but you specify values for @Bucket@ and @Prefix@ , the values are automatically deleted.
 slcEnabled :: Lens' StreamingLoggingConfig Bool
@@ -3573,9 +3605,9 @@ instance FromXML StreamingLoggingConfig where
               (x .@ "Enabled") <*> (x .@ "Bucket") <*>
                 (x .@ "Prefix")
 
-instance Hashable StreamingLoggingConfig
+instance Hashable StreamingLoggingConfig where
 
-instance NFData StreamingLoggingConfig
+instance NFData StreamingLoggingConfig where
 
 instance ToXML StreamingLoggingConfig where
         toXML StreamingLoggingConfig'{..}
@@ -3589,9 +3621,10 @@ instance ToXML StreamingLoggingConfig where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -3603,11 +3636,8 @@ data Tag = Tag'
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
-tag pKey_ =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = pKey_
-    }
+tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
+
 
 -- | A string that contains an optional @Tag@ value. The string length should be between 0 and 256 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
 tagValue :: Lens' Tag (Maybe Text)
@@ -3621,9 +3651,9 @@ instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@ "Key")
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -3635,8 +3665,9 @@ instance ToXML Tag where
 --
 -- /See:/ 'tagKeys' smart constructor.
 newtype TagKeys = TagKeys'
-    { _tkItems :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tkItems :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagKeys' with the minimum fields required to make a request.
 --
@@ -3645,18 +3676,16 @@ newtype TagKeys = TagKeys'
 -- * 'tkItems' - A complex type that contains @Tag@ key elements.
 tagKeys
     :: TagKeys
-tagKeys =
-    TagKeys'
-    { _tkItems = Nothing
-    }
+tagKeys = TagKeys' {_tkItems = Nothing}
+
 
 -- | A complex type that contains @Tag@ key elements.
 tkItems :: Lens' TagKeys [Text]
 tkItems = lens _tkItems (\ s a -> s{_tkItems = a}) . _Default . _Coerce;
 
-instance Hashable TagKeys
+instance Hashable TagKeys where
 
-instance NFData TagKeys
+instance NFData TagKeys where
 
 instance ToXML TagKeys where
         toXML TagKeys'{..}
@@ -3669,8 +3698,9 @@ instance ToXML TagKeys where
 --
 -- /See:/ 'tags' smart constructor.
 newtype Tags = Tags'
-    { _tItems :: Maybe [Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tItems :: Maybe [Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tags' with the minimum fields required to make a request.
 --
@@ -3679,10 +3709,8 @@ newtype Tags = Tags'
 -- * 'tItems' - A complex type that contains @Tag@ elements.
 tags
     :: Tags
-tags =
-    Tags'
-    { _tItems = Nothing
-    }
+tags = Tags' {_tItems = Nothing}
+
 
 -- | A complex type that contains @Tag@ elements.
 tItems :: Lens' Tags [Tag]
@@ -3694,9 +3722,9 @@ instance FromXML Tags where
               (x .@? "Items" .!@ mempty >>=
                  may (parseXMLList "Tag"))
 
-instance Hashable Tags
+instance Hashable Tags where
 
-instance NFData Tags
+instance NFData Tags where
 
 instance ToXML Tags where
         toXML Tags'{..}
@@ -3717,10 +3745,11 @@ instance ToXML Tags where
 --
 -- /See:/ 'trustedSigners' smart constructor.
 data TrustedSigners = TrustedSigners'
-    { _tsItems    :: !(Maybe [Text])
-    , _tsEnabled  :: !Bool
-    , _tsQuantity :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tsItems    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _tsEnabled  :: {-# NOUNPACK #-}!Bool
+  , _tsQuantity :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TrustedSigners' with the minimum fields required to make a request.
 --
@@ -3736,11 +3765,9 @@ trustedSigners
     -> Int -- ^ 'tsQuantity'
     -> TrustedSigners
 trustedSigners pEnabled_ pQuantity_ =
-    TrustedSigners'
-    { _tsItems = Nothing
-    , _tsEnabled = pEnabled_
-    , _tsQuantity = pQuantity_
-    }
+  TrustedSigners'
+  {_tsItems = Nothing, _tsEnabled = pEnabled_, _tsQuantity = pQuantity_}
+
 
 -- | __Optional__ : A complex type that contains trusted signers for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
 tsItems :: Lens' TrustedSigners [Text]
@@ -3762,9 +3789,9 @@ instance FromXML TrustedSigners where
                 <*> (x .@ "Enabled")
                 <*> (x .@ "Quantity")
 
-instance Hashable TrustedSigners
+instance Hashable TrustedSigners where
 
-instance NFData TrustedSigners
+instance NFData TrustedSigners where
 
 instance ToXML TrustedSigners where
         toXML TrustedSigners'{..}
@@ -3789,14 +3816,15 @@ instance ToXML TrustedSigners where
 --
 -- /See:/ 'viewerCertificate' smart constructor.
 data ViewerCertificate = ViewerCertificate'
-    { _vcSSLSupportMethod             :: !(Maybe SSLSupportMethod)
-    , _vcACMCertificateARN            :: !(Maybe Text)
-    , _vcCertificateSource            :: !(Maybe CertificateSource)
-    , _vcMinimumProtocolVersion       :: !(Maybe MinimumProtocolVersion)
-    , _vcCertificate                  :: !(Maybe Text)
-    , _vcIAMCertificateId             :: !(Maybe Text)
-    , _vcCloudFrontDefaultCertificate :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vcSSLSupportMethod :: {-# NOUNPACK #-}!(Maybe SSLSupportMethod)
+  , _vcACMCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vcCertificateSource :: {-# NOUNPACK #-}!(Maybe CertificateSource)
+  , _vcMinimumProtocolVersion :: {-# NOUNPACK #-}!(Maybe MinimumProtocolVersion)
+  , _vcCertificate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vcIAMCertificateId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vcCloudFrontDefaultCertificate :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ViewerCertificate' with the minimum fields required to make a request.
 --
@@ -3818,15 +3846,16 @@ data ViewerCertificate = ViewerCertificate'
 viewerCertificate
     :: ViewerCertificate
 viewerCertificate =
-    ViewerCertificate'
-    { _vcSSLSupportMethod = Nothing
-    , _vcACMCertificateARN = Nothing
-    , _vcCertificateSource = Nothing
-    , _vcMinimumProtocolVersion = Nothing
-    , _vcCertificate = Nothing
-    , _vcIAMCertificateId = Nothing
-    , _vcCloudFrontDefaultCertificate = Nothing
-    }
+  ViewerCertificate'
+  { _vcSSLSupportMethod = Nothing
+  , _vcACMCertificateARN = Nothing
+  , _vcCertificateSource = Nothing
+  , _vcMinimumProtocolVersion = Nothing
+  , _vcCertificate = Nothing
+  , _vcIAMCertificateId = Nothing
+  , _vcCloudFrontDefaultCertificate = Nothing
+  }
+
 
 -- | If you specify a value for @ACMCertificateArn@ or for @IAMCertificateId@ , you must also specify how you want CloudFront to serve HTTPS requests: using a method that works for all clients or one that works for most clients:     * @vip@ : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you will incur additional monthly charges.     * @sni-only@ : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following:     * Use the @vip@ option (dedicated IP addresses) instead of @sni-only@ .     * Use the CloudFront SSL/TLS certificate instead of a custom certificate. This requires that you use the CloudFront domain name of your distribution in the URLs for your objects, for example, @https://d111111abcdef8.cloudfront.net/logo.png@ .     * If you can control which browser your users use, upgrade the browser to one that supports SNI.     * Use HTTP instead of HTTPS. Do not specify a value for @SSLSupportMethod@ if you specified @<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html Using Alternate Domain Names and HTTPS> in the /Amazon CloudFront Developer Guide/ .
 vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
@@ -3867,9 +3896,9 @@ instance FromXML ViewerCertificate where
                 <*> (x .@? "IAMCertificateId")
                 <*> (x .@? "CloudFrontDefaultCertificate")
 
-instance Hashable ViewerCertificate
+instance Hashable ViewerCertificate where
 
-instance NFData ViewerCertificate
+instance NFData ViewerCertificate where
 
 instance ToXML ViewerCertificate where
         toXML ViewerCertificate'{..}

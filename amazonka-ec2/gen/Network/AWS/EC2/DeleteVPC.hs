@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPC
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DeleteVPC
     , DeleteVPCResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpc.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteVPC' smart constructor.
 data DeleteVPC = DeleteVPC'
-    { _delDryRun :: !(Maybe Bool)
-    , _delVPCId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _delVPCId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPC' with the minimum fields required to make a request.
 --
@@ -62,11 +63,8 @@ data DeleteVPC = DeleteVPC'
 deleteVPC
     :: Text -- ^ 'delVPCId'
     -> DeleteVPC
-deleteVPC pVPCId_ =
-    DeleteVPC'
-    { _delDryRun = Nothing
-    , _delVPCId = pVPCId_
-    }
+deleteVPC pVPCId_ = DeleteVPC' {_delDryRun = Nothing, _delVPCId = pVPCId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 delDryRun :: Lens' DeleteVPC (Maybe Bool)
@@ -81,9 +79,9 @@ instance AWSRequest DeleteVPC where
         request = postQuery ec2
         response = receiveNull DeleteVPCResponse'
 
-instance Hashable DeleteVPC
+instance Hashable DeleteVPC where
 
-instance NFData DeleteVPC
+instance NFData DeleteVPC where
 
 instance ToHeaders DeleteVPC where
         toHeaders = const mempty
@@ -100,8 +98,9 @@ instance ToQuery DeleteVPC where
 
 -- | /See:/ 'deleteVPCResponse' smart constructor.
 data DeleteVPCResponse =
-    DeleteVPCResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteVPCResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPCResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +108,5 @@ deleteVPCResponse
     :: DeleteVPCResponse
 deleteVPCResponse = DeleteVPCResponse'
 
-instance NFData DeleteVPCResponse
+
+instance NFData DeleteVPCResponse where

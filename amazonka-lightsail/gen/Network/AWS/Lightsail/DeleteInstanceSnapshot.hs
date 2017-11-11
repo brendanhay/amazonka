@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteInstanceSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.DeleteInstanceSnapshot
     , disrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteInstanceSnapshot' smart constructor.
 newtype DeleteInstanceSnapshot = DeleteInstanceSnapshot'
-    { _disInstanceSnapshotName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disInstanceSnapshotName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInstanceSnapshot' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deleteInstanceSnapshot
     :: Text -- ^ 'disInstanceSnapshotName'
     -> DeleteInstanceSnapshot
 deleteInstanceSnapshot pInstanceSnapshotName_ =
-    DeleteInstanceSnapshot'
-    { _disInstanceSnapshotName = pInstanceSnapshotName_
-    }
+  DeleteInstanceSnapshot' {_disInstanceSnapshotName = pInstanceSnapshotName_}
+
 
 -- | The name of the snapshot to delete.
 disInstanceSnapshotName :: Lens' DeleteInstanceSnapshot Text
@@ -77,9 +77,9 @@ instance AWSRequest DeleteInstanceSnapshot where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DeleteInstanceSnapshot
+instance Hashable DeleteInstanceSnapshot where
 
-instance NFData DeleteInstanceSnapshot
+instance NFData DeleteInstanceSnapshot where
 
 instance ToHeaders DeleteInstanceSnapshot where
         toHeaders
@@ -107,9 +107,10 @@ instance ToQuery DeleteInstanceSnapshot where
 
 -- | /See:/ 'deleteInstanceSnapshotResponse' smart constructor.
 data DeleteInstanceSnapshotResponse = DeleteInstanceSnapshotResponse'
-    { _disrsOperations     :: !(Maybe [Operation])
-    , _disrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _disrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInstanceSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +123,9 @@ deleteInstanceSnapshotResponse
     :: Int -- ^ 'disrsResponseStatus'
     -> DeleteInstanceSnapshotResponse
 deleteInstanceSnapshotResponse pResponseStatus_ =
-    DeleteInstanceSnapshotResponse'
-    { _disrsOperations = Nothing
-    , _disrsResponseStatus = pResponseStatus_
-    }
+  DeleteInstanceSnapshotResponse'
+  {_disrsOperations = Nothing, _disrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your delete instance snapshot request.
 disrsOperations :: Lens' DeleteInstanceSnapshotResponse [Operation]
@@ -135,4 +135,4 @@ disrsOperations = lens _disrsOperations (\ s a -> s{_disrsOperations = a}) . _De
 disrsResponseStatus :: Lens' DeleteInstanceSnapshotResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 
-instance NFData DeleteInstanceSnapshotResponse
+instance NFData DeleteInstanceSnapshotResponse where

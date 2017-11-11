@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeSessions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,22 +43,23 @@ module Network.AWS.AppStream.DescribeSessions
     , dssrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-    { _dsUserId             :: !(Maybe Text)
-    , _dsNextToken          :: !(Maybe Text)
-    , _dsLimit              :: !(Maybe Int)
-    , _dsAuthenticationType :: !(Maybe AuthenticationType)
-    , _dsStackName          :: !Text
-    , _dsFleetName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsUserId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsLimit              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsAuthenticationType :: {-# NOUNPACK #-}!(Maybe AuthenticationType)
+  , _dsStackName          :: {-# NOUNPACK #-}!Text
+  , _dsFleetName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSessions' with the minimum fields required to make a request.
 --
@@ -80,14 +81,15 @@ describeSessions
     -> Text -- ^ 'dsFleetName'
     -> DescribeSessions
 describeSessions pStackName_ pFleetName_ =
-    DescribeSessions'
-    { _dsUserId = Nothing
-    , _dsNextToken = Nothing
-    , _dsLimit = Nothing
-    , _dsAuthenticationType = Nothing
-    , _dsStackName = pStackName_
-    , _dsFleetName = pFleetName_
-    }
+  DescribeSessions'
+  { _dsUserId = Nothing
+  , _dsNextToken = Nothing
+  , _dsLimit = Nothing
+  , _dsAuthenticationType = Nothing
+  , _dsStackName = pStackName_
+  , _dsFleetName = pFleetName_
+  }
+
 
 -- | The user for whom to list sessions. Use null to describe all the sessions for the stack and fleet.
 dsUserId :: Lens' DescribeSessions (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest DescribeSessions where
                    (x .?> "NextToken") <*> (x .?> "Sessions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSessions
+instance Hashable DescribeSessions where
 
-instance NFData DescribeSessions
+instance NFData DescribeSessions where
 
 instance ToHeaders DescribeSessions where
         toHeaders
@@ -156,10 +158,11 @@ instance ToQuery DescribeSessions where
 
 -- | /See:/ 'describeSessionsResponse' smart constructor.
 data DescribeSessionsResponse = DescribeSessionsResponse'
-    { _dssrsNextToken      :: !(Maybe Text)
-    , _dssrsSessions       :: !(Maybe [Session])
-    , _dssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dssrsSessions       :: {-# NOUNPACK #-}!(Maybe [Session])
+  , _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSessionsResponse' with the minimum fields required to make a request.
 --
@@ -174,11 +177,12 @@ describeSessionsResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSessionsResponse
 describeSessionsResponse pResponseStatus_ =
-    DescribeSessionsResponse'
-    { _dssrsNextToken = Nothing
-    , _dssrsSessions = Nothing
-    , _dssrsResponseStatus = pResponseStatus_
-    }
+  DescribeSessionsResponse'
+  { _dssrsNextToken = Nothing
+  , _dssrsSessions = Nothing
+  , _dssrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 dssrsNextToken :: Lens' DescribeSessionsResponse (Maybe Text)
@@ -192,4 +196,4 @@ dssrsSessions = lens _dssrsSessions (\ s a -> s{_dssrsSessions = a}) . _Default 
 dssrsResponseStatus :: Lens' DescribeSessionsResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 
-instance NFData DescribeSessionsResponse
+instance NFData DescribeSessionsResponse where

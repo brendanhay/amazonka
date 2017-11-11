@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.DescribeJobQueues
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Batch.DescribeJobQueues
     , djqsrsResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeJobQueues' smart constructor.
 data DescribeJobQueues = DescribeJobQueues'
-    { _djqNextToken  :: !(Maybe Text)
-    , _djqJobQueues  :: !(Maybe [Text])
-    , _djqMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djqNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _djqJobQueues  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _djqMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeJobQueues' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data DescribeJobQueues = DescribeJobQueues'
 describeJobQueues
     :: DescribeJobQueues
 describeJobQueues =
-    DescribeJobQueues'
-    { _djqNextToken = Nothing
-    , _djqJobQueues = Nothing
-    , _djqMaxResults = Nothing
-    }
+  DescribeJobQueues'
+  {_djqNextToken = Nothing, _djqJobQueues = Nothing, _djqMaxResults = Nothing}
+
 
 -- | The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 djqNextToken :: Lens' DescribeJobQueues (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest DescribeJobQueues where
                      (x .?> "jobQueues" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeJobQueues
+instance Hashable DescribeJobQueues where
 
-instance NFData DescribeJobQueues
+instance NFData DescribeJobQueues where
 
 instance ToHeaders DescribeJobQueues where
         toHeaders
@@ -122,10 +121,11 @@ instance ToQuery DescribeJobQueues where
 
 -- | /See:/ 'describeJobQueuesResponse' smart constructor.
 data DescribeJobQueuesResponse = DescribeJobQueuesResponse'
-    { _djqsrsNextToken      :: !(Maybe Text)
-    , _djqsrsJobQueues      :: !(Maybe [JobQueueDetail])
-    , _djqsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _djqsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _djqsrsJobQueues      :: {-# NOUNPACK #-}!(Maybe [JobQueueDetail])
+  , _djqsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeJobQueuesResponse' with the minimum fields required to make a request.
 --
@@ -140,11 +140,12 @@ describeJobQueuesResponse
     :: Int -- ^ 'djqsrsResponseStatus'
     -> DescribeJobQueuesResponse
 describeJobQueuesResponse pResponseStatus_ =
-    DescribeJobQueuesResponse'
-    { _djqsrsNextToken = Nothing
-    , _djqsrsJobQueues = Nothing
-    , _djqsrsResponseStatus = pResponseStatus_
-    }
+  DescribeJobQueuesResponse'
+  { _djqsrsNextToken = Nothing
+  , _djqsrsJobQueues = Nothing
+  , _djqsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @nextToken@ value to include in a future @DescribeJobQueues@ request. When the results of a @DescribeJobQueues@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 djqsrsNextToken :: Lens' DescribeJobQueuesResponse (Maybe Text)
@@ -158,4 +159,4 @@ djqsrsJobQueues = lens _djqsrsJobQueues (\ s a -> s{_djqsrsJobQueues = a}) . _De
 djqsrsResponseStatus :: Lens' DescribeJobQueuesResponse Int
 djqsrsResponseStatus = lens _djqsrsResponseStatus (\ s a -> s{_djqsrsResponseStatus = a});
 
-instance NFData DescribeJobQueuesResponse
+instance NFData DescribeJobQueuesResponse where

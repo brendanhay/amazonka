@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityMailFromDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.SES.SetIdentityMailFromDomain
     , simfdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for a verified identity. For information about using a custom MAIL FROM domain, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> .
 --
@@ -55,10 +55,11 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'setIdentityMailFromDomain' smart constructor.
 data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
-    { _simfdMailFromDomain      :: !(Maybe Text)
-    , _simfdBehaviorOnMXFailure :: !(Maybe BehaviorOnMXFailure)
-    , _simfdIdentity            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _simfdMailFromDomain      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _simfdBehaviorOnMXFailure :: {-# NOUNPACK #-}!(Maybe BehaviorOnMXFailure)
+  , _simfdIdentity            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityMailFromDomain' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ setIdentityMailFromDomain
     :: Text -- ^ 'simfdIdentity'
     -> SetIdentityMailFromDomain
 setIdentityMailFromDomain pIdentity_ =
-    SetIdentityMailFromDomain'
-    { _simfdMailFromDomain = Nothing
-    , _simfdBehaviorOnMXFailure = Nothing
-    , _simfdIdentity = pIdentity_
-    }
+  SetIdentityMailFromDomain'
+  { _simfdMailFromDomain = Nothing
+  , _simfdBehaviorOnMXFailure = Nothing
+  , _simfdIdentity = pIdentity_
+  }
+
 
 -- | The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a "From" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide> ), and 3) not be used to receive emails. A value of @null@ disables the custom MAIL FROM setting for the identity.
 simfdMailFromDomain :: Lens' SetIdentityMailFromDomain (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest SetIdentityMailFromDomain where
                  SetIdentityMailFromDomainResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable SetIdentityMailFromDomain
+instance Hashable SetIdentityMailFromDomain where
 
-instance NFData SetIdentityMailFromDomain
+instance NFData SetIdentityMailFromDomain where
 
 instance ToHeaders SetIdentityMailFromDomain where
         toHeaders = const mempty
@@ -127,8 +129,9 @@ instance ToQuery SetIdentityMailFromDomain where
 --
 -- /See:/ 'setIdentityMailFromDomainResponse' smart constructor.
 newtype SetIdentityMailFromDomainResponse = SetIdentityMailFromDomainResponse'
-    { _simfdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _simfdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityMailFromDomainResponse' with the minimum fields required to make a request.
 --
@@ -139,12 +142,12 @@ setIdentityMailFromDomainResponse
     :: Int -- ^ 'simfdrsResponseStatus'
     -> SetIdentityMailFromDomainResponse
 setIdentityMailFromDomainResponse pResponseStatus_ =
-    SetIdentityMailFromDomainResponse'
-    { _simfdrsResponseStatus = pResponseStatus_
-    }
+  SetIdentityMailFromDomainResponse' {_simfdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 simfdrsResponseStatus :: Lens' SetIdentityMailFromDomainResponse Int
 simfdrsResponseStatus = lens _simfdrsResponseStatus (\ s a -> s{_simfdrsResponseStatus = a});
 
 instance NFData SetIdentityMailFromDomainResponse
+         where

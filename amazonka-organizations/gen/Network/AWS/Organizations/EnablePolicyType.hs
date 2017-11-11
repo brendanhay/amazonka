@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.EnablePolicyType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Organizations.EnablePolicyType
     , eptrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enablePolicyType' smart constructor.
 data EnablePolicyType = EnablePolicyType'
-    { _eptRootId     :: !Text
-    , _eptPolicyType :: !PolicyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eptRootId     :: {-# NOUNPACK #-}!Text
+  , _eptPolicyType :: {-# NOUNPACK #-}!PolicyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnablePolicyType' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ enablePolicyType
     -> PolicyType -- ^ 'eptPolicyType'
     -> EnablePolicyType
 enablePolicyType pRootId_ pPolicyType_ =
-    EnablePolicyType'
-    { _eptRootId = pRootId_
-    , _eptPolicyType = pPolicyType_
-    }
+  EnablePolicyType' {_eptRootId = pRootId_, _eptPolicyType = pPolicyType_}
+
 
 -- | The unique identifier (ID) of the root in which you want to enable a policy type. You can get the ID from the 'ListRoots' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
 eptRootId :: Lens' EnablePolicyType Text
@@ -87,9 +86,9 @@ instance AWSRequest EnablePolicyType where
                  EnablePolicyTypeResponse' <$>
                    (x .?> "Root") <*> (pure (fromEnum s)))
 
-instance Hashable EnablePolicyType
+instance Hashable EnablePolicyType where
 
-instance NFData EnablePolicyType
+instance NFData EnablePolicyType where
 
 instance ToHeaders EnablePolicyType where
         toHeaders
@@ -116,9 +115,10 @@ instance ToQuery EnablePolicyType where
 
 -- | /See:/ 'enablePolicyTypeResponse' smart constructor.
 data EnablePolicyTypeResponse = EnablePolicyTypeResponse'
-    { _eptrsRoot           :: !(Maybe Root)
-    , _eptrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eptrsRoot           :: {-# NOUNPACK #-}!(Maybe Root)
+  , _eptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnablePolicyTypeResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +131,9 @@ enablePolicyTypeResponse
     :: Int -- ^ 'eptrsResponseStatus'
     -> EnablePolicyTypeResponse
 enablePolicyTypeResponse pResponseStatus_ =
-    EnablePolicyTypeResponse'
-    { _eptrsRoot = Nothing
-    , _eptrsResponseStatus = pResponseStatus_
-    }
+  EnablePolicyTypeResponse'
+  {_eptrsRoot = Nothing, _eptrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that shows the root with the updated list of enabled policy types.
 eptrsRoot :: Lens' EnablePolicyTypeResponse (Maybe Root)
@@ -144,4 +143,4 @@ eptrsRoot = lens _eptrsRoot (\ s a -> s{_eptrsRoot = a});
 eptrsResponseStatus :: Lens' EnablePolicyTypeResponse Int
 eptrsResponseStatus = lens _eptrsResponseStatus (\ s a -> s{_eptrsResponseStatus = a});
 
-instance NFData EnablePolicyTypeResponse
+instance NFData EnablePolicyTypeResponse where

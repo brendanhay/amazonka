@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.RecognizeCelebrities
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,17 +49,18 @@ module Network.AWS.Rekognition.RecognizeCelebrities
     , rcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'recognizeCelebrities' smart constructor.
 newtype RecognizeCelebrities = RecognizeCelebrities'
-    { _rcImage :: Image
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcImage :: Image
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecognizeCelebrities' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ newtype RecognizeCelebrities = RecognizeCelebrities'
 recognizeCelebrities
     :: Image -- ^ 'rcImage'
     -> RecognizeCelebrities
-recognizeCelebrities pImage_ =
-    RecognizeCelebrities'
-    { _rcImage = pImage_
-    }
+recognizeCelebrities pImage_ = RecognizeCelebrities' {_rcImage = pImage_}
+
 
 -- | The input image to use for celebrity recognition.
 rcImage :: Lens' RecognizeCelebrities Image
@@ -91,9 +90,9 @@ instance AWSRequest RecognizeCelebrities where
                      <*> (x .?> "UnrecognizedFaces" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable RecognizeCelebrities
+instance Hashable RecognizeCelebrities where
 
-instance NFData RecognizeCelebrities
+instance NFData RecognizeCelebrities where
 
 instance ToHeaders RecognizeCelebrities where
         toHeaders
@@ -117,11 +116,12 @@ instance ToQuery RecognizeCelebrities where
 
 -- | /See:/ 'recognizeCelebritiesResponse' smart constructor.
 data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
-    { _rcrsCelebrityFaces        :: !(Maybe [Celebrity])
-    , _rcrsOrientationCorrection :: !(Maybe OrientationCorrection)
-    , _rcrsUnrecognizedFaces     :: !(Maybe [ComparedFace])
-    , _rcrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcrsCelebrityFaces        :: {-# NOUNPACK #-}!(Maybe [Celebrity])
+  , _rcrsOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
+  , _rcrsUnrecognizedFaces     :: {-# NOUNPACK #-}!(Maybe [ComparedFace])
+  , _rcrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecognizeCelebritiesResponse' with the minimum fields required to make a request.
 --
@@ -138,12 +138,13 @@ recognizeCelebritiesResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RecognizeCelebritiesResponse
 recognizeCelebritiesResponse pResponseStatus_ =
-    RecognizeCelebritiesResponse'
-    { _rcrsCelebrityFaces = Nothing
-    , _rcrsOrientationCorrection = Nothing
-    , _rcrsUnrecognizedFaces = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
-    }
+  RecognizeCelebritiesResponse'
+  { _rcrsCelebrityFaces = Nothing
+  , _rcrsOrientationCorrection = Nothing
+  , _rcrsUnrecognizedFaces = Nothing
+  , _rcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 15 celebrities in an image.
 rcrsCelebrityFaces :: Lens' RecognizeCelebritiesResponse [Celebrity]
@@ -161,4 +162,4 @@ rcrsUnrecognizedFaces = lens _rcrsUnrecognizedFaces (\ s a -> s{_rcrsUnrecognize
 rcrsResponseStatus :: Lens' RecognizeCelebritiesResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
 
-instance NFData RecognizeCelebritiesResponse
+instance NFData RecognizeCelebritiesResponse where

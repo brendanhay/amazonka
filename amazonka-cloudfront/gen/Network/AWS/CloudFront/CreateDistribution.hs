@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateDistribution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFront.CreateDistribution
     , cdrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create a new distribution.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDistribution' smart constructor.
 newtype CreateDistribution = CreateDistribution'
-    { _cdDistributionConfig :: DistributionConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdDistributionConfig :: DistributionConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDistribution' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ createDistribution
     :: DistributionConfig -- ^ 'cdDistributionConfig'
     -> CreateDistribution
 createDistribution pDistributionConfig_ =
-    CreateDistribution'
-    { _cdDistributionConfig = pDistributionConfig_
-    }
+  CreateDistribution' {_cdDistributionConfig = pDistributionConfig_}
+
 
 -- | The distribution's configuration information.
 cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
@@ -84,9 +84,9 @@ instance AWSRequest CreateDistribution where
                      (h .#? "Location")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateDistribution
+instance Hashable CreateDistribution where
 
-instance NFData CreateDistribution
+instance NFData CreateDistribution where
 
 instance ToElement CreateDistribution where
         toElement
@@ -110,11 +110,12 @@ instance ToQuery CreateDistribution where
 --
 -- /See:/ 'createDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
-    { _cdrsETag           :: !(Maybe Text)
-    , _cdrsDistribution   :: !(Maybe Distribution)
-    , _cdrsLocation       :: !(Maybe Text)
-    , _cdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdrsETag           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdrsDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
+  , _cdrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDistributionResponse' with the minimum fields required to make a request.
 --
@@ -131,12 +132,13 @@ createDistributionResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDistributionResponse
 createDistributionResponse pResponseStatus_ =
-    CreateDistributionResponse'
-    { _cdrsETag = Nothing
-    , _cdrsDistribution = Nothing
-    , _cdrsLocation = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
-    }
+  CreateDistributionResponse'
+  { _cdrsETag = Nothing
+  , _cdrsDistribution = Nothing
+  , _cdrsLocation = Nothing
+  , _cdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the distribution created.
 cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
@@ -154,4 +156,4 @@ cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 cdrsResponseStatus :: Lens' CreateDistributionResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 
-instance NFData CreateDistributionResponse
+instance NFData CreateDistributionResponse where

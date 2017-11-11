@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DeprecateDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,17 +48,18 @@ module Network.AWS.SWF.DeprecateDomain
     , DeprecateDomainResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'deprecateDomain' smart constructor.
 newtype DeprecateDomain = DeprecateDomain'
-    { _dName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateDomain' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ newtype DeprecateDomain = DeprecateDomain'
 deprecateDomain
     :: Text -- ^ 'dName'
     -> DeprecateDomain
-deprecateDomain pName_ =
-    DeprecateDomain'
-    { _dName = pName_
-    }
+deprecateDomain pName_ = DeprecateDomain' {_dName = pName_}
+
 
 -- | The name of the domain to deprecate.
 dName :: Lens' DeprecateDomain Text
@@ -82,9 +81,9 @@ instance AWSRequest DeprecateDomain where
         request = postJSON swf
         response = receiveNull DeprecateDomainResponse'
 
-instance Hashable DeprecateDomain
+instance Hashable DeprecateDomain where
 
-instance NFData DeprecateDomain
+instance NFData DeprecateDomain where
 
 instance ToHeaders DeprecateDomain where
         toHeaders
@@ -108,8 +107,9 @@ instance ToQuery DeprecateDomain where
 
 -- | /See:/ 'deprecateDomainResponse' smart constructor.
 data DeprecateDomainResponse =
-    DeprecateDomainResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeprecateDomainResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateDomainResponse' with the minimum fields required to make a request.
 --
@@ -117,4 +117,5 @@ deprecateDomainResponse
     :: DeprecateDomainResponse
 deprecateDomainResponse = DeprecateDomainResponse'
 
-instance NFData DeprecateDomainResponse
+
+instance NFData DeprecateDomainResponse where

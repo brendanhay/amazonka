@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     , dlbprsResponseStatus
     ) where
 
-import           Network.AWS.ELB.Types
-import           Network.AWS.ELB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELB.Types
+import Network.AWS.ELB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancerPolicies.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeLoadBalancerPolicies' smart constructor.
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
-    { _dlbpPolicyNames      :: !(Maybe [Text])
-    , _dlbpLoadBalancerName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbpPolicyNames      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dlbpLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerPolicies' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
 describeLoadBalancerPolicies
     :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies =
-    DescribeLoadBalancerPolicies'
-    { _dlbpPolicyNames = Nothing
-    , _dlbpLoadBalancerName = Nothing
-    }
+  DescribeLoadBalancerPolicies'
+  {_dlbpPolicyNames = Nothing, _dlbpLoadBalancerName = Nothing}
+
 
 -- | The names of the policies.
 dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
@@ -94,9 +94,9 @@ instance AWSRequest DescribeLoadBalancerPolicies
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLoadBalancerPolicies
+instance Hashable DescribeLoadBalancerPolicies where
 
-instance NFData DescribeLoadBalancerPolicies
+instance NFData DescribeLoadBalancerPolicies where
 
 instance ToHeaders DescribeLoadBalancerPolicies where
         toHeaders = const mempty
@@ -120,9 +120,10 @@ instance ToQuery DescribeLoadBalancerPolicies where
 --
 -- /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
-    { _dlbprsPolicyDescriptions :: !(Maybe [PolicyDescription])
-    , _dlbprsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbprsPolicyDescriptions :: {-# NOUNPACK #-}!(Maybe [PolicyDescription])
+  , _dlbprsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoadBalancerPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -135,10 +136,11 @@ describeLoadBalancerPoliciesResponse
     :: Int -- ^ 'dlbprsResponseStatus'
     -> DescribeLoadBalancerPoliciesResponse
 describeLoadBalancerPoliciesResponse pResponseStatus_ =
-    DescribeLoadBalancerPoliciesResponse'
-    { _dlbprsPolicyDescriptions = Nothing
-    , _dlbprsResponseStatus = pResponseStatus_
-    }
+  DescribeLoadBalancerPoliciesResponse'
+  { _dlbprsPolicyDescriptions = Nothing
+  , _dlbprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the policies.
 dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
@@ -149,3 +151,4 @@ dlbprsResponseStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
 dlbprsResponseStatus = lens _dlbprsResponseStatus (\ s a -> s{_dlbprsResponseStatus = a});
 
 instance NFData DescribeLoadBalancerPoliciesResponse
+         where

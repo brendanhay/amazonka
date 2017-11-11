@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ServiceCatalog.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AccessLevelFilterKey
-    = Account
-    | Role
-    | User
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Account
+  | Role
+  | User
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AccessLevelFilterKey where
     parser = takeLowerText >>= \case
@@ -49,8 +50,9 @@ instance ToJSON AccessLevelFilterKey where
     toJSON = toJSONText
 
 data PrincipalType =
-    IAM
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  IAM
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PrincipalType where
     parser = takeLowerText >>= \case
@@ -75,8 +77,9 @@ instance FromJSON PrincipalType where
     parseJSON = parseJSONText "PrincipalType"
 
 data ProductSource =
-    PSAccount
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  PSAccount
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProductSource where
     parser = takeLowerText >>= \case
@@ -98,9 +101,10 @@ instance ToJSON ProductSource where
     toJSON = toJSONText
 
 data ProductType
-    = CloudFormationTemplate
-    | Marketplace
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CloudFormationTemplate
+  | Marketplace
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProductType where
     parser = takeLowerText >>= \case
@@ -127,11 +131,12 @@ instance FromJSON ProductType where
     parseJSON = parseJSONText "ProductType"
 
 data ProductViewFilterBy
-    = FullTextSearch
-    | Owner
-    | ProductType
-    | SourceProductId
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FullTextSearch
+  | Owner
+  | ProductType
+  | SourceProductId
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProductViewFilterBy where
     parser = takeLowerText >>= \case
@@ -159,10 +164,11 @@ instance ToJSON ProductViewFilterBy where
     toJSON = toJSONText
 
 data ProductViewSortBy
-    = CreationDate
-    | Title
-    | VersionCount
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CreationDate
+  | Title
+  | VersionCount
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProductViewSortBy where
     parser = takeLowerText >>= \case
@@ -188,11 +194,12 @@ instance ToJSON ProductViewSortBy where
     toJSON = toJSONText
 
 data ProvisionedProductStatus
-    = PPSAvailable
-    | PPSError'
-    | PPSTainted
-    | PPSUnderChange
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = PPSAvailable
+  | PPSError'
+  | PPSTainted
+  | PPSUnderChange
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProvisionedProductStatus where
     parser = takeLowerText >>= \case
@@ -220,10 +227,11 @@ instance FromJSON ProvisionedProductStatus where
     parseJSON = parseJSONText "ProvisionedProductStatus"
 
 data ProvisioningArtifactType
-    = PATCloudFormationTemplate
-    | PATMarketplaceAMI
-    | PATMarketplaceCar
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = PATCloudFormationTemplate
+  | PATMarketplaceAMI
+  | PATMarketplaceCar
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ProvisioningArtifactType where
     parser = takeLowerText >>= \case
@@ -252,12 +260,13 @@ instance FromJSON ProvisioningArtifactType where
     parseJSON = parseJSONText "ProvisioningArtifactType"
 
 data RecordStatus
-    = RSCreated
-    | RSFailed
-    | RSInProgress
-    | RSInProgressInError
-    | RSSucceeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RSCreated
+  | RSFailed
+  | RSInProgress
+  | RSInProgressInError
+  | RSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RecordStatus where
     parser = takeLowerText >>= \case
@@ -287,10 +296,11 @@ instance FromJSON RecordStatus where
     parseJSON = parseJSONText "RecordStatus"
 
 data RequestStatus
-    = Available
-    | Creating
-    | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | Creating
+  | Failed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RequestStatus where
     parser = takeLowerText >>= \case
@@ -316,9 +326,10 @@ instance FromJSON RequestStatus where
     parseJSON = parseJSONText "RequestStatus"
 
 data SortOrder
-    = Ascending
-    | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Ascending
+  | Descending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case

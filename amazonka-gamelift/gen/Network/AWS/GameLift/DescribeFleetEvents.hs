@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeFleetEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -94,12 +94,12 @@ module Network.AWS.GameLift.DescribeFleetEvents
     , dfersResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -107,12 +107,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeFleetEvents' smart constructor.
 data DescribeFleetEvents = DescribeFleetEvents'
-    { _dfeStartTime :: !(Maybe POSIX)
-    , _dfeNextToken :: !(Maybe Text)
-    , _dfeEndTime   :: !(Maybe POSIX)
-    , _dfeLimit     :: !(Maybe Nat)
-    , _dfeFleetId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfeStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dfeNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfeEndTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dfeLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dfeFleetId   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetEvents' with the minimum fields required to make a request.
 --
@@ -131,13 +132,14 @@ describeFleetEvents
     :: Text -- ^ 'dfeFleetId'
     -> DescribeFleetEvents
 describeFleetEvents pFleetId_ =
-    DescribeFleetEvents'
-    { _dfeStartTime = Nothing
-    , _dfeNextToken = Nothing
-    , _dfeEndTime = Nothing
-    , _dfeLimit = Nothing
-    , _dfeFleetId = pFleetId_
-    }
+  DescribeFleetEvents'
+  { _dfeStartTime = Nothing
+  , _dfeNextToken = Nothing
+  , _dfeEndTime = Nothing
+  , _dfeLimit = Nothing
+  , _dfeFleetId = pFleetId_
+  }
+
 
 -- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
 dfeStartTime :: Lens' DescribeFleetEvents (Maybe UTCTime)
@@ -170,9 +172,9 @@ instance AWSRequest DescribeFleetEvents where
                    (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeFleetEvents
+instance Hashable DescribeFleetEvents where
 
-instance NFData DescribeFleetEvents
+instance NFData DescribeFleetEvents where
 
 instance ToHeaders DescribeFleetEvents where
         toHeaders
@@ -205,10 +207,11 @@ instance ToQuery DescribeFleetEvents where
 --
 -- /See:/ 'describeFleetEventsResponse' smart constructor.
 data DescribeFleetEventsResponse = DescribeFleetEventsResponse'
-    { _dfersNextToken      :: !(Maybe Text)
-    , _dfersEvents         :: !(Maybe [Event])
-    , _dfersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
+  , _dfersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeFleetEventsResponse' with the minimum fields required to make a request.
 --
@@ -223,11 +226,12 @@ describeFleetEventsResponse
     :: Int -- ^ 'dfersResponseStatus'
     -> DescribeFleetEventsResponse
 describeFleetEventsResponse pResponseStatus_ =
-    DescribeFleetEventsResponse'
-    { _dfersNextToken = Nothing
-    , _dfersEvents = Nothing
-    , _dfersResponseStatus = pResponseStatus_
-    }
+  DescribeFleetEventsResponse'
+  { _dfersNextToken = Nothing
+  , _dfersEvents = Nothing
+  , _dfersResponseStatus = pResponseStatus_
+  }
+
 
 -- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfersNextToken :: Lens' DescribeFleetEventsResponse (Maybe Text)
@@ -241,4 +245,4 @@ dfersEvents = lens _dfersEvents (\ s a -> s{_dfersEvents = a}) . _Default . _Coe
 dfersResponseStatus :: Lens' DescribeFleetEventsResponse Int
 dfersResponseStatus = lens _dfersResponseStatus (\ s a -> s{_dfersResponseStatus = a});
 
-instance NFData DescribeFleetEventsResponse
+instance NFData DescribeFleetEventsResponse where

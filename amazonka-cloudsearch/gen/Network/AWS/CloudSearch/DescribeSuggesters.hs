@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeSuggesters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     , dssrsSuggesters
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DescribeSuggester' @ operation. Specifies the name of the domain you want to describe. To restrict the response to particular suggesters, specify the names of the suggesters you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSuggesters' smart constructor.
 data DescribeSuggesters = DescribeSuggesters'
-    { _dssDeployed       :: !(Maybe Bool)
-    , _dssSuggesterNames :: !(Maybe [Text])
-    , _dssDomainName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssDeployed       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dssSuggesterNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dssDomainName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSuggesters' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ describeSuggesters
     :: Text -- ^ 'dssDomainName'
     -> DescribeSuggesters
 describeSuggesters pDomainName_ =
-    DescribeSuggesters'
-    { _dssDeployed = Nothing
-    , _dssSuggesterNames = Nothing
-    , _dssDomainName = pDomainName_
-    }
+  DescribeSuggesters'
+  { _dssDeployed = Nothing
+  , _dssSuggesterNames = Nothing
+  , _dssDomainName = pDomainName_
+  }
+
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 dssDeployed :: Lens' DescribeSuggesters (Maybe Bool)
@@ -100,9 +102,9 @@ instance AWSRequest DescribeSuggesters where
                      (x .@? "Suggesters" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable DescribeSuggesters
+instance Hashable DescribeSuggesters where
 
-instance NFData DescribeSuggesters
+instance NFData DescribeSuggesters where
 
 instance ToHeaders DescribeSuggesters where
         toHeaders = const mempty
@@ -127,9 +129,10 @@ instance ToQuery DescribeSuggesters where
 --
 -- /See:/ 'describeSuggestersResponse' smart constructor.
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
-    { _dssrsResponseStatus :: !Int
-    , _dssrsSuggesters     :: ![SuggesterStatus]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dssrsSuggesters     :: {-# NOUNPACK #-}![SuggesterStatus]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSuggestersResponse' with the minimum fields required to make a request.
 --
@@ -142,10 +145,9 @@ describeSuggestersResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSuggestersResponse
 describeSuggestersResponse pResponseStatus_ =
-    DescribeSuggestersResponse'
-    { _dssrsResponseStatus = pResponseStatus_
-    , _dssrsSuggesters = mempty
-    }
+  DescribeSuggestersResponse'
+  {_dssrsResponseStatus = pResponseStatus_, _dssrsSuggesters = mempty}
+
 
 -- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSuggestersResponse Int
@@ -155,4 +157,4 @@ dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus
 dssrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dssrsSuggesters = lens _dssrsSuggesters (\ s a -> s{_dssrsSuggesters = a}) . _Coerce;
 
-instance NFData DescribeSuggestersResponse
+instance NFData DescribeSuggestersResponse where

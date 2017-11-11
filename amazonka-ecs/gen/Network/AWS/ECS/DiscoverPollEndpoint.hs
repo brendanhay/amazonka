@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DiscoverPollEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     , dpersResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'discoverPollEndpoint' smart constructor.
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
-    { _dpeCluster           :: !(Maybe Text)
-    , _dpeContainerInstance :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpeCluster           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpeContainerInstance :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DiscoverPollEndpoint' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data DiscoverPollEndpoint = DiscoverPollEndpoint'
 discoverPollEndpoint
     :: DiscoverPollEndpoint
 discoverPollEndpoint =
-    DiscoverPollEndpoint'
-    { _dpeCluster = Nothing
-    , _dpeContainerInstance = Nothing
-    }
+  DiscoverPollEndpoint' {_dpeCluster = Nothing, _dpeContainerInstance = Nothing}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that the container instance belongs to.
 dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
@@ -86,9 +85,9 @@ instance AWSRequest DiscoverPollEndpoint where
                    (x .?> "telemetryEndpoint") <*> (x .?> "endpoint")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DiscoverPollEndpoint
+instance Hashable DiscoverPollEndpoint where
 
-instance NFData DiscoverPollEndpoint
+instance NFData DiscoverPollEndpoint where
 
 instance ToHeaders DiscoverPollEndpoint where
         toHeaders
@@ -115,10 +114,11 @@ instance ToQuery DiscoverPollEndpoint where
 
 -- | /See:/ 'discoverPollEndpointResponse' smart constructor.
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
-    { _dpersTelemetryEndpoint :: !(Maybe Text)
-    , _dpersEndpoint          :: !(Maybe Text)
-    , _dpersResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpersTelemetryEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpersEndpoint          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpersResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DiscoverPollEndpointResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +133,12 @@ discoverPollEndpointResponse
     :: Int -- ^ 'dpersResponseStatus'
     -> DiscoverPollEndpointResponse
 discoverPollEndpointResponse pResponseStatus_ =
-    DiscoverPollEndpointResponse'
-    { _dpersTelemetryEndpoint = Nothing
-    , _dpersEndpoint = Nothing
-    , _dpersResponseStatus = pResponseStatus_
-    }
+  DiscoverPollEndpointResponse'
+  { _dpersTelemetryEndpoint = Nothing
+  , _dpersEndpoint = Nothing
+  , _dpersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The telemetry endpoint for the Amazon ECS agent.
 dpersTelemetryEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
@@ -151,4 +152,4 @@ dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a});
 dpersResponseStatus :: Lens' DiscoverPollEndpointResponse Int
 dpersResponseStatus = lens _dpersResponseStatus (\ s a -> s{_dpersResponseStatus = a});
 
-instance NFData DiscoverPollEndpointResponse
+instance NFData DiscoverPollEndpointResponse where

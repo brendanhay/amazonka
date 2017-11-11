@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketMetricsConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,19 +34,20 @@ module Network.AWS.S3.PutBucketMetricsConfiguration
     , PutBucketMetricsConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketMetricsConfiguration' smart constructor.
 data PutBucketMetricsConfiguration = PutBucketMetricsConfiguration'
-    { _pbmcBucket               :: !BucketName
-    , _pbmcId                   :: !Text
-    , _pbmcMetricsConfiguration :: !MetricsConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pbmcBucket               :: {-# NOUNPACK #-}!BucketName
+  , _pbmcId                   :: {-# NOUNPACK #-}!Text
+  , _pbmcMetricsConfiguration :: {-# NOUNPACK #-}!MetricsConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketMetricsConfiguration' with the minimum fields required to make a request.
 --
@@ -63,11 +64,12 @@ putBucketMetricsConfiguration
     -> MetricsConfiguration -- ^ 'pbmcMetricsConfiguration'
     -> PutBucketMetricsConfiguration
 putBucketMetricsConfiguration pBucket_ pId_ pMetricsConfiguration_ =
-    PutBucketMetricsConfiguration'
-    { _pbmcBucket = pBucket_
-    , _pbmcId = pId_
-    , _pbmcMetricsConfiguration = pMetricsConfiguration_
-    }
+  PutBucketMetricsConfiguration'
+  { _pbmcBucket = pBucket_
+  , _pbmcId = pId_
+  , _pbmcMetricsConfiguration = pMetricsConfiguration_
+  }
+
 
 -- | The name of the bucket for which the metrics configuration is set.
 pbmcBucket :: Lens' PutBucketMetricsConfiguration BucketName
@@ -89,9 +91,9 @@ instance AWSRequest PutBucketMetricsConfiguration
         response
           = receiveNull PutBucketMetricsConfigurationResponse'
 
-instance Hashable PutBucketMetricsConfiguration
+instance Hashable PutBucketMetricsConfiguration where
 
-instance NFData PutBucketMetricsConfiguration
+instance NFData PutBucketMetricsConfiguration where
 
 instance ToElement PutBucketMetricsConfiguration
          where
@@ -115,8 +117,9 @@ instance ToQuery PutBucketMetricsConfiguration where
 
 -- | /See:/ 'putBucketMetricsConfigurationResponse' smart constructor.
 data PutBucketMetricsConfigurationResponse =
-    PutBucketMetricsConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutBucketMetricsConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutBucketMetricsConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +127,6 @@ putBucketMetricsConfigurationResponse
     :: PutBucketMetricsConfigurationResponse
 putBucketMetricsConfigurationResponse = PutBucketMetricsConfigurationResponse'
 
+
 instance NFData PutBucketMetricsConfigurationResponse
+         where

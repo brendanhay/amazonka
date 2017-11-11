@@ -7,39 +7,45 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.Waiters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Glacier.Waiters where
 
-import           Network.AWS.Glacier.DescribeVault
-import           Network.AWS.Glacier.DescribeVault
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.Glacier.DescribeVault
+import Network.AWS.Glacier.DescribeVault
+import Network.AWS.Glacier.Types
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
 vaultNotExists :: Wait DescribeVault
 vaultNotExists =
-    Wait
-    { _waitName = "VaultNotExists"
-    , _waitAttempts = 15
-    , _waitDelay = 3
-    , _waitAcceptors = [ matchStatus 200 AcceptRetry
-                       , matchError "ResourceNotFoundException" AcceptSuccess]
-    }
+  Wait
+  { _waitName = "VaultNotExists"
+  , _waitAttempts = 15
+  , _waitDelay = 3
+  , _waitAcceptors =
+      [ matchStatus 200 AcceptRetry
+      , matchError "ResourceNotFoundException" AcceptSuccess
+      ]
+  }
+
 
 -- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
 vaultExists :: Wait DescribeVault
 vaultExists =
-    Wait
-    { _waitName = "VaultExists"
-    , _waitAttempts = 15
-    , _waitDelay = 3
-    , _waitAcceptors = [ matchStatus 200 AcceptSuccess
-                       , matchError "ResourceNotFoundException" AcceptRetry]
-    }
+  Wait
+  { _waitName = "VaultExists"
+  , _waitAttempts = 15
+  , _waitDelay = 3
+  , _waitAcceptors =
+      [ matchStatus 200 AcceptSuccess
+      , matchError "ResourceNotFoundException" AcceptRetry
+      ]
+  }
+

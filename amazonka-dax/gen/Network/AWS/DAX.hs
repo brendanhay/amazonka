@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -296,29 +296,29 @@ module Network.AWS.DAX
     , tagKey
     ) where
 
-import           Network.AWS.DAX.CreateCluster
-import           Network.AWS.DAX.CreateParameterGroup
-import           Network.AWS.DAX.CreateSubnetGroup
-import           Network.AWS.DAX.DecreaseReplicationFactor
-import           Network.AWS.DAX.DeleteCluster
-import           Network.AWS.DAX.DeleteParameterGroup
-import           Network.AWS.DAX.DeleteSubnetGroup
-import           Network.AWS.DAX.DescribeClusters
-import           Network.AWS.DAX.DescribeDefaultParameters
-import           Network.AWS.DAX.DescribeEvents
-import           Network.AWS.DAX.DescribeParameterGroups
-import           Network.AWS.DAX.DescribeParameters
-import           Network.AWS.DAX.DescribeSubnetGroups
-import           Network.AWS.DAX.IncreaseReplicationFactor
-import           Network.AWS.DAX.ListTags
-import           Network.AWS.DAX.RebootNode
-import           Network.AWS.DAX.TagResource
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.UntagResource
-import           Network.AWS.DAX.UpdateCluster
-import           Network.AWS.DAX.UpdateParameterGroup
-import           Network.AWS.DAX.UpdateSubnetGroup
-import           Network.AWS.DAX.Waiters
+import Network.AWS.DAX.CreateCluster
+import Network.AWS.DAX.CreateParameterGroup
+import Network.AWS.DAX.CreateSubnetGroup
+import Network.AWS.DAX.DecreaseReplicationFactor
+import Network.AWS.DAX.DeleteCluster
+import Network.AWS.DAX.DeleteParameterGroup
+import Network.AWS.DAX.DeleteSubnetGroup
+import Network.AWS.DAX.DescribeClusters
+import Network.AWS.DAX.DescribeDefaultParameters
+import Network.AWS.DAX.DescribeEvents
+import Network.AWS.DAX.DescribeParameterGroups
+import Network.AWS.DAX.DescribeParameters
+import Network.AWS.DAX.DescribeSubnetGroups
+import Network.AWS.DAX.IncreaseReplicationFactor
+import Network.AWS.DAX.ListTags
+import Network.AWS.DAX.RebootNode
+import Network.AWS.DAX.TagResource
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.UntagResource
+import Network.AWS.DAX.UpdateCluster
+import Network.AWS.DAX.UpdateParameterGroup
+import Network.AWS.DAX.UpdateSubnetGroup
+import Network.AWS.DAX.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

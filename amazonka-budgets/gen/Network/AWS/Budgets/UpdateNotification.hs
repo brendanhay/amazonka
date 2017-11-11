@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.UpdateNotification
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,22 +37,23 @@ module Network.AWS.Budgets.UpdateNotification
     , unrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of UpdateNotification
 --
 -- /See:/ 'updateNotification' smart constructor.
 data UpdateNotification = UpdateNotification'
-    { _unAccountId       :: !Text
-    , _unBudgetName      :: !Text
-    , _unOldNotification :: !Notification
-    , _unNewNotification :: !Notification
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unAccountId       :: {-# NOUNPACK #-}!Text
+  , _unBudgetName      :: {-# NOUNPACK #-}!Text
+  , _unOldNotification :: {-# NOUNPACK #-}!Notification
+  , _unNewNotification :: {-# NOUNPACK #-}!Notification
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNotification' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ updateNotification
     -> Notification -- ^ 'unNewNotification'
     -> UpdateNotification
 updateNotification pAccountId_ pBudgetName_ pOldNotification_ pNewNotification_ =
-    UpdateNotification'
-    { _unAccountId = pAccountId_
-    , _unBudgetName = pBudgetName_
-    , _unOldNotification = pOldNotification_
-    , _unNewNotification = pNewNotification_
-    }
+  UpdateNotification'
+  { _unAccountId = pAccountId_
+  , _unBudgetName = pBudgetName_
+  , _unOldNotification = pOldNotification_
+  , _unNewNotification = pNewNotification_
+  }
+
 
 -- | Undocumented member.
 unAccountId :: Lens' UpdateNotification Text
@@ -104,9 +106,9 @@ instance AWSRequest UpdateNotification where
               (\ s h x ->
                  UpdateNotificationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateNotification
+instance Hashable UpdateNotification where
 
-instance NFData UpdateNotification
+instance NFData UpdateNotification where
 
 instance ToHeaders UpdateNotification where
         toHeaders
@@ -137,8 +139,9 @@ instance ToQuery UpdateNotification where
 --
 -- /See:/ 'updateNotificationResponse' smart constructor.
 newtype UpdateNotificationResponse = UpdateNotificationResponse'
-    { _unrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _unrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateNotificationResponse' with the minimum fields required to make a request.
 --
@@ -149,12 +152,11 @@ updateNotificationResponse
     :: Int -- ^ 'unrsResponseStatus'
     -> UpdateNotificationResponse
 updateNotificationResponse pResponseStatus_ =
-    UpdateNotificationResponse'
-    { _unrsResponseStatus = pResponseStatus_
-    }
+  UpdateNotificationResponse' {_unrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 unrsResponseStatus :: Lens' UpdateNotificationResponse Int
 unrsResponseStatus = lens _unrsResponseStatus (\ s a -> s{_unrsResponseStatus = a});
 
-instance NFData UpdateNotificationResponse
+instance NFData UpdateNotificationResponse where

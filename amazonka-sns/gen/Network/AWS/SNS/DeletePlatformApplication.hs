@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.DeletePlatformApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.SNS.DeletePlatformApplication
     , DeletePlatformApplicationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for DeletePlatformApplication action.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'deletePlatformApplication' smart constructor.
 newtype DeletePlatformApplication = DeletePlatformApplication'
-    { _dpaPlatformApplicationARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpaPlatformApplicationARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePlatformApplication' with the minimum fields required to make a request.
 --
@@ -59,9 +60,9 @@ deletePlatformApplication
     :: Text -- ^ 'dpaPlatformApplicationARN'
     -> DeletePlatformApplication
 deletePlatformApplication pPlatformApplicationARN_ =
-    DeletePlatformApplication'
-    { _dpaPlatformApplicationARN = pPlatformApplicationARN_
-    }
+  DeletePlatformApplication'
+  {_dpaPlatformApplicationARN = pPlatformApplicationARN_}
+
 
 -- | PlatformApplicationArn of platform application object to delete.
 dpaPlatformApplicationARN :: Lens' DeletePlatformApplication Text
@@ -74,9 +75,9 @@ instance AWSRequest DeletePlatformApplication where
         response
           = receiveNull DeletePlatformApplicationResponse'
 
-instance Hashable DeletePlatformApplication
+instance Hashable DeletePlatformApplication where
 
-instance NFData DeletePlatformApplication
+instance NFData DeletePlatformApplication where
 
 instance ToHeaders DeletePlatformApplication where
         toHeaders = const mempty
@@ -95,8 +96,9 @@ instance ToQuery DeletePlatformApplication where
 
 -- | /See:/ 'deletePlatformApplicationResponse' smart constructor.
 data DeletePlatformApplicationResponse =
-    DeletePlatformApplicationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePlatformApplicationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePlatformApplicationResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +106,6 @@ deletePlatformApplicationResponse
     :: DeletePlatformApplicationResponse
 deletePlatformApplicationResponse = DeletePlatformApplicationResponse'
 
+
 instance NFData DeletePlatformApplicationResponse
+         where

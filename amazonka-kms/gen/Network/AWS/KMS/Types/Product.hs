@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.KMS.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.KMS.Types.Product where
 
-import           Network.AWS.KMS.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.KMS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Contains information about an alias.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'aliasListEntry' smart constructor.
 data AliasListEntry = AliasListEntry'
-    { _aleTargetKeyId :: !(Maybe Text)
-    , _aleAliasName   :: !(Maybe Text)
-    , _aleAliasARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aleTargetKeyId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aleAliasName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aleAliasARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AliasListEntry' with the minimum fields required to make a request.
 --
@@ -44,11 +45,9 @@ data AliasListEntry = AliasListEntry'
 aliasListEntry
     :: AliasListEntry
 aliasListEntry =
-    AliasListEntry'
-    { _aleTargetKeyId = Nothing
-    , _aleAliasName = Nothing
-    , _aleAliasARN = Nothing
-    }
+  AliasListEntry'
+  {_aleTargetKeyId = Nothing, _aleAliasName = Nothing, _aleAliasARN = Nothing}
+
 
 -- | String that contains the key identifier referred to by the alias.
 aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
@@ -70,9 +69,9 @@ instance FromJSON AliasListEntry where
                    (x .:? "TargetKeyId") <*> (x .:? "AliasName") <*>
                      (x .:? "AliasArn"))
 
-instance Hashable AliasListEntry
+instance Hashable AliasListEntry where
 
-instance NFData AliasListEntry
+instance NFData AliasListEntry where
 
 -- | A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
@@ -82,9 +81,10 @@ instance NFData AliasListEntry
 --
 -- /See:/ 'grantConstraints' smart constructor.
 data GrantConstraints = GrantConstraints'
-    { _gcEncryptionContextEquals :: !(Maybe (Map Text Text))
-    , _gcEncryptionContextSubset :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcEncryptionContextEquals :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gcEncryptionContextSubset :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GrantConstraints' with the minimum fields required to make a request.
 --
@@ -96,10 +96,9 @@ data GrantConstraints = GrantConstraints'
 grantConstraints
     :: GrantConstraints
 grantConstraints =
-    GrantConstraints'
-    { _gcEncryptionContextEquals = Nothing
-    , _gcEncryptionContextSubset = Nothing
-    }
+  GrantConstraints'
+  {_gcEncryptionContextEquals = Nothing, _gcEncryptionContextSubset = Nothing}
+
 
 -- | A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows. When certain subsequent operations allowed by the grant include encryption context that matches this list, the grant allows the operation. Otherwise, the grant does not allow the operation.
 gcEncryptionContextEquals :: Lens' GrantConstraints (HashMap Text Text)
@@ -117,9 +116,9 @@ instance FromJSON GrantConstraints where
                    (x .:? "EncryptionContextEquals" .!= mempty) <*>
                      (x .:? "EncryptionContextSubset" .!= mempty))
 
-instance Hashable GrantConstraints
+instance Hashable GrantConstraints where
 
-instance NFData GrantConstraints
+instance NFData GrantConstraints where
 
 instance ToJSON GrantConstraints where
         toJSON GrantConstraints'{..}
@@ -136,16 +135,17 @@ instance ToJSON GrantConstraints where
 --
 -- /See:/ 'grantListEntry' smart constructor.
 data GrantListEntry = GrantListEntry'
-    { _gleKeyId             :: !(Maybe Text)
-    , _gleRetiringPrincipal :: !(Maybe Text)
-    , _gleIssuingAccount    :: !(Maybe Text)
-    , _gleGrantId           :: !(Maybe Text)
-    , _gleConstraints       :: !(Maybe GrantConstraints)
-    , _gleGranteePrincipal  :: !(Maybe Text)
-    , _gleName              :: !(Maybe Text)
-    , _gleCreationDate      :: !(Maybe POSIX)
-    , _gleOperations        :: !(Maybe [GrantOperation])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gleKeyId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gleRetiringPrincipal :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gleIssuingAccount    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gleGrantId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gleConstraints       :: {-# NOUNPACK #-}!(Maybe GrantConstraints)
+  , _gleGranteePrincipal  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gleName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gleCreationDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gleOperations        :: {-# NOUNPACK #-}!(Maybe [GrantOperation])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GrantListEntry' with the minimum fields required to make a request.
 --
@@ -171,17 +171,18 @@ data GrantListEntry = GrantListEntry'
 grantListEntry
     :: GrantListEntry
 grantListEntry =
-    GrantListEntry'
-    { _gleKeyId = Nothing
-    , _gleRetiringPrincipal = Nothing
-    , _gleIssuingAccount = Nothing
-    , _gleGrantId = Nothing
-    , _gleConstraints = Nothing
-    , _gleGranteePrincipal = Nothing
-    , _gleName = Nothing
-    , _gleCreationDate = Nothing
-    , _gleOperations = Nothing
-    }
+  GrantListEntry'
+  { _gleKeyId = Nothing
+  , _gleRetiringPrincipal = Nothing
+  , _gleIssuingAccount = Nothing
+  , _gleGrantId = Nothing
+  , _gleConstraints = Nothing
+  , _gleGranteePrincipal = Nothing
+  , _gleName = Nothing
+  , _gleCreationDate = Nothing
+  , _gleOperations = Nothing
+  }
+
 
 -- | The unique identifier for the customer master key (CMK) to which the grant applies.
 gleKeyId :: Lens' GrantListEntry (Maybe Text)
@@ -233,9 +234,9 @@ instance FromJSON GrantListEntry where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "Operations" .!= mempty))
 
-instance Hashable GrantListEntry
+instance Hashable GrantListEntry where
 
-instance NFData GrantListEntry
+instance NFData GrantListEntry where
 
 -- | Contains information about each entry in the key list.
 --
@@ -243,9 +244,10 @@ instance NFData GrantListEntry
 --
 -- /See:/ 'keyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
-    { _kleKeyId  :: !(Maybe Text)
-    , _kleKeyARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kleKeyId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kleKeyARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyListEntry' with the minimum fields required to make a request.
 --
@@ -256,11 +258,8 @@ data KeyListEntry = KeyListEntry'
 -- * 'kleKeyARN' - ARN of the key.
 keyListEntry
     :: KeyListEntry
-keyListEntry =
-    KeyListEntry'
-    { _kleKeyId = Nothing
-    , _kleKeyARN = Nothing
-    }
+keyListEntry = KeyListEntry' {_kleKeyId = Nothing, _kleKeyARN = Nothing}
+
 
 -- | Unique identifier of the key.
 kleKeyId :: Lens' KeyListEntry (Maybe Text)
@@ -277,9 +276,9 @@ instance FromJSON KeyListEntry where
                  KeyListEntry' <$>
                    (x .:? "KeyId") <*> (x .:? "KeyArn"))
 
-instance Hashable KeyListEntry
+instance Hashable KeyListEntry where
 
-instance NFData KeyListEntry
+instance NFData KeyListEntry where
 
 -- | Contains metadata about a customer master key (CMK).
 --
@@ -289,20 +288,21 @@ instance NFData KeyListEntry
 --
 -- /See:/ 'keyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
-    { _kmOrigin          :: !(Maybe OriginType)
-    , _kmExpirationModel :: !(Maybe ExpirationModelType)
-    , _kmKeyManager      :: !(Maybe KeyManagerType)
-    , _kmEnabled         :: !(Maybe Bool)
-    , _kmValidTo         :: !(Maybe POSIX)
-    , _kmARN             :: !(Maybe Text)
-    , _kmKeyState        :: !(Maybe KeyState)
-    , _kmAWSAccountId    :: !(Maybe Text)
-    , _kmKeyUsage        :: !(Maybe KeyUsageType)
-    , _kmCreationDate    :: !(Maybe POSIX)
-    , _kmDeletionDate    :: !(Maybe POSIX)
-    , _kmDescription     :: !(Maybe Text)
-    , _kmKeyId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kmOrigin          :: {-# NOUNPACK #-}!(Maybe OriginType)
+  , _kmExpirationModel :: {-# NOUNPACK #-}!(Maybe ExpirationModelType)
+  , _kmKeyManager      :: {-# NOUNPACK #-}!(Maybe KeyManagerType)
+  , _kmEnabled         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _kmValidTo         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _kmARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kmKeyState        :: {-# NOUNPACK #-}!(Maybe KeyState)
+  , _kmAWSAccountId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kmKeyUsage        :: {-# NOUNPACK #-}!(Maybe KeyUsageType)
+  , _kmCreationDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _kmDeletionDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _kmDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kmKeyId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyMetadata' with the minimum fields required to make a request.
 --
@@ -337,21 +337,22 @@ keyMetadata
     :: Text -- ^ 'kmKeyId'
     -> KeyMetadata
 keyMetadata pKeyId_ =
-    KeyMetadata'
-    { _kmOrigin = Nothing
-    , _kmExpirationModel = Nothing
-    , _kmKeyManager = Nothing
-    , _kmEnabled = Nothing
-    , _kmValidTo = Nothing
-    , _kmARN = Nothing
-    , _kmKeyState = Nothing
-    , _kmAWSAccountId = Nothing
-    , _kmKeyUsage = Nothing
-    , _kmCreationDate = Nothing
-    , _kmDeletionDate = Nothing
-    , _kmDescription = Nothing
-    , _kmKeyId = pKeyId_
-    }
+  KeyMetadata'
+  { _kmOrigin = Nothing
+  , _kmExpirationModel = Nothing
+  , _kmKeyManager = Nothing
+  , _kmEnabled = Nothing
+  , _kmValidTo = Nothing
+  , _kmARN = Nothing
+  , _kmKeyState = Nothing
+  , _kmAWSAccountId = Nothing
+  , _kmKeyUsage = Nothing
+  , _kmCreationDate = Nothing
+  , _kmDeletionDate = Nothing
+  , _kmDescription = Nothing
+  , _kmKeyId = pKeyId_
+  }
+
 
 -- | The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material.
 kmOrigin :: Lens' KeyMetadata (Maybe OriginType)
@@ -423,16 +424,17 @@ instance FromJSON KeyMetadata where
                      <*> (x .:? "Description")
                      <*> (x .: "KeyId"))
 
-instance Hashable KeyMetadata
+instance Hashable KeyMetadata where
 
-instance NFData KeyMetadata
+instance NFData KeyMetadata where
 
 -- | /See:/ 'listGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
-    { _lgTruncated  :: !(Maybe Bool)
-    , _lgGrants     :: !(Maybe [GrantListEntry])
-    , _lgNextMarker :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgTruncated  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lgGrants     :: {-# NOUNPACK #-}!(Maybe [GrantListEntry])
+  , _lgNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGrantsResponse' with the minimum fields required to make a request.
 --
@@ -446,11 +448,9 @@ data ListGrantsResponse = ListGrantsResponse'
 listGrantsResponse
     :: ListGrantsResponse
 listGrantsResponse =
-    ListGrantsResponse'
-    { _lgTruncated = Nothing
-    , _lgGrants = Nothing
-    , _lgNextMarker = Nothing
-    }
+  ListGrantsResponse'
+  {_lgTruncated = Nothing, _lgGrants = Nothing, _lgNextMarker = Nothing}
+
 
 -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lgTruncated :: Lens' ListGrantsResponse (Maybe Bool)
@@ -472,9 +472,9 @@ instance FromJSON ListGrantsResponse where
                    (x .:? "Truncated") <*> (x .:? "Grants" .!= mempty)
                      <*> (x .:? "NextMarker"))
 
-instance Hashable ListGrantsResponse
+instance Hashable ListGrantsResponse where
 
-instance NFData ListGrantsResponse
+instance NFData ListGrantsResponse where
 
 -- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
 --
@@ -482,9 +482,10 @@ instance NFData ListGrantsResponse
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagTagKey   :: !Text
-    , _tagTagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagTagKey   :: {-# NOUNPACK #-}!Text
+  , _tagTagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -498,10 +499,8 @@ tag
     -> Text -- ^ 'tagTagValue'
     -> Tag
 tag pTagKey_ pTagValue_ =
-    Tag'
-    { _tagTagKey = pTagKey_
-    , _tagTagValue = pTagValue_
-    }
+  Tag' {_tagTagKey = pTagKey_, _tagTagValue = pTagValue_}
+
 
 -- | The key of the tag.
 tagTagKey :: Lens' Tag Text
@@ -517,9 +516,9 @@ instance FromJSON Tag where
               (\ x ->
                  Tag' <$> (x .: "TagKey") <*> (x .: "TagValue"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPNConnectionRoute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DeleteVPNConnectionRoute
     , DeleteVPNConnectionRouteResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpnConnectionRoute.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteVPNConnectionRoute' smart constructor.
 data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
-    { _dvcrDestinationCidrBlock :: !Text
-    , _dvcrVPNConnectionId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvcrDestinationCidrBlock :: {-# NOUNPACK #-}!Text
+  , _dvcrVPNConnectionId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPNConnectionRoute' with the minimum fields required to make a request.
 --
@@ -64,10 +65,11 @@ deleteVPNConnectionRoute
     -> Text -- ^ 'dvcrVPNConnectionId'
     -> DeleteVPNConnectionRoute
 deleteVPNConnectionRoute pDestinationCidrBlock_ pVPNConnectionId_ =
-    DeleteVPNConnectionRoute'
-    { _dvcrDestinationCidrBlock = pDestinationCidrBlock_
-    , _dvcrVPNConnectionId = pVPNConnectionId_
-    }
+  DeleteVPNConnectionRoute'
+  { _dvcrDestinationCidrBlock = pDestinationCidrBlock_
+  , _dvcrVPNConnectionId = pVPNConnectionId_
+  }
+
 
 -- | The CIDR block associated with the local subnet of the customer network.
 dvcrDestinationCidrBlock :: Lens' DeleteVPNConnectionRoute Text
@@ -84,9 +86,9 @@ instance AWSRequest DeleteVPNConnectionRoute where
         response
           = receiveNull DeleteVPNConnectionRouteResponse'
 
-instance Hashable DeleteVPNConnectionRoute
+instance Hashable DeleteVPNConnectionRoute where
 
-instance NFData DeleteVPNConnectionRoute
+instance NFData DeleteVPNConnectionRoute where
 
 instance ToHeaders DeleteVPNConnectionRoute where
         toHeaders = const mempty
@@ -105,8 +107,9 @@ instance ToQuery DeleteVPNConnectionRoute where
 
 -- | /See:/ 'deleteVPNConnectionRouteResponse' smart constructor.
 data DeleteVPNConnectionRouteResponse =
-    DeleteVPNConnectionRouteResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteVPNConnectionRouteResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPNConnectionRouteResponse' with the minimum fields required to make a request.
 --
@@ -114,4 +117,6 @@ deleteVPNConnectionRouteResponse
     :: DeleteVPNConnectionRouteResponse
 deleteVPNConnectionRouteResponse = DeleteVPNConnectionRouteResponse'
 
+
 instance NFData DeleteVPNConnectionRouteResponse
+         where

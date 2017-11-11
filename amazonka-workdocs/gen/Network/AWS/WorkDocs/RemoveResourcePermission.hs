@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.RemoveResourcePermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,20 +37,21 @@ module Network.AWS.WorkDocs.RemoveResourcePermission
     , RemoveResourcePermissionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'removeResourcePermission' smart constructor.
 data RemoveResourcePermission = RemoveResourcePermission'
-    { _rrpPrincipalType       :: !(Maybe PrincipalType)
-    , _rrpAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _rrpResourceId          :: !Text
-    , _rrpPrincipalId         :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rrpPrincipalType       :: {-# NOUNPACK #-}!(Maybe PrincipalType)
+  , _rrpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _rrpResourceId          :: {-# NOUNPACK #-}!Text
+  , _rrpPrincipalId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveResourcePermission' with the minimum fields required to make a request.
 --
@@ -68,12 +69,13 @@ removeResourcePermission
     -> Text -- ^ 'rrpPrincipalId'
     -> RemoveResourcePermission
 removeResourcePermission pResourceId_ pPrincipalId_ =
-    RemoveResourcePermission'
-    { _rrpPrincipalType = Nothing
-    , _rrpAuthenticationToken = Nothing
-    , _rrpResourceId = pResourceId_
-    , _rrpPrincipalId = pPrincipalId_
-    }
+  RemoveResourcePermission'
+  { _rrpPrincipalType = Nothing
+  , _rrpAuthenticationToken = Nothing
+  , _rrpResourceId = pResourceId_
+  , _rrpPrincipalId = pPrincipalId_
+  }
+
 
 -- | The principal type of the resource.
 rrpPrincipalType :: Lens' RemoveResourcePermission (Maybe PrincipalType)
@@ -98,9 +100,9 @@ instance AWSRequest RemoveResourcePermission where
         response
           = receiveNull RemoveResourcePermissionResponse'
 
-instance Hashable RemoveResourcePermission
+instance Hashable RemoveResourcePermission where
 
-instance NFData RemoveResourcePermission
+instance NFData RemoveResourcePermission where
 
 instance ToHeaders RemoveResourcePermission where
         toHeaders RemoveResourcePermission'{..}
@@ -121,8 +123,9 @@ instance ToQuery RemoveResourcePermission where
 
 -- | /See:/ 'removeResourcePermissionResponse' smart constructor.
 data RemoveResourcePermissionResponse =
-    RemoveResourcePermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveResourcePermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveResourcePermissionResponse' with the minimum fields required to make a request.
 --
@@ -130,4 +133,6 @@ removeResourcePermissionResponse
     :: RemoveResourcePermissionResponse
 removeResourcePermissionResponse = RemoveResourcePermissionResponse'
 
+
 instance NFData RemoveResourcePermissionResponse
+         where

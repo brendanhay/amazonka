@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateClusterParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     , ccpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createClusterParameterGroup' smart constructor.
 data CreateClusterParameterGroup = CreateClusterParameterGroup'
-    { _ccpgTags                 :: !(Maybe [Tag])
-    , _ccpgParameterGroupName   :: !Text
-    , _ccpgParameterGroupFamily :: !Text
-    , _ccpgDescription          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccpgTags                 :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ccpgParameterGroupName   :: {-# NOUNPACK #-}!Text
+  , _ccpgParameterGroupFamily :: {-# NOUNPACK #-}!Text
+  , _ccpgDescription          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterParameterGroup' with the minimum fields required to make a request.
 --
@@ -80,12 +81,13 @@ createClusterParameterGroup
     -> Text -- ^ 'ccpgDescription'
     -> CreateClusterParameterGroup
 createClusterParameterGroup pParameterGroupName_ pParameterGroupFamily_ pDescription_ =
-    CreateClusterParameterGroup'
-    { _ccpgTags = Nothing
-    , _ccpgParameterGroupName = pParameterGroupName_
-    , _ccpgParameterGroupFamily = pParameterGroupFamily_
-    , _ccpgDescription = pDescription_
-    }
+  CreateClusterParameterGroup'
+  { _ccpgTags = Nothing
+  , _ccpgParameterGroupName = pParameterGroupName_
+  , _ccpgParameterGroupFamily = pParameterGroupFamily_
+  , _ccpgDescription = pDescription_
+  }
+
 
 -- | A list of tag instances.
 ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
@@ -115,9 +117,9 @@ instance AWSRequest CreateClusterParameterGroup where
                    (x .@? "ClusterParameterGroup") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateClusterParameterGroup
+instance Hashable CreateClusterParameterGroup where
 
-instance NFData CreateClusterParameterGroup
+instance NFData CreateClusterParameterGroup where
 
 instance ToHeaders CreateClusterParameterGroup where
         toHeaders = const mempty
@@ -138,9 +140,10 @@ instance ToQuery CreateClusterParameterGroup where
 
 -- | /See:/ 'createClusterParameterGroupResponse' smart constructor.
 data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
-    { _ccpgrsClusterParameterGroup :: !(Maybe ClusterParameterGroup)
-    , _ccpgrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccpgrsClusterParameterGroup :: {-# NOUNPACK #-}!(Maybe ClusterParameterGroup)
+  , _ccpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +156,11 @@ createClusterParameterGroupResponse
     :: Int -- ^ 'ccpgrsResponseStatus'
     -> CreateClusterParameterGroupResponse
 createClusterParameterGroupResponse pResponseStatus_ =
-    CreateClusterParameterGroupResponse'
-    { _ccpgrsClusterParameterGroup = Nothing
-    , _ccpgrsResponseStatus = pResponseStatus_
-    }
+  CreateClusterParameterGroupResponse'
+  { _ccpgrsClusterParameterGroup = Nothing
+  , _ccpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 ccpgrsClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
@@ -167,3 +171,4 @@ ccpgrsResponseStatus :: Lens' CreateClusterParameterGroupResponse Int
 ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a});
 
 instance NFData CreateClusterParameterGroupResponse
+         where

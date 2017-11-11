@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.PutTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -87,18 +87,19 @@ module Network.AWS.CloudWatchEvents.PutTargets
     , ptrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putTargets' smart constructor.
 data PutTargets = PutTargets'
-    { _ptRule    :: !Text
-    , _ptTargets :: !(List1 Target)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptRule    :: {-# NOUNPACK #-}!Text
+  , _ptTargets :: {-# NOUNPACK #-}!(List1 Target)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutTargets' with the minimum fields required to make a request.
 --
@@ -112,10 +113,8 @@ putTargets
     -> NonEmpty Target -- ^ 'ptTargets'
     -> PutTargets
 putTargets pRule_ pTargets_ =
-    PutTargets'
-    { _ptRule = pRule_
-    , _ptTargets = _List1 # pTargets_
-    }
+  PutTargets' {_ptRule = pRule_, _ptTargets = _List1 # pTargets_}
+
 
 -- | The name of the rule.
 ptRule :: Lens' PutTargets Text
@@ -136,9 +135,9 @@ instance AWSRequest PutTargets where
                      (x .?> "FailedEntries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable PutTargets
+instance Hashable PutTargets where
 
-instance NFData PutTargets
+instance NFData PutTargets where
 
 instance ToHeaders PutTargets where
         toHeaders
@@ -164,10 +163,11 @@ instance ToQuery PutTargets where
 
 -- | /See:/ 'putTargetsResponse' smart constructor.
 data PutTargetsResponse = PutTargetsResponse'
-    { _ptrsFailedEntryCount :: !(Maybe Int)
-    , _ptrsFailedEntries    :: !(Maybe [PutTargetsResultEntry])
-    , _ptrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptrsFailedEntryCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ptrsFailedEntries    :: {-# NOUNPACK #-}!(Maybe [PutTargetsResultEntry])
+  , _ptrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutTargetsResponse' with the minimum fields required to make a request.
 --
@@ -182,11 +182,12 @@ putTargetsResponse
     :: Int -- ^ 'ptrsResponseStatus'
     -> PutTargetsResponse
 putTargetsResponse pResponseStatus_ =
-    PutTargetsResponse'
-    { _ptrsFailedEntryCount = Nothing
-    , _ptrsFailedEntries = Nothing
-    , _ptrsResponseStatus = pResponseStatus_
-    }
+  PutTargetsResponse'
+  { _ptrsFailedEntryCount = Nothing
+  , _ptrsFailedEntries = Nothing
+  , _ptrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of failed entries.
 ptrsFailedEntryCount :: Lens' PutTargetsResponse (Maybe Int)
@@ -200,4 +201,4 @@ ptrsFailedEntries = lens _ptrsFailedEntries (\ s a -> s{_ptrsFailedEntries = a})
 ptrsResponseStatus :: Lens' PutTargetsResponse Int
 ptrsResponseStatus = lens _ptrsResponseStatus (\ s a -> s{_ptrsResponseStatus = a});
 
-instance NFData PutTargetsResponse
+instance NFData PutTargetsResponse where

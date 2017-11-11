@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.RunJobFlow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -66,12 +66,12 @@ module Network.AWS.EMR.RunJobFlow
     , rjfrsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the 'RunJobFlow' operation.
 --
@@ -79,29 +79,30 @@ import           Network.AWS.Response
 --
 -- /See:/ 'runJobFlow' smart constructor.
 data RunJobFlow = RunJobFlow'
-    { _rjfAMIVersion            :: !(Maybe Text)
-    , _rjfEBSRootVolumeSize     :: !(Maybe Int)
-    , _rjfAdditionalInfo        :: !(Maybe Text)
-    , _rjfConfigurations        :: !(Maybe [Configuration])
-    , _rjfCustomAMIId           :: !(Maybe Text)
-    , _rjfAutoScalingRole       :: !(Maybe Text)
-    , _rjfSecurityConfiguration :: !(Maybe Text)
-    , _rjfScaleDownBehavior     :: !(Maybe ScaleDownBehavior)
-    , _rjfSteps                 :: !(Maybe [StepConfig])
-    , _rjfJobFlowRole           :: !(Maybe Text)
-    , _rjfBootstrapActions      :: !(Maybe [BootstrapActionConfig])
-    , _rjfReleaseLabel          :: !(Maybe Text)
-    , _rjfRepoUpgradeOnBoot     :: !(Maybe RepoUpgradeOnBoot)
-    , _rjfLogURI                :: !(Maybe Text)
-    , _rjfNewSupportedProducts  :: !(Maybe [SupportedProductConfig])
-    , _rjfVisibleToAllUsers     :: !(Maybe Bool)
-    , _rjfSupportedProducts     :: !(Maybe [Text])
-    , _rjfApplications          :: !(Maybe [Application])
-    , _rjfTags                  :: !(Maybe [Tag])
-    , _rjfServiceRole           :: !(Maybe Text)
-    , _rjfName                  :: !Text
-    , _rjfInstances             :: !JobFlowInstancesConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjfAMIVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfEBSRootVolumeSize :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rjfAdditionalInfo :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
+  , _rjfCustomAMIId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfAutoScalingRole :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfSecurityConfiguration :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfScaleDownBehavior :: {-# NOUNPACK #-}!(Maybe ScaleDownBehavior)
+  , _rjfSteps :: {-# NOUNPACK #-}!(Maybe [StepConfig])
+  , _rjfJobFlowRole :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfBootstrapActions :: {-# NOUNPACK #-}!(Maybe [BootstrapActionConfig])
+  , _rjfReleaseLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfRepoUpgradeOnBoot :: {-# NOUNPACK #-}!(Maybe RepoUpgradeOnBoot)
+  , _rjfLogURI :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfNewSupportedProducts :: {-# NOUNPACK #-}!(Maybe [SupportedProductConfig])
+  , _rjfVisibleToAllUsers :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rjfSupportedProducts :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rjfApplications :: {-# NOUNPACK #-}!(Maybe [Application])
+  , _rjfTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _rjfServiceRole :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfName :: {-# NOUNPACK #-}!Text
+  , _rjfInstances :: {-# NOUNPACK #-}!JobFlowInstancesConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunJobFlow' with the minimum fields required to make a request.
 --
@@ -155,30 +156,31 @@ runJobFlow
     -> JobFlowInstancesConfig -- ^ 'rjfInstances'
     -> RunJobFlow
 runJobFlow pName_ pInstances_ =
-    RunJobFlow'
-    { _rjfAMIVersion = Nothing
-    , _rjfEBSRootVolumeSize = Nothing
-    , _rjfAdditionalInfo = Nothing
-    , _rjfConfigurations = Nothing
-    , _rjfCustomAMIId = Nothing
-    , _rjfAutoScalingRole = Nothing
-    , _rjfSecurityConfiguration = Nothing
-    , _rjfScaleDownBehavior = Nothing
-    , _rjfSteps = Nothing
-    , _rjfJobFlowRole = Nothing
-    , _rjfBootstrapActions = Nothing
-    , _rjfReleaseLabel = Nothing
-    , _rjfRepoUpgradeOnBoot = Nothing
-    , _rjfLogURI = Nothing
-    , _rjfNewSupportedProducts = Nothing
-    , _rjfVisibleToAllUsers = Nothing
-    , _rjfSupportedProducts = Nothing
-    , _rjfApplications = Nothing
-    , _rjfTags = Nothing
-    , _rjfServiceRole = Nothing
-    , _rjfName = pName_
-    , _rjfInstances = pInstances_
-    }
+  RunJobFlow'
+  { _rjfAMIVersion = Nothing
+  , _rjfEBSRootVolumeSize = Nothing
+  , _rjfAdditionalInfo = Nothing
+  , _rjfConfigurations = Nothing
+  , _rjfCustomAMIId = Nothing
+  , _rjfAutoScalingRole = Nothing
+  , _rjfSecurityConfiguration = Nothing
+  , _rjfScaleDownBehavior = Nothing
+  , _rjfSteps = Nothing
+  , _rjfJobFlowRole = Nothing
+  , _rjfBootstrapActions = Nothing
+  , _rjfReleaseLabel = Nothing
+  , _rjfRepoUpgradeOnBoot = Nothing
+  , _rjfLogURI = Nothing
+  , _rjfNewSupportedProducts = Nothing
+  , _rjfVisibleToAllUsers = Nothing
+  , _rjfSupportedProducts = Nothing
+  , _rjfApplications = Nothing
+  , _rjfTags = Nothing
+  , _rjfServiceRole = Nothing
+  , _rjfName = pName_
+  , _rjfInstances = pInstances_
+  }
+
 
 -- | For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by the @ReleaseLabel@ specified or by @CustomAmiID@ . The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently supported in EMR version 3.x and 2.x, see <ElasticMapReduce/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported AMI Versions Supported in EMR> in the /Amazon EMR Developer Guide/ .  If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above.
 rjfAMIVersion :: Lens' RunJobFlow (Maybe Text)
@@ -277,9 +279,9 @@ instance AWSRequest RunJobFlow where
                  RunJobFlowResponse' <$>
                    (x .?> "JobFlowId") <*> (pure (fromEnum s)))
 
-instance Hashable RunJobFlow
+instance Hashable RunJobFlow where
 
-instance NFData RunJobFlow
+instance NFData RunJobFlow where
 
 instance ToHeaders RunJobFlow where
         toHeaders
@@ -331,9 +333,10 @@ instance ToQuery RunJobFlow where
 --
 -- /See:/ 'runJobFlowResponse' smart constructor.
 data RunJobFlowResponse = RunJobFlowResponse'
-    { _rjfrsJobFlowId      :: !(Maybe Text)
-    , _rjfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjfrsJobFlowId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RunJobFlowResponse' with the minimum fields required to make a request.
 --
@@ -346,10 +349,9 @@ runJobFlowResponse
     :: Int -- ^ 'rjfrsResponseStatus'
     -> RunJobFlowResponse
 runJobFlowResponse pResponseStatus_ =
-    RunJobFlowResponse'
-    { _rjfrsJobFlowId = Nothing
-    , _rjfrsResponseStatus = pResponseStatus_
-    }
+  RunJobFlowResponse'
+  {_rjfrsJobFlowId = Nothing, _rjfrsResponseStatus = pResponseStatus_}
+
 
 -- | An unique identifier for the job flow.
 rjfrsJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
@@ -359,4 +361,4 @@ rjfrsJobFlowId = lens _rjfrsJobFlowId (\ s a -> s{_rjfrsJobFlowId = a});
 rjfrsResponseStatus :: Lens' RunJobFlowResponse Int
 rjfrsResponseStatus = lens _rjfrsResponseStatus (\ s a -> s{_rjfrsResponseStatus = a});
 
-instance NFData RunJobFlowResponse
+instance NFData RunJobFlowResponse where

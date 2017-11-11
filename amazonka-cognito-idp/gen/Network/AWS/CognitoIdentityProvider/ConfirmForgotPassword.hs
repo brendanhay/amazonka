@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
     , cfprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request representing the confirmation for a password reset.
 --
@@ -53,12 +53,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'confirmForgotPassword' smart constructor.
 data ConfirmForgotPassword = ConfirmForgotPassword'
-    { _cfpSecretHash       :: !(Maybe (Sensitive Text))
-    , _cfpClientId         :: !(Sensitive Text)
-    , _cfpUsername         :: !(Sensitive Text)
-    , _cfpConfirmationCode :: !Text
-    , _cfpPassword         :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cfpSecretHash       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _cfpClientId         :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _cfpUsername         :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _cfpConfirmationCode :: {-# NOUNPACK #-}!Text
+  , _cfpPassword         :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmForgotPassword' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ confirmForgotPassword
     -> Text -- ^ 'cfpPassword'
     -> ConfirmForgotPassword
 confirmForgotPassword pClientId_ pUsername_ pConfirmationCode_ pPassword_ =
-    ConfirmForgotPassword'
-    { _cfpSecretHash = Nothing
-    , _cfpClientId = _Sensitive # pClientId_
-    , _cfpUsername = _Sensitive # pUsername_
-    , _cfpConfirmationCode = pConfirmationCode_
-    , _cfpPassword = _Sensitive # pPassword_
-    }
+  ConfirmForgotPassword'
+  { _cfpSecretHash = Nothing
+  , _cfpClientId = _Sensitive # pClientId_
+  , _cfpUsername = _Sensitive # pUsername_
+  , _cfpConfirmationCode = pConfirmationCode_
+  , _cfpPassword = _Sensitive # pPassword_
+  }
+
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 cfpSecretHash :: Lens' ConfirmForgotPassword (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest ConfirmForgotPassword where
                  ConfirmForgotPasswordResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable ConfirmForgotPassword
+instance Hashable ConfirmForgotPassword where
 
-instance NFData ConfirmForgotPassword
+instance NFData ConfirmForgotPassword where
 
 instance ToHeaders ConfirmForgotPassword where
         toHeaders
@@ -154,8 +156,9 @@ instance ToQuery ConfirmForgotPassword where
 --
 -- /See:/ 'confirmForgotPasswordResponse' smart constructor.
 newtype ConfirmForgotPasswordResponse = ConfirmForgotPasswordResponse'
-    { _cfprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmForgotPasswordResponse' with the minimum fields required to make a request.
 --
@@ -166,12 +169,11 @@ confirmForgotPasswordResponse
     :: Int -- ^ 'cfprsResponseStatus'
     -> ConfirmForgotPasswordResponse
 confirmForgotPasswordResponse pResponseStatus_ =
-    ConfirmForgotPasswordResponse'
-    { _cfprsResponseStatus = pResponseStatus_
-    }
+  ConfirmForgotPasswordResponse' {_cfprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cfprsResponseStatus :: Lens' ConfirmForgotPasswordResponse Int
 cfprsResponseStatus = lens _cfprsResponseStatus (\ s a -> s{_cfprsResponseStatus = a});
 
-instance NFData ConfirmForgotPasswordResponse
+instance NFData ConfirmForgotPasswordResponse where

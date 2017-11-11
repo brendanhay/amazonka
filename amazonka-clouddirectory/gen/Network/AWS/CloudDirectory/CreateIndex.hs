@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateIndex
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.CloudDirectory.CreateIndex
     , cirsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createIndex' smart constructor.
 data CreateIndex = CreateIndex'
-    { _ciParentReference             :: !(Maybe ObjectReference)
-    , _ciLinkName                    :: !(Maybe Text)
-    , _ciDirectoryARN                :: !Text
-    , _ciOrderedIndexedAttributeList :: ![AttributeKey]
-    , _ciIsUnique                    :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciParentReference             :: {-# NOUNPACK #-}!(Maybe ObjectReference)
+  , _ciLinkName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciDirectoryARN                :: {-# NOUNPACK #-}!Text
+  , _ciOrderedIndexedAttributeList :: {-# NOUNPACK #-}![AttributeKey]
+  , _ciIsUnique                    :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIndex' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ createIndex
     -> Bool -- ^ 'ciIsUnique'
     -> CreateIndex
 createIndex pDirectoryARN_ pIsUnique_ =
-    CreateIndex'
-    { _ciParentReference = Nothing
-    , _ciLinkName = Nothing
-    , _ciDirectoryARN = pDirectoryARN_
-    , _ciOrderedIndexedAttributeList = mempty
-    , _ciIsUnique = pIsUnique_
-    }
+  CreateIndex'
+  { _ciParentReference = Nothing
+  , _ciLinkName = Nothing
+  , _ciDirectoryARN = pDirectoryARN_
+  , _ciOrderedIndexedAttributeList = mempty
+  , _ciIsUnique = pIsUnique_
+  }
+
 
 -- | A reference to the parent object that contains the index object.
 ciParentReference :: Lens' CreateIndex (Maybe ObjectReference)
@@ -112,9 +114,9 @@ instance AWSRequest CreateIndex where
                  CreateIndexResponse' <$>
                    (x .?> "ObjectIdentifier") <*> (pure (fromEnum s)))
 
-instance Hashable CreateIndex
+instance Hashable CreateIndex where
 
-instance NFData CreateIndex
+instance NFData CreateIndex where
 
 instance ToHeaders CreateIndex where
         toHeaders CreateIndex'{..}
@@ -140,9 +142,10 @@ instance ToQuery CreateIndex where
 
 -- | /See:/ 'createIndexResponse' smart constructor.
 data CreateIndexResponse = CreateIndexResponse'
-    { _cirsObjectIdentifier :: !(Maybe Text)
-    , _cirsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cirsObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIndexResponse' with the minimum fields required to make a request.
 --
@@ -155,10 +158,9 @@ createIndexResponse
     :: Int -- ^ 'cirsResponseStatus'
     -> CreateIndexResponse
 createIndexResponse pResponseStatus_ =
-    CreateIndexResponse'
-    { _cirsObjectIdentifier = Nothing
-    , _cirsResponseStatus = pResponseStatus_
-    }
+  CreateIndexResponse'
+  {_cirsObjectIdentifier = Nothing, _cirsResponseStatus = pResponseStatus_}
+
 
 -- | The @ObjectIdentifier@ of the index created by this operation.
 cirsObjectIdentifier :: Lens' CreateIndexResponse (Maybe Text)
@@ -168,4 +170,4 @@ cirsObjectIdentifier = lens _cirsObjectIdentifier (\ s a -> s{_cirsObjectIdentif
 cirsResponseStatus :: Lens' CreateIndexResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
 
-instance NFData CreateIndexResponse
+instance NFData CreateIndexResponse where

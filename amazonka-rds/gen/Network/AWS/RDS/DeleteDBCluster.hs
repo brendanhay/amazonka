@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.RDS.DeleteDBCluster
     , ddbcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDBCluster' smart constructor.
 data DeleteDBCluster = DeleteDBCluster'
-    { _ddbcFinalDBSnapshotIdentifier :: !(Maybe Text)
-    , _ddbcSkipFinalSnapshot         :: !(Maybe Bool)
-    , _ddbcDBClusterIdentifier       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbcFinalDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbcSkipFinalSnapshot         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddbcDBClusterIdentifier       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBCluster' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ deleteDBCluster
     :: Text -- ^ 'ddbcDBClusterIdentifier'
     -> DeleteDBCluster
 deleteDBCluster pDBClusterIdentifier_ =
-    DeleteDBCluster'
-    { _ddbcFinalDBSnapshotIdentifier = Nothing
-    , _ddbcSkipFinalSnapshot = Nothing
-    , _ddbcDBClusterIdentifier = pDBClusterIdentifier_
-    }
+  DeleteDBCluster'
+  { _ddbcFinalDBSnapshotIdentifier = Nothing
+  , _ddbcSkipFinalSnapshot = Nothing
+  , _ddbcDBClusterIdentifier = pDBClusterIdentifier_
+  }
+
 
 -- | The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddbcFinalDBSnapshotIdentifier :: Lens' DeleteDBCluster (Maybe Text)
@@ -101,9 +103,9 @@ instance AWSRequest DeleteDBCluster where
                  DeleteDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteDBCluster
+instance Hashable DeleteDBCluster where
 
-instance NFData DeleteDBCluster
+instance NFData DeleteDBCluster where
 
 instance ToHeaders DeleteDBCluster where
         toHeaders = const mempty
@@ -123,9 +125,10 @@ instance ToQuery DeleteDBCluster where
 
 -- | /See:/ 'deleteDBClusterResponse' smart constructor.
 data DeleteDBClusterResponse = DeleteDBClusterResponse'
-    { _ddbcrsDBCluster      :: !(Maybe DBCluster)
-    , _ddbcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbcrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
+  , _ddbcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBClusterResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,9 @@ deleteDBClusterResponse
     :: Int -- ^ 'ddbcrsResponseStatus'
     -> DeleteDBClusterResponse
 deleteDBClusterResponse pResponseStatus_ =
-    DeleteDBClusterResponse'
-    { _ddbcrsDBCluster = Nothing
-    , _ddbcrsResponseStatus = pResponseStatus_
-    }
+  DeleteDBClusterResponse'
+  {_ddbcrsDBCluster = Nothing, _ddbcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ddbcrsDBCluster :: Lens' DeleteDBClusterResponse (Maybe DBCluster)
@@ -151,4 +153,4 @@ ddbcrsDBCluster = lens _ddbcrsDBCluster (\ s a -> s{_ddbcrsDBCluster = a});
 ddbcrsResponseStatus :: Lens' DeleteDBClusterResponse Int
 ddbcrsResponseStatus = lens _ddbcrsResponseStatus (\ s a -> s{_ddbcrsResponseStatus = a});
 
-instance NFData DeleteDBClusterResponse
+instance NFData DeleteDBClusterResponse where

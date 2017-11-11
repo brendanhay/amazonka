@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ResetCacheParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     , cpgnmCacheParameterGroupName
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @ResetCacheParameterGroup@ operation.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'resetCacheParameterGroup' smart constructor.
 data ResetCacheParameterGroup = ResetCacheParameterGroup'
-    { _rcpgResetAllParameters      :: !(Maybe Bool)
-    , _rcpgParameterNameValues     :: !(Maybe [ParameterNameValue])
-    , _rcpgCacheParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcpgResetAllParameters :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rcpgParameterNameValues :: {-# NOUNPACK #-}!(Maybe [ParameterNameValue])
+  , _rcpgCacheParameterGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetCacheParameterGroup' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ resetCacheParameterGroup
     :: Text -- ^ 'rcpgCacheParameterGroupName'
     -> ResetCacheParameterGroup
 resetCacheParameterGroup pCacheParameterGroupName_ =
-    ResetCacheParameterGroup'
-    { _rcpgResetAllParameters = Nothing
-    , _rcpgParameterNameValues = Nothing
-    , _rcpgCacheParameterGroupName = pCacheParameterGroupName_
-    }
+  ResetCacheParameterGroup'
+  { _rcpgResetAllParameters = Nothing
+  , _rcpgParameterNameValues = Nothing
+  , _rcpgCacheParameterGroupName = pCacheParameterGroupName_
+  }
+
 
 -- | If @true@ , all parameters in the cache parameter group are reset to their default values. If @false@ , only the parameters listed by @ParameterNameValues@ are reset to their default values. Valid values: @true@ | @false@
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
@@ -95,9 +97,9 @@ instance AWSRequest ResetCacheParameterGroup where
           = receiveXMLWrapper "ResetCacheParameterGroupResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ResetCacheParameterGroup
+instance Hashable ResetCacheParameterGroup where
 
-instance NFData ResetCacheParameterGroup
+instance NFData ResetCacheParameterGroup where
 
 instance ToHeaders ResetCacheParameterGroup where
         toHeaders = const mempty

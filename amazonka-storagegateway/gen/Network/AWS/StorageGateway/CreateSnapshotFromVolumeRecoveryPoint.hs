@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,18 +44,19 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     , csfvrprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'createSnapshotFromVolumeRecoveryPoint' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrpVolumeARN           :: !Text
-    , _csfvrpSnapshotDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csfvrpVolumeARN           :: {-# NOUNPACK #-}!Text
+  , _csfvrpSnapshotDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPoint' with the minimum fields required to make a request.
 --
@@ -69,10 +70,11 @@ createSnapshotFromVolumeRecoveryPoint
     -> Text -- ^ 'csfvrpSnapshotDescription'
     -> CreateSnapshotFromVolumeRecoveryPoint
 createSnapshotFromVolumeRecoveryPoint pVolumeARN_ pSnapshotDescription_ =
-    CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrpVolumeARN = pVolumeARN_
-    , _csfvrpSnapshotDescription = pSnapshotDescription_
-    }
+  CreateSnapshotFromVolumeRecoveryPoint'
+  { _csfvrpVolumeARN = pVolumeARN_
+  , _csfvrpSnapshotDescription = pSnapshotDescription_
+  }
+
 
 -- | Undocumented member.
 csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
@@ -83,7 +85,8 @@ csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
 csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpSnapshotDescription = a});
 
 instance AWSRequest
-         CreateSnapshotFromVolumeRecoveryPoint where
+           CreateSnapshotFromVolumeRecoveryPoint
+         where
         type Rs CreateSnapshotFromVolumeRecoveryPoint =
              CreateSnapshotFromVolumeRecoveryPointResponse
         request = postJSON storageGateway
@@ -97,12 +100,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         CreateSnapshotFromVolumeRecoveryPoint
+           CreateSnapshotFromVolumeRecoveryPoint
+         where
 
 instance NFData CreateSnapshotFromVolumeRecoveryPoint
+         where
 
 instance ToHeaders
-         CreateSnapshotFromVolumeRecoveryPoint where
+           CreateSnapshotFromVolumeRecoveryPoint
+         where
         toHeaders
           = const
               (mconcat
@@ -127,16 +133,18 @@ instance ToPath CreateSnapshotFromVolumeRecoveryPoint
         toPath = const "/"
 
 instance ToQuery
-         CreateSnapshotFromVolumeRecoveryPoint where
+           CreateSnapshotFromVolumeRecoveryPoint
+         where
         toQuery = const mempty
 
 -- | /See:/ 'createSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'
-    { _csfvrprsVolumeRecoveryPointTime :: !(Maybe Text)
-    , _csfvrprsVolumeARN               :: !(Maybe Text)
-    , _csfvrprsSnapshotId              :: !(Maybe Text)
-    , _csfvrprsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csfvrprsVolumeRecoveryPointTime :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csfvrprsVolumeARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csfvrprsSnapshotId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csfvrprsResponseStatus          :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPointResponse' with the minimum fields required to make a request.
 --
@@ -153,12 +161,13 @@ createSnapshotFromVolumeRecoveryPointResponse
     :: Int -- ^ 'csfvrprsResponseStatus'
     -> CreateSnapshotFromVolumeRecoveryPointResponse
 createSnapshotFromVolumeRecoveryPointResponse pResponseStatus_ =
-    CreateSnapshotFromVolumeRecoveryPointResponse'
-    { _csfvrprsVolumeRecoveryPointTime = Nothing
-    , _csfvrprsVolumeARN = Nothing
-    , _csfvrprsSnapshotId = Nothing
-    , _csfvrprsResponseStatus = pResponseStatus_
-    }
+  CreateSnapshotFromVolumeRecoveryPointResponse'
+  { _csfvrprsVolumeRecoveryPointTime = Nothing
+  , _csfvrprsVolumeARN = Nothing
+  , _csfvrprsSnapshotId = Nothing
+  , _csfvrprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 csfvrprsVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
@@ -177,4 +186,5 @@ csfvrprsResponseStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse In
 csfvrprsResponseStatus = lens _csfvrprsResponseStatus (\ s a -> s{_csfvrprsResponseStatus = a});
 
 instance NFData
-         CreateSnapshotFromVolumeRecoveryPointResponse
+           CreateSnapshotFromVolumeRecoveryPointResponse
+         where

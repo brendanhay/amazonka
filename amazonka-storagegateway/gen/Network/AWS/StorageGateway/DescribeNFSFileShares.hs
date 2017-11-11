@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeNFSFileShares
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.StorageGateway.DescribeNFSFileShares
     , dnfsfsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeNFSFileSharesInput
 --
@@ -50,8 +50,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeNFSFileShares' smart constructor.
 newtype DescribeNFSFileShares = DescribeNFSFileShares'
-    { _dnfsfsFileShareARNList :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnfsfsFileShareARNList :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNFSFileShares' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ describeNFSFileShares
     :: NonEmpty Text -- ^ 'dnfsfsFileShareARNList'
     -> DescribeNFSFileShares
 describeNFSFileShares pFileShareARNList_ =
-    DescribeNFSFileShares'
-    { _dnfsfsFileShareARNList = _List1 # pFileShareARNList_
-    }
+  DescribeNFSFileShares' {_dnfsfsFileShareARNList = _List1 # pFileShareARNList_}
+
 
 -- | An array containing the Amazon Resource Name (ARN) of each file share to be described.
 dnfsfsFileShareARNList :: Lens' DescribeNFSFileShares (NonEmpty Text)
@@ -81,9 +81,9 @@ instance AWSRequest DescribeNFSFileShares where
                    (x .?> "NFSFileShareInfoList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeNFSFileShares
+instance Hashable DescribeNFSFileShares where
 
-instance NFData DescribeNFSFileShares
+instance NFData DescribeNFSFileShares where
 
 instance ToHeaders DescribeNFSFileShares where
         toHeaders
@@ -114,9 +114,10 @@ instance ToQuery DescribeNFSFileShares where
 --
 -- /See:/ 'describeNFSFileSharesResponse' smart constructor.
 data DescribeNFSFileSharesResponse = DescribeNFSFileSharesResponse'
-    { _dnfsfsrsNFSFileShareInfoList :: !(Maybe [NFSFileShareInfo])
-    , _dnfsfsrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnfsfsrsNFSFileShareInfoList :: {-# NOUNPACK #-}!(Maybe [NFSFileShareInfo])
+  , _dnfsfsrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNFSFileSharesResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,11 @@ describeNFSFileSharesResponse
     :: Int -- ^ 'dnfsfsrsResponseStatus'
     -> DescribeNFSFileSharesResponse
 describeNFSFileSharesResponse pResponseStatus_ =
-    DescribeNFSFileSharesResponse'
-    { _dnfsfsrsNFSFileShareInfoList = Nothing
-    , _dnfsfsrsResponseStatus = pResponseStatus_
-    }
+  DescribeNFSFileSharesResponse'
+  { _dnfsfsrsNFSFileShareInfoList = Nothing
+  , _dnfsfsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array containing a description for each requested file share.
 dnfsfsrsNFSFileShareInfoList :: Lens' DescribeNFSFileSharesResponse [NFSFileShareInfo]
@@ -142,4 +144,4 @@ dnfsfsrsNFSFileShareInfoList = lens _dnfsfsrsNFSFileShareInfoList (\ s a -> s{_d
 dnfsfsrsResponseStatus :: Lens' DescribeNFSFileSharesResponse Int
 dnfsfsrsResponseStatus = lens _dnfsfsrsResponseStatus (\ s a -> s{_dnfsfsrsResponseStatus = a});
 
-instance NFData DescribeNFSFileSharesResponse
+instance NFData DescribeNFSFileSharesResponse where

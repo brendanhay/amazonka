@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.SetIdentityPoolConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     , sipcrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the SetIdentityPoolConfiguration operation.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setIdentityPoolConfiguration' smart constructor.
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
-    { _sipcCognitoStreams :: !(Maybe CognitoStreams)
-    , _sipcPushSync       :: !(Maybe PushSync)
-    , _sipcIdentityPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sipcCognitoStreams :: {-# NOUNPACK #-}!(Maybe CognitoStreams)
+  , _sipcPushSync       :: {-# NOUNPACK #-}!(Maybe PushSync)
+  , _sipcIdentityPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityPoolConfiguration' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ setIdentityPoolConfiguration
     :: Text -- ^ 'sipcIdentityPoolId'
     -> SetIdentityPoolConfiguration
 setIdentityPoolConfiguration pIdentityPoolId_ =
-    SetIdentityPoolConfiguration'
-    { _sipcCognitoStreams = Nothing
-    , _sipcPushSync = Nothing
-    , _sipcIdentityPoolId = pIdentityPoolId_
-    }
+  SetIdentityPoolConfiguration'
+  { _sipcCognitoStreams = Nothing
+  , _sipcPushSync = Nothing
+  , _sipcIdentityPoolId = pIdentityPoolId_
+  }
+
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 sipcCognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
@@ -105,9 +107,9 @@ instance AWSRequest SetIdentityPoolConfiguration
                      <*> (x .?> "PushSync")
                      <*> (pure (fromEnum s)))
 
-instance Hashable SetIdentityPoolConfiguration
+instance Hashable SetIdentityPoolConfiguration where
 
-instance NFData SetIdentityPoolConfiguration
+instance NFData SetIdentityPoolConfiguration where
 
 instance ToHeaders SetIdentityPoolConfiguration where
         toHeaders
@@ -138,11 +140,12 @@ instance ToQuery SetIdentityPoolConfiguration where
 --
 -- /See:/ 'setIdentityPoolConfigurationResponse' smart constructor.
 data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'
-    { _sipcrsIdentityPoolId :: !(Maybe Text)
-    , _sipcrsCognitoStreams :: !(Maybe CognitoStreams)
-    , _sipcrsPushSync       :: !(Maybe PushSync)
-    , _sipcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sipcrsIdentityPoolId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sipcrsCognitoStreams :: {-# NOUNPACK #-}!(Maybe CognitoStreams)
+  , _sipcrsPushSync       :: {-# NOUNPACK #-}!(Maybe PushSync)
+  , _sipcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityPoolConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -159,12 +162,13 @@ setIdentityPoolConfigurationResponse
     :: Int -- ^ 'sipcrsResponseStatus'
     -> SetIdentityPoolConfigurationResponse
 setIdentityPoolConfigurationResponse pResponseStatus_ =
-    SetIdentityPoolConfigurationResponse'
-    { _sipcrsIdentityPoolId = Nothing
-    , _sipcrsCognitoStreams = Nothing
-    , _sipcrsPushSync = Nothing
-    , _sipcrsResponseStatus = pResponseStatus_
-    }
+  SetIdentityPoolConfigurationResponse'
+  { _sipcrsIdentityPoolId = Nothing
+  , _sipcrsCognitoStreams = Nothing
+  , _sipcrsPushSync = Nothing
+  , _sipcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 sipcrsIdentityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
@@ -183,3 +187,4 @@ sipcrsResponseStatus :: Lens' SetIdentityPoolConfigurationResponse Int
 sipcrsResponseStatus = lens _sipcrsResponseStatus (\ s a -> s{_sipcrsResponseStatus = a});
 
 instance NFData SetIdentityPoolConfigurationResponse
+         where

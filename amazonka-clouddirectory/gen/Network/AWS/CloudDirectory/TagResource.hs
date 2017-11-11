@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.TagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CloudDirectory.TagResource
     , trrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
-    { _trResourceARN :: !Text
-    , _trTags        :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trResourceARN :: {-# NOUNPACK #-}!Text
+  , _trTags        :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ tagResource
     :: Text -- ^ 'trResourceARN'
     -> TagResource
 tagResource pResourceARN_ =
-    TagResource'
-    { _trResourceARN = pResourceARN_
-    , _trTags = mempty
-    }
+  TagResource' {_trResourceARN = pResourceARN_, _trTags = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.
 trResourceARN :: Lens' TagResource Text
@@ -82,9 +81,9 @@ instance AWSRequest TagResource where
               (\ s h x ->
                  TagResourceResponse' <$> (pure (fromEnum s)))
 
-instance Hashable TagResource
+instance Hashable TagResource where
 
-instance NFData TagResource
+instance NFData TagResource where
 
 instance ToHeaders TagResource where
         toHeaders = const mempty
@@ -105,8 +104,9 @@ instance ToQuery TagResource where
 
 -- | /See:/ 'tagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-    { _trrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
@@ -117,12 +117,11 @@ tagResourceResponse
     :: Int -- ^ 'trrsResponseStatus'
     -> TagResourceResponse
 tagResourceResponse pResponseStatus_ =
-    TagResourceResponse'
-    { _trrsResponseStatus = pResponseStatus_
-    }
+  TagResourceResponse' {_trrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 trrsResponseStatus :: Lens' TagResourceResponse Int
 trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
 
-instance NFData TagResourceResponse
+instance NFData TagResourceResponse where

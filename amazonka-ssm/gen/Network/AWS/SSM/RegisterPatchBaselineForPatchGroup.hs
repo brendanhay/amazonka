@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
     , rpbfpgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'registerPatchBaselineForPatchGroup' smart constructor.
 data RegisterPatchBaselineForPatchGroup = RegisterPatchBaselineForPatchGroup'
-    { _rpbfpgBaselineId :: !Text
-    , _rpbfpgPatchGroup :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpbfpgBaselineId :: {-# NOUNPACK #-}!Text
+  , _rpbfpgPatchGroup :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterPatchBaselineForPatchGroup' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ registerPatchBaselineForPatchGroup
     -> Text -- ^ 'rpbfpgPatchGroup'
     -> RegisterPatchBaselineForPatchGroup
 registerPatchBaselineForPatchGroup pBaselineId_ pPatchGroup_ =
-    RegisterPatchBaselineForPatchGroup'
-    { _rpbfpgBaselineId = pBaselineId_
-    , _rpbfpgPatchGroup = pPatchGroup_
-    }
+  RegisterPatchBaselineForPatchGroup'
+  {_rpbfpgBaselineId = pBaselineId_, _rpbfpgPatchGroup = pPatchGroup_}
+
 
 -- | The ID of the patch baseline to register the patch group with.
 rpbfpgBaselineId :: Lens' RegisterPatchBaselineForPatchGroup Text
@@ -78,7 +78,8 @@ rpbfpgPatchGroup :: Lens' RegisterPatchBaselineForPatchGroup Text
 rpbfpgPatchGroup = lens _rpbfpgPatchGroup (\ s a -> s{_rpbfpgPatchGroup = a});
 
 instance AWSRequest
-         RegisterPatchBaselineForPatchGroup where
+           RegisterPatchBaselineForPatchGroup
+         where
         type Rs RegisterPatchBaselineForPatchGroup =
              RegisterPatchBaselineForPatchGroupResponse
         request = postJSON ssm
@@ -90,8 +91,10 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable RegisterPatchBaselineForPatchGroup
+         where
 
 instance NFData RegisterPatchBaselineForPatchGroup
+         where
 
 instance ToHeaders RegisterPatchBaselineForPatchGroup
          where
@@ -122,10 +125,11 @@ instance ToQuery RegisterPatchBaselineForPatchGroup
 
 -- | /See:/ 'registerPatchBaselineForPatchGroupResponse' smart constructor.
 data RegisterPatchBaselineForPatchGroupResponse = RegisterPatchBaselineForPatchGroupResponse'
-    { _rpbfpgrsBaselineId     :: !(Maybe Text)
-    , _rpbfpgrsPatchGroup     :: !(Maybe Text)
-    , _rpbfpgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpbfpgrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpbfpgrsPatchGroup     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpbfpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterPatchBaselineForPatchGroupResponse' with the minimum fields required to make a request.
 --
@@ -140,11 +144,12 @@ registerPatchBaselineForPatchGroupResponse
     :: Int -- ^ 'rpbfpgrsResponseStatus'
     -> RegisterPatchBaselineForPatchGroupResponse
 registerPatchBaselineForPatchGroupResponse pResponseStatus_ =
-    RegisterPatchBaselineForPatchGroupResponse'
-    { _rpbfpgrsBaselineId = Nothing
-    , _rpbfpgrsPatchGroup = Nothing
-    , _rpbfpgrsResponseStatus = pResponseStatus_
-    }
+  RegisterPatchBaselineForPatchGroupResponse'
+  { _rpbfpgrsBaselineId = Nothing
+  , _rpbfpgrsPatchGroup = Nothing
+  , _rpbfpgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the patch baseline the patch group was registered with.
 rpbfpgrsBaselineId :: Lens' RegisterPatchBaselineForPatchGroupResponse (Maybe Text)
@@ -159,4 +164,5 @@ rpbfpgrsResponseStatus :: Lens' RegisterPatchBaselineForPatchGroupResponse Int
 rpbfpgrsResponseStatus = lens _rpbfpgrsResponseStatus (\ s a -> s{_rpbfpgrsResponseStatus = a});
 
 instance NFData
-         RegisterPatchBaselineForPatchGroupResponse
+           RegisterPatchBaselineForPatchGroupResponse
+         where

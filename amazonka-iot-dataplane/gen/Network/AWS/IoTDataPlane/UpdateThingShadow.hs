@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoTDataPlane.UpdateThingShadow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.IoTDataPlane.UpdateThingShadow
     , utsrsResponseStatus
     ) where
 
-import           Network.AWS.IoTDataPlane.Types
-import           Network.AWS.IoTDataPlane.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoTDataPlane.Types
+import Network.AWS.IoTDataPlane.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the UpdateThingShadow operation.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateThingShadow' smart constructor.
 data UpdateThingShadow = UpdateThingShadow'
-    { _utsThingName :: !Text
-    , _utsPayload   :: !(HashMap Text Value)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _utsThingName :: {-# NOUNPACK #-}!Text
+  , _utsPayload   :: {-# NOUNPACK #-}!(HashMap Text Value)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateThingShadow' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ updateThingShadow
     -> HashMap Text Value -- ^ 'utsPayload'
     -> UpdateThingShadow
 updateThingShadow pThingName_ pPayload_ =
-    UpdateThingShadow'
-    { _utsThingName = pThingName_
-    , _utsPayload = pPayload_
-    }
+  UpdateThingShadow' {_utsThingName = pThingName_, _utsPayload = pPayload_}
+
 
 -- | The name of the thing.
 utsThingName :: Lens' UpdateThingShadow Text
@@ -91,9 +90,9 @@ instance AWSRequest UpdateThingShadow where
                  UpdateThingShadowResponse' <$>
                    (pure (Just x)) <*> (pure (fromEnum s)))
 
-instance Hashable UpdateThingShadow
+instance Hashable UpdateThingShadow where
 
-instance NFData UpdateThingShadow
+instance NFData UpdateThingShadow where
 
 instance ToBody UpdateThingShadow where
         toBody = toBody . _utsPayload
@@ -114,9 +113,10 @@ instance ToQuery UpdateThingShadow where
 --
 -- /See:/ 'updateThingShadowResponse' smart constructor.
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
-    { _utsrsPayload        :: !(Maybe (HashMap Text Value))
-    , _utsrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _utsrsPayload        :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
+  , _utsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateThingShadowResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ updateThingShadowResponse
     :: Int -- ^ 'utsrsResponseStatus'
     -> UpdateThingShadowResponse
 updateThingShadowResponse pResponseStatus_ =
-    UpdateThingShadowResponse'
-    { _utsrsPayload = Nothing
-    , _utsrsResponseStatus = pResponseStatus_
-    }
+  UpdateThingShadowResponse'
+  {_utsrsPayload = Nothing, _utsrsResponseStatus = pResponseStatus_}
+
 
 -- | The state information, in JSON format.
 utsrsPayload :: Lens' UpdateThingShadowResponse (Maybe (HashMap Text Value))
@@ -142,4 +141,4 @@ utsrsPayload = lens _utsrsPayload (\ s a -> s{_utsrsPayload = a});
 utsrsResponseStatus :: Lens' UpdateThingShadowResponse Int
 utsrsResponseStatus = lens _utsrsResponseStatus (\ s a -> s{_utsrsResponseStatus = a});
 
-instance NFData UpdateThingShadowResponse
+instance NFData UpdateThingShadowResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetDataRetrievalPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Glacier.GetDataRetrievalPolicy
     , gdrprsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input for GetDataRetrievalPolicy.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDataRetrievalPolicy' smart constructor.
 newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
-    { _gdrpAccountId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrpAccountId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDataRetrievalPolicy' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getDataRetrievalPolicy
     :: Text -- ^ 'gdrpAccountId'
     -> GetDataRetrievalPolicy
 getDataRetrievalPolicy pAccountId_ =
-    GetDataRetrievalPolicy'
-    { _gdrpAccountId = pAccountId_
-    }
+  GetDataRetrievalPolicy' {_gdrpAccountId = pAccountId_}
+
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
@@ -80,9 +80,9 @@ instance AWSRequest GetDataRetrievalPolicy where
                  GetDataRetrievalPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
-instance Hashable GetDataRetrievalPolicy
+instance Hashable GetDataRetrievalPolicy where
 
-instance NFData GetDataRetrievalPolicy
+instance NFData GetDataRetrievalPolicy where
 
 instance ToHeaders GetDataRetrievalPolicy where
         toHeaders = const mempty
@@ -102,9 +102,10 @@ instance ToQuery GetDataRetrievalPolicy where
 --
 -- /See:/ 'getDataRetrievalPolicyResponse' smart constructor.
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
-    { _gdrprsPolicy         :: !(Maybe DataRetrievalPolicy)
-    , _gdrprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrprsPolicy         :: {-# NOUNPACK #-}!(Maybe DataRetrievalPolicy)
+  , _gdrprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDataRetrievalPolicyResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ getDataRetrievalPolicyResponse
     :: Int -- ^ 'gdrprsResponseStatus'
     -> GetDataRetrievalPolicyResponse
 getDataRetrievalPolicyResponse pResponseStatus_ =
-    GetDataRetrievalPolicyResponse'
-    { _gdrprsPolicy = Nothing
-    , _gdrprsResponseStatus = pResponseStatus_
-    }
+  GetDataRetrievalPolicyResponse'
+  {_gdrprsPolicy = Nothing, _gdrprsResponseStatus = pResponseStatus_}
+
 
 -- | Contains the returned data retrieval policy in JSON format.
 gdrprsPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
@@ -130,4 +130,4 @@ gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a});
 gdrprsResponseStatus :: Lens' GetDataRetrievalPolicyResponse Int
 gdrprsResponseStatus = lens _gdrprsResponseStatus (\ s a -> s{_gdrprsResponseStatus = a});
 
-instance NFData GetDataRetrievalPolicyResponse
+instance NFData GetDataRetrievalPolicyResponse where

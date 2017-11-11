@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     , ddbsgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBSecurityGroups' smart constructor.
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
-    { _ddbsgFilters             :: !(Maybe [Filter])
-    , _ddbsgMarker              :: !(Maybe Text)
-    , _ddbsgMaxRecords          :: !(Maybe Int)
-    , _ddbsgDBSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbsgFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddbsgMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbsgMaxRecords          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ddbsgDBSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSecurityGroups' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
 describeDBSecurityGroups
     :: DescribeDBSecurityGroups
 describeDBSecurityGroups =
-    DescribeDBSecurityGroups'
-    { _ddbsgFilters = Nothing
-    , _ddbsgMarker = Nothing
-    , _ddbsgMaxRecords = Nothing
-    , _ddbsgDBSecurityGroupName = Nothing
-    }
+  DescribeDBSecurityGroups'
+  { _ddbsgFilters = Nothing
+  , _ddbsgMarker = Nothing
+  , _ddbsgMaxRecords = Nothing
+  , _ddbsgDBSecurityGroupName = Nothing
+  }
+
 
 -- | This parameter is not currently supported.
 ddbsgFilters :: Lens' DescribeDBSecurityGroups [Filter]
@@ -120,9 +122,9 @@ instance AWSRequest DescribeDBSecurityGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBSecurityGroups
+instance Hashable DescribeDBSecurityGroups where
 
-instance NFData DescribeDBSecurityGroups
+instance NFData DescribeDBSecurityGroups where
 
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
@@ -148,10 +150,11 @@ instance ToQuery DescribeDBSecurityGroups where
 --
 -- /See:/ 'describeDBSecurityGroupsResponse' smart constructor.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
-    { _ddbsgrsDBSecurityGroups :: !(Maybe [DBSecurityGroup])
-    , _ddbsgrsMarker           :: !(Maybe Text)
-    , _ddbsgrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbsgrsDBSecurityGroups :: {-# NOUNPACK #-}!(Maybe [DBSecurityGroup])
+  , _ddbsgrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbsgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBSecurityGroupsResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ describeDBSecurityGroupsResponse
     :: Int -- ^ 'ddbsgrsResponseStatus'
     -> DescribeDBSecurityGroupsResponse
 describeDBSecurityGroupsResponse pResponseStatus_ =
-    DescribeDBSecurityGroupsResponse'
-    { _ddbsgrsDBSecurityGroups = Nothing
-    , _ddbsgrsMarker = Nothing
-    , _ddbsgrsResponseStatus = pResponseStatus_
-    }
+  DescribeDBSecurityGroupsResponse'
+  { _ddbsgrsDBSecurityGroups = Nothing
+  , _ddbsgrsMarker = Nothing
+  , _ddbsgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'DBSecurityGroup' instances.
 ddbsgrsDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
@@ -185,3 +189,4 @@ ddbsgrsResponseStatus :: Lens' DescribeDBSecurityGroupsResponse Int
 ddbsgrsResponseStatus = lens _ddbsgrsResponseStatus (\ s a -> s{_ddbsgrsResponseStatus = a});
 
 instance NFData DescribeDBSecurityGroupsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.GetDataSource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -59,18 +59,19 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDataSource' smart constructor.
 data GetDataSource = GetDataSource'
-    { _gdsVerbose      :: !(Maybe Bool)
-    , _gdsDataSourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsVerbose      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gdsDataSourceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDataSource' with the minimum fields required to make a request.
 --
@@ -83,10 +84,8 @@ getDataSource
     :: Text -- ^ 'gdsDataSourceId'
     -> GetDataSource
 getDataSource pDataSourceId_ =
-    GetDataSource'
-    { _gdsVerbose = Nothing
-    , _gdsDataSourceId = pDataSourceId_
-    }
+  GetDataSource' {_gdsVerbose = Nothing, _gdsDataSourceId = pDataSourceId_}
+
 
 -- | Specifies whether the @GetDataSource@ operation should return @DataSourceSchema@ . If true, @DataSourceSchema@ is returned. If false, @DataSourceSchema@ is not returned.
 gdsVerbose :: Lens' GetDataSource (Maybe Bool)
@@ -124,9 +123,9 @@ instance AWSRequest GetDataSource where
                      <*> (x .?> "RoleARN")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDataSource
+instance Hashable GetDataSource where
 
-instance NFData GetDataSource
+instance NFData GetDataSource where
 
 instance ToHeaders GetDataSource where
         toHeaders
@@ -156,28 +155,29 @@ instance ToQuery GetDataSource where
 --
 -- /See:/ 'getDataSourceResponse' smart constructor.
 data GetDataSourceResponse = GetDataSourceResponse'
-    { _gdsrsStatus            :: !(Maybe EntityStatus)
-    , _gdsrsNumberOfFiles     :: !(Maybe Integer)
-    , _gdsrsLastUpdatedAt     :: !(Maybe POSIX)
-    , _gdsrsCreatedAt         :: !(Maybe POSIX)
-    , _gdsrsComputeTime       :: !(Maybe Integer)
-    , _gdsrsDataSourceId      :: !(Maybe Text)
-    , _gdsrsRDSMetadata       :: !(Maybe RDSMetadata)
-    , _gdsrsDataSizeInBytes   :: !(Maybe Integer)
-    , _gdsrsDataSourceSchema  :: !(Maybe Text)
-    , _gdsrsStartedAt         :: !(Maybe POSIX)
-    , _gdsrsFinishedAt        :: !(Maybe POSIX)
-    , _gdsrsCreatedByIAMUser  :: !(Maybe Text)
-    , _gdsrsName              :: !(Maybe Text)
-    , _gdsrsLogURI            :: !(Maybe Text)
-    , _gdsrsDataLocationS3    :: !(Maybe Text)
-    , _gdsrsComputeStatistics :: !(Maybe Bool)
-    , _gdsrsMessage           :: !(Maybe Text)
-    , _gdsrsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
-    , _gdsrsDataRearrangement :: !(Maybe Text)
-    , _gdsrsRoleARN           :: !(Maybe Text)
-    , _gdsrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdsrsStatus            :: {-# NOUNPACK #-}!(Maybe EntityStatus)
+  , _gdsrsNumberOfFiles     :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gdsrsLastUpdatedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gdsrsCreatedAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gdsrsComputeTime       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gdsrsDataSourceId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsRDSMetadata       :: {-# NOUNPACK #-}!(Maybe RDSMetadata)
+  , _gdsrsDataSizeInBytes   :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gdsrsDataSourceSchema  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsStartedAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gdsrsFinishedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gdsrsCreatedByIAMUser  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsLogURI            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsDataLocationS3    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gdsrsMessage           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsRedshiftMetadata  :: {-# NOUNPACK #-}!(Maybe RedshiftMetadata)
+  , _gdsrsDataRearrangement :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDataSourceResponse' with the minimum fields required to make a request.
 --
@@ -228,29 +228,30 @@ getDataSourceResponse
     :: Int -- ^ 'gdsrsResponseStatus'
     -> GetDataSourceResponse
 getDataSourceResponse pResponseStatus_ =
-    GetDataSourceResponse'
-    { _gdsrsStatus = Nothing
-    , _gdsrsNumberOfFiles = Nothing
-    , _gdsrsLastUpdatedAt = Nothing
-    , _gdsrsCreatedAt = Nothing
-    , _gdsrsComputeTime = Nothing
-    , _gdsrsDataSourceId = Nothing
-    , _gdsrsRDSMetadata = Nothing
-    , _gdsrsDataSizeInBytes = Nothing
-    , _gdsrsDataSourceSchema = Nothing
-    , _gdsrsStartedAt = Nothing
-    , _gdsrsFinishedAt = Nothing
-    , _gdsrsCreatedByIAMUser = Nothing
-    , _gdsrsName = Nothing
-    , _gdsrsLogURI = Nothing
-    , _gdsrsDataLocationS3 = Nothing
-    , _gdsrsComputeStatistics = Nothing
-    , _gdsrsMessage = Nothing
-    , _gdsrsRedshiftMetadata = Nothing
-    , _gdsrsDataRearrangement = Nothing
-    , _gdsrsRoleARN = Nothing
-    , _gdsrsResponseStatus = pResponseStatus_
-    }
+  GetDataSourceResponse'
+  { _gdsrsStatus = Nothing
+  , _gdsrsNumberOfFiles = Nothing
+  , _gdsrsLastUpdatedAt = Nothing
+  , _gdsrsCreatedAt = Nothing
+  , _gdsrsComputeTime = Nothing
+  , _gdsrsDataSourceId = Nothing
+  , _gdsrsRDSMetadata = Nothing
+  , _gdsrsDataSizeInBytes = Nothing
+  , _gdsrsDataSourceSchema = Nothing
+  , _gdsrsStartedAt = Nothing
+  , _gdsrsFinishedAt = Nothing
+  , _gdsrsCreatedByIAMUser = Nothing
+  , _gdsrsName = Nothing
+  , _gdsrsLogURI = Nothing
+  , _gdsrsDataLocationS3 = Nothing
+  , _gdsrsComputeStatistics = Nothing
+  , _gdsrsMessage = Nothing
+  , _gdsrsRedshiftMetadata = Nothing
+  , _gdsrsDataRearrangement = Nothing
+  , _gdsrsRoleARN = Nothing
+  , _gdsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current status of the @DataSource@ . This element can have one of the following values:     * @PENDING@ - Amazon ML submitted a request to create a @DataSource@ .    * @INPROGRESS@ - The creation process is underway.    * @FAILED@ - The request to create a @DataSource@ did not run to completion. It is not usable.    * @COMPLETED@ - The creation process completed successfully.    * @DELETED@ - The @DataSource@ is marked as deleted. It is not usable.
 gdsrsStatus :: Lens' GetDataSourceResponse (Maybe EntityStatus)
@@ -336,4 +337,4 @@ gdsrsRoleARN = lens _gdsrsRoleARN (\ s a -> s{_gdsrsRoleARN = a});
 gdsrsResponseStatus :: Lens' GetDataSourceResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
 
-instance NFData GetDataSourceResponse
+instance NFData GetDataSourceResponse where

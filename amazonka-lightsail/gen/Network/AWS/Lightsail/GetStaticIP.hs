@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetStaticIP
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.GetStaticIP
     , gsirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getStaticIP' smart constructor.
 newtype GetStaticIP = GetStaticIP'
-    { _gsiStaticIPName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsiStaticIPName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStaticIP' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetStaticIP = GetStaticIP'
 getStaticIP
     :: Text -- ^ 'gsiStaticIPName'
     -> GetStaticIP
-getStaticIP pStaticIPName_ =
-    GetStaticIP'
-    { _gsiStaticIPName = pStaticIPName_
-    }
+getStaticIP pStaticIPName_ = GetStaticIP' {_gsiStaticIPName = pStaticIPName_}
+
 
 -- | The name of the static IP in Lightsail.
 gsiStaticIPName :: Lens' GetStaticIP Text
@@ -75,9 +74,9 @@ instance AWSRequest GetStaticIP where
                  GetStaticIPResponse' <$>
                    (x .?> "staticIp") <*> (pure (fromEnum s)))
 
-instance Hashable GetStaticIP
+instance Hashable GetStaticIP where
 
-instance NFData GetStaticIP
+instance NFData GetStaticIP where
 
 instance ToHeaders GetStaticIP where
         toHeaders
@@ -102,9 +101,10 @@ instance ToQuery GetStaticIP where
 
 -- | /See:/ 'getStaticIPResponse' smart constructor.
 data GetStaticIPResponse = GetStaticIPResponse'
-    { _gsirsStaticIP       :: !(Maybe StaticIP)
-    , _gsirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsirsStaticIP       :: {-# NOUNPACK #-}!(Maybe StaticIP)
+  , _gsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetStaticIPResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ getStaticIPResponse
     :: Int -- ^ 'gsirsResponseStatus'
     -> GetStaticIPResponse
 getStaticIPResponse pResponseStatus_ =
-    GetStaticIPResponse'
-    { _gsirsStaticIP = Nothing
-    , _gsirsResponseStatus = pResponseStatus_
-    }
+  GetStaticIPResponse'
+  {_gsirsStaticIP = Nothing, _gsirsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the requested static IP.
 gsirsStaticIP :: Lens' GetStaticIPResponse (Maybe StaticIP)
@@ -130,4 +129,4 @@ gsirsStaticIP = lens _gsirsStaticIP (\ s a -> s{_gsirsStaticIP = a});
 gsirsResponseStatus :: Lens' GetStaticIPResponse Int
 gsirsResponseStatus = lens _gsirsResponseStatus (\ s a -> s{_gsirsResponseStatus = a});
 
-instance NFData GetStaticIPResponse
+instance NFData GetStaticIPResponse where

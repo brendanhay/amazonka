@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.GetReplicationRuns
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SMS.GetReplicationRuns
     , grrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'getReplicationRuns' smart constructor.
 data GetReplicationRuns = GetReplicationRuns'
-    { _grrNextToken        :: !(Maybe Text)
-    , _grrMaxResults       :: !(Maybe Int)
-    , _grrReplicationJobId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grrMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _grrReplicationJobId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetReplicationRuns' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ getReplicationRuns
     :: Text -- ^ 'grrReplicationJobId'
     -> GetReplicationRuns
 getReplicationRuns pReplicationJobId_ =
-    GetReplicationRuns'
-    { _grrNextToken = Nothing
-    , _grrMaxResults = Nothing
-    , _grrReplicationJobId = pReplicationJobId_
-    }
+  GetReplicationRuns'
+  { _grrNextToken = Nothing
+  , _grrMaxResults = Nothing
+  , _grrReplicationJobId = pReplicationJobId_
+  }
+
 
 -- | Undocumented member.
 grrNextToken :: Lens' GetReplicationRuns (Maybe Text)
@@ -106,9 +108,9 @@ instance AWSRequest GetReplicationRuns where
                      (x .?> "replicationRunList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetReplicationRuns
+instance Hashable GetReplicationRuns where
 
-instance NFData GetReplicationRuns
+instance NFData GetReplicationRuns where
 
 instance ToHeaders GetReplicationRuns where
         toHeaders
@@ -136,11 +138,12 @@ instance ToQuery GetReplicationRuns where
 
 -- | /See:/ 'getReplicationRunsResponse' smart constructor.
 data GetReplicationRunsResponse = GetReplicationRunsResponse'
-    { _grrrsReplicationJob     :: !(Maybe ReplicationJob)
-    , _grrrsNextToken          :: !(Maybe Text)
-    , _grrrsReplicationRunList :: !(Maybe [ReplicationRun])
-    , _grrrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrrsReplicationJob     :: {-# NOUNPACK #-}!(Maybe ReplicationJob)
+  , _grrrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grrrsReplicationRunList :: {-# NOUNPACK #-}!(Maybe [ReplicationRun])
+  , _grrrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetReplicationRunsResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +160,13 @@ getReplicationRunsResponse
     :: Int -- ^ 'grrrsResponseStatus'
     -> GetReplicationRunsResponse
 getReplicationRunsResponse pResponseStatus_ =
-    GetReplicationRunsResponse'
-    { _grrrsReplicationJob = Nothing
-    , _grrrsNextToken = Nothing
-    , _grrrsReplicationRunList = Nothing
-    , _grrrsResponseStatus = pResponseStatus_
-    }
+  GetReplicationRunsResponse'
+  { _grrrsReplicationJob = Nothing
+  , _grrrsNextToken = Nothing
+  , _grrrsReplicationRunList = Nothing
+  , _grrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 grrrsReplicationJob :: Lens' GetReplicationRunsResponse (Maybe ReplicationJob)
@@ -180,4 +184,4 @@ grrrsReplicationRunList = lens _grrrsReplicationRunList (\ s a -> s{_grrrsReplic
 grrrsResponseStatus :: Lens' GetReplicationRunsResponse Int
 grrrsResponseStatus = lens _grrrsResponseStatus (\ s a -> s{_grrrsResponseStatus = a});
 
-instance NFData GetReplicationRunsResponse
+instance NFData GetReplicationRunsResponse where

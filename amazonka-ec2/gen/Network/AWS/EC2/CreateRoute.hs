@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateRoute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,12 +60,12 @@ module Network.AWS.EC2.CreateRoute
     , crrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateRoute.
 --
@@ -73,17 +73,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createRoute' smart constructor.
 data CreateRoute = CreateRoute'
-    { _crVPCPeeringConnectionId      :: !(Maybe Text)
-    , _crInstanceId                  :: !(Maybe Text)
-    , _crEgressOnlyInternetGatewayId :: !(Maybe Text)
-    , _crDestinationIPv6CidrBlock    :: !(Maybe Text)
-    , _crNatGatewayId                :: !(Maybe Text)
-    , _crNetworkInterfaceId          :: !(Maybe Text)
-    , _crGatewayId                   :: !(Maybe Text)
-    , _crDryRun                      :: !(Maybe Bool)
-    , _crDestinationCidrBlock        :: !(Maybe Text)
-    , _crRouteTableId                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crVPCPeeringConnectionId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crInstanceId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crEgressOnlyInternetGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crDestinationIPv6CidrBlock    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crNatGatewayId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crNetworkInterfaceId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crGatewayId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crDryRun                      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _crDestinationCidrBlock        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crRouteTableId                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRoute' with the minimum fields required to make a request.
 --
@@ -112,18 +113,19 @@ createRoute
     :: Text -- ^ 'crRouteTableId'
     -> CreateRoute
 createRoute pRouteTableId_ =
-    CreateRoute'
-    { _crVPCPeeringConnectionId = Nothing
-    , _crInstanceId = Nothing
-    , _crEgressOnlyInternetGatewayId = Nothing
-    , _crDestinationIPv6CidrBlock = Nothing
-    , _crNatGatewayId = Nothing
-    , _crNetworkInterfaceId = Nothing
-    , _crGatewayId = Nothing
-    , _crDryRun = Nothing
-    , _crDestinationCidrBlock = Nothing
-    , _crRouteTableId = pRouteTableId_
-    }
+  CreateRoute'
+  { _crVPCPeeringConnectionId = Nothing
+  , _crInstanceId = Nothing
+  , _crEgressOnlyInternetGatewayId = Nothing
+  , _crDestinationIPv6CidrBlock = Nothing
+  , _crNatGatewayId = Nothing
+  , _crNetworkInterfaceId = Nothing
+  , _crGatewayId = Nothing
+  , _crDryRun = Nothing
+  , _crDestinationCidrBlock = Nothing
+  , _crRouteTableId = pRouteTableId_
+  }
+
 
 -- | The ID of a VPC peering connection.
 crVPCPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
@@ -174,9 +176,9 @@ instance AWSRequest CreateRoute where
                  CreateRouteResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable CreateRoute
+instance Hashable CreateRoute where
 
-instance NFData CreateRoute
+instance NFData CreateRoute where
 
 instance ToHeaders CreateRoute where
         toHeaders = const mempty
@@ -208,9 +210,10 @@ instance ToQuery CreateRoute where
 --
 -- /See:/ 'createRouteResponse' smart constructor.
 data CreateRouteResponse = CreateRouteResponse'
-    { _crrsReturn         :: !(Maybe Bool)
-    , _crrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _crrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRouteResponse' with the minimum fields required to make a request.
 --
@@ -223,10 +226,9 @@ createRouteResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CreateRouteResponse
 createRouteResponse pResponseStatus_ =
-    CreateRouteResponse'
-    { _crrsReturn = Nothing
-    , _crrsResponseStatus = pResponseStatus_
-    }
+  CreateRouteResponse'
+  {_crrsReturn = Nothing, _crrsResponseStatus = pResponseStatus_}
+
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 crrsReturn :: Lens' CreateRouteResponse (Maybe Bool)
@@ -236,4 +238,4 @@ crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
 crrsResponseStatus :: Lens' CreateRouteResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 
-instance NFData CreateRouteResponse
+instance NFData CreateRouteResponse where

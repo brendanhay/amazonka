@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ApplySchema
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CloudDirectory.ApplySchema
     , asrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'applySchema' smart constructor.
 data ApplySchema = ApplySchema'
-    { _asPublishedSchemaARN :: !Text
-    , _asDirectoryARN       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asPublishedSchemaARN :: {-# NOUNPACK #-}!Text
+  , _asDirectoryARN       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplySchema' with the minimum fields required to make a request.
 --
@@ -64,10 +65,11 @@ applySchema
     -> Text -- ^ 'asDirectoryARN'
     -> ApplySchema
 applySchema pPublishedSchemaARN_ pDirectoryARN_ =
-    ApplySchema'
-    { _asPublishedSchemaARN = pPublishedSchemaARN_
-    , _asDirectoryARN = pDirectoryARN_
-    }
+  ApplySchema'
+  { _asPublishedSchemaARN = pPublishedSchemaARN_
+  , _asDirectoryARN = pDirectoryARN_
+  }
+
 
 -- | Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
 asPublishedSchemaARN :: Lens' ApplySchema Text
@@ -87,9 +89,9 @@ instance AWSRequest ApplySchema where
                    (x .?> "DirectoryArn") <*> (x .?> "AppliedSchemaArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ApplySchema
+instance Hashable ApplySchema where
 
-instance NFData ApplySchema
+instance NFData ApplySchema where
 
 instance ToHeaders ApplySchema where
         toHeaders ApplySchema'{..}
@@ -112,10 +114,11 @@ instance ToQuery ApplySchema where
 
 -- | /See:/ 'applySchemaResponse' smart constructor.
 data ApplySchemaResponse = ApplySchemaResponse'
-    { _asrsDirectoryARN     :: !(Maybe Text)
-    , _asrsAppliedSchemaARN :: !(Maybe Text)
-    , _asrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asrsDirectoryARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asrsAppliedSchemaARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplySchemaResponse' with the minimum fields required to make a request.
 --
@@ -130,11 +133,12 @@ applySchemaResponse
     :: Int -- ^ 'asrsResponseStatus'
     -> ApplySchemaResponse
 applySchemaResponse pResponseStatus_ =
-    ApplySchemaResponse'
-    { _asrsDirectoryARN = Nothing
-    , _asrsAppliedSchemaARN = Nothing
-    , _asrsResponseStatus = pResponseStatus_
-    }
+  ApplySchemaResponse'
+  { _asrsDirectoryARN = Nothing
+  , _asrsAppliedSchemaARN = Nothing
+  , _asrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
 asrsDirectoryARN :: Lens' ApplySchemaResponse (Maybe Text)
@@ -148,4 +152,4 @@ asrsAppliedSchemaARN = lens _asrsAppliedSchemaARN (\ s a -> s{_asrsAppliedSchema
 asrsResponseStatus :: Lens' ApplySchemaResponse Int
 asrsResponseStatus = lens _asrsResponseStatus (\ s a -> s{_asrsResponseStatus = a});
 
-instance NFData ApplySchemaResponse
+instance NFData ApplySchemaResponse where

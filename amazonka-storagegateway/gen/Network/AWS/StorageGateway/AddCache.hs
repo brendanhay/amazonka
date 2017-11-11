@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddCache
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.StorageGateway.AddCache
     , acrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'addCache' smart constructor.
 data AddCache = AddCache'
-    { _acGatewayARN :: !Text
-    , _acDiskIds    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acGatewayARN :: {-# NOUNPACK #-}!Text
+  , _acDiskIds    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddCache' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ addCache
     :: Text -- ^ 'acGatewayARN'
     -> AddCache
 addCache pGatewayARN_ =
-    AddCache'
-    { _acGatewayARN = pGatewayARN_
-    , _acDiskIds = mempty
-    }
+  AddCache' {_acGatewayARN = pGatewayARN_, _acDiskIds = mempty}
+
 
 -- | Undocumented member.
 acGatewayARN :: Lens' AddCache Text
@@ -86,9 +85,9 @@ instance AWSRequest AddCache where
                  AddCacheResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable AddCache
+instance Hashable AddCache where
 
-instance NFData AddCache
+instance NFData AddCache where
 
 instance ToHeaders AddCache where
         toHeaders
@@ -114,9 +113,10 @@ instance ToQuery AddCache where
 
 -- | /See:/ 'addCacheResponse' smart constructor.
 data AddCacheResponse = AddCacheResponse'
-    { _acrsGatewayARN     :: !(Maybe Text)
-    , _acrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddCacheResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ addCacheResponse
     :: Int -- ^ 'acrsResponseStatus'
     -> AddCacheResponse
 addCacheResponse pResponseStatus_ =
-    AddCacheResponse'
-    { _acrsGatewayARN = Nothing
-    , _acrsResponseStatus = pResponseStatus_
-    }
+  AddCacheResponse'
+  {_acrsGatewayARN = Nothing, _acrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
@@ -142,4 +141,4 @@ acrsGatewayARN = lens _acrsGatewayARN (\ s a -> s{_acrsGatewayARN = a});
 acrsResponseStatus :: Lens' AddCacheResponse Int
 acrsResponseStatus = lens _acrsResponseStatus (\ s a -> s{_acrsResponseStatus = a});
 
-instance NFData AddCacheResponse
+instance NFData AddCacheResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DisassociateWebACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.WAFRegional.DisassociateWebACL
     , dwaclrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'disassociateWebACL' smart constructor.
 newtype DisassociateWebACL = DisassociateWebACL'
-    { _dwaResourceARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwaResourceARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateWebACL' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ disassociateWebACL
     :: Text -- ^ 'dwaResourceARN'
     -> DisassociateWebACL
 disassociateWebACL pResourceARN_ =
-    DisassociateWebACL'
-    { _dwaResourceARN = pResourceARN_
-    }
+  DisassociateWebACL' {_dwaResourceARN = pResourceARN_}
+
 
 -- | The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed.
 dwaResourceARN :: Lens' DisassociateWebACL Text
@@ -74,9 +74,9 @@ instance AWSRequest DisassociateWebACL where
               (\ s h x ->
                  DisassociateWebACLResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DisassociateWebACL
+instance Hashable DisassociateWebACL where
 
-instance NFData DisassociateWebACL
+instance NFData DisassociateWebACL where
 
 instance ToHeaders DisassociateWebACL where
         toHeaders
@@ -101,8 +101,9 @@ instance ToQuery DisassociateWebACL where
 
 -- | /See:/ 'disassociateWebACLResponse' smart constructor.
 newtype DisassociateWebACLResponse = DisassociateWebACLResponse'
-    { _dwaclrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwaclrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateWebACLResponse' with the minimum fields required to make a request.
 --
@@ -113,12 +114,11 @@ disassociateWebACLResponse
     :: Int -- ^ 'dwaclrsResponseStatus'
     -> DisassociateWebACLResponse
 disassociateWebACLResponse pResponseStatus_ =
-    DisassociateWebACLResponse'
-    { _dwaclrsResponseStatus = pResponseStatus_
-    }
+  DisassociateWebACLResponse' {_dwaclrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dwaclrsResponseStatus :: Lens' DisassociateWebACLResponse Int
 dwaclrsResponseStatus = lens _dwaclrsResponseStatus (\ s a -> s{_dwaclrsResponseStatus = a});
 
-instance NFData DisassociateWebACLResponse
+instance NFData DisassociateWebACLResponse where

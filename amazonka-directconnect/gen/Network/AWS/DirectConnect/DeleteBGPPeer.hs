@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteBGPPeer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DirectConnect.DeleteBGPPeer
     , dbprsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DeleteBGPPeer operation.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteBGPPeer' smart constructor.
 data DeleteBGPPeer = DeleteBGPPeer'
-    { _dbpCustomerAddress    :: !(Maybe Text)
-    , _dbpAsn                :: !(Maybe Int)
-    , _dbpVirtualInterfaceId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbpCustomerAddress    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbpAsn                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dbpVirtualInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBGPPeer' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data DeleteBGPPeer = DeleteBGPPeer'
 deleteBGPPeer
     :: DeleteBGPPeer
 deleteBGPPeer =
-    DeleteBGPPeer'
-    { _dbpCustomerAddress = Nothing
-    , _dbpAsn = Nothing
-    , _dbpVirtualInterfaceId = Nothing
-    }
+  DeleteBGPPeer'
+  { _dbpCustomerAddress = Nothing
+  , _dbpAsn = Nothing
+  , _dbpVirtualInterfaceId = Nothing
+  }
+
 
 -- | Undocumented member.
 dbpCustomerAddress :: Lens' DeleteBGPPeer (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest DeleteBGPPeer where
                  DeleteBGPPeerResponse' <$>
                    (x .?> "virtualInterface") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteBGPPeer
+instance Hashable DeleteBGPPeer where
 
-instance NFData DeleteBGPPeer
+instance NFData DeleteBGPPeer where
 
 instance ToHeaders DeleteBGPPeer where
         toHeaders
@@ -130,9 +132,10 @@ instance ToQuery DeleteBGPPeer where
 --
 -- /See:/ 'deleteBGPPeerResponse' smart constructor.
 data DeleteBGPPeerResponse = DeleteBGPPeerResponse'
-    { _dbprsVirtualInterface :: !(Maybe VirtualInterface)
-    , _dbprsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbprsVirtualInterface :: {-# NOUNPACK #-}!(Maybe VirtualInterface)
+  , _dbprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBGPPeerResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +148,9 @@ deleteBGPPeerResponse
     :: Int -- ^ 'dbprsResponseStatus'
     -> DeleteBGPPeerResponse
 deleteBGPPeerResponse pResponseStatus_ =
-    DeleteBGPPeerResponse'
-    { _dbprsVirtualInterface = Nothing
-    , _dbprsResponseStatus = pResponseStatus_
-    }
+  DeleteBGPPeerResponse'
+  {_dbprsVirtualInterface = Nothing, _dbprsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dbprsVirtualInterface :: Lens' DeleteBGPPeerResponse (Maybe VirtualInterface)
@@ -158,4 +160,4 @@ dbprsVirtualInterface = lens _dbprsVirtualInterface (\ s a -> s{_dbprsVirtualInt
 dbprsResponseStatus :: Lens' DeleteBGPPeerResponse Int
 dbprsResponseStatus = lens _dbprsResponseStatus (\ s a -> s{_dbprsResponseStatus = a});
 
-instance NFData DeleteBGPPeerResponse
+instance NFData DeleteBGPPeerResponse where

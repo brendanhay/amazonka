@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -480,56 +480,56 @@ module Network.AWS.WAFRegional
     , xmtTextTransformation
     ) where
 
-import           Network.AWS.WAFRegional.AssociateWebACL
-import           Network.AWS.WAFRegional.CreateByteMatchSet
-import           Network.AWS.WAFRegional.CreateIPSet
-import           Network.AWS.WAFRegional.CreateRateBasedRule
-import           Network.AWS.WAFRegional.CreateRule
-import           Network.AWS.WAFRegional.CreateSizeConstraintSet
-import           Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
-import           Network.AWS.WAFRegional.CreateWebACL
-import           Network.AWS.WAFRegional.CreateXSSMatchSet
-import           Network.AWS.WAFRegional.DeleteByteMatchSet
-import           Network.AWS.WAFRegional.DeleteIPSet
-import           Network.AWS.WAFRegional.DeleteRateBasedRule
-import           Network.AWS.WAFRegional.DeleteRule
-import           Network.AWS.WAFRegional.DeleteSizeConstraintSet
-import           Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
-import           Network.AWS.WAFRegional.DeleteWebACL
-import           Network.AWS.WAFRegional.DeleteXSSMatchSet
-import           Network.AWS.WAFRegional.DisassociateWebACL
-import           Network.AWS.WAFRegional.GetByteMatchSet
-import           Network.AWS.WAFRegional.GetChangeToken
-import           Network.AWS.WAFRegional.GetChangeTokenStatus
-import           Network.AWS.WAFRegional.GetIPSet
-import           Network.AWS.WAFRegional.GetRateBasedRule
-import           Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
-import           Network.AWS.WAFRegional.GetRule
-import           Network.AWS.WAFRegional.GetSampledRequests
-import           Network.AWS.WAFRegional.GetSizeConstraintSet
-import           Network.AWS.WAFRegional.GetSqlInjectionMatchSet
-import           Network.AWS.WAFRegional.GetWebACL
-import           Network.AWS.WAFRegional.GetWebACLForResource
-import           Network.AWS.WAFRegional.GetXSSMatchSet
-import           Network.AWS.WAFRegional.ListByteMatchSets
-import           Network.AWS.WAFRegional.ListIPSets
-import           Network.AWS.WAFRegional.ListRateBasedRules
-import           Network.AWS.WAFRegional.ListResourcesForWebACL
-import           Network.AWS.WAFRegional.ListRules
-import           Network.AWS.WAFRegional.ListSizeConstraintSets
-import           Network.AWS.WAFRegional.ListSqlInjectionMatchSets
-import           Network.AWS.WAFRegional.ListWebACLs
-import           Network.AWS.WAFRegional.ListXSSMatchSets
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.UpdateByteMatchSet
-import           Network.AWS.WAFRegional.UpdateIPSet
-import           Network.AWS.WAFRegional.UpdateRateBasedRule
-import           Network.AWS.WAFRegional.UpdateRule
-import           Network.AWS.WAFRegional.UpdateSizeConstraintSet
-import           Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet
-import           Network.AWS.WAFRegional.UpdateWebACL
-import           Network.AWS.WAFRegional.UpdateXSSMatchSet
-import           Network.AWS.WAFRegional.Waiters
+import Network.AWS.WAFRegional.AssociateWebACL
+import Network.AWS.WAFRegional.CreateByteMatchSet
+import Network.AWS.WAFRegional.CreateIPSet
+import Network.AWS.WAFRegional.CreateRateBasedRule
+import Network.AWS.WAFRegional.CreateRule
+import Network.AWS.WAFRegional.CreateSizeConstraintSet
+import Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
+import Network.AWS.WAFRegional.CreateWebACL
+import Network.AWS.WAFRegional.CreateXSSMatchSet
+import Network.AWS.WAFRegional.DeleteByteMatchSet
+import Network.AWS.WAFRegional.DeleteIPSet
+import Network.AWS.WAFRegional.DeleteRateBasedRule
+import Network.AWS.WAFRegional.DeleteRule
+import Network.AWS.WAFRegional.DeleteSizeConstraintSet
+import Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
+import Network.AWS.WAFRegional.DeleteWebACL
+import Network.AWS.WAFRegional.DeleteXSSMatchSet
+import Network.AWS.WAFRegional.DisassociateWebACL
+import Network.AWS.WAFRegional.GetByteMatchSet
+import Network.AWS.WAFRegional.GetChangeToken
+import Network.AWS.WAFRegional.GetChangeTokenStatus
+import Network.AWS.WAFRegional.GetIPSet
+import Network.AWS.WAFRegional.GetRateBasedRule
+import Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
+import Network.AWS.WAFRegional.GetRule
+import Network.AWS.WAFRegional.GetSampledRequests
+import Network.AWS.WAFRegional.GetSizeConstraintSet
+import Network.AWS.WAFRegional.GetSqlInjectionMatchSet
+import Network.AWS.WAFRegional.GetWebACL
+import Network.AWS.WAFRegional.GetWebACLForResource
+import Network.AWS.WAFRegional.GetXSSMatchSet
+import Network.AWS.WAFRegional.ListByteMatchSets
+import Network.AWS.WAFRegional.ListIPSets
+import Network.AWS.WAFRegional.ListRateBasedRules
+import Network.AWS.WAFRegional.ListResourcesForWebACL
+import Network.AWS.WAFRegional.ListRules
+import Network.AWS.WAFRegional.ListSizeConstraintSets
+import Network.AWS.WAFRegional.ListSqlInjectionMatchSets
+import Network.AWS.WAFRegional.ListWebACLs
+import Network.AWS.WAFRegional.ListXSSMatchSets
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.UpdateByteMatchSet
+import Network.AWS.WAFRegional.UpdateIPSet
+import Network.AWS.WAFRegional.UpdateRateBasedRule
+import Network.AWS.WAFRegional.UpdateRule
+import Network.AWS.WAFRegional.UpdateSizeConstraintSet
+import Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet
+import Network.AWS.WAFRegional.UpdateWebACL
+import Network.AWS.WAFRegional.UpdateXSSMatchSet
+import Network.AWS.WAFRegional.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateDistributionWithTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFront.CreateDistributionWithTags
     , cdwtrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create a new distribution with tags.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDistributionWithTags' smart constructor.
 newtype CreateDistributionWithTags = CreateDistributionWithTags'
-    { _cdwtDistributionConfigWithTags :: DistributionConfigWithTags
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdwtDistributionConfigWithTags :: DistributionConfigWithTags
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDistributionWithTags' with the minimum fields required to make a request.
 --
@@ -64,9 +65,9 @@ createDistributionWithTags
     :: DistributionConfigWithTags -- ^ 'cdwtDistributionConfigWithTags'
     -> CreateDistributionWithTags
 createDistributionWithTags pDistributionConfigWithTags_ =
-    CreateDistributionWithTags'
-    { _cdwtDistributionConfigWithTags = pDistributionConfigWithTags_
-    }
+  CreateDistributionWithTags'
+  {_cdwtDistributionConfigWithTags = pDistributionConfigWithTags_}
+
 
 -- | The distribution's configuration information.
 cdwtDistributionConfigWithTags :: Lens' CreateDistributionWithTags DistributionConfigWithTags
@@ -84,9 +85,9 @@ instance AWSRequest CreateDistributionWithTags where
                      (h .#? "Location")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateDistributionWithTags
+instance Hashable CreateDistributionWithTags where
 
-instance NFData CreateDistributionWithTags
+instance NFData CreateDistributionWithTags where
 
 instance ToElement CreateDistributionWithTags where
         toElement
@@ -110,11 +111,12 @@ instance ToQuery CreateDistributionWithTags where
 --
 -- /See:/ 'createDistributionWithTagsResponse' smart constructor.
 data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
-    { _cdwtrsETag           :: !(Maybe Text)
-    , _cdwtrsDistribution   :: !(Maybe Distribution)
-    , _cdwtrsLocation       :: !(Maybe Text)
-    , _cdwtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdwtrsETag           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdwtrsDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
+  , _cdwtrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDistributionWithTagsResponse' with the minimum fields required to make a request.
 --
@@ -131,12 +133,13 @@ createDistributionWithTagsResponse
     :: Int -- ^ 'cdwtrsResponseStatus'
     -> CreateDistributionWithTagsResponse
 createDistributionWithTagsResponse pResponseStatus_ =
-    CreateDistributionWithTagsResponse'
-    { _cdwtrsETag = Nothing
-    , _cdwtrsDistribution = Nothing
-    , _cdwtrsLocation = Nothing
-    , _cdwtrsResponseStatus = pResponseStatus_
-    }
+  CreateDistributionWithTagsResponse'
+  { _cdwtrsETag = Nothing
+  , _cdwtrsDistribution = Nothing
+  , _cdwtrsLocation = Nothing
+  , _cdwtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the distribution created.
 cdwtrsETag :: Lens' CreateDistributionWithTagsResponse (Maybe Text)
@@ -155,3 +158,4 @@ cdwtrsResponseStatus :: Lens' CreateDistributionWithTagsResponse Int
 cdwtrsResponseStatus = lens _cdwtrsResponseStatus (\ s a -> s{_cdwtrsResponseStatus = a});
 
 instance NFData CreateDistributionWithTagsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.AddTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.ELBv2.AddTags
     , atrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
-    { _atResourceARNs :: ![Text]
-    , _atTags         :: !(List1 Tag)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atResourceARNs :: {-# NOUNPACK #-}![Text]
+  , _atTags         :: {-# NOUNPACK #-}!(List1 Tag)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
 --
@@ -64,11 +65,8 @@ data AddTags = AddTags'
 addTags
     :: NonEmpty Tag -- ^ 'atTags'
     -> AddTags
-addTags pTags_ =
-    AddTags'
-    { _atResourceARNs = mempty
-    , _atTags = _List1 # pTags_
-    }
+addTags pTags_ = AddTags' {_atResourceARNs = mempty, _atTags = _List1 # pTags_}
+
 
 -- | The Amazon Resource Name (ARN) of the resource.
 atResourceARNs :: Lens' AddTags [Text]
@@ -85,9 +83,9 @@ instance AWSRequest AddTags where
           = receiveXMLWrapper "AddTagsResult"
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AddTags
+instance Hashable AddTags where
 
-instance NFData AddTags
+instance NFData AddTags where
 
 instance ToHeaders AddTags where
         toHeaders = const mempty
@@ -106,8 +104,9 @@ instance ToQuery AddTags where
 
 -- | /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-    { _atrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
@@ -118,12 +117,11 @@ addTagsResponse
     :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
 addTagsResponse pResponseStatus_ =
-    AddTagsResponse'
-    { _atrsResponseStatus = pResponseStatus_
-    }
+  AddTagsResponse' {_atrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
 
-instance NFData AddTagsResponse
+instance NFData AddTagsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.DeleteMessage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.SQS.DeleteMessage
     , DeleteMessageResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -48,9 +48,10 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'deleteMessage' smart constructor.
 data DeleteMessage = DeleteMessage'
-    { _dmQueueURL      :: !Text
-    , _dmReceiptHandle :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmQueueURL      :: {-# NOUNPACK #-}!Text
+  , _dmReceiptHandle :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMessage' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ deleteMessage
     -> Text -- ^ 'dmReceiptHandle'
     -> DeleteMessage
 deleteMessage pQueueURL_ pReceiptHandle_ =
-    DeleteMessage'
-    { _dmQueueURL = pQueueURL_
-    , _dmReceiptHandle = pReceiptHandle_
-    }
+  DeleteMessage' {_dmQueueURL = pQueueURL_, _dmReceiptHandle = pReceiptHandle_}
+
 
 -- | The URL of the Amazon SQS queue from which messages are deleted. Queue URLs are case-sensitive.
 dmQueueURL :: Lens' DeleteMessage Text
@@ -82,9 +81,9 @@ instance AWSRequest DeleteMessage where
         request = postQuery sqs
         response = receiveNull DeleteMessageResponse'
 
-instance Hashable DeleteMessage
+instance Hashable DeleteMessage where
 
-instance NFData DeleteMessage
+instance NFData DeleteMessage where
 
 instance ToHeaders DeleteMessage where
         toHeaders = const mempty
@@ -102,8 +101,9 @@ instance ToQuery DeleteMessage where
 
 -- | /See:/ 'deleteMessageResponse' smart constructor.
 data DeleteMessageResponse =
-    DeleteMessageResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteMessageResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMessageResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ deleteMessageResponse
     :: DeleteMessageResponse
 deleteMessageResponse = DeleteMessageResponse'
 
-instance NFData DeleteMessageResponse
+
+instance NFData DeleteMessageResponse where

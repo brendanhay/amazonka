@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DeleteApplications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Discovery.DeleteApplications
     , darsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteApplications' smart constructor.
 newtype DeleteApplications = DeleteApplications'
-    { _daConfigurationIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daConfigurationIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplications' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype DeleteApplications = DeleteApplications'
 -- * 'daConfigurationIds' - Configuration ID of an application to be deleted.
 deleteApplications
     :: DeleteApplications
-deleteApplications =
-    DeleteApplications'
-    { _daConfigurationIds = mempty
-    }
+deleteApplications = DeleteApplications' {_daConfigurationIds = mempty}
+
 
 -- | Configuration ID of an application to be deleted.
 daConfigurationIds :: Lens' DeleteApplications [Text]
@@ -73,9 +72,9 @@ instance AWSRequest DeleteApplications where
               (\ s h x ->
                  DeleteApplicationsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteApplications
+instance Hashable DeleteApplications where
 
-instance NFData DeleteApplications
+instance NFData DeleteApplications where
 
 instance ToHeaders DeleteApplications where
         toHeaders
@@ -101,8 +100,9 @@ instance ToQuery DeleteApplications where
 
 -- | /See:/ 'deleteApplicationsResponse' smart constructor.
 newtype DeleteApplicationsResponse = DeleteApplicationsResponse'
-    { _darsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationsResponse' with the minimum fields required to make a request.
 --
@@ -113,12 +113,11 @@ deleteApplicationsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DeleteApplicationsResponse
 deleteApplicationsResponse pResponseStatus_ =
-    DeleteApplicationsResponse'
-    { _darsResponseStatus = pResponseStatus_
-    }
+  DeleteApplicationsResponse' {_darsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 darsResponseStatus :: Lens' DeleteApplicationsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DeleteApplicationsResponse
+instance NFData DeleteApplicationsResponse where

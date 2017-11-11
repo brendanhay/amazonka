@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.AddTagsToStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Kinesis.AddTagsToStream
     , AddTagsToStreamResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for @AddTagsToStream@ .
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addTagsToStream' smart constructor.
 data AddTagsToStream = AddTagsToStream'
-    { _attsStreamName :: !Text
-    , _attsTags       :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _attsStreamName :: {-# NOUNPACK #-}!Text
+  , _attsTags       :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToStream' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ addTagsToStream
     :: Text -- ^ 'attsStreamName'
     -> AddTagsToStream
 addTagsToStream pStreamName_ =
-    AddTagsToStream'
-    { _attsStreamName = pStreamName_
-    , _attsTags = mempty
-    }
+  AddTagsToStream' {_attsStreamName = pStreamName_, _attsTags = mempty}
+
 
 -- | The name of the stream.
 attsStreamName :: Lens' AddTagsToStream Text
@@ -83,9 +82,9 @@ instance AWSRequest AddTagsToStream where
         request = postJSON kinesis
         response = receiveNull AddTagsToStreamResponse'
 
-instance Hashable AddTagsToStream
+instance Hashable AddTagsToStream where
 
-instance NFData AddTagsToStream
+instance NFData AddTagsToStream where
 
 instance ToHeaders AddTagsToStream where
         toHeaders
@@ -111,8 +110,9 @@ instance ToQuery AddTagsToStream where
 
 -- | /See:/ 'addTagsToStreamResponse' smart constructor.
 data AddTagsToStreamResponse =
-    AddTagsToStreamResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddTagsToStreamResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsToStreamResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +120,5 @@ addTagsToStreamResponse
     :: AddTagsToStreamResponse
 addTagsToStreamResponse = AddTagsToStreamResponse'
 
-instance NFData AddTagsToStreamResponse
+
+instance NFData AddTagsToStreamResponse where

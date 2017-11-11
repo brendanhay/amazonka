@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.DeleteInstance
     , dirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteInstance' smart constructor.
 newtype DeleteInstance = DeleteInstance'
-    { _diInstanceName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diInstanceName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInstance' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ deleteInstance
     :: Text -- ^ 'diInstanceName'
     -> DeleteInstance
 deleteInstance pInstanceName_ =
-    DeleteInstance'
-    { _diInstanceName = pInstanceName_
-    }
+  DeleteInstance' {_diInstanceName = pInstanceName_}
+
 
 -- | The name of the instance to delete.
 diInstanceName :: Lens' DeleteInstance Text
@@ -76,9 +76,9 @@ instance AWSRequest DeleteInstance where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DeleteInstance
+instance Hashable DeleteInstance where
 
-instance NFData DeleteInstance
+instance NFData DeleteInstance where
 
 instance ToHeaders DeleteInstance where
         toHeaders
@@ -103,9 +103,10 @@ instance ToQuery DeleteInstance where
 
 -- | /See:/ 'deleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
-    { _dirsOperations     :: !(Maybe [Operation])
-    , _dirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInstanceResponse' with the minimum fields required to make a request.
 --
@@ -118,10 +119,9 @@ deleteInstanceResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DeleteInstanceResponse
 deleteInstanceResponse pResponseStatus_ =
-    DeleteInstanceResponse'
-    { _dirsOperations = Nothing
-    , _dirsResponseStatus = pResponseStatus_
-    }
+  DeleteInstanceResponse'
+  {_dirsOperations = Nothing, _dirsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your delete instance request.
 dirsOperations :: Lens' DeleteInstanceResponse [Operation]
@@ -131,4 +131,4 @@ dirsOperations = lens _dirsOperations (\ s a -> s{_dirsOperations = a}) . _Defau
 dirsResponseStatus :: Lens' DeleteInstanceResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 
-instance NFData DeleteInstanceResponse
+instance NFData DeleteInstanceResponse where

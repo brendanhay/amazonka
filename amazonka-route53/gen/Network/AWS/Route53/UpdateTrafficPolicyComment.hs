@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateTrafficPolicyComment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Route53.UpdateTrafficPolicyComment
     , utpcrsTrafficPolicy
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the traffic policy that you want to update the comment for.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'updateTrafficPolicyComment' smart constructor.
 data UpdateTrafficPolicyComment = UpdateTrafficPolicyComment'
-    { _utpcId      :: !Text
-    , _utpcVersion :: !Nat
-    , _utpcComment :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utpcId      :: {-# NOUNPACK #-}!Text
+  , _utpcVersion :: {-# NOUNPACK #-}!Nat
+  , _utpcComment :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTrafficPolicyComment' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ updateTrafficPolicyComment
     -> Text -- ^ 'utpcComment'
     -> UpdateTrafficPolicyComment
 updateTrafficPolicyComment pId_ pVersion_ pComment_ =
-    UpdateTrafficPolicyComment'
-    { _utpcId = pId_
-    , _utpcVersion = _Nat # pVersion_
-    , _utpcComment = pComment_
-    }
+  UpdateTrafficPolicyComment'
+  {_utpcId = pId_, _utpcVersion = _Nat # pVersion_, _utpcComment = pComment_}
+
 
 -- | The value of @Id@ for the traffic policy that you want to update the comment for.
 utpcId :: Lens' UpdateTrafficPolicyComment Text
@@ -100,9 +99,9 @@ instance AWSRequest UpdateTrafficPolicyComment where
                  UpdateTrafficPolicyCommentResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy"))
 
-instance Hashable UpdateTrafficPolicyComment
+instance Hashable UpdateTrafficPolicyComment where
 
-instance NFData UpdateTrafficPolicyComment
+instance NFData UpdateTrafficPolicyComment where
 
 instance ToElement UpdateTrafficPolicyComment where
         toElement
@@ -131,9 +130,10 @@ instance ToXML UpdateTrafficPolicyComment where
 --
 -- /See:/ 'updateTrafficPolicyCommentResponse' smart constructor.
 data UpdateTrafficPolicyCommentResponse = UpdateTrafficPolicyCommentResponse'
-    { _utpcrsResponseStatus :: !Int
-    , _utpcrsTrafficPolicy  :: !TrafficPolicy
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utpcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _utpcrsTrafficPolicy  :: {-# NOUNPACK #-}!TrafficPolicy
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTrafficPolicyCommentResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +147,11 @@ updateTrafficPolicyCommentResponse
     -> TrafficPolicy -- ^ 'utpcrsTrafficPolicy'
     -> UpdateTrafficPolicyCommentResponse
 updateTrafficPolicyCommentResponse pResponseStatus_ pTrafficPolicy_ =
-    UpdateTrafficPolicyCommentResponse'
-    { _utpcrsResponseStatus = pResponseStatus_
-    , _utpcrsTrafficPolicy = pTrafficPolicy_
-    }
+  UpdateTrafficPolicyCommentResponse'
+  { _utpcrsResponseStatus = pResponseStatus_
+  , _utpcrsTrafficPolicy = pTrafficPolicy_
+  }
+
 
 -- | -- | The response status code.
 utpcrsResponseStatus :: Lens' UpdateTrafficPolicyCommentResponse Int
@@ -161,3 +162,4 @@ utpcrsTrafficPolicy :: Lens' UpdateTrafficPolicyCommentResponse TrafficPolicy
 utpcrsTrafficPolicy = lens _utpcrsTrafficPolicy (\ s a -> s{_utpcrsTrafficPolicy = a});
 
 instance NFData UpdateTrafficPolicyCommentResponse
+         where

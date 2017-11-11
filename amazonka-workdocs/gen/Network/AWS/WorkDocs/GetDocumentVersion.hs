@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetDocumentVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.WorkDocs.GetDocumentVersion
     , gdvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getDocumentVersion' smart constructor.
 data GetDocumentVersion = GetDocumentVersion'
-    { _gdvAuthenticationToken   :: !(Maybe (Sensitive Text))
-    , _gdvIncludeCustomMetadata :: !(Maybe Bool)
-    , _gdvFields                :: !(Maybe Text)
-    , _gdvDocumentId            :: !Text
-    , _gdvVersionId             :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gdvAuthenticationToken   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gdvIncludeCustomMetadata :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gdvFields                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdvDocumentId            :: {-# NOUNPACK #-}!Text
+  , _gdvVersionId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentVersion' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ getDocumentVersion
     -> Text -- ^ 'gdvVersionId'
     -> GetDocumentVersion
 getDocumentVersion pDocumentId_ pVersionId_ =
-    GetDocumentVersion'
-    { _gdvAuthenticationToken = Nothing
-    , _gdvIncludeCustomMetadata = Nothing
-    , _gdvFields = Nothing
-    , _gdvDocumentId = pDocumentId_
-    , _gdvVersionId = pVersionId_
-    }
+  GetDocumentVersion'
+  { _gdvAuthenticationToken = Nothing
+  , _gdvIncludeCustomMetadata = Nothing
+  , _gdvFields = Nothing
+  , _gdvDocumentId = pDocumentId_
+  , _gdvVersionId = pVersionId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 gdvAuthenticationToken :: Lens' GetDocumentVersion (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest GetDocumentVersion where
                      (x .?> "Metadata")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDocumentVersion
+instance Hashable GetDocumentVersion where
 
-instance NFData GetDocumentVersion
+instance NFData GetDocumentVersion where
 
 instance ToHeaders GetDocumentVersion where
         toHeaders GetDocumentVersion'{..}
@@ -142,10 +144,11 @@ instance ToQuery GetDocumentVersion where
 
 -- | /See:/ 'getDocumentVersionResponse' smart constructor.
 data GetDocumentVersionResponse = GetDocumentVersionResponse'
-    { _gdvrsCustomMetadata :: !(Maybe (Map Text Text))
-    , _gdvrsMetadata       :: !(Maybe DocumentVersionMetadata)
-    , _gdvrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gdvrsCustomMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gdvrsMetadata       :: {-# NOUNPACK #-}!(Maybe DocumentVersionMetadata)
+  , _gdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentVersionResponse' with the minimum fields required to make a request.
 --
@@ -160,11 +163,12 @@ getDocumentVersionResponse
     :: Int -- ^ 'gdvrsResponseStatus'
     -> GetDocumentVersionResponse
 getDocumentVersionResponse pResponseStatus_ =
-    GetDocumentVersionResponse'
-    { _gdvrsCustomMetadata = Nothing
-    , _gdvrsMetadata = Nothing
-    , _gdvrsResponseStatus = pResponseStatus_
-    }
+  GetDocumentVersionResponse'
+  { _gdvrsCustomMetadata = Nothing
+  , _gdvrsMetadata = Nothing
+  , _gdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The custom metadata on the document version.
 gdvrsCustomMetadata :: Lens' GetDocumentVersionResponse (HashMap Text Text)
@@ -178,4 +182,4 @@ gdvrsMetadata = lens _gdvrsMetadata (\ s a -> s{_gdvrsMetadata = a});
 gdvrsResponseStatus :: Lens' GetDocumentVersionResponse Int
 gdvrsResponseStatus = lens _gdvrsResponseStatus (\ s a -> s{_gdvrsResponseStatus = a});
 
-instance NFData GetDocumentVersionResponse
+instance NFData GetDocumentVersionResponse where

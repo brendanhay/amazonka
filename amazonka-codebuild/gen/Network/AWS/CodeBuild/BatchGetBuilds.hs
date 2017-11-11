@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.BatchGetBuilds
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.CodeBuild.BatchGetBuilds
     , bgbrsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchGetBuilds' smart constructor.
 newtype BatchGetBuilds = BatchGetBuilds'
-    { _bgbIds :: List1 Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgbIds :: List1 Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetBuilds' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype BatchGetBuilds = BatchGetBuilds'
 batchGetBuilds
     :: NonEmpty Text -- ^ 'bgbIds'
     -> BatchGetBuilds
-batchGetBuilds pIds_ =
-    BatchGetBuilds'
-    { _bgbIds = _List1 # pIds_
-    }
+batchGetBuilds pIds_ = BatchGetBuilds' {_bgbIds = _List1 # pIds_}
+
 
 -- | The IDs of the builds.
 bgbIds :: Lens' BatchGetBuilds (NonEmpty Text)
@@ -78,9 +77,9 @@ instance AWSRequest BatchGetBuilds where
                      (x .?> "buildsNotFound")
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetBuilds
+instance Hashable BatchGetBuilds where
 
-instance NFData BatchGetBuilds
+instance NFData BatchGetBuilds where
 
 instance ToHeaders BatchGetBuilds where
         toHeaders
@@ -103,10 +102,11 @@ instance ToQuery BatchGetBuilds where
 
 -- | /See:/ 'batchGetBuildsResponse' smart constructor.
 data BatchGetBuildsResponse = BatchGetBuildsResponse'
-    { _bgbrsBuilds         :: !(Maybe [Build])
-    , _bgbrsBuildsNotFound :: !(Maybe (List1 Text))
-    , _bgbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgbrsBuilds         :: {-# NOUNPACK #-}!(Maybe [Build])
+  , _bgbrsBuildsNotFound :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _bgbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetBuildsResponse' with the minimum fields required to make a request.
 --
@@ -121,11 +121,12 @@ batchGetBuildsResponse
     :: Int -- ^ 'bgbrsResponseStatus'
     -> BatchGetBuildsResponse
 batchGetBuildsResponse pResponseStatus_ =
-    BatchGetBuildsResponse'
-    { _bgbrsBuilds = Nothing
-    , _bgbrsBuildsNotFound = Nothing
-    , _bgbrsResponseStatus = pResponseStatus_
-    }
+  BatchGetBuildsResponse'
+  { _bgbrsBuilds = Nothing
+  , _bgbrsBuildsNotFound = Nothing
+  , _bgbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the requested builds.
 bgbrsBuilds :: Lens' BatchGetBuildsResponse [Build]
@@ -139,4 +140,4 @@ bgbrsBuildsNotFound = lens _bgbrsBuildsNotFound (\ s a -> s{_bgbrsBuildsNotFound
 bgbrsResponseStatus :: Lens' BatchGetBuildsResponse Int
 bgbrsResponseStatus = lens _bgbrsResponseStatus (\ s a -> s{_bgbrsResponseStatus = a});
 
-instance NFData BatchGetBuildsResponse
+instance NFData BatchGetBuildsResponse where

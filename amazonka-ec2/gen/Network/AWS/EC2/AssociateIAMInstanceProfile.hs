@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateIAMInstanceProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.EC2.AssociateIAMInstanceProfile
     , aiaprsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateIAMInstanceProfile' smart constructor.
 data AssociateIAMInstanceProfile = AssociateIAMInstanceProfile'
-    { _aiapIAMInstanceProfile :: !IAMInstanceProfileSpecification
-    , _aiapInstanceId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiapIAMInstanceProfile :: {-# NOUNPACK #-}!IAMInstanceProfileSpecification
+  , _aiapInstanceId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateIAMInstanceProfile' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ associateIAMInstanceProfile
     -> Text -- ^ 'aiapInstanceId'
     -> AssociateIAMInstanceProfile
 associateIAMInstanceProfile pIAMInstanceProfile_ pInstanceId_ =
-    AssociateIAMInstanceProfile'
-    { _aiapIAMInstanceProfile = pIAMInstanceProfile_
-    , _aiapInstanceId = pInstanceId_
-    }
+  AssociateIAMInstanceProfile'
+  { _aiapIAMInstanceProfile = pIAMInstanceProfile_
+  , _aiapInstanceId = pInstanceId_
+  }
+
 
 -- | The IAM instance profile.
 aiapIAMInstanceProfile :: Lens' AssociateIAMInstanceProfile IAMInstanceProfileSpecification
@@ -87,9 +89,9 @@ instance AWSRequest AssociateIAMInstanceProfile where
                    (x .@? "iamInstanceProfileAssociation") <*>
                      (pure (fromEnum s)))
 
-instance Hashable AssociateIAMInstanceProfile
+instance Hashable AssociateIAMInstanceProfile where
 
-instance NFData AssociateIAMInstanceProfile
+instance NFData AssociateIAMInstanceProfile where
 
 instance ToHeaders AssociateIAMInstanceProfile where
         toHeaders = const mempty
@@ -108,9 +110,10 @@ instance ToQuery AssociateIAMInstanceProfile where
 
 -- | /See:/ 'associateIAMInstanceProfileResponse' smart constructor.
 data AssociateIAMInstanceProfileResponse = AssociateIAMInstanceProfileResponse'
-    { _aiaprsIAMInstanceProfileAssociation :: !(Maybe IAMInstanceProfileAssociation)
-    , _aiaprsResponseStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiaprsIAMInstanceProfileAssociation :: {-# NOUNPACK #-}!(Maybe IAMInstanceProfileAssociation)
+  , _aiaprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateIAMInstanceProfileResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +126,11 @@ associateIAMInstanceProfileResponse
     :: Int -- ^ 'aiaprsResponseStatus'
     -> AssociateIAMInstanceProfileResponse
 associateIAMInstanceProfileResponse pResponseStatus_ =
-    AssociateIAMInstanceProfileResponse'
-    { _aiaprsIAMInstanceProfileAssociation = Nothing
-    , _aiaprsResponseStatus = pResponseStatus_
-    }
+  AssociateIAMInstanceProfileResponse'
+  { _aiaprsIAMInstanceProfileAssociation = Nothing
+  , _aiaprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the IAM instance profile association.
 aiaprsIAMInstanceProfileAssociation :: Lens' AssociateIAMInstanceProfileResponse (Maybe IAMInstanceProfileAssociation)
@@ -137,3 +141,4 @@ aiaprsResponseStatus :: Lens' AssociateIAMInstanceProfileResponse Int
 aiaprsResponseStatus = lens _aiaprsResponseStatus (\ s a -> s{_aiaprsResponseStatus = a});
 
 instance NFData AssociateIAMInstanceProfileResponse
+         where

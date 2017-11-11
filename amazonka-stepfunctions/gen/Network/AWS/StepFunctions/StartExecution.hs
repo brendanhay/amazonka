@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StepFunctions.StartExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.StepFunctions.StartExecution
     , srsStartDate
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StepFunctions.Types
-import           Network.AWS.StepFunctions.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'startExecution' smart constructor.
 data StartExecution = StartExecution'
-    { _seInput           :: !(Maybe Text)
-    , _seName            :: !(Maybe Text)
-    , _seStateMachineARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seInput           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _seStateMachineARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartExecution' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ startExecution
     :: Text -- ^ 'seStateMachineARN'
     -> StartExecution
 startExecution pStateMachineARN_ =
-    StartExecution'
-    { _seInput = Nothing
-    , _seName = Nothing
-    , _seStateMachineARN = pStateMachineARN_
-    }
+  StartExecution'
+  { _seInput = Nothing
+  , _seName = Nothing
+  , _seStateMachineARN = pStateMachineARN_
+  }
+
 
 -- | The JSON input data for the execution.
 seInput :: Lens' StartExecution (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest StartExecution where
                    (pure (fromEnum s)) <*> (x .:> "executionArn") <*>
                      (x .:> "startDate"))
 
-instance Hashable StartExecution
+instance Hashable StartExecution where
 
-instance NFData StartExecution
+instance NFData StartExecution where
 
 instance ToHeaders StartExecution where
         toHeaders
@@ -123,10 +125,11 @@ instance ToQuery StartExecution where
 
 -- | /See:/ 'startExecutionResponse' smart constructor.
 data StartExecutionResponse = StartExecutionResponse'
-    { _srsResponseStatus :: !Int
-    , _srsExecutionARN   :: !Text
-    , _srsStartDate      :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _srsExecutionARN   :: {-# NOUNPACK #-}!Text
+  , _srsStartDate      :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartExecutionResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +146,12 @@ startExecutionResponse
     -> UTCTime -- ^ 'srsStartDate'
     -> StartExecutionResponse
 startExecutionResponse pResponseStatus_ pExecutionARN_ pStartDate_ =
-    StartExecutionResponse'
-    { _srsResponseStatus = pResponseStatus_
-    , _srsExecutionARN = pExecutionARN_
-    , _srsStartDate = _Time # pStartDate_
-    }
+  StartExecutionResponse'
+  { _srsResponseStatus = pResponseStatus_
+  , _srsExecutionARN = pExecutionARN_
+  , _srsStartDate = _Time # pStartDate_
+  }
+
 
 -- | -- | The response status code.
 srsResponseStatus :: Lens' StartExecutionResponse Int
@@ -161,4 +165,4 @@ srsExecutionARN = lens _srsExecutionARN (\ s a -> s{_srsExecutionARN = a});
 srsStartDate :: Lens' StartExecutionResponse UTCTime
 srsStartDate = lens _srsStartDate (\ s a -> s{_srsStartDate = a}) . _Time;
 
-instance NFData StartExecutionResponse
+instance NFData StartExecutionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeactivateMFADevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.DeactivateMFADevice
     , DeactivateMFADeviceResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deactivateMFADevice' smart constructor.
 data DeactivateMFADevice = DeactivateMFADevice'
-    { _dmdUserName     :: !Text
-    , _dmdSerialNumber :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmdUserName     :: {-# NOUNPACK #-}!Text
+  , _dmdSerialNumber :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeactivateMFADevice' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ deactivateMFADevice
     -> Text -- ^ 'dmdSerialNumber'
     -> DeactivateMFADevice
 deactivateMFADevice pUserName_ pSerialNumber_ =
-    DeactivateMFADevice'
-    { _dmdUserName = pUserName_
-    , _dmdSerialNumber = pSerialNumber_
-    }
+  DeactivateMFADevice'
+  {_dmdUserName = pUserName_, _dmdSerialNumber = pSerialNumber_}
+
 
 -- | The name of the user whose MFA device you want to deactivate. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dmdUserName :: Lens' DeactivateMFADevice Text
@@ -81,9 +81,9 @@ instance AWSRequest DeactivateMFADevice where
         request = postQuery iam
         response = receiveNull DeactivateMFADeviceResponse'
 
-instance Hashable DeactivateMFADevice
+instance Hashable DeactivateMFADevice where
 
-instance NFData DeactivateMFADevice
+instance NFData DeactivateMFADevice where
 
 instance ToHeaders DeactivateMFADevice where
         toHeaders = const mempty
@@ -101,8 +101,9 @@ instance ToQuery DeactivateMFADevice where
 
 -- | /See:/ 'deactivateMFADeviceResponse' smart constructor.
 data DeactivateMFADeviceResponse =
-    DeactivateMFADeviceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeactivateMFADeviceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeactivateMFADeviceResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,5 @@ deactivateMFADeviceResponse
     :: DeactivateMFADeviceResponse
 deactivateMFADeviceResponse = DeactivateMFADeviceResponse'
 
-instance NFData DeactivateMFADeviceResponse
+
+instance NFData DeactivateMFADeviceResponse where

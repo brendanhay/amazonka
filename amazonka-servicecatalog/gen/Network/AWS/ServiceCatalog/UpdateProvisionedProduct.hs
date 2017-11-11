@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateProvisionedProduct
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,24 +46,25 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProduct
     , upprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateProvisionedProduct' smart constructor.
 data UpdateProvisionedProduct = UpdateProvisionedProduct'
-    { _uppProvisionedProductName :: !(Maybe Text)
-    , _uppProvisioningArtifactId :: !(Maybe Text)
-    , _uppAcceptLanguage         :: !(Maybe Text)
-    , _uppPathId                 :: !(Maybe Text)
-    , _uppProvisioningParameters :: !(Maybe [UpdateProvisioningParameter])
-    , _uppProvisionedProductId   :: !(Maybe Text)
-    , _uppProductId              :: !(Maybe Text)
-    , _uppUpdateToken            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uppProvisionedProductName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uppProvisioningArtifactId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uppAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uppPathId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uppProvisioningParameters :: {-# NOUNPACK #-}!(Maybe [UpdateProvisioningParameter])
+  , _uppProvisionedProductId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uppProductId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uppUpdateToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProvisionedProduct' with the minimum fields required to make a request.
 --
@@ -88,16 +89,17 @@ updateProvisionedProduct
     :: Text -- ^ 'uppUpdateToken'
     -> UpdateProvisionedProduct
 updateProvisionedProduct pUpdateToken_ =
-    UpdateProvisionedProduct'
-    { _uppProvisionedProductName = Nothing
-    , _uppProvisioningArtifactId = Nothing
-    , _uppAcceptLanguage = Nothing
-    , _uppPathId = Nothing
-    , _uppProvisioningParameters = Nothing
-    , _uppProvisionedProductId = Nothing
-    , _uppProductId = Nothing
-    , _uppUpdateToken = pUpdateToken_
-    }
+  UpdateProvisionedProduct'
+  { _uppProvisionedProductName = Nothing
+  , _uppProvisioningArtifactId = Nothing
+  , _uppAcceptLanguage = Nothing
+  , _uppPathId = Nothing
+  , _uppProvisioningParameters = Nothing
+  , _uppProvisionedProductId = Nothing
+  , _uppProductId = Nothing
+  , _uppUpdateToken = pUpdateToken_
+  }
+
 
 -- | The updated name of the ProvisionedProduct object. Specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 uppProvisionedProductName :: Lens' UpdateProvisionedProduct (Maybe Text)
@@ -141,9 +143,9 @@ instance AWSRequest UpdateProvisionedProduct where
                  UpdateProvisionedProductResponse' <$>
                    (x .?> "RecordDetail") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateProvisionedProduct
+instance Hashable UpdateProvisionedProduct where
 
-instance NFData UpdateProvisionedProduct
+instance NFData UpdateProvisionedProduct where
 
 instance ToHeaders UpdateProvisionedProduct where
         toHeaders
@@ -180,9 +182,10 @@ instance ToQuery UpdateProvisionedProduct where
 
 -- | /See:/ 'updateProvisionedProductResponse' smart constructor.
 data UpdateProvisionedProductResponse = UpdateProvisionedProductResponse'
-    { _upprsRecordDetail   :: !(Maybe RecordDetail)
-    , _upprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upprsRecordDetail   :: {-# NOUNPACK #-}!(Maybe RecordDetail)
+  , _upprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateProvisionedProductResponse' with the minimum fields required to make a request.
 --
@@ -195,10 +198,9 @@ updateProvisionedProductResponse
     :: Int -- ^ 'upprsResponseStatus'
     -> UpdateProvisionedProductResponse
 updateProvisionedProductResponse pResponseStatus_ =
-    UpdateProvisionedProductResponse'
-    { _upprsRecordDetail = Nothing
-    , _upprsResponseStatus = pResponseStatus_
-    }
+  UpdateProvisionedProductResponse'
+  {_upprsRecordDetail = Nothing, _upprsResponseStatus = pResponseStatus_}
+
 
 -- | The detailed result of the 'UpdateProvisionedProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
 upprsRecordDetail :: Lens' UpdateProvisionedProductResponse (Maybe RecordDetail)
@@ -209,3 +211,4 @@ upprsResponseStatus :: Lens' UpdateProvisionedProductResponse Int
 upprsResponseStatus = lens _upprsResponseStatus (\ s a -> s{_upprsResponseStatus = a});
 
 instance NFData UpdateProvisionedProductResponse
+         where

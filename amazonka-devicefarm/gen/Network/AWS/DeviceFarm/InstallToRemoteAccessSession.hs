@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.InstallToRemoteAccessSession
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.DeviceFarm.InstallToRemoteAccessSession
     , itrasrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to install an Android application (in .apk format) or an iOS application (in .ipa format) as part of a remote access session.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'installToRemoteAccessSession' smart constructor.
 data InstallToRemoteAccessSession = InstallToRemoteAccessSession'
-    { _itrasRemoteAccessSessionARN :: !Text
-    , _itrasAppARN                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _itrasRemoteAccessSessionARN :: {-# NOUNPACK #-}!Text
+  , _itrasAppARN                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstallToRemoteAccessSession' with the minimum fields required to make a request.
 --
@@ -67,10 +68,11 @@ installToRemoteAccessSession
     -> Text -- ^ 'itrasAppARN'
     -> InstallToRemoteAccessSession
 installToRemoteAccessSession pRemoteAccessSessionARN_ pAppARN_ =
-    InstallToRemoteAccessSession'
-    { _itrasRemoteAccessSessionARN = pRemoteAccessSessionARN_
-    , _itrasAppARN = pAppARN_
-    }
+  InstallToRemoteAccessSession'
+  { _itrasRemoteAccessSessionARN = pRemoteAccessSessionARN_
+  , _itrasAppARN = pAppARN_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
 itrasRemoteAccessSessionARN :: Lens' InstallToRemoteAccessSession Text
@@ -91,9 +93,9 @@ instance AWSRequest InstallToRemoteAccessSession
                  InstallToRemoteAccessSessionResponse' <$>
                    (x .?> "appUpload") <*> (pure (fromEnum s)))
 
-instance Hashable InstallToRemoteAccessSession
+instance Hashable InstallToRemoteAccessSession where
 
-instance NFData InstallToRemoteAccessSession
+instance NFData InstallToRemoteAccessSession where
 
 instance ToHeaders InstallToRemoteAccessSession where
         toHeaders
@@ -126,9 +128,10 @@ instance ToQuery InstallToRemoteAccessSession where
 --
 -- /See:/ 'installToRemoteAccessSessionResponse' smart constructor.
 data InstallToRemoteAccessSessionResponse = InstallToRemoteAccessSessionResponse'
-    { _itrasrsAppUpload      :: !(Maybe Upload)
-    , _itrasrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _itrasrsAppUpload      :: {-# NOUNPACK #-}!(Maybe Upload)
+  , _itrasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstallToRemoteAccessSessionResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +144,9 @@ installToRemoteAccessSessionResponse
     :: Int -- ^ 'itrasrsResponseStatus'
     -> InstallToRemoteAccessSessionResponse
 installToRemoteAccessSessionResponse pResponseStatus_ =
-    InstallToRemoteAccessSessionResponse'
-    { _itrasrsAppUpload = Nothing
-    , _itrasrsResponseStatus = pResponseStatus_
-    }
+  InstallToRemoteAccessSessionResponse'
+  {_itrasrsAppUpload = Nothing, _itrasrsResponseStatus = pResponseStatus_}
+
 
 -- | An app to upload or that has been uploaded.
 itrasrsAppUpload :: Lens' InstallToRemoteAccessSessionResponse (Maybe Upload)
@@ -155,3 +157,4 @@ itrasrsResponseStatus :: Lens' InstallToRemoteAccessSessionResponse Int
 itrasrsResponseStatus = lens _itrasrsResponseStatus (\ s a -> s{_itrasrsResponseStatus = a});
 
 instance NFData InstallToRemoteAccessSessionResponse
+         where

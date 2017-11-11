@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.RegisterTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,18 +43,19 @@ module Network.AWS.ELBv2.RegisterTargets
     , rrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerTargets' smart constructor.
 data RegisterTargets = RegisterTargets'
-    { _rtTargetGroupARN :: !Text
-    , _rtTargets        :: ![TargetDescription]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtTargetGroupARN :: {-# NOUNPACK #-}!Text
+  , _rtTargets        :: {-# NOUNPACK #-}![TargetDescription]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterTargets' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ registerTargets
     :: Text -- ^ 'rtTargetGroupARN'
     -> RegisterTargets
 registerTargets pTargetGroupARN_ =
-    RegisterTargets'
-    { _rtTargetGroupARN = pTargetGroupARN_
-    , _rtTargets = mempty
-    }
+  RegisterTargets' {_rtTargetGroupARN = pTargetGroupARN_, _rtTargets = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the target group.
 rtTargetGroupARN :: Lens' RegisterTargets Text
@@ -88,9 +87,9 @@ instance AWSRequest RegisterTargets where
               (\ s h x ->
                  RegisterTargetsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable RegisterTargets
+instance Hashable RegisterTargets where
 
-instance NFData RegisterTargets
+instance NFData RegisterTargets where
 
 instance ToHeaders RegisterTargets where
         toHeaders = const mempty
@@ -108,8 +107,9 @@ instance ToQuery RegisterTargets where
 
 -- | /See:/ 'registerTargetsResponse' smart constructor.
 newtype RegisterTargetsResponse = RegisterTargetsResponse'
-    { _rrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterTargetsResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +120,11 @@ registerTargetsResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> RegisterTargetsResponse
 registerTargetsResponse pResponseStatus_ =
-    RegisterTargetsResponse'
-    { _rrsResponseStatus = pResponseStatus_
-    }
+  RegisterTargetsResponse' {_rrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' RegisterTargetsResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 
-instance NFData RegisterTargetsResponse
+instance NFData RegisterTargetsResponse where

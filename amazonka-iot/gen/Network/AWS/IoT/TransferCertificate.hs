@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.TransferCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.IoT.TransferCertificate
     , tcrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the TransferCertificate operation.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'transferCertificate' smart constructor.
 data TransferCertificate = TransferCertificate'
-    { _tcTransferMessage  :: !(Maybe Text)
-    , _tcCertificateId    :: !Text
-    , _tcTargetAWSAccount :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tcTransferMessage  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tcCertificateId    :: {-# NOUNPACK #-}!Text
+  , _tcTargetAWSAccount :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TransferCertificate' with the minimum fields required to make a request.
 --
@@ -79,11 +80,12 @@ transferCertificate
     -> Text -- ^ 'tcTargetAWSAccount'
     -> TransferCertificate
 transferCertificate pCertificateId_ pTargetAWSAccount_ =
-    TransferCertificate'
-    { _tcTransferMessage = Nothing
-    , _tcCertificateId = pCertificateId_
-    , _tcTargetAWSAccount = pTargetAWSAccount_
-    }
+  TransferCertificate'
+  { _tcTransferMessage = Nothing
+  , _tcCertificateId = pCertificateId_
+  , _tcTargetAWSAccount = pTargetAWSAccount_
+  }
+
 
 -- | The transfer message.
 tcTransferMessage :: Lens' TransferCertificate (Maybe Text)
@@ -108,9 +110,9 @@ instance AWSRequest TransferCertificate where
                    (x .?> "transferredCertificateArn") <*>
                      (pure (fromEnum s)))
 
-instance Hashable TransferCertificate
+instance Hashable TransferCertificate where
 
-instance NFData TransferCertificate
+instance NFData TransferCertificate where
 
 instance ToHeaders TransferCertificate where
         toHeaders = const mempty
@@ -136,9 +138,10 @@ instance ToQuery TransferCertificate where
 --
 -- /See:/ 'transferCertificateResponse' smart constructor.
 data TransferCertificateResponse = TransferCertificateResponse'
-    { _tcrsTransferredCertificateARN :: !(Maybe Text)
-    , _tcrsResponseStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tcrsTransferredCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tcrsResponseStatus            :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TransferCertificateResponse' with the minimum fields required to make a request.
 --
@@ -151,10 +154,11 @@ transferCertificateResponse
     :: Int -- ^ 'tcrsResponseStatus'
     -> TransferCertificateResponse
 transferCertificateResponse pResponseStatus_ =
-    TransferCertificateResponse'
-    { _tcrsTransferredCertificateARN = Nothing
-    , _tcrsResponseStatus = pResponseStatus_
-    }
+  TransferCertificateResponse'
+  { _tcrsTransferredCertificateARN = Nothing
+  , _tcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ARN of the certificate.
 tcrsTransferredCertificateARN :: Lens' TransferCertificateResponse (Maybe Text)
@@ -164,4 +168,4 @@ tcrsTransferredCertificateARN = lens _tcrsTransferredCertificateARN (\ s a -> s{
 tcrsResponseStatus :: Lens' TransferCertificateResponse Int
 tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a});
 
-instance NFData TransferCertificateResponse
+instance NFData TransferCertificateResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCACertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.IoT.ListCACertificates
     , lcacrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input for the ListCACertificates operation.
 --
@@ -58,10 +58,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listCACertificates' smart constructor.
 data ListCACertificates = ListCACertificates'
-    { _lcacMarker         :: !(Maybe Text)
-    , _lcacAscendingOrder :: !(Maybe Bool)
-    , _lcacPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcacMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcacAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lcacPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCACertificates' with the minimum fields required to make a request.
 --
@@ -75,11 +76,12 @@ data ListCACertificates = ListCACertificates'
 listCACertificates
     :: ListCACertificates
 listCACertificates =
-    ListCACertificates'
-    { _lcacMarker = Nothing
-    , _lcacAscendingOrder = Nothing
-    , _lcacPageSize = Nothing
-    }
+  ListCACertificates'
+  { _lcacMarker = Nothing
+  , _lcacAscendingOrder = Nothing
+  , _lcacPageSize = Nothing
+  }
+
 
 -- | The marker for the next set of results.
 lcacMarker :: Lens' ListCACertificates (Maybe Text)
@@ -112,9 +114,9 @@ instance AWSRequest ListCACertificates where
                      (x .?> "nextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCACertificates
+instance Hashable ListCACertificates where
 
-instance NFData ListCACertificates
+instance NFData ListCACertificates where
 
 instance ToHeaders ListCACertificates where
         toHeaders = const mempty
@@ -135,10 +137,11 @@ instance ToQuery ListCACertificates where
 --
 -- /See:/ 'listCACertificatesResponse' smart constructor.
 data ListCACertificatesResponse = ListCACertificatesResponse'
-    { _lcacrsCertificates   :: !(Maybe [CACertificate])
-    , _lcacrsNextMarker     :: !(Maybe Text)
-    , _lcacrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcacrsCertificates   :: {-# NOUNPACK #-}!(Maybe [CACertificate])
+  , _lcacrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCACertificatesResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +156,12 @@ listCACertificatesResponse
     :: Int -- ^ 'lcacrsResponseStatus'
     -> ListCACertificatesResponse
 listCACertificatesResponse pResponseStatus_ =
-    ListCACertificatesResponse'
-    { _lcacrsCertificates = Nothing
-    , _lcacrsNextMarker = Nothing
-    , _lcacrsResponseStatus = pResponseStatus_
-    }
+  ListCACertificatesResponse'
+  { _lcacrsCertificates = Nothing
+  , _lcacrsNextMarker = Nothing
+  , _lcacrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The CA certificates registered in your AWS account.
 lcacrsCertificates :: Lens' ListCACertificatesResponse [CACertificate]
@@ -171,4 +175,4 @@ lcacrsNextMarker = lens _lcacrsNextMarker (\ s a -> s{_lcacrsNextMarker = a});
 lcacrsResponseStatus :: Lens' ListCACertificatesResponse Int
 lcacrsResponseStatus = lens _lcacrsResponseStatus (\ s a -> s{_lcacrsResponseStatus = a});
 
-instance NFData ListCACertificatesResponse
+instance NFData ListCACertificatesResponse where

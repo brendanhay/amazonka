@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -558,58 +558,58 @@ module Network.AWS.Route53
     , vpcVPCId
     ) where
 
-import           Network.AWS.Route53.AssociateVPCWithHostedZone
-import           Network.AWS.Route53.ChangeResourceRecordSets
-import           Network.AWS.Route53.ChangeTagsForResource
-import           Network.AWS.Route53.CreateHealthCheck
-import           Network.AWS.Route53.CreateHostedZone
-import           Network.AWS.Route53.CreateReusableDelegationSet
-import           Network.AWS.Route53.CreateTrafficPolicy
-import           Network.AWS.Route53.CreateTrafficPolicyInstance
-import           Network.AWS.Route53.CreateTrafficPolicyVersion
-import           Network.AWS.Route53.CreateVPCAssociationAuthorization
-import           Network.AWS.Route53.DeleteHealthCheck
-import           Network.AWS.Route53.DeleteHostedZone
-import           Network.AWS.Route53.DeleteReusableDelegationSet
-import           Network.AWS.Route53.DeleteTrafficPolicy
-import           Network.AWS.Route53.DeleteTrafficPolicyInstance
-import           Network.AWS.Route53.DeleteVPCAssociationAuthorization
-import           Network.AWS.Route53.DisassociateVPCFromHostedZone
-import           Network.AWS.Route53.GetChange
-import           Network.AWS.Route53.GetCheckerIPRanges
-import           Network.AWS.Route53.GetGeoLocation
-import           Network.AWS.Route53.GetHealthCheck
-import           Network.AWS.Route53.GetHealthCheckCount
-import           Network.AWS.Route53.GetHealthCheckLastFailureReason
-import           Network.AWS.Route53.GetHealthCheckStatus
-import           Network.AWS.Route53.GetHostedZone
-import           Network.AWS.Route53.GetHostedZoneCount
-import           Network.AWS.Route53.GetReusableDelegationSet
-import           Network.AWS.Route53.GetTrafficPolicy
-import           Network.AWS.Route53.GetTrafficPolicyInstance
-import           Network.AWS.Route53.GetTrafficPolicyInstanceCount
-import           Network.AWS.Route53.Internal
-import           Network.AWS.Route53.ListGeoLocations
-import           Network.AWS.Route53.ListHealthChecks
-import           Network.AWS.Route53.ListHostedZones
-import           Network.AWS.Route53.ListHostedZonesByName
-import           Network.AWS.Route53.ListResourceRecordSets
-import           Network.AWS.Route53.ListReusableDelegationSets
-import           Network.AWS.Route53.ListTagsForResource
-import           Network.AWS.Route53.ListTagsForResources
-import           Network.AWS.Route53.ListTrafficPolicies
-import           Network.AWS.Route53.ListTrafficPolicyInstances
-import           Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
-import           Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
-import           Network.AWS.Route53.ListTrafficPolicyVersions
-import           Network.AWS.Route53.ListVPCAssociationAuthorizations
-import           Network.AWS.Route53.TestDNSAnswer
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.UpdateHealthCheck
-import           Network.AWS.Route53.UpdateHostedZoneComment
-import           Network.AWS.Route53.UpdateTrafficPolicyComment
-import           Network.AWS.Route53.UpdateTrafficPolicyInstance
-import           Network.AWS.Route53.Waiters
+import Network.AWS.Route53.AssociateVPCWithHostedZone
+import Network.AWS.Route53.ChangeResourceRecordSets
+import Network.AWS.Route53.ChangeTagsForResource
+import Network.AWS.Route53.CreateHealthCheck
+import Network.AWS.Route53.CreateHostedZone
+import Network.AWS.Route53.CreateReusableDelegationSet
+import Network.AWS.Route53.CreateTrafficPolicy
+import Network.AWS.Route53.CreateTrafficPolicyInstance
+import Network.AWS.Route53.CreateTrafficPolicyVersion
+import Network.AWS.Route53.CreateVPCAssociationAuthorization
+import Network.AWS.Route53.DeleteHealthCheck
+import Network.AWS.Route53.DeleteHostedZone
+import Network.AWS.Route53.DeleteReusableDelegationSet
+import Network.AWS.Route53.DeleteTrafficPolicy
+import Network.AWS.Route53.DeleteTrafficPolicyInstance
+import Network.AWS.Route53.DeleteVPCAssociationAuthorization
+import Network.AWS.Route53.DisassociateVPCFromHostedZone
+import Network.AWS.Route53.GetChange
+import Network.AWS.Route53.GetCheckerIPRanges
+import Network.AWS.Route53.GetGeoLocation
+import Network.AWS.Route53.GetHealthCheck
+import Network.AWS.Route53.GetHealthCheckCount
+import Network.AWS.Route53.GetHealthCheckLastFailureReason
+import Network.AWS.Route53.GetHealthCheckStatus
+import Network.AWS.Route53.GetHostedZone
+import Network.AWS.Route53.GetHostedZoneCount
+import Network.AWS.Route53.GetReusableDelegationSet
+import Network.AWS.Route53.GetTrafficPolicy
+import Network.AWS.Route53.GetTrafficPolicyInstance
+import Network.AWS.Route53.GetTrafficPolicyInstanceCount
+import Network.AWS.Route53.Internal
+import Network.AWS.Route53.ListGeoLocations
+import Network.AWS.Route53.ListHealthChecks
+import Network.AWS.Route53.ListHostedZones
+import Network.AWS.Route53.ListHostedZonesByName
+import Network.AWS.Route53.ListResourceRecordSets
+import Network.AWS.Route53.ListReusableDelegationSets
+import Network.AWS.Route53.ListTagsForResource
+import Network.AWS.Route53.ListTagsForResources
+import Network.AWS.Route53.ListTrafficPolicies
+import Network.AWS.Route53.ListTrafficPolicyInstances
+import Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
+import Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
+import Network.AWS.Route53.ListTrafficPolicyVersions
+import Network.AWS.Route53.ListVPCAssociationAuthorizations
+import Network.AWS.Route53.TestDNSAnswer
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.UpdateHealthCheck
+import Network.AWS.Route53.UpdateHostedZoneComment
+import Network.AWS.Route53.UpdateTrafficPolicyComment
+import Network.AWS.Route53.UpdateTrafficPolicyInstance
+import Network.AWS.Route53.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

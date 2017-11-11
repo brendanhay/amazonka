@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.CountPendingDecisionTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,18 +52,19 @@ module Network.AWS.SWF.CountPendingDecisionTasks
     , ptcCount
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countPendingDecisionTasks' smart constructor.
 data CountPendingDecisionTasks = CountPendingDecisionTasks'
-    { _cpdtDomain   :: !Text
-    , _cpdtTaskList :: !TaskList
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpdtDomain   :: {-# NOUNPACK #-}!Text
+  , _cpdtTaskList :: {-# NOUNPACK #-}!TaskList
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CountPendingDecisionTasks' with the minimum fields required to make a request.
 --
@@ -77,10 +78,9 @@ countPendingDecisionTasks
     -> TaskList -- ^ 'cpdtTaskList'
     -> CountPendingDecisionTasks
 countPendingDecisionTasks pDomain_ pTaskList_ =
-    CountPendingDecisionTasks'
-    { _cpdtDomain = pDomain_
-    , _cpdtTaskList = pTaskList_
-    }
+  CountPendingDecisionTasks'
+  {_cpdtDomain = pDomain_, _cpdtTaskList = pTaskList_}
+
 
 -- | The name of the domain that contains the task list.
 cpdtDomain :: Lens' CountPendingDecisionTasks Text
@@ -95,9 +95,9 @@ instance AWSRequest CountPendingDecisionTasks where
         request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CountPendingDecisionTasks
+instance Hashable CountPendingDecisionTasks where
 
-instance NFData CountPendingDecisionTasks
+instance NFData CountPendingDecisionTasks where
 
 instance ToHeaders CountPendingDecisionTasks where
         toHeaders

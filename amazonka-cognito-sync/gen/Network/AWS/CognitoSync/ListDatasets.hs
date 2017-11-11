@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.ListDatasets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,22 +44,23 @@ module Network.AWS.CognitoSync.ListDatasets
     , ldrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request for a list of datasets for an identity.
 --
 -- /See:/ 'listDatasets' smart constructor.
 data ListDatasets = ListDatasets'
-    { _ldNextToken      :: !(Maybe Text)
-    , _ldMaxResults     :: !(Maybe Int)
-    , _ldIdentityId     :: !Text
-    , _ldIdentityPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ldIdentityId     :: {-# NOUNPACK #-}!Text
+  , _ldIdentityPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDatasets' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ listDatasets
     -> Text -- ^ 'ldIdentityPoolId'
     -> ListDatasets
 listDatasets pIdentityId_ pIdentityPoolId_ =
-    ListDatasets'
-    { _ldNextToken = Nothing
-    , _ldMaxResults = Nothing
-    , _ldIdentityId = pIdentityId_
-    , _ldIdentityPoolId = pIdentityPoolId_
-    }
+  ListDatasets'
+  { _ldNextToken = Nothing
+  , _ldMaxResults = Nothing
+  , _ldIdentityId = pIdentityId_
+  , _ldIdentityPoolId = pIdentityPoolId_
+  }
+
 
 -- | A pagination token for obtaining the next page of results.
 ldNextToken :: Lens' ListDatasets (Maybe Text)
@@ -111,9 +113,9 @@ instance AWSRequest ListDatasets where
                      (x .?> "Datasets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDatasets
+instance Hashable ListDatasets where
 
-instance NFData ListDatasets
+instance NFData ListDatasets where
 
 instance ToHeaders ListDatasets where
         toHeaders
@@ -138,11 +140,12 @@ instance ToQuery ListDatasets where
 --
 -- /See:/ 'listDatasetsResponse' smart constructor.
 data ListDatasetsResponse = ListDatasetsResponse'
-    { _ldrsCount          :: !(Maybe Int)
-    , _ldrsNextToken      :: !(Maybe Text)
-    , _ldrsDatasets       :: !(Maybe [Dataset])
-    , _ldrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsCount          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrsDatasets       :: {-# NOUNPACK #-}!(Maybe [Dataset])
+  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDatasetsResponse' with the minimum fields required to make a request.
 --
@@ -159,12 +162,13 @@ listDatasetsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDatasetsResponse
 listDatasetsResponse pResponseStatus_ =
-    ListDatasetsResponse'
-    { _ldrsCount = Nothing
-    , _ldrsNextToken = Nothing
-    , _ldrsDatasets = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    }
+  ListDatasetsResponse'
+  { _ldrsCount = Nothing
+  , _ldrsNextToken = Nothing
+  , _ldrsDatasets = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Number of datasets returned.
 ldrsCount :: Lens' ListDatasetsResponse (Maybe Int)
@@ -182,4 +186,4 @@ ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _
 ldrsResponseStatus :: Lens' ListDatasetsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
-instance NFData ListDatasetsResponse
+instance NFData ListDatasetsResponse where

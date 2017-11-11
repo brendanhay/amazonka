@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeletePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,17 +46,18 @@ module Network.AWS.IAM.DeletePolicy
     , DeletePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deletePolicy' smart constructor.
 newtype DeletePolicy = DeletePolicy'
-    { _dpPolicyARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpPolicyARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ newtype DeletePolicy = DeletePolicy'
 deletePolicy
     :: Text -- ^ 'dpPolicyARN'
     -> DeletePolicy
-deletePolicy pPolicyARN_ =
-    DeletePolicy'
-    { _dpPolicyARN = pPolicyARN_
-    }
+deletePolicy pPolicyARN_ = DeletePolicy' {_dpPolicyARN = pPolicyARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to delete. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dpPolicyARN :: Lens' DeletePolicy Text
@@ -80,9 +79,9 @@ instance AWSRequest DeletePolicy where
         request = postQuery iam
         response = receiveNull DeletePolicyResponse'
 
-instance Hashable DeletePolicy
+instance Hashable DeletePolicy where
 
-instance NFData DeletePolicy
+instance NFData DeletePolicy where
 
 instance ToHeaders DeletePolicy where
         toHeaders = const mempty
@@ -99,8 +98,9 @@ instance ToQuery DeletePolicy where
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
 data DeletePolicyResponse =
-    DeletePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +108,5 @@ deletePolicyResponse
     :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse'
 
-instance NFData DeletePolicyResponse
+
+instance NFData DeletePolicyResponse where

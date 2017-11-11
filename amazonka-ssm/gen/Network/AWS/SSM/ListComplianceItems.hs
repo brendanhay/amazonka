@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListComplianceItems
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.SSM.ListComplianceItems
     , lcirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listComplianceItems' smart constructor.
 data ListComplianceItems = ListComplianceItems'
-    { _lResourceIds   :: !(Maybe (List1 Text))
-    , _lFilters       :: !(Maybe [ComplianceStringFilter])
-    , _lNextToken     :: !(Maybe Text)
-    , _lMaxResults    :: !(Maybe Nat)
-    , _lResourceTypes :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lResourceIds   :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _lFilters       :: {-# NOUNPACK #-}!(Maybe [ComplianceStringFilter])
+  , _lNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lMaxResults    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lResourceTypes :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListComplianceItems' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ data ListComplianceItems = ListComplianceItems'
 listComplianceItems
     :: ListComplianceItems
 listComplianceItems =
-    ListComplianceItems'
-    { _lResourceIds = Nothing
-    , _lFilters = Nothing
-    , _lNextToken = Nothing
-    , _lMaxResults = Nothing
-    , _lResourceTypes = Nothing
-    }
+  ListComplianceItems'
+  { _lResourceIds = Nothing
+  , _lFilters = Nothing
+  , _lNextToken = Nothing
+  , _lMaxResults = Nothing
+  , _lResourceTypes = Nothing
+  }
+
 
 -- | The ID for the resources from which you want to get compliance information. Currently, you can only specify one resource ID.
 lResourceIds :: Lens' ListComplianceItems (Maybe (NonEmpty Text))
@@ -114,9 +116,9 @@ instance AWSRequest ListComplianceItems where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListComplianceItems
+instance Hashable ListComplianceItems where
 
-instance NFData ListComplianceItems
+instance NFData ListComplianceItems where
 
 instance ToHeaders ListComplianceItems where
         toHeaders
@@ -145,10 +147,11 @@ instance ToQuery ListComplianceItems where
 
 -- | /See:/ 'listComplianceItemsResponse' smart constructor.
 data ListComplianceItemsResponse = ListComplianceItemsResponse'
-    { _lcirsComplianceItems :: !(Maybe [ComplianceItem])
-    , _lcirsNextToken       :: !(Maybe Text)
-    , _lcirsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcirsComplianceItems :: {-# NOUNPACK #-}!(Maybe [ComplianceItem])
+  , _lcirsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcirsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListComplianceItemsResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +166,12 @@ listComplianceItemsResponse
     :: Int -- ^ 'lcirsResponseStatus'
     -> ListComplianceItemsResponse
 listComplianceItemsResponse pResponseStatus_ =
-    ListComplianceItemsResponse'
-    { _lcirsComplianceItems = Nothing
-    , _lcirsNextToken = Nothing
-    , _lcirsResponseStatus = pResponseStatus_
-    }
+  ListComplianceItemsResponse'
+  { _lcirsComplianceItems = Nothing
+  , _lcirsNextToken = Nothing
+  , _lcirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of compliance information for the specified resource ID.
 lcirsComplianceItems :: Lens' ListComplianceItemsResponse [ComplianceItem]
@@ -181,4 +185,4 @@ lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 lcirsResponseStatus :: Lens' ListComplianceItemsResponse Int
 lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a});
 
-instance NFData ListComplianceItemsResponse
+instance NFData ListComplianceItemsResponse where

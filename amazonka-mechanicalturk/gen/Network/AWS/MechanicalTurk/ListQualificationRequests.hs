@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListQualificationRequests
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.MechanicalTurk.ListQualificationRequests
     , lqrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listQualificationRequests' smart constructor.
 data ListQualificationRequests = ListQualificationRequests'
-    { _lqrNextToken           :: !(Maybe Text)
-    , _lqrQualificationTypeId :: !(Maybe Text)
-    , _lqrMaxResults          :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lqrNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lqrQualificationTypeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lqrMaxResults          :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListQualificationRequests' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ data ListQualificationRequests = ListQualificationRequests'
 listQualificationRequests
     :: ListQualificationRequests
 listQualificationRequests =
-    ListQualificationRequests'
-    { _lqrNextToken = Nothing
-    , _lqrQualificationTypeId = Nothing
-    , _lqrMaxResults = Nothing
-    }
+  ListQualificationRequests'
+  { _lqrNextToken = Nothing
+  , _lqrQualificationTypeId = Nothing
+  , _lqrMaxResults = Nothing
+  }
+
 
 -- | Undocumented member.
 lqrNextToken :: Lens' ListQualificationRequests (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest ListQualificationRequests where
                      <*> (x .?> "NumResults")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListQualificationRequests
+instance Hashable ListQualificationRequests where
 
-instance NFData ListQualificationRequests
+instance NFData ListQualificationRequests where
 
 instance ToHeaders ListQualificationRequests where
         toHeaders
@@ -129,11 +131,12 @@ instance ToQuery ListQualificationRequests where
 
 -- | /See:/ 'listQualificationRequestsResponse' smart constructor.
 data ListQualificationRequestsResponse = ListQualificationRequestsResponse'
-    { _lqrrsQualificationRequests :: !(Maybe [QualificationRequest])
-    , _lqrrsNextToken             :: !(Maybe Text)
-    , _lqrrsNumResults            :: !(Maybe Int)
-    , _lqrrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lqrrsQualificationRequests :: {-# NOUNPACK #-}!(Maybe [QualificationRequest])
+  , _lqrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lqrrsNumResults :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lqrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListQualificationRequestsResponse' with the minimum fields required to make a request.
 --
@@ -150,12 +153,13 @@ listQualificationRequestsResponse
     :: Int -- ^ 'lqrrsResponseStatus'
     -> ListQualificationRequestsResponse
 listQualificationRequestsResponse pResponseStatus_ =
-    ListQualificationRequestsResponse'
-    { _lqrrsQualificationRequests = Nothing
-    , _lqrrsNextToken = Nothing
-    , _lqrrsNumResults = Nothing
-    , _lqrrsResponseStatus = pResponseStatus_
-    }
+  ListQualificationRequestsResponse'
+  { _lqrrsQualificationRequests = Nothing
+  , _lqrrsNextToken = Nothing
+  , _lqrrsNumResults = Nothing
+  , _lqrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
 lqrrsQualificationRequests :: Lens' ListQualificationRequestsResponse [QualificationRequest]
@@ -174,3 +178,4 @@ lqrrsResponseStatus :: Lens' ListQualificationRequestsResponse Int
 lqrrsResponseStatus = lens _lqrrsResponseStatus (\ s a -> s{_lqrrsResponseStatus = a});
 
 instance NFData ListQualificationRequestsResponse
+         where

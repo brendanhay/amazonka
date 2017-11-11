@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListUniqueProblems
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.DeviceFarm.ListUniqueProblems
     , luprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the list unique problems operation.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listUniqueProblems' smart constructor.
 data ListUniqueProblems = ListUniqueProblems'
-    { _lupNextToken :: !(Maybe Text)
-    , _lupArn       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lupNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lupArn       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUniqueProblems' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ listUniqueProblems
     :: Text -- ^ 'lupArn'
     -> ListUniqueProblems
 listUniqueProblems pArn_ =
-    ListUniqueProblems'
-    { _lupNextToken = Nothing
-    , _lupArn = pArn_
-    }
+  ListUniqueProblems' {_lupNextToken = Nothing, _lupArn = pArn_}
+
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupNextToken :: Lens' ListUniqueProblems (Maybe Text)
@@ -102,9 +101,9 @@ instance AWSRequest ListUniqueProblems where
                      (x .?> "uniqueProblems" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListUniqueProblems
+instance Hashable ListUniqueProblems where
 
-instance NFData ListUniqueProblems
+instance NFData ListUniqueProblems where
 
 instance ToHeaders ListUniqueProblems where
         toHeaders
@@ -135,10 +134,11 @@ instance ToQuery ListUniqueProblems where
 --
 -- /See:/ 'listUniqueProblemsResponse' smart constructor.
 data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
-    { _luprsNextToken      :: !(Maybe Text)
-    , _luprsUniqueProblems :: !(Maybe (Map ExecutionResult [UniqueProblem]))
-    , _luprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _luprsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _luprsUniqueProblems :: {-# NOUNPACK #-}!(Maybe (Map ExecutionResult [UniqueProblem]))
+  , _luprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUniqueProblemsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +153,12 @@ listUniqueProblemsResponse
     :: Int -- ^ 'luprsResponseStatus'
     -> ListUniqueProblemsResponse
 listUniqueProblemsResponse pResponseStatus_ =
-    ListUniqueProblemsResponse'
-    { _luprsNextToken = Nothing
-    , _luprsUniqueProblems = Nothing
-    , _luprsResponseStatus = pResponseStatus_
-    }
+  ListUniqueProblemsResponse'
+  { _luprsNextToken = Nothing
+  , _luprsUniqueProblems = Nothing
+  , _luprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 luprsNextToken :: Lens' ListUniqueProblemsResponse (Maybe Text)
@@ -171,4 +172,4 @@ luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems
 luprsResponseStatus :: Lens' ListUniqueProblemsResponse Int
 luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
 
-instance NFData ListUniqueProblemsResponse
+instance NFData ListUniqueProblemsResponse where

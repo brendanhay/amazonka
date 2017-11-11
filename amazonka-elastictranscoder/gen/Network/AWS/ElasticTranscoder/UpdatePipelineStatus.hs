@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     , upsrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @UpdatePipelineStatusRequest@ structure.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updatePipelineStatus' smart constructor.
 data UpdatePipelineStatus = UpdatePipelineStatus'
-    { _upsId     :: !Text
-    , _upsStatus :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upsId     :: {-# NOUNPACK #-}!Text
+  , _upsStatus :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePipelineStatus' with the minimum fields required to make a request.
 --
@@ -69,10 +70,8 @@ updatePipelineStatus
     -> Text -- ^ 'upsStatus'
     -> UpdatePipelineStatus
 updatePipelineStatus pId_ pStatus_ =
-    UpdatePipelineStatus'
-    { _upsId = pId_
-    , _upsStatus = pStatus_
-    }
+  UpdatePipelineStatus' {_upsId = pId_, _upsStatus = pStatus_}
+
 
 -- | The identifier of the pipeline to update.
 upsId :: Lens' UpdatePipelineStatus Text
@@ -92,9 +91,9 @@ instance AWSRequest UpdatePipelineStatus where
                  UpdatePipelineStatusResponse' <$>
                    (x .?> "Pipeline") <*> (pure (fromEnum s)))
 
-instance Hashable UpdatePipelineStatus
+instance Hashable UpdatePipelineStatus where
 
-instance NFData UpdatePipelineStatus
+instance NFData UpdatePipelineStatus where
 
 instance ToHeaders UpdatePipelineStatus where
         toHeaders = const mempty
@@ -117,9 +116,10 @@ instance ToQuery UpdatePipelineStatus where
 --
 -- /See:/ 'updatePipelineStatusResponse' smart constructor.
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
-    { _upsrsPipeline       :: !(Maybe Pipeline)
-    , _upsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upsrsPipeline       :: {-# NOUNPACK #-}!(Maybe Pipeline)
+  , _upsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdatePipelineStatusResponse' with the minimum fields required to make a request.
 --
@@ -132,10 +132,9 @@ updatePipelineStatusResponse
     :: Int -- ^ 'upsrsResponseStatus'
     -> UpdatePipelineStatusResponse
 updatePipelineStatusResponse pResponseStatus_ =
-    UpdatePipelineStatusResponse'
-    { _upsrsPipeline = Nothing
-    , _upsrsResponseStatus = pResponseStatus_
-    }
+  UpdatePipelineStatusResponse'
+  {_upsrsPipeline = Nothing, _upsrsResponseStatus = pResponseStatus_}
+
 
 -- | A section of the response body that provides information about the pipeline.
 upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
@@ -145,4 +144,4 @@ upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
 upsrsResponseStatus :: Lens' UpdatePipelineStatusResponse Int
 upsrsResponseStatus = lens _upsrsResponseStatus (\ s a -> s{_upsrsResponseStatus = a});
 
-instance NFData UpdatePipelineStatusResponse
+instance NFData UpdatePipelineStatusResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.StorageGateway.DeleteGateway
     , dgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the id of the gateway to delete.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'deleteGateway' smart constructor.
 newtype DeleteGateway = DeleteGateway'
-    { _dgGatewayARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgGatewayARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGateway' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ newtype DeleteGateway = DeleteGateway'
 deleteGateway
     :: Text -- ^ 'dgGatewayARN'
     -> DeleteGateway
-deleteGateway pGatewayARN_ =
-    DeleteGateway'
-    { _dgGatewayARN = pGatewayARN_
-    }
+deleteGateway pGatewayARN_ = DeleteGateway' {_dgGatewayARN = pGatewayARN_}
+
 
 -- | Undocumented member.
 dgGatewayARN :: Lens' DeleteGateway Text
@@ -83,9 +82,9 @@ instance AWSRequest DeleteGateway where
                  DeleteGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteGateway
+instance Hashable DeleteGateway where
 
-instance NFData DeleteGateway
+instance NFData DeleteGateway where
 
 instance ToHeaders DeleteGateway where
         toHeaders
@@ -114,9 +113,10 @@ instance ToQuery DeleteGateway where
 --
 -- /See:/ 'deleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-    { _dgrsGatewayARN     :: !(Maybe Text)
-    , _dgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGatewayResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ deleteGatewayResponse
     :: Int -- ^ 'dgrsResponseStatus'
     -> DeleteGatewayResponse
 deleteGatewayResponse pResponseStatus_ =
-    DeleteGatewayResponse'
-    { _dgrsGatewayARN = Nothing
-    , _dgrsResponseStatus = pResponseStatus_
-    }
+  DeleteGatewayResponse'
+  {_dgrsGatewayARN = Nothing, _dgrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
@@ -142,4 +141,4 @@ dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
 dgrsResponseStatus :: Lens' DeleteGatewayResponse Int
 dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a});
 
-instance NFData DeleteGatewayResponse
+instance NFData DeleteGatewayResponse where

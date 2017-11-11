@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetMaintenanceWindowTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,18 +51,19 @@ module Network.AWS.SSM.GetMaintenanceWindowTask
     , gmwtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getMaintenanceWindowTask' smart constructor.
 data GetMaintenanceWindowTask = GetMaintenanceWindowTask'
-    { _gmwtWindowId     :: !Text
-    , _gmwtWindowTaskId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gmwtWindowId     :: {-# NOUNPACK #-}!Text
+  , _gmwtWindowTaskId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMaintenanceWindowTask' with the minimum fields required to make a request.
 --
@@ -76,10 +77,9 @@ getMaintenanceWindowTask
     -> Text -- ^ 'gmwtWindowTaskId'
     -> GetMaintenanceWindowTask
 getMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
-    GetMaintenanceWindowTask'
-    { _gmwtWindowId = pWindowId_
-    , _gmwtWindowTaskId = pWindowTaskId_
-    }
+  GetMaintenanceWindowTask'
+  {_gmwtWindowId = pWindowId_, _gmwtWindowTaskId = pWindowTaskId_}
+
 
 -- | The Maintenance Window ID that includes the task to retrieve.
 gmwtWindowId :: Lens' GetMaintenanceWindowTask Text
@@ -112,9 +112,9 @@ instance AWSRequest GetMaintenanceWindowTask where
                      <*> (x .?> "WindowId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetMaintenanceWindowTask
+instance Hashable GetMaintenanceWindowTask where
 
-instance NFData GetMaintenanceWindowTask
+instance NFData GetMaintenanceWindowTask where
 
 instance ToHeaders GetMaintenanceWindowTask where
         toHeaders
@@ -140,22 +140,23 @@ instance ToQuery GetMaintenanceWindowTask where
 
 -- | /See:/ 'getMaintenanceWindowTaskResponse' smart constructor.
 data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
-    { _gmwtrsServiceRoleARN           :: !(Maybe Text)
-    , _gmwtrsWindowTaskId             :: !(Maybe Text)
-    , _gmwtrsTaskParameters           :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
-    , _gmwtrsPriority                 :: !(Maybe Nat)
-    , _gmwtrsTaskType                 :: !(Maybe MaintenanceWindowTaskType)
-    , _gmwtrsTaskARN                  :: !(Maybe Text)
-    , _gmwtrsMaxErrors                :: !(Maybe Text)
-    , _gmwtrsTaskInvocationParameters :: !(Maybe MaintenanceWindowTaskInvocationParameters)
-    , _gmwtrsName                     :: !(Maybe Text)
-    , _gmwtrsTargets                  :: !(Maybe [Target])
-    , _gmwtrsLoggingInfo              :: !(Maybe LoggingInfo)
-    , _gmwtrsDescription              :: !(Maybe (Sensitive Text))
-    , _gmwtrsMaxConcurrency           :: !(Maybe Text)
-    , _gmwtrsWindowId                 :: !(Maybe Text)
-    , _gmwtrsResponseStatus           :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gmwtrsServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwtrsWindowTaskId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwtrsTaskParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+  , _gmwtrsPriority :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gmwtrsTaskType :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskType)
+  , _gmwtrsTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwtrsMaxErrors :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwtrsTaskInvocationParameters :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskInvocationParameters)
+  , _gmwtrsName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwtrsTargets :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _gmwtrsLoggingInfo :: {-# NOUNPACK #-}!(Maybe LoggingInfo)
+  , _gmwtrsDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gmwtrsMaxConcurrency :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwtrsWindowId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetMaintenanceWindowTaskResponse' with the minimum fields required to make a request.
 --
@@ -194,23 +195,24 @@ getMaintenanceWindowTaskResponse
     :: Int -- ^ 'gmwtrsResponseStatus'
     -> GetMaintenanceWindowTaskResponse
 getMaintenanceWindowTaskResponse pResponseStatus_ =
-    GetMaintenanceWindowTaskResponse'
-    { _gmwtrsServiceRoleARN = Nothing
-    , _gmwtrsWindowTaskId = Nothing
-    , _gmwtrsTaskParameters = Nothing
-    , _gmwtrsPriority = Nothing
-    , _gmwtrsTaskType = Nothing
-    , _gmwtrsTaskARN = Nothing
-    , _gmwtrsMaxErrors = Nothing
-    , _gmwtrsTaskInvocationParameters = Nothing
-    , _gmwtrsName = Nothing
-    , _gmwtrsTargets = Nothing
-    , _gmwtrsLoggingInfo = Nothing
-    , _gmwtrsDescription = Nothing
-    , _gmwtrsMaxConcurrency = Nothing
-    , _gmwtrsWindowId = Nothing
-    , _gmwtrsResponseStatus = pResponseStatus_
-    }
+  GetMaintenanceWindowTaskResponse'
+  { _gmwtrsServiceRoleARN = Nothing
+  , _gmwtrsWindowTaskId = Nothing
+  , _gmwtrsTaskParameters = Nothing
+  , _gmwtrsPriority = Nothing
+  , _gmwtrsTaskType = Nothing
+  , _gmwtrsTaskARN = Nothing
+  , _gmwtrsMaxErrors = Nothing
+  , _gmwtrsTaskInvocationParameters = Nothing
+  , _gmwtrsName = Nothing
+  , _gmwtrsTargets = Nothing
+  , _gmwtrsLoggingInfo = Nothing
+  , _gmwtrsDescription = Nothing
+  , _gmwtrsMaxConcurrency = Nothing
+  , _gmwtrsWindowId = Nothing
+  , _gmwtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The IAM service role to assume during task execution.
 gmwtrsServiceRoleARN :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
@@ -273,3 +275,4 @@ gmwtrsResponseStatus :: Lens' GetMaintenanceWindowTaskResponse Int
 gmwtrsResponseStatus = lens _gmwtrsResponseStatus (\ s a -> s{_gmwtrsResponseStatus = a});
 
 instance NFData GetMaintenanceWindowTaskResponse
+         where

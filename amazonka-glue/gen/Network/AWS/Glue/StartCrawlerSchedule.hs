@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.StartCrawlerSchedule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.StartCrawlerSchedule
     , scsrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'startCrawlerSchedule' smart constructor.
 newtype StartCrawlerSchedule = StartCrawlerSchedule'
-    { _scsCrawlerName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scsCrawlerName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartCrawlerSchedule' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ startCrawlerSchedule
     :: Text -- ^ 'scsCrawlerName'
     -> StartCrawlerSchedule
 startCrawlerSchedule pCrawlerName_ =
-    StartCrawlerSchedule'
-    { _scsCrawlerName = pCrawlerName_
-    }
+  StartCrawlerSchedule' {_scsCrawlerName = pCrawlerName_}
+
 
 -- | Name of the crawler to schedule.
 scsCrawlerName :: Lens' StartCrawlerSchedule Text
@@ -75,9 +75,9 @@ instance AWSRequest StartCrawlerSchedule where
                  StartCrawlerScheduleResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable StartCrawlerSchedule
+instance Hashable StartCrawlerSchedule where
 
-instance NFData StartCrawlerSchedule
+instance NFData StartCrawlerSchedule where
 
 instance ToHeaders StartCrawlerSchedule where
         toHeaders
@@ -101,8 +101,9 @@ instance ToQuery StartCrawlerSchedule where
 
 -- | /See:/ 'startCrawlerScheduleResponse' smart constructor.
 newtype StartCrawlerScheduleResponse = StartCrawlerScheduleResponse'
-    { _scsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartCrawlerScheduleResponse' with the minimum fields required to make a request.
 --
@@ -113,12 +114,11 @@ startCrawlerScheduleResponse
     :: Int -- ^ 'scsrsResponseStatus'
     -> StartCrawlerScheduleResponse
 startCrawlerScheduleResponse pResponseStatus_ =
-    StartCrawlerScheduleResponse'
-    { _scsrsResponseStatus = pResponseStatus_
-    }
+  StartCrawlerScheduleResponse' {_scsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 scsrsResponseStatus :: Lens' StartCrawlerScheduleResponse Int
 scsrsResponseStatus = lens _scsrsResponseStatus (\ s a -> s{_scsrsResponseStatus = a});
 
-instance NFData StartCrawlerScheduleResponse
+instance NFData StartCrawlerScheduleResponse where

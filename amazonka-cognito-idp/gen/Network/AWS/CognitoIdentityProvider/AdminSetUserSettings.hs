@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
     , asusrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to set user settings as an administrator.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminSetUserSettings' smart constructor.
 data AdminSetUserSettings = AdminSetUserSettings'
-    { _asusUserPoolId :: !Text
-    , _asusUsername   :: !(Sensitive Text)
-    , _asusMFAOptions :: ![MFAOptionType]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _asusUserPoolId :: {-# NOUNPACK #-}!Text
+  , _asusUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _asusMFAOptions :: {-# NOUNPACK #-}![MFAOptionType]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminSetUserSettings' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ adminSetUserSettings
     -> Text -- ^ 'asusUsername'
     -> AdminSetUserSettings
 adminSetUserSettings pUserPoolId_ pUsername_ =
-    AdminSetUserSettings'
-    { _asusUserPoolId = pUserPoolId_
-    , _asusUsername = _Sensitive # pUsername_
-    , _asusMFAOptions = mempty
-    }
+  AdminSetUserSettings'
+  { _asusUserPoolId = pUserPoolId_
+  , _asusUsername = _Sensitive # pUsername_
+  , _asusMFAOptions = mempty
+  }
+
 
 -- | The user pool ID for the user pool where you want to set the user's settings, such as MFA options.
 asusUserPoolId :: Lens' AdminSetUserSettings Text
@@ -100,9 +102,9 @@ instance AWSRequest AdminSetUserSettings where
                  AdminSetUserSettingsResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminSetUserSettings
+instance Hashable AdminSetUserSettings where
 
-instance NFData AdminSetUserSettings
+instance NFData AdminSetUserSettings where
 
 instance ToHeaders AdminSetUserSettings where
         toHeaders
@@ -134,8 +136,9 @@ instance ToQuery AdminSetUserSettings where
 --
 -- /See:/ 'adminSetUserSettingsResponse' smart constructor.
 newtype AdminSetUserSettingsResponse = AdminSetUserSettingsResponse'
-    { _asusrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asusrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminSetUserSettingsResponse' with the minimum fields required to make a request.
 --
@@ -146,12 +149,11 @@ adminSetUserSettingsResponse
     :: Int -- ^ 'asusrsResponseStatus'
     -> AdminSetUserSettingsResponse
 adminSetUserSettingsResponse pResponseStatus_ =
-    AdminSetUserSettingsResponse'
-    { _asusrsResponseStatus = pResponseStatus_
-    }
+  AdminSetUserSettingsResponse' {_asusrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 asusrsResponseStatus :: Lens' AdminSetUserSettingsResponse Int
 asusrsResponseStatus = lens _asusrsResponseStatus (\ s a -> s{_asusrsResponseStatus = a});
 
-instance NFData AdminSetUserSettingsResponse
+instance NFData AdminSetUserSettingsResponse where

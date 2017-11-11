@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.SetRepositoryPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.ECR.SetRepositoryPolicy
     , srprsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setRepositoryPolicy' smart constructor.
 data SetRepositoryPolicy = SetRepositoryPolicy'
-    { _srpForce          :: !(Maybe Bool)
-    , _srpRegistryId     :: !(Maybe Text)
-    , _srpRepositoryName :: !Text
-    , _srpPolicyText     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srpForce          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _srpRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srpRepositoryName :: {-# NOUNPACK #-}!Text
+  , _srpPolicyText     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetRepositoryPolicy' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ setRepositoryPolicy
     -> Text -- ^ 'srpPolicyText'
     -> SetRepositoryPolicy
 setRepositoryPolicy pRepositoryName_ pPolicyText_ =
-    SetRepositoryPolicy'
-    { _srpForce = Nothing
-    , _srpRegistryId = Nothing
-    , _srpRepositoryName = pRepositoryName_
-    , _srpPolicyText = pPolicyText_
-    }
+  SetRepositoryPolicy'
+  { _srpForce = Nothing
+  , _srpRegistryId = Nothing
+  , _srpRepositoryName = pRepositoryName_
+  , _srpPolicyText = pPolicyText_
+  }
+
 
 -- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
 srpForce :: Lens' SetRepositoryPolicy (Maybe Bool)
@@ -108,9 +110,9 @@ instance AWSRequest SetRepositoryPolicy where
                      (x .?> "policyText")
                      <*> (pure (fromEnum s)))
 
-instance Hashable SetRepositoryPolicy
+instance Hashable SetRepositoryPolicy where
 
-instance NFData SetRepositoryPolicy
+instance NFData SetRepositoryPolicy where
 
 instance ToHeaders SetRepositoryPolicy where
         toHeaders
@@ -139,11 +141,12 @@ instance ToQuery SetRepositoryPolicy where
 
 -- | /See:/ 'setRepositoryPolicyResponse' smart constructor.
 data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
-    { _srprsRegistryId     :: !(Maybe Text)
-    , _srprsRepositoryName :: !(Maybe Text)
-    , _srprsPolicyText     :: !(Maybe Text)
-    , _srprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srprsRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srprsRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srprsPolicyText     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetRepositoryPolicyResponse' with the minimum fields required to make a request.
 --
@@ -160,12 +163,13 @@ setRepositoryPolicyResponse
     :: Int -- ^ 'srprsResponseStatus'
     -> SetRepositoryPolicyResponse
 setRepositoryPolicyResponse pResponseStatus_ =
-    SetRepositoryPolicyResponse'
-    { _srprsRegistryId = Nothing
-    , _srprsRepositoryName = Nothing
-    , _srprsPolicyText = Nothing
-    , _srprsResponseStatus = pResponseStatus_
-    }
+  SetRepositoryPolicyResponse'
+  { _srprsRegistryId = Nothing
+  , _srprsRepositoryName = Nothing
+  , _srprsPolicyText = Nothing
+  , _srprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The registry ID associated with the request.
 srprsRegistryId :: Lens' SetRepositoryPolicyResponse (Maybe Text)
@@ -183,4 +187,4 @@ srprsPolicyText = lens _srprsPolicyText (\ s a -> s{_srprsPolicyText = a});
 srprsResponseStatus :: Lens' SetRepositoryPolicyResponse Int
 srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a});
 
-instance NFData SetRepositoryPolicyResponse
+instance NFData SetRepositoryPolicyResponse where

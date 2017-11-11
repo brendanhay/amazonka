@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
     , cipnioorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | The input for the @CheckIfPhoneNumberIsOptedOut@ action.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'checkIfPhoneNumberIsOptedOut' smart constructor.
 newtype CheckIfPhoneNumberIsOptedOut = CheckIfPhoneNumberIsOptedOut'
-    { _cipniooPhoneNumber :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cipniooPhoneNumber :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CheckIfPhoneNumberIsOptedOut' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ checkIfPhoneNumberIsOptedOut
     :: Text -- ^ 'cipniooPhoneNumber'
     -> CheckIfPhoneNumberIsOptedOut
 checkIfPhoneNumberIsOptedOut pPhoneNumber_ =
-    CheckIfPhoneNumberIsOptedOut'
-    { _cipniooPhoneNumber = pPhoneNumber_
-    }
+  CheckIfPhoneNumberIsOptedOut' {_cipniooPhoneNumber = pPhoneNumber_}
+
 
 -- | The phone number for which you want to check the opt out status.
 cipniooPhoneNumber :: Lens' CheckIfPhoneNumberIsOptedOut Text
@@ -84,9 +84,9 @@ instance AWSRequest CheckIfPhoneNumberIsOptedOut
                  CheckIfPhoneNumberIsOptedOutResponse' <$>
                    (x .@? "isOptedOut") <*> (pure (fromEnum s)))
 
-instance Hashable CheckIfPhoneNumberIsOptedOut
+instance Hashable CheckIfPhoneNumberIsOptedOut where
 
-instance NFData CheckIfPhoneNumberIsOptedOut
+instance NFData CheckIfPhoneNumberIsOptedOut where
 
 instance ToHeaders CheckIfPhoneNumberIsOptedOut where
         toHeaders = const mempty
@@ -108,9 +108,10 @@ instance ToQuery CheckIfPhoneNumberIsOptedOut where
 --
 -- /See:/ 'checkIfPhoneNumberIsOptedOutResponse' smart constructor.
 data CheckIfPhoneNumberIsOptedOutResponse = CheckIfPhoneNumberIsOptedOutResponse'
-    { _cipnioorsIsOptedOut     :: !(Maybe Bool)
-    , _cipnioorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cipnioorsIsOptedOut     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cipnioorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CheckIfPhoneNumberIsOptedOutResponse' with the minimum fields required to make a request.
 --
@@ -123,10 +124,9 @@ checkIfPhoneNumberIsOptedOutResponse
     :: Int -- ^ 'cipnioorsResponseStatus'
     -> CheckIfPhoneNumberIsOptedOutResponse
 checkIfPhoneNumberIsOptedOutResponse pResponseStatus_ =
-    CheckIfPhoneNumberIsOptedOutResponse'
-    { _cipnioorsIsOptedOut = Nothing
-    , _cipnioorsResponseStatus = pResponseStatus_
-    }
+  CheckIfPhoneNumberIsOptedOutResponse'
+  {_cipnioorsIsOptedOut = Nothing, _cipnioorsResponseStatus = pResponseStatus_}
+
 
 -- | Indicates whether the phone number is opted out:     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
 cipnioorsIsOptedOut :: Lens' CheckIfPhoneNumberIsOptedOutResponse (Maybe Bool)
@@ -137,3 +137,4 @@ cipnioorsResponseStatus :: Lens' CheckIfPhoneNumberIsOptedOutResponse Int
 cipnioorsResponseStatus = lens _cipnioorsResponseStatus (\ s a -> s{_cipnioorsResponseStatus = a});
 
 instance NFData CheckIfPhoneNumberIsOptedOutResponse
+         where

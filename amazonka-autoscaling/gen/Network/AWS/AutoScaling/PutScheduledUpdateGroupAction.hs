@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     , PutScheduledUpdateGroupActionResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PutScheduledUpdateGroupAction.
 --
@@ -57,16 +57,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
-    { _psugaStartTime            :: !(Maybe ISO8601)
-    , _psugaTime                 :: !(Maybe ISO8601)
-    , _psugaMaxSize              :: !(Maybe Int)
-    , _psugaRecurrence           :: !(Maybe Text)
-    , _psugaDesiredCapacity      :: !(Maybe Int)
-    , _psugaMinSize              :: !(Maybe Int)
-    , _psugaEndTime              :: !(Maybe ISO8601)
-    , _psugaAutoScalingGroupName :: !Text
-    , _psugaScheduledActionName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psugaStartTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _psugaTime                 :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _psugaMaxSize              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _psugaRecurrence           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psugaDesiredCapacity      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _psugaMinSize              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _psugaEndTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _psugaAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _psugaScheduledActionName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutScheduledUpdateGroupAction' with the minimum fields required to make a request.
 --
@@ -94,17 +95,18 @@ putScheduledUpdateGroupAction
     -> Text -- ^ 'psugaScheduledActionName'
     -> PutScheduledUpdateGroupAction
 putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
-    PutScheduledUpdateGroupAction'
-    { _psugaStartTime = Nothing
-    , _psugaTime = Nothing
-    , _psugaMaxSize = Nothing
-    , _psugaRecurrence = Nothing
-    , _psugaDesiredCapacity = Nothing
-    , _psugaMinSize = Nothing
-    , _psugaEndTime = Nothing
-    , _psugaAutoScalingGroupName = pAutoScalingGroupName_
-    , _psugaScheduledActionName = pScheduledActionName_
-    }
+  PutScheduledUpdateGroupAction'
+  { _psugaStartTime = Nothing
+  , _psugaTime = Nothing
+  , _psugaMaxSize = Nothing
+  , _psugaRecurrence = Nothing
+  , _psugaDesiredCapacity = Nothing
+  , _psugaMinSize = Nothing
+  , _psugaEndTime = Nothing
+  , _psugaAutoScalingGroupName = pAutoScalingGroupName_
+  , _psugaScheduledActionName = pScheduledActionName_
+  }
+
 
 -- | The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, @2014-06-01T00:00:00Z@ ). If you specify @Recurrence@ and @StartTime@ , Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence. If you try to schedule your action in the past, Auto Scaling returns an error message.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
@@ -150,9 +152,9 @@ instance AWSRequest PutScheduledUpdateGroupAction
         response
           = receiveNull PutScheduledUpdateGroupActionResponse'
 
-instance Hashable PutScheduledUpdateGroupAction
+instance Hashable PutScheduledUpdateGroupAction where
 
-instance NFData PutScheduledUpdateGroupAction
+instance NFData PutScheduledUpdateGroupAction where
 
 instance ToHeaders PutScheduledUpdateGroupAction
          where
@@ -178,8 +180,9 @@ instance ToQuery PutScheduledUpdateGroupAction where
 
 -- | /See:/ 'putScheduledUpdateGroupActionResponse' smart constructor.
 data PutScheduledUpdateGroupActionResponse =
-    PutScheduledUpdateGroupActionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutScheduledUpdateGroupActionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutScheduledUpdateGroupActionResponse' with the minimum fields required to make a request.
 --
@@ -187,4 +190,6 @@ putScheduledUpdateGroupActionResponse
     :: PutScheduledUpdateGroupActionResponse
 putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse'
 
+
 instance NFData PutScheduledUpdateGroupActionResponse
+         where

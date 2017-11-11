@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.SetCognitoEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CognitoSync.SetCognitoEvents
     , SetCognitoEventsResponse
     ) where
 
-import           Network.AWS.CognitoSync.Types
-import           Network.AWS.CognitoSync.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoSync.Types
+import Network.AWS.CognitoSync.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to configure Cognito Events"
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setCognitoEvents' smart constructor.
 data SetCognitoEvents = SetCognitoEvents'
-    { _sceIdentityPoolId :: !Text
-    , _sceEvents         :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sceIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _sceEvents         :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetCognitoEvents' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ setCognitoEvents
     :: Text -- ^ 'sceIdentityPoolId'
     -> SetCognitoEvents
 setCognitoEvents pIdentityPoolId_ =
-    SetCognitoEvents'
-    { _sceIdentityPoolId = pIdentityPoolId_
-    , _sceEvents = mempty
-    }
+  SetCognitoEvents' {_sceIdentityPoolId = pIdentityPoolId_, _sceEvents = mempty}
+
 
 -- | The Cognito Identity Pool to use when configuring Cognito Events
 sceIdentityPoolId :: Lens' SetCognitoEvents Text
@@ -83,9 +82,9 @@ instance AWSRequest SetCognitoEvents where
         request = postJSON cognitoSync
         response = receiveNull SetCognitoEventsResponse'
 
-instance Hashable SetCognitoEvents
+instance Hashable SetCognitoEvents where
 
-instance NFData SetCognitoEvents
+instance NFData SetCognitoEvents where
 
 instance ToHeaders SetCognitoEvents where
         toHeaders
@@ -109,8 +108,9 @@ instance ToQuery SetCognitoEvents where
 
 -- | /See:/ 'setCognitoEventsResponse' smart constructor.
 data SetCognitoEventsResponse =
-    SetCognitoEventsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetCognitoEventsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetCognitoEventsResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +118,5 @@ setCognitoEventsResponse
     :: SetCognitoEventsResponse
 setCognitoEventsResponse = SetCognitoEventsResponse'
 
-instance NFData SetCognitoEventsResponse
+
+instance NFData SetCognitoEventsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackSetOperation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CloudFormation.DescribeStackSetOperation
     , dssorsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeStackSetOperation' smart constructor.
 data DescribeStackSetOperation = DescribeStackSetOperation'
-    { _dssoStackSetName :: !Text
-    , _dssoOperationId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssoStackSetName :: {-# NOUNPACK #-}!Text
+  , _dssoOperationId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackSetOperation' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ describeStackSetOperation
     -> Text -- ^ 'dssoOperationId'
     -> DescribeStackSetOperation
 describeStackSetOperation pStackSetName_ pOperationId_ =
-    DescribeStackSetOperation'
-    { _dssoStackSetName = pStackSetName_
-    , _dssoOperationId = pOperationId_
-    }
+  DescribeStackSetOperation'
+  {_dssoStackSetName = pStackSetName_, _dssoOperationId = pOperationId_}
+
 
 -- | The name or the unique stack ID of the stack set for the stack operation.
 dssoStackSetName :: Lens' DescribeStackSetOperation Text
@@ -86,9 +86,9 @@ instance AWSRequest DescribeStackSetOperation where
                  DescribeStackSetOperationResponse' <$>
                    (x .@? "StackSetOperation") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeStackSetOperation
+instance Hashable DescribeStackSetOperation where
 
-instance NFData DescribeStackSetOperation
+instance NFData DescribeStackSetOperation where
 
 instance ToHeaders DescribeStackSetOperation where
         toHeaders = const mempty
@@ -107,9 +107,10 @@ instance ToQuery DescribeStackSetOperation where
 
 -- | /See:/ 'describeStackSetOperationResponse' smart constructor.
 data DescribeStackSetOperationResponse = DescribeStackSetOperationResponse'
-    { _dssorsStackSetOperation :: !(Maybe StackSetOperation)
-    , _dssorsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dssorsStackSetOperation :: {-# NOUNPACK #-}!(Maybe StackSetOperation)
+  , _dssorsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackSetOperationResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +123,9 @@ describeStackSetOperationResponse
     :: Int -- ^ 'dssorsResponseStatus'
     -> DescribeStackSetOperationResponse
 describeStackSetOperationResponse pResponseStatus_ =
-    DescribeStackSetOperationResponse'
-    { _dssorsStackSetOperation = Nothing
-    , _dssorsResponseStatus = pResponseStatus_
-    }
+  DescribeStackSetOperationResponse'
+  {_dssorsStackSetOperation = Nothing, _dssorsResponseStatus = pResponseStatus_}
+
 
 -- | The specified stack set operation.
 dssorsStackSetOperation :: Lens' DescribeStackSetOperationResponse (Maybe StackSetOperation)
@@ -136,3 +136,4 @@ dssorsResponseStatus :: Lens' DescribeStackSetOperationResponse Int
 dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a});
 
 instance NFData DescribeStackSetOperationResponse
+         where

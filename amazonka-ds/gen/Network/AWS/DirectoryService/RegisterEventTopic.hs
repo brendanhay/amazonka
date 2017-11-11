@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RegisterEventTopic
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DirectoryService.RegisterEventTopic
     , retrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Registers a new event topic.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'registerEventTopic' smart constructor.
 data RegisterEventTopic = RegisterEventTopic'
-    { _retDirectoryId :: !Text
-    , _retTopicName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _retDirectoryId :: {-# NOUNPACK #-}!Text
+  , _retTopicName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterEventTopic' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ registerEventTopic
     -> Text -- ^ 'retTopicName'
     -> RegisterEventTopic
 registerEventTopic pDirectoryId_ pTopicName_ =
-    RegisterEventTopic'
-    { _retDirectoryId = pDirectoryId_
-    , _retTopicName = pTopicName_
-    }
+  RegisterEventTopic'
+  {_retDirectoryId = pDirectoryId_, _retTopicName = pTopicName_}
+
 
 -- | The Directory ID that will publish status messages to the SNS topic.
 retDirectoryId :: Lens' RegisterEventTopic Text
@@ -88,9 +88,9 @@ instance AWSRequest RegisterEventTopic where
               (\ s h x ->
                  RegisterEventTopicResponse' <$> (pure (fromEnum s)))
 
-instance Hashable RegisterEventTopic
+instance Hashable RegisterEventTopic where
 
-instance NFData RegisterEventTopic
+instance NFData RegisterEventTopic where
 
 instance ToHeaders RegisterEventTopic where
         toHeaders
@@ -121,8 +121,9 @@ instance ToQuery RegisterEventTopic where
 --
 -- /See:/ 'registerEventTopicResponse' smart constructor.
 newtype RegisterEventTopicResponse = RegisterEventTopicResponse'
-    { _retrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _retrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterEventTopicResponse' with the minimum fields required to make a request.
 --
@@ -133,12 +134,11 @@ registerEventTopicResponse
     :: Int -- ^ 'retrsResponseStatus'
     -> RegisterEventTopicResponse
 registerEventTopicResponse pResponseStatus_ =
-    RegisterEventTopicResponse'
-    { _retrsResponseStatus = pResponseStatus_
-    }
+  RegisterEventTopicResponse' {_retrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 retrsResponseStatus :: Lens' RegisterEventTopicResponse Int
 retrsResponseStatus = lens _retrsResponseStatus (\ s a -> s{_retrsResponseStatus = a});
 
-instance NFData RegisterEventTopicResponse
+instance NFData RegisterEventTopicResponse where

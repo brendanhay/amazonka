@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AddUserToGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.IAM.AddUserToGroup
     , AddUserToGroupResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addUserToGroup' smart constructor.
 data AddUserToGroup = AddUserToGroup'
-    { _autgGroupName :: !Text
-    , _autgUserName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _autgGroupName :: {-# NOUNPACK #-}!Text
+  , _autgUserName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddUserToGroup' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ addUserToGroup
     -> Text -- ^ 'autgUserName'
     -> AddUserToGroup
 addUserToGroup pGroupName_ pUserName_ =
-    AddUserToGroup'
-    { _autgGroupName = pGroupName_
-    , _autgUserName = pUserName_
-    }
+  AddUserToGroup' {_autgGroupName = pGroupName_, _autgUserName = pUserName_}
+
 
 -- | The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 autgGroupName :: Lens' AddUserToGroup Text
@@ -78,9 +77,9 @@ instance AWSRequest AddUserToGroup where
         request = postQuery iam
         response = receiveNull AddUserToGroupResponse'
 
-instance Hashable AddUserToGroup
+instance Hashable AddUserToGroup where
 
-instance NFData AddUserToGroup
+instance NFData AddUserToGroup where
 
 instance ToHeaders AddUserToGroup where
         toHeaders = const mempty
@@ -98,8 +97,9 @@ instance ToQuery AddUserToGroup where
 
 -- | /See:/ 'addUserToGroupResponse' smart constructor.
 data AddUserToGroupResponse =
-    AddUserToGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddUserToGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddUserToGroupResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +107,5 @@ addUserToGroupResponse
     :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse'
 
-instance NFData AddUserToGroupResponse
+
+instance NFData AddUserToGroupResponse where

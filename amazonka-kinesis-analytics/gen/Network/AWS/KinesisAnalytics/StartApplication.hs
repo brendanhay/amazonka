@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.StartApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.KinesisAnalytics.StartApplication
     , sarsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,9 +58,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startApplication' smart constructor.
 data StartApplication = StartApplication'
-    { _saApplicationName     :: !Text
-    , _saInputConfigurations :: ![InputConfiguration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saApplicationName     :: {-# NOUNPACK #-}!Text
+  , _saInputConfigurations :: {-# NOUNPACK #-}![InputConfiguration]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartApplication' with the minimum fields required to make a request.
 --
@@ -73,10 +74,9 @@ startApplication
     :: Text -- ^ 'saApplicationName'
     -> StartApplication
 startApplication pApplicationName_ =
-    StartApplication'
-    { _saApplicationName = pApplicationName_
-    , _saInputConfigurations = mempty
-    }
+  StartApplication'
+  {_saApplicationName = pApplicationName_, _saInputConfigurations = mempty}
+
 
 -- | Name of the application.
 saApplicationName :: Lens' StartApplication Text
@@ -94,9 +94,9 @@ instance AWSRequest StartApplication where
               (\ s h x ->
                  StartApplicationResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StartApplication
+instance Hashable StartApplication where
 
-instance NFData StartApplication
+instance NFData StartApplication where
 
 instance ToHeaders StartApplication where
         toHeaders
@@ -128,8 +128,9 @@ instance ToQuery StartApplication where
 --
 -- /See:/ 'startApplicationResponse' smart constructor.
 newtype StartApplicationResponse = StartApplicationResponse'
-    { _sarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartApplicationResponse' with the minimum fields required to make a request.
 --
@@ -140,12 +141,11 @@ startApplicationResponse
     :: Int -- ^ 'sarsResponseStatus'
     -> StartApplicationResponse
 startApplicationResponse pResponseStatus_ =
-    StartApplicationResponse'
-    { _sarsResponseStatus = pResponseStatus_
-    }
+  StartApplicationResponse' {_sarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 sarsResponseStatus :: Lens' StartApplicationResponse Int
 sarsResponseStatus = lens _sarsResponseStatus (\ s a -> s{_sarsResponseStatus = a});
 
-instance NFData StartApplicationResponse
+instance NFData StartApplicationResponse where

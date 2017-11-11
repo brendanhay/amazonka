@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateRestAPI
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.APIGateway.CreateRestAPI
     , raDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The POST Request to add a new 'RestApi' resource to your collection.
 --
@@ -59,12 +59,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
-    { _craBinaryMediaTypes :: !(Maybe [Text])
-    , _craVersion          :: !(Maybe Text)
-    , _craCloneFrom        :: !(Maybe Text)
-    , _craDescription      :: !(Maybe Text)
-    , _craName             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _craBinaryMediaTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _craVersion          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _craCloneFrom        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _craDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _craName             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRestAPI' with the minimum fields required to make a request.
 --
@@ -83,13 +84,14 @@ createRestAPI
     :: Text -- ^ 'craName'
     -> CreateRestAPI
 createRestAPI pName_ =
-    CreateRestAPI'
-    { _craBinaryMediaTypes = Nothing
-    , _craVersion = Nothing
-    , _craCloneFrom = Nothing
-    , _craDescription = Nothing
-    , _craName = pName_
-    }
+  CreateRestAPI'
+  { _craBinaryMediaTypes = Nothing
+  , _craVersion = Nothing
+  , _craCloneFrom = Nothing
+  , _craDescription = Nothing
+  , _craName = pName_
+  }
+
 
 -- | The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
 craBinaryMediaTypes :: Lens' CreateRestAPI [Text]
@@ -116,9 +118,9 @@ instance AWSRequest CreateRestAPI where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateRestAPI
+instance Hashable CreateRestAPI where
 
-instance NFData CreateRestAPI
+instance NFData CreateRestAPI where
 
 instance ToHeaders CreateRestAPI where
         toHeaders

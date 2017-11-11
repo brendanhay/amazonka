@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.DeviceFarm.DeleteRun
     , drrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the delete run operation.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteRun' smart constructor.
 newtype DeleteRun = DeleteRun'
-    { _drArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRun' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype DeleteRun = DeleteRun'
 deleteRun
     :: Text -- ^ 'drArn'
     -> DeleteRun
-deleteRun pArn_ =
-    DeleteRun'
-    { _drArn = pArn_
-    }
+deleteRun pArn_ = DeleteRun' {_drArn = pArn_}
+
 
 -- | The Amazon Resource Name (ARN) for the run you wish to delete.
 drArn :: Lens' DeleteRun Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteRun where
               (\ s h x ->
                  DeleteRunResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteRun
+instance Hashable DeleteRun where
 
-instance NFData DeleteRun
+instance NFData DeleteRun where
 
 instance ToHeaders DeleteRun where
         toHeaders
@@ -108,8 +107,9 @@ instance ToQuery DeleteRun where
 --
 -- /See:/ 'deleteRunResponse' smart constructor.
 newtype DeleteRunResponse = DeleteRunResponse'
-    { _drrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRunResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +120,11 @@ deleteRunResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DeleteRunResponse
 deleteRunResponse pResponseStatus_ =
-    DeleteRunResponse'
-    { _drrsResponseStatus = pResponseStatus_
-    }
+  DeleteRunResponse' {_drrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRunResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 
-instance NFData DeleteRunResponse
+instance NFData DeleteRunResponse where

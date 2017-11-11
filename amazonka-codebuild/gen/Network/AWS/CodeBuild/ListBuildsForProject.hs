@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListBuildsForProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CodeBuild.ListBuildsForProject
     , lbfprsResponseStatus
     ) where
 
-import           Network.AWS.CodeBuild.Types
-import           Network.AWS.CodeBuild.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeBuild.Types
+import Network.AWS.CodeBuild.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listBuildsForProject' smart constructor.
 data ListBuildsForProject = ListBuildsForProject'
-    { _lbfpSortOrder   :: !(Maybe SortOrderType)
-    , _lbfpNextToken   :: !(Maybe Text)
-    , _lbfpProjectName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbfpSortOrder   :: {-# NOUNPACK #-}!(Maybe SortOrderType)
+  , _lbfpNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbfpProjectName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBuildsForProject' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listBuildsForProject
     :: Text -- ^ 'lbfpProjectName'
     -> ListBuildsForProject
 listBuildsForProject pProjectName_ =
-    ListBuildsForProject'
-    { _lbfpSortOrder = Nothing
-    , _lbfpNextToken = Nothing
-    , _lbfpProjectName = pProjectName_
-    }
+  ListBuildsForProject'
+  { _lbfpSortOrder = Nothing
+  , _lbfpNextToken = Nothing
+  , _lbfpProjectName = pProjectName_
+  }
+
 
 -- | The order to list build IDs. Valid values include:     * @ASCENDING@ : List the build IDs in ascending order by build ID.     * @DESCENDING@ : List the build IDs in descending order by build ID.
 lbfpSortOrder :: Lens' ListBuildsForProject (Maybe SortOrderType)
@@ -96,9 +98,9 @@ instance AWSRequest ListBuildsForProject where
                    (x .?> "ids") <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListBuildsForProject
+instance Hashable ListBuildsForProject where
 
-instance NFData ListBuildsForProject
+instance NFData ListBuildsForProject where
 
 instance ToHeaders ListBuildsForProject where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery ListBuildsForProject where
 
 -- | /See:/ 'listBuildsForProjectResponse' smart constructor.
 data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
-    { _lbfprsIds            :: !(Maybe (List1 Text))
-    , _lbfprsNextToken      :: !(Maybe Text)
-    , _lbfprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbfprsIds            :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _lbfprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbfprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBuildsForProjectResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ listBuildsForProjectResponse
     :: Int -- ^ 'lbfprsResponseStatus'
     -> ListBuildsForProjectResponse
 listBuildsForProjectResponse pResponseStatus_ =
-    ListBuildsForProjectResponse'
-    { _lbfprsIds = Nothing
-    , _lbfprsNextToken = Nothing
-    , _lbfprsResponseStatus = pResponseStatus_
-    }
+  ListBuildsForProjectResponse'
+  { _lbfprsIds = Nothing
+  , _lbfprsNextToken = Nothing
+  , _lbfprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of build IDs for the specified build project, with each build ID representing a single build.
 lbfprsIds :: Lens' ListBuildsForProjectResponse (Maybe (NonEmpty Text))
@@ -162,4 +166,4 @@ lbfprsNextToken = lens _lbfprsNextToken (\ s a -> s{_lbfprsNextToken = a});
 lbfprsResponseStatus :: Lens' ListBuildsForProjectResponse Int
 lbfprsResponseStatus = lens _lbfprsResponseStatus (\ s a -> s{_lbfprsResponseStatus = a});
 
-instance NFData ListBuildsForProjectResponse
+instance NFData ListBuildsForProjectResponse where

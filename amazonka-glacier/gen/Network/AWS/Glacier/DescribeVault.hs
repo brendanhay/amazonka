@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DescribeVault
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.Glacier.DescribeVault
     , dvoNumberOfArchives
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving metadata for a specific vault in Amazon Glacier.
 --
@@ -59,9 +59,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeVault' smart constructor.
 data DescribeVault = DescribeVault'
-    { _dvAccountId :: !Text
-    , _dvVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvAccountId :: {-# NOUNPACK #-}!Text
+  , _dvVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVault' with the minimum fields required to make a request.
 --
@@ -75,10 +76,8 @@ describeVault
     -> Text -- ^ 'dvVaultName'
     -> DescribeVault
 describeVault pAccountId_ pVaultName_ =
-    DescribeVault'
-    { _dvAccountId = pAccountId_
-    , _dvVaultName = pVaultName_
-    }
+  DescribeVault' {_dvAccountId = pAccountId_, _dvVaultName = pVaultName_}
+
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 dvAccountId :: Lens' DescribeVault Text
@@ -93,9 +92,9 @@ instance AWSRequest DescribeVault where
         request = get glacier
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable DescribeVault
+instance Hashable DescribeVault where
 
-instance NFData DescribeVault
+instance NFData DescribeVault where
 
 instance ToHeaders DescribeVault where
         toHeaders = const mempty

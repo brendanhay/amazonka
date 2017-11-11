@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.RegisterContainerInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rcirsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerContainerInstance' smart constructor.
 data RegisterContainerInstance = RegisterContainerInstance'
-    { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
-    , _rciCluster                           :: !(Maybe Text)
-    , _rciInstanceIdentityDocument          :: !(Maybe Text)
-    , _rciContainerInstanceARN              :: !(Maybe Text)
-    , _rciVersionInfo                       :: !(Maybe VersionInfo)
-    , _rciAttributes                        :: !(Maybe [Attribute])
-    , _rciTotalResources                    :: !(Maybe [Resource])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rciInstanceIdentityDocumentSignature :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rciCluster :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rciInstanceIdentityDocument :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rciContainerInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rciVersionInfo :: {-# NOUNPACK #-}!(Maybe VersionInfo)
+  , _rciAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _rciTotalResources :: {-# NOUNPACK #-}!(Maybe [Resource])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterContainerInstance' with the minimum fields required to make a request.
 --
@@ -81,15 +82,16 @@ data RegisterContainerInstance = RegisterContainerInstance'
 registerContainerInstance
     :: RegisterContainerInstance
 registerContainerInstance =
-    RegisterContainerInstance'
-    { _rciInstanceIdentityDocumentSignature = Nothing
-    , _rciCluster = Nothing
-    , _rciInstanceIdentityDocument = Nothing
-    , _rciContainerInstanceARN = Nothing
-    , _rciVersionInfo = Nothing
-    , _rciAttributes = Nothing
-    , _rciTotalResources = Nothing
-    }
+  RegisterContainerInstance'
+  { _rciInstanceIdentityDocumentSignature = Nothing
+  , _rciCluster = Nothing
+  , _rciInstanceIdentityDocument = Nothing
+  , _rciContainerInstanceARN = Nothing
+  , _rciVersionInfo = Nothing
+  , _rciAttributes = Nothing
+  , _rciTotalResources = Nothing
+  }
+
 
 -- | The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
@@ -129,9 +131,9 @@ instance AWSRequest RegisterContainerInstance where
                  RegisterContainerInstanceResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterContainerInstance
+instance Hashable RegisterContainerInstance where
 
-instance NFData RegisterContainerInstance
+instance NFData RegisterContainerInstance where
 
 instance ToHeaders RegisterContainerInstance where
         toHeaders
@@ -166,9 +168,10 @@ instance ToQuery RegisterContainerInstance where
 
 -- | /See:/ 'registerContainerInstanceResponse' smart constructor.
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
-    { _rcirsContainerInstance :: !(Maybe ContainerInstance)
-    , _rcirsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcirsContainerInstance :: {-# NOUNPACK #-}!(Maybe ContainerInstance)
+  , _rcirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterContainerInstanceResponse' with the minimum fields required to make a request.
 --
@@ -181,10 +184,9 @@ registerContainerInstanceResponse
     :: Int -- ^ 'rcirsResponseStatus'
     -> RegisterContainerInstanceResponse
 registerContainerInstanceResponse pResponseStatus_ =
-    RegisterContainerInstanceResponse'
-    { _rcirsContainerInstance = Nothing
-    , _rcirsResponseStatus = pResponseStatus_
-    }
+  RegisterContainerInstanceResponse'
+  {_rcirsContainerInstance = Nothing, _rcirsResponseStatus = pResponseStatus_}
+
 
 -- | The container instance that was registered.
 rcirsContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
@@ -195,3 +197,4 @@ rcirsResponseStatus :: Lens' RegisterContainerInstanceResponse Int
 rcirsResponseStatus = lens _rcirsResponseStatus (\ s a -> s{_rcirsResponseStatus = a});
 
 instance NFData RegisterContainerInstanceResponse
+         where

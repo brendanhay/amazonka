@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetConnectivityInfo
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Greengrass.GetConnectivityInfo
     , gcirsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getConnectivityInfo' smart constructor.
 newtype GetConnectivityInfo = GetConnectivityInfo'
-    { _gciThingName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gciThingName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConnectivityInfo' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ getConnectivityInfo
     :: Text -- ^ 'gciThingName'
     -> GetConnectivityInfo
 getConnectivityInfo pThingName_ =
-    GetConnectivityInfo'
-    { _gciThingName = pThingName_
-    }
+  GetConnectivityInfo' {_gciThingName = pThingName_}
+
 
 -- | Thing Name
 gciThingName :: Lens' GetConnectivityInfo Text
@@ -77,9 +77,9 @@ instance AWSRequest GetConnectivityInfo where
                      (x .?> "ConnectivityInfo" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetConnectivityInfo
+instance Hashable GetConnectivityInfo where
 
-instance NFData GetConnectivityInfo
+instance NFData GetConnectivityInfo where
 
 instance ToHeaders GetConnectivityInfo where
         toHeaders
@@ -99,10 +99,11 @@ instance ToQuery GetConnectivityInfo where
 
 -- | /See:/ 'getConnectivityInfoResponse' smart constructor.
 data GetConnectivityInfoResponse = GetConnectivityInfoResponse'
-    { _gcirsMessage          :: !(Maybe Text)
-    , _gcirsConnectivityInfo :: !(Maybe [ConnectivityInfo])
-    , _gcirsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcirsMessage          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsConnectivityInfo :: {-# NOUNPACK #-}!(Maybe [ConnectivityInfo])
+  , _gcirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConnectivityInfoResponse' with the minimum fields required to make a request.
 --
@@ -117,11 +118,12 @@ getConnectivityInfoResponse
     :: Int -- ^ 'gcirsResponseStatus'
     -> GetConnectivityInfoResponse
 getConnectivityInfoResponse pResponseStatus_ =
-    GetConnectivityInfoResponse'
-    { _gcirsMessage = Nothing
-    , _gcirsConnectivityInfo = Nothing
-    , _gcirsResponseStatus = pResponseStatus_
-    }
+  GetConnectivityInfoResponse'
+  { _gcirsMessage = Nothing
+  , _gcirsConnectivityInfo = Nothing
+  , _gcirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Response Text
 gcirsMessage :: Lens' GetConnectivityInfoResponse (Maybe Text)
@@ -135,4 +137,4 @@ gcirsConnectivityInfo = lens _gcirsConnectivityInfo (\ s a -> s{_gcirsConnectivi
 gcirsResponseStatus :: Lens' GetConnectivityInfoResponse Int
 gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a});
 
-instance NFData GetConnectivityInfoResponse
+instance NFData GetConnectivityInfoResponse where

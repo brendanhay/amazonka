@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudDirectory.Types.Product where
 
-import           Network.AWS.CloudDirectory.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudDirectory.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A unique identifier for an attribute.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'attributeKey' smart constructor.
 data AttributeKey = AttributeKey'
-    { _akSchemaARN :: !Text
-    , _akFacetName :: !Text
-    , _akName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _akSchemaARN :: {-# NOUNPACK #-}!Text
+  , _akFacetName :: {-# NOUNPACK #-}!Text
+  , _akName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeKey' with the minimum fields required to make a request.
 --
@@ -47,11 +48,9 @@ attributeKey
     -> Text -- ^ 'akName'
     -> AttributeKey
 attributeKey pSchemaARN_ pFacetName_ pName_ =
-    AttributeKey'
-    { _akSchemaARN = pSchemaARN_
-    , _akFacetName = pFacetName_
-    , _akName = pName_
-    }
+  AttributeKey'
+  {_akSchemaARN = pSchemaARN_, _akFacetName = pFacetName_, _akName = pName_}
+
 
 -- | The Amazon Resource Name (ARN) of the schema that contains the facet and attribute.
 akSchemaARN :: Lens' AttributeKey Text
@@ -73,9 +72,9 @@ instance FromJSON AttributeKey where
                    (x .: "SchemaArn") <*> (x .: "FacetName") <*>
                      (x .: "Name"))
 
-instance Hashable AttributeKey
+instance Hashable AttributeKey where
 
-instance NFData AttributeKey
+instance NFData AttributeKey where
 
 instance ToJSON AttributeKey where
         toJSON AttributeKey'{..}
@@ -91,9 +90,10 @@ instance ToJSON AttributeKey where
 --
 -- /See:/ 'attributeKeyAndValue' smart constructor.
 data AttributeKeyAndValue = AttributeKeyAndValue'
-    { _akavKey   :: !AttributeKey
-    , _akavValue :: !TypedAttributeValue
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _akavKey   :: {-# NOUNPACK #-}!AttributeKey
+  , _akavValue :: {-# NOUNPACK #-}!TypedAttributeValue
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeKeyAndValue' with the minimum fields required to make a request.
 --
@@ -107,10 +107,8 @@ attributeKeyAndValue
     -> TypedAttributeValue -- ^ 'akavValue'
     -> AttributeKeyAndValue
 attributeKeyAndValue pKey_ pValue_ =
-    AttributeKeyAndValue'
-    { _akavKey = pKey_
-    , _akavValue = pValue_
-    }
+  AttributeKeyAndValue' {_akavKey = pKey_, _akavValue = pValue_}
+
 
 -- | The key of the attribute.
 akavKey :: Lens' AttributeKeyAndValue AttributeKey
@@ -127,9 +125,9 @@ instance FromJSON AttributeKeyAndValue where
                  AttributeKeyAndValue' <$>
                    (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable AttributeKeyAndValue
+instance Hashable AttributeKeyAndValue where
 
-instance NFData AttributeKeyAndValue
+instance NFData AttributeKeyAndValue where
 
 instance ToJSON AttributeKeyAndValue where
         toJSON AttributeKeyAndValue'{..}
@@ -144,9 +142,10 @@ instance ToJSON AttributeKeyAndValue where
 --
 -- /See:/ 'attributeNameAndValue' smart constructor.
 data AttributeNameAndValue = AttributeNameAndValue'
-    { _anavAttributeName :: !Text
-    , _anavValue         :: !TypedAttributeValue
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _anavAttributeName :: {-# NOUNPACK #-}!Text
+  , _anavValue         :: {-# NOUNPACK #-}!TypedAttributeValue
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeNameAndValue' with the minimum fields required to make a request.
 --
@@ -160,10 +159,9 @@ attributeNameAndValue
     -> TypedAttributeValue -- ^ 'anavValue'
     -> AttributeNameAndValue
 attributeNameAndValue pAttributeName_ pValue_ =
-    AttributeNameAndValue'
-    { _anavAttributeName = pAttributeName_
-    , _anavValue = pValue_
-    }
+  AttributeNameAndValue'
+  {_anavAttributeName = pAttributeName_, _anavValue = pValue_}
+
 
 -- | The attribute name of the typed link.
 anavAttributeName :: Lens' AttributeNameAndValue Text
@@ -180,9 +178,9 @@ instance FromJSON AttributeNameAndValue where
                  AttributeNameAndValue' <$>
                    (x .: "AttributeName") <*> (x .: "Value"))
 
-instance Hashable AttributeNameAndValue
+instance Hashable AttributeNameAndValue where
 
-instance NFData AttributeNameAndValue
+instance NFData AttributeNameAndValue where
 
 instance ToJSON AttributeNameAndValue where
         toJSON AttributeNameAndValue'{..}
@@ -197,10 +195,11 @@ instance ToJSON AttributeNameAndValue where
 --
 -- /See:/ 'batchAddFacetToObject' smart constructor.
 data BatchAddFacetToObject = BatchAddFacetToObject'
-    { _baftoSchemaFacet         :: !SchemaFacet
-    , _baftoObjectAttributeList :: ![AttributeKeyAndValue]
-    , _baftoObjectReference     :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _baftoSchemaFacet         :: {-# NOUNPACK #-}!SchemaFacet
+  , _baftoObjectAttributeList :: {-# NOUNPACK #-}![AttributeKeyAndValue]
+  , _baftoObjectReference     :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAddFacetToObject' with the minimum fields required to make a request.
 --
@@ -216,11 +215,12 @@ batchAddFacetToObject
     -> ObjectReference -- ^ 'baftoObjectReference'
     -> BatchAddFacetToObject
 batchAddFacetToObject pSchemaFacet_ pObjectReference_ =
-    BatchAddFacetToObject'
-    { _baftoSchemaFacet = pSchemaFacet_
-    , _baftoObjectAttributeList = mempty
-    , _baftoObjectReference = pObjectReference_
-    }
+  BatchAddFacetToObject'
+  { _baftoSchemaFacet = pSchemaFacet_
+  , _baftoObjectAttributeList = mempty
+  , _baftoObjectReference = pObjectReference_
+  }
+
 
 -- | Represents the facet being added to the object.
 baftoSchemaFacet :: Lens' BatchAddFacetToObject SchemaFacet
@@ -234,9 +234,9 @@ baftoObjectAttributeList = lens _baftoObjectAttributeList (\ s a -> s{_baftoObje
 baftoObjectReference :: Lens' BatchAddFacetToObject ObjectReference
 baftoObjectReference = lens _baftoObjectReference (\ s a -> s{_baftoObjectReference = a});
 
-instance Hashable BatchAddFacetToObject
+instance Hashable BatchAddFacetToObject where
 
-instance NFData BatchAddFacetToObject
+instance NFData BatchAddFacetToObject where
 
 instance ToJSON BatchAddFacetToObject where
         toJSON BatchAddFacetToObject'{..}
@@ -253,8 +253,9 @@ instance ToJSON BatchAddFacetToObject where
 --
 -- /See:/ 'batchAddFacetToObjectResponse' smart constructor.
 data BatchAddFacetToObjectResponse =
-    BatchAddFacetToObjectResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  BatchAddFacetToObjectResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAddFacetToObjectResponse' with the minimum fields required to make a request.
 --
@@ -262,14 +263,15 @@ batchAddFacetToObjectResponse
     :: BatchAddFacetToObjectResponse
 batchAddFacetToObjectResponse = BatchAddFacetToObjectResponse'
 
+
 instance FromJSON BatchAddFacetToObjectResponse where
         parseJSON
           = withObject "BatchAddFacetToObjectResponse"
               (\ x -> pure BatchAddFacetToObjectResponse')
 
-instance Hashable BatchAddFacetToObjectResponse
+instance Hashable BatchAddFacetToObjectResponse where
 
-instance NFData BatchAddFacetToObjectResponse
+instance NFData BatchAddFacetToObjectResponse where
 
 -- | Represents the output of an 'AttachObject' operation.
 --
@@ -277,10 +279,11 @@ instance NFData BatchAddFacetToObjectResponse
 --
 -- /See:/ 'batchAttachObject' smart constructor.
 data BatchAttachObject = BatchAttachObject'
-    { _baoParentReference :: !ObjectReference
-    , _baoChildReference  :: !ObjectReference
-    , _baoLinkName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _baoParentReference :: {-# NOUNPACK #-}!ObjectReference
+  , _baoChildReference  :: {-# NOUNPACK #-}!ObjectReference
+  , _baoLinkName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAttachObject' with the minimum fields required to make a request.
 --
@@ -297,11 +300,12 @@ batchAttachObject
     -> Text -- ^ 'baoLinkName'
     -> BatchAttachObject
 batchAttachObject pParentReference_ pChildReference_ pLinkName_ =
-    BatchAttachObject'
-    { _baoParentReference = pParentReference_
-    , _baoChildReference = pChildReference_
-    , _baoLinkName = pLinkName_
-    }
+  BatchAttachObject'
+  { _baoParentReference = pParentReference_
+  , _baoChildReference = pChildReference_
+  , _baoLinkName = pLinkName_
+  }
+
 
 -- | The parent object reference.
 baoParentReference :: Lens' BatchAttachObject ObjectReference
@@ -315,9 +319,9 @@ baoChildReference = lens _baoChildReference (\ s a -> s{_baoChildReference = a})
 baoLinkName :: Lens' BatchAttachObject Text
 baoLinkName = lens _baoLinkName (\ s a -> s{_baoLinkName = a});
 
-instance Hashable BatchAttachObject
+instance Hashable BatchAttachObject where
 
-instance NFData BatchAttachObject
+instance NFData BatchAttachObject where
 
 instance ToJSON BatchAttachObject where
         toJSON BatchAttachObject'{..}
@@ -333,8 +337,9 @@ instance ToJSON BatchAttachObject where
 --
 -- /See:/ 'batchAttachObjectResponse' smart constructor.
 newtype BatchAttachObjectResponse = BatchAttachObjectResponse'
-    { _baoAttachedObjectIdentifier :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _baoAttachedObjectIdentifier :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAttachObjectResponse' with the minimum fields required to make a request.
 --
@@ -344,9 +349,8 @@ newtype BatchAttachObjectResponse = BatchAttachObjectResponse'
 batchAttachObjectResponse
     :: BatchAttachObjectResponse
 batchAttachObjectResponse =
-    BatchAttachObjectResponse'
-    { _baoAttachedObjectIdentifier = Nothing
-    }
+  BatchAttachObjectResponse' {_baoAttachedObjectIdentifier = Nothing}
+
 
 -- | The @ObjectIdentifier@ of the object that has been attached.
 baoAttachedObjectIdentifier :: Lens' BatchAttachObjectResponse (Maybe Text)
@@ -359,9 +363,9 @@ instance FromJSON BatchAttachObjectResponse where
                  BatchAttachObjectResponse' <$>
                    (x .:? "attachedObjectIdentifier"))
 
-instance Hashable BatchAttachObjectResponse
+instance Hashable BatchAttachObjectResponse where
 
-instance NFData BatchAttachObjectResponse
+instance NFData BatchAttachObjectResponse where
 
 -- | Attaches a policy object to a regular object inside a 'BatchRead' operation. For more information, see 'AttachPolicy' and 'BatchReadRequest$Operations' .
 --
@@ -369,9 +373,10 @@ instance NFData BatchAttachObjectResponse
 --
 -- /See:/ 'batchAttachPolicy' smart constructor.
 data BatchAttachPolicy = BatchAttachPolicy'
-    { _bapPolicyReference :: !ObjectReference
-    , _bapObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bapPolicyReference :: {-# NOUNPACK #-}!ObjectReference
+  , _bapObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAttachPolicy' with the minimum fields required to make a request.
 --
@@ -385,10 +390,11 @@ batchAttachPolicy
     -> ObjectReference -- ^ 'bapObjectReference'
     -> BatchAttachPolicy
 batchAttachPolicy pPolicyReference_ pObjectReference_ =
-    BatchAttachPolicy'
-    { _bapPolicyReference = pPolicyReference_
-    , _bapObjectReference = pObjectReference_
-    }
+  BatchAttachPolicy'
+  { _bapPolicyReference = pPolicyReference_
+  , _bapObjectReference = pObjectReference_
+  }
+
 
 -- | The reference that is associated with the policy object.
 bapPolicyReference :: Lens' BatchAttachPolicy ObjectReference
@@ -398,9 +404,9 @@ bapPolicyReference = lens _bapPolicyReference (\ s a -> s{_bapPolicyReference = 
 bapObjectReference :: Lens' BatchAttachPolicy ObjectReference
 bapObjectReference = lens _bapObjectReference (\ s a -> s{_bapObjectReference = a});
 
-instance Hashable BatchAttachPolicy
+instance Hashable BatchAttachPolicy where
 
-instance NFData BatchAttachPolicy
+instance NFData BatchAttachPolicy where
 
 instance ToJSON BatchAttachPolicy where
         toJSON BatchAttachPolicy'{..}
@@ -415,8 +421,9 @@ instance ToJSON BatchAttachPolicy where
 --
 -- /See:/ 'batchAttachPolicyResponse' smart constructor.
 data BatchAttachPolicyResponse =
-    BatchAttachPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  BatchAttachPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAttachPolicyResponse' with the minimum fields required to make a request.
 --
@@ -424,14 +431,15 @@ batchAttachPolicyResponse
     :: BatchAttachPolicyResponse
 batchAttachPolicyResponse = BatchAttachPolicyResponse'
 
+
 instance FromJSON BatchAttachPolicyResponse where
         parseJSON
           = withObject "BatchAttachPolicyResponse"
               (\ x -> pure BatchAttachPolicyResponse')
 
-instance Hashable BatchAttachPolicyResponse
+instance Hashable BatchAttachPolicyResponse where
 
-instance NFData BatchAttachPolicyResponse
+instance NFData BatchAttachPolicyResponse where
 
 -- | Attaches the specified object to the specified index inside a 'BatchRead' operation. For more information, see 'AttachToIndex' and 'BatchReadRequest$Operations' .
 --
@@ -439,9 +447,10 @@ instance NFData BatchAttachPolicyResponse
 --
 -- /See:/ 'batchAttachToIndex' smart constructor.
 data BatchAttachToIndex = BatchAttachToIndex'
-    { _batiIndexReference  :: !ObjectReference
-    , _batiTargetReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _batiIndexReference  :: {-# NOUNPACK #-}!ObjectReference
+  , _batiTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAttachToIndex' with the minimum fields required to make a request.
 --
@@ -455,10 +464,11 @@ batchAttachToIndex
     -> ObjectReference -- ^ 'batiTargetReference'
     -> BatchAttachToIndex
 batchAttachToIndex pIndexReference_ pTargetReference_ =
-    BatchAttachToIndex'
-    { _batiIndexReference = pIndexReference_
-    , _batiTargetReference = pTargetReference_
-    }
+  BatchAttachToIndex'
+  { _batiIndexReference = pIndexReference_
+  , _batiTargetReference = pTargetReference_
+  }
+
 
 -- | A reference to the index that you are attaching the object to.
 batiIndexReference :: Lens' BatchAttachToIndex ObjectReference
@@ -468,9 +478,9 @@ batiIndexReference = lens _batiIndexReference (\ s a -> s{_batiIndexReference = 
 batiTargetReference :: Lens' BatchAttachToIndex ObjectReference
 batiTargetReference = lens _batiTargetReference (\ s a -> s{_batiTargetReference = a});
 
-instance Hashable BatchAttachToIndex
+instance Hashable BatchAttachToIndex where
 
-instance NFData BatchAttachToIndex
+instance NFData BatchAttachToIndex where
 
 instance ToJSON BatchAttachToIndex where
         toJSON BatchAttachToIndex'{..}
@@ -485,8 +495,9 @@ instance ToJSON BatchAttachToIndex where
 --
 -- /See:/ 'batchAttachToIndexResponse' smart constructor.
 newtype BatchAttachToIndexResponse = BatchAttachToIndexResponse'
-    { _batiAttachedObjectIdentifier :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _batiAttachedObjectIdentifier :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAttachToIndexResponse' with the minimum fields required to make a request.
 --
@@ -496,9 +507,8 @@ newtype BatchAttachToIndexResponse = BatchAttachToIndexResponse'
 batchAttachToIndexResponse
     :: BatchAttachToIndexResponse
 batchAttachToIndexResponse =
-    BatchAttachToIndexResponse'
-    { _batiAttachedObjectIdentifier = Nothing
-    }
+  BatchAttachToIndexResponse' {_batiAttachedObjectIdentifier = Nothing}
+
 
 -- | The @ObjectIdentifier@ of the object that was attached to the index.
 batiAttachedObjectIdentifier :: Lens' BatchAttachToIndexResponse (Maybe Text)
@@ -511,9 +521,9 @@ instance FromJSON BatchAttachToIndexResponse where
                  BatchAttachToIndexResponse' <$>
                    (x .:? "AttachedObjectIdentifier"))
 
-instance Hashable BatchAttachToIndexResponse
+instance Hashable BatchAttachToIndexResponse where
 
-instance NFData BatchAttachToIndexResponse
+instance NFData BatchAttachToIndexResponse where
 
 -- | Attaches a typed link to a specified source and target object inside a 'BatchRead' operation. For more information, see 'AttachTypedLink' and 'BatchReadRequest$Operations' .
 --
@@ -521,11 +531,12 @@ instance NFData BatchAttachToIndexResponse
 --
 -- /See:/ 'batchAttachTypedLink' smart constructor.
 data BatchAttachTypedLink = BatchAttachTypedLink'
-    { _batlSourceObjectReference :: !ObjectReference
-    , _batlTargetObjectReference :: !ObjectReference
-    , _batlTypedLinkFacet        :: !TypedLinkSchemaAndFacetName
-    , _batlAttributes            :: ![AttributeNameAndValue]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _batlSourceObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  , _batlTargetObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  , _batlTypedLinkFacet        :: {-# NOUNPACK #-}!TypedLinkSchemaAndFacetName
+  , _batlAttributes            :: {-# NOUNPACK #-}![AttributeNameAndValue]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAttachTypedLink' with the minimum fields required to make a request.
 --
@@ -544,12 +555,13 @@ batchAttachTypedLink
     -> TypedLinkSchemaAndFacetName -- ^ 'batlTypedLinkFacet'
     -> BatchAttachTypedLink
 batchAttachTypedLink pSourceObjectReference_ pTargetObjectReference_ pTypedLinkFacet_ =
-    BatchAttachTypedLink'
-    { _batlSourceObjectReference = pSourceObjectReference_
-    , _batlTargetObjectReference = pTargetObjectReference_
-    , _batlTypedLinkFacet = pTypedLinkFacet_
-    , _batlAttributes = mempty
-    }
+  BatchAttachTypedLink'
+  { _batlSourceObjectReference = pSourceObjectReference_
+  , _batlTargetObjectReference = pTargetObjectReference_
+  , _batlTypedLinkFacet = pTypedLinkFacet_
+  , _batlAttributes = mempty
+  }
+
 
 -- | Identifies the source object that the typed link will attach to.
 batlSourceObjectReference :: Lens' BatchAttachTypedLink ObjectReference
@@ -567,9 +579,9 @@ batlTypedLinkFacet = lens _batlTypedLinkFacet (\ s a -> s{_batlTypedLinkFacet = 
 batlAttributes :: Lens' BatchAttachTypedLink [AttributeNameAndValue]
 batlAttributes = lens _batlAttributes (\ s a -> s{_batlAttributes = a}) . _Coerce;
 
-instance Hashable BatchAttachTypedLink
+instance Hashable BatchAttachTypedLink where
 
-instance NFData BatchAttachTypedLink
+instance NFData BatchAttachTypedLink where
 
 instance ToJSON BatchAttachTypedLink where
         toJSON BatchAttachTypedLink'{..}
@@ -590,8 +602,9 @@ instance ToJSON BatchAttachTypedLink where
 --
 -- /See:/ 'batchAttachTypedLinkResponse' smart constructor.
 newtype BatchAttachTypedLinkResponse = BatchAttachTypedLinkResponse'
-    { _batlTypedLinkSpecifier :: Maybe TypedLinkSpecifier
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _batlTypedLinkSpecifier :: Maybe TypedLinkSpecifier
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchAttachTypedLinkResponse' with the minimum fields required to make a request.
 --
@@ -601,9 +614,8 @@ newtype BatchAttachTypedLinkResponse = BatchAttachTypedLinkResponse'
 batchAttachTypedLinkResponse
     :: BatchAttachTypedLinkResponse
 batchAttachTypedLinkResponse =
-    BatchAttachTypedLinkResponse'
-    { _batlTypedLinkSpecifier = Nothing
-    }
+  BatchAttachTypedLinkResponse' {_batlTypedLinkSpecifier = Nothing}
+
 
 -- | Returns a typed link specifier as output.
 batlTypedLinkSpecifier :: Lens' BatchAttachTypedLinkResponse (Maybe TypedLinkSpecifier)
@@ -616,9 +628,9 @@ instance FromJSON BatchAttachTypedLinkResponse where
                  BatchAttachTypedLinkResponse' <$>
                    (x .:? "TypedLinkSpecifier"))
 
-instance Hashable BatchAttachTypedLinkResponse
+instance Hashable BatchAttachTypedLinkResponse where
 
-instance NFData BatchAttachTypedLinkResponse
+instance NFData BatchAttachTypedLinkResponse where
 
 -- | Creates an index object inside of a 'BatchRead' operation. For more information, see 'CreateIndex' and 'BatchReadRequest$Operations' .
 --
@@ -626,12 +638,13 @@ instance NFData BatchAttachTypedLinkResponse
 --
 -- /See:/ 'batchCreateIndex' smart constructor.
 data BatchCreateIndex = BatchCreateIndex'
-    { _bciParentReference             :: !(Maybe ObjectReference)
-    , _bciLinkName                    :: !(Maybe Text)
-    , _bciBatchReferenceName          :: !(Maybe Text)
-    , _bciOrderedIndexedAttributeList :: ![AttributeKey]
-    , _bciIsUnique                    :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bciParentReference             :: {-# NOUNPACK #-}!(Maybe ObjectReference)
+  , _bciLinkName                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bciBatchReferenceName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bciOrderedIndexedAttributeList :: {-# NOUNPACK #-}![AttributeKey]
+  , _bciIsUnique                    :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchCreateIndex' with the minimum fields required to make a request.
 --
@@ -650,13 +663,14 @@ batchCreateIndex
     :: Bool -- ^ 'bciIsUnique'
     -> BatchCreateIndex
 batchCreateIndex pIsUnique_ =
-    BatchCreateIndex'
-    { _bciParentReference = Nothing
-    , _bciLinkName = Nothing
-    , _bciBatchReferenceName = Nothing
-    , _bciOrderedIndexedAttributeList = mempty
-    , _bciIsUnique = pIsUnique_
-    }
+  BatchCreateIndex'
+  { _bciParentReference = Nothing
+  , _bciLinkName = Nothing
+  , _bciBatchReferenceName = Nothing
+  , _bciOrderedIndexedAttributeList = mempty
+  , _bciIsUnique = pIsUnique_
+  }
+
 
 -- | A reference to the parent object that contains the index object.
 bciParentReference :: Lens' BatchCreateIndex (Maybe ObjectReference)
@@ -678,9 +692,9 @@ bciOrderedIndexedAttributeList = lens _bciOrderedIndexedAttributeList (\ s a -> 
 bciIsUnique :: Lens' BatchCreateIndex Bool
 bciIsUnique = lens _bciIsUnique (\ s a -> s{_bciIsUnique = a});
 
-instance Hashable BatchCreateIndex
+instance Hashable BatchCreateIndex where
 
-instance NFData BatchCreateIndex
+instance NFData BatchCreateIndex where
 
 instance ToJSON BatchCreateIndex where
         toJSON BatchCreateIndex'{..}
@@ -700,8 +714,9 @@ instance ToJSON BatchCreateIndex where
 --
 -- /See:/ 'batchCreateIndexResponse' smart constructor.
 newtype BatchCreateIndexResponse = BatchCreateIndexResponse'
-    { _bciObjectIdentifier :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bciObjectIdentifier :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchCreateIndexResponse' with the minimum fields required to make a request.
 --
@@ -711,9 +726,8 @@ newtype BatchCreateIndexResponse = BatchCreateIndexResponse'
 batchCreateIndexResponse
     :: BatchCreateIndexResponse
 batchCreateIndexResponse =
-    BatchCreateIndexResponse'
-    { _bciObjectIdentifier = Nothing
-    }
+  BatchCreateIndexResponse' {_bciObjectIdentifier = Nothing}
+
 
 -- | The @ObjectIdentifier@ of the index created by this operation.
 bciObjectIdentifier :: Lens' BatchCreateIndexResponse (Maybe Text)
@@ -726,9 +740,9 @@ instance FromJSON BatchCreateIndexResponse where
                  BatchCreateIndexResponse' <$>
                    (x .:? "ObjectIdentifier"))
 
-instance Hashable BatchCreateIndexResponse
+instance Hashable BatchCreateIndexResponse where
 
-instance NFData BatchCreateIndexResponse
+instance NFData BatchCreateIndexResponse where
 
 -- | Represents the output of a 'CreateObject' operation.
 --
@@ -736,12 +750,13 @@ instance NFData BatchCreateIndexResponse
 --
 -- /See:/ 'batchCreateObject' smart constructor.
 data BatchCreateObject = BatchCreateObject'
-    { _bcoSchemaFacet         :: ![SchemaFacet]
-    , _bcoObjectAttributeList :: ![AttributeKeyAndValue]
-    , _bcoParentReference     :: !ObjectReference
-    , _bcoLinkName            :: !Text
-    , _bcoBatchReferenceName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bcoSchemaFacet         :: {-# NOUNPACK #-}![SchemaFacet]
+  , _bcoObjectAttributeList :: {-# NOUNPACK #-}![AttributeKeyAndValue]
+  , _bcoParentReference     :: {-# NOUNPACK #-}!ObjectReference
+  , _bcoLinkName            :: {-# NOUNPACK #-}!Text
+  , _bcoBatchReferenceName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchCreateObject' with the minimum fields required to make a request.
 --
@@ -762,13 +777,14 @@ batchCreateObject
     -> Text -- ^ 'bcoBatchReferenceName'
     -> BatchCreateObject
 batchCreateObject pParentReference_ pLinkName_ pBatchReferenceName_ =
-    BatchCreateObject'
-    { _bcoSchemaFacet = mempty
-    , _bcoObjectAttributeList = mempty
-    , _bcoParentReference = pParentReference_
-    , _bcoLinkName = pLinkName_
-    , _bcoBatchReferenceName = pBatchReferenceName_
-    }
+  BatchCreateObject'
+  { _bcoSchemaFacet = mempty
+  , _bcoObjectAttributeList = mempty
+  , _bcoParentReference = pParentReference_
+  , _bcoLinkName = pLinkName_
+  , _bcoBatchReferenceName = pBatchReferenceName_
+  }
+
 
 -- | A list of @FacetArns@ that will be associated with the object. For more information, see 'arns' .
 bcoSchemaFacet :: Lens' BatchCreateObject [SchemaFacet]
@@ -790,9 +806,9 @@ bcoLinkName = lens _bcoLinkName (\ s a -> s{_bcoLinkName = a});
 bcoBatchReferenceName :: Lens' BatchCreateObject Text
 bcoBatchReferenceName = lens _bcoBatchReferenceName (\ s a -> s{_bcoBatchReferenceName = a});
 
-instance Hashable BatchCreateObject
+instance Hashable BatchCreateObject where
 
-instance NFData BatchCreateObject
+instance NFData BatchCreateObject where
 
 instance ToJSON BatchCreateObject where
         toJSON BatchCreateObject'{..}
@@ -812,8 +828,9 @@ instance ToJSON BatchCreateObject where
 --
 -- /See:/ 'batchCreateObjectResponse' smart constructor.
 newtype BatchCreateObjectResponse = BatchCreateObjectResponse'
-    { _bcoObjectIdentifier :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bcoObjectIdentifier :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchCreateObjectResponse' with the minimum fields required to make a request.
 --
@@ -823,9 +840,8 @@ newtype BatchCreateObjectResponse = BatchCreateObjectResponse'
 batchCreateObjectResponse
     :: BatchCreateObjectResponse
 batchCreateObjectResponse =
-    BatchCreateObjectResponse'
-    { _bcoObjectIdentifier = Nothing
-    }
+  BatchCreateObjectResponse' {_bcoObjectIdentifier = Nothing}
+
 
 -- | The ID that is associated with the object.
 bcoObjectIdentifier :: Lens' BatchCreateObjectResponse (Maybe Text)
@@ -838,9 +854,9 @@ instance FromJSON BatchCreateObjectResponse where
                  BatchCreateObjectResponse' <$>
                    (x .:? "ObjectIdentifier"))
 
-instance Hashable BatchCreateObjectResponse
+instance Hashable BatchCreateObjectResponse where
 
-instance NFData BatchCreateObjectResponse
+instance NFData BatchCreateObjectResponse where
 
 -- | Represents the output of a 'DeleteObject' operation.
 --
@@ -848,8 +864,9 @@ instance NFData BatchCreateObjectResponse
 --
 -- /See:/ 'batchDeleteObject' smart constructor.
 newtype BatchDeleteObject = BatchDeleteObject'
-    { _bdoObjectReference :: ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdoObjectReference :: ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteObject' with the minimum fields required to make a request.
 --
@@ -860,17 +877,16 @@ batchDeleteObject
     :: ObjectReference -- ^ 'bdoObjectReference'
     -> BatchDeleteObject
 batchDeleteObject pObjectReference_ =
-    BatchDeleteObject'
-    { _bdoObjectReference = pObjectReference_
-    }
+  BatchDeleteObject' {_bdoObjectReference = pObjectReference_}
+
 
 -- | The reference that identifies the object.
 bdoObjectReference :: Lens' BatchDeleteObject ObjectReference
 bdoObjectReference = lens _bdoObjectReference (\ s a -> s{_bdoObjectReference = a});
 
-instance Hashable BatchDeleteObject
+instance Hashable BatchDeleteObject where
 
-instance NFData BatchDeleteObject
+instance NFData BatchDeleteObject where
 
 instance ToJSON BatchDeleteObject where
         toJSON BatchDeleteObject'{..}
@@ -884,8 +900,9 @@ instance ToJSON BatchDeleteObject where
 --
 -- /See:/ 'batchDeleteObjectResponse' smart constructor.
 data BatchDeleteObjectResponse =
-    BatchDeleteObjectResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  BatchDeleteObjectResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeleteObjectResponse' with the minimum fields required to make a request.
 --
@@ -893,14 +910,15 @@ batchDeleteObjectResponse
     :: BatchDeleteObjectResponse
 batchDeleteObjectResponse = BatchDeleteObjectResponse'
 
+
 instance FromJSON BatchDeleteObjectResponse where
         parseJSON
           = withObject "BatchDeleteObjectResponse"
               (\ x -> pure BatchDeleteObjectResponse')
 
-instance Hashable BatchDeleteObjectResponse
+instance Hashable BatchDeleteObjectResponse where
 
-instance NFData BatchDeleteObjectResponse
+instance NFData BatchDeleteObjectResponse where
 
 -- | Detaches the specified object from the specified index inside a 'BatchRead' operation. For more information, see 'DetachFromIndex' and 'BatchReadRequest$Operations' .
 --
@@ -908,9 +926,10 @@ instance NFData BatchDeleteObjectResponse
 --
 -- /See:/ 'batchDetachFromIndex' smart constructor.
 data BatchDetachFromIndex = BatchDetachFromIndex'
-    { _bdfiIndexReference  :: !ObjectReference
-    , _bdfiTargetReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdfiIndexReference  :: {-# NOUNPACK #-}!ObjectReference
+  , _bdfiTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDetachFromIndex' with the minimum fields required to make a request.
 --
@@ -924,10 +943,11 @@ batchDetachFromIndex
     -> ObjectReference -- ^ 'bdfiTargetReference'
     -> BatchDetachFromIndex
 batchDetachFromIndex pIndexReference_ pTargetReference_ =
-    BatchDetachFromIndex'
-    { _bdfiIndexReference = pIndexReference_
-    , _bdfiTargetReference = pTargetReference_
-    }
+  BatchDetachFromIndex'
+  { _bdfiIndexReference = pIndexReference_
+  , _bdfiTargetReference = pTargetReference_
+  }
+
 
 -- | A reference to the index object.
 bdfiIndexReference :: Lens' BatchDetachFromIndex ObjectReference
@@ -937,9 +957,9 @@ bdfiIndexReference = lens _bdfiIndexReference (\ s a -> s{_bdfiIndexReference = 
 bdfiTargetReference :: Lens' BatchDetachFromIndex ObjectReference
 bdfiTargetReference = lens _bdfiTargetReference (\ s a -> s{_bdfiTargetReference = a});
 
-instance Hashable BatchDetachFromIndex
+instance Hashable BatchDetachFromIndex where
 
-instance NFData BatchDetachFromIndex
+instance NFData BatchDetachFromIndex where
 
 instance ToJSON BatchDetachFromIndex where
         toJSON BatchDetachFromIndex'{..}
@@ -954,8 +974,9 @@ instance ToJSON BatchDetachFromIndex where
 --
 -- /See:/ 'batchDetachFromIndexResponse' smart constructor.
 newtype BatchDetachFromIndexResponse = BatchDetachFromIndexResponse'
-    { _bdfiDetachedObjectIdentifier :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdfiDetachedObjectIdentifier :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDetachFromIndexResponse' with the minimum fields required to make a request.
 --
@@ -965,9 +986,8 @@ newtype BatchDetachFromIndexResponse = BatchDetachFromIndexResponse'
 batchDetachFromIndexResponse
     :: BatchDetachFromIndexResponse
 batchDetachFromIndexResponse =
-    BatchDetachFromIndexResponse'
-    { _bdfiDetachedObjectIdentifier = Nothing
-    }
+  BatchDetachFromIndexResponse' {_bdfiDetachedObjectIdentifier = Nothing}
+
 
 -- | The @ObjectIdentifier@ of the object that was detached from the index.
 bdfiDetachedObjectIdentifier :: Lens' BatchDetachFromIndexResponse (Maybe Text)
@@ -980,9 +1000,9 @@ instance FromJSON BatchDetachFromIndexResponse where
                  BatchDetachFromIndexResponse' <$>
                    (x .:? "DetachedObjectIdentifier"))
 
-instance Hashable BatchDetachFromIndexResponse
+instance Hashable BatchDetachFromIndexResponse where
 
-instance NFData BatchDetachFromIndexResponse
+instance NFData BatchDetachFromIndexResponse where
 
 -- | Represents the output of a 'DetachObject' operation.
 --
@@ -990,10 +1010,11 @@ instance NFData BatchDetachFromIndexResponse
 --
 -- /See:/ 'batchDetachObject' smart constructor.
 data BatchDetachObject = BatchDetachObject'
-    { _bdoParentReference    :: !ObjectReference
-    , _bdoLinkName           :: !Text
-    , _bdoBatchReferenceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdoParentReference    :: {-# NOUNPACK #-}!ObjectReference
+  , _bdoLinkName           :: {-# NOUNPACK #-}!Text
+  , _bdoBatchReferenceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDetachObject' with the minimum fields required to make a request.
 --
@@ -1010,11 +1031,12 @@ batchDetachObject
     -> Text -- ^ 'bdoBatchReferenceName'
     -> BatchDetachObject
 batchDetachObject pParentReference_ pLinkName_ pBatchReferenceName_ =
-    BatchDetachObject'
-    { _bdoParentReference = pParentReference_
-    , _bdoLinkName = pLinkName_
-    , _bdoBatchReferenceName = pBatchReferenceName_
-    }
+  BatchDetachObject'
+  { _bdoParentReference = pParentReference_
+  , _bdoLinkName = pLinkName_
+  , _bdoBatchReferenceName = pBatchReferenceName_
+  }
+
 
 -- | Parent reference from which the object with the specified link name is detached.
 bdoParentReference :: Lens' BatchDetachObject ObjectReference
@@ -1028,9 +1050,9 @@ bdoLinkName = lens _bdoLinkName (\ s a -> s{_bdoLinkName = a});
 bdoBatchReferenceName :: Lens' BatchDetachObject Text
 bdoBatchReferenceName = lens _bdoBatchReferenceName (\ s a -> s{_bdoBatchReferenceName = a});
 
-instance Hashable BatchDetachObject
+instance Hashable BatchDetachObject where
 
-instance NFData BatchDetachObject
+instance NFData BatchDetachObject where
 
 instance ToJSON BatchDetachObject where
         toJSON BatchDetachObject'{..}
@@ -1047,8 +1069,9 @@ instance ToJSON BatchDetachObject where
 --
 -- /See:/ 'batchDetachObjectResponse' smart constructor.
 newtype BatchDetachObjectResponse = BatchDetachObjectResponse'
-    { _bdoDetachedObjectIdentifier :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdoDetachedObjectIdentifier :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDetachObjectResponse' with the minimum fields required to make a request.
 --
@@ -1058,9 +1081,8 @@ newtype BatchDetachObjectResponse = BatchDetachObjectResponse'
 batchDetachObjectResponse
     :: BatchDetachObjectResponse
 batchDetachObjectResponse =
-    BatchDetachObjectResponse'
-    { _bdoDetachedObjectIdentifier = Nothing
-    }
+  BatchDetachObjectResponse' {_bdoDetachedObjectIdentifier = Nothing}
+
 
 -- | The @ObjectIdentifier@ of the detached object.
 bdoDetachedObjectIdentifier :: Lens' BatchDetachObjectResponse (Maybe Text)
@@ -1073,9 +1095,9 @@ instance FromJSON BatchDetachObjectResponse where
                  BatchDetachObjectResponse' <$>
                    (x .:? "detachedObjectIdentifier"))
 
-instance Hashable BatchDetachObjectResponse
+instance Hashable BatchDetachObjectResponse where
 
-instance NFData BatchDetachObjectResponse
+instance NFData BatchDetachObjectResponse where
 
 -- | Detaches the specified policy from the specified directory inside a 'BatchRead' operation. For more information, see 'DetachPolicy' and 'BatchReadRequest$Operations' .
 --
@@ -1083,9 +1105,10 @@ instance NFData BatchDetachObjectResponse
 --
 -- /See:/ 'batchDetachPolicy' smart constructor.
 data BatchDetachPolicy = BatchDetachPolicy'
-    { _bdpPolicyReference :: !ObjectReference
-    , _bdpObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdpPolicyReference :: {-# NOUNPACK #-}!ObjectReference
+  , _bdpObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDetachPolicy' with the minimum fields required to make a request.
 --
@@ -1099,10 +1122,11 @@ batchDetachPolicy
     -> ObjectReference -- ^ 'bdpObjectReference'
     -> BatchDetachPolicy
 batchDetachPolicy pPolicyReference_ pObjectReference_ =
-    BatchDetachPolicy'
-    { _bdpPolicyReference = pPolicyReference_
-    , _bdpObjectReference = pObjectReference_
-    }
+  BatchDetachPolicy'
+  { _bdpPolicyReference = pPolicyReference_
+  , _bdpObjectReference = pObjectReference_
+  }
+
 
 -- | Reference that identifies the policy object.
 bdpPolicyReference :: Lens' BatchDetachPolicy ObjectReference
@@ -1112,9 +1136,9 @@ bdpPolicyReference = lens _bdpPolicyReference (\ s a -> s{_bdpPolicyReference = 
 bdpObjectReference :: Lens' BatchDetachPolicy ObjectReference
 bdpObjectReference = lens _bdpObjectReference (\ s a -> s{_bdpObjectReference = a});
 
-instance Hashable BatchDetachPolicy
+instance Hashable BatchDetachPolicy where
 
-instance NFData BatchDetachPolicy
+instance NFData BatchDetachPolicy where
 
 instance ToJSON BatchDetachPolicy where
         toJSON BatchDetachPolicy'{..}
@@ -1129,8 +1153,9 @@ instance ToJSON BatchDetachPolicy where
 --
 -- /See:/ 'batchDetachPolicyResponse' smart constructor.
 data BatchDetachPolicyResponse =
-    BatchDetachPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  BatchDetachPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDetachPolicyResponse' with the minimum fields required to make a request.
 --
@@ -1138,14 +1163,15 @@ batchDetachPolicyResponse
     :: BatchDetachPolicyResponse
 batchDetachPolicyResponse = BatchDetachPolicyResponse'
 
+
 instance FromJSON BatchDetachPolicyResponse where
         parseJSON
           = withObject "BatchDetachPolicyResponse"
               (\ x -> pure BatchDetachPolicyResponse')
 
-instance Hashable BatchDetachPolicyResponse
+instance Hashable BatchDetachPolicyResponse where
 
-instance NFData BatchDetachPolicyResponse
+instance NFData BatchDetachPolicyResponse where
 
 -- | Detaches a typed link from a specified source and target object inside a 'BatchRead' operation. For more information, see 'DetachTypedLink' and 'BatchReadRequest$Operations' .
 --
@@ -1153,8 +1179,9 @@ instance NFData BatchDetachPolicyResponse
 --
 -- /See:/ 'batchDetachTypedLink' smart constructor.
 newtype BatchDetachTypedLink = BatchDetachTypedLink'
-    { _bdtlTypedLinkSpecifier :: TypedLinkSpecifier
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdtlTypedLinkSpecifier :: TypedLinkSpecifier
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDetachTypedLink' with the minimum fields required to make a request.
 --
@@ -1165,17 +1192,16 @@ batchDetachTypedLink
     :: TypedLinkSpecifier -- ^ 'bdtlTypedLinkSpecifier'
     -> BatchDetachTypedLink
 batchDetachTypedLink pTypedLinkSpecifier_ =
-    BatchDetachTypedLink'
-    { _bdtlTypedLinkSpecifier = pTypedLinkSpecifier_
-    }
+  BatchDetachTypedLink' {_bdtlTypedLinkSpecifier = pTypedLinkSpecifier_}
+
 
 -- | Used to accept a typed link specifier as input.
 bdtlTypedLinkSpecifier :: Lens' BatchDetachTypedLink TypedLinkSpecifier
 bdtlTypedLinkSpecifier = lens _bdtlTypedLinkSpecifier (\ s a -> s{_bdtlTypedLinkSpecifier = a});
 
-instance Hashable BatchDetachTypedLink
+instance Hashable BatchDetachTypedLink where
 
-instance NFData BatchDetachTypedLink
+instance NFData BatchDetachTypedLink where
 
 instance ToJSON BatchDetachTypedLink where
         toJSON BatchDetachTypedLink'{..}
@@ -1190,8 +1216,9 @@ instance ToJSON BatchDetachTypedLink where
 --
 -- /See:/ 'batchDetachTypedLinkResponse' smart constructor.
 data BatchDetachTypedLinkResponse =
-    BatchDetachTypedLinkResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  BatchDetachTypedLinkResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDetachTypedLinkResponse' with the minimum fields required to make a request.
 --
@@ -1199,14 +1226,15 @@ batchDetachTypedLinkResponse
     :: BatchDetachTypedLinkResponse
 batchDetachTypedLinkResponse = BatchDetachTypedLinkResponse'
 
+
 instance FromJSON BatchDetachTypedLinkResponse where
         parseJSON
           = withObject "BatchDetachTypedLinkResponse"
               (\ x -> pure BatchDetachTypedLinkResponse')
 
-instance Hashable BatchDetachTypedLinkResponse
+instance Hashable BatchDetachTypedLinkResponse where
 
-instance NFData BatchDetachTypedLinkResponse
+instance NFData BatchDetachTypedLinkResponse where
 
 -- | Retrieves metadata about an object inside a 'BatchRead' operation. For more information, see 'GetObjectInformation' and 'BatchReadRequest$Operations' .
 --
@@ -1214,8 +1242,9 @@ instance NFData BatchDetachTypedLinkResponse
 --
 -- /See:/ 'batchGetObjectInformation' smart constructor.
 newtype BatchGetObjectInformation = BatchGetObjectInformation'
-    { _bgoiObjectReference :: ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgoiObjectReference :: ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetObjectInformation' with the minimum fields required to make a request.
 --
@@ -1226,17 +1255,16 @@ batchGetObjectInformation
     :: ObjectReference -- ^ 'bgoiObjectReference'
     -> BatchGetObjectInformation
 batchGetObjectInformation pObjectReference_ =
-    BatchGetObjectInformation'
-    { _bgoiObjectReference = pObjectReference_
-    }
+  BatchGetObjectInformation' {_bgoiObjectReference = pObjectReference_}
+
 
 -- | A reference to the object.
 bgoiObjectReference :: Lens' BatchGetObjectInformation ObjectReference
 bgoiObjectReference = lens _bgoiObjectReference (\ s a -> s{_bgoiObjectReference = a});
 
-instance Hashable BatchGetObjectInformation
+instance Hashable BatchGetObjectInformation where
 
-instance NFData BatchGetObjectInformation
+instance NFData BatchGetObjectInformation where
 
 instance ToJSON BatchGetObjectInformation where
         toJSON BatchGetObjectInformation'{..}
@@ -1250,9 +1278,10 @@ instance ToJSON BatchGetObjectInformation where
 --
 -- /See:/ 'batchGetObjectInformationResponse' smart constructor.
 data BatchGetObjectInformationResponse = BatchGetObjectInformationResponse'
-    { _bgoiObjectIdentifier :: !(Maybe Text)
-    , _bgoiSchemaFacets     :: !(Maybe [SchemaFacet])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgoiObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bgoiSchemaFacets     :: {-# NOUNPACK #-}!(Maybe [SchemaFacet])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetObjectInformationResponse' with the minimum fields required to make a request.
 --
@@ -1264,10 +1293,9 @@ data BatchGetObjectInformationResponse = BatchGetObjectInformationResponse'
 batchGetObjectInformationResponse
     :: BatchGetObjectInformationResponse
 batchGetObjectInformationResponse =
-    BatchGetObjectInformationResponse'
-    { _bgoiObjectIdentifier = Nothing
-    , _bgoiSchemaFacets = Nothing
-    }
+  BatchGetObjectInformationResponse'
+  {_bgoiObjectIdentifier = Nothing, _bgoiSchemaFacets = Nothing}
+
 
 -- | The @ObjectIdentifier@ of the specified object.
 bgoiObjectIdentifier :: Lens' BatchGetObjectInformationResponse (Maybe Text)
@@ -1287,8 +1315,10 @@ instance FromJSON BatchGetObjectInformationResponse
                      (x .:? "SchemaFacets" .!= mempty))
 
 instance Hashable BatchGetObjectInformationResponse
+         where
 
 instance NFData BatchGetObjectInformationResponse
+         where
 
 -- | Lists indices attached to an object inside a 'BatchRead' operation. For more information, see 'ListAttachedIndices' and 'BatchReadRequest$Operations' .
 --
@@ -1296,10 +1326,11 @@ instance NFData BatchGetObjectInformationResponse
 --
 -- /See:/ 'batchListAttachedIndices' smart constructor.
 data BatchListAttachedIndices = BatchListAttachedIndices'
-    { _blaisNextToken       :: !(Maybe Text)
-    , _blaisMaxResults      :: !(Maybe Nat)
-    , _blaisTargetReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blaisNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _blaisMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _blaisTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListAttachedIndices' with the minimum fields required to make a request.
 --
@@ -1314,11 +1345,12 @@ batchListAttachedIndices
     :: ObjectReference -- ^ 'blaisTargetReference'
     -> BatchListAttachedIndices
 batchListAttachedIndices pTargetReference_ =
-    BatchListAttachedIndices'
-    { _blaisNextToken = Nothing
-    , _blaisMaxResults = Nothing
-    , _blaisTargetReference = pTargetReference_
-    }
+  BatchListAttachedIndices'
+  { _blaisNextToken = Nothing
+  , _blaisMaxResults = Nothing
+  , _blaisTargetReference = pTargetReference_
+  }
+
 
 -- | The pagination token.
 blaisNextToken :: Lens' BatchListAttachedIndices (Maybe Text)
@@ -1332,9 +1364,9 @@ blaisMaxResults = lens _blaisMaxResults (\ s a -> s{_blaisMaxResults = a}) . map
 blaisTargetReference :: Lens' BatchListAttachedIndices ObjectReference
 blaisTargetReference = lens _blaisTargetReference (\ s a -> s{_blaisTargetReference = a});
 
-instance Hashable BatchListAttachedIndices
+instance Hashable BatchListAttachedIndices where
 
-instance NFData BatchListAttachedIndices
+instance NFData BatchListAttachedIndices where
 
 instance ToJSON BatchListAttachedIndices where
         toJSON BatchListAttachedIndices'{..}
@@ -1350,9 +1382,10 @@ instance ToJSON BatchListAttachedIndices where
 --
 -- /See:/ 'batchListAttachedIndicesResponse' smart constructor.
 data BatchListAttachedIndicesResponse = BatchListAttachedIndicesResponse'
-    { _blaiIndexAttachments :: !(Maybe [IndexAttachment])
-    , _blaiNextToken        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blaiIndexAttachments :: {-# NOUNPACK #-}!(Maybe [IndexAttachment])
+  , _blaiNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListAttachedIndicesResponse' with the minimum fields required to make a request.
 --
@@ -1364,10 +1397,9 @@ data BatchListAttachedIndicesResponse = BatchListAttachedIndicesResponse'
 batchListAttachedIndicesResponse
     :: BatchListAttachedIndicesResponse
 batchListAttachedIndicesResponse =
-    BatchListAttachedIndicesResponse'
-    { _blaiIndexAttachments = Nothing
-    , _blaiNextToken = Nothing
-    }
+  BatchListAttachedIndicesResponse'
+  {_blaiIndexAttachments = Nothing, _blaiNextToken = Nothing}
+
 
 -- | The indices attached to the specified object.
 blaiIndexAttachments :: Lens' BatchListAttachedIndicesResponse [IndexAttachment]
@@ -1387,8 +1419,10 @@ instance FromJSON BatchListAttachedIndicesResponse
                      (x .:? "NextToken"))
 
 instance Hashable BatchListAttachedIndicesResponse
+         where
 
 instance NFData BatchListAttachedIndicesResponse
+         where
 
 -- | Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object inside a 'BatchRead' operation. For more information, see 'ListIncomingTypedLinks' and 'BatchReadRequest$Operations' .
 --
@@ -1396,12 +1430,13 @@ instance NFData BatchListAttachedIndicesResponse
 --
 -- /See:/ 'batchListIncomingTypedLinks' smart constructor.
 data BatchListIncomingTypedLinks = BatchListIncomingTypedLinks'
-    { _blitlsFilterAttributeRanges :: !(Maybe [TypedLinkAttributeRange])
-    , _blitlsNextToken             :: !(Maybe Text)
-    , _blitlsFilterTypedLink       :: !(Maybe TypedLinkSchemaAndFacetName)
-    , _blitlsMaxResults            :: !(Maybe Nat)
-    , _blitlsObjectReference       :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blitlsFilterAttributeRanges :: {-# NOUNPACK #-}!(Maybe [TypedLinkAttributeRange])
+  , _blitlsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _blitlsFilterTypedLink :: {-# NOUNPACK #-}!(Maybe TypedLinkSchemaAndFacetName)
+  , _blitlsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _blitlsObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListIncomingTypedLinks' with the minimum fields required to make a request.
 --
@@ -1420,13 +1455,14 @@ batchListIncomingTypedLinks
     :: ObjectReference -- ^ 'blitlsObjectReference'
     -> BatchListIncomingTypedLinks
 batchListIncomingTypedLinks pObjectReference_ =
-    BatchListIncomingTypedLinks'
-    { _blitlsFilterAttributeRanges = Nothing
-    , _blitlsNextToken = Nothing
-    , _blitlsFilterTypedLink = Nothing
-    , _blitlsMaxResults = Nothing
-    , _blitlsObjectReference = pObjectReference_
-    }
+  BatchListIncomingTypedLinks'
+  { _blitlsFilterAttributeRanges = Nothing
+  , _blitlsNextToken = Nothing
+  , _blitlsFilterTypedLink = Nothing
+  , _blitlsMaxResults = Nothing
+  , _blitlsObjectReference = pObjectReference_
+  }
+
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
 blitlsFilterAttributeRanges :: Lens' BatchListIncomingTypedLinks [TypedLinkAttributeRange]
@@ -1448,9 +1484,9 @@ blitlsMaxResults = lens _blitlsMaxResults (\ s a -> s{_blitlsMaxResults = a}) . 
 blitlsObjectReference :: Lens' BatchListIncomingTypedLinks ObjectReference
 blitlsObjectReference = lens _blitlsObjectReference (\ s a -> s{_blitlsObjectReference = a});
 
-instance Hashable BatchListIncomingTypedLinks
+instance Hashable BatchListIncomingTypedLinks where
 
-instance NFData BatchListIncomingTypedLinks
+instance NFData BatchListIncomingTypedLinks where
 
 instance ToJSON BatchListIncomingTypedLinks where
         toJSON BatchListIncomingTypedLinks'{..}
@@ -1469,9 +1505,10 @@ instance ToJSON BatchListIncomingTypedLinks where
 --
 -- /See:/ 'batchListIncomingTypedLinksResponse' smart constructor.
 data BatchListIncomingTypedLinksResponse = BatchListIncomingTypedLinksResponse'
-    { _blitlLinkSpecifiers :: !(Maybe [TypedLinkSpecifier])
-    , _blitlNextToken      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blitlLinkSpecifiers :: {-# NOUNPACK #-}!(Maybe [TypedLinkSpecifier])
+  , _blitlNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListIncomingTypedLinksResponse' with the minimum fields required to make a request.
 --
@@ -1483,10 +1520,9 @@ data BatchListIncomingTypedLinksResponse = BatchListIncomingTypedLinksResponse'
 batchListIncomingTypedLinksResponse
     :: BatchListIncomingTypedLinksResponse
 batchListIncomingTypedLinksResponse =
-    BatchListIncomingTypedLinksResponse'
-    { _blitlLinkSpecifiers = Nothing
-    , _blitlNextToken = Nothing
-    }
+  BatchListIncomingTypedLinksResponse'
+  {_blitlLinkSpecifiers = Nothing, _blitlNextToken = Nothing}
+
 
 -- | Returns one or more typed link specifiers as output.
 blitlLinkSpecifiers :: Lens' BatchListIncomingTypedLinksResponse [TypedLinkSpecifier]
@@ -1506,8 +1542,10 @@ instance FromJSON BatchListIncomingTypedLinksResponse
                      (x .:? "NextToken"))
 
 instance Hashable BatchListIncomingTypedLinksResponse
+         where
 
 instance NFData BatchListIncomingTypedLinksResponse
+         where
 
 -- | Lists objects attached to the specified index inside a 'BatchRead' operation. For more information, see 'ListIndex' and 'BatchReadRequest$Operations' .
 --
@@ -1515,11 +1553,12 @@ instance NFData BatchListIncomingTypedLinksResponse
 --
 -- /See:/ 'batchListIndex' smart constructor.
 data BatchListIndex = BatchListIndex'
-    { _batRangesOnIndexedValues :: !(Maybe [ObjectAttributeRange])
-    , _batNextToken             :: !(Maybe Text)
-    , _batMaxResults            :: !(Maybe Nat)
-    , _batIndexReference        :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _batRangesOnIndexedValues :: {-# NOUNPACK #-}!(Maybe [ObjectAttributeRange])
+  , _batNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _batMaxResults            :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _batIndexReference        :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListIndex' with the minimum fields required to make a request.
 --
@@ -1536,12 +1575,13 @@ batchListIndex
     :: ObjectReference -- ^ 'batIndexReference'
     -> BatchListIndex
 batchListIndex pIndexReference_ =
-    BatchListIndex'
-    { _batRangesOnIndexedValues = Nothing
-    , _batNextToken = Nothing
-    , _batMaxResults = Nothing
-    , _batIndexReference = pIndexReference_
-    }
+  BatchListIndex'
+  { _batRangesOnIndexedValues = Nothing
+  , _batNextToken = Nothing
+  , _batMaxResults = Nothing
+  , _batIndexReference = pIndexReference_
+  }
+
 
 -- | Specifies the ranges of indexed values that you want to query.
 batRangesOnIndexedValues :: Lens' BatchListIndex [ObjectAttributeRange]
@@ -1559,9 +1599,9 @@ batMaxResults = lens _batMaxResults (\ s a -> s{_batMaxResults = a}) . mapping _
 batIndexReference :: Lens' BatchListIndex ObjectReference
 batIndexReference = lens _batIndexReference (\ s a -> s{_batIndexReference = a});
 
-instance Hashable BatchListIndex
+instance Hashable BatchListIndex where
 
-instance NFData BatchListIndex
+instance NFData BatchListIndex where
 
 instance ToJSON BatchListIndex where
         toJSON BatchListIndex'{..}
@@ -1579,9 +1619,10 @@ instance ToJSON BatchListIndex where
 --
 -- /See:/ 'batchListIndexResponse' smart constructor.
 data BatchListIndexResponse = BatchListIndexResponse'
-    { _bliIndexAttachments :: !(Maybe [IndexAttachment])
-    , _bliNextToken        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bliIndexAttachments :: {-# NOUNPACK #-}!(Maybe [IndexAttachment])
+  , _bliNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListIndexResponse' with the minimum fields required to make a request.
 --
@@ -1593,10 +1634,9 @@ data BatchListIndexResponse = BatchListIndexResponse'
 batchListIndexResponse
     :: BatchListIndexResponse
 batchListIndexResponse =
-    BatchListIndexResponse'
-    { _bliIndexAttachments = Nothing
-    , _bliNextToken = Nothing
-    }
+  BatchListIndexResponse'
+  {_bliIndexAttachments = Nothing, _bliNextToken = Nothing}
+
 
 -- | The objects and indexed values attached to the index.
 bliIndexAttachments :: Lens' BatchListIndexResponse [IndexAttachment]
@@ -1614,9 +1654,9 @@ instance FromJSON BatchListIndexResponse where
                    (x .:? "IndexAttachments" .!= mempty) <*>
                      (x .:? "NextToken"))
 
-instance Hashable BatchListIndexResponse
+instance Hashable BatchListIndexResponse where
 
-instance NFData BatchListIndexResponse
+instance NFData BatchListIndexResponse where
 
 -- | Represents the output of a 'ListObjectAttributes' operation.
 --
@@ -1624,11 +1664,12 @@ instance NFData BatchListIndexResponse
 --
 -- /See:/ 'batchListObjectAttributes' smart constructor.
 data BatchListObjectAttributes = BatchListObjectAttributes'
-    { _bloaFacetFilter     :: !(Maybe SchemaFacet)
-    , _bloaNextToken       :: !(Maybe Text)
-    , _bloaMaxResults      :: !(Maybe Nat)
-    , _bloaObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bloaFacetFilter     :: {-# NOUNPACK #-}!(Maybe SchemaFacet)
+  , _bloaNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bloaMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _bloaObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListObjectAttributes' with the minimum fields required to make a request.
 --
@@ -1645,12 +1686,13 @@ batchListObjectAttributes
     :: ObjectReference -- ^ 'bloaObjectReference'
     -> BatchListObjectAttributes
 batchListObjectAttributes pObjectReference_ =
-    BatchListObjectAttributes'
-    { _bloaFacetFilter = Nothing
-    , _bloaNextToken = Nothing
-    , _bloaMaxResults = Nothing
-    , _bloaObjectReference = pObjectReference_
-    }
+  BatchListObjectAttributes'
+  { _bloaFacetFilter = Nothing
+  , _bloaNextToken = Nothing
+  , _bloaMaxResults = Nothing
+  , _bloaObjectReference = pObjectReference_
+  }
+
 
 -- | Used to filter the list of object attributes that are associated with a certain facet.
 bloaFacetFilter :: Lens' BatchListObjectAttributes (Maybe SchemaFacet)
@@ -1668,9 +1710,9 @@ bloaMaxResults = lens _bloaMaxResults (\ s a -> s{_bloaMaxResults = a}) . mappin
 bloaObjectReference :: Lens' BatchListObjectAttributes ObjectReference
 bloaObjectReference = lens _bloaObjectReference (\ s a -> s{_bloaObjectReference = a});
 
-instance Hashable BatchListObjectAttributes
+instance Hashable BatchListObjectAttributes where
 
-instance NFData BatchListObjectAttributes
+instance NFData BatchListObjectAttributes where
 
 instance ToJSON BatchListObjectAttributes where
         toJSON BatchListObjectAttributes'{..}
@@ -1687,9 +1729,10 @@ instance ToJSON BatchListObjectAttributes where
 --
 -- /See:/ 'batchListObjectAttributesResponse' smart constructor.
 data BatchListObjectAttributesResponse = BatchListObjectAttributesResponse'
-    { _bNextToken  :: !(Maybe Text)
-    , _bAttributes :: !(Maybe [AttributeKeyAndValue])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bAttributes :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListObjectAttributesResponse' with the minimum fields required to make a request.
 --
@@ -1701,10 +1744,9 @@ data BatchListObjectAttributesResponse = BatchListObjectAttributesResponse'
 batchListObjectAttributesResponse
     :: BatchListObjectAttributesResponse
 batchListObjectAttributesResponse =
-    BatchListObjectAttributesResponse'
-    { _bNextToken = Nothing
-    , _bAttributes = Nothing
-    }
+  BatchListObjectAttributesResponse'
+  {_bNextToken = Nothing, _bAttributes = Nothing}
+
 
 -- | The pagination token.
 bNextToken :: Lens' BatchListObjectAttributesResponse (Maybe Text)
@@ -1724,8 +1766,10 @@ instance FromJSON BatchListObjectAttributesResponse
                      (x .:? "Attributes" .!= mempty))
 
 instance Hashable BatchListObjectAttributesResponse
+         where
 
 instance NFData BatchListObjectAttributesResponse
+         where
 
 -- | Represents the output of a 'ListObjectChildren' operation.
 --
@@ -1733,10 +1777,11 @@ instance NFData BatchListObjectAttributesResponse
 --
 -- /See:/ 'batchListObjectChildren' smart constructor.
 data BatchListObjectChildren = BatchListObjectChildren'
-    { _bloclNextToken       :: !(Maybe Text)
-    , _bloclMaxResults      :: !(Maybe Nat)
-    , _bloclObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bloclNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bloclMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _bloclObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListObjectChildren' with the minimum fields required to make a request.
 --
@@ -1751,11 +1796,12 @@ batchListObjectChildren
     :: ObjectReference -- ^ 'bloclObjectReference'
     -> BatchListObjectChildren
 batchListObjectChildren pObjectReference_ =
-    BatchListObjectChildren'
-    { _bloclNextToken = Nothing
-    , _bloclMaxResults = Nothing
-    , _bloclObjectReference = pObjectReference_
-    }
+  BatchListObjectChildren'
+  { _bloclNextToken = Nothing
+  , _bloclMaxResults = Nothing
+  , _bloclObjectReference = pObjectReference_
+  }
+
 
 -- | The pagination token.
 bloclNextToken :: Lens' BatchListObjectChildren (Maybe Text)
@@ -1769,9 +1815,9 @@ bloclMaxResults = lens _bloclMaxResults (\ s a -> s{_bloclMaxResults = a}) . map
 bloclObjectReference :: Lens' BatchListObjectChildren ObjectReference
 bloclObjectReference = lens _bloclObjectReference (\ s a -> s{_bloclObjectReference = a});
 
-instance Hashable BatchListObjectChildren
+instance Hashable BatchListObjectChildren where
 
-instance NFData BatchListObjectChildren
+instance NFData BatchListObjectChildren where
 
 instance ToJSON BatchListObjectChildren where
         toJSON BatchListObjectChildren'{..}
@@ -1787,9 +1833,10 @@ instance ToJSON BatchListObjectChildren where
 --
 -- /See:/ 'batchListObjectChildrenResponse' smart constructor.
 data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
-    { _blocChildren  :: !(Maybe (Map Text Text))
-    , _blocNextToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blocChildren  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _blocNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListObjectChildrenResponse' with the minimum fields required to make a request.
 --
@@ -1801,10 +1848,9 @@ data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
 batchListObjectChildrenResponse
     :: BatchListObjectChildrenResponse
 batchListObjectChildrenResponse =
-    BatchListObjectChildrenResponse'
-    { _blocChildren = Nothing
-    , _blocNextToken = Nothing
-    }
+  BatchListObjectChildrenResponse'
+  {_blocChildren = Nothing, _blocNextToken = Nothing}
+
 
 -- | The children structure, which is a map with the key as the @LinkName@ and @ObjectIdentifier@ as the value.
 blocChildren :: Lens' BatchListObjectChildrenResponse (HashMap Text Text)
@@ -1824,8 +1870,9 @@ instance FromJSON BatchListObjectChildrenResponse
                      (x .:? "NextToken"))
 
 instance Hashable BatchListObjectChildrenResponse
+         where
 
-instance NFData BatchListObjectChildrenResponse
+instance NFData BatchListObjectChildrenResponse where
 
 -- | Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects inside a 'BatchRead' operation. For more information, see 'ListObjectParentPaths' and 'BatchReadRequest$Operations' .
 --
@@ -1833,10 +1880,11 @@ instance NFData BatchListObjectChildrenResponse
 --
 -- /See:/ 'batchListObjectParentPaths' smart constructor.
 data BatchListObjectParentPaths = BatchListObjectParentPaths'
-    { _bloppsNextToken       :: !(Maybe Text)
-    , _bloppsMaxResults      :: !(Maybe Nat)
-    , _bloppsObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bloppsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bloppsMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _bloppsObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListObjectParentPaths' with the minimum fields required to make a request.
 --
@@ -1851,11 +1899,12 @@ batchListObjectParentPaths
     :: ObjectReference -- ^ 'bloppsObjectReference'
     -> BatchListObjectParentPaths
 batchListObjectParentPaths pObjectReference_ =
-    BatchListObjectParentPaths'
-    { _bloppsNextToken = Nothing
-    , _bloppsMaxResults = Nothing
-    , _bloppsObjectReference = pObjectReference_
-    }
+  BatchListObjectParentPaths'
+  { _bloppsNextToken = Nothing
+  , _bloppsMaxResults = Nothing
+  , _bloppsObjectReference = pObjectReference_
+  }
+
 
 -- | The pagination token.
 bloppsNextToken :: Lens' BatchListObjectParentPaths (Maybe Text)
@@ -1869,9 +1918,9 @@ bloppsMaxResults = lens _bloppsMaxResults (\ s a -> s{_bloppsMaxResults = a}) . 
 bloppsObjectReference :: Lens' BatchListObjectParentPaths ObjectReference
 bloppsObjectReference = lens _bloppsObjectReference (\ s a -> s{_bloppsObjectReference = a});
 
-instance Hashable BatchListObjectParentPaths
+instance Hashable BatchListObjectParentPaths where
 
-instance NFData BatchListObjectParentPaths
+instance NFData BatchListObjectParentPaths where
 
 instance ToJSON BatchListObjectParentPaths where
         toJSON BatchListObjectParentPaths'{..}
@@ -1887,9 +1936,10 @@ instance ToJSON BatchListObjectParentPaths where
 --
 -- /See:/ 'batchListObjectParentPathsResponse' smart constructor.
 data BatchListObjectParentPathsResponse = BatchListObjectParentPathsResponse'
-    { _bloppPathToObjectIdentifiersList :: !(Maybe [PathToObjectIdentifiers])
-    , _bloppNextToken                   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bloppPathToObjectIdentifiersList :: {-# NOUNPACK #-}!(Maybe [PathToObjectIdentifiers])
+  , _bloppNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListObjectParentPathsResponse' with the minimum fields required to make a request.
 --
@@ -1901,10 +1951,9 @@ data BatchListObjectParentPathsResponse = BatchListObjectParentPathsResponse'
 batchListObjectParentPathsResponse
     :: BatchListObjectParentPathsResponse
 batchListObjectParentPathsResponse =
-    BatchListObjectParentPathsResponse'
-    { _bloppPathToObjectIdentifiersList = Nothing
-    , _bloppNextToken = Nothing
-    }
+  BatchListObjectParentPathsResponse'
+  {_bloppPathToObjectIdentifiersList = Nothing, _bloppNextToken = Nothing}
+
 
 -- | Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
 bloppPathToObjectIdentifiersList :: Lens' BatchListObjectParentPathsResponse [PathToObjectIdentifiers]
@@ -1924,8 +1973,10 @@ instance FromJSON BatchListObjectParentPathsResponse
                      (x .:? "NextToken"))
 
 instance Hashable BatchListObjectParentPathsResponse
+         where
 
 instance NFData BatchListObjectParentPathsResponse
+         where
 
 -- | Returns policies attached to an object in pagination fashion inside a 'BatchRead' operation. For more information, see 'ListObjectPolicies' and 'BatchReadRequest$Operations' .
 --
@@ -1933,10 +1984,11 @@ instance NFData BatchListObjectParentPathsResponse
 --
 -- /See:/ 'batchListObjectPolicies' smart constructor.
 data BatchListObjectPolicies = BatchListObjectPolicies'
-    { _blopsNextToken       :: !(Maybe Text)
-    , _blopsMaxResults      :: !(Maybe Nat)
-    , _blopsObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blopsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _blopsMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _blopsObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListObjectPolicies' with the minimum fields required to make a request.
 --
@@ -1951,11 +2003,12 @@ batchListObjectPolicies
     :: ObjectReference -- ^ 'blopsObjectReference'
     -> BatchListObjectPolicies
 batchListObjectPolicies pObjectReference_ =
-    BatchListObjectPolicies'
-    { _blopsNextToken = Nothing
-    , _blopsMaxResults = Nothing
-    , _blopsObjectReference = pObjectReference_
-    }
+  BatchListObjectPolicies'
+  { _blopsNextToken = Nothing
+  , _blopsMaxResults = Nothing
+  , _blopsObjectReference = pObjectReference_
+  }
+
 
 -- | The pagination token.
 blopsNextToken :: Lens' BatchListObjectPolicies (Maybe Text)
@@ -1969,9 +2022,9 @@ blopsMaxResults = lens _blopsMaxResults (\ s a -> s{_blopsMaxResults = a}) . map
 blopsObjectReference :: Lens' BatchListObjectPolicies ObjectReference
 blopsObjectReference = lens _blopsObjectReference (\ s a -> s{_blopsObjectReference = a});
 
-instance Hashable BatchListObjectPolicies
+instance Hashable BatchListObjectPolicies where
 
-instance NFData BatchListObjectPolicies
+instance NFData BatchListObjectPolicies where
 
 instance ToJSON BatchListObjectPolicies where
         toJSON BatchListObjectPolicies'{..}
@@ -1987,9 +2040,10 @@ instance ToJSON BatchListObjectPolicies where
 --
 -- /See:/ 'batchListObjectPoliciesResponse' smart constructor.
 data BatchListObjectPoliciesResponse = BatchListObjectPoliciesResponse'
-    { _blopNextToken         :: !(Maybe Text)
-    , _blopAttachedPolicyIds :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blopNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _blopAttachedPolicyIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListObjectPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -2001,10 +2055,9 @@ data BatchListObjectPoliciesResponse = BatchListObjectPoliciesResponse'
 batchListObjectPoliciesResponse
     :: BatchListObjectPoliciesResponse
 batchListObjectPoliciesResponse =
-    BatchListObjectPoliciesResponse'
-    { _blopNextToken = Nothing
-    , _blopAttachedPolicyIds = Nothing
-    }
+  BatchListObjectPoliciesResponse'
+  {_blopNextToken = Nothing, _blopAttachedPolicyIds = Nothing}
+
 
 -- | The pagination token.
 blopNextToken :: Lens' BatchListObjectPoliciesResponse (Maybe Text)
@@ -2024,8 +2077,9 @@ instance FromJSON BatchListObjectPoliciesResponse
                      (x .:? "AttachedPolicyIds" .!= mempty))
 
 instance Hashable BatchListObjectPoliciesResponse
+         where
 
-instance NFData BatchListObjectPoliciesResponse
+instance NFData BatchListObjectPoliciesResponse where
 
 -- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object inside a 'BatchRead' operation. For more information, see 'ListOutgoingTypedLinks' and 'BatchReadRequest$Operations' .
 --
@@ -2033,12 +2087,13 @@ instance NFData BatchListObjectPoliciesResponse
 --
 -- /See:/ 'batchListOutgoingTypedLinks' smart constructor.
 data BatchListOutgoingTypedLinks = BatchListOutgoingTypedLinks'
-    { _blotlsFilterAttributeRanges :: !(Maybe [TypedLinkAttributeRange])
-    , _blotlsNextToken             :: !(Maybe Text)
-    , _blotlsFilterTypedLink       :: !(Maybe TypedLinkSchemaAndFacetName)
-    , _blotlsMaxResults            :: !(Maybe Nat)
-    , _blotlsObjectReference       :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blotlsFilterAttributeRanges :: {-# NOUNPACK #-}!(Maybe [TypedLinkAttributeRange])
+  , _blotlsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _blotlsFilterTypedLink :: {-# NOUNPACK #-}!(Maybe TypedLinkSchemaAndFacetName)
+  , _blotlsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _blotlsObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListOutgoingTypedLinks' with the minimum fields required to make a request.
 --
@@ -2057,13 +2112,14 @@ batchListOutgoingTypedLinks
     :: ObjectReference -- ^ 'blotlsObjectReference'
     -> BatchListOutgoingTypedLinks
 batchListOutgoingTypedLinks pObjectReference_ =
-    BatchListOutgoingTypedLinks'
-    { _blotlsFilterAttributeRanges = Nothing
-    , _blotlsNextToken = Nothing
-    , _blotlsFilterTypedLink = Nothing
-    , _blotlsMaxResults = Nothing
-    , _blotlsObjectReference = pObjectReference_
-    }
+  BatchListOutgoingTypedLinks'
+  { _blotlsFilterAttributeRanges = Nothing
+  , _blotlsNextToken = Nothing
+  , _blotlsFilterTypedLink = Nothing
+  , _blotlsMaxResults = Nothing
+  , _blotlsObjectReference = pObjectReference_
+  }
+
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
 blotlsFilterAttributeRanges :: Lens' BatchListOutgoingTypedLinks [TypedLinkAttributeRange]
@@ -2085,9 +2141,9 @@ blotlsMaxResults = lens _blotlsMaxResults (\ s a -> s{_blotlsMaxResults = a}) . 
 blotlsObjectReference :: Lens' BatchListOutgoingTypedLinks ObjectReference
 blotlsObjectReference = lens _blotlsObjectReference (\ s a -> s{_blotlsObjectReference = a});
 
-instance Hashable BatchListOutgoingTypedLinks
+instance Hashable BatchListOutgoingTypedLinks where
 
-instance NFData BatchListOutgoingTypedLinks
+instance NFData BatchListOutgoingTypedLinks where
 
 instance ToJSON BatchListOutgoingTypedLinks where
         toJSON BatchListOutgoingTypedLinks'{..}
@@ -2106,9 +2162,10 @@ instance ToJSON BatchListOutgoingTypedLinks where
 --
 -- /See:/ 'batchListOutgoingTypedLinksResponse' smart constructor.
 data BatchListOutgoingTypedLinksResponse = BatchListOutgoingTypedLinksResponse'
-    { _blotlTypedLinkSpecifiers :: !(Maybe [TypedLinkSpecifier])
-    , _blotlNextToken           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blotlTypedLinkSpecifiers :: {-# NOUNPACK #-}!(Maybe [TypedLinkSpecifier])
+  , _blotlNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListOutgoingTypedLinksResponse' with the minimum fields required to make a request.
 --
@@ -2120,10 +2177,9 @@ data BatchListOutgoingTypedLinksResponse = BatchListOutgoingTypedLinksResponse'
 batchListOutgoingTypedLinksResponse
     :: BatchListOutgoingTypedLinksResponse
 batchListOutgoingTypedLinksResponse =
-    BatchListOutgoingTypedLinksResponse'
-    { _blotlTypedLinkSpecifiers = Nothing
-    , _blotlNextToken = Nothing
-    }
+  BatchListOutgoingTypedLinksResponse'
+  {_blotlTypedLinkSpecifiers = Nothing, _blotlNextToken = Nothing}
+
 
 -- | Returns a typed link specifier as output.
 blotlTypedLinkSpecifiers :: Lens' BatchListOutgoingTypedLinksResponse [TypedLinkSpecifier]
@@ -2143,8 +2199,10 @@ instance FromJSON BatchListOutgoingTypedLinksResponse
                      (x .:? "NextToken"))
 
 instance Hashable BatchListOutgoingTypedLinksResponse
+         where
 
 instance NFData BatchListOutgoingTypedLinksResponse
+         where
 
 -- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached inside a 'BatchRead' operation. For more information, see 'ListPolicyAttachments' and 'BatchReadRequest$Operations' .
 --
@@ -2152,10 +2210,11 @@ instance NFData BatchListOutgoingTypedLinksResponse
 --
 -- /See:/ 'batchListPolicyAttachments' smart constructor.
 data BatchListPolicyAttachments = BatchListPolicyAttachments'
-    { _blpasNextToken       :: !(Maybe Text)
-    , _blpasMaxResults      :: !(Maybe Nat)
-    , _blpasPolicyReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blpasNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _blpasMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _blpasPolicyReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListPolicyAttachments' with the minimum fields required to make a request.
 --
@@ -2170,11 +2229,12 @@ batchListPolicyAttachments
     :: ObjectReference -- ^ 'blpasPolicyReference'
     -> BatchListPolicyAttachments
 batchListPolicyAttachments pPolicyReference_ =
-    BatchListPolicyAttachments'
-    { _blpasNextToken = Nothing
-    , _blpasMaxResults = Nothing
-    , _blpasPolicyReference = pPolicyReference_
-    }
+  BatchListPolicyAttachments'
+  { _blpasNextToken = Nothing
+  , _blpasMaxResults = Nothing
+  , _blpasPolicyReference = pPolicyReference_
+  }
+
 
 -- | The pagination token.
 blpasNextToken :: Lens' BatchListPolicyAttachments (Maybe Text)
@@ -2188,9 +2248,9 @@ blpasMaxResults = lens _blpasMaxResults (\ s a -> s{_blpasMaxResults = a}) . map
 blpasPolicyReference :: Lens' BatchListPolicyAttachments ObjectReference
 blpasPolicyReference = lens _blpasPolicyReference (\ s a -> s{_blpasPolicyReference = a});
 
-instance Hashable BatchListPolicyAttachments
+instance Hashable BatchListPolicyAttachments where
 
-instance NFData BatchListPolicyAttachments
+instance NFData BatchListPolicyAttachments where
 
 instance ToJSON BatchListPolicyAttachments where
         toJSON BatchListPolicyAttachments'{..}
@@ -2206,9 +2266,10 @@ instance ToJSON BatchListPolicyAttachments where
 --
 -- /See:/ 'batchListPolicyAttachmentsResponse' smart constructor.
 data BatchListPolicyAttachmentsResponse = BatchListPolicyAttachmentsResponse'
-    { _blpaObjectIdentifiers :: !(Maybe [Text])
-    , _blpaNextToken         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blpaObjectIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _blpaNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchListPolicyAttachmentsResponse' with the minimum fields required to make a request.
 --
@@ -2220,10 +2281,9 @@ data BatchListPolicyAttachmentsResponse = BatchListPolicyAttachmentsResponse'
 batchListPolicyAttachmentsResponse
     :: BatchListPolicyAttachmentsResponse
 batchListPolicyAttachmentsResponse =
-    BatchListPolicyAttachmentsResponse'
-    { _blpaObjectIdentifiers = Nothing
-    , _blpaNextToken = Nothing
-    }
+  BatchListPolicyAttachmentsResponse'
+  {_blpaObjectIdentifiers = Nothing, _blpaNextToken = Nothing}
+
 
 -- | A list of @ObjectIdentifiers@ to which the policy is attached.
 blpaObjectIdentifiers :: Lens' BatchListPolicyAttachmentsResponse [Text]
@@ -2243,8 +2303,10 @@ instance FromJSON BatchListPolicyAttachmentsResponse
                      (x .:? "NextToken"))
 
 instance Hashable BatchListPolicyAttachmentsResponse
+         where
 
 instance NFData BatchListPolicyAttachmentsResponse
+         where
 
 -- | Lists all policies from the root of the Directory to the object specified inside a 'BatchRead' operation. For more information, see 'LookupPolicy' and 'BatchReadRequest$Operations' .
 --
@@ -2252,10 +2314,11 @@ instance NFData BatchListPolicyAttachmentsResponse
 --
 -- /See:/ 'batchLookupPolicy' smart constructor.
 data BatchLookupPolicy = BatchLookupPolicy'
-    { _blplNextToken       :: !(Maybe Text)
-    , _blplMaxResults      :: !(Maybe Nat)
-    , _blplObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blplNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _blplMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _blplObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchLookupPolicy' with the minimum fields required to make a request.
 --
@@ -2270,11 +2333,12 @@ batchLookupPolicy
     :: ObjectReference -- ^ 'blplObjectReference'
     -> BatchLookupPolicy
 batchLookupPolicy pObjectReference_ =
-    BatchLookupPolicy'
-    { _blplNextToken = Nothing
-    , _blplMaxResults = Nothing
-    , _blplObjectReference = pObjectReference_
-    }
+  BatchLookupPolicy'
+  { _blplNextToken = Nothing
+  , _blplMaxResults = Nothing
+  , _blplObjectReference = pObjectReference_
+  }
+
 
 -- | The pagination token.
 blplNextToken :: Lens' BatchLookupPolicy (Maybe Text)
@@ -2288,9 +2352,9 @@ blplMaxResults = lens _blplMaxResults (\ s a -> s{_blplMaxResults = a}) . mappin
 blplObjectReference :: Lens' BatchLookupPolicy ObjectReference
 blplObjectReference = lens _blplObjectReference (\ s a -> s{_blplObjectReference = a});
 
-instance Hashable BatchLookupPolicy
+instance Hashable BatchLookupPolicy where
 
-instance NFData BatchLookupPolicy
+instance NFData BatchLookupPolicy where
 
 instance ToJSON BatchLookupPolicy where
         toJSON BatchLookupPolicy'{..}
@@ -2306,9 +2370,10 @@ instance ToJSON BatchLookupPolicy where
 --
 -- /See:/ 'batchLookupPolicyResponse' smart constructor.
 data BatchLookupPolicyResponse = BatchLookupPolicyResponse'
-    { _blpNextToken        :: !(Maybe Text)
-    , _blpPolicyToPathList :: !(Maybe [PolicyToPath])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _blpNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _blpPolicyToPathList :: {-# NOUNPACK #-}!(Maybe [PolicyToPath])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchLookupPolicyResponse' with the minimum fields required to make a request.
 --
@@ -2320,10 +2385,9 @@ data BatchLookupPolicyResponse = BatchLookupPolicyResponse'
 batchLookupPolicyResponse
     :: BatchLookupPolicyResponse
 batchLookupPolicyResponse =
-    BatchLookupPolicyResponse'
-    { _blpNextToken = Nothing
-    , _blpPolicyToPathList = Nothing
-    }
+  BatchLookupPolicyResponse'
+  {_blpNextToken = Nothing, _blpPolicyToPathList = Nothing}
+
 
 -- | The pagination token.
 blpNextToken :: Lens' BatchLookupPolicyResponse (Maybe Text)
@@ -2341,9 +2405,9 @@ instance FromJSON BatchLookupPolicyResponse where
                    (x .:? "NextToken") <*>
                      (x .:? "PolicyToPathList" .!= mempty))
 
-instance Hashable BatchLookupPolicyResponse
+instance Hashable BatchLookupPolicyResponse where
 
-instance NFData BatchLookupPolicyResponse
+instance NFData BatchLookupPolicyResponse where
 
 -- | The batch read exception structure, which contains the exception type and message.
 --
@@ -2351,9 +2415,10 @@ instance NFData BatchLookupPolicyResponse
 --
 -- /See:/ 'batchReadException' smart constructor.
 data BatchReadException = BatchReadException'
-    { _breType    :: !(Maybe BatchReadExceptionType)
-    , _breMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _breType    :: {-# NOUNPACK #-}!(Maybe BatchReadExceptionType)
+  , _breMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchReadException' with the minimum fields required to make a request.
 --
@@ -2365,10 +2430,8 @@ data BatchReadException = BatchReadException'
 batchReadException
     :: BatchReadException
 batchReadException =
-    BatchReadException'
-    { _breType = Nothing
-    , _breMessage = Nothing
-    }
+  BatchReadException' {_breType = Nothing, _breMessage = Nothing}
+
 
 -- | A type of exception, such as @InvalidArnException@ .
 breType :: Lens' BatchReadException (Maybe BatchReadExceptionType)
@@ -2385,9 +2448,9 @@ instance FromJSON BatchReadException where
                  BatchReadException' <$>
                    (x .:? "Type") <*> (x .:? "Message"))
 
-instance Hashable BatchReadException
+instance Hashable BatchReadException where
 
-instance NFData BatchReadException
+instance NFData BatchReadException where
 
 -- | Represents the output of a @BatchRead@ operation.
 --
@@ -2395,18 +2458,19 @@ instance NFData BatchReadException
 --
 -- /See:/ 'batchReadOperation' smart constructor.
 data BatchReadOperation = BatchReadOperation'
-    { _broListIndex              :: !(Maybe BatchListIndex)
-    , _broGetObjectInformation   :: !(Maybe BatchGetObjectInformation)
-    , _broListAttachedIndices    :: !(Maybe BatchListAttachedIndices)
-    , _broLookupPolicy           :: !(Maybe BatchLookupPolicy)
-    , _broListObjectParentPaths  :: !(Maybe BatchListObjectParentPaths)
-    , _broListObjectAttributes   :: !(Maybe BatchListObjectAttributes)
-    , _broListIncomingTypedLinks :: !(Maybe BatchListIncomingTypedLinks)
-    , _broListObjectChildren     :: !(Maybe BatchListObjectChildren)
-    , _broListPolicyAttachments  :: !(Maybe BatchListPolicyAttachments)
-    , _broListOutgoingTypedLinks :: !(Maybe BatchListOutgoingTypedLinks)
-    , _broListObjectPolicies     :: !(Maybe BatchListObjectPolicies)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _broListIndex :: {-# NOUNPACK #-}!(Maybe BatchListIndex)
+  , _broGetObjectInformation :: {-# NOUNPACK #-}!(Maybe BatchGetObjectInformation)
+  , _broListAttachedIndices :: {-# NOUNPACK #-}!(Maybe BatchListAttachedIndices)
+  , _broLookupPolicy :: {-# NOUNPACK #-}!(Maybe BatchLookupPolicy)
+  , _broListObjectParentPaths :: {-# NOUNPACK #-}!(Maybe BatchListObjectParentPaths)
+  , _broListObjectAttributes :: {-# NOUNPACK #-}!(Maybe BatchListObjectAttributes)
+  , _broListIncomingTypedLinks :: {-# NOUNPACK #-}!(Maybe BatchListIncomingTypedLinks)
+  , _broListObjectChildren :: {-# NOUNPACK #-}!(Maybe BatchListObjectChildren)
+  , _broListPolicyAttachments :: {-# NOUNPACK #-}!(Maybe BatchListPolicyAttachments)
+  , _broListOutgoingTypedLinks :: {-# NOUNPACK #-}!(Maybe BatchListOutgoingTypedLinks)
+  , _broListObjectPolicies :: {-# NOUNPACK #-}!(Maybe BatchListObjectPolicies)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchReadOperation' with the minimum fields required to make a request.
 --
@@ -2436,19 +2500,20 @@ data BatchReadOperation = BatchReadOperation'
 batchReadOperation
     :: BatchReadOperation
 batchReadOperation =
-    BatchReadOperation'
-    { _broListIndex = Nothing
-    , _broGetObjectInformation = Nothing
-    , _broListAttachedIndices = Nothing
-    , _broLookupPolicy = Nothing
-    , _broListObjectParentPaths = Nothing
-    , _broListObjectAttributes = Nothing
-    , _broListIncomingTypedLinks = Nothing
-    , _broListObjectChildren = Nothing
-    , _broListPolicyAttachments = Nothing
-    , _broListOutgoingTypedLinks = Nothing
-    , _broListObjectPolicies = Nothing
-    }
+  BatchReadOperation'
+  { _broListIndex = Nothing
+  , _broGetObjectInformation = Nothing
+  , _broListAttachedIndices = Nothing
+  , _broLookupPolicy = Nothing
+  , _broListObjectParentPaths = Nothing
+  , _broListObjectAttributes = Nothing
+  , _broListIncomingTypedLinks = Nothing
+  , _broListObjectChildren = Nothing
+  , _broListPolicyAttachments = Nothing
+  , _broListOutgoingTypedLinks = Nothing
+  , _broListObjectPolicies = Nothing
+  }
+
 
 -- | Lists objects attached to the specified index.
 broListIndex :: Lens' BatchReadOperation (Maybe BatchListIndex)
@@ -2494,9 +2559,9 @@ broListOutgoingTypedLinks = lens _broListOutgoingTypedLinks (\ s a -> s{_broList
 broListObjectPolicies :: Lens' BatchReadOperation (Maybe BatchListObjectPolicies)
 broListObjectPolicies = lens _broListObjectPolicies (\ s a -> s{_broListObjectPolicies = a});
 
-instance Hashable BatchReadOperation
+instance Hashable BatchReadOperation where
 
-instance NFData BatchReadOperation
+instance NFData BatchReadOperation where
 
 instance ToJSON BatchReadOperation where
         toJSON BatchReadOperation'{..}
@@ -2528,9 +2593,10 @@ instance ToJSON BatchReadOperation where
 --
 -- /See:/ 'batchReadOperationResponse' smart constructor.
 data BatchReadOperationResponse = BatchReadOperationResponse'
-    { _broExceptionResponse  :: !(Maybe BatchReadException)
-    , _broSuccessfulResponse :: !(Maybe BatchReadSuccessfulResponse)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _broExceptionResponse :: {-# NOUNPACK #-}!(Maybe BatchReadException)
+  , _broSuccessfulResponse :: {-# NOUNPACK #-}!(Maybe BatchReadSuccessfulResponse)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchReadOperationResponse' with the minimum fields required to make a request.
 --
@@ -2542,10 +2608,9 @@ data BatchReadOperationResponse = BatchReadOperationResponse'
 batchReadOperationResponse
     :: BatchReadOperationResponse
 batchReadOperationResponse =
-    BatchReadOperationResponse'
-    { _broExceptionResponse = Nothing
-    , _broSuccessfulResponse = Nothing
-    }
+  BatchReadOperationResponse'
+  {_broExceptionResponse = Nothing, _broSuccessfulResponse = Nothing}
+
 
 -- | Identifies which operation in a batch has failed.
 broExceptionResponse :: Lens' BatchReadOperationResponse (Maybe BatchReadException)
@@ -2563,9 +2628,9 @@ instance FromJSON BatchReadOperationResponse where
                    (x .:? "ExceptionResponse") <*>
                      (x .:? "SuccessfulResponse"))
 
-instance Hashable BatchReadOperationResponse
+instance Hashable BatchReadOperationResponse where
 
-instance NFData BatchReadOperationResponse
+instance NFData BatchReadOperationResponse where
 
 -- | Represents the output of a @BatchRead@ success response operation.
 --
@@ -2573,18 +2638,19 @@ instance NFData BatchReadOperationResponse
 --
 -- /See:/ 'batchReadSuccessfulResponse' smart constructor.
 data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
-    { _brsListIndex              :: !(Maybe BatchListIndexResponse)
-    , _brsGetObjectInformation   :: !(Maybe BatchGetObjectInformationResponse)
-    , _brsListAttachedIndices    :: !(Maybe BatchListAttachedIndicesResponse)
-    , _brsLookupPolicy           :: !(Maybe BatchLookupPolicyResponse)
-    , _brsListObjectParentPaths  :: !(Maybe BatchListObjectParentPathsResponse)
-    , _brsListObjectAttributes   :: !(Maybe BatchListObjectAttributesResponse)
-    , _brsListIncomingTypedLinks :: !(Maybe BatchListIncomingTypedLinksResponse)
-    , _brsListObjectChildren     :: !(Maybe BatchListObjectChildrenResponse)
-    , _brsListPolicyAttachments  :: !(Maybe BatchListPolicyAttachmentsResponse)
-    , _brsListOutgoingTypedLinks :: !(Maybe BatchListOutgoingTypedLinksResponse)
-    , _brsListObjectPolicies     :: !(Maybe BatchListObjectPoliciesResponse)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _brsListIndex :: {-# NOUNPACK #-}!(Maybe BatchListIndexResponse)
+  , _brsGetObjectInformation :: {-# NOUNPACK #-}!(Maybe BatchGetObjectInformationResponse)
+  , _brsListAttachedIndices :: {-# NOUNPACK #-}!(Maybe BatchListAttachedIndicesResponse)
+  , _brsLookupPolicy :: {-# NOUNPACK #-}!(Maybe BatchLookupPolicyResponse)
+  , _brsListObjectParentPaths :: {-# NOUNPACK #-}!(Maybe BatchListObjectParentPathsResponse)
+  , _brsListObjectAttributes :: {-# NOUNPACK #-}!(Maybe BatchListObjectAttributesResponse)
+  , _brsListIncomingTypedLinks :: {-# NOUNPACK #-}!(Maybe BatchListIncomingTypedLinksResponse)
+  , _brsListObjectChildren :: {-# NOUNPACK #-}!(Maybe BatchListObjectChildrenResponse)
+  , _brsListPolicyAttachments :: {-# NOUNPACK #-}!(Maybe BatchListPolicyAttachmentsResponse)
+  , _brsListOutgoingTypedLinks :: {-# NOUNPACK #-}!(Maybe BatchListOutgoingTypedLinksResponse)
+  , _brsListObjectPolicies :: {-# NOUNPACK #-}!(Maybe BatchListObjectPoliciesResponse)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchReadSuccessfulResponse' with the minimum fields required to make a request.
 --
@@ -2614,19 +2680,20 @@ data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
 batchReadSuccessfulResponse
     :: BatchReadSuccessfulResponse
 batchReadSuccessfulResponse =
-    BatchReadSuccessfulResponse'
-    { _brsListIndex = Nothing
-    , _brsGetObjectInformation = Nothing
-    , _brsListAttachedIndices = Nothing
-    , _brsLookupPolicy = Nothing
-    , _brsListObjectParentPaths = Nothing
-    , _brsListObjectAttributes = Nothing
-    , _brsListIncomingTypedLinks = Nothing
-    , _brsListObjectChildren = Nothing
-    , _brsListPolicyAttachments = Nothing
-    , _brsListOutgoingTypedLinks = Nothing
-    , _brsListObjectPolicies = Nothing
-    }
+  BatchReadSuccessfulResponse'
+  { _brsListIndex = Nothing
+  , _brsGetObjectInformation = Nothing
+  , _brsListAttachedIndices = Nothing
+  , _brsLookupPolicy = Nothing
+  , _brsListObjectParentPaths = Nothing
+  , _brsListObjectAttributes = Nothing
+  , _brsListIncomingTypedLinks = Nothing
+  , _brsListObjectChildren = Nothing
+  , _brsListPolicyAttachments = Nothing
+  , _brsListOutgoingTypedLinks = Nothing
+  , _brsListObjectPolicies = Nothing
+  }
+
 
 -- | Lists objects attached to the specified index.
 brsListIndex :: Lens' BatchReadSuccessfulResponse (Maybe BatchListIndexResponse)
@@ -2689,9 +2756,9 @@ instance FromJSON BatchReadSuccessfulResponse where
                      <*> (x .:? "ListOutgoingTypedLinks")
                      <*> (x .:? "ListObjectPolicies"))
 
-instance Hashable BatchReadSuccessfulResponse
+instance Hashable BatchReadSuccessfulResponse where
 
-instance NFData BatchReadSuccessfulResponse
+instance NFData BatchReadSuccessfulResponse where
 
 -- | A batch operation to remove a facet from an object.
 --
@@ -2699,9 +2766,10 @@ instance NFData BatchReadSuccessfulResponse
 --
 -- /See:/ 'batchRemoveFacetFromObject' smart constructor.
 data BatchRemoveFacetFromObject = BatchRemoveFacetFromObject'
-    { _brffoSchemaFacet     :: !SchemaFacet
-    , _brffoObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _brffoSchemaFacet     :: {-# NOUNPACK #-}!SchemaFacet
+  , _brffoObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchRemoveFacetFromObject' with the minimum fields required to make a request.
 --
@@ -2715,10 +2783,9 @@ batchRemoveFacetFromObject
     -> ObjectReference -- ^ 'brffoObjectReference'
     -> BatchRemoveFacetFromObject
 batchRemoveFacetFromObject pSchemaFacet_ pObjectReference_ =
-    BatchRemoveFacetFromObject'
-    { _brffoSchemaFacet = pSchemaFacet_
-    , _brffoObjectReference = pObjectReference_
-    }
+  BatchRemoveFacetFromObject'
+  {_brffoSchemaFacet = pSchemaFacet_, _brffoObjectReference = pObjectReference_}
+
 
 -- | The facet to remove from the object.
 brffoSchemaFacet :: Lens' BatchRemoveFacetFromObject SchemaFacet
@@ -2728,9 +2795,9 @@ brffoSchemaFacet = lens _brffoSchemaFacet (\ s a -> s{_brffoSchemaFacet = a});
 brffoObjectReference :: Lens' BatchRemoveFacetFromObject ObjectReference
 brffoObjectReference = lens _brffoObjectReference (\ s a -> s{_brffoObjectReference = a});
 
-instance Hashable BatchRemoveFacetFromObject
+instance Hashable BatchRemoveFacetFromObject where
 
-instance NFData BatchRemoveFacetFromObject
+instance NFData BatchRemoveFacetFromObject where
 
 instance ToJSON BatchRemoveFacetFromObject where
         toJSON BatchRemoveFacetFromObject'{..}
@@ -2745,14 +2812,16 @@ instance ToJSON BatchRemoveFacetFromObject where
 --
 -- /See:/ 'batchRemoveFacetFromObjectResponse' smart constructor.
 data BatchRemoveFacetFromObjectResponse =
-    BatchRemoveFacetFromObjectResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  BatchRemoveFacetFromObjectResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchRemoveFacetFromObjectResponse' with the minimum fields required to make a request.
 --
 batchRemoveFacetFromObjectResponse
     :: BatchRemoveFacetFromObjectResponse
 batchRemoveFacetFromObjectResponse = BatchRemoveFacetFromObjectResponse'
+
 
 instance FromJSON BatchRemoveFacetFromObjectResponse
          where
@@ -2761,8 +2830,10 @@ instance FromJSON BatchRemoveFacetFromObjectResponse
               (\ x -> pure BatchRemoveFacetFromObjectResponse')
 
 instance Hashable BatchRemoveFacetFromObjectResponse
+         where
 
 instance NFData BatchRemoveFacetFromObjectResponse
+         where
 
 -- | Represents the output of a @BatchUpdate@ operation.
 --
@@ -2770,9 +2841,10 @@ instance NFData BatchRemoveFacetFromObjectResponse
 --
 -- /See:/ 'batchUpdateObjectAttributes' smart constructor.
 data BatchUpdateObjectAttributes = BatchUpdateObjectAttributes'
-    { _buoaObjectReference  :: !ObjectReference
-    , _buoaAttributeUpdates :: ![ObjectAttributeUpdate]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _buoaObjectReference  :: {-# NOUNPACK #-}!ObjectReference
+  , _buoaAttributeUpdates :: {-# NOUNPACK #-}![ObjectAttributeUpdate]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchUpdateObjectAttributes' with the minimum fields required to make a request.
 --
@@ -2785,10 +2857,9 @@ batchUpdateObjectAttributes
     :: ObjectReference -- ^ 'buoaObjectReference'
     -> BatchUpdateObjectAttributes
 batchUpdateObjectAttributes pObjectReference_ =
-    BatchUpdateObjectAttributes'
-    { _buoaObjectReference = pObjectReference_
-    , _buoaAttributeUpdates = mempty
-    }
+  BatchUpdateObjectAttributes'
+  {_buoaObjectReference = pObjectReference_, _buoaAttributeUpdates = mempty}
+
 
 -- | Reference that identifies the object.
 buoaObjectReference :: Lens' BatchUpdateObjectAttributes ObjectReference
@@ -2798,9 +2869,9 @@ buoaObjectReference = lens _buoaObjectReference (\ s a -> s{_buoaObjectReference
 buoaAttributeUpdates :: Lens' BatchUpdateObjectAttributes [ObjectAttributeUpdate]
 buoaAttributeUpdates = lens _buoaAttributeUpdates (\ s a -> s{_buoaAttributeUpdates = a}) . _Coerce;
 
-instance Hashable BatchUpdateObjectAttributes
+instance Hashable BatchUpdateObjectAttributes where
 
-instance NFData BatchUpdateObjectAttributes
+instance NFData BatchUpdateObjectAttributes where
 
 instance ToJSON BatchUpdateObjectAttributes where
         toJSON BatchUpdateObjectAttributes'{..}
@@ -2815,8 +2886,9 @@ instance ToJSON BatchUpdateObjectAttributes where
 --
 -- /See:/ 'batchUpdateObjectAttributesResponse' smart constructor.
 newtype BatchUpdateObjectAttributesResponse = BatchUpdateObjectAttributesResponse'
-    { _buoaObjectIdentifier :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _buoaObjectIdentifier :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchUpdateObjectAttributesResponse' with the minimum fields required to make a request.
 --
@@ -2826,9 +2898,8 @@ newtype BatchUpdateObjectAttributesResponse = BatchUpdateObjectAttributesRespons
 batchUpdateObjectAttributesResponse
     :: BatchUpdateObjectAttributesResponse
 batchUpdateObjectAttributesResponse =
-    BatchUpdateObjectAttributesResponse'
-    { _buoaObjectIdentifier = Nothing
-    }
+  BatchUpdateObjectAttributesResponse' {_buoaObjectIdentifier = Nothing}
+
 
 -- | ID that is associated with the object.
 buoaObjectIdentifier :: Lens' BatchUpdateObjectAttributesResponse (Maybe Text)
@@ -2843,8 +2914,10 @@ instance FromJSON BatchUpdateObjectAttributesResponse
                    (x .:? "ObjectIdentifier"))
 
 instance Hashable BatchUpdateObjectAttributesResponse
+         where
 
 instance NFData BatchUpdateObjectAttributesResponse
+         where
 
 -- | Represents the output of a @BatchWrite@ operation.
 --
@@ -2852,21 +2925,22 @@ instance NFData BatchUpdateObjectAttributesResponse
 --
 -- /See:/ 'batchWriteOperation' smart constructor.
 data BatchWriteOperation = BatchWriteOperation'
-    { _bDeleteObject           :: !(Maybe BatchDeleteObject)
-    , _bDetachFromIndex        :: !(Maybe BatchDetachFromIndex)
-    , _bRemoveFacetFromObject  :: !(Maybe BatchRemoveFacetFromObject)
-    , _bAttachObject           :: !(Maybe BatchAttachObject)
-    , _bCreateObject           :: !(Maybe BatchCreateObject)
-    , _bAttachTypedLink        :: !(Maybe BatchAttachTypedLink)
-    , _bDetachPolicy           :: !(Maybe BatchDetachPolicy)
-    , _bCreateIndex            :: !(Maybe BatchCreateIndex)
-    , _bDetachObject           :: !(Maybe BatchDetachObject)
-    , _bAddFacetToObject       :: !(Maybe BatchAddFacetToObject)
-    , _bDetachTypedLink        :: !(Maybe BatchDetachTypedLink)
-    , _bUpdateObjectAttributes :: !(Maybe BatchUpdateObjectAttributes)
-    , _bAttachPolicy           :: !(Maybe BatchAttachPolicy)
-    , _bAttachToIndex          :: !(Maybe BatchAttachToIndex)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bDeleteObject :: {-# NOUNPACK #-}!(Maybe BatchDeleteObject)
+  , _bDetachFromIndex :: {-# NOUNPACK #-}!(Maybe BatchDetachFromIndex)
+  , _bRemoveFacetFromObject :: {-# NOUNPACK #-}!(Maybe BatchRemoveFacetFromObject)
+  , _bAttachObject :: {-# NOUNPACK #-}!(Maybe BatchAttachObject)
+  , _bCreateObject :: {-# NOUNPACK #-}!(Maybe BatchCreateObject)
+  , _bAttachTypedLink :: {-# NOUNPACK #-}!(Maybe BatchAttachTypedLink)
+  , _bDetachPolicy :: {-# NOUNPACK #-}!(Maybe BatchDetachPolicy)
+  , _bCreateIndex :: {-# NOUNPACK #-}!(Maybe BatchCreateIndex)
+  , _bDetachObject :: {-# NOUNPACK #-}!(Maybe BatchDetachObject)
+  , _bAddFacetToObject :: {-# NOUNPACK #-}!(Maybe BatchAddFacetToObject)
+  , _bDetachTypedLink :: {-# NOUNPACK #-}!(Maybe BatchDetachTypedLink)
+  , _bUpdateObjectAttributes :: {-# NOUNPACK #-}!(Maybe BatchUpdateObjectAttributes)
+  , _bAttachPolicy :: {-# NOUNPACK #-}!(Maybe BatchAttachPolicy)
+  , _bAttachToIndex :: {-# NOUNPACK #-}!(Maybe BatchAttachToIndex)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchWriteOperation' with the minimum fields required to make a request.
 --
@@ -2902,22 +2976,23 @@ data BatchWriteOperation = BatchWriteOperation'
 batchWriteOperation
     :: BatchWriteOperation
 batchWriteOperation =
-    BatchWriteOperation'
-    { _bDeleteObject = Nothing
-    , _bDetachFromIndex = Nothing
-    , _bRemoveFacetFromObject = Nothing
-    , _bAttachObject = Nothing
-    , _bCreateObject = Nothing
-    , _bAttachTypedLink = Nothing
-    , _bDetachPolicy = Nothing
-    , _bCreateIndex = Nothing
-    , _bDetachObject = Nothing
-    , _bAddFacetToObject = Nothing
-    , _bDetachTypedLink = Nothing
-    , _bUpdateObjectAttributes = Nothing
-    , _bAttachPolicy = Nothing
-    , _bAttachToIndex = Nothing
-    }
+  BatchWriteOperation'
+  { _bDeleteObject = Nothing
+  , _bDetachFromIndex = Nothing
+  , _bRemoveFacetFromObject = Nothing
+  , _bAttachObject = Nothing
+  , _bCreateObject = Nothing
+  , _bAttachTypedLink = Nothing
+  , _bDetachPolicy = Nothing
+  , _bCreateIndex = Nothing
+  , _bDetachObject = Nothing
+  , _bAddFacetToObject = Nothing
+  , _bDetachTypedLink = Nothing
+  , _bUpdateObjectAttributes = Nothing
+  , _bAttachPolicy = Nothing
+  , _bAttachToIndex = Nothing
+  }
+
 
 -- | Deletes an object in a 'Directory' .
 bDeleteObject :: Lens' BatchWriteOperation (Maybe BatchDeleteObject)
@@ -2975,9 +3050,9 @@ bAttachPolicy = lens _bAttachPolicy (\ s a -> s{_bAttachPolicy = a});
 bAttachToIndex :: Lens' BatchWriteOperation (Maybe BatchAttachToIndex)
 bAttachToIndex = lens _bAttachToIndex (\ s a -> s{_bAttachToIndex = a});
 
-instance Hashable BatchWriteOperation
+instance Hashable BatchWriteOperation where
 
-instance NFData BatchWriteOperation
+instance NFData BatchWriteOperation where
 
 instance ToJSON BatchWriteOperation where
         toJSON BatchWriteOperation'{..}
@@ -3006,21 +3081,22 @@ instance ToJSON BatchWriteOperation where
 --
 -- /See:/ 'batchWriteOperationResponse' smart constructor.
 data BatchWriteOperationResponse = BatchWriteOperationResponse'
-    { _bwoDeleteObject           :: !(Maybe BatchDeleteObjectResponse)
-    , _bwoDetachFromIndex        :: !(Maybe BatchDetachFromIndexResponse)
-    , _bwoRemoveFacetFromObject  :: !(Maybe BatchRemoveFacetFromObjectResponse)
-    , _bwoAttachObject           :: !(Maybe BatchAttachObjectResponse)
-    , _bwoCreateObject           :: !(Maybe BatchCreateObjectResponse)
-    , _bwoAttachTypedLink        :: !(Maybe BatchAttachTypedLinkResponse)
-    , _bwoDetachPolicy           :: !(Maybe BatchDetachPolicyResponse)
-    , _bwoCreateIndex            :: !(Maybe BatchCreateIndexResponse)
-    , _bwoDetachObject           :: !(Maybe BatchDetachObjectResponse)
-    , _bwoAddFacetToObject       :: !(Maybe BatchAddFacetToObjectResponse)
-    , _bwoDetachTypedLink        :: !(Maybe BatchDetachTypedLinkResponse)
-    , _bwoUpdateObjectAttributes :: !(Maybe BatchUpdateObjectAttributesResponse)
-    , _bwoAttachPolicy           :: !(Maybe BatchAttachPolicyResponse)
-    , _bwoAttachToIndex          :: !(Maybe BatchAttachToIndexResponse)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bwoDeleteObject :: {-# NOUNPACK #-}!(Maybe BatchDeleteObjectResponse)
+  , _bwoDetachFromIndex :: {-# NOUNPACK #-}!(Maybe BatchDetachFromIndexResponse)
+  , _bwoRemoveFacetFromObject :: {-# NOUNPACK #-}!(Maybe BatchRemoveFacetFromObjectResponse)
+  , _bwoAttachObject :: {-# NOUNPACK #-}!(Maybe BatchAttachObjectResponse)
+  , _bwoCreateObject :: {-# NOUNPACK #-}!(Maybe BatchCreateObjectResponse)
+  , _bwoAttachTypedLink :: {-# NOUNPACK #-}!(Maybe BatchAttachTypedLinkResponse)
+  , _bwoDetachPolicy :: {-# NOUNPACK #-}!(Maybe BatchDetachPolicyResponse)
+  , _bwoCreateIndex :: {-# NOUNPACK #-}!(Maybe BatchCreateIndexResponse)
+  , _bwoDetachObject :: {-# NOUNPACK #-}!(Maybe BatchDetachObjectResponse)
+  , _bwoAddFacetToObject :: {-# NOUNPACK #-}!(Maybe BatchAddFacetToObjectResponse)
+  , _bwoDetachTypedLink :: {-# NOUNPACK #-}!(Maybe BatchDetachTypedLinkResponse)
+  , _bwoUpdateObjectAttributes :: {-# NOUNPACK #-}!(Maybe BatchUpdateObjectAttributesResponse)
+  , _bwoAttachPolicy :: {-# NOUNPACK #-}!(Maybe BatchAttachPolicyResponse)
+  , _bwoAttachToIndex :: {-# NOUNPACK #-}!(Maybe BatchAttachToIndexResponse)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchWriteOperationResponse' with the minimum fields required to make a request.
 --
@@ -3056,22 +3132,23 @@ data BatchWriteOperationResponse = BatchWriteOperationResponse'
 batchWriteOperationResponse
     :: BatchWriteOperationResponse
 batchWriteOperationResponse =
-    BatchWriteOperationResponse'
-    { _bwoDeleteObject = Nothing
-    , _bwoDetachFromIndex = Nothing
-    , _bwoRemoveFacetFromObject = Nothing
-    , _bwoAttachObject = Nothing
-    , _bwoCreateObject = Nothing
-    , _bwoAttachTypedLink = Nothing
-    , _bwoDetachPolicy = Nothing
-    , _bwoCreateIndex = Nothing
-    , _bwoDetachObject = Nothing
-    , _bwoAddFacetToObject = Nothing
-    , _bwoDetachTypedLink = Nothing
-    , _bwoUpdateObjectAttributes = Nothing
-    , _bwoAttachPolicy = Nothing
-    , _bwoAttachToIndex = Nothing
-    }
+  BatchWriteOperationResponse'
+  { _bwoDeleteObject = Nothing
+  , _bwoDetachFromIndex = Nothing
+  , _bwoRemoveFacetFromObject = Nothing
+  , _bwoAttachObject = Nothing
+  , _bwoCreateObject = Nothing
+  , _bwoAttachTypedLink = Nothing
+  , _bwoDetachPolicy = Nothing
+  , _bwoCreateIndex = Nothing
+  , _bwoDetachObject = Nothing
+  , _bwoAddFacetToObject = Nothing
+  , _bwoDetachTypedLink = Nothing
+  , _bwoUpdateObjectAttributes = Nothing
+  , _bwoAttachPolicy = Nothing
+  , _bwoAttachToIndex = Nothing
+  }
+
 
 -- | Deletes an object in a 'Directory' .
 bwoDeleteObject :: Lens' BatchWriteOperationResponse (Maybe BatchDeleteObjectResponse)
@@ -3148,9 +3225,9 @@ instance FromJSON BatchWriteOperationResponse where
                      <*> (x .:? "AttachPolicy")
                      <*> (x .:? "AttachToIndex"))
 
-instance Hashable BatchWriteOperationResponse
+instance Hashable BatchWriteOperationResponse where
 
-instance NFData BatchWriteOperationResponse
+instance NFData BatchWriteOperationResponse where
 
 -- | Directory structure that includes the directory name and directory ARN.
 --
@@ -3158,11 +3235,12 @@ instance NFData BatchWriteOperationResponse
 --
 -- /See:/ 'directory' smart constructor.
 data Directory = Directory'
-    { _dDirectoryARN     :: !(Maybe Text)
-    , _dState            :: !(Maybe DirectoryState)
-    , _dName             :: !(Maybe Text)
-    , _dCreationDateTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDirectoryARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dState            :: {-# NOUNPACK #-}!(Maybe DirectoryState)
+  , _dName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Directory' with the minimum fields required to make a request.
 --
@@ -3178,12 +3256,13 @@ data Directory = Directory'
 directory
     :: Directory
 directory =
-    Directory'
-    { _dDirectoryARN = Nothing
-    , _dState = Nothing
-    , _dName = Nothing
-    , _dCreationDateTime = Nothing
-    }
+  Directory'
+  { _dDirectoryARN = Nothing
+  , _dState = Nothing
+  , _dName = Nothing
+  , _dCreationDateTime = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
 dDirectoryARN :: Lens' Directory (Maybe Text)
@@ -3210,9 +3289,9 @@ instance FromJSON Directory where
                      (x .:? "Name")
                      <*> (x .:? "CreationDateTime"))
 
-instance Hashable Directory
+instance Hashable Directory where
 
-instance NFData Directory
+instance NFData Directory where
 
 -- | A structure that contains @Name@ , @ARN@ , @Attributes@ , 'Rule' s, and @ObjectTypes@ .
 --
@@ -3220,9 +3299,10 @@ instance NFData Directory
 --
 -- /See:/ 'facet' smart constructor.
 data Facet = Facet'
-    { _fObjectType :: !(Maybe ObjectType)
-    , _fName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fObjectType :: {-# NOUNPACK #-}!(Maybe ObjectType)
+  , _fName       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Facet' with the minimum fields required to make a request.
 --
@@ -3233,11 +3313,8 @@ data Facet = Facet'
 -- * 'fName' - The name of the 'Facet' .
 facet
     :: Facet
-facet =
-    Facet'
-    { _fObjectType = Nothing
-    , _fName = Nothing
-    }
+facet = Facet' {_fObjectType = Nothing, _fName = Nothing}
+
 
 -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
 fObjectType :: Lens' Facet (Maybe ObjectType)
@@ -3253,9 +3330,9 @@ instance FromJSON Facet where
               (\ x ->
                  Facet' <$> (x .:? "ObjectType") <*> (x .:? "Name"))
 
-instance Hashable Facet
+instance Hashable Facet where
 
-instance NFData Facet
+instance NFData Facet where
 
 -- | An attribute that is associated with the 'Facet' .
 --
@@ -3263,11 +3340,12 @@ instance NFData Facet
 --
 -- /See:/ 'facetAttribute' smart constructor.
 data FacetAttribute = FacetAttribute'
-    { _faAttributeReference  :: !(Maybe FacetAttributeReference)
-    , _faAttributeDefinition :: !(Maybe FacetAttributeDefinition)
-    , _faRequiredBehavior    :: !(Maybe RequiredAttributeBehavior)
-    , _faName                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _faAttributeReference  :: {-# NOUNPACK #-}!(Maybe FacetAttributeReference)
+  , _faAttributeDefinition :: {-# NOUNPACK #-}!(Maybe FacetAttributeDefinition)
+  , _faRequiredBehavior    :: {-# NOUNPACK #-}!(Maybe RequiredAttributeBehavior)
+  , _faName                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FacetAttribute' with the minimum fields required to make a request.
 --
@@ -3284,12 +3362,13 @@ facetAttribute
     :: Text -- ^ 'faName'
     -> FacetAttribute
 facetAttribute pName_ =
-    FacetAttribute'
-    { _faAttributeReference = Nothing
-    , _faAttributeDefinition = Nothing
-    , _faRequiredBehavior = Nothing
-    , _faName = pName_
-    }
+  FacetAttribute'
+  { _faAttributeReference = Nothing
+  , _faAttributeDefinition = Nothing
+  , _faRequiredBehavior = Nothing
+  , _faName = pName_
+  }
+
 
 -- | An attribute reference that is associated with the attribute. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences Attribute References> for more information.
 faAttributeReference :: Lens' FacetAttribute (Maybe FacetAttributeReference)
@@ -3317,9 +3396,9 @@ instance FromJSON FacetAttribute where
                      <*> (x .:? "RequiredBehavior")
                      <*> (x .: "Name"))
 
-instance Hashable FacetAttribute
+instance Hashable FacetAttribute where
 
-instance NFData FacetAttribute
+instance NFData FacetAttribute where
 
 instance ToJSON FacetAttribute where
         toJSON FacetAttribute'{..}
@@ -3337,11 +3416,12 @@ instance ToJSON FacetAttribute where
 --
 -- /See:/ 'facetAttributeDefinition' smart constructor.
 data FacetAttributeDefinition = FacetAttributeDefinition'
-    { _fadRules        :: !(Maybe (Map Text Rule))
-    , _fadDefaultValue :: !(Maybe TypedAttributeValue)
-    , _fadIsImmutable  :: !(Maybe Bool)
-    , _fadType         :: !FacetAttributeType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fadRules        :: {-# NOUNPACK #-}!(Maybe (Map Text Rule))
+  , _fadDefaultValue :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
+  , _fadIsImmutable  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _fadType         :: {-# NOUNPACK #-}!FacetAttributeType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FacetAttributeDefinition' with the minimum fields required to make a request.
 --
@@ -3358,12 +3438,13 @@ facetAttributeDefinition
     :: FacetAttributeType -- ^ 'fadType'
     -> FacetAttributeDefinition
 facetAttributeDefinition pType_ =
-    FacetAttributeDefinition'
-    { _fadRules = Nothing
-    , _fadDefaultValue = Nothing
-    , _fadIsImmutable = Nothing
-    , _fadType = pType_
-    }
+  FacetAttributeDefinition'
+  { _fadRules = Nothing
+  , _fadDefaultValue = Nothing
+  , _fadIsImmutable = Nothing
+  , _fadType = pType_
+  }
+
 
 -- | Validation rules attached to the attribute definition.
 fadRules :: Lens' FacetAttributeDefinition (HashMap Text Rule)
@@ -3390,9 +3471,9 @@ instance FromJSON FacetAttributeDefinition where
                      <*> (x .:? "IsImmutable")
                      <*> (x .: "Type"))
 
-instance Hashable FacetAttributeDefinition
+instance Hashable FacetAttributeDefinition where
 
-instance NFData FacetAttributeDefinition
+instance NFData FacetAttributeDefinition where
 
 instance ToJSON FacetAttributeDefinition where
         toJSON FacetAttributeDefinition'{..}
@@ -3409,9 +3490,10 @@ instance ToJSON FacetAttributeDefinition where
 --
 -- /See:/ 'facetAttributeReference' smart constructor.
 data FacetAttributeReference = FacetAttributeReference'
-    { _farTargetFacetName     :: !Text
-    , _farTargetAttributeName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _farTargetFacetName     :: {-# NOUNPACK #-}!Text
+  , _farTargetAttributeName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FacetAttributeReference' with the minimum fields required to make a request.
 --
@@ -3425,10 +3507,11 @@ facetAttributeReference
     -> Text -- ^ 'farTargetAttributeName'
     -> FacetAttributeReference
 facetAttributeReference pTargetFacetName_ pTargetAttributeName_ =
-    FacetAttributeReference'
-    { _farTargetFacetName = pTargetFacetName_
-    , _farTargetAttributeName = pTargetAttributeName_
-    }
+  FacetAttributeReference'
+  { _farTargetFacetName = pTargetFacetName_
+  , _farTargetAttributeName = pTargetAttributeName_
+  }
+
 
 -- | The target facet name that is associated with the facet reference. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences Attribute References> for more information.
 farTargetFacetName :: Lens' FacetAttributeReference Text
@@ -3446,9 +3529,9 @@ instance FromJSON FacetAttributeReference where
                    (x .: "TargetFacetName") <*>
                      (x .: "TargetAttributeName"))
 
-instance Hashable FacetAttributeReference
+instance Hashable FacetAttributeReference where
 
-instance NFData FacetAttributeReference
+instance NFData FacetAttributeReference where
 
 instance ToJSON FacetAttributeReference where
         toJSON FacetAttributeReference'{..}
@@ -3464,9 +3547,10 @@ instance ToJSON FacetAttributeReference where
 --
 -- /See:/ 'facetAttributeUpdate' smart constructor.
 data FacetAttributeUpdate = FacetAttributeUpdate'
-    { _fauAttribute :: !(Maybe FacetAttribute)
-    , _fauAction    :: !(Maybe UpdateActionType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fauAttribute :: {-# NOUNPACK #-}!(Maybe FacetAttribute)
+  , _fauAction    :: {-# NOUNPACK #-}!(Maybe UpdateActionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FacetAttributeUpdate' with the minimum fields required to make a request.
 --
@@ -3478,10 +3562,8 @@ data FacetAttributeUpdate = FacetAttributeUpdate'
 facetAttributeUpdate
     :: FacetAttributeUpdate
 facetAttributeUpdate =
-    FacetAttributeUpdate'
-    { _fauAttribute = Nothing
-    , _fauAction = Nothing
-    }
+  FacetAttributeUpdate' {_fauAttribute = Nothing, _fauAction = Nothing}
+
 
 -- | The attribute to update.
 fauAttribute :: Lens' FacetAttributeUpdate (Maybe FacetAttribute)
@@ -3491,9 +3573,9 @@ fauAttribute = lens _fauAttribute (\ s a -> s{_fauAttribute = a});
 fauAction :: Lens' FacetAttributeUpdate (Maybe UpdateActionType)
 fauAction = lens _fauAction (\ s a -> s{_fauAction = a});
 
-instance Hashable FacetAttributeUpdate
+instance Hashable FacetAttributeUpdate where
 
-instance NFData FacetAttributeUpdate
+instance NFData FacetAttributeUpdate where
 
 instance ToJSON FacetAttributeUpdate where
         toJSON FacetAttributeUpdate'{..}
@@ -3508,9 +3590,10 @@ instance ToJSON FacetAttributeUpdate where
 --
 -- /See:/ 'indexAttachment' smart constructor.
 data IndexAttachment = IndexAttachment'
-    { _iaIndexedAttributes :: !(Maybe [AttributeKeyAndValue])
-    , _iaObjectIdentifier  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iaIndexedAttributes :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
+  , _iaObjectIdentifier  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IndexAttachment' with the minimum fields required to make a request.
 --
@@ -3522,10 +3605,9 @@ data IndexAttachment = IndexAttachment'
 indexAttachment
     :: IndexAttachment
 indexAttachment =
-    IndexAttachment'
-    { _iaIndexedAttributes = Nothing
-    , _iaObjectIdentifier = Nothing
-    }
+  IndexAttachment'
+  {_iaIndexedAttributes = Nothing, _iaObjectIdentifier = Nothing}
+
 
 -- | The indexed attribute values.
 iaIndexedAttributes :: Lens' IndexAttachment [AttributeKeyAndValue]
@@ -3543,9 +3625,9 @@ instance FromJSON IndexAttachment where
                    (x .:? "IndexedAttributes" .!= mempty) <*>
                      (x .:? "ObjectIdentifier"))
 
-instance Hashable IndexAttachment
+instance Hashable IndexAttachment where
 
-instance NFData IndexAttachment
+instance NFData IndexAttachment where
 
 -- | The action to take on the object attribute.
 --
@@ -3553,9 +3635,10 @@ instance NFData IndexAttachment
 --
 -- /See:/ 'objectAttributeAction' smart constructor.
 data ObjectAttributeAction = ObjectAttributeAction'
-    { _oaaObjectAttributeActionType  :: !(Maybe UpdateActionType)
-    , _oaaObjectAttributeUpdateValue :: !(Maybe TypedAttributeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oaaObjectAttributeActionType :: {-# NOUNPACK #-}!(Maybe UpdateActionType)
+  , _oaaObjectAttributeUpdateValue :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ObjectAttributeAction' with the minimum fields required to make a request.
 --
@@ -3567,10 +3650,11 @@ data ObjectAttributeAction = ObjectAttributeAction'
 objectAttributeAction
     :: ObjectAttributeAction
 objectAttributeAction =
-    ObjectAttributeAction'
-    { _oaaObjectAttributeActionType = Nothing
-    , _oaaObjectAttributeUpdateValue = Nothing
-    }
+  ObjectAttributeAction'
+  { _oaaObjectAttributeActionType = Nothing
+  , _oaaObjectAttributeUpdateValue = Nothing
+  }
+
 
 -- | A type that can be either @Update@ or @Delete@ .
 oaaObjectAttributeActionType :: Lens' ObjectAttributeAction (Maybe UpdateActionType)
@@ -3580,9 +3664,9 @@ oaaObjectAttributeActionType = lens _oaaObjectAttributeActionType (\ s a -> s{_o
 oaaObjectAttributeUpdateValue :: Lens' ObjectAttributeAction (Maybe TypedAttributeValue)
 oaaObjectAttributeUpdateValue = lens _oaaObjectAttributeUpdateValue (\ s a -> s{_oaaObjectAttributeUpdateValue = a});
 
-instance Hashable ObjectAttributeAction
+instance Hashable ObjectAttributeAction where
 
-instance NFData ObjectAttributeAction
+instance NFData ObjectAttributeAction where
 
 instance ToJSON ObjectAttributeAction where
         toJSON ObjectAttributeAction'{..}
@@ -3599,9 +3683,10 @@ instance ToJSON ObjectAttributeAction where
 --
 -- /See:/ 'objectAttributeRange' smart constructor.
 data ObjectAttributeRange = ObjectAttributeRange'
-    { _oarRange        :: !(Maybe TypedAttributeValueRange)
-    , _oarAttributeKey :: !(Maybe AttributeKey)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oarRange        :: {-# NOUNPACK #-}!(Maybe TypedAttributeValueRange)
+  , _oarAttributeKey :: {-# NOUNPACK #-}!(Maybe AttributeKey)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ObjectAttributeRange' with the minimum fields required to make a request.
 --
@@ -3613,10 +3698,8 @@ data ObjectAttributeRange = ObjectAttributeRange'
 objectAttributeRange
     :: ObjectAttributeRange
 objectAttributeRange =
-    ObjectAttributeRange'
-    { _oarRange = Nothing
-    , _oarAttributeKey = Nothing
-    }
+  ObjectAttributeRange' {_oarRange = Nothing, _oarAttributeKey = Nothing}
+
 
 -- | The range of attribute values being selected.
 oarRange :: Lens' ObjectAttributeRange (Maybe TypedAttributeValueRange)
@@ -3626,9 +3709,9 @@ oarRange = lens _oarRange (\ s a -> s{_oarRange = a});
 oarAttributeKey :: Lens' ObjectAttributeRange (Maybe AttributeKey)
 oarAttributeKey = lens _oarAttributeKey (\ s a -> s{_oarAttributeKey = a});
 
-instance Hashable ObjectAttributeRange
+instance Hashable ObjectAttributeRange where
 
-instance NFData ObjectAttributeRange
+instance NFData ObjectAttributeRange where
 
 instance ToJSON ObjectAttributeRange where
         toJSON ObjectAttributeRange'{..}
@@ -3643,9 +3726,10 @@ instance ToJSON ObjectAttributeRange where
 --
 -- /See:/ 'objectAttributeUpdate' smart constructor.
 data ObjectAttributeUpdate = ObjectAttributeUpdate'
-    { _oauObjectAttributeAction :: !(Maybe ObjectAttributeAction)
-    , _oauObjectAttributeKey    :: !(Maybe AttributeKey)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oauObjectAttributeAction :: {-# NOUNPACK #-}!(Maybe ObjectAttributeAction)
+  , _oauObjectAttributeKey    :: {-# NOUNPACK #-}!(Maybe AttributeKey)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ObjectAttributeUpdate' with the minimum fields required to make a request.
 --
@@ -3657,10 +3741,9 @@ data ObjectAttributeUpdate = ObjectAttributeUpdate'
 objectAttributeUpdate
     :: ObjectAttributeUpdate
 objectAttributeUpdate =
-    ObjectAttributeUpdate'
-    { _oauObjectAttributeAction = Nothing
-    , _oauObjectAttributeKey = Nothing
-    }
+  ObjectAttributeUpdate'
+  {_oauObjectAttributeAction = Nothing, _oauObjectAttributeKey = Nothing}
+
 
 -- | The action to perform as part of the attribute update.
 oauObjectAttributeAction :: Lens' ObjectAttributeUpdate (Maybe ObjectAttributeAction)
@@ -3670,9 +3753,9 @@ oauObjectAttributeAction = lens _oauObjectAttributeAction (\ s a -> s{_oauObject
 oauObjectAttributeKey :: Lens' ObjectAttributeUpdate (Maybe AttributeKey)
 oauObjectAttributeKey = lens _oauObjectAttributeKey (\ s a -> s{_oauObjectAttributeKey = a});
 
-instance Hashable ObjectAttributeUpdate
+instance Hashable ObjectAttributeUpdate where
 
-instance NFData ObjectAttributeUpdate
+instance NFData ObjectAttributeUpdate where
 
 instance ToJSON ObjectAttributeUpdate where
         toJSON ObjectAttributeUpdate'{..}
@@ -3689,8 +3772,9 @@ instance ToJSON ObjectAttributeUpdate where
 --
 -- /See:/ 'objectReference' smart constructor.
 newtype ObjectReference = ObjectReference'
-    { _orSelector :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _orSelector :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ObjectReference' with the minimum fields required to make a request.
 --
@@ -3699,10 +3783,8 @@ newtype ObjectReference = ObjectReference'
 -- * 'orSelector' - A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects Accessing Objects> . You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier     * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
 objectReference
     :: ObjectReference
-objectReference =
-    ObjectReference'
-    { _orSelector = Nothing
-    }
+objectReference = ObjectReference' {_orSelector = Nothing}
+
 
 -- | A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects Accessing Objects> . You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier     * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
 orSelector :: Lens' ObjectReference (Maybe Text)
@@ -3713,9 +3795,9 @@ instance FromJSON ObjectReference where
           = withObject "ObjectReference"
               (\ x -> ObjectReference' <$> (x .:? "Selector"))
 
-instance Hashable ObjectReference
+instance Hashable ObjectReference where
 
-instance NFData ObjectReference
+instance NFData ObjectReference where
 
 instance ToJSON ObjectReference where
         toJSON ObjectReference'{..}
@@ -3728,9 +3810,10 @@ instance ToJSON ObjectReference where
 --
 -- /See:/ 'pathToObjectIdentifiers' smart constructor.
 data PathToObjectIdentifiers = PathToObjectIdentifiers'
-    { _ptoiObjectIdentifiers :: !(Maybe [Text])
-    , _ptoiPath              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptoiObjectIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ptoiPath              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PathToObjectIdentifiers' with the minimum fields required to make a request.
 --
@@ -3742,10 +3825,9 @@ data PathToObjectIdentifiers = PathToObjectIdentifiers'
 pathToObjectIdentifiers
     :: PathToObjectIdentifiers
 pathToObjectIdentifiers =
-    PathToObjectIdentifiers'
-    { _ptoiObjectIdentifiers = Nothing
-    , _ptoiPath = Nothing
-    }
+  PathToObjectIdentifiers'
+  {_ptoiObjectIdentifiers = Nothing, _ptoiPath = Nothing}
+
 
 -- | Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
 ptoiObjectIdentifiers :: Lens' PathToObjectIdentifiers [Text]
@@ -3763,9 +3845,9 @@ instance FromJSON PathToObjectIdentifiers where
                    (x .:? "ObjectIdentifiers" .!= mempty) <*>
                      (x .:? "Path"))
 
-instance Hashable PathToObjectIdentifiers
+instance Hashable PathToObjectIdentifiers where
 
-instance NFData PathToObjectIdentifiers
+instance NFData PathToObjectIdentifiers where
 
 -- | Contains the @PolicyType@ , @PolicyId@ , and the @ObjectIdentifier@ to which it is attached. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .
 --
@@ -3773,10 +3855,11 @@ instance NFData PathToObjectIdentifiers
 --
 -- /See:/ 'policyAttachment' smart constructor.
 data PolicyAttachment = PolicyAttachment'
-    { _paPolicyId         :: !(Maybe Text)
-    , _paPolicyType       :: !(Maybe Text)
-    , _paObjectIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _paPolicyId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paPolicyType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _paObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PolicyAttachment' with the minimum fields required to make a request.
 --
@@ -3790,11 +3873,12 @@ data PolicyAttachment = PolicyAttachment'
 policyAttachment
     :: PolicyAttachment
 policyAttachment =
-    PolicyAttachment'
-    { _paPolicyId = Nothing
-    , _paPolicyType = Nothing
-    , _paObjectIdentifier = Nothing
-    }
+  PolicyAttachment'
+  { _paPolicyId = Nothing
+  , _paPolicyType = Nothing
+  , _paObjectIdentifier = Nothing
+  }
+
 
 -- | The ID of @PolicyAttachment@ .
 paPolicyId :: Lens' PolicyAttachment (Maybe Text)
@@ -3816,9 +3900,9 @@ instance FromJSON PolicyAttachment where
                    (x .:? "PolicyId") <*> (x .:? "PolicyType") <*>
                      (x .:? "ObjectIdentifier"))
 
-instance Hashable PolicyAttachment
+instance Hashable PolicyAttachment where
 
-instance NFData PolicyAttachment
+instance NFData PolicyAttachment where
 
 -- | Used when a regular object exists in a 'Directory' and you want to find all of the policies that are associated with that object and the parent to that object.
 --
@@ -3826,9 +3910,10 @@ instance NFData PolicyAttachment
 --
 -- /See:/ 'policyToPath' smart constructor.
 data PolicyToPath = PolicyToPath'
-    { _ptpPath     :: !(Maybe Text)
-    , _ptpPolicies :: !(Maybe [PolicyAttachment])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptpPath     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptpPolicies :: {-# NOUNPACK #-}!(Maybe [PolicyAttachment])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PolicyToPath' with the minimum fields required to make a request.
 --
@@ -3839,11 +3924,8 @@ data PolicyToPath = PolicyToPath'
 -- * 'ptpPolicies' - List of policy objects.
 policyToPath
     :: PolicyToPath
-policyToPath =
-    PolicyToPath'
-    { _ptpPath = Nothing
-    , _ptpPolicies = Nothing
-    }
+policyToPath = PolicyToPath' {_ptpPath = Nothing, _ptpPolicies = Nothing}
+
 
 -- | The path that is referenced from the root.
 ptpPath :: Lens' PolicyToPath (Maybe Text)
@@ -3860,9 +3942,9 @@ instance FromJSON PolicyToPath where
                  PolicyToPath' <$>
                    (x .:? "Path") <*> (x .:? "Policies" .!= mempty))
 
-instance Hashable PolicyToPath
+instance Hashable PolicyToPath where
 
-instance NFData PolicyToPath
+instance NFData PolicyToPath where
 
 -- | Contains an Amazon Resource Name (ARN) and parameters that are associated with the rule.
 --
@@ -3870,9 +3952,10 @@ instance NFData PolicyToPath
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-    { _rParameters :: !(Maybe (Map Text Text))
-    , _rType       :: !(Maybe RuleType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _rType       :: {-# NOUNPACK #-}!(Maybe RuleType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Rule' with the minimum fields required to make a request.
 --
@@ -3883,11 +3966,8 @@ data Rule = Rule'
 -- * 'rType' - The type of attribute validation rule.
 rule
     :: Rule
-rule =
-    Rule'
-    { _rParameters = Nothing
-    , _rType = Nothing
-    }
+rule = Rule' {_rParameters = Nothing, _rType = Nothing}
+
 
 -- | The minimum and maximum parameters that are associated with the rule.
 rParameters :: Lens' Rule (HashMap Text Text)
@@ -3904,9 +3984,9 @@ instance FromJSON Rule where
                  Rule' <$>
                    (x .:? "Parameters" .!= mempty) <*> (x .:? "Type"))
 
-instance Hashable Rule
+instance Hashable Rule where
 
-instance NFData Rule
+instance NFData Rule where
 
 instance ToJSON Rule where
         toJSON Rule'{..}
@@ -3921,9 +4001,10 @@ instance ToJSON Rule where
 --
 -- /See:/ 'schemaFacet' smart constructor.
 data SchemaFacet = SchemaFacet'
-    { _sfFacetName :: !(Maybe Text)
-    , _sfSchemaARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sfFacetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sfSchemaARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SchemaFacet' with the minimum fields required to make a request.
 --
@@ -3934,11 +4015,8 @@ data SchemaFacet = SchemaFacet'
 -- * 'sfSchemaARN' - The ARN of the schema that contains the facet.
 schemaFacet
     :: SchemaFacet
-schemaFacet =
-    SchemaFacet'
-    { _sfFacetName = Nothing
-    , _sfSchemaARN = Nothing
-    }
+schemaFacet = SchemaFacet' {_sfFacetName = Nothing, _sfSchemaARN = Nothing}
+
 
 -- | The name of the facet.
 sfFacetName :: Lens' SchemaFacet (Maybe Text)
@@ -3955,9 +4033,9 @@ instance FromJSON SchemaFacet where
                  SchemaFacet' <$>
                    (x .:? "FacetName") <*> (x .:? "SchemaArn"))
 
-instance Hashable SchemaFacet
+instance Hashable SchemaFacet where
 
-instance NFData SchemaFacet
+instance NFData SchemaFacet where
 
 instance ToJSON SchemaFacet where
         toJSON SchemaFacet'{..}
@@ -3972,9 +4050,10 @@ instance ToJSON SchemaFacet where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -3985,11 +4064,8 @@ data Tag = Tag'
 -- * 'tagKey' - The key that is associated with the tag.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The value that is associated with the tag.
 tagValue :: Lens' Tag (Maybe Text)
@@ -4004,9 +4080,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -4020,12 +4096,13 @@ instance ToJSON Tag where
 --
 -- /See:/ 'typedAttributeValue' smart constructor.
 data TypedAttributeValue = TypedAttributeValue'
-    { _tavBinaryValue   :: !(Maybe Base64)
-    , _tavDatetimeValue :: !(Maybe POSIX)
-    , _tavNumberValue   :: !(Maybe Text)
-    , _tavStringValue   :: !(Maybe Text)
-    , _tavBooleanValue  :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tavBinaryValue   :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _tavDatetimeValue :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tavNumberValue   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tavStringValue   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tavBooleanValue  :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TypedAttributeValue' with the minimum fields required to make a request.
 --
@@ -4043,13 +4120,14 @@ data TypedAttributeValue = TypedAttributeValue'
 typedAttributeValue
     :: TypedAttributeValue
 typedAttributeValue =
-    TypedAttributeValue'
-    { _tavBinaryValue = Nothing
-    , _tavDatetimeValue = Nothing
-    , _tavNumberValue = Nothing
-    , _tavStringValue = Nothing
-    , _tavBooleanValue = Nothing
-    }
+  TypedAttributeValue'
+  { _tavBinaryValue = Nothing
+  , _tavDatetimeValue = Nothing
+  , _tavNumberValue = Nothing
+  , _tavStringValue = Nothing
+  , _tavBooleanValue = Nothing
+  }
+
 
 -- | A binary data value.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 tavBinaryValue :: Lens' TypedAttributeValue (Maybe ByteString)
@@ -4081,9 +4159,9 @@ instance FromJSON TypedAttributeValue where
                      <*> (x .:? "StringValue")
                      <*> (x .:? "BooleanValue"))
 
-instance Hashable TypedAttributeValue
+instance Hashable TypedAttributeValue where
 
-instance NFData TypedAttributeValue
+instance NFData TypedAttributeValue where
 
 instance ToJSON TypedAttributeValue where
         toJSON TypedAttributeValue'{..}
@@ -4101,11 +4179,12 @@ instance ToJSON TypedAttributeValue where
 --
 -- /See:/ 'typedAttributeValueRange' smart constructor.
 data TypedAttributeValueRange = TypedAttributeValueRange'
-    { _tavrEndValue   :: !(Maybe TypedAttributeValue)
-    , _tavrStartValue :: !(Maybe TypedAttributeValue)
-    , _tavrStartMode  :: !RangeMode
-    , _tavrEndMode    :: !RangeMode
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tavrEndValue   :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
+  , _tavrStartValue :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
+  , _tavrStartMode  :: {-# NOUNPACK #-}!RangeMode
+  , _tavrEndMode    :: {-# NOUNPACK #-}!RangeMode
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TypedAttributeValueRange' with the minimum fields required to make a request.
 --
@@ -4123,12 +4202,13 @@ typedAttributeValueRange
     -> RangeMode -- ^ 'tavrEndMode'
     -> TypedAttributeValueRange
 typedAttributeValueRange pStartMode_ pEndMode_ =
-    TypedAttributeValueRange'
-    { _tavrEndValue = Nothing
-    , _tavrStartValue = Nothing
-    , _tavrStartMode = pStartMode_
-    , _tavrEndMode = pEndMode_
-    }
+  TypedAttributeValueRange'
+  { _tavrEndValue = Nothing
+  , _tavrStartValue = Nothing
+  , _tavrStartMode = pStartMode_
+  , _tavrEndMode = pEndMode_
+  }
+
 
 -- | The attribute value to terminate the range at.
 tavrEndValue :: Lens' TypedAttributeValueRange (Maybe TypedAttributeValue)
@@ -4146,9 +4226,9 @@ tavrStartMode = lens _tavrStartMode (\ s a -> s{_tavrStartMode = a});
 tavrEndMode :: Lens' TypedAttributeValueRange RangeMode
 tavrEndMode = lens _tavrEndMode (\ s a -> s{_tavrEndMode = a});
 
-instance Hashable TypedAttributeValueRange
+instance Hashable TypedAttributeValueRange where
 
-instance NFData TypedAttributeValueRange
+instance NFData TypedAttributeValueRange where
 
 instance ToJSON TypedAttributeValueRange where
         toJSON TypedAttributeValueRange'{..}
@@ -4165,13 +4245,14 @@ instance ToJSON TypedAttributeValueRange where
 --
 -- /See:/ 'typedLinkAttributeDefinition' smart constructor.
 data TypedLinkAttributeDefinition = TypedLinkAttributeDefinition'
-    { _tladRules            :: !(Maybe (Map Text Rule))
-    , _tladDefaultValue     :: !(Maybe TypedAttributeValue)
-    , _tladIsImmutable      :: !(Maybe Bool)
-    , _tladName             :: !Text
-    , _tladType             :: !FacetAttributeType
-    , _tladRequiredBehavior :: !RequiredAttributeBehavior
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tladRules            :: {-# NOUNPACK #-}!(Maybe (Map Text Rule))
+  , _tladDefaultValue     :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
+  , _tladIsImmutable      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tladName             :: {-# NOUNPACK #-}!Text
+  , _tladType             :: {-# NOUNPACK #-}!FacetAttributeType
+  , _tladRequiredBehavior :: {-# NOUNPACK #-}!RequiredAttributeBehavior
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TypedLinkAttributeDefinition' with the minimum fields required to make a request.
 --
@@ -4194,14 +4275,15 @@ typedLinkAttributeDefinition
     -> RequiredAttributeBehavior -- ^ 'tladRequiredBehavior'
     -> TypedLinkAttributeDefinition
 typedLinkAttributeDefinition pName_ pType_ pRequiredBehavior_ =
-    TypedLinkAttributeDefinition'
-    { _tladRules = Nothing
-    , _tladDefaultValue = Nothing
-    , _tladIsImmutable = Nothing
-    , _tladName = pName_
-    , _tladType = pType_
-    , _tladRequiredBehavior = pRequiredBehavior_
-    }
+  TypedLinkAttributeDefinition'
+  { _tladRules = Nothing
+  , _tladDefaultValue = Nothing
+  , _tladIsImmutable = Nothing
+  , _tladName = pName_
+  , _tladType = pType_
+  , _tladRequiredBehavior = pRequiredBehavior_
+  }
+
 
 -- | Validation rules that are attached to the attribute definition.
 tladRules :: Lens' TypedLinkAttributeDefinition (HashMap Text Rule)
@@ -4238,9 +4320,9 @@ instance FromJSON TypedLinkAttributeDefinition where
                      <*> (x .: "Type")
                      <*> (x .: "RequiredBehavior"))
 
-instance Hashable TypedLinkAttributeDefinition
+instance Hashable TypedLinkAttributeDefinition where
 
-instance NFData TypedLinkAttributeDefinition
+instance NFData TypedLinkAttributeDefinition where
 
 instance ToJSON TypedLinkAttributeDefinition where
         toJSON TypedLinkAttributeDefinition'{..}
@@ -4259,9 +4341,10 @@ instance ToJSON TypedLinkAttributeDefinition where
 --
 -- /See:/ 'typedLinkAttributeRange' smart constructor.
 data TypedLinkAttributeRange = TypedLinkAttributeRange'
-    { _tlarAttributeName :: !(Maybe Text)
-    , _tlarRange         :: !TypedAttributeValueRange
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tlarAttributeName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tlarRange         :: {-# NOUNPACK #-}!TypedAttributeValueRange
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TypedLinkAttributeRange' with the minimum fields required to make a request.
 --
@@ -4274,10 +4357,8 @@ typedLinkAttributeRange
     :: TypedAttributeValueRange -- ^ 'tlarRange'
     -> TypedLinkAttributeRange
 typedLinkAttributeRange pRange_ =
-    TypedLinkAttributeRange'
-    { _tlarAttributeName = Nothing
-    , _tlarRange = pRange_
-    }
+  TypedLinkAttributeRange' {_tlarAttributeName = Nothing, _tlarRange = pRange_}
+
 
 -- | The unique name of the typed link attribute.
 tlarAttributeName :: Lens' TypedLinkAttributeRange (Maybe Text)
@@ -4287,9 +4368,9 @@ tlarAttributeName = lens _tlarAttributeName (\ s a -> s{_tlarAttributeName = a})
 tlarRange :: Lens' TypedLinkAttributeRange TypedAttributeValueRange
 tlarRange = lens _tlarRange (\ s a -> s{_tlarRange = a});
 
-instance Hashable TypedLinkAttributeRange
+instance Hashable TypedLinkAttributeRange where
 
-instance NFData TypedLinkAttributeRange
+instance NFData TypedLinkAttributeRange where
 
 instance ToJSON TypedLinkAttributeRange where
         toJSON TypedLinkAttributeRange'{..}
@@ -4304,10 +4385,11 @@ instance ToJSON TypedLinkAttributeRange where
 --
 -- /See:/ 'typedLinkFacet' smart constructor.
 data TypedLinkFacet = TypedLinkFacet'
-    { _tlfName                   :: !Text
-    , _tlfAttributes             :: ![TypedLinkAttributeDefinition]
-    , _tlfIdentityAttributeOrder :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tlfName :: {-# NOUNPACK #-}!Text
+  , _tlfAttributes :: {-# NOUNPACK #-}![TypedLinkAttributeDefinition]
+  , _tlfIdentityAttributeOrder :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TypedLinkFacet' with the minimum fields required to make a request.
 --
@@ -4322,11 +4404,12 @@ typedLinkFacet
     :: Text -- ^ 'tlfName'
     -> TypedLinkFacet
 typedLinkFacet pName_ =
-    TypedLinkFacet'
-    { _tlfName = pName_
-    , _tlfAttributes = mempty
-    , _tlfIdentityAttributeOrder = mempty
-    }
+  TypedLinkFacet'
+  { _tlfName = pName_
+  , _tlfAttributes = mempty
+  , _tlfIdentityAttributeOrder = mempty
+  }
+
 
 -- | The unique name of the typed link facet.
 tlfName :: Lens' TypedLinkFacet Text
@@ -4340,9 +4423,9 @@ tlfAttributes = lens _tlfAttributes (\ s a -> s{_tlfAttributes = a}) . _Coerce;
 tlfIdentityAttributeOrder :: Lens' TypedLinkFacet [Text]
 tlfIdentityAttributeOrder = lens _tlfIdentityAttributeOrder (\ s a -> s{_tlfIdentityAttributeOrder = a}) . _Coerce;
 
-instance Hashable TypedLinkFacet
+instance Hashable TypedLinkFacet where
 
-instance NFData TypedLinkFacet
+instance NFData TypedLinkFacet where
 
 instance ToJSON TypedLinkFacet where
         toJSON TypedLinkFacet'{..}
@@ -4360,9 +4443,10 @@ instance ToJSON TypedLinkFacet where
 --
 -- /See:/ 'typedLinkFacetAttributeUpdate' smart constructor.
 data TypedLinkFacetAttributeUpdate = TypedLinkFacetAttributeUpdate'
-    { _tlfauAttribute :: !TypedLinkAttributeDefinition
-    , _tlfauAction    :: !UpdateActionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tlfauAttribute :: {-# NOUNPACK #-}!TypedLinkAttributeDefinition
+  , _tlfauAction    :: {-# NOUNPACK #-}!UpdateActionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TypedLinkFacetAttributeUpdate' with the minimum fields required to make a request.
 --
@@ -4376,10 +4460,9 @@ typedLinkFacetAttributeUpdate
     -> UpdateActionType -- ^ 'tlfauAction'
     -> TypedLinkFacetAttributeUpdate
 typedLinkFacetAttributeUpdate pAttribute_ pAction_ =
-    TypedLinkFacetAttributeUpdate'
-    { _tlfauAttribute = pAttribute_
-    , _tlfauAction = pAction_
-    }
+  TypedLinkFacetAttributeUpdate'
+  {_tlfauAttribute = pAttribute_, _tlfauAction = pAction_}
+
 
 -- | The attribute to update.
 tlfauAttribute :: Lens' TypedLinkFacetAttributeUpdate TypedLinkAttributeDefinition
@@ -4389,9 +4472,9 @@ tlfauAttribute = lens _tlfauAttribute (\ s a -> s{_tlfauAttribute = a});
 tlfauAction :: Lens' TypedLinkFacetAttributeUpdate UpdateActionType
 tlfauAction = lens _tlfauAction (\ s a -> s{_tlfauAction = a});
 
-instance Hashable TypedLinkFacetAttributeUpdate
+instance Hashable TypedLinkFacetAttributeUpdate where
 
-instance NFData TypedLinkFacetAttributeUpdate
+instance NFData TypedLinkFacetAttributeUpdate where
 
 instance ToJSON TypedLinkFacetAttributeUpdate where
         toJSON TypedLinkFacetAttributeUpdate'{..}
@@ -4406,9 +4489,10 @@ instance ToJSON TypedLinkFacetAttributeUpdate where
 --
 -- /See:/ 'typedLinkSchemaAndFacetName' smart constructor.
 data TypedLinkSchemaAndFacetName = TypedLinkSchemaAndFacetName'
-    { _tlsafnSchemaARN     :: !Text
-    , _tlsafnTypedLinkName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tlsafnSchemaARN     :: {-# NOUNPACK #-}!Text
+  , _tlsafnTypedLinkName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TypedLinkSchemaAndFacetName' with the minimum fields required to make a request.
 --
@@ -4422,10 +4506,9 @@ typedLinkSchemaAndFacetName
     -> Text -- ^ 'tlsafnTypedLinkName'
     -> TypedLinkSchemaAndFacetName
 typedLinkSchemaAndFacetName pSchemaARN_ pTypedLinkName_ =
-    TypedLinkSchemaAndFacetName'
-    { _tlsafnSchemaARN = pSchemaARN_
-    , _tlsafnTypedLinkName = pTypedLinkName_
-    }
+  TypedLinkSchemaAndFacetName'
+  {_tlsafnSchemaARN = pSchemaARN_, _tlsafnTypedLinkName = pTypedLinkName_}
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 tlsafnSchemaARN :: Lens' TypedLinkSchemaAndFacetName Text
@@ -4442,9 +4525,9 @@ instance FromJSON TypedLinkSchemaAndFacetName where
                  TypedLinkSchemaAndFacetName' <$>
                    (x .: "SchemaArn") <*> (x .: "TypedLinkName"))
 
-instance Hashable TypedLinkSchemaAndFacetName
+instance Hashable TypedLinkSchemaAndFacetName where
 
-instance NFData TypedLinkSchemaAndFacetName
+instance NFData TypedLinkSchemaAndFacetName where
 
 instance ToJSON TypedLinkSchemaAndFacetName where
         toJSON TypedLinkSchemaAndFacetName'{..}
@@ -4459,11 +4542,12 @@ instance ToJSON TypedLinkSchemaAndFacetName where
 --
 -- /See:/ 'typedLinkSpecifier' smart constructor.
 data TypedLinkSpecifier = TypedLinkSpecifier'
-    { _tlsTypedLinkFacet          :: !TypedLinkSchemaAndFacetName
-    , _tlsSourceObjectReference   :: !ObjectReference
-    , _tlsTargetObjectReference   :: !ObjectReference
-    , _tlsIdentityAttributeValues :: ![AttributeNameAndValue]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tlsTypedLinkFacet          :: {-# NOUNPACK #-}!TypedLinkSchemaAndFacetName
+  , _tlsSourceObjectReference   :: {-# NOUNPACK #-}!ObjectReference
+  , _tlsTargetObjectReference   :: {-# NOUNPACK #-}!ObjectReference
+  , _tlsIdentityAttributeValues :: {-# NOUNPACK #-}![AttributeNameAndValue]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TypedLinkSpecifier' with the minimum fields required to make a request.
 --
@@ -4482,12 +4566,13 @@ typedLinkSpecifier
     -> ObjectReference -- ^ 'tlsTargetObjectReference'
     -> TypedLinkSpecifier
 typedLinkSpecifier pTypedLinkFacet_ pSourceObjectReference_ pTargetObjectReference_ =
-    TypedLinkSpecifier'
-    { _tlsTypedLinkFacet = pTypedLinkFacet_
-    , _tlsSourceObjectReference = pSourceObjectReference_
-    , _tlsTargetObjectReference = pTargetObjectReference_
-    , _tlsIdentityAttributeValues = mempty
-    }
+  TypedLinkSpecifier'
+  { _tlsTypedLinkFacet = pTypedLinkFacet_
+  , _tlsSourceObjectReference = pSourceObjectReference_
+  , _tlsTargetObjectReference = pTargetObjectReference_
+  , _tlsIdentityAttributeValues = mempty
+  }
+
 
 -- | Identifies the typed link facet that is associated with the typed link.
 tlsTypedLinkFacet :: Lens' TypedLinkSpecifier TypedLinkSchemaAndFacetName
@@ -4515,9 +4600,9 @@ instance FromJSON TypedLinkSpecifier where
                      <*> (x .: "TargetObjectReference")
                      <*> (x .:? "IdentityAttributeValues" .!= mempty))
 
-instance Hashable TypedLinkSpecifier
+instance Hashable TypedLinkSpecifier where
 
-instance NFData TypedLinkSpecifier
+instance NFData TypedLinkSpecifier where
 
 instance ToJSON TypedLinkSpecifier where
         toJSON TypedLinkSpecifier'{..}

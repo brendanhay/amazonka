@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -630,40 +630,40 @@ module Network.AWS.EMR.Types
     , vsSizeInGB
     ) where
 
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.EMR.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.EMR.Types.Product
+import Network.AWS.EMR.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2009-03-31@ of the Amazon Elastic MapReduce SDK configuration.
 emr :: Service
 emr =
-    Service
-    { _svcAbbrev = "EMR"
-    , _svcSigner = v4
-    , _svcPrefix = "elasticmapreduce"
-    , _svcVersion = "2009-03-31"
-    , _svcEndpoint = defaultEndpoint emr
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "EMR"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "EMR"
+  , _svcSigner = v4
+  , _svcPrefix = "elasticmapreduce"
+  , _svcVersion = "2009-03-31"
+  , _svcEndpoint = defaultEndpoint emr
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "EMR"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -672,11 +672,13 @@ emr =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | This exception occurs when there is something wrong with user input.
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _MatchServiceError emr "InvalidRequestException"
+
 
 -- | Indicates that an error occurred while processing the request and that the request was not completed.
 --
@@ -684,8 +686,10 @@ _InvalidRequestException = _MatchServiceError emr "InvalidRequestException"
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _MatchServiceError emr "InternalServerError"
 
+
 -- | This exception occurs when there is an internal failure in the EMR service.
 --
 --
 _InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerException = _MatchServiceError emr "InternalServerException"
+

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -411,23 +411,23 @@ module Network.AWS.KinesisAnalytics
     , ssRecordColumns
     ) where
 
-import           Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
-import           Network.AWS.KinesisAnalytics.AddApplicationInput
-import           Network.AWS.KinesisAnalytics.AddApplicationOutput
-import           Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
-import           Network.AWS.KinesisAnalytics.CreateApplication
-import           Network.AWS.KinesisAnalytics.DeleteApplication
-import           Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
-import           Network.AWS.KinesisAnalytics.DeleteApplicationOutput
-import           Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
-import           Network.AWS.KinesisAnalytics.DescribeApplication
-import           Network.AWS.KinesisAnalytics.DiscoverInputSchema
-import           Network.AWS.KinesisAnalytics.ListApplications
-import           Network.AWS.KinesisAnalytics.StartApplication
-import           Network.AWS.KinesisAnalytics.StopApplication
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.UpdateApplication
-import           Network.AWS.KinesisAnalytics.Waiters
+import Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
+import Network.AWS.KinesisAnalytics.AddApplicationInput
+import Network.AWS.KinesisAnalytics.AddApplicationOutput
+import Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
+import Network.AWS.KinesisAnalytics.CreateApplication
+import Network.AWS.KinesisAnalytics.DeleteApplication
+import Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
+import Network.AWS.KinesisAnalytics.DeleteApplicationOutput
+import Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
+import Network.AWS.KinesisAnalytics.DescribeApplication
+import Network.AWS.KinesisAnalytics.DiscoverInputSchema
+import Network.AWS.KinesisAnalytics.ListApplications
+import Network.AWS.KinesisAnalytics.StartApplication
+import Network.AWS.KinesisAnalytics.StopApplication
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.UpdateApplication
+import Network.AWS.KinesisAnalytics.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

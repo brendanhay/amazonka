@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.SetLocalConsolePassword
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.StorageGateway.SetLocalConsolePassword
     , slcprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | SetLocalConsolePasswordInput
 --
@@ -51,9 +51,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'setLocalConsolePassword' smart constructor.
 data SetLocalConsolePassword = SetLocalConsolePassword'
-    { _slcpGatewayARN           :: !Text
-    , _slcpLocalConsolePassword :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _slcpGatewayARN           :: {-# NOUNPACK #-}!Text
+  , _slcpLocalConsolePassword :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetLocalConsolePassword' with the minimum fields required to make a request.
 --
@@ -67,10 +68,11 @@ setLocalConsolePassword
     -> Text -- ^ 'slcpLocalConsolePassword'
     -> SetLocalConsolePassword
 setLocalConsolePassword pGatewayARN_ pLocalConsolePassword_ =
-    SetLocalConsolePassword'
-    { _slcpGatewayARN = pGatewayARN_
-    , _slcpLocalConsolePassword = _Sensitive # pLocalConsolePassword_
-    }
+  SetLocalConsolePassword'
+  { _slcpGatewayARN = pGatewayARN_
+  , _slcpLocalConsolePassword = _Sensitive # pLocalConsolePassword_
+  }
+
 
 -- | Undocumented member.
 slcpGatewayARN :: Lens' SetLocalConsolePassword Text
@@ -90,9 +92,9 @@ instance AWSRequest SetLocalConsolePassword where
                  SetLocalConsolePasswordResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable SetLocalConsolePassword
+instance Hashable SetLocalConsolePassword where
 
-instance NFData SetLocalConsolePassword
+instance NFData SetLocalConsolePassword where
 
 instance ToHeaders SetLocalConsolePassword where
         toHeaders
@@ -121,9 +123,10 @@ instance ToQuery SetLocalConsolePassword where
 
 -- | /See:/ 'setLocalConsolePasswordResponse' smart constructor.
 data SetLocalConsolePasswordResponse = SetLocalConsolePasswordResponse'
-    { _slcprsGatewayARN     :: !(Maybe Text)
-    , _slcprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slcprsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _slcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetLocalConsolePasswordResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +139,9 @@ setLocalConsolePasswordResponse
     :: Int -- ^ 'slcprsResponseStatus'
     -> SetLocalConsolePasswordResponse
 setLocalConsolePasswordResponse pResponseStatus_ =
-    SetLocalConsolePasswordResponse'
-    { _slcprsGatewayARN = Nothing
-    , _slcprsResponseStatus = pResponseStatus_
-    }
+  SetLocalConsolePasswordResponse'
+  {_slcprsGatewayARN = Nothing, _slcprsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 slcprsGatewayARN :: Lens' SetLocalConsolePasswordResponse (Maybe Text)
@@ -149,4 +151,4 @@ slcprsGatewayARN = lens _slcprsGatewayARN (\ s a -> s{_slcprsGatewayARN = a});
 slcprsResponseStatus :: Lens' SetLocalConsolePasswordResponse Int
 slcprsResponseStatus = lens _slcprsResponseStatus (\ s a -> s{_slcprsResponseStatus = a});
 
-instance NFData SetLocalConsolePasswordResponse
+instance NFData SetLocalConsolePasswordResponse where

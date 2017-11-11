@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.GetFacet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CloudDirectory.GetFacet
     , gfrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getFacet' smart constructor.
 data GetFacet = GetFacet'
-    { _gfSchemaARN :: !Text
-    , _gfName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfSchemaARN :: {-# NOUNPACK #-}!Text
+  , _gfName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFacet' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ getFacet
     -> Text -- ^ 'gfName'
     -> GetFacet
 getFacet pSchemaARN_ pName_ =
-    GetFacet'
-    { _gfSchemaARN = pSchemaARN_
-    , _gfName = pName_
-    }
+  GetFacet' {_gfSchemaARN = pSchemaARN_, _gfName = pName_}
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
 gfSchemaARN :: Lens' GetFacet Text
@@ -85,9 +84,9 @@ instance AWSRequest GetFacet where
                  GetFacetResponse' <$>
                    (x .?> "Facet") <*> (pure (fromEnum s)))
 
-instance Hashable GetFacet
+instance Hashable GetFacet where
 
-instance NFData GetFacet
+instance NFData GetFacet where
 
 instance ToHeaders GetFacet where
         toHeaders GetFacet'{..}
@@ -106,9 +105,10 @@ instance ToQuery GetFacet where
 
 -- | /See:/ 'getFacetResponse' smart constructor.
 data GetFacetResponse = GetFacetResponse'
-    { _gfrsFacet          :: !(Maybe Facet)
-    , _gfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfrsFacet          :: {-# NOUNPACK #-}!(Maybe Facet)
+  , _gfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFacetResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +121,9 @@ getFacetResponse
     :: Int -- ^ 'gfrsResponseStatus'
     -> GetFacetResponse
 getFacetResponse pResponseStatus_ =
-    GetFacetResponse'
-    { _gfrsFacet = Nothing
-    , _gfrsResponseStatus = pResponseStatus_
-    }
+  GetFacetResponse'
+  {_gfrsFacet = Nothing, _gfrsResponseStatus = pResponseStatus_}
+
 
 -- | The 'Facet' structure that is associated with the facet.
 gfrsFacet :: Lens' GetFacetResponse (Maybe Facet)
@@ -134,4 +133,4 @@ gfrsFacet = lens _gfrsFacet (\ s a -> s{_gfrsFacet = a});
 gfrsResponseStatus :: Lens' GetFacetResponse Int
 gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a});
 
-instance NFData GetFacetResponse
+instance NFData GetFacetResponse where

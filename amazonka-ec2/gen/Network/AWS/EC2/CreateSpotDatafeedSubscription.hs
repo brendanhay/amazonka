@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateSpotDatafeedSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     , csdsrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateSpotDatafeedSubscription.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createSpotDatafeedSubscription' smart constructor.
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
-    { _csdsPrefix :: !(Maybe Text)
-    , _csdsDryRun :: !(Maybe Bool)
-    , _csdsBucket :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdsPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csdsDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csdsBucket :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSpotDatafeedSubscription' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ createSpotDatafeedSubscription
     :: Text -- ^ 'csdsBucket'
     -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription pBucket_ =
-    CreateSpotDatafeedSubscription'
-    { _csdsPrefix = Nothing
-    , _csdsDryRun = Nothing
-    , _csdsBucket = pBucket_
-    }
+  CreateSpotDatafeedSubscription'
+  {_csdsPrefix = Nothing, _csdsDryRun = Nothing, _csdsBucket = pBucket_}
+
 
 -- | A prefix for the data feed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
@@ -101,8 +100,9 @@ instance AWSRequest CreateSpotDatafeedSubscription
                      (pure (fromEnum s)))
 
 instance Hashable CreateSpotDatafeedSubscription
+         where
 
-instance NFData CreateSpotDatafeedSubscription
+instance NFData CreateSpotDatafeedSubscription where
 
 instance ToHeaders CreateSpotDatafeedSubscription
          where
@@ -126,9 +126,10 @@ instance ToQuery CreateSpotDatafeedSubscription where
 --
 -- /See:/ 'createSpotDatafeedSubscriptionResponse' smart constructor.
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
-    { _csdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
-    , _csdsrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csdsrsSpotDatafeedSubscription :: {-# NOUNPACK #-}!(Maybe SpotDatafeedSubscription)
+  , _csdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -141,10 +142,11 @@ createSpotDatafeedSubscriptionResponse
     :: Int -- ^ 'csdsrsResponseStatus'
     -> CreateSpotDatafeedSubscriptionResponse
 createSpotDatafeedSubscriptionResponse pResponseStatus_ =
-    CreateSpotDatafeedSubscriptionResponse'
-    { _csdsrsSpotDatafeedSubscription = Nothing
-    , _csdsrsResponseStatus = pResponseStatus_
-    }
+  CreateSpotDatafeedSubscriptionResponse'
+  { _csdsrsSpotDatafeedSubscription = Nothing
+  , _csdsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Spot instance data feed subscription.
 csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
@@ -155,4 +157,5 @@ csdsrsResponseStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
 csdsrsResponseStatus = lens _csdsrsResponseStatus (\ s a -> s{_csdsrsResponseStatus = a});
 
 instance NFData
-         CreateSpotDatafeedSubscriptionResponse
+           CreateSpotDatafeedSubscriptionResponse
+         where

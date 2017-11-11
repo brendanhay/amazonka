@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -357,40 +357,40 @@ module Network.AWS.APIGateway.Types
     , upkType
     ) where
 
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.APIGateway.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.APIGateway.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2015-07-09@ of the Amazon API Gateway SDK configuration.
 apiGateway :: Service
 apiGateway =
-    Service
-    { _svcAbbrev = "APIGateway"
-    , _svcSigner = v4
-    , _svcPrefix = "apigateway"
-    , _svcVersion = "2015-07-09"
-    , _svcEndpoint = defaultEndpoint apiGateway
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "APIGateway"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "APIGateway"
+  , _svcSigner = v4
+  , _svcPrefix = "apigateway"
+  , _svcVersion = "2015-07-09"
+  , _svcEndpoint = defaultEndpoint apiGateway
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "APIGateway"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -399,37 +399,45 @@ apiGateway =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | Prism for ConflictException' errors.
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException =
-    _MatchServiceError apiGateway "ConflictException" . hasStatus 409
+  _MatchServiceError apiGateway "ConflictException" . hasStatus 409
+
 
 -- | Prism for NotFoundException' errors.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException =
-    _MatchServiceError apiGateway "NotFoundException" . hasStatus 404
+  _MatchServiceError apiGateway "NotFoundException" . hasStatus 404
+
 
 -- | Prism for TooManyRequestsException' errors.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
-    _MatchServiceError apiGateway "TooManyRequestsException" . hasStatus 429
+  _MatchServiceError apiGateway "TooManyRequestsException" . hasStatus 429
+
 
 -- | Prism for ServiceUnavailableException' errors.
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _MatchServiceError apiGateway "ServiceUnavailableException" . hasStatus 503
+  _MatchServiceError apiGateway "ServiceUnavailableException" . hasStatus 503
+
 
 -- | Prism for UnauthorizedException' errors.
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException =
-    _MatchServiceError apiGateway "UnauthorizedException" . hasStatus 401
+  _MatchServiceError apiGateway "UnauthorizedException" . hasStatus 401
+
 
 -- | Prism for BadRequestException' errors.
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
-    _MatchServiceError apiGateway "BadRequestException" . hasStatus 400
+  _MatchServiceError apiGateway "BadRequestException" . hasStatus 400
+
 
 -- | Prism for LimitExceededException' errors.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _MatchServiceError apiGateway "LimitExceededException" . hasStatus 429
+  _MatchServiceError apiGateway "LimitExceededException" . hasStatus 429
+

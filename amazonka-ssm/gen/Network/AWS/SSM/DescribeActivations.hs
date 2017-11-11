@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeActivations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.SSM.DescribeActivations
     , darsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeActivations' smart constructor.
 data DescribeActivations = DescribeActivations'
-    { _daFilters    :: !(Maybe [DescribeActivationsFilter])
-    , _daNextToken  :: !(Maybe Text)
-    , _daMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daFilters    :: {-# NOUNPACK #-}!(Maybe [DescribeActivationsFilter])
+  , _daNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivations' with the minimum fields required to make a request.
 --
@@ -69,11 +70,9 @@ data DescribeActivations = DescribeActivations'
 describeActivations
     :: DescribeActivations
 describeActivations =
-    DescribeActivations'
-    { _daFilters = Nothing
-    , _daNextToken = Nothing
-    , _daMaxResults = Nothing
-    }
+  DescribeActivations'
+  {_daFilters = Nothing, _daNextToken = Nothing, _daMaxResults = Nothing}
+
 
 -- | A filter to view information about your activations.
 daFilters :: Lens' DescribeActivations [DescribeActivationsFilter]
@@ -106,9 +105,9 @@ instance AWSRequest DescribeActivations where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeActivations
+instance Hashable DescribeActivations where
 
-instance NFData DescribeActivations
+instance NFData DescribeActivations where
 
 instance ToHeaders DescribeActivations where
         toHeaders
@@ -135,10 +134,11 @@ instance ToQuery DescribeActivations where
 
 -- | /See:/ 'describeActivationsResponse' smart constructor.
 data DescribeActivationsResponse = DescribeActivationsResponse'
-    { _darsActivationList :: !(Maybe [Activation])
-    , _darsNextToken      :: !(Maybe Text)
-    , _darsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _darsActivationList :: {-# NOUNPACK #-}!(Maybe [Activation])
+  , _darsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeActivationsResponse' with the minimum fields required to make a request.
 --
@@ -153,11 +153,12 @@ describeActivationsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeActivationsResponse
 describeActivationsResponse pResponseStatus_ =
-    DescribeActivationsResponse'
-    { _darsActivationList = Nothing
-    , _darsNextToken = Nothing
-    , _darsResponseStatus = pResponseStatus_
-    }
+  DescribeActivationsResponse'
+  { _darsActivationList = Nothing
+  , _darsNextToken = Nothing
+  , _darsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of activations for your AWS account.
 darsActivationList :: Lens' DescribeActivationsResponse [Activation]
@@ -171,4 +172,4 @@ darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 darsResponseStatus :: Lens' DescribeActivationsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 
-instance NFData DescribeActivationsResponse
+instance NFData DescribeActivationsResponse where

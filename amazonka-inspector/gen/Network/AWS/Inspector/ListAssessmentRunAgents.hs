@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListAssessmentRunAgents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Inspector.ListAssessmentRunAgents
     , lararsAssessmentRunAgents
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAssessmentRunAgents' smart constructor.
 data ListAssessmentRunAgents = ListAssessmentRunAgents'
-    { _laraNextToken        :: !(Maybe Text)
-    , _laraFilter           :: !(Maybe AgentFilter)
-    , _laraMaxResults       :: !(Maybe Int)
-    , _laraAssessmentRunARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laraNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laraFilter           :: {-# NOUNPACK #-}!(Maybe AgentFilter)
+  , _laraMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _laraAssessmentRunARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssessmentRunAgents' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ listAssessmentRunAgents
     :: Text -- ^ 'laraAssessmentRunARN'
     -> ListAssessmentRunAgents
 listAssessmentRunAgents pAssessmentRunARN_ =
-    ListAssessmentRunAgents'
-    { _laraNextToken = Nothing
-    , _laraFilter = Nothing
-    , _laraMaxResults = Nothing
-    , _laraAssessmentRunARN = pAssessmentRunARN_
-    }
+  ListAssessmentRunAgents'
+  { _laraNextToken = Nothing
+  , _laraFilter = Nothing
+  , _laraMaxResults = Nothing
+  , _laraAssessmentRunARN = pAssessmentRunARN_
+  }
+
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentRunAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 laraNextToken :: Lens' ListAssessmentRunAgents (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest ListAssessmentRunAgents where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "assessmentRunAgents" .!@ mempty))
 
-instance Hashable ListAssessmentRunAgents
+instance Hashable ListAssessmentRunAgents where
 
-instance NFData ListAssessmentRunAgents
+instance NFData ListAssessmentRunAgents where
 
 instance ToHeaders ListAssessmentRunAgents where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery ListAssessmentRunAgents where
 
 -- | /See:/ 'listAssessmentRunAgentsResponse' smart constructor.
 data ListAssessmentRunAgentsResponse = ListAssessmentRunAgentsResponse'
-    { _lararsNextToken           :: !(Maybe Text)
-    , _lararsResponseStatus      :: !Int
-    , _lararsAssessmentRunAgents :: ![AssessmentRunAgent]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lararsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lararsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _lararsAssessmentRunAgents :: {-# NOUNPACK #-}![AssessmentRunAgent]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssessmentRunAgentsResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ listAssessmentRunAgentsResponse
     :: Int -- ^ 'lararsResponseStatus'
     -> ListAssessmentRunAgentsResponse
 listAssessmentRunAgentsResponse pResponseStatus_ =
-    ListAssessmentRunAgentsResponse'
-    { _lararsNextToken = Nothing
-    , _lararsResponseStatus = pResponseStatus_
-    , _lararsAssessmentRunAgents = mempty
-    }
+  ListAssessmentRunAgentsResponse'
+  { _lararsNextToken = Nothing
+  , _lararsResponseStatus = pResponseStatus_
+  , _lararsAssessmentRunAgents = mempty
+  }
+
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 lararsNextToken :: Lens' ListAssessmentRunAgentsResponse (Maybe Text)
@@ -172,4 +176,4 @@ lararsResponseStatus = lens _lararsResponseStatus (\ s a -> s{_lararsResponseSta
 lararsAssessmentRunAgents :: Lens' ListAssessmentRunAgentsResponse [AssessmentRunAgent]
 lararsAssessmentRunAgents = lens _lararsAssessmentRunAgents (\ s a -> s{_lararsAssessmentRunAgents = a}) . _Coerce;
 
-instance NFData ListAssessmentRunAgentsResponse
+instance NFData ListAssessmentRunAgentsResponse where

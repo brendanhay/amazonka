@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetParametersByPath
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,22 +45,23 @@ module Network.AWS.SSM.GetParametersByPath
     , gpbprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getParametersByPath' smart constructor.
 data GetParametersByPath = GetParametersByPath'
-    { _gpbpWithDecryption   :: !(Maybe Bool)
-    , _gpbpParameterFilters :: !(Maybe [ParameterStringFilter])
-    , _gpbpNextToken        :: !(Maybe Text)
-    , _gpbpRecursive        :: !(Maybe Bool)
-    , _gpbpMaxResults       :: !(Maybe Nat)
-    , _gpbpPath             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpbpWithDecryption   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gpbpParameterFilters :: {-# NOUNPACK #-}!(Maybe [ParameterStringFilter])
+  , _gpbpNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpbpRecursive        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gpbpMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gpbpPath             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParametersByPath' with the minimum fields required to make a request.
 --
@@ -81,14 +82,15 @@ getParametersByPath
     :: Text -- ^ 'gpbpPath'
     -> GetParametersByPath
 getParametersByPath pPath_ =
-    GetParametersByPath'
-    { _gpbpWithDecryption = Nothing
-    , _gpbpParameterFilters = Nothing
-    , _gpbpNextToken = Nothing
-    , _gpbpRecursive = Nothing
-    , _gpbpMaxResults = Nothing
-    , _gpbpPath = pPath_
-    }
+  GetParametersByPath'
+  { _gpbpWithDecryption = Nothing
+  , _gpbpParameterFilters = Nothing
+  , _gpbpNextToken = Nothing
+  , _gpbpRecursive = Nothing
+  , _gpbpMaxResults = Nothing
+  , _gpbpPath = pPath_
+  }
+
 
 -- | Retrieve all parameters in a hierarchy with their value decrypted.
 gpbpWithDecryption :: Lens' GetParametersByPath (Maybe Bool)
@@ -126,9 +128,9 @@ instance AWSRequest GetParametersByPath where
                      (x .?> "Parameters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetParametersByPath
+instance Hashable GetParametersByPath where
 
-instance NFData GetParametersByPath
+instance NFData GetParametersByPath where
 
 instance ToHeaders GetParametersByPath where
         toHeaders
@@ -158,10 +160,11 @@ instance ToQuery GetParametersByPath where
 
 -- | /See:/ 'getParametersByPathResponse' smart constructor.
 data GetParametersByPathResponse = GetParametersByPathResponse'
-    { _gpbprsNextToken      :: !(Maybe Text)
-    , _gpbprsParameters     :: !(Maybe [Parameter])
-    , _gpbprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpbprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpbprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _gpbprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParametersByPathResponse' with the minimum fields required to make a request.
 --
@@ -176,11 +179,12 @@ getParametersByPathResponse
     :: Int -- ^ 'gpbprsResponseStatus'
     -> GetParametersByPathResponse
 getParametersByPathResponse pResponseStatus_ =
-    GetParametersByPathResponse'
-    { _gpbprsNextToken = Nothing
-    , _gpbprsParameters = Nothing
-    , _gpbprsResponseStatus = pResponseStatus_
-    }
+  GetParametersByPathResponse'
+  { _gpbprsNextToken = Nothing
+  , _gpbprsParameters = Nothing
+  , _gpbprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 gpbprsNextToken :: Lens' GetParametersByPathResponse (Maybe Text)
@@ -194,4 +198,4 @@ gpbprsParameters = lens _gpbprsParameters (\ s a -> s{_gpbprsParameters = a}) . 
 gpbprsResponseStatus :: Lens' GetParametersByPathResponse Int
 gpbprsResponseStatus = lens _gpbprsResponseStatus (\ s a -> s{_gpbprsResponseStatus = a});
 
-instance NFData GetParametersByPathResponse
+instance NFData GetParametersByPathResponse where

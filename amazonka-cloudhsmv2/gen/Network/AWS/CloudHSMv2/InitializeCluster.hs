@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.InitializeCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudHSMv2.InitializeCluster
     , icrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSMv2.Types
-import           Network.AWS.CloudHSMv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSMv2.Types
+import Network.AWS.CloudHSMv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'initializeCluster' smart constructor.
 data InitializeCluster = InitializeCluster'
-    { _icClusterId   :: !Text
-    , _icSignedCert  :: !Text
-    , _icTrustAnchor :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _icClusterId   :: {-# NOUNPACK #-}!Text
+  , _icSignedCert  :: {-# NOUNPACK #-}!Text
+  , _icTrustAnchor :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitializeCluster' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ initializeCluster
     -> Text -- ^ 'icTrustAnchor'
     -> InitializeCluster
 initializeCluster pClusterId_ pSignedCert_ pTrustAnchor_ =
-    InitializeCluster'
-    { _icClusterId = pClusterId_
-    , _icSignedCert = pSignedCert_
-    , _icTrustAnchor = pTrustAnchor_
-    }
+  InitializeCluster'
+  { _icClusterId = pClusterId_
+  , _icSignedCert = pSignedCert_
+  , _icTrustAnchor = pTrustAnchor_
+  }
+
 
 -- | The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use 'DescribeClusters' .
 icClusterId :: Lens' InitializeCluster Text
@@ -97,9 +99,9 @@ instance AWSRequest InitializeCluster where
                    (x .?> "StateMessage") <*> (x .?> "State") <*>
                      (pure (fromEnum s)))
 
-instance Hashable InitializeCluster
+instance Hashable InitializeCluster where
 
-instance NFData InitializeCluster
+instance NFData InitializeCluster where
 
 instance ToHeaders InitializeCluster where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery InitializeCluster where
 
 -- | /See:/ 'initializeClusterResponse' smart constructor.
 data InitializeClusterResponse = InitializeClusterResponse'
-    { _icrsStateMessage   :: !(Maybe Text)
-    , _icrsState          :: !(Maybe ClusterState)
-    , _icrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _icrsStateMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _icrsState          :: {-# NOUNPACK #-}!(Maybe ClusterState)
+  , _icrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitializeClusterResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ initializeClusterResponse
     :: Int -- ^ 'icrsResponseStatus'
     -> InitializeClusterResponse
 initializeClusterResponse pResponseStatus_ =
-    InitializeClusterResponse'
-    { _icrsStateMessage = Nothing
-    , _icrsState = Nothing
-    , _icrsResponseStatus = pResponseStatus_
-    }
+  InitializeClusterResponse'
+  { _icrsStateMessage = Nothing
+  , _icrsState = Nothing
+  , _icrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A description of the cluster's state.
 icrsStateMessage :: Lens' InitializeClusterResponse (Maybe Text)
@@ -162,4 +166,4 @@ icrsState = lens _icrsState (\ s a -> s{_icrsState = a});
 icrsResponseStatus :: Lens' InitializeClusterResponse Int
 icrsResponseStatus = lens _icrsResponseStatus (\ s a -> s{_icrsResponseStatus = a});
 
-instance NFData InitializeClusterResponse
+instance NFData InitializeClusterResponse where

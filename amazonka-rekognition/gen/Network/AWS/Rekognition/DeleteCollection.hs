@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.DeleteCollection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.Rekognition.DeleteCollection
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCollection' smart constructor.
 newtype DeleteCollection = DeleteCollection'
-    { _dcCollectionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcCollectionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCollection' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ deleteCollection
     :: Text -- ^ 'dcCollectionId'
     -> DeleteCollection
 deleteCollection pCollectionId_ =
-    DeleteCollection'
-    { _dcCollectionId = pCollectionId_
-    }
+  DeleteCollection' {_dcCollectionId = pCollectionId_}
+
 
 -- | ID of the collection to delete.
 dcCollectionId :: Lens' DeleteCollection Text
@@ -77,9 +77,9 @@ instance AWSRequest DeleteCollection where
                  DeleteCollectionResponse' <$>
                    (x .?> "StatusCode") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteCollection
+instance Hashable DeleteCollection where
 
-instance NFData DeleteCollection
+instance NFData DeleteCollection where
 
 instance ToHeaders DeleteCollection where
         toHeaders
@@ -105,9 +105,10 @@ instance ToQuery DeleteCollection where
 
 -- | /See:/ 'deleteCollectionResponse' smart constructor.
 data DeleteCollectionResponse = DeleteCollectionResponse'
-    { _dcrsStatusCode     :: !(Maybe Nat)
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsStatusCode     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCollectionResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +121,9 @@ deleteCollectionResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DeleteCollectionResponse
 deleteCollectionResponse pResponseStatus_ =
-    DeleteCollectionResponse'
-    { _dcrsStatusCode = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DeleteCollectionResponse'
+  {_dcrsStatusCode = Nothing, _dcrsResponseStatus = pResponseStatus_}
+
 
 -- | HTTP status code that indicates the result of the operation.
 dcrsStatusCode :: Lens' DeleteCollectionResponse (Maybe Natural)
@@ -133,4 +133,4 @@ dcrsStatusCode = lens _dcrsStatusCode (\ s a -> s{_dcrsStatusCode = a}) . mappin
 dcrsResponseStatus :: Lens' DeleteCollectionResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DeleteCollectionResponse
+instance NFData DeleteCollectionResponse where

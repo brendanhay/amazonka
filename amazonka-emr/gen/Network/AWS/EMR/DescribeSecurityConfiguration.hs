@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeSecurityConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.EMR.DescribeSecurityConfiguration
     , drsResponseStatus
     ) where
 
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeSecurityConfiguration' smart constructor.
 newtype DescribeSecurityConfiguration = DescribeSecurityConfiguration'
-    { _dName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSecurityConfiguration' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ describeSecurityConfiguration
     :: Text -- ^ 'dName'
     -> DescribeSecurityConfiguration
 describeSecurityConfiguration pName_ =
-    DescribeSecurityConfiguration'
-    { _dName = pName_
-    }
+  DescribeSecurityConfiguration' {_dName = pName_}
+
 
 -- | The name of the security configuration.
 dName :: Lens' DescribeSecurityConfiguration Text
@@ -81,9 +81,9 @@ instance AWSRequest DescribeSecurityConfiguration
                      <*> (x .?> "CreationDateTime")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSecurityConfiguration
+instance Hashable DescribeSecurityConfiguration where
 
-instance NFData DescribeSecurityConfiguration
+instance NFData DescribeSecurityConfiguration where
 
 instance ToHeaders DescribeSecurityConfiguration
          where
@@ -108,11 +108,12 @@ instance ToQuery DescribeSecurityConfiguration where
 
 -- | /See:/ 'describeSecurityConfigurationResponse' smart constructor.
 data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationResponse'
-    { _drsSecurityConfiguration :: !(Maybe Text)
-    , _drsName                  :: !(Maybe Text)
-    , _drsCreationDateTime      :: !(Maybe POSIX)
-    , _drsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsSecurityConfiguration :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsCreationDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _drsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -129,12 +130,13 @@ describeSecurityConfigurationResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeSecurityConfigurationResponse
 describeSecurityConfigurationResponse pResponseStatus_ =
-    DescribeSecurityConfigurationResponse'
-    { _drsSecurityConfiguration = Nothing
-    , _drsName = Nothing
-    , _drsCreationDateTime = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeSecurityConfigurationResponse'
+  { _drsSecurityConfiguration = Nothing
+  , _drsName = Nothing
+  , _drsCreationDateTime = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The security configuration details in JSON format.
 drsSecurityConfiguration :: Lens' DescribeSecurityConfigurationResponse (Maybe Text)
@@ -153,3 +155,4 @@ drsResponseStatus :: Lens' DescribeSecurityConfigurationResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 instance NFData DescribeSecurityConfigurationResponse
+         where

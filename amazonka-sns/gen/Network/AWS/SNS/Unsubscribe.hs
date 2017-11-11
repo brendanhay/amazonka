@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Unsubscribe
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.SNS.Unsubscribe
     , UnsubscribeResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for Unsubscribe action.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'unsubscribe' smart constructor.
 newtype Unsubscribe = Unsubscribe'
-    { _uSubscriptionARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uSubscriptionARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Unsubscribe' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ unsubscribe
     :: Text -- ^ 'uSubscriptionARN'
     -> Unsubscribe
 unsubscribe pSubscriptionARN_ =
-    Unsubscribe'
-    { _uSubscriptionARN = pSubscriptionARN_
-    }
+  Unsubscribe' {_uSubscriptionARN = pSubscriptionARN_}
+
 
 -- | The ARN of the subscription to be deleted.
 uSubscriptionARN :: Lens' Unsubscribe Text
@@ -72,9 +72,9 @@ instance AWSRequest Unsubscribe where
         request = postQuery sns
         response = receiveNull UnsubscribeResponse'
 
-instance Hashable Unsubscribe
+instance Hashable Unsubscribe where
 
-instance NFData Unsubscribe
+instance NFData Unsubscribe where
 
 instance ToHeaders Unsubscribe where
         toHeaders = const mempty
@@ -91,8 +91,9 @@ instance ToQuery Unsubscribe where
 
 -- | /See:/ 'unsubscribeResponse' smart constructor.
 data UnsubscribeResponse =
-    UnsubscribeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UnsubscribeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnsubscribeResponse' with the minimum fields required to make a request.
 --
@@ -100,4 +101,5 @@ unsubscribeResponse
     :: UnsubscribeResponse
 unsubscribeResponse = UnsubscribeResponse'
 
-instance NFData UnsubscribeResponse
+
+instance NFData UnsubscribeResponse where

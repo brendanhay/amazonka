@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SMS.GetServers
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.SMS.GetServers
     , gsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SMS.Types
-import           Network.AWS.SMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SMS.Types
+import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'getServers' smart constructor.
 data GetServers = GetServers'
-    { _gsNextToken  :: !(Maybe Text)
-    , _gsMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetServers' with the minimum fields required to make a request.
 --
@@ -64,11 +65,8 @@ data GetServers = GetServers'
 -- * 'gsMaxResults' - Undocumented member.
 getServers
     :: GetServers
-getServers =
-    GetServers'
-    { _gsNextToken = Nothing
-    , _gsMaxResults = Nothing
-    }
+getServers = GetServers' {_gsNextToken = Nothing, _gsMaxResults = Nothing}
+
 
 -- | Undocumented member.
 gsNextToken :: Lens' GetServers (Maybe Text)
@@ -98,9 +96,9 @@ instance AWSRequest GetServers where
                      <*> (x .?> "serverList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetServers
+instance Hashable GetServers where
 
-instance NFData GetServers
+instance NFData GetServers where
 
 instance ToHeaders GetServers where
         toHeaders
@@ -127,12 +125,13 @@ instance ToQuery GetServers where
 
 -- | /See:/ 'getServersResponse' smart constructor.
 data GetServersResponse = GetServersResponse'
-    { _gsrsServerCatalogStatus :: !(Maybe ServerCatalogStatus)
-    , _gsrsLastModifiedOn      :: !(Maybe POSIX)
-    , _gsrsNextToken           :: !(Maybe Text)
-    , _gsrsServerList          :: !(Maybe [Server])
-    , _gsrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsrsServerCatalogStatus :: {-# NOUNPACK #-}!(Maybe ServerCatalogStatus)
+  , _gsrsLastModifiedOn      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gsrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsrsServerList          :: {-# NOUNPACK #-}!(Maybe [Server])
+  , _gsrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetServersResponse' with the minimum fields required to make a request.
 --
@@ -151,13 +150,14 @@ getServersResponse
     :: Int -- ^ 'gsrsResponseStatus'
     -> GetServersResponse
 getServersResponse pResponseStatus_ =
-    GetServersResponse'
-    { _gsrsServerCatalogStatus = Nothing
-    , _gsrsLastModifiedOn = Nothing
-    , _gsrsNextToken = Nothing
-    , _gsrsServerList = Nothing
-    , _gsrsResponseStatus = pResponseStatus_
-    }
+  GetServersResponse'
+  { _gsrsServerCatalogStatus = Nothing
+  , _gsrsLastModifiedOn = Nothing
+  , _gsrsNextToken = Nothing
+  , _gsrsServerList = Nothing
+  , _gsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gsrsServerCatalogStatus :: Lens' GetServersResponse (Maybe ServerCatalogStatus)
@@ -179,4 +179,4 @@ gsrsServerList = lens _gsrsServerList (\ s a -> s{_gsrsServerList = a}) . _Defau
 gsrsResponseStatus :: Lens' GetServersResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
 
-instance NFData GetServersResponse
+instance NFData GetServersResponse where

@@ -9,24 +9,25 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Discovery.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AgentStatus
-    = Blacklisted
-    | Healthy
-    | Running
-    | Shutdown
-    | Unhealthy
-    | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Blacklisted
+  | Healthy
+  | Running
+  | Shutdown
+  | Unhealthy
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AgentStatus where
     parser = takeLowerText >>= \case
@@ -58,11 +59,12 @@ instance FromJSON AgentStatus where
     parseJSON = parseJSONText "AgentStatus"
 
 data ConfigurationItemType
-    = Application
-    | Connection
-    | Process
-    | Server
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Application
+  | Connection
+  | Process
+  | Server
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ConfigurationItemType where
     parser = takeLowerText >>= \case
@@ -93,9 +95,10 @@ instance FromJSON ConfigurationItemType where
     parseJSON = parseJSONText "ConfigurationItemType"
 
 data ExportDataFormat
-    = CSV
-    | Graphml
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CSV
+  | Graphml
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExportDataFormat where
     parser = takeLowerText >>= \case
@@ -119,10 +122,11 @@ instance ToJSON ExportDataFormat where
     toJSON = toJSONText
 
 data ExportStatus
-    = Failed
-    | InProgress
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failed
+  | InProgress
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExportStatus where
     parser = takeLowerText >>= \case
@@ -148,9 +152,10 @@ instance FromJSON ExportStatus where
     parseJSON = parseJSONText "ExportStatus"
 
 data OrderString
-    = Asc
-    | Desc
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Asc
+  | Desc
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OrderString where
     parser = takeLowerText >>= \case

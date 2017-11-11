@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.GetHostnameSuggestion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
     , ghsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getHostnameSuggestion' smart constructor.
 newtype GetHostnameSuggestion = GetHostnameSuggestion'
-    { _ghsLayerId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghsLayerId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHostnameSuggestion' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ getHostnameSuggestion
     :: Text -- ^ 'ghsLayerId'
     -> GetHostnameSuggestion
 getHostnameSuggestion pLayerId_ =
-    GetHostnameSuggestion'
-    { _ghsLayerId = pLayerId_
-    }
+  GetHostnameSuggestion' {_ghsLayerId = pLayerId_}
+
 
 -- | The layer ID.
 ghsLayerId :: Lens' GetHostnameSuggestion Text
@@ -80,9 +80,9 @@ instance AWSRequest GetHostnameSuggestion where
                    (x .?> "Hostname") <*> (x .?> "LayerId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetHostnameSuggestion
+instance Hashable GetHostnameSuggestion where
 
-instance NFData GetHostnameSuggestion
+instance NFData GetHostnameSuggestion where
 
 instance ToHeaders GetHostnameSuggestion where
         toHeaders
@@ -111,10 +111,11 @@ instance ToQuery GetHostnameSuggestion where
 --
 -- /See:/ 'getHostnameSuggestionResponse' smart constructor.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
-    { _ghsrsHostname       :: !(Maybe Text)
-    , _ghsrsLayerId        :: !(Maybe Text)
-    , _ghsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghsrsHostname       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ghsrsLayerId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ghsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHostnameSuggestionResponse' with the minimum fields required to make a request.
 --
@@ -129,11 +130,12 @@ getHostnameSuggestionResponse
     :: Int -- ^ 'ghsrsResponseStatus'
     -> GetHostnameSuggestionResponse
 getHostnameSuggestionResponse pResponseStatus_ =
-    GetHostnameSuggestionResponse'
-    { _ghsrsHostname = Nothing
-    , _ghsrsLayerId = Nothing
-    , _ghsrsResponseStatus = pResponseStatus_
-    }
+  GetHostnameSuggestionResponse'
+  { _ghsrsHostname = Nothing
+  , _ghsrsLayerId = Nothing
+  , _ghsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The generated host name.
 ghsrsHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
@@ -147,4 +149,4 @@ ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
 ghsrsResponseStatus :: Lens' GetHostnameSuggestionResponse Int
 ghsrsResponseStatus = lens _ghsrsResponseStatus (\ s a -> s{_ghsrsResponseStatus = a});
 
-instance NFData GetHostnameSuggestionResponse
+instance NFData GetHostnameSuggestionResponse where

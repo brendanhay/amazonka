@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListDirectories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudDirectory.ListDirectories
     , ldrsDirectories
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listDirectories' smart constructor.
 data ListDirectories = ListDirectories'
-    { _ldState      :: !(Maybe DirectoryState)
-    , _ldNextToken  :: !(Maybe Text)
-    , _ldMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldState      :: {-# NOUNPACK #-}!(Maybe DirectoryState)
+  , _ldNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDirectories' with the minimum fields required to make a request.
 --
@@ -66,11 +67,9 @@ data ListDirectories = ListDirectories'
 listDirectories
     :: ListDirectories
 listDirectories =
-    ListDirectories'
-    { _ldState = Nothing
-    , _ldNextToken = Nothing
-    , _ldMaxResults = Nothing
-    }
+  ListDirectories'
+  {_ldState = Nothing, _ldNextToken = Nothing, _ldMaxResults = Nothing}
+
 
 -- | The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.
 ldState :: Lens' ListDirectories (Maybe DirectoryState)
@@ -94,9 +93,9 @@ instance AWSRequest ListDirectories where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "Directories" .!@ mempty))
 
-instance Hashable ListDirectories
+instance Hashable ListDirectories where
 
-instance NFData ListDirectories
+instance NFData ListDirectories where
 
 instance ToHeaders ListDirectories where
         toHeaders = const mempty
@@ -119,10 +118,11 @@ instance ToQuery ListDirectories where
 
 -- | /See:/ 'listDirectoriesResponse' smart constructor.
 data ListDirectoriesResponse = ListDirectoriesResponse'
-    { _ldrsNextToken      :: !(Maybe Text)
-    , _ldrsResponseStatus :: !Int
-    , _ldrsDirectories    :: ![Directory]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ldrsDirectories    :: {-# NOUNPACK #-}![Directory]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDirectoriesResponse' with the minimum fields required to make a request.
 --
@@ -137,11 +137,12 @@ listDirectoriesResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDirectoriesResponse
 listDirectoriesResponse pResponseStatus_ =
-    ListDirectoriesResponse'
-    { _ldrsNextToken = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    , _ldrsDirectories = mempty
-    }
+  ListDirectoriesResponse'
+  { _ldrsNextToken = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  , _ldrsDirectories = mempty
+  }
+
 
 -- | The pagination token.
 ldrsNextToken :: Lens' ListDirectoriesResponse (Maybe Text)
@@ -155,4 +156,4 @@ ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = 
 ldrsDirectories :: Lens' ListDirectoriesResponse [Directory]
 ldrsDirectories = lens _ldrsDirectories (\ s a -> s{_ldrsDirectories = a}) . _Coerce;
 
-instance NFData ListDirectoriesResponse
+instance NFData ListDirectoriesResponse where

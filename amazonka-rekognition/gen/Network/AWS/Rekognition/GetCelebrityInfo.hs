@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.GetCelebrityInfo
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.Rekognition.GetCelebrityInfo
     , gcirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCelebrityInfo' smart constructor.
 newtype GetCelebrityInfo = GetCelebrityInfo'
-    { _gciId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gciId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCelebrityInfo' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetCelebrityInfo = GetCelebrityInfo'
 getCelebrityInfo
     :: Text -- ^ 'gciId'
     -> GetCelebrityInfo
-getCelebrityInfo pId_ =
-    GetCelebrityInfo'
-    { _gciId = pId_
-    }
+getCelebrityInfo pId_ = GetCelebrityInfo' {_gciId = pId_}
+
 
 -- | The ID for the celebrity. You get the celebrity ID from a call to the operation, which recognizes celebrities in an image.
 gciId :: Lens' GetCelebrityInfo Text
@@ -79,9 +78,9 @@ instance AWSRequest GetCelebrityInfo where
                    (x .?> "Urls" .!@ mempty) <*> (x .?> "Name") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetCelebrityInfo
+instance Hashable GetCelebrityInfo where
 
-instance NFData GetCelebrityInfo
+instance NFData GetCelebrityInfo where
 
 instance ToHeaders GetCelebrityInfo where
         toHeaders
@@ -105,10 +104,11 @@ instance ToQuery GetCelebrityInfo where
 
 -- | /See:/ 'getCelebrityInfoResponse' smart constructor.
 data GetCelebrityInfoResponse = GetCelebrityInfoResponse'
-    { _gcirsURLs           :: !(Maybe [Text])
-    , _gcirsName           :: !(Maybe Text)
-    , _gcirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcirsURLs           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gcirsName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCelebrityInfoResponse' with the minimum fields required to make a request.
 --
@@ -123,11 +123,12 @@ getCelebrityInfoResponse
     :: Int -- ^ 'gcirsResponseStatus'
     -> GetCelebrityInfoResponse
 getCelebrityInfoResponse pResponseStatus_ =
-    GetCelebrityInfoResponse'
-    { _gcirsURLs = Nothing
-    , _gcirsName = Nothing
-    , _gcirsResponseStatus = pResponseStatus_
-    }
+  GetCelebrityInfoResponse'
+  { _gcirsURLs = Nothing
+  , _gcirsName = Nothing
+  , _gcirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of URLs pointing to additional celebrity information.
 gcirsURLs :: Lens' GetCelebrityInfoResponse [Text]
@@ -141,4 +142,4 @@ gcirsName = lens _gcirsName (\ s a -> s{_gcirsName = a});
 gcirsResponseStatus :: Lens' GetCelebrityInfoResponse Int
 gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a});
 
-instance NFData GetCelebrityInfoResponse
+instance NFData GetCelebrityInfoResponse where

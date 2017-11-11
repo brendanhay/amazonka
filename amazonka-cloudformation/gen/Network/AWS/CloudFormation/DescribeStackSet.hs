@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CloudFormation.DescribeStackSet
     , drsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeStackSet' smart constructor.
 newtype DescribeStackSet = DescribeStackSet'
-    { _desStackSetName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desStackSetName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackSet' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ describeStackSet
     :: Text -- ^ 'desStackSetName'
     -> DescribeStackSet
 describeStackSet pStackSetName_ =
-    DescribeStackSet'
-    { _desStackSetName = pStackSetName_
-    }
+  DescribeStackSet' {_desStackSetName = pStackSetName_}
+
 
 -- | The name or unique ID of the stack set whose description you want.
 desStackSetName :: Lens' DescribeStackSet Text
@@ -75,9 +75,9 @@ instance AWSRequest DescribeStackSet where
                  DescribeStackSetResponse' <$>
                    (x .@? "StackSet") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeStackSet
+instance Hashable DescribeStackSet where
 
-instance NFData DescribeStackSet
+instance NFData DescribeStackSet where
 
 instance ToHeaders DescribeStackSet where
         toHeaders = const mempty
@@ -94,9 +94,10 @@ instance ToQuery DescribeStackSet where
 
 -- | /See:/ 'describeStackSetResponse' smart constructor.
 data DescribeStackSetResponse = DescribeStackSetResponse'
-    { _drsStackSet       :: !(Maybe StackSet)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsStackSet       :: {-# NOUNPACK #-}!(Maybe StackSet)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeStackSetResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +110,9 @@ describeStackSetResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeStackSetResponse
 describeStackSetResponse pResponseStatus_ =
-    DescribeStackSetResponse'
-    { _drsStackSet = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeStackSetResponse'
+  {_drsStackSet = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | The specified stack set.
 drsStackSet :: Lens' DescribeStackSetResponse (Maybe StackSet)
@@ -122,4 +122,4 @@ drsStackSet = lens _drsStackSet (\ s a -> s{_drsStackSet = a});
 drsResponseStatus :: Lens' DescribeStackSetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeStackSetResponse
+instance NFData DescribeStackSetResponse where

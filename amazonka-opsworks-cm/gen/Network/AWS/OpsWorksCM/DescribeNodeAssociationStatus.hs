@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
     , dnasrsNodeAssociationStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeNodeAssociationStatus' smart constructor.
 data DescribeNodeAssociationStatus = DescribeNodeAssociationStatus'
-    { _dnasNodeAssociationStatusToken :: !Text
-    , _dnasServerName                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnasNodeAssociationStatusToken :: {-# NOUNPACK #-}!Text
+  , _dnasServerName                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNodeAssociationStatus' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ describeNodeAssociationStatus
     -> Text -- ^ 'dnasServerName'
     -> DescribeNodeAssociationStatus
 describeNodeAssociationStatus pNodeAssociationStatusToken_ pServerName_ =
-    DescribeNodeAssociationStatus'
-    { _dnasNodeAssociationStatusToken = pNodeAssociationStatusToken_
-    , _dnasServerName = pServerName_
-    }
+  DescribeNodeAssociationStatus'
+  { _dnasNodeAssociationStatusToken = pNodeAssociationStatusToken_
+  , _dnasServerName = pServerName_
+  }
+
 
 -- | Undocumented member.
 dnasNodeAssociationStatusToken :: Lens' DescribeNodeAssociationStatus Text
@@ -90,9 +92,9 @@ instance AWSRequest DescribeNodeAssociationStatus
                    (pure (fromEnum s)) <*>
                      (x .:> "NodeAssociationStatus"))
 
-instance Hashable DescribeNodeAssociationStatus
+instance Hashable DescribeNodeAssociationStatus where
 
-instance NFData DescribeNodeAssociationStatus
+instance NFData DescribeNodeAssociationStatus where
 
 instance ToHeaders DescribeNodeAssociationStatus
          where
@@ -122,9 +124,10 @@ instance ToQuery DescribeNodeAssociationStatus where
 
 -- | /See:/ 'describeNodeAssociationStatusResponse' smart constructor.
 data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusResponse'
-    { _dnasrsResponseStatus        :: !Int
-    , _dnasrsNodeAssociationStatus :: !NodeAssociationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnasrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  , _dnasrsNodeAssociationStatus :: {-# NOUNPACK #-}!NodeAssociationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNodeAssociationStatusResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,11 @@ describeNodeAssociationStatusResponse
     -> NodeAssociationStatus -- ^ 'dnasrsNodeAssociationStatus'
     -> DescribeNodeAssociationStatusResponse
 describeNodeAssociationStatusResponse pResponseStatus_ pNodeAssociationStatus_ =
-    DescribeNodeAssociationStatusResponse'
-    { _dnasrsResponseStatus = pResponseStatus_
-    , _dnasrsNodeAssociationStatus = pNodeAssociationStatus_
-    }
+  DescribeNodeAssociationStatusResponse'
+  { _dnasrsResponseStatus = pResponseStatus_
+  , _dnasrsNodeAssociationStatus = pNodeAssociationStatus_
+  }
+
 
 -- | -- | The response status code.
 dnasrsResponseStatus :: Lens' DescribeNodeAssociationStatusResponse Int
@@ -152,3 +156,4 @@ dnasrsNodeAssociationStatus :: Lens' DescribeNodeAssociationStatusResponse NodeA
 dnasrsNodeAssociationStatus = lens _dnasrsNodeAssociationStatus (\ s a -> s{_dnasrsNodeAssociationStatus = a});
 
 instance NFData DescribeNodeAssociationStatusResponse
+         where

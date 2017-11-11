@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     , dcsrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Result message containing all of the configuration settings for a specified solution stack or configuration template.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeConfigurationSettings' smart constructor.
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-    { _dcsTemplateName    :: !(Maybe Text)
-    , _dcsEnvironmentName :: !(Maybe Text)
-    , _dcsApplicationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsTemplateName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsApplicationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationSettings' with the minimum fields required to make a request.
 --
@@ -78,11 +79,12 @@ describeConfigurationSettings
     :: Text -- ^ 'dcsApplicationName'
     -> DescribeConfigurationSettings
 describeConfigurationSettings pApplicationName_ =
-    DescribeConfigurationSettings'
-    { _dcsTemplateName = Nothing
-    , _dcsEnvironmentName = Nothing
-    , _dcsApplicationName = pApplicationName_
-    }
+  DescribeConfigurationSettings'
+  { _dcsTemplateName = Nothing
+  , _dcsEnvironmentName = Nothing
+  , _dcsApplicationName = pApplicationName_
+  }
+
 
 -- | The name of the configuration template to describe. Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
 dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
@@ -110,9 +112,9 @@ instance AWSRequest DescribeConfigurationSettings
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeConfigurationSettings
+instance Hashable DescribeConfigurationSettings where
 
-instance NFData DescribeConfigurationSettings
+instance NFData DescribeConfigurationSettings where
 
 instance ToHeaders DescribeConfigurationSettings
          where
@@ -137,9 +139,10 @@ instance ToQuery DescribeConfigurationSettings where
 --
 -- /See:/ 'describeConfigurationSettingsResponse' smart constructor.
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
-    { _dcsrsConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
-    , _dcsrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsrsConfigurationSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationSettingsDescription])
+  , _dcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeConfigurationSettingsResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,11 @@ describeConfigurationSettingsResponse
     :: Int -- ^ 'dcsrsResponseStatus'
     -> DescribeConfigurationSettingsResponse
 describeConfigurationSettingsResponse pResponseStatus_ =
-    DescribeConfigurationSettingsResponse'
-    { _dcsrsConfigurationSettings = Nothing
-    , _dcsrsResponseStatus = pResponseStatus_
-    }
+  DescribeConfigurationSettingsResponse'
+  { _dcsrsConfigurationSettings = Nothing
+  , _dcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'ConfigurationSettingsDescription' .
 dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
@@ -166,3 +170,4 @@ dcsrsResponseStatus :: Lens' DescribeConfigurationSettingsResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
 
 instance NFData DescribeConfigurationSettingsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteAPNSChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.DeleteAPNSChannel
     , dacrsAPNSChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteAPNSChannel' smart constructor.
 newtype DeleteAPNSChannel = DeleteAPNSChannel'
-    { _dacApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dacApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAPNSChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ deleteAPNSChannel
     :: Text -- ^ 'dacApplicationId'
     -> DeleteAPNSChannel
 deleteAPNSChannel pApplicationId_ =
-    DeleteAPNSChannel'
-    { _dacApplicationId = pApplicationId_
-    }
+  DeleteAPNSChannel' {_dacApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 dacApplicationId :: Lens' DeleteAPNSChannel Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteAPNSChannel where
                  DeleteAPNSChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteAPNSChannel
+instance Hashable DeleteAPNSChannel where
 
-instance NFData DeleteAPNSChannel
+instance NFData DeleteAPNSChannel where
 
 instance ToHeaders DeleteAPNSChannel where
         toHeaders
@@ -95,9 +95,10 @@ instance ToQuery DeleteAPNSChannel where
 
 -- | /See:/ 'deleteAPNSChannelResponse' smart constructor.
 data DeleteAPNSChannelResponse = DeleteAPNSChannelResponse'
-    { _dacrsResponseStatus      :: !Int
-    , _dacrsAPNSChannelResponse :: !APNSChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dacrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _dacrsAPNSChannelResponse :: {-# NOUNPACK #-}!APNSChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAPNSChannelResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +112,11 @@ deleteAPNSChannelResponse
     -> APNSChannelResponse -- ^ 'dacrsAPNSChannelResponse'
     -> DeleteAPNSChannelResponse
 deleteAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
-    DeleteAPNSChannelResponse'
-    { _dacrsResponseStatus = pResponseStatus_
-    , _dacrsAPNSChannelResponse = pAPNSChannelResponse_
-    }
+  DeleteAPNSChannelResponse'
+  { _dacrsResponseStatus = pResponseStatus_
+  , _dacrsAPNSChannelResponse = pAPNSChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 dacrsResponseStatus :: Lens' DeleteAPNSChannelResponse Int
@@ -124,4 +126,4 @@ dacrsResponseStatus = lens _dacrsResponseStatus (\ s a -> s{_dacrsResponseStatus
 dacrsAPNSChannelResponse :: Lens' DeleteAPNSChannelResponse APNSChannelResponse
 dacrsAPNSChannelResponse = lens _dacrsAPNSChannelResponse (\ s a -> s{_dacrsAPNSChannelResponse = a});
 
-instance NFData DeleteAPNSChannelResponse
+instance NFData DeleteAPNSChannelResponse where

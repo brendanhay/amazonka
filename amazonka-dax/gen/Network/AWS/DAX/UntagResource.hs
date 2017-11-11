@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.UntagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.DAX.UntagResource
     , urrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'untagResource' smart constructor.
 data UntagResource = UntagResource'
-    { _urResourceName :: !Text
-    , _urTagKeys      :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urResourceName :: {-# NOUNPACK #-}!Text
+  , _urTagKeys      :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ untagResource
     :: Text -- ^ 'urResourceName'
     -> UntagResource
 untagResource pResourceName_ =
-    UntagResource'
-    { _urResourceName = pResourceName_
-    , _urTagKeys = mempty
-    }
+  UntagResource' {_urResourceName = pResourceName_, _urTagKeys = mempty}
+
 
 -- | The name of the DAX resource from which the tags should be removed.
 urResourceName :: Lens' UntagResource Text
@@ -84,9 +83,9 @@ instance AWSRequest UntagResource where
                  UntagResourceResponse' <$>
                    (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable UntagResource
+instance Hashable UntagResource where
 
-instance NFData UntagResource
+instance NFData UntagResource where
 
 instance ToHeaders UntagResource where
         toHeaders
@@ -112,9 +111,10 @@ instance ToQuery UntagResource where
 
 -- | /See:/ 'untagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-    { _urrsTags           :: !(Maybe [Tag])
-    , _urrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _urrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +127,9 @@ untagResourceResponse
     :: Int -- ^ 'urrsResponseStatus'
     -> UntagResourceResponse
 untagResourceResponse pResponseStatus_ =
-    UntagResourceResponse'
-    { _urrsTags = Nothing
-    , _urrsResponseStatus = pResponseStatus_
-    }
+  UntagResourceResponse'
+  {_urrsTags = Nothing, _urrsResponseStatus = pResponseStatus_}
+
 
 -- | The tag keys that have been removed from the cluster.
 urrsTags :: Lens' UntagResourceResponse [Tag]
@@ -140,4 +139,4 @@ urrsTags = lens _urrsTags (\ s a -> s{_urrsTags = a}) . _Default . _Coerce;
 urrsResponseStatus :: Lens' UntagResourceResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
 
-instance NFData UntagResourceResponse
+instance NFData UntagResourceResponse where

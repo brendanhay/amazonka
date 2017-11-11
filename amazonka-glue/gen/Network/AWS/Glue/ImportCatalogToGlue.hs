@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.ImportCatalogToGlue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.ImportCatalogToGlue
     , ictgrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importCatalogToGlue' smart constructor.
 newtype ImportCatalogToGlue = ImportCatalogToGlue'
-    { _ictgCatalogId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ictgCatalogId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportCatalogToGlue' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype ImportCatalogToGlue = ImportCatalogToGlue'
 -- * 'ictgCatalogId' - The ID of the catalog to import. Currently, this should be the AWS account ID.
 importCatalogToGlue
     :: ImportCatalogToGlue
-importCatalogToGlue =
-    ImportCatalogToGlue'
-    { _ictgCatalogId = Nothing
-    }
+importCatalogToGlue = ImportCatalogToGlue' {_ictgCatalogId = Nothing}
+
 
 -- | The ID of the catalog to import. Currently, this should be the AWS account ID.
 ictgCatalogId :: Lens' ImportCatalogToGlue (Maybe Text)
@@ -73,9 +72,9 @@ instance AWSRequest ImportCatalogToGlue where
               (\ s h x ->
                  ImportCatalogToGlueResponse' <$> (pure (fromEnum s)))
 
-instance Hashable ImportCatalogToGlue
+instance Hashable ImportCatalogToGlue where
 
-instance NFData ImportCatalogToGlue
+instance NFData ImportCatalogToGlue where
 
 instance ToHeaders ImportCatalogToGlue where
         toHeaders
@@ -99,8 +98,9 @@ instance ToQuery ImportCatalogToGlue where
 
 -- | /See:/ 'importCatalogToGlueResponse' smart constructor.
 newtype ImportCatalogToGlueResponse = ImportCatalogToGlueResponse'
-    { _ictgrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ictgrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportCatalogToGlueResponse' with the minimum fields required to make a request.
 --
@@ -111,12 +111,11 @@ importCatalogToGlueResponse
     :: Int -- ^ 'ictgrsResponseStatus'
     -> ImportCatalogToGlueResponse
 importCatalogToGlueResponse pResponseStatus_ =
-    ImportCatalogToGlueResponse'
-    { _ictgrsResponseStatus = pResponseStatus_
-    }
+  ImportCatalogToGlueResponse' {_ictgrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ictgrsResponseStatus :: Lens' ImportCatalogToGlueResponse Int
 ictgrsResponseStatus = lens _ictgrsResponseStatus (\ s a -> s{_ictgrsResponseStatus = a});
 
-instance NFData ImportCatalogToGlueResponse
+instance NFData ImportCatalogToGlueResponse where

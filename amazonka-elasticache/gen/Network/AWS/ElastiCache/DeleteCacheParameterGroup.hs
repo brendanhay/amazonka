@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     , DeleteCacheParameterGroupResponse
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DeleteCacheParameterGroup@ operation.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteCacheParameterGroup' smart constructor.
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
-    { _dCacheParameterGroupName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dCacheParameterGroupName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCacheParameterGroup' with the minimum fields required to make a request.
 --
@@ -59,9 +60,9 @@ deleteCacheParameterGroup
     :: Text -- ^ 'dCacheParameterGroupName'
     -> DeleteCacheParameterGroup
 deleteCacheParameterGroup pCacheParameterGroupName_ =
-    DeleteCacheParameterGroup'
-    { _dCacheParameterGroupName = pCacheParameterGroupName_
-    }
+  DeleteCacheParameterGroup'
+  {_dCacheParameterGroupName = pCacheParameterGroupName_}
+
 
 -- | The name of the cache parameter group to delete.
 dCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
@@ -74,9 +75,9 @@ instance AWSRequest DeleteCacheParameterGroup where
         response
           = receiveNull DeleteCacheParameterGroupResponse'
 
-instance Hashable DeleteCacheParameterGroup
+instance Hashable DeleteCacheParameterGroup where
 
-instance NFData DeleteCacheParameterGroup
+instance NFData DeleteCacheParameterGroup where
 
 instance ToHeaders DeleteCacheParameterGroup where
         toHeaders = const mempty
@@ -95,8 +96,9 @@ instance ToQuery DeleteCacheParameterGroup where
 
 -- | /See:/ 'deleteCacheParameterGroupResponse' smart constructor.
 data DeleteCacheParameterGroupResponse =
-    DeleteCacheParameterGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteCacheParameterGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCacheParameterGroupResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +106,6 @@ deleteCacheParameterGroupResponse
     :: DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'
 
+
 instance NFData DeleteCacheParameterGroupResponse
+         where

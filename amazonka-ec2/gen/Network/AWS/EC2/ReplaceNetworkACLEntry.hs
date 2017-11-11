@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLEntry
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     , ReplaceNetworkACLEntryResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReplaceNetworkAclEntry.
 --
@@ -56,17 +56,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'replaceNetworkACLEntry' smart constructor.
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
-    { _rnaeIPv6CidrBlock :: !(Maybe Text)
-    , _rnaeICMPTypeCode  :: !(Maybe ICMPTypeCode)
-    , _rnaePortRange     :: !(Maybe PortRange)
-    , _rnaeCidrBlock     :: !(Maybe Text)
-    , _rnaeDryRun        :: !(Maybe Bool)
-    , _rnaeEgress        :: !Bool
-    , _rnaeNetworkACLId  :: !Text
-    , _rnaeProtocol      :: !Text
-    , _rnaeRuleAction    :: !RuleAction
-    , _rnaeRuleNumber    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rnaeIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnaeICMPTypeCode  :: {-# NOUNPACK #-}!(Maybe ICMPTypeCode)
+  , _rnaePortRange     :: {-# NOUNPACK #-}!(Maybe PortRange)
+  , _rnaeCidrBlock     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rnaeDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rnaeEgress        :: {-# NOUNPACK #-}!Bool
+  , _rnaeNetworkACLId  :: {-# NOUNPACK #-}!Text
+  , _rnaeProtocol      :: {-# NOUNPACK #-}!Text
+  , _rnaeRuleAction    :: {-# NOUNPACK #-}!RuleAction
+  , _rnaeRuleNumber    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceNetworkACLEntry' with the minimum fields required to make a request.
 --
@@ -99,18 +100,19 @@ replaceNetworkACLEntry
     -> Int -- ^ 'rnaeRuleNumber'
     -> ReplaceNetworkACLEntry
 replaceNetworkACLEntry pEgress_ pNetworkACLId_ pProtocol_ pRuleAction_ pRuleNumber_ =
-    ReplaceNetworkACLEntry'
-    { _rnaeIPv6CidrBlock = Nothing
-    , _rnaeICMPTypeCode = Nothing
-    , _rnaePortRange = Nothing
-    , _rnaeCidrBlock = Nothing
-    , _rnaeDryRun = Nothing
-    , _rnaeEgress = pEgress_
-    , _rnaeNetworkACLId = pNetworkACLId_
-    , _rnaeProtocol = pProtocol_
-    , _rnaeRuleAction = pRuleAction_
-    , _rnaeRuleNumber = pRuleNumber_
-    }
+  ReplaceNetworkACLEntry'
+  { _rnaeIPv6CidrBlock = Nothing
+  , _rnaeICMPTypeCode = Nothing
+  , _rnaePortRange = Nothing
+  , _rnaeCidrBlock = Nothing
+  , _rnaeDryRun = Nothing
+  , _rnaeEgress = pEgress_
+  , _rnaeNetworkACLId = pNetworkACLId_
+  , _rnaeProtocol = pProtocol_
+  , _rnaeRuleAction = pRuleAction_
+  , _rnaeRuleNumber = pRuleNumber_
+  }
+
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example @2001:bd8:1234:1a00::/64@ ).
 rnaeIPv6CidrBlock :: Lens' ReplaceNetworkACLEntry (Maybe Text)
@@ -159,9 +161,9 @@ instance AWSRequest ReplaceNetworkACLEntry where
         response
           = receiveNull ReplaceNetworkACLEntryResponse'
 
-instance Hashable ReplaceNetworkACLEntry
+instance Hashable ReplaceNetworkACLEntry where
 
-instance NFData ReplaceNetworkACLEntry
+instance NFData ReplaceNetworkACLEntry where
 
 instance ToHeaders ReplaceNetworkACLEntry where
         toHeaders = const mempty
@@ -187,8 +189,9 @@ instance ToQuery ReplaceNetworkACLEntry where
 
 -- | /See:/ 'replaceNetworkACLEntryResponse' smart constructor.
 data ReplaceNetworkACLEntryResponse =
-    ReplaceNetworkACLEntryResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ReplaceNetworkACLEntryResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceNetworkACLEntryResponse' with the minimum fields required to make a request.
 --
@@ -196,4 +199,5 @@ replaceNetworkACLEntryResponse
     :: ReplaceNetworkACLEntryResponse
 replaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'
 
-instance NFData ReplaceNetworkACLEntryResponse
+
+instance NFData ReplaceNetworkACLEntryResponse where

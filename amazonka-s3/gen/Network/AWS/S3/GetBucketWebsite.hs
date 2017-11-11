@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketWebsite
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.S3.GetBucketWebsite
     , gbwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketWebsite' smart constructor.
 newtype GetBucketWebsite = GetBucketWebsite'
-    { _gbwBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbwBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketWebsite' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype GetBucketWebsite = GetBucketWebsite'
 getBucketWebsite
     :: BucketName -- ^ 'gbwBucket'
     -> GetBucketWebsite
-getBucketWebsite pBucket_ =
-    GetBucketWebsite'
-    { _gbwBucket = pBucket_
-    }
+getBucketWebsite pBucket_ = GetBucketWebsite' {_gbwBucket = pBucket_}
+
 
 -- | Undocumented member.
 gbwBucket :: Lens' GetBucketWebsite BucketName
@@ -82,9 +81,9 @@ instance AWSRequest GetBucketWebsite where
                         may (parseXMLList "RoutingRule"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBucketWebsite
+instance Hashable GetBucketWebsite where
 
-instance NFData GetBucketWebsite
+instance NFData GetBucketWebsite where
 
 instance ToHeaders GetBucketWebsite where
         toHeaders = const mempty
@@ -98,12 +97,13 @@ instance ToQuery GetBucketWebsite where
 
 -- | /See:/ 'getBucketWebsiteResponse' smart constructor.
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
-    { _gbwrsRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
-    , _gbwrsErrorDocument         :: !(Maybe ErrorDocument)
-    , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
-    , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
-    , _gbwrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbwrsRedirectAllRequestsTo :: {-# NOUNPACK #-}!(Maybe RedirectAllRequestsTo)
+  , _gbwrsErrorDocument :: {-# NOUNPACK #-}!(Maybe ErrorDocument)
+  , _gbwrsIndexDocument :: {-# NOUNPACK #-}!(Maybe IndexDocument)
+  , _gbwrsRoutingRules :: {-# NOUNPACK #-}!(Maybe [RoutingRule])
+  , _gbwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketWebsiteResponse' with the minimum fields required to make a request.
 --
@@ -122,13 +122,14 @@ getBucketWebsiteResponse
     :: Int -- ^ 'gbwrsResponseStatus'
     -> GetBucketWebsiteResponse
 getBucketWebsiteResponse pResponseStatus_ =
-    GetBucketWebsiteResponse'
-    { _gbwrsRedirectAllRequestsTo = Nothing
-    , _gbwrsErrorDocument = Nothing
-    , _gbwrsIndexDocument = Nothing
-    , _gbwrsRoutingRules = Nothing
-    , _gbwrsResponseStatus = pResponseStatus_
-    }
+  GetBucketWebsiteResponse'
+  { _gbwrsRedirectAllRequestsTo = Nothing
+  , _gbwrsErrorDocument = Nothing
+  , _gbwrsIndexDocument = Nothing
+  , _gbwrsRoutingRules = Nothing
+  , _gbwrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gbwrsRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
@@ -150,4 +151,4 @@ gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a})
 gbwrsResponseStatus :: Lens' GetBucketWebsiteResponse Int
 gbwrsResponseStatus = lens _gbwrsResponseStatus (\ s a -> s{_gbwrsResponseStatus = a});
 
-instance NFData GetBucketWebsiteResponse
+instance NFData GetBucketWebsiteResponse where

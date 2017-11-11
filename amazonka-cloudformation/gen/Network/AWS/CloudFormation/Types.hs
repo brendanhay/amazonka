@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -371,40 +371,40 @@ module Network.AWS.CloudFormation.Types
     , tpDescription
     ) where
 
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.CloudFormation.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.CloudFormation.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2010-05-15@ of the Amazon CloudFormation SDK configuration.
 cloudFormation :: Service
 cloudFormation =
-    Service
-    { _svcAbbrev = "CloudFormation"
-    , _svcSigner = v4
-    , _svcPrefix = "cloudformation"
-    , _svcVersion = "2010-05-15"
-    , _svcEndpoint = defaultEndpoint cloudFormation
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "CloudFormation"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "CloudFormation"
+  , _svcSigner = v4
+  , _svcPrefix = "cloudformation"
+  , _svcVersion = "2010-05-15"
+  , _svcEndpoint = defaultEndpoint cloudFormation
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "CloudFormation"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -413,125 +413,137 @@ cloudFormation =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | The specified resource exists, but has been changed.
 --
 --
 _CreatedButModifiedException :: AsError a => Getting (First ServiceError) a ServiceError
 _CreatedButModifiedException =
-    _MatchServiceError cloudFormation "CreatedButModifiedException" .
-    hasStatus 409
+  _MatchServiceError cloudFormation "CreatedButModifiedException" .
+  hasStatus 409
+
 
 -- | The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the @ListChangeSets@ action.
 --
 --
 _ChangeSetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ChangeSetNotFoundException =
-    _MatchServiceError cloudFormation "ChangeSetNotFound" . hasStatus 404
+  _MatchServiceError cloudFormation "ChangeSetNotFound" . hasStatus 404
+
 
 -- | Another operation is currently in progress for this stack set. Only one operation can be performed for a stack set at a given time.
 --
 --
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
-    _MatchServiceError cloudFormation "OperationInProgressException" .
-    hasStatus 409
+  _MatchServiceError cloudFormation "OperationInProgressException" .
+  hasStatus 409
+
 
 -- | The specified change set can't be used to update the stack. For example, the change set status might be @CREATE_IN_PROGRESS@ , or the stack status might be @UPDATE_IN_PROGRESS@ .
 --
 --
 _InvalidChangeSetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeSetStatusException =
-    _MatchServiceError cloudFormation "InvalidChangeSetStatus" . hasStatus 400
+  _MatchServiceError cloudFormation "InvalidChangeSetStatus" . hasStatus 400
+
 
 -- | The specified ID refers to an operation that doesn't exist.
 --
 --
 _OperationNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotFoundException =
-    _MatchServiceError cloudFormation "OperationNotFoundException" .
-    hasStatus 404
+  _MatchServiceError cloudFormation "OperationNotFoundException" . hasStatus 404
+
 
 -- | The specified operation ID already exists.
 --
 --
 _OperationIdAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationIdAlreadyExistsException =
-    _MatchServiceError cloudFormation "OperationIdAlreadyExistsException" .
-    hasStatus 409
+  _MatchServiceError cloudFormation "OperationIdAlreadyExistsException" .
+  hasStatus 409
+
 
 -- | The template contains resources with capabilities that weren't specified in the Capabilities parameter.
 --
 --
 _InsufficientCapabilitiesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientCapabilitiesException =
-    _MatchServiceError cloudFormation "InsufficientCapabilitiesException" .
-    hasStatus 400
+  _MatchServiceError cloudFormation "InsufficientCapabilitiesException" .
+  hasStatus 400
+
 
 -- | A client request token already exists.
 --
 --
 _TokenAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TokenAlreadyExistsException =
-    _MatchServiceError cloudFormation "TokenAlreadyExistsException" .
-    hasStatus 400
+  _MatchServiceError cloudFormation "TokenAlreadyExistsException" .
+  hasStatus 400
+
 
 -- | The specified stack set doesn't exist.
 --
 --
 _StackSetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _StackSetNotFoundException =
-    _MatchServiceError cloudFormation "StackSetNotFoundException" .
-    hasStatus 404
+  _MatchServiceError cloudFormation "StackSetNotFoundException" . hasStatus 404
+
 
 -- | The specified stack instance doesn't exist.
 --
 --
 _StackInstanceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _StackInstanceNotFoundException =
-    _MatchServiceError cloudFormation "StackInstanceNotFoundException" .
-    hasStatus 404
+  _MatchServiceError cloudFormation "StackInstanceNotFoundException" .
+  hasStatus 404
+
 
 -- | You can't yet delete this stack set, because it still contains one or more stack instances. Delete all stack instances from the stack set before deleting the stack set.
 --
 --
 _StackSetNotEmptyException :: AsError a => Getting (First ServiceError) a ServiceError
 _StackSetNotEmptyException =
-    _MatchServiceError cloudFormation "StackSetNotEmptyException" .
-    hasStatus 409
+  _MatchServiceError cloudFormation "StackSetNotEmptyException" . hasStatus 409
+
 
 -- | The specified operation isn't valid.
 --
 --
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
-    _MatchServiceError cloudFormation "InvalidOperationException" .
-    hasStatus 400
+  _MatchServiceError cloudFormation "InvalidOperationException" . hasStatus 400
+
 
 -- | The specified name is already in use.
 --
 --
 _NameAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _NameAlreadyExistsException =
-    _MatchServiceError cloudFormation "NameAlreadyExistsException" .
-    hasStatus 409
+  _MatchServiceError cloudFormation "NameAlreadyExistsException" . hasStatus 409
+
 
 -- | Another operation has been performed on this stack set since the specified operation was performed.
 --
 --
 _StaleRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _StaleRequestException =
-    _MatchServiceError cloudFormation "StaleRequestException" . hasStatus 409
+  _MatchServiceError cloudFormation "StaleRequestException" . hasStatus 409
+
 
 -- | The resource with the name requested already exists.
 --
 --
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
-    _MatchServiceError cloudFormation "AlreadyExistsException" . hasStatus 400
+  _MatchServiceError cloudFormation "AlreadyExistsException" . hasStatus 400
+
 
 -- | The quota for the resource has already been reached.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _MatchServiceError cloudFormation "LimitExceededException" . hasStatus 400
+  _MatchServiceError cloudFormation "LimitExceededException" . hasStatus 400
+

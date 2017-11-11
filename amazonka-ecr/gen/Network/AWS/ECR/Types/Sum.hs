@@ -9,23 +9,24 @@
 
 -- |
 -- Module      : Network.AWS.ECR.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ECR.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ImageFailureCode
-    = ImageNotFound
-    | ImageTagDoesNotMatchDigest
-    | InvalidImageDigest
-    | InvalidImageTag
-    | MissingDigestAndTag
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ImageNotFound
+  | ImageTagDoesNotMatchDigest
+  | InvalidImageDigest
+  | InvalidImageTag
+  | MissingDigestAndTag
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ImageFailureCode where
     parser = takeLowerText >>= \case
@@ -55,9 +56,10 @@ instance FromJSON ImageFailureCode where
     parseJSON = parseJSONText "ImageFailureCode"
 
 data LayerAvailability
-    = Available
-    | Unavailable
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | Unavailable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LayerAvailability where
     parser = takeLowerText >>= \case
@@ -81,9 +83,10 @@ instance FromJSON LayerAvailability where
     parseJSON = parseJSONText "LayerAvailability"
 
 data LayerFailureCode
-    = InvalidLayerDigest
-    | MissingLayerDigest
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = InvalidLayerDigest
+  | MissingLayerDigest
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LayerFailureCode where
     parser = takeLowerText >>= \case
@@ -107,9 +110,10 @@ instance FromJSON LayerFailureCode where
     parseJSON = parseJSONText "LayerFailureCode"
 
 data TagStatus
-    = Tagged
-    | Untagged
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Tagged
+  | Untagged
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TagStatus where
     parser = takeLowerText >>= \case

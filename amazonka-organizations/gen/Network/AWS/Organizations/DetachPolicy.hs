@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DetachPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Organizations.DetachPolicy
     , DetachPolicyResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
-    { _detPolicyId :: !Text
-    , _detTargetId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detPolicyId :: {-# NOUNPACK #-}!Text
+  , _detTargetId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachPolicy' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ detachPolicy
     -> Text -- ^ 'detTargetId'
     -> DetachPolicy
 detachPolicy pPolicyId_ pTargetId_ =
-    DetachPolicy'
-    { _detPolicyId = pPolicyId_
-    , _detTargetId = pTargetId_
-    }
+  DetachPolicy' {_detPolicyId = pPolicyId_, _detTargetId = pTargetId_}
+
 
 -- | The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 detPolicyId :: Lens' DetachPolicy Text
@@ -82,9 +81,9 @@ instance AWSRequest DetachPolicy where
         request = postJSON organizations
         response = receiveNull DetachPolicyResponse'
 
-instance Hashable DetachPolicy
+instance Hashable DetachPolicy where
 
-instance NFData DetachPolicy
+instance NFData DetachPolicy where
 
 instance ToHeaders DetachPolicy where
         toHeaders
@@ -111,8 +110,9 @@ instance ToQuery DetachPolicy where
 
 -- | /See:/ 'detachPolicyResponse' smart constructor.
 data DetachPolicyResponse =
-    DetachPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachPolicyResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +120,5 @@ detachPolicyResponse
     :: DetachPolicyResponse
 detachPolicyResponse = DetachPolicyResponse'
 
-instance NFData DetachPolicyResponse
+
+instance NFData DetachPolicyResponse where

@@ -7,58 +7,66 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.Waiters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudFront.Waiters where
 
-import           Network.AWS.CloudFront.GetDistribution
-import           Network.AWS.CloudFront.GetInvalidation
-import           Network.AWS.CloudFront.GetStreamingDistribution
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Waiter
+import Network.AWS.CloudFront.GetDistribution
+import Network.AWS.CloudFront.GetInvalidation
+import Network.AWS.CloudFront.GetStreamingDistribution
+import Network.AWS.CloudFront.Types
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Waiter
 
 -- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
 streamingDistributionDeployed :: Wait GetStreamingDistribution
 streamingDistributionDeployed =
-    Wait
-    { _waitName = "StreamingDistributionDeployed"
-    , _waitAttempts = 25
-    , _waitDelay = 60
-    , _waitAcceptors = [ matchAll
-                             "Deployed"
-                             AcceptSuccess
-                             (gsdrsStreamingDistribution .
-                              _Just . sdStatus . to toTextCI)]
-    }
+  Wait
+  { _waitName = "StreamingDistributionDeployed"
+  , _waitAttempts = 25
+  , _waitDelay = 60
+  , _waitAcceptors =
+      [ matchAll
+          "Deployed"
+          AcceptSuccess
+          (gsdrsStreamingDistribution . _Just . sdStatus . to toTextCI)
+      ]
+  }
+
 
 -- | Polls 'Network.AWS.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
 distributionDeployed :: Wait GetDistribution
 distributionDeployed =
-    Wait
-    { _waitName = "DistributionDeployed"
-    , _waitAttempts = 25
-    , _waitDelay = 60
-    , _waitAcceptors = [ matchAll
-                             "Deployed"
-                             AcceptSuccess
-                             (gdrsDistribution . _Just . dStatus . to toTextCI)]
-    }
+  Wait
+  { _waitName = "DistributionDeployed"
+  , _waitAttempts = 25
+  , _waitDelay = 60
+  , _waitAcceptors =
+      [ matchAll
+          "Deployed"
+          AcceptSuccess
+          (gdrsDistribution . _Just . dStatus . to toTextCI)
+      ]
+  }
+
 
 -- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 60 failed checks.
 invalidationCompleted :: Wait GetInvalidation
 invalidationCompleted =
-    Wait
-    { _waitName = "InvalidationCompleted"
-    , _waitAttempts = 60
-    , _waitDelay = 20
-    , _waitAcceptors = [ matchAll
-                             "Completed"
-                             AcceptSuccess
-                             (girsInvalidation . _Just . iStatus . to toTextCI)]
-    }
+  Wait
+  { _waitName = "InvalidationCompleted"
+  , _waitAttempts = 60
+  , _waitDelay = 20
+  , _waitAcceptors =
+      [ matchAll
+          "Completed"
+          AcceptSuccess
+          (girsInvalidation . _Just . iStatus . to toTextCI)
+      ]
+  }
+

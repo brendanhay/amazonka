@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetDifferences
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,23 +44,24 @@ module Network.AWS.CodeCommit.GetDifferences
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.CodeCommit.Types
-import           Network.AWS.CodeCommit.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeCommit.Types
+import Network.AWS.CodeCommit.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDifferences' smart constructor.
 data GetDifferences = GetDifferences'
-    { _gdAfterPath             :: !(Maybe Text)
-    , _gdNextToken             :: !(Maybe Text)
-    , _gdBeforeCommitSpecifier :: !(Maybe Text)
-    , _gdBeforePath            :: !(Maybe Text)
-    , _gdMaxResults            :: !(Maybe Int)
-    , _gdRepositoryName        :: !Text
-    , _gdAfterCommitSpecifier  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdAfterPath             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdBeforeCommitSpecifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdBeforePath            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdMaxResults            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gdRepositoryName        :: {-# NOUNPACK #-}!Text
+  , _gdAfterCommitSpecifier  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDifferences' with the minimum fields required to make a request.
 --
@@ -84,15 +85,16 @@ getDifferences
     -> Text -- ^ 'gdAfterCommitSpecifier'
     -> GetDifferences
 getDifferences pRepositoryName_ pAfterCommitSpecifier_ =
-    GetDifferences'
-    { _gdAfterPath = Nothing
-    , _gdNextToken = Nothing
-    , _gdBeforeCommitSpecifier = Nothing
-    , _gdBeforePath = Nothing
-    , _gdMaxResults = Nothing
-    , _gdRepositoryName = pRepositoryName_
-    , _gdAfterCommitSpecifier = pAfterCommitSpecifier_
-    }
+  GetDifferences'
+  { _gdAfterPath = Nothing
+  , _gdNextToken = Nothing
+  , _gdBeforeCommitSpecifier = Nothing
+  , _gdBeforePath = Nothing
+  , _gdMaxResults = Nothing
+  , _gdRepositoryName = pRepositoryName_
+  , _gdAfterCommitSpecifier = pAfterCommitSpecifier_
+  }
+
 
 -- | The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences will be shown for all paths.
 gdAfterPath :: Lens' GetDifferences (Maybe Text)
@@ -133,9 +135,9 @@ instance AWSRequest GetDifferences where
                      (x .?> "differences" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDifferences
+instance Hashable GetDifferences where
 
-instance NFData GetDifferences
+instance NFData GetDifferences where
 
 instance ToHeaders GetDifferences where
         toHeaders
@@ -168,10 +170,11 @@ instance ToQuery GetDifferences where
 
 -- | /See:/ 'getDifferencesResponse' smart constructor.
 data GetDifferencesResponse = GetDifferencesResponse'
-    { _gdrsNextToken      :: !(Maybe Text)
-    , _gdrsDifferences    :: !(Maybe [Difference])
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdrsDifferences    :: {-# NOUNPACK #-}!(Maybe [Difference])
+  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDifferencesResponse' with the minimum fields required to make a request.
 --
@@ -186,11 +189,12 @@ getDifferencesResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDifferencesResponse
 getDifferencesResponse pResponseStatus_ =
-    GetDifferencesResponse'
-    { _gdrsNextToken = Nothing
-    , _gdrsDifferences = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDifferencesResponse'
+  { _gdrsNextToken = Nothing
+  , _gdrsDifferences = Nothing
+  , _gdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An enumeration token that can be used in a request to return the next batch of the results.
 gdrsNextToken :: Lens' GetDifferencesResponse (Maybe Text)
@@ -204,4 +208,4 @@ gdrsDifferences = lens _gdrsDifferences (\ s a -> s{_gdrsDifferences = a}) . _De
 gdrsResponseStatus :: Lens' GetDifferencesResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDifferencesResponse
+instance NFData GetDifferencesResponse where

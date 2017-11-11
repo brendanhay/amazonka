@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeClassicLinkInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribeClassicLinkInstances
     , dclirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeClassicLinkInstances.
 --
@@ -55,12 +55,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeClassicLinkInstances' smart constructor.
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
-    { _dcliFilters     :: !(Maybe [Filter])
-    , _dcliNextToken   :: !(Maybe Text)
-    , _dcliInstanceIds :: !(Maybe [Text])
-    , _dcliDryRun      :: !(Maybe Bool)
-    , _dcliMaxResults  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcliFilters     :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dcliNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcliInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcliDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcliMaxResults  :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClassicLinkInstances' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
 describeClassicLinkInstances
     :: DescribeClassicLinkInstances
 describeClassicLinkInstances =
-    DescribeClassicLinkInstances'
-    { _dcliFilters = Nothing
-    , _dcliNextToken = Nothing
-    , _dcliInstanceIds = Nothing
-    , _dcliDryRun = Nothing
-    , _dcliMaxResults = Nothing
-    }
+  DescribeClassicLinkInstances'
+  { _dcliFilters = Nothing
+  , _dcliNextToken = Nothing
+  , _dcliInstanceIds = Nothing
+  , _dcliDryRun = Nothing
+  , _dcliMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @group-id@ - The ID of a VPC security group that's associated with the instance.     * @instance-id@ - The ID of the instance.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC that the instance is linked to.
 dcliFilters :: Lens' DescribeClassicLinkInstances [Filter]
@@ -120,9 +122,9 @@ instance AWSRequest DescribeClassicLinkInstances
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeClassicLinkInstances
+instance Hashable DescribeClassicLinkInstances where
 
-instance NFData DescribeClassicLinkInstances
+instance NFData DescribeClassicLinkInstances where
 
 instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
@@ -149,10 +151,11 @@ instance ToQuery DescribeClassicLinkInstances where
 --
 -- /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
-    { _dclirsNextToken      :: !(Maybe Text)
-    , _dclirsInstances      :: !(Maybe [ClassicLinkInstance])
-    , _dclirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dclirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dclirsInstances      :: {-# NOUNPACK #-}!(Maybe [ClassicLinkInstance])
+  , _dclirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClassicLinkInstancesResponse' with the minimum fields required to make a request.
 --
@@ -167,11 +170,12 @@ describeClassicLinkInstancesResponse
     :: Int -- ^ 'dclirsResponseStatus'
     -> DescribeClassicLinkInstancesResponse
 describeClassicLinkInstancesResponse pResponseStatus_ =
-    DescribeClassicLinkInstancesResponse'
-    { _dclirsNextToken = Nothing
-    , _dclirsInstances = Nothing
-    , _dclirsResponseStatus = pResponseStatus_
-    }
+  DescribeClassicLinkInstancesResponse'
+  { _dclirsNextToken = Nothing
+  , _dclirsInstances = Nothing
+  , _dclirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dclirsNextToken :: Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
@@ -186,3 +190,4 @@ dclirsResponseStatus :: Lens' DescribeClassicLinkInstancesResponse Int
 dclirsResponseStatus = lens _dclirsResponseStatus (\ s a -> s{_dclirsResponseStatus = a});
 
 instance NFData DescribeClassicLinkInstancesResponse
+         where

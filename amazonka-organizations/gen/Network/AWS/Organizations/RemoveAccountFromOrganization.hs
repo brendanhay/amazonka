@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.RemoveAccountFromOrganization
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,17 +44,18 @@ module Network.AWS.Organizations.RemoveAccountFromOrganization
     , RemoveAccountFromOrganizationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'removeAccountFromOrganization' smart constructor.
 newtype RemoveAccountFromOrganization = RemoveAccountFromOrganization'
-    { _rafoAccountId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rafoAccountId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveAccountFromOrganization' with the minimum fields required to make a request.
 --
@@ -65,9 +66,8 @@ removeAccountFromOrganization
     :: Text -- ^ 'rafoAccountId'
     -> RemoveAccountFromOrganization
 removeAccountFromOrganization pAccountId_ =
-    RemoveAccountFromOrganization'
-    { _rafoAccountId = pAccountId_
-    }
+  RemoveAccountFromOrganization' {_rafoAccountId = pAccountId_}
+
 
 -- | The unique identifier (ID) of the member account that you want to remove from the organization. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 rafoAccountId :: Lens' RemoveAccountFromOrganization Text
@@ -81,9 +81,9 @@ instance AWSRequest RemoveAccountFromOrganization
         response
           = receiveNull RemoveAccountFromOrganizationResponse'
 
-instance Hashable RemoveAccountFromOrganization
+instance Hashable RemoveAccountFromOrganization where
 
-instance NFData RemoveAccountFromOrganization
+instance NFData RemoveAccountFromOrganization where
 
 instance ToHeaders RemoveAccountFromOrganization
          where
@@ -109,8 +109,9 @@ instance ToQuery RemoveAccountFromOrganization where
 
 -- | /See:/ 'removeAccountFromOrganizationResponse' smart constructor.
 data RemoveAccountFromOrganizationResponse =
-    RemoveAccountFromOrganizationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RemoveAccountFromOrganizationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveAccountFromOrganizationResponse' with the minimum fields required to make a request.
 --
@@ -118,4 +119,6 @@ removeAccountFromOrganizationResponse
     :: RemoveAccountFromOrganizationResponse
 removeAccountFromOrganizationResponse = RemoveAccountFromOrganizationResponse'
 
+
 instance NFData RemoveAccountFromOrganizationResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteProject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.DeviceFarm.DeleteProject
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the delete project operation.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteProject' smart constructor.
 newtype DeleteProject = DeleteProject'
-    { _dpArn :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpArn :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype DeleteProject = DeleteProject'
 deleteProject
     :: Text -- ^ 'dpArn'
     -> DeleteProject
-deleteProject pArn_ =
-    DeleteProject'
-    { _dpArn = pArn_
-    }
+deleteProject pArn_ = DeleteProject' {_dpArn = pArn_}
+
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm project you wish to delete.
 dpArn :: Lens' DeleteProject Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteProject where
               (\ s h x ->
                  DeleteProjectResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteProject
+instance Hashable DeleteProject where
 
-instance NFData DeleteProject
+instance NFData DeleteProject where
 
 instance ToHeaders DeleteProject where
         toHeaders
@@ -108,8 +107,9 @@ instance ToQuery DeleteProject where
 --
 -- /See:/ 'deleteProjectResponse' smart constructor.
 newtype DeleteProjectResponse = DeleteProjectResponse'
-    { _dprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +120,11 @@ deleteProjectResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DeleteProjectResponse
 deleteProjectResponse pResponseStatus_ =
-    DeleteProjectResponse'
-    { _dprsResponseStatus = pResponseStatus_
-    }
+  DeleteProjectResponse' {_dprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dprsResponseStatus :: Lens' DeleteProjectResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DeleteProjectResponse
+instance NFData DeleteProjectResponse where

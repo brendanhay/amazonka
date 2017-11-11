@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ConfirmSignUp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.CognitoIdentityProvider.ConfirmSignUp
     , csursResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to confirm registration of a user.
 --
@@ -53,12 +53,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'confirmSignUp' smart constructor.
 data ConfirmSignUp = ConfirmSignUp'
-    { _csuForceAliasCreation :: !(Maybe Bool)
-    , _csuSecretHash         :: !(Maybe (Sensitive Text))
-    , _csuClientId           :: !(Sensitive Text)
-    , _csuUsername           :: !(Sensitive Text)
-    , _csuConfirmationCode   :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _csuForceAliasCreation :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _csuSecretHash         :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _csuClientId           :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _csuUsername           :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _csuConfirmationCode   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmSignUp' with the minimum fields required to make a request.
 --
@@ -79,13 +80,14 @@ confirmSignUp
     -> Text -- ^ 'csuConfirmationCode'
     -> ConfirmSignUp
 confirmSignUp pClientId_ pUsername_ pConfirmationCode_ =
-    ConfirmSignUp'
-    { _csuForceAliasCreation = Nothing
-    , _csuSecretHash = Nothing
-    , _csuClientId = _Sensitive # pClientId_
-    , _csuUsername = _Sensitive # pUsername_
-    , _csuConfirmationCode = pConfirmationCode_
-    }
+  ConfirmSignUp'
+  { _csuForceAliasCreation = Nothing
+  , _csuSecretHash = Nothing
+  , _csuClientId = _Sensitive # pClientId_
+  , _csuUsername = _Sensitive # pUsername_
+  , _csuConfirmationCode = pConfirmationCode_
+  }
+
 
 -- | Boolean to be specified to force user confirmation irrespective of existing alias. By default set to @False@ . If this parameter is set to @True@ and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to @False@ , the API will throw an __AliasExistsException__ error.
 csuForceAliasCreation :: Lens' ConfirmSignUp (Maybe Bool)
@@ -115,9 +117,9 @@ instance AWSRequest ConfirmSignUp where
               (\ s h x ->
                  ConfirmSignUpResponse' <$> (pure (fromEnum s)))
 
-instance Hashable ConfirmSignUp
+instance Hashable ConfirmSignUp where
 
-instance NFData ConfirmSignUp
+instance NFData ConfirmSignUp where
 
 instance ToHeaders ConfirmSignUp where
         toHeaders
@@ -152,8 +154,9 @@ instance ToQuery ConfirmSignUp where
 --
 -- /See:/ 'confirmSignUpResponse' smart constructor.
 newtype ConfirmSignUpResponse = ConfirmSignUpResponse'
-    { _csursResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csursResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfirmSignUpResponse' with the minimum fields required to make a request.
 --
@@ -164,12 +167,11 @@ confirmSignUpResponse
     :: Int -- ^ 'csursResponseStatus'
     -> ConfirmSignUpResponse
 confirmSignUpResponse pResponseStatus_ =
-    ConfirmSignUpResponse'
-    { _csursResponseStatus = pResponseStatus_
-    }
+  ConfirmSignUpResponse' {_csursResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 csursResponseStatus :: Lens' ConfirmSignUpResponse Int
 csursResponseStatus = lens _csursResponseStatus (\ s a -> s{_csursResponseStatus = a});
 
-instance NFData ConfirmSignUpResponse
+instance NFData ConfirmSignUpResponse where

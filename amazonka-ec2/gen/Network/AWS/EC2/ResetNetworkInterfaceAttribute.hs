@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     , ResetNetworkInterfaceAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ResetNetworkInterfaceAttribute.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
-    { _rniaSourceDestCheck    :: !(Maybe Text)
-    , _rniaDryRun             :: !(Maybe Bool)
-    , _rniaNetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rniaSourceDestCheck    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rniaDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rniaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetNetworkInterfaceAttribute' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ resetNetworkInterfaceAttribute
     :: Text -- ^ 'rniaNetworkInterfaceId'
     -> ResetNetworkInterfaceAttribute
 resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
-    ResetNetworkInterfaceAttribute'
-    { _rniaSourceDestCheck = Nothing
-    , _rniaDryRun = Nothing
-    , _rniaNetworkInterfaceId = pNetworkInterfaceId_
-    }
+  ResetNetworkInterfaceAttribute'
+  { _rniaSourceDestCheck = Nothing
+  , _rniaDryRun = Nothing
+  , _rniaNetworkInterfaceId = pNetworkInterfaceId_
+  }
+
 
 -- | The source/destination checking attribute. Resets the value to @true@ .
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
@@ -94,8 +96,9 @@ instance AWSRequest ResetNetworkInterfaceAttribute
           = receiveNull ResetNetworkInterfaceAttributeResponse'
 
 instance Hashable ResetNetworkInterfaceAttribute
+         where
 
-instance NFData ResetNetworkInterfaceAttribute
+instance NFData ResetNetworkInterfaceAttribute where
 
 instance ToHeaders ResetNetworkInterfaceAttribute
          where
@@ -116,15 +119,17 @@ instance ToQuery ResetNetworkInterfaceAttribute where
 
 -- | /See:/ 'resetNetworkInterfaceAttributeResponse' smart constructor.
 data ResetNetworkInterfaceAttributeResponse =
-    ResetNetworkInterfaceAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ResetNetworkInterfaceAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
 --
 resetNetworkInterfaceAttributeResponse
     :: ResetNetworkInterfaceAttributeResponse
-resetNetworkInterfaceAttributeResponse =
-    ResetNetworkInterfaceAttributeResponse'
+resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse'
+
 
 instance NFData
-         ResetNetworkInterfaceAttributeResponse
+           ResetNetworkInterfaceAttributeResponse
+         where

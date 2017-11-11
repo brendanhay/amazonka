@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.CreateCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,26 +46,27 @@ module Network.AWS.Snowball.CreateCluster
     , crersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-    { _ccKMSKeyARN           :: !(Maybe Text)
-    , _ccNotification        :: !(Maybe Notification)
-    , _ccForwardingAddressId :: !(Maybe Text)
-    , _ccSnowballType        :: !(Maybe SnowballType)
-    , _ccDescription         :: !(Maybe Text)
-    , _ccJobType             :: !JobType
-    , _ccResources           :: !JobResource
-    , _ccAddressId           :: !Text
-    , _ccRoleARN             :: !Text
-    , _ccShippingOption      :: !ShippingOption
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccKMSKeyARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccNotification        :: {-# NOUNPACK #-}!(Maybe Notification)
+  , _ccForwardingAddressId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccSnowballType        :: {-# NOUNPACK #-}!(Maybe SnowballType)
+  , _ccDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccJobType             :: {-# NOUNPACK #-}!JobType
+  , _ccResources           :: {-# NOUNPACK #-}!JobResource
+  , _ccAddressId           :: {-# NOUNPACK #-}!Text
+  , _ccRoleARN             :: {-# NOUNPACK #-}!Text
+  , _ccShippingOption      :: {-# NOUNPACK #-}!ShippingOption
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
@@ -98,18 +99,19 @@ createCluster
     -> ShippingOption -- ^ 'ccShippingOption'
     -> CreateCluster
 createCluster pJobType_ pResources_ pAddressId_ pRoleARN_ pShippingOption_ =
-    CreateCluster'
-    { _ccKMSKeyARN = Nothing
-    , _ccNotification = Nothing
-    , _ccForwardingAddressId = Nothing
-    , _ccSnowballType = Nothing
-    , _ccDescription = Nothing
-    , _ccJobType = pJobType_
-    , _ccResources = pResources_
-    , _ccAddressId = pAddressId_
-    , _ccRoleARN = pRoleARN_
-    , _ccShippingOption = pShippingOption_
-    }
+  CreateCluster'
+  { _ccKMSKeyARN = Nothing
+  , _ccNotification = Nothing
+  , _ccForwardingAddressId = Nothing
+  , _ccSnowballType = Nothing
+  , _ccDescription = Nothing
+  , _ccJobType = pJobType_
+  , _ccResources = pResources_
+  , _ccAddressId = pAddressId_
+  , _ccRoleARN = pRoleARN_
+  , _ccShippingOption = pShippingOption_
+  }
+
 
 -- | The @KmsKeyARN@ value that you want to associate with this cluster. @KmsKeyARN@ values are created by using the <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
 ccKMSKeyARN :: Lens' CreateCluster (Maybe Text)
@@ -160,9 +162,9 @@ instance AWSRequest CreateCluster where
                  CreateClusterResponse' <$>
                    (x .?> "ClusterId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateCluster
+instance Hashable CreateCluster where
 
-instance NFData CreateCluster
+instance NFData CreateCluster where
 
 instance ToHeaders CreateCluster where
         toHeaders
@@ -198,9 +200,10 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-    { _crersClusterId      :: !(Maybe Text)
-    , _crersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crersClusterId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
 --
@@ -213,10 +216,9 @@ createClusterResponse
     :: Int -- ^ 'crersResponseStatus'
     -> CreateClusterResponse
 createClusterResponse pResponseStatus_ =
-    CreateClusterResponse'
-    { _crersClusterId = Nothing
-    , _crersResponseStatus = pResponseStatus_
-    }
+  CreateClusterResponse'
+  {_crersClusterId = Nothing, _crersResponseStatus = pResponseStatus_}
+
 
 -- | The automatically generated ID for a cluster.
 crersClusterId :: Lens' CreateClusterResponse (Maybe Text)
@@ -226,4 +228,4 @@ crersClusterId = lens _crersClusterId (\ s a -> s{_crersClusterId = a});
 crersResponseStatus :: Lens' CreateClusterResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
 
-instance NFData CreateClusterResponse
+instance NFData CreateClusterResponse where

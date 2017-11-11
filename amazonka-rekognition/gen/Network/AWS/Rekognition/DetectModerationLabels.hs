@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.DetectModerationLabels
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Rekognition.DetectModerationLabels
     , dmlrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'detectModerationLabels' smart constructor.
 data DetectModerationLabels = DetectModerationLabels'
-    { _dmlMinConfidence :: !(Maybe Double)
-    , _dmlImage         :: !Image
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmlMinConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  , _dmlImage         :: {-# NOUNPACK #-}!Image
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetectModerationLabels' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ detectModerationLabels
     :: Image -- ^ 'dmlImage'
     -> DetectModerationLabels
 detectModerationLabels pImage_ =
-    DetectModerationLabels'
-    { _dmlMinConfidence = Nothing
-    , _dmlImage = pImage_
-    }
+  DetectModerationLabels' {_dmlMinConfidence = Nothing, _dmlImage = pImage_}
+
 
 -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
 dmlMinConfidence :: Lens' DetectModerationLabels (Maybe Double)
@@ -88,9 +87,9 @@ instance AWSRequest DetectModerationLabels where
                    (x .?> "ModerationLabels" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DetectModerationLabels
+instance Hashable DetectModerationLabels where
 
-instance NFData DetectModerationLabels
+instance NFData DetectModerationLabels where
 
 instance ToHeaders DetectModerationLabels where
         toHeaders
@@ -117,9 +116,10 @@ instance ToQuery DetectModerationLabels where
 
 -- | /See:/ 'detectModerationLabelsResponse' smart constructor.
 data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
-    { _dmlrsModerationLabels :: !(Maybe [ModerationLabel])
-    , _dmlrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmlrsModerationLabels :: {-# NOUNPACK #-}!(Maybe [ModerationLabel])
+  , _dmlrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetectModerationLabelsResponse' with the minimum fields required to make a request.
 --
@@ -132,10 +132,9 @@ detectModerationLabelsResponse
     :: Int -- ^ 'dmlrsResponseStatus'
     -> DetectModerationLabelsResponse
 detectModerationLabelsResponse pResponseStatus_ =
-    DetectModerationLabelsResponse'
-    { _dmlrsModerationLabels = Nothing
-    , _dmlrsResponseStatus = pResponseStatus_
-    }
+  DetectModerationLabelsResponse'
+  {_dmlrsModerationLabels = Nothing, _dmlrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of labels for explicit or suggestive adult content found in the image. The list includes the top-level label and each child label detected in the image. This is useful for filtering specific categories of content.
 dmlrsModerationLabels :: Lens' DetectModerationLabelsResponse [ModerationLabel]
@@ -145,4 +144,4 @@ dmlrsModerationLabels = lens _dmlrsModerationLabels (\ s a -> s{_dmlrsModeration
 dmlrsResponseStatus :: Lens' DetectModerationLabelsResponse Int
 dmlrsResponseStatus = lens _dmlrsResponseStatus (\ s a -> s{_dmlrsResponseStatus = a});
 
-instance NFData DetectModerationLabelsResponse
+instance NFData DetectModerationLabelsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.SetDataRetrievalPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Glacier.SetDataRetrievalPolicy
     , SetDataRetrievalPolicyResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | SetDataRetrievalPolicy input.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setDataRetrievalPolicy' smart constructor.
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
-    { _sdrpPolicy    :: !(Maybe DataRetrievalPolicy)
-    , _sdrpAccountId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdrpPolicy    :: {-# NOUNPACK #-}!(Maybe DataRetrievalPolicy)
+  , _sdrpAccountId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDataRetrievalPolicy' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ setDataRetrievalPolicy
     :: Text -- ^ 'sdrpAccountId'
     -> SetDataRetrievalPolicy
 setDataRetrievalPolicy pAccountId_ =
-    SetDataRetrievalPolicy'
-    { _sdrpPolicy = Nothing
-    , _sdrpAccountId = pAccountId_
-    }
+  SetDataRetrievalPolicy' {_sdrpPolicy = Nothing, _sdrpAccountId = pAccountId_}
+
 
 -- | The data retrieval policy in JSON format.
 sdrpPolicy :: Lens' SetDataRetrievalPolicy (Maybe DataRetrievalPolicy)
@@ -85,9 +84,9 @@ instance AWSRequest SetDataRetrievalPolicy where
         response
           = receiveNull SetDataRetrievalPolicyResponse'
 
-instance Hashable SetDataRetrievalPolicy
+instance Hashable SetDataRetrievalPolicy where
 
-instance NFData SetDataRetrievalPolicy
+instance NFData SetDataRetrievalPolicy where
 
 instance ToHeaders SetDataRetrievalPolicy where
         toHeaders = const mempty
@@ -107,8 +106,9 @@ instance ToQuery SetDataRetrievalPolicy where
 
 -- | /See:/ 'setDataRetrievalPolicyResponse' smart constructor.
 data SetDataRetrievalPolicyResponse =
-    SetDataRetrievalPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetDataRetrievalPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetDataRetrievalPolicyResponse' with the minimum fields required to make a request.
 --
@@ -116,4 +116,5 @@ setDataRetrievalPolicyResponse
     :: SetDataRetrievalPolicyResponse
 setDataRetrievalPolicyResponse = SetDataRetrievalPolicyResponse'
 
-instance NFData SetDataRetrievalPolicyResponse
+
+instance NFData SetDataRetrievalPolicyResponse where

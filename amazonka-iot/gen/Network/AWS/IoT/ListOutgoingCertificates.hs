@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListOutgoingCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.IoT.ListOutgoingCertificates
     , locrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input to the ListOutgoingCertificates operation.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listOutgoingCertificates' smart constructor.
 data ListOutgoingCertificates = ListOutgoingCertificates'
-    { _locMarker         :: !(Maybe Text)
-    , _locAscendingOrder :: !(Maybe Bool)
-    , _locPageSize       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _locMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _locAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _locPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOutgoingCertificates' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ data ListOutgoingCertificates = ListOutgoingCertificates'
 listOutgoingCertificates
     :: ListOutgoingCertificates
 listOutgoingCertificates =
-    ListOutgoingCertificates'
-    { _locMarker = Nothing
-    , _locAscendingOrder = Nothing
-    , _locPageSize = Nothing
-    }
+  ListOutgoingCertificates'
+  {_locMarker = Nothing, _locAscendingOrder = Nothing, _locPageSize = Nothing}
+
 
 -- | The marker for the next set of results.
 locMarker :: Lens' ListOutgoingCertificates (Maybe Text)
@@ -110,9 +109,9 @@ instance AWSRequest ListOutgoingCertificates where
                      (x .?> "outgoingCertificates" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListOutgoingCertificates
+instance Hashable ListOutgoingCertificates where
 
-instance NFData ListOutgoingCertificates
+instance NFData ListOutgoingCertificates where
 
 instance ToHeaders ListOutgoingCertificates where
         toHeaders = const mempty
@@ -133,10 +132,11 @@ instance ToQuery ListOutgoingCertificates where
 --
 -- /See:/ 'listOutgoingCertificatesResponse' smart constructor.
 data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
-    { _locrsNextMarker           :: !(Maybe Text)
-    , _locrsOutgoingCertificates :: !(Maybe [OutgoingCertificate])
-    , _locrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _locrsNextMarker           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _locrsOutgoingCertificates :: {-# NOUNPACK #-}!(Maybe [OutgoingCertificate])
+  , _locrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListOutgoingCertificatesResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +151,12 @@ listOutgoingCertificatesResponse
     :: Int -- ^ 'locrsResponseStatus'
     -> ListOutgoingCertificatesResponse
 listOutgoingCertificatesResponse pResponseStatus_ =
-    ListOutgoingCertificatesResponse'
-    { _locrsNextMarker = Nothing
-    , _locrsOutgoingCertificates = Nothing
-    , _locrsResponseStatus = pResponseStatus_
-    }
+  ListOutgoingCertificatesResponse'
+  { _locrsNextMarker = Nothing
+  , _locrsOutgoingCertificates = Nothing
+  , _locrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker for the next set of results.
 locrsNextMarker :: Lens' ListOutgoingCertificatesResponse (Maybe Text)
@@ -170,3 +171,4 @@ locrsResponseStatus :: Lens' ListOutgoingCertificatesResponse Int
 locrsResponseStatus = lens _locrsResponseStatus (\ s a -> s{_locrsResponseStatus = a});
 
 instance NFData ListOutgoingCertificatesResponse
+         where

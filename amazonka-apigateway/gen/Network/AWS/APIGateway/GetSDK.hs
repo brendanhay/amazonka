@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetSDK
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.GetSDK
     , gsdkrsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request a new generated client SDK for a 'RestApi' and 'Stage' .
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getSDK' smart constructor.
 data GetSDK = GetSDK'
-    { _gsdkParameters :: !(Maybe (Map Text Text))
-    , _gsdkRestAPIId  :: !Text
-    , _gsdkStageName  :: !Text
-    , _gsdkSdkType    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsdkParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _gsdkRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _gsdkStageName  :: {-# NOUNPACK #-}!Text
+  , _gsdkSdkType    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSDK' with the minimum fields required to make a request.
 --
@@ -78,12 +79,13 @@ getSDK
     -> Text -- ^ 'gsdkSdkType'
     -> GetSDK
 getSDK pRestAPIId_ pStageName_ pSdkType_ =
-    GetSDK'
-    { _gsdkParameters = Nothing
-    , _gsdkRestAPIId = pRestAPIId_
-    , _gsdkStageName = pStageName_
-    , _gsdkSdkType = pSdkType_
-    }
+  GetSDK'
+  { _gsdkParameters = Nothing
+  , _gsdkRestAPIId = pRestAPIId_
+  , _gsdkStageName = pStageName_
+  , _gsdkSdkType = pSdkType_
+  }
+
 
 -- | A key-value map of query string parameters that specify properties of the SDK, depending on the requested @sdkType@ . For @sdkType@ of @objectivec@ , a parameter named @classPrefix@ is required. For @sdkType@ of @android@ , parameters named @groupId@ , @artifactId@ , @artifactVersion@ , and @invokerPackage@ are required.
 gsdkParameters :: Lens' GetSDK (HashMap Text Text)
@@ -112,9 +114,9 @@ instance AWSRequest GetSDK where
                      (h .#? "Content-Type")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSDK
+instance Hashable GetSDK where
 
-instance NFData GetSDK
+instance NFData GetSDK where
 
 instance ToHeaders GetSDK where
         toHeaders
@@ -142,11 +144,12 @@ instance ToQuery GetSDK where
 --
 -- /See:/ 'getSDKResponse' smart constructor.
 data GetSDKResponse = GetSDKResponse'
-    { _gsdkrsBody               :: !(Maybe (HashMap Text Value))
-    , _gsdkrsContentDisposition :: !(Maybe Text)
-    , _gsdkrsContentType        :: !(Maybe Text)
-    , _gsdkrsResponseStatus     :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gsdkrsBody               :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
+  , _gsdkrsContentDisposition :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdkrsContentType        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdkrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSDKResponse' with the minimum fields required to make a request.
 --
@@ -163,12 +166,13 @@ getSDKResponse
     :: Int -- ^ 'gsdkrsResponseStatus'
     -> GetSDKResponse
 getSDKResponse pResponseStatus_ =
-    GetSDKResponse'
-    { _gsdkrsBody = Nothing
-    , _gsdkrsContentDisposition = Nothing
-    , _gsdkrsContentType = Nothing
-    , _gsdkrsResponseStatus = pResponseStatus_
-    }
+  GetSDKResponse'
+  { _gsdkrsBody = Nothing
+  , _gsdkrsContentDisposition = Nothing
+  , _gsdkrsContentType = Nothing
+  , _gsdkrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The binary blob response to 'GetSdk' , which contains the generated SDK.
 gsdkrsBody :: Lens' GetSDKResponse (Maybe (HashMap Text Value))
@@ -186,4 +190,4 @@ gsdkrsContentType = lens _gsdkrsContentType (\ s a -> s{_gsdkrsContentType = a})
 gsdkrsResponseStatus :: Lens' GetSDKResponse Int
 gsdkrsResponseStatus = lens _gsdkrsResponseStatus (\ s a -> s{_gsdkrsResponseStatus = a});
 
-instance NFData GetSDKResponse
+instance NFData GetSDKResponse where

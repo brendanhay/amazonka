@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheck
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Route53.GetHealthCheck
     , ghcrsHealthCheck
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to get information about a specified health check.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getHealthCheck' smart constructor.
 newtype GetHealthCheck = GetHealthCheck'
-    { _ghcHealthCheckId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghcHealthCheckId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHealthCheck' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getHealthCheck
     :: Text -- ^ 'ghcHealthCheckId'
     -> GetHealthCheck
 getHealthCheck pHealthCheckId_ =
-    GetHealthCheck'
-    { _ghcHealthCheckId = pHealthCheckId_
-    }
+  GetHealthCheck' {_ghcHealthCheckId = pHealthCheckId_}
+
 
 -- | The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 ghcHealthCheckId :: Lens' GetHealthCheck Text
@@ -79,9 +79,9 @@ instance AWSRequest GetHealthCheck where
                  GetHealthCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck"))
 
-instance Hashable GetHealthCheck
+instance Hashable GetHealthCheck where
 
-instance NFData GetHealthCheck
+instance NFData GetHealthCheck where
 
 instance ToHeaders GetHealthCheck where
         toHeaders = const mempty
@@ -100,9 +100,10 @@ instance ToQuery GetHealthCheck where
 --
 -- /See:/ 'getHealthCheckResponse' smart constructor.
 data GetHealthCheckResponse = GetHealthCheckResponse'
-    { _ghcrsResponseStatus :: !Int
-    , _ghcrsHealthCheck    :: !HealthCheck
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ghcrsHealthCheck    :: {-# NOUNPACK #-}!HealthCheck
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetHealthCheckResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +117,9 @@ getHealthCheckResponse
     -> HealthCheck -- ^ 'ghcrsHealthCheck'
     -> GetHealthCheckResponse
 getHealthCheckResponse pResponseStatus_ pHealthCheck_ =
-    GetHealthCheckResponse'
-    { _ghcrsResponseStatus = pResponseStatus_
-    , _ghcrsHealthCheck = pHealthCheck_
-    }
+  GetHealthCheckResponse'
+  {_ghcrsResponseStatus = pResponseStatus_, _ghcrsHealthCheck = pHealthCheck_}
+
 
 -- | -- | The response status code.
 ghcrsResponseStatus :: Lens' GetHealthCheckResponse Int
@@ -129,4 +129,4 @@ ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus
 ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrsHealthCheck = lens _ghcrsHealthCheck (\ s a -> s{_ghcrsHealthCheck = a});
 
-instance NFData GetHealthCheckResponse
+instance NFData GetHealthCheckResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeregisterContainerInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.ECS.DeregisterContainerInstance
     , dcirsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterContainerInstance' smart constructor.
 data DeregisterContainerInstance = DeregisterContainerInstance'
-    { _derCluster           :: !(Maybe Text)
-    , _derForce             :: !(Maybe Bool)
-    , _derContainerInstance :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derCluster           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _derForce             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _derContainerInstance :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterContainerInstance' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ deregisterContainerInstance
     :: Text -- ^ 'derContainerInstance'
     -> DeregisterContainerInstance
 deregisterContainerInstance pContainerInstance_ =
-    DeregisterContainerInstance'
-    { _derCluster = Nothing
-    , _derForce = Nothing
-    , _derContainerInstance = pContainerInstance_
-    }
+  DeregisterContainerInstance'
+  { _derCluster = Nothing
+  , _derForce = Nothing
+  , _derContainerInstance = pContainerInstance_
+  }
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to deregister. If you do not specify a cluster, the default cluster is assumed.
 derCluster :: Lens' DeregisterContainerInstance (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest DeregisterContainerInstance where
                  DeregisterContainerInstanceResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
-instance Hashable DeregisterContainerInstance
+instance Hashable DeregisterContainerInstance where
 
-instance NFData DeregisterContainerInstance
+instance NFData DeregisterContainerInstance where
 
 instance ToHeaders DeregisterContainerInstance where
         toHeaders
@@ -128,9 +130,10 @@ instance ToQuery DeregisterContainerInstance where
 
 -- | /See:/ 'deregisterContainerInstanceResponse' smart constructor.
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
-    { _dcirsContainerInstance :: !(Maybe ContainerInstance)
-    , _dcirsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcirsContainerInstance :: {-# NOUNPACK #-}!(Maybe ContainerInstance)
+  , _dcirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterContainerInstanceResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +146,9 @@ deregisterContainerInstanceResponse
     :: Int -- ^ 'dcirsResponseStatus'
     -> DeregisterContainerInstanceResponse
 deregisterContainerInstanceResponse pResponseStatus_ =
-    DeregisterContainerInstanceResponse'
-    { _dcirsContainerInstance = Nothing
-    , _dcirsResponseStatus = pResponseStatus_
-    }
+  DeregisterContainerInstanceResponse'
+  {_dcirsContainerInstance = Nothing, _dcirsResponseStatus = pResponseStatus_}
+
 
 -- | The container instance that was deregistered.
 dcirsContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
@@ -157,3 +159,4 @@ dcirsResponseStatus :: Lens' DeregisterContainerInstanceResponse Int
 dcirsResponseStatus = lens _dcirsResponseStatus (\ s a -> s{_dcirsResponseStatus = a});
 
 instance NFData DeregisterContainerInstanceResponse
+         where

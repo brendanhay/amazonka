@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DeleteItem
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.DynamoDB.DeleteItem
     , dirsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DeleteItem@ operation.
 --
@@ -67,17 +67,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteItem' smart constructor.
 data DeleteItem = DeleteItem'
-    { _diExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _diReturnValues                :: !(Maybe ReturnValue)
-    , _diExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _diReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _diReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _diConditionExpression         :: !(Maybe Text)
-    , _diConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _diExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _diTableName                   :: !Text
-    , _diKey                         :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _diReturnValues :: {-# NOUNPACK #-}!(Maybe ReturnValue)
+  , _diExpressionAttributeValues :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _diReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
+  , _diReturnItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ReturnItemCollectionMetrics)
+  , _diConditionExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diConditionalOperator :: {-# NOUNPACK #-}!(Maybe ConditionalOperator)
+  , _diExpected :: {-# NOUNPACK #-}!(Maybe (Map Text ExpectedAttributeValue))
+  , _diTableName :: {-# NOUNPACK #-}!Text
+  , _diKey :: {-# NOUNPACK #-}!(Map Text AttributeValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteItem' with the minimum fields required to make a request.
 --
@@ -106,18 +107,19 @@ deleteItem
     :: Text -- ^ 'diTableName'
     -> DeleteItem
 deleteItem pTableName_ =
-    DeleteItem'
-    { _diExpressionAttributeNames = Nothing
-    , _diReturnValues = Nothing
-    , _diExpressionAttributeValues = Nothing
-    , _diReturnConsumedCapacity = Nothing
-    , _diReturnItemCollectionMetrics = Nothing
-    , _diConditionExpression = Nothing
-    , _diConditionalOperator = Nothing
-    , _diExpected = Nothing
-    , _diTableName = pTableName_
-    , _diKey = mempty
-    }
+  DeleteItem'
+  { _diExpressionAttributeNames = Nothing
+  , _diReturnValues = Nothing
+  , _diExpressionAttributeValues = Nothing
+  , _diReturnConsumedCapacity = Nothing
+  , _diReturnItemCollectionMetrics = Nothing
+  , _diConditionExpression = Nothing
+  , _diConditionalOperator = Nothing
+  , _diExpected = Nothing
+  , _diTableName = pTableName_
+  , _diKey = mempty
+  }
+
 
 -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :     * To access an attribute whose name conflicts with a DynamoDB reserved word.     * To create a placeholder for repeating occurrences of an attribute name in an expression.     * To prevent special characters in an attribute name from being misinterpreted in an expression. Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:     * @Percentile@  The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :     * @{"#P":"Percentile"}@  You could then use this substitution in an expression, as in this example:     * @#P = :val@  For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
@@ -171,9 +173,9 @@ instance AWSRequest DeleteItem where
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DeleteItem
+instance Hashable DeleteItem where
 
-instance NFData DeleteItem
+instance NFData DeleteItem where
 
 instance ToHeaders DeleteItem where
         toHeaders
@@ -217,11 +219,12 @@ instance ToQuery DeleteItem where
 --
 -- /See:/ 'deleteItemResponse' smart constructor.
 data DeleteItemResponse = DeleteItemResponse'
-    { _dirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _dirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _dirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _dirsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dirsItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ItemCollectionMetrics)
+  , _dirsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
+  , _dirsAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteItemResponse' with the minimum fields required to make a request.
 --
@@ -238,12 +241,13 @@ deleteItemResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DeleteItemResponse
 deleteItemResponse pResponseStatus_ =
-    DeleteItemResponse'
-    { _dirsItemCollectionMetrics = Nothing
-    , _dirsConsumedCapacity = Nothing
-    , _dirsAttributes = Nothing
-    , _dirsResponseStatus = pResponseStatus_
-    }
+  DeleteItemResponse'
+  { _dirsItemCollectionMetrics = Nothing
+  , _dirsConsumedCapacity = Nothing
+  , _dirsAttributes = Nothing
+  , _dirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about item collections, if any, that were affected by the @DeleteItem@ operation. @ItemCollectionMetrics@ is only returned if the @ReturnItemCollectionMetrics@ parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response. Each @ItemCollectionMetrics@ element consists of:     * @ItemCollectionKey@ - The partition key value of the item collection. This is the same as the partition key value of the item itself.     * @SizeEstimateRange@ - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit. The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
 dirsItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetrics)
@@ -261,4 +265,4 @@ dirsAttributes = lens _dirsAttributes (\ s a -> s{_dirsAttributes = a}) . _Defau
 dirsResponseStatus :: Lens' DeleteItemResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 
-instance NFData DeleteItemResponse
+instance NFData DeleteItemResponse where

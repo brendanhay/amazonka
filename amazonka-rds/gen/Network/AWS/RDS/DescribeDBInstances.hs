@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.RDS.DescribeDBInstances
     , ddbirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -57,11 +57,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDBInstances' smart constructor.
 data DescribeDBInstances = DescribeDBInstances'
-    { _ddbiFilters              :: !(Maybe [Filter])
-    , _ddbiDBInstanceIdentifier :: !(Maybe Text)
-    , _ddbiMarker               :: !(Maybe Text)
-    , _ddbiMaxRecords           :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbiFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddbiDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbiMarker               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbiMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBInstances' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ data DescribeDBInstances = DescribeDBInstances'
 describeDBInstances
     :: DescribeDBInstances
 describeDBInstances =
-    DescribeDBInstances'
-    { _ddbiFilters = Nothing
-    , _ddbiDBInstanceIdentifier = Nothing
-    , _ddbiMarker = Nothing
-    , _ddbiMaxRecords = Nothing
-    }
+  DescribeDBInstances'
+  { _ddbiFilters = Nothing
+  , _ddbiDBInstanceIdentifier = Nothing
+  , _ddbiMarker = Nothing
+  , _ddbiMaxRecords = Nothing
+  }
+
 
 -- | A filter that specifies one or more DB instances to describe. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB instances associated with the DB Clusters identified by these ARNs.     * @db-instance-id@ - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list will only include information about the DB instances identified by these ARNs.
 ddbiFilters :: Lens' DescribeDBInstances [Filter]
@@ -120,9 +122,9 @@ instance AWSRequest DescribeDBInstances where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBInstances
+instance Hashable DescribeDBInstances where
 
-instance NFData DescribeDBInstances
+instance NFData DescribeDBInstances where
 
 instance ToHeaders DescribeDBInstances where
         toHeaders = const mempty
@@ -147,10 +149,11 @@ instance ToQuery DescribeDBInstances where
 --
 -- /See:/ 'describeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
-    { _ddbirsDBInstances    :: !(Maybe [DBInstance])
-    , _ddbirsMarker         :: !(Maybe Text)
-    , _ddbirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbirsDBInstances    :: {-# NOUNPACK #-}!(Maybe [DBInstance])
+  , _ddbirsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddbirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBInstancesResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ describeDBInstancesResponse
     :: Int -- ^ 'ddbirsResponseStatus'
     -> DescribeDBInstancesResponse
 describeDBInstancesResponse pResponseStatus_ =
-    DescribeDBInstancesResponse'
-    { _ddbirsDBInstances = Nothing
-    , _ddbirsMarker = Nothing
-    , _ddbirsResponseStatus = pResponseStatus_
-    }
+  DescribeDBInstancesResponse'
+  { _ddbirsDBInstances = Nothing
+  , _ddbirsMarker = Nothing
+  , _ddbirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of 'DBInstance' instances.
 ddbirsDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
@@ -183,4 +187,4 @@ ddbirsMarker = lens _ddbirsMarker (\ s a -> s{_ddbirsMarker = a});
 ddbirsResponseStatus :: Lens' DescribeDBInstancesResponse Int
 ddbirsResponseStatus = lens _ddbirsResponseStatus (\ s a -> s{_ddbirsResponseStatus = a});
 
-instance NFData DescribeDBInstancesResponse
+instance NFData DescribeDBInstancesResponse where

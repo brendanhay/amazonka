@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
     , dmwetrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeMaintenanceWindowExecutionTasks' smart constructor.
 data DescribeMaintenanceWindowExecutionTasks = DescribeMaintenanceWindowExecutionTasks'
-    { _dmwetFilters           :: !(Maybe [MaintenanceWindowFilter])
-    , _dmwetNextToken         :: !(Maybe Text)
-    , _dmwetMaxResults        :: !(Maybe Nat)
-    , _dmwetWindowExecutionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmwetFilters :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowFilter])
+  , _dmwetNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwetMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dmwetWindowExecutionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutionTasks' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ describeMaintenanceWindowExecutionTasks
     :: Text -- ^ 'dmwetWindowExecutionId'
     -> DescribeMaintenanceWindowExecutionTasks
 describeMaintenanceWindowExecutionTasks pWindowExecutionId_ =
-    DescribeMaintenanceWindowExecutionTasks'
-    { _dmwetFilters = Nothing
-    , _dmwetNextToken = Nothing
-    , _dmwetMaxResults = Nothing
-    , _dmwetWindowExecutionId = pWindowExecutionId_
-    }
+  DescribeMaintenanceWindowExecutionTasks'
+  { _dmwetFilters = Nothing
+  , _dmwetNextToken = Nothing
+  , _dmwetMaxResults = Nothing
+  , _dmwetWindowExecutionId = pWindowExecutionId_
+  }
+
 
 -- | Optional filters used to scope down the returned tasks. The supported filter key is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED, TIMED_OUT, CANCELLING, and CANCELLED.
 dmwetFilters :: Lens' DescribeMaintenanceWindowExecutionTasks [MaintenanceWindowFilter]
@@ -95,7 +97,8 @@ dmwetWindowExecutionId :: Lens' DescribeMaintenanceWindowExecutionTasks Text
 dmwetWindowExecutionId = lens _dmwetWindowExecutionId (\ s a -> s{_dmwetWindowExecutionId = a});
 
 instance AWSRequest
-         DescribeMaintenanceWindowExecutionTasks where
+           DescribeMaintenanceWindowExecutionTasks
+         where
         type Rs DescribeMaintenanceWindowExecutionTasks =
              DescribeMaintenanceWindowExecutionTasksResponse
         request = postJSON ssm
@@ -108,13 +111,16 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         DescribeMaintenanceWindowExecutionTasks
+           DescribeMaintenanceWindowExecutionTasks
+         where
 
 instance NFData
-         DescribeMaintenanceWindowExecutionTasks
+           DescribeMaintenanceWindowExecutionTasks
+         where
 
 instance ToHeaders
-         DescribeMaintenanceWindowExecutionTasks where
+           DescribeMaintenanceWindowExecutionTasks
+         where
         toHeaders
           = const
               (mconcat
@@ -125,7 +131,8 @@ instance ToHeaders
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON
-         DescribeMaintenanceWindowExecutionTasks where
+           DescribeMaintenanceWindowExecutionTasks
+         where
         toJSON DescribeMaintenanceWindowExecutionTasks'{..}
           = object
               (catMaybes
@@ -136,19 +143,22 @@ instance ToJSON
                     ("WindowExecutionId" .= _dmwetWindowExecutionId)])
 
 instance ToPath
-         DescribeMaintenanceWindowExecutionTasks where
+           DescribeMaintenanceWindowExecutionTasks
+         where
         toPath = const "/"
 
 instance ToQuery
-         DescribeMaintenanceWindowExecutionTasks where
+           DescribeMaintenanceWindowExecutionTasks
+         where
         toQuery = const mempty
 
 -- | /See:/ 'describeMaintenanceWindowExecutionTasksResponse' smart constructor.
 data DescribeMaintenanceWindowExecutionTasksResponse = DescribeMaintenanceWindowExecutionTasksResponse'
-    { _dmwetrsNextToken                     :: !(Maybe Text)
-    , _dmwetrsWindowExecutionTaskIdentities :: !(Maybe [MaintenanceWindowExecutionTaskIdentity])
-    , _dmwetrsResponseStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmwetrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmwetrsWindowExecutionTaskIdentities :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowExecutionTaskIdentity])
+  , _dmwetrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutionTasksResponse' with the minimum fields required to make a request.
 --
@@ -163,11 +173,12 @@ describeMaintenanceWindowExecutionTasksResponse
     :: Int -- ^ 'dmwetrsResponseStatus'
     -> DescribeMaintenanceWindowExecutionTasksResponse
 describeMaintenanceWindowExecutionTasksResponse pResponseStatus_ =
-    DescribeMaintenanceWindowExecutionTasksResponse'
-    { _dmwetrsNextToken = Nothing
-    , _dmwetrsWindowExecutionTaskIdentities = Nothing
-    , _dmwetrsResponseStatus = pResponseStatus_
-    }
+  DescribeMaintenanceWindowExecutionTasksResponse'
+  { _dmwetrsNextToken = Nothing
+  , _dmwetrsWindowExecutionTaskIdentities = Nothing
+  , _dmwetrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dmwetrsNextToken :: Lens' DescribeMaintenanceWindowExecutionTasksResponse (Maybe Text)
@@ -182,4 +193,5 @@ dmwetrsResponseStatus :: Lens' DescribeMaintenanceWindowExecutionTasksResponse I
 dmwetrsResponseStatus = lens _dmwetrsResponseStatus (\ s a -> s{_dmwetrsResponseStatus = a});
 
 instance NFData
-         DescribeMaintenanceWindowExecutionTasksResponse
+           DescribeMaintenanceWindowExecutionTasksResponse
+         where

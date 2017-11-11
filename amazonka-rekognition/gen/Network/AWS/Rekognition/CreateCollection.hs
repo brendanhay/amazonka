@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.CreateCollection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,17 +44,18 @@ module Network.AWS.Rekognition.CreateCollection
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createCollection' smart constructor.
 newtype CreateCollection = CreateCollection'
-    { _ccCollectionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccCollectionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCollection' with the minimum fields required to make a request.
 --
@@ -65,9 +66,8 @@ createCollection
     :: Text -- ^ 'ccCollectionId'
     -> CreateCollection
 createCollection pCollectionId_ =
-    CreateCollection'
-    { _ccCollectionId = pCollectionId_
-    }
+  CreateCollection' {_ccCollectionId = pCollectionId_}
+
 
 -- | ID for the collection that you are creating.
 ccCollectionId :: Lens' CreateCollection Text
@@ -83,9 +83,9 @@ instance AWSRequest CreateCollection where
                    (x .?> "CollectionArn") <*> (x .?> "StatusCode") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateCollection
+instance Hashable CreateCollection where
 
-instance NFData CreateCollection
+instance NFData CreateCollection where
 
 instance ToHeaders CreateCollection where
         toHeaders
@@ -111,10 +111,11 @@ instance ToQuery CreateCollection where
 
 -- | /See:/ 'createCollectionResponse' smart constructor.
 data CreateCollectionResponse = CreateCollectionResponse'
-    { _ccrsCollectionARN  :: !(Maybe Text)
-    , _ccrsStatusCode     :: !(Maybe Nat)
-    , _ccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsCollectionARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccrsStatusCode     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCollectionResponse' with the minimum fields required to make a request.
 --
@@ -129,11 +130,12 @@ createCollectionResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CreateCollectionResponse
 createCollectionResponse pResponseStatus_ =
-    CreateCollectionResponse'
-    { _ccrsCollectionARN = Nothing
-    , _ccrsStatusCode = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
-    }
+  CreateCollectionResponse'
+  { _ccrsCollectionARN = Nothing
+  , _ccrsStatusCode = Nothing
+  , _ccrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
 ccrsCollectionARN :: Lens' CreateCollectionResponse (Maybe Text)
@@ -147,4 +149,4 @@ ccrsStatusCode = lens _ccrsStatusCode (\ s a -> s{_ccrsStatusCode = a}) . mappin
 ccrsResponseStatus :: Lens' CreateCollectionResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData CreateCollectionResponse
+instance NFData CreateCollectionResponse where

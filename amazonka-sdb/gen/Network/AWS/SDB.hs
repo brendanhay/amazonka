@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.SDB
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -155,18 +155,18 @@ module Network.AWS.SDB
     , ucName
     ) where
 
-import           Network.AWS.SDB.BatchDeleteAttributes
-import           Network.AWS.SDB.BatchPutAttributes
-import           Network.AWS.SDB.CreateDomain
-import           Network.AWS.SDB.DeleteAttributes
-import           Network.AWS.SDB.DeleteDomain
-import           Network.AWS.SDB.DomainMetadata
-import           Network.AWS.SDB.GetAttributes
-import           Network.AWS.SDB.ListDomains
-import           Network.AWS.SDB.PutAttributes
-import           Network.AWS.SDB.Select
-import           Network.AWS.SDB.Types
-import           Network.AWS.SDB.Waiters
+import Network.AWS.SDB.BatchDeleteAttributes
+import Network.AWS.SDB.BatchPutAttributes
+import Network.AWS.SDB.CreateDomain
+import Network.AWS.SDB.DeleteAttributes
+import Network.AWS.SDB.DeleteDomain
+import Network.AWS.SDB.DomainMetadata
+import Network.AWS.SDB.GetAttributes
+import Network.AWS.SDB.ListDomains
+import Network.AWS.SDB.PutAttributes
+import Network.AWS.SDB.Select
+import Network.AWS.SDB.Types
+import Network.AWS.SDB.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

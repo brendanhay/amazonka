@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.RenewDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Route53Domains.RenewDomain
     , rrsOperationId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | A @RenewDomain@ request includes the number of years that you want to renew for and the current expiration year.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'renewDomain' smart constructor.
 data RenewDomain = RenewDomain'
-    { _rdDurationInYears   :: !(Maybe Nat)
-    , _rdDomainName        :: !Text
-    , _rdCurrentExpiryYear :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdDurationInYears   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _rdDomainName        :: {-# NOUNPACK #-}!Text
+  , _rdCurrentExpiryYear :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RenewDomain' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ renewDomain
     -> Int -- ^ 'rdCurrentExpiryYear'
     -> RenewDomain
 renewDomain pDomainName_ pCurrentExpiryYear_ =
-    RenewDomain'
-    { _rdDurationInYears = Nothing
-    , _rdDomainName = pDomainName_
-    , _rdCurrentExpiryYear = pCurrentExpiryYear_
-    }
+  RenewDomain'
+  { _rdDurationInYears = Nothing
+  , _rdDomainName = pDomainName_
+  , _rdCurrentExpiryYear = pCurrentExpiryYear_
+  }
+
 
 -- | The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ . Default: 1
 rdDurationInYears :: Lens' RenewDomain (Maybe Natural)
@@ -100,9 +102,9 @@ instance AWSRequest RenewDomain where
                  RenewDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
-instance Hashable RenewDomain
+instance Hashable RenewDomain where
 
-instance NFData RenewDomain
+instance NFData RenewDomain where
 
 instance ToHeaders RenewDomain where
         toHeaders
@@ -130,9 +132,10 @@ instance ToQuery RenewDomain where
 
 -- | /See:/ 'renewDomainResponse' smart constructor.
 data RenewDomainResponse = RenewDomainResponse'
-    { _rrsResponseStatus :: !Int
-    , _rrsOperationId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _rrsOperationId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RenewDomainResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +149,9 @@ renewDomainResponse
     -> Text -- ^ 'rrsOperationId'
     -> RenewDomainResponse
 renewDomainResponse pResponseStatus_ pOperationId_ =
-    RenewDomainResponse'
-    { _rrsResponseStatus = pResponseStatus_
-    , _rrsOperationId = pOperationId_
-    }
+  RenewDomainResponse'
+  {_rrsResponseStatus = pResponseStatus_, _rrsOperationId = pOperationId_}
+
 
 -- | -- | The response status code.
 rrsResponseStatus :: Lens' RenewDomainResponse Int
@@ -159,4 +161,4 @@ rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
 rrsOperationId :: Lens' RenewDomainResponse Text
 rrsOperationId = lens _rrsOperationId (\ s a -> s{_rrsOperationId = a});
 
-instance NFData RenewDomainResponse
+instance NFData RenewDomainResponse where

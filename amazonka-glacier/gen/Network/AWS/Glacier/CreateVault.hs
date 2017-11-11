@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.CreateVault
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.Glacier.CreateVault
     , cvrsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options to create a vault.
 --
@@ -65,9 +65,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createVault' smart constructor.
 data CreateVault = CreateVault'
-    { _cvAccountId :: !Text
-    , _cvVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvAccountId :: {-# NOUNPACK #-}!Text
+  , _cvVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVault' with the minimum fields required to make a request.
 --
@@ -81,10 +82,8 @@ createVault
     -> Text -- ^ 'cvVaultName'
     -> CreateVault
 createVault pAccountId_ pVaultName_ =
-    CreateVault'
-    { _cvAccountId = pAccountId_
-    , _cvVaultName = pVaultName_
-    }
+  CreateVault' {_cvAccountId = pAccountId_, _cvVaultName = pVaultName_}
+
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 cvAccountId :: Lens' CreateVault Text
@@ -103,9 +102,9 @@ instance AWSRequest CreateVault where
                  CreateVaultResponse' <$>
                    (h .#? "Location") <*> (pure (fromEnum s)))
 
-instance Hashable CreateVault
+instance Hashable CreateVault where
 
-instance NFData CreateVault
+instance NFData CreateVault where
 
 instance ToHeaders CreateVault where
         toHeaders = const mempty
@@ -128,9 +127,10 @@ instance ToQuery CreateVault where
 --
 -- /See:/ 'createVaultResponse' smart constructor.
 data CreateVaultResponse = CreateVaultResponse'
-    { _cvrsLocation       :: !(Maybe Text)
-    , _cvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cvrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateVaultResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +143,9 @@ createVaultResponse
     :: Int -- ^ 'cvrsResponseStatus'
     -> CreateVaultResponse
 createVaultResponse pResponseStatus_ =
-    CreateVaultResponse'
-    { _cvrsLocation = Nothing
-    , _cvrsResponseStatus = pResponseStatus_
-    }
+  CreateVaultResponse'
+  {_cvrsLocation = Nothing, _cvrsResponseStatus = pResponseStatus_}
+
 
 -- | The URI of the vault that was created.
 cvrsLocation :: Lens' CreateVaultResponse (Maybe Text)
@@ -156,4 +155,4 @@ cvrsLocation = lens _cvrsLocation (\ s a -> s{_cvrsLocation = a});
 cvrsResponseStatus :: Lens' CreateVaultResponse Int
 cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
 
-instance NFData CreateVaultResponse
+instance NFData CreateVaultResponse where

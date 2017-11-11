@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -62,12 +62,12 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , csdDescription
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to create a configuration template.
 --
@@ -75,15 +75,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createConfigurationTemplate' smart constructor.
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
-    { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
-    , _cctPlatformARN         :: !(Maybe Text)
-    , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
-    , _cctSolutionStackName   :: !(Maybe Text)
-    , _cctEnvironmentId       :: !(Maybe Text)
-    , _cctDescription         :: !(Maybe Text)
-    , _cctApplicationName     :: !Text
-    , _cctTemplateName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cctOptionSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
+  , _cctPlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cctSourceConfiguration :: {-# NOUNPACK #-}!(Maybe SourceConfiguration)
+  , _cctSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cctEnvironmentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cctDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cctApplicationName :: {-# NOUNPACK #-}!Text
+  , _cctTemplateName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConfigurationTemplate' with the minimum fields required to make a request.
 --
@@ -109,16 +110,17 @@ createConfigurationTemplate
     -> Text -- ^ 'cctTemplateName'
     -> CreateConfigurationTemplate
 createConfigurationTemplate pApplicationName_ pTemplateName_ =
-    CreateConfigurationTemplate'
-    { _cctOptionSettings = Nothing
-    , _cctPlatformARN = Nothing
-    , _cctSourceConfiguration = Nothing
-    , _cctSolutionStackName = Nothing
-    , _cctEnvironmentId = Nothing
-    , _cctDescription = Nothing
-    , _cctApplicationName = pApplicationName_
-    , _cctTemplateName = pTemplateName_
-    }
+  CreateConfigurationTemplate'
+  { _cctOptionSettings = Nothing
+  , _cctPlatformARN = Nothing
+  , _cctSourceConfiguration = Nothing
+  , _cctSolutionStackName = Nothing
+  , _cctEnvironmentId = Nothing
+  , _cctDescription = Nothing
+  , _cctApplicationName = pApplicationName_
+  , _cctTemplateName = pTemplateName_
+  }
+
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration option to the requested value. The new value overrides the value obtained from the solution stack or the source configuration template.
 cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
@@ -161,9 +163,9 @@ instance AWSRequest CreateConfigurationTemplate where
               "CreateConfigurationTemplateResult"
               (\ s h x -> parseXML x)
 
-instance Hashable CreateConfigurationTemplate
+instance Hashable CreateConfigurationTemplate where
 
-instance NFData CreateConfigurationTemplate
+instance NFData CreateConfigurationTemplate where
 
 instance ToHeaders CreateConfigurationTemplate where
         toHeaders = const mempty

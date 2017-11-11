@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportKeyPair
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.ImportKeyPair
     , ikprsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ImportKeyPair.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'importKeyPair' smart constructor.
 data ImportKeyPair = ImportKeyPair'
-    { _ikpDryRun            :: !(Maybe Bool)
-    , _ikpKeyName           :: !Text
-    , _ikpPublicKeyMaterial :: !Base64
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ikpDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ikpKeyName           :: {-# NOUNPACK #-}!Text
+  , _ikpPublicKeyMaterial :: {-# NOUNPACK #-}!Base64
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportKeyPair' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ importKeyPair
     -> ByteString -- ^ 'ikpPublicKeyMaterial'
     -> ImportKeyPair
 importKeyPair pKeyName_ pPublicKeyMaterial_ =
-    ImportKeyPair'
-    { _ikpDryRun = Nothing
-    , _ikpKeyName = pKeyName_
-    , _ikpPublicKeyMaterial = _Base64 # pPublicKeyMaterial_
-    }
+  ImportKeyPair'
+  { _ikpDryRun = Nothing
+  , _ikpKeyName = pKeyName_
+  , _ikpPublicKeyMaterial = _Base64 # pPublicKeyMaterial_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
@@ -102,9 +104,9 @@ instance AWSRequest ImportKeyPair where
                    (x .@? "keyFingerprint") <*> (x .@? "keyName") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ImportKeyPair
+instance Hashable ImportKeyPair where
 
-instance NFData ImportKeyPair
+instance NFData ImportKeyPair where
 
 instance ToHeaders ImportKeyPair where
         toHeaders = const mempty
@@ -126,10 +128,11 @@ instance ToQuery ImportKeyPair where
 --
 -- /See:/ 'importKeyPairResponse' smart constructor.
 data ImportKeyPairResponse = ImportKeyPairResponse'
-    { _ikprsKeyFingerprint :: !(Maybe Text)
-    , _ikprsKeyName        :: !(Maybe Text)
-    , _ikprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ikprsKeyFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ikprsKeyName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ikprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportKeyPairResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ importKeyPairResponse
     :: Int -- ^ 'ikprsResponseStatus'
     -> ImportKeyPairResponse
 importKeyPairResponse pResponseStatus_ =
-    ImportKeyPairResponse'
-    { _ikprsKeyFingerprint = Nothing
-    , _ikprsKeyName = Nothing
-    , _ikprsResponseStatus = pResponseStatus_
-    }
+  ImportKeyPairResponse'
+  { _ikprsKeyFingerprint = Nothing
+  , _ikprsKeyName = Nothing
+  , _ikprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 ikprsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
@@ -162,4 +166,4 @@ ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a});
 ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
 ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a});
 
-instance NFData ImportKeyPairResponse
+instance NFData ImportKeyPairResponse where

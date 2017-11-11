@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPNConnections
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeVPNConnections
     , dvcrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeVpnConnections.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeVPNConnections' smart constructor.
 data DescribeVPNConnections = DescribeVPNConnections'
-    { _dvpncFilters          :: !(Maybe [Filter])
-    , _dvpncVPNConnectionIds :: !(Maybe [Text])
-    , _dvpncDryRun           :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvpncFilters          :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dvpncVPNConnectionIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dvpncDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVPNConnections' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ data DescribeVPNConnections = DescribeVPNConnections'
 describeVPNConnections
     :: DescribeVPNConnections
 describeVPNConnections =
-    DescribeVPNConnections'
-    { _dvpncFilters = Nothing
-    , _dvpncVPNConnectionIds = Nothing
-    , _dvpncDryRun = Nothing
-    }
+  DescribeVPNConnections'
+  { _dvpncFilters = Nothing
+  , _dvpncVPNConnectionIds = Nothing
+  , _dvpncDryRun = Nothing
+  }
+
 
 -- | One or more filters.     * @customer-gateway-configuration@ - The configuration information for the customer gateway.     * @customer-gateway-id@ - The ID of a customer gateway associated with the VPN connection.     * @state@ - The state of the VPN connection (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @option.static-routes-only@ - Indicates whether the connection has static routes only. Used for devices that do not support Border Gateway Protocol (BGP).     * @route.destination-cidr-block@ - The destination CIDR block. This corresponds to the subnet used in a customer data center.     * @bgp-asn@ - The BGP Autonomous System Number (ASN) associated with a BGP device.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @type@ - The type of VPN connection. Currently the only supported type is @ipsec.1@ .     * @vpn-connection-id@ - The ID of the VPN connection.     * @vpn-gateway-id@ - The ID of a virtual private gateway associated with the VPN connection.
 dvpncFilters :: Lens' DescribeVPNConnections [Filter]
@@ -101,9 +103,9 @@ instance AWSRequest DescribeVPNConnections where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVPNConnections
+instance Hashable DescribeVPNConnections where
 
-instance NFData DescribeVPNConnections
+instance NFData DescribeVPNConnections where
 
 instance ToHeaders DescribeVPNConnections where
         toHeaders = const mempty
@@ -129,9 +131,10 @@ instance ToQuery DescribeVPNConnections where
 --
 -- /See:/ 'describeVPNConnectionsResponse' smart constructor.
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
-    { _dvcrsVPNConnections :: !(Maybe [VPNConnection])
-    , _dvcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvcrsVPNConnections :: {-# NOUNPACK #-}!(Maybe [VPNConnection])
+  , _dvcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVPNConnectionsResponse' with the minimum fields required to make a request.
 --
@@ -144,10 +147,9 @@ describeVPNConnectionsResponse
     :: Int -- ^ 'dvcrsResponseStatus'
     -> DescribeVPNConnectionsResponse
 describeVPNConnectionsResponse pResponseStatus_ =
-    DescribeVPNConnectionsResponse'
-    { _dvcrsVPNConnections = Nothing
-    , _dvcrsResponseStatus = pResponseStatus_
-    }
+  DescribeVPNConnectionsResponse'
+  {_dvcrsVPNConnections = Nothing, _dvcrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more VPN connections.
 dvcrsVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
@@ -157,4 +159,4 @@ dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections
 dvcrsResponseStatus :: Lens' DescribeVPNConnectionsResponse Int
 dvcrsResponseStatus = lens _dvcrsResponseStatus (\ s a -> s{_dvcrsResponseStatus = a});
 
-instance NFData DescribeVPNConnectionsResponse
+instance NFData DescribeVPNConnectionsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.AddTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.ElasticSearch.AddTags
     , AddTagsResponse
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'AddTags' @ operation. Specify the tags that you want to attach to the Elasticsearch domain.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
-    { _atARN     :: !Text
-    , _atTagList :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atARN     :: {-# NOUNPACK #-}!Text
+  , _atTagList :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
 --
@@ -62,11 +63,8 @@ data AddTags = AddTags'
 addTags
     :: Text -- ^ 'atARN'
     -> AddTags
-addTags pARN_ =
-    AddTags'
-    { _atARN = pARN_
-    , _atTagList = mempty
-    }
+addTags pARN_ = AddTags' {_atARN = pARN_, _atTagList = mempty}
+
 
 -- | Specify the @ARN@ for which you want to add the tags.
 atARN :: Lens' AddTags Text
@@ -81,9 +79,9 @@ instance AWSRequest AddTags where
         request = postJSON elasticSearch
         response = receiveNull AddTagsResponse'
 
-instance Hashable AddTags
+instance Hashable AddTags where
 
-instance NFData AddTags
+instance NFData AddTags where
 
 instance ToHeaders AddTags where
         toHeaders = const mempty
@@ -103,8 +101,9 @@ instance ToQuery AddTags where
 
 -- | /See:/ 'addTagsResponse' smart constructor.
 data AddTagsResponse =
-    AddTagsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddTagsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +111,5 @@ addTagsResponse
     :: AddTagsResponse
 addTagsResponse = AddTagsResponse'
 
-instance NFData AddTagsResponse
+
+instance NFData AddTagsResponse where

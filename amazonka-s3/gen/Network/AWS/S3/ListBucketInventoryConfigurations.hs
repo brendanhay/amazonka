@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListBucketInventoryConfigurations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.S3.ListBucketInventoryConfigurations
     , lbicrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listBucketInventoryConfigurations' smart constructor.
 data ListBucketInventoryConfigurations = ListBucketInventoryConfigurations'
-    { _lbicContinuationToken :: !(Maybe Text)
-    , _lbicBucket            :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbicContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbicBucket            :: {-# NOUNPACK #-}!BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBucketInventoryConfigurations' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ listBucketInventoryConfigurations
     :: BucketName -- ^ 'lbicBucket'
     -> ListBucketInventoryConfigurations
 listBucketInventoryConfigurations pBucket_ =
-    ListBucketInventoryConfigurations'
-    { _lbicContinuationToken = Nothing
-    , _lbicBucket = pBucket_
-    }
+  ListBucketInventoryConfigurations'
+  {_lbicContinuationToken = Nothing, _lbicBucket = pBucket_}
+
 
 -- | The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
 lbicContinuationToken :: Lens' ListBucketInventoryConfigurations (Maybe Text)
@@ -92,8 +92,10 @@ instance AWSRequest ListBucketInventoryConfigurations
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListBucketInventoryConfigurations
+         where
 
 instance NFData ListBucketInventoryConfigurations
+         where
 
 instance ToHeaders ListBucketInventoryConfigurations
          where
@@ -113,12 +115,13 @@ instance ToQuery ListBucketInventoryConfigurations
 
 -- | /See:/ 'listBucketInventoryConfigurationsResponse' smart constructor.
 data ListBucketInventoryConfigurationsResponse = ListBucketInventoryConfigurationsResponse'
-    { _lbicrsContinuationToken          :: !(Maybe Text)
-    , _lbicrsInventoryConfigurationList :: !(Maybe [InventoryConfiguration])
-    , _lbicrsNextContinuationToken      :: !(Maybe Text)
-    , _lbicrsIsTruncated                :: !(Maybe Bool)
-    , _lbicrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbicrsContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbicrsInventoryConfigurationList :: {-# NOUNPACK #-}!(Maybe [InventoryConfiguration])
+  , _lbicrsNextContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbicrsIsTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lbicrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListBucketInventoryConfigurationsResponse' with the minimum fields required to make a request.
 --
@@ -137,13 +140,14 @@ listBucketInventoryConfigurationsResponse
     :: Int -- ^ 'lbicrsResponseStatus'
     -> ListBucketInventoryConfigurationsResponse
 listBucketInventoryConfigurationsResponse pResponseStatus_ =
-    ListBucketInventoryConfigurationsResponse'
-    { _lbicrsContinuationToken = Nothing
-    , _lbicrsInventoryConfigurationList = Nothing
-    , _lbicrsNextContinuationToken = Nothing
-    , _lbicrsIsTruncated = Nothing
-    , _lbicrsResponseStatus = pResponseStatus_
-    }
+  ListBucketInventoryConfigurationsResponse'
+  { _lbicrsContinuationToken = Nothing
+  , _lbicrsInventoryConfigurationList = Nothing
+  , _lbicrsNextContinuationToken = Nothing
+  , _lbicrsIsTruncated = Nothing
+  , _lbicrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If sent in the request, the marker that is used as a starting point for this inventory configuration list response.
 lbicrsContinuationToken :: Lens' ListBucketInventoryConfigurationsResponse (Maybe Text)
@@ -166,4 +170,5 @@ lbicrsResponseStatus :: Lens' ListBucketInventoryConfigurationsResponse Int
 lbicrsResponseStatus = lens _lbicrsResponseStatus (\ s a -> s{_lbicrsResponseStatus = a});
 
 instance NFData
-         ListBucketInventoryConfigurationsResponse
+           ListBucketInventoryConfigurationsResponse
+         where

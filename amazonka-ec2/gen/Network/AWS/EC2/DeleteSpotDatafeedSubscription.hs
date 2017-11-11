@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSpotDatafeedSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     , DeleteSpotDatafeedSubscriptionResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteSpotDatafeedSubscription.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteSpotDatafeedSubscription' smart constructor.
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
-    { _dsdssDryRun :: Maybe Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsdssDryRun :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSpotDatafeedSubscription' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
 deleteSpotDatafeedSubscription
     :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription =
-    DeleteSpotDatafeedSubscription'
-    { _dsdssDryRun = Nothing
-    }
+  DeleteSpotDatafeedSubscription' {_dsdssDryRun = Nothing}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsdssDryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
@@ -75,8 +75,9 @@ instance AWSRequest DeleteSpotDatafeedSubscription
           = receiveNull DeleteSpotDatafeedSubscriptionResponse'
 
 instance Hashable DeleteSpotDatafeedSubscription
+         where
 
-instance NFData DeleteSpotDatafeedSubscription
+instance NFData DeleteSpotDatafeedSubscription where
 
 instance ToHeaders DeleteSpotDatafeedSubscription
          where
@@ -95,15 +96,17 @@ instance ToQuery DeleteSpotDatafeedSubscription where
 
 -- | /See:/ 'deleteSpotDatafeedSubscriptionResponse' smart constructor.
 data DeleteSpotDatafeedSubscriptionResponse =
-    DeleteSpotDatafeedSubscriptionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSpotDatafeedSubscriptionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
 --
 deleteSpotDatafeedSubscriptionResponse
     :: DeleteSpotDatafeedSubscriptionResponse
-deleteSpotDatafeedSubscriptionResponse =
-    DeleteSpotDatafeedSubscriptionResponse'
+deleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse'
+
 
 instance NFData
-         DeleteSpotDatafeedSubscriptionResponse
+           DeleteSpotDatafeedSubscriptionResponse
+         where

@@ -9,20 +9,21 @@
 
 -- |
 -- Module      : Network.AWS.WAF.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.WAF.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ChangeAction
-    = Delete
-    | Insert
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Delete
+  | Insert
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -46,10 +47,11 @@ instance ToJSON ChangeAction where
     toJSON = toJSONText
 
 data ChangeTokenStatus
-    = Insync
-    | Pending
-    | Provisioned
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Insync
+  | Pending
+  | Provisioned
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChangeTokenStatus where
     parser = takeLowerText >>= \case
@@ -75,13 +77,14 @@ instance FromJSON ChangeTokenStatus where
     parseJSON = parseJSONText "ChangeTokenStatus"
 
 data ComparisonOperator
-    = EQ'
-    | GE
-    | GT'
-    | LE
-    | LT'
-    | NE
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EQ'
+  | GE
+  | GT'
+  | LE
+  | LT'
+  | NE
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -116,9 +119,10 @@ instance FromJSON ComparisonOperator where
     parseJSON = parseJSONText "ComparisonOperator"
 
 data IPSetDescriptorType
-    = IPV4
-    | IPV6
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = IPV4
+  | IPV6
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IPSetDescriptorType where
     parser = takeLowerText >>= \case
@@ -145,12 +149,13 @@ instance FromJSON IPSetDescriptorType where
     parseJSON = parseJSONText "IPSetDescriptorType"
 
 data MatchFieldType
-    = Body
-    | Header
-    | Method
-    | QueryString
-    | URI
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Body
+  | Header
+  | Method
+  | QueryString
+  | URI
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MatchFieldType where
     parser = takeLowerText >>= \case
@@ -183,12 +188,13 @@ instance FromJSON MatchFieldType where
     parseJSON = parseJSONText "MatchFieldType"
 
 data PositionalConstraint
-    = Contains
-    | ContainsWord
-    | EndsWith
-    | Exactly
-    | StartsWith
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Contains
+  | ContainsWord
+  | EndsWith
+  | Exactly
+  | StartsWith
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PositionalConstraint where
     parser = takeLowerText >>= \case
@@ -221,12 +227,13 @@ instance FromJSON PositionalConstraint where
     parseJSON = parseJSONText "PositionalConstraint"
 
 data PredicateType
-    = ByteMatch
-    | IPMatch
-    | SizeConstraint
-    | SqlInjectionMatch
-    | XSSMatch
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ByteMatch
+  | IPMatch
+  | SizeConstraint
+  | SqlInjectionMatch
+  | XSSMatch
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PredicateType where
     parser = takeLowerText >>= \case
@@ -259,8 +266,9 @@ instance FromJSON PredicateType where
     parseJSON = parseJSONText "PredicateType"
 
 data RateKey =
-    IP
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  IP
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RateKey where
     parser = takeLowerText >>= \case
@@ -285,13 +293,14 @@ instance FromJSON RateKey where
     parseJSON = parseJSONText "RateKey"
 
 data TextTransformation
-    = CmdLine
-    | CompressWhiteSpace
-    | HTMLEntityDecode
-    | Lowercase
-    | None
-    | URLDecode
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CmdLine
+  | CompressWhiteSpace
+  | HTMLEntityDecode
+  | Lowercase
+  | None
+  | URLDecode
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText TextTransformation where
     parser = takeLowerText >>= \case
@@ -326,10 +335,11 @@ instance FromJSON TextTransformation where
     parseJSON = parseJSONText "TextTransformation"
 
 data WafActionType
-    = Allow
-    | Block
-    | Count
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Allow
+  | Block
+  | Count
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText WafActionType where
     parser = takeLowerText >>= \case
@@ -358,9 +368,10 @@ instance FromJSON WafActionType where
     parseJSON = parseJSONText "WafActionType"
 
 data WafRuleType
-    = RateBased
-    | Regular
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RateBased
+  | Regular
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText WafRuleType where
     parser = takeLowerText >>= \case

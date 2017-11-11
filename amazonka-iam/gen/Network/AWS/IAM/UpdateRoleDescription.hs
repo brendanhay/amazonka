@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateRoleDescription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.IAM.UpdateRoleDescription
     , urdrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateRoleDescription' smart constructor.
 data UpdateRoleDescription = UpdateRoleDescription'
-    { _urdRoleName    :: !Text
-    , _urdDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urdRoleName    :: {-# NOUNPACK #-}!Text
+  , _urdDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRoleDescription' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ updateRoleDescription
     -> Text -- ^ 'urdDescription'
     -> UpdateRoleDescription
 updateRoleDescription pRoleName_ pDescription_ =
-    UpdateRoleDescription'
-    { _urdRoleName = pRoleName_
-    , _urdDescription = pDescription_
-    }
+  UpdateRoleDescription'
+  {_urdRoleName = pRoleName_, _urdDescription = pDescription_}
+
 
 -- | The name of the role that you want to modify.
 urdRoleName :: Lens' UpdateRoleDescription Text
@@ -86,9 +86,9 @@ instance AWSRequest UpdateRoleDescription where
                  UpdateRoleDescriptionResponse' <$>
                    (x .@? "Role") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateRoleDescription
+instance Hashable UpdateRoleDescription where
 
-instance NFData UpdateRoleDescription
+instance NFData UpdateRoleDescription where
 
 instance ToHeaders UpdateRoleDescription where
         toHeaders = const mempty
@@ -106,9 +106,10 @@ instance ToQuery UpdateRoleDescription where
 
 -- | /See:/ 'updateRoleDescriptionResponse' smart constructor.
 data UpdateRoleDescriptionResponse = UpdateRoleDescriptionResponse'
-    { _urdrsRole           :: !(Maybe Role)
-    , _urdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urdrsRole           :: {-# NOUNPACK #-}!(Maybe Role)
+  , _urdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRoleDescriptionResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,9 @@ updateRoleDescriptionResponse
     :: Int -- ^ 'urdrsResponseStatus'
     -> UpdateRoleDescriptionResponse
 updateRoleDescriptionResponse pResponseStatus_ =
-    UpdateRoleDescriptionResponse'
-    { _urdrsRole = Nothing
-    , _urdrsResponseStatus = pResponseStatus_
-    }
+  UpdateRoleDescriptionResponse'
+  {_urdrsRole = Nothing, _urdrsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the modified role.
 urdrsRole :: Lens' UpdateRoleDescriptionResponse (Maybe Role)
@@ -134,4 +134,4 @@ urdrsRole = lens _urdrsRole (\ s a -> s{_urdrsRole = a});
 urdrsResponseStatus :: Lens' UpdateRoleDescriptionResponse Int
 urdrsResponseStatus = lens _urdrsResponseStatus (\ s a -> s{_urdrsResponseStatus = a});
 
-instance NFData UpdateRoleDescriptionResponse
+instance NFData UpdateRoleDescriptionResponse where

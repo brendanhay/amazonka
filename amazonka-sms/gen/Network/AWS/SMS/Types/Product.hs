@@ -9,33 +9,34 @@
 
 -- |
 -- Module      : Network.AWS.SMS.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SMS.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.SMS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.SMS.Types.Sum
 
 -- | Object representing a Connector
 --
 -- /See:/ 'connector' smart constructor.
 data Connector = Connector'
-    { _cStatus         :: !(Maybe ConnectorStatus)
-    , _cVmManagerName  :: !(Maybe Text)
-    , _cIpAddress      :: !(Maybe Text)
-    , _cVmManagerId    :: !(Maybe Text)
-    , _cVmManagerType  :: !(Maybe VMManagerType)
-    , _cConnectorId    :: !(Maybe Text)
-    , _cAssociatedOn   :: !(Maybe POSIX)
-    , _cMacAddress     :: !(Maybe Text)
-    , _cVersion        :: !(Maybe Text)
-    , _cCapabilityList :: !(Maybe [ConnectorCapability])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cStatus         :: {-# NOUNPACK #-}!(Maybe ConnectorStatus)
+  , _cVmManagerName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cIpAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cVmManagerId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cVmManagerType  :: {-# NOUNPACK #-}!(Maybe VMManagerType)
+  , _cConnectorId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cAssociatedOn   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cMacAddress     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCapabilityList :: {-# NOUNPACK #-}!(Maybe [ConnectorCapability])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Connector' with the minimum fields required to make a request.
 --
@@ -63,18 +64,19 @@ data Connector = Connector'
 connector
     :: Connector
 connector =
-    Connector'
-    { _cStatus = Nothing
-    , _cVmManagerName = Nothing
-    , _cIpAddress = Nothing
-    , _cVmManagerId = Nothing
-    , _cVmManagerType = Nothing
-    , _cConnectorId = Nothing
-    , _cAssociatedOn = Nothing
-    , _cMacAddress = Nothing
-    , _cVersion = Nothing
-    , _cCapabilityList = Nothing
-    }
+  Connector'
+  { _cStatus = Nothing
+  , _cVmManagerName = Nothing
+  , _cIpAddress = Nothing
+  , _cVmManagerId = Nothing
+  , _cVmManagerType = Nothing
+  , _cConnectorId = Nothing
+  , _cAssociatedOn = Nothing
+  , _cMacAddress = Nothing
+  , _cVersion = Nothing
+  , _cCapabilityList = Nothing
+  }
+
 
 -- | Undocumented member.
 cStatus :: Lens' Connector (Maybe ConnectorStatus)
@@ -131,29 +133,30 @@ instance FromJSON Connector where
                      <*> (x .:? "version")
                      <*> (x .:? "capabilityList" .!= mempty))
 
-instance Hashable Connector
+instance Hashable Connector where
 
-instance NFData Connector
+instance NFData Connector where
 
 -- | Object representing a Replication Job
 --
 -- /See:/ 'replicationJob' smart constructor.
 data ReplicationJob = ReplicationJob'
-    { _rjFrequency                   :: !(Maybe Int)
-    , _rjState                       :: !(Maybe ReplicationJobState)
-    , _rjServerType                  :: !(Maybe ServerType)
-    , _rjServerId                    :: !(Maybe Text)
-    , _rjLicenseType                 :: !(Maybe LicenseType)
-    , _rjRoleName                    :: !(Maybe Text)
-    , _rjVmServer                    :: !(Maybe VMServer)
-    , _rjReplicationJobId            :: !(Maybe Text)
-    , _rjReplicationRunList          :: !(Maybe [ReplicationRun])
-    , _rjNextReplicationRunStartTime :: !(Maybe POSIX)
-    , _rjStatusMessage               :: !(Maybe Text)
-    , _rjLatestAMIId                 :: !(Maybe Text)
-    , _rjSeedReplicationTime         :: !(Maybe POSIX)
-    , _rjDescription                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjFrequency :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rjState :: {-# NOUNPACK #-}!(Maybe ReplicationJobState)
+  , _rjServerType :: {-# NOUNPACK #-}!(Maybe ServerType)
+  , _rjServerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjLicenseType :: {-# NOUNPACK #-}!(Maybe LicenseType)
+  , _rjRoleName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjVmServer :: {-# NOUNPACK #-}!(Maybe VMServer)
+  , _rjReplicationJobId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjReplicationRunList :: {-# NOUNPACK #-}!(Maybe [ReplicationRun])
+  , _rjNextReplicationRunStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rjStatusMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjLatestAMIId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rjSeedReplicationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rjDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationJob' with the minimum fields required to make a request.
 --
@@ -189,22 +192,23 @@ data ReplicationJob = ReplicationJob'
 replicationJob
     :: ReplicationJob
 replicationJob =
-    ReplicationJob'
-    { _rjFrequency = Nothing
-    , _rjState = Nothing
-    , _rjServerType = Nothing
-    , _rjServerId = Nothing
-    , _rjLicenseType = Nothing
-    , _rjRoleName = Nothing
-    , _rjVmServer = Nothing
-    , _rjReplicationJobId = Nothing
-    , _rjReplicationRunList = Nothing
-    , _rjNextReplicationRunStartTime = Nothing
-    , _rjStatusMessage = Nothing
-    , _rjLatestAMIId = Nothing
-    , _rjSeedReplicationTime = Nothing
-    , _rjDescription = Nothing
-    }
+  ReplicationJob'
+  { _rjFrequency = Nothing
+  , _rjState = Nothing
+  , _rjServerType = Nothing
+  , _rjServerId = Nothing
+  , _rjLicenseType = Nothing
+  , _rjRoleName = Nothing
+  , _rjVmServer = Nothing
+  , _rjReplicationJobId = Nothing
+  , _rjReplicationRunList = Nothing
+  , _rjNextReplicationRunStartTime = Nothing
+  , _rjStatusMessage = Nothing
+  , _rjLatestAMIId = Nothing
+  , _rjSeedReplicationTime = Nothing
+  , _rjDescription = Nothing
+  }
+
 
 -- | Undocumented member.
 rjFrequency :: Lens' ReplicationJob (Maybe Int)
@@ -281,23 +285,24 @@ instance FromJSON ReplicationJob where
                      <*> (x .:? "seedReplicationTime")
                      <*> (x .:? "description"))
 
-instance Hashable ReplicationJob
+instance Hashable ReplicationJob where
 
-instance NFData ReplicationJob
+instance NFData ReplicationJob where
 
 -- | Object representing a Replication Run
 --
 -- /See:/ 'replicationRun' smart constructor.
 data ReplicationRun = ReplicationRun'
-    { _rrState              :: !(Maybe ReplicationRunState)
-    , _rrReplicationRunId   :: !(Maybe Text)
-    , _rrScheduledStartTime :: !(Maybe POSIX)
-    , _rrStatusMessage      :: !(Maybe Text)
-    , _rrCompletedTime      :: !(Maybe POSIX)
-    , _rrAmiId              :: !(Maybe Text)
-    , _rrType               :: !(Maybe ReplicationRunType)
-    , _rrDescription        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrState              :: {-# NOUNPACK #-}!(Maybe ReplicationRunState)
+  , _rrReplicationRunId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrScheduledStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rrStatusMessage      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrCompletedTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _rrAmiId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrType               :: {-# NOUNPACK #-}!(Maybe ReplicationRunType)
+  , _rrDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplicationRun' with the minimum fields required to make a request.
 --
@@ -321,16 +326,17 @@ data ReplicationRun = ReplicationRun'
 replicationRun
     :: ReplicationRun
 replicationRun =
-    ReplicationRun'
-    { _rrState = Nothing
-    , _rrReplicationRunId = Nothing
-    , _rrScheduledStartTime = Nothing
-    , _rrStatusMessage = Nothing
-    , _rrCompletedTime = Nothing
-    , _rrAmiId = Nothing
-    , _rrType = Nothing
-    , _rrDescription = Nothing
-    }
+  ReplicationRun'
+  { _rrState = Nothing
+  , _rrReplicationRunId = Nothing
+  , _rrScheduledStartTime = Nothing
+  , _rrStatusMessage = Nothing
+  , _rrCompletedTime = Nothing
+  , _rrAmiId = Nothing
+  , _rrType = Nothing
+  , _rrDescription = Nothing
+  }
+
 
 -- | Undocumented member.
 rrState :: Lens' ReplicationRun (Maybe ReplicationRunState)
@@ -377,20 +383,21 @@ instance FromJSON ReplicationRun where
                      <*> (x .:? "type")
                      <*> (x .:? "description"))
 
-instance Hashable ReplicationRun
+instance Hashable ReplicationRun where
 
-instance NFData ReplicationRun
+instance NFData ReplicationRun where
 
 -- | Object representing a server
 --
 -- /See:/ 'server' smart constructor.
 data Server = Server'
-    { _sServerType               :: !(Maybe ServerType)
-    , _sServerId                 :: !(Maybe Text)
-    , _sReplicationJobTerminated :: !(Maybe Bool)
-    , _sVmServer                 :: !(Maybe VMServer)
-    , _sReplicationJobId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sServerType               :: {-# NOUNPACK #-}!(Maybe ServerType)
+  , _sServerId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sReplicationJobTerminated :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sVmServer                 :: {-# NOUNPACK #-}!(Maybe VMServer)
+  , _sReplicationJobId         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Server' with the minimum fields required to make a request.
 --
@@ -408,13 +415,14 @@ data Server = Server'
 server
     :: Server
 server =
-    Server'
-    { _sServerType = Nothing
-    , _sServerId = Nothing
-    , _sReplicationJobTerminated = Nothing
-    , _sVmServer = Nothing
-    , _sReplicationJobId = Nothing
-    }
+  Server'
+  { _sServerType = Nothing
+  , _sServerId = Nothing
+  , _sReplicationJobTerminated = Nothing
+  , _sVmServer = Nothing
+  , _sReplicationJobId = Nothing
+  }
+
 
 -- | Undocumented member.
 sServerType :: Lens' Server (Maybe ServerType)
@@ -446,20 +454,21 @@ instance FromJSON Server where
                      <*> (x .:? "vmServer")
                      <*> (x .:? "replicationJobId"))
 
-instance Hashable Server
+instance Hashable Server where
 
-instance NFData Server
+instance NFData Server where
 
 -- | Object representing a VM server
 --
 -- /See:/ 'vMServer' smart constructor.
 data VMServer = VMServer'
-    { _vmsVmManagerName   :: !(Maybe Text)
-    , _vmsVmManagerType   :: !(Maybe VMManagerType)
-    , _vmsVmServerAddress :: !(Maybe VMServerAddress)
-    , _vmsVmName          :: !(Maybe Text)
-    , _vmsVmPath          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vmsVmManagerName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmsVmManagerType   :: {-# NOUNPACK #-}!(Maybe VMManagerType)
+  , _vmsVmServerAddress :: {-# NOUNPACK #-}!(Maybe VMServerAddress)
+  , _vmsVmName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmsVmPath          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VMServer' with the minimum fields required to make a request.
 --
@@ -477,13 +486,14 @@ data VMServer = VMServer'
 vMServer
     :: VMServer
 vMServer =
-    VMServer'
-    { _vmsVmManagerName = Nothing
-    , _vmsVmManagerType = Nothing
-    , _vmsVmServerAddress = Nothing
-    , _vmsVmName = Nothing
-    , _vmsVmPath = Nothing
-    }
+  VMServer'
+  { _vmsVmManagerName = Nothing
+  , _vmsVmManagerType = Nothing
+  , _vmsVmServerAddress = Nothing
+  , _vmsVmName = Nothing
+  , _vmsVmPath = Nothing
+  }
+
 
 -- | Undocumented member.
 vmsVmManagerName :: Lens' VMServer (Maybe Text)
@@ -515,17 +525,18 @@ instance FromJSON VMServer where
                      <*> (x .:? "vmName")
                      <*> (x .:? "vmPath"))
 
-instance Hashable VMServer
+instance Hashable VMServer where
 
-instance NFData VMServer
+instance NFData VMServer where
 
 -- | Object representing a server's location
 --
 -- /See:/ 'vMServerAddress' smart constructor.
 data VMServerAddress = VMServerAddress'
-    { _vmsaVmManagerId :: !(Maybe Text)
-    , _vmsaVmId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vmsaVmManagerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vmsaVmId        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VMServerAddress' with the minimum fields required to make a request.
 --
@@ -537,10 +548,8 @@ data VMServerAddress = VMServerAddress'
 vMServerAddress
     :: VMServerAddress
 vMServerAddress =
-    VMServerAddress'
-    { _vmsaVmManagerId = Nothing
-    , _vmsaVmId = Nothing
-    }
+  VMServerAddress' {_vmsaVmManagerId = Nothing, _vmsaVmId = Nothing}
+
 
 -- | Undocumented member.
 vmsaVmManagerId :: Lens' VMServerAddress (Maybe Text)
@@ -557,6 +566,6 @@ instance FromJSON VMServerAddress where
                  VMServerAddress' <$>
                    (x .:? "vmManagerId") <*> (x .:? "vmId"))
 
-instance Hashable VMServerAddress
+instance Hashable VMServerAddress where
 
-instance NFData VMServerAddress
+instance NFData VMServerAddress where

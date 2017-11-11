@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeMountTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,13 +46,13 @@ module Network.AWS.EFS.DescribeMountTargets
     , dmtrsResponseStatus
     ) where
 
-import           Network.AWS.EFS.Types
-import           Network.AWS.EFS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EFS.Types
+import Network.AWS.EFS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -60,11 +60,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeMountTargets' smart constructor.
 data DescribeMountTargets = DescribeMountTargets'
-    { _dmtFileSystemId  :: !(Maybe Text)
-    , _dmtMarker        :: !(Maybe Text)
-    , _dmtMaxItems      :: !(Maybe Nat)
-    , _dmtMountTargetId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmtFileSystemId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmtMarker        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmtMaxItems      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dmtMountTargetId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMountTargets' with the minimum fields required to make a request.
 --
@@ -80,12 +81,13 @@ data DescribeMountTargets = DescribeMountTargets'
 describeMountTargets
     :: DescribeMountTargets
 describeMountTargets =
-    DescribeMountTargets'
-    { _dmtFileSystemId = Nothing
-    , _dmtMarker = Nothing
-    , _dmtMaxItems = Nothing
-    , _dmtMountTargetId = Nothing
-    }
+  DescribeMountTargets'
+  { _dmtFileSystemId = Nothing
+  , _dmtMarker = Nothing
+  , _dmtMaxItems = Nothing
+  , _dmtMountTargetId = Nothing
+  }
+
 
 -- | (Optional) ID of the file system whose mount targets you want to list (String). It must be included in your request if @MountTargetId@ is not included.
 dmtFileSystemId :: Lens' DescribeMountTargets (Maybe Text)
@@ -123,9 +125,9 @@ instance AWSRequest DescribeMountTargets where
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeMountTargets
+instance Hashable DescribeMountTargets where
 
-instance NFData DescribeMountTargets
+instance NFData DescribeMountTargets where
 
 instance ToHeaders DescribeMountTargets where
         toHeaders = const mempty
@@ -146,11 +148,12 @@ instance ToQuery DescribeMountTargets where
 --
 -- /See:/ 'describeMountTargetsResponse' smart constructor.
 data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
-    { _dmtrsMountTargets   :: !(Maybe [MountTargetDescription])
-    , _dmtrsMarker         :: !(Maybe Text)
-    , _dmtrsNextMarker     :: !(Maybe Text)
-    , _dmtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmtrsMountTargets   :: {-# NOUNPACK #-}!(Maybe [MountTargetDescription])
+  , _dmtrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmtrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeMountTargetsResponse' with the minimum fields required to make a request.
 --
@@ -167,12 +170,13 @@ describeMountTargetsResponse
     :: Int -- ^ 'dmtrsResponseStatus'
     -> DescribeMountTargetsResponse
 describeMountTargetsResponse pResponseStatus_ =
-    DescribeMountTargetsResponse'
-    { _dmtrsMountTargets = Nothing
-    , _dmtrsMarker = Nothing
-    , _dmtrsNextMarker = Nothing
-    , _dmtrsResponseStatus = pResponseStatus_
-    }
+  DescribeMountTargetsResponse'
+  { _dmtrsMountTargets = Nothing
+  , _dmtrsMarker = Nothing
+  , _dmtrsNextMarker = Nothing
+  , _dmtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Returns the file system's mount targets as an array of @MountTargetDescription@ objects.
 dmtrsMountTargets :: Lens' DescribeMountTargetsResponse [MountTargetDescription]
@@ -190,4 +194,4 @@ dmtrsNextMarker = lens _dmtrsNextMarker (\ s a -> s{_dmtrsNextMarker = a});
 dmtrsResponseStatus :: Lens' DescribeMountTargetsResponse Int
 dmtrsResponseStatus = lens _dmtrsResponseStatus (\ s a -> s{_dmtrsResponseStatus = a});
 
-instance NFData DescribeMountTargetsResponse
+instance NFData DescribeMountTargetsResponse where

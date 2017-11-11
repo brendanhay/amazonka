@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocateHostedConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.DirectConnect.AllocateHostedConnection
     , cConnectionState
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to theHostedConnection operation.
 --
@@ -66,12 +66,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'allocateHostedConnection' smart constructor.
 data AllocateHostedConnection = AllocateHostedConnection'
-    { _ahcConnectionId   :: !Text
-    , _ahcOwnerAccount   :: !Text
-    , _ahcBandwidth      :: !Text
-    , _ahcConnectionName :: !Text
-    , _ahcVlan           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ahcConnectionId   :: {-# NOUNPACK #-}!Text
+  , _ahcOwnerAccount   :: {-# NOUNPACK #-}!Text
+  , _ahcBandwidth      :: {-# NOUNPACK #-}!Text
+  , _ahcConnectionName :: {-# NOUNPACK #-}!Text
+  , _ahcVlan           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllocateHostedConnection' with the minimum fields required to make a request.
 --
@@ -94,13 +95,14 @@ allocateHostedConnection
     -> Int -- ^ 'ahcVlan'
     -> AllocateHostedConnection
 allocateHostedConnection pConnectionId_ pOwnerAccount_ pBandwidth_ pConnectionName_ pVlan_ =
-    AllocateHostedConnection'
-    { _ahcConnectionId = pConnectionId_
-    , _ahcOwnerAccount = pOwnerAccount_
-    , _ahcBandwidth = pBandwidth_
-    , _ahcConnectionName = pConnectionName_
-    , _ahcVlan = pVlan_
-    }
+  AllocateHostedConnection'
+  { _ahcConnectionId = pConnectionId_
+  , _ahcOwnerAccount = pOwnerAccount_
+  , _ahcBandwidth = pBandwidth_
+  , _ahcConnectionName = pConnectionName_
+  , _ahcVlan = pVlan_
+  }
+
 
 -- | The ID of the interconnect or LAG on which the connection will be provisioned. Example: dxcon-456abc78 or dxlag-abc123 Default: None
 ahcConnectionId :: Lens' AllocateHostedConnection Text
@@ -127,9 +129,9 @@ instance AWSRequest AllocateHostedConnection where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable AllocateHostedConnection
+instance Hashable AllocateHostedConnection where
 
-instance NFData AllocateHostedConnection
+instance NFData AllocateHostedConnection where
 
 instance ToHeaders AllocateHostedConnection where
         toHeaders

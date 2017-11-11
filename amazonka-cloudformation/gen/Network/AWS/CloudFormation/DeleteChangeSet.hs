@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DeleteChangeSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFormation.DeleteChangeSet
     , dcsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'DeleteChangeSet' action.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteChangeSet' smart constructor.
 data DeleteChangeSet = DeleteChangeSet'
-    { _dcsStackName     :: !(Maybe Text)
-    , _dcsChangeSetName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsStackName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsChangeSetName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteChangeSet' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ deleteChangeSet
     :: Text -- ^ 'dcsChangeSetName'
     -> DeleteChangeSet
 deleteChangeSet pChangeSetName_ =
-    DeleteChangeSet'
-    { _dcsStackName = Nothing
-    , _dcsChangeSetName = pChangeSetName_
-    }
+  DeleteChangeSet'
+  {_dcsStackName = Nothing, _dcsChangeSetName = pChangeSetName_}
+
 
 -- | If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it.
 dcsStackName :: Lens' DeleteChangeSet (Maybe Text)
@@ -88,9 +88,9 @@ instance AWSRequest DeleteChangeSet where
               (\ s h x ->
                  DeleteChangeSetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteChangeSet
+instance Hashable DeleteChangeSet where
 
-instance NFData DeleteChangeSet
+instance NFData DeleteChangeSet where
 
 instance ToHeaders DeleteChangeSet where
         toHeaders = const mempty
@@ -112,8 +112,9 @@ instance ToQuery DeleteChangeSet where
 --
 -- /See:/ 'deleteChangeSetResponse' smart constructor.
 newtype DeleteChangeSetResponse = DeleteChangeSetResponse'
-    { _dcsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteChangeSetResponse' with the minimum fields required to make a request.
 --
@@ -124,12 +125,11 @@ deleteChangeSetResponse
     :: Int -- ^ 'dcsrsResponseStatus'
     -> DeleteChangeSetResponse
 deleteChangeSetResponse pResponseStatus_ =
-    DeleteChangeSetResponse'
-    { _dcsrsResponseStatus = pResponseStatus_
-    }
+  DeleteChangeSetResponse' {_dcsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dcsrsResponseStatus :: Lens' DeleteChangeSetResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
 
-instance NFData DeleteChangeSetResponse
+instance NFData DeleteChangeSetResponse where

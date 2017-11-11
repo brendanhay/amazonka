@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DeleteUser
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.CognitoIdentityProvider.DeleteUser
     , DeleteUserResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to delete a user.
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteUser' smart constructor.
 newtype DeleteUser = DeleteUser'
-    { _duAccessToken :: Sensitive Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _duAccessToken :: Sensitive Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteUser
     :: Text -- ^ 'duAccessToken'
     -> DeleteUser
 deleteUser pAccessToken_ =
-    DeleteUser'
-    { _duAccessToken = _Sensitive # pAccessToken_
-    }
+  DeleteUser' {_duAccessToken = _Sensitive # pAccessToken_}
+
 
 -- | The access token from a request to delete a user.
 duAccessToken :: Lens' DeleteUser Text
@@ -72,9 +72,9 @@ instance AWSRequest DeleteUser where
         request = postJSON cognitoIdentityProvider
         response = receiveNull DeleteUserResponse'
 
-instance Hashable DeleteUser
+instance Hashable DeleteUser where
 
-instance NFData DeleteUser
+instance NFData DeleteUser where
 
 instance ToHeaders DeleteUser where
         toHeaders
@@ -99,8 +99,9 @@ instance ToQuery DeleteUser where
 
 -- | /See:/ 'deleteUserResponse' smart constructor.
 data DeleteUserResponse =
-    DeleteUserResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteUserResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +109,5 @@ deleteUserResponse
     :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse'
 
-instance NFData DeleteUserResponse
+
+instance NFData DeleteUserResponse where

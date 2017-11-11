@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.PutRolePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.IAM.PutRolePolicy
     , PutRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putRolePolicy' smart constructor.
 data PutRolePolicy = PutRolePolicy'
-    { _prpRoleName       :: !Text
-    , _prpPolicyName     :: !Text
-    , _prpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prpRoleName       :: {-# NOUNPACK #-}!Text
+  , _prpPolicyName     :: {-# NOUNPACK #-}!Text
+  , _prpPolicyDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRolePolicy' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ putRolePolicy
     -> Text -- ^ 'prpPolicyDocument'
     -> PutRolePolicy
 putRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ =
-    PutRolePolicy'
-    { _prpRoleName = pRoleName_
-    , _prpPolicyName = pPolicyName_
-    , _prpPolicyDocument = pPolicyDocument_
-    }
+  PutRolePolicy'
+  { _prpRoleName = pRoleName_
+  , _prpPolicyName = pPolicyName_
+  , _prpPolicyDocument = pPolicyDocument_
+  }
+
 
 -- | The name of the role to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 prpRoleName :: Lens' PutRolePolicy Text
@@ -94,9 +96,9 @@ instance AWSRequest PutRolePolicy where
         request = postQuery iam
         response = receiveNull PutRolePolicyResponse'
 
-instance Hashable PutRolePolicy
+instance Hashable PutRolePolicy where
 
-instance NFData PutRolePolicy
+instance NFData PutRolePolicy where
 
 instance ToHeaders PutRolePolicy where
         toHeaders = const mempty
@@ -115,8 +117,9 @@ instance ToQuery PutRolePolicy where
 
 -- | /See:/ 'putRolePolicyResponse' smart constructor.
 data PutRolePolicyResponse =
-    PutRolePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutRolePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRolePolicyResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +127,5 @@ putRolePolicyResponse
     :: PutRolePolicyResponse
 putRolePolicyResponse = PutRolePolicyResponse'
 
-instance NFData PutRolePolicyResponse
+
+instance NFData PutRolePolicyResponse where

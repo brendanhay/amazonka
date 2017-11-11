@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SetInstanceHealth
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     , SetInstanceHealthResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for SetInstanceHealth.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setInstanceHealth' smart constructor.
 data SetInstanceHealth = SetInstanceHealth'
-    { _sihShouldRespectGracePeriod :: !(Maybe Bool)
-    , _sihInstanceId               :: !Text
-    , _sihHealthStatus             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sihShouldRespectGracePeriod :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sihInstanceId               :: {-# NOUNPACK #-}!Text
+  , _sihHealthStatus             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetInstanceHealth' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ setInstanceHealth
     -> Text -- ^ 'sihHealthStatus'
     -> SetInstanceHealth
 setInstanceHealth pInstanceId_ pHealthStatus_ =
-    SetInstanceHealth'
-    { _sihShouldRespectGracePeriod = Nothing
-    , _sihInstanceId = pInstanceId_
-    , _sihHealthStatus = pHealthStatus_
-    }
+  SetInstanceHealth'
+  { _sihShouldRespectGracePeriod = Nothing
+  , _sihInstanceId = pInstanceId_
+  , _sihHealthStatus = pHealthStatus_
+  }
+
 
 -- | If the Auto Scaling group of the specified instance has a @HealthCheckGracePeriod@ specified for the group, by default, this call will respect the grace period. Set this to @False@ , if you do not want the call to respect the grace period associated with the group. For more information, see the description of the health check grace period for 'CreateAutoScalingGroup' .
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
@@ -93,9 +95,9 @@ instance AWSRequest SetInstanceHealth where
         request = postQuery autoScaling
         response = receiveNull SetInstanceHealthResponse'
 
-instance Hashable SetInstanceHealth
+instance Hashable SetInstanceHealth where
 
-instance NFData SetInstanceHealth
+instance NFData SetInstanceHealth where
 
 instance ToHeaders SetInstanceHealth where
         toHeaders = const mempty
@@ -115,8 +117,9 @@ instance ToQuery SetInstanceHealth where
 
 -- | /See:/ 'setInstanceHealthResponse' smart constructor.
 data SetInstanceHealthResponse =
-    SetInstanceHealthResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetInstanceHealthResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetInstanceHealthResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +127,5 @@ setInstanceHealthResponse
     :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse'
 
-instance NFData SetInstanceHealthResponse
+
+instance NFData SetInstanceHealthResponse where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.EMR
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -733,34 +733,34 @@ module Network.AWS.EMR
     , vsSizeInGB
     ) where
 
-import           Network.AWS.EMR.AddInstanceFleet
-import           Network.AWS.EMR.AddInstanceGroups
-import           Network.AWS.EMR.AddJobFlowSteps
-import           Network.AWS.EMR.AddTags
-import           Network.AWS.EMR.CancelSteps
-import           Network.AWS.EMR.CreateSecurityConfiguration
-import           Network.AWS.EMR.DeleteSecurityConfiguration
-import           Network.AWS.EMR.DescribeCluster
-import           Network.AWS.EMR.DescribeSecurityConfiguration
-import           Network.AWS.EMR.DescribeStep
-import           Network.AWS.EMR.ListBootstrapActions
-import           Network.AWS.EMR.ListClusters
-import           Network.AWS.EMR.ListInstanceFleets
-import           Network.AWS.EMR.ListInstanceGroups
-import           Network.AWS.EMR.ListInstances
-import           Network.AWS.EMR.ListSecurityConfigurations
-import           Network.AWS.EMR.ListSteps
-import           Network.AWS.EMR.ModifyInstanceFleet
-import           Network.AWS.EMR.ModifyInstanceGroups
-import           Network.AWS.EMR.PutAutoScalingPolicy
-import           Network.AWS.EMR.RemoveAutoScalingPolicy
-import           Network.AWS.EMR.RemoveTags
-import           Network.AWS.EMR.RunJobFlow
-import           Network.AWS.EMR.SetTerminationProtection
-import           Network.AWS.EMR.SetVisibleToAllUsers
-import           Network.AWS.EMR.TerminateJobFlows
-import           Network.AWS.EMR.Types
-import           Network.AWS.EMR.Waiters
+import Network.AWS.EMR.AddInstanceFleet
+import Network.AWS.EMR.AddInstanceGroups
+import Network.AWS.EMR.AddJobFlowSteps
+import Network.AWS.EMR.AddTags
+import Network.AWS.EMR.CancelSteps
+import Network.AWS.EMR.CreateSecurityConfiguration
+import Network.AWS.EMR.DeleteSecurityConfiguration
+import Network.AWS.EMR.DescribeCluster
+import Network.AWS.EMR.DescribeSecurityConfiguration
+import Network.AWS.EMR.DescribeStep
+import Network.AWS.EMR.ListBootstrapActions
+import Network.AWS.EMR.ListClusters
+import Network.AWS.EMR.ListInstanceFleets
+import Network.AWS.EMR.ListInstanceGroups
+import Network.AWS.EMR.ListInstances
+import Network.AWS.EMR.ListSecurityConfigurations
+import Network.AWS.EMR.ListSteps
+import Network.AWS.EMR.ModifyInstanceFleet
+import Network.AWS.EMR.ModifyInstanceGroups
+import Network.AWS.EMR.PutAutoScalingPolicy
+import Network.AWS.EMR.RemoveAutoScalingPolicy
+import Network.AWS.EMR.RemoveTags
+import Network.AWS.EMR.RunJobFlow
+import Network.AWS.EMR.SetTerminationProtection
+import Network.AWS.EMR.SetVisibleToAllUsers
+import Network.AWS.EMR.TerminateJobFlows
+import Network.AWS.EMR.Types
+import Network.AWS.EMR.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

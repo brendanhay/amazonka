@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateReceiptRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.SES.CreateReceiptRule
     , crrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to create a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
@@ -55,10 +55,11 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'createReceiptRule' smart constructor.
 data CreateReceiptRule = CreateReceiptRule'
-    { _crrAfter       :: !(Maybe Text)
-    , _crrRuleSetName :: !Text
-    , _crrRule        :: !ReceiptRule
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrAfter       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crrRuleSetName :: {-# NOUNPACK #-}!Text
+  , _crrRule        :: {-# NOUNPACK #-}!ReceiptRule
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReceiptRule' with the minimum fields required to make a request.
 --
@@ -74,11 +75,9 @@ createReceiptRule
     -> ReceiptRule -- ^ 'crrRule'
     -> CreateReceiptRule
 createReceiptRule pRuleSetName_ pRule_ =
-    CreateReceiptRule'
-    { _crrAfter = Nothing
-    , _crrRuleSetName = pRuleSetName_
-    , _crrRule = pRule_
-    }
+  CreateReceiptRule'
+  {_crrAfter = Nothing, _crrRuleSetName = pRuleSetName_, _crrRule = pRule_}
+
 
 -- | The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
 crrAfter :: Lens' CreateReceiptRule (Maybe Text)
@@ -100,9 +99,9 @@ instance AWSRequest CreateReceiptRule where
               (\ s h x ->
                  CreateReceiptRuleResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateReceiptRule
+instance Hashable CreateReceiptRule where
 
-instance NFData CreateReceiptRule
+instance NFData CreateReceiptRule where
 
 instance ToHeaders CreateReceiptRule where
         toHeaders = const mempty
@@ -124,8 +123,9 @@ instance ToQuery CreateReceiptRule where
 --
 -- /See:/ 'createReceiptRuleResponse' smart constructor.
 newtype CreateReceiptRuleResponse = CreateReceiptRuleResponse'
-    { _crrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReceiptRuleResponse' with the minimum fields required to make a request.
 --
@@ -136,12 +136,11 @@ createReceiptRuleResponse
     :: Int -- ^ 'crrrsResponseStatus'
     -> CreateReceiptRuleResponse
 createReceiptRuleResponse pResponseStatus_ =
-    CreateReceiptRuleResponse'
-    { _crrrsResponseStatus = pResponseStatus_
-    }
+  CreateReceiptRuleResponse' {_crrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 crrrsResponseStatus :: Lens' CreateReceiptRuleResponse Int
 crrrsResponseStatus = lens _crrrsResponseStatus (\ s a -> s{_crrrsResponseStatus = a});
 
-instance NFData CreateReceiptRuleResponse
+instance NFData CreateReceiptRuleResponse where

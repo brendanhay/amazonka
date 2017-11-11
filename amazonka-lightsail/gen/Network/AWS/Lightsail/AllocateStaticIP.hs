@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.AllocateStaticIP
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.AllocateStaticIP
     , asirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'allocateStaticIP' smart constructor.
 newtype AllocateStaticIP = AllocateStaticIP'
-    { _asiStaticIPName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asiStaticIPName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllocateStaticIP' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ allocateStaticIP
     :: Text -- ^ 'asiStaticIPName'
     -> AllocateStaticIP
 allocateStaticIP pStaticIPName_ =
-    AllocateStaticIP'
-    { _asiStaticIPName = pStaticIPName_
-    }
+  AllocateStaticIP' {_asiStaticIPName = pStaticIPName_}
+
 
 -- | The name of the static IP address.
 asiStaticIPName :: Lens' AllocateStaticIP Text
@@ -76,9 +76,9 @@ instance AWSRequest AllocateStaticIP where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable AllocateStaticIP
+instance Hashable AllocateStaticIP where
 
-instance NFData AllocateStaticIP
+instance NFData AllocateStaticIP where
 
 instance ToHeaders AllocateStaticIP where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery AllocateStaticIP where
 
 -- | /See:/ 'allocateStaticIPResponse' smart constructor.
 data AllocateStaticIPResponse = AllocateStaticIPResponse'
-    { _asirsOperations     :: !(Maybe [Operation])
-    , _asirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _asirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllocateStaticIPResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ allocateStaticIPResponse
     :: Int -- ^ 'asirsResponseStatus'
     -> AllocateStaticIPResponse
 allocateStaticIPResponse pResponseStatus_ =
-    AllocateStaticIPResponse'
-    { _asirsOperations = Nothing
-    , _asirsResponseStatus = pResponseStatus_
-    }
+  AllocateStaticIPResponse'
+  {_asirsOperations = Nothing, _asirsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the static IP address you allocated.
 asirsOperations :: Lens' AllocateStaticIPResponse [Operation]
@@ -132,4 +132,4 @@ asirsOperations = lens _asirsOperations (\ s a -> s{_asirsOperations = a}) . _De
 asirsResponseStatus :: Lens' AllocateStaticIPResponse Int
 asirsResponseStatus = lens _asirsResponseStatus (\ s a -> s{_asirsResponseStatus = a});
 
-instance NFData AllocateStaticIPResponse
+instance NFData AllocateStaticIPResponse where

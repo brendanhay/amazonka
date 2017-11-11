@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.CreateBucket
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,24 +42,25 @@ module Network.AWS.S3.CreateBucket
     , cbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'createBucket' smart constructor.
 data CreateBucket = CreateBucket'
-    { _cbGrantReadACP              :: !(Maybe Text)
-    , _cbGrantWriteACP             :: !(Maybe Text)
-    , _cbGrantRead                 :: !(Maybe Text)
-    , _cbGrantFullControl          :: !(Maybe Text)
-    , _cbCreateBucketConfiguration :: !(Maybe CreateBucketConfiguration)
-    , _cbGrantWrite                :: !(Maybe Text)
-    , _cbACL                       :: !(Maybe BucketCannedACL)
-    , _cbBucket                    :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbGrantReadACP :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbGrantWriteACP :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbGrantRead :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbGrantFullControl :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbCreateBucketConfiguration :: {-# NOUNPACK #-}!(Maybe CreateBucketConfiguration)
+  , _cbGrantWrite :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbACL :: {-# NOUNPACK #-}!(Maybe BucketCannedACL)
+  , _cbBucket :: {-# NOUNPACK #-}!BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBucket' with the minimum fields required to make a request.
 --
@@ -84,16 +85,17 @@ createBucket
     :: BucketName -- ^ 'cbBucket'
     -> CreateBucket
 createBucket pBucket_ =
-    CreateBucket'
-    { _cbGrantReadACP = Nothing
-    , _cbGrantWriteACP = Nothing
-    , _cbGrantRead = Nothing
-    , _cbGrantFullControl = Nothing
-    , _cbCreateBucketConfiguration = Nothing
-    , _cbGrantWrite = Nothing
-    , _cbACL = Nothing
-    , _cbBucket = pBucket_
-    }
+  CreateBucket'
+  { _cbGrantReadACP = Nothing
+  , _cbGrantWriteACP = Nothing
+  , _cbGrantRead = Nothing
+  , _cbGrantFullControl = Nothing
+  , _cbCreateBucketConfiguration = Nothing
+  , _cbGrantWrite = Nothing
+  , _cbACL = Nothing
+  , _cbBucket = pBucket_
+  }
+
 
 -- | Allows grantee to read the bucket ACL.
 cbGrantReadACP :: Lens' CreateBucket (Maybe Text)
@@ -136,9 +138,9 @@ instance AWSRequest CreateBucket where
                  CreateBucketResponse' <$>
                    (h .#? "Location") <*> (pure (fromEnum s)))
 
-instance Hashable CreateBucket
+instance Hashable CreateBucket where
 
-instance NFData CreateBucket
+instance NFData CreateBucket where
 
 instance ToElement CreateBucket where
         toElement
@@ -166,9 +168,10 @@ instance ToQuery CreateBucket where
 
 -- | /See:/ 'createBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
-    { _cbrsLocation       :: !(Maybe Text)
-    , _cbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBucketResponse' with the minimum fields required to make a request.
 --
@@ -181,10 +184,9 @@ createBucketResponse
     :: Int -- ^ 'cbrsResponseStatus'
     -> CreateBucketResponse
 createBucketResponse pResponseStatus_ =
-    CreateBucketResponse'
-    { _cbrsLocation = Nothing
-    , _cbrsResponseStatus = pResponseStatus_
-    }
+  CreateBucketResponse'
+  {_cbrsLocation = Nothing, _cbrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cbrsLocation :: Lens' CreateBucketResponse (Maybe Text)
@@ -194,4 +196,4 @@ cbrsLocation = lens _cbrsLocation (\ s a -> s{_cbrsLocation = a});
 cbrsResponseStatus :: Lens' CreateBucketResponse Int
 cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
 
-instance NFData CreateBucketResponse
+instance NFData CreateBucketResponse where

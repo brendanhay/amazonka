@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
     , uiprsIdentityProvider
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateIdentityProvider' smart constructor.
 data UpdateIdentityProvider = UpdateIdentityProvider'
-    { _uipIdpIdentifiers   :: !(Maybe [Text])
-    , _uipAttributeMapping :: !(Maybe (Map Text Text))
-    , _uipProviderDetails  :: !(Maybe (Map Text Text))
-    , _uipUserPoolId       :: !Text
-    , _uipProviderName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uipIdpIdentifiers   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uipAttributeMapping :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _uipProviderDetails  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _uipUserPoolId       :: {-# NOUNPACK #-}!Text
+  , _uipProviderName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateIdentityProvider' with the minimum fields required to make a request.
 --
@@ -75,13 +76,14 @@ updateIdentityProvider
     -> Text -- ^ 'uipProviderName'
     -> UpdateIdentityProvider
 updateIdentityProvider pUserPoolId_ pProviderName_ =
-    UpdateIdentityProvider'
-    { _uipIdpIdentifiers = Nothing
-    , _uipAttributeMapping = Nothing
-    , _uipProviderDetails = Nothing
-    , _uipUserPoolId = pUserPoolId_
-    , _uipProviderName = pProviderName_
-    }
+  UpdateIdentityProvider'
+  { _uipIdpIdentifiers = Nothing
+  , _uipAttributeMapping = Nothing
+  , _uipProviderDetails = Nothing
+  , _uipUserPoolId = pUserPoolId_
+  , _uipProviderName = pProviderName_
+  }
+
 
 -- | A list of identity provider identifiers.
 uipIdpIdentifiers :: Lens' UpdateIdentityProvider [Text]
@@ -113,9 +115,9 @@ instance AWSRequest UpdateIdentityProvider where
                  UpdateIdentityProviderResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "IdentityProvider"))
 
-instance Hashable UpdateIdentityProvider
+instance Hashable UpdateIdentityProvider where
 
-instance NFData UpdateIdentityProvider
+instance NFData UpdateIdentityProvider where
 
 instance ToHeaders UpdateIdentityProvider where
         toHeaders
@@ -145,9 +147,10 @@ instance ToQuery UpdateIdentityProvider where
 
 -- | /See:/ 'updateIdentityProviderResponse' smart constructor.
 data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
-    { _uiprsResponseStatus   :: !Int
-    , _uiprsIdentityProvider :: !IdentityProviderType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _uiprsIdentityProvider :: {-# NOUNPACK #-}!IdentityProviderType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateIdentityProviderResponse' with the minimum fields required to make a request.
 --
@@ -161,10 +164,11 @@ updateIdentityProviderResponse
     -> IdentityProviderType -- ^ 'uiprsIdentityProvider'
     -> UpdateIdentityProviderResponse
 updateIdentityProviderResponse pResponseStatus_ pIdentityProvider_ =
-    UpdateIdentityProviderResponse'
-    { _uiprsResponseStatus = pResponseStatus_
-    , _uiprsIdentityProvider = pIdentityProvider_
-    }
+  UpdateIdentityProviderResponse'
+  { _uiprsResponseStatus = pResponseStatus_
+  , _uiprsIdentityProvider = pIdentityProvider_
+  }
+
 
 -- | -- | The response status code.
 uiprsResponseStatus :: Lens' UpdateIdentityProviderResponse Int
@@ -174,4 +178,4 @@ uiprsResponseStatus = lens _uiprsResponseStatus (\ s a -> s{_uiprsResponseStatus
 uiprsIdentityProvider :: Lens' UpdateIdentityProviderResponse IdentityProviderType
 uiprsIdentityProvider = lens _uiprsIdentityProvider (\ s a -> s{_uiprsIdentityProvider = a});
 
-instance NFData UpdateIdentityProviderResponse
+instance NFData UpdateIdentityProviderResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.GetRecords
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.Kinesis.GetRecords
     , grrsRecords
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for 'GetRecords' .
 --
@@ -65,9 +65,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRecords' smart constructor.
 data GetRecords = GetRecords'
-    { _grLimit         :: !(Maybe Nat)
-    , _grShardIterator :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _grShardIterator :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRecords' with the minimum fields required to make a request.
 --
@@ -80,10 +81,8 @@ getRecords
     :: Text -- ^ 'grShardIterator'
     -> GetRecords
 getRecords pShardIterator_ =
-    GetRecords'
-    { _grLimit = Nothing
-    , _grShardIterator = pShardIterator_
-    }
+  GetRecords' {_grLimit = Nothing, _grShardIterator = pShardIterator_}
+
 
 -- | The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ .
 grLimit :: Lens' GetRecords (Maybe Natural)
@@ -105,9 +104,9 @@ instance AWSRequest GetRecords where
                      <*> (pure (fromEnum s))
                      <*> (x .?> "Records" .!@ mempty))
 
-instance Hashable GetRecords
+instance Hashable GetRecords where
 
-instance NFData GetRecords
+instance NFData GetRecords where
 
 instance ToHeaders GetRecords where
         toHeaders
@@ -137,11 +136,12 @@ instance ToQuery GetRecords where
 --
 -- /See:/ 'getRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-    { _grrsNextShardIterator  :: !(Maybe Text)
-    , _grrsMillisBehindLatest :: !(Maybe Nat)
-    , _grrsResponseStatus     :: !Int
-    , _grrsRecords            :: ![Record]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsNextShardIterator  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grrsMillisBehindLatest :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _grrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _grrsRecords            :: {-# NOUNPACK #-}![Record]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
 --
@@ -158,12 +158,13 @@ getRecordsResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRecordsResponse
 getRecordsResponse pResponseStatus_ =
-    GetRecordsResponse'
-    { _grrsNextShardIterator = Nothing
-    , _grrsMillisBehindLatest = Nothing
-    , _grrsResponseStatus = pResponseStatus_
-    , _grrsRecords = mempty
-    }
+  GetRecordsResponse'
+  { _grrsNextShardIterator = Nothing
+  , _grrsMillisBehindLatest = Nothing
+  , _grrsResponseStatus = pResponseStatus_
+  , _grrsRecords = mempty
+  }
+
 
 -- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator will not return any more data.
 grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
@@ -181,4 +182,4 @@ grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = 
 grrsRecords :: Lens' GetRecordsResponse [Record]
 grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Coerce;
 
-instance NFData GetRecordsResponse
+instance NFData GetRecordsResponse where

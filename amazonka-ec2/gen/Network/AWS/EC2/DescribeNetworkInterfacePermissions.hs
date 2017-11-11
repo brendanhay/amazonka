@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfacePermissions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.DescribeNetworkInterfacePermissions
     , drsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeNetworkInterfacePermissions.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeNetworkInterfacePermissions' smart constructor.
 data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
-    { _dnipFilters                       :: !(Maybe [Filter])
-    , _dnipNextToken                     :: !(Maybe Text)
-    , _dnipNetworkInterfacePermissionIds :: !(Maybe [Text])
-    , _dnipMaxResults                    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnipFilters                       :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dnipNextToken                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnipNetworkInterfacePermissionIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dnipMaxResults                    :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNetworkInterfacePermissions' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
 describeNetworkInterfacePermissions
     :: DescribeNetworkInterfacePermissions
 describeNetworkInterfacePermissions =
-    DescribeNetworkInterfacePermissions'
-    { _dnipFilters = Nothing
-    , _dnipNextToken = Nothing
-    , _dnipNetworkInterfacePermissionIds = Nothing
-    , _dnipMaxResults = Nothing
-    }
+  DescribeNetworkInterfacePermissions'
+  { _dnipFilters = Nothing
+  , _dnipNextToken = Nothing
+  , _dnipNetworkInterfacePermissionIds = Nothing
+  , _dnipMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @network-interface-permission.network-interface-permission-id@ - The ID of the permission.     * @network-interface-permission.network-interface-id@ - The ID of the network interface.     * @network-interface-permission.aws-account-id@ - The AWS account ID.     * @network-interface-permission.aws-service@ - The AWS service.     * @network-interface-permission.permission@ - The type of permission (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@ ).
 dnipFilters :: Lens' DescribeNetworkInterfacePermissions [Filter]
@@ -98,7 +100,8 @@ dnipMaxResults :: Lens' DescribeNetworkInterfacePermissions (Maybe Int)
 dnipMaxResults = lens _dnipMaxResults (\ s a -> s{_dnipMaxResults = a});
 
 instance AWSRequest
-         DescribeNetworkInterfacePermissions where
+           DescribeNetworkInterfacePermissions
+         where
         type Rs DescribeNetworkInterfacePermissions =
              DescribeNetworkInterfacePermissionsResponse
         request = postQuery ec2
@@ -112,11 +115,14 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeNetworkInterfacePermissions
+         where
 
 instance NFData DescribeNetworkInterfacePermissions
+         where
 
 instance ToHeaders
-         DescribeNetworkInterfacePermissions where
+           DescribeNetworkInterfacePermissions
+         where
         toHeaders = const mempty
 
 instance ToPath DescribeNetworkInterfacePermissions
@@ -144,10 +150,11 @@ instance ToQuery DescribeNetworkInterfacePermissions
 --
 -- /See:/ 'describeNetworkInterfacePermissionsResponse' smart constructor.
 data DescribeNetworkInterfacePermissionsResponse = DescribeNetworkInterfacePermissionsResponse'
-    { _drsNetworkInterfacePermissions :: !(Maybe [NetworkInterfacePermission])
-    , _drsNextToken                   :: !(Maybe Text)
-    , _drsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsNetworkInterfacePermissions :: {-# NOUNPACK #-}!(Maybe [NetworkInterfacePermission])
+  , _drsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNetworkInterfacePermissionsResponse' with the minimum fields required to make a request.
 --
@@ -162,11 +169,12 @@ describeNetworkInterfacePermissionsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeNetworkInterfacePermissionsResponse
 describeNetworkInterfacePermissionsResponse pResponseStatus_ =
-    DescribeNetworkInterfacePermissionsResponse'
-    { _drsNetworkInterfacePermissions = Nothing
-    , _drsNextToken = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeNetworkInterfacePermissionsResponse'
+  { _drsNetworkInterfacePermissions = Nothing
+  , _drsNextToken = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The network interface permissions.
 drsNetworkInterfacePermissions :: Lens' DescribeNetworkInterfacePermissionsResponse [NetworkInterfacePermission]
@@ -181,4 +189,5 @@ drsResponseStatus :: Lens' DescribeNetworkInterfacePermissionsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
 instance NFData
-         DescribeNetworkInterfacePermissionsResponse
+           DescribeNetworkInterfacePermissionsResponse
+         where

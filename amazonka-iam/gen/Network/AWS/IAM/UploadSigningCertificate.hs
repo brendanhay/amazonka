@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UploadSigningCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.IAM.UploadSigningCertificate
     , uscrsCertificate
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'uploadSigningCertificate' smart constructor.
 data UploadSigningCertificate = UploadSigningCertificate'
-    { _uplUserName        :: !(Maybe Text)
-    , _uplCertificateBody :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uplUserName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uplCertificateBody :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadSigningCertificate' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ uploadSigningCertificate
     :: Text -- ^ 'uplCertificateBody'
     -> UploadSigningCertificate
 uploadSigningCertificate pCertificateBody_ =
-    UploadSigningCertificate'
-    { _uplUserName = Nothing
-    , _uplCertificateBody = pCertificateBody_
-    }
+  UploadSigningCertificate'
+  {_uplUserName = Nothing, _uplCertificateBody = pCertificateBody_}
+
 
 -- | The name of the user the signing certificate is for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uplUserName :: Lens' UploadSigningCertificate (Maybe Text)
@@ -87,9 +87,9 @@ instance AWSRequest UploadSigningCertificate where
                  UploadSigningCertificateResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Certificate"))
 
-instance Hashable UploadSigningCertificate
+instance Hashable UploadSigningCertificate where
 
-instance NFData UploadSigningCertificate
+instance NFData UploadSigningCertificate where
 
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty
@@ -112,9 +112,10 @@ instance ToQuery UploadSigningCertificate where
 --
 -- /See:/ 'uploadSigningCertificateResponse' smart constructor.
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
-    { _uscrsResponseStatus :: !Int
-    , _uscrsCertificate    :: !SigningCertificate
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _uscrsCertificate    :: {-# NOUNPACK #-}!SigningCertificate
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadSigningCertificateResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +129,9 @@ uploadSigningCertificateResponse
     -> SigningCertificate -- ^ 'uscrsCertificate'
     -> UploadSigningCertificateResponse
 uploadSigningCertificateResponse pResponseStatus_ pCertificate_ =
-    UploadSigningCertificateResponse'
-    { _uscrsResponseStatus = pResponseStatus_
-    , _uscrsCertificate = pCertificate_
-    }
+  UploadSigningCertificateResponse'
+  {_uscrsResponseStatus = pResponseStatus_, _uscrsCertificate = pCertificate_}
+
 
 -- | -- | The response status code.
 uscrsResponseStatus :: Lens' UploadSigningCertificateResponse Int
@@ -142,3 +142,4 @@ uscrsCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrsCertificate = lens _uscrsCertificate (\ s a -> s{_uscrsCertificate = a});
 
 instance NFData UploadSigningCertificateResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateSubscriptionDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.Greengrass.UpdateSubscriptionDefinition
     , usdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSubscriptionDefinition' smart constructor.
 data UpdateSubscriptionDefinition = UpdateSubscriptionDefinition'
-    { _usdName                     :: !(Maybe Text)
-    , _usdSubscriptionDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usdName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usdSubscriptionDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSubscriptionDefinition' with the minimum fields required to make a request.
 --
@@ -59,10 +60,11 @@ updateSubscriptionDefinition
     :: Text -- ^ 'usdSubscriptionDefinitionId'
     -> UpdateSubscriptionDefinition
 updateSubscriptionDefinition pSubscriptionDefinitionId_ =
-    UpdateSubscriptionDefinition'
-    { _usdName = Nothing
-    , _usdSubscriptionDefinitionId = pSubscriptionDefinitionId_
-    }
+  UpdateSubscriptionDefinition'
+  { _usdName = Nothing
+  , _usdSubscriptionDefinitionId = pSubscriptionDefinitionId_
+  }
+
 
 -- | name of the definition
 usdName :: Lens' UpdateSubscriptionDefinition (Maybe Text)
@@ -83,9 +85,9 @@ instance AWSRequest UpdateSubscriptionDefinition
                  UpdateSubscriptionDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateSubscriptionDefinition
+instance Hashable UpdateSubscriptionDefinition where
 
-instance NFData UpdateSubscriptionDefinition
+instance NFData UpdateSubscriptionDefinition where
 
 instance ToHeaders UpdateSubscriptionDefinition where
         toHeaders
@@ -109,8 +111,9 @@ instance ToQuery UpdateSubscriptionDefinition where
 
 -- | /See:/ 'updateSubscriptionDefinitionResponse' smart constructor.
 newtype UpdateSubscriptionDefinitionResponse = UpdateSubscriptionDefinitionResponse'
-    { _usdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSubscriptionDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -121,12 +124,13 @@ updateSubscriptionDefinitionResponse
     :: Int -- ^ 'usdrsResponseStatus'
     -> UpdateSubscriptionDefinitionResponse
 updateSubscriptionDefinitionResponse pResponseStatus_ =
-    UpdateSubscriptionDefinitionResponse'
-    { _usdrsResponseStatus = pResponseStatus_
-    }
+  UpdateSubscriptionDefinitionResponse'
+  {_usdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 usdrsResponseStatus :: Lens' UpdateSubscriptionDefinitionResponse Int
 usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a});
 
 instance NFData UpdateSubscriptionDefinitionResponse
+         where

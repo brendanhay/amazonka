@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.StartGameSessionPlacement
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -92,12 +92,12 @@ module Network.AWS.GameLift.StartGameSessionPlacement
     , sgsprsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -105,15 +105,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'startGameSessionPlacement' smart constructor.
 data StartGameSessionPlacement = StartGameSessionPlacement'
-    { _sgspGameProperties            :: !(Maybe [GameProperty])
-    , _sgspGameSessionName           :: !(Maybe Text)
-    , _sgspPlayerLatencies           :: !(Maybe [PlayerLatency])
-    , _sgspGameSessionData           :: !(Maybe Text)
-    , _sgspDesiredPlayerSessions     :: !(Maybe [DesiredPlayerSession])
-    , _sgspPlacementId               :: !Text
-    , _sgspGameSessionQueueName      :: !Text
-    , _sgspMaximumPlayerSessionCount :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgspGameProperties :: {-# NOUNPACK #-}!(Maybe [GameProperty])
+  , _sgspGameSessionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgspPlayerLatencies :: {-# NOUNPACK #-}!(Maybe [PlayerLatency])
+  , _sgspGameSessionData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgspDesiredPlayerSessions :: {-# NOUNPACK #-}!(Maybe [DesiredPlayerSession])
+  , _sgspPlacementId :: {-# NOUNPACK #-}!Text
+  , _sgspGameSessionQueueName :: {-# NOUNPACK #-}!Text
+  , _sgspMaximumPlayerSessionCount :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartGameSessionPlacement' with the minimum fields required to make a request.
 --
@@ -140,16 +141,17 @@ startGameSessionPlacement
     -> Natural -- ^ 'sgspMaximumPlayerSessionCount'
     -> StartGameSessionPlacement
 startGameSessionPlacement pPlacementId_ pGameSessionQueueName_ pMaximumPlayerSessionCount_ =
-    StartGameSessionPlacement'
-    { _sgspGameProperties = Nothing
-    , _sgspGameSessionName = Nothing
-    , _sgspPlayerLatencies = Nothing
-    , _sgspGameSessionData = Nothing
-    , _sgspDesiredPlayerSessions = Nothing
-    , _sgspPlacementId = pPlacementId_
-    , _sgspGameSessionQueueName = pGameSessionQueueName_
-    , _sgspMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
-    }
+  StartGameSessionPlacement'
+  { _sgspGameProperties = Nothing
+  , _sgspGameSessionName = Nothing
+  , _sgspPlayerLatencies = Nothing
+  , _sgspGameSessionData = Nothing
+  , _sgspDesiredPlayerSessions = Nothing
+  , _sgspPlacementId = pPlacementId_
+  , _sgspGameSessionQueueName = pGameSessionQueueName_
+  , _sgspMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
+  }
+
 
 -- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 sgspGameProperties :: Lens' StartGameSessionPlacement [GameProperty]
@@ -194,9 +196,9 @@ instance AWSRequest StartGameSessionPlacement where
                    (x .?> "GameSessionPlacement") <*>
                      (pure (fromEnum s)))
 
-instance Hashable StartGameSessionPlacement
+instance Hashable StartGameSessionPlacement where
 
-instance NFData StartGameSessionPlacement
+instance NFData StartGameSessionPlacement where
 
 instance ToHeaders StartGameSessionPlacement where
         toHeaders
@@ -237,9 +239,10 @@ instance ToQuery StartGameSessionPlacement where
 --
 -- /See:/ 'startGameSessionPlacementResponse' smart constructor.
 data StartGameSessionPlacementResponse = StartGameSessionPlacementResponse'
-    { _sgsprsGameSessionPlacement :: !(Maybe GameSessionPlacement)
-    , _sgsprsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sgsprsGameSessionPlacement :: {-# NOUNPACK #-}!(Maybe GameSessionPlacement)
+  , _sgsprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartGameSessionPlacementResponse' with the minimum fields required to make a request.
 --
@@ -252,10 +255,11 @@ startGameSessionPlacementResponse
     :: Int -- ^ 'sgsprsResponseStatus'
     -> StartGameSessionPlacementResponse
 startGameSessionPlacementResponse pResponseStatus_ =
-    StartGameSessionPlacementResponse'
-    { _sgsprsGameSessionPlacement = Nothing
-    , _sgsprsResponseStatus = pResponseStatus_
-    }
+  StartGameSessionPlacementResponse'
+  { _sgsprsGameSessionPlacement = Nothing
+  , _sgsprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Object that describes the newly created game session placement. This object includes all the information provided in the request, as well as start/end time stamps and placement status.
 sgsprsGameSessionPlacement :: Lens' StartGameSessionPlacementResponse (Maybe GameSessionPlacement)
@@ -266,3 +270,4 @@ sgsprsResponseStatus :: Lens' StartGameSessionPlacementResponse Int
 sgsprsResponseStatus = lens _sgsprsResponseStatus (\ s a -> s{_sgsprsResponseStatus = a});
 
 instance NFData StartGameSessionPlacementResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.SetSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.ELBv2.SetSecurityGroups
     , ssgrsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'setSecurityGroups' smart constructor.
 data SetSecurityGroups = SetSecurityGroups'
-    { _ssgLoadBalancerARN :: !Text
-    , _ssgSecurityGroups  :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssgLoadBalancerARN :: {-# NOUNPACK #-}!Text
+  , _ssgSecurityGroups  :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetSecurityGroups' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ setSecurityGroups
     :: Text -- ^ 'ssgLoadBalancerARN'
     -> SetSecurityGroups
 setSecurityGroups pLoadBalancerARN_ =
-    SetSecurityGroups'
-    { _ssgLoadBalancerARN = pLoadBalancerARN_
-    , _ssgSecurityGroups = mempty
-    }
+  SetSecurityGroups'
+  {_ssgLoadBalancerARN = pLoadBalancerARN_, _ssgSecurityGroups = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 ssgLoadBalancerARN :: Lens' SetSecurityGroups Text
@@ -86,9 +86,9 @@ instance AWSRequest SetSecurityGroups where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable SetSecurityGroups
+instance Hashable SetSecurityGroups where
 
-instance NFData SetSecurityGroups
+instance NFData SetSecurityGroups where
 
 instance ToHeaders SetSecurityGroups where
         toHeaders = const mempty
@@ -107,9 +107,10 @@ instance ToQuery SetSecurityGroups where
 
 -- | /See:/ 'setSecurityGroupsResponse' smart constructor.
 data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
-    { _ssgrsSecurityGroupIds :: !(Maybe [Text])
-    , _ssgrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssgrsSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ssgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetSecurityGroupsResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +123,9 @@ setSecurityGroupsResponse
     :: Int -- ^ 'ssgrsResponseStatus'
     -> SetSecurityGroupsResponse
 setSecurityGroupsResponse pResponseStatus_ =
-    SetSecurityGroupsResponse'
-    { _ssgrsSecurityGroupIds = Nothing
-    , _ssgrsResponseStatus = pResponseStatus_
-    }
+  SetSecurityGroupsResponse'
+  {_ssgrsSecurityGroupIds = Nothing, _ssgrsResponseStatus = pResponseStatus_}
+
 
 -- | The IDs of the security groups associated with the load balancer.
 ssgrsSecurityGroupIds :: Lens' SetSecurityGroupsResponse [Text]
@@ -135,4 +135,4 @@ ssgrsSecurityGroupIds = lens _ssgrsSecurityGroupIds (\ s a -> s{_ssgrsSecurityGr
 ssgrsResponseStatus :: Lens' SetSecurityGroupsResponse Int
 ssgrsResponseStatus = lens _ssgrsResponseStatus (\ s a -> s{_ssgrsResponseStatus = a});
 
-instance NFData SetSecurityGroupsResponse
+instance NFData SetSecurityGroupsResponse where

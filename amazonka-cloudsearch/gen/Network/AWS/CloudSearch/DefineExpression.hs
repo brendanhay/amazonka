@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineExpression
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.DefineExpression
     , dersExpression
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DefineExpression' @ operation. Specifies the name of the domain you want to update and the expression you want to configure.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'defineExpression' smart constructor.
 data DefineExpression = DefineExpression'
-    { _dDomainName :: !Text
-    , _dExpression :: !Expression
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDomainName :: {-# NOUNPACK #-}!Text
+  , _dExpression :: {-# NOUNPACK #-}!Expression
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineExpression' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ defineExpression
     -> Expression -- ^ 'dExpression'
     -> DefineExpression
 defineExpression pDomainName_ pExpression_ =
-    DefineExpression'
-    { _dDomainName = pDomainName_
-    , _dExpression = pExpression_
-    }
+  DefineExpression' {_dDomainName = pDomainName_, _dExpression = pExpression_}
+
 
 -- | Undocumented member.
 dDomainName :: Lens' DefineExpression Text
@@ -89,9 +88,9 @@ instance AWSRequest DefineExpression where
                  DefineExpressionResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Expression"))
 
-instance Hashable DefineExpression
+instance Hashable DefineExpression where
 
-instance NFData DefineExpression
+instance NFData DefineExpression where
 
 instance ToHeaders DefineExpression where
         toHeaders = const mempty
@@ -113,9 +112,10 @@ instance ToQuery DefineExpression where
 --
 -- /See:/ 'defineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _dersResponseStatus :: !Int
-    , _dersExpression     :: !ExpressionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dersExpression     :: {-# NOUNPACK #-}!ExpressionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineExpressionResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ defineExpressionResponse
     -> ExpressionStatus -- ^ 'dersExpression'
     -> DefineExpressionResponse
 defineExpressionResponse pResponseStatus_ pExpression_ =
-    DefineExpressionResponse'
-    { _dersResponseStatus = pResponseStatus_
-    , _dersExpression = pExpression_
-    }
+  DefineExpressionResponse'
+  {_dersResponseStatus = pResponseStatus_, _dersExpression = pExpression_}
+
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DefineExpressionResponse Int
@@ -142,4 +141,4 @@ dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = 
 dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
 dersExpression = lens _dersExpression (\ s a -> s{_dersExpression = a});
 
-instance NFData DefineExpressionResponse
+instance NFData DefineExpressionResponse where

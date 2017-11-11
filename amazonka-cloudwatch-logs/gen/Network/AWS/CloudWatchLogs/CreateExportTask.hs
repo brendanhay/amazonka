@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateExportTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,23 +47,24 @@ module Network.AWS.CloudWatchLogs.CreateExportTask
     , cetrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createExportTask' smart constructor.
 data CreateExportTask = CreateExportTask'
-    { _cetDestinationPrefix   :: !(Maybe Text)
-    , _cetTaskName            :: !(Maybe Text)
-    , _cetLogStreamNamePrefix :: !(Maybe Text)
-    , _cetLogGroupName        :: !Text
-    , _cetFrom                :: !Nat
-    , _cetTo                  :: !Nat
-    , _cetDestination         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cetDestinationPrefix   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cetTaskName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cetLogStreamNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cetLogGroupName        :: {-# NOUNPACK #-}!Text
+  , _cetFrom                :: {-# NOUNPACK #-}!Nat
+  , _cetTo                  :: {-# NOUNPACK #-}!Nat
+  , _cetDestination         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateExportTask' with the minimum fields required to make a request.
 --
@@ -89,15 +90,16 @@ createExportTask
     -> Text -- ^ 'cetDestination'
     -> CreateExportTask
 createExportTask pLogGroupName_ pFrom_ pTo_ pDestination_ =
-    CreateExportTask'
-    { _cetDestinationPrefix = Nothing
-    , _cetTaskName = Nothing
-    , _cetLogStreamNamePrefix = Nothing
-    , _cetLogGroupName = pLogGroupName_
-    , _cetFrom = _Nat # pFrom_
-    , _cetTo = _Nat # pTo_
-    , _cetDestination = pDestination_
-    }
+  CreateExportTask'
+  { _cetDestinationPrefix = Nothing
+  , _cetTaskName = Nothing
+  , _cetLogStreamNamePrefix = Nothing
+  , _cetLogGroupName = pLogGroupName_
+  , _cetFrom = _Nat # pFrom_
+  , _cetTo = _Nat # pTo_
+  , _cetDestination = pDestination_
+  }
+
 
 -- | The prefix used as the start of the key for every object exported. If you don't specify a value, the default is @exportedlogs@ .
 cetDestinationPrefix :: Lens' CreateExportTask (Maybe Text)
@@ -136,9 +138,9 @@ instance AWSRequest CreateExportTask where
                  CreateExportTaskResponse' <$>
                    (x .?> "taskId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateExportTask
+instance Hashable CreateExportTask where
 
-instance NFData CreateExportTask
+instance NFData CreateExportTask where
 
 instance ToHeaders CreateExportTask where
         toHeaders
@@ -169,9 +171,10 @@ instance ToQuery CreateExportTask where
 
 -- | /See:/ 'createExportTaskResponse' smart constructor.
 data CreateExportTaskResponse = CreateExportTaskResponse'
-    { _cetrsTaskId         :: !(Maybe Text)
-    , _cetrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cetrsTaskId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cetrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateExportTaskResponse' with the minimum fields required to make a request.
 --
@@ -184,10 +187,9 @@ createExportTaskResponse
     :: Int -- ^ 'cetrsResponseStatus'
     -> CreateExportTaskResponse
 createExportTaskResponse pResponseStatus_ =
-    CreateExportTaskResponse'
-    { _cetrsTaskId = Nothing
-    , _cetrsResponseStatus = pResponseStatus_
-    }
+  CreateExportTaskResponse'
+  {_cetrsTaskId = Nothing, _cetrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the export task.
 cetrsTaskId :: Lens' CreateExportTaskResponse (Maybe Text)
@@ -197,4 +199,4 @@ cetrsTaskId = lens _cetrsTaskId (\ s a -> s{_cetrsTaskId = a});
 cetrsResponseStatus :: Lens' CreateExportTaskResponse Int
 cetrsResponseStatus = lens _cetrsResponseStatus (\ s a -> s{_cetrsResponseStatus = a});
 
-instance NFData CreateExportTaskResponse
+instance NFData CreateExportTaskResponse where

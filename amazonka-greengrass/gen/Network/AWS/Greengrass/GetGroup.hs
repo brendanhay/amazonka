@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Greengrass.GetGroup
     , ggrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
 newtype GetGroup = GetGroup'
-    { _ggGroupId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggGroupId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype GetGroup = GetGroup'
 getGroup
     :: Text -- ^ 'ggGroupId'
     -> GetGroup
-getGroup pGroupId_ =
-    GetGroup'
-    { _ggGroupId = pGroupId_
-    }
+getGroup pGroupId_ = GetGroup' {_ggGroupId = pGroupId_}
+
 
 -- | The unique Id of the AWS Greengrass Group
 ggGroupId :: Lens' GetGroup Text
@@ -85,9 +84,9 @@ instance AWSRequest GetGroup where
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetGroup
+instance Hashable GetGroup where
 
-instance NFData GetGroup
+instance NFData GetGroup where
 
 instance ToHeaders GetGroup where
         toHeaders
@@ -105,15 +104,16 @@ instance ToQuery GetGroup where
 
 -- | /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-    { _ggrsLatestVersionARN     :: !(Maybe Text)
-    , _ggrsARN                  :: !(Maybe Text)
-    , _ggrsName                 :: !(Maybe Text)
-    , _ggrsCreationTimestamp    :: !(Maybe Text)
-    , _ggrsId                   :: !(Maybe Text)
-    , _ggrsLatestVersion        :: !(Maybe Text)
-    , _ggrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _ggrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
 --
@@ -138,16 +138,17 @@ getGroupResponse
     :: Int -- ^ 'ggrsResponseStatus'
     -> GetGroupResponse
 getGroupResponse pResponseStatus_ =
-    GetGroupResponse'
-    { _ggrsLatestVersionARN = Nothing
-    , _ggrsARN = Nothing
-    , _ggrsName = Nothing
-    , _ggrsCreationTimestamp = Nothing
-    , _ggrsId = Nothing
-    , _ggrsLatestVersion = Nothing
-    , _ggrsLastUpdatedTimestamp = Nothing
-    , _ggrsResponseStatus = pResponseStatus_
-    }
+  GetGroupResponse'
+  { _ggrsLatestVersionARN = Nothing
+  , _ggrsARN = Nothing
+  , _ggrsName = Nothing
+  , _ggrsCreationTimestamp = Nothing
+  , _ggrsId = Nothing
+  , _ggrsLatestVersion = Nothing
+  , _ggrsLastUpdatedTimestamp = Nothing
+  , _ggrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 ggrsLatestVersionARN :: Lens' GetGroupResponse (Maybe Text)
@@ -181,4 +182,4 @@ ggrsLastUpdatedTimestamp = lens _ggrsLastUpdatedTimestamp (\ s a -> s{_ggrsLastU
 ggrsResponseStatus :: Lens' GetGroupResponse Int
 ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
 
-instance NFData GetGroupResponse
+instance NFData GetGroupResponse where

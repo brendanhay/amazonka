@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.SetStackPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.CloudFormation.SetStackPolicy
     , SetStackPolicyResponse
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'SetStackPolicy' action.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setStackPolicy' smart constructor.
 data SetStackPolicy = SetStackPolicy'
-    { _sspStackPolicyBody :: !(Maybe Text)
-    , _sspStackPolicyURL  :: !(Maybe Text)
-    , _sspStackName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sspStackPolicyBody :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sspStackPolicyURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sspStackName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetStackPolicy' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ setStackPolicy
     :: Text -- ^ 'sspStackName'
     -> SetStackPolicy
 setStackPolicy pStackName_ =
-    SetStackPolicy'
-    { _sspStackPolicyBody = Nothing
-    , _sspStackPolicyURL = Nothing
-    , _sspStackName = pStackName_
-    }
+  SetStackPolicy'
+  { _sspStackPolicyBody = Nothing
+  , _sspStackPolicyURL = Nothing
+  , _sspStackName = pStackName_
+  }
+
 
 -- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
@@ -90,9 +92,9 @@ instance AWSRequest SetStackPolicy where
         request = postQuery cloudFormation
         response = receiveNull SetStackPolicyResponse'
 
-instance Hashable SetStackPolicy
+instance Hashable SetStackPolicy where
 
-instance NFData SetStackPolicy
+instance NFData SetStackPolicy where
 
 instance ToHeaders SetStackPolicy where
         toHeaders = const mempty
@@ -111,8 +113,9 @@ instance ToQuery SetStackPolicy where
 
 -- | /See:/ 'setStackPolicyResponse' smart constructor.
 data SetStackPolicyResponse =
-    SetStackPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetStackPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetStackPolicyResponse' with the minimum fields required to make a request.
 --
@@ -120,4 +123,5 @@ setStackPolicyResponse
     :: SetStackPolicyResponse
 setStackPolicyResponse = SetStackPolicyResponse'
 
-instance NFData SetStackPolicyResponse
+
+instance NFData SetStackPolicyResponse where

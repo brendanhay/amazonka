@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateHostedZoneComment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.Route53.UpdateHostedZoneComment
     , uhzcrsHostedZone
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to update the comment for a hosted zone.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'updateHostedZoneComment' smart constructor.
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
-    { _uhzcComment :: !(Maybe Text)
-    , _uhzcId      :: !ResourceId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uhzcComment :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uhzcId      :: {-# NOUNPACK #-}!ResourceId
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateHostedZoneComment' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ updateHostedZoneComment
     :: ResourceId -- ^ 'uhzcId'
     -> UpdateHostedZoneComment
 updateHostedZoneComment pId_ =
-    UpdateHostedZoneComment'
-    { _uhzcComment = Nothing
-    , _uhzcId = pId_
-    }
+  UpdateHostedZoneComment' {_uhzcComment = Nothing, _uhzcId = pId_}
+
 
 -- | The new comment for the hosted zone. If you don't specify a value for @Comment@ , Amazon Route 53 deletes the existing value of the @Comment@ element, if any.
 uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
@@ -89,9 +88,9 @@ instance AWSRequest UpdateHostedZoneComment where
                  UpdateHostedZoneCommentResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HostedZone"))
 
-instance Hashable UpdateHostedZoneComment
+instance Hashable UpdateHostedZoneComment where
 
-instance NFData UpdateHostedZoneComment
+instance NFData UpdateHostedZoneComment where
 
 instance ToElement UpdateHostedZoneComment where
         toElement
@@ -118,9 +117,10 @@ instance ToXML UpdateHostedZoneComment where
 --
 -- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
-    { _uhzcrsResponseStatus :: !Int
-    , _uhzcrsHostedZone     :: !HostedZone
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uhzcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _uhzcrsHostedZone     :: {-# NOUNPACK #-}!HostedZone
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateHostedZoneCommentResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +134,9 @@ updateHostedZoneCommentResponse
     -> HostedZone -- ^ 'uhzcrsHostedZone'
     -> UpdateHostedZoneCommentResponse
 updateHostedZoneCommentResponse pResponseStatus_ pHostedZone_ =
-    UpdateHostedZoneCommentResponse'
-    { _uhzcrsResponseStatus = pResponseStatus_
-    , _uhzcrsHostedZone = pHostedZone_
-    }
+  UpdateHostedZoneCommentResponse'
+  {_uhzcrsResponseStatus = pResponseStatus_, _uhzcrsHostedZone = pHostedZone_}
+
 
 -- | -- | The response status code.
 uhzcrsResponseStatus :: Lens' UpdateHostedZoneCommentResponse Int
@@ -147,4 +146,4 @@ uhzcrsResponseStatus = lens _uhzcrsResponseStatus (\ s a -> s{_uhzcrsResponseSta
 uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
 uhzcrsHostedZone = lens _uhzcrsHostedZone (\ s a -> s{_uhzcrsHostedZone = a});
 
-instance NFData UpdateHostedZoneCommentResponse
+instance NFData UpdateHostedZoneCommentResponse where

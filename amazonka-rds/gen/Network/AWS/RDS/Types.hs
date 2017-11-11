@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -707,40 +707,40 @@ module Network.AWS.RDS.Types
     , vsgmVPCSecurityGroupId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.RDS.Types.Sum
-import           Network.AWS.Sign.V4
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types.Product
+import Network.AWS.RDS.Types.Sum
+import Network.AWS.Sign.V4
 
 -- | API version @2014-10-31@ of the Amazon Relational Database Service SDK configuration.
 rds :: Service
 rds =
-    Service
-    { _svcAbbrev = "RDS"
-    , _svcSigner = v4
-    , _svcPrefix = "rds"
-    , _svcVersion = "2014-10-31"
-    , _svcEndpoint = defaultEndpoint rds
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "RDS"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "RDS"
+  , _svcSigner = v4
+  , _svcPrefix = "rds"
+  , _svcVersion = "2014-10-31"
+  , _svcEndpoint = defaultEndpoint rds
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseXMLError "RDS"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -749,26 +749,30 @@ rds =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | /SourceDBInstanceIdentifier/ refers to a DB instance with /BackupRetentionPeriod/ equal to 0.
 --
 --
 _PointInTimeRestoreNotEnabledFault :: AsError a => Getting (First ServiceError) a ServiceError
 _PointInTimeRestoreNotEnabledFault =
-    _MatchServiceError rds "PointInTimeRestoreNotEnabled" . hasStatus 400
+  _MatchServiceError rds "PointInTimeRestoreNotEnabled" . hasStatus 400
+
 
 -- | The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.
 --
 --
 _InvalidDBParameterGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBParameterGroupStateFault =
-    _MatchServiceError rds "InvalidDBParameterGroupState" . hasStatus 400
+  _MatchServiceError rds "InvalidDBParameterGroupState" . hasStatus 400
+
 
 -- | Request would exceed the user's DB Instance quota.
 --
 --
 _ReservedDBInstanceQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedDBInstanceQuotaExceededFault =
-    _MatchServiceError rds "ReservedDBInstanceQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "ReservedDBInstanceQuotaExceeded" . hasStatus 400
+
 
 -- | The requested source could not be found.
 --
@@ -776,84 +780,94 @@ _ReservedDBInstanceQuotaExceededFault =
 _SourceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SourceNotFoundFault = _MatchServiceError rds "SourceNotFound" . hasStatus 404
 
+
 -- | /CertificateIdentifier/ does not refer to an existing certificate.
 --
 --
 _CertificateNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateNotFoundFault =
-    _MatchServiceError rds "CertificateNotFound" . hasStatus 404
+  _MatchServiceError rds "CertificateNotFound" . hasStatus 404
+
 
 -- | DB security group authorization quota has been reached.
 --
 --
 _AuthorizationQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationQuotaExceededFault =
-    _MatchServiceError rds "AuthorizationQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "AuthorizationQuotaExceeded" . hasStatus 400
+
 
 -- | User already has a DB cluster snapshot with the given identifier.
 --
 --
 _DBClusterSnapshotAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterSnapshotAlreadyExistsFault =
-    _MatchServiceError rds "DBClusterSnapshotAlreadyExistsFault" .
-    hasStatus 400
+  _MatchServiceError rds "DBClusterSnapshotAlreadyExistsFault" . hasStatus 400
+
 
 -- | A DB parameter group with the same name exists.
 --
 --
 _DBParameterGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBParameterGroupAlreadyExistsFault =
-    _MatchServiceError rds "DBParameterGroupAlreadyExists" . hasStatus 400
+  _MatchServiceError rds "DBParameterGroupAlreadyExists" . hasStatus 400
+
 
 -- | Request would result in user exceeding the allowed number of DB parameter groups.
 --
 --
 _DBParameterGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBParameterGroupQuotaExceededFault =
-    _MatchServiceError rds "DBParameterGroupQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "DBParameterGroupQuotaExceeded" . hasStatus 400
+
 
 -- | The DB cluster does not have enough capacity for the current operation.
 --
 --
 _InsufficientDBClusterCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientDBClusterCapacityFault =
-    _MatchServiceError rds "InsufficientDBClusterCapacityFault" . hasStatus 403
+  _MatchServiceError rds "InsufficientDBClusterCapacityFault" . hasStatus 403
+
 
 -- | User already has a reservation with the given identifier.
 --
 --
 _ReservedDBInstanceAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedDBInstanceAlreadyExistsFault =
-    _MatchServiceError rds "ReservedDBInstanceAlreadyExists" . hasStatus 404
+  _MatchServiceError rds "ReservedDBInstanceAlreadyExists" . hasStatus 404
+
 
 -- | Provisioned IOPS not available in the specified Availability Zone.
 --
 --
 _ProvisionedIOPSNotAvailableInAZFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ProvisionedIOPSNotAvailableInAZFault =
-    _MatchServiceError rds "ProvisionedIopsNotAvailableInAZFault" .
-    hasStatus 400
+  _MatchServiceError rds "ProvisionedIopsNotAvailableInAZFault" . hasStatus 400
+
 
 -- | The specified CIDRIP or EC2 security group is already authorized for the specified DB security group.
 --
 --
 _AuthorizationAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationAlreadyExistsFault =
-    _MatchServiceError rds "AuthorizationAlreadyExists" . hasStatus 400
+  _MatchServiceError rds "AuthorizationAlreadyExists" . hasStatus 400
+
 
 -- | The supplied category does not exist.
 --
 --
 _SubscriptionCategoryNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionCategoryNotFoundFault =
-    _MatchServiceError rds "SubscriptionCategoryNotFound" . hasStatus 404
+  _MatchServiceError rds "SubscriptionCategoryNotFound" . hasStatus 404
+
 
 -- | The subscription name does not exist.
 --
 --
 _SubscriptionNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionNotFoundFault =
-    _MatchServiceError rds "SubscriptionNotFound" . hasStatus 404
+  _MatchServiceError rds "SubscriptionNotFound" . hasStatus 404
+
 
 -- | The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
 --
@@ -861,265 +875,301 @@ _SubscriptionNotFoundFault =
 _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _MatchServiceError rds "InvalidSubnet" . hasStatus 400
 
+
 -- | You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.
 --
 --
 _SharedSnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SharedSnapshotQuotaExceededFault =
-    _MatchServiceError rds "SharedSnapshotQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "SharedSnapshotQuotaExceeded" . hasStatus 400
+
 
 -- | Request would result in user exceeding the allowed number of subnets in a DB subnet groups.
 --
 --
 _DBSubnetQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetQuotaExceededFault =
-    _MatchServiceError rds "DBSubnetQuotaExceededFault" . hasStatus 400
+  _MatchServiceError rds "DBSubnetQuotaExceededFault" . hasStatus 400
+
 
 -- | The specified option group could not be found.
 --
 --
 _OptionGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _OptionGroupNotFoundFault =
-    _MatchServiceError rds "OptionGroupNotFoundFault" . hasStatus 404
+  _MatchServiceError rds "OptionGroupNotFoundFault" . hasStatus 404
+
 
 -- | /DBClusterIdentifier/ does not refer to an existing DB cluster.
 --
 --
 _DBClusterNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterNotFoundFault =
-    _MatchServiceError rds "DBClusterNotFoundFault" . hasStatus 404
+  _MatchServiceError rds "DBClusterNotFoundFault" . hasStatus 404
+
 
 -- | /LogFileName/ does not refer to an existing DB log file.
 --
 --
 _DBLogFileNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBLogFileNotFoundFault =
-    _MatchServiceError rds "DBLogFileNotFoundFault" . hasStatus 404
+  _MatchServiceError rds "DBLogFileNotFoundFault" . hasStatus 404
+
 
 -- | The specified Amazon S3 bucket name could not be found or Amazon RDS is not authorized to access the specified Amazon S3 bucket. Verify the __SourceS3BucketName__ and __S3IngestionRoleArn__ values and try again.
 --
 --
 _InvalidS3BucketFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3BucketFault =
-    _MatchServiceError rds "InvalidS3BucketFault" . hasStatus 400
+  _MatchServiceError rds "InvalidS3BucketFault" . hasStatus 400
+
 
 -- | User already has a DB cluster with the given identifier.
 --
 --
 _DBClusterAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterAlreadyExistsFault =
-    _MatchServiceError rds "DBClusterAlreadyExistsFault" . hasStatus 400
+  _MatchServiceError rds "DBClusterAlreadyExistsFault" . hasStatus 400
+
 
 -- | /StorageType/ specified cannot be associated with the DB Instance.
 --
 --
 _StorageTypeNotSupportedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _StorageTypeNotSupportedFault =
-    _MatchServiceError rds "StorageTypeNotSupported" . hasStatus 400
+  _MatchServiceError rds "StorageTypeNotSupported" . hasStatus 400
+
 
 -- | Request would result in user exceeding the allowed number of DB security groups.
 --
 --
 _DBSecurityGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSecurityGroupQuotaExceededFault =
-    _MatchServiceError rds "QuotaExceeded.DBSecurityGroup" . hasStatus 400
+  _MatchServiceError rds "QuotaExceeded.DBSecurityGroup" . hasStatus 400
+
 
 -- | The option group you are trying to create already exists.
 --
 --
 _OptionGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _OptionGroupAlreadyExistsFault =
-    _MatchServiceError rds "OptionGroupAlreadyExistsFault" . hasStatus 400
+  _MatchServiceError rds "OptionGroupAlreadyExistsFault" . hasStatus 400
+
 
 -- | The quota of 20 option groups was exceeded for this AWS account.
 --
 --
 _OptionGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _OptionGroupQuotaExceededFault =
-    _MatchServiceError rds "OptionGroupQuotaExceededFault" . hasStatus 400
+  _MatchServiceError rds "OptionGroupQuotaExceededFault" . hasStatus 400
+
 
 -- | A DB security group with the name specified in /DBSecurityGroupName/ already exists.
 --
 --
 _DBSecurityGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSecurityGroupAlreadyExistsFault =
-    _MatchServiceError rds "DBSecurityGroupAlreadyExists" . hasStatus 400
+  _MatchServiceError rds "DBSecurityGroupAlreadyExists" . hasStatus 400
+
 
 -- | The SNS topic ARN does not exist.
 --
 --
 _SNSTopicARNNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SNSTopicARNNotFoundFault =
-    _MatchServiceError rds "SNSTopicArnNotFound" . hasStatus 404
+  _MatchServiceError rds "SNSTopicArnNotFound" . hasStatus 404
+
 
 -- | This error can occur if someone else is modifying a subscription. You should retry the action.
 --
 --
 _InvalidEventSubscriptionStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEventSubscriptionStateFault =
-    _MatchServiceError rds "InvalidEventSubscriptionState" . hasStatus 400
+  _MatchServiceError rds "InvalidEventSubscriptionState" . hasStatus 400
+
 
 -- | Error accessing KMS key.
 --
 --
 _KMSKeyNotAccessibleFault :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSKeyNotAccessibleFault =
-    _MatchServiceError rds "KMSKeyNotAccessibleFault" . hasStatus 400
+  _MatchServiceError rds "KMSKeyNotAccessibleFault" . hasStatus 400
+
 
 -- | /DBSnapshotIdentifier/ does not refer to an existing DB snapshot.
 --
 --
 _DBSnapshotNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSnapshotNotFoundFault =
-    _MatchServiceError rds "DBSnapshotNotFound" . hasStatus 404
+  _MatchServiceError rds "DBSnapshotNotFound" . hasStatus 404
+
 
 -- | /DBClusterParameterGroupName/ does not refer to an existing DB Cluster parameter group.
 --
 --
 _DBClusterParameterGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterParameterGroupNotFoundFault =
-    _MatchServiceError rds "DBClusterParameterGroupNotFound" . hasStatus 404
+  _MatchServiceError rds "DBClusterParameterGroupNotFound" . hasStatus 404
+
 
 -- | User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
 --
 --
 _DBClusterQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterQuotaExceededFault =
-    _MatchServiceError rds "DBClusterQuotaExceededFault" . hasStatus 403
+  _MatchServiceError rds "DBClusterQuotaExceededFault" . hasStatus 403
+
 
 -- | Request would result in user exceeding the allowed number of DB snapshots.
 --
 --
 _SnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotQuotaExceededFault =
-    _MatchServiceError rds "SnapshotQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "SnapshotQuotaExceeded" . hasStatus 400
+
 
 -- | /DBSubnetGroupName/ is already used by an existing DB subnet group.
 --
 --
 _DBSubnetGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupAlreadyExistsFault =
-    _MatchServiceError rds "DBSubnetGroupAlreadyExists" . hasStatus 400
+  _MatchServiceError rds "DBSubnetGroupAlreadyExists" . hasStatus 400
+
 
 -- | You do not have permission to publish to the SNS topic ARN.
 --
 --
 _SNSNoAuthorizationFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SNSNoAuthorizationFault =
-    _MatchServiceError rds "SNSNoAuthorization" . hasStatus 400
+  _MatchServiceError rds "SNSNoAuthorization" . hasStatus 400
+
 
 -- | /DBSecurityGroupName/ does not refer to an existing DB security group.
 --
 --
 _DBSecurityGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSecurityGroupNotFoundFault =
-    _MatchServiceError rds "DBSecurityGroupNotFound" . hasStatus 404
+  _MatchServiceError rds "DBSecurityGroupNotFound" . hasStatus 404
+
 
 -- | A DB security group is not allowed for this action.
 --
 --
 _DBSecurityGroupNotSupportedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSecurityGroupNotSupportedFault =
-    _MatchServiceError rds "DBSecurityGroupNotSupported" . hasStatus 400
+  _MatchServiceError rds "DBSecurityGroupNotSupported" . hasStatus 400
+
 
 -- | Request would result in user exceeding the allowed number of DB instances.
 --
 --
 _InstanceQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceQuotaExceededFault =
-    _MatchServiceError rds "InstanceQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "InstanceQuotaExceeded" . hasStatus 400
+
 
 -- | /Domain/ does not refer to an existing Active Directory Domain.
 --
 --
 _DomainNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DomainNotFoundFault =
-    _MatchServiceError rds "DomainNotFoundFault" . hasStatus 404
+  _MatchServiceError rds "DomainNotFoundFault" . hasStatus 404
+
 
 -- | /DBParameterGroupName/ does not refer to an existing DB parameter group.
 --
 --
 _DBParameterGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBParameterGroupNotFoundFault =
-    _MatchServiceError rds "DBParameterGroupNotFound" . hasStatus 404
+  _MatchServiceError rds "DBParameterGroupNotFound" . hasStatus 404
+
 
 -- | Indicates the DBSubnetGroup does not belong to the same VPC as that of an existing cross region read replica of the same source instance.
 --
 --
 _InvalidDBSubnetGroupFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBSubnetGroupFault =
-    _MatchServiceError rds "InvalidDBSubnetGroupFault" . hasStatus 400
+  _MatchServiceError rds "InvalidDBSubnetGroupFault" . hasStatus 400
+
 
 -- | Specified offering does not exist.
 --
 --
 _ReservedDBInstancesOfferingNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedDBInstancesOfferingNotFoundFault =
-    _MatchServiceError rds "ReservedDBInstancesOfferingNotFound" .
-    hasStatus 404
+  _MatchServiceError rds "ReservedDBInstancesOfferingNotFound" . hasStatus 404
+
 
 -- | The DB subnet is not in the /available/ state.
 --
 --
 _InvalidDBSubnetStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBSubnetStateFault =
-    _MatchServiceError rds "InvalidDBSubnetStateFault" . hasStatus 400
+  _MatchServiceError rds "InvalidDBSubnetStateFault" . hasStatus 400
+
 
 -- | /DBClusterSnapshotIdentifier/ does not refer to an existing DB cluster snapshot.
 --
 --
 _DBClusterSnapshotNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterSnapshotNotFoundFault =
-    _MatchServiceError rds "DBClusterSnapshotNotFoundFault" . hasStatus 404
+  _MatchServiceError rds "DBClusterSnapshotNotFoundFault" . hasStatus 404
+
 
 -- | SNS has responded that there is a problem with the SND topic specified.
 --
 --
 _SNSInvalidTopicFault :: AsError a => Getting (First ServiceError) a ServiceError
-_SNSInvalidTopicFault =
-    _MatchServiceError rds "SNSInvalidTopic" . hasStatus 400
+_SNSInvalidTopicFault = _MatchServiceError rds "SNSInvalidTopic" . hasStatus 400
+
 
 -- | Specified DB instance class is not available in the specified Availability Zone.
 --
 --
 _InsufficientDBInstanceCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientDBInstanceCapacityFault =
-    _MatchServiceError rds "InsufficientDBInstanceCapacity" . hasStatus 400
+  _MatchServiceError rds "InsufficientDBInstanceCapacity" . hasStatus 400
+
 
 -- | The supplied value is not a valid DB cluster snapshot state.
 --
 --
 _InvalidDBClusterSnapshotStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBClusterSnapshotStateFault =
-    _MatchServiceError rds "InvalidDBClusterSnapshotStateFault" . hasStatus 400
+  _MatchServiceError rds "InvalidDBClusterSnapshotStateFault" . hasStatus 400
+
 
 -- | The supplied subscription name already exists.
 --
 --
 _SubscriptionAlreadyExistFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionAlreadyExistFault =
-    _MatchServiceError rds "SubscriptionAlreadyExist" . hasStatus 400
+  _MatchServiceError rds "SubscriptionAlreadyExist" . hasStatus 400
+
 
 -- | The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.
 --
 --
 _DBClusterRoleAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterRoleAlreadyExistsFault =
-    _MatchServiceError rds "DBClusterRoleAlreadyExists" . hasStatus 400
+  _MatchServiceError rds "DBClusterRoleAlreadyExists" . hasStatus 400
+
 
 -- | You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.
 --
 --
 _DBClusterRoleQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterRoleQuotaExceededFault =
-    _MatchServiceError rds "DBClusterRoleQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "DBClusterRoleQuotaExceeded" . hasStatus 400
+
 
 -- | DB subnet group does not cover all Availability Zones after it is created because users' change.
 --
 --
 _InvalidVPCNetworkStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidVPCNetworkStateFault =
-    _MatchServiceError rds "InvalidVPCNetworkStateFault" . hasStatus 400
+  _MatchServiceError rds "InvalidVPCNetworkStateFault" . hasStatus 400
+
 
 -- | Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.
 --
@@ -1128,158 +1178,181 @@ _InvalidVPCNetworkStateFault =
 --
 _AuthorizationNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationNotFoundFault =
-    _MatchServiceError rds "AuthorizationNotFound" . hasStatus 404
+  _MatchServiceError rds "AuthorizationNotFound" . hasStatus 404
+
 
 -- | The specified reserved DB Instance not found.
 --
 --
 _ReservedDBInstanceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedDBInstanceNotFoundFault =
-    _MatchServiceError rds "ReservedDBInstanceNotFound" . hasStatus 404
+  _MatchServiceError rds "ReservedDBInstanceNotFound" . hasStatus 404
+
 
 -- | Request would result in user exceeding the allowed number of DB subnet groups.
 --
 --
 _DBSubnetGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupQuotaExceededFault =
-    _MatchServiceError rds "DBSubnetGroupQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "DBSubnetGroupQuotaExceeded" . hasStatus 400
+
 
 -- | Indicates that the DBSubnetGroup should not be specified while creating read replicas that lie in the same region as the source instance.
 --
 --
 _DBSubnetGroupNotAllowedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupNotAllowedFault =
-    _MatchServiceError rds "DBSubnetGroupNotAllowedFault" . hasStatus 400
+  _MatchServiceError rds "DBSubnetGroupNotAllowedFault" . hasStatus 400
+
 
 -- | You have reached the maximum number of event subscriptions.
 --
 --
 _EventSubscriptionQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _EventSubscriptionQuotaExceededFault =
-    _MatchServiceError rds "EventSubscriptionQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "EventSubscriptionQuotaExceeded" . hasStatus 400
+
 
 -- | There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
 --
 --
 _InsufficientStorageClusterCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientStorageClusterCapacityFault =
-    _MatchServiceError rds "InsufficientStorageClusterCapacity" . hasStatus 400
+  _MatchServiceError rds "InsufficientStorageClusterCapacity" . hasStatus 400
+
 
 -- | The option group is not in the /available/ state.
 --
 --
 _InvalidOptionGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOptionGroupStateFault =
-    _MatchServiceError rds "InvalidOptionGroupStateFault" . hasStatus 400
+  _MatchServiceError rds "InvalidOptionGroupStateFault" . hasStatus 400
+
 
 -- | The DB cluster is not in a valid state.
 --
 --
 _InvalidDBClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBClusterStateFault =
-    _MatchServiceError rds "InvalidDBClusterStateFault" . hasStatus 400
+  _MatchServiceError rds "InvalidDBClusterStateFault" . hasStatus 400
+
 
 -- | User already has a DB instance with the given identifier.
 --
 --
 _DBInstanceAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBInstanceAlreadyExistsFault =
-    _MatchServiceError rds "DBInstanceAlreadyExists" . hasStatus 400
+  _MatchServiceError rds "DBInstanceAlreadyExists" . hasStatus 400
+
 
 -- | Cannot restore from vpc backup to non-vpc DB instance.
 --
 --
 _InvalidRestoreFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRestoreFault =
-    _MatchServiceError rds "InvalidRestoreFault" . hasStatus 400
+  _MatchServiceError rds "InvalidRestoreFault" . hasStatus 400
+
 
 -- | The state of the DB security group does not allow deletion.
 --
 --
 _InvalidDBSecurityGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBSecurityGroupStateFault =
-    _MatchServiceError rds "InvalidDBSecurityGroupState" . hasStatus 400
+  _MatchServiceError rds "InvalidDBSecurityGroupState" . hasStatus 400
+
 
 -- | The specified resource ID was not found.
 --
 --
 _ResourceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundFault =
-    _MatchServiceError rds "ResourceNotFoundFault" . hasStatus 404
+  _MatchServiceError rds "ResourceNotFoundFault" . hasStatus 404
+
 
 -- | /DBSubnetGroupName/ does not refer to an existing DB subnet group.
 --
 --
 _DBSubnetGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupNotFoundFault =
-    _MatchServiceError rds "DBSubnetGroupNotFoundFault" . hasStatus 404
+  _MatchServiceError rds "DBSubnetGroupNotFoundFault" . hasStatus 404
+
 
 -- | The DB upgrade failed because a resource the DB depends on could not be modified.
 --
 --
 _DBUpgradeDependencyFailureFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBUpgradeDependencyFailureFault =
-    _MatchServiceError rds "DBUpgradeDependencyFailure" . hasStatus 400
+  _MatchServiceError rds "DBUpgradeDependencyFailure" . hasStatus 400
+
 
 -- | The specified DB instance is not in the /available/ state.
 --
 --
 _InvalidDBInstanceStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBInstanceStateFault =
-    _MatchServiceError rds "InvalidDBInstanceState" . hasStatus 400
+  _MatchServiceError rds "InvalidDBInstanceState" . hasStatus 400
+
 
 -- | /DBSnapshotIdentifier/ is already used by an existing snapshot.
 --
 --
 _DBSnapshotAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSnapshotAlreadyExistsFault =
-    _MatchServiceError rds "DBSnapshotAlreadyExists" . hasStatus 400
+  _MatchServiceError rds "DBSnapshotAlreadyExists" . hasStatus 400
+
 
 -- | /DBInstanceIdentifier/ does not refer to an existing DB instance.
 --
 --
 _DBInstanceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBInstanceNotFoundFault =
-    _MatchServiceError rds "DBInstanceNotFound" . hasStatus 404
+  _MatchServiceError rds "DBInstanceNotFound" . hasStatus 404
+
 
 -- | Request would result in user exceeding the allowed amount of storage available across all DB instances.
 --
 --
 _StorageQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _StorageQuotaExceededFault =
-    _MatchServiceError rds "StorageQuotaExceeded" . hasStatus 400
+  _MatchServiceError rds "StorageQuotaExceeded" . hasStatus 400
+
 
 -- | The state of the DB snapshot does not allow deletion.
 --
 --
 _InvalidDBSnapshotStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBSnapshotStateFault =
-    _MatchServiceError rds "InvalidDBSnapshotState" . hasStatus 400
+  _MatchServiceError rds "InvalidDBSnapshotState" . hasStatus 400
+
 
 -- | The DB subnet group cannot be deleted because it is in use.
 --
 --
 _InvalidDBSubnetGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBSubnetGroupStateFault =
-    _MatchServiceError rds "InvalidDBSubnetGroupStateFault" . hasStatus 400
+  _MatchServiceError rds "InvalidDBSubnetGroupStateFault" . hasStatus 400
+
 
 -- | Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
 --
 --
 _DBSubnetGroupDoesNotCoverEnoughAZs :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetGroupDoesNotCoverEnoughAZs =
-    _MatchServiceError rds "DBSubnetGroupDoesNotCoverEnoughAZs" . hasStatus 400
+  _MatchServiceError rds "DBSubnetGroupDoesNotCoverEnoughAZs" . hasStatus 400
+
 
 -- | The DB subnet is already in use in the Availability Zone.
 --
 --
 _SubnetAlreadyInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetAlreadyInUse =
-    _MatchServiceError rds "SubnetAlreadyInUse" . hasStatus 400
+  _MatchServiceError rds "SubnetAlreadyInUse" . hasStatus 400
+
 
 -- | The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.
 --
 --
 _DBClusterRoleNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBClusterRoleNotFoundFault =
-    _MatchServiceError rds "DBClusterRoleNotFound" . hasStatus 404
+  _MatchServiceError rds "DBClusterRoleNotFound" . hasStatus 404
+

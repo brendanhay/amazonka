@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.EnableDomainAutoRenew
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
     , edarrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | /See:/ 'enableDomainAutoRenew' smart constructor.
 newtype EnableDomainAutoRenew = EnableDomainAutoRenew'
-    { _edarDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edarDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableDomainAutoRenew' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ enableDomainAutoRenew
     :: Text -- ^ 'edarDomainName'
     -> EnableDomainAutoRenew
 enableDomainAutoRenew pDomainName_ =
-    EnableDomainAutoRenew'
-    { _edarDomainName = pDomainName_
-    }
+  EnableDomainAutoRenew' {_edarDomainName = pDomainName_}
+
 
 -- | The name of the domain that you want to enable automatic renewal for.
 edarDomainName :: Lens' EnableDomainAutoRenew Text
@@ -77,9 +77,9 @@ instance AWSRequest EnableDomainAutoRenew where
                  EnableDomainAutoRenewResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable EnableDomainAutoRenew
+instance Hashable EnableDomainAutoRenew where
 
-instance NFData EnableDomainAutoRenew
+instance NFData EnableDomainAutoRenew where
 
 instance ToHeaders EnableDomainAutoRenew where
         toHeaders
@@ -104,8 +104,9 @@ instance ToQuery EnableDomainAutoRenew where
 
 -- | /See:/ 'enableDomainAutoRenewResponse' smart constructor.
 newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
-    { _edarrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edarrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableDomainAutoRenewResponse' with the minimum fields required to make a request.
 --
@@ -116,12 +117,11 @@ enableDomainAutoRenewResponse
     :: Int -- ^ 'edarrsResponseStatus'
     -> EnableDomainAutoRenewResponse
 enableDomainAutoRenewResponse pResponseStatus_ =
-    EnableDomainAutoRenewResponse'
-    { _edarrsResponseStatus = pResponseStatus_
-    }
+  EnableDomainAutoRenewResponse' {_edarrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 edarrsResponseStatus :: Lens' EnableDomainAutoRenewResponse Int
 edarrsResponseStatus = lens _edarrsResponseStatus (\ s a -> s{_edarrsResponseStatus = a});
 
-instance NFData EnableDomainAutoRenewResponse
+instance NFData EnableDomainAutoRenewResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLifecycleConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.S3.GetBucketLifecycleConfiguration
     , gblcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketLifecycleConfiguration' smart constructor.
 newtype GetBucketLifecycleConfiguration = GetBucketLifecycleConfiguration'
-    { _gblcBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gblcBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketLifecycleConfiguration' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ getBucketLifecycleConfiguration
     :: BucketName -- ^ 'gblcBucket'
     -> GetBucketLifecycleConfiguration
 getBucketLifecycleConfiguration pBucket_ =
-    GetBucketLifecycleConfiguration'
-    { _gblcBucket = pBucket_
-    }
+  GetBucketLifecycleConfiguration' {_gblcBucket = pBucket_}
+
 
 -- | Undocumented member.
 gblcBucket :: Lens' GetBucketLifecycleConfiguration BucketName
@@ -77,8 +77,9 @@ instance AWSRequest GetBucketLifecycleConfiguration
                      (pure (fromEnum s)))
 
 instance Hashable GetBucketLifecycleConfiguration
+         where
 
-instance NFData GetBucketLifecycleConfiguration
+instance NFData GetBucketLifecycleConfiguration where
 
 instance ToHeaders GetBucketLifecycleConfiguration
          where
@@ -94,9 +95,10 @@ instance ToQuery GetBucketLifecycleConfiguration
 
 -- | /See:/ 'getBucketLifecycleConfigurationResponse' smart constructor.
 data GetBucketLifecycleConfigurationResponse = GetBucketLifecycleConfigurationResponse'
-    { _gblcrsRules          :: !(Maybe [LifecycleRule])
-    , _gblcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gblcrsRules          :: {-# NOUNPACK #-}!(Maybe [LifecycleRule])
+  , _gblcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketLifecycleConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +111,9 @@ getBucketLifecycleConfigurationResponse
     :: Int -- ^ 'gblcrsResponseStatus'
     -> GetBucketLifecycleConfigurationResponse
 getBucketLifecycleConfigurationResponse pResponseStatus_ =
-    GetBucketLifecycleConfigurationResponse'
-    { _gblcrsRules = Nothing
-    , _gblcrsResponseStatus = pResponseStatus_
-    }
+  GetBucketLifecycleConfigurationResponse'
+  {_gblcrsRules = Nothing, _gblcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 gblcrsRules :: Lens' GetBucketLifecycleConfigurationResponse [LifecycleRule]
@@ -123,4 +124,5 @@ gblcrsResponseStatus :: Lens' GetBucketLifecycleConfigurationResponse Int
 gblcrsResponseStatus = lens _gblcrsResponseStatus (\ s a -> s{_gblcrsResponseStatus = a});
 
 instance NFData
-         GetBucketLifecycleConfigurationResponse
+           GetBucketLifecycleConfigurationResponse
+         where

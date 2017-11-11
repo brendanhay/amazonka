@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Lightsail.GetDomain
     , gdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDomain' smart constructor.
 newtype GetDomain = GetDomain'
-    { _gdDomainName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdDomainName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomain' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetDomain = GetDomain'
 getDomain
     :: Text -- ^ 'gdDomainName'
     -> GetDomain
-getDomain pDomainName_ =
-    GetDomain'
-    { _gdDomainName = pDomainName_
-    }
+getDomain pDomainName_ = GetDomain' {_gdDomainName = pDomainName_}
+
 
 -- | The domain name for which your want to return information about.
 gdDomainName :: Lens' GetDomain Text
@@ -75,9 +74,9 @@ instance AWSRequest GetDomain where
                  GetDomainResponse' <$>
                    (x .?> "domain") <*> (pure (fromEnum s)))
 
-instance Hashable GetDomain
+instance Hashable GetDomain where
 
-instance NFData GetDomain
+instance NFData GetDomain where
 
 instance ToHeaders GetDomain where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery GetDomain where
 
 -- | /See:/ 'getDomainResponse' smart constructor.
 data GetDomainResponse = GetDomainResponse'
-    { _gdrsDomain         :: !(Maybe Domain)
-    , _gdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdrsDomain         :: {-# NOUNPACK #-}!(Maybe Domain)
+  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDomainResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ getDomainResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDomainResponse
 getDomainResponse pResponseStatus_ =
-    GetDomainResponse'
-    { _gdrsDomain = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
-    }
+  GetDomainResponse'
+  {_gdrsDomain = Nothing, _gdrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about your get domain request.
 gdrsDomain :: Lens' GetDomainResponse (Maybe Domain)
@@ -129,4 +128,4 @@ gdrsDomain = lens _gdrsDomain (\ s a -> s{_gdrsDomain = a});
 gdrsResponseStatus :: Lens' GetDomainResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 
-instance NFData GetDomainResponse
+instance NFData GetDomainResponse where

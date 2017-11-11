@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateHealthCheck
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.Route53.UpdateHealthCheck
     , uhcrsHealthCheck
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about a request to update a health check.
 --
@@ -66,22 +66,23 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'updateHealthCheck' smart constructor.
 data UpdateHealthCheck = UpdateHealthCheck'
-    { _uhcFailureThreshold             :: !(Maybe Nat)
-    , _uhcIPAddress                    :: !(Maybe Text)
-    , _uhcEnableSNI                    :: !(Maybe Bool)
-    , _uhcSearchString                 :: !(Maybe Text)
-    , _uhcHealthThreshold              :: !(Maybe Nat)
-    , _uhcRegions                      :: !(Maybe (List1 HealthCheckRegion))
-    , _uhcResourcePath                 :: !(Maybe Text)
-    , _uhcInsufficientDataHealthStatus :: !(Maybe InsufficientDataHealthStatus)
-    , _uhcHealthCheckVersion           :: !(Maybe Nat)
-    , _uhcAlarmIdentifier              :: !(Maybe AlarmIdentifier)
-    , _uhcInverted                     :: !(Maybe Bool)
-    , _uhcFullyQualifiedDomainName     :: !(Maybe Text)
-    , _uhcChildHealthChecks            :: !(Maybe [Text])
-    , _uhcPort                         :: !(Maybe Nat)
-    , _uhcHealthCheckId                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uhcFailureThreshold :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uhcIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uhcEnableSNI :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uhcSearchString :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uhcHealthThreshold :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uhcRegions :: {-# NOUNPACK #-}!(Maybe (List1 HealthCheckRegion))
+  , _uhcResourcePath :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uhcInsufficientDataHealthStatus :: {-# NOUNPACK #-}!(Maybe InsufficientDataHealthStatus)
+  , _uhcHealthCheckVersion :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uhcAlarmIdentifier :: {-# NOUNPACK #-}!(Maybe AlarmIdentifier)
+  , _uhcInverted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _uhcFullyQualifiedDomainName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uhcChildHealthChecks :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _uhcPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _uhcHealthCheckId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateHealthCheck' with the minimum fields required to make a request.
 --
@@ -120,23 +121,24 @@ updateHealthCheck
     :: Text -- ^ 'uhcHealthCheckId'
     -> UpdateHealthCheck
 updateHealthCheck pHealthCheckId_ =
-    UpdateHealthCheck'
-    { _uhcFailureThreshold = Nothing
-    , _uhcIPAddress = Nothing
-    , _uhcEnableSNI = Nothing
-    , _uhcSearchString = Nothing
-    , _uhcHealthThreshold = Nothing
-    , _uhcRegions = Nothing
-    , _uhcResourcePath = Nothing
-    , _uhcInsufficientDataHealthStatus = Nothing
-    , _uhcHealthCheckVersion = Nothing
-    , _uhcAlarmIdentifier = Nothing
-    , _uhcInverted = Nothing
-    , _uhcFullyQualifiedDomainName = Nothing
-    , _uhcChildHealthChecks = Nothing
-    , _uhcPort = Nothing
-    , _uhcHealthCheckId = pHealthCheckId_
-    }
+  UpdateHealthCheck'
+  { _uhcFailureThreshold = Nothing
+  , _uhcIPAddress = Nothing
+  , _uhcEnableSNI = Nothing
+  , _uhcSearchString = Nothing
+  , _uhcHealthThreshold = Nothing
+  , _uhcRegions = Nothing
+  , _uhcResourcePath = Nothing
+  , _uhcInsufficientDataHealthStatus = Nothing
+  , _uhcHealthCheckVersion = Nothing
+  , _uhcAlarmIdentifier = Nothing
+  , _uhcInverted = Nothing
+  , _uhcFullyQualifiedDomainName = Nothing
+  , _uhcChildHealthChecks = Nothing
+  , _uhcPort = Nothing
+  , _uhcHealthCheckId = pHealthCheckId_
+  }
+
 
 -- | The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Amazon Route 53 Determines Whether an Endpoint Is Healthy> in the /Amazon Route 53 Developer Guide/ . If you don't specify a value for @FailureThreshold@ , the default value is three health checks.
 uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
@@ -207,9 +209,9 @@ instance AWSRequest UpdateHealthCheck where
                  UpdateHealthCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck"))
 
-instance Hashable UpdateHealthCheck
+instance Hashable UpdateHealthCheck where
 
-instance NFData UpdateHealthCheck
+instance NFData UpdateHealthCheck where
 
 instance ToElement UpdateHealthCheck where
         toElement
@@ -253,9 +255,10 @@ instance ToXML UpdateHealthCheck where
 
 -- | /See:/ 'updateHealthCheckResponse' smart constructor.
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
-    { _uhcrsResponseStatus :: !Int
-    , _uhcrsHealthCheck    :: !HealthCheck
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uhcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _uhcrsHealthCheck    :: {-# NOUNPACK #-}!HealthCheck
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateHealthCheckResponse' with the minimum fields required to make a request.
 --
@@ -269,10 +272,9 @@ updateHealthCheckResponse
     -> HealthCheck -- ^ 'uhcrsHealthCheck'
     -> UpdateHealthCheckResponse
 updateHealthCheckResponse pResponseStatus_ pHealthCheck_ =
-    UpdateHealthCheckResponse'
-    { _uhcrsResponseStatus = pResponseStatus_
-    , _uhcrsHealthCheck = pHealthCheck_
-    }
+  UpdateHealthCheckResponse'
+  {_uhcrsResponseStatus = pResponseStatus_, _uhcrsHealthCheck = pHealthCheck_}
+
 
 -- | -- | The response status code.
 uhcrsResponseStatus :: Lens' UpdateHealthCheckResponse Int
@@ -282,4 +284,4 @@ uhcrsResponseStatus = lens _uhcrsResponseStatus (\ s a -> s{_uhcrsResponseStatus
 uhcrsHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrsHealthCheck = lens _uhcrsHealthCheck (\ s a -> s{_uhcrsHealthCheck = a});
 
-instance NFData UpdateHealthCheckResponse
+instance NFData UpdateHealthCheckResponse where

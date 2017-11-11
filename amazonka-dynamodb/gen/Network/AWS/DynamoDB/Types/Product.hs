@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.DynamoDB.Types.Product where
 
-import           Network.AWS.DynamoDB.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.DynamoDB.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Represents an attribute for describing the key schema for the table and indexes.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'attributeDefinition' smart constructor.
 data AttributeDefinition = AttributeDefinition'
-    { _adAttributeName :: !Text
-    , _adAttributeType :: !ScalarAttributeType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _adAttributeName :: {-# NOUNPACK #-}!Text
+  , _adAttributeType :: {-# NOUNPACK #-}!ScalarAttributeType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeDefinition' with the minimum fields required to make a request.
 --
@@ -43,10 +44,9 @@ attributeDefinition
     -> ScalarAttributeType -- ^ 'adAttributeType'
     -> AttributeDefinition
 attributeDefinition pAttributeName_ pAttributeType_ =
-    AttributeDefinition'
-    { _adAttributeName = pAttributeName_
-    , _adAttributeType = pAttributeType_
-    }
+  AttributeDefinition'
+  {_adAttributeName = pAttributeName_, _adAttributeType = pAttributeType_}
+
 
 -- | A name for the attribute.
 adAttributeName :: Lens' AttributeDefinition Text
@@ -63,9 +63,9 @@ instance FromJSON AttributeDefinition where
                  AttributeDefinition' <$>
                    (x .: "AttributeName") <*> (x .: "AttributeType"))
 
-instance Hashable AttributeDefinition
+instance Hashable AttributeDefinition where
 
-instance NFData AttributeDefinition
+instance NFData AttributeDefinition where
 
 instance ToJSON AttributeDefinition where
         toJSON AttributeDefinition'{..}
@@ -84,17 +84,18 @@ instance ToJSON AttributeDefinition where
 --
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-    { _avL    :: !(Maybe [AttributeValue])
-    , _avNS   :: !(Maybe [Text])
-    , _avM    :: !(Maybe (Map Text AttributeValue))
-    , _avNULL :: !(Maybe Bool)
-    , _avN    :: !(Maybe Text)
-    , _avBS   :: !(Maybe [Base64])
-    , _avB    :: !(Maybe Base64)
-    , _avSS   :: !(Maybe [Text])
-    , _avS    :: !(Maybe Text)
-    , _avBOOL :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avL    :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
+  , _avNS   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _avM    :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _avNULL :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _avN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avBS   :: {-# NOUNPACK #-}!(Maybe [Base64])
+  , _avB    :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _avSS   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _avS    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avBOOL :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
@@ -122,18 +123,19 @@ data AttributeValue = AttributeValue'
 attributeValue
     :: AttributeValue
 attributeValue =
-    AttributeValue'
-    { _avL = Nothing
-    , _avNS = Nothing
-    , _avM = Nothing
-    , _avNULL = Nothing
-    , _avN = Nothing
-    , _avBS = Nothing
-    , _avB = Nothing
-    , _avSS = Nothing
-    , _avS = Nothing
-    , _avBOOL = Nothing
-    }
+  AttributeValue'
+  { _avL = Nothing
+  , _avNS = Nothing
+  , _avM = Nothing
+  , _avNULL = Nothing
+  , _avN = Nothing
+  , _avBS = Nothing
+  , _avB = Nothing
+  , _avSS = Nothing
+  , _avS = Nothing
+  , _avBOOL = Nothing
+  }
+
 
 -- | An attribute of type List. For example: @"L": ["Cookies", "Coffee", 3.14159]@
 avL :: Lens' AttributeValue [AttributeValue]
@@ -190,9 +192,9 @@ instance FromJSON AttributeValue where
                      <*> (x .:? "S")
                      <*> (x .:? "BOOL"))
 
-instance Hashable AttributeValue
+instance Hashable AttributeValue where
 
-instance NFData AttributeValue
+instance NFData AttributeValue where
 
 instance ToJSON AttributeValue where
         toJSON AttributeValue'{..}
@@ -212,9 +214,10 @@ instance ToJSON AttributeValue where
 --
 -- /See:/ 'attributeValueUpdate' smart constructor.
 data AttributeValueUpdate = AttributeValueUpdate'
-    { _avuValue  :: !(Maybe AttributeValue)
-    , _avuAction :: !(Maybe AttributeAction)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avuValue  :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _avuAction :: {-# NOUNPACK #-}!(Maybe AttributeAction)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttributeValueUpdate' with the minimum fields required to make a request.
 --
@@ -226,10 +229,8 @@ data AttributeValueUpdate = AttributeValueUpdate'
 attributeValueUpdate
     :: AttributeValueUpdate
 attributeValueUpdate =
-    AttributeValueUpdate'
-    { _avuValue = Nothing
-    , _avuAction = Nothing
-    }
+  AttributeValueUpdate' {_avuValue = Nothing, _avuAction = Nothing}
+
 
 -- | Represents the data for an attribute. Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data TYpes> in the /Amazon DynamoDB Developer Guide/ .
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
@@ -239,9 +240,9 @@ avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
 avuAction :: Lens' AttributeValueUpdate (Maybe AttributeAction)
 avuAction = lens _avuAction (\ s a -> s{_avuAction = a});
 
-instance Hashable AttributeValueUpdate
+instance Hashable AttributeValueUpdate where
 
-instance NFData AttributeValueUpdate
+instance NFData AttributeValueUpdate where
 
 instance ToJSON AttributeValueUpdate where
         toJSON AttributeValueUpdate'{..}
@@ -256,8 +257,9 @@ instance ToJSON AttributeValueUpdate where
 --
 -- /See:/ 'capacity' smart constructor.
 newtype Capacity = Capacity'
-    { _cCapacityUnits :: Maybe Double
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cCapacityUnits :: Maybe Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Capacity' with the minimum fields required to make a request.
 --
@@ -266,10 +268,8 @@ newtype Capacity = Capacity'
 -- * 'cCapacityUnits' - The total number of capacity units consumed on a table or an index.
 capacity
     :: Capacity
-capacity =
-    Capacity'
-    { _cCapacityUnits = Nothing
-    }
+capacity = Capacity' {_cCapacityUnits = Nothing}
+
 
 -- | The total number of capacity units consumed on a table or an index.
 cCapacityUnits :: Lens' Capacity (Maybe Double)
@@ -280,9 +280,9 @@ instance FromJSON Capacity where
           = withObject "Capacity"
               (\ x -> Capacity' <$> (x .:? "CapacityUnits"))
 
-instance Hashable Capacity
+instance Hashable Capacity where
 
-instance NFData Capacity
+instance NFData Capacity where
 
 -- | Represents the selection criteria for a @Query@ or @Scan@ operation:
 --
@@ -300,9 +300,10 @@ instance NFData Capacity
 --
 -- /See:/ 'condition' smart constructor.
 data Condition = Condition'
-    { _cAttributeValueList :: !(Maybe [AttributeValue])
-    , _cComparisonOperator :: !ComparisonOperator
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cAttributeValueList :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
+  , _cComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
@@ -315,10 +316,9 @@ condition
     :: ComparisonOperator -- ^ 'cComparisonOperator'
     -> Condition
 condition pComparisonOperator_ =
-    Condition'
-    { _cAttributeValueList = Nothing
-    , _cComparisonOperator = pComparisonOperator_
-    }
+  Condition'
+  {_cAttributeValueList = Nothing, _cComparisonOperator = pComparisonOperator_}
+
 
 -- | One or more values to evaluate against the supplied attribute. The number of values in the list depends on the @ComparisonOperator@ being used. For type Number, value comparisons are numeric. String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, @a@ is greater than @A@ , and @a@ is greater than @B@ . For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters> . For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.
 cAttributeValueList :: Lens' Condition [AttributeValue]
@@ -328,9 +328,9 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 cComparisonOperator :: Lens' Condition ComparisonOperator
 cComparisonOperator = lens _cComparisonOperator (\ s a -> s{_cComparisonOperator = a});
 
-instance Hashable Condition
+instance Hashable Condition where
 
-instance NFData Condition
+instance NFData Condition where
 
 instance ToJSON Condition where
         toJSON Condition'{..}
@@ -345,12 +345,13 @@ instance ToJSON Condition where
 --
 -- /See:/ 'consumedCapacity' smart constructor.
 data ConsumedCapacity = ConsumedCapacity'
-    { _ccGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
-    , _ccCapacityUnits          :: !(Maybe Double)
-    , _ccLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
-    , _ccTable                  :: !(Maybe Capacity)
-    , _ccTableName              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccGlobalSecondaryIndexes :: {-# NOUNPACK #-}!(Maybe (Map Text Capacity))
+  , _ccCapacityUnits          :: {-# NOUNPACK #-}!(Maybe Double)
+  , _ccLocalSecondaryIndexes  :: {-# NOUNPACK #-}!(Maybe (Map Text Capacity))
+  , _ccTable                  :: {-# NOUNPACK #-}!(Maybe Capacity)
+  , _ccTableName              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConsumedCapacity' with the minimum fields required to make a request.
 --
@@ -368,13 +369,14 @@ data ConsumedCapacity = ConsumedCapacity'
 consumedCapacity
     :: ConsumedCapacity
 consumedCapacity =
-    ConsumedCapacity'
-    { _ccGlobalSecondaryIndexes = Nothing
-    , _ccCapacityUnits = Nothing
-    , _ccLocalSecondaryIndexes = Nothing
-    , _ccTable = Nothing
-    , _ccTableName = Nothing
-    }
+  ConsumedCapacity'
+  { _ccGlobalSecondaryIndexes = Nothing
+  , _ccCapacityUnits = Nothing
+  , _ccLocalSecondaryIndexes = Nothing
+  , _ccTable = Nothing
+  , _ccTableName = Nothing
+  }
+
 
 -- | The amount of throughput consumed on each global index affected by the operation.
 ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
@@ -407,9 +409,9 @@ instance FromJSON ConsumedCapacity where
                      <*> (x .:? "Table")
                      <*> (x .:? "TableName"))
 
-instance Hashable ConsumedCapacity
+instance Hashable ConsumedCapacity where
 
-instance NFData ConsumedCapacity
+instance NFData ConsumedCapacity where
 
 -- | Represents a new global secondary index to be added to an existing table.
 --
@@ -417,11 +419,12 @@ instance NFData ConsumedCapacity
 --
 -- /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
 data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
-    { _cgsiaIndexName             :: !Text
-    , _cgsiaKeySchema             :: !(List1 KeySchemaElement)
-    , _cgsiaProjection            :: !Projection
-    , _cgsiaProvisionedThroughput :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cgsiaIndexName             :: {-# NOUNPACK #-}!Text
+  , _cgsiaKeySchema             :: {-# NOUNPACK #-}!(List1 KeySchemaElement)
+  , _cgsiaProjection            :: {-# NOUNPACK #-}!Projection
+  , _cgsiaProvisionedThroughput :: {-# NOUNPACK #-}!ProvisionedThroughput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateGlobalSecondaryIndexAction' with the minimum fields required to make a request.
 --
@@ -441,12 +444,13 @@ createGlobalSecondaryIndexAction
     -> ProvisionedThroughput -- ^ 'cgsiaProvisionedThroughput'
     -> CreateGlobalSecondaryIndexAction
 createGlobalSecondaryIndexAction pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput_ =
-    CreateGlobalSecondaryIndexAction'
-    { _cgsiaIndexName = pIndexName_
-    , _cgsiaKeySchema = _List1 # pKeySchema_
-    , _cgsiaProjection = pProjection_
-    , _cgsiaProvisionedThroughput = pProvisionedThroughput_
-    }
+  CreateGlobalSecondaryIndexAction'
+  { _cgsiaIndexName = pIndexName_
+  , _cgsiaKeySchema = _List1 # pKeySchema_
+  , _cgsiaProjection = pProjection_
+  , _cgsiaProvisionedThroughput = pProvisionedThroughput_
+  }
+
 
 -- | The name of the global secondary index to be created.
 cgsiaIndexName :: Lens' CreateGlobalSecondaryIndexAction Text
@@ -465,8 +469,10 @@ cgsiaProvisionedThroughput :: Lens' CreateGlobalSecondaryIndexAction Provisioned
 cgsiaProvisionedThroughput = lens _cgsiaProvisionedThroughput (\ s a -> s{_cgsiaProvisionedThroughput = a});
 
 instance Hashable CreateGlobalSecondaryIndexAction
+         where
 
 instance NFData CreateGlobalSecondaryIndexAction
+         where
 
 instance ToJSON CreateGlobalSecondaryIndexAction
          where
@@ -486,8 +492,9 @@ instance ToJSON CreateGlobalSecondaryIndexAction
 --
 -- /See:/ 'deleteGlobalSecondaryIndexAction' smart constructor.
 newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
-    { _dgsiaIndexName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgsiaIndexName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGlobalSecondaryIndexAction' with the minimum fields required to make a request.
 --
@@ -498,17 +505,18 @@ deleteGlobalSecondaryIndexAction
     :: Text -- ^ 'dgsiaIndexName'
     -> DeleteGlobalSecondaryIndexAction
 deleteGlobalSecondaryIndexAction pIndexName_ =
-    DeleteGlobalSecondaryIndexAction'
-    { _dgsiaIndexName = pIndexName_
-    }
+  DeleteGlobalSecondaryIndexAction' {_dgsiaIndexName = pIndexName_}
+
 
 -- | The name of the global secondary index to be deleted.
 dgsiaIndexName :: Lens' DeleteGlobalSecondaryIndexAction Text
 dgsiaIndexName = lens _dgsiaIndexName (\ s a -> s{_dgsiaIndexName = a});
 
 instance Hashable DeleteGlobalSecondaryIndexAction
+         where
 
 instance NFData DeleteGlobalSecondaryIndexAction
+         where
 
 instance ToJSON DeleteGlobalSecondaryIndexAction
          where
@@ -522,8 +530,9 @@ instance ToJSON DeleteGlobalSecondaryIndexAction
 --
 -- /See:/ 'deleteRequest' smart constructor.
 newtype DeleteRequest = DeleteRequest'
-    { _drKey :: Map Text AttributeValue
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drKey :: Map Text AttributeValue
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteRequest' with the minimum fields required to make a request.
 --
@@ -532,10 +541,8 @@ newtype DeleteRequest = DeleteRequest'
 -- * 'drKey' - A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.
 deleteRequest
     :: DeleteRequest
-deleteRequest =
-    DeleteRequest'
-    { _drKey = mempty
-    }
+deleteRequest = DeleteRequest' {_drKey = mempty}
+
 
 -- | A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.
 drKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
@@ -546,9 +553,9 @@ instance FromJSON DeleteRequest where
           = withObject "DeleteRequest"
               (\ x -> DeleteRequest' <$> (x .:? "Key" .!= mempty))
 
-instance Hashable DeleteRequest
+instance Hashable DeleteRequest where
 
-instance NFData DeleteRequest
+instance NFData DeleteRequest where
 
 instance ToJSON DeleteRequest where
         toJSON DeleteRequest'{..}
@@ -568,11 +575,12 @@ instance ToJSON DeleteRequest where
 --
 -- /See:/ 'expectedAttributeValue' smart constructor.
 data ExpectedAttributeValue = ExpectedAttributeValue'
-    { _eavAttributeValueList :: !(Maybe [AttributeValue])
-    , _eavExists             :: !(Maybe Bool)
-    , _eavValue              :: !(Maybe AttributeValue)
-    , _eavComparisonOperator :: !(Maybe ComparisonOperator)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eavAttributeValueList :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
+  , _eavExists             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _eavValue              :: {-# NOUNPACK #-}!(Maybe AttributeValue)
+  , _eavComparisonOperator :: {-# NOUNPACK #-}!(Maybe ComparisonOperator)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExpectedAttributeValue' with the minimum fields required to make a request.
 --
@@ -588,12 +596,13 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
 expectedAttributeValue
     :: ExpectedAttributeValue
 expectedAttributeValue =
-    ExpectedAttributeValue'
-    { _eavAttributeValueList = Nothing
-    , _eavExists = Nothing
-    , _eavValue = Nothing
-    , _eavComparisonOperator = Nothing
-    }
+  ExpectedAttributeValue'
+  { _eavAttributeValueList = Nothing
+  , _eavExists = Nothing
+  , _eavValue = Nothing
+  , _eavComparisonOperator = Nothing
+  }
+
 
 -- | One or more values to evaluate against the supplied attribute. The number of values in the list depends on the @ComparisonOperator@ being used. For type Number, value comparisons are numeric. String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, @a@ is greater than @A@ , and @a@ is greater than @B@ . For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters> . For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values. For information on specifying data types in JSON, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format> in the /Amazon DynamoDB Developer Guide/ .
 eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
@@ -611,9 +620,9 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
 eavComparisonOperator = lens _eavComparisonOperator (\ s a -> s{_eavComparisonOperator = a});
 
-instance Hashable ExpectedAttributeValue
+instance Hashable ExpectedAttributeValue where
 
-instance NFData ExpectedAttributeValue
+instance NFData ExpectedAttributeValue where
 
 instance ToJSON ExpectedAttributeValue where
         toJSON ExpectedAttributeValue'{..}
@@ -632,11 +641,12 @@ instance ToJSON ExpectedAttributeValue where
 --
 -- /See:/ 'globalSecondaryIndex' smart constructor.
 data GlobalSecondaryIndex = GlobalSecondaryIndex'
-    { _gsiIndexName             :: !Text
-    , _gsiKeySchema             :: !(List1 KeySchemaElement)
-    , _gsiProjection            :: !Projection
-    , _gsiProvisionedThroughput :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsiIndexName             :: {-# NOUNPACK #-}!Text
+  , _gsiKeySchema             :: {-# NOUNPACK #-}!(List1 KeySchemaElement)
+  , _gsiProjection            :: {-# NOUNPACK #-}!Projection
+  , _gsiProvisionedThroughput :: {-# NOUNPACK #-}!ProvisionedThroughput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlobalSecondaryIndex' with the minimum fields required to make a request.
 --
@@ -656,12 +666,13 @@ globalSecondaryIndex
     -> ProvisionedThroughput -- ^ 'gsiProvisionedThroughput'
     -> GlobalSecondaryIndex
 globalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput_ =
-    GlobalSecondaryIndex'
-    { _gsiIndexName = pIndexName_
-    , _gsiKeySchema = _List1 # pKeySchema_
-    , _gsiProjection = pProjection_
-    , _gsiProvisionedThroughput = pProvisionedThroughput_
-    }
+  GlobalSecondaryIndex'
+  { _gsiIndexName = pIndexName_
+  , _gsiKeySchema = _List1 # pKeySchema_
+  , _gsiProjection = pProjection_
+  , _gsiProvisionedThroughput = pProvisionedThroughput_
+  }
+
 
 -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
 gsiIndexName :: Lens' GlobalSecondaryIndex Text
@@ -679,9 +690,9 @@ gsiProjection = lens _gsiProjection (\ s a -> s{_gsiProjection = a});
 gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
 gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvisionedThroughput = a});
 
-instance Hashable GlobalSecondaryIndex
+instance Hashable GlobalSecondaryIndex where
 
-instance NFData GlobalSecondaryIndex
+instance NFData GlobalSecondaryIndex where
 
 instance ToJSON GlobalSecondaryIndex where
         toJSON GlobalSecondaryIndex'{..}
@@ -700,16 +711,17 @@ instance ToJSON GlobalSecondaryIndex where
 --
 -- /See:/ 'globalSecondaryIndexDescription' smart constructor.
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
-    { _gsidBackfilling           :: !(Maybe Bool)
-    , _gsidIndexSizeBytes        :: !(Maybe Integer)
-    , _gsidIndexStatus           :: !(Maybe IndexStatus)
-    , _gsidProvisionedThroughput :: !(Maybe ProvisionedThroughputDescription)
-    , _gsidIndexARN              :: !(Maybe Text)
-    , _gsidKeySchema             :: !(Maybe (List1 KeySchemaElement))
-    , _gsidProjection            :: !(Maybe Projection)
-    , _gsidItemCount             :: !(Maybe Integer)
-    , _gsidIndexName             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsidBackfilling :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gsidIndexSizeBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gsidIndexStatus :: {-# NOUNPACK #-}!(Maybe IndexStatus)
+  , _gsidProvisionedThroughput :: {-# NOUNPACK #-}!(Maybe ProvisionedThroughputDescription)
+  , _gsidIndexARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsidKeySchema :: {-# NOUNPACK #-}!(Maybe (List1 KeySchemaElement))
+  , _gsidProjection :: {-# NOUNPACK #-}!(Maybe Projection)
+  , _gsidItemCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gsidIndexName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlobalSecondaryIndexDescription' with the minimum fields required to make a request.
 --
@@ -735,17 +747,18 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 globalSecondaryIndexDescription
     :: GlobalSecondaryIndexDescription
 globalSecondaryIndexDescription =
-    GlobalSecondaryIndexDescription'
-    { _gsidBackfilling = Nothing
-    , _gsidIndexSizeBytes = Nothing
-    , _gsidIndexStatus = Nothing
-    , _gsidProvisionedThroughput = Nothing
-    , _gsidIndexARN = Nothing
-    , _gsidKeySchema = Nothing
-    , _gsidProjection = Nothing
-    , _gsidItemCount = Nothing
-    , _gsidIndexName = Nothing
-    }
+  GlobalSecondaryIndexDescription'
+  { _gsidBackfilling = Nothing
+  , _gsidIndexSizeBytes = Nothing
+  , _gsidIndexStatus = Nothing
+  , _gsidProvisionedThroughput = Nothing
+  , _gsidIndexARN = Nothing
+  , _gsidKeySchema = Nothing
+  , _gsidProjection = Nothing
+  , _gsidItemCount = Nothing
+  , _gsidIndexName = Nothing
+  }
+
 
 -- | Indicates whether the index is currently backfilling. /Backfilling/ is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and @Backfilling@ is false.
 gsidBackfilling :: Lens' GlobalSecondaryIndexDescription (Maybe Bool)
@@ -799,8 +812,9 @@ instance FromJSON GlobalSecondaryIndexDescription
                      <*> (x .:? "IndexName"))
 
 instance Hashable GlobalSecondaryIndexDescription
+         where
 
-instance NFData GlobalSecondaryIndexDescription
+instance NFData GlobalSecondaryIndexDescription where
 
 -- | Represents one of the following:
 --
@@ -816,10 +830,11 @@ instance NFData GlobalSecondaryIndexDescription
 --
 -- /See:/ 'globalSecondaryIndexUpdate' smart constructor.
 data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
-    { _gsiuCreate :: !(Maybe CreateGlobalSecondaryIndexAction)
-    , _gsiuDelete :: !(Maybe DeleteGlobalSecondaryIndexAction)
-    , _gsiuUpdate :: !(Maybe UpdateGlobalSecondaryIndexAction)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsiuCreate :: {-# NOUNPACK #-}!(Maybe CreateGlobalSecondaryIndexAction)
+  , _gsiuDelete :: {-# NOUNPACK #-}!(Maybe DeleteGlobalSecondaryIndexAction)
+  , _gsiuUpdate :: {-# NOUNPACK #-}!(Maybe UpdateGlobalSecondaryIndexAction)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GlobalSecondaryIndexUpdate' with the minimum fields required to make a request.
 --
@@ -833,11 +848,9 @@ data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
 globalSecondaryIndexUpdate
     :: GlobalSecondaryIndexUpdate
 globalSecondaryIndexUpdate =
-    GlobalSecondaryIndexUpdate'
-    { _gsiuCreate = Nothing
-    , _gsiuDelete = Nothing
-    , _gsiuUpdate = Nothing
-    }
+  GlobalSecondaryIndexUpdate'
+  {_gsiuCreate = Nothing, _gsiuDelete = Nothing, _gsiuUpdate = Nothing}
+
 
 -- | The parameters required for creating a global secondary index on an existing table:     * @IndexName @      * @KeySchema @      * @AttributeDefinitions @      * @Projection @      * @ProvisionedThroughput @
 gsiuCreate :: Lens' GlobalSecondaryIndexUpdate (Maybe CreateGlobalSecondaryIndexAction)
@@ -851,9 +864,9 @@ gsiuDelete = lens _gsiuDelete (\ s a -> s{_gsiuDelete = a});
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\ s a -> s{_gsiuUpdate = a});
 
-instance Hashable GlobalSecondaryIndexUpdate
+instance Hashable GlobalSecondaryIndexUpdate where
 
-instance NFData GlobalSecondaryIndexUpdate
+instance NFData GlobalSecondaryIndexUpdate where
 
 instance ToJSON GlobalSecondaryIndexUpdate where
         toJSON GlobalSecondaryIndexUpdate'{..}
@@ -869,9 +882,10 @@ instance ToJSON GlobalSecondaryIndexUpdate where
 --
 -- /See:/ 'itemCollectionMetrics' smart constructor.
 data ItemCollectionMetrics = ItemCollectionMetrics'
-    { _icmItemCollectionKey   :: !(Maybe (Map Text AttributeValue))
-    , _icmSizeEstimateRangeGB :: !(Maybe [Double])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _icmItemCollectionKey :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  , _icmSizeEstimateRangeGB :: {-# NOUNPACK #-}!(Maybe [Double])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ItemCollectionMetrics' with the minimum fields required to make a request.
 --
@@ -883,10 +897,9 @@ data ItemCollectionMetrics = ItemCollectionMetrics'
 itemCollectionMetrics
     :: ItemCollectionMetrics
 itemCollectionMetrics =
-    ItemCollectionMetrics'
-    { _icmItemCollectionKey = Nothing
-    , _icmSizeEstimateRangeGB = Nothing
-    }
+  ItemCollectionMetrics'
+  {_icmItemCollectionKey = Nothing, _icmSizeEstimateRangeGB = Nothing}
+
 
 -- | The partition key value of the item collection. This value is the same as the partition key value of the item.
 icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
@@ -904,9 +917,9 @@ instance FromJSON ItemCollectionMetrics where
                    (x .:? "ItemCollectionKey" .!= mempty) <*>
                      (x .:? "SizeEstimateRangeGB" .!= mempty))
 
-instance Hashable ItemCollectionMetrics
+instance Hashable ItemCollectionMetrics where
 
-instance NFData ItemCollectionMetrics
+instance NFData ItemCollectionMetrics where
 
 -- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
@@ -918,9 +931,10 @@ instance NFData ItemCollectionMetrics
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-    { _kseAttributeName :: !Text
-    , _kseKeyType       :: !KeyType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kseAttributeName :: {-# NOUNPACK #-}!Text
+  , _kseKeyType       :: {-# NOUNPACK #-}!KeyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
 --
@@ -934,10 +948,9 @@ keySchemaElement
     -> KeyType -- ^ 'kseKeyType'
     -> KeySchemaElement
 keySchemaElement pAttributeName_ pKeyType_ =
-    KeySchemaElement'
-    { _kseAttributeName = pAttributeName_
-    , _kseKeyType = pKeyType_
-    }
+  KeySchemaElement'
+  {_kseAttributeName = pAttributeName_, _kseKeyType = pKeyType_}
+
 
 -- | The name of a key attribute.
 kseAttributeName :: Lens' KeySchemaElement Text
@@ -954,9 +967,9 @@ instance FromJSON KeySchemaElement where
                  KeySchemaElement' <$>
                    (x .: "AttributeName") <*> (x .: "KeyType"))
 
-instance Hashable KeySchemaElement
+instance Hashable KeySchemaElement where
 
-instance NFData KeySchemaElement
+instance NFData KeySchemaElement where
 
 instance ToJSON KeySchemaElement where
         toJSON KeySchemaElement'{..}
@@ -973,12 +986,13 @@ instance ToJSON KeySchemaElement where
 --
 -- /See:/ 'keysAndAttributes' smart constructor.
 data KeysAndAttributes = KeysAndAttributes'
-    { _kaaProjectionExpression     :: !(Maybe Text)
-    , _kaaAttributesToGet          :: !(Maybe (List1 Text))
-    , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _kaaConsistentRead           :: !(Maybe Bool)
-    , _kaaKeys                     :: !(List1 (Map Text AttributeValue))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _kaaProjectionExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _kaaAttributesToGet :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _kaaExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _kaaConsistentRead :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _kaaKeys :: {-# NOUNPACK #-}!(List1 (Map Text AttributeValue))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeysAndAttributes' with the minimum fields required to make a request.
 --
@@ -997,13 +1011,14 @@ keysAndAttributes
     :: NonEmpty (HashMap Text AttributeValue) -- ^ 'kaaKeys'
     -> KeysAndAttributes
 keysAndAttributes pKeys_ =
-    KeysAndAttributes'
-    { _kaaProjectionExpression = Nothing
-    , _kaaAttributesToGet = Nothing
-    , _kaaExpressionAttributeNames = Nothing
-    , _kaaConsistentRead = Nothing
-    , _kaaKeys = _List1 # pKeys_
-    }
+  KeysAndAttributes'
+  { _kaaProjectionExpression = Nothing
+  , _kaaAttributesToGet = Nothing
+  , _kaaExpressionAttributeNames = Nothing
+  , _kaaConsistentRead = Nothing
+  , _kaaKeys = _List1 # pKeys_
+  }
+
 
 -- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas. If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
@@ -1036,9 +1051,9 @@ instance FromJSON KeysAndAttributes where
                      <*> (x .:? "ConsistentRead")
                      <*> (x .: "Keys"))
 
-instance Hashable KeysAndAttributes
+instance Hashable KeysAndAttributes where
 
-instance NFData KeysAndAttributes
+instance NFData KeysAndAttributes where
 
 instance ToJSON KeysAndAttributes where
         toJSON KeysAndAttributes'{..}
@@ -1058,10 +1073,11 @@ instance ToJSON KeysAndAttributes where
 --
 -- /See:/ 'localSecondaryIndex' smart constructor.
 data LocalSecondaryIndex = LocalSecondaryIndex'
-    { _lsiIndexName  :: !Text
-    , _lsiKeySchema  :: !(List1 KeySchemaElement)
-    , _lsiProjection :: !Projection
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsiIndexName  :: {-# NOUNPACK #-}!Text
+  , _lsiKeySchema  :: {-# NOUNPACK #-}!(List1 KeySchemaElement)
+  , _lsiProjection :: {-# NOUNPACK #-}!Projection
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LocalSecondaryIndex' with the minimum fields required to make a request.
 --
@@ -1078,11 +1094,12 @@ localSecondaryIndex
     -> Projection -- ^ 'lsiProjection'
     -> LocalSecondaryIndex
 localSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
-    LocalSecondaryIndex'
-    { _lsiIndexName = pIndexName_
-    , _lsiKeySchema = _List1 # pKeySchema_
-    , _lsiProjection = pProjection_
-    }
+  LocalSecondaryIndex'
+  { _lsiIndexName = pIndexName_
+  , _lsiKeySchema = _List1 # pKeySchema_
+  , _lsiProjection = pProjection_
+  }
+
 
 -- | The name of the local secondary index. The name must be unique among all other indexes on this table.
 lsiIndexName :: Lens' LocalSecondaryIndex Text
@@ -1096,9 +1113,9 @@ lsiKeySchema = lens _lsiKeySchema (\ s a -> s{_lsiKeySchema = a}) . _List1;
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\ s a -> s{_lsiProjection = a});
 
-instance Hashable LocalSecondaryIndex
+instance Hashable LocalSecondaryIndex where
 
-instance NFData LocalSecondaryIndex
+instance NFData LocalSecondaryIndex where
 
 instance ToJSON LocalSecondaryIndex where
         toJSON LocalSecondaryIndex'{..}
@@ -1114,13 +1131,14 @@ instance ToJSON LocalSecondaryIndex where
 --
 -- /See:/ 'localSecondaryIndexDescription' smart constructor.
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
-    { _lsidIndexSizeBytes :: !(Maybe Integer)
-    , _lsidIndexARN       :: !(Maybe Text)
-    , _lsidKeySchema      :: !(Maybe (List1 KeySchemaElement))
-    , _lsidProjection     :: !(Maybe Projection)
-    , _lsidItemCount      :: !(Maybe Integer)
-    , _lsidIndexName      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsidIndexSizeBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _lsidIndexARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsidKeySchema      :: {-# NOUNPACK #-}!(Maybe (List1 KeySchemaElement))
+  , _lsidProjection     :: {-# NOUNPACK #-}!(Maybe Projection)
+  , _lsidItemCount      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _lsidIndexName      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LocalSecondaryIndexDescription' with the minimum fields required to make a request.
 --
@@ -1140,14 +1158,15 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
 localSecondaryIndexDescription
     :: LocalSecondaryIndexDescription
 localSecondaryIndexDescription =
-    LocalSecondaryIndexDescription'
-    { _lsidIndexSizeBytes = Nothing
-    , _lsidIndexARN = Nothing
-    , _lsidKeySchema = Nothing
-    , _lsidProjection = Nothing
-    , _lsidItemCount = Nothing
-    , _lsidIndexName = Nothing
-    }
+  LocalSecondaryIndexDescription'
+  { _lsidIndexSizeBytes = Nothing
+  , _lsidIndexARN = Nothing
+  , _lsidKeySchema = Nothing
+  , _lsidProjection = Nothing
+  , _lsidItemCount = Nothing
+  , _lsidIndexName = Nothing
+  }
+
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 lsidIndexSizeBytes :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
@@ -1186,8 +1205,9 @@ instance FromJSON LocalSecondaryIndexDescription
                      <*> (x .:? "IndexName"))
 
 instance Hashable LocalSecondaryIndexDescription
+         where
 
-instance NFData LocalSecondaryIndexDescription
+instance NFData LocalSecondaryIndexDescription where
 
 -- | Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 --
@@ -1195,9 +1215,10 @@ instance NFData LocalSecondaryIndexDescription
 --
 -- /See:/ 'projection' smart constructor.
 data Projection = Projection'
-    { _pProjectionType   :: !(Maybe ProjectionType)
-    , _pNonKeyAttributes :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pProjectionType   :: {-# NOUNPACK #-}!(Maybe ProjectionType)
+  , _pNonKeyAttributes :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Projection' with the minimum fields required to make a request.
 --
@@ -1209,10 +1230,8 @@ data Projection = Projection'
 projection
     :: Projection
 projection =
-    Projection'
-    { _pProjectionType = Nothing
-    , _pNonKeyAttributes = Nothing
-    }
+  Projection' {_pProjectionType = Nothing, _pNonKeyAttributes = Nothing}
+
 
 -- | The set of attributes that are projected into the index:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in @NonKeyAttributes@ .     * @ALL@ - All of the table attributes are projected into the index.
 pProjectionType :: Lens' Projection (Maybe ProjectionType)
@@ -1230,9 +1249,9 @@ instance FromJSON Projection where
                    (x .:? "ProjectionType") <*>
                      (x .:? "NonKeyAttributes"))
 
-instance Hashable Projection
+instance Hashable Projection where
 
-instance NFData Projection
+instance NFData Projection where
 
 instance ToJSON Projection where
         toJSON Projection'{..}
@@ -1249,9 +1268,10 @@ instance ToJSON Projection where
 --
 -- /See:/ 'provisionedThroughput' smart constructor.
 data ProvisionedThroughput = ProvisionedThroughput'
-    { _ptReadCapacityUnits  :: !Nat
-    , _ptWriteCapacityUnits :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptReadCapacityUnits  :: {-# NOUNPACK #-}!Nat
+  , _ptWriteCapacityUnits :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisionedThroughput' with the minimum fields required to make a request.
 --
@@ -1265,10 +1285,11 @@ provisionedThroughput
     -> Natural -- ^ 'ptWriteCapacityUnits'
     -> ProvisionedThroughput
 provisionedThroughput pReadCapacityUnits_ pWriteCapacityUnits_ =
-    ProvisionedThroughput'
-    { _ptReadCapacityUnits = _Nat # pReadCapacityUnits_
-    , _ptWriteCapacityUnits = _Nat # pWriteCapacityUnits_
-    }
+  ProvisionedThroughput'
+  { _ptReadCapacityUnits = _Nat # pReadCapacityUnits_
+  , _ptWriteCapacityUnits = _Nat # pWriteCapacityUnits_
+  }
+
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
 ptReadCapacityUnits :: Lens' ProvisionedThroughput Natural
@@ -1278,9 +1299,9 @@ ptReadCapacityUnits = lens _ptReadCapacityUnits (\ s a -> s{_ptReadCapacityUnits
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits = lens _ptWriteCapacityUnits (\ s a -> s{_ptWriteCapacityUnits = a}) . _Nat;
 
-instance Hashable ProvisionedThroughput
+instance Hashable ProvisionedThroughput where
 
-instance NFData ProvisionedThroughput
+instance NFData ProvisionedThroughput where
 
 instance ToJSON ProvisionedThroughput where
         toJSON ProvisionedThroughput'{..}
@@ -1296,12 +1317,13 @@ instance ToJSON ProvisionedThroughput where
 --
 -- /See:/ 'provisionedThroughputDescription' smart constructor.
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
-    { _ptdReadCapacityUnits      :: !(Maybe Nat)
-    , _ptdLastDecreaseDateTime   :: !(Maybe POSIX)
-    , _ptdWriteCapacityUnits     :: !(Maybe Nat)
-    , _ptdNumberOfDecreasesToday :: !(Maybe Nat)
-    , _ptdLastIncreaseDateTime   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptdReadCapacityUnits      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ptdLastDecreaseDateTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ptdWriteCapacityUnits     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ptdNumberOfDecreasesToday :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ptdLastIncreaseDateTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisionedThroughputDescription' with the minimum fields required to make a request.
 --
@@ -1319,13 +1341,14 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
 provisionedThroughputDescription
     :: ProvisionedThroughputDescription
 provisionedThroughputDescription =
-    ProvisionedThroughputDescription'
-    { _ptdReadCapacityUnits = Nothing
-    , _ptdLastDecreaseDateTime = Nothing
-    , _ptdWriteCapacityUnits = Nothing
-    , _ptdNumberOfDecreasesToday = Nothing
-    , _ptdLastIncreaseDateTime = Nothing
-    }
+  ProvisionedThroughputDescription'
+  { _ptdReadCapacityUnits = Nothing
+  , _ptdLastDecreaseDateTime = Nothing
+  , _ptdWriteCapacityUnits = Nothing
+  , _ptdNumberOfDecreasesToday = Nothing
+  , _ptdLastIncreaseDateTime = Nothing
+  }
+
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent @ReadCapacityUnits@ per second.
 ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
@@ -1360,8 +1383,10 @@ instance FromJSON ProvisionedThroughputDescription
                      <*> (x .:? "LastIncreaseDateTime"))
 
 instance Hashable ProvisionedThroughputDescription
+         where
 
 instance NFData ProvisionedThroughputDescription
+         where
 
 -- | Represents a request to perform a @PutItem@ operation on an item.
 --
@@ -1369,8 +1394,9 @@ instance NFData ProvisionedThroughputDescription
 --
 -- /See:/ 'putRequest' smart constructor.
 newtype PutRequest = PutRequest'
-    { _prItem :: Map Text AttributeValue
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prItem :: Map Text AttributeValue
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRequest' with the minimum fields required to make a request.
 --
@@ -1379,10 +1405,8 @@ newtype PutRequest = PutRequest'
 -- * 'prItem' - A map of attribute name to attribute values, representing the primary key of an item to be processed by @PutItem@ . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.
 putRequest
     :: PutRequest
-putRequest =
-    PutRequest'
-    { _prItem = mempty
-    }
+putRequest = PutRequest' {_prItem = mempty}
+
 
 -- | A map of attribute name to attribute values, representing the primary key of an item to be processed by @PutItem@ . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.
 prItem :: Lens' PutRequest (HashMap Text AttributeValue)
@@ -1393,9 +1417,9 @@ instance FromJSON PutRequest where
           = withObject "PutRequest"
               (\ x -> PutRequest' <$> (x .:? "Item" .!= mempty))
 
-instance Hashable PutRequest
+instance Hashable PutRequest where
 
-instance NFData PutRequest
+instance NFData PutRequest where
 
 instance ToJSON PutRequest where
         toJSON PutRequest'{..}
@@ -1407,9 +1431,10 @@ instance ToJSON PutRequest where
 --
 -- /See:/ 'streamSpecification' smart constructor.
 data StreamSpecification = StreamSpecification'
-    { _ssStreamViewType :: !(Maybe StreamViewType)
-    , _ssStreamEnabled  :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssStreamViewType :: {-# NOUNPACK #-}!(Maybe StreamViewType)
+  , _ssStreamEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StreamSpecification' with the minimum fields required to make a request.
 --
@@ -1421,10 +1446,8 @@ data StreamSpecification = StreamSpecification'
 streamSpecification
     :: StreamSpecification
 streamSpecification =
-    StreamSpecification'
-    { _ssStreamViewType = Nothing
-    , _ssStreamEnabled = Nothing
-    }
+  StreamSpecification' {_ssStreamViewType = Nothing, _ssStreamEnabled = Nothing}
+
 
 -- | When an item in the table is modified, @StreamViewType@ determines what information is written to the stream for this table. Valid values for @StreamViewType@ are:     * @KEYS_ONLY@ - Only the key attributes of the modified item are written to the stream.     * @NEW_IMAGE@ - The entire item, as it appears after it was modified, is written to the stream.     * @OLD_IMAGE@ - The entire item, as it appeared before it was modified, is written to the stream.     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
 ssStreamViewType :: Lens' StreamSpecification (Maybe StreamViewType)
@@ -1441,9 +1464,9 @@ instance FromJSON StreamSpecification where
                  StreamSpecification' <$>
                    (x .:? "StreamViewType") <*> (x .:? "StreamEnabled"))
 
-instance Hashable StreamSpecification
+instance Hashable StreamSpecification where
 
-instance NFData StreamSpecification
+instance NFData StreamSpecification where
 
 instance ToJSON StreamSpecification where
         toJSON StreamSpecification'{..}
@@ -1458,21 +1481,22 @@ instance ToJSON StreamSpecification where
 --
 -- /See:/ 'tableDescription' smart constructor.
 data TableDescription = TableDescription'
-    { _tdTableSizeBytes         :: !(Maybe Integer)
-    , _tdAttributeDefinitions   :: !(Maybe [AttributeDefinition])
-    , _tdLatestStreamARN        :: !(Maybe Text)
-    , _tdProvisionedThroughput  :: !(Maybe ProvisionedThroughputDescription)
-    , _tdTableStatus            :: !(Maybe TableStatus)
-    , _tdTableARN               :: !(Maybe Text)
-    , _tdKeySchema              :: !(Maybe (List1 KeySchemaElement))
-    , _tdGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndexDescription])
-    , _tdLatestStreamLabel      :: !(Maybe Text)
-    , _tdLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndexDescription])
-    , _tdCreationDateTime       :: !(Maybe POSIX)
-    , _tdItemCount              :: !(Maybe Integer)
-    , _tdTableName              :: !(Maybe Text)
-    , _tdStreamSpecification    :: !(Maybe StreamSpecification)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tdTableSizeBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tdAttributeDefinitions :: {-# NOUNPACK #-}!(Maybe [AttributeDefinition])
+  , _tdLatestStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdProvisionedThroughput :: {-# NOUNPACK #-}!(Maybe ProvisionedThroughputDescription)
+  , _tdTableStatus :: {-# NOUNPACK #-}!(Maybe TableStatus)
+  , _tdTableARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdKeySchema :: {-# NOUNPACK #-}!(Maybe (List1 KeySchemaElement))
+  , _tdGlobalSecondaryIndexes :: {-# NOUNPACK #-}!(Maybe [GlobalSecondaryIndexDescription])
+  , _tdLatestStreamLabel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdLocalSecondaryIndexes :: {-# NOUNPACK #-}!(Maybe [LocalSecondaryIndexDescription])
+  , _tdCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _tdItemCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tdTableName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdStreamSpecification :: {-# NOUNPACK #-}!(Maybe StreamSpecification)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TableDescription' with the minimum fields required to make a request.
 --
@@ -1508,22 +1532,23 @@ data TableDescription = TableDescription'
 tableDescription
     :: TableDescription
 tableDescription =
-    TableDescription'
-    { _tdTableSizeBytes = Nothing
-    , _tdAttributeDefinitions = Nothing
-    , _tdLatestStreamARN = Nothing
-    , _tdProvisionedThroughput = Nothing
-    , _tdTableStatus = Nothing
-    , _tdTableARN = Nothing
-    , _tdKeySchema = Nothing
-    , _tdGlobalSecondaryIndexes = Nothing
-    , _tdLatestStreamLabel = Nothing
-    , _tdLocalSecondaryIndexes = Nothing
-    , _tdCreationDateTime = Nothing
-    , _tdItemCount = Nothing
-    , _tdTableName = Nothing
-    , _tdStreamSpecification = Nothing
-    }
+  TableDescription'
+  { _tdTableSizeBytes = Nothing
+  , _tdAttributeDefinitions = Nothing
+  , _tdLatestStreamARN = Nothing
+  , _tdProvisionedThroughput = Nothing
+  , _tdTableStatus = Nothing
+  , _tdTableARN = Nothing
+  , _tdKeySchema = Nothing
+  , _tdGlobalSecondaryIndexes = Nothing
+  , _tdLatestStreamLabel = Nothing
+  , _tdLocalSecondaryIndexes = Nothing
+  , _tdCreationDateTime = Nothing
+  , _tdItemCount = Nothing
+  , _tdTableName = Nothing
+  , _tdStreamSpecification = Nothing
+  }
+
 
 -- | The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
@@ -1601,9 +1626,9 @@ instance FromJSON TableDescription where
                      <*> (x .:? "TableName")
                      <*> (x .:? "StreamSpecification"))
 
-instance Hashable TableDescription
+instance Hashable TableDescription where
 
-instance NFData TableDescription
+instance NFData TableDescription where
 
 -- | Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
 --
@@ -1615,9 +1640,10 @@ instance NFData TableDescription
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -1630,11 +1656,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | The key of the tag.Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
 tagKey :: Lens' Tag Text
@@ -1649,9 +1672,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1666,9 +1689,10 @@ instance ToJSON Tag where
 --
 -- /See:/ 'timeToLiveDescription' smart constructor.
 data TimeToLiveDescription = TimeToLiveDescription'
-    { _ttldTimeToLiveStatus :: !(Maybe TimeToLiveStatus)
-    , _ttldAttributeName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ttldTimeToLiveStatus :: {-# NOUNPACK #-}!(Maybe TimeToLiveStatus)
+  , _ttldAttributeName    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TimeToLiveDescription' with the minimum fields required to make a request.
 --
@@ -1680,10 +1704,9 @@ data TimeToLiveDescription = TimeToLiveDescription'
 timeToLiveDescription
     :: TimeToLiveDescription
 timeToLiveDescription =
-    TimeToLiveDescription'
-    { _ttldTimeToLiveStatus = Nothing
-    , _ttldAttributeName = Nothing
-    }
+  TimeToLiveDescription'
+  {_ttldTimeToLiveStatus = Nothing, _ttldAttributeName = Nothing}
+
 
 -- | The Time to Live status for the table.
 ttldTimeToLiveStatus :: Lens' TimeToLiveDescription (Maybe TimeToLiveStatus)
@@ -1701,9 +1724,9 @@ instance FromJSON TimeToLiveDescription where
                    (x .:? "TimeToLiveStatus") <*>
                      (x .:? "AttributeName"))
 
-instance Hashable TimeToLiveDescription
+instance Hashable TimeToLiveDescription where
 
-instance NFData TimeToLiveDescription
+instance NFData TimeToLiveDescription where
 
 -- | Represents the settings used to enable or disable Time to Live for the specified table.
 --
@@ -1711,9 +1734,10 @@ instance NFData TimeToLiveDescription
 --
 -- /See:/ 'timeToLiveSpecification' smart constructor.
 data TimeToLiveSpecification = TimeToLiveSpecification'
-    { _ttlsEnabled       :: !Bool
-    , _ttlsAttributeName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ttlsEnabled       :: {-# NOUNPACK #-}!Bool
+  , _ttlsAttributeName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TimeToLiveSpecification' with the minimum fields required to make a request.
 --
@@ -1727,10 +1751,9 @@ timeToLiveSpecification
     -> Text -- ^ 'ttlsAttributeName'
     -> TimeToLiveSpecification
 timeToLiveSpecification pEnabled_ pAttributeName_ =
-    TimeToLiveSpecification'
-    { _ttlsEnabled = pEnabled_
-    , _ttlsAttributeName = pAttributeName_
-    }
+  TimeToLiveSpecification'
+  {_ttlsEnabled = pEnabled_, _ttlsAttributeName = pAttributeName_}
+
 
 -- | Indicates whether Time To Live is to be enabled (true) or disabled (false) on the table.
 ttlsEnabled :: Lens' TimeToLiveSpecification Bool
@@ -1747,9 +1770,9 @@ instance FromJSON TimeToLiveSpecification where
                  TimeToLiveSpecification' <$>
                    (x .: "Enabled") <*> (x .: "AttributeName"))
 
-instance Hashable TimeToLiveSpecification
+instance Hashable TimeToLiveSpecification where
 
-instance NFData TimeToLiveSpecification
+instance NFData TimeToLiveSpecification where
 
 instance ToJSON TimeToLiveSpecification where
         toJSON TimeToLiveSpecification'{..}
@@ -1764,9 +1787,10 @@ instance ToJSON TimeToLiveSpecification where
 --
 -- /See:/ 'updateGlobalSecondaryIndexAction' smart constructor.
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
-    { _ugsiaIndexName             :: !Text
-    , _ugsiaProvisionedThroughput :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ugsiaIndexName             :: {-# NOUNPACK #-}!Text
+  , _ugsiaProvisionedThroughput :: {-# NOUNPACK #-}!ProvisionedThroughput
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateGlobalSecondaryIndexAction' with the minimum fields required to make a request.
 --
@@ -1780,10 +1804,11 @@ updateGlobalSecondaryIndexAction
     -> ProvisionedThroughput -- ^ 'ugsiaProvisionedThroughput'
     -> UpdateGlobalSecondaryIndexAction
 updateGlobalSecondaryIndexAction pIndexName_ pProvisionedThroughput_ =
-    UpdateGlobalSecondaryIndexAction'
-    { _ugsiaIndexName = pIndexName_
-    , _ugsiaProvisionedThroughput = pProvisionedThroughput_
-    }
+  UpdateGlobalSecondaryIndexAction'
+  { _ugsiaIndexName = pIndexName_
+  , _ugsiaProvisionedThroughput = pProvisionedThroughput_
+  }
+
 
 -- | The name of the global secondary index to be updated.
 ugsiaIndexName :: Lens' UpdateGlobalSecondaryIndexAction Text
@@ -1794,8 +1819,10 @@ ugsiaProvisionedThroughput :: Lens' UpdateGlobalSecondaryIndexAction Provisioned
 ugsiaProvisionedThroughput = lens _ugsiaProvisionedThroughput (\ s a -> s{_ugsiaProvisionedThroughput = a});
 
 instance Hashable UpdateGlobalSecondaryIndexAction
+         where
 
 instance NFData UpdateGlobalSecondaryIndexAction
+         where
 
 instance ToJSON UpdateGlobalSecondaryIndexAction
          where
@@ -1813,9 +1840,10 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 --
 -- /See:/ 'writeRequest' smart constructor.
 data WriteRequest = WriteRequest'
-    { _wrDeleteRequest :: !(Maybe DeleteRequest)
-    , _wrPutRequest    :: !(Maybe PutRequest)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _wrDeleteRequest :: {-# NOUNPACK #-}!(Maybe DeleteRequest)
+  , _wrPutRequest    :: {-# NOUNPACK #-}!(Maybe PutRequest)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'WriteRequest' with the minimum fields required to make a request.
 --
@@ -1827,10 +1855,8 @@ data WriteRequest = WriteRequest'
 writeRequest
     :: WriteRequest
 writeRequest =
-    WriteRequest'
-    { _wrDeleteRequest = Nothing
-    , _wrPutRequest = Nothing
-    }
+  WriteRequest' {_wrDeleteRequest = Nothing, _wrPutRequest = Nothing}
+
 
 -- | A request to perform a @DeleteItem@ operation.
 wrDeleteRequest :: Lens' WriteRequest (Maybe DeleteRequest)
@@ -1847,9 +1873,9 @@ instance FromJSON WriteRequest where
                  WriteRequest' <$>
                    (x .:? "DeleteRequest") <*> (x .:? "PutRequest"))
 
-instance Hashable WriteRequest
+instance Hashable WriteRequest where
 
-instance NFData WriteRequest
+instance NFData WriteRequest where
 
 instance ToJSON WriteRequest where
         toJSON WriteRequest'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeleteLoadBalancer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,17 +40,18 @@ module Network.AWS.ELBv2.DeleteLoadBalancer
     , drsResponseStatus
     ) where
 
-import           Network.AWS.ELBv2.Types
-import           Network.AWS.ELBv2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ELBv2.Types
+import Network.AWS.ELBv2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLoadBalancer' smart constructor.
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
-    { _dlbLoadBalancerARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlbLoadBalancerARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoadBalancer' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ deleteLoadBalancer
     :: Text -- ^ 'dlbLoadBalancerARN'
     -> DeleteLoadBalancer
 deleteLoadBalancer pLoadBalancerARN_ =
-    DeleteLoadBalancer'
-    { _dlbLoadBalancerARN = pLoadBalancerARN_
-    }
+  DeleteLoadBalancer' {_dlbLoadBalancerARN = pLoadBalancerARN_}
+
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 dlbLoadBalancerARN :: Lens' DeleteLoadBalancer Text
@@ -78,9 +78,9 @@ instance AWSRequest DeleteLoadBalancer where
               (\ s h x ->
                  DeleteLoadBalancerResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteLoadBalancer
+instance Hashable DeleteLoadBalancer where
 
-instance NFData DeleteLoadBalancer
+instance NFData DeleteLoadBalancer where
 
 instance ToHeaders DeleteLoadBalancer where
         toHeaders = const mempty
@@ -97,8 +97,9 @@ instance ToQuery DeleteLoadBalancer where
 
 -- | /See:/ 'deleteLoadBalancerResponse' smart constructor.
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLoadBalancerResponse' with the minimum fields required to make a request.
 --
@@ -109,12 +110,11 @@ deleteLoadBalancerResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteLoadBalancerResponse
 deleteLoadBalancerResponse pResponseStatus_ =
-    DeleteLoadBalancerResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteLoadBalancerResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteLoadBalancerResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteLoadBalancerResponse
+instance NFData DeleteLoadBalancerResponse where

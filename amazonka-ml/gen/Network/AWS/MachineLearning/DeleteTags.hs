@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,19 +42,20 @@ module Network.AWS.MachineLearning.DeleteTags
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-    { _dTagKeys      :: ![Text]
-    , _dResourceId   :: !Text
-    , _dResourceType :: !TaggableResourceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dTagKeys      :: {-# NOUNPACK #-}![Text]
+  , _dResourceId   :: {-# NOUNPACK #-}!Text
+  , _dResourceType :: {-# NOUNPACK #-}!TaggableResourceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ deleteTags
     -> TaggableResourceType -- ^ 'dResourceType'
     -> DeleteTags
 deleteTags pResourceId_ pResourceType_ =
-    DeleteTags'
-    { _dTagKeys = mempty
-    , _dResourceId = pResourceId_
-    , _dResourceType = pResourceType_
-    }
+  DeleteTags'
+  { _dTagKeys = mempty
+  , _dResourceId = pResourceId_
+  , _dResourceType = pResourceType_
+  }
+
 
 -- | One or more tags to delete.
 dTagKeys :: Lens' DeleteTags [Text]
@@ -98,9 +100,9 @@ instance AWSRequest DeleteTags where
                    (x .?> "ResourceId") <*> (x .?> "ResourceType") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DeleteTags
+instance Hashable DeleteTags where
 
-instance NFData DeleteTags
+instance NFData DeleteTags where
 
 instance ToHeaders DeleteTags where
         toHeaders
@@ -131,10 +133,11 @@ instance ToQuery DeleteTags where
 --
 -- /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
-    { _drsResourceId     :: !(Maybe Text)
-    , _drsResourceType   :: !(Maybe TaggableResourceType)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResourceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResourceType   :: {-# NOUNPACK #-}!(Maybe TaggableResourceType)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +152,12 @@ deleteTagsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteTagsResponse
 deleteTagsResponse pResponseStatus_ =
-    DeleteTagsResponse'
-    { _drsResourceId = Nothing
-    , _drsResourceType = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteTagsResponse'
+  { _drsResourceId = Nothing
+  , _drsResourceType = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the ML object from which tags were deleted.
 drsResourceId :: Lens' DeleteTagsResponse (Maybe Text)
@@ -167,4 +171,4 @@ drsResourceType = lens _drsResourceType (\ s a -> s{_drsResourceType = a});
 drsResponseStatus :: Lens' DeleteTagsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteTagsResponse
+instance NFData DeleteTagsResponse where

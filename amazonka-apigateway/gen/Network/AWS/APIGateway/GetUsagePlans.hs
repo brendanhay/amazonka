@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsagePlans
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.APIGateway.GetUsagePlans
     , guprsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The GET request to get all the usage plans of the caller's account.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getUsagePlans' smart constructor.
 data GetUsagePlans = GetUsagePlans'
-    { _gupKeyId    :: !(Maybe Text)
-    , _gupLimit    :: !(Maybe Int)
-    , _gupPosition :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gupKeyId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gupLimit    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _gupPosition :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUsagePlans' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ data GetUsagePlans = GetUsagePlans'
 getUsagePlans
     :: GetUsagePlans
 getUsagePlans =
-    GetUsagePlans'
-    { _gupKeyId = Nothing
-    , _gupLimit = Nothing
-    , _gupPosition = Nothing
-    }
+  GetUsagePlans'
+  {_gupKeyId = Nothing, _gupLimit = Nothing, _gupPosition = Nothing}
+
 
 -- | The identifier of the API key associated with the usage plans.
 gupKeyId :: Lens' GetUsagePlans (Maybe Text)
@@ -108,9 +107,9 @@ instance AWSRequest GetUsagePlans where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetUsagePlans
+instance Hashable GetUsagePlans where
 
-instance NFData GetUsagePlans
+instance NFData GetUsagePlans where
 
 instance ToHeaders GetUsagePlans where
         toHeaders
@@ -134,10 +133,11 @@ instance ToQuery GetUsagePlans where
 --
 -- /See:/ 'getUsagePlansResponse' smart constructor.
 data GetUsagePlansResponse = GetUsagePlansResponse'
-    { _guprsItems          :: !(Maybe [UsagePlan])
-    , _guprsPosition       :: !(Maybe Text)
-    , _guprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _guprsItems          :: {-# NOUNPACK #-}!(Maybe [UsagePlan])
+  , _guprsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _guprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetUsagePlansResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +152,12 @@ getUsagePlansResponse
     :: Int -- ^ 'guprsResponseStatus'
     -> GetUsagePlansResponse
 getUsagePlansResponse pResponseStatus_ =
-    GetUsagePlansResponse'
-    { _guprsItems = Nothing
-    , _guprsPosition = Nothing
-    , _guprsResponseStatus = pResponseStatus_
-    }
+  GetUsagePlansResponse'
+  { _guprsItems = Nothing
+  , _guprsPosition = Nothing
+  , _guprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 guprsItems :: Lens' GetUsagePlansResponse [UsagePlan]
@@ -170,4 +171,4 @@ guprsPosition = lens _guprsPosition (\ s a -> s{_guprsPosition = a});
 guprsResponseStatus :: Lens' GetUsagePlansResponse Int
 guprsResponseStatus = lens _guprsResponseStatus (\ s a -> s{_guprsResponseStatus = a});
 
-instance NFData GetUsagePlansResponse
+instance NFData GetUsagePlansResponse where

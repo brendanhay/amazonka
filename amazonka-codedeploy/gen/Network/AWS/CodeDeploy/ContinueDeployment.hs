@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ContinueDeployment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.CodeDeploy.ContinueDeployment
     , ContinueDeploymentResponse
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'continueDeployment' smart constructor.
 newtype ContinueDeployment = ContinueDeployment'
-    { _cdDeploymentId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdDeploymentId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContinueDeployment' with the minimum fields required to make a request.
 --
@@ -53,10 +54,8 @@ newtype ContinueDeployment = ContinueDeployment'
 -- * 'cdDeploymentId' - The deployment ID of the blue/green deployment for which you want to start rerouting traffic to the replacement environment.
 continueDeployment
     :: ContinueDeployment
-continueDeployment =
-    ContinueDeployment'
-    { _cdDeploymentId = Nothing
-    }
+continueDeployment = ContinueDeployment' {_cdDeploymentId = Nothing}
+
 
 -- | The deployment ID of the blue/green deployment for which you want to start rerouting traffic to the replacement environment.
 cdDeploymentId :: Lens' ContinueDeployment (Maybe Text)
@@ -68,9 +67,9 @@ instance AWSRequest ContinueDeployment where
         request = postJSON codeDeploy
         response = receiveNull ContinueDeploymentResponse'
 
-instance Hashable ContinueDeployment
+instance Hashable ContinueDeployment where
 
-instance NFData ContinueDeployment
+instance NFData ContinueDeployment where
 
 instance ToHeaders ContinueDeployment where
         toHeaders
@@ -95,8 +94,9 @@ instance ToQuery ContinueDeployment where
 
 -- | /See:/ 'continueDeploymentResponse' smart constructor.
 data ContinueDeploymentResponse =
-    ContinueDeploymentResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ContinueDeploymentResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ContinueDeploymentResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ continueDeploymentResponse
     :: ContinueDeploymentResponse
 continueDeploymentResponse = ContinueDeploymentResponse'
 
-instance NFData ContinueDeploymentResponse
+
+instance NFData ContinueDeploymentResponse where

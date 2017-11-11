@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeSnapshotCopyGrants
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     , dscgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The result of the @DescribeSnapshotCopyGrants@ action.
 --
@@ -57,12 +57,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSnapshotCopyGrants' smart constructor.
 data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
-    { _dscgsTagValues             :: !(Maybe [Text])
-    , _dscgsTagKeys               :: !(Maybe [Text])
-    , _dscgsMarker                :: !(Maybe Text)
-    , _dscgsMaxRecords            :: !(Maybe Int)
-    , _dscgsSnapshotCopyGrantName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscgsTagValues             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dscgsTagKeys               :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dscgsMarker                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dscgsMaxRecords            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dscgsSnapshotCopyGrantName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotCopyGrants' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
 describeSnapshotCopyGrants
     :: DescribeSnapshotCopyGrants
 describeSnapshotCopyGrants =
-    DescribeSnapshotCopyGrants'
-    { _dscgsTagValues = Nothing
-    , _dscgsTagKeys = Nothing
-    , _dscgsMarker = Nothing
-    , _dscgsMaxRecords = Nothing
-    , _dscgsSnapshotCopyGrantName = Nothing
-    }
+  DescribeSnapshotCopyGrants'
+  { _dscgsTagValues = Nothing
+  , _dscgsTagKeys = Nothing
+  , _dscgsMarker = Nothing
+  , _dscgsMaxRecords = Nothing
+  , _dscgsSnapshotCopyGrantName = Nothing
+  }
+
 
 -- | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
 dscgsTagValues :: Lens' DescribeSnapshotCopyGrants [Text]
@@ -122,9 +124,9 @@ instance AWSRequest DescribeSnapshotCopyGrants where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSnapshotCopyGrants
+instance Hashable DescribeSnapshotCopyGrants where
 
-instance NFData DescribeSnapshotCopyGrants
+instance NFData DescribeSnapshotCopyGrants where
 
 instance ToHeaders DescribeSnapshotCopyGrants where
         toHeaders = const mempty
@@ -153,10 +155,11 @@ instance ToQuery DescribeSnapshotCopyGrants where
 --
 -- /See:/ 'describeSnapshotCopyGrantsResponse' smart constructor.
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
-    { _dscgrsSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
-    , _dscgrsMarker             :: !(Maybe Text)
-    , _dscgrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscgrsSnapshotCopyGrants :: {-# NOUNPACK #-}!(Maybe [SnapshotCopyGrant])
+  , _dscgrsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dscgrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSnapshotCopyGrantsResponse' with the minimum fields required to make a request.
 --
@@ -171,11 +174,12 @@ describeSnapshotCopyGrantsResponse
     :: Int -- ^ 'dscgrsResponseStatus'
     -> DescribeSnapshotCopyGrantsResponse
 describeSnapshotCopyGrantsResponse pResponseStatus_ =
-    DescribeSnapshotCopyGrantsResponse'
-    { _dscgrsSnapshotCopyGrants = Nothing
-    , _dscgrsMarker = Nothing
-    , _dscgrsResponseStatus = pResponseStatus_
-    }
+  DescribeSnapshotCopyGrantsResponse'
+  { _dscgrsSnapshotCopyGrants = Nothing
+  , _dscgrsMarker = Nothing
+  , _dscgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of @SnapshotCopyGrant@ objects.
 dscgrsSnapshotCopyGrants :: Lens' DescribeSnapshotCopyGrantsResponse [SnapshotCopyGrant]
@@ -190,3 +194,4 @@ dscgrsResponseStatus :: Lens' DescribeSnapshotCopyGrantsResponse Int
 dscgrsResponseStatus = lens _dscgrsResponseStatus (\ s a -> s{_dscgrsResponseStatus = a});
 
 instance NFData DescribeSnapshotCopyGrantsResponse
+         where

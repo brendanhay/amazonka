@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeHSMClientCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,13 +48,13 @@ module Network.AWS.Redshift.DescribeHSMClientCertificates
     , dhccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -62,12 +62,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeHSMClientCertificates' smart constructor.
 data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
-    { _dhccTagValues                      :: !(Maybe [Text])
-    , _dhccTagKeys                        :: !(Maybe [Text])
-    , _dhccHSMClientCertificateIdentifier :: !(Maybe Text)
-    , _dhccMarker                         :: !(Maybe Text)
-    , _dhccMaxRecords                     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhccTagValues                      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhccTagKeys                        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dhccHSMClientCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhccMarker                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhccMaxRecords                     :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHSMClientCertificates' with the minimum fields required to make a request.
 --
@@ -85,13 +86,14 @@ data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
 describeHSMClientCertificates
     :: DescribeHSMClientCertificates
 describeHSMClientCertificates =
-    DescribeHSMClientCertificates'
-    { _dhccTagValues = Nothing
-    , _dhccTagKeys = Nothing
-    , _dhccHSMClientCertificateIdentifier = Nothing
-    , _dhccMarker = Nothing
-    , _dhccMaxRecords = Nothing
-    }
+  DescribeHSMClientCertificates'
+  { _dhccTagValues = Nothing
+  , _dhccTagKeys = Nothing
+  , _dhccHSMClientCertificateIdentifier = Nothing
+  , _dhccMarker = Nothing
+  , _dhccMaxRecords = Nothing
+  }
+
 
 -- | A tag value or values for which you want to return all matching HSM client certificates that are associated with the specified tag value or values. For example, suppose that you have HSM client certificates that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag values associated with them.
 dhccTagValues :: Lens' DescribeHSMClientCertificates [Text]
@@ -135,9 +137,9 @@ instance AWSRequest DescribeHSMClientCertificates
                         may (parseXMLList "HsmClientCertificate"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeHSMClientCertificates
+instance Hashable DescribeHSMClientCertificates where
 
-instance NFData DescribeHSMClientCertificates
+instance NFData DescribeHSMClientCertificates where
 
 instance ToHeaders DescribeHSMClientCertificates
          where
@@ -167,10 +169,11 @@ instance ToQuery DescribeHSMClientCertificates where
 --
 -- /See:/ 'describeHSMClientCertificatesResponse' smart constructor.
 data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'
-    { _dhccrsMarker                :: !(Maybe Text)
-    , _dhccrsHSMClientCertificates :: !(Maybe [HSMClientCertificate])
-    , _dhccrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhccrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dhccrsHSMClientCertificates :: {-# NOUNPACK #-}!(Maybe [HSMClientCertificate])
+  , _dhccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeHSMClientCertificatesResponse' with the minimum fields required to make a request.
 --
@@ -185,11 +188,12 @@ describeHSMClientCertificatesResponse
     :: Int -- ^ 'dhccrsResponseStatus'
     -> DescribeHSMClientCertificatesResponse
 describeHSMClientCertificatesResponse pResponseStatus_ =
-    DescribeHSMClientCertificatesResponse'
-    { _dhccrsMarker = Nothing
-    , _dhccrsHSMClientCertificates = Nothing
-    , _dhccrsResponseStatus = pResponseStatus_
-    }
+  DescribeHSMClientCertificatesResponse'
+  { _dhccrsMarker = Nothing
+  , _dhccrsHSMClientCertificates = Nothing
+  , _dhccrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 dhccrsMarker :: Lens' DescribeHSMClientCertificatesResponse (Maybe Text)
@@ -204,3 +208,4 @@ dhccrsResponseStatus :: Lens' DescribeHSMClientCertificatesResponse Int
 dhccrsResponseStatus = lens _dhccrsResponseStatus (\ s a -> s{_dhccrsResponseStatus = a});
 
 instance NFData DescribeHSMClientCertificatesResponse
+         where

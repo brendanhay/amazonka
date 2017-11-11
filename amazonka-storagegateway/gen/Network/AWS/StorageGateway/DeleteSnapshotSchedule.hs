@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteSnapshotSchedule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     , dsssrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'deleteSnapshotSchedule' smart constructor.
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
-    { _dVolumeARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dVolumeARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotSchedule' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ deleteSnapshotSchedule
     :: Text -- ^ 'dVolumeARN'
     -> DeleteSnapshotSchedule
 deleteSnapshotSchedule pVolumeARN_ =
-    DeleteSnapshotSchedule'
-    { _dVolumeARN = pVolumeARN_
-    }
+  DeleteSnapshotSchedule' {_dVolumeARN = pVolumeARN_}
+
 
 -- | Undocumented member.
 dVolumeARN :: Lens' DeleteSnapshotSchedule Text
@@ -78,9 +78,9 @@ instance AWSRequest DeleteSnapshotSchedule where
                  DeleteSnapshotScheduleResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteSnapshotSchedule
+instance Hashable DeleteSnapshotSchedule where
 
-instance NFData DeleteSnapshotSchedule
+instance NFData DeleteSnapshotSchedule where
 
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders
@@ -105,9 +105,10 @@ instance ToQuery DeleteSnapshotSchedule where
 
 -- | /See:/ 'deleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-    { _dsssrsVolumeARN      :: !(Maybe Text)
-    , _dsssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsssrsVolumeARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +121,9 @@ deleteSnapshotScheduleResponse
     :: Int -- ^ 'dsssrsResponseStatus'
     -> DeleteSnapshotScheduleResponse
 deleteSnapshotScheduleResponse pResponseStatus_ =
-    DeleteSnapshotScheduleResponse'
-    { _dsssrsVolumeARN = Nothing
-    , _dsssrsResponseStatus = pResponseStatus_
-    }
+  DeleteSnapshotScheduleResponse'
+  {_dsssrsVolumeARN = Nothing, _dsssrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 dsssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
@@ -133,4 +133,4 @@ dsssrsVolumeARN = lens _dsssrsVolumeARN (\ s a -> s{_dsssrsVolumeARN = a});
 dsssrsResponseStatus :: Lens' DeleteSnapshotScheduleResponse Int
 dsssrsResponseStatus = lens _dsssrsResponseStatus (\ s a -> s{_dsssrsResponseStatus = a});
 
-instance NFData DeleteSnapshotScheduleResponse
+instance NFData DeleteSnapshotScheduleResponse where

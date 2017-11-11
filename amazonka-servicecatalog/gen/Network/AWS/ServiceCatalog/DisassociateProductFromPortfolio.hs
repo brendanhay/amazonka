@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
     , disrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'disassociateProductFromPortfolio' smart constructor.
 data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
-    { _dpfpAcceptLanguage :: !(Maybe Text)
-    , _dpfpProductId      :: !Text
-    , _dpfpPortfolioId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpfpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpfpProductId      :: {-# NOUNPACK #-}!Text
+  , _dpfpPortfolioId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateProductFromPortfolio' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ disassociateProductFromPortfolio
     -> Text -- ^ 'dpfpPortfolioId'
     -> DisassociateProductFromPortfolio
 disassociateProductFromPortfolio pProductId_ pPortfolioId_ =
-    DisassociateProductFromPortfolio'
-    { _dpfpAcceptLanguage = Nothing
-    , _dpfpProductId = pProductId_
-    , _dpfpPortfolioId = pPortfolioId_
-    }
+  DisassociateProductFromPortfolio'
+  { _dpfpAcceptLanguage = Nothing
+  , _dpfpProductId = pProductId_
+  , _dpfpPortfolioId = pPortfolioId_
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dpfpAcceptLanguage :: Lens' DisassociateProductFromPortfolio (Maybe Text)
@@ -96,8 +98,10 @@ instance AWSRequest DisassociateProductFromPortfolio
                    (pure (fromEnum s)))
 
 instance Hashable DisassociateProductFromPortfolio
+         where
 
 instance NFData DisassociateProductFromPortfolio
+         where
 
 instance ToHeaders DisassociateProductFromPortfolio
          where
@@ -129,8 +133,9 @@ instance ToQuery DisassociateProductFromPortfolio
 
 -- | /See:/ 'disassociateProductFromPortfolioResponse' smart constructor.
 newtype DisassociateProductFromPortfolioResponse = DisassociateProductFromPortfolioResponse'
-    { _disrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateProductFromPortfolioResponse' with the minimum fields required to make a request.
 --
@@ -141,13 +146,14 @@ disassociateProductFromPortfolioResponse
     :: Int -- ^ 'disrsResponseStatus'
     -> DisassociateProductFromPortfolioResponse
 disassociateProductFromPortfolioResponse pResponseStatus_ =
-    DisassociateProductFromPortfolioResponse'
-    { _disrsResponseStatus = pResponseStatus_
-    }
+  DisassociateProductFromPortfolioResponse'
+  {_disrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 disrsResponseStatus :: Lens' DisassociateProductFromPortfolioResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 
 instance NFData
-         DisassociateProductFromPortfolioResponse
+           DisassociateProductFromPortfolioResponse
+         where

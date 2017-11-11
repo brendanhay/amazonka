@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetPlan
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.Glue.GetPlan
     , gpprsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getPlan' smart constructor.
 data GetPlan = GetPlan'
-    { _gpSinks    :: !(Maybe [CatalogEntry])
-    , _gpLocation :: !(Maybe Location)
-    , _gpMapping  :: ![MappingEntry]
-    , _gpSource   :: !CatalogEntry
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpSinks    :: {-# NOUNPACK #-}!(Maybe [CatalogEntry])
+  , _gpLocation :: {-# NOUNPACK #-}!(Maybe Location)
+  , _gpMapping  :: {-# NOUNPACK #-}![MappingEntry]
+  , _gpSource   :: {-# NOUNPACK #-}!CatalogEntry
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPlan' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ getPlan
     :: CatalogEntry -- ^ 'gpSource'
     -> GetPlan
 getPlan pSource_ =
-    GetPlan'
-    { _gpSinks = Nothing
-    , _gpLocation = Nothing
-    , _gpMapping = mempty
-    , _gpSource = pSource_
-    }
+  GetPlan'
+  { _gpSinks = Nothing
+  , _gpLocation = Nothing
+  , _gpMapping = mempty
+  , _gpSource = pSource_
+  }
+
 
 -- | The target tables.
 gpSinks :: Lens' GetPlan [CatalogEntry]
@@ -102,9 +104,9 @@ instance AWSRequest GetPlan where
                  GetPlanResponse' <$>
                    (x .?> "PythonScript") <*> (pure (fromEnum s)))
 
-instance Hashable GetPlan
+instance Hashable GetPlan where
 
-instance NFData GetPlan
+instance NFData GetPlan where
 
 instance ToHeaders GetPlan where
         toHeaders
@@ -131,9 +133,10 @@ instance ToQuery GetPlan where
 
 -- | /See:/ 'getPlanResponse' smart constructor.
 data GetPlanResponse = GetPlanResponse'
-    { _gpprsPythonScript   :: !(Maybe Text)
-    , _gpprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpprsPythonScript   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPlanResponse' with the minimum fields required to make a request.
 --
@@ -146,10 +149,9 @@ getPlanResponse
     :: Int -- ^ 'gpprsResponseStatus'
     -> GetPlanResponse
 getPlanResponse pResponseStatus_ =
-    GetPlanResponse'
-    { _gpprsPythonScript = Nothing
-    , _gpprsResponseStatus = pResponseStatus_
-    }
+  GetPlanResponse'
+  {_gpprsPythonScript = Nothing, _gpprsResponseStatus = pResponseStatus_}
+
 
 -- | A python script to perform the mapping.
 gpprsPythonScript :: Lens' GetPlanResponse (Maybe Text)
@@ -159,4 +161,4 @@ gpprsPythonScript = lens _gpprsPythonScript (\ s a -> s{_gpprsPythonScript = a})
 gpprsResponseStatus :: Lens' GetPlanResponse Int
 gpprsResponseStatus = lens _gpprsResponseStatus (\ s a -> s{_gpprsResponseStatus = a});
 
-instance NFData GetPlanResponse
+instance NFData GetPlanResponse where

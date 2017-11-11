@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteHAPG
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.CloudHSM.DeleteHAPG
     , dhrsStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'DeleteHapg' action.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteHAPG' smart constructor.
 newtype DeleteHAPG = DeleteHAPG'
-    { _dhHAPGARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhHAPGARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHAPG' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype DeleteHAPG = DeleteHAPG'
 deleteHAPG
     :: Text -- ^ 'dhHAPGARN'
     -> DeleteHAPG
-deleteHAPG pHAPGARN_ =
-    DeleteHAPG'
-    { _dhHAPGARN = pHAPGARN_
-    }
+deleteHAPG pHAPGARN_ = DeleteHAPG' {_dhHAPGARN = pHAPGARN_}
+
 
 -- | The ARN of the high-availability partition group to delete.
 dhHAPGARN :: Lens' DeleteHAPG Text
@@ -79,9 +78,9 @@ instance AWSRequest DeleteHAPG where
                  DeleteHAPGResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
-instance Hashable DeleteHAPG
+instance Hashable DeleteHAPG where
 
-instance NFData DeleteHAPG
+instance NFData DeleteHAPG where
 
 instance ToHeaders DeleteHAPG where
         toHeaders
@@ -108,9 +107,10 @@ instance ToQuery DeleteHAPG where
 --
 -- /See:/ 'deleteHAPGResponse' smart constructor.
 data DeleteHAPGResponse = DeleteHAPGResponse'
-    { _dhrsResponseStatus :: !Int
-    , _dhrsStatus         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _dhrsStatus         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHAPGResponse' with the minimum fields required to make a request.
 --
@@ -124,10 +124,9 @@ deleteHAPGResponse
     -> Text -- ^ 'dhrsStatus'
     -> DeleteHAPGResponse
 deleteHAPGResponse pResponseStatus_ pStatus_ =
-    DeleteHAPGResponse'
-    { _dhrsResponseStatus = pResponseStatus_
-    , _dhrsStatus = pStatus_
-    }
+  DeleteHAPGResponse'
+  {_dhrsResponseStatus = pResponseStatus_, _dhrsStatus = pStatus_}
+
 
 -- | -- | The response status code.
 dhrsResponseStatus :: Lens' DeleteHAPGResponse Int
@@ -137,4 +136,4 @@ dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = 
 dhrsStatus :: Lens' DeleteHAPGResponse Text
 dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});
 
-instance NFData DeleteHAPGResponse
+instance NFData DeleteHAPGResponse where

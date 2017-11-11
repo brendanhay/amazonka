@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.CognitoIdentityProvider.GetGroup
     , ggrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
 data GetGroup = GetGroup'
-    { _ggGroupName  :: !Text
-    , _ggUserPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggGroupName  :: {-# NOUNPACK #-}!Text
+  , _ggUserPoolId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ getGroup
     -> Text -- ^ 'ggUserPoolId'
     -> GetGroup
 getGroup pGroupName_ pUserPoolId_ =
-    GetGroup'
-    { _ggGroupName = pGroupName_
-    , _ggUserPoolId = pUserPoolId_
-    }
+  GetGroup' {_ggGroupName = pGroupName_, _ggUserPoolId = pUserPoolId_}
+
 
 -- | The name of the group.
 ggGroupName :: Lens' GetGroup Text
@@ -87,9 +86,9 @@ instance AWSRequest GetGroup where
                  GetGroupResponse' <$>
                    (x .?> "Group") <*> (pure (fromEnum s)))
 
-instance Hashable GetGroup
+instance Hashable GetGroup where
 
-instance NFData GetGroup
+instance NFData GetGroup where
 
 instance ToHeaders GetGroup where
         toHeaders
@@ -116,9 +115,10 @@ instance ToQuery GetGroup where
 
 -- | /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-    { _ggrsGroup          :: !(Maybe GroupType)
-    , _ggrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggrsGroup          :: {-# NOUNPACK #-}!(Maybe GroupType)
+  , _ggrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +131,9 @@ getGroupResponse
     :: Int -- ^ 'ggrsResponseStatus'
     -> GetGroupResponse
 getGroupResponse pResponseStatus_ =
-    GetGroupResponse'
-    { _ggrsGroup = Nothing
-    , _ggrsResponseStatus = pResponseStatus_
-    }
+  GetGroupResponse'
+  {_ggrsGroup = Nothing, _ggrsResponseStatus = pResponseStatus_}
+
 
 -- | The group object for the group.
 ggrsGroup :: Lens' GetGroupResponse (Maybe GroupType)
@@ -144,4 +143,4 @@ ggrsGroup = lens _ggrsGroup (\ s a -> s{_ggrsGroup = a});
 ggrsResponseStatus :: Lens' GetGroupResponse Int
 ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
 
-instance NFData GetGroupResponse
+instance NFData GetGroupResponse where

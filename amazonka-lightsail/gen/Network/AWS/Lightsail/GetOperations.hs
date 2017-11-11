@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetOperations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,18 +42,19 @@ module Network.AWS.Lightsail.GetOperations
     , gosrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getOperations' smart constructor.
 newtype GetOperations = GetOperations'
-    { _goPageToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goPageToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOperations' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype GetOperations = GetOperations'
 -- * 'goPageToken' - A token used for advancing to the next page of results from your get operations request.
 getOperations
     :: GetOperations
-getOperations =
-    GetOperations'
-    { _goPageToken = Nothing
-    }
+getOperations = GetOperations' {_goPageToken = Nothing}
+
 
 -- | A token used for advancing to the next page of results from your get operations request.
 goPageToken :: Lens' GetOperations (Maybe Text)
@@ -89,9 +88,9 @@ instance AWSRequest GetOperations where
                      (x .?> "operations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetOperations
+instance Hashable GetOperations where
 
-instance NFData GetOperations
+instance NFData GetOperations where
 
 instance ToHeaders GetOperations where
         toHeaders
@@ -115,10 +114,11 @@ instance ToQuery GetOperations where
 
 -- | /See:/ 'getOperationsResponse' smart constructor.
 data GetOperationsResponse = GetOperationsResponse'
-    { _gosrsNextPageToken  :: !(Maybe Text)
-    , _gosrsOperations     :: !(Maybe [Operation])
-    , _gosrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gosrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gosrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _gosrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOperationsResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +133,12 @@ getOperationsResponse
     :: Int -- ^ 'gosrsResponseStatus'
     -> GetOperationsResponse
 getOperationsResponse pResponseStatus_ =
-    GetOperationsResponse'
-    { _gosrsNextPageToken = Nothing
-    , _gosrsOperations = Nothing
-    , _gosrsResponseStatus = pResponseStatus_
-    }
+  GetOperationsResponse'
+  { _gosrsNextPageToken = Nothing
+  , _gosrsOperations = Nothing
+  , _gosrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token used for advancing to the next page of results from your get operations request.
 gosrsNextPageToken :: Lens' GetOperationsResponse (Maybe Text)
@@ -151,4 +152,4 @@ gosrsOperations = lens _gosrsOperations (\ s a -> s{_gosrsOperations = a}) . _De
 gosrsResponseStatus :: Lens' GetOperationsResponse Int
 gosrsResponseStatus = lens _gosrsResponseStatus (\ s a -> s{_gosrsResponseStatus = a});
 
-instance NFData GetOperationsResponse
+instance NFData GetOperationsResponse where

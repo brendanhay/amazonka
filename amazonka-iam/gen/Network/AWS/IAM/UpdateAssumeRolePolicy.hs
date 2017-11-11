@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     , UpdateAssumeRolePolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateAssumeRolePolicy' smart constructor.
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
-    { _uarpRoleName       :: !Text
-    , _uarpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uarpRoleName       :: {-# NOUNPACK #-}!Text
+  , _uarpPolicyDocument :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAssumeRolePolicy' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ updateAssumeRolePolicy
     -> Text -- ^ 'uarpPolicyDocument'
     -> UpdateAssumeRolePolicy
 updateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
-    UpdateAssumeRolePolicy'
-    { _uarpRoleName = pRoleName_
-    , _uarpPolicyDocument = pPolicyDocument_
-    }
+  UpdateAssumeRolePolicy'
+  {_uarpRoleName = pRoleName_, _uarpPolicyDocument = pPolicyDocument_}
+
 
 -- | The name of the role to update with the new policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
@@ -80,9 +80,9 @@ instance AWSRequest UpdateAssumeRolePolicy where
         response
           = receiveNull UpdateAssumeRolePolicyResponse'
 
-instance Hashable UpdateAssumeRolePolicy
+instance Hashable UpdateAssumeRolePolicy where
 
-instance NFData UpdateAssumeRolePolicy
+instance NFData UpdateAssumeRolePolicy where
 
 instance ToHeaders UpdateAssumeRolePolicy where
         toHeaders = const mempty
@@ -101,8 +101,9 @@ instance ToQuery UpdateAssumeRolePolicy where
 
 -- | /See:/ 'updateAssumeRolePolicyResponse' smart constructor.
 data UpdateAssumeRolePolicyResponse =
-    UpdateAssumeRolePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateAssumeRolePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAssumeRolePolicyResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,5 @@ updateAssumeRolePolicyResponse
     :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'
 
-instance NFData UpdateAssumeRolePolicyResponse
+
+instance NFData UpdateAssumeRolePolicyResponse where

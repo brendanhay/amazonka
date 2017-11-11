@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateKeyPair
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.EC2.CreateKeyPair
     , ckprsKeyMaterial
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreateKeyPair.
 --
@@ -59,9 +59,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
-    { _ckpDryRun  :: !(Maybe Bool)
-    , _ckpKeyName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckpDryRun  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ckpKeyName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateKeyPair' with the minimum fields required to make a request.
 --
@@ -74,10 +75,8 @@ createKeyPair
     :: Text -- ^ 'ckpKeyName'
     -> CreateKeyPair
 createKeyPair pKeyName_ =
-    CreateKeyPair'
-    { _ckpDryRun = Nothing
-    , _ckpKeyName = pKeyName_
-    }
+  CreateKeyPair' {_ckpDryRun = Nothing, _ckpKeyName = pKeyName_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
@@ -98,9 +97,9 @@ instance AWSRequest CreateKeyPair where
                      (x .@ "keyFingerprint")
                      <*> (x .@ "keyMaterial"))
 
-instance Hashable CreateKeyPair
+instance Hashable CreateKeyPair where
 
-instance NFData CreateKeyPair
+instance NFData CreateKeyPair where
 
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty
@@ -121,11 +120,12 @@ instance ToQuery CreateKeyPair where
 --
 -- /See:/ 'createKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprsResponseStatus :: !Int
-    , _ckprsKeyName        :: !Text
-    , _ckprsKeyFingerprint :: !Text
-    , _ckprsKeyMaterial    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ckprsKeyName        :: {-# NOUNPACK #-}!Text
+  , _ckprsKeyFingerprint :: {-# NOUNPACK #-}!Text
+  , _ckprsKeyMaterial    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateKeyPairResponse' with the minimum fields required to make a request.
 --
@@ -145,12 +145,13 @@ createKeyPairResponse
     -> Text -- ^ 'ckprsKeyMaterial'
     -> CreateKeyPairResponse
 createKeyPairResponse pResponseStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
-    CreateKeyPairResponse'
-    { _ckprsResponseStatus = pResponseStatus_
-    , _ckprsKeyName = pKeyName_
-    , _ckprsKeyFingerprint = pKeyFingerprint_
-    , _ckprsKeyMaterial = pKeyMaterial_
-    }
+  CreateKeyPairResponse'
+  { _ckprsResponseStatus = pResponseStatus_
+  , _ckprsKeyName = pKeyName_
+  , _ckprsKeyFingerprint = pKeyFingerprint_
+  , _ckprsKeyMaterial = pKeyMaterial_
+  }
+
 
 -- | -- | The response status code.
 ckprsResponseStatus :: Lens' CreateKeyPairResponse Int
@@ -168,4 +169,4 @@ ckprsKeyFingerprint = lens _ckprsKeyFingerprint (\ s a -> s{_ckprsKeyFingerprint
 ckprsKeyMaterial :: Lens' CreateKeyPairResponse Text
 ckprsKeyMaterial = lens _ckprsKeyMaterial (\ s a -> s{_ckprsKeyMaterial = a});
 
-instance NFData CreateKeyPairResponse
+instance NFData CreateKeyPairResponse where

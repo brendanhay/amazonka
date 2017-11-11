@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteExpression
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.DeleteExpression
     , delrsExpression
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DeleteExpression' @ operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteExpression' smart constructor.
 data DeleteExpression = DeleteExpression'
-    { _delDomainName     :: !Text
-    , _delExpressionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delDomainName     :: {-# NOUNPACK #-}!Text
+  , _delExpressionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteExpression' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ deleteExpression
     -> Text -- ^ 'delExpressionName'
     -> DeleteExpression
 deleteExpression pDomainName_ pExpressionName_ =
-    DeleteExpression'
-    { _delDomainName = pDomainName_
-    , _delExpressionName = pExpressionName_
-    }
+  DeleteExpression'
+  {_delDomainName = pDomainName_, _delExpressionName = pExpressionName_}
+
 
 -- | Undocumented member.
 delDomainName :: Lens' DeleteExpression Text
@@ -89,9 +89,9 @@ instance AWSRequest DeleteExpression where
                  DeleteExpressionResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Expression"))
 
-instance Hashable DeleteExpression
+instance Hashable DeleteExpression where
 
-instance NFData DeleteExpression
+instance NFData DeleteExpression where
 
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty
@@ -113,9 +113,10 @@ instance ToQuery DeleteExpression where
 --
 -- /See:/ 'deleteExpressionResponse' smart constructor.
 data DeleteExpressionResponse = DeleteExpressionResponse'
-    { _delrsResponseStatus :: !Int
-    , _delrsExpression     :: !ExpressionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _delrsExpression     :: {-# NOUNPACK #-}!ExpressionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteExpressionResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ deleteExpressionResponse
     -> ExpressionStatus -- ^ 'delrsExpression'
     -> DeleteExpressionResponse
 deleteExpressionResponse pResponseStatus_ pExpression_ =
-    DeleteExpressionResponse'
-    { _delrsResponseStatus = pResponseStatus_
-    , _delrsExpression = pExpression_
-    }
+  DeleteExpressionResponse'
+  {_delrsResponseStatus = pResponseStatus_, _delrsExpression = pExpression_}
+
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteExpressionResponse Int
@@ -142,4 +142,4 @@ delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus
 delrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus
 delrsExpression = lens _delrsExpression (\ s a -> s{_delrsExpression = a});
 
-instance NFData DeleteExpressionResponse
+instance NFData DeleteExpressionResponse where

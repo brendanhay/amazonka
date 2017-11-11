@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateKeysAndCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.IoT.CreateKeysAndCertificate
     , ckacrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreateKeysAndCertificate operation.
 --
@@ -55,8 +55,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createKeysAndCertificate' smart constructor.
 newtype CreateKeysAndCertificate = CreateKeysAndCertificate'
-    { _ckacSetAsActive :: Maybe Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ckacSetAsActive :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateKeysAndCertificate' with the minimum fields required to make a request.
 --
@@ -66,9 +67,8 @@ newtype CreateKeysAndCertificate = CreateKeysAndCertificate'
 createKeysAndCertificate
     :: CreateKeysAndCertificate
 createKeysAndCertificate =
-    CreateKeysAndCertificate'
-    { _ckacSetAsActive = Nothing
-    }
+  CreateKeysAndCertificate' {_ckacSetAsActive = Nothing}
+
 
 -- | Specifies whether the certificate is active.
 ckacSetAsActive :: Lens' CreateKeysAndCertificate (Maybe Bool)
@@ -87,9 +87,9 @@ instance AWSRequest CreateKeysAndCertificate where
                      <*> (x .?> "certificateId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateKeysAndCertificate
+instance Hashable CreateKeysAndCertificate where
 
-instance NFData CreateKeysAndCertificate
+instance NFData CreateKeysAndCertificate where
 
 instance ToHeaders CreateKeysAndCertificate where
         toHeaders = const mempty
@@ -110,12 +110,13 @@ instance ToQuery CreateKeysAndCertificate where
 --
 -- /See:/ 'createKeysAndCertificateResponse' smart constructor.
 data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
-    { _ckacrsKeyPair        :: !(Maybe KeyPair)
-    , _ckacrsCertificatePem :: !(Maybe Text)
-    , _ckacrsCertificateARN :: !(Maybe Text)
-    , _ckacrsCertificateId  :: !(Maybe Text)
-    , _ckacrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ckacrsKeyPair        :: {-# NOUNPACK #-}!(Maybe KeyPair)
+  , _ckacrsCertificatePem :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ckacrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ckacrsCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ckacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateKeysAndCertificateResponse' with the minimum fields required to make a request.
 --
@@ -134,13 +135,14 @@ createKeysAndCertificateResponse
     :: Int -- ^ 'ckacrsResponseStatus'
     -> CreateKeysAndCertificateResponse
 createKeysAndCertificateResponse pResponseStatus_ =
-    CreateKeysAndCertificateResponse'
-    { _ckacrsKeyPair = Nothing
-    , _ckacrsCertificatePem = Nothing
-    , _ckacrsCertificateARN = Nothing
-    , _ckacrsCertificateId = Nothing
-    , _ckacrsResponseStatus = pResponseStatus_
-    }
+  CreateKeysAndCertificateResponse'
+  { _ckacrsKeyPair = Nothing
+  , _ckacrsCertificatePem = Nothing
+  , _ckacrsCertificateARN = Nothing
+  , _ckacrsCertificateId = Nothing
+  , _ckacrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The generated key pair.
 ckacrsKeyPair :: Lens' CreateKeysAndCertificateResponse (Maybe KeyPair)
@@ -163,3 +165,4 @@ ckacrsResponseStatus :: Lens' CreateKeysAndCertificateResponse Int
 ckacrsResponseStatus = lens _ckacrsResponseStatus (\ s a -> s{_ckacrsResponseStatus = a});
 
 instance NFData CreateKeysAndCertificateResponse
+         where

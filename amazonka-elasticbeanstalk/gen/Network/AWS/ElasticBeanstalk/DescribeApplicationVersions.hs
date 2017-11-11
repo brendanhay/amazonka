@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     , davrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe application versions.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeApplicationVersions' smart constructor.
 data DescribeApplicationVersions = DescribeApplicationVersions'
-    { _dVersionLabels   :: !(Maybe [Text])
-    , _dNextToken       :: !(Maybe Text)
-    , _dMaxRecords      :: !(Maybe Nat)
-    , _dApplicationName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dVersionLabels   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMaxRecords      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeApplicationVersions' with the minimum fields required to make a request.
 --
@@ -74,12 +75,13 @@ data DescribeApplicationVersions = DescribeApplicationVersions'
 describeApplicationVersions
     :: DescribeApplicationVersions
 describeApplicationVersions =
-    DescribeApplicationVersions'
-    { _dVersionLabels = Nothing
-    , _dNextToken = Nothing
-    , _dMaxRecords = Nothing
-    , _dApplicationName = Nothing
-    }
+  DescribeApplicationVersions'
+  { _dVersionLabels = Nothing
+  , _dNextToken = Nothing
+  , _dMaxRecords = Nothing
+  , _dApplicationName = Nothing
+  }
+
 
 -- | Specify a version label to show a specific application version.
 dVersionLabels :: Lens' DescribeApplicationVersions [Text]
@@ -111,9 +113,9 @@ instance AWSRequest DescribeApplicationVersions where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeApplicationVersions
+instance Hashable DescribeApplicationVersions where
 
-instance NFData DescribeApplicationVersions
+instance NFData DescribeApplicationVersions where
 
 instance ToHeaders DescribeApplicationVersions where
         toHeaders = const mempty
@@ -139,10 +141,11 @@ instance ToQuery DescribeApplicationVersions where
 --
 -- /See:/ 'describeApplicationVersionsResponse' smart constructor.
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
-    { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
-    , _davrsNextToken           :: !(Maybe Text)
-    , _davrsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _davrsApplicationVersions :: {-# NOUNPACK #-}!(Maybe [ApplicationVersionDescription])
+  , _davrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _davrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeApplicationVersionsResponse' with the minimum fields required to make a request.
 --
@@ -157,11 +160,12 @@ describeApplicationVersionsResponse
     :: Int -- ^ 'davrsResponseStatus'
     -> DescribeApplicationVersionsResponse
 describeApplicationVersionsResponse pResponseStatus_ =
-    DescribeApplicationVersionsResponse'
-    { _davrsApplicationVersions = Nothing
-    , _davrsNextToken = Nothing
-    , _davrsResponseStatus = pResponseStatus_
-    }
+  DescribeApplicationVersionsResponse'
+  { _davrsApplicationVersions = Nothing
+  , _davrsNextToken = Nothing
+  , _davrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | List of @ApplicationVersionDescription@ objects sorted in order of creation.
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
@@ -176,3 +180,4 @@ davrsResponseStatus :: Lens' DescribeApplicationVersionsResponse Int
 davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});
 
 instance NFData DescribeApplicationVersionsResponse
+         where

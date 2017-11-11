@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Polly.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Polly.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Polly.Types.Sum
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.Polly.Types.Sum
+import Network.AWS.Prelude
 
 -- | Provides lexicon name and lexicon content in string format. For more information, see <https://www.w3.org/TR/pronunciation-lexicon/ Pronunciation Lexicon Specification (PLS) Version 1.0> .
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'lexicon' smart constructor.
 data Lexicon = Lexicon'
-    { _lContent :: !(Maybe Text)
-    , _lName    :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _lContent :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lName    :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Lexicon' with the minimum fields required to make a request.
 --
@@ -40,11 +41,8 @@ data Lexicon = Lexicon'
 -- * 'lName' - Name of the lexicon.
 lexicon
     :: Lexicon
-lexicon =
-    Lexicon'
-    { _lContent = Nothing
-    , _lName = Nothing
-    }
+lexicon = Lexicon' {_lContent = Nothing, _lName = Nothing}
+
 
 -- | Lexicon content in string format. The content of a lexicon must be in PLS format.
 lContent :: Lens' Lexicon (Maybe Text)
@@ -60,9 +58,9 @@ instance FromJSON Lexicon where
               (\ x ->
                  Lexicon' <$> (x .:? "Content") <*> (x .:? "Name"))
 
-instance Hashable Lexicon
+instance Hashable Lexicon where
 
-instance NFData Lexicon
+instance NFData Lexicon where
 
 -- | Contains metadata describing the lexicon such as the number of lexemes, language code, and so on. For more information, see <http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html Managing Lexicons> .
 --
@@ -70,13 +68,14 @@ instance NFData Lexicon
 --
 -- /See:/ 'lexiconAttributes' smart constructor.
 data LexiconAttributes = LexiconAttributes'
-    { _laLanguageCode :: !(Maybe LanguageCode)
-    , _laSize         :: !(Maybe Int)
-    , _laLexemesCount :: !(Maybe Int)
-    , _laLexiconARN   :: !(Maybe Text)
-    , _laAlphabet     :: !(Maybe Text)
-    , _laLastModified :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laLanguageCode :: {-# NOUNPACK #-}!(Maybe LanguageCode)
+  , _laSize         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _laLexemesCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _laLexiconARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laAlphabet     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laLastModified :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LexiconAttributes' with the minimum fields required to make a request.
 --
@@ -96,14 +95,15 @@ data LexiconAttributes = LexiconAttributes'
 lexiconAttributes
     :: LexiconAttributes
 lexiconAttributes =
-    LexiconAttributes'
-    { _laLanguageCode = Nothing
-    , _laSize = Nothing
-    , _laLexemesCount = Nothing
-    , _laLexiconARN = Nothing
-    , _laAlphabet = Nothing
-    , _laLastModified = Nothing
-    }
+  LexiconAttributes'
+  { _laLanguageCode = Nothing
+  , _laSize = Nothing
+  , _laLexemesCount = Nothing
+  , _laLexiconARN = Nothing
+  , _laAlphabet = Nothing
+  , _laLastModified = Nothing
+  }
+
 
 -- | Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
 laLanguageCode :: Lens' LexiconAttributes (Maybe LanguageCode)
@@ -140,9 +140,9 @@ instance FromJSON LexiconAttributes where
                      <*> (x .:? "Alphabet")
                      <*> (x .:? "LastModified"))
 
-instance Hashable LexiconAttributes
+instance Hashable LexiconAttributes where
 
-instance NFData LexiconAttributes
+instance NFData LexiconAttributes where
 
 -- | Describes the content of the lexicon.
 --
@@ -150,9 +150,10 @@ instance NFData LexiconAttributes
 --
 -- /See:/ 'lexiconDescription' smart constructor.
 data LexiconDescription = LexiconDescription'
-    { _ldAttributes :: !(Maybe LexiconAttributes)
-    , _ldName       :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ldAttributes :: {-# NOUNPACK #-}!(Maybe LexiconAttributes)
+  , _ldName       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LexiconDescription' with the minimum fields required to make a request.
 --
@@ -164,10 +165,8 @@ data LexiconDescription = LexiconDescription'
 lexiconDescription
     :: LexiconDescription
 lexiconDescription =
-    LexiconDescription'
-    { _ldAttributes = Nothing
-    , _ldName = Nothing
-    }
+  LexiconDescription' {_ldAttributes = Nothing, _ldName = Nothing}
+
 
 -- | Provides lexicon metadata.
 ldAttributes :: Lens' LexiconDescription (Maybe LexiconAttributes)
@@ -184,9 +183,9 @@ instance FromJSON LexiconDescription where
                  LexiconDescription' <$>
                    (x .:? "Attributes") <*> (x .:? "Name"))
 
-instance Hashable LexiconDescription
+instance Hashable LexiconDescription where
 
-instance NFData LexiconDescription
+instance NFData LexiconDescription where
 
 -- | Description of the voice.
 --
@@ -194,12 +193,13 @@ instance NFData LexiconDescription
 --
 -- /See:/ 'voice' smart constructor.
 data Voice = Voice'
-    { _vLanguageCode :: !(Maybe LanguageCode)
-    , _vLanguageName :: !(Maybe Text)
-    , _vGender       :: !(Maybe Gender)
-    , _vName         :: !(Maybe Text)
-    , _vId           :: !(Maybe VoiceId)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vLanguageCode :: {-# NOUNPACK #-}!(Maybe LanguageCode)
+  , _vLanguageName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vGender       :: {-# NOUNPACK #-}!(Maybe Gender)
+  , _vName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vId           :: {-# NOUNPACK #-}!(Maybe VoiceId)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Voice' with the minimum fields required to make a request.
 --
@@ -217,13 +217,14 @@ data Voice = Voice'
 voice
     :: Voice
 voice =
-    Voice'
-    { _vLanguageCode = Nothing
-    , _vLanguageName = Nothing
-    , _vGender = Nothing
-    , _vName = Nothing
-    , _vId = Nothing
-    }
+  Voice'
+  { _vLanguageCode = Nothing
+  , _vLanguageName = Nothing
+  , _vGender = Nothing
+  , _vName = Nothing
+  , _vId = Nothing
+  }
+
 
 -- | Language code of the voice.
 vLanguageCode :: Lens' Voice (Maybe LanguageCode)
@@ -255,6 +256,6 @@ instance FromJSON Voice where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
-instance Hashable Voice
+instance Hashable Voice where
 
-instance NFData Voice
+instance NFData Voice where

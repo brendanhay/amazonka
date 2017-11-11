@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListHostedZones
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,13 +47,13 @@ module Network.AWS.Route53.ListHostedZones
     , lhzrsMaxItems
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.
 --
@@ -61,10 +61,11 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listHostedZones' smart constructor.
 data ListHostedZones = ListHostedZones'
-    { _lhzDelegationSetId :: !(Maybe ResourceId)
-    , _lhzMarker          :: !(Maybe Text)
-    , _lhzMaxItems        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhzDelegationSetId :: {-# NOUNPACK #-}!(Maybe ResourceId)
+  , _lhzMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhzMaxItems        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHostedZones' with the minimum fields required to make a request.
 --
@@ -78,11 +79,9 @@ data ListHostedZones = ListHostedZones'
 listHostedZones
     :: ListHostedZones
 listHostedZones =
-    ListHostedZones'
-    { _lhzDelegationSetId = Nothing
-    , _lhzMarker = Nothing
-    , _lhzMaxItems = Nothing
-    }
+  ListHostedZones'
+  {_lhzDelegationSetId = Nothing, _lhzMarker = Nothing, _lhzMaxItems = Nothing}
+
 
 -- | If you're using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set.
 lhzDelegationSetId :: Lens' ListHostedZones (Maybe ResourceId)
@@ -118,9 +117,9 @@ instance AWSRequest ListHostedZones where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
-instance Hashable ListHostedZones
+instance Hashable ListHostedZones where
 
-instance NFData ListHostedZones
+instance NFData ListHostedZones where
 
 instance ToHeaders ListHostedZones where
         toHeaders = const mempty
@@ -136,13 +135,14 @@ instance ToQuery ListHostedZones where
 
 -- | /See:/ 'listHostedZonesResponse' smart constructor.
 data ListHostedZonesResponse = ListHostedZonesResponse'
-    { _lhzrsMarker         :: !(Maybe Text)
-    , _lhzrsNextMarker     :: !(Maybe Text)
-    , _lhzrsResponseStatus :: !Int
-    , _lhzrsHostedZones    :: ![HostedZone]
-    , _lhzrsIsTruncated    :: !Bool
-    , _lhzrsMaxItems       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhzrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhzrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhzrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lhzrsHostedZones    :: {-# NOUNPACK #-}![HostedZone]
+  , _lhzrsIsTruncated    :: {-# NOUNPACK #-}!Bool
+  , _lhzrsMaxItems       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHostedZonesResponse' with the minimum fields required to make a request.
 --
@@ -165,14 +165,15 @@ listHostedZonesResponse
     -> Text -- ^ 'lhzrsMaxItems'
     -> ListHostedZonesResponse
 listHostedZonesResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
-    ListHostedZonesResponse'
-    { _lhzrsMarker = Nothing
-    , _lhzrsNextMarker = Nothing
-    , _lhzrsResponseStatus = pResponseStatus_
-    , _lhzrsHostedZones = mempty
-    , _lhzrsIsTruncated = pIsTruncated_
-    , _lhzrsMaxItems = pMaxItems_
-    }
+  ListHostedZonesResponse'
+  { _lhzrsMarker = Nothing
+  , _lhzrsNextMarker = Nothing
+  , _lhzrsResponseStatus = pResponseStatus_
+  , _lhzrsHostedZones = mempty
+  , _lhzrsIsTruncated = pIsTruncated_
+  , _lhzrsMaxItems = pMaxItems_
+  }
+
 
 -- | For the second and subsequent calls to @ListHostedZones@ , @Marker@ is the value that you specified for the @marker@ parameter in the request that produced the current response.
 lhzrsMarker :: Lens' ListHostedZonesResponse (Maybe Text)
@@ -198,4 +199,4 @@ lhzrsIsTruncated = lens _lhzrsIsTruncated (\ s a -> s{_lhzrsIsTruncated = a});
 lhzrsMaxItems :: Lens' ListHostedZonesResponse Text
 lhzrsMaxItems = lens _lhzrsMaxItems (\ s a -> s{_lhzrsMaxItems = a});
 
-instance NFData ListHostedZonesResponse
+instance NFData ListHostedZonesResponse where

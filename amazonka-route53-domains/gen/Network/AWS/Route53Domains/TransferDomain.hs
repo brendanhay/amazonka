@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.TransferDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,12 +56,12 @@ module Network.AWS.Route53Domains.TransferDomain
     , tdrsOperationId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The TransferDomain request includes the following elements.
 --
@@ -69,19 +69,20 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'transferDomain' smart constructor.
 data TransferDomain = TransferDomain'
-    { _tdPrivacyProtectTechContact       :: !(Maybe Bool)
-    , _tdPrivacyProtectRegistrantContact :: !(Maybe Bool)
-    , _tdAutoRenew                       :: !(Maybe Bool)
-    , _tdPrivacyProtectAdminContact      :: !(Maybe Bool)
-    , _tdIdNLangCode                     :: !(Maybe Text)
-    , _tdAuthCode                        :: !(Maybe (Sensitive Text))
-    , _tdNameservers                     :: !(Maybe [Nameserver])
-    , _tdDomainName                      :: !Text
-    , _tdDurationInYears                 :: !Nat
-    , _tdAdminContact                    :: !(Sensitive ContactDetail)
-    , _tdRegistrantContact               :: !(Sensitive ContactDetail)
-    , _tdTechContact                     :: !(Sensitive ContactDetail)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _tdPrivacyProtectTechContact :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tdPrivacyProtectRegistrantContact :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tdAutoRenew :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tdPrivacyProtectAdminContact :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tdIdNLangCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdAuthCode :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _tdNameservers :: {-# NOUNPACK #-}!(Maybe [Nameserver])
+  , _tdDomainName :: {-# NOUNPACK #-}!Text
+  , _tdDurationInYears :: {-# NOUNPACK #-}!Nat
+  , _tdAdminContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  , _tdRegistrantContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  , _tdTechContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TransferDomain' with the minimum fields required to make a request.
 --
@@ -118,20 +119,21 @@ transferDomain
     -> ContactDetail -- ^ 'tdTechContact'
     -> TransferDomain
 transferDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_ pTechContact_ =
-    TransferDomain'
-    { _tdPrivacyProtectTechContact = Nothing
-    , _tdPrivacyProtectRegistrantContact = Nothing
-    , _tdAutoRenew = Nothing
-    , _tdPrivacyProtectAdminContact = Nothing
-    , _tdIdNLangCode = Nothing
-    , _tdAuthCode = Nothing
-    , _tdNameservers = Nothing
-    , _tdDomainName = pDomainName_
-    , _tdDurationInYears = _Nat # pDurationInYears_
-    , _tdAdminContact = _Sensitive # pAdminContact_
-    , _tdRegistrantContact = _Sensitive # pRegistrantContact_
-    , _tdTechContact = _Sensitive # pTechContact_
-    }
+  TransferDomain'
+  { _tdPrivacyProtectTechContact = Nothing
+  , _tdPrivacyProtectRegistrantContact = Nothing
+  , _tdAutoRenew = Nothing
+  , _tdPrivacyProtectAdminContact = Nothing
+  , _tdIdNLangCode = Nothing
+  , _tdAuthCode = Nothing
+  , _tdNameservers = Nothing
+  , _tdDomainName = pDomainName_
+  , _tdDurationInYears = _Nat # pDurationInYears_
+  , _tdAdminContact = _Sensitive # pAdminContact_
+  , _tdRegistrantContact = _Sensitive # pRegistrantContact_
+  , _tdTechContact = _Sensitive # pTechContact_
+  }
+
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter. Default: @true@
 tdPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
@@ -190,9 +192,9 @@ instance AWSRequest TransferDomain where
                  TransferDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
-instance Hashable TransferDomain
+instance Hashable TransferDomain where
 
-instance NFData TransferDomain
+instance NFData TransferDomain where
 
 instance ToHeaders TransferDomain where
         toHeaders
@@ -236,9 +238,10 @@ instance ToQuery TransferDomain where
 --
 -- /See:/ 'transferDomainResponse' smart constructor.
 data TransferDomainResponse = TransferDomainResponse'
-    { _tdrsResponseStatus :: !Int
-    , _tdrsOperationId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _tdrsOperationId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TransferDomainResponse' with the minimum fields required to make a request.
 --
@@ -252,10 +255,9 @@ transferDomainResponse
     -> Text -- ^ 'tdrsOperationId'
     -> TransferDomainResponse
 transferDomainResponse pResponseStatus_ pOperationId_ =
-    TransferDomainResponse'
-    { _tdrsResponseStatus = pResponseStatus_
-    , _tdrsOperationId = pOperationId_
-    }
+  TransferDomainResponse'
+  {_tdrsResponseStatus = pResponseStatus_, _tdrsOperationId = pOperationId_}
+
 
 -- | -- | The response status code.
 tdrsResponseStatus :: Lens' TransferDomainResponse Int
@@ -265,4 +267,4 @@ tdrsResponseStatus = lens _tdrsResponseStatus (\ s a -> s{_tdrsResponseStatus = 
 tdrsOperationId :: Lens' TransferDomainResponse Text
 tdrsOperationId = lens _tdrsOperationId (\ s a -> s{_tdrsOperationId = a});
 
-instance NFData TransferDomainResponse
+instance NFData TransferDomainResponse where

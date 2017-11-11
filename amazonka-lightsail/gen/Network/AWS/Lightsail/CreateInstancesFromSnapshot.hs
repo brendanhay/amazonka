@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateInstancesFromSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,22 +42,23 @@ module Network.AWS.Lightsail.CreateInstancesFromSnapshot
     , cifsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createInstancesFromSnapshot' smart constructor.
 data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
-    { _cifsUserData             :: !(Maybe Text)
-    , _cifsKeyPairName          :: !(Maybe Text)
-    , _cifsInstanceNames        :: ![Text]
-    , _cifsAvailabilityZone     :: !Text
-    , _cifsInstanceSnapshotName :: !Text
-    , _cifsBundleId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cifsUserData             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cifsKeyPairName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cifsInstanceNames        :: {-# NOUNPACK #-}![Text]
+  , _cifsAvailabilityZone     :: {-# NOUNPACK #-}!Text
+  , _cifsInstanceSnapshotName :: {-# NOUNPACK #-}!Text
+  , _cifsBundleId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstancesFromSnapshot' with the minimum fields required to make a request.
 --
@@ -80,14 +81,15 @@ createInstancesFromSnapshot
     -> Text -- ^ 'cifsBundleId'
     -> CreateInstancesFromSnapshot
 createInstancesFromSnapshot pAvailabilityZone_ pInstanceSnapshotName_ pBundleId_ =
-    CreateInstancesFromSnapshot'
-    { _cifsUserData = Nothing
-    , _cifsKeyPairName = Nothing
-    , _cifsInstanceNames = mempty
-    , _cifsAvailabilityZone = pAvailabilityZone_
-    , _cifsInstanceSnapshotName = pInstanceSnapshotName_
-    , _cifsBundleId = pBundleId_
-    }
+  CreateInstancesFromSnapshot'
+  { _cifsUserData = Nothing
+  , _cifsKeyPairName = Nothing
+  , _cifsInstanceNames = mempty
+  , _cifsAvailabilityZone = pAvailabilityZone_
+  , _cifsInstanceSnapshotName = pInstanceSnapshotName_
+  , _cifsBundleId = pBundleId_
+  }
+
 
 -- | You can create a launch script that configures a server with additional user data. For example, @apt-get –y update@ .
 cifsUserData :: Lens' CreateInstancesFromSnapshot (Maybe Text)
@@ -124,9 +126,9 @@ instance AWSRequest CreateInstancesFromSnapshot where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateInstancesFromSnapshot
+instance Hashable CreateInstancesFromSnapshot where
 
-instance NFData CreateInstancesFromSnapshot
+instance NFData CreateInstancesFromSnapshot where
 
 instance ToHeaders CreateInstancesFromSnapshot where
         toHeaders
@@ -159,9 +161,10 @@ instance ToQuery CreateInstancesFromSnapshot where
 
 -- | /See:/ 'createInstancesFromSnapshotResponse' smart constructor.
 data CreateInstancesFromSnapshotResponse = CreateInstancesFromSnapshotResponse'
-    { _cifsrsOperations     :: !(Maybe [Operation])
-    , _cifsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cifsrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _cifsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstancesFromSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -174,10 +177,9 @@ createInstancesFromSnapshotResponse
     :: Int -- ^ 'cifsrsResponseStatus'
     -> CreateInstancesFromSnapshotResponse
 createInstancesFromSnapshotResponse pResponseStatus_ =
-    CreateInstancesFromSnapshotResponse'
-    { _cifsrsOperations = Nothing
-    , _cifsrsResponseStatus = pResponseStatus_
-    }
+  CreateInstancesFromSnapshotResponse'
+  {_cifsrsOperations = Nothing, _cifsrsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your create instances from snapshot request.
 cifsrsOperations :: Lens' CreateInstancesFromSnapshotResponse [Operation]
@@ -188,3 +190,4 @@ cifsrsResponseStatus :: Lens' CreateInstancesFromSnapshotResponse Int
 cifsrsResponseStatus = lens _cifsrsResponseStatus (\ s a -> s{_cifsrsResponseStatus = a});
 
 instance NFData CreateInstancesFromSnapshotResponse
+         where

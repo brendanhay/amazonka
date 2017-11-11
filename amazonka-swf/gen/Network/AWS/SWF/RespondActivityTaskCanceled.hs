@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RespondActivityTaskCanceled
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,18 +55,19 @@ module Network.AWS.SWF.RespondActivityTaskCanceled
     , RespondActivityTaskCanceledResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'respondActivityTaskCanceled' smart constructor.
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled'
-    { _rDetails   :: !(Maybe Text)
-    , _rTaskToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rDetails   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rTaskToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondActivityTaskCanceled' with the minimum fields required to make a request.
 --
@@ -79,10 +80,8 @@ respondActivityTaskCanceled
     :: Text -- ^ 'rTaskToken'
     -> RespondActivityTaskCanceled
 respondActivityTaskCanceled pTaskToken_ =
-    RespondActivityTaskCanceled'
-    { _rDetails = Nothing
-    , _rTaskToken = pTaskToken_
-    }
+  RespondActivityTaskCanceled' {_rDetails = Nothing, _rTaskToken = pTaskToken_}
+
 
 -- | Information about the cancellation.
 rDetails :: Lens' RespondActivityTaskCanceled (Maybe Text)
@@ -99,9 +98,9 @@ instance AWSRequest RespondActivityTaskCanceled where
         response
           = receiveNull RespondActivityTaskCanceledResponse'
 
-instance Hashable RespondActivityTaskCanceled
+instance Hashable RespondActivityTaskCanceled where
 
-instance NFData RespondActivityTaskCanceled
+instance NFData RespondActivityTaskCanceled where
 
 instance ToHeaders RespondActivityTaskCanceled where
         toHeaders
@@ -128,8 +127,9 @@ instance ToQuery RespondActivityTaskCanceled where
 
 -- | /See:/ 'respondActivityTaskCanceledResponse' smart constructor.
 data RespondActivityTaskCanceledResponse =
-    RespondActivityTaskCanceledResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RespondActivityTaskCanceledResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondActivityTaskCanceledResponse' with the minimum fields required to make a request.
 --
@@ -137,4 +137,6 @@ respondActivityTaskCanceledResponse
     :: RespondActivityTaskCanceledResponse
 respondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse'
 
+
 instance NFData RespondActivityTaskCanceledResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeTable
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.DynamoDB.DescribeTable
     , drsResponseStatus
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @DescribeTable@ operation.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTable' smart constructor.
 newtype DescribeTable = DescribeTable'
-    { _dTableName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dTableName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTable' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ newtype DescribeTable = DescribeTable'
 describeTable
     :: Text -- ^ 'dTableName'
     -> DescribeTable
-describeTable pTableName_ =
-    DescribeTable'
-    { _dTableName = pTableName_
-    }
+describeTable pTableName_ = DescribeTable' {_dTableName = pTableName_}
+
 
 -- | The name of the table to describe.
 dTableName :: Lens' DescribeTable Text
@@ -79,9 +78,9 @@ instance AWSRequest DescribeTable where
                  DescribeTableResponse' <$>
                    (x .?> "Table") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTable
+instance Hashable DescribeTable where
 
-instance NFData DescribeTable
+instance NFData DescribeTable where
 
 instance ToHeaders DescribeTable where
         toHeaders
@@ -109,9 +108,10 @@ instance ToQuery DescribeTable where
 --
 -- /See:/ 'describeTableResponse' smart constructor.
 data DescribeTableResponse = DescribeTableResponse'
-    { _drsTable          :: !(Maybe TableDescription)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsTable          :: {-# NOUNPACK #-}!(Maybe TableDescription)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTableResponse' with the minimum fields required to make a request.
 --
@@ -124,10 +124,9 @@ describeTableResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeTableResponse
 describeTableResponse pResponseStatus_ =
-    DescribeTableResponse'
-    { _drsTable = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeTableResponse'
+  {_drsTable = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | The properties of the table.
 drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
@@ -137,4 +136,4 @@ drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
 drsResponseStatus :: Lens' DescribeTableResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeTableResponse
+instance NFData DescribeTableResponse where

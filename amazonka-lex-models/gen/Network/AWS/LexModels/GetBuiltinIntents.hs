@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBuiltinIntents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.LexModels.GetBuiltinIntents
     , grsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBuiltinIntents' smart constructor.
 data GetBuiltinIntents = GetBuiltinIntents'
-    { _gbiLocale            :: !(Maybe Locale)
-    , _gbiNextToken         :: !(Maybe Text)
-    , _gbiSignatureContains :: !(Maybe Text)
-    , _gbiMaxResults        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbiLocale            :: {-# NOUNPACK #-}!(Maybe Locale)
+  , _gbiNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbiSignatureContains :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbiMaxResults        :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBuiltinIntents' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ data GetBuiltinIntents = GetBuiltinIntents'
 getBuiltinIntents
     :: GetBuiltinIntents
 getBuiltinIntents =
-    GetBuiltinIntents'
-    { _gbiLocale = Nothing
-    , _gbiNextToken = Nothing
-    , _gbiSignatureContains = Nothing
-    , _gbiMaxResults = Nothing
-    }
+  GetBuiltinIntents'
+  { _gbiLocale = Nothing
+  , _gbiNextToken = Nothing
+  , _gbiSignatureContains = Nothing
+  , _gbiMaxResults = Nothing
+  }
+
 
 -- | A list of locales that the intent supports.
 gbiLocale :: Lens' GetBuiltinIntents (Maybe Locale)
@@ -105,9 +107,9 @@ instance AWSRequest GetBuiltinIntents where
                    (x .?> "intents" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBuiltinIntents
+instance Hashable GetBuiltinIntents where
 
-instance NFData GetBuiltinIntents
+instance NFData GetBuiltinIntents where
 
 instance ToHeaders GetBuiltinIntents where
         toHeaders
@@ -129,10 +131,11 @@ instance ToQuery GetBuiltinIntents where
 
 -- | /See:/ 'getBuiltinIntentsResponse' smart constructor.
 data GetBuiltinIntentsResponse = GetBuiltinIntentsResponse'
-    { _grsIntents        :: !(Maybe [BuiltinIntentMetadata])
-    , _grsNextToken      :: !(Maybe Text)
-    , _grsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsIntents        :: {-# NOUNPACK #-}!(Maybe [BuiltinIntentMetadata])
+  , _grsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBuiltinIntentsResponse' with the minimum fields required to make a request.
 --
@@ -147,11 +150,12 @@ getBuiltinIntentsResponse
     :: Int -- ^ 'grsResponseStatus'
     -> GetBuiltinIntentsResponse
 getBuiltinIntentsResponse pResponseStatus_ =
-    GetBuiltinIntentsResponse'
-    { _grsIntents = Nothing
-    , _grsNextToken = Nothing
-    , _grsResponseStatus = pResponseStatus_
-    }
+  GetBuiltinIntentsResponse'
+  { _grsIntents = Nothing
+  , _grsNextToken = Nothing
+  , _grsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of @builtinIntentMetadata@ objects, one for each intent in the response.
 grsIntents :: Lens' GetBuiltinIntentsResponse [BuiltinIntentMetadata]
@@ -165,4 +169,4 @@ grsNextToken = lens _grsNextToken (\ s a -> s{_grsNextToken = a});
 grsResponseStatus :: Lens' GetBuiltinIntentsResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
-instance NFData GetBuiltinIntentsResponse
+instance NFData GetBuiltinIntentsResponse where

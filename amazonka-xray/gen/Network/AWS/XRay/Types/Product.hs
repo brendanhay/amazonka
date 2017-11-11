@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.XRay.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.XRay.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.XRay.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.XRay.Types.Sum
 
 -- | An alias for an edge.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.XRay.Types.Sum
 --
 -- /See:/ 'alias' smart constructor.
 data Alias = Alias'
-    { _aNames :: !(Maybe [Text])
-    , _aName  :: !(Maybe Text)
-    , _aType  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _aName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aType  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Alias' with the minimum fields required to make a request.
 --
@@ -43,12 +44,8 @@ data Alias = Alias'
 -- * 'aType' - The type of the alias.
 alias
     :: Alias
-alias =
-    Alias'
-    { _aNames = Nothing
-    , _aName = Nothing
-    , _aType = Nothing
-    }
+alias = Alias' {_aNames = Nothing, _aName = Nothing, _aType = Nothing}
+
 
 -- | A list of names for the alias, including the canonical name.
 aNames :: Lens' Alias [Text]
@@ -70,9 +67,9 @@ instance FromJSON Alias where
                    (x .:? "Names" .!= mempty) <*> (x .:? "Name") <*>
                      (x .:? "Type"))
 
-instance Hashable Alias
+instance Hashable Alias where
 
-instance NFData Alias
+instance NFData Alias where
 
 -- | Value of a segment annotation. Has one of three value types: Number, Boolean or String.
 --
@@ -80,10 +77,11 @@ instance NFData Alias
 --
 -- /See:/ 'annotationValue' smart constructor.
 data AnnotationValue = AnnotationValue'
-    { _avNumberValue  :: !(Maybe Double)
-    , _avStringValue  :: !(Maybe Text)
-    , _avBooleanValue :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avNumberValue  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _avStringValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avBooleanValue :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnnotationValue' with the minimum fields required to make a request.
 --
@@ -97,11 +95,12 @@ data AnnotationValue = AnnotationValue'
 annotationValue
     :: AnnotationValue
 annotationValue =
-    AnnotationValue'
-    { _avNumberValue = Nothing
-    , _avStringValue = Nothing
-    , _avBooleanValue = Nothing
-    }
+  AnnotationValue'
+  { _avNumberValue = Nothing
+  , _avStringValue = Nothing
+  , _avBooleanValue = Nothing
+  }
+
 
 -- | Value for a Number annotation.
 avNumberValue :: Lens' AnnotationValue (Maybe Double)
@@ -123,9 +122,9 @@ instance FromJSON AnnotationValue where
                    (x .:? "NumberValue") <*> (x .:? "StringValue") <*>
                      (x .:? "BooleanValue"))
 
-instance Hashable AnnotationValue
+instance Hashable AnnotationValue where
 
-instance NFData AnnotationValue
+instance NFData AnnotationValue where
 
 -- |
 --
@@ -133,13 +132,14 @@ instance NFData AnnotationValue
 --
 -- /See:/ 'backendConnectionErrors' smart constructor.
 data BackendConnectionErrors = BackendConnectionErrors'
-    { _bceOtherCount             :: !(Maybe Int)
-    , _bceTimeoutCount           :: !(Maybe Int)
-    , _bceHTTPCode5XXCount       :: !(Maybe Int)
-    , _bceConnectionRefusedCount :: !(Maybe Int)
-    , _bceHTTPCode4XXCount       :: !(Maybe Int)
-    , _bceUnknownHostCount       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bceOtherCount             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bceTimeoutCount           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bceHTTPCode5XXCount       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bceConnectionRefusedCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bceHTTPCode4XXCount       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bceUnknownHostCount       :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BackendConnectionErrors' with the minimum fields required to make a request.
 --
@@ -159,14 +159,15 @@ data BackendConnectionErrors = BackendConnectionErrors'
 backendConnectionErrors
     :: BackendConnectionErrors
 backendConnectionErrors =
-    BackendConnectionErrors'
-    { _bceOtherCount = Nothing
-    , _bceTimeoutCount = Nothing
-    , _bceHTTPCode5XXCount = Nothing
-    , _bceConnectionRefusedCount = Nothing
-    , _bceHTTPCode4XXCount = Nothing
-    , _bceUnknownHostCount = Nothing
-    }
+  BackendConnectionErrors'
+  { _bceOtherCount = Nothing
+  , _bceTimeoutCount = Nothing
+  , _bceHTTPCode5XXCount = Nothing
+  , _bceConnectionRefusedCount = Nothing
+  , _bceHTTPCode4XXCount = Nothing
+  , _bceUnknownHostCount = Nothing
+  }
+
 
 -- |
 bceOtherCount :: Lens' BackendConnectionErrors (Maybe Int)
@@ -192,9 +193,9 @@ bceHTTPCode4XXCount = lens _bceHTTPCode4XXCount (\ s a -> s{_bceHTTPCode4XXCount
 bceUnknownHostCount :: Lens' BackendConnectionErrors (Maybe Int)
 bceUnknownHostCount = lens _bceUnknownHostCount (\ s a -> s{_bceUnknownHostCount = a});
 
-instance Hashable BackendConnectionErrors
+instance Hashable BackendConnectionErrors where
 
-instance NFData BackendConnectionErrors
+instance NFData BackendConnectionErrors where
 
 instance ToJSON BackendConnectionErrors where
         toJSON BackendConnectionErrors'{..}
@@ -214,13 +215,14 @@ instance ToJSON BackendConnectionErrors where
 --
 -- /See:/ 'edge' smart constructor.
 data Edge = Edge'
-    { _eStartTime             :: !(Maybe POSIX)
-    , _eAliases               :: !(Maybe [Alias])
-    , _eResponseTimeHistogram :: !(Maybe [HistogramEntry])
-    , _eReferenceId           :: !(Maybe Int)
-    , _eEndTime               :: !(Maybe POSIX)
-    , _eSummaryStatistics     :: !(Maybe EdgeStatistics)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eStartTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eAliases               :: {-# NOUNPACK #-}!(Maybe [Alias])
+  , _eResponseTimeHistogram :: {-# NOUNPACK #-}!(Maybe [HistogramEntry])
+  , _eReferenceId           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _eEndTime               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eSummaryStatistics     :: {-# NOUNPACK #-}!(Maybe EdgeStatistics)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Edge' with the minimum fields required to make a request.
 --
@@ -240,14 +242,15 @@ data Edge = Edge'
 edge
     :: Edge
 edge =
-    Edge'
-    { _eStartTime = Nothing
-    , _eAliases = Nothing
-    , _eResponseTimeHistogram = Nothing
-    , _eReferenceId = Nothing
-    , _eEndTime = Nothing
-    , _eSummaryStatistics = Nothing
-    }
+  Edge'
+  { _eStartTime = Nothing
+  , _eAliases = Nothing
+  , _eResponseTimeHistogram = Nothing
+  , _eReferenceId = Nothing
+  , _eEndTime = Nothing
+  , _eSummaryStatistics = Nothing
+  }
+
 
 -- | The start time of the first segment on the edge.
 eStartTime :: Lens' Edge (Maybe UTCTime)
@@ -284,9 +287,9 @@ instance FromJSON Edge where
                      <*> (x .:? "EndTime")
                      <*> (x .:? "SummaryStatistics"))
 
-instance Hashable Edge
+instance Hashable Edge where
 
-instance NFData Edge
+instance NFData Edge where
 
 -- | Response statistics for an edge.
 --
@@ -294,12 +297,13 @@ instance NFData Edge
 --
 -- /See:/ 'edgeStatistics' smart constructor.
 data EdgeStatistics = EdgeStatistics'
-    { _esFaultStatistics   :: !(Maybe FaultStatistics)
-    , _esOKCount           :: !(Maybe Integer)
-    , _esTotalResponseTime :: !(Maybe Double)
-    , _esErrorStatistics   :: !(Maybe ErrorStatistics)
-    , _esTotalCount        :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esFaultStatistics   :: {-# NOUNPACK #-}!(Maybe FaultStatistics)
+  , _esOKCount           :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _esTotalResponseTime :: {-# NOUNPACK #-}!(Maybe Double)
+  , _esErrorStatistics   :: {-# NOUNPACK #-}!(Maybe ErrorStatistics)
+  , _esTotalCount        :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EdgeStatistics' with the minimum fields required to make a request.
 --
@@ -317,13 +321,14 @@ data EdgeStatistics = EdgeStatistics'
 edgeStatistics
     :: EdgeStatistics
 edgeStatistics =
-    EdgeStatistics'
-    { _esFaultStatistics = Nothing
-    , _esOKCount = Nothing
-    , _esTotalResponseTime = Nothing
-    , _esErrorStatistics = Nothing
-    , _esTotalCount = Nothing
-    }
+  EdgeStatistics'
+  { _esFaultStatistics = Nothing
+  , _esOKCount = Nothing
+  , _esTotalResponseTime = Nothing
+  , _esErrorStatistics = Nothing
+  , _esTotalCount = Nothing
+  }
+
 
 -- | Information about requests that failed with a 5xx Server Error status code.
 esFaultStatistics :: Lens' EdgeStatistics (Maybe FaultStatistics)
@@ -355,9 +360,9 @@ instance FromJSON EdgeStatistics where
                      <*> (x .:? "ErrorStatistics")
                      <*> (x .:? "TotalCount"))
 
-instance Hashable EdgeStatistics
+instance Hashable EdgeStatistics where
 
-instance NFData EdgeStatistics
+instance NFData EdgeStatistics where
 
 -- | Information about requests that failed with a 4xx Client Error status code.
 --
@@ -365,10 +370,11 @@ instance NFData EdgeStatistics
 --
 -- /See:/ 'errorStatistics' smart constructor.
 data ErrorStatistics = ErrorStatistics'
-    { _eOtherCount    :: !(Maybe Integer)
-    , _eThrottleCount :: !(Maybe Integer)
-    , _eTotalCount    :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eOtherCount    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _eThrottleCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _eTotalCount    :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ErrorStatistics' with the minimum fields required to make a request.
 --
@@ -382,11 +388,9 @@ data ErrorStatistics = ErrorStatistics'
 errorStatistics
     :: ErrorStatistics
 errorStatistics =
-    ErrorStatistics'
-    { _eOtherCount = Nothing
-    , _eThrottleCount = Nothing
-    , _eTotalCount = Nothing
-    }
+  ErrorStatistics'
+  {_eOtherCount = Nothing, _eThrottleCount = Nothing, _eTotalCount = Nothing}
+
 
 -- | The number of requests that failed with untracked 4xx Client Error status codes.
 eOtherCount :: Lens' ErrorStatistics (Maybe Integer)
@@ -408,9 +412,9 @@ instance FromJSON ErrorStatistics where
                    (x .:? "OtherCount") <*> (x .:? "ThrottleCount") <*>
                      (x .:? "TotalCount"))
 
-instance Hashable ErrorStatistics
+instance Hashable ErrorStatistics where
 
-instance NFData ErrorStatistics
+instance NFData ErrorStatistics where
 
 -- | Information about requests that failed with a 5xx Server Error status code.
 --
@@ -418,9 +422,10 @@ instance NFData ErrorStatistics
 --
 -- /See:/ 'faultStatistics' smart constructor.
 data FaultStatistics = FaultStatistics'
-    { _fsOtherCount :: !(Maybe Integer)
-    , _fsTotalCount :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fsOtherCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _fsTotalCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FaultStatistics' with the minimum fields required to make a request.
 --
@@ -432,10 +437,8 @@ data FaultStatistics = FaultStatistics'
 faultStatistics
     :: FaultStatistics
 faultStatistics =
-    FaultStatistics'
-    { _fsOtherCount = Nothing
-    , _fsTotalCount = Nothing
-    }
+  FaultStatistics' {_fsOtherCount = Nothing, _fsTotalCount = Nothing}
+
 
 -- | The number of requests that failed with untracked 5xx Server Error status codes.
 fsOtherCount :: Lens' FaultStatistics (Maybe Integer)
@@ -452,9 +455,9 @@ instance FromJSON FaultStatistics where
                  FaultStatistics' <$>
                    (x .:? "OtherCount") <*> (x .:? "TotalCount"))
 
-instance Hashable FaultStatistics
+instance Hashable FaultStatistics where
 
-instance NFData FaultStatistics
+instance NFData FaultStatistics where
 
 -- | Information about an HTTP request.
 --
@@ -462,12 +465,13 @@ instance NFData FaultStatistics
 --
 -- /See:/ 'hTTP' smart constructor.
 data HTTP = HTTP'
-    { _httpHTTPMethod :: !(Maybe Text)
-    , _httpHTTPStatus :: !(Maybe Int)
-    , _httpClientIP   :: !(Maybe Text)
-    , _httpUserAgent  :: !(Maybe Text)
-    , _httpHTTPURL    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _httpHTTPMethod :: {-# NOUNPACK #-}!(Maybe Text)
+  , _httpHTTPStatus :: {-# NOUNPACK #-}!(Maybe Int)
+  , _httpClientIP   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _httpUserAgent  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _httpHTTPURL    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HTTP' with the minimum fields required to make a request.
 --
@@ -485,13 +489,14 @@ data HTTP = HTTP'
 hTTP
     :: HTTP
 hTTP =
-    HTTP'
-    { _httpHTTPMethod = Nothing
-    , _httpHTTPStatus = Nothing
-    , _httpClientIP = Nothing
-    , _httpUserAgent = Nothing
-    , _httpHTTPURL = Nothing
-    }
+  HTTP'
+  { _httpHTTPMethod = Nothing
+  , _httpHTTPStatus = Nothing
+  , _httpClientIP = Nothing
+  , _httpUserAgent = Nothing
+  , _httpHTTPURL = Nothing
+  }
+
 
 -- | The request method.
 httpHTTPMethod :: Lens' HTTP (Maybe Text)
@@ -523,9 +528,9 @@ instance FromJSON HTTP where
                      <*> (x .:? "UserAgent")
                      <*> (x .:? "HttpURL"))
 
-instance Hashable HTTP
+instance Hashable HTTP where
 
-instance NFData HTTP
+instance NFData HTTP where
 
 -- | An entry in a histogram for a statistic. A histogram maps the range of observed values on the X axis, and the prevalence of each value on the Y axis.
 --
@@ -533,9 +538,10 @@ instance NFData HTTP
 --
 -- /See:/ 'histogramEntry' smart constructor.
 data HistogramEntry = HistogramEntry'
-    { _heCount :: !(Maybe Int)
-    , _heValue :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _heCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _heValue :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HistogramEntry' with the minimum fields required to make a request.
 --
@@ -546,11 +552,8 @@ data HistogramEntry = HistogramEntry'
 -- * 'heValue' - The value of the entry.
 histogramEntry
     :: HistogramEntry
-histogramEntry =
-    HistogramEntry'
-    { _heCount = Nothing
-    , _heValue = Nothing
-    }
+histogramEntry = HistogramEntry' {_heCount = Nothing, _heValue = Nothing}
+
 
 -- | The prevalence of the entry.
 heCount :: Lens' HistogramEntry (Maybe Int)
@@ -567,9 +570,9 @@ instance FromJSON HistogramEntry where
                  HistogramEntry' <$>
                    (x .:? "Count") <*> (x .:? "Value"))
 
-instance Hashable HistogramEntry
+instance Hashable HistogramEntry where
 
-instance NFData HistogramEntry
+instance NFData HistogramEntry where
 
 -- | A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with 'PutTraceSegments' , or an @inferred@ segment for a downstream service, generated from a subsegment sent by the service that called it.
 --
@@ -577,9 +580,10 @@ instance NFData HistogramEntry
 --
 -- /See:/ 'segment' smart constructor.
 data Segment = Segment'
-    { _sDocument :: !(Maybe Text)
-    , _sId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sDocument :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Segment' with the minimum fields required to make a request.
 --
@@ -590,11 +594,8 @@ data Segment = Segment'
 -- * 'sId' - The segment's ID.
 segment
     :: Segment
-segment =
-    Segment'
-    { _sDocument = Nothing
-    , _sId = Nothing
-    }
+segment = Segment' {_sDocument = Nothing, _sId = Nothing}
+
 
 -- | The segment document
 sDocument :: Lens' Segment (Maybe Text)
@@ -610,9 +611,9 @@ instance FromJSON Segment where
               (\ x ->
                  Segment' <$> (x .:? "Document") <*> (x .:? "Id"))
 
-instance Hashable Segment
+instance Hashable Segment where
 
-instance NFData Segment
+instance NFData Segment where
 
 -- |
 --
@@ -620,11 +621,12 @@ instance NFData Segment
 --
 -- /See:/ 'serviceId' smart constructor.
 data ServiceId = ServiceId'
-    { _siAccountId :: !(Maybe Text)
-    , _siNames     :: !(Maybe [Text])
-    , _siName      :: !(Maybe Text)
-    , _siType      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siAccountId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _siNames     :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _siName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _siType      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ServiceId' with the minimum fields required to make a request.
 --
@@ -640,12 +642,13 @@ data ServiceId = ServiceId'
 serviceId
     :: ServiceId
 serviceId =
-    ServiceId'
-    { _siAccountId = Nothing
-    , _siNames = Nothing
-    , _siName = Nothing
-    , _siType = Nothing
-    }
+  ServiceId'
+  { _siAccountId = Nothing
+  , _siNames = Nothing
+  , _siName = Nothing
+  , _siType = Nothing
+  }
+
 
 -- |
 siAccountId :: Lens' ServiceId (Maybe Text)
@@ -672,9 +675,9 @@ instance FromJSON ServiceId where
                      <*> (x .:? "Name")
                      <*> (x .:? "Type"))
 
-instance Hashable ServiceId
+instance Hashable ServiceId where
 
-instance NFData ServiceId
+instance NFData ServiceId where
 
 -- | Information about an application that processed requests, users that made requests, or downstream services, resources and applications that an application used.
 --
@@ -682,20 +685,21 @@ instance NFData ServiceId
 --
 -- /See:/ 'serviceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-    { _sState                 :: !(Maybe Text)
-    , _sStartTime             :: !(Maybe POSIX)
-    , _sRoot                  :: !(Maybe Bool)
-    , _sResponseTimeHistogram :: !(Maybe [HistogramEntry])
-    , _sDurationHistogram     :: !(Maybe [HistogramEntry])
-    , _sReferenceId           :: !(Maybe Int)
-    , _sAccountId             :: !(Maybe Text)
-    , _sNames                 :: !(Maybe [Text])
-    , _sName                  :: !(Maybe Text)
-    , _sEndTime               :: !(Maybe POSIX)
-    , _sType                  :: !(Maybe Text)
-    , _sEdges                 :: !(Maybe [Edge])
-    , _sSummaryStatistics     :: !(Maybe ServiceStatistics)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sState                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sStartTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _sRoot                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sResponseTimeHistogram :: {-# NOUNPACK #-}!(Maybe [HistogramEntry])
+  , _sDurationHistogram     :: {-# NOUNPACK #-}!(Maybe [HistogramEntry])
+  , _sReferenceId           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sAccountId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sNames                 :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sEndTime               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _sType                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sEdges                 :: {-# NOUNPACK #-}!(Maybe [Edge])
+  , _sSummaryStatistics     :: {-# NOUNPACK #-}!(Maybe ServiceStatistics)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
 --
@@ -729,21 +733,22 @@ data ServiceInfo = ServiceInfo'
 serviceInfo
     :: ServiceInfo
 serviceInfo =
-    ServiceInfo'
-    { _sState = Nothing
-    , _sStartTime = Nothing
-    , _sRoot = Nothing
-    , _sResponseTimeHistogram = Nothing
-    , _sDurationHistogram = Nothing
-    , _sReferenceId = Nothing
-    , _sAccountId = Nothing
-    , _sNames = Nothing
-    , _sName = Nothing
-    , _sEndTime = Nothing
-    , _sType = Nothing
-    , _sEdges = Nothing
-    , _sSummaryStatistics = Nothing
-    }
+  ServiceInfo'
+  { _sState = Nothing
+  , _sStartTime = Nothing
+  , _sRoot = Nothing
+  , _sResponseTimeHistogram = Nothing
+  , _sDurationHistogram = Nothing
+  , _sReferenceId = Nothing
+  , _sAccountId = Nothing
+  , _sNames = Nothing
+  , _sName = Nothing
+  , _sEndTime = Nothing
+  , _sType = Nothing
+  , _sEdges = Nothing
+  , _sSummaryStatistics = Nothing
+  }
+
 
 -- | The service's state.
 sState :: Lens' ServiceInfo (Maybe Text)
@@ -815,9 +820,9 @@ instance FromJSON ServiceInfo where
                      <*> (x .:? "Edges" .!= mempty)
                      <*> (x .:? "SummaryStatistics"))
 
-instance Hashable ServiceInfo
+instance Hashable ServiceInfo where
 
-instance NFData ServiceInfo
+instance NFData ServiceInfo where
 
 -- | Response statistics for a service.
 --
@@ -825,12 +830,13 @@ instance NFData ServiceInfo
 --
 -- /See:/ 'serviceStatistics' smart constructor.
 data ServiceStatistics = ServiceStatistics'
-    { _ssFaultStatistics   :: !(Maybe FaultStatistics)
-    , _ssOKCount           :: !(Maybe Integer)
-    , _ssTotalResponseTime :: !(Maybe Double)
-    , _ssErrorStatistics   :: !(Maybe ErrorStatistics)
-    , _ssTotalCount        :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssFaultStatistics   :: {-# NOUNPACK #-}!(Maybe FaultStatistics)
+  , _ssOKCount           :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _ssTotalResponseTime :: {-# NOUNPACK #-}!(Maybe Double)
+  , _ssErrorStatistics   :: {-# NOUNPACK #-}!(Maybe ErrorStatistics)
+  , _ssTotalCount        :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ServiceStatistics' with the minimum fields required to make a request.
 --
@@ -848,13 +854,14 @@ data ServiceStatistics = ServiceStatistics'
 serviceStatistics
     :: ServiceStatistics
 serviceStatistics =
-    ServiceStatistics'
-    { _ssFaultStatistics = Nothing
-    , _ssOKCount = Nothing
-    , _ssTotalResponseTime = Nothing
-    , _ssErrorStatistics = Nothing
-    , _ssTotalCount = Nothing
-    }
+  ServiceStatistics'
+  { _ssFaultStatistics = Nothing
+  , _ssOKCount = Nothing
+  , _ssTotalResponseTime = Nothing
+  , _ssErrorStatistics = Nothing
+  , _ssTotalCount = Nothing
+  }
+
 
 -- | Information about requests that failed with a 5xx Server Error status code.
 ssFaultStatistics :: Lens' ServiceStatistics (Maybe FaultStatistics)
@@ -886,9 +893,9 @@ instance FromJSON ServiceStatistics where
                      <*> (x .:? "ErrorStatistics")
                      <*> (x .:? "TotalCount"))
 
-instance Hashable ServiceStatistics
+instance Hashable ServiceStatistics where
 
-instance NFData ServiceStatistics
+instance NFData ServiceStatistics where
 
 -- |
 --
@@ -896,13 +903,14 @@ instance NFData ServiceStatistics
 --
 -- /See:/ 'telemetryRecord' smart constructor.
 data TelemetryRecord = TelemetryRecord'
-    { _trSegmentsReceivedCount   :: !(Maybe Int)
-    , _trSegmentsSentCount       :: !(Maybe Int)
-    , _trSegmentsSpilloverCount  :: !(Maybe Int)
-    , _trSegmentsRejectedCount   :: !(Maybe Int)
-    , _trTimestamp               :: !(Maybe POSIX)
-    , _trBackendConnectionErrors :: !(Maybe BackendConnectionErrors)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trSegmentsReceivedCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _trSegmentsSentCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _trSegmentsSpilloverCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _trSegmentsRejectedCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _trTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _trBackendConnectionErrors :: {-# NOUNPACK #-}!(Maybe BackendConnectionErrors)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TelemetryRecord' with the minimum fields required to make a request.
 --
@@ -922,14 +930,15 @@ data TelemetryRecord = TelemetryRecord'
 telemetryRecord
     :: TelemetryRecord
 telemetryRecord =
-    TelemetryRecord'
-    { _trSegmentsReceivedCount = Nothing
-    , _trSegmentsSentCount = Nothing
-    , _trSegmentsSpilloverCount = Nothing
-    , _trSegmentsRejectedCount = Nothing
-    , _trTimestamp = Nothing
-    , _trBackendConnectionErrors = Nothing
-    }
+  TelemetryRecord'
+  { _trSegmentsReceivedCount = Nothing
+  , _trSegmentsSentCount = Nothing
+  , _trSegmentsSpilloverCount = Nothing
+  , _trSegmentsRejectedCount = Nothing
+  , _trTimestamp = Nothing
+  , _trBackendConnectionErrors = Nothing
+  }
+
 
 -- |
 trSegmentsReceivedCount :: Lens' TelemetryRecord (Maybe Int)
@@ -955,9 +964,9 @@ trTimestamp = lens _trTimestamp (\ s a -> s{_trTimestamp = a}) . mapping _Time;
 trBackendConnectionErrors :: Lens' TelemetryRecord (Maybe BackendConnectionErrors)
 trBackendConnectionErrors = lens _trBackendConnectionErrors (\ s a -> s{_trBackendConnectionErrors = a});
 
-instance Hashable TelemetryRecord
+instance Hashable TelemetryRecord where
 
-instance NFData TelemetryRecord
+instance NFData TelemetryRecord where
 
 instance ToJSON TelemetryRecord where
         toJSON TelemetryRecord'{..}
@@ -980,10 +989,11 @@ instance ToJSON TelemetryRecord where
 --
 -- /See:/ 'trace' smart constructor.
 data Trace = Trace'
-    { _tId       :: !(Maybe Text)
-    , _tSegments :: !(Maybe [Segment])
-    , _tDuration :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tSegments :: {-# NOUNPACK #-}!(Maybe [Segment])
+  , _tDuration :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Trace' with the minimum fields required to make a request.
 --
@@ -996,12 +1006,8 @@ data Trace = Trace'
 -- * 'tDuration' - The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
 trace
     :: Trace
-trace =
-    Trace'
-    { _tId = Nothing
-    , _tSegments = Nothing
-    , _tDuration = Nothing
-    }
+trace = Trace' {_tId = Nothing, _tSegments = Nothing, _tDuration = Nothing}
+
 
 -- | The unique identifier for the request that generated the trace's segments and subsegments.
 tId :: Lens' Trace (Maybe Text)
@@ -1023,9 +1029,9 @@ instance FromJSON Trace where
                    (x .:? "Id") <*> (x .:? "Segments" .!= mempty) <*>
                      (x .:? "Duration"))
 
-instance Hashable Trace
+instance Hashable Trace where
 
-instance NFData Trace
+instance NFData Trace where
 
 -- | Metadata generated from the segment documents in a trace.
 --
@@ -1033,18 +1039,19 @@ instance NFData Trace
 --
 -- /See:/ 'traceSummary' smart constructor.
 data TraceSummary = TraceSummary'
-    { _tsAnnotations  :: !(Maybe (Map Text [ValueWithServiceIds]))
-    , _tsHasThrottle  :: !(Maybe Bool)
-    , _tsUsers        :: !(Maybe [TraceUser])
-    , _tsHasFault     :: !(Maybe Bool)
-    , _tsServiceIds   :: !(Maybe [ServiceId])
-    , _tsIsPartial    :: !(Maybe Bool)
-    , _tsHasError     :: !(Maybe Bool)
-    , _tsId           :: !(Maybe Text)
-    , _tsHTTP         :: !(Maybe HTTP)
-    , _tsDuration     :: !(Maybe Double)
-    , _tsResponseTime :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tsAnnotations  :: {-# NOUNPACK #-}!(Maybe (Map Text [ValueWithServiceIds]))
+  , _tsHasThrottle  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tsUsers        :: {-# NOUNPACK #-}!(Maybe [TraceUser])
+  , _tsHasFault     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tsServiceIds   :: {-# NOUNPACK #-}!(Maybe [ServiceId])
+  , _tsIsPartial    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tsHasError     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tsId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tsHTTP         :: {-# NOUNPACK #-}!(Maybe HTTP)
+  , _tsDuration     :: {-# NOUNPACK #-}!(Maybe Double)
+  , _tsResponseTime :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TraceSummary' with the minimum fields required to make a request.
 --
@@ -1074,19 +1081,20 @@ data TraceSummary = TraceSummary'
 traceSummary
     :: TraceSummary
 traceSummary =
-    TraceSummary'
-    { _tsAnnotations = Nothing
-    , _tsHasThrottle = Nothing
-    , _tsUsers = Nothing
-    , _tsHasFault = Nothing
-    , _tsServiceIds = Nothing
-    , _tsIsPartial = Nothing
-    , _tsHasError = Nothing
-    , _tsId = Nothing
-    , _tsHTTP = Nothing
-    , _tsDuration = Nothing
-    , _tsResponseTime = Nothing
-    }
+  TraceSummary'
+  { _tsAnnotations = Nothing
+  , _tsHasThrottle = Nothing
+  , _tsUsers = Nothing
+  , _tsHasFault = Nothing
+  , _tsServiceIds = Nothing
+  , _tsIsPartial = Nothing
+  , _tsHasError = Nothing
+  , _tsId = Nothing
+  , _tsHTTP = Nothing
+  , _tsDuration = Nothing
+  , _tsResponseTime = Nothing
+  }
+
 
 -- | Annotations from the trace's segment documents.
 tsAnnotations :: Lens' TraceSummary (HashMap Text [ValueWithServiceIds])
@@ -1149,9 +1157,9 @@ instance FromJSON TraceSummary where
                      <*> (x .:? "Duration")
                      <*> (x .:? "ResponseTime"))
 
-instance Hashable TraceSummary
+instance Hashable TraceSummary where
 
-instance NFData TraceSummary
+instance NFData TraceSummary where
 
 -- | Information about a user recorded in segment documents.
 --
@@ -1159,9 +1167,10 @@ instance NFData TraceSummary
 --
 -- /See:/ 'traceUser' smart constructor.
 data TraceUser = TraceUser'
-    { _tuServiceIds :: !(Maybe [ServiceId])
-    , _tuUserName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tuServiceIds :: {-# NOUNPACK #-}!(Maybe [ServiceId])
+  , _tuUserName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TraceUser' with the minimum fields required to make a request.
 --
@@ -1172,11 +1181,8 @@ data TraceUser = TraceUser'
 -- * 'tuUserName' - The user's name.
 traceUser
     :: TraceUser
-traceUser =
-    TraceUser'
-    { _tuServiceIds = Nothing
-    , _tuUserName = Nothing
-    }
+traceUser = TraceUser' {_tuServiceIds = Nothing, _tuUserName = Nothing}
+
 
 -- | Services that the user's request hit.
 tuServiceIds :: Lens' TraceUser [ServiceId]
@@ -1194,9 +1200,9 @@ instance FromJSON TraceUser where
                    (x .:? "ServiceIds" .!= mempty) <*>
                      (x .:? "UserName"))
 
-instance Hashable TraceUser
+instance Hashable TraceUser where
 
-instance NFData TraceUser
+instance NFData TraceUser where
 
 -- | Information about a segment that failed processing.
 --
@@ -1204,10 +1210,11 @@ instance NFData TraceUser
 --
 -- /See:/ 'unprocessedTraceSegment' smart constructor.
 data UnprocessedTraceSegment = UnprocessedTraceSegment'
-    { _utsErrorCode :: !(Maybe Text)
-    , _utsId        :: !(Maybe Text)
-    , _utsMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utsErrorCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utsId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utsMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnprocessedTraceSegment' with the minimum fields required to make a request.
 --
@@ -1221,11 +1228,9 @@ data UnprocessedTraceSegment = UnprocessedTraceSegment'
 unprocessedTraceSegment
     :: UnprocessedTraceSegment
 unprocessedTraceSegment =
-    UnprocessedTraceSegment'
-    { _utsErrorCode = Nothing
-    , _utsId = Nothing
-    , _utsMessage = Nothing
-    }
+  UnprocessedTraceSegment'
+  {_utsErrorCode = Nothing, _utsId = Nothing, _utsMessage = Nothing}
+
 
 -- | The error that caused processing to fail.
 utsErrorCode :: Lens' UnprocessedTraceSegment (Maybe Text)
@@ -1247,9 +1252,9 @@ instance FromJSON UnprocessedTraceSegment where
                    (x .:? "ErrorCode") <*> (x .:? "Id") <*>
                      (x .:? "Message"))
 
-instance Hashable UnprocessedTraceSegment
+instance Hashable UnprocessedTraceSegment where
 
-instance NFData UnprocessedTraceSegment
+instance NFData UnprocessedTraceSegment where
 
 -- | Information about a segment annotation.
 --
@@ -1257,9 +1262,10 @@ instance NFData UnprocessedTraceSegment
 --
 -- /See:/ 'valueWithServiceIds' smart constructor.
 data ValueWithServiceIds = ValueWithServiceIds'
-    { _vwsiServiceIds      :: !(Maybe [ServiceId])
-    , _vwsiAnnotationValue :: !(Maybe AnnotationValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vwsiServiceIds      :: {-# NOUNPACK #-}!(Maybe [ServiceId])
+  , _vwsiAnnotationValue :: {-# NOUNPACK #-}!(Maybe AnnotationValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ValueWithServiceIds' with the minimum fields required to make a request.
 --
@@ -1271,10 +1277,9 @@ data ValueWithServiceIds = ValueWithServiceIds'
 valueWithServiceIds
     :: ValueWithServiceIds
 valueWithServiceIds =
-    ValueWithServiceIds'
-    { _vwsiServiceIds = Nothing
-    , _vwsiAnnotationValue = Nothing
-    }
+  ValueWithServiceIds'
+  {_vwsiServiceIds = Nothing, _vwsiAnnotationValue = Nothing}
+
 
 -- | Services to which the annotation applies.
 vwsiServiceIds :: Lens' ValueWithServiceIds [ServiceId]
@@ -1292,6 +1297,6 @@ instance FromJSON ValueWithServiceIds where
                    (x .:? "ServiceIds" .!= mempty) <*>
                      (x .:? "AnnotationValue"))
 
-instance Hashable ValueWithServiceIds
+instance Hashable ValueWithServiceIds where
 
-instance NFData ValueWithServiceIds
+instance NFData ValueWithServiceIds where

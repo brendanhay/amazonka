@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudWatchLogs.Types.Product where
 
-import           Network.AWS.CloudWatchLogs.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudWatchLogs.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Represents a cross-account destination that receives subscription log events.
 --
@@ -27,13 +27,14 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'destination' smart constructor.
 data Destination = Destination'
-    { _dTargetARN       :: !(Maybe Text)
-    , _dCreationTime    :: !(Maybe Nat)
-    , _dArn             :: !(Maybe Text)
-    , _dAccessPolicy    :: !(Maybe Text)
-    , _dDestinationName :: !(Maybe Text)
-    , _dRoleARN         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dTargetARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCreationTime    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dArn             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dAccessPolicy    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDestinationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dRoleARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
@@ -53,14 +54,15 @@ data Destination = Destination'
 destination
     :: Destination
 destination =
-    Destination'
-    { _dTargetARN = Nothing
-    , _dCreationTime = Nothing
-    , _dArn = Nothing
-    , _dAccessPolicy = Nothing
-    , _dDestinationName = Nothing
-    , _dRoleARN = Nothing
-    }
+  Destination'
+  { _dTargetARN = Nothing
+  , _dCreationTime = Nothing
+  , _dArn = Nothing
+  , _dAccessPolicy = Nothing
+  , _dDestinationName = Nothing
+  , _dRoleARN = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the physical target where the log events will be delivered (for example, a Kinesis stream).
 dTargetARN :: Lens' Destination (Maybe Text)
@@ -97,9 +99,9 @@ instance FromJSON Destination where
                      <*> (x .:? "destinationName")
                      <*> (x .:? "roleArn"))
 
-instance Hashable Destination
+instance Hashable Destination where
 
-instance NFData Destination
+instance NFData Destination where
 
 -- | Represents an export task.
 --
@@ -107,16 +109,17 @@ instance NFData Destination
 --
 -- /See:/ 'exportTask' smart constructor.
 data ExportTask = ExportTask'
-    { _etDestinationPrefix :: !(Maybe Text)
-    , _etDestination       :: !(Maybe Text)
-    , _etStatus            :: !(Maybe ExportTaskStatus)
-    , _etTaskName          :: !(Maybe Text)
-    , _etTaskId            :: !(Maybe Text)
-    , _etTo                :: !(Maybe Nat)
-    , _etFrom              :: !(Maybe Nat)
-    , _etLogGroupName      :: !(Maybe Text)
-    , _etExecutionInfo     :: !(Maybe ExportTaskExecutionInfo)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etDestinationPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etDestination       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etStatus            :: {-# NOUNPACK #-}!(Maybe ExportTaskStatus)
+  , _etTaskName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etTaskId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etTo                :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _etFrom              :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _etLogGroupName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etExecutionInfo     :: {-# NOUNPACK #-}!(Maybe ExportTaskExecutionInfo)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExportTask' with the minimum fields required to make a request.
 --
@@ -142,17 +145,18 @@ data ExportTask = ExportTask'
 exportTask
     :: ExportTask
 exportTask =
-    ExportTask'
-    { _etDestinationPrefix = Nothing
-    , _etDestination = Nothing
-    , _etStatus = Nothing
-    , _etTaskName = Nothing
-    , _etTaskId = Nothing
-    , _etTo = Nothing
-    , _etFrom = Nothing
-    , _etLogGroupName = Nothing
-    , _etExecutionInfo = Nothing
-    }
+  ExportTask'
+  { _etDestinationPrefix = Nothing
+  , _etDestination = Nothing
+  , _etStatus = Nothing
+  , _etTaskName = Nothing
+  , _etTaskId = Nothing
+  , _etTo = Nothing
+  , _etFrom = Nothing
+  , _etLogGroupName = Nothing
+  , _etExecutionInfo = Nothing
+  }
+
 
 -- | The prefix that was used as the start of Amazon S3 key for every object exported.
 etDestinationPrefix :: Lens' ExportTask (Maybe Text)
@@ -204,9 +208,9 @@ instance FromJSON ExportTask where
                      <*> (x .:? "logGroupName")
                      <*> (x .:? "executionInfo"))
 
-instance Hashable ExportTask
+instance Hashable ExportTask where
 
-instance NFData ExportTask
+instance NFData ExportTask where
 
 -- | Represents the status of an export task.
 --
@@ -214,9 +218,10 @@ instance NFData ExportTask
 --
 -- /See:/ 'exportTaskExecutionInfo' smart constructor.
 data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
-    { _eteiCreationTime   :: !(Maybe Nat)
-    , _eteiCompletionTime :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eteiCreationTime   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _eteiCompletionTime :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExportTaskExecutionInfo' with the minimum fields required to make a request.
 --
@@ -228,10 +233,9 @@ data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
 exportTaskExecutionInfo
     :: ExportTaskExecutionInfo
 exportTaskExecutionInfo =
-    ExportTaskExecutionInfo'
-    { _eteiCreationTime = Nothing
-    , _eteiCompletionTime = Nothing
-    }
+  ExportTaskExecutionInfo'
+  {_eteiCreationTime = Nothing, _eteiCompletionTime = Nothing}
+
 
 -- | The creation time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 eteiCreationTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
@@ -248,9 +252,9 @@ instance FromJSON ExportTaskExecutionInfo where
                  ExportTaskExecutionInfo' <$>
                    (x .:? "creationTime") <*> (x .:? "completionTime"))
 
-instance Hashable ExportTaskExecutionInfo
+instance Hashable ExportTaskExecutionInfo where
 
-instance NFData ExportTaskExecutionInfo
+instance NFData ExportTaskExecutionInfo where
 
 -- | Represents the status of an export task.
 --
@@ -258,9 +262,10 @@ instance NFData ExportTaskExecutionInfo
 --
 -- /See:/ 'exportTaskStatus' smart constructor.
 data ExportTaskStatus = ExportTaskStatus'
-    { _etsCode    :: !(Maybe ExportTaskStatusCode)
-    , _etsMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etsCode    :: {-# NOUNPACK #-}!(Maybe ExportTaskStatusCode)
+  , _etsMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExportTaskStatus' with the minimum fields required to make a request.
 --
@@ -271,11 +276,8 @@ data ExportTaskStatus = ExportTaskStatus'
 -- * 'etsMessage' - The status message related to the status code.
 exportTaskStatus
     :: ExportTaskStatus
-exportTaskStatus =
-    ExportTaskStatus'
-    { _etsCode = Nothing
-    , _etsMessage = Nothing
-    }
+exportTaskStatus = ExportTaskStatus' {_etsCode = Nothing, _etsMessage = Nothing}
+
 
 -- | The status code of the export task.
 etsCode :: Lens' ExportTaskStatus (Maybe ExportTaskStatusCode)
@@ -292,9 +294,9 @@ instance FromJSON ExportTaskStatus where
                  ExportTaskStatus' <$>
                    (x .:? "code") <*> (x .:? "message"))
 
-instance Hashable ExportTaskStatus
+instance Hashable ExportTaskStatus where
 
-instance NFData ExportTaskStatus
+instance NFData ExportTaskStatus where
 
 -- | Represents a matched event.
 --
@@ -302,12 +304,13 @@ instance NFData ExportTaskStatus
 --
 -- /See:/ 'filteredLogEvent' smart constructor.
 data FilteredLogEvent = FilteredLogEvent'
-    { _fleIngestionTime :: !(Maybe Nat)
-    , _fleLogStreamName :: !(Maybe Text)
-    , _fleMessage       :: !(Maybe Text)
-    , _fleTimestamp     :: !(Maybe Nat)
-    , _fleEventId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fleIngestionTime :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fleLogStreamName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fleMessage       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fleTimestamp     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fleEventId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FilteredLogEvent' with the minimum fields required to make a request.
 --
@@ -325,13 +328,14 @@ data FilteredLogEvent = FilteredLogEvent'
 filteredLogEvent
     :: FilteredLogEvent
 filteredLogEvent =
-    FilteredLogEvent'
-    { _fleIngestionTime = Nothing
-    , _fleLogStreamName = Nothing
-    , _fleMessage = Nothing
-    , _fleTimestamp = Nothing
-    , _fleEventId = Nothing
-    }
+  FilteredLogEvent'
+  { _fleIngestionTime = Nothing
+  , _fleLogStreamName = Nothing
+  , _fleMessage = Nothing
+  , _fleTimestamp = Nothing
+  , _fleEventId = Nothing
+  }
+
 
 -- | The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
@@ -363,9 +367,9 @@ instance FromJSON FilteredLogEvent where
                      <*> (x .:? "timestamp")
                      <*> (x .:? "eventId"))
 
-instance Hashable FilteredLogEvent
+instance Hashable FilteredLogEvent where
 
-instance NFData FilteredLogEvent
+instance NFData FilteredLogEvent where
 
 -- | Represents a log event, which is a record of activity that was recorded by the application or resource being monitored.
 --
@@ -373,9 +377,10 @@ instance NFData FilteredLogEvent
 --
 -- /See:/ 'inputLogEvent' smart constructor.
 data InputLogEvent = InputLogEvent'
-    { _ileTimestamp :: !Nat
-    , _ileMessage   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ileTimestamp :: {-# NOUNPACK #-}!Nat
+  , _ileMessage   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InputLogEvent' with the minimum fields required to make a request.
 --
@@ -389,10 +394,8 @@ inputLogEvent
     -> Text -- ^ 'ileMessage'
     -> InputLogEvent
 inputLogEvent pTimestamp_ pMessage_ =
-    InputLogEvent'
-    { _ileTimestamp = _Nat # pTimestamp_
-    , _ileMessage = pMessage_
-    }
+  InputLogEvent' {_ileTimestamp = _Nat # pTimestamp_, _ileMessage = pMessage_}
+
 
 -- | The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 ileTimestamp :: Lens' InputLogEvent Natural
@@ -402,9 +405,9 @@ ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat;
 ileMessage :: Lens' InputLogEvent Text
 ileMessage = lens _ileMessage (\ s a -> s{_ileMessage = a});
 
-instance Hashable InputLogEvent
+instance Hashable InputLogEvent where
 
-instance NFData InputLogEvent
+instance NFData InputLogEvent where
 
 instance ToJSON InputLogEvent where
         toJSON InputLogEvent'{..}
@@ -419,13 +422,14 @@ instance ToJSON InputLogEvent where
 --
 -- /See:/ 'logGroup' smart constructor.
 data LogGroup = LogGroup'
-    { _lgCreationTime      :: !(Maybe Nat)
-    , _lgMetricFilterCount :: !(Maybe Int)
-    , _lgArn               :: !(Maybe Text)
-    , _lgLogGroupName      :: !(Maybe Text)
-    , _lgRetentionInDays   :: !(Maybe Int)
-    , _lgStoredBytes       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lgCreationTime      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lgMetricFilterCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lgArn               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgLogGroupName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lgRetentionInDays   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lgStoredBytes       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LogGroup' with the minimum fields required to make a request.
 --
@@ -445,14 +449,15 @@ data LogGroup = LogGroup'
 logGroup
     :: LogGroup
 logGroup =
-    LogGroup'
-    { _lgCreationTime = Nothing
-    , _lgMetricFilterCount = Nothing
-    , _lgArn = Nothing
-    , _lgLogGroupName = Nothing
-    , _lgRetentionInDays = Nothing
-    , _lgStoredBytes = Nothing
-    }
+  LogGroup'
+  { _lgCreationTime = Nothing
+  , _lgMetricFilterCount = Nothing
+  , _lgArn = Nothing
+  , _lgLogGroupName = Nothing
+  , _lgRetentionInDays = Nothing
+  , _lgStoredBytes = Nothing
+  }
+
 
 -- | The creation time of the log group, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
@@ -490,9 +495,9 @@ instance FromJSON LogGroup where
                      <*> (x .:? "retentionInDays")
                      <*> (x .:? "storedBytes"))
 
-instance Hashable LogGroup
+instance Hashable LogGroup where
 
-instance NFData LogGroup
+instance NFData LogGroup where
 
 -- | Represents a log stream, which is a sequence of log events from a single emitter of logs.
 --
@@ -500,15 +505,16 @@ instance NFData LogGroup
 --
 -- /See:/ 'logStream' smart constructor.
 data LogStream = LogStream'
-    { _lsCreationTime        :: !(Maybe Nat)
-    , _lsUploadSequenceToken :: !(Maybe Text)
-    , _lsArn                 :: !(Maybe Text)
-    , _lsFirstEventTimestamp :: !(Maybe Nat)
-    , _lsLogStreamName       :: !(Maybe Text)
-    , _lsStoredBytes         :: !(Maybe Nat)
-    , _lsLastIngestionTime   :: !(Maybe Nat)
-    , _lsLastEventTimestamp  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsCreationTime        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lsUploadSequenceToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsArn                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsFirstEventTimestamp :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lsLogStreamName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsStoredBytes         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lsLastIngestionTime   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lsLastEventTimestamp  :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LogStream' with the minimum fields required to make a request.
 --
@@ -532,16 +538,17 @@ data LogStream = LogStream'
 logStream
     :: LogStream
 logStream =
-    LogStream'
-    { _lsCreationTime = Nothing
-    , _lsUploadSequenceToken = Nothing
-    , _lsArn = Nothing
-    , _lsFirstEventTimestamp = Nothing
-    , _lsLogStreamName = Nothing
-    , _lsStoredBytes = Nothing
-    , _lsLastIngestionTime = Nothing
-    , _lsLastEventTimestamp = Nothing
-    }
+  LogStream'
+  { _lsCreationTime = Nothing
+  , _lsUploadSequenceToken = Nothing
+  , _lsArn = Nothing
+  , _lsFirstEventTimestamp = Nothing
+  , _lsLogStreamName = Nothing
+  , _lsStoredBytes = Nothing
+  , _lsLastIngestionTime = Nothing
+  , _lsLastEventTimestamp = Nothing
+  }
+
 
 -- | The creation time of the stream, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 lsCreationTime :: Lens' LogStream (Maybe Natural)
@@ -589,9 +596,9 @@ instance FromJSON LogStream where
                      <*> (x .:? "lastIngestionTime")
                      <*> (x .:? "lastEventTimestamp"))
 
-instance Hashable LogStream
+instance Hashable LogStream where
 
-instance NFData LogStream
+instance NFData LogStream where
 
 -- | Metric filters express how CloudWatch Logs would extract metric observations from ingested log events and transform them into metric data in a CloudWatch metric.
 --
@@ -599,12 +606,13 @@ instance NFData LogStream
 --
 -- /See:/ 'metricFilter' smart constructor.
 data MetricFilter = MetricFilter'
-    { _mfCreationTime          :: !(Maybe Nat)
-    , _mfFilterName            :: !(Maybe Text)
-    , _mfLogGroupName          :: !(Maybe Text)
-    , _mfFilterPattern         :: !(Maybe Text)
-    , _mfMetricTransformations :: !(Maybe (List1 MetricTransformation))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mfCreationTime :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _mfFilterName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mfLogGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mfFilterPattern :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mfMetricTransformations :: {-# NOUNPACK #-}!(Maybe (List1 MetricTransformation))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricFilter' with the minimum fields required to make a request.
 --
@@ -622,13 +630,14 @@ data MetricFilter = MetricFilter'
 metricFilter
     :: MetricFilter
 metricFilter =
-    MetricFilter'
-    { _mfCreationTime = Nothing
-    , _mfFilterName = Nothing
-    , _mfLogGroupName = Nothing
-    , _mfFilterPattern = Nothing
-    , _mfMetricTransformations = Nothing
-    }
+  MetricFilter'
+  { _mfCreationTime = Nothing
+  , _mfFilterName = Nothing
+  , _mfLogGroupName = Nothing
+  , _mfFilterPattern = Nothing
+  , _mfMetricTransformations = Nothing
+  }
+
 
 -- | The creation time of the metric filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
@@ -660,9 +669,9 @@ instance FromJSON MetricFilter where
                      <*> (x .:? "filterPattern")
                      <*> (x .:? "metricTransformations"))
 
-instance Hashable MetricFilter
+instance Hashable MetricFilter where
 
-instance NFData MetricFilter
+instance NFData MetricFilter where
 
 -- | Represents a matched event.
 --
@@ -670,10 +679,11 @@ instance NFData MetricFilter
 --
 -- /See:/ 'metricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
-    { _mfmrExtractedValues :: !(Maybe (Map Text Text))
-    , _mfmrEventNumber     :: !(Maybe Integer)
-    , _mfmrEventMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mfmrExtractedValues :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _mfmrEventNumber     :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _mfmrEventMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricFilterMatchRecord' with the minimum fields required to make a request.
 --
@@ -687,11 +697,12 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord'
 metricFilterMatchRecord
     :: MetricFilterMatchRecord
 metricFilterMatchRecord =
-    MetricFilterMatchRecord'
-    { _mfmrExtractedValues = Nothing
-    , _mfmrEventNumber = Nothing
-    , _mfmrEventMessage = Nothing
-    }
+  MetricFilterMatchRecord'
+  { _mfmrExtractedValues = Nothing
+  , _mfmrEventNumber = Nothing
+  , _mfmrEventMessage = Nothing
+  }
+
 
 -- | The values extracted from the event data by the filter.
 mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
@@ -714,9 +725,9 @@ instance FromJSON MetricFilterMatchRecord where
                      (x .:? "eventNumber")
                      <*> (x .:? "eventMessage"))
 
-instance Hashable MetricFilterMatchRecord
+instance Hashable MetricFilterMatchRecord where
 
-instance NFData MetricFilterMatchRecord
+instance NFData MetricFilterMatchRecord where
 
 -- | Indicates how to transform ingested log events into metric data in a CloudWatch metric.
 --
@@ -724,11 +735,12 @@ instance NFData MetricFilterMatchRecord
 --
 -- /See:/ 'metricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
-    { _mtDefaultValue    :: !(Maybe Double)
-    , _mtMetricName      :: !Text
-    , _mtMetricNamespace :: !Text
-    , _mtMetricValue     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mtDefaultValue    :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mtMetricName      :: {-# NOUNPACK #-}!Text
+  , _mtMetricNamespace :: {-# NOUNPACK #-}!Text
+  , _mtMetricValue     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MetricTransformation' with the minimum fields required to make a request.
 --
@@ -747,12 +759,13 @@ metricTransformation
     -> Text -- ^ 'mtMetricValue'
     -> MetricTransformation
 metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
-    MetricTransformation'
-    { _mtDefaultValue = Nothing
-    , _mtMetricName = pMetricName_
-    , _mtMetricNamespace = pMetricNamespace_
-    , _mtMetricValue = pMetricValue_
-    }
+  MetricTransformation'
+  { _mtDefaultValue = Nothing
+  , _mtMetricName = pMetricName_
+  , _mtMetricNamespace = pMetricNamespace_
+  , _mtMetricValue = pMetricValue_
+  }
+
 
 -- | (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
 mtDefaultValue :: Lens' MetricTransformation (Maybe Double)
@@ -779,9 +792,9 @@ instance FromJSON MetricTransformation where
                      (x .: "metricNamespace")
                      <*> (x .: "metricValue"))
 
-instance Hashable MetricTransformation
+instance Hashable MetricTransformation where
 
-instance NFData MetricTransformation
+instance NFData MetricTransformation where
 
 instance ToJSON MetricTransformation where
         toJSON MetricTransformation'{..}
@@ -798,10 +811,11 @@ instance ToJSON MetricTransformation where
 --
 -- /See:/ 'outputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
-    { _oleIngestionTime :: !(Maybe Nat)
-    , _oleMessage       :: !(Maybe Text)
-    , _oleTimestamp     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oleIngestionTime :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _oleMessage       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oleTimestamp     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OutputLogEvent' with the minimum fields required to make a request.
 --
@@ -815,11 +829,9 @@ data OutputLogEvent = OutputLogEvent'
 outputLogEvent
     :: OutputLogEvent
 outputLogEvent =
-    OutputLogEvent'
-    { _oleIngestionTime = Nothing
-    , _oleMessage = Nothing
-    , _oleTimestamp = Nothing
-    }
+  OutputLogEvent'
+  {_oleIngestionTime = Nothing, _oleMessage = Nothing, _oleTimestamp = Nothing}
+
 
 -- | The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
@@ -841,9 +853,9 @@ instance FromJSON OutputLogEvent where
                    (x .:? "ingestionTime") <*> (x .:? "message") <*>
                      (x .:? "timestamp"))
 
-instance Hashable OutputLogEvent
+instance Hashable OutputLogEvent where
 
-instance NFData OutputLogEvent
+instance NFData OutputLogEvent where
 
 -- | Represents the rejected events.
 --
@@ -851,10 +863,11 @@ instance NFData OutputLogEvent
 --
 -- /See:/ 'rejectedLogEventsInfo' smart constructor.
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
-    { _rleiTooOldLogEventEndIndex   :: !(Maybe Int)
-    , _rleiTooNewLogEventStartIndex :: !(Maybe Int)
-    , _rleiExpiredLogEventEndIndex  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rleiTooOldLogEventEndIndex   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rleiTooNewLogEventStartIndex :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rleiExpiredLogEventEndIndex  :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RejectedLogEventsInfo' with the minimum fields required to make a request.
 --
@@ -868,11 +881,12 @@ data RejectedLogEventsInfo = RejectedLogEventsInfo'
 rejectedLogEventsInfo
     :: RejectedLogEventsInfo
 rejectedLogEventsInfo =
-    RejectedLogEventsInfo'
-    { _rleiTooOldLogEventEndIndex = Nothing
-    , _rleiTooNewLogEventStartIndex = Nothing
-    , _rleiExpiredLogEventEndIndex = Nothing
-    }
+  RejectedLogEventsInfo'
+  { _rleiTooOldLogEventEndIndex = Nothing
+  , _rleiTooNewLogEventStartIndex = Nothing
+  , _rleiExpiredLogEventEndIndex = Nothing
+  }
+
 
 -- | The log events that are too old.
 rleiTooOldLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
@@ -895,9 +909,9 @@ instance FromJSON RejectedLogEventsInfo where
                      (x .:? "tooNewLogEventStartIndex")
                      <*> (x .:? "expiredLogEventEndIndex"))
 
-instance Hashable RejectedLogEventsInfo
+instance Hashable RejectedLogEventsInfo where
 
-instance NFData RejectedLogEventsInfo
+instance NFData RejectedLogEventsInfo where
 
 -- | Represents the search status of a log stream.
 --
@@ -905,9 +919,10 @@ instance NFData RejectedLogEventsInfo
 --
 -- /See:/ 'searchedLogStream' smart constructor.
 data SearchedLogStream = SearchedLogStream'
-    { _slsLogStreamName      :: !(Maybe Text)
-    , _slsSearchedCompletely :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slsLogStreamName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _slsSearchedCompletely :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchedLogStream' with the minimum fields required to make a request.
 --
@@ -919,10 +934,9 @@ data SearchedLogStream = SearchedLogStream'
 searchedLogStream
     :: SearchedLogStream
 searchedLogStream =
-    SearchedLogStream'
-    { _slsLogStreamName = Nothing
-    , _slsSearchedCompletely = Nothing
-    }
+  SearchedLogStream'
+  {_slsLogStreamName = Nothing, _slsSearchedCompletely = Nothing}
+
 
 -- | The name of the log stream.
 slsLogStreamName :: Lens' SearchedLogStream (Maybe Text)
@@ -940,9 +954,9 @@ instance FromJSON SearchedLogStream where
                    (x .:? "logStreamName") <*>
                      (x .:? "searchedCompletely"))
 
-instance Hashable SearchedLogStream
+instance Hashable SearchedLogStream where
 
-instance NFData SearchedLogStream
+instance NFData SearchedLogStream where
 
 -- | Represents a subscription filter.
 --
@@ -950,14 +964,15 @@ instance NFData SearchedLogStream
 --
 -- /See:/ 'subscriptionFilter' smart constructor.
 data SubscriptionFilter = SubscriptionFilter'
-    { _sfCreationTime   :: !(Maybe Nat)
-    , _sfFilterName     :: !(Maybe Text)
-    , _sfDistribution   :: !(Maybe Distribution)
-    , _sfDestinationARN :: !(Maybe Text)
-    , _sfLogGroupName   :: !(Maybe Text)
-    , _sfFilterPattern  :: !(Maybe Text)
-    , _sfRoleARN        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sfCreationTime   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sfFilterName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sfDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
+  , _sfDestinationARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sfLogGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sfFilterPattern  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sfRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SubscriptionFilter' with the minimum fields required to make a request.
 --
@@ -979,15 +994,16 @@ data SubscriptionFilter = SubscriptionFilter'
 subscriptionFilter
     :: SubscriptionFilter
 subscriptionFilter =
-    SubscriptionFilter'
-    { _sfCreationTime = Nothing
-    , _sfFilterName = Nothing
-    , _sfDistribution = Nothing
-    , _sfDestinationARN = Nothing
-    , _sfLogGroupName = Nothing
-    , _sfFilterPattern = Nothing
-    , _sfRoleARN = Nothing
-    }
+  SubscriptionFilter'
+  { _sfCreationTime = Nothing
+  , _sfFilterName = Nothing
+  , _sfDistribution = Nothing
+  , _sfDestinationARN = Nothing
+  , _sfLogGroupName = Nothing
+  , _sfFilterPattern = Nothing
+  , _sfRoleARN = Nothing
+  }
+
 
 -- | The creation time of the subscription filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 sfCreationTime :: Lens' SubscriptionFilter (Maybe Natural)
@@ -1029,6 +1045,6 @@ instance FromJSON SubscriptionFilter where
                      <*> (x .:? "filterPattern")
                      <*> (x .:? "roleArn"))
 
-instance Hashable SubscriptionFilter
+instance Hashable SubscriptionFilter where
 
-instance NFData SubscriptionFilter
+instance NFData SubscriptionFilter where

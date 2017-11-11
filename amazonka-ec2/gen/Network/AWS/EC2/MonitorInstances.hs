@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.MonitorInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.EC2.MonitorInstances
     , mirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for MonitorInstances.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'monitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
-    { _miDryRun      :: !(Maybe Bool)
-    , _miInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _miDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _miInstanceIds :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MonitorInstances' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ data MonitorInstances = MonitorInstances'
 monitorInstances
     :: MonitorInstances
 monitorInstances =
-    MonitorInstances'
-    { _miDryRun = Nothing
-    , _miInstanceIds = mempty
-    }
+  MonitorInstances' {_miDryRun = Nothing, _miInstanceIds = mempty}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 miDryRun :: Lens' MonitorInstances (Maybe Bool)
@@ -91,9 +90,9 @@ instance AWSRequest MonitorInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable MonitorInstances
+instance Hashable MonitorInstances where
 
-instance NFData MonitorInstances
+instance NFData MonitorInstances where
 
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty
@@ -115,9 +114,10 @@ instance ToQuery MonitorInstances where
 --
 -- /See:/ 'monitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
-    { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _mirsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mirsInstanceMonitorings :: {-# NOUNPACK #-}!(Maybe [InstanceMonitoring])
+  , _mirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MonitorInstancesResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +130,9 @@ monitorInstancesResponse
     :: Int -- ^ 'mirsResponseStatus'
     -> MonitorInstancesResponse
 monitorInstancesResponse pResponseStatus_ =
-    MonitorInstancesResponse'
-    { _mirsInstanceMonitorings = Nothing
-    , _mirsResponseStatus = pResponseStatus_
-    }
+  MonitorInstancesResponse'
+  {_mirsInstanceMonitorings = Nothing, _mirsResponseStatus = pResponseStatus_}
+
 
 -- | The monitoring information.
 mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
@@ -143,4 +142,4 @@ mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanc
 mirsResponseStatus :: Lens' MonitorInstancesResponse Int
 mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a});
 
-instance NFData MonitorInstancesResponse
+instance NFData MonitorInstancesResponse where

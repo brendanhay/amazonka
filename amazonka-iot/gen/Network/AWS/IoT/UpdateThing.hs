@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateThing
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.IoT.UpdateThing
     , utrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the UpdateThing operation.
 --
@@ -53,12 +53,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateThing' smart constructor.
 data UpdateThing = UpdateThing'
-    { _utRemoveThingType  :: !(Maybe Bool)
-    , _utThingTypeName    :: !(Maybe Text)
-    , _utExpectedVersion  :: !(Maybe Integer)
-    , _utAttributePayload :: !(Maybe AttributePayload)
-    , _utThingName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utRemoveThingType  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utThingTypeName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utExpectedVersion  :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _utAttributePayload :: {-# NOUNPACK #-}!(Maybe AttributePayload)
+  , _utThingName        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateThing' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ updateThing
     :: Text -- ^ 'utThingName'
     -> UpdateThing
 updateThing pThingName_ =
-    UpdateThing'
-    { _utRemoveThingType = Nothing
-    , _utThingTypeName = Nothing
-    , _utExpectedVersion = Nothing
-    , _utAttributePayload = Nothing
-    , _utThingName = pThingName_
-    }
+  UpdateThing'
+  { _utRemoveThingType = Nothing
+  , _utThingTypeName = Nothing
+  , _utExpectedVersion = Nothing
+  , _utAttributePayload = Nothing
+  , _utThingName = pThingName_
+  }
+
 
 -- | Remove a thing type association. If __true__ , the assocation is removed.
 utRemoveThingType :: Lens' UpdateThing (Maybe Bool)
@@ -113,9 +115,9 @@ instance AWSRequest UpdateThing where
               (\ s h x ->
                  UpdateThingResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateThing
+instance Hashable UpdateThing where
 
-instance NFData UpdateThing
+instance NFData UpdateThing where
 
 instance ToHeaders UpdateThing where
         toHeaders = const mempty
@@ -142,8 +144,9 @@ instance ToQuery UpdateThing where
 --
 -- /See:/ 'updateThingResponse' smart constructor.
 newtype UpdateThingResponse = UpdateThingResponse'
-    { _utrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateThingResponse' with the minimum fields required to make a request.
 --
@@ -154,12 +157,11 @@ updateThingResponse
     :: Int -- ^ 'utrsResponseStatus'
     -> UpdateThingResponse
 updateThingResponse pResponseStatus_ =
-    UpdateThingResponse'
-    { _utrsResponseStatus = pResponseStatus_
-    }
+  UpdateThingResponse' {_utrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 utrsResponseStatus :: Lens' UpdateThingResponse Int
 utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
 
-instance NFData UpdateThingResponse
+instance NFData UpdateThingResponse where

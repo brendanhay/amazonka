@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.CreatePipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.DataPipeline.CreatePipeline
     , cprsPipelineId
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for CreatePipeline.
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createPipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-    { _cpDescription :: !(Maybe Text)
-    , _cpTags        :: !(Maybe [Tag])
-    , _cpName        :: !Text
-    , _cpUniqueId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpTags        :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cpName        :: {-# NOUNPACK #-}!Text
+  , _cpUniqueId    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ createPipeline
     -> Text -- ^ 'cpUniqueId'
     -> CreatePipeline
 createPipeline pName_ pUniqueId_ =
-    CreatePipeline'
-    { _cpDescription = Nothing
-    , _cpTags = Nothing
-    , _cpName = pName_
-    , _cpUniqueId = pUniqueId_
-    }
+  CreatePipeline'
+  { _cpDescription = Nothing
+  , _cpTags = Nothing
+  , _cpName = pName_
+  , _cpUniqueId = pUniqueId_
+  }
+
 
 -- | The description for the pipeline.
 cpDescription :: Lens' CreatePipeline (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest CreatePipeline where
                  CreatePipelineResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "pipelineId"))
 
-instance Hashable CreatePipeline
+instance Hashable CreatePipeline where
 
-instance NFData CreatePipeline
+instance NFData CreatePipeline where
 
 instance ToHeaders CreatePipeline where
         toHeaders
@@ -140,9 +142,10 @@ instance ToQuery CreatePipeline where
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprsResponseStatus :: !Int
-    , _cprsPipelineId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _cprsPipelineId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
 --
@@ -156,10 +159,9 @@ createPipelineResponse
     -> Text -- ^ 'cprsPipelineId'
     -> CreatePipelineResponse
 createPipelineResponse pResponseStatus_ pPipelineId_ =
-    CreatePipelineResponse'
-    { _cprsResponseStatus = pResponseStatus_
-    , _cprsPipelineId = pPipelineId_
-    }
+  CreatePipelineResponse'
+  {_cprsResponseStatus = pResponseStatus_, _cprsPipelineId = pPipelineId_}
+
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePipelineResponse Int
@@ -169,4 +171,4 @@ cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = 
 cprsPipelineId :: Lens' CreatePipelineResponse Text
 cprsPipelineId = lens _cprsPipelineId (\ s a -> s{_cprsPipelineId = a});
 
-instance NFData CreatePipelineResponse
+instance NFData CreatePipelineResponse where

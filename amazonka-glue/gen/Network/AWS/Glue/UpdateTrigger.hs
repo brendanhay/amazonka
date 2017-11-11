@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateTrigger
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Glue.UpdateTrigger
     , updrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateTrigger' smart constructor.
 data UpdateTrigger = UpdateTrigger'
-    { _utName          :: !Text
-    , _utTriggerUpdate :: !TriggerUpdate
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utName          :: {-# NOUNPACK #-}!Text
+  , _utTriggerUpdate :: {-# NOUNPACK #-}!TriggerUpdate
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTrigger' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ updateTrigger
     -> TriggerUpdate -- ^ 'utTriggerUpdate'
     -> UpdateTrigger
 updateTrigger pName_ pTriggerUpdate_ =
-    UpdateTrigger'
-    { _utName = pName_
-    , _utTriggerUpdate = pTriggerUpdate_
-    }
+  UpdateTrigger' {_utName = pName_, _utTriggerUpdate = pTriggerUpdate_}
+
 
 -- | The name of the trigger to update.
 utName :: Lens' UpdateTrigger Text
@@ -85,9 +84,9 @@ instance AWSRequest UpdateTrigger where
                  UpdateTriggerResponse' <$>
                    (x .?> "Trigger") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateTrigger
+instance Hashable UpdateTrigger where
 
-instance NFData UpdateTrigger
+instance NFData UpdateTrigger where
 
 instance ToHeaders UpdateTrigger where
         toHeaders
@@ -113,9 +112,10 @@ instance ToQuery UpdateTrigger where
 
 -- | /See:/ 'updateTriggerResponse' smart constructor.
 data UpdateTriggerResponse = UpdateTriggerResponse'
-    { _updrsTrigger        :: !(Maybe Trigger)
-    , _updrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _updrsTrigger        :: {-# NOUNPACK #-}!(Maybe Trigger)
+  , _updrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTriggerResponse' with the minimum fields required to make a request.
 --
@@ -128,10 +128,9 @@ updateTriggerResponse
     :: Int -- ^ 'updrsResponseStatus'
     -> UpdateTriggerResponse
 updateTriggerResponse pResponseStatus_ =
-    UpdateTriggerResponse'
-    { _updrsTrigger = Nothing
-    , _updrsResponseStatus = pResponseStatus_
-    }
+  UpdateTriggerResponse'
+  {_updrsTrigger = Nothing, _updrsResponseStatus = pResponseStatus_}
+
 
 -- | The resulting trigger definition.
 updrsTrigger :: Lens' UpdateTriggerResponse (Maybe Trigger)
@@ -141,4 +140,4 @@ updrsTrigger = lens _updrsTrigger (\ s a -> s{_updrsTrigger = a});
 updrsResponseStatus :: Lens' UpdateTriggerResponse Int
 updrsResponseStatus = lens _updrsResponseStatus (\ s a -> s{_updrsResponseStatus = a});
 
-instance NFData UpdateTriggerResponse
+instance NFData UpdateTriggerResponse where

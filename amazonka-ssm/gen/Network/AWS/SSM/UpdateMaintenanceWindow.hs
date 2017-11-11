@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateMaintenanceWindow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,25 +52,26 @@ module Network.AWS.SSM.UpdateMaintenanceWindow
     , umwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateMaintenanceWindow' smart constructor.
 data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
-    { _umwReplace                  :: !(Maybe Bool)
-    , _umwEnabled                  :: !(Maybe Bool)
-    , _umwSchedule                 :: !(Maybe Text)
-    , _umwName                     :: !(Maybe Text)
-    , _umwCutoff                   :: !(Maybe Nat)
-    , _umwAllowUnassociatedTargets :: !(Maybe Bool)
-    , _umwDescription              :: !(Maybe (Sensitive Text))
-    , _umwDuration                 :: !(Maybe Nat)
-    , _umwWindowId                 :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _umwReplace                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _umwEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _umwSchedule                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umwName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umwCutoff                   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _umwAllowUnassociatedTargets :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _umwDescription              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _umwDuration                 :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _umwWindowId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMaintenanceWindow' with the minimum fields required to make a request.
 --
@@ -97,17 +98,18 @@ updateMaintenanceWindow
     :: Text -- ^ 'umwWindowId'
     -> UpdateMaintenanceWindow
 updateMaintenanceWindow pWindowId_ =
-    UpdateMaintenanceWindow'
-    { _umwReplace = Nothing
-    , _umwEnabled = Nothing
-    , _umwSchedule = Nothing
-    , _umwName = Nothing
-    , _umwCutoff = Nothing
-    , _umwAllowUnassociatedTargets = Nothing
-    , _umwDescription = Nothing
-    , _umwDuration = Nothing
-    , _umwWindowId = pWindowId_
-    }
+  UpdateMaintenanceWindow'
+  { _umwReplace = Nothing
+  , _umwEnabled = Nothing
+  , _umwSchedule = Nothing
+  , _umwName = Nothing
+  , _umwCutoff = Nothing
+  , _umwAllowUnassociatedTargets = Nothing
+  , _umwDescription = Nothing
+  , _umwDuration = Nothing
+  , _umwWindowId = pWindowId_
+  }
+
 
 -- | If you specify True, then all fields that are required by the CreateMaintenanceWindow API are also required for this API request. Optional fields that are not specified will be set to null.
 umwReplace :: Lens' UpdateMaintenanceWindow (Maybe Bool)
@@ -162,9 +164,9 @@ instance AWSRequest UpdateMaintenanceWindow where
                      <*> (x .?> "WindowId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateMaintenanceWindow
+instance Hashable UpdateMaintenanceWindow where
 
-instance NFData UpdateMaintenanceWindow
+instance NFData UpdateMaintenanceWindow where
 
 instance ToHeaders UpdateMaintenanceWindow where
         toHeaders
@@ -198,16 +200,17 @@ instance ToQuery UpdateMaintenanceWindow where
 
 -- | /See:/ 'updateMaintenanceWindowResponse' smart constructor.
 data UpdateMaintenanceWindowResponse = UpdateMaintenanceWindowResponse'
-    { _umwrsEnabled                  :: !(Maybe Bool)
-    , _umwrsSchedule                 :: !(Maybe Text)
-    , _umwrsName                     :: !(Maybe Text)
-    , _umwrsCutoff                   :: !(Maybe Nat)
-    , _umwrsAllowUnassociatedTargets :: !(Maybe Bool)
-    , _umwrsDescription              :: !(Maybe (Sensitive Text))
-    , _umwrsDuration                 :: !(Maybe Nat)
-    , _umwrsWindowId                 :: !(Maybe Text)
-    , _umwrsResponseStatus           :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _umwrsEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _umwrsSchedule                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umwrsName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umwrsCutoff                   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _umwrsAllowUnassociatedTargets :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _umwrsDescription              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _umwrsDuration                 :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _umwrsWindowId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umwrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
@@ -234,17 +237,18 @@ updateMaintenanceWindowResponse
     :: Int -- ^ 'umwrsResponseStatus'
     -> UpdateMaintenanceWindowResponse
 updateMaintenanceWindowResponse pResponseStatus_ =
-    UpdateMaintenanceWindowResponse'
-    { _umwrsEnabled = Nothing
-    , _umwrsSchedule = Nothing
-    , _umwrsName = Nothing
-    , _umwrsCutoff = Nothing
-    , _umwrsAllowUnassociatedTargets = Nothing
-    , _umwrsDescription = Nothing
-    , _umwrsDuration = Nothing
-    , _umwrsWindowId = Nothing
-    , _umwrsResponseStatus = pResponseStatus_
-    }
+  UpdateMaintenanceWindowResponse'
+  { _umwrsEnabled = Nothing
+  , _umwrsSchedule = Nothing
+  , _umwrsName = Nothing
+  , _umwrsCutoff = Nothing
+  , _umwrsAllowUnassociatedTargets = Nothing
+  , _umwrsDescription = Nothing
+  , _umwrsDuration = Nothing
+  , _umwrsWindowId = Nothing
+  , _umwrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Whether the Maintenance Window is enabled.
 umwrsEnabled :: Lens' UpdateMaintenanceWindowResponse (Maybe Bool)
@@ -282,4 +286,4 @@ umwrsWindowId = lens _umwrsWindowId (\ s a -> s{_umwrsWindowId = a});
 umwrsResponseStatus :: Lens' UpdateMaintenanceWindowResponse Int
 umwrsResponseStatus = lens _umwrsResponseStatus (\ s a -> s{_umwrsResponseStatus = a});
 
-instance NFData UpdateMaintenanceWindowResponse
+instance NFData UpdateMaintenanceWindowResponse where

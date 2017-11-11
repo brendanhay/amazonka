@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListMFADevices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,20 +45,21 @@ module Network.AWS.IAM.ListMFADevices
     , lmdrsMFADevices
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listMFADevices' smart constructor.
 data ListMFADevices = ListMFADevices'
-    { _lmdUserName :: !(Maybe Text)
-    , _lmdMarker   :: !(Maybe Text)
-    , _lmdMaxItems :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lmdUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmdMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmdMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListMFADevices' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ data ListMFADevices = ListMFADevices'
 listMFADevices
     :: ListMFADevices
 listMFADevices =
-    ListMFADevices'
-    { _lmdUserName = Nothing
-    , _lmdMarker = Nothing
-    , _lmdMaxItems = Nothing
-    }
+  ListMFADevices'
+  {_lmdUserName = Nothing, _lmdMarker = Nothing, _lmdMaxItems = Nothing}
+
 
 -- | The name of the user whose MFA devices you want to list. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 lmdUserName :: Lens' ListMFADevices (Maybe Text)
@@ -110,9 +109,9 @@ instance AWSRequest ListMFADevices where
                      (x .@? "MFADevices" .!@ mempty >>=
                         parseXMLList "member"))
 
-instance Hashable ListMFADevices
+instance Hashable ListMFADevices where
 
-instance NFData ListMFADevices
+instance NFData ListMFADevices where
 
 instance ToHeaders ListMFADevices where
         toHeaders = const mempty
@@ -134,11 +133,12 @@ instance ToQuery ListMFADevices where
 --
 -- /See:/ 'listMFADevicesResponse' smart constructor.
 data ListMFADevicesResponse = ListMFADevicesResponse'
-    { _lmdrsMarker         :: !(Maybe Text)
-    , _lmdrsIsTruncated    :: !(Maybe Bool)
-    , _lmdrsResponseStatus :: !Int
-    , _lmdrsMFADevices     :: ![MFADevice]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lmdrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmdrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lmdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lmdrsMFADevices     :: {-# NOUNPACK #-}![MFADevice]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListMFADevicesResponse' with the minimum fields required to make a request.
 --
@@ -155,12 +155,13 @@ listMFADevicesResponse
     :: Int -- ^ 'lmdrsResponseStatus'
     -> ListMFADevicesResponse
 listMFADevicesResponse pResponseStatus_ =
-    ListMFADevicesResponse'
-    { _lmdrsMarker = Nothing
-    , _lmdrsIsTruncated = Nothing
-    , _lmdrsResponseStatus = pResponseStatus_
-    , _lmdrsMFADevices = mempty
-    }
+  ListMFADevicesResponse'
+  { _lmdrsMarker = Nothing
+  , _lmdrsIsTruncated = Nothing
+  , _lmdrsResponseStatus = pResponseStatus_
+  , _lmdrsMFADevices = mempty
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lmdrsMarker :: Lens' ListMFADevicesResponse (Maybe Text)
@@ -178,4 +179,4 @@ lmdrsResponseStatus = lens _lmdrsResponseStatus (\ s a -> s{_lmdrsResponseStatus
 lmdrsMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
 lmdrsMFADevices = lens _lmdrsMFADevices (\ s a -> s{_lmdrsMFADevices = a}) . _Coerce;
 
-instance NFData ListMFADevicesResponse
+instance NFData ListMFADevicesResponse where

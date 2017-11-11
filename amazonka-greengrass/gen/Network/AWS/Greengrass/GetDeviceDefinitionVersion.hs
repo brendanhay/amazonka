@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetDeviceDefinitionVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Greengrass.GetDeviceDefinitionVersion
     , gddvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getDeviceDefinitionVersion' smart constructor.
 data GetDeviceDefinitionVersion = GetDeviceDefinitionVersion'
-    { _gddvDeviceDefinitionVersionId :: !Text
-    , _gddvDeviceDefinitionId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gddvDeviceDefinitionVersionId :: {-# NOUNPACK #-}!Text
+  , _gddvDeviceDefinitionId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeviceDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ getDeviceDefinitionVersion
     -> Text -- ^ 'gddvDeviceDefinitionId'
     -> GetDeviceDefinitionVersion
 getDeviceDefinitionVersion pDeviceDefinitionVersionId_ pDeviceDefinitionId_ =
-    GetDeviceDefinitionVersion'
-    { _gddvDeviceDefinitionVersionId = pDeviceDefinitionVersionId_
-    , _gddvDeviceDefinitionId = pDeviceDefinitionId_
-    }
+  GetDeviceDefinitionVersion'
+  { _gddvDeviceDefinitionVersionId = pDeviceDefinitionVersionId_
+  , _gddvDeviceDefinitionId = pDeviceDefinitionId_
+  }
+
 
 -- | device definition version Id
 gddvDeviceDefinitionVersionId :: Lens' GetDeviceDefinitionVersion Text
@@ -92,9 +94,9 @@ instance AWSRequest GetDeviceDefinitionVersion where
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetDeviceDefinitionVersion
+instance Hashable GetDeviceDefinitionVersion where
 
-instance NFData GetDeviceDefinitionVersion
+instance NFData GetDeviceDefinitionVersion where
 
 instance ToHeaders GetDeviceDefinitionVersion where
         toHeaders
@@ -115,13 +117,14 @@ instance ToQuery GetDeviceDefinitionVersion where
 
 -- | /See:/ 'getDeviceDefinitionVersionResponse' smart constructor.
 data GetDeviceDefinitionVersionResponse = GetDeviceDefinitionVersionResponse'
-    { _gddvrsDefinition        :: !(Maybe DeviceDefinitionVersion)
-    , _gddvrsARN               :: !(Maybe Text)
-    , _gddvrsCreationTimestamp :: !(Maybe Text)
-    , _gddvrsVersion           :: !(Maybe Text)
-    , _gddvrsId                :: !(Maybe Text)
-    , _gddvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gddvrsDefinition        :: {-# NOUNPACK #-}!(Maybe DeviceDefinitionVersion)
+  , _gddvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gddvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeviceDefinitionVersionResponse' with the minimum fields required to make a request.
 --
@@ -142,14 +145,15 @@ getDeviceDefinitionVersionResponse
     :: Int -- ^ 'gddvrsResponseStatus'
     -> GetDeviceDefinitionVersionResponse
 getDeviceDefinitionVersionResponse pResponseStatus_ =
-    GetDeviceDefinitionVersionResponse'
-    { _gddvrsDefinition = Nothing
-    , _gddvrsARN = Nothing
-    , _gddvrsCreationTimestamp = Nothing
-    , _gddvrsVersion = Nothing
-    , _gddvrsId = Nothing
-    , _gddvrsResponseStatus = pResponseStatus_
-    }
+  GetDeviceDefinitionVersionResponse'
+  { _gddvrsDefinition = Nothing
+  , _gddvrsARN = Nothing
+  , _gddvrsCreationTimestamp = Nothing
+  , _gddvrsVersion = Nothing
+  , _gddvrsId = Nothing
+  , _gddvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Device definition version
 gddvrsDefinition :: Lens' GetDeviceDefinitionVersionResponse (Maybe DeviceDefinitionVersion)
@@ -176,3 +180,4 @@ gddvrsResponseStatus :: Lens' GetDeviceDefinitionVersionResponse Int
 gddvrsResponseStatus = lens _gddvrsResponseStatus (\ s a -> s{_gddvrsResponseStatus = a});
 
 instance NFData GetDeviceDefinitionVersionResponse
+         where

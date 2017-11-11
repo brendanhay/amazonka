@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DeprecateActivityType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,18 +55,19 @@ module Network.AWS.SWF.DeprecateActivityType
     , DeprecateActivityTypeResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'deprecateActivityType' smart constructor.
 data DeprecateActivityType = DeprecateActivityType'
-    { _depDomain       :: !Text
-    , _depActivityType :: !ActivityType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _depDomain       :: {-# NOUNPACK #-}!Text
+  , _depActivityType :: {-# NOUNPACK #-}!ActivityType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateActivityType' with the minimum fields required to make a request.
 --
@@ -80,10 +81,9 @@ deprecateActivityType
     -> ActivityType -- ^ 'depActivityType'
     -> DeprecateActivityType
 deprecateActivityType pDomain_ pActivityType_ =
-    DeprecateActivityType'
-    { _depDomain = pDomain_
-    , _depActivityType = pActivityType_
-    }
+  DeprecateActivityType'
+  {_depDomain = pDomain_, _depActivityType = pActivityType_}
+
 
 -- | The name of the domain in which the activity type is registered.
 depDomain :: Lens' DeprecateActivityType Text
@@ -99,9 +99,9 @@ instance AWSRequest DeprecateActivityType where
         request = postJSON swf
         response = receiveNull DeprecateActivityTypeResponse'
 
-instance Hashable DeprecateActivityType
+instance Hashable DeprecateActivityType where
 
-instance NFData DeprecateActivityType
+instance NFData DeprecateActivityType where
 
 instance ToHeaders DeprecateActivityType where
         toHeaders
@@ -128,8 +128,9 @@ instance ToQuery DeprecateActivityType where
 
 -- | /See:/ 'deprecateActivityTypeResponse' smart constructor.
 data DeprecateActivityTypeResponse =
-    DeprecateActivityTypeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeprecateActivityTypeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeprecateActivityTypeResponse' with the minimum fields required to make a request.
 --
@@ -137,4 +138,5 @@ deprecateActivityTypeResponse
     :: DeprecateActivityTypeResponse
 deprecateActivityTypeResponse = DeprecateActivityTypeResponse'
 
-instance NFData DeprecateActivityTypeResponse
+
+instance NFData DeprecateActivityTypeResponse where

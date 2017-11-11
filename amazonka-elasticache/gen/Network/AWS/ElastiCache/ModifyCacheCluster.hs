@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyCacheCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -53,12 +53,12 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , mccrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @ModifyCacheCluster@ operation.
 --
@@ -66,24 +66,25 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyCacheCluster' smart constructor.
 data ModifyCacheCluster = ModifyCacheCluster'
-    { _mccEngineVersion              :: !(Maybe Text)
-    , _mccCacheNodeType              :: !(Maybe Text)
-    , _mccSecurityGroupIds           :: !(Maybe [Text])
-    , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _mccCacheParameterGroupName    :: !(Maybe Text)
-    , _mccSnapshotWindow             :: !(Maybe Text)
-    , _mccNewAvailabilityZones       :: !(Maybe [Text])
-    , _mccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mccCacheNodeIdsToRemove       :: !(Maybe [Text])
-    , _mccSnapshotRetentionLimit     :: !(Maybe Int)
-    , _mccNotificationTopicStatus    :: !(Maybe Text)
-    , _mccAZMode                     :: !(Maybe AZMode)
-    , _mccApplyImmediately           :: !(Maybe Bool)
-    , _mccNotificationTopicARN       :: !(Maybe Text)
-    , _mccNumCacheNodes              :: !(Maybe Int)
-    , _mccCacheSecurityGroupNames    :: !(Maybe [Text])
-    , _mccCacheClusterId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mccEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mccCacheNodeType              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mccSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mccAutoMinorVersionUpgrade    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mccCacheParameterGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mccSnapshotWindow             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mccNewAvailabilityZones       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mccCacheNodeIdsToRemove       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mccSnapshotRetentionLimit     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mccNotificationTopicStatus    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mccAZMode                     :: {-# NOUNPACK #-}!(Maybe AZMode)
+  , _mccApplyImmediately           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mccNotificationTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mccNumCacheNodes              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mccCacheSecurityGroupNames    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mccCacheClusterId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyCacheCluster' with the minimum fields required to make a request.
 --
@@ -126,25 +127,26 @@ modifyCacheCluster
     :: Text -- ^ 'mccCacheClusterId'
     -> ModifyCacheCluster
 modifyCacheCluster pCacheClusterId_ =
-    ModifyCacheCluster'
-    { _mccEngineVersion = Nothing
-    , _mccCacheNodeType = Nothing
-    , _mccSecurityGroupIds = Nothing
-    , _mccAutoMinorVersionUpgrade = Nothing
-    , _mccCacheParameterGroupName = Nothing
-    , _mccSnapshotWindow = Nothing
-    , _mccNewAvailabilityZones = Nothing
-    , _mccPreferredMaintenanceWindow = Nothing
-    , _mccCacheNodeIdsToRemove = Nothing
-    , _mccSnapshotRetentionLimit = Nothing
-    , _mccNotificationTopicStatus = Nothing
-    , _mccAZMode = Nothing
-    , _mccApplyImmediately = Nothing
-    , _mccNotificationTopicARN = Nothing
-    , _mccNumCacheNodes = Nothing
-    , _mccCacheSecurityGroupNames = Nothing
-    , _mccCacheClusterId = pCacheClusterId_
-    }
+  ModifyCacheCluster'
+  { _mccEngineVersion = Nothing
+  , _mccCacheNodeType = Nothing
+  , _mccSecurityGroupIds = Nothing
+  , _mccAutoMinorVersionUpgrade = Nothing
+  , _mccCacheParameterGroupName = Nothing
+  , _mccSnapshotWindow = Nothing
+  , _mccNewAvailabilityZones = Nothing
+  , _mccPreferredMaintenanceWindow = Nothing
+  , _mccCacheNodeIdsToRemove = Nothing
+  , _mccSnapshotRetentionLimit = Nothing
+  , _mccNotificationTopicStatus = Nothing
+  , _mccAZMode = Nothing
+  , _mccApplyImmediately = Nothing
+  , _mccNotificationTopicARN = Nothing
+  , _mccNumCacheNodes = Nothing
+  , _mccCacheSecurityGroupNames = Nothing
+  , _mccCacheClusterId = pCacheClusterId_
+  }
+
 
 -- | The upgraded version of the cache engine to be run on the cache nodes. __Important:__ You can upgrade to a newer engine version (see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version> ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cache cluster and create it anew with the earlier engine version.
 mccEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
@@ -224,9 +226,9 @@ instance AWSRequest ModifyCacheCluster where
                  ModifyCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyCacheCluster
+instance Hashable ModifyCacheCluster where
 
-instance NFData ModifyCacheCluster
+instance NFData ModifyCacheCluster where
 
 instance ToHeaders ModifyCacheCluster where
         toHeaders = const mempty
@@ -276,9 +278,10 @@ instance ToQuery ModifyCacheCluster where
 
 -- | /See:/ 'modifyCacheClusterResponse' smart constructor.
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
-    { _mccrsCacheCluster   :: !(Maybe CacheCluster)
-    , _mccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mccrsCacheCluster   :: {-# NOUNPACK #-}!(Maybe CacheCluster)
+  , _mccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyCacheClusterResponse' with the minimum fields required to make a request.
 --
@@ -291,10 +294,9 @@ modifyCacheClusterResponse
     :: Int -- ^ 'mccrsResponseStatus'
     -> ModifyCacheClusterResponse
 modifyCacheClusterResponse pResponseStatus_ =
-    ModifyCacheClusterResponse'
-    { _mccrsCacheCluster = Nothing
-    , _mccrsResponseStatus = pResponseStatus_
-    }
+  ModifyCacheClusterResponse'
+  {_mccrsCacheCluster = Nothing, _mccrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mccrsCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
@@ -304,4 +306,4 @@ mccrsCacheCluster = lens _mccrsCacheCluster (\ s a -> s{_mccrsCacheCluster = a})
 mccrsResponseStatus :: Lens' ModifyCacheClusterResponse Int
 mccrsResponseStatus = lens _mccrsResponseStatus (\ s a -> s{_mccrsResponseStatus = a});
 
-instance NFData ModifyCacheClusterResponse
+instance NFData ModifyCacheClusterResponse where

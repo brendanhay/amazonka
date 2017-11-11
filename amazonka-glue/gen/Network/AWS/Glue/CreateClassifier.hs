@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateClassifier
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.CreateClassifier
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createClassifier' smart constructor.
 newtype CreateClassifier = CreateClassifier'
-    { _ccGrokClassifier :: Maybe CreateGrokClassifierRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccGrokClassifier :: Maybe CreateGrokClassifierRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClassifier' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype CreateClassifier = CreateClassifier'
 -- * 'ccGrokClassifier' - A grok classifier to create.
 createClassifier
     :: CreateClassifier
-createClassifier =
-    CreateClassifier'
-    { _ccGrokClassifier = Nothing
-    }
+createClassifier = CreateClassifier' {_ccGrokClassifier = Nothing}
+
 
 -- | A grok classifier to create.
 ccGrokClassifier :: Lens' CreateClassifier (Maybe CreateGrokClassifierRequest)
@@ -72,9 +71,9 @@ instance AWSRequest CreateClassifier where
               (\ s h x ->
                  CreateClassifierResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateClassifier
+instance Hashable CreateClassifier where
 
-instance NFData CreateClassifier
+instance NFData CreateClassifier where
 
 instance ToHeaders CreateClassifier where
         toHeaders
@@ -99,8 +98,9 @@ instance ToQuery CreateClassifier where
 
 -- | /See:/ 'createClassifierResponse' smart constructor.
 newtype CreateClassifierResponse = CreateClassifierResponse'
-    { _ccrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClassifierResponse' with the minimum fields required to make a request.
 --
@@ -111,12 +111,11 @@ createClassifierResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CreateClassifierResponse
 createClassifierResponse pResponseStatus_ =
-    CreateClassifierResponse'
-    { _ccrsResponseStatus = pResponseStatus_
-    }
+  CreateClassifierResponse' {_ccrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateClassifierResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData CreateClassifierResponse
+instance NFData CreateClassifierResponse where

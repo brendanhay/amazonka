@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.EnableAlarmActions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.CloudWatch.EnableAlarmActions
     , EnableAlarmActionsResponse
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'enableAlarmActions' smart constructor.
 newtype EnableAlarmActions = EnableAlarmActions'
-    { _eaaAlarmNames :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eaaAlarmNames :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableAlarmActions' with the minimum fields required to make a request.
 --
@@ -53,10 +54,8 @@ newtype EnableAlarmActions = EnableAlarmActions'
 -- * 'eaaAlarmNames' - The names of the alarms.
 enableAlarmActions
     :: EnableAlarmActions
-enableAlarmActions =
-    EnableAlarmActions'
-    { _eaaAlarmNames = mempty
-    }
+enableAlarmActions = EnableAlarmActions' {_eaaAlarmNames = mempty}
+
 
 -- | The names of the alarms.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
@@ -68,9 +67,9 @@ instance AWSRequest EnableAlarmActions where
         request = postQuery cloudWatch
         response = receiveNull EnableAlarmActionsResponse'
 
-instance Hashable EnableAlarmActions
+instance Hashable EnableAlarmActions where
 
-instance NFData EnableAlarmActions
+instance NFData EnableAlarmActions where
 
 instance ToHeaders EnableAlarmActions where
         toHeaders = const mempty
@@ -87,8 +86,9 @@ instance ToQuery EnableAlarmActions where
 
 -- | /See:/ 'enableAlarmActionsResponse' smart constructor.
 data EnableAlarmActionsResponse =
-    EnableAlarmActionsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableAlarmActionsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableAlarmActionsResponse' with the minimum fields required to make a request.
 --
@@ -96,4 +96,5 @@ enableAlarmActionsResponse
     :: EnableAlarmActionsResponse
 enableAlarmActionsResponse = EnableAlarmActionsResponse'
 
-instance NFData EnableAlarmActionsResponse
+
+instance NFData EnableAlarmActionsResponse where

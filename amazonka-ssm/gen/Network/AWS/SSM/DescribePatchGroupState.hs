@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribePatchGroupState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,17 +42,18 @@ module Network.AWS.SSM.DescribePatchGroupState
     , dpgsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describePatchGroupState' smart constructor.
 newtype DescribePatchGroupState = DescribePatchGroupState'
-    { _dpgsPatchGroup :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgsPatchGroup :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePatchGroupState' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ describePatchGroupState
     :: Text -- ^ 'dpgsPatchGroup'
     -> DescribePatchGroupState
 describePatchGroupState pPatchGroup_ =
-    DescribePatchGroupState'
-    { _dpgsPatchGroup = pPatchGroup_
-    }
+  DescribePatchGroupState' {_dpgsPatchGroup = pPatchGroup_}
+
 
 -- | The name of the patch group whose patch snapshot should be retrieved.
 dpgsPatchGroup :: Lens' DescribePatchGroupState Text
@@ -87,9 +87,9 @@ instance AWSRequest DescribePatchGroupState where
                      <*> (x .?> "InstancesWithFailedPatches")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribePatchGroupState
+instance Hashable DescribePatchGroupState where
 
-instance NFData DescribePatchGroupState
+instance NFData DescribePatchGroupState where
 
 instance ToHeaders DescribePatchGroupState where
         toHeaders
@@ -113,14 +113,15 @@ instance ToQuery DescribePatchGroupState where
 
 -- | /See:/ 'describePatchGroupStateResponse' smart constructor.
 data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
-    { _dpgsrsInstancesWithMissingPatches        :: !(Maybe Int)
-    , _dpgsrsInstancesWithInstalledOtherPatches :: !(Maybe Int)
-    , _dpgsrsInstancesWithNotApplicablePatches  :: !(Maybe Int)
-    , _dpgsrsInstancesWithInstalledPatches      :: !(Maybe Int)
-    , _dpgsrsInstances                          :: !(Maybe Int)
-    , _dpgsrsInstancesWithFailedPatches         :: !(Maybe Int)
-    , _dpgsrsResponseStatus                     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgsrsInstancesWithMissingPatches        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpgsrsInstancesWithInstalledOtherPatches :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpgsrsInstancesWithNotApplicablePatches  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpgsrsInstancesWithInstalledPatches      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpgsrsInstances                          :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpgsrsInstancesWithFailedPatches         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dpgsrsResponseStatus                     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePatchGroupStateResponse' with the minimum fields required to make a request.
 --
@@ -143,15 +144,16 @@ describePatchGroupStateResponse
     :: Int -- ^ 'dpgsrsResponseStatus'
     -> DescribePatchGroupStateResponse
 describePatchGroupStateResponse pResponseStatus_ =
-    DescribePatchGroupStateResponse'
-    { _dpgsrsInstancesWithMissingPatches = Nothing
-    , _dpgsrsInstancesWithInstalledOtherPatches = Nothing
-    , _dpgsrsInstancesWithNotApplicablePatches = Nothing
-    , _dpgsrsInstancesWithInstalledPatches = Nothing
-    , _dpgsrsInstances = Nothing
-    , _dpgsrsInstancesWithFailedPatches = Nothing
-    , _dpgsrsResponseStatus = pResponseStatus_
-    }
+  DescribePatchGroupStateResponse'
+  { _dpgsrsInstancesWithMissingPatches = Nothing
+  , _dpgsrsInstancesWithInstalledOtherPatches = Nothing
+  , _dpgsrsInstancesWithNotApplicablePatches = Nothing
+  , _dpgsrsInstancesWithInstalledPatches = Nothing
+  , _dpgsrsInstances = Nothing
+  , _dpgsrsInstancesWithFailedPatches = Nothing
+  , _dpgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The number of instances with missing patches from the patch baseline.
 dpgsrsInstancesWithMissingPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
@@ -181,4 +183,4 @@ dpgsrsInstancesWithFailedPatches = lens _dpgsrsInstancesWithFailedPatches (\ s a
 dpgsrsResponseStatus :: Lens' DescribePatchGroupStateResponse Int
 dpgsrsResponseStatus = lens _dpgsrsResponseStatus (\ s a -> s{_dpgsrsResponseStatus = a});
 
-instance NFData DescribePatchGroupStateResponse
+instance NFData DescribePatchGroupStateResponse where

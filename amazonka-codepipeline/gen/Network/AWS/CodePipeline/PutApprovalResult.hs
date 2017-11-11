@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutApprovalResult
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CodePipeline.PutApprovalResult
     , parrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a put approval result action.
 --
@@ -54,12 +54,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putApprovalResult' smart constructor.
 data PutApprovalResult = PutApprovalResult'
-    { _parPipelineName :: !Text
-    , _parStageName    :: !Text
-    , _parActionName   :: !Text
-    , _parResult       :: !ApprovalResult
-    , _parToken        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _parPipelineName :: {-# NOUNPACK #-}!Text
+  , _parStageName    :: {-# NOUNPACK #-}!Text
+  , _parActionName   :: {-# NOUNPACK #-}!Text
+  , _parResult       :: {-# NOUNPACK #-}!ApprovalResult
+  , _parToken        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutApprovalResult' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ putApprovalResult
     -> Text -- ^ 'parToken'
     -> PutApprovalResult
 putApprovalResult pPipelineName_ pStageName_ pActionName_ pResult_ pToken_ =
-    PutApprovalResult'
-    { _parPipelineName = pPipelineName_
-    , _parStageName = pStageName_
-    , _parActionName = pActionName_
-    , _parResult = pResult_
-    , _parToken = pToken_
-    }
+  PutApprovalResult'
+  { _parPipelineName = pPipelineName_
+  , _parStageName = pStageName_
+  , _parActionName = pActionName_
+  , _parResult = pResult_
+  , _parToken = pToken_
+  }
+
 
 -- | The name of the pipeline that contains the action.
 parPipelineName :: Lens' PutApprovalResult Text
@@ -119,9 +121,9 @@ instance AWSRequest PutApprovalResult where
                  PutApprovalResultResponse' <$>
                    (x .?> "approvedAt") <*> (pure (fromEnum s)))
 
-instance Hashable PutApprovalResult
+instance Hashable PutApprovalResult where
 
-instance NFData PutApprovalResult
+instance NFData PutApprovalResult where
 
 instance ToHeaders PutApprovalResult where
         toHeaders
@@ -155,9 +157,10 @@ instance ToQuery PutApprovalResult where
 --
 -- /See:/ 'putApprovalResultResponse' smart constructor.
 data PutApprovalResultResponse = PutApprovalResultResponse'
-    { _parrsApprovedAt     :: !(Maybe POSIX)
-    , _parrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _parrsApprovedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _parrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutApprovalResultResponse' with the minimum fields required to make a request.
 --
@@ -170,10 +173,9 @@ putApprovalResultResponse
     :: Int -- ^ 'parrsResponseStatus'
     -> PutApprovalResultResponse
 putApprovalResultResponse pResponseStatus_ =
-    PutApprovalResultResponse'
-    { _parrsApprovedAt = Nothing
-    , _parrsResponseStatus = pResponseStatus_
-    }
+  PutApprovalResultResponse'
+  {_parrsApprovedAt = Nothing, _parrsResponseStatus = pResponseStatus_}
+
 
 -- | The timestamp showing when the approval or rejection was submitted.
 parrsApprovedAt :: Lens' PutApprovalResultResponse (Maybe UTCTime)
@@ -183,4 +185,4 @@ parrsApprovedAt = lens _parrsApprovedAt (\ s a -> s{_parrsApprovedAt = a}) . map
 parrsResponseStatus :: Lens' PutApprovalResultResponse Int
 parrsResponseStatus = lens _parrsResponseStatus (\ s a -> s{_parrsResponseStatus = a});
 
-instance NFData PutApprovalResultResponse
+instance NFData PutApprovalResultResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,18 +47,19 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
     , CreateLogGroupResponse
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLogGroup' smart constructor.
 data CreateLogGroup = CreateLogGroup'
-    { _clgTags         :: !(Maybe (Map Text Text))
-    , _clgLogGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clgTags         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _clgLogGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLogGroup' with the minimum fields required to make a request.
 --
@@ -71,10 +72,8 @@ createLogGroup
     :: Text -- ^ 'clgLogGroupName'
     -> CreateLogGroup
 createLogGroup pLogGroupName_ =
-    CreateLogGroup'
-    { _clgTags = Nothing
-    , _clgLogGroupName = pLogGroupName_
-    }
+  CreateLogGroup' {_clgTags = Nothing, _clgLogGroupName = pLogGroupName_}
+
 
 -- | The key-value pairs to use for the tags.
 clgTags :: Lens' CreateLogGroup (HashMap Text Text)
@@ -89,9 +88,9 @@ instance AWSRequest CreateLogGroup where
         request = postJSON cloudWatchLogs
         response = receiveNull CreateLogGroupResponse'
 
-instance Hashable CreateLogGroup
+instance Hashable CreateLogGroup where
 
-instance NFData CreateLogGroup
+instance NFData CreateLogGroup where
 
 instance ToHeaders CreateLogGroup where
         toHeaders
@@ -117,8 +116,9 @@ instance ToQuery CreateLogGroup where
 
 -- | /See:/ 'createLogGroupResponse' smart constructor.
 data CreateLogGroupResponse =
-    CreateLogGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateLogGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLogGroupResponse' with the minimum fields required to make a request.
 --
@@ -126,4 +126,5 @@ createLogGroupResponse
     :: CreateLogGroupResponse
 createLogGroupResponse = CreateLogGroupResponse'
 
-instance NFData CreateLogGroupResponse
+
+instance NFData CreateLogGroupResponse where

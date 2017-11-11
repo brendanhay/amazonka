@@ -9,49 +9,50 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.WorkDocs.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ActivityType
-    = DocumentAnnotationAdded
-    | DocumentAnnotationDeleted
-    | DocumentCheckedIn
-    | DocumentCheckedOut
-    | DocumentCommentAdded
-    | DocumentCommentDeleted
-    | DocumentMoved
-    | DocumentRecycled
-    | DocumentRenamed
-    | DocumentRestored
-    | DocumentReverted
-    | DocumentSharePermissionChanged
-    | DocumentShareableLinkCreated
-    | DocumentShareableLinkPermissionChanged
-    | DocumentShareableLinkRemoved
-    | DocumentShared
-    | DocumentUnshared
-    | DocumentVersionDeleted
-    | DocumentVersionUploaded
-    | FolderCreated
-    | FolderDeleted
-    | FolderMoved
-    | FolderRecycled
-    | FolderRenamed
-    | FolderRestored
-    | FolderSharePermissionChanged
-    | FolderShareableLinkCreated
-    | FolderShareableLinkPermissionChanged
-    | FolderShareableLinkRemoved
-    | FolderShared
-    | FolderUnshared
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DocumentAnnotationAdded
+  | DocumentAnnotationDeleted
+  | DocumentCheckedIn
+  | DocumentCheckedOut
+  | DocumentCommentAdded
+  | DocumentCommentDeleted
+  | DocumentMoved
+  | DocumentRecycled
+  | DocumentRenamed
+  | DocumentRestored
+  | DocumentReverted
+  | DocumentSharePermissionChanged
+  | DocumentShareableLinkCreated
+  | DocumentShareableLinkPermissionChanged
+  | DocumentShareableLinkRemoved
+  | DocumentShared
+  | DocumentUnshared
+  | DocumentVersionDeleted
+  | DocumentVersionUploaded
+  | FolderCreated
+  | FolderDeleted
+  | FolderMoved
+  | FolderRecycled
+  | FolderRenamed
+  | FolderRestored
+  | FolderSharePermissionChanged
+  | FolderShareableLinkCreated
+  | FolderShareableLinkPermissionChanged
+  | FolderShareableLinkRemoved
+  | FolderShared
+  | FolderUnshared
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ActivityType where
     parser = takeLowerText >>= \case
@@ -133,10 +134,11 @@ instance FromJSON ActivityType where
     parseJSON = parseJSONText "ActivityType"
 
 data CommentStatusType
-    = Deleted
-    | Draft
-    | Published
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Deleted
+  | Draft
+  | Published
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CommentStatusType where
     parser = takeLowerText >>= \case
@@ -162,9 +164,10 @@ instance FromJSON CommentStatusType where
     parseJSON = parseJSONText "CommentStatusType"
 
 data CommentVisibilityType
-    = Private
-    | Public
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Private
+  | Public
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CommentVisibilityType where
     parser = takeLowerText >>= \case
@@ -191,9 +194,10 @@ instance FromJSON CommentVisibilityType where
     parseJSON = parseJSONText "CommentVisibilityType"
 
 data DocumentSourceType
-    = Original
-    | WithComments
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Original
+  | WithComments
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DocumentSourceType where
     parser = takeLowerText >>= \case
@@ -217,9 +221,10 @@ instance FromJSON DocumentSourceType where
     parseJSON = parseJSONText "DocumentSourceType"
 
 data DocumentStatusType
-    = DSTActive
-    | DSTInitialized
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DSTActive
+  | DSTInitialized
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DocumentStatusType where
     parser = takeLowerText >>= \case
@@ -243,10 +248,11 @@ instance FromJSON DocumentStatusType where
     parseJSON = parseJSONText "DocumentStatusType"
 
 data DocumentThumbnailType
-    = Large
-    | Small
-    | SmallHq
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Large
+  | Small
+  | SmallHq
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DocumentThumbnailType where
     parser = takeLowerText >>= \case
@@ -272,8 +278,9 @@ instance FromJSON DocumentThumbnailType where
     parseJSON = parseJSONText "DocumentThumbnailType"
 
 data DocumentVersionStatus =
-    DVSActive
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  DVSActive
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DocumentVersionStatus where
     parser = takeLowerText >>= \case
@@ -295,10 +302,11 @@ instance ToJSON DocumentVersionStatus where
     toJSON = toJSONText
 
 data FolderContentType
-    = FCTAll
-    | FCTDocument
-    | FCTFolder
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FCTAll
+  | FCTDocument
+  | FCTFolder
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText FolderContentType where
     parser = takeLowerText >>= \case
@@ -324,18 +332,19 @@ instance ToJSON FolderContentType where
     toJSON = toJSONText
 
 data LocaleType
-    = DE
-    | Default
-    | EN
-    | ES
-    | FR
-    | JA
-    | KO
-    | PtBr
-    | RU
-    | ZhCn
-    | ZhTw
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DE
+  | Default
+  | EN
+  | ES
+  | FR
+  | JA
+  | KO
+  | PtBr
+  | RU
+  | ZhCn
+  | ZhTw
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText LocaleType where
     parser = takeLowerText >>= \case
@@ -380,9 +389,10 @@ instance FromJSON LocaleType where
     parseJSON = parseJSONText "LocaleType"
 
 data OrderType
-    = Ascending
-    | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Ascending
+  | Descending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OrderType where
     parser = takeLowerText >>= \case
@@ -406,12 +416,13 @@ instance ToJSON OrderType where
     toJSON = toJSONText
 
 data PrincipalType
-    = Anonymous
-    | Group
-    | Invite
-    | Organization
-    | User
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Anonymous
+  | Group
+  | Invite
+  | Organization
+  | User
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText PrincipalType where
     parser = takeLowerText >>= \case
@@ -444,9 +455,10 @@ instance FromJSON PrincipalType where
     parseJSON = parseJSONText "PrincipalType"
 
 data ResourceSortType
-    = Date
-    | Name
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Date
+  | Name
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceSortType where
     parser = takeLowerText >>= \case
@@ -470,11 +482,12 @@ instance ToJSON ResourceSortType where
     toJSON = toJSONText
 
 data ResourceStateType
-    = RSTActive
-    | RSTRecycled
-    | RSTRecycling
-    | RSTRestoring
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = RSTActive
+  | RSTRecycled
+  | RSTRecycling
+  | RSTRestoring
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceStateType where
     parser = takeLowerText >>= \case
@@ -505,9 +518,10 @@ instance FromJSON ResourceStateType where
     parseJSON = parseJSONText "ResourceStateType"
 
 data ResourceType
-    = Document
-    | Folder
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Document
+  | Folder
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
@@ -531,9 +545,10 @@ instance FromJSON ResourceType where
     parseJSON = parseJSONText "ResourceType"
 
 data RolePermissionType
-    = Direct
-    | Inherited
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Direct
+  | Inherited
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RolePermissionType where
     parser = takeLowerText >>= \case
@@ -557,11 +572,12 @@ instance FromJSON RolePermissionType where
     parseJSON = parseJSONText "RolePermissionType"
 
 data RoleType
-    = Contributor
-    | Coowner
-    | Owner
-    | Viewer
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Contributor
+  | Coowner
+  | Owner
+  | Viewer
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText RoleType where
     parser = takeLowerText >>= \case
@@ -592,9 +608,10 @@ instance FromJSON RoleType where
     parseJSON = parseJSONText "RoleType"
 
 data ShareStatusType
-    = Failure
-    | Success
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Failure
+  | Success
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ShareStatusType where
     parser = takeLowerText >>= \case
@@ -618,9 +635,10 @@ instance FromJSON ShareStatusType where
     parseJSON = parseJSONText "ShareStatusType"
 
 data StorageType
-    = Quota
-    | Unlimited
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Quota
+  | Unlimited
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StorageType where
     parser = takeLowerText >>= \case
@@ -647,8 +665,9 @@ instance FromJSON StorageType where
     parseJSON = parseJSONText "StorageType"
 
 data SubscriptionProtocolType =
-    HTTPS
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  HTTPS
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SubscriptionProtocolType where
     parser = takeLowerText >>= \case
@@ -673,8 +692,9 @@ instance FromJSON SubscriptionProtocolType where
     parseJSON = parseJSONText "SubscriptionProtocolType"
 
 data SubscriptionType =
-    STAll
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  STAll
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText SubscriptionType where
     parser = takeLowerText >>= \case
@@ -696,9 +716,10 @@ instance ToJSON SubscriptionType where
     toJSON = toJSONText
 
 data UserFilterType
-    = ActivePending
-    | All
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ActivePending
+  | All
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UserFilterType where
     parser = takeLowerText >>= \case
@@ -722,12 +743,13 @@ instance ToJSON UserFilterType where
     toJSON = toJSONText
 
 data UserSortType
-    = FullName
-    | StorageLimit
-    | StorageUsed
-    | UserName
-    | UserStatus
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = FullName
+  | StorageLimit
+  | StorageUsed
+  | UserName
+  | UserStatus
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UserSortType where
     parser = takeLowerText >>= \case
@@ -757,10 +779,11 @@ instance ToJSON UserSortType where
     toJSON = toJSONText
 
 data UserStatusType
-    = Active
-    | Inactive
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | Inactive
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UserStatusType where
     parser = takeLowerText >>= \case
@@ -786,9 +809,10 @@ instance FromJSON UserStatusType where
     parseJSON = parseJSONText "UserStatusType"
 
 data UserType
-    = UTAdmin
-    | UTUser
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = UTAdmin
+  | UTUser
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UserType where
     parser = takeLowerText >>= \case

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.IAM.GetRole
     , grrsRole
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getRole' smart constructor.
 newtype GetRole = GetRole'
-    { _grRoleName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grRoleName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRole' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype GetRole = GetRole'
 getRole
     :: Text -- ^ 'grRoleName'
     -> GetRole
-getRole pRoleName_ =
-    GetRole'
-    { _grRoleName = pRoleName_
-    }
+getRole pRoleName_ = GetRole' {_grRoleName = pRoleName_}
+
 
 -- | The name of the IAM role to get information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 grRoleName :: Lens' GetRole Text
@@ -75,9 +74,9 @@ instance AWSRequest GetRole where
                  GetRoleResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Role"))
 
-instance Hashable GetRole
+instance Hashable GetRole where
 
-instance NFData GetRole
+instance NFData GetRole where
 
 instance ToHeaders GetRole where
         toHeaders = const mempty
@@ -98,9 +97,10 @@ instance ToQuery GetRole where
 --
 -- /See:/ 'getRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'
-    { _grrsResponseStatus :: !Int
-    , _grrsRole           :: !Role
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _grrsRole           :: {-# NOUNPACK #-}!Role
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRoleResponse' with the minimum fields required to make a request.
 --
@@ -114,10 +114,8 @@ getRoleResponse
     -> Role -- ^ 'grrsRole'
     -> GetRoleResponse
 getRoleResponse pResponseStatus_ pRole_ =
-    GetRoleResponse'
-    { _grrsResponseStatus = pResponseStatus_
-    , _grrsRole = pRole_
-    }
+  GetRoleResponse' {_grrsResponseStatus = pResponseStatus_, _grrsRole = pRole_}
+
 
 -- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRoleResponse Int
@@ -127,4 +125,4 @@ grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = 
 grrsRole :: Lens' GetRoleResponse Role
 grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a});
 
-instance NFData GetRoleResponse
+instance NFData GetRoleResponse where

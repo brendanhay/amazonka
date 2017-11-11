@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetFileUploadURL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.MechanicalTurk.GetFileUploadURL
     , gfuursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getFileUploadURL' smart constructor.
 data GetFileUploadURL = GetFileUploadURL'
-    { _gfuuAssignmentId       :: !Text
-    , _gfuuQuestionIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfuuAssignmentId       :: {-# NOUNPACK #-}!Text
+  , _gfuuQuestionIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFileUploadURL' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ getFileUploadURL
     -> Text -- ^ 'gfuuQuestionIdentifier'
     -> GetFileUploadURL
 getFileUploadURL pAssignmentId_ pQuestionIdentifier_ =
-    GetFileUploadURL'
-    { _gfuuAssignmentId = pAssignmentId_
-    , _gfuuQuestionIdentifier = pQuestionIdentifier_
-    }
+  GetFileUploadURL'
+  { _gfuuAssignmentId = pAssignmentId_
+  , _gfuuQuestionIdentifier = pQuestionIdentifier_
+  }
+
 
 -- | The ID of the assignment that contains the question with a FileUploadAnswer.
 gfuuAssignmentId :: Lens' GetFileUploadURL Text
@@ -85,9 +87,9 @@ instance AWSRequest GetFileUploadURL where
                  GetFileUploadURLResponse' <$>
                    (x .?> "FileUploadURL") <*> (pure (fromEnum s)))
 
-instance Hashable GetFileUploadURL
+instance Hashable GetFileUploadURL where
 
-instance NFData GetFileUploadURL
+instance NFData GetFileUploadURL where
 
 instance ToHeaders GetFileUploadURL where
         toHeaders
@@ -115,9 +117,10 @@ instance ToQuery GetFileUploadURL where
 
 -- | /See:/ 'getFileUploadURLResponse' smart constructor.
 data GetFileUploadURLResponse = GetFileUploadURLResponse'
-    { _gfuursFileUploadURL  :: !(Maybe Text)
-    , _gfuursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfuursFileUploadURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gfuursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetFileUploadURLResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +133,9 @@ getFileUploadURLResponse
     :: Int -- ^ 'gfuursResponseStatus'
     -> GetFileUploadURLResponse
 getFileUploadURLResponse pResponseStatus_ =
-    GetFileUploadURLResponse'
-    { _gfuursFileUploadURL = Nothing
-    , _gfuursResponseStatus = pResponseStatus_
-    }
+  GetFileUploadURLResponse'
+  {_gfuursFileUploadURL = Nothing, _gfuursResponseStatus = pResponseStatus_}
+
 
 -- | A temporary URL for the file that the Worker uploaded for the answer.
 gfuursFileUploadURL :: Lens' GetFileUploadURLResponse (Maybe Text)
@@ -143,4 +145,4 @@ gfuursFileUploadURL = lens _gfuursFileUploadURL (\ s a -> s{_gfuursFileUploadURL
 gfuursResponseStatus :: Lens' GetFileUploadURLResponse Int
 gfuursResponseStatus = lens _gfuursResponseStatus (\ s a -> s{_gfuursResponseStatus = a});
 
-instance NFData GetFileUploadURLResponse
+instance NFData GetFileUploadURLResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RestoreDBInstanceToPointInTime
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -62,12 +62,12 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , rditpitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -75,31 +75,32 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreDBInstanceToPointInTime' smart constructor.
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
-    { _rditpitUseLatestRestorableTime         :: !(Maybe Bool)
-    , _rditpitPubliclyAccessible              :: !(Maybe Bool)
-    , _rditpitAutoMinorVersionUpgrade         :: !(Maybe Bool)
-    , _rditpitDBSubnetGroupName               :: !(Maybe Text)
-    , _rditpitRestoreTime                     :: !(Maybe ISO8601)
-    , _rditpitIOPS                            :: !(Maybe Int)
-    , _rditpitDomain                          :: !(Maybe Text)
-    , _rditpitEngine                          :: !(Maybe Text)
-    , _rditpitTDECredentialPassword           :: !(Maybe Text)
-    , _rditpitDBInstanceClass                 :: !(Maybe Text)
-    , _rditpitLicenseModel                    :: !(Maybe Text)
-    , _rditpitAvailabilityZone                :: !(Maybe Text)
-    , _rditpitMultiAZ                         :: !(Maybe Bool)
-    , _rditpitOptionGroupName                 :: !(Maybe Text)
-    , _rditpitCopyTagsToSnapshot              :: !(Maybe Bool)
-    , _rditpitTDECredentialARN                :: !(Maybe Text)
-    , _rditpitDomainIAMRoleName               :: !(Maybe Text)
-    , _rditpitTags                            :: !(Maybe [Tag])
-    , _rditpitPort                            :: !(Maybe Int)
-    , _rditpitEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _rditpitStorageType                     :: !(Maybe Text)
-    , _rditpitDBName                          :: !(Maybe Text)
-    , _rditpitSourceDBInstanceIdentifier      :: !Text
-    , _rditpitTargetDBInstanceIdentifier      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rditpitUseLatestRestorableTime         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rditpitPubliclyAccessible              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rditpitAutoMinorVersionUpgrade         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rditpitDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitRestoreTime                     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _rditpitIOPS                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rditpitDomain                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitEngine                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitTDECredentialPassword           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitDBInstanceClass                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitLicenseModel                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitAvailabilityZone                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitMultiAZ                         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rditpitOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitCopyTagsToSnapshot              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rditpitTDECredentialARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitDomainIAMRoleName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _rditpitPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rditpitEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rditpitStorageType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitDBName                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rditpitSourceDBInstanceIdentifier      :: {-# NOUNPACK #-}!Text
+  , _rditpitTargetDBInstanceIdentifier      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTime' with the minimum fields required to make a request.
 --
@@ -157,32 +158,33 @@ restoreDBInstanceToPointInTime
     -> Text -- ^ 'rditpitTargetDBInstanceIdentifier'
     -> RestoreDBInstanceToPointInTime
 restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIdentifier_ =
-    RestoreDBInstanceToPointInTime'
-    { _rditpitUseLatestRestorableTime = Nothing
-    , _rditpitPubliclyAccessible = Nothing
-    , _rditpitAutoMinorVersionUpgrade = Nothing
-    , _rditpitDBSubnetGroupName = Nothing
-    , _rditpitRestoreTime = Nothing
-    , _rditpitIOPS = Nothing
-    , _rditpitDomain = Nothing
-    , _rditpitEngine = Nothing
-    , _rditpitTDECredentialPassword = Nothing
-    , _rditpitDBInstanceClass = Nothing
-    , _rditpitLicenseModel = Nothing
-    , _rditpitAvailabilityZone = Nothing
-    , _rditpitMultiAZ = Nothing
-    , _rditpitOptionGroupName = Nothing
-    , _rditpitCopyTagsToSnapshot = Nothing
-    , _rditpitTDECredentialARN = Nothing
-    , _rditpitDomainIAMRoleName = Nothing
-    , _rditpitTags = Nothing
-    , _rditpitPort = Nothing
-    , _rditpitEnableIAMDatabaseAuthentication = Nothing
-    , _rditpitStorageType = Nothing
-    , _rditpitDBName = Nothing
-    , _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
-    , _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
-    }
+  RestoreDBInstanceToPointInTime'
+  { _rditpitUseLatestRestorableTime = Nothing
+  , _rditpitPubliclyAccessible = Nothing
+  , _rditpitAutoMinorVersionUpgrade = Nothing
+  , _rditpitDBSubnetGroupName = Nothing
+  , _rditpitRestoreTime = Nothing
+  , _rditpitIOPS = Nothing
+  , _rditpitDomain = Nothing
+  , _rditpitEngine = Nothing
+  , _rditpitTDECredentialPassword = Nothing
+  , _rditpitDBInstanceClass = Nothing
+  , _rditpitLicenseModel = Nothing
+  , _rditpitAvailabilityZone = Nothing
+  , _rditpitMultiAZ = Nothing
+  , _rditpitOptionGroupName = Nothing
+  , _rditpitCopyTagsToSnapshot = Nothing
+  , _rditpitTDECredentialARN = Nothing
+  , _rditpitDomainIAMRoleName = Nothing
+  , _rditpitTags = Nothing
+  , _rditpitPort = Nothing
+  , _rditpitEnableIAMDatabaseAuthentication = Nothing
+  , _rditpitStorageType = Nothing
+  , _rditpitDBName = Nothing
+  , _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
+  , _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
+  }
+
 
 -- | Specifies whether (@true@ ) or not (@false@ ) the DB instance is restored from the latest backup time.  Default: @false@  Constraints: Cannot be specified if RestoreTime parameter is provided.
 rditpitUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
@@ -293,8 +295,9 @@ instance AWSRequest RestoreDBInstanceToPointInTime
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
 instance Hashable RestoreDBInstanceToPointInTime
+         where
 
-instance NFData RestoreDBInstanceToPointInTime
+instance NFData RestoreDBInstanceToPointInTime where
 
 instance ToHeaders RestoreDBInstanceToPointInTime
          where
@@ -342,9 +345,10 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 
 -- | /See:/ 'restoreDBInstanceToPointInTimeResponse' smart constructor.
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
-    { _rditpitrsDBInstance     :: !(Maybe DBInstance)
-    , _rditpitrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rditpitrsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _rditpitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTimeResponse' with the minimum fields required to make a request.
 --
@@ -357,10 +361,9 @@ restoreDBInstanceToPointInTimeResponse
     :: Int -- ^ 'rditpitrsResponseStatus'
     -> RestoreDBInstanceToPointInTimeResponse
 restoreDBInstanceToPointInTimeResponse pResponseStatus_ =
-    RestoreDBInstanceToPointInTimeResponse'
-    { _rditpitrsDBInstance = Nothing
-    , _rditpitrsResponseStatus = pResponseStatus_
-    }
+  RestoreDBInstanceToPointInTimeResponse'
+  {_rditpitrsDBInstance = Nothing, _rditpitrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rditpitrsDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
@@ -371,4 +374,5 @@ rditpitrsResponseStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
 rditpitrsResponseStatus = lens _rditpitrsResponseStatus (\ s a -> s{_rditpitrsResponseStatus = a});
 
 instance NFData
-         RestoreDBInstanceToPointInTimeResponse
+           RestoreDBInstanceToPointInTimeResponse
+         where

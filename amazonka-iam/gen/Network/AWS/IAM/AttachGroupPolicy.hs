@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AttachGroupPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.IAM.AttachGroupPolicy
     , AttachGroupPolicyResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'attachGroupPolicy' smart constructor.
 data AttachGroupPolicy = AttachGroupPolicy'
-    { _agpGroupName :: !Text
-    , _agpPolicyARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _agpGroupName :: {-# NOUNPACK #-}!Text
+  , _agpPolicyARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachGroupPolicy' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ attachGroupPolicy
     -> Text -- ^ 'agpPolicyARN'
     -> AttachGroupPolicy
 attachGroupPolicy pGroupName_ pPolicyARN_ =
-    AttachGroupPolicy'
-    { _agpGroupName = pGroupName_
-    , _agpPolicyARN = pPolicyARN_
-    }
+  AttachGroupPolicy' {_agpGroupName = pGroupName_, _agpPolicyARN = pPolicyARN_}
+
 
 -- | The name (friendly name, not ARN) of the group to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 agpGroupName :: Lens' AttachGroupPolicy Text
@@ -82,9 +81,9 @@ instance AWSRequest AttachGroupPolicy where
         request = postQuery iam
         response = receiveNull AttachGroupPolicyResponse'
 
-instance Hashable AttachGroupPolicy
+instance Hashable AttachGroupPolicy where
 
-instance NFData AttachGroupPolicy
+instance NFData AttachGroupPolicy where
 
 instance ToHeaders AttachGroupPolicy where
         toHeaders = const mempty
@@ -102,8 +101,9 @@ instance ToQuery AttachGroupPolicy where
 
 -- | /See:/ 'attachGroupPolicyResponse' smart constructor.
 data AttachGroupPolicyResponse =
-    AttachGroupPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachGroupPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachGroupPolicyResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ attachGroupPolicyResponse
     :: AttachGroupPolicyResponse
 attachGroupPolicyResponse = AttachGroupPolicyResponse'
 
-instance NFData AttachGroupPolicyResponse
+
+instance NFData AttachGroupPolicyResponse where

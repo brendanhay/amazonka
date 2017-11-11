@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPoolDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserPoolDomain
     , drsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeUserPoolDomain' smart constructor.
 newtype DescribeUserPoolDomain = DescribeUserPoolDomain'
-    { _dDomain :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDomain :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserPoolDomain' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DescribeUserPoolDomain = DescribeUserPoolDomain'
 describeUserPoolDomain
     :: Text -- ^ 'dDomain'
     -> DescribeUserPoolDomain
-describeUserPoolDomain pDomain_ =
-    DescribeUserPoolDomain'
-    { _dDomain = pDomain_
-    }
+describeUserPoolDomain pDomain_ = DescribeUserPoolDomain' {_dDomain = pDomain_}
+
 
 -- | The domain string.
 dDomain :: Lens' DescribeUserPoolDomain Text
@@ -76,9 +75,9 @@ instance AWSRequest DescribeUserPoolDomain where
                  DescribeUserPoolDomainResponse' <$>
                    (x .?> "DomainDescription") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeUserPoolDomain
+instance Hashable DescribeUserPoolDomain where
 
-instance NFData DescribeUserPoolDomain
+instance NFData DescribeUserPoolDomain where
 
 instance ToHeaders DescribeUserPoolDomain where
         toHeaders
@@ -102,9 +101,10 @@ instance ToQuery DescribeUserPoolDomain where
 
 -- | /See:/ 'describeUserPoolDomainResponse' smart constructor.
 data DescribeUserPoolDomainResponse = DescribeUserPoolDomainResponse'
-    { _drsDomainDescription :: !(Maybe DomainDescriptionType)
-    , _drsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsDomainDescription :: {-# NOUNPACK #-}!(Maybe DomainDescriptionType)
+  , _drsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeUserPoolDomainResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ describeUserPoolDomainResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeUserPoolDomainResponse
 describeUserPoolDomainResponse pResponseStatus_ =
-    DescribeUserPoolDomainResponse'
-    { _drsDomainDescription = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DescribeUserPoolDomainResponse'
+  {_drsDomainDescription = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | A domain description object containing information about the domain.
 drsDomainDescription :: Lens' DescribeUserPoolDomainResponse (Maybe DomainDescriptionType)
@@ -130,4 +129,4 @@ drsDomainDescription = lens _drsDomainDescription (\ s a -> s{_drsDomainDescript
 drsResponseStatus :: Lens' DescribeUserPoolDomainResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DescribeUserPoolDomainResponse
+instance NFData DescribeUserPoolDomainResponse where

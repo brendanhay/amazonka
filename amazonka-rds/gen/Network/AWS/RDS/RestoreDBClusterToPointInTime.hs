@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RestoreDBClusterToPointInTime
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
     , rdctpitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -63,19 +63,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreDBClusterToPointInTime' smart constructor.
 data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
-    { _rdctpitUseLatestRestorableTime         :: !(Maybe Bool)
-    , _rdctpitDBSubnetGroupName               :: !(Maybe Text)
-    , _rdctpitKMSKeyId                        :: !(Maybe Text)
-    , _rdctpitVPCSecurityGroupIds             :: !(Maybe [Text])
-    , _rdctpitRestoreType                     :: !(Maybe Text)
-    , _rdctpitOptionGroupName                 :: !(Maybe Text)
-    , _rdctpitRestoreToTime                   :: !(Maybe ISO8601)
-    , _rdctpitTags                            :: !(Maybe [Tag])
-    , _rdctpitPort                            :: !(Maybe Int)
-    , _rdctpitEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _rdctpitDBClusterIdentifier             :: !Text
-    , _rdctpitSourceDBClusterIdentifier       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdctpitUseLatestRestorableTime         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdctpitDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdctpitKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdctpitVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rdctpitRestoreType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdctpitOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdctpitRestoreToTime                   :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _rdctpitTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _rdctpitPort                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rdctpitEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdctpitDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
+  , _rdctpitSourceDBClusterIdentifier       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBClusterToPointInTime' with the minimum fields required to make a request.
 --
@@ -109,20 +110,21 @@ restoreDBClusterToPointInTime
     -> Text -- ^ 'rdctpitSourceDBClusterIdentifier'
     -> RestoreDBClusterToPointInTime
 restoreDBClusterToPointInTime pDBClusterIdentifier_ pSourceDBClusterIdentifier_ =
-    RestoreDBClusterToPointInTime'
-    { _rdctpitUseLatestRestorableTime = Nothing
-    , _rdctpitDBSubnetGroupName = Nothing
-    , _rdctpitKMSKeyId = Nothing
-    , _rdctpitVPCSecurityGroupIds = Nothing
-    , _rdctpitRestoreType = Nothing
-    , _rdctpitOptionGroupName = Nothing
-    , _rdctpitRestoreToTime = Nothing
-    , _rdctpitTags = Nothing
-    , _rdctpitPort = Nothing
-    , _rdctpitEnableIAMDatabaseAuthentication = Nothing
-    , _rdctpitDBClusterIdentifier = pDBClusterIdentifier_
-    , _rdctpitSourceDBClusterIdentifier = pSourceDBClusterIdentifier_
-    }
+  RestoreDBClusterToPointInTime'
+  { _rdctpitUseLatestRestorableTime = Nothing
+  , _rdctpitDBSubnetGroupName = Nothing
+  , _rdctpitKMSKeyId = Nothing
+  , _rdctpitVPCSecurityGroupIds = Nothing
+  , _rdctpitRestoreType = Nothing
+  , _rdctpitOptionGroupName = Nothing
+  , _rdctpitRestoreToTime = Nothing
+  , _rdctpitTags = Nothing
+  , _rdctpitPort = Nothing
+  , _rdctpitEnableIAMDatabaseAuthentication = Nothing
+  , _rdctpitDBClusterIdentifier = pDBClusterIdentifier_
+  , _rdctpitSourceDBClusterIdentifier = pSourceDBClusterIdentifier_
+  }
+
 
 -- | A value that is set to @true@ to restore the DB cluster to the latest restorable backup time, and @false@ otherwise.  Default: @false@  Constraints: Cannot be specified if @RestoreToTime@ parameter is provided.
 rdctpitUseLatestRestorableTime :: Lens' RestoreDBClusterToPointInTime (Maybe Bool)
@@ -184,9 +186,9 @@ instance AWSRequest RestoreDBClusterToPointInTime
                  RestoreDBClusterToPointInTimeResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
-instance Hashable RestoreDBClusterToPointInTime
+instance Hashable RestoreDBClusterToPointInTime where
 
-instance NFData RestoreDBClusterToPointInTime
+instance NFData RestoreDBClusterToPointInTime where
 
 instance ToHeaders RestoreDBClusterToPointInTime
          where
@@ -223,9 +225,10 @@ instance ToQuery RestoreDBClusterToPointInTime where
 
 -- | /See:/ 'restoreDBClusterToPointInTimeResponse' smart constructor.
 data RestoreDBClusterToPointInTimeResponse = RestoreDBClusterToPointInTimeResponse'
-    { _rdctpitrsDBCluster      :: !(Maybe DBCluster)
-    , _rdctpitrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdctpitrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
+  , _rdctpitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RestoreDBClusterToPointInTimeResponse' with the minimum fields required to make a request.
 --
@@ -238,10 +241,9 @@ restoreDBClusterToPointInTimeResponse
     :: Int -- ^ 'rdctpitrsResponseStatus'
     -> RestoreDBClusterToPointInTimeResponse
 restoreDBClusterToPointInTimeResponse pResponseStatus_ =
-    RestoreDBClusterToPointInTimeResponse'
-    { _rdctpitrsDBCluster = Nothing
-    , _rdctpitrsResponseStatus = pResponseStatus_
-    }
+  RestoreDBClusterToPointInTimeResponse'
+  {_rdctpitrsDBCluster = Nothing, _rdctpitrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 rdctpitrsDBCluster :: Lens' RestoreDBClusterToPointInTimeResponse (Maybe DBCluster)
@@ -252,3 +254,4 @@ rdctpitrsResponseStatus :: Lens' RestoreDBClusterToPointInTimeResponse Int
 rdctpitrsResponseStatus = lens _rdctpitrsResponseStatus (\ s a -> s{_rdctpitrsResponseStatus = a});
 
 instance NFData RestoreDBClusterToPointInTimeResponse
+         where

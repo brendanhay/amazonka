@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.UpdateTrail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Specifies settings to update for the trail.
 --
@@ -70,17 +70,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateTrail' smart constructor.
 data UpdateTrail = UpdateTrail'
-    { _utS3KeyPrefix                :: !(Maybe Text)
-    , _utSNSTopicName               :: !(Maybe Text)
-    , _utEnableLogFileValidation    :: !(Maybe Bool)
-    , _utCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _utKMSKeyId                   :: !(Maybe Text)
-    , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _utS3BucketName               :: !(Maybe Text)
-    , _utIsMultiRegionTrail         :: !(Maybe Bool)
-    , _utName                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utSNSTopicName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utEnableLogFileValidation    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utCloudWatchLogsLogGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utIncludeGlobalServiceEvents :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utCloudWatchLogsRoleARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utS3BucketName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utIsMultiRegionTrail         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utName                       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTrail' with the minimum fields required to make a request.
 --
@@ -109,18 +110,19 @@ updateTrail
     :: Text -- ^ 'utName'
     -> UpdateTrail
 updateTrail pName_ =
-    UpdateTrail'
-    { _utS3KeyPrefix = Nothing
-    , _utSNSTopicName = Nothing
-    , _utEnableLogFileValidation = Nothing
-    , _utCloudWatchLogsLogGroupARN = Nothing
-    , _utKMSKeyId = Nothing
-    , _utIncludeGlobalServiceEvents = Nothing
-    , _utCloudWatchLogsRoleARN = Nothing
-    , _utS3BucketName = Nothing
-    , _utIsMultiRegionTrail = Nothing
-    , _utName = pName_
-    }
+  UpdateTrail'
+  { _utS3KeyPrefix = Nothing
+  , _utSNSTopicName = Nothing
+  , _utEnableLogFileValidation = Nothing
+  , _utCloudWatchLogsLogGroupARN = Nothing
+  , _utKMSKeyId = Nothing
+  , _utIncludeGlobalServiceEvents = Nothing
+  , _utCloudWatchLogsRoleARN = Nothing
+  , _utS3BucketName = Nothing
+  , _utIsMultiRegionTrail = Nothing
+  , _utName = pName_
+  }
+
 
 -- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> . The maximum length is 200 characters.
 utS3KeyPrefix :: Lens' UpdateTrail (Maybe Text)
@@ -183,9 +185,9 @@ instance AWSRequest UpdateTrail where
                      <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateTrail
+instance Hashable UpdateTrail where
 
-instance NFData UpdateTrail
+instance NFData UpdateTrail where
 
 instance ToHeaders UpdateTrail where
         toHeaders
@@ -228,20 +230,21 @@ instance ToQuery UpdateTrail where
 --
 -- /See:/ 'updateTrailResponse' smart constructor.
 data UpdateTrailResponse = UpdateTrailResponse'
-    { _utrsLogFileValidationEnabled   :: !(Maybe Bool)
-    , _utrsTrailARN                   :: !(Maybe Text)
-    , _utrsS3KeyPrefix                :: !(Maybe Text)
-    , _utrsSNSTopicARN                :: !(Maybe Text)
-    , _utrsSNSTopicName               :: !(Maybe Text)
-    , _utrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _utrsKMSKeyId                   :: !(Maybe Text)
-    , _utrsName                       :: !(Maybe Text)
-    , _utrsIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _utrsCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _utrsS3BucketName               :: !(Maybe Text)
-    , _utrsIsMultiRegionTrail         :: !(Maybe Bool)
-    , _utrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utrsLogFileValidationEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utrsTrailARN                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsSNSTopicARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsSNSTopicName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsCloudWatchLogsLogGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsName                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsIncludeGlobalServiceEvents :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utrsCloudWatchLogsRoleARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsS3BucketName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utrsIsMultiRegionTrail         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utrsResponseStatus             :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTrailResponse' with the minimum fields required to make a request.
 --
@@ -276,21 +279,22 @@ updateTrailResponse
     :: Int -- ^ 'utrsResponseStatus'
     -> UpdateTrailResponse
 updateTrailResponse pResponseStatus_ =
-    UpdateTrailResponse'
-    { _utrsLogFileValidationEnabled = Nothing
-    , _utrsTrailARN = Nothing
-    , _utrsS3KeyPrefix = Nothing
-    , _utrsSNSTopicARN = Nothing
-    , _utrsSNSTopicName = Nothing
-    , _utrsCloudWatchLogsLogGroupARN = Nothing
-    , _utrsKMSKeyId = Nothing
-    , _utrsName = Nothing
-    , _utrsIncludeGlobalServiceEvents = Nothing
-    , _utrsCloudWatchLogsRoleARN = Nothing
-    , _utrsS3BucketName = Nothing
-    , _utrsIsMultiRegionTrail = Nothing
-    , _utrsResponseStatus = pResponseStatus_
-    }
+  UpdateTrailResponse'
+  { _utrsLogFileValidationEnabled = Nothing
+  , _utrsTrailARN = Nothing
+  , _utrsS3KeyPrefix = Nothing
+  , _utrsSNSTopicARN = Nothing
+  , _utrsSNSTopicName = Nothing
+  , _utrsCloudWatchLogsLogGroupARN = Nothing
+  , _utrsKMSKeyId = Nothing
+  , _utrsName = Nothing
+  , _utrsIncludeGlobalServiceEvents = Nothing
+  , _utrsCloudWatchLogsRoleARN = Nothing
+  , _utrsS3BucketName = Nothing
+  , _utrsIsMultiRegionTrail = Nothing
+  , _utrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Specifies whether log file integrity validation is enabled.
 utrsLogFileValidationEnabled :: Lens' UpdateTrailResponse (Maybe Bool)
@@ -344,4 +348,4 @@ utrsIsMultiRegionTrail = lens _utrsIsMultiRegionTrail (\ s a -> s{_utrsIsMultiRe
 utrsResponseStatus :: Lens' UpdateTrailResponse Int
 utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
 
-instance NFData UpdateTrailResponse
+instance NFData UpdateTrailResponse where

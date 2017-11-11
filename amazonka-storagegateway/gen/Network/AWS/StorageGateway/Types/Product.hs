@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.StorageGateway.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.StorageGateway.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.StorageGateway.Types.Sum
 
 -- | Describes an iSCSI cached volume.
 --
@@ -27,16 +27,17 @@ import           Network.AWS.StorageGateway.Types.Sum
 --
 -- /See:/ 'cachediSCSIVolume' smart constructor.
 data CachediSCSIVolume = CachediSCSIVolume'
-    { _cscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
-    , _cscsivVolumeStatus          :: !(Maybe Text)
-    , _cscsivSourceSnapshotId      :: !(Maybe Text)
-    , _cscsivVolumeARN             :: !(Maybe Text)
-    , _cscsivVolumeProgress        :: !(Maybe Double)
-    , _cscsivVolumeSizeInBytes     :: !(Maybe Integer)
-    , _cscsivCreatedDate           :: !(Maybe POSIX)
-    , _cscsivVolumeId              :: !(Maybe Text)
-    , _cscsivVolumeType            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cscsivVolumeiSCSIAttributes :: {-# NOUNPACK #-}!(Maybe VolumeiSCSIAttributes)
+  , _cscsivVolumeStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cscsivSourceSnapshotId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cscsivVolumeARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cscsivVolumeProgress :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cscsivVolumeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _cscsivCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cscsivVolumeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cscsivVolumeType :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CachediSCSIVolume' with the minimum fields required to make a request.
 --
@@ -62,17 +63,18 @@ data CachediSCSIVolume = CachediSCSIVolume'
 cachediSCSIVolume
     :: CachediSCSIVolume
 cachediSCSIVolume =
-    CachediSCSIVolume'
-    { _cscsivVolumeiSCSIAttributes = Nothing
-    , _cscsivVolumeStatus = Nothing
-    , _cscsivSourceSnapshotId = Nothing
-    , _cscsivVolumeARN = Nothing
-    , _cscsivVolumeProgress = Nothing
-    , _cscsivVolumeSizeInBytes = Nothing
-    , _cscsivCreatedDate = Nothing
-    , _cscsivVolumeId = Nothing
-    , _cscsivVolumeType = Nothing
-    }
+  CachediSCSIVolume'
+  { _cscsivVolumeiSCSIAttributes = Nothing
+  , _cscsivVolumeStatus = Nothing
+  , _cscsivSourceSnapshotId = Nothing
+  , _cscsivVolumeARN = Nothing
+  , _cscsivVolumeProgress = Nothing
+  , _cscsivVolumeSizeInBytes = Nothing
+  , _cscsivCreatedDate = Nothing
+  , _cscsivVolumeId = Nothing
+  , _cscsivVolumeType = Nothing
+  }
+
 
 -- | An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
 cscsivVolumeiSCSIAttributes :: Lens' CachediSCSIVolume (Maybe VolumeiSCSIAttributes)
@@ -125,9 +127,9 @@ instance FromJSON CachediSCSIVolume where
                      <*> (x .:? "VolumeId")
                      <*> (x .:? "VolumeType"))
 
-instance Hashable CachediSCSIVolume
+instance Hashable CachediSCSIVolume where
 
-instance NFData CachediSCSIVolume
+instance NFData CachediSCSIVolume where
 
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.
 --
@@ -135,11 +137,12 @@ instance NFData CachediSCSIVolume
 --
 -- /See:/ 'chapInfo' smart constructor.
 data ChapInfo = ChapInfo'
-    { _ciTargetARN                     :: !(Maybe Text)
-    , _ciSecretToAuthenticateInitiator :: !(Maybe Text)
-    , _ciInitiatorName                 :: !(Maybe Text)
-    , _ciSecretToAuthenticateTarget    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciTargetARN                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciSecretToAuthenticateInitiator :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciInitiatorName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciSecretToAuthenticateTarget    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChapInfo' with the minimum fields required to make a request.
 --
@@ -155,12 +158,13 @@ data ChapInfo = ChapInfo'
 chapInfo
     :: ChapInfo
 chapInfo =
-    ChapInfo'
-    { _ciTargetARN = Nothing
-    , _ciSecretToAuthenticateInitiator = Nothing
-    , _ciInitiatorName = Nothing
-    , _ciSecretToAuthenticateTarget = Nothing
-    }
+  ChapInfo'
+  { _ciTargetARN = Nothing
+  , _ciSecretToAuthenticateInitiator = Nothing
+  , _ciInitiatorName = Nothing
+  , _ciSecretToAuthenticateTarget = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
@@ -188,9 +192,9 @@ instance FromJSON ChapInfo where
                      <*> (x .:? "InitiatorName")
                      <*> (x .:? "SecretToAuthenticateTarget"))
 
-instance Hashable ChapInfo
+instance Hashable ChapInfo where
 
-instance NFData ChapInfo
+instance NFData ChapInfo where
 
 -- | Lists iSCSI information about a VTL device.
 --
@@ -198,11 +202,12 @@ instance NFData ChapInfo
 --
 -- /See:/ 'deviceiSCSIAttributes' smart constructor.
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
-    { _dscsiaTargetARN            :: !(Maybe Text)
-    , _dscsiaChapEnabled          :: !(Maybe Bool)
-    , _dscsiaNetworkInterfaceId   :: !(Maybe Text)
-    , _dscsiaNetworkInterfacePort :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscsiaTargetARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dscsiaChapEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dscsiaNetworkInterfaceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dscsiaNetworkInterfacePort :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeviceiSCSIAttributes' with the minimum fields required to make a request.
 --
@@ -218,12 +223,13 @@ data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
 deviceiSCSIAttributes
     :: DeviceiSCSIAttributes
 deviceiSCSIAttributes =
-    DeviceiSCSIAttributes'
-    { _dscsiaTargetARN = Nothing
-    , _dscsiaChapEnabled = Nothing
-    , _dscsiaNetworkInterfaceId = Nothing
-    , _dscsiaNetworkInterfacePort = Nothing
-    }
+  DeviceiSCSIAttributes'
+  { _dscsiaTargetARN = Nothing
+  , _dscsiaChapEnabled = Nothing
+  , _dscsiaNetworkInterfaceId = Nothing
+  , _dscsiaNetworkInterfacePort = Nothing
+  }
+
 
 -- | Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
 dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
@@ -250,20 +256,21 @@ instance FromJSON DeviceiSCSIAttributes where
                      (x .:? "NetworkInterfaceId")
                      <*> (x .:? "NetworkInterfacePort"))
 
-instance Hashable DeviceiSCSIAttributes
+instance Hashable DeviceiSCSIAttributes where
 
-instance NFData DeviceiSCSIAttributes
+instance NFData DeviceiSCSIAttributes where
 
 -- | /See:/ 'disk' smart constructor.
 data Disk = Disk'
-    { _dDiskAllocationResource :: !(Maybe Text)
-    , _dDiskAllocationType     :: !(Maybe Text)
-    , _dDiskNode               :: !(Maybe Text)
-    , _dDiskPath               :: !(Maybe Text)
-    , _dDiskSizeInBytes        :: !(Maybe Integer)
-    , _dDiskStatus             :: !(Maybe Text)
-    , _dDiskId                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dDiskAllocationResource :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDiskAllocationType     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDiskNode               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDiskPath               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDiskSizeInBytes        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dDiskStatus             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDiskId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Disk' with the minimum fields required to make a request.
 --
@@ -285,15 +292,16 @@ data Disk = Disk'
 disk
     :: Disk
 disk =
-    Disk'
-    { _dDiskAllocationResource = Nothing
-    , _dDiskAllocationType = Nothing
-    , _dDiskNode = Nothing
-    , _dDiskPath = Nothing
-    , _dDiskSizeInBytes = Nothing
-    , _dDiskStatus = Nothing
-    , _dDiskId = Nothing
-    }
+  Disk'
+  { _dDiskAllocationResource = Nothing
+  , _dDiskAllocationType = Nothing
+  , _dDiskNode = Nothing
+  , _dDiskPath = Nothing
+  , _dDiskSizeInBytes = Nothing
+  , _dDiskStatus = Nothing
+  , _dDiskId = Nothing
+  }
+
 
 -- | Undocumented member.
 dDiskAllocationResource :: Lens' Disk (Maybe Text)
@@ -336,9 +344,9 @@ instance FromJSON Disk where
                      <*> (x .:? "DiskStatus")
                      <*> (x .:? "DiskId"))
 
-instance Hashable Disk
+instance Hashable Disk where
 
-instance NFData Disk
+instance NFData Disk where
 
 -- | Describes a file share.
 --
@@ -346,11 +354,12 @@ instance NFData Disk
 --
 -- /See:/ 'fileShareInfo' smart constructor.
 data FileShareInfo = FileShareInfo'
-    { _fsiFileShareStatus :: !(Maybe Text)
-    , _fsiGatewayARN      :: !(Maybe Text)
-    , _fsiFileShareId     :: !(Maybe Text)
-    , _fsiFileShareARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fsiFileShareStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fsiGatewayARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fsiFileShareId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fsiFileShareARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FileShareInfo' with the minimum fields required to make a request.
 --
@@ -366,12 +375,13 @@ data FileShareInfo = FileShareInfo'
 fileShareInfo
     :: FileShareInfo
 fileShareInfo =
-    FileShareInfo'
-    { _fsiFileShareStatus = Nothing
-    , _fsiGatewayARN = Nothing
-    , _fsiFileShareId = Nothing
-    , _fsiFileShareARN = Nothing
-    }
+  FileShareInfo'
+  { _fsiFileShareStatus = Nothing
+  , _fsiGatewayARN = Nothing
+  , _fsiFileShareId = Nothing
+  , _fsiFileShareARN = Nothing
+  }
+
 
 -- | Undocumented member.
 fsiFileShareStatus :: Lens' FileShareInfo (Maybe Text)
@@ -398,9 +408,9 @@ instance FromJSON FileShareInfo where
                      <*> (x .:? "FileShareId")
                      <*> (x .:? "FileShareARN"))
 
-instance Hashable FileShareInfo
+instance Hashable FileShareInfo where
 
-instance NFData FileShareInfo
+instance NFData FileShareInfo where
 
 -- | Describes a gateway object.
 --
@@ -408,12 +418,13 @@ instance NFData FileShareInfo
 --
 -- /See:/ 'gatewayInfo' smart constructor.
 data GatewayInfo = GatewayInfo'
-    { _giGatewayARN              :: !(Maybe Text)
-    , _giGatewayOperationalState :: !(Maybe Text)
-    , _giGatewayName             :: !(Maybe Text)
-    , _giGatewayId               :: !(Maybe Text)
-    , _giGatewayType             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giGatewayARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giGatewayOperationalState :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giGatewayName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giGatewayId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giGatewayType             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GatewayInfo' with the minimum fields required to make a request.
 --
@@ -431,13 +442,14 @@ data GatewayInfo = GatewayInfo'
 gatewayInfo
     :: GatewayInfo
 gatewayInfo =
-    GatewayInfo'
-    { _giGatewayARN = Nothing
-    , _giGatewayOperationalState = Nothing
-    , _giGatewayName = Nothing
-    , _giGatewayId = Nothing
-    , _giGatewayType = Nothing
-    }
+  GatewayInfo'
+  { _giGatewayARN = Nothing
+  , _giGatewayOperationalState = Nothing
+  , _giGatewayName = Nothing
+  , _giGatewayId = Nothing
+  , _giGatewayType = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 giGatewayARN :: Lens' GatewayInfo (Maybe Text)
@@ -470,9 +482,9 @@ instance FromJSON GatewayInfo where
                      <*> (x .:? "GatewayId")
                      <*> (x .:? "GatewayType"))
 
-instance Hashable GatewayInfo
+instance Hashable GatewayInfo where
 
-instance NFData GatewayInfo
+instance NFData GatewayInfo where
 
 -- | Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in the file gateway architecture.
 --
@@ -480,11 +492,12 @@ instance NFData GatewayInfo
 --
 -- /See:/ 'nFSFileShareDefaults' smart constructor.
 data NFSFileShareDefaults = NFSFileShareDefaults'
-    { _nfsfsdFileMode      :: !(Maybe Text)
-    , _nfsfsdOwnerId       :: !(Maybe Nat)
-    , _nfsfsdDirectoryMode :: !(Maybe Text)
-    , _nfsfsdGroupId       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nfsfsdFileMode      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsdOwnerId       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _nfsfsdDirectoryMode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsdGroupId       :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NFSFileShareDefaults' with the minimum fields required to make a request.
 --
@@ -500,12 +513,13 @@ data NFSFileShareDefaults = NFSFileShareDefaults'
 nFSFileShareDefaults
     :: NFSFileShareDefaults
 nFSFileShareDefaults =
-    NFSFileShareDefaults'
-    { _nfsfsdFileMode = Nothing
-    , _nfsfsdOwnerId = Nothing
-    , _nfsfsdDirectoryMode = Nothing
-    , _nfsfsdGroupId = Nothing
-    }
+  NFSFileShareDefaults'
+  { _nfsfsdFileMode = Nothing
+  , _nfsfsdOwnerId = Nothing
+  , _nfsfsdDirectoryMode = Nothing
+  , _nfsfsdGroupId = Nothing
+  }
+
 
 -- | The Unix file mode in the form "nnnn". For example, "0666" represents the default file mode inside the file share. The default value is 0666.
 nfsfsdFileMode :: Lens' NFSFileShareDefaults (Maybe Text)
@@ -532,9 +546,9 @@ instance FromJSON NFSFileShareDefaults where
                      (x .:? "DirectoryMode")
                      <*> (x .:? "GroupId"))
 
-instance Hashable NFSFileShareDefaults
+instance Hashable NFSFileShareDefaults where
 
-instance NFData NFSFileShareDefaults
+instance NFData NFSFileShareDefaults where
 
 instance ToJSON NFSFileShareDefaults where
         toJSON NFSFileShareDefaults'{..}
@@ -551,21 +565,22 @@ instance ToJSON NFSFileShareDefaults where
 --
 -- /See:/ 'nFSFileShareInfo' smart constructor.
 data NFSFileShareInfo = NFSFileShareInfo'
-    { _nfsfsiFileShareStatus      :: !(Maybe Text)
-    , _nfsfsiKMSKey               :: !(Maybe Text)
-    , _nfsfsiGatewayARN           :: !(Maybe Text)
-    , _nfsfsiPath                 :: !(Maybe Text)
-    , _nfsfsiKMSEncrypted         :: !(Maybe Bool)
-    , _nfsfsiFileShareId          :: !(Maybe Text)
-    , _nfsfsiFileShareARN         :: !(Maybe Text)
-    , _nfsfsiDefaultStorageClass  :: !(Maybe Text)
-    , _nfsfsiRole                 :: !(Maybe Text)
-    , _nfsfsiSquash               :: !(Maybe Text)
-    , _nfsfsiNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
-    , _nfsfsiLocationARN          :: !(Maybe Text)
-    , _nfsfsiClientList           :: !(Maybe (List1 Text))
-    , _nfsfsiReadOnly             :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nfsfsiFileShareStatus      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiKMSKey               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiGatewayARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiPath                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiKMSEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _nfsfsiFileShareId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiFileShareARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiDefaultStorageClass  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiRole                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiSquash               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiNFSFileShareDefaults :: {-# NOUNPACK #-}!(Maybe NFSFileShareDefaults)
+  , _nfsfsiLocationARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nfsfsiClientList           :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _nfsfsiReadOnly             :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NFSFileShareInfo' with the minimum fields required to make a request.
 --
@@ -601,22 +616,23 @@ data NFSFileShareInfo = NFSFileShareInfo'
 nFSFileShareInfo
     :: NFSFileShareInfo
 nFSFileShareInfo =
-    NFSFileShareInfo'
-    { _nfsfsiFileShareStatus = Nothing
-    , _nfsfsiKMSKey = Nothing
-    , _nfsfsiGatewayARN = Nothing
-    , _nfsfsiPath = Nothing
-    , _nfsfsiKMSEncrypted = Nothing
-    , _nfsfsiFileShareId = Nothing
-    , _nfsfsiFileShareARN = Nothing
-    , _nfsfsiDefaultStorageClass = Nothing
-    , _nfsfsiRole = Nothing
-    , _nfsfsiSquash = Nothing
-    , _nfsfsiNFSFileShareDefaults = Nothing
-    , _nfsfsiLocationARN = Nothing
-    , _nfsfsiClientList = Nothing
-    , _nfsfsiReadOnly = Nothing
-    }
+  NFSFileShareInfo'
+  { _nfsfsiFileShareStatus = Nothing
+  , _nfsfsiKMSKey = Nothing
+  , _nfsfsiGatewayARN = Nothing
+  , _nfsfsiPath = Nothing
+  , _nfsfsiKMSEncrypted = Nothing
+  , _nfsfsiFileShareId = Nothing
+  , _nfsfsiFileShareARN = Nothing
+  , _nfsfsiDefaultStorageClass = Nothing
+  , _nfsfsiRole = Nothing
+  , _nfsfsiSquash = Nothing
+  , _nfsfsiNFSFileShareDefaults = Nothing
+  , _nfsfsiLocationARN = Nothing
+  , _nfsfsiClientList = Nothing
+  , _nfsfsiReadOnly = Nothing
+  }
+
 
 -- | Undocumented member.
 nfsfsiFileShareStatus :: Lens' NFSFileShareInfo (Maybe Text)
@@ -693,9 +709,9 @@ instance FromJSON NFSFileShareInfo where
                      <*> (x .:? "ClientList")
                      <*> (x .:? "ReadOnly"))
 
-instance Hashable NFSFileShareInfo
+instance Hashable NFSFileShareInfo where
 
-instance NFData NFSFileShareInfo
+instance NFData NFSFileShareInfo where
 
 -- | Describes a gateway's network interface.
 --
@@ -703,10 +719,11 @@ instance NFData NFSFileShareInfo
 --
 -- /See:/ 'networkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-    { _niIPv6Address :: !(Maybe Text)
-    , _niMACAddress  :: !(Maybe Text)
-    , _niIPv4Address :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _niIPv6Address :: {-# NOUNPACK #-}!(Maybe Text)
+  , _niMACAddress  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _niIPv4Address :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
@@ -720,11 +737,9 @@ data NetworkInterface = NetworkInterface'
 networkInterface
     :: NetworkInterface
 networkInterface =
-    NetworkInterface'
-    { _niIPv6Address = Nothing
-    , _niMACAddress = Nothing
-    , _niIPv4Address = Nothing
-    }
+  NetworkInterface'
+  {_niIPv6Address = Nothing, _niMACAddress = Nothing, _niIPv4Address = Nothing}
+
 
 -- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
 niIPv6Address :: Lens' NetworkInterface (Maybe Text)
@@ -746,9 +761,9 @@ instance FromJSON NetworkInterface where
                    (x .:? "Ipv6Address") <*> (x .:? "MacAddress") <*>
                      (x .:? "Ipv4Address"))
 
-instance Hashable NetworkInterface
+instance Hashable NetworkInterface where
 
-instance NFData NetworkInterface
+instance NFData NetworkInterface where
 
 -- | Describes an iSCSI stored volume.
 --
@@ -756,18 +771,19 @@ instance NFData NetworkInterface
 --
 -- /See:/ 'storediSCSIVolume' smart constructor.
 data StorediSCSIVolume = StorediSCSIVolume'
-    { _sscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
-    , _sscsivVolumeStatus          :: !(Maybe Text)
-    , _sscsivSourceSnapshotId      :: !(Maybe Text)
-    , _sscsivPreservedExistingData :: !(Maybe Bool)
-    , _sscsivVolumeARN             :: !(Maybe Text)
-    , _sscsivVolumeProgress        :: !(Maybe Double)
-    , _sscsivVolumeSizeInBytes     :: !(Maybe Integer)
-    , _sscsivCreatedDate           :: !(Maybe POSIX)
-    , _sscsivVolumeId              :: !(Maybe Text)
-    , _sscsivVolumeDiskId          :: !(Maybe Text)
-    , _sscsivVolumeType            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sscsivVolumeiSCSIAttributes :: {-# NOUNPACK #-}!(Maybe VolumeiSCSIAttributes)
+  , _sscsivVolumeStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sscsivSourceSnapshotId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sscsivPreservedExistingData :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sscsivVolumeARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sscsivVolumeProgress :: {-# NOUNPACK #-}!(Maybe Double)
+  , _sscsivVolumeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _sscsivCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _sscsivVolumeId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sscsivVolumeDiskId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sscsivVolumeType :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StorediSCSIVolume' with the minimum fields required to make a request.
 --
@@ -797,19 +813,20 @@ data StorediSCSIVolume = StorediSCSIVolume'
 storediSCSIVolume
     :: StorediSCSIVolume
 storediSCSIVolume =
-    StorediSCSIVolume'
-    { _sscsivVolumeiSCSIAttributes = Nothing
-    , _sscsivVolumeStatus = Nothing
-    , _sscsivSourceSnapshotId = Nothing
-    , _sscsivPreservedExistingData = Nothing
-    , _sscsivVolumeARN = Nothing
-    , _sscsivVolumeProgress = Nothing
-    , _sscsivVolumeSizeInBytes = Nothing
-    , _sscsivCreatedDate = Nothing
-    , _sscsivVolumeId = Nothing
-    , _sscsivVolumeDiskId = Nothing
-    , _sscsivVolumeType = Nothing
-    }
+  StorediSCSIVolume'
+  { _sscsivVolumeiSCSIAttributes = Nothing
+  , _sscsivVolumeStatus = Nothing
+  , _sscsivSourceSnapshotId = Nothing
+  , _sscsivPreservedExistingData = Nothing
+  , _sscsivVolumeARN = Nothing
+  , _sscsivVolumeProgress = Nothing
+  , _sscsivVolumeSizeInBytes = Nothing
+  , _sscsivCreatedDate = Nothing
+  , _sscsivVolumeId = Nothing
+  , _sscsivVolumeDiskId = Nothing
+  , _sscsivVolumeType = Nothing
+  }
+
 
 -- | An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
 sscsivVolumeiSCSIAttributes :: Lens' StorediSCSIVolume (Maybe VolumeiSCSIAttributes)
@@ -872,15 +889,16 @@ instance FromJSON StorediSCSIVolume where
                      <*> (x .:? "VolumeDiskId")
                      <*> (x .:? "VolumeType"))
 
-instance Hashable StorediSCSIVolume
+instance Hashable StorediSCSIVolume where
 
-instance NFData StorediSCSIVolume
+instance NFData StorediSCSIVolume where
 
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -893,11 +911,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | Undocumented member.
 tagKey :: Lens' Tag Text
@@ -912,9 +927,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -929,15 +944,16 @@ instance ToJSON Tag where
 --
 -- /See:/ 'tape' smart constructor.
 data Tape = Tape'
-    { _tTapeBarcode     :: !(Maybe Text)
-    , _tTapeStatus      :: !(Maybe Text)
-    , _tTapeARN         :: !(Maybe Text)
-    , _tProgress        :: !(Maybe Double)
-    , _tTapeSizeInBytes :: !(Maybe Integer)
-    , _tVTLDevice       :: !(Maybe Text)
-    , _tTapeUsedInBytes :: !(Maybe Integer)
-    , _tTapeCreatedDate :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tTapeBarcode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tTapeStatus      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tTapeARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tProgress        :: {-# NOUNPACK #-}!(Maybe Double)
+  , _tTapeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tVTLDevice       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tTapeUsedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tTapeCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tape' with the minimum fields required to make a request.
 --
@@ -961,16 +977,17 @@ data Tape = Tape'
 tape
     :: Tape
 tape =
-    Tape'
-    { _tTapeBarcode = Nothing
-    , _tTapeStatus = Nothing
-    , _tTapeARN = Nothing
-    , _tProgress = Nothing
-    , _tTapeSizeInBytes = Nothing
-    , _tVTLDevice = Nothing
-    , _tTapeUsedInBytes = Nothing
-    , _tTapeCreatedDate = Nothing
-    }
+  Tape'
+  { _tTapeBarcode = Nothing
+  , _tTapeStatus = Nothing
+  , _tTapeARN = Nothing
+  , _tProgress = Nothing
+  , _tTapeSizeInBytes = Nothing
+  , _tVTLDevice = Nothing
+  , _tTapeUsedInBytes = Nothing
+  , _tTapeCreatedDate = Nothing
+  }
+
 
 -- | The barcode that identifies a specific virtual tape.
 tTapeBarcode :: Lens' Tape (Maybe Text)
@@ -1017,9 +1034,9 @@ instance FromJSON Tape where
                      <*> (x .:? "TapeUsedInBytes")
                      <*> (x .:? "TapeCreatedDate"))
 
-instance Hashable Tape
+instance Hashable Tape where
 
-instance NFData Tape
+instance NFData Tape where
 
 -- | Represents a virtual tape that is archived in the virtual tape shelf (VTS).
 --
@@ -1027,15 +1044,16 @@ instance NFData Tape
 --
 -- /See:/ 'tapeArchive' smart constructor.
 data TapeArchive = TapeArchive'
-    { _taTapeBarcode     :: !(Maybe Text)
-    , _taTapeStatus      :: !(Maybe Text)
-    , _taTapeARN         :: !(Maybe Text)
-    , _taTapeSizeInBytes :: !(Maybe Integer)
-    , _taCompletionTime  :: !(Maybe POSIX)
-    , _taTapeUsedInBytes :: !(Maybe Integer)
-    , _taTapeCreatedDate :: !(Maybe POSIX)
-    , _taRetrievedTo     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _taTapeBarcode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _taTapeStatus      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _taTapeARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _taTapeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _taCompletionTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _taTapeUsedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _taTapeCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _taRetrievedTo     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TapeArchive' with the minimum fields required to make a request.
 --
@@ -1059,16 +1077,17 @@ data TapeArchive = TapeArchive'
 tapeArchive
     :: TapeArchive
 tapeArchive =
-    TapeArchive'
-    { _taTapeBarcode = Nothing
-    , _taTapeStatus = Nothing
-    , _taTapeARN = Nothing
-    , _taTapeSizeInBytes = Nothing
-    , _taCompletionTime = Nothing
-    , _taTapeUsedInBytes = Nothing
-    , _taTapeCreatedDate = Nothing
-    , _taRetrievedTo = Nothing
-    }
+  TapeArchive'
+  { _taTapeBarcode = Nothing
+  , _taTapeStatus = Nothing
+  , _taTapeARN = Nothing
+  , _taTapeSizeInBytes = Nothing
+  , _taCompletionTime = Nothing
+  , _taTapeUsedInBytes = Nothing
+  , _taTapeCreatedDate = Nothing
+  , _taRetrievedTo = Nothing
+  }
+
 
 -- | The barcode that identifies the archived virtual tape.
 taTapeBarcode :: Lens' TapeArchive (Maybe Text)
@@ -1115,9 +1134,9 @@ instance FromJSON TapeArchive where
                      <*> (x .:? "TapeCreatedDate")
                      <*> (x .:? "RetrievedTo"))
 
-instance Hashable TapeArchive
+instance Hashable TapeArchive where
 
-instance NFData TapeArchive
+instance NFData TapeArchive where
 
 -- | Describes a virtual tape.
 --
@@ -1125,12 +1144,13 @@ instance NFData TapeArchive
 --
 -- /See:/ 'tapeInfo' smart constructor.
 data TapeInfo = TapeInfo'
-    { _tiTapeBarcode     :: !(Maybe Text)
-    , _tiTapeStatus      :: !(Maybe Text)
-    , _tiTapeARN         :: !(Maybe Text)
-    , _tiGatewayARN      :: !(Maybe Text)
-    , _tiTapeSizeInBytes :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tiTapeBarcode     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiTapeStatus      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiTapeARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiGatewayARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiTapeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TapeInfo' with the minimum fields required to make a request.
 --
@@ -1148,13 +1168,14 @@ data TapeInfo = TapeInfo'
 tapeInfo
     :: TapeInfo
 tapeInfo =
-    TapeInfo'
-    { _tiTapeBarcode = Nothing
-    , _tiTapeStatus = Nothing
-    , _tiTapeARN = Nothing
-    , _tiGatewayARN = Nothing
-    , _tiTapeSizeInBytes = Nothing
-    }
+  TapeInfo'
+  { _tiTapeBarcode = Nothing
+  , _tiTapeStatus = Nothing
+  , _tiTapeARN = Nothing
+  , _tiGatewayARN = Nothing
+  , _tiTapeSizeInBytes = Nothing
+  }
+
 
 -- | The barcode that identifies a specific virtual tape.
 tiTapeBarcode :: Lens' TapeInfo (Maybe Text)
@@ -1186,9 +1207,9 @@ instance FromJSON TapeInfo where
                      <*> (x .:? "GatewayARN")
                      <*> (x .:? "TapeSizeInBytes"))
 
-instance Hashable TapeInfo
+instance Hashable TapeInfo where
 
-instance NFData TapeInfo
+instance NFData TapeInfo where
 
 -- | Describes a recovery point.
 --
@@ -1196,11 +1217,12 @@ instance NFData TapeInfo
 --
 -- /See:/ 'tapeRecoveryPointInfo' smart constructor.
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
-    { _trpiTapeStatus            :: !(Maybe Text)
-    , _trpiTapeRecoveryPointTime :: !(Maybe POSIX)
-    , _trpiTapeARN               :: !(Maybe Text)
-    , _trpiTapeSizeInBytes       :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trpiTapeStatus            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trpiTapeRecoveryPointTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _trpiTapeARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _trpiTapeSizeInBytes       :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TapeRecoveryPointInfo' with the minimum fields required to make a request.
 --
@@ -1216,12 +1238,13 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
 tapeRecoveryPointInfo
     :: TapeRecoveryPointInfo
 tapeRecoveryPointInfo =
-    TapeRecoveryPointInfo'
-    { _trpiTapeStatus = Nothing
-    , _trpiTapeRecoveryPointTime = Nothing
-    , _trpiTapeARN = Nothing
-    , _trpiTapeSizeInBytes = Nothing
-    }
+  TapeRecoveryPointInfo'
+  { _trpiTapeStatus = Nothing
+  , _trpiTapeRecoveryPointTime = Nothing
+  , _trpiTapeARN = Nothing
+  , _trpiTapeSizeInBytes = Nothing
+  }
+
 
 -- | Undocumented member.
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
@@ -1249,9 +1272,9 @@ instance FromJSON TapeRecoveryPointInfo where
                      <*> (x .:? "TapeARN")
                      <*> (x .:? "TapeSizeInBytes"))
 
-instance Hashable TapeRecoveryPointInfo
+instance Hashable TapeRecoveryPointInfo where
 
-instance NFData TapeRecoveryPointInfo
+instance NFData TapeRecoveryPointInfo where
 
 -- | Represents a device object associated with a tape gateway.
 --
@@ -1259,12 +1282,13 @@ instance NFData TapeRecoveryPointInfo
 --
 -- /See:/ 'vTLDevice' smart constructor.
 data VTLDevice = VTLDevice'
-    { _vtldDeviceiSCSIAttributes      :: !(Maybe DeviceiSCSIAttributes)
-    , _vtldVTLDeviceVendor            :: !(Maybe Text)
-    , _vtldVTLDeviceARN               :: !(Maybe Text)
-    , _vtldVTLDeviceType              :: !(Maybe Text)
-    , _vtldVTLDeviceProductIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vtldDeviceiSCSIAttributes :: {-# NOUNPACK #-}!(Maybe DeviceiSCSIAttributes)
+  , _vtldVTLDeviceVendor :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vtldVTLDeviceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vtldVTLDeviceType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vtldVTLDeviceProductIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VTLDevice' with the minimum fields required to make a request.
 --
@@ -1282,13 +1306,14 @@ data VTLDevice = VTLDevice'
 vTLDevice
     :: VTLDevice
 vTLDevice =
-    VTLDevice'
-    { _vtldDeviceiSCSIAttributes = Nothing
-    , _vtldVTLDeviceVendor = Nothing
-    , _vtldVTLDeviceARN = Nothing
-    , _vtldVTLDeviceType = Nothing
-    , _vtldVTLDeviceProductIdentifier = Nothing
-    }
+  VTLDevice'
+  { _vtldDeviceiSCSIAttributes = Nothing
+  , _vtldVTLDeviceVendor = Nothing
+  , _vtldVTLDeviceARN = Nothing
+  , _vtldVTLDeviceType = Nothing
+  , _vtldVTLDeviceProductIdentifier = Nothing
+  }
+
 
 -- | A list of iSCSI information about a VTL device.
 vtldDeviceiSCSIAttributes :: Lens' VTLDevice (Maybe DeviceiSCSIAttributes)
@@ -1321,9 +1346,9 @@ instance FromJSON VTLDevice where
                      <*> (x .:? "VTLDeviceType")
                      <*> (x .:? "VTLDeviceProductIdentifier"))
 
-instance Hashable VTLDevice
+instance Hashable VTLDevice where
 
-instance NFData VTLDevice
+instance NFData VTLDevice where
 
 -- | Describes a storage volume object.
 --
@@ -1331,13 +1356,14 @@ instance NFData VTLDevice
 --
 -- /See:/ 'volumeInfo' smart constructor.
 data VolumeInfo = VolumeInfo'
-    { _viGatewayARN        :: !(Maybe Text)
-    , _viVolumeARN         :: !(Maybe Text)
-    , _viVolumeSizeInBytes :: !(Maybe Integer)
-    , _viVolumeId          :: !(Maybe Text)
-    , _viGatewayId         :: !(Maybe Text)
-    , _viVolumeType        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _viGatewayARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVolumeARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVolumeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _viVolumeId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viGatewayId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVolumeType        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VolumeInfo' with the minimum fields required to make a request.
 --
@@ -1357,14 +1383,15 @@ data VolumeInfo = VolumeInfo'
 volumeInfo
     :: VolumeInfo
 volumeInfo =
-    VolumeInfo'
-    { _viGatewayARN = Nothing
-    , _viVolumeARN = Nothing
-    , _viVolumeSizeInBytes = Nothing
-    , _viVolumeId = Nothing
-    , _viGatewayId = Nothing
-    , _viVolumeType = Nothing
-    }
+  VolumeInfo'
+  { _viGatewayARN = Nothing
+  , _viVolumeARN = Nothing
+  , _viVolumeSizeInBytes = Nothing
+  , _viVolumeId = Nothing
+  , _viGatewayId = Nothing
+  , _viVolumeType = Nothing
+  }
+
 
 -- | Undocumented member.
 viGatewayARN :: Lens' VolumeInfo (Maybe Text)
@@ -1401,17 +1428,18 @@ instance FromJSON VolumeInfo where
                      <*> (x .:? "GatewayId")
                      <*> (x .:? "VolumeType"))
 
-instance Hashable VolumeInfo
+instance Hashable VolumeInfo where
 
-instance NFData VolumeInfo
+instance NFData VolumeInfo where
 
 -- | /See:/ 'volumeRecoveryPointInfo' smart constructor.
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
-    { _vrpiVolumeRecoveryPointTime :: !(Maybe Text)
-    , _vrpiVolumeARN               :: !(Maybe Text)
-    , _vrpiVolumeSizeInBytes       :: !(Maybe Integer)
-    , _vrpiVolumeUsageInBytes      :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vrpiVolumeRecoveryPointTime :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vrpiVolumeARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vrpiVolumeSizeInBytes       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _vrpiVolumeUsageInBytes      :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VolumeRecoveryPointInfo' with the minimum fields required to make a request.
 --
@@ -1427,12 +1455,13 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
 volumeRecoveryPointInfo
     :: VolumeRecoveryPointInfo
 volumeRecoveryPointInfo =
-    VolumeRecoveryPointInfo'
-    { _vrpiVolumeRecoveryPointTime = Nothing
-    , _vrpiVolumeARN = Nothing
-    , _vrpiVolumeSizeInBytes = Nothing
-    , _vrpiVolumeUsageInBytes = Nothing
-    }
+  VolumeRecoveryPointInfo'
+  { _vrpiVolumeRecoveryPointTime = Nothing
+  , _vrpiVolumeARN = Nothing
+  , _vrpiVolumeSizeInBytes = Nothing
+  , _vrpiVolumeUsageInBytes = Nothing
+  }
+
 
 -- | Undocumented member.
 vrpiVolumeRecoveryPointTime :: Lens' VolumeRecoveryPointInfo (Maybe Text)
@@ -1460,9 +1489,9 @@ instance FromJSON VolumeRecoveryPointInfo where
                      <*> (x .:? "VolumeSizeInBytes")
                      <*> (x .:? "VolumeUsageInBytes"))
 
-instance Hashable VolumeRecoveryPointInfo
+instance Hashable VolumeRecoveryPointInfo where
 
-instance NFData VolumeRecoveryPointInfo
+instance NFData VolumeRecoveryPointInfo where
 
 -- | Lists iSCSI information about a volume.
 --
@@ -1470,12 +1499,13 @@ instance NFData VolumeRecoveryPointInfo
 --
 -- /See:/ 'volumeiSCSIAttributes' smart constructor.
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
-    { _vscsiaLunNumber            :: !(Maybe Nat)
-    , _vscsiaTargetARN            :: !(Maybe Text)
-    , _vscsiaChapEnabled          :: !(Maybe Bool)
-    , _vscsiaNetworkInterfaceId   :: !(Maybe Text)
-    , _vscsiaNetworkInterfacePort :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vscsiaLunNumber            :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _vscsiaTargetARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vscsiaChapEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _vscsiaNetworkInterfaceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vscsiaNetworkInterfacePort :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VolumeiSCSIAttributes' with the minimum fields required to make a request.
 --
@@ -1493,13 +1523,14 @@ data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
 volumeiSCSIAttributes
     :: VolumeiSCSIAttributes
 volumeiSCSIAttributes =
-    VolumeiSCSIAttributes'
-    { _vscsiaLunNumber = Nothing
-    , _vscsiaTargetARN = Nothing
-    , _vscsiaChapEnabled = Nothing
-    , _vscsiaNetworkInterfaceId = Nothing
-    , _vscsiaNetworkInterfacePort = Nothing
-    }
+  VolumeiSCSIAttributes'
+  { _vscsiaLunNumber = Nothing
+  , _vscsiaTargetARN = Nothing
+  , _vscsiaChapEnabled = Nothing
+  , _vscsiaNetworkInterfaceId = Nothing
+  , _vscsiaNetworkInterfacePort = Nothing
+  }
+
 
 -- | The logical disk number.
 vscsiaLunNumber :: Lens' VolumeiSCSIAttributes (Maybe Natural)
@@ -1531,6 +1562,6 @@ instance FromJSON VolumeiSCSIAttributes where
                      <*> (x .:? "NetworkInterfaceId")
                      <*> (x .:? "NetworkInterfacePort"))
 
-instance Hashable VolumeiSCSIAttributes
+instance Hashable VolumeiSCSIAttributes where
 
-instance NFData VolumeiSCSIAttributes
+instance NFData VolumeiSCSIAttributes where

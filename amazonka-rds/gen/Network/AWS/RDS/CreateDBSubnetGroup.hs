@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     , cdsgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -53,11 +53,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createDBSubnetGroup' smart constructor.
 data CreateDBSubnetGroup = CreateDBSubnetGroup'
-    { _cdbsgTags                     :: !(Maybe [Tag])
-    , _cdbsgDBSubnetGroupName        :: !Text
-    , _cdbsgDBSubnetGroupDescription :: !Text
-    , _cdbsgSubnetIds                :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdbsgTags                     :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _cdbsgDBSubnetGroupName        :: {-# NOUNPACK #-}!Text
+  , _cdbsgDBSubnetGroupDescription :: {-# NOUNPACK #-}!Text
+  , _cdbsgSubnetIds                :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBSubnetGroup' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ createDBSubnetGroup
     -> Text -- ^ 'cdbsgDBSubnetGroupDescription'
     -> CreateDBSubnetGroup
 createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
-    CreateDBSubnetGroup'
-    { _cdbsgTags = Nothing
-    , _cdbsgDBSubnetGroupName = pDBSubnetGroupName_
-    , _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription_
-    , _cdbsgSubnetIds = mempty
-    }
+  CreateDBSubnetGroup'
+  { _cdbsgTags = Nothing
+  , _cdbsgDBSubnetGroupName = pDBSubnetGroupName_
+  , _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription_
+  , _cdbsgSubnetIds = mempty
+  }
+
 
 -- | Undocumented member.
 cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
@@ -108,9 +110,9 @@ instance AWSRequest CreateDBSubnetGroup where
                  CreateDBSubnetGroupResponse' <$>
                    (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
 
-instance Hashable CreateDBSubnetGroup
+instance Hashable CreateDBSubnetGroup where
 
-instance NFData CreateDBSubnetGroup
+instance NFData CreateDBSubnetGroup where
 
 instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty
@@ -132,9 +134,10 @@ instance ToQuery CreateDBSubnetGroup where
 
 -- | /See:/ 'createDBSubnetGroupResponse' smart constructor.
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
-    { _cdsgrsDBSubnetGroup  :: !(Maybe DBSubnetGroup)
-    , _cdsgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdsgrsDBSubnetGroup  :: {-# NOUNPACK #-}!(Maybe DBSubnetGroup)
+  , _cdsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDBSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -147,10 +150,9 @@ createDBSubnetGroupResponse
     :: Int -- ^ 'cdsgrsResponseStatus'
     -> CreateDBSubnetGroupResponse
 createDBSubnetGroupResponse pResponseStatus_ =
-    CreateDBSubnetGroupResponse'
-    { _cdsgrsDBSubnetGroup = Nothing
-    , _cdsgrsResponseStatus = pResponseStatus_
-    }
+  CreateDBSubnetGroupResponse'
+  {_cdsgrsDBSubnetGroup = Nothing, _cdsgrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 cdsgrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
@@ -160,4 +162,4 @@ cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup
 cdsgrsResponseStatus :: Lens' CreateDBSubnetGroupResponse Int
 cdsgrsResponseStatus = lens _cdsgrsResponseStatus (\ s a -> s{_cdsgrsResponseStatus = a});
 
-instance NFData CreateDBSubnetGroupResponse
+instance NFData CreateDBSubnetGroupResponse where

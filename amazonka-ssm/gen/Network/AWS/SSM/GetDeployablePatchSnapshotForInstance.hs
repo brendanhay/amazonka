@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
     , gdpsfirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getDeployablePatchSnapshotForInstance' smart constructor.
 data GetDeployablePatchSnapshotForInstance = GetDeployablePatchSnapshotForInstance'
-    { _gdpsfiInstanceId :: !Text
-    , _gdpsfiSnapshotId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdpsfiInstanceId :: {-# NOUNPACK #-}!Text
+  , _gdpsfiSnapshotId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeployablePatchSnapshotForInstance' with the minimum fields required to make a request.
 --
@@ -66,10 +67,9 @@ getDeployablePatchSnapshotForInstance
     -> Text -- ^ 'gdpsfiSnapshotId'
     -> GetDeployablePatchSnapshotForInstance
 getDeployablePatchSnapshotForInstance pInstanceId_ pSnapshotId_ =
-    GetDeployablePatchSnapshotForInstance'
-    { _gdpsfiInstanceId = pInstanceId_
-    , _gdpsfiSnapshotId = pSnapshotId_
-    }
+  GetDeployablePatchSnapshotForInstance'
+  {_gdpsfiInstanceId = pInstanceId_, _gdpsfiSnapshotId = pSnapshotId_}
+
 
 -- | The ID of the instance for which the appropriate patch snapshot should be retrieved.
 gdpsfiInstanceId :: Lens' GetDeployablePatchSnapshotForInstance Text
@@ -80,7 +80,8 @@ gdpsfiSnapshotId :: Lens' GetDeployablePatchSnapshotForInstance Text
 gdpsfiSnapshotId = lens _gdpsfiSnapshotId (\ s a -> s{_gdpsfiSnapshotId = a});
 
 instance AWSRequest
-         GetDeployablePatchSnapshotForInstance where
+           GetDeployablePatchSnapshotForInstance
+         where
         type Rs GetDeployablePatchSnapshotForInstance =
              GetDeployablePatchSnapshotForInstanceResponse
         request = postJSON ssm
@@ -94,12 +95,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         GetDeployablePatchSnapshotForInstance
+           GetDeployablePatchSnapshotForInstance
+         where
 
 instance NFData GetDeployablePatchSnapshotForInstance
+         where
 
 instance ToHeaders
-         GetDeployablePatchSnapshotForInstance where
+           GetDeployablePatchSnapshotForInstance
+         where
         toHeaders
           = const
               (mconcat
@@ -122,17 +126,19 @@ instance ToPath GetDeployablePatchSnapshotForInstance
         toPath = const "/"
 
 instance ToQuery
-         GetDeployablePatchSnapshotForInstance where
+           GetDeployablePatchSnapshotForInstance
+         where
         toQuery = const mempty
 
 -- | /See:/ 'getDeployablePatchSnapshotForInstanceResponse' smart constructor.
 data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotForInstanceResponse'
-    { _gdpsfirsInstanceId          :: !(Maybe Text)
-    , _gdpsfirsProduct             :: !(Maybe Text)
-    , _gdpsfirsSnapshotDownloadURL :: !(Maybe Text)
-    , _gdpsfirsSnapshotId          :: !(Maybe Text)
-    , _gdpsfirsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdpsfirsInstanceId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpsfirsProduct             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpsfirsSnapshotDownloadURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpsfirsSnapshotId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpsfirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDeployablePatchSnapshotForInstanceResponse' with the minimum fields required to make a request.
 --
@@ -151,13 +157,14 @@ getDeployablePatchSnapshotForInstanceResponse
     :: Int -- ^ 'gdpsfirsResponseStatus'
     -> GetDeployablePatchSnapshotForInstanceResponse
 getDeployablePatchSnapshotForInstanceResponse pResponseStatus_ =
-    GetDeployablePatchSnapshotForInstanceResponse'
-    { _gdpsfirsInstanceId = Nothing
-    , _gdpsfirsProduct = Nothing
-    , _gdpsfirsSnapshotDownloadURL = Nothing
-    , _gdpsfirsSnapshotId = Nothing
-    , _gdpsfirsResponseStatus = pResponseStatus_
-    }
+  GetDeployablePatchSnapshotForInstanceResponse'
+  { _gdpsfirsInstanceId = Nothing
+  , _gdpsfirsProduct = Nothing
+  , _gdpsfirsSnapshotDownloadURL = Nothing
+  , _gdpsfirsSnapshotId = Nothing
+  , _gdpsfirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the instance.
 gdpsfirsInstanceId :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
@@ -180,4 +187,5 @@ gdpsfirsResponseStatus :: Lens' GetDeployablePatchSnapshotForInstanceResponse In
 gdpsfirsResponseStatus = lens _gdpsfirsResponseStatus (\ s a -> s{_gdpsfirsResponseStatus = a});
 
 instance NFData
-         GetDeployablePatchSnapshotForInstanceResponse
+           GetDeployablePatchSnapshotForInstanceResponse
+         where

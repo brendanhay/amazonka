@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteSlotType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.LexModels.DeleteSlotType
     , DeleteSlotTypeResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteSlotType' smart constructor.
 newtype DeleteSlotType = DeleteSlotType'
-    { _dstName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dstName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSlotType' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteSlotType = DeleteSlotType'
 deleteSlotType
     :: Text -- ^ 'dstName'
     -> DeleteSlotType
-deleteSlotType pName_ =
-    DeleteSlotType'
-    { _dstName = pName_
-    }
+deleteSlotType pName_ = DeleteSlotType' {_dstName = pName_}
+
 
 -- | The name of the slot type. The name is case sensitive.
 dstName :: Lens' DeleteSlotType Text
@@ -72,9 +71,9 @@ instance AWSRequest DeleteSlotType where
         request = delete lexModels
         response = receiveNull DeleteSlotTypeResponse'
 
-instance Hashable DeleteSlotType
+instance Hashable DeleteSlotType where
 
-instance NFData DeleteSlotType
+instance NFData DeleteSlotType where
 
 instance ToHeaders DeleteSlotType where
         toHeaders
@@ -92,8 +91,9 @@ instance ToQuery DeleteSlotType where
 
 -- | /See:/ 'deleteSlotTypeResponse' smart constructor.
 data DeleteSlotTypeResponse =
-    DeleteSlotTypeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSlotTypeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSlotTypeResponse' with the minimum fields required to make a request.
 --
@@ -101,4 +101,5 @@ deleteSlotTypeResponse
     :: DeleteSlotTypeResponse
 deleteSlotTypeResponse = DeleteSlotTypeResponse'
 
-instance NFData DeleteSlotTypeResponse
+
+instance NFData DeleteSlotTypeResponse where

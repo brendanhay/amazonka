@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DeleteDirectoryConfig
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.AppStream.DeleteDirectoryConfig
     , delrsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDirectoryConfig' smart constructor.
 newtype DeleteDirectoryConfig = DeleteDirectoryConfig'
-    { _ddcDirectoryName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcDirectoryName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDirectoryConfig' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deleteDirectoryConfig
     :: Text -- ^ 'ddcDirectoryName'
     -> DeleteDirectoryConfig
 deleteDirectoryConfig pDirectoryName_ =
-    DeleteDirectoryConfig'
-    { _ddcDirectoryName = pDirectoryName_
-    }
+  DeleteDirectoryConfig' {_ddcDirectoryName = pDirectoryName_}
+
 
 -- | The name of the directory configuration to be deleted.
 ddcDirectoryName :: Lens' DeleteDirectoryConfig Text
@@ -75,9 +75,9 @@ instance AWSRequest DeleteDirectoryConfig where
                  DeleteDirectoryConfigResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable DeleteDirectoryConfig
+instance Hashable DeleteDirectoryConfig where
 
-instance NFData DeleteDirectoryConfig
+instance NFData DeleteDirectoryConfig where
 
 instance ToHeaders DeleteDirectoryConfig where
         toHeaders
@@ -103,8 +103,9 @@ instance ToQuery DeleteDirectoryConfig where
 
 -- | /See:/ 'deleteDirectoryConfigResponse' smart constructor.
 newtype DeleteDirectoryConfigResponse = DeleteDirectoryConfigResponse'
-    { _delrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _delrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDirectoryConfigResponse' with the minimum fields required to make a request.
 --
@@ -115,12 +116,11 @@ deleteDirectoryConfigResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteDirectoryConfigResponse
 deleteDirectoryConfigResponse pResponseStatus_ =
-    DeleteDirectoryConfigResponse'
-    { _delrsResponseStatus = pResponseStatus_
-    }
+  DeleteDirectoryConfigResponse' {_delrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteDirectoryConfigResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
-instance NFData DeleteDirectoryConfigResponse
+instance NFData DeleteDirectoryConfigResponse where

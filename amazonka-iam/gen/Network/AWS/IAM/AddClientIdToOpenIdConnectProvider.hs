@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
     , AddClientIdToOpenIdConnectProviderResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'addClientIdToOpenIdConnectProvider' smart constructor.
 data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
-    { _acitoicpOpenIdConnectProviderARN :: !Text
-    , _acitoicpClientId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acitoicpOpenIdConnectProviderARN :: {-# NOUNPACK #-}!Text
+  , _acitoicpClientId                 :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddClientIdToOpenIdConnectProvider' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ addClientIdToOpenIdConnectProvider
     -> Text -- ^ 'acitoicpClientId'
     -> AddClientIdToOpenIdConnectProvider
 addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
-    AddClientIdToOpenIdConnectProvider'
-    { _acitoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
-    , _acitoicpClientId = pClientId_
-    }
+  AddClientIdToOpenIdConnectProvider'
+  { _acitoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+  , _acitoicpClientId = pClientId_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' action.
 acitoicpOpenIdConnectProviderARN :: Lens' AddClientIdToOpenIdConnectProvider Text
@@ -76,7 +78,8 @@ acitoicpClientId :: Lens' AddClientIdToOpenIdConnectProvider Text
 acitoicpClientId = lens _acitoicpClientId (\ s a -> s{_acitoicpClientId = a});
 
 instance AWSRequest
-         AddClientIdToOpenIdConnectProvider where
+           AddClientIdToOpenIdConnectProvider
+         where
         type Rs AddClientIdToOpenIdConnectProvider =
              AddClientIdToOpenIdConnectProviderResponse
         request = postQuery iam
@@ -85,8 +88,10 @@ instance AWSRequest
               AddClientIdToOpenIdConnectProviderResponse'
 
 instance Hashable AddClientIdToOpenIdConnectProvider
+         where
 
 instance NFData AddClientIdToOpenIdConnectProvider
+         where
 
 instance ToHeaders AddClientIdToOpenIdConnectProvider
          where
@@ -109,15 +114,18 @@ instance ToQuery AddClientIdToOpenIdConnectProvider
 
 -- | /See:/ 'addClientIdToOpenIdConnectProviderResponse' smart constructor.
 data AddClientIdToOpenIdConnectProviderResponse =
-    AddClientIdToOpenIdConnectProviderResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AddClientIdToOpenIdConnectProviderResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddClientIdToOpenIdConnectProviderResponse' with the minimum fields required to make a request.
 --
 addClientIdToOpenIdConnectProviderResponse
     :: AddClientIdToOpenIdConnectProviderResponse
 addClientIdToOpenIdConnectProviderResponse =
-    AddClientIdToOpenIdConnectProviderResponse'
+  AddClientIdToOpenIdConnectProviderResponse'
+
 
 instance NFData
-         AddClientIdToOpenIdConnectProviderResponse
+           AddClientIdToOpenIdConnectProviderResponse
+         where

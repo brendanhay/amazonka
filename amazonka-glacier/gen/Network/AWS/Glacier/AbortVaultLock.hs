@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AbortVaultLock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Glacier.AbortVaultLock
     , AbortVaultLockResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input values for @AbortVaultLock@ .
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'abortVaultLock' smart constructor.
 data AbortVaultLock = AbortVaultLock'
-    { _avlAccountId :: !Text
-    , _avlVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _avlAccountId :: {-# NOUNPACK #-}!Text
+  , _avlVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortVaultLock' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ abortVaultLock
     -> Text -- ^ 'avlVaultName'
     -> AbortVaultLock
 abortVaultLock pAccountId_ pVaultName_ =
-    AbortVaultLock'
-    { _avlAccountId = pAccountId_
-    , _avlVaultName = pVaultName_
-    }
+  AbortVaultLock' {_avlAccountId = pAccountId_, _avlVaultName = pVaultName_}
+
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 avlAccountId :: Lens' AbortVaultLock Text
@@ -86,9 +85,9 @@ instance AWSRequest AbortVaultLock where
         request = delete glacier
         response = receiveNull AbortVaultLockResponse'
 
-instance Hashable AbortVaultLock
+instance Hashable AbortVaultLock where
 
-instance NFData AbortVaultLock
+instance NFData AbortVaultLock where
 
 instance ToHeaders AbortVaultLock where
         toHeaders = const mempty
@@ -104,8 +103,9 @@ instance ToQuery AbortVaultLock where
 
 -- | /See:/ 'abortVaultLockResponse' smart constructor.
 data AbortVaultLockResponse =
-    AbortVaultLockResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AbortVaultLockResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AbortVaultLockResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +113,5 @@ abortVaultLockResponse
     :: AbortVaultLockResponse
 abortVaultLockResponse = AbortVaultLockResponse'
 
-instance NFData AbortVaultLockResponse
+
+instance NFData AbortVaultLockResponse where

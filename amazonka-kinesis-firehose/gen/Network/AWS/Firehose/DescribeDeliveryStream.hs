@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.DescribeDeliveryStream
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.Firehose.DescribeDeliveryStream
     , ddsrsDeliveryStreamDescription
     ) where
 
-import           Network.AWS.Firehose.Types
-import           Network.AWS.Firehose.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Firehose.Types
+import Network.AWS.Firehose.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
-    { _ddsExclusiveStartDestinationId :: !(Maybe Text)
-    , _ddsLimit                       :: !(Maybe Nat)
-    , _ddsDeliveryStreamName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddsExclusiveStartDestinationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddsLimit                       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ddsDeliveryStreamName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDeliveryStream' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ describeDeliveryStream
     :: Text -- ^ 'ddsDeliveryStreamName'
     -> DescribeDeliveryStream
 describeDeliveryStream pDeliveryStreamName_ =
-    DescribeDeliveryStream'
-    { _ddsExclusiveStartDestinationId = Nothing
-    , _ddsLimit = Nothing
-    , _ddsDeliveryStreamName = pDeliveryStreamName_
-    }
+  DescribeDeliveryStream'
+  { _ddsExclusiveStartDestinationId = Nothing
+  , _ddsLimit = Nothing
+  , _ddsDeliveryStreamName = pDeliveryStreamName_
+  }
+
 
 -- | The ID of the destination to start returning the destination information. Currently Firehose supports one destination per delivery stream.
 ddsExclusiveStartDestinationId :: Lens' DescribeDeliveryStream (Maybe Text)
@@ -95,9 +97,9 @@ instance AWSRequest DescribeDeliveryStream where
                    (pure (fromEnum s)) <*>
                      (x .:> "DeliveryStreamDescription"))
 
-instance Hashable DescribeDeliveryStream
+instance Hashable DescribeDeliveryStream where
 
-instance NFData DescribeDeliveryStream
+instance NFData DescribeDeliveryStream where
 
 instance ToHeaders DescribeDeliveryStream where
         toHeaders
@@ -127,9 +129,10 @@ instance ToQuery DescribeDeliveryStream where
 
 -- | /See:/ 'describeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
-    { _ddsrsResponseStatus            :: !Int
-    , _ddsrsDeliveryStreamDescription :: !DeliveryStreamDescription
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ddsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ddsrsDeliveryStreamDescription :: {-# NOUNPACK #-}!DeliveryStreamDescription
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDeliveryStreamResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +146,11 @@ describeDeliveryStreamResponse
     -> DeliveryStreamDescription -- ^ 'ddsrsDeliveryStreamDescription'
     -> DescribeDeliveryStreamResponse
 describeDeliveryStreamResponse pResponseStatus_ pDeliveryStreamDescription_ =
-    DescribeDeliveryStreamResponse'
-    { _ddsrsResponseStatus = pResponseStatus_
-    , _ddsrsDeliveryStreamDescription = pDeliveryStreamDescription_
-    }
+  DescribeDeliveryStreamResponse'
+  { _ddsrsResponseStatus = pResponseStatus_
+  , _ddsrsDeliveryStreamDescription = pDeliveryStreamDescription_
+  }
+
 
 -- | -- | The response status code.
 ddsrsResponseStatus :: Lens' DescribeDeliveryStreamResponse Int
@@ -156,4 +160,4 @@ ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus
 ddsrsDeliveryStreamDescription :: Lens' DescribeDeliveryStreamResponse DeliveryStreamDescription
 ddsrsDeliveryStreamDescription = lens _ddsrsDeliveryStreamDescription (\ s a -> s{_ddsrsDeliveryStreamDescription = a});
 
-instance NFData DescribeDeliveryStreamResponse
+instance NFData DescribeDeliveryStreamResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVolumeAttribute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.EC2.ModifyVolumeAttribute
     , ModifyVolumeAttributeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ModifyVolumeAttribute.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyVolumeAttribute' smart constructor.
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
-    { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _mvaDryRun       :: !(Maybe Bool)
-    , _mvaVolumeId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mvaAutoEnableIO :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
+  , _mvaDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mvaVolumeId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVolumeAttribute' with the minimum fields required to make a request.
 --
@@ -71,11 +72,9 @@ modifyVolumeAttribute
     :: Text -- ^ 'mvaVolumeId'
     -> ModifyVolumeAttribute
 modifyVolumeAttribute pVolumeId_ =
-    ModifyVolumeAttribute'
-    { _mvaAutoEnableIO = Nothing
-    , _mvaDryRun = Nothing
-    , _mvaVolumeId = pVolumeId_
-    }
+  ModifyVolumeAttribute'
+  {_mvaAutoEnableIO = Nothing, _mvaDryRun = Nothing, _mvaVolumeId = pVolumeId_}
+
 
 -- | Indicates whether the volume should be auto-enabled for I/O operations.
 mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
@@ -95,9 +94,9 @@ instance AWSRequest ModifyVolumeAttribute where
         request = postQuery ec2
         response = receiveNull ModifyVolumeAttributeResponse'
 
-instance Hashable ModifyVolumeAttribute
+instance Hashable ModifyVolumeAttribute where
 
-instance NFData ModifyVolumeAttribute
+instance NFData ModifyVolumeAttribute where
 
 instance ToHeaders ModifyVolumeAttribute where
         toHeaders = const mempty
@@ -115,8 +114,9 @@ instance ToQuery ModifyVolumeAttribute where
 
 -- | /See:/ 'modifyVolumeAttributeResponse' smart constructor.
 data ModifyVolumeAttributeResponse =
-    ModifyVolumeAttributeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ModifyVolumeAttributeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyVolumeAttributeResponse' with the minimum fields required to make a request.
 --
@@ -124,4 +124,5 @@ modifyVolumeAttributeResponse
     :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'
 
-instance NFData ModifyVolumeAttributeResponse
+
+instance NFData ModifyVolumeAttributeResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListAssignmentsForHIT
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,20 +50,21 @@ module Network.AWS.MechanicalTurk.ListAssignmentsForHIT
     , lafhitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listAssignmentsForHIT' smart constructor.
 data ListAssignmentsForHIT = ListAssignmentsForHIT'
-    { _lafhitAssignmentStatuses :: !(Maybe [AssignmentStatus])
-    , _lafhitNextToken          :: !(Maybe Text)
-    , _lafhitMaxResults         :: !(Maybe Nat)
-    , _lafhitHITId              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lafhitAssignmentStatuses :: {-# NOUNPACK #-}!(Maybe [AssignmentStatus])
+  , _lafhitNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lafhitMaxResults         :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lafhitHITId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssignmentsForHIT' with the minimum fields required to make a request.
 --
@@ -80,12 +81,13 @@ listAssignmentsForHIT
     :: Text -- ^ 'lafhitHITId'
     -> ListAssignmentsForHIT
 listAssignmentsForHIT pHITId_ =
-    ListAssignmentsForHIT'
-    { _lafhitAssignmentStatuses = Nothing
-    , _lafhitNextToken = Nothing
-    , _lafhitMaxResults = Nothing
-    , _lafhitHITId = pHITId_
-    }
+  ListAssignmentsForHIT'
+  { _lafhitAssignmentStatuses = Nothing
+  , _lafhitNextToken = Nothing
+  , _lafhitMaxResults = Nothing
+  , _lafhitHITId = pHITId_
+  }
+
 
 -- | The status of the assignments to return: Submitted | Approved | Rejected
 lafhitAssignmentStatuses :: Lens' ListAssignmentsForHIT [AssignmentStatus]
@@ -115,9 +117,9 @@ instance AWSRequest ListAssignmentsForHIT where
                      (x .?> "Assignments" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListAssignmentsForHIT
+instance Hashable ListAssignmentsForHIT where
 
-instance NFData ListAssignmentsForHIT
+instance NFData ListAssignmentsForHIT where
 
 instance ToHeaders ListAssignmentsForHIT where
         toHeaders
@@ -147,11 +149,12 @@ instance ToQuery ListAssignmentsForHIT where
 
 -- | /See:/ 'listAssignmentsForHITResponse' smart constructor.
 data ListAssignmentsForHITResponse = ListAssignmentsForHITResponse'
-    { _lafhitrsNextToken      :: !(Maybe Text)
-    , _lafhitrsNumResults     :: !(Maybe Int)
-    , _lafhitrsAssignments    :: !(Maybe [Assignment])
-    , _lafhitrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lafhitrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lafhitrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lafhitrsAssignments    :: {-# NOUNPACK #-}!(Maybe [Assignment])
+  , _lafhitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListAssignmentsForHITResponse' with the minimum fields required to make a request.
 --
@@ -168,12 +171,13 @@ listAssignmentsForHITResponse
     :: Int -- ^ 'lafhitrsResponseStatus'
     -> ListAssignmentsForHITResponse
 listAssignmentsForHITResponse pResponseStatus_ =
-    ListAssignmentsForHITResponse'
-    { _lafhitrsNextToken = Nothing
-    , _lafhitrsNumResults = Nothing
-    , _lafhitrsAssignments = Nothing
-    , _lafhitrsResponseStatus = pResponseStatus_
-    }
+  ListAssignmentsForHITResponse'
+  { _lafhitrsNextToken = Nothing
+  , _lafhitrsNumResults = Nothing
+  , _lafhitrsAssignments = Nothing
+  , _lafhitrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lafhitrsNextToken :: Lens' ListAssignmentsForHITResponse (Maybe Text)
@@ -191,4 +195,4 @@ lafhitrsAssignments = lens _lafhitrsAssignments (\ s a -> s{_lafhitrsAssignments
 lafhitrsResponseStatus :: Lens' ListAssignmentsForHITResponse Int
 lafhitrsResponseStatus = lens _lafhitrsResponseStatus (\ s a -> s{_lafhitrsResponseStatus = a});
 
-instance NFData ListAssignmentsForHITResponse
+instance NFData ListAssignmentsForHITResponse where

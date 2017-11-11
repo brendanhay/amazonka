@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeletePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.AutoScaling.DeletePolicy
     , DeletePolicyResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeletePolicy.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
-    { _dpAutoScalingGroupName :: !(Maybe Text)
-    , _dpPolicyName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpPolicyName           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ deletePolicy
     :: Text -- ^ 'dpPolicyName'
     -> DeletePolicy
 deletePolicy pPolicyName_ =
-    DeletePolicy'
-    { _dpAutoScalingGroupName = Nothing
-    , _dpPolicyName = pPolicyName_
-    }
+  DeletePolicy'
+  {_dpAutoScalingGroupName = Nothing, _dpPolicyName = pPolicyName_}
+
 
 -- | The name of the Auto Scaling group.
 dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
@@ -83,9 +83,9 @@ instance AWSRequest DeletePolicy where
         request = postQuery autoScaling
         response = receiveNull DeletePolicyResponse'
 
-instance Hashable DeletePolicy
+instance Hashable DeletePolicy where
 
-instance NFData DeletePolicy
+instance NFData DeletePolicy where
 
 instance ToHeaders DeletePolicy where
         toHeaders = const mempty
@@ -103,8 +103,9 @@ instance ToQuery DeletePolicy where
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
 data DeletePolicyResponse =
-    DeletePolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeletePolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +113,5 @@ deletePolicyResponse
     :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse'
 
-instance NFData DeletePolicyResponse
+
+instance NFData DeletePolicyResponse where

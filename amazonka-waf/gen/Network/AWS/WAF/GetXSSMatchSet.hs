@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetXSSMatchSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.WAF.GetXSSMatchSet
     , gxmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | A request to get an 'XssMatchSet' .
 --
@@ -50,8 +50,9 @@ import           Network.AWS.WAF.Types.Product
 --
 -- /See:/ 'getXSSMatchSet' smart constructor.
 newtype GetXSSMatchSet = GetXSSMatchSet'
-    { _gxmsXSSMatchSetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gxmsXSSMatchSetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetXSSMatchSet' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getXSSMatchSet
     :: Text -- ^ 'gxmsXSSMatchSetId'
     -> GetXSSMatchSet
 getXSSMatchSet pXSSMatchSetId_ =
-    GetXSSMatchSet'
-    { _gxmsXSSMatchSetId = pXSSMatchSetId_
-    }
+  GetXSSMatchSet' {_gxmsXSSMatchSetId = pXSSMatchSetId_}
+
 
 -- | The @XssMatchSetId@ of the 'XssMatchSet' that you want to get. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 gxmsXSSMatchSetId :: Lens' GetXSSMatchSet Text
@@ -79,9 +79,9 @@ instance AWSRequest GetXSSMatchSet where
                  GetXSSMatchSetResponse' <$>
                    (x .?> "XssMatchSet") <*> (pure (fromEnum s)))
 
-instance Hashable GetXSSMatchSet
+instance Hashable GetXSSMatchSet where
 
-instance NFData GetXSSMatchSet
+instance NFData GetXSSMatchSet where
 
 instance ToHeaders GetXSSMatchSet where
         toHeaders
@@ -110,9 +110,10 @@ instance ToQuery GetXSSMatchSet where
 --
 -- /See:/ 'getXSSMatchSetResponse' smart constructor.
 data GetXSSMatchSetResponse = GetXSSMatchSetResponse'
-    { _gxmsrsXSSMatchSet    :: !(Maybe XSSMatchSet)
-    , _gxmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gxmsrsXSSMatchSet    :: {-# NOUNPACK #-}!(Maybe XSSMatchSet)
+  , _gxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetXSSMatchSetResponse' with the minimum fields required to make a request.
 --
@@ -125,10 +126,9 @@ getXSSMatchSetResponse
     :: Int -- ^ 'gxmsrsResponseStatus'
     -> GetXSSMatchSetResponse
 getXSSMatchSetResponse pResponseStatus_ =
-    GetXSSMatchSetResponse'
-    { _gxmsrsXSSMatchSet = Nothing
-    , _gxmsrsResponseStatus = pResponseStatus_
-    }
+  GetXSSMatchSetResponse'
+  {_gxmsrsXSSMatchSet = Nothing, _gxmsrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects     * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gxmsrsXSSMatchSet :: Lens' GetXSSMatchSetResponse (Maybe XSSMatchSet)
@@ -138,4 +138,4 @@ gxmsrsXSSMatchSet = lens _gxmsrsXSSMatchSet (\ s a -> s{_gxmsrsXSSMatchSet = a})
 gxmsrsResponseStatus :: Lens' GetXSSMatchSetResponse Int
 gxmsrsResponseStatus = lens _gxmsrsResponseStatus (\ s a -> s{_gxmsrsResponseStatus = a});
 
-instance NFData GetXSSMatchSetResponse
+instance NFData GetXSSMatchSetResponse where

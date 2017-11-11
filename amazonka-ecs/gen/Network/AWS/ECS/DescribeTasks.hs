@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.ECS.DescribeTasks
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTasks' smart constructor.
 data DescribeTasks = DescribeTasks'
-    { _dtCluster :: !(Maybe Text)
-    , _dtTasks   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtCluster :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtTasks   :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTasks' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data DescribeTasks = DescribeTasks'
 -- * 'dtTasks' - A list of up to 100 task IDs or full Amazon Resource Name (ARN) entries.
 describeTasks
     :: DescribeTasks
-describeTasks =
-    DescribeTasks'
-    { _dtCluster = Nothing
-    , _dtTasks = mempty
-    }
+describeTasks = DescribeTasks' {_dtCluster = Nothing, _dtTasks = mempty}
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to describe. If you do not specify a cluster, the default cluster is assumed.
 dtCluster :: Lens' DescribeTasks (Maybe Text)
@@ -86,9 +84,9 @@ instance AWSRequest DescribeTasks where
                      (x .?> "tasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTasks
+instance Hashable DescribeTasks where
 
-instance NFData DescribeTasks
+instance NFData DescribeTasks where
 
 instance ToHeaders DescribeTasks where
         toHeaders
@@ -115,10 +113,11 @@ instance ToQuery DescribeTasks where
 
 -- | /See:/ 'describeTasksResponse' smart constructor.
 data DescribeTasksResponse = DescribeTasksResponse'
-    { _dtrsFailures       :: !(Maybe [Failure])
-    , _dtrsTasks          :: !(Maybe [Task])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsFailures       :: {-# NOUNPACK #-}!(Maybe [Failure])
+  , _dtrsTasks          :: {-# NOUNPACK #-}!(Maybe [Task])
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTasksResponse' with the minimum fields required to make a request.
 --
@@ -133,11 +132,12 @@ describeTasksResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTasksResponse
 describeTasksResponse pResponseStatus_ =
-    DescribeTasksResponse'
-    { _dtrsFailures = Nothing
-    , _dtrsTasks = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTasksResponse'
+  { _dtrsFailures = Nothing
+  , _dtrsTasks = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Any failures associated with the call.
 dtrsFailures :: Lens' DescribeTasksResponse [Failure]
@@ -151,4 +151,4 @@ dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce;
 dtrsResponseStatus :: Lens' DescribeTasksResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTasksResponse
+instance NFData DescribeTasksResponse where

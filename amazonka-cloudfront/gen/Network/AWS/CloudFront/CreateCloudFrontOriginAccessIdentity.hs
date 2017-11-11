@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     , ccfoairsResponseStatus
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to create a new origin access identity.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCloudFrontOriginAccessIdentity' smart constructor.
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity'
-    { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
@@ -64,16 +65,19 @@ createCloudFrontOriginAccessIdentity
     :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
     -> CreateCloudFrontOriginAccessIdentity
 createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ =
-    CreateCloudFrontOriginAccessIdentity'
-    { _ccfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
-    }
+  CreateCloudFrontOriginAccessIdentity'
+  { _ccfoaiCloudFrontOriginAccessIdentityConfig =
+      pCloudFrontOriginAccessIdentityConfig_
+  }
+
 
 -- | The current configuration information for the identity.
 ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
 ccfoaiCloudFrontOriginAccessIdentityConfig = lens _ccfoaiCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ccfoaiCloudFrontOriginAccessIdentityConfig = a});
 
 instance AWSRequest
-         CreateCloudFrontOriginAccessIdentity where
+           CreateCloudFrontOriginAccessIdentity
+         where
         type Rs CreateCloudFrontOriginAccessIdentity =
              CreateCloudFrontOriginAccessIdentityResponse
         request = postXML cloudFront
@@ -86,12 +90,15 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable
-         CreateCloudFrontOriginAccessIdentity
+           CreateCloudFrontOriginAccessIdentity
+         where
 
 instance NFData CreateCloudFrontOriginAccessIdentity
+         where
 
 instance ToElement
-         CreateCloudFrontOriginAccessIdentity where
+           CreateCloudFrontOriginAccessIdentity
+         where
         toElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2017-03-25/}CloudFrontOriginAccessIdentityConfig"
@@ -99,7 +106,8 @@ instance ToElement
               _ccfoaiCloudFrontOriginAccessIdentityConfig
 
 instance ToHeaders
-         CreateCloudFrontOriginAccessIdentity where
+           CreateCloudFrontOriginAccessIdentity
+         where
         toHeaders = const mempty
 
 instance ToPath CreateCloudFrontOriginAccessIdentity
@@ -118,11 +126,12 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity
 --
 -- /See:/ 'createCloudFrontOriginAccessIdentityResponse' smart constructor.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
-    { _ccfoairsETag                           :: !(Maybe Text)
-    , _ccfoairsLocation                       :: !(Maybe Text)
-    , _ccfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ccfoairsResponseStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccfoairsETag :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccfoairsLocation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccfoairsCloudFrontOriginAccessIdentity :: {-# NOUNPACK #-}!(Maybe CloudFrontOriginAccessIdentity)
+  , _ccfoairsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
@@ -139,12 +148,13 @@ createCloudFrontOriginAccessIdentityResponse
     :: Int -- ^ 'ccfoairsResponseStatus'
     -> CreateCloudFrontOriginAccessIdentityResponse
 createCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
-    CreateCloudFrontOriginAccessIdentityResponse'
-    { _ccfoairsETag = Nothing
-    , _ccfoairsLocation = Nothing
-    , _ccfoairsCloudFrontOriginAccessIdentity = Nothing
-    , _ccfoairsResponseStatus = pResponseStatus_
-    }
+  CreateCloudFrontOriginAccessIdentityResponse'
+  { _ccfoairsETag = Nothing
+  , _ccfoairsLocation = Nothing
+  , _ccfoairsCloudFrontOriginAccessIdentity = Nothing
+  , _ccfoairsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current version of the origin access identity created.
 ccfoairsETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
@@ -163,4 +173,5 @@ ccfoairsResponseStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
 ccfoairsResponseStatus = lens _ccfoairsResponseStatus (\ s a -> s{_ccfoairsResponseStatus = a});
 
 instance NFData
-         CreateCloudFrontOriginAccessIdentityResponse
+           CreateCloudFrontOriginAccessIdentityResponse
+         where

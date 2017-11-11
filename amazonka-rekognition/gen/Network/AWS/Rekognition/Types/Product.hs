@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Rekognition.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types.Sum
 
 -- | Structure containing the estimated age range, in years, for a face.
 --
@@ -29,9 +29,10 @@ import           Network.AWS.Rekognition.Types.Sum
 --
 -- /See:/ 'ageRange' smart constructor.
 data AgeRange = AgeRange'
-    { _arLow  :: !(Maybe Nat)
-    , _arHigh :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arLow  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _arHigh :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AgeRange' with the minimum fields required to make a request.
 --
@@ -42,11 +43,8 @@ data AgeRange = AgeRange'
 -- * 'arHigh' - The highest estimated age.
 ageRange
     :: AgeRange
-ageRange =
-    AgeRange'
-    { _arLow = Nothing
-    , _arHigh = Nothing
-    }
+ageRange = AgeRange' {_arLow = Nothing, _arHigh = Nothing}
+
 
 -- | The lowest estimated age.
 arLow :: Lens' AgeRange (Maybe Natural)
@@ -62,9 +60,9 @@ instance FromJSON AgeRange where
               (\ x ->
                  AgeRange' <$> (x .:? "Low") <*> (x .:? "High"))
 
-instance Hashable AgeRange
+instance Hashable AgeRange where
 
-instance NFData AgeRange
+instance NFData AgeRange where
 
 -- | Indicates whether or not the face has a beard, and the confidence level in the determination.
 --
@@ -72,9 +70,10 @@ instance NFData AgeRange
 --
 -- /See:/ 'beard' smart constructor.
 data Beard = Beard'
-    { _bValue      :: !(Maybe Bool)
-    , _bConfidence :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bValue      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _bConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Beard' with the minimum fields required to make a request.
 --
@@ -85,11 +84,8 @@ data Beard = Beard'
 -- * 'bConfidence' - Level of confidence in the determination.
 beard
     :: Beard
-beard =
-    Beard'
-    { _bValue = Nothing
-    , _bConfidence = Nothing
-    }
+beard = Beard' {_bValue = Nothing, _bConfidence = Nothing}
+
 
 -- | Boolean value that indicates whether the face has beard or not.
 bValue :: Lens' Beard (Maybe Bool)
@@ -105,9 +101,9 @@ instance FromJSON Beard where
               (\ x ->
                  Beard' <$> (x .:? "Value") <*> (x .:? "Confidence"))
 
-instance Hashable Beard
+instance Hashable Beard where
 
-instance NFData Beard
+instance NFData Beard where
 
 -- | Identifies the bounding box around the object or face. The @left@ (x-coordinate) and @top@ (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0).
 --
@@ -119,11 +115,12 @@ instance NFData Beard
 --
 -- /See:/ 'boundingBox' smart constructor.
 data BoundingBox = BoundingBox'
-    { _bbHeight :: !(Maybe Double)
-    , _bbLeft   :: !(Maybe Double)
-    , _bbWidth  :: !(Maybe Double)
-    , _bbTop    :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bbHeight :: {-# NOUNPACK #-}!(Maybe Double)
+  , _bbLeft   :: {-# NOUNPACK #-}!(Maybe Double)
+  , _bbWidth  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _bbTop    :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BoundingBox' with the minimum fields required to make a request.
 --
@@ -139,12 +136,9 @@ data BoundingBox = BoundingBox'
 boundingBox
     :: BoundingBox
 boundingBox =
-    BoundingBox'
-    { _bbHeight = Nothing
-    , _bbLeft = Nothing
-    , _bbWidth = Nothing
-    , _bbTop = Nothing
-    }
+  BoundingBox'
+  {_bbHeight = Nothing, _bbLeft = Nothing, _bbWidth = Nothing, _bbTop = Nothing}
+
 
 -- | Height of the bounding box as a ratio of the overall image height.
 bbHeight :: Lens' BoundingBox (Maybe Double)
@@ -171,9 +165,9 @@ instance FromJSON BoundingBox where
                      (x .:? "Width")
                      <*> (x .:? "Top"))
 
-instance Hashable BoundingBox
+instance Hashable BoundingBox where
 
-instance NFData BoundingBox
+instance NFData BoundingBox where
 
 -- | Provides information about a celebrity recognized by the operation.
 --
@@ -181,12 +175,13 @@ instance NFData BoundingBox
 --
 -- /See:/ 'celebrity' smart constructor.
 data Celebrity = Celebrity'
-    { _cMatchConfidence :: !(Maybe Double)
-    , _cURLs            :: !(Maybe [Text])
-    , _cName            :: !(Maybe Text)
-    , _cId              :: !(Maybe Text)
-    , _cFace            :: !(Maybe ComparedFace)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cMatchConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cURLs            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cFace            :: {-# NOUNPACK #-}!(Maybe ComparedFace)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Celebrity' with the minimum fields required to make a request.
 --
@@ -204,13 +199,14 @@ data Celebrity = Celebrity'
 celebrity
     :: Celebrity
 celebrity =
-    Celebrity'
-    { _cMatchConfidence = Nothing
-    , _cURLs = Nothing
-    , _cName = Nothing
-    , _cId = Nothing
-    , _cFace = Nothing
-    }
+  Celebrity'
+  { _cMatchConfidence = Nothing
+  , _cURLs = Nothing
+  , _cName = Nothing
+  , _cId = Nothing
+  , _cFace = Nothing
+  }
+
 
 -- | The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.
 cMatchConfidence :: Lens' Celebrity (Maybe Double)
@@ -243,9 +239,9 @@ instance FromJSON Celebrity where
                      <*> (x .:? "Id")
                      <*> (x .:? "Face"))
 
-instance Hashable Celebrity
+instance Hashable Celebrity where
 
-instance NFData Celebrity
+instance NFData Celebrity where
 
 -- | Provides information about a face in a target image that matches the source image face analysed by @CompareFaces@ . The @Face@ property contains the bounding box of the face in the target image. The @Similarity@ property is the confidence that the source image face matches the face in the bounding box.
 --
@@ -253,9 +249,10 @@ instance NFData Celebrity
 --
 -- /See:/ 'compareFacesMatch' smart constructor.
 data CompareFacesMatch = CompareFacesMatch'
-    { _cfmSimilarity :: !(Maybe Double)
-    , _cfmFace       :: !(Maybe ComparedFace)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfmSimilarity :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cfmFace       :: {-# NOUNPACK #-}!(Maybe ComparedFace)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CompareFacesMatch' with the minimum fields required to make a request.
 --
@@ -267,10 +264,8 @@ data CompareFacesMatch = CompareFacesMatch'
 compareFacesMatch
     :: CompareFacesMatch
 compareFacesMatch =
-    CompareFacesMatch'
-    { _cfmSimilarity = Nothing
-    , _cfmFace = Nothing
-    }
+  CompareFacesMatch' {_cfmSimilarity = Nothing, _cfmFace = Nothing}
+
 
 -- | Level of confidence that the faces match.
 cfmSimilarity :: Lens' CompareFacesMatch (Maybe Double)
@@ -287,9 +282,9 @@ instance FromJSON CompareFacesMatch where
                  CompareFacesMatch' <$>
                    (x .:? "Similarity") <*> (x .:? "Face"))
 
-instance Hashable CompareFacesMatch
+instance Hashable CompareFacesMatch where
 
-instance NFData CompareFacesMatch
+instance NFData CompareFacesMatch where
 
 -- | Provides face metadata for target image faces that are analysed by @CompareFaces@ and @RecognizeCelebrities@ .
 --
@@ -297,12 +292,13 @@ instance NFData CompareFacesMatch
 --
 -- /See:/ 'comparedFace' smart constructor.
 data ComparedFace = ComparedFace'
-    { _cfBoundingBox :: !(Maybe BoundingBox)
-    , _cfPose        :: !(Maybe Pose)
-    , _cfConfidence  :: !(Maybe Double)
-    , _cfQuality     :: !(Maybe ImageQuality)
-    , _cfLandmarks   :: !(Maybe [Landmark])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfBoundingBox :: {-# NOUNPACK #-}!(Maybe BoundingBox)
+  , _cfPose        :: {-# NOUNPACK #-}!(Maybe Pose)
+  , _cfConfidence  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _cfQuality     :: {-# NOUNPACK #-}!(Maybe ImageQuality)
+  , _cfLandmarks   :: {-# NOUNPACK #-}!(Maybe [Landmark])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComparedFace' with the minimum fields required to make a request.
 --
@@ -320,13 +316,14 @@ data ComparedFace = ComparedFace'
 comparedFace
     :: ComparedFace
 comparedFace =
-    ComparedFace'
-    { _cfBoundingBox = Nothing
-    , _cfPose = Nothing
-    , _cfConfidence = Nothing
-    , _cfQuality = Nothing
-    , _cfLandmarks = Nothing
-    }
+  ComparedFace'
+  { _cfBoundingBox = Nothing
+  , _cfPose = Nothing
+  , _cfConfidence = Nothing
+  , _cfQuality = Nothing
+  , _cfLandmarks = Nothing
+  }
+
 
 -- | Bounding box of the face.
 cfBoundingBox :: Lens' ComparedFace (Maybe BoundingBox)
@@ -358,9 +355,9 @@ instance FromJSON ComparedFace where
                      <*> (x .:? "Quality")
                      <*> (x .:? "Landmarks" .!= mempty))
 
-instance Hashable ComparedFace
+instance Hashable ComparedFace where
 
-instance NFData ComparedFace
+instance NFData ComparedFace where
 
 -- | Type that describes the face Amazon Rekognition chose to compare with the faces in the target. This contains a bounding box for the selected face and confidence level that the bounding box contains a face. Note that Amazon Rekognition selects the largest face in the source image for this comparison.
 --
@@ -368,9 +365,10 @@ instance NFData ComparedFace
 --
 -- /See:/ 'comparedSourceImageFace' smart constructor.
 data ComparedSourceImageFace = ComparedSourceImageFace'
-    { _csifBoundingBox :: !(Maybe BoundingBox)
-    , _csifConfidence  :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csifBoundingBox :: {-# NOUNPACK #-}!(Maybe BoundingBox)
+  , _csifConfidence  :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ComparedSourceImageFace' with the minimum fields required to make a request.
 --
@@ -382,10 +380,9 @@ data ComparedSourceImageFace = ComparedSourceImageFace'
 comparedSourceImageFace
     :: ComparedSourceImageFace
 comparedSourceImageFace =
-    ComparedSourceImageFace'
-    { _csifBoundingBox = Nothing
-    , _csifConfidence = Nothing
-    }
+  ComparedSourceImageFace'
+  {_csifBoundingBox = Nothing, _csifConfidence = Nothing}
+
 
 -- | Bounding box of the face.
 csifBoundingBox :: Lens' ComparedSourceImageFace (Maybe BoundingBox)
@@ -402,9 +399,9 @@ instance FromJSON ComparedSourceImageFace where
                  ComparedSourceImageFace' <$>
                    (x .:? "BoundingBox") <*> (x .:? "Confidence"))
 
-instance Hashable ComparedSourceImageFace
+instance Hashable ComparedSourceImageFace where
 
-instance NFData ComparedSourceImageFace
+instance NFData ComparedSourceImageFace where
 
 -- | The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY.
 --
@@ -412,9 +409,10 @@ instance NFData ComparedSourceImageFace
 --
 -- /See:/ 'emotion' smart constructor.
 data Emotion = Emotion'
-    { _eConfidence :: !(Maybe Double)
-    , _eType       :: !(Maybe EmotionName)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  , _eType       :: {-# NOUNPACK #-}!(Maybe EmotionName)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Emotion' with the minimum fields required to make a request.
 --
@@ -425,11 +423,8 @@ data Emotion = Emotion'
 -- * 'eType' - Type of emotion detected.
 emotion
     :: Emotion
-emotion =
-    Emotion'
-    { _eConfidence = Nothing
-    , _eType = Nothing
-    }
+emotion = Emotion' {_eConfidence = Nothing, _eType = Nothing}
+
 
 -- | Level of confidence in the determination.
 eConfidence :: Lens' Emotion (Maybe Double)
@@ -445,9 +440,9 @@ instance FromJSON Emotion where
               (\ x ->
                  Emotion' <$> (x .:? "Confidence") <*> (x .:? "Type"))
 
-instance Hashable Emotion
+instance Hashable Emotion where
 
-instance NFData Emotion
+instance NFData Emotion where
 
 -- | Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
 --
@@ -455,9 +450,10 @@ instance NFData Emotion
 --
 -- /See:/ 'eyeOpen' smart constructor.
 data EyeOpen = EyeOpen'
-    { _eoValue      :: !(Maybe Bool)
-    , _eoConfidence :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eoValue      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _eoConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EyeOpen' with the minimum fields required to make a request.
 --
@@ -468,11 +464,8 @@ data EyeOpen = EyeOpen'
 -- * 'eoConfidence' - Level of confidence in the determination.
 eyeOpen
     :: EyeOpen
-eyeOpen =
-    EyeOpen'
-    { _eoValue = Nothing
-    , _eoConfidence = Nothing
-    }
+eyeOpen = EyeOpen' {_eoValue = Nothing, _eoConfidence = Nothing}
+
 
 -- | Boolean value that indicates whether the eyes on the face are open.
 eoValue :: Lens' EyeOpen (Maybe Bool)
@@ -489,9 +482,9 @@ instance FromJSON EyeOpen where
                  EyeOpen' <$>
                    (x .:? "Value") <*> (x .:? "Confidence"))
 
-instance Hashable EyeOpen
+instance Hashable EyeOpen where
 
-instance NFData EyeOpen
+instance NFData EyeOpen where
 
 -- | Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.
 --
@@ -499,9 +492,10 @@ instance NFData EyeOpen
 --
 -- /See:/ 'eyeglasses' smart constructor.
 data Eyeglasses = Eyeglasses'
-    { _eyeValue      :: !(Maybe Bool)
-    , _eyeConfidence :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eyeValue      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _eyeConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Eyeglasses' with the minimum fields required to make a request.
 --
@@ -512,11 +506,8 @@ data Eyeglasses = Eyeglasses'
 -- * 'eyeConfidence' - Level of confidence in the determination.
 eyeglasses
     :: Eyeglasses
-eyeglasses =
-    Eyeglasses'
-    { _eyeValue = Nothing
-    , _eyeConfidence = Nothing
-    }
+eyeglasses = Eyeglasses' {_eyeValue = Nothing, _eyeConfidence = Nothing}
+
 
 -- | Boolean value that indicates whether the face is wearing eye glasses or not.
 eyeValue :: Lens' Eyeglasses (Maybe Bool)
@@ -533,9 +524,9 @@ instance FromJSON Eyeglasses where
                  Eyeglasses' <$>
                    (x .:? "Value") <*> (x .:? "Confidence"))
 
-instance Hashable Eyeglasses
+instance Hashable Eyeglasses where
 
-instance NFData Eyeglasses
+instance NFData Eyeglasses where
 
 -- | Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
 --
@@ -543,12 +534,13 @@ instance NFData Eyeglasses
 --
 -- /See:/ 'face' smart constructor.
 data Face = Face'
-    { _fFaceId          :: !(Maybe Text)
-    , _fBoundingBox     :: !(Maybe BoundingBox)
-    , _fExternalImageId :: !(Maybe Text)
-    , _fConfidence      :: !(Maybe Double)
-    , _fImageId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fFaceId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fBoundingBox     :: {-# NOUNPACK #-}!(Maybe BoundingBox)
+  , _fExternalImageId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fConfidence      :: {-# NOUNPACK #-}!(Maybe Double)
+  , _fImageId         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Face' with the minimum fields required to make a request.
 --
@@ -566,13 +558,14 @@ data Face = Face'
 face
     :: Face
 face =
-    Face'
-    { _fFaceId = Nothing
-    , _fBoundingBox = Nothing
-    , _fExternalImageId = Nothing
-    , _fConfidence = Nothing
-    , _fImageId = Nothing
-    }
+  Face'
+  { _fFaceId = Nothing
+  , _fBoundingBox = Nothing
+  , _fExternalImageId = Nothing
+  , _fConfidence = Nothing
+  , _fImageId = Nothing
+  }
+
 
 -- | Unique identifier that Amazon Rekognition assigns to the face.
 fFaceId :: Lens' Face (Maybe Text)
@@ -604,9 +597,9 @@ instance FromJSON Face where
                      <*> (x .:? "Confidence")
                      <*> (x .:? "ImageId"))
 
-instance Hashable Face
+instance Hashable Face where
 
-instance NFData Face
+instance NFData Face where
 
 -- | Structure containing attributes of the face that the algorithm detected.
 --
@@ -614,22 +607,23 @@ instance NFData Face
 --
 -- /See:/ 'faceDetail' smart constructor.
 data FaceDetail = FaceDetail'
-    { _fdAgeRange    :: !(Maybe AgeRange)
-    , _fdSunglasses  :: !(Maybe Sunglasses)
-    , _fdMouthOpen   :: !(Maybe MouthOpen)
-    , _fdBoundingBox :: !(Maybe BoundingBox)
-    , _fdEmotions    :: !(Maybe [Emotion])
-    , _fdEyesOpen    :: !(Maybe EyeOpen)
-    , _fdPose        :: !(Maybe Pose)
-    , _fdConfidence  :: !(Maybe Double)
-    , _fdGender      :: !(Maybe Gender)
-    , _fdQuality     :: !(Maybe ImageQuality)
-    , _fdEyeglasses  :: !(Maybe Eyeglasses)
-    , _fdBeard       :: !(Maybe Beard)
-    , _fdMustache    :: !(Maybe Mustache)
-    , _fdSmile       :: !(Maybe Smile)
-    , _fdLandmarks   :: !(Maybe [Landmark])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fdAgeRange    :: {-# NOUNPACK #-}!(Maybe AgeRange)
+  , _fdSunglasses  :: {-# NOUNPACK #-}!(Maybe Sunglasses)
+  , _fdMouthOpen   :: {-# NOUNPACK #-}!(Maybe MouthOpen)
+  , _fdBoundingBox :: {-# NOUNPACK #-}!(Maybe BoundingBox)
+  , _fdEmotions    :: {-# NOUNPACK #-}!(Maybe [Emotion])
+  , _fdEyesOpen    :: {-# NOUNPACK #-}!(Maybe EyeOpen)
+  , _fdPose        :: {-# NOUNPACK #-}!(Maybe Pose)
+  , _fdConfidence  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _fdGender      :: {-# NOUNPACK #-}!(Maybe Gender)
+  , _fdQuality     :: {-# NOUNPACK #-}!(Maybe ImageQuality)
+  , _fdEyeglasses  :: {-# NOUNPACK #-}!(Maybe Eyeglasses)
+  , _fdBeard       :: {-# NOUNPACK #-}!(Maybe Beard)
+  , _fdMustache    :: {-# NOUNPACK #-}!(Maybe Mustache)
+  , _fdSmile       :: {-# NOUNPACK #-}!(Maybe Smile)
+  , _fdLandmarks   :: {-# NOUNPACK #-}!(Maybe [Landmark])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FaceDetail' with the minimum fields required to make a request.
 --
@@ -667,23 +661,24 @@ data FaceDetail = FaceDetail'
 faceDetail
     :: FaceDetail
 faceDetail =
-    FaceDetail'
-    { _fdAgeRange = Nothing
-    , _fdSunglasses = Nothing
-    , _fdMouthOpen = Nothing
-    , _fdBoundingBox = Nothing
-    , _fdEmotions = Nothing
-    , _fdEyesOpen = Nothing
-    , _fdPose = Nothing
-    , _fdConfidence = Nothing
-    , _fdGender = Nothing
-    , _fdQuality = Nothing
-    , _fdEyeglasses = Nothing
-    , _fdBeard = Nothing
-    , _fdMustache = Nothing
-    , _fdSmile = Nothing
-    , _fdLandmarks = Nothing
-    }
+  FaceDetail'
+  { _fdAgeRange = Nothing
+  , _fdSunglasses = Nothing
+  , _fdMouthOpen = Nothing
+  , _fdBoundingBox = Nothing
+  , _fdEmotions = Nothing
+  , _fdEyesOpen = Nothing
+  , _fdPose = Nothing
+  , _fdConfidence = Nothing
+  , _fdGender = Nothing
+  , _fdQuality = Nothing
+  , _fdEyeglasses = Nothing
+  , _fdBeard = Nothing
+  , _fdMustache = Nothing
+  , _fdSmile = Nothing
+  , _fdLandmarks = Nothing
+  }
+
 
 -- | The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.
 fdAgeRange :: Lens' FaceDetail (Maybe AgeRange)
@@ -765,9 +760,9 @@ instance FromJSON FaceDetail where
                      <*> (x .:? "Smile")
                      <*> (x .:? "Landmarks" .!= mempty))
 
-instance Hashable FaceDetail
+instance Hashable FaceDetail where
 
-instance NFData FaceDetail
+instance NFData FaceDetail where
 
 -- | Provides face metadata. In addition, it also provides the confidence in the match of this face with the input face.
 --
@@ -775,9 +770,10 @@ instance NFData FaceDetail
 --
 -- /See:/ 'faceMatch' smart constructor.
 data FaceMatch = FaceMatch'
-    { _fmSimilarity :: !(Maybe Double)
-    , _fmFace       :: !(Maybe Face)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fmSimilarity :: {-# NOUNPACK #-}!(Maybe Double)
+  , _fmFace       :: {-# NOUNPACK #-}!(Maybe Face)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FaceMatch' with the minimum fields required to make a request.
 --
@@ -788,11 +784,8 @@ data FaceMatch = FaceMatch'
 -- * 'fmFace' - Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.
 faceMatch
     :: FaceMatch
-faceMatch =
-    FaceMatch'
-    { _fmSimilarity = Nothing
-    , _fmFace = Nothing
-    }
+faceMatch = FaceMatch' {_fmSimilarity = Nothing, _fmFace = Nothing}
+
 
 -- | Confidence in the match of this face with the input face.
 fmSimilarity :: Lens' FaceMatch (Maybe Double)
@@ -809,9 +802,9 @@ instance FromJSON FaceMatch where
                  FaceMatch' <$>
                    (x .:? "Similarity") <*> (x .:? "Face"))
 
-instance Hashable FaceMatch
+instance Hashable FaceMatch where
 
-instance NFData FaceMatch
+instance NFData FaceMatch where
 
 -- | Object containing both the face metadata (stored in the back-end database) and facial attributes that are detected but aren't stored in the database.
 --
@@ -819,9 +812,10 @@ instance NFData FaceMatch
 --
 -- /See:/ 'faceRecord' smart constructor.
 data FaceRecord = FaceRecord'
-    { _frFaceDetail :: !(Maybe FaceDetail)
-    , _frFace       :: !(Maybe Face)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _frFaceDetail :: {-# NOUNPACK #-}!(Maybe FaceDetail)
+  , _frFace       :: {-# NOUNPACK #-}!(Maybe Face)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FaceRecord' with the minimum fields required to make a request.
 --
@@ -832,11 +826,8 @@ data FaceRecord = FaceRecord'
 -- * 'frFace' - Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
 faceRecord
     :: FaceRecord
-faceRecord =
-    FaceRecord'
-    { _frFaceDetail = Nothing
-    , _frFace = Nothing
-    }
+faceRecord = FaceRecord' {_frFaceDetail = Nothing, _frFace = Nothing}
+
 
 -- | Structure containing attributes of the face that the algorithm detected.
 frFaceDetail :: Lens' FaceRecord (Maybe FaceDetail)
@@ -853,9 +844,9 @@ instance FromJSON FaceRecord where
                  FaceRecord' <$>
                    (x .:? "FaceDetail") <*> (x .:? "Face"))
 
-instance Hashable FaceRecord
+instance Hashable FaceRecord where
 
-instance NFData FaceRecord
+instance NFData FaceRecord where
 
 -- | Gender of the face and the confidence level in the determination.
 --
@@ -863,9 +854,10 @@ instance NFData FaceRecord
 --
 -- /See:/ 'gender' smart constructor.
 data Gender = Gender'
-    { _gValue      :: !(Maybe GenderType)
-    , _gConfidence :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gValue      :: {-# NOUNPACK #-}!(Maybe GenderType)
+  , _gConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Gender' with the minimum fields required to make a request.
 --
@@ -876,11 +868,8 @@ data Gender = Gender'
 -- * 'gConfidence' - Level of confidence in the determination.
 gender
     :: Gender
-gender =
-    Gender'
-    { _gValue = Nothing
-    , _gConfidence = Nothing
-    }
+gender = Gender' {_gValue = Nothing, _gConfidence = Nothing}
+
 
 -- | Gender of the face.
 gValue :: Lens' Gender (Maybe GenderType)
@@ -896,9 +885,9 @@ instance FromJSON Gender where
               (\ x ->
                  Gender' <$> (x .:? "Value") <*> (x .:? "Confidence"))
 
-instance Hashable Gender
+instance Hashable Gender where
 
-instance NFData Gender
+instance NFData Gender where
 
 -- | Provides the input image either as bytes or an S3 object.
 --
@@ -916,9 +905,10 @@ instance NFData Gender
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
-    { _iS3Object :: !(Maybe S3Object)
-    , _iBytes    :: !(Maybe Base64)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iS3Object :: {-# NOUNPACK #-}!(Maybe S3Object)
+  , _iBytes    :: {-# NOUNPACK #-}!(Maybe Base64)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
@@ -929,11 +919,8 @@ data Image = Image'
 -- * 'iBytes' - Blob of image bytes up to 5 MBs.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 image
     :: Image
-image =
-    Image'
-    { _iS3Object = Nothing
-    , _iBytes = Nothing
-    }
+image = Image' {_iS3Object = Nothing, _iBytes = Nothing}
+
 
 -- | Identifies an S3 object as the image source.
 iS3Object :: Lens' Image (Maybe S3Object)
@@ -943,9 +930,9 @@ iS3Object = lens _iS3Object (\ s a -> s{_iS3Object = a});
 iBytes :: Lens' Image (Maybe ByteString)
 iBytes = lens _iBytes (\ s a -> s{_iBytes = a}) . mapping _Base64;
 
-instance Hashable Image
+instance Hashable Image where
 
-instance NFData Image
+instance NFData Image where
 
 instance ToJSON Image where
         toJSON Image'{..}
@@ -960,9 +947,10 @@ instance ToJSON Image where
 --
 -- /See:/ 'imageQuality' smart constructor.
 data ImageQuality = ImageQuality'
-    { _iqSharpness  :: !(Maybe Double)
-    , _iqBrightness :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iqSharpness  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _iqBrightness :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImageQuality' with the minimum fields required to make a request.
 --
@@ -973,11 +961,8 @@ data ImageQuality = ImageQuality'
 -- * 'iqBrightness' - Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.
 imageQuality
     :: ImageQuality
-imageQuality =
-    ImageQuality'
-    { _iqSharpness = Nothing
-    , _iqBrightness = Nothing
-    }
+imageQuality = ImageQuality' {_iqSharpness = Nothing, _iqBrightness = Nothing}
+
 
 -- | Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.
 iqSharpness :: Lens' ImageQuality (Maybe Double)
@@ -994,9 +979,9 @@ instance FromJSON ImageQuality where
                  ImageQuality' <$>
                    (x .:? "Sharpness") <*> (x .:? "Brightness"))
 
-instance Hashable ImageQuality
+instance Hashable ImageQuality where
 
-instance NFData ImageQuality
+instance NFData ImageQuality where
 
 -- | Structure containing details about the detected label, including name, and level of confidence.
 --
@@ -1004,9 +989,10 @@ instance NFData ImageQuality
 --
 -- /See:/ 'label' smart constructor.
 data Label = Label'
-    { _lConfidence :: !(Maybe Double)
-    , _lName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lName       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Label' with the minimum fields required to make a request.
 --
@@ -1017,11 +1003,8 @@ data Label = Label'
 -- * 'lName' - The name (label) of the object.
 label
     :: Label
-label =
-    Label'
-    { _lConfidence = Nothing
-    , _lName = Nothing
-    }
+label = Label' {_lConfidence = Nothing, _lName = Nothing}
+
 
 -- | Level of confidence.
 lConfidence :: Lens' Label (Maybe Double)
@@ -1037,9 +1020,9 @@ instance FromJSON Label where
               (\ x ->
                  Label' <$> (x .:? "Confidence") <*> (x .:? "Name"))
 
-instance Hashable Label
+instance Hashable Label where
 
-instance NFData Label
+instance NFData Label where
 
 -- | Indicates the location of the landmark on the face.
 --
@@ -1047,10 +1030,11 @@ instance NFData Label
 --
 -- /See:/ 'landmark' smart constructor.
 data Landmark = Landmark'
-    { _lType :: !(Maybe LandmarkType)
-    , _lX    :: !(Maybe Double)
-    , _lY    :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lType :: {-# NOUNPACK #-}!(Maybe LandmarkType)
+  , _lX    :: {-# NOUNPACK #-}!(Maybe Double)
+  , _lY    :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Landmark' with the minimum fields required to make a request.
 --
@@ -1063,12 +1047,8 @@ data Landmark = Landmark'
 -- * 'lY' - y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.
 landmark
     :: Landmark
-landmark =
-    Landmark'
-    { _lType = Nothing
-    , _lX = Nothing
-    , _lY = Nothing
-    }
+landmark = Landmark' {_lType = Nothing, _lX = Nothing, _lY = Nothing}
+
 
 -- | Type of the landmark.
 lType :: Lens' Landmark (Maybe LandmarkType)
@@ -1089,9 +1069,9 @@ instance FromJSON Landmark where
                  Landmark' <$>
                    (x .:? "Type") <*> (x .:? "X") <*> (x .:? "Y"))
 
-instance Hashable Landmark
+instance Hashable Landmark where
 
-instance NFData Landmark
+instance NFData Landmark where
 
 -- | Provides information about a single type of moderated content found in an image. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see 'image-moderation' .
 --
@@ -1099,10 +1079,11 @@ instance NFData Landmark
 --
 -- /See:/ 'moderationLabel' smart constructor.
 data ModerationLabel = ModerationLabel'
-    { _mlConfidence :: !(Maybe Double)
-    , _mlName       :: !(Maybe Text)
-    , _mlParentName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  , _mlName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlParentName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModerationLabel' with the minimum fields required to make a request.
 --
@@ -1116,11 +1097,9 @@ data ModerationLabel = ModerationLabel'
 moderationLabel
     :: ModerationLabel
 moderationLabel =
-    ModerationLabel'
-    { _mlConfidence = Nothing
-    , _mlName = Nothing
-    , _mlParentName = Nothing
-    }
+  ModerationLabel'
+  {_mlConfidence = Nothing, _mlName = Nothing, _mlParentName = Nothing}
+
 
 -- | Specifies the confidence that Amazon Rekognition has that the label has been correctly identified. If you don't specify the @MinConfidence@ parameter in the call to @DetectModerationLabels@ , the operation returns labels with a confidence value greater than or equal to 50 percent.
 mlConfidence :: Lens' ModerationLabel (Maybe Double)
@@ -1142,9 +1121,9 @@ instance FromJSON ModerationLabel where
                    (x .:? "Confidence") <*> (x .:? "Name") <*>
                      (x .:? "ParentName"))
 
-instance Hashable ModerationLabel
+instance Hashable ModerationLabel where
 
-instance NFData ModerationLabel
+instance NFData ModerationLabel where
 
 -- | Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
 --
@@ -1152,9 +1131,10 @@ instance NFData ModerationLabel
 --
 -- /See:/ 'mouthOpen' smart constructor.
 data MouthOpen = MouthOpen'
-    { _moValue      :: !(Maybe Bool)
-    , _moConfidence :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _moValue      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _moConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MouthOpen' with the minimum fields required to make a request.
 --
@@ -1165,11 +1145,8 @@ data MouthOpen = MouthOpen'
 -- * 'moConfidence' - Level of confidence in the determination.
 mouthOpen
     :: MouthOpen
-mouthOpen =
-    MouthOpen'
-    { _moValue = Nothing
-    , _moConfidence = Nothing
-    }
+mouthOpen = MouthOpen' {_moValue = Nothing, _moConfidence = Nothing}
+
 
 -- | Boolean value that indicates whether the mouth on the face is open or not.
 moValue :: Lens' MouthOpen (Maybe Bool)
@@ -1186,9 +1163,9 @@ instance FromJSON MouthOpen where
                  MouthOpen' <$>
                    (x .:? "Value") <*> (x .:? "Confidence"))
 
-instance Hashable MouthOpen
+instance Hashable MouthOpen where
 
-instance NFData MouthOpen
+instance NFData MouthOpen where
 
 -- | Indicates whether or not the face has a mustache, and the confidence level in the determination.
 --
@@ -1196,9 +1173,10 @@ instance NFData MouthOpen
 --
 -- /See:/ 'mustache' smart constructor.
 data Mustache = Mustache'
-    { _mValue      :: !(Maybe Bool)
-    , _mConfidence :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mValue      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Mustache' with the minimum fields required to make a request.
 --
@@ -1209,11 +1187,8 @@ data Mustache = Mustache'
 -- * 'mConfidence' - Level of confidence in the determination.
 mustache
     :: Mustache
-mustache =
-    Mustache'
-    { _mValue = Nothing
-    , _mConfidence = Nothing
-    }
+mustache = Mustache' {_mValue = Nothing, _mConfidence = Nothing}
+
 
 -- | Boolean value that indicates whether the face has mustache or not.
 mValue :: Lens' Mustache (Maybe Bool)
@@ -1230,9 +1205,9 @@ instance FromJSON Mustache where
                  Mustache' <$>
                    (x .:? "Value") <*> (x .:? "Confidence"))
 
-instance Hashable Mustache
+instance Hashable Mustache where
 
-instance NFData Mustache
+instance NFData Mustache where
 
 -- | Indicates the pose of the face as determined by its pitch, roll, and yaw.
 --
@@ -1240,10 +1215,11 @@ instance NFData Mustache
 --
 -- /See:/ 'pose' smart constructor.
 data Pose = Pose'
-    { _pYaw   :: !(Maybe Double)
-    , _pRoll  :: !(Maybe Double)
-    , _pPitch :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pYaw   :: {-# NOUNPACK #-}!(Maybe Double)
+  , _pRoll  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _pPitch :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Pose' with the minimum fields required to make a request.
 --
@@ -1256,12 +1232,8 @@ data Pose = Pose'
 -- * 'pPitch' - Value representing the face rotation on the pitch axis.
 pose
     :: Pose
-pose =
-    Pose'
-    { _pYaw = Nothing
-    , _pRoll = Nothing
-    , _pPitch = Nothing
-    }
+pose = Pose' {_pYaw = Nothing, _pRoll = Nothing, _pPitch = Nothing}
+
 
 -- | Value representing the face rotation on the yaw axis.
 pYaw :: Lens' Pose (Maybe Double)
@@ -1282,9 +1254,9 @@ instance FromJSON Pose where
                  Pose' <$>
                    (x .:? "Yaw") <*> (x .:? "Roll") <*> (x .:? "Pitch"))
 
-instance Hashable Pose
+instance Hashable Pose where
 
-instance NFData Pose
+instance NFData Pose where
 
 -- | Provides the S3 bucket name and object name.
 --
@@ -1296,10 +1268,11 @@ instance NFData Pose
 --
 -- /See:/ 's3Object' smart constructor.
 data S3Object = S3Object'
-    { _soBucket  :: !(Maybe Text)
-    , _soName    :: !(Maybe Text)
-    , _soVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _soBucket  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _soName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _soVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Object' with the minimum fields required to make a request.
 --
@@ -1313,11 +1286,8 @@ data S3Object = S3Object'
 s3Object
     :: S3Object
 s3Object =
-    S3Object'
-    { _soBucket = Nothing
-    , _soName = Nothing
-    , _soVersion = Nothing
-    }
+  S3Object' {_soBucket = Nothing, _soName = Nothing, _soVersion = Nothing}
+
 
 -- | Name of the S3 bucket.
 soBucket :: Lens' S3Object (Maybe Text)
@@ -1331,9 +1301,9 @@ soName = lens _soName (\ s a -> s{_soName = a});
 soVersion :: Lens' S3Object (Maybe Text)
 soVersion = lens _soVersion (\ s a -> s{_soVersion = a});
 
-instance Hashable S3Object
+instance Hashable S3Object where
 
-instance NFData S3Object
+instance NFData S3Object where
 
 instance ToJSON S3Object where
         toJSON S3Object'{..}
@@ -1349,9 +1319,10 @@ instance ToJSON S3Object where
 --
 -- /See:/ 'smile' smart constructor.
 data Smile = Smile'
-    { _smiValue      :: !(Maybe Bool)
-    , _smiConfidence :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smiValue      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _smiConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Smile' with the minimum fields required to make a request.
 --
@@ -1362,11 +1333,8 @@ data Smile = Smile'
 -- * 'smiConfidence' - Level of confidence in the determination.
 smile
     :: Smile
-smile =
-    Smile'
-    { _smiValue = Nothing
-    , _smiConfidence = Nothing
-    }
+smile = Smile' {_smiValue = Nothing, _smiConfidence = Nothing}
+
 
 -- | Boolean value that indicates whether the face is smiling or not.
 smiValue :: Lens' Smile (Maybe Bool)
@@ -1382,9 +1350,9 @@ instance FromJSON Smile where
               (\ x ->
                  Smile' <$> (x .:? "Value") <*> (x .:? "Confidence"))
 
-instance Hashable Smile
+instance Hashable Smile where
 
-instance NFData Smile
+instance NFData Smile where
 
 -- | Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
 --
@@ -1392,9 +1360,10 @@ instance NFData Smile
 --
 -- /See:/ 'sunglasses' smart constructor.
 data Sunglasses = Sunglasses'
-    { _sValue      :: !(Maybe Bool)
-    , _sConfidence :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sValue      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Sunglasses' with the minimum fields required to make a request.
 --
@@ -1405,11 +1374,8 @@ data Sunglasses = Sunglasses'
 -- * 'sConfidence' - Level of confidence in the determination.
 sunglasses
     :: Sunglasses
-sunglasses =
-    Sunglasses'
-    { _sValue = Nothing
-    , _sConfidence = Nothing
-    }
+sunglasses = Sunglasses' {_sValue = Nothing, _sConfidence = Nothing}
+
 
 -- | Boolean value that indicates whether the face is wearing sunglasses or not.
 sValue :: Lens' Sunglasses (Maybe Bool)
@@ -1426,6 +1392,6 @@ instance FromJSON Sunglasses where
                  Sunglasses' <$>
                    (x .:? "Value") <*> (x .:? "Confidence"))
 
-instance Hashable Sunglasses
+instance Hashable Sunglasses where
 
-instance NFData Sunglasses
+instance NFData Sunglasses where

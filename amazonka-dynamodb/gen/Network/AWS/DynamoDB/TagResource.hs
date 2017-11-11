@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.TagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.DynamoDB.TagResource
     , TagResourceResponse
     ) where
 
-import           Network.AWS.DynamoDB.Types
-import           Network.AWS.DynamoDB.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DynamoDB.Types
+import Network.AWS.DynamoDB.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
-    { _trResourceARN :: !Text
-    , _trTags        :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trResourceARN :: {-# NOUNPACK #-}!Text
+  , _trTags        :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ tagResource
     :: Text -- ^ 'trResourceARN'
     -> TagResource
 tagResource pResourceARN_ =
-    TagResource'
-    { _trResourceARN = pResourceARN_
-    , _trTags = mempty
-    }
+  TagResource' {_trResourceARN = pResourceARN_, _trTags = mempty}
+
 
 -- | Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).
 trResourceARN :: Lens' TagResource Text
@@ -79,9 +78,9 @@ instance AWSRequest TagResource where
         request = postJSON dynamoDB
         response = receiveNull TagResourceResponse'
 
-instance Hashable TagResource
+instance Hashable TagResource where
 
-instance NFData TagResource
+instance NFData TagResource where
 
 instance ToHeaders TagResource where
         toHeaders
@@ -107,8 +106,9 @@ instance ToQuery TagResource where
 
 -- | /See:/ 'tagResourceResponse' smart constructor.
 data TagResourceResponse =
-    TagResourceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  TagResourceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
@@ -116,4 +116,5 @@ tagResourceResponse
     :: TagResourceResponse
 tagResourceResponse = TagResourceResponse'
 
-instance NFData TagResourceResponse
+
+instance NFData TagResourceResponse where

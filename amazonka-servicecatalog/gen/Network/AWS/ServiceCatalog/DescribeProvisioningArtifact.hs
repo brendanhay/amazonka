@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
     , dpaprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProvisioningArtifact' smart constructor.
 data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
-    { _dpaVerbose                :: !(Maybe Bool)
-    , _dpaAcceptLanguage         :: !(Maybe Text)
-    , _dpaProvisioningArtifactId :: !Text
-    , _dpaProductId              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpaVerbose                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dpaAcceptLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpaProvisioningArtifactId :: {-# NOUNPACK #-}!Text
+  , _dpaProductId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProvisioningArtifact' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ describeProvisioningArtifact
     -> Text -- ^ 'dpaProductId'
     -> DescribeProvisioningArtifact
 describeProvisioningArtifact pProvisioningArtifactId_ pProductId_ =
-    DescribeProvisioningArtifact'
-    { _dpaVerbose = Nothing
-    , _dpaAcceptLanguage = Nothing
-    , _dpaProvisioningArtifactId = pProvisioningArtifactId_
-    , _dpaProductId = pProductId_
-    }
+  DescribeProvisioningArtifact'
+  { _dpaVerbose = Nothing
+  , _dpaAcceptLanguage = Nothing
+  , _dpaProvisioningArtifactId = pProvisioningArtifactId_
+  , _dpaProductId = pProductId_
+  }
+
 
 -- | Enable a verbose level of details for the provisioning artifact.
 dpaVerbose :: Lens' DescribeProvisioningArtifact (Maybe Bool)
@@ -109,9 +111,9 @@ instance AWSRequest DescribeProvisioningArtifact
                      (x .?> "ProvisioningArtifactDetail")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeProvisioningArtifact
+instance Hashable DescribeProvisioningArtifact where
 
-instance NFData DescribeProvisioningArtifact
+instance NFData DescribeProvisioningArtifact where
 
 instance ToHeaders DescribeProvisioningArtifact where
         toHeaders
@@ -142,11 +144,12 @@ instance ToQuery DescribeProvisioningArtifact where
 
 -- | /See:/ 'describeProvisioningArtifactResponse' smart constructor.
 data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse'
-    { _dpaprsStatus                     :: !(Maybe RequestStatus)
-    , _dpaprsInfo                       :: !(Maybe (Map Text Text))
-    , _dpaprsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
-    , _dpaprsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpaprsStatus :: {-# NOUNPACK #-}!(Maybe RequestStatus)
+  , _dpaprsInfo :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _dpaprsProvisioningArtifactDetail :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactDetail)
+  , _dpaprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
@@ -163,12 +166,13 @@ describeProvisioningArtifactResponse
     :: Int -- ^ 'dpaprsResponseStatus'
     -> DescribeProvisioningArtifactResponse
 describeProvisioningArtifactResponse pResponseStatus_ =
-    DescribeProvisioningArtifactResponse'
-    { _dpaprsStatus = Nothing
-    , _dpaprsInfo = Nothing
-    , _dpaprsProvisioningArtifactDetail = Nothing
-    , _dpaprsResponseStatus = pResponseStatus_
-    }
+  DescribeProvisioningArtifactResponse'
+  { _dpaprsStatus = Nothing
+  , _dpaprsInfo = Nothing
+  , _dpaprsProvisioningArtifactDetail = Nothing
+  , _dpaprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of the current request.
 dpaprsStatus :: Lens' DescribeProvisioningArtifactResponse (Maybe RequestStatus)
@@ -187,3 +191,4 @@ dpaprsResponseStatus :: Lens' DescribeProvisioningArtifactResponse Int
 dpaprsResponseStatus = lens _dpaprsResponseStatus (\ s a -> s{_dpaprsResponseStatus = a});
 
 instance NFData DescribeProvisioningArtifactResponse
+         where

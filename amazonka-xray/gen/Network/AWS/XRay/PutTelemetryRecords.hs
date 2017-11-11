@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.XRay.PutTelemetryRecords
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.XRay.PutTelemetryRecords
     , ptrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.XRay.Types
-import           Network.AWS.XRay.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.XRay.Types
+import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'putTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-    { _ptrHostname         :: !(Maybe Text)
-    , _ptrEC2InstanceId    :: !(Maybe Text)
-    , _ptrResourceARN      :: !(Maybe Text)
-    , _ptrTelemetryRecords :: ![TelemetryRecord]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptrHostname         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptrEC2InstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptrResourceARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ptrTelemetryRecords :: {-# NOUNPACK #-}![TelemetryRecord]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutTelemetryRecords' with the minimum fields required to make a request.
 --
@@ -68,12 +69,13 @@ data PutTelemetryRecords = PutTelemetryRecords'
 putTelemetryRecords
     :: PutTelemetryRecords
 putTelemetryRecords =
-    PutTelemetryRecords'
-    { _ptrHostname = Nothing
-    , _ptrEC2InstanceId = Nothing
-    , _ptrResourceARN = Nothing
-    , _ptrTelemetryRecords = mempty
-    }
+  PutTelemetryRecords'
+  { _ptrHostname = Nothing
+  , _ptrEC2InstanceId = Nothing
+  , _ptrResourceARN = Nothing
+  , _ptrTelemetryRecords = mempty
+  }
+
 
 -- |
 ptrHostname :: Lens' PutTelemetryRecords (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest PutTelemetryRecords where
               (\ s h x ->
                  PutTelemetryRecordsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable PutTelemetryRecords
+instance Hashable PutTelemetryRecords where
 
-instance NFData PutTelemetryRecords
+instance NFData PutTelemetryRecords where
 
 instance ToHeaders PutTelemetryRecords where
         toHeaders = const mempty
@@ -124,8 +126,9 @@ instance ToQuery PutTelemetryRecords where
 
 -- | /See:/ 'putTelemetryRecordsResponse' smart constructor.
 newtype PutTelemetryRecordsResponse = PutTelemetryRecordsResponse'
-    { _ptrrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ptrrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutTelemetryRecordsResponse' with the minimum fields required to make a request.
 --
@@ -136,12 +139,11 @@ putTelemetryRecordsResponse
     :: Int -- ^ 'ptrrsResponseStatus'
     -> PutTelemetryRecordsResponse
 putTelemetryRecordsResponse pResponseStatus_ =
-    PutTelemetryRecordsResponse'
-    { _ptrrsResponseStatus = pResponseStatus_
-    }
+  PutTelemetryRecordsResponse' {_ptrrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ptrrsResponseStatus :: Lens' PutTelemetryRecordsResponse Int
 ptrrsResponseStatus = lens _ptrrsResponseStatus (\ s a -> s{_ptrrsResponseStatus = a});
 
-instance NFData PutTelemetryRecordsResponse
+instance NFData PutTelemetryRecordsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.ListClusterJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Snowball.ListClusterJobs
     , lcjrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'listClusterJobs' smart constructor.
 data ListClusterJobs = ListClusterJobs'
-    { _lcjNextToken  :: !(Maybe Text)
-    , _lcjMaxResults :: !(Maybe Nat)
-    , _lcjClusterId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcjNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcjMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lcjClusterId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListClusterJobs' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listClusterJobs
     :: Text -- ^ 'lcjClusterId'
     -> ListClusterJobs
 listClusterJobs pClusterId_ =
-    ListClusterJobs'
-    { _lcjNextToken = Nothing
-    , _lcjMaxResults = Nothing
-    , _lcjClusterId = pClusterId_
-    }
+  ListClusterJobs'
+  { _lcjNextToken = Nothing
+  , _lcjMaxResults = Nothing
+  , _lcjClusterId = pClusterId_
+  }
+
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 lcjNextToken :: Lens' ListClusterJobs (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest ListClusterJobs where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListClusterJobs
+instance Hashable ListClusterJobs where
 
-instance NFData ListClusterJobs
+instance NFData ListClusterJobs where
 
 instance ToHeaders ListClusterJobs where
         toHeaders
@@ -126,10 +128,11 @@ instance ToQuery ListClusterJobs where
 
 -- | /See:/ 'listClusterJobsResponse' smart constructor.
 data ListClusterJobsResponse = ListClusterJobsResponse'
-    { _lcjrsJobListEntries :: !(Maybe [JobListEntry])
-    , _lcjrsNextToken      :: !(Maybe Text)
-    , _lcjrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcjrsJobListEntries :: {-# NOUNPACK #-}!(Maybe [JobListEntry])
+  , _lcjrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListClusterJobsResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +147,12 @@ listClusterJobsResponse
     :: Int -- ^ 'lcjrsResponseStatus'
     -> ListClusterJobsResponse
 listClusterJobsResponse pResponseStatus_ =
-    ListClusterJobsResponse'
-    { _lcjrsJobListEntries = Nothing
-    , _lcjrsNextToken = Nothing
-    , _lcjrsResponseStatus = pResponseStatus_
-    }
+  ListClusterJobsResponse'
+  { _lcjrsJobListEntries = Nothing
+  , _lcjrsNextToken = Nothing
+  , _lcjrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
 lcjrsJobListEntries :: Lens' ListClusterJobsResponse [JobListEntry]
@@ -162,4 +166,4 @@ lcjrsNextToken = lens _lcjrsNextToken (\ s a -> s{_lcjrsNextToken = a});
 lcjrsResponseStatus :: Lens' ListClusterJobsResponse Int
 lcjrsResponseStatus = lens _lcjrsResponseStatus (\ s a -> s{_lcjrsResponseStatus = a});
 
-instance NFData ListClusterJobsResponse
+instance NFData ListClusterJobsResponse where

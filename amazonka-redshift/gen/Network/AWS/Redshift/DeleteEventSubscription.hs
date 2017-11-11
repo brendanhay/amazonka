@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteEventSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.Redshift.DeleteEventSubscription
     , DeleteEventSubscriptionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteEventSubscription' smart constructor.
 newtype DeleteEventSubscription = DeleteEventSubscription'
-    { _desSubscriptionName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desSubscriptionName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEventSubscription' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteEventSubscription
     :: Text -- ^ 'desSubscriptionName'
     -> DeleteEventSubscription
 deleteEventSubscription pSubscriptionName_ =
-    DeleteEventSubscription'
-    { _desSubscriptionName = pSubscriptionName_
-    }
+  DeleteEventSubscription' {_desSubscriptionName = pSubscriptionName_}
+
 
 -- | The name of the Amazon Redshift event notification subscription to be deleted.
 desSubscriptionName :: Lens' DeleteEventSubscription Text
@@ -74,9 +74,9 @@ instance AWSRequest DeleteEventSubscription where
         response
           = receiveNull DeleteEventSubscriptionResponse'
 
-instance Hashable DeleteEventSubscription
+instance Hashable DeleteEventSubscription where
 
-instance NFData DeleteEventSubscription
+instance NFData DeleteEventSubscription where
 
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
@@ -94,8 +94,9 @@ instance ToQuery DeleteEventSubscription where
 
 -- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse =
-    DeleteEventSubscriptionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteEventSubscriptionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEventSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -103,4 +104,5 @@ deleteEventSubscriptionResponse
     :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
 
-instance NFData DeleteEventSubscriptionResponse
+
+instance NFData DeleteEventSubscriptionResponse where

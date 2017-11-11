@@ -9,21 +9,22 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CognitoIdentityProvider.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data AliasAttributeType
-    = AATEmail
-    | AATPhoneNumber
-    | AATPreferredUsername
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AATEmail
+  | AATPhoneNumber
+  | AATPreferredUsername
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AliasAttributeType where
     parser = takeLowerText >>= \case
@@ -52,11 +53,12 @@ instance FromJSON AliasAttributeType where
     parseJSON = parseJSONText "AliasAttributeType"
 
 data AttributeDataType
-    = Boolean
-    | DateTime
-    | Number
-    | String
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Boolean
+  | DateTime
+  | Number
+  | String
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AttributeDataType where
     parser = takeLowerText >>= \case
@@ -87,12 +89,13 @@ instance FromJSON AttributeDataType where
     parseJSON = parseJSONText "AttributeDataType"
 
 data AuthFlowType
-    = AdminNoSrpAuth
-    | CustomAuth
-    | RefreshToken
-    | RefreshTokenAuth
-    | UserSrpAuth
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AdminNoSrpAuth
+  | CustomAuth
+  | RefreshToken
+  | RefreshTokenAuth
+  | UserSrpAuth
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText AuthFlowType where
     parser = takeLowerText >>= \case
@@ -122,14 +125,15 @@ instance ToJSON AuthFlowType where
     toJSON = toJSONText
 
 data ChallengeNameType
-    = CNTAdminNoSrpAuth
-    | CNTCustomChallenge
-    | CNTDevicePasswordVerifier
-    | CNTDeviceSrpAuth
-    | CNTNewPasswordRequired
-    | CNTPasswordVerifier
-    | CNTSmsMFA
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = CNTAdminNoSrpAuth
+  | CNTCustomChallenge
+  | CNTDevicePasswordVerifier
+  | CNTDeviceSrpAuth
+  | CNTNewPasswordRequired
+  | CNTPasswordVerifier
+  | CNTSmsMFA
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ChallengeNameType where
     parser = takeLowerText >>= \case
@@ -166,9 +170,10 @@ instance FromJSON ChallengeNameType where
     parseJSON = parseJSONText "ChallengeNameType"
 
 data DefaultEmailOptionType
-    = ConfirmWithCode
-    | ConfirmWithLink
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ConfirmWithCode
+  | ConfirmWithLink
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DefaultEmailOptionType where
     parser = takeLowerText >>= \case
@@ -195,9 +200,10 @@ instance FromJSON DefaultEmailOptionType where
     parseJSON = parseJSONText "DefaultEmailOptionType"
 
 data DeliveryMediumType
-    = DMTEmail
-    | DMTSms
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DMTEmail
+  | DMTSms
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeliveryMediumType where
     parser = takeLowerText >>= \case
@@ -224,9 +230,10 @@ instance FromJSON DeliveryMediumType where
     parseJSON = parseJSONText "DeliveryMediumType"
 
 data DeviceRememberedStatusType
-    = NotRemembered
-    | Remembered
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = NotRemembered
+  | Remembered
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DeviceRememberedStatusType where
     parser = takeLowerText >>= \case
@@ -250,12 +257,13 @@ instance ToJSON DeviceRememberedStatusType where
     toJSON = toJSONText
 
 data DomainStatusType
-    = DSTActive
-    | DSTCreating
-    | DSTDeleting
-    | DSTFailed
-    | DSTUpdating
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = DSTActive
+  | DSTCreating
+  | DSTDeleting
+  | DSTFailed
+  | DSTUpdating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DomainStatusType where
     parser = takeLowerText >>= \case
@@ -285,9 +293,10 @@ instance FromJSON DomainStatusType where
     parseJSON = parseJSONText "DomainStatusType"
 
 data ExplicitAuthFlowsType
-    = EAFTAdminNoSrpAuth
-    | EAFTCustomAuthFlowOnly
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = EAFTAdminNoSrpAuth
+  | EAFTCustomAuthFlowOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExplicitAuthFlowsType where
     parser = takeLowerText >>= \case
@@ -314,11 +323,12 @@ instance FromJSON ExplicitAuthFlowsType where
     parseJSON = parseJSONText "ExplicitAuthFlowsType"
 
 data IdentityProviderTypeType
-    = Facebook
-    | Google
-    | LoginWithAmazon
-    | Saml
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Facebook
+  | Google
+  | LoginWithAmazon
+  | Saml
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText IdentityProviderTypeType where
     parser = takeLowerText >>= \case
@@ -349,9 +359,10 @@ instance FromJSON IdentityProviderTypeType where
     parseJSON = parseJSONText "IdentityProviderTypeType"
 
 data MessageActionType
-    = Resend
-    | Suppress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Resend
+  | Suppress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText MessageActionType where
     parser = takeLowerText >>= \case
@@ -375,10 +386,11 @@ instance ToJSON MessageActionType where
     toJSON = toJSONText
 
 data OAuthFlowType
-    = ClientCredentials
-    | Code
-    | Implicit
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ClientCredentials
+  | Code
+  | Implicit
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OAuthFlowType where
     parser = takeLowerText >>= \case
@@ -407,9 +419,10 @@ instance FromJSON OAuthFlowType where
     parseJSON = parseJSONText "OAuthFlowType"
 
 data StatusType
-    = Disabled
-    | Enabled
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
@@ -433,15 +446,16 @@ instance FromJSON StatusType where
     parseJSON = parseJSONText "StatusType"
 
 data UserImportJobStatusType
-    = Created
-    | Expired
-    | Failed
-    | InProgress
-    | Pending
-    | Stopped
-    | Stopping
-    | Succeeded
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Created
+  | Expired
+  | Failed
+  | InProgress
+  | Pending
+  | Stopped
+  | Stopping
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UserImportJobStatusType where
     parser = takeLowerText >>= \case
@@ -477,10 +491,11 @@ instance FromJSON UserImportJobStatusType where
     parseJSON = parseJSONText "UserImportJobStatusType"
 
 data UserPoolMFAType
-    = ON
-    | Off
-    | Optional
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ON
+  | Off
+  | Optional
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UserPoolMFAType where
     parser = takeLowerText >>= \case
@@ -509,14 +524,15 @@ instance FromJSON UserPoolMFAType where
     parseJSON = parseJSONText "UserPoolMFAType"
 
 data UserStatusType
-    = Archived
-    | Compromised
-    | Confirmed
-    | ForceChangePassword
-    | ResetRequired
-    | Unconfirmed
-    | Unknown
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Archived
+  | Compromised
+  | Confirmed
+  | ForceChangePassword
+  | ResetRequired
+  | Unconfirmed
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UserStatusType where
     parser = takeLowerText >>= \case
@@ -550,9 +566,10 @@ instance FromJSON UserStatusType where
     parseJSON = parseJSONText "UserStatusType"
 
 data UsernameAttributeType
-    = UATEmail
-    | UATPhoneNumber
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = UATEmail
+  | UATPhoneNumber
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText UsernameAttributeType where
     parser = takeLowerText >>= \case
@@ -579,9 +596,10 @@ instance FromJSON UsernameAttributeType where
     parseJSON = parseJSONText "UsernameAttributeType"
 
 data VerifiedAttributeType
-    = Email
-    | PhoneNumber
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Email
+  | PhoneNumber
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText VerifiedAttributeType where
     parser = takeLowerText >>= \case

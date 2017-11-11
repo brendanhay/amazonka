@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketReplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.S3.GetBucketReplication
     , gbrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketReplication' smart constructor.
 newtype GetBucketReplication = GetBucketReplication'
-    { _gbrBucket :: BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbrBucket :: BucketName
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketReplication' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype GetBucketReplication = GetBucketReplication'
 getBucketReplication
     :: BucketName -- ^ 'gbrBucket'
     -> GetBucketReplication
-getBucketReplication pBucket_ =
-    GetBucketReplication'
-    { _gbrBucket = pBucket_
-    }
+getBucketReplication pBucket_ = GetBucketReplication' {_gbrBucket = pBucket_}
+
 
 -- | Undocumented member.
 gbrBucket :: Lens' GetBucketReplication BucketName
@@ -74,9 +73,9 @@ instance AWSRequest GetBucketReplication where
                  GetBucketReplicationResponse' <$>
                    (parseXML x) <*> (pure (fromEnum s)))
 
-instance Hashable GetBucketReplication
+instance Hashable GetBucketReplication where
 
-instance NFData GetBucketReplication
+instance NFData GetBucketReplication where
 
 instance ToHeaders GetBucketReplication where
         toHeaders = const mempty
@@ -90,9 +89,10 @@ instance ToQuery GetBucketReplication where
 
 -- | /See:/ 'getBucketReplicationResponse' smart constructor.
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
-    { _gbrrsReplicationConfiguration :: !(Maybe ReplicationConfiguration)
-    , _gbrrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbrrsReplicationConfiguration :: {-# NOUNPACK #-}!(Maybe ReplicationConfiguration)
+  , _gbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketReplicationResponse' with the minimum fields required to make a request.
 --
@@ -105,10 +105,11 @@ getBucketReplicationResponse
     :: Int -- ^ 'gbrrsResponseStatus'
     -> GetBucketReplicationResponse
 getBucketReplicationResponse pResponseStatus_ =
-    GetBucketReplicationResponse'
-    { _gbrrsReplicationConfiguration = Nothing
-    , _gbrrsResponseStatus = pResponseStatus_
-    }
+  GetBucketReplicationResponse'
+  { _gbrrsReplicationConfiguration = Nothing
+  , _gbrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gbrrsReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
@@ -118,4 +119,4 @@ gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{
 gbrrsResponseStatus :: Lens' GetBucketReplicationResponse Int
 gbrrsResponseStatus = lens _gbrrsResponseStatus (\ s a -> s{_gbrrsResponseStatus = a});
 
-instance NFData GetBucketReplicationResponse
+instance NFData GetBucketReplicationResponse where

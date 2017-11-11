@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.CreateIntentVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,18 +56,19 @@ module Network.AWS.LexModels.CreateIntentVersion
     , civrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createIntentVersion' smart constructor.
 data CreateIntentVersion = CreateIntentVersion'
-    { _civChecksum :: !(Maybe Text)
-    , _civName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _civChecksum :: {-# NOUNPACK #-}!(Maybe Text)
+  , _civName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIntentVersion' with the minimum fields required to make a request.
 --
@@ -80,10 +81,8 @@ createIntentVersion
     :: Text -- ^ 'civName'
     -> CreateIntentVersion
 createIntentVersion pName_ =
-    CreateIntentVersion'
-    { _civChecksum = Nothing
-    , _civName = pName_
-    }
+  CreateIntentVersion' {_civChecksum = Nothing, _civName = pName_}
+
 
 -- | Checksum of the @> LATEST@ version of the intent that should be used to create the new version. If you specify a checksum and the @> LATEST@ version of the intent has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
 civChecksum :: Lens' CreateIntentVersion (Maybe Text)
@@ -118,9 +117,9 @@ instance AWSRequest CreateIntentVersion where
                      <*> (x .?> "description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateIntentVersion
+instance Hashable CreateIntentVersion where
 
-instance NFData CreateIntentVersion
+instance NFData CreateIntentVersion where
 
 instance ToHeaders CreateIntentVersion where
         toHeaders
@@ -143,23 +142,24 @@ instance ToQuery CreateIntentVersion where
 
 -- | /See:/ 'createIntentVersionResponse' smart constructor.
 data CreateIntentVersionResponse = CreateIntentVersionResponse'
-    { _civrsFulfillmentActivity   :: !(Maybe FulfillmentActivity)
-    , _civrsSlots                 :: !(Maybe [Slot])
-    , _civrsRejectionStatement    :: !(Maybe Statement)
-    , _civrsChecksum              :: !(Maybe Text)
-    , _civrsConclusionStatement   :: !(Maybe Statement)
-    , _civrsSampleUtterances      :: !(Maybe [Text])
-    , _civrsParentIntentSignature :: !(Maybe Text)
-    , _civrsCreatedDate           :: !(Maybe POSIX)
-    , _civrsName                  :: !(Maybe Text)
-    , _civrsVersion               :: !(Maybe Text)
-    , _civrsFollowUpPrompt        :: !(Maybe FollowUpPrompt)
-    , _civrsLastUpdatedDate       :: !(Maybe POSIX)
-    , _civrsConfirmationPrompt    :: !(Maybe Prompt)
-    , _civrsDialogCodeHook        :: !(Maybe CodeHook)
-    , _civrsDescription           :: !(Maybe Text)
-    , _civrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _civrsFulfillmentActivity   :: {-# NOUNPACK #-}!(Maybe FulfillmentActivity)
+  , _civrsSlots                 :: {-# NOUNPACK #-}!(Maybe [Slot])
+  , _civrsRejectionStatement    :: {-# NOUNPACK #-}!(Maybe Statement)
+  , _civrsChecksum              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _civrsConclusionStatement   :: {-# NOUNPACK #-}!(Maybe Statement)
+  , _civrsSampleUtterances      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _civrsParentIntentSignature :: {-# NOUNPACK #-}!(Maybe Text)
+  , _civrsCreatedDate           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _civrsName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _civrsVersion               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _civrsFollowUpPrompt        :: {-# NOUNPACK #-}!(Maybe FollowUpPrompt)
+  , _civrsLastUpdatedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _civrsConfirmationPrompt    :: {-# NOUNPACK #-}!(Maybe Prompt)
+  , _civrsDialogCodeHook        :: {-# NOUNPACK #-}!(Maybe CodeHook)
+  , _civrsDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _civrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateIntentVersionResponse' with the minimum fields required to make a request.
 --
@@ -200,24 +200,25 @@ createIntentVersionResponse
     :: Int -- ^ 'civrsResponseStatus'
     -> CreateIntentVersionResponse
 createIntentVersionResponse pResponseStatus_ =
-    CreateIntentVersionResponse'
-    { _civrsFulfillmentActivity = Nothing
-    , _civrsSlots = Nothing
-    , _civrsRejectionStatement = Nothing
-    , _civrsChecksum = Nothing
-    , _civrsConclusionStatement = Nothing
-    , _civrsSampleUtterances = Nothing
-    , _civrsParentIntentSignature = Nothing
-    , _civrsCreatedDate = Nothing
-    , _civrsName = Nothing
-    , _civrsVersion = Nothing
-    , _civrsFollowUpPrompt = Nothing
-    , _civrsLastUpdatedDate = Nothing
-    , _civrsConfirmationPrompt = Nothing
-    , _civrsDialogCodeHook = Nothing
-    , _civrsDescription = Nothing
-    , _civrsResponseStatus = pResponseStatus_
-    }
+  CreateIntentVersionResponse'
+  { _civrsFulfillmentActivity = Nothing
+  , _civrsSlots = Nothing
+  , _civrsRejectionStatement = Nothing
+  , _civrsChecksum = Nothing
+  , _civrsConclusionStatement = Nothing
+  , _civrsSampleUtterances = Nothing
+  , _civrsParentIntentSignature = Nothing
+  , _civrsCreatedDate = Nothing
+  , _civrsName = Nothing
+  , _civrsVersion = Nothing
+  , _civrsFollowUpPrompt = Nothing
+  , _civrsLastUpdatedDate = Nothing
+  , _civrsConfirmationPrompt = Nothing
+  , _civrsDialogCodeHook = Nothing
+  , _civrsDescription = Nothing
+  , _civrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Describes how the intent is fulfilled.
 civrsFulfillmentActivity :: Lens' CreateIntentVersionResponse (Maybe FulfillmentActivity)
@@ -283,4 +284,4 @@ civrsDescription = lens _civrsDescription (\ s a -> s{_civrsDescription = a});
 civrsResponseStatus :: Lens' CreateIntentVersionResponse Int
 civrsResponseStatus = lens _civrsResponseStatus (\ s a -> s{_civrsResponseStatus = a});
 
-instance NFData CreateIntentVersionResponse
+instance NFData CreateIntentVersionResponse where

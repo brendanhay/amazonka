@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribePermissions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.OpsWorks.DescribePermissions
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describePermissions' smart constructor.
 data DescribePermissions = DescribePermissions'
-    { _dpIAMUserARN :: !(Maybe Text)
-    , _dpStackId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpIAMUserARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpStackId    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePermissions' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ data DescribePermissions = DescribePermissions'
 describePermissions
     :: DescribePermissions
 describePermissions =
-    DescribePermissions'
-    { _dpIAMUserARN = Nothing
-    , _dpStackId = Nothing
-    }
+  DescribePermissions' {_dpIAMUserARN = Nothing, _dpStackId = Nothing}
+
 
 -- | The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 dpIAMUserARN :: Lens' DescribePermissions (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest DescribePermissions where
                    (x .?> "Permissions" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribePermissions
+instance Hashable DescribePermissions where
 
-instance NFData DescribePermissions
+instance NFData DescribePermissions where
 
 instance ToHeaders DescribePermissions where
         toHeaders
@@ -120,9 +119,10 @@ instance ToQuery DescribePermissions where
 --
 -- /See:/ 'describePermissionsResponse' smart constructor.
 data DescribePermissionsResponse = DescribePermissionsResponse'
-    { _dprsPermissions    :: !(Maybe [Permission])
-    , _dprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsPermissions    :: {-# NOUNPACK #-}!(Maybe [Permission])
+  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePermissionsResponse' with the minimum fields required to make a request.
 --
@@ -135,10 +135,9 @@ describePermissionsResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribePermissionsResponse
 describePermissionsResponse pResponseStatus_ =
-    DescribePermissionsResponse'
-    { _dprsPermissions = Nothing
-    , _dprsResponseStatus = pResponseStatus_
-    }
+  DescribePermissionsResponse'
+  {_dprsPermissions = Nothing, _dprsResponseStatus = pResponseStatus_}
+
 
 -- | An array of @Permission@ objects that describe the stack permissions.     * If the request object contains only a stack ID, the array contains a @Permission@ object with permissions for each of the stack IAM ARNs.     * If the request object contains only an IAM ARN, the array contains a @Permission@ object with permissions for each of the user's stack IDs.     * If the request contains a stack ID and an IAM ARN, the array contains a single @Permission@ object with permissions for the specified stack and IAM ARN.
 dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
@@ -148,4 +147,4 @@ dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _De
 dprsResponseStatus :: Lens' DescribePermissionsResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DescribePermissionsResponse
+instance NFData DescribePermissionsResponse where

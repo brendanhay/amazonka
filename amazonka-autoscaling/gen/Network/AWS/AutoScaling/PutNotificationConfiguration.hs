@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.PutNotificationConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     , PutNotificationConfigurationResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PutNotificationConfiguration.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putNotificationConfiguration' smart constructor.
 data PutNotificationConfiguration = PutNotificationConfiguration'
-    { _pncAutoScalingGroupName :: !Text
-    , _pncTopicARN             :: !Text
-    , _pncNotificationTypes    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pncAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _pncTopicARN             :: {-# NOUNPACK #-}!Text
+  , _pncNotificationTypes    :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutNotificationConfiguration' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ putNotificationConfiguration
     -> Text -- ^ 'pncTopicARN'
     -> PutNotificationConfiguration
 putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
-    PutNotificationConfiguration'
-    { _pncAutoScalingGroupName = pAutoScalingGroupName_
-    , _pncTopicARN = pTopicARN_
-    , _pncNotificationTypes = mempty
-    }
+  PutNotificationConfiguration'
+  { _pncAutoScalingGroupName = pAutoScalingGroupName_
+  , _pncTopicARN = pTopicARN_
+  , _pncNotificationTypes = mempty
+  }
+
 
 -- | The name of the Auto Scaling group.
 pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
@@ -98,9 +100,9 @@ instance AWSRequest PutNotificationConfiguration
         response
           = receiveNull PutNotificationConfigurationResponse'
 
-instance Hashable PutNotificationConfiguration
+instance Hashable PutNotificationConfiguration where
 
-instance NFData PutNotificationConfiguration
+instance NFData PutNotificationConfiguration where
 
 instance ToHeaders PutNotificationConfiguration where
         toHeaders = const mempty
@@ -121,8 +123,9 @@ instance ToQuery PutNotificationConfiguration where
 
 -- | /See:/ 'putNotificationConfigurationResponse' smart constructor.
 data PutNotificationConfigurationResponse =
-    PutNotificationConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutNotificationConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutNotificationConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -130,4 +133,6 @@ putNotificationConfigurationResponse
     :: PutNotificationConfigurationResponse
 putNotificationConfigurationResponse = PutNotificationConfigurationResponse'
 
+
 instance NFData PutNotificationConfigurationResponse
+         where

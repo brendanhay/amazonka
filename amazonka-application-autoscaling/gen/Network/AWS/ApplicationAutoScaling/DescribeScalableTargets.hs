@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,22 +48,23 @@ module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
     , dstsrsResponseStatus
     ) where
 
-import           Network.AWS.ApplicationAutoScaling.Types
-import           Network.AWS.ApplicationAutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeScalableTargets' smart constructor.
 data DescribeScalableTargets = DescribeScalableTargets'
-    { _dstResourceIds       :: !(Maybe [Text])
-    , _dstScalableDimension :: !(Maybe ScalableDimension)
-    , _dstNextToken         :: !(Maybe Text)
-    , _dstMaxResults        :: !(Maybe Int)
-    , _dstServiceNamespace  :: !ServiceNamespace
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dstResourceIds       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dstScalableDimension :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
+  , _dstNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dstMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dstServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalableTargets' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ describeScalableTargets
     :: ServiceNamespace -- ^ 'dstServiceNamespace'
     -> DescribeScalableTargets
 describeScalableTargets pServiceNamespace_ =
-    DescribeScalableTargets'
-    { _dstResourceIds = Nothing
-    , _dstScalableDimension = Nothing
-    , _dstNextToken = Nothing
-    , _dstMaxResults = Nothing
-    , _dstServiceNamespace = pServiceNamespace_
-    }
+  DescribeScalableTargets'
+  { _dstResourceIds = Nothing
+  , _dstScalableDimension = Nothing
+  , _dstNextToken = Nothing
+  , _dstMaxResults = Nothing
+  , _dstServiceNamespace = pServiceNamespace_
+  }
+
 
 -- | The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 dstResourceIds :: Lens' DescribeScalableTargets [Text]
@@ -129,9 +131,9 @@ instance AWSRequest DescribeScalableTargets where
                      (x .?> "ScalableTargets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeScalableTargets
+instance Hashable DescribeScalableTargets where
 
-instance NFData DescribeScalableTargets
+instance NFData DescribeScalableTargets where
 
 instance ToHeaders DescribeScalableTargets where
         toHeaders
@@ -161,10 +163,11 @@ instance ToQuery DescribeScalableTargets where
 
 -- | /See:/ 'describeScalableTargetsResponse' smart constructor.
 data DescribeScalableTargetsResponse = DescribeScalableTargetsResponse'
-    { _dstsrsNextToken       :: !(Maybe Text)
-    , _dstsrsScalableTargets :: !(Maybe [ScalableTarget])
-    , _dstsrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dstsrsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dstsrsScalableTargets :: {-# NOUNPACK #-}!(Maybe [ScalableTarget])
+  , _dstsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeScalableTargetsResponse' with the minimum fields required to make a request.
 --
@@ -179,11 +182,12 @@ describeScalableTargetsResponse
     :: Int -- ^ 'dstsrsResponseStatus'
     -> DescribeScalableTargetsResponse
 describeScalableTargetsResponse pResponseStatus_ =
-    DescribeScalableTargetsResponse'
-    { _dstsrsNextToken = Nothing
-    , _dstsrsScalableTargets = Nothing
-    , _dstsrsResponseStatus = pResponseStatus_
-    }
+  DescribeScalableTargetsResponse'
+  { _dstsrsNextToken = Nothing
+  , _dstsrsScalableTargets = Nothing
+  , _dstsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token required to get the next set of results. This value is @null@ if there are no more results to return.
 dstsrsNextToken :: Lens' DescribeScalableTargetsResponse (Maybe Text)
@@ -197,4 +201,4 @@ dstsrsScalableTargets = lens _dstsrsScalableTargets (\ s a -> s{_dstsrsScalableT
 dstsrsResponseStatus :: Lens' DescribeScalableTargetsResponse Int
 dstsrsResponseStatus = lens _dstsrsResponseStatus (\ s a -> s{_dstsrsResponseStatus = a});
 
-instance NFData DescribeScalableTargetsResponse
+instance NFData DescribeScalableTargetsResponse where

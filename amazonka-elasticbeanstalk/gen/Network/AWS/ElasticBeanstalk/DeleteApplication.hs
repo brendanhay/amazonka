@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     , DeleteApplicationResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to delete an application.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-    { _daTerminateEnvByForce :: !(Maybe Bool)
-    , _daApplicationName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daTerminateEnvByForce :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _daApplicationName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
 --
@@ -63,10 +64,9 @@ deleteApplication
     :: Text -- ^ 'daApplicationName'
     -> DeleteApplication
 deleteApplication pApplicationName_ =
-    DeleteApplication'
-    { _daTerminateEnvByForce = Nothing
-    , _daApplicationName = pApplicationName_
-    }
+  DeleteApplication'
+  {_daTerminateEnvByForce = Nothing, _daApplicationName = pApplicationName_}
+
 
 -- | When set to true, running environments will be terminated before deleting the application.
 daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
@@ -81,9 +81,9 @@ instance AWSRequest DeleteApplication where
         request = postQuery elasticBeanstalk
         response = receiveNull DeleteApplicationResponse'
 
-instance Hashable DeleteApplication
+instance Hashable DeleteApplication where
 
-instance NFData DeleteApplication
+instance NFData DeleteApplication where
 
 instance ToHeaders DeleteApplication where
         toHeaders = const mempty
@@ -101,8 +101,9 @@ instance ToQuery DeleteApplication where
 
 -- | /See:/ 'deleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse =
-    DeleteApplicationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteApplicationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +111,5 @@ deleteApplicationResponse
     :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse'
 
-instance NFData DeleteApplicationResponse
+
+instance NFData DeleteApplicationResponse where

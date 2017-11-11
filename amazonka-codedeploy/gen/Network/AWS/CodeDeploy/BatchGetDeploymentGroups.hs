@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeploymentGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CodeDeploy.BatchGetDeploymentGroups
     , bgdgrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a BatchGetDeploymentGroups operation.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'batchGetDeploymentGroups' smart constructor.
 data BatchGetDeploymentGroups = BatchGetDeploymentGroups'
-    { _bgdgApplicationName      :: !Text
-    , _bgdgDeploymentGroupNames :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgdgApplicationName      :: {-# NOUNPACK #-}!Text
+  , _bgdgDeploymentGroupNames :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetDeploymentGroups' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ batchGetDeploymentGroups
     :: Text -- ^ 'bgdgApplicationName'
     -> BatchGetDeploymentGroups
 batchGetDeploymentGroups pApplicationName_ =
-    BatchGetDeploymentGroups'
-    { _bgdgApplicationName = pApplicationName_
-    , _bgdgDeploymentGroupNames = mempty
-    }
+  BatchGetDeploymentGroups'
+  {_bgdgApplicationName = pApplicationName_, _bgdgDeploymentGroupNames = mempty}
+
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 bgdgApplicationName :: Lens' BatchGetDeploymentGroups Text
@@ -92,9 +92,9 @@ instance AWSRequest BatchGetDeploymentGroups where
                      (x .?> "errorMessage")
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetDeploymentGroups
+instance Hashable BatchGetDeploymentGroups where
 
-instance NFData BatchGetDeploymentGroups
+instance NFData BatchGetDeploymentGroups where
 
 instance ToHeaders BatchGetDeploymentGroups where
         toHeaders
@@ -127,10 +127,11 @@ instance ToQuery BatchGetDeploymentGroups where
 --
 -- /See:/ 'batchGetDeploymentGroupsResponse' smart constructor.
 data BatchGetDeploymentGroupsResponse = BatchGetDeploymentGroupsResponse'
-    { _bgdgrsDeploymentGroupsInfo :: !(Maybe [DeploymentGroupInfo])
-    , _bgdgrsErrorMessage         :: !(Maybe Text)
-    , _bgdgrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgdgrsDeploymentGroupsInfo :: {-# NOUNPACK #-}!(Maybe [DeploymentGroupInfo])
+  , _bgdgrsErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bgdgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetDeploymentGroupsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +146,12 @@ batchGetDeploymentGroupsResponse
     :: Int -- ^ 'bgdgrsResponseStatus'
     -> BatchGetDeploymentGroupsResponse
 batchGetDeploymentGroupsResponse pResponseStatus_ =
-    BatchGetDeploymentGroupsResponse'
-    { _bgdgrsDeploymentGroupsInfo = Nothing
-    , _bgdgrsErrorMessage = Nothing
-    , _bgdgrsResponseStatus = pResponseStatus_
-    }
+  BatchGetDeploymentGroupsResponse'
+  { _bgdgrsDeploymentGroupsInfo = Nothing
+  , _bgdgrsErrorMessage = Nothing
+  , _bgdgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the deployment groups.
 bgdgrsDeploymentGroupsInfo :: Lens' BatchGetDeploymentGroupsResponse [DeploymentGroupInfo]
@@ -164,3 +166,4 @@ bgdgrsResponseStatus :: Lens' BatchGetDeploymentGroupsResponse Int
 bgdgrsResponseStatus = lens _bgdgrsResponseStatus (\ s a -> s{_bgdgrsResponseStatus = a});
 
 instance NFData BatchGetDeploymentGroupsResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,23 +39,25 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
     , lvearsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | /See:/ 'listVerifiedEmailAddresses' smart constructor.
 data ListVerifiedEmailAddresses =
-    ListVerifiedEmailAddresses'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ListVerifiedEmailAddresses'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVerifiedEmailAddresses' with the minimum fields required to make a request.
 --
 listVerifiedEmailAddresses
     :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses'
+
 
 instance AWSRequest ListVerifiedEmailAddresses where
         type Rs ListVerifiedEmailAddresses =
@@ -70,9 +72,9 @@ instance AWSRequest ListVerifiedEmailAddresses where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListVerifiedEmailAddresses
+instance Hashable ListVerifiedEmailAddresses where
 
-instance NFData ListVerifiedEmailAddresses
+instance NFData ListVerifiedEmailAddresses where
 
 instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
@@ -94,9 +96,10 @@ instance ToQuery ListVerifiedEmailAddresses where
 --
 -- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
-    { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
-    , _lvearsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvearsVerifiedEmailAddresses :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lvearsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVerifiedEmailAddressesResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +112,11 @@ listVerifiedEmailAddressesResponse
     :: Int -- ^ 'lvearsResponseStatus'
     -> ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddressesResponse pResponseStatus_ =
-    ListVerifiedEmailAddressesResponse'
-    { _lvearsVerifiedEmailAddresses = Nothing
-    , _lvearsResponseStatus = pResponseStatus_
-    }
+  ListVerifiedEmailAddressesResponse'
+  { _lvearsVerifiedEmailAddresses = Nothing
+  , _lvearsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of email addresses that have been verified.
 lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
@@ -123,3 +127,4 @@ lvearsResponseStatus :: Lens' ListVerifiedEmailAddressesResponse Int
 lvearsResponseStatus = lens _lvearsResponseStatus (\ s a -> s{_lvearsResponseStatus = a});
 
 instance NFData ListVerifiedEmailAddressesResponse
+         where

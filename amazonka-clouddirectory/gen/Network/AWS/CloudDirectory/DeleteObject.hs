@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DeleteObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.CloudDirectory.DeleteObject
     , dorsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteObject' smart constructor.
 data DeleteObject = DeleteObject'
-    { _doDirectoryARN    :: !Text
-    , _doObjectReference :: !ObjectReference
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doDirectoryARN    :: {-# NOUNPACK #-}!Text
+  , _doObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteObject' with the minimum fields required to make a request.
 --
@@ -62,10 +63,9 @@ deleteObject
     -> ObjectReference -- ^ 'doObjectReference'
     -> DeleteObject
 deleteObject pDirectoryARN_ pObjectReference_ =
-    DeleteObject'
-    { _doDirectoryARN = pDirectoryARN_
-    , _doObjectReference = pObjectReference_
-    }
+  DeleteObject'
+  {_doDirectoryARN = pDirectoryARN_, _doObjectReference = pObjectReference_}
+
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 doDirectoryARN :: Lens' DeleteObject Text
@@ -83,9 +83,9 @@ instance AWSRequest DeleteObject where
               (\ s h x ->
                  DeleteObjectResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteObject
+instance Hashable DeleteObject where
 
-instance NFData DeleteObject
+instance NFData DeleteObject where
 
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}
@@ -107,8 +107,9 @@ instance ToQuery DeleteObject where
 
 -- | /See:/ 'deleteObjectResponse' smart constructor.
 newtype DeleteObjectResponse = DeleteObjectResponse'
-    { _dorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
 --
@@ -119,12 +120,11 @@ deleteObjectResponse
     :: Int -- ^ 'dorsResponseStatus'
     -> DeleteObjectResponse
 deleteObjectResponse pResponseStatus_ =
-    DeleteObjectResponse'
-    { _dorsResponseStatus = pResponseStatus_
-    }
+  DeleteObjectResponse' {_dorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dorsResponseStatus :: Lens' DeleteObjectResponse Int
 dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});
 
-instance NFData DeleteObjectResponse
+instance NFData DeleteObjectResponse where

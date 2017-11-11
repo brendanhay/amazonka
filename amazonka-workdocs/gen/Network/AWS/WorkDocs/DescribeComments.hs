@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeComments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,21 +42,22 @@ module Network.AWS.WorkDocs.DescribeComments
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeComments' smart constructor.
 data DescribeComments = DescribeComments'
-    { _dcAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _dcMarker              :: !(Maybe Text)
-    , _dcLimit               :: !(Maybe Nat)
-    , _dcDocumentId          :: !Text
-    , _dcVersionId           :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dcAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _dcMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dcDocumentId          :: {-# NOUNPACK #-}!Text
+  , _dcVersionId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeComments' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ describeComments
     -> Text -- ^ 'dcVersionId'
     -> DescribeComments
 describeComments pDocumentId_ pVersionId_ =
-    DescribeComments'
-    { _dcAuthenticationToken = Nothing
-    , _dcMarker = Nothing
-    , _dcLimit = Nothing
-    , _dcDocumentId = pDocumentId_
-    , _dcVersionId = pVersionId_
-    }
+  DescribeComments'
+  { _dcAuthenticationToken = Nothing
+  , _dcMarker = Nothing
+  , _dcLimit = Nothing
+  , _dcDocumentId = pDocumentId_
+  , _dcVersionId = pVersionId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 dcAuthenticationToken :: Lens' DescribeComments (Maybe Text)
@@ -114,9 +116,9 @@ instance AWSRequest DescribeComments where
                    (x .?> "Marker") <*> (x .?> "Comments" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeComments
+instance Hashable DescribeComments where
 
-instance NFData DescribeComments
+instance NFData DescribeComments where
 
 instance ToHeaders DescribeComments where
         toHeaders DescribeComments'{..}
@@ -138,10 +140,11 @@ instance ToQuery DescribeComments where
 
 -- | /See:/ 'describeCommentsResponse' smart constructor.
 data DescribeCommentsResponse = DescribeCommentsResponse'
-    { _dcrsMarker         :: !(Maybe Text)
-    , _dcrsComments       :: !(Maybe [Comment])
-    , _dcrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _dcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcrsComments       :: {-# NOUNPACK #-}!(Maybe [Comment])
+  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCommentsResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +159,12 @@ describeCommentsResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCommentsResponse
 describeCommentsResponse pResponseStatus_ =
-    DescribeCommentsResponse'
-    { _dcrsMarker = Nothing
-    , _dcrsComments = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeCommentsResponse'
+  { _dcrsMarker = Nothing
+  , _dcrsComments = Nothing
+  , _dcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker for the next set of results. This marker was received from a previous call.
 dcrsMarker :: Lens' DescribeCommentsResponse (Maybe Text)
@@ -174,4 +178,4 @@ dcrsComments = lens _dcrsComments (\ s a -> s{_dcrsComments = a}) . _Default . _
 dcrsResponseStatus :: Lens' DescribeCommentsResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeCommentsResponse
+instance NFData DescribeCommentsResponse where

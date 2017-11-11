@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,12 +56,12 @@ module Network.AWS.Redshift.ModifyCluster
     , mcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -69,25 +69,26 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
-    { _mcEnhancedVPCRouting               :: !(Maybe Bool)
-    , _mcMasterUserPassword               :: !(Maybe Text)
-    , _mcPubliclyAccessible               :: !(Maybe Bool)
-    , _mcHSMConfigurationIdentifier       :: !(Maybe Text)
-    , _mcClusterSecurityGroups            :: !(Maybe [Text])
-    , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _mcHSMClientCertificateIdentifier   :: !(Maybe Text)
-    , _mcNumberOfNodes                    :: !(Maybe Int)
-    , _mcElasticIP                        :: !(Maybe Text)
-    , _mcPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _mcVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _mcClusterType                      :: !(Maybe Text)
-    , _mcNewClusterIdentifier             :: !(Maybe Text)
-    , _mcClusterVersion                   :: !(Maybe Text)
-    , _mcNodeType                         :: !(Maybe Text)
-    , _mcAllowVersionUpgrade              :: !(Maybe Bool)
-    , _mcClusterParameterGroupName        :: !(Maybe Text)
-    , _mcClusterIdentifier                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcEnhancedVPCRouting               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mcMasterUserPassword               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mcHSMConfigurationIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcClusterSecurityGroups            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mcAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mcHSMClientCertificateIdentifier   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcNumberOfNodes                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mcElasticIP                        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcPreferredMaintenanceWindow       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcVPCSecurityGroupIds              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mcClusterType                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcNewClusterIdentifier             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcClusterVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcNodeType                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcAllowVersionUpgrade              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mcClusterParameterGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mcClusterIdentifier                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyCluster' with the minimum fields required to make a request.
 --
@@ -132,26 +133,27 @@ modifyCluster
     :: Text -- ^ 'mcClusterIdentifier'
     -> ModifyCluster
 modifyCluster pClusterIdentifier_ =
-    ModifyCluster'
-    { _mcEnhancedVPCRouting = Nothing
-    , _mcMasterUserPassword = Nothing
-    , _mcPubliclyAccessible = Nothing
-    , _mcHSMConfigurationIdentifier = Nothing
-    , _mcClusterSecurityGroups = Nothing
-    , _mcAutomatedSnapshotRetentionPeriod = Nothing
-    , _mcHSMClientCertificateIdentifier = Nothing
-    , _mcNumberOfNodes = Nothing
-    , _mcElasticIP = Nothing
-    , _mcPreferredMaintenanceWindow = Nothing
-    , _mcVPCSecurityGroupIds = Nothing
-    , _mcClusterType = Nothing
-    , _mcNewClusterIdentifier = Nothing
-    , _mcClusterVersion = Nothing
-    , _mcNodeType = Nothing
-    , _mcAllowVersionUpgrade = Nothing
-    , _mcClusterParameterGroupName = Nothing
-    , _mcClusterIdentifier = pClusterIdentifier_
-    }
+  ModifyCluster'
+  { _mcEnhancedVPCRouting = Nothing
+  , _mcMasterUserPassword = Nothing
+  , _mcPubliclyAccessible = Nothing
+  , _mcHSMConfigurationIdentifier = Nothing
+  , _mcClusterSecurityGroups = Nothing
+  , _mcAutomatedSnapshotRetentionPeriod = Nothing
+  , _mcHSMClientCertificateIdentifier = Nothing
+  , _mcNumberOfNodes = Nothing
+  , _mcElasticIP = Nothing
+  , _mcPreferredMaintenanceWindow = Nothing
+  , _mcVPCSecurityGroupIds = Nothing
+  , _mcClusterType = Nothing
+  , _mcNewClusterIdentifier = Nothing
+  , _mcClusterVersion = Nothing
+  , _mcNodeType = Nothing
+  , _mcAllowVersionUpgrade = Nothing
+  , _mcClusterParameterGroupName = Nothing
+  , _mcClusterIdentifier = pClusterIdentifier_
+  }
+
 
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 mcEnhancedVPCRouting :: Lens' ModifyCluster (Maybe Bool)
@@ -234,9 +236,9 @@ instance AWSRequest ModifyCluster where
                  ModifyClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyCluster
+instance Hashable ModifyCluster where
 
-instance NFData ModifyCluster
+instance NFData ModifyCluster where
 
 instance ToHeaders ModifyCluster where
         toHeaders = const mempty
@@ -281,9 +283,10 @@ instance ToQuery ModifyCluster where
 
 -- | /See:/ 'modifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-    { _mcrsCluster        :: !(Maybe Cluster)
-    , _mcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mcrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
+  , _mcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
 --
@@ -296,10 +299,9 @@ modifyClusterResponse
     :: Int -- ^ 'mcrsResponseStatus'
     -> ModifyClusterResponse
 modifyClusterResponse pResponseStatus_ =
-    ModifyClusterResponse'
-    { _mcrsCluster = Nothing
-    , _mcrsResponseStatus = pResponseStatus_
-    }
+  ModifyClusterResponse'
+  {_mcrsCluster = Nothing, _mcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
@@ -309,4 +311,4 @@ mcrsCluster = lens _mcrsCluster (\ s a -> s{_mcrsCluster = a});
 mcrsResponseStatus :: Lens' ModifyClusterResponse Int
 mcrsResponseStatus = lens _mcrsResponseStatus (\ s a -> s{_mcrsResponseStatus = a});
 
-instance NFData ModifyClusterResponse
+instance NFData ModifyClusterResponse where

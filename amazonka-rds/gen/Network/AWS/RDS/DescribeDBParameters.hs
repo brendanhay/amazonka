@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBParameters
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,22 +44,23 @@ module Network.AWS.RDS.DescribeDBParameters
     , ddprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeDBParameters' smart constructor.
 data DescribeDBParameters = DescribeDBParameters'
-    { _ddpFilters              :: !(Maybe [Filter])
-    , _ddpMarker               :: !(Maybe Text)
-    , _ddpMaxRecords           :: !(Maybe Int)
-    , _ddpSource               :: !(Maybe Text)
-    , _ddpDBParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddpFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _ddpMarker               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddpMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ddpSource               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddpDBParameterGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBParameters' with the minimum fields required to make a request.
 --
@@ -78,13 +79,14 @@ describeDBParameters
     :: Text -- ^ 'ddpDBParameterGroupName'
     -> DescribeDBParameters
 describeDBParameters pDBParameterGroupName_ =
-    DescribeDBParameters'
-    { _ddpFilters = Nothing
-    , _ddpMarker = Nothing
-    , _ddpMaxRecords = Nothing
-    , _ddpSource = Nothing
-    , _ddpDBParameterGroupName = pDBParameterGroupName_
-    }
+  DescribeDBParameters'
+  { _ddpFilters = Nothing
+  , _ddpMarker = Nothing
+  , _ddpMaxRecords = Nothing
+  , _ddpSource = Nothing
+  , _ddpDBParameterGroupName = pDBParameterGroupName_
+  }
+
 
 -- | This parameter is not currently supported.
 ddpFilters :: Lens' DescribeDBParameters [Filter]
@@ -126,9 +128,9 @@ instance AWSRequest DescribeDBParameters where
                         may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeDBParameters
+instance Hashable DescribeDBParameters where
 
-instance NFData DescribeDBParameters
+instance NFData DescribeDBParameters where
 
 instance ToHeaders DescribeDBParameters where
         toHeaders = const mempty
@@ -154,10 +156,11 @@ instance ToQuery DescribeDBParameters where
 --
 -- /See:/ 'describeDBParametersResponse' smart constructor.
 data DescribeDBParametersResponse = DescribeDBParametersResponse'
-    { _ddprsMarker         :: !(Maybe Text)
-    , _ddprsParameters     :: !(Maybe [Parameter])
-    , _ddprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _ddprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBParametersResponse' with the minimum fields required to make a request.
 --
@@ -172,11 +175,12 @@ describeDBParametersResponse
     :: Int -- ^ 'ddprsResponseStatus'
     -> DescribeDBParametersResponse
 describeDBParametersResponse pResponseStatus_ =
-    DescribeDBParametersResponse'
-    { _ddprsMarker = Nothing
-    , _ddprsParameters = Nothing
-    , _ddprsResponseStatus = pResponseStatus_
-    }
+  DescribeDBParametersResponse'
+  { _ddprsMarker = Nothing
+  , _ddprsParameters = Nothing
+  , _ddprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
@@ -190,4 +194,4 @@ ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _De
 ddprsResponseStatus :: Lens' DescribeDBParametersResponse Int
 ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
 
-instance NFData DescribeDBParametersResponse
+instance NFData DescribeDBParametersResponse where

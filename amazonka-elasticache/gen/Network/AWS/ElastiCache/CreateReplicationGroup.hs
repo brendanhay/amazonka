@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateReplicationGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -68,12 +68,12 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     , crgrsResponseStatus
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @CreateReplicationGroup@ operation.
 --
@@ -81,33 +81,34 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createReplicationGroup' smart constructor.
 data CreateReplicationGroup = CreateReplicationGroup'
-    { _crgAutomaticFailoverEnabled    :: !(Maybe Bool)
-    , _crgEngineVersion               :: !(Maybe Text)
-    , _crgCacheNodeType               :: !(Maybe Text)
-    , _crgNodeGroupConfiguration      :: !(Maybe [NodeGroupConfiguration])
-    , _crgSecurityGroupIds            :: !(Maybe [Text])
-    , _crgSnapshotARNs                :: !(Maybe [Text])
-    , _crgAutoMinorVersionUpgrade     :: !(Maybe Bool)
-    , _crgCacheParameterGroupName     :: !(Maybe Text)
-    , _crgSnapshotWindow              :: !(Maybe Text)
-    , _crgAuthToken                   :: !(Maybe Text)
-    , _crgPrimaryClusterId            :: !(Maybe Text)
-    , _crgEngine                      :: !(Maybe Text)
-    , _crgPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _crgCacheSubnetGroupName        :: !(Maybe Text)
-    , _crgNumNodeGroups               :: !(Maybe Int)
-    , _crgSnapshotRetentionLimit      :: !(Maybe Int)
-    , _crgReplicasPerNodeGroup        :: !(Maybe Int)
-    , _crgNumCacheClusters            :: !(Maybe Int)
-    , _crgPreferredCacheClusterAZs    :: !(Maybe [Text])
-    , _crgSnapshotName                :: !(Maybe Text)
-    , _crgNotificationTopicARN        :: !(Maybe Text)
-    , _crgTags                        :: !(Maybe [Tag])
-    , _crgPort                        :: !(Maybe Int)
-    , _crgCacheSecurityGroupNames     :: !(Maybe [Text])
-    , _crgReplicationGroupId          :: !Text
-    , _crgReplicationGroupDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crgAutomaticFailoverEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _crgEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgNodeGroupConfiguration :: {-# NOUNPACK #-}!(Maybe [NodeGroupConfiguration])
+  , _crgSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _crgSnapshotARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _crgAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _crgCacheParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgAuthToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgPrimaryClusterId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgEngine :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgCacheSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgNumNodeGroups :: {-# NOUNPACK #-}!(Maybe Int)
+  , _crgSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
+  , _crgReplicasPerNodeGroup :: {-# NOUNPACK #-}!(Maybe Int)
+  , _crgNumCacheClusters :: {-# NOUNPACK #-}!(Maybe Int)
+  , _crgPreferredCacheClusterAZs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _crgSnapshotName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgNotificationTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crgTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _crgPort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _crgCacheSecurityGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _crgReplicationGroupId :: {-# NOUNPACK #-}!Text
+  , _crgReplicationGroupDescription :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationGroup' with the minimum fields required to make a request.
 --
@@ -169,34 +170,35 @@ createReplicationGroup
     -> Text -- ^ 'crgReplicationGroupDescription'
     -> CreateReplicationGroup
 createReplicationGroup pReplicationGroupId_ pReplicationGroupDescription_ =
-    CreateReplicationGroup'
-    { _crgAutomaticFailoverEnabled = Nothing
-    , _crgEngineVersion = Nothing
-    , _crgCacheNodeType = Nothing
-    , _crgNodeGroupConfiguration = Nothing
-    , _crgSecurityGroupIds = Nothing
-    , _crgSnapshotARNs = Nothing
-    , _crgAutoMinorVersionUpgrade = Nothing
-    , _crgCacheParameterGroupName = Nothing
-    , _crgSnapshotWindow = Nothing
-    , _crgAuthToken = Nothing
-    , _crgPrimaryClusterId = Nothing
-    , _crgEngine = Nothing
-    , _crgPreferredMaintenanceWindow = Nothing
-    , _crgCacheSubnetGroupName = Nothing
-    , _crgNumNodeGroups = Nothing
-    , _crgSnapshotRetentionLimit = Nothing
-    , _crgReplicasPerNodeGroup = Nothing
-    , _crgNumCacheClusters = Nothing
-    , _crgPreferredCacheClusterAZs = Nothing
-    , _crgSnapshotName = Nothing
-    , _crgNotificationTopicARN = Nothing
-    , _crgTags = Nothing
-    , _crgPort = Nothing
-    , _crgCacheSecurityGroupNames = Nothing
-    , _crgReplicationGroupId = pReplicationGroupId_
-    , _crgReplicationGroupDescription = pReplicationGroupDescription_
-    }
+  CreateReplicationGroup'
+  { _crgAutomaticFailoverEnabled = Nothing
+  , _crgEngineVersion = Nothing
+  , _crgCacheNodeType = Nothing
+  , _crgNodeGroupConfiguration = Nothing
+  , _crgSecurityGroupIds = Nothing
+  , _crgSnapshotARNs = Nothing
+  , _crgAutoMinorVersionUpgrade = Nothing
+  , _crgCacheParameterGroupName = Nothing
+  , _crgSnapshotWindow = Nothing
+  , _crgAuthToken = Nothing
+  , _crgPrimaryClusterId = Nothing
+  , _crgEngine = Nothing
+  , _crgPreferredMaintenanceWindow = Nothing
+  , _crgCacheSubnetGroupName = Nothing
+  , _crgNumNodeGroups = Nothing
+  , _crgSnapshotRetentionLimit = Nothing
+  , _crgReplicasPerNodeGroup = Nothing
+  , _crgNumCacheClusters = Nothing
+  , _crgPreferredCacheClusterAZs = Nothing
+  , _crgSnapshotName = Nothing
+  , _crgNotificationTopicARN = Nothing
+  , _crgTags = Nothing
+  , _crgPort = Nothing
+  , _crgCacheSecurityGroupNames = Nothing
+  , _crgReplicationGroupId = pReplicationGroupId_
+  , _crgReplicationGroupDescription = pReplicationGroupDescription_
+  }
+
 
 -- | Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails. If @true@ , Multi-AZ is enabled for this replication group. If @false@ , Multi-AZ is disabled for this replication group. @AutomaticFailoverEnabled@ must be enabled for Redis (cluster mode enabled) replication groups. Default: false
 crgAutomaticFailoverEnabled :: Lens' CreateReplicationGroup (Maybe Bool)
@@ -312,9 +314,9 @@ instance AWSRequest CreateReplicationGroup where
                  CreateReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
-instance Hashable CreateReplicationGroup
+instance Hashable CreateReplicationGroup where
 
-instance NFData CreateReplicationGroup
+instance NFData CreateReplicationGroup where
 
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
@@ -377,9 +379,10 @@ instance ToQuery CreateReplicationGroup where
 
 -- | /See:/ 'createReplicationGroupResponse' smart constructor.
 data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
-    { _crgrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _crgrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crgrsReplicationGroup :: {-# NOUNPACK #-}!(Maybe ReplicationGroup)
+  , _crgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateReplicationGroupResponse' with the minimum fields required to make a request.
 --
@@ -392,10 +395,9 @@ createReplicationGroupResponse
     :: Int -- ^ 'crgrsResponseStatus'
     -> CreateReplicationGroupResponse
 createReplicationGroupResponse pResponseStatus_ =
-    CreateReplicationGroupResponse'
-    { _crgrsReplicationGroup = Nothing
-    , _crgrsResponseStatus = pResponseStatus_
-    }
+  CreateReplicationGroupResponse'
+  {_crgrsReplicationGroup = Nothing, _crgrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 crgrsReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
@@ -405,4 +407,4 @@ crgrsReplicationGroup = lens _crgrsReplicationGroup (\ s a -> s{_crgrsReplicatio
 crgrsResponseStatus :: Lens' CreateReplicationGroupResponse Int
 crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});
 
-instance NFData CreateReplicationGroupResponse
+instance NFData CreateReplicationGroupResponse where

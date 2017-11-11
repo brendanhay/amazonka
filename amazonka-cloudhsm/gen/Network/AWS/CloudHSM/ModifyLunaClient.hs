@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ModifyLunaClient
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     , mlcrsResponseStatus
     ) where
 
-import           Network.AWS.CloudHSM.Types
-import           Network.AWS.CloudHSM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudHSM.Types
+import Network.AWS.CloudHSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'modifyLunaClient' smart constructor.
 data ModifyLunaClient = ModifyLunaClient'
-    { _mlcClientARN   :: !Text
-    , _mlcCertificate :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlcClientARN   :: {-# NOUNPACK #-}!Text
+  , _mlcCertificate :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyLunaClient' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ modifyLunaClient
     -> Text -- ^ 'mlcCertificate'
     -> ModifyLunaClient
 modifyLunaClient pClientARN_ pCertificate_ =
-    ModifyLunaClient'
-    { _mlcClientARN = pClientARN_
-    , _mlcCertificate = pCertificate_
-    }
+  ModifyLunaClient'
+  {_mlcClientARN = pClientARN_, _mlcCertificate = pCertificate_}
+
 
 -- | The ARN of the client.
 mlcClientARN :: Lens' ModifyLunaClient Text
@@ -87,9 +87,9 @@ instance AWSRequest ModifyLunaClient where
                  ModifyLunaClientResponse' <$>
                    (x .?> "ClientArn") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyLunaClient
+instance Hashable ModifyLunaClient where
 
-instance NFData ModifyLunaClient
+instance NFData ModifyLunaClient where
 
 instance ToHeaders ModifyLunaClient where
         toHeaders
@@ -116,9 +116,10 @@ instance ToQuery ModifyLunaClient where
 
 -- | /See:/ 'modifyLunaClientResponse' smart constructor.
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
-    { _mlcrsClientARN      :: !(Maybe Text)
-    , _mlcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mlcrsClientARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mlcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyLunaClientResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ modifyLunaClientResponse
     :: Int -- ^ 'mlcrsResponseStatus'
     -> ModifyLunaClientResponse
 modifyLunaClientResponse pResponseStatus_ =
-    ModifyLunaClientResponse'
-    { _mlcrsClientARN = Nothing
-    , _mlcrsResponseStatus = pResponseStatus_
-    }
+  ModifyLunaClientResponse'
+  {_mlcrsClientARN = Nothing, _mlcrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN of the client.
 mlcrsClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
@@ -144,4 +144,4 @@ mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a});
 mlcrsResponseStatus :: Lens' ModifyLunaClientResponse Int
 mlcrsResponseStatus = lens _mlcrsResponseStatus (\ s a -> s{_mlcrsResponseStatus = a});
 
-instance NFData ModifyLunaClientResponse
+instance NFData ModifyLunaClientResponse where

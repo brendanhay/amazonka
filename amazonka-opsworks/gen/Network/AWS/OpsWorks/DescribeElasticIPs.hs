@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeElasticIPs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.OpsWorks.DescribeElasticIPs
     , deirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeElasticIPs' smart constructor.
 data DescribeElasticIPs = DescribeElasticIPs'
-    { _deiInstanceId :: !(Maybe Text)
-    , _deiIPs        :: !(Maybe [Text])
-    , _deiStackId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deiInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deiIPs        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _deiStackId    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticIPs' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ data DescribeElasticIPs = DescribeElasticIPs'
 describeElasticIPs
     :: DescribeElasticIPs
 describeElasticIPs =
-    DescribeElasticIPs'
-    { _deiInstanceId = Nothing
-    , _deiIPs = Nothing
-    , _deiStackId = Nothing
-    }
+  DescribeElasticIPs'
+  {_deiInstanceId = Nothing, _deiIPs = Nothing, _deiStackId = Nothing}
+
 
 -- | The instance ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses associated with the specified instance.
 deiInstanceId :: Lens' DescribeElasticIPs (Maybe Text)
@@ -96,9 +95,9 @@ instance AWSRequest DescribeElasticIPs where
                    (x .?> "ElasticIps" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeElasticIPs
+instance Hashable DescribeElasticIPs where
 
-instance NFData DescribeElasticIPs
+instance NFData DescribeElasticIPs where
 
 instance ToHeaders DescribeElasticIPs where
         toHeaders
@@ -130,9 +129,10 @@ instance ToQuery DescribeElasticIPs where
 --
 -- /See:/ 'describeElasticIPsResponse' smart constructor.
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
-    { _deirsElasticIPs     :: !(Maybe [ElasticIP])
-    , _deirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deirsElasticIPs     :: {-# NOUNPACK #-}!(Maybe [ElasticIP])
+  , _deirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeElasticIPsResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +145,9 @@ describeElasticIPsResponse
     :: Int -- ^ 'deirsResponseStatus'
     -> DescribeElasticIPsResponse
 describeElasticIPsResponse pResponseStatus_ =
-    DescribeElasticIPsResponse'
-    { _deirsElasticIPs = Nothing
-    , _deirsResponseStatus = pResponseStatus_
-    }
+  DescribeElasticIPsResponse'
+  {_deirsElasticIPs = Nothing, _deirsResponseStatus = pResponseStatus_}
+
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP addresses.
 deirsElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
@@ -158,4 +157,4 @@ deirsElasticIPs = lens _deirsElasticIPs (\ s a -> s{_deirsElasticIPs = a}) . _De
 deirsResponseStatus :: Lens' DescribeElasticIPsResponse Int
 deirsResponseStatus = lens _deirsResponseStatus (\ s a -> s{_deirsResponseStatus = a});
 
-instance NFData DescribeElasticIPsResponse
+instance NFData DescribeElasticIPsResponse where

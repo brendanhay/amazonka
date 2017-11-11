@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateContainerInstancesState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,19 +58,20 @@ module Network.AWS.ECS.UpdateContainerInstancesState
     , ucisrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateContainerInstancesState' smart constructor.
 data UpdateContainerInstancesState = UpdateContainerInstancesState'
-    { _ucisCluster            :: !(Maybe Text)
-    , _ucisContainerInstances :: ![Text]
-    , _ucisStatus             :: !ContainerInstanceStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucisCluster            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucisContainerInstances :: {-# NOUNPACK #-}![Text]
+  , _ucisStatus             :: {-# NOUNPACK #-}!ContainerInstanceStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateContainerInstancesState' with the minimum fields required to make a request.
 --
@@ -85,11 +86,12 @@ updateContainerInstancesState
     :: ContainerInstanceStatus -- ^ 'ucisStatus'
     -> UpdateContainerInstancesState
 updateContainerInstancesState pStatus_ =
-    UpdateContainerInstancesState'
-    { _ucisCluster = Nothing
-    , _ucisContainerInstances = mempty
-    , _ucisStatus = pStatus_
-    }
+  UpdateContainerInstancesState'
+  { _ucisCluster = Nothing
+  , _ucisContainerInstances = mempty
+  , _ucisStatus = pStatus_
+  }
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
 ucisCluster :: Lens' UpdateContainerInstancesState (Maybe Text)
@@ -116,9 +118,9 @@ instance AWSRequest UpdateContainerInstancesState
                      (x .?> "containerInstances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable UpdateContainerInstancesState
+instance Hashable UpdateContainerInstancesState where
 
-instance NFData UpdateContainerInstancesState
+instance NFData UpdateContainerInstancesState where
 
 instance ToHeaders UpdateContainerInstancesState
          where
@@ -148,10 +150,11 @@ instance ToQuery UpdateContainerInstancesState where
 
 -- | /See:/ 'updateContainerInstancesStateResponse' smart constructor.
 data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse'
-    { _ucisrsFailures           :: !(Maybe [Failure])
-    , _ucisrsContainerInstances :: !(Maybe [ContainerInstance])
-    , _ucisrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucisrsFailures           :: {-# NOUNPACK #-}!(Maybe [Failure])
+  , _ucisrsContainerInstances :: {-# NOUNPACK #-}!(Maybe [ContainerInstance])
+  , _ucisrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateContainerInstancesStateResponse' with the minimum fields required to make a request.
 --
@@ -166,11 +169,12 @@ updateContainerInstancesStateResponse
     :: Int -- ^ 'ucisrsResponseStatus'
     -> UpdateContainerInstancesStateResponse
 updateContainerInstancesStateResponse pResponseStatus_ =
-    UpdateContainerInstancesStateResponse'
-    { _ucisrsFailures = Nothing
-    , _ucisrsContainerInstances = Nothing
-    , _ucisrsResponseStatus = pResponseStatus_
-    }
+  UpdateContainerInstancesStateResponse'
+  { _ucisrsFailures = Nothing
+  , _ucisrsContainerInstances = Nothing
+  , _ucisrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Any failures associated with the call.
 ucisrsFailures :: Lens' UpdateContainerInstancesStateResponse [Failure]
@@ -185,3 +189,4 @@ ucisrsResponseStatus :: Lens' UpdateContainerInstancesStateResponse Int
 ucisrsResponseStatus = lens _ucisrsResponseStatus (\ s a -> s{_ucisrsResponseStatus = a});
 
 instance NFData UpdateContainerInstancesStateResponse
+         where

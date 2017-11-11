@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.AssociateConfigurationItemsToApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Discovery.AssociateConfigurationItemsToApplication
     , acitarsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateConfigurationItemsToApplication' smart constructor.
 data AssociateConfigurationItemsToApplication = AssociateConfigurationItemsToApplication'
-    { _acitaApplicationConfigurationId :: !Text
-    , _acitaConfigurationIds           :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acitaApplicationConfigurationId :: {-# NOUNPACK #-}!Text
+  , _acitaConfigurationIds           :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateConfigurationItemsToApplication' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ associateConfigurationItemsToApplication
     :: Text -- ^ 'acitaApplicationConfigurationId'
     -> AssociateConfigurationItemsToApplication
 associateConfigurationItemsToApplication pApplicationConfigurationId_ =
-    AssociateConfigurationItemsToApplication'
-    { _acitaApplicationConfigurationId = pApplicationConfigurationId_
-    , _acitaConfigurationIds = mempty
-    }
+  AssociateConfigurationItemsToApplication'
+  { _acitaApplicationConfigurationId = pApplicationConfigurationId_
+  , _acitaConfigurationIds = mempty
+  }
+
 
 -- | The configuration ID of an application with which items are to be associated.
 acitaApplicationConfigurationId :: Lens' AssociateConfigurationItemsToApplication Text
@@ -75,7 +77,8 @@ acitaConfigurationIds :: Lens' AssociateConfigurationItemsToApplication [Text]
 acitaConfigurationIds = lens _acitaConfigurationIds (\ s a -> s{_acitaConfigurationIds = a}) . _Coerce;
 
 instance AWSRequest
-         AssociateConfigurationItemsToApplication where
+           AssociateConfigurationItemsToApplication
+         where
         type Rs AssociateConfigurationItemsToApplication =
              AssociateConfigurationItemsToApplicationResponse
         request = postJSON discovery
@@ -86,13 +89,16 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         AssociateConfigurationItemsToApplication
+           AssociateConfigurationItemsToApplication
+         where
 
 instance NFData
-         AssociateConfigurationItemsToApplication
+           AssociateConfigurationItemsToApplication
+         where
 
 instance ToHeaders
-         AssociateConfigurationItemsToApplication where
+           AssociateConfigurationItemsToApplication
+         where
         toHeaders
           = const
               (mconcat
@@ -103,7 +109,8 @@ instance ToHeaders
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON
-         AssociateConfigurationItemsToApplication where
+           AssociateConfigurationItemsToApplication
+         where
         toJSON AssociateConfigurationItemsToApplication'{..}
           = object
               (catMaybes
@@ -113,17 +120,20 @@ instance ToJSON
                   Just ("configurationIds" .= _acitaConfigurationIds)])
 
 instance ToPath
-         AssociateConfigurationItemsToApplication where
+           AssociateConfigurationItemsToApplication
+         where
         toPath = const "/"
 
 instance ToQuery
-         AssociateConfigurationItemsToApplication where
+           AssociateConfigurationItemsToApplication
+         where
         toQuery = const mempty
 
 -- | /See:/ 'associateConfigurationItemsToApplicationResponse' smart constructor.
 newtype AssociateConfigurationItemsToApplicationResponse = AssociateConfigurationItemsToApplicationResponse'
-    { _acitarsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acitarsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateConfigurationItemsToApplicationResponse' with the minimum fields required to make a request.
 --
@@ -134,13 +144,14 @@ associateConfigurationItemsToApplicationResponse
     :: Int -- ^ 'acitarsResponseStatus'
     -> AssociateConfigurationItemsToApplicationResponse
 associateConfigurationItemsToApplicationResponse pResponseStatus_ =
-    AssociateConfigurationItemsToApplicationResponse'
-    { _acitarsResponseStatus = pResponseStatus_
-    }
+  AssociateConfigurationItemsToApplicationResponse'
+  {_acitarsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 acitarsResponseStatus :: Lens' AssociateConfigurationItemsToApplicationResponse Int
 acitarsResponseStatus = lens _acitarsResponseStatus (\ s a -> s{_acitarsResponseStatus = a});
 
 instance NFData
-         AssociateConfigurationItemsToApplicationResponse
+           AssociateConfigurationItemsToApplicationResponse
+         where

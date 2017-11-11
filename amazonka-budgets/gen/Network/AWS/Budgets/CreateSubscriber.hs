@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.CreateSubscriber
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,22 +37,23 @@ module Network.AWS.Budgets.CreateSubscriber
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of CreateSubscriber
 --
 -- /See:/ 'createSubscriber' smart constructor.
 data CreateSubscriber = CreateSubscriber'
-    { _csAccountId    :: !Text
-    , _csBudgetName   :: !Text
-    , _csNotification :: !Notification
-    , _csSubscriber   :: !Subscriber
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csAccountId    :: {-# NOUNPACK #-}!Text
+  , _csBudgetName   :: {-# NOUNPACK #-}!Text
+  , _csNotification :: {-# NOUNPACK #-}!Notification
+  , _csSubscriber   :: {-# NOUNPACK #-}!Subscriber
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubscriber' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ createSubscriber
     -> Subscriber -- ^ 'csSubscriber'
     -> CreateSubscriber
 createSubscriber pAccountId_ pBudgetName_ pNotification_ pSubscriber_ =
-    CreateSubscriber'
-    { _csAccountId = pAccountId_
-    , _csBudgetName = pBudgetName_
-    , _csNotification = pNotification_
-    , _csSubscriber = pSubscriber_
-    }
+  CreateSubscriber'
+  { _csAccountId = pAccountId_
+  , _csBudgetName = pBudgetName_
+  , _csNotification = pNotification_
+  , _csSubscriber = pSubscriber_
+  }
+
 
 -- | Undocumented member.
 csAccountId :: Lens' CreateSubscriber Text
@@ -103,9 +105,9 @@ instance AWSRequest CreateSubscriber where
               (\ s h x ->
                  CreateSubscriberResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateSubscriber
+instance Hashable CreateSubscriber where
 
-instance NFData CreateSubscriber
+instance NFData CreateSubscriber where
 
 instance ToHeaders CreateSubscriber where
         toHeaders
@@ -136,8 +138,9 @@ instance ToQuery CreateSubscriber where
 --
 -- /See:/ 'createSubscriberResponse' smart constructor.
 newtype CreateSubscriberResponse = CreateSubscriberResponse'
-    { _csrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubscriberResponse' with the minimum fields required to make a request.
 --
@@ -148,12 +151,11 @@ createSubscriberResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateSubscriberResponse
 createSubscriberResponse pResponseStatus_ =
-    CreateSubscriberResponse'
-    { _csrsResponseStatus = pResponseStatus_
-    }
+  CreateSubscriberResponse' {_csrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSubscriberResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CreateSubscriberResponse
+instance NFData CreateSubscriberResponse where

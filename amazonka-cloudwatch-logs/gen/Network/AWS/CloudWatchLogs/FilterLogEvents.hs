@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.FilterLogEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,25 +50,26 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , flersResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchLogs.Types
-import           Network.AWS.CloudWatchLogs.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchLogs.Types
+import Network.AWS.CloudWatchLogs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'filterLogEvents' smart constructor.
 data FilterLogEvents = FilterLogEvents'
-    { _fleStartTime      :: !(Maybe Nat)
-    , _fleNextToken      :: !(Maybe Text)
-    , _fleLogStreamNames :: !(Maybe (List1 Text))
-    , _fleEndTime        :: !(Maybe Nat)
-    , _fleLimit          :: !(Maybe Nat)
-    , _fleFilterPattern  :: !(Maybe Text)
-    , _fleInterleaved    :: !(Maybe Bool)
-    , _fleLogGroupName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fleStartTime      :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fleNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fleLogStreamNames :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _fleEndTime        :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fleLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _fleFilterPattern  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fleInterleaved    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _fleLogGroupName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FilterLogEvents' with the minimum fields required to make a request.
 --
@@ -93,16 +94,17 @@ filterLogEvents
     :: Text -- ^ 'fleLogGroupName'
     -> FilterLogEvents
 filterLogEvents pLogGroupName_ =
-    FilterLogEvents'
-    { _fleStartTime = Nothing
-    , _fleNextToken = Nothing
-    , _fleLogStreamNames = Nothing
-    , _fleEndTime = Nothing
-    , _fleLimit = Nothing
-    , _fleFilterPattern = Nothing
-    , _fleInterleaved = Nothing
-    , _fleLogGroupName = pLogGroupName_
-    }
+  FilterLogEvents'
+  { _fleStartTime = Nothing
+  , _fleNextToken = Nothing
+  , _fleLogStreamNames = Nothing
+  , _fleEndTime = Nothing
+  , _fleLimit = Nothing
+  , _fleFilterPattern = Nothing
+  , _fleInterleaved = Nothing
+  , _fleLogGroupName = pLogGroupName_
+  }
+
 
 -- | The start of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not returned.
 fleStartTime :: Lens' FilterLogEvents (Maybe Natural)
@@ -154,9 +156,9 @@ instance AWSRequest FilterLogEvents where
                      <*> (x .?> "events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable FilterLogEvents
+instance Hashable FilterLogEvents where
 
-instance NFData FilterLogEvents
+instance NFData FilterLogEvents where
 
 instance ToHeaders FilterLogEvents where
         toHeaders
@@ -188,11 +190,12 @@ instance ToQuery FilterLogEvents where
 
 -- | /See:/ 'filterLogEventsResponse' smart constructor.
 data FilterLogEventsResponse = FilterLogEventsResponse'
-    { _flersSearchedLogStreams :: !(Maybe [SearchedLogStream])
-    , _flersNextToken          :: !(Maybe Text)
-    , _flersEvents             :: !(Maybe [FilteredLogEvent])
-    , _flersResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _flersSearchedLogStreams :: {-# NOUNPACK #-}!(Maybe [SearchedLogStream])
+  , _flersNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _flersEvents             :: {-# NOUNPACK #-}!(Maybe [FilteredLogEvent])
+  , _flersResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'FilterLogEventsResponse' with the minimum fields required to make a request.
 --
@@ -209,12 +212,13 @@ filterLogEventsResponse
     :: Int -- ^ 'flersResponseStatus'
     -> FilterLogEventsResponse
 filterLogEventsResponse pResponseStatus_ =
-    FilterLogEventsResponse'
-    { _flersSearchedLogStreams = Nothing
-    , _flersNextToken = Nothing
-    , _flersEvents = Nothing
-    , _flersResponseStatus = pResponseStatus_
-    }
+  FilterLogEventsResponse'
+  { _flersSearchedLogStreams = Nothing
+  , _flersNextToken = Nothing
+  , _flersEvents = Nothing
+  , _flersResponseStatus = pResponseStatus_
+  }
+
 
 -- | Indicates which log streams have been searched and whether each has been searched completely.
 flersSearchedLogStreams :: Lens' FilterLogEventsResponse [SearchedLogStream]
@@ -232,4 +236,4 @@ flersEvents = lens _flersEvents (\ s a -> s{_flersEvents = a}) . _Default . _Coe
 flersResponseStatus :: Lens' FilterLogEventsResponse Int
 flersResponseStatus = lens _flersResponseStatus (\ s a -> s{_flersResponseStatus = a});
 
-instance NFData FilterLogEventsResponse
+instance NFData FilterLogEventsResponse where

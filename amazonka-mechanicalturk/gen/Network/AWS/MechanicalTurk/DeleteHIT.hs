@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.DeleteHIT
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.MechanicalTurk.DeleteHIT
     , dhitrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteHIT' smart constructor.
 newtype DeleteHIT = DeleteHIT'
-    { _dhitHITId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhitHITId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHIT' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteHIT = DeleteHIT'
 deleteHIT
     :: Text -- ^ 'dhitHITId'
     -> DeleteHIT
-deleteHIT pHITId_ =
-    DeleteHIT'
-    { _dhitHITId = pHITId_
-    }
+deleteHIT pHITId_ = DeleteHIT' {_dhitHITId = pHITId_}
+
 
 -- | The ID of the HIT to be deleted.
 dhitHITId :: Lens' DeleteHIT Text
@@ -75,9 +74,9 @@ instance AWSRequest DeleteHIT where
               (\ s h x ->
                  DeleteHITResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteHIT
+instance Hashable DeleteHIT where
 
-instance NFData DeleteHIT
+instance NFData DeleteHIT where
 
 instance ToHeaders DeleteHIT where
         toHeaders
@@ -101,8 +100,9 @@ instance ToQuery DeleteHIT where
 
 -- | /See:/ 'deleteHITResponse' smart constructor.
 newtype DeleteHITResponse = DeleteHITResponse'
-    { _dhitrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhitrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHITResponse' with the minimum fields required to make a request.
 --
@@ -113,12 +113,11 @@ deleteHITResponse
     :: Int -- ^ 'dhitrsResponseStatus'
     -> DeleteHITResponse
 deleteHITResponse pResponseStatus_ =
-    DeleteHITResponse'
-    { _dhitrsResponseStatus = pResponseStatus_
-    }
+  DeleteHITResponse' {_dhitrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dhitrsResponseStatus :: Lens' DeleteHITResponse Int
 dhitrsResponseStatus = lens _dhitrsResponseStatus (\ s a -> s{_dhitrsResponseStatus = a});
 
-instance NFData DeleteHITResponse
+instance NFData DeleteHITResponse where

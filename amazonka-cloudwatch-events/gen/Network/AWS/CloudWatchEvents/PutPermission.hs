@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.PutPermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudWatchEvents.PutPermission
     , PutPermissionResponse
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putPermission' smart constructor.
 data PutPermission = PutPermission'
-    { _ppAction      :: !Text
-    , _ppPrincipal   :: !Text
-    , _ppStatementId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppAction      :: {-# NOUNPACK #-}!Text
+  , _ppPrincipal   :: {-# NOUNPACK #-}!Text
+  , _ppStatementId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutPermission' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ putPermission
     -> Text -- ^ 'ppStatementId'
     -> PutPermission
 putPermission pAction_ pPrincipal_ pStatementId_ =
-    PutPermission'
-    { _ppAction = pAction_
-    , _ppPrincipal = pPrincipal_
-    , _ppStatementId = pStatementId_
-    }
+  PutPermission'
+  { _ppAction = pAction_
+  , _ppPrincipal = pPrincipal_
+  , _ppStatementId = pStatementId_
+  }
+
 
 -- | The action that you are enabling the other account to perform. Currently, this must be @events:PutEvents@ .
 ppAction :: Lens' PutPermission Text
@@ -92,9 +94,9 @@ instance AWSRequest PutPermission where
         request = postJSON cloudWatchEvents
         response = receiveNull PutPermissionResponse'
 
-instance Hashable PutPermission
+instance Hashable PutPermission where
 
-instance NFData PutPermission
+instance NFData PutPermission where
 
 instance ToHeaders PutPermission where
         toHeaders
@@ -121,8 +123,9 @@ instance ToQuery PutPermission where
 
 -- | /See:/ 'putPermissionResponse' smart constructor.
 data PutPermissionResponse =
-    PutPermissionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PutPermissionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutPermissionResponse' with the minimum fields required to make a request.
 --
@@ -130,4 +133,5 @@ putPermissionResponse
     :: PutPermissionResponse
 putPermissionResponse = PutPermissionResponse'
 
-instance NFData PutPermissionResponse
+
+instance NFData PutPermissionResponse where

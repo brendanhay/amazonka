@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.CreateComment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,24 +44,25 @@ module Network.AWS.WorkDocs.CreateComment
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createComment' smart constructor.
 data CreateComment = CreateComment'
-    { _ccNotifyCollaborators :: !(Maybe Bool)
-    , _ccAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _ccVisibility          :: !(Maybe CommentVisibilityType)
-    , _ccThreadId            :: !(Maybe Text)
-    , _ccParentId            :: !(Maybe Text)
-    , _ccDocumentId          :: !Text
-    , _ccVersionId           :: !Text
-    , _ccText                :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ccNotifyCollaborators :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ccVisibility          :: {-# NOUNPACK #-}!(Maybe CommentVisibilityType)
+  , _ccThreadId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccParentId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccDocumentId          :: {-# NOUNPACK #-}!Text
+  , _ccVersionId           :: {-# NOUNPACK #-}!Text
+  , _ccText                :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateComment' with the minimum fields required to make a request.
 --
@@ -88,16 +89,17 @@ createComment
     -> Text -- ^ 'ccText'
     -> CreateComment
 createComment pDocumentId_ pVersionId_ pText_ =
-    CreateComment'
-    { _ccNotifyCollaborators = Nothing
-    , _ccAuthenticationToken = Nothing
-    , _ccVisibility = Nothing
-    , _ccThreadId = Nothing
-    , _ccParentId = Nothing
-    , _ccDocumentId = pDocumentId_
-    , _ccVersionId = pVersionId_
-    , _ccText = _Sensitive # pText_
-    }
+  CreateComment'
+  { _ccNotifyCollaborators = Nothing
+  , _ccAuthenticationToken = Nothing
+  , _ccVisibility = Nothing
+  , _ccThreadId = Nothing
+  , _ccParentId = Nothing
+  , _ccDocumentId = pDocumentId_
+  , _ccVersionId = pVersionId_
+  , _ccText = _Sensitive # pText_
+  }
+
 
 -- | Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
 ccNotifyCollaborators :: Lens' CreateComment (Maybe Bool)
@@ -140,9 +142,9 @@ instance AWSRequest CreateComment where
                  CreateCommentResponse' <$>
                    (x .?> "Comment") <*> (pure (fromEnum s)))
 
-instance Hashable CreateComment
+instance Hashable CreateComment where
 
-instance NFData CreateComment
+instance NFData CreateComment where
 
 instance ToHeaders CreateComment where
         toHeaders CreateComment'{..}
@@ -173,9 +175,10 @@ instance ToQuery CreateComment where
 
 -- | /See:/ 'createCommentResponse' smart constructor.
 data CreateCommentResponse = CreateCommentResponse'
-    { _ccrsComment        :: !(Maybe Comment)
-    , _ccrsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ccrsComment        :: {-# NOUNPACK #-}!(Maybe Comment)
+  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCommentResponse' with the minimum fields required to make a request.
 --
@@ -188,10 +191,9 @@ createCommentResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CreateCommentResponse
 createCommentResponse pResponseStatus_ =
-    CreateCommentResponse'
-    { _ccrsComment = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
-    }
+  CreateCommentResponse'
+  {_ccrsComment = Nothing, _ccrsResponseStatus = pResponseStatus_}
+
 
 -- | The comment that has been created.
 ccrsComment :: Lens' CreateCommentResponse (Maybe Comment)
@@ -201,4 +203,4 @@ ccrsComment = lens _ccrsComment (\ s a -> s{_ccrsComment = a});
 ccrsResponseStatus :: Lens' CreateCommentResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData CreateCommentResponse
+instance NFData CreateCommentResponse where

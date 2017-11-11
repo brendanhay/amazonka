@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.GetConsoleScreenshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.GetConsoleScreenshot
     , gcsrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for the request.
 --
@@ -55,10 +55,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getConsoleScreenshot' smart constructor.
 data GetConsoleScreenshot = GetConsoleScreenshot'
-    { _gcsWakeUp     :: !(Maybe Bool)
-    , _gcsDryRun     :: !(Maybe Bool)
-    , _gcsInstanceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcsWakeUp     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gcsDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gcsInstanceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConsoleScreenshot' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ getConsoleScreenshot
     :: Text -- ^ 'gcsInstanceId'
     -> GetConsoleScreenshot
 getConsoleScreenshot pInstanceId_ =
-    GetConsoleScreenshot'
-    { _gcsWakeUp = Nothing
-    , _gcsDryRun = Nothing
-    , _gcsInstanceId = pInstanceId_
-    }
+  GetConsoleScreenshot'
+  {_gcsWakeUp = Nothing, _gcsDryRun = Nothing, _gcsInstanceId = pInstanceId_}
+
 
 -- | When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
 gcsWakeUp :: Lens' GetConsoleScreenshot (Maybe Bool)
@@ -102,9 +101,9 @@ instance AWSRequest GetConsoleScreenshot where
                    (x .@? "instanceId") <*> (x .@? "imageData") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetConsoleScreenshot
+instance Hashable GetConsoleScreenshot where
 
-instance NFData GetConsoleScreenshot
+instance NFData GetConsoleScreenshot where
 
 instance ToHeaders GetConsoleScreenshot where
         toHeaders = const mempty
@@ -126,10 +125,11 @@ instance ToQuery GetConsoleScreenshot where
 --
 -- /See:/ 'getConsoleScreenshotResponse' smart constructor.
 data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
-    { _gcsrsInstanceId     :: !(Maybe Text)
-    , _gcsrsImageData      :: !(Maybe Text)
-    , _gcsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcsrsInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcsrsImageData      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConsoleScreenshotResponse' with the minimum fields required to make a request.
 --
@@ -144,11 +144,12 @@ getConsoleScreenshotResponse
     :: Int -- ^ 'gcsrsResponseStatus'
     -> GetConsoleScreenshotResponse
 getConsoleScreenshotResponse pResponseStatus_ =
-    GetConsoleScreenshotResponse'
-    { _gcsrsInstanceId = Nothing
-    , _gcsrsImageData = Nothing
-    , _gcsrsResponseStatus = pResponseStatus_
-    }
+  GetConsoleScreenshotResponse'
+  { _gcsrsInstanceId = Nothing
+  , _gcsrsImageData = Nothing
+  , _gcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the instance.
 gcsrsInstanceId :: Lens' GetConsoleScreenshotResponse (Maybe Text)
@@ -162,4 +163,4 @@ gcsrsImageData = lens _gcsrsImageData (\ s a -> s{_gcsrsImageData = a});
 gcsrsResponseStatus :: Lens' GetConsoleScreenshotResponse Int
 gcsrsResponseStatus = lens _gcsrsResponseStatus (\ s a -> s{_gcsrsResponseStatus = a});
 
-instance NFData GetConsoleScreenshotResponse
+instance NFData GetConsoleScreenshotResponse where

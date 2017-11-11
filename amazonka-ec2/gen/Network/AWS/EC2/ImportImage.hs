@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,12 +56,12 @@ module Network.AWS.EC2.ImportImage
     , irsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ImportImage.
 --
@@ -69,17 +69,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'importImage' smart constructor.
 data ImportImage = ImportImage'
-    { _impHypervisor     :: !(Maybe Text)
-    , _impPlatform       :: !(Maybe Text)
-    , _impClientToken    :: !(Maybe Text)
-    , _impLicenseType    :: !(Maybe Text)
-    , _impRoleName       :: !(Maybe Text)
-    , _impArchitecture   :: !(Maybe Text)
-    , _impDescription    :: !(Maybe Text)
-    , _impDryRun         :: !(Maybe Bool)
-    , _impClientData     :: !(Maybe ClientData)
-    , _impDiskContainers :: !(Maybe [ImageDiskContainer])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _impHypervisor     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _impPlatform       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _impClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _impLicenseType    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _impRoleName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _impArchitecture   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _impDescription    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _impDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _impClientData     :: {-# NOUNPACK #-}!(Maybe ClientData)
+  , _impDiskContainers :: {-# NOUNPACK #-}!(Maybe [ImageDiskContainer])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportImage' with the minimum fields required to make a request.
 --
@@ -107,18 +108,19 @@ data ImportImage = ImportImage'
 importImage
     :: ImportImage
 importImage =
-    ImportImage'
-    { _impHypervisor = Nothing
-    , _impPlatform = Nothing
-    , _impClientToken = Nothing
-    , _impLicenseType = Nothing
-    , _impRoleName = Nothing
-    , _impArchitecture = Nothing
-    , _impDescription = Nothing
-    , _impDryRun = Nothing
-    , _impClientData = Nothing
-    , _impDiskContainers = Nothing
-    }
+  ImportImage'
+  { _impHypervisor = Nothing
+  , _impPlatform = Nothing
+  , _impClientToken = Nothing
+  , _impLicenseType = Nothing
+  , _impRoleName = Nothing
+  , _impArchitecture = Nothing
+  , _impDescription = Nothing
+  , _impDryRun = Nothing
+  , _impClientData = Nothing
+  , _impDiskContainers = Nothing
+  }
+
 
 -- | The target hypervisor platform. Valid values: @xen@
 impHypervisor :: Lens' ImportImage (Maybe Text)
@@ -181,9 +183,9 @@ instance AWSRequest ImportImage where
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ImportImage
+instance Hashable ImportImage where
 
-instance NFData ImportImage
+instance NFData ImportImage where
 
 instance ToHeaders ImportImage where
         toHeaders = const mempty
@@ -214,19 +216,20 @@ instance ToQuery ImportImage where
 --
 -- /See:/ 'importImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'
-    { _irsStatus          :: !(Maybe Text)
-    , _irsHypervisor      :: !(Maybe Text)
-    , _irsPlatform        :: !(Maybe Text)
-    , _irsProgress        :: !(Maybe Text)
-    , _irsLicenseType     :: !(Maybe Text)
-    , _irsSnapshotDetails :: !(Maybe [SnapshotDetail])
-    , _irsStatusMessage   :: !(Maybe Text)
-    , _irsImageId         :: !(Maybe Text)
-    , _irsImportTaskId    :: !(Maybe Text)
-    , _irsArchitecture    :: !(Maybe Text)
-    , _irsDescription     :: !(Maybe Text)
-    , _irsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irsStatus          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsHypervisor      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsPlatform        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsProgress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsLicenseType     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsSnapshotDetails :: {-# NOUNPACK #-}!(Maybe [SnapshotDetail])
+  , _irsStatusMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsImageId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsImportTaskId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsArchitecture    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportImageResponse' with the minimum fields required to make a request.
 --
@@ -259,20 +262,21 @@ importImageResponse
     :: Int -- ^ 'irsResponseStatus'
     -> ImportImageResponse
 importImageResponse pResponseStatus_ =
-    ImportImageResponse'
-    { _irsStatus = Nothing
-    , _irsHypervisor = Nothing
-    , _irsPlatform = Nothing
-    , _irsProgress = Nothing
-    , _irsLicenseType = Nothing
-    , _irsSnapshotDetails = Nothing
-    , _irsStatusMessage = Nothing
-    , _irsImageId = Nothing
-    , _irsImportTaskId = Nothing
-    , _irsArchitecture = Nothing
-    , _irsDescription = Nothing
-    , _irsResponseStatus = pResponseStatus_
-    }
+  ImportImageResponse'
+  { _irsStatus = Nothing
+  , _irsHypervisor = Nothing
+  , _irsPlatform = Nothing
+  , _irsProgress = Nothing
+  , _irsLicenseType = Nothing
+  , _irsSnapshotDetails = Nothing
+  , _irsStatusMessage = Nothing
+  , _irsImageId = Nothing
+  , _irsImportTaskId = Nothing
+  , _irsArchitecture = Nothing
+  , _irsDescription = Nothing
+  , _irsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A brief status of the task.
 irsStatus :: Lens' ImportImageResponse (Maybe Text)
@@ -322,4 +326,4 @@ irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a});
 irsResponseStatus :: Lens' ImportImageResponse Int
 irsResponseStatus = lens _irsResponseStatus (\ s a -> s{_irsResponseStatus = a});
 
-instance NFData ImportImageResponse
+instance NFData ImportImageResponse where

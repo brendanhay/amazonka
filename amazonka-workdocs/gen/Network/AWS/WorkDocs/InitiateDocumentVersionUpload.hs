@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.InitiateDocumentVersionUpload
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -49,24 +49,25 @@ module Network.AWS.WorkDocs.InitiateDocumentVersionUpload
     , idvursResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'initiateDocumentVersionUpload' smart constructor.
 data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
-    { _idvuDocumentSizeInBytes      :: !(Maybe Integer)
-    , _idvuContentCreatedTimestamp  :: !(Maybe POSIX)
-    , _idvuAuthenticationToken      :: !(Maybe (Sensitive Text))
-    , _idvuName                     :: !(Maybe Text)
-    , _idvuId                       :: !(Maybe Text)
-    , _idvuContentModifiedTimestamp :: !(Maybe POSIX)
-    , _idvuContentType              :: !(Maybe Text)
-    , _idvuParentFolderId           :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _idvuDocumentSizeInBytes      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _idvuContentCreatedTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _idvuAuthenticationToken      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _idvuName                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _idvuId                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _idvuContentModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _idvuContentType              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _idvuParentFolderId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateDocumentVersionUpload' with the minimum fields required to make a request.
 --
@@ -91,16 +92,17 @@ initiateDocumentVersionUpload
     :: Text -- ^ 'idvuParentFolderId'
     -> InitiateDocumentVersionUpload
 initiateDocumentVersionUpload pParentFolderId_ =
-    InitiateDocumentVersionUpload'
-    { _idvuDocumentSizeInBytes = Nothing
-    , _idvuContentCreatedTimestamp = Nothing
-    , _idvuAuthenticationToken = Nothing
-    , _idvuName = Nothing
-    , _idvuId = Nothing
-    , _idvuContentModifiedTimestamp = Nothing
-    , _idvuContentType = Nothing
-    , _idvuParentFolderId = pParentFolderId_
-    }
+  InitiateDocumentVersionUpload'
+  { _idvuDocumentSizeInBytes = Nothing
+  , _idvuContentCreatedTimestamp = Nothing
+  , _idvuAuthenticationToken = Nothing
+  , _idvuName = Nothing
+  , _idvuId = Nothing
+  , _idvuContentModifiedTimestamp = Nothing
+  , _idvuContentType = Nothing
+  , _idvuParentFolderId = pParentFolderId_
+  }
+
 
 -- | The size of the document, in bytes.
 idvuDocumentSizeInBytes :: Lens' InitiateDocumentVersionUpload (Maybe Integer)
@@ -146,9 +148,9 @@ instance AWSRequest InitiateDocumentVersionUpload
                    (x .?> "Metadata") <*> (x .?> "UploadMetadata") <*>
                      (pure (fromEnum s)))
 
-instance Hashable InitiateDocumentVersionUpload
+instance Hashable InitiateDocumentVersionUpload where
 
-instance NFData InitiateDocumentVersionUpload
+instance NFData InitiateDocumentVersionUpload where
 
 instance ToHeaders InitiateDocumentVersionUpload
          where
@@ -180,10 +182,11 @@ instance ToQuery InitiateDocumentVersionUpload where
 
 -- | /See:/ 'initiateDocumentVersionUploadResponse' smart constructor.
 data InitiateDocumentVersionUploadResponse = InitiateDocumentVersionUploadResponse'
-    { _idvursMetadata       :: !(Maybe DocumentMetadata)
-    , _idvursUploadMetadata :: !(Maybe UploadMetadata)
-    , _idvursResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _idvursMetadata       :: {-# NOUNPACK #-}!(Maybe DocumentMetadata)
+  , _idvursUploadMetadata :: {-# NOUNPACK #-}!(Maybe UploadMetadata)
+  , _idvursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InitiateDocumentVersionUploadResponse' with the minimum fields required to make a request.
 --
@@ -198,11 +201,12 @@ initiateDocumentVersionUploadResponse
     :: Int -- ^ 'idvursResponseStatus'
     -> InitiateDocumentVersionUploadResponse
 initiateDocumentVersionUploadResponse pResponseStatus_ =
-    InitiateDocumentVersionUploadResponse'
-    { _idvursMetadata = Nothing
-    , _idvursUploadMetadata = Nothing
-    , _idvursResponseStatus = pResponseStatus_
-    }
+  InitiateDocumentVersionUploadResponse'
+  { _idvursMetadata = Nothing
+  , _idvursUploadMetadata = Nothing
+  , _idvursResponseStatus = pResponseStatus_
+  }
+
 
 -- | The document metadata.
 idvursMetadata :: Lens' InitiateDocumentVersionUploadResponse (Maybe DocumentMetadata)
@@ -217,3 +221,4 @@ idvursResponseStatus :: Lens' InitiateDocumentVersionUploadResponse Int
 idvursResponseStatus = lens _idvursResponseStatus (\ s a -> s{_idvursResponseStatus = a});
 
 instance NFData InitiateDocumentVersionUploadResponse
+         where

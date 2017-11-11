@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.SendCommand
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,31 +51,32 @@ module Network.AWS.SSM.SendCommand
     , scrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'sendCommand' smart constructor.
 data SendCommand = SendCommand'
-    { _scServiceRoleARN     :: !(Maybe Text)
-    , _scNotificationConfig :: !(Maybe NotificationConfig)
-    , _scDocumentHashType   :: !(Maybe DocumentHashType)
-    , _scOutputS3KeyPrefix  :: !(Maybe Text)
-    , _scMaxErrors          :: !(Maybe Text)
-    , _scInstanceIds        :: !(Maybe [Text])
-    , _scOutputS3Region     :: !(Maybe Text)
-    , _scTargets            :: !(Maybe [Target])
-    , _scParameters         :: !(Maybe (Map Text [Text]))
-    , _scDocumentHash       :: !(Maybe Text)
-    , _scTimeoutSeconds     :: !(Maybe Nat)
-    , _scComment            :: !(Maybe Text)
-    , _scOutputS3BucketName :: !(Maybe Text)
-    , _scMaxConcurrency     :: !(Maybe Text)
-    , _scDocumentName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scServiceRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scNotificationConfig :: {-# NOUNPACK #-}!(Maybe NotificationConfig)
+  , _scDocumentHashType   :: {-# NOUNPACK #-}!(Maybe DocumentHashType)
+  , _scOutputS3KeyPrefix  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scMaxErrors          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scInstanceIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _scOutputS3Region     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scTargets            :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _scParameters         :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _scDocumentHash       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scTimeoutSeconds     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _scComment            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scOutputS3BucketName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scMaxConcurrency     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _scDocumentName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendCommand' with the minimum fields required to make a request.
 --
@@ -114,23 +115,24 @@ sendCommand
     :: Text -- ^ 'scDocumentName'
     -> SendCommand
 sendCommand pDocumentName_ =
-    SendCommand'
-    { _scServiceRoleARN = Nothing
-    , _scNotificationConfig = Nothing
-    , _scDocumentHashType = Nothing
-    , _scOutputS3KeyPrefix = Nothing
-    , _scMaxErrors = Nothing
-    , _scInstanceIds = Nothing
-    , _scOutputS3Region = Nothing
-    , _scTargets = Nothing
-    , _scParameters = Nothing
-    , _scDocumentHash = Nothing
-    , _scTimeoutSeconds = Nothing
-    , _scComment = Nothing
-    , _scOutputS3BucketName = Nothing
-    , _scMaxConcurrency = Nothing
-    , _scDocumentName = pDocumentName_
-    }
+  SendCommand'
+  { _scServiceRoleARN = Nothing
+  , _scNotificationConfig = Nothing
+  , _scDocumentHashType = Nothing
+  , _scOutputS3KeyPrefix = Nothing
+  , _scMaxErrors = Nothing
+  , _scInstanceIds = Nothing
+  , _scOutputS3Region = Nothing
+  , _scTargets = Nothing
+  , _scParameters = Nothing
+  , _scDocumentHash = Nothing
+  , _scTimeoutSeconds = Nothing
+  , _scComment = Nothing
+  , _scOutputS3BucketName = Nothing
+  , _scMaxConcurrency = Nothing
+  , _scDocumentName = pDocumentName_
+  }
+
 
 -- | The IAM role that Systems Manager uses to send notifications.
 scServiceRoleARN :: Lens' SendCommand (Maybe Text)
@@ -201,9 +203,9 @@ instance AWSRequest SendCommand where
                  SendCommandResponse' <$>
                    (x .?> "Command") <*> (pure (fromEnum s)))
 
-instance Hashable SendCommand
+instance Hashable SendCommand where
 
-instance NFData SendCommand
+instance NFData SendCommand where
 
 instance ToHeaders SendCommand where
         toHeaders
@@ -242,9 +244,10 @@ instance ToQuery SendCommand where
 
 -- | /See:/ 'sendCommandResponse' smart constructor.
 data SendCommandResponse = SendCommandResponse'
-    { _scrsCommand        :: !(Maybe Command)
-    , _scrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _scrsCommand        :: {-# NOUNPACK #-}!(Maybe Command)
+  , _scrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendCommandResponse' with the minimum fields required to make a request.
 --
@@ -257,10 +260,9 @@ sendCommandResponse
     :: Int -- ^ 'scrsResponseStatus'
     -> SendCommandResponse
 sendCommandResponse pResponseStatus_ =
-    SendCommandResponse'
-    { _scrsCommand = Nothing
-    , _scrsResponseStatus = pResponseStatus_
-    }
+  SendCommandResponse'
+  {_scrsCommand = Nothing, _scrsResponseStatus = pResponseStatus_}
+
 
 -- | The request as it was received by Systems Manager. Also provides the command ID which can be used future references to this request.
 scrsCommand :: Lens' SendCommandResponse (Maybe Command)
@@ -270,4 +272,4 @@ scrsCommand = lens _scrsCommand (\ s a -> s{_scrsCommand = a});
 scrsResponseStatus :: Lens' SendCommandResponse Int
 scrsResponseStatus = lens _scrsResponseStatus (\ s a -> s{_scrsResponseStatus = a});
 
-instance NFData SendCommandResponse
+instance NFData SendCommandResponse where

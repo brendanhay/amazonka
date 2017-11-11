@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UploadSSHPublicKey
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.IAM.UploadSSHPublicKey
     , uspkrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'uploadSSHPublicKey' smart constructor.
 data UploadSSHPublicKey = UploadSSHPublicKey'
-    { _usshpkUserName         :: !Text
-    , _usshpkSSHPublicKeyBody :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usshpkUserName         :: {-# NOUNPACK #-}!Text
+  , _usshpkSSHPublicKeyBody :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadSSHPublicKey' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ uploadSSHPublicKey
     -> Text -- ^ 'usshpkSSHPublicKeyBody'
     -> UploadSSHPublicKey
 uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
-    UploadSSHPublicKey'
-    { _usshpkUserName = pUserName_
-    , _usshpkSSHPublicKeyBody = pSSHPublicKeyBody_
-    }
+  UploadSSHPublicKey'
+  {_usshpkUserName = pUserName_, _usshpkSSHPublicKeyBody = pSSHPublicKeyBody_}
+
 
 -- | The name of the IAM user to associate the SSH public key with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 usshpkUserName :: Lens' UploadSSHPublicKey Text
@@ -88,9 +88,9 @@ instance AWSRequest UploadSSHPublicKey where
                  UploadSSHPublicKeyResponse' <$>
                    (x .@? "SSHPublicKey") <*> (pure (fromEnum s)))
 
-instance Hashable UploadSSHPublicKey
+instance Hashable UploadSSHPublicKey where
 
-instance NFData UploadSSHPublicKey
+instance NFData UploadSSHPublicKey where
 
 instance ToHeaders UploadSSHPublicKey where
         toHeaders = const mempty
@@ -112,9 +112,10 @@ instance ToQuery UploadSSHPublicKey where
 --
 -- /See:/ 'uploadSSHPublicKeyResponse' smart constructor.
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
-    { _uspkrsSSHPublicKey   :: !(Maybe SSHPublicKey)
-    , _uspkrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uspkrsSSHPublicKey   :: {-# NOUNPACK #-}!(Maybe SSHPublicKey)
+  , _uspkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadSSHPublicKeyResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,9 @@ uploadSSHPublicKeyResponse
     :: Int -- ^ 'uspkrsResponseStatus'
     -> UploadSSHPublicKeyResponse
 uploadSSHPublicKeyResponse pResponseStatus_ =
-    UploadSSHPublicKeyResponse'
-    { _uspkrsSSHPublicKey = Nothing
-    , _uspkrsResponseStatus = pResponseStatus_
-    }
+  UploadSSHPublicKeyResponse'
+  {_uspkrsSSHPublicKey = Nothing, _uspkrsResponseStatus = pResponseStatus_}
+
 
 -- | Contains information about the SSH public key.
 uspkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
@@ -140,4 +140,4 @@ uspkrsSSHPublicKey = lens _uspkrsSSHPublicKey (\ s a -> s{_uspkrsSSHPublicKey = 
 uspkrsResponseStatus :: Lens' UploadSSHPublicKeyResponse Int
 uspkrsResponseStatus = lens _uspkrsResponseStatus (\ s a -> s{_uspkrsResponseStatus = a});
 
-instance NFData UploadSSHPublicKeyResponse
+instance NFData UploadSSHPublicKeyResponse where

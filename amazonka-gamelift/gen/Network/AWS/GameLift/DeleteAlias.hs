@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteAlias
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.GameLift.DeleteAlias
     , DeleteAliasResponse
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -63,8 +63,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteAlias' smart constructor.
 newtype DeleteAlias = DeleteAlias'
-    { _daAliasId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daAliasId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
 --
@@ -74,10 +75,8 @@ newtype DeleteAlias = DeleteAlias'
 deleteAlias
     :: Text -- ^ 'daAliasId'
     -> DeleteAlias
-deleteAlias pAliasId_ =
-    DeleteAlias'
-    { _daAliasId = pAliasId_
-    }
+deleteAlias pAliasId_ = DeleteAlias' {_daAliasId = pAliasId_}
+
 
 -- | Unique identifier for a fleet alias. Specify the alias you want to delete.
 daAliasId :: Lens' DeleteAlias Text
@@ -88,9 +87,9 @@ instance AWSRequest DeleteAlias where
         request = postJSON gameLift
         response = receiveNull DeleteAliasResponse'
 
-instance Hashable DeleteAlias
+instance Hashable DeleteAlias where
 
-instance NFData DeleteAlias
+instance NFData DeleteAlias where
 
 instance ToHeaders DeleteAlias where
         toHeaders
@@ -113,8 +112,9 @@ instance ToQuery DeleteAlias where
 
 -- | /See:/ 'deleteAliasResponse' smart constructor.
 data DeleteAliasResponse =
-    DeleteAliasResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteAliasResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +122,5 @@ deleteAliasResponse
     :: DeleteAliasResponse
 deleteAliasResponse = DeleteAliasResponse'
 
-instance NFData DeleteAliasResponse
+
+instance NFData DeleteAliasResponse where

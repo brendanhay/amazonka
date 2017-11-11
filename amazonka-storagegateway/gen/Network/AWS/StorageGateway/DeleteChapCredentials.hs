@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteChapCredentials
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -58,9 +58,10 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'deleteChapCredentials' smart constructor.
 data DeleteChapCredentials = DeleteChapCredentials'
-    { _dTargetARN     :: !Text
-    , _dInitiatorName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dTargetARN     :: {-# NOUNPACK #-}!Text
+  , _dInitiatorName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteChapCredentials' with the minimum fields required to make a request.
 --
@@ -74,10 +75,9 @@ deleteChapCredentials
     -> Text -- ^ 'dInitiatorName'
     -> DeleteChapCredentials
 deleteChapCredentials pTargetARN_ pInitiatorName_ =
-    DeleteChapCredentials'
-    { _dTargetARN = pTargetARN_
-    , _dInitiatorName = pInitiatorName_
-    }
+  DeleteChapCredentials'
+  {_dTargetARN = pTargetARN_, _dInitiatorName = pInitiatorName_}
+
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 dTargetARN :: Lens' DeleteChapCredentials Text
@@ -98,9 +98,9 @@ instance AWSRequest DeleteChapCredentials where
                    (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
                      (pure (fromEnum s)))
 
-instance Hashable DeleteChapCredentials
+instance Hashable DeleteChapCredentials where
 
-instance NFData DeleteChapCredentials
+instance NFData DeleteChapCredentials where
 
 instance ToHeaders DeleteChapCredentials where
         toHeaders
@@ -131,10 +131,11 @@ instance ToQuery DeleteChapCredentials where
 --
 -- /See:/ 'deleteChapCredentialsResponse' smart constructor.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
-    { _drsTargetARN      :: !(Maybe Text)
-    , _drsInitiatorName  :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsTargetARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsInitiatorName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteChapCredentialsResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +150,12 @@ deleteChapCredentialsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteChapCredentialsResponse
 deleteChapCredentialsResponse pResponseStatus_ =
-    DeleteChapCredentialsResponse'
-    { _drsTargetARN = Nothing
-    , _drsInitiatorName = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteChapCredentialsResponse'
+  { _drsTargetARN = Nothing
+  , _drsInitiatorName = Nothing
+  , _drsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the target.
 drsTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
@@ -167,4 +169,4 @@ drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
 drsResponseStatus :: Lens' DeleteChapCredentialsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteChapCredentialsResponse
+instance NFData DeleteChapCredentialsResponse where

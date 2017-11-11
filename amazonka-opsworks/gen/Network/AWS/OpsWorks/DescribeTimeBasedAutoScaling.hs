@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     , dtbasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTimeBasedAutoScaling' smart constructor.
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
-    { _dtbasInstanceIds :: [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtbasInstanceIds :: [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTimeBasedAutoScaling' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
 describeTimeBasedAutoScaling
     :: DescribeTimeBasedAutoScaling
 describeTimeBasedAutoScaling =
-    DescribeTimeBasedAutoScaling'
-    { _dtbasInstanceIds = mempty
-    }
+  DescribeTimeBasedAutoScaling' {_dtbasInstanceIds = mempty}
+
 
 -- | An array of instance IDs.
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
@@ -80,9 +80,9 @@ instance AWSRequest DescribeTimeBasedAutoScaling
                       mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTimeBasedAutoScaling
+instance Hashable DescribeTimeBasedAutoScaling where
 
-instance NFData DescribeTimeBasedAutoScaling
+instance NFData DescribeTimeBasedAutoScaling where
 
 instance ToHeaders DescribeTimeBasedAutoScaling where
         toHeaders
@@ -112,9 +112,10 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 --
 -- /See:/ 'describeTimeBasedAutoScalingResponse' smart constructor.
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
-    { _dtbasrsTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
-    , _dtbasrsResponseStatus                     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtbasrsTimeBasedAutoScalingConfigurations :: {-# NOUNPACK #-}!(Maybe [TimeBasedAutoScalingConfiguration])
+  , _dtbasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTimeBasedAutoScalingResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +128,11 @@ describeTimeBasedAutoScalingResponse
     :: Int -- ^ 'dtbasrsResponseStatus'
     -> DescribeTimeBasedAutoScalingResponse
 describeTimeBasedAutoScalingResponse pResponseStatus_ =
-    DescribeTimeBasedAutoScalingResponse'
-    { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
-    , _dtbasrsResponseStatus = pResponseStatus_
-    }
+  DescribeTimeBasedAutoScalingResponse'
+  { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
+  , _dtbasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe the configuration for the specified instances.
 dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
@@ -141,3 +143,4 @@ dtbasrsResponseStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
 dtbasrsResponseStatus = lens _dtbasrsResponseStatus (\ s a -> s{_dtbasrsResponseStatus = a});
 
 instance NFData DescribeTimeBasedAutoScalingResponse
+         where

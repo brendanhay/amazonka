@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeLoggingStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.Redshift.DescribeLoggingStatus
     , lsLastFailureMessage
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeLoggingStatus' smart constructor.
 newtype DescribeLoggingStatus = DescribeLoggingStatus'
-    { _dlsClusterIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlsClusterIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLoggingStatus' with the minimum fields required to make a request.
 --
@@ -66,9 +67,8 @@ describeLoggingStatus
     :: Text -- ^ 'dlsClusterIdentifier'
     -> DescribeLoggingStatus
 describeLoggingStatus pClusterIdentifier_ =
-    DescribeLoggingStatus'
-    { _dlsClusterIdentifier = pClusterIdentifier_
-    }
+  DescribeLoggingStatus' {_dlsClusterIdentifier = pClusterIdentifier_}
+
 
 -- | The identifier of the cluster from which to get the logging status. Example: @examplecluster@
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
@@ -81,9 +81,9 @@ instance AWSRequest DescribeLoggingStatus where
           = receiveXMLWrapper "DescribeLoggingStatusResult"
               (\ s h x -> parseXML x)
 
-instance Hashable DescribeLoggingStatus
+instance Hashable DescribeLoggingStatus where
 
-instance NFData DescribeLoggingStatus
+instance NFData DescribeLoggingStatus where
 
 instance ToHeaders DescribeLoggingStatus where
         toHeaders = const mempty

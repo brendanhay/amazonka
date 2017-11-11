@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.ListJobs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Batch.ListJobs
     , ljrsJobSummaryList
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
-    { _ljNextToken  :: !(Maybe Text)
-    , _ljJobStatus  :: !(Maybe JobStatus)
-    , _ljMaxResults :: !(Maybe Int)
-    , _ljJobQueue   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljJobStatus  :: {-# NOUNPACK #-}!(Maybe JobStatus)
+  , _ljMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ljJobQueue   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ listJobs
     :: Text -- ^ 'ljJobQueue'
     -> ListJobs
 listJobs pJobQueue_ =
-    ListJobs'
-    { _ljNextToken = Nothing
-    , _ljJobStatus = Nothing
-    , _ljMaxResults = Nothing
-    , _ljJobQueue = pJobQueue_
-    }
+  ListJobs'
+  { _ljNextToken = Nothing
+  , _ljJobStatus = Nothing
+  , _ljMaxResults = Nothing
+  , _ljJobQueue = pJobQueue_
+  }
+
 
 -- | The @nextToken@ value returned from a previous paginated @ListJobs@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 ljNextToken :: Lens' ListJobs (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest ListJobs where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "jobSummaryList" .!@ mempty))
 
-instance Hashable ListJobs
+instance Hashable ListJobs where
 
-instance NFData ListJobs
+instance NFData ListJobs where
 
 instance ToHeaders ListJobs where
         toHeaders
@@ -132,10 +134,11 @@ instance ToQuery ListJobs where
 
 -- | /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-    { _ljrsNextToken      :: !(Maybe Text)
-    , _ljrsResponseStatus :: !Int
-    , _ljrsJobSummaryList :: ![JobSummary]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ljrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ljrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ljrsJobSummaryList :: {-# NOUNPACK #-}![JobSummary]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
@@ -150,11 +153,12 @@ listJobsResponse
     :: Int -- ^ 'ljrsResponseStatus'
     -> ListJobsResponse
 listJobsResponse pResponseStatus_ =
-    ListJobsResponse'
-    { _ljrsNextToken = Nothing
-    , _ljrsResponseStatus = pResponseStatus_
-    , _ljrsJobSummaryList = mempty
-    }
+  ListJobsResponse'
+  { _ljrsNextToken = Nothing
+  , _ljrsResponseStatus = pResponseStatus_
+  , _ljrsJobSummaryList = mempty
+  }
+
 
 -- | The @nextToken@ value to include in a future @ListJobs@ request. When the results of a @ListJobs@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
@@ -168,4 +172,4 @@ ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = 
 ljrsJobSummaryList :: Lens' ListJobsResponse [JobSummary]
 ljrsJobSummaryList = lens _ljrsJobSummaryList (\ s a -> s{_ljrsJobSummaryList = a}) . _Coerce;
 
-instance NFData ListJobsResponse
+instance NFData ListJobsResponse where

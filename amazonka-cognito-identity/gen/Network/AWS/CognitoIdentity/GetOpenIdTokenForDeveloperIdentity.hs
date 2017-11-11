@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     , goitfdirsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @GetOpenIdTokenForDeveloperIdentity@ action.
 --
@@ -58,11 +58,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getOpenIdTokenForDeveloperIdentity' smart constructor.
 data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
-    { _goitfdiTokenDuration  :: !(Maybe Nat)
-    , _goitfdiIdentityId     :: !(Maybe Text)
-    , _goitfdiIdentityPoolId :: !Text
-    , _goitfdiLogins         :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goitfdiTokenDuration  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _goitfdiIdentityId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goitfdiIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _goitfdiLogins         :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOpenIdTokenForDeveloperIdentity' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ getOpenIdTokenForDeveloperIdentity
     :: Text -- ^ 'goitfdiIdentityPoolId'
     -> GetOpenIdTokenForDeveloperIdentity
 getOpenIdTokenForDeveloperIdentity pIdentityPoolId_ =
-    GetOpenIdTokenForDeveloperIdentity'
-    { _goitfdiTokenDuration = Nothing
-    , _goitfdiIdentityId = Nothing
-    , _goitfdiIdentityPoolId = pIdentityPoolId_
-    , _goitfdiLogins = mempty
-    }
+  GetOpenIdTokenForDeveloperIdentity'
+  { _goitfdiTokenDuration = Nothing
+  , _goitfdiIdentityId = Nothing
+  , _goitfdiIdentityPoolId = pIdentityPoolId_
+  , _goitfdiLogins = mempty
+  }
+
 
 -- | The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.
 goitfdiTokenDuration :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Natural)
@@ -103,7 +105,8 @@ goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
 goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Map;
 
 instance AWSRequest
-         GetOpenIdTokenForDeveloperIdentity where
+           GetOpenIdTokenForDeveloperIdentity
+         where
         type Rs GetOpenIdTokenForDeveloperIdentity =
              GetOpenIdTokenForDeveloperIdentityResponse
         request = postJSON cognitoIdentity
@@ -115,8 +118,10 @@ instance AWSRequest
                      (pure (fromEnum s)))
 
 instance Hashable GetOpenIdTokenForDeveloperIdentity
+         where
 
 instance NFData GetOpenIdTokenForDeveloperIdentity
+         where
 
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
          where
@@ -153,10 +158,11 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
 --
 -- /See:/ 'getOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
-    { _goitfdirsToken          :: !(Maybe Text)
-    , _goitfdirsIdentityId     :: !(Maybe Text)
-    , _goitfdirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _goitfdirsToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goitfdirsIdentityId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _goitfdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetOpenIdTokenForDeveloperIdentityResponse' with the minimum fields required to make a request.
 --
@@ -171,11 +177,12 @@ getOpenIdTokenForDeveloperIdentityResponse
     :: Int -- ^ 'goitfdirsResponseStatus'
     -> GetOpenIdTokenForDeveloperIdentityResponse
 getOpenIdTokenForDeveloperIdentityResponse pResponseStatus_ =
-    GetOpenIdTokenForDeveloperIdentityResponse'
-    { _goitfdirsToken = Nothing
-    , _goitfdirsIdentityId = Nothing
-    , _goitfdirsResponseStatus = pResponseStatus_
-    }
+  GetOpenIdTokenForDeveloperIdentityResponse'
+  { _goitfdirsToken = Nothing
+  , _goitfdirsIdentityId = Nothing
+  , _goitfdirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An OpenID token.
 goitfdirsToken :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
@@ -190,4 +197,5 @@ goitfdirsResponseStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
 goitfdirsResponseStatus = lens _goitfdirsResponseStatus (\ s a -> s{_goitfdirsResponseStatus = a});
 
 instance NFData
-         GetOpenIdTokenForDeveloperIdentityResponse
+           GetOpenIdTokenForDeveloperIdentityResponse
+         where

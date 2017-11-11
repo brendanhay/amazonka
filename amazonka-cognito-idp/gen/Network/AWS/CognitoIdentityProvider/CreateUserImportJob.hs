@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateUserImportJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CognitoIdentityProvider.CreateUserImportJob
     , cuijrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to create the user import job.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUserImportJob' smart constructor.
 data CreateUserImportJob = CreateUserImportJob'
-    { _cuijJobName               :: !Text
-    , _cuijUserPoolId            :: !Text
-    , _cuijCloudWatchLogsRoleARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cuijJobName               :: {-# NOUNPACK #-}!Text
+  , _cuijUserPoolId            :: {-# NOUNPACK #-}!Text
+  , _cuijCloudWatchLogsRoleARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserImportJob' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ createUserImportJob
     -> Text -- ^ 'cuijCloudWatchLogsRoleARN'
     -> CreateUserImportJob
 createUserImportJob pJobName_ pUserPoolId_ pCloudWatchLogsRoleARN_ =
-    CreateUserImportJob'
-    { _cuijJobName = pJobName_
-    , _cuijUserPoolId = pUserPoolId_
-    , _cuijCloudWatchLogsRoleARN = pCloudWatchLogsRoleARN_
-    }
+  CreateUserImportJob'
+  { _cuijJobName = pJobName_
+  , _cuijUserPoolId = pUserPoolId_
+  , _cuijCloudWatchLogsRoleARN = pCloudWatchLogsRoleARN_
+  }
+
 
 -- | The job name for the user import job.
 cuijJobName :: Lens' CreateUserImportJob Text
@@ -100,9 +102,9 @@ instance AWSRequest CreateUserImportJob where
                  CreateUserImportJobResponse' <$>
                    (x .?> "UserImportJob") <*> (pure (fromEnum s)))
 
-instance Hashable CreateUserImportJob
+instance Hashable CreateUserImportJob where
 
-instance NFData CreateUserImportJob
+instance NFData CreateUserImportJob where
 
 instance ToHeaders CreateUserImportJob where
         toHeaders
@@ -136,9 +138,10 @@ instance ToQuery CreateUserImportJob where
 --
 -- /See:/ 'createUserImportJobResponse' smart constructor.
 data CreateUserImportJobResponse = CreateUserImportJobResponse'
-    { _cuijrsUserImportJob  :: !(Maybe UserImportJobType)
-    , _cuijrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cuijrsUserImportJob  :: {-# NOUNPACK #-}!(Maybe UserImportJobType)
+  , _cuijrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserImportJobResponse' with the minimum fields required to make a request.
 --
@@ -151,10 +154,9 @@ createUserImportJobResponse
     :: Int -- ^ 'cuijrsResponseStatus'
     -> CreateUserImportJobResponse
 createUserImportJobResponse pResponseStatus_ =
-    CreateUserImportJobResponse'
-    { _cuijrsUserImportJob = Nothing
-    , _cuijrsResponseStatus = pResponseStatus_
-    }
+  CreateUserImportJobResponse'
+  {_cuijrsUserImportJob = Nothing, _cuijrsResponseStatus = pResponseStatus_}
+
 
 -- | The job object that represents the user import job.
 cuijrsUserImportJob :: Lens' CreateUserImportJobResponse (Maybe UserImportJobType)
@@ -164,4 +166,4 @@ cuijrsUserImportJob = lens _cuijrsUserImportJob (\ s a -> s{_cuijrsUserImportJob
 cuijrsResponseStatus :: Lens' CreateUserImportJobResponse Int
 cuijrsResponseStatus = lens _cuijrsResponseStatus (\ s a -> s{_cuijrsResponseStatus = a});
 
-instance NFData CreateUserImportJobResponse
+instance NFData CreateUserImportJobResponse where

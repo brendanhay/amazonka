@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribePolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.Organizations.DescribePolicy
     , dprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Organizations.Types
-import           Network.AWS.Organizations.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Organizations.Types
+import Network.AWS.Organizations.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describePolicy' smart constructor.
 newtype DescribePolicy = DescribePolicy'
-    { _dpPolicyId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpPolicyId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePolicy' with the minimum fields required to make a request.
 --
@@ -59,10 +60,8 @@ newtype DescribePolicy = DescribePolicy'
 describePolicy
     :: Text -- ^ 'dpPolicyId'
     -> DescribePolicy
-describePolicy pPolicyId_ =
-    DescribePolicy'
-    { _dpPolicyId = pPolicyId_
-    }
+describePolicy pPolicyId_ = DescribePolicy' {_dpPolicyId = pPolicyId_}
+
 
 -- | The unique identifier (ID) of the policy that you want details about. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
 dpPolicyId :: Lens' DescribePolicy Text
@@ -77,9 +76,9 @@ instance AWSRequest DescribePolicy where
                  DescribePolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
-instance Hashable DescribePolicy
+instance Hashable DescribePolicy where
 
-instance NFData DescribePolicy
+instance NFData DescribePolicy where
 
 instance ToHeaders DescribePolicy where
         toHeaders
@@ -104,9 +103,10 @@ instance ToQuery DescribePolicy where
 
 -- | /See:/ 'describePolicyResponse' smart constructor.
 data DescribePolicyResponse = DescribePolicyResponse'
-    { _dprsPolicy         :: !(Maybe Policy)
-    , _dprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dprsPolicy         :: {-# NOUNPACK #-}!(Maybe Policy)
+  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribePolicyResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +119,9 @@ describePolicyResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribePolicyResponse
 describePolicyResponse pResponseStatus_ =
-    DescribePolicyResponse'
-    { _dprsPolicy = Nothing
-    , _dprsResponseStatus = pResponseStatus_
-    }
+  DescribePolicyResponse'
+  {_dprsPolicy = Nothing, _dprsResponseStatus = pResponseStatus_}
+
 
 -- | A structure that contains details about the specified policy.
 dprsPolicy :: Lens' DescribePolicyResponse (Maybe Policy)
@@ -132,4 +131,4 @@ dprsPolicy = lens _dprsPolicy (\ s a -> s{_dprsPolicy = a});
 dprsResponseStatus :: Lens' DescribePolicyResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 
-instance NFData DescribePolicyResponse
+instance NFData DescribePolicyResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteEventSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.RDS.DeleteEventSubscription
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteEventSubscription' smart constructor.
 newtype DeleteEventSubscription = DeleteEventSubscription'
-    { _desSubscriptionName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desSubscriptionName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEventSubscription' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ deleteEventSubscription
     :: Text -- ^ 'desSubscriptionName'
     -> DeleteEventSubscription
 deleteEventSubscription pSubscriptionName_ =
-    DeleteEventSubscription'
-    { _desSubscriptionName = pSubscriptionName_
-    }
+  DeleteEventSubscription' {_desSubscriptionName = pSubscriptionName_}
+
 
 -- | The name of the RDS event notification subscription you want to delete.
 desSubscriptionName :: Lens' DeleteEventSubscription Text
@@ -80,9 +80,9 @@ instance AWSRequest DeleteEventSubscription where
                  DeleteEventSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteEventSubscription
+instance Hashable DeleteEventSubscription where
 
-instance NFData DeleteEventSubscription
+instance NFData DeleteEventSubscription where
 
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
@@ -100,9 +100,10 @@ instance ToQuery DeleteEventSubscription where
 
 -- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
-    { _drsEventSubscription :: !(Maybe EventSubscription)
-    , _drsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsEventSubscription :: {-# NOUNPACK #-}!(Maybe EventSubscription)
+  , _drsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteEventSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -115,10 +116,9 @@ deleteEventSubscriptionResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse pResponseStatus_ =
-    DeleteEventSubscriptionResponse'
-    { _drsEventSubscription = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteEventSubscriptionResponse'
+  {_drsEventSubscription = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 drsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
@@ -128,4 +128,4 @@ drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscript
 drsResponseStatus :: Lens' DeleteEventSubscriptionResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteEventSubscriptionResponse
+instance NFData DeleteEventSubscriptionResponse where

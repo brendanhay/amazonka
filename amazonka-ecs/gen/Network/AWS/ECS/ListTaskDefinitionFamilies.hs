@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTaskDefinitionFamilies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,21 +45,22 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     , ltdfrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTaskDefinitionFamilies' smart constructor.
 data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
-    { _ltdfStatus       :: !(Maybe TaskDefinitionFamilyStatus)
-    , _ltdfFamilyPrefix :: !(Maybe Text)
-    , _ltdfNextToken    :: !(Maybe Text)
-    , _ltdfMaxResults   :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltdfStatus       :: {-# NOUNPACK #-}!(Maybe TaskDefinitionFamilyStatus)
+  , _ltdfFamilyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltdfNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltdfMaxResults   :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTaskDefinitionFamilies' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
 listTaskDefinitionFamilies
     :: ListTaskDefinitionFamilies
 listTaskDefinitionFamilies =
-    ListTaskDefinitionFamilies'
-    { _ltdfStatus = Nothing
-    , _ltdfFamilyPrefix = Nothing
-    , _ltdfNextToken = Nothing
-    , _ltdfMaxResults = Nothing
-    }
+  ListTaskDefinitionFamilies'
+  { _ltdfStatus = Nothing
+  , _ltdfFamilyPrefix = Nothing
+  , _ltdfNextToken = Nothing
+  , _ltdfMaxResults = Nothing
+  }
+
 
 -- | The task definition family status with which to filter the @ListTaskDefinitionFamilies@ results. By default, both @ACTIVE@ and @INACTIVE@ task definition families are listed. If this parameter is set to @ACTIVE@ , only task definition families that have an @ACTIVE@ task definition revision are returned. If this parameter is set to @INACTIVE@ , only task definition families that do not have any @ACTIVE@ task definition revisions are returned. If you paginate the resulting output, be sure to keep the @status@ value constant in each subsequent request.
 ltdfStatus :: Lens' ListTaskDefinitionFamilies (Maybe TaskDefinitionFamilyStatus)
@@ -116,9 +118,9 @@ instance AWSRequest ListTaskDefinitionFamilies where
                    (x .?> "families" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListTaskDefinitionFamilies
+instance Hashable ListTaskDefinitionFamilies where
 
-instance NFData ListTaskDefinitionFamilies
+instance NFData ListTaskDefinitionFamilies where
 
 instance ToHeaders ListTaskDefinitionFamilies where
         toHeaders
@@ -147,10 +149,11 @@ instance ToQuery ListTaskDefinitionFamilies where
 
 -- | /See:/ 'listTaskDefinitionFamiliesResponse' smart constructor.
 data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
-    { _ltdfrsFamilies       :: !(Maybe [Text])
-    , _ltdfrsNextToken      :: !(Maybe Text)
-    , _ltdfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltdfrsFamilies       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ltdfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltdfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTaskDefinitionFamiliesResponse' with the minimum fields required to make a request.
 --
@@ -165,11 +168,12 @@ listTaskDefinitionFamiliesResponse
     :: Int -- ^ 'ltdfrsResponseStatus'
     -> ListTaskDefinitionFamiliesResponse
 listTaskDefinitionFamiliesResponse pResponseStatus_ =
-    ListTaskDefinitionFamiliesResponse'
-    { _ltdfrsFamilies = Nothing
-    , _ltdfrsNextToken = Nothing
-    , _ltdfrsResponseStatus = pResponseStatus_
-    }
+  ListTaskDefinitionFamiliesResponse'
+  { _ltdfrsFamilies = Nothing
+  , _ltdfrsNextToken = Nothing
+  , _ltdfrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of task definition family names that match the @ListTaskDefinitionFamilies@ request.
 ltdfrsFamilies :: Lens' ListTaskDefinitionFamiliesResponse [Text]
@@ -184,3 +188,4 @@ ltdfrsResponseStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
 ltdfrsResponseStatus = lens _ltdfrsResponseStatus (\ s a -> s{_ltdfrsResponseStatus = a});
 
 instance NFData ListTaskDefinitionFamiliesResponse
+         where

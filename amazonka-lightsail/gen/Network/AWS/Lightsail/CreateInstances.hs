@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.Lightsail.CreateInstances
     , cirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createInstances' smart constructor.
 data CreateInstances = CreateInstances'
-    { _ciCustomImageName  :: !(Maybe Text)
-    , _ciUserData         :: !(Maybe Text)
-    , _ciKeyPairName      :: !(Maybe Text)
-    , _ciInstanceNames    :: ![Text]
-    , _ciAvailabilityZone :: !Text
-    , _ciBlueprintId      :: !Text
-    , _ciBundleId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ciCustomImageName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciUserData         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciKeyPairName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ciInstanceNames    :: {-# NOUNPACK #-}![Text]
+  , _ciAvailabilityZone :: {-# NOUNPACK #-}!Text
+  , _ciBlueprintId      :: {-# NOUNPACK #-}!Text
+  , _ciBundleId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstances' with the minimum fields required to make a request.
 --
@@ -84,15 +85,16 @@ createInstances
     -> Text -- ^ 'ciBundleId'
     -> CreateInstances
 createInstances pAvailabilityZone_ pBlueprintId_ pBundleId_ =
-    CreateInstances'
-    { _ciCustomImageName = Nothing
-    , _ciUserData = Nothing
-    , _ciKeyPairName = Nothing
-    , _ciInstanceNames = mempty
-    , _ciAvailabilityZone = pAvailabilityZone_
-    , _ciBlueprintId = pBlueprintId_
-    , _ciBundleId = pBundleId_
-    }
+  CreateInstances'
+  { _ciCustomImageName = Nothing
+  , _ciUserData = Nothing
+  , _ciKeyPairName = Nothing
+  , _ciInstanceNames = mempty
+  , _ciAvailabilityZone = pAvailabilityZone_
+  , _ciBlueprintId = pBlueprintId_
+  , _ciBundleId = pBundleId_
+  }
+
 
 -- | (Deprecated) The name for your custom image.
 ciCustomImageName :: Lens' CreateInstances (Maybe Text)
@@ -132,9 +134,9 @@ instance AWSRequest CreateInstances where
                    (x .?> "operations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateInstances
+instance Hashable CreateInstances where
 
-instance NFData CreateInstances
+instance NFData CreateInstances where
 
 instance ToHeaders CreateInstances where
         toHeaders
@@ -165,9 +167,10 @@ instance ToQuery CreateInstances where
 
 -- | /See:/ 'createInstancesResponse' smart constructor.
 data CreateInstancesResponse = CreateInstancesResponse'
-    { _cirsOperations     :: !(Maybe [Operation])
-    , _cirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
+  , _cirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateInstancesResponse' with the minimum fields required to make a request.
 --
@@ -180,10 +183,9 @@ createInstancesResponse
     :: Int -- ^ 'cirsResponseStatus'
     -> CreateInstancesResponse
 createInstancesResponse pResponseStatus_ =
-    CreateInstancesResponse'
-    { _cirsOperations = Nothing
-    , _cirsResponseStatus = pResponseStatus_
-    }
+  CreateInstancesResponse'
+  {_cirsOperations = Nothing, _cirsResponseStatus = pResponseStatus_}
+
 
 -- | An array of key-value pairs containing information about the results of your create instances request.
 cirsOperations :: Lens' CreateInstancesResponse [Operation]
@@ -193,4 +195,4 @@ cirsOperations = lens _cirsOperations (\ s a -> s{_cirsOperations = a}) . _Defau
 cirsResponseStatus :: Lens' CreateInstancesResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
 
-instance NFData CreateInstancesResponse
+instance NFData CreateInstancesResponse where

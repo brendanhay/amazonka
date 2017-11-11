@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListPolicies
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,22 +51,23 @@ module Network.AWS.IAM.ListPolicies
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-    { _lpPathPrefix   :: !(Maybe Text)
-    , _lpOnlyAttached :: !(Maybe Bool)
-    , _lpMarker       :: !(Maybe Text)
-    , _lpScope        :: !(Maybe PolicyScopeType)
-    , _lpMaxItems     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpPathPrefix   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpOnlyAttached :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lpMarker       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpScope        :: {-# NOUNPACK #-}!(Maybe PolicyScopeType)
+  , _lpMaxItems     :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
 --
@@ -84,13 +85,14 @@ data ListPolicies = ListPolicies'
 listPolicies
     :: ListPolicies
 listPolicies =
-    ListPolicies'
-    { _lpPathPrefix = Nothing
-    , _lpOnlyAttached = Nothing
-    , _lpMarker = Nothing
-    , _lpScope = Nothing
-    , _lpMaxItems = Nothing
-    }
+  ListPolicies'
+  { _lpPathPrefix = Nothing
+  , _lpOnlyAttached = Nothing
+  , _lpMarker = Nothing
+  , _lpScope = Nothing
+  , _lpMaxItems = Nothing
+  }
+
 
 -- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lpPathPrefix :: Lens' ListPolicies (Maybe Text)
@@ -131,9 +133,9 @@ instance AWSRequest ListPolicies where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPolicies
+instance Hashable ListPolicies where
 
-instance NFData ListPolicies
+instance NFData ListPolicies where
 
 instance ToHeaders ListPolicies where
         toHeaders = const mempty
@@ -157,11 +159,12 @@ instance ToQuery ListPolicies where
 --
 -- /See:/ 'listPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-    { _lprsMarker         :: !(Maybe Text)
-    , _lprsIsTruncated    :: !(Maybe Bool)
-    , _lprsPolicies       :: !(Maybe [Policy])
-    , _lprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lprsPolicies       :: {-# NOUNPACK #-}!(Maybe [Policy])
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.
 --
@@ -178,12 +181,13 @@ listPoliciesResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPoliciesResponse
 listPoliciesResponse pResponseStatus_ =
-    ListPoliciesResponse'
-    { _lprsMarker = Nothing
-    , _lprsIsTruncated = Nothing
-    , _lprsPolicies = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPoliciesResponse'
+  { _lprsMarker = Nothing
+  , _lprsIsTruncated = Nothing
+  , _lprsPolicies = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lprsMarker :: Lens' ListPoliciesResponse (Maybe Text)
@@ -201,4 +205,4 @@ lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _
 lprsResponseStatus :: Lens' ListPoliciesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPoliciesResponse
+instance NFData ListPoliciesResponse where

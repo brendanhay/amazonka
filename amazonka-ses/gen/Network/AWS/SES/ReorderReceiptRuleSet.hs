@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.ReorderReceiptRuleSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.SES.ReorderReceiptRuleSet
     , rrrsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
@@ -54,9 +54,10 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'reorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
-    { _rrrsRuleSetName :: !Text
-    , _rrrsRuleNames   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrrsRuleSetName :: {-# NOUNPACK #-}!Text
+  , _rrrsRuleNames   :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReorderReceiptRuleSet' with the minimum fields required to make a request.
 --
@@ -69,10 +70,9 @@ reorderReceiptRuleSet
     :: Text -- ^ 'rrrsRuleSetName'
     -> ReorderReceiptRuleSet
 reorderReceiptRuleSet pRuleSetName_ =
-    ReorderReceiptRuleSet'
-    { _rrrsRuleSetName = pRuleSetName_
-    , _rrrsRuleNames = mempty
-    }
+  ReorderReceiptRuleSet'
+  {_rrrsRuleSetName = pRuleSetName_, _rrrsRuleNames = mempty}
+
 
 -- | The name of the receipt rule set to reorder.
 rrrsRuleSetName :: Lens' ReorderReceiptRuleSet Text
@@ -92,9 +92,9 @@ instance AWSRequest ReorderReceiptRuleSet where
                  ReorderReceiptRuleSetResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable ReorderReceiptRuleSet
+instance Hashable ReorderReceiptRuleSet where
 
-instance NFData ReorderReceiptRuleSet
+instance NFData ReorderReceiptRuleSet where
 
 instance ToHeaders ReorderReceiptRuleSet where
         toHeaders = const mempty
@@ -116,8 +116,9 @@ instance ToQuery ReorderReceiptRuleSet where
 --
 -- /See:/ 'reorderReceiptRuleSetResponse' smart constructor.
 newtype ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
-    { _rrrsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrrsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReorderReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
@@ -128,12 +129,11 @@ reorderReceiptRuleSetResponse
     :: Int -- ^ 'rrrsrsResponseStatus'
     -> ReorderReceiptRuleSetResponse
 reorderReceiptRuleSetResponse pResponseStatus_ =
-    ReorderReceiptRuleSetResponse'
-    { _rrrsrsResponseStatus = pResponseStatus_
-    }
+  ReorderReceiptRuleSetResponse' {_rrrsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 rrrsrsResponseStatus :: Lens' ReorderReceiptRuleSetResponse Int
 rrrsrsResponseStatus = lens _rrrsrsResponseStatus (\ s a -> s{_rrrsrsResponseStatus = a});
 
-instance NFData ReorderReceiptRuleSetResponse
+instance NFData ReorderReceiptRuleSetResponse where

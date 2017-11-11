@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -805,46 +805,46 @@ module Network.AWS.CodeDeploy
     , tcTriggerTargetARN
     ) where
 
-import           Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
-import           Network.AWS.CodeDeploy.BatchGetApplicationRevisions
-import           Network.AWS.CodeDeploy.BatchGetApplications
-import           Network.AWS.CodeDeploy.BatchGetDeploymentGroups
-import           Network.AWS.CodeDeploy.BatchGetDeploymentInstances
-import           Network.AWS.CodeDeploy.BatchGetDeployments
-import           Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
-import           Network.AWS.CodeDeploy.ContinueDeployment
-import           Network.AWS.CodeDeploy.CreateApplication
-import           Network.AWS.CodeDeploy.CreateDeployment
-import           Network.AWS.CodeDeploy.CreateDeploymentConfig
-import           Network.AWS.CodeDeploy.CreateDeploymentGroup
-import           Network.AWS.CodeDeploy.DeleteApplication
-import           Network.AWS.CodeDeploy.DeleteDeploymentConfig
-import           Network.AWS.CodeDeploy.DeleteDeploymentGroup
-import           Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
-import           Network.AWS.CodeDeploy.GetApplication
-import           Network.AWS.CodeDeploy.GetApplicationRevision
-import           Network.AWS.CodeDeploy.GetDeployment
-import           Network.AWS.CodeDeploy.GetDeploymentConfig
-import           Network.AWS.CodeDeploy.GetDeploymentGroup
-import           Network.AWS.CodeDeploy.GetDeploymentInstance
-import           Network.AWS.CodeDeploy.GetOnPremisesInstance
-import           Network.AWS.CodeDeploy.ListApplicationRevisions
-import           Network.AWS.CodeDeploy.ListApplications
-import           Network.AWS.CodeDeploy.ListDeploymentConfigs
-import           Network.AWS.CodeDeploy.ListDeploymentGroups
-import           Network.AWS.CodeDeploy.ListDeploymentInstances
-import           Network.AWS.CodeDeploy.ListDeployments
-import           Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
-import           Network.AWS.CodeDeploy.ListOnPremisesInstances
-import           Network.AWS.CodeDeploy.RegisterApplicationRevision
-import           Network.AWS.CodeDeploy.RegisterOnPremisesInstance
-import           Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
-import           Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
-import           Network.AWS.CodeDeploy.StopDeployment
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.UpdateApplication
-import           Network.AWS.CodeDeploy.UpdateDeploymentGroup
-import           Network.AWS.CodeDeploy.Waiters
+import Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
+import Network.AWS.CodeDeploy.BatchGetApplicationRevisions
+import Network.AWS.CodeDeploy.BatchGetApplications
+import Network.AWS.CodeDeploy.BatchGetDeploymentGroups
+import Network.AWS.CodeDeploy.BatchGetDeploymentInstances
+import Network.AWS.CodeDeploy.BatchGetDeployments
+import Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
+import Network.AWS.CodeDeploy.ContinueDeployment
+import Network.AWS.CodeDeploy.CreateApplication
+import Network.AWS.CodeDeploy.CreateDeployment
+import Network.AWS.CodeDeploy.CreateDeploymentConfig
+import Network.AWS.CodeDeploy.CreateDeploymentGroup
+import Network.AWS.CodeDeploy.DeleteApplication
+import Network.AWS.CodeDeploy.DeleteDeploymentConfig
+import Network.AWS.CodeDeploy.DeleteDeploymentGroup
+import Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
+import Network.AWS.CodeDeploy.GetApplication
+import Network.AWS.CodeDeploy.GetApplicationRevision
+import Network.AWS.CodeDeploy.GetDeployment
+import Network.AWS.CodeDeploy.GetDeploymentConfig
+import Network.AWS.CodeDeploy.GetDeploymentGroup
+import Network.AWS.CodeDeploy.GetDeploymentInstance
+import Network.AWS.CodeDeploy.GetOnPremisesInstance
+import Network.AWS.CodeDeploy.ListApplicationRevisions
+import Network.AWS.CodeDeploy.ListApplications
+import Network.AWS.CodeDeploy.ListDeploymentConfigs
+import Network.AWS.CodeDeploy.ListDeploymentGroups
+import Network.AWS.CodeDeploy.ListDeploymentInstances
+import Network.AWS.CodeDeploy.ListDeployments
+import Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
+import Network.AWS.CodeDeploy.ListOnPremisesInstances
+import Network.AWS.CodeDeploy.RegisterApplicationRevision
+import Network.AWS.CodeDeploy.RegisterOnPremisesInstance
+import Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
+import Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
+import Network.AWS.CodeDeploy.StopDeployment
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.UpdateApplication
+import Network.AWS.CodeDeploy.UpdateDeploymentGroup
+import Network.AWS.CodeDeploy.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

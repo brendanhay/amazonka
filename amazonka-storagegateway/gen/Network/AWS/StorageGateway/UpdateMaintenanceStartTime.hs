@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateMaintenanceStartTime
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     , umstrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the following fields:
 --
@@ -61,11 +61,12 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateMaintenanceStartTime' smart constructor.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
-    { _umstGatewayARN   :: !Text
-    , _umstHourOfDay    :: !Nat
-    , _umstMinuteOfHour :: !Nat
-    , _umstDayOfWeek    :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umstGatewayARN   :: {-# NOUNPACK #-}!Text
+  , _umstHourOfDay    :: {-# NOUNPACK #-}!Nat
+  , _umstMinuteOfHour :: {-# NOUNPACK #-}!Nat
+  , _umstDayOfWeek    :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMaintenanceStartTime' with the minimum fields required to make a request.
 --
@@ -85,12 +86,13 @@ updateMaintenanceStartTime
     -> Natural -- ^ 'umstDayOfWeek'
     -> UpdateMaintenanceStartTime
 updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
-    UpdateMaintenanceStartTime'
-    { _umstGatewayARN = pGatewayARN_
-    , _umstHourOfDay = _Nat # pHourOfDay_
-    , _umstMinuteOfHour = _Nat # pMinuteOfHour_
-    , _umstDayOfWeek = _Nat # pDayOfWeek_
-    }
+  UpdateMaintenanceStartTime'
+  { _umstGatewayARN = pGatewayARN_
+  , _umstHourOfDay = _Nat # pHourOfDay_
+  , _umstMinuteOfHour = _Nat # pMinuteOfHour_
+  , _umstDayOfWeek = _Nat # pDayOfWeek_
+  }
+
 
 -- | Undocumented member.
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
@@ -118,9 +120,9 @@ instance AWSRequest UpdateMaintenanceStartTime where
                  UpdateMaintenanceStartTimeResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateMaintenanceStartTime
+instance Hashable UpdateMaintenanceStartTime where
 
-instance NFData UpdateMaintenanceStartTime
+instance NFData UpdateMaintenanceStartTime where
 
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders
@@ -153,9 +155,10 @@ instance ToQuery UpdateMaintenanceStartTime where
 --
 -- /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
-    { _umstrsGatewayARN     :: !(Maybe Text)
-    , _umstrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _umstrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _umstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateMaintenanceStartTimeResponse' with the minimum fields required to make a request.
 --
@@ -168,10 +171,9 @@ updateMaintenanceStartTimeResponse
     :: Int -- ^ 'umstrsResponseStatus'
     -> UpdateMaintenanceStartTimeResponse
 updateMaintenanceStartTimeResponse pResponseStatus_ =
-    UpdateMaintenanceStartTimeResponse'
-    { _umstrsGatewayARN = Nothing
-    , _umstrsResponseStatus = pResponseStatus_
-    }
+  UpdateMaintenanceStartTimeResponse'
+  {_umstrsGatewayARN = Nothing, _umstrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 umstrsGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
@@ -182,3 +184,4 @@ umstrsResponseStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
 umstrsResponseStatus = lens _umstrsResponseStatus (\ s a -> s{_umstrsResponseStatus = a});
 
 instance NFData UpdateMaintenanceStartTimeResponse
+         where

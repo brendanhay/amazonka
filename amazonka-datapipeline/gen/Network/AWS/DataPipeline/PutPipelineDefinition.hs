@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.PutPipelineDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     , ppdrsErrored
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for PutPipelineDefinition.
 --
@@ -61,11 +61,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putPipelineDefinition' smart constructor.
 data PutPipelineDefinition = PutPipelineDefinition'
-    { _ppdParameterObjects :: !(Maybe [ParameterObject])
-    , _ppdParameterValues  :: !(Maybe [ParameterValue])
-    , _ppdPipelineId       :: !Text
-    , _ppdPipelineObjects  :: ![PipelineObject]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppdParameterObjects :: {-# NOUNPACK #-}!(Maybe [ParameterObject])
+  , _ppdParameterValues  :: {-# NOUNPACK #-}!(Maybe [ParameterValue])
+  , _ppdPipelineId       :: {-# NOUNPACK #-}!Text
+  , _ppdPipelineObjects  :: {-# NOUNPACK #-}![PipelineObject]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutPipelineDefinition' with the minimum fields required to make a request.
 --
@@ -82,12 +83,13 @@ putPipelineDefinition
     :: Text -- ^ 'ppdPipelineId'
     -> PutPipelineDefinition
 putPipelineDefinition pPipelineId_ =
-    PutPipelineDefinition'
-    { _ppdParameterObjects = Nothing
-    , _ppdParameterValues = Nothing
-    , _ppdPipelineId = pPipelineId_
-    , _ppdPipelineObjects = mempty
-    }
+  PutPipelineDefinition'
+  { _ppdParameterObjects = Nothing
+  , _ppdParameterValues = Nothing
+  , _ppdPipelineId = pPipelineId_
+  , _ppdPipelineObjects = mempty
+  }
+
 
 -- | The parameter objects used with the pipeline.
 ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
@@ -118,9 +120,9 @@ instance AWSRequest PutPipelineDefinition where
                      <*> (pure (fromEnum s))
                      <*> (x .:> "errored"))
 
-instance Hashable PutPipelineDefinition
+instance Hashable PutPipelineDefinition where
 
-instance NFData PutPipelineDefinition
+instance NFData PutPipelineDefinition where
 
 instance ToHeaders PutPipelineDefinition where
         toHeaders
@@ -152,11 +154,12 @@ instance ToQuery PutPipelineDefinition where
 --
 -- /See:/ 'putPipelineDefinitionResponse' smart constructor.
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
-    { _ppdrsValidationErrors   :: !(Maybe [ValidationError])
-    , _ppdrsValidationWarnings :: !(Maybe [ValidationWarning])
-    , _ppdrsResponseStatus     :: !Int
-    , _ppdrsErrored            :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppdrsValidationErrors   :: {-# NOUNPACK #-}!(Maybe [ValidationError])
+  , _ppdrsValidationWarnings :: {-# NOUNPACK #-}!(Maybe [ValidationWarning])
+  , _ppdrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _ppdrsErrored            :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutPipelineDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -174,12 +177,13 @@ putPipelineDefinitionResponse
     -> Bool -- ^ 'ppdrsErrored'
     -> PutPipelineDefinitionResponse
 putPipelineDefinitionResponse pResponseStatus_ pErrored_ =
-    PutPipelineDefinitionResponse'
-    { _ppdrsValidationErrors = Nothing
-    , _ppdrsValidationWarnings = Nothing
-    , _ppdrsResponseStatus = pResponseStatus_
-    , _ppdrsErrored = pErrored_
-    }
+  PutPipelineDefinitionResponse'
+  { _ppdrsValidationErrors = Nothing
+  , _ppdrsValidationWarnings = Nothing
+  , _ppdrsResponseStatus = pResponseStatus_
+  , _ppdrsErrored = pErrored_
+  }
+
 
 -- | The validation errors that are associated with the objects defined in @pipelineObjects@ .
 ppdrsValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
@@ -197,4 +201,4 @@ ppdrsResponseStatus = lens _ppdrsResponseStatus (\ s a -> s{_ppdrsResponseStatus
 ppdrsErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrsErrored = lens _ppdrsErrored (\ s a -> s{_ppdrsErrored = a});
 
-instance NFData PutPipelineDefinitionResponse
+instance NFData PutPipelineDefinitionResponse where

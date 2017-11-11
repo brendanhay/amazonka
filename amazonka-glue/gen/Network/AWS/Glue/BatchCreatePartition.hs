@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchCreatePartition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.Glue.BatchCreatePartition
     , bcprsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchCreatePartition' smart constructor.
 data BatchCreatePartition = BatchCreatePartition'
-    { _bcpCatalogId          :: !(Maybe Text)
-    , _bcpDatabaseName       :: !Text
-    , _bcpTableName          :: !Text
-    , _bcpPartitionInputList :: ![PartitionInput]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bcpCatalogId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bcpDatabaseName       :: {-# NOUNPACK #-}!Text
+  , _bcpTableName          :: {-# NOUNPACK #-}!Text
+  , _bcpPartitionInputList :: {-# NOUNPACK #-}![PartitionInput]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchCreatePartition' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ batchCreatePartition
     -> Text -- ^ 'bcpTableName'
     -> BatchCreatePartition
 batchCreatePartition pDatabaseName_ pTableName_ =
-    BatchCreatePartition'
-    { _bcpCatalogId = Nothing
-    , _bcpDatabaseName = pDatabaseName_
-    , _bcpTableName = pTableName_
-    , _bcpPartitionInputList = mempty
-    }
+  BatchCreatePartition'
+  { _bcpCatalogId = Nothing
+  , _bcpDatabaseName = pDatabaseName_
+  , _bcpTableName = pTableName_
+  , _bcpPartitionInputList = mempty
+  }
+
 
 -- | The ID of the catalog in which the partion is to be created. Currently, this should be the AWS account ID.
 bcpCatalogId :: Lens' BatchCreatePartition (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest BatchCreatePartition where
                  BatchCreatePartitionResponse' <$>
                    (x .?> "Errors" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable BatchCreatePartition
+instance Hashable BatchCreatePartition where
 
-instance NFData BatchCreatePartition
+instance NFData BatchCreatePartition where
 
 instance ToHeaders BatchCreatePartition where
         toHeaders
@@ -135,9 +137,10 @@ instance ToQuery BatchCreatePartition where
 
 -- | /See:/ 'batchCreatePartitionResponse' smart constructor.
 data BatchCreatePartitionResponse = BatchCreatePartitionResponse'
-    { _bcprsErrors         :: !(Maybe [PartitionError])
-    , _bcprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bcprsErrors         :: {-# NOUNPACK #-}!(Maybe [PartitionError])
+  , _bcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchCreatePartitionResponse' with the minimum fields required to make a request.
 --
@@ -150,10 +153,9 @@ batchCreatePartitionResponse
     :: Int -- ^ 'bcprsResponseStatus'
     -> BatchCreatePartitionResponse
 batchCreatePartitionResponse pResponseStatus_ =
-    BatchCreatePartitionResponse'
-    { _bcprsErrors = Nothing
-    , _bcprsResponseStatus = pResponseStatus_
-    }
+  BatchCreatePartitionResponse'
+  {_bcprsErrors = Nothing, _bcprsResponseStatus = pResponseStatus_}
+
 
 -- | Errors encountered when trying to create the requested partitions.
 bcprsErrors :: Lens' BatchCreatePartitionResponse [PartitionError]
@@ -163,4 +165,4 @@ bcprsErrors = lens _bcprsErrors (\ s a -> s{_bcprsErrors = a}) . _Default . _Coe
 bcprsResponseStatus :: Lens' BatchCreatePartitionResponse Int
 bcprsResponseStatus = lens _bcprsResponseStatus (\ s a -> s{_bcprsResponseStatus = a});
 
-instance NFData BatchCreatePartitionResponse
+instance NFData BatchCreatePartitionResponse where

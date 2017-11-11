@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
     , rrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'registerTargetWithMaintenanceWindow' smart constructor.
 data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
-    { _rClientToken      :: !(Maybe Text)
-    , _rOwnerInformation :: !(Maybe (Sensitive Text))
-    , _rName             :: !(Maybe Text)
-    , _rDescription      :: !(Maybe (Sensitive Text))
-    , _rWindowId         :: !Text
-    , _rResourceType     :: !MaintenanceWindowResourceType
-    , _rTargets          :: ![Target]
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _rClientToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _rName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rDescription      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _rWindowId         :: {-# NOUNPACK #-}!Text
+  , _rResourceType     :: {-# NOUNPACK #-}!MaintenanceWindowResourceType
+  , _rTargets          :: {-# NOUNPACK #-}![Target]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterTargetWithMaintenanceWindow' with the minimum fields required to make a request.
 --
@@ -83,15 +84,16 @@ registerTargetWithMaintenanceWindow
     -> MaintenanceWindowResourceType -- ^ 'rResourceType'
     -> RegisterTargetWithMaintenanceWindow
 registerTargetWithMaintenanceWindow pWindowId_ pResourceType_ =
-    RegisterTargetWithMaintenanceWindow'
-    { _rClientToken = Nothing
-    , _rOwnerInformation = Nothing
-    , _rName = Nothing
-    , _rDescription = Nothing
-    , _rWindowId = pWindowId_
-    , _rResourceType = pResourceType_
-    , _rTargets = mempty
-    }
+  RegisterTargetWithMaintenanceWindow'
+  { _rClientToken = Nothing
+  , _rOwnerInformation = Nothing
+  , _rName = Nothing
+  , _rDescription = Nothing
+  , _rWindowId = pWindowId_
+  , _rResourceType = pResourceType_
+  , _rTargets = mempty
+  }
+
 
 -- | User-provided idempotency token.
 rClientToken :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
@@ -122,7 +124,8 @@ rTargets :: Lens' RegisterTargetWithMaintenanceWindow [Target]
 rTargets = lens _rTargets (\ s a -> s{_rTargets = a}) . _Coerce;
 
 instance AWSRequest
-         RegisterTargetWithMaintenanceWindow where
+           RegisterTargetWithMaintenanceWindow
+         where
         type Rs RegisterTargetWithMaintenanceWindow =
              RegisterTargetWithMaintenanceWindowResponse
         request = postJSON ssm
@@ -133,11 +136,14 @@ instance AWSRequest
                    (x .?> "WindowTargetId") <*> (pure (fromEnum s)))
 
 instance Hashable RegisterTargetWithMaintenanceWindow
+         where
 
 instance NFData RegisterTargetWithMaintenanceWindow
+         where
 
 instance ToHeaders
-         RegisterTargetWithMaintenanceWindow where
+           RegisterTargetWithMaintenanceWindow
+         where
         toHeaders
           = const
               (mconcat
@@ -170,9 +176,10 @@ instance ToQuery RegisterTargetWithMaintenanceWindow
 
 -- | /See:/ 'registerTargetWithMaintenanceWindowResponse' smart constructor.
 data RegisterTargetWithMaintenanceWindowResponse = RegisterTargetWithMaintenanceWindowResponse'
-    { _rrsWindowTargetId :: !(Maybe Text)
-    , _rrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrsWindowTargetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterTargetWithMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
@@ -185,10 +192,9 @@ registerTargetWithMaintenanceWindowResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> RegisterTargetWithMaintenanceWindowResponse
 registerTargetWithMaintenanceWindowResponse pResponseStatus_ =
-    RegisterTargetWithMaintenanceWindowResponse'
-    { _rrsWindowTargetId = Nothing
-    , _rrsResponseStatus = pResponseStatus_
-    }
+  RegisterTargetWithMaintenanceWindowResponse'
+  {_rrsWindowTargetId = Nothing, _rrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the target definition in this Maintenance Window.
 rrsWindowTargetId :: Lens' RegisterTargetWithMaintenanceWindowResponse (Maybe Text)
@@ -199,4 +205,5 @@ rrsResponseStatus :: Lens' RegisterTargetWithMaintenanceWindowResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 
 instance NFData
-         RegisterTargetWithMaintenanceWindowResponse
+           RegisterTargetWithMaintenanceWindowResponse
+         where

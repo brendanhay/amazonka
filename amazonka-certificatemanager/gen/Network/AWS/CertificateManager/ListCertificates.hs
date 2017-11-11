@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.ListCertificates
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,20 +42,21 @@ module Network.AWS.CertificateManager.ListCertificates
     , lcrsResponseStatus
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-    { _lcCertificateStatuses :: !(Maybe [CertificateStatus])
-    , _lcNextToken           :: !(Maybe Text)
-    , _lcMaxItems            :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcCertificateStatuses :: {-# NOUNPACK #-}!(Maybe [CertificateStatus])
+  , _lcNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcMaxItems            :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ data ListCertificates = ListCertificates'
 listCertificates
     :: ListCertificates
 listCertificates =
-    ListCertificates'
-    { _lcCertificateStatuses = Nothing
-    , _lcNextToken = Nothing
-    , _lcMaxItems = Nothing
-    }
+  ListCertificates'
+  { _lcCertificateStatuses = Nothing
+  , _lcNextToken = Nothing
+  , _lcMaxItems = Nothing
+  }
+
 
 -- | The status or statuses on which to filter the list of ACM Certificates.
 lcCertificateStatuses :: Lens' ListCertificates [CertificateStatus]
@@ -105,9 +107,9 @@ instance AWSRequest ListCertificates where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCertificates
+instance Hashable ListCertificates where
 
-instance NFData ListCertificates
+instance NFData ListCertificates where
 
 instance ToHeaders ListCertificates where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery ListCertificates where
 
 -- | /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-    { _lcrsCertificateSummaryList :: !(Maybe [CertificateSummary])
-    , _lcrsNextToken              :: !(Maybe Text)
-    , _lcrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcrsCertificateSummaryList :: {-# NOUNPACK #-}!(Maybe [CertificateSummary])
+  , _lcrsNextToken              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ listCertificatesResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCertificatesResponse
 listCertificatesResponse pResponseStatus_ =
-    ListCertificatesResponse'
-    { _lcrsCertificateSummaryList = Nothing
-    , _lcrsNextToken = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
-    }
+  ListCertificatesResponse'
+  { _lcrsCertificateSummaryList = Nothing
+  , _lcrsNextToken = Nothing
+  , _lcrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of ACM Certificates.
 lcrsCertificateSummaryList :: Lens' ListCertificatesResponse [CertificateSummary]
@@ -172,4 +176,4 @@ lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 
-instance NFData ListCertificatesResponse
+instance NFData ListCertificatesResponse where

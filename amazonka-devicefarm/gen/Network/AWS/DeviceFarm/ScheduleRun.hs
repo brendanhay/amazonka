@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ScheduleRun
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.DeviceFarm.ScheduleRun
     , srrsResponseStatus
     ) where
 
-import           Network.AWS.DeviceFarm.Types
-import           Network.AWS.DeviceFarm.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DeviceFarm.Types
+import Network.AWS.DeviceFarm.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents a request to the schedule run operation.
 --
@@ -56,14 +56,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'scheduleRun' smart constructor.
 data ScheduleRun = ScheduleRun'
-    { _srExecutionConfiguration :: !(Maybe ExecutionConfiguration)
-    , _srAppARN                 :: !(Maybe Text)
-    , _srName                   :: !(Maybe Text)
-    , _srConfiguration          :: !(Maybe ScheduleRunConfiguration)
-    , _srProjectARN             :: !Text
-    , _srDevicePoolARN          :: !Text
-    , _srTest                   :: !ScheduleRunTest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srExecutionConfiguration :: {-# NOUNPACK #-}!(Maybe ExecutionConfiguration)
+  , _srAppARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srConfiguration :: {-# NOUNPACK #-}!(Maybe ScheduleRunConfiguration)
+  , _srProjectARN :: {-# NOUNPACK #-}!Text
+  , _srDevicePoolARN :: {-# NOUNPACK #-}!Text
+  , _srTest :: {-# NOUNPACK #-}!ScheduleRunTest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScheduleRun' with the minimum fields required to make a request.
 --
@@ -88,15 +89,16 @@ scheduleRun
     -> ScheduleRunTest -- ^ 'srTest'
     -> ScheduleRun
 scheduleRun pProjectARN_ pDevicePoolARN_ pTest_ =
-    ScheduleRun'
-    { _srExecutionConfiguration = Nothing
-    , _srAppARN = Nothing
-    , _srName = Nothing
-    , _srConfiguration = Nothing
-    , _srProjectARN = pProjectARN_
-    , _srDevicePoolARN = pDevicePoolARN_
-    , _srTest = pTest_
-    }
+  ScheduleRun'
+  { _srExecutionConfiguration = Nothing
+  , _srAppARN = Nothing
+  , _srName = Nothing
+  , _srConfiguration = Nothing
+  , _srProjectARN = pProjectARN_
+  , _srDevicePoolARN = pDevicePoolARN_
+  , _srTest = pTest_
+  }
+
 
 -- | Specifies configuration information about a test run, such as the execution timeout (in minutes).
 srExecutionConfiguration :: Lens' ScheduleRun (Maybe ExecutionConfiguration)
@@ -135,9 +137,9 @@ instance AWSRequest ScheduleRun where
                  ScheduleRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
 
-instance Hashable ScheduleRun
+instance Hashable ScheduleRun where
 
-instance NFData ScheduleRun
+instance NFData ScheduleRun where
 
 instance ToHeaders ScheduleRun where
         toHeaders
@@ -172,9 +174,10 @@ instance ToQuery ScheduleRun where
 --
 -- /See:/ 'scheduleRunResponse' smart constructor.
 data ScheduleRunResponse = ScheduleRunResponse'
-    { _srrsRun            :: !(Maybe Run)
-    , _srrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srrsRun            :: {-# NOUNPACK #-}!(Maybe Run)
+  , _srrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScheduleRunResponse' with the minimum fields required to make a request.
 --
@@ -187,10 +190,9 @@ scheduleRunResponse
     :: Int -- ^ 'srrsResponseStatus'
     -> ScheduleRunResponse
 scheduleRunResponse pResponseStatus_ =
-    ScheduleRunResponse'
-    { _srrsRun = Nothing
-    , _srrsResponseStatus = pResponseStatus_
-    }
+  ScheduleRunResponse'
+  {_srrsRun = Nothing, _srrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the scheduled run.
 srrsRun :: Lens' ScheduleRunResponse (Maybe Run)
@@ -200,4 +202,4 @@ srrsRun = lens _srrsRun (\ s a -> s{_srrsRun = a});
 srrsResponseStatus :: Lens' ScheduleRunResponse Int
 srrsResponseStatus = lens _srrsResponseStatus (\ s a -> s{_srrsResponseStatus = a});
 
-instance NFData ScheduleRunResponse
+instance NFData ScheduleRunResponse where

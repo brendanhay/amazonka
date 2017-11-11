@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListWorkerBlocks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.MechanicalTurk.ListWorkerBlocks
     , lwbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listWorkerBlocks' smart constructor.
 data ListWorkerBlocks = ListWorkerBlocks'
-    { _lwbNextToken  :: !(Maybe Text)
-    , _lwbMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lwbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lwbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListWorkerBlocks' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ data ListWorkerBlocks = ListWorkerBlocks'
 listWorkerBlocks
     :: ListWorkerBlocks
 listWorkerBlocks =
-    ListWorkerBlocks'
-    { _lwbNextToken = Nothing
-    , _lwbMaxResults = Nothing
-    }
+  ListWorkerBlocks' {_lwbNextToken = Nothing, _lwbMaxResults = Nothing}
+
 
 -- | Pagination token
 lwbNextToken :: Lens' ListWorkerBlocks (Maybe Text)
@@ -88,9 +87,9 @@ instance AWSRequest ListWorkerBlocks where
                      <*> (x .?> "NumResults")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListWorkerBlocks
+instance Hashable ListWorkerBlocks where
 
-instance NFData ListWorkerBlocks
+instance NFData ListWorkerBlocks where
 
 instance ToHeaders ListWorkerBlocks where
         toHeaders
@@ -117,11 +116,12 @@ instance ToQuery ListWorkerBlocks where
 
 -- | /See:/ 'listWorkerBlocksResponse' smart constructor.
 data ListWorkerBlocksResponse = ListWorkerBlocksResponse'
-    { _lwbrsWorkerBlocks   :: !(Maybe [WorkerBlock])
-    , _lwbrsNextToken      :: !(Maybe Text)
-    , _lwbrsNumResults     :: !(Maybe Int)
-    , _lwbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lwbrsWorkerBlocks   :: {-# NOUNPACK #-}!(Maybe [WorkerBlock])
+  , _lwbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lwbrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lwbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListWorkerBlocksResponse' with the minimum fields required to make a request.
 --
@@ -138,12 +138,13 @@ listWorkerBlocksResponse
     :: Int -- ^ 'lwbrsResponseStatus'
     -> ListWorkerBlocksResponse
 listWorkerBlocksResponse pResponseStatus_ =
-    ListWorkerBlocksResponse'
-    { _lwbrsWorkerBlocks = Nothing
-    , _lwbrsNextToken = Nothing
-    , _lwbrsNumResults = Nothing
-    , _lwbrsResponseStatus = pResponseStatus_
-    }
+  ListWorkerBlocksResponse'
+  { _lwbrsWorkerBlocks = Nothing
+  , _lwbrsNextToken = Nothing
+  , _lwbrsNumResults = Nothing
+  , _lwbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.
 lwbrsWorkerBlocks :: Lens' ListWorkerBlocksResponse [WorkerBlock]
@@ -161,4 +162,4 @@ lwbrsNumResults = lens _lwbrsNumResults (\ s a -> s{_lwbrsNumResults = a});
 lwbrsResponseStatus :: Lens' ListWorkerBlocksResponse Int
 lwbrsResponseStatus = lens _lwbrsResponseStatus (\ s a -> s{_lwbrsResponseStatus = a});
 
-instance NFData ListWorkerBlocksResponse
+instance NFData ListWorkerBlocksResponse where

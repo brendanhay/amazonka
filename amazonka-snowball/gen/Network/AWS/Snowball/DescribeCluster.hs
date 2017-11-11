@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.DescribeCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Snowball.DescribeCluster
     , dcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Snowball.Types
-import           Network.AWS.Snowball.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Snowball.Types
+import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'describeCluster' smart constructor.
 newtype DescribeCluster = DescribeCluster'
-    { _dcClusterId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcClusterId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeCluster' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype DescribeCluster = DescribeCluster'
 describeCluster
     :: Text -- ^ 'dcClusterId'
     -> DescribeCluster
-describeCluster pClusterId_ =
-    DescribeCluster'
-    { _dcClusterId = pClusterId_
-    }
+describeCluster pClusterId_ = DescribeCluster' {_dcClusterId = pClusterId_}
+
 
 -- | The automatically generated ID for a cluster.
 dcClusterId :: Lens' DescribeCluster Text
@@ -75,9 +74,9 @@ instance AWSRequest DescribeCluster where
                  DescribeClusterResponse' <$>
                    (x .?> "ClusterMetadata") <*> (pure (fromEnum s)))
 
-instance Hashable DescribeCluster
+instance Hashable DescribeCluster where
 
-instance NFData DescribeCluster
+instance NFData DescribeCluster where
 
 instance ToHeaders DescribeCluster where
         toHeaders
@@ -102,9 +101,10 @@ instance ToQuery DescribeCluster where
 
 -- | /See:/ 'describeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
-    { _dcrsClusterMetadata :: !(Maybe ClusterMetadata)
-    , _dcrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrsClusterMetadata :: {-# NOUNPACK #-}!(Maybe ClusterMetadata)
+  , _dcrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeClusterResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +117,9 @@ describeClusterResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeClusterResponse
 describeClusterResponse pResponseStatus_ =
-    DescribeClusterResponse'
-    { _dcrsClusterMetadata = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
-    }
+  DescribeClusterResponse'
+  {_dcrsClusterMetadata = Nothing, _dcrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about a specific cluster, including shipping information, cluster status, and other important metadata.
 dcrsClusterMetadata :: Lens' DescribeClusterResponse (Maybe ClusterMetadata)
@@ -130,4 +129,4 @@ dcrsClusterMetadata = lens _dcrsClusterMetadata (\ s a -> s{_dcrsClusterMetadata
 dcrsResponseStatus :: Lens' DescribeClusterResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 
-instance NFData DescribeClusterResponse
+instance NFData DescribeClusterResponse where

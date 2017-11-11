@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AppStream.DisassociateFleet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.AppStream.DisassociateFleet
     , drsResponseStatus
     ) where
 
-import           Network.AWS.AppStream.Types
-import           Network.AWS.AppStream.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AppStream.Types
+import Network.AWS.AppStream.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateFleet' smart constructor.
 data DisassociateFleet = DisassociateFleet'
-    { _dfFleetName :: !Text
-    , _dfStackName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfFleetName :: {-# NOUNPACK #-}!Text
+  , _dfStackName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateFleet' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ disassociateFleet
     -> Text -- ^ 'dfStackName'
     -> DisassociateFleet
 disassociateFleet pFleetName_ pStackName_ =
-    DisassociateFleet'
-    { _dfFleetName = pFleetName_
-    , _dfStackName = pStackName_
-    }
+  DisassociateFleet' {_dfFleetName = pFleetName_, _dfStackName = pStackName_}
+
 
 -- | The name of the fleet to disassociate.
 dfFleetName :: Lens' DisassociateFleet Text
@@ -83,9 +82,9 @@ instance AWSRequest DisassociateFleet where
               (\ s h x ->
                  DisassociateFleetResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DisassociateFleet
+instance Hashable DisassociateFleet where
 
-instance NFData DisassociateFleet
+instance NFData DisassociateFleet where
 
 instance ToHeaders DisassociateFleet where
         toHeaders
@@ -112,8 +111,9 @@ instance ToQuery DisassociateFleet where
 
 -- | /See:/ 'disassociateFleetResponse' smart constructor.
 newtype DisassociateFleetResponse = DisassociateFleetResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateFleetResponse' with the minimum fields required to make a request.
 --
@@ -124,12 +124,11 @@ disassociateFleetResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DisassociateFleetResponse
 disassociateFleetResponse pResponseStatus_ =
-    DisassociateFleetResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DisassociateFleetResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DisassociateFleetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DisassociateFleetResponse
+instance NFData DisassociateFleetResponse where

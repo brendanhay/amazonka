@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     , atpjrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of an acknowledge third party job action.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'acknowledgeThirdPartyJob' smart constructor.
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
-    { _atpjJobId       :: !Text
-    , _atpjNonce       :: !Text
-    , _atpjClientToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atpjJobId       :: {-# NOUNPACK #-}!Text
+  , _atpjNonce       :: {-# NOUNPACK #-}!Text
+  , _atpjClientToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcknowledgeThirdPartyJob' with the minimum fields required to make a request.
 --
@@ -72,11 +73,9 @@ acknowledgeThirdPartyJob
     -> Text -- ^ 'atpjClientToken'
     -> AcknowledgeThirdPartyJob
 acknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ =
-    AcknowledgeThirdPartyJob'
-    { _atpjJobId = pJobId_
-    , _atpjNonce = pNonce_
-    , _atpjClientToken = pClientToken_
-    }
+  AcknowledgeThirdPartyJob'
+  {_atpjJobId = pJobId_, _atpjNonce = pNonce_, _atpjClientToken = pClientToken_}
+
 
 -- | The unique system-generated ID of the job.
 atpjJobId :: Lens' AcknowledgeThirdPartyJob Text
@@ -100,9 +99,9 @@ instance AWSRequest AcknowledgeThirdPartyJob where
                  AcknowledgeThirdPartyJobResponse' <$>
                    (x .?> "status") <*> (pure (fromEnum s)))
 
-instance Hashable AcknowledgeThirdPartyJob
+instance Hashable AcknowledgeThirdPartyJob where
 
-instance NFData AcknowledgeThirdPartyJob
+instance NFData AcknowledgeThirdPartyJob where
 
 instance ToHeaders AcknowledgeThirdPartyJob where
         toHeaders
@@ -134,9 +133,10 @@ instance ToQuery AcknowledgeThirdPartyJob where
 --
 -- /See:/ 'acknowledgeThirdPartyJobResponse' smart constructor.
 data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
-    { _atpjrsStatus         :: !(Maybe JobStatus)
-    , _atpjrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atpjrsStatus         :: {-# NOUNPACK #-}!(Maybe JobStatus)
+  , _atpjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcknowledgeThirdPartyJobResponse' with the minimum fields required to make a request.
 --
@@ -149,10 +149,9 @@ acknowledgeThirdPartyJobResponse
     :: Int -- ^ 'atpjrsResponseStatus'
     -> AcknowledgeThirdPartyJobResponse
 acknowledgeThirdPartyJobResponse pResponseStatus_ =
-    AcknowledgeThirdPartyJobResponse'
-    { _atpjrsStatus = Nothing
-    , _atpjrsResponseStatus = pResponseStatus_
-    }
+  AcknowledgeThirdPartyJobResponse'
+  {_atpjrsStatus = Nothing, _atpjrsResponseStatus = pResponseStatus_}
+
 
 -- | The status information for the third party job, if any.
 atpjrsStatus :: Lens' AcknowledgeThirdPartyJobResponse (Maybe JobStatus)
@@ -163,3 +162,4 @@ atpjrsResponseStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
 atpjrsResponseStatus = lens _atpjrsResponseStatus (\ s a -> s{_atpjrsResponseStatus = a});
 
 instance NFData AcknowledgeThirdPartyJobResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListHealthChecks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,13 +44,13 @@ module Network.AWS.Route53.ListHealthChecks
     , lhcrsMaxItems
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53.Types
-import           Network.AWS.Route53.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53.Types
+import Network.AWS.Route53.Types.Product
 
 -- | A request to retrieve a list of the health checks that are associated with the current AWS account.
 --
@@ -58,9 +58,10 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listHealthChecks' smart constructor.
 data ListHealthChecks = ListHealthChecks'
-    { _lhcMarker   :: !(Maybe Text)
-    , _lhcMaxItems :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhcMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhcMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHealthChecks' with the minimum fields required to make a request.
 --
@@ -72,10 +73,8 @@ data ListHealthChecks = ListHealthChecks'
 listHealthChecks
     :: ListHealthChecks
 listHealthChecks =
-    ListHealthChecks'
-    { _lhcMarker = Nothing
-    , _lhcMaxItems = Nothing
-    }
+  ListHealthChecks' {_lhcMarker = Nothing, _lhcMaxItems = Nothing}
+
 
 -- | If the value of @IsTruncated@ in the previous response was @true@ , you have more health checks. To get another group, submit another @ListHealthChecks@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first health check that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more health checks to get.
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
@@ -106,9 +105,9 @@ instance AWSRequest ListHealthChecks where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
-instance Hashable ListHealthChecks
+instance Hashable ListHealthChecks where
 
-instance NFData ListHealthChecks
+instance NFData ListHealthChecks where
 
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
@@ -127,13 +126,14 @@ instance ToQuery ListHealthChecks where
 --
 -- /See:/ 'listHealthChecksResponse' smart constructor.
 data ListHealthChecksResponse = ListHealthChecksResponse'
-    { _lhcrsNextMarker     :: !(Maybe Text)
-    , _lhcrsResponseStatus :: !Int
-    , _lhcrsHealthChecks   :: ![HealthCheck]
-    , _lhcrsMarker         :: !Text
-    , _lhcrsIsTruncated    :: !Bool
-    , _lhcrsMaxItems       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhcrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lhcrsHealthChecks   :: {-# NOUNPACK #-}![HealthCheck]
+  , _lhcrsMarker         :: {-# NOUNPACK #-}!Text
+  , _lhcrsIsTruncated    :: {-# NOUNPACK #-}!Bool
+  , _lhcrsMaxItems       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHealthChecksResponse' with the minimum fields required to make a request.
 --
@@ -157,14 +157,15 @@ listHealthChecksResponse
     -> Text -- ^ 'lhcrsMaxItems'
     -> ListHealthChecksResponse
 listHealthChecksResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
-    ListHealthChecksResponse'
-    { _lhcrsNextMarker = Nothing
-    , _lhcrsResponseStatus = pResponseStatus_
-    , _lhcrsHealthChecks = mempty
-    , _lhcrsMarker = pMarker_
-    , _lhcrsIsTruncated = pIsTruncated_
-    , _lhcrsMaxItems = pMaxItems_
-    }
+  ListHealthChecksResponse'
+  { _lhcrsNextMarker = Nothing
+  , _lhcrsResponseStatus = pResponseStatus_
+  , _lhcrsHealthChecks = mempty
+  , _lhcrsMarker = pMarker_
+  , _lhcrsIsTruncated = pIsTruncated_
+  , _lhcrsMaxItems = pMaxItems_
+  }
+
 
 -- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first health check that Amazon Route 53 returns if you submit another @ListHealthChecks@ request and specify the value of @NextMarker@ in the @marker@ parameter.
 lhcrsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
@@ -190,4 +191,4 @@ lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a});
 lhcrsMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrsMaxItems = lens _lhcrsMaxItems (\ s a -> s{_lhcrsMaxItems = a});
 
-instance NFData ListHealthChecksResponse
+instance NFData ListHealthChecksResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetAccountSettings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,23 +38,25 @@ module Network.AWS.Lambda.GetAccountSettings
     , gasrsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAccountSettings' smart constructor.
 data GetAccountSettings =
-    GetAccountSettings'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetAccountSettings'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountSettings' with the minimum fields required to make a request.
 --
 getAccountSettings
     :: GetAccountSettings
 getAccountSettings = GetAccountSettings'
+
 
 instance AWSRequest GetAccountSettings where
         type Rs GetAccountSettings =
@@ -67,9 +69,9 @@ instance AWSRequest GetAccountSettings where
                    (x .?> "AccountLimit") <*> (x .?> "AccountUsage") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetAccountSettings
+instance Hashable GetAccountSettings where
 
-instance NFData GetAccountSettings
+instance NFData GetAccountSettings where
 
 instance ToHeaders GetAccountSettings where
         toHeaders = const mempty
@@ -82,10 +84,11 @@ instance ToQuery GetAccountSettings where
 
 -- | /See:/ 'getAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
-    { _gasrsAccountLimit   :: !(Maybe AccountLimit)
-    , _gasrsAccountUsage   :: !(Maybe AccountUsage)
-    , _gasrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gasrsAccountLimit   :: {-# NOUNPACK #-}!(Maybe AccountLimit)
+  , _gasrsAccountUsage   :: {-# NOUNPACK #-}!(Maybe AccountUsage)
+  , _gasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountSettingsResponse' with the minimum fields required to make a request.
 --
@@ -100,11 +103,12 @@ getAccountSettingsResponse
     :: Int -- ^ 'gasrsResponseStatus'
     -> GetAccountSettingsResponse
 getAccountSettingsResponse pResponseStatus_ =
-    GetAccountSettingsResponse'
-    { _gasrsAccountLimit = Nothing
-    , _gasrsAccountUsage = Nothing
-    , _gasrsResponseStatus = pResponseStatus_
-    }
+  GetAccountSettingsResponse'
+  { _gasrsAccountLimit = Nothing
+  , _gasrsAccountUsage = Nothing
+  , _gasrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gasrsAccountLimit :: Lens' GetAccountSettingsResponse (Maybe AccountLimit)
@@ -118,4 +122,4 @@ gasrsAccountUsage = lens _gasrsAccountUsage (\ s a -> s{_gasrsAccountUsage = a})
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
 gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
 
-instance NFData GetAccountSettingsResponse
+instance NFData GetAccountSettingsResponse where

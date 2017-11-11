@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch.CreateComputeEnvironment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,21 +46,22 @@ module Network.AWS.Batch.CreateComputeEnvironment
     , ccersResponseStatus
     ) where
 
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createComputeEnvironment' smart constructor.
 data CreateComputeEnvironment = CreateComputeEnvironment'
-    { _cceState                  :: !(Maybe CEState)
-    , _cceComputeResources       :: !(Maybe ComputeResource)
-    , _cceComputeEnvironmentName :: !Text
-    , _cceType                   :: !CEType
-    , _cceServiceRole            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cceState                  :: {-# NOUNPACK #-}!(Maybe CEState)
+  , _cceComputeResources       :: {-# NOUNPACK #-}!(Maybe ComputeResource)
+  , _cceComputeEnvironmentName :: {-# NOUNPACK #-}!Text
+  , _cceType                   :: {-# NOUNPACK #-}!CEType
+  , _cceServiceRole            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateComputeEnvironment' with the minimum fields required to make a request.
 --
@@ -81,13 +82,14 @@ createComputeEnvironment
     -> Text -- ^ 'cceServiceRole'
     -> CreateComputeEnvironment
 createComputeEnvironment pComputeEnvironmentName_ pType_ pServiceRole_ =
-    CreateComputeEnvironment'
-    { _cceState = Nothing
-    , _cceComputeResources = Nothing
-    , _cceComputeEnvironmentName = pComputeEnvironmentName_
-    , _cceType = pType_
-    , _cceServiceRole = pServiceRole_
-    }
+  CreateComputeEnvironment'
+  { _cceState = Nothing
+  , _cceComputeResources = Nothing
+  , _cceComputeEnvironmentName = pComputeEnvironmentName_
+  , _cceType = pType_
+  , _cceServiceRole = pServiceRole_
+  }
+
 
 -- | The state of the compute environment. If the state is @ENABLED@ , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
 cceState :: Lens' CreateComputeEnvironment (Maybe CEState)
@@ -121,9 +123,9 @@ instance AWSRequest CreateComputeEnvironment where
                      (x .?> "computeEnvironmentArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateComputeEnvironment
+instance Hashable CreateComputeEnvironment where
 
-instance NFData CreateComputeEnvironment
+instance NFData CreateComputeEnvironment where
 
 instance ToHeaders CreateComputeEnvironment where
         toHeaders
@@ -152,10 +154,11 @@ instance ToQuery CreateComputeEnvironment where
 
 -- | /See:/ 'createComputeEnvironmentResponse' smart constructor.
 data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
-    { _ccersComputeEnvironmentName :: !(Maybe Text)
-    , _ccersComputeEnvironmentARN  :: !(Maybe Text)
-    , _ccersResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccersComputeEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccersComputeEnvironmentARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccersResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateComputeEnvironmentResponse' with the minimum fields required to make a request.
 --
@@ -170,11 +173,12 @@ createComputeEnvironmentResponse
     :: Int -- ^ 'ccersResponseStatus'
     -> CreateComputeEnvironmentResponse
 createComputeEnvironmentResponse pResponseStatus_ =
-    CreateComputeEnvironmentResponse'
-    { _ccersComputeEnvironmentName = Nothing
-    , _ccersComputeEnvironmentARN = Nothing
-    , _ccersResponseStatus = pResponseStatus_
-    }
+  CreateComputeEnvironmentResponse'
+  { _ccersComputeEnvironmentName = Nothing
+  , _ccersComputeEnvironmentARN = Nothing
+  , _ccersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the compute environment.
 ccersComputeEnvironmentName :: Lens' CreateComputeEnvironmentResponse (Maybe Text)
@@ -189,3 +193,4 @@ ccersResponseStatus :: Lens' CreateComputeEnvironmentResponse Int
 ccersResponseStatus = lens _ccersResponseStatus (\ s a -> s{_ccersResponseStatus = a});
 
 instance NFData CreateComputeEnvironmentResponse
+         where

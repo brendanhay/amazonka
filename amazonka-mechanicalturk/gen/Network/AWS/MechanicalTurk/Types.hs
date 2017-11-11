@@ -4,9 +4,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.Types
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -232,40 +232,40 @@ module Network.AWS.MechanicalTurk.Types
     , wbWorkerId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.MechanicalTurk.Types.Sum
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.MechanicalTurk.Types.Sum
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
 
 -- | API version @2017-01-17@ of the Amazon Mechanical Turk SDK configuration.
 mechanicalTurk :: Service
 mechanicalTurk =
-    Service
-    { _svcAbbrev = "MechanicalTurk"
-    , _svcSigner = v4
-    , _svcPrefix = "mturk-requester"
-    , _svcVersion = "2017-01-17"
-    , _svcEndpoint = defaultEndpoint mechanicalTurk
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "MechanicalTurk"
-    , _svcRetry = retry
-    }
+  Service
+  { _svcAbbrev = "MechanicalTurk"
+  , _svcSigner = v4
+  , _svcPrefix = "mturk-requester"
+  , _svcVersion = "2017-01-17"
+  , _svcEndpoint = defaultEndpoint mechanicalTurk
+  , _svcTimeout = Just 70
+  , _svcCheck = statusSuccess
+  , _svcError = parseJSONError "MechanicalTurk"
+  , _svcRetry = retry
+  }
   where
     retry =
-        Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
-        }
+      Exponential
+      { _retryBase = 5.0e-2
+      , _retryGrowth = 2
+      , _retryAttempts = 5
+      , _retryCheck = check
+      }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
-          Just "throttled_exception"
+        Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
-          Just "throttling_exception"
+        Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasStatus 502) e = Just "bad_gateway"
@@ -274,14 +274,17 @@ mechanicalTurk =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+
 -- | Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
 --
 --
 _ServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceFault = _MatchServiceError mechanicalTurk "ServiceFault"
 
+
 -- | Your request is invalid.
 --
 --
 _RequestError :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestError = _MatchServiceError mechanicalTurk "RequestError"
+

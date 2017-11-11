@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DeleteNotificationSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.WorkDocs.DeleteNotificationSubscription
     , DeleteNotificationSubscriptionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteNotificationSubscription' smart constructor.
 data DeleteNotificationSubscription = DeleteNotificationSubscription'
-    { _dnsSubscriptionId :: !Text
-    , _dnsOrganizationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnsSubscriptionId :: {-# NOUNPACK #-}!Text
+  , _dnsOrganizationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNotificationSubscription' with the minimum fields required to make a request.
 --
@@ -60,10 +61,9 @@ deleteNotificationSubscription
     -> Text -- ^ 'dnsOrganizationId'
     -> DeleteNotificationSubscription
 deleteNotificationSubscription pSubscriptionId_ pOrganizationId_ =
-    DeleteNotificationSubscription'
-    { _dnsSubscriptionId = pSubscriptionId_
-    , _dnsOrganizationId = pOrganizationId_
-    }
+  DeleteNotificationSubscription'
+  {_dnsSubscriptionId = pSubscriptionId_, _dnsOrganizationId = pOrganizationId_}
+
 
 -- | The ID of the subscription.
 dnsSubscriptionId :: Lens' DeleteNotificationSubscription Text
@@ -82,8 +82,9 @@ instance AWSRequest DeleteNotificationSubscription
           = receiveNull DeleteNotificationSubscriptionResponse'
 
 instance Hashable DeleteNotificationSubscription
+         where
 
-instance NFData DeleteNotificationSubscription
+instance NFData DeleteNotificationSubscription where
 
 instance ToHeaders DeleteNotificationSubscription
          where
@@ -104,15 +105,17 @@ instance ToQuery DeleteNotificationSubscription where
 
 -- | /See:/ 'deleteNotificationSubscriptionResponse' smart constructor.
 data DeleteNotificationSubscriptionResponse =
-    DeleteNotificationSubscriptionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteNotificationSubscriptionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteNotificationSubscriptionResponse' with the minimum fields required to make a request.
 --
 deleteNotificationSubscriptionResponse
     :: DeleteNotificationSubscriptionResponse
-deleteNotificationSubscriptionResponse =
-    DeleteNotificationSubscriptionResponse'
+deleteNotificationSubscriptionResponse = DeleteNotificationSubscriptionResponse'
+
 
 instance NFData
-         DeleteNotificationSubscriptionResponse
+           DeleteNotificationSubscriptionResponse
+         where

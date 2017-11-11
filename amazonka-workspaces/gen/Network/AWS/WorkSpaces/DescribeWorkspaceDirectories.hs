@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,13 +43,13 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     , dwdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkSpaces.Types
-import           Network.AWS.WorkSpaces.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkSpaces.Types
+import Network.AWS.WorkSpaces.Types.Product
 
 -- | Contains the inputs for the 'DescribeWorkspaceDirectories' operation.
 --
@@ -57,9 +57,10 @@ import           Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'describeWorkspaceDirectories' smart constructor.
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
-    { _dwdNextToken    :: !(Maybe Text)
-    , _dwdDirectoryIds :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwdNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwdDirectoryIds :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkspaceDirectories' with the minimum fields required to make a request.
 --
@@ -71,10 +72,9 @@ data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
 describeWorkspaceDirectories
     :: DescribeWorkspaceDirectories
 describeWorkspaceDirectories =
-    DescribeWorkspaceDirectories'
-    { _dwdNextToken = Nothing
-    , _dwdDirectoryIds = Nothing
-    }
+  DescribeWorkspaceDirectories'
+  {_dwdNextToken = Nothing, _dwdDirectoryIds = Nothing}
+
 
 -- | The @NextToken@ value from a previous call to this operation. Pass null if this is the first call.
 dwdNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
@@ -104,9 +104,9 @@ instance AWSRequest DescribeWorkspaceDirectories
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeWorkspaceDirectories
+instance Hashable DescribeWorkspaceDirectories where
 
-instance NFData DescribeWorkspaceDirectories
+instance NFData DescribeWorkspaceDirectories where
 
 instance ToHeaders DescribeWorkspaceDirectories where
         toHeaders
@@ -137,10 +137,11 @@ instance ToQuery DescribeWorkspaceDirectories where
 --
 -- /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
-    { _dwdrsDirectories    :: !(Maybe [WorkspaceDirectory])
-    , _dwdrsNextToken      :: !(Maybe Text)
-    , _dwdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dwdrsDirectories    :: {-# NOUNPACK #-}!(Maybe [WorkspaceDirectory])
+  , _dwdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dwdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeWorkspaceDirectoriesResponse' with the minimum fields required to make a request.
 --
@@ -155,11 +156,12 @@ describeWorkspaceDirectoriesResponse
     :: Int -- ^ 'dwdrsResponseStatus'
     -> DescribeWorkspaceDirectoriesResponse
 describeWorkspaceDirectoriesResponse pResponseStatus_ =
-    DescribeWorkspaceDirectoriesResponse'
-    { _dwdrsDirectories = Nothing
-    , _dwdrsNextToken = Nothing
-    , _dwdrsResponseStatus = pResponseStatus_
-    }
+  DescribeWorkspaceDirectoriesResponse'
+  { _dwdrsDirectories = Nothing
+  , _dwdrsNextToken = Nothing
+  , _dwdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of structures that contain information about the directories.
 dwdrsDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
@@ -174,3 +176,4 @@ dwdrsResponseStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
 dwdrsResponseStatus = lens _dwdrsResponseStatus (\ s a -> s{_dwdrsResponseStatus = a});
 
 instance NFData DescribeWorkspaceDirectoriesResponse
+         where

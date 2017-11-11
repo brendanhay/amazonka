@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,13 +46,13 @@ module Network.AWS.AutoScaling.DescribeTags
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeTags.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-    { _dtFilters    :: !(Maybe [Filter])
-    , _dtNextToken  :: !(Maybe Text)
-    , _dtMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dtNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
@@ -77,11 +78,9 @@ data DescribeTags = DescribeTags'
 describeTags
     :: DescribeTags
 describeTags =
-    DescribeTags'
-    { _dtFilters = Nothing
-    , _dtNextToken = Nothing
-    , _dtMaxRecords = Nothing
-    }
+  DescribeTags'
+  {_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxRecords = Nothing}
+
 
 -- | A filter used to scope the tags to return.
 dtFilters :: Lens' DescribeTags [Filter]
@@ -114,9 +113,9 @@ instance AWSRequest DescribeTags where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTags
+instance Hashable DescribeTags where
 
-instance NFData DescribeTags
+instance NFData DescribeTags where
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -140,10 +139,11 @@ instance ToQuery DescribeTags where
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsNextToken      :: !(Maybe Text)
-    , _dtrsTags           :: !(Maybe [TagDescription])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsTags           :: {-# NOUNPACK #-}!(Maybe [TagDescription])
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
@@ -158,11 +158,12 @@ describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
-    DescribeTagsResponse'
-    { _dtrsNextToken = Nothing
-    , _dtrsTags = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTagsResponse'
+  { _dtrsNextToken = Nothing
+  , _dtrsTags = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
@@ -176,4 +177,4 @@ dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTagsResponse
+instance NFData DescribeTagsResponse where

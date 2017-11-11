@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetVaultLock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,12 +55,12 @@ module Network.AWS.Glacier.GetVaultLock
     , gvlrsResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input values for @GetVaultLock@ .
 --
@@ -68,9 +68,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getVaultLock' smart constructor.
 data GetVaultLock = GetVaultLock'
-    { _gvlAccountId :: !Text
-    , _gvlVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gvlAccountId :: {-# NOUNPACK #-}!Text
+  , _gvlVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetVaultLock' with the minimum fields required to make a request.
 --
@@ -84,10 +85,8 @@ getVaultLock
     -> Text -- ^ 'gvlVaultName'
     -> GetVaultLock
 getVaultLock pAccountId_ pVaultName_ =
-    GetVaultLock'
-    { _gvlAccountId = pAccountId_
-    , _gvlVaultName = pVaultName_
-    }
+  GetVaultLock' {_gvlAccountId = pAccountId_, _gvlVaultName = pVaultName_}
+
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 gvlAccountId :: Lens' GetVaultLock Text
@@ -109,9 +108,9 @@ instance AWSRequest GetVaultLock where
                      <*> (x .?> "Policy")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetVaultLock
+instance Hashable GetVaultLock where
 
-instance NFData GetVaultLock
+instance NFData GetVaultLock where
 
 instance ToHeaders GetVaultLock where
         toHeaders = const mempty
@@ -131,12 +130,13 @@ instance ToQuery GetVaultLock where
 --
 -- /See:/ 'getVaultLockResponse' smart constructor.
 data GetVaultLockResponse = GetVaultLockResponse'
-    { _gvlrsState          :: !(Maybe Text)
-    , _gvlrsExpirationDate :: !(Maybe Text)
-    , _gvlrsCreationDate   :: !(Maybe Text)
-    , _gvlrsPolicy         :: !(Maybe Text)
-    , _gvlrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gvlrsState          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gvlrsExpirationDate :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gvlrsCreationDate   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gvlrsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gvlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetVaultLockResponse' with the minimum fields required to make a request.
 --
@@ -155,13 +155,14 @@ getVaultLockResponse
     :: Int -- ^ 'gvlrsResponseStatus'
     -> GetVaultLockResponse
 getVaultLockResponse pResponseStatus_ =
-    GetVaultLockResponse'
-    { _gvlrsState = Nothing
-    , _gvlrsExpirationDate = Nothing
-    , _gvlrsCreationDate = Nothing
-    , _gvlrsPolicy = Nothing
-    , _gvlrsResponseStatus = pResponseStatus_
-    }
+  GetVaultLockResponse'
+  { _gvlrsState = Nothing
+  , _gvlrsExpirationDate = Nothing
+  , _gvlrsCreationDate = Nothing
+  , _gvlrsPolicy = Nothing
+  , _gvlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The state of the vault lock. @InProgress@ or @Locked@ .
 gvlrsState :: Lens' GetVaultLockResponse (Maybe Text)
@@ -183,4 +184,4 @@ gvlrsPolicy = lens _gvlrsPolicy (\ s a -> s{_gvlrsPolicy = a});
 gvlrsResponseStatus :: Lens' GetVaultLockResponse Int
 gvlrsResponseStatus = lens _gvlrsResponseStatus (\ s a -> s{_gvlrsResponseStatus = a});
 
-instance NFData GetVaultLockResponse
+instance NFData GetVaultLockResponse where

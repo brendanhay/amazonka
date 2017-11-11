@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListExports
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,18 +42,19 @@ module Network.AWS.CloudFormation.ListExports
     , lersResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listExports' smart constructor.
 newtype ListExports = ListExports'
-    { _leNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _leNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListExports' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype ListExports = ListExports'
 -- * 'leNextToken' - A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
 listExports
     :: ListExports
-listExports =
-    ListExports'
-    { _leNextToken = Nothing
-    }
+listExports = ListExports' {_leNextToken = Nothing}
+
 
 -- | A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
 leNextToken :: Lens' ListExports (Maybe Text)
@@ -90,9 +89,9 @@ instance AWSRequest ListExports where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListExports
+instance Hashable ListExports where
 
-instance NFData ListExports
+instance NFData ListExports where
 
 instance ToHeaders ListExports where
         toHeaders = const mempty
@@ -109,10 +108,11 @@ instance ToQuery ListExports where
 
 -- | /See:/ 'listExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-    { _lersNextToken      :: !(Maybe Text)
-    , _lersExports        :: !(Maybe [Export])
-    , _lersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lersExports        :: {-# NOUNPACK #-}!(Maybe [Export])
+  , _lersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListExportsResponse' with the minimum fields required to make a request.
 --
@@ -127,11 +127,12 @@ listExportsResponse
     :: Int -- ^ 'lersResponseStatus'
     -> ListExportsResponse
 listExportsResponse pResponseStatus_ =
-    ListExportsResponse'
-    { _lersNextToken = Nothing
-    , _lersExports = Nothing
-    , _lersResponseStatus = pResponseStatus_
-    }
+  ListExportsResponse'
+  { _lersNextToken = Nothing
+  , _lersExports = Nothing
+  , _lersResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
 lersNextToken :: Lens' ListExportsResponse (Maybe Text)
@@ -145,4 +146,4 @@ lersExports = lens _lersExports (\ s a -> s{_lersExports = a}) . _Default . _Coe
 lersResponseStatus :: Lens' ListExportsResponse Int
 lersResponseStatus = lens _lersResponseStatus (\ s a -> s{_lersResponseStatus = a});
 
-instance NFData ListExportsResponse
+instance NFData ListExportsResponse where

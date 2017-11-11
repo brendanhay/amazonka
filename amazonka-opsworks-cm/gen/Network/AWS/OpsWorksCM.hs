@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -219,23 +219,23 @@ module Network.AWS.OpsWorksCM
     , seMessage
     ) where
 
-import           Network.AWS.OpsWorksCM.AssociateNode
-import           Network.AWS.OpsWorksCM.CreateBackup
-import           Network.AWS.OpsWorksCM.CreateServer
-import           Network.AWS.OpsWorksCM.DeleteBackup
-import           Network.AWS.OpsWorksCM.DeleteServer
-import           Network.AWS.OpsWorksCM.DescribeAccountAttributes
-import           Network.AWS.OpsWorksCM.DescribeBackups
-import           Network.AWS.OpsWorksCM.DescribeEvents
-import           Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
-import           Network.AWS.OpsWorksCM.DescribeServers
-import           Network.AWS.OpsWorksCM.DisassociateNode
-import           Network.AWS.OpsWorksCM.RestoreServer
-import           Network.AWS.OpsWorksCM.StartMaintenance
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.UpdateServer
-import           Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
-import           Network.AWS.OpsWorksCM.Waiters
+import Network.AWS.OpsWorksCM.AssociateNode
+import Network.AWS.OpsWorksCM.CreateBackup
+import Network.AWS.OpsWorksCM.CreateServer
+import Network.AWS.OpsWorksCM.DeleteBackup
+import Network.AWS.OpsWorksCM.DeleteServer
+import Network.AWS.OpsWorksCM.DescribeAccountAttributes
+import Network.AWS.OpsWorksCM.DescribeBackups
+import Network.AWS.OpsWorksCM.DescribeEvents
+import Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
+import Network.AWS.OpsWorksCM.DescribeServers
+import Network.AWS.OpsWorksCM.DisassociateNode
+import Network.AWS.OpsWorksCM.RestoreServer
+import Network.AWS.OpsWorksCM.StartMaintenance
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.UpdateServer
+import Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
+import Network.AWS.OpsWorksCM.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

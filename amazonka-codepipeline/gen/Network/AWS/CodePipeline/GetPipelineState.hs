@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.GetPipelineState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CodePipeline.GetPipelineState
     , gpsrsResponseStatus
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a get pipeline state action.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getPipelineState' smart constructor.
 newtype GetPipelineState = GetPipelineState'
-    { _gpsName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpsName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPipelineState' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ newtype GetPipelineState = GetPipelineState'
 getPipelineState
     :: Text -- ^ 'gpsName'
     -> GetPipelineState
-getPipelineState pName_ =
-    GetPipelineState'
-    { _gpsName = pName_
-    }
+getPipelineState pName_ = GetPipelineState' {_gpsName = pName_}
+
 
 -- | The name of the pipeline about which you want to get information.
 gpsName :: Lens' GetPipelineState Text
@@ -87,9 +86,9 @@ instance AWSRequest GetPipelineState where
                      <*> (x .?> "updated")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetPipelineState
+instance Hashable GetPipelineState where
 
-instance NFData GetPipelineState
+instance NFData GetPipelineState where
 
 instance ToHeaders GetPipelineState where
         toHeaders
@@ -117,13 +116,14 @@ instance ToQuery GetPipelineState where
 --
 -- /See:/ 'getPipelineStateResponse' smart constructor.
 data GetPipelineStateResponse = GetPipelineStateResponse'
-    { _gpsrsPipelineName    :: !(Maybe Text)
-    , _gpsrsCreated         :: !(Maybe POSIX)
-    , _gpsrsStageStates     :: !(Maybe [StageState])
-    , _gpsrsPipelineVersion :: !(Maybe Nat)
-    , _gpsrsUpdated         :: !(Maybe POSIX)
-    , _gpsrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpsrsPipelineName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpsrsCreated         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gpsrsStageStates     :: {-# NOUNPACK #-}!(Maybe [StageState])
+  , _gpsrsPipelineVersion :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gpsrsUpdated         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gpsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPipelineStateResponse' with the minimum fields required to make a request.
 --
@@ -144,14 +144,15 @@ getPipelineStateResponse
     :: Int -- ^ 'gpsrsResponseStatus'
     -> GetPipelineStateResponse
 getPipelineStateResponse pResponseStatus_ =
-    GetPipelineStateResponse'
-    { _gpsrsPipelineName = Nothing
-    , _gpsrsCreated = Nothing
-    , _gpsrsStageStates = Nothing
-    , _gpsrsPipelineVersion = Nothing
-    , _gpsrsUpdated = Nothing
-    , _gpsrsResponseStatus = pResponseStatus_
-    }
+  GetPipelineStateResponse'
+  { _gpsrsPipelineName = Nothing
+  , _gpsrsCreated = Nothing
+  , _gpsrsStageStates = Nothing
+  , _gpsrsPipelineVersion = Nothing
+  , _gpsrsUpdated = Nothing
+  , _gpsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the pipeline for which you want to get the state.
 gpsrsPipelineName :: Lens' GetPipelineStateResponse (Maybe Text)
@@ -177,4 +178,4 @@ gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Tim
 gpsrsResponseStatus :: Lens' GetPipelineStateResponse Int
 gpsrsResponseStatus = lens _gpsrsResponseStatus (\ s a -> s{_gpsrsResponseStatus = a});
 
-instance NFData GetPipelineStateResponse
+instance NFData GetPipelineStateResponse where

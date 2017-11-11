@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateRequestValidator
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.UpdateRequestValidator
     , rvId
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Updates a 'RequestValidator' of a given 'RestApi' .
 --
@@ -54,10 +54,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateRequestValidator' smart constructor.
 data UpdateRequestValidator = UpdateRequestValidator'
-    { _urvPatchOperations    :: !(Maybe [PatchOperation])
-    , _urvRestAPIId          :: !Text
-    , _urvRequestValidatorId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _urvPatchOperations    :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
+  , _urvRestAPIId          :: {-# NOUNPACK #-}!Text
+  , _urvRequestValidatorId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateRequestValidator' with the minimum fields required to make a request.
 --
@@ -73,11 +74,12 @@ updateRequestValidator
     -> Text -- ^ 'urvRequestValidatorId'
     -> UpdateRequestValidator
 updateRequestValidator pRestAPIId_ pRequestValidatorId_ =
-    UpdateRequestValidator'
-    { _urvPatchOperations = Nothing
-    , _urvRestAPIId = pRestAPIId_
-    , _urvRequestValidatorId = pRequestValidatorId_
-    }
+  UpdateRequestValidator'
+  { _urvPatchOperations = Nothing
+  , _urvRestAPIId = pRestAPIId_
+  , _urvRequestValidatorId = pRequestValidatorId_
+  }
+
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 urvPatchOperations :: Lens' UpdateRequestValidator [PatchOperation]
@@ -96,9 +98,9 @@ instance AWSRequest UpdateRequestValidator where
         request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable UpdateRequestValidator
+instance Hashable UpdateRequestValidator where
 
-instance NFData UpdateRequestValidator
+instance NFData UpdateRequestValidator where
 
 instance ToHeaders UpdateRequestValidator where
         toHeaders

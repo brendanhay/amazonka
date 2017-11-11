@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     , dpgnmDBParameterGroupName
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBParameterGroup' smart constructor.
 data ModifyDBParameterGroup = ModifyDBParameterGroup'
-    { _mdpgDBParameterGroupName :: !Text
-    , _mdpgParameters           :: ![Parameter]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdpgDBParameterGroupName :: {-# NOUNPACK #-}!Text
+  , _mdpgParameters           :: {-# NOUNPACK #-}![Parameter]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBParameterGroup' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ modifyDBParameterGroup
     :: Text -- ^ 'mdpgDBParameterGroupName'
     -> ModifyDBParameterGroup
 modifyDBParameterGroup pDBParameterGroupName_ =
-    ModifyDBParameterGroup'
-    { _mdpgDBParameterGroupName = pDBParameterGroupName_
-    , _mdpgParameters = mempty
-    }
+  ModifyDBParameterGroup'
+  {_mdpgDBParameterGroupName = pDBParameterGroupName_, _mdpgParameters = mempty}
+
 
 -- | The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 mdpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
@@ -88,9 +88,9 @@ instance AWSRequest ModifyDBParameterGroup where
           = receiveXMLWrapper "ModifyDBParameterGroupResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ModifyDBParameterGroup
+instance Hashable ModifyDBParameterGroup where
 
-instance NFData ModifyDBParameterGroup
+instance NFData ModifyDBParameterGroup where
 
 instance ToHeaders ModifyDBParameterGroup where
         toHeaders = const mempty

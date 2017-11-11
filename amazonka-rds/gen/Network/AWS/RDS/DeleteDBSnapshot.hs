@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBSnapshot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.RDS.DeleteDBSnapshot
     , ddbsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDBSnapshot' smart constructor.
 newtype DeleteDBSnapshot = DeleteDBSnapshot'
-    { _ddbsDBSnapshotIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbsDBSnapshotIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBSnapshot' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ deleteDBSnapshot
     :: Text -- ^ 'ddbsDBSnapshotIdentifier'
     -> DeleteDBSnapshot
 deleteDBSnapshot pDBSnapshotIdentifier_ =
-    DeleteDBSnapshot'
-    { _ddbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
-    }
+  DeleteDBSnapshot' {_ddbsDBSnapshotIdentifier = pDBSnapshotIdentifier_}
+
 
 -- | The DBSnapshot identifier. Constraints: Must be the name of an existing DB snapshot in the @available@ state.
 ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
@@ -79,9 +79,9 @@ instance AWSRequest DeleteDBSnapshot where
                  DeleteDBSnapshotResponse' <$>
                    (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteDBSnapshot
+instance Hashable DeleteDBSnapshot where
 
-instance NFData DeleteDBSnapshot
+instance NFData DeleteDBSnapshot where
 
 instance ToHeaders DeleteDBSnapshot where
         toHeaders = const mempty
@@ -98,9 +98,10 @@ instance ToQuery DeleteDBSnapshot where
 
 -- | /See:/ 'deleteDBSnapshotResponse' smart constructor.
 data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
-    { _ddbsrsDBSnapshot     :: !(Maybe DBSnapshot)
-    , _ddbsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddbsrsDBSnapshot     :: {-# NOUNPACK #-}!(Maybe DBSnapshot)
+  , _ddbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDBSnapshotResponse' with the minimum fields required to make a request.
 --
@@ -113,10 +114,9 @@ deleteDBSnapshotResponse
     :: Int -- ^ 'ddbsrsResponseStatus'
     -> DeleteDBSnapshotResponse
 deleteDBSnapshotResponse pResponseStatus_ =
-    DeleteDBSnapshotResponse'
-    { _ddbsrsDBSnapshot = Nothing
-    , _ddbsrsResponseStatus = pResponseStatus_
-    }
+  DeleteDBSnapshotResponse'
+  {_ddbsrsDBSnapshot = Nothing, _ddbsrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
@@ -126,4 +126,4 @@ ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
 ddbsrsResponseStatus :: Lens' DeleteDBSnapshotResponse Int
 ddbsrsResponseStatus = lens _ddbsrsResponseStatus (\ s a -> s{_ddbsrsResponseStatus = a});
 
-instance NFData DeleteDBSnapshotResponse
+instance NFData DeleteDBSnapshotResponse where

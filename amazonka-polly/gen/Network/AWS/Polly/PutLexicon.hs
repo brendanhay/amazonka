@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Polly.PutLexicon
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.Polly.PutLexicon
     , plrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Polly.Types
-import           Network.AWS.Polly.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Polly.Types
+import Network.AWS.Polly.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putLexicon' smart constructor.
 data PutLexicon = PutLexicon'
-    { _plName    :: !(Sensitive Text)
-    , _plContent :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _plName    :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _plContent :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutLexicon' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ putLexicon
     -> Text -- ^ 'plContent'
     -> PutLexicon
 putLexicon pName_ pContent_ =
-    PutLexicon'
-    { _plName = _Sensitive # pName_
-    , _plContent = pContent_
-    }
+  PutLexicon' {_plName = _Sensitive # pName_, _plContent = pContent_}
+
 
 -- | Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
 plName :: Lens' PutLexicon Text
@@ -85,9 +84,9 @@ instance AWSRequest PutLexicon where
               (\ s h x ->
                  PutLexiconResponse' <$> (pure (fromEnum s)))
 
-instance Hashable PutLexicon
+instance Hashable PutLexicon where
 
-instance NFData PutLexicon
+instance NFData PutLexicon where
 
 instance ToHeaders PutLexicon where
         toHeaders = const mempty
@@ -105,8 +104,9 @@ instance ToQuery PutLexicon where
 
 -- | /See:/ 'putLexiconResponse' smart constructor.
 newtype PutLexiconResponse = PutLexiconResponse'
-    { _plrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _plrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutLexiconResponse' with the minimum fields required to make a request.
 --
@@ -117,12 +117,11 @@ putLexiconResponse
     :: Int -- ^ 'plrsResponseStatus'
     -> PutLexiconResponse
 putLexiconResponse pResponseStatus_ =
-    PutLexiconResponse'
-    { _plrsResponseStatus = pResponseStatus_
-    }
+  PutLexiconResponse' {_plrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 plrsResponseStatus :: Lens' PutLexiconResponse Int
 plrsResponseStatus = lens _plrsResponseStatus (\ s a -> s{_plrsResponseStatus = a});
 
-instance NFData PutLexiconResponse
+instance NFData PutLexiconResponse where

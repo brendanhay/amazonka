@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.LookupDeveloperIdentity
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     , ldirsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @LookupDeveloperIdentityInput@ action.
 --
@@ -58,12 +58,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'lookupDeveloperIdentity' smart constructor.
 data LookupDeveloperIdentity = LookupDeveloperIdentity'
-    { _ldiDeveloperUserIdentifier :: !(Maybe Text)
-    , _ldiNextToken               :: !(Maybe Text)
-    , _ldiIdentityId              :: !(Maybe Text)
-    , _ldiMaxResults              :: !(Maybe Nat)
-    , _ldiIdentityPoolId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldiDeveloperUserIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldiNextToken               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldiIdentityId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldiMaxResults              :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ldiIdentityPoolId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LookupDeveloperIdentity' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ lookupDeveloperIdentity
     :: Text -- ^ 'ldiIdentityPoolId'
     -> LookupDeveloperIdentity
 lookupDeveloperIdentity pIdentityPoolId_ =
-    LookupDeveloperIdentity'
-    { _ldiDeveloperUserIdentifier = Nothing
-    , _ldiNextToken = Nothing
-    , _ldiIdentityId = Nothing
-    , _ldiMaxResults = Nothing
-    , _ldiIdentityPoolId = pIdentityPoolId_
-    }
+  LookupDeveloperIdentity'
+  { _ldiDeveloperUserIdentifier = Nothing
+  , _ldiNextToken = Nothing
+  , _ldiIdentityId = Nothing
+  , _ldiMaxResults = Nothing
+  , _ldiIdentityPoolId = pIdentityPoolId_
+  }
+
 
 -- | A unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.
 ldiDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity (Maybe Text)
@@ -122,9 +124,9 @@ instance AWSRequest LookupDeveloperIdentity where
                      (x .?> "DeveloperUserIdentifierList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable LookupDeveloperIdentity
+instance Hashable LookupDeveloperIdentity where
 
-instance NFData LookupDeveloperIdentity
+instance NFData LookupDeveloperIdentity where
 
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders
@@ -159,11 +161,12 @@ instance ToQuery LookupDeveloperIdentity where
 --
 -- /See:/ 'lookupDeveloperIdentityResponse' smart constructor.
 data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
-    { _ldirsNextToken                   :: !(Maybe Text)
-    , _ldirsIdentityId                  :: !(Maybe Text)
-    , _ldirsDeveloperUserIdentifierList :: !(Maybe [Text])
-    , _ldirsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldirsNextToken                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldirsIdentityId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldirsDeveloperUserIdentifierList :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ldirsResponseStatus              :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LookupDeveloperIdentityResponse' with the minimum fields required to make a request.
 --
@@ -180,12 +183,13 @@ lookupDeveloperIdentityResponse
     :: Int -- ^ 'ldirsResponseStatus'
     -> LookupDeveloperIdentityResponse
 lookupDeveloperIdentityResponse pResponseStatus_ =
-    LookupDeveloperIdentityResponse'
-    { _ldirsNextToken = Nothing
-    , _ldirsIdentityId = Nothing
-    , _ldirsDeveloperUserIdentifierList = Nothing
-    , _ldirsResponseStatus = pResponseStatus_
-    }
+  LookupDeveloperIdentityResponse'
+  { _ldirsNextToken = Nothing
+  , _ldirsIdentityId = Nothing
+  , _ldirsDeveloperUserIdentifierList = Nothing
+  , _ldirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A pagination token. The first call you make will have @NextToken@ set to null. After that the service will return @NextToken@ values as needed. For example, let's say you make a request with @MaxResults@ set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.
 ldirsNextToken :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
@@ -203,4 +207,4 @@ ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a
 ldirsResponseStatus :: Lens' LookupDeveloperIdentityResponse Int
 ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});
 
-instance NFData LookupDeveloperIdentityResponse
+instance NFData LookupDeveloperIdentityResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPCEndpoints
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.DeleteVPCEndpoints
     , dversResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpcEndpoints.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteVPCEndpoints' smart constructor.
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
-    { _dveDryRun         :: !(Maybe Bool)
-    , _dveVPCEndpointIds :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dveDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dveVPCEndpointIds :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPCEndpoints' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ data DeleteVPCEndpoints = DeleteVPCEndpoints'
 deleteVPCEndpoints
     :: DeleteVPCEndpoints
 deleteVPCEndpoints =
-    DeleteVPCEndpoints'
-    { _dveDryRun = Nothing
-    , _dveVPCEndpointIds = mempty
-    }
+  DeleteVPCEndpoints' {_dveDryRun = Nothing, _dveVPCEndpointIds = mempty}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dveDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
@@ -90,9 +89,9 @@ instance AWSRequest DeleteVPCEndpoints where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DeleteVPCEndpoints
+instance Hashable DeleteVPCEndpoints where
 
-instance NFData DeleteVPCEndpoints
+instance NFData DeleteVPCEndpoints where
 
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
@@ -114,9 +113,10 @@ instance ToQuery DeleteVPCEndpoints where
 --
 -- /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
-    { _dversUnsuccessful   :: !(Maybe [UnsuccessfulItem])
-    , _dversResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dversUnsuccessful   :: {-# NOUNPACK #-}!(Maybe [UnsuccessfulItem])
+  , _dversResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVPCEndpointsResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ deleteVPCEndpointsResponse
     :: Int -- ^ 'dversResponseStatus'
     -> DeleteVPCEndpointsResponse
 deleteVPCEndpointsResponse pResponseStatus_ =
-    DeleteVPCEndpointsResponse'
-    { _dversUnsuccessful = Nothing
-    , _dversResponseStatus = pResponseStatus_
-    }
+  DeleteVPCEndpointsResponse'
+  {_dversUnsuccessful = Nothing, _dversResponseStatus = pResponseStatus_}
+
 
 -- | Information about the endpoints that were not successfully deleted.
 dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
@@ -142,4 +141,4 @@ dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a})
 dversResponseStatus :: Lens' DeleteVPCEndpointsResponse Int
 dversResponseStatus = lens _dversResponseStatus (\ s a -> s{_dversResponseStatus = a});
 
-instance NFData DeleteVPCEndpointsResponse
+instance NFData DeleteVPCEndpointsResponse where

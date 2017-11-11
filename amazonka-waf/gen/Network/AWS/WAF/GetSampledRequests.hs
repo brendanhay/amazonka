@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetSampledRequests
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,20 +44,21 @@ module Network.AWS.WAF.GetSampledRequests
     , gsrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'getSampledRequests' smart constructor.
 data GetSampledRequests = GetSampledRequests'
-    { _gsrWebACLId   :: !Text
-    , _gsrRuleId     :: !Text
-    , _gsrTimeWindow :: !TimeWindow
-    , _gsrMaxItems   :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsrWebACLId   :: {-# NOUNPACK #-}!Text
+  , _gsrRuleId     :: {-# NOUNPACK #-}!Text
+  , _gsrTimeWindow :: {-# NOUNPACK #-}!TimeWindow
+  , _gsrMaxItems   :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSampledRequests' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ getSampledRequests
     -> Natural -- ^ 'gsrMaxItems'
     -> GetSampledRequests
 getSampledRequests pWebACLId_ pRuleId_ pTimeWindow_ pMaxItems_ =
-    GetSampledRequests'
-    { _gsrWebACLId = pWebACLId_
-    , _gsrRuleId = pRuleId_
-    , _gsrTimeWindow = pTimeWindow_
-    , _gsrMaxItems = _Nat # pMaxItems_
-    }
+  GetSampledRequests'
+  { _gsrWebACLId = pWebACLId_
+  , _gsrRuleId = pRuleId_
+  , _gsrTimeWindow = pTimeWindow_
+  , _gsrMaxItems = _Nat # pMaxItems_
+  }
+
 
 -- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
 gsrWebACLId :: Lens' GetSampledRequests Text
@@ -113,9 +115,9 @@ instance AWSRequest GetSampledRequests where
                      <*> (x .?> "TimeWindow")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSampledRequests
+instance Hashable GetSampledRequests where
 
-instance NFData GetSampledRequests
+instance NFData GetSampledRequests where
 
 instance ToHeaders GetSampledRequests where
         toHeaders
@@ -143,11 +145,12 @@ instance ToQuery GetSampledRequests where
 
 -- | /See:/ 'getSampledRequestsResponse' smart constructor.
 data GetSampledRequestsResponse = GetSampledRequestsResponse'
-    { _gsrrsSampledRequests :: !(Maybe [SampledHTTPRequest])
-    , _gsrrsPopulationSize  :: !(Maybe Integer)
-    , _gsrrsTimeWindow      :: !(Maybe TimeWindow)
-    , _gsrrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsrrsSampledRequests :: {-# NOUNPACK #-}!(Maybe [SampledHTTPRequest])
+  , _gsrrsPopulationSize  :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _gsrrsTimeWindow      :: {-# NOUNPACK #-}!(Maybe TimeWindow)
+  , _gsrrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSampledRequestsResponse' with the minimum fields required to make a request.
 --
@@ -164,12 +167,13 @@ getSampledRequestsResponse
     :: Int -- ^ 'gsrrsResponseStatus'
     -> GetSampledRequestsResponse
 getSampledRequestsResponse pResponseStatus_ =
-    GetSampledRequestsResponse'
-    { _gsrrsSampledRequests = Nothing
-    , _gsrrsPopulationSize = Nothing
-    , _gsrrsTimeWindow = Nothing
-    , _gsrrsResponseStatus = pResponseStatus_
-    }
+  GetSampledRequestsResponse'
+  { _gsrrsSampledRequests = Nothing
+  , _gsrrsPopulationSize = Nothing
+  , _gsrrsTimeWindow = Nothing
+  , _gsrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A complex type that contains detailed information about each of the requests in the sample.
 gsrrsSampledRequests :: Lens' GetSampledRequestsResponse [SampledHTTPRequest]
@@ -187,4 +191,4 @@ gsrrsTimeWindow = lens _gsrrsTimeWindow (\ s a -> s{_gsrrsTimeWindow = a});
 gsrrsResponseStatus :: Lens' GetSampledRequestsResponse Int
 gsrrsResponseStatus = lens _gsrrsResponseStatus (\ s a -> s{_gsrrsResponseStatus = a});
 
-instance NFData GetSampledRequestsResponse
+instance NFData GetSampledRequestsResponse where

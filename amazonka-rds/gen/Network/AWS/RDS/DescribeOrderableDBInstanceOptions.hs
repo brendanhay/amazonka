@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeOrderableDBInstanceOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,13 +47,13 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     , dodiorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,15 +61,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeOrderableDBInstanceOptions' smart constructor.
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
-    { _dodioEngineVersion   :: !(Maybe Text)
-    , _dodioFilters         :: !(Maybe [Filter])
-    , _dodioDBInstanceClass :: !(Maybe Text)
-    , _dodioLicenseModel    :: !(Maybe Text)
-    , _dodioMarker          :: !(Maybe Text)
-    , _dodioMaxRecords      :: !(Maybe Int)
-    , _dodioVPC             :: !(Maybe Bool)
-    , _dodioEngine          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dodioEngineVersion   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dodioFilters         :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dodioDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dodioLicenseModel    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dodioMarker          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dodioMaxRecords      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dodioVPC             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dodioEngine          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrderableDBInstanceOptions' with the minimum fields required to make a request.
 --
@@ -94,16 +95,17 @@ describeOrderableDBInstanceOptions
     :: Text -- ^ 'dodioEngine'
     -> DescribeOrderableDBInstanceOptions
 describeOrderableDBInstanceOptions pEngine_ =
-    DescribeOrderableDBInstanceOptions'
-    { _dodioEngineVersion = Nothing
-    , _dodioFilters = Nothing
-    , _dodioDBInstanceClass = Nothing
-    , _dodioLicenseModel = Nothing
-    , _dodioMarker = Nothing
-    , _dodioMaxRecords = Nothing
-    , _dodioVPC = Nothing
-    , _dodioEngine = pEngine_
-    }
+  DescribeOrderableDBInstanceOptions'
+  { _dodioEngineVersion = Nothing
+  , _dodioFilters = Nothing
+  , _dodioDBInstanceClass = Nothing
+  , _dodioLicenseModel = Nothing
+  , _dodioMarker = Nothing
+  , _dodioMaxRecords = Nothing
+  , _dodioVPC = Nothing
+  , _dodioEngine = pEngine_
+  }
+
 
 -- | The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
 dodioEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
@@ -147,7 +149,8 @@ instance AWSPager DescribeOrderableDBInstanceOptions
             Just $ rq & dodioMarker .~ rs ^. dodiorsMarker
 
 instance AWSRequest
-         DescribeOrderableDBInstanceOptions where
+           DescribeOrderableDBInstanceOptions
+         where
         type Rs DescribeOrderableDBInstanceOptions =
              DescribeOrderableDBInstanceOptionsResponse
         request = postQuery rds
@@ -162,8 +165,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeOrderableDBInstanceOptions
+         where
 
 instance NFData DescribeOrderableDBInstanceOptions
+         where
 
 instance ToHeaders DescribeOrderableDBInstanceOptions
          where
@@ -195,10 +200,11 @@ instance ToQuery DescribeOrderableDBInstanceOptions
 --
 -- /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
-    { _dodiorsOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
-    , _dodiorsMarker                     :: !(Maybe Text)
-    , _dodiorsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dodiorsOrderableDBInstanceOptions :: {-# NOUNPACK #-}!(Maybe [OrderableDBInstanceOption])
+  , _dodiorsMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dodiorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeOrderableDBInstanceOptionsResponse' with the minimum fields required to make a request.
 --
@@ -213,11 +219,12 @@ describeOrderableDBInstanceOptionsResponse
     :: Int -- ^ 'dodiorsResponseStatus'
     -> DescribeOrderableDBInstanceOptionsResponse
 describeOrderableDBInstanceOptionsResponse pResponseStatus_ =
-    DescribeOrderableDBInstanceOptionsResponse'
-    { _dodiorsOrderableDBInstanceOptions = Nothing
-    , _dodiorsMarker = Nothing
-    , _dodiorsResponseStatus = pResponseStatus_
-    }
+  DescribeOrderableDBInstanceOptionsResponse'
+  { _dodiorsOrderableDBInstanceOptions = Nothing
+  , _dodiorsMarker = Nothing
+  , _dodiorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An 'OrderableDBInstanceOption' structure containing information about orderable options for the DB instance.
 dodiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
@@ -232,4 +239,5 @@ dodiorsResponseStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
 dodiorsResponseStatus = lens _dodiorsResponseStatus (\ s a -> s{_dodiorsResponseStatus = a});
 
 instance NFData
-         DescribeOrderableDBInstanceOptionsResponse
+           DescribeOrderableDBInstanceOptionsResponse
+         where

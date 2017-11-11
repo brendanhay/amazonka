@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ResetClusterParameterGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     , cpgnmParameterGroupName
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'resetClusterParameterGroup' smart constructor.
 data ResetClusterParameterGroup = ResetClusterParameterGroup'
-    { _rcpgResetAllParameters :: !(Maybe Bool)
-    , _rcpgParameters         :: !(Maybe [Parameter])
-    , _rcpgParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcpgResetAllParameters :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rcpgParameters         :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _rcpgParameterGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetClusterParameterGroup' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ resetClusterParameterGroup
     :: Text -- ^ 'rcpgParameterGroupName'
     -> ResetClusterParameterGroup
 resetClusterParameterGroup pParameterGroupName_ =
-    ResetClusterParameterGroup'
-    { _rcpgResetAllParameters = Nothing
-    , _rcpgParameters = Nothing
-    , _rcpgParameterGroupName = pParameterGroupName_
-    }
+  ResetClusterParameterGroup'
+  { _rcpgResetAllParameters = Nothing
+  , _rcpgParameters = Nothing
+  , _rcpgParameterGroupName = pParameterGroupName_
+  }
+
 
 -- | If @true@ , all parameters in the specified parameter group will be reset to their default values.  Default: @true@
 rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
@@ -97,9 +99,9 @@ instance AWSRequest ResetClusterParameterGroup where
               "ResetClusterParameterGroupResult"
               (\ s h x -> parseXML x)
 
-instance Hashable ResetClusterParameterGroup
+instance Hashable ResetClusterParameterGroup where
 
-instance NFData ResetClusterParameterGroup
+instance NFData ResetClusterParameterGroup where
 
 instance ToHeaders ResetClusterParameterGroup where
         toHeaders = const mempty

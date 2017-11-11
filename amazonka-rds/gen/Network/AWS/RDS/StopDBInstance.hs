@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.StopDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.RDS.StopDBInstance
     , sdirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'stopDBInstance' smart constructor.
 data StopDBInstance = StopDBInstance'
-    { _sdiDBSnapshotIdentifier :: !(Maybe Text)
-    , _sdiDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdiDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdiDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopDBInstance' with the minimum fields required to make a request.
 --
@@ -62,10 +63,11 @@ stopDBInstance
     :: Text -- ^ 'sdiDBInstanceIdentifier'
     -> StopDBInstance
 stopDBInstance pDBInstanceIdentifier_ =
-    StopDBInstance'
-    { _sdiDBSnapshotIdentifier = Nothing
-    , _sdiDBInstanceIdentifier = pDBInstanceIdentifier_
-    }
+  StopDBInstance'
+  { _sdiDBSnapshotIdentifier = Nothing
+  , _sdiDBInstanceIdentifier = pDBInstanceIdentifier_
+  }
+
 
 -- | The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped.
 sdiDBSnapshotIdentifier :: Lens' StopDBInstance (Maybe Text)
@@ -84,9 +86,9 @@ instance AWSRequest StopDBInstance where
                  StopDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-instance Hashable StopDBInstance
+instance Hashable StopDBInstance where
 
-instance NFData StopDBInstance
+instance NFData StopDBInstance where
 
 instance ToHeaders StopDBInstance where
         toHeaders = const mempty
@@ -104,9 +106,10 @@ instance ToQuery StopDBInstance where
 
 -- | /See:/ 'stopDBInstanceResponse' smart constructor.
 data StopDBInstanceResponse = StopDBInstanceResponse'
-    { _sdirsDBInstance     :: !(Maybe DBInstance)
-    , _sdirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _sdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StopDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +122,9 @@ stopDBInstanceResponse
     :: Int -- ^ 'sdirsResponseStatus'
     -> StopDBInstanceResponse
 stopDBInstanceResponse pResponseStatus_ =
-    StopDBInstanceResponse'
-    { _sdirsDBInstance = Nothing
-    , _sdirsResponseStatus = pResponseStatus_
-    }
+  StopDBInstanceResponse'
+  {_sdirsDBInstance = Nothing, _sdirsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 sdirsDBInstance :: Lens' StopDBInstanceResponse (Maybe DBInstance)
@@ -132,4 +134,4 @@ sdirsDBInstance = lens _sdirsDBInstance (\ s a -> s{_sdirsDBInstance = a});
 sdirsResponseStatus :: Lens' StopDBInstanceResponse Int
 sdirsResponseStatus = lens _sdirsResponseStatus (\ s a -> s{_sdirsResponseStatus = a});
 
-instance NFData StopDBInstanceResponse
+instance NFData StopDBInstanceResponse where

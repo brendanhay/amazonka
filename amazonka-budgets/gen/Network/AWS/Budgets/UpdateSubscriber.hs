@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Budgets.UpdateSubscriber
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,23 +38,24 @@ module Network.AWS.Budgets.UpdateSubscriber
     , usrsResponseStatus
     ) where
 
-import           Network.AWS.Budgets.Types
-import           Network.AWS.Budgets.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Budgets.Types
+import Network.AWS.Budgets.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request of UpdateSubscriber
 --
 -- /See:/ 'updateSubscriber' smart constructor.
 data UpdateSubscriber = UpdateSubscriber'
-    { _usAccountId     :: !Text
-    , _usBudgetName    :: !Text
-    , _usNotification  :: !Notification
-    , _usOldSubscriber :: !Subscriber
-    , _usNewSubscriber :: !Subscriber
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usAccountId     :: {-# NOUNPACK #-}!Text
+  , _usBudgetName    :: {-# NOUNPACK #-}!Text
+  , _usNotification  :: {-# NOUNPACK #-}!Notification
+  , _usOldSubscriber :: {-# NOUNPACK #-}!Subscriber
+  , _usNewSubscriber :: {-# NOUNPACK #-}!Subscriber
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSubscriber' with the minimum fields required to make a request.
 --
@@ -77,13 +78,14 @@ updateSubscriber
     -> Subscriber -- ^ 'usNewSubscriber'
     -> UpdateSubscriber
 updateSubscriber pAccountId_ pBudgetName_ pNotification_ pOldSubscriber_ pNewSubscriber_ =
-    UpdateSubscriber'
-    { _usAccountId = pAccountId_
-    , _usBudgetName = pBudgetName_
-    , _usNotification = pNotification_
-    , _usOldSubscriber = pOldSubscriber_
-    , _usNewSubscriber = pNewSubscriber_
-    }
+  UpdateSubscriber'
+  { _usAccountId = pAccountId_
+  , _usBudgetName = pBudgetName_
+  , _usNotification = pNotification_
+  , _usOldSubscriber = pOldSubscriber_
+  , _usNewSubscriber = pNewSubscriber_
+  }
+
 
 -- | Undocumented member.
 usAccountId :: Lens' UpdateSubscriber Text
@@ -113,9 +115,9 @@ instance AWSRequest UpdateSubscriber where
               (\ s h x ->
                  UpdateSubscriberResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateSubscriber
+instance Hashable UpdateSubscriber where
 
-instance NFData UpdateSubscriber
+instance NFData UpdateSubscriber where
 
 instance ToHeaders UpdateSubscriber where
         toHeaders
@@ -147,8 +149,9 @@ instance ToQuery UpdateSubscriber where
 --
 -- /See:/ 'updateSubscriberResponse' smart constructor.
 newtype UpdateSubscriberResponse = UpdateSubscriberResponse'
-    { _usrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSubscriberResponse' with the minimum fields required to make a request.
 --
@@ -159,12 +162,11 @@ updateSubscriberResponse
     :: Int -- ^ 'usrsResponseStatus'
     -> UpdateSubscriberResponse
 updateSubscriberResponse pResponseStatus_ =
-    UpdateSubscriberResponse'
-    { _usrsResponseStatus = pResponseStatus_
-    }
+  UpdateSubscriberResponse' {_usrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateSubscriberResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
 
-instance NFData UpdateSubscriberResponse
+instance NFData UpdateSubscriberResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteBotChannelAssociation
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.LexModels.DeleteBotChannelAssociation
     , DeleteBotChannelAssociationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteBotChannelAssociation' smart constructor.
 data DeleteBotChannelAssociation = DeleteBotChannelAssociation'
-    { _dbcaName     :: !Text
-    , _dbcaBotName  :: !Text
-    , _dbcaBotAlias :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbcaName     :: {-# NOUNPACK #-}!Text
+  , _dbcaBotName  :: {-# NOUNPACK #-}!Text
+  , _dbcaBotAlias :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBotChannelAssociation' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ deleteBotChannelAssociation
     -> Text -- ^ 'dbcaBotAlias'
     -> DeleteBotChannelAssociation
 deleteBotChannelAssociation pName_ pBotName_ pBotAlias_ =
-    DeleteBotChannelAssociation'
-    { _dbcaName = pName_
-    , _dbcaBotName = pBotName_
-    , _dbcaBotAlias = pBotAlias_
-    }
+  DeleteBotChannelAssociation'
+  {_dbcaName = pName_, _dbcaBotName = pBotName_, _dbcaBotAlias = pBotAlias_}
+
 
 -- | The name of the association. The name is case sensitive.
 dbcaName :: Lens' DeleteBotChannelAssociation Text
@@ -92,9 +91,9 @@ instance AWSRequest DeleteBotChannelAssociation where
         response
           = receiveNull DeleteBotChannelAssociationResponse'
 
-instance Hashable DeleteBotChannelAssociation
+instance Hashable DeleteBotChannelAssociation where
 
-instance NFData DeleteBotChannelAssociation
+instance NFData DeleteBotChannelAssociation where
 
 instance ToHeaders DeleteBotChannelAssociation where
         toHeaders
@@ -114,8 +113,9 @@ instance ToQuery DeleteBotChannelAssociation where
 
 -- | /See:/ 'deleteBotChannelAssociationResponse' smart constructor.
 data DeleteBotChannelAssociationResponse =
-    DeleteBotChannelAssociationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBotChannelAssociationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBotChannelAssociationResponse' with the minimum fields required to make a request.
 --
@@ -123,4 +123,6 @@ deleteBotChannelAssociationResponse
     :: DeleteBotChannelAssociationResponse
 deleteBotChannelAssociationResponse = DeleteBotChannelAssociationResponse'
 
+
 instance NFData DeleteBotChannelAssociationResponse
+         where

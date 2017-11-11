@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListChangeSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.CloudFormation.ListChangeSets
     , lcsrsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'ListChangeSets' action.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listChangeSets' smart constructor.
 data ListChangeSets = ListChangeSets'
-    { _lcsNextToken :: !(Maybe Text)
-    , _lcsStackName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcsStackName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListChangeSets' with the minimum fields required to make a request.
 --
@@ -67,10 +68,8 @@ listChangeSets
     :: Text -- ^ 'lcsStackName'
     -> ListChangeSets
 listChangeSets pStackName_ =
-    ListChangeSets'
-    { _lcsNextToken = Nothing
-    , _lcsStackName = pStackName_
-    }
+  ListChangeSets' {_lcsNextToken = Nothing, _lcsStackName = pStackName_}
+
 
 -- | A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
 lcsNextToken :: Lens' ListChangeSets (Maybe Text)
@@ -92,9 +91,9 @@ instance AWSRequest ListChangeSets where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListChangeSets
+instance Hashable ListChangeSets where
 
-instance NFData ListChangeSets
+instance NFData ListChangeSets where
 
 instance ToHeaders ListChangeSets where
         toHeaders = const mempty
@@ -116,10 +115,11 @@ instance ToQuery ListChangeSets where
 --
 -- /See:/ 'listChangeSetsResponse' smart constructor.
 data ListChangeSetsResponse = ListChangeSetsResponse'
-    { _lcsrsNextToken      :: !(Maybe Text)
-    , _lcsrsSummaries      :: !(Maybe [ChangeSetSummary])
-    , _lcsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lcsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lcsrsSummaries      :: {-# NOUNPACK #-}!(Maybe [ChangeSetSummary])
+  , _lcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListChangeSetsResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +134,12 @@ listChangeSetsResponse
     :: Int -- ^ 'lcsrsResponseStatus'
     -> ListChangeSetsResponse
 listChangeSetsResponse pResponseStatus_ =
-    ListChangeSetsResponse'
-    { _lcsrsNextToken = Nothing
-    , _lcsrsSummaries = Nothing
-    , _lcsrsResponseStatus = pResponseStatus_
-    }
+  ListChangeSetsResponse'
+  { _lcsrsNextToken = Nothing
+  , _lcsrsSummaries = Nothing
+  , _lcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
 lcsrsNextToken :: Lens' ListChangeSetsResponse (Maybe Text)
@@ -152,4 +153,4 @@ lcsrsSummaries = lens _lcsrsSummaries (\ s a -> s{_lcsrsSummaries = a}) . _Defau
 lcsrsResponseStatus :: Lens' ListChangeSetsResponse Int
 lcsrsResponseStatus = lens _lcsrsResponseStatus (\ s a -> s{_lcsrsResponseStatus = a});
 
-instance NFData ListChangeSetsResponse
+instance NFData ListChangeSetsResponse where

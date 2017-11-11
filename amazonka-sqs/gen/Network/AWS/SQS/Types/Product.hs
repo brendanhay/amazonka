@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.SQS.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.SQS.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.SQS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.SQS.Types.Sum
 
 -- | This is used in the responses of batch API to give a detailed description of the result of an action on each entry in the request.
 --
@@ -27,11 +27,12 @@ import           Network.AWS.SQS.Types.Sum
 --
 -- /See:/ 'batchResultErrorEntry' smart constructor.
 data BatchResultErrorEntry = BatchResultErrorEntry'
-    { _breeMessage     :: !(Maybe Text)
-    , _breeId          :: !Text
-    , _breeSenderFault :: !Bool
-    , _breeCode        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _breeMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _breeId          :: {-# NOUNPACK #-}!Text
+  , _breeSenderFault :: {-# NOUNPACK #-}!Bool
+  , _breeCode        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchResultErrorEntry' with the minimum fields required to make a request.
 --
@@ -50,12 +51,13 @@ batchResultErrorEntry
     -> Text -- ^ 'breeCode'
     -> BatchResultErrorEntry
 batchResultErrorEntry pId_ pSenderFault_ pCode_ =
-    BatchResultErrorEntry'
-    { _breeMessage = Nothing
-    , _breeId = pId_
-    , _breeSenderFault = pSenderFault_
-    , _breeCode = pCode_
-    }
+  BatchResultErrorEntry'
+  { _breeMessage = Nothing
+  , _breeId = pId_
+  , _breeSenderFault = pSenderFault_
+  , _breeCode = pCode_
+  }
+
 
 -- | A message explaining why the action failed on this entry.
 breeMessage :: Lens' BatchResultErrorEntry (Maybe Text)
@@ -80,9 +82,9 @@ instance FromXML BatchResultErrorEntry where
                 (x .@ "SenderFault")
                 <*> (x .@ "Code")
 
-instance Hashable BatchResultErrorEntry
+instance Hashable BatchResultErrorEntry where
 
-instance NFData BatchResultErrorEntry
+instance NFData BatchResultErrorEntry where
 
 -- | Encloses a receipt handle and an entry id for each message in @'ChangeMessageVisibilityBatch' .@
 --
@@ -98,10 +100,11 @@ instance NFData BatchResultErrorEntry
 --
 -- /See:/ 'changeMessageVisibilityBatchRequestEntry' smart constructor.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
-    { _cVisibilityTimeout :: !(Maybe Int)
-    , _cId                :: !Text
-    , _cReceiptHandle     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cVisibilityTimeout :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cId                :: {-# NOUNPACK #-}!Text
+  , _cReceiptHandle     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeMessageVisibilityBatchRequestEntry' with the minimum fields required to make a request.
 --
@@ -117,11 +120,12 @@ changeMessageVisibilityBatchRequestEntry
     -> Text -- ^ 'cReceiptHandle'
     -> ChangeMessageVisibilityBatchRequestEntry
 changeMessageVisibilityBatchRequestEntry pId_ pReceiptHandle_ =
-    ChangeMessageVisibilityBatchRequestEntry'
-    { _cVisibilityTimeout = Nothing
-    , _cId = pId_
-    , _cReceiptHandle = pReceiptHandle_
-    }
+  ChangeMessageVisibilityBatchRequestEntry'
+  { _cVisibilityTimeout = Nothing
+  , _cId = pId_
+  , _cReceiptHandle = pReceiptHandle_
+  }
+
 
 -- | The new value (in seconds) for the message's visibility timeout.
 cVisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Int)
@@ -136,13 +140,16 @@ cReceiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cReceiptHandle = lens _cReceiptHandle (\ s a -> s{_cReceiptHandle = a});
 
 instance Hashable
-         ChangeMessageVisibilityBatchRequestEntry
+           ChangeMessageVisibilityBatchRequestEntry
+         where
 
 instance NFData
-         ChangeMessageVisibilityBatchRequestEntry
+           ChangeMessageVisibilityBatchRequestEntry
+         where
 
 instance ToQuery
-         ChangeMessageVisibilityBatchRequestEntry where
+           ChangeMessageVisibilityBatchRequestEntry
+         where
         toQuery ChangeMessageVisibilityBatchRequestEntry'{..}
           = mconcat
               ["VisibilityTimeout" =: _cVisibilityTimeout,
@@ -154,8 +161,9 @@ instance ToQuery
 --
 -- /See:/ 'changeMessageVisibilityBatchResultEntry' smart constructor.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
-    { _cmvbreId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmvbreId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ChangeMessageVisibilityBatchResultEntry' with the minimum fields required to make a request.
 --
@@ -166,25 +174,27 @@ changeMessageVisibilityBatchResultEntry
     :: Text -- ^ 'cmvbreId'
     -> ChangeMessageVisibilityBatchResultEntry
 changeMessageVisibilityBatchResultEntry pId_ =
-    ChangeMessageVisibilityBatchResultEntry'
-    { _cmvbreId = pId_
-    }
+  ChangeMessageVisibilityBatchResultEntry' {_cmvbreId = pId_}
+
 
 -- | Represents a message whose visibility timeout has been changed successfully.
 cmvbreId :: Lens' ChangeMessageVisibilityBatchResultEntry Text
 cmvbreId = lens _cmvbreId (\ s a -> s{_cmvbreId = a});
 
 instance FromXML
-         ChangeMessageVisibilityBatchResultEntry where
+           ChangeMessageVisibilityBatchResultEntry
+         where
         parseXML x
           = ChangeMessageVisibilityBatchResultEntry' <$>
               (x .@ "Id")
 
 instance Hashable
-         ChangeMessageVisibilityBatchResultEntry
+           ChangeMessageVisibilityBatchResultEntry
+         where
 
 instance NFData
-         ChangeMessageVisibilityBatchResultEntry
+           ChangeMessageVisibilityBatchResultEntry
+         where
 
 -- | Encloses a receipt handle and an identifier for it.
 --
@@ -192,9 +202,10 @@ instance NFData
 --
 -- /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
-    { _dmbreId            :: !Text
-    , _dmbreReceiptHandle :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmbreId            :: {-# NOUNPACK #-}!Text
+  , _dmbreReceiptHandle :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMessageBatchRequestEntry' with the minimum fields required to make a request.
 --
@@ -208,10 +219,9 @@ deleteMessageBatchRequestEntry
     -> Text -- ^ 'dmbreReceiptHandle'
     -> DeleteMessageBatchRequestEntry
 deleteMessageBatchRequestEntry pId_ pReceiptHandle_ =
-    DeleteMessageBatchRequestEntry'
-    { _dmbreId = pId_
-    , _dmbreReceiptHandle = pReceiptHandle_
-    }
+  DeleteMessageBatchRequestEntry'
+  {_dmbreId = pId_, _dmbreReceiptHandle = pReceiptHandle_}
+
 
 -- | An identifier for this particular receipt handle. This is used to communicate the result.
 dmbreId :: Lens' DeleteMessageBatchRequestEntry Text
@@ -222,8 +232,9 @@ dmbreReceiptHandle :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreReceiptHandle = lens _dmbreReceiptHandle (\ s a -> s{_dmbreReceiptHandle = a});
 
 instance Hashable DeleteMessageBatchRequestEntry
+         where
 
-instance NFData DeleteMessageBatchRequestEntry
+instance NFData DeleteMessageBatchRequestEntry where
 
 instance ToQuery DeleteMessageBatchRequestEntry where
         toQuery DeleteMessageBatchRequestEntry'{..}
@@ -237,8 +248,9 @@ instance ToQuery DeleteMessageBatchRequestEntry where
 --
 -- /See:/ 'deleteMessageBatchResultEntry' smart constructor.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
-    { _dId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteMessageBatchResultEntry' with the minimum fields required to make a request.
 --
@@ -249,9 +261,8 @@ deleteMessageBatchResultEntry
     :: Text -- ^ 'dId'
     -> DeleteMessageBatchResultEntry
 deleteMessageBatchResultEntry pId_ =
-    DeleteMessageBatchResultEntry'
-    { _dId = pId_
-    }
+  DeleteMessageBatchResultEntry' {_dId = pId_}
+
 
 -- | Represents a successfully deleted message.
 dId :: Lens' DeleteMessageBatchResultEntry Text
@@ -261,9 +272,9 @@ instance FromXML DeleteMessageBatchResultEntry where
         parseXML x
           = DeleteMessageBatchResultEntry' <$> (x .@ "Id")
 
-instance Hashable DeleteMessageBatchResultEntry
+instance Hashable DeleteMessageBatchResultEntry where
 
-instance NFData DeleteMessageBatchResultEntry
+instance NFData DeleteMessageBatchResultEntry where
 
 -- | An Amazon SQS message.
 --
@@ -271,14 +282,15 @@ instance NFData DeleteMessageBatchResultEntry
 --
 -- /See:/ 'message' smart constructor.
 data Message = Message'
-    { _mMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
-    , _mMD5OfBody              :: !(Maybe Text)
-    , _mBody                   :: !(Maybe Text)
-    , _mAttributes             :: !(Maybe (Map MessageAttribute Text))
-    , _mReceiptHandle          :: !(Maybe Text)
-    , _mMessageId              :: !(Maybe Text)
-    , _mMD5OfMessageAttributes :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mMessageAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text MessageAttributeValue))
+  , _mMD5OfBody :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mBody :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mAttributes :: {-# NOUNPACK #-}!(Maybe (Map MessageAttribute Text))
+  , _mReceiptHandle :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mMessageId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mMD5OfMessageAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
@@ -300,15 +312,16 @@ data Message = Message'
 message
     :: Message
 message =
-    Message'
-    { _mMessageAttributes = Nothing
-    , _mMD5OfBody = Nothing
-    , _mBody = Nothing
-    , _mAttributes = Nothing
-    , _mReceiptHandle = Nothing
-    , _mMessageId = Nothing
-    , _mMD5OfMessageAttributes = Nothing
-    }
+  Message'
+  { _mMessageAttributes = Nothing
+  , _mMD5OfBody = Nothing
+  , _mBody = Nothing
+  , _mAttributes = Nothing
+  , _mReceiptHandle = Nothing
+  , _mMessageId = Nothing
+  , _mMD5OfMessageAttributes = Nothing
+  }
+
 
 -- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation Message Attribute Items and Validation> in the /Amazon SQS Developer Guide/ .
 mMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
@@ -350,9 +363,9 @@ instance FromXML Message where
                 <*> (x .@? "MessageId")
                 <*> (x .@? "MD5OfMessageAttributes")
 
-instance Hashable Message
+instance Hashable Message where
 
-instance NFData Message
+instance NFData Message where
 
 -- | The user-specified message attribute value. For string data types, the @Value@ attribute has the same restrictions on the content as the message body. For more information, see @'SendMessage' .@
 --
@@ -362,12 +375,13 @@ instance NFData Message
 --
 -- /See:/ 'messageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
-    { _mavBinaryValue      :: !(Maybe Base64)
-    , _mavStringListValues :: !(Maybe [Text])
-    , _mavStringValue      :: !(Maybe Text)
-    , _mavBinaryListValues :: !(Maybe [Base64])
-    , _mavDataType         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mavBinaryValue      :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _mavStringListValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mavStringValue      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mavBinaryListValues :: {-# NOUNPACK #-}!(Maybe [Base64])
+  , _mavDataType         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MessageAttributeValue' with the minimum fields required to make a request.
 --
@@ -386,13 +400,14 @@ messageAttributeValue
     :: Text -- ^ 'mavDataType'
     -> MessageAttributeValue
 messageAttributeValue pDataType_ =
-    MessageAttributeValue'
-    { _mavBinaryValue = Nothing
-    , _mavStringListValues = Nothing
-    , _mavStringValue = Nothing
-    , _mavBinaryListValues = Nothing
-    , _mavDataType = pDataType_
-    }
+  MessageAttributeValue'
+  { _mavBinaryValue = Nothing
+  , _mavStringListValues = Nothing
+  , _mavStringValue = Nothing
+  , _mavBinaryListValues = Nothing
+  , _mavDataType = pDataType_
+  }
+
 
 -- | Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
@@ -426,9 +441,9 @@ instance FromXML MessageAttributeValue where
                    may (parseXMLList "BinaryListValue"))
                 <*> (x .@ "DataType")
 
-instance Hashable MessageAttributeValue
+instance Hashable MessageAttributeValue where
 
-instance NFData MessageAttributeValue
+instance NFData MessageAttributeValue where
 
 instance ToQuery MessageAttributeValue where
         toQuery MessageAttributeValue'{..}
@@ -451,13 +466,14 @@ instance ToQuery MessageAttributeValue where
 --
 -- /See:/ 'sendMessageBatchRequestEntry' smart constructor.
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
-    { _sMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
-    , _sDelaySeconds           :: !(Maybe Int)
-    , _sMessageDeduplicationId :: !(Maybe Text)
-    , _sMessageGroupId         :: !(Maybe Text)
-    , _sId                     :: !Text
-    , _sMessageBody            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sMessageAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text MessageAttributeValue))
+  , _sDelaySeconds :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sMessageDeduplicationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sMessageGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sId :: {-# NOUNPACK #-}!Text
+  , _sMessageBody :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendMessageBatchRequestEntry' with the minimum fields required to make a request.
 --
@@ -479,14 +495,15 @@ sendMessageBatchRequestEntry
     -> Text -- ^ 'sMessageBody'
     -> SendMessageBatchRequestEntry
 sendMessageBatchRequestEntry pId_ pMessageBody_ =
-    SendMessageBatchRequestEntry'
-    { _sMessageAttributes = Nothing
-    , _sDelaySeconds = Nothing
-    , _sMessageDeduplicationId = Nothing
-    , _sMessageGroupId = Nothing
-    , _sId = pId_
-    , _sMessageBody = pMessageBody_
-    }
+  SendMessageBatchRequestEntry'
+  { _sMessageAttributes = Nothing
+  , _sDelaySeconds = Nothing
+  , _sMessageDeduplicationId = Nothing
+  , _sMessageGroupId = Nothing
+  , _sId = pId_
+  , _sMessageBody = pMessageBody_
+  }
+
 
 -- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation Message Attribute Items and Validation> in the /Amazon SQS Developer Guide/ .
 sMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
@@ -512,9 +529,9 @@ sId = lens _sId (\ s a -> s{_sId = a});
 sMessageBody :: Lens' SendMessageBatchRequestEntry Text
 sMessageBody = lens _sMessageBody (\ s a -> s{_sMessageBody = a});
 
-instance Hashable SendMessageBatchRequestEntry
+instance Hashable SendMessageBatchRequestEntry where
 
-instance NFData SendMessageBatchRequestEntry
+instance NFData SendMessageBatchRequestEntry where
 
 instance ToQuery SendMessageBatchRequestEntry where
         toQuery SendMessageBatchRequestEntry'{..}
@@ -533,12 +550,13 @@ instance ToQuery SendMessageBatchRequestEntry where
 --
 -- /See:/ 'sendMessageBatchResultEntry' smart constructor.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
-    { _smbreSequenceNumber         :: !(Maybe Text)
-    , _smbreMD5OfMessageAttributes :: !(Maybe Text)
-    , _smbreId                     :: !Text
-    , _smbreMessageId              :: !Text
-    , _smbreMD5OfMessageBody       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _smbreSequenceNumber         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smbreMD5OfMessageAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smbreId                     :: {-# NOUNPACK #-}!Text
+  , _smbreMessageId              :: {-# NOUNPACK #-}!Text
+  , _smbreMD5OfMessageBody       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SendMessageBatchResultEntry' with the minimum fields required to make a request.
 --
@@ -559,13 +577,14 @@ sendMessageBatchResultEntry
     -> Text -- ^ 'smbreMD5OfMessageBody'
     -> SendMessageBatchResultEntry
 sendMessageBatchResultEntry pId_ pMessageId_ pMD5OfMessageBody_ =
-    SendMessageBatchResultEntry'
-    { _smbreSequenceNumber = Nothing
-    , _smbreMD5OfMessageAttributes = Nothing
-    , _smbreId = pId_
-    , _smbreMessageId = pMessageId_
-    , _smbreMD5OfMessageBody = pMD5OfMessageBody_
-    }
+  SendMessageBatchResultEntry'
+  { _smbreSequenceNumber = Nothing
+  , _smbreMD5OfMessageAttributes = Nothing
+  , _smbreId = pId_
+  , _smbreMessageId = pMessageId_
+  , _smbreMD5OfMessageBody = pMD5OfMessageBody_
+  }
+
 
 -- | This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
 smbreSequenceNumber :: Lens' SendMessageBatchResultEntry (Maybe Text)
@@ -596,6 +615,6 @@ instance FromXML SendMessageBatchResultEntry where
                 <*> (x .@ "MessageId")
                 <*> (x .@ "MD5OfMessageBody")
 
-instance Hashable SendMessageBatchResultEntry
+instance Hashable SendMessageBatchResultEntry where
 
-instance NFData SendMessageBatchResultEntry
+instance NFData SendMessageBatchResultEntry where

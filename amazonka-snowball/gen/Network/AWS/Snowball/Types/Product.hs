@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Snowball.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Snowball.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Snowball.Types.Sum
 
 -- | The address that you want the Snowball or Snowballs associated with a specific job to be shipped to. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. Although no individual elements of the @Address@ are required, if the address is invalid or unsupported, then an exception is thrown.
 --
@@ -27,21 +27,22 @@ import           Network.AWS.Snowball.Types.Sum
 --
 -- /See:/ 'address' smart constructor.
 data Address = Address'
-    { _aIsRestricted         :: !(Maybe Bool)
-    , _aStreet3              :: !(Maybe Text)
-    , _aLandmark             :: !(Maybe Text)
-    , _aPostalCode           :: !(Maybe Text)
-    , _aCountry              :: !(Maybe Text)
-    , _aStateOrProvince      :: !(Maybe Text)
-    , _aStreet2              :: !(Maybe Text)
-    , _aAddressId            :: !(Maybe Text)
-    , _aCity                 :: !(Maybe Text)
-    , _aPhoneNumber          :: !(Maybe Text)
-    , _aCompany              :: !(Maybe Text)
-    , _aName                 :: !(Maybe Text)
-    , _aPrefectureOrDistrict :: !(Maybe Text)
-    , _aStreet1              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aIsRestricted         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aStreet3              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aLandmark             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aPostalCode           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aCountry              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aStateOrProvince      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aStreet2              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAddressId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aCity                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aPhoneNumber          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aCompany              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aPrefectureOrDistrict :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aStreet1              :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Address' with the minimum fields required to make a request.
 --
@@ -77,22 +78,23 @@ data Address = Address'
 address
     :: Address
 address =
-    Address'
-    { _aIsRestricted = Nothing
-    , _aStreet3 = Nothing
-    , _aLandmark = Nothing
-    , _aPostalCode = Nothing
-    , _aCountry = Nothing
-    , _aStateOrProvince = Nothing
-    , _aStreet2 = Nothing
-    , _aAddressId = Nothing
-    , _aCity = Nothing
-    , _aPhoneNumber = Nothing
-    , _aCompany = Nothing
-    , _aName = Nothing
-    , _aPrefectureOrDistrict = Nothing
-    , _aStreet1 = Nothing
-    }
+  Address'
+  { _aIsRestricted = Nothing
+  , _aStreet3 = Nothing
+  , _aLandmark = Nothing
+  , _aPostalCode = Nothing
+  , _aCountry = Nothing
+  , _aStateOrProvince = Nothing
+  , _aStreet2 = Nothing
+  , _aAddressId = Nothing
+  , _aCity = Nothing
+  , _aPhoneNumber = Nothing
+  , _aCompany = Nothing
+  , _aName = Nothing
+  , _aPrefectureOrDistrict = Nothing
+  , _aStreet1 = Nothing
+  }
+
 
 -- | If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
 aIsRestricted :: Lens' Address (Maybe Bool)
@@ -169,9 +171,9 @@ instance FromJSON Address where
                      <*> (x .:? "PrefectureOrDistrict")
                      <*> (x .:? "Street1"))
 
-instance Hashable Address
+instance Hashable Address where
 
-instance NFData Address
+instance NFData Address where
 
 instance ToJSON Address where
         toJSON Address'{..}
@@ -198,11 +200,12 @@ instance ToJSON Address where
 --
 -- /See:/ 'clusterListEntry' smart constructor.
 data ClusterListEntry = ClusterListEntry'
-    { _cleClusterState :: !(Maybe ClusterState)
-    , _cleClusterId    :: !(Maybe Text)
-    , _cleCreationDate :: !(Maybe POSIX)
-    , _cleDescription  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cleClusterState :: {-# NOUNPACK #-}!(Maybe ClusterState)
+  , _cleClusterId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cleCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cleDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterListEntry' with the minimum fields required to make a request.
 --
@@ -218,12 +221,13 @@ data ClusterListEntry = ClusterListEntry'
 clusterListEntry
     :: ClusterListEntry
 clusterListEntry =
-    ClusterListEntry'
-    { _cleClusterState = Nothing
-    , _cleClusterId = Nothing
-    , _cleCreationDate = Nothing
-    , _cleDescription = Nothing
-    }
+  ClusterListEntry'
+  { _cleClusterState = Nothing
+  , _cleClusterId = Nothing
+  , _cleCreationDate = Nothing
+  , _cleDescription = Nothing
+  }
+
 
 -- | The current state of this cluster. For information about the state of a specific node, see 'JobListEntry$JobState' .
 cleClusterState :: Lens' ClusterListEntry (Maybe ClusterState)
@@ -250,9 +254,9 @@ instance FromJSON ClusterListEntry where
                      (x .:? "CreationDate")
                      <*> (x .:? "Description"))
 
-instance Hashable ClusterListEntry
+instance Hashable ClusterListEntry where
 
-instance NFData ClusterListEntry
+instance NFData ClusterListEntry where
 
 -- | Contains metadata about a specific cluster.
 --
@@ -260,20 +264,21 @@ instance NFData ClusterListEntry
 --
 -- /See:/ 'clusterMetadata' smart constructor.
 data ClusterMetadata = ClusterMetadata'
-    { _cmJobType             :: !(Maybe JobType)
-    , _cmKMSKeyARN           :: !(Maybe Text)
-    , _cmClusterState        :: !(Maybe ClusterState)
-    , _cmNotification        :: !(Maybe Notification)
-    , _cmForwardingAddressId :: !(Maybe Text)
-    , _cmAddressId           :: !(Maybe Text)
-    , _cmSnowballType        :: !(Maybe SnowballType)
-    , _cmShippingOption      :: !(Maybe ShippingOption)
-    , _cmResources           :: !(Maybe JobResource)
-    , _cmClusterId           :: !(Maybe Text)
-    , _cmCreationDate        :: !(Maybe POSIX)
-    , _cmDescription         :: !(Maybe Text)
-    , _cmRoleARN             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmJobType             :: {-# NOUNPACK #-}!(Maybe JobType)
+  , _cmKMSKeyARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmClusterState        :: {-# NOUNPACK #-}!(Maybe ClusterState)
+  , _cmNotification        :: {-# NOUNPACK #-}!(Maybe Notification)
+  , _cmForwardingAddressId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmAddressId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmSnowballType        :: {-# NOUNPACK #-}!(Maybe SnowballType)
+  , _cmShippingOption      :: {-# NOUNPACK #-}!(Maybe ShippingOption)
+  , _cmResources           :: {-# NOUNPACK #-}!(Maybe JobResource)
+  , _cmClusterId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmCreationDate        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cmDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ClusterMetadata' with the minimum fields required to make a request.
 --
@@ -307,21 +312,22 @@ data ClusterMetadata = ClusterMetadata'
 clusterMetadata
     :: ClusterMetadata
 clusterMetadata =
-    ClusterMetadata'
-    { _cmJobType = Nothing
-    , _cmKMSKeyARN = Nothing
-    , _cmClusterState = Nothing
-    , _cmNotification = Nothing
-    , _cmForwardingAddressId = Nothing
-    , _cmAddressId = Nothing
-    , _cmSnowballType = Nothing
-    , _cmShippingOption = Nothing
-    , _cmResources = Nothing
-    , _cmClusterId = Nothing
-    , _cmCreationDate = Nothing
-    , _cmDescription = Nothing
-    , _cmRoleARN = Nothing
-    }
+  ClusterMetadata'
+  { _cmJobType = Nothing
+  , _cmKMSKeyARN = Nothing
+  , _cmClusterState = Nothing
+  , _cmNotification = Nothing
+  , _cmForwardingAddressId = Nothing
+  , _cmAddressId = Nothing
+  , _cmSnowballType = Nothing
+  , _cmShippingOption = Nothing
+  , _cmResources = Nothing
+  , _cmClusterId = Nothing
+  , _cmCreationDate = Nothing
+  , _cmDescription = Nothing
+  , _cmRoleARN = Nothing
+  }
+
 
 -- | The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
 cmJobType :: Lens' ClusterMetadata (Maybe JobType)
@@ -393,9 +399,9 @@ instance FromJSON ClusterMetadata where
                      <*> (x .:? "Description")
                      <*> (x .:? "RoleARN"))
 
-instance Hashable ClusterMetadata
+instance Hashable ClusterMetadata where
 
-instance NFData ClusterMetadata
+instance NFData ClusterMetadata where
 
 -- | Defines the real-time status of a Snowball's data transfer while the appliance is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
 --
@@ -403,11 +409,12 @@ instance NFData ClusterMetadata
 --
 -- /See:/ 'dataTransfer' smart constructor.
 data DataTransfer = DataTransfer'
-    { _dtTotalObjects       :: !(Maybe Integer)
-    , _dtTotalBytes         :: !(Maybe Integer)
-    , _dtObjectsTransferred :: !(Maybe Integer)
-    , _dtBytesTransferred   :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtTotalObjects       :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dtTotalBytes         :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dtObjectsTransferred :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dtBytesTransferred   :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DataTransfer' with the minimum fields required to make a request.
 --
@@ -423,12 +430,13 @@ data DataTransfer = DataTransfer'
 dataTransfer
     :: DataTransfer
 dataTransfer =
-    DataTransfer'
-    { _dtTotalObjects = Nothing
-    , _dtTotalBytes = Nothing
-    , _dtObjectsTransferred = Nothing
-    , _dtBytesTransferred = Nothing
-    }
+  DataTransfer'
+  { _dtTotalObjects = Nothing
+  , _dtTotalBytes = Nothing
+  , _dtObjectsTransferred = Nothing
+  , _dtBytesTransferred = Nothing
+  }
+
 
 -- | The total number of objects for a transfer between a Snowball and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
 dtTotalObjects :: Lens' DataTransfer (Maybe Integer)
@@ -455,9 +463,9 @@ instance FromJSON DataTransfer where
                      (x .:? "ObjectsTransferred")
                      <*> (x .:? "BytesTransferred"))
 
-instance Hashable DataTransfer
+instance Hashable DataTransfer where
 
-instance NFData DataTransfer
+instance NFData DataTransfer where
 
 -- | The container for the 'EventTriggerDefinition$EventResourceARN' .
 --
@@ -465,8 +473,9 @@ instance NFData DataTransfer
 --
 -- /See:/ 'eventTriggerDefinition' smart constructor.
 newtype EventTriggerDefinition = EventTriggerDefinition'
-    { _etdEventResourceARN :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etdEventResourceARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventTriggerDefinition' with the minimum fields required to make a request.
 --
@@ -476,9 +485,8 @@ newtype EventTriggerDefinition = EventTriggerDefinition'
 eventTriggerDefinition
     :: EventTriggerDefinition
 eventTriggerDefinition =
-    EventTriggerDefinition'
-    { _etdEventResourceARN = Nothing
-    }
+  EventTriggerDefinition' {_etdEventResourceARN = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
 etdEventResourceARN :: Lens' EventTriggerDefinition (Maybe Text)
@@ -491,9 +499,9 @@ instance FromJSON EventTriggerDefinition where
                  EventTriggerDefinition' <$>
                    (x .:? "EventResourceARN"))
 
-instance Hashable EventTriggerDefinition
+instance Hashable EventTriggerDefinition where
 
-instance NFData EventTriggerDefinition
+instance NFData EventTriggerDefinition where
 
 instance ToJSON EventTriggerDefinition where
         toJSON EventTriggerDefinition'{..}
@@ -507,14 +515,15 @@ instance ToJSON EventTriggerDefinition where
 --
 -- /See:/ 'jobListEntry' smart constructor.
 data JobListEntry = JobListEntry'
-    { _jleJobType      :: !(Maybe JobType)
-    , _jleJobId        :: !(Maybe Text)
-    , _jleJobState     :: !(Maybe JobState)
-    , _jleSnowballType :: !(Maybe SnowballType)
-    , _jleCreationDate :: !(Maybe POSIX)
-    , _jleDescription  :: !(Maybe Text)
-    , _jleIsMaster     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jleJobType      :: {-# NOUNPACK #-}!(Maybe JobType)
+  , _jleJobId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jleJobState     :: {-# NOUNPACK #-}!(Maybe JobState)
+  , _jleSnowballType :: {-# NOUNPACK #-}!(Maybe SnowballType)
+  , _jleCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _jleDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jleIsMaster     :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobListEntry' with the minimum fields required to make a request.
 --
@@ -536,15 +545,16 @@ data JobListEntry = JobListEntry'
 jobListEntry
     :: JobListEntry
 jobListEntry =
-    JobListEntry'
-    { _jleJobType = Nothing
-    , _jleJobId = Nothing
-    , _jleJobState = Nothing
-    , _jleSnowballType = Nothing
-    , _jleCreationDate = Nothing
-    , _jleDescription = Nothing
-    , _jleIsMaster = Nothing
-    }
+  JobListEntry'
+  { _jleJobType = Nothing
+  , _jleJobId = Nothing
+  , _jleJobState = Nothing
+  , _jleSnowballType = Nothing
+  , _jleCreationDate = Nothing
+  , _jleDescription = Nothing
+  , _jleIsMaster = Nothing
+  }
+
 
 -- | The type of job.
 jleJobType :: Lens' JobListEntry (Maybe JobType)
@@ -586,9 +596,9 @@ instance FromJSON JobListEntry where
                      <*> (x .:? "Description")
                      <*> (x .:? "IsMaster"))
 
-instance Hashable JobListEntry
+instance Hashable JobListEntry where
 
-instance NFData JobListEntry
+instance NFData JobListEntry where
 
 -- | Contains job logs. Whenever Snowball is used to import data into or export data out of Amazon S3, you'll have the option of downloading a PDF job report. Job logs are returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type. The job logs can be accessed for up to 60 minutes after this request has been made. To access any of the job logs after 60 minutes have passed, you'll have to make another call to the @DescribeJob@ action.
 --
@@ -602,10 +612,11 @@ instance NFData JobListEntry
 --
 -- /See:/ 'jobLogs' smart constructor.
 data JobLogs = JobLogs'
-    { _jlJobFailureLogURI       :: !(Maybe Text)
-    , _jlJobCompletionReportURI :: !(Maybe Text)
-    , _jlJobSuccessLogURI       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jlJobFailureLogURI       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jlJobCompletionReportURI :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jlJobSuccessLogURI       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobLogs' with the minimum fields required to make a request.
 --
@@ -619,11 +630,12 @@ data JobLogs = JobLogs'
 jobLogs
     :: JobLogs
 jobLogs =
-    JobLogs'
-    { _jlJobFailureLogURI = Nothing
-    , _jlJobCompletionReportURI = Nothing
-    , _jlJobSuccessLogURI = Nothing
-    }
+  JobLogs'
+  { _jlJobFailureLogURI = Nothing
+  , _jlJobCompletionReportURI = Nothing
+  , _jlJobSuccessLogURI = Nothing
+  }
+
 
 -- | A link to an Amazon S3 presigned URL where the job failure log is located.
 jlJobFailureLogURI :: Lens' JobLogs (Maybe Text)
@@ -646,9 +658,9 @@ instance FromJSON JobLogs where
                      (x .:? "JobCompletionReportURI")
                      <*> (x .:? "JobSuccessLogURI"))
 
-instance Hashable JobLogs
+instance Hashable JobLogs where
 
-instance NFData JobLogs
+instance NFData JobLogs where
 
 -- | Contains information about a specific job including shipping information, job status, and other important metadata. This information is returned as a part of the response syntax of the @DescribeJob@ action.
 --
@@ -656,24 +668,25 @@ instance NFData JobLogs
 --
 -- /See:/ 'jobMetadata' smart constructor.
 data JobMetadata = JobMetadata'
-    { _jmJobType                    :: !(Maybe JobType)
-    , _jmKMSKeyARN                  :: !(Maybe Text)
-    , _jmJobId                      :: !(Maybe Text)
-    , _jmJobLogInfo                 :: !(Maybe JobLogs)
-    , _jmNotification               :: !(Maybe Notification)
-    , _jmJobState                   :: !(Maybe JobState)
-    , _jmForwardingAddressId        :: !(Maybe Text)
-    , _jmShippingDetails            :: !(Maybe ShippingDetails)
-    , _jmAddressId                  :: !(Maybe Text)
-    , _jmSnowballType               :: !(Maybe SnowballType)
-    , _jmDataTransferProgress       :: !(Maybe DataTransfer)
-    , _jmResources                  :: !(Maybe JobResource)
-    , _jmClusterId                  :: !(Maybe Text)
-    , _jmCreationDate               :: !(Maybe POSIX)
-    , _jmDescription                :: !(Maybe Text)
-    , _jmRoleARN                    :: !(Maybe Text)
-    , _jmSnowballCapacityPreference :: !(Maybe SnowballCapacity)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jmJobType                    :: {-# NOUNPACK #-}!(Maybe JobType)
+  , _jmKMSKeyARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jmJobId                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jmJobLogInfo                 :: {-# NOUNPACK #-}!(Maybe JobLogs)
+  , _jmNotification               :: {-# NOUNPACK #-}!(Maybe Notification)
+  , _jmJobState                   :: {-# NOUNPACK #-}!(Maybe JobState)
+  , _jmForwardingAddressId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jmShippingDetails            :: {-# NOUNPACK #-}!(Maybe ShippingDetails)
+  , _jmAddressId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jmSnowballType               :: {-# NOUNPACK #-}!(Maybe SnowballType)
+  , _jmDataTransferProgress       :: {-# NOUNPACK #-}!(Maybe DataTransfer)
+  , _jmResources                  :: {-# NOUNPACK #-}!(Maybe JobResource)
+  , _jmClusterId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jmCreationDate               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _jmDescription                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jmRoleARN                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _jmSnowballCapacityPreference :: {-# NOUNPACK #-}!(Maybe SnowballCapacity)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobMetadata' with the minimum fields required to make a request.
 --
@@ -715,25 +728,26 @@ data JobMetadata = JobMetadata'
 jobMetadata
     :: JobMetadata
 jobMetadata =
-    JobMetadata'
-    { _jmJobType = Nothing
-    , _jmKMSKeyARN = Nothing
-    , _jmJobId = Nothing
-    , _jmJobLogInfo = Nothing
-    , _jmNotification = Nothing
-    , _jmJobState = Nothing
-    , _jmForwardingAddressId = Nothing
-    , _jmShippingDetails = Nothing
-    , _jmAddressId = Nothing
-    , _jmSnowballType = Nothing
-    , _jmDataTransferProgress = Nothing
-    , _jmResources = Nothing
-    , _jmClusterId = Nothing
-    , _jmCreationDate = Nothing
-    , _jmDescription = Nothing
-    , _jmRoleARN = Nothing
-    , _jmSnowballCapacityPreference = Nothing
-    }
+  JobMetadata'
+  { _jmJobType = Nothing
+  , _jmKMSKeyARN = Nothing
+  , _jmJobId = Nothing
+  , _jmJobLogInfo = Nothing
+  , _jmNotification = Nothing
+  , _jmJobState = Nothing
+  , _jmForwardingAddressId = Nothing
+  , _jmShippingDetails = Nothing
+  , _jmAddressId = Nothing
+  , _jmSnowballType = Nothing
+  , _jmDataTransferProgress = Nothing
+  , _jmResources = Nothing
+  , _jmClusterId = Nothing
+  , _jmCreationDate = Nothing
+  , _jmDescription = Nothing
+  , _jmRoleARN = Nothing
+  , _jmSnowballCapacityPreference = Nothing
+  }
+
 
 -- | The type of job.
 jmJobType :: Lens' JobMetadata (Maybe JobType)
@@ -825,9 +839,9 @@ instance FromJSON JobMetadata where
                      <*> (x .:? "RoleARN")
                      <*> (x .:? "SnowballCapacityPreference"))
 
-instance Hashable JobMetadata
+instance Hashable JobMetadata where
 
-instance NFData JobMetadata
+instance NFData JobMetadata where
 
 -- | Contains an array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
 --
@@ -835,9 +849,10 @@ instance NFData JobMetadata
 --
 -- /See:/ 'jobResource' smart constructor.
 data JobResource = JobResource'
-    { _jrLambdaResources :: !(Maybe [LambdaResource])
-    , _jrS3Resources     :: !(Maybe [S3Resource])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _jrLambdaResources :: {-# NOUNPACK #-}!(Maybe [LambdaResource])
+  , _jrS3Resources     :: {-# NOUNPACK #-}!(Maybe [S3Resource])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'JobResource' with the minimum fields required to make a request.
 --
@@ -849,10 +864,8 @@ data JobResource = JobResource'
 jobResource
     :: JobResource
 jobResource =
-    JobResource'
-    { _jrLambdaResources = Nothing
-    , _jrS3Resources = Nothing
-    }
+  JobResource' {_jrLambdaResources = Nothing, _jrS3Resources = Nothing}
+
 
 -- | The Python-language Lambda functions for this job.
 jrLambdaResources :: Lens' JobResource [LambdaResource]
@@ -870,9 +883,9 @@ instance FromJSON JobResource where
                    (x .:? "LambdaResources" .!= mempty) <*>
                      (x .:? "S3Resources" .!= mempty))
 
-instance Hashable JobResource
+instance Hashable JobResource where
 
-instance NFData JobResource
+instance NFData JobResource where
 
 instance ToJSON JobResource where
         toJSON JobResource'{..}
@@ -887,9 +900,10 @@ instance ToJSON JobResource where
 --
 -- /See:/ 'keyRange' smart constructor.
 data KeyRange = KeyRange'
-    { _krEndMarker   :: !(Maybe Text)
-    , _krBeginMarker :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _krEndMarker   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _krBeginMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'KeyRange' with the minimum fields required to make a request.
 --
@@ -900,11 +914,8 @@ data KeyRange = KeyRange'
 -- * 'krBeginMarker' - The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 keyRange
     :: KeyRange
-keyRange =
-    KeyRange'
-    { _krEndMarker = Nothing
-    , _krBeginMarker = Nothing
-    }
+keyRange = KeyRange' {_krEndMarker = Nothing, _krBeginMarker = Nothing}
+
 
 -- | The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 krEndMarker :: Lens' KeyRange (Maybe Text)
@@ -921,9 +932,9 @@ instance FromJSON KeyRange where
                  KeyRange' <$>
                    (x .:? "EndMarker") <*> (x .:? "BeginMarker"))
 
-instance Hashable KeyRange
+instance Hashable KeyRange where
 
-instance NFData KeyRange
+instance NFData KeyRange where
 
 instance ToJSON KeyRange where
         toJSON KeyRange'{..}
@@ -938,9 +949,10 @@ instance ToJSON KeyRange where
 --
 -- /See:/ 'lambdaResource' smart constructor.
 data LambdaResource = LambdaResource'
-    { _lrEventTriggers :: !(Maybe [EventTriggerDefinition])
-    , _lrLambdaARN     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrEventTriggers :: {-# NOUNPACK #-}!(Maybe [EventTriggerDefinition])
+  , _lrLambdaARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LambdaResource' with the minimum fields required to make a request.
 --
@@ -952,10 +964,8 @@ data LambdaResource = LambdaResource'
 lambdaResource
     :: LambdaResource
 lambdaResource =
-    LambdaResource'
-    { _lrEventTriggers = Nothing
-    , _lrLambdaARN = Nothing
-    }
+  LambdaResource' {_lrEventTriggers = Nothing, _lrLambdaARN = Nothing}
+
 
 -- | The array of ARNs for 'S3Resource' objects to trigger the 'LambdaResource' objects associated with this job.
 lrEventTriggers :: Lens' LambdaResource [EventTriggerDefinition]
@@ -973,9 +983,9 @@ instance FromJSON LambdaResource where
                    (x .:? "EventTriggers" .!= mempty) <*>
                      (x .:? "LambdaArn"))
 
-instance Hashable LambdaResource
+instance Hashable LambdaResource where
 
-instance NFData LambdaResource
+instance NFData LambdaResource where
 
 instance ToJSON LambdaResource where
         toJSON LambdaResource'{..}
@@ -992,10 +1002,11 @@ instance ToJSON LambdaResource where
 --
 -- /See:/ 'notification' smart constructor.
 data Notification = Notification'
-    { _nNotifyAll         :: !(Maybe Bool)
-    , _nSNSTopicARN       :: !(Maybe Text)
-    , _nJobStatesToNotify :: !(Maybe [JobState])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nNotifyAll         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _nSNSTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nJobStatesToNotify :: {-# NOUNPACK #-}!(Maybe [JobState])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Notification' with the minimum fields required to make a request.
 --
@@ -1009,11 +1020,12 @@ data Notification = Notification'
 notification
     :: Notification
 notification =
-    Notification'
-    { _nNotifyAll = Nothing
-    , _nSNSTopicARN = Nothing
-    , _nJobStatesToNotify = Nothing
-    }
+  Notification'
+  { _nNotifyAll = Nothing
+  , _nSNSTopicARN = Nothing
+  , _nJobStatesToNotify = Nothing
+  }
+
 
 -- | Any change in job state will trigger a notification for this job.
 nNotifyAll :: Lens' Notification (Maybe Bool)
@@ -1035,9 +1047,9 @@ instance FromJSON Notification where
                    (x .:? "NotifyAll") <*> (x .:? "SnsTopicARN") <*>
                      (x .:? "JobStatesToNotify" .!= mempty))
 
-instance Hashable Notification
+instance Hashable Notification where
 
-instance NFData Notification
+instance NFData Notification where
 
 instance ToJSON Notification where
         toJSON Notification'{..}
@@ -1053,9 +1065,10 @@ instance ToJSON Notification where
 --
 -- /See:/ 's3Resource' smart constructor.
 data S3Resource = S3Resource'
-    { _srKeyRange  :: !(Maybe KeyRange)
-    , _srBucketARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srKeyRange  :: {-# NOUNPACK #-}!(Maybe KeyRange)
+  , _srBucketARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Resource' with the minimum fields required to make a request.
 --
@@ -1066,11 +1079,8 @@ data S3Resource = S3Resource'
 -- * 'srBucketARN' - The Amazon Resource Name (ARN) of an Amazon S3 bucket.
 s3Resource
     :: S3Resource
-s3Resource =
-    S3Resource'
-    { _srKeyRange = Nothing
-    , _srBucketARN = Nothing
-    }
+s3Resource = S3Resource' {_srKeyRange = Nothing, _srBucketARN = Nothing}
+
 
 -- | For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
 srKeyRange :: Lens' S3Resource (Maybe KeyRange)
@@ -1087,9 +1097,9 @@ instance FromJSON S3Resource where
                  S3Resource' <$>
                    (x .:? "KeyRange") <*> (x .:? "BucketArn"))
 
-instance Hashable S3Resource
+instance Hashable S3Resource where
 
-instance NFData S3Resource
+instance NFData S3Resource where
 
 instance ToJSON S3Resource where
         toJSON S3Resource'{..}
@@ -1104,9 +1114,10 @@ instance ToJSON S3Resource where
 --
 -- /See:/ 'shipment' smart constructor.
 data Shipment = Shipment'
-    { _sStatus         :: !(Maybe Text)
-    , _sTrackingNumber :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sStatus         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sTrackingNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Shipment' with the minimum fields required to make a request.
 --
@@ -1117,11 +1128,8 @@ data Shipment = Shipment'
 -- * 'sTrackingNumber' - The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snowball as the carrier transports it. For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
 shipment
     :: Shipment
-shipment =
-    Shipment'
-    { _sStatus = Nothing
-    , _sTrackingNumber = Nothing
-    }
+shipment = Shipment' {_sStatus = Nothing, _sTrackingNumber = Nothing}
+
 
 -- | Status information for a shipment.
 sStatus :: Lens' Shipment (Maybe Text)
@@ -1138,9 +1146,9 @@ instance FromJSON Shipment where
                  Shipment' <$>
                    (x .:? "Status") <*> (x .:? "TrackingNumber"))
 
-instance Hashable Shipment
+instance Hashable Shipment where
 
-instance NFData Shipment
+instance NFData Shipment where
 
 -- | A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
 --
@@ -1148,10 +1156,11 @@ instance NFData Shipment
 --
 -- /See:/ 'shippingDetails' smart constructor.
 data ShippingDetails = ShippingDetails'
-    { _sdShippingOption   :: !(Maybe ShippingOption)
-    , _sdOutboundShipment :: !(Maybe Shipment)
-    , _sdInboundShipment  :: !(Maybe Shipment)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sdShippingOption   :: {-# NOUNPACK #-}!(Maybe ShippingOption)
+  , _sdOutboundShipment :: {-# NOUNPACK #-}!(Maybe Shipment)
+  , _sdInboundShipment  :: {-# NOUNPACK #-}!(Maybe Shipment)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ShippingDetails' with the minimum fields required to make a request.
 --
@@ -1165,11 +1174,12 @@ data ShippingDetails = ShippingDetails'
 shippingDetails
     :: ShippingDetails
 shippingDetails =
-    ShippingDetails'
-    { _sdShippingOption = Nothing
-    , _sdOutboundShipment = Nothing
-    , _sdInboundShipment = Nothing
-    }
+  ShippingDetails'
+  { _sdShippingOption = Nothing
+  , _sdOutboundShipment = Nothing
+  , _sdInboundShipment = Nothing
+  }
+
 
 -- | The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snowball from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowballs are delivered in one to seven days.     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
 sdShippingOption :: Lens' ShippingDetails (Maybe ShippingOption)
@@ -1192,6 +1202,6 @@ instance FromJSON ShippingDetails where
                      (x .:? "OutboundShipment")
                      <*> (x .:? "InboundShipment"))
 
-instance Hashable ShippingDetails
+instance Hashable ShippingDetails where
 
-instance NFData ShippingDetails
+instance NFData ShippingDetails where

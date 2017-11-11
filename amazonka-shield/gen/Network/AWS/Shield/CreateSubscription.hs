@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.CreateSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,23 +34,25 @@ module Network.AWS.Shield.CreateSubscription
     , csrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'createSubscription' smart constructor.
 data CreateSubscription =
-    CreateSubscription'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CreateSubscription'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubscription' with the minimum fields required to make a request.
 --
 createSubscription
     :: CreateSubscription
 createSubscription = CreateSubscription'
+
 
 instance AWSRequest CreateSubscription where
         type Rs CreateSubscription =
@@ -61,9 +63,9 @@ instance AWSRequest CreateSubscription where
               (\ s h x ->
                  CreateSubscriptionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable CreateSubscription
+instance Hashable CreateSubscription where
 
-instance NFData CreateSubscription
+instance NFData CreateSubscription where
 
 instance ToHeaders CreateSubscription where
         toHeaders
@@ -86,8 +88,9 @@ instance ToQuery CreateSubscription where
 
 -- | /See:/ 'createSubscriptionResponse' smart constructor.
 newtype CreateSubscriptionResponse = CreateSubscriptionResponse'
-    { _csrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -98,12 +101,11 @@ createSubscriptionResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateSubscriptionResponse
 createSubscriptionResponse pResponseStatus_ =
-    CreateSubscriptionResponse'
-    { _csrsResponseStatus = pResponseStatus_
-    }
+  CreateSubscriptionResponse' {_csrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSubscriptionResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
 
-instance NFData CreateSubscriptionResponse
+instance NFData CreateSubscriptionResponse where

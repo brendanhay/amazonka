@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteGCMChannel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.DeleteGCMChannel
     , dgcrsGCMChannelResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteGCMChannel' smart constructor.
 newtype DeleteGCMChannel = DeleteGCMChannel'
-    { _dgcApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgcApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGCMChannel' with the minimum fields required to make a request.
 --
@@ -56,9 +57,8 @@ deleteGCMChannel
     :: Text -- ^ 'dgcApplicationId'
     -> DeleteGCMChannel
 deleteGCMChannel pApplicationId_ =
-    DeleteGCMChannel'
-    { _dgcApplicationId = pApplicationId_
-    }
+  DeleteGCMChannel' {_dgcApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 dgcApplicationId :: Lens' DeleteGCMChannel Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteGCMChannel where
                  DeleteGCMChannelResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable DeleteGCMChannel
+instance Hashable DeleteGCMChannel where
 
-instance NFData DeleteGCMChannel
+instance NFData DeleteGCMChannel where
 
 instance ToHeaders DeleteGCMChannel where
         toHeaders
@@ -95,9 +95,10 @@ instance ToQuery DeleteGCMChannel where
 
 -- | /See:/ 'deleteGCMChannelResponse' smart constructor.
 data DeleteGCMChannelResponse = DeleteGCMChannelResponse'
-    { _dgcrsResponseStatus     :: !Int
-    , _dgcrsGCMChannelResponse :: !GCMChannelResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  , _dgcrsGCMChannelResponse :: {-# NOUNPACK #-}!GCMChannelResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteGCMChannelResponse' with the minimum fields required to make a request.
 --
@@ -111,10 +112,11 @@ deleteGCMChannelResponse
     -> GCMChannelResponse -- ^ 'dgcrsGCMChannelResponse'
     -> DeleteGCMChannelResponse
 deleteGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
-    DeleteGCMChannelResponse'
-    { _dgcrsResponseStatus = pResponseStatus_
-    , _dgcrsGCMChannelResponse = pGCMChannelResponse_
-    }
+  DeleteGCMChannelResponse'
+  { _dgcrsResponseStatus = pResponseStatus_
+  , _dgcrsGCMChannelResponse = pGCMChannelResponse_
+  }
+
 
 -- | -- | The response status code.
 dgcrsResponseStatus :: Lens' DeleteGCMChannelResponse Int
@@ -124,4 +126,4 @@ dgcrsResponseStatus = lens _dgcrsResponseStatus (\ s a -> s{_dgcrsResponseStatus
 dgcrsGCMChannelResponse :: Lens' DeleteGCMChannelResponse GCMChannelResponse
 dgcrsGCMChannelResponse = lens _dgcrsGCMChannelResponse (\ s a -> s{_dgcrsGCMChannelResponse = a});
 
-instance NFData DeleteGCMChannelResponse
+instance NFData DeleteGCMChannelResponse where

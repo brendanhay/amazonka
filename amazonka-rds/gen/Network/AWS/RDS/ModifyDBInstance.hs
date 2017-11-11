@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -69,12 +69,12 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -82,40 +82,41 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifyDBInstance' smart constructor.
 data ModifyDBInstance = ModifyDBInstance'
-    { _mdiEngineVersion                   :: !(Maybe Text)
-    , _mdiDBSecurityGroups                :: !(Maybe [Text])
-    , _mdiDBPortNumber                    :: !(Maybe Int)
-    , _mdiMasterUserPassword              :: !(Maybe Text)
-    , _mdiPubliclyAccessible              :: !(Maybe Bool)
-    , _mdiAutoMinorVersionUpgrade         :: !(Maybe Bool)
-    , _mdiDBSubnetGroupName               :: !(Maybe Text)
-    , _mdiMonitoringRoleARN               :: !(Maybe Text)
-    , _mdiIOPS                            :: !(Maybe Int)
-    , _mdiAllowMajorVersionUpgrade        :: !(Maybe Bool)
-    , _mdiNewDBInstanceIdentifier         :: !(Maybe Text)
-    , _mdiDomain                          :: !(Maybe Text)
-    , _mdiMonitoringInterval              :: !(Maybe Int)
-    , _mdiTDECredentialPassword           :: !(Maybe Text)
-    , _mdiDBInstanceClass                 :: !(Maybe Text)
-    , _mdiPromotionTier                   :: !(Maybe Int)
-    , _mdiLicenseModel                    :: !(Maybe Text)
-    , _mdiPreferredMaintenanceWindow      :: !(Maybe Text)
-    , _mdiCACertificateIdentifier         :: !(Maybe Text)
-    , _mdiDBParameterGroupName            :: !(Maybe Text)
-    , _mdiPreferredBackupWindow           :: !(Maybe Text)
-    , _mdiBackupRetentionPeriod           :: !(Maybe Int)
-    , _mdiVPCSecurityGroupIds             :: !(Maybe [Text])
-    , _mdiMultiAZ                         :: !(Maybe Bool)
-    , _mdiAllocatedStorage                :: !(Maybe Int)
-    , _mdiApplyImmediately                :: !(Maybe Bool)
-    , _mdiOptionGroupName                 :: !(Maybe Text)
-    , _mdiCopyTagsToSnapshot              :: !(Maybe Bool)
-    , _mdiTDECredentialARN                :: !(Maybe Text)
-    , _mdiDomainIAMRoleName               :: !(Maybe Text)
-    , _mdiEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _mdiStorageType                     :: !(Maybe Text)
-    , _mdiDBInstanceIdentifier            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdiEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiDBSecurityGroups                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mdiDBPortNumber                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mdiMasterUserPassword              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiPubliclyAccessible              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdiAutoMinorVersionUpgrade         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdiDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiMonitoringRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiIOPS                            :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mdiAllowMajorVersionUpgrade        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdiNewDBInstanceIdentifier         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiDomain                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiMonitoringInterval              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mdiTDECredentialPassword           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiDBInstanceClass                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiPromotionTier                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mdiLicenseModel                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiCACertificateIdentifier         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiDBParameterGroupName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mdiVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mdiMultiAZ                         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdiAllocatedStorage                :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mdiApplyImmediately                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdiOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiCopyTagsToSnapshot              :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdiTDECredentialARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiDomainIAMRoleName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mdiStorageType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mdiDBInstanceIdentifier            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBInstance' with the minimum fields required to make a request.
 --
@@ -190,41 +191,42 @@ modifyDBInstance
     :: Text -- ^ 'mdiDBInstanceIdentifier'
     -> ModifyDBInstance
 modifyDBInstance pDBInstanceIdentifier_ =
-    ModifyDBInstance'
-    { _mdiEngineVersion = Nothing
-    , _mdiDBSecurityGroups = Nothing
-    , _mdiDBPortNumber = Nothing
-    , _mdiMasterUserPassword = Nothing
-    , _mdiPubliclyAccessible = Nothing
-    , _mdiAutoMinorVersionUpgrade = Nothing
-    , _mdiDBSubnetGroupName = Nothing
-    , _mdiMonitoringRoleARN = Nothing
-    , _mdiIOPS = Nothing
-    , _mdiAllowMajorVersionUpgrade = Nothing
-    , _mdiNewDBInstanceIdentifier = Nothing
-    , _mdiDomain = Nothing
-    , _mdiMonitoringInterval = Nothing
-    , _mdiTDECredentialPassword = Nothing
-    , _mdiDBInstanceClass = Nothing
-    , _mdiPromotionTier = Nothing
-    , _mdiLicenseModel = Nothing
-    , _mdiPreferredMaintenanceWindow = Nothing
-    , _mdiCACertificateIdentifier = Nothing
-    , _mdiDBParameterGroupName = Nothing
-    , _mdiPreferredBackupWindow = Nothing
-    , _mdiBackupRetentionPeriod = Nothing
-    , _mdiVPCSecurityGroupIds = Nothing
-    , _mdiMultiAZ = Nothing
-    , _mdiAllocatedStorage = Nothing
-    , _mdiApplyImmediately = Nothing
-    , _mdiOptionGroupName = Nothing
-    , _mdiCopyTagsToSnapshot = Nothing
-    , _mdiTDECredentialARN = Nothing
-    , _mdiDomainIAMRoleName = Nothing
-    , _mdiEnableIAMDatabaseAuthentication = Nothing
-    , _mdiStorageType = Nothing
-    , _mdiDBInstanceIdentifier = pDBInstanceIdentifier_
-    }
+  ModifyDBInstance'
+  { _mdiEngineVersion = Nothing
+  , _mdiDBSecurityGroups = Nothing
+  , _mdiDBPortNumber = Nothing
+  , _mdiMasterUserPassword = Nothing
+  , _mdiPubliclyAccessible = Nothing
+  , _mdiAutoMinorVersionUpgrade = Nothing
+  , _mdiDBSubnetGroupName = Nothing
+  , _mdiMonitoringRoleARN = Nothing
+  , _mdiIOPS = Nothing
+  , _mdiAllowMajorVersionUpgrade = Nothing
+  , _mdiNewDBInstanceIdentifier = Nothing
+  , _mdiDomain = Nothing
+  , _mdiMonitoringInterval = Nothing
+  , _mdiTDECredentialPassword = Nothing
+  , _mdiDBInstanceClass = Nothing
+  , _mdiPromotionTier = Nothing
+  , _mdiLicenseModel = Nothing
+  , _mdiPreferredMaintenanceWindow = Nothing
+  , _mdiCACertificateIdentifier = Nothing
+  , _mdiDBParameterGroupName = Nothing
+  , _mdiPreferredBackupWindow = Nothing
+  , _mdiBackupRetentionPeriod = Nothing
+  , _mdiVPCSecurityGroupIds = Nothing
+  , _mdiMultiAZ = Nothing
+  , _mdiAllocatedStorage = Nothing
+  , _mdiApplyImmediately = Nothing
+  , _mdiOptionGroupName = Nothing
+  , _mdiCopyTagsToSnapshot = Nothing
+  , _mdiTDECredentialARN = Nothing
+  , _mdiDomainIAMRoleName = Nothing
+  , _mdiEnableIAMDatabaseAuthentication = Nothing
+  , _mdiStorageType = Nothing
+  , _mdiDBInstanceIdentifier = pDBInstanceIdentifier_
+  }
+
 
 -- | The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family. For a list of valid engine versions, see 'CreateDBInstance' .
 mdiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
@@ -367,9 +369,9 @@ instance AWSRequest ModifyDBInstance where
                  ModifyDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-instance Hashable ModifyDBInstance
+instance Hashable ModifyDBInstance where
 
-instance NFData ModifyDBInstance
+instance NFData ModifyDBInstance where
 
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
@@ -430,9 +432,10 @@ instance ToQuery ModifyDBInstance where
 
 -- | /See:/ 'modifyDBInstanceResponse' smart constructor.
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
-    { _mdirsDBInstance     :: !(Maybe DBInstance)
-    , _mdirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mdirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
+  , _mdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ModifyDBInstanceResponse' with the minimum fields required to make a request.
 --
@@ -445,10 +448,9 @@ modifyDBInstanceResponse
     :: Int -- ^ 'mdirsResponseStatus'
     -> ModifyDBInstanceResponse
 modifyDBInstanceResponse pResponseStatus_ =
-    ModifyDBInstanceResponse'
-    { _mdirsDBInstance = Nothing
-    , _mdirsResponseStatus = pResponseStatus_
-    }
+  ModifyDBInstanceResponse'
+  {_mdirsDBInstance = Nothing, _mdirsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 mdirsDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
@@ -458,4 +460,4 @@ mdirsDBInstance = lens _mdirsDBInstance (\ s a -> s{_mdirsDBInstance = a});
 mdirsResponseStatus :: Lens' ModifyDBInstanceResponse Int
 mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});
 
-instance NFData ModifyDBInstanceResponse
+instance NFData ModifyDBInstanceResponse where

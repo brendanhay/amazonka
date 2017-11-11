@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.DeleteFaces
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Rekognition.DeleteFaces
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteFaces' smart constructor.
 data DeleteFaces = DeleteFaces'
-    { _dfCollectionId :: !Text
-    , _dfFaceIds      :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dfCollectionId :: {-# NOUNPACK #-}!Text
+  , _dfFaceIds      :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFaces' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ deleteFaces
     -> NonEmpty Text -- ^ 'dfFaceIds'
     -> DeleteFaces
 deleteFaces pCollectionId_ pFaceIds_ =
-    DeleteFaces'
-    { _dfCollectionId = pCollectionId_
-    , _dfFaceIds = _List1 # pFaceIds_
-    }
+  DeleteFaces'
+  {_dfCollectionId = pCollectionId_, _dfFaceIds = _List1 # pFaceIds_}
+
 
 -- | Collection from which to remove the specific faces.
 dfCollectionId :: Lens' DeleteFaces Text
@@ -87,9 +87,9 @@ instance AWSRequest DeleteFaces where
                  DeleteFacesResponse' <$>
                    (x .?> "DeletedFaces") <*> (pure (fromEnum s)))
 
-instance Hashable DeleteFaces
+instance Hashable DeleteFaces where
 
-instance NFData DeleteFaces
+instance NFData DeleteFaces where
 
 instance ToHeaders DeleteFaces where
         toHeaders
@@ -115,9 +115,10 @@ instance ToQuery DeleteFaces where
 
 -- | /See:/ 'deleteFacesResponse' smart constructor.
 data DeleteFacesResponse = DeleteFacesResponse'
-    { _drsDeletedFaces   :: !(Maybe (List1 Text))
-    , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsDeletedFaces   :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteFacesResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,9 @@ deleteFacesResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteFacesResponse
 deleteFacesResponse pResponseStatus_ =
-    DeleteFacesResponse'
-    { _drsDeletedFaces = Nothing
-    , _drsResponseStatus = pResponseStatus_
-    }
+  DeleteFacesResponse'
+  {_drsDeletedFaces = Nothing, _drsResponseStatus = pResponseStatus_}
+
 
 -- | An array of strings (face IDs) of the faces that were deleted.
 drsDeletedFaces :: Lens' DeleteFacesResponse (Maybe (NonEmpty Text))
@@ -143,4 +143,4 @@ drsDeletedFaces = lens _drsDeletedFaces (\ s a -> s{_drsDeletedFaces = a}) . map
 drsResponseStatus :: Lens' DeleteFacesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteFacesResponse
+instance NFData DeleteFacesResponse where

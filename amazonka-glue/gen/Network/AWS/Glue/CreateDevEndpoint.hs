@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.CreateDevEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,24 +56,25 @@ module Network.AWS.Glue.CreateDevEndpoint
     , cdersResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createDevEndpoint' smart constructor.
 data CreateDevEndpoint = CreateDevEndpoint'
-    { _cdeExtraPythonLibsS3Path :: !(Maybe Text)
-    , _cdePublicKey             :: !(Maybe Text)
-    , _cdeNumberOfNodes         :: !(Maybe Int)
-    , _cdeExtraJARsS3Path       :: !(Maybe Text)
-    , _cdeEndpointName          :: !Text
-    , _cdeRoleARN               :: !Text
-    , _cdeSecurityGroupIds      :: ![Text]
-    , _cdeSubnetId              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdeExtraPythonLibsS3Path :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdePublicKey             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdeNumberOfNodes         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdeExtraJARsS3Path       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdeEndpointName          :: {-# NOUNPACK #-}!Text
+  , _cdeRoleARN               :: {-# NOUNPACK #-}!Text
+  , _cdeSecurityGroupIds      :: {-# NOUNPACK #-}![Text]
+  , _cdeSubnetId              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDevEndpoint' with the minimum fields required to make a request.
 --
@@ -100,16 +101,17 @@ createDevEndpoint
     -> Text -- ^ 'cdeSubnetId'
     -> CreateDevEndpoint
 createDevEndpoint pEndpointName_ pRoleARN_ pSubnetId_ =
-    CreateDevEndpoint'
-    { _cdeExtraPythonLibsS3Path = Nothing
-    , _cdePublicKey = Nothing
-    , _cdeNumberOfNodes = Nothing
-    , _cdeExtraJARsS3Path = Nothing
-    , _cdeEndpointName = pEndpointName_
-    , _cdeRoleARN = pRoleARN_
-    , _cdeSecurityGroupIds = mempty
-    , _cdeSubnetId = pSubnetId_
-    }
+  CreateDevEndpoint'
+  { _cdeExtraPythonLibsS3Path = Nothing
+  , _cdePublicKey = Nothing
+  , _cdeNumberOfNodes = Nothing
+  , _cdeExtraJARsS3Path = Nothing
+  , _cdeEndpointName = pEndpointName_
+  , _cdeRoleARN = pRoleARN_
+  , _cdeSecurityGroupIds = mempty
+  , _cdeSubnetId = pSubnetId_
+  }
+
 
 -- | Path to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint.
 cdeExtraPythonLibsS3Path :: Lens' CreateDevEndpoint (Maybe Text)
@@ -164,9 +166,9 @@ instance AWSRequest CreateDevEndpoint where
                      <*> (x .?> "RoleArn")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateDevEndpoint
+instance Hashable CreateDevEndpoint where
 
-instance NFData CreateDevEndpoint
+instance NFData CreateDevEndpoint where
 
 instance ToHeaders CreateDevEndpoint where
         toHeaders
@@ -199,21 +201,22 @@ instance ToQuery CreateDevEndpoint where
 
 -- | /See:/ 'createDevEndpointResponse' smart constructor.
 data CreateDevEndpointResponse = CreateDevEndpointResponse'
-    { _cdersStatus                :: !(Maybe Text)
-    , _cdersFailureReason         :: !(Maybe Text)
-    , _cdersEndpointName          :: !(Maybe Text)
-    , _cdersExtraPythonLibsS3Path :: !(Maybe Text)
-    , _cdersSecurityGroupIds      :: !(Maybe [Text])
-    , _cdersVPCId                 :: !(Maybe Text)
-    , _cdersSubnetId              :: !(Maybe Text)
-    , _cdersNumberOfNodes         :: !(Maybe Int)
-    , _cdersAvailabilityZone      :: !(Maybe Text)
-    , _cdersExtraJARsS3Path       :: !(Maybe Text)
-    , _cdersCreatedTimestamp      :: !(Maybe POSIX)
-    , _cdersYarnEndpointAddress   :: !(Maybe Text)
-    , _cdersRoleARN               :: !(Maybe Text)
-    , _cdersResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cdersStatus                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersFailureReason         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersEndpointName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersExtraPythonLibsS3Path :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersSecurityGroupIds      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cdersVPCId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersSubnetId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersNumberOfNodes         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cdersAvailabilityZone      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersExtraJARsS3Path       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersCreatedTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cdersYarnEndpointAddress   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cdersResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateDevEndpointResponse' with the minimum fields required to make a request.
 --
@@ -250,22 +253,23 @@ createDevEndpointResponse
     :: Int -- ^ 'cdersResponseStatus'
     -> CreateDevEndpointResponse
 createDevEndpointResponse pResponseStatus_ =
-    CreateDevEndpointResponse'
-    { _cdersStatus = Nothing
-    , _cdersFailureReason = Nothing
-    , _cdersEndpointName = Nothing
-    , _cdersExtraPythonLibsS3Path = Nothing
-    , _cdersSecurityGroupIds = Nothing
-    , _cdersVPCId = Nothing
-    , _cdersSubnetId = Nothing
-    , _cdersNumberOfNodes = Nothing
-    , _cdersAvailabilityZone = Nothing
-    , _cdersExtraJARsS3Path = Nothing
-    , _cdersCreatedTimestamp = Nothing
-    , _cdersYarnEndpointAddress = Nothing
-    , _cdersRoleARN = Nothing
-    , _cdersResponseStatus = pResponseStatus_
-    }
+  CreateDevEndpointResponse'
+  { _cdersStatus = Nothing
+  , _cdersFailureReason = Nothing
+  , _cdersEndpointName = Nothing
+  , _cdersExtraPythonLibsS3Path = Nothing
+  , _cdersSecurityGroupIds = Nothing
+  , _cdersVPCId = Nothing
+  , _cdersSubnetId = Nothing
+  , _cdersNumberOfNodes = Nothing
+  , _cdersAvailabilityZone = Nothing
+  , _cdersExtraJARsS3Path = Nothing
+  , _cdersCreatedTimestamp = Nothing
+  , _cdersYarnEndpointAddress = Nothing
+  , _cdersRoleARN = Nothing
+  , _cdersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current status of the new DevEndpoint.
 cdersStatus :: Lens' CreateDevEndpointResponse (Maybe Text)
@@ -323,4 +327,4 @@ cdersRoleARN = lens _cdersRoleARN (\ s a -> s{_cdersRoleARN = a});
 cdersResponseStatus :: Lens' CreateDevEndpointResponse Int
 cdersResponseStatus = lens _cdersResponseStatus (\ s a -> s{_cdersResponseStatus = a});
 
-instance NFData CreateDevEndpointResponse
+instance NFData CreateDevEndpointResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetParameterHistory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.SSM.GetParameterHistory
     , gphrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getParameterHistory' smart constructor.
 data GetParameterHistory = GetParameterHistory'
-    { _gphWithDecryption :: !(Maybe Bool)
-    , _gphNextToken      :: !(Maybe Text)
-    , _gphMaxResults     :: !(Maybe Nat)
-    , _gphName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gphWithDecryption :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gphNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gphMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gphName           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParameterHistory' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ getParameterHistory
     :: Text -- ^ 'gphName'
     -> GetParameterHistory
 getParameterHistory pName_ =
-    GetParameterHistory'
-    { _gphWithDecryption = Nothing
-    , _gphNextToken = Nothing
-    , _gphMaxResults = Nothing
-    , _gphName = pName_
-    }
+  GetParameterHistory'
+  { _gphWithDecryption = Nothing
+  , _gphNextToken = Nothing
+  , _gphMaxResults = Nothing
+  , _gphName = pName_
+  }
+
 
 -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
 gphWithDecryption :: Lens' GetParameterHistory (Maybe Bool)
@@ -106,9 +108,9 @@ instance AWSRequest GetParameterHistory where
                      (x .?> "Parameters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetParameterHistory
+instance Hashable GetParameterHistory where
 
-instance NFData GetParameterHistory
+instance NFData GetParameterHistory where
 
 instance ToHeaders GetParameterHistory where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery GetParameterHistory where
 
 -- | /See:/ 'getParameterHistoryResponse' smart constructor.
 data GetParameterHistoryResponse = GetParameterHistoryResponse'
-    { _gphrsNextToken      :: !(Maybe Text)
-    , _gphrsParameters     :: !(Maybe [ParameterHistory])
-    , _gphrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gphrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gphrsParameters     :: {-# NOUNPACK #-}!(Maybe [ParameterHistory])
+  , _gphrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetParameterHistoryResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ getParameterHistoryResponse
     :: Int -- ^ 'gphrsResponseStatus'
     -> GetParameterHistoryResponse
 getParameterHistoryResponse pResponseStatus_ =
-    GetParameterHistoryResponse'
-    { _gphrsNextToken = Nothing
-    , _gphrsParameters = Nothing
-    , _gphrsResponseStatus = pResponseStatus_
-    }
+  GetParameterHistoryResponse'
+  { _gphrsNextToken = Nothing
+  , _gphrsParameters = Nothing
+  , _gphrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 gphrsNextToken :: Lens' GetParameterHistoryResponse (Maybe Text)
@@ -172,4 +176,4 @@ gphrsParameters = lens _gphrsParameters (\ s a -> s{_gphrsParameters = a}) . _De
 gphrsResponseStatus :: Lens' GetParameterHistoryResponse Int
 gphrsResponseStatus = lens _gphrsResponseStatus (\ s a -> s{_gphrsResponseStatus = a});
 
-instance NFData GetParameterHistoryResponse
+instance NFData GetParameterHistoryResponse where

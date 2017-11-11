@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AllocateAddress
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.EC2.AllocateAddress
     , aarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AllocateAddress.
 --
@@ -60,10 +60,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'allocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
-    { _aaDomain  :: !(Maybe DomainType)
-    , _aaAddress :: !(Maybe Text)
-    , _aaDryRun  :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aaDomain  :: {-# NOUNPACK #-}!(Maybe DomainType)
+  , _aaAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aaDryRun  :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllocateAddress' with the minimum fields required to make a request.
 --
@@ -77,11 +78,9 @@ data AllocateAddress = AllocateAddress'
 allocateAddress
     :: AllocateAddress
 allocateAddress =
-    AllocateAddress'
-    { _aaDomain = Nothing
-    , _aaAddress = Nothing
-    , _aaDryRun = Nothing
-    }
+  AllocateAddress'
+  {_aaDomain = Nothing, _aaAddress = Nothing, _aaDryRun = Nothing}
+
 
 -- | Set to @vpc@ to allocate the address for use with instances in a VPC. Default: The address is for use with instances in EC2-Classic.
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
@@ -106,9 +105,9 @@ instance AWSRequest AllocateAddress where
                      (x .@? "publicIp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable AllocateAddress
+instance Hashable AllocateAddress where
 
-instance NFData AllocateAddress
+instance NFData AllocateAddress where
 
 instance ToHeaders AllocateAddress where
         toHeaders = const mempty
@@ -130,11 +129,12 @@ instance ToQuery AllocateAddress where
 --
 -- /See:/ 'allocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
-    { _aarsAllocationId   :: !(Maybe Text)
-    , _aarsDomain         :: !(Maybe DomainType)
-    , _aarsPublicIP       :: !(Maybe Text)
-    , _aarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aarsAllocationId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aarsDomain         :: {-# NOUNPACK #-}!(Maybe DomainType)
+  , _aarsPublicIP       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllocateAddressResponse' with the minimum fields required to make a request.
 --
@@ -151,12 +151,13 @@ allocateAddressResponse
     :: Int -- ^ 'aarsResponseStatus'
     -> AllocateAddressResponse
 allocateAddressResponse pResponseStatus_ =
-    AllocateAddressResponse'
-    { _aarsAllocationId = Nothing
-    , _aarsDomain = Nothing
-    , _aarsPublicIP = Nothing
-    , _aarsResponseStatus = pResponseStatus_
-    }
+  AllocateAddressResponse'
+  { _aarsAllocationId = Nothing
+  , _aarsDomain = Nothing
+  , _aarsPublicIP = Nothing
+  , _aarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
@@ -174,4 +175,4 @@ aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
 aarsResponseStatus :: Lens' AllocateAddressResponse Int
 aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a});
 
-instance NFData AllocateAddressResponse
+instance NFData AllocateAddressResponse where

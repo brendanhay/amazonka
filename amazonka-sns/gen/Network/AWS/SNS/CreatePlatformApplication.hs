@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreatePlatformApplication
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.SNS.CreatePlatformApplication
     , cparsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SNS.Types
-import           Network.AWS.SNS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SNS.Types
+import Network.AWS.SNS.Types.Product
 
 -- | Input for CreatePlatformApplication action.
 --
@@ -54,10 +54,11 @@ import           Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'createPlatformApplication' smart constructor.
 data CreatePlatformApplication = CreatePlatformApplication'
-    { _cpaName       :: !Text
-    , _cpaPlatform   :: !Text
-    , _cpaAttributes :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpaName       :: {-# NOUNPACK #-}!Text
+  , _cpaPlatform   :: {-# NOUNPACK #-}!Text
+  , _cpaAttributes :: {-# NOUNPACK #-}!(Map Text Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlatformApplication' with the minimum fields required to make a request.
 --
@@ -73,11 +74,9 @@ createPlatformApplication
     -> Text -- ^ 'cpaPlatform'
     -> CreatePlatformApplication
 createPlatformApplication pName_ pPlatform_ =
-    CreatePlatformApplication'
-    { _cpaName = pName_
-    , _cpaPlatform = pPlatform_
-    , _cpaAttributes = mempty
-    }
+  CreatePlatformApplication'
+  {_cpaName = pName_, _cpaPlatform = pPlatform_, _cpaAttributes = mempty}
+
 
 -- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
 cpaName :: Lens' CreatePlatformApplication Text
@@ -102,9 +101,9 @@ instance AWSRequest CreatePlatformApplication where
                    (x .@? "PlatformApplicationArn") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreatePlatformApplication
+instance Hashable CreatePlatformApplication where
 
-instance NFData CreatePlatformApplication
+instance NFData CreatePlatformApplication where
 
 instance ToHeaders CreatePlatformApplication where
         toHeaders = const mempty
@@ -128,9 +127,10 @@ instance ToQuery CreatePlatformApplication where
 --
 -- /See:/ 'createPlatformApplicationResponse' smart constructor.
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
-    { _cparsPlatformApplicationARN :: !(Maybe Text)
-    , _cparsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cparsPlatformApplicationARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cparsResponseStatus         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePlatformApplicationResponse' with the minimum fields required to make a request.
 --
@@ -143,10 +143,11 @@ createPlatformApplicationResponse
     :: Int -- ^ 'cparsResponseStatus'
     -> CreatePlatformApplicationResponse
 createPlatformApplicationResponse pResponseStatus_ =
-    CreatePlatformApplicationResponse'
-    { _cparsPlatformApplicationARN = Nothing
-    , _cparsResponseStatus = pResponseStatus_
-    }
+  CreatePlatformApplicationResponse'
+  { _cparsPlatformApplicationARN = Nothing
+  , _cparsResponseStatus = pResponseStatus_
+  }
+
 
 -- | PlatformApplicationArn is returned.
 cparsPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
@@ -157,3 +158,4 @@ cparsResponseStatus :: Lens' CreatePlatformApplicationResponse Int
 cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a});
 
 instance NFData CreatePlatformApplicationResponse
+         where

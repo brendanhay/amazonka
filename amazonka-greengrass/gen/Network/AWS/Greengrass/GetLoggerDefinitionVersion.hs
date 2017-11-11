@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetLoggerDefinitionVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Greengrass.GetLoggerDefinitionVersion
     , gldvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getLoggerDefinitionVersion' smart constructor.
 data GetLoggerDefinitionVersion = GetLoggerDefinitionVersion'
-    { _gldvLoggerDefinitionVersionId :: !Text
-    , _gldvLoggerDefinitionId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gldvLoggerDefinitionVersionId :: {-# NOUNPACK #-}!Text
+  , _gldvLoggerDefinitionId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLoggerDefinitionVersion' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ getLoggerDefinitionVersion
     -> Text -- ^ 'gldvLoggerDefinitionId'
     -> GetLoggerDefinitionVersion
 getLoggerDefinitionVersion pLoggerDefinitionVersionId_ pLoggerDefinitionId_ =
-    GetLoggerDefinitionVersion'
-    { _gldvLoggerDefinitionVersionId = pLoggerDefinitionVersionId_
-    , _gldvLoggerDefinitionId = pLoggerDefinitionId_
-    }
+  GetLoggerDefinitionVersion'
+  { _gldvLoggerDefinitionVersionId = pLoggerDefinitionVersionId_
+  , _gldvLoggerDefinitionId = pLoggerDefinitionId_
+  }
+
 
 -- | logger definition version Id
 gldvLoggerDefinitionVersionId :: Lens' GetLoggerDefinitionVersion Text
@@ -92,9 +94,9 @@ instance AWSRequest GetLoggerDefinitionVersion where
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetLoggerDefinitionVersion
+instance Hashable GetLoggerDefinitionVersion where
 
-instance NFData GetLoggerDefinitionVersion
+instance NFData GetLoggerDefinitionVersion where
 
 instance ToHeaders GetLoggerDefinitionVersion where
         toHeaders
@@ -115,13 +117,14 @@ instance ToQuery GetLoggerDefinitionVersion where
 
 -- | /See:/ 'getLoggerDefinitionVersionResponse' smart constructor.
 data GetLoggerDefinitionVersionResponse = GetLoggerDefinitionVersionResponse'
-    { _gldvrsDefinition        :: !(Maybe LoggerDefinitionVersion)
-    , _gldvrsARN               :: !(Maybe Text)
-    , _gldvrsCreationTimestamp :: !(Maybe Text)
-    , _gldvrsVersion           :: !(Maybe Text)
-    , _gldvrsId                :: !(Maybe Text)
-    , _gldvrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gldvrsDefinition        :: {-# NOUNPACK #-}!(Maybe LoggerDefinitionVersion)
+  , _gldvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gldvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetLoggerDefinitionVersionResponse' with the minimum fields required to make a request.
 --
@@ -142,14 +145,15 @@ getLoggerDefinitionVersionResponse
     :: Int -- ^ 'gldvrsResponseStatus'
     -> GetLoggerDefinitionVersionResponse
 getLoggerDefinitionVersionResponse pResponseStatus_ =
-    GetLoggerDefinitionVersionResponse'
-    { _gldvrsDefinition = Nothing
-    , _gldvrsARN = Nothing
-    , _gldvrsCreationTimestamp = Nothing
-    , _gldvrsVersion = Nothing
-    , _gldvrsId = Nothing
-    , _gldvrsResponseStatus = pResponseStatus_
-    }
+  GetLoggerDefinitionVersionResponse'
+  { _gldvrsDefinition = Nothing
+  , _gldvrsARN = Nothing
+  , _gldvrsCreationTimestamp = Nothing
+  , _gldvrsVersion = Nothing
+  , _gldvrsId = Nothing
+  , _gldvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information on definition
 gldvrsDefinition :: Lens' GetLoggerDefinitionVersionResponse (Maybe LoggerDefinitionVersion)
@@ -176,3 +180,4 @@ gldvrsResponseStatus :: Lens' GetLoggerDefinitionVersionResponse Int
 gldvrsResponseStatus = lens _gldvrsResponseStatus (\ s a -> s{_gldvrsResponseStatus = a});
 
 instance NFData GetLoggerDefinitionVersionResponse
+         where

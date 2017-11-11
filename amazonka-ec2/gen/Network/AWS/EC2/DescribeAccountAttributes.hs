@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeAccountAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,12 +52,12 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , daarsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeAccountAttributes.
 --
@@ -65,9 +65,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-    { _daaAttributeNames :: !(Maybe [AccountAttributeName])
-    , _daaDryRun         :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daaAttributeNames :: {-# NOUNPACK #-}!(Maybe [AccountAttributeName])
+  , _daaDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
 --
@@ -79,10 +80,9 @@ data DescribeAccountAttributes = DescribeAccountAttributes'
 describeAccountAttributes
     :: DescribeAccountAttributes
 describeAccountAttributes =
-    DescribeAccountAttributes'
-    { _daaAttributeNames = Nothing
-    , _daaDryRun = Nothing
-    }
+  DescribeAccountAttributes'
+  {_daaAttributeNames = Nothing, _daaDryRun = Nothing}
+
 
 -- | One or more account attribute names.
 daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
@@ -104,9 +104,9 @@ instance AWSRequest DescribeAccountAttributes where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAccountAttributes
+instance Hashable DescribeAccountAttributes where
 
-instance NFData DescribeAccountAttributes
+instance NFData DescribeAccountAttributes where
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
@@ -130,9 +130,10 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarsAccountAttributes :: !(Maybe [AccountAttribute])
-    , _daarsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daarsAccountAttributes :: {-# NOUNPACK #-}!(Maybe [AccountAttribute])
+  , _daarsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +146,9 @@ describeAccountAttributesResponse
     :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pResponseStatus_ =
-    DescribeAccountAttributesResponse'
-    { _daarsAccountAttributes = Nothing
-    , _daarsResponseStatus = pResponseStatus_
-    }
+  DescribeAccountAttributesResponse'
+  {_daarsAccountAttributes = Nothing, _daarsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more account attributes.
 daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
@@ -159,3 +159,4 @@ daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 
 instance NFData DescribeAccountAttributesResponse
+         where

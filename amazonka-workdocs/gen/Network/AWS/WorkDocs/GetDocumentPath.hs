@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetDocumentPath
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,21 +43,22 @@ module Network.AWS.WorkDocs.GetDocumentPath
     , gdprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getDocumentPath' smart constructor.
 data GetDocumentPath = GetDocumentPath'
-    { _gdpAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _gdpMarker              :: !(Maybe Text)
-    , _gdpLimit               :: !(Maybe Nat)
-    , _gdpFields              :: !(Maybe Text)
-    , _gdpDocumentId          :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gdpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _gdpMarker              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gdpFields              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gdpDocumentId          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentPath' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ getDocumentPath
     :: Text -- ^ 'gdpDocumentId'
     -> GetDocumentPath
 getDocumentPath pDocumentId_ =
-    GetDocumentPath'
-    { _gdpAuthenticationToken = Nothing
-    , _gdpMarker = Nothing
-    , _gdpLimit = Nothing
-    , _gdpFields = Nothing
-    , _gdpDocumentId = pDocumentId_
-    }
+  GetDocumentPath'
+  { _gdpAuthenticationToken = Nothing
+  , _gdpMarker = Nothing
+  , _gdpLimit = Nothing
+  , _gdpFields = Nothing
+  , _gdpDocumentId = pDocumentId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 gdpAuthenticationToken :: Lens' GetDocumentPath (Maybe Text)
@@ -113,9 +115,9 @@ instance AWSRequest GetDocumentPath where
                  GetDocumentPathResponse' <$>
                    (x .?> "Path") <*> (pure (fromEnum s)))
 
-instance Hashable GetDocumentPath
+instance Hashable GetDocumentPath where
 
-instance NFData GetDocumentPath
+instance NFData GetDocumentPath where
 
 instance ToHeaders GetDocumentPath where
         toHeaders GetDocumentPath'{..}
@@ -137,9 +139,10 @@ instance ToQuery GetDocumentPath where
 
 -- | /See:/ 'getDocumentPathResponse' smart constructor.
 data GetDocumentPathResponse = GetDocumentPathResponse'
-    { _gdprsPath           :: !(Maybe ResourcePath)
-    , _gdprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gdprsPath           :: {-# NOUNPACK #-}!(Maybe ResourcePath)
+  , _gdprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetDocumentPathResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,9 @@ getDocumentPathResponse
     :: Int -- ^ 'gdprsResponseStatus'
     -> GetDocumentPathResponse
 getDocumentPathResponse pResponseStatus_ =
-    GetDocumentPathResponse'
-    { _gdprsPath = Nothing
-    , _gdprsResponseStatus = pResponseStatus_
-    }
+  GetDocumentPathResponse'
+  {_gdprsPath = Nothing, _gdprsResponseStatus = pResponseStatus_}
+
 
 -- | The path information.
 gdprsPath :: Lens' GetDocumentPathResponse (Maybe ResourcePath)
@@ -165,4 +167,4 @@ gdprsPath = lens _gdprsPath (\ s a -> s{_gdprsPath = a});
 gdprsResponseStatus :: Lens' GetDocumentPathResponse Int
 gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});
 
-instance NFData GetDocumentPathResponse
+instance NFData GetDocumentPathResponse where

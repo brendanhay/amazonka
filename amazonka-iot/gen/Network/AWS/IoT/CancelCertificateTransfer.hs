@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CancelCertificateTransfer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.IoT.CancelCertificateTransfer
     , CancelCertificateTransferResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CancelCertificateTransfer operation.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'cancelCertificateTransfer' smart constructor.
 newtype CancelCertificateTransfer = CancelCertificateTransfer'
-    { _cctCertificateId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cctCertificateId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelCertificateTransfer' with the minimum fields required to make a request.
 --
@@ -63,9 +64,8 @@ cancelCertificateTransfer
     :: Text -- ^ 'cctCertificateId'
     -> CancelCertificateTransfer
 cancelCertificateTransfer pCertificateId_ =
-    CancelCertificateTransfer'
-    { _cctCertificateId = pCertificateId_
-    }
+  CancelCertificateTransfer' {_cctCertificateId = pCertificateId_}
+
 
 -- | The ID of the certificate.
 cctCertificateId :: Lens' CancelCertificateTransfer Text
@@ -78,9 +78,9 @@ instance AWSRequest CancelCertificateTransfer where
         response
           = receiveNull CancelCertificateTransferResponse'
 
-instance Hashable CancelCertificateTransfer
+instance Hashable CancelCertificateTransfer where
 
-instance NFData CancelCertificateTransfer
+instance NFData CancelCertificateTransfer where
 
 instance ToHeaders CancelCertificateTransfer where
         toHeaders = const mempty
@@ -99,8 +99,9 @@ instance ToQuery CancelCertificateTransfer where
 
 -- | /See:/ 'cancelCertificateTransferResponse' smart constructor.
 data CancelCertificateTransferResponse =
-    CancelCertificateTransferResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  CancelCertificateTransferResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CancelCertificateTransferResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +109,6 @@ cancelCertificateTransferResponse
     :: CancelCertificateTransferResponse
 cancelCertificateTransferResponse = CancelCertificateTransferResponse'
 
+
 instance NFData CancelCertificateTransferResponse
+         where

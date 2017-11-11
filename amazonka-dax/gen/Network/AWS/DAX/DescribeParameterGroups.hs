@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeParameterGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.DAX.DescribeParameterGroups
     , dpgsrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeParameterGroups' smart constructor.
 data DescribeParameterGroups = DescribeParameterGroups'
-    { _dpgNextToken           :: !(Maybe Text)
-    , _dpgParameterGroupNames :: !(Maybe [Text])
-    , _dpgMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgParameterGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dpgMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeParameterGroups' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ data DescribeParameterGroups = DescribeParameterGroups'
 describeParameterGroups
     :: DescribeParameterGroups
 describeParameterGroups =
-    DescribeParameterGroups'
-    { _dpgNextToken = Nothing
-    , _dpgParameterGroupNames = Nothing
-    , _dpgMaxResults = Nothing
-    }
+  DescribeParameterGroups'
+  { _dpgNextToken = Nothing
+  , _dpgParameterGroupNames = Nothing
+  , _dpgMaxResults = Nothing
+  }
+
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 dpgNextToken :: Lens' DescribeParameterGroups (Maybe Text)
@@ -96,9 +98,9 @@ instance AWSRequest DescribeParameterGroups where
                      (x .?> "ParameterGroups" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeParameterGroups
+instance Hashable DescribeParameterGroups where
 
-instance NFData DescribeParameterGroups
+instance NFData DescribeParameterGroups where
 
 instance ToHeaders DescribeParameterGroups where
         toHeaders
@@ -127,10 +129,11 @@ instance ToQuery DescribeParameterGroups where
 
 -- | /See:/ 'describeParameterGroupsResponse' smart constructor.
 data DescribeParameterGroupsResponse = DescribeParameterGroupsResponse'
-    { _dpgsrsNextToken       :: !(Maybe Text)
-    , _dpgsrsParameterGroups :: !(Maybe [ParameterGroup])
-    , _dpgsrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgsrsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgsrsParameterGroups :: {-# NOUNPACK #-}!(Maybe [ParameterGroup])
+  , _dpgsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeParameterGroupsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +148,12 @@ describeParameterGroupsResponse
     :: Int -- ^ 'dpgsrsResponseStatus'
     -> DescribeParameterGroupsResponse
 describeParameterGroupsResponse pResponseStatus_ =
-    DescribeParameterGroupsResponse'
-    { _dpgsrsNextToken = Nothing
-    , _dpgsrsParameterGroups = Nothing
-    , _dpgsrsResponseStatus = pResponseStatus_
-    }
+  DescribeParameterGroupsResponse'
+  { _dpgsrsNextToken = Nothing
+  , _dpgsrsParameterGroups = Nothing
+  , _dpgsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dpgsrsNextToken :: Lens' DescribeParameterGroupsResponse (Maybe Text)
@@ -163,4 +167,4 @@ dpgsrsParameterGroups = lens _dpgsrsParameterGroups (\ s a -> s{_dpgsrsParameter
 dpgsrsResponseStatus :: Lens' DescribeParameterGroupsResponse Int
 dpgsrsResponseStatus = lens _dpgsrsResponseStatus (\ s a -> s{_dpgsrsResponseStatus = a});
 
-instance NFData DescribeParameterGroupsResponse
+instance NFData DescribeParameterGroupsResponse where

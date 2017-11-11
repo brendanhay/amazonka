@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateHSMConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     , chcrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -58,14 +58,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createHSMConfiguration' smart constructor.
 data CreateHSMConfiguration = CreateHSMConfiguration'
-    { _chcTags                       :: !(Maybe [Tag])
-    , _chcHSMConfigurationIdentifier :: !Text
-    , _chcDescription                :: !Text
-    , _chcHSMIPAddress               :: !Text
-    , _chcHSMPartitionName           :: !Text
-    , _chcHSMPartitionPassword       :: !Text
-    , _chcHSMServerPublicCertificate :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _chcHSMConfigurationIdentifier :: {-# NOUNPACK #-}!Text
+  , _chcDescription                :: {-# NOUNPACK #-}!Text
+  , _chcHSMIPAddress               :: {-# NOUNPACK #-}!Text
+  , _chcHSMPartitionName           :: {-# NOUNPACK #-}!Text
+  , _chcHSMPartitionPassword       :: {-# NOUNPACK #-}!Text
+  , _chcHSMServerPublicCertificate :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSMConfiguration' with the minimum fields required to make a request.
 --
@@ -93,15 +94,16 @@ createHSMConfiguration
     -> Text -- ^ 'chcHSMServerPublicCertificate'
     -> CreateHSMConfiguration
 createHSMConfiguration pHSMConfigurationIdentifier_ pDescription_ pHSMIPAddress_ pHSMPartitionName_ pHSMPartitionPassword_ pHSMServerPublicCertificate_ =
-    CreateHSMConfiguration'
-    { _chcTags = Nothing
-    , _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
-    , _chcDescription = pDescription_
-    , _chcHSMIPAddress = pHSMIPAddress_
-    , _chcHSMPartitionName = pHSMPartitionName_
-    , _chcHSMPartitionPassword = pHSMPartitionPassword_
-    , _chcHSMServerPublicCertificate = pHSMServerPublicCertificate_
-    }
+  CreateHSMConfiguration'
+  { _chcTags = Nothing
+  , _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
+  , _chcDescription = pDescription_
+  , _chcHSMIPAddress = pHSMIPAddress_
+  , _chcHSMPartitionName = pHSMPartitionName_
+  , _chcHSMPartitionPassword = pHSMPartitionPassword_
+  , _chcHSMServerPublicCertificate = pHSMServerPublicCertificate_
+  }
+
 
 -- | A list of tag instances.
 chcTags :: Lens' CreateHSMConfiguration [Tag]
@@ -141,9 +143,9 @@ instance AWSRequest CreateHSMConfiguration where
                  CreateHSMConfigurationResponse' <$>
                    (x .@? "HsmConfiguration") <*> (pure (fromEnum s)))
 
-instance Hashable CreateHSMConfiguration
+instance Hashable CreateHSMConfiguration where
 
-instance NFData CreateHSMConfiguration
+instance NFData CreateHSMConfiguration where
 
 instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty
@@ -169,9 +171,10 @@ instance ToQuery CreateHSMConfiguration where
 
 -- | /See:/ 'createHSMConfigurationResponse' smart constructor.
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
-    { _chcrsHSMConfiguration :: !(Maybe HSMConfiguration)
-    , _chcrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chcrsHSMConfiguration :: {-# NOUNPACK #-}!(Maybe HSMConfiguration)
+  , _chcrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHSMConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -184,10 +187,9 @@ createHSMConfigurationResponse
     :: Int -- ^ 'chcrsResponseStatus'
     -> CreateHSMConfigurationResponse
 createHSMConfigurationResponse pResponseStatus_ =
-    CreateHSMConfigurationResponse'
-    { _chcrsHSMConfiguration = Nothing
-    , _chcrsResponseStatus = pResponseStatus_
-    }
+  CreateHSMConfigurationResponse'
+  {_chcrsHSMConfiguration = Nothing, _chcrsResponseStatus = pResponseStatus_}
+
 
 -- | Undocumented member.
 chcrsHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfiguration)
@@ -197,4 +199,4 @@ chcrsHSMConfiguration = lens _chcrsHSMConfiguration (\ s a -> s{_chcrsHSMConfigu
 chcrsResponseStatus :: Lens' CreateHSMConfigurationResponse Int
 chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
 
-instance NFData CreateHSMConfigurationResponse
+instance NFData CreateHSMConfigurationResponse where

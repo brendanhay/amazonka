@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RespondActivityTaskFailed
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,19 +52,20 @@ module Network.AWS.SWF.RespondActivityTaskFailed
     , RespondActivityTaskFailedResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'respondActivityTaskFailed' smart constructor.
 data RespondActivityTaskFailed = RespondActivityTaskFailed'
-    { _ratfReason    :: !(Maybe Text)
-    , _ratfDetails   :: !(Maybe Text)
-    , _ratfTaskToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ratfReason    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ratfDetails   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ratfTaskToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondActivityTaskFailed' with the minimum fields required to make a request.
 --
@@ -79,11 +80,9 @@ respondActivityTaskFailed
     :: Text -- ^ 'ratfTaskToken'
     -> RespondActivityTaskFailed
 respondActivityTaskFailed pTaskToken_ =
-    RespondActivityTaskFailed'
-    { _ratfReason = Nothing
-    , _ratfDetails = Nothing
-    , _ratfTaskToken = pTaskToken_
-    }
+  RespondActivityTaskFailed'
+  {_ratfReason = Nothing, _ratfDetails = Nothing, _ratfTaskToken = pTaskToken_}
+
 
 -- | Description of the error that may assist in diagnostics.
 ratfReason :: Lens' RespondActivityTaskFailed (Maybe Text)
@@ -104,9 +103,9 @@ instance AWSRequest RespondActivityTaskFailed where
         response
           = receiveNull RespondActivityTaskFailedResponse'
 
-instance Hashable RespondActivityTaskFailed
+instance Hashable RespondActivityTaskFailed where
 
-instance NFData RespondActivityTaskFailed
+instance NFData RespondActivityTaskFailed where
 
 instance ToHeaders RespondActivityTaskFailed where
         toHeaders
@@ -134,8 +133,9 @@ instance ToQuery RespondActivityTaskFailed where
 
 -- | /See:/ 'respondActivityTaskFailedResponse' smart constructor.
 data RespondActivityTaskFailedResponse =
-    RespondActivityTaskFailedResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RespondActivityTaskFailedResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RespondActivityTaskFailedResponse' with the minimum fields required to make a request.
 --
@@ -143,4 +143,6 @@ respondActivityTaskFailedResponse
     :: RespondActivityTaskFailedResponse
 respondActivityTaskFailedResponse = RespondActivityTaskFailedResponse'
 
+
 instance NFData RespondActivityTaskFailedResponse
+         where

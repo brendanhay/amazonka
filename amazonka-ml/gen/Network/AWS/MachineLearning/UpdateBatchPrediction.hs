@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateBatchPrediction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     , ubprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateBatchPrediction' smart constructor.
 data UpdateBatchPrediction = UpdateBatchPrediction'
-    { _ubpBatchPredictionId   :: !Text
-    , _ubpBatchPredictionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ubpBatchPredictionId   :: {-# NOUNPACK #-}!Text
+  , _ubpBatchPredictionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateBatchPrediction' with the minimum fields required to make a request.
 --
@@ -65,10 +66,11 @@ updateBatchPrediction
     -> Text -- ^ 'ubpBatchPredictionName'
     -> UpdateBatchPrediction
 updateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ =
-    UpdateBatchPrediction'
-    { _ubpBatchPredictionId = pBatchPredictionId_
-    , _ubpBatchPredictionName = pBatchPredictionName_
-    }
+  UpdateBatchPrediction'
+  { _ubpBatchPredictionId = pBatchPredictionId_
+  , _ubpBatchPredictionName = pBatchPredictionName_
+  }
+
 
 -- | The ID assigned to the @BatchPrediction@ during creation.
 ubpBatchPredictionId :: Lens' UpdateBatchPrediction Text
@@ -88,9 +90,9 @@ instance AWSRequest UpdateBatchPrediction where
                  UpdateBatchPredictionResponse' <$>
                    (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateBatchPrediction
+instance Hashable UpdateBatchPrediction where
 
-instance NFData UpdateBatchPrediction
+instance NFData UpdateBatchPrediction where
 
 instance ToHeaders UpdateBatchPrediction where
         toHeaders
@@ -124,9 +126,10 @@ instance ToQuery UpdateBatchPrediction where
 --
 -- /See:/ 'updateBatchPredictionResponse' smart constructor.
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
-    { _ubprsBatchPredictionId :: !(Maybe Text)
-    , _ubprsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ubprsBatchPredictionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ubprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateBatchPredictionResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ updateBatchPredictionResponse
     :: Int -- ^ 'ubprsResponseStatus'
     -> UpdateBatchPredictionResponse
 updateBatchPredictionResponse pResponseStatus_ =
-    UpdateBatchPredictionResponse'
-    { _ubprsBatchPredictionId = Nothing
-    , _ubprsResponseStatus = pResponseStatus_
-    }
+  UpdateBatchPredictionResponse'
+  {_ubprsBatchPredictionId = Nothing, _ubprsResponseStatus = pResponseStatus_}
+
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value should be identical to the value of the @BatchPredictionId@ in the request.
 ubprsBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
@@ -152,4 +154,4 @@ ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPre
 ubprsResponseStatus :: Lens' UpdateBatchPredictionResponse Int
 ubprsResponseStatus = lens _ubprsResponseStatus (\ s a -> s{_ubprsResponseStatus = a});
 
-instance NFData UpdateBatchPredictionResponse
+instance NFData UpdateBatchPredictionResponse where

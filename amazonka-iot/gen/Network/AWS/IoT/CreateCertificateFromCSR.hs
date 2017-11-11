@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateCertificateFromCSR
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -66,12 +66,12 @@ module Network.AWS.IoT.CreateCertificateFromCSR
     , ccfcsrrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the CreateCertificateFromCsr operation.
 --
@@ -79,9 +79,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCertificateFromCSR' smart constructor.
 data CreateCertificateFromCSR = CreateCertificateFromCSR'
-    { _ccfcsrSetAsActive               :: !(Maybe Bool)
-    , _ccfcsrCertificateSigningRequest :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccfcsrSetAsActive               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccfcsrCertificateSigningRequest :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCertificateFromCSR' with the minimum fields required to make a request.
 --
@@ -94,10 +95,11 @@ createCertificateFromCSR
     :: Text -- ^ 'ccfcsrCertificateSigningRequest'
     -> CreateCertificateFromCSR
 createCertificateFromCSR pCertificateSigningRequest_ =
-    CreateCertificateFromCSR'
-    { _ccfcsrSetAsActive = Nothing
-    , _ccfcsrCertificateSigningRequest = pCertificateSigningRequest_
-    }
+  CreateCertificateFromCSR'
+  { _ccfcsrSetAsActive = Nothing
+  , _ccfcsrCertificateSigningRequest = pCertificateSigningRequest_
+  }
+
 
 -- | Specifies whether the certificate is active.
 ccfcsrSetAsActive :: Lens' CreateCertificateFromCSR (Maybe Bool)
@@ -119,9 +121,9 @@ instance AWSRequest CreateCertificateFromCSR where
                      <*> (x .?> "certificateId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateCertificateFromCSR
+instance Hashable CreateCertificateFromCSR where
 
-instance NFData CreateCertificateFromCSR
+instance NFData CreateCertificateFromCSR where
 
 instance ToHeaders CreateCertificateFromCSR where
         toHeaders = const mempty
@@ -147,11 +149,12 @@ instance ToQuery CreateCertificateFromCSR where
 --
 -- /See:/ 'createCertificateFromCSRResponse' smart constructor.
 data CreateCertificateFromCSRResponse = CreateCertificateFromCSRResponse'
-    { _ccfcsrrsCertificatePem :: !(Maybe Text)
-    , _ccfcsrrsCertificateARN :: !(Maybe Text)
-    , _ccfcsrrsCertificateId  :: !(Maybe Text)
-    , _ccfcsrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccfcsrrsCertificatePem :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccfcsrrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccfcsrrsCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccfcsrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCertificateFromCSRResponse' with the minimum fields required to make a request.
 --
@@ -168,12 +171,13 @@ createCertificateFromCSRResponse
     :: Int -- ^ 'ccfcsrrsResponseStatus'
     -> CreateCertificateFromCSRResponse
 createCertificateFromCSRResponse pResponseStatus_ =
-    CreateCertificateFromCSRResponse'
-    { _ccfcsrrsCertificatePem = Nothing
-    , _ccfcsrrsCertificateARN = Nothing
-    , _ccfcsrrsCertificateId = Nothing
-    , _ccfcsrrsResponseStatus = pResponseStatus_
-    }
+  CreateCertificateFromCSRResponse'
+  { _ccfcsrrsCertificatePem = Nothing
+  , _ccfcsrrsCertificateARN = Nothing
+  , _ccfcsrrsCertificateId = Nothing
+  , _ccfcsrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The certificate data, in PEM format.
 ccfcsrrsCertificatePem :: Lens' CreateCertificateFromCSRResponse (Maybe Text)
@@ -192,3 +196,4 @@ ccfcsrrsResponseStatus :: Lens' CreateCertificateFromCSRResponse Int
 ccfcsrrsResponseStatus = lens _ccfcsrrsResponseStatus (\ s a -> s{_ccfcsrrsResponseStatus = a});
 
 instance NFData CreateCertificateFromCSRResponse
+         where

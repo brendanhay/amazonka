@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
     , dehrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | See the example below to learn how to create a request body.
 --
@@ -59,10 +59,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEnvironmentHealth' smart constructor.
 data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
-    { _dehEnvironmentName :: !(Maybe Text)
-    , _dehAttributeNames  :: !(Maybe [EnvironmentHealthAttribute])
-    , _dehEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dehEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dehAttributeNames  :: {-# NOUNPACK #-}!(Maybe [EnvironmentHealthAttribute])
+  , _dehEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironmentHealth' with the minimum fields required to make a request.
 --
@@ -76,11 +77,12 @@ data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
 describeEnvironmentHealth
     :: DescribeEnvironmentHealth
 describeEnvironmentHealth =
-    DescribeEnvironmentHealth'
-    { _dehEnvironmentName = Nothing
-    , _dehAttributeNames = Nothing
-    , _dehEnvironmentId = Nothing
-    }
+  DescribeEnvironmentHealth'
+  { _dehEnvironmentName = Nothing
+  , _dehAttributeNames = Nothing
+  , _dehEnvironmentId = Nothing
+  }
+
 
 -- | Specify the environment by name. You must specify either this or an EnvironmentName, or both.
 dehEnvironmentName :: Lens' DescribeEnvironmentHealth (Maybe Text)
@@ -113,9 +115,9 @@ instance AWSRequest DescribeEnvironmentHealth where
                      <*> (x .@? "RefreshedAt")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEnvironmentHealth
+instance Hashable DescribeEnvironmentHealth where
 
-instance NFData DescribeEnvironmentHealth
+instance NFData DescribeEnvironmentHealth where
 
 instance ToHeaders DescribeEnvironmentHealth where
         toHeaders = const mempty
@@ -141,16 +143,17 @@ instance ToQuery DescribeEnvironmentHealth where
 --
 -- /See:/ 'describeEnvironmentHealthResponse' smart constructor.
 data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
-    { _dehrsStatus             :: !(Maybe EnvironmentHealth)
-    , _dehrsCauses             :: !(Maybe [Text])
-    , _dehrsApplicationMetrics :: !(Maybe ApplicationMetrics)
-    , _dehrsColor              :: !(Maybe Text)
-    , _dehrsEnvironmentName    :: !(Maybe Text)
-    , _dehrsHealthStatus       :: !(Maybe Text)
-    , _dehrsInstancesHealth    :: !(Maybe InstanceHealthSummary)
-    , _dehrsRefreshedAt        :: !(Maybe ISO8601)
-    , _dehrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dehrsStatus             :: {-# NOUNPACK #-}!(Maybe EnvironmentHealth)
+  , _dehrsCauses             :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dehrsApplicationMetrics :: {-# NOUNPACK #-}!(Maybe ApplicationMetrics)
+  , _dehrsColor              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dehrsEnvironmentName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dehrsHealthStatus       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dehrsInstancesHealth    :: {-# NOUNPACK #-}!(Maybe InstanceHealthSummary)
+  , _dehrsRefreshedAt        :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dehrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironmentHealthResponse' with the minimum fields required to make a request.
 --
@@ -177,17 +180,18 @@ describeEnvironmentHealthResponse
     :: Int -- ^ 'dehrsResponseStatus'
     -> DescribeEnvironmentHealthResponse
 describeEnvironmentHealthResponse pResponseStatus_ =
-    DescribeEnvironmentHealthResponse'
-    { _dehrsStatus = Nothing
-    , _dehrsCauses = Nothing
-    , _dehrsApplicationMetrics = Nothing
-    , _dehrsColor = Nothing
-    , _dehrsEnvironmentName = Nothing
-    , _dehrsHealthStatus = Nothing
-    , _dehrsInstancesHealth = Nothing
-    , _dehrsRefreshedAt = Nothing
-    , _dehrsResponseStatus = pResponseStatus_
-    }
+  DescribeEnvironmentHealthResponse'
+  { _dehrsStatus = Nothing
+  , _dehrsCauses = Nothing
+  , _dehrsApplicationMetrics = Nothing
+  , _dehrsColor = Nothing
+  , _dehrsEnvironmentName = Nothing
+  , _dehrsHealthStatus = Nothing
+  , _dehrsInstancesHealth = Nothing
+  , _dehrsRefreshedAt = Nothing
+  , _dehrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
 dehrsStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe EnvironmentHealth)
@@ -226,3 +230,4 @@ dehrsResponseStatus :: Lens' DescribeEnvironmentHealthResponse Int
 dehrsResponseStatus = lens _dehrsResponseStatus (\ s a -> s{_dehrsResponseStatus = a});
 
 instance NFData DescribeEnvironmentHealthResponse
+         where

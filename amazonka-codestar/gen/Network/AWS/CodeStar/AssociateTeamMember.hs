@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.AssociateTeamMember
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.CodeStar.AssociateTeamMember
     , atmrsResponseStatus
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'associateTeamMember' smart constructor.
 data AssociateTeamMember = AssociateTeamMember'
-    { _atmRemoteAccessAllowed :: !(Maybe Bool)
-    , _atmClientRequestToken  :: !(Maybe Text)
-    , _atmProjectId           :: !Text
-    , _atmUserARN             :: !Text
-    , _atmProjectRole         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atmRemoteAccessAllowed :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _atmClientRequestToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _atmProjectId           :: {-# NOUNPACK #-}!Text
+  , _atmUserARN             :: {-# NOUNPACK #-}!Text
+  , _atmProjectRole         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateTeamMember' with the minimum fields required to make a request.
 --
@@ -76,13 +77,14 @@ associateTeamMember
     -> Text -- ^ 'atmProjectRole'
     -> AssociateTeamMember
 associateTeamMember pProjectId_ pUserARN_ pProjectRole_ =
-    AssociateTeamMember'
-    { _atmRemoteAccessAllowed = Nothing
-    , _atmClientRequestToken = Nothing
-    , _atmProjectId = pProjectId_
-    , _atmUserARN = pUserARN_
-    , _atmProjectRole = pProjectRole_
-    }
+  AssociateTeamMember'
+  { _atmRemoteAccessAllowed = Nothing
+  , _atmClientRequestToken = Nothing
+  , _atmProjectId = pProjectId_
+  , _atmUserARN = pUserARN_
+  , _atmProjectRole = pProjectRole_
+  }
+
 
 -- | Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
 atmRemoteAccessAllowed :: Lens' AssociateTeamMember (Maybe Bool)
@@ -114,9 +116,9 @@ instance AWSRequest AssociateTeamMember where
                  AssociateTeamMemberResponse' <$>
                    (x .?> "clientRequestToken") <*> (pure (fromEnum s)))
 
-instance Hashable AssociateTeamMember
+instance Hashable AssociateTeamMember where
 
-instance NFData AssociateTeamMember
+instance NFData AssociateTeamMember where
 
 instance ToHeaders AssociateTeamMember where
         toHeaders
@@ -147,9 +149,10 @@ instance ToQuery AssociateTeamMember where
 
 -- | /See:/ 'associateTeamMemberResponse' smart constructor.
 data AssociateTeamMemberResponse = AssociateTeamMemberResponse'
-    { _atmrsClientRequestToken :: !(Maybe Text)
-    , _atmrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _atmrsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _atmrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AssociateTeamMemberResponse' with the minimum fields required to make a request.
 --
@@ -162,10 +165,9 @@ associateTeamMemberResponse
     :: Int -- ^ 'atmrsResponseStatus'
     -> AssociateTeamMemberResponse
 associateTeamMemberResponse pResponseStatus_ =
-    AssociateTeamMemberResponse'
-    { _atmrsClientRequestToken = Nothing
-    , _atmrsResponseStatus = pResponseStatus_
-    }
+  AssociateTeamMemberResponse'
+  {_atmrsClientRequestToken = Nothing, _atmrsResponseStatus = pResponseStatus_}
+
 
 -- | The user- or system-generated token from the initial request that can be used to repeat the request.
 atmrsClientRequestToken :: Lens' AssociateTeamMemberResponse (Maybe Text)
@@ -175,4 +177,4 @@ atmrsClientRequestToken = lens _atmrsClientRequestToken (\ s a -> s{_atmrsClient
 atmrsResponseStatus :: Lens' AssociateTeamMemberResponse Int
 atmrsResponseStatus = lens _atmrsResponseStatus (\ s a -> s{_atmrsResponseStatus = a});
 
-instance NFData AssociateTeamMemberResponse
+instance NFData AssociateTeamMemberResponse where

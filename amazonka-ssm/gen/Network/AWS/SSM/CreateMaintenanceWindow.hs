@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateMaintenanceWindow
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.SSM.CreateMaintenanceWindow
     , cmwrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createMaintenanceWindow' smart constructor.
 data CreateMaintenanceWindow = CreateMaintenanceWindow'
-    { _cmwClientToken              :: !(Maybe Text)
-    , _cmwDescription              :: !(Maybe (Sensitive Text))
-    , _cmwName                     :: !Text
-    , _cmwSchedule                 :: !Text
-    , _cmwDuration                 :: !Nat
-    , _cmwCutoff                   :: !Nat
-    , _cmwAllowUnassociatedTargets :: !Bool
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _cmwClientToken              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmwDescription              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _cmwName                     :: {-# NOUNPACK #-}!Text
+  , _cmwSchedule                 :: {-# NOUNPACK #-}!Text
+  , _cmwDuration                 :: {-# NOUNPACK #-}!Nat
+  , _cmwCutoff                   :: {-# NOUNPACK #-}!Nat
+  , _cmwAllowUnassociatedTargets :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMaintenanceWindow' with the minimum fields required to make a request.
 --
@@ -86,15 +87,16 @@ createMaintenanceWindow
     -> Bool -- ^ 'cmwAllowUnassociatedTargets'
     -> CreateMaintenanceWindow
 createMaintenanceWindow pName_ pSchedule_ pDuration_ pCutoff_ pAllowUnassociatedTargets_ =
-    CreateMaintenanceWindow'
-    { _cmwClientToken = Nothing
-    , _cmwDescription = Nothing
-    , _cmwName = pName_
-    , _cmwSchedule = pSchedule_
-    , _cmwDuration = _Nat # pDuration_
-    , _cmwCutoff = _Nat # pCutoff_
-    , _cmwAllowUnassociatedTargets = pAllowUnassociatedTargets_
-    }
+  CreateMaintenanceWindow'
+  { _cmwClientToken = Nothing
+  , _cmwDescription = Nothing
+  , _cmwName = pName_
+  , _cmwSchedule = pSchedule_
+  , _cmwDuration = _Nat # pDuration_
+  , _cmwCutoff = _Nat # pCutoff_
+  , _cmwAllowUnassociatedTargets = pAllowUnassociatedTargets_
+  }
+
 
 -- | User-provided idempotency token.
 cmwClientToken :: Lens' CreateMaintenanceWindow (Maybe Text)
@@ -134,9 +136,9 @@ instance AWSRequest CreateMaintenanceWindow where
                  CreateMaintenanceWindowResponse' <$>
                    (x .?> "WindowId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateMaintenanceWindow
+instance Hashable CreateMaintenanceWindow where
 
-instance NFData CreateMaintenanceWindow
+instance NFData CreateMaintenanceWindow where
 
 instance ToHeaders CreateMaintenanceWindow where
         toHeaders
@@ -169,9 +171,10 @@ instance ToQuery CreateMaintenanceWindow where
 
 -- | /See:/ 'createMaintenanceWindowResponse' smart constructor.
 data CreateMaintenanceWindowResponse = CreateMaintenanceWindowResponse'
-    { _cmwrsWindowId       :: !(Maybe Text)
-    , _cmwrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmwrsWindowId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
@@ -184,10 +187,9 @@ createMaintenanceWindowResponse
     :: Int -- ^ 'cmwrsResponseStatus'
     -> CreateMaintenanceWindowResponse
 createMaintenanceWindowResponse pResponseStatus_ =
-    CreateMaintenanceWindowResponse'
-    { _cmwrsWindowId = Nothing
-    , _cmwrsResponseStatus = pResponseStatus_
-    }
+  CreateMaintenanceWindowResponse'
+  {_cmwrsWindowId = Nothing, _cmwrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the created Maintenance Window.
 cmwrsWindowId :: Lens' CreateMaintenanceWindowResponse (Maybe Text)
@@ -197,4 +199,4 @@ cmwrsWindowId = lens _cmwrsWindowId (\ s a -> s{_cmwrsWindowId = a});
 cmwrsResponseStatus :: Lens' CreateMaintenanceWindowResponse Int
 cmwrsResponseStatus = lens _cmwrsResponseStatus (\ s a -> s{_cmwrsResponseStatus = a});
 
-instance NFData CreateMaintenanceWindowResponse
+instance NFData CreateMaintenanceWindowResponse where

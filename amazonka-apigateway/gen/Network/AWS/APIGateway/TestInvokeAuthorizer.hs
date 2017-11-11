@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.TestInvokeAuthorizer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.APIGateway.TestInvokeAuthorizer
     , tiarsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Make a request to simulate the execution of an 'Authorizer' .
 --
@@ -63,14 +63,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'testInvokeAuthorizer' smart constructor.
 data TestInvokeAuthorizer = TestInvokeAuthorizer'
-    { _tiaPathWithQueryString :: !(Maybe Text)
-    , _tiaBody                :: !(Maybe Text)
-    , _tiaAdditionalContext   :: !(Maybe (Map Text Text))
-    , _tiaStageVariables      :: !(Maybe (Map Text Text))
-    , _tiaHeaders             :: !(Maybe (Map Text Text))
-    , _tiaRestAPIId           :: !Text
-    , _tiaAuthorizerId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tiaPathWithQueryString :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiaBody                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiaAdditionalContext   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _tiaStageVariables      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _tiaHeaders             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _tiaRestAPIId           :: {-# NOUNPACK #-}!Text
+  , _tiaAuthorizerId        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestInvokeAuthorizer' with the minimum fields required to make a request.
 --
@@ -94,15 +95,16 @@ testInvokeAuthorizer
     -> Text -- ^ 'tiaAuthorizerId'
     -> TestInvokeAuthorizer
 testInvokeAuthorizer pRestAPIId_ pAuthorizerId_ =
-    TestInvokeAuthorizer'
-    { _tiaPathWithQueryString = Nothing
-    , _tiaBody = Nothing
-    , _tiaAdditionalContext = Nothing
-    , _tiaStageVariables = Nothing
-    , _tiaHeaders = Nothing
-    , _tiaRestAPIId = pRestAPIId_
-    , _tiaAuthorizerId = pAuthorizerId_
-    }
+  TestInvokeAuthorizer'
+  { _tiaPathWithQueryString = Nothing
+  , _tiaBody = Nothing
+  , _tiaAdditionalContext = Nothing
+  , _tiaStageVariables = Nothing
+  , _tiaHeaders = Nothing
+  , _tiaRestAPIId = pRestAPIId_
+  , _tiaAuthorizerId = pAuthorizerId_
+  }
+
 
 -- | [Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
 tiaPathWithQueryString :: Lens' TestInvokeAuthorizer (Maybe Text)
@@ -148,9 +150,9 @@ instance AWSRequest TestInvokeAuthorizer where
                      <*> (x .?> "policy")
                      <*> (pure (fromEnum s)))
 
-instance Hashable TestInvokeAuthorizer
+instance Hashable TestInvokeAuthorizer where
 
-instance NFData TestInvokeAuthorizer
+instance NFData TestInvokeAuthorizer where
 
 instance ToHeaders TestInvokeAuthorizer where
         toHeaders
@@ -184,15 +186,16 @@ instance ToQuery TestInvokeAuthorizer where
 --
 -- /See:/ 'testInvokeAuthorizerResponse' smart constructor.
 data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
-    { _tiarsLog            :: !(Maybe Text)
-    , _tiarsPrincipalId    :: !(Maybe Text)
-    , _tiarsLatency        :: !(Maybe Integer)
-    , _tiarsAuthorization  :: !(Maybe (Map Text [Text]))
-    , _tiarsClaims         :: !(Maybe (Map Text Text))
-    , _tiarsClientStatus   :: !(Maybe Int)
-    , _tiarsPolicy         :: !(Maybe Text)
-    , _tiarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tiarsLog            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiarsPrincipalId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiarsLatency        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _tiarsAuthorization  :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _tiarsClaims         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _tiarsClientStatus   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _tiarsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TestInvokeAuthorizerResponse' with the minimum fields required to make a request.
 --
@@ -217,16 +220,17 @@ testInvokeAuthorizerResponse
     :: Int -- ^ 'tiarsResponseStatus'
     -> TestInvokeAuthorizerResponse
 testInvokeAuthorizerResponse pResponseStatus_ =
-    TestInvokeAuthorizerResponse'
-    { _tiarsLog = Nothing
-    , _tiarsPrincipalId = Nothing
-    , _tiarsLatency = Nothing
-    , _tiarsAuthorization = Nothing
-    , _tiarsClaims = Nothing
-    , _tiarsClientStatus = Nothing
-    , _tiarsPolicy = Nothing
-    , _tiarsResponseStatus = pResponseStatus_
-    }
+  TestInvokeAuthorizerResponse'
+  { _tiarsLog = Nothing
+  , _tiarsPrincipalId = Nothing
+  , _tiarsLatency = Nothing
+  , _tiarsAuthorization = Nothing
+  , _tiarsClaims = Nothing
+  , _tiarsClientStatus = Nothing
+  , _tiarsPolicy = Nothing
+  , _tiarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon API Gateway execution log for the test authorizer request.
 tiarsLog :: Lens' TestInvokeAuthorizerResponse (Maybe Text)
@@ -260,4 +264,4 @@ tiarsPolicy = lens _tiarsPolicy (\ s a -> s{_tiarsPolicy = a});
 tiarsResponseStatus :: Lens' TestInvokeAuthorizerResponse Int
 tiarsResponseStatus = lens _tiarsResponseStatus (\ s a -> s{_tiarsResponseStatus = a});
 
-instance NFData TestInvokeAuthorizerResponse
+instance NFData TestInvokeAuthorizerResponse where

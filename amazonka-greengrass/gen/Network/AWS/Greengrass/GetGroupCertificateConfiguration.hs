@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetGroupCertificateConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Greengrass.GetGroupCertificateConfiguration
     , ggccrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getGroupCertificateConfiguration' smart constructor.
 newtype GetGroupCertificateConfiguration = GetGroupCertificateConfiguration'
-    { _ggccGroupId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggccGroupId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupCertificateConfiguration' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getGroupCertificateConfiguration
     :: Text -- ^ 'ggccGroupId'
     -> GetGroupCertificateConfiguration
 getGroupCertificateConfiguration pGroupId_ =
-    GetGroupCertificateConfiguration'
-    { _ggccGroupId = pGroupId_
-    }
+  GetGroupCertificateConfiguration' {_ggccGroupId = pGroupId_}
+
 
 -- | The unique Id of the AWS Greengrass Group
 ggccGroupId :: Lens' GetGroupCertificateConfiguration Text
@@ -81,8 +81,10 @@ instance AWSRequest GetGroupCertificateConfiguration
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetGroupCertificateConfiguration
+         where
 
 instance NFData GetGroupCertificateConfiguration
+         where
 
 instance ToHeaders GetGroupCertificateConfiguration
          where
@@ -105,11 +107,12 @@ instance ToQuery GetGroupCertificateConfiguration
 
 -- | /See:/ 'getGroupCertificateConfigurationResponse' smart constructor.
 data GetGroupCertificateConfigurationResponse = GetGroupCertificateConfigurationResponse'
-    { _ggccrsCertificateAuthorityExpiryInMilliseconds :: !(Maybe Text)
-    , _ggccrsGroupId                                  :: !(Maybe Text)
-    , _ggccrsCertificateExpiryInMilliseconds          :: !(Maybe Text)
-    , _ggccrsResponseStatus                           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ggccrsCertificateAuthorityExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggccrsGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggccrsCertificateExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ggccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetGroupCertificateConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -126,12 +129,13 @@ getGroupCertificateConfigurationResponse
     :: Int -- ^ 'ggccrsResponseStatus'
     -> GetGroupCertificateConfigurationResponse
 getGroupCertificateConfigurationResponse pResponseStatus_ =
-    GetGroupCertificateConfigurationResponse'
-    { _ggccrsCertificateAuthorityExpiryInMilliseconds = Nothing
-    , _ggccrsGroupId = Nothing
-    , _ggccrsCertificateExpiryInMilliseconds = Nothing
-    , _ggccrsResponseStatus = pResponseStatus_
-    }
+  GetGroupCertificateConfigurationResponse'
+  { _ggccrsCertificateAuthorityExpiryInMilliseconds = Nothing
+  , _ggccrsGroupId = Nothing
+  , _ggccrsCertificateExpiryInMilliseconds = Nothing
+  , _ggccrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Amount of time when the certificate authority expires in milliseconds.
 ggccrsCertificateAuthorityExpiryInMilliseconds :: Lens' GetGroupCertificateConfigurationResponse (Maybe Text)
@@ -150,4 +154,5 @@ ggccrsResponseStatus :: Lens' GetGroupCertificateConfigurationResponse Int
 ggccrsResponseStatus = lens _ggccrsResponseStatus (\ s a -> s{_ggccrsResponseStatus = a});
 
 instance NFData
-         GetGroupCertificateConfigurationResponse
+           GetGroupCertificateConfigurationResponse
+         where

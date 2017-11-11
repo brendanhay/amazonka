@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateSchema
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.CloudDirectory.UpdateSchema
     , usrsResponseStatus
     ) where
 
-import           Network.AWS.CloudDirectory.Types
-import           Network.AWS.CloudDirectory.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudDirectory.Types
+import Network.AWS.CloudDirectory.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateSchema' smart constructor.
 data UpdateSchema = UpdateSchema'
-    { _usSchemaARN :: !Text
-    , _usName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usSchemaARN :: {-# NOUNPACK #-}!Text
+  , _usName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSchema' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ updateSchema
     -> Text -- ^ 'usName'
     -> UpdateSchema
 updateSchema pSchemaARN_ pName_ =
-    UpdateSchema'
-    { _usSchemaARN = pSchemaARN_
-    , _usName = pName_
-    }
+  UpdateSchema' {_usSchemaARN = pSchemaARN_, _usName = pName_}
+
 
 -- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 usSchemaARN :: Lens' UpdateSchema Text
@@ -85,9 +84,9 @@ instance AWSRequest UpdateSchema where
                  UpdateSchemaResponse' <$>
                    (x .?> "SchemaArn") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateSchema
+instance Hashable UpdateSchema where
 
-instance NFData UpdateSchema
+instance NFData UpdateSchema where
 
 instance ToHeaders UpdateSchema where
         toHeaders UpdateSchema'{..}
@@ -107,9 +106,10 @@ instance ToQuery UpdateSchema where
 
 -- | /See:/ 'updateSchemaResponse' smart constructor.
 data UpdateSchemaResponse = UpdateSchemaResponse'
-    { _usrsSchemaARN      :: !(Maybe Text)
-    , _usrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _usrsSchemaARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateSchemaResponse' with the minimum fields required to make a request.
 --
@@ -122,10 +122,9 @@ updateSchemaResponse
     :: Int -- ^ 'usrsResponseStatus'
     -> UpdateSchemaResponse
 updateSchemaResponse pResponseStatus_ =
-    UpdateSchemaResponse'
-    { _usrsSchemaARN = Nothing
-    , _usrsResponseStatus = pResponseStatus_
-    }
+  UpdateSchemaResponse'
+  {_usrsSchemaARN = Nothing, _usrsResponseStatus = pResponseStatus_}
+
 
 -- | The ARN that is associated with the updated schema. For more information, see 'arns' .
 usrsSchemaARN :: Lens' UpdateSchemaResponse (Maybe Text)
@@ -135,4 +134,4 @@ usrsSchemaARN = lens _usrsSchemaARN (\ s a -> s{_usrsSchemaARN = a});
 usrsResponseStatus :: Lens' UpdateSchemaResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
 
-instance NFData UpdateSchemaResponse
+instance NFData UpdateSchemaResponse where

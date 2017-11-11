@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Glue.GetConnection
     , getrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getConnection' smart constructor.
 data GetConnection = GetConnection'
-    { _gCatalogId :: !(Maybe Text)
-    , _gName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gCatalogId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConnection' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data GetConnection = GetConnection'
 getConnection
     :: Text -- ^ 'gName'
     -> GetConnection
-getConnection pName_ =
-    GetConnection'
-    { _gCatalogId = Nothing
-    , _gName = pName_
-    }
+getConnection pName_ = GetConnection' {_gCatalogId = Nothing, _gName = pName_}
+
 
 -- | The ID of the Data Catalog in which the connection resides. If none is supplied, the AWS account ID is used by default.
 gCatalogId :: Lens' GetConnection (Maybe Text)
@@ -84,9 +82,9 @@ instance AWSRequest GetConnection where
                  GetConnectionResponse' <$>
                    (x .?> "Connection") <*> (pure (fromEnum s)))
 
-instance Hashable GetConnection
+instance Hashable GetConnection where
 
-instance NFData GetConnection
+instance NFData GetConnection where
 
 instance ToHeaders GetConnection where
         toHeaders
@@ -112,9 +110,10 @@ instance ToQuery GetConnection where
 
 -- | /See:/ 'getConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
-    { _getrsConnection     :: !(Maybe Connection)
-    , _getrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _getrsConnection     :: {-# NOUNPACK #-}!(Maybe Connection)
+  , _getrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConnectionResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +126,9 @@ getConnectionResponse
     :: Int -- ^ 'getrsResponseStatus'
     -> GetConnectionResponse
 getConnectionResponse pResponseStatus_ =
-    GetConnectionResponse'
-    { _getrsConnection = Nothing
-    , _getrsResponseStatus = pResponseStatus_
-    }
+  GetConnectionResponse'
+  {_getrsConnection = Nothing, _getrsResponseStatus = pResponseStatus_}
+
 
 -- | The requested connection definition.
 getrsConnection :: Lens' GetConnectionResponse (Maybe Connection)
@@ -140,4 +138,4 @@ getrsConnection = lens _getrsConnection (\ s a -> s{_getrsConnection = a});
 getrsResponseStatus :: Lens' GetConnectionResponse Int
 getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
 
-instance NFData GetConnectionResponse
+instance NFData GetConnectionResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.DeleteCustomActionType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodePipeline.DeleteCustomActionType
     , DeleteCustomActionTypeResponse
     ) where
 
-import           Network.AWS.CodePipeline.Types
-import           Network.AWS.CodePipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodePipeline.Types
+import Network.AWS.CodePipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a delete custom action operation. The custom action will be marked as deleted.
 --
@@ -51,10 +51,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteCustomActionType' smart constructor.
 data DeleteCustomActionType = DeleteCustomActionType'
-    { _dcatCategory :: !ActionCategory
-    , _dcatProvider :: !Text
-    , _dcatVersion  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcatCategory :: {-# NOUNPACK #-}!ActionCategory
+  , _dcatProvider :: {-# NOUNPACK #-}!Text
+  , _dcatVersion  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCustomActionType' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ deleteCustomActionType
     -> Text -- ^ 'dcatVersion'
     -> DeleteCustomActionType
 deleteCustomActionType pCategory_ pProvider_ pVersion_ =
-    DeleteCustomActionType'
-    { _dcatCategory = pCategory_
-    , _dcatProvider = pProvider_
-    , _dcatVersion = pVersion_
-    }
+  DeleteCustomActionType'
+  { _dcatCategory = pCategory_
+  , _dcatProvider = pProvider_
+  , _dcatVersion = pVersion_
+  }
+
 
 -- | The category of the custom action that you want to delete, such as source or deploy.
 dcatCategory :: Lens' DeleteCustomActionType ActionCategory
@@ -96,9 +98,9 @@ instance AWSRequest DeleteCustomActionType where
         response
           = receiveNull DeleteCustomActionTypeResponse'
 
-instance Hashable DeleteCustomActionType
+instance Hashable DeleteCustomActionType where
 
-instance NFData DeleteCustomActionType
+instance NFData DeleteCustomActionType where
 
 instance ToHeaders DeleteCustomActionType where
         toHeaders
@@ -126,8 +128,9 @@ instance ToQuery DeleteCustomActionType where
 
 -- | /See:/ 'deleteCustomActionTypeResponse' smart constructor.
 data DeleteCustomActionTypeResponse =
-    DeleteCustomActionTypeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteCustomActionTypeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCustomActionTypeResponse' with the minimum fields required to make a request.
 --
@@ -135,4 +138,5 @@ deleteCustomActionTypeResponse
     :: DeleteCustomActionTypeResponse
 deleteCustomActionTypeResponse = DeleteCustomActionTypeResponse'
 
-instance NFData DeleteCustomActionTypeResponse
+
+instance NFData DeleteCustomActionTypeResponse where

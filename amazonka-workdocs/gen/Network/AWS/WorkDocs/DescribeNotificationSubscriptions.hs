@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeNotificationSubscriptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.WorkDocs.DescribeNotificationSubscriptions
     , dnsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeNotificationSubscriptions' smart constructor.
 data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
-    { _dMarker         :: !(Maybe Text)
-    , _dLimit          :: !(Maybe Nat)
-    , _dOrganizationId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dOrganizationId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNotificationSubscriptions' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ describeNotificationSubscriptions
     :: Text -- ^ 'dOrganizationId'
     -> DescribeNotificationSubscriptions
 describeNotificationSubscriptions pOrganizationId_ =
-    DescribeNotificationSubscriptions'
-    { _dMarker = Nothing
-    , _dLimit = Nothing
-    , _dOrganizationId = pOrganizationId_
-    }
+  DescribeNotificationSubscriptions'
+  {_dMarker = Nothing, _dLimit = Nothing, _dOrganizationId = pOrganizationId_}
+
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 dMarker :: Lens' DescribeNotificationSubscriptions (Maybe Text)
@@ -99,8 +98,10 @@ instance AWSRequest DescribeNotificationSubscriptions
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeNotificationSubscriptions
+         where
 
 instance NFData DescribeNotificationSubscriptions
+         where
 
 instance ToHeaders DescribeNotificationSubscriptions
          where
@@ -124,10 +125,11 @@ instance ToQuery DescribeNotificationSubscriptions
 
 -- | /See:/ 'describeNotificationSubscriptionsResponse' smart constructor.
 data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'
-    { _dnsrsMarker         :: !(Maybe Text)
-    , _dnsrsSubscriptions  :: !(Maybe [Subscription])
-    , _dnsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dnsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnsrsSubscriptions  :: {-# NOUNPACK #-}!(Maybe [Subscription])
+  , _dnsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeNotificationSubscriptionsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +144,12 @@ describeNotificationSubscriptionsResponse
     :: Int -- ^ 'dnsrsResponseStatus'
     -> DescribeNotificationSubscriptionsResponse
 describeNotificationSubscriptionsResponse pResponseStatus_ =
-    DescribeNotificationSubscriptionsResponse'
-    { _dnsrsMarker = Nothing
-    , _dnsrsSubscriptions = Nothing
-    , _dnsrsResponseStatus = pResponseStatus_
-    }
+  DescribeNotificationSubscriptionsResponse'
+  { _dnsrsMarker = Nothing
+  , _dnsrsSubscriptions = Nothing
+  , _dnsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dnsrsMarker :: Lens' DescribeNotificationSubscriptionsResponse (Maybe Text)
@@ -161,4 +164,5 @@ dnsrsResponseStatus :: Lens' DescribeNotificationSubscriptionsResponse Int
 dnsrsResponseStatus = lens _dnsrsResponseStatus (\ s a -> s{_dnsrsResponseStatus = a});
 
 instance NFData
-         DescribeNotificationSubscriptionsResponse
+           DescribeNotificationSubscriptionsResponse
+         where

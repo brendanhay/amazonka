@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketInventoryConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.S3.GetBucketInventoryConfiguration
     , gbicrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketInventoryConfiguration' smart constructor.
 data GetBucketInventoryConfiguration = GetBucketInventoryConfiguration'
-    { _gbicBucket :: !BucketName
-    , _gbicId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbicBucket :: {-# NOUNPACK #-}!BucketName
+  , _gbicId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketInventoryConfiguration' with the minimum fields required to make a request.
 --
@@ -61,10 +62,8 @@ getBucketInventoryConfiguration
     -> Text -- ^ 'gbicId'
     -> GetBucketInventoryConfiguration
 getBucketInventoryConfiguration pBucket_ pId_ =
-    GetBucketInventoryConfiguration'
-    { _gbicBucket = pBucket_
-    , _gbicId = pId_
-    }
+  GetBucketInventoryConfiguration' {_gbicBucket = pBucket_, _gbicId = pId_}
+
 
 -- | The name of the bucket containing the inventory configuration to retrieve.
 gbicBucket :: Lens' GetBucketInventoryConfiguration BucketName
@@ -86,8 +85,9 @@ instance AWSRequest GetBucketInventoryConfiguration
                    (parseXML x) <*> (pure (fromEnum s)))
 
 instance Hashable GetBucketInventoryConfiguration
+         where
 
-instance NFData GetBucketInventoryConfiguration
+instance NFData GetBucketInventoryConfiguration where
 
 instance ToHeaders GetBucketInventoryConfiguration
          where
@@ -104,9 +104,10 @@ instance ToQuery GetBucketInventoryConfiguration
 
 -- | /See:/ 'getBucketInventoryConfigurationResponse' smart constructor.
 data GetBucketInventoryConfigurationResponse = GetBucketInventoryConfigurationResponse'
-    { _gbicrsInventoryConfiguration :: !(Maybe InventoryConfiguration)
-    , _gbicrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbicrsInventoryConfiguration :: {-# NOUNPACK #-}!(Maybe InventoryConfiguration)
+  , _gbicrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBucketInventoryConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,11 @@ getBucketInventoryConfigurationResponse
     :: Int -- ^ 'gbicrsResponseStatus'
     -> GetBucketInventoryConfigurationResponse
 getBucketInventoryConfigurationResponse pResponseStatus_ =
-    GetBucketInventoryConfigurationResponse'
-    { _gbicrsInventoryConfiguration = Nothing
-    , _gbicrsResponseStatus = pResponseStatus_
-    }
+  GetBucketInventoryConfigurationResponse'
+  { _gbicrsInventoryConfiguration = Nothing
+  , _gbicrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Specifies the inventory configuration.
 gbicrsInventoryConfiguration :: Lens' GetBucketInventoryConfigurationResponse (Maybe InventoryConfiguration)
@@ -133,4 +135,5 @@ gbicrsResponseStatus :: Lens' GetBucketInventoryConfigurationResponse Int
 gbicrsResponseStatus = lens _gbicrsResponseStatus (\ s a -> s{_gbicrsResponseStatus = a});
 
 instance NFData
-         GetBucketInventoryConfigurationResponse
+           GetBucketInventoryConfigurationResponse
+         where

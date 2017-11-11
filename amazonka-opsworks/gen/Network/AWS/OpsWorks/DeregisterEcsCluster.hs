@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterEcsCluster
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.DeregisterEcsCluster
     , DeregisterEcsClusterResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterEcsCluster' smart constructor.
 newtype DeregisterEcsCluster = DeregisterEcsCluster'
-    { _decEcsClusterARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _decEcsClusterARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterEcsCluster' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deregisterEcsCluster
     :: Text -- ^ 'decEcsClusterARN'
     -> DeregisterEcsCluster
 deregisterEcsCluster pEcsClusterARN_ =
-    DeregisterEcsCluster'
-    { _decEcsClusterARN = pEcsClusterARN_
-    }
+  DeregisterEcsCluster' {_decEcsClusterARN = pEcsClusterARN_}
+
 
 -- | The cluster's ARN.
 decEcsClusterARN :: Lens' DeregisterEcsCluster Text
@@ -71,9 +71,9 @@ instance AWSRequest DeregisterEcsCluster where
         request = postJSON opsWorks
         response = receiveNull DeregisterEcsClusterResponse'
 
-instance Hashable DeregisterEcsCluster
+instance Hashable DeregisterEcsCluster where
 
-instance NFData DeregisterEcsCluster
+instance NFData DeregisterEcsCluster where
 
 instance ToHeaders DeregisterEcsCluster where
         toHeaders
@@ -99,8 +99,9 @@ instance ToQuery DeregisterEcsCluster where
 
 -- | /See:/ 'deregisterEcsClusterResponse' smart constructor.
 data DeregisterEcsClusterResponse =
-    DeregisterEcsClusterResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeregisterEcsClusterResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterEcsClusterResponse' with the minimum fields required to make a request.
 --
@@ -108,4 +109,5 @@ deregisterEcsClusterResponse
     :: DeregisterEcsClusterResponse
 deregisterEcsClusterResponse = DeregisterEcsClusterResponse'
 
-instance NFData DeregisterEcsClusterResponse
+
+instance NFData DeregisterEcsClusterResponse where

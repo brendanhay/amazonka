@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RebuildEnvironment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     , RebuildEnvironmentResponse
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'rebuildEnvironment' smart constructor.
 data RebuildEnvironment = RebuildEnvironment'
-    { _reEnvironmentName :: !(Maybe Text)
-    , _reEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _reEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _reEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebuildEnvironment' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data RebuildEnvironment = RebuildEnvironment'
 rebuildEnvironment
     :: RebuildEnvironment
 rebuildEnvironment =
-    RebuildEnvironment'
-    { _reEnvironmentName = Nothing
-    , _reEnvironmentId = Nothing
-    }
+  RebuildEnvironment' {_reEnvironmentName = Nothing, _reEnvironmentId = Nothing}
+
 
 -- | The name of the environment to rebuild. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
@@ -81,9 +80,9 @@ instance AWSRequest RebuildEnvironment where
         request = postQuery elasticBeanstalk
         response = receiveNull RebuildEnvironmentResponse'
 
-instance Hashable RebuildEnvironment
+instance Hashable RebuildEnvironment where
 
-instance NFData RebuildEnvironment
+instance NFData RebuildEnvironment where
 
 instance ToHeaders RebuildEnvironment where
         toHeaders = const mempty
@@ -101,8 +100,9 @@ instance ToQuery RebuildEnvironment where
 
 -- | /See:/ 'rebuildEnvironmentResponse' smart constructor.
 data RebuildEnvironmentResponse =
-    RebuildEnvironmentResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  RebuildEnvironmentResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RebuildEnvironmentResponse' with the minimum fields required to make a request.
 --
@@ -110,4 +110,5 @@ rebuildEnvironmentResponse
     :: RebuildEnvironmentResponse
 rebuildEnvironmentResponse = RebuildEnvironmentResponse'
 
-instance NFData RebuildEnvironmentResponse
+
+instance NFData RebuildEnvironmentResponse where

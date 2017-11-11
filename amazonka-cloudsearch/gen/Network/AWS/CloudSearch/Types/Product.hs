@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudSearch.Types.Product where
 
-import           Network.AWS.CloudSearch.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CloudSearch.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | The configured access rules for the domain's document and search endpoints, and the current status of those rules.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'accessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
-    { _apsOptions :: !Text
-    , _apsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apsOptions :: {-# NOUNPACK #-}!Text
+  , _apsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccessPoliciesStatus' with the minimum fields required to make a request.
 --
@@ -43,10 +44,8 @@ accessPoliciesStatus
     -> OptionStatus -- ^ 'apsStatus'
     -> AccessPoliciesStatus
 accessPoliciesStatus pOptions_ pStatus_ =
-    AccessPoliciesStatus'
-    { _apsOptions = pOptions_
-    , _apsStatus = pStatus_
-    }
+  AccessPoliciesStatus' {_apsOptions = pOptions_, _apsStatus = pStatus_}
+
 
 -- | Undocumented member.
 apsOptions :: Lens' AccessPoliciesStatus Text
@@ -61,9 +60,9 @@ instance FromXML AccessPoliciesStatus where
           = AccessPoliciesStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
-instance Hashable AccessPoliciesStatus
+instance Hashable AccessPoliciesStatus where
 
-instance NFData AccessPoliciesStatus
+instance NFData AccessPoliciesStatus where
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.
 --
@@ -71,12 +70,13 @@ instance NFData AccessPoliciesStatus
 --
 -- /See:/ 'analysisOptions' smart constructor.
 data AnalysisOptions = AnalysisOptions'
-    { _aoAlgorithmicStemming            :: !(Maybe AlgorithmicStemming)
-    , _aoStopwords                      :: !(Maybe Text)
-    , _aoJapaneseTokenizationDictionary :: !(Maybe Text)
-    , _aoSynonyms                       :: !(Maybe Text)
-    , _aoStemmingDictionary             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aoAlgorithmicStemming :: {-# NOUNPACK #-}!(Maybe AlgorithmicStemming)
+  , _aoStopwords :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aoJapaneseTokenizationDictionary :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aoSynonyms :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aoStemmingDictionary :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnalysisOptions' with the minimum fields required to make a request.
 --
@@ -94,13 +94,14 @@ data AnalysisOptions = AnalysisOptions'
 analysisOptions
     :: AnalysisOptions
 analysisOptions =
-    AnalysisOptions'
-    { _aoAlgorithmicStemming = Nothing
-    , _aoStopwords = Nothing
-    , _aoJapaneseTokenizationDictionary = Nothing
-    , _aoSynonyms = Nothing
-    , _aoStemmingDictionary = Nothing
-    }
+  AnalysisOptions'
+  { _aoAlgorithmicStemming = Nothing
+  , _aoStopwords = Nothing
+  , _aoJapaneseTokenizationDictionary = Nothing
+  , _aoSynonyms = Nothing
+  , _aoStemmingDictionary = Nothing
+  }
+
 
 -- | The level of algorithmic stemming to perform: @none@ , @minimal@ , @light@ , or @full@ . The available levels vary depending on the language. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings> in the /Amazon CloudSearch Developer Guide/
 aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
@@ -130,9 +131,9 @@ instance FromXML AnalysisOptions where
                 <*> (x .@? "Synonyms")
                 <*> (x .@? "StemmingDictionary")
 
-instance Hashable AnalysisOptions
+instance Hashable AnalysisOptions where
 
-instance NFData AnalysisOptions
+instance NFData AnalysisOptions where
 
 instance ToQuery AnalysisOptions where
         toQuery AnalysisOptions'{..}
@@ -150,10 +151,11 @@ instance ToQuery AnalysisOptions where
 --
 -- /See:/ 'analysisScheme' smart constructor.
 data AnalysisScheme = AnalysisScheme'
-    { _asAnalysisOptions        :: !(Maybe AnalysisOptions)
-    , _asAnalysisSchemeName     :: !Text
-    , _asAnalysisSchemeLanguage :: !AnalysisSchemeLanguage
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asAnalysisOptions        :: {-# NOUNPACK #-}!(Maybe AnalysisOptions)
+  , _asAnalysisSchemeName     :: {-# NOUNPACK #-}!Text
+  , _asAnalysisSchemeLanguage :: {-# NOUNPACK #-}!AnalysisSchemeLanguage
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnalysisScheme' with the minimum fields required to make a request.
 --
@@ -169,11 +171,12 @@ analysisScheme
     -> AnalysisSchemeLanguage -- ^ 'asAnalysisSchemeLanguage'
     -> AnalysisScheme
 analysisScheme pAnalysisSchemeName_ pAnalysisSchemeLanguage_ =
-    AnalysisScheme'
-    { _asAnalysisOptions = Nothing
-    , _asAnalysisSchemeName = pAnalysisSchemeName_
-    , _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage_
-    }
+  AnalysisScheme'
+  { _asAnalysisOptions = Nothing
+  , _asAnalysisSchemeName = pAnalysisSchemeName_
+  , _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage_
+  }
+
 
 -- | Undocumented member.
 asAnalysisOptions :: Lens' AnalysisScheme (Maybe AnalysisOptions)
@@ -194,9 +197,9 @@ instance FromXML AnalysisScheme where
                 (x .@ "AnalysisSchemeName")
                 <*> (x .@ "AnalysisSchemeLanguage")
 
-instance Hashable AnalysisScheme
+instance Hashable AnalysisScheme where
 
-instance NFData AnalysisScheme
+instance NFData AnalysisScheme where
 
 instance ToQuery AnalysisScheme where
         toQuery AnalysisScheme'{..}
@@ -212,9 +215,10 @@ instance ToQuery AnalysisScheme where
 --
 -- /See:/ 'analysisSchemeStatus' smart constructor.
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
-    { _assOptions :: !AnalysisScheme
-    , _assStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _assOptions :: {-# NOUNPACK #-}!AnalysisScheme
+  , _assStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AnalysisSchemeStatus' with the minimum fields required to make a request.
 --
@@ -228,10 +232,8 @@ analysisSchemeStatus
     -> OptionStatus -- ^ 'assStatus'
     -> AnalysisSchemeStatus
 analysisSchemeStatus pOptions_ pStatus_ =
-    AnalysisSchemeStatus'
-    { _assOptions = pOptions_
-    , _assStatus = pStatus_
-    }
+  AnalysisSchemeStatus' {_assOptions = pOptions_, _assStatus = pStatus_}
+
 
 -- | Undocumented member.
 assOptions :: Lens' AnalysisSchemeStatus AnalysisScheme
@@ -246,9 +248,9 @@ instance FromXML AnalysisSchemeStatus where
           = AnalysisSchemeStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
-instance Hashable AnalysisSchemeStatus
+instance Hashable AnalysisSchemeStatus where
 
-instance NFData AnalysisSchemeStatus
+instance NFData AnalysisSchemeStatus where
 
 -- | The status and configuration of the domain's availability options.
 --
@@ -256,9 +258,10 @@ instance NFData AnalysisSchemeStatus
 --
 -- /See:/ 'availabilityOptionsStatus' smart constructor.
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
-    { _aosOptions :: !Bool
-    , _aosStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aosOptions :: {-# NOUNPACK #-}!Bool
+  , _aosStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AvailabilityOptionsStatus' with the minimum fields required to make a request.
 --
@@ -272,10 +275,8 @@ availabilityOptionsStatus
     -> OptionStatus -- ^ 'aosStatus'
     -> AvailabilityOptionsStatus
 availabilityOptionsStatus pOptions_ pStatus_ =
-    AvailabilityOptionsStatus'
-    { _aosOptions = pOptions_
-    , _aosStatus = pStatus_
-    }
+  AvailabilityOptionsStatus' {_aosOptions = pOptions_, _aosStatus = pStatus_}
+
 
 -- | The availability options configured for the domain.
 aosOptions :: Lens' AvailabilityOptionsStatus Bool
@@ -290,9 +291,9 @@ instance FromXML AvailabilityOptionsStatus where
           = AvailabilityOptionsStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
-instance Hashable AvailabilityOptionsStatus
+instance Hashable AvailabilityOptionsStatus where
 
-instance NFData AvailabilityOptionsStatus
+instance NFData AvailabilityOptionsStatus where
 
 -- | Options for a field that contains an array of dates. Present if @IndexFieldType@ specifies the field is of type @date-array@ . All options are enabled by default.
 --
@@ -300,12 +301,13 @@ instance NFData AvailabilityOptionsStatus
 --
 -- /See:/ 'dateArrayOptions' smart constructor.
 data DateArrayOptions = DateArrayOptions'
-    { _daosSourceFields  :: !(Maybe Text)
-    , _daosReturnEnabled :: !(Maybe Bool)
-    , _daosFacetEnabled  :: !(Maybe Bool)
-    , _daosSearchEnabled :: !(Maybe Bool)
-    , _daosDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daosSourceFields  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daosReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _daosFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _daosSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _daosDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DateArrayOptions' with the minimum fields required to make a request.
 --
@@ -323,13 +325,14 @@ data DateArrayOptions = DateArrayOptions'
 dateArrayOptions
     :: DateArrayOptions
 dateArrayOptions =
-    DateArrayOptions'
-    { _daosSourceFields = Nothing
-    , _daosReturnEnabled = Nothing
-    , _daosFacetEnabled = Nothing
-    , _daosSearchEnabled = Nothing
-    , _daosDefaultValue = Nothing
-    }
+  DateArrayOptions'
+  { _daosSourceFields = Nothing
+  , _daosReturnEnabled = Nothing
+  , _daosFacetEnabled = Nothing
+  , _daosSearchEnabled = Nothing
+  , _daosDefaultValue = Nothing
+  }
+
 
 -- | A list of source fields to map to the field.
 daosSourceFields :: Lens' DateArrayOptions (Maybe Text)
@@ -359,9 +362,9 @@ instance FromXML DateArrayOptions where
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable DateArrayOptions
+instance Hashable DateArrayOptions where
 
-instance NFData DateArrayOptions
+instance NFData DateArrayOptions where
 
 instance ToQuery DateArrayOptions where
         toQuery DateArrayOptions'{..}
@@ -378,13 +381,14 @@ instance ToQuery DateArrayOptions where
 --
 -- /See:/ 'dateOptions' smart constructor.
 data DateOptions = DateOptions'
-    { _doSourceField   :: !(Maybe Text)
-    , _doReturnEnabled :: !(Maybe Bool)
-    , _doFacetEnabled  :: !(Maybe Bool)
-    , _doSearchEnabled :: !(Maybe Bool)
-    , _doSortEnabled   :: !(Maybe Bool)
-    , _doDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _doReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _doFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _doSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _doSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _doDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DateOptions' with the minimum fields required to make a request.
 --
@@ -404,14 +408,15 @@ data DateOptions = DateOptions'
 dateOptions
     :: DateOptions
 dateOptions =
-    DateOptions'
-    { _doSourceField = Nothing
-    , _doReturnEnabled = Nothing
-    , _doFacetEnabled = Nothing
-    , _doSearchEnabled = Nothing
-    , _doSortEnabled = Nothing
-    , _doDefaultValue = Nothing
-    }
+  DateOptions'
+  { _doSourceField = Nothing
+  , _doReturnEnabled = Nothing
+  , _doFacetEnabled = Nothing
+  , _doSearchEnabled = Nothing
+  , _doSortEnabled = Nothing
+  , _doDefaultValue = Nothing
+  }
+
 
 -- | Undocumented member.
 doSourceField :: Lens' DateOptions (Maybe Text)
@@ -446,9 +451,9 @@ instance FromXML DateOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable DateOptions
+instance Hashable DateOptions where
 
-instance NFData DateOptions
+instance NFData DateOptions where
 
 instance ToQuery DateOptions where
         toQuery DateOptions'{..}
@@ -466,10 +471,11 @@ instance ToQuery DateOptions where
 --
 -- /See:/ 'documentSuggesterOptions' smart constructor.
 data DocumentSuggesterOptions = DocumentSuggesterOptions'
-    { _dsoSortExpression :: !(Maybe Text)
-    , _dsoFuzzyMatching  :: !(Maybe SuggesterFuzzyMatching)
-    , _dsoSourceField    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsoSortExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsoFuzzyMatching  :: {-# NOUNPACK #-}!(Maybe SuggesterFuzzyMatching)
+  , _dsoSourceField    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DocumentSuggesterOptions' with the minimum fields required to make a request.
 --
@@ -484,11 +490,12 @@ documentSuggesterOptions
     :: Text -- ^ 'dsoSourceField'
     -> DocumentSuggesterOptions
 documentSuggesterOptions pSourceField_ =
-    DocumentSuggesterOptions'
-    { _dsoSortExpression = Nothing
-    , _dsoFuzzyMatching = Nothing
-    , _dsoSourceField = pSourceField_
-    }
+  DocumentSuggesterOptions'
+  { _dsoSortExpression = Nothing
+  , _dsoFuzzyMatching = Nothing
+  , _dsoSourceField = pSourceField_
+  }
+
 
 -- | An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the @_score@ value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
 dsoSortExpression :: Lens' DocumentSuggesterOptions (Maybe Text)
@@ -508,9 +515,9 @@ instance FromXML DocumentSuggesterOptions where
               (x .@? "SortExpression") <*> (x .@? "FuzzyMatching")
                 <*> (x .@ "SourceField")
 
-instance Hashable DocumentSuggesterOptions
+instance Hashable DocumentSuggesterOptions where
 
-instance NFData DocumentSuggesterOptions
+instance NFData DocumentSuggesterOptions where
 
 instance ToQuery DocumentSuggesterOptions where
         toQuery DocumentSuggesterOptions'{..}
@@ -525,20 +532,21 @@ instance ToQuery DocumentSuggesterOptions where
 --
 -- /See:/ 'domainStatus' smart constructor.
 data DomainStatus = DomainStatus'
-    { _dsSearchInstanceCount    :: !(Maybe Nat)
-    , _dsSearchInstanceType     :: !(Maybe Text)
-    , _dsDocService             :: !(Maybe ServiceEndpoint)
-    , _dsARN                    :: !(Maybe Text)
-    , _dsCreated                :: !(Maybe Bool)
-    , _dsSearchService          :: !(Maybe ServiceEndpoint)
-    , _dsLimits                 :: !(Maybe Limits)
-    , _dsSearchPartitionCount   :: !(Maybe Nat)
-    , _dsDeleted                :: !(Maybe Bool)
-    , _dsProcessing             :: !(Maybe Bool)
-    , _dsDomainId               :: !Text
-    , _dsDomainName             :: !Text
-    , _dsRequiresIndexDocuments :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsSearchInstanceCount    :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dsSearchInstanceType     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsDocService             :: {-# NOUNPACK #-}!(Maybe ServiceEndpoint)
+  , _dsARN                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsCreated                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsSearchService          :: {-# NOUNPACK #-}!(Maybe ServiceEndpoint)
+  , _dsLimits                 :: {-# NOUNPACK #-}!(Maybe Limits)
+  , _dsSearchPartitionCount   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dsDeleted                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsProcessing             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsDomainId               :: {-# NOUNPACK #-}!Text
+  , _dsDomainName             :: {-# NOUNPACK #-}!Text
+  , _dsRequiresIndexDocuments :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainStatus' with the minimum fields required to make a request.
 --
@@ -575,21 +583,22 @@ domainStatus
     -> Bool -- ^ 'dsRequiresIndexDocuments'
     -> DomainStatus
 domainStatus pDomainId_ pDomainName_ pRequiresIndexDocuments_ =
-    DomainStatus'
-    { _dsSearchInstanceCount = Nothing
-    , _dsSearchInstanceType = Nothing
-    , _dsDocService = Nothing
-    , _dsARN = Nothing
-    , _dsCreated = Nothing
-    , _dsSearchService = Nothing
-    , _dsLimits = Nothing
-    , _dsSearchPartitionCount = Nothing
-    , _dsDeleted = Nothing
-    , _dsProcessing = Nothing
-    , _dsDomainId = pDomainId_
-    , _dsDomainName = pDomainName_
-    , _dsRequiresIndexDocuments = pRequiresIndexDocuments_
-    }
+  DomainStatus'
+  { _dsSearchInstanceCount = Nothing
+  , _dsSearchInstanceType = Nothing
+  , _dsDocService = Nothing
+  , _dsARN = Nothing
+  , _dsCreated = Nothing
+  , _dsSearchService = Nothing
+  , _dsLimits = Nothing
+  , _dsSearchPartitionCount = Nothing
+  , _dsDeleted = Nothing
+  , _dsProcessing = Nothing
+  , _dsDomainId = pDomainId_
+  , _dsDomainName = pDomainName_
+  , _dsRequiresIndexDocuments = pRequiresIndexDocuments_
+  }
+
 
 -- | The number of search instances that are available to process search requests.
 dsSearchInstanceCount :: Lens' DomainStatus (Maybe Natural)
@@ -660,9 +669,9 @@ instance FromXML DomainStatus where
                 <*> (x .@ "DomainName")
                 <*> (x .@ "RequiresIndexDocuments")
 
-instance Hashable DomainStatus
+instance Hashable DomainStatus where
 
-instance NFData DomainStatus
+instance NFData DomainStatus where
 
 -- | Options for a field that contains an array of double-precision 64-bit floating point values. Present if @IndexFieldType@ specifies the field is of type @double-array@ . All options are enabled by default.
 --
@@ -670,12 +679,13 @@ instance NFData DomainStatus
 --
 -- /See:/ 'doubleArrayOptions' smart constructor.
 data DoubleArrayOptions = DoubleArrayOptions'
-    { _daoSourceFields  :: !(Maybe Text)
-    , _daoReturnEnabled :: !(Maybe Bool)
-    , _daoFacetEnabled  :: !(Maybe Bool)
-    , _daoSearchEnabled :: !(Maybe Bool)
-    , _daoDefaultValue  :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daoSourceFields  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daoReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _daoFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _daoSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _daoDefaultValue  :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DoubleArrayOptions' with the minimum fields required to make a request.
 --
@@ -693,13 +703,14 @@ data DoubleArrayOptions = DoubleArrayOptions'
 doubleArrayOptions
     :: DoubleArrayOptions
 doubleArrayOptions =
-    DoubleArrayOptions'
-    { _daoSourceFields = Nothing
-    , _daoReturnEnabled = Nothing
-    , _daoFacetEnabled = Nothing
-    , _daoSearchEnabled = Nothing
-    , _daoDefaultValue = Nothing
-    }
+  DoubleArrayOptions'
+  { _daoSourceFields = Nothing
+  , _daoReturnEnabled = Nothing
+  , _daoFacetEnabled = Nothing
+  , _daoSearchEnabled = Nothing
+  , _daoDefaultValue = Nothing
+  }
+
 
 -- | A list of source fields to map to the field.
 daoSourceFields :: Lens' DoubleArrayOptions (Maybe Text)
@@ -729,9 +740,9 @@ instance FromXML DoubleArrayOptions where
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable DoubleArrayOptions
+instance Hashable DoubleArrayOptions where
 
-instance NFData DoubleArrayOptions
+instance NFData DoubleArrayOptions where
 
 instance ToQuery DoubleArrayOptions where
         toQuery DoubleArrayOptions'{..}
@@ -748,13 +759,14 @@ instance ToQuery DoubleArrayOptions where
 --
 -- /See:/ 'doubleOptions' smart constructor.
 data DoubleOptions = DoubleOptions'
-    { _dSourceField   :: !(Maybe Text)
-    , _dReturnEnabled :: !(Maybe Bool)
-    , _dFacetEnabled  :: !(Maybe Bool)
-    , _dSearchEnabled :: !(Maybe Bool)
-    , _dSortEnabled   :: !(Maybe Bool)
-    , _dDefaultValue  :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dDefaultValue  :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DoubleOptions' with the minimum fields required to make a request.
 --
@@ -774,14 +786,15 @@ data DoubleOptions = DoubleOptions'
 doubleOptions
     :: DoubleOptions
 doubleOptions =
-    DoubleOptions'
-    { _dSourceField = Nothing
-    , _dReturnEnabled = Nothing
-    , _dFacetEnabled = Nothing
-    , _dSearchEnabled = Nothing
-    , _dSortEnabled = Nothing
-    , _dDefaultValue = Nothing
-    }
+  DoubleOptions'
+  { _dSourceField = Nothing
+  , _dReturnEnabled = Nothing
+  , _dFacetEnabled = Nothing
+  , _dSearchEnabled = Nothing
+  , _dSortEnabled = Nothing
+  , _dDefaultValue = Nothing
+  }
+
 
 -- | The name of the source field to map to the field.
 dSourceField :: Lens' DoubleOptions (Maybe Text)
@@ -816,9 +829,9 @@ instance FromXML DoubleOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable DoubleOptions
+instance Hashable DoubleOptions where
 
-instance NFData DoubleOptions
+instance NFData DoubleOptions where
 
 instance ToQuery DoubleOptions where
         toQuery DoubleOptions'{..}
@@ -836,9 +849,10 @@ instance ToQuery DoubleOptions where
 --
 -- /See:/ 'expression' smart constructor.
 data Expression = Expression'
-    { _eExpressionName  :: !Text
-    , _eExpressionValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eExpressionName  :: {-# NOUNPACK #-}!Text
+  , _eExpressionValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Expression' with the minimum fields required to make a request.
 --
@@ -852,10 +866,9 @@ expression
     -> Text -- ^ 'eExpressionValue'
     -> Expression
 expression pExpressionName_ pExpressionValue_ =
-    Expression'
-    { _eExpressionName = pExpressionName_
-    , _eExpressionValue = pExpressionValue_
-    }
+  Expression'
+  {_eExpressionName = pExpressionName_, _eExpressionValue = pExpressionValue_}
+
 
 -- | Undocumented member.
 eExpressionName :: Lens' Expression Text
@@ -870,9 +883,9 @@ instance FromXML Expression where
           = Expression' <$>
               (x .@ "ExpressionName") <*> (x .@ "ExpressionValue")
 
-instance Hashable Expression
+instance Hashable Expression where
 
-instance NFData Expression
+instance NFData Expression where
 
 instance ToQuery Expression where
         toQuery Expression'{..}
@@ -886,9 +899,10 @@ instance ToQuery Expression where
 --
 -- /See:/ 'expressionStatus' smart constructor.
 data ExpressionStatus = ExpressionStatus'
-    { _esOptions :: !Expression
-    , _esStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esOptions :: {-# NOUNPACK #-}!Expression
+  , _esStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExpressionStatus' with the minimum fields required to make a request.
 --
@@ -902,10 +916,8 @@ expressionStatus
     -> OptionStatus -- ^ 'esStatus'
     -> ExpressionStatus
 expressionStatus pOptions_ pStatus_ =
-    ExpressionStatus'
-    { _esOptions = pOptions_
-    , _esStatus = pStatus_
-    }
+  ExpressionStatus' {_esOptions = pOptions_, _esStatus = pStatus_}
+
 
 -- | The expression that is evaluated for sorting while processing a search request.
 esOptions :: Lens' ExpressionStatus Expression
@@ -920,9 +932,9 @@ instance FromXML ExpressionStatus where
           = ExpressionStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
-instance Hashable ExpressionStatus
+instance Hashable ExpressionStatus where
 
-instance NFData ExpressionStatus
+instance NFData ExpressionStatus where
 
 -- | Configuration information for a field in the index, including its name, type, and options. The supported options depend on the @'IndexFieldType' @ .
 --
@@ -930,20 +942,21 @@ instance NFData ExpressionStatus
 --
 -- /See:/ 'indexField' smart constructor.
 data IndexField = IndexField'
-    { _ifDoubleArrayOptions  :: !(Maybe DoubleArrayOptions)
-    , _ifDateOptions         :: !(Maybe DateOptions)
-    , _ifTextArrayOptions    :: !(Maybe TextArrayOptions)
-    , _ifDoubleOptions       :: !(Maybe DoubleOptions)
-    , _ifTextOptions         :: !(Maybe TextOptions)
-    , _ifLatLonOptions       :: !(Maybe LatLonOptions)
-    , _ifLiteralArrayOptions :: !(Maybe LiteralArrayOptions)
-    , _ifIntArrayOptions     :: !(Maybe IntArrayOptions)
-    , _ifDateArrayOptions    :: !(Maybe DateArrayOptions)
-    , _ifIntOptions          :: !(Maybe IntOptions)
-    , _ifLiteralOptions      :: !(Maybe LiteralOptions)
-    , _ifIndexFieldName      :: !Text
-    , _ifIndexFieldType      :: !IndexFieldType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifDoubleArrayOptions  :: {-# NOUNPACK #-}!(Maybe DoubleArrayOptions)
+  , _ifDateOptions         :: {-# NOUNPACK #-}!(Maybe DateOptions)
+  , _ifTextArrayOptions    :: {-# NOUNPACK #-}!(Maybe TextArrayOptions)
+  , _ifDoubleOptions       :: {-# NOUNPACK #-}!(Maybe DoubleOptions)
+  , _ifTextOptions         :: {-# NOUNPACK #-}!(Maybe TextOptions)
+  , _ifLatLonOptions       :: {-# NOUNPACK #-}!(Maybe LatLonOptions)
+  , _ifLiteralArrayOptions :: {-# NOUNPACK #-}!(Maybe LiteralArrayOptions)
+  , _ifIntArrayOptions     :: {-# NOUNPACK #-}!(Maybe IntArrayOptions)
+  , _ifDateArrayOptions    :: {-# NOUNPACK #-}!(Maybe DateArrayOptions)
+  , _ifIntOptions          :: {-# NOUNPACK #-}!(Maybe IntOptions)
+  , _ifLiteralOptions      :: {-# NOUNPACK #-}!(Maybe LiteralOptions)
+  , _ifIndexFieldName      :: {-# NOUNPACK #-}!Text
+  , _ifIndexFieldType      :: {-# NOUNPACK #-}!IndexFieldType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IndexField' with the minimum fields required to make a request.
 --
@@ -979,21 +992,22 @@ indexField
     -> IndexFieldType -- ^ 'ifIndexFieldType'
     -> IndexField
 indexField pIndexFieldName_ pIndexFieldType_ =
-    IndexField'
-    { _ifDoubleArrayOptions = Nothing
-    , _ifDateOptions = Nothing
-    , _ifTextArrayOptions = Nothing
-    , _ifDoubleOptions = Nothing
-    , _ifTextOptions = Nothing
-    , _ifLatLonOptions = Nothing
-    , _ifLiteralArrayOptions = Nothing
-    , _ifIntArrayOptions = Nothing
-    , _ifDateArrayOptions = Nothing
-    , _ifIntOptions = Nothing
-    , _ifLiteralOptions = Nothing
-    , _ifIndexFieldName = pIndexFieldName_
-    , _ifIndexFieldType = pIndexFieldType_
-    }
+  IndexField'
+  { _ifDoubleArrayOptions = Nothing
+  , _ifDateOptions = Nothing
+  , _ifTextArrayOptions = Nothing
+  , _ifDoubleOptions = Nothing
+  , _ifTextOptions = Nothing
+  , _ifLatLonOptions = Nothing
+  , _ifLiteralArrayOptions = Nothing
+  , _ifIntArrayOptions = Nothing
+  , _ifDateArrayOptions = Nothing
+  , _ifIntOptions = Nothing
+  , _ifLiteralOptions = Nothing
+  , _ifIndexFieldName = pIndexFieldName_
+  , _ifIndexFieldType = pIndexFieldType_
+  }
+
 
 -- | Undocumented member.
 ifDoubleArrayOptions :: Lens' IndexField (Maybe DoubleArrayOptions)
@@ -1064,9 +1078,9 @@ instance FromXML IndexField where
                 <*> (x .@ "IndexFieldName")
                 <*> (x .@ "IndexFieldType")
 
-instance Hashable IndexField
+instance Hashable IndexField where
 
-instance NFData IndexField
+instance NFData IndexField where
 
 instance ToQuery IndexField where
         toQuery IndexField'{..}
@@ -1091,9 +1105,10 @@ instance ToQuery IndexField where
 --
 -- /See:/ 'indexFieldStatus' smart constructor.
 data IndexFieldStatus = IndexFieldStatus'
-    { _ifsOptions :: !IndexField
-    , _ifsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ifsOptions :: {-# NOUNPACK #-}!IndexField
+  , _ifsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IndexFieldStatus' with the minimum fields required to make a request.
 --
@@ -1107,10 +1122,8 @@ indexFieldStatus
     -> OptionStatus -- ^ 'ifsStatus'
     -> IndexFieldStatus
 indexFieldStatus pOptions_ pStatus_ =
-    IndexFieldStatus'
-    { _ifsOptions = pOptions_
-    , _ifsStatus = pStatus_
-    }
+  IndexFieldStatus' {_ifsOptions = pOptions_, _ifsStatus = pStatus_}
+
 
 -- | Undocumented member.
 ifsOptions :: Lens' IndexFieldStatus IndexField
@@ -1125,9 +1138,9 @@ instance FromXML IndexFieldStatus where
           = IndexFieldStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
-instance Hashable IndexFieldStatus
+instance Hashable IndexFieldStatus where
 
-instance NFData IndexFieldStatus
+instance NFData IndexFieldStatus where
 
 -- | Options for a field that contains an array of 64-bit signed integers. Present if @IndexFieldType@ specifies the field is of type @int-array@ . All options are enabled by default.
 --
@@ -1135,12 +1148,13 @@ instance NFData IndexFieldStatus
 --
 -- /See:/ 'intArrayOptions' smart constructor.
 data IntArrayOptions = IntArrayOptions'
-    { _iaoSourceFields  :: !(Maybe Text)
-    , _iaoReturnEnabled :: !(Maybe Bool)
-    , _iaoFacetEnabled  :: !(Maybe Bool)
-    , _iaoSearchEnabled :: !(Maybe Bool)
-    , _iaoDefaultValue  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iaoSourceFields  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaoReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iaoFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iaoSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iaoDefaultValue  :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IntArrayOptions' with the minimum fields required to make a request.
 --
@@ -1158,13 +1172,14 @@ data IntArrayOptions = IntArrayOptions'
 intArrayOptions
     :: IntArrayOptions
 intArrayOptions =
-    IntArrayOptions'
-    { _iaoSourceFields = Nothing
-    , _iaoReturnEnabled = Nothing
-    , _iaoFacetEnabled = Nothing
-    , _iaoSearchEnabled = Nothing
-    , _iaoDefaultValue = Nothing
-    }
+  IntArrayOptions'
+  { _iaoSourceFields = Nothing
+  , _iaoReturnEnabled = Nothing
+  , _iaoFacetEnabled = Nothing
+  , _iaoSearchEnabled = Nothing
+  , _iaoDefaultValue = Nothing
+  }
+
 
 -- | A list of source fields to map to the field.
 iaoSourceFields :: Lens' IntArrayOptions (Maybe Text)
@@ -1194,9 +1209,9 @@ instance FromXML IntArrayOptions where
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable IntArrayOptions
+instance Hashable IntArrayOptions where
 
-instance NFData IntArrayOptions
+instance NFData IntArrayOptions where
 
 instance ToQuery IntArrayOptions where
         toQuery IntArrayOptions'{..}
@@ -1213,13 +1228,14 @@ instance ToQuery IntArrayOptions where
 --
 -- /See:/ 'intOptions' smart constructor.
 data IntOptions = IntOptions'
-    { _ioSourceField   :: !(Maybe Text)
-    , _ioReturnEnabled :: !(Maybe Bool)
-    , _ioFacetEnabled  :: !(Maybe Bool)
-    , _ioSearchEnabled :: !(Maybe Bool)
-    , _ioSortEnabled   :: !(Maybe Bool)
-    , _ioDefaultValue  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ioSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ioReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ioFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ioSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ioSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ioDefaultValue  :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IntOptions' with the minimum fields required to make a request.
 --
@@ -1239,14 +1255,15 @@ data IntOptions = IntOptions'
 intOptions
     :: IntOptions
 intOptions =
-    IntOptions'
-    { _ioSourceField = Nothing
-    , _ioReturnEnabled = Nothing
-    , _ioFacetEnabled = Nothing
-    , _ioSearchEnabled = Nothing
-    , _ioSortEnabled = Nothing
-    , _ioDefaultValue = Nothing
-    }
+  IntOptions'
+  { _ioSourceField = Nothing
+  , _ioReturnEnabled = Nothing
+  , _ioFacetEnabled = Nothing
+  , _ioSearchEnabled = Nothing
+  , _ioSortEnabled = Nothing
+  , _ioDefaultValue = Nothing
+  }
+
 
 -- | The name of the source field to map to the field.
 ioSourceField :: Lens' IntOptions (Maybe Text)
@@ -1281,9 +1298,9 @@ instance FromXML IntOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable IntOptions
+instance Hashable IntOptions where
 
-instance NFData IntOptions
+instance NFData IntOptions where
 
 instance ToQuery IntOptions where
         toQuery IntOptions'{..}
@@ -1301,13 +1318,14 @@ instance ToQuery IntOptions where
 --
 -- /See:/ 'latLonOptions' smart constructor.
 data LatLonOptions = LatLonOptions'
-    { _lloSourceField   :: !(Maybe Text)
-    , _lloReturnEnabled :: !(Maybe Bool)
-    , _lloFacetEnabled  :: !(Maybe Bool)
-    , _lloSearchEnabled :: !(Maybe Bool)
-    , _lloSortEnabled   :: !(Maybe Bool)
-    , _lloDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lloSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lloReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lloFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lloSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lloSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lloDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LatLonOptions' with the minimum fields required to make a request.
 --
@@ -1327,14 +1345,15 @@ data LatLonOptions = LatLonOptions'
 latLonOptions
     :: LatLonOptions
 latLonOptions =
-    LatLonOptions'
-    { _lloSourceField = Nothing
-    , _lloReturnEnabled = Nothing
-    , _lloFacetEnabled = Nothing
-    , _lloSearchEnabled = Nothing
-    , _lloSortEnabled = Nothing
-    , _lloDefaultValue = Nothing
-    }
+  LatLonOptions'
+  { _lloSourceField = Nothing
+  , _lloReturnEnabled = Nothing
+  , _lloFacetEnabled = Nothing
+  , _lloSearchEnabled = Nothing
+  , _lloSortEnabled = Nothing
+  , _lloDefaultValue = Nothing
+  }
+
 
 -- | Undocumented member.
 lloSourceField :: Lens' LatLonOptions (Maybe Text)
@@ -1369,9 +1388,9 @@ instance FromXML LatLonOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable LatLonOptions
+instance Hashable LatLonOptions where
 
-instance NFData LatLonOptions
+instance NFData LatLonOptions where
 
 instance ToQuery LatLonOptions where
         toQuery LatLonOptions'{..}
@@ -1385,9 +1404,10 @@ instance ToQuery LatLonOptions where
 
 -- | /See:/ 'limits' smart constructor.
 data Limits = Limits'
-    { _lMaximumReplicationCount :: !Nat
-    , _lMaximumPartitionCount   :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lMaximumReplicationCount :: {-# NOUNPACK #-}!Nat
+  , _lMaximumPartitionCount   :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Limits' with the minimum fields required to make a request.
 --
@@ -1401,10 +1421,11 @@ limits
     -> Natural -- ^ 'lMaximumPartitionCount'
     -> Limits
 limits pMaximumReplicationCount_ pMaximumPartitionCount_ =
-    Limits'
-    { _lMaximumReplicationCount = _Nat # pMaximumReplicationCount_
-    , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount_
-    }
+  Limits'
+  { _lMaximumReplicationCount = _Nat # pMaximumReplicationCount_
+  , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount_
+  }
+
 
 -- | Undocumented member.
 lMaximumReplicationCount :: Lens' Limits Natural
@@ -1420,9 +1441,9 @@ instance FromXML Limits where
               (x .@ "MaximumReplicationCount") <*>
                 (x .@ "MaximumPartitionCount")
 
-instance Hashable Limits
+instance Hashable Limits where
 
-instance NFData Limits
+instance NFData Limits where
 
 -- | Options for a field that contains an array of literal strings. Present if @IndexFieldType@ specifies the field is of type @literal-array@ . All options are enabled by default.
 --
@@ -1430,12 +1451,13 @@ instance NFData Limits
 --
 -- /See:/ 'literalArrayOptions' smart constructor.
 data LiteralArrayOptions = LiteralArrayOptions'
-    { _laoSourceFields  :: !(Maybe Text)
-    , _laoReturnEnabled :: !(Maybe Bool)
-    , _laoFacetEnabled  :: !(Maybe Bool)
-    , _laoSearchEnabled :: !(Maybe Bool)
-    , _laoDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _laoSourceFields  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _laoReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _laoFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _laoSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _laoDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LiteralArrayOptions' with the minimum fields required to make a request.
 --
@@ -1453,13 +1475,14 @@ data LiteralArrayOptions = LiteralArrayOptions'
 literalArrayOptions
     :: LiteralArrayOptions
 literalArrayOptions =
-    LiteralArrayOptions'
-    { _laoSourceFields = Nothing
-    , _laoReturnEnabled = Nothing
-    , _laoFacetEnabled = Nothing
-    , _laoSearchEnabled = Nothing
-    , _laoDefaultValue = Nothing
-    }
+  LiteralArrayOptions'
+  { _laoSourceFields = Nothing
+  , _laoReturnEnabled = Nothing
+  , _laoFacetEnabled = Nothing
+  , _laoSearchEnabled = Nothing
+  , _laoDefaultValue = Nothing
+  }
+
 
 -- | A list of source fields to map to the field.
 laoSourceFields :: Lens' LiteralArrayOptions (Maybe Text)
@@ -1489,9 +1512,9 @@ instance FromXML LiteralArrayOptions where
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable LiteralArrayOptions
+instance Hashable LiteralArrayOptions where
 
-instance NFData LiteralArrayOptions
+instance NFData LiteralArrayOptions where
 
 instance ToQuery LiteralArrayOptions where
         toQuery LiteralArrayOptions'{..}
@@ -1508,13 +1531,14 @@ instance ToQuery LiteralArrayOptions where
 --
 -- /See:/ 'literalOptions' smart constructor.
 data LiteralOptions = LiteralOptions'
-    { _loSourceField   :: !(Maybe Text)
-    , _loReturnEnabled :: !(Maybe Bool)
-    , _loFacetEnabled  :: !(Maybe Bool)
-    , _loSearchEnabled :: !(Maybe Bool)
-    , _loSortEnabled   :: !(Maybe Bool)
-    , _loDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _loSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _loReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _loFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _loSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _loSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _loDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LiteralOptions' with the minimum fields required to make a request.
 --
@@ -1534,14 +1558,15 @@ data LiteralOptions = LiteralOptions'
 literalOptions
     :: LiteralOptions
 literalOptions =
-    LiteralOptions'
-    { _loSourceField = Nothing
-    , _loReturnEnabled = Nothing
-    , _loFacetEnabled = Nothing
-    , _loSearchEnabled = Nothing
-    , _loSortEnabled = Nothing
-    , _loDefaultValue = Nothing
-    }
+  LiteralOptions'
+  { _loSourceField = Nothing
+  , _loReturnEnabled = Nothing
+  , _loFacetEnabled = Nothing
+  , _loSearchEnabled = Nothing
+  , _loSortEnabled = Nothing
+  , _loDefaultValue = Nothing
+  }
+
 
 -- | Undocumented member.
 loSourceField :: Lens' LiteralOptions (Maybe Text)
@@ -1576,9 +1601,9 @@ instance FromXML LiteralOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable LiteralOptions
+instance Hashable LiteralOptions where
 
-instance NFData LiteralOptions
+instance NFData LiteralOptions where
 
 instance ToQuery LiteralOptions where
         toQuery LiteralOptions'{..}
@@ -1596,12 +1621,13 @@ instance ToQuery LiteralOptions where
 --
 -- /See:/ 'optionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-    { _osPendingDeletion :: !(Maybe Bool)
-    , _osUpdateVersion   :: !(Maybe Nat)
-    , _osCreationDate    :: !ISO8601
-    , _osUpdateDate      :: !ISO8601
-    , _osState           :: !OptionState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _osPendingDeletion :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _osUpdateVersion   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _osCreationDate    :: {-# NOUNPACK #-}!ISO8601
+  , _osUpdateDate      :: {-# NOUNPACK #-}!ISO8601
+  , _osState           :: {-# NOUNPACK #-}!OptionState
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionStatus' with the minimum fields required to make a request.
 --
@@ -1622,13 +1648,14 @@ optionStatus
     -> OptionState -- ^ 'osState'
     -> OptionStatus
 optionStatus pCreationDate_ pUpdateDate_ pState_ =
-    OptionStatus'
-    { _osPendingDeletion = Nothing
-    , _osUpdateVersion = Nothing
-    , _osCreationDate = _Time # pCreationDate_
-    , _osUpdateDate = _Time # pUpdateDate_
-    , _osState = pState_
-    }
+  OptionStatus'
+  { _osPendingDeletion = Nothing
+  , _osUpdateVersion = Nothing
+  , _osCreationDate = _Time # pCreationDate_
+  , _osUpdateDate = _Time # pUpdateDate_
+  , _osState = pState_
+  }
+
 
 -- | Indicates that the option will be deleted once processing is complete.
 osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
@@ -1658,9 +1685,9 @@ instance FromXML OptionStatus where
                 <*> (x .@ "UpdateDate")
                 <*> (x .@ "State")
 
-instance Hashable OptionStatus
+instance Hashable OptionStatus where
 
-instance NFData OptionStatus
+instance NFData OptionStatus where
 
 -- | The desired instance type and desired number of replicas of each index partition.
 --
@@ -1668,10 +1695,11 @@ instance NFData OptionStatus
 --
 -- /See:/ 'scalingParameters' smart constructor.
 data ScalingParameters = ScalingParameters'
-    { _spDesiredInstanceType     :: !(Maybe PartitionInstanceType)
-    , _spDesiredReplicationCount :: !(Maybe Nat)
-    , _spDesiredPartitionCount   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spDesiredInstanceType     :: {-# NOUNPACK #-}!(Maybe PartitionInstanceType)
+  , _spDesiredReplicationCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _spDesiredPartitionCount   :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingParameters' with the minimum fields required to make a request.
 --
@@ -1685,11 +1713,12 @@ data ScalingParameters = ScalingParameters'
 scalingParameters
     :: ScalingParameters
 scalingParameters =
-    ScalingParameters'
-    { _spDesiredInstanceType = Nothing
-    , _spDesiredReplicationCount = Nothing
-    , _spDesiredPartitionCount = Nothing
-    }
+  ScalingParameters'
+  { _spDesiredInstanceType = Nothing
+  , _spDesiredReplicationCount = Nothing
+  , _spDesiredPartitionCount = Nothing
+  }
+
 
 -- | The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
 spDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
@@ -1710,9 +1739,9 @@ instance FromXML ScalingParameters where
                 (x .@? "DesiredReplicationCount")
                 <*> (x .@? "DesiredPartitionCount")
 
-instance Hashable ScalingParameters
+instance Hashable ScalingParameters where
 
-instance NFData ScalingParameters
+instance NFData ScalingParameters where
 
 instance ToQuery ScalingParameters where
         toQuery ScalingParameters'{..}
@@ -1728,9 +1757,10 @@ instance ToQuery ScalingParameters where
 --
 -- /See:/ 'scalingParametersStatus' smart constructor.
 data ScalingParametersStatus = ScalingParametersStatus'
-    { _spsOptions :: !ScalingParameters
-    , _spsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _spsOptions :: {-# NOUNPACK #-}!ScalingParameters
+  , _spsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ScalingParametersStatus' with the minimum fields required to make a request.
 --
@@ -1744,10 +1774,8 @@ scalingParametersStatus
     -> OptionStatus -- ^ 'spsStatus'
     -> ScalingParametersStatus
 scalingParametersStatus pOptions_ pStatus_ =
-    ScalingParametersStatus'
-    { _spsOptions = pOptions_
-    , _spsStatus = pStatus_
-    }
+  ScalingParametersStatus' {_spsOptions = pOptions_, _spsStatus = pStatus_}
+
 
 -- | Undocumented member.
 spsOptions :: Lens' ScalingParametersStatus ScalingParameters
@@ -1762,9 +1790,9 @@ instance FromXML ScalingParametersStatus where
           = ScalingParametersStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
-instance Hashable ScalingParametersStatus
+instance Hashable ScalingParametersStatus where
 
-instance NFData ScalingParametersStatus
+instance NFData ScalingParametersStatus where
 
 -- | The endpoint to which service requests can be submitted.
 --
@@ -1772,8 +1800,9 @@ instance NFData ScalingParametersStatus
 --
 -- /See:/ 'serviceEndpoint' smart constructor.
 newtype ServiceEndpoint = ServiceEndpoint'
-    { _seEndpoint :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _seEndpoint :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ServiceEndpoint' with the minimum fields required to make a request.
 --
@@ -1782,10 +1811,8 @@ newtype ServiceEndpoint = ServiceEndpoint'
 -- * 'seEndpoint' - Undocumented member.
 serviceEndpoint
     :: ServiceEndpoint
-serviceEndpoint =
-    ServiceEndpoint'
-    { _seEndpoint = Nothing
-    }
+serviceEndpoint = ServiceEndpoint' {_seEndpoint = Nothing}
+
 
 -- | Undocumented member.
 seEndpoint :: Lens' ServiceEndpoint (Maybe Text)
@@ -1794,9 +1821,9 @@ seEndpoint = lens _seEndpoint (\ s a -> s{_seEndpoint = a});
 instance FromXML ServiceEndpoint where
         parseXML x = ServiceEndpoint' <$> (x .@? "Endpoint")
 
-instance Hashable ServiceEndpoint
+instance Hashable ServiceEndpoint where
 
-instance NFData ServiceEndpoint
+instance NFData ServiceEndpoint where
 
 -- | Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: @FuzzyMatching@ , @SortExpression@ .
 --
@@ -1804,9 +1831,10 @@ instance NFData ServiceEndpoint
 --
 -- /See:/ 'suggester' smart constructor.
 data Suggester = Suggester'
-    { _sSuggesterName            :: !Text
-    , _sDocumentSuggesterOptions :: !DocumentSuggesterOptions
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSuggesterName            :: {-# NOUNPACK #-}!Text
+  , _sDocumentSuggesterOptions :: {-# NOUNPACK #-}!DocumentSuggesterOptions
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Suggester' with the minimum fields required to make a request.
 --
@@ -1820,10 +1848,11 @@ suggester
     -> DocumentSuggesterOptions -- ^ 'sDocumentSuggesterOptions'
     -> Suggester
 suggester pSuggesterName_ pDocumentSuggesterOptions_ =
-    Suggester'
-    { _sSuggesterName = pSuggesterName_
-    , _sDocumentSuggesterOptions = pDocumentSuggesterOptions_
-    }
+  Suggester'
+  { _sSuggesterName = pSuggesterName_
+  , _sDocumentSuggesterOptions = pDocumentSuggesterOptions_
+  }
+
 
 -- | Undocumented member.
 sSuggesterName :: Lens' Suggester Text
@@ -1839,9 +1868,9 @@ instance FromXML Suggester where
               (x .@ "SuggesterName") <*>
                 (x .@ "DocumentSuggesterOptions")
 
-instance Hashable Suggester
+instance Hashable Suggester where
 
-instance NFData Suggester
+instance NFData Suggester where
 
 instance ToQuery Suggester where
         toQuery Suggester'{..}
@@ -1856,9 +1885,10 @@ instance ToQuery Suggester where
 --
 -- /See:/ 'suggesterStatus' smart constructor.
 data SuggesterStatus = SuggesterStatus'
-    { _ssOptions :: !Suggester
-    , _ssStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ssOptions :: {-# NOUNPACK #-}!Suggester
+  , _ssStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SuggesterStatus' with the minimum fields required to make a request.
 --
@@ -1872,10 +1902,8 @@ suggesterStatus
     -> OptionStatus -- ^ 'ssStatus'
     -> SuggesterStatus
 suggesterStatus pOptions_ pStatus_ =
-    SuggesterStatus'
-    { _ssOptions = pOptions_
-    , _ssStatus = pStatus_
-    }
+  SuggesterStatus' {_ssOptions = pOptions_, _ssStatus = pStatus_}
+
 
 -- | Undocumented member.
 ssOptions :: Lens' SuggesterStatus Suggester
@@ -1890,9 +1918,9 @@ instance FromXML SuggesterStatus where
           = SuggesterStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
-instance Hashable SuggesterStatus
+instance Hashable SuggesterStatus where
 
-instance NFData SuggesterStatus
+instance NFData SuggesterStatus where
 
 -- | Options for a field that contains an array of text strings. Present if @IndexFieldType@ specifies the field is of type @text-array@ . A @text-array@ field is always searchable. All options are enabled by default.
 --
@@ -1900,12 +1928,13 @@ instance NFData SuggesterStatus
 --
 -- /See:/ 'textArrayOptions' smart constructor.
 data TextArrayOptions = TextArrayOptions'
-    { _taoSourceFields     :: !(Maybe Text)
-    , _taoReturnEnabled    :: !(Maybe Bool)
-    , _taoAnalysisScheme   :: !(Maybe Text)
-    , _taoHighlightEnabled :: !(Maybe Bool)
-    , _taoDefaultValue     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _taoSourceFields     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _taoReturnEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _taoAnalysisScheme   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _taoHighlightEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _taoDefaultValue     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TextArrayOptions' with the minimum fields required to make a request.
 --
@@ -1923,13 +1952,14 @@ data TextArrayOptions = TextArrayOptions'
 textArrayOptions
     :: TextArrayOptions
 textArrayOptions =
-    TextArrayOptions'
-    { _taoSourceFields = Nothing
-    , _taoReturnEnabled = Nothing
-    , _taoAnalysisScheme = Nothing
-    , _taoHighlightEnabled = Nothing
-    , _taoDefaultValue = Nothing
-    }
+  TextArrayOptions'
+  { _taoSourceFields = Nothing
+  , _taoReturnEnabled = Nothing
+  , _taoAnalysisScheme = Nothing
+  , _taoHighlightEnabled = Nothing
+  , _taoDefaultValue = Nothing
+  }
+
 
 -- | A list of source fields to map to the field.
 taoSourceFields :: Lens' TextArrayOptions (Maybe Text)
@@ -1959,9 +1989,9 @@ instance FromXML TextArrayOptions where
                 <*> (x .@? "HighlightEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable TextArrayOptions
+instance Hashable TextArrayOptions where
 
-instance NFData TextArrayOptions
+instance NFData TextArrayOptions where
 
 instance ToQuery TextArrayOptions where
         toQuery TextArrayOptions'{..}
@@ -1978,13 +2008,14 @@ instance ToQuery TextArrayOptions where
 --
 -- /See:/ 'textOptions' smart constructor.
 data TextOptions = TextOptions'
-    { _toSourceField      :: !(Maybe Text)
-    , _toReturnEnabled    :: !(Maybe Bool)
-    , _toAnalysisScheme   :: !(Maybe Text)
-    , _toHighlightEnabled :: !(Maybe Bool)
-    , _toSortEnabled      :: !(Maybe Bool)
-    , _toDefaultValue     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _toSourceField      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _toReturnEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _toAnalysisScheme   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _toHighlightEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _toSortEnabled      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _toDefaultValue     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TextOptions' with the minimum fields required to make a request.
 --
@@ -2004,14 +2035,15 @@ data TextOptions = TextOptions'
 textOptions
     :: TextOptions
 textOptions =
-    TextOptions'
-    { _toSourceField = Nothing
-    , _toReturnEnabled = Nothing
-    , _toAnalysisScheme = Nothing
-    , _toHighlightEnabled = Nothing
-    , _toSortEnabled = Nothing
-    , _toDefaultValue = Nothing
-    }
+  TextOptions'
+  { _toSourceField = Nothing
+  , _toReturnEnabled = Nothing
+  , _toAnalysisScheme = Nothing
+  , _toHighlightEnabled = Nothing
+  , _toSortEnabled = Nothing
+  , _toDefaultValue = Nothing
+  }
+
 
 -- | Undocumented member.
 toSourceField :: Lens' TextOptions (Maybe Text)
@@ -2046,9 +2078,9 @@ instance FromXML TextOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
-instance Hashable TextOptions
+instance Hashable TextOptions where
 
-instance NFData TextOptions
+instance NFData TextOptions where
 
 instance ToQuery TextOptions where
         toQuery TextOptions'{..}

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteStreamingDistribution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     , DeleteStreamingDistributionResponse
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The request to delete a streaming distribution.
 --
@@ -70,9 +70,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteStreamingDistribution' smart constructor.
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
-    { _dsdIfMatch :: !(Maybe Text)
-    , _dsdId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsdIfMatch :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsdId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStreamingDistribution' with the minimum fields required to make a request.
 --
@@ -85,10 +86,8 @@ deleteStreamingDistribution
     :: Text -- ^ 'dsdId'
     -> DeleteStreamingDistribution
 deleteStreamingDistribution pId_ =
-    DeleteStreamingDistribution'
-    { _dsdIfMatch = Nothing
-    , _dsdId = pId_
-    }
+  DeleteStreamingDistribution' {_dsdIfMatch = Nothing, _dsdId = pId_}
+
 
 -- | The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
 dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
@@ -105,9 +104,9 @@ instance AWSRequest DeleteStreamingDistribution where
         response
           = receiveNull DeleteStreamingDistributionResponse'
 
-instance Hashable DeleteStreamingDistribution
+instance Hashable DeleteStreamingDistribution where
 
-instance NFData DeleteStreamingDistribution
+instance NFData DeleteStreamingDistribution where
 
 instance ToHeaders DeleteStreamingDistribution where
         toHeaders DeleteStreamingDistribution'{..}
@@ -123,8 +122,9 @@ instance ToQuery DeleteStreamingDistribution where
 
 -- | /See:/ 'deleteStreamingDistributionResponse' smart constructor.
 data DeleteStreamingDistributionResponse =
-    DeleteStreamingDistributionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteStreamingDistributionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteStreamingDistributionResponse' with the minimum fields required to make a request.
 --
@@ -132,4 +132,6 @@ deleteStreamingDistributionResponse
     :: DeleteStreamingDistributionResponse
 deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse'
 
+
 instance NFData DeleteStreamingDistributionResponse
+         where

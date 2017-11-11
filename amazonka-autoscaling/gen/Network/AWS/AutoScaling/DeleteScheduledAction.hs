@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteScheduledAction
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     , DeleteScheduledActionResponse
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteScheduledAction.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
-    { _dsaAutoScalingGroupName :: !Text
-    , _dsaScheduledActionName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsaAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _dsaScheduledActionName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteScheduledAction' with the minimum fields required to make a request.
 --
@@ -64,10 +65,11 @@ deleteScheduledAction
     -> Text -- ^ 'dsaScheduledActionName'
     -> DeleteScheduledAction
 deleteScheduledAction pAutoScalingGroupName_ pScheduledActionName_ =
-    DeleteScheduledAction'
-    { _dsaAutoScalingGroupName = pAutoScalingGroupName_
-    , _dsaScheduledActionName = pScheduledActionName_
-    }
+  DeleteScheduledAction'
+  { _dsaAutoScalingGroupName = pAutoScalingGroupName_
+  , _dsaScheduledActionName = pScheduledActionName_
+  }
+
 
 -- | The name of the Auto Scaling group.
 dsaAutoScalingGroupName :: Lens' DeleteScheduledAction Text
@@ -83,9 +85,9 @@ instance AWSRequest DeleteScheduledAction where
         request = postQuery autoScaling
         response = receiveNull DeleteScheduledActionResponse'
 
-instance Hashable DeleteScheduledAction
+instance Hashable DeleteScheduledAction where
 
-instance NFData DeleteScheduledAction
+instance NFData DeleteScheduledAction where
 
 instance ToHeaders DeleteScheduledAction where
         toHeaders = const mempty
@@ -103,8 +105,9 @@ instance ToQuery DeleteScheduledAction where
 
 -- | /See:/ 'deleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse =
-    DeleteScheduledActionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteScheduledActionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteScheduledActionResponse' with the minimum fields required to make a request.
 --
@@ -112,4 +115,5 @@ deleteScheduledActionResponse
     :: DeleteScheduledActionResponse
 deleteScheduledActionResponse = DeleteScheduledActionResponse'
 
-instance NFData DeleteScheduledActionResponse
+
+instance NFData DeleteScheduledActionResponse where

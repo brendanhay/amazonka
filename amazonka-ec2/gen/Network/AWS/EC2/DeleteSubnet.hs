@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSubnet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.DeleteSubnet
     , DeleteSubnetResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteSubnet.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteSubnet' smart constructor.
 data DeleteSubnet = DeleteSubnet'
-    { _ddDryRun   :: !(Maybe Bool)
-    , _ddSubnetId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ddSubnetId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubnet' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ deleteSubnet
     :: Text -- ^ 'ddSubnetId'
     -> DeleteSubnet
 deleteSubnet pSubnetId_ =
-    DeleteSubnet'
-    { _ddDryRun = Nothing
-    , _ddSubnetId = pSubnetId_
-    }
+  DeleteSubnet' {_ddDryRun = Nothing, _ddSubnetId = pSubnetId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ddDryRun :: Lens' DeleteSubnet (Maybe Bool)
@@ -81,9 +80,9 @@ instance AWSRequest DeleteSubnet where
         request = postQuery ec2
         response = receiveNull DeleteSubnetResponse'
 
-instance Hashable DeleteSubnet
+instance Hashable DeleteSubnet where
 
-instance NFData DeleteSubnet
+instance NFData DeleteSubnet where
 
 instance ToHeaders DeleteSubnet where
         toHeaders = const mempty
@@ -100,8 +99,9 @@ instance ToQuery DeleteSubnet where
 
 -- | /See:/ 'deleteSubnetResponse' smart constructor.
 data DeleteSubnetResponse =
-    DeleteSubnetResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSubnetResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubnetResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +109,5 @@ deleteSubnetResponse
     :: DeleteSubnetResponse
 deleteSubnetResponse = DeleteSubnetResponse'
 
-instance NFData DeleteSubnetResponse
+
+instance NFData DeleteSubnetResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteDevEndpoint
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.Glue.DeleteDevEndpoint
     , ddersResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteDevEndpoint' smart constructor.
 newtype DeleteDevEndpoint = DeleteDevEndpoint'
-    { _ddeEndpointName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddeEndpointName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDevEndpoint' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deleteDevEndpoint
     :: Text -- ^ 'ddeEndpointName'
     -> DeleteDevEndpoint
 deleteDevEndpoint pEndpointName_ =
-    DeleteDevEndpoint'
-    { _ddeEndpointName = pEndpointName_
-    }
+  DeleteDevEndpoint' {_ddeEndpointName = pEndpointName_}
+
 
 -- | The name of the DevEndpoint.
 ddeEndpointName :: Lens' DeleteDevEndpoint Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteDevEndpoint where
               (\ s h x ->
                  DeleteDevEndpointResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteDevEndpoint
+instance Hashable DeleteDevEndpoint where
 
-instance NFData DeleteDevEndpoint
+instance NFData DeleteDevEndpoint where
 
 instance ToHeaders DeleteDevEndpoint where
         toHeaders
@@ -100,8 +100,9 @@ instance ToQuery DeleteDevEndpoint where
 
 -- | /See:/ 'deleteDevEndpointResponse' smart constructor.
 newtype DeleteDevEndpointResponse = DeleteDevEndpointResponse'
-    { _ddersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDevEndpointResponse' with the minimum fields required to make a request.
 --
@@ -112,12 +113,11 @@ deleteDevEndpointResponse
     :: Int -- ^ 'ddersResponseStatus'
     -> DeleteDevEndpointResponse
 deleteDevEndpointResponse pResponseStatus_ =
-    DeleteDevEndpointResponse'
-    { _ddersResponseStatus = pResponseStatus_
-    }
+  DeleteDevEndpointResponse' {_ddersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ddersResponseStatus :: Lens' DeleteDevEndpointResponse Int
 ddersResponseStatus = lens _ddersResponseStatus (\ s a -> s{_ddersResponseStatus = a});
 
-instance NFData DeleteDevEndpointResponse
+instance NFData DeleteDevEndpointResponse where

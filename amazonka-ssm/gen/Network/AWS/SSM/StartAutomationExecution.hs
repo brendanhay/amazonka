@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.StartAutomationExecution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,19 +39,20 @@ module Network.AWS.SSM.StartAutomationExecution
     , srsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'startAutomationExecution' smart constructor.
 data StartAutomationExecution = StartAutomationExecution'
-    { _saeParameters      :: !(Maybe (Map Text [Text]))
-    , _saeDocumentVersion :: !(Maybe Text)
-    , _saeDocumentName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _saeParameters      :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _saeDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _saeDocumentName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartAutomationExecution' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ startAutomationExecution
     :: Text -- ^ 'saeDocumentName'
     -> StartAutomationExecution
 startAutomationExecution pDocumentName_ =
-    StartAutomationExecution'
-    { _saeParameters = Nothing
-    , _saeDocumentVersion = Nothing
-    , _saeDocumentName = pDocumentName_
-    }
+  StartAutomationExecution'
+  { _saeParameters = Nothing
+  , _saeDocumentVersion = Nothing
+  , _saeDocumentName = pDocumentName_
+  }
+
 
 -- | A key-value map of execution parameters, which match the declared parameters in the Automation document.
 saeParameters :: Lens' StartAutomationExecution (HashMap Text [Text])
@@ -95,9 +97,9 @@ instance AWSRequest StartAutomationExecution where
                    (x .?> "AutomationExecutionId") <*>
                      (pure (fromEnum s)))
 
-instance Hashable StartAutomationExecution
+instance Hashable StartAutomationExecution where
 
-instance NFData StartAutomationExecution
+instance NFData StartAutomationExecution where
 
 instance ToHeaders StartAutomationExecution where
         toHeaders
@@ -124,9 +126,10 @@ instance ToQuery StartAutomationExecution where
 
 -- | /See:/ 'startAutomationExecutionResponse' smart constructor.
 data StartAutomationExecutionResponse = StartAutomationExecutionResponse'
-    { _srsAutomationExecutionId :: !(Maybe Text)
-    , _srsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srsAutomationExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srsResponseStatus        :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StartAutomationExecutionResponse' with the minimum fields required to make a request.
 --
@@ -139,10 +142,9 @@ startAutomationExecutionResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StartAutomationExecutionResponse
 startAutomationExecutionResponse pResponseStatus_ =
-    StartAutomationExecutionResponse'
-    { _srsAutomationExecutionId = Nothing
-    , _srsResponseStatus = pResponseStatus_
-    }
+  StartAutomationExecutionResponse'
+  {_srsAutomationExecutionId = Nothing, _srsResponseStatus = pResponseStatus_}
+
 
 -- | The unique ID of a newly scheduled automation execution.
 srsAutomationExecutionId :: Lens' StartAutomationExecutionResponse (Maybe Text)
@@ -153,3 +155,4 @@ srsResponseStatus :: Lens' StartAutomationExecutionResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 
 instance NFData StartAutomationExecutionResponse
+         where

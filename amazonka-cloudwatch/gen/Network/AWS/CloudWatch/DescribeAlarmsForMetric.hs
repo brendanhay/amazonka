@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmsForMetric
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,23 +43,24 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , dafmrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeAlarmsForMetric' smart constructor.
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
-    { _dafmPeriod            :: !(Maybe Nat)
-    , _dafmDimensions        :: !(Maybe [Dimension])
-    , _dafmUnit              :: !(Maybe StandardUnit)
-    , _dafmStatistic         :: !(Maybe Statistic)
-    , _dafmExtendedStatistic :: !(Maybe Text)
-    , _dafmMetricName        :: !Text
-    , _dafmNamespace         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dafmPeriod            :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dafmDimensions        :: {-# NOUNPACK #-}!(Maybe [Dimension])
+  , _dafmUnit              :: {-# NOUNPACK #-}!(Maybe StandardUnit)
+  , _dafmStatistic         :: {-# NOUNPACK #-}!(Maybe Statistic)
+  , _dafmExtendedStatistic :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dafmMetricName        :: {-# NOUNPACK #-}!Text
+  , _dafmNamespace         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAlarmsForMetric' with the minimum fields required to make a request.
 --
@@ -83,15 +84,16 @@ describeAlarmsForMetric
     -> Text -- ^ 'dafmNamespace'
     -> DescribeAlarmsForMetric
 describeAlarmsForMetric pMetricName_ pNamespace_ =
-    DescribeAlarmsForMetric'
-    { _dafmPeriod = Nothing
-    , _dafmDimensions = Nothing
-    , _dafmUnit = Nothing
-    , _dafmStatistic = Nothing
-    , _dafmExtendedStatistic = Nothing
-    , _dafmMetricName = pMetricName_
-    , _dafmNamespace = pNamespace_
-    }
+  DescribeAlarmsForMetric'
+  { _dafmPeriod = Nothing
+  , _dafmDimensions = Nothing
+  , _dafmUnit = Nothing
+  , _dafmStatistic = Nothing
+  , _dafmExtendedStatistic = Nothing
+  , _dafmMetricName = pMetricName_
+  , _dafmNamespace = pNamespace_
+  }
+
 
 -- | The period, in seconds, over which the statistic is applied.
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
@@ -133,9 +135,9 @@ instance AWSRequest DescribeAlarmsForMetric where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAlarmsForMetric
+instance Hashable DescribeAlarmsForMetric where
 
-instance NFData DescribeAlarmsForMetric
+instance NFData DescribeAlarmsForMetric where
 
 instance ToHeaders DescribeAlarmsForMetric where
         toHeaders = const mempty
@@ -159,9 +161,10 @@ instance ToQuery DescribeAlarmsForMetric where
 
 -- | /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
-    { _dafmrsMetricAlarms   :: !(Maybe [MetricAlarm])
-    , _dafmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dafmrsMetricAlarms   :: {-# NOUNPACK #-}!(Maybe [MetricAlarm])
+  , _dafmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAlarmsForMetricResponse' with the minimum fields required to make a request.
 --
@@ -174,10 +177,9 @@ describeAlarmsForMetricResponse
     :: Int -- ^ 'dafmrsResponseStatus'
     -> DescribeAlarmsForMetricResponse
 describeAlarmsForMetricResponse pResponseStatus_ =
-    DescribeAlarmsForMetricResponse'
-    { _dafmrsMetricAlarms = Nothing
-    , _dafmrsResponseStatus = pResponseStatus_
-    }
+  DescribeAlarmsForMetricResponse'
+  {_dafmrsMetricAlarms = Nothing, _dafmrsResponseStatus = pResponseStatus_}
+
 
 -- | The information for each alarm with the specified metric.
 dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
@@ -187,4 +189,4 @@ dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = 
 dafmrsResponseStatus :: Lens' DescribeAlarmsForMetricResponse Int
 dafmrsResponseStatus = lens _dafmrsResponseStatus (\ s a -> s{_dafmrsResponseStatus = a});
 
-instance NFData DescribeAlarmsForMetricResponse
+instance NFData DescribeAlarmsForMetricResponse where

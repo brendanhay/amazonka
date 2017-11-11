@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodeDeploy.Types.Product where
 
-import           Network.AWS.CodeDeploy.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CodeDeploy.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Information about an alarm.
 --
@@ -27,8 +27,9 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'alarm' smart constructor.
 newtype Alarm = Alarm'
-    { _aName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Alarm' with the minimum fields required to make a request.
 --
@@ -37,10 +38,8 @@ newtype Alarm = Alarm'
 -- * 'aName' - The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
 alarm
     :: Alarm
-alarm =
-    Alarm'
-    { _aName = Nothing
-    }
+alarm = Alarm' {_aName = Nothing}
+
 
 -- | The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
 aName :: Lens' Alarm (Maybe Text)
@@ -51,9 +50,9 @@ instance FromJSON Alarm where
           = withObject "Alarm"
               (\ x -> Alarm' <$> (x .:? "name"))
 
-instance Hashable Alarm
+instance Hashable Alarm where
 
-instance NFData Alarm
+instance NFData Alarm where
 
 instance ToJSON Alarm where
         toJSON Alarm'{..}
@@ -65,10 +64,11 @@ instance ToJSON Alarm where
 --
 -- /See:/ 'alarmConfiguration' smart constructor.
 data AlarmConfiguration = AlarmConfiguration'
-    { _acIgnorePollAlarmFailure :: !(Maybe Bool)
-    , _acEnabled                :: !(Maybe Bool)
-    , _acAlarms                 :: !(Maybe [Alarm])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acIgnorePollAlarmFailure :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acEnabled                :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acAlarms                 :: {-# NOUNPACK #-}!(Maybe [Alarm])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AlarmConfiguration' with the minimum fields required to make a request.
 --
@@ -82,11 +82,12 @@ data AlarmConfiguration = AlarmConfiguration'
 alarmConfiguration
     :: AlarmConfiguration
 alarmConfiguration =
-    AlarmConfiguration'
-    { _acIgnorePollAlarmFailure = Nothing
-    , _acEnabled = Nothing
-    , _acAlarms = Nothing
-    }
+  AlarmConfiguration'
+  { _acIgnorePollAlarmFailure = Nothing
+  , _acEnabled = Nothing
+  , _acAlarms = Nothing
+  }
+
 
 -- | Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.     * true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch.     * false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch.
 acIgnorePollAlarmFailure :: Lens' AlarmConfiguration (Maybe Bool)
@@ -109,9 +110,9 @@ instance FromJSON AlarmConfiguration where
                      (x .:? "enabled")
                      <*> (x .:? "alarms" .!= mempty))
 
-instance Hashable AlarmConfiguration
+instance Hashable AlarmConfiguration where
 
-instance NFData AlarmConfiguration
+instance NFData AlarmConfiguration where
 
 instance ToJSON AlarmConfiguration where
         toJSON AlarmConfiguration'{..}
@@ -128,12 +129,13 @@ instance ToJSON AlarmConfiguration where
 --
 -- /See:/ 'applicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
-    { _aiLinkedToGitHub    :: !(Maybe Bool)
-    , _aiApplicationId     :: !(Maybe Text)
-    , _aiApplicationName   :: !(Maybe Text)
-    , _aiGitHubAccountName :: !(Maybe Text)
-    , _aiCreateTime        :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiLinkedToGitHub    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _aiApplicationId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiApplicationName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiGitHubAccountName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiCreateTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ApplicationInfo' with the minimum fields required to make a request.
 --
@@ -151,13 +153,14 @@ data ApplicationInfo = ApplicationInfo'
 applicationInfo
     :: ApplicationInfo
 applicationInfo =
-    ApplicationInfo'
-    { _aiLinkedToGitHub = Nothing
-    , _aiApplicationId = Nothing
-    , _aiApplicationName = Nothing
-    , _aiGitHubAccountName = Nothing
-    , _aiCreateTime = Nothing
-    }
+  ApplicationInfo'
+  { _aiLinkedToGitHub = Nothing
+  , _aiApplicationId = Nothing
+  , _aiApplicationName = Nothing
+  , _aiGitHubAccountName = Nothing
+  , _aiCreateTime = Nothing
+  }
+
 
 -- | True if the user has authenticated with GitHub for the specified application; otherwise, false.
 aiLinkedToGitHub :: Lens' ApplicationInfo (Maybe Bool)
@@ -189,9 +192,9 @@ instance FromJSON ApplicationInfo where
                      <*> (x .:? "gitHubAccountName")
                      <*> (x .:? "createTime"))
 
-instance Hashable ApplicationInfo
+instance Hashable ApplicationInfo where
 
-instance NFData ApplicationInfo
+instance NFData ApplicationInfo where
 
 -- | Information about a configuration for automatically rolling back to a previous version of an application revision when a deployment doesn't complete successfully.
 --
@@ -199,9 +202,10 @@ instance NFData ApplicationInfo
 --
 -- /See:/ 'autoRollbackConfiguration' smart constructor.
 data AutoRollbackConfiguration = AutoRollbackConfiguration'
-    { _arcEnabled :: !(Maybe Bool)
-    , _arcEvents  :: !(Maybe [AutoRollbackEvent])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _arcEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _arcEvents  :: {-# NOUNPACK #-}!(Maybe [AutoRollbackEvent])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoRollbackConfiguration' with the minimum fields required to make a request.
 --
@@ -213,10 +217,8 @@ data AutoRollbackConfiguration = AutoRollbackConfiguration'
 autoRollbackConfiguration
     :: AutoRollbackConfiguration
 autoRollbackConfiguration =
-    AutoRollbackConfiguration'
-    { _arcEnabled = Nothing
-    , _arcEvents = Nothing
-    }
+  AutoRollbackConfiguration' {_arcEnabled = Nothing, _arcEvents = Nothing}
+
 
 -- | Indicates whether a defined automatic rollback configuration is currently enabled.
 arcEnabled :: Lens' AutoRollbackConfiguration (Maybe Bool)
@@ -233,9 +235,9 @@ instance FromJSON AutoRollbackConfiguration where
                  AutoRollbackConfiguration' <$>
                    (x .:? "enabled") <*> (x .:? "events" .!= mempty))
 
-instance Hashable AutoRollbackConfiguration
+instance Hashable AutoRollbackConfiguration where
 
-instance NFData AutoRollbackConfiguration
+instance NFData AutoRollbackConfiguration where
 
 instance ToJSON AutoRollbackConfiguration where
         toJSON AutoRollbackConfiguration'{..}
@@ -250,9 +252,10 @@ instance ToJSON AutoRollbackConfiguration where
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
-    { _asgHook :: !(Maybe Text)
-    , _asgName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _asgHook :: {-# NOUNPACK #-}!(Maybe Text)
+  , _asgName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
 --
@@ -263,11 +266,8 @@ data AutoScalingGroup = AutoScalingGroup'
 -- * 'asgName' - The Auto Scaling group name.
 autoScalingGroup
     :: AutoScalingGroup
-autoScalingGroup =
-    AutoScalingGroup'
-    { _asgHook = Nothing
-    , _asgName = Nothing
-    }
+autoScalingGroup = AutoScalingGroup' {_asgHook = Nothing, _asgName = Nothing}
+
 
 -- | An Auto Scaling lifecycle event hook name.
 asgHook :: Lens' AutoScalingGroup (Maybe Text)
@@ -284,9 +284,9 @@ instance FromJSON AutoScalingGroup where
                  AutoScalingGroup' <$>
                    (x .:? "hook") <*> (x .:? "name"))
 
-instance Hashable AutoScalingGroup
+instance Hashable AutoScalingGroup where
 
-instance NFData AutoScalingGroup
+instance NFData AutoScalingGroup where
 
 -- | Information about blue/green deployment options for a deployment group.
 --
@@ -294,10 +294,11 @@ instance NFData AutoScalingGroup
 --
 -- /See:/ 'blueGreenDeploymentConfiguration' smart constructor.
 data BlueGreenDeploymentConfiguration = BlueGreenDeploymentConfiguration'
-    { _bgdcDeploymentReadyOption                     :: !(Maybe DeploymentReadyOption)
-    , _bgdcGreenFleetProvisioningOption              :: !(Maybe GreenFleetProvisioningOption)
-    , _bgdcTerminateBlueInstancesOnDeploymentSuccess :: !(Maybe BlueInstanceTerminationOption)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgdcDeploymentReadyOption :: {-# NOUNPACK #-}!(Maybe DeploymentReadyOption)
+  , _bgdcGreenFleetProvisioningOption :: {-# NOUNPACK #-}!(Maybe GreenFleetProvisioningOption)
+  , _bgdcTerminateBlueInstancesOnDeploymentSuccess :: {-# NOUNPACK #-}!(Maybe BlueInstanceTerminationOption)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BlueGreenDeploymentConfiguration' with the minimum fields required to make a request.
 --
@@ -311,11 +312,12 @@ data BlueGreenDeploymentConfiguration = BlueGreenDeploymentConfiguration'
 blueGreenDeploymentConfiguration
     :: BlueGreenDeploymentConfiguration
 blueGreenDeploymentConfiguration =
-    BlueGreenDeploymentConfiguration'
-    { _bgdcDeploymentReadyOption = Nothing
-    , _bgdcGreenFleetProvisioningOption = Nothing
-    , _bgdcTerminateBlueInstancesOnDeploymentSuccess = Nothing
-    }
+  BlueGreenDeploymentConfiguration'
+  { _bgdcDeploymentReadyOption = Nothing
+  , _bgdcGreenFleetProvisioningOption = Nothing
+  , _bgdcTerminateBlueInstancesOnDeploymentSuccess = Nothing
+  }
+
 
 -- | Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
 bgdcDeploymentReadyOption :: Lens' BlueGreenDeploymentConfiguration (Maybe DeploymentReadyOption)
@@ -341,8 +343,10 @@ instance FromJSON BlueGreenDeploymentConfiguration
                      (x .:? "terminateBlueInstancesOnDeploymentSuccess"))
 
 instance Hashable BlueGreenDeploymentConfiguration
+         where
 
 instance NFData BlueGreenDeploymentConfiguration
+         where
 
 instance ToJSON BlueGreenDeploymentConfiguration
          where
@@ -362,9 +366,10 @@ instance ToJSON BlueGreenDeploymentConfiguration
 --
 -- /See:/ 'blueInstanceTerminationOption' smart constructor.
 data BlueInstanceTerminationOption = BlueInstanceTerminationOption'
-    { _bitoAction                       :: !(Maybe InstanceAction)
-    , _bitoTerminationWaitTimeInMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bitoAction                       :: {-# NOUNPACK #-}!(Maybe InstanceAction)
+  , _bitoTerminationWaitTimeInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BlueInstanceTerminationOption' with the minimum fields required to make a request.
 --
@@ -376,10 +381,9 @@ data BlueInstanceTerminationOption = BlueInstanceTerminationOption'
 blueInstanceTerminationOption
     :: BlueInstanceTerminationOption
 blueInstanceTerminationOption =
-    BlueInstanceTerminationOption'
-    { _bitoAction = Nothing
-    , _bitoTerminationWaitTimeInMinutes = Nothing
-    }
+  BlueInstanceTerminationOption'
+  {_bitoAction = Nothing, _bitoTerminationWaitTimeInMinutes = Nothing}
+
 
 -- | The action to take on instances in the original environment after a successful blue/green deployment.     * TERMINATE: Instances are terminated after a specified wait time.     * KEEP_ALIVE: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
 bitoAction :: Lens' BlueInstanceTerminationOption (Maybe InstanceAction)
@@ -397,9 +401,9 @@ instance FromJSON BlueInstanceTerminationOption where
                    (x .:? "action") <*>
                      (x .:? "terminationWaitTimeInMinutes"))
 
-instance Hashable BlueInstanceTerminationOption
+instance Hashable BlueInstanceTerminationOption where
 
-instance NFData BlueInstanceTerminationOption
+instance NFData BlueInstanceTerminationOption where
 
 instance ToJSON BlueInstanceTerminationOption where
         toJSON BlueInstanceTerminationOption'{..}
@@ -415,11 +419,12 @@ instance ToJSON BlueInstanceTerminationOption where
 --
 -- /See:/ 'deploymentConfigInfo' smart constructor.
 data DeploymentConfigInfo = DeploymentConfigInfo'
-    { _dciDeploymentConfigName :: !(Maybe Text)
-    , _dciMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
-    , _dciDeploymentConfigId   :: !(Maybe Text)
-    , _dciCreateTime           :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dciDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dciMinimumHealthyHosts  :: {-# NOUNPACK #-}!(Maybe MinimumHealthyHosts)
+  , _dciDeploymentConfigId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dciCreateTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeploymentConfigInfo' with the minimum fields required to make a request.
 --
@@ -435,12 +440,13 @@ data DeploymentConfigInfo = DeploymentConfigInfo'
 deploymentConfigInfo
     :: DeploymentConfigInfo
 deploymentConfigInfo =
-    DeploymentConfigInfo'
-    { _dciDeploymentConfigName = Nothing
-    , _dciMinimumHealthyHosts = Nothing
-    , _dciDeploymentConfigId = Nothing
-    , _dciCreateTime = Nothing
-    }
+  DeploymentConfigInfo'
+  { _dciDeploymentConfigName = Nothing
+  , _dciMinimumHealthyHosts = Nothing
+  , _dciDeploymentConfigId = Nothing
+  , _dciCreateTime = Nothing
+  }
+
 
 -- | The deployment configuration name.
 dciDeploymentConfigName :: Lens' DeploymentConfigInfo (Maybe Text)
@@ -468,9 +474,9 @@ instance FromJSON DeploymentConfigInfo where
                      <*> (x .:? "deploymentConfigId")
                      <*> (x .:? "createTime"))
 
-instance Hashable DeploymentConfigInfo
+instance Hashable DeploymentConfigInfo where
 
-instance NFData DeploymentConfigInfo
+instance NFData DeploymentConfigInfo where
 
 -- | Information about a deployment group.
 --
@@ -478,26 +484,27 @@ instance NFData DeploymentConfigInfo
 --
 -- /See:/ 'deploymentGroupInfo' smart constructor.
 data DeploymentGroupInfo = DeploymentGroupInfo'
-    { _dgiServiceRoleARN                   :: !(Maybe Text)
-    , _dgiEc2TagSet                        :: !(Maybe EC2TagSet)
-    , _dgiDeploymentConfigName             :: !(Maybe Text)
-    , _dgiLastAttemptedDeployment          :: !(Maybe LastDeploymentInfo)
-    , _dgiOnPremisesTagSet                 :: !(Maybe OnPremisesTagSet)
-    , _dgiTargetRevision                   :: !(Maybe RevisionLocation)
-    , _dgiEc2TagFilters                    :: !(Maybe [EC2TagFilter])
-    , _dgiBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
-    , _dgiLoadBalancerInfo                 :: !(Maybe LoadBalancerInfo)
-    , _dgiOnPremisesInstanceTagFilters     :: !(Maybe [TagFilter])
-    , _dgiLastSuccessfulDeployment         :: !(Maybe LastDeploymentInfo)
-    , _dgiApplicationName                  :: !(Maybe Text)
-    , _dgiAlarmConfiguration               :: !(Maybe AlarmConfiguration)
-    , _dgiTriggerConfigurations            :: !(Maybe [TriggerConfig])
-    , _dgiDeploymentGroupId                :: !(Maybe Text)
-    , _dgiAutoScalingGroups                :: !(Maybe [AutoScalingGroup])
-    , _dgiDeploymentStyle                  :: !(Maybe DeploymentStyle)
-    , _dgiAutoRollbackConfiguration        :: !(Maybe AutoRollbackConfiguration)
-    , _dgiDeploymentGroupName              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dgiServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgiEc2TagSet :: {-# NOUNPACK #-}!(Maybe EC2TagSet)
+  , _dgiDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgiLastAttemptedDeployment :: {-# NOUNPACK #-}!(Maybe LastDeploymentInfo)
+  , _dgiOnPremisesTagSet :: {-# NOUNPACK #-}!(Maybe OnPremisesTagSet)
+  , _dgiTargetRevision :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
+  , _dgiEc2TagFilters :: {-# NOUNPACK #-}!(Maybe [EC2TagFilter])
+  , _dgiBlueGreenDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe BlueGreenDeploymentConfiguration)
+  , _dgiLoadBalancerInfo :: {-# NOUNPACK #-}!(Maybe LoadBalancerInfo)
+  , _dgiOnPremisesInstanceTagFilters :: {-# NOUNPACK #-}!(Maybe [TagFilter])
+  , _dgiLastSuccessfulDeployment :: {-# NOUNPACK #-}!(Maybe LastDeploymentInfo)
+  , _dgiApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgiAlarmConfiguration :: {-# NOUNPACK #-}!(Maybe AlarmConfiguration)
+  , _dgiTriggerConfigurations :: {-# NOUNPACK #-}!(Maybe [TriggerConfig])
+  , _dgiDeploymentGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dgiAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [AutoScalingGroup])
+  , _dgiDeploymentStyle :: {-# NOUNPACK #-}!(Maybe DeploymentStyle)
+  , _dgiAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
+  , _dgiDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeploymentGroupInfo' with the minimum fields required to make a request.
 --
@@ -543,27 +550,28 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 deploymentGroupInfo
     :: DeploymentGroupInfo
 deploymentGroupInfo =
-    DeploymentGroupInfo'
-    { _dgiServiceRoleARN = Nothing
-    , _dgiEc2TagSet = Nothing
-    , _dgiDeploymentConfigName = Nothing
-    , _dgiLastAttemptedDeployment = Nothing
-    , _dgiOnPremisesTagSet = Nothing
-    , _dgiTargetRevision = Nothing
-    , _dgiEc2TagFilters = Nothing
-    , _dgiBlueGreenDeploymentConfiguration = Nothing
-    , _dgiLoadBalancerInfo = Nothing
-    , _dgiOnPremisesInstanceTagFilters = Nothing
-    , _dgiLastSuccessfulDeployment = Nothing
-    , _dgiApplicationName = Nothing
-    , _dgiAlarmConfiguration = Nothing
-    , _dgiTriggerConfigurations = Nothing
-    , _dgiDeploymentGroupId = Nothing
-    , _dgiAutoScalingGroups = Nothing
-    , _dgiDeploymentStyle = Nothing
-    , _dgiAutoRollbackConfiguration = Nothing
-    , _dgiDeploymentGroupName = Nothing
-    }
+  DeploymentGroupInfo'
+  { _dgiServiceRoleARN = Nothing
+  , _dgiEc2TagSet = Nothing
+  , _dgiDeploymentConfigName = Nothing
+  , _dgiLastAttemptedDeployment = Nothing
+  , _dgiOnPremisesTagSet = Nothing
+  , _dgiTargetRevision = Nothing
+  , _dgiEc2TagFilters = Nothing
+  , _dgiBlueGreenDeploymentConfiguration = Nothing
+  , _dgiLoadBalancerInfo = Nothing
+  , _dgiOnPremisesInstanceTagFilters = Nothing
+  , _dgiLastSuccessfulDeployment = Nothing
+  , _dgiApplicationName = Nothing
+  , _dgiAlarmConfiguration = Nothing
+  , _dgiTriggerConfigurations = Nothing
+  , _dgiDeploymentGroupId = Nothing
+  , _dgiAutoScalingGroups = Nothing
+  , _dgiDeploymentStyle = Nothing
+  , _dgiAutoRollbackConfiguration = Nothing
+  , _dgiDeploymentGroupName = Nothing
+  }
+
 
 -- | A service role ARN.
 dgiServiceRoleARN :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -665,9 +673,9 @@ instance FromJSON DeploymentGroupInfo where
                      <*> (x .:? "autoRollbackConfiguration")
                      <*> (x .:? "deploymentGroupName"))
 
-instance Hashable DeploymentGroupInfo
+instance Hashable DeploymentGroupInfo where
 
-instance NFData DeploymentGroupInfo
+instance NFData DeploymentGroupInfo where
 
 -- | Information about a deployment.
 --
@@ -675,32 +683,33 @@ instance NFData DeploymentGroupInfo
 --
 -- /See:/ 'deploymentInfo' smart constructor.
 data DeploymentInfo = DeploymentInfo'
-    { _diCreator                            :: !(Maybe DeploymentCreator)
-    , _diStatus                             :: !(Maybe DeploymentStatus)
-    , _diDeploymentId                       :: !(Maybe Text)
-    , _diDeploymentConfigName               :: !(Maybe Text)
-    , _diPreviousRevision                   :: !(Maybe RevisionLocation)
-    , _diInstanceTerminationWaitTimeStarted :: !(Maybe Bool)
-    , _diStartTime                          :: !(Maybe POSIX)
-    , _diCompleteTime                       :: !(Maybe POSIX)
-    , _diBlueGreenDeploymentConfiguration   :: !(Maybe BlueGreenDeploymentConfiguration)
-    , _diErrorInformation                   :: !(Maybe ErrorInformation)
-    , _diLoadBalancerInfo                   :: !(Maybe LoadBalancerInfo)
-    , _diAdditionalDeploymentStatusInfo     :: !(Maybe Text)
-    , _diDeploymentOverview                 :: !(Maybe DeploymentOverview)
-    , _diFileExistsBehavior                 :: !(Maybe FileExistsBehavior)
-    , _diApplicationName                    :: !(Maybe Text)
-    , _diRollbackInfo                       :: !(Maybe RollbackInfo)
-    , _diTargetInstances                    :: !(Maybe TargetInstances)
-    , _diRevision                           :: !(Maybe RevisionLocation)
-    , _diDescription                        :: !(Maybe Text)
-    , _diDeploymentStyle                    :: !(Maybe DeploymentStyle)
-    , _diCreateTime                         :: !(Maybe POSIX)
-    , _diAutoRollbackConfiguration          :: !(Maybe AutoRollbackConfiguration)
-    , _diUpdateOutdatedInstancesOnly        :: !(Maybe Bool)
-    , _diDeploymentGroupName                :: !(Maybe Text)
-    , _diIgnoreApplicationStopFailures      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diCreator :: {-# NOUNPACK #-}!(Maybe DeploymentCreator)
+  , _diStatus :: {-# NOUNPACK #-}!(Maybe DeploymentStatus)
+  , _diDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diPreviousRevision :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
+  , _diInstanceTerminationWaitTimeStarted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _diCompleteTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _diBlueGreenDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe BlueGreenDeploymentConfiguration)
+  , _diErrorInformation :: {-# NOUNPACK #-}!(Maybe ErrorInformation)
+  , _diLoadBalancerInfo :: {-# NOUNPACK #-}!(Maybe LoadBalancerInfo)
+  , _diAdditionalDeploymentStatusInfo :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diDeploymentOverview :: {-# NOUNPACK #-}!(Maybe DeploymentOverview)
+  , _diFileExistsBehavior :: {-# NOUNPACK #-}!(Maybe FileExistsBehavior)
+  , _diApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diRollbackInfo :: {-# NOUNPACK #-}!(Maybe RollbackInfo)
+  , _diTargetInstances :: {-# NOUNPACK #-}!(Maybe TargetInstances)
+  , _diRevision :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
+  , _diDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diDeploymentStyle :: {-# NOUNPACK #-}!(Maybe DeploymentStyle)
+  , _diCreateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _diAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
+  , _diUpdateOutdatedInstancesOnly :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diIgnoreApplicationStopFailures :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeploymentInfo' with the minimum fields required to make a request.
 --
@@ -758,33 +767,34 @@ data DeploymentInfo = DeploymentInfo'
 deploymentInfo
     :: DeploymentInfo
 deploymentInfo =
-    DeploymentInfo'
-    { _diCreator = Nothing
-    , _diStatus = Nothing
-    , _diDeploymentId = Nothing
-    , _diDeploymentConfigName = Nothing
-    , _diPreviousRevision = Nothing
-    , _diInstanceTerminationWaitTimeStarted = Nothing
-    , _diStartTime = Nothing
-    , _diCompleteTime = Nothing
-    , _diBlueGreenDeploymentConfiguration = Nothing
-    , _diErrorInformation = Nothing
-    , _diLoadBalancerInfo = Nothing
-    , _diAdditionalDeploymentStatusInfo = Nothing
-    , _diDeploymentOverview = Nothing
-    , _diFileExistsBehavior = Nothing
-    , _diApplicationName = Nothing
-    , _diRollbackInfo = Nothing
-    , _diTargetInstances = Nothing
-    , _diRevision = Nothing
-    , _diDescription = Nothing
-    , _diDeploymentStyle = Nothing
-    , _diCreateTime = Nothing
-    , _diAutoRollbackConfiguration = Nothing
-    , _diUpdateOutdatedInstancesOnly = Nothing
-    , _diDeploymentGroupName = Nothing
-    , _diIgnoreApplicationStopFailures = Nothing
-    }
+  DeploymentInfo'
+  { _diCreator = Nothing
+  , _diStatus = Nothing
+  , _diDeploymentId = Nothing
+  , _diDeploymentConfigName = Nothing
+  , _diPreviousRevision = Nothing
+  , _diInstanceTerminationWaitTimeStarted = Nothing
+  , _diStartTime = Nothing
+  , _diCompleteTime = Nothing
+  , _diBlueGreenDeploymentConfiguration = Nothing
+  , _diErrorInformation = Nothing
+  , _diLoadBalancerInfo = Nothing
+  , _diAdditionalDeploymentStatusInfo = Nothing
+  , _diDeploymentOverview = Nothing
+  , _diFileExistsBehavior = Nothing
+  , _diApplicationName = Nothing
+  , _diRollbackInfo = Nothing
+  , _diTargetInstances = Nothing
+  , _diRevision = Nothing
+  , _diDescription = Nothing
+  , _diDeploymentStyle = Nothing
+  , _diCreateTime = Nothing
+  , _diAutoRollbackConfiguration = Nothing
+  , _diUpdateOutdatedInstancesOnly = Nothing
+  , _diDeploymentGroupName = Nothing
+  , _diIgnoreApplicationStopFailures = Nothing
+  }
+
 
 -- | The means by which the deployment was created:     * user: A user created the deployment.     * autoscaling: Auto Scaling created the deployment.     * codeDeployRollback: A rollback process created the deployment.
 diCreator :: Lens' DeploymentInfo (Maybe DeploymentCreator)
@@ -916,9 +926,9 @@ instance FromJSON DeploymentInfo where
                      <*> (x .:? "deploymentGroupName")
                      <*> (x .:? "ignoreApplicationStopFailures"))
 
-instance Hashable DeploymentInfo
+instance Hashable DeploymentInfo where
 
-instance NFData DeploymentInfo
+instance NFData DeploymentInfo where
 
 -- | Information about the deployment status of the instances in the deployment.
 --
@@ -926,13 +936,14 @@ instance NFData DeploymentInfo
 --
 -- /See:/ 'deploymentOverview' smart constructor.
 data DeploymentOverview = DeploymentOverview'
-    { _doPending    :: !(Maybe Integer)
-    , _doSkipped    :: !(Maybe Integer)
-    , _doInProgress :: !(Maybe Integer)
-    , _doSucceeded  :: !(Maybe Integer)
-    , _doReady      :: !(Maybe Integer)
-    , _doFailed     :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _doPending    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _doSkipped    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _doInProgress :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _doSucceeded  :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _doReady      :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _doFailed     :: {-# NOUNPACK #-}!(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeploymentOverview' with the minimum fields required to make a request.
 --
@@ -952,14 +963,15 @@ data DeploymentOverview = DeploymentOverview'
 deploymentOverview
     :: DeploymentOverview
 deploymentOverview =
-    DeploymentOverview'
-    { _doPending = Nothing
-    , _doSkipped = Nothing
-    , _doInProgress = Nothing
-    , _doSucceeded = Nothing
-    , _doReady = Nothing
-    , _doFailed = Nothing
-    }
+  DeploymentOverview'
+  { _doPending = Nothing
+  , _doSkipped = Nothing
+  , _doInProgress = Nothing
+  , _doSucceeded = Nothing
+  , _doReady = Nothing
+  , _doFailed = Nothing
+  }
+
 
 -- | The number of instances in the deployment in a pending state.
 doPending :: Lens' DeploymentOverview (Maybe Integer)
@@ -996,9 +1008,9 @@ instance FromJSON DeploymentOverview where
                      <*> (x .:? "Ready")
                      <*> (x .:? "Failed"))
 
-instance Hashable DeploymentOverview
+instance Hashable DeploymentOverview where
 
-instance NFData DeploymentOverview
+instance NFData DeploymentOverview where
 
 -- | Information about how traffic is rerouted to instances in a replacement environment in a blue/green deployment.
 --
@@ -1006,9 +1018,10 @@ instance NFData DeploymentOverview
 --
 -- /See:/ 'deploymentReadyOption' smart constructor.
 data DeploymentReadyOption = DeploymentReadyOption'
-    { _droActionOnTimeout   :: !(Maybe DeploymentReadyAction)
-    , _droWaitTimeInMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _droActionOnTimeout   :: {-# NOUNPACK #-}!(Maybe DeploymentReadyAction)
+  , _droWaitTimeInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeploymentReadyOption' with the minimum fields required to make a request.
 --
@@ -1020,10 +1033,9 @@ data DeploymentReadyOption = DeploymentReadyOption'
 deploymentReadyOption
     :: DeploymentReadyOption
 deploymentReadyOption =
-    DeploymentReadyOption'
-    { _droActionOnTimeout = Nothing
-    , _droWaitTimeInMinutes = Nothing
-    }
+  DeploymentReadyOption'
+  {_droActionOnTimeout = Nothing, _droWaitTimeInMinutes = Nothing}
+
 
 -- | Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.     * CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.     * STOP_DEPLOYMENT: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
 droActionOnTimeout :: Lens' DeploymentReadyOption (Maybe DeploymentReadyAction)
@@ -1041,9 +1053,9 @@ instance FromJSON DeploymentReadyOption where
                    (x .:? "actionOnTimeout") <*>
                      (x .:? "waitTimeInMinutes"))
 
-instance Hashable DeploymentReadyOption
+instance Hashable DeploymentReadyOption where
 
-instance NFData DeploymentReadyOption
+instance NFData DeploymentReadyOption where
 
 instance ToJSON DeploymentReadyOption where
         toJSON DeploymentReadyOption'{..}
@@ -1058,9 +1070,10 @@ instance ToJSON DeploymentReadyOption where
 --
 -- /See:/ 'deploymentStyle' smart constructor.
 data DeploymentStyle = DeploymentStyle'
-    { _dsDeploymentOption :: !(Maybe DeploymentOption)
-    , _dsDeploymentType   :: !(Maybe DeploymentType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsDeploymentOption :: {-# NOUNPACK #-}!(Maybe DeploymentOption)
+  , _dsDeploymentType   :: {-# NOUNPACK #-}!(Maybe DeploymentType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeploymentStyle' with the minimum fields required to make a request.
 --
@@ -1072,10 +1085,8 @@ data DeploymentStyle = DeploymentStyle'
 deploymentStyle
     :: DeploymentStyle
 deploymentStyle =
-    DeploymentStyle'
-    { _dsDeploymentOption = Nothing
-    , _dsDeploymentType = Nothing
-    }
+  DeploymentStyle' {_dsDeploymentOption = Nothing, _dsDeploymentType = Nothing}
+
 
 -- | Indicates whether to route deployment traffic behind a load balancer.
 dsDeploymentOption :: Lens' DeploymentStyle (Maybe DeploymentOption)
@@ -1093,9 +1104,9 @@ instance FromJSON DeploymentStyle where
                    (x .:? "deploymentOption") <*>
                      (x .:? "deploymentType"))
 
-instance Hashable DeploymentStyle
+instance Hashable DeploymentStyle where
 
-instance NFData DeploymentStyle
+instance NFData DeploymentStyle where
 
 instance ToJSON DeploymentStyle where
         toJSON DeploymentStyle'{..}
@@ -1110,11 +1121,12 @@ instance ToJSON DeploymentStyle where
 --
 -- /See:/ 'diagnostics' smart constructor.
 data Diagnostics = Diagnostics'
-    { _dLogTail    :: !(Maybe Text)
-    , _dErrorCode  :: !(Maybe LifecycleErrorCode)
-    , _dScriptName :: !(Maybe Text)
-    , _dMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dLogTail    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dErrorCode  :: {-# NOUNPACK #-}!(Maybe LifecycleErrorCode)
+  , _dScriptName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Diagnostics' with the minimum fields required to make a request.
 --
@@ -1130,12 +1142,13 @@ data Diagnostics = Diagnostics'
 diagnostics
     :: Diagnostics
 diagnostics =
-    Diagnostics'
-    { _dLogTail = Nothing
-    , _dErrorCode = Nothing
-    , _dScriptName = Nothing
-    , _dMessage = Nothing
-    }
+  Diagnostics'
+  { _dLogTail = Nothing
+  , _dErrorCode = Nothing
+  , _dScriptName = Nothing
+  , _dMessage = Nothing
+  }
+
 
 -- | The last portion of the diagnostic log. If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
 dLogTail :: Lens' Diagnostics (Maybe Text)
@@ -1162,9 +1175,9 @@ instance FromJSON Diagnostics where
                      (x .:? "scriptName")
                      <*> (x .:? "message"))
 
-instance Hashable Diagnostics
+instance Hashable Diagnostics where
 
-instance NFData Diagnostics
+instance NFData Diagnostics where
 
 -- | Information about an EC2 tag filter.
 --
@@ -1172,10 +1185,11 @@ instance NFData Diagnostics
 --
 -- /See:/ 'ec2TagFilter' smart constructor.
 data EC2TagFilter = EC2TagFilter'
-    { _etfValue :: !(Maybe Text)
-    , _etfKey   :: !(Maybe Text)
-    , _etfType  :: !(Maybe EC2TagFilterType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etfValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etfKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _etfType  :: {-# NOUNPACK #-}!(Maybe EC2TagFilterType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2TagFilter' with the minimum fields required to make a request.
 --
@@ -1189,11 +1203,8 @@ data EC2TagFilter = EC2TagFilter'
 ec2TagFilter
     :: EC2TagFilter
 ec2TagFilter =
-    EC2TagFilter'
-    { _etfValue = Nothing
-    , _etfKey = Nothing
-    , _etfType = Nothing
-    }
+  EC2TagFilter' {_etfValue = Nothing, _etfKey = Nothing, _etfType = Nothing}
+
 
 -- | The tag filter value.
 etfValue :: Lens' EC2TagFilter (Maybe Text)
@@ -1214,9 +1225,9 @@ instance FromJSON EC2TagFilter where
                  EC2TagFilter' <$>
                    (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
 
-instance Hashable EC2TagFilter
+instance Hashable EC2TagFilter where
 
-instance NFData EC2TagFilter
+instance NFData EC2TagFilter where
 
 instance ToJSON EC2TagFilter where
         toJSON EC2TagFilter'{..}
@@ -1231,8 +1242,9 @@ instance ToJSON EC2TagFilter where
 --
 -- /See:/ 'ec2TagSet' smart constructor.
 newtype EC2TagSet = EC2TagSet'
-    { _etsEc2TagSetList :: Maybe [[EC2TagFilter]]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _etsEc2TagSetList :: Maybe [[EC2TagFilter]]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2TagSet' with the minimum fields required to make a request.
 --
@@ -1241,10 +1253,8 @@ newtype EC2TagSet = EC2TagSet'
 -- * 'etsEc2TagSetList' - A list containing other lists of EC2 instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
 ec2TagSet
     :: EC2TagSet
-ec2TagSet =
-    EC2TagSet'
-    { _etsEc2TagSetList = Nothing
-    }
+ec2TagSet = EC2TagSet' {_etsEc2TagSetList = Nothing}
+
 
 -- | A list containing other lists of EC2 instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
 etsEc2TagSetList :: Lens' EC2TagSet [[EC2TagFilter]]
@@ -1256,9 +1266,9 @@ instance FromJSON EC2TagSet where
               (\ x ->
                  EC2TagSet' <$> (x .:? "ec2TagSetList" .!= mempty))
 
-instance Hashable EC2TagSet
+instance Hashable EC2TagSet where
 
-instance NFData EC2TagSet
+instance NFData EC2TagSet where
 
 instance ToJSON EC2TagSet where
         toJSON EC2TagSet'{..}
@@ -1272,8 +1282,9 @@ instance ToJSON EC2TagSet where
 --
 -- /See:/ 'eLBInfo' smart constructor.
 newtype ELBInfo = ELBInfo'
-    { _elbiName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _elbiName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ELBInfo' with the minimum fields required to make a request.
 --
@@ -1282,10 +1293,8 @@ newtype ELBInfo = ELBInfo'
 -- * 'elbiName' - For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 eLBInfo
     :: ELBInfo
-eLBInfo =
-    ELBInfo'
-    { _elbiName = Nothing
-    }
+eLBInfo = ELBInfo' {_elbiName = Nothing}
+
 
 -- | For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 elbiName :: Lens' ELBInfo (Maybe Text)
@@ -1296,9 +1305,9 @@ instance FromJSON ELBInfo where
           = withObject "ELBInfo"
               (\ x -> ELBInfo' <$> (x .:? "name"))
 
-instance Hashable ELBInfo
+instance Hashable ELBInfo where
 
-instance NFData ELBInfo
+instance NFData ELBInfo where
 
 instance ToJSON ELBInfo where
         toJSON ELBInfo'{..}
@@ -1310,9 +1319,10 @@ instance ToJSON ELBInfo where
 --
 -- /See:/ 'errorInformation' smart constructor.
 data ErrorInformation = ErrorInformation'
-    { _eiCode    :: !(Maybe DeployErrorCode)
-    , _eiMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eiCode    :: {-# NOUNPACK #-}!(Maybe DeployErrorCode)
+  , _eiMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ErrorInformation' with the minimum fields required to make a request.
 --
@@ -1323,11 +1333,8 @@ data ErrorInformation = ErrorInformation'
 -- * 'eiMessage' - An accompanying error message.
 errorInformation
     :: ErrorInformation
-errorInformation =
-    ErrorInformation'
-    { _eiCode = Nothing
-    , _eiMessage = Nothing
-    }
+errorInformation = ErrorInformation' {_eiCode = Nothing, _eiMessage = Nothing}
+
 
 -- | For information about additional error codes, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html Error Codes for AWS CodeDeploy> in the <http://docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide> . The error code:     * APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.     * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.     * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.     * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.     * IAM_ROLE_MISSING: The service role cannot be accessed.     * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.     * INTERNAL_ERROR: There was an internal error.     * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.     * NO_INSTANCES: No instance were specified, or no instance can be found.     * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.     * THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.     * TIMEOUT: The deployment has timed out.     * REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
 eiCode :: Lens' ErrorInformation (Maybe DeployErrorCode)
@@ -1344,9 +1351,9 @@ instance FromJSON ErrorInformation where
                  ErrorInformation' <$>
                    (x .:? "code") <*> (x .:? "message"))
 
-instance Hashable ErrorInformation
+instance Hashable ErrorInformation where
 
-instance NFData ErrorInformation
+instance NFData ErrorInformation where
 
 -- | Information about an application revision.
 --
@@ -1354,12 +1361,13 @@ instance NFData ErrorInformation
 --
 -- /See:/ 'genericRevisionInfo' smart constructor.
 data GenericRevisionInfo = GenericRevisionInfo'
-    { _griRegisterTime     :: !(Maybe POSIX)
-    , _griFirstUsedTime    :: !(Maybe POSIX)
-    , _griDeploymentGroups :: !(Maybe [Text])
-    , _griLastUsedTime     :: !(Maybe POSIX)
-    , _griDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _griRegisterTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _griFirstUsedTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _griDeploymentGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _griLastUsedTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _griDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenericRevisionInfo' with the minimum fields required to make a request.
 --
@@ -1377,13 +1385,14 @@ data GenericRevisionInfo = GenericRevisionInfo'
 genericRevisionInfo
     :: GenericRevisionInfo
 genericRevisionInfo =
-    GenericRevisionInfo'
-    { _griRegisterTime = Nothing
-    , _griFirstUsedTime = Nothing
-    , _griDeploymentGroups = Nothing
-    , _griLastUsedTime = Nothing
-    , _griDescription = Nothing
-    }
+  GenericRevisionInfo'
+  { _griRegisterTime = Nothing
+  , _griFirstUsedTime = Nothing
+  , _griDeploymentGroups = Nothing
+  , _griLastUsedTime = Nothing
+  , _griDescription = Nothing
+  }
+
 
 -- | When the revision was registered with AWS CodeDeploy.
 griRegisterTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
@@ -1415,9 +1424,9 @@ instance FromJSON GenericRevisionInfo where
                      <*> (x .:? "lastUsedTime")
                      <*> (x .:? "description"))
 
-instance Hashable GenericRevisionInfo
+instance Hashable GenericRevisionInfo where
 
-instance NFData GenericRevisionInfo
+instance NFData GenericRevisionInfo where
 
 -- | Information about the location of application artifacts stored in GitHub.
 --
@@ -1425,9 +1434,10 @@ instance NFData GenericRevisionInfo
 --
 -- /See:/ 'gitHubLocation' smart constructor.
 data GitHubLocation = GitHubLocation'
-    { _ghlCommitId   :: !(Maybe Text)
-    , _ghlRepository :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ghlCommitId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ghlRepository :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GitHubLocation' with the minimum fields required to make a request.
 --
@@ -1439,10 +1449,8 @@ data GitHubLocation = GitHubLocation'
 gitHubLocation
     :: GitHubLocation
 gitHubLocation =
-    GitHubLocation'
-    { _ghlCommitId = Nothing
-    , _ghlRepository = Nothing
-    }
+  GitHubLocation' {_ghlCommitId = Nothing, _ghlRepository = Nothing}
+
 
 -- | The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
 ghlCommitId :: Lens' GitHubLocation (Maybe Text)
@@ -1459,9 +1467,9 @@ instance FromJSON GitHubLocation where
                  GitHubLocation' <$>
                    (x .:? "commitId") <*> (x .:? "repository"))
 
-instance Hashable GitHubLocation
+instance Hashable GitHubLocation where
 
-instance NFData GitHubLocation
+instance NFData GitHubLocation where
 
 instance ToJSON GitHubLocation where
         toJSON GitHubLocation'{..}
@@ -1476,8 +1484,9 @@ instance ToJSON GitHubLocation where
 --
 -- /See:/ 'greenFleetProvisioningOption' smart constructor.
 newtype GreenFleetProvisioningOption = GreenFleetProvisioningOption'
-    { _gfpoAction :: Maybe GreenFleetProvisioningAction
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gfpoAction :: Maybe GreenFleetProvisioningAction
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GreenFleetProvisioningOption' with the minimum fields required to make a request.
 --
@@ -1487,9 +1496,8 @@ newtype GreenFleetProvisioningOption = GreenFleetProvisioningOption'
 greenFleetProvisioningOption
     :: GreenFleetProvisioningOption
 greenFleetProvisioningOption =
-    GreenFleetProvisioningOption'
-    { _gfpoAction = Nothing
-    }
+  GreenFleetProvisioningOption' {_gfpoAction = Nothing}
+
 
 -- | The method used to add instances to a replacement environment.     * DISCOVER_EXISTING: Use instances that already exist or will be created manually.     * COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling group.
 gfpoAction :: Lens' GreenFleetProvisioningOption (Maybe GreenFleetProvisioningAction)
@@ -1501,9 +1509,9 @@ instance FromJSON GreenFleetProvisioningOption where
               (\ x ->
                  GreenFleetProvisioningOption' <$> (x .:? "action"))
 
-instance Hashable GreenFleetProvisioningOption
+instance Hashable GreenFleetProvisioningOption where
 
-instance NFData GreenFleetProvisioningOption
+instance NFData GreenFleetProvisioningOption where
 
 instance ToJSON GreenFleetProvisioningOption where
         toJSON GreenFleetProvisioningOption'{..}
@@ -1515,14 +1523,15 @@ instance ToJSON GreenFleetProvisioningOption where
 --
 -- /See:/ 'instanceInfo' smart constructor.
 data InstanceInfo = InstanceInfo'
-    { _iiRegisterTime   :: !(Maybe POSIX)
-    , _iiInstanceARN    :: !(Maybe Text)
-    , _iiDeregisterTime :: !(Maybe POSIX)
-    , _iiIamUserARN     :: !(Maybe Text)
-    , _iiInstanceName   :: !(Maybe Text)
-    , _iiIamSessionARN  :: !(Maybe Text)
-    , _iiTags           :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiRegisterTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iiInstanceARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiDeregisterTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iiIamUserARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiInstanceName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiIamSessionARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceInfo' with the minimum fields required to make a request.
 --
@@ -1544,15 +1553,16 @@ data InstanceInfo = InstanceInfo'
 instanceInfo
     :: InstanceInfo
 instanceInfo =
-    InstanceInfo'
-    { _iiRegisterTime = Nothing
-    , _iiInstanceARN = Nothing
-    , _iiDeregisterTime = Nothing
-    , _iiIamUserARN = Nothing
-    , _iiInstanceName = Nothing
-    , _iiIamSessionARN = Nothing
-    , _iiTags = Nothing
-    }
+  InstanceInfo'
+  { _iiRegisterTime = Nothing
+  , _iiInstanceARN = Nothing
+  , _iiDeregisterTime = Nothing
+  , _iiIamUserARN = Nothing
+  , _iiInstanceName = Nothing
+  , _iiIamSessionARN = Nothing
+  , _iiTags = Nothing
+  }
+
 
 -- | The time at which the on-premises instance was registered.
 iiRegisterTime :: Lens' InstanceInfo (Maybe UTCTime)
@@ -1594,9 +1604,9 @@ instance FromJSON InstanceInfo where
                      <*> (x .:? "iamSessionArn")
                      <*> (x .:? "tags" .!= mempty))
 
-instance Hashable InstanceInfo
+instance Hashable InstanceInfo where
 
-instance NFData InstanceInfo
+instance NFData InstanceInfo where
 
 -- | Information about an instance in a deployment.
 --
@@ -1604,13 +1614,14 @@ instance NFData InstanceInfo
 --
 -- /See:/ 'instanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
-    { _isInstanceId      :: !(Maybe Text)
-    , _isStatus          :: !(Maybe InstanceStatus)
-    , _isDeploymentId    :: !(Maybe Text)
-    , _isLastUpdatedAt   :: !(Maybe POSIX)
-    , _isLifecycleEvents :: !(Maybe [LifecycleEvent])
-    , _isInstanceType    :: !(Maybe InstanceType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _isInstanceId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isStatus          :: {-# NOUNPACK #-}!(Maybe InstanceStatus)
+  , _isDeploymentId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isLastUpdatedAt   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _isLifecycleEvents :: {-# NOUNPACK #-}!(Maybe [LifecycleEvent])
+  , _isInstanceType    :: {-# NOUNPACK #-}!(Maybe InstanceType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceSummary' with the minimum fields required to make a request.
 --
@@ -1630,14 +1641,15 @@ data InstanceSummary = InstanceSummary'
 instanceSummary
     :: InstanceSummary
 instanceSummary =
-    InstanceSummary'
-    { _isInstanceId = Nothing
-    , _isStatus = Nothing
-    , _isDeploymentId = Nothing
-    , _isLastUpdatedAt = Nothing
-    , _isLifecycleEvents = Nothing
-    , _isInstanceType = Nothing
-    }
+  InstanceSummary'
+  { _isInstanceId = Nothing
+  , _isStatus = Nothing
+  , _isDeploymentId = Nothing
+  , _isLastUpdatedAt = Nothing
+  , _isLifecycleEvents = Nothing
+  , _isInstanceType = Nothing
+  }
+
 
 -- | The instance ID.
 isInstanceId :: Lens' InstanceSummary (Maybe Text)
@@ -1674,9 +1686,9 @@ instance FromJSON InstanceSummary where
                      <*> (x .:? "lifecycleEvents" .!= mempty)
                      <*> (x .:? "instanceType"))
 
-instance Hashable InstanceSummary
+instance Hashable InstanceSummary where
 
-instance NFData InstanceSummary
+instance NFData InstanceSummary where
 
 -- | Information about the most recent attempted or successful deployment to a deployment group.
 --
@@ -1684,11 +1696,12 @@ instance NFData InstanceSummary
 --
 -- /See:/ 'lastDeploymentInfo' smart constructor.
 data LastDeploymentInfo = LastDeploymentInfo'
-    { _ldiStatus       :: !(Maybe DeploymentStatus)
-    , _ldiDeploymentId :: !(Maybe Text)
-    , _ldiEndTime      :: !(Maybe POSIX)
-    , _ldiCreateTime   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldiStatus       :: {-# NOUNPACK #-}!(Maybe DeploymentStatus)
+  , _ldiDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldiEndTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ldiCreateTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LastDeploymentInfo' with the minimum fields required to make a request.
 --
@@ -1704,12 +1717,13 @@ data LastDeploymentInfo = LastDeploymentInfo'
 lastDeploymentInfo
     :: LastDeploymentInfo
 lastDeploymentInfo =
-    LastDeploymentInfo'
-    { _ldiStatus = Nothing
-    , _ldiDeploymentId = Nothing
-    , _ldiEndTime = Nothing
-    , _ldiCreateTime = Nothing
-    }
+  LastDeploymentInfo'
+  { _ldiStatus = Nothing
+  , _ldiDeploymentId = Nothing
+  , _ldiEndTime = Nothing
+  , _ldiCreateTime = Nothing
+  }
+
 
 -- | The status of the most recent deployment.
 ldiStatus :: Lens' LastDeploymentInfo (Maybe DeploymentStatus)
@@ -1736,9 +1750,9 @@ instance FromJSON LastDeploymentInfo where
                      (x .:? "endTime")
                      <*> (x .:? "createTime"))
 
-instance Hashable LastDeploymentInfo
+instance Hashable LastDeploymentInfo where
 
-instance NFData LastDeploymentInfo
+instance NFData LastDeploymentInfo where
 
 -- | Information about a deployment lifecycle event.
 --
@@ -1746,12 +1760,13 @@ instance NFData LastDeploymentInfo
 --
 -- /See:/ 'lifecycleEvent' smart constructor.
 data LifecycleEvent = LifecycleEvent'
-    { _leStatus             :: !(Maybe LifecycleEventStatus)
-    , _leLifecycleEventName :: !(Maybe Text)
-    , _leStartTime          :: !(Maybe POSIX)
-    , _leDiagnostics        :: !(Maybe Diagnostics)
-    , _leEndTime            :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _leStatus             :: {-# NOUNPACK #-}!(Maybe LifecycleEventStatus)
+  , _leLifecycleEventName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _leStartTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _leDiagnostics        :: {-# NOUNPACK #-}!(Maybe Diagnostics)
+  , _leEndTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LifecycleEvent' with the minimum fields required to make a request.
 --
@@ -1769,13 +1784,14 @@ data LifecycleEvent = LifecycleEvent'
 lifecycleEvent
     :: LifecycleEvent
 lifecycleEvent =
-    LifecycleEvent'
-    { _leStatus = Nothing
-    , _leLifecycleEventName = Nothing
-    , _leStartTime = Nothing
-    , _leDiagnostics = Nothing
-    , _leEndTime = Nothing
-    }
+  LifecycleEvent'
+  { _leStatus = Nothing
+  , _leLifecycleEventName = Nothing
+  , _leStartTime = Nothing
+  , _leDiagnostics = Nothing
+  , _leEndTime = Nothing
+  }
+
 
 -- | The deployment lifecycle event status:     * Pending: The deployment lifecycle event is pending.     * InProgress: The deployment lifecycle event is in progress.     * Succeeded: The deployment lifecycle event ran successfully.     * Failed: The deployment lifecycle event has failed.     * Skipped: The deployment lifecycle event has been skipped.     * Unknown: The deployment lifecycle event is unknown.
 leStatus :: Lens' LifecycleEvent (Maybe LifecycleEventStatus)
@@ -1807,9 +1823,9 @@ instance FromJSON LifecycleEvent where
                      <*> (x .:? "diagnostics")
                      <*> (x .:? "endTime"))
 
-instance Hashable LifecycleEvent
+instance Hashable LifecycleEvent where
 
-instance NFData LifecycleEvent
+instance NFData LifecycleEvent where
 
 -- | Information about the Elastic Load Balancing load balancer or target group used in a deployment.
 --
@@ -1817,9 +1833,10 @@ instance NFData LifecycleEvent
 --
 -- /See:/ 'loadBalancerInfo' smart constructor.
 data LoadBalancerInfo = LoadBalancerInfo'
-    { _lbiElbInfoList         :: !(Maybe [ELBInfo])
-    , _lbiTargetGroupInfoList :: !(Maybe [TargetGroupInfo])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lbiElbInfoList         :: {-# NOUNPACK #-}!(Maybe [ELBInfo])
+  , _lbiTargetGroupInfoList :: {-# NOUNPACK #-}!(Maybe [TargetGroupInfo])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'LoadBalancerInfo' with the minimum fields required to make a request.
 --
@@ -1831,10 +1848,9 @@ data LoadBalancerInfo = LoadBalancerInfo'
 loadBalancerInfo
     :: LoadBalancerInfo
 loadBalancerInfo =
-    LoadBalancerInfo'
-    { _lbiElbInfoList = Nothing
-    , _lbiTargetGroupInfoList = Nothing
-    }
+  LoadBalancerInfo'
+  {_lbiElbInfoList = Nothing, _lbiTargetGroupInfoList = Nothing}
+
 
 -- | An array containing information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
 lbiElbInfoList :: Lens' LoadBalancerInfo [ELBInfo]
@@ -1852,9 +1868,9 @@ instance FromJSON LoadBalancerInfo where
                    (x .:? "elbInfoList" .!= mempty) <*>
                      (x .:? "targetGroupInfoList" .!= mempty))
 
-instance Hashable LoadBalancerInfo
+instance Hashable LoadBalancerInfo where
 
-instance NFData LoadBalancerInfo
+instance NFData LoadBalancerInfo where
 
 instance ToJSON LoadBalancerInfo where
         toJSON LoadBalancerInfo'{..}
@@ -1870,9 +1886,10 @@ instance ToJSON LoadBalancerInfo where
 --
 -- /See:/ 'minimumHealthyHosts' smart constructor.
 data MinimumHealthyHosts = MinimumHealthyHosts'
-    { _mhhValue :: !(Maybe Int)
-    , _mhhType  :: !(Maybe MinimumHealthyHostsType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mhhValue :: {-# NOUNPACK #-}!(Maybe Int)
+  , _mhhType  :: {-# NOUNPACK #-}!(Maybe MinimumHealthyHostsType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MinimumHealthyHosts' with the minimum fields required to make a request.
 --
@@ -1884,10 +1901,8 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 minimumHealthyHosts
     :: MinimumHealthyHosts
 minimumHealthyHosts =
-    MinimumHealthyHosts'
-    { _mhhValue = Nothing
-    , _mhhType = Nothing
-    }
+  MinimumHealthyHosts' {_mhhValue = Nothing, _mhhType = Nothing}
+
 
 -- | The minimum healthy instance value.
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
@@ -1904,9 +1919,9 @@ instance FromJSON MinimumHealthyHosts where
                  MinimumHealthyHosts' <$>
                    (x .:? "value") <*> (x .:? "type"))
 
-instance Hashable MinimumHealthyHosts
+instance Hashable MinimumHealthyHosts where
 
-instance NFData MinimumHealthyHosts
+instance NFData MinimumHealthyHosts where
 
 instance ToJSON MinimumHealthyHosts where
         toJSON MinimumHealthyHosts'{..}
@@ -1921,8 +1936,9 @@ instance ToJSON MinimumHealthyHosts where
 --
 -- /See:/ 'onPremisesTagSet' smart constructor.
 newtype OnPremisesTagSet = OnPremisesTagSet'
-    { _optsOnPremisesTagSetList :: Maybe [[TagFilter]]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _optsOnPremisesTagSetList :: Maybe [[TagFilter]]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OnPremisesTagSet' with the minimum fields required to make a request.
 --
@@ -1931,10 +1947,8 @@ newtype OnPremisesTagSet = OnPremisesTagSet'
 -- * 'optsOnPremisesTagSetList' - A list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
 onPremisesTagSet
     :: OnPremisesTagSet
-onPremisesTagSet =
-    OnPremisesTagSet'
-    { _optsOnPremisesTagSetList = Nothing
-    }
+onPremisesTagSet = OnPremisesTagSet' {_optsOnPremisesTagSetList = Nothing}
+
 
 -- | A list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
 optsOnPremisesTagSetList :: Lens' OnPremisesTagSet [[TagFilter]]
@@ -1947,9 +1961,9 @@ instance FromJSON OnPremisesTagSet where
                  OnPremisesTagSet' <$>
                    (x .:? "onPremisesTagSetList" .!= mempty))
 
-instance Hashable OnPremisesTagSet
+instance Hashable OnPremisesTagSet where
 
-instance NFData OnPremisesTagSet
+instance NFData OnPremisesTagSet where
 
 instance ToJSON OnPremisesTagSet where
         toJSON OnPremisesTagSet'{..}
@@ -1964,9 +1978,10 @@ instance ToJSON OnPremisesTagSet where
 --
 -- /See:/ 'revisionInfo' smart constructor.
 data RevisionInfo = RevisionInfo'
-    { _riGenericRevisionInfo :: !(Maybe GenericRevisionInfo)
-    , _riRevisionLocation    :: !(Maybe RevisionLocation)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riGenericRevisionInfo :: {-# NOUNPACK #-}!(Maybe GenericRevisionInfo)
+  , _riRevisionLocation    :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevisionInfo' with the minimum fields required to make a request.
 --
@@ -1978,10 +1993,9 @@ data RevisionInfo = RevisionInfo'
 revisionInfo
     :: RevisionInfo
 revisionInfo =
-    RevisionInfo'
-    { _riGenericRevisionInfo = Nothing
-    , _riRevisionLocation = Nothing
-    }
+  RevisionInfo'
+  {_riGenericRevisionInfo = Nothing, _riRevisionLocation = Nothing}
+
 
 -- | Information about an application revision, including usage details and associated deployment groups.
 riGenericRevisionInfo :: Lens' RevisionInfo (Maybe GenericRevisionInfo)
@@ -1999,9 +2013,9 @@ instance FromJSON RevisionInfo where
                    (x .:? "genericRevisionInfo") <*>
                      (x .:? "revisionLocation"))
 
-instance Hashable RevisionInfo
+instance Hashable RevisionInfo where
 
-instance NFData RevisionInfo
+instance NFData RevisionInfo where
 
 -- | Information about the location of an application revision.
 --
@@ -2009,10 +2023,11 @@ instance NFData RevisionInfo
 --
 -- /See:/ 'revisionLocation' smart constructor.
 data RevisionLocation = RevisionLocation'
-    { _rlRevisionType   :: !(Maybe RevisionLocationType)
-    , _rlS3Location     :: !(Maybe S3Location)
-    , _rlGitHubLocation :: !(Maybe GitHubLocation)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rlRevisionType   :: {-# NOUNPACK #-}!(Maybe RevisionLocationType)
+  , _rlS3Location     :: {-# NOUNPACK #-}!(Maybe S3Location)
+  , _rlGitHubLocation :: {-# NOUNPACK #-}!(Maybe GitHubLocation)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RevisionLocation' with the minimum fields required to make a request.
 --
@@ -2026,11 +2041,12 @@ data RevisionLocation = RevisionLocation'
 revisionLocation
     :: RevisionLocation
 revisionLocation =
-    RevisionLocation'
-    { _rlRevisionType = Nothing
-    , _rlS3Location = Nothing
-    , _rlGitHubLocation = Nothing
-    }
+  RevisionLocation'
+  { _rlRevisionType = Nothing
+  , _rlS3Location = Nothing
+  , _rlGitHubLocation = Nothing
+  }
+
 
 -- | The type of application revision:     * S3: An application revision stored in Amazon S3.     * GitHub: An application revision stored in GitHub.
 rlRevisionType :: Lens' RevisionLocation (Maybe RevisionLocationType)
@@ -2052,9 +2068,9 @@ instance FromJSON RevisionLocation where
                    (x .:? "revisionType") <*> (x .:? "s3Location") <*>
                      (x .:? "gitHubLocation"))
 
-instance Hashable RevisionLocation
+instance Hashable RevisionLocation where
 
-instance NFData RevisionLocation
+instance NFData RevisionLocation where
 
 instance ToJSON RevisionLocation where
         toJSON RevisionLocation'{..}
@@ -2070,10 +2086,11 @@ instance ToJSON RevisionLocation where
 --
 -- /See:/ 'rollbackInfo' smart constructor.
 data RollbackInfo = RollbackInfo'
-    { _riRollbackTriggeringDeploymentId :: !(Maybe Text)
-    , _riRollbackMessage                :: !(Maybe Text)
-    , _riRollbackDeploymentId           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _riRollbackTriggeringDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riRollbackMessage                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _riRollbackDeploymentId           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RollbackInfo' with the minimum fields required to make a request.
 --
@@ -2087,11 +2104,12 @@ data RollbackInfo = RollbackInfo'
 rollbackInfo
     :: RollbackInfo
 rollbackInfo =
-    RollbackInfo'
-    { _riRollbackTriggeringDeploymentId = Nothing
-    , _riRollbackMessage = Nothing
-    , _riRollbackDeploymentId = Nothing
-    }
+  RollbackInfo'
+  { _riRollbackTriggeringDeploymentId = Nothing
+  , _riRollbackMessage = Nothing
+  , _riRollbackDeploymentId = Nothing
+  }
+
 
 -- | The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
 riRollbackTriggeringDeploymentId :: Lens' RollbackInfo (Maybe Text)
@@ -2114,9 +2132,9 @@ instance FromJSON RollbackInfo where
                      (x .:? "rollbackMessage")
                      <*> (x .:? "rollbackDeploymentId"))
 
-instance Hashable RollbackInfo
+instance Hashable RollbackInfo where
 
-instance NFData RollbackInfo
+instance NFData RollbackInfo where
 
 -- | Information about the location of application artifacts stored in Amazon S3.
 --
@@ -2124,12 +2142,13 @@ instance NFData RollbackInfo
 --
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
-    { _slBundleType :: !(Maybe BundleType)
-    , _slETag       :: !(Maybe Text)
-    , _slBucket     :: !(Maybe Text)
-    , _slKey        :: !(Maybe Text)
-    , _slVersion    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _slBundleType :: {-# NOUNPACK #-}!(Maybe BundleType)
+  , _slETag       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _slBucket     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _slKey        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _slVersion    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
@@ -2147,13 +2166,14 @@ data S3Location = S3Location'
 s3Location
     :: S3Location
 s3Location =
-    S3Location'
-    { _slBundleType = Nothing
-    , _slETag = Nothing
-    , _slBucket = Nothing
-    , _slKey = Nothing
-    , _slVersion = Nothing
-    }
+  S3Location'
+  { _slBundleType = Nothing
+  , _slETag = Nothing
+  , _slBucket = Nothing
+  , _slKey = Nothing
+  , _slVersion = Nothing
+  }
+
 
 -- | The file type of the application revision. Must be one of the following:     * tar: A tar archive file.     * tgz: A compressed tar archive file.     * zip: A zip archive file.
 slBundleType :: Lens' S3Location (Maybe BundleType)
@@ -2185,9 +2205,9 @@ instance FromJSON S3Location where
                      <*> (x .:? "key")
                      <*> (x .:? "version"))
 
-instance Hashable S3Location
+instance Hashable S3Location where
 
-instance NFData S3Location
+instance NFData S3Location where
 
 instance ToJSON S3Location where
         toJSON S3Location'{..}
@@ -2204,9 +2224,10 @@ instance ToJSON S3Location where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -2217,11 +2238,8 @@ data Tag = Tag'
 -- * 'tagKey' - The tag's key.
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | The tag's value.
 tagValue :: Lens' Tag (Maybe Text)
@@ -2236,9 +2254,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -2252,10 +2270,11 @@ instance ToJSON Tag where
 --
 -- /See:/ 'tagFilter' smart constructor.
 data TagFilter = TagFilter'
-    { _tfValue :: !(Maybe Text)
-    , _tfKey   :: !(Maybe Text)
-    , _tfType  :: !(Maybe TagFilterType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tfValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tfKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tfType  :: {-# NOUNPACK #-}!(Maybe TagFilterType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
 --
@@ -2268,12 +2287,8 @@ data TagFilter = TagFilter'
 -- * 'tfType' - The on-premises instance tag filter type:     * KEY_ONLY: Key only.     * VALUE_ONLY: Value only.     * KEY_AND_VALUE: Key and value.
 tagFilter
     :: TagFilter
-tagFilter =
-    TagFilter'
-    { _tfValue = Nothing
-    , _tfKey = Nothing
-    , _tfType = Nothing
-    }
+tagFilter = TagFilter' {_tfValue = Nothing, _tfKey = Nothing, _tfType = Nothing}
+
 
 -- | The on-premises instance tag filter value.
 tfValue :: Lens' TagFilter (Maybe Text)
@@ -2294,9 +2309,9 @@ instance FromJSON TagFilter where
                  TagFilter' <$>
                    (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
 
-instance Hashable TagFilter
+instance Hashable TagFilter where
 
-instance NFData TagFilter
+instance NFData TagFilter where
 
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}
@@ -2311,8 +2326,9 @@ instance ToJSON TagFilter where
 --
 -- /See:/ 'targetGroupInfo' smart constructor.
 newtype TargetGroupInfo = TargetGroupInfo'
-    { _tgiName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tgiName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TargetGroupInfo' with the minimum fields required to make a request.
 --
@@ -2321,10 +2337,8 @@ newtype TargetGroupInfo = TargetGroupInfo'
 -- * 'tgiName' - For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 targetGroupInfo
     :: TargetGroupInfo
-targetGroupInfo =
-    TargetGroupInfo'
-    { _tgiName = Nothing
-    }
+targetGroupInfo = TargetGroupInfo' {_tgiName = Nothing}
+
 
 -- | For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
 tgiName :: Lens' TargetGroupInfo (Maybe Text)
@@ -2335,9 +2349,9 @@ instance FromJSON TargetGroupInfo where
           = withObject "TargetGroupInfo"
               (\ x -> TargetGroupInfo' <$> (x .:? "name"))
 
-instance Hashable TargetGroupInfo
+instance Hashable TargetGroupInfo where
 
-instance NFData TargetGroupInfo
+instance NFData TargetGroupInfo where
 
 instance ToJSON TargetGroupInfo where
         toJSON TargetGroupInfo'{..}
@@ -2349,10 +2363,11 @@ instance ToJSON TargetGroupInfo where
 --
 -- /See:/ 'targetInstances' smart constructor.
 data TargetInstances = TargetInstances'
-    { _tiEc2TagSet         :: !(Maybe EC2TagSet)
-    , _tiTagFilters        :: !(Maybe [EC2TagFilter])
-    , _tiAutoScalingGroups :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tiEc2TagSet         :: {-# NOUNPACK #-}!(Maybe EC2TagSet)
+  , _tiTagFilters        :: {-# NOUNPACK #-}!(Maybe [EC2TagFilter])
+  , _tiAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TargetInstances' with the minimum fields required to make a request.
 --
@@ -2366,11 +2381,12 @@ data TargetInstances = TargetInstances'
 targetInstances
     :: TargetInstances
 targetInstances =
-    TargetInstances'
-    { _tiEc2TagSet = Nothing
-    , _tiTagFilters = Nothing
-    , _tiAutoScalingGroups = Nothing
-    }
+  TargetInstances'
+  { _tiEc2TagSet = Nothing
+  , _tiTagFilters = Nothing
+  , _tiAutoScalingGroups = Nothing
+  }
+
 
 -- | Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as tagFilters.
 tiEc2TagSet :: Lens' TargetInstances (Maybe EC2TagSet)
@@ -2393,9 +2409,9 @@ instance FromJSON TargetInstances where
                      (x .:? "tagFilters" .!= mempty)
                      <*> (x .:? "autoScalingGroups" .!= mempty))
 
-instance Hashable TargetInstances
+instance Hashable TargetInstances where
 
-instance NFData TargetInstances
+instance NFData TargetInstances where
 
 instance ToJSON TargetInstances where
         toJSON TargetInstances'{..}
@@ -2411,9 +2427,10 @@ instance ToJSON TargetInstances where
 --
 -- /See:/ 'timeRange' smart constructor.
 data TimeRange = TimeRange'
-    { _trStart :: !(Maybe POSIX)
-    , _trEnd   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trStart :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _trEnd   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TimeRange' with the minimum fields required to make a request.
 --
@@ -2424,11 +2441,8 @@ data TimeRange = TimeRange'
 -- * 'trEnd' - The end time of the time range.
 timeRange
     :: TimeRange
-timeRange =
-    TimeRange'
-    { _trStart = Nothing
-    , _trEnd = Nothing
-    }
+timeRange = TimeRange' {_trStart = Nothing, _trEnd = Nothing}
+
 
 -- | The start time of the time range.
 trStart :: Lens' TimeRange (Maybe UTCTime)
@@ -2438,9 +2452,9 @@ trStart = lens _trStart (\ s a -> s{_trStart = a}) . mapping _Time;
 trEnd :: Lens' TimeRange (Maybe UTCTime)
 trEnd = lens _trEnd (\ s a -> s{_trEnd = a}) . mapping _Time;
 
-instance Hashable TimeRange
+instance Hashable TimeRange where
 
-instance NFData TimeRange
+instance NFData TimeRange where
 
 instance ToJSON TimeRange where
         toJSON TimeRange'{..}
@@ -2454,10 +2468,11 @@ instance ToJSON TimeRange where
 --
 -- /See:/ 'triggerConfig' smart constructor.
 data TriggerConfig = TriggerConfig'
-    { _tcTriggerName      :: !(Maybe Text)
-    , _tcTriggerEvents    :: !(Maybe [TriggerEventType])
-    , _tcTriggerTargetARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tcTriggerName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tcTriggerEvents    :: {-# NOUNPACK #-}!(Maybe [TriggerEventType])
+  , _tcTriggerTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TriggerConfig' with the minimum fields required to make a request.
 --
@@ -2471,11 +2486,12 @@ data TriggerConfig = TriggerConfig'
 triggerConfig
     :: TriggerConfig
 triggerConfig =
-    TriggerConfig'
-    { _tcTriggerName = Nothing
-    , _tcTriggerEvents = Nothing
-    , _tcTriggerTargetARN = Nothing
-    }
+  TriggerConfig'
+  { _tcTriggerName = Nothing
+  , _tcTriggerEvents = Nothing
+  , _tcTriggerTargetARN = Nothing
+  }
+
 
 -- | The name of the notification trigger.
 tcTriggerName :: Lens' TriggerConfig (Maybe Text)
@@ -2498,9 +2514,9 @@ instance FromJSON TriggerConfig where
                      (x .:? "triggerEvents" .!= mempty)
                      <*> (x .:? "triggerTargetArn"))
 
-instance Hashable TriggerConfig
+instance Hashable TriggerConfig where
 
-instance NFData TriggerConfig
+instance NFData TriggerConfig where
 
 instance ToJSON TriggerConfig where
         toJSON TriggerConfig'{..}

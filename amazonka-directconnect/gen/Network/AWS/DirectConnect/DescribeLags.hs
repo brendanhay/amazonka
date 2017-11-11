@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeLags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DirectConnect.DescribeLags
     , desrsResponseStatus
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the DescribeLags operation.
 --
@@ -52,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeLags' smart constructor.
 newtype DescribeLags = DescribeLags'
-    { _dlLagId :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlLagId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLags' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype DescribeLags = DescribeLags'
 -- * 'dlLagId' - The ID of the LAG. Example: dxlag-abc123 Default: None
 describeLags
     :: DescribeLags
-describeLags =
-    DescribeLags'
-    { _dlLagId = Nothing
-    }
+describeLags = DescribeLags' {_dlLagId = Nothing}
+
 
 -- | The ID of the LAG. Example: dxlag-abc123 Default: None
 dlLagId :: Lens' DescribeLags (Maybe Text)
@@ -80,9 +79,9 @@ instance AWSRequest DescribeLags where
                  DescribeLagsResponse' <$>
                    (x .?> "lags" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable DescribeLags
+instance Hashable DescribeLags where
 
-instance NFData DescribeLags
+instance NFData DescribeLags where
 
 instance ToHeaders DescribeLags where
         toHeaders
@@ -109,9 +108,10 @@ instance ToQuery DescribeLags where
 --
 -- /See:/ 'describeLagsResponse' smart constructor.
 data DescribeLagsResponse = DescribeLagsResponse'
-    { _desrsLags           :: !(Maybe [Lag])
-    , _desrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desrsLags           :: {-# NOUNPACK #-}!(Maybe [Lag])
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeLagsResponse' with the minimum fields required to make a request.
 --
@@ -124,10 +124,9 @@ describeLagsResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeLagsResponse
 describeLagsResponse pResponseStatus_ =
-    DescribeLagsResponse'
-    { _desrsLags = Nothing
-    , _desrsResponseStatus = pResponseStatus_
-    }
+  DescribeLagsResponse'
+  {_desrsLags = Nothing, _desrsResponseStatus = pResponseStatus_}
+
 
 -- | A list of LAGs.
 desrsLags :: Lens' DescribeLagsResponse [Lag]
@@ -137,4 +136,4 @@ desrsLags = lens _desrsLags (\ s a -> s{_desrsLags = a}) . _Default . _Coerce;
 desrsResponseStatus :: Lens' DescribeLagsResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
-instance NFData DescribeLagsResponse
+instance NFData DescribeLagsResponse where

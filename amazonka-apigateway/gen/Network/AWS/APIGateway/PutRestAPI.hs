@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutRestAPI
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,12 +46,12 @@ module Network.AWS.APIGateway.PutRestAPI
     , raDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A PUT request to update an existing API, with external API definitions specified as the request body.
 --
@@ -59,12 +59,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putRestAPI' smart constructor.
 data PutRestAPI = PutRestAPI'
-    { _praMode           :: !(Maybe PutMode)
-    , _praFailOnWarnings :: !(Maybe Bool)
-    , _praParameters     :: !(Maybe (Map Text Text))
-    , _praRestAPIId      :: !Text
-    , _praBody           :: !(HashMap Text Value)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _praMode           :: {-# NOUNPACK #-}!(Maybe PutMode)
+  , _praFailOnWarnings :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _praParameters     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _praRestAPIId      :: {-# NOUNPACK #-}!Text
+  , _praBody           :: {-# NOUNPACK #-}!(HashMap Text Value)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRestAPI' with the minimum fields required to make a request.
 --
@@ -84,13 +85,14 @@ putRestAPI
     -> HashMap Text Value -- ^ 'praBody'
     -> PutRestAPI
 putRestAPI pRestAPIId_ pBody_ =
-    PutRestAPI'
-    { _praMode = Nothing
-    , _praFailOnWarnings = Nothing
-    , _praParameters = Nothing
-    , _praRestAPIId = pRestAPIId_
-    , _praBody = pBody_
-    }
+  PutRestAPI'
+  { _praMode = Nothing
+  , _praFailOnWarnings = Nothing
+  , _praParameters = Nothing
+  , _praRestAPIId = pRestAPIId_
+  , _praBody = pBody_
+  }
+
 
 -- | The @mode@ query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default, the update mode is "merge".
 praMode :: Lens' PutRestAPI (Maybe PutMode)
@@ -117,9 +119,9 @@ instance AWSRequest PutRestAPI where
         request = putBody apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable PutRestAPI
+instance Hashable PutRestAPI where
 
-instance NFData PutRestAPI
+instance NFData PutRestAPI where
 
 instance ToBody PutRestAPI where
         toBody = toBody . _praBody

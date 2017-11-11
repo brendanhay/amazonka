@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeExportTasks
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Discovery.DescribeExportTasks
     , detrsResponseStatus
     ) where
 
-import           Network.AWS.Discovery.Types
-import           Network.AWS.Discovery.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Discovery.Types
+import Network.AWS.Discovery.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-    { _detFilters    :: !(Maybe [ExportFilter])
-    , _detNextToken  :: !(Maybe Text)
-    , _detExportIds  :: !(Maybe [Text])
-    , _detMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detFilters    :: {-# NOUNPACK #-}!(Maybe [ExportFilter])
+  , _detNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detExportIds  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _detMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data DescribeExportTasks = DescribeExportTasks'
 describeExportTasks
     :: DescribeExportTasks
 describeExportTasks =
-    DescribeExportTasks'
-    { _detFilters = Nothing
-    , _detNextToken = Nothing
-    , _detExportIds = Nothing
-    , _detMaxResults = Nothing
-    }
+  DescribeExportTasks'
+  { _detFilters = Nothing
+  , _detNextToken = Nothing
+  , _detExportIds = Nothing
+  , _detMaxResults = Nothing
+  }
+
 
 -- | One or more filters.     * @AgentId@ - ID of the agent whose collected data will be exported
 detFilters :: Lens' DescribeExportTasks [ExportFilter]
@@ -105,9 +107,9 @@ instance AWSRequest DescribeExportTasks where
                      (x .?> "exportsInfo" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeExportTasks
+instance Hashable DescribeExportTasks where
 
-instance NFData DescribeExportTasks
+instance NFData DescribeExportTasks where
 
 instance ToHeaders DescribeExportTasks where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery DescribeExportTasks where
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-    { _detrsNextToken      :: !(Maybe Text)
-    , _detrsExportsInfo    :: !(Maybe [ExportInfo])
-    , _detrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _detrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _detrsExportsInfo    :: {-# NOUNPACK #-}!(Maybe [ExportInfo])
+  , _detrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ describeExportTasksResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DescribeExportTasksResponse
 describeExportTasksResponse pResponseStatus_ =
-    DescribeExportTasksResponse'
-    { _detrsNextToken = Nothing
-    , _detrsExportsInfo = Nothing
-    , _detrsResponseStatus = pResponseStatus_
-    }
+  DescribeExportTasksResponse'
+  { _detrsNextToken = Nothing
+  , _detrsExportsInfo = Nothing
+  , _detrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
 detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
@@ -172,4 +176,4 @@ detrsExportsInfo = lens _detrsExportsInfo (\ s a -> s{_detrsExportsInfo = a}) . 
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 
-instance NFData DescribeExportTasksResponse
+instance NFData DescribeExportTasksResponse where

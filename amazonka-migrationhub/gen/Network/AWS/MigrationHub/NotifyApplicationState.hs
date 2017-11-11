@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.NotifyApplicationState
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.MigrationHub.NotifyApplicationState
     , nasrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MigrationHub.Types
-import           Network.AWS.MigrationHub.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MigrationHub.Types
+import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'notifyApplicationState' smart constructor.
 data NotifyApplicationState = NotifyApplicationState'
-    { _nasDryRun        :: !(Maybe Bool)
-    , _nasApplicationId :: !Text
-    , _nasStatus        :: !ApplicationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nasDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _nasApplicationId :: {-# NOUNPACK #-}!Text
+  , _nasStatus        :: {-# NOUNPACK #-}!ApplicationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotifyApplicationState' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ notifyApplicationState
     -> ApplicationStatus -- ^ 'nasStatus'
     -> NotifyApplicationState
 notifyApplicationState pApplicationId_ pStatus_ =
-    NotifyApplicationState'
-    { _nasDryRun = Nothing
-    , _nasApplicationId = pApplicationId_
-    , _nasStatus = pStatus_
-    }
+  NotifyApplicationState'
+  { _nasDryRun = Nothing
+  , _nasApplicationId = pApplicationId_
+  , _nasStatus = pStatus_
+  }
+
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 nasDryRun :: Lens' NotifyApplicationState (Maybe Bool)
@@ -94,9 +96,9 @@ instance AWSRequest NotifyApplicationState where
                  NotifyApplicationStateResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable NotifyApplicationState
+instance Hashable NotifyApplicationState where
 
-instance NFData NotifyApplicationState
+instance NFData NotifyApplicationState where
 
 instance ToHeaders NotifyApplicationState where
         toHeaders
@@ -124,8 +126,9 @@ instance ToQuery NotifyApplicationState where
 
 -- | /See:/ 'notifyApplicationStateResponse' smart constructor.
 newtype NotifyApplicationStateResponse = NotifyApplicationStateResponse'
-    { _nasrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _nasrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NotifyApplicationStateResponse' with the minimum fields required to make a request.
 --
@@ -136,12 +139,11 @@ notifyApplicationStateResponse
     :: Int -- ^ 'nasrsResponseStatus'
     -> NotifyApplicationStateResponse
 notifyApplicationStateResponse pResponseStatus_ =
-    NotifyApplicationStateResponse'
-    { _nasrsResponseStatus = pResponseStatus_
-    }
+  NotifyApplicationStateResponse' {_nasrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 nasrsResponseStatus :: Lens' NotifyApplicationStateResponse Int
 nasrsResponseStatus = lens _nasrsResponseStatus (\ s a -> s{_nasrsResponseStatus = a});
 
-instance NFData NotifyApplicationStateResponse
+instance NFData NotifyApplicationStateResponse where

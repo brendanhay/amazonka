@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeAccountAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.RDS.DescribeAccountAttributes
     , daarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types
-import           Network.AWS.RDS.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+import Network.AWS.RDS.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -50,14 +50,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes =
-    DescribeAccountAttributes'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeAccountAttributes'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
 --
 describeAccountAttributes
     :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes'
+
 
 instance AWSRequest DescribeAccountAttributes where
         type Rs DescribeAccountAttributes =
@@ -71,9 +73,9 @@ instance AWSRequest DescribeAccountAttributes where
                       may (parseXMLList "AccountQuota"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeAccountAttributes
+instance Hashable DescribeAccountAttributes where
 
-instance NFData DescribeAccountAttributes
+instance NFData DescribeAccountAttributes where
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
@@ -95,9 +97,10 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarsAccountQuotas  :: !(Maybe [AccountQuota])
-    , _daarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _daarsAccountQuotas  :: {-# NOUNPACK #-}!(Maybe [AccountQuota])
+  , _daarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
 --
@@ -110,10 +113,9 @@ describeAccountAttributesResponse
     :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pResponseStatus_ =
-    DescribeAccountAttributesResponse'
-    { _daarsAccountQuotas = Nothing
-    , _daarsResponseStatus = pResponseStatus_
-    }
+  DescribeAccountAttributesResponse'
+  {_daarsAccountQuotas = Nothing, _daarsResponseStatus = pResponseStatus_}
+
 
 -- | A list of 'AccountQuota' objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
@@ -124,3 +126,4 @@ daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 
 instance NFData DescribeAccountAttributesResponse
+         where

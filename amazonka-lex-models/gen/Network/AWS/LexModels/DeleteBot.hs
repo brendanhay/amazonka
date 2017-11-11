@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteBot
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.LexModels.DeleteBot
     , DeleteBotResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteBot' smart constructor.
 newtype DeleteBot = DeleteBot'
-    { _dbName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBot' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ newtype DeleteBot = DeleteBot'
 deleteBot
     :: Text -- ^ 'dbName'
     -> DeleteBot
-deleteBot pName_ =
-    DeleteBot'
-    { _dbName = pName_
-    }
+deleteBot pName_ = DeleteBot' {_dbName = pName_}
+
 
 -- | The name of the bot. The name is case sensitive.
 dbName :: Lens' DeleteBot Text
@@ -72,9 +71,9 @@ instance AWSRequest DeleteBot where
         request = delete lexModels
         response = receiveNull DeleteBotResponse'
 
-instance Hashable DeleteBot
+instance Hashable DeleteBot where
 
-instance NFData DeleteBot
+instance NFData DeleteBot where
 
 instance ToHeaders DeleteBot where
         toHeaders
@@ -92,8 +91,9 @@ instance ToQuery DeleteBot where
 
 -- | /See:/ 'deleteBotResponse' smart constructor.
 data DeleteBotResponse =
-    DeleteBotResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBotResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBotResponse' with the minimum fields required to make a request.
 --
@@ -101,4 +101,5 @@ deleteBotResponse
     :: DeleteBotResponse
 deleteBotResponse = DeleteBotResponse'
 
-instance NFData DeleteBotResponse
+
+instance NFData DeleteBotResponse where

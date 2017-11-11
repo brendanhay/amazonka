@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.GetWorkflowExecutionHistory
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -58,22 +58,23 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     , gwehrsEvents
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'getWorkflowExecutionHistory' smart constructor.
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
-    { _gwehNextPageToken   :: !(Maybe Text)
-    , _gwehReverseOrder    :: !(Maybe Bool)
-    , _gwehMaximumPageSize :: !(Maybe Nat)
-    , _gwehDomain          :: !Text
-    , _gwehExecution       :: !WorkflowExecution
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gwehNextPageToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gwehReverseOrder    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _gwehMaximumPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gwehDomain          :: {-# NOUNPACK #-}!Text
+  , _gwehExecution       :: {-# NOUNPACK #-}!WorkflowExecution
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetWorkflowExecutionHistory' with the minimum fields required to make a request.
 --
@@ -93,13 +94,14 @@ getWorkflowExecutionHistory
     -> WorkflowExecution -- ^ 'gwehExecution'
     -> GetWorkflowExecutionHistory
 getWorkflowExecutionHistory pDomain_ pExecution_ =
-    GetWorkflowExecutionHistory'
-    { _gwehNextPageToken = Nothing
-    , _gwehReverseOrder = Nothing
-    , _gwehMaximumPageSize = Nothing
-    , _gwehDomain = pDomain_
-    , _gwehExecution = pExecution_
-    }
+  GetWorkflowExecutionHistory'
+  { _gwehNextPageToken = Nothing
+  , _gwehReverseOrder = Nothing
+  , _gwehMaximumPageSize = Nothing
+  , _gwehDomain = pDomain_
+  , _gwehExecution = pExecution_
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 gwehNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
@@ -140,9 +142,9 @@ instance AWSRequest GetWorkflowExecutionHistory where
                    (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "events" .!@ mempty))
 
-instance Hashable GetWorkflowExecutionHistory
+instance Hashable GetWorkflowExecutionHistory where
 
-instance NFData GetWorkflowExecutionHistory
+instance NFData GetWorkflowExecutionHistory where
 
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders
@@ -176,10 +178,11 @@ instance ToQuery GetWorkflowExecutionHistory where
 --
 -- /See:/ 'getWorkflowExecutionHistoryResponse' smart constructor.
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
-    { _gwehrsNextPageToken  :: !(Maybe Text)
-    , _gwehrsResponseStatus :: !Int
-    , _gwehrsEvents         :: ![HistoryEvent]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gwehrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gwehrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _gwehrsEvents         :: {-# NOUNPACK #-}![HistoryEvent]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetWorkflowExecutionHistoryResponse' with the minimum fields required to make a request.
 --
@@ -194,11 +197,12 @@ getWorkflowExecutionHistoryResponse
     :: Int -- ^ 'gwehrsResponseStatus'
     -> GetWorkflowExecutionHistoryResponse
 getWorkflowExecutionHistoryResponse pResponseStatus_ =
-    GetWorkflowExecutionHistoryResponse'
-    { _gwehrsNextPageToken = Nothing
-    , _gwehrsResponseStatus = pResponseStatus_
-    , _gwehrsEvents = mempty
-    }
+  GetWorkflowExecutionHistoryResponse'
+  { _gwehrsNextPageToken = Nothing
+  , _gwehrsResponseStatus = pResponseStatus_
+  , _gwehrsEvents = mempty
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 gwehrsNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
@@ -213,3 +217,4 @@ gwehrsEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
 gwehrsEvents = lens _gwehrsEvents (\ s a -> s{_gwehrsEvents = a}) . _Coerce;
 
 instance NFData GetWorkflowExecutionHistoryResponse
+         where

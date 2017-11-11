@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetByteMatchSet
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.WAF.GetByteMatchSet
     , gbmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'getByteMatchSet' smart constructor.
 newtype GetByteMatchSet = GetByteMatchSet'
-    { _gbmsByteMatchSetId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbmsByteMatchSetId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetByteMatchSet' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getByteMatchSet
     :: Text -- ^ 'gbmsByteMatchSetId'
     -> GetByteMatchSet
 getByteMatchSet pByteMatchSetId_ =
-    GetByteMatchSet'
-    { _gbmsByteMatchSetId = pByteMatchSetId_
-    }
+  GetByteMatchSet' {_gbmsByteMatchSetId = pByteMatchSetId_}
+
 
 -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to get. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 gbmsByteMatchSetId :: Lens' GetByteMatchSet Text
@@ -75,9 +75,9 @@ instance AWSRequest GetByteMatchSet where
                  GetByteMatchSetResponse' <$>
                    (x .?> "ByteMatchSet") <*> (pure (fromEnum s)))
 
-instance Hashable GetByteMatchSet
+instance Hashable GetByteMatchSet where
 
-instance NFData GetByteMatchSet
+instance NFData GetByteMatchSet where
 
 instance ToHeaders GetByteMatchSet where
         toHeaders
@@ -102,9 +102,10 @@ instance ToQuery GetByteMatchSet where
 
 -- | /See:/ 'getByteMatchSetResponse' smart constructor.
 data GetByteMatchSetResponse = GetByteMatchSetResponse'
-    { _gbmsrsByteMatchSet   :: !(Maybe ByteMatchSet)
-    , _gbmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbmsrsByteMatchSet   :: {-# NOUNPACK #-}!(Maybe ByteMatchSet)
+  , _gbmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetByteMatchSetResponse' with the minimum fields required to make a request.
 --
@@ -117,10 +118,9 @@ getByteMatchSetResponse
     :: Int -- ^ 'gbmsrsResponseStatus'
     -> GetByteMatchSetResponse
 getByteMatchSetResponse pResponseStatus_ =
-    GetByteMatchSetResponse'
-    { _gbmsrsByteMatchSet = Nothing
-    , _gbmsrsResponseStatus = pResponseStatus_
-    }
+  GetByteMatchSetResponse'
+  {_gbmsrsByteMatchSet = Nothing, _gbmsrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@      * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gbmsrsByteMatchSet :: Lens' GetByteMatchSetResponse (Maybe ByteMatchSet)
@@ -130,4 +130,4 @@ gbmsrsByteMatchSet = lens _gbmsrsByteMatchSet (\ s a -> s{_gbmsrsByteMatchSet = 
 gbmsrsResponseStatus :: Lens' GetByteMatchSetResponse Int
 gbmsrsResponseStatus = lens _gbmsrsResponseStatus (\ s a -> s{_gbmsrsResponseStatus = a});
 
-instance NFData GetByteMatchSetResponse
+instance NFData GetByteMatchSetResponse where

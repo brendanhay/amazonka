@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ListSchemaExtensions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.DirectoryService.ListSchemaExtensions
     , lsersResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listSchemaExtensions' smart constructor.
 data ListSchemaExtensions = ListSchemaExtensions'
-    { _lseNextToken   :: !(Maybe Text)
-    , _lseLimit       :: !(Maybe Nat)
-    , _lseDirectoryId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lseNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lseLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lseDirectoryId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSchemaExtensions' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ listSchemaExtensions
     :: Text -- ^ 'lseDirectoryId'
     -> ListSchemaExtensions
 listSchemaExtensions pDirectoryId_ =
-    ListSchemaExtensions'
-    { _lseNextToken = Nothing
-    , _lseLimit = Nothing
-    , _lseDirectoryId = pDirectoryId_
-    }
+  ListSchemaExtensions'
+  { _lseNextToken = Nothing
+  , _lseLimit = Nothing
+  , _lseDirectoryId = pDirectoryId_
+  }
+
 
 -- | The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
 lseNextToken :: Lens' ListSchemaExtensions (Maybe Text)
@@ -97,9 +99,9 @@ instance AWSRequest ListSchemaExtensions where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListSchemaExtensions
+instance Hashable ListSchemaExtensions where
 
-instance NFData ListSchemaExtensions
+instance NFData ListSchemaExtensions where
 
 instance ToHeaders ListSchemaExtensions where
         toHeaders
@@ -127,10 +129,11 @@ instance ToQuery ListSchemaExtensions where
 
 -- | /See:/ 'listSchemaExtensionsResponse' smart constructor.
 data ListSchemaExtensionsResponse = ListSchemaExtensionsResponse'
-    { _lsersSchemaExtensionsInfo :: !(Maybe [SchemaExtensionInfo])
-    , _lsersNextToken            :: !(Maybe Text)
-    , _lsersResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lsersSchemaExtensionsInfo :: {-# NOUNPACK #-}!(Maybe [SchemaExtensionInfo])
+  , _lsersNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lsersResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListSchemaExtensionsResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +148,12 @@ listSchemaExtensionsResponse
     :: Int -- ^ 'lsersResponseStatus'
     -> ListSchemaExtensionsResponse
 listSchemaExtensionsResponse pResponseStatus_ =
-    ListSchemaExtensionsResponse'
-    { _lsersSchemaExtensionsInfo = Nothing
-    , _lsersNextToken = Nothing
-    , _lsersResponseStatus = pResponseStatus_
-    }
+  ListSchemaExtensionsResponse'
+  { _lsersSchemaExtensionsInfo = Nothing
+  , _lsersNextToken = Nothing
+  , _lsersResponseStatus = pResponseStatus_
+  }
+
 
 -- | Information about the schema extensions applied to the directory.
 lsersSchemaExtensionsInfo :: Lens' ListSchemaExtensionsResponse [SchemaExtensionInfo]
@@ -163,4 +167,4 @@ lsersNextToken = lens _lsersNextToken (\ s a -> s{_lsersNextToken = a});
 lsersResponseStatus :: Lens' ListSchemaExtensionsResponse Int
 lsersResponseStatus = lens _lsersResponseStatus (\ s a -> s{_lsersResponseStatus = a});
 
-instance NFData ListSchemaExtensionsResponse
+instance NFData ListSchemaExtensionsResponse where

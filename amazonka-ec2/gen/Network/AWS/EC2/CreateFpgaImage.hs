@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateFpgaImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,22 +47,23 @@ module Network.AWS.EC2.CreateFpgaImage
     , cfirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createFpgaImage' smart constructor.
 data CreateFpgaImage = CreateFpgaImage'
-    { _cfiClientToken          :: !(Maybe Text)
-    , _cfiLogsStorageLocation  :: !(Maybe StorageLocation)
-    , _cfiName                 :: !(Maybe Text)
-    , _cfiDescription          :: !(Maybe Text)
-    , _cfiDryRun               :: !(Maybe Bool)
-    , _cfiInputStorageLocation :: !StorageLocation
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfiClientToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfiLogsStorageLocation  :: {-# NOUNPACK #-}!(Maybe StorageLocation)
+  , _cfiName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfiDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfiDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cfiInputStorageLocation :: {-# NOUNPACK #-}!StorageLocation
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFpgaImage' with the minimum fields required to make a request.
 --
@@ -83,14 +84,15 @@ createFpgaImage
     :: StorageLocation -- ^ 'cfiInputStorageLocation'
     -> CreateFpgaImage
 createFpgaImage pInputStorageLocation_ =
-    CreateFpgaImage'
-    { _cfiClientToken = Nothing
-    , _cfiLogsStorageLocation = Nothing
-    , _cfiName = Nothing
-    , _cfiDescription = Nothing
-    , _cfiDryRun = Nothing
-    , _cfiInputStorageLocation = pInputStorageLocation_
-    }
+  CreateFpgaImage'
+  { _cfiClientToken = Nothing
+  , _cfiLogsStorageLocation = Nothing
+  , _cfiName = Nothing
+  , _cfiDescription = Nothing
+  , _cfiDryRun = Nothing
+  , _cfiInputStorageLocation = pInputStorageLocation_
+  }
+
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
 cfiClientToken :: Lens' CreateFpgaImage (Maybe Text)
@@ -126,9 +128,9 @@ instance AWSRequest CreateFpgaImage where
                    (x .@? "fpgaImageId") <*> (x .@? "fpgaImageGlobalId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateFpgaImage
+instance Hashable CreateFpgaImage where
 
-instance NFData CreateFpgaImage
+instance NFData CreateFpgaImage where
 
 instance ToHeaders CreateFpgaImage where
         toHeaders = const mempty
@@ -149,10 +151,11 @@ instance ToQuery CreateFpgaImage where
 
 -- | /See:/ 'createFpgaImageResponse' smart constructor.
 data CreateFpgaImageResponse = CreateFpgaImageResponse'
-    { _cfirsFpgaImageId       :: !(Maybe Text)
-    , _cfirsFpgaImageGlobalId :: !(Maybe Text)
-    , _cfirsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cfirsFpgaImageId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfirsFpgaImageGlobalId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateFpgaImageResponse' with the minimum fields required to make a request.
 --
@@ -167,11 +170,12 @@ createFpgaImageResponse
     :: Int -- ^ 'cfirsResponseStatus'
     -> CreateFpgaImageResponse
 createFpgaImageResponse pResponseStatus_ =
-    CreateFpgaImageResponse'
-    { _cfirsFpgaImageId = Nothing
-    , _cfirsFpgaImageGlobalId = Nothing
-    , _cfirsResponseStatus = pResponseStatus_
-    }
+  CreateFpgaImageResponse'
+  { _cfirsFpgaImageId = Nothing
+  , _cfirsFpgaImageGlobalId = Nothing
+  , _cfirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The FPGA image identifier (AFI ID).
 cfirsFpgaImageId :: Lens' CreateFpgaImageResponse (Maybe Text)
@@ -185,4 +189,4 @@ cfirsFpgaImageGlobalId = lens _cfirsFpgaImageGlobalId (\ s a -> s{_cfirsFpgaImag
 cfirsResponseStatus :: Lens' CreateFpgaImageResponse Int
 cfirsResponseStatus = lens _cfirsResponseStatus (\ s a -> s{_cfirsResponseStatus = a});
 
-instance NFData CreateFpgaImageResponse
+instance NFData CreateFpgaImageResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateCampaign
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,19 +37,20 @@ module Network.AWS.Pinpoint.UpdateCampaign
     , ucrsCampaignResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateCampaign' smart constructor.
 data UpdateCampaign = UpdateCampaign'
-    { _ucCampaignId           :: !Text
-    , _ucApplicationId        :: !Text
-    , _ucWriteCampaignRequest :: !WriteCampaignRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucCampaignId           :: {-# NOUNPACK #-}!Text
+  , _ucApplicationId        :: {-# NOUNPACK #-}!Text
+  , _ucWriteCampaignRequest :: {-# NOUNPACK #-}!WriteCampaignRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCampaign' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ updateCampaign
     -> WriteCampaignRequest -- ^ 'ucWriteCampaignRequest'
     -> UpdateCampaign
 updateCampaign pCampaignId_ pApplicationId_ pWriteCampaignRequest_ =
-    UpdateCampaign'
-    { _ucCampaignId = pCampaignId_
-    , _ucApplicationId = pApplicationId_
-    , _ucWriteCampaignRequest = pWriteCampaignRequest_
-    }
+  UpdateCampaign'
+  { _ucCampaignId = pCampaignId_
+  , _ucApplicationId = pApplicationId_
+  , _ucWriteCampaignRequest = pWriteCampaignRequest_
+  }
+
 
 -- | Undocumented member.
 ucCampaignId :: Lens' UpdateCampaign Text
@@ -93,9 +95,9 @@ instance AWSRequest UpdateCampaign where
                  UpdateCampaignResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable UpdateCampaign
+instance Hashable UpdateCampaign where
 
-instance NFData UpdateCampaign
+instance NFData UpdateCampaign where
 
 instance ToHeaders UpdateCampaign where
         toHeaders
@@ -122,9 +124,10 @@ instance ToQuery UpdateCampaign where
 
 -- | /See:/ 'updateCampaignResponse' smart constructor.
 data UpdateCampaignResponse = UpdateCampaignResponse'
-    { _ucrsResponseStatus   :: !Int
-    , _ucrsCampaignResponse :: !CampaignResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _ucrsCampaignResponse :: {-# NOUNPACK #-}!CampaignResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCampaignResponse' with the minimum fields required to make a request.
 --
@@ -138,10 +141,11 @@ updateCampaignResponse
     -> CampaignResponse -- ^ 'ucrsCampaignResponse'
     -> UpdateCampaignResponse
 updateCampaignResponse pResponseStatus_ pCampaignResponse_ =
-    UpdateCampaignResponse'
-    { _ucrsResponseStatus = pResponseStatus_
-    , _ucrsCampaignResponse = pCampaignResponse_
-    }
+  UpdateCampaignResponse'
+  { _ucrsResponseStatus = pResponseStatus_
+  , _ucrsCampaignResponse = pCampaignResponse_
+  }
+
 
 -- | -- | The response status code.
 ucrsResponseStatus :: Lens' UpdateCampaignResponse Int
@@ -151,4 +155,4 @@ ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = 
 ucrsCampaignResponse :: Lens' UpdateCampaignResponse CampaignResponse
 ucrsCampaignResponse = lens _ucrsCampaignResponse (\ s a -> s{_ucrsCampaignResponse = a});
 
-instance NFData UpdateCampaignResponse
+instance NFData UpdateCampaignResponse where

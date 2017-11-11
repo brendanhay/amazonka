@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreateTagOption
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.ServiceCatalog.CreateTagOption
     , ctorsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createTagOption' smart constructor.
 data CreateTagOption = CreateTagOption'
-    { _ctoKey   :: !Text
-    , _ctoValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctoKey   :: {-# NOUNPACK #-}!Text
+  , _ctoValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTagOption' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ createTagOption
     -> Text -- ^ 'ctoValue'
     -> CreateTagOption
 createTagOption pKey_ pValue_ =
-    CreateTagOption'
-    { _ctoKey = pKey_
-    , _ctoValue = pValue_
-    }
+  CreateTagOption' {_ctoKey = pKey_, _ctoValue = pValue_}
+
 
 -- | The TagOption key.
 ctoKey :: Lens' CreateTagOption Text
@@ -85,9 +84,9 @@ instance AWSRequest CreateTagOption where
                  CreateTagOptionResponse' <$>
                    (x .?> "TagOptionDetail") <*> (pure (fromEnum s)))
 
-instance Hashable CreateTagOption
+instance Hashable CreateTagOption where
 
-instance NFData CreateTagOption
+instance NFData CreateTagOption where
 
 instance ToHeaders CreateTagOption where
         toHeaders
@@ -114,9 +113,10 @@ instance ToQuery CreateTagOption where
 
 -- | /See:/ 'createTagOptionResponse' smart constructor.
 data CreateTagOptionResponse = CreateTagOptionResponse'
-    { _ctorsTagOptionDetail :: !(Maybe TagOptionDetail)
-    , _ctorsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctorsTagOptionDetail :: {-# NOUNPACK #-}!(Maybe TagOptionDetail)
+  , _ctorsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTagOptionResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +129,9 @@ createTagOptionResponse
     :: Int -- ^ 'ctorsResponseStatus'
     -> CreateTagOptionResponse
 createTagOptionResponse pResponseStatus_ =
-    CreateTagOptionResponse'
-    { _ctorsTagOptionDetail = Nothing
-    , _ctorsResponseStatus = pResponseStatus_
-    }
+  CreateTagOptionResponse'
+  {_ctorsTagOptionDetail = Nothing, _ctorsResponseStatus = pResponseStatus_}
+
 
 -- | The resulting detailed TagOption information.
 ctorsTagOptionDetail :: Lens' CreateTagOptionResponse (Maybe TagOptionDetail)
@@ -142,4 +141,4 @@ ctorsTagOptionDetail = lens _ctorsTagOptionDetail (\ s a -> s{_ctorsTagOptionDet
 ctorsResponseStatus :: Lens' CreateTagOptionResponse Int
 ctorsResponseStatus = lens _ctorsResponseStatus (\ s a -> s{_ctorsResponseStatus = a});
 
-instance NFData CreateTagOptionResponse
+instance NFData CreateTagOptionResponse where

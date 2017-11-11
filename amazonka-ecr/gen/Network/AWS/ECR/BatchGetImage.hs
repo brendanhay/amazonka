@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.BatchGetImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.ECR.BatchGetImage
     , bgirsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchGetImage' smart constructor.
 data BatchGetImage = BatchGetImage'
-    { _bgiRegistryId         :: !(Maybe Text)
-    , _bgiAcceptedMediaTypes :: !(Maybe (List1 Text))
-    , _bgiRepositoryName     :: !Text
-    , _bgiImageIds           :: ![ImageIdentifier]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgiRegistryId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bgiAcceptedMediaTypes :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _bgiRepositoryName     :: {-# NOUNPACK #-}!Text
+  , _bgiImageIds           :: {-# NOUNPACK #-}![ImageIdentifier]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetImage' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ batchGetImage
     :: Text -- ^ 'bgiRepositoryName'
     -> BatchGetImage
 batchGetImage pRepositoryName_ =
-    BatchGetImage'
-    { _bgiRegistryId = Nothing
-    , _bgiAcceptedMediaTypes = Nothing
-    , _bgiRepositoryName = pRepositoryName_
-    , _bgiImageIds = mempty
-    }
+  BatchGetImage'
+  { _bgiRegistryId = Nothing
+  , _bgiAcceptedMediaTypes = Nothing
+  , _bgiRepositoryName = pRepositoryName_
+  , _bgiImageIds = mempty
+  }
+
 
 -- | The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
 bgiRegistryId :: Lens' BatchGetImage (Maybe Text)
@@ -105,9 +107,9 @@ instance AWSRequest BatchGetImage where
                      (x .?> "failures" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchGetImage
+instance Hashable BatchGetImage where
 
-instance NFData BatchGetImage
+instance NFData BatchGetImage where
 
 instance ToHeaders BatchGetImage where
         toHeaders
@@ -136,10 +138,11 @@ instance ToQuery BatchGetImage where
 
 -- | /See:/ 'batchGetImageResponse' smart constructor.
 data BatchGetImageResponse = BatchGetImageResponse'
-    { _bgirsImages         :: !(Maybe [Image])
-    , _bgirsFailures       :: !(Maybe [ImageFailure])
-    , _bgirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bgirsImages         :: {-# NOUNPACK #-}!(Maybe [Image])
+  , _bgirsFailures       :: {-# NOUNPACK #-}!(Maybe [ImageFailure])
+  , _bgirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchGetImageResponse' with the minimum fields required to make a request.
 --
@@ -154,11 +157,12 @@ batchGetImageResponse
     :: Int -- ^ 'bgirsResponseStatus'
     -> BatchGetImageResponse
 batchGetImageResponse pResponseStatus_ =
-    BatchGetImageResponse'
-    { _bgirsImages = Nothing
-    , _bgirsFailures = Nothing
-    , _bgirsResponseStatus = pResponseStatus_
-    }
+  BatchGetImageResponse'
+  { _bgirsImages = Nothing
+  , _bgirsFailures = Nothing
+  , _bgirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of image objects corresponding to the image references in the request.
 bgirsImages :: Lens' BatchGetImageResponse [Image]
@@ -172,4 +176,4 @@ bgirsFailures = lens _bgirsFailures (\ s a -> s{_bgirsFailures = a}) . _Default 
 bgirsResponseStatus :: Lens' BatchGetImageResponse Int
 bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});
 
-instance NFData BatchGetImageResponse
+instance NFData BatchGetImageResponse where

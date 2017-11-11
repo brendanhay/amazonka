@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.Invoke
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.Lambda.Invoke
     , irsStatusCode
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,13 +61,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'invoke' smart constructor.
 data Invoke = Invoke'
-    { _iInvocationType :: !(Maybe InvocationType)
-    , _iLogType        :: !(Maybe LogType)
-    , _iQualifier      :: !(Maybe Text)
-    , _iClientContext  :: !(Maybe Text)
-    , _iFunctionName   :: !Text
-    , _iPayload        :: !(HashMap Text Value)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _iInvocationType :: {-# NOUNPACK #-}!(Maybe InvocationType)
+  , _iLogType        :: {-# NOUNPACK #-}!(Maybe LogType)
+  , _iQualifier      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iClientContext  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iFunctionName   :: {-# NOUNPACK #-}!Text
+  , _iPayload        :: {-# NOUNPACK #-}!(HashMap Text Value)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Invoke' with the minimum fields required to make a request.
 --
@@ -89,14 +90,15 @@ invoke
     -> HashMap Text Value -- ^ 'iPayload'
     -> Invoke
 invoke pFunctionName_ pPayload_ =
-    Invoke'
-    { _iInvocationType = Nothing
-    , _iLogType = Nothing
-    , _iQualifier = Nothing
-    , _iClientContext = Nothing
-    , _iFunctionName = pFunctionName_
-    , _iPayload = pPayload_
-    }
+  Invoke'
+  { _iInvocationType = Nothing
+  , _iLogType = Nothing
+  , _iQualifier = Nothing
+  , _iClientContext = Nothing
+  , _iFunctionName = pFunctionName_
+  , _iPayload = pPayload_
+  }
+
 
 -- | By default, the @Invoke@ API assumes @RequestResponse@ invocation type. You can optionally request asynchronous execution by specifying @Event@ as the @InvocationType@ . You can also use this parameter to request AWS Lambda to not execute the function but do some verification, such as if the caller is authorized to invoke the function and if the inputs are valid. You request this by specifying @DryRun@ as the @InvocationType@ . This is useful in a cross-account scenario when you want to verify access to a function without running it.
 iInvocationType :: Lens' Invoke (Maybe InvocationType)
@@ -134,9 +136,9 @@ instance AWSRequest Invoke where
                      <*> (pure (Just x))
                      <*> (pure (fromEnum s)))
 
-instance Hashable Invoke
+instance Hashable Invoke where
 
-instance NFData Invoke
+instance NFData Invoke where
 
 instance ToBody Invoke where
         toBody = toBody . _iPayload
@@ -164,11 +166,12 @@ instance ToQuery Invoke where
 --
 -- /See:/ 'invokeResponse' smart constructor.
 data InvokeResponse = InvokeResponse'
-    { _irsFunctionError :: !(Maybe Text)
-    , _irsLogResult     :: !(Maybe Text)
-    , _irsPayload       :: !(Maybe (HashMap Text Value))
-    , _irsStatusCode    :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _irsFunctionError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsLogResult     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irsPayload       :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
+  , _irsStatusCode    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InvokeResponse' with the minimum fields required to make a request.
 --
@@ -185,12 +188,13 @@ invokeResponse
     :: Int -- ^ 'irsStatusCode'
     -> InvokeResponse
 invokeResponse pStatusCode_ =
-    InvokeResponse'
-    { _irsFunctionError = Nothing
-    , _irsLogResult = Nothing
-    , _irsPayload = Nothing
-    , _irsStatusCode = pStatusCode_
-    }
+  InvokeResponse'
+  { _irsFunctionError = Nothing
+  , _irsLogResult = Nothing
+  , _irsPayload = Nothing
+  , _irsStatusCode = pStatusCode_
+  }
+
 
 -- | Indicates whether an error occurred while executing the Lambda function. If an error occurred this field will have one of two values; @Handled@ or @Unhandled@ . @Handled@ errors are errors that are reported by the function while the @Unhandled@ errors are those detected and reported by AWS Lambda. Unhandled errors include out of memory errors and function timeouts. For information about how to report an @Handled@ error, see <http://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model> .
 irsFunctionError :: Lens' InvokeResponse (Maybe Text)
@@ -208,4 +212,4 @@ irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a});
 irsStatusCode :: Lens' InvokeResponse Int
 irsStatusCode = lens _irsStatusCode (\ s a -> s{_irsStatusCode = a});
 
-instance NFData InvokeResponse
+instance NFData InvokeResponse where

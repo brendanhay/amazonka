@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ForgetDevice
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.CognitoIdentityProvider.ForgetDevice
     , ForgetDeviceResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to forget the device.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'forgetDevice' smart constructor.
 data ForgetDevice = ForgetDevice'
-    { _fdAccessToken :: !(Maybe (Sensitive Text))
-    , _fdDeviceKey   :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _fdAccessToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _fdDeviceKey   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ForgetDevice' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ forgetDevice
     :: Text -- ^ 'fdDeviceKey'
     -> ForgetDevice
 forgetDevice pDeviceKey_ =
-    ForgetDevice'
-    { _fdAccessToken = Nothing
-    , _fdDeviceKey = pDeviceKey_
-    }
+  ForgetDevice' {_fdAccessToken = Nothing, _fdDeviceKey = pDeviceKey_}
+
 
 -- | The access token for the forgotten device request.
 fdAccessToken :: Lens' ForgetDevice (Maybe Text)
@@ -81,9 +80,9 @@ instance AWSRequest ForgetDevice where
         request = postJSON cognitoIdentityProvider
         response = receiveNull ForgetDeviceResponse'
 
-instance Hashable ForgetDevice
+instance Hashable ForgetDevice where
 
-instance NFData ForgetDevice
+instance NFData ForgetDevice where
 
 instance ToHeaders ForgetDevice where
         toHeaders
@@ -110,8 +109,9 @@ instance ToQuery ForgetDevice where
 
 -- | /See:/ 'forgetDeviceResponse' smart constructor.
 data ForgetDeviceResponse =
-    ForgetDeviceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ForgetDeviceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ForgetDeviceResponse' with the minimum fields required to make a request.
 --
@@ -119,4 +119,5 @@ forgetDeviceResponse
     :: ForgetDeviceResponse
 forgetDeviceResponse = ForgetDeviceResponse'
 
-instance NFData ForgetDeviceResponse
+
+instance NFData ForgetDeviceResponse where

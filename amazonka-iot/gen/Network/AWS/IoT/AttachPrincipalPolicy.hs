@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.AttachPrincipalPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.IoT.AttachPrincipalPolicy
     , AttachPrincipalPolicyResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the AttachPrincipalPolicy operation.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'attachPrincipalPolicy' smart constructor.
 data AttachPrincipalPolicy = AttachPrincipalPolicy'
-    { _appPolicyName :: !Text
-    , _appPrincipal  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _appPolicyName :: {-# NOUNPACK #-}!Text
+  , _appPrincipal  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachPrincipalPolicy' with the minimum fields required to make a request.
 --
@@ -64,10 +65,9 @@ attachPrincipalPolicy
     -> Text -- ^ 'appPrincipal'
     -> AttachPrincipalPolicy
 attachPrincipalPolicy pPolicyName_ pPrincipal_ =
-    AttachPrincipalPolicy'
-    { _appPolicyName = pPolicyName_
-    , _appPrincipal = pPrincipal_
-    }
+  AttachPrincipalPolicy'
+  {_appPolicyName = pPolicyName_, _appPrincipal = pPrincipal_}
+
 
 -- | The policy name.
 appPolicyName :: Lens' AttachPrincipalPolicy Text
@@ -83,9 +83,9 @@ instance AWSRequest AttachPrincipalPolicy where
         request = putJSON ioT
         response = receiveNull AttachPrincipalPolicyResponse'
 
-instance Hashable AttachPrincipalPolicy
+instance Hashable AttachPrincipalPolicy where
 
-instance NFData AttachPrincipalPolicy
+instance NFData AttachPrincipalPolicy where
 
 instance ToHeaders AttachPrincipalPolicy where
         toHeaders AttachPrincipalPolicy'{..}
@@ -104,8 +104,9 @@ instance ToQuery AttachPrincipalPolicy where
 
 -- | /See:/ 'attachPrincipalPolicyResponse' smart constructor.
 data AttachPrincipalPolicyResponse =
-    AttachPrincipalPolicyResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AttachPrincipalPolicyResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AttachPrincipalPolicyResponse' with the minimum fields required to make a request.
 --
@@ -113,4 +114,5 @@ attachPrincipalPolicyResponse
     :: AttachPrincipalPolicyResponse
 attachPrincipalPolicyResponse = AttachPrincipalPolicyResponse'
 
-instance NFData AttachPrincipalPolicyResponse
+
+instance NFData AttachPrincipalPolicyResponse where

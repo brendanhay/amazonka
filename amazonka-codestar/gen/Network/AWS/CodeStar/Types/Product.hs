@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CodeStar.Types.Product where
 
-import           Network.AWS.CodeStar.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CodeStar.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Information about the metadata for a project.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'projectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
-    { _psProjectARN :: !(Maybe Text)
-    , _psProjectId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _psProjectARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _psProjectId  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProjectSummary' with the minimum fields required to make a request.
 --
@@ -41,10 +42,8 @@ data ProjectSummary = ProjectSummary'
 projectSummary
     :: ProjectSummary
 projectSummary =
-    ProjectSummary'
-    { _psProjectARN = Nothing
-    , _psProjectId = Nothing
-    }
+  ProjectSummary' {_psProjectARN = Nothing, _psProjectId = Nothing}
+
 
 -- | The Amazon Resource Name (ARN) of the project.
 psProjectARN :: Lens' ProjectSummary (Maybe Text)
@@ -61,9 +60,9 @@ instance FromJSON ProjectSummary where
                  ProjectSummary' <$>
                    (x .:? "projectArn") <*> (x .:? "projectId"))
 
-instance Hashable ProjectSummary
+instance Hashable ProjectSummary where
 
-instance NFData ProjectSummary
+instance NFData ProjectSummary where
 
 -- | Information about a resource for a project.
 --
@@ -71,8 +70,9 @@ instance NFData ProjectSummary
 --
 -- /See:/ 'resource' smart constructor.
 newtype Resource = Resource'
-    { _rId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
@@ -82,10 +82,8 @@ newtype Resource = Resource'
 resource
     :: Text -- ^ 'rId'
     -> Resource
-resource pId_ =
-    Resource'
-    { _rId = pId_
-    }
+resource pId_ = Resource' {_rId = pId_}
+
 
 -- | The Amazon Resource Name (ARN) of the resource.
 rId :: Lens' Resource Text
@@ -96,9 +94,9 @@ instance FromJSON Resource where
           = withObject "Resource"
               (\ x -> Resource' <$> (x .: "id"))
 
-instance Hashable Resource
+instance Hashable Resource where
 
-instance NFData Resource
+instance NFData Resource where
 
 -- | Information about a team member in a project.
 --
@@ -106,10 +104,11 @@ instance NFData Resource
 --
 -- /See:/ 'teamMember' smart constructor.
 data TeamMember = TeamMember'
-    { _tmRemoteAccessAllowed :: !(Maybe Bool)
-    , _tmUserARN             :: !Text
-    , _tmProjectRole         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tmRemoteAccessAllowed :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _tmUserARN             :: {-# NOUNPACK #-}!Text
+  , _tmProjectRole         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TeamMember' with the minimum fields required to make a request.
 --
@@ -125,11 +124,12 @@ teamMember
     -> Text -- ^ 'tmProjectRole'
     -> TeamMember
 teamMember pUserARN_ pProjectRole_ =
-    TeamMember'
-    { _tmRemoteAccessAllowed = Nothing
-    , _tmUserARN = pUserARN_
-    , _tmProjectRole = pProjectRole_
-    }
+  TeamMember'
+  { _tmRemoteAccessAllowed = Nothing
+  , _tmUserARN = pUserARN_
+  , _tmProjectRole = pProjectRole_
+  }
+
 
 -- | Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
 tmRemoteAccessAllowed :: Lens' TeamMember (Maybe Bool)
@@ -151,9 +151,9 @@ instance FromJSON TeamMember where
                    (x .:? "remoteAccessAllowed") <*> (x .: "userArn")
                      <*> (x .: "projectRole"))
 
-instance Hashable TeamMember
+instance Hashable TeamMember where
 
-instance NFData TeamMember
+instance NFData TeamMember where
 
 -- | Information about a user's profile in AWS CodeStar.
 --
@@ -161,11 +161,12 @@ instance NFData TeamMember
 --
 -- /See:/ 'userProfileSummary' smart constructor.
 data UserProfileSummary = UserProfileSummary'
-    { _upsSshPublicKey :: !(Maybe Text)
-    , _upsUserARN      :: !(Maybe Text)
-    , _upsEmailAddress :: !(Maybe Text)
-    , _upsDisplayName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _upsSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upsUserARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upsEmailAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upsDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UserProfileSummary' with the minimum fields required to make a request.
 --
@@ -181,12 +182,13 @@ data UserProfileSummary = UserProfileSummary'
 userProfileSummary
     :: UserProfileSummary
 userProfileSummary =
-    UserProfileSummary'
-    { _upsSshPublicKey = Nothing
-    , _upsUserARN = Nothing
-    , _upsEmailAddress = Nothing
-    , _upsDisplayName = Nothing
-    }
+  UserProfileSummary'
+  { _upsSshPublicKey = Nothing
+  , _upsUserARN = Nothing
+  , _upsEmailAddress = Nothing
+  , _upsDisplayName = Nothing
+  }
+
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
 upsSshPublicKey :: Lens' UserProfileSummary (Maybe Text)
@@ -213,6 +215,6 @@ instance FromJSON UserProfileSummary where
                      (x .:? "emailAddress")
                      <*> (x .:? "displayName"))
 
-instance Hashable UserProfileSummary
+instance Hashable UserProfileSummary where
 
-instance NFData UserProfileSummary
+instance NFData UserProfileSummary where

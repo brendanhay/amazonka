@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateLayer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -52,33 +52,34 @@ module Network.AWS.OpsWorks.UpdateLayer
     , UpdateLayerResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateLayer' smart constructor.
 data UpdateLayer = UpdateLayer'
-    { _ulCustomInstanceProfileARN    :: !(Maybe Text)
-    , _ulCustomSecurityGroupIds      :: !(Maybe [Text])
-    , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _ulCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
-    , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _ulShortname                   :: !(Maybe Text)
-    , _ulCustomRecipes               :: !(Maybe Recipes)
-    , _ulCustomJSON                  :: !(Maybe Text)
-    , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _ulEnableAutoHealing           :: !(Maybe Bool)
-    , _ulPackages                    :: !(Maybe [Text])
-    , _ulAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _ulName                        :: !(Maybe Text)
-    , _ulAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _ulUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _ulAutoAssignElasticIPs        :: !(Maybe Bool)
-    , _ulLayerId                     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ulCustomInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ulCustomSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ulInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ulCloudWatchLogsConfiguration :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsConfiguration)
+  , _ulLifecycleEventConfiguration :: {-# NOUNPACK #-}!(Maybe LifecycleEventConfiguration)
+  , _ulShortname :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ulCustomRecipes :: {-# NOUNPACK #-}!(Maybe Recipes)
+  , _ulCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ulVolumeConfigurations :: {-# NOUNPACK #-}!(Maybe [VolumeConfiguration])
+  , _ulEnableAutoHealing :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ulPackages :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ulAttributes :: {-# NOUNPACK #-}!(Maybe (Map LayerAttributesKeys Text))
+  , _ulName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ulAutoAssignPublicIPs :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ulUseEBSOptimizedInstances :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ulAutoAssignElasticIPs :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ulLayerId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateLayer' with the minimum fields required to make a request.
 --
@@ -121,25 +122,26 @@ updateLayer
     :: Text -- ^ 'ulLayerId'
     -> UpdateLayer
 updateLayer pLayerId_ =
-    UpdateLayer'
-    { _ulCustomInstanceProfileARN = Nothing
-    , _ulCustomSecurityGroupIds = Nothing
-    , _ulInstallUpdatesOnBoot = Nothing
-    , _ulCloudWatchLogsConfiguration = Nothing
-    , _ulLifecycleEventConfiguration = Nothing
-    , _ulShortname = Nothing
-    , _ulCustomRecipes = Nothing
-    , _ulCustomJSON = Nothing
-    , _ulVolumeConfigurations = Nothing
-    , _ulEnableAutoHealing = Nothing
-    , _ulPackages = Nothing
-    , _ulAttributes = Nothing
-    , _ulName = Nothing
-    , _ulAutoAssignPublicIPs = Nothing
-    , _ulUseEBSOptimizedInstances = Nothing
-    , _ulAutoAssignElasticIPs = Nothing
-    , _ulLayerId = pLayerId_
-    }
+  UpdateLayer'
+  { _ulCustomInstanceProfileARN = Nothing
+  , _ulCustomSecurityGroupIds = Nothing
+  , _ulInstallUpdatesOnBoot = Nothing
+  , _ulCloudWatchLogsConfiguration = Nothing
+  , _ulLifecycleEventConfiguration = Nothing
+  , _ulShortname = Nothing
+  , _ulCustomRecipes = Nothing
+  , _ulCustomJSON = Nothing
+  , _ulVolumeConfigurations = Nothing
+  , _ulEnableAutoHealing = Nothing
+  , _ulPackages = Nothing
+  , _ulAttributes = Nothing
+  , _ulName = Nothing
+  , _ulAutoAssignPublicIPs = Nothing
+  , _ulUseEBSOptimizedInstances = Nothing
+  , _ulAutoAssignElasticIPs = Nothing
+  , _ulLayerId = pLayerId_
+  }
+
 
 -- | The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 ulCustomInstanceProfileARN :: Lens' UpdateLayer (Maybe Text)
@@ -214,9 +216,9 @@ instance AWSRequest UpdateLayer where
         request = postJSON opsWorks
         response = receiveNull UpdateLayerResponse'
 
-instance Hashable UpdateLayer
+instance Hashable UpdateLayer where
 
-instance NFData UpdateLayer
+instance NFData UpdateLayer where
 
 instance ToHeaders UpdateLayer where
         toHeaders
@@ -266,8 +268,9 @@ instance ToQuery UpdateLayer where
 
 -- | /See:/ 'updateLayerResponse' smart constructor.
 data UpdateLayerResponse =
-    UpdateLayerResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateLayerResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateLayerResponse' with the minimum fields required to make a request.
 --
@@ -275,4 +278,5 @@ updateLayerResponse
     :: UpdateLayerResponse
 updateLayerResponse = UpdateLayerResponse'
 
-instance NFData UpdateLayerResponse
+
+instance NFData UpdateLayerResponse where

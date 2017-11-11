@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteInstanceProfile
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.IAM.DeleteInstanceProfile
     , DeleteInstanceProfileResponse
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteInstanceProfile' smart constructor.
 newtype DeleteInstanceProfile = DeleteInstanceProfile'
-    { _dipInstanceProfileName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dipInstanceProfileName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInstanceProfile' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ deleteInstanceProfile
     :: Text -- ^ 'dipInstanceProfileName'
     -> DeleteInstanceProfile
 deleteInstanceProfile pInstanceProfileName_ =
-    DeleteInstanceProfile'
-    { _dipInstanceProfileName = pInstanceProfileName_
-    }
+  DeleteInstanceProfile' {_dipInstanceProfileName = pInstanceProfileName_}
+
 
 -- | The name of the instance profile to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
@@ -73,9 +73,9 @@ instance AWSRequest DeleteInstanceProfile where
         request = postQuery iam
         response = receiveNull DeleteInstanceProfileResponse'
 
-instance Hashable DeleteInstanceProfile
+instance Hashable DeleteInstanceProfile where
 
-instance NFData DeleteInstanceProfile
+instance NFData DeleteInstanceProfile where
 
 instance ToHeaders DeleteInstanceProfile where
         toHeaders = const mempty
@@ -92,8 +92,9 @@ instance ToQuery DeleteInstanceProfile where
 
 -- | /See:/ 'deleteInstanceProfileResponse' smart constructor.
 data DeleteInstanceProfileResponse =
-    DeleteInstanceProfileResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteInstanceProfileResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteInstanceProfileResponse' with the minimum fields required to make a request.
 --
@@ -101,4 +102,5 @@ deleteInstanceProfileResponse
     :: DeleteInstanceProfileResponse
 deleteInstanceProfileResponse = DeleteInstanceProfileResponse'
 
-instance NFData DeleteInstanceProfileResponse
+
+instance NFData DeleteInstanceProfileResponse where

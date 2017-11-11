@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateAvailabilityOptions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     , uaorsResponseStatus
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'UpdateAvailabilityOptions' @ operation. Specifies the name of the domain you want to update and the Multi-AZ availability option.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateAvailabilityOptions' smart constructor.
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
-    { _uaoDomainName :: !Text
-    , _uaoMultiAZ    :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaoDomainName :: {-# NOUNPACK #-}!Text
+  , _uaoMultiAZ    :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAvailabilityOptions' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ updateAvailabilityOptions
     -> Bool -- ^ 'uaoMultiAZ'
     -> UpdateAvailabilityOptions
 updateAvailabilityOptions pDomainName_ pMultiAZ_ =
-    UpdateAvailabilityOptions'
-    { _uaoDomainName = pDomainName_
-    , _uaoMultiAZ = pMultiAZ_
-    }
+  UpdateAvailabilityOptions'
+  {_uaoDomainName = pDomainName_, _uaoMultiAZ = pMultiAZ_}
+
 
 -- | Undocumented member.
 uaoDomainName :: Lens' UpdateAvailabilityOptions Text
@@ -91,9 +91,9 @@ instance AWSRequest UpdateAvailabilityOptions where
                    (x .@? "AvailabilityOptions") <*>
                      (pure (fromEnum s)))
 
-instance Hashable UpdateAvailabilityOptions
+instance Hashable UpdateAvailabilityOptions where
 
-instance NFData UpdateAvailabilityOptions
+instance NFData UpdateAvailabilityOptions where
 
 instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty
@@ -116,9 +116,10 @@ instance ToQuery UpdateAvailabilityOptions where
 --
 -- /See:/ 'updateAvailabilityOptionsResponse' smart constructor.
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
-    { _uaorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _uaorsResponseStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uaorsAvailabilityOptions :: {-# NOUNPACK #-}!(Maybe AvailabilityOptionsStatus)
+  , _uaorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateAvailabilityOptionsResponse' with the minimum fields required to make a request.
 --
@@ -131,10 +132,9 @@ updateAvailabilityOptionsResponse
     :: Int -- ^ 'uaorsResponseStatus'
     -> UpdateAvailabilityOptionsResponse
 updateAvailabilityOptionsResponse pResponseStatus_ =
-    UpdateAvailabilityOptionsResponse'
-    { _uaorsAvailabilityOptions = Nothing
-    , _uaorsResponseStatus = pResponseStatus_
-    }
+  UpdateAvailabilityOptionsResponse'
+  {_uaorsAvailabilityOptions = Nothing, _uaorsResponseStatus = pResponseStatus_}
+
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain.
 uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
@@ -145,3 +145,4 @@ uaorsResponseStatus :: Lens' UpdateAvailabilityOptionsResponse Int
 uaorsResponseStatus = lens _uaorsResponseStatus (\ s a -> s{_uaorsResponseStatus = a});
 
 instance NFData UpdateAvailabilityOptionsResponse
+         where

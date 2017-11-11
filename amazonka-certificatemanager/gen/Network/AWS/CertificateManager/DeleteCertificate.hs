@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.DeleteCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,17 +34,18 @@ module Network.AWS.CertificateManager.DeleteCertificate
     , DeleteCertificateResponse
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteCertificate' smart constructor.
 newtype DeleteCertificate = DeleteCertificate'
-    { _dcCertificateARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcCertificateARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCertificate' with the minimum fields required to make a request.
 --
@@ -55,9 +56,8 @@ deleteCertificate
     :: Text -- ^ 'dcCertificateARN'
     -> DeleteCertificate
 deleteCertificate pCertificateARN_ =
-    DeleteCertificate'
-    { _dcCertificateARN = pCertificateARN_
-    }
+  DeleteCertificate' {_dcCertificateARN = pCertificateARN_}
+
 
 -- | String that contains the ARN of the ACM Certificate to be deleted. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 dcCertificateARN :: Lens' DeleteCertificate Text
@@ -68,9 +68,9 @@ instance AWSRequest DeleteCertificate where
         request = postJSON certificateManager
         response = receiveNull DeleteCertificateResponse'
 
-instance Hashable DeleteCertificate
+instance Hashable DeleteCertificate where
 
-instance NFData DeleteCertificate
+instance NFData DeleteCertificate where
 
 instance ToHeaders DeleteCertificate where
         toHeaders
@@ -96,8 +96,9 @@ instance ToQuery DeleteCertificate where
 
 -- | /See:/ 'deleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse =
-    DeleteCertificateResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteCertificateResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +106,5 @@ deleteCertificateResponse
     :: DeleteCertificateResponse
 deleteCertificateResponse = DeleteCertificateResponse'
 
-instance NFData DeleteCertificateResponse
+
+instance NFData DeleteCertificateResponse where

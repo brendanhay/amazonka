@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ProvisionProduct
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,25 +47,26 @@ module Network.AWS.ServiceCatalog.ProvisionProduct
     , pprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'provisionProduct' smart constructor.
 data ProvisionProduct = ProvisionProduct'
-    { _ppNotificationARNs       :: !(Maybe [Text])
-    , _ppAcceptLanguage         :: !(Maybe Text)
-    , _ppPathId                 :: !(Maybe Text)
-    , _ppProvisioningParameters :: !(Maybe [ProvisioningParameter])
-    , _ppTags                   :: !(Maybe [Tag])
-    , _ppProductId              :: !Text
-    , _ppProvisioningArtifactId :: !Text
-    , _ppProvisionedProductName :: !Text
-    , _ppProvisionToken         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ppNotificationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ppAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppPathId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ppProvisioningParameters :: {-# NOUNPACK #-}!(Maybe [ProvisioningParameter])
+  , _ppTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ppProductId :: {-# NOUNPACK #-}!Text
+  , _ppProvisioningArtifactId :: {-# NOUNPACK #-}!Text
+  , _ppProvisionedProductName :: {-# NOUNPACK #-}!Text
+  , _ppProvisionToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisionProduct' with the minimum fields required to make a request.
 --
@@ -95,17 +96,18 @@ provisionProduct
     -> Text -- ^ 'ppProvisionToken'
     -> ProvisionProduct
 provisionProduct pProductId_ pProvisioningArtifactId_ pProvisionedProductName_ pProvisionToken_ =
-    ProvisionProduct'
-    { _ppNotificationARNs = Nothing
-    , _ppAcceptLanguage = Nothing
-    , _ppPathId = Nothing
-    , _ppProvisioningParameters = Nothing
-    , _ppTags = Nothing
-    , _ppProductId = pProductId_
-    , _ppProvisioningArtifactId = pProvisioningArtifactId_
-    , _ppProvisionedProductName = pProvisionedProductName_
-    , _ppProvisionToken = pProvisionToken_
-    }
+  ProvisionProduct'
+  { _ppNotificationARNs = Nothing
+  , _ppAcceptLanguage = Nothing
+  , _ppPathId = Nothing
+  , _ppProvisioningParameters = Nothing
+  , _ppTags = Nothing
+  , _ppProductId = pProductId_
+  , _ppProvisioningArtifactId = pProvisioningArtifactId_
+  , _ppProvisionedProductName = pProvisionedProductName_
+  , _ppProvisionToken = pProvisionToken_
+  }
+
 
 -- | Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 ppNotificationARNs :: Lens' ProvisionProduct [Text]
@@ -152,9 +154,9 @@ instance AWSRequest ProvisionProduct where
                  ProvisionProductResponse' <$>
                    (x .?> "RecordDetail") <*> (pure (fromEnum s)))
 
-instance Hashable ProvisionProduct
+instance Hashable ProvisionProduct where
 
-instance NFData ProvisionProduct
+instance NFData ProvisionProduct where
 
 instance ToHeaders ProvisionProduct where
         toHeaders
@@ -193,9 +195,10 @@ instance ToQuery ProvisionProduct where
 
 -- | /See:/ 'provisionProductResponse' smart constructor.
 data ProvisionProductResponse = ProvisionProductResponse'
-    { _pprsRecordDetail   :: !(Maybe RecordDetail)
-    , _pprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pprsRecordDetail   :: {-# NOUNPACK #-}!(Maybe RecordDetail)
+  , _pprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ProvisionProductResponse' with the minimum fields required to make a request.
 --
@@ -208,10 +211,9 @@ provisionProductResponse
     :: Int -- ^ 'pprsResponseStatus'
     -> ProvisionProductResponse
 provisionProductResponse pResponseStatus_ =
-    ProvisionProductResponse'
-    { _pprsRecordDetail = Nothing
-    , _pprsResponseStatus = pResponseStatus_
-    }
+  ProvisionProductResponse'
+  {_pprsRecordDetail = Nothing, _pprsResponseStatus = pResponseStatus_}
+
 
 -- | The detailed result of the 'ProvisionProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object of the request, and a list of any errors that the request encountered.
 pprsRecordDetail :: Lens' ProvisionProductResponse (Maybe RecordDetail)
@@ -221,4 +223,4 @@ pprsRecordDetail = lens _pprsRecordDetail (\ s a -> s{_pprsRecordDetail = a});
 pprsResponseStatus :: Lens' ProvisionProductResponse Int
 pprsResponseStatus = lens _pprsResponseStatus (\ s a -> s{_pprsResponseStatus = a});
 
-instance NFData ProvisionProductResponse
+instance NFData ProvisionProductResponse where

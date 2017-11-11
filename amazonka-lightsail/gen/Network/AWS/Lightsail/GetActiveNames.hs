@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetActiveNames
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Lightsail.GetActiveNames
     , ganrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getActiveNames' smart constructor.
 newtype GetActiveNames = GetActiveNames'
-    { _ganPageToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ganPageToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetActiveNames' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetActiveNames = GetActiveNames'
 -- * 'ganPageToken' - A token used for paginating results from your get active names request.
 getActiveNames
     :: GetActiveNames
-getActiveNames =
-    GetActiveNames'
-    { _ganPageToken = Nothing
-    }
+getActiveNames = GetActiveNames' {_ganPageToken = Nothing}
+
 
 -- | A token used for paginating results from your get active names request.
 ganPageToken :: Lens' GetActiveNames (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest GetActiveNames where
                      (x .?> "activeNames" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetActiveNames
+instance Hashable GetActiveNames where
 
-instance NFData GetActiveNames
+instance NFData GetActiveNames where
 
 instance ToHeaders GetActiveNames where
         toHeaders
@@ -113,10 +112,11 @@ instance ToQuery GetActiveNames where
 
 -- | /See:/ 'getActiveNamesResponse' smart constructor.
 data GetActiveNamesResponse = GetActiveNamesResponse'
-    { _ganrsNextPageToken  :: !(Maybe Text)
-    , _ganrsActiveNames    :: !(Maybe [Text])
-    , _ganrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ganrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ganrsActiveNames    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ganrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetActiveNamesResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +131,12 @@ getActiveNamesResponse
     :: Int -- ^ 'ganrsResponseStatus'
     -> GetActiveNamesResponse
 getActiveNamesResponse pResponseStatus_ =
-    GetActiveNamesResponse'
-    { _ganrsNextPageToken = Nothing
-    , _ganrsActiveNames = Nothing
-    , _ganrsResponseStatus = pResponseStatus_
-    }
+  GetActiveNamesResponse'
+  { _ganrsNextPageToken = Nothing
+  , _ganrsActiveNames = Nothing
+  , _ganrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token used for advancing to the next page of results from your get active names request.
 ganrsNextPageToken :: Lens' GetActiveNamesResponse (Maybe Text)
@@ -149,4 +150,4 @@ ganrsActiveNames = lens _ganrsActiveNames (\ s a -> s{_ganrsActiveNames = a}) . 
 ganrsResponseStatus :: Lens' GetActiveNamesResponse Int
 ganrsResponseStatus = lens _ganrsResponseStatus (\ s a -> s{_ganrsResponseStatus = a});
 
-instance NFData GetActiveNamesResponse
+instance NFData GetActiveNamesResponse where

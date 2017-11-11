@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.AddApplicationOutput
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,12 +48,12 @@ module Network.AWS.KinesisAnalytics.AddApplicationOutput
     , aaorsResponseStatus
     ) where
 
-import           Network.AWS.KinesisAnalytics.Types
-import           Network.AWS.KinesisAnalytics.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KinesisAnalytics.Types
+import Network.AWS.KinesisAnalytics.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -61,10 +61,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addApplicationOutput' smart constructor.
 data AddApplicationOutput = AddApplicationOutput'
-    { _aaoApplicationName             :: !Text
-    , _aaoCurrentApplicationVersionId :: !Nat
-    , _aaoOutput                      :: !Output
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aaoApplicationName             :: {-# NOUNPACK #-}!Text
+  , _aaoCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
+  , _aaoOutput                      :: {-# NOUNPACK #-}!Output
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddApplicationOutput' with the minimum fields required to make a request.
 --
@@ -81,11 +82,12 @@ addApplicationOutput
     -> Output -- ^ 'aaoOutput'
     -> AddApplicationOutput
 addApplicationOutput pApplicationName_ pCurrentApplicationVersionId_ pOutput_ =
-    AddApplicationOutput'
-    { _aaoApplicationName = pApplicationName_
-    , _aaoCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-    , _aaoOutput = pOutput_
-    }
+  AddApplicationOutput'
+  { _aaoApplicationName = pApplicationName_
+  , _aaoCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
+  , _aaoOutput = pOutput_
+  }
+
 
 -- | Name of the application to which you want to add the output configuration.
 aaoApplicationName :: Lens' AddApplicationOutput Text
@@ -109,9 +111,9 @@ instance AWSRequest AddApplicationOutput where
                  AddApplicationOutputResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AddApplicationOutput
+instance Hashable AddApplicationOutput where
 
-instance NFData AddApplicationOutput
+instance NFData AddApplicationOutput where
 
 instance ToHeaders AddApplicationOutput where
         toHeaders
@@ -145,8 +147,9 @@ instance ToQuery AddApplicationOutput where
 --
 -- /See:/ 'addApplicationOutputResponse' smart constructor.
 newtype AddApplicationOutputResponse = AddApplicationOutputResponse'
-    { _aaorsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aaorsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddApplicationOutputResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +160,11 @@ addApplicationOutputResponse
     :: Int -- ^ 'aaorsResponseStatus'
     -> AddApplicationOutputResponse
 addApplicationOutputResponse pResponseStatus_ =
-    AddApplicationOutputResponse'
-    { _aaorsResponseStatus = pResponseStatus_
-    }
+  AddApplicationOutputResponse' {_aaorsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aaorsResponseStatus :: Lens' AddApplicationOutputResponse Int
 aaorsResponseStatus = lens _aaorsResponseStatus (\ s a -> s{_aaorsResponseStatus = a});
 
-instance NFData AddApplicationOutputResponse
+instance NFData AddApplicationOutputResponse where

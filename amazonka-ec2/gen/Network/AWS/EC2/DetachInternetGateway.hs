@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachInternetGateway
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,12 +36,12 @@ module Network.AWS.EC2.DetachInternetGateway
     , DetachInternetGatewayResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DetachInternetGateway.
 --
@@ -49,10 +49,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'detachInternetGateway' smart constructor.
 data DetachInternetGateway = DetachInternetGateway'
-    { _digDryRun            :: !(Maybe Bool)
-    , _digInternetGatewayId :: !Text
-    , _digVPCId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _digDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _digInternetGatewayId :: {-# NOUNPACK #-}!Text
+  , _digVPCId             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachInternetGateway' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ detachInternetGateway
     -> Text -- ^ 'digVPCId'
     -> DetachInternetGateway
 detachInternetGateway pInternetGatewayId_ pVPCId_ =
-    DetachInternetGateway'
-    { _digDryRun = Nothing
-    , _digInternetGatewayId = pInternetGatewayId_
-    , _digVPCId = pVPCId_
-    }
+  DetachInternetGateway'
+  { _digDryRun = Nothing
+  , _digInternetGatewayId = pInternetGatewayId_
+  , _digVPCId = pVPCId_
+  }
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
@@ -92,9 +94,9 @@ instance AWSRequest DetachInternetGateway where
         request = postQuery ec2
         response = receiveNull DetachInternetGatewayResponse'
 
-instance Hashable DetachInternetGateway
+instance Hashable DetachInternetGateway where
 
-instance NFData DetachInternetGateway
+instance NFData DetachInternetGateway where
 
 instance ToHeaders DetachInternetGateway where
         toHeaders = const mempty
@@ -113,8 +115,9 @@ instance ToQuery DetachInternetGateway where
 
 -- | /See:/ 'detachInternetGatewayResponse' smart constructor.
 data DetachInternetGatewayResponse =
-    DetachInternetGatewayResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DetachInternetGatewayResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DetachInternetGatewayResponse' with the minimum fields required to make a request.
 --
@@ -122,4 +125,5 @@ detachInternetGatewayResponse
     :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse'
 
-instance NFData DetachInternetGatewayResponse
+
+instance NFData DetachInternetGatewayResponse where

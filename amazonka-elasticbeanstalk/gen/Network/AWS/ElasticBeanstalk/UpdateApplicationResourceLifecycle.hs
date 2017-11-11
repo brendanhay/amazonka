@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
     , uarlrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateApplicationResourceLifecycle' smart constructor.
 data UpdateApplicationResourceLifecycle = UpdateApplicationResourceLifecycle'
-    { _uarlApplicationName         :: !Text
-    , _uarlResourceLifecycleConfig :: !ApplicationResourceLifecycleConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uarlApplicationName :: {-# NOUNPACK #-}!Text
+  , _uarlResourceLifecycleConfig :: {-# NOUNPACK #-}!ApplicationResourceLifecycleConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplicationResourceLifecycle' with the minimum fields required to make a request.
 --
@@ -64,10 +65,11 @@ updateApplicationResourceLifecycle
     -> ApplicationResourceLifecycleConfig -- ^ 'uarlResourceLifecycleConfig'
     -> UpdateApplicationResourceLifecycle
 updateApplicationResourceLifecycle pApplicationName_ pResourceLifecycleConfig_ =
-    UpdateApplicationResourceLifecycle'
-    { _uarlApplicationName = pApplicationName_
-    , _uarlResourceLifecycleConfig = pResourceLifecycleConfig_
-    }
+  UpdateApplicationResourceLifecycle'
+  { _uarlApplicationName = pApplicationName_
+  , _uarlResourceLifecycleConfig = pResourceLifecycleConfig_
+  }
+
 
 -- | The name of the application.
 uarlApplicationName :: Lens' UpdateApplicationResourceLifecycle Text
@@ -78,7 +80,8 @@ uarlResourceLifecycleConfig :: Lens' UpdateApplicationResourceLifecycle Applicat
 uarlResourceLifecycleConfig = lens _uarlResourceLifecycleConfig (\ s a -> s{_uarlResourceLifecycleConfig = a});
 
 instance AWSRequest
-         UpdateApplicationResourceLifecycle where
+           UpdateApplicationResourceLifecycle
+         where
         type Rs UpdateApplicationResourceLifecycle =
              UpdateApplicationResourceLifecycleResponse
         request = postQuery elasticBeanstalk
@@ -92,8 +95,10 @@ instance AWSRequest
                      <*> (pure (fromEnum s)))
 
 instance Hashable UpdateApplicationResourceLifecycle
+         where
 
 instance NFData UpdateApplicationResourceLifecycle
+         where
 
 instance ToHeaders UpdateApplicationResourceLifecycle
          where
@@ -116,10 +121,11 @@ instance ToQuery UpdateApplicationResourceLifecycle
 
 -- | /See:/ 'updateApplicationResourceLifecycleResponse' smart constructor.
 data UpdateApplicationResourceLifecycleResponse = UpdateApplicationResourceLifecycleResponse'
-    { _uarlrsApplicationName         :: !(Maybe Text)
-    , _uarlrsResourceLifecycleConfig :: !(Maybe ApplicationResourceLifecycleConfig)
-    , _uarlrsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uarlrsApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uarlrsResourceLifecycleConfig :: {-# NOUNPACK #-}!(Maybe ApplicationResourceLifecycleConfig)
+  , _uarlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateApplicationResourceLifecycleResponse' with the minimum fields required to make a request.
 --
@@ -134,11 +140,12 @@ updateApplicationResourceLifecycleResponse
     :: Int -- ^ 'uarlrsResponseStatus'
     -> UpdateApplicationResourceLifecycleResponse
 updateApplicationResourceLifecycleResponse pResponseStatus_ =
-    UpdateApplicationResourceLifecycleResponse'
-    { _uarlrsApplicationName = Nothing
-    , _uarlrsResourceLifecycleConfig = Nothing
-    , _uarlrsResponseStatus = pResponseStatus_
-    }
+  UpdateApplicationResourceLifecycleResponse'
+  { _uarlrsApplicationName = Nothing
+  , _uarlrsResourceLifecycleConfig = Nothing
+  , _uarlrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The name of the application.
 uarlrsApplicationName :: Lens' UpdateApplicationResourceLifecycleResponse (Maybe Text)
@@ -153,4 +160,5 @@ uarlrsResponseStatus :: Lens' UpdateApplicationResourceLifecycleResponse Int
 uarlrsResponseStatus = lens _uarlrsResponseStatus (\ s a -> s{_uarlrsResponseStatus = a});
 
 instance NFData
-         UpdateApplicationResourceLifecycleResponse
+           UpdateApplicationResourceLifecycleResponse
+         where

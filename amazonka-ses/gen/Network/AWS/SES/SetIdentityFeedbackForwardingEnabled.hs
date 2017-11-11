@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     , siffersResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SES.Types
-import           Network.AWS.SES.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SES.Types
+import Network.AWS.SES.Types.Product
 
 -- | Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html Amazon SES Developer Guide> .
 --
@@ -54,9 +54,10 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'setIdentityFeedbackForwardingEnabled' smart constructor.
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
-    { _siffeIdentity          :: !Text
-    , _siffeForwardingEnabled :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siffeIdentity          :: {-# NOUNPACK #-}!Text
+  , _siffeForwardingEnabled :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityFeedbackForwardingEnabled' with the minimum fields required to make a request.
 --
@@ -70,10 +71,9 @@ setIdentityFeedbackForwardingEnabled
     -> Bool -- ^ 'siffeForwardingEnabled'
     -> SetIdentityFeedbackForwardingEnabled
 setIdentityFeedbackForwardingEnabled pIdentity_ pForwardingEnabled_ =
-    SetIdentityFeedbackForwardingEnabled'
-    { _siffeIdentity = pIdentity_
-    , _siffeForwardingEnabled = pForwardingEnabled_
-    }
+  SetIdentityFeedbackForwardingEnabled'
+  {_siffeIdentity = pIdentity_, _siffeForwardingEnabled = pForwardingEnabled_}
+
 
 -- | The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
 siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
@@ -84,7 +84,8 @@ siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
 siffeForwardingEnabled = lens _siffeForwardingEnabled (\ s a -> s{_siffeForwardingEnabled = a});
 
 instance AWSRequest
-         SetIdentityFeedbackForwardingEnabled where
+           SetIdentityFeedbackForwardingEnabled
+         where
         type Rs SetIdentityFeedbackForwardingEnabled =
              SetIdentityFeedbackForwardingEnabledResponse
         request = postQuery ses
@@ -96,12 +97,15 @@ instance AWSRequest
                    (pure (fromEnum s)))
 
 instance Hashable
-         SetIdentityFeedbackForwardingEnabled
+           SetIdentityFeedbackForwardingEnabled
+         where
 
 instance NFData SetIdentityFeedbackForwardingEnabled
+         where
 
 instance ToHeaders
-         SetIdentityFeedbackForwardingEnabled where
+           SetIdentityFeedbackForwardingEnabled
+         where
         toHeaders = const mempty
 
 instance ToPath SetIdentityFeedbackForwardingEnabled
@@ -125,8 +129,9 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
 --
 -- /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
-    { _siffersResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siffersResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetIdentityFeedbackForwardingEnabledResponse' with the minimum fields required to make a request.
 --
@@ -137,13 +142,14 @@ setIdentityFeedbackForwardingEnabledResponse
     :: Int -- ^ 'siffersResponseStatus'
     -> SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabledResponse pResponseStatus_ =
-    SetIdentityFeedbackForwardingEnabledResponse'
-    { _siffersResponseStatus = pResponseStatus_
-    }
+  SetIdentityFeedbackForwardingEnabledResponse'
+  {_siffersResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 siffersResponseStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
 siffersResponseStatus = lens _siffersResponseStatus (\ s a -> s{_siffersResponseStatus = a});
 
 instance NFData
-         SetIdentityFeedbackForwardingEnabledResponse
+           SetIdentityFeedbackForwardingEnabledResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetQualificationType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.MechanicalTurk.GetQualificationType
     , gqtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getQualificationType' smart constructor.
 newtype GetQualificationType = GetQualificationType'
-    { _gqtQualificationTypeId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gqtQualificationTypeId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQualificationType' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getQualificationType
     :: Text -- ^ 'gqtQualificationTypeId'
     -> GetQualificationType
 getQualificationType pQualificationTypeId_ =
-    GetQualificationType'
-    { _gqtQualificationTypeId = pQualificationTypeId_
-    }
+  GetQualificationType' {_gqtQualificationTypeId = pQualificationTypeId_}
+
 
 -- | The ID of the QualificationType.
 gqtQualificationTypeId :: Lens' GetQualificationType Text
@@ -76,9 +76,9 @@ instance AWSRequest GetQualificationType where
                  GetQualificationTypeResponse' <$>
                    (x .?> "QualificationType") <*> (pure (fromEnum s)))
 
-instance Hashable GetQualificationType
+instance Hashable GetQualificationType where
 
-instance NFData GetQualificationType
+instance NFData GetQualificationType where
 
 instance ToHeaders GetQualificationType where
         toHeaders
@@ -105,9 +105,10 @@ instance ToQuery GetQualificationType where
 
 -- | /See:/ 'getQualificationTypeResponse' smart constructor.
 data GetQualificationTypeResponse = GetQualificationTypeResponse'
-    { _gqtrsQualificationType :: !(Maybe QualificationType)
-    , _gqtrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gqtrsQualificationType :: {-# NOUNPACK #-}!(Maybe QualificationType)
+  , _gqtrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetQualificationTypeResponse' with the minimum fields required to make a request.
 --
@@ -120,10 +121,9 @@ getQualificationTypeResponse
     :: Int -- ^ 'gqtrsResponseStatus'
     -> GetQualificationTypeResponse
 getQualificationTypeResponse pResponseStatus_ =
-    GetQualificationTypeResponse'
-    { _gqtrsQualificationType = Nothing
-    , _gqtrsResponseStatus = pResponseStatus_
-    }
+  GetQualificationTypeResponse'
+  {_gqtrsQualificationType = Nothing, _gqtrsResponseStatus = pResponseStatus_}
+
 
 -- | The returned Qualification Type
 gqtrsQualificationType :: Lens' GetQualificationTypeResponse (Maybe QualificationType)
@@ -133,4 +133,4 @@ gqtrsQualificationType = lens _gqtrsQualificationType (\ s a -> s{_gqtrsQualific
 gqtrsResponseStatus :: Lens' GetQualificationTypeResponse Int
 gqtrsResponseStatus = lens _gqtrsResponseStatus (\ s a -> s{_gqtrsResponseStatus = a});
 
-instance NFData GetQualificationTypeResponse
+instance NFData GetQualificationTypeResponse where

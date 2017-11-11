@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetIdentityPoolRoles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     , giprrsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentity.Types
-import           Network.AWS.CognitoIdentity.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentity.Types
+import Network.AWS.CognitoIdentity.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Input to the @GetIdentityPoolRoles@ action.
 --
@@ -54,8 +54,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getIdentityPoolRoles' smart constructor.
 newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
-    { _giprIdentityPoolId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giprIdentityPoolId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdentityPoolRoles' with the minimum fields required to make a request.
 --
@@ -66,9 +67,8 @@ getIdentityPoolRoles
     :: Text -- ^ 'giprIdentityPoolId'
     -> GetIdentityPoolRoles
 getIdentityPoolRoles pIdentityPoolId_ =
-    GetIdentityPoolRoles'
-    { _giprIdentityPoolId = pIdentityPoolId_
-    }
+  GetIdentityPoolRoles' {_giprIdentityPoolId = pIdentityPoolId_}
+
 
 -- | An identity pool ID in the format REGION:GUID.
 giprIdentityPoolId :: Lens' GetIdentityPoolRoles Text
@@ -87,9 +87,9 @@ instance AWSRequest GetIdentityPoolRoles where
                      <*> (x .?> "RoleMappings" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetIdentityPoolRoles
+instance Hashable GetIdentityPoolRoles where
 
-instance NFData GetIdentityPoolRoles
+instance NFData GetIdentityPoolRoles where
 
 instance ToHeaders GetIdentityPoolRoles where
         toHeaders
@@ -119,11 +119,12 @@ instance ToQuery GetIdentityPoolRoles where
 --
 -- /See:/ 'getIdentityPoolRolesResponse' smart constructor.
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-    { _giprrsRoles          :: !(Maybe (Map Text Text))
-    , _giprrsIdentityPoolId :: !(Maybe Text)
-    , _giprrsRoleMappings   :: !(Maybe (Map Text RoleMapping))
-    , _giprrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giprrsRoles          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _giprrsIdentityPoolId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _giprrsRoleMappings   :: {-# NOUNPACK #-}!(Maybe (Map Text RoleMapping))
+  , _giprrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetIdentityPoolRolesResponse' with the minimum fields required to make a request.
 --
@@ -140,12 +141,13 @@ getIdentityPoolRolesResponse
     :: Int -- ^ 'giprrsResponseStatus'
     -> GetIdentityPoolRolesResponse
 getIdentityPoolRolesResponse pResponseStatus_ =
-    GetIdentityPoolRolesResponse'
-    { _giprrsRoles = Nothing
-    , _giprrsIdentityPoolId = Nothing
-    , _giprrsRoleMappings = Nothing
-    , _giprrsResponseStatus = pResponseStatus_
-    }
+  GetIdentityPoolRolesResponse'
+  { _giprrsRoles = Nothing
+  , _giprrsIdentityPoolId = Nothing
+  , _giprrsRoleMappings = Nothing
+  , _giprrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
 giprrsRoles :: Lens' GetIdentityPoolRolesResponse (HashMap Text Text)
@@ -163,4 +165,4 @@ giprrsRoleMappings = lens _giprrsRoleMappings (\ s a -> s{_giprrsRoleMappings = 
 giprrsResponseStatus :: Lens' GetIdentityPoolRolesResponse Int
 giprrsResponseStatus = lens _giprrsResponseStatus (\ s a -> s{_giprrsResponseStatus = a});
 
-instance NFData GetIdentityPoolRolesResponse
+instance NFData GetIdentityPoolRolesResponse where

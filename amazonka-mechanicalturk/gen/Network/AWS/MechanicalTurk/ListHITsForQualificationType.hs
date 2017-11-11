@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListHITsForQualificationType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.MechanicalTurk.ListHITsForQualificationType
     , lhitfqtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listHITsForQualificationType' smart constructor.
 data ListHITsForQualificationType = ListHITsForQualificationType'
-    { _lhitfqtNextToken           :: !(Maybe Text)
-    , _lhitfqtMaxResults          :: !(Maybe Nat)
-    , _lhitfqtQualificationTypeId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhitfqtNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhitfqtMaxResults          :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lhitfqtQualificationTypeId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHITsForQualificationType' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ listHITsForQualificationType
     :: Text -- ^ 'lhitfqtQualificationTypeId'
     -> ListHITsForQualificationType
 listHITsForQualificationType pQualificationTypeId_ =
-    ListHITsForQualificationType'
-    { _lhitfqtNextToken = Nothing
-    , _lhitfqtMaxResults = Nothing
-    , _lhitfqtQualificationTypeId = pQualificationTypeId_
-    }
+  ListHITsForQualificationType'
+  { _lhitfqtNextToken = Nothing
+  , _lhitfqtMaxResults = Nothing
+  , _lhitfqtQualificationTypeId = pQualificationTypeId_
+  }
+
 
 -- | Pagination Token
 lhitfqtNextToken :: Lens' ListHITsForQualificationType (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest ListHITsForQualificationType
                      (x .?> "HITs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListHITsForQualificationType
+instance Hashable ListHITsForQualificationType where
 
-instance NFData ListHITsForQualificationType
+instance NFData ListHITsForQualificationType where
 
 instance ToHeaders ListHITsForQualificationType where
         toHeaders
@@ -131,11 +133,12 @@ instance ToQuery ListHITsForQualificationType where
 
 -- | /See:/ 'listHITsForQualificationTypeResponse' smart constructor.
 data ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse'
-    { _lhitfqtrsNextToken      :: !(Maybe Text)
-    , _lhitfqtrsNumResults     :: !(Maybe Int)
-    , _lhitfqtrsHITs           :: !(Maybe [HIT])
-    , _lhitfqtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lhitfqtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhitfqtrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lhitfqtrsHITs           :: {-# NOUNPACK #-}!(Maybe [HIT])
+  , _lhitfqtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListHITsForQualificationTypeResponse' with the minimum fields required to make a request.
 --
@@ -152,12 +155,13 @@ listHITsForQualificationTypeResponse
     :: Int -- ^ 'lhitfqtrsResponseStatus'
     -> ListHITsForQualificationTypeResponse
 listHITsForQualificationTypeResponse pResponseStatus_ =
-    ListHITsForQualificationTypeResponse'
-    { _lhitfqtrsNextToken = Nothing
-    , _lhitfqtrsNumResults = Nothing
-    , _lhitfqtrsHITs = Nothing
-    , _lhitfqtrsResponseStatus = pResponseStatus_
-    }
+  ListHITsForQualificationTypeResponse'
+  { _lhitfqtrsNextToken = Nothing
+  , _lhitfqtrsNumResults = Nothing
+  , _lhitfqtrsHITs = Nothing
+  , _lhitfqtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lhitfqtrsNextToken :: Lens' ListHITsForQualificationTypeResponse (Maybe Text)
@@ -176,3 +180,4 @@ lhitfqtrsResponseStatus :: Lens' ListHITsForQualificationTypeResponse Int
 lhitfqtrsResponseStatus = lens _lhitfqtrsResponseStatus (\ s a -> s{_lhitfqtrsResponseStatus = a});
 
 instance NFData ListHITsForQualificationTypeResponse
+         where

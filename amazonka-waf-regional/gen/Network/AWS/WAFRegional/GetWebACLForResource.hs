@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetWebACLForResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.WAFRegional.GetWebACLForResource
     , gwafrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'getWebACLForResource' smart constructor.
 newtype GetWebACLForResource = GetWebACLForResource'
-    { _gwafrResourceARN :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gwafrResourceARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetWebACLForResource' with the minimum fields required to make a request.
 --
@@ -58,9 +59,8 @@ getWebACLForResource
     :: Text -- ^ 'gwafrResourceARN'
     -> GetWebACLForResource
 getWebACLForResource pResourceARN_ =
-    GetWebACLForResource'
-    { _gwafrResourceARN = pResourceARN_
-    }
+  GetWebACLForResource' {_gwafrResourceARN = pResourceARN_}
+
 
 -- | The ARN (Amazon Resource Name) of the resource for which to get the web ACL.
 gwafrResourceARN :: Lens' GetWebACLForResource Text
@@ -76,9 +76,9 @@ instance AWSRequest GetWebACLForResource where
                  GetWebACLForResourceResponse' <$>
                    (x .?> "WebACLSummary") <*> (pure (fromEnum s)))
 
-instance Hashable GetWebACLForResource
+instance Hashable GetWebACLForResource where
 
-instance NFData GetWebACLForResource
+instance NFData GetWebACLForResource where
 
 instance ToHeaders GetWebACLForResource where
         toHeaders
@@ -104,9 +104,10 @@ instance ToQuery GetWebACLForResource where
 
 -- | /See:/ 'getWebACLForResourceResponse' smart constructor.
 data GetWebACLForResourceResponse = GetWebACLForResourceResponse'
-    { _gwafrrsWebACLSummary  :: !(Maybe WebACLSummary)
-    , _gwafrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gwafrrsWebACLSummary  :: {-# NOUNPACK #-}!(Maybe WebACLSummary)
+  , _gwafrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetWebACLForResourceResponse' with the minimum fields required to make a request.
 --
@@ -119,10 +120,9 @@ getWebACLForResourceResponse
     :: Int -- ^ 'gwafrrsResponseStatus'
     -> GetWebACLForResourceResponse
 getWebACLForResourceResponse pResponseStatus_ =
-    GetWebACLForResourceResponse'
-    { _gwafrrsWebACLSummary = Nothing
-    , _gwafrrsResponseStatus = pResponseStatus_
-    }
+  GetWebACLForResourceResponse'
+  {_gwafrrsWebACLSummary = Nothing, _gwafrrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the web ACL that you specified in the @GetWebACLForResource@ request. If there is no associated resource, a null WebACLSummary is returned.
 gwafrrsWebACLSummary :: Lens' GetWebACLForResourceResponse (Maybe WebACLSummary)
@@ -132,4 +132,4 @@ gwafrrsWebACLSummary = lens _gwafrrsWebACLSummary (\ s a -> s{_gwafrrsWebACLSumm
 gwafrrsResponseStatus :: Lens' GetWebACLForResourceResponse Int
 gwafrrsResponseStatus = lens _gwafrrsResponseStatus (\ s a -> s{_gwafrrsResponseStatus = a});
 
-instance NFData GetWebACLForResourceResponse
+instance NFData GetWebACLForResourceResponse where

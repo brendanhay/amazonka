@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateServiceLinkedRole
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.IAM.CreateServiceLinkedRole
     , cslrrsResponseStatus
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createServiceLinkedRole' smart constructor.
 data CreateServiceLinkedRole = CreateServiceLinkedRole'
-    { _cslrCustomSuffix   :: !(Maybe Text)
-    , _cslrDescription    :: !(Maybe Text)
-    , _cslrAWSServiceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cslrCustomSuffix   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cslrDescription    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cslrAWSServiceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateServiceLinkedRole' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ createServiceLinkedRole
     :: Text -- ^ 'cslrAWSServiceName'
     -> CreateServiceLinkedRole
 createServiceLinkedRole pAWSServiceName_ =
-    CreateServiceLinkedRole'
-    { _cslrCustomSuffix = Nothing
-    , _cslrDescription = Nothing
-    , _cslrAWSServiceName = pAWSServiceName_
-    }
+  CreateServiceLinkedRole'
+  { _cslrCustomSuffix = Nothing
+  , _cslrDescription = Nothing
+  , _cslrAWSServiceName = pAWSServiceName_
+  }
+
 
 -- | A string that you provide, which is combined with the service name to form the complete role name. If you make multiple requests for the same service, then you must supply a different @CustomSuffix@ for each request. Otherwise the request fails with a duplicate role name error. For example, you could add @-1@ or @-debug@ to the suffix.
 cslrCustomSuffix :: Lens' CreateServiceLinkedRole (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest CreateServiceLinkedRole where
                  CreateServiceLinkedRoleResponse' <$>
                    (x .@? "Role") <*> (pure (fromEnum s)))
 
-instance Hashable CreateServiceLinkedRole
+instance Hashable CreateServiceLinkedRole where
 
-instance NFData CreateServiceLinkedRole
+instance NFData CreateServiceLinkedRole where
 
 instance ToHeaders CreateServiceLinkedRole where
         toHeaders = const mempty
@@ -120,9 +122,10 @@ instance ToQuery CreateServiceLinkedRole where
 
 -- | /See:/ 'createServiceLinkedRoleResponse' smart constructor.
 data CreateServiceLinkedRoleResponse = CreateServiceLinkedRoleResponse'
-    { _cslrrsRole           :: !(Maybe Role)
-    , _cslrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cslrrsRole           :: {-# NOUNPACK #-}!(Maybe Role)
+  , _cslrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateServiceLinkedRoleResponse' with the minimum fields required to make a request.
 --
@@ -135,10 +138,9 @@ createServiceLinkedRoleResponse
     :: Int -- ^ 'cslrrsResponseStatus'
     -> CreateServiceLinkedRoleResponse
 createServiceLinkedRoleResponse pResponseStatus_ =
-    CreateServiceLinkedRoleResponse'
-    { _cslrrsRole = Nothing
-    , _cslrrsResponseStatus = pResponseStatus_
-    }
+  CreateServiceLinkedRoleResponse'
+  {_cslrrsRole = Nothing, _cslrrsResponseStatus = pResponseStatus_}
+
 
 -- | A 'Role' object that contains details about the newly created role.
 cslrrsRole :: Lens' CreateServiceLinkedRoleResponse (Maybe Role)
@@ -148,4 +150,4 @@ cslrrsRole = lens _cslrrsRole (\ s a -> s{_cslrrsRole = a});
 cslrrsResponseStatus :: Lens' CreateServiceLinkedRoleResponse Int
 cslrrsResponseStatus = lens _cslrrsResponseStatus (\ s a -> s{_cslrrsResponseStatus = a});
 
-instance NFData CreateServiceLinkedRoleResponse
+instance NFData CreateServiceLinkedRoleResponse where

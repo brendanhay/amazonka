@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ResourceGroupsTagging.GetTagValues
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.ResourceGroupsTagging.GetTagValues
     , gtvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.ResourceGroupsTagging.Types
-import           Network.AWS.ResourceGroupsTagging.Types.Product
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.ResourceGroupsTagging.Types
+import Network.AWS.ResourceGroupsTagging.Types.Product
+import Network.AWS.Response
 
 -- | /See:/ 'getTagValues' smart constructor.
 data GetTagValues = GetTagValues'
-    { _gtvPaginationToken :: !(Maybe Text)
-    , _gtvKey             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtvPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtvKey             :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTagValues' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ getTagValues
     :: Text -- ^ 'gtvKey'
     -> GetTagValues
 getTagValues pKey_ =
-    GetTagValues'
-    { _gtvPaginationToken = Nothing
-    , _gtvKey = pKey_
-    }
+  GetTagValues' {_gtvPaginationToken = Nothing, _gtvKey = pKey_}
+
 
 -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a PaginationToken, use that string for this value to request an additional page of data.
 gtvPaginationToken :: Lens' GetTagValues (Maybe Text)
@@ -98,9 +97,9 @@ instance AWSRequest GetTagValues where
                      (x .?> "TagValues" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetTagValues
+instance Hashable GetTagValues where
 
-instance NFData GetTagValues
+instance NFData GetTagValues where
 
 instance ToHeaders GetTagValues where
         toHeaders
@@ -127,10 +126,11 @@ instance ToQuery GetTagValues where
 
 -- | /See:/ 'getTagValuesResponse' smart constructor.
 data GetTagValuesResponse = GetTagValuesResponse'
-    { _gtvrsPaginationToken :: !(Maybe Text)
-    , _gtvrsTagValues       :: !(Maybe [Text])
-    , _gtvrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gtvrsPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gtvrsTagValues       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _gtvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetTagValuesResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ getTagValuesResponse
     :: Int -- ^ 'gtvrsResponseStatus'
     -> GetTagValuesResponse
 getTagValuesResponse pResponseStatus_ =
-    GetTagValuesResponse'
-    { _gtvrsPaginationToken = Nothing
-    , _gtvrsTagValues = Nothing
-    , _gtvrsResponseStatus = pResponseStatus_
-    }
+  GetTagValuesResponse'
+  { _gtvrsPaginationToken = Nothing
+  , _gtvrsTagValues = Nothing
+  , _gtvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
 gtvrsPaginationToken :: Lens' GetTagValuesResponse (Maybe Text)
@@ -163,4 +164,4 @@ gtvrsTagValues = lens _gtvrsTagValues (\ s a -> s{_gtvrsTagValues = a}) . _Defau
 gtvrsResponseStatus :: Lens' GetTagValuesResponse Int
 gtvrsResponseStatus = lens _gtvrsResponseStatus (\ s a -> s{_gtvrsResponseStatus = a});
 
-instance NFData GetTagValuesResponse
+instance NFData GetTagValuesResponse where

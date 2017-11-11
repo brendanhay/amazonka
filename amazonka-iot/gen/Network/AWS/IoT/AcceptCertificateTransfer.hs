@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.AcceptCertificateTransfer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.IoT.AcceptCertificateTransfer
     , AcceptCertificateTransferResponse
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the AcceptCertificateTransfer operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'acceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
-    { _actSetAsActive   :: !(Maybe Bool)
-    , _actCertificateId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _actSetAsActive   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _actCertificateId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptCertificateTransfer' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ acceptCertificateTransfer
     :: Text -- ^ 'actCertificateId'
     -> AcceptCertificateTransfer
 acceptCertificateTransfer pCertificateId_ =
-    AcceptCertificateTransfer'
-    { _actSetAsActive = Nothing
-    , _actCertificateId = pCertificateId_
-    }
+  AcceptCertificateTransfer'
+  {_actSetAsActive = Nothing, _actCertificateId = pCertificateId_}
+
 
 -- | Specifies whether the certificate is active.
 actSetAsActive :: Lens' AcceptCertificateTransfer (Maybe Bool)
@@ -85,9 +85,9 @@ instance AWSRequest AcceptCertificateTransfer where
         response
           = receiveNull AcceptCertificateTransferResponse'
 
-instance Hashable AcceptCertificateTransfer
+instance Hashable AcceptCertificateTransfer where
 
-instance NFData AcceptCertificateTransfer
+instance NFData AcceptCertificateTransfer where
 
 instance ToHeaders AcceptCertificateTransfer where
         toHeaders = const mempty
@@ -107,8 +107,9 @@ instance ToQuery AcceptCertificateTransfer where
 
 -- | /See:/ 'acceptCertificateTransferResponse' smart constructor.
 data AcceptCertificateTransferResponse =
-    AcceptCertificateTransferResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AcceptCertificateTransferResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptCertificateTransferResponse' with the minimum fields required to make a request.
 --
@@ -116,4 +117,6 @@ acceptCertificateTransferResponse
     :: AcceptCertificateTransferResponse
 acceptCertificateTransferResponse = AcceptCertificateTransferResponse'
 
+
 instance NFData AcceptCertificateTransferResponse
+         where

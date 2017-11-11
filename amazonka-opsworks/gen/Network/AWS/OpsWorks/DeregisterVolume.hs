@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.DeregisterVolume
     , DeregisterVolumeResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterVolume' smart constructor.
 newtype DeregisterVolume = DeregisterVolume'
-    { _dvVolumeId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvVolumeId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterVolume' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeregisterVolume = DeregisterVolume'
 deregisterVolume
     :: Text -- ^ 'dvVolumeId'
     -> DeregisterVolume
-deregisterVolume pVolumeId_ =
-    DeregisterVolume'
-    { _dvVolumeId = pVolumeId_
-    }
+deregisterVolume pVolumeId_ = DeregisterVolume' {_dvVolumeId = pVolumeId_}
+
 
 -- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
 dvVolumeId :: Lens' DeregisterVolume Text
@@ -70,9 +69,9 @@ instance AWSRequest DeregisterVolume where
         request = postJSON opsWorks
         response = receiveNull DeregisterVolumeResponse'
 
-instance Hashable DeregisterVolume
+instance Hashable DeregisterVolume where
 
-instance NFData DeregisterVolume
+instance NFData DeregisterVolume where
 
 instance ToHeaders DeregisterVolume where
         toHeaders
@@ -96,8 +95,9 @@ instance ToQuery DeregisterVolume where
 
 -- | /See:/ 'deregisterVolumeResponse' smart constructor.
 data DeregisterVolumeResponse =
-    DeregisterVolumeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeregisterVolumeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterVolumeResponse' with the minimum fields required to make a request.
 --
@@ -105,4 +105,5 @@ deregisterVolumeResponse
     :: DeregisterVolumeResponse
 deregisterVolumeResponse = DeregisterVolumeResponse'
 
-instance NFData DeregisterVolumeResponse
+
+instance NFData DeregisterVolumeResponse where

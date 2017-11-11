@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
     , leitrsResponseStatus
     ) where
 
-import           Network.AWS.ElasticSearch.Types
-import           Network.AWS.ElasticSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'ListElasticsearchInstanceTypes' @ operation.
 --
@@ -54,11 +54,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listElasticsearchInstanceTypes' smart constructor.
 data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
-    { _leitNextToken            :: !(Maybe Text)
-    , _leitDomainName           :: !(Maybe Text)
-    , _leitMaxResults           :: !(Maybe Int)
-    , _leitElasticsearchVersion :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _leitNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _leitDomainName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _leitMaxResults           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _leitElasticsearchVersion :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListElasticsearchInstanceTypes' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ listElasticsearchInstanceTypes
     :: Text -- ^ 'leitElasticsearchVersion'
     -> ListElasticsearchInstanceTypes
 listElasticsearchInstanceTypes pElasticsearchVersion_ =
-    ListElasticsearchInstanceTypes'
-    { _leitNextToken = Nothing
-    , _leitDomainName = Nothing
-    , _leitMaxResults = Nothing
-    , _leitElasticsearchVersion = pElasticsearchVersion_
-    }
+  ListElasticsearchInstanceTypes'
+  { _leitNextToken = Nothing
+  , _leitDomainName = Nothing
+  , _leitMaxResults = Nothing
+  , _leitElasticsearchVersion = pElasticsearchVersion_
+  }
+
 
 -- | NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
 leitNextToken :: Lens' ListElasticsearchInstanceTypes (Maybe Text)
@@ -112,8 +114,9 @@ instance AWSRequest ListElasticsearchInstanceTypes
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListElasticsearchInstanceTypes
+         where
 
-instance NFData ListElasticsearchInstanceTypes
+instance NFData ListElasticsearchInstanceTypes where
 
 instance ToHeaders ListElasticsearchInstanceTypes
          where
@@ -138,10 +141,11 @@ instance ToQuery ListElasticsearchInstanceTypes where
 --
 -- /See:/ 'listElasticsearchInstanceTypesResponse' smart constructor.
 data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResponse'
-    { _leitrsElasticsearchInstanceTypes :: !(Maybe [ESPartitionInstanceType])
-    , _leitrsNextToken                  :: !(Maybe Text)
-    , _leitrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _leitrsElasticsearchInstanceTypes :: {-# NOUNPACK #-}!(Maybe [ESPartitionInstanceType])
+  , _leitrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _leitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListElasticsearchInstanceTypesResponse' with the minimum fields required to make a request.
 --
@@ -156,11 +160,12 @@ listElasticsearchInstanceTypesResponse
     :: Int -- ^ 'leitrsResponseStatus'
     -> ListElasticsearchInstanceTypesResponse
 listElasticsearchInstanceTypesResponse pResponseStatus_ =
-    ListElasticsearchInstanceTypesResponse'
-    { _leitrsElasticsearchInstanceTypes = Nothing
-    , _leitrsNextToken = Nothing
-    , _leitrsResponseStatus = pResponseStatus_
-    }
+  ListElasticsearchInstanceTypesResponse'
+  { _leitrsElasticsearchInstanceTypes = Nothing
+  , _leitrsNextToken = Nothing
+  , _leitrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | List of instance types supported by Amazon Elasticsearch service for given @'ElasticsearchVersion' @
 leitrsElasticsearchInstanceTypes :: Lens' ListElasticsearchInstanceTypesResponse [ESPartitionInstanceType]
@@ -175,4 +180,5 @@ leitrsResponseStatus :: Lens' ListElasticsearchInstanceTypesResponse Int
 leitrsResponseStatus = lens _leitrsResponseStatus (\ s a -> s{_leitrsResponseStatus = a});
 
 instance NFData
-         ListElasticsearchInstanceTypesResponse
+           ListElasticsearchInstanceTypesResponse
+         where

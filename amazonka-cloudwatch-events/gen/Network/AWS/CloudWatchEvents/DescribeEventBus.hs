@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.DescribeEventBus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,23 +37,25 @@ module Network.AWS.CloudWatchEvents.DescribeEventBus
     , debrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEventBus' smart constructor.
 data DescribeEventBus =
-    DescribeEventBus'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DescribeEventBus'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventBus' with the minimum fields required to make a request.
 --
 describeEventBus
     :: DescribeEventBus
 describeEventBus = DescribeEventBus'
+
 
 instance AWSRequest DescribeEventBus where
         type Rs DescribeEventBus = DescribeEventBusResponse
@@ -65,9 +67,9 @@ instance AWSRequest DescribeEventBus where
                    (x .?> "Arn") <*> (x .?> "Name") <*> (x .?> "Policy")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEventBus
+instance Hashable DescribeEventBus where
 
-instance NFData DescribeEventBus
+instance NFData DescribeEventBus where
 
 instance ToHeaders DescribeEventBus where
         toHeaders
@@ -89,11 +91,12 @@ instance ToQuery DescribeEventBus where
 
 -- | /See:/ 'describeEventBusResponse' smart constructor.
 data DescribeEventBusResponse = DescribeEventBusResponse'
-    { _debrsARN            :: !(Maybe Text)
-    , _debrsName           :: !(Maybe Text)
-    , _debrsPolicy         :: !(Maybe Text)
-    , _debrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _debrsARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _debrsName           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _debrsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _debrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventBusResponse' with the minimum fields required to make a request.
 --
@@ -110,12 +113,13 @@ describeEventBusResponse
     :: Int -- ^ 'debrsResponseStatus'
     -> DescribeEventBusResponse
 describeEventBusResponse pResponseStatus_ =
-    DescribeEventBusResponse'
-    { _debrsARN = Nothing
-    , _debrsName = Nothing
-    , _debrsPolicy = Nothing
-    , _debrsResponseStatus = pResponseStatus_
-    }
+  DescribeEventBusResponse'
+  { _debrsARN = Nothing
+  , _debrsName = Nothing
+  , _debrsPolicy = Nothing
+  , _debrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The Amazon Resource Name (ARN) of the account permitted to write events to the current account.
 debrsARN :: Lens' DescribeEventBusResponse (Maybe Text)
@@ -133,4 +137,4 @@ debrsPolicy = lens _debrsPolicy (\ s a -> s{_debrsPolicy = a});
 debrsResponseStatus :: Lens' DescribeEventBusResponse Int
 debrsResponseStatus = lens _debrsResponseStatus (\ s a -> s{_debrsResponseStatus = a});
 
-instance NFData DescribeEventBusResponse
+instance NFData DescribeEventBusResponse where

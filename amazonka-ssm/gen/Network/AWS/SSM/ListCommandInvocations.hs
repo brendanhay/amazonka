@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListCommandInvocations
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,23 +45,24 @@ module Network.AWS.SSM.ListCommandInvocations
     , lrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listCommandInvocations' smart constructor.
 data ListCommandInvocations = ListCommandInvocations'
-    { _lciInstanceId :: !(Maybe Text)
-    , _lciFilters    :: !(Maybe (List1 CommandFilter))
-    , _lciNextToken  :: !(Maybe Text)
-    , _lciCommandId  :: !(Maybe Text)
-    , _lciDetails    :: !(Maybe Bool)
-    , _lciMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lciInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lciFilters    :: {-# NOUNPACK #-}!(Maybe (List1 CommandFilter))
+  , _lciNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lciCommandId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lciDetails    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lciMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCommandInvocations' with the minimum fields required to make a request.
 --
@@ -81,14 +82,15 @@ data ListCommandInvocations = ListCommandInvocations'
 listCommandInvocations
     :: ListCommandInvocations
 listCommandInvocations =
-    ListCommandInvocations'
-    { _lciInstanceId = Nothing
-    , _lciFilters = Nothing
-    , _lciNextToken = Nothing
-    , _lciCommandId = Nothing
-    , _lciDetails = Nothing
-    , _lciMaxResults = Nothing
-    }
+  ListCommandInvocations'
+  { _lciInstanceId = Nothing
+  , _lciFilters = Nothing
+  , _lciNextToken = Nothing
+  , _lciCommandId = Nothing
+  , _lciDetails = Nothing
+  , _lciMaxResults = Nothing
+  }
+
 
 -- | (Optional) The command execution details for a specific instance ID.
 lciInstanceId :: Lens' ListCommandInvocations (Maybe Text)
@@ -133,9 +135,9 @@ instance AWSRequest ListCommandInvocations where
                      (x .?> "CommandInvocations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListCommandInvocations
+instance Hashable ListCommandInvocations where
 
-instance NFData ListCommandInvocations
+instance NFData ListCommandInvocations where
 
 instance ToHeaders ListCommandInvocations where
         toHeaders
@@ -165,10 +167,11 @@ instance ToQuery ListCommandInvocations where
 
 -- | /See:/ 'listCommandInvocationsResponse' smart constructor.
 data ListCommandInvocationsResponse = ListCommandInvocationsResponse'
-    { _lrsNextToken          :: !(Maybe Text)
-    , _lrsCommandInvocations :: !(Maybe [CommandInvocation])
-    , _lrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrsCommandInvocations :: {-# NOUNPACK #-}!(Maybe [CommandInvocation])
+  , _lrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListCommandInvocationsResponse' with the minimum fields required to make a request.
 --
@@ -183,11 +186,12 @@ listCommandInvocationsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListCommandInvocationsResponse
 listCommandInvocationsResponse pResponseStatus_ =
-    ListCommandInvocationsResponse'
-    { _lrsNextToken = Nothing
-    , _lrsCommandInvocations = Nothing
-    , _lrsResponseStatus = pResponseStatus_
-    }
+  ListCommandInvocationsResponse'
+  { _lrsNextToken = Nothing
+  , _lrsCommandInvocations = Nothing
+  , _lrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lrsNextToken :: Lens' ListCommandInvocationsResponse (Maybe Text)
@@ -201,4 +205,4 @@ lrsCommandInvocations = lens _lrsCommandInvocations (\ s a -> s{_lrsCommandInvoc
 lrsResponseStatus :: Lens' ListCommandInvocationsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 
-instance NFData ListCommandInvocationsResponse
+instance NFData ListCommandInvocationsResponse where

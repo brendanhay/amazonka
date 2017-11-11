@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateTagsForDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
     , utfdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The UpdateTagsForDomainRequest includes the following elements.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'updateTagsForDomain' smart constructor.
 data UpdateTagsForDomain = UpdateTagsForDomain'
-    { _utfdTagsToUpdate :: !(Maybe [Tag])
-    , _utfdDomainName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utfdTagsToUpdate :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _utfdDomainName   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTagsForDomain' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ updateTagsForDomain
     :: Text -- ^ 'utfdDomainName'
     -> UpdateTagsForDomain
 updateTagsForDomain pDomainName_ =
-    UpdateTagsForDomain'
-    { _utfdTagsToUpdate = Nothing
-    , _utfdDomainName = pDomainName_
-    }
+  UpdateTagsForDomain'
+  {_utfdTagsToUpdate = Nothing, _utfdDomainName = pDomainName_}
+
 
 -- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
 utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
@@ -89,9 +89,9 @@ instance AWSRequest UpdateTagsForDomain where
               (\ s h x ->
                  UpdateTagsForDomainResponse' <$> (pure (fromEnum s)))
 
-instance Hashable UpdateTagsForDomain
+instance Hashable UpdateTagsForDomain where
 
-instance NFData UpdateTagsForDomain
+instance NFData UpdateTagsForDomain where
 
 instance ToHeaders UpdateTagsForDomain where
         toHeaders
@@ -118,8 +118,9 @@ instance ToQuery UpdateTagsForDomain where
 
 -- | /See:/ 'updateTagsForDomainResponse' smart constructor.
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
-    { _utfdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utfdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateTagsForDomainResponse' with the minimum fields required to make a request.
 --
@@ -130,12 +131,11 @@ updateTagsForDomainResponse
     :: Int -- ^ 'utfdrsResponseStatus'
     -> UpdateTagsForDomainResponse
 updateTagsForDomainResponse pResponseStatus_ =
-    UpdateTagsForDomainResponse'
-    { _utfdrsResponseStatus = pResponseStatus_
-    }
+  UpdateTagsForDomainResponse' {_utfdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 utfdrsResponseStatus :: Lens' UpdateTagsForDomainResponse Int
 utfdrsResponseStatus = lens _utfdrsResponseStatus (\ s a -> s{_utfdrsResponseStatus = a});
 
-instance NFData UpdateTagsForDomainResponse
+instance NFData UpdateTagsForDomainResponse where

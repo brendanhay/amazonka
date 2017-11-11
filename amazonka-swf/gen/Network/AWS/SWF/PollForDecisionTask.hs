@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SWF.PollForDecisionTask
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -70,23 +70,24 @@ module Network.AWS.SWF.PollForDecisionTask
     , pfdtrsStartedEventId
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SWF.Types
-import           Network.AWS.SWF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SWF.Types
+import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'pollForDecisionTask' smart constructor.
 data PollForDecisionTask = PollForDecisionTask'
-    { _pfdtNextPageToken   :: !(Maybe Text)
-    , _pfdtReverseOrder    :: !(Maybe Bool)
-    , _pfdtMaximumPageSize :: !(Maybe Nat)
-    , _pfdtIdentity        :: !(Maybe Text)
-    , _pfdtDomain          :: !Text
-    , _pfdtTaskList        :: !TaskList
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfdtNextPageToken   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfdtReverseOrder    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pfdtMaximumPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _pfdtIdentity        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfdtDomain          :: {-# NOUNPACK #-}!Text
+  , _pfdtTaskList        :: {-# NOUNPACK #-}!TaskList
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForDecisionTask' with the minimum fields required to make a request.
 --
@@ -108,14 +109,15 @@ pollForDecisionTask
     -> TaskList -- ^ 'pfdtTaskList'
     -> PollForDecisionTask
 pollForDecisionTask pDomain_ pTaskList_ =
-    PollForDecisionTask'
-    { _pfdtNextPageToken = Nothing
-    , _pfdtReverseOrder = Nothing
-    , _pfdtMaximumPageSize = Nothing
-    , _pfdtIdentity = Nothing
-    , _pfdtDomain = pDomain_
-    , _pfdtTaskList = pTaskList_
-    }
+  PollForDecisionTask'
+  { _pfdtNextPageToken = Nothing
+  , _pfdtReverseOrder = Nothing
+  , _pfdtMaximumPageSize = Nothing
+  , _pfdtIdentity = Nothing
+  , _pfdtDomain = pDomain_
+  , _pfdtTaskList = pTaskList_
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 pfdtNextPageToken :: Lens' PollForDecisionTask (Maybe Text)
@@ -165,9 +167,9 @@ instance AWSRequest PollForDecisionTask where
                      <*> (pure (fromEnum s))
                      <*> (x .:> "startedEventId"))
 
-instance Hashable PollForDecisionTask
+instance Hashable PollForDecisionTask where
 
-instance NFData PollForDecisionTask
+instance NFData PollForDecisionTask where
 
 instance ToHeaders PollForDecisionTask where
         toHeaders
@@ -202,15 +204,16 @@ instance ToQuery PollForDecisionTask where
 --
 -- /See:/ 'pollForDecisionTaskResponse' smart constructor.
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
-    { _pfdtrsNextPageToken          :: !(Maybe Text)
-    , _pfdtrsWorkflowType           :: !(Maybe WorkflowType)
-    , _pfdtrsPreviousStartedEventId :: !(Maybe Integer)
-    , _pfdtrsEvents                 :: !(Maybe [HistoryEvent])
-    , _pfdtrsTaskToken              :: !(Maybe Text)
-    , _pfdtrsWorkflowExecution      :: !(Maybe WorkflowExecution)
-    , _pfdtrsResponseStatus         :: !Int
-    , _pfdtrsStartedEventId         :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pfdtrsNextPageToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfdtrsWorkflowType           :: {-# NOUNPACK #-}!(Maybe WorkflowType)
+  , _pfdtrsPreviousStartedEventId :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _pfdtrsEvents                 :: {-# NOUNPACK #-}!(Maybe [HistoryEvent])
+  , _pfdtrsTaskToken              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pfdtrsWorkflowExecution      :: {-# NOUNPACK #-}!(Maybe WorkflowExecution)
+  , _pfdtrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  , _pfdtrsStartedEventId         :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PollForDecisionTaskResponse' with the minimum fields required to make a request.
 --
@@ -236,16 +239,17 @@ pollForDecisionTaskResponse
     -> Integer -- ^ 'pfdtrsStartedEventId'
     -> PollForDecisionTaskResponse
 pollForDecisionTaskResponse pResponseStatus_ pStartedEventId_ =
-    PollForDecisionTaskResponse'
-    { _pfdtrsNextPageToken = Nothing
-    , _pfdtrsWorkflowType = Nothing
-    , _pfdtrsPreviousStartedEventId = Nothing
-    , _pfdtrsEvents = Nothing
-    , _pfdtrsTaskToken = Nothing
-    , _pfdtrsWorkflowExecution = Nothing
-    , _pfdtrsResponseStatus = pResponseStatus_
-    , _pfdtrsStartedEventId = pStartedEventId_
-    }
+  PollForDecisionTaskResponse'
+  { _pfdtrsNextPageToken = Nothing
+  , _pfdtrsWorkflowType = Nothing
+  , _pfdtrsPreviousStartedEventId = Nothing
+  , _pfdtrsEvents = Nothing
+  , _pfdtrsTaskToken = Nothing
+  , _pfdtrsWorkflowExecution = Nothing
+  , _pfdtrsResponseStatus = pResponseStatus_
+  , _pfdtrsStartedEventId = pStartedEventId_
+  }
+
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
 pfdtrsNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
@@ -279,4 +283,4 @@ pfdtrsResponseStatus = lens _pfdtrsResponseStatus (\ s a -> s{_pfdtrsResponseSta
 pfdtrsStartedEventId :: Lens' PollForDecisionTaskResponse Integer
 pfdtrsStartedEventId = lens _pfdtrsStartedEventId (\ s a -> s{_pfdtrsStartedEventId = a});
 
-instance NFData PollForDecisionTaskResponse
+instance NFData PollForDecisionTaskResponse where

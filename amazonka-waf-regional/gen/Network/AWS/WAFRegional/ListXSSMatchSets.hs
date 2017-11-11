@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListXSSMatchSets
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.WAFRegional.ListXSSMatchSets
     , lxmsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | A request to list the 'XssMatchSet' objects created by the current AWS account.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'listXSSMatchSets' smart constructor.
 data ListXSSMatchSets = ListXSSMatchSets'
-    { _lxmsNextMarker :: !(Maybe Text)
-    , _lxmsLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lxmsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lxmsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListXSSMatchSets' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ data ListXSSMatchSets = ListXSSMatchSets'
 listXSSMatchSets
     :: ListXSSMatchSets
 listXSSMatchSets =
-    ListXSSMatchSets'
-    { _lxmsNextMarker = Nothing
-    , _lxmsLimit = Nothing
-    }
+  ListXSSMatchSets' {_lxmsNextMarker = Nothing, _lxmsLimit = Nothing}
+
 
 -- | If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
 lxmsNextMarker :: Lens' ListXSSMatchSets (Maybe Text)
@@ -90,9 +89,9 @@ instance AWSRequest ListXSSMatchSets where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListXSSMatchSets
+instance Hashable ListXSSMatchSets where
 
-instance NFData ListXSSMatchSets
+instance NFData ListXSSMatchSets where
 
 instance ToHeaders ListXSSMatchSets where
         toHeaders
@@ -123,10 +122,11 @@ instance ToQuery ListXSSMatchSets where
 --
 -- /See:/ 'listXSSMatchSetsResponse' smart constructor.
 data ListXSSMatchSetsResponse = ListXSSMatchSetsResponse'
-    { _lxmsrsXSSMatchSets   :: !(Maybe [XSSMatchSetSummary])
-    , _lxmsrsNextMarker     :: !(Maybe Text)
-    , _lxmsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lxmsrsXSSMatchSets   :: {-# NOUNPACK #-}!(Maybe [XSSMatchSetSummary])
+  , _lxmsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListXSSMatchSetsResponse' with the minimum fields required to make a request.
 --
@@ -141,11 +141,12 @@ listXSSMatchSetsResponse
     :: Int -- ^ 'lxmsrsResponseStatus'
     -> ListXSSMatchSetsResponse
 listXSSMatchSetsResponse pResponseStatus_ =
-    ListXSSMatchSetsResponse'
-    { _lxmsrsXSSMatchSets = Nothing
-    , _lxmsrsNextMarker = Nothing
-    , _lxmsrsResponseStatus = pResponseStatus_
-    }
+  ListXSSMatchSetsResponse'
+  { _lxmsrsXSSMatchSets = Nothing
+  , _lxmsrsNextMarker = Nothing
+  , _lxmsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of 'XssMatchSetSummary' objects.
 lxmsrsXSSMatchSets :: Lens' ListXSSMatchSetsResponse [XSSMatchSetSummary]
@@ -159,4 +160,4 @@ lxmsrsNextMarker = lens _lxmsrsNextMarker (\ s a -> s{_lxmsrsNextMarker = a});
 lxmsrsResponseStatus :: Lens' ListXSSMatchSetsResponse Int
 lxmsrsResponseStatus = lens _lxmsrsResponseStatus (\ s a -> s{_lxmsrsResponseStatus = a});
 
-instance NFData ListXSSMatchSetsResponse
+instance NFData ListXSSMatchSetsResponse where

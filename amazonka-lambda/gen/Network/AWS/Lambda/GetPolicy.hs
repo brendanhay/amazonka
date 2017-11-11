@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetPolicy
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.Lambda.GetPolicy
     , gprsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getPolicy' smart constructor.
 data GetPolicy = GetPolicy'
-    { _gpQualifier    :: !(Maybe Text)
-    , _gpFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gpQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gpFunctionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
 --
@@ -70,10 +71,8 @@ getPolicy
     :: Text -- ^ 'gpFunctionName'
     -> GetPolicy
 getPolicy pFunctionName_ =
-    GetPolicy'
-    { _gpQualifier = Nothing
-    , _gpFunctionName = pFunctionName_
-    }
+  GetPolicy' {_gpQualifier = Nothing, _gpFunctionName = pFunctionName_}
+
 
 -- | You can specify this optional query parameter to specify a function version or an alias name in which case this API will return all permissions associated with the specific qualified ARN. If you don't provide this parameter, the API will return permissions that apply to the unqualified function ARN.
 gpQualifier :: Lens' GetPolicy (Maybe Text)
@@ -92,9 +91,9 @@ instance AWSRequest GetPolicy where
                  GetPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
-instance Hashable GetPolicy
+instance Hashable GetPolicy where
 
-instance NFData GetPolicy
+instance NFData GetPolicy where
 
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
@@ -115,9 +114,10 @@ instance ToQuery GetPolicy where
 --
 -- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-    { _gprsPolicy         :: !(Maybe Text)
-    , _gprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gprsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +130,9 @@ getPolicyResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetPolicyResponse
 getPolicyResponse pResponseStatus_ =
-    GetPolicyResponse'
-    { _gprsPolicy = Nothing
-    , _gprsResponseStatus = pResponseStatus_
-    }
+  GetPolicyResponse'
+  {_gprsPolicy = Nothing, _gprsResponseStatus = pResponseStatus_}
+
 
 -- | The resource policy associated with the specified function. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)
@@ -143,4 +142,4 @@ gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 gprsResponseStatus :: Lens' GetPolicyResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 
-instance NFData GetPolicyResponse
+instance NFData GetPolicyResponse where

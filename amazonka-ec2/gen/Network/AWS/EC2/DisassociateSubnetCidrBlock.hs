@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisassociateSubnetCidrBlock
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,17 +38,18 @@ module Network.AWS.EC2.DisassociateSubnetCidrBlock
     , dscbrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'disassociateSubnetCidrBlock' smart constructor.
 newtype DisassociateSubnetCidrBlock = DisassociateSubnetCidrBlock'
-    { _dscbAssociationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscbAssociationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateSubnetCidrBlock' with the minimum fields required to make a request.
 --
@@ -59,9 +60,8 @@ disassociateSubnetCidrBlock
     :: Text -- ^ 'dscbAssociationId'
     -> DisassociateSubnetCidrBlock
 disassociateSubnetCidrBlock pAssociationId_ =
-    DisassociateSubnetCidrBlock'
-    { _dscbAssociationId = pAssociationId_
-    }
+  DisassociateSubnetCidrBlock' {_dscbAssociationId = pAssociationId_}
+
 
 -- | The association ID for the CIDR block.
 dscbAssociationId :: Lens' DisassociateSubnetCidrBlock Text
@@ -79,9 +79,9 @@ instance AWSRequest DisassociateSubnetCidrBlock where
                      (x .@? "ipv6CidrBlockAssociation")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DisassociateSubnetCidrBlock
+instance Hashable DisassociateSubnetCidrBlock where
 
-instance NFData DisassociateSubnetCidrBlock
+instance NFData DisassociateSubnetCidrBlock where
 
 instance ToHeaders DisassociateSubnetCidrBlock where
         toHeaders = const mempty
@@ -99,10 +99,11 @@ instance ToQuery DisassociateSubnetCidrBlock where
 
 -- | /See:/ 'disassociateSubnetCidrBlockResponse' smart constructor.
 data DisassociateSubnetCidrBlockResponse = DisassociateSubnetCidrBlockResponse'
-    { _dscbrsSubnetId                 :: !(Maybe Text)
-    , _dscbrsIPv6CidrBlockAssociation :: !(Maybe SubnetIPv6CidrBlockAssociation)
-    , _dscbrsResponseStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dscbrsSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dscbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe SubnetIPv6CidrBlockAssociation)
+  , _dscbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DisassociateSubnetCidrBlockResponse' with the minimum fields required to make a request.
 --
@@ -117,11 +118,12 @@ disassociateSubnetCidrBlockResponse
     :: Int -- ^ 'dscbrsResponseStatus'
     -> DisassociateSubnetCidrBlockResponse
 disassociateSubnetCidrBlockResponse pResponseStatus_ =
-    DisassociateSubnetCidrBlockResponse'
-    { _dscbrsSubnetId = Nothing
-    , _dscbrsIPv6CidrBlockAssociation = Nothing
-    , _dscbrsResponseStatus = pResponseStatus_
-    }
+  DisassociateSubnetCidrBlockResponse'
+  { _dscbrsSubnetId = Nothing
+  , _dscbrsIPv6CidrBlockAssociation = Nothing
+  , _dscbrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the subnet.
 dscbrsSubnetId :: Lens' DisassociateSubnetCidrBlockResponse (Maybe Text)
@@ -136,3 +138,4 @@ dscbrsResponseStatus :: Lens' DisassociateSubnetCidrBlockResponse Int
 dscbrsResponseStatus = lens _dscbrsResponseStatus (\ s a -> s{_dscbrsResponseStatus = a});
 
 instance NFData DisassociateSubnetCidrBlockResponse
+         where

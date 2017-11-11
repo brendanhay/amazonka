@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateClusterSubnetGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     , ccsgrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createClusterSubnetGroup' smart constructor.
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
-    { _ccsgTags                   :: !(Maybe [Tag])
-    , _ccsgClusterSubnetGroupName :: !Text
-    , _ccsgDescription            :: !Text
-    , _ccsgSubnetIds              :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsgTags                   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ccsgClusterSubnetGroupName :: {-# NOUNPACK #-}!Text
+  , _ccsgDescription            :: {-# NOUNPACK #-}!Text
+  , _ccsgSubnetIds              :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterSubnetGroup' with the minimum fields required to make a request.
 --
@@ -77,12 +78,13 @@ createClusterSubnetGroup
     -> Text -- ^ 'ccsgDescription'
     -> CreateClusterSubnetGroup
 createClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
-    CreateClusterSubnetGroup'
-    { _ccsgTags = Nothing
-    , _ccsgClusterSubnetGroupName = pClusterSubnetGroupName_
-    , _ccsgDescription = pDescription_
-    , _ccsgSubnetIds = mempty
-    }
+  CreateClusterSubnetGroup'
+  { _ccsgTags = Nothing
+  , _ccsgClusterSubnetGroupName = pClusterSubnetGroupName_
+  , _ccsgDescription = pDescription_
+  , _ccsgSubnetIds = mempty
+  }
+
 
 -- | A list of tag instances.
 ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
@@ -110,9 +112,9 @@ instance AWSRequest CreateClusterSubnetGroup where
                  CreateClusterSubnetGroupResponse' <$>
                    (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
 
-instance Hashable CreateClusterSubnetGroup
+instance Hashable CreateClusterSubnetGroup where
 
-instance NFData CreateClusterSubnetGroup
+instance NFData CreateClusterSubnetGroup where
 
 instance ToHeaders CreateClusterSubnetGroup where
         toHeaders = const mempty
@@ -135,9 +137,10 @@ instance ToQuery CreateClusterSubnetGroup where
 
 -- | /See:/ 'createClusterSubnetGroupResponse' smart constructor.
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
-    { _ccsgrsClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
-    , _ccsgrsResponseStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccsgrsClusterSubnetGroup :: {-# NOUNPACK #-}!(Maybe ClusterSubnetGroup)
+  , _ccsgrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateClusterSubnetGroupResponse' with the minimum fields required to make a request.
 --
@@ -150,10 +153,11 @@ createClusterSubnetGroupResponse
     :: Int -- ^ 'ccsgrsResponseStatus'
     -> CreateClusterSubnetGroupResponse
 createClusterSubnetGroupResponse pResponseStatus_ =
-    CreateClusterSubnetGroupResponse'
-    { _ccsgrsClusterSubnetGroup = Nothing
-    , _ccsgrsResponseStatus = pResponseStatus_
-    }
+  CreateClusterSubnetGroupResponse'
+  { _ccsgrsClusterSubnetGroup = Nothing
+  , _ccsgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 ccsgrsClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
@@ -164,3 +168,4 @@ ccsgrsResponseStatus :: Lens' CreateClusterSubnetGroupResponse Int
 ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
 
 instance NFData CreateClusterSubnetGroupResponse
+         where

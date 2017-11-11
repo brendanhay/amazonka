@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.RemoveTagsFromResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.ElastiCache.RemoveTagsFromResource
     , tlmTagList
     ) where
 
-import           Network.AWS.ElastiCache.Types
-import           Network.AWS.ElastiCache.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a @RemoveTagsFromResource@ operation.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrResourceName :: !Text
-    , _rtfrTagKeys      :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtfrResourceName :: {-# NOUNPACK #-}!Text
+  , _rtfrTagKeys      :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ removeTagsFromResource
     :: Text -- ^ 'rtfrResourceName'
     -> RemoveTagsFromResource
 removeTagsFromResource pResourceName_ =
-    RemoveTagsFromResource'
-    { _rtfrResourceName = pResourceName_
-    , _rtfrTagKeys = mempty
-    }
+  RemoveTagsFromResource'
+  {_rtfrResourceName = pResourceName_, _rtfrTagKeys = mempty}
+
 
 -- | The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
@@ -85,9 +85,9 @@ instance AWSRequest RemoveTagsFromResource where
           = receiveXMLWrapper "RemoveTagsFromResourceResult"
               (\ s h x -> parseXML x)
 
-instance Hashable RemoveTagsFromResource
+instance Hashable RemoveTagsFromResource where
 
-instance NFData RemoveTagsFromResource
+instance NFData RemoveTagsFromResource where
 
 instance ToHeaders RemoveTagsFromResource where
         toHeaders = const mempty

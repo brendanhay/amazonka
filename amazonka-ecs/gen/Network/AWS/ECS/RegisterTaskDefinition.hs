@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.RegisterTaskDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,22 +46,23 @@ module Network.AWS.ECS.RegisterTaskDefinition
     , rtdrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'registerTaskDefinition' smart constructor.
 data RegisterTaskDefinition = RegisterTaskDefinition'
-    { _rtdTaskRoleARN          :: !(Maybe Text)
-    , _rtdPlacementConstraints :: !(Maybe [TaskDefinitionPlacementConstraint])
-    , _rtdNetworkMode          :: !(Maybe NetworkMode)
-    , _rtdVolumes              :: !(Maybe [Volume])
-    , _rtdFamily               :: !Text
-    , _rtdContainerDefinitions :: ![ContainerDefinition]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtdTaskRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtdPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [TaskDefinitionPlacementConstraint])
+  , _rtdNetworkMode :: {-# NOUNPACK #-}!(Maybe NetworkMode)
+  , _rtdVolumes :: {-# NOUNPACK #-}!(Maybe [Volume])
+  , _rtdFamily :: {-# NOUNPACK #-}!Text
+  , _rtdContainerDefinitions :: {-# NOUNPACK #-}![ContainerDefinition]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterTaskDefinition' with the minimum fields required to make a request.
 --
@@ -82,14 +83,15 @@ registerTaskDefinition
     :: Text -- ^ 'rtdFamily'
     -> RegisterTaskDefinition
 registerTaskDefinition pFamily_ =
-    RegisterTaskDefinition'
-    { _rtdTaskRoleARN = Nothing
-    , _rtdPlacementConstraints = Nothing
-    , _rtdNetworkMode = Nothing
-    , _rtdVolumes = Nothing
-    , _rtdFamily = pFamily_
-    , _rtdContainerDefinitions = mempty
-    }
+  RegisterTaskDefinition'
+  { _rtdTaskRoleARN = Nothing
+  , _rtdPlacementConstraints = Nothing
+  , _rtdNetworkMode = Nothing
+  , _rtdVolumes = Nothing
+  , _rtdFamily = pFamily_
+  , _rtdContainerDefinitions = mempty
+  }
+
 
 -- | The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks> in the /Amazon EC2 Container Service Developer Guide/ .
 rtdTaskRoleARN :: Lens' RegisterTaskDefinition (Maybe Text)
@@ -125,9 +127,9 @@ instance AWSRequest RegisterTaskDefinition where
                  RegisterTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
-instance Hashable RegisterTaskDefinition
+instance Hashable RegisterTaskDefinition where
 
-instance NFData RegisterTaskDefinition
+instance NFData RegisterTaskDefinition where
 
 instance ToHeaders RegisterTaskDefinition where
         toHeaders
@@ -161,9 +163,10 @@ instance ToQuery RegisterTaskDefinition where
 
 -- | /See:/ 'registerTaskDefinitionResponse' smart constructor.
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
-    { _rtdrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _rtdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtdrsTaskDefinition :: {-# NOUNPACK #-}!(Maybe TaskDefinition)
+  , _rtdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RegisterTaskDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -176,10 +179,9 @@ registerTaskDefinitionResponse
     :: Int -- ^ 'rtdrsResponseStatus'
     -> RegisterTaskDefinitionResponse
 registerTaskDefinitionResponse pResponseStatus_ =
-    RegisterTaskDefinitionResponse'
-    { _rtdrsTaskDefinition = Nothing
-    , _rtdrsResponseStatus = pResponseStatus_
-    }
+  RegisterTaskDefinitionResponse'
+  {_rtdrsTaskDefinition = Nothing, _rtdrsResponseStatus = pResponseStatus_}
+
 
 -- | The full description of the registered task definition.
 rtdrsTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
@@ -189,4 +191,4 @@ rtdrsTaskDefinition = lens _rtdrsTaskDefinition (\ s a -> s{_rtdrsTaskDefinition
 rtdrsResponseStatus :: Lens' RegisterTaskDefinitionResponse Int
 rtdrsResponseStatus = lens _rtdrsResponseStatus (\ s a -> s{_rtdrsResponseStatus = a});
 
-instance NFData RegisterTaskDefinitionResponse
+instance NFData RegisterTaskDefinitionResponse where

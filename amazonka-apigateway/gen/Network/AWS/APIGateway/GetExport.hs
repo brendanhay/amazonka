@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetExport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.GetExport
     , gersResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request a new export of a 'RestApi' for a particular 'Stage' .
 --
@@ -56,12 +56,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getExport' smart constructor.
 data GetExport = GetExport'
-    { _geParameters :: !(Maybe (Map Text Text))
-    , _geAccepts    :: !(Maybe Text)
-    , _geRestAPIId  :: !Text
-    , _geStageName  :: !Text
-    , _geExportType :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _geParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _geAccepts    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _geRestAPIId  :: {-# NOUNPACK #-}!Text
+  , _geStageName  :: {-# NOUNPACK #-}!Text
+  , _geExportType :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetExport' with the minimum fields required to make a request.
 --
@@ -82,13 +83,14 @@ getExport
     -> Text -- ^ 'geExportType'
     -> GetExport
 getExport pRestAPIId_ pStageName_ pExportType_ =
-    GetExport'
-    { _geParameters = Nothing
-    , _geAccepts = Nothing
-    , _geRestAPIId = pRestAPIId_
-    , _geStageName = pStageName_
-    , _geExportType = pExportType_
-    }
+  GetExport'
+  { _geParameters = Nothing
+  , _geAccepts = Nothing
+  , _geRestAPIId = pRestAPIId_
+  , _geStageName = pStageName_
+  , _geExportType = pExportType_
+  }
+
 
 -- | A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @swagger@ , any combination of the following parameters are supported: @integrations@ will export the API with x-amazon-apigateway-integration extensions. @authorizers@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
 geParameters :: Lens' GetExport (HashMap Text Text)
@@ -121,9 +123,9 @@ instance AWSRequest GetExport where
                      (h .#? "Content-Type")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetExport
+instance Hashable GetExport where
 
-instance NFData GetExport
+instance NFData GetExport where
 
 instance ToHeaders GetExport where
         toHeaders GetExport'{..}
@@ -150,11 +152,12 @@ instance ToQuery GetExport where
 --
 -- /See:/ 'getExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-    { _gersBody               :: !(Maybe (HashMap Text Value))
-    , _gersContentDisposition :: !(Maybe Text)
-    , _gersContentType        :: !(Maybe Text)
-    , _gersResponseStatus     :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _gersBody               :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
+  , _gersContentDisposition :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersContentType        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gersResponseStatus     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetExportResponse' with the minimum fields required to make a request.
 --
@@ -171,12 +174,13 @@ getExportResponse
     :: Int -- ^ 'gersResponseStatus'
     -> GetExportResponse
 getExportResponse pResponseStatus_ =
-    GetExportResponse'
-    { _gersBody = Nothing
-    , _gersContentDisposition = Nothing
-    , _gersContentType = Nothing
-    , _gersResponseStatus = pResponseStatus_
-    }
+  GetExportResponse'
+  { _gersBody = Nothing
+  , _gersContentDisposition = Nothing
+  , _gersContentType = Nothing
+  , _gersResponseStatus = pResponseStatus_
+  }
+
 
 -- | The binary blob response to 'GetExport' , which contains the export.
 gersBody :: Lens' GetExportResponse (Maybe (HashMap Text Value))
@@ -194,4 +198,4 @@ gersContentType = lens _gersContentType (\ s a -> s{_gersContentType = a});
 gersResponseStatus :: Lens' GetExportResponse Int
 gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
 
-instance NFData GetExportResponse
+instance NFData GetExportResponse where

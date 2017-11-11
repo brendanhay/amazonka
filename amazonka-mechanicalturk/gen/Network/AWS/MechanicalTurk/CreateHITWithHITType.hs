@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateHITWithHITType
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,26 +50,27 @@ module Network.AWS.MechanicalTurk.CreateHITWithHITType
     , chitwhittrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createHITWithHITType' smart constructor.
 data CreateHITWithHITType = CreateHITWithHITType'
-    { _chitwhittHITReviewPolicy        :: !(Maybe ReviewPolicy)
-    , _chitwhittUniqueRequestToken     :: !(Maybe Text)
-    , _chitwhittRequesterAnnotation    :: !(Maybe Text)
-    , _chitwhittMaxAssignments         :: !(Maybe Int)
-    , _chitwhittHITLayoutId            :: !(Maybe Text)
-    , _chitwhittHITLayoutParameters    :: !(Maybe [HITLayoutParameter])
-    , _chitwhittQuestion               :: !(Maybe Text)
-    , _chitwhittAssignmentReviewPolicy :: !(Maybe ReviewPolicy)
-    , _chitwhittHITTypeId              :: !Text
-    , _chitwhittLifetimeInSeconds      :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chitwhittHITReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
+  , _chitwhittUniqueRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitwhittRequesterAnnotation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitwhittMaxAssignments :: {-# NOUNPACK #-}!(Maybe Int)
+  , _chitwhittHITLayoutId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitwhittHITLayoutParameters :: {-# NOUNPACK #-}!(Maybe [HITLayoutParameter])
+  , _chitwhittQuestion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _chitwhittAssignmentReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
+  , _chitwhittHITTypeId :: {-# NOUNPACK #-}!Text
+  , _chitwhittLifetimeInSeconds :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHITWithHITType' with the minimum fields required to make a request.
 --
@@ -99,18 +100,19 @@ createHITWithHITType
     -> Integer -- ^ 'chitwhittLifetimeInSeconds'
     -> CreateHITWithHITType
 createHITWithHITType pHITTypeId_ pLifetimeInSeconds_ =
-    CreateHITWithHITType'
-    { _chitwhittHITReviewPolicy = Nothing
-    , _chitwhittUniqueRequestToken = Nothing
-    , _chitwhittRequesterAnnotation = Nothing
-    , _chitwhittMaxAssignments = Nothing
-    , _chitwhittHITLayoutId = Nothing
-    , _chitwhittHITLayoutParameters = Nothing
-    , _chitwhittQuestion = Nothing
-    , _chitwhittAssignmentReviewPolicy = Nothing
-    , _chitwhittHITTypeId = pHITTypeId_
-    , _chitwhittLifetimeInSeconds = pLifetimeInSeconds_
-    }
+  CreateHITWithHITType'
+  { _chitwhittHITReviewPolicy = Nothing
+  , _chitwhittUniqueRequestToken = Nothing
+  , _chitwhittRequesterAnnotation = Nothing
+  , _chitwhittMaxAssignments = Nothing
+  , _chitwhittHITLayoutId = Nothing
+  , _chitwhittHITLayoutParameters = Nothing
+  , _chitwhittQuestion = Nothing
+  , _chitwhittAssignmentReviewPolicy = Nothing
+  , _chitwhittHITTypeId = pHITTypeId_
+  , _chitwhittLifetimeInSeconds = pLifetimeInSeconds_
+  }
+
 
 -- | The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
 chitwhittHITReviewPolicy :: Lens' CreateHITWithHITType (Maybe ReviewPolicy)
@@ -162,9 +164,9 @@ instance AWSRequest CreateHITWithHITType where
                  CreateHITWithHITTypeResponse' <$>
                    (x .?> "HIT") <*> (pure (fromEnum s)))
 
-instance Hashable CreateHITWithHITType
+instance Hashable CreateHITWithHITType where
 
-instance NFData CreateHITWithHITType
+instance NFData CreateHITWithHITType where
 
 instance ToHeaders CreateHITWithHITType where
         toHeaders
@@ -206,9 +208,10 @@ instance ToQuery CreateHITWithHITType where
 
 -- | /See:/ 'createHITWithHITTypeResponse' smart constructor.
 data CreateHITWithHITTypeResponse = CreateHITWithHITTypeResponse'
-    { _chitwhittrsHIT            :: !(Maybe HIT)
-    , _chitwhittrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _chitwhittrsHIT            :: {-# NOUNPACK #-}!(Maybe HIT)
+  , _chitwhittrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateHITWithHITTypeResponse' with the minimum fields required to make a request.
 --
@@ -221,10 +224,9 @@ createHITWithHITTypeResponse
     :: Int -- ^ 'chitwhittrsResponseStatus'
     -> CreateHITWithHITTypeResponse
 createHITWithHITTypeResponse pResponseStatus_ =
-    CreateHITWithHITTypeResponse'
-    { _chitwhittrsHIT = Nothing
-    , _chitwhittrsResponseStatus = pResponseStatus_
-    }
+  CreateHITWithHITTypeResponse'
+  {_chitwhittrsHIT = Nothing, _chitwhittrsResponseStatus = pResponseStatus_}
+
 
 -- | Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation.
 chitwhittrsHIT :: Lens' CreateHITWithHITTypeResponse (Maybe HIT)
@@ -234,4 +236,4 @@ chitwhittrsHIT = lens _chitwhittrsHIT (\ s a -> s{_chitwhittrsHIT = a});
 chitwhittrsResponseStatus :: Lens' CreateHITWithHITTypeResponse Int
 chitwhittrsResponseStatus = lens _chitwhittrsResponseStatus (\ s a -> s{_chitwhittrsResponseStatus = a});
 
-instance NFData CreateHITWithHITTypeResponse
+instance NFData CreateHITWithHITTypeResponse where

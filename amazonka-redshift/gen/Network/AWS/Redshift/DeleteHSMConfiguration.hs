@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteHSMConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,12 +34,12 @@ module Network.AWS.Redshift.DeleteHSMConfiguration
     , DeleteHSMConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Redshift.Types
-import           Network.AWS.Redshift.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -47,8 +47,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteHSMConfiguration' smart constructor.
 newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
-    { _dhcHSMConfigurationIdentifier :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dhcHSMConfigurationIdentifier :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHSMConfiguration' with the minimum fields required to make a request.
 --
@@ -59,9 +60,9 @@ deleteHSMConfiguration
     :: Text -- ^ 'dhcHSMConfigurationIdentifier'
     -> DeleteHSMConfiguration
 deleteHSMConfiguration pHSMConfigurationIdentifier_ =
-    DeleteHSMConfiguration'
-    { _dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
-    }
+  DeleteHSMConfiguration'
+  {_dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_}
+
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
 dhcHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
@@ -74,9 +75,9 @@ instance AWSRequest DeleteHSMConfiguration where
         response
           = receiveNull DeleteHSMConfigurationResponse'
 
-instance Hashable DeleteHSMConfiguration
+instance Hashable DeleteHSMConfiguration where
 
-instance NFData DeleteHSMConfiguration
+instance NFData DeleteHSMConfiguration where
 
 instance ToHeaders DeleteHSMConfiguration where
         toHeaders = const mempty
@@ -95,8 +96,9 @@ instance ToQuery DeleteHSMConfiguration where
 
 -- | /See:/ 'deleteHSMConfigurationResponse' smart constructor.
 data DeleteHSMConfigurationResponse =
-    DeleteHSMConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteHSMConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteHSMConfigurationResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +106,5 @@ deleteHSMConfigurationResponse
     :: DeleteHSMConfigurationResponse
 deleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'
 
-instance NFData DeleteHSMConfigurationResponse
+
+instance NFData DeleteHSMConfigurationResponse where

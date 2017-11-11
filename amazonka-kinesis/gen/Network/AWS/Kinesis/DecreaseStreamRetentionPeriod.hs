@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
     , DecreaseStreamRetentionPeriodResponse
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for 'DecreaseStreamRetentionPeriod' .
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'decreaseStreamRetentionPeriod' smart constructor.
 data DecreaseStreamRetentionPeriod = DecreaseStreamRetentionPeriod'
-    { _dsrpStreamName           :: !Text
-    , _dsrpRetentionPeriodHours :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsrpStreamName           :: {-# NOUNPACK #-}!Text
+  , _dsrpRetentionPeriodHours :: {-# NOUNPACK #-}!Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DecreaseStreamRetentionPeriod' with the minimum fields required to make a request.
 --
@@ -66,10 +67,11 @@ decreaseStreamRetentionPeriod
     -> Natural -- ^ 'dsrpRetentionPeriodHours'
     -> DecreaseStreamRetentionPeriod
 decreaseStreamRetentionPeriod pStreamName_ pRetentionPeriodHours_ =
-    DecreaseStreamRetentionPeriod'
-    { _dsrpStreamName = pStreamName_
-    , _dsrpRetentionPeriodHours = _Nat # pRetentionPeriodHours_
-    }
+  DecreaseStreamRetentionPeriod'
+  { _dsrpStreamName = pStreamName_
+  , _dsrpRetentionPeriodHours = _Nat # pRetentionPeriodHours_
+  }
+
 
 -- | The name of the stream to modify.
 dsrpStreamName :: Lens' DecreaseStreamRetentionPeriod Text
@@ -87,9 +89,9 @@ instance AWSRequest DecreaseStreamRetentionPeriod
         response
           = receiveNull DecreaseStreamRetentionPeriodResponse'
 
-instance Hashable DecreaseStreamRetentionPeriod
+instance Hashable DecreaseStreamRetentionPeriod where
 
-instance NFData DecreaseStreamRetentionPeriod
+instance NFData DecreaseStreamRetentionPeriod where
 
 instance ToHeaders DecreaseStreamRetentionPeriod
          where
@@ -119,8 +121,9 @@ instance ToQuery DecreaseStreamRetentionPeriod where
 
 -- | /See:/ 'decreaseStreamRetentionPeriodResponse' smart constructor.
 data DecreaseStreamRetentionPeriodResponse =
-    DecreaseStreamRetentionPeriodResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DecreaseStreamRetentionPeriodResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DecreaseStreamRetentionPeriodResponse' with the minimum fields required to make a request.
 --
@@ -128,4 +131,6 @@ decreaseStreamRetentionPeriodResponse
     :: DecreaseStreamRetentionPeriodResponse
 decreaseStreamRetentionPeriodResponse = DecreaseStreamRetentionPeriodResponse'
 
+
 instance NFData DecreaseStreamRetentionPeriodResponse
+         where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListFunctionDefinitionVersions
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.Greengrass.ListFunctionDefinitionVersions
     , lfdvrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listFunctionDefinitionVersions' smart constructor.
 data ListFunctionDefinitionVersions = ListFunctionDefinitionVersions'
-    { _lfdvNextToken            :: !(Maybe Text)
-    , _lfdvMaxResults           :: !(Maybe Text)
-    , _lfdvFunctionDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfdvNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfdvMaxResults           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfdvFunctionDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFunctionDefinitionVersions' with the minimum fields required to make a request.
 --
@@ -65,11 +66,12 @@ listFunctionDefinitionVersions
     :: Text -- ^ 'lfdvFunctionDefinitionId'
     -> ListFunctionDefinitionVersions
 listFunctionDefinitionVersions pFunctionDefinitionId_ =
-    ListFunctionDefinitionVersions'
-    { _lfdvNextToken = Nothing
-    , _lfdvMaxResults = Nothing
-    , _lfdvFunctionDefinitionId = pFunctionDefinitionId_
-    }
+  ListFunctionDefinitionVersions'
+  { _lfdvNextToken = Nothing
+  , _lfdvMaxResults = Nothing
+  , _lfdvFunctionDefinitionId = pFunctionDefinitionId_
+  }
+
 
 -- | Specifies the pagination token used when iterating through a paginated request
 lfdvNextToken :: Lens' ListFunctionDefinitionVersions (Maybe Text)
@@ -96,8 +98,9 @@ instance AWSRequest ListFunctionDefinitionVersions
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListFunctionDefinitionVersions
+         where
 
-instance NFData ListFunctionDefinitionVersions
+instance NFData ListFunctionDefinitionVersions where
 
 instance ToHeaders ListFunctionDefinitionVersions
          where
@@ -121,10 +124,11 @@ instance ToQuery ListFunctionDefinitionVersions where
 
 -- | /See:/ 'listFunctionDefinitionVersionsResponse' smart constructor.
 data ListFunctionDefinitionVersionsResponse = ListFunctionDefinitionVersionsResponse'
-    { _lfdvrsVersions       :: !(Maybe [VersionInformation])
-    , _lfdvrsNextToken      :: !(Maybe Text)
-    , _lfdvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lfdvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
+  , _lfdvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lfdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListFunctionDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
@@ -139,11 +143,12 @@ listFunctionDefinitionVersionsResponse
     :: Int -- ^ 'lfdvrsResponseStatus'
     -> ListFunctionDefinitionVersionsResponse
 listFunctionDefinitionVersionsResponse pResponseStatus_ =
-    ListFunctionDefinitionVersionsResponse'
-    { _lfdvrsVersions = Nothing
-    , _lfdvrsNextToken = Nothing
-    , _lfdvrsResponseStatus = pResponseStatus_
-    }
+  ListFunctionDefinitionVersionsResponse'
+  { _lfdvrsVersions = Nothing
+  , _lfdvrsNextToken = Nothing
+  , _lfdvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Versions
 lfdvrsVersions :: Lens' ListFunctionDefinitionVersionsResponse [VersionInformation]
@@ -158,4 +163,5 @@ lfdvrsResponseStatus :: Lens' ListFunctionDefinitionVersionsResponse Int
 lfdvrsResponseStatus = lens _lfdvrsResponseStatus (\ s a -> s{_lfdvrsResponseStatus = a});
 
 instance NFData
-         ListFunctionDefinitionVersionsResponse
+           ListFunctionDefinitionVersionsResponse
+         where

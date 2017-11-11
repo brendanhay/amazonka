@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.TagResource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.DAX.TagResource
     , trrsResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
-    { _trResourceName :: !Text
-    , _trTags         :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trResourceName :: {-# NOUNPACK #-}!Text
+  , _trTags         :: {-# NOUNPACK #-}![Tag]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ tagResource
     :: Text -- ^ 'trResourceName'
     -> TagResource
 tagResource pResourceName_ =
-    TagResource'
-    { _trResourceName = pResourceName_
-    , _trTags = mempty
-    }
+  TagResource' {_trResourceName = pResourceName_, _trTags = mempty}
+
 
 -- | The name of the DAX resource to which tags should be added.
 trResourceName :: Lens' TagResource Text
@@ -84,9 +83,9 @@ instance AWSRequest TagResource where
                  TagResourceResponse' <$>
                    (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable TagResource
+instance Hashable TagResource where
 
-instance NFData TagResource
+instance NFData TagResource where
 
 instance ToHeaders TagResource where
         toHeaders
@@ -112,9 +111,10 @@ instance ToQuery TagResource where
 
 -- | /See:/ 'tagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-    { _trrsTags           :: !(Maybe [Tag])
-    , _trrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _trrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _trrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +127,9 @@ tagResourceResponse
     :: Int -- ^ 'trrsResponseStatus'
     -> TagResourceResponse
 tagResourceResponse pResponseStatus_ =
-    TagResourceResponse'
-    { _trrsTags = Nothing
-    , _trrsResponseStatus = pResponseStatus_
-    }
+  TagResourceResponse'
+  {_trrsTags = Nothing, _trrsResponseStatus = pResponseStatus_}
+
 
 -- | The list of tags that are associated with the DAX resource.
 trrsTags :: Lens' TagResourceResponse [Tag]
@@ -140,4 +139,4 @@ trrsTags = lens _trrsTags (\ s a -> s{_trrsTags = a}) . _Default . _Coerce;
 trrsResponseStatus :: Lens' TagResourceResponse Int
 trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
 
-instance NFData TagResourceResponse
+instance NFData TagResourceResponse where

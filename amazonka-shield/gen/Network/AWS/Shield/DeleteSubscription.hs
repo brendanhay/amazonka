@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Shield.DeleteSubscription
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -34,23 +34,25 @@ module Network.AWS.Shield.DeleteSubscription
     , drsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Shield.Types
-import           Network.AWS.Shield.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Shield.Types
+import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'deleteSubscription' smart constructor.
 data DeleteSubscription =
-    DeleteSubscription'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteSubscription'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubscription' with the minimum fields required to make a request.
 --
 deleteSubscription
     :: DeleteSubscription
 deleteSubscription = DeleteSubscription'
+
 
 instance AWSRequest DeleteSubscription where
         type Rs DeleteSubscription =
@@ -61,9 +63,9 @@ instance AWSRequest DeleteSubscription where
               (\ s h x ->
                  DeleteSubscriptionResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteSubscription
+instance Hashable DeleteSubscription where
 
-instance NFData DeleteSubscription
+instance NFData DeleteSubscription where
 
 instance ToHeaders DeleteSubscription where
         toHeaders
@@ -86,8 +88,9 @@ instance ToQuery DeleteSubscription where
 
 -- | /See:/ 'deleteSubscriptionResponse' smart constructor.
 newtype DeleteSubscriptionResponse = DeleteSubscriptionResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteSubscriptionResponse' with the minimum fields required to make a request.
 --
@@ -98,12 +101,11 @@ deleteSubscriptionResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteSubscriptionResponse
 deleteSubscriptionResponse pResponseStatus_ =
-    DeleteSubscriptionResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeleteSubscriptionResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteSubscriptionResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeleteSubscriptionResponse
+instance NFData DeleteSubscriptionResponse where

@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.ElasticSearch.Types.Product where
 
-import           Network.AWS.ElasticSearch.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.ElasticSearch.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | The configured access rules for the domain's document and search endpoints, and the current status of those rules.
 --
@@ -27,9 +27,10 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'accessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
-    { _apsOptions :: !Text
-    , _apsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apsOptions :: {-# NOUNPACK #-}!Text
+  , _apsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccessPoliciesStatus' with the minimum fields required to make a request.
 --
@@ -43,10 +44,8 @@ accessPoliciesStatus
     -> OptionStatus -- ^ 'apsStatus'
     -> AccessPoliciesStatus
 accessPoliciesStatus pOptions_ pStatus_ =
-    AccessPoliciesStatus'
-    { _apsOptions = pOptions_
-    , _apsStatus = pStatus_
-    }
+  AccessPoliciesStatus' {_apsOptions = pOptions_, _apsStatus = pStatus_}
+
 
 -- | The access policy configured for the Elasticsearch domain. Access policies may be resource-based, IP-based, or IAM-based. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies Configuring Access Policies> for more information.
 apsOptions :: Lens' AccessPoliciesStatus Text
@@ -63,9 +62,9 @@ instance FromJSON AccessPoliciesStatus where
                  AccessPoliciesStatus' <$>
                    (x .: "Options") <*> (x .: "Status"))
 
-instance Hashable AccessPoliciesStatus
+instance Hashable AccessPoliciesStatus where
 
-instance NFData AccessPoliciesStatus
+instance NFData AccessPoliciesStatus where
 
 -- | List of limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
 --
@@ -73,9 +72,10 @@ instance NFData AccessPoliciesStatus
 --
 -- /See:/ 'additionalLimit' smart constructor.
 data AdditionalLimit = AdditionalLimit'
-    { _alLimitName   :: !(Maybe Text)
-    , _alLimitValues :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _alLimitName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _alLimitValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdditionalLimit' with the minimum fields required to make a request.
 --
@@ -87,10 +87,8 @@ data AdditionalLimit = AdditionalLimit'
 additionalLimit
     :: AdditionalLimit
 additionalLimit =
-    AdditionalLimit'
-    { _alLimitName = Nothing
-    , _alLimitValues = Nothing
-    }
+  AdditionalLimit' {_alLimitName = Nothing, _alLimitValues = Nothing}
+
 
 -- | Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.  Attributes and their details:      * MaximumNumberOfDataNodesSupportedThis attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.     * MaximumNumberOfDataNodesWithoutMasterNodeThis attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
 alLimitName :: Lens' AdditionalLimit (Maybe Text)
@@ -108,9 +106,9 @@ instance FromJSON AdditionalLimit where
                    (x .:? "LimitName") <*>
                      (x .:? "LimitValues" .!= mempty))
 
-instance Hashable AdditionalLimit
+instance Hashable AdditionalLimit where
 
-instance NFData AdditionalLimit
+instance NFData AdditionalLimit where
 
 -- | Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:
 --
@@ -122,9 +120,10 @@ instance NFData AdditionalLimit
 --
 -- /See:/ 'advancedOptionsStatus' smart constructor.
 data AdvancedOptionsStatus = AdvancedOptionsStatus'
-    { _aosOptions :: !(Map Text Text)
-    , _aosStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aosOptions :: {-# NOUNPACK #-}!(Map Text Text)
+  , _aosStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdvancedOptionsStatus' with the minimum fields required to make a request.
 --
@@ -137,10 +136,8 @@ advancedOptionsStatus
     :: OptionStatus -- ^ 'aosStatus'
     -> AdvancedOptionsStatus
 advancedOptionsStatus pStatus_ =
-    AdvancedOptionsStatus'
-    { _aosOptions = mempty
-    , _aosStatus = pStatus_
-    }
+  AdvancedOptionsStatus' {_aosOptions = mempty, _aosStatus = pStatus_}
+
 
 -- | Specifies the status of advanced options for the specified Elasticsearch domain.
 aosOptions :: Lens' AdvancedOptionsStatus (HashMap Text Text)
@@ -157,14 +154,15 @@ instance FromJSON AdvancedOptionsStatus where
                  AdvancedOptionsStatus' <$>
                    (x .:? "Options" .!= mempty) <*> (x .: "Status"))
 
-instance Hashable AdvancedOptionsStatus
+instance Hashable AdvancedOptionsStatus where
 
-instance NFData AdvancedOptionsStatus
+instance NFData AdvancedOptionsStatus where
 
 -- | /See:/ 'domainInfo' smart constructor.
 newtype DomainInfo = DomainInfo'
-    { _diDomainName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diDomainName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainInfo' with the minimum fields required to make a request.
 --
@@ -173,10 +171,8 @@ newtype DomainInfo = DomainInfo'
 -- * 'diDomainName' - Specifies the @DomainName@ .
 domainInfo
     :: DomainInfo
-domainInfo =
-    DomainInfo'
-    { _diDomainName = Nothing
-    }
+domainInfo = DomainInfo' {_diDomainName = Nothing}
+
 
 -- | Specifies the @DomainName@ .
 diDomainName :: Lens' DomainInfo (Maybe Text)
@@ -187,9 +183,9 @@ instance FromJSON DomainInfo where
           = withObject "DomainInfo"
               (\ x -> DomainInfo' <$> (x .:? "DomainName"))
 
-instance Hashable DomainInfo
+instance Hashable DomainInfo where
 
-instance NFData DomainInfo
+instance NFData DomainInfo where
 
 -- | Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> .
 --
@@ -197,11 +193,12 @@ instance NFData DomainInfo
 --
 -- /See:/ 'ebsOptions' smart constructor.
 data EBSOptions = EBSOptions'
-    { _eoVolumeSize :: !(Maybe Int)
-    , _eoIOPS       :: !(Maybe Int)
-    , _eoVolumeType :: !(Maybe VolumeType)
-    , _eoEBSEnabled :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eoVolumeSize :: {-# NOUNPACK #-}!(Maybe Int)
+  , _eoIOPS       :: {-# NOUNPACK #-}!(Maybe Int)
+  , _eoVolumeType :: {-# NOUNPACK #-}!(Maybe VolumeType)
+  , _eoEBSEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EBSOptions' with the minimum fields required to make a request.
 --
@@ -217,12 +214,13 @@ data EBSOptions = EBSOptions'
 ebsOptions
     :: EBSOptions
 ebsOptions =
-    EBSOptions'
-    { _eoVolumeSize = Nothing
-    , _eoIOPS = Nothing
-    , _eoVolumeType = Nothing
-    , _eoEBSEnabled = Nothing
-    }
+  EBSOptions'
+  { _eoVolumeSize = Nothing
+  , _eoIOPS = Nothing
+  , _eoVolumeType = Nothing
+  , _eoEBSEnabled = Nothing
+  }
+
 
 -- | Integer to specify the size of an EBS volume.
 eoVolumeSize :: Lens' EBSOptions (Maybe Int)
@@ -249,9 +247,9 @@ instance FromJSON EBSOptions where
                      (x .:? "VolumeType")
                      <*> (x .:? "EBSEnabled"))
 
-instance Hashable EBSOptions
+instance Hashable EBSOptions where
 
-instance NFData EBSOptions
+instance NFData EBSOptions where
 
 instance ToJSON EBSOptions where
         toJSON EBSOptions'{..}
@@ -268,9 +266,10 @@ instance ToJSON EBSOptions where
 --
 -- /See:/ 'ebsOptionsStatus' smart constructor.
 data EBSOptionsStatus = EBSOptionsStatus'
-    { _eosOptions :: !EBSOptions
-    , _eosStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eosOptions :: {-# NOUNPACK #-}!EBSOptions
+  , _eosStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EBSOptionsStatus' with the minimum fields required to make a request.
 --
@@ -284,10 +283,8 @@ ebsOptionsStatus
     -> OptionStatus -- ^ 'eosStatus'
     -> EBSOptionsStatus
 ebsOptionsStatus pOptions_ pStatus_ =
-    EBSOptionsStatus'
-    { _eosOptions = pOptions_
-    , _eosStatus = pStatus_
-    }
+  EBSOptionsStatus' {_eosOptions = pOptions_, _eosStatus = pStatus_}
+
 
 -- | Specifies the EBS options for the specified Elasticsearch domain.
 eosOptions :: Lens' EBSOptionsStatus EBSOptions
@@ -304,9 +301,9 @@ instance FromJSON EBSOptionsStatus where
                  EBSOptionsStatus' <$>
                    (x .: "Options") <*> (x .: "Status"))
 
-instance Hashable EBSOptionsStatus
+instance Hashable EBSOptionsStatus where
 
-instance NFData EBSOptionsStatus
+instance NFData EBSOptionsStatus where
 
 -- | Specifies the configuration for the domain cluster, such as the type and number of instances.
 --
@@ -314,13 +311,14 @@ instance NFData EBSOptionsStatus
 --
 -- /See:/ 'elasticsearchClusterConfig' smart constructor.
 data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
-    { _eccDedicatedMasterCount   :: !(Maybe Int)
-    , _eccDedicatedMasterType    :: !(Maybe ESPartitionInstanceType)
-    , _eccDedicatedMasterEnabled :: !(Maybe Bool)
-    , _eccInstanceCount          :: !(Maybe Int)
-    , _eccZoneAwarenessEnabled   :: !(Maybe Bool)
-    , _eccInstanceType           :: !(Maybe ESPartitionInstanceType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eccDedicatedMasterCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _eccDedicatedMasterType :: {-# NOUNPACK #-}!(Maybe ESPartitionInstanceType)
+  , _eccDedicatedMasterEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _eccInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _eccZoneAwarenessEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _eccInstanceType :: {-# NOUNPACK #-}!(Maybe ESPartitionInstanceType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchClusterConfig' with the minimum fields required to make a request.
 --
@@ -340,14 +338,15 @@ data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
 elasticsearchClusterConfig
     :: ElasticsearchClusterConfig
 elasticsearchClusterConfig =
-    ElasticsearchClusterConfig'
-    { _eccDedicatedMasterCount = Nothing
-    , _eccDedicatedMasterType = Nothing
-    , _eccDedicatedMasterEnabled = Nothing
-    , _eccInstanceCount = Nothing
-    , _eccZoneAwarenessEnabled = Nothing
-    , _eccInstanceType = Nothing
-    }
+  ElasticsearchClusterConfig'
+  { _eccDedicatedMasterCount = Nothing
+  , _eccDedicatedMasterType = Nothing
+  , _eccDedicatedMasterEnabled = Nothing
+  , _eccInstanceCount = Nothing
+  , _eccZoneAwarenessEnabled = Nothing
+  , _eccInstanceType = Nothing
+  }
+
 
 -- | Total number of dedicated master nodes, active and on standby, for the cluster.
 eccDedicatedMasterCount :: Lens' ElasticsearchClusterConfig (Maybe Int)
@@ -385,9 +384,9 @@ instance FromJSON ElasticsearchClusterConfig where
                      <*> (x .:? "ZoneAwarenessEnabled")
                      <*> (x .:? "InstanceType"))
 
-instance Hashable ElasticsearchClusterConfig
+instance Hashable ElasticsearchClusterConfig where
 
-instance NFData ElasticsearchClusterConfig
+instance NFData ElasticsearchClusterConfig where
 
 instance ToJSON ElasticsearchClusterConfig where
         toJSON ElasticsearchClusterConfig'{..}
@@ -410,9 +409,10 @@ instance ToJSON ElasticsearchClusterConfig where
 --
 -- /See:/ 'elasticsearchClusterConfigStatus' smart constructor.
 data ElasticsearchClusterConfigStatus = ElasticsearchClusterConfigStatus'
-    { _eccsOptions :: !ElasticsearchClusterConfig
-    , _eccsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eccsOptions :: {-# NOUNPACK #-}!ElasticsearchClusterConfig
+  , _eccsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchClusterConfigStatus' with the minimum fields required to make a request.
 --
@@ -426,10 +426,9 @@ elasticsearchClusterConfigStatus
     -> OptionStatus -- ^ 'eccsStatus'
     -> ElasticsearchClusterConfigStatus
 elasticsearchClusterConfigStatus pOptions_ pStatus_ =
-    ElasticsearchClusterConfigStatus'
-    { _eccsOptions = pOptions_
-    , _eccsStatus = pStatus_
-    }
+  ElasticsearchClusterConfigStatus'
+  {_eccsOptions = pOptions_, _eccsStatus = pStatus_}
+
 
 -- | Specifies the cluster configuration for the specified Elasticsearch domain.
 eccsOptions :: Lens' ElasticsearchClusterConfigStatus ElasticsearchClusterConfig
@@ -448,8 +447,10 @@ instance FromJSON ElasticsearchClusterConfigStatus
                    (x .: "Options") <*> (x .: "Status"))
 
 instance Hashable ElasticsearchClusterConfigStatus
+         where
 
 instance NFData ElasticsearchClusterConfigStatus
+         where
 
 -- | The configuration of an Elasticsearch domain.
 --
@@ -457,13 +458,14 @@ instance NFData ElasticsearchClusterConfigStatus
 --
 -- /See:/ 'elasticsearchDomainConfig' smart constructor.
 data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
-    { _edcEBSOptions                 :: !(Maybe EBSOptionsStatus)
-    , _edcAccessPolicies             :: !(Maybe AccessPoliciesStatus)
-    , _edcElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfigStatus)
-    , _edcSnapshotOptions            :: !(Maybe SnapshotOptionsStatus)
-    , _edcAdvancedOptions            :: !(Maybe AdvancedOptionsStatus)
-    , _edcElasticsearchVersion       :: !(Maybe ElasticsearchVersionStatus)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edcEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptionsStatus)
+  , _edcAccessPolicies :: {-# NOUNPACK #-}!(Maybe AccessPoliciesStatus)
+  , _edcElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfigStatus)
+  , _edcSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptionsStatus)
+  , _edcAdvancedOptions :: {-# NOUNPACK #-}!(Maybe AdvancedOptionsStatus)
+  , _edcElasticsearchVersion :: {-# NOUNPACK #-}!(Maybe ElasticsearchVersionStatus)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchDomainConfig' with the minimum fields required to make a request.
 --
@@ -483,14 +485,15 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
 elasticsearchDomainConfig
     :: ElasticsearchDomainConfig
 elasticsearchDomainConfig =
-    ElasticsearchDomainConfig'
-    { _edcEBSOptions = Nothing
-    , _edcAccessPolicies = Nothing
-    , _edcElasticsearchClusterConfig = Nothing
-    , _edcSnapshotOptions = Nothing
-    , _edcAdvancedOptions = Nothing
-    , _edcElasticsearchVersion = Nothing
-    }
+  ElasticsearchDomainConfig'
+  { _edcEBSOptions = Nothing
+  , _edcAccessPolicies = Nothing
+  , _edcElasticsearchClusterConfig = Nothing
+  , _edcSnapshotOptions = Nothing
+  , _edcAdvancedOptions = Nothing
+  , _edcElasticsearchVersion = Nothing
+  }
+
 
 -- | Specifies the @EBSOptions@ for the Elasticsearch domain.
 edcEBSOptions :: Lens' ElasticsearchDomainConfig (Maybe EBSOptionsStatus)
@@ -527,9 +530,9 @@ instance FromJSON ElasticsearchDomainConfig where
                      <*> (x .:? "AdvancedOptions")
                      <*> (x .:? "ElasticsearchVersion"))
 
-instance Hashable ElasticsearchDomainConfig
+instance Hashable ElasticsearchDomainConfig where
 
-instance NFData ElasticsearchDomainConfig
+instance NFData ElasticsearchDomainConfig where
 
 -- | The current status of an Elasticsearch domain.
 --
@@ -537,20 +540,21 @@ instance NFData ElasticsearchDomainConfig
 --
 -- /See:/ 'elasticsearchDomainStatus' smart constructor.
 data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
-    { _edsEBSOptions                 :: !(Maybe EBSOptions)
-    , _edsAccessPolicies             :: !(Maybe Text)
-    , _edsCreated                    :: !(Maybe Bool)
-    , _edsSnapshotOptions            :: !(Maybe SnapshotOptions)
-    , _edsDeleted                    :: !(Maybe Bool)
-    , _edsProcessing                 :: !(Maybe Bool)
-    , _edsEndpoint                   :: !(Maybe Text)
-    , _edsAdvancedOptions            :: !(Maybe (Map Text Text))
-    , _edsElasticsearchVersion       :: !(Maybe Text)
-    , _edsDomainId                   :: !Text
-    , _edsDomainName                 :: !Text
-    , _edsARN                        :: !Text
-    , _edsElasticsearchClusterConfig :: !ElasticsearchClusterConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edsEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
+  , _edsAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edsCreated :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _edsSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
+  , _edsDeleted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _edsProcessing :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _edsEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edsAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _edsElasticsearchVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edsDomainId :: {-# NOUNPACK #-}!Text
+  , _edsDomainName :: {-# NOUNPACK #-}!Text
+  , _edsARN :: {-# NOUNPACK #-}!Text
+  , _edsElasticsearchClusterConfig :: {-# NOUNPACK #-}!ElasticsearchClusterConfig
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchDomainStatus' with the minimum fields required to make a request.
 --
@@ -588,21 +592,22 @@ elasticsearchDomainStatus
     -> ElasticsearchClusterConfig -- ^ 'edsElasticsearchClusterConfig'
     -> ElasticsearchDomainStatus
 elasticsearchDomainStatus pDomainId_ pDomainName_ pARN_ pElasticsearchClusterConfig_ =
-    ElasticsearchDomainStatus'
-    { _edsEBSOptions = Nothing
-    , _edsAccessPolicies = Nothing
-    , _edsCreated = Nothing
-    , _edsSnapshotOptions = Nothing
-    , _edsDeleted = Nothing
-    , _edsProcessing = Nothing
-    , _edsEndpoint = Nothing
-    , _edsAdvancedOptions = Nothing
-    , _edsElasticsearchVersion = Nothing
-    , _edsDomainId = pDomainId_
-    , _edsDomainName = pDomainName_
-    , _edsARN = pARN_
-    , _edsElasticsearchClusterConfig = pElasticsearchClusterConfig_
-    }
+  ElasticsearchDomainStatus'
+  { _edsEBSOptions = Nothing
+  , _edsAccessPolicies = Nothing
+  , _edsCreated = Nothing
+  , _edsSnapshotOptions = Nothing
+  , _edsDeleted = Nothing
+  , _edsProcessing = Nothing
+  , _edsEndpoint = Nothing
+  , _edsAdvancedOptions = Nothing
+  , _edsElasticsearchVersion = Nothing
+  , _edsDomainId = pDomainId_
+  , _edsDomainName = pDomainName_
+  , _edsARN = pARN_
+  , _edsElasticsearchClusterConfig = pElasticsearchClusterConfig_
+  }
+
 
 -- | The @EBSOptions@ for the specified domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
 edsEBSOptions :: Lens' ElasticsearchDomainStatus (Maybe EBSOptions)
@@ -674,9 +679,9 @@ instance FromJSON ElasticsearchDomainStatus where
                      <*> (x .: "ARN")
                      <*> (x .: "ElasticsearchClusterConfig"))
 
-instance Hashable ElasticsearchDomainStatus
+instance Hashable ElasticsearchDomainStatus where
 
-instance NFData ElasticsearchDomainStatus
+instance NFData ElasticsearchDomainStatus where
 
 -- | Status of the Elasticsearch version options for the specified Elasticsearch domain.
 --
@@ -684,9 +689,10 @@ instance NFData ElasticsearchDomainStatus
 --
 -- /See:/ 'elasticsearchVersionStatus' smart constructor.
 data ElasticsearchVersionStatus = ElasticsearchVersionStatus'
-    { _evsOptions :: !Text
-    , _evsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evsOptions :: {-# NOUNPACK #-}!Text
+  , _evsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ElasticsearchVersionStatus' with the minimum fields required to make a request.
 --
@@ -700,10 +706,8 @@ elasticsearchVersionStatus
     -> OptionStatus -- ^ 'evsStatus'
     -> ElasticsearchVersionStatus
 elasticsearchVersionStatus pOptions_ pStatus_ =
-    ElasticsearchVersionStatus'
-    { _evsOptions = pOptions_
-    , _evsStatus = pStatus_
-    }
+  ElasticsearchVersionStatus' {_evsOptions = pOptions_, _evsStatus = pStatus_}
+
 
 -- | Specifies the Elasticsearch version for the specified Elasticsearch domain.
 evsOptions :: Lens' ElasticsearchVersionStatus Text
@@ -720,9 +724,9 @@ instance FromJSON ElasticsearchVersionStatus where
                  ElasticsearchVersionStatus' <$>
                    (x .: "Options") <*> (x .: "Status"))
 
-instance Hashable ElasticsearchVersionStatus
+instance Hashable ElasticsearchVersionStatus where
 
-instance NFData ElasticsearchVersionStatus
+instance NFData ElasticsearchVersionStatus where
 
 -- | InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType.
 --
@@ -730,9 +734,10 @@ instance NFData ElasticsearchVersionStatus
 --
 -- /See:/ 'instanceCountLimits' smart constructor.
 data InstanceCountLimits = InstanceCountLimits'
-    { _iclMaximumInstanceCount :: !(Maybe Int)
-    , _iclMinimumInstanceCount :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iclMaximumInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _iclMinimumInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceCountLimits' with the minimum fields required to make a request.
 --
@@ -744,10 +749,9 @@ data InstanceCountLimits = InstanceCountLimits'
 instanceCountLimits
     :: InstanceCountLimits
 instanceCountLimits =
-    InstanceCountLimits'
-    { _iclMaximumInstanceCount = Nothing
-    , _iclMinimumInstanceCount = Nothing
-    }
+  InstanceCountLimits'
+  {_iclMaximumInstanceCount = Nothing, _iclMinimumInstanceCount = Nothing}
+
 
 -- | Undocumented member.
 iclMaximumInstanceCount :: Lens' InstanceCountLimits (Maybe Int)
@@ -765,9 +769,9 @@ instance FromJSON InstanceCountLimits where
                    (x .:? "MaximumInstanceCount") <*>
                      (x .:? "MinimumInstanceCount"))
 
-instance Hashable InstanceCountLimits
+instance Hashable InstanceCountLimits where
 
-instance NFData InstanceCountLimits
+instance NFData InstanceCountLimits where
 
 -- | InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
 --
@@ -775,8 +779,9 @@ instance NFData InstanceCountLimits
 --
 -- /See:/ 'instanceLimits' smart constructor.
 newtype InstanceLimits = InstanceLimits'
-    { _ilInstanceCountLimits :: Maybe InstanceCountLimits
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ilInstanceCountLimits :: Maybe InstanceCountLimits
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'InstanceLimits' with the minimum fields required to make a request.
 --
@@ -785,10 +790,8 @@ newtype InstanceLimits = InstanceLimits'
 -- * 'ilInstanceCountLimits' - Undocumented member.
 instanceLimits
     :: InstanceLimits
-instanceLimits =
-    InstanceLimits'
-    { _ilInstanceCountLimits = Nothing
-    }
+instanceLimits = InstanceLimits' {_ilInstanceCountLimits = Nothing}
+
 
 -- | Undocumented member.
 ilInstanceCountLimits :: Lens' InstanceLimits (Maybe InstanceCountLimits)
@@ -800,9 +803,9 @@ instance FromJSON InstanceLimits where
               (\ x ->
                  InstanceLimits' <$> (x .:? "InstanceCountLimits"))
 
-instance Hashable InstanceLimits
+instance Hashable InstanceLimits where
 
-instance NFData InstanceLimits
+instance NFData InstanceLimits where
 
 -- | Limits for given InstanceType and for each of it's role.
 --
@@ -811,10 +814,11 @@ instance NFData InstanceLimits
 --
 -- /See:/ 'limits' smart constructor.
 data Limits = Limits'
-    { _lInstanceLimits   :: !(Maybe InstanceLimits)
-    , _lAdditionalLimits :: !(Maybe [AdditionalLimit])
-    , _lStorageTypes     :: !(Maybe [StorageType])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lInstanceLimits   :: {-# NOUNPACK #-}!(Maybe InstanceLimits)
+  , _lAdditionalLimits :: {-# NOUNPACK #-}!(Maybe [AdditionalLimit])
+  , _lStorageTypes     :: {-# NOUNPACK #-}!(Maybe [StorageType])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Limits' with the minimum fields required to make a request.
 --
@@ -828,11 +832,12 @@ data Limits = Limits'
 limits
     :: Limits
 limits =
-    Limits'
-    { _lInstanceLimits = Nothing
-    , _lAdditionalLimits = Nothing
-    , _lStorageTypes = Nothing
-    }
+  Limits'
+  { _lInstanceLimits = Nothing
+  , _lAdditionalLimits = Nothing
+  , _lStorageTypes = Nothing
+  }
+
 
 -- | Undocumented member.
 lInstanceLimits :: Lens' Limits (Maybe InstanceLimits)
@@ -855,9 +860,9 @@ instance FromJSON Limits where
                      (x .:? "AdditionalLimits" .!= mempty)
                      <*> (x .:? "StorageTypes" .!= mempty))
 
-instance Hashable Limits
+instance Hashable Limits where
 
-instance NFData Limits
+instance NFData Limits where
 
 -- | Provides the current status of the entity.
 --
@@ -865,12 +870,13 @@ instance NFData Limits
 --
 -- /See:/ 'optionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-    { _osPendingDeletion :: !(Maybe Bool)
-    , _osUpdateVersion   :: !(Maybe Nat)
-    , _osCreationDate    :: !POSIX
-    , _osUpdateDate      :: !POSIX
-    , _osState           :: !OptionState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _osPendingDeletion :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _osUpdateVersion   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _osCreationDate    :: {-# NOUNPACK #-}!POSIX
+  , _osUpdateDate      :: {-# NOUNPACK #-}!POSIX
+  , _osState           :: {-# NOUNPACK #-}!OptionState
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionStatus' with the minimum fields required to make a request.
 --
@@ -891,13 +897,14 @@ optionStatus
     -> OptionState -- ^ 'osState'
     -> OptionStatus
 optionStatus pCreationDate_ pUpdateDate_ pState_ =
-    OptionStatus'
-    { _osPendingDeletion = Nothing
-    , _osUpdateVersion = Nothing
-    , _osCreationDate = _Time # pCreationDate_
-    , _osUpdateDate = _Time # pUpdateDate_
-    , _osState = pState_
-    }
+  OptionStatus'
+  { _osPendingDeletion = Nothing
+  , _osUpdateVersion = Nothing
+  , _osCreationDate = _Time # pCreationDate_
+  , _osUpdateDate = _Time # pUpdateDate_
+  , _osState = pState_
+  }
+
 
 -- | Indicates whether the Elasticsearch domain is being deleted.
 osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
@@ -929,9 +936,9 @@ instance FromJSON OptionStatus where
                      <*> (x .: "UpdateDate")
                      <*> (x .: "State"))
 
-instance Hashable OptionStatus
+instance Hashable OptionStatus where
 
-instance NFData OptionStatus
+instance NFData OptionStatus where
 
 -- | Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
 --
@@ -939,8 +946,9 @@ instance NFData OptionStatus
 --
 -- /See:/ 'snapshotOptions' smart constructor.
 newtype SnapshotOptions = SnapshotOptions'
-    { _soAutomatedSnapshotStartHour :: Maybe Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _soAutomatedSnapshotStartHour :: Maybe Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SnapshotOptions' with the minimum fields required to make a request.
 --
@@ -949,10 +957,8 @@ newtype SnapshotOptions = SnapshotOptions'
 -- * 'soAutomatedSnapshotStartHour' - Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
 snapshotOptions
     :: SnapshotOptions
-snapshotOptions =
-    SnapshotOptions'
-    { _soAutomatedSnapshotStartHour = Nothing
-    }
+snapshotOptions = SnapshotOptions' {_soAutomatedSnapshotStartHour = Nothing}
+
 
 -- | Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is @0@ hours.
 soAutomatedSnapshotStartHour :: Lens' SnapshotOptions (Maybe Int)
@@ -965,9 +971,9 @@ instance FromJSON SnapshotOptions where
                  SnapshotOptions' <$>
                    (x .:? "AutomatedSnapshotStartHour"))
 
-instance Hashable SnapshotOptions
+instance Hashable SnapshotOptions where
 
-instance NFData SnapshotOptions
+instance NFData SnapshotOptions where
 
 instance ToJSON SnapshotOptions where
         toJSON SnapshotOptions'{..}
@@ -982,9 +988,10 @@ instance ToJSON SnapshotOptions where
 --
 -- /See:/ 'snapshotOptionsStatus' smart constructor.
 data SnapshotOptionsStatus = SnapshotOptionsStatus'
-    { _sosOptions :: !SnapshotOptions
-    , _sosStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sosOptions :: {-# NOUNPACK #-}!SnapshotOptions
+  , _sosStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SnapshotOptionsStatus' with the minimum fields required to make a request.
 --
@@ -998,10 +1005,8 @@ snapshotOptionsStatus
     -> OptionStatus -- ^ 'sosStatus'
     -> SnapshotOptionsStatus
 snapshotOptionsStatus pOptions_ pStatus_ =
-    SnapshotOptionsStatus'
-    { _sosOptions = pOptions_
-    , _sosStatus = pStatus_
-    }
+  SnapshotOptionsStatus' {_sosOptions = pOptions_, _sosStatus = pStatus_}
+
 
 -- | Specifies the daily snapshot options specified for the Elasticsearch domain.
 sosOptions :: Lens' SnapshotOptionsStatus SnapshotOptions
@@ -1018,9 +1023,9 @@ instance FromJSON SnapshotOptionsStatus where
                  SnapshotOptionsStatus' <$>
                    (x .: "Options") <*> (x .: "Status"))
 
-instance Hashable SnapshotOptionsStatus
+instance Hashable SnapshotOptionsStatus where
 
-instance NFData SnapshotOptionsStatus
+instance NFData SnapshotOptionsStatus where
 
 -- | StorageTypes represents the list of storage related types and their attributes that are available for given InstanceType.
 --
@@ -1028,10 +1033,11 @@ instance NFData SnapshotOptionsStatus
 --
 -- /See:/ 'storageType' smart constructor.
 data StorageType = StorageType'
-    { _stStorageTypeLimits  :: !(Maybe [StorageTypeLimit])
-    , _stStorageSubTypeName :: !(Maybe Text)
-    , _stStorageTypeName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stStorageTypeLimits  :: {-# NOUNPACK #-}!(Maybe [StorageTypeLimit])
+  , _stStorageSubTypeName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stStorageTypeName    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StorageType' with the minimum fields required to make a request.
 --
@@ -1045,11 +1051,12 @@ data StorageType = StorageType'
 storageType
     :: StorageType
 storageType =
-    StorageType'
-    { _stStorageTypeLimits = Nothing
-    , _stStorageSubTypeName = Nothing
-    , _stStorageTypeName = Nothing
-    }
+  StorageType'
+  { _stStorageTypeLimits = Nothing
+  , _stStorageSubTypeName = Nothing
+  , _stStorageTypeName = Nothing
+  }
+
 
 -- | List of limits that are applicable for given storage type.
 stStorageTypeLimits :: Lens' StorageType [StorageTypeLimit]
@@ -1072,9 +1079,9 @@ instance FromJSON StorageType where
                      (x .:? "StorageSubTypeName")
                      <*> (x .:? "StorageTypeName"))
 
-instance Hashable StorageType
+instance Hashable StorageType where
 
-instance NFData StorageType
+instance NFData StorageType where
 
 -- | Limits that are applicable for given storage type.
 --
@@ -1082,9 +1089,10 @@ instance NFData StorageType
 --
 -- /See:/ 'storageTypeLimit' smart constructor.
 data StorageTypeLimit = StorageTypeLimit'
-    { _stlLimitName   :: !(Maybe Text)
-    , _stlLimitValues :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _stlLimitName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _stlLimitValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'StorageTypeLimit' with the minimum fields required to make a request.
 --
@@ -1096,10 +1104,8 @@ data StorageTypeLimit = StorageTypeLimit'
 storageTypeLimit
     :: StorageTypeLimit
 storageTypeLimit =
-    StorageTypeLimit'
-    { _stlLimitName = Nothing
-    , _stlLimitValues = Nothing
-    }
+  StorageTypeLimit' {_stlLimitName = Nothing, _stlLimitValues = Nothing}
+
 
 -- | Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable     * MinimumVolumeSizeMinimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumVolumeSizeMaximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumIopsMaximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.     * MinimumIopsMinimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
 stlLimitName :: Lens' StorageTypeLimit (Maybe Text)
@@ -1117,9 +1123,9 @@ instance FromJSON StorageTypeLimit where
                    (x .:? "LimitName") <*>
                      (x .:? "LimitValues" .!= mempty))
 
-instance Hashable StorageTypeLimit
+instance Hashable StorageTypeLimit where
 
-instance NFData StorageTypeLimit
+instance NFData StorageTypeLimit where
 
 -- | Specifies a key value pair for a resource tag.
 --
@@ -1127,9 +1133,10 @@ instance NFData StorageTypeLimit
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -1142,11 +1149,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
 tagKey :: Lens' Tag Text
@@ -1161,9 +1165,9 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}

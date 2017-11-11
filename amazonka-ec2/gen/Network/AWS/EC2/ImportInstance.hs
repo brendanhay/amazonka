@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,12 +43,12 @@ module Network.AWS.EC2.ImportInstance
     , iirsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ImportInstance.
 --
@@ -56,12 +56,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'importInstance' smart constructor.
 data ImportInstance = ImportInstance'
-    { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
-    , _iiDiskImages          :: !(Maybe [DiskImage])
-    , _iiDescription         :: !(Maybe Text)
-    , _iiDryRun              :: !(Maybe Bool)
-    , _iiPlatform            :: !PlatformValues
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iiLaunchSpecification :: {-# NOUNPACK #-}!(Maybe ImportInstanceLaunchSpecification)
+  , _iiDiskImages :: {-# NOUNPACK #-}!(Maybe [DiskImage])
+  , _iiDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iiDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _iiPlatform :: {-# NOUNPACK #-}!PlatformValues
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportInstance' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ importInstance
     :: PlatformValues -- ^ 'iiPlatform'
     -> ImportInstance
 importInstance pPlatform_ =
-    ImportInstance'
-    { _iiLaunchSpecification = Nothing
-    , _iiDiskImages = Nothing
-    , _iiDescription = Nothing
-    , _iiDryRun = Nothing
-    , _iiPlatform = pPlatform_
-    }
+  ImportInstance'
+  { _iiLaunchSpecification = Nothing
+  , _iiDiskImages = Nothing
+  , _iiDescription = Nothing
+  , _iiDryRun = Nothing
+  , _iiPlatform = pPlatform_
+  }
+
 
 -- | The launch specification.
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
@@ -117,9 +119,9 @@ instance AWSRequest ImportInstance where
                  ImportInstanceResponse' <$>
                    (x .@? "conversionTask") <*> (pure (fromEnum s)))
 
-instance Hashable ImportInstance
+instance Hashable ImportInstance where
 
-instance NFData ImportInstance
+instance NFData ImportInstance where
 
 instance ToHeaders ImportInstance where
         toHeaders = const mempty
@@ -143,9 +145,10 @@ instance ToQuery ImportInstance where
 --
 -- /See:/ 'importInstanceResponse' smart constructor.
 data ImportInstanceResponse = ImportInstanceResponse'
-    { _iirsConversionTask :: !(Maybe ConversionTask)
-    , _iirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _iirsConversionTask :: {-# NOUNPACK #-}!(Maybe ConversionTask)
+  , _iirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportInstanceResponse' with the minimum fields required to make a request.
 --
@@ -158,10 +161,9 @@ importInstanceResponse
     :: Int -- ^ 'iirsResponseStatus'
     -> ImportInstanceResponse
 importInstanceResponse pResponseStatus_ =
-    ImportInstanceResponse'
-    { _iirsConversionTask = Nothing
-    , _iirsResponseStatus = pResponseStatus_
-    }
+  ImportInstanceResponse'
+  {_iirsConversionTask = Nothing, _iirsResponseStatus = pResponseStatus_}
+
 
 -- | Information about the conversion task.
 iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
@@ -171,4 +173,4 @@ iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = 
 iirsResponseStatus :: Lens' ImportInstanceResponse Int
 iirsResponseStatus = lens _iirsResponseStatus (\ s a -> s{_iirsResponseStatus = a});
 
-instance NFData ImportInstanceResponse
+instance NFData ImportInstanceResponse where

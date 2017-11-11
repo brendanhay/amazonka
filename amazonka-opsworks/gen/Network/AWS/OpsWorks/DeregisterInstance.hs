@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterInstance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.DeregisterInstance
     , DeregisterInstanceResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterInstance' smart constructor.
 newtype DeregisterInstance = DeregisterInstance'
-    { _dInstanceId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dInstanceId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterInstance' with the minimum fields required to make a request.
 --
@@ -57,9 +58,8 @@ deregisterInstance
     :: Text -- ^ 'dInstanceId'
     -> DeregisterInstance
 deregisterInstance pInstanceId_ =
-    DeregisterInstance'
-    { _dInstanceId = pInstanceId_
-    }
+  DeregisterInstance' {_dInstanceId = pInstanceId_}
+
 
 -- | The instance ID.
 dInstanceId :: Lens' DeregisterInstance Text
@@ -71,9 +71,9 @@ instance AWSRequest DeregisterInstance where
         request = postJSON opsWorks
         response = receiveNull DeregisterInstanceResponse'
 
-instance Hashable DeregisterInstance
+instance Hashable DeregisterInstance where
 
-instance NFData DeregisterInstance
+instance NFData DeregisterInstance where
 
 instance ToHeaders DeregisterInstance where
         toHeaders
@@ -98,8 +98,9 @@ instance ToQuery DeregisterInstance where
 
 -- | /See:/ 'deregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse =
-    DeregisterInstanceResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeregisterInstanceResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterInstanceResponse' with the minimum fields required to make a request.
 --
@@ -107,4 +108,5 @@ deregisterInstanceResponse
     :: DeregisterInstanceResponse
 deregisterInstanceResponse = DeregisterInstanceResponse'
 
-instance NFData DeregisterInstanceResponse
+
+instance NFData DeregisterInstanceResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.ListDashboards
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CloudWatch.ListDashboards
     , ldrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatch.Types
-import           Network.AWS.CloudWatch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listDashboards' smart constructor.
 data ListDashboards = ListDashboards'
-    { _ldDashboardNamePrefix :: !(Maybe Text)
-    , _ldNextToken           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldDashboardNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDashboards' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data ListDashboards = ListDashboards'
 listDashboards
     :: ListDashboards
 listDashboards =
-    ListDashboards'
-    { _ldDashboardNamePrefix = Nothing
-    , _ldNextToken = Nothing
-    }
+  ListDashboards' {_ldDashboardNamePrefix = Nothing, _ldNextToken = Nothing}
+
 
 -- | If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, ".", "-", and "_".
 ldDashboardNamePrefix :: Lens' ListDashboards (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest ListDashboards where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDashboards
+instance Hashable ListDashboards where
 
-instance NFData ListDashboards
+instance NFData ListDashboards where
 
 instance ToHeaders ListDashboards where
         toHeaders = const mempty
@@ -107,10 +106,11 @@ instance ToQuery ListDashboards where
 
 -- | /See:/ 'listDashboardsResponse' smart constructor.
 data ListDashboardsResponse = ListDashboardsResponse'
-    { _ldrsDashboardEntries :: !(Maybe [DashboardEntry])
-    , _ldrsNextToken        :: !(Maybe Text)
-    , _ldrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldrsDashboardEntries :: {-# NOUNPACK #-}!(Maybe [DashboardEntry])
+  , _ldrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDashboardsResponse' with the minimum fields required to make a request.
 --
@@ -125,11 +125,12 @@ listDashboardsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDashboardsResponse
 listDashboardsResponse pResponseStatus_ =
-    ListDashboardsResponse'
-    { _ldrsDashboardEntries = Nothing
-    , _ldrsNextToken = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
-    }
+  ListDashboardsResponse'
+  { _ldrsDashboardEntries = Nothing
+  , _ldrsNextToken = Nothing
+  , _ldrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The list of matching dashboards.
 ldrsDashboardEntries :: Lens' ListDashboardsResponse [DashboardEntry]
@@ -143,4 +144,4 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsResponseStatus :: Lens' ListDashboardsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
-instance NFData ListDashboardsResponse
+instance NFData ListDashboardsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.CreateBackup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,18 +44,19 @@ module Network.AWS.OpsWorksCM.CreateBackup
     , cbrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createBackup' smart constructor.
 data CreateBackup = CreateBackup'
-    { _cbDescription :: !(Maybe Text)
-    , _cbServerName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cbServerName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBackup' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ createBackup
     :: Text -- ^ 'cbServerName'
     -> CreateBackup
 createBackup pServerName_ =
-    CreateBackup'
-    { _cbDescription = Nothing
-    , _cbServerName = pServerName_
-    }
+  CreateBackup' {_cbDescription = Nothing, _cbServerName = pServerName_}
+
 
 -- | A user-defined description of the backup.
 cbDescription :: Lens' CreateBackup (Maybe Text)
@@ -90,9 +89,9 @@ instance AWSRequest CreateBackup where
                  CreateBackupResponse' <$>
                    (x .?> "Backup") <*> (pure (fromEnum s)))
 
-instance Hashable CreateBackup
+instance Hashable CreateBackup where
 
-instance NFData CreateBackup
+instance NFData CreateBackup where
 
 instance ToHeaders CreateBackup where
         toHeaders
@@ -119,9 +118,10 @@ instance ToQuery CreateBackup where
 
 -- | /See:/ 'createBackupResponse' smart constructor.
 data CreateBackupResponse = CreateBackupResponse'
-    { _cbrsBackup         :: !(Maybe Backup)
-    , _cbrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cbrsBackup         :: {-# NOUNPACK #-}!(Maybe Backup)
+  , _cbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateBackupResponse' with the minimum fields required to make a request.
 --
@@ -134,10 +134,9 @@ createBackupResponse
     :: Int -- ^ 'cbrsResponseStatus'
     -> CreateBackupResponse
 createBackupResponse pResponseStatus_ =
-    CreateBackupResponse'
-    { _cbrsBackup = Nothing
-    , _cbrsResponseStatus = pResponseStatus_
-    }
+  CreateBackupResponse'
+  {_cbrsBackup = Nothing, _cbrsResponseStatus = pResponseStatus_}
+
 
 -- | Backup created by request.
 cbrsBackup :: Lens' CreateBackupResponse (Maybe Backup)
@@ -147,4 +146,4 @@ cbrsBackup = lens _cbrsBackup (\ s a -> s{_cbrsBackup = a});
 cbrsResponseStatus :: Lens' CreateBackupResponse Int
 cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
 
-instance NFData CreateBackupResponse
+instance NFData CreateBackupResponse where

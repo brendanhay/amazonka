@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminAddUserToGroup
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.CognitoIdentityProvider.AdminAddUserToGroup
     , AdminAddUserToGroupResponse
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'adminAddUserToGroup' smart constructor.
 data AdminAddUserToGroup = AdminAddUserToGroup'
-    { _aautgUserPoolId :: !Text
-    , _aautgUsername   :: !(Sensitive Text)
-    , _aautgGroupName  :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _aautgUserPoolId :: {-# NOUNPACK #-}!Text
+  , _aautgUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _aautgGroupName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminAddUserToGroup' with the minimum fields required to make a request.
 --
@@ -67,11 +68,12 @@ adminAddUserToGroup
     -> Text -- ^ 'aautgGroupName'
     -> AdminAddUserToGroup
 adminAddUserToGroup pUserPoolId_ pUsername_ pGroupName_ =
-    AdminAddUserToGroup'
-    { _aautgUserPoolId = pUserPoolId_
-    , _aautgUsername = _Sensitive # pUsername_
-    , _aautgGroupName = pGroupName_
-    }
+  AdminAddUserToGroup'
+  { _aautgUserPoolId = pUserPoolId_
+  , _aautgUsername = _Sensitive # pUsername_
+  , _aautgGroupName = pGroupName_
+  }
+
 
 -- | The user pool ID for the user pool.
 aautgUserPoolId :: Lens' AdminAddUserToGroup Text
@@ -91,9 +93,9 @@ instance AWSRequest AdminAddUserToGroup where
         request = postJSON cognitoIdentityProvider
         response = receiveNull AdminAddUserToGroupResponse'
 
-instance Hashable AdminAddUserToGroup
+instance Hashable AdminAddUserToGroup where
 
-instance NFData AdminAddUserToGroup
+instance NFData AdminAddUserToGroup where
 
 instance ToHeaders AdminAddUserToGroup where
         toHeaders
@@ -121,8 +123,9 @@ instance ToQuery AdminAddUserToGroup where
 
 -- | /See:/ 'adminAddUserToGroupResponse' smart constructor.
 data AdminAddUserToGroupResponse =
-    AdminAddUserToGroupResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  AdminAddUserToGroupResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminAddUserToGroupResponse' with the minimum fields required to make a request.
 --
@@ -130,4 +133,5 @@ adminAddUserToGroupResponse
     :: AdminAddUserToGroupResponse
 adminAddUserToGroupResponse = AdminAddUserToGroupResponse'
 
-instance NFData AdminAddUserToGroupResponse
+
+instance NFData AdminAddUserToGroupResponse where

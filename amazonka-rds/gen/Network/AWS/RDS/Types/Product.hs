@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.RDS.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.RDS.Types.Product where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.RDS.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types.Sum
 
 -- | Describes a quota for an AWS account, for example, the number of DB instances allowed.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.RDS.Types.Sum
 --
 -- /See:/ 'accountQuota' smart constructor.
 data AccountQuota = AccountQuota'
-    { _aqMax              :: !(Maybe Integer)
-    , _aqUsed             :: !(Maybe Integer)
-    , _aqAccountQuotaName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aqMax              :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _aqUsed             :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _aqAccountQuotaName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AccountQuota' with the minimum fields required to make a request.
 --
@@ -44,11 +45,9 @@ data AccountQuota = AccountQuota'
 accountQuota
     :: AccountQuota
 accountQuota =
-    AccountQuota'
-    { _aqMax = Nothing
-    , _aqUsed = Nothing
-    , _aqAccountQuotaName = Nothing
-    }
+  AccountQuota'
+  {_aqMax = Nothing, _aqUsed = Nothing, _aqAccountQuotaName = Nothing}
+
 
 -- | The maximum allowed value for the quota.
 aqMax :: Lens' AccountQuota (Maybe Integer)
@@ -68,9 +67,9 @@ instance FromXML AccountQuota where
               (x .@? "Max") <*> (x .@? "Used") <*>
                 (x .@? "AccountQuotaName")
 
-instance Hashable AccountQuota
+instance Hashable AccountQuota where
 
-instance NFData AccountQuota
+instance NFData AccountQuota where
 
 -- | Contains Availability Zone information.
 --
@@ -84,8 +83,9 @@ instance NFData AccountQuota
 --
 -- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
-    { _azName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _azName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
@@ -94,10 +94,8 @@ newtype AvailabilityZone = AvailabilityZone'
 -- * 'azName' - The name of the availability zone.
 availabilityZone
     :: AvailabilityZone
-availabilityZone =
-    AvailabilityZone'
-    { _azName = Nothing
-    }
+availabilityZone = AvailabilityZone' {_azName = Nothing}
+
 
 -- | The name of the availability zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
@@ -106,9 +104,9 @@ azName = lens _azName (\ s a -> s{_azName = a});
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
-instance Hashable AvailabilityZone
+instance Hashable AvailabilityZone where
 
-instance NFData AvailabilityZone
+instance NFData AvailabilityZone where
 
 -- | A CA certificate for an AWS account.
 --
@@ -116,13 +114,14 @@ instance NFData AvailabilityZone
 --
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
-    { _cCertificateType       :: !(Maybe Text)
-    , _cCertificateARN        :: !(Maybe Text)
-    , _cValidTill             :: !(Maybe ISO8601)
-    , _cCertificateIdentifier :: !(Maybe Text)
-    , _cThumbprint            :: !(Maybe Text)
-    , _cValidFrom             :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cCertificateType       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCertificateARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cValidTill             :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _cCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cThumbprint            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cValidFrom             :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
@@ -142,14 +141,15 @@ data Certificate = Certificate'
 certificate
     :: Certificate
 certificate =
-    Certificate'
-    { _cCertificateType = Nothing
-    , _cCertificateARN = Nothing
-    , _cValidTill = Nothing
-    , _cCertificateIdentifier = Nothing
-    , _cThumbprint = Nothing
-    , _cValidFrom = Nothing
-    }
+  Certificate'
+  { _cCertificateType = Nothing
+  , _cCertificateARN = Nothing
+  , _cValidTill = Nothing
+  , _cCertificateIdentifier = Nothing
+  , _cThumbprint = Nothing
+  , _cValidFrom = Nothing
+  }
+
 
 -- | The type of the certificate.
 cCertificateType :: Lens' Certificate (Maybe Text)
@@ -185,9 +185,9 @@ instance FromXML Certificate where
                 <*> (x .@? "Thumbprint")
                 <*> (x .@? "ValidFrom")
 
-instance Hashable Certificate
+instance Hashable Certificate where
 
-instance NFData Certificate
+instance NFData Certificate where
 
 -- | This data type is used as a response element in the action 'DescribeDBEngineVersions' .
 --
@@ -195,9 +195,10 @@ instance NFData Certificate
 --
 -- /See:/ 'characterSet' smart constructor.
 data CharacterSet = CharacterSet'
-    { _csCharacterSetName        :: !(Maybe Text)
-    , _csCharacterSetDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csCharacterSetName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csCharacterSetDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CharacterSet' with the minimum fields required to make a request.
 --
@@ -209,10 +210,9 @@ data CharacterSet = CharacterSet'
 characterSet
     :: CharacterSet
 characterSet =
-    CharacterSet'
-    { _csCharacterSetName = Nothing
-    , _csCharacterSetDescription = Nothing
-    }
+  CharacterSet'
+  {_csCharacterSetName = Nothing, _csCharacterSetDescription = Nothing}
+
 
 -- | The name of the character set.
 csCharacterSetName :: Lens' CharacterSet (Maybe Text)
@@ -228,9 +228,9 @@ instance FromXML CharacterSet where
               (x .@? "CharacterSetName") <*>
                 (x .@? "CharacterSetDescription")
 
-instance Hashable CharacterSet
+instance Hashable CharacterSet where
 
-instance NFData CharacterSet
+instance NFData CharacterSet where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -254,42 +254,43 @@ instance NFData CharacterSet
 --
 -- /See:/ 'dbCluster' smart constructor.
 data DBCluster = DBCluster'
-    { _dcEngineVersion                    :: !(Maybe Text)
-    , _dcStatus                           :: !(Maybe Text)
-    , _dcStorageEncrypted                 :: !(Maybe Bool)
-    , _dcDBClusterIdentifier              :: !(Maybe Text)
-    , _dcDBClusterMembers                 :: !(Maybe [DBClusterMember])
-    , _dcReadReplicaIdentifiers           :: !(Maybe [Text])
-    , _dcReplicationSourceIdentifier      :: !(Maybe Text)
-    , _dcHostedZoneId                     :: !(Maybe Text)
-    , _dcDBClusterParameterGroup          :: !(Maybe Text)
-    , _dcMasterUsername                   :: !(Maybe Text)
-    , _dcIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
-    , _dcDBClusterResourceId              :: !(Maybe Text)
-    , _dcEarliestRestorableTime           :: !(Maybe ISO8601)
-    , _dcEngine                           :: !(Maybe Text)
-    , _dcDBClusterARN                     :: !(Maybe Text)
-    , _dcCloneGroupId                     :: !(Maybe Text)
-    , _dcLatestRestorableTime             :: !(Maybe ISO8601)
-    , _dcPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _dcAvailabilityZones                :: !(Maybe [Text])
-    , _dcCharacterSetName                 :: !(Maybe Text)
-    , _dcKMSKeyId                         :: !(Maybe Text)
-    , _dcPreferredBackupWindow            :: !(Maybe Text)
-    , _dcAssociatedRoles                  :: !(Maybe [DBClusterRole])
-    , _dcVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
-    , _dcBackupRetentionPeriod            :: !(Maybe Int)
-    , _dcDBSubnetGroup                    :: !(Maybe Text)
-    , _dcDatabaseName                     :: !(Maybe Text)
-    , _dcMultiAZ                          :: !(Maybe Bool)
-    , _dcAllocatedStorage                 :: !(Maybe Int)
-    , _dcClusterCreateTime                :: !(Maybe ISO8601)
-    , _dcEndpoint                         :: !(Maybe Text)
-    , _dcPercentProgress                  :: !(Maybe Text)
-    , _dcReaderEndpoint                   :: !(Maybe Text)
-    , _dcPort                             :: !(Maybe Int)
-    , _dcDBClusterOptionGroupMemberships  :: !(Maybe [DBClusterOptionGroupStatus])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcStorageEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcDBClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcDBClusterMembers :: {-# NOUNPACK #-}!(Maybe [DBClusterMember])
+  , _dcReadReplicaIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcReplicationSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcHostedZoneId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcDBClusterParameterGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMasterUsername :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcIAMDatabaseAuthenticationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcDBClusterResourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcEarliestRestorableTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dcEngine :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcDBClusterARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcCloneGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcLatestRestorableTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dcPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcCharacterSetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcPreferredBackupWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcAssociatedRoles :: {-# NOUNPACK #-}!(Maybe [DBClusterRole])
+  , _dcVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
+  , _dcBackupRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcDBSubnetGroup :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcAllocatedStorage :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dcEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcPercentProgress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcReaderEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcPort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcDBClusterOptionGroupMemberships :: {-# NOUNPACK #-}!(Maybe [DBClusterOptionGroupStatus])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBCluster' with the minimum fields required to make a request.
 --
@@ -367,43 +368,44 @@ data DBCluster = DBCluster'
 dbCluster
     :: DBCluster
 dbCluster =
-    DBCluster'
-    { _dcEngineVersion = Nothing
-    , _dcStatus = Nothing
-    , _dcStorageEncrypted = Nothing
-    , _dcDBClusterIdentifier = Nothing
-    , _dcDBClusterMembers = Nothing
-    , _dcReadReplicaIdentifiers = Nothing
-    , _dcReplicationSourceIdentifier = Nothing
-    , _dcHostedZoneId = Nothing
-    , _dcDBClusterParameterGroup = Nothing
-    , _dcMasterUsername = Nothing
-    , _dcIAMDatabaseAuthenticationEnabled = Nothing
-    , _dcDBClusterResourceId = Nothing
-    , _dcEarliestRestorableTime = Nothing
-    , _dcEngine = Nothing
-    , _dcDBClusterARN = Nothing
-    , _dcCloneGroupId = Nothing
-    , _dcLatestRestorableTime = Nothing
-    , _dcPreferredMaintenanceWindow = Nothing
-    , _dcAvailabilityZones = Nothing
-    , _dcCharacterSetName = Nothing
-    , _dcKMSKeyId = Nothing
-    , _dcPreferredBackupWindow = Nothing
-    , _dcAssociatedRoles = Nothing
-    , _dcVPCSecurityGroups = Nothing
-    , _dcBackupRetentionPeriod = Nothing
-    , _dcDBSubnetGroup = Nothing
-    , _dcDatabaseName = Nothing
-    , _dcMultiAZ = Nothing
-    , _dcAllocatedStorage = Nothing
-    , _dcClusterCreateTime = Nothing
-    , _dcEndpoint = Nothing
-    , _dcPercentProgress = Nothing
-    , _dcReaderEndpoint = Nothing
-    , _dcPort = Nothing
-    , _dcDBClusterOptionGroupMemberships = Nothing
-    }
+  DBCluster'
+  { _dcEngineVersion = Nothing
+  , _dcStatus = Nothing
+  , _dcStorageEncrypted = Nothing
+  , _dcDBClusterIdentifier = Nothing
+  , _dcDBClusterMembers = Nothing
+  , _dcReadReplicaIdentifiers = Nothing
+  , _dcReplicationSourceIdentifier = Nothing
+  , _dcHostedZoneId = Nothing
+  , _dcDBClusterParameterGroup = Nothing
+  , _dcMasterUsername = Nothing
+  , _dcIAMDatabaseAuthenticationEnabled = Nothing
+  , _dcDBClusterResourceId = Nothing
+  , _dcEarliestRestorableTime = Nothing
+  , _dcEngine = Nothing
+  , _dcDBClusterARN = Nothing
+  , _dcCloneGroupId = Nothing
+  , _dcLatestRestorableTime = Nothing
+  , _dcPreferredMaintenanceWindow = Nothing
+  , _dcAvailabilityZones = Nothing
+  , _dcCharacterSetName = Nothing
+  , _dcKMSKeyId = Nothing
+  , _dcPreferredBackupWindow = Nothing
+  , _dcAssociatedRoles = Nothing
+  , _dcVPCSecurityGroups = Nothing
+  , _dcBackupRetentionPeriod = Nothing
+  , _dcDBSubnetGroup = Nothing
+  , _dcDatabaseName = Nothing
+  , _dcMultiAZ = Nothing
+  , _dcAllocatedStorage = Nothing
+  , _dcClusterCreateTime = Nothing
+  , _dcEndpoint = Nothing
+  , _dcPercentProgress = Nothing
+  , _dcReaderEndpoint = Nothing
+  , _dcPort = Nothing
+  , _dcDBClusterOptionGroupMemberships = Nothing
+  }
+
 
 -- | Indicates the database engine version.
 dcEngineVersion :: Lens' DBCluster (Maybe Text)
@@ -595,9 +597,9 @@ instance FromXML DBCluster where
                 (x .@? "DBClusterOptionGroupMemberships" .!@ mempty
                    >>= may (parseXMLList "DBClusterOptionGroup"))
 
-instance Hashable DBCluster
+instance Hashable DBCluster where
 
-instance NFData DBCluster
+instance NFData DBCluster where
 
 -- | Contains information about an instance that is part of a DB cluster.
 --
@@ -605,11 +607,12 @@ instance NFData DBCluster
 --
 -- /See:/ 'dbClusterMember' smart constructor.
 data DBClusterMember = DBClusterMember'
-    { _dcmPromotionTier                 :: !(Maybe Int)
-    , _dcmDBInstanceIdentifier          :: !(Maybe Text)
-    , _dcmIsClusterWriter               :: !(Maybe Bool)
-    , _dcmDBClusterParameterGroupStatus :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcmPromotionTier                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcmDBInstanceIdentifier          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcmIsClusterWriter               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcmDBClusterParameterGroupStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBClusterMember' with the minimum fields required to make a request.
 --
@@ -625,12 +628,13 @@ data DBClusterMember = DBClusterMember'
 dbClusterMember
     :: DBClusterMember
 dbClusterMember =
-    DBClusterMember'
-    { _dcmPromotionTier = Nothing
-    , _dcmDBInstanceIdentifier = Nothing
-    , _dcmIsClusterWriter = Nothing
-    , _dcmDBClusterParameterGroupStatus = Nothing
-    }
+  DBClusterMember'
+  { _dcmPromotionTier = Nothing
+  , _dcmDBInstanceIdentifier = Nothing
+  , _dcmIsClusterWriter = Nothing
+  , _dcmDBClusterParameterGroupStatus = Nothing
+  }
+
 
 -- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .
 dcmPromotionTier :: Lens' DBClusterMember (Maybe Int)
@@ -656,9 +660,9 @@ instance FromXML DBClusterMember where
                 <*> (x .@? "IsClusterWriter")
                 <*> (x .@? "DBClusterParameterGroupStatus")
 
-instance Hashable DBClusterMember
+instance Hashable DBClusterMember where
 
-instance NFData DBClusterMember
+instance NFData DBClusterMember where
 
 -- | Contains status information for a DB cluster option group.
 --
@@ -666,9 +670,10 @@ instance NFData DBClusterMember
 --
 -- /See:/ 'dbClusterOptionGroupStatus' smart constructor.
 data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
-    { _dcogsStatus                   :: !(Maybe Text)
-    , _dcogsDBClusterOptionGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcogsStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcogsDBClusterOptionGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBClusterOptionGroupStatus' with the minimum fields required to make a request.
 --
@@ -680,10 +685,9 @@ data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
 dbClusterOptionGroupStatus
     :: DBClusterOptionGroupStatus
 dbClusterOptionGroupStatus =
-    DBClusterOptionGroupStatus'
-    { _dcogsStatus = Nothing
-    , _dcogsDBClusterOptionGroupName = Nothing
-    }
+  DBClusterOptionGroupStatus'
+  {_dcogsStatus = Nothing, _dcogsDBClusterOptionGroupName = Nothing}
+
 
 -- | Specifies the status of the DB cluster option group.
 dcogsStatus :: Lens' DBClusterOptionGroupStatus (Maybe Text)
@@ -699,9 +703,9 @@ instance FromXML DBClusterOptionGroupStatus where
               (x .@? "Status") <*>
                 (x .@? "DBClusterOptionGroupName")
 
-instance Hashable DBClusterOptionGroupStatus
+instance Hashable DBClusterOptionGroupStatus where
 
-instance NFData DBClusterOptionGroupStatus
+instance NFData DBClusterOptionGroupStatus where
 
 -- | Contains the result of a successful invocation of the 'CreateDBClusterParameterGroup' or 'CopyDBClusterParameterGroup' action.
 --
@@ -711,11 +715,12 @@ instance NFData DBClusterOptionGroupStatus
 --
 -- /See:/ 'dbClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
-    { _dcpgDBClusterParameterGroupARN  :: !(Maybe Text)
-    , _dcpgDBParameterGroupFamily      :: !(Maybe Text)
-    , _dcpgDBClusterParameterGroupName :: !(Maybe Text)
-    , _dcpgDescription                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcpgDBClusterParameterGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcpgDBParameterGroupFamily      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcpgDBClusterParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcpgDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBClusterParameterGroup' with the minimum fields required to make a request.
 --
@@ -731,12 +736,13 @@ data DBClusterParameterGroup = DBClusterParameterGroup'
 dbClusterParameterGroup
     :: DBClusterParameterGroup
 dbClusterParameterGroup =
-    DBClusterParameterGroup'
-    { _dcpgDBClusterParameterGroupARN = Nothing
-    , _dcpgDBParameterGroupFamily = Nothing
-    , _dcpgDBClusterParameterGroupName = Nothing
-    , _dcpgDescription = Nothing
-    }
+  DBClusterParameterGroup'
+  { _dcpgDBClusterParameterGroupARN = Nothing
+  , _dcpgDBParameterGroupFamily = Nothing
+  , _dcpgDBClusterParameterGroupName = Nothing
+  , _dcpgDescription = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) for the DB cluster parameter group.
 dcpgDBClusterParameterGroupARN :: Lens' DBClusterParameterGroup (Maybe Text)
@@ -762,9 +768,9 @@ instance FromXML DBClusterParameterGroup where
                 <*> (x .@? "DBClusterParameterGroupName")
                 <*> (x .@? "Description")
 
-instance Hashable DBClusterParameterGroup
+instance Hashable DBClusterParameterGroup where
 
-instance NFData DBClusterParameterGroup
+instance NFData DBClusterParameterGroup where
 
 -- |
 --
@@ -772,8 +778,9 @@ instance NFData DBClusterParameterGroup
 --
 -- /See:/ 'dbClusterParameterGroupNameMessage' smart constructor.
 newtype DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
-    { _dcpgnmDBClusterParameterGroupName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcpgnmDBClusterParameterGroupName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBClusterParameterGroupNameMessage' with the minimum fields required to make a request.
 --
@@ -783,9 +790,9 @@ newtype DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
 dbClusterParameterGroupNameMessage
     :: DBClusterParameterGroupNameMessage
 dbClusterParameterGroupNameMessage =
-    DBClusterParameterGroupNameMessage'
-    { _dcpgnmDBClusterParameterGroupName = Nothing
-    }
+  DBClusterParameterGroupNameMessage'
+  {_dcpgnmDBClusterParameterGroupName = Nothing}
+
 
 -- | The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 dcpgnmDBClusterParameterGroupName :: Lens' DBClusterParameterGroupNameMessage (Maybe Text)
@@ -798,8 +805,10 @@ instance FromXML DBClusterParameterGroupNameMessage
               (x .@? "DBClusterParameterGroupName")
 
 instance Hashable DBClusterParameterGroupNameMessage
+         where
 
 instance NFData DBClusterParameterGroupNameMessage
+         where
 
 -- | Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 --
@@ -807,9 +816,10 @@ instance NFData DBClusterParameterGroupNameMessage
 --
 -- /See:/ 'dbClusterRole' smart constructor.
 data DBClusterRole = DBClusterRole'
-    { _dcrStatus  :: !(Maybe Text)
-    , _dcrRoleARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcrStatus  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcrRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBClusterRole' with the minimum fields required to make a request.
 --
@@ -820,11 +830,8 @@ data DBClusterRole = DBClusterRole'
 -- * 'dcrRoleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 dbClusterRole
     :: DBClusterRole
-dbClusterRole =
-    DBClusterRole'
-    { _dcrStatus = Nothing
-    , _dcrRoleARN = Nothing
-    }
+dbClusterRole = DBClusterRole' {_dcrStatus = Nothing, _dcrRoleARN = Nothing}
+
 
 -- | Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
 dcrStatus :: Lens' DBClusterRole (Maybe Text)
@@ -839,9 +846,9 @@ instance FromXML DBClusterRole where
           = DBClusterRole' <$>
               (x .@? "Status") <*> (x .@? "RoleArn")
 
-instance Hashable DBClusterRole
+instance Hashable DBClusterRole where
 
-instance NFData DBClusterRole
+instance NFData DBClusterRole where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -857,27 +864,28 @@ instance NFData DBClusterRole
 --
 -- /See:/ 'dbClusterSnapshot' smart constructor.
 data DBClusterSnapshot = DBClusterSnapshot'
-    { _dcsEngineVersion                    :: !(Maybe Text)
-    , _dcsStatus                           :: !(Maybe Text)
-    , _dcsStorageEncrypted                 :: !(Maybe Bool)
-    , _dcsDBClusterIdentifier              :: !(Maybe Text)
-    , _dcsMasterUsername                   :: !(Maybe Text)
-    , _dcsIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
-    , _dcsDBClusterSnapshotARN             :: !(Maybe Text)
-    , _dcsVPCId                            :: !(Maybe Text)
-    , _dcsDBClusterSnapshotIdentifier      :: !(Maybe Text)
-    , _dcsEngine                           :: !(Maybe Text)
-    , _dcsLicenseModel                     :: !(Maybe Text)
-    , _dcsAvailabilityZones                :: !(Maybe [Text])
-    , _dcsSnapshotType                     :: !(Maybe Text)
-    , _dcsKMSKeyId                         :: !(Maybe Text)
-    , _dcsSnapshotCreateTime               :: !(Maybe ISO8601)
-    , _dcsAllocatedStorage                 :: !(Maybe Int)
-    , _dcsSourceDBClusterSnapshotARN       :: !(Maybe Text)
-    , _dcsClusterCreateTime                :: !(Maybe ISO8601)
-    , _dcsPercentProgress                  :: !(Maybe Int)
-    , _dcsPort                             :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsEngineVersion                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsStatus                           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsStorageEncrypted                 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcsDBClusterIdentifier              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsMasterUsername                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsIAMDatabaseAuthenticationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dcsDBClusterSnapshotARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsVPCId                            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsDBClusterSnapshotIdentifier      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsEngine                           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsLicenseModel                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsAvailabilityZones                :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcsSnapshotType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsSnapshotCreateTime               :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dcsAllocatedStorage                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcsSourceDBClusterSnapshotARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsClusterCreateTime                :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dcsPercentProgress                  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dcsPort                             :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBClusterSnapshot' with the minimum fields required to make a request.
 --
@@ -925,28 +933,29 @@ data DBClusterSnapshot = DBClusterSnapshot'
 dbClusterSnapshot
     :: DBClusterSnapshot
 dbClusterSnapshot =
-    DBClusterSnapshot'
-    { _dcsEngineVersion = Nothing
-    , _dcsStatus = Nothing
-    , _dcsStorageEncrypted = Nothing
-    , _dcsDBClusterIdentifier = Nothing
-    , _dcsMasterUsername = Nothing
-    , _dcsIAMDatabaseAuthenticationEnabled = Nothing
-    , _dcsDBClusterSnapshotARN = Nothing
-    , _dcsVPCId = Nothing
-    , _dcsDBClusterSnapshotIdentifier = Nothing
-    , _dcsEngine = Nothing
-    , _dcsLicenseModel = Nothing
-    , _dcsAvailabilityZones = Nothing
-    , _dcsSnapshotType = Nothing
-    , _dcsKMSKeyId = Nothing
-    , _dcsSnapshotCreateTime = Nothing
-    , _dcsAllocatedStorage = Nothing
-    , _dcsSourceDBClusterSnapshotARN = Nothing
-    , _dcsClusterCreateTime = Nothing
-    , _dcsPercentProgress = Nothing
-    , _dcsPort = Nothing
-    }
+  DBClusterSnapshot'
+  { _dcsEngineVersion = Nothing
+  , _dcsStatus = Nothing
+  , _dcsStorageEncrypted = Nothing
+  , _dcsDBClusterIdentifier = Nothing
+  , _dcsMasterUsername = Nothing
+  , _dcsIAMDatabaseAuthenticationEnabled = Nothing
+  , _dcsDBClusterSnapshotARN = Nothing
+  , _dcsVPCId = Nothing
+  , _dcsDBClusterSnapshotIdentifier = Nothing
+  , _dcsEngine = Nothing
+  , _dcsLicenseModel = Nothing
+  , _dcsAvailabilityZones = Nothing
+  , _dcsSnapshotType = Nothing
+  , _dcsKMSKeyId = Nothing
+  , _dcsSnapshotCreateTime = Nothing
+  , _dcsAllocatedStorage = Nothing
+  , _dcsSourceDBClusterSnapshotARN = Nothing
+  , _dcsClusterCreateTime = Nothing
+  , _dcsPercentProgress = Nothing
+  , _dcsPort = Nothing
+  }
+
 
 -- | Provides the version of the database engine for this DB cluster snapshot.
 dcsEngineVersion :: Lens' DBClusterSnapshot (Maybe Text)
@@ -1053,9 +1062,9 @@ instance FromXML DBClusterSnapshot where
                 <*> (x .@? "PercentProgress")
                 <*> (x .@? "Port")
 
-instance Hashable DBClusterSnapshot
+instance Hashable DBClusterSnapshot where
 
-instance NFData DBClusterSnapshot
+instance NFData DBClusterSnapshot where
 
 -- | Contains the name and values of a manual DB cluster snapshot attribute.
 --
@@ -1065,9 +1074,10 @@ instance NFData DBClusterSnapshot
 --
 -- /See:/ 'dbClusterSnapshotAttribute' smart constructor.
 data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
-    { _dcsaAttributeValues :: !(Maybe [Text])
-    , _dcsaAttributeName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsaAttributeValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dcsaAttributeName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBClusterSnapshotAttribute' with the minimum fields required to make a request.
 --
@@ -1079,10 +1089,9 @@ data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
 dbClusterSnapshotAttribute
     :: DBClusterSnapshotAttribute
 dbClusterSnapshotAttribute =
-    DBClusterSnapshotAttribute'
-    { _dcsaAttributeValues = Nothing
-    , _dcsaAttributeName = Nothing
-    }
+  DBClusterSnapshotAttribute'
+  {_dcsaAttributeValues = Nothing, _dcsaAttributeName = Nothing}
+
 
 -- | The value(s) for the manual DB cluster snapshot attribute. If the @AttributeName@ field is set to @restore@ , then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If a value of @all@ is in the list, then the manual DB cluster snapshot is public and available for any AWS account to copy or restore.
 dcsaAttributeValues :: Lens' DBClusterSnapshotAttribute [Text]
@@ -1099,9 +1108,9 @@ instance FromXML DBClusterSnapshotAttribute where
                  may (parseXMLList "AttributeValue"))
                 <*> (x .@? "AttributeName")
 
-instance Hashable DBClusterSnapshotAttribute
+instance Hashable DBClusterSnapshotAttribute where
 
-instance NFData DBClusterSnapshotAttribute
+instance NFData DBClusterSnapshotAttribute where
 
 -- | Contains the results of a successful call to the 'DescribeDBClusterSnapshotAttributes' API action.
 --
@@ -1111,9 +1120,10 @@ instance NFData DBClusterSnapshotAttribute
 --
 -- /See:/ 'dbClusterSnapshotAttributesResult' smart constructor.
 data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
-    { _dcsarDBClusterSnapshotIdentifier :: !(Maybe Text)
-    , _dcsarDBClusterSnapshotAttributes :: !(Maybe [DBClusterSnapshotAttribute])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dcsarDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcsarDBClusterSnapshotAttributes :: {-# NOUNPACK #-}!(Maybe [DBClusterSnapshotAttribute])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBClusterSnapshotAttributesResult' with the minimum fields required to make a request.
 --
@@ -1125,10 +1135,11 @@ data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
 dbClusterSnapshotAttributesResult
     :: DBClusterSnapshotAttributesResult
 dbClusterSnapshotAttributesResult =
-    DBClusterSnapshotAttributesResult'
-    { _dcsarDBClusterSnapshotIdentifier = Nothing
-    , _dcsarDBClusterSnapshotAttributes = Nothing
-    }
+  DBClusterSnapshotAttributesResult'
+  { _dcsarDBClusterSnapshotIdentifier = Nothing
+  , _dcsarDBClusterSnapshotAttributes = Nothing
+  }
+
 
 -- | The identifier of the manual DB cluster snapshot that the attributes apply to.
 dcsarDBClusterSnapshotIdentifier :: Lens' DBClusterSnapshotAttributesResult (Maybe Text)
@@ -1147,8 +1158,10 @@ instance FromXML DBClusterSnapshotAttributesResult
                    may (parseXMLList "DBClusterSnapshotAttribute"))
 
 instance Hashable DBClusterSnapshotAttributesResult
+         where
 
 instance NFData DBClusterSnapshotAttributesResult
+         where
 
 -- | This data type is used as a response element in the action 'DescribeDBEngineVersions' .
 --
@@ -1156,16 +1169,17 @@ instance NFData DBClusterSnapshotAttributesResult
 --
 -- /See:/ 'dbEngineVersion' smart constructor.
 data DBEngineVersion = DBEngineVersion'
-    { _devEngineVersion              :: !(Maybe Text)
-    , _devDBEngineVersionDescription :: !(Maybe Text)
-    , _devDefaultCharacterSet        :: !(Maybe CharacterSet)
-    , _devEngine                     :: !(Maybe Text)
-    , _devDBParameterGroupFamily     :: !(Maybe Text)
-    , _devSupportedCharacterSets     :: !(Maybe [CharacterSet])
-    , _devDBEngineDescription        :: !(Maybe Text)
-    , _devValidUpgradeTarget         :: !(Maybe [UpgradeTarget])
-    , _devSupportedTimezones         :: !(Maybe [Timezone])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _devEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devDBEngineVersionDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devDefaultCharacterSet        :: {-# NOUNPACK #-}!(Maybe CharacterSet)
+  , _devEngine                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devDBParameterGroupFamily     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devSupportedCharacterSets     :: {-# NOUNPACK #-}!(Maybe [CharacterSet])
+  , _devDBEngineDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _devValidUpgradeTarget         :: {-# NOUNPACK #-}!(Maybe [UpgradeTarget])
+  , _devSupportedTimezones         :: {-# NOUNPACK #-}!(Maybe [Timezone])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBEngineVersion' with the minimum fields required to make a request.
 --
@@ -1191,17 +1205,18 @@ data DBEngineVersion = DBEngineVersion'
 dbEngineVersion
     :: DBEngineVersion
 dbEngineVersion =
-    DBEngineVersion'
-    { _devEngineVersion = Nothing
-    , _devDBEngineVersionDescription = Nothing
-    , _devDefaultCharacterSet = Nothing
-    , _devEngine = Nothing
-    , _devDBParameterGroupFamily = Nothing
-    , _devSupportedCharacterSets = Nothing
-    , _devDBEngineDescription = Nothing
-    , _devValidUpgradeTarget = Nothing
-    , _devSupportedTimezones = Nothing
-    }
+  DBEngineVersion'
+  { _devEngineVersion = Nothing
+  , _devDBEngineVersionDescription = Nothing
+  , _devDefaultCharacterSet = Nothing
+  , _devEngine = Nothing
+  , _devDBParameterGroupFamily = Nothing
+  , _devSupportedCharacterSets = Nothing
+  , _devDBEngineDescription = Nothing
+  , _devValidUpgradeTarget = Nothing
+  , _devSupportedTimezones = Nothing
+  }
+
 
 -- | The version number of the database engine.
 devEngineVersion :: Lens' DBEngineVersion (Maybe Text)
@@ -1258,9 +1273,9 @@ instance FromXML DBEngineVersion where
                 (x .@? "SupportedTimezones" .!@ mempty >>=
                    may (parseXMLList "Timezone"))
 
-instance Hashable DBEngineVersion
+instance Hashable DBEngineVersion where
 
-instance NFData DBEngineVersion
+instance NFData DBEngineVersion where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -1282,56 +1297,57 @@ instance NFData DBEngineVersion
 --
 -- /See:/ 'dbInstance' smart constructor.
 data DBInstance = DBInstance'
-    { _diEngineVersion                         :: !(Maybe Text)
-    , _diDBSecurityGroups                      :: !(Maybe [DBSecurityGroupMembership])
-    , _diStorageEncrypted                      :: !(Maybe Bool)
-    , _diDBClusterIdentifier                   :: !(Maybe Text)
-    , _diPubliclyAccessible                    :: !(Maybe Bool)
-    , _diAutoMinorVersionUpgrade               :: !(Maybe Bool)
-    , _diDBInstanceARN                         :: !(Maybe Text)
-    , _diMasterUsername                        :: !(Maybe Text)
-    , _diReadReplicaDBInstanceIdentifiers      :: !(Maybe [Text])
-    , _diIAMDatabaseAuthenticationEnabled      :: !(Maybe Bool)
-    , _diMonitoringRoleARN                     :: !(Maybe Text)
-    , _diIOPS                                  :: !(Maybe Int)
-    , _diInstanceCreateTime                    :: !(Maybe ISO8601)
-    , _diReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text)
-    , _diMonitoringInterval                    :: !(Maybe Int)
-    , _diEngine                                :: !(Maybe Text)
-    , _diLatestRestorableTime                  :: !(Maybe ISO8601)
-    , _diDBInstanceClass                       :: !(Maybe Text)
-    , _diPromotionTier                         :: !(Maybe Int)
-    , _diLicenseModel                          :: !(Maybe Text)
-    , _diPreferredMaintenanceWindow            :: !(Maybe Text)
-    , _diCACertificateIdentifier               :: !(Maybe Text)
-    , _diDBInstanceIdentifier                  :: !(Maybe Text)
-    , _diCharacterSetName                      :: !(Maybe Text)
-    , _diKMSKeyId                              :: !(Maybe Text)
-    , _diPreferredBackupWindow                 :: !(Maybe Text)
-    , _diAvailabilityZone                      :: !(Maybe Text)
-    , _diVPCSecurityGroups                     :: !(Maybe [VPCSecurityGroupMembership])
-    , _diBackupRetentionPeriod                 :: !(Maybe Int)
-    , _diDBSubnetGroup                         :: !(Maybe DBSubnetGroup)
-    , _diMultiAZ                               :: !(Maybe Bool)
-    , _diOptionGroupMemberships                :: !(Maybe [OptionGroupMembership])
-    , _diEnhancedMonitoringResourceARN         :: !(Maybe Text)
-    , _diSecondaryAvailabilityZone             :: !(Maybe Text)
-    , _diAllocatedStorage                      :: !(Maybe Int)
-    , _diDBiResourceId                         :: !(Maybe Text)
-    , _diDBParameterGroups                     :: !(Maybe [DBParameterGroupStatus])
-    , _diCopyTagsToSnapshot                    :: !(Maybe Bool)
-    , _diTimezone                              :: !(Maybe Text)
-    , _diTDECredentialARN                      :: !(Maybe Text)
-    , _diEndpoint                              :: !(Maybe Endpoint)
-    , _diDBInstanceStatus                      :: !(Maybe Text)
-    , _diDBInstancePort                        :: !(Maybe Int)
-    , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
-    , _diReadReplicaDBClusterIdentifiers       :: !(Maybe [Text])
-    , _diStorageType                           :: !(Maybe Text)
-    , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
-    , _diDomainMemberships                     :: !(Maybe [DomainMembership])
-    , _diDBName                                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _diEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diDBSecurityGroups :: {-# NOUNPACK #-}!(Maybe [DBSecurityGroupMembership])
+  , _diStorageEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diDBClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diPubliclyAccessible :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diDBInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diMasterUsername :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diReadReplicaDBInstanceIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _diIAMDatabaseAuthenticationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diMonitoringRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diIOPS :: {-# NOUNPACK #-}!(Maybe Int)
+  , _diInstanceCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _diReadReplicaSourceDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diMonitoringInterval :: {-# NOUNPACK #-}!(Maybe Int)
+  , _diEngine :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diLatestRestorableTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _diDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diPromotionTier :: {-# NOUNPACK #-}!(Maybe Int)
+  , _diLicenseModel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diCACertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diCharacterSetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diPreferredBackupWindow :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
+  , _diBackupRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _diDBSubnetGroup :: {-# NOUNPACK #-}!(Maybe DBSubnetGroup)
+  , _diMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diOptionGroupMemberships :: {-# NOUNPACK #-}!(Maybe [OptionGroupMembership])
+  , _diEnhancedMonitoringResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diSecondaryAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diAllocatedStorage :: {-# NOUNPACK #-}!(Maybe Int)
+  , _diDBiResourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diDBParameterGroups :: {-# NOUNPACK #-}!(Maybe [DBParameterGroupStatus])
+  , _diCopyTagsToSnapshot :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _diTimezone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diTDECredentialARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _diDBInstanceStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diDBInstancePort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _diPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe PendingModifiedValues)
+  , _diReadReplicaDBClusterIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _diStorageType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diStatusInfos :: {-# NOUNPACK #-}!(Maybe [DBInstanceStatusInfo])
+  , _diDomainMemberships :: {-# NOUNPACK #-}!(Maybe [DomainMembership])
+  , _diDBName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBInstance' with the minimum fields required to make a request.
 --
@@ -1437,57 +1453,58 @@ data DBInstance = DBInstance'
 dbInstance
     :: DBInstance
 dbInstance =
-    DBInstance'
-    { _diEngineVersion = Nothing
-    , _diDBSecurityGroups = Nothing
-    , _diStorageEncrypted = Nothing
-    , _diDBClusterIdentifier = Nothing
-    , _diPubliclyAccessible = Nothing
-    , _diAutoMinorVersionUpgrade = Nothing
-    , _diDBInstanceARN = Nothing
-    , _diMasterUsername = Nothing
-    , _diReadReplicaDBInstanceIdentifiers = Nothing
-    , _diIAMDatabaseAuthenticationEnabled = Nothing
-    , _diMonitoringRoleARN = Nothing
-    , _diIOPS = Nothing
-    , _diInstanceCreateTime = Nothing
-    , _diReadReplicaSourceDBInstanceIdentifier = Nothing
-    , _diMonitoringInterval = Nothing
-    , _diEngine = Nothing
-    , _diLatestRestorableTime = Nothing
-    , _diDBInstanceClass = Nothing
-    , _diPromotionTier = Nothing
-    , _diLicenseModel = Nothing
-    , _diPreferredMaintenanceWindow = Nothing
-    , _diCACertificateIdentifier = Nothing
-    , _diDBInstanceIdentifier = Nothing
-    , _diCharacterSetName = Nothing
-    , _diKMSKeyId = Nothing
-    , _diPreferredBackupWindow = Nothing
-    , _diAvailabilityZone = Nothing
-    , _diVPCSecurityGroups = Nothing
-    , _diBackupRetentionPeriod = Nothing
-    , _diDBSubnetGroup = Nothing
-    , _diMultiAZ = Nothing
-    , _diOptionGroupMemberships = Nothing
-    , _diEnhancedMonitoringResourceARN = Nothing
-    , _diSecondaryAvailabilityZone = Nothing
-    , _diAllocatedStorage = Nothing
-    , _diDBiResourceId = Nothing
-    , _diDBParameterGroups = Nothing
-    , _diCopyTagsToSnapshot = Nothing
-    , _diTimezone = Nothing
-    , _diTDECredentialARN = Nothing
-    , _diEndpoint = Nothing
-    , _diDBInstanceStatus = Nothing
-    , _diDBInstancePort = Nothing
-    , _diPendingModifiedValues = Nothing
-    , _diReadReplicaDBClusterIdentifiers = Nothing
-    , _diStorageType = Nothing
-    , _diStatusInfos = Nothing
-    , _diDomainMemberships = Nothing
-    , _diDBName = Nothing
-    }
+  DBInstance'
+  { _diEngineVersion = Nothing
+  , _diDBSecurityGroups = Nothing
+  , _diStorageEncrypted = Nothing
+  , _diDBClusterIdentifier = Nothing
+  , _diPubliclyAccessible = Nothing
+  , _diAutoMinorVersionUpgrade = Nothing
+  , _diDBInstanceARN = Nothing
+  , _diMasterUsername = Nothing
+  , _diReadReplicaDBInstanceIdentifiers = Nothing
+  , _diIAMDatabaseAuthenticationEnabled = Nothing
+  , _diMonitoringRoleARN = Nothing
+  , _diIOPS = Nothing
+  , _diInstanceCreateTime = Nothing
+  , _diReadReplicaSourceDBInstanceIdentifier = Nothing
+  , _diMonitoringInterval = Nothing
+  , _diEngine = Nothing
+  , _diLatestRestorableTime = Nothing
+  , _diDBInstanceClass = Nothing
+  , _diPromotionTier = Nothing
+  , _diLicenseModel = Nothing
+  , _diPreferredMaintenanceWindow = Nothing
+  , _diCACertificateIdentifier = Nothing
+  , _diDBInstanceIdentifier = Nothing
+  , _diCharacterSetName = Nothing
+  , _diKMSKeyId = Nothing
+  , _diPreferredBackupWindow = Nothing
+  , _diAvailabilityZone = Nothing
+  , _diVPCSecurityGroups = Nothing
+  , _diBackupRetentionPeriod = Nothing
+  , _diDBSubnetGroup = Nothing
+  , _diMultiAZ = Nothing
+  , _diOptionGroupMemberships = Nothing
+  , _diEnhancedMonitoringResourceARN = Nothing
+  , _diSecondaryAvailabilityZone = Nothing
+  , _diAllocatedStorage = Nothing
+  , _diDBiResourceId = Nothing
+  , _diDBParameterGroups = Nothing
+  , _diCopyTagsToSnapshot = Nothing
+  , _diTimezone = Nothing
+  , _diTDECredentialARN = Nothing
+  , _diEndpoint = Nothing
+  , _diDBInstanceStatus = Nothing
+  , _diDBInstancePort = Nothing
+  , _diPendingModifiedValues = Nothing
+  , _diReadReplicaDBClusterIdentifiers = Nothing
+  , _diStorageType = Nothing
+  , _diStatusInfos = Nothing
+  , _diDomainMemberships = Nothing
+  , _diDBName = Nothing
+  }
+
 
 -- | Indicates the database engine version.
 diEngineVersion :: Lens' DBInstance (Maybe Text)
@@ -1755,9 +1772,9 @@ instance FromXML DBInstance where
                    may (parseXMLList "DomainMembership"))
                 <*> (x .@? "DBName")
 
-instance Hashable DBInstance
+instance Hashable DBInstance where
 
-instance NFData DBInstance
+instance NFData DBInstance where
 
 -- | Provides a list of status information for a DB instance.
 --
@@ -1765,11 +1782,12 @@ instance NFData DBInstance
 --
 -- /See:/ 'dbInstanceStatusInfo' smart constructor.
 data DBInstanceStatusInfo = DBInstanceStatusInfo'
-    { _disiStatus     :: !(Maybe Text)
-    , _disiNormal     :: !(Maybe Bool)
-    , _disiStatusType :: !(Maybe Text)
-    , _disiMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _disiStatus     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _disiNormal     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _disiStatusType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _disiMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBInstanceStatusInfo' with the minimum fields required to make a request.
 --
@@ -1785,12 +1803,13 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo'
 dbInstanceStatusInfo
     :: DBInstanceStatusInfo
 dbInstanceStatusInfo =
-    DBInstanceStatusInfo'
-    { _disiStatus = Nothing
-    , _disiNormal = Nothing
-    , _disiStatusType = Nothing
-    , _disiMessage = Nothing
-    }
+  DBInstanceStatusInfo'
+  { _disiStatus = Nothing
+  , _disiNormal = Nothing
+  , _disiStatusType = Nothing
+  , _disiMessage = Nothing
+  }
+
 
 -- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, error, stopped, or terminated.
 disiStatus :: Lens' DBInstanceStatusInfo (Maybe Text)
@@ -1815,9 +1834,9 @@ instance FromXML DBInstanceStatusInfo where
                 (x .@? "StatusType")
                 <*> (x .@? "Message")
 
-instance Hashable DBInstanceStatusInfo
+instance Hashable DBInstanceStatusInfo where
 
-instance NFData DBInstanceStatusInfo
+instance NFData DBInstanceStatusInfo where
 
 -- | Contains the result of a successful invocation of the 'CreateDBParameterGroup' action.
 --
@@ -1827,11 +1846,12 @@ instance NFData DBInstanceStatusInfo
 --
 -- /See:/ 'dbParameterGroup' smart constructor.
 data DBParameterGroup = DBParameterGroup'
-    { _dpgDBParameterGroupARN    :: !(Maybe Text)
-    , _dpgDBParameterGroupFamily :: !(Maybe Text)
-    , _dpgDBParameterGroupName   :: !(Maybe Text)
-    , _dpgDescription            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgDBParameterGroupARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgDBParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgDBParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBParameterGroup' with the minimum fields required to make a request.
 --
@@ -1847,12 +1867,13 @@ data DBParameterGroup = DBParameterGroup'
 dbParameterGroup
     :: DBParameterGroup
 dbParameterGroup =
-    DBParameterGroup'
-    { _dpgDBParameterGroupARN = Nothing
-    , _dpgDBParameterGroupFamily = Nothing
-    , _dpgDBParameterGroupName = Nothing
-    , _dpgDescription = Nothing
-    }
+  DBParameterGroup'
+  { _dpgDBParameterGroupARN = Nothing
+  , _dpgDBParameterGroupFamily = Nothing
+  , _dpgDBParameterGroupName = Nothing
+  , _dpgDescription = Nothing
+  }
+
 
 -- | The Amazon Resource Name (ARN) for the DB parameter group.
 dpgDBParameterGroupARN :: Lens' DBParameterGroup (Maybe Text)
@@ -1878,9 +1899,9 @@ instance FromXML DBParameterGroup where
                 <*> (x .@? "DBParameterGroupName")
                 <*> (x .@? "Description")
 
-instance Hashable DBParameterGroup
+instance Hashable DBParameterGroup where
 
-instance NFData DBParameterGroup
+instance NFData DBParameterGroup where
 
 -- | Contains the result of a successful invocation of the 'ModifyDBParameterGroup' or 'ResetDBParameterGroup' action.
 --
@@ -1888,8 +1909,9 @@ instance NFData DBParameterGroup
 --
 -- /See:/ 'dbParameterGroupNameMessage' smart constructor.
 newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'
-    { _dpgnmDBParameterGroupName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgnmDBParameterGroupName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBParameterGroupNameMessage' with the minimum fields required to make a request.
 --
@@ -1899,9 +1921,8 @@ newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'
 dbParameterGroupNameMessage
     :: DBParameterGroupNameMessage
 dbParameterGroupNameMessage =
-    DBParameterGroupNameMessage'
-    { _dpgnmDBParameterGroupName = Nothing
-    }
+  DBParameterGroupNameMessage' {_dpgnmDBParameterGroupName = Nothing}
+
 
 -- | Provides the name of the DB parameter group.
 dpgnmDBParameterGroupName :: Lens' DBParameterGroupNameMessage (Maybe Text)
@@ -1912,9 +1933,9 @@ instance FromXML DBParameterGroupNameMessage where
           = DBParameterGroupNameMessage' <$>
               (x .@? "DBParameterGroupName")
 
-instance Hashable DBParameterGroupNameMessage
+instance Hashable DBParameterGroupNameMessage where
 
-instance NFData DBParameterGroupNameMessage
+instance NFData DBParameterGroupNameMessage where
 
 -- | The status of the DB parameter group.
 --
@@ -1938,9 +1959,10 @@ instance NFData DBParameterGroupNameMessage
 --
 -- /See:/ 'dbParameterGroupStatus' smart constructor.
 data DBParameterGroupStatus = DBParameterGroupStatus'
-    { _dpgsDBParameterGroupName :: !(Maybe Text)
-    , _dpgsParameterApplyStatus :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dpgsDBParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dpgsParameterApplyStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBParameterGroupStatus' with the minimum fields required to make a request.
 --
@@ -1952,10 +1974,9 @@ data DBParameterGroupStatus = DBParameterGroupStatus'
 dbParameterGroupStatus
     :: DBParameterGroupStatus
 dbParameterGroupStatus =
-    DBParameterGroupStatus'
-    { _dpgsDBParameterGroupName = Nothing
-    , _dpgsParameterApplyStatus = Nothing
-    }
+  DBParameterGroupStatus'
+  {_dpgsDBParameterGroupName = Nothing, _dpgsParameterApplyStatus = Nothing}
+
 
 -- | The name of the DP parameter group.
 dpgsDBParameterGroupName :: Lens' DBParameterGroupStatus (Maybe Text)
@@ -1971,9 +1992,9 @@ instance FromXML DBParameterGroupStatus where
               (x .@? "DBParameterGroupName") <*>
                 (x .@? "ParameterApplyStatus")
 
-instance Hashable DBParameterGroupStatus
+instance Hashable DBParameterGroupStatus where
 
-instance NFData DBParameterGroupStatus
+instance NFData DBParameterGroupStatus where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -1993,14 +2014,15 @@ instance NFData DBParameterGroupStatus
 --
 -- /See:/ 'dbSecurityGroup' smart constructor.
 data DBSecurityGroup = DBSecurityGroup'
-    { _dbsgVPCId                      :: !(Maybe Text)
-    , _dbsgOwnerId                    :: !(Maybe Text)
-    , _dbsgDBSecurityGroupARN         :: !(Maybe Text)
-    , _dbsgIPRanges                   :: !(Maybe [IPRange])
-    , _dbsgDBSecurityGroupName        :: !(Maybe Text)
-    , _dbsgEC2SecurityGroups          :: !(Maybe [EC2SecurityGroup])
-    , _dbsgDBSecurityGroupDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbsgVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbsgOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbsgDBSecurityGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbsgIPRanges :: {-# NOUNPACK #-}!(Maybe [IPRange])
+  , _dbsgDBSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dbsgEC2SecurityGroups :: {-# NOUNPACK #-}!(Maybe [EC2SecurityGroup])
+  , _dbsgDBSecurityGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBSecurityGroup' with the minimum fields required to make a request.
 --
@@ -2022,15 +2044,16 @@ data DBSecurityGroup = DBSecurityGroup'
 dbSecurityGroup
     :: DBSecurityGroup
 dbSecurityGroup =
-    DBSecurityGroup'
-    { _dbsgVPCId = Nothing
-    , _dbsgOwnerId = Nothing
-    , _dbsgDBSecurityGroupARN = Nothing
-    , _dbsgIPRanges = Nothing
-    , _dbsgDBSecurityGroupName = Nothing
-    , _dbsgEC2SecurityGroups = Nothing
-    , _dbsgDBSecurityGroupDescription = Nothing
-    }
+  DBSecurityGroup'
+  { _dbsgVPCId = Nothing
+  , _dbsgOwnerId = Nothing
+  , _dbsgDBSecurityGroupARN = Nothing
+  , _dbsgIPRanges = Nothing
+  , _dbsgDBSecurityGroupName = Nothing
+  , _dbsgEC2SecurityGroups = Nothing
+  , _dbsgDBSecurityGroupDescription = Nothing
+  }
+
 
 -- | Provides the VpcId of the DB security group.
 dbsgVPCId :: Lens' DBSecurityGroup (Maybe Text)
@@ -2074,9 +2097,9 @@ instance FromXML DBSecurityGroup where
                    may (parseXMLList "EC2SecurityGroup"))
                 <*> (x .@? "DBSecurityGroupDescription")
 
-instance Hashable DBSecurityGroup
+instance Hashable DBSecurityGroup where
 
-instance NFData DBSecurityGroup
+instance NFData DBSecurityGroup where
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -2094,9 +2117,10 @@ instance NFData DBSecurityGroup
 --
 -- /See:/ 'dbSecurityGroupMembership' smart constructor.
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
-    { _dsgmStatus              :: !(Maybe Text)
-    , _dsgmDBSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgmStatus              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgmDBSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBSecurityGroupMembership' with the minimum fields required to make a request.
 --
@@ -2108,10 +2132,9 @@ data DBSecurityGroupMembership = DBSecurityGroupMembership'
 dbSecurityGroupMembership
     :: DBSecurityGroupMembership
 dbSecurityGroupMembership =
-    DBSecurityGroupMembership'
-    { _dsgmStatus = Nothing
-    , _dsgmDBSecurityGroupName = Nothing
-    }
+  DBSecurityGroupMembership'
+  {_dsgmStatus = Nothing, _dsgmDBSecurityGroupName = Nothing}
+
 
 -- | The status of the DB security group.
 dsgmStatus :: Lens' DBSecurityGroupMembership (Maybe Text)
@@ -2126,9 +2149,9 @@ instance FromXML DBSecurityGroupMembership where
           = DBSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "DBSecurityGroupName")
 
-instance Hashable DBSecurityGroupMembership
+instance Hashable DBSecurityGroupMembership where
 
-instance NFData DBSecurityGroupMembership
+instance NFData DBSecurityGroupMembership where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -2144,33 +2167,34 @@ instance NFData DBSecurityGroupMembership
 --
 -- /See:/ 'dbSnapshot' smart constructor.
 data DBSnapshot = DBSnapshot'
-    { _dsEngineVersion                    :: !(Maybe Text)
-    , _dsStatus                           :: !(Maybe Text)
-    , _dsDBSnapshotARN                    :: !(Maybe Text)
-    , _dsMasterUsername                   :: !(Maybe Text)
-    , _dsSourceRegion                     :: !(Maybe Text)
-    , _dsIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
-    , _dsIOPS                             :: !(Maybe Int)
-    , _dsVPCId                            :: !(Maybe Text)
-    , _dsInstanceCreateTime               :: !(Maybe ISO8601)
-    , _dsEngine                           :: !(Maybe Text)
-    , _dsEncrypted                        :: !(Maybe Bool)
-    , _dsDBSnapshotIdentifier             :: !(Maybe Text)
-    , _dsLicenseModel                     :: !(Maybe Text)
-    , _dsSourceDBSnapshotIdentifier       :: !(Maybe Text)
-    , _dsSnapshotType                     :: !(Maybe Text)
-    , _dsDBInstanceIdentifier             :: !(Maybe Text)
-    , _dsKMSKeyId                         :: !(Maybe Text)
-    , _dsAvailabilityZone                 :: !(Maybe Text)
-    , _dsSnapshotCreateTime               :: !(Maybe ISO8601)
-    , _dsAllocatedStorage                 :: !(Maybe Int)
-    , _dsOptionGroupName                  :: !(Maybe Text)
-    , _dsTimezone                         :: !(Maybe Text)
-    , _dsTDECredentialARN                 :: !(Maybe Text)
-    , _dsPercentProgress                  :: !(Maybe Int)
-    , _dsPort                             :: !(Maybe Int)
-    , _dsStorageType                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsEngineVersion                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsStatus                           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsDBSnapshotARN                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsMasterUsername                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsSourceRegion                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsIAMDatabaseAuthenticationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsIOPS                             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsVPCId                            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsInstanceCreateTime               :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dsEngine                           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsEncrypted                        :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dsDBSnapshotIdentifier             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsLicenseModel                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsSourceDBSnapshotIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsSnapshotType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsDBInstanceIdentifier             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsAvailabilityZone                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsSnapshotCreateTime               :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _dsAllocatedStorage                 :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsOptionGroupName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsTimezone                         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsTDECredentialARN                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsPercentProgress                  :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsPort                             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dsStorageType                      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBSnapshot' with the minimum fields required to make a request.
 --
@@ -2230,34 +2254,35 @@ data DBSnapshot = DBSnapshot'
 dbSnapshot
     :: DBSnapshot
 dbSnapshot =
-    DBSnapshot'
-    { _dsEngineVersion = Nothing
-    , _dsStatus = Nothing
-    , _dsDBSnapshotARN = Nothing
-    , _dsMasterUsername = Nothing
-    , _dsSourceRegion = Nothing
-    , _dsIAMDatabaseAuthenticationEnabled = Nothing
-    , _dsIOPS = Nothing
-    , _dsVPCId = Nothing
-    , _dsInstanceCreateTime = Nothing
-    , _dsEngine = Nothing
-    , _dsEncrypted = Nothing
-    , _dsDBSnapshotIdentifier = Nothing
-    , _dsLicenseModel = Nothing
-    , _dsSourceDBSnapshotIdentifier = Nothing
-    , _dsSnapshotType = Nothing
-    , _dsDBInstanceIdentifier = Nothing
-    , _dsKMSKeyId = Nothing
-    , _dsAvailabilityZone = Nothing
-    , _dsSnapshotCreateTime = Nothing
-    , _dsAllocatedStorage = Nothing
-    , _dsOptionGroupName = Nothing
-    , _dsTimezone = Nothing
-    , _dsTDECredentialARN = Nothing
-    , _dsPercentProgress = Nothing
-    , _dsPort = Nothing
-    , _dsStorageType = Nothing
-    }
+  DBSnapshot'
+  { _dsEngineVersion = Nothing
+  , _dsStatus = Nothing
+  , _dsDBSnapshotARN = Nothing
+  , _dsMasterUsername = Nothing
+  , _dsSourceRegion = Nothing
+  , _dsIAMDatabaseAuthenticationEnabled = Nothing
+  , _dsIOPS = Nothing
+  , _dsVPCId = Nothing
+  , _dsInstanceCreateTime = Nothing
+  , _dsEngine = Nothing
+  , _dsEncrypted = Nothing
+  , _dsDBSnapshotIdentifier = Nothing
+  , _dsLicenseModel = Nothing
+  , _dsSourceDBSnapshotIdentifier = Nothing
+  , _dsSnapshotType = Nothing
+  , _dsDBInstanceIdentifier = Nothing
+  , _dsKMSKeyId = Nothing
+  , _dsAvailabilityZone = Nothing
+  , _dsSnapshotCreateTime = Nothing
+  , _dsAllocatedStorage = Nothing
+  , _dsOptionGroupName = Nothing
+  , _dsTimezone = Nothing
+  , _dsTDECredentialARN = Nothing
+  , _dsPercentProgress = Nothing
+  , _dsPort = Nothing
+  , _dsStorageType = Nothing
+  }
+
 
 -- | Specifies the version of the database engine.
 dsEngineVersion :: Lens' DBSnapshot (Maybe Text)
@@ -2392,9 +2417,9 @@ instance FromXML DBSnapshot where
                 <*> (x .@? "Port")
                 <*> (x .@? "StorageType")
 
-instance Hashable DBSnapshot
+instance Hashable DBSnapshot where
 
-instance NFData DBSnapshot
+instance NFData DBSnapshot where
 
 -- | Contains the name and values of a manual DB snapshot attribute
 --
@@ -2404,9 +2429,10 @@ instance NFData DBSnapshot
 --
 -- /See:/ 'dbSnapshotAttribute' smart constructor.
 data DBSnapshotAttribute = DBSnapshotAttribute'
-    { _dsaAttributeValues :: !(Maybe [Text])
-    , _dsaAttributeName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsaAttributeValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsaAttributeName   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBSnapshotAttribute' with the minimum fields required to make a request.
 --
@@ -2418,10 +2444,9 @@ data DBSnapshotAttribute = DBSnapshotAttribute'
 dbSnapshotAttribute
     :: DBSnapshotAttribute
 dbSnapshotAttribute =
-    DBSnapshotAttribute'
-    { _dsaAttributeValues = Nothing
-    , _dsaAttributeName = Nothing
-    }
+  DBSnapshotAttribute'
+  {_dsaAttributeValues = Nothing, _dsaAttributeName = Nothing}
+
 
 -- | The value or values for the manual DB snapshot attribute. If the @AttributeName@ field is set to @restore@ , then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB snapshot. If a value of @all@ is in the list, then the manual DB snapshot is public and available for any AWS account to copy or restore.
 dsaAttributeValues :: Lens' DBSnapshotAttribute [Text]
@@ -2438,9 +2463,9 @@ instance FromXML DBSnapshotAttribute where
                  may (parseXMLList "AttributeValue"))
                 <*> (x .@? "AttributeName")
 
-instance Hashable DBSnapshotAttribute
+instance Hashable DBSnapshotAttribute where
 
-instance NFData DBSnapshotAttribute
+instance NFData DBSnapshotAttribute where
 
 -- | Contains the results of a successful call to the 'DescribeDBSnapshotAttributes' API action.
 --
@@ -2450,9 +2475,10 @@ instance NFData DBSnapshotAttribute
 --
 -- /See:/ 'dbSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
-    { _dsarDBSnapshotIdentifier :: !(Maybe Text)
-    , _dsarDBSnapshotAttributes :: !(Maybe [DBSnapshotAttribute])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsarDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsarDBSnapshotAttributes :: {-# NOUNPACK #-}!(Maybe [DBSnapshotAttribute])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBSnapshotAttributesResult' with the minimum fields required to make a request.
 --
@@ -2464,10 +2490,9 @@ data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
 dbSnapshotAttributesResult
     :: DBSnapshotAttributesResult
 dbSnapshotAttributesResult =
-    DBSnapshotAttributesResult'
-    { _dsarDBSnapshotIdentifier = Nothing
-    , _dsarDBSnapshotAttributes = Nothing
-    }
+  DBSnapshotAttributesResult'
+  {_dsarDBSnapshotIdentifier = Nothing, _dsarDBSnapshotAttributes = Nothing}
+
 
 -- | The identifier of the manual DB snapshot that the attributes apply to.
 dsarDBSnapshotIdentifier :: Lens' DBSnapshotAttributesResult (Maybe Text)
@@ -2484,9 +2509,9 @@ instance FromXML DBSnapshotAttributesResult where
                 (x .@? "DBSnapshotAttributes" .!@ mempty >>=
                    may (parseXMLList "DBSnapshotAttribute"))
 
-instance Hashable DBSnapshotAttributesResult
+instance Hashable DBSnapshotAttributesResult where
 
-instance NFData DBSnapshotAttributesResult
+instance NFData DBSnapshotAttributesResult where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -2506,13 +2531,14 @@ instance NFData DBSnapshotAttributesResult
 --
 -- /See:/ 'dbSubnetGroup' smart constructor.
 data DBSubnetGroup = DBSubnetGroup'
-    { _dsgDBSubnetGroupName        :: !(Maybe Text)
-    , _dsgVPCId                    :: !(Maybe Text)
-    , _dsgSubnets                  :: !(Maybe [Subnet])
-    , _dsgDBSubnetGroupDescription :: !(Maybe Text)
-    , _dsgDBSubnetGroupARN         :: !(Maybe Text)
-    , _dsgSubnetGroupStatus        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgDBSubnetGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgVPCId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgSubnets                  :: {-# NOUNPACK #-}!(Maybe [Subnet])
+  , _dsgDBSubnetGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgDBSubnetGroupARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dsgSubnetGroupStatus        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DBSubnetGroup' with the minimum fields required to make a request.
 --
@@ -2532,14 +2558,15 @@ data DBSubnetGroup = DBSubnetGroup'
 dbSubnetGroup
     :: DBSubnetGroup
 dbSubnetGroup =
-    DBSubnetGroup'
-    { _dsgDBSubnetGroupName = Nothing
-    , _dsgVPCId = Nothing
-    , _dsgSubnets = Nothing
-    , _dsgDBSubnetGroupDescription = Nothing
-    , _dsgDBSubnetGroupARN = Nothing
-    , _dsgSubnetGroupStatus = Nothing
-    }
+  DBSubnetGroup'
+  { _dsgDBSubnetGroupName = Nothing
+  , _dsgVPCId = Nothing
+  , _dsgSubnets = Nothing
+  , _dsgDBSubnetGroupDescription = Nothing
+  , _dsgDBSubnetGroupARN = Nothing
+  , _dsgSubnetGroupStatus = Nothing
+  }
+
 
 -- | The name of the DB subnet group.
 dsgDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
@@ -2575,9 +2602,9 @@ instance FromXML DBSubnetGroup where
                 <*> (x .@? "DBSubnetGroupArn")
                 <*> (x .@? "SubnetGroupStatus")
 
-instance Hashable DBSubnetGroup
+instance Hashable DBSubnetGroup where
 
-instance NFData DBSubnetGroup
+instance NFData DBSubnetGroup where
 
 -- | This data type is used as a response element to 'DescribeDBLogFiles' .
 --
@@ -2585,10 +2612,11 @@ instance NFData DBSubnetGroup
 --
 -- /See:/ 'describeDBLogFilesDetails' smart constructor.
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
-    { _ddlfdLastWritten :: !(Maybe Integer)
-    , _ddlfdSize        :: !(Maybe Integer)
-    , _ddlfdLogFileName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddlfdLastWritten :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _ddlfdSize        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _ddlfdLogFileName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDBLogFilesDetails' with the minimum fields required to make a request.
 --
@@ -2602,11 +2630,12 @@ data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
 describeDBLogFilesDetails
     :: DescribeDBLogFilesDetails
 describeDBLogFilesDetails =
-    DescribeDBLogFilesDetails'
-    { _ddlfdLastWritten = Nothing
-    , _ddlfdSize = Nothing
-    , _ddlfdLogFileName = Nothing
-    }
+  DescribeDBLogFilesDetails'
+  { _ddlfdLastWritten = Nothing
+  , _ddlfdSize = Nothing
+  , _ddlfdLogFileName = Nothing
+  }
+
 
 -- | A POSIX timestamp when the last log entry was written.
 ddlfdLastWritten :: Lens' DescribeDBLogFilesDetails (Maybe Integer)
@@ -2626,9 +2655,9 @@ instance FromXML DescribeDBLogFilesDetails where
               (x .@? "LastWritten") <*> (x .@? "Size") <*>
                 (x .@? "LogFileName")
 
-instance Hashable DescribeDBLogFilesDetails
+instance Hashable DescribeDBLogFilesDetails where
 
-instance NFData DescribeDBLogFilesDetails
+instance NFData DescribeDBLogFilesDetails where
 
 -- | An Active Directory Domain membership record associated with the DB instance.
 --
@@ -2636,11 +2665,12 @@ instance NFData DescribeDBLogFilesDetails
 --
 -- /See:/ 'domainMembership' smart constructor.
 data DomainMembership = DomainMembership'
-    { _dmStatus      :: !(Maybe Text)
-    , _dmFQDN        :: !(Maybe Text)
-    , _dmDomain      :: !(Maybe Text)
-    , _dmIAMRoleName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dmStatus      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmFQDN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmDomain      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dmIAMRoleName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DomainMembership' with the minimum fields required to make a request.
 --
@@ -2656,12 +2686,13 @@ data DomainMembership = DomainMembership'
 domainMembership
     :: DomainMembership
 domainMembership =
-    DomainMembership'
-    { _dmStatus = Nothing
-    , _dmFQDN = Nothing
-    , _dmDomain = Nothing
-    , _dmIAMRoleName = Nothing
-    }
+  DomainMembership'
+  { _dmStatus = Nothing
+  , _dmFQDN = Nothing
+  , _dmDomain = Nothing
+  , _dmIAMRoleName = Nothing
+  }
+
 
 -- | The status of the DB instance's Active Directory Domain membership, such as joined, pending-join, failed etc).
 dmStatus :: Lens' DomainMembership (Maybe Text)
@@ -2686,9 +2717,9 @@ instance FromXML DomainMembership where
                 (x .@? "Domain")
                 <*> (x .@? "IAMRoleName")
 
-instance Hashable DomainMembership
+instance Hashable DomainMembership where
 
-instance NFData DomainMembership
+instance NFData DomainMembership where
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -2704,11 +2735,12 @@ instance NFData DomainMembership
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-    { _esgStatus                  :: !(Maybe Text)
-    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _esgEC2SecurityGroupName    :: !(Maybe Text)
-    , _esgEC2SecurityGroupId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esgStatus                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esgEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esgEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esgEC2SecurityGroupId      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
@@ -2724,12 +2756,13 @@ data EC2SecurityGroup = EC2SecurityGroup'
 ec2SecurityGroup
     :: EC2SecurityGroup
 ec2SecurityGroup =
-    EC2SecurityGroup'
-    { _esgStatus = Nothing
-    , _esgEC2SecurityGroupOwnerId = Nothing
-    , _esgEC2SecurityGroupName = Nothing
-    , _esgEC2SecurityGroupId = Nothing
-    }
+  EC2SecurityGroup'
+  { _esgStatus = Nothing
+  , _esgEC2SecurityGroupOwnerId = Nothing
+  , _esgEC2SecurityGroupName = Nothing
+  , _esgEC2SecurityGroupId = Nothing
+  }
+
 
 -- | Provides the status of the EC2 security group. Status can be "authorizing", "authorized", "revoking", and "revoked".
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
@@ -2755,9 +2788,9 @@ instance FromXML EC2SecurityGroup where
                 <*> (x .@? "EC2SecurityGroupName")
                 <*> (x .@? "EC2SecurityGroupId")
 
-instance Hashable EC2SecurityGroup
+instance Hashable EC2SecurityGroup where
 
-instance NFData EC2SecurityGroup
+instance NFData EC2SecurityGroup where
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -2773,10 +2806,11 @@ instance NFData EC2SecurityGroup
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-    { _eHostedZoneId :: !(Maybe Text)
-    , _eAddress      :: !(Maybe Text)
-    , _ePort         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eHostedZoneId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eAddress      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ePort         :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
@@ -2790,11 +2824,8 @@ data Endpoint = Endpoint'
 endpoint
     :: Endpoint
 endpoint =
-    Endpoint'
-    { _eHostedZoneId = Nothing
-    , _eAddress = Nothing
-    , _ePort = Nothing
-    }
+  Endpoint' {_eHostedZoneId = Nothing, _eAddress = Nothing, _ePort = Nothing}
+
 
 -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 eHostedZoneId :: Lens' Endpoint (Maybe Text)
@@ -2814,9 +2845,9 @@ instance FromXML Endpoint where
               (x .@? "HostedZoneId") <*> (x .@? "Address") <*>
                 (x .@? "Port")
 
-instance Hashable Endpoint
+instance Hashable Endpoint where
 
-instance NFData Endpoint
+instance NFData Endpoint where
 
 -- | Contains the result of a successful invocation of the 'DescribeEngineDefaultParameters' action.
 --
@@ -2824,10 +2855,11 @@ instance NFData Endpoint
 --
 -- /See:/ 'engineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
-    { _edDBParameterGroupFamily :: !(Maybe Text)
-    , _edMarker                 :: !(Maybe Text)
-    , _edParameters             :: !(Maybe [Parameter])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _edDBParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edParameters             :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EngineDefaults' with the minimum fields required to make a request.
 --
@@ -2841,11 +2873,12 @@ data EngineDefaults = EngineDefaults'
 engineDefaults
     :: EngineDefaults
 engineDefaults =
-    EngineDefaults'
-    { _edDBParameterGroupFamily = Nothing
-    , _edMarker = Nothing
-    , _edParameters = Nothing
-    }
+  EngineDefaults'
+  { _edDBParameterGroupFamily = Nothing
+  , _edMarker = Nothing
+  , _edParameters = Nothing
+  }
+
 
 -- | Specifies the name of the DB parameter group family that the engine default parameters apply to.
 edDBParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
@@ -2867,9 +2900,9 @@ instance FromXML EngineDefaults where
                 (x .@? "Parameters" .!@ mempty >>=
                    may (parseXMLList "Parameter"))
 
-instance Hashable EngineDefaults
+instance Hashable EngineDefaults where
 
-instance NFData EngineDefaults
+instance NFData EngineDefaults where
 
 -- | This data type is used as a response element in the 'DescribeEvents' action.
 --
@@ -2877,13 +2910,14 @@ instance NFData EngineDefaults
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eSourceType       :: !(Maybe SourceType)
-    , _eSourceARN        :: !(Maybe Text)
-    , _eSourceIdentifier :: !(Maybe Text)
-    , _eDate             :: !(Maybe ISO8601)
-    , _eEventCategories  :: !(Maybe [Text])
-    , _eMessage          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _eSourceARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eDate             :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _eEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eMessage          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
@@ -2903,14 +2937,15 @@ data Event = Event'
 event
     :: Event
 event =
-    Event'
-    { _eSourceType = Nothing
-    , _eSourceARN = Nothing
-    , _eSourceIdentifier = Nothing
-    , _eDate = Nothing
-    , _eEventCategories = Nothing
-    , _eMessage = Nothing
-    }
+  Event'
+  { _eSourceType = Nothing
+  , _eSourceARN = Nothing
+  , _eSourceIdentifier = Nothing
+  , _eDate = Nothing
+  , _eEventCategories = Nothing
+  , _eMessage = Nothing
+  }
+
 
 -- | Specifies the source type for this event.
 eSourceType :: Lens' Event (Maybe SourceType)
@@ -2947,9 +2982,9 @@ instance FromXML Event where
                    may (parseXMLList "EventCategory"))
                 <*> (x .@? "Message")
 
-instance Hashable Event
+instance Hashable Event where
 
-instance NFData Event
+instance NFData Event where
 
 -- | Contains the results of a successful invocation of the 'DescribeEventCategories' action.
 --
@@ -2957,9 +2992,10 @@ instance NFData Event
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-    { _ecmSourceType      :: !(Maybe Text)
-    , _ecmEventCategories :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ecmSourceType      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ecmEventCategories :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
 --
@@ -2971,10 +3007,8 @@ data EventCategoriesMap = EventCategoriesMap'
 eventCategoriesMap
     :: EventCategoriesMap
 eventCategoriesMap =
-    EventCategoriesMap'
-    { _ecmSourceType = Nothing
-    , _ecmEventCategories = Nothing
-    }
+  EventCategoriesMap' {_ecmSourceType = Nothing, _ecmEventCategories = Nothing}
+
 
 -- | The source type that the returned categories belong to
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
@@ -2991,9 +3025,9 @@ instance FromXML EventCategoriesMap where
                 (x .@? "EventCategories" .!@ mempty >>=
                    may (parseXMLList "EventCategory"))
 
-instance Hashable EventCategoriesMap
+instance Hashable EventCategoriesMap where
 
-instance NFData EventCategoriesMap
+instance NFData EventCategoriesMap where
 
 -- | Contains the results of a successful invocation of the 'DescribeEventSubscriptions' action.
 --
@@ -3001,17 +3035,18 @@ instance NFData EventCategoriesMap
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-    { _esStatus                   :: !(Maybe Text)
-    , _esCustomerAWSId            :: !(Maybe Text)
-    , _esCustSubscriptionId       :: !(Maybe Text)
-    , _esSNSTopicARN              :: !(Maybe Text)
-    , _esEventSubscriptionARN     :: !(Maybe Text)
-    , _esEnabled                  :: !(Maybe Bool)
-    , _esSourceType               :: !(Maybe Text)
-    , _esSubscriptionCreationTime :: !(Maybe Text)
-    , _esEventCategoriesList      :: !(Maybe [Text])
-    , _esSourceIdsList            :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esCustomerAWSId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esCustSubscriptionId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esSNSTopicARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esEventSubscriptionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _esSourceType               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esSubscriptionCreationTime :: {-# NOUNPACK #-}!(Maybe Text)
+  , _esEventCategoriesList      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _esSourceIdsList            :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
@@ -3039,18 +3074,19 @@ data EventSubscription = EventSubscription'
 eventSubscription
     :: EventSubscription
 eventSubscription =
-    EventSubscription'
-    { _esStatus = Nothing
-    , _esCustomerAWSId = Nothing
-    , _esCustSubscriptionId = Nothing
-    , _esSNSTopicARN = Nothing
-    , _esEventSubscriptionARN = Nothing
-    , _esEnabled = Nothing
-    , _esSourceType = Nothing
-    , _esSubscriptionCreationTime = Nothing
-    , _esEventCategoriesList = Nothing
-    , _esSourceIdsList = Nothing
-    }
+  EventSubscription'
+  { _esStatus = Nothing
+  , _esCustomerAWSId = Nothing
+  , _esCustSubscriptionId = Nothing
+  , _esSNSTopicARN = Nothing
+  , _esEventSubscriptionARN = Nothing
+  , _esEnabled = Nothing
+  , _esSourceType = Nothing
+  , _esSubscriptionCreationTime = Nothing
+  , _esEventCategoriesList = Nothing
+  , _esSourceIdsList = Nothing
+  }
+
 
 -- | The status of the RDS event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist The status "no-permission" indicates that RDS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
@@ -3109,9 +3145,9 @@ instance FromXML EventSubscription where
                 (x .@? "SourceIdsList" .!@ mempty >>=
                    may (parseXMLList "SourceId"))
 
-instance Hashable EventSubscription
+instance Hashable EventSubscription where
 
-instance NFData EventSubscription
+instance NFData EventSubscription where
 
 -- | This type is not currently supported.
 --
@@ -3119,9 +3155,10 @@ instance NFData EventSubscription
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
-    { _fName   :: !Text
-    , _fValues :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fName   :: {-# NOUNPACK #-}!Text
+  , _fValues :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
@@ -3133,11 +3170,8 @@ data Filter = Filter'
 filter'
     :: Text -- ^ 'fName'
     -> Filter
-filter' pName_ =
-    Filter'
-    { _fName = pName_
-    , _fValues = mempty
-    }
+filter' pName_ = Filter' {_fName = pName_, _fValues = mempty}
+
 
 -- | This parameter is not currently supported.
 fName :: Lens' Filter Text
@@ -3147,9 +3181,9 @@ fName = lens _fName (\ s a -> s{_fName = a});
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 
-instance Hashable Filter
+instance Hashable Filter where
 
-instance NFData Filter
+instance NFData Filter where
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -3163,9 +3197,10 @@ instance ToQuery Filter where
 --
 -- /See:/ 'ipRange' smart constructor.
 data IPRange = IPRange'
-    { _irStatus :: !(Maybe Text)
-    , _irCIdRIP :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _irStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irCIdRIP :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
@@ -3176,11 +3211,8 @@ data IPRange = IPRange'
 -- * 'irCIdRIP' - Specifies the IP range.
 ipRange
     :: IPRange
-ipRange =
-    IPRange'
-    { _irStatus = Nothing
-    , _irCIdRIP = Nothing
-    }
+ipRange = IPRange' {_irStatus = Nothing, _irCIdRIP = Nothing}
+
 
 -- | Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
 irStatus :: Lens' IPRange (Maybe Text)
@@ -3194,9 +3226,9 @@ instance FromXML IPRange where
         parseXML x
           = IPRange' <$> (x .@? "Status") <*> (x .@? "CIDRIP")
 
-instance Hashable IPRange
+instance Hashable IPRange where
 
-instance NFData IPRange
+instance NFData IPRange where
 
 -- | Option details.
 --
@@ -3204,16 +3236,17 @@ instance NFData IPRange
 --
 -- /See:/ 'option' smart constructor.
 data Option = Option'
-    { _oOptionName                  :: !(Maybe Text)
-    , _oPermanent                   :: !(Maybe Bool)
-    , _oPersistent                  :: !(Maybe Bool)
-    , _oOptionDescription           :: !(Maybe Text)
-    , _oOptionSettings              :: !(Maybe [OptionSetting])
-    , _oVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
-    , _oDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
-    , _oOptionVersion               :: !(Maybe Text)
-    , _oPort                        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _oOptionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oPermanent :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _oPersistent :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _oOptionDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oOptionSettings :: {-# NOUNPACK #-}!(Maybe [OptionSetting])
+  , _oVPCSecurityGroupMemberships :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
+  , _oDBSecurityGroupMemberships :: {-# NOUNPACK #-}!(Maybe [DBSecurityGroupMembership])
+  , _oOptionVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _oPort :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Option' with the minimum fields required to make a request.
 --
@@ -3239,17 +3272,18 @@ data Option = Option'
 option
     :: Option
 option =
-    Option'
-    { _oOptionName = Nothing
-    , _oPermanent = Nothing
-    , _oPersistent = Nothing
-    , _oOptionDescription = Nothing
-    , _oOptionSettings = Nothing
-    , _oVPCSecurityGroupMemberships = Nothing
-    , _oDBSecurityGroupMemberships = Nothing
-    , _oOptionVersion = Nothing
-    , _oPort = Nothing
-    }
+  Option'
+  { _oOptionName = Nothing
+  , _oPermanent = Nothing
+  , _oPersistent = Nothing
+  , _oOptionDescription = Nothing
+  , _oOptionSettings = Nothing
+  , _oVPCSecurityGroupMemberships = Nothing
+  , _oDBSecurityGroupMemberships = Nothing
+  , _oOptionVersion = Nothing
+  , _oPort = Nothing
+  }
+
 
 -- | The name of the option.
 oOptionName :: Lens' Option (Maybe Text)
@@ -3305,9 +3339,9 @@ instance FromXML Option where
                 <*> (x .@? "OptionVersion")
                 <*> (x .@? "Port")
 
-instance Hashable Option
+instance Hashable Option where
 
-instance NFData Option
+instance NFData Option where
 
 -- | A list of all available options
 --
@@ -3315,13 +3349,14 @@ instance NFData Option
 --
 -- /See:/ 'optionConfiguration' smart constructor.
 data OptionConfiguration = OptionConfiguration'
-    { _ocOptionSettings              :: !(Maybe [OptionSetting])
-    , _ocVPCSecurityGroupMemberships :: !(Maybe [Text])
-    , _ocDBSecurityGroupMemberships  :: !(Maybe [Text])
-    , _ocOptionVersion               :: !(Maybe Text)
-    , _ocPort                        :: !(Maybe Int)
-    , _ocOptionName                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ocOptionSettings              :: {-# NOUNPACK #-}!(Maybe [OptionSetting])
+  , _ocVPCSecurityGroupMemberships :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ocDBSecurityGroupMemberships  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ocOptionVersion               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ocPort                        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ocOptionName                  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionConfiguration' with the minimum fields required to make a request.
 --
@@ -3342,14 +3377,15 @@ optionConfiguration
     :: Text -- ^ 'ocOptionName'
     -> OptionConfiguration
 optionConfiguration pOptionName_ =
-    OptionConfiguration'
-    { _ocOptionSettings = Nothing
-    , _ocVPCSecurityGroupMemberships = Nothing
-    , _ocDBSecurityGroupMemberships = Nothing
-    , _ocOptionVersion = Nothing
-    , _ocPort = Nothing
-    , _ocOptionName = pOptionName_
-    }
+  OptionConfiguration'
+  { _ocOptionSettings = Nothing
+  , _ocVPCSecurityGroupMemberships = Nothing
+  , _ocDBSecurityGroupMemberships = Nothing
+  , _ocOptionVersion = Nothing
+  , _ocPort = Nothing
+  , _ocOptionName = pOptionName_
+  }
+
 
 -- | The option settings to include in an option group.
 ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
@@ -3375,9 +3411,9 @@ ocPort = lens _ocPort (\ s a -> s{_ocPort = a});
 ocOptionName :: Lens' OptionConfiguration Text
 ocOptionName = lens _ocOptionName (\ s a -> s{_ocOptionName = a});
 
-instance Hashable OptionConfiguration
+instance Hashable OptionConfiguration where
 
-instance NFData OptionConfiguration
+instance NFData OptionConfiguration where
 
 instance ToQuery OptionConfiguration where
         toQuery OptionConfiguration'{..}
@@ -3402,15 +3438,16 @@ instance ToQuery OptionConfiguration where
 --
 -- /See:/ 'optionGroup' smart constructor.
 data OptionGroup = OptionGroup'
-    { _ogOptionGroupDescription                :: !(Maybe Text)
-    , _ogVPCId                                 :: !(Maybe Text)
-    , _ogAllowsVPCAndNonVPCInstanceMemberships :: !(Maybe Bool)
-    , _ogEngineName                            :: !(Maybe Text)
-    , _ogOptionGroupARN                        :: !(Maybe Text)
-    , _ogMajorEngineVersion                    :: !(Maybe Text)
-    , _ogOptions                               :: !(Maybe [Option])
-    , _ogOptionGroupName                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ogOptionGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogAllowsVPCAndNonVPCInstanceMemberships :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ogEngineName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogOptionGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogMajorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogOptions :: {-# NOUNPACK #-}!(Maybe [Option])
+  , _ogOptionGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionGroup' with the minimum fields required to make a request.
 --
@@ -3434,16 +3471,17 @@ data OptionGroup = OptionGroup'
 optionGroup
     :: OptionGroup
 optionGroup =
-    OptionGroup'
-    { _ogOptionGroupDescription = Nothing
-    , _ogVPCId = Nothing
-    , _ogAllowsVPCAndNonVPCInstanceMemberships = Nothing
-    , _ogEngineName = Nothing
-    , _ogOptionGroupARN = Nothing
-    , _ogMajorEngineVersion = Nothing
-    , _ogOptions = Nothing
-    , _ogOptionGroupName = Nothing
-    }
+  OptionGroup'
+  { _ogOptionGroupDescription = Nothing
+  , _ogVPCId = Nothing
+  , _ogAllowsVPCAndNonVPCInstanceMemberships = Nothing
+  , _ogEngineName = Nothing
+  , _ogOptionGroupARN = Nothing
+  , _ogMajorEngineVersion = Nothing
+  , _ogOptions = Nothing
+  , _ogOptionGroupName = Nothing
+  }
+
 
 -- | Provides a description of the option group.
 ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
@@ -3490,9 +3528,9 @@ instance FromXML OptionGroup where
                    may (parseXMLList "Option"))
                 <*> (x .@? "OptionGroupName")
 
-instance Hashable OptionGroup
+instance Hashable OptionGroup where
 
-instance NFData OptionGroup
+instance NFData OptionGroup where
 
 -- | Provides information on the option groups the DB instance is a member of.
 --
@@ -3500,9 +3538,10 @@ instance NFData OptionGroup
 --
 -- /See:/ 'optionGroupMembership' smart constructor.
 data OptionGroupMembership = OptionGroupMembership'
-    { _ogmStatus          :: !(Maybe Text)
-    , _ogmOptionGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ogmStatus          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogmOptionGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionGroupMembership' with the minimum fields required to make a request.
 --
@@ -3514,10 +3553,8 @@ data OptionGroupMembership = OptionGroupMembership'
 optionGroupMembership
     :: OptionGroupMembership
 optionGroupMembership =
-    OptionGroupMembership'
-    { _ogmStatus = Nothing
-    , _ogmOptionGroupName = Nothing
-    }
+  OptionGroupMembership' {_ogmStatus = Nothing, _ogmOptionGroupName = Nothing}
+
 
 -- | The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
 ogmStatus :: Lens' OptionGroupMembership (Maybe Text)
@@ -3532,9 +3569,9 @@ instance FromXML OptionGroupMembership where
           = OptionGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "OptionGroupName")
 
-instance Hashable OptionGroupMembership
+instance Hashable OptionGroupMembership where
 
-instance NFData OptionGroupMembership
+instance NFData OptionGroupMembership where
 
 -- | Available option.
 --
@@ -3542,20 +3579,21 @@ instance NFData OptionGroupMembership
 --
 -- /See:/ 'optionGroupOption' smart constructor.
 data OptionGroupOption = OptionGroupOption'
-    { _ogoMinimumRequiredMinorEngineVersion :: !(Maybe Text)
-    , _ogoOptionsConflictsWith              :: !(Maybe [Text])
-    , _ogoPermanent                         :: !(Maybe Bool)
-    , _ogoPersistent                        :: !(Maybe Bool)
-    , _ogoOptionGroupOptionVersions         :: !(Maybe [OptionVersion])
-    , _ogoEngineName                        :: !(Maybe Text)
-    , _ogoMajorEngineVersion                :: !(Maybe Text)
-    , _ogoName                              :: !(Maybe Text)
-    , _ogoDefaultPort                       :: !(Maybe Int)
-    , _ogoOptionGroupOptionSettings         :: !(Maybe [OptionGroupOptionSetting])
-    , _ogoPortRequired                      :: !(Maybe Bool)
-    , _ogoDescription                       :: !(Maybe Text)
-    , _ogoOptionsDependedOn                 :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ogoMinimumRequiredMinorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogoOptionsConflictsWith :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ogoPermanent :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ogoPersistent :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ogoOptionGroupOptionVersions :: {-# NOUNPACK #-}!(Maybe [OptionVersion])
+  , _ogoEngineName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogoMajorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogoName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogoDefaultPort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ogoOptionGroupOptionSettings :: {-# NOUNPACK #-}!(Maybe [OptionGroupOptionSetting])
+  , _ogoPortRequired :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ogoDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogoOptionsDependedOn :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionGroupOption' with the minimum fields required to make a request.
 --
@@ -3589,21 +3627,22 @@ data OptionGroupOption = OptionGroupOption'
 optionGroupOption
     :: OptionGroupOption
 optionGroupOption =
-    OptionGroupOption'
-    { _ogoMinimumRequiredMinorEngineVersion = Nothing
-    , _ogoOptionsConflictsWith = Nothing
-    , _ogoPermanent = Nothing
-    , _ogoPersistent = Nothing
-    , _ogoOptionGroupOptionVersions = Nothing
-    , _ogoEngineName = Nothing
-    , _ogoMajorEngineVersion = Nothing
-    , _ogoName = Nothing
-    , _ogoDefaultPort = Nothing
-    , _ogoOptionGroupOptionSettings = Nothing
-    , _ogoPortRequired = Nothing
-    , _ogoDescription = Nothing
-    , _ogoOptionsDependedOn = Nothing
-    }
+  OptionGroupOption'
+  { _ogoMinimumRequiredMinorEngineVersion = Nothing
+  , _ogoOptionsConflictsWith = Nothing
+  , _ogoPermanent = Nothing
+  , _ogoPersistent = Nothing
+  , _ogoOptionGroupOptionVersions = Nothing
+  , _ogoEngineName = Nothing
+  , _ogoMajorEngineVersion = Nothing
+  , _ogoName = Nothing
+  , _ogoDefaultPort = Nothing
+  , _ogoOptionGroupOptionSettings = Nothing
+  , _ogoPortRequired = Nothing
+  , _ogoDescription = Nothing
+  , _ogoOptionsDependedOn = Nothing
+  }
+
 
 -- | The minimum required engine version for the option to be applied.
 ogoMinimumRequiredMinorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
@@ -3681,9 +3720,9 @@ instance FromXML OptionGroupOption where
                 (x .@? "OptionsDependedOn" .!@ mempty >>=
                    may (parseXMLList "OptionName"))
 
-instance Hashable OptionGroupOption
+instance Hashable OptionGroupOption where
 
-instance NFData OptionGroupOption
+instance NFData OptionGroupOption where
 
 -- | Option group option settings are used to display settings available for each option with their default values and other information. These values are used with the DescribeOptionGroupOptions action.
 --
@@ -3691,13 +3730,14 @@ instance NFData OptionGroupOption
 --
 -- /See:/ 'optionGroupOptionSetting' smart constructor.
 data OptionGroupOptionSetting = OptionGroupOptionSetting'
-    { _ogosApplyType          :: !(Maybe Text)
-    , _ogosSettingName        :: !(Maybe Text)
-    , _ogosDefaultValue       :: !(Maybe Text)
-    , _ogosIsModifiable       :: !(Maybe Bool)
-    , _ogosSettingDescription :: !(Maybe Text)
-    , _ogosAllowedValues      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ogosApplyType          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogosSettingName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogosDefaultValue       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogosIsModifiable       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ogosSettingDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogosAllowedValues      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionGroupOptionSetting' with the minimum fields required to make a request.
 --
@@ -3717,14 +3757,15 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting'
 optionGroupOptionSetting
     :: OptionGroupOptionSetting
 optionGroupOptionSetting =
-    OptionGroupOptionSetting'
-    { _ogosApplyType = Nothing
-    , _ogosSettingName = Nothing
-    , _ogosDefaultValue = Nothing
-    , _ogosIsModifiable = Nothing
-    , _ogosSettingDescription = Nothing
-    , _ogosAllowedValues = Nothing
-    }
+  OptionGroupOptionSetting'
+  { _ogosApplyType = Nothing
+  , _ogosSettingName = Nothing
+  , _ogosDefaultValue = Nothing
+  , _ogosIsModifiable = Nothing
+  , _ogosSettingDescription = Nothing
+  , _ogosAllowedValues = Nothing
+  }
+
 
 -- | The DB engine specific parameter type for the option group option.
 ogosApplyType :: Lens' OptionGroupOptionSetting (Maybe Text)
@@ -3759,9 +3800,9 @@ instance FromXML OptionGroupOptionSetting where
                 <*> (x .@? "SettingDescription")
                 <*> (x .@? "AllowedValues")
 
-instance Hashable OptionGroupOptionSetting
+instance Hashable OptionGroupOptionSetting where
 
-instance NFData OptionGroupOptionSetting
+instance NFData OptionGroupOptionSetting where
 
 -- | Option settings are the actual settings being applied or configured for that option. It is used when you modify an option group or describe option groups. For example, the NATIVE_NETWORK_ENCRYPTION option has a setting called SQLNET.ENCRYPTION_SERVER that can have several different values.
 --
@@ -3769,16 +3810,17 @@ instance NFData OptionGroupOptionSetting
 --
 -- /See:/ 'optionSetting' smart constructor.
 data OptionSetting = OptionSetting'
-    { _osIsCollection  :: !(Maybe Bool)
-    , _osApplyType     :: !(Maybe Text)
-    , _osValue         :: !(Maybe Text)
-    , _osName          :: !(Maybe Text)
-    , _osDefaultValue  :: !(Maybe Text)
-    , _osIsModifiable  :: !(Maybe Bool)
-    , _osDataType      :: !(Maybe Text)
-    , _osAllowedValues :: !(Maybe Text)
-    , _osDescription   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _osIsCollection  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _osApplyType     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _osValue         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _osName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _osDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _osIsModifiable  :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _osDataType      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _osAllowedValues :: {-# NOUNPACK #-}!(Maybe Text)
+  , _osDescription   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionSetting' with the minimum fields required to make a request.
 --
@@ -3804,17 +3846,18 @@ data OptionSetting = OptionSetting'
 optionSetting
     :: OptionSetting
 optionSetting =
-    OptionSetting'
-    { _osIsCollection = Nothing
-    , _osApplyType = Nothing
-    , _osValue = Nothing
-    , _osName = Nothing
-    , _osDefaultValue = Nothing
-    , _osIsModifiable = Nothing
-    , _osDataType = Nothing
-    , _osAllowedValues = Nothing
-    , _osDescription = Nothing
-    }
+  OptionSetting'
+  { _osIsCollection = Nothing
+  , _osApplyType = Nothing
+  , _osValue = Nothing
+  , _osName = Nothing
+  , _osDefaultValue = Nothing
+  , _osIsModifiable = Nothing
+  , _osDataType = Nothing
+  , _osAllowedValues = Nothing
+  , _osDescription = Nothing
+  }
+
 
 -- | Indicates if the option setting is part of a collection.
 osIsCollection :: Lens' OptionSetting (Maybe Bool)
@@ -3864,9 +3907,9 @@ instance FromXML OptionSetting where
                 <*> (x .@? "AllowedValues")
                 <*> (x .@? "Description")
 
-instance Hashable OptionSetting
+instance Hashable OptionSetting where
 
-instance NFData OptionSetting
+instance NFData OptionSetting where
 
 instance ToQuery OptionSetting where
         toQuery OptionSetting'{..}
@@ -3885,9 +3928,10 @@ instance ToQuery OptionSetting where
 --
 -- /See:/ 'optionVersion' smart constructor.
 data OptionVersion = OptionVersion'
-    { _ovVersion   :: !(Maybe Text)
-    , _ovIsDefault :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ovVersion   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ovIsDefault :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OptionVersion' with the minimum fields required to make a request.
 --
@@ -3898,11 +3942,8 @@ data OptionVersion = OptionVersion'
 -- * 'ovIsDefault' - True if the version is the default version of the option; otherwise, false.
 optionVersion
     :: OptionVersion
-optionVersion =
-    OptionVersion'
-    { _ovVersion = Nothing
-    , _ovIsDefault = Nothing
-    }
+optionVersion = OptionVersion' {_ovVersion = Nothing, _ovIsDefault = Nothing}
+
 
 -- | The version of the option.
 ovVersion :: Lens' OptionVersion (Maybe Text)
@@ -3917,9 +3958,9 @@ instance FromXML OptionVersion where
           = OptionVersion' <$>
               (x .@? "Version") <*> (x .@? "IsDefault")
 
-instance Hashable OptionVersion
+instance Hashable OptionVersion where
 
-instance NFData OptionVersion
+instance NFData OptionVersion where
 
 -- | Contains a list of available options for a DB instance
 --
@@ -3929,20 +3970,21 @@ instance NFData OptionVersion
 --
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
-    { _odioEngineVersion                     :: !(Maybe Text)
-    , _odioSupportsIAMDatabaseAuthentication :: !(Maybe Bool)
-    , _odioMultiAZCapable                    :: !(Maybe Bool)
-    , _odioEngine                            :: !(Maybe Text)
-    , _odioSupportsIOPS                      :: !(Maybe Bool)
-    , _odioDBInstanceClass                   :: !(Maybe Text)
-    , _odioLicenseModel                      :: !(Maybe Text)
-    , _odioAvailabilityZones                 :: !(Maybe [AvailabilityZone])
-    , _odioSupportsStorageEncryption         :: !(Maybe Bool)
-    , _odioReadReplicaCapable                :: !(Maybe Bool)
-    , _odioVPC                               :: !(Maybe Bool)
-    , _odioSupportsEnhancedMonitoring        :: !(Maybe Bool)
-    , _odioStorageType                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _odioEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _odioSupportsIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioMultiAZCapable :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioEngine :: {-# NOUNPACK #-}!(Maybe Text)
+  , _odioSupportsIOPS :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
+  , _odioLicenseModel :: {-# NOUNPACK #-}!(Maybe Text)
+  , _odioAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
+  , _odioSupportsStorageEncryption :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioReadReplicaCapable :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioVPC :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioSupportsEnhancedMonitoring :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioStorageType :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OrderableDBInstanceOption' with the minimum fields required to make a request.
 --
@@ -3976,21 +4018,22 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 orderableDBInstanceOption
     :: OrderableDBInstanceOption
 orderableDBInstanceOption =
-    OrderableDBInstanceOption'
-    { _odioEngineVersion = Nothing
-    , _odioSupportsIAMDatabaseAuthentication = Nothing
-    , _odioMultiAZCapable = Nothing
-    , _odioEngine = Nothing
-    , _odioSupportsIOPS = Nothing
-    , _odioDBInstanceClass = Nothing
-    , _odioLicenseModel = Nothing
-    , _odioAvailabilityZones = Nothing
-    , _odioSupportsStorageEncryption = Nothing
-    , _odioReadReplicaCapable = Nothing
-    , _odioVPC = Nothing
-    , _odioSupportsEnhancedMonitoring = Nothing
-    , _odioStorageType = Nothing
-    }
+  OrderableDBInstanceOption'
+  { _odioEngineVersion = Nothing
+  , _odioSupportsIAMDatabaseAuthentication = Nothing
+  , _odioMultiAZCapable = Nothing
+  , _odioEngine = Nothing
+  , _odioSupportsIOPS = Nothing
+  , _odioDBInstanceClass = Nothing
+  , _odioLicenseModel = Nothing
+  , _odioAvailabilityZones = Nothing
+  , _odioSupportsStorageEncryption = Nothing
+  , _odioReadReplicaCapable = Nothing
+  , _odioVPC = Nothing
+  , _odioSupportsEnhancedMonitoring = Nothing
+  , _odioStorageType = Nothing
+  }
+
 
 -- | The engine version of the orderable DB instance.
 odioEngineVersion :: Lens' OrderableDBInstanceOption (Maybe Text)
@@ -4063,9 +4106,9 @@ instance FromXML OrderableDBInstanceOption where
                 <*> (x .@? "SupportsEnhancedMonitoring")
                 <*> (x .@? "StorageType")
 
-instance Hashable OrderableDBInstanceOption
+instance Hashable OrderableDBInstanceOption where
 
-instance NFData OrderableDBInstanceOption
+instance NFData OrderableDBInstanceOption where
 
 -- | This data type is used as a request parameter in the 'ModifyDBParameterGroup' and 'ResetDBParameterGroup' actions.
 --
@@ -4075,17 +4118,18 @@ instance NFData OrderableDBInstanceOption
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-    { _pApplyType            :: !(Maybe Text)
-    , _pParameterValue       :: !(Maybe Text)
-    , _pApplyMethod          :: !(Maybe ApplyMethod)
-    , _pMinimumEngineVersion :: !(Maybe Text)
-    , _pSource               :: !(Maybe Text)
-    , _pIsModifiable         :: !(Maybe Bool)
-    , _pDataType             :: !(Maybe Text)
-    , _pAllowedValues        :: !(Maybe Text)
-    , _pParameterName        :: !(Maybe Text)
-    , _pDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pApplyType            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pParameterValue       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pApplyMethod          :: {-# NOUNPACK #-}!(Maybe ApplyMethod)
+  , _pMinimumEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pSource               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pIsModifiable         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pDataType             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pAllowedValues        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pParameterName        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
@@ -4113,18 +4157,19 @@ data Parameter = Parameter'
 parameter
     :: Parameter
 parameter =
-    Parameter'
-    { _pApplyType = Nothing
-    , _pParameterValue = Nothing
-    , _pApplyMethod = Nothing
-    , _pMinimumEngineVersion = Nothing
-    , _pSource = Nothing
-    , _pIsModifiable = Nothing
-    , _pDataType = Nothing
-    , _pAllowedValues = Nothing
-    , _pParameterName = Nothing
-    , _pDescription = Nothing
-    }
+  Parameter'
+  { _pApplyType = Nothing
+  , _pParameterValue = Nothing
+  , _pApplyMethod = Nothing
+  , _pMinimumEngineVersion = Nothing
+  , _pSource = Nothing
+  , _pIsModifiable = Nothing
+  , _pDataType = Nothing
+  , _pAllowedValues = Nothing
+  , _pParameterName = Nothing
+  , _pDescription = Nothing
+  }
+
 
 -- | Specifies the engine specific parameters type.
 pApplyType :: Lens' Parameter (Maybe Text)
@@ -4179,9 +4224,9 @@ instance FromXML Parameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
-instance Hashable Parameter
+instance Hashable Parameter where
 
-instance NFData Parameter
+instance NFData Parameter where
 
 instance ToQuery Parameter where
         toQuery Parameter'{..}
@@ -4203,13 +4248,14 @@ instance ToQuery Parameter where
 --
 -- /See:/ 'pendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
-    { _pmaAutoAppliedAfterDate :: !(Maybe ISO8601)
-    , _pmaAction               :: !(Maybe Text)
-    , _pmaOptInStatus          :: !(Maybe Text)
-    , _pmaDescription          :: !(Maybe Text)
-    , _pmaForcedApplyDate      :: !(Maybe ISO8601)
-    , _pmaCurrentApplyDate     :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmaAutoAppliedAfterDate :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _pmaAction               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmaOptInStatus          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmaDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmaForcedApplyDate      :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _pmaCurrentApplyDate     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PendingMaintenanceAction' with the minimum fields required to make a request.
 --
@@ -4229,14 +4275,15 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
 pendingMaintenanceAction
     :: PendingMaintenanceAction
 pendingMaintenanceAction =
-    PendingMaintenanceAction'
-    { _pmaAutoAppliedAfterDate = Nothing
-    , _pmaAction = Nothing
-    , _pmaOptInStatus = Nothing
-    , _pmaDescription = Nothing
-    , _pmaForcedApplyDate = Nothing
-    , _pmaCurrentApplyDate = Nothing
-    }
+  PendingMaintenanceAction'
+  { _pmaAutoAppliedAfterDate = Nothing
+  , _pmaAction = Nothing
+  , _pmaOptInStatus = Nothing
+  , _pmaDescription = Nothing
+  , _pmaForcedApplyDate = Nothing
+  , _pmaCurrentApplyDate = Nothing
+  }
+
 
 -- | The date of the maintenance window when the action will be applied. The maintenance action will be applied to the resource during its first maintenance window after this date. If this date is specified, any @next-maintenance@ opt-in requests are ignored.
 pmaAutoAppliedAfterDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
@@ -4271,9 +4318,9 @@ instance FromXML PendingMaintenanceAction where
                 <*> (x .@? "ForcedApplyDate")
                 <*> (x .@? "CurrentApplyDate")
 
-instance Hashable PendingMaintenanceAction
+instance Hashable PendingMaintenanceAction where
 
-instance NFData PendingMaintenanceAction
+instance NFData PendingMaintenanceAction where
 
 -- | This data type is used as a response element in the 'ModifyDBInstance' action.
 --
@@ -4281,20 +4328,21 @@ instance NFData PendingMaintenanceAction
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-    { _pmvEngineVersion           :: !(Maybe Text)
-    , _pmvMasterUserPassword      :: !(Maybe Text)
-    , _pmvDBSubnetGroupName       :: !(Maybe Text)
-    , _pmvIOPS                    :: !(Maybe Int)
-    , _pmvDBInstanceClass         :: !(Maybe Text)
-    , _pmvLicenseModel            :: !(Maybe Text)
-    , _pmvCACertificateIdentifier :: !(Maybe Text)
-    , _pmvDBInstanceIdentifier    :: !(Maybe Text)
-    , _pmvBackupRetentionPeriod   :: !(Maybe Int)
-    , _pmvMultiAZ                 :: !(Maybe Bool)
-    , _pmvAllocatedStorage        :: !(Maybe Int)
-    , _pmvPort                    :: !(Maybe Int)
-    , _pmvStorageType             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pmvEngineVersion           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvMasterUserPassword      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvDBSubnetGroupName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvIOPS                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pmvDBInstanceClass         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvLicenseModel            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvCACertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvDBInstanceIdentifier    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmvBackupRetentionPeriod   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pmvMultiAZ                 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pmvAllocatedStorage        :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pmvPort                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _pmvStorageType             :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
@@ -4328,21 +4376,22 @@ data PendingModifiedValues = PendingModifiedValues'
 pendingModifiedValues
     :: PendingModifiedValues
 pendingModifiedValues =
-    PendingModifiedValues'
-    { _pmvEngineVersion = Nothing
-    , _pmvMasterUserPassword = Nothing
-    , _pmvDBSubnetGroupName = Nothing
-    , _pmvIOPS = Nothing
-    , _pmvDBInstanceClass = Nothing
-    , _pmvLicenseModel = Nothing
-    , _pmvCACertificateIdentifier = Nothing
-    , _pmvDBInstanceIdentifier = Nothing
-    , _pmvBackupRetentionPeriod = Nothing
-    , _pmvMultiAZ = Nothing
-    , _pmvAllocatedStorage = Nothing
-    , _pmvPort = Nothing
-    , _pmvStorageType = Nothing
-    }
+  PendingModifiedValues'
+  { _pmvEngineVersion = Nothing
+  , _pmvMasterUserPassword = Nothing
+  , _pmvDBSubnetGroupName = Nothing
+  , _pmvIOPS = Nothing
+  , _pmvDBInstanceClass = Nothing
+  , _pmvLicenseModel = Nothing
+  , _pmvCACertificateIdentifier = Nothing
+  , _pmvDBInstanceIdentifier = Nothing
+  , _pmvBackupRetentionPeriod = Nothing
+  , _pmvMultiAZ = Nothing
+  , _pmvAllocatedStorage = Nothing
+  , _pmvPort = Nothing
+  , _pmvStorageType = Nothing
+  }
+
 
 -- | Indicates the database engine version.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
@@ -4413,9 +4462,9 @@ instance FromXML PendingModifiedValues where
                 <*> (x .@? "Port")
                 <*> (x .@? "StorageType")
 
-instance Hashable PendingModifiedValues
+instance Hashable PendingModifiedValues where
 
-instance NFData PendingModifiedValues
+instance NFData PendingModifiedValues where
 
 -- | This data type is used as a response element in the 'DescribeReservedDBInstances' and 'DescribeReservedDBInstancesOfferings' actions.
 --
@@ -4423,9 +4472,10 @@ instance NFData PendingModifiedValues
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-    { _rcRecurringChargeFrequency :: !(Maybe Text)
-    , _rcRecurringChargeAmount    :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rcRecurringChargeFrequency :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rcRecurringChargeAmount    :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
@@ -4437,10 +4487,9 @@ data RecurringCharge = RecurringCharge'
 recurringCharge
     :: RecurringCharge
 recurringCharge =
-    RecurringCharge'
-    { _rcRecurringChargeFrequency = Nothing
-    , _rcRecurringChargeAmount = Nothing
-    }
+  RecurringCharge'
+  {_rcRecurringChargeFrequency = Nothing, _rcRecurringChargeAmount = Nothing}
+
 
 -- | The frequency of the recurring charge.
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
@@ -4456,9 +4505,9 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
-instance Hashable RecurringCharge
+instance Hashable RecurringCharge where
 
-instance NFData RecurringCharge
+instance NFData RecurringCharge where
 
 -- | This data type is used as a response element in the 'DescribeReservedDBInstances' and 'PurchaseReservedDBInstancesOffering' actions.
 --
@@ -4466,22 +4515,23 @@ instance NFData RecurringCharge
 --
 -- /See:/ 'reservedDBInstance' smart constructor.
 data ReservedDBInstance = ReservedDBInstance'
-    { _rdiDBInstanceCount               :: !(Maybe Int)
-    , _rdiState                         :: !(Maybe Text)
-    , _rdiCurrencyCode                  :: !(Maybe Text)
-    , _rdiStartTime                     :: !(Maybe ISO8601)
-    , _rdiProductDescription            :: !(Maybe Text)
-    , _rdiReservedDBInstanceId          :: !(Maybe Text)
-    , _rdiReservedDBInstanceARN         :: !(Maybe Text)
-    , _rdiDBInstanceClass               :: !(Maybe Text)
-    , _rdiMultiAZ                       :: !(Maybe Bool)
-    , _rdiReservedDBInstancesOfferingId :: !(Maybe Text)
-    , _rdiRecurringCharges              :: !(Maybe [RecurringCharge])
-    , _rdiOfferingType                  :: !(Maybe Text)
-    , _rdiUsagePrice                    :: !(Maybe Double)
-    , _rdiFixedPrice                    :: !(Maybe Double)
-    , _rdiDuration                      :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdiDBInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rdiState :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiCurrencyCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiStartTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _rdiProductDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiReservedDBInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiReservedDBInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdiReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
+  , _rdiOfferingType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdiUsagePrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rdiFixedPrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rdiDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReservedDBInstance' with the minimum fields required to make a request.
 --
@@ -4519,23 +4569,24 @@ data ReservedDBInstance = ReservedDBInstance'
 reservedDBInstance
     :: ReservedDBInstance
 reservedDBInstance =
-    ReservedDBInstance'
-    { _rdiDBInstanceCount = Nothing
-    , _rdiState = Nothing
-    , _rdiCurrencyCode = Nothing
-    , _rdiStartTime = Nothing
-    , _rdiProductDescription = Nothing
-    , _rdiReservedDBInstanceId = Nothing
-    , _rdiReservedDBInstanceARN = Nothing
-    , _rdiDBInstanceClass = Nothing
-    , _rdiMultiAZ = Nothing
-    , _rdiReservedDBInstancesOfferingId = Nothing
-    , _rdiRecurringCharges = Nothing
-    , _rdiOfferingType = Nothing
-    , _rdiUsagePrice = Nothing
-    , _rdiFixedPrice = Nothing
-    , _rdiDuration = Nothing
-    }
+  ReservedDBInstance'
+  { _rdiDBInstanceCount = Nothing
+  , _rdiState = Nothing
+  , _rdiCurrencyCode = Nothing
+  , _rdiStartTime = Nothing
+  , _rdiProductDescription = Nothing
+  , _rdiReservedDBInstanceId = Nothing
+  , _rdiReservedDBInstanceARN = Nothing
+  , _rdiDBInstanceClass = Nothing
+  , _rdiMultiAZ = Nothing
+  , _rdiReservedDBInstancesOfferingId = Nothing
+  , _rdiRecurringCharges = Nothing
+  , _rdiOfferingType = Nothing
+  , _rdiUsagePrice = Nothing
+  , _rdiFixedPrice = Nothing
+  , _rdiDuration = Nothing
+  }
+
 
 -- | The number of reserved DB instances.
 rdiDBInstanceCount :: Lens' ReservedDBInstance (Maybe Int)
@@ -4617,9 +4668,9 @@ instance FromXML ReservedDBInstance where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
-instance Hashable ReservedDBInstance
+instance Hashable ReservedDBInstance where
 
-instance NFData ReservedDBInstance
+instance NFData ReservedDBInstance where
 
 -- | This data type is used as a response element in the 'DescribeReservedDBInstancesOfferings' action.
 --
@@ -4627,17 +4678,18 @@ instance NFData ReservedDBInstance
 --
 -- /See:/ 'reservedDBInstancesOffering' smart constructor.
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
-    { _rdioCurrencyCode                  :: !(Maybe Text)
-    , _rdioProductDescription            :: !(Maybe Text)
-    , _rdioDBInstanceClass               :: !(Maybe Text)
-    , _rdioMultiAZ                       :: !(Maybe Bool)
-    , _rdioReservedDBInstancesOfferingId :: !(Maybe Text)
-    , _rdioRecurringCharges              :: !(Maybe [RecurringCharge])
-    , _rdioOfferingType                  :: !(Maybe Text)
-    , _rdioUsagePrice                    :: !(Maybe Double)
-    , _rdioFixedPrice                    :: !(Maybe Double)
-    , _rdioDuration                      :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rdioCurrencyCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdioProductDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdioDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdioMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rdioReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdioRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
+  , _rdioOfferingType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdioUsagePrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rdioFixedPrice :: {-# NOUNPACK #-}!(Maybe Double)
+  , _rdioDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReservedDBInstancesOffering' with the minimum fields required to make a request.
 --
@@ -4665,18 +4717,19 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
 reservedDBInstancesOffering
     :: ReservedDBInstancesOffering
 reservedDBInstancesOffering =
-    ReservedDBInstancesOffering'
-    { _rdioCurrencyCode = Nothing
-    , _rdioProductDescription = Nothing
-    , _rdioDBInstanceClass = Nothing
-    , _rdioMultiAZ = Nothing
-    , _rdioReservedDBInstancesOfferingId = Nothing
-    , _rdioRecurringCharges = Nothing
-    , _rdioOfferingType = Nothing
-    , _rdioUsagePrice = Nothing
-    , _rdioFixedPrice = Nothing
-    , _rdioDuration = Nothing
-    }
+  ReservedDBInstancesOffering'
+  { _rdioCurrencyCode = Nothing
+  , _rdioProductDescription = Nothing
+  , _rdioDBInstanceClass = Nothing
+  , _rdioMultiAZ = Nothing
+  , _rdioReservedDBInstancesOfferingId = Nothing
+  , _rdioRecurringCharges = Nothing
+  , _rdioOfferingType = Nothing
+  , _rdioUsagePrice = Nothing
+  , _rdioFixedPrice = Nothing
+  , _rdioDuration = Nothing
+  }
+
 
 -- | The currency code for the reserved DB instance offering.
 rdioCurrencyCode :: Lens' ReservedDBInstancesOffering (Maybe Text)
@@ -4734,9 +4787,9 @@ instance FromXML ReservedDBInstancesOffering where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
-instance Hashable ReservedDBInstancesOffering
+instance Hashable ReservedDBInstancesOffering where
 
-instance NFData ReservedDBInstancesOffering
+instance NFData ReservedDBInstancesOffering where
 
 -- | Describes the pending maintenance actions for a resource.
 --
@@ -4744,9 +4797,10 @@ instance NFData ReservedDBInstancesOffering
 --
 -- /See:/ 'resourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
-    { _rpmaPendingMaintenanceActionDetails :: !(Maybe [PendingMaintenanceAction])
-    , _rpmaResourceIdentifier              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rpmaPendingMaintenanceActionDetails :: {-# NOUNPACK #-}!(Maybe [PendingMaintenanceAction])
+  , _rpmaResourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResourcePendingMaintenanceActions' with the minimum fields required to make a request.
 --
@@ -4758,10 +4812,11 @@ data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
 resourcePendingMaintenanceActions
     :: ResourcePendingMaintenanceActions
 resourcePendingMaintenanceActions =
-    ResourcePendingMaintenanceActions'
-    { _rpmaPendingMaintenanceActionDetails = Nothing
-    , _rpmaResourceIdentifier = Nothing
-    }
+  ResourcePendingMaintenanceActions'
+  { _rpmaPendingMaintenanceActionDetails = Nothing
+  , _rpmaResourceIdentifier = Nothing
+  }
+
 
 -- | A list that provides details about the pending maintenance actions for the resource.
 rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions [PendingMaintenanceAction]
@@ -4780,8 +4835,10 @@ instance FromXML ResourcePendingMaintenanceActions
                 <*> (x .@? "ResourceIdentifier")
 
 instance Hashable ResourcePendingMaintenanceActions
+         where
 
 instance NFData ResourcePendingMaintenanceActions
+         where
 
 -- | Contains an AWS Region name as the result of a successful call to the 'DescribeSourceRegions' action.
 --
@@ -4789,10 +4846,11 @@ instance NFData ResourcePendingMaintenanceActions
 --
 -- /See:/ 'sourceRegion' smart constructor.
 data SourceRegion = SourceRegion'
-    { _srStatus     :: !(Maybe Text)
-    , _srRegionName :: !(Maybe Text)
-    , _srEndpoint   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _srStatus     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srRegionName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _srEndpoint   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SourceRegion' with the minimum fields required to make a request.
 --
@@ -4806,11 +4864,9 @@ data SourceRegion = SourceRegion'
 sourceRegion
     :: SourceRegion
 sourceRegion =
-    SourceRegion'
-    { _srStatus = Nothing
-    , _srRegionName = Nothing
-    , _srEndpoint = Nothing
-    }
+  SourceRegion'
+  {_srStatus = Nothing, _srRegionName = Nothing, _srEndpoint = Nothing}
+
 
 -- | The status of the source AWS Region.
 srStatus :: Lens' SourceRegion (Maybe Text)
@@ -4830,9 +4886,9 @@ instance FromXML SourceRegion where
               (x .@? "Status") <*> (x .@? "RegionName") <*>
                 (x .@? "Endpoint")
 
-instance Hashable SourceRegion
+instance Hashable SourceRegion where
 
-instance NFData SourceRegion
+instance NFData SourceRegion where
 
 -- | This data type is used as a response element in the 'DescribeDBSubnetGroups' action.
 --
@@ -4840,10 +4896,11 @@ instance NFData SourceRegion
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-    { _sSubnetStatus           :: !(Maybe Text)
-    , _sSubnetIdentifier       :: !(Maybe Text)
-    , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sSubnetStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubnetIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sSubnetAvailabilityZone :: {-# NOUNPACK #-}!(Maybe AvailabilityZone)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
@@ -4857,11 +4914,12 @@ data Subnet = Subnet'
 subnet
     :: Subnet
 subnet =
-    Subnet'
-    { _sSubnetStatus = Nothing
-    , _sSubnetIdentifier = Nothing
-    , _sSubnetAvailabilityZone = Nothing
-    }
+  Subnet'
+  { _sSubnetStatus = Nothing
+  , _sSubnetIdentifier = Nothing
+  , _sSubnetAvailabilityZone = Nothing
+  }
+
 
 -- | Specifies the status of the subnet.
 sSubnetStatus :: Lens' Subnet (Maybe Text)
@@ -4881,9 +4939,9 @@ instance FromXML Subnet where
               (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
                 <*> (x .@? "SubnetAvailabilityZone")
 
-instance Hashable Subnet
+instance Hashable Subnet where
 
-instance NFData Subnet
+instance NFData Subnet where
 
 -- | Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 --
@@ -4891,9 +4949,10 @@ instance NFData Subnet
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -4904,11 +4963,8 @@ data Tag = Tag'
 -- * 'tagKey' - A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tag
     :: Tag
-tag =
-    Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
-    }
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
 
 -- | A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tagValue :: Lens' Tag (Maybe Text)
@@ -4922,9 +4978,9 @@ instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -4936,8 +4992,9 @@ instance ToQuery Tag where
 --
 -- /See:/ 'timezone' smart constructor.
 newtype Timezone = Timezone'
-    { _tTimezoneName :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tTimezoneName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Timezone' with the minimum fields required to make a request.
 --
@@ -4946,10 +5003,8 @@ newtype Timezone = Timezone'
 -- * 'tTimezoneName' - The name of the time zone.
 timezone
     :: Timezone
-timezone =
-    Timezone'
-    { _tTimezoneName = Nothing
-    }
+timezone = Timezone' {_tTimezoneName = Nothing}
+
 
 -- | The name of the time zone.
 tTimezoneName :: Lens' Timezone (Maybe Text)
@@ -4958,9 +5013,9 @@ tTimezoneName = lens _tTimezoneName (\ s a -> s{_tTimezoneName = a});
 instance FromXML Timezone where
         parseXML x = Timezone' <$> (x .@? "TimezoneName")
 
-instance Hashable Timezone
+instance Hashable Timezone where
 
-instance NFData Timezone
+instance NFData Timezone where
 
 -- | The version of the database engine that a DB instance can be upgraded to.
 --
@@ -4968,12 +5023,13 @@ instance NFData Timezone
 --
 -- /See:/ 'upgradeTarget' smart constructor.
 data UpgradeTarget = UpgradeTarget'
-    { _utEngineVersion         :: !(Maybe Text)
-    , _utIsMajorVersionUpgrade :: !(Maybe Bool)
-    , _utEngine                :: !(Maybe Text)
-    , _utAutoUpgrade           :: !(Maybe Bool)
-    , _utDescription           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _utEngineVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utIsMajorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utEngine                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _utAutoUpgrade           :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _utDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpgradeTarget' with the minimum fields required to make a request.
 --
@@ -4991,13 +5047,14 @@ data UpgradeTarget = UpgradeTarget'
 upgradeTarget
     :: UpgradeTarget
 upgradeTarget =
-    UpgradeTarget'
-    { _utEngineVersion = Nothing
-    , _utIsMajorVersionUpgrade = Nothing
-    , _utEngine = Nothing
-    , _utAutoUpgrade = Nothing
-    , _utDescription = Nothing
-    }
+  UpgradeTarget'
+  { _utEngineVersion = Nothing
+  , _utIsMajorVersionUpgrade = Nothing
+  , _utEngine = Nothing
+  , _utAutoUpgrade = Nothing
+  , _utDescription = Nothing
+  }
+
 
 -- | The version number of the upgrade target database engine.
 utEngineVersion :: Lens' UpgradeTarget (Maybe Text)
@@ -5028,9 +5085,9 @@ instance FromXML UpgradeTarget where
                 <*> (x .@? "AutoUpgrade")
                 <*> (x .@? "Description")
 
-instance Hashable UpgradeTarget
+instance Hashable UpgradeTarget where
 
-instance NFData UpgradeTarget
+instance NFData UpgradeTarget where
 
 -- | This data type is used as a response element for queries on VPC security group membership.
 --
@@ -5038,9 +5095,10 @@ instance NFData UpgradeTarget
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-    { _vsgmStatus             :: !(Maybe Text)
-    , _vsgmVPCSecurityGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _vsgmStatus             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vsgmVPCSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.
 --
@@ -5052,10 +5110,9 @@ data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
 vpcSecurityGroupMembership
     :: VPCSecurityGroupMembership
 vpcSecurityGroupMembership =
-    VPCSecurityGroupMembership'
-    { _vsgmStatus = Nothing
-    , _vsgmVPCSecurityGroupId = Nothing
-    }
+  VPCSecurityGroupMembership'
+  {_vsgmStatus = Nothing, _vsgmVPCSecurityGroupId = Nothing}
+
 
 -- | The status of the VPC security group.
 vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)
@@ -5070,6 +5127,6 @@ instance FromXML VPCSecurityGroupMembership where
           = VPCSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")
 
-instance Hashable VPCSecurityGroupMembership
+instance Hashable VPCSecurityGroupMembership where
 
-instance NFData VPCSecurityGroupMembership
+instance NFData VPCSecurityGroupMembership where

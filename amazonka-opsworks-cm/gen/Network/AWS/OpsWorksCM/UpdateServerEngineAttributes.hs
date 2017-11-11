@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
     , usearsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorksCM.Types
-import           Network.AWS.OpsWorksCM.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorksCM.Types
+import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateServerEngineAttributes' smart constructor.
 data UpdateServerEngineAttributes = UpdateServerEngineAttributes'
-    { _useaAttributeValue :: !(Maybe Text)
-    , _useaServerName     :: !Text
-    , _useaAttributeName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _useaAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
+  , _useaServerName     :: {-# NOUNPACK #-}!Text
+  , _useaAttributeName  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServerEngineAttributes' with the minimum fields required to make a request.
 --
@@ -71,11 +72,12 @@ updateServerEngineAttributes
     -> Text -- ^ 'useaAttributeName'
     -> UpdateServerEngineAttributes
 updateServerEngineAttributes pServerName_ pAttributeName_ =
-    UpdateServerEngineAttributes'
-    { _useaAttributeValue = Nothing
-    , _useaServerName = pServerName_
-    , _useaAttributeName = pAttributeName_
-    }
+  UpdateServerEngineAttributes'
+  { _useaAttributeValue = Nothing
+  , _useaServerName = pServerName_
+  , _useaAttributeName = pAttributeName_
+  }
+
 
 -- | The value to set for the attribute.
 useaAttributeValue :: Lens' UpdateServerEngineAttributes (Maybe Text)
@@ -100,9 +102,9 @@ instance AWSRequest UpdateServerEngineAttributes
                  UpdateServerEngineAttributesResponse' <$>
                    (x .?> "Server") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateServerEngineAttributes
+instance Hashable UpdateServerEngineAttributes where
 
-instance NFData UpdateServerEngineAttributes
+instance NFData UpdateServerEngineAttributes where
 
 instance ToHeaders UpdateServerEngineAttributes where
         toHeaders
@@ -130,9 +132,10 @@ instance ToQuery UpdateServerEngineAttributes where
 
 -- | /See:/ 'updateServerEngineAttributesResponse' smart constructor.
 data UpdateServerEngineAttributesResponse = UpdateServerEngineAttributesResponse'
-    { _usearsServer         :: !(Maybe Server)
-    , _usearsResponseStatus :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _usearsServer         :: {-# NOUNPACK #-}!(Maybe Server)
+  , _usearsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateServerEngineAttributesResponse' with the minimum fields required to make a request.
 --
@@ -145,10 +148,9 @@ updateServerEngineAttributesResponse
     :: Int -- ^ 'usearsResponseStatus'
     -> UpdateServerEngineAttributesResponse
 updateServerEngineAttributesResponse pResponseStatus_ =
-    UpdateServerEngineAttributesResponse'
-    { _usearsServer = Nothing
-    , _usearsResponseStatus = pResponseStatus_
-    }
+  UpdateServerEngineAttributesResponse'
+  {_usearsServer = Nothing, _usearsResponseStatus = pResponseStatus_}
+
 
 -- | Contains the response to an @UpdateServerEngineAttributes@ request.
 usearsServer :: Lens' UpdateServerEngineAttributesResponse (Maybe Server)
@@ -159,3 +161,4 @@ usearsResponseStatus :: Lens' UpdateServerEngineAttributesResponse Int
 usearsResponseStatus = lens _usearsResponseStatus (\ s a -> s{_usearsResponseStatus = a});
 
 instance NFData UpdateServerEngineAttributesResponse
+         where

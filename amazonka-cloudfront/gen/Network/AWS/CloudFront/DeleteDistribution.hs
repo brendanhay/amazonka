@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteDistribution
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.CloudFront.DeleteDistribution
     , DeleteDistributionResponse
     ) where
 
-import           Network.AWS.CloudFront.Types
-import           Network.AWS.CloudFront.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.
 --
@@ -70,9 +70,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDistribution' smart constructor.
 data DeleteDistribution = DeleteDistribution'
-    { _ddIfMatch :: !(Maybe Text)
-    , _ddId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddIfMatch :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ddId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDistribution' with the minimum fields required to make a request.
 --
@@ -85,10 +86,8 @@ deleteDistribution
     :: Text -- ^ 'ddId'
     -> DeleteDistribution
 deleteDistribution pId_ =
-    DeleteDistribution'
-    { _ddIfMatch = Nothing
-    , _ddId = pId_
-    }
+  DeleteDistribution' {_ddIfMatch = Nothing, _ddId = pId_}
+
 
 -- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
 ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
@@ -104,9 +103,9 @@ instance AWSRequest DeleteDistribution where
         request = delete cloudFront
         response = receiveNull DeleteDistributionResponse'
 
-instance Hashable DeleteDistribution
+instance Hashable DeleteDistribution where
 
-instance NFData DeleteDistribution
+instance NFData DeleteDistribution where
 
 instance ToHeaders DeleteDistribution where
         toHeaders DeleteDistribution'{..}
@@ -121,8 +120,9 @@ instance ToQuery DeleteDistribution where
 
 -- | /See:/ 'deleteDistributionResponse' smart constructor.
 data DeleteDistributionResponse =
-    DeleteDistributionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteDistributionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteDistributionResponse' with the minimum fields required to make a request.
 --
@@ -130,4 +130,5 @@ deleteDistributionResponse
     :: DeleteDistributionResponse
 deleteDistributionResponse = DeleteDistributionResponse'
 
-instance NFData DeleteDistributionResponse
+
+instance NFData DeleteDistributionResponse where

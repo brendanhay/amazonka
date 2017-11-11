@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.Discovery.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Discovery.Types.Product where
 
-import           Network.AWS.Discovery.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Discovery.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'agentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
-    { _acsAgentId            :: !(Maybe Text)
-    , _acsOperationSucceeded :: !(Maybe Bool)
-    , _acsDescription        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _acsAgentId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _acsOperationSucceeded :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _acsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AgentConfigurationStatus' with the minimum fields required to make a request.
 --
@@ -44,11 +45,12 @@ data AgentConfigurationStatus = AgentConfigurationStatus'
 agentConfigurationStatus
     :: AgentConfigurationStatus
 agentConfigurationStatus =
-    AgentConfigurationStatus'
-    { _acsAgentId = Nothing
-    , _acsOperationSucceeded = Nothing
-    , _acsDescription = Nothing
-    }
+  AgentConfigurationStatus'
+  { _acsAgentId = Nothing
+  , _acsOperationSucceeded = Nothing
+  , _acsDescription = Nothing
+  }
+
 
 -- | The agent/connector ID.
 acsAgentId :: Lens' AgentConfigurationStatus (Maybe Text)
@@ -70,9 +72,9 @@ instance FromJSON AgentConfigurationStatus where
                    (x .:? "agentId") <*> (x .:? "operationSucceeded")
                      <*> (x .:? "description"))
 
-instance Hashable AgentConfigurationStatus
+instance Hashable AgentConfigurationStatus where
 
-instance NFData AgentConfigurationStatus
+instance NFData AgentConfigurationStatus where
 
 -- | Information about agents or connectors associated with the user’s AWS account. Information includes agent or connector IDs, IP addresses, media access control (MAC) addresses, agent or connector health, hostname where the agent or connector resides, and agent version for each agent.
 --
@@ -80,17 +82,18 @@ instance NFData AgentConfigurationStatus
 --
 -- /See:/ 'agentInfo' smart constructor.
 data AgentInfo = AgentInfo'
-    { _aiHostName             :: !(Maybe Text)
-    , _aiLastHealthPingTime   :: !(Maybe Text)
-    , _aiAgentNetworkInfoList :: !(Maybe [AgentNetworkInfo])
-    , _aiConnectorId          :: !(Maybe Text)
-    , _aiHealth               :: !(Maybe AgentStatus)
-    , _aiAgentId              :: !(Maybe Text)
-    , _aiVersion              :: !(Maybe Text)
-    , _aiCollectionStatus     :: !(Maybe Text)
-    , _aiRegisteredTime       :: !(Maybe Text)
-    , _aiAgentType            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aiHostName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiLastHealthPingTime   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiAgentNetworkInfoList :: {-# NOUNPACK #-}!(Maybe [AgentNetworkInfo])
+  , _aiConnectorId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiHealth               :: {-# NOUNPACK #-}!(Maybe AgentStatus)
+  , _aiAgentId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiVersion              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiCollectionStatus     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiRegisteredTime       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aiAgentType            :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AgentInfo' with the minimum fields required to make a request.
 --
@@ -118,18 +121,19 @@ data AgentInfo = AgentInfo'
 agentInfo
     :: AgentInfo
 agentInfo =
-    AgentInfo'
-    { _aiHostName = Nothing
-    , _aiLastHealthPingTime = Nothing
-    , _aiAgentNetworkInfoList = Nothing
-    , _aiConnectorId = Nothing
-    , _aiHealth = Nothing
-    , _aiAgentId = Nothing
-    , _aiVersion = Nothing
-    , _aiCollectionStatus = Nothing
-    , _aiRegisteredTime = Nothing
-    , _aiAgentType = Nothing
-    }
+  AgentInfo'
+  { _aiHostName = Nothing
+  , _aiLastHealthPingTime = Nothing
+  , _aiAgentNetworkInfoList = Nothing
+  , _aiConnectorId = Nothing
+  , _aiHealth = Nothing
+  , _aiAgentId = Nothing
+  , _aiVersion = Nothing
+  , _aiCollectionStatus = Nothing
+  , _aiRegisteredTime = Nothing
+  , _aiAgentType = Nothing
+  }
+
 
 -- | The name of the host where the agent or connector resides. The host can be a server or virtual machine.
 aiHostName :: Lens' AgentInfo (Maybe Text)
@@ -186,9 +190,9 @@ instance FromJSON AgentInfo where
                      <*> (x .:? "registeredTime")
                      <*> (x .:? "agentType"))
 
-instance Hashable AgentInfo
+instance Hashable AgentInfo where
 
-instance NFData AgentInfo
+instance NFData AgentInfo where
 
 -- | Network details about the host where the agent/connector resides.
 --
@@ -196,9 +200,10 @@ instance NFData AgentInfo
 --
 -- /See:/ 'agentNetworkInfo' smart constructor.
 data AgentNetworkInfo = AgentNetworkInfo'
-    { _aniIpAddress  :: !(Maybe Text)
-    , _aniMacAddress :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aniIpAddress  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aniMacAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AgentNetworkInfo' with the minimum fields required to make a request.
 --
@@ -210,10 +215,8 @@ data AgentNetworkInfo = AgentNetworkInfo'
 agentNetworkInfo
     :: AgentNetworkInfo
 agentNetworkInfo =
-    AgentNetworkInfo'
-    { _aniIpAddress = Nothing
-    , _aniMacAddress = Nothing
-    }
+  AgentNetworkInfo' {_aniIpAddress = Nothing, _aniMacAddress = Nothing}
+
 
 -- | The IP address for the host where the agent/connector resides.
 aniIpAddress :: Lens' AgentNetworkInfo (Maybe Text)
@@ -230,9 +233,9 @@ instance FromJSON AgentNetworkInfo where
                  AgentNetworkInfo' <$>
                    (x .:? "ipAddress") <*> (x .:? "macAddress"))
 
-instance Hashable AgentNetworkInfo
+instance Hashable AgentNetworkInfo where
 
-instance NFData AgentNetworkInfo
+instance NFData AgentNetworkInfo where
 
 -- | Tags for a configuration item. Tags are metadata that help you categorize IT assets.
 --
@@ -240,12 +243,13 @@ instance NFData AgentNetworkInfo
 --
 -- /See:/ 'configurationTag' smart constructor.
 data ConfigurationTag = ConfigurationTag'
-    { _ctTimeOfCreation    :: !(Maybe POSIX)
-    , _ctConfigurationId   :: !(Maybe Text)
-    , _ctConfigurationType :: !(Maybe ConfigurationItemType)
-    , _ctValue             :: !(Maybe Text)
-    , _ctKey               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctTimeOfCreation    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _ctConfigurationId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctConfigurationType :: {-# NOUNPACK #-}!(Maybe ConfigurationItemType)
+  , _ctValue             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctKey               :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ConfigurationTag' with the minimum fields required to make a request.
 --
@@ -263,13 +267,14 @@ data ConfigurationTag = ConfigurationTag'
 configurationTag
     :: ConfigurationTag
 configurationTag =
-    ConfigurationTag'
-    { _ctTimeOfCreation = Nothing
-    , _ctConfigurationId = Nothing
-    , _ctConfigurationType = Nothing
-    , _ctValue = Nothing
-    , _ctKey = Nothing
-    }
+  ConfigurationTag'
+  { _ctTimeOfCreation = Nothing
+  , _ctConfigurationId = Nothing
+  , _ctConfigurationType = Nothing
+  , _ctValue = Nothing
+  , _ctKey = Nothing
+  }
+
 
 -- | The time the configuration tag was created in Coordinated Universal Time (UTC).
 ctTimeOfCreation :: Lens' ConfigurationTag (Maybe UTCTime)
@@ -302,9 +307,9 @@ instance FromJSON ConfigurationTag where
                      <*> (x .:? "value")
                      <*> (x .:? "key"))
 
-instance Hashable ConfigurationTag
+instance Hashable ConfigurationTag where
 
-instance NFData ConfigurationTag
+instance NFData ConfigurationTag where
 
 -- | Inventory data for installed discovery agents.
 --
@@ -312,14 +317,15 @@ instance NFData ConfigurationTag
 --
 -- /See:/ 'customerAgentInfo' smart constructor.
 data CustomerAgentInfo = CustomerAgentInfo'
-    { _caiActiveAgents      :: !Int
-    , _caiHealthyAgents     :: !Int
-    , _caiBlackListedAgents :: !Int
-    , _caiShutdownAgents    :: !Int
-    , _caiUnhealthyAgents   :: !Int
-    , _caiTotalAgents       :: !Int
-    , _caiUnknownAgents     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _caiActiveAgents      :: {-# NOUNPACK #-}!Int
+  , _caiHealthyAgents     :: {-# NOUNPACK #-}!Int
+  , _caiBlackListedAgents :: {-# NOUNPACK #-}!Int
+  , _caiShutdownAgents    :: {-# NOUNPACK #-}!Int
+  , _caiUnhealthyAgents   :: {-# NOUNPACK #-}!Int
+  , _caiTotalAgents       :: {-# NOUNPACK #-}!Int
+  , _caiUnknownAgents     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomerAgentInfo' with the minimum fields required to make a request.
 --
@@ -348,15 +354,16 @@ customerAgentInfo
     -> Int -- ^ 'caiUnknownAgents'
     -> CustomerAgentInfo
 customerAgentInfo pActiveAgents_ pHealthyAgents_ pBlackListedAgents_ pShutdownAgents_ pUnhealthyAgents_ pTotalAgents_ pUnknownAgents_ =
-    CustomerAgentInfo'
-    { _caiActiveAgents = pActiveAgents_
-    , _caiHealthyAgents = pHealthyAgents_
-    , _caiBlackListedAgents = pBlackListedAgents_
-    , _caiShutdownAgents = pShutdownAgents_
-    , _caiUnhealthyAgents = pUnhealthyAgents_
-    , _caiTotalAgents = pTotalAgents_
-    , _caiUnknownAgents = pUnknownAgents_
-    }
+  CustomerAgentInfo'
+  { _caiActiveAgents = pActiveAgents_
+  , _caiHealthyAgents = pHealthyAgents_
+  , _caiBlackListedAgents = pBlackListedAgents_
+  , _caiShutdownAgents = pShutdownAgents_
+  , _caiUnhealthyAgents = pUnhealthyAgents_
+  , _caiTotalAgents = pTotalAgents_
+  , _caiUnknownAgents = pUnknownAgents_
+  }
+
 
 -- | Number of active discovery agents.
 caiActiveAgents :: Lens' CustomerAgentInfo Int
@@ -398,9 +405,9 @@ instance FromJSON CustomerAgentInfo where
                      <*> (x .: "totalAgents")
                      <*> (x .: "unknownAgents"))
 
-instance Hashable CustomerAgentInfo
+instance Hashable CustomerAgentInfo where
 
-instance NFData CustomerAgentInfo
+instance NFData CustomerAgentInfo where
 
 -- | Inventory data for installed discovery connectors.
 --
@@ -408,14 +415,15 @@ instance NFData CustomerAgentInfo
 --
 -- /See:/ 'customerConnectorInfo' smart constructor.
 data CustomerConnectorInfo = CustomerConnectorInfo'
-    { _cciActiveConnectors      :: !Int
-    , _cciHealthyConnectors     :: !Int
-    , _cciBlackListedConnectors :: !Int
-    , _cciShutdownConnectors    :: !Int
-    , _cciUnhealthyConnectors   :: !Int
-    , _cciTotalConnectors       :: !Int
-    , _cciUnknownConnectors     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cciActiveConnectors      :: {-# NOUNPACK #-}!Int
+  , _cciHealthyConnectors     :: {-# NOUNPACK #-}!Int
+  , _cciBlackListedConnectors :: {-# NOUNPACK #-}!Int
+  , _cciShutdownConnectors    :: {-# NOUNPACK #-}!Int
+  , _cciUnhealthyConnectors   :: {-# NOUNPACK #-}!Int
+  , _cciTotalConnectors       :: {-# NOUNPACK #-}!Int
+  , _cciUnknownConnectors     :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CustomerConnectorInfo' with the minimum fields required to make a request.
 --
@@ -444,15 +452,16 @@ customerConnectorInfo
     -> Int -- ^ 'cciUnknownConnectors'
     -> CustomerConnectorInfo
 customerConnectorInfo pActiveConnectors_ pHealthyConnectors_ pBlackListedConnectors_ pShutdownConnectors_ pUnhealthyConnectors_ pTotalConnectors_ pUnknownConnectors_ =
-    CustomerConnectorInfo'
-    { _cciActiveConnectors = pActiveConnectors_
-    , _cciHealthyConnectors = pHealthyConnectors_
-    , _cciBlackListedConnectors = pBlackListedConnectors_
-    , _cciShutdownConnectors = pShutdownConnectors_
-    , _cciUnhealthyConnectors = pUnhealthyConnectors_
-    , _cciTotalConnectors = pTotalConnectors_
-    , _cciUnknownConnectors = pUnknownConnectors_
-    }
+  CustomerConnectorInfo'
+  { _cciActiveConnectors = pActiveConnectors_
+  , _cciHealthyConnectors = pHealthyConnectors_
+  , _cciBlackListedConnectors = pBlackListedConnectors_
+  , _cciShutdownConnectors = pShutdownConnectors_
+  , _cciUnhealthyConnectors = pUnhealthyConnectors_
+  , _cciTotalConnectors = pTotalConnectors_
+  , _cciUnknownConnectors = pUnknownConnectors_
+  }
+
 
 -- | Number of active discovery connectors.
 cciActiveConnectors :: Lens' CustomerConnectorInfo Int
@@ -495,9 +504,9 @@ instance FromJSON CustomerConnectorInfo where
                      <*> (x .: "totalConnectors")
                      <*> (x .: "unknownConnectors"))
 
-instance Hashable CustomerConnectorInfo
+instance Hashable CustomerConnectorInfo where
 
-instance NFData CustomerConnectorInfo
+instance NFData CustomerConnectorInfo where
 
 -- | Used to select which agent's data is to be exported. A single agent ID may be selected for export using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html StartExportTask> action.
 --
@@ -505,10 +514,11 @@ instance NFData CustomerConnectorInfo
 --
 -- /See:/ 'exportFilter' smart constructor.
 data ExportFilter = ExportFilter'
-    { _efName      :: !Text
-    , _efValues    :: ![Text]
-    , _efCondition :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _efName      :: {-# NOUNPACK #-}!Text
+  , _efValues    :: {-# NOUNPACK #-}![Text]
+  , _efCondition :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExportFilter' with the minimum fields required to make a request.
 --
@@ -524,11 +534,9 @@ exportFilter
     -> Text -- ^ 'efCondition'
     -> ExportFilter
 exportFilter pName_ pCondition_ =
-    ExportFilter'
-    { _efName = pName_
-    , _efValues = mempty
-    , _efCondition = pCondition_
-    }
+  ExportFilter'
+  {_efName = pName_, _efValues = mempty, _efCondition = pCondition_}
+
 
 -- | A single @ExportFilter@ name. Supported filters: @agentId@ .
 efName :: Lens' ExportFilter Text
@@ -542,9 +550,9 @@ efValues = lens _efValues (\ s a -> s{_efValues = a}) . _Coerce;
 efCondition :: Lens' ExportFilter Text
 efCondition = lens _efCondition (\ s a -> s{_efCondition = a});
 
-instance Hashable ExportFilter
+instance Hashable ExportFilter where
 
-instance NFData ExportFilter
+instance NFData ExportFilter where
 
 instance ToJSON ExportFilter where
         toJSON ExportFilter'{..}
@@ -560,15 +568,16 @@ instance ToJSON ExportFilter where
 --
 -- /See:/ 'exportInfo' smart constructor.
 data ExportInfo = ExportInfo'
-    { _eiConfigurationsDownloadURL :: !(Maybe Text)
-    , _eiRequestedStartTime        :: !(Maybe POSIX)
-    , _eiRequestedEndTime          :: !(Maybe POSIX)
-    , _eiIsTruncated               :: !(Maybe Bool)
-    , _eiExportId                  :: !Text
-    , _eiExportStatus              :: !ExportStatus
-    , _eiStatusMessage             :: !Text
-    , _eiExportRequestTime         :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eiConfigurationsDownloadURL :: {-# NOUNPACK #-}!(Maybe Text)
+  , _eiRequestedStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eiRequestedEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _eiIsTruncated               :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _eiExportId                  :: {-# NOUNPACK #-}!Text
+  , _eiExportStatus              :: {-# NOUNPACK #-}!ExportStatus
+  , _eiStatusMessage             :: {-# NOUNPACK #-}!Text
+  , _eiExportRequestTime         :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExportInfo' with the minimum fields required to make a request.
 --
@@ -596,16 +605,17 @@ exportInfo
     -> UTCTime -- ^ 'eiExportRequestTime'
     -> ExportInfo
 exportInfo pExportId_ pExportStatus_ pStatusMessage_ pExportRequestTime_ =
-    ExportInfo'
-    { _eiConfigurationsDownloadURL = Nothing
-    , _eiRequestedStartTime = Nothing
-    , _eiRequestedEndTime = Nothing
-    , _eiIsTruncated = Nothing
-    , _eiExportId = pExportId_
-    , _eiExportStatus = pExportStatus_
-    , _eiStatusMessage = pStatusMessage_
-    , _eiExportRequestTime = _Time # pExportRequestTime_
-    }
+  ExportInfo'
+  { _eiConfigurationsDownloadURL = Nothing
+  , _eiRequestedStartTime = Nothing
+  , _eiRequestedEndTime = Nothing
+  , _eiIsTruncated = Nothing
+  , _eiExportId = pExportId_
+  , _eiExportStatus = pExportStatus_
+  , _eiStatusMessage = pStatusMessage_
+  , _eiExportRequestTime = _Time # pExportRequestTime_
+  }
+
 
 -- | A URL for an Amazon S3 bucket where you can review the exported data. The URL is displayed only if the export succeeded.
 eiConfigurationsDownloadURL :: Lens' ExportInfo (Maybe Text)
@@ -653,9 +663,9 @@ instance FromJSON ExportInfo where
                      <*> (x .: "statusMessage")
                      <*> (x .: "exportRequestTime"))
 
-instance Hashable ExportInfo
+instance Hashable ExportInfo where
 
-instance NFData ExportInfo
+instance NFData ExportInfo where
 
 -- | A filter that can use conditional operators.
 --
@@ -665,10 +675,11 @@ instance NFData ExportInfo
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
-    { _fName      :: !Text
-    , _fValues    :: ![Text]
-    , _fCondition :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _fName      :: {-# NOUNPACK #-}!Text
+  , _fValues    :: {-# NOUNPACK #-}![Text]
+  , _fCondition :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
@@ -684,11 +695,8 @@ filter'
     -> Text -- ^ 'fCondition'
     -> Filter
 filter' pName_ pCondition_ =
-    Filter'
-    { _fName = pName_
-    , _fValues = mempty
-    , _fCondition = pCondition_
-    }
+  Filter' {_fName = pName_, _fValues = mempty, _fCondition = pCondition_}
+
 
 -- | The name of the filter.
 fName :: Lens' Filter Text
@@ -702,9 +710,9 @@ fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 fCondition :: Lens' Filter Text
 fCondition = lens _fCondition (\ s a -> s{_fCondition = a});
 
-instance Hashable Filter
+instance Hashable Filter where
 
-instance NFData Filter
+instance NFData Filter where
 
 instance ToJSON Filter where
         toJSON Filter'{..}
@@ -720,12 +728,13 @@ instance ToJSON Filter where
 --
 -- /See:/ 'neighborConnectionDetail' smart constructor.
 data NeighborConnectionDetail = NeighborConnectionDetail'
-    { _ncdTransportProtocol   :: !(Maybe Text)
-    , _ncdDestinationPort     :: !(Maybe Int)
-    , _ncdSourceServerId      :: !Text
-    , _ncdDestinationServerId :: !Text
-    , _ncdConnectionsCount    :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ncdTransportProtocol   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ncdDestinationPort     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _ncdSourceServerId      :: {-# NOUNPACK #-}!Text
+  , _ncdDestinationServerId :: {-# NOUNPACK #-}!Text
+  , _ncdConnectionsCount    :: {-# NOUNPACK #-}!Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'NeighborConnectionDetail' with the minimum fields required to make a request.
 --
@@ -746,13 +755,14 @@ neighborConnectionDetail
     -> Integer -- ^ 'ncdConnectionsCount'
     -> NeighborConnectionDetail
 neighborConnectionDetail pSourceServerId_ pDestinationServerId_ pConnectionsCount_ =
-    NeighborConnectionDetail'
-    { _ncdTransportProtocol = Nothing
-    , _ncdDestinationPort = Nothing
-    , _ncdSourceServerId = pSourceServerId_
-    , _ncdDestinationServerId = pDestinationServerId_
-    , _ncdConnectionsCount = pConnectionsCount_
-    }
+  NeighborConnectionDetail'
+  { _ncdTransportProtocol = Nothing
+  , _ncdDestinationPort = Nothing
+  , _ncdSourceServerId = pSourceServerId_
+  , _ncdDestinationServerId = pDestinationServerId_
+  , _ncdConnectionsCount = pConnectionsCount_
+  }
+
 
 -- | The network protocol used for the connection.
 ncdTransportProtocol :: Lens' NeighborConnectionDetail (Maybe Text)
@@ -785,9 +795,9 @@ instance FromJSON NeighborConnectionDetail where
                      <*> (x .: "destinationServerId")
                      <*> (x .: "connectionsCount"))
 
-instance Hashable NeighborConnectionDetail
+instance Hashable NeighborConnectionDetail where
 
-instance NFData NeighborConnectionDetail
+instance NFData NeighborConnectionDetail where
 
 -- | A field and direction for ordered output.
 --
@@ -795,9 +805,10 @@ instance NFData NeighborConnectionDetail
 --
 -- /See:/ 'orderByElement' smart constructor.
 data OrderByElement = OrderByElement'
-    { _obeSortOrder :: !(Maybe OrderString)
-    , _obeFieldName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _obeSortOrder :: {-# NOUNPACK #-}!(Maybe OrderString)
+  , _obeFieldName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'OrderByElement' with the minimum fields required to make a request.
 --
@@ -810,10 +821,8 @@ orderByElement
     :: Text -- ^ 'obeFieldName'
     -> OrderByElement
 orderByElement pFieldName_ =
-    OrderByElement'
-    { _obeSortOrder = Nothing
-    , _obeFieldName = pFieldName_
-    }
+  OrderByElement' {_obeSortOrder = Nothing, _obeFieldName = pFieldName_}
+
 
 -- | Ordering direction.
 obeSortOrder :: Lens' OrderByElement (Maybe OrderString)
@@ -823,9 +832,9 @@ obeSortOrder = lens _obeSortOrder (\ s a -> s{_obeSortOrder = a});
 obeFieldName :: Lens' OrderByElement Text
 obeFieldName = lens _obeFieldName (\ s a -> s{_obeFieldName = a});
 
-instance Hashable OrderByElement
+instance Hashable OrderByElement where
 
-instance NFData OrderByElement
+instance NFData OrderByElement where
 
 instance ToJSON OrderByElement where
         toJSON OrderByElement'{..}
@@ -840,9 +849,10 @@ instance ToJSON OrderByElement where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagKey   :: !Text
-    , _tagValue :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tagKey   :: {-# NOUNPACK #-}!Text
+  , _tagValue :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
@@ -855,11 +865,8 @@ tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
     -> Tag
-tag pKey_ pValue_ =
-    Tag'
-    { _tagKey = pKey_
-    , _tagValue = pValue_
-    }
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
 
 -- | The type of tag on which to filter.
 tagKey :: Lens' Tag Text
@@ -869,9 +876,9 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
-instance Hashable Tag
+instance Hashable Tag where
 
-instance NFData Tag
+instance NFData Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -886,9 +893,10 @@ instance ToJSON Tag where
 --
 -- /See:/ 'tagFilter' smart constructor.
 data TagFilter = TagFilter'
-    { _tfName   :: !Text
-    , _tfValues :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _tfName   :: {-# NOUNPACK #-}!Text
+  , _tfValues :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
 --
@@ -900,11 +908,8 @@ data TagFilter = TagFilter'
 tagFilter
     :: Text -- ^ 'tfName'
     -> TagFilter
-tagFilter pName_ =
-    TagFilter'
-    { _tfName = pName_
-    , _tfValues = mempty
-    }
+tagFilter pName_ = TagFilter' {_tfName = pName_, _tfValues = mempty}
+
 
 -- | A name of the tag filter.
 tfName :: Lens' TagFilter Text
@@ -914,9 +919,9 @@ tfName = lens _tfName (\ s a -> s{_tfName = a});
 tfValues :: Lens' TagFilter [Text]
 tfValues = lens _tfValues (\ s a -> s{_tfValues = a}) . _Coerce;
 
-instance Hashable TagFilter
+instance Hashable TagFilter where
 
-instance NFData TagFilter
+instance NFData TagFilter where
 
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}

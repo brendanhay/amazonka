@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateDataSource
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.MachineLearning.UpdateDataSource
     , udsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
-    { _udsDataSourceId   :: !Text
-    , _udsDataSourceName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udsDataSourceId   :: {-# NOUNPACK #-}!Text
+  , _udsDataSourceName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDataSource' with the minimum fields required to make a request.
 --
@@ -65,10 +66,9 @@ updateDataSource
     -> Text -- ^ 'udsDataSourceName'
     -> UpdateDataSource
 updateDataSource pDataSourceId_ pDataSourceName_ =
-    UpdateDataSource'
-    { _udsDataSourceId = pDataSourceId_
-    , _udsDataSourceName = pDataSourceName_
-    }
+  UpdateDataSource'
+  {_udsDataSourceId = pDataSourceId_, _udsDataSourceName = pDataSourceName_}
+
 
 -- | The ID assigned to the @DataSource@ during creation.
 udsDataSourceId :: Lens' UpdateDataSource Text
@@ -87,9 +87,9 @@ instance AWSRequest UpdateDataSource where
                  UpdateDataSourceResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
-instance Hashable UpdateDataSource
+instance Hashable UpdateDataSource where
 
-instance NFData UpdateDataSource
+instance NFData UpdateDataSource where
 
 instance ToHeaders UpdateDataSource where
         toHeaders
@@ -121,9 +121,10 @@ instance ToQuery UpdateDataSource where
 --
 -- /See:/ 'updateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-    { _udsrsDataSourceId   :: !(Maybe Text)
-    , _udsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udsrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDataSourceResponse' with the minimum fields required to make a request.
 --
@@ -136,10 +137,9 @@ updateDataSourceResponse
     :: Int -- ^ 'udsrsResponseStatus'
     -> UpdateDataSourceResponse
 updateDataSourceResponse pResponseStatus_ =
-    UpdateDataSourceResponse'
-    { _udsrsDataSourceId = Nothing
-    , _udsrsResponseStatus = pResponseStatus_
-    }
+  UpdateDataSourceResponse'
+  {_udsrsDataSourceId = Nothing, _udsrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID assigned to the @DataSource@ during creation. This value should be identical to the value of the @DataSourceID@ in the request.
 udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
@@ -149,4 +149,4 @@ udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a})
 udsrsResponseStatus :: Lens' UpdateDataSourceResponse Int
 udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a});
 
-instance NFData UpdateDataSourceResponse
+instance NFData UpdateDataSourceResponse where

@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.Batch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -304,24 +304,24 @@ module Network.AWS.Batch
     , vHost
     ) where
 
-import           Network.AWS.Batch.CancelJob
-import           Network.AWS.Batch.CreateComputeEnvironment
-import           Network.AWS.Batch.CreateJobQueue
-import           Network.AWS.Batch.DeleteComputeEnvironment
-import           Network.AWS.Batch.DeleteJobQueue
-import           Network.AWS.Batch.DeregisterJobDefinition
-import           Network.AWS.Batch.DescribeComputeEnvironments
-import           Network.AWS.Batch.DescribeJobDefinitions
-import           Network.AWS.Batch.DescribeJobQueues
-import           Network.AWS.Batch.DescribeJobs
-import           Network.AWS.Batch.ListJobs
-import           Network.AWS.Batch.RegisterJobDefinition
-import           Network.AWS.Batch.SubmitJob
-import           Network.AWS.Batch.TerminateJob
-import           Network.AWS.Batch.Types
-import           Network.AWS.Batch.UpdateComputeEnvironment
-import           Network.AWS.Batch.UpdateJobQueue
-import           Network.AWS.Batch.Waiters
+import Network.AWS.Batch.CancelJob
+import Network.AWS.Batch.CreateComputeEnvironment
+import Network.AWS.Batch.CreateJobQueue
+import Network.AWS.Batch.DeleteComputeEnvironment
+import Network.AWS.Batch.DeleteJobQueue
+import Network.AWS.Batch.DeregisterJobDefinition
+import Network.AWS.Batch.DescribeComputeEnvironments
+import Network.AWS.Batch.DescribeJobDefinitions
+import Network.AWS.Batch.DescribeJobQueues
+import Network.AWS.Batch.DescribeJobs
+import Network.AWS.Batch.ListJobs
+import Network.AWS.Batch.RegisterJobDefinition
+import Network.AWS.Batch.SubmitJob
+import Network.AWS.Batch.TerminateJob
+import Network.AWS.Batch.Types
+import Network.AWS.Batch.UpdateComputeEnvironment
+import Network.AWS.Batch.UpdateJobQueue
+import Network.AWS.Batch.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

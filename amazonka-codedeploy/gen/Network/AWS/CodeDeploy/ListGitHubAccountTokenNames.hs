@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
     , lghatnrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a ListGitHubAccountTokenNames operation.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listGitHubAccountTokenNames' smart constructor.
 newtype ListGitHubAccountTokenNames = ListGitHubAccountTokenNames'
-    { _lghatnNextToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lghatnNextToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGitHubAccountTokenNames' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ newtype ListGitHubAccountTokenNames = ListGitHubAccountTokenNames'
 listGitHubAccountTokenNames
     :: ListGitHubAccountTokenNames
 listGitHubAccountTokenNames =
-    ListGitHubAccountTokenNames'
-    { _lghatnNextToken = Nothing
-    }
+  ListGitHubAccountTokenNames' {_lghatnNextToken = Nothing}
+
 
 -- | An identifier returned from the previous ListGitHubAccountTokenNames call. It can be used to return the next set of names in the list.
 lghatnNextToken :: Lens' ListGitHubAccountTokenNames (Maybe Text)
@@ -82,9 +82,9 @@ instance AWSRequest ListGitHubAccountTokenNames where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListGitHubAccountTokenNames
+instance Hashable ListGitHubAccountTokenNames where
 
-instance NFData ListGitHubAccountTokenNames
+instance NFData ListGitHubAccountTokenNames where
 
 instance ToHeaders ListGitHubAccountTokenNames where
         toHeaders
@@ -113,10 +113,11 @@ instance ToQuery ListGitHubAccountTokenNames where
 --
 -- /See:/ 'listGitHubAccountTokenNamesResponse' smart constructor.
 data ListGitHubAccountTokenNamesResponse = ListGitHubAccountTokenNamesResponse'
-    { _lghatnrsTokenNameList  :: !(Maybe [Text])
-    , _lghatnrsNextToken      :: !(Maybe Text)
-    , _lghatnrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lghatnrsTokenNameList  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lghatnrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lghatnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListGitHubAccountTokenNamesResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +132,12 @@ listGitHubAccountTokenNamesResponse
     :: Int -- ^ 'lghatnrsResponseStatus'
     -> ListGitHubAccountTokenNamesResponse
 listGitHubAccountTokenNamesResponse pResponseStatus_ =
-    ListGitHubAccountTokenNamesResponse'
-    { _lghatnrsTokenNameList = Nothing
-    , _lghatnrsNextToken = Nothing
-    , _lghatnrsResponseStatus = pResponseStatus_
-    }
+  ListGitHubAccountTokenNamesResponse'
+  { _lghatnrsTokenNameList = Nothing
+  , _lghatnrsNextToken = Nothing
+  , _lghatnrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of names of connections to GitHub accounts.
 lghatnrsTokenNameList :: Lens' ListGitHubAccountTokenNamesResponse [Text]
@@ -150,3 +152,4 @@ lghatnrsResponseStatus :: Lens' ListGitHubAccountTokenNamesResponse Int
 lghatnrsResponseStatus = lens _lghatnrsResponseStatus (\ s a -> s{_lghatnrsResponseStatus = a});
 
 instance NFData ListGitHubAccountTokenNamesResponse
+         where

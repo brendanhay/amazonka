@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListImports
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,19 +43,20 @@ module Network.AWS.CloudFormation.ListImports
     , lirsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listImports' smart constructor.
 data ListImports = ListImports'
-    { _liNextToken  :: !(Maybe Text)
-    , _liExportName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _liNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _liExportName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListImports' with the minimum fields required to make a request.
 --
@@ -68,10 +69,8 @@ listImports
     :: Text -- ^ 'liExportName'
     -> ListImports
 listImports pExportName_ =
-    ListImports'
-    { _liNextToken = Nothing
-    , _liExportName = pExportName_
-    }
+  ListImports' {_liNextToken = Nothing, _liExportName = pExportName_}
+
 
 -- | A string (provided by the 'ListImports' response output) that identifies the next page of stacks that are importing the specified exported output value.
 liNextToken :: Lens' ListImports (Maybe Text)
@@ -100,9 +99,9 @@ instance AWSRequest ListImports where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListImports
+instance Hashable ListImports where
 
-instance NFData ListImports
+instance NFData ListImports where
 
 instance ToHeaders ListImports where
         toHeaders = const mempty
@@ -120,10 +119,11 @@ instance ToQuery ListImports where
 
 -- | /See:/ 'listImportsResponse' smart constructor.
 data ListImportsResponse = ListImportsResponse'
-    { _lirsImports        :: !(Maybe [Text])
-    , _lirsNextToken      :: !(Maybe Text)
-    , _lirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lirsImports        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListImportsResponse' with the minimum fields required to make a request.
 --
@@ -138,11 +138,12 @@ listImportsResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListImportsResponse
 listImportsResponse pResponseStatus_ =
-    ListImportsResponse'
-    { _lirsImports = Nothing
-    , _lirsNextToken = Nothing
-    , _lirsResponseStatus = pResponseStatus_
-    }
+  ListImportsResponse'
+  { _lirsImports = Nothing
+  , _lirsNextToken = Nothing
+  , _lirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of stack names that are importing the specified exported output value.
 lirsImports :: Lens' ListImportsResponse [Text]
@@ -156,4 +157,4 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 lirsResponseStatus :: Lens' ListImportsResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 
-instance NFData ListImportsResponse
+instance NFData ListImportsResponse where

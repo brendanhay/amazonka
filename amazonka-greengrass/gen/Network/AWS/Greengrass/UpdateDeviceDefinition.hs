@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateDeviceDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,18 +35,19 @@ module Network.AWS.Greengrass.UpdateDeviceDefinition
     , uddrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateDeviceDefinition' smart constructor.
 data UpdateDeviceDefinition = UpdateDeviceDefinition'
-    { _uddName               :: !(Maybe Text)
-    , _uddDeviceDefinitionId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uddName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uddDeviceDefinitionId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDeviceDefinition' with the minimum fields required to make a request.
 --
@@ -59,10 +60,9 @@ updateDeviceDefinition
     :: Text -- ^ 'uddDeviceDefinitionId'
     -> UpdateDeviceDefinition
 updateDeviceDefinition pDeviceDefinitionId_ =
-    UpdateDeviceDefinition'
-    { _uddName = Nothing
-    , _uddDeviceDefinitionId = pDeviceDefinitionId_
-    }
+  UpdateDeviceDefinition'
+  {_uddName = Nothing, _uddDeviceDefinitionId = pDeviceDefinitionId_}
+
 
 -- | name of the definition
 uddName :: Lens' UpdateDeviceDefinition (Maybe Text)
@@ -82,9 +82,9 @@ instance AWSRequest UpdateDeviceDefinition where
                  UpdateDeviceDefinitionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateDeviceDefinition
+instance Hashable UpdateDeviceDefinition where
 
-instance NFData UpdateDeviceDefinition
+instance NFData UpdateDeviceDefinition where
 
 instance ToHeaders UpdateDeviceDefinition where
         toHeaders
@@ -108,8 +108,9 @@ instance ToQuery UpdateDeviceDefinition where
 
 -- | /See:/ 'updateDeviceDefinitionResponse' smart constructor.
 newtype UpdateDeviceDefinitionResponse = UpdateDeviceDefinitionResponse'
-    { _uddrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uddrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDeviceDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -120,12 +121,11 @@ updateDeviceDefinitionResponse
     :: Int -- ^ 'uddrsResponseStatus'
     -> UpdateDeviceDefinitionResponse
 updateDeviceDefinitionResponse pResponseStatus_ =
-    UpdateDeviceDefinitionResponse'
-    { _uddrsResponseStatus = pResponseStatus_
-    }
+  UpdateDeviceDefinitionResponse' {_uddrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 uddrsResponseStatus :: Lens' UpdateDeviceDefinitionResponse Int
 uddrsResponseStatus = lens _uddrsResponseStatus (\ s a -> s{_uddrsResponseStatus = a});
 
-instance NFData UpdateDeviceDefinitionResponse
+instance NFData UpdateDeviceDefinitionResponse where

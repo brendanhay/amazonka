@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SetInstanceProtection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.AutoScaling.SetInstanceProtection
     , siprsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for SetInstanceProtection.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setInstanceProtection' smart constructor.
 data SetInstanceProtection = SetInstanceProtection'
-    { _sipInstanceIds          :: ![Text]
-    , _sipAutoScalingGroupName :: !Text
-    , _sipProtectedFromScaleIn :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sipInstanceIds          :: {-# NOUNPACK #-}![Text]
+  , _sipAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  , _sipProtectedFromScaleIn :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetInstanceProtection' with the minimum fields required to make a request.
 --
@@ -72,11 +73,12 @@ setInstanceProtection
     -> Bool -- ^ 'sipProtectedFromScaleIn'
     -> SetInstanceProtection
 setInstanceProtection pAutoScalingGroupName_ pProtectedFromScaleIn_ =
-    SetInstanceProtection'
-    { _sipInstanceIds = mempty
-    , _sipAutoScalingGroupName = pAutoScalingGroupName_
-    , _sipProtectedFromScaleIn = pProtectedFromScaleIn_
-    }
+  SetInstanceProtection'
+  { _sipInstanceIds = mempty
+  , _sipAutoScalingGroupName = pAutoScalingGroupName_
+  , _sipProtectedFromScaleIn = pProtectedFromScaleIn_
+  }
+
 
 -- | One or more instance IDs.
 sipInstanceIds :: Lens' SetInstanceProtection [Text]
@@ -100,9 +102,9 @@ instance AWSRequest SetInstanceProtection where
                  SetInstanceProtectionResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable SetInstanceProtection
+instance Hashable SetInstanceProtection where
 
-instance NFData SetInstanceProtection
+instance NFData SetInstanceProtection where
 
 instance ToHeaders SetInstanceProtection where
         toHeaders = const mempty
@@ -126,8 +128,9 @@ instance ToQuery SetInstanceProtection where
 --
 -- /See:/ 'setInstanceProtectionResponse' smart constructor.
 newtype SetInstanceProtectionResponse = SetInstanceProtectionResponse'
-    { _siprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _siprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetInstanceProtectionResponse' with the minimum fields required to make a request.
 --
@@ -138,12 +141,11 @@ setInstanceProtectionResponse
     :: Int -- ^ 'siprsResponseStatus'
     -> SetInstanceProtectionResponse
 setInstanceProtectionResponse pResponseStatus_ =
-    SetInstanceProtectionResponse'
-    { _siprsResponseStatus = pResponseStatus_
-    }
+  SetInstanceProtectionResponse' {_siprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 siprsResponseStatus :: Lens' SetInstanceProtectionResponse Int
 siprsResponseStatus = lens _siprsResponseStatus (\ s a -> s{_siprsResponseStatus = a});
 
-instance NFData SetInstanceProtectionResponse
+instance NFData SetInstanceProtectionResponse where

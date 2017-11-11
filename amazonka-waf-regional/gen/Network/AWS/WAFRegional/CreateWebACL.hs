@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateWebACL
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -61,20 +61,21 @@ module Network.AWS.WAFRegional.CreateWebACL
     , cwarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAFRegional.Types
-import           Network.AWS.WAFRegional.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'createWebACL' smart constructor.
 data CreateWebACL = CreateWebACL'
-    { _cwaName          :: !Text
-    , _cwaMetricName    :: !Text
-    , _cwaDefaultAction :: !WafAction
-    , _cwaChangeToken   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwaName          :: {-# NOUNPACK #-}!Text
+  , _cwaMetricName    :: {-# NOUNPACK #-}!Text
+  , _cwaDefaultAction :: {-# NOUNPACK #-}!WafAction
+  , _cwaChangeToken   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateWebACL' with the minimum fields required to make a request.
 --
@@ -94,12 +95,13 @@ createWebACL
     -> Text -- ^ 'cwaChangeToken'
     -> CreateWebACL
 createWebACL pName_ pMetricName_ pDefaultAction_ pChangeToken_ =
-    CreateWebACL'
-    { _cwaName = pName_
-    , _cwaMetricName = pMetricName_
-    , _cwaDefaultAction = pDefaultAction_
-    , _cwaChangeToken = pChangeToken_
-    }
+  CreateWebACL'
+  { _cwaName = pName_
+  , _cwaMetricName = pMetricName_
+  , _cwaDefaultAction = pDefaultAction_
+  , _cwaChangeToken = pChangeToken_
+  }
+
 
 -- | A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
 cwaName :: Lens' CreateWebACL Text
@@ -127,9 +129,9 @@ instance AWSRequest CreateWebACL where
                    (x .?> "WebACL") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateWebACL
+instance Hashable CreateWebACL where
 
-instance NFData CreateWebACL
+instance NFData CreateWebACL where
 
 instance ToHeaders CreateWebACL where
         toHeaders
@@ -158,10 +160,11 @@ instance ToQuery CreateWebACL where
 
 -- | /See:/ 'createWebACLResponse' smart constructor.
 data CreateWebACLResponse = CreateWebACLResponse'
-    { _cwarsWebACL         :: !(Maybe WebACL)
-    , _cwarsChangeToken    :: !(Maybe Text)
-    , _cwarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cwarsWebACL         :: {-# NOUNPACK #-}!(Maybe WebACL)
+  , _cwarsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateWebACLResponse' with the minimum fields required to make a request.
 --
@@ -176,11 +179,12 @@ createWebACLResponse
     :: Int -- ^ 'cwarsResponseStatus'
     -> CreateWebACLResponse
 createWebACLResponse pResponseStatus_ =
-    CreateWebACLResponse'
-    { _cwarsWebACL = Nothing
-    , _cwarsChangeToken = Nothing
-    , _cwarsResponseStatus = pResponseStatus_
-    }
+  CreateWebACLResponse'
+  { _cwarsWebACL = Nothing
+  , _cwarsChangeToken = Nothing
+  , _cwarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The 'WebACL' returned in the @CreateWebACL@ response.
 cwarsWebACL :: Lens' CreateWebACLResponse (Maybe WebACL)
@@ -194,4 +198,4 @@ cwarsChangeToken = lens _cwarsChangeToken (\ s a -> s{_cwarsChangeToken = a});
 cwarsResponseStatus :: Lens' CreateWebACLResponse Int
 cwarsResponseStatus = lens _cwarsResponseStatus (\ s a -> s{_cwarsResponseStatus = a});
 
-instance NFData CreateWebACLResponse
+instance NFData CreateWebACLResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.QueryObjects
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.DataPipeline.QueryObjects
     , qorsResponseStatus
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for QueryObjects.
 --
@@ -59,12 +59,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'queryObjects' smart constructor.
 data QueryObjects = QueryObjects'
-    { _qoQuery      :: !(Maybe Query)
-    , _qoMarker     :: !(Maybe Text)
-    , _qoLimit      :: !(Maybe Int)
-    , _qoPipelineId :: !Text
-    , _qoSphere     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qoQuery      :: {-# NOUNPACK #-}!(Maybe Query)
+  , _qoMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qoLimit      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _qoPipelineId :: {-# NOUNPACK #-}!Text
+  , _qoSphere     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueryObjects' with the minimum fields required to make a request.
 --
@@ -84,13 +85,14 @@ queryObjects
     -> Text -- ^ 'qoSphere'
     -> QueryObjects
 queryObjects pPipelineId_ pSphere_ =
-    QueryObjects'
-    { _qoQuery = Nothing
-    , _qoMarker = Nothing
-    , _qoLimit = Nothing
-    , _qoPipelineId = pPipelineId_
-    , _qoSphere = pSphere_
-    }
+  QueryObjects'
+  { _qoQuery = Nothing
+  , _qoMarker = Nothing
+  , _qoLimit = Nothing
+  , _qoPipelineId = pPipelineId_
+  , _qoSphere = pSphere_
+  }
+
 
 -- | The query that defines the objects to be returned. The @Query@ object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.
 qoQuery :: Lens' QueryObjects (Maybe Query)
@@ -130,9 +132,9 @@ instance AWSRequest QueryObjects where
                      <*> (x .?> "marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable QueryObjects
+instance Hashable QueryObjects where
 
-instance NFData QueryObjects
+instance NFData QueryObjects where
 
 instance ToHeaders QueryObjects where
         toHeaders
@@ -165,11 +167,12 @@ instance ToQuery QueryObjects where
 --
 -- /See:/ 'queryObjectsResponse' smart constructor.
 data QueryObjectsResponse = QueryObjectsResponse'
-    { _qorsHasMoreResults :: !(Maybe Bool)
-    , _qorsIds            :: !(Maybe [Text])
-    , _qorsMarker         :: !(Maybe Text)
-    , _qorsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _qorsHasMoreResults :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _qorsIds            :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _qorsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _qorsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'QueryObjectsResponse' with the minimum fields required to make a request.
 --
@@ -186,12 +189,13 @@ queryObjectsResponse
     :: Int -- ^ 'qorsResponseStatus'
     -> QueryObjectsResponse
 queryObjectsResponse pResponseStatus_ =
-    QueryObjectsResponse'
-    { _qorsHasMoreResults = Nothing
-    , _qorsIds = Nothing
-    , _qorsMarker = Nothing
-    , _qorsResponseStatus = pResponseStatus_
-    }
+  QueryObjectsResponse'
+  { _qorsHasMoreResults = Nothing
+  , _qorsIds = Nothing
+  , _qorsMarker = Nothing
+  , _qorsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Indicates whether there are more results that can be obtained by a subsequent call.
 qorsHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
@@ -209,4 +213,4 @@ qorsMarker = lens _qorsMarker (\ s a -> s{_qorsMarker = a});
 qorsResponseStatus :: Lens' QueryObjectsResponse Int
 qorsResponseStatus = lens _qorsResponseStatus (\ s a -> s{_qorsResponseStatus = a});
 
-instance NFData QueryObjectsResponse
+instance NFData QueryObjectsResponse where

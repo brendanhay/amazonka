@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.BatchDeletePartition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.Glue.BatchDeletePartition
     , bdprsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchDeletePartition' smart constructor.
 data BatchDeletePartition = BatchDeletePartition'
-    { _bdpCatalogId          :: !(Maybe Text)
-    , _bdpDatabaseName       :: !Text
-    , _bdpTableName          :: !Text
-    , _bdpPartitionsToDelete :: ![PartitionValueList]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdpCatalogId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bdpDatabaseName       :: {-# NOUNPACK #-}!Text
+  , _bdpTableName          :: {-# NOUNPACK #-}!Text
+  , _bdpPartitionsToDelete :: {-# NOUNPACK #-}![PartitionValueList]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeletePartition' with the minimum fields required to make a request.
 --
@@ -71,12 +72,13 @@ batchDeletePartition
     -> Text -- ^ 'bdpTableName'
     -> BatchDeletePartition
 batchDeletePartition pDatabaseName_ pTableName_ =
-    BatchDeletePartition'
-    { _bdpCatalogId = Nothing
-    , _bdpDatabaseName = pDatabaseName_
-    , _bdpTableName = pTableName_
-    , _bdpPartitionsToDelete = mempty
-    }
+  BatchDeletePartition'
+  { _bdpCatalogId = Nothing
+  , _bdpDatabaseName = pDatabaseName_
+  , _bdpTableName = pTableName_
+  , _bdpPartitionsToDelete = mempty
+  }
+
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If none is supplied, the AWS account ID is used by default.
 bdpCatalogId :: Lens' BatchDeletePartition (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest BatchDeletePartition where
                  BatchDeletePartitionResponse' <$>
                    (x .?> "Errors" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance Hashable BatchDeletePartition
+instance Hashable BatchDeletePartition where
 
-instance NFData BatchDeletePartition
+instance NFData BatchDeletePartition where
 
 instance ToHeaders BatchDeletePartition where
         toHeaders
@@ -135,9 +137,10 @@ instance ToQuery BatchDeletePartition where
 
 -- | /See:/ 'batchDeletePartitionResponse' smart constructor.
 data BatchDeletePartitionResponse = BatchDeletePartitionResponse'
-    { _bdprsErrors         :: !(Maybe [PartitionError])
-    , _bdprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bdprsErrors         :: {-# NOUNPACK #-}!(Maybe [PartitionError])
+  , _bdprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchDeletePartitionResponse' with the minimum fields required to make a request.
 --
@@ -150,10 +153,9 @@ batchDeletePartitionResponse
     :: Int -- ^ 'bdprsResponseStatus'
     -> BatchDeletePartitionResponse
 batchDeletePartitionResponse pResponseStatus_ =
-    BatchDeletePartitionResponse'
-    { _bdprsErrors = Nothing
-    , _bdprsResponseStatus = pResponseStatus_
-    }
+  BatchDeletePartitionResponse'
+  {_bdprsErrors = Nothing, _bdprsResponseStatus = pResponseStatus_}
+
 
 -- | Errors encountered when trying to delete the requested partitions.
 bdprsErrors :: Lens' BatchDeletePartitionResponse [PartitionError]
@@ -163,4 +165,4 @@ bdprsErrors = lens _bdprsErrors (\ s a -> s{_bdprsErrors = a}) . _Default . _Coe
 bdprsResponseStatus :: Lens' BatchDeletePartitionResponse Int
 bdprsResponseStatus = lens _bdprsResponseStatus (\ s a -> s{_bdprsResponseStatus = a});
 
-instance NFData BatchDeletePartitionResponse
+instance NFData BatchDeletePartitionResponse where

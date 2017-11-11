@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.GetAssessmentReport
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.Inspector.GetAssessmentReport
     , garrsStatus
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAssessmentReport' smart constructor.
 data GetAssessmentReport = GetAssessmentReport'
-    { _garAssessmentRunARN :: !Text
-    , _garReportFileFormat :: !ReportFileFormat
-    , _garReportType       :: !ReportType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garAssessmentRunARN :: {-# NOUNPACK #-}!Text
+  , _garReportFileFormat :: {-# NOUNPACK #-}!ReportFileFormat
+  , _garReportType       :: {-# NOUNPACK #-}!ReportType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAssessmentReport' with the minimum fields required to make a request.
 --
@@ -69,11 +70,12 @@ getAssessmentReport
     -> ReportType -- ^ 'garReportType'
     -> GetAssessmentReport
 getAssessmentReport pAssessmentRunARN_ pReportFileFormat_ pReportType_ =
-    GetAssessmentReport'
-    { _garAssessmentRunARN = pAssessmentRunARN_
-    , _garReportFileFormat = pReportFileFormat_
-    , _garReportType = pReportType_
-    }
+  GetAssessmentReport'
+  { _garAssessmentRunARN = pAssessmentRunARN_
+  , _garReportFileFormat = pReportFileFormat_
+  , _garReportType = pReportType_
+  }
+
 
 -- | The ARN that specifies the assessment run for which you want to generate a report.
 garAssessmentRunARN :: Lens' GetAssessmentReport Text
@@ -98,9 +100,9 @@ instance AWSRequest GetAssessmentReport where
                    (x .?> "url") <*> (pure (fromEnum s)) <*>
                      (x .:> "status"))
 
-instance Hashable GetAssessmentReport
+instance Hashable GetAssessmentReport where
 
-instance NFData GetAssessmentReport
+instance NFData GetAssessmentReport where
 
 instance ToHeaders GetAssessmentReport where
         toHeaders
@@ -128,10 +130,11 @@ instance ToQuery GetAssessmentReport where
 
 -- | /See:/ 'getAssessmentReportResponse' smart constructor.
 data GetAssessmentReportResponse = GetAssessmentReportResponse'
-    { _garrsUrl            :: !(Maybe Text)
-    , _garrsResponseStatus :: !Int
-    , _garrsStatus         :: !ReportStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garrsUrl            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _garrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _garrsStatus         :: {-# NOUNPACK #-}!ReportStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAssessmentReportResponse' with the minimum fields required to make a request.
 --
@@ -147,11 +150,12 @@ getAssessmentReportResponse
     -> ReportStatus -- ^ 'garrsStatus'
     -> GetAssessmentReportResponse
 getAssessmentReportResponse pResponseStatus_ pStatus_ =
-    GetAssessmentReportResponse'
-    { _garrsUrl = Nothing
-    , _garrsResponseStatus = pResponseStatus_
-    , _garrsStatus = pStatus_
-    }
+  GetAssessmentReportResponse'
+  { _garrsUrl = Nothing
+  , _garrsResponseStatus = pResponseStatus_
+  , _garrsStatus = pStatus_
+  }
+
 
 -- | Specifies the URL where you can find the generated assessment report. This parameter is only returned if the report is successfully generated.
 garrsUrl :: Lens' GetAssessmentReportResponse (Maybe Text)
@@ -165,4 +169,4 @@ garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus
 garrsStatus :: Lens' GetAssessmentReportResponse ReportStatus
 garrsStatus = lens _garrsStatus (\ s a -> s{_garrsStatus = a});
 
-instance NFData GetAssessmentReportResponse
+instance NFData GetAssessmentReportResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
     , aruprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to reset a user's password as an administrator.
 --
@@ -54,9 +54,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'adminResetUserPassword' smart constructor.
 data AdminResetUserPassword = AdminResetUserPassword'
-    { _arupUserPoolId :: !Text
-    , _arupUsername   :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _arupUserPoolId :: {-# NOUNPACK #-}!Text
+  , _arupUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminResetUserPassword' with the minimum fields required to make a request.
 --
@@ -70,10 +71,9 @@ adminResetUserPassword
     -> Text -- ^ 'arupUsername'
     -> AdminResetUserPassword
 adminResetUserPassword pUserPoolId_ pUsername_ =
-    AdminResetUserPassword'
-    { _arupUserPoolId = pUserPoolId_
-    , _arupUsername = _Sensitive # pUsername_
-    }
+  AdminResetUserPassword'
+  {_arupUserPoolId = pUserPoolId_, _arupUsername = _Sensitive # pUsername_}
+
 
 -- | The user pool ID for the user pool where you want to reset the user's password.
 arupUserPoolId :: Lens' AdminResetUserPassword Text
@@ -93,9 +93,9 @@ instance AWSRequest AdminResetUserPassword where
                  AdminResetUserPasswordResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable AdminResetUserPassword
+instance Hashable AdminResetUserPassword where
 
-instance NFData AdminResetUserPassword
+instance NFData AdminResetUserPassword where
 
 instance ToHeaders AdminResetUserPassword where
         toHeaders
@@ -126,8 +126,9 @@ instance ToQuery AdminResetUserPassword where
 --
 -- /See:/ 'adminResetUserPasswordResponse' smart constructor.
 newtype AdminResetUserPasswordResponse = AdminResetUserPasswordResponse'
-    { _aruprsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aruprsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AdminResetUserPasswordResponse' with the minimum fields required to make a request.
 --
@@ -138,12 +139,11 @@ adminResetUserPasswordResponse
     :: Int -- ^ 'aruprsResponseStatus'
     -> AdminResetUserPasswordResponse
 adminResetUserPasswordResponse pResponseStatus_ =
-    AdminResetUserPasswordResponse'
-    { _aruprsResponseStatus = pResponseStatus_
-    }
+  AdminResetUserPasswordResponse' {_aruprsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 aruprsResponseStatus :: Lens' AdminResetUserPasswordResponse Int
 aruprsResponseStatus = lens _aruprsResponseStatus (\ s a -> s{_aruprsResponseStatus = a});
 
-instance NFData AdminResetUserPasswordResponse
+instance NFData AdminResetUserPasswordResponse where

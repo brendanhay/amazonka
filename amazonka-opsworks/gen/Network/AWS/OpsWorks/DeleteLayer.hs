@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteLayer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,17 +36,18 @@ module Network.AWS.OpsWorks.DeleteLayer
     , DeleteLayerResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deleteLayer' smart constructor.
 newtype DeleteLayer = DeleteLayer'
-    { _dlLayerId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dlLayerId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLayer' with the minimum fields required to make a request.
 --
@@ -56,10 +57,8 @@ newtype DeleteLayer = DeleteLayer'
 deleteLayer
     :: Text -- ^ 'dlLayerId'
     -> DeleteLayer
-deleteLayer pLayerId_ =
-    DeleteLayer'
-    { _dlLayerId = pLayerId_
-    }
+deleteLayer pLayerId_ = DeleteLayer' {_dlLayerId = pLayerId_}
+
 
 -- | The layer ID.
 dlLayerId :: Lens' DeleteLayer Text
@@ -70,9 +69,9 @@ instance AWSRequest DeleteLayer where
         request = postJSON opsWorks
         response = receiveNull DeleteLayerResponse'
 
-instance Hashable DeleteLayer
+instance Hashable DeleteLayer where
 
-instance NFData DeleteLayer
+instance NFData DeleteLayer where
 
 instance ToHeaders DeleteLayer where
         toHeaders
@@ -95,8 +94,9 @@ instance ToQuery DeleteLayer where
 
 -- | /See:/ 'deleteLayerResponse' smart constructor.
 data DeleteLayerResponse =
-    DeleteLayerResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteLayerResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteLayerResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ deleteLayerResponse
     :: DeleteLayerResponse
 deleteLayerResponse = DeleteLayerResponse'
 
-instance NFData DeleteLayerResponse
+
+instance NFData DeleteLayerResponse where

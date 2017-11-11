@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECR.BatchCheckLayerAvailability
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.ECR.BatchCheckLayerAvailability
     , bclarsResponseStatus
     ) where
 
-import           Network.AWS.ECR.Types
-import           Network.AWS.ECR.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECR.Types
+import Network.AWS.ECR.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'batchCheckLayerAvailability' smart constructor.
 data BatchCheckLayerAvailability = BatchCheckLayerAvailability'
-    { _bclaRegistryId     :: !(Maybe Text)
-    , _bclaRepositoryName :: !Text
-    , _bclaLayerDigests   :: !(List1 Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bclaRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bclaRepositoryName :: {-# NOUNPACK #-}!Text
+  , _bclaLayerDigests   :: {-# NOUNPACK #-}!(List1 Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchCheckLayerAvailability' with the minimum fields required to make a request.
 --
@@ -68,11 +69,12 @@ batchCheckLayerAvailability
     -> NonEmpty Text -- ^ 'bclaLayerDigests'
     -> BatchCheckLayerAvailability
 batchCheckLayerAvailability pRepositoryName_ pLayerDigests_ =
-    BatchCheckLayerAvailability'
-    { _bclaRegistryId = Nothing
-    , _bclaRepositoryName = pRepositoryName_
-    , _bclaLayerDigests = _List1 # pLayerDigests_
-    }
+  BatchCheckLayerAvailability'
+  { _bclaRegistryId = Nothing
+  , _bclaRepositoryName = pRepositoryName_
+  , _bclaLayerDigests = _List1 # pLayerDigests_
+  }
+
 
 -- | The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
 bclaRegistryId :: Lens' BatchCheckLayerAvailability (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest BatchCheckLayerAvailability where
                      (x .?> "layers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable BatchCheckLayerAvailability
+instance Hashable BatchCheckLayerAvailability where
 
-instance NFData BatchCheckLayerAvailability
+instance NFData BatchCheckLayerAvailability where
 
 instance ToHeaders BatchCheckLayerAvailability where
         toHeaders
@@ -128,10 +130,11 @@ instance ToQuery BatchCheckLayerAvailability where
 
 -- | /See:/ 'batchCheckLayerAvailabilityResponse' smart constructor.
 data BatchCheckLayerAvailabilityResponse = BatchCheckLayerAvailabilityResponse'
-    { _bclarsFailures       :: !(Maybe [LayerFailure])
-    , _bclarsLayers         :: !(Maybe [Layer])
-    , _bclarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _bclarsFailures       :: {-# NOUNPACK #-}!(Maybe [LayerFailure])
+  , _bclarsLayers         :: {-# NOUNPACK #-}!(Maybe [Layer])
+  , _bclarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'BatchCheckLayerAvailabilityResponse' with the minimum fields required to make a request.
 --
@@ -146,11 +149,12 @@ batchCheckLayerAvailabilityResponse
     :: Int -- ^ 'bclarsResponseStatus'
     -> BatchCheckLayerAvailabilityResponse
 batchCheckLayerAvailabilityResponse pResponseStatus_ =
-    BatchCheckLayerAvailabilityResponse'
-    { _bclarsFailures = Nothing
-    , _bclarsLayers = Nothing
-    , _bclarsResponseStatus = pResponseStatus_
-    }
+  BatchCheckLayerAvailabilityResponse'
+  { _bclarsFailures = Nothing
+  , _bclarsLayers = Nothing
+  , _bclarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Any failures associated with the call.
 bclarsFailures :: Lens' BatchCheckLayerAvailabilityResponse [LayerFailure]
@@ -165,3 +169,4 @@ bclarsResponseStatus :: Lens' BatchCheckLayerAvailabilityResponse Int
 bclarsResponseStatus = lens _bclarsResponseStatus (\ s a -> s{_bclarsResponseStatus = a});
 
 instance NFData BatchCheckLayerAvailabilityResponse
+         where

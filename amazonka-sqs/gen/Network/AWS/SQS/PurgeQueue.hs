@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS.PurgeQueue
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.SQS.PurgeQueue
     , PurgeQueueResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Types.Product
 
 -- |
 --
@@ -51,8 +51,9 @@ import           Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'purgeQueue' smart constructor.
 newtype PurgeQueue = PurgeQueue'
-    { _pqQueueURL :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pqQueueURL :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurgeQueue' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype PurgeQueue = PurgeQueue'
 purgeQueue
     :: Text -- ^ 'pqQueueURL'
     -> PurgeQueue
-purgeQueue pQueueURL_ =
-    PurgeQueue'
-    { _pqQueueURL = pQueueURL_
-    }
+purgeQueue pQueueURL_ = PurgeQueue' {_pqQueueURL = pQueueURL_}
+
 
 -- | The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs are case-sensitive.
 pqQueueURL :: Lens' PurgeQueue Text
@@ -76,9 +75,9 @@ instance AWSRequest PurgeQueue where
         request = postQuery sqs
         response = receiveNull PurgeQueueResponse'
 
-instance Hashable PurgeQueue
+instance Hashable PurgeQueue where
 
-instance NFData PurgeQueue
+instance NFData PurgeQueue where
 
 instance ToHeaders PurgeQueue where
         toHeaders = const mempty
@@ -95,8 +94,9 @@ instance ToQuery PurgeQueue where
 
 -- | /See:/ 'purgeQueueResponse' smart constructor.
 data PurgeQueueResponse =
-    PurgeQueueResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  PurgeQueueResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PurgeQueueResponse' with the minimum fields required to make a request.
 --
@@ -104,4 +104,5 @@ purgeQueueResponse
     :: PurgeQueueResponse
 purgeQueueResponse = PurgeQueueResponse'
 
-instance NFData PurgeQueueResponse
+
+instance NFData PurgeQueueResponse where

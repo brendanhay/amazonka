@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPCEndpointServices
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.EC2.DescribeVPCEndpointServices
     , dvesrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeVpcEndpointServices.
 --
@@ -53,10 +53,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeVPCEndpointServices' smart constructor.
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
-    { _dvesNextToken  :: !(Maybe Text)
-    , _dvesDryRun     :: !(Maybe Bool)
-    , _dvesMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvesNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvesDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvesMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVPCEndpointServices' with the minimum fields required to make a request.
 --
@@ -70,11 +71,9 @@ data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
 describeVPCEndpointServices
     :: DescribeVPCEndpointServices
 describeVPCEndpointServices =
-    DescribeVPCEndpointServices'
-    { _dvesNextToken = Nothing
-    , _dvesDryRun = Nothing
-    , _dvesMaxResults = Nothing
-    }
+  DescribeVPCEndpointServices'
+  {_dvesNextToken = Nothing, _dvesDryRun = Nothing, _dvesMaxResults = Nothing}
+
 
 -- | The token for the next set of items to return. (You received this token from a prior call.)
 dvesNextToken :: Lens' DescribeVPCEndpointServices (Maybe Text)
@@ -101,9 +100,9 @@ instance AWSRequest DescribeVPCEndpointServices where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeVPCEndpointServices
+instance Hashable DescribeVPCEndpointServices where
 
-instance NFData DescribeVPCEndpointServices
+instance NFData DescribeVPCEndpointServices where
 
 instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty
@@ -127,10 +126,11 @@ instance ToQuery DescribeVPCEndpointServices where
 --
 -- /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
-    { _dvesrsServiceNames   :: !(Maybe [Text])
-    , _dvesrsNextToken      :: !(Maybe Text)
-    , _dvesrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvesrsServiceNames   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dvesrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvesrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeVPCEndpointServicesResponse' with the minimum fields required to make a request.
 --
@@ -145,11 +145,12 @@ describeVPCEndpointServicesResponse
     :: Int -- ^ 'dvesrsResponseStatus'
     -> DescribeVPCEndpointServicesResponse
 describeVPCEndpointServicesResponse pResponseStatus_ =
-    DescribeVPCEndpointServicesResponse'
-    { _dvesrsServiceNames = Nothing
-    , _dvesrsNextToken = Nothing
-    , _dvesrsResponseStatus = pResponseStatus_
-    }
+  DescribeVPCEndpointServicesResponse'
+  { _dvesrsServiceNames = Nothing
+  , _dvesrsNextToken = Nothing
+  , _dvesrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of supported AWS services.
 dvesrsServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
@@ -164,3 +165,4 @@ dvesrsResponseStatus :: Lens' DescribeVPCEndpointServicesResponse Int
 dvesrsResponseStatus = lens _dvesrsResponseStatus (\ s a -> s{_dvesrsResponseStatus = a});
 
 instance NFData DescribeVPCEndpointServicesResponse
+         where

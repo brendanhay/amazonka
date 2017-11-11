@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateNFSFileShare
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,12 +51,12 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
     , cnfsfsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | CreateNFSFileShareInput
 --
@@ -64,18 +64,19 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createNFSFileShare' smart constructor.
 data CreateNFSFileShare = CreateNFSFileShare'
-    { _cnfsfsKMSKey               :: !(Maybe Text)
-    , _cnfsfsKMSEncrypted         :: !(Maybe Bool)
-    , _cnfsfsDefaultStorageClass  :: !(Maybe Text)
-    , _cnfsfsSquash               :: !(Maybe Text)
-    , _cnfsfsNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
-    , _cnfsfsClientList           :: !(Maybe (List1 Text))
-    , _cnfsfsReadOnly             :: !(Maybe Bool)
-    , _cnfsfsClientToken          :: !Text
-    , _cnfsfsGatewayARN           :: !Text
-    , _cnfsfsRole                 :: !Text
-    , _cnfsfsLocationARN          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnfsfsKMSKey               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnfsfsKMSEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cnfsfsDefaultStorageClass  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnfsfsSquash               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnfsfsNFSFileShareDefaults :: {-# NOUNPACK #-}!(Maybe NFSFileShareDefaults)
+  , _cnfsfsClientList           :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  , _cnfsfsReadOnly             :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cnfsfsClientToken          :: {-# NOUNPACK #-}!Text
+  , _cnfsfsGatewayARN           :: {-# NOUNPACK #-}!Text
+  , _cnfsfsRole                 :: {-# NOUNPACK #-}!Text
+  , _cnfsfsLocationARN          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNFSFileShare' with the minimum fields required to make a request.
 --
@@ -109,19 +110,20 @@ createNFSFileShare
     -> Text -- ^ 'cnfsfsLocationARN'
     -> CreateNFSFileShare
 createNFSFileShare pClientToken_ pGatewayARN_ pRole_ pLocationARN_ =
-    CreateNFSFileShare'
-    { _cnfsfsKMSKey = Nothing
-    , _cnfsfsKMSEncrypted = Nothing
-    , _cnfsfsDefaultStorageClass = Nothing
-    , _cnfsfsSquash = Nothing
-    , _cnfsfsNFSFileShareDefaults = Nothing
-    , _cnfsfsClientList = Nothing
-    , _cnfsfsReadOnly = Nothing
-    , _cnfsfsClientToken = pClientToken_
-    , _cnfsfsGatewayARN = pGatewayARN_
-    , _cnfsfsRole = pRole_
-    , _cnfsfsLocationARN = pLocationARN_
-    }
+  CreateNFSFileShare'
+  { _cnfsfsKMSKey = Nothing
+  , _cnfsfsKMSEncrypted = Nothing
+  , _cnfsfsDefaultStorageClass = Nothing
+  , _cnfsfsSquash = Nothing
+  , _cnfsfsNFSFileShareDefaults = Nothing
+  , _cnfsfsClientList = Nothing
+  , _cnfsfsReadOnly = Nothing
+  , _cnfsfsClientToken = pClientToken_
+  , _cnfsfsGatewayARN = pGatewayARN_
+  , _cnfsfsRole = pRole_
+  , _cnfsfsLocationARN = pLocationARN_
+  }
+
 
 -- | The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional.
 cnfsfsKMSKey :: Lens' CreateNFSFileShare (Maybe Text)
@@ -177,9 +179,9 @@ instance AWSRequest CreateNFSFileShare where
                  CreateNFSFileShareResponse' <$>
                    (x .?> "FileShareARN") <*> (pure (fromEnum s)))
 
-instance Hashable CreateNFSFileShare
+instance Hashable CreateNFSFileShare where
 
-instance NFData CreateNFSFileShare
+instance NFData CreateNFSFileShare where
 
 instance ToHeaders CreateNFSFileShare where
         toHeaders
@@ -221,9 +223,10 @@ instance ToQuery CreateNFSFileShare where
 --
 -- /See:/ 'createNFSFileShareResponse' smart constructor.
 data CreateNFSFileShareResponse = CreateNFSFileShareResponse'
-    { _cnfsfsrsFileShareARN   :: !(Maybe Text)
-    , _cnfsfsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cnfsfsrsFileShareARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cnfsfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateNFSFileShareResponse' with the minimum fields required to make a request.
 --
@@ -236,10 +239,9 @@ createNFSFileShareResponse
     :: Int -- ^ 'cnfsfsrsResponseStatus'
     -> CreateNFSFileShareResponse
 createNFSFileShareResponse pResponseStatus_ =
-    CreateNFSFileShareResponse'
-    { _cnfsfsrsFileShareARN = Nothing
-    , _cnfsfsrsResponseStatus = pResponseStatus_
-    }
+  CreateNFSFileShareResponse'
+  {_cnfsfsrsFileShareARN = Nothing, _cnfsfsrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the newly created file share.
 cnfsfsrsFileShareARN :: Lens' CreateNFSFileShareResponse (Maybe Text)
@@ -249,4 +251,4 @@ cnfsfsrsFileShareARN = lens _cnfsfsrsFileShareARN (\ s a -> s{_cnfsfsrsFileShare
 cnfsfsrsResponseStatus :: Lens' CreateNFSFileShareResponse Int
 cnfsfsrsResponseStatus = lens _cnfsfsrsResponseStatus (\ s a -> s{_cnfsfsrsResponseStatus = a});
 
-instance NFData CreateNFSFileShareResponse
+instance NFData CreateNFSFileShareResponse where

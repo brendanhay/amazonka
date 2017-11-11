@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     , ldgrsResponseStatus
     ) where
 
-import           Network.AWS.CodeDeploy.Types
-import           Network.AWS.CodeDeploy.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeDeploy.Types
+import Network.AWS.CodeDeploy.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input of a ListDeploymentGroups operation.
 --
@@ -56,9 +56,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listDeploymentGroups' smart constructor.
 data ListDeploymentGroups = ListDeploymentGroups'
-    { _ldgNextToken       :: !(Maybe Text)
-    , _ldgApplicationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldgNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldgApplicationName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeploymentGroups' with the minimum fields required to make a request.
 --
@@ -71,10 +72,9 @@ listDeploymentGroups
     :: Text -- ^ 'ldgApplicationName'
     -> ListDeploymentGroups
 listDeploymentGroups pApplicationName_ =
-    ListDeploymentGroups'
-    { _ldgNextToken = Nothing
-    , _ldgApplicationName = pApplicationName_
-    }
+  ListDeploymentGroups'
+  {_ldgNextToken = Nothing, _ldgApplicationName = pApplicationName_}
+
 
 -- | An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
 ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
@@ -103,9 +103,9 @@ instance AWSRequest ListDeploymentGroups where
                      (x .?> "deploymentGroups" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListDeploymentGroups
+instance Hashable ListDeploymentGroups where
 
-instance NFData ListDeploymentGroups
+instance NFData ListDeploymentGroups where
 
 instance ToHeaders ListDeploymentGroups where
         toHeaders
@@ -136,11 +136,12 @@ instance ToQuery ListDeploymentGroups where
 --
 -- /See:/ 'listDeploymentGroupsResponse' smart constructor.
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-    { _ldgrsNextToken        :: !(Maybe Text)
-    , _ldgrsApplicationName  :: !(Maybe Text)
-    , _ldgrsDeploymentGroups :: !(Maybe [Text])
-    , _ldgrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ldgrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldgrsApplicationName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ldgrsDeploymentGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ldgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListDeploymentGroupsResponse' with the minimum fields required to make a request.
 --
@@ -157,12 +158,13 @@ listDeploymentGroupsResponse
     :: Int -- ^ 'ldgrsResponseStatus'
     -> ListDeploymentGroupsResponse
 listDeploymentGroupsResponse pResponseStatus_ =
-    ListDeploymentGroupsResponse'
-    { _ldgrsNextToken = Nothing
-    , _ldgrsApplicationName = Nothing
-    , _ldgrsDeploymentGroups = Nothing
-    , _ldgrsResponseStatus = pResponseStatus_
-    }
+  ListDeploymentGroupsResponse'
+  { _ldgrsNextToken = Nothing
+  , _ldgrsApplicationName = Nothing
+  , _ldgrsDeploymentGroups = Nothing
+  , _ldgrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
 ldgrsNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
@@ -180,4 +182,4 @@ ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeployment
 ldgrsResponseStatus :: Lens' ListDeploymentGroupsResponse Int
 ldgrsResponseStatus = lens _ldgrsResponseStatus (\ s a -> s{_ldgrsResponseStatus = a});
 
-instance NFData ListDeploymentGroupsResponse
+instance NFData ListDeploymentGroupsResponse where

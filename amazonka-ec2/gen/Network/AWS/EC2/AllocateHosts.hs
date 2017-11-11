@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AllocateHosts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.EC2.AllocateHosts
     , ahrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for AllocateHosts.
 --
@@ -54,12 +54,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'allocateHosts' smart constructor.
 data AllocateHosts = AllocateHosts'
-    { _ahClientToken      :: !(Maybe Text)
-    , _ahAutoPlacement    :: !(Maybe AutoPlacement)
-    , _ahAvailabilityZone :: !Text
-    , _ahInstanceType     :: !Text
-    , _ahQuantity         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ahClientToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ahAutoPlacement    :: {-# NOUNPACK #-}!(Maybe AutoPlacement)
+  , _ahAvailabilityZone :: {-# NOUNPACK #-}!Text
+  , _ahInstanceType     :: {-# NOUNPACK #-}!Text
+  , _ahQuantity         :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllocateHosts' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ allocateHosts
     -> Int -- ^ 'ahQuantity'
     -> AllocateHosts
 allocateHosts pAvailabilityZone_ pInstanceType_ pQuantity_ =
-    AllocateHosts'
-    { _ahClientToken = Nothing
-    , _ahAutoPlacement = Nothing
-    , _ahAvailabilityZone = pAvailabilityZone_
-    , _ahInstanceType = pInstanceType_
-    , _ahQuantity = pQuantity_
-    }
+  AllocateHosts'
+  { _ahClientToken = Nothing
+  , _ahAutoPlacement = Nothing
+  , _ahAvailabilityZone = pAvailabilityZone_
+  , _ahInstanceType = pInstanceType_
+  , _ahQuantity = pQuantity_
+  }
+
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 ahClientToken :: Lens' AllocateHosts (Maybe Text)
@@ -119,9 +121,9 @@ instance AWSRequest AllocateHosts where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable AllocateHosts
+instance Hashable AllocateHosts where
 
-instance NFData AllocateHosts
+instance NFData AllocateHosts where
 
 instance ToHeaders AllocateHosts where
         toHeaders = const mempty
@@ -146,9 +148,10 @@ instance ToQuery AllocateHosts where
 --
 -- /See:/ 'allocateHostsResponse' smart constructor.
 data AllocateHostsResponse = AllocateHostsResponse'
-    { _ahrsHostIds        :: !(Maybe [Text])
-    , _ahrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ahrsHostIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ahrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AllocateHostsResponse' with the minimum fields required to make a request.
 --
@@ -161,10 +164,9 @@ allocateHostsResponse
     :: Int -- ^ 'ahrsResponseStatus'
     -> AllocateHostsResponse
 allocateHostsResponse pResponseStatus_ =
-    AllocateHostsResponse'
-    { _ahrsHostIds = Nothing
-    , _ahrsResponseStatus = pResponseStatus_
-    }
+  AllocateHostsResponse'
+  {_ahrsHostIds = Nothing, _ahrsResponseStatus = pResponseStatus_}
+
 
 -- | The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
 ahrsHostIds :: Lens' AllocateHostsResponse [Text]
@@ -174,4 +176,4 @@ ahrsHostIds = lens _ahrsHostIds (\ s a -> s{_ahrsHostIds = a}) . _Default . _Coe
 ahrsResponseStatus :: Lens' AllocateHostsResponse Int
 ahrsResponseStatus = lens _ahrsResponseStatus (\ s a -> s{_ahrsResponseStatus = a});
 
-instance NFData AllocateHostsResponse
+instance NFData AllocateHostsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeregisterTaskDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,17 +39,18 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     , dtdrsResponseStatus
     ) where
 
-import           Network.AWS.ECS.Types
-import           Network.AWS.ECS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ECS.Types
+import Network.AWS.ECS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'deregisterTaskDefinition' smart constructor.
 newtype DeregisterTaskDefinition = DeregisterTaskDefinition'
-    { _derTaskDefinition :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _derTaskDefinition :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterTaskDefinition' with the minimum fields required to make a request.
 --
@@ -60,9 +61,8 @@ deregisterTaskDefinition
     :: Text -- ^ 'derTaskDefinition'
     -> DeregisterTaskDefinition
 deregisterTaskDefinition pTaskDefinition_ =
-    DeregisterTaskDefinition'
-    { _derTaskDefinition = pTaskDefinition_
-    }
+  DeregisterTaskDefinition' {_derTaskDefinition = pTaskDefinition_}
+
 
 -- | The @family@ and @revision@ (@family:revision@ ) or full Amazon Resource Name (ARN) of the task definition to deregister. You must specify a @revision@ .
 derTaskDefinition :: Lens' DeregisterTaskDefinition Text
@@ -78,9 +78,9 @@ instance AWSRequest DeregisterTaskDefinition where
                  DeregisterTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
-instance Hashable DeregisterTaskDefinition
+instance Hashable DeregisterTaskDefinition where
 
-instance NFData DeregisterTaskDefinition
+instance NFData DeregisterTaskDefinition where
 
 instance ToHeaders DeregisterTaskDefinition where
         toHeaders
@@ -106,9 +106,10 @@ instance ToQuery DeregisterTaskDefinition where
 
 -- | /See:/ 'deregisterTaskDefinitionResponse' smart constructor.
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
-    { _dtdrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _dtdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtdrsTaskDefinition :: {-# NOUNPACK #-}!(Maybe TaskDefinition)
+  , _dtdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeregisterTaskDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -121,10 +122,9 @@ deregisterTaskDefinitionResponse
     :: Int -- ^ 'dtdrsResponseStatus'
     -> DeregisterTaskDefinitionResponse
 deregisterTaskDefinitionResponse pResponseStatus_ =
-    DeregisterTaskDefinitionResponse'
-    { _dtdrsTaskDefinition = Nothing
-    , _dtdrsResponseStatus = pResponseStatus_
-    }
+  DeregisterTaskDefinitionResponse'
+  {_dtdrsTaskDefinition = Nothing, _dtdrsResponseStatus = pResponseStatus_}
+
 
 -- | The full description of the deregistered task.
 dtdrsTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
@@ -135,3 +135,4 @@ dtdrsResponseStatus :: Lens' DeregisterTaskDefinitionResponse Int
 dtdrsResponseStatus = lens _dtdrsResponseStatus (\ s a -> s{_dtdrsResponseStatus = a});
 
 instance NFData DeregisterTaskDefinitionResponse
+         where

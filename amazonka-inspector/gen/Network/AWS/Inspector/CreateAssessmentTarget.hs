@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.CreateAssessmentTarget
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,18 +38,19 @@ module Network.AWS.Inspector.CreateAssessmentTarget
     , catrsAssessmentTargetARN
     ) where
 
-import           Network.AWS.Inspector.Types
-import           Network.AWS.Inspector.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Inspector.Types
+import Network.AWS.Inspector.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAssessmentTarget' smart constructor.
 data CreateAssessmentTarget = CreateAssessmentTarget'
-    { _catAssessmentTargetName :: !Text
-    , _catResourceGroupARN     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _catAssessmentTargetName :: {-# NOUNPACK #-}!Text
+  , _catResourceGroupARN     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAssessmentTarget' with the minimum fields required to make a request.
 --
@@ -63,10 +64,11 @@ createAssessmentTarget
     -> Text -- ^ 'catResourceGroupARN'
     -> CreateAssessmentTarget
 createAssessmentTarget pAssessmentTargetName_ pResourceGroupARN_ =
-    CreateAssessmentTarget'
-    { _catAssessmentTargetName = pAssessmentTargetName_
-    , _catResourceGroupARN = pResourceGroupARN_
-    }
+  CreateAssessmentTarget'
+  { _catAssessmentTargetName = pAssessmentTargetName_
+  , _catResourceGroupARN = pResourceGroupARN_
+  }
+
 
 -- | The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account.
 catAssessmentTargetName :: Lens' CreateAssessmentTarget Text
@@ -87,9 +89,9 @@ instance AWSRequest CreateAssessmentTarget where
                    (pure (fromEnum s)) <*>
                      (x .:> "assessmentTargetArn"))
 
-instance Hashable CreateAssessmentTarget
+instance Hashable CreateAssessmentTarget where
 
-instance NFData CreateAssessmentTarget
+instance NFData CreateAssessmentTarget where
 
 instance ToHeaders CreateAssessmentTarget where
         toHeaders
@@ -117,9 +119,10 @@ instance ToQuery CreateAssessmentTarget where
 
 -- | /See:/ 'createAssessmentTargetResponse' smart constructor.
 data CreateAssessmentTargetResponse = CreateAssessmentTargetResponse'
-    { _catrsResponseStatus      :: !Int
-    , _catrsAssessmentTargetARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _catrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _catrsAssessmentTargetARN :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateAssessmentTargetResponse' with the minimum fields required to make a request.
 --
@@ -133,10 +136,11 @@ createAssessmentTargetResponse
     -> Text -- ^ 'catrsAssessmentTargetARN'
     -> CreateAssessmentTargetResponse
 createAssessmentTargetResponse pResponseStatus_ pAssessmentTargetARN_ =
-    CreateAssessmentTargetResponse'
-    { _catrsResponseStatus = pResponseStatus_
-    , _catrsAssessmentTargetARN = pAssessmentTargetARN_
-    }
+  CreateAssessmentTargetResponse'
+  { _catrsResponseStatus = pResponseStatus_
+  , _catrsAssessmentTargetARN = pAssessmentTargetARN_
+  }
+
 
 -- | -- | The response status code.
 catrsResponseStatus :: Lens' CreateAssessmentTargetResponse Int
@@ -146,4 +150,4 @@ catrsResponseStatus = lens _catrsResponseStatus (\ s a -> s{_catrsResponseStatus
 catrsAssessmentTargetARN :: Lens' CreateAssessmentTargetResponse Text
 catrsAssessmentTargetARN = lens _catrsAssessmentTargetARN (\ s a -> s{_catrsAssessmentTargetARN = a});
 
-instance NFData CreateAssessmentTargetResponse
+instance NFData CreateAssessmentTargetResponse where

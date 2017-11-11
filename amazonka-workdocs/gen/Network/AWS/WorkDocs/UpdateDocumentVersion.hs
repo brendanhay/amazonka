@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WorkDocs.UpdateDocumentVersion
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,20 +39,21 @@ module Network.AWS.WorkDocs.UpdateDocumentVersion
     , UpdateDocumentVersionResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WorkDocs.Types
-import           Network.AWS.WorkDocs.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WorkDocs.Types
+import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateDocumentVersion' smart constructor.
 data UpdateDocumentVersion = UpdateDocumentVersion'
-    { _udvAuthenticationToken :: !(Maybe (Sensitive Text))
-    , _udvVersionStatus       :: !(Maybe DocumentVersionStatus)
-    , _udvDocumentId          :: !Text
-    , _udvVersionId           :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _udvAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _udvVersionStatus       :: {-# NOUNPACK #-}!(Maybe DocumentVersionStatus)
+  , _udvDocumentId          :: {-# NOUNPACK #-}!Text
+  , _udvVersionId           :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocumentVersion' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ updateDocumentVersion
     -> Text -- ^ 'udvVersionId'
     -> UpdateDocumentVersion
 updateDocumentVersion pDocumentId_ pVersionId_ =
-    UpdateDocumentVersion'
-    { _udvAuthenticationToken = Nothing
-    , _udvVersionStatus = Nothing
-    , _udvDocumentId = pDocumentId_
-    , _udvVersionId = pVersionId_
-    }
+  UpdateDocumentVersion'
+  { _udvAuthenticationToken = Nothing
+  , _udvVersionStatus = Nothing
+  , _udvDocumentId = pDocumentId_
+  , _udvVersionId = pVersionId_
+  }
+
 
 -- | Amazon WorkDocs authentication token. This field should not be set when using administrative API actions, as in accessing the API using AWS credentials.
 udvAuthenticationToken :: Lens' UpdateDocumentVersion (Maybe Text)
@@ -99,9 +101,9 @@ instance AWSRequest UpdateDocumentVersion where
         request = patchJSON workDocs
         response = receiveNull UpdateDocumentVersionResponse'
 
-instance Hashable UpdateDocumentVersion
+instance Hashable UpdateDocumentVersion where
 
-instance NFData UpdateDocumentVersion
+instance NFData UpdateDocumentVersion where
 
 instance ToHeaders UpdateDocumentVersion where
         toHeaders UpdateDocumentVersion'{..}
@@ -127,8 +129,9 @@ instance ToQuery UpdateDocumentVersion where
 
 -- | /See:/ 'updateDocumentVersionResponse' smart constructor.
 data UpdateDocumentVersionResponse =
-    UpdateDocumentVersionResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  UpdateDocumentVersionResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateDocumentVersionResponse' with the minimum fields required to make a request.
 --
@@ -136,4 +139,5 @@ updateDocumentVersionResponse
     :: UpdateDocumentVersionResponse
 updateDocumentVersionResponse = UpdateDocumentVersionResponse'
 
-instance NFData UpdateDocumentVersionResponse
+
+instance NFData UpdateDocumentVersionResponse where

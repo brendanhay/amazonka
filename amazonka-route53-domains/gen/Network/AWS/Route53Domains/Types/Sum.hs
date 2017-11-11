@@ -9,23 +9,24 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Route53Domains.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data ContactType
-    = Association
-    | Company
-    | Person
-    | PublicBody
-    | Reseller
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Association
+  | Company
+  | Person
+  | PublicBody
+  | Reseller
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ContactType where
     parser = takeLowerText >>= \case
@@ -58,236 +59,237 @@ instance FromJSON ContactType where
     parseJSON = parseJSONText "ContactType"
 
 data CountryCode
-    = AD
-    | AE
-    | AF
-    | AG
-    | AI
-    | AL
-    | AM
-    | AN
-    | AO
-    | AQ
-    | AR
-    | AS
-    | AT
-    | AU
-    | AW
-    | AZ
-    | BA
-    | BB
-    | BD
-    | BE
-    | BF
-    | BG
-    | BH
-    | BI
-    | BJ
-    | BL
-    | BM
-    | BN
-    | BO
-    | BR
-    | BS
-    | BT
-    | BW
-    | BY
-    | BZ
-    | CA
-    | CC
-    | CD
-    | CF
-    | CG
-    | CH
-    | CI
-    | CK
-    | CL
-    | CM
-    | CN
-    | CO
-    | CR
-    | CU
-    | CV
-    | CX
-    | CY
-    | CZ
-    | DE
-    | DJ
-    | DK
-    | DM
-    | DO
-    | DZ
-    | EC
-    | EE
-    | EG
-    | ER
-    | ES
-    | ET
-    | FI
-    | FJ
-    | FK
-    | FM
-    | FO
-    | FR
-    | GA
-    | GB
-    | GD
-    | GE
-    | GH
-    | GI
-    | GL
-    | GM
-    | GN
-    | GQ
-    | GR
-    | GT'
-    | GU
-    | GW
-    | GY
-    | HK
-    | HN
-    | HR
-    | HT
-    | HU
-    | IE
-    | IL
-    | IM
-    | IN
-    | IQ
-    | IR
-    | IS
-    | IT
-    | Id
-    | JM
-    | JO
-    | JP
-    | KE
-    | KG
-    | KH
-    | KI
-    | KM
-    | KN
-    | KP
-    | KR
-    | KW
-    | KY
-    | KZ
-    | LA
-    | LB
-    | LC
-    | LI
-    | LK
-    | LR
-    | LS
-    | LT'
-    | LU
-    | LV
-    | LY
-    | MA
-    | MC
-    | MD
-    | ME
-    | MF
-    | MG
-    | MH
-    | MK
-    | ML
-    | MM
-    | MN
-    | MO
-    | MP
-    | MR
-    | MS
-    | MT
-    | MU
-    | MV
-    | MW
-    | MX
-    | MY
-    | MZ
-    | NA
-    | NC
-    | NE
-    | NG
-    | NI
-    | NL
-    | NO
-    | NP
-    | NR
-    | NU
-    | NZ
-    | OM
-    | PA
-    | PE
-    | PF
-    | PG
-    | PH
-    | PK
-    | PL
-    | PM
-    | PN
-    | PR
-    | PT
-    | PW
-    | PY
-    | QA
-    | RO
-    | RS
-    | RU
-    | RW
-    | SA
-    | SB
-    | SC
-    | SD
-    | SE
-    | SG
-    | SH
-    | SI
-    | SK
-    | SL
-    | SM
-    | SN
-    | SO
-    | SR
-    | ST
-    | SV
-    | SY
-    | SZ
-    | TC
-    | TD
-    | TG
-    | TH
-    | TJ
-    | TK
-    | TL
-    | TM
-    | TN
-    | TO
-    | TR
-    | TT
-    | TV
-    | TW
-    | TZ
-    | UA
-    | UG
-    | US
-    | UY
-    | UZ
-    | VA
-    | VC
-    | VE
-    | VG
-    | VI
-    | VN
-    | VU
-    | WF
-    | WS
-    | YE
-    | YT
-    | ZA
-    | ZM
-    | ZW
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AD
+  | AE
+  | AF
+  | AG
+  | AI
+  | AL
+  | AM
+  | AN
+  | AO
+  | AQ
+  | AR
+  | AS
+  | AT
+  | AU
+  | AW
+  | AZ
+  | BA
+  | BB
+  | BD
+  | BE
+  | BF
+  | BG
+  | BH
+  | BI
+  | BJ
+  | BL
+  | BM
+  | BN
+  | BO
+  | BR
+  | BS
+  | BT
+  | BW
+  | BY
+  | BZ
+  | CA
+  | CC
+  | CD
+  | CF
+  | CG
+  | CH
+  | CI
+  | CK
+  | CL
+  | CM
+  | CN
+  | CO
+  | CR
+  | CU
+  | CV
+  | CX
+  | CY
+  | CZ
+  | DE
+  | DJ
+  | DK
+  | DM
+  | DO
+  | DZ
+  | EC
+  | EE
+  | EG
+  | ER
+  | ES
+  | ET
+  | FI
+  | FJ
+  | FK
+  | FM
+  | FO
+  | FR
+  | GA
+  | GB
+  | GD
+  | GE
+  | GH
+  | GI
+  | GL
+  | GM
+  | GN
+  | GQ
+  | GR
+  | GT'
+  | GU
+  | GW
+  | GY
+  | HK
+  | HN
+  | HR
+  | HT
+  | HU
+  | IE
+  | IL
+  | IM
+  | IN
+  | IQ
+  | IR
+  | IS
+  | IT
+  | Id
+  | JM
+  | JO
+  | JP
+  | KE
+  | KG
+  | KH
+  | KI
+  | KM
+  | KN
+  | KP
+  | KR
+  | KW
+  | KY
+  | KZ
+  | LA
+  | LB
+  | LC
+  | LI
+  | LK
+  | LR
+  | LS
+  | LT'
+  | LU
+  | LV
+  | LY
+  | MA
+  | MC
+  | MD
+  | ME
+  | MF
+  | MG
+  | MH
+  | MK
+  | ML
+  | MM
+  | MN
+  | MO
+  | MP
+  | MR
+  | MS
+  | MT
+  | MU
+  | MV
+  | MW
+  | MX
+  | MY
+  | MZ
+  | NA
+  | NC
+  | NE
+  | NG
+  | NI
+  | NL
+  | NO
+  | NP
+  | NR
+  | NU
+  | NZ
+  | OM
+  | PA
+  | PE
+  | PF
+  | PG
+  | PH
+  | PK
+  | PL
+  | PM
+  | PN
+  | PR
+  | PT
+  | PW
+  | PY
+  | QA
+  | RO
+  | RS
+  | RU
+  | RW
+  | SA
+  | SB
+  | SC
+  | SD
+  | SE
+  | SG
+  | SH
+  | SI
+  | SK
+  | SL
+  | SM
+  | SN
+  | SO
+  | SR
+  | ST
+  | SV
+  | SY
+  | SZ
+  | TC
+  | TD
+  | TG
+  | TH
+  | TJ
+  | TK
+  | TL
+  | TM
+  | TN
+  | TO
+  | TR
+  | TT
+  | TV
+  | TW
+  | TZ
+  | UA
+  | UG
+  | US
+  | UY
+  | UZ
+  | VA
+  | VC
+  | VE
+  | VG
+  | VI
+  | VN
+  | VU
+  | WF
+  | WS
+  | YE
+  | YT
+  | ZA
+  | ZM
+  | ZW
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText CountryCode where
     parser = takeLowerText >>= \case
@@ -768,15 +770,16 @@ instance FromJSON CountryCode where
     parseJSON = parseJSONText "CountryCode"
 
 data DomainAvailability
-    = Available
-    | AvailablePreorder
-    | AvailableReserved
-    | DontKnow
-    | Reserved
-    | Unavailable
-    | UnavailablePremium
-    | UnavailableRestricted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Available
+  | AvailablePreorder
+  | AvailableReserved
+  | DontKnow
+  | Reserved
+  | Unavailable
+  | UnavailablePremium
+  | UnavailableRestricted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText DomainAvailability where
     parser = takeLowerText >>= \case
@@ -812,28 +815,29 @@ instance FromJSON DomainAvailability where
     parseJSON = parseJSONText "DomainAvailability"
 
 data ExtraParamName
-    = AuIdNumber
-    | AuIdType
-    | BirthCity
-    | BirthCountry
-    | BirthDateInYyyyMmDd
-    | BirthDepartment
-    | BrandNumber
-    | CaBusinessEntityType
-    | CaLegalType
-    | DocumentNumber
-    | DunsNumber
-    | EsIdentification
-    | EsIdentificationType
-    | EsLegalForm
-    | FiBusinessNumber
-    | FiIdNumber
-    | ItPin
-    | RuPassportData
-    | SeIdNumber
-    | SgIdNumber
-    | VatNumber
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = AuIdNumber
+  | AuIdType
+  | BirthCity
+  | BirthCountry
+  | BirthDateInYyyyMmDd
+  | BirthDepartment
+  | BrandNumber
+  | CaBusinessEntityType
+  | CaLegalType
+  | DocumentNumber
+  | DunsNumber
+  | EsIdentification
+  | EsIdentificationType
+  | EsLegalForm
+  | FiBusinessNumber
+  | FiIdNumber
+  | ItPin
+  | RuPassportData
+  | SeIdNumber
+  | SgIdNumber
+  | VatNumber
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ExtraParamName where
     parser = takeLowerText >>= \case
@@ -898,12 +902,13 @@ instance FromJSON ExtraParamName where
     parseJSON = parseJSONText "ExtraParamName"
 
 data OperationStatus
-    = Error'
-    | Failed
-    | InProgress
-    | Submitted
-    | Successful
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Error'
+  | Failed
+  | InProgress
+  | Submitted
+  | Successful
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OperationStatus where
     parser = takeLowerText >>= \case
@@ -933,14 +938,15 @@ instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
 
 data OperationType
-    = ChangePrivacyProtection
-    | DeleteDomain
-    | DomainLock
-    | RegisterDomain
-    | TransferInDomain
-    | UpdateDomainContact
-    | UpdateNameserver
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = ChangePrivacyProtection
+  | DeleteDomain
+  | DomainLock
+  | RegisterDomain
+  | TransferInDomain
+  | UpdateDomainContact
+  | UpdateNameserver
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
@@ -974,10 +980,11 @@ instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"
 
 data ReachabilityStatus
-    = Done
-    | Expired
-    | Pending
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Done
+  | Expired
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ReachabilityStatus where
     parser = takeLowerText >>= \case

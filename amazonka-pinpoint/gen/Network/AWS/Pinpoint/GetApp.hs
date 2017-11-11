@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetApp
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,17 +35,18 @@ module Network.AWS.Pinpoint.GetApp
     , garsApplicationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getApp' smart constructor.
 newtype GetApp = GetApp'
-    { _gaApplicationId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gaApplicationId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetApp' with the minimum fields required to make a request.
 --
@@ -55,10 +56,8 @@ newtype GetApp = GetApp'
 getApp
     :: Text -- ^ 'gaApplicationId'
     -> GetApp
-getApp pApplicationId_ =
-    GetApp'
-    { _gaApplicationId = pApplicationId_
-    }
+getApp pApplicationId_ = GetApp' {_gaApplicationId = pApplicationId_}
+
 
 -- | Undocumented member.
 gaApplicationId :: Lens' GetApp Text
@@ -73,9 +72,9 @@ instance AWSRequest GetApp where
                  GetAppResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable GetApp
+instance Hashable GetApp where
 
-instance NFData GetApp
+instance NFData GetApp where
 
 instance ToHeaders GetApp where
         toHeaders
@@ -93,9 +92,10 @@ instance ToQuery GetApp where
 
 -- | /See:/ 'getAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
-    { _garsResponseStatus      :: !Int
-    , _garsApplicationResponse :: !ApplicationResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _garsResponseStatus      :: {-# NOUNPACK #-}!Int
+  , _garsApplicationResponse :: {-# NOUNPACK #-}!ApplicationResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAppResponse' with the minimum fields required to make a request.
 --
@@ -109,10 +109,11 @@ getAppResponse
     -> ApplicationResponse -- ^ 'garsApplicationResponse'
     -> GetAppResponse
 getAppResponse pResponseStatus_ pApplicationResponse_ =
-    GetAppResponse'
-    { _garsResponseStatus = pResponseStatus_
-    , _garsApplicationResponse = pApplicationResponse_
-    }
+  GetAppResponse'
+  { _garsResponseStatus = pResponseStatus_
+  , _garsApplicationResponse = pApplicationResponse_
+  }
+
 
 -- | -- | The response status code.
 garsResponseStatus :: Lens' GetAppResponse Int
@@ -122,4 +123,4 @@ garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = 
 garsApplicationResponse :: Lens' GetAppResponse ApplicationResponse
 garsApplicationResponse = lens _garsApplicationResponse (\ s a -> s{_garsApplicationResponse = a});
 
-instance NFData GetAppResponse
+instance NFData GetAppResponse where

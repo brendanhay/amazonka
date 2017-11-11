@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.ResetJobBookmark
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,17 +37,18 @@ module Network.AWS.Glue.ResetJobBookmark
     , rjbrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'resetJobBookmark' smart constructor.
 newtype ResetJobBookmark = ResetJobBookmark'
-    { _rjbJobName :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjbJobName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetJobBookmark' with the minimum fields required to make a request.
 --
@@ -57,10 +58,8 @@ newtype ResetJobBookmark = ResetJobBookmark'
 resetJobBookmark
     :: Text -- ^ 'rjbJobName'
     -> ResetJobBookmark
-resetJobBookmark pJobName_ =
-    ResetJobBookmark'
-    { _rjbJobName = pJobName_
-    }
+resetJobBookmark pJobName_ = ResetJobBookmark' {_rjbJobName = pJobName_}
+
 
 -- | The name of the job in question.
 rjbJobName :: Lens' ResetJobBookmark Text
@@ -75,9 +74,9 @@ instance AWSRequest ResetJobBookmark where
                  ResetJobBookmarkResponse' <$>
                    (x .?> "JobBookmarkEntry") <*> (pure (fromEnum s)))
 
-instance Hashable ResetJobBookmark
+instance Hashable ResetJobBookmark where
 
-instance NFData ResetJobBookmark
+instance NFData ResetJobBookmark where
 
 instance ToHeaders ResetJobBookmark where
         toHeaders
@@ -101,9 +100,10 @@ instance ToQuery ResetJobBookmark where
 
 -- | /See:/ 'resetJobBookmarkResponse' smart constructor.
 data ResetJobBookmarkResponse = ResetJobBookmarkResponse'
-    { _rjbrsJobBookmarkEntry :: !(Maybe JobBookmarkEntry)
-    , _rjbrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rjbrsJobBookmarkEntry :: {-# NOUNPACK #-}!(Maybe JobBookmarkEntry)
+  , _rjbrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ResetJobBookmarkResponse' with the minimum fields required to make a request.
 --
@@ -116,10 +116,9 @@ resetJobBookmarkResponse
     :: Int -- ^ 'rjbrsResponseStatus'
     -> ResetJobBookmarkResponse
 resetJobBookmarkResponse pResponseStatus_ =
-    ResetJobBookmarkResponse'
-    { _rjbrsJobBookmarkEntry = Nothing
-    , _rjbrsResponseStatus = pResponseStatus_
-    }
+  ResetJobBookmarkResponse'
+  {_rjbrsJobBookmarkEntry = Nothing, _rjbrsResponseStatus = pResponseStatus_}
+
 
 -- | The reset bookmark entry.
 rjbrsJobBookmarkEntry :: Lens' ResetJobBookmarkResponse (Maybe JobBookmarkEntry)
@@ -129,4 +128,4 @@ rjbrsJobBookmarkEntry = lens _rjbrsJobBookmarkEntry (\ s a -> s{_rjbrsJobBookmar
 rjbrsResponseStatus :: Lens' ResetJobBookmarkResponse Int
 rjbrsResponseStatus = lens _rjbrsResponseStatus (\ s a -> s{_rjbrsResponseStatus = a});
 
-instance NFData ResetJobBookmarkResponse
+instance NFData ResetJobBookmarkResponse where

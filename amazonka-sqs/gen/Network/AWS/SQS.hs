@@ -5,9 +5,9 @@
 
 -- |
 -- Module      : Network.AWS.SQS
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -240,25 +240,25 @@ module Network.AWS.SQS
     , smbreMD5OfMessageBody
     ) where
 
-import           Network.AWS.SQS.AddPermission
-import           Network.AWS.SQS.ChangeMessageVisibility
-import           Network.AWS.SQS.ChangeMessageVisibilityBatch
-import           Network.AWS.SQS.CreateQueue
-import           Network.AWS.SQS.DeleteMessage
-import           Network.AWS.SQS.DeleteMessageBatch
-import           Network.AWS.SQS.DeleteQueue
-import           Network.AWS.SQS.GetQueueAttributes
-import           Network.AWS.SQS.GetQueueURL
-import           Network.AWS.SQS.ListDeadLetterSourceQueues
-import           Network.AWS.SQS.ListQueues
-import           Network.AWS.SQS.PurgeQueue
-import           Network.AWS.SQS.ReceiveMessage
-import           Network.AWS.SQS.RemovePermission
-import           Network.AWS.SQS.SendMessage
-import           Network.AWS.SQS.SendMessageBatch
-import           Network.AWS.SQS.SetQueueAttributes
-import           Network.AWS.SQS.Types
-import           Network.AWS.SQS.Waiters
+import Network.AWS.SQS.AddPermission
+import Network.AWS.SQS.ChangeMessageVisibility
+import Network.AWS.SQS.ChangeMessageVisibilityBatch
+import Network.AWS.SQS.CreateQueue
+import Network.AWS.SQS.DeleteMessage
+import Network.AWS.SQS.DeleteMessageBatch
+import Network.AWS.SQS.DeleteQueue
+import Network.AWS.SQS.GetQueueAttributes
+import Network.AWS.SQS.GetQueueURL
+import Network.AWS.SQS.ListDeadLetterSourceQueues
+import Network.AWS.SQS.ListQueues
+import Network.AWS.SQS.PurgeQueue
+import Network.AWS.SQS.ReceiveMessage
+import Network.AWS.SQS.RemovePermission
+import Network.AWS.SQS.SendMessage
+import Network.AWS.SQS.SendMessageBatch
+import Network.AWS.SQS.SetQueueAttributes
+import Network.AWS.SQS.Types
+import Network.AWS.SQS.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

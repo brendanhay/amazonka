@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.CreateTrail
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -57,12 +57,12 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrsResponseStatus
     ) where
 
-import           Network.AWS.CloudTrail.Types
-import           Network.AWS.CloudTrail.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudTrail.Types
+import Network.AWS.CloudTrail.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Specifies the settings for each trail.
 --
@@ -70,17 +70,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createTrail' smart constructor.
 data CreateTrail = CreateTrail'
-    { _ctS3KeyPrefix                :: !(Maybe Text)
-    , _ctSNSTopicName               :: !(Maybe Text)
-    , _ctEnableLogFileValidation    :: !(Maybe Bool)
-    , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _ctKMSKeyId                   :: !(Maybe Text)
-    , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _ctIsMultiRegionTrail         :: !(Maybe Bool)
-    , _ctName                       :: !Text
-    , _ctS3BucketName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctSNSTopicName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctEnableLogFileValidation    :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ctCloudWatchLogsLogGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctIncludeGlobalServiceEvents :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ctCloudWatchLogsRoleARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctIsMultiRegionTrail         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ctName                       :: {-# NOUNPACK #-}!Text
+  , _ctS3BucketName               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrail' with the minimum fields required to make a request.
 --
@@ -110,18 +111,19 @@ createTrail
     -> Text -- ^ 'ctS3BucketName'
     -> CreateTrail
 createTrail pName_ pS3BucketName_ =
-    CreateTrail'
-    { _ctS3KeyPrefix = Nothing
-    , _ctSNSTopicName = Nothing
-    , _ctEnableLogFileValidation = Nothing
-    , _ctCloudWatchLogsLogGroupARN = Nothing
-    , _ctKMSKeyId = Nothing
-    , _ctIncludeGlobalServiceEvents = Nothing
-    , _ctCloudWatchLogsRoleARN = Nothing
-    , _ctIsMultiRegionTrail = Nothing
-    , _ctName = pName_
-    , _ctS3BucketName = pS3BucketName_
-    }
+  CreateTrail'
+  { _ctS3KeyPrefix = Nothing
+  , _ctSNSTopicName = Nothing
+  , _ctEnableLogFileValidation = Nothing
+  , _ctCloudWatchLogsLogGroupARN = Nothing
+  , _ctKMSKeyId = Nothing
+  , _ctIncludeGlobalServiceEvents = Nothing
+  , _ctCloudWatchLogsRoleARN = Nothing
+  , _ctIsMultiRegionTrail = Nothing
+  , _ctName = pName_
+  , _ctS3BucketName = pS3BucketName_
+  }
+
 
 -- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> . The maximum length is 200 characters.
 ctS3KeyPrefix :: Lens' CreateTrail (Maybe Text)
@@ -184,9 +186,9 @@ instance AWSRequest CreateTrail where
                      <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
 
-instance Hashable CreateTrail
+instance Hashable CreateTrail where
 
-instance NFData CreateTrail
+instance NFData CreateTrail where
 
 instance ToHeaders CreateTrail where
         toHeaders
@@ -229,20 +231,21 @@ instance ToQuery CreateTrail where
 --
 -- /See:/ 'createTrailResponse' smart constructor.
 data CreateTrailResponse = CreateTrailResponse'
-    { _ctrsLogFileValidationEnabled   :: !(Maybe Bool)
-    , _ctrsTrailARN                   :: !(Maybe Text)
-    , _ctrsS3KeyPrefix                :: !(Maybe Text)
-    , _ctrsSNSTopicARN                :: !(Maybe Text)
-    , _ctrsSNSTopicName               :: !(Maybe Text)
-    , _ctrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _ctrsKMSKeyId                   :: !(Maybe Text)
-    , _ctrsName                       :: !(Maybe Text)
-    , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _ctrsS3BucketName               :: !(Maybe Text)
-    , _ctrsIsMultiRegionTrail         :: !(Maybe Bool)
-    , _ctrsResponseStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ctrsLogFileValidationEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ctrsTrailARN                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsSNSTopicARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsSNSTopicName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsCloudWatchLogsLogGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsName                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsIncludeGlobalServiceEvents :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ctrsCloudWatchLogsRoleARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsS3BucketName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ctrsIsMultiRegionTrail         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ctrsResponseStatus             :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateTrailResponse' with the minimum fields required to make a request.
 --
@@ -277,21 +280,22 @@ createTrailResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTrailResponse
 createTrailResponse pResponseStatus_ =
-    CreateTrailResponse'
-    { _ctrsLogFileValidationEnabled = Nothing
-    , _ctrsTrailARN = Nothing
-    , _ctrsS3KeyPrefix = Nothing
-    , _ctrsSNSTopicARN = Nothing
-    , _ctrsSNSTopicName = Nothing
-    , _ctrsCloudWatchLogsLogGroupARN = Nothing
-    , _ctrsKMSKeyId = Nothing
-    , _ctrsName = Nothing
-    , _ctrsIncludeGlobalServiceEvents = Nothing
-    , _ctrsCloudWatchLogsRoleARN = Nothing
-    , _ctrsS3BucketName = Nothing
-    , _ctrsIsMultiRegionTrail = Nothing
-    , _ctrsResponseStatus = pResponseStatus_
-    }
+  CreateTrailResponse'
+  { _ctrsLogFileValidationEnabled = Nothing
+  , _ctrsTrailARN = Nothing
+  , _ctrsS3KeyPrefix = Nothing
+  , _ctrsSNSTopicARN = Nothing
+  , _ctrsSNSTopicName = Nothing
+  , _ctrsCloudWatchLogsLogGroupARN = Nothing
+  , _ctrsKMSKeyId = Nothing
+  , _ctrsName = Nothing
+  , _ctrsIncludeGlobalServiceEvents = Nothing
+  , _ctrsCloudWatchLogsRoleARN = Nothing
+  , _ctrsS3BucketName = Nothing
+  , _ctrsIsMultiRegionTrail = Nothing
+  , _ctrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Specifies whether log file integrity validation is enabled.
 ctrsLogFileValidationEnabled :: Lens' CreateTrailResponse (Maybe Bool)
@@ -345,4 +349,4 @@ ctrsIsMultiRegionTrail = lens _ctrsIsMultiRegionTrail (\ s a -> s{_ctrsIsMultiRe
 ctrsResponseStatus :: Lens' CreateTrailResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 
-instance NFData CreateTrailResponse
+instance NFData CreateTrailResponse where

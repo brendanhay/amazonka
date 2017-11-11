@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateCrawlerSchedule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,18 +37,19 @@ module Network.AWS.Glue.UpdateCrawlerSchedule
     , ucsrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateCrawlerSchedule' smart constructor.
 data UpdateCrawlerSchedule = UpdateCrawlerSchedule'
-    { _ucsSchedule    :: !(Maybe Text)
-    , _ucsCrawlerName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucsSchedule    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ucsCrawlerName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCrawlerSchedule' with the minimum fields required to make a request.
 --
@@ -61,10 +62,9 @@ updateCrawlerSchedule
     :: Text -- ^ 'ucsCrawlerName'
     -> UpdateCrawlerSchedule
 updateCrawlerSchedule pCrawlerName_ =
-    UpdateCrawlerSchedule'
-    { _ucsSchedule = Nothing
-    , _ucsCrawlerName = pCrawlerName_
-    }
+  UpdateCrawlerSchedule'
+  {_ucsSchedule = Nothing, _ucsCrawlerName = pCrawlerName_}
+
 
 -- | Cron expression of the updated schedule.
 ucsSchedule :: Lens' UpdateCrawlerSchedule (Maybe Text)
@@ -84,9 +84,9 @@ instance AWSRequest UpdateCrawlerSchedule where
                  UpdateCrawlerScheduleResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable UpdateCrawlerSchedule
+instance Hashable UpdateCrawlerSchedule where
 
-instance NFData UpdateCrawlerSchedule
+instance NFData UpdateCrawlerSchedule where
 
 instance ToHeaders UpdateCrawlerSchedule where
         toHeaders
@@ -112,8 +112,9 @@ instance ToQuery UpdateCrawlerSchedule where
 
 -- | /See:/ 'updateCrawlerScheduleResponse' smart constructor.
 newtype UpdateCrawlerScheduleResponse = UpdateCrawlerScheduleResponse'
-    { _ucsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ucsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateCrawlerScheduleResponse' with the minimum fields required to make a request.
 --
@@ -124,12 +125,11 @@ updateCrawlerScheduleResponse
     :: Int -- ^ 'ucsrsResponseStatus'
     -> UpdateCrawlerScheduleResponse
 updateCrawlerScheduleResponse pResponseStatus_ =
-    UpdateCrawlerScheduleResponse'
-    { _ucsrsResponseStatus = pResponseStatus_
-    }
+  UpdateCrawlerScheduleResponse' {_ucsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 ucsrsResponseStatus :: Lens' UpdateCrawlerScheduleResponse Int
 ucsrsResponseStatus = lens _ucsrsResponseStatus (\ s a -> s{_ucsrsResponseStatus = a});
 
-instance NFData UpdateCrawlerScheduleResponse
+instance NFData UpdateCrawlerScheduleResponse where

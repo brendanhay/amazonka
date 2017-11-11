@@ -9,19 +9,20 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.Types.Sum
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CloudHSMv2.Types.Sum where
 
-import           Network.AWS.Prelude
+import Network.AWS.Prelude
 
 data BackupPolicy =
-    Default
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  Default
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BackupPolicy where
     parser = takeLowerText >>= \case
@@ -43,10 +44,11 @@ instance FromJSON BackupPolicy where
     parseJSON = parseJSONText "BackupPolicy"
 
 data BackupState
-    = BSCreateInProgress
-    | BSDeleted
-    | BSReady
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = BSCreateInProgress
+  | BSDeleted
+  | BSReady
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText BackupState where
     parser = takeLowerText >>= \case
@@ -72,16 +74,17 @@ instance FromJSON BackupState where
     parseJSON = parseJSONText "BackupState"
 
 data ClusterState
-    = Active
-    | CreateInProgress
-    | Degraded
-    | DeleteInProgress
-    | Deleted
-    | InitializeInProgress
-    | Initialized
-    | Uninitialized
-    | UpdateInProgress
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = Active
+  | CreateInProgress
+  | Degraded
+  | DeleteInProgress
+  | Deleted
+  | InitializeInProgress
+  | Initialized
+  | Uninitialized
+  | UpdateInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText ClusterState where
     parser = takeLowerText >>= \case
@@ -119,12 +122,13 @@ instance FromJSON ClusterState where
     parseJSON = parseJSONText "ClusterState"
 
 data HSMState
-    = HSActive
-    | HSCreateInProgress
-    | HSDegraded
-    | HSDeleteInProgress
-    | HSDeleted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+  = HSActive
+  | HSCreateInProgress
+  | HSDegraded
+  | HSDeleteInProgress
+  | HSDeleted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
 
 instance FromText HSMState where
     parser = takeLowerText >>= \case

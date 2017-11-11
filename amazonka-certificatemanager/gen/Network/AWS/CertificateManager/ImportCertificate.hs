@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManager.ImportCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,20 +50,21 @@ module Network.AWS.CertificateManager.ImportCertificate
     , icrsResponseStatus
     ) where
 
-import           Network.AWS.CertificateManager.Types
-import           Network.AWS.CertificateManager.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'importCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-    { _icCertificateARN   :: !(Maybe Text)
-    , _icCertificateChain :: !(Maybe Base64)
-    , _icCertificate      :: !Base64
-    , _icPrivateKey       :: !(Sensitive Base64)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _icCertificateARN   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _icCertificateChain :: {-# NOUNPACK #-}!(Maybe Base64)
+  , _icCertificate      :: {-# NOUNPACK #-}!Base64
+  , _icPrivateKey       :: {-# NOUNPACK #-}!(Sensitive Base64)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportCertificate' with the minimum fields required to make a request.
 --
@@ -81,12 +82,13 @@ importCertificate
     -> ByteString -- ^ 'icPrivateKey'
     -> ImportCertificate
 importCertificate pCertificate_ pPrivateKey_ =
-    ImportCertificate'
-    { _icCertificateARN = Nothing
-    , _icCertificateChain = Nothing
-    , _icCertificate = _Base64 # pCertificate_
-    , _icPrivateKey = _Sensitive . _Base64 # pPrivateKey_
-    }
+  ImportCertificate'
+  { _icCertificateARN = Nothing
+  , _icCertificateChain = Nothing
+  , _icCertificate = _Base64 # pCertificate_
+  , _icPrivateKey = _Sensitive . _Base64 # pPrivateKey_
+  }
+
 
 -- | The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an imported certificate to replace. To import a new certificate, omit this field.
 icCertificateARN :: Lens' ImportCertificate (Maybe Text)
@@ -113,9 +115,9 @@ instance AWSRequest ImportCertificate where
                  ImportCertificateResponse' <$>
                    (x .?> "CertificateArn") <*> (pure (fromEnum s)))
 
-instance Hashable ImportCertificate
+instance Hashable ImportCertificate where
 
-instance NFData ImportCertificate
+instance NFData ImportCertificate where
 
 instance ToHeaders ImportCertificate where
         toHeaders
@@ -144,9 +146,10 @@ instance ToQuery ImportCertificate where
 
 -- | /See:/ 'importCertificateResponse' smart constructor.
 data ImportCertificateResponse = ImportCertificateResponse'
-    { _icrsCertificateARN :: !(Maybe Text)
-    , _icrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _icrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _icrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ImportCertificateResponse' with the minimum fields required to make a request.
 --
@@ -159,10 +162,9 @@ importCertificateResponse
     :: Int -- ^ 'icrsResponseStatus'
     -> ImportCertificateResponse
 importCertificateResponse pResponseStatus_ =
-    ImportCertificateResponse'
-    { _icrsCertificateARN = Nothing
-    , _icrsResponseStatus = pResponseStatus_
-    }
+  ImportCertificateResponse'
+  {_icrsCertificateARN = Nothing, _icrsResponseStatus = pResponseStatus_}
+
 
 -- | The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of the imported certificate.
 icrsCertificateARN :: Lens' ImportCertificateResponse (Maybe Text)
@@ -172,4 +174,4 @@ icrsCertificateARN = lens _icrsCertificateARN (\ s a -> s{_icrsCertificateARN = 
 icrsResponseStatus :: Lens' ImportCertificateResponse Int
 icrsResponseStatus = lens _icrsResponseStatus (\ s a -> s{_icrsResponseStatus = a});
 
-instance NFData ImportCertificateResponse
+instance NFData ImportCertificateResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.ListProjects
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CodeStar.ListProjects
     , lprsProjects
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listProjects' smart constructor.
 data ListProjects = ListProjects'
-    { _lpNextToken  :: !(Maybe Text)
-    , _lpMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
 --
@@ -61,11 +62,8 @@ data ListProjects = ListProjects'
 -- * 'lpMaxResults' - The maximum amount of data that can be contained in a single set of results.
 listProjects
     :: ListProjects
-listProjects =
-    ListProjects'
-    { _lpNextToken = Nothing
-    , _lpMaxResults = Nothing
-    }
+listProjects = ListProjects' {_lpNextToken = Nothing, _lpMaxResults = Nothing}
+
 
 -- | The continuation token to be used to return the next set of results, if the results cannot be returned in one response.
 lpNextToken :: Lens' ListProjects (Maybe Text)
@@ -85,9 +83,9 @@ instance AWSRequest ListProjects where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "projects" .!@ mempty))
 
-instance Hashable ListProjects
+instance Hashable ListProjects where
 
-instance NFData ListProjects
+instance NFData ListProjects where
 
 instance ToHeaders ListProjects where
         toHeaders
@@ -113,10 +111,11 @@ instance ToQuery ListProjects where
 
 -- | /See:/ 'listProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-    { _lprsNextToken      :: !(Maybe Text)
-    , _lprsResponseStatus :: !Int
-    , _lprsProjects       :: ![ProjectSummary]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _lprsProjects       :: {-# NOUNPACK #-}![ProjectSummary]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +130,12 @@ listProjectsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListProjectsResponse
 listProjectsResponse pResponseStatus_ =
-    ListProjectsResponse'
-    { _lprsNextToken = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    , _lprsProjects = mempty
-    }
+  ListProjectsResponse'
+  { _lprsNextToken = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  , _lprsProjects = mempty
+  }
+
 
 -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
 lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
@@ -149,4 +149,4 @@ lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = 
 lprsProjects :: Lens' ListProjectsResponse [ProjectSummary]
 lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Coerce;
 
-instance NFData ListProjectsResponse
+instance NFData ListProjectsResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVolume
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.EC2.DeleteVolume
     , DeleteVolumeResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DeleteVolume.
 --
@@ -50,9 +50,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteVolume' smart constructor.
 data DeleteVolume = DeleteVolume'
-    { _dvvDryRun   :: !(Maybe Bool)
-    , _dvvVolumeId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dvvDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dvvVolumeId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ deleteVolume
     :: Text -- ^ 'dvvVolumeId'
     -> DeleteVolume
 deleteVolume pVolumeId_ =
-    DeleteVolume'
-    { _dvvDryRun = Nothing
-    , _dvvVolumeId = pVolumeId_
-    }
+  DeleteVolume' {_dvvDryRun = Nothing, _dvvVolumeId = pVolumeId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvvDryRun :: Lens' DeleteVolume (Maybe Bool)
@@ -83,9 +82,9 @@ instance AWSRequest DeleteVolume where
         request = postQuery ec2
         response = receiveNull DeleteVolumeResponse'
 
-instance Hashable DeleteVolume
+instance Hashable DeleteVolume where
 
-instance NFData DeleteVolume
+instance NFData DeleteVolume where
 
 instance ToHeaders DeleteVolume where
         toHeaders = const mempty
@@ -102,8 +101,9 @@ instance ToQuery DeleteVolume where
 
 -- | /See:/ 'deleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse =
-    DeleteVolumeResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteVolumeResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
 --
@@ -111,4 +111,5 @@ deleteVolumeResponse
     :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse'
 
-instance NFData DeleteVolumeResponse
+
+instance NFData DeleteVolumeResponse where

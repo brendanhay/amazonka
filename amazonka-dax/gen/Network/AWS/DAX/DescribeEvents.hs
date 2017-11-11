@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeEvents
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -46,23 +46,24 @@ module Network.AWS.DAX.DescribeEvents
     , dersResponseStatus
     ) where
 
-import           Network.AWS.DAX.Types
-import           Network.AWS.DAX.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DAX.Types
+import Network.AWS.DAX.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-    { _deSourceName :: !(Maybe Text)
-    , _deStartTime  :: !(Maybe POSIX)
-    , _deSourceType :: !(Maybe SourceType)
-    , _deNextToken  :: !(Maybe Text)
-    , _deEndTime    :: !(Maybe POSIX)
-    , _deDuration   :: !(Maybe Int)
-    , _deMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _deSourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deStartTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _deSourceType :: {-# NOUNPACK #-}!(Maybe SourceType)
+  , _deNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deEndTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _deDuration   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _deMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
@@ -84,15 +85,16 @@ data DescribeEvents = DescribeEvents'
 describeEvents
     :: DescribeEvents
 describeEvents =
-    DescribeEvents'
-    { _deSourceName = Nothing
-    , _deStartTime = Nothing
-    , _deSourceType = Nothing
-    , _deNextToken = Nothing
-    , _deEndTime = Nothing
-    , _deDuration = Nothing
-    , _deMaxResults = Nothing
-    }
+  DescribeEvents'
+  { _deSourceName = Nothing
+  , _deStartTime = Nothing
+  , _deSourceType = Nothing
+  , _deNextToken = Nothing
+  , _deEndTime = Nothing
+  , _deDuration = Nothing
+  , _deMaxResults = Nothing
+  }
+
 
 -- | The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.
 deSourceName :: Lens' DescribeEvents (Maybe Text)
@@ -132,9 +134,9 @@ instance AWSRequest DescribeEvents where
                    (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeEvents
+instance Hashable DescribeEvents where
 
-instance NFData DescribeEvents
+instance NFData DescribeEvents where
 
 instance ToHeaders DescribeEvents where
         toHeaders
@@ -165,10 +167,11 @@ instance ToQuery DescribeEvents where
 
 -- | /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _dersNextToken      :: !(Maybe Text)
-    , _dersEvents         :: !(Maybe [Event])
-    , _dersResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
+  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
@@ -183,11 +186,12 @@ describeEventsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
 describeEventsResponse pResponseStatus_ =
-    DescribeEventsResponse'
-    { _dersNextToken = Nothing
-    , _dersEvents = Nothing
-    , _dersResponseStatus = pResponseStatus_
-    }
+  DescribeEventsResponse'
+  { _dersNextToken = Nothing
+  , _dersEvents = Nothing
+  , _dersResponseStatus = pResponseStatus_
+  }
+
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dersNextToken :: Lens' DescribeEventsResponse (Maybe Text)
@@ -201,4 +205,4 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 dersResponseStatus :: Lens' DescribeEventsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 
-instance NFData DescribeEventsResponse
+instance NFData DescribeEventsResponse where

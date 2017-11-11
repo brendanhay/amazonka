@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.CreateCampaign
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.CreateCampaign
     , ccrsCampaignResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createCampaign' smart constructor.
 data CreateCampaign = CreateCampaign'
-    { _ccApplicationId        :: !Text
-    , _ccWriteCampaignRequest :: !WriteCampaignRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccApplicationId        :: {-# NOUNPACK #-}!Text
+  , _ccWriteCampaignRequest :: {-# NOUNPACK #-}!WriteCampaignRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCampaign' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ createCampaign
     -> WriteCampaignRequest -- ^ 'ccWriteCampaignRequest'
     -> CreateCampaign
 createCampaign pApplicationId_ pWriteCampaignRequest_ =
-    CreateCampaign'
-    { _ccApplicationId = pApplicationId_
-    , _ccWriteCampaignRequest = pWriteCampaignRequest_
-    }
+  CreateCampaign'
+  { _ccApplicationId = pApplicationId_
+  , _ccWriteCampaignRequest = pWriteCampaignRequest_
+  }
+
 
 -- | Undocumented member.
 ccApplicationId :: Lens' CreateCampaign Text
@@ -83,9 +85,9 @@ instance AWSRequest CreateCampaign where
                  CreateCampaignResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable CreateCampaign
+instance Hashable CreateCampaign where
 
-instance NFData CreateCampaign
+instance NFData CreateCampaign where
 
 instance ToHeaders CreateCampaign where
         toHeaders
@@ -111,9 +113,10 @@ instance ToQuery CreateCampaign where
 
 -- | /See:/ 'createCampaignResponse' smart constructor.
 data CreateCampaignResponse = CreateCampaignResponse'
-    { _ccrsResponseStatus   :: !Int
-    , _ccrsCampaignResponse :: !CampaignResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  , _ccrsCampaignResponse :: {-# NOUNPACK #-}!CampaignResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateCampaignResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +130,11 @@ createCampaignResponse
     -> CampaignResponse -- ^ 'ccrsCampaignResponse'
     -> CreateCampaignResponse
 createCampaignResponse pResponseStatus_ pCampaignResponse_ =
-    CreateCampaignResponse'
-    { _ccrsResponseStatus = pResponseStatus_
-    , _ccrsCampaignResponse = pCampaignResponse_
-    }
+  CreateCampaignResponse'
+  { _ccrsResponseStatus = pResponseStatus_
+  , _ccrsCampaignResponse = pCampaignResponse_
+  }
+
 
 -- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateCampaignResponse Int
@@ -140,4 +144,4 @@ ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = 
 ccrsCampaignResponse :: Lens' CreateCampaignResponse CampaignResponse
 ccrsCampaignResponse = lens _ccrsCampaignResponse (\ s a -> s{_ccrsCampaignResponse = a});
 
-instance NFData CreateCampaignResponse
+instance NFData CreateCampaignResponse where

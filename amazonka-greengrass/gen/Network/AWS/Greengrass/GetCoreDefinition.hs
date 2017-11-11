@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetCoreDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Greengrass.GetCoreDefinition
     , gcdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getCoreDefinition' smart constructor.
 newtype GetCoreDefinition = GetCoreDefinition'
-    { _gcdCoreDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcdCoreDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCoreDefinition' with the minimum fields required to make a request.
 --
@@ -62,9 +63,8 @@ getCoreDefinition
     :: Text -- ^ 'gcdCoreDefinitionId'
     -> GetCoreDefinition
 getCoreDefinition pCoreDefinitionId_ =
-    GetCoreDefinition'
-    { _gcdCoreDefinitionId = pCoreDefinitionId_
-    }
+  GetCoreDefinition' {_gcdCoreDefinitionId = pCoreDefinitionId_}
+
 
 -- | core definition Id
 gcdCoreDefinitionId :: Lens' GetCoreDefinition Text
@@ -85,9 +85,9 @@ instance AWSRequest GetCoreDefinition where
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetCoreDefinition
+instance Hashable GetCoreDefinition where
 
-instance NFData GetCoreDefinition
+instance NFData GetCoreDefinition where
 
 instance ToHeaders GetCoreDefinition where
         toHeaders
@@ -107,15 +107,16 @@ instance ToQuery GetCoreDefinition where
 
 -- | /See:/ 'getCoreDefinitionResponse' smart constructor.
 data GetCoreDefinitionResponse = GetCoreDefinitionResponse'
-    { _gcdrsLatestVersionARN     :: !(Maybe Text)
-    , _gcdrsARN                  :: !(Maybe Text)
-    , _gcdrsName                 :: !(Maybe Text)
-    , _gcdrsCreationTimestamp    :: !(Maybe Text)
-    , _gcdrsId                   :: !(Maybe Text)
-    , _gcdrsLatestVersion        :: !(Maybe Text)
-    , _gcdrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _gcdrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetCoreDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -140,16 +141,17 @@ getCoreDefinitionResponse
     :: Int -- ^ 'gcdrsResponseStatus'
     -> GetCoreDefinitionResponse
 getCoreDefinitionResponse pResponseStatus_ =
-    GetCoreDefinitionResponse'
-    { _gcdrsLatestVersionARN = Nothing
-    , _gcdrsARN = Nothing
-    , _gcdrsName = Nothing
-    , _gcdrsCreationTimestamp = Nothing
-    , _gcdrsId = Nothing
-    , _gcdrsLatestVersion = Nothing
-    , _gcdrsLastUpdatedTimestamp = Nothing
-    , _gcdrsResponseStatus = pResponseStatus_
-    }
+  GetCoreDefinitionResponse'
+  { _gcdrsLatestVersionARN = Nothing
+  , _gcdrsARN = Nothing
+  , _gcdrsName = Nothing
+  , _gcdrsCreationTimestamp = Nothing
+  , _gcdrsId = Nothing
+  , _gcdrsLatestVersion = Nothing
+  , _gcdrsLastUpdatedTimestamp = Nothing
+  , _gcdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 gcdrsLatestVersionARN :: Lens' GetCoreDefinitionResponse (Maybe Text)
@@ -183,4 +185,4 @@ gcdrsLastUpdatedTimestamp = lens _gcdrsLastUpdatedTimestamp (\ s a -> s{_gcdrsLa
 gcdrsResponseStatus :: Lens' GetCoreDefinitionResponse Int
 gcdrsResponseStatus = lens _gcdrsResponseStatus (\ s a -> s{_gcdrsResponseStatus = a});
 
-instance NFData GetCoreDefinitionResponse
+instance NFData GetCoreDefinitionResponse where

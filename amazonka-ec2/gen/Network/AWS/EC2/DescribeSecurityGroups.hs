@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSecurityGroups
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,12 +42,12 @@ module Network.AWS.EC2.DescribeSecurityGroups
     , dsgrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for DescribeSecurityGroups.
 --
@@ -55,11 +55,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeSecurityGroups' smart constructor.
 data DescribeSecurityGroups = DescribeSecurityGroups'
-    { _dsgsFilters    :: !(Maybe [Filter])
-    , _dsgsGroupNames :: !(Maybe [Text])
-    , _dsgsGroupIds   :: !(Maybe [Text])
-    , _dsgsDryRun     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgsFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dsgsGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsgsGroupIds   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dsgsDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSecurityGroups' with the minimum fields required to make a request.
 --
@@ -75,12 +76,13 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 describeSecurityGroups
     :: DescribeSecurityGroups
 describeSecurityGroups =
-    DescribeSecurityGroups'
-    { _dsgsFilters = Nothing
-    , _dsgsGroupNames = Nothing
-    , _dsgsGroupIds = Nothing
-    , _dsgsDryRun = Nothing
-    }
+  DescribeSecurityGroups'
+  { _dsgsFilters = Nothing
+  , _dsgsGroupNames = Nothing
+  , _dsgsGroupIds = Nothing
+  , _dsgsDryRun = Nothing
+  }
+
 
 -- | One or more filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.     * @description@ - The description of the security group.     * @egress.ip-permission.prefix-list-id@ - The ID (prefix) of the AWS service to which the security group allows access.     * @group-id@ - The ID of the security group.      * @group-name@ - The name of the security group.     * @ip-permission.cidr@ - An IPv4 CIDR range that has been granted permission in a security group rule.     * @ip-permission.from-port@ - The start of port range for the TCP and UDP protocols, or an ICMP type number.     * @ip-permission.group-id@ - The ID of a security group that has been granted permission.     * @ip-permission.group-name@ - The name of a security group that has been granted permission.     * @ip-permission.ipv6-cidr@ - An IPv6 CIDR range that has been granted permission in a security group rule.     * @ip-permission.protocol@ - The IP protocol for the permission (@tcp@ | @udp@ | @icmp@ or a protocol number).     * @ip-permission.to-port@ - The end of port range for the TCP and UDP protocols, or an ICMP code.     * @ip-permission.user-id@ - The ID of an AWS account that has been granted permission.     * @owner-id@ - The AWS account ID of the owner of the security group.     * @tag-key@ - The key of a tag assigned to the security group.     * @tag-value@ - The value of a tag assigned to the security group.     * @vpc-id@ - The ID of the VPC specified when the security group was created.
 dsgsFilters :: Lens' DescribeSecurityGroups [Filter]
@@ -110,9 +112,9 @@ instance AWSRequest DescribeSecurityGroups where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeSecurityGroups
+instance Hashable DescribeSecurityGroups where
 
-instance NFData DescribeSecurityGroups
+instance NFData DescribeSecurityGroups where
 
 instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty
@@ -138,9 +140,10 @@ instance ToQuery DescribeSecurityGroups where
 --
 -- /See:/ 'describeSecurityGroupsResponse' smart constructor.
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
-    { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
-    , _dsgrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dsgrsSecurityGroups :: {-# NOUNPACK #-}!(Maybe [SecurityGroup])
+  , _dsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeSecurityGroupsResponse' with the minimum fields required to make a request.
 --
@@ -153,10 +156,9 @@ describeSecurityGroupsResponse
     :: Int -- ^ 'dsgrsResponseStatus'
     -> DescribeSecurityGroupsResponse
 describeSecurityGroupsResponse pResponseStatus_ =
-    DescribeSecurityGroupsResponse'
-    { _dsgrsSecurityGroups = Nothing
-    , _dsgrsResponseStatus = pResponseStatus_
-    }
+  DescribeSecurityGroupsResponse'
+  {_dsgrsSecurityGroups = Nothing, _dsgrsResponseStatus = pResponseStatus_}
+
 
 -- | Information about one or more security groups.
 dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
@@ -166,4 +168,4 @@ dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups
 dsgrsResponseStatus :: Lens' DescribeSecurityGroupsResponse Int
 dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a});
 
-instance NFData DescribeSecurityGroupsResponse
+instance NFData DescribeSecurityGroupsResponse where

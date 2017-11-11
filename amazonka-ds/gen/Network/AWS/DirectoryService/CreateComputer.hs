@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateComputer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,12 +41,12 @@ module Network.AWS.DirectoryService.CreateComputer
     , ccrsResponseStatus
     ) where
 
-import           Network.AWS.DirectoryService.Types
-import           Network.AWS.DirectoryService.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectoryService.Types
+import Network.AWS.DirectoryService.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the inputs for the 'CreateComputer' operation.
 --
@@ -54,12 +54,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createComputer' smart constructor.
 data CreateComputer = CreateComputer'
-    { _ccComputerAttributes                  :: !(Maybe [Attribute])
-    , _ccOrganizationalUnitDistinguishedName :: !(Maybe Text)
-    , _ccDirectoryId                         :: !Text
-    , _ccComputerName                        :: !Text
-    , _ccPassword                            :: !(Sensitive Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _ccComputerAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  , _ccOrganizationalUnitDistinguishedName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccDirectoryId :: {-# NOUNPACK #-}!Text
+  , _ccComputerName :: {-# NOUNPACK #-}!Text
+  , _ccPassword :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateComputer' with the minimum fields required to make a request.
 --
@@ -80,13 +81,14 @@ createComputer
     -> Text -- ^ 'ccPassword'
     -> CreateComputer
 createComputer pDirectoryId_ pComputerName_ pPassword_ =
-    CreateComputer'
-    { _ccComputerAttributes = Nothing
-    , _ccOrganizationalUnitDistinguishedName = Nothing
-    , _ccDirectoryId = pDirectoryId_
-    , _ccComputerName = pComputerName_
-    , _ccPassword = _Sensitive # pPassword_
-    }
+  CreateComputer'
+  { _ccComputerAttributes = Nothing
+  , _ccOrganizationalUnitDistinguishedName = Nothing
+  , _ccDirectoryId = pDirectoryId_
+  , _ccComputerName = pComputerName_
+  , _ccPassword = _Sensitive # pPassword_
+  }
+
 
 -- | An array of 'Attribute' objects that contain any LDAP attributes to apply to the computer account.
 ccComputerAttributes :: Lens' CreateComputer [Attribute]
@@ -117,9 +119,9 @@ instance AWSRequest CreateComputer where
                  CreateComputerResponse' <$>
                    (x .?> "Computer") <*> (pure (fromEnum s)))
 
-instance Hashable CreateComputer
+instance Hashable CreateComputer where
 
-instance NFData CreateComputer
+instance NFData CreateComputer where
 
 instance ToHeaders CreateComputer where
         toHeaders
@@ -154,9 +156,10 @@ instance ToQuery CreateComputer where
 --
 -- /See:/ 'createComputerResponse' smart constructor.
 data CreateComputerResponse = CreateComputerResponse'
-    { _ccrsComputer       :: !(Maybe Computer)
-    , _ccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccrsComputer       :: {-# NOUNPACK #-}!(Maybe Computer)
+  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateComputerResponse' with the minimum fields required to make a request.
 --
@@ -169,10 +172,9 @@ createComputerResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CreateComputerResponse
 createComputerResponse pResponseStatus_ =
-    CreateComputerResponse'
-    { _ccrsComputer = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
-    }
+  CreateComputerResponse'
+  {_ccrsComputer = Nothing, _ccrsResponseStatus = pResponseStatus_}
+
 
 -- | A 'Computer' object that represents the computer account.
 ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
@@ -182,4 +184,4 @@ ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
 ccrsResponseStatus :: Lens' CreateComputerResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 
-instance NFData CreateComputerResponse
+instance NFData CreateComputerResponse where

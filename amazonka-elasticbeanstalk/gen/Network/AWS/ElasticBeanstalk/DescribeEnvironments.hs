@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -44,12 +44,12 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , edmEnvironments
     ) where
 
-import           Network.AWS.ElasticBeanstalk.Types
-import           Network.AWS.ElasticBeanstalk.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticBeanstalk.Types
+import Network.AWS.ElasticBeanstalk.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Request to describe one or more environments.
 --
@@ -57,15 +57,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeEnvironments' smart constructor.
 data DescribeEnvironments = DescribeEnvironments'
-    { _desEnvironmentIds        :: !(Maybe [Text])
-    , _desEnvironmentNames      :: !(Maybe [Text])
-    , _desNextToken             :: !(Maybe Text)
-    , _desVersionLabel          :: !(Maybe Text)
-    , _desMaxRecords            :: !(Maybe Nat)
-    , _desApplicationName       :: !(Maybe Text)
-    , _desIncludedDeletedBackTo :: !(Maybe ISO8601)
-    , _desIncludeDeleted        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _desEnvironmentIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _desEnvironmentNames      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _desNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desVersionLabel          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desMaxRecords            :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _desApplicationName       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desIncludedDeletedBackTo :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _desIncludeDeleted        :: {-# NOUNPACK #-}!(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeEnvironments' with the minimum fields required to make a request.
 --
@@ -89,16 +90,17 @@ data DescribeEnvironments = DescribeEnvironments'
 describeEnvironments
     :: DescribeEnvironments
 describeEnvironments =
-    DescribeEnvironments'
-    { _desEnvironmentIds = Nothing
-    , _desEnvironmentNames = Nothing
-    , _desNextToken = Nothing
-    , _desVersionLabel = Nothing
-    , _desMaxRecords = Nothing
-    , _desApplicationName = Nothing
-    , _desIncludedDeletedBackTo = Nothing
-    , _desIncludeDeleted = Nothing
-    }
+  DescribeEnvironments'
+  { _desEnvironmentIds = Nothing
+  , _desEnvironmentNames = Nothing
+  , _desNextToken = Nothing
+  , _desVersionLabel = Nothing
+  , _desMaxRecords = Nothing
+  , _desApplicationName = Nothing
+  , _desIncludedDeletedBackTo = Nothing
+  , _desIncludeDeleted = Nothing
+  }
+
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.
 desEnvironmentIds :: Lens' DescribeEnvironments [Text]
@@ -140,9 +142,9 @@ instance AWSRequest DescribeEnvironments where
           = receiveXMLWrapper "DescribeEnvironmentsResult"
               (\ s h x -> parseXML x)
 
-instance Hashable DescribeEnvironments
+instance Hashable DescribeEnvironments where
 
-instance NFData DescribeEnvironments
+instance NFData DescribeEnvironments where
 
 instance ToHeaders DescribeEnvironments where
         toHeaders = const mempty

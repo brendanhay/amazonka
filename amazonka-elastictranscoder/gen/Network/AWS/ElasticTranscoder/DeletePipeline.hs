@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.DeletePipeline
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     , drsResponseStatus
     ) where
 
-import           Network.AWS.ElasticTranscoder.Types
-import           Network.AWS.ElasticTranscoder.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.ElasticTranscoder.Types
+import Network.AWS.ElasticTranscoder.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The @DeletePipelineRequest@ structure.
 --
@@ -51,8 +51,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deletePipeline' smart constructor.
 newtype DeletePipeline = DeletePipeline'
-    { _dId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePipeline' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ newtype DeletePipeline = DeletePipeline'
 deletePipeline
     :: Text -- ^ 'dId'
     -> DeletePipeline
-deletePipeline pId_ =
-    DeletePipeline'
-    { _dId = pId_
-    }
+deletePipeline pId_ = DeletePipeline' {_dId = pId_}
+
 
 -- | The identifier of the pipeline that you want to delete.
 dId :: Lens' DeletePipeline Text
@@ -79,9 +78,9 @@ instance AWSRequest DeletePipeline where
               (\ s h x ->
                  DeletePipelineResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeletePipeline
+instance Hashable DeletePipeline where
 
-instance NFData DeletePipeline
+instance NFData DeletePipeline where
 
 instance ToHeaders DeletePipeline where
         toHeaders = const mempty
@@ -99,8 +98,9 @@ instance ToQuery DeletePipeline where
 --
 -- /See:/ 'deletePipelineResponse' smart constructor.
 newtype DeletePipelineResponse = DeletePipelineResponse'
-    { _drsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _drsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.
 --
@@ -111,12 +111,11 @@ deletePipelineResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeletePipelineResponse
 deletePipelineResponse pResponseStatus_ =
-    DeletePipelineResponse'
-    { _drsResponseStatus = pResponseStatus_
-    }
+  DeletePipelineResponse' {_drsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DeletePipelineResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 
-instance NFData DeletePipelineResponse
+instance NFData DeletePipelineResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListMultipartUploads
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,13 +51,13 @@ module Network.AWS.Glacier.ListMultipartUploads
     , lmursResponseStatus
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options for retrieving list of in-progress multipart uploads for an Amazon Glacier vault.
 --
@@ -65,11 +65,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
-    { _lmuMarker    :: !(Maybe Text)
-    , _lmuLimit     :: !(Maybe Text)
-    , _lmuAccountId :: !Text
-    , _lmuVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lmuMarker    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmuLimit     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmuAccountId :: {-# NOUNPACK #-}!Text
+  , _lmuVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListMultipartUploads' with the minimum fields required to make a request.
 --
@@ -87,12 +88,13 @@ listMultipartUploads
     -> Text -- ^ 'lmuVaultName'
     -> ListMultipartUploads
 listMultipartUploads pAccountId_ pVaultName_ =
-    ListMultipartUploads'
-    { _lmuMarker = Nothing
-    , _lmuLimit = Nothing
-    , _lmuAccountId = pAccountId_
-    , _lmuVaultName = pVaultName_
-    }
+  ListMultipartUploads'
+  { _lmuMarker = Nothing
+  , _lmuLimit = Nothing
+  , _lmuAccountId = pAccountId_
+  , _lmuVaultName = pVaultName_
+  }
+
 
 -- | An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
 lmuMarker :: Lens' ListMultipartUploads (Maybe Text)
@@ -128,9 +130,9 @@ instance AWSRequest ListMultipartUploads where
                    (x .?> "UploadsList" .!@ mempty) <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListMultipartUploads
+instance Hashable ListMultipartUploads where
 
-instance NFData ListMultipartUploads
+instance NFData ListMultipartUploads where
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
@@ -152,10 +154,11 @@ instance ToQuery ListMultipartUploads where
 --
 -- /See:/ 'listMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-    { _lmursUploadsList    :: !(Maybe [UploadListElement])
-    , _lmursMarker         :: !(Maybe Text)
-    , _lmursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lmursUploadsList    :: {-# NOUNPACK #-}!(Maybe [UploadListElement])
+  , _lmursMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lmursResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
 --
@@ -170,11 +173,12 @@ listMultipartUploadsResponse
     :: Int -- ^ 'lmursResponseStatus'
     -> ListMultipartUploadsResponse
 listMultipartUploadsResponse pResponseStatus_ =
-    ListMultipartUploadsResponse'
-    { _lmursUploadsList = Nothing
-    , _lmursMarker = Nothing
-    , _lmursResponseStatus = pResponseStatus_
-    }
+  ListMultipartUploadsResponse'
+  { _lmursUploadsList = Nothing
+  , _lmursMarker = Nothing
+  , _lmursResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of in-progress multipart uploads.
 lmursUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
@@ -188,4 +192,4 @@ lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a});
 lmursResponseStatus :: Lens' ListMultipartUploadsResponse Int
 lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a});
 
-instance NFData ListMultipartUploadsResponse
+instance NFData ListMultipartUploadsResponse where

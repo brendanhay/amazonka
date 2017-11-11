@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumes
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,13 +45,13 @@ module Network.AWS.StorageGateway.ListVolumes
     , lvrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.StorageGateway.Types
-import           Network.AWS.StorageGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.StorageGateway.Types
+import Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object that contains one or more of the following fields:
 --
@@ -65,10 +65,11 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listVolumes' smart constructor.
 data ListVolumes = ListVolumes'
-    { _lvGatewayARN :: !(Maybe Text)
-    , _lvMarker     :: !(Maybe Text)
-    , _lvLimit      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvGatewayARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVolumes' with the minimum fields required to make a request.
 --
@@ -82,11 +83,9 @@ data ListVolumes = ListVolumes'
 listVolumes
     :: ListVolumes
 listVolumes =
-    ListVolumes'
-    { _lvGatewayARN = Nothing
-    , _lvMarker = Nothing
-    , _lvLimit = Nothing
-    }
+  ListVolumes'
+  {_lvGatewayARN = Nothing, _lvMarker = Nothing, _lvLimit = Nothing}
+
 
 -- | Undocumented member.
 lvGatewayARN :: Lens' ListVolumes (Maybe Text)
@@ -118,9 +117,9 @@ instance AWSRequest ListVolumes where
                      (x .?> "VolumeInfos" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListVolumes
+instance Hashable ListVolumes where
 
-instance NFData ListVolumes
+instance NFData ListVolumes where
 
 instance ToHeaders ListVolumes where
         toHeaders
@@ -148,11 +147,12 @@ instance ToQuery ListVolumes where
 
 -- | /See:/ 'listVolumesResponse' smart constructor.
 data ListVolumesResponse = ListVolumesResponse'
-    { _lvrsGatewayARN     :: !(Maybe Text)
-    , _lvrsMarker         :: !(Maybe Text)
-    , _lvrsVolumeInfos    :: !(Maybe [VolumeInfo])
-    , _lvrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lvrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lvrsVolumeInfos    :: {-# NOUNPACK #-}!(Maybe [VolumeInfo])
+  , _lvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListVolumesResponse' with the minimum fields required to make a request.
 --
@@ -169,12 +169,13 @@ listVolumesResponse
     :: Int -- ^ 'lvrsResponseStatus'
     -> ListVolumesResponse
 listVolumesResponse pResponseStatus_ =
-    ListVolumesResponse'
-    { _lvrsGatewayARN = Nothing
-    , _lvrsMarker = Nothing
-    , _lvrsVolumeInfos = Nothing
-    , _lvrsResponseStatus = pResponseStatus_
-    }
+  ListVolumesResponse'
+  { _lvrsGatewayARN = Nothing
+  , _lvrsMarker = Nothing
+  , _lvrsVolumeInfos = Nothing
+  , _lvrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lvrsGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
@@ -192,4 +193,4 @@ lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _De
 lvrsResponseStatus :: Lens' ListVolumesResponse Int
 lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});
 
-instance NFData ListVolumesResponse
+instance NFData ListVolumesResponse where

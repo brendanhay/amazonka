@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GenerateClientCertificate
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GenerateClientCertificate
     , ccDescription
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A request to generate a 'ClientCertificate' resource.
 --
@@ -53,8 +53,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'generateClientCertificate' smart constructor.
 newtype GenerateClientCertificate = GenerateClientCertificate'
-    { _gccDescription :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gccDescription :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GenerateClientCertificate' with the minimum fields required to make a request.
 --
@@ -64,9 +65,8 @@ newtype GenerateClientCertificate = GenerateClientCertificate'
 generateClientCertificate
     :: GenerateClientCertificate
 generateClientCertificate =
-    GenerateClientCertificate'
-    { _gccDescription = Nothing
-    }
+  GenerateClientCertificate' {_gccDescription = Nothing}
+
 
 -- | The description of the 'ClientCertificate' .
 gccDescription :: Lens' GenerateClientCertificate (Maybe Text)
@@ -77,9 +77,9 @@ instance AWSRequest GenerateClientCertificate where
         request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable GenerateClientCertificate
+instance Hashable GenerateClientCertificate where
 
-instance NFData GenerateClientCertificate
+instance NFData GenerateClientCertificate where
 
 instance ToHeaders GenerateClientCertificate where
         toHeaders

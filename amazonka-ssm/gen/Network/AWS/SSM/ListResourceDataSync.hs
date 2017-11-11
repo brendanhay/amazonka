@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListResourceDataSync
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,18 +41,19 @@ module Network.AWS.SSM.ListResourceDataSync
     , lrdsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.SSM.Types
-import           Network.AWS.SSM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.SSM.Types
+import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listResourceDataSync' smart constructor.
 data ListResourceDataSync = ListResourceDataSync'
-    { _lrdsNextToken  :: !(Maybe Text)
-    , _lrdsMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrdsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrdsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourceDataSync' with the minimum fields required to make a request.
 --
@@ -64,10 +65,8 @@ data ListResourceDataSync = ListResourceDataSync'
 listResourceDataSync
     :: ListResourceDataSync
 listResourceDataSync =
-    ListResourceDataSync'
-    { _lrdsNextToken = Nothing
-    , _lrdsMaxResults = Nothing
-    }
+  ListResourceDataSync' {_lrdsNextToken = Nothing, _lrdsMaxResults = Nothing}
+
 
 -- | A token to start the list. Use this token to get the next set of results.
 lrdsNextToken :: Lens' ListResourceDataSync (Maybe Text)
@@ -89,9 +88,9 @@ instance AWSRequest ListResourceDataSync where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListResourceDataSync
+instance Hashable ListResourceDataSync where
 
-instance NFData ListResourceDataSync
+instance NFData ListResourceDataSync where
 
 instance ToHeaders ListResourceDataSync where
         toHeaders
@@ -117,10 +116,11 @@ instance ToQuery ListResourceDataSync where
 
 -- | /See:/ 'listResourceDataSyncResponse' smart constructor.
 data ListResourceDataSyncResponse = ListResourceDataSyncResponse'
-    { _lrdsrsResourceDataSyncItems :: !(Maybe [ResourceDataSyncItem])
-    , _lrdsrsNextToken             :: !(Maybe Text)
-    , _lrdsrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrdsrsResourceDataSyncItems :: {-# NOUNPACK #-}!(Maybe [ResourceDataSyncItem])
+  , _lrdsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourceDataSyncResponse' with the minimum fields required to make a request.
 --
@@ -135,11 +135,12 @@ listResourceDataSyncResponse
     :: Int -- ^ 'lrdsrsResponseStatus'
     -> ListResourceDataSyncResponse
 listResourceDataSyncResponse pResponseStatus_ =
-    ListResourceDataSyncResponse'
-    { _lrdsrsResourceDataSyncItems = Nothing
-    , _lrdsrsNextToken = Nothing
-    , _lrdsrsResponseStatus = pResponseStatus_
-    }
+  ListResourceDataSyncResponse'
+  { _lrdsrsResourceDataSyncItems = Nothing
+  , _lrdsrsNextToken = Nothing
+  , _lrdsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list of your current Resource Data Sync configurations and their statuses.
 lrdsrsResourceDataSyncItems :: Lens' ListResourceDataSyncResponse [ResourceDataSyncItem]
@@ -153,4 +154,4 @@ lrdsrsNextToken = lens _lrdsrsNextToken (\ s a -> s{_lrdsrsNextToken = a});
 lrdsrsResponseStatus :: Lens' ListResourceDataSyncResponse Int
 lrdsrsResponseStatus = lens _lrdsrsResponseStatus (\ s a -> s{_lrdsrsResponseStatus = a});
 
-instance NFData ListResourceDataSyncResponse
+instance NFData ListResourceDataSyncResponse where

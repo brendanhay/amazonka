@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.LexModels.GetBotAliases
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -43,20 +43,21 @@ module Network.AWS.LexModels.GetBotAliases
     , gbarsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.LexModels.Types
-import           Network.AWS.LexModels.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.LexModels.Types
+import Network.AWS.LexModels.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getBotAliases' smart constructor.
 data GetBotAliases = GetBotAliases'
-    { _gbaNameContains :: !(Maybe Text)
-    , _gbaNextToken    :: !(Maybe Text)
-    , _gbaMaxResults   :: !(Maybe Nat)
-    , _gbaBotName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbaNameContains :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbaNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbaMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _gbaBotName      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotAliases' with the minimum fields required to make a request.
 --
@@ -73,12 +74,13 @@ getBotAliases
     :: Text -- ^ 'gbaBotName'
     -> GetBotAliases
 getBotAliases pBotName_ =
-    GetBotAliases'
-    { _gbaNameContains = Nothing
-    , _gbaNextToken = Nothing
-    , _gbaMaxResults = Nothing
-    , _gbaBotName = pBotName_
-    }
+  GetBotAliases'
+  { _gbaNameContains = Nothing
+  , _gbaNextToken = Nothing
+  , _gbaMaxResults = Nothing
+  , _gbaBotName = pBotName_
+  }
+
 
 -- | Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 gbaNameContains :: Lens' GetBotAliases (Maybe Text)
@@ -107,9 +109,9 @@ instance AWSRequest GetBotAliases where
                      (x .?> "BotAliases" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetBotAliases
+instance Hashable GetBotAliases where
 
-instance NFData GetBotAliases
+instance NFData GetBotAliases where
 
 instance ToHeaders GetBotAliases where
         toHeaders
@@ -131,10 +133,11 @@ instance ToQuery GetBotAliases where
 
 -- | /See:/ 'getBotAliasesResponse' smart constructor.
 data GetBotAliasesResponse = GetBotAliasesResponse'
-    { _gbarsNextToken      :: !(Maybe Text)
-    , _gbarsBotAliases     :: !(Maybe [BotAliasMetadata])
-    , _gbarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gbarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbarsBotAliases     :: {-# NOUNPACK #-}!(Maybe [BotAliasMetadata])
+  , _gbarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetBotAliasesResponse' with the minimum fields required to make a request.
 --
@@ -149,11 +152,12 @@ getBotAliasesResponse
     :: Int -- ^ 'gbarsResponseStatus'
     -> GetBotAliasesResponse
 getBotAliasesResponse pResponseStatus_ =
-    GetBotAliasesResponse'
-    { _gbarsNextToken = Nothing
-    , _gbarsBotAliases = Nothing
-    , _gbarsResponseStatus = pResponseStatus_
-    }
+  GetBotAliasesResponse'
+  { _gbarsNextToken = Nothing
+  , _gbarsBotAliases = Nothing
+  , _gbarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
 gbarsNextToken :: Lens' GetBotAliasesResponse (Maybe Text)
@@ -167,4 +171,4 @@ gbarsBotAliases = lens _gbarsBotAliases (\ s a -> s{_gbarsBotAliases = a}) . _De
 gbarsResponseStatus :: Lens' GetBotAliasesResponse Int
 gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a});
 
-instance NFData GetBotAliasesResponse
+instance NFData GetBotAliasesResponse where

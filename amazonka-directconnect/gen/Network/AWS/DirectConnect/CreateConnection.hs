@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateConnection
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.DirectConnect.CreateConnection
     , cConnectionState
     ) where
 
-import           Network.AWS.DirectConnect.Types
-import           Network.AWS.DirectConnect.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DirectConnect.Types
+import Network.AWS.DirectConnect.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the CreateConnection operation.
 --
@@ -67,11 +67,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createConnection' smart constructor.
 data CreateConnection = CreateConnection'
-    { _ccLagId          :: !(Maybe Text)
-    , _ccLocation       :: !Text
-    , _ccBandwidth      :: !Text
-    , _ccConnectionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ccLagId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccLocation       :: {-# NOUNPACK #-}!Text
+  , _ccBandwidth      :: {-# NOUNPACK #-}!Text
+  , _ccConnectionName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
 --
@@ -90,12 +91,13 @@ createConnection
     -> Text -- ^ 'ccConnectionName'
     -> CreateConnection
 createConnection pLocation_ pBandwidth_ pConnectionName_ =
-    CreateConnection'
-    { _ccLagId = Nothing
-    , _ccLocation = pLocation_
-    , _ccBandwidth = pBandwidth_
-    , _ccConnectionName = pConnectionName_
-    }
+  CreateConnection'
+  { _ccLagId = Nothing
+  , _ccLocation = pLocation_
+  , _ccBandwidth = pBandwidth_
+  , _ccConnectionName = pConnectionName_
+  }
+
 
 -- | Undocumented member.
 ccLagId :: Lens' CreateConnection (Maybe Text)
@@ -118,9 +120,9 @@ instance AWSRequest CreateConnection where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-instance Hashable CreateConnection
+instance Hashable CreateConnection where
 
-instance NFData CreateConnection
+instance NFData CreateConnection where
 
 instance ToHeaders CreateConnection where
         toHeaders

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ListTargetsByRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CloudWatchEvents.ListTargetsByRule
     , ltbrrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listTargetsByRule' smart constructor.
 data ListTargetsByRule = ListTargetsByRule'
-    { _ltbrNextToken :: !(Maybe Text)
-    , _ltbrLimit     :: !(Maybe Nat)
-    , _ltbrRule      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltbrNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltbrLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ltbrRule      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTargetsByRule' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ listTargetsByRule
     :: Text -- ^ 'ltbrRule'
     -> ListTargetsByRule
 listTargetsByRule pRule_ =
-    ListTargetsByRule'
-    { _ltbrNextToken = Nothing
-    , _ltbrLimit = Nothing
-    , _ltbrRule = pRule_
-    }
+  ListTargetsByRule'
+  {_ltbrNextToken = Nothing, _ltbrLimit = Nothing, _ltbrRule = pRule_}
+
 
 -- | The token returned by a previous call to retrieve the next set of results.
 ltbrNextToken :: Lens' ListTargetsByRule (Maybe Text)
@@ -95,9 +94,9 @@ instance AWSRequest ListTargetsByRule where
                    (x .?> "NextToken") <*> (x .?> "Targets") <*>
                      (pure (fromEnum s)))
 
-instance Hashable ListTargetsByRule
+instance Hashable ListTargetsByRule where
 
-instance NFData ListTargetsByRule
+instance NFData ListTargetsByRule where
 
 instance ToHeaders ListTargetsByRule where
         toHeaders
@@ -124,10 +123,11 @@ instance ToQuery ListTargetsByRule where
 
 -- | /See:/ 'listTargetsByRuleResponse' smart constructor.
 data ListTargetsByRuleResponse = ListTargetsByRuleResponse'
-    { _ltbrrsNextToken      :: !(Maybe Text)
-    , _ltbrrsTargets        :: !(Maybe (List1 Target))
-    , _ltbrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ltbrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ltbrrsTargets        :: {-# NOUNPACK #-}!(Maybe (List1 Target))
+  , _ltbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListTargetsByRuleResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +142,12 @@ listTargetsByRuleResponse
     :: Int -- ^ 'ltbrrsResponseStatus'
     -> ListTargetsByRuleResponse
 listTargetsByRuleResponse pResponseStatus_ =
-    ListTargetsByRuleResponse'
-    { _ltbrrsNextToken = Nothing
-    , _ltbrrsTargets = Nothing
-    , _ltbrrsResponseStatus = pResponseStatus_
-    }
+  ListTargetsByRuleResponse'
+  { _ltbrrsNextToken = Nothing
+  , _ltbrrsTargets = Nothing
+  , _ltbrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
 ltbrrsNextToken :: Lens' ListTargetsByRuleResponse (Maybe Text)
@@ -160,4 +161,4 @@ ltbrrsTargets = lens _ltbrrsTargets (\ s a -> s{_ltbrrsTargets = a}) . mapping _
 ltbrrsResponseStatus :: Lens' ListTargetsByRuleResponse Int
 ltbrrsResponseStatus = lens _ltbrrsResponseStatus (\ s a -> s{_ltbrrsResponseStatus = a});
 
-instance NFData ListTargetsByRuleResponse
+instance NFData ListTargetsByRuleResponse where

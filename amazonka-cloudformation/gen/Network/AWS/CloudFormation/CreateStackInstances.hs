@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CreateStackInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,21 +41,22 @@ module Network.AWS.CloudFormation.CreateStackInstances
     , csirsResponseStatus
     ) where
 
-import           Network.AWS.CloudFormation.Types
-import           Network.AWS.CloudFormation.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudFormation.Types
+import Network.AWS.CloudFormation.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createStackInstances' smart constructor.
 data CreateStackInstances = CreateStackInstances'
-    { _csiOperationPreferences :: !(Maybe StackSetOperationPreferences)
-    , _csiOperationId          :: !(Maybe Text)
-    , _csiStackSetName         :: !Text
-    , _csiAccounts             :: ![Text]
-    , _csiRegions              :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csiOperationPreferences :: {-# NOUNPACK #-}!(Maybe StackSetOperationPreferences)
+  , _csiOperationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csiStackSetName :: {-# NOUNPACK #-}!Text
+  , _csiAccounts :: {-# NOUNPACK #-}![Text]
+  , _csiRegions :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStackInstances' with the minimum fields required to make a request.
 --
@@ -74,13 +75,14 @@ createStackInstances
     :: Text -- ^ 'csiStackSetName'
     -> CreateStackInstances
 createStackInstances pStackSetName_ =
-    CreateStackInstances'
-    { _csiOperationPreferences = Nothing
-    , _csiOperationId = Nothing
-    , _csiStackSetName = pStackSetName_
-    , _csiAccounts = mempty
-    , _csiRegions = mempty
-    }
+  CreateStackInstances'
+  { _csiOperationPreferences = Nothing
+  , _csiOperationId = Nothing
+  , _csiStackSetName = pStackSetName_
+  , _csiAccounts = mempty
+  , _csiRegions = mempty
+  }
+
 
 -- | Preferences for how AWS CloudFormation performs this stack set operation.
 csiOperationPreferences :: Lens' CreateStackInstances (Maybe StackSetOperationPreferences)
@@ -112,9 +114,9 @@ instance AWSRequest CreateStackInstances where
                  CreateStackInstancesResponse' <$>
                    (x .@? "OperationId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateStackInstances
+instance Hashable CreateStackInstances where
 
-instance NFData CreateStackInstances
+instance NFData CreateStackInstances where
 
 instance ToHeaders CreateStackInstances where
         toHeaders = const mempty
@@ -135,9 +137,10 @@ instance ToQuery CreateStackInstances where
 
 -- | /See:/ 'createStackInstancesResponse' smart constructor.
 data CreateStackInstancesResponse = CreateStackInstancesResponse'
-    { _csirsOperationId    :: !(Maybe Text)
-    , _csirsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csirsOperationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _csirsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateStackInstancesResponse' with the minimum fields required to make a request.
 --
@@ -150,10 +153,9 @@ createStackInstancesResponse
     :: Int -- ^ 'csirsResponseStatus'
     -> CreateStackInstancesResponse
 createStackInstancesResponse pResponseStatus_ =
-    CreateStackInstancesResponse'
-    { _csirsOperationId = Nothing
-    , _csirsResponseStatus = pResponseStatus_
-    }
+  CreateStackInstancesResponse'
+  {_csirsOperationId = Nothing, _csirsResponseStatus = pResponseStatus_}
+
 
 -- | The unique identifier for this stack set operation.
 csirsOperationId :: Lens' CreateStackInstancesResponse (Maybe Text)
@@ -163,4 +165,4 @@ csirsOperationId = lens _csirsOperationId (\ s a -> s{_csirsOperationId = a});
 csirsResponseStatus :: Lens' CreateStackInstancesResponse Int
 csirsResponseStatus = lens _csirsResponseStatus (\ s a -> s{_csirsResponseStatus = a});
 
-instance NFData CreateStackInstancesResponse
+instance NFData CreateStackInstancesResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.DeleteTagsForDomain
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.Route53Domains.DeleteTagsForDomain
     , dtfdrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Route53Domains.Types
-import           Network.AWS.Route53Domains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Types.Product
 
 -- | The DeleteTagsForDomainRequest includes the following elements.
 --
@@ -52,9 +52,10 @@ import           Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'deleteTagsForDomain' smart constructor.
 data DeleteTagsForDomain = DeleteTagsForDomain'
-    { _dtfdDomainName   :: !Text
-    , _dtfdTagsToDelete :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtfdDomainName   :: {-# NOUNPACK #-}!Text
+  , _dtfdTagsToDelete :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsForDomain' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ deleteTagsForDomain
     :: Text -- ^ 'dtfdDomainName'
     -> DeleteTagsForDomain
 deleteTagsForDomain pDomainName_ =
-    DeleteTagsForDomain'
-    { _dtfdDomainName = pDomainName_
-    , _dtfdTagsToDelete = mempty
-    }
+  DeleteTagsForDomain'
+  {_dtfdDomainName = pDomainName_, _dtfdTagsToDelete = mempty}
+
 
 -- | The domain for which you want to delete one or more tags.
 dtfdDomainName :: Lens' DeleteTagsForDomain Text
@@ -89,9 +89,9 @@ instance AWSRequest DeleteTagsForDomain where
               (\ s h x ->
                  DeleteTagsForDomainResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteTagsForDomain
+instance Hashable DeleteTagsForDomain where
 
-instance NFData DeleteTagsForDomain
+instance NFData DeleteTagsForDomain where
 
 instance ToHeaders DeleteTagsForDomain where
         toHeaders
@@ -118,8 +118,9 @@ instance ToQuery DeleteTagsForDomain where
 
 -- | /See:/ 'deleteTagsForDomainResponse' smart constructor.
 newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
-    { _dtfdrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtfdrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteTagsForDomainResponse' with the minimum fields required to make a request.
 --
@@ -130,12 +131,11 @@ deleteTagsForDomainResponse
     :: Int -- ^ 'dtfdrsResponseStatus'
     -> DeleteTagsForDomainResponse
 deleteTagsForDomainResponse pResponseStatus_ =
-    DeleteTagsForDomainResponse'
-    { _dtfdrsResponseStatus = pResponseStatus_
-    }
+  DeleteTagsForDomainResponse' {_dtfdrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 dtfdrsResponseStatus :: Lens' DeleteTagsForDomainResponse Int
 dtfdrsResponseStatus = lens _dtfdrsResponseStatus (\ s a -> s{_dtfdrsResponseStatus = a});
 
-instance NFData DeleteTagsForDomainResponse
+instance NFData DeleteTagsForDomainResponse where

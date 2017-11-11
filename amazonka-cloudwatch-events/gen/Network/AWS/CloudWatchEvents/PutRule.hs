@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.PutRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,22 +48,23 @@ module Network.AWS.CloudWatchEvents.PutRule
     , prrsResponseStatus
     ) where
 
-import           Network.AWS.CloudWatchEvents.Types
-import           Network.AWS.CloudWatchEvents.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'putRule' smart constructor.
 data PutRule = PutRule'
-    { _prEventPattern       :: !(Maybe Text)
-    , _prState              :: !(Maybe RuleState)
-    , _prScheduleExpression :: !(Maybe Text)
-    , _prDescription        :: !(Maybe Text)
-    , _prRoleARN            :: !(Maybe Text)
-    , _prName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prEventPattern       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prState              :: {-# NOUNPACK #-}!(Maybe RuleState)
+  , _prScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prName               :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRule' with the minimum fields required to make a request.
 --
@@ -84,14 +85,15 @@ putRule
     :: Text -- ^ 'prName'
     -> PutRule
 putRule pName_ =
-    PutRule'
-    { _prEventPattern = Nothing
-    , _prState = Nothing
-    , _prScheduleExpression = Nothing
-    , _prDescription = Nothing
-    , _prRoleARN = Nothing
-    , _prName = pName_
-    }
+  PutRule'
+  { _prEventPattern = Nothing
+  , _prState = Nothing
+  , _prScheduleExpression = Nothing
+  , _prDescription = Nothing
+  , _prRoleARN = Nothing
+  , _prName = pName_
+  }
+
 
 -- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 prEventPattern :: Lens' PutRule (Maybe Text)
@@ -126,9 +128,9 @@ instance AWSRequest PutRule where
                  PutRuleResponse' <$>
                    (x .?> "RuleArn") <*> (pure (fromEnum s)))
 
-instance Hashable PutRule
+instance Hashable PutRule where
 
-instance NFData PutRule
+instance NFData PutRule where
 
 instance ToHeaders PutRule where
         toHeaders
@@ -158,9 +160,10 @@ instance ToQuery PutRule where
 
 -- | /See:/ 'putRuleResponse' smart constructor.
 data PutRuleResponse = PutRuleResponse'
-    { _prrsRuleARN        :: !(Maybe Text)
-    , _prrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prrsRuleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _prrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRuleResponse' with the minimum fields required to make a request.
 --
@@ -173,10 +176,9 @@ putRuleResponse
     :: Int -- ^ 'prrsResponseStatus'
     -> PutRuleResponse
 putRuleResponse pResponseStatus_ =
-    PutRuleResponse'
-    { _prrsRuleARN = Nothing
-    , _prrsResponseStatus = pResponseStatus_
-    }
+  PutRuleResponse'
+  {_prrsRuleARN = Nothing, _prrsResponseStatus = pResponseStatus_}
+
 
 -- | The Amazon Resource Name (ARN) of the rule.
 prrsRuleARN :: Lens' PutRuleResponse (Maybe Text)
@@ -186,4 +188,4 @@ prrsRuleARN = lens _prrsRuleARN (\ s a -> s{_prrsRuleARN = a});
 prrsResponseStatus :: Lens' PutRuleResponse Int
 prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a});
 
-instance NFData PutRuleResponse
+instance NFData PutRuleResponse where

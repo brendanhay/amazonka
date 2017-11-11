@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.SetVaultNotifications
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.Glacier.SetVaultNotifications
     , SetVaultNotificationsResponse
     ) where
 
-import           Network.AWS.Glacier.Types
-import           Network.AWS.Glacier.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glacier.Types
+import Network.AWS.Glacier.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Provides options to configure notifications that will be sent when specific events happen to a vault.
 --
@@ -63,10 +63,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setVaultNotifications' smart constructor.
 data SetVaultNotifications = SetVaultNotifications'
-    { _svnVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
-    , _svnAccountId               :: !Text
-    , _svnVaultName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _svnVaultNotificationConfig :: {-# NOUNPACK #-}!(Maybe VaultNotificationConfig)
+  , _svnAccountId :: {-# NOUNPACK #-}!Text
+  , _svnVaultName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetVaultNotifications' with the minimum fields required to make a request.
 --
@@ -82,11 +83,12 @@ setVaultNotifications
     -> Text -- ^ 'svnVaultName'
     -> SetVaultNotifications
 setVaultNotifications pAccountId_ pVaultName_ =
-    SetVaultNotifications'
-    { _svnVaultNotificationConfig = Nothing
-    , _svnAccountId = pAccountId_
-    , _svnVaultName = pVaultName_
-    }
+  SetVaultNotifications'
+  { _svnVaultNotificationConfig = Nothing
+  , _svnAccountId = pAccountId_
+  , _svnVaultName = pVaultName_
+  }
+
 
 -- | Provides options for specifying notification configuration.
 svnVaultNotificationConfig :: Lens' SetVaultNotifications (Maybe VaultNotificationConfig)
@@ -106,9 +108,9 @@ instance AWSRequest SetVaultNotifications where
         request = putJSON glacier
         response = receiveNull SetVaultNotificationsResponse'
 
-instance Hashable SetVaultNotifications
+instance Hashable SetVaultNotifications where
 
-instance NFData SetVaultNotifications
+instance NFData SetVaultNotifications where
 
 instance ToHeaders SetVaultNotifications where
         toHeaders = const mempty
@@ -131,8 +133,9 @@ instance ToQuery SetVaultNotifications where
 
 -- | /See:/ 'setVaultNotificationsResponse' smart constructor.
 data SetVaultNotificationsResponse =
-    SetVaultNotificationsResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  SetVaultNotificationsResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SetVaultNotificationsResponse' with the minimum fields required to make a request.
 --
@@ -140,4 +143,5 @@ setVaultNotificationsResponse
     :: SetVaultNotificationsResponse
 setVaultNotificationsResponse = SetVaultNotificationsResponse'
 
-instance NFData SetVaultNotificationsResponse
+
+instance NFData SetVaultNotificationsResponse where

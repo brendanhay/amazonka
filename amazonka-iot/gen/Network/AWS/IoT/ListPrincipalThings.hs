@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPrincipalThings
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -42,13 +42,13 @@ module Network.AWS.IoT.ListPrincipalThings
     , lptrsResponseStatus
     ) where
 
-import           Network.AWS.IoT.Types
-import           Network.AWS.IoT.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IoT.Types
+import Network.AWS.IoT.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the ListPrincipalThings operation.
 --
@@ -56,10 +56,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'listPrincipalThings' smart constructor.
 data ListPrincipalThings = ListPrincipalThings'
-    { _lptNextToken  :: !(Maybe Text)
-    , _lptMaxResults :: !(Maybe Nat)
-    , _lptPrincipal  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lptNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lptMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lptPrincipal  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPrincipalThings' with the minimum fields required to make a request.
 --
@@ -74,11 +75,12 @@ listPrincipalThings
     :: Text -- ^ 'lptPrincipal'
     -> ListPrincipalThings
 listPrincipalThings pPrincipal_ =
-    ListPrincipalThings'
-    { _lptNextToken = Nothing
-    , _lptMaxResults = Nothing
-    , _lptPrincipal = pPrincipal_
-    }
+  ListPrincipalThings'
+  { _lptNextToken = Nothing
+  , _lptMaxResults = Nothing
+  , _lptPrincipal = pPrincipal_
+  }
+
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
 lptNextToken :: Lens' ListPrincipalThings (Maybe Text)
@@ -110,9 +112,9 @@ instance AWSRequest ListPrincipalThings where
                    (x .?> "nextToken") <*> (x .?> "things" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListPrincipalThings
+instance Hashable ListPrincipalThings where
 
-instance NFData ListPrincipalThings
+instance NFData ListPrincipalThings where
 
 instance ToHeaders ListPrincipalThings where
         toHeaders ListPrincipalThings'{..}
@@ -133,10 +135,11 @@ instance ToQuery ListPrincipalThings where
 --
 -- /See:/ 'listPrincipalThingsResponse' smart constructor.
 data ListPrincipalThingsResponse = ListPrincipalThingsResponse'
-    { _lptrsNextToken      :: !(Maybe Text)
-    , _lptrsThings         :: !(Maybe [Text])
-    , _lptrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lptrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lptrsThings         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPrincipalThingsResponse' with the minimum fields required to make a request.
 --
@@ -151,11 +154,12 @@ listPrincipalThingsResponse
     :: Int -- ^ 'lptrsResponseStatus'
     -> ListPrincipalThingsResponse
 listPrincipalThingsResponse pResponseStatus_ =
-    ListPrincipalThingsResponse'
-    { _lptrsNextToken = Nothing
-    , _lptrsThings = Nothing
-    , _lptrsResponseStatus = pResponseStatus_
-    }
+  ListPrincipalThingsResponse'
+  { _lptrsNextToken = Nothing
+  , _lptrsThings = Nothing
+  , _lptrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
 lptrsNextToken :: Lens' ListPrincipalThingsResponse (Maybe Text)
@@ -169,4 +173,4 @@ lptrsThings = lens _lptrsThings (\ s a -> s{_lptrsThings = a}) . _Default . _Coe
 lptrsResponseStatus :: Lens' ListPrincipalThingsResponse Int
 lptrsResponseStatus = lens _lptrsResponseStatus (\ s a -> s{_lptrsResponseStatus = a});
 
-instance NFData ListPrincipalThingsResponse
+instance NFData ListPrincipalThingsResponse where

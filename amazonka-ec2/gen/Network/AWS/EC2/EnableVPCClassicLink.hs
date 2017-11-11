@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.EnableVPCClassicLink
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.EC2.EnableVPCClassicLink
     , evclrsResponseStatus
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for EnableVpcClassicLink.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableVPCClassicLink' smart constructor.
 data EnableVPCClassicLink = EnableVPCClassicLink'
-    { _evclDryRun :: !(Maybe Bool)
-    , _evclVPCId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evclDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _evclVPCId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableVPCClassicLink' with the minimum fields required to make a request.
 --
@@ -66,10 +67,8 @@ enableVPCClassicLink
     :: Text -- ^ 'evclVPCId'
     -> EnableVPCClassicLink
 enableVPCClassicLink pVPCId_ =
-    EnableVPCClassicLink'
-    { _evclDryRun = Nothing
-    , _evclVPCId = pVPCId_
-    }
+  EnableVPCClassicLink' {_evclDryRun = Nothing, _evclVPCId = pVPCId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 evclDryRun :: Lens' EnableVPCClassicLink (Maybe Bool)
@@ -89,9 +88,9 @@ instance AWSRequest EnableVPCClassicLink where
                  EnableVPCClassicLinkResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
-instance Hashable EnableVPCClassicLink
+instance Hashable EnableVPCClassicLink where
 
-instance NFData EnableVPCClassicLink
+instance NFData EnableVPCClassicLink where
 
 instance ToHeaders EnableVPCClassicLink where
         toHeaders = const mempty
@@ -112,9 +111,10 @@ instance ToQuery EnableVPCClassicLink where
 --
 -- /See:/ 'enableVPCClassicLinkResponse' smart constructor.
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
-    { _evclrsReturn         :: !(Maybe Bool)
-    , _evclrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evclrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _evclrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableVPCClassicLinkResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +127,9 @@ enableVPCClassicLinkResponse
     :: Int -- ^ 'evclrsResponseStatus'
     -> EnableVPCClassicLinkResponse
 enableVPCClassicLinkResponse pResponseStatus_ =
-    EnableVPCClassicLinkResponse'
-    { _evclrsReturn = Nothing
-    , _evclrsResponseStatus = pResponseStatus_
-    }
+  EnableVPCClassicLinkResponse'
+  {_evclrsReturn = Nothing, _evclrsResponseStatus = pResponseStatus_}
+
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 evclrsReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
@@ -140,4 +139,4 @@ evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a});
 evclrsResponseStatus :: Lens' EnableVPCClassicLinkResponse Int
 evclrsResponseStatus = lens _evclrsResponseStatus (\ s a -> s{_evclrsResponseStatus = a});
 
-instance NFData EnableVPCClassicLinkResponse
+instance NFData EnableVPCClassicLinkResponse where

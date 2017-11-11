@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListParts
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -55,23 +55,24 @@ module Network.AWS.S3.ListParts
     , lprsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listParts' smart constructor.
 data ListParts = ListParts'
-    { _lpMaxParts         :: !(Maybe Int)
-    , _lpRequestPayer     :: !(Maybe RequestPayer)
-    , _lpPartNumberMarker :: !(Maybe Int)
-    , _lpBucket           :: !BucketName
-    , _lpKey              :: !ObjectKey
-    , _lpUploadId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lpMaxParts         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lpRequestPayer     :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _lpPartNumberMarker :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lpBucket           :: {-# NOUNPACK #-}!BucketName
+  , _lpKey              :: {-# NOUNPACK #-}!ObjectKey
+  , _lpUploadId         :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListParts' with the minimum fields required to make a request.
 --
@@ -94,14 +95,15 @@ listParts
     -> Text -- ^ 'lpUploadId'
     -> ListParts
 listParts pBucket_ pKey_ pUploadId_ =
-    ListParts'
-    { _lpMaxParts = Nothing
-    , _lpRequestPayer = Nothing
-    , _lpPartNumberMarker = Nothing
-    , _lpBucket = pBucket_
-    , _lpKey = pKey_
-    , _lpUploadId = pUploadId_
-    }
+  ListParts'
+  { _lpMaxParts = Nothing
+  , _lpRequestPayer = Nothing
+  , _lpPartNumberMarker = Nothing
+  , _lpBucket = pBucket_
+  , _lpKey = pKey_
+  , _lpUploadId = pUploadId_
+  }
+
 
 -- | Sets the maximum number of parts to return.
 lpMaxParts :: Lens' ListParts (Maybe Int)
@@ -159,9 +161,9 @@ instance AWSRequest ListParts where
                      <*> (x .@? "UploadId")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListParts
+instance Hashable ListParts where
 
-instance NFData ListParts
+instance NFData ListParts where
 
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
@@ -180,22 +182,23 @@ instance ToQuery ListParts where
 
 -- | /See:/ 'listPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-    { _lprsParts                :: !(Maybe [Part])
-    , _lprsRequestCharged       :: !(Maybe RequestCharged)
-    , _lprsMaxParts             :: !(Maybe Int)
-    , _lprsInitiator            :: !(Maybe Initiator)
-    , _lprsBucket               :: !(Maybe BucketName)
-    , _lprsAbortDate            :: !(Maybe RFC822)
-    , _lprsNextPartNumberMarker :: !(Maybe Int)
-    , _lprsAbortRuleId          :: !(Maybe Text)
-    , _lprsOwner                :: !(Maybe Owner)
-    , _lprsKey                  :: !(Maybe ObjectKey)
-    , _lprsStorageClass         :: !(Maybe StorageClass)
-    , _lprsIsTruncated          :: !(Maybe Bool)
-    , _lprsPartNumberMarker     :: !(Maybe Int)
-    , _lprsUploadId             :: !(Maybe Text)
-    , _lprsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lprsParts                :: {-# NOUNPACK #-}!(Maybe [Part])
+  , _lprsRequestCharged       :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _lprsMaxParts             :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lprsInitiator            :: {-# NOUNPACK #-}!(Maybe Initiator)
+  , _lprsBucket               :: {-# NOUNPACK #-}!(Maybe BucketName)
+  , _lprsAbortDate            :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _lprsNextPartNumberMarker :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lprsAbortRuleId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsOwner                :: {-# NOUNPACK #-}!(Maybe Owner)
+  , _lprsKey                  :: {-# NOUNPACK #-}!(Maybe ObjectKey)
+  , _lprsStorageClass         :: {-# NOUNPACK #-}!(Maybe StorageClass)
+  , _lprsIsTruncated          :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lprsPartNumberMarker     :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lprsUploadId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
 --
@@ -234,23 +237,24 @@ listPartsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPartsResponse
 listPartsResponse pResponseStatus_ =
-    ListPartsResponse'
-    { _lprsParts = Nothing
-    , _lprsRequestCharged = Nothing
-    , _lprsMaxParts = Nothing
-    , _lprsInitiator = Nothing
-    , _lprsBucket = Nothing
-    , _lprsAbortDate = Nothing
-    , _lprsNextPartNumberMarker = Nothing
-    , _lprsAbortRuleId = Nothing
-    , _lprsOwner = Nothing
-    , _lprsKey = Nothing
-    , _lprsStorageClass = Nothing
-    , _lprsIsTruncated = Nothing
-    , _lprsPartNumberMarker = Nothing
-    , _lprsUploadId = Nothing
-    , _lprsResponseStatus = pResponseStatus_
-    }
+  ListPartsResponse'
+  { _lprsParts = Nothing
+  , _lprsRequestCharged = Nothing
+  , _lprsMaxParts = Nothing
+  , _lprsInitiator = Nothing
+  , _lprsBucket = Nothing
+  , _lprsAbortDate = Nothing
+  , _lprsNextPartNumberMarker = Nothing
+  , _lprsAbortRuleId = Nothing
+  , _lprsOwner = Nothing
+  , _lprsKey = Nothing
+  , _lprsStorageClass = Nothing
+  , _lprsIsTruncated = Nothing
+  , _lprsPartNumberMarker = Nothing
+  , _lprsUploadId = Nothing
+  , _lprsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 lprsParts :: Lens' ListPartsResponse [Part]
@@ -312,4 +316,4 @@ lprsUploadId = lens _lprsUploadId (\ s a -> s{_lprsUploadId = a});
 lprsResponseStatus :: Lens' ListPartsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
-instance NFData ListPartsResponse
+instance NFData ListPartsResponse where

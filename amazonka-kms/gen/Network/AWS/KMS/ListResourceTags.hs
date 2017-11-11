@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListResourceTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,19 +41,20 @@ module Network.AWS.KMS.ListResourceTags
     , lrtrsResponseStatus
     ) where
 
-import           Network.AWS.KMS.Types
-import           Network.AWS.KMS.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.KMS.Types
+import Network.AWS.KMS.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listResourceTags' smart constructor.
 data ListResourceTags = ListResourceTags'
-    { _lrtMarker :: !(Maybe Text)
-    , _lrtLimit  :: !(Maybe Nat)
-    , _lrtKeyId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrtMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrtLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lrtKeyId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourceTags' with the minimum fields required to make a request.
 --
@@ -68,11 +69,9 @@ listResourceTags
     :: Text -- ^ 'lrtKeyId'
     -> ListResourceTags
 listResourceTags pKeyId_ =
-    ListResourceTags'
-    { _lrtMarker = Nothing
-    , _lrtLimit = Nothing
-    , _lrtKeyId = pKeyId_
-    }
+  ListResourceTags'
+  {_lrtMarker = Nothing, _lrtLimit = Nothing, _lrtKeyId = pKeyId_}
+
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received. Do not attempt to construct this value. Use only the value of @NextMarker@ from the truncated response you just received.
 lrtMarker :: Lens' ListResourceTags (Maybe Text)
@@ -97,9 +96,9 @@ instance AWSRequest ListResourceTags where
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListResourceTags
+instance Hashable ListResourceTags where
 
-instance NFData ListResourceTags
+instance NFData ListResourceTags where
 
 instance ToHeaders ListResourceTags where
         toHeaders
@@ -126,11 +125,12 @@ instance ToQuery ListResourceTags where
 
 -- | /See:/ 'listResourceTagsResponse' smart constructor.
 data ListResourceTagsResponse = ListResourceTagsResponse'
-    { _lrtrsTruncated      :: !(Maybe Bool)
-    , _lrtrsNextMarker     :: !(Maybe Text)
-    , _lrtrsTags           :: !(Maybe [Tag])
-    , _lrtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrtrsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lrtrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrtrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _lrtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourceTagsResponse' with the minimum fields required to make a request.
 --
@@ -147,12 +147,13 @@ listResourceTagsResponse
     :: Int -- ^ 'lrtrsResponseStatus'
     -> ListResourceTagsResponse
 listResourceTagsResponse pResponseStatus_ =
-    ListResourceTagsResponse'
-    { _lrtrsTruncated = Nothing
-    , _lrtrsNextMarker = Nothing
-    , _lrtrsTags = Nothing
-    , _lrtrsResponseStatus = pResponseStatus_
-    }
+  ListResourceTagsResponse'
+  { _lrtrsTruncated = Nothing
+  , _lrtrsNextMarker = Nothing
+  , _lrtrsTags = Nothing
+  , _lrtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lrtrsTruncated :: Lens' ListResourceTagsResponse (Maybe Bool)
@@ -170,4 +171,4 @@ lrtrsTags = lens _lrtrsTags (\ s a -> s{_lrtrsTags = a}) . _Default . _Coerce;
 lrtrsResponseStatus :: Lens' ListResourceTagsResponse Int
 lrtrsResponseStatus = lens _lrtrsResponseStatus (\ s a -> s{_lrtrsResponseStatus = a});
 
-instance NFData ListResourceTagsResponse
+instance NFData ListResourceTagsResponse where

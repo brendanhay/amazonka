@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateResourceServer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,20 +40,21 @@ module Network.AWS.CognitoIdentityProvider.UpdateResourceServer
     , ursrsResourceServer
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'updateResourceServer' smart constructor.
 data UpdateResourceServer = UpdateResourceServer'
-    { _ursScopes     :: !(Maybe [ResourceServerScopeType])
-    , _ursUserPoolId :: !Text
-    , _ursIdentifier :: !Text
-    , _ursName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ursScopes     :: {-# NOUNPACK #-}!(Maybe [ResourceServerScopeType])
+  , _ursUserPoolId :: {-# NOUNPACK #-}!Text
+  , _ursIdentifier :: {-# NOUNPACK #-}!Text
+  , _ursName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateResourceServer' with the minimum fields required to make a request.
 --
@@ -72,12 +73,13 @@ updateResourceServer
     -> Text -- ^ 'ursName'
     -> UpdateResourceServer
 updateResourceServer pUserPoolId_ pIdentifier_ pName_ =
-    UpdateResourceServer'
-    { _ursScopes = Nothing
-    , _ursUserPoolId = pUserPoolId_
-    , _ursIdentifier = pIdentifier_
-    , _ursName = pName_
-    }
+  UpdateResourceServer'
+  { _ursScopes = Nothing
+  , _ursUserPoolId = pUserPoolId_
+  , _ursIdentifier = pIdentifier_
+  , _ursName = pName_
+  }
+
 
 -- | The scope values to be set for the resource server.
 ursScopes :: Lens' UpdateResourceServer [ResourceServerScopeType]
@@ -105,9 +107,9 @@ instance AWSRequest UpdateResourceServer where
                  UpdateResourceServerResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "ResourceServer"))
 
-instance Hashable UpdateResourceServer
+instance Hashable UpdateResourceServer where
 
-instance NFData UpdateResourceServer
+instance NFData UpdateResourceServer where
 
 instance ToHeaders UpdateResourceServer where
         toHeaders
@@ -136,9 +138,10 @@ instance ToQuery UpdateResourceServer where
 
 -- | /See:/ 'updateResourceServerResponse' smart constructor.
 data UpdateResourceServerResponse = UpdateResourceServerResponse'
-    { _ursrsResponseStatus :: !Int
-    , _ursrsResourceServer :: !ResourceServerType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ursrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _ursrsResourceServer :: {-# NOUNPACK #-}!ResourceServerType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UpdateResourceServerResponse' with the minimum fields required to make a request.
 --
@@ -152,10 +155,11 @@ updateResourceServerResponse
     -> ResourceServerType -- ^ 'ursrsResourceServer'
     -> UpdateResourceServerResponse
 updateResourceServerResponse pResponseStatus_ pResourceServer_ =
-    UpdateResourceServerResponse'
-    { _ursrsResponseStatus = pResponseStatus_
-    , _ursrsResourceServer = pResourceServer_
-    }
+  UpdateResourceServerResponse'
+  { _ursrsResponseStatus = pResponseStatus_
+  , _ursrsResourceServer = pResourceServer_
+  }
+
 
 -- | -- | The response status code.
 ursrsResponseStatus :: Lens' UpdateResourceServerResponse Int
@@ -165,4 +169,4 @@ ursrsResponseStatus = lens _ursrsResponseStatus (\ s a -> s{_ursrsResponseStatus
 ursrsResourceServer :: Lens' UpdateResourceServerResponse ResourceServerType
 ursrsResourceServer = lens _ursrsResourceServer (\ s a -> s{_ursrsResourceServer = a});
 
-instance NFData UpdateResourceServerResponse
+instance NFData UpdateResourceServerResponse where

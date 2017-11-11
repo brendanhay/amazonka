@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.UploadDocuments
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     , udrsResponseStatus
     ) where
 
-import           Network.AWS.CloudSearchDomains.Types
-import           Network.AWS.CloudSearchDomains.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearchDomains.Types
+import Network.AWS.CloudSearchDomains.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @UploadDocuments@ request.
 --
@@ -58,9 +58,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'uploadDocuments' smart constructor.
 data UploadDocuments = UploadDocuments'
-    { _udContentType :: !ContentType
-    , _udDocuments   :: !HashedBody
-    } deriving (Show,Generic)
+  { _udContentType :: {-# NOUNPACK #-}!ContentType
+  , _udDocuments   :: {-# NOUNPACK #-}!HashedBody
+  } deriving (Show, Generic)
+
 
 -- | Creates a value of 'UploadDocuments' with the minimum fields required to make a request.
 --
@@ -74,10 +75,8 @@ uploadDocuments
     -> HashedBody -- ^ 'udDocuments'
     -> UploadDocuments
 uploadDocuments pContentType_ pDocuments_ =
-    UploadDocuments'
-    { _udContentType = pContentType_
-    , _udDocuments = pDocuments_
-    }
+  UploadDocuments' {_udContentType = pContentType_, _udDocuments = pDocuments_}
+
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:     * application/json    * application/xml
 udContentType :: Lens' UploadDocuments ContentType
@@ -121,12 +120,13 @@ instance ToQuery UploadDocuments where
 --
 -- /See:/ 'uploadDocumentsResponse' smart constructor.
 data UploadDocumentsResponse = UploadDocumentsResponse'
-    { _udrsStatus         :: !(Maybe Text)
-    , _udrsAdds           :: !(Maybe Integer)
-    , _udrsWarnings       :: !(Maybe [DocumentServiceWarning])
-    , _udrsDeletes        :: !(Maybe Integer)
-    , _udrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _udrsStatus         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udrsAdds           :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _udrsWarnings       :: {-# NOUNPACK #-}!(Maybe [DocumentServiceWarning])
+  , _udrsDeletes        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _udrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UploadDocumentsResponse' with the minimum fields required to make a request.
 --
@@ -145,13 +145,14 @@ uploadDocumentsResponse
     :: Int -- ^ 'udrsResponseStatus'
     -> UploadDocumentsResponse
 uploadDocumentsResponse pResponseStatus_ =
-    UploadDocumentsResponse'
-    { _udrsStatus = Nothing
-    , _udrsAdds = Nothing
-    , _udrsWarnings = Nothing
-    , _udrsDeletes = Nothing
-    , _udrsResponseStatus = pResponseStatus_
-    }
+  UploadDocumentsResponse'
+  { _udrsStatus = Nothing
+  , _udrsAdds = Nothing
+  , _udrsWarnings = Nothing
+  , _udrsDeletes = Nothing
+  , _udrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The status of an @UploadDocumentsRequest@ .
 udrsStatus :: Lens' UploadDocumentsResponse (Maybe Text)
@@ -173,4 +174,4 @@ udrsDeletes = lens _udrsDeletes (\ s a -> s{_udrsDeletes = a});
 udrsResponseStatus :: Lens' UploadDocumentsResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
 
-instance NFData UploadDocumentsResponse
+instance NFData UploadDocumentsResponse where

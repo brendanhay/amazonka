@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineIndexField
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,12 +38,12 @@ module Network.AWS.CloudSearch.DefineIndexField
     , defrsIndexField
     ) where
 
-import           Network.AWS.CloudSearch.Types
-import           Network.AWS.CloudSearch.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CloudSearch.Types
+import Network.AWS.CloudSearch.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Container for the parameters to the @'DefineIndexField' @ operation. Specifies the name of the domain you want to update and the index field configuration.
 --
@@ -51,9 +51,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'defineIndexField' smart constructor.
 data DefineIndexField = DefineIndexField'
-    { _defeDomainName :: !Text
-    , _defeIndexField :: !IndexField
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _defeDomainName :: {-# NOUNPACK #-}!Text
+  , _defeIndexField :: {-# NOUNPACK #-}!IndexField
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineIndexField' with the minimum fields required to make a request.
 --
@@ -67,10 +68,9 @@ defineIndexField
     -> IndexField -- ^ 'defeIndexField'
     -> DefineIndexField
 defineIndexField pDomainName_ pIndexField_ =
-    DefineIndexField'
-    { _defeDomainName = pDomainName_
-    , _defeIndexField = pIndexField_
-    }
+  DefineIndexField'
+  {_defeDomainName = pDomainName_, _defeIndexField = pIndexField_}
+
 
 -- | Undocumented member.
 defeDomainName :: Lens' DefineIndexField Text
@@ -89,9 +89,9 @@ instance AWSRequest DefineIndexField where
                  DefineIndexFieldResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "IndexField"))
 
-instance Hashable DefineIndexField
+instance Hashable DefineIndexField where
 
-instance NFData DefineIndexField
+instance NFData DefineIndexField where
 
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty
@@ -113,9 +113,10 @@ instance ToQuery DefineIndexField where
 --
 -- /See:/ 'defineIndexFieldResponse' smart constructor.
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
-    { _defrsResponseStatus :: !Int
-    , _defrsIndexField     :: !IndexFieldStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _defrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _defrsIndexField     :: {-# NOUNPACK #-}!IndexFieldStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DefineIndexFieldResponse' with the minimum fields required to make a request.
 --
@@ -129,10 +130,9 @@ defineIndexFieldResponse
     -> IndexFieldStatus -- ^ 'defrsIndexField'
     -> DefineIndexFieldResponse
 defineIndexFieldResponse pResponseStatus_ pIndexField_ =
-    DefineIndexFieldResponse'
-    { _defrsResponseStatus = pResponseStatus_
-    , _defrsIndexField = pIndexField_
-    }
+  DefineIndexFieldResponse'
+  {_defrsResponseStatus = pResponseStatus_, _defrsIndexField = pIndexField_}
+
 
 -- | -- | The response status code.
 defrsResponseStatus :: Lens' DefineIndexFieldResponse Int
@@ -142,4 +142,4 @@ defrsResponseStatus = lens _defrsResponseStatus (\ s a -> s{_defrsResponseStatus
 defrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 defrsIndexField = lens _defrsIndexField (\ s a -> s{_defrsIndexField = a});
 
-instance NFData DefineIndexFieldResponse
+instance NFData DefineIndexFieldResponse where

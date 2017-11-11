@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetSubscriptionDefinition
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,17 +41,18 @@ module Network.AWS.Greengrass.GetSubscriptionDefinition
     , gsdrsResponseStatus
     ) where
 
-import           Network.AWS.Greengrass.Types
-import           Network.AWS.Greengrass.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Greengrass.Types
+import Network.AWS.Greengrass.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getSubscriptionDefinition' smart constructor.
 newtype GetSubscriptionDefinition = GetSubscriptionDefinition'
-    { _gsdSubscriptionDefinitionId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsdSubscriptionDefinitionId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSubscriptionDefinition' with the minimum fields required to make a request.
 --
@@ -62,9 +63,9 @@ getSubscriptionDefinition
     :: Text -- ^ 'gsdSubscriptionDefinitionId'
     -> GetSubscriptionDefinition
 getSubscriptionDefinition pSubscriptionDefinitionId_ =
-    GetSubscriptionDefinition'
-    { _gsdSubscriptionDefinitionId = pSubscriptionDefinitionId_
-    }
+  GetSubscriptionDefinition'
+  {_gsdSubscriptionDefinitionId = pSubscriptionDefinitionId_}
+
 
 -- | subscription definition Id
 gsdSubscriptionDefinitionId :: Lens' GetSubscriptionDefinition Text
@@ -86,9 +87,9 @@ instance AWSRequest GetSubscriptionDefinition where
                      <*> (x .?> "LastUpdatedTimestamp")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetSubscriptionDefinition
+instance Hashable GetSubscriptionDefinition where
 
-instance NFData GetSubscriptionDefinition
+instance NFData GetSubscriptionDefinition where
 
 instance ToHeaders GetSubscriptionDefinition where
         toHeaders
@@ -108,15 +109,16 @@ instance ToQuery GetSubscriptionDefinition where
 
 -- | /See:/ 'getSubscriptionDefinitionResponse' smart constructor.
 data GetSubscriptionDefinitionResponse = GetSubscriptionDefinitionResponse'
-    { _gsdrsLatestVersionARN     :: !(Maybe Text)
-    , _gsdrsARN                  :: !(Maybe Text)
-    , _gsdrsName                 :: !(Maybe Text)
-    , _gsdrsCreationTimestamp    :: !(Maybe Text)
-    , _gsdrsId                   :: !(Maybe Text)
-    , _gsdrsLatestVersion        :: !(Maybe Text)
-    , _gsdrsLastUpdatedTimestamp :: !(Maybe Text)
-    , _gsdrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gsdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gsdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetSubscriptionDefinitionResponse' with the minimum fields required to make a request.
 --
@@ -141,16 +143,17 @@ getSubscriptionDefinitionResponse
     :: Int -- ^ 'gsdrsResponseStatus'
     -> GetSubscriptionDefinitionResponse
 getSubscriptionDefinitionResponse pResponseStatus_ =
-    GetSubscriptionDefinitionResponse'
-    { _gsdrsLatestVersionARN = Nothing
-    , _gsdrsARN = Nothing
-    , _gsdrsName = Nothing
-    , _gsdrsCreationTimestamp = Nothing
-    , _gsdrsId = Nothing
-    , _gsdrsLatestVersion = Nothing
-    , _gsdrsLastUpdatedTimestamp = Nothing
-    , _gsdrsResponseStatus = pResponseStatus_
-    }
+  GetSubscriptionDefinitionResponse'
+  { _gsdrsLatestVersionARN = Nothing
+  , _gsdrsARN = Nothing
+  , _gsdrsName = Nothing
+  , _gsdrsCreationTimestamp = Nothing
+  , _gsdrsId = Nothing
+  , _gsdrsLatestVersion = Nothing
+  , _gsdrsLastUpdatedTimestamp = Nothing
+  , _gsdrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Latest version arn of the definition.
 gsdrsLatestVersionARN :: Lens' GetSubscriptionDefinitionResponse (Maybe Text)
@@ -185,3 +188,4 @@ gsdrsResponseStatus :: Lens' GetSubscriptionDefinitionResponse Int
 gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a});
 
 instance NFData GetSubscriptionDefinitionResponse
+         where

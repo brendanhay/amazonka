@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Glue.GetConnections
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,20 +41,21 @@ module Network.AWS.Glue.GetConnections
     , gccrsResponseStatus
     ) where
 
-import           Network.AWS.Glue.Types
-import           Network.AWS.Glue.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Glue.Types
+import Network.AWS.Glue.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getConnections' smart constructor.
 data GetConnections = GetConnections'
-    { _gcsCatalogId  :: !(Maybe Text)
-    , _gcsNextToken  :: !(Maybe Text)
-    , _gcsFilter     :: !(Maybe GetConnectionsFilter)
-    , _gcsMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gcsCatalogId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gcsFilter     :: {-# NOUNPACK #-}!(Maybe GetConnectionsFilter)
+  , _gcsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConnections' with the minimum fields required to make a request.
 --
@@ -70,12 +71,13 @@ data GetConnections = GetConnections'
 getConnections
     :: GetConnections
 getConnections =
-    GetConnections'
-    { _gcsCatalogId = Nothing
-    , _gcsNextToken = Nothing
-    , _gcsFilter = Nothing
-    , _gcsMaxResults = Nothing
-    }
+  GetConnections'
+  { _gcsCatalogId = Nothing
+  , _gcsNextToken = Nothing
+  , _gcsFilter = Nothing
+  , _gcsMaxResults = Nothing
+  }
+
 
 -- | The ID of the Data Catalog in which the connections reside. If none is supplied, the AWS account ID is used by default.
 gcsCatalogId :: Lens' GetConnections (Maybe Text)
@@ -104,9 +106,9 @@ instance AWSRequest GetConnections where
                      (x .?> "ConnectionList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetConnections
+instance Hashable GetConnections where
 
-instance NFData GetConnections
+instance NFData GetConnections where
 
 instance ToHeaders GetConnections where
         toHeaders
@@ -134,10 +136,11 @@ instance ToQuery GetConnections where
 
 -- | /See:/ 'getConnectionsResponse' smart constructor.
 data GetConnectionsResponse = GetConnectionsResponse'
-    { _gccrsNextToken      :: !(Maybe Text)
-    , _gccrsConnectionList :: !(Maybe [Connection])
-    , _gccrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gccrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gccrsConnectionList :: {-# NOUNPACK #-}!(Maybe [Connection])
+  , _gccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetConnectionsResponse' with the minimum fields required to make a request.
 --
@@ -152,11 +155,12 @@ getConnectionsResponse
     :: Int -- ^ 'gccrsResponseStatus'
     -> GetConnectionsResponse
 getConnectionsResponse pResponseStatus_ =
-    GetConnectionsResponse'
-    { _gccrsNextToken = Nothing
-    , _gccrsConnectionList = Nothing
-    , _gccrsResponseStatus = pResponseStatus_
-    }
+  GetConnectionsResponse'
+  { _gccrsNextToken = Nothing
+  , _gccrsConnectionList = Nothing
+  , _gccrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A continuation token, if the list of connections returned does not include the last of the filtered connections.
 gccrsNextToken :: Lens' GetConnectionsResponse (Maybe Text)
@@ -170,4 +174,4 @@ gccrsConnectionList = lens _gccrsConnectionList (\ s a -> s{_gccrsConnectionList
 gccrsResponseStatus :: Lens' GetConnectionsResponse Int
 gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a});
 
-instance NFData GetConnectionsResponse
+instance NFData GetConnectionsResponse where

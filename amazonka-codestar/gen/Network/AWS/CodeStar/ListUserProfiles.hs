@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.ListUserProfiles
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,18 +39,19 @@ module Network.AWS.CodeStar.ListUserProfiles
     , luprsUserProfiles
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listUserProfiles' smart constructor.
 data ListUserProfiles = ListUserProfiles'
-    { _lupNextToken  :: !(Maybe Text)
-    , _lupMaxResults :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lupNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lupMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserProfiles' with the minimum fields required to make a request.
 --
@@ -62,10 +63,8 @@ data ListUserProfiles = ListUserProfiles'
 listUserProfiles
     :: ListUserProfiles
 listUserProfiles =
-    ListUserProfiles'
-    { _lupNextToken = Nothing
-    , _lupMaxResults = Nothing
-    }
+  ListUserProfiles' {_lupNextToken = Nothing, _lupMaxResults = Nothing}
+
 
 -- | The continuation token for the next set of results, if the results cannot be returned in one response.
 lupNextToken :: Lens' ListUserProfiles (Maybe Text)
@@ -85,9 +84,9 @@ instance AWSRequest ListUserProfiles where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "userProfiles" .!@ mempty))
 
-instance Hashable ListUserProfiles
+instance Hashable ListUserProfiles where
 
-instance NFData ListUserProfiles
+instance NFData ListUserProfiles where
 
 instance ToHeaders ListUserProfiles where
         toHeaders
@@ -113,10 +112,11 @@ instance ToQuery ListUserProfiles where
 
 -- | /See:/ 'listUserProfilesResponse' smart constructor.
 data ListUserProfilesResponse = ListUserProfilesResponse'
-    { _luprsNextToken      :: !(Maybe Text)
-    , _luprsResponseStatus :: !Int
-    , _luprsUserProfiles   :: ![UserProfileSummary]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _luprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _luprsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _luprsUserProfiles   :: {-# NOUNPACK #-}![UserProfileSummary]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListUserProfilesResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +131,12 @@ listUserProfilesResponse
     :: Int -- ^ 'luprsResponseStatus'
     -> ListUserProfilesResponse
 listUserProfilesResponse pResponseStatus_ =
-    ListUserProfilesResponse'
-    { _luprsNextToken = Nothing
-    , _luprsResponseStatus = pResponseStatus_
-    , _luprsUserProfiles = mempty
-    }
+  ListUserProfilesResponse'
+  { _luprsNextToken = Nothing
+  , _luprsResponseStatus = pResponseStatus_
+  , _luprsUserProfiles = mempty
+  }
+
 
 -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
 luprsNextToken :: Lens' ListUserProfilesResponse (Maybe Text)
@@ -149,4 +150,4 @@ luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus
 luprsUserProfiles :: Lens' ListUserProfilesResponse [UserProfileSummary]
 luprsUserProfiles = lens _luprsUserProfiles (\ s a -> s{_luprsUserProfiles = a}) . _Coerce;
 
-instance NFData ListUserProfilesResponse
+instance NFData ListUserProfilesResponse where

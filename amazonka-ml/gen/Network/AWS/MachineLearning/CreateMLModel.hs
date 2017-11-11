@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateMLModel
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -51,23 +51,24 @@ module Network.AWS.MachineLearning.CreateMLModel
     , cmlmrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createMLModel' smart constructor.
 data CreateMLModel = CreateMLModel'
-    { _cmlmRecipe               :: !(Maybe Text)
-    , _cmlmRecipeURI            :: !(Maybe Text)
-    , _cmlmMLModelName          :: !(Maybe Text)
-    , _cmlmParameters           :: !(Maybe (Map Text Text))
-    , _cmlmMLModelId            :: !Text
-    , _cmlmMLModelType          :: !MLModelType
-    , _cmlmTrainingDataSourceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmlmRecipe               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmlmRecipeURI            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmlmMLModelName          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmlmParameters           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cmlmMLModelId            :: {-# NOUNPACK #-}!Text
+  , _cmlmMLModelType          :: {-# NOUNPACK #-}!MLModelType
+  , _cmlmTrainingDataSourceId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMLModel' with the minimum fields required to make a request.
 --
@@ -92,15 +93,16 @@ createMLModel
     -> Text -- ^ 'cmlmTrainingDataSourceId'
     -> CreateMLModel
 createMLModel pMLModelId_ pMLModelType_ pTrainingDataSourceId_ =
-    CreateMLModel'
-    { _cmlmRecipe = Nothing
-    , _cmlmRecipeURI = Nothing
-    , _cmlmMLModelName = Nothing
-    , _cmlmParameters = Nothing
-    , _cmlmMLModelId = pMLModelId_
-    , _cmlmMLModelType = pMLModelType_
-    , _cmlmTrainingDataSourceId = pTrainingDataSourceId_
-    }
+  CreateMLModel'
+  { _cmlmRecipe = Nothing
+  , _cmlmRecipeURI = Nothing
+  , _cmlmMLModelName = Nothing
+  , _cmlmParameters = Nothing
+  , _cmlmMLModelId = pMLModelId_
+  , _cmlmMLModelType = pMLModelType_
+  , _cmlmTrainingDataSourceId = pTrainingDataSourceId_
+  }
+
 
 -- | The data recipe for creating the @MLModel@ . You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.
 cmlmRecipe :: Lens' CreateMLModel (Maybe Text)
@@ -139,9 +141,9 @@ instance AWSRequest CreateMLModel where
                  CreateMLModelResponse' <$>
                    (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateMLModel
+instance Hashable CreateMLModel where
 
-instance NFData CreateMLModel
+instance NFData CreateMLModel where
 
 instance ToHeaders CreateMLModel where
         toHeaders
@@ -180,9 +182,10 @@ instance ToQuery CreateMLModel where
 --
 -- /See:/ 'createMLModelResponse' smart constructor.
 data CreateMLModelResponse = CreateMLModelResponse'
-    { _cmlmrsMLModelId      :: !(Maybe Text)
-    , _cmlmrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cmlmrsMLModelId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cmlmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateMLModelResponse' with the minimum fields required to make a request.
 --
@@ -195,10 +198,9 @@ createMLModelResponse
     :: Int -- ^ 'cmlmrsResponseStatus'
     -> CreateMLModelResponse
 createMLModelResponse pResponseStatus_ =
-    CreateMLModelResponse'
-    { _cmlmrsMLModelId = Nothing
-    , _cmlmrsResponseStatus = pResponseStatus_
-    }
+  CreateMLModelResponse'
+  {_cmlmrsMLModelId = Nothing, _cmlmrsResponseStatus = pResponseStatus_}
+
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
 cmlmrsMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
@@ -208,4 +210,4 @@ cmlmrsMLModelId = lens _cmlmrsMLModelId (\ s a -> s{_cmlmrsMLModelId = a});
 cmlmrsResponseStatus :: Lens' CreateMLModelResponse Int
 cmlmrsResponseStatus = lens _cmlmrsResponseStatus (\ s a -> s{_cmlmrsResponseStatus = a});
 
-instance NFData CreateMLModelResponse
+instance NFData CreateMLModelResponse where

@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -39,12 +39,12 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     , rtrhrsTerminate
     ) where
 
-import           Network.AWS.DataPipeline.Types
-import           Network.AWS.DataPipeline.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.DataPipeline.Types
+import Network.AWS.DataPipeline.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReportTaskRunnerHeartbeat.
 --
@@ -52,10 +52,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'reportTaskRunnerHeartbeat' smart constructor.
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
-    { _rtrhHostname     :: !(Maybe Text)
-    , _rtrhWorkerGroup  :: !(Maybe Text)
-    , _rtrhTaskrunnerId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrhHostname     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtrhWorkerGroup  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rtrhTaskrunnerId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReportTaskRunnerHeartbeat' with the minimum fields required to make a request.
 --
@@ -70,11 +71,12 @@ reportTaskRunnerHeartbeat
     :: Text -- ^ 'rtrhTaskrunnerId'
     -> ReportTaskRunnerHeartbeat
 reportTaskRunnerHeartbeat pTaskrunnerId_ =
-    ReportTaskRunnerHeartbeat'
-    { _rtrhHostname = Nothing
-    , _rtrhWorkerGroup = Nothing
-    , _rtrhTaskrunnerId = pTaskrunnerId_
-    }
+  ReportTaskRunnerHeartbeat'
+  { _rtrhHostname = Nothing
+  , _rtrhWorkerGroup = Nothing
+  , _rtrhTaskrunnerId = pTaskrunnerId_
+  }
+
 
 -- | The public DNS name of the task runner.
 rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
@@ -98,9 +100,9 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
                  ReportTaskRunnerHeartbeatResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "terminate"))
 
-instance Hashable ReportTaskRunnerHeartbeat
+instance Hashable ReportTaskRunnerHeartbeat where
 
-instance NFData ReportTaskRunnerHeartbeat
+instance NFData ReportTaskRunnerHeartbeat where
 
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders
@@ -132,9 +134,10 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 --
 -- /See:/ 'reportTaskRunnerHeartbeatResponse' smart constructor.
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrsResponseStatus :: !Int
-    , _rtrhrsTerminate      :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtrhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _rtrhrsTerminate      :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReportTaskRunnerHeartbeatResponse' with the minimum fields required to make a request.
 --
@@ -148,10 +151,9 @@ reportTaskRunnerHeartbeatResponse
     -> Bool -- ^ 'rtrhrsTerminate'
     -> ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeatResponse pResponseStatus_ pTerminate_ =
-    ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrsResponseStatus = pResponseStatus_
-    , _rtrhrsTerminate = pTerminate_
-    }
+  ReportTaskRunnerHeartbeatResponse'
+  {_rtrhrsResponseStatus = pResponseStatus_, _rtrhrsTerminate = pTerminate_}
+
 
 -- | -- | The response status code.
 rtrhrsResponseStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
@@ -162,3 +164,4 @@ rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrsTerminate = lens _rtrhrsTerminate (\ s a -> s{_rtrhrsTerminate = a});
 
 instance NFData ReportTaskRunnerHeartbeatResponse
+         where

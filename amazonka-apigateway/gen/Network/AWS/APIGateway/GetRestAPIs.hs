@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetRestAPIs
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -41,13 +41,13 @@ module Network.AWS.APIGateway.GetRestAPIs
     , grarsResponseStatus
     ) where
 
-import           Network.AWS.APIGateway.Types
-import           Network.AWS.APIGateway.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The GET request to list existing 'RestApis' defined for your collection.
 --
@@ -55,9 +55,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRestAPIs' smart constructor.
 data GetRestAPIs = GetRestAPIs'
-    { _graLimit    :: !(Maybe Int)
-    , _graPosition :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _graLimit    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _graPosition :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRestAPIs' with the minimum fields required to make a request.
 --
@@ -68,11 +69,8 @@ data GetRestAPIs = GetRestAPIs'
 -- * 'graPosition' - The current pagination position in the paged result set.
 getRestAPIs
     :: GetRestAPIs
-getRestAPIs =
-    GetRestAPIs'
-    { _graLimit = Nothing
-    , _graPosition = Nothing
-    }
+getRestAPIs = GetRestAPIs' {_graLimit = Nothing, _graPosition = Nothing}
+
 
 -- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 graLimit :: Lens' GetRestAPIs (Maybe Int)
@@ -99,9 +97,9 @@ instance AWSRequest GetRestAPIs where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
-instance Hashable GetRestAPIs
+instance Hashable GetRestAPIs where
 
-instance NFData GetRestAPIs
+instance NFData GetRestAPIs where
 
 instance ToHeaders GetRestAPIs where
         toHeaders
@@ -124,10 +122,11 @@ instance ToQuery GetRestAPIs where
 --
 -- /See:/ 'getRestAPIsResponse' smart constructor.
 data GetRestAPIsResponse = GetRestAPIsResponse'
-    { _grarsItems          :: !(Maybe [RestAPI])
-    , _grarsPosition       :: !(Maybe Text)
-    , _grarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grarsItems          :: {-# NOUNPACK #-}!(Maybe [RestAPI])
+  , _grarsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetRestAPIsResponse' with the minimum fields required to make a request.
 --
@@ -142,11 +141,12 @@ getRestAPIsResponse
     :: Int -- ^ 'grarsResponseStatus'
     -> GetRestAPIsResponse
 getRestAPIsResponse pResponseStatus_ =
-    GetRestAPIsResponse'
-    { _grarsItems = Nothing
-    , _grarsPosition = Nothing
-    , _grarsResponseStatus = pResponseStatus_
-    }
+  GetRestAPIsResponse'
+  { _grarsItems = Nothing
+  , _grarsPosition = Nothing
+  , _grarsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The current page of elements from this collection.
 grarsItems :: Lens' GetRestAPIsResponse [RestAPI]
@@ -160,4 +160,4 @@ grarsPosition = lens _grarsPosition (\ s a -> s{_grarsPosition = a});
 grarsResponseStatus :: Lens' GetRestAPIsResponse Int
 grarsResponseStatus = lens _grarsResponseStatus (\ s a -> s{_grarsResponseStatus = a});
 
-instance NFData GetRestAPIsResponse
+instance NFData GetRestAPIsResponse where

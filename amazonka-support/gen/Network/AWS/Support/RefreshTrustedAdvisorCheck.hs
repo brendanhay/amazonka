@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Support.RefreshTrustedAdvisorCheck
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -47,12 +47,12 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     , rtacrsStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.Support.Types
-import           Network.AWS.Support.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Support.Types
+import Network.AWS.Support.Types.Product
 
 -- |
 --
@@ -60,8 +60,9 @@ import           Network.AWS.Support.Types.Product
 --
 -- /See:/ 'refreshTrustedAdvisorCheck' smart constructor.
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
-    { _rtacCheckId :: Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtacCheckId :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RefreshTrustedAdvisorCheck' with the minimum fields required to make a request.
 --
@@ -72,9 +73,8 @@ refreshTrustedAdvisorCheck
     :: Text -- ^ 'rtacCheckId'
     -> RefreshTrustedAdvisorCheck
 refreshTrustedAdvisorCheck pCheckId_ =
-    RefreshTrustedAdvisorCheck'
-    { _rtacCheckId = pCheckId_
-    }
+  RefreshTrustedAdvisorCheck' {_rtacCheckId = pCheckId_}
+
 
 -- | The unique identifier for the Trusted Advisor check to refresh. __Note:__ Specifying the check ID of a check that is automatically refreshed causes an @InvalidParameterValue@ error.
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
@@ -90,9 +90,9 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
                  RefreshTrustedAdvisorCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "status"))
 
-instance Hashable RefreshTrustedAdvisorCheck
+instance Hashable RefreshTrustedAdvisorCheck where
 
-instance NFData RefreshTrustedAdvisorCheck
+instance NFData RefreshTrustedAdvisorCheck where
 
 instance ToHeaders RefreshTrustedAdvisorCheck where
         toHeaders
@@ -121,9 +121,10 @@ instance ToQuery RefreshTrustedAdvisorCheck where
 --
 -- /See:/ 'refreshTrustedAdvisorCheckResponse' smart constructor.
 data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
-    { _rtacrsResponseStatus :: !Int
-    , _rtacrsStatus         :: !TrustedAdvisorCheckRefreshStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rtacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _rtacrsStatus         :: {-# NOUNPACK #-}!TrustedAdvisorCheckRefreshStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RefreshTrustedAdvisorCheckResponse' with the minimum fields required to make a request.
 --
@@ -137,10 +138,9 @@ refreshTrustedAdvisorCheckResponse
     -> TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrsStatus'
     -> RefreshTrustedAdvisorCheckResponse
 refreshTrustedAdvisorCheckResponse pResponseStatus_ pStatus_ =
-    RefreshTrustedAdvisorCheckResponse'
-    { _rtacrsResponseStatus = pResponseStatus_
-    , _rtacrsStatus = pStatus_
-    }
+  RefreshTrustedAdvisorCheckResponse'
+  {_rtacrsResponseStatus = pResponseStatus_, _rtacrsStatus = pStatus_}
+
 
 -- | -- | The response status code.
 rtacrsResponseStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
@@ -151,3 +151,4 @@ rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefr
 rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});
 
 instance NFData RefreshTrustedAdvisorCheckResponse
+         where

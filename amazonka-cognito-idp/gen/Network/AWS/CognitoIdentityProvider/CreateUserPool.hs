@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.CreateUserPool
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -54,12 +54,12 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPool
     , cuprsResponseStatus
     ) where
 
-import           Network.AWS.CognitoIdentityProvider.Types
-import           Network.AWS.CognitoIdentityProvider.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CognitoIdentityProvider.Types
+import Network.AWS.CognitoIdentityProvider.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the request to create a user pool.
 --
@@ -67,25 +67,26 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUserPool' smart constructor.
 data CreateUserPool = CreateUserPool'
-    { _cupUserPoolTags                :: !(Maybe (Map Text Text))
-    , _cupVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
-    , _cupEmailVerificationMessage    :: !(Maybe Text)
-    , _cupSmsAuthenticationMessage    :: !(Maybe Text)
-    , _cupEmailVerificationSubject    :: !(Maybe Text)
-    , _cupUsernameAttributes          :: !(Maybe [UsernameAttributeType])
-    , _cupAliasAttributes             :: !(Maybe [AliasAttributeType])
-    , _cupSchema                      :: !(Maybe (List1 SchemaAttributeType))
-    , _cupEmailConfiguration          :: !(Maybe EmailConfigurationType)
-    , _cupSmsVerificationMessage      :: !(Maybe Text)
-    , _cupMFAConfiguration            :: !(Maybe UserPoolMFAType)
-    , _cupLambdaConfig                :: !(Maybe LambdaConfigType)
-    , _cupSmsConfiguration            :: !(Maybe SmsConfigurationType)
-    , _cupAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
-    , _cupDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
-    , _cupAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
-    , _cupPolicies                    :: !(Maybe UserPoolPolicyType)
-    , _cupPoolName                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cupUserPoolTags :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _cupVerificationMessageTemplate :: {-# NOUNPACK #-}!(Maybe VerificationMessageTemplateType)
+  , _cupEmailVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cupSmsAuthenticationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cupEmailVerificationSubject :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cupUsernameAttributes :: {-# NOUNPACK #-}!(Maybe [UsernameAttributeType])
+  , _cupAliasAttributes :: {-# NOUNPACK #-}!(Maybe [AliasAttributeType])
+  , _cupSchema :: {-# NOUNPACK #-}!(Maybe (List1 SchemaAttributeType))
+  , _cupEmailConfiguration :: {-# NOUNPACK #-}!(Maybe EmailConfigurationType)
+  , _cupSmsVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cupMFAConfiguration :: {-# NOUNPACK #-}!(Maybe UserPoolMFAType)
+  , _cupLambdaConfig :: {-# NOUNPACK #-}!(Maybe LambdaConfigType)
+  , _cupSmsConfiguration :: {-# NOUNPACK #-}!(Maybe SmsConfigurationType)
+  , _cupAdminCreateUserConfig :: {-# NOUNPACK #-}!(Maybe AdminCreateUserConfigType)
+  , _cupDeviceConfiguration :: {-# NOUNPACK #-}!(Maybe DeviceConfigurationType)
+  , _cupAutoVerifiedAttributes :: {-# NOUNPACK #-}!(Maybe [VerifiedAttributeType])
+  , _cupPolicies :: {-# NOUNPACK #-}!(Maybe UserPoolPolicyType)
+  , _cupPoolName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserPool' with the minimum fields required to make a request.
 --
@@ -130,26 +131,27 @@ createUserPool
     :: Text -- ^ 'cupPoolName'
     -> CreateUserPool
 createUserPool pPoolName_ =
-    CreateUserPool'
-    { _cupUserPoolTags = Nothing
-    , _cupVerificationMessageTemplate = Nothing
-    , _cupEmailVerificationMessage = Nothing
-    , _cupSmsAuthenticationMessage = Nothing
-    , _cupEmailVerificationSubject = Nothing
-    , _cupUsernameAttributes = Nothing
-    , _cupAliasAttributes = Nothing
-    , _cupSchema = Nothing
-    , _cupEmailConfiguration = Nothing
-    , _cupSmsVerificationMessage = Nothing
-    , _cupMFAConfiguration = Nothing
-    , _cupLambdaConfig = Nothing
-    , _cupSmsConfiguration = Nothing
-    , _cupAdminCreateUserConfig = Nothing
-    , _cupDeviceConfiguration = Nothing
-    , _cupAutoVerifiedAttributes = Nothing
-    , _cupPolicies = Nothing
-    , _cupPoolName = pPoolName_
-    }
+  CreateUserPool'
+  { _cupUserPoolTags = Nothing
+  , _cupVerificationMessageTemplate = Nothing
+  , _cupEmailVerificationMessage = Nothing
+  , _cupSmsAuthenticationMessage = Nothing
+  , _cupEmailVerificationSubject = Nothing
+  , _cupUsernameAttributes = Nothing
+  , _cupAliasAttributes = Nothing
+  , _cupSchema = Nothing
+  , _cupEmailConfiguration = Nothing
+  , _cupSmsVerificationMessage = Nothing
+  , _cupMFAConfiguration = Nothing
+  , _cupLambdaConfig = Nothing
+  , _cupSmsConfiguration = Nothing
+  , _cupAdminCreateUserConfig = Nothing
+  , _cupDeviceConfiguration = Nothing
+  , _cupAutoVerifiedAttributes = Nothing
+  , _cupPolicies = Nothing
+  , _cupPoolName = pPoolName_
+  }
+
 
 -- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 cupUserPoolTags :: Lens' CreateUserPool (HashMap Text Text)
@@ -232,9 +234,9 @@ instance AWSRequest CreateUserPool where
                  CreateUserPoolResponse' <$>
                    (x .?> "UserPool") <*> (pure (fromEnum s)))
 
-instance Hashable CreateUserPool
+instance Hashable CreateUserPool where
 
-instance NFData CreateUserPool
+instance NFData CreateUserPool where
 
 instance ToHeaders CreateUserPool where
         toHeaders
@@ -289,9 +291,10 @@ instance ToQuery CreateUserPool where
 --
 -- /See:/ 'createUserPoolResponse' smart constructor.
 data CreateUserPoolResponse = CreateUserPoolResponse'
-    { _cuprsUserPool       :: !(Maybe UserPoolType)
-    , _cuprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cuprsUserPool       :: {-# NOUNPACK #-}!(Maybe UserPoolType)
+  , _cuprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateUserPoolResponse' with the minimum fields required to make a request.
 --
@@ -304,10 +307,9 @@ createUserPoolResponse
     :: Int -- ^ 'cuprsResponseStatus'
     -> CreateUserPoolResponse
 createUserPoolResponse pResponseStatus_ =
-    CreateUserPoolResponse'
-    { _cuprsUserPool = Nothing
-    , _cuprsResponseStatus = pResponseStatus_
-    }
+  CreateUserPoolResponse'
+  {_cuprsUserPool = Nothing, _cuprsResponseStatus = pResponseStatus_}
+
 
 -- | A container for the user pool details.
 cuprsUserPool :: Lens' CreateUserPoolResponse (Maybe UserPoolType)
@@ -317,4 +319,4 @@ cuprsUserPool = lens _cuprsUserPool (\ s a -> s{_cuprsUserPool = a});
 cuprsResponseStatus :: Lens' CreateUserPoolResponse Int
 cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});
 
-instance NFData CreateUserPoolResponse
+instance NFData CreateUserPoolResponse where

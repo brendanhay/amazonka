@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateRateBasedRule
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -86,21 +86,22 @@ module Network.AWS.WAF.CreateRateBasedRule
     , crbrrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.WAF.Types
-import           Network.AWS.WAF.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.WAF.Types
+import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'createRateBasedRule' smart constructor.
 data CreateRateBasedRule = CreateRateBasedRule'
-    { _crbrName        :: !Text
-    , _crbrMetricName  :: !Text
-    , _crbrRateKey     :: !RateKey
-    , _crbrRateLimit   :: !Nat
-    , _crbrChangeToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crbrName        :: {-# NOUNPACK #-}!Text
+  , _crbrMetricName  :: {-# NOUNPACK #-}!Text
+  , _crbrRateKey     :: {-# NOUNPACK #-}!RateKey
+  , _crbrRateLimit   :: {-# NOUNPACK #-}!Nat
+  , _crbrChangeToken :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRateBasedRule' with the minimum fields required to make a request.
 --
@@ -123,13 +124,14 @@ createRateBasedRule
     -> Text -- ^ 'crbrChangeToken'
     -> CreateRateBasedRule
 createRateBasedRule pName_ pMetricName_ pRateKey_ pRateLimit_ pChangeToken_ =
-    CreateRateBasedRule'
-    { _crbrName = pName_
-    , _crbrMetricName = pMetricName_
-    , _crbrRateKey = pRateKey_
-    , _crbrRateLimit = _Nat # pRateLimit_
-    , _crbrChangeToken = pChangeToken_
-    }
+  CreateRateBasedRule'
+  { _crbrName = pName_
+  , _crbrMetricName = pMetricName_
+  , _crbrRateKey = pRateKey_
+  , _crbrRateLimit = _Nat # pRateLimit_
+  , _crbrChangeToken = pChangeToken_
+  }
+
 
 -- | A friendly name or description of the 'RateBasedRule' . You can't change the name of a @RateBasedRule@ after you create it.
 crbrName :: Lens' CreateRateBasedRule Text
@@ -162,9 +164,9 @@ instance AWSRequest CreateRateBasedRule where
                    (x .?> "Rule") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
 
-instance Hashable CreateRateBasedRule
+instance Hashable CreateRateBasedRule where
 
-instance NFData CreateRateBasedRule
+instance NFData CreateRateBasedRule where
 
 instance ToHeaders CreateRateBasedRule where
         toHeaders
@@ -194,10 +196,11 @@ instance ToQuery CreateRateBasedRule where
 
 -- | /See:/ 'createRateBasedRuleResponse' smart constructor.
 data CreateRateBasedRuleResponse = CreateRateBasedRuleResponse'
-    { _crbrrsRule           :: !(Maybe RateBasedRule)
-    , _crbrrsChangeToken    :: !(Maybe Text)
-    , _crbrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _crbrrsRule           :: {-# NOUNPACK #-}!(Maybe RateBasedRule)
+  , _crbrrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateRateBasedRuleResponse' with the minimum fields required to make a request.
 --
@@ -212,11 +215,12 @@ createRateBasedRuleResponse
     :: Int -- ^ 'crbrrsResponseStatus'
     -> CreateRateBasedRuleResponse
 createRateBasedRuleResponse pResponseStatus_ =
-    CreateRateBasedRuleResponse'
-    { _crbrrsRule = Nothing
-    , _crbrrsChangeToken = Nothing
-    , _crbrrsResponseStatus = pResponseStatus_
-    }
+  CreateRateBasedRuleResponse'
+  { _crbrrsRule = Nothing
+  , _crbrrsChangeToken = Nothing
+  , _crbrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The 'RateBasedRule' that is returned in the @CreateRateBasedRule@ response.
 crbrrsRule :: Lens' CreateRateBasedRuleResponse (Maybe RateBasedRule)
@@ -230,4 +234,4 @@ crbrrsChangeToken = lens _crbrrsChangeToken (\ s a -> s{_crbrrsChangeToken = a})
 crbrrsResponseStatus :: Lens' CreateRateBasedRuleResponse Int
 crbrrsResponseStatus = lens _crbrrsResponseStatus (\ s a -> s{_crbrrsResponseStatus = a});
 
-instance NFData CreateRateBasedRuleResponse
+instance NFData CreateRateBasedRuleResponse where

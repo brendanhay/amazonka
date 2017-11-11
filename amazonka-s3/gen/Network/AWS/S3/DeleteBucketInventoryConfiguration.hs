@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketInventoryConfiguration
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -33,18 +33,19 @@ module Network.AWS.S3.DeleteBucketInventoryConfiguration
     , DeleteBucketInventoryConfigurationResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketInventoryConfiguration' smart constructor.
 data DeleteBucketInventoryConfiguration = DeleteBucketInventoryConfiguration'
-    { _dbicBucket :: !BucketName
-    , _dbicId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dbicBucket :: {-# NOUNPACK #-}!BucketName
+  , _dbicId     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketInventoryConfiguration' with the minimum fields required to make a request.
 --
@@ -58,10 +59,8 @@ deleteBucketInventoryConfiguration
     -> Text -- ^ 'dbicId'
     -> DeleteBucketInventoryConfiguration
 deleteBucketInventoryConfiguration pBucket_ pId_ =
-    DeleteBucketInventoryConfiguration'
-    { _dbicBucket = pBucket_
-    , _dbicId = pId_
-    }
+  DeleteBucketInventoryConfiguration' {_dbicBucket = pBucket_, _dbicId = pId_}
+
 
 -- | The name of the bucket containing the inventory configuration to delete.
 dbicBucket :: Lens' DeleteBucketInventoryConfiguration BucketName
@@ -72,7 +71,8 @@ dbicId :: Lens' DeleteBucketInventoryConfiguration Text
 dbicId = lens _dbicId (\ s a -> s{_dbicId = a});
 
 instance AWSRequest
-         DeleteBucketInventoryConfiguration where
+           DeleteBucketInventoryConfiguration
+         where
         type Rs DeleteBucketInventoryConfiguration =
              DeleteBucketInventoryConfigurationResponse
         request = delete s3
@@ -81,8 +81,10 @@ instance AWSRequest
               DeleteBucketInventoryConfigurationResponse'
 
 instance Hashable DeleteBucketInventoryConfiguration
+         where
 
 instance NFData DeleteBucketInventoryConfiguration
+         where
 
 instance ToHeaders DeleteBucketInventoryConfiguration
          where
@@ -100,15 +102,18 @@ instance ToQuery DeleteBucketInventoryConfiguration
 
 -- | /See:/ 'deleteBucketInventoryConfigurationResponse' smart constructor.
 data DeleteBucketInventoryConfigurationResponse =
-    DeleteBucketInventoryConfigurationResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  DeleteBucketInventoryConfigurationResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DeleteBucketInventoryConfigurationResponse' with the minimum fields required to make a request.
 --
 deleteBucketInventoryConfigurationResponse
     :: DeleteBucketInventoryConfigurationResponse
 deleteBucketInventoryConfigurationResponse =
-    DeleteBucketInventoryConfigurationResponse'
+  DeleteBucketInventoryConfigurationResponse'
+
 
 instance NFData
-         DeleteBucketInventoryConfigurationResponse
+           DeleteBucketInventoryConfigurationResponse
+         where

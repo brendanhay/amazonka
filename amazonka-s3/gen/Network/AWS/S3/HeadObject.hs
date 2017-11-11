@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.S3.HeadObject
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -71,29 +71,30 @@ module Network.AWS.S3.HeadObject
     , horsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.S3.Types
-import           Network.AWS.S3.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.S3.Types
+import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'headObject' smart constructor.
 data HeadObject = HeadObject'
-    { _hoIfMatch              :: !(Maybe Text)
-    , _hoVersionId            :: !(Maybe ObjectVersionId)
-    , _hoSSECustomerAlgorithm :: !(Maybe Text)
-    , _hoSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _hoRequestPayer         :: !(Maybe RequestPayer)
-    , _hoIfModifiedSince      :: !(Maybe RFC822)
-    , _hoPartNumber           :: !(Maybe Int)
-    , _hoRange                :: !(Maybe Text)
-    , _hoIfUnmodifiedSince    :: !(Maybe RFC822)
-    , _hoSSECustomerKeyMD5    :: !(Maybe Text)
-    , _hoIfNoneMatch          :: !(Maybe Text)
-    , _hoBucket               :: !BucketName
-    , _hoKey                  :: !ObjectKey
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _hoIfMatch              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hoVersionId            :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _hoSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hoSSECustomerKey       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _hoRequestPayer         :: {-# NOUNPACK #-}!(Maybe RequestPayer)
+  , _hoIfModifiedSince      :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _hoPartNumber           :: {-# NOUNPACK #-}!(Maybe Int)
+  , _hoRange                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hoIfUnmodifiedSince    :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _hoSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hoIfNoneMatch          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _hoBucket               :: {-# NOUNPACK #-}!BucketName
+  , _hoKey                  :: {-# NOUNPACK #-}!ObjectKey
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HeadObject' with the minimum fields required to make a request.
 --
@@ -129,21 +130,22 @@ headObject
     -> ObjectKey -- ^ 'hoKey'
     -> HeadObject
 headObject pBucket_ pKey_ =
-    HeadObject'
-    { _hoIfMatch = Nothing
-    , _hoVersionId = Nothing
-    , _hoSSECustomerAlgorithm = Nothing
-    , _hoSSECustomerKey = Nothing
-    , _hoRequestPayer = Nothing
-    , _hoIfModifiedSince = Nothing
-    , _hoPartNumber = Nothing
-    , _hoRange = Nothing
-    , _hoIfUnmodifiedSince = Nothing
-    , _hoSSECustomerKeyMD5 = Nothing
-    , _hoIfNoneMatch = Nothing
-    , _hoBucket = pBucket_
-    , _hoKey = pKey_
-    }
+  HeadObject'
+  { _hoIfMatch = Nothing
+  , _hoVersionId = Nothing
+  , _hoSSECustomerAlgorithm = Nothing
+  , _hoSSECustomerKey = Nothing
+  , _hoRequestPayer = Nothing
+  , _hoIfModifiedSince = Nothing
+  , _hoPartNumber = Nothing
+  , _hoRange = Nothing
+  , _hoIfUnmodifiedSince = Nothing
+  , _hoSSECustomerKeyMD5 = Nothing
+  , _hoIfNoneMatch = Nothing
+  , _hoBucket = pBucket_
+  , _hoKey = pKey_
+  }
+
 
 -- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
 hoIfMatch :: Lens' HeadObject (Maybe Text)
@@ -236,9 +238,9 @@ instance AWSRequest HeadObject where
                      <*> (h .#? "Content-Type")
                      <*> (pure (fromEnum s)))
 
-instance Hashable HeadObject
+instance Hashable HeadObject where
 
-instance NFData HeadObject
+instance NFData HeadObject where
 
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}
@@ -268,33 +270,34 @@ instance ToQuery HeadObject where
 
 -- | /See:/ 'headObjectResponse' smart constructor.
 data HeadObjectResponse = HeadObjectResponse'
-    { _horsRequestCharged          :: !(Maybe RequestCharged)
-    , _horsPartsCount              :: !(Maybe Int)
-    , _horsETag                    :: !(Maybe ETag)
-    , _horsVersionId               :: !(Maybe ObjectVersionId)
-    , _horsContentLength           :: !(Maybe Integer)
-    , _horsExpires                 :: !(Maybe RFC822)
-    , _horsRestore                 :: !(Maybe Text)
-    , _horsExpiration              :: !(Maybe Text)
-    , _horsDeleteMarker            :: !(Maybe Bool)
-    , _horsSSECustomerAlgorithm    :: !(Maybe Text)
-    , _horsMissingMeta             :: !(Maybe Int)
-    , _horsWebsiteRedirectLocation :: !(Maybe Text)
-    , _horsAcceptRanges            :: !(Maybe Text)
-    , _horsStorageClass            :: !(Maybe StorageClass)
-    , _horsSSECustomerKeyMD5       :: !(Maybe Text)
-    , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _horsContentEncoding         :: !(Maybe Text)
-    , _horsMetadata                :: !(Map Text Text)
-    , _horsReplicationStatus       :: !(Maybe ReplicationStatus)
-    , _horsCacheControl            :: !(Maybe Text)
-    , _horsContentLanguage         :: !(Maybe Text)
-    , _horsLastModified            :: !(Maybe RFC822)
-    , _horsContentDisposition      :: !(Maybe Text)
-    , _horsServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _horsContentType             :: !(Maybe Text)
-    , _horsResponseStatus          :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+  { _horsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
+  , _horsPartsCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _horsETag :: {-# NOUNPACK #-}!(Maybe ETag)
+  , _horsVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
+  , _horsContentLength :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _horsExpires :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _horsRestore :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsExpiration :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsDeleteMarker :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _horsSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsMissingMeta :: {-# NOUNPACK #-}!(Maybe Int)
+  , _horsWebsiteRedirectLocation :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsAcceptRanges :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
+  , _horsSSECustomerKeyMD5 :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsSSEKMSKeyId :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _horsContentEncoding :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsMetadata :: {-# NOUNPACK #-}!(Map Text Text)
+  , _horsReplicationStatus :: {-# NOUNPACK #-}!(Maybe ReplicationStatus)
+  , _horsCacheControl :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsContentLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  , _horsContentDisposition :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsServerSideEncryption :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
+  , _horsContentType :: {-# NOUNPACK #-}!(Maybe Text)
+  , _horsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'HeadObjectResponse' with the minimum fields required to make a request.
 --
@@ -355,34 +358,35 @@ headObjectResponse
     :: Int -- ^ 'horsResponseStatus'
     -> HeadObjectResponse
 headObjectResponse pResponseStatus_ =
-    HeadObjectResponse'
-    { _horsRequestCharged = Nothing
-    , _horsPartsCount = Nothing
-    , _horsETag = Nothing
-    , _horsVersionId = Nothing
-    , _horsContentLength = Nothing
-    , _horsExpires = Nothing
-    , _horsRestore = Nothing
-    , _horsExpiration = Nothing
-    , _horsDeleteMarker = Nothing
-    , _horsSSECustomerAlgorithm = Nothing
-    , _horsMissingMeta = Nothing
-    , _horsWebsiteRedirectLocation = Nothing
-    , _horsAcceptRanges = Nothing
-    , _horsStorageClass = Nothing
-    , _horsSSECustomerKeyMD5 = Nothing
-    , _horsSSEKMSKeyId = Nothing
-    , _horsContentEncoding = Nothing
-    , _horsMetadata = mempty
-    , _horsReplicationStatus = Nothing
-    , _horsCacheControl = Nothing
-    , _horsContentLanguage = Nothing
-    , _horsLastModified = Nothing
-    , _horsContentDisposition = Nothing
-    , _horsServerSideEncryption = Nothing
-    , _horsContentType = Nothing
-    , _horsResponseStatus = pResponseStatus_
-    }
+  HeadObjectResponse'
+  { _horsRequestCharged = Nothing
+  , _horsPartsCount = Nothing
+  , _horsETag = Nothing
+  , _horsVersionId = Nothing
+  , _horsContentLength = Nothing
+  , _horsExpires = Nothing
+  , _horsRestore = Nothing
+  , _horsExpiration = Nothing
+  , _horsDeleteMarker = Nothing
+  , _horsSSECustomerAlgorithm = Nothing
+  , _horsMissingMeta = Nothing
+  , _horsWebsiteRedirectLocation = Nothing
+  , _horsAcceptRanges = Nothing
+  , _horsStorageClass = Nothing
+  , _horsSSECustomerKeyMD5 = Nothing
+  , _horsSSEKMSKeyId = Nothing
+  , _horsContentEncoding = Nothing
+  , _horsMetadata = mempty
+  , _horsReplicationStatus = Nothing
+  , _horsCacheControl = Nothing
+  , _horsContentLanguage = Nothing
+  , _horsLastModified = Nothing
+  , _horsContentDisposition = Nothing
+  , _horsServerSideEncryption = Nothing
+  , _horsContentType = Nothing
+  , _horsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 horsRequestCharged :: Lens' HeadObjectResponse (Maybe RequestCharged)
@@ -488,4 +492,4 @@ horsContentType = lens _horsContentType (\ s a -> s{_horsContentType = a});
 horsResponseStatus :: Lens' HeadObjectResponse Int
 horsResponseStatus = lens _horsResponseStatus (\ s a -> s{_horsResponseStatus = a});
 
-instance NFData HeadObjectResponse
+instance NFData HeadObjectResponse where

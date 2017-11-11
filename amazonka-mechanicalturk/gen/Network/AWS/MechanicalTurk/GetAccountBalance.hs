@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetAccountBalance
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,23 +36,25 @@ module Network.AWS.MechanicalTurk.GetAccountBalance
     , gabrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MechanicalTurk.Types
-import           Network.AWS.MechanicalTurk.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MechanicalTurk.Types
+import Network.AWS.MechanicalTurk.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getAccountBalance' smart constructor.
 data GetAccountBalance =
-    GetAccountBalance'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  GetAccountBalance'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountBalance' with the minimum fields required to make a request.
 --
 getAccountBalance
     :: GetAccountBalance
 getAccountBalance = GetAccountBalance'
+
 
 instance AWSRequest GetAccountBalance where
         type Rs GetAccountBalance = GetAccountBalanceResponse
@@ -65,9 +67,9 @@ instance AWSRequest GetAccountBalance where
                      (x .?> "OnHoldBalance")
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetAccountBalance
+instance Hashable GetAccountBalance where
 
-instance NFData GetAccountBalance
+instance NFData GetAccountBalance where
 
 instance ToHeaders GetAccountBalance where
         toHeaders
@@ -90,10 +92,11 @@ instance ToQuery GetAccountBalance where
 
 -- | /See:/ 'getAccountBalanceResponse' smart constructor.
 data GetAccountBalanceResponse = GetAccountBalanceResponse'
-    { _gabrsAvailableBalance :: !(Maybe Text)
-    , _gabrsOnHoldBalance    :: !(Maybe Text)
-    , _gabrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _gabrsAvailableBalance :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gabrsOnHoldBalance    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gabrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetAccountBalanceResponse' with the minimum fields required to make a request.
 --
@@ -108,11 +111,12 @@ getAccountBalanceResponse
     :: Int -- ^ 'gabrsResponseStatus'
     -> GetAccountBalanceResponse
 getAccountBalanceResponse pResponseStatus_ =
-    GetAccountBalanceResponse'
-    { _gabrsAvailableBalance = Nothing
-    , _gabrsOnHoldBalance = Nothing
-    , _gabrsResponseStatus = pResponseStatus_
-    }
+  GetAccountBalanceResponse'
+  { _gabrsAvailableBalance = Nothing
+  , _gabrsOnHoldBalance = Nothing
+  , _gabrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | Undocumented member.
 gabrsAvailableBalance :: Lens' GetAccountBalanceResponse (Maybe Text)
@@ -126,4 +130,4 @@ gabrsOnHoldBalance = lens _gabrsOnHoldBalance (\ s a -> s{_gabrsOnHoldBalance = 
 gabrsResponseStatus :: Lens' GetAccountBalanceResponse Int
 gabrsResponseStatus = lens _gabrsResponseStatus (\ s a -> s{_gabrsResponseStatus = a});
 
-instance NFData GetAccountBalanceResponse
+instance NFData GetAccountBalanceResponse where

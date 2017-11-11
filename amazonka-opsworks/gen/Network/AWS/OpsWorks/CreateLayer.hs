@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateLayer
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,34 +56,35 @@ module Network.AWS.OpsWorks.CreateLayer
     , clrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.OpsWorks.Types
-import           Network.AWS.OpsWorks.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createLayer' smart constructor.
 data CreateLayer = CreateLayer'
-    { _clCustomInstanceProfileARN    :: !(Maybe Text)
-    , _clCustomSecurityGroupIds      :: !(Maybe [Text])
-    , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _clCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
-    , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _clCustomRecipes               :: !(Maybe Recipes)
-    , _clCustomJSON                  :: !(Maybe Text)
-    , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _clEnableAutoHealing           :: !(Maybe Bool)
-    , _clPackages                    :: !(Maybe [Text])
-    , _clAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _clAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _clUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _clAutoAssignElasticIPs        :: !(Maybe Bool)
-    , _clStackId                     :: !Text
-    , _clType                        :: !LayerType
-    , _clName                        :: !Text
-    , _clShortname                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clCustomInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clCustomSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _clInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _clCloudWatchLogsConfiguration :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsConfiguration)
+  , _clLifecycleEventConfiguration :: {-# NOUNPACK #-}!(Maybe LifecycleEventConfiguration)
+  , _clCustomRecipes :: {-# NOUNPACK #-}!(Maybe Recipes)
+  , _clCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clVolumeConfigurations :: {-# NOUNPACK #-}!(Maybe [VolumeConfiguration])
+  , _clEnableAutoHealing :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _clPackages :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _clAttributes :: {-# NOUNPACK #-}!(Maybe (Map LayerAttributesKeys Text))
+  , _clAutoAssignPublicIPs :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _clUseEBSOptimizedInstances :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _clAutoAssignElasticIPs :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _clStackId :: {-# NOUNPACK #-}!Text
+  , _clType :: {-# NOUNPACK #-}!LayerType
+  , _clName :: {-# NOUNPACK #-}!Text
+  , _clShortname :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLayer' with the minimum fields required to make a request.
 --
@@ -131,26 +132,27 @@ createLayer
     -> Text -- ^ 'clShortname'
     -> CreateLayer
 createLayer pStackId_ pType_ pName_ pShortname_ =
-    CreateLayer'
-    { _clCustomInstanceProfileARN = Nothing
-    , _clCustomSecurityGroupIds = Nothing
-    , _clInstallUpdatesOnBoot = Nothing
-    , _clCloudWatchLogsConfiguration = Nothing
-    , _clLifecycleEventConfiguration = Nothing
-    , _clCustomRecipes = Nothing
-    , _clCustomJSON = Nothing
-    , _clVolumeConfigurations = Nothing
-    , _clEnableAutoHealing = Nothing
-    , _clPackages = Nothing
-    , _clAttributes = Nothing
-    , _clAutoAssignPublicIPs = Nothing
-    , _clUseEBSOptimizedInstances = Nothing
-    , _clAutoAssignElasticIPs = Nothing
-    , _clStackId = pStackId_
-    , _clType = pType_
-    , _clName = pName_
-    , _clShortname = pShortname_
-    }
+  CreateLayer'
+  { _clCustomInstanceProfileARN = Nothing
+  , _clCustomSecurityGroupIds = Nothing
+  , _clInstallUpdatesOnBoot = Nothing
+  , _clCloudWatchLogsConfiguration = Nothing
+  , _clLifecycleEventConfiguration = Nothing
+  , _clCustomRecipes = Nothing
+  , _clCustomJSON = Nothing
+  , _clVolumeConfigurations = Nothing
+  , _clEnableAutoHealing = Nothing
+  , _clPackages = Nothing
+  , _clAttributes = Nothing
+  , _clAutoAssignPublicIPs = Nothing
+  , _clUseEBSOptimizedInstances = Nothing
+  , _clAutoAssignElasticIPs = Nothing
+  , _clStackId = pStackId_
+  , _clType = pType_
+  , _clName = pName_
+  , _clShortname = pShortname_
+  }
+
 
 -- | The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 clCustomInstanceProfileARN :: Lens' CreateLayer (Maybe Text)
@@ -233,9 +235,9 @@ instance AWSRequest CreateLayer where
                  CreateLayerResponse' <$>
                    (x .?> "LayerId") <*> (pure (fromEnum s)))
 
-instance Hashable CreateLayer
+instance Hashable CreateLayer where
 
-instance NFData CreateLayer
+instance NFData CreateLayer where
 
 instance ToHeaders CreateLayer where
         toHeaders
@@ -289,9 +291,10 @@ instance ToQuery CreateLayer where
 --
 -- /See:/ 'createLayerResponse' smart constructor.
 data CreateLayerResponse = CreateLayerResponse'
-    { _clrsLayerId        :: !(Maybe Text)
-    , _clrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _clrsLayerId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateLayerResponse' with the minimum fields required to make a request.
 --
@@ -304,10 +307,9 @@ createLayerResponse
     :: Int -- ^ 'clrsResponseStatus'
     -> CreateLayerResponse
 createLayerResponse pResponseStatus_ =
-    CreateLayerResponse'
-    { _clrsLayerId = Nothing
-    , _clrsResponseStatus = pResponseStatus_
-    }
+  CreateLayerResponse'
+  {_clrsLayerId = Nothing, _clrsResponseStatus = pResponseStatus_}
+
 
 -- | The layer ID.
 clrsLayerId :: Lens' CreateLayerResponse (Maybe Text)
@@ -317,4 +319,4 @@ clrsLayerId = lens _clrsLayerId (\ s a -> s{_clrsLayerId = a});
 clrsResponseStatus :: Lens' CreateLayerResponse Int
 clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a});
 
-instance NFData CreateLayerResponse
+instance NFData CreateLayerResponse where

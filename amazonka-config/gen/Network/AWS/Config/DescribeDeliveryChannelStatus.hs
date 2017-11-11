@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeDeliveryChannelStatus
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -37,12 +37,12 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     , ddcsrsResponseStatus
     ) where
 
-import           Network.AWS.Config.Types
-import           Network.AWS.Config.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Config.Types
+import Network.AWS.Config.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | The input for the 'DeliveryChannelStatus' action.
 --
@@ -50,8 +50,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeDeliveryChannelStatus' smart constructor.
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
-    { _ddcsDeliveryChannelNames :: Maybe [Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcsDeliveryChannelNames :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDeliveryChannelStatus' with the minimum fields required to make a request.
 --
@@ -61,9 +62,8 @@ newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
 describeDeliveryChannelStatus
     :: DescribeDeliveryChannelStatus
 describeDeliveryChannelStatus =
-    DescribeDeliveryChannelStatus'
-    { _ddcsDeliveryChannelNames = Nothing
-    }
+  DescribeDeliveryChannelStatus' {_ddcsDeliveryChannelNames = Nothing}
+
 
 -- | A list of delivery channel names.
 ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
@@ -81,9 +81,9 @@ instance AWSRequest DescribeDeliveryChannelStatus
                    (x .?> "DeliveryChannelsStatus" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
-instance Hashable DescribeDeliveryChannelStatus
+instance Hashable DescribeDeliveryChannelStatus where
 
-instance NFData DescribeDeliveryChannelStatus
+instance NFData DescribeDeliveryChannelStatus where
 
 instance ToHeaders DescribeDeliveryChannelStatus
          where
@@ -115,9 +115,10 @@ instance ToQuery DescribeDeliveryChannelStatus where
 --
 -- /See:/ 'describeDeliveryChannelStatusResponse' smart constructor.
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
-    { _ddcsrsDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
-    , _ddcsrsResponseStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ddcsrsDeliveryChannelsStatus :: {-# NOUNPACK #-}!(Maybe [DeliveryChannelStatus])
+  , _ddcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeDeliveryChannelStatusResponse' with the minimum fields required to make a request.
 --
@@ -130,10 +131,11 @@ describeDeliveryChannelStatusResponse
     :: Int -- ^ 'ddcsrsResponseStatus'
     -> DescribeDeliveryChannelStatusResponse
 describeDeliveryChannelStatusResponse pResponseStatus_ =
-    DescribeDeliveryChannelStatusResponse'
-    { _ddcsrsDeliveryChannelsStatus = Nothing
-    , _ddcsrsResponseStatus = pResponseStatus_
-    }
+  DescribeDeliveryChannelStatusResponse'
+  { _ddcsrsDeliveryChannelsStatus = Nothing
+  , _ddcsrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A list that contains the status of a specified delivery channel.
 ddcsrsDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
@@ -144,3 +146,4 @@ ddcsrsResponseStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
 ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a});
 
 instance NFData DescribeDeliveryChannelStatusResponse
+         where

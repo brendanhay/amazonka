@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeTags
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.MachineLearning.DescribeTags
     , dtrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.MachineLearning.Types
-import           Network.AWS.MachineLearning.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-    { _dtResourceId   :: !Text
-    , _dtResourceType :: !TaggableResourceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtResourceId   :: {-# NOUNPACK #-}!Text
+  , _dtResourceType :: {-# NOUNPACK #-}!TaggableResourceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
@@ -65,10 +66,8 @@ describeTags
     -> TaggableResourceType -- ^ 'dtResourceType'
     -> DescribeTags
 describeTags pResourceId_ pResourceType_ =
-    DescribeTags'
-    { _dtResourceId = pResourceId_
-    , _dtResourceType = pResourceType_
-    }
+  DescribeTags' {_dtResourceId = pResourceId_, _dtResourceType = pResourceType_}
+
 
 -- | The ID of the ML object. For example, @exampleModelId@ .
 dtResourceId :: Lens' DescribeTags Text
@@ -89,9 +88,9 @@ instance AWSRequest DescribeTags where
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable DescribeTags
+instance Hashable DescribeTags where
 
-instance NFData DescribeTags
+instance NFData DescribeTags where
 
 instance ToHeaders DescribeTags where
         toHeaders
@@ -121,11 +120,12 @@ instance ToQuery DescribeTags where
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsResourceId     :: !(Maybe Text)
-    , _dtrsResourceType   :: !(Maybe TaggableResourceType)
-    , _dtrsTags           :: !(Maybe [Tag])
-    , _dtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _dtrsResourceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dtrsResourceType   :: {-# NOUNPACK #-}!(Maybe TaggableResourceType)
+  , _dtrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
@@ -142,12 +142,13 @@ describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
 describeTagsResponse pResponseStatus_ =
-    DescribeTagsResponse'
-    { _dtrsResourceId = Nothing
-    , _dtrsResourceType = Nothing
-    , _dtrsTags = Nothing
-    , _dtrsResponseStatus = pResponseStatus_
-    }
+  DescribeTagsResponse'
+  { _dtrsResourceId = Nothing
+  , _dtrsResourceType = Nothing
+  , _dtrsTags = Nothing
+  , _dtrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | The ID of the tagged ML object.
 dtrsResourceId :: Lens' DescribeTagsResponse (Maybe Text)
@@ -165,4 +166,4 @@ dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
-instance NFData DescribeTagsResponse
+instance NFData DescribeTagsResponse where

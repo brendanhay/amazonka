@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.EnableVolumeIO
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -35,12 +35,12 @@ module Network.AWS.EC2.EnableVolumeIO
     , EnableVolumeIOResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for EnableVolumeIO.
 --
@@ -48,9 +48,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableVolumeIO' smart constructor.
 data EnableVolumeIO = EnableVolumeIO'
-    { _evioDryRun   :: !(Maybe Bool)
-    , _evioVolumeId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _evioDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _evioVolumeId :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableVolumeIO' with the minimum fields required to make a request.
 --
@@ -63,10 +64,8 @@ enableVolumeIO
     :: Text -- ^ 'evioVolumeId'
     -> EnableVolumeIO
 enableVolumeIO pVolumeId_ =
-    EnableVolumeIO'
-    { _evioDryRun = Nothing
-    , _evioVolumeId = pVolumeId_
-    }
+  EnableVolumeIO' {_evioDryRun = Nothing, _evioVolumeId = pVolumeId_}
+
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 evioDryRun :: Lens' EnableVolumeIO (Maybe Bool)
@@ -81,9 +80,9 @@ instance AWSRequest EnableVolumeIO where
         request = postQuery ec2
         response = receiveNull EnableVolumeIOResponse'
 
-instance Hashable EnableVolumeIO
+instance Hashable EnableVolumeIO where
 
-instance NFData EnableVolumeIO
+instance NFData EnableVolumeIO where
 
 instance ToHeaders EnableVolumeIO where
         toHeaders = const mempty
@@ -100,8 +99,9 @@ instance ToQuery EnableVolumeIO where
 
 -- | /See:/ 'enableVolumeIOResponse' smart constructor.
 data EnableVolumeIOResponse =
-    EnableVolumeIOResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  EnableVolumeIOResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'EnableVolumeIOResponse' with the minimum fields required to make a request.
 --
@@ -109,4 +109,5 @@ enableVolumeIOResponse
     :: EnableVolumeIOResponse
 enableVolumeIOResponse = EnableVolumeIOResponse'
 
-instance NFData EnableVolumeIOResponse
+
+instance NFData EnableVolumeIOResponse where

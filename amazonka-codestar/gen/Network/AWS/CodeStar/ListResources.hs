@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.CodeStar.ListResources
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,19 +40,20 @@ module Network.AWS.CodeStar.ListResources
     , lrrsResponseStatus
     ) where
 
-import           Network.AWS.CodeStar.Types
-import           Network.AWS.CodeStar.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'listResources' smart constructor.
 data ListResources = ListResources'
-    { _lrNextToken  :: !(Maybe Text)
-    , _lrMaxResults :: !(Maybe Nat)
-    , _lrProjectId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _lrProjectId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResources' with the minimum fields required to make a request.
 --
@@ -67,11 +68,9 @@ listResources
     :: Text -- ^ 'lrProjectId'
     -> ListResources
 listResources pProjectId_ =
-    ListResources'
-    { _lrNextToken = Nothing
-    , _lrMaxResults = Nothing
-    , _lrProjectId = pProjectId_
-    }
+  ListResources'
+  {_lrNextToken = Nothing, _lrMaxResults = Nothing, _lrProjectId = pProjectId_}
+
 
 -- | The continuation token for the next set of results, if the results cannot be returned in one response.
 lrNextToken :: Lens' ListResources (Maybe Text)
@@ -96,9 +95,9 @@ instance AWSRequest ListResources where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
-instance Hashable ListResources
+instance Hashable ListResources where
 
-instance NFData ListResources
+instance NFData ListResources where
 
 instance ToHeaders ListResources where
         toHeaders
@@ -125,10 +124,11 @@ instance ToQuery ListResources where
 
 -- | /See:/ 'listResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
-    { _lrrsResources      :: !(Maybe [Resource])
-    , _lrrsNextToken      :: !(Maybe Text)
-    , _lrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _lrrsResources      :: {-# NOUNPACK #-}!(Maybe [Resource])
+  , _lrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ListResourcesResponse' with the minimum fields required to make a request.
 --
@@ -143,11 +143,12 @@ listResourcesResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListResourcesResponse
 listResourcesResponse pResponseStatus_ =
-    ListResourcesResponse'
-    { _lrrsResources = Nothing
-    , _lrrsNextToken = Nothing
-    , _lrrsResponseStatus = pResponseStatus_
-    }
+  ListResourcesResponse'
+  { _lrrsResources = Nothing
+  , _lrrsNextToken = Nothing
+  , _lrrsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of resources associated with the project.
 lrrsResources :: Lens' ListResourcesResponse [Resource]
@@ -161,4 +162,4 @@ lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 lrrsResponseStatus :: Lens' ListResourcesResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 
-instance NFData ListResourcesResponse
+instance NFData ListResourcesResponse where

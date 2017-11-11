@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstances
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,18 +40,19 @@ module Network.AWS.Lightsail.GetInstances
     , grsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Lightsail.Types
-import           Network.AWS.Lightsail.Types.Product
-import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Lightsail.Types
+import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'getInstances' smart constructor.
 newtype GetInstances = GetInstances'
-    { _giPageToken :: Maybe Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _giPageToken :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstances' with the minimum fields required to make a request.
 --
@@ -60,10 +61,8 @@ newtype GetInstances = GetInstances'
 -- * 'giPageToken' - A token used for advancing to the next page of results from your get instances request.
 getInstances
     :: GetInstances
-getInstances =
-    GetInstances'
-    { _giPageToken = Nothing
-    }
+getInstances = GetInstances' {_giPageToken = Nothing}
+
 
 -- | A token used for advancing to the next page of results from your get instances request.
 giPageToken :: Lens' GetInstances (Maybe Text)
@@ -87,9 +86,9 @@ instance AWSRequest GetInstances where
                      (x .?> "instances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
-instance Hashable GetInstances
+instance Hashable GetInstances where
 
-instance NFData GetInstances
+instance NFData GetInstances where
 
 instance ToHeaders GetInstances where
         toHeaders
@@ -113,10 +112,11 @@ instance ToQuery GetInstances where
 
 -- | /See:/ 'getInstancesResponse' smart constructor.
 data GetInstancesResponse = GetInstancesResponse'
-    { _grsNextPageToken  :: !(Maybe Text)
-    , _grsInstances      :: !(Maybe [Instance])
-    , _grsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _grsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _grsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
+  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'GetInstancesResponse' with the minimum fields required to make a request.
 --
@@ -131,11 +131,12 @@ getInstancesResponse
     :: Int -- ^ 'grsResponseStatus'
     -> GetInstancesResponse
 getInstancesResponse pResponseStatus_ =
-    GetInstancesResponse'
-    { _grsNextPageToken = Nothing
-    , _grsInstances = Nothing
-    , _grsResponseStatus = pResponseStatus_
-    }
+  GetInstancesResponse'
+  { _grsNextPageToken = Nothing
+  , _grsInstances = Nothing
+  , _grsResponseStatus = pResponseStatus_
+  }
+
 
 -- | A token used for advancing to the next page of results from your get instances request.
 grsNextPageToken :: Lens' GetInstancesResponse (Maybe Text)
@@ -149,4 +150,4 @@ grsInstances = lens _grsInstances (\ s a -> s{_grsInstances = a}) . _Default . _
 grsResponseStatus :: Lens' GetInstancesResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
-instance NFData GetInstancesResponse
+instance NFData GetInstancesResponse where

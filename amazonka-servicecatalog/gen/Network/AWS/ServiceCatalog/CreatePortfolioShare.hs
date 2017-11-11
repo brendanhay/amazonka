@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreatePortfolioShare
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -38,19 +38,20 @@ module Network.AWS.ServiceCatalog.CreatePortfolioShare
     , cpsrsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
-import           Network.AWS.ServiceCatalog.Types
-import           Network.AWS.ServiceCatalog.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.ServiceCatalog.Types
+import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createPortfolioShare' smart constructor.
 data CreatePortfolioShare = CreatePortfolioShare'
-    { _cpsAcceptLanguage :: !(Maybe Text)
-    , _cpsPortfolioId    :: !Text
-    , _cpsAccountId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpsAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpsPortfolioId    :: {-# NOUNPACK #-}!Text
+  , _cpsAccountId      :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePortfolioShare' with the minimum fields required to make a request.
 --
@@ -66,11 +67,12 @@ createPortfolioShare
     -> Text -- ^ 'cpsAccountId'
     -> CreatePortfolioShare
 createPortfolioShare pPortfolioId_ pAccountId_ =
-    CreatePortfolioShare'
-    { _cpsAcceptLanguage = Nothing
-    , _cpsPortfolioId = pPortfolioId_
-    , _cpsAccountId = pAccountId_
-    }
+  CreatePortfolioShare'
+  { _cpsAcceptLanguage = Nothing
+  , _cpsPortfolioId = pPortfolioId_
+  , _cpsAccountId = pAccountId_
+  }
+
 
 -- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 cpsAcceptLanguage :: Lens' CreatePortfolioShare (Maybe Text)
@@ -94,9 +96,9 @@ instance AWSRequest CreatePortfolioShare where
                  CreatePortfolioShareResponse' <$>
                    (pure (fromEnum s)))
 
-instance Hashable CreatePortfolioShare
+instance Hashable CreatePortfolioShare where
 
-instance NFData CreatePortfolioShare
+instance NFData CreatePortfolioShare where
 
 instance ToHeaders CreatePortfolioShare where
         toHeaders
@@ -124,8 +126,9 @@ instance ToQuery CreatePortfolioShare where
 
 -- | /See:/ 'createPortfolioShareResponse' smart constructor.
 newtype CreatePortfolioShareResponse = CreatePortfolioShareResponse'
-    { _cpsrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cpsrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreatePortfolioShareResponse' with the minimum fields required to make a request.
 --
@@ -136,12 +139,11 @@ createPortfolioShareResponse
     :: Int -- ^ 'cpsrsResponseStatus'
     -> CreatePortfolioShareResponse
 createPortfolioShareResponse pResponseStatus_ =
-    CreatePortfolioShareResponse'
-    { _cpsrsResponseStatus = pResponseStatus_
-    }
+  CreatePortfolioShareResponse' {_cpsrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 cpsrsResponseStatus :: Lens' CreatePortfolioShareResponse Int
 cpsrsResponseStatus = lens _cpsrsResponseStatus (\ s a -> s{_cpsrsResponseStatus = a});
 
-instance NFData CreatePortfolioShareResponse
+instance NFData CreatePortfolioShareResponse where

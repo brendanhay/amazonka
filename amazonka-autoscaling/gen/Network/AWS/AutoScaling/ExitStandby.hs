@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.ExitStandby
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -40,12 +40,12 @@ module Network.AWS.AutoScaling.ExitStandby
     , esrsResponseStatus
     ) where
 
-import           Network.AWS.AutoScaling.Types
-import           Network.AWS.AutoScaling.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.AutoScaling.Types
+import Network.AWS.AutoScaling.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ExitStandby.
 --
@@ -53,9 +53,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'exitStandby' smart constructor.
 data ExitStandby = ExitStandby'
-    { _eInstanceIds          :: !(Maybe [Text])
-    , _eAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _eInstanceIds          :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _eAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExitStandby' with the minimum fields required to make a request.
 --
@@ -68,10 +69,9 @@ exitStandby
     :: Text -- ^ 'eAutoScalingGroupName'
     -> ExitStandby
 exitStandby pAutoScalingGroupName_ =
-    ExitStandby'
-    { _eInstanceIds = Nothing
-    , _eAutoScalingGroupName = pAutoScalingGroupName_
-    }
+  ExitStandby'
+  {_eInstanceIds = Nothing, _eAutoScalingGroupName = pAutoScalingGroupName_}
+
 
 -- | One or more instance IDs. You must specify at least one instance ID.
 eInstanceIds :: Lens' ExitStandby [Text]
@@ -92,9 +92,9 @@ instance AWSRequest ExitStandby where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
-instance Hashable ExitStandby
+instance Hashable ExitStandby where
 
-instance NFData ExitStandby
+instance NFData ExitStandby where
 
 instance ToHeaders ExitStandby where
         toHeaders = const mempty
@@ -117,9 +117,10 @@ instance ToQuery ExitStandby where
 --
 -- /See:/ 'exitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
-    { _esrsActivities     :: !(Maybe [Activity])
-    , _esrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _esrsActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
+  , _esrsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ExitStandbyResponse' with the minimum fields required to make a request.
 --
@@ -132,10 +133,9 @@ exitStandbyResponse
     :: Int -- ^ 'esrsResponseStatus'
     -> ExitStandbyResponse
 exitStandbyResponse pResponseStatus_ =
-    ExitStandbyResponse'
-    { _esrsActivities = Nothing
-    , _esrsResponseStatus = pResponseStatus_
-    }
+  ExitStandbyResponse'
+  {_esrsActivities = Nothing, _esrsResponseStatus = pResponseStatus_}
+
 
 -- | The activities related to moving instances out of @Standby@ mode.
 esrsActivities :: Lens' ExitStandbyResponse [Activity]
@@ -145,4 +145,4 @@ esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Defau
 esrsResponseStatus :: Lens' ExitStandbyResponse Int
 esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
 
-instance NFData ExitStandbyResponse
+instance NFData ExitStandbyResponse where

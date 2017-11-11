@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.AddPermission
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -50,12 +50,12 @@ module Network.AWS.Lambda.AddPermission
     , aprsResponseStatus
     ) where
 
-import           Network.AWS.Lambda.Types
-import           Network.AWS.Lambda.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- |
 --
@@ -63,15 +63,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'addPermission' smart constructor.
 data AddPermission = AddPermission'
-    { _apSourceAccount    :: !(Maybe Text)
-    , _apEventSourceToken :: !(Maybe Text)
-    , _apSourceARN        :: !(Maybe Text)
-    , _apQualifier        :: !(Maybe Text)
-    , _apFunctionName     :: !Text
-    , _apStatementId      :: !Text
-    , _apAction           :: !Text
-    , _apPrincipal        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _apSourceAccount    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apEventSourceToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apSourceARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apQualifier        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _apFunctionName     :: {-# NOUNPACK #-}!Text
+  , _apStatementId      :: {-# NOUNPACK #-}!Text
+  , _apAction           :: {-# NOUNPACK #-}!Text
+  , _apPrincipal        :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
@@ -99,16 +100,17 @@ addPermission
     -> Text -- ^ 'apPrincipal'
     -> AddPermission
 addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
-    AddPermission'
-    { _apSourceAccount = Nothing
-    , _apEventSourceToken = Nothing
-    , _apSourceARN = Nothing
-    , _apQualifier = Nothing
-    , _apFunctionName = pFunctionName_
-    , _apStatementId = pStatementId_
-    , _apAction = pAction_
-    , _apPrincipal = pPrincipal_
-    }
+  AddPermission'
+  { _apSourceAccount = Nothing
+  , _apEventSourceToken = Nothing
+  , _apSourceARN = Nothing
+  , _apQualifier = Nothing
+  , _apFunctionName = pFunctionName_
+  , _apStatementId = pStatementId_
+  , _apAction = pAction_
+  , _apPrincipal = pPrincipal_
+  }
+
 
 -- | This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
 apSourceAccount :: Lens' AddPermission (Maybe Text)
@@ -151,9 +153,9 @@ instance AWSRequest AddPermission where
                  AddPermissionResponse' <$>
                    (x .?> "Statement") <*> (pure (fromEnum s)))
 
-instance Hashable AddPermission
+instance Hashable AddPermission where
 
-instance NFData AddPermission
+instance NFData AddPermission where
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty
@@ -185,9 +187,10 @@ instance ToQuery AddPermission where
 --
 -- /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
-    { _aprsStatement      :: !(Maybe Text)
-    , _aprsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _aprsStatement      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aprsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
 --
@@ -200,10 +203,9 @@ addPermissionResponse
     :: Int -- ^ 'aprsResponseStatus'
     -> AddPermissionResponse
 addPermissionResponse pResponseStatus_ =
-    AddPermissionResponse'
-    { _aprsStatement = Nothing
-    , _aprsResponseStatus = pResponseStatus_
-    }
+  AddPermissionResponse'
+  {_aprsStatement = Nothing, _aprsResponseStatus = pResponseStatus_}
+
 
 -- | The permission statement you specified in the request. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.
 aprsStatement :: Lens' AddPermissionResponse (Maybe Text)
@@ -213,4 +215,4 @@ aprsStatement = lens _aprsStatement (\ s a -> s{_aprsStatement = a});
 aprsResponseStatus :: Lens' AddPermissionResponse Int
 aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
 
-instance NFData AddPermissionResponse
+instance NFData AddPermissionResponse where

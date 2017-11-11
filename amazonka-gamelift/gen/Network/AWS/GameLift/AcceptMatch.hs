@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.GameLift.AcceptMatch
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -56,12 +56,12 @@ module Network.AWS.GameLift.AcceptMatch
     , amrsResponseStatus
     ) where
 
-import           Network.AWS.GameLift.Types
-import           Network.AWS.GameLift.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.GameLift.Types
+import Network.AWS.GameLift.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
@@ -69,10 +69,11 @@ import           Network.AWS.Response
 --
 -- /See:/ 'acceptMatch' smart constructor.
 data AcceptMatch = AcceptMatch'
-    { _amTicketId       :: !Text
-    , _amPlayerIds      :: ![Text]
-    , _amAcceptanceType :: !AcceptanceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amTicketId       :: {-# NOUNPACK #-}!Text
+  , _amPlayerIds      :: {-# NOUNPACK #-}![Text]
+  , _amAcceptanceType :: {-# NOUNPACK #-}!AcceptanceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptMatch' with the minimum fields required to make a request.
 --
@@ -88,11 +89,12 @@ acceptMatch
     -> AcceptanceType -- ^ 'amAcceptanceType'
     -> AcceptMatch
 acceptMatch pTicketId_ pAcceptanceType_ =
-    AcceptMatch'
-    { _amTicketId = pTicketId_
-    , _amPlayerIds = mempty
-    , _amAcceptanceType = pAcceptanceType_
-    }
+  AcceptMatch'
+  { _amTicketId = pTicketId_
+  , _amPlayerIds = mempty
+  , _amAcceptanceType = pAcceptanceType_
+  }
+
 
 -- | Unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
 amTicketId :: Lens' AcceptMatch Text
@@ -114,9 +116,9 @@ instance AWSRequest AcceptMatch where
               (\ s h x ->
                  AcceptMatchResponse' <$> (pure (fromEnum s)))
 
-instance Hashable AcceptMatch
+instance Hashable AcceptMatch where
 
-instance NFData AcceptMatch
+instance NFData AcceptMatch where
 
 instance ToHeaders AcceptMatch where
         toHeaders
@@ -143,8 +145,9 @@ instance ToQuery AcceptMatch where
 
 -- | /See:/ 'acceptMatchResponse' smart constructor.
 newtype AcceptMatchResponse = AcceptMatchResponse'
-    { _amrsResponseStatus :: Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _amrsResponseStatus :: Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'AcceptMatchResponse' with the minimum fields required to make a request.
 --
@@ -155,12 +158,11 @@ acceptMatchResponse
     :: Int -- ^ 'amrsResponseStatus'
     -> AcceptMatchResponse
 acceptMatchResponse pResponseStatus_ =
-    AcceptMatchResponse'
-    { _amrsResponseStatus = pResponseStatus_
-    }
+  AcceptMatchResponse' {_amrsResponseStatus = pResponseStatus_}
+
 
 -- | -- | The response status code.
 amrsResponseStatus :: Lens' AcceptMatchResponse Int
 amrsResponseStatus = lens _amrsResponseStatus (\ s a -> s{_amrsResponseStatus = a});
 
-instance NFData AcceptMatchResponse
+instance NFData AcceptMatchResponse where

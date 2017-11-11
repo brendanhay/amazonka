@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceRoute
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -45,12 +45,12 @@ module Network.AWS.EC2.ReplaceRoute
     , ReplaceRouteResponse
     ) where
 
-import           Network.AWS.EC2.Types
-import           Network.AWS.EC2.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.EC2.Types
+import Network.AWS.EC2.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | Contains the parameters for ReplaceRoute.
 --
@@ -58,17 +58,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'replaceRoute' smart constructor.
 data ReplaceRoute = ReplaceRoute'
-    { _rrVPCPeeringConnectionId      :: !(Maybe Text)
-    , _rrInstanceId                  :: !(Maybe Text)
-    , _rrEgressOnlyInternetGatewayId :: !(Maybe Text)
-    , _rrDestinationIPv6CidrBlock    :: !(Maybe Text)
-    , _rrNatGatewayId                :: !(Maybe Text)
-    , _rrNetworkInterfaceId          :: !(Maybe Text)
-    , _rrGatewayId                   :: !(Maybe Text)
-    , _rrDryRun                      :: !(Maybe Bool)
-    , _rrDestinationCidrBlock        :: !(Maybe Text)
-    , _rrRouteTableId                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rrVPCPeeringConnectionId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrInstanceId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrEgressOnlyInternetGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrDestinationIPv6CidrBlock    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrNatGatewayId                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrNetworkInterfaceId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrGatewayId                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrDryRun                      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rrDestinationCidrBlock        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrRouteTableId                :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceRoute' with the minimum fields required to make a request.
 --
@@ -97,18 +98,19 @@ replaceRoute
     :: Text -- ^ 'rrRouteTableId'
     -> ReplaceRoute
 replaceRoute pRouteTableId_ =
-    ReplaceRoute'
-    { _rrVPCPeeringConnectionId = Nothing
-    , _rrInstanceId = Nothing
-    , _rrEgressOnlyInternetGatewayId = Nothing
-    , _rrDestinationIPv6CidrBlock = Nothing
-    , _rrNatGatewayId = Nothing
-    , _rrNetworkInterfaceId = Nothing
-    , _rrGatewayId = Nothing
-    , _rrDryRun = Nothing
-    , _rrDestinationCidrBlock = Nothing
-    , _rrRouteTableId = pRouteTableId_
-    }
+  ReplaceRoute'
+  { _rrVPCPeeringConnectionId = Nothing
+  , _rrInstanceId = Nothing
+  , _rrEgressOnlyInternetGatewayId = Nothing
+  , _rrDestinationIPv6CidrBlock = Nothing
+  , _rrNatGatewayId = Nothing
+  , _rrNetworkInterfaceId = Nothing
+  , _rrGatewayId = Nothing
+  , _rrDryRun = Nothing
+  , _rrDestinationCidrBlock = Nothing
+  , _rrRouteTableId = pRouteTableId_
+  }
+
 
 -- | The ID of a VPC peering connection.
 rrVPCPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
@@ -155,9 +157,9 @@ instance AWSRequest ReplaceRoute where
         request = postQuery ec2
         response = receiveNull ReplaceRouteResponse'
 
-instance Hashable ReplaceRoute
+instance Hashable ReplaceRoute where
 
-instance NFData ReplaceRoute
+instance NFData ReplaceRoute where
 
 instance ToHeaders ReplaceRoute where
         toHeaders = const mempty
@@ -185,8 +187,9 @@ instance ToQuery ReplaceRoute where
 
 -- | /See:/ 'replaceRouteResponse' smart constructor.
 data ReplaceRouteResponse =
-    ReplaceRouteResponse'
-    deriving (Eq,Read,Show,Data,Typeable,Generic)
+  ReplaceRouteResponse'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'ReplaceRouteResponse' with the minimum fields required to make a request.
 --
@@ -194,4 +197,5 @@ replaceRouteResponse
     :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse'
 
-instance NFData ReplaceRouteResponse
+
+instance NFData ReplaceRouteResponse where

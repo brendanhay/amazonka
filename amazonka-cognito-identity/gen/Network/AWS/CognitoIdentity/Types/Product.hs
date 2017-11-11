@@ -9,17 +9,17 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.Types.Product
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.CognitoIdentity.Types.Product where
 
-import           Network.AWS.CognitoIdentity.Types.Sum
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.CognitoIdentity.Types.Sum
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | A provider representing an Amazon Cognito Identity User Pool and its client ID.
 --
@@ -27,10 +27,11 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'cognitoIdentityProvider' smart constructor.
 data CognitoIdentityProvider = CognitoIdentityProvider'
-    { _cipClientId             :: !(Maybe Text)
-    , _cipServerSideTokenCheck :: !(Maybe Bool)
-    , _cipProviderName         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cipClientId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cipServerSideTokenCheck :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cipProviderName         :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CognitoIdentityProvider' with the minimum fields required to make a request.
 --
@@ -44,11 +45,12 @@ data CognitoIdentityProvider = CognitoIdentityProvider'
 cognitoIdentityProvider
     :: CognitoIdentityProvider
 cognitoIdentityProvider =
-    CognitoIdentityProvider'
-    { _cipClientId = Nothing
-    , _cipServerSideTokenCheck = Nothing
-    , _cipProviderName = Nothing
-    }
+  CognitoIdentityProvider'
+  { _cipClientId = Nothing
+  , _cipServerSideTokenCheck = Nothing
+  , _cipProviderName = Nothing
+  }
+
 
 -- | The client ID for the Amazon Cognito Identity User Pool.
 cipClientId :: Lens' CognitoIdentityProvider (Maybe Text)
@@ -70,9 +72,9 @@ instance FromJSON CognitoIdentityProvider where
                    (x .:? "ClientId") <*> (x .:? "ServerSideTokenCheck")
                      <*> (x .:? "ProviderName"))
 
-instance Hashable CognitoIdentityProvider
+instance Hashable CognitoIdentityProvider where
 
-instance NFData CognitoIdentityProvider
+instance NFData CognitoIdentityProvider where
 
 instance ToJSON CognitoIdentityProvider where
         toJSON CognitoIdentityProvider'{..}
@@ -89,11 +91,12 @@ instance ToJSON CognitoIdentityProvider where
 --
 -- /See:/ 'credentials' smart constructor.
 data Credentials = Credentials'
-    { _cSessionToken :: !(Maybe Text)
-    , _cExpiration   :: !(Maybe POSIX)
-    , _cSecretKey    :: !(Maybe Text)
-    , _cAccessKeyId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _cSessionToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cExpiration   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _cSecretKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cAccessKeyId  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'Credentials' with the minimum fields required to make a request.
 --
@@ -109,12 +112,13 @@ data Credentials = Credentials'
 credentials
     :: Credentials
 credentials =
-    Credentials'
-    { _cSessionToken = Nothing
-    , _cExpiration = Nothing
-    , _cSecretKey = Nothing
-    , _cAccessKeyId = Nothing
-    }
+  Credentials'
+  { _cSessionToken = Nothing
+  , _cExpiration = Nothing
+  , _cSecretKey = Nothing
+  , _cAccessKeyId = Nothing
+  }
+
 
 -- | The Session Token portion of the credentials
 cSessionToken :: Lens' Credentials (Maybe Text)
@@ -141,9 +145,9 @@ instance FromJSON Credentials where
                      (x .:? "SecretKey")
                      <*> (x .:? "AccessKeyId"))
 
-instance Hashable Credentials
+instance Hashable Credentials where
 
-instance NFData Credentials
+instance NFData Credentials where
 
 -- | A description of the identity.
 --
@@ -151,11 +155,12 @@ instance NFData Credentials
 --
 -- /See:/ 'identityDescription' smart constructor.
 data IdentityDescription = IdentityDescription'
-    { _idLastModifiedDate :: !(Maybe POSIX)
-    , _idCreationDate     :: !(Maybe POSIX)
-    , _idLogins           :: !(Maybe [Text])
-    , _idIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _idLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _idCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _idLogins           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _idIdentityId       :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityDescription' with the minimum fields required to make a request.
 --
@@ -171,12 +176,13 @@ data IdentityDescription = IdentityDescription'
 identityDescription
     :: IdentityDescription
 identityDescription =
-    IdentityDescription'
-    { _idLastModifiedDate = Nothing
-    , _idCreationDate = Nothing
-    , _idLogins = Nothing
-    , _idIdentityId = Nothing
-    }
+  IdentityDescription'
+  { _idLastModifiedDate = Nothing
+  , _idCreationDate = Nothing
+  , _idLogins = Nothing
+  , _idIdentityId = Nothing
+  }
+
 
 -- | Date on which the identity was last modified.
 idLastModifiedDate :: Lens' IdentityDescription (Maybe UTCTime)
@@ -203,9 +209,9 @@ instance FromJSON IdentityDescription where
                      <*> (x .:? "Logins" .!= mempty)
                      <*> (x .:? "IdentityId"))
 
-instance Hashable IdentityDescription
+instance Hashable IdentityDescription where
 
-instance NFData IdentityDescription
+instance NFData IdentityDescription where
 
 -- | An object representing an Amazon Cognito identity pool.
 --
@@ -213,15 +219,16 @@ instance NFData IdentityDescription
 --
 -- /See:/ 'identityPool' smart constructor.
 data IdentityPool = IdentityPool'
-    { _ipSamlProviderARNs               :: !(Maybe [Text])
-    , _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
-    , _ipDeveloperProviderName          :: !(Maybe Text)
-    , _ipOpenIdConnectProviderARNs      :: !(Maybe [Text])
-    , _ipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
-    , _ipIdentityPoolId                 :: !Text
-    , _ipIdentityPoolName               :: !Text
-    , _ipAllowUnauthenticatedIdentities :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ipSamlProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ipSupportedLoginProviders :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _ipDeveloperProviderName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ipOpenIdConnectProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ipCognitoIdentityProviders :: {-# NOUNPACK #-}!(Maybe [CognitoIdentityProvider])
+  , _ipIdentityPoolId :: {-# NOUNPACK #-}!Text
+  , _ipIdentityPoolName :: {-# NOUNPACK #-}!Text
+  , _ipAllowUnauthenticatedIdentities :: {-# NOUNPACK #-}!Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityPool' with the minimum fields required to make a request.
 --
@@ -248,16 +255,17 @@ identityPool
     -> Bool -- ^ 'ipAllowUnauthenticatedIdentities'
     -> IdentityPool
 identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
-    IdentityPool'
-    { _ipSamlProviderARNs = Nothing
-    , _ipSupportedLoginProviders = Nothing
-    , _ipDeveloperProviderName = Nothing
-    , _ipOpenIdConnectProviderARNs = Nothing
-    , _ipCognitoIdentityProviders = Nothing
-    , _ipIdentityPoolId = pIdentityPoolId_
-    , _ipIdentityPoolName = pIdentityPoolName_
-    , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
-    }
+  IdentityPool'
+  { _ipSamlProviderARNs = Nothing
+  , _ipSupportedLoginProviders = Nothing
+  , _ipDeveloperProviderName = Nothing
+  , _ipOpenIdConnectProviderARNs = Nothing
+  , _ipCognitoIdentityProviders = Nothing
+  , _ipIdentityPoolId = pIdentityPoolId_
+  , _ipIdentityPoolName = pIdentityPoolName_
+  , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
+  }
+
 
 -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 ipSamlProviderARNs :: Lens' IdentityPool [Text]
@@ -305,9 +313,9 @@ instance FromJSON IdentityPool where
                      <*> (x .: "IdentityPoolName")
                      <*> (x .: "AllowUnauthenticatedIdentities"))
 
-instance Hashable IdentityPool
+instance Hashable IdentityPool where
 
-instance NFData IdentityPool
+instance NFData IdentityPool where
 
 instance ToJSON IdentityPool where
         toJSON IdentityPool'{..}
@@ -334,9 +342,10 @@ instance ToJSON IdentityPool where
 --
 -- /See:/ 'identityPoolShortDescription' smart constructor.
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
-    { _ipsdIdentityPoolId   :: !(Maybe Text)
-    , _ipsdIdentityPoolName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _ipsdIdentityPoolId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ipsdIdentityPoolName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'IdentityPoolShortDescription' with the minimum fields required to make a request.
 --
@@ -348,10 +357,9 @@ data IdentityPoolShortDescription = IdentityPoolShortDescription'
 identityPoolShortDescription
     :: IdentityPoolShortDescription
 identityPoolShortDescription =
-    IdentityPoolShortDescription'
-    { _ipsdIdentityPoolId = Nothing
-    , _ipsdIdentityPoolName = Nothing
-    }
+  IdentityPoolShortDescription'
+  {_ipsdIdentityPoolId = Nothing, _ipsdIdentityPoolName = Nothing}
+
 
 -- | An identity pool ID in the format REGION:GUID.
 ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription (Maybe Text)
@@ -369,9 +377,9 @@ instance FromJSON IdentityPoolShortDescription where
                    (x .:? "IdentityPoolId") <*>
                      (x .:? "IdentityPoolName"))
 
-instance Hashable IdentityPoolShortDescription
+instance Hashable IdentityPoolShortDescription where
 
-instance NFData IdentityPoolShortDescription
+instance NFData IdentityPoolShortDescription where
 
 -- | A rule that maps a claim name, a claim value, and a match type to a role ARN.
 --
@@ -379,11 +387,12 @@ instance NFData IdentityPoolShortDescription
 --
 -- /See:/ 'mappingRule' smart constructor.
 data MappingRule = MappingRule'
-    { _mrClaim     :: !Text
-    , _mrMatchType :: !MappingRuleMatchType
-    , _mrValue     :: !Text
-    , _mrRoleARN   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _mrClaim     :: {-# NOUNPACK #-}!Text
+  , _mrMatchType :: {-# NOUNPACK #-}!MappingRuleMatchType
+  , _mrValue     :: {-# NOUNPACK #-}!Text
+  , _mrRoleARN   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'MappingRule' with the minimum fields required to make a request.
 --
@@ -403,12 +412,13 @@ mappingRule
     -> Text -- ^ 'mrRoleARN'
     -> MappingRule
 mappingRule pClaim_ pMatchType_ pValue_ pRoleARN_ =
-    MappingRule'
-    { _mrClaim = pClaim_
-    , _mrMatchType = pMatchType_
-    , _mrValue = pValue_
-    , _mrRoleARN = pRoleARN_
-    }
+  MappingRule'
+  { _mrClaim = pClaim_
+  , _mrMatchType = pMatchType_
+  , _mrValue = pValue_
+  , _mrRoleARN = pRoleARN_
+  }
+
 
 -- | The claim name that must be present in the token, for example, "isAdmin" or "paid".
 mrClaim :: Lens' MappingRule Text
@@ -435,9 +445,9 @@ instance FromJSON MappingRule where
                      (x .: "Value")
                      <*> (x .: "RoleARN"))
 
-instance Hashable MappingRule
+instance Hashable MappingRule where
 
-instance NFData MappingRule
+instance NFData MappingRule where
 
 instance ToJSON MappingRule where
         toJSON MappingRule'{..}
@@ -454,10 +464,11 @@ instance ToJSON MappingRule where
 --
 -- /See:/ 'roleMapping' smart constructor.
 data RoleMapping = RoleMapping'
-    { _rmRulesConfiguration      :: !(Maybe RulesConfigurationType)
-    , _rmAmbiguousRoleResolution :: !(Maybe AmbiguousRoleResolutionType)
-    , _rmType                    :: !RoleMappingType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rmRulesConfiguration :: {-# NOUNPACK #-}!(Maybe RulesConfigurationType)
+  , _rmAmbiguousRoleResolution :: {-# NOUNPACK #-}!(Maybe AmbiguousRoleResolutionType)
+  , _rmType :: {-# NOUNPACK #-}!RoleMappingType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RoleMapping' with the minimum fields required to make a request.
 --
@@ -472,11 +483,12 @@ roleMapping
     :: RoleMappingType -- ^ 'rmType'
     -> RoleMapping
 roleMapping pType_ =
-    RoleMapping'
-    { _rmRulesConfiguration = Nothing
-    , _rmAmbiguousRoleResolution = Nothing
-    , _rmType = pType_
-    }
+  RoleMapping'
+  { _rmRulesConfiguration = Nothing
+  , _rmAmbiguousRoleResolution = Nothing
+  , _rmType = pType_
+  }
+
 
 -- | The rules to be used for mapping users to roles. If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
 rmRulesConfiguration :: Lens' RoleMapping (Maybe RulesConfigurationType)
@@ -499,9 +511,9 @@ instance FromJSON RoleMapping where
                      (x .:? "AmbiguousRoleResolution")
                      <*> (x .: "Type"))
 
-instance Hashable RoleMapping
+instance Hashable RoleMapping where
 
-instance NFData RoleMapping
+instance NFData RoleMapping where
 
 instance ToJSON RoleMapping where
         toJSON RoleMapping'{..}
@@ -518,8 +530,9 @@ instance ToJSON RoleMapping where
 --
 -- /See:/ 'rulesConfigurationType' smart constructor.
 newtype RulesConfigurationType = RulesConfigurationType'
-    { _rctRules :: List1 MappingRule
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _rctRules :: List1 MappingRule
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'RulesConfigurationType' with the minimum fields required to make a request.
 --
@@ -530,9 +543,8 @@ rulesConfigurationType
     :: NonEmpty MappingRule -- ^ 'rctRules'
     -> RulesConfigurationType
 rulesConfigurationType pRules_ =
-    RulesConfigurationType'
-    { _rctRules = _List1 # pRules_
-    }
+  RulesConfigurationType' {_rctRules = _List1 # pRules_}
+
 
 -- | An array of rules. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
 rctRules :: Lens' RulesConfigurationType (NonEmpty MappingRule)
@@ -543,9 +555,9 @@ instance FromJSON RulesConfigurationType where
           = withObject "RulesConfigurationType"
               (\ x -> RulesConfigurationType' <$> (x .: "Rules"))
 
-instance Hashable RulesConfigurationType
+instance Hashable RulesConfigurationType where
 
-instance NFData RulesConfigurationType
+instance NFData RulesConfigurationType where
 
 instance ToJSON RulesConfigurationType where
         toJSON RulesConfigurationType'{..}
@@ -557,9 +569,10 @@ instance ToJSON RulesConfigurationType where
 --
 -- /See:/ 'unprocessedIdentityId' smart constructor.
 data UnprocessedIdentityId = UnprocessedIdentityId'
-    { _uiiErrorCode  :: !(Maybe CognitoErrorCode)
-    , _uiiIdentityId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _uiiErrorCode  :: {-# NOUNPACK #-}!(Maybe CognitoErrorCode)
+  , _uiiIdentityId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'UnprocessedIdentityId' with the minimum fields required to make a request.
 --
@@ -571,10 +584,8 @@ data UnprocessedIdentityId = UnprocessedIdentityId'
 unprocessedIdentityId
     :: UnprocessedIdentityId
 unprocessedIdentityId =
-    UnprocessedIdentityId'
-    { _uiiErrorCode = Nothing
-    , _uiiIdentityId = Nothing
-    }
+  UnprocessedIdentityId' {_uiiErrorCode = Nothing, _uiiIdentityId = Nothing}
+
 
 -- | The error code indicating the type of error that occurred.
 uiiErrorCode :: Lens' UnprocessedIdentityId (Maybe CognitoErrorCode)
@@ -591,6 +602,6 @@ instance FromJSON UnprocessedIdentityId where
                  UnprocessedIdentityId' <$>
                    (x .:? "ErrorCode") <*> (x .:? "IdentityId"))
 
-instance Hashable UnprocessedIdentityId
+instance Hashable UnprocessedIdentityId where
 
-instance NFData UnprocessedIdentityId
+instance NFData UnprocessedIdentityId where

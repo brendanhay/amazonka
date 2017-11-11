@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.PutRecords
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -60,12 +60,12 @@ module Network.AWS.Kinesis.PutRecords
     , prsRecords
     ) where
 
-import           Network.AWS.Kinesis.Types
-import           Network.AWS.Kinesis.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | A @PutRecords@ request.
 --
@@ -73,9 +73,10 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putRecords' smart constructor.
 data PutRecords = PutRecords'
-    { _pRecordEntries :: !(List1 PutRecordsRequestEntry)
-    , _pStreamName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _pRecordEntries :: {-# NOUNPACK #-}!(List1 PutRecordsRequestEntry)
+  , _pStreamName    :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecords' with the minimum fields required to make a request.
 --
@@ -89,10 +90,9 @@ putRecords
     -> Text -- ^ 'pStreamName'
     -> PutRecords
 putRecords pRecordEntries_ pStreamName_ =
-    PutRecords'
-    { _pRecordEntries = _List1 # pRecordEntries_
-    , _pStreamName = pStreamName_
-    }
+  PutRecords'
+  {_pRecordEntries = _List1 # pRecordEntries_, _pStreamName = pStreamName_}
+
 
 -- | The records associated with the request.
 pRecordEntries :: Lens' PutRecords (NonEmpty PutRecordsRequestEntry)
@@ -114,9 +114,9 @@ instance AWSRequest PutRecords where
                      <*> (pure (fromEnum s))
                      <*> (x .:> "Records"))
 
-instance Hashable PutRecords
+instance Hashable PutRecords where
 
-instance NFData PutRecords
+instance NFData PutRecords where
 
 instance ToHeaders PutRecords where
         toHeaders
@@ -146,11 +146,12 @@ instance ToQuery PutRecords where
 --
 -- /See:/ 'putRecordsResponse' smart constructor.
 data PutRecordsResponse = PutRecordsResponse'
-    { _prsEncryptionType    :: !(Maybe EncryptionType)
-    , _prsFailedRecordCount :: !(Maybe Nat)
-    , _prsResponseStatus    :: !Int
-    , _prsRecords           :: !(List1 PutRecordsResultEntry)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _prsEncryptionType    :: {-# NOUNPACK #-}!(Maybe EncryptionType)
+  , _prsFailedRecordCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _prsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _prsRecords           :: {-# NOUNPACK #-}!(List1 PutRecordsResultEntry)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'PutRecordsResponse' with the minimum fields required to make a request.
 --
@@ -168,12 +169,13 @@ putRecordsResponse
     -> NonEmpty PutRecordsResultEntry -- ^ 'prsRecords'
     -> PutRecordsResponse
 putRecordsResponse pResponseStatus_ pRecords_ =
-    PutRecordsResponse'
-    { _prsEncryptionType = Nothing
-    , _prsFailedRecordCount = Nothing
-    , _prsResponseStatus = pResponseStatus_
-    , _prsRecords = _List1 # pRecords_
-    }
+  PutRecordsResponse'
+  { _prsEncryptionType = Nothing
+  , _prsFailedRecordCount = Nothing
+  , _prsResponseStatus = pResponseStatus_
+  , _prsRecords = _List1 # pRecords_
+  }
+
 
 -- | The encryption type used on the records. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records.     * @KMS@ : Use server-side encryption on the records using a customer-managed KMS key.
 prsEncryptionType :: Lens' PutRecordsResponse (Maybe EncryptionType)
@@ -191,4 +193,4 @@ prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a})
 prsRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
 prsRecords = lens _prsRecords (\ s a -> s{_prsRecords = a}) . _List1;
 
-instance NFData PutRecordsResponse
+instance NFData PutRecordsResponse where

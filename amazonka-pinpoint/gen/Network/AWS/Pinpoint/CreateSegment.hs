@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Pinpoint.CreateSegment
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -36,18 +36,19 @@ module Network.AWS.Pinpoint.CreateSegment
     , csrsSegmentResponse
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Pinpoint.Types
-import           Network.AWS.Pinpoint.Types.Product
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.Types.Product
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createSegment' smart constructor.
 data CreateSegment = CreateSegment'
-    { _csApplicationId       :: !Text
-    , _csWriteSegmentRequest :: !WriteSegmentRequest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csApplicationId       :: {-# NOUNPACK #-}!Text
+  , _csWriteSegmentRequest :: {-# NOUNPACK #-}!WriteSegmentRequest
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSegment' with the minimum fields required to make a request.
 --
@@ -61,10 +62,11 @@ createSegment
     -> WriteSegmentRequest -- ^ 'csWriteSegmentRequest'
     -> CreateSegment
 createSegment pApplicationId_ pWriteSegmentRequest_ =
-    CreateSegment'
-    { _csApplicationId = pApplicationId_
-    , _csWriteSegmentRequest = pWriteSegmentRequest_
-    }
+  CreateSegment'
+  { _csApplicationId = pApplicationId_
+  , _csWriteSegmentRequest = pWriteSegmentRequest_
+  }
+
 
 -- | Undocumented member.
 csApplicationId :: Lens' CreateSegment Text
@@ -83,9 +85,9 @@ instance AWSRequest CreateSegment where
                  CreateSegmentResponse' <$>
                    (pure (fromEnum s)) <*> (eitherParseJSON x))
 
-instance Hashable CreateSegment
+instance Hashable CreateSegment where
 
-instance NFData CreateSegment
+instance NFData CreateSegment where
 
 instance ToHeaders CreateSegment where
         toHeaders
@@ -111,9 +113,10 @@ instance ToQuery CreateSegment where
 
 -- | /See:/ 'createSegmentResponse' smart constructor.
 data CreateSegmentResponse = CreateSegmentResponse'
-    { _csrsResponseStatus  :: !Int
-    , _csrsSegmentResponse :: !SegmentResponse
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _csrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  , _csrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'CreateSegmentResponse' with the minimum fields required to make a request.
 --
@@ -127,10 +130,11 @@ createSegmentResponse
     -> SegmentResponse -- ^ 'csrsSegmentResponse'
     -> CreateSegmentResponse
 createSegmentResponse pResponseStatus_ pSegmentResponse_ =
-    CreateSegmentResponse'
-    { _csrsResponseStatus = pResponseStatus_
-    , _csrsSegmentResponse = pSegmentResponse_
-    }
+  CreateSegmentResponse'
+  { _csrsResponseStatus = pResponseStatus_
+  , _csrsSegmentResponse = pSegmentResponse_
+  }
+
 
 -- | -- | The response status code.
 csrsResponseStatus :: Lens' CreateSegmentResponse Int
@@ -140,4 +144,4 @@ csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = 
 csrsSegmentResponse :: Lens' CreateSegmentResponse SegmentResponse
 csrsSegmentResponse = lens _csrsSegmentResponse (\ s a -> s{_csrsSegmentResponse = a});
 
-instance NFData CreateSegmentResponse
+instance NFData CreateSegmentResponse where

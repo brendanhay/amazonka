@@ -12,9 +12,9 @@
 
 -- |
 -- Module      : Network.AWS.Rekognition.SearchFacesByImage
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
@@ -48,20 +48,21 @@ module Network.AWS.Rekognition.SearchFacesByImage
     , sfbirsResponseStatus
     ) where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Rekognition.Types
-import           Network.AWS.Rekognition.Types.Product
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.Types.Product
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'searchFacesByImage' smart constructor.
 data SearchFacesByImage = SearchFacesByImage'
-    { _sfbiFaceMatchThreshold :: !(Maybe Double)
-    , _sfbiMaxFaces           :: !(Maybe Nat)
-    , _sfbiCollectionId       :: !Text
-    , _sfbiImage              :: !Image
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sfbiFaceMatchThreshold :: {-# NOUNPACK #-}!(Maybe Double)
+  , _sfbiMaxFaces           :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sfbiCollectionId       :: {-# NOUNPACK #-}!Text
+  , _sfbiImage              :: {-# NOUNPACK #-}!Image
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchFacesByImage' with the minimum fields required to make a request.
 --
@@ -79,12 +80,13 @@ searchFacesByImage
     -> Image -- ^ 'sfbiImage'
     -> SearchFacesByImage
 searchFacesByImage pCollectionId_ pImage_ =
-    SearchFacesByImage'
-    { _sfbiFaceMatchThreshold = Nothing
-    , _sfbiMaxFaces = Nothing
-    , _sfbiCollectionId = pCollectionId_
-    , _sfbiImage = pImage_
-    }
+  SearchFacesByImage'
+  { _sfbiFaceMatchThreshold = Nothing
+  , _sfbiMaxFaces = Nothing
+  , _sfbiCollectionId = pCollectionId_
+  , _sfbiImage = pImage_
+  }
+
 
 -- | (Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%.
 sfbiFaceMatchThreshold :: Lens' SearchFacesByImage (Maybe Double)
@@ -115,9 +117,9 @@ instance AWSRequest SearchFacesByImage where
                      <*> (x .?> "SearchedFaceConfidence")
                      <*> (pure (fromEnum s)))
 
-instance Hashable SearchFacesByImage
+instance Hashable SearchFacesByImage where
 
-instance NFData SearchFacesByImage
+instance NFData SearchFacesByImage where
 
 instance ToHeaders SearchFacesByImage where
         toHeaders
@@ -147,11 +149,12 @@ instance ToQuery SearchFacesByImage where
 
 -- | /See:/ 'searchFacesByImageResponse' smart constructor.
 data SearchFacesByImageResponse = SearchFacesByImageResponse'
-    { _sfbirsFaceMatches             :: !(Maybe [FaceMatch])
-    , _sfbirsSearchedFaceBoundingBox :: !(Maybe BoundingBox)
-    , _sfbirsSearchedFaceConfidence  :: !(Maybe Double)
-    , _sfbirsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+  { _sfbirsFaceMatches             :: {-# NOUNPACK #-}!(Maybe [FaceMatch])
+  , _sfbirsSearchedFaceBoundingBox :: {-# NOUNPACK #-}!(Maybe BoundingBox)
+  , _sfbirsSearchedFaceConfidence  :: {-# NOUNPACK #-}!(Maybe Double)
+  , _sfbirsResponseStatus          :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
 
 -- | Creates a value of 'SearchFacesByImageResponse' with the minimum fields required to make a request.
 --
@@ -168,12 +171,13 @@ searchFacesByImageResponse
     :: Int -- ^ 'sfbirsResponseStatus'
     -> SearchFacesByImageResponse
 searchFacesByImageResponse pResponseStatus_ =
-    SearchFacesByImageResponse'
-    { _sfbirsFaceMatches = Nothing
-    , _sfbirsSearchedFaceBoundingBox = Nothing
-    , _sfbirsSearchedFaceConfidence = Nothing
-    , _sfbirsResponseStatus = pResponseStatus_
-    }
+  SearchFacesByImageResponse'
+  { _sfbirsFaceMatches = Nothing
+  , _sfbirsSearchedFaceBoundingBox = Nothing
+  , _sfbirsSearchedFaceConfidence = Nothing
+  , _sfbirsResponseStatus = pResponseStatus_
+  }
+
 
 -- | An array of faces that match the input face, along with the confidence in the match.
 sfbirsFaceMatches :: Lens' SearchFacesByImageResponse [FaceMatch]
@@ -191,4 +195,4 @@ sfbirsSearchedFaceConfidence = lens _sfbirsSearchedFaceConfidence (\ s a -> s{_s
 sfbirsResponseStatus :: Lens' SearchFacesByImageResponse Int
 sfbirsResponseStatus = lens _sfbirsResponseStatus (\ s a -> s{_sfbirsResponseStatus = a});
 
-instance NFData SearchFacesByImageResponse
+instance NFData SearchFacesByImageResponse where
